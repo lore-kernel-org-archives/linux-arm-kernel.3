@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3BDCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C202CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJP6HXgSPsdlCCU5AgGKGF0EX+f2P6yNyzg4ivXkKMk=; b=HsOu3glhjEfx4rdaeQS0PmOI7H
-	YkV2wYiqXMnK//Yjg25U+VNmc7kip2ZM3kQVqlR7MoDDrCwX9s+uhfJZ4KAZ1SB6vhjia3ovmYCAR
-	R90XeyodQo7vDUlBBWZoXhgUggvEWzcAhFxKBLUuQt/5UoyyIM7kZAA8B3Td2ER4VRryWqePmii6d
-	2YKU/gI0nv4bhAQFZHqNa9dd+2I3QULUndQNGMzhO8DKN9WW1UvxPf/x3ztccOPgjY0sgTv5/SyZG
-	a4OXVG3SMdgzkVf7NdYGDctV92qO3L4xo98LR62bvoYeCRebcJttqDkIGGKtUGcWXiQoqc3DdJnw/
-	6+uBLNjA==;
+	bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=; b=ZUmICiCEDOEZ5SxFS/4bDOmwTT
+	kZ8SBI40KzfH4Na0WICnWjIFgQfejew98QYVoZxIKBPXhTPMQzBEEhaG1054oaIFky2yMzjh9efXW
+	CAyCant1fPEQ8C6t1Aj0GVlrrDWYwxbdJ6IIA4LdjTMs/3CStsjvlCVyprl9UGs7ZCpJ6H0aC8JJu
+	/0dH5dBMRfgA0YLlyPt5aiLThNemiNWJRRVRMnPwN7LTwhtDsD1s6K29Kl5boJ+Jj4dC5EYYbK/0i
+	b6SncCeRxf8FPJvLlSCzZ6EJLc8WQ1ND3ZP/HFAMS9lUvxhS2fKvHQMGjnV5AjiBmGCsCHkvqiH5G
+	HVVe+t6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYSx-0000000DFWN-16hR;
-	Wed, 05 Nov 2025 08:02:03 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1vGYVU-0000000DFi9-1Tde;
+	Wed, 05 Nov 2025 08:04:40 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYSv-0000000DFVz-0UNj
+	id 1vGYVR-0000000DFhg-3TAk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 08:02:02 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-33bba55200bso885621a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 00:02:00 -0800 (PST)
+	Wed, 05 Nov 2025 08:04:38 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-341b2e98486so192244a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 00:04:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762329720; x=1762934520; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1762329877; x=1762934677; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PJP6HXgSPsdlCCU5AgGKGF0EX+f2P6yNyzg4ivXkKMk=;
-        b=ee1tBvSeBRiv3V5m9LgWCGVa4mPQyJeB8mfmA0z8RF5dBVChdDV0RefhloANd64nA/
-         AsZ0/nXtqmoxN+vjvIfDgfV1e5eP0kVQB47Ivd6kRPoyNRkmaRvuVyh90qXem3pKtka0
-         FCgn9T1H9bpsF7kJEIgZKTBL8ar1sjsfJbUnb+ZWIKJmNuYRaTfkiHewElRVaxIMDzlt
-         gxzaTqlX9ahFuv0N7HGt9AxzRvfG/e4f8RLOCKD8EV4KRvXiZNW0SQUm2bXbbwZHWT6J
-         cFuPDbe1JmBTcBuouWneJOS5TMi53juRZW+JRMp4HUXANf8rgvBbZPWoZzgzD8augC4b
-         f19g==
+        bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=;
+        b=bB0AxSc3guVr/z11LRk41bxE7+4xsLs/FvdWF6ZjhsqTEHaycY1diYuG4lE/pLSAiR
+         K5rx2SLRzMIwWF1dWUUYKUOQEv9p/wrmjrctp0kLbvb0GrfL2NwU2gcfIrVpzz5j6Ss9
+         iseu4LZZWagJkgA/9sKRMEH2UC0z0iyflnruahnypa8bTnQG/itudy/MXnYNOajQW+Sz
+         dRUuazVMXplph89+FY3CMtpNPy/ATs3qYX6ytXR2IxALJ1qfNT94KTOzMb1KqqnthDB8
+         yHeHrrXBIa/U/595oIhqI+iBr7zf7blY7YGeTCCHfkr4IL8uB6MwJmie4Lq6xrFBX/tK
+         GkeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762329720; x=1762934520;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PJP6HXgSPsdlCCU5AgGKGF0EX+f2P6yNyzg4ivXkKMk=;
-        b=n6MDLNFNzRNxtc2oY3zlMHe2XgADxNwhdSuixCvTuJntxgt29eGq4wAZ4zjgJFtFuh
-         uUNtT4UycCHOuX7GedR3ASNS6N+vmQq+g5/NeRCUx9qpiAp22f0niuDt/OV9le3Gb2m2
-         wpCgxTy9jAUzeDDuGeRW+sFYwzcJbczoub5Iiqn7Ko1GJus1TxvDQX5O7fw7LpIA81i4
-         66Fql/0VHlKxLWXqQtdphz/QWFEF7h1ycIo0B7kEGRTHQKlxH0zG0i+I6ZR/Wf3UZrp6
-         fX6nDBO8Fy1jQcD8+pmNKKiX1FsNXonjiksoqn2X2Imlv6o4uKzzoyMzVfeggo+Ga0CZ
-         aeXA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRGQLoYRRmWfYeaaOm+ES+McHy+Aj4oLEXoCzEgsH62kMpIyveuIOu7JP4x++vVuKJa1kJdajHgjDyjjcNuRlZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKsmhKo10rY1lS6AeEVr5YgESDKkgq6YlY28eQp4hfF/HYcGer
-	ny0HeHrUZqjB6W0u1Tf4gBIZebK8qP3o39IuZbloQTR62PLP6JfBNKit
-X-Gm-Gg: ASbGncvquR6MPQZUaFz0TIPVUiIqCjfhfzYm8o95ypOBmdPXCyDtQDj6zBPnBaHG/NM
-	ztHhi/YkhMPDQ/jNJIxyG5Ia3MMpVoWU3zoaQ5S6KLX5lknO2RQsE0htgAI/XkkH3l6TKrzwLii
-	Zk10iHnYUBQ7z7Fnzej9pT8OQ3bkyUh9qZ2TbruyyhhoGaJmgQOtpiTQavK+Q7+UozoY5PZXMT5
-	6NSezbJw+cgmvU7K8Siy4q52akI7eSr9YWbMN3Zv04beCNUqejt08cBJ8NmPz2zo5nP4DtYcH+H
-	PaY/UHIqJWvDP8mpgBRDAypkYhe4f/RskhqPwQ/rvB3sHtixtBLJpqau06DQjRJEis4zbmXcaFj
-	57jAeF8WO+Ek5Z2JGszpAcOU5HYzECqf0kz0UPEao4/pIfmicn74T9Hbv3TyoWw5gJ4uZXfTIGw
-	+nJQlzsswFqz8m9iTdVQJf+1w=
-X-Google-Smtp-Source: AGHT+IHViKrQ6nJV1mwdP9YZJrXD0RSrWxyTRTHX7ey/hYE+Gz2/5UGRoM1qypWOy18a+0ipyNXBBQ==
-X-Received: by 2002:a17:90b:4acf:b0:341:88bc:7a54 with SMTP id 98e67ed59e1d1-341a700d604mr1335609a91.7.1762329720068;
-        Wed, 05 Nov 2025 00:02:00 -0800 (PST)
-Received: from [192.168.0.100] ([163.125.181.111])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-341a696dfe9sm1992137a91.10.2025.11.05.00.01.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Nov 2025 00:01:59 -0800 (PST)
-Message-ID: <1cc1bd32-2181-44a7-a475-c4417c95f716@gmail.com>
-Date: Wed, 5 Nov 2025 16:01:54 +0800
+        d=1e100.net; s=20230601; t=1762329877; x=1762934677;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GDe6kRSygVEphf3RSRGt9HkF/eyEhvziT45X27VBXsM=;
+        b=FO4MMxHoYFOftgNzSzsdjbIVu7R+AmVYtLHvAmrhZVuoagEDlozZRzFc3TtQT4gASZ
+         x8hyGyKFte3BGwAUYC6BRq2dvaA9ifPr8pVFF5brp2JPG082pC+PYyrsAp/n4tBwFGy1
+         eiCto4gf3EYNLeLSz7tx0anBOkYDq8wpMudJrvblKQd+R1Vai0ZzSsXbwwkfaOfMuwLT
+         r1xtGj/VLoYl32Wx0xU9sqfq5KHNsb/Wh9aoEUpsbTFijKsL9Rb71zhwnBYfX2X7Jlql
+         ngYYcdOPobYwekKXTAla5XIyHgASK3rj/LLol0HOpDyGKE/gF3tHoqg/XaLQNqcoDX6i
+         XZ/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWilHuRFJE4mEECbHjEkM3GKg/iOj/NLaQtHbDqLcrpoATuHSXCrMxmjsCnlyZuxWsix5FCbSjQ4jDQdGpKDv0F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlwuPbmVtzXvf6FDd9Wtuatpl5F+9BdP5cIbajkMsWIDsaWlCN
+	8VqNflSn9TGGQYfy85xJuxlk4mT59kmpORTAvdK4s+kyiOokgIuAqUwRAFJ+HnbHi+vaWVf/6aX
+	2T2cNvEKeWFM5gMrFRyO9UOjBHOx5TKiTfPDs
+X-Gm-Gg: ASbGncuJaX/49+zHopd7rkT3tC3LoUbZd6L5mYhHYIQcfboNitHtCC3PxtVEslJy4/E
+	nHIm8CLt1ep+/P4v2PQsNW3oq/20RB269B4OcVn+9SJYRXFKmakbikxH2uvaCDiKA6j+OQ9imHo
+	6XLr4GmjFcfjwDzrqoE0RO1ROhMiTr9owYa9+91/4hS11uOOdRjL5+ZUNxXHcMawbVELw6b+0eC
+	dCrfEpAOoQlPwN7if86yByMZhA1fnT3JcMhgh79IDZCeGrOEC4s5NUIFZEs/NP94cow0iI=
+X-Google-Smtp-Source: AGHT+IE3kiYdO6A81tH3ocwujCNPCljvOzypJY9CyERGKSeoHzPi5nZ+xfnpKr+voNC9lIaFIPYuRWd+eHWQF6ZoNDQ=
+X-Received: by 2002:a17:90b:582e:b0:32e:6fae:ba52 with SMTP id
+ 98e67ed59e1d1-341a6c1e406mr2591161a91.6.1762329876771; Wed, 05 Nov 2025
+ 00:04:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: yangyccccc@gmail.com, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH -next] perf: arm_pmu: Fix build on arm if
- !CONFIG_GENERIC_ARCH_TOPOLOGY
-To: Will Deacon <will@kernel.org>
-References: <20251104134004.6964-1-yangyccccc@gmail.com>
- <aQoqv75M85w9lk8f@willie-the-truck>
-From: Yicong Yang <yangyccccc@gmail.com>
-In-Reply-To: <aQoqv75M85w9lk8f@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
+In-Reply-To: <20251031-imx-dsp-2025-10-31-v1-0-282f66f55804@nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Wed, 5 Nov 2025 16:04:23 +0800
+X-Gm-Features: AWmQ_bka9Xr4B-LvpKHRbIbtt5BkAdNQKoTwEnWv8Ppu3FZE5Ou4N-m9M6c5JNE
+Message-ID: <CAA+D8AMgXCcQuH3SWh2UU5ib0h3EqdJOdXTkwyFx4duv7qL2Ug@mail.gmail.com>
+Subject: Re: [PATCH 00/11] remoteproc: imx_dsp_rproc: Refactor to use new ops
+ and remove switch-case logic
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+	Frank Li <frank.li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	Iuliana Prodan <iuliana.prodan@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_000201_162863_CC9627E4 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20251105_000437_865032_1BB0CBD8 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/11/5 00:33, Will Deacon wrote:
-> On Tue, Nov 04, 2025 at 09:40:04PM +0800, Yicong Yang wrote:
->> The SMT implementation is retrieved by topology_core_has_smt() which
->> depends on CONFIG_GENERIC_ARCH_TOPOLOGY. The config is optional on
->> arm platforms so protect the usage with CONFIG_GENERIC_ARCH_TOPOLOGY.
->>
->> Fixes: c3d78c34ad00 ("perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores")
->> Reported-by: kernel test robot <lkp@intel.com>
->> Closes: https://lore.kernel.org/oe-kbuild-all/202511041757.vuCGOmFc-lkp@intel.com/
->> Signed-off-by: Yicong Yang <yangyccccc@gmail.com>
->> ---
->>  drivers/perf/arm_pmu.c | 2 ++
->>  1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
->> index ae437791b5f8..f38bdeb906f0 100644
->> --- a/drivers/perf/arm_pmu.c
->> +++ b/drivers/perf/arm_pmu.c
->> @@ -925,11 +925,13 @@ int armpmu_register(struct arm_pmu *pmu)
->>  	if (ret)
->>  		return ret;
->>  
->> +#ifdef CONFIG_GENERIC_ARCH_TOPOLOGY
->>  	/*
->>  	 * By this stage we know our supported CPUs on either DT/ACPI platforms,
->>  	 * detect the SMT implementation.
->>  	 */
->>  	pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
->> +#endif
->>  
->>  	if (!pmu->set_event_filter)
->>  		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
->> -- 
->> 2.50.1 (Apple Git-155)
-> Wouldn't we be better off adding something like:
+On Fri, Oct 31, 2025 at 5:14=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
 >
-> #else
-> static inline bool topology_core_has_smt(int cpu) { return false; }
-> #endif /* CONFIG_GENERIC_ARCH_TOPOLOGY */
+> This patchset aligns imx_dsp_rproc with the cleanup and modernization
+> previously applied to imx_rproc.c. The goal is to simplify the driver by
+> transitioning to the new ops-based method, eliminating the legacy
+> switch-case logic for a cleaner and more maintainable design.
 >
-> to the bottom of include/linux/arch_topology.h?
+> Patches 1=E2=80=935: General cleanup, including code simplification and a=
+doption
+>              of the devres API.
+> Patches 6=E2=80=9310: Transition to the new ops-based approach, removing =
+the
+>               switch-case structure.
+> Patch 11: Remove the obsolete enum imx_rproc_method.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-I was thinking so but found there's no !CONFIG_GENERIC_ARCH_TOPOLOGY
-stubs for other functions. So I checked how this is handled in other places and follow in
-the same way [1]
+Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 
-but a stub will be neater here. will respin a version using the stub.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm/kernel/smp.c?h=v6.18-rc4#n261
-
-thanks.
-
-
-
-
-
-
+Best regards
+Shengjiu wang
+> ---
+> Peng Fan (11):
+>       remoteproc: imx_dsp_rproc: simplify power domain attach and error h=
+andling
+>       remoteproc: imx_dsp_rproc: Use devm_rproc_add() helper
+>       remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable() helper
+>       remoteproc: imx_dsp_rproc: Use dev_err_probe() for firmware and mod=
+e errors
+>       remoteproc: imx_dsp_rproc: Drop extra space
+>       remoteproc: imx_dsp_rproc: Use start/stop/detect_mode ops from imx_=
+rproc_dcfg
+>       remoteproc: imx_dsp_rproc: Move imx_dsp_rproc_dcfg closer to imx_ds=
+p_rproc_of_match
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO switch case
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_SCU_API switch case
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_RESET_CONTROLLER swit=
+ch case
+>       remoteproc: imx_rproc: Remove enum imx_rproc_method
+>
+>  drivers/remoteproc/imx_dsp_rproc.c | 344 ++++++++++++++++++++-----------=
+------
+>  drivers/remoteproc/imx_rproc.h     |  14 --
+>  2 files changed, 184 insertions(+), 174 deletions(-)
+> ---
+> base-commit: 131f3d9446a6075192cdd91f197989d98302faa6
+> change-id: 20251031-imx-dsp-2025-10-31-260b2b979258
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
+>
 
