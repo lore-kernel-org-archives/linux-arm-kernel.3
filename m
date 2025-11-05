@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65A9CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D39BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQ3dfkBlGHO9v9rqbnjdOgO0YfSQlNFm7epapPtn++k=; b=3W8izOwKC+9cFnfvTgWbWSCAM/
-	qGM/9USTvkqBl87I7q8biV85CUCc001VTydGzOwBZIvLu7hjvKI6jkF62Af+tZi5Dlgw92TX9NiZM
-	Mw4g63oLmgNIuZF2+Z8gt4/OC72toqa8lClNTg0phdsp1ABE5tqobWcElO42GD0f/lUk/7NtSHxTu
-	OHFDWSm9lW2/pt0412WQKkLIqlHEWnXYjeYsdTmTKtV9F1EId7DJO8UGlLR7TVsJl235uQs6fuDYO
-	YO0Cs//6g9yb5VgjJ9sFSMaZT3OreuxBmw+ruBQ//1D6WEEGYNR7plLOLGd6jrBgfk2IbHIITuMqb
-	wxcbmPSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TaUvhDdO+Maqo1aCBynZBzHYvFhLU0Qys957Ro6kYr0=; b=PUzKw1pYDUcDwE
+	xCcMD1xD/tf2K3b7dfllS8cmI7ldTxYXuTs7hARZDOF7YibORdJNflFCTO1aJoklyknCbIHULdYrK
+	qA1hU8GJUiD+1ulgs08I/VHzXiT3TvsJzWQLGsHVBEuBnYE0vH82/VM57KtYmygCvMkzSjxpq8Zyy
+	M9KmbSX8zodX3h+r++3Zxu59KsdK3t4DbZa5h098kAs/Ho0pwUQPZEm6bfSAqzG1H7RYdNzYKLucG
+	5ZDAAbj99vfJdenO/W19pIM/JpAvLGgdCZHigM79qmfnlaTIDpDIt0gfZKjk3wt9rn10zgWQgDmy0
+	iGAZE1Qo7oq4KiyFnI+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfH0-0000000DuKs-2qLX;
-	Wed, 05 Nov 2025 15:18:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGfI7-0000000DuXL-0QRq;
+	Wed, 05 Nov 2025 15:19:19 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfGz-0000000DuKe-1PXR
+	id 1vGfI4-0000000DuVf-14b7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:18:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7120D601DD;
-	Wed,  5 Nov 2025 15:18:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B230C4CEF5;
-	Wed,  5 Nov 2025 15:18:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762355888;
-	bh=KrTmSd/KLHnmJp6uY5VjqlnOzYc3oRuRzLcvqn1keFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VlA6UEYiwYN0luQ/4V7V5KntlUFeIZMU+NmpkL7d+M3N2iUQ1IOTeflqlF+lIm90q
-	 HiYedRgVi60NobljBr8hiMWKlKYaC0H2qpqcbgA62caHhlCZRV0lAw+K6rG/pGXCdM
-	 v2fUWpgA1cuUl7tJFOCWW5vd5SlcBeqwuZxogThAgO6JWjnfivWSGwf1FZmVbvLp51
-	 DXvXopX+g369NCQ/HianrAkrAREQeoj/7Y3X5e7jN/22+bQDoRUOUhUSyljHri7cDD
-	 BYyWmWicrYUBAv0SObOJUefhS668cWVoSkzNKG1fBJO8d3jvGpTEthtLNQuTTZy+9f
-	 X1oSJavknulag==
-Date: Wed, 5 Nov 2025 16:18:05 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Chen Ridong <chenridong@huaweicloud.com>
-Cc: Waiman Long <llong@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
- rcu pointers
-Message-ID: <aQtqrYlvMsjX91Vn@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-13-frederic@kernel.org>
- <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
- <510b0185-51d6-44e6-8c39-dfc4c1721e03@redhat.com>
- <aQThLsnmqu8Lor6c@localhost.localdomain>
- <14cd347c-42c9-4134-9c1c-1a222b553c2f@huaweicloud.com>
+	Wed, 05 Nov 2025 15:19:17 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vGfHy-0002IK-1b; Wed, 05 Nov 2025 16:19:10 +0100
+From: Michael Tretter <m.tretter@pengutronix.de>
+Subject: [PATCH 0/2] media: staging: imx: fix multiple video input
+Date: Wed, 05 Nov 2025 16:18:48 +0100
+Message-Id: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <14cd347c-42c9-4134-9c1c-1a222b553c2f@huaweicloud.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANhqC2kC/x3LQQqAIBBA0avIrBtQQYSuEi1Mx5qFFgohiHdPW
+ j4+v0OlwlRhFR0KvVz5zhNqEeAvl09CDtOgpTZKSYOJAjvk1DByo4rOU7TW28MpDfN6Cv1hTts
+ +xge4w6S6YQAAAA==
+X-Change-ID: 20251105-media-imx-fixes-acef77c7ba12
+To: Steve Longerbeam <slongerbeam@gmail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Hans Verkuil <hans.verkuil@cisco.com>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+ Michael Tretter <michael.tretter@pengutronix.de>, 
+ Michael Tretter <m.tretter@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_071916_298839_1521CB81 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,245 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Mon, Nov 03, 2025 at 10:22:47AM +0800, Chen Ridong a écrit :
-> 
-> 
-> On 2025/11/1 0:17, Frederic Weisbecker wrote:
-> > Le Tue, Oct 21, 2025 at 12:03:05AM -0400, Waiman Long a écrit :
-> >> On 10/20/25 9:46 PM, Chen Ridong wrote:
-> >>>
-> >>> On 2025/10/14 4:31, Frederic Weisbecker wrote:
-> >>>> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
-> >>>> A synchronization mechanism is then needed to synchronize the updates
-> >>>> with the housekeeping cpumask readers.
-> >>>>
-> >>>> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
-> >>>> cpumask will be modified, the update side will wait for an RCU grace
-> >>>> period and propagate the change to interested subsystem when deemed
-> >>>> necessary.
-> >>>>
-> >>>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> >>>> ---
-> >>>>   kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
-> >>>>   kernel/sched/sched.h     |  1 +
-> >>>>   2 files changed, 37 insertions(+), 22 deletions(-)
-> >>>>
-> >>>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> >>>> index 8690fb705089..b46c20b5437f 100644
-> >>>> --- a/kernel/sched/isolation.c
-> >>>> +++ b/kernel/sched/isolation.c
-> >>>> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
-> >>>>   EXPORT_SYMBOL_GPL(housekeeping_overridden);
-> >>>>   struct housekeeping {
-> >>>> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
-> >>>> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
-> >>>>   	unsigned long flags;
-> >>>>   };
-> >>>> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
-> >>>>   }
-> >>>>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
-> >>>> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
-> >>>> +{
-> >>>> +	if (static_branch_unlikely(&housekeeping_overridden)) {
-> >>>> +		if (housekeeping.flags & BIT(type)) {
-> >>>> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
-> >>>> +		}
-> >>>> +	}
-> >>>> +	return cpu_possible_mask;
-> >>>> +}
-> >>>> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
-> >>>> +
-> >>>>   int housekeeping_any_cpu(enum hk_type type)
-> >>>>   {
-> >>>>   	int cpu;
-> >>>>   	if (static_branch_unlikely(&housekeeping_overridden)) {
-> >>>>   		if (housekeeping.flags & BIT(type)) {
-> >>>> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
-> >>>> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
-> >>>>   			if (cpu < nr_cpu_ids)
-> >>>>   				return cpu;
-> >>>> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
-> >>>> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
-> >>>>   			if (likely(cpu < nr_cpu_ids))
-> >>>>   				return cpu;
-> >>>>   			/*
-> >>>> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
-> >>>>   }
-> >>>>   EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
-> >>>> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
-> >>>> -{
-> >>>> -	if (static_branch_unlikely(&housekeeping_overridden))
-> >>>> -		if (housekeeping.flags & BIT(type))
-> >>>> -			return housekeeping.cpumasks[type];
-> >>>> -	return cpu_possible_mask;
-> >>>> -}
-> >>>> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
-> >>>> -
-> >>>>   void housekeeping_affine(struct task_struct *t, enum hk_type type)
-> >>>>   {
-> >>>>   	if (static_branch_unlikely(&housekeeping_overridden))
-> >>>>   		if (housekeeping.flags & BIT(type))
-> >>>> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
-> >>>> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
-> >>>>   }
-> >>>>   EXPORT_SYMBOL_GPL(housekeeping_affine);
-> >>>>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
-> >>>>   {
-> >>>> -	if (static_branch_unlikely(&housekeeping_overridden))
-> >>>> -		if (housekeeping.flags & BIT(type))
-> >>>> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
-> >>>> +	if (housekeeping.flags & BIT(type))
-> >>>> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
-> >>>>   	return true;
-> >>>>   }
-> >>>>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
-> >>>> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
-> >>>>   	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
-> >>>>   		sched_tick_offload_init();
-> >>>> -
-> >>>> +	/*
-> >>>> +	 * Realloc with a proper allocator so that any cpumask update
-> >>>> +	 * can indifferently free the old version with kfree().
-> >>>> +	 */
-> >>>>   	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
-> >>>> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
-> >>>> +
-> >>>> +		if (WARN_ON_ONCE(!nmask))
-> >>>> +			return;
-> >>>> +
-> >>>> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
-> >>>> +
-> >>>>   		/* We need at least one CPU to handle housekeeping work */
-> >>>> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
-> >>>> +		WARN_ON_ONCE(cpumask_empty(omask));
-> >>>> +		cpumask_copy(nmask, omask);
-> >>>> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
-> >>>> +		memblock_free(omask, cpumask_size());
-> >>>>   	}
-> >>>>   }
-> >>>>   static void __init housekeeping_setup_type(enum hk_type type,
-> >>>>   					   cpumask_var_t housekeeping_staging)
-> >>>>   {
-> >>>> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
-> >>>> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
-> >>>> -	cpumask_copy(housekeeping.cpumasks[type],
-> >>>> -		     housekeeping_staging);
-> >>>> +	cpumask_copy(mask, housekeeping_staging);
-> >>>> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
-> >>>>   }
-> >>>>   static int __init housekeeping_setup(char *str, unsigned long flags)
-> >>>> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
-> >>>>   		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
-> >>>>   			if (!cpumask_equal(housekeeping_staging,
-> >>>> -					   housekeeping.cpumasks[type])) {
-> >>>> +					   housekeeping_cpumask(type))) {
-> >>>>   				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
-> >>>>   				goto free_housekeeping_staging;
-> >>>>   			}
-> >>>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-> >>>> index 1f5d07067f60..0c0ef8999fd6 100644
-> >>>> --- a/kernel/sched/sched.h
-> >>>> +++ b/kernel/sched/sched.h
-> >>>> @@ -42,6 +42,7 @@
-> >>>>   #include <linux/ktime_api.h>
-> >>>>   #include <linux/lockdep_api.h>
-> >>>>   #include <linux/lockdep.h>
-> >>>> +#include <linux/memblock.h>
-> >>>>   #include <linux/minmax.h>
-> >>>>   #include <linux/mm.h>
-> >>>>   #include <linux/module.h>
-> >>> A warning was detected:
-> >>>
-> >>> =============================
-> >>> WARNING: suspicious RCU usage
-> >>> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
-> >>> -----------------------------
-> >>> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
-> >>>
-> >>> other info that might help us debug this:
-> >>>
-> >>>
-> >>> rcu_scheduler_active = 2, debug_locks = 1
-> >>> 1 lock held by swapper/0/1:
-> >>>   #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
-> >>>
-> >>> stack backtrace:
-> >>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
-> >>> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
-> >>> Call Trace:
-> >>>   <TASK>
-> >>>   dump_stack_lvl+0x68/0xa0
-> >>>   lockdep_rcu_suspicious+0x148/0x1b0
-> >>>   housekeeping_cpumask+0xaa/0xb0
-> >>>   housekeeping_test_cpu+0x25/0x40
-> >>>   find_get_block_common+0x41/0x3e0
-> >>>   bdev_getblk+0x28/0xa0
-> >>>   ext4_getblk+0xba/0x2d0
-> >>>   ext4_bread_batch+0x56/0x170
-> >>>   __ext4_find_entry+0x17c/0x410
-> >>>   ? lock_release+0xc6/0x290
-> >>>   ext4_lookup+0x7a/0x1d0
-> >>>   __lookup_slow+0xf9/0x1b0
-> >>>   walk_component+0xe0/0x150
-> >>>   link_path_walk+0x201/0x3e0
-> >>>   path_openat+0xb1/0xb30
-> >>>   ? stack_depot_save_flags+0x41e/0xa00
-> >>>   do_filp_open+0xbc/0x170
-> >>>   ? _raw_spin_unlock_irqrestore+0x2c/0x50
-> >>>   ? __create_object+0x59/0x80
-> >>>   ? trace_kmem_cache_alloc+0x1d/0xa0
-> >>>   ? vprintk_emit+0x2b2/0x360
-> >>>   do_open_execat+0x56/0x100
-> >>>   alloc_bprm+0x1a/0x200
-> >>>   ? __pfx_kernel_init+0x10/0x10
-> >>>   kernel_execve+0x4b/0x160
-> >>>   kernel_init+0xe5/0x1c0
-> >>>   ret_from_fork+0x185/0x1d0
-> >>>   ? __pfx_kernel_init+0x10/0x10
-> >>>   ret_from_fork_asm+0x1a/0x30
-> >>>   </TASK>
-> >>> random: crng init done
-> >>>
-> >> It is because bh_lru_install() of fs/buffer.c calls cpu_is_isolated()
-> >> without holding a rcu_read_lock. Will need to add a rcu_read_lock() there.
-> > 
-> > But this is called within bh_lru_lock() which should have either disabled
-> > IRQs or preemption off. I would expect rcu_dereference_check() to automatically
-> > verify those implied RCU read-side critical sections.
-> > 
-> > Let's see, lockdep_assert_in_rcu_reader() checks preemptible(), which is:
-> > 
-> > #define preemptible()	(preempt_count() == 0 && !irqs_disabled())
-> > 
-> > Ah but if !CONFIG_PREEMPT_COUNT:
-> > 
-> > #define preemptible()	0
-> > 
-> > Chen did you have !CONFIG_PREEMPT_COUNT ?
-> > 
-> > Probably lockdep_assert_in_rcu_reader() should be fixed accordingly and consider
-> > preemption always disabled whenever !CONFIG_PREEMPT_COUNT. Let me check that...
-> > 
-> > Thanks.
-> > 
-> 
-> I compiled with CONFIG_PREEMPT_COUNT=y and CONFIG_SMP=y.
+If the IMX media pipeline is configured to receive multiple video
+inputs, the second input stream may be broken on start. This happens if
+the IMX CSI hardware has to be reconfigured for the second stream, while
+the first stream is already running.
 
-Oh actually I think it's my fault. This should be fixed with this:
+The IMX CSI driver configures the IMX CSI in the link_validate callback.
+The media pipeline is only validated on the first start. Thus, any later
+start of the media pipeline skips the validation and directly starts
+streaming. This may leave the hardware in an inconsistent state compared
+to the driver configuration. Moving the hardware configuration to the
+stream start to make sure that the hardware is configured correctly.
 
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index 95d69c2102f6..b2cb75513336 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -56,8 +56,8 @@ static bool housekeeping_dereference_check(enum hk_type type)
- 
- static inline struct cpumask *housekeeping_cpumask_dereference(enum hk_type type)
- {
--	return rcu_dereference_check(housekeeping.cpumasks[type],
--				     housekeeping_dereference_check(type));
-+	return rcu_dereference_all_check(housekeeping.cpumasks[type],
-+					 housekeeping_dereference_check(type));
- }
- 
- const struct cpumask *housekeeping_cpumask(enum hk_type type)
+Patch 1 removes the caching of the upstream mbus_config in
+csi_link_validate and explicitly request the mbus_config in csi_start,
+to get rid of this implicit dependency.
+
+Patch 2 actually moves the hardware register setting from
+csi_link_validate to csi_start to fix the skipped hardware
+reconfiguration.
+
+Signed-off-by: Michael Tretter <michael.tretter@pengutronix.de>
+---
+Michael Tretter (2):
+      media: staging: imx: request mbus_config in csi_start
+      media: staging: imx: configure src_mux in csi_start
+
+ drivers/staging/media/imx/imx-media-csi.c | 84 ++++++++++++++++++-------------
+ 1 file changed, 48 insertions(+), 36 deletions(-)
+---
+base-commit: 27afd6e066cfd80ddbe22a4a11b99174ac89cced
+change-id: 20251105-media-imx-fixes-acef77c7ba12
+
+Best regards,
+-- 
+Michael Tretter <m.tretter@pengutronix.de>
+
 
