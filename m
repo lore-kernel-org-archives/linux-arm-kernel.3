@@ -4,98 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C6AFCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 14:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951C6CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 14:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=17in0dPu1cEXsBpoGpIQO8NBNGwqAQlLqZX3FuIiHHg=; b=cWD57ICPyqQowDeTUtYXDdzY/K
-	nVjYeUjpyNjf7rE1vHNvANDUhXin6K78TzXYSljrPXkfYz2u2LyGR/OBTQzA3WnNMh3i+I2lt4ZRQ
-	FCSv+jYinIE+KqsZTqAaHklaOKQJoN9ATaN3KEE/9nvkqsU7scfYWGotwqfC7zGWdqGUIaYoYlBdk
-	Ep3u8MPX2uVPUf0jnkrTjZpmDSQ9T8QLmhjPRh+8SQlB6xyd+O8jvLO+3btMZ5QLGwKcq2eayDtIo
-	oagJobH03rZKAP7xVsaS3B4VAi1XS/EcnqlbcGP5t7rxHNXUGelgQ1n1NDszxusSDBxeMLWCwTCE8
-	cSS6ZkHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k/bIhWntqqMy/9t6jkY5rIVPIcHeT8Mh4+cp9Ut5c9s=; b=jOawaxOylGLah2Zos3pkZoJ7BQ
+	MuPV0/0dPtQ6u8mke67EH0cTJCYZo1qwK3qgbYI1JjWYS7BFueNFqbRWQIcIAwJ6CpIKfxM7ZcWSH
+	NVcLrRz2g+b0JQ23XRSZV+KlzFp7L3vLaCK2jBBIoeqsZh4YMEdZrkXdpD7nC1tXJuOCEzW/1Ai5v
+	cO2IWNOaZKZL3u4PjODIS5AC5RNgkM+vHb4UKuDsAHBlwLV8oDyl7vRZqTtqpGWoC0UAFzmrzmp50
+	9KTMKKRBVtn0hAZ6ZExr//9nKx1m0507D2uKjivxC5tl53X70KbghLkZd16uIHHuyXOZHOJPC1Yn3
+	+FjTSBjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGeKu-0000000Dq24-2rEY;
-	Wed, 05 Nov 2025 14:18:08 +0000
-Received: from mx-relay23-hz1.antispameurope.com ([94.100.132.223])
+	id 1vGeLl-0000000Dq6o-0OTE;
+	Wed, 05 Nov 2025 14:19:01 +0000
+Received: from mail-westus2azon11010064.outbound.protection.outlook.com ([52.101.46.64] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGeKq-0000000Dq1d-32iK
+	id 1vGeLh-0000000Dq6L-3iaK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 14:18:07 +0000
-ARC-Authentication-Results: i=1; mx-gate23-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=17in0dPu1cEXsBpoGpIQO8NBNGwqAQlLqZX3FuIiHHg=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1762352273;
- b=F/1/9cqfN1uLr7Ws4LZGQUIbvKjWjbLlaa3HRLaj87a3FHWimsQh2ST/0DHiTRFJTAZGzY52
- dsbu1ZGZE8fkOt2XjJv2NyOIFqxK5vFhn3dN2z1gKKrSVZN7Yp4pn4hVp8LkO/6SSJ6S8wy4PFy
- eaZCM7+IdBEu8xEVJhR6lH5M9tfLarLK1U8cAHBpmtfe7rTR+QTWUIEKoteDlC56g4rMksGlc9w
- W44XfE9NJHpd/DpZFJ4Pe0xLZ468YEZpTc/Wef9XCnPkkC1uneAI+hn9b//8lWpvoC5SoTZzLJV
- R5CfJBvzJ91MSEEvyJZ3/k4f3x2AzOdPvVkLG2zlVT4qw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1762352273;
- b=OMJAKQiw3QYzc3flg3WKCvbGo0GJUbe2JMe43hh+DEZahuQPeD57J96jO1SJ3WxZZSuWq8yO
- /2Jrxm2P2+WFWSRUhJsNw/zBHXFU5ZKuaPbhqlFmaspBcnHKD+H27c7qP2kLlwK9ggyscXKf0hi
- nj6t70HwqN+EOK4C1H9+2HF0onTFJKnPbLt0+6Qr/vHydUnlQF2DtWCxJy1W10+3XIUqg9jBwHO
- otZwQcR7yqW0UB8YiJzpybc7FiWf3ZbSJtsfY9uvz2o7l9cSa+E1RMoYoifYMMJOjIlknks1eZ1
- TGPu6ZbPDzU56rckPswDqPCXkGrqS5dDIRtLw8m4z5c/Q==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay23-hz1.antispameurope.com;
- Wed, 05 Nov 2025 15:17:53 +0100
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 4B688220D4A;
-	Wed,  5 Nov 2025 15:17:43 +0100 (CET)
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-am642-tqma64xxl: add boot phase tags
-Date: Wed,  5 Nov 2025 15:17:26 +0100
-Message-ID: <20251105141726.39579-1-matthias.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.51.2
+	Wed, 05 Nov 2025 14:18:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NntdO8u7AcqRX72bTdtppbgcSWmfkCXXvnJkCJiK8PMEAjtWa43dQue2+m1tS27gyb7behWs9mqrkrJkkeMpd891diLspfsV8klyS4h/Rvwibo8wmPCkhKoOqWPi5R66LMKVF8mDJVwCfLQmbBgTZUHESSkwV+kPJ3OCl7K9ZzINeAQ4VStbAYQ7nXciwS3GXj9DvEFxM4rVinRl/ZQM+/wRaNv1UgeOYqPEYYLA9NAFuy8tM+iH99PHGWquzJDi8aUgfqkMeXPYAKTMBYvmhiJ8CAZU3iVwIZHklyt5sBPXm8qVidNlWiG/d2u82GcRpdhKP2/BQoql1/hY8QSwmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k/bIhWntqqMy/9t6jkY5rIVPIcHeT8Mh4+cp9Ut5c9s=;
+ b=g0lcJqtbm0JYJ328amEYTgIE4EKDG9E24+dMUucQaVmnmHh5cWFmORrlm0mJU6YtrX2ANoObmQeByx7u/HoqhVFHuCi2RKCoXUZZROrEeOzGIJ0BAhNllbpKohP7yUtpp5qj2EjfeuwxwpV16dYRq4vBGl57JRsoWhutPpHVzHY6pdS7IWP6HmtpppjLW2XPAZMjJpQAO/P775WjPq/8jM8rAFcTk3NtWn+X6W4SUJGn+9IUFRko8Ts5GhBjIAxiw8PqNALhvIdzNahDcChEKxFe1XSYCpx1qMwVpTAU7LCEZmJ/0fUUQR6kYP4sRkqtmwfJM54thyUebkrWIlMOQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k/bIhWntqqMy/9t6jkY5rIVPIcHeT8Mh4+cp9Ut5c9s=;
+ b=cBwmJ1ZtPXx8ydTKrphVXi/EWLNopfn8zBf7kWfmWg9zidngBg9aF1gpqP0/5JwHnPb1csOAP3rzXsk19WPOKgOVc4cwWMQb7VH5uawDQM584AOty7kfPwtJB6G965VcxASXGq98r3oeNt/tWjj3mUpSETQ0nwZ9UyTQ7IRN6gA=
+Received: from SJ0PR13CA0152.namprd13.prod.outlook.com (2603:10b6:a03:2c7::7)
+ by SJ0PR10MB4736.namprd10.prod.outlook.com (2603:10b6:a03:2d6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Wed, 5 Nov
+ 2025 14:18:52 +0000
+Received: from SJ1PEPF0000231B.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::39) by SJ0PR13CA0152.outlook.office365.com
+ (2603:10b6:a03:2c7::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.8 via Frontend Transport; Wed, 5
+ Nov 2025 14:18:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF0000231B.mail.protection.outlook.com (10.167.242.232) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Wed, 5 Nov 2025 14:18:52 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 08:18:51 -0600
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 08:18:51 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 5 Nov 2025 08:18:51 -0600
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A5EIpOI3830845;
+	Wed, 5 Nov 2025 08:18:51 -0600
+Date: Wed, 5 Nov 2025 08:18:51 -0600
+From: Bryan Brattlof <bb@ti.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Andrew
+ Davis" <afd@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, "Tony
+ Lindgren" <tony@atomide.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>
+Subject: Re: [PATCH v7 3/3] arm64: dts: ti: k3-am62l: add initial reference
+ board file
+Message-ID: <20251105141851.lppglxryjbzwboqv@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20251031-am62lx-v7-0-cb426be9d6ee@ti.com>
+ <20251031-am62lx-v7-3-cb426be9d6ee@ti.com>
+ <aQhcTbQbSZj-MniQ@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay23-hz1.antispameurope.com with 4d1nTg6CRtz4NP6l
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: baa9b331185fd744344aa7d6361c3463
-X-cloud-security: scantime:1.822
-DKIM-Signature: a=rsa-sha256;
- bh=17in0dPu1cEXsBpoGpIQO8NBNGwqAQlLqZX3FuIiHHg=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1762352272; v=1;
- b=D2pOX3YpDZr13Fu6/to5HkBGSjIvqNV7XKE3r6kO3fWXJiEemj8LoyaFp1WhqJRl9jsZ+cXM
- K5N6G/pco/CM96ETuVCPGS4XUZ8QZVbyjL52Txye7yl5LRJhFdCXa8zRUlcu6DAmd18wHzpF95T
- 0353I7X6CaORpP2ODrcm69KJNyBpJlX9Otglj3hLk3fsjC5ZOsJVOIzKexqHdN1qhEqonYom6wq
- +Nva1b1iE7d27PNk1b67J5xv1RRkIoeCf9AzneuwyH9iC3rXt4BIbRqf9rWQXREbrVZ4IKG0snr
- dVEMy3rFJk0X8VPHcQB49XwH1loEh1ffWnwbqITh1itRg==
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <aQhcTbQbSZj-MniQ@pengutronix.de>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231B:EE_|SJ0PR10MB4736:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ad7dfa3-c664-4b85-ffe3-08de1c763f54
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|34020700016|376014|36860700013|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b21GQXJBM2RqQWxSam40am8wSzZoSUZlV3B6UjhjZXdFbkZBT29NMVI4YjhI?=
+ =?utf-8?B?aUcyQlRMbzAybG4ycExlNlQwOWpwZE5EWS93K0pDL2xZZUpRZTBtOWFmcENv?=
+ =?utf-8?B?UTQrMitQSkxjQTFaSkJ4dExSR0lvVzMzc1EzZEdtQXpPOENWdm9MaERxcUx6?=
+ =?utf-8?B?VHdqMEVOTzRuRHQ2cFlOcXhxMUtHakIzaWJBbFhHeUR0b0xRbVZjczJ5akJn?=
+ =?utf-8?B?RWxXaHpCUG02UmJ0TVVtY080ZHhYQ2t4Zk1sVU9IN0RaZHdFSzlOZXlqNXZY?=
+ =?utf-8?B?WEdJdHREZXBjOXNvWDgrZ1U4YU9YZGU3STRxMk1XbFo1eEQ1QWVWRlRTZkNC?=
+ =?utf-8?B?dVZVUWZEVmcrd0ptYXhpMytFdjFraXZuRmx1WVV0QUJZWlZ1RnNqc0ppOXlG?=
+ =?utf-8?B?SVRtbkZENDJnZTJNQkVrOXVCR1Rodm9kN3BHZ1I1VHpzejlzcHhHbEZ6TUtO?=
+ =?utf-8?B?YXc3cy8wVmt6TkdXV2lHam1PWmVuaUJ0TUNKRm9rQm95ZUpoL1kzSUFVMlhE?=
+ =?utf-8?B?SCs2d1o3MVBxZXFvYThyUlEwWW9oVWNRUlJVZnhCYjZyZzdYRWZoYm04VGMx?=
+ =?utf-8?B?aTBtK3ZHRWkrc1lTeVF2THU2SkhwNlcyblVpWmJGZ3NlVGxOa09WR1hDMy9X?=
+ =?utf-8?B?TVJmREJnS0IyUEhnalRvaEZNQW1xdVJpRld4a2FaK2xEQWUwbDM1YzllSS80?=
+ =?utf-8?B?bjVMdTl1a21VOGJRNTJBNXdTTGsxTG0yR3E0K245eVRiWmVkOWFHaDNubDdT?=
+ =?utf-8?B?dUZlZmQ4aWE4YUVHckpwMHRHVmZ4REJvaFJQMXptdmtTc2dhWHpjZmZmVUF2?=
+ =?utf-8?B?d2hmUk5oRy9UYTJoQmhHOVJIMGZDdm5BUHdjcUs0S3NUbWIwbVhER1psTzg3?=
+ =?utf-8?B?OUlLZ2VhNVd0TlVBK0dBR2Nld3ZFMjYzd1B6RlVYcWlBb05JT0pTNzN1RUhZ?=
+ =?utf-8?B?dWlObFRURDFmMDNpaFdVZGhzS1hqaEN3WXl5akxENkpqZk0rU2FIU0lZU1JQ?=
+ =?utf-8?B?ZWphcWxCZXg5eXhhVkdmQzBFOSsyYm84bFQydU9yTGl4blNBdmFpUVQzSVFm?=
+ =?utf-8?B?VDN5TWZmbDJTSjRaeittVmNzME1BQlZiVjMxNGF4dE81TTlrdVBsbnJVMW9G?=
+ =?utf-8?B?UWh1V0pWcXlDVzhHZUtGMzM5RktCSWFmUmlPNlBwbVVlVDRzK0tpampVenFU?=
+ =?utf-8?B?ak1mQmpndCtOc1BRcHJZaXlMd3djR05pMm1maWp2UzdkYWRrK0w4ZGorajY5?=
+ =?utf-8?B?NnhlY2ZCQmNHWFBJOFpLUXB3aWNhSHhRdW5QWEIrMklkMHlhOVBlazlGVmh2?=
+ =?utf-8?B?ZnQ5VlIvcC9VOFRndmJ6bVBQbWxjSWhYUXViU0FKc2tQeGM4eWRuQ0c1RGRS?=
+ =?utf-8?B?WHpON2F6WldHUnF1bDMwUy8yaGQ5K1h1TjhnOUswdmcycDVrYkE1bjl4SmJk?=
+ =?utf-8?B?d09QWTFJcm9wVnk4alhqaUJCT29PdWJZaEh5MmZUbWR2U3R2Qmp2QU5ESVNt?=
+ =?utf-8?B?cXJNZ3hxQVZNT1lscVV5YUZYcFdwdjNyR2JLY1VxUnZtSnk3NzhmL1NpVndJ?=
+ =?utf-8?B?b1R3NmZybUM5T1dYeDZTelFoQ0tkRVBlU0pBNWpsM2hMaStmb3hFMjlkSUFF?=
+ =?utf-8?B?Nk9WTUt3YStrbHFDdW9pOEFLL0JQSkRqdE80S01qbXh4R0RDRzhDYitOOVdi?=
+ =?utf-8?B?NTFYWWIxdkFrRU9HQThmVXJ6SjdOVldYM3g3dHFKbTFCTUtGSXcyeWE1bFY4?=
+ =?utf-8?B?VUVZMFJPMUxRV20xRjhXSlFUMEJUbDA3aUh5TEVzZ01vNGxvcmtjUTZPUm82?=
+ =?utf-8?B?cnVHSUo0MmozRlZFa3duTlhJWFAyc01CdDNRTVgwQ09URy8wRlhMYmVVOFdv?=
+ =?utf-8?B?MjgvOGJmemU2MUMrWm9uTTVFSU9MRng0VkNxU0lLaktSRDdWM09CN3hZZlRY?=
+ =?utf-8?B?UDF2Sjk3SGFiM1VTUmlMNkhFcVc0SHlERGR6WlFRVm41UE8rb3kyYjdTRGtC?=
+ =?utf-8?B?b1NDZEdHc2wzTHJxcjJ6TGFkVXJYbTBTL1VxTkR4WUl6NXh2c2VrV0FXblp2?=
+ =?utf-8?B?eis1bjZ2Nk5QelVaZFZxR1gwc1FITS8wNjl4ZFRHRENXTzJwaTd4endPNTlZ?=
+ =?utf-8?Q?Qr6A=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(34020700016)(376014)(36860700013)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 14:18:52.6769
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ad7dfa3-c664-4b85-ffe3-08de1c763f54
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231B.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4736
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_061805_225247_180141EA 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20251105_061858_038074_17A8AD2D 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,223 +171,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to other AM64x-based boards, add boot phase tags to make the
-Device Trees usable for firmware/bootloaders without modification.
+On November  3, 2025 thus sayeth Sascha Hauer:
+> On Fri, Oct 31, 2025 at 09:08:06AM -0500, Bryan Brattlof wrote:
+> > +&i2c0 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c0_pins_default>;
+> > +	clock-frequency = <400000>;
+> 
+> status = "okay" missing here.
 
-Supported boot devices are eMMC/SD card, SPI-NOR and USB (both mass
-storage and DFU). The I2C EEPROM is included to allow the firmware to
-select the correct RAM configuration for different TQMa64xxL variants.
+Good catch! Thanks for looking this over
 
-Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
----
-
-v2: order boot phase tags after other standard properties
-
- .../dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts     | 18 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 15 +++++++++++++--
- 2 files changed, 31 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-index 8f64d6272b1ba..7a69e729eae84 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-@@ -175,6 +175,7 @@ reg_sd: regulator-sd {
- 		regulator-max-microvolt = <3300000>;
- 		gpio = <&main_gpio1 43 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		bootph-all;
- 	};
- };
- 
-@@ -260,6 +261,7 @@ &main_gpio0 {
- 		"", "", "STATUS_OUT_3", "EN_DIG_OUT_4", /* 32-35 */
- 		"", "", "STATUS_OUT_4", "DIG_IN_1", /* 36-39 */
- 		"DIG_IN_2", "DIG_IN_3", "DIG_IN_4"; /* 40- */
-+	bootph-all;
- };
- 
- &main_gpio1 {
-@@ -285,6 +287,7 @@ &main_gpio1 {
- 		"", "", "", "", /* 60-63 */
- 		"", "", "", "ADC_INT#", /* 64-67 */
- 		"BG95_PWRKEY", "BG95_RESET"; /* 68- */
-+	bootph-all;
- 
- 	line50-hog {
- 		/* See also usb0 */
-@@ -334,6 +337,7 @@ &main_spi0 {
- &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins>;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
-@@ -493,6 +497,11 @@ &mcu_uart1 {
- 
- &serdes_ln_ctrl {
- 	idle-states = <AM64_SERDES0_LANE0_USB>;
-+	bootph-all;
-+};
-+
-+&serdes_refclk {
-+	bootph-all;
- };
- 
- &serdes0 {
-@@ -500,6 +509,7 @@ serdes0_usb_link: phy@0 {
- 		reg = <0>;
- 		#phy-cells = <0>;
- 		resets = <&serdes_wiz0 1>;
-+		bootph-all;
- 		cdns,num-lanes = <1>;
- 		cdns,phy-type = <PHY_TYPE_USB3>;
- 	};
-@@ -512,6 +522,7 @@ &sdhci1 {
- 	cd-gpios = <&main_gpio1 77 GPIO_ACTIVE_LOW>;
- 	disable-wp;
- 	no-mmc;
-+	bootph-all;
- 	ti,fails-without-test-cd;
- 	/* Enabled by overlay */
- };
-@@ -535,9 +546,11 @@ &usb0 {
- 	maximum-speed = "super-speed";
- 	phys = <&serdes0_usb_link>;
- 	phy-names = "cdns3,usb3-phy";
-+	bootph-all;
- };
- 
- &usbss0 {
-+	bootph-all;
- 	ti,vbus-divider;
- };
- 
-@@ -625,6 +638,7 @@ main_gpio0_hog_pins: main-gpio0-hog-pins {
- 			/* (P19) GPMC0_CSn2.GPIO0_43 - MMC1_CTRL */
- 			AM64X_IOPAD(0x00b0, PIN_OUTPUT, 7)
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_gpio1_hog_pins: main-gpio1-hog-pins {
-@@ -748,6 +762,7 @@ AM64X_IOPAD(0x0298, PIN_INPUT, 7)
- 			/* (#N/A) MMC1_CLKLB */
- 			AM64X_IOPAD(0x0290, PIN_INPUT, 0)
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mmc1_reg_pins: main-mmc1-reg-pins {
-@@ -755,6 +770,7 @@ main_mmc1_reg_pins: main-mmc1-reg-pins {
- 			/* (C13) SPI0_CS1.GPIO1_43 - MMC1_SD_EN */
- 			AM64X_IOPAD(0x020c, PIN_OUTPUT, 7)
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mmc1_wifi_pwrseq_pins: main-mmc1-wifi-pwrseq-pins {
-@@ -797,6 +813,7 @@ AM64X_IOPAD(0x0230, PIN_INPUT, 0)
- 			/* (C16) UART0_TXD */
- 			AM64X_IOPAD(0x0234, PIN_OUTPUT, 0)
- 		>;
-+		bootph-pre-ram;
- 	};
- 
- 	main_uart1_pins: main-uart1-pins {
-@@ -865,6 +882,7 @@ main_usb0_pins: main-usb0-pins {
- 			/* (E19) USB0_DRVVBUS */
- 			AM64X_IOPAD(0x02a8, PIN_OUTPUT, 0)
- 		>;
-+		bootph-all;
- 	};
- 
- 	pru_icssg1_mdio_pins: pru-icssg1-mdio-pins {
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-index ff3b2e0b8dd45..dde19d0784e31 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-@@ -17,7 +17,7 @@ memory@80000000 {
- 		device_type = "memory";
- 		/* 1G RAM - default variant */
- 		reg = <0x00000000 0x80000000 0x00000000 0x40000000>;
--
-+		bootph-pre-ram;
- 	};
- 
- 	reserved_memory: reserved-memory {
-@@ -54,10 +54,15 @@ reg_1v8: regulator-1v8 {
- 	};
- };
- 
-+&fss {
-+	bootph-all;
-+};
-+
- &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins>;
- 	clock-frequency = <400000>;
-+	bootph-pre-ram;
- 	status = "okay";
- 
- 	tmp1075: temperature-sensor@4a {
-@@ -72,6 +77,7 @@ eeprom0: eeprom@50 {
- 		vcc-supply = <&reg_1v8>;
- 		pagesize = <16>;
- 		read-only;
-+		bootph-pre-ram;
- 	};
- 
- 	pcf85063: rtc@51 {
-@@ -89,9 +95,10 @@ eeprom1: eeprom@54 {
- };
- 
- &ospi0 {
--	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&ospi0_pins>;
-+	bootph-all;
-+	status = "okay";
- 
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
-@@ -99,6 +106,7 @@ flash@0 {
- 		spi-tx-bus-width = <8>;
- 		spi-rx-bus-width = <8>;
- 		spi-max-frequency = <84000000>;
-+		bootph-all;
- 		cdns,tshsl-ns = <60>;
- 		cdns,tsd2d-ns = <60>;
- 		cdns,tchsh-ns = <60>;
-@@ -121,6 +129,7 @@ &sdhci0 {
- 	disable-wp;
- 	no-sdio;
- 	no-sd;
-+	bootph-all;
- 	ti,driver-strength-ohm = <50>;
- };
- 
-@@ -132,6 +141,7 @@ AM64X_IOPAD(0x0260, PIN_INPUT_PULLUP, 0)
- 			/* (B18) I2C0_SDA */
- 			AM64X_IOPAD(0x0264, PIN_INPUT_PULLUP, 0)
- 		>;
-+		bootph-pre-ram;
- 	};
- 
- 	ospi0_pins: ospi0-pins {
-@@ -159,6 +169,7 @@ AM64X_IOPAD(0x0028, PIN_INPUT, 0)
- 			/* (N19) OSPI0_DQS */
- 			AM64X_IOPAD(0x0008, PIN_INPUT, 0)
- 		>;
-+		bootph-all;
- 	};
- };
- 
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
-
+~Bryan
 
