@@ -4,83 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619AFCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263F0CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=69Av0KmPY+24sP5NTMN6vf2Kt/djTSytmW8AbmQUrVg=; b=1fPrQ8QatAmrrrZ5TVgqydh801
-	f341Fl1thbJ1OGMnmKlRpRV9UC//JjSkIPVIj4x3Dy8sT6STxVML/0I/Xf8Ep2GOEcfFwZLILd+YZ
-	o68ekNMH3s//B+n+cw7xI9aWuFPIA43AsU6rsIMSaKwErJNFIGAXf2CVw/HqnjTl1CB2pFIZNXUSu
-	Zn59Ou1BC5z+ckXPchxzYJuT7vMmby898V4mhA2uKxCU8XUvLaJVggUxnv5IhhgBu+15M1oFQXdqy
-	glC84tVBTfsQ2W6RrjXiQehkY9mnFWlvQNMxLFuTJK9mQcS0cX6ZXLhiutHfxJYBa0bmu97MDOPvE
-	t/IodpvA==;
+	bh=HhyJgJAodYpYZ55IQ8duFjwzfIlhFZCXd7zYj9y0RVg=; b=Q68mK5yVNqZOBp0tOTm8gMFVs4
+	Z+/I/3tuevgk518nLTcvP0JSG+x7WfS4hOdcd7ZrfMoJR0Iaya8tXm9y9VzSu62N+dEL1JHV+uY7i
+	33ytYUs1lRvz5vKzju1HEYYCNQogFYxDXp27dk/Q3Na7yXAZd+Fgd4wYQHjBhJp+00r5BZvedeDKr
+	Oi9TgGC83qeCwwKBhvcBGtrsRETdLv14dfusKU34keJ+RKa1LQdsnSWOjOF3aRX+X9phRDzBzJKey
+	XovcDukQGhiCDhWICPHdPrdlbzOQIaKoNWCs0aKquaSNQ19YK8sBuaIkSxil0X89/36Y76V5N7/23
+	QViK47Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfel-0000000DyBl-0FgN;
-	Wed, 05 Nov 2025 15:42:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGfhC-0000000DySI-3wab;
+	Wed, 05 Nov 2025 15:45:14 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfej-0000000DyBT-2exl
+	id 1vGfh9-0000000DyR1-1A4x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:42:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9999E6021E;
-	Wed,  5 Nov 2025 15:42:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C476DC4CEF5;
-	Wed,  5 Nov 2025 15:42:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762357360;
-	bh=boPYeqvdKW7/3CnEhFVgNn0FsAC8XrMy6K95gzM+WjE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qW/SfRcZancAa0hsqKFnQRd29sYyNjQPo/6bgXUIdWQkQrCQ8SrjNfLEv2gd6QIbJ
-	 KNvHuiS8u4kGDpix1rUv2FrtZNIpRj8+YRbgkYtOcqokgdP5Lelomta91mDjj2utK2
-	 pJNN+t5ySqiy5B4IWOvfB+wUu7vtmplfUpxRFlJl/ItWWlSKTIKtO8NPw3lyVBm6hy
-	 PX81LQiCi7jb6e0lest8AkXP8Ttp7CHR2CEtZJBks+yM2bue/m166kiurBIXHdyHQN
-	 xXNTc0DdAqJPwKz19FVfa5KCbSwDOT4ZdNrwR2USJYY4x2nd++Gx+PqPUsZ/tGWHsn
-	 0JuvFbPfX+vtQ==
-Date: Wed, 5 Nov 2025 16:42:37 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Waiman Long <llong@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-Message-ID: <aQtwbRrFBCUoQ2Yj@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-14-frederic@kernel.org>
- <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Wed, 05 Nov 2025 15:45:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s9R7FiyJIZvmSTPQB5lrqLunhnICpG2B/fAmYCicq5nxyIBrYMcAsBsgnXaLz5cJFvvVyTR97F2hAMjb3Zy8aE6O0TKXCV08FOzV0wrO1hLylvLKA9gqL+E8KAcKaCEbD7RotEife7OLCPXAt/eH9KZI6tQ55CnyaotXPodKzzQZME5Tn5UcpSqRuZ5oy3ZlDq1SaOQ/ejymcuS7LU29AWqlY1tgTOfqK4ybtRjo/4EU8fwnhjfmHa471ConcY5a07n71gx2ooqxb8vg26okh+zkJsJbuG15WVFIStb4dFT4yP626xZp+kfQqjz5e6DDjt/OCCo476hMi38U56oolg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HhyJgJAodYpYZ55IQ8duFjwzfIlhFZCXd7zYj9y0RVg=;
+ b=Qc4ieMxVJ48zSPajKNVonSDXIDffmMO+ZrGsymZ/3qj4NyDiFh+xNfqovdOGMbJUwqQ/JuHB3Ix7nGXbQEqtKWCLnc895FJauHduY/spM9mQm8tUuG/y/lTKiaIG7/BNA9uEDO6IHrE1SkoeYAXN6Q3aiTR4jAee8+OEG0NCVm9hBRf2FRK57rTg9zzclAw13ECdzIPl+ZKIdMO2Sg9GAfDn3/FEp5A04AX9aaHfiueWmTTKowOcXPpW+ACUAzIaDrcRH6IhegHpIfyg3eN4GN7DVf4AfN2++vWemYXKO8RT/G79/fDOlkgHTJ/4Q28fR84yeQNRQhZEH8WI8v3D+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HhyJgJAodYpYZ55IQ8duFjwzfIlhFZCXd7zYj9y0RVg=;
+ b=R2BtQPgONaQHNtM8wb8DcVVRs/j/kJvt0cMwzEDJQLsxg6L9D5NX/4ze8FXxCQsQSKouOHGBLm84ZnRtvgH+qsCl1bbJ4kXfXmm3MU/PVomrS8vaoXLtubf29/qol/EYh88azKMhMAMel9/hXXB+/G+ngCgkMRoETMktnqvNkZLiEIHXE/lumTk0f0jJVaujzezBvO5g3WqvTzYWAO650RHeVFhj5t7juDZcfcGkHsA9ZOGdaCUQ2tKZwOmo8rya2C1FJd2bqRmUP1nSyV11NlmRW4TNy8ZrW/WBOAfLGqIhI/TnMcr+15bW0xPS+2Mh3kvyIO0FkqN9GWtXSvBu2g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DB9PR04MB9992.eurprd04.prod.outlook.com (2603:10a6:10:4c1::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.9; Wed, 5 Nov
+ 2025 15:45:06 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
+ 15:45:06 +0000
+Date: Wed, 5 Nov 2025 10:44:57 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jun.li@nxp.com
+Subject: Re: [PATCH 2/2] usb: dwc3: imx8mp: disable auto suspend for host role
+Message-ID: <aQtw+dNQEWkKxs5D@lizhi-Precision-Tower-5810>
+References: <20251105074504.1427926-1-xu.yang_2@nxp.com>
+ <20251105074504.1427926-2-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
+In-Reply-To: <20251105074504.1427926-2-xu.yang_2@nxp.com>
+X-ClientProxiedBy: PH7PR13CA0001.namprd13.prod.outlook.com
+ (2603:10b6:510:174::7) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DB9PR04MB9992:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99a28e0f-1037-4616-6621-08de1c824ace
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5SCjYKKkUf4FJD/BUT5xXTXTde4Gx3g2hIkHfqKhZwhPIihOUBihfu3x0PhC?=
+ =?us-ascii?Q?2T8H7lf0GqHU7PnY4NGpHPa0VMlzEBmxH9GkcTXP6tQSxJ40btADlL6bgoKz?=
+ =?us-ascii?Q?6YEqLz9bNEXA2hz71CmnRVDSuQpl5S6pYhh1/FRggCWVXagN6ZhzI+9QH5cJ?=
+ =?us-ascii?Q?Ino3ooB5TQOt0jHsq6q4m+KNIFTT2+Bjyf1MzoaqVgIbBrlqmPdXqEA/cDrs?=
+ =?us-ascii?Q?lnfmzN8SfozQDcAVQGZdgXeuJ+krV7kMgIWX/sCHh4hGgjUv2jBPjij/qGf+?=
+ =?us-ascii?Q?LyDvAPLeLb9czUnrgVYq2+Gd76cgJM0zw4+wq7nN9R8UCXXVoOvxVq7zRR+r?=
+ =?us-ascii?Q?IgryvOvTW6jBdBGSTPnO6yoYC8or7ocq7xqXvFugu+fMaEnVFzV067Yv7AKT?=
+ =?us-ascii?Q?9BtiEnYl5C17U6MBwU/OrHjCdNNk6eUQD7u4ig1jBNRNJK+l0Ze61a1+qBbT?=
+ =?us-ascii?Q?VtNxrTrWGz4m0Q5LFAYe6+lTzAYSWaRi2O1vI/VAScpyUXQOHDmnmrHHxy1k?=
+ =?us-ascii?Q?Psb57gfP1ZkDzNZUMeNFHiHXNHj6coknLcMmfTNFStgslQUtUk/UXa9eEQJb?=
+ =?us-ascii?Q?Ov3lKV2kzX4QWcR9azVEOQvbx0Iu5lNHjJzOAoMewsUs0WQwdizAI+VwUzRo?=
+ =?us-ascii?Q?MhLCVEjlv5dKjaYI6IBsxrYbYR1uEa4gZWkDgrg/Jk81dfnmkUP1rsU04ckd?=
+ =?us-ascii?Q?qW8bWfVFY1q1t6d6oeDqqU9nCYEqMJlECVExgu0lmcJz0JkSFcuC6DCrKcbJ?=
+ =?us-ascii?Q?YQbbZdoGjIqGbd7Y2caAEd2zg/BOzm4kUTpM1TA2y4seb9FU5ibMxK/OgoN1?=
+ =?us-ascii?Q?d2ZoM634suNRdcnqFO/lMwN3zMtjrBeVTTDR2Bo7H6EAUcXgrHhtoNpwOJrf?=
+ =?us-ascii?Q?VQZBX771IA1d7xfrc7BH1Q/bmX0AZhE/inHtmTWsSD0ONatKjwH+3aJaxEes?=
+ =?us-ascii?Q?bW8zb+1Sq6qsarzm1lSTp2Zjk6iZ4Qx1wgRZh3x9Rj6ox2ydqcimBI0wzjGC?=
+ =?us-ascii?Q?PL+bh7okIXTvO9b/LmcDkxgLGuq1Awg6zMLHkz6ApnsINNDG9bqRA0XtCg4J?=
+ =?us-ascii?Q?7/aSGXtzj0awfJCiAcvj7P1qbEmwafonKNpJKdHjwFmvXENnzyk9/rsVSvAW?=
+ =?us-ascii?Q?pRcPSn955/5Gs5S7Siqqqpoh7xfn2BzuvSl/1RfSOStKzjmYaTyJE76yRxMM?=
+ =?us-ascii?Q?+Df6vBRXFc+XZH+ZUCgVj8EIc5lfF/I6za+vfIMcs60o0yj3OlHn/0L11UlH?=
+ =?us-ascii?Q?w7VxLv/hkeJGyeS+AH5MMNTSZozsigc18r4JrLqpI5LMrCHfY2Dmi2R7p7Gn?=
+ =?us-ascii?Q?B+vTcP47MJDDl645RWufiaRZllKUg/8pmg3UVXo19LBR0YK8ODetFqhzr+ns?=
+ =?us-ascii?Q?YEJq49/ubooVuIBYxRImqDL6/H1oRx9w+tSBAq1OpSFU7sNZUcTCZAIIOnHD?=
+ =?us-ascii?Q?6LtTjF1ftDofLuBhpuEZ6nfY1FaFZ/Aj7lEz4KNNC35xf+jjH4m6rs3VqO7o?=
+ =?us-ascii?Q?8s7JyGi3f9QyAxmvg0NBxJnxwFQv4PwZP82V?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yHYimF+mgVYCY9vv/TKSttoSbmG+FcgscSgz9YRHKwlVI9DBju/D+LlML/aR?=
+ =?us-ascii?Q?HeXXhrQfHhENHAOzlMO8Eq+Eq6h0XqktWN17Go19aqs5GYZgVPcysETPNfoS?=
+ =?us-ascii?Q?4K0Wxd3f+g8HuzRElRW+BWH2X9LfHamX1puDLGlDnUydnHr5FGiqmA0U3oWG?=
+ =?us-ascii?Q?v5bv0FEik9Phvf+Gkg2aWGR6qZspIsp32aqAGo7cFbFTqSUn1bpwuY3jrMr7?=
+ =?us-ascii?Q?It26hv/D/IEUfE3WFsiLFA33v6JeVHM1QA6URKw7m3a/ETuBJfwZO2msQ3XR?=
+ =?us-ascii?Q?NsZ/w6aSsiwAL+pBjr7lGjfEGiDmCLXUUVJ385rf0OF0n+oRi+tfV1pGifz8?=
+ =?us-ascii?Q?xG/acbML8uP9En2SEVrokcGk1ZYZHehCLy25CvOlT+EKSOOB677ZQGwr3zHH?=
+ =?us-ascii?Q?v0nYwC7TsH+FiA0q+126jppMKddQyxwtbijLoB6Mi/2c3BCKL93/tYY0GQdC?=
+ =?us-ascii?Q?zXt5nazUZRc/Mt8W3FhhLbds5CCxmidALYSf0Bf53F7TM+J/gPjWKSp6wy28?=
+ =?us-ascii?Q?PX4ZY3E0YdBH74VYA0qxCeBa/RXZd4gRP2DvZ0B0gs7dW3MzSdFOzdRF7AEr?=
+ =?us-ascii?Q?U7CvjSODagPeOuVV8sCvwStKzs3Y8WCMSa3GhurEQeqWb9NPI2XSA7ZXiYUq?=
+ =?us-ascii?Q?mv7giDpHQpWocsTeZx7PzFuWPClSSSWMlCDxz2D3raYLPNxxe8hK1WrOQfbW?=
+ =?us-ascii?Q?XPTwmCEkZvSJi50zDVIzT8hYqWtaX7Fe0W2odvQdvbUU9HB+Ka6wiHUYUgA/?=
+ =?us-ascii?Q?fzwZ5nMt5KqF+ZUwyP/dSD12I5b1N/j3yDGZHTfrJ6mpfQdfphM7H6crdGFX?=
+ =?us-ascii?Q?mBVZXA0TJQ0asNCrjC1Y6R94BUHfPfGfE1gQlabgmEo1hgkNP0DheEOfTu1c?=
+ =?us-ascii?Q?NWarkwwyOKKBS45OQ3mSra5r4DS6siRpwN7bM03DcwCMwvsy8sOKVD5zXSWX?=
+ =?us-ascii?Q?zF3wNOE+/2eiL56JPmFX1YWovWs9/TtiA/nwlJ/yDbaCXd2lonwHrrVYweRK?=
+ =?us-ascii?Q?AHAHuaWusYedDpVd9Ppo4phrPEEKUs+mo7VrnA8iTECzr6naqzx8qtPltap+?=
+ =?us-ascii?Q?9ybEBiMBv/ZDs79/tBxhXyJQV6pABIVUu410DlC9kwPdEU/yzKl0XHp/F0uj?=
+ =?us-ascii?Q?Vt+jUM6b1pCfltmEoXCv8+FBNjweRs/R9l6C8hG8CJeFiBNwbEDiueuospif?=
+ =?us-ascii?Q?6fm30WXISPAQ/TEPJS4EOhNrkJISflPQ2qklDLMQrzuyGlwzaLdoSs1vU1IH?=
+ =?us-ascii?Q?Rr2F07GLVh54MtfMC/Y9YhAgh6gv0XT7HB2muRIwbtRTrMED/HngH82q0bV0?=
+ =?us-ascii?Q?MSsouisD9nYUYRhFLQGcAOGuj/oe4GfnhzCfzk3gUopaZxAoMvel9RS8dLKi?=
+ =?us-ascii?Q?BXZ4yfvvfxvxIE0kKV9MZmn+wzAEwF0QkIboa5Oy/xt9MDdfZ9+w1PusrKMj?=
+ =?us-ascii?Q?2aPFekRyK30hiIixMsKP21sJj0jy3qpKJFe/UoRzom3QJ92dcsPwh6Kfc/5x?=
+ =?us-ascii?Q?LF/E+s8svLIxmZOj6PTWmzmNnXUrFiELQl6n08QmfTRt5OHQ2aDvmYtu/e4G?=
+ =?us-ascii?Q?rqfLDAaEiaFtFzV6ikGlzRYcXg4namnevixK0S2X?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99a28e0f-1037-4616-6621-08de1c824ace
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 15:45:06.1713
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9BDUmGm8ydlT5fDBTXVkPiRzas32ZSX2ztQl3oho3azJd9jggpgAkpzHmpaRPICjPPJventrDFb3VyOvlkIFmg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9992
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_074511_326411_B2C38C26 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,112 +160,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Oct 21, 2025 at 12:10:16AM -0400, Waiman Long a écrit :
-> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
-> > Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
-> > CPUs passed through isolcpus= boot option. Users interested in also
-> > knowing the runtime defined isolated CPUs through cpuset must use
-> > different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
-> > 
-> > There are many drawbacks to that approach:
-> > 
-> > 1) Most interested subsystems want to know about all isolated CPUs, not
-> >    just those defined on boot time.
-> > 
-> > 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
-> >    concurrent cpuset changes.
-> > 
-> > 3) Further cpuset modifications are not propagated to subsystems
-> > 
-> > Solve 1) and 2) and centralize all isolated CPUs within the
-> > HK_TYPE_DOMAIN housekeeping cpumask.
-> > 
-> > Subsystems can rely on RCU to synchronize against concurrent changes.
-> > 
-> > The propagation mentioned in 3) will be handled in further patches.
-> > 
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >   include/linux/sched/isolation.h |  2 +
-> >   kernel/cgroup/cpuset.c          |  2 +
-> >   kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
-> >   kernel/sched/sched.h            |  1 +
-> >   4 files changed, 74 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> > index da22b038942a..94d5c835121b 100644
-> > --- a/include/linux/sched/isolation.h
-> > +++ b/include/linux/sched/isolation.h
-> > @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
-> >   extern bool housekeeping_enabled(enum hk_type type);
-> >   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
-> >   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
-> > +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
-> >   extern void __init housekeeping_init(void);
-> >   #else
-> > @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
-> >   	return true;
-> >   }
-> > +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
-> >   static inline void housekeeping_init(void) { }
-> >   #endif /* CONFIG_CPU_ISOLATION */
-> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> > index aa1ac7bcf2ea..b04a4242f2fa 100644
-> > --- a/kernel/cgroup/cpuset.c
-> > +++ b/kernel/cgroup/cpuset.c
-> > @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
-> >   	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
-> >   	WARN_ON_ONCE(ret < 0);
-> > +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
-> > +	WARN_ON_ONCE(ret < 0);
-> >   }
-> >   /**
-> > diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> > index b46c20b5437f..95d69c2102f6 100644
-> > --- a/kernel/sched/isolation.c
-> > +++ b/kernel/sched/isolation.c
-> > @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
-> >   bool housekeeping_enabled(enum hk_type type)
-> >   {
-> > -	return !!(housekeeping.flags & BIT(type));
-> > +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
-> >   }
-> >   EXPORT_SYMBOL_GPL(housekeeping_enabled);
-> > +static bool housekeeping_dereference_check(enum hk_type type)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
-> > +		/* Cpuset isn't even writable yet? */
-> > +		if (system_state <= SYSTEM_SCHEDULING)
-> > +			return true;
-> > +
-> > +		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
-> > +		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
-> > +			return true;
-> > +
-> > +		/* Cpuset lock held, partitions not writable */
-> > +		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
-> > +			return true;
-> 
-> I have some doubt about this condition as the cpuset_mutex may be held in
-> the process of making changes to an isolated partition that will impact
-> HK_TYPE_DOMAIN cpumask.
+On Wed, Nov 05, 2025 at 03:45:03PM +0800, Xu Yang wrote:
+> Do dwc3 core auto suspend enable for device and disable for host
+> , this can make sure dwc3 core device auto suspend setting is
+> correct all the time, the background of disable dwc3 core device
+> auto suspend is to make its parent device suspend immediately
+> (so wakeup enable can be enabled) after xhci-plat device suspended,
 
-Indeed and therefore if the current process is holding the cpuset mutex,
-it is guaranteed that no other process will update the housekeeping cpumask
-concurrently.
+Does wakeup only enable at runtime pm suspend? why core delay runtime
+pm suspend impact wakeup function?
 
-So the housekeeping mask is guaranteed to be stable, right? Of course
-the current task may be changing it but while it is changing it, it is
-not reading it.
+Frank
 
-Thanks.
-
-> 
-> Cheers,
-> Longman
-> 
-
--- 
-Frederic Weisbecker
-SUSE Labs
+> for device mode, we keep the dwc3 core device auto suspend is to
+> give some wait for gadget to be enumerated.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  drivers/usb/dwc3/dwc3-imx8mp.c | 31 +++++++++++++++++++++++++++++++
+>  1 file changed, 31 insertions(+)
+>
+> diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
+> index bce6af82f54c..80a431cb6fed 100644
+> --- a/drivers/usb/dwc3/dwc3-imx8mp.c
+> +++ b/drivers/usb/dwc3/dwc3-imx8mp.c
+> @@ -158,11 +158,31 @@ static irqreturn_t dwc3_imx8mp_interrupt(int irq, void *_dwc3_imx)
+>  	return IRQ_HANDLED;
+>  }
+>
+> +static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
+> +{
+> +	if (role == USB_ROLE_HOST)
+> +		/*
+> +		 * For xhci host, we need disable dwc core auto
+> +		 * suspend, because during this auto suspend delay(5s),
+> +		 * xhci host RUN_STOP is cleared and wakeup is not
+> +		 * enabled, if device is inserted, xhci host can't
+> +		 * response the connection.
+> +		 */
+> +		pm_runtime_dont_use_autosuspend(dwc->dev);
+> +	else
+> +		pm_runtime_use_autosuspend(dwc->dev);
+> +}
+> +
+> +struct dwc3_glue_ops dwc3_imx_glue_ops = {
+> +	.pre_set_role   = dwc3_imx_pre_set_role,
+> +};
+> +
+>  static int dwc3_imx8mp_probe(struct platform_device *pdev)
+>  {
+>  	struct device		*dev = &pdev->dev;
+>  	struct device_node	*node = dev->of_node;
+>  	struct dwc3_imx8mp	*dwc3_imx;
+> +	struct dwc3		*dwc3;
+>  	struct resource		*res;
+>  	int			err, irq;
+>
+> @@ -240,6 +260,17 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
+>  		goto depopulate;
+>  	}
+>
+> +	dwc3 = platform_get_drvdata(dwc3_imx->dwc3);
+> +	if (!dwc3) {
+> +		err = dev_err_probe(dev, -EPROBE_DEFER, "failed to get dwc3 platform data\n");
+> +		goto depopulate;
+> +	}
+> +
+> +	dwc3->glue_ops = &dwc3_imx_glue_ops;
+> +
+> +	if (dwc3->dr_mode == USB_DR_MODE_HOST)
+> +		pm_runtime_dont_use_autosuspend(dwc3->dev);
+> +
+>  	err = devm_request_threaded_irq(dev, irq, NULL, dwc3_imx8mp_interrupt,
+>  					IRQF_ONESHOT, dev_name(dev), dwc3_imx);
+>  	if (err) {
+> --
+> 2.34.1
+>
 
