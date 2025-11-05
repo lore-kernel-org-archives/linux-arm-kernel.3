@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9A4CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A74CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qnvGNpZ9BEHN4bVOGjmT8rfHBcCHDXvGmyVb4u6U+w=; b=FxGi18hGUujUMhVuzKNAX4elSW
-	hNzvx45rbt1ubFpxfg/ZBwXtDSfincPs+8xT5acB0CNL11BJzGj1BUPoWNBFKOwHIgljA8IVNTFQM
-	lHl1dQNYr4EGZgsDRtKe1SblkiHotW2nN65QSrR/wOYAftSac3ctYaTOToZm7qLkMGwGWTmRO0Z7a
-	Dntn4uEgP/EZzwYiaZYSvgjTxSgH8WwFSJXCQyq0vv4lyaUi6lGTjNWGN3WiKHoT4qYqMZ1j4EZCw
-	qQaJUTGEHBc02MNwnAUyAXxn8kYQW9S+gxUh5jr2QbnWIqfPqnuX+L4edSPN8c+J2tJZkmUlbJ9y2
-	YT2uJ2jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uilWK9pxP4N3+juvbcZo5GClSyfc42uLaTShdPX4r0I=; b=RpHvZ6wKC/NkX3Du8aKjn2WFig
+	TOAgD4vN/Y4vmKEuZJ4eIMan/v9ogX3x2XbYIh5jIU8wY2QExUtrEfpZM7aBh9h//Jmm5UgnVVBq9
+	DCtoqpZGt8XTZ7yLrToXkrj8aweOZ318Wf+IYUKSHvhs89ZHfaDFFGJwudhKrHov8yS5rqYp1ltKk
+	+hqozhRM/Rlcm/AFbj/gjpbh7LRw+4UhLByXYfCDucBgZIduCS/ZZ/zD6gMNBGeJDi7XkXvv+BSEa
+	58cgvZp6MLuniEJTzqq4QsB9jPHlElFIxrSBv+kZQqSEayeKe6Ma9hoFj1GWx4vRQxsAyXa+1Od5Q
+	hmIxeuUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUJ9-0000000CxEg-3uUG;
-	Wed, 05 Nov 2025 03:35:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUJ7-0000000CxEJ-2D9v
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 03:35:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDFFA1655;
-	Tue,  4 Nov 2025 19:35:27 -0800 (PST)
-Received: from [10.164.18.45] (unknown [10.164.18.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 762263F66E;
-	Tue,  4 Nov 2025 19:35:33 -0800 (PST)
-Message-ID: <b5ff76a5-b068-4c6b-aa21-d932da42e1e9@arm.com>
-Date: Wed, 5 Nov 2025 09:05:30 +0530
+	id 1vGULx-0000000CxQt-1AK3;
+	Wed, 05 Nov 2025 03:38:33 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGULs-0000000CxOX-1ijl;
+	Wed, 05 Nov 2025 03:38:29 +0000
+X-UUID: e2c752aeb9f811f0a52f393f94899d25-20251104
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uilWK9pxP4N3+juvbcZo5GClSyfc42uLaTShdPX4r0I=;
+	b=soyDW3pElaHLbCKgqx85jzG1xabJModRxN2rF4UkrRF9wFB7zssy2J7iXgRhQRIQnk9SQogKgpYJmxL4DJfzOrn3dPaunxYhYRIHxqBzgMIwXFO/US8/+SCJ7pB4f1xPHNeCPfx8Z3FY01HJUaDt3sn5Ev51tmdFmY676Kkjnuc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:7069a1eb-3dec-4b5f-9d8a-3ed8868211ca,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-20
+X-CID-META: VersionHash:a9d874c,CLOUDID:2ce1eb7c-f9d7-466d-a1f7-15b5fcad2ce6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:1,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e2c752aeb9f811f0a52f393f94899d25-20251104
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <niklaus.liu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1351772141; Tue, 04 Nov 2025 20:38:25 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 5 Nov 2025 11:38:22 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Wed, 5 Nov 2025 11:38:22 +0800
+From: niklaus.liu <Niklaus.Liu@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <zhigang.qin@mediatek.com>, <sen.chu@mediatek.com>,
+	Niklaus Liu <niklaus.liu@mediatek.com>
+Subject: [PATCH v4 1/1] soc: mediatek: mtk-regulator-coupler: Add support for MT8189
+Date: Wed, 5 Nov 2025 11:38:03 +0800
+Message-ID: <20251105033817.20427-2-Niklaus.Liu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20251105033817.20427-1-Niklaus.Liu@mediatek.com>
+References: <20251105033817.20427-1-Niklaus.Liu@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] arm64/mm: Ensure correct 48 bit PA gets into
- TTBRx_EL1
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20251103052618.586763-1-anshuman.khandual@arm.com>
- <20251103052618.586763-5-anshuman.khandual@arm.com>
- <aQoZDbuBJ_2YcsyP@J2N7QTR9R3.cambridge.arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <aQoZDbuBJ_2YcsyP@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_193537_633660_22270A52 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20251104_193828_445454_8475E113 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Niklaus Liu <niklaus.liu@mediatek.com>
 
+Enhance the regulator coupler driver to support GPU power control on the
+MediaTek MT8189 platform. This update ensures proper coordination of
+multiple regulators required for GPU operation,improving power management
+and system stability.
 
-On 04/11/25 8:47 PM, Mark Rutland wrote:
-> On Mon, Nov 03, 2025 at 05:26:16AM +0000, Anshuman Khandual wrote:
->> Even though 48 bit PA representation in TTBRx_EL1 does not involve shifting
->> partial bits like 52 bit variant does, they sill need to be masked properly
->> for correctness. Hence mask 48 bit PA with TTBRx_EL1_BADDR_MASK.
-> 
-> There is no need for the address "to be masked properly for
-> correctness".
-> 
-> We added masking for 52-bit PAs due to the need to shuffle the bits
-> around. There is no need for that when using 48-bit PAs, since the
-> address must be below 2^48, and the address must be suitably aligned.
-> 
-> If any bits are set outside of this mask, that is a bug in the caller.
-> 
-> Mark.
+Signed-off-by: Niklaus Liu <niklaus.liu@mediatek.com>
+---
+ drivers/soc/mediatek/mtk-regulator-coupler.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Agreed - probably should not be masking out an wrong address from the caller
-in order to proceed further with TTBRx_EL1 and then cause a problem down the
-line.
-> 
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  arch/arm64/include/asm/assembler.h | 1 +
->>  arch/arm64/include/asm/pgtable.h   | 2 +-
->>  2 files changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
->> index 23be85d93348..d5eb09fc5f8a 100644
->> --- a/arch/arm64/include/asm/assembler.h
->> +++ b/arch/arm64/include/asm/assembler.h
->> @@ -609,6 +609,7 @@ alternative_endif
->>  	and	\ttbr, \ttbr, #TTBR_BADDR_MASK_52
->>  #else
->>  	mov	\ttbr, \phys
->> +	and	\ttbr, \ttbr, #TTBRx_EL1_BADDR_MASK
->>  #endif
->>  	.endm
->>  
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 0944e296dd4a..c3110040c137 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -1604,7 +1604,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
->>  #ifdef CONFIG_ARM64_PA_BITS_52
->>  #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
->>  #else
->> -#define phys_to_ttbr(addr)	(addr)
->> +#define phys_to_ttbr(addr)	(addr & TTBRx_EL1_BADDR_MASK)
->>  #endif
->>  
->>  /*
->> -- 
->> 2.30.2
->>
+diff --git a/drivers/soc/mediatek/mtk-regulator-coupler.c b/drivers/soc/mediatek/mtk-regulator-coupler.c
+index 0b6a2884145e..e2a1fb459e42 100644
+--- a/drivers/soc/mediatek/mtk-regulator-coupler.c
++++ b/drivers/soc/mediatek/mtk-regulator-coupler.c
+@@ -42,6 +42,18 @@ static int mediatek_regulator_balance_voltage(struct regulator_coupler *coupler,
+ 	int max_uV = INT_MAX;
+ 	int ret;
+ 
++	/*
++	 * When vsram_gpu is enabled or disabled and the use_count of the
++	 * vsram_gpu regulator is zero, the regulator coupler driver will
++	 * execute regulator_do_balance_voltage, which adjusts the vsram_gpu
++	 * voltage to the minimum value. This may result in vsram_gpu being
++	 * lower than vgpu. Therefore, when enabling or disabling vsram_gpu,
++	 * the 8189 temporarily skips the regulator coupler driver's modification
++	 * of the vsram_gpu voltage.
++	 */
++	if (of_machine_is_compatible("mediatek,mt8189") && rdev == mrc->vsram_rdev)
++		return 0;
++
+ 	/*
+ 	 * If the target device is on, setting the SRAM voltage directly
+ 	 * is not supported as it scales through its coupled supply voltage.
+@@ -148,6 +160,7 @@ static int mediatek_regulator_coupler_init(void)
+ 	if (!of_machine_is_compatible("mediatek,mt8183") &&
+ 	    !of_machine_is_compatible("mediatek,mt8186") &&
+ 	    !of_machine_is_compatible("mediatek,mt8188") &&
++	    !of_machine_is_compatible("mediatek,mt8189") &&
+ 	    !of_machine_is_compatible("mediatek,mt8192"))
+ 		return 0;
+ 
+-- 
+2.46.0
 
 
