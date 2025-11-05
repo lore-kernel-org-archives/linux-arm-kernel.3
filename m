@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AD7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619AFCCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wy12/dAo+31ps9A4XEhL3jHyntcIvsl/uY/5+eeyUCA=; b=GoTOVyDlaWiLp5bAKW/m+rytO4
-	yxnP4J3Ka8FO0JtemSPU4Z0ZuWme4ecFI3+Zk+Wt/5AR2P/mEngDVF3Is9zkF1+I2fNA02W7dtm7F
-	EBiJQkd/vO4K2rdUyB3PddaHHIF88gb9fZlW16+N0LTj62A1cgKMshn3n7fF5bkjsVBr3ZBaYURog
-	wHWaJGfLKUzr4/F8Iouxli1P0ZjADk4giTMgTdjhjLSGg0HmyXpBsR5DInWSVLtY2gHT1OKMgEcQ5
-	ky/9KF/8RW+KhO+tc5Nv3nBSEb3ZFbwjiEO9uLry7Nk9W8+ndGJE7Z52QQAbHgd5yZflDauIIry+C
-	xyVxbjcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=69Av0KmPY+24sP5NTMN6vf2Kt/djTSytmW8AbmQUrVg=; b=1fPrQ8QatAmrrrZ5TVgqydh801
+	f341Fl1thbJ1OGMnmKlRpRV9UC//JjSkIPVIj4x3Dy8sT6STxVML/0I/Xf8Ep2GOEcfFwZLILd+YZ
+	o68ekNMH3s//B+n+cw7xI9aWuFPIA43AsU6rsIMSaKwErJNFIGAXf2CVw/HqnjTl1CB2pFIZNXUSu
+	Zn59Ou1BC5z+ckXPchxzYJuT7vMmby898V4mhA2uKxCU8XUvLaJVggUxnv5IhhgBu+15M1oFQXdqy
+	glC84tVBTfsQ2W6RrjXiQehkY9mnFWlvQNMxLFuTJK9mQcS0cX6ZXLhiutHfxJYBa0bmu97MDOPvE
+	t/IodpvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfcH-0000000DxfJ-1ANR;
-	Wed, 05 Nov 2025 15:40:09 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vGfel-0000000DyBl-0FgN;
+	Wed, 05 Nov 2025 15:42:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfcE-0000000DxeJ-37SA;
-	Wed, 05 Nov 2025 15:40:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762357202;
-	bh=0AdgQPQBQ5614CjYT/8ghpUX8jPll4myC0xvjOQOOok=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZD++iarPdfmEmGSj1omdR9WANjbaw5AzqcYKP1gVT99Qw7B/ERi9BaJj9ivLOCLiH
-	 JLTrxj8wlLOijYKCLwMjkHb95chWXF+dLFvkZZTYGYpvu3aa74O/Bo5565hwwGRWQ0
-	 XcqgU4TmipCfL3kpWPfl8Mn6E/JsyF3DGw4FDxH4HHDieKNHu+lGPnpmnDph1ZeAr2
-	 WQr+SXIqgEctCtfbbbV47mGMpk3kY5dkB0j02h4PCFRiLg2uy64+WkrZ9vfOuIWLv5
-	 QR8EnGKyugu1G2rGlbak9+E/zwb+p9MCOs1/9DqKvuOfzUvygp+qGhue6VCwu3vjQE
-	 DwofNsOWqt4Pg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4B1FA17E1091;
-	Wed,  5 Nov 2025 16:40:02 +0100 (CET)
-Message-ID: <9fbec168-295a-4278-93f4-e27a419c892f@collabora.com>
-Date: Wed, 5 Nov 2025 16:40:01 +0100
+	id 1vGfej-0000000DyBT-2exl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 15:42:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9999E6021E;
+	Wed,  5 Nov 2025 15:42:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C476DC4CEF5;
+	Wed,  5 Nov 2025 15:42:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762357360;
+	bh=boPYeqvdKW7/3CnEhFVgNn0FsAC8XrMy6K95gzM+WjE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qW/SfRcZancAa0hsqKFnQRd29sYyNjQPo/6bgXUIdWQkQrCQ8SrjNfLEv2gd6QIbJ
+	 KNvHuiS8u4kGDpix1rUv2FrtZNIpRj8+YRbgkYtOcqokgdP5Lelomta91mDjj2utK2
+	 pJNN+t5ySqiy5B4IWOvfB+wUu7vtmplfUpxRFlJl/ItWWlSKTIKtO8NPw3lyVBm6hy
+	 PX81LQiCi7jb6e0lest8AkXP8Ttp7CHR2CEtZJBks+yM2bue/m166kiurBIXHdyHQN
+	 xXNTc0DdAqJPwKz19FVfa5KCbSwDOT4ZdNrwR2USJYY4x2nd++Gx+PqPUsZ/tGWHsn
+	 0JuvFbPfX+vtQ==
+Date: Wed, 5 Nov 2025 16:42:37 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+Message-ID: <aQtwbRrFBCUoQ2Yj@localhost.localdomain>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-14-frederic@kernel.org>
+ <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: mtk-sd: replace use of system_wq with
- system_percpu_wq
-To: Marco Crivellari <marco.crivellari@suse.com>,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org
-Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Frederic Weisbecker <frederic@kernel.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Michal Hocko <mhocko@suse.com>, Chaotian Jing <chaotian.jing@mediatek.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>
-References: <20251105145824.239054-1-marco.crivellari@suse.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251105145824.239054-1-marco.crivellari@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_074006_975853_E178C2B5 
-X-CRM114-Status: GOOD (  11.63  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +95,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/11/25 15:58, Marco Crivellari ha scritto:
-> Currently if a user enqueues a work item using schedule_delayed_work() the
-> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-> schedule_work() that is using system_wq and queue_work(), that makes use
-> again of WORK_CPU_UNBOUND.
+Le Tue, Oct 21, 2025 at 12:10:16AM -0400, Waiman Long a écrit :
+> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+> > Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+> > CPUs passed through isolcpus= boot option. Users interested in also
+> > knowing the runtime defined isolated CPUs through cpuset must use
+> > different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
+> > 
+> > There are many drawbacks to that approach:
+> > 
+> > 1) Most interested subsystems want to know about all isolated CPUs, not
+> >    just those defined on boot time.
+> > 
+> > 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+> >    concurrent cpuset changes.
+> > 
+> > 3) Further cpuset modifications are not propagated to subsystems
+> > 
+> > Solve 1) and 2) and centralize all isolated CPUs within the
+> > HK_TYPE_DOMAIN housekeeping cpumask.
+> > 
+> > Subsystems can rely on RCU to synchronize against concurrent changes.
+> > 
+> > The propagation mentioned in 3) will be handled in further patches.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > ---
+> >   include/linux/sched/isolation.h |  2 +
+> >   kernel/cgroup/cpuset.c          |  2 +
+> >   kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
+> >   kernel/sched/sched.h            |  1 +
+> >   4 files changed, 74 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> > index da22b038942a..94d5c835121b 100644
+> > --- a/include/linux/sched/isolation.h
+> > +++ b/include/linux/sched/isolation.h
+> > @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+> >   extern bool housekeeping_enabled(enum hk_type type);
+> >   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+> >   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+> > +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
+> >   extern void __init housekeeping_init(void);
+> >   #else
+> > @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+> >   	return true;
+> >   }
+> > +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
+> >   static inline void housekeeping_init(void) { }
+> >   #endif /* CONFIG_CPU_ISOLATION */
+> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> > index aa1ac7bcf2ea..b04a4242f2fa 100644
+> > --- a/kernel/cgroup/cpuset.c
+> > +++ b/kernel/cgroup/cpuset.c
+> > @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
+> >   	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
+> >   	WARN_ON_ONCE(ret < 0);
+> > +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
+> > +	WARN_ON_ONCE(ret < 0);
+> >   }
+> >   /**
+> > diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> > index b46c20b5437f..95d69c2102f6 100644
+> > --- a/kernel/sched/isolation.c
+> > +++ b/kernel/sched/isolation.c
+> > @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
+> >   bool housekeeping_enabled(enum hk_type type)
+> >   {
+> > -	return !!(housekeeping.flags & BIT(type));
+> > +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+> >   }
+> >   EXPORT_SYMBOL_GPL(housekeeping_enabled);
+> > +static bool housekeeping_dereference_check(enum hk_type type)
+> > +{
+> > +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
+> > +		/* Cpuset isn't even writable yet? */
+> > +		if (system_state <= SYSTEM_SCHEDULING)
+> > +			return true;
+> > +
+> > +		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
+> > +		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
+> > +			return true;
+> > +
+> > +		/* Cpuset lock held, partitions not writable */
+> > +		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
+> > +			return true;
 > 
-> This lack of consistency cannot be addressed without refactoring the API.
-> 
-> This patch continues the effort to refactor worqueue APIs, which has begun
-> with the change introducing new workqueues and a new alloc_workqueue flag:
-> 
-> commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-> commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
-> 
-> Replace system_wq with system_percpu_wq, keeping the same old behavior.
-> The old wq (system_wq) will be kept for a few release cycles.
-> 
-> Suggested-by: Tejun Heo <tj@kernel.org>
-> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+> I have some doubt about this condition as the cpuset_mutex may be held in
+> the process of making changes to an isolated partition that will impact
+> HK_TYPE_DOMAIN cpumask.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Indeed and therefore if the current process is holding the cpuset mutex,
+it is guaranteed that no other process will update the housekeeping cpumask
+concurrently.
 
+So the housekeeping mask is guaranteed to be stable, right? Of course
+the current task may be changing it but while it is changing it, it is
+not reading it.
+
+Thanks.
+
+> 
+> Cheers,
+> Longman
+> 
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
