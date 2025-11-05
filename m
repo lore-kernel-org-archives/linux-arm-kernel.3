@@ -4,64 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CB3CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8D9CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QK6p8agz706KN/3GZj0XaZdFE8VXngav/kRCwULJV5s=; b=au/fy5I373z4A0o+uSHm5F38tX
-	OuBZYCDiD0pYW+wcKdEIO7btTyYbLnlkUxfyMSmQ7cssCvCra6fFvpaq0N0yh5lYcFkIIpdM18X8u
-	CyA2XwUFLrax7txtLfz6p1ZH0MX0AMpZ8IR7MUune1rZ1zRXKWYUx6+3onaztutjic2eJJUhMVv0C
-	PLDAv2uMcbu4oeHUtNVnfUQnve+xPoh9SxboPilYaN92fmyq+AVIIcx8McyAthA9GmpA6dYtL1O+w
-	1gxnlubTfjLZBHhtZvOT6rfa4TL0KysoCyvr+iCJEoPt2E/JNThAnCuZG5uDTOlZ31/7ywgbMaP6V
-	SK+p4rPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WfHcdCY+e08e/1Qn/B+3vs4cSNT1ySicRxTSQHw1zs4=; b=obi046pHLBfPA5b5G/Meo+SR0n
+	HNWAfryTkg/fLUZoGr0zOaGUa/Lg750MAHuBKc+htJ33eDQUV5dYKqm9E8WF38OazC3ZNE3Jm+DI9
+	+Y+QTbM/6ZUJwyBSpp/dDMynxOZJ2n1M5pEwomNxhjrVAnCAQqqL4mmsTwNtZf/dR8d0FuJwiYItX
+	K08DA1agCyQIkjAwQnMJqaPenSGEMFEBzoPuCZl0kKS9/8trHaULk+64MFYEFVoNwCMIzh8A7nMCv
+	mt18AjdN5nllJ+TOzHQ9SQMeH7zhYQX90MaM/zOKRBVW4/2+/CG+Yx3AwqqOWr7b5PMdgsEvjZFUT
+	hQiArXEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYKO-0000000DEq4-1fPV;
-	Wed, 05 Nov 2025 07:53:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGYKc-0000000DEtS-44LT;
+	Wed, 05 Nov 2025 07:53:26 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGYKL-0000000DEpR-48NP;
+	id 1vGYKZ-0000000DEsR-3KHr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 07:53:25 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A57q7Tr2904354;
+	Wed, 5 Nov 2025 07:53:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=WfHcdCY+e08e/1Qn/B+3vs4cSNT1ySicRxT
+	SQHw1zs4=; b=GsQVfuKaQ+AAR0NNWC05x78NmnmrMinprOBr2h3fRX6kzdEzEmK
+	/Q3pUN6hzSxkOGaLL6Rn/EwwChCMkhIIBqu8XqUhivKVTdWya+U7HYzfvloXOwPl
+	elJqfz4QYIyt92zOJ9/NxE5FgNd+BF/isJazKwRR3h0F2VXiUHGIIAZ2uH5exkf0
+	uT0ZEypWsBkMMGYgT3SDyrVZh/PSDEeZ/NoFYdv/Pw3c9m2BZrZL6kYO5TMKQ/++
+	eH9PTUiCeGjl/JFGt6Y5iLvznLM0EZXXitmP0M6IePslR9+Bcq6SbsdqrKWteidb
+	Jk0H+VDrnaWTBFqAWgiBGf7DRZPMOmQ/YBQ==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a7mbbtgwb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 07:53:14 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A57rB3P016283;
+	Wed, 5 Nov 2025 07:53:11 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4a5b9mbfw9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 05 Nov 2025 07:53:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3497541A71;
-	Wed,  5 Nov 2025 07:53:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924B4C116B1;
-	Wed,  5 Nov 2025 07:53:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762329189;
-	bh=f1mDiB4caH6T0hXppSMfqh71s7Q4j8DIz8ZDVv+Hh+8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RQNS0iq6cuzhMlF6th1dXepgkS2JWMiyqs9NLKnCFVzG/nmV29Cv5gyM7cVPQZvOG
-	 ydwgZT3huCrlesuE712BNVUL60/aJr3zxfdUDejlZbhHRECwbrWqdNVAmDtzVQSz7Z
-	 USLJrREJdOG1WOM3iw+332Yeg7nadVTNm7SdYzxiilIha073kS7cJWhYc+CGXDO1F1
-	 jtixhB8/7GjzW8UAQCGCKgfD/YFHsjgVWKGAOSJ9aoY64ufJDZ+3CPab9QxEQ7Z8qi
-	 210dzTCFxiQMY2kyqCpsiTXcJWvbzluEAFxWR8RU9oeVcssVSybDXasM3cWe/vQj/u
-	 xxe+5GJ1Vs53g==
-Date: Wed, 5 Nov 2025 08:53:06 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: airoha: Reorganize airoha_queue struct
-Message-ID: <aQsCYoS-cvkUjrMv@lore-desk>
-References: <20251103-airoha-tx-linked-list-v1-0-baa07982cc30@kernel.org>
- <20251103-airoha-tx-linked-list-v1-2-baa07982cc30@kernel.org>
- <20251104183200.41b4b853@kernel.org>
+Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5A57p76q014357;
+	Wed, 5 Nov 2025 07:53:11 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-charante-hyd.qualcomm.com [10.213.97.134])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 5A57rBp4016277
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 07:53:11 +0000
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 389980)
+	id B2C435DA; Wed,  5 Nov 2025 13:23:09 +0530 (+0530)
+From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+To: robin.clark@oss.qualcomm.com, will@kernel.org, robin.murphy@arm.com,
+        joro@8bytes.org, dmitry.baryshkov@oss.qualcomm.com
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+Subject: [PATCH] iommu/arm-smmu: add actlr settings for mdss and fastrpc
+Date: Wed,  5 Nov 2025 13:23:07 +0530
+Message-Id: <20251105075307.1658329-1-charan.kalla@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hWmCm/wRFf5QXlgL"
-Content-Disposition: inline
-In-Reply-To: <20251104183200.41b4b853@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: g_pz8dCGrU-BSQYq5IksI9jId3nMmTI4
+X-Proofpoint-GUID: g_pz8dCGrU-BSQYq5IksI9jId3nMmTI4
+X-Authority-Analysis: v=2.4 cv=MK1tWcZl c=1 sm=1 tr=0 ts=690b026a cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
+ a=KZ8tkDdTZV_0uGpIK1sA:9 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA1MDA1NyBTYWx0ZWRfX1frM+T4RaKlk
+ oKRbbTZZBfqjpfVr8oqLBvfEcO6f9ZxUYr0Bh2PnHT3fb3NhpJI5yR1WeR/JkwFKw+ZKdRPibhx
+ Y2kvxViI3+i9KUv9v9fFVw9K/MXL6U7vFNCUYt/sQQbz0bIW1eUCLCLXPw4kcN0kxAjbm7TINJy
+ V+CW7TSOdDgbIjBEeyHD56sE/lnVJdpLYgmrl/B+i5mohblH5Fwns1dcYT0Tz/CynP/splgJI4t
+ TY3TV+82/mX918IwXM0dhb2JnZhJPFeQpoX5CWCzVaT2e6i6g4TDSddS1d7BCRgkygo2iN/hXOZ
+ AS5qwa3nHu1z7T6c7x1/orCAYUMIGgNEvmXC/q+FESTu8jqEPReWUDB7+Rftv1qeellNj/Qk5P0
+ 5mzaJP3nX2iLrDYma7p3Stqwxam85g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_03,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 adultscore=0 bulkscore=0 clxscore=1011 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511050057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_235310_076611_E775A5CC 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20251104_235323_836901_46D633AA 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,112 +114,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add ACTLR settings for the device nodes with below compatibility
+and is mainly targeted for sa8775p:
+1) sa8775p-mdss
+2) qcom,fastrpc-compute-cb
 
---hWmCm/wRFf5QXlgL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+As a side note, "qcom,fastrpc" compatibility is already defined but that
+seems inept as the devices that will be attached to the SMMU is going to
+be with "qcom,fastrpc-compute-cb" compat string.
 
-> On Mon, 03 Nov 2025 11:27:56 +0100 Lorenzo Bianconi wrote:
-> > Do not allocate memory for rx-only fields for hw tx queues and for tx-o=
-nly
-> > fields for hw rx queues.
->=20
-> Could you share more details (pahole)
-> Given that napi_struct is in the same struct, 20B is probably not going
-> to make much difference?
+Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I agree the difference is not huge, I added this patch mainly for code
-readability. If you prefer I can drop the patch, I do not have a strong
-opinion about it. What do you think?
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index c21a401c71eb..c76f6076f487 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -47,6 +47,10 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+ 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+ 	{ .compatible = "qcom,sm8550-mdss",
+ 			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
++	{ .compatible = "qcom,sa8775p-mdss",
++			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
++	{ .compatible = "qcom,fastrpc-compute-cb",
++			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+ 	{ }
+ };
+ 
+-- 
+2.34.1
 
-net-next:
-
-struct airoha_queue {
-	struct airoha_qdma *       qdma;                 /*     0     8 */
-	spinlock_t                 lock;                 /*     8     4 */
-
-	/* XXX 4 bytes hole, try to pack */
-
-	struct airoha_queue_entry * entry;               /*    16     8 */
-	struct airoha_qdma_desc *  desc;                 /*    24     8 */
-	u16                        head;                 /*    32     2 */
-	u16                        tail;                 /*    34     2 */
-	int                        queued;               /*    36     4 */
-	int                        ndesc;                /*    40     4 */
-	int                        free_thr;             /*    44     4 */
-	int                        buf_size;             /*    48     4 */
-
-	/* XXX 4 bytes hole, try to pack */
-
-	struct napi_struct         napi __attribute__((__aligned__(8))); /*    56 =
-  496 */
-
-	/* XXX last struct has 1 hole */
-
-	/* --- cacheline 8 boundary (512 bytes) was 40 bytes ago --- */
-	struct page_pool *         page_pool;            /*   552     8 */
-	struct sk_buff *           skb;                  /*   560     8 */
-
-	/* size: 568, cachelines: 9, members: 13 */
-	/* sum members: 560, holes: 2, sum holes: 8 */
-	/* member types with holes: 1, total: 1 */
-	/* forced alignments: 1, forced holes: 1, sum forced holes: 4 */
-	/* last cacheline: 56 bytes */
-} __attribute__((__aligned__(8)));
-
-net-next + airoha_queue reorg:
-
-struct airoha_queue {
-	struct airoha_qdma *       qdma;                 /*     0     8 */
-	spinlock_t                 lock;                 /*     8     4 */
-
-	/* XXX 4 bytes hole, try to pack */
-
-	struct airoha_queue_entry * entry;               /*    16     8 */
-	struct airoha_qdma_desc *  desc;                 /*    24     8 */
-	int                        queued;               /*    32     4 */
-	int                        ndesc;                /*    36     4 */
-	struct napi_struct         napi __attribute__((__aligned__(8))); /*    40 =
-  496 */
-
-	/* XXX last struct has 1 hole */
-
-	/* --- cacheline 8 boundary (512 bytes) was 24 bytes ago --- */
-	union {
-		struct {
-			u16        head;                 /*   536     2 */
-			u16        tail;                 /*   538     2 */
-			int        buf_size;             /*   540     4 */
-			struct page_pool * page_pool;    /*   544     8 */
-			struct sk_buff * skb;            /*   552     8 */
-		};                                       /*   536    24 */
-		struct {
-			struct list_head tx_list;        /*   536    16 */
-			int        free_thr;             /*   552     4 */
-		};                                       /*   536    24 */
-	};                                               /*   536    24 */
-
-	/* size: 560, cachelines: 9, members: 8 */
-	/* sum members: 556, holes: 1, sum holes: 4 */
-	/* member types with holes: 1, total: 1 */
-	/* forced alignments: 1 */
-	/* last cacheline: 48 bytes */
-} __attribute__((__aligned__(8)));
-
-Regards,
-Lorenzo
-
---hWmCm/wRFf5QXlgL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaQsCYgAKCRA6cBh0uS2t
-rHFAAQDj3Vyre7WUSS9oIsXyUpTR4N2pQmKzb4l2PYBU94jdswD9F7vYAu0DcE53
-OvIHIJXFPV1h9xfMXmrM33nb8hU3LA4=
-=yrTi
------END PGP SIGNATURE-----
-
---hWmCm/wRFf5QXlgL--
 
