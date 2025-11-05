@@ -4,96 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11061CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C64CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=; b=C1c//Btx7bFJ4MC/Krpr3nmP/K
-	nmbdIocvvO0cbfNWR0ItprGnTg1E8QwLbfstKoRaI4ycIMs+QrrZdM0XbHDdKmHqqo+mPl7DSVDRG
-	J4ZJbLz6LoZ1M+t+Qvr8EiDjQd6Y1nn7RsDsYglAXY2inLXH4ia5+gEjXm6VW7aOX5a223Vy/2o7x
-	NWgtudb0TRo9tcX0OAoC9cNA7lavMmS4vNAfoje8Z4WJKeY/IbIIBDsbZQwqvqMMScazCqod7P9Ql
-	pGoARSHL+nRKqhutPC+41S97D1b35Sia8PAJz/8jCUdeoPfSgHKfG7/QGYz7D+XfkNRDCQkFxat2t
-	5iQU8CNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2LyWeTyegHwca46QgB4OyH6fFu1GViJJKZV5UZOvuw=; b=bQRQY2WZgXcTY4dInbxaDSHn7m
+	NHpaD4U4W+qaFOKSMMk3xQ2DkYBpxYqUmGGlTa42QbigJcADeYF4yjCtAUG3aPY4UpiAfAgS3jK+W
+	813hMfjtnFd13RLc1FI52xY+dhsxKDRAdTFe2OfXsn1xsTvQ/4v3OcgRYkppmCOpG7OpEucbU8IHV
+	TmtuJdpHZhlgaDq64rzKtBjZQNDNHcn03Cc7GUu6W3buuuBvdhqCerf18tcr/mFfmfy7X0zcqwbbg
+	jNhFU85N0p2IKAFBeXyDZfOCp27hhNt7AS+DajZHswLfKwVIwxFHGHU5KXTRq/pG6xzfPv++5a9cN
+	N2h0e0Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUcj-0000000CycN-2PPI;
-	Wed, 05 Nov 2025 03:55:53 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUcg-0000000Cybb-1dnK
+	id 1vGUe2-0000000CymM-0BhQ;
+	Wed, 05 Nov 2025 03:57:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGUdy-0000000Cykj-1hb3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 03:55:51 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7c28c21aba1so3869224a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 19:55:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762314947; x=1762919747; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=;
-        b=h9h3Z5Sl89b3le6Rlbc0qVgriaLZffJbAW7/FeHb2W8DoJM7LRWEVxXbyIzCH2b2rC
-         rzF5UgtCAhNHR3bYPPR8iefqAwznNS4MrK6vInk521HsdK9gscEgwK/RQgl0Dg0mtYv2
-         P453C612DWX3S1LslRoHQEE1q1J90o1eFpOOkVNi6ZwP/Bn/t3kO8ZpRLV4+i0MV01it
-         K5vUTJuBEAG/isB81zx4hutgNi7bAb6FaKUT+EdUnsASP8bMrfao0n3j0Wpd3/pL/N2F
-         WgkJTSkTsMopcsITyRXLffF+y7rm50jqron+wKOu9rtcz2ycl0Rf4lQdrps0BWzsj9hU
-         z7BQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762314947; x=1762919747;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=;
-        b=EOqHvMfmUXLrOFFUCqXj9GnKDmrjJUQtVKylY77g8Ngeu4IFJtJr35iWzMuRybFS4S
-         b/fUNj1t8Ag7kSzTCLpNx8AYpHv56X8ZdTzqdJDII6VSX7jW+FuBLvrrApWMkaW06p1K
-         qh5lTLPlCoMLjIYlWQyvXgLSe757OMb5JQKJkGpewnXGGiHFKCNpRWB9tvVxskXV2FTi
-         oFPn5nHnpp/hnEb7no6+4TuLrELD2yBYxk3LXGXnZvOap7Fe75s6SKNaR/Izwwj833Nk
-         LX9gpXOYFzxO7kbKaWeN7/N6fVjrqcSfhmu0mmREeNhefdM3eEW7NcEC2LZABRdIXuQW
-         WXrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVnmN1MAlGsbfju8xoUTaFevDzanE8DLh7wOtj6Inhg1iIXAsXOT50Woy4AO2iWBBFPYyBRg8u+QysbBybSUQdC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7qvkhwUoPLN29MvDhfBN+hcyirLIbw5pkZbySpOu9he9A/BYU
-	dDITK+vDRhYAyAWhd//TqFM14PWg8inQj5oeR4S5ecntkaIXUKxhn2AM
-X-Gm-Gg: ASbGncuNJitDDeJpWWddvJFb8t9t0qPYH+BaXTvFyPyXApEVSIDWo7cL3CLhc7F31Av
-	bu5Yl/+aIX0VjnN5rPExDJ2Me1HGtRNB2ZeymDl0o7OpD9ETOFJqTUqprg4Sp+qCKnpX6ilgEQy
-	8dt4iGcFCPbZ4XcdUMndM2s09ctX+B222WYBQOVFweQ6/roUDJJvTb/VxZXqBhkjQqvkFcPMSo4
-	J8YfSc4Yy9L/zc+OMmFKTs3W15RRd6nFjc0Ra+WtvyVXtWOcLtZPdhI7j53vSt2XziK0PDNR6QD
-	f1dCSOs3s6ZeU8fyuEebanfmb85KC45GDHvKhJZCluYt6LYgKY0CP9Or6XMcguCa3Jz7daykD7k
-	gkBvTUL7OE5H8jVLUlElm2nxQhzyu2Kd+aOKm3me89iQAE2CZDZvf+Wp90ps/mww=
-X-Google-Smtp-Source: AGHT+IGWD1WRog8lycQihpGXGLWzNtQQjp25qDmoblZFd4CJMmxeCSVNZEnsc+5uJPofTa4YPXd5Fg==
-X-Received: by 2002:a05:6830:91a:b0:7af:1d61:1055 with SMTP id 46e09a7af769-7c6d13e115amr1105444a34.21.1762314946928;
-        Tue, 04 Nov 2025 19:55:46 -0800 (PST)
-Received: from geday ([2804:7f2:800b:2c34::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c6c246fb2fsm1599542a34.13.2025.11.04.19.55.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 19:55:45 -0800 (PST)
-Date: Wed, 5 Nov 2025 00:55:32 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Johan Jonker <jbx6244@gmail.com>
-Subject: Re: [RFC PATCH 2/2] PCI: rockchip-host: drop wait on PERST# toggle
-Message-ID: <aQrKtFT0ldc70gKj@geday>
-References: <d3d0c3a387ff461e62bbd66a0bde654a9a17761e.1762150971.git.geraldogabriel@gmail.com>
- <20251103181038.GA1814635@bhelgaas>
+	Wed, 05 Nov 2025 03:57:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF0EB16F2;
+	Tue,  4 Nov 2025 19:57:00 -0800 (PST)
+Received: from [10.164.136.37] (unknown [10.164.136.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 855B13F66E;
+	Tue,  4 Nov 2025 19:57:05 -0800 (PST)
+Message-ID: <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
+Date: Wed, 5 Nov 2025 09:27:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251103181038.GA1814635@bhelgaas>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
+ ryan.roberts@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20251103061306.82034-1-dev.jain@arm.com>
+ <aQjHQt2rYL6av4qw@willie-the-truck>
+ <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
+ <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
+ <aQn4EwKar66UZ7rz@willie-the-truck>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <aQn4EwKar66UZ7rz@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_195550_478783_BAA9FEF1 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20251104_195710_534725_3B5FD916 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +71,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 12:10:38PM -0600, Bjorn Helgaas wrote:
-> On Mon, Nov 03, 2025 at 03:27:25AM -0300, Geraldo Nascimento wrote:
-> > With this change PCIe will complete link-training with a known quirky
-> > device - Samsung OEM PM981a SSD. This is completely against the PCIe
-> > spec and yet it works as long as the power regulator for 3v3 PCIe
-> > power is not defined as always-on or boot-on.
-> 
-> What is against the spec?  In what way is this SSD "known quirky"?  Is
-> there a published erratum for it?
-> 
-> Removing this delay might make this SSD work, but if this delay is
-> required per PCIe spec, how can we be confident that other devices
-> will still work?
-> 
-> Reports of devices that still work is not really enough to move this
-> from the "hack that makes one device work" column to the "safe and
-> effective for all devices" column.
-> 
-> It's easy to see how *lack* of a delay can break something, but much
-> harder to imagine how *removing* a delay can make something work.
-> Devices must be able to tolerate pretty much arbitrary delays.
 
-Hi Bjorn!
+On 04/11/25 6:26 pm, Will Deacon wrote:
+> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
+>> On 04/11/25 12:15 am, Yang Shi wrote:
+>>> On 11/3/25 7:16 AM, Will Deacon wrote:
+>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
+>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
+>>>>> rodata=full"),
+>>>>> __change_memory_common has a real chance of failing due to split
+>>>>> failure.
+>>>>> Before that commit, this line was introduced in c55191e96caa,
+>>>>> still having
+>>>>> a chance of failing if it needs to allocate pagetable memory in
+>>>>> apply_to_page_range, although that has never been observed to be true.
+>>>>> In general, we should always propagate the return value to the caller.
+>>>>>
+>>>>> Cc: stable@vger.kernel.org
+>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
+>>>>> areas to its linear alias as well")
+>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>> ---
+>>>>> Based on Linux 6.18-rc4.
+>>>>>
+>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
+>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>>>> index 5135f2d66958..b4ea86cd3a71 100644
+>>>>> --- a/arch/arm64/mm/pageattr.c
+>>>>> +++ b/arch/arm64/mm/pageattr.c
+>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
+>>>>> long addr, int numpages,
+>>>>>        unsigned long size = PAGE_SIZE * numpages;
+>>>>>        unsigned long end = start + size;
+>>>>>        struct vm_struct *area;
+>>>>> +    int ret;
+>>>>>        int i;
+>>>>>          if (!PAGE_ALIGNED(addr)) {
+>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
+>>>>> long addr, int numpages,
+>>>>>        if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>>>>            for (i = 0; i < area->nr_pages; i++) {
+>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
+>>>>> +            ret =
+>>>>> __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>                               PAGE_SIZE, set_mask, clear_mask);
+>>>>> +            if (ret)
+>>>>> +                return ret;
+>>>> Hmm, this means we can return failure half-way through the operation. Is
+>>>> that something callers are expecting to handle? If so, how can they tell
+>>>> how far we got?
+>>> IIUC the callers don't have to know whether it is half-way or not
+>>> because the callers will change the permission back (e.g. to RW) for the
+>>> whole range when freeing memory.
+>> Yes, it is the caller's responsibility to set VM_FLUSH_RESET_PERMS flag.
+>> Upon vfree(), it will change the direct map permissions back to RW.
+> Ok, but vfree() ends up using update_range_prot() to do that and if we
+> need to worry about that failing (as per your commit message), then
+> we're in trouble because the calls to set_area_direct_map() are unchecked.
+>
+> In other words, this patch is either not necessary or it is incomplete.
 
-I did some more testing, intrigued by why would a delay of more than
-5 ms after the enablement of the power rails trigger failure in
-initial link-training.
+Here is the relevant email, in the discussion between Ryan and Yang:
 
-Something in my intuition kept telling me this was PERST# related,
-and so I followed that rabbit-hole.
+https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com/
 
-It seems the following change will allow the SSD to work with the
-Rockchip-IP PCIe core without any other changes. So it is purely
-a DT change and we are able to keep the mandatory 100ms delay
-after driving PERST# low, as well as the always-on/boot-on
-properties of the 3v3 power regulator.
+We had concluded that all callers of set_memory_ro() or set_memory_rox() (which require the
+linear map perm change back to default, upon vfree() ) will call it for the entire region (vm_struct).
+So, when we do the set_direct_map_invalid_noflush, it is guaranteed that the region has already
+been split. So this call cannot fail.
 
-This time everything is within the PCIe spec AFAICT, PERST# indeed
-is an Open Drain signal, and indeed it does requires pull-up resistor
-to maintain the drive after driving it high.
+https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com/
 
-I'm still testing the overall stability of this, let's hope for the
-best!
+This email notes that there is some code doing set_memory_rw() and unnecessarily setting the VM_FLUSH_RESET_PERMS
+flag, but in that case we don't care about the set_direct_map_invalid_noflush call failing because the protections
+are already RW.
 
-Thanks,
-Geraldo Nascimento
+Although we had also observed that all of this is fragile and depends on the caller doing the
+correct thing. The real solution should be somehow getting rid of the BBM style invalidation.
+Ryan had proposed some methods in that email thread.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-index aa70776e898a..1c5afc0413bc 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-@@ -383,13 +383,14 @@ &pcie_phy {
- };
- 
- &pcie0 {
--	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-+	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 	num-lanes = <4>;
--	pinctrl-0 = <&pcie_clkreqnb_cpm>;
-+	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
- 	pinctrl-names = "default";
- 	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
- 	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
- 	vpcie3v3-supply = <&vcc3v3_pcie>;
-+	max-link-speed = <2>;
- 	status = "okay";
- };
- 
-@@ -408,6 +409,10 @@ pcie {
- 		pcie_pwr: pcie-pwr {
- 			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
-+		pcie_perst: pcie-perst {
-+			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
- 	};
- 
- 	pmic {
+One solution which I had thought of, is that, observe that we are doing an overkill by
+setting the linear map to invalid and then default, for the *entire* region. What we
+can do is iterate over the linear map alias of the vm_struct *area and only change permission
+back to RW for the pages which are *not* RW. And, those relevant mappings are guaranteed to
+be split because they were changed from RW to not RW.
+
+>
+> Will
 
