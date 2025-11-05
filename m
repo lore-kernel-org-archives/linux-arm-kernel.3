@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3D2CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA2BCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avlKJcLS27IiW4i/NSTPBJCPoTBFD15wkzKpbeqsTtI=; b=D29/vimvNGk5tnmwUdbSkf+wz/
-	PcNs+6Vl2/BO35H4xnJthG69nShGKjrN8oZvAOxdXYnoiudZbL3pIZ2tnYBA2sP3zmXGJdQL5HV+c
-	B9WamlpAsST+S1POt/Ho9cP34alSVCvramd4qlu3Nj4zZbrZXgXsTmOLZtwGfvWhNckMPHpQPzzSG
-	hitIOC5i7acJWlNFG4s07Y76m5+hjSMT9+XuvAiZpeSEnhMyEw3WRvdDWvVXB3yDrqlEGVumv5836
-	fxGG6WEQCmUrf3wr2s20QROxpeP9/25wLHpXEQySK+lVbVLGl+gztKFYrDJAHS9+TvQ/n3spRi5ye
-	uC6KSNdQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D+z30alhS76nZd0w299HMMOzkEm7le32nOnAtHN1bFM=; b=GGoqEhEYSq+n+L
+	+p0LUQR8Dygha3/P54JPvHcWooAbB1AOEsH4QsuDf92cTjZ0rTp0AOSXyTCltiG8o4j9lLYEW5Rss
+	j5mXWSKAp3ZNu9GvdDrCXGOdLOkn/tV3Z9McQ/KDRgqxxhEFsC14QR+mhvrh9DrPHGD4rpufjxCqx
+	2omckb82yjv7NMEl806a0Ip+Okv58alJ5gi5O1OZFYCAmGJSt7PEhB85HTrebJdP7zoIzxUFGsJua
+	Kp/kWufmJMCLWHbQ7bS/+WwZUg6ex+D11Pa4dabYk+4ZFVJMTx91ham67a3+MhcBlC+D/U1e0pNlW
+	xDIMowXxYAgDGcHqACnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkts-0000000ETzW-2GA0;
-	Wed, 05 Nov 2025 21:18:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vGktt-0000000EU0U-1dg9;
+	Wed, 05 Nov 2025 21:18:41 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGktq-0000000ETy1-0qjw;
+	id 1vGktq-0000000ETy0-0Vxy;
 	Wed, 05 Nov 2025 21:18:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1762377515;
-	bh=bArrOhdqiPrD9jwVtY5HEE/53V3p8i0UZ8xJQqCPlD0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VOReS/tBa/q6ng2Yhr2+/vUP5UB2401ugVhFf+0UORldLzyq+GXymaYL+4TyWBzbq
-	 E5iJPmF4FgnRteq2+Zzs4MGmfv6KXhmt2G3qH5ETOCYYTIUARBRY6u25jdHX+O/gMo
-	 RQjh+GIR3h/L5Zus48T6qNKpMtJhHs1KZ5A/r+YahUv+BbOSHCEvWT7GIIh/9XOhL7
-	 6WqcFwJl8Xo3y+1LOMSyZZ/b8WZs6XemcZZkphmKBEawG5voNrNc2TjHbEBZ2Imc79
-	 JR7TkSCCYcSdQkGq79iDohJaa4FfGFvVEDfMbGBBWDITlglqViL0jmLc5ieNhvCiXt
-	 VgNVVQbZqGcxg==
+	bh=/ng5O2dKBBjx/PoMHfml7fIWlsGEdTjPoLQQq68Vk1w=;
+	h=From:Subject:Date:To:Cc:From;
+	b=FYYWj5ErKAQWBH2zuGZaHzNU61uViaX++wuDgl6qi3m3uq/JVL8lRCK2QpXOCeVXQ
+	 cK6bH0vpEageL4dR1k+JzkdBvT3UDR3JFEKn+jOJ+c+YwUlXUL8nDJEUHqzZ0r+mRA
+	 oB3wh+vHFKV76nODd5F3Ycl+IOrvH+whHccdpoEReZww8gZWhwCqanfyL6UxsEAODV
+	 rkM2Kxf+JQAbXgTHiJjAE8L2l00CXVt9ql3g8xaZmkaivTwHEk+yolMSL+dbsZ27vg
+	 OhJ+uySIkR+3pqqAgKBENCEXgrY9ThTbJGfaPWzJwryQDqYT6RrZ4FqOKyzNEaq180
+	 AnSWhk/d0T2gA==
 Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531::8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E12A417E129C;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DFEF017E04D6;
 	Wed,  5 Nov 2025 22:18:34 +0100 (CET)
 Received: by beast.luon.net (Postfix, from userid 1000)
-	id 96B5110F352DD; Wed, 05 Nov 2025 22:18:34 +0100 (CET)
+	id 8C1DE10F352D9; Wed, 05 Nov 2025 22:18:34 +0100 (CET)
 From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Wed, 05 Nov 2025 22:17:57 +0100
-Subject: [PATCH v3 02/13] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
- software leds
+Subject: [PATCH v3 00/13] arm64: dts: mediatek: Add Openwrt One AP
+ functionality
+Date: Wed, 05 Nov 2025 22:17:55 +0100
+Message-Id: <20251105-openwrt-one-network-v3-0-008e2cab38d1@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251105-openwrt-one-network-v3-2-008e2cab38d1@collabora.com>
-References: <20251105-openwrt-one-network-v3-0-008e2cab38d1@collabora.com>
-In-Reply-To: <20251105-openwrt-one-network-v3-0-008e2cab38d1@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAO/C2kC/x3MSwqAMAwA0atI1gba+gG9irjQGjUIqaSignh3i
+ 8u3mHkgkjJFaLMHlE6OHCShyDPw6yALIU/J4IyrrLE1hp3k0gODEAodV9ANSzP6ZvB2dJWHVO5
+ KM9//tevf9wNgNip4ZQAAAA==
+X-Change-ID: 20251016-openwrt-one-network-40bc9ac1b25c
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -76,11 +78,12 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
  linux-phy@lists.infradead.org, netdev@vger.kernel.org, 
  Daniel Golle <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>, 
- Sjoerd Simons <sjoerd@collabora.com>
+ Sjoerd Simons <sjoerd@collabora.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_131838_423983_A7543089 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20251105_131838_337910_159F337D 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,128 +98,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The openwrt has 3 status leds at the front:
-* red: Used as failsafe led by openwrt
-* white: Used as boot led by openwrt
-* green: Used as running/upgrade led by openwrt
+Significant changes in V3:
+  * Drop patches that were picked up
+  * Re-order patches so changes that don't require dt binding changes
+    come first (Requested by Angelo)
+  * Specify drive power directly rather then using MTK_DRIVE_...
+  * Simply mediatek,net binding changes to avoid accidental changes to
+    other compatibles then mediatek,mt7981-eth
+Significant changes in V2:
+  * https://lore.kernel.org/lkml/20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com/
+  * Only introduce labels in mt7981b.dtsi when required
+  * Switch Airoha EN8811H phy irq to level rather then edge triggered
+  * Move uart0 pinctrl from board dts to soc dtsi
+  * Only overwrite constraints with non-default values in MT7981 bindings
+  * Make SPI NOR nvmem cell labels more meaningfull
+  * Seperate fixing and disable-by-default for the mt7981 in seperate
+    patches
 
-On the back each RJ45 jack has the typical amber/green leds. For the WAN
-jack this is hardware controlled by the phy, for LAN these are under
-software control and enabled by this patch.
+This series add various peripherals to the Openwrt One, to make it
+actually useful an access point:
+
+* Pcie express (tested with nvme storage)
+* Wired network interfaces
+* Wireless network interfaces (2.4g, 5ghz wifi)
+* Status leds
+* SPI NOR for factory data
+
+Unsurprisingly the series is a mix of dt binding updates, extensions of
+the mt7981b and the openwrt one dtb. All driver support required is
+already available.
+
+Sadly during testing i've found various quirks requiring kernel
+arguments. Documenting those here both as note to self and making it
+easier for others to test :)
+
+* fw_devlink=permissive: the nvmem fixed-layout doesn't create a layout
+  device, so doesn't trigger fw_devlink
+* clk_ignore_unused: Needed when building CONFIG_NET_MEDIATEK_SOC as a
+  module. If the ethernet related clocks (gp1/gp2) get disabled the
+  mac ends up in a weird state causing it not to function correctly.
+* pcie_aspm: ASPM is forced to enabled in 6.18-rc1, unfortunately
+  enabling ASPM L1.1 ends up triggering unrecoverable AERs.
+
+Patches are against the mediatek trees for-next branch
 
 Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 ---
-V2 -> V3: Move earlier in the patch sequence
-V1 -> V2:
-  - Improve commit message
-  - Re-order nodes to be alphabetical
+Sjoerd Simons (13):
+      arm64: dts: mediatek: mt7981b-openwrt-one: Enable SPI NOR
+      arm64: dts: mediatek: mt7981b-openwrt-one: Enable software leds
+      dt-bindings: mfd: syscon: Add mt7981-topmisc
+      dt-bindings: PCI: mediatek-gen3: Add MT7981 PCIe compatible
+      dt-bindings: phy: mediatek,tphy: Add support for MT7981
+      arm64: dts: mediatek: mt7981b: Add PCIe and USB support
+      arm64: dts: mediatek: mt7981b-openwrt-one: Enable PCIe and USB
+      dt-bindings: net: mediatek,net: Correct bindings for MT7981
+      arm64: dts: mediatek: mt7981b: Add Ethernet and WiFi offload support
+      arm64: dts: mediatek: mt7981b-openwrt-one: Enable Ethernet
+      arm64: dts: mediatek: mt7981b: Disable wifi by default
+      arm64: dts: mediatek: mt7981b: Add wifi memory region
+      arm64: dts: mediatek: mt7981b-openwrt-one: Enable wifi
+
+ Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
+ .../devicetree/bindings/net/mediatek,net.yaml      |   6 +-
+ .../bindings/pci/mediatek-pcie-gen3.yaml           |   1 +
+ .../devicetree/bindings/phy/mediatek,tphy.yaml     |   1 +
+ .../boot/dts/mediatek/mt7981b-openwrt-one.dts      | 263 +++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi          | 226 +++++++++++++++++-
+ 6 files changed, 492 insertions(+), 6 deletions(-)
 ---
- .../boot/dts/mediatek/mt7981b-openwrt-one.dts      | 59 ++++++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi          |  2 +-
- 2 files changed, 60 insertions(+), 1 deletion(-)
+base-commit: d7d7ac9af8cb72e3e3816ae9da3d9ee1bdfa4f9b
+change-id: 20251016-openwrt-one-network-40bc9ac1b25c
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-index 6bb98629f4536..2e39e72877301 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-@@ -3,6 +3,8 @@
- /dts-v1/;
- 
- #include "mt7981b.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
- #include "dt-bindings/pinctrl/mt65xx.h"
- 
- / {
-@@ -21,9 +23,60 @@ memory@40000000 {
- 		reg = <0 0x40000000 0 0x40000000>;
- 		device_type = "memory";
- 	};
-+
-+	pwm-leds {
-+		compatible = "pwm-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_WHITE>;
-+			default-brightness = <0>;
-+			function = LED_FUNCTION_STATUS;
-+			max-brightness = <255>;
-+			pwms = <&pwm 0 10000>;
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-brightness = <0>;
-+			function = LED_FUNCTION_STATUS;
-+			max-brightness = <255>;
-+			pwms = <&pwm 1 10000>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&pio 9 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&pio 34 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led-2 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&pio 35 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
- };
- 
- &pio {
-+	pwm_pins: pwm-pins {
-+		mux {
-+			function = "pwm";
-+			groups = "pwm0_0", "pwm1_1";
-+		};
-+	};
-+
- 	spi2_flash_pins: spi2-pins {
- 		mux {
- 			function = "spi";
-@@ -44,6 +97,12 @@ conf-pd {
- 	};
- };
- 
-+&pwm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm_pins>;
-+	status = "okay";
-+};
-+
- &spi2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&spi2_flash_pins>;
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index f00e5bf63de35..416096b80770c 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -94,7 +94,7 @@ apmixedsys: clock-controller@1001e000 {
- 			#clock-cells = <1>;
- 		};
- 
--		pwm@10048000 {
-+		pwm: pwm@10048000 {
- 			compatible = "mediatek,mt7981-pwm";
- 			reg = <0 0x10048000 0 0x1000>;
- 			clocks = <&infracfg CLK_INFRA_PWM_STA>,
-
+Best regards,
 -- 
-2.51.0
+Sjoerd Simons <sjoerd@collabora.com>
 
 
