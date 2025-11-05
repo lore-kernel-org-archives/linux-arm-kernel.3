@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1D0CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA4ECCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ix6cTrI12x/DWHKCw9azBbhzrRj4SPpFUjDhf1tp3cg=; b=VXOa7Qq4bFoKWtq0ANHnvqDLIx
-	fgWx6ECOY+hzKdrGIwfxCrofde/ynRm365IdrdEgNmpApOrbLEvYoH6Mk6b4gH+nSrru9cjsv0VfG
-	VcwzdTm9fLJXLXFGvHBnG2/wsTtVtkJfFVEBGDU9NC5szTUqSPO4bTBDOrADfPdAJGkrqegBJZFuL
-	fd1aGCpRCJITesPSWIlskHGv+HU8E60V4C0L1Q/u7bd1HXgfiDBq117Dk0MLggpsMDp0k1KHQrnep
-	iMQkyxciGzbipXPMkpYDewbSMUh/Vj9oT+yDwQroiNGCkNXTctzH/ZTgWwfubLLKgRVqlOGLvknP0
-	u5acVqag==;
+	bh=kdYXpjjWsK1USuQxWpC3xY3I0EurRsdv37SZ4mQBI7c=; b=OFUd7bb/L2lBfFwLDZgP0X8zAa
+	7HfoIE+zXZMmIqC/I2ZTD99UIoRoRHQuFc0sSY++SRVXDk8jq/kVg6jZUU6RpFyX0l/bZb+hf7F2Y
+	KUCPuSZm4HEeZrEZjIDa58nyJko8HVvMfSDG3U6WTNnDxTULG1BY+/KMGJbz2QimOoLh93oVEJQoj
+	3nn/jj3NpHvKZaVqeV2ZEv2K657g+uVG75HXI4XAcPHIbFvktaVXKnyR2hIDN//zkw34La3czSvSx
+	/G1izPy1uGoIE7PvSNbLTrtK6rkHam/gN3xa61LgUpvucN+U0cys8ZWY+wQGZtFxQK5jj7X2Za+ck
+	Ct869+tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkiD-0000000ERNg-0Eey;
-	Wed, 05 Nov 2025 21:06:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGkiI-0000000ERRv-1m0B;
+	Wed, 05 Nov 2025 21:06:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGki9-0000000ERJr-0ckm
+	id 1vGkiH-0000000ERQn-0PZP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 21:06:36 +0000
+	Wed, 05 Nov 2025 21:06:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD30344812;
+	by tor.source.kernel.org (Postfix) with ESMTP id 84A8060222;
+	Wed,  5 Nov 2025 21:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FA7FC4CEF5;
 	Wed,  5 Nov 2025 21:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F01FC4CEF5;
-	Wed,  5 Nov 2025 21:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762376792;
-	bh=/4qlBV0o6wHpMCHv+PGJIH0/5p5VMnEM2VldkFFk/hA=;
+	s=k20201202; t=1762376800;
+	bh=fIAIlX7FO5mGPQBGWuCynXC0SPKY4AIZnRPcce8YI4Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WPMVl7UvVPMRPQhKg2eY/RDKFC1vZcXdD08AGo6Qq/JtNgo8kPbs91s/W0brc+V5w
-	 YScVpXtDvf96TJiGbbd3qjQihx33QG/l0iLxhIfzXvXPIv/C6GBZcpUsAOA5/LUs1n
-	 oaHLFsM5/jX9GEIO4TEpslLn6l3LkI9tBTlpdE50e1TEqi8N11MwGL1neMCwf138kP
-	 PlCf+SEUHcmKj9utkNTtcf5yDLRO3jFxTVgZtfFtvRXo7um6DMx6SJcAdriB6p90Nq
-	 yLFLyG0eKaF2fF2W+V+aALv1nrBq3tM7L8gCnFVt09OqEynVIJmKSvNgTQpXOuXEU1
-	 1rE/ac7aW9QzQ==
+	b=uTniV3S/EeJ80AND7KBDsXu8Xpe6JM7FMSiWlVLuYUSx1fZ5Es85QML/UqcAKlExj
+	 TBu3d6jiTcVnPTUg6trXffi1yL6+pk2kHaXc967OfABBppOpNR5YB2toKuWySjNocr
+	 1Ukzr9rUGpHh4p8j/EIRfYT7VJZihm/gISAZHj3geJ0Xs5YxKq6o19WtZqjCQ0TkpX
+	 c51eNX+XGOtADtu9WKoX3bLS7Mi06TUMXagWf5Ke6icI1nHCDIn0D3kNee0ZMbEPHH
+	 HWTE5hGnM2szJSqgHeTuViOa94S94x6lb8KEOyvrSQxjXsBjNj1jUHxi04XQhFi5Bm
+	 DVfpNf5l6u1aw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,17 +80,14 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 19/31] sched/isolation: Remove HK_TYPE_TICK test from cpu_is_isolated()
-Date: Wed,  5 Nov 2025 22:03:35 +0100
-Message-ID: <20251105210348.35256-20-frederic@kernel.org>
+Subject: [PATCH 20/31] PCI: Remove superfluous HK_TYPE_WQ check
+Date: Wed,  5 Nov 2025 22:03:36 +0100
+Message-ID: <20251105210348.35256-21-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251105210348.35256-1-frederic@kernel.org>
 References: <20251105210348.35256-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_130633_210692_482CBD43 
-X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +108,68 @@ isolcpus= or cpuset isolated partitions.
 
 And now HK_TYPE_DOMAIN includes all kinds of domain isolated CPUs.
 
-This means that HK_TYPE_KERNEL_NOISE (of which HK_TYPE_TICK is only an
+This means that HK_TYPE_KERNEL_NOISE (of which HK_TYPE_WQ is only an
 alias) should always be a subset of HK_TYPE_DOMAIN.
 
-Therefore if a CPU is not HK_TYPE_DOMAIN, it shouldn't be
-HK_TYPE_KERNEL_NOISE either. Testing the former is then enough.
+Therefore sane configurations verify:
 
-Simplify cpu_is_isolated() accordingly.
+	HK_TYPE_KERNEL_NOISE | HK_TYPE_DOMAIN == HK_TYPE_DOMAIN
+
+Simplify the PCI probe target election accordingly.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/sched/isolation.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/pci/pci-driver.c | 17 +++--------------
+ 1 file changed, 3 insertions(+), 14 deletions(-)
 
-diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-index a127629adb32..a24acefacf9f 100644
---- a/include/linux/sched/isolation.h
-+++ b/include/linux/sched/isolation.h
-@@ -82,8 +82,7 @@ static inline bool housekeeping_cpu(int cpu, enum hk_type type)
+diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+index ac86aaec8bcf..e731aaf28c76 100644
+--- a/drivers/pci/pci-driver.c
++++ b/drivers/pci/pci-driver.c
+@@ -384,16 +384,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+ 	    pci_physfn_is_probed(dev)) {
+ 		error = local_pci_probe(&ddi);
+ 	} else {
+-		cpumask_var_t wq_domain_mask;
+ 		struct pci_probe_arg arg = { .ddi = &ddi };
  
- static inline bool cpu_is_isolated(int cpu)
- {
--	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN) ||
--	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK);
-+	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN);
- }
+ 		INIT_WORK_ONSTACK(&arg.work, local_pci_probe_callback);
+-
+-		if (!zalloc_cpumask_var(&wq_domain_mask, GFP_KERNEL)) {
+-			error = -ENOMEM;
+-			goto out;
+-		}
+-
+ 		/*
+ 		 * The target election and the enqueue of the work must be within
+ 		 * the same RCU read side section so that when the workqueue pool
+@@ -402,12 +395,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+ 		 * targets.
+ 		 */
+ 		rcu_read_lock();
+-		cpumask_and(wq_domain_mask,
+-			    housekeeping_cpumask(HK_TYPE_WQ),
+-			    housekeeping_cpumask(HK_TYPE_DOMAIN));
+-
+ 		cpu = cpumask_any_and(cpumask_of_node(node),
+-				      wq_domain_mask);
++				      housekeeping_cpumask(HK_TYPE_DOMAIN));
++
+ 		if (cpu < nr_cpu_ids) {
+ 			struct workqueue_struct *wq = pci_probe_wq;
  
- #endif /* _LINUX_SCHED_ISOLATION_H */
+@@ -422,10 +412,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+ 			error = local_pci_probe(&ddi);
+ 		}
+ 
+-		free_cpumask_var(wq_domain_mask);
+ 		destroy_work_on_stack(&arg.work);
+ 	}
+-out:
++
+ 	dev->is_probed = 0;
+ 	cpu_hotplug_enable();
+ 	return error;
 -- 
 2.51.0
 
