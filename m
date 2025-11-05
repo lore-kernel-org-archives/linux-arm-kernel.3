@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EC6CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 18:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D655ECCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 19:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QpAk4E6BGFif1XF3W70SXRZPyO+sXGIfN3AUjg8WOro=; b=ozV8UiHvbpITye4eKJeyqj7kCT
-	fUpkvx6VwkcsYQV01ysMeDV5zO8TBX5rGTDq1L/AqciuYQP7RyNgOG7qkdWPDsAH8Ofmt8Qi1BswL
-	uZmxyxNBQNvmXPMlLDq6PUljHliVYW1omiNWYCQcuKpsuExNz6ao9e2OjfDUzl/5D53P7/Ek4eMKT
-	RJlQwhxTx+0v60WqG89i4s2l3ayy6AJSdENBeOLg0blXfUAU+5AW5Oprw3J4V6xnMlBE1scaYNB+8
-	8XAtz10jGyJuhhtlLKXoCEGoMTT/5wbGMRaPkXPcr9opUqJkYwqH3c+ZasyVLzORAFVoopitVM/Ik
-	p7TLj/aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jPCG4/wKuRgOdZXZHsD5gh/cG/gpHhwNURgx6mdwEdM=; b=Pl4x/anfW1qUVfGL522ySKTvcp
+	mH4Rach7Mu6CUccp1bQF6cqW/D5gRXS0YfGtkCtMUgSlMXbgscG/VuI4bZPDDSqN+fpl0cAvSOzUc
+	861xQODuh/9LSg4omp7qRv+QS21MK0n/kNl/muHuVFHx4fICpoz8K8I2K7jSclJ5ZikO/sEfXs+8w
+	MBgAqRNu30KLdCJ0FnTQrRnZS12wjAjQvgvtGsVhpMbRAop77WdN/3vcjKAxiDwmU456Mv61vwNm7
+	w0bpx/v8Ge9bwXUrSCLPayD11DqhzUuFggzfo7tfn5g/qXAQRfRWNOFmeCohMKNOE78MGtJQuRs8i
+	bSC2mTMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGiYn-0000000EGZS-1Qve;
-	Wed, 05 Nov 2025 18:48:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGiw5-0000000EI7J-3ztz;
+	Wed, 05 Nov 2025 19:12:49 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGiYj-0000000EGYi-3kqE;
-	Wed, 05 Nov 2025 18:48:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 81DF3405AB;
-	Wed,  5 Nov 2025 18:48:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 597D9C4CEF5;
-	Wed,  5 Nov 2025 18:48:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762368520;
-	bh=QpAk4E6BGFif1XF3W70SXRZPyO+sXGIfN3AUjg8WOro=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ls6BkYyp/6FP75ZGgQ207aC8eZckuU4XR1qRbSNT8HlQAadjHGF00GBc/40GwG1RU
-	 xG8nvLZW6LlEHGodtR3NrkVPcEuqxAp6BzTArrd6qrCHY4bysMhzbEeX5qxPV2jsXq
-	 AlRDRsfSojvI5M4jKOC94Uly3RFI5MVN7HMHz7u/P24VE1PM9HZhDa1Vg/Ro3GDY8F
-	 K4DM1Yj3MiNNcASKXn+tZ33u80kfNBwF6oEKGFFa/GiGGjHNBi5wQDVVJ3kCZYDPsn
-	 fzK5w2HwfqPUdoO0NWhZn+zLtwPgVG1gIixLE+mHYoYowDQDaLEb2K9CufccqKYIor
-	 YcNAt2HB/9/0g==
-Date: Wed, 5 Nov 2025 18:48:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jh Hsu =?utf-8?B?KOioseW4jOWtnCk=?= <Jh.Hsu@mediatek.com>
-Cc: "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"ukleinek@kernel.org" <ukleinek@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"wim@linux-watchdog.org" <wim@linux-watchdog.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andrew-CT Chen =?utf-8?B?KOmZs+aZuui/qik=?= <Andrew-CT.Chen@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"jirislaby@kernel.org" <jirislaby@kernel.org>,
-	"linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
-	"nuno.sa@analog.com" <nuno.sa@analog.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	Zhiyong Tao =?utf-8?B?KOmZtuW/l+WLhyk=?= <Zhiyong.Tao@mediatek.com>,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	"andy@kernel.org" <andy@kernel.org>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	Sean Wang <Sean.Wang@mediatek.com>,
-	Lala Lin =?utf-8?B?KOael+engOiKrCk=?= <Lala.Lin@mediatek.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"dlechner@baylibre.com" <dlechner@baylibre.com>,
-	"srini@kernel.org" <srini@kernel.org>,
-	Jitao Shi =?utf-8?B?KOefs+iusOa2myk=?= <jitao.shi@mediatek.com>,
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux@roeck-us.net" <linux@roeck-us.net>
-Subject: Re: [PATCH v6 00/11] Add mt8189 dts evaluation board and Makefile
-Message-ID: <20251105-unbolted-kosher-8812a5349106@spud>
-References: <20251030134541.784011-1-jh.hsu@mediatek.com>
- <20251030-deodorant-unglazed-190cbfb4a69b@spud>
- <d75decc54a4fc129e5f011cd6e91191896203b48.camel@mediatek.com>
+	id 1vGiw3-0000000EI6t-0sAm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 19:12:48 +0000
+Message-ID: <3695841c-d9e7-4c71-a81d-4fca5e1de8fc@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1762369962;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jPCG4/wKuRgOdZXZHsD5gh/cG/gpHhwNURgx6mdwEdM=;
+	b=o2Dl9lqch12Si/UQeahzlhmTvC+ANlu0cTNgNVc+dxHTGCBQ6GeN/RZ0ll8beLDKEk23e8
+	Rpvmb7+yBmRfodjZNWm9gtaIyYOrFoYFV4hu/qhnGqD87+9LzJArvZc7FLHrOAboOgsZsX
+	6DRa1x6IYuBoLTBqUyGvphBDWA2tpJk=
+Date: Wed, 5 Nov 2025 19:12:37 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZsHRXwF3s1ooiJYk"
-Content-Disposition: inline
-In-Reply-To: <d75decc54a4fc129e5f011cd6e91191896203b48.camel@mediatek.com>
+Subject: Re: [PATCH net-next v2 1/7] bnx2x: convert to use ndo_hwtstamp
+ callbacks
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Manish Chopra <manishc@marvell.com>,
+ Marco Crivellari <marco.crivellari@suse.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>,
+ Kory Maincent <kory.maincent@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+References: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
+ <20251103150952.3538205-2-vadim.fedorenko@linux.dev>
+ <20251104173737.3f655692@kernel.org>
+ <f28ee997-ed08-4123-83ab-3496e88ed815@linux.dev>
+ <20251105104610.726fb780@kernel.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20251105104610.726fb780@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_104841_975606_D136AB24 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20251105_111247_482461_3064E700 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 05/11/2025 18:46, Jakub Kicinski wrote:
+> On Wed, 5 Nov 2025 13:33:08 +0000 Vadim Fedorenko wrote:
+>>>>    	bp->hwtstamp_ioctl_called = true;
+>>>> -	bp->tx_type = config.tx_type;
+>>>> -	bp->rx_filter = config.rx_filter;
+>>>> +	bp->tx_type = config->tx_type;
+>>>> +	bp->rx_filter = config->rx_filter;
+>>>>    
+>>>>    	rc = bnx2x_configure_ptp_filters(bp);
+>>>
+>>> bnx2x_configure_ptp_filters() may return -ERANGE if settings were not applied.
+>>> This may already be semi-broken but with the get in place we will make
+>>> it even worse.
+>>
+>> Ah, you mean in case of -ERANGE we will still have new filter
+>> configuration set in bp object? It's easy to fix, but it will be
+>> some kind of change of behavior. If it's acceptable, I'm happy to send
+>> v3 of the patchset.>
+> 
+> True, you can probably make the -ERANGE handling a separate patch
+> for ultimate clarity.
 
---ZsHRXwF3s1ooiJYk
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Nov 05, 2025 at 07:06:50AM +0000, Jh Hsu (=E8=A8=B1=E5=B8=8C=E5=AD=
-=9C) wrote:
-> On Thu, 2025-10-30 at 19:49 +0000, Conor Dooley wrote:
-> > On Thu, Oct 30, 2025 at 09:44:32PM +0800, Jack Hsu wrote:
-> > > In this patch series,=20
-> > > we add Mediatek MT8189 evaluation board dts, dtsi and Makefile,
-> > > and also related dt-binding documents.
-> > > Jack Hsu (11):
-> > > =C2=A0 dt-bindings: arm: Add compatible for MediaTek MT8189
-> > > =C2=A0 dt-bindings: iio: adc: Support MediaTek MT8189 evb board auxadc
-> > > =C2=A0 dt-bindings: nvmem: Support MediaTek MT8189 evb board efuse
-> > > =C2=A0 dt-bindings: pwm: Support MediaTek MT8189 evb board disp-pwm
-> > > =C2=A0 dt-bindings: serial: Support MediaTek MT8189 evb board uart
-> > > =C2=A0 dt-bindings: timer: Support MediaTek MT8189 evb board timer
-> > > =C2=A0 dt-bindings: usb: Support MediaTek MT8189 evb board xhci
-> > > =C2=A0 dt-bindings: watchdog: Support MediaTek MT8189 evb board wdt
-> >=20
-> > Please drop mention of the evb from all of these commit messages. The
-> > compatible has nothing to do with the evb board, it's going to be
-> > common
-> > across all boards using an mt8189.
-> >=20
-> > > =C2=A0 arm64: dts: mediatek: Add MT6319 PMIC Support
-> > > =C2=A0 arm64: dts: mediatek: add properties for MT6359
-> >=20
-> > Wait a minute, what are these two patches even doing in this series
-> > in
-> > the first place, when it is otherwise about the mt8189?
->=20
-> mt8189 evb board include mt63xx.dtsi,=C2=A0
-> and the dtsi files maybe for other boards in the future,=C2=A0
-> ie. mt8189/81xx custom/OEM/ODM boards.
-> Should i separate those two patches as a new patch series ?
-
-They seemed unrelated to your series and poor quality to the point that
-they looked like an accidental inclusions, given there's no mention of
-them in the cover letter. Since they do appear to be related, sure keep
-them. That said, the "add properties for MT6359" patch is in need of
-major rework, so you'll have to rework it.
-
---ZsHRXwF3s1ooiJYk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQub/wAKCRB4tDGHoIJi
-0ir6AP90xu+aGanLuoK0WwBJq4K8acOpc3uO0VRr/ryQ3e1A0AD8DQUJX5vyOEmp
-5sMx4n5jdewxF92Mn27H8usu0gybwAQ=
-=oepw
------END PGP SIGNATURE-----
-
---ZsHRXwF3s1ooiJYk--
+Well, looks like there is a special guard hwtstamp_ioctl_called
+implemented, so it looks safe to move the check. I've sent these patches 
+as a separate patchset.
 
