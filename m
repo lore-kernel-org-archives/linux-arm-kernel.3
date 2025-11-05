@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C21CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E1FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9XmaKEb9RYL3cXf18FlRBFz4L274PJ5Nmz/QiKbpA0=; b=HeUt0IsEC6kes344SUoHAnJfMa
-	na4/Q3QJf0s/AAy5oM4i7BlgyGTCavZDtmyTRxqORw7Yk/89P1QXKS1RTdDp4vc2fMqYReoub3vQ+
-	uolqkkVu4xtbB8A7OFlDAtdkinGGvbni+wJQ73CyrnL8XajOwRgH3ml3upLg96dOuMOioxpwaLJ/J
-	oJCRFynjPf5iOrYTqjKYn1rH03gB3bOy0R5sLb+mj3VBYHJTjP9xsf11eG15JJSPwmIOI+ZZOyf73
-	F5DV8i6VyIewAtOtbhVtpiVL/FiutOpbJptfBs/98j0WEwFh4hQz3LCcBQO0O5eYeIC+xXgI/Ab5D
-	sFMTJX4A==;
+	bh=YbAFjvKAjIR8IGvxwOzTQ2E6tt+MHI7XvuboKJJK3OA=; b=EyabYlVAb+ZpYqi7b7VZIviX0s
+	raIbs8oSy8TSiaJ32+e3CaH/1AUtKeE8JY3csLSS9KpcJCoewYpTL7lUT14/L8gJgkB+4IzhnkbGA
+	jfK2DRKSMJC69wfBhz9ctiAN+lLV+btlXbef7Tuo8WEDzwHh1EwjV1sBqdwZEFI/ZMLvrVeauHTRs
+	9xHVlcuLeViPvEZG4zpBbHnLkOKd0q7jz9Ti7L/kmZRgGb8bRtj+PIo8ufVwbALWsrtzmahBRoBjL
+	0xzuv9Xz6KE+4cGgMsU/qGZ0QEqizLvJQDs/P+EbfyoBuw8/frzdPjmONuFO1ceZEP8h8uzMcHJEX
+	KrFv/Y6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGXZj-0000000D7ml-1QMr;
-	Wed, 05 Nov 2025 07:04:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGXab-0000000D83I-0sab;
+	Wed, 05 Nov 2025 07:05:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGXZg-0000000D7lu-24Wt
+	id 1vGXaa-0000000D82a-1YdR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 07:04:57 +0000
+	Wed, 05 Nov 2025 07:05:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD4D2434DD;
-	Wed,  5 Nov 2025 07:04:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7BE4C4CEF8;
-	Wed,  5 Nov 2025 07:04:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D9CF60218;
+	Wed,  5 Nov 2025 07:05:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA207C4CEF8;
+	Wed,  5 Nov 2025 07:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762326295;
-	bh=fECj6oacpKXc6X6f2zYwH9Ibg6UtdahRrZWnqz/qj68=;
+	s=k20201202; t=1762326351;
+	bh=kPX9V0mH+TczUnYq0BMN/eI2YdpBbqz0jEK+VU5Ajks=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=skFxXnyuvYeO9Z1N85neSH/uQ6UDgiCWVv53PRfQvNM8Ncmh1lE8/WusgFdrOCPph
-	 YBQL1w5lvDN2OrFRbX+bt1PJBmot2Fqhw4PepfH6KzWfZ0m3qwXBl1EcSnTyCBF5oC
-	 N7sJ0/KOhelMOtouPqbOUMe/2nE7wsz7mWr+gF89voniT4QliOcoemDCRin2OPjyI+
-	 BCZMgbigPpbZB4gnYzJAMnSGu/9ZNdnjEa3p74wibJwuZM9+4YmB5pJRDU7u38gBuH
-	 2HSyLtykkxr4kAnhxiOxZ6ywPY/f1q36VaddSRTd8SybAiI8Z32u5TPKypF8ZXg1AJ
-	 9LY9ciRLlmgdg==
-Message-ID: <afa2c9aa-e84c-4a42-a735-73c01b197018@kernel.org>
-Date: Wed, 5 Nov 2025 08:04:49 +0100
+	b=m4X3IsWauFdhf3VenL4oXaFt8vQd1O7cZENoOOCac6EWsv1HNKEs6szPvqHFzb/m9
+	 g817Sjs80Kv5Mibkq3a72m3ZbINMvEw/DKGQt1fOJPEewZjvSknXybSG9lnpM66gkC
+	 04QGSrOwavlwNAJN1kgURXHLc5y3YoMHyPzKWveyUKUX0sLdVPNMBaAuWrEgfRmKJ5
+	 9meOxvx+fi3L5P1QApLI9bWLj5GJwuI88+TZeHvqJvMd6sbJrTDCQ3fIZ/FuD7Igo/
+	 aT+E4cYMbDUrMPcjnv5xcbgE7vkGmPAF3nbEIWuT8aoeZ/78rIjRHr3zyvOqCFtKND
+	 FeME6A1ACuCqA==
+Message-ID: <7e3c1b0b-2880-4abc-b80f-30ffc16d6158@kernel.org>
+Date: Wed, 5 Nov 2025 08:05:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 1/4] dt-bindings: i2c: Split AST2600 binding into a
- new YAML
-To: Jeremy Kerr <jk@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, bmc-sw@aspeedtech.com,
- benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
- andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
- linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
+To: Ryan Chen <ryan_chen@aspeedtech.com>, BMC-SW <BMC-SW@aspeedtech.com>,
+ "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
- <20251027061240.3427875-2-ryan_chen@aspeedtech.com>
- <59d4d107-4f35-4906-8524-f45b9b85f0ff@kernel.org>
- <0b9abd87b877595c13011a3d8b4e80e05488effc.camel@codeconstruct.com.au>
+ <20251027061240.3427875-3-ryan_chen@aspeedtech.com>
+ <93a2ff5f-2f8e-494b-9652-b93bc243c229@kernel.org>
+ <TY2PPF5CB9A1BE6DCA78BEDC3178B74FD75F2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <36e2b87f-5567-4bd6-bd1b-789623441461@kernel.org>
+ <TY2PPF5CB9A1BE62BD449193B23A22DF941F2FBA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +117,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <0b9abd87b877595c13011a3d8b4e80e05488effc.camel@codeconstruct.com.au>
+In-Reply-To: <TY2PPF5CB9A1BE62BD449193B23A22DF941F2FBA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_230456_572768_AFECEBE5 
-X-CRM114-Status: GOOD (  21.08  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,84 +134,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2025 07:04, Jeremy Kerr wrote:
-> Hi Kyzysztof,
-> 
->>> +++ b/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
->>> @@ -0,0 +1,66 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/i2c/ast2600-i2c.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: ASPEED I2C on the AST26XX SoCs
->>> +
->>> +maintainers:
->>> +  - Ryan Chen <ryan_chen@aspeedtech.com>
->>> +
->>> +allOf:
->>> +  - $ref: /schemas/i2c/i2c-controller.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - aspeed,ast2600-i2c-bus
->>> +
->>> +  reg:
->>> +    minItems: 1
+On 30/10/2025 02:48, Ryan Chen wrote:
+>> Subject: Re: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add global-regs
+>> and transfer-mode properties
 >>
->> <form letter>
->> This is a friendly reminder during the review process.
+>> On 29/10/2025 10:25, Ryan Chen wrote:
+>>>> Subject: Re: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+>>>> global-regs and transfer-mode properties
+>>>>
+>>>> On 27/10/2025 07:12, Ryan Chen wrote:
+>>>>> The AST2600 I2C controller supports three transfer modes: byte,
+>>>>> buffer, and DMA. To allow board designers and firmware to explicitly
+>>>>> select the preferred transfer mode for each controller instance.
+>>>>> "aspeed,transfer-mode" to allow device tree to specify the desired
+>>>>> transfer method used by each I2C controller instance.
+>>>>>
+>>>>> And AST2600 i2c controller have two register mode, one is legacy
+>>>>> register layout which is mix controller/target register control
+>>>>> together, another is new mode which is separate controller/target
+>>>>> register control.
+>>>>>
+>>>>
+>>>> This implies your "reg" properties have now completely different
+>>>> meaning and this would be quite an ABI break. We discussed this probably
+>> 15 revisions ago.
+>>>> Where did you document the resolution of that discussion?
+>>>
+>>> Let me explain more about "reg"
+>>> The 'reg' property continues to describe the same register regions
+>>> (bus and buffer) as in the legacy layout. The selection between the
+>>> legacy and new register layout is controlled by a bit in the SoC-level
+>>> global register block, referenced through the new 'aspeed,global-regs'
+>> property.
+>>> Therefore, the meaning of the 'reg' property does not change and no DT
+>>> ABI break occurs.
+>>>
+>>> Should I add it in commit message about "reg" ?
 >>
->> It seems my or other reviewer's previous comments were not fully
->> addressed. Maybe the feedback got lost between the quotes, maybe you
->> just forgot to apply it. Please go back to the previous discussion
->> and
->> either implement all requested changes or keep discussing them.
+>> Then why does the address change from 0x40 to 0x80. If it is the same, it
+>> cannot change.
 >>
->> Thank you.
->> </form letter>
->>
->>> +    items:
->>> +      - description: address offset and range of bus
->>> +      - description: address offset and range of bus buffer
->>> +
->>> +  interrupts:
->>> +    maxItems: 1
->>> +
->>> +  clocks:
->>> +    maxItems: 1
->>
->> Nothing improved
+>> You are describing the IO address space, total address space, as defined by
+>> datasheet. Not whatever is in the driver.
 > 
-> That was mostly the point - this first patch just splits out the 2600
-> definitions to the new file, with zero change.
+> Thanks for pointing that out.
 > 
-> That means the *actual* changes to the binding are visible via the diff
-> in 2/4, and not hidden by the copy.
-> 
-> This was mentioned on v20, and you replied saying it was irrelevant to
-> the separate discussion around the rationale for the change, but didn't
-> object to the split-patches approach.
-> 
-> If your preference is to *not* do this via a verbatim copy as an initial
-> step (and essentially squash with 2/4), that's also fine, but I'm sure
-> that knowing your preference would help Ryan out here.
+> But to clarify: the address change from 0x40 to 0x80 in the example is not
+> arbitrary. It comes directly from the AST2600 SoC datasheet, where the
 
+How so? Binding has an example for ast2600 with address 0x40. You now
+claim the change is to adjust to ast2600. But it is ALREADY ast2600!
 
-The next patch did not correct issues copied from old binding, so above
-arguments are not applicable.
-
-I did not ask to merge the patches. I asked not to create WRONG schema
-when copying to the new file. This split should not be a verbatim copy,
-because we do not create intentionally buggy code which we are going to
-fix immediately. Also it does not make sense to make verbatim copy of
-ast2500 stuff, since new file is ONLY ast2600.
-
-That copy should include all necessary changes needed to make new
-binding correct. I already pointed out this and this was not fixed -
-neither here nor in a following commit (which I would still ask to squash).
 
 Best regards,
 Krzysztof
