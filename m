@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCEDCCF9F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734FECCFA1C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PqAWQNWhGnHhTAxLmW+sD/qtX27YAU5jJlF0j8MfcF8=; b=nh9e4hKzM5wpKdZjKge3VS5pra
-	phv8M+BMEFkhlXG/hq1aevx082oe7zaC5bJCegrNwQZDzPkrNYiqrjxlNam3u8ghTF3/6W767dgy6
-	Je+s7I8lV2sVL2Rw2m517Q/4s2f1bRC7YUAAVJXKYFoh8xyfHkwQCv90ra16u5zl1PxnG4KNLjSus
-	lgKI4o45lgXPI8U+VvFly5eH+A59c4TNV+oiZXZUX0QDMwNY75adOPGT3j3zWLfqyHFL88x3p+lB5
-	AFpKsa5+7tXIfYRgj+dSeZDgEb1U6oNJkypBCac3qc9SaYFULGSseF1gLyhBvtrAfuPSOriFs9rk/
-	jMpdZCKg==;
+	bh=ovIkvHM6847wo9tX833Q4mBlvReVw0sMc3IJl26yjj8=; b=LY+AclKfvo9DFrk1I6liJcJveE
+	2WItg21a9MccKaS85SycgCD3kpO4N/Un3bayEXm6CfmkKHZxlc5BWR0OTychu1oYsg7b15KIbe+pU
+	WdI8y3MVdIqm1EiyVHxsnwaCXmMtyx5NQqlSwkkqYjcksoIewWSHz7A4J5KZUJvD+Ir1354wuCIHQ
+	eM+CioBVF+CawXg17OBt4ye+AVadMhqrVtaanBaqv20QQWiBN+/xmupAwUocrAVkB4ku6EqEh/an/
+	+rNNDSWn480VvHS5wAg66g3/xOzGU0+mluZu0hzLa5aO/mQbrzEXKGkRJAQpFSsMhnONLsUGUN7/X
+	G2FkLWXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGa6L-0000000DPbf-1bc3;
-	Wed, 05 Nov 2025 09:46:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGa6K-0000000DPau-1DMs;
+	Wed, 05 Nov 2025 09:46:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGa6J-0000000DPZw-0Hni;
-	Wed, 05 Nov 2025 09:46:47 +0000
+	id 1vGa6I-0000000DPZT-2thI;
+	Wed, 05 Nov 2025 09:46:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26B8060225;
-	Wed,  5 Nov 2025 09:46:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B21D4C19421;
+	by tor.source.kernel.org (Postfix) with ESMTP id CB4146021D;
+	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 73C67C4CEFB;
 	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762336005;
-	bh=bR/dJ1W1oedY8nMUkn3wXTEnnnKlSOlK+osXYyo7NIo=;
+	bh=1PRYLpOD36+osgL6UNYLPpQ+cRE+N+trAv+XBTq1YhM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bgdP4HxlQLYR+a3xo+pzZqlMPDrJ+pYv5l6JkDj2A1Lw6FeXRZqCkVZfPhs5Jg8mi
-	 eky7l0xuEO6NtcYMt9/gHxfJF/gu0zpX0PbfBFnDP3qDpUy/qyPpGxY7Tz1KA9KRGN
-	 IGW7epwrujMitPTDdr9lbH1PYt1+U99p/WtH4DhPWggQi7CV1L49ZqktrdGECgid81
-	 iRp7nitBovz/pJNQfIdVdjroSHHhXRuhVtK+kqhH9Neg7pfei9F8AbWTceZoQKIZxV
-	 VmETRvgUucvYlbOCaGa1gis6voqFLGn6Phlq4FOAz20ziWR+rqHiJqmEFQp0MMG0bd
-	 kxqPRHuyqJZqg==
+	b=OxXl4s77+zDQisoebp8e1hNBq1I7htPStHvsBtuAxiJpwbv837n1OQgOEmlQIJT+/
+	 VfhxA7SgJdCiO0ryFOnlMUis7PD4CQyalwn0QOiwRQxKR7V8sJetPjSKB/xrIDMIeN
+	 uHTopbvBAIg2q8pdab/GCs9jlRvbXtOwC3/KdowakHcspAZ5MoD0hT/KinyqDs5P/D
+	 8BPeUao1fPf5gcIEoDn7Iwr/R4ALJsXp+OaKNr7KUwNsCWrgmh0mBZL9el7OFRwKO1
+	 Pc5FeI3nblEwQnM2iC8Kp0bXH+6dL3vadlLoC+1yXvNUJMXkwsYlHjhyGkGd4V6WnD
+	 PXoup1kybFQhw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A9778CCF9F8;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67673CCFA07;
 	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 05 Nov 2025 17:45:34 +0800
-Subject: [PATCH 3/5] arm64: dts: Add gpio_intc node for Amlogic S6 SoCs
+Date: Wed, 05 Nov 2025 17:45:32 +0800
+Subject: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
+ Amlogic S6 S7 and S7D SoCs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251105-irqchip-gpio-s6-s7-s7d-v1-3-b4d1fe4781c1@amlogic.com>
+Message-Id: <20251105-irqchip-gpio-s6-s7-s7d-v1-1-b4d1fe4781c1@amlogic.com>
 References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
 In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
@@ -64,11 +65,11 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762336003; l=916;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762336003; l=1048;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=oWh7wvbC9VgUKpiFroFm8xAgEe2wFf5o1v5W8FxUUPA=;
- b=QBpdhMRZhusJtyBrfbf8YB99VZxECB/uM95mLRKI2xqDeHFlAVga5ul9RMsQNWaQN9xRopQK4
- PLK1yDsXhqkCyoU1yG7yrpBQ3QLQy0Y4hEr/LyOYRdztI3X6WY49f44
+ bh=P95W9L3DXzWgmu3DvSM7acqbbjZPHAZ7SEai9ZgGXgQ=;
+ b=doXrU4qLxxUcLZ0b6f1xAhEm7WtM6bSso8PEa2qebHzTzMiW3Kg8zad34VDAJ8Dwf/WOBVLNL
+ /JIc9w2Zx37Dryj3gC3Fn+cEr/2OybhlhCA12VvedXLC4n5i9UeThmB
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
@@ -91,34 +92,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Add GPIO interrupt controller device.
+Update dt-binding document for GPIO interrupt controller
+of Amlogic S6 S7 and S7D SoCs.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml         | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-index 0dca64a2ef9e..3ee1b563a34a 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-@@ -199,6 +199,16 @@ gpiocc: gpio@300 {
- 					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
- 				};
- 			};
-+
-+			gpio_intc: interrupt-controller@4080 {
-+				compatible = "amlogic,s6-gpio-intc",
-+					     "amlogic,meson-gpio-intc";
-+				reg = <0x0 0x4080 0x0 0x20>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				amlogic,channel-interrupts =
-+					<10 11 12 13 14 15 16 17 18 19 20 21>;
-+			};
- 		};
- 	};
- };
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
+index 3d60d9e9e208..d0fad930de9d 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
+@@ -39,6 +39,9 @@ properties:
+               - amlogic,a4-gpio-ao-intc
+               - amlogic,a5-gpio-intc
+               - amlogic,c3-gpio-intc
++              - amlogic,s6-gpio-intc
++              - amlogic,s7-gpio-intc
++              - amlogic,s7d-gpio-intc
+               - amlogic,t7-gpio-intc
+           - const: amlogic,meson-gpio-intc
+ 
 
 -- 
 2.37.1
