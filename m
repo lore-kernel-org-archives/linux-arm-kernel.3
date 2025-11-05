@@ -4,55 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C46ACCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 19:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDEBFCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 19:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RPd5s07Wz1T5kgRM9kUsjgiX0HrnPwVC/4KrAzB1vt4=; b=p91QDSuuA36deQYEEaSqxHtMd4
-	lBbxBE8HbWtr8YjtxOxbujEIj5r5DHpDmot7EBIZhaSuNsfXxrTqA+J7Fflgp2/8qbRoCqUnM0FX4
-	OD9Yq7h8d9Besa7AeaMn2wgREw37F2DpJVZijN84nXGCwN7xqDpVgdZ1cON7AevwbjNfbArVEkzrv
-	G6y+cSa6XjHUR1ewE/OtGk0ko4Ac5k59GnIwuVZ2tD1XgrK0nUSiFxwV79NsxHkFoFU7XLs2xbglt
-	KPM1Vm2M2TOK+OWT06yuqit0HE0k4KDQzhCG0nEL3U2xj6nN65CHnh+AEV1wa8DQjKzde9kAtV9gP
-	X9kdbpmw==;
+	bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=; b=2DNAsnkw0RGlcGQSBwPFGldmeq
+	sszb7lUq8x/M8qe/Vyn56A2XVJeKTL5Bj+UH4xPGiofAG+08ysl7xzw1HkAoF8+0CPjhO7AX/sT59
+	PBKLzJ9VsuZZxol1pmoQJ5Sd+CboUm5SsysV75b0656SsmL1D4lJZWPlO3HEc7I3IODsELsGwCafW
+	CQ/UjHE2T7EHashQ2vvbCbVP+y8Y69LK8UkUKzmCfqdGE13ONYHTliH+AJjdBb7Sr98REAiH/UPZD
+	QdU6RqjIjOFSknTAbWMrAFjAo+fWcffyy6qjLqY7lJlHjFo2IdNoDv1BPozYuuzgpnfnqMLCpV72u
+	7vzzsmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGizw-0000000EIMh-06EK;
-	Wed, 05 Nov 2025 19:16:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGjE8-0000000EIu2-1a7a;
+	Wed, 05 Nov 2025 19:31:28 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGizu-0000000EIMZ-3eIg
+	id 1vGjE4-0000000EItW-3F3f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 19:16:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E43EB60229;
-	Wed,  5 Nov 2025 19:16:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3EF9C116B1;
-	Wed,  5 Nov 2025 19:16:44 +0000 (UTC)
-Date: Wed, 5 Nov 2025 19:16:42 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <aQuimp4CRywdy97S@arm.com>
-References: <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQoyPox1DjlBT32O@arm.com>
- <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
- <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
- <aQtufeFU-PAE6YDk@arm.com>
- <8f7997f5-fdb3-443b-90be-3c68d796b416@paulmck-laptop>
- <aQuGR1fx2qBrJSA-@arm.com>
- <8ef2390c-e805-4b8c-8417-88a6762f9a54@paulmck-laptop>
-MIME-Version: 1.0
+	Wed, 05 Nov 2025 19:31:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GAJXdKXRU5B7dGpzNv6Dfnre7E50tZL3Jma8QK0hfXkoR5I+z9ef6s3oXqqwqItskfiCu/pBxKE2NaPisebhQ4EMhQkq9GSYaDGUNXtBqUR1GZIP9kBxVuzjgZLd8Yj6KuaZjSZYd4Sf7fHXGT12JqLVOSsl7cfvLFCN4JguRkuBPIT0IJCPN0abZQbq+/aOf8D13IkaZFsijAXGTzibNRn6BsxEhi0HWPQ/BJRKgUty6wWidcjeflNrUZH0ch0SFmLJoGzeZafsQQfcr0GzmCaA54rA2P6Hxa31DXYb5v4g8y53EXgAp3L+h3flv0PszXg4nL/6l5AspzEPSbdfrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=;
+ b=h1xjbPYWyO6wbqkSZBj5DX9DO+dcwmxVaaA17FV5uZamhoJzFQJooXEWBVFZsdsyPysv47Z5PxFQ3b6kIz7VuRDqNDY3y1haTtGFfoCd52Gm7V8pGAvPBQfTCdQpNuH8Tr3c1p+sYwHUgPHRD6a/40Vh/bkxAjnhfytvzSGYpbZpg+q2yziRaMdURa/cwQq+GMxsWPSd8r4amk2qJ7tOmFWopto1sMR32oqlwt9nH2MCO+lAE+Awb2BhllcalsAWucGghG5TguqBGU+dj6EkT84HqeyGTK+Cm2RTELI6lZmBgUoirDlUUIL/CDF7NSsoKUpxOna9vf2SjaogLgbtfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=;
+ b=CWLCUZ1wgowmLMn0wZRZ3Mbmuy47OArdBrDhKH310/gl5ABpAZfveJHlFAkMiCPZT129y1Sz1plb/Pb6H3esf38O6gnng8Uf+WlJH4KaW9ec0toIHQd5b8qPbNQOor/ZnaPYW2XG2qRurOYVA9WkpG7YmLELikS6YaNuGJ760XKOynxHtAm6WsOGjUQduqaG1T8Icej4zgc9lHFKN1mHpJHHmfJThn8wt7xdeXxAYpiGYj9hH9G7LaYKEacIH0u/fVbMK7A9mOx/ZoXsUp98ffeVqcHAQrRq1BFMSBa2zirbbdp7ZAgxvqayyo/ubBwIhS8BqdL7aKCBNkbhlZ8HXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PA1PR04MB10097.eurprd04.prod.outlook.com (2603:10a6:102:459::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Wed, 5 Nov
+ 2025 19:31:19 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
+ 19:31:19 +0000
+Date: Wed, 5 Nov 2025 14:31:09 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Sakari Ailus <sakari.ailus@iki.fi>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>
+Subject: Re: [PATCH v4 0/5] media: imx8qxp: add parallel camera support
+Message-ID: <aQul/VGG8e3MJxhx@lizhi-Precision-Tower-5810>
+References: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
+ <20250805010822.GC24627@pendragon.ideasonboard.com>
+ <aLbcpEZXm5G1Onq7@lizhi-Precision-Tower-5810>
+ <20250902123920.GM13448@pendragon.ideasonboard.com>
+ <aLhJDXnz9HPGrWcp@lizhi-Precision-Tower-5810>
+ <aQuDSROHLGHIhtlh@lizhi-Precision-Tower-5810>
+ <20251105171928.GB6046@pendragon.ideasonboard.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8ef2390c-e805-4b8c-8417-88a6762f9a54@paulmck-laptop>
+In-Reply-To: <20251105171928.GB6046@pendragon.ideasonboard.com>
+X-ClientProxiedBy: PH8P221CA0021.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::22) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA1PR04MB10097:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6cd4fe40-c09f-4ab5-6fe3-08de1ca1e52c
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|366016|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6GPV2vqlJ3Q/dl6fUW7VnOdNkFsH87e63Q5ofh/BlpdfPUXOMG9xrPcstsak?=
+ =?us-ascii?Q?2y7yujhcWm6OQvaT15ZBNKt56xNRsT/HHauWon5EiqYDlaLJIL3Y1K/Zptaa?=
+ =?us-ascii?Q?YQoEsBppyKkRD7jTrnxAswF3X+Ml+GlIHNCu1KolLNRR4p2VsBpRn57z8Hv0?=
+ =?us-ascii?Q?RWVWG9+KosN++Hm/Z4yQc9w8dA8N5pdFUHZbPVnC8Ae1Vo9gtLgFMjvI68gl?=
+ =?us-ascii?Q?eXSR9Z686N0Xb9hSVOOBrBbfZ7XVSTEjSTdRl/kqtvaEFXNKS4xVFRM3AVhN?=
+ =?us-ascii?Q?eqZWL2SM8AxGxpXxlvSpjlZlW++hTfEU5DwaoHrPoYLjyl84AL145UzuDRau?=
+ =?us-ascii?Q?+/ZtgDS+kkQovlCPOKfHjZf3xMOCg2Gq2R/CxjdS9DiYPq6GpSs5CnXk7AIr?=
+ =?us-ascii?Q?vl0ON0FizQrr+KCtaIA7PPXYqLq3ex4PgUy8urdIoNoWVb1yUCuohxv2UGp4?=
+ =?us-ascii?Q?8S5lGISg+yKSRzcnbzxU3mbLd9P/wr373vPmVIhkmH7SejfXRZJa4YYDORpG?=
+ =?us-ascii?Q?baFKZZuj/679OqbseBEYwj94yqfrZJF8xuYgQG7HGQkIx4otXtuqxqVb+gWA?=
+ =?us-ascii?Q?UPQRmJWgewCX4y6CYEgjfMIlZfVAnkRErkFcYVT9NZdVbtKn4KTej9lDS4JM?=
+ =?us-ascii?Q?CDhTjhEdnzG/+diaqRS79Y2wp6cb5A3QxEVe8HM/phe4RpYDfXbZxdTKlkFP?=
+ =?us-ascii?Q?Wkdi/o/Tyd/pJbej85xu9zZKI7FyupMQliRqOYnCPUaZI5fw5qQCLcJ2sOTF?=
+ =?us-ascii?Q?udxX7SUulbTWEnIvewCR7ukUDS3dECVrpLq7o2a57d+tnfQILKjzLpkQR8QB?=
+ =?us-ascii?Q?ENtDl0C4Cb3NfQG+vzuY64zoNHAmJNH53ajnmTGhdxcfKLLyJD4iX7sO2PHC?=
+ =?us-ascii?Q?SclYWoB53dDM+CUF/Ki7QONRWL8yJI2v5aCv1ZnuVdgr+pY3FEbxhVinPlIK?=
+ =?us-ascii?Q?pU45aWJHesmXGLqOyJ713RWwye+G8TuADxdkIOGDyteZ9E6rZQWG+i2/fR9u?=
+ =?us-ascii?Q?fTtcS4cyyBjyB6HdtI/42mEygieLUNatihRWxsXi4v+95TFCC1SbsnHxurBB?=
+ =?us-ascii?Q?S8LhbuXGaHz30L7wNcQj3OGq+1I6+WXhvLlina11UdGbZd0xbqct8P6h4joV?=
+ =?us-ascii?Q?HbYGyDM+uWLVbYIqglNbpJAbqKrO+WZ8Bws3yZVwn/sJuYdoIxT7B2XDMwB4?=
+ =?us-ascii?Q?jbseS7ZhZtLHS8CIB/aDUsrsFTD2OfzMHORy/AYenbyxPV9UZ5aBhs7+tkNr?=
+ =?us-ascii?Q?A9627RwQmLsL42+EYkIWnPlh4A/iFjZpJxpStAP8Q3yxMcIbRduDwmSPx9T9?=
+ =?us-ascii?Q?D+sE8c92rHh0VUC7JFbniuDqGfl/yBRPZIAgR3WYZvjUvoSjZd8CCJB/pue5?=
+ =?us-ascii?Q?LHq8dzM4+QfroHbcMGNqH6R1kOy+73F19kjxNhuOMBHp8UqlDgX8jcR0L3fZ?=
+ =?us-ascii?Q?xpWkQ7jUepWzKvU+yBrv10r+KRaKU2Ku1eOHmJSZdkZvVHZ+qXGVtHO8+Wt5?=
+ =?us-ascii?Q?VTHk+H32B6dtQAciYdSEEpPuFxSeU8B5/qjW?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L10hJcAPQQVrbpqwjrJmjHff9fwTHMvo3/sU525DcIolm7ESBWvRaZl08CCy?=
+ =?us-ascii?Q?2DA5ka8X/rhw2BHHW1zECDRym10XOtENd7Ajsh3G/P8xORF9rW8T7+W9qBae?=
+ =?us-ascii?Q?X3wQ25QvIlpAqEMkB5fXwjEL3X0WFTEIYCqgKr3IFTfUtAFoWgdKRdUv5uAu?=
+ =?us-ascii?Q?tJET8S1KBlw9RxPKdaDIbrlnqRNeFciH+S3YN3NCypZznVH1sbKWu3DtTGx4?=
+ =?us-ascii?Q?+mHfITtS+ML2GQbsNt7qeAXRqRboSuphLBkhbU84KSp9lngJeB7OGKH4hePy?=
+ =?us-ascii?Q?JGvwcIPXTMsmu7zvDV6/DF9M8Xse9Pc3o4lTyL6yH8yPQwZ1yvHBnqLLwilc?=
+ =?us-ascii?Q?ygLVwnfUnHOYoWjbrcBSIGSUyQx/t7AxWLC4YFy6vxapBYsMdP9eGz6bLWQL?=
+ =?us-ascii?Q?wrGAoodTI9QW4e2r8NLDyGrl9k4mD9jqbPJXHjRazIfJ9FKyWbZdhL5Rabt4?=
+ =?us-ascii?Q?wjLtx/mNrpx2BwTzr5cSVaKws8NXR095lVL739PiGVSnU53+Cga6+2CVT7c0?=
+ =?us-ascii?Q?XhBzuTDYS4diKu8fD4XoloUsDfrBBW8BvZbPqAHKiEUO/VNuxIXNGA1jPMfD?=
+ =?us-ascii?Q?iQE40GzsJKMmC7C2uOCrK78KLdXdYfCIMMD3rDGoqz1jl9+vtFgf17OwFYAN?=
+ =?us-ascii?Q?yFYuLvL2aFPSgN0E6q5D7iI9+K/EC1w11T0qbSbl5m52+5BbAAbeXTHwpTtC?=
+ =?us-ascii?Q?k+DfKRF0PjSsVQA8t4n6hwKlTB5I+svsPCcxrUiqFNeyC5invSWg9a8jKDt9?=
+ =?us-ascii?Q?jcm+DNkxjVdpPeFyc7ffppq1UsbhNa6aIojiBnhHuKY9cItCno7hiLhOGYX+?=
+ =?us-ascii?Q?FLK2KEWFH9m4vjYZ/s8Bb6weugUtfJTG3BoUs1RunwkSB+lAvO8VDVrRZjuH?=
+ =?us-ascii?Q?LVnOFhWntjErNnWzUpYOHs2tzqpWA2aKHF1BIT92fW43t0TWsv1XP4sVyAyV?=
+ =?us-ascii?Q?9NaZoY2uhny7hUusevWLKQsUBhfLDmUUTIbOPox3lXw35SSyR0xoW4WTZVUX?=
+ =?us-ascii?Q?JUbIyqKxExfwPQdr0GYwVweUZgybSS2wJSvg+j/asH8H96PYjPpu6PgvOmOr?=
+ =?us-ascii?Q?ZfZ8zaaOpvlnCoqPRWJBtYMcab4iJlKZNCrm+ETYThCm5ubObW5UsCLo36mJ?=
+ =?us-ascii?Q?dnoi5DL3QT/dzbE+MFrBz5qFWpgKfTNN0cu0Fz+Ubt6w422Ojb2YnRwRtrf1?=
+ =?us-ascii?Q?RWmjXTisxtDJHBH9k2wedx3OK2ExsSnmIQPU/aUR26gH36sAnThiT2KazAeW?=
+ =?us-ascii?Q?SZYvzls8NSXpQTBgJe1bDOXr//mF3zHvcqSS85L7jBVaVqRjenHmCfkaJzUn?=
+ =?us-ascii?Q?9BRlBMyzw3ms6Cq1ahFDtNnp0z+6CpqSnhxYgifm8wEQYgeSRgqb6c5V4iVh?=
+ =?us-ascii?Q?g1jZ+Tx/Aqu44RtV3KTPqMn+7/HBxiLJxiWHezhbkGyNQhMq48TuBbDEz5xN?=
+ =?us-ascii?Q?kyMSFJi1Ey5R/oZUkHctL7huabtaDmOvAqEaMuTFoflccXLIoNrkWdfR8x2C?=
+ =?us-ascii?Q?cvV7n2ZAeZSi6/dcW3Z/Yii7LJsN4ntyZwx0/AoRaSvc7wAnXrdwlL91KjZc?=
+ =?us-ascii?Q?ooaCg1ENjvptf9G/7YHhYO7uIcv8NslVxB0R6b53?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6cd4fe40-c09f-4ab5-6fe3-08de1ca1e52c
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 19:31:19.5405
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u23yVicpBzUwi607GWCvkLYOE6gKNCt3mDcG570r52/E605ZZ03J2iwP8aRynYytaufevmedXAWbmuPBWBuSsA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10097
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_113125_008887_360F111F 
+X-CRM114-Status: GOOD (  43.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,74 +183,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 09:40:32AM -0800, Paul E. McKenney wrote:
-> On Wed, Nov 05, 2025 at 05:15:51PM +0000, Catalin Marinas wrote:
-> > On Wed, Nov 05, 2025 at 08:25:51AM -0800, Paul E. McKenney wrote:
-> > > On Wed, Nov 05, 2025 at 03:34:21PM +0000, Catalin Marinas wrote:
-> > > > Given that this_cpu_*() are meant for the local CPU, there's less risk
-> > > > of cache line bouncing between CPUs, so I'm happy to change them to
-> > > > either use PRFM or LDADD (I think I prefer the latter). This would not
-> > > > be a generic change for the other atomics, only the per-CPU ones.
-> > > 
-> > > I have easy access to only the one type of ARM system, and of course
-> > > the choice must be driven by a wide range of systems.  But yes, it
-> > > would be much better if we can just use this_cpu_inc().  I will use the
-> > > non-atomics protected by interrupt disabling in the meantime, but look
-> > > forward to being able to switch back.
-> > 
-> > BTW, did you find a problem with this_cpu_inc() in normal use with SRCU
-> > or just in a microbenchmark hammering them? From what I understand from
-> > the hardware folk, doing STADD in a loop saturates some queues in the
-> > interconnect and slows down eventually. In normal use, it's just a
-> > posted operation not affecting the subsequent instructions (or at least
-> > that's the theory).
-> 
-> Only in a microbenchmark, and Breno did not find any issues in larger
-> benchmarks, so good to hear!
-> 
-> Now, some non-arm64 systems deal with it just fine, but perhaps I owe
-> everyone an apology for the firedrill.
+On Wed, Nov 05, 2025 at 07:19:28PM +0200, Laurent Pinchart wrote:
+> Hi Frank,
+>
+> On Wed, Nov 05, 2025 at 12:03:05PM -0500, Frank Li wrote:
+> > On Wed, Sep 03, 2025 at 09:56:29AM -0400, Frank Li wrote:
+> > > On Tue, Sep 02, 2025 at 02:39:20PM +0200, Laurent Pinchart wrote:
+> > > > On Tue, Sep 02, 2025 at 08:01:40AM -0400, Frank Li wrote:
+> > > > > On Tue, Aug 05, 2025 at 04:08:22AM +0300, Laurent Pinchart wrote:
+> > > > > > Hi Frank,
+> > > > > >
+> > > > > > Thank you for the patches.
+> > > > > >
+> > > > > > I've quite busy these days, and I don't believe I will have time to
+> > > > > > review this series before coming back from OSS Europe at the beginning
+> > > > > > of September. Let's see if anyone on CC could volunteer.
+> > > > >
+> > > > > Laurent Pincha
+> > > > > 	I hope you have good time at OSS.
+> > > > >
+> > > > > 	Do you have chance to review this patch?
+> > > >
+> > > > I'm going through my mail backlog, which is really big at the moment.
+> > >
+> > > Understand.
+> > >
+> > > > I'd like someone else to volunteer to review this series. It won't scale
+> > > > if I have to review all NXP media patches in my spare time :-/
+> > >
+> > > Yes, but none volunteer review this in passed months. Expecially key
+> > > reviewer. I am reviewing i3c patches. but Not familiar v4l system yet. It
+> > > need scalable solution. I can help filter some common and simple problem
+> > > from beginning.
+> >
+> > Laurent Pinchart:
+> >
+> > 	Do you have chance to check this serise? this one should be related simple.
+> > 	This one sent at 7/29. Still not any volunteer to review it.
+>
+> I'm afraid I won't have time to review this for the time being. My spare
+> time is already exhausted by all the other drivers I maintain upstream.
+>
+> > 	How do we move forward?
+>
+> I think this is a question for the subsystem maintainers. Hans, Mauro ?
 
-That was a useful exercise, I learnt more things about the arm atomics.
+Mauro Carvalho Chehab and Hans Verkuil:
 
-> But let me put it this way...  Would you ack an SRCU patch that resulted
-> in 100ns microbenchmark numbers on arm64 compared to <2ns numbers on
-> other systems?
+	Laurent provided great help about review and land i.MX related
+patches in past, who are quite famillar with i.MX chips. But he is quite
+busy. So the whole reviews cycles takes quite long time and offten cross
+some merge windows.
 
-Only if it's backed by other microbenchmarks showing significant
-improvements ;).
+	In pull requests for 6.19:
+https://lore.kernel.org/all/4989c563-47f4-478c-80c4-41f7e98597e4@kernel.org/
+only 10 patches, and 4 patches is trivial clean up.
 
-I think we should change the percpu atomics, it makes more sense to do
-them near, but I'll keep the others as they are. Planning to post a
-proper patch tomorrow and see if Will NAKs it ;) (I've been in meetings
-all day). Something like below but with more comments and a commit log:
+	In reviewing patch queue, there are
+	1: media: nxp: imx8-isi: Add ISI support for i.MX95
+	   https://lore.kernel.org/imx/20251105-isi_imx95-v3-0-3987533cca1c@nxp.com/T/#t
+	   This one already review, but I am not sure if it capture 6.19 cycle because
+PULL-request already sent.
 
-------------------------8<--------------------------
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 9abcc8ef3087..d4dff4b0cf50 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -77,7 +77,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
- 	"	stxr" #sfx "\t%w[loop], %" #w "[tmp], %[ptr]\n"		\
- 	"	cbnz	%w[loop], 1b",					\
- 	/* LSE atomics */						\
--		#op_lse "\t%" #w "[val], %[ptr]\n"			\
-+		#op_lse "\t%" #w "[val], %" #w "[tmp], %[ptr]\n"	\
- 		__nops(3))						\
- 	: [loop] "=&r" (loop), [tmp] "=&r" (tmp),			\
- 	  [ptr] "+Q"(*(u##sz *)ptr)					\
-@@ -124,9 +124,9 @@ PERCPU_RW_OPS(8)
- PERCPU_RW_OPS(16)
- PERCPU_RW_OPS(32)
- PERCPU_RW_OPS(64)
--PERCPU_OP(add, add, stadd)
--PERCPU_OP(andnot, bic, stclr)
--PERCPU_OP(or, orr, stset)
-+PERCPU_OP(add, add, ldadd)
-+PERCPU_OP(andnot, bic, ldclr)
-+PERCPU_OP(or, orr, ldset)
- PERCPU_RET_OP(add, add, ldadd)
- 
- #undef PERCPU_RW_OPS
+	2: Add MIPI CSI-2 support for i.MX8ULP
+	   https://lore.kernel.org/imx/20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com/
 
+	3: media: add imx93 mipi/controller csi support
+	   https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
+	   This one is quite big, but first 10 patches is simple trivial cleanup patches.
+	   I post at 8/27, but get first feedback around 10/27, I am not
+	   sure if missing somethings.
+
+	4: This series, laurent already said no time review it.
+
+	5: ap1302 sensor patches
+           https://lore.kernel.org/imx/20250811-ap1302-v4-0-80cc41b91662@nxp.com/
+           binding already ACK, most maintainer want to pick binding with
+	   driver together, but not an feedback since 8/11.
+
+	I jump into and help do some review.
+
+	The questions is how to move forward pending patches, like [3], [4],
+[5]. How to keep good community channel to avoid long time pending?
+
+Best regards
+Frank Li
+
+>
+> > > > > > On Tue, Jul 29, 2025 at 12:06:21PM -0400, Frank Li wrote:
+> > > > > > > Add parallel camera support for i.MX8 chips.
+> > > > > > >
+> > > > > > > The below patch to add new format support to test ov5640 sensor
+> > > > > > >    media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
+> > > > > > >
+> > > > > > > The bindings and driver for parallel CSI
+> > > > > > >    dt-bindings: media: add i.MX parallel csi support
+> > > > > > >    media: nxp: add V4L2 subdev driver for parallel CSI
+> > > > > > >
+> > > > > > > DTS part need depend on previous MIPI CSI patches.
+> > > > > > >   https://lore.kernel.org/imx/20250522-8qxp_camera-v5-13-d4be869fdb7e@nxp.com/
+> > > > > > >
+> > > > > > >   arm64: dts: imx8: add parellel csi nodes
+> > > > > > >   arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
+> > > > > > >
+> > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > > > > ---
+> > > > > > > Changes in v4:
+> > > > > > > - remove imx93 driver support since have not camera sensor module to do test now.
+> > > > > > >   Add it later
+> > > > > > > - Add new patch
+> > > > > > >   media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
+> > > > > > > - See each patche's change log for detail.
+> > > > > > > - Link to v3: https://lore.kernel.org/r/20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com
+> > > > > > >
+> > > > > > > Changes in v3:
+> > > > > > > - replace CSI with CPI.
+> > > > > > > - detail change see each patch's change logs
+> > > > > > > - Link to v2: https://lore.kernel.org/r/20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com
+> > > > > > >
+> > > > > > > Changes in v2:
+> > > > > > > - remove patch media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
+> > > > > > >   because pcif controller convert 2x8 to 1x16 to match isi's input
+> > > > > > > - rename comaptible string to fsl,imx8qxp-pcif
+> > > > > > > - See each patches's change log for detail
+> > > > > > > - Link to v1: https://lore.kernel.org/r/20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com
+> > > > > > >
+> > > > > > > ---
+> > > > > > > Alice Yuan (2):
+> > > > > > >       dt-bindings: media: add i.MX parallel CPI support
+> > > > > > >       media: nxp: add V4L2 subdev driver for camera parallel interface (CPI)
+> > > > > > >
+> > > > > > > Frank Li (3):
+> > > > > > >       media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
+> > > > > > >       arm64: dts: imx8: add camera parallel interface (CPI) node
+> > > > > > >       arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
+> > > > > > >
+> > > > > > >  .../devicetree/bindings/media/fsl,imx93-pcif.yaml  | 126 ++++
+> > > > > > >  MAINTAINERS                                        |   2 +
+> > > > > > >  arch/arm64/boot/dts/freescale/Makefile             |   3 +
+> > > > > > >  arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     |  13 +
+> > > > > > >  .../boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso |  83 +++
+> > > > > > >  arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  27 +
+> > > > > > >  drivers/media/platform/nxp/Kconfig                 |  11 +
+> > > > > > >  drivers/media/platform/nxp/Makefile                |   1 +
+> > > > > > >  drivers/media/platform/nxp/imx-parallel-cpi.c      | 728 +++++++++++++++++++++
+> > > > > > >  include/media/v4l2-common.h                        |  30 +
+> > > > > > >  10 files changed, 1024 insertions(+)
+> > > > > > > ---
+> > > > > > > base-commit: 37a294c6211bea9deb14bedd2dcce498935cbd4e
+> > > > > > > change-id: 20250626-imx8qxp_pcam-d851238343c3
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
