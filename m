@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1B6CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0410CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgGkJK8urkV5BKmkEpKgY7K9OEqhdPx8pU/+DhLEhuQ=; b=30HD5Mnp6bJ6fTEOFBVFjjTTk/
-	ZYlUSEXD6j48E3DrE1ak+EoABoJiK8cw6r4Ad4YEvBMRmiUtURTxfuGP/hgZK8IqV4SWGQ/HFdTKd
-	PJ/m6ZjrG45bClwm8u+/7DlqjliOFy/4sj4D7Xlsi8TBMVUp1B7Y0I39Y4br9wH2ikR+hgi0++ICo
-	5LUqOSqf7RCrO/CbC/SPbpN2n9nO1fJt7f8VFzzlugKX5/blwzFafVA1aAD+xEiVbWa1mrdOaS8vg
-	OpGZVi1Ptdda3GYFFa1bPasI9ES7g9spcKlfOjqOblN85X/CAjmrXS9XPhf+UBnaqt8hDJ14hvsBk
-	AE1QcHdA==;
+	bh=6q42XkUHsZUC66Q6LQSDQRfieqaYzluQXT0NyK6Y8gg=; b=e88X5KVCJCnBiSK0sdfqyJu6Ep
+	SwQxa7AI/r7XBeQ87J0rvy9ptt2kJi+K2a2V/qoaU4NWZgmsoST1GypaPBHvotksNWySDlr9oXs9P
+	4Iw4CsJf5PkSTtxkNNiKUw2n3v3WyRu+x32EW+xuGL/WGyLMDAqFGi/5wThGL3YyDgKXuBm8wdymd
+	ZZjQqFayG4+kGxVKGDx1B/xViwUk8HbiWIHZoKWuTVBuhxbuDdbVN+0G5hc4vNeewSLLjsc+vYuNn
+	tjBAECJvMt/EJNCIHbodUD3nN1Wkb0Hs+z37qckZi/FYICIK6HBU+NZpoGC489M0Qj8rngO2Zh1gH
+	lRzcV5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg9j-0000000E2QY-08vd;
-	Wed, 05 Nov 2025 16:14:43 +0000
+	id 1vGg9r-0000000E2VR-2gDD;
+	Wed, 05 Nov 2025 16:14:51 +0000
 Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg9g-0000000E2OM-0f3U;
-	Wed, 05 Nov 2025 16:14:41 +0000
+	id 1vGg9n-0000000E2Sd-1scH;
+	Wed, 05 Nov 2025 16:14:49 +0000
 Received: from spb1wst022.omp.ru (87.226.253.162) by msexch01.omp.ru
  (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Wed, 5 Nov
- 2025 19:14:31 +0300
+ 2025 19:14:39 +0300
 From: Karina Yankevich <k.yankevich@omp.ru>
 To: Sandy Huang <hjc@rock-chips.com>
 CC: Karina Yankevich <k.yankevich@omp.ru>, =?UTF-8?q?Heiko=20St=C3=BCbner?=
@@ -39,9 +39,9 @@ CC: Karina Yankevich <k.yankevich@omp.ru>, =?UTF-8?q?Heiko=20St=C3=BCbner?=
 	<linux-arm-kernel@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>, Sergey
  Shtylyov <s.shtylyov@omp.ru>
-Subject: [PATCH 1/3] drm/rockchip: vop: avoid overflow of clock rate in vop_crtc_mode_fixup()
-Date: Wed, 5 Nov 2025 19:07:17 +0300
-Message-ID: <20251105160719.2917175-2-k.yankevich@omp.ru>
+Subject: [PATCH 2/3] drm/rockchip: vop: avoid overflow of clock rate in vop_crtc_atomic_enable()
+Date: Wed, 5 Nov 2025 19:07:18 +0300
+Message-ID: <20251105160719.2917175-3-k.yankevich@omp.ru>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251105160719.2917175-1-k.yankevich@omp.ru>
 References: <20251105160719.2917175-1-k.yankevich@omp.ru>
@@ -68,6 +68,8 @@ X-KSE-AntiSpam-Info: {Tracking_black_eng_exceptions}
 X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
 X-KSE-AntiSpam-Info: {relay has no DNS name}
 X-KSE-AntiSpam-Info: {SMTP from is not routable}
+X-KSE-AntiSpam-Info: {Found in DNSBL: 87.226.253.162 in (user)
+ dbl.spamhaus.org}
 X-KSE-AntiSpam-Info: 87.226.253.162:7.1.2;127.0.0.199:7.1.2;spb1wst022.omp.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;omp.ru:7.1.1
 X-KSE-AntiSpam-Info: FromAlignment: s
 X-KSE-AntiSpam-Info: ApMailHostAddress: 87.226.253.162
@@ -87,8 +89,8 @@ X-KSE-Attachment-Filter-Triggered-Rules: Clean
 X-KSE-Attachment-Filter-Triggered-Filters: Clean
 X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_081440_205650_CCCC5B48 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20251105_081448_966505_97229AF2 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,37 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Conversion of clock frequency from kHz to Hz in vop_crtc_mode_fixup()
+Conversion of clock frequency from kHz to Hz in vop_crtc_atomic_enable()
 can lead to integer overflow, since type of drm_display_mode::clock 
 is 'int'. Fix it by using 1000UL multiplier to avoid overflow 
 at least on 64-bit arches.
 
 Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Fixes: b59b8de31497 ("drm/rockchip: return a true clock rate to adjusted_mode")
+Fixes: 2048e3286f34 ("drm: rockchip: Add basic drm driver")
 Signed-off-by: Karina Yankevich <k.yankevich@omp.ru>
 Reviewed-by: Sergey Shtylyov <s.shtylyov@omp.ru>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index ba6b0528d1e5..b1e2ca84c26d 100644
+index b1e2ca84c26d..9a6395db455d 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -1239,10 +1239,10 @@ static bool vop_crtc_mode_fixup(struct drm_crtc *crtc,
- 	 * 4. Store the rounded up rate so that we don't need to worry about
- 	 *    this in the actual clk_set_rate().
- 	 */
--	rate = clk_round_rate(vop->dclk, adjusted_mode->clock * 1000);
-+	rate = clk_round_rate(vop->dclk, adjusted_mode->clock * 1000UL);
- 	if (rate / 1000 != adjusted_mode->clock)
- 		rate = clk_round_rate(vop->dclk,
--				      adjusted_mode->clock * 1000 + 999);
-+				      adjusted_mode->clock * 1000UL + 999);
- 	adjusted_mode->clock = DIV_ROUND_UP(rate, 1000);
+@@ -1473,7 +1473,7 @@ static void vop_crtc_atomic_enable(struct drm_crtc *crtc,
  
- 	return true;
+ 	VOP_REG_SET(vop, intr, line_flag_num[0], vact_end);
+ 
+-	clk_set_rate(vop->dclk, adjusted_mode->clock * 1000);
++	clk_set_rate(vop->dclk, adjusted_mode->clock * 1000UL);
+ 
+ 	VOP_REG_SET(vop, common, standby, 0);
+ 	mutex_unlock(&vop->vop_lock);
 -- 
 2.34.1
 
