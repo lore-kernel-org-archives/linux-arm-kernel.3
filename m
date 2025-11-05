@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6F5CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 01:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B0DCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 02:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Fyfi61jM2svcV8LogP79yM0QO8FIFwLxqSWXYdFojMQ=; b=hMkCP8p7JfBEQRejtV392VDRpC
-	JLA+ThtAi1gRCuITgLyhSeIAQMaM9jfqn6rOhk0VGJG7rTHqndSHpYT7HLC4388BUrkARHoIhPH62
-	SWmrzX/4gRj1ECAEOEt23mNS0ER9kPJzrOQmChEK1/rJnIWfL/RVJCbhh242ETpRFxiBOTBqbXR53
-	O5eFN8LXwFzs33BEkuCcQsI2VycshZc6ObLBOIm7ezxzYyG4W7iGs/Z405lB5baLMGSYz3RraI/7A
-	Gwr45111NF892KyuTc/UEWuYb3kZ/+IA7MVSk26SBEX7STzAd8jGkoKLO3UpOZ+YO6+wYAhDpjVFc
-	5oYrMdYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kGpEAUpDM4fDBWI7qC8tO7EQjL1G5J+QwXiIgPs7WV8=; b=kb7IzditC69CuNDaGVALirM9UE
+	KQHsHoIcSOabcqePAcI6BDPfDfS6JsbXMRvyJPlwZmixy/Px9QPLGVqtdvZufcTlAims92orNt7vn
+	/bsob9YH7+9Phxkdj3aeJDNte+T04w5QmWXt+6cREaRP/uh8wE2OLbervH1HNj0THn5F6t1fDNHFy
+	iv4mdOfR1RaELj43W2hj5iGmeu8wGUh2hP7jRK8lRtqyKorOU9q0ylkn19ZrZkKZE6FLOxeaHTEec
+	Nh2b6PKGr4lDOcGDgPf3jAWDZ8wbz7MhUD40JcTBEj+KAwiFTaf7tKescdv+29ADPvhH5AMyxfCwN
+	I9BkRVUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGSoE-0000000CsYx-2CpW;
-	Wed, 05 Nov 2025 01:59:38 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1vGSst-0000000Cssh-0elk;
+	Wed, 05 Nov 2025 02:04:27 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGSoC-0000000CsYY-1Rtq
+	id 1vGSsr-0000000CssL-02LQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 01:59:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Fy
-	fi61jM2svcV8LogP79yM0QO8FIFwLxqSWXYdFojMQ=; b=RG6996gE6cIYRcld1j
-	Oc5N692OgZ+R+H88ndUGCw78Cc9u2FPYq35WJ4lZ+UPNq5p5vijJxcWH80PV+JLW
-	8s0kk8Sq/EZauahf76L7iq3XZ3P3hhUNwsAwpRi6ZRga6i3V8yjhnmZzDBYS3FLh
-	RETk8mkdwanxzFCoPV+axH8dg=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDn7w9xrwppK5sjCw--.36001S2;
-	Wed, 05 Nov 2025 09:59:14 +0800 (CST)
-From: wangdich9700@163.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com
-Cc: linux-kernel@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdich9700@163.com>,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: [PATCH] ALSA: hda/conexant: Fix pop noise on conexant codec
-Date: Wed,  5 Nov 2025 09:59:11 +0800
-Message-Id: <20251105015911.26309-1-wangdich9700@163.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 05 Nov 2025 02:04:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762308265; x=1793844265;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=79KjyqTVlFvWryaG61zBG7OjWd5+U+JNcu4D3sQkAb0=;
+  b=bAcPVUkk77sBrx34BVDSEUr/m4DBRbJcfNJO01r+VUswEwaHVGuzUaNE
+   TjHiU2W1XkwyRe4+CN+2rtFIlINyIqjy0RpUdxgx7KvDmgvOiOrgjNnIK
+   UxVcO6oGm+mOizUKu23Bc8DAbTUHn//HYxjnmYWj8WjZXWPf2DggXKtVF
+   gz4p4yuqK3IcZnh1mUpAyPjUlgY6yAw12diCTJn6u7Qb0gR4NQIkFGbWN
+   oT9fSe1p8tHpTxH9ZjgB0ifVmMk5DE9e4UfMldQnslY1QEkGQzxT4wjBE
+   wDnOJCCabGckM+XNVdaMpHVf1lCdfuSLYCPYNQk2jWJ+XagZxXfG+7a+K
+   Q==;
+X-CSE-ConnectionGUID: KAml9AvWQ7GIGAhj3t1buw==
+X-CSE-MsgGUID: 6uG/3lInQHmfFYesMPg6MQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11603"; a="82043406"
+X-IronPort-AV: E=Sophos;i="6.19,280,1754982000"; 
+   d="scan'208";a="82043406"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2025 18:04:24 -0800
+X-CSE-ConnectionGUID: xSkiRYsLS6CKL8wvq7w4dA==
+X-CSE-MsgGUID: Ssuz/sw4TJeIZFPhVyS4Fg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,280,1754982000"; 
+   d="scan'208";a="186569005"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 04 Nov 2025 18:04:07 -0800
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vGSrB-000S2R-12;
+	Wed, 05 Nov 2025 02:03:04 +0000
+Date: Wed, 5 Nov 2025 10:01:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Subject: Re: [PATCH 05/33] KVM: arm64: GICv3: Detect and work around the lack
+ of ICV_DIR_EL1 trapping
+Message-ID: <202511050925.kQxVnIUB-lkp@intel.com>
+References: <20251103165517.2960148-6-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgDn7w9xrwppK5sjCw--.36001S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGw4fXFWxZryxKw15Wr1xXwb_yoW5tryDpr
-	15Ga43GrZ3JF1I9r4fJr4fA3WrKFykWFsxJw1Sy3W3Jw43Kry7Wa1jqFyI9F1xJrW7Kry2
-	vF42vFWUKrW5JFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi0D7xUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/xtbCvxPkNGkKr3MNewAA31
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251103165517.2960148-6-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_175936_806398_A0FFBECE 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20251104_180425_063357_F886407E 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,114 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: wangdicheng <wangdich9700@163.com>
+Hi Marc,
 
-Pop noise mitigation: When headphones are unplugged during playback,mute
-speaker DAC(0x17)immediately and restore after 20ms delay to avoid
-audible popping.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
----
- sound/hda/codecs/conexant.c | 64 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
+[auto build test ERROR on kvmarm/next]
+[also build test ERROR on linus/master v6.18-rc4 next-20251104]
+[cannot apply to arm64/for-next/core tip/irq/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
-index 5fcbc1312c69..641cb738901d 100644
---- a/sound/hda/codecs/conexant.c
-+++ b/sound/hda/codecs/conexant.c
-@@ -43,6 +43,8 @@ struct conexant_spec {
- 	unsigned int gpio_mute_led_mask;
- 	unsigned int gpio_mic_led_mask;
- 	bool is_cx11880_sn6140;
-+
-+	struct delayed_work change_pinctl_work;
- };
- 
- 
-@@ -216,6 +218,63 @@ static void cx_remove(struct hda_codec *codec)
- 	snd_hda_gen_remove(codec);
- }
- 
-+static void mute_unmute_speaker(struct hda_codec *codec, hda_nid_t nid, bool mute)
-+{
-+	unsigned int conn_sel, dac, conn_list, gain_left, gain_right;
-+
-+	conn_sel = snd_hda_codec_read(codec, nid, 0, 0xf01, 0x0);
-+	conn_list = snd_hda_codec_read(codec, nid, 0, 0xf02, 0x0);
-+
-+	dac = ((conn_list >> (conn_sel * 8)) & 0xff);
-+	if (dac == 0)
-+		return;
-+
-+	gain_left = snd_hda_codec_read(codec, dac, 0, 0xba0, 0x0);
-+	gain_right = snd_hda_codec_read(codec, dac, 0, 0xb80, 0x0);
-+
-+	if (mute) {
-+		gain_left |= 0x80;
-+		gain_right |= 0x80;
-+	} else {
-+		gain_left &= (~(0x80));
-+		gain_right &= (~(0x80));
-+	}
-+
-+	snd_hda_codec_write(codec, dac, 0, 0x3a0, gain_left);
-+	snd_hda_codec_write(codec, dac, 0, 0x390, gain_right);
-+
-+	if (mute) {
-+		snd_hda_codec_write(codec, nid, 0, 0x707, 0);
-+		codec_dbg(codec, "mute_speaker, set 0x%x  PinCtrl to 0.\n", nid);
-+	} else {
-+		snd_hda_codec_write(codec, nid, 0, 0x707, 0x40);
-+		codec_dbg(codec, "unmute_speaker, set 0x%x  PinCtrl to 0x40.\n", nid);
-+	}
-+}
-+
-+static void change_pinctl_worker(struct work_struct *work)
-+{
-+	struct hda_codec *codec;
-+	struct conexant_spec *spec;
-+
-+	spec = container_of(work, struct conexant_spec, change_pinctl_work.work);
-+	codec = spec->conexant_codec;
-+
-+	return mute_unmute_speaker(codec, 0x17, false);
-+}
-+
-+static void cx_auto_mute_unmute_speaker(struct hda_codec *codec, struct hda_jack_callback *event)
-+{
-+	struct conexant_spec *spec = codec->spec;
-+	int phone_present;
-+
-+	phone_present = snd_hda_codec_read(codec, 0x16, 0, 0xf09, 0x0);
-+	if (!(phone_present & 0x80000000)) {
-+		mute_unmute_speaker(codec, 0x17, true);
-+		schedule_delayed_work(&spec->change_pinctl_work, 20);
-+	}
-+}
-+
- static void cx_process_headset_plugin(struct hda_codec *codec)
- {
- 	unsigned int val;
-@@ -1178,6 +1237,10 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
- 	spec = kzalloc(sizeof(*spec), GFP_KERNEL);
- 	if (!spec)
- 		return -ENOMEM;
-+
-+	INIT_DELAYED_WORK(&spec->change_pinctl_work, change_pinctl_worker);
-+	spec->conexant_codec = codec;
-+
- 	snd_hda_gen_spec_init(&spec->gen);
- 	codec->spec = spec;
- 
-@@ -1187,6 +1250,7 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
- 	case 0x14f11f87:
- 		spec->is_cx11880_sn6140 = true;
- 		snd_hda_jack_detect_enable_callback(codec, 0x19, cx_update_headset_mic_vref);
-+		snd_hda_jack_detect_enable_callback(codec, 0x16, cx_auto_mute_unmute_speaker);
- 		break;
- 	}
- 
+url:    https://github.com/intel-lab-lkp/linux/commits/Marc-Zyngier/irqchip-gic-Add-missing-GICH_HCR-control-bits/20251104-011133
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+patch link:    https://lore.kernel.org/r/20251103165517.2960148-6-maz%40kernel.org
+patch subject: [PATCH 05/33] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
+config: arm64-randconfig-003-20251105 (https://download.01.org/0day-ci/archive/20251105/202511050925.kQxVnIUB-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251105/202511050925.kQxVnIUB-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511050925.kQxVnIUB-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arch/arm64/kernel/hyp-stub.S: Assembler messages:
+>> arch/arm64/kernel/hyp-stub.S:59: Error: unknown or missing system register name at operand 2 -- `mrs x1,ich_vtr_el2'
+
+
+vim +59 arch/arm64/kernel/hyp-stub.S
+
+    45	
+    46		.align 11
+    47	
+    48	SYM_CODE_START_LOCAL(elx_sync)
+    49		cmp	x0, #HVC_SET_VECTORS
+    50		b.ne	1f
+    51		msr	vbar_el2, x1
+    52		b	9f
+    53	
+    54	1:	cmp	x0, #HVC_FINALISE_EL2
+    55		b.eq	__finalise_el2
+    56	
+    57		cmp	x0, #HVC_GET_ICH_VTR_EL2
+    58		b.ne	2f
+  > 59		mrs	x1, ich_vtr_el2
+    60		b	9f
+    61	
+
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
