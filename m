@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F50CCFA17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B392CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CS//WAipPfjSfjlGPO7nyoViLe54hOkmqQ/3rPaesvk=; b=gwqWgy3lbI3KQBTeXj3lNWOxMh
-	MuEVcP4jBAYtjx+juq5U9nAYNKe1XUf4ckFmqiM21XUYRUs4kwUAKQIW3Am28/cuLcWGcIwfQFj9p
-	ng9IeAy1vdeloqWvwaafS5HnsSVrHtKRAP/LGDbdtfj/PMiBZ1j4oFQOtqMZEKfoGzvTrTiNzFfR9
-	xuT59IIg5UYsXT1xOrfhSzk2VhT9cxO9CsflNGi54KbNJ2KWGmPEiqM195q92h1FBzJI3Z4dTgWqe
-	c8wMNFtIj/GYQJsPurjx8AI12A4jr83SJTrv22ui6FaC0GPBG4eQAOmdKhqc1/W9ucxM0WtV2szT3
-	Rh5Z0XmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmDdE65+QlnOS4G0yAjzPnPuNohxoXTbUlyWLgArmqY=; b=T/twyc5rRBwUyyUWOLtdNC8Mc6
+	1szBnLZU3basrXrmcVfHyAhbb/TbCAzLNl7CAWxnCi4hH9CJajfx7fxzE0qxrrgcb07FScykTB1OS
+	yWhH4O7dB0RXU1ZmMhz0q2ApEOdD42jelt3i2h3dNRfLC1FfQWMbIC04nspPeo2UG7opRY4rYY0b2
+	nL1f201raY4vus2TyvLWXhfhr13u32XBr+WkyKEJf74+ce2DjU1fZwK1lS+cAgaEV2/9UvgHM5SAu
+	vniWT/aofiCt6LO0nwn2lnwFe7FwwhWLAwydD3hS7vrV67fcXoyz/vK2NAVD92vvFMI0d4bR11bFi
+	I6wYp/qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZJv-0000000DKiC-3HKJ;
-	Wed, 05 Nov 2025 08:56:47 +0000
-Received: from mail-m19731109.qiye.163.com ([220.197.31.109])
+	id 1vGZMS-0000000DL4g-0h4S;
+	Wed, 05 Nov 2025 08:59:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZJr-0000000DKf3-10Fb;
-	Wed, 05 Nov 2025 08:56:45 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2879b25b7;
-	Wed, 5 Nov 2025 16:56:37 +0800 (GMT+08:00)
-Message-ID: <67b605b0-7046-448a-bc9b-d3ac56333809@rock-chips.com>
-Date: Wed, 5 Nov 2025 16:56:36 +0800
+	id 1vGZMQ-0000000DL4V-2WMJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 08:59:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0694A60202;
+	Wed,  5 Nov 2025 08:59:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 293A8C4CEF8;
+	Wed,  5 Nov 2025 08:59:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762333161;
+	bh=R+46XLhZWIOTOB+yJZKWT6BNdn0bZgAdYGeql5q9uo8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A5rEvPgLtiZgP6Drgj1xMpWAfIAzfKbYkr3fpk4qAAzc5VjqmLyczNxDurdaYR/K3
+	 UksMDbqrw0cy3j6yrfRwu2kEZVAOCjh3E4e7Xz0xe0HNjZoiA0KoffiNfDeEl0v0JS
+	 P9enYt94d8Esy5hI82o/52SjygMoJx+pBK7tqREk63xs+T2gwIhXavGj0kLQu30EYK
+	 Y7KFegE+Bb+WRnALIf/Ms06M77X7F7h9WqmfCY+rN4AW8D7tBfAn7mLDWvZh7JGUJ8
+	 qkT3MLdw24aIm4tSOC6Rc4494yEZDB6iTr95beNjt6mph5UWe3JS+4rJj1e1V7aPm7
+	 bq71HEiRZjdRg==
+Date: Wed, 5 Nov 2025 09:59:19 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-binding: arm: add CTCU device for hamoa
+Message-ID: <20251105-proud-pearl-gorilla-8a40db@kuoka>
+References: <20251104-enable-etr-and-ctcu-for-hamoa-v1-0-af552cfb902c@oss.qualcomm.com>
+ <20251104-enable-etr-and-ctcu-for-hamoa-v1-1-af552cfb902c@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-References: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
- <ba120577-42da-424d-8102-9d085c1494c8@rock-chips.com>
- <aQsIXcQzeYop6a0B@geday>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <aQsIXcQzeYop6a0B@geday>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a533b783109cckunmc8d35d74ceaecc
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx9ITVYeTElJGBkZTklCTB5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=TtlfyECiKclZk4FcAtw4aOhBtS/6otJUxxK+rAlXHPyEBcTD1Hd+1B6FhZ5RcW1dRr8TZ7OS/MXNgEhhSBtlHTYmY7dJpqJ/fBNYu1jEWRl5T8x236EefqlPHoh1GsqivMeI8Y4gCRslOhyb2IGJqfYP5GIf3hccAsYL8uh4Yjg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=CS//WAipPfjSfjlGPO7nyoViLe54hOkmqQ/3rPaesvk=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_005643_768528_36AA98E7 
-X-CRM114-Status: GOOD (  26.59  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251104-enable-etr-and-ctcu-for-hamoa-v1-1-af552cfb902c@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,126 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/05 星期三 16:18, Geraldo Nascimento 写道:
-> On Wed, Nov 05, 2025 at 02:35:28PM +0800, Shawn Lin wrote:
->> Hi Geraldo,
->>
->> 在 2025/11/05 星期三 13:55, Geraldo Nascimento 写道:
->>> The PERST# side-band signal is defined by PCIe spec as an open-drain
->>
->> I couldn't find any clue that says PERST# is an open-drain signal. Could
->> you quote it from PCI Express Card Electromechanical Specification?
->>
->>> active-low signal that depends on a pull-up resistor to keep the
->>> signal high when deasserted. Align bindings to the spec.
->>
->> This is not true from my POV. An open-drain PCIe side-band  signal
->> is used for both of EP and RC to achieve some special work-flow, like
->> CLKREQ# for L1ss, etc. Since both ends could control it. But PERST# is a
->> fundamental reset signal driven by RC which should be in sure state,
->> high or low, has nothing to do with open-drain.
->>
->>>
->>> Note that the relevant driver hacks the active-low signal as
->>> active-high and switches the normal polarity of PERST#
->>> assertion/deassertion, 1 and 0 in that order, and instead uses
->>> 0 to signal low (assertion) and 1 to signal deassertion.
->>>
->>> Incidentally, this change makes hardware that refused to work
->>> with the Rockchip-IP PCIe core working for me, which was the
->>> object of many fool's errands.
->>>
->>> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
->>> ---
->>>    arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi | 8 ++++++--
->>>    1 file changed, 6 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
->>> index aa70776e898a..8dcb03708145 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
->>> @@ -383,9 +383,9 @@ &pcie_phy {
->>>    };
->>>    
->>>    &pcie0 {
->>> -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
->>> +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
->>
->> So my biggest guess is we don't need this change at all.
->> gpio0b4 is used as gpio function, the problem you faced is that it
->> didn't set gpio0b4 as pull-up, because the defaut state is pull-down.
->>
->> Maybe the drive current of this IO is too weak, making it unable to
->> fully drive high in the pull-down state? If that's the case, can you see
->> a half-level signal on the oscilloscope?
->>
->>>    	num-lanes = <4>;
->>> -	pinctrl-0 = <&pcie_clkreqnb_cpm>;
->>> +	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
->>>    	pinctrl-names = "default";
->>>    	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
->>>    	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
->>> @@ -408,6 +408,10 @@ pcie {
->>>    		pcie_pwr: pcie-pwr {
->>>    			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
->>>    		};
->>> +		pcie_perst: pcie-perst {
->>> +			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
->>> +		};
->>> +
->>>    	};
->>>    
->>>    	pmic {
->>
+On Tue, Nov 04, 2025 at 04:10:17PM +0800, Jie Gan wrote:
+> Document the CTCU compatible for Hamoa, enabling support for the
+> CTCU device on the Hamoa platform.
 > 
-> Hi Shawn, glad to hear from you.
-> 
-> Perhaps the following change is better? It resolves the issue
-> without the added complication of open drain. After you questioned
-> if open drain is actually part of the spec, I remembered that
-> GPIO_OPEN_DRAIN is actually (GPIO_SINGLE_ENDED | GPIO_LINE_OPEN_DRAIN)
-> so I decided to test with just GPIO_SINGLE_ENDED and it works.
-
-
-Does that work for you too?
-
-&pcie0 {
-	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-  	num-lanes = <4>;
--	pinctrl-0 = <&pcie_clkreqnb_cpm>;
-+	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
-  	pinctrl-names = "default";
-  	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
-  	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
-@@ -408,6 +408,10 @@ pcie {
-  		pcie_pwr: pcie-pwr {
-  			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
-  		};
-+		pcie_perst: pcie-perst {
-+			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-  	};
-
-> 
-> Thanks,
-> Geraldo Nascimento
-> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
+>  Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> index aa70776e898a..b3d19dce539f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> @@ -383,7 +383,7 @@ &pcie_phy {
->   };
->   
->   &pcie0 {
-> -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-> +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_SINGLE_ENDED)>;
->   	num-lanes = <4>;
->   	pinctrl-0 = <&pcie_clkreqnb_cpm>;
->   	pinctrl-names = "default";
-> 
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> index 460f38ddbd73..57dede7a90e9 100644
+> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+> @@ -29,6 +29,7 @@ properties:
+>      oneOf:
+>        - items:
+>            - enum:
+> +              - qcom,hamoa-ctcu
+
+There is no such hunk. Dependency should be noted here, anyway, this
+cannot be tested by tooling so no review. Please be sure your patches
+can be actually tested.
+
+Best regards,
+Krzysztof
 
 
