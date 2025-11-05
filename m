@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C59CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFA7CCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/3nfux16ZKQG2m9VQWPawdpfD+7ff1vFtMyoP8aJnbw=; b=1zEIRATQ8qU8OFhqu9iluAddgI
-	fBz83lbJX8+RRpNJUjrMNgz5A8gsBhk4vtPX2oCii+nu5cJLs6KAA6n7xeAZwEEKL7+pwhAjT3AHF
-	00KWsvEXzxf7I2f+qexPyjZAMkm0zmhQCO7Mr2xmAGG+nCykJAWPdFUQ6SGH/fU36jC9f90K2fSi4
-	OnSR9dwiF3DxuZnQhql2zle81nNgWD8o8CmrZLZoGNqhTdkOqSZIQL+etFCPupkI8uXY5byNToQ32
-	Uubvav6coNUUDt4HVct9A16QK3orHjcLn3WHHNuu77H/581C8YAtHI6gOg6l3QtjSOm6WRvzhrlOV
-	6JiMinMg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8WXhsTsO/J0Z7EVRJucBcIkmUQ6VEPYVZ7BqTfVRhGs=; b=WgmqRBE0FehEYYZGYVicYwIiRl
+	egemZHj6XuwrJcoAa1bxg9dzZZV+Go1Sf487FtTdbmUyshUadq1t/LAs7J/d4HXuCt1UbMX1/sCUB
+	QOCehOSM5EktgxDdJ3Csa9UNc0I+dBf2nf+9eh7rCs0ZBJ80FVIox3EvdVuS11R6CzY75koluyWgc
+	DtNDI9uNbsIotAxg32yssY70hpvw5RTAUZZfuSUDbXHkxdEkigL5v18nZe33SizYZ/lpdbQ5gu/E0
+	2vuen1gJssKjqAraL7THce1F+LdH4RAAJ5SRKyeaPtk5o3CuFxcBA/x0K02w5rYclny9f6jwNkuyC
+	NOOXFvuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfPU-0000000Dw9o-2V95;
+	id 1vGfPU-0000000DwA7-3gPi;
 	Wed, 05 Nov 2025 15:26:56 +0000
 Received: from uho.ysoft.cz ([81.19.3.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfPR-0000000Dw6k-08RH
+	id 1vGfPS-0000000Dw7n-0XI0
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 05 Nov 2025 15:26:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ysoft.com;
-	s=20160406-ysoft-com; t=1762356407;
-	bh=/3nfux16ZKQG2m9VQWPawdpfD+7ff1vFtMyoP8aJnbw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ahmy7OJElGvW+VWqcGKDd7BljNCRMBG3J3Yj+OMXH3WQOJY9n76Ytzzb80Lgt/YV6
-	 0ZpDQEHZb75zGY6vE0m5HkyLMqwhyE/2iksjc73v7G5V8QUx0JXj1Bs5XSgGuQuYAe
-	 JORaRFJzODjLuw/SvqUeWwGXPMIM7nb0U9sOmSSc=
+	s=20160406-ysoft-com; t=1762356410;
+	bh=8WXhsTsO/J0Z7EVRJucBcIkmUQ6VEPYVZ7BqTfVRhGs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=M+bB92fHU8kMUn3S3+k3cqJQ28dRjbyvz9BrECwQ6yLD97LUCVknqKgGCtMTP5ZHD
+	 oDLcq724qv0E4FgT+yPXOw4MXQ8XOznFYpvSB+mcAtBjIbImMyxk4X/sYzeRHJOLDF
+	 SJOzer5LLVWrlWfpqKU2GblpCiG83kOSjinDhjPk=
 Received: from vokac-nb.ysoft.local (unknown [10.1.8.111])
-	by uho.ysoft.cz (Postfix) with ESMTP id 05B17A0364;
-	Wed,  5 Nov 2025 16:26:47 +0100 (CET)
+	by uho.ysoft.cz (Postfix) with ESMTP id A78BCA03C4;
+	Wed,  5 Nov 2025 16:26:50 +0100 (CET)
 From: =?UTF-8?q?Michal=20Vok=C3=A1=C4=8D?= <michal.vokac@ysoft.com>
 To: Shawn Guo <shawnguo@kernel.org>
 Cc: Rob Herring <robh@kernel.org>,
@@ -50,16 +50,19 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Michal=20Vok=C3=A1=C4=8D?= <michal.vokac@ysoft.com>
-Subject: [PATCH 1/2] ARM: dts: imx6dl-yapp43: Enable pwm-beeper on boards with speaker
-Date: Wed,  5 Nov 2025 16:25:53 +0100
-Message-ID: <20251105152555.1992513-1-michal.vokac@ysoft.com>
+Subject: [PATCH 2/2] ARM: dts: imx6dl-yapp4: Model the RGB LED as a single multi-led part
+Date: Wed,  5 Nov 2025 16:25:54 +0100
+Message-ID: <20251105152555.1992513-2-michal.vokac@ysoft.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251105152555.1992513-1-michal.vokac@ysoft.com>
+References: <20251105152555.1992513-1-michal.vokac@ysoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_072653_233043_18C7BC65 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20251105_072654_315657_65049EC9 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,140 +77,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Lynx, Pegasus and Pegasus+ boards have a speaker connected to the PWM3.
-Enable a pwm-beeper on these boards so the system can produce simple
-sounds.
+Describe the RGB LED indicator according to the reality - it is a single
+part containing all the three R,G and B LEDs in one package.
+With this description the chan-name property becomes useless, remove it.
+
+issue: HWOS-816
 
 Signed-off-by: Michal Vokáč <michal.vokac@ysoft.com>
 ---
- .../boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts    |  8 ++++++++
- .../dts/nxp/imx/imx6dl-yapp43-common.dtsi     | 19 +++++++++++++++++++
- .../boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts  |  8 ++++++++
- .../dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts |  8 ++++++++
- 4 files changed, 43 insertions(+)
+ .../boot/dts/nxp/imx/imx6dl-yapp4-common.dtsi | 44 ++++++++++---------
+ .../dts/nxp/imx/imx6dl-yapp43-common.dtsi     | 44 ++++++++++---------
+ 2 files changed, 48 insertions(+), 40 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
-index 5c2cd517589b..0a6b668428a3 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
-@@ -21,6 +21,10 @@ &backlight {
- 	status = "okay";
- };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-common.dtsi
+index 8bc6376d0dc1..4a5736526927 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-common.dtsi
+@@ -279,28 +279,32 @@ leds: led-controller@30 {
+ 		#size-cells = <0>;
+ 		status = "disabled";
  
-+&beeper {
-+	status = "okay";
-+};
+-		led@0 {
+-			chan-name = "R";
+-			led-cur = /bits/ 8 <0x20>;
+-			max-cur = /bits/ 8 <0x60>;
+-			reg = <0>;
+-			color = <LED_COLOR_ID_RED>;
+-		};
++		multi-led@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			color = <LED_COLOR_ID_RGB>;
++			function = LED_FUNCTION_INDICATOR;
 +
- &lcd_display {
- 	status = "okay";
- };
-@@ -37,6 +41,10 @@ &pwm1 {
- 	status = "okay";
- };
++			led@0 {
++				led-cur = /bits/ 8 <0x20>;
++				max-cur = /bits/ 8 <0x60>;
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
  
-+&pwm3 {
-+	status = "okay";
-+};
-+
- &reg_usb_h1_vbus {
- 	status = "okay";
- };
+-		led@1 {
+-			chan-name = "G";
+-			led-cur = /bits/ 8 <0x20>;
+-			max-cur = /bits/ 8 <0x60>;
+-			reg = <1>;
+-			color = <LED_COLOR_ID_GREEN>;
+-		};
++			led@1 {
++				led-cur = /bits/ 8 <0x20>;
++				max-cur = /bits/ 8 <0x60>;
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
+ 
+-		led@2 {
+-			chan-name = "B";
+-			led-cur = /bits/ 8 <0x20>;
+-			max-cur = /bits/ 8 <0x60>;
+-			reg = <2>;
+-			color = <LED_COLOR_ID_BLUE>;
++			led@2 {
++				led-cur = /bits/ 8 <0x20>;
++				max-cur = /bits/ 8 <0x60>;
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
+ 		};
+ 	};
+ 
 diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
-index 2f42c56c21f6..6f9bd163ffbe 100644
+index 6f9bd163ffbe..6e49e1ccf6fc 100644
 --- a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
 +++ b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
-@@ -26,6 +26,12 @@ backlight: backlight {
+@@ -278,28 +278,32 @@ leds: led-controller@30 {
+ 		#size-cells = <0>;
  		status = "disabled";
+ 
+-		led@0 {
+-			chan-name = "R";
+-			led-cur = /bits/ 8 <0x6e>;
+-			max-cur = /bits/ 8 <0xc8>;
+-			reg = <0>;
+-			color = <LED_COLOR_ID_RED>;
+-		};
++		multi-led@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			color = <LED_COLOR_ID_RGB>;
++			function = LED_FUNCTION_INDICATOR;
++
++			led@0 {
++				led-cur = /bits/ 8 <0x6e>;
++				max-cur = /bits/ 8 <0xc8>;
++				reg = <0>;
++				color = <LED_COLOR_ID_RED>;
++			};
+ 
+-		led@1 {
+-			chan-name = "G";
+-			led-cur = /bits/ 8 <0xbe>;
+-			max-cur = /bits/ 8 <0xc8>;
+-			reg = <1>;
+-			color = <LED_COLOR_ID_GREEN>;
+-		};
++			led@1 {
++				led-cur = /bits/ 8 <0xbe>;
++				max-cur = /bits/ 8 <0xc8>;
++				reg = <1>;
++				color = <LED_COLOR_ID_GREEN>;
++			};
+ 
+-		led@2 {
+-			chan-name = "B";
+-			led-cur = /bits/ 8 <0xbe>;
+-			max-cur = /bits/ 8 <0xc8>;
+-			reg = <2>;
+-			color = <LED_COLOR_ID_BLUE>;
++			led@2 {
++				led-cur = /bits/ 8 <0xbe>;
++				max-cur = /bits/ 8 <0xc8>;
++				reg = <2>;
++				color = <LED_COLOR_ID_BLUE>;
++			};
+ 		};
  	};
  
-+	beeper: beeper {
-+		compatible = "pwm-beeper";
-+		pwms = <&pwm3 0 500000 0>;
-+		status = "disabled";
-+	};
-+
- 	gpio_keys: gpio-keys {
- 		compatible = "gpio-keys";
- 		pinctrl-names = "default";
-@@ -466,6 +472,13 @@ MX6QDL_PAD_GPIO_9__PWM1_OUT	0x8
- 		>;
- 	};
- 
-+	pinctrl_sound: soundgrp {
-+		fsl,pins = <
-+			MX6QDL_PAD_SD1_DAT0__GPIO1_IO16	0x1b0b0
-+			MX6QDL_PAD_SD1_DAT1__PWM3_OUT	0x8
-+		>;
-+	};
-+
- 	pinctrl_touch: touchgrp {
- 		fsl,pins = <
- 			MX6QDL_PAD_GPIO_19__GPIO4_IO05	0x1b098
-@@ -551,6 +564,12 @@ &pwm1 {
- 	status = "disabled";
- };
- 
-+&pwm3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sound>;
-+	status = "disabled";
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts b/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
-index ec6651ba4ba2..7332f2718982 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
-@@ -17,6 +17,10 @@ memory@10000000 {
- 	};
- };
- 
-+&beeper {
-+	status = "okay";
-+};
-+
- &gpio_oled {
- 	status = "okay";
- };
-@@ -37,6 +41,10 @@ &oled_1309 {
- 	status = "okay";
- };
- 
-+&pwm3 {
-+	status = "okay";
-+};
-+
- &reg_pu {
- 	regulator-always-on;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts b/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
-index 4a961a33bf2d..770a85e0561c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
-@@ -17,6 +17,10 @@ memory@10000000 {
- 	};
- };
- 
-+&beeper {
-+	status = "okay";
-+};
-+
- &gpio_oled {
- 	status = "okay";
- };
-@@ -37,6 +41,10 @@ &oled_1309 {
- 	status = "okay";
- };
- 
-+&pwm3 {
-+	status = "okay";
-+};
-+
- &reg_pu {
- 	regulator-always-on;
- };
 -- 
 2.43.0
 
