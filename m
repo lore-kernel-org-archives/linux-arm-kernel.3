@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3793ACCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 14:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A08CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 14:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mxcrYuWYR7KF5VJBf3GjJysE5p16lTR05PQnCozqXw=; b=qMM634XOYxUoIGBB0GBNvMac5X
-	QS35W82QABjpCpvFTirGFMK7eeQfvLKZManewJeOEqARc+fwOJKk3ZxkHgazmqAczMf0f2kSN146K
-	qNwMT7JU/X/BhhIlFjrvXDD8hjJ2cz8cRXaJNk6CIWZI8i1pNJHkYijlY8oexuQ/NEVBvwrqdnHxG
-	9MMpzLA9gSQUiV1VD8kUQ4yDLZcbkb5MDG7qpFyLwf0vwFvo1QA87R3ht9FuJQPJcbJpwWcvmBJrr
-	5iTTHt+Lh8xlnn0Ft7Ne/CpxdRuwssv1cq43srJVbcvMVHuZPc3IIAHQrUaODL9I4kmIKWm1phDFX
-	ObIPgdvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JtKwR334IOcJSfMe+jz0Enq6IP3LE52bXJK9P+kWavM=; b=c8QA5U+Oaxc21d
+	Jyo+e0I9HJPg5aht74wY2NXnGlMjpwSN19xT+hytcxY+LQvVe4d/jEBs273mBAd3xkzvWpFoLfTTC
+	+e62h1rJIRRbiCOZXRT757Aeo1ispHI/5vlgeqGsgTc6khxmjb2gLap0Qcoon0vOy6AGmHnsLMNww
+	kISASLUSySbCwyU1Ughql+a0NTXBUr8AhKrlwgg0poQdJaiNXIr3IQ01j+ou/VZ2NvxJBRRpW7MLK
+	cyT/4+PGzUwaRg2wU0WTVlZpJwvaBe+GIoX8dqt1ufoUaoAwXXGyk7KuaLi9CEM64gS6CLui3umWr
+	RDUQZBiuofGj+hYIRo0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGepX-0000000Ds2a-2dz6;
-	Wed, 05 Nov 2025 14:49:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGepU-0000000Ds27-2LQU
+	id 1vGerP-0000000DsE6-13OE;
+	Wed, 05 Nov 2025 14:51:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGerO-0000000DsDp-2TYf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 14:49:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2EDE1692;
-	Wed,  5 Nov 2025 06:49:34 -0800 (PST)
-Received: from arm.com (unknown [10.1.26.217])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCB163F694;
-	Wed,  5 Nov 2025 06:49:41 -0800 (PST)
-Date: Wed, 5 Nov 2025 14:49:39 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Yicong Yang <yangyccccc@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <aQtkA0cOb6Fm9Mrc@arm.com>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
- <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
- <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQXtqoUEtDr-xUeS@arm.com>
- <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
- <aQtQRSoL8GGVNrUQ@arm.com>
- <20251105134231.GF22848@1wt.eu>
+	Wed, 05 Nov 2025 14:51:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A46236021F
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Nov 2025 14:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54E90C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Nov 2025 14:51:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762354301;
+	bh=JtKwR334IOcJSfMe+jz0Enq6IP3LE52bXJK9P+kWavM=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=X+8p8Q8jfvgeoUWRhIia0snZRJ+ZKqqo/hRQ0KgiupludUAqi9vdAWPMg+gaEbl5s
+	 H5yYahlbc62wjGfemrYJ/Hu6YXxN/OLnggTOwRJLRo9Te/ROWElJTttF8CjHidP12B
+	 abgK39PuSyhW1c5oWtAzFxjs9JgACIximtyVRrbnb0jxJunaKlmwnSbhORBC6F4l0x
+	 GH/rcMxpmkougg2mrxUBIaF+u1EQTWK3l+buE8ugoSIle7Ji4qlST1C+CyXZRnfPPN
+	 S5hpOmbeaT4enhnH7Qb5g+GlJ9wT0YWUS6nLhS+U8v2O36WNdvUduRveR95XAOR9MD
+	 LLQsCCo4L9FKw==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-37a5d03b53dso69931fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 06:51:41 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVQsKdUhJ/Ul+5Dm12hV+WOFCDyNA3J6fCp8auDp031lIwp5auiJD8HhcwDZcyhlbV0kOHHmNfQavwJ1BiW6SsR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy/SEMA1Zd+0uXiWHAjE04qok4qIEfNKhc3WjjKfUCtoQf3NwX
+	DrVkrSbYOCcr0/MpFwtt+ZUIIj2tNcRChpD3C/DaHXXu5vu5woCu0e1X0l94DJKuwBSjwYj3MQU
+	23RAP01wYGsOp2fZcfQR+T2trTVcP28o=
+X-Google-Smtp-Source: AGHT+IGIEAVXYAC5/mxxWbiGcaY0AYo/5s9g7cRbmFp73EoeMVAloAa2YGLv9a0XjgeGIWx0S+GlkPfBvf0ZgrTNKUM=
+X-Received: by 2002:a2e:be1b:0:b0:378:e437:9085 with SMTP id
+ 38308e7fff4ca-37a5148889cmr11360031fa.37.1762354299760; Wed, 05 Nov 2025
+ 06:51:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251105134231.GF22848@1wt.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_064944_658645_26A8AD44 
-X-CRM114-Status: GOOD (  19.97  )
+References: <20251104180942.61538-1-jernej.skrabec@gmail.com> <20251104180942.61538-6-jernej.skrabec@gmail.com>
+In-Reply-To: <20251104180942.61538-6-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 5 Nov 2025 22:51:25 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64ETD-x=CW+xUCcz9xPv+MC4wYMu+BRXk1znCCp8cmMnA@mail.gmail.com>
+X-Gm-Features: AWmQ_bkW3EOy2EHaeuPwKcFuf5kSmMWMiTBiqTH9At9mwTTrXhAJeB0YdOMrK5g
+Message-ID: <CAGb2v64ETD-x=CW+xUCcz9xPv+MC4wYMu+BRXk1znCCp8cmMnA@mail.gmail.com>
+Subject: Re: [PATCH v2 05/30] drm/sun4i: vi_layer: Move check from update to
+ check callback
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ryan Walklin <ryan@testtoast.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,48 +81,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 02:42:31PM +0100, Willy Tarreau wrote:
-> On Wed, Nov 05, 2025 at 01:25:25PM +0000, Catalin Marinas wrote:
-> > > But need to add the prefetch in per-cpu implementation as you've
-> > > noticed above (didn't add it since no prefetch for LL/SC
-> > > implementation there, maybe a missing?)
-> > 
-> > Maybe no-one stressed these to notice any difference between LL/SC and
-> > LSE.
-> 
-> Huh ? I can say for certain that LL/SC is a no-go beyond 16 cores, for
-> having faced catastrophic performance there on haproxy, while with LSE
-> it continues to scale almost linearly at least till 64.
+On Wed, Nov 5, 2025 at 2:10=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmail=
+.com> wrote:
+>
+> DRM requires that all check are done in atomic_check callback. Move
+> one check from atomic_commit to atomic_check callback.
+>
+> Tested-by: Ryan Walklin <ryan@testtoast.com>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-I was referring only to the this_cpu_add() etc. functions (until Paul
-started using them). There definitely have been lots of benchmarks on
-the scalability of LL/SC. That's one of the reasons Arm added the LSE
-atomics years ago.
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
-> But that does
-> not mean that if some possibilities are within reach to recover 90% of
-> the atomic overhead in uncontended case we shouldn't try to grab it at
-> a reasonable cost!
-
-I agree. Even for these cases, I don't think the solution is LL/SC but
-rather better use of LSE (and better understanding of the hardware
-behaviour; feedback here should go both ways).
-
-> I'm definitely adding in my todo list to experiment more on this on
-> various CPUs now ;-)
-
-Thanks for the tests so far, very insightful. I think what's still
-good to assess is how PRFM+STADD compares to LDADD (without PRFM) in
-Breno's microbenchmarks. I suspect LDADD is still better.
-
-FWIW, Neoverse-N1 has an erratum affecting the far atomics and they are
-all forced near, so this explains the consistent results you got with
-STADD on this CPU. On other CPUs, STADD would likely be executed far
-unless it hits in the L1 cache.
-
--- 
-Catalin
+Thanks!
 
