@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0004CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 01:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFD9CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 01:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KpI087FtIxYg7DySMe2xZlGjptQaVJmuv7g4F0pvfNs=; b=HzMaZ7W3A/DycoEVl/fXEJOlWo
-	3G0ViVHu9az/1JicbVp4BLGITiZQdsLhHWZMyfULgqhpsoTDrbSlPzCYaIDFsQ8aCDIqgc9ZUnHSw
-	+INQfw7tomKKFX2EnEzXOLXQv3zDinWwEIKOQOuZzoKAgS668awXEsy3tiyhADwPFBdQ9uS1Z6apU
-	wCqBubADr2Mk2lo2E/CMrtlNlOzS1kwk6Ou+KDF2MXM92nj3mZKplssYUvxARGoR5SoI+NRBDxJBJ
-	SKJkkIM8oH3HP/QMIH9lo3GeZ+OKXD8XCTvzPk0lOad0Q+vgyIg/YBnRrqATYyzqP73GS+lIp+mib
-	RZkdZJXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H8X2PsARIwdIFd2v7trMxvVFqgxkuCNINE+Sbyf62to=; b=SumURdpq2hz249B7hwPoMfdaWD
+	j7EIPucGW5mMdLM40T20c+BuAbGkkkA86bWwRX7zqHrd91rb+2fU4pmOlQVyJ0dpngdLn4BPWtN3h
+	7qhX/nTixhB27y5yz67ys2dEtkOk54k/Z8PBtJGJ1WdsRb4Fbzdc9iL3UF48k+b4lF6mVu+xTlh/8
+	K5gRRbJwWvOxp/QC6C288L9hgPdnpOhnAc6lhZQijOOMUf8eUVuqbHMhlymzdZMkU+sHJoEB09/BO
+	Im6Oi5faYkYRPsK0u5WrBdfU3XkZFJpcMPetn2SIZ3lNtjlL3GWj27BEz1ediUQl4fVBcMlMrZE/K
+	moHOjRPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGSO7-0000000Cqhj-2xnf;
-	Wed, 05 Nov 2025 01:32:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vGST0-0000000Cr0w-379O;
+	Wed, 05 Nov 2025 01:37:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGSO4-0000000CqhG-2VhI;
-	Wed, 05 Nov 2025 01:32:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1762306343; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=M8QTzl9KNZlXmjR3YMDovKOYchplT1lIc6GV8squykdhQsXUNyo1r8JwfRWbianIrcvoX6B+KJJrw4I85rD9Nl1Af7geebnPhiUdMqbdY7ORCKVo0+ui45EsCQrEStvRd2UTG9FuAAcHXmMrVKlAgyLFQgg3CbBNfuUN5XdLYE4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1762306343; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KpI087FtIxYg7DySMe2xZlGjptQaVJmuv7g4F0pvfNs=; 
-	b=VAxI/o3zqc8z7ATovB9IoJZVyXGZYxodLmPO6Y3lp6gVEtRWxca0oD8/DI1jNYaI8njExT9ssdE05MHPOl9GwCIf3OdhioFDm9XpwuDAGRUs7wbRste+WvMcZ9w0X0lzz4/qeE2F2Vl9B+TWhv4SdqaF4+mEGLLW0JO6VN2lOTA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1762306343;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=KpI087FtIxYg7DySMe2xZlGjptQaVJmuv7g4F0pvfNs=;
-	b=JDt5jey8SvN8si02kdmL+oa14yTKsRgWMZ3GH3W2MxskumPE21Z/FucNUD4qsQ2Q
-	zRQ8/0y+mBgEPrQXbqFynkKqaz8s4p9MkPuy9BRxaOKXwCR4LL8nrSU8qb6X2z5kkVi
-	UyiuLrzM3fxMhzsZdFpYvIk2wm+ssq4MCqycQkHk=
-Received: by mx.zohomail.com with SMTPS id 176230634046419.149111498046977;
-	Tue, 4 Nov 2025 17:32:20 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 51B7C182F6F; Wed, 05 Nov 2025 02:32:07 +0100 (CET)
-Date: Wed, 5 Nov 2025 02:32:07 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	michael.riesch@collabora.com
-Subject: Re: [PATCH 1/2] clk: rockchip: rk3568: Drop CLK_NR_CLKS usage
-Message-ID: <x7xja6v2ssq3mesj3bnuzsz522tew4lobbn5ftcgfrusdnabjm@rd47kgjdnoz4>
-References: <20251103234032.413563-1-heiko@sntech.de>
- <20251103234032.413563-2-heiko@sntech.de>
+	id 1vGSSy-0000000Cr08-24gq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 01:37:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C9D840520;
+	Wed,  5 Nov 2025 01:37:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E869C116B1;
+	Wed,  5 Nov 2025 01:37:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762306659;
+	bh=IcyU0Yp3oCClfFclJKfCJuSEiNNqeKLe/tfJ66F7OEE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=K9BJyI5E6azayMhVSFx+KbOQ7Wfjay1941Ds+NWc+9bDp+iEis1z5UyMYkZVKT74j
+	 jKHBhV/9NKGAw5igjRhf4Gd2+/Y3zWLCpXGvDeHq76mZ5SsqVTPU+UkWc6gdkPbgg3
+	 +rqwFSc8IYbVEF6I17/Fs2FinQZ2AjmqU0y3NReXb0Jmql5oySWwoq75lioJZ2xNjP
+	 JHmP244Wf9Wg3vepxMjhSyOPPx4qWGELwP33QoUzVQ6OD7f6qC3xFh2K34Pcd+u76S
+	 b3ce/A9bKJSoIE1y2mB5Gt5Ztpg09+aWEBDDd9oxu02meA2JgVFg4/7D7RYU/pvTQ3
+	 vLFqOEEFiMWzQ==
+Date: Tue, 4 Nov 2025 17:37:37 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Manish Chopra <manishc@marvell.com>, Marco Crivellari
+ <marco.crivellari@suse.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Sunil Goutham <sgoutham@marvell.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Simon Horman <horms@kernel.org>,
+ Jacob Keller <jacob.e.keller@intel.com>, Kory Maincent
+ <kory.maincent@bootlin.com>, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/7] bnx2x: convert to use ndo_hwtstamp
+ callbacks
+Message-ID: <20251104173737.3f655692@kernel.org>
+In-Reply-To: <20251103150952.3538205-2-vadim.fedorenko@linux.dev>
+References: <20251103150952.3538205-1-vadim.fedorenko@linux.dev>
+	<20251103150952.3538205-2-vadim.fedorenko@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6bmfeioxjbjj4jf2"
-Content-Disposition: inline
-In-Reply-To: <20251103234032.413563-2-heiko@sntech.de>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/262.252.53
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_173236_720881_F8388831 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20251104_173740_559436_6B0A76D6 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +80,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---6bmfeioxjbjj4jf2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] clk: rockchip: rk3568: Drop CLK_NR_CLKS usage
-MIME-Version: 1.0
-
-Hi,
-
-On Tue, Nov 04, 2025 at 12:40:31AM +0100, Heiko Stuebner wrote:
-> In order to get rid of CLK_NR_CLKS and be able to drop it from the
-> bindings, use rockchip_clk_find_max_clk_id helper to find the highest
-> clock id.
->=20
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
-
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
--- Sebastian
-
->  drivers/clk/rockchip/clk-rk3568.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/clk/rockchip/clk-rk3568.c b/drivers/clk/rockchip/clk=
--rk3568.c
-> index 97d279399ae8..74eabf9b2ae2 100644
-> --- a/drivers/clk/rockchip/clk-rk3568.c
-> +++ b/drivers/clk/rockchip/clk-rk3568.c
-> @@ -1652,6 +1652,7 @@ CLK_OF_DECLARE(rk3568_cru_pmu, "rockchip,rk3568-pmu=
-cru", rk3568_pmu_clk_init);
->  static void __init rk3568_clk_init(struct device_node *np)
+On Mon,  3 Nov 2025 15:09:46 +0000 Vadim Fedorenko wrote:
+> -static int bnx2x_hwtstamp_ioctl(struct bnx2x *bp, struct ifreq *ifr)
+> +static int bnx2x_hwtstamp_set(struct net_device *dev,
+> +			      struct kernel_hwtstamp_config *config,
+> +			      struct netlink_ext_ack *extack)
 >  {
->  	struct rockchip_clk_provider *ctx;
-> +	unsigned long clk_nr_clks;
->  	void __iomem *reg_base;
-> =20
->  	reg_base =3D of_iomap(np, 0);
-> @@ -1660,7 +1661,9 @@ static void __init rk3568_clk_init(struct device_no=
-de *np)
->  		return;
->  	}
-> =20
-> -	ctx =3D rockchip_clk_init(np, reg_base, CLK_NR_CLKS);
-> +	clk_nr_clks =3D rockchip_clk_find_max_clk_id(rk3568_clk_branches,
-> +						   ARRAY_SIZE(rk3568_clk_branches)) + 1;
-> +	ctx =3D rockchip_clk_init(np, reg_base, clk_nr_clks);
->  	if (IS_ERR(ctx)) {
->  		pr_err("%s: rockchip clk init failed\n", __func__);
->  		iounmap(reg_base);
-> --=20
-> 2.47.2
->=20
->=20
+> -	struct hwtstamp_config config;
+> +	struct bnx2x *bp = netdev_priv(dev);
+>  	int rc;
+>  
+> -	DP(BNX2X_MSG_PTP, "HWTSTAMP IOCTL called\n");
+> -
+> -	if (copy_from_user(&config, ifr->ifr_data, sizeof(config)))
+> -		return -EFAULT;
+> +	DP(BNX2X_MSG_PTP, "HWTSTAMP SET called\n");
+>  
+>  	DP(BNX2X_MSG_PTP, "Requested tx_type: %d, requested rx_filters = %d\n",
+> -	   config.tx_type, config.rx_filter);
+> +	   config->tx_type, config->rx_filter);
+>  
+>  	bp->hwtstamp_ioctl_called = true;
+> -	bp->tx_type = config.tx_type;
+> -	bp->rx_filter = config.rx_filter;
+> +	bp->tx_type = config->tx_type;
+> +	bp->rx_filter = config->rx_filter;
+>  
+>  	rc = bnx2x_configure_ptp_filters(bp);
 
---6bmfeioxjbjj4jf2
-Content-Type: application/pgp-signature; name="signature.asc"
+bnx2x_configure_ptp_filters() may return -ERANGE if settings were not applied.
+This may already be semi-broken but with the get in place we will make
+it even worse. 
 
------BEGIN PGP SIGNATURE-----
-
-iQIyBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmkKqRMACgkQ2O7X88g7
-+ppKnA/4pNi7YhTXOsHnSmYUks9GbObvEULNO2W/tb0LY0/gy2kOMYLUBAYOykI5
-hlWa8M4urf04qDi+xrtaaTGj6YggGQiEMh2vbUsLv00rbD6WYSdf2gLuqYfLw/Rd
-5L0OBKzsOFYWVc0nGZtwmSfjtq0cSf7GBVXaLCPsOoI2d9K67ocVGKCxBYBKbQzu
-J0SK/4DCS6ee8N/k1ERLNZHdSvSlYCwRPuhDxIj0FP61I+t7k+zd3u8wJBDKlVvy
-lzy+qIXLvrPXDyErQgRDsbjKESLfp2U3WZLlYn1o779PWDty+x1wuiUePPmDSI3C
-TLdDj23gOBicQzKtRJ/229yLe5eo8H4xs5Dgei8JDrmKZm0ochU7z4NVFozePUma
-+rNXmqrURdm7p8PDaP4PLRNfjfqDV7mucxgy8FrlsMDPinJCKhZ8b9eMU8UG1GJI
-Jn6zGDvcidwWuz+/QHqWdhRhZbqTHwjDyJ4NhHBO5uk40GJwu6u00hE3JOsWeAiv
-KJV7tCV8NkzzF4EaW8OgJiKqWqV+uOfkLhnA+GZu7ggs7F8YS64nvRKAfOW0mxqB
-UlPbb2DABRMxUx76MHHPaDriUjvk6W0lm43H6UaltohYCXrjhZbiUyzAxP5HCkx5
-mm5Hkv4qY/FQjUbHVTlM+Ug22PRuN82sCHXh5aD3xvHQoav5AQ==
-=C3fB
------END PGP SIGNATURE-----
-
---6bmfeioxjbjj4jf2--
+>  	if (rc)
+>  		return rc;
+>  
+> -	config.rx_filter = bp->rx_filter;
+> +	config->rx_filter = bp->rx_filter;
+> +
+> +	return 0;
+> +}
+>  
+> -	return copy_to_user(ifr->ifr_data, &config, sizeof(config)) ?
+> -		-EFAULT : 0;
+> +static int bnx2x_hwtstamp_get(struct net_device *dev,
+> +			      struct kernel_hwtstamp_config *config)
+> +{
+> +	struct bnx2x *bp = netdev_priv(dev);
+> +
+> +	config->rx_filter = bp->rx_filter;
+> +	config->tx_type = bp->tx_type;
+> +
+> +	return 0;
+>  }
 
