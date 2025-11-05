@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64882CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3AACCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpPlZoOl7IabXK0X9/sSLWMUWGB9sumONnVZD/FBIYA=; b=aNPhzJMpLi++QprKaJd7frW5/i
-	7mJhA/fFmZ50N5ZfKeaSlpZe+vJAbrXCnjheUXjSLdhAhS9iJfBVUWwUT2NAj3sHVv1m8Vl5rwnOE
-	GvRqO2Wk83McLUKtZIF64yAUdu6ad7UpofABtGODsof5GOEwpRk3h5IlK7j24lbgi9XAAT/fMDCbp
-	TxHwZLxHRgjgUICXD4B6+LlSKOgYRGDbAXVUPjENb0Si4VqNc38RHovefmHSg8ZD2nieVzB2KqV7y
-	2hgs1VcSpPV6BWZ++LJ+AXoQo98lqNnzt4374viThwumA0c1XhiqkxPFPCBrWHdEfU3O9RndGjfHg
-	wEbejtqw==;
+	bh=tx9lswogNRQ0TZt9WL0Qi02NOUSoFXBUIWfnFP8NGzs=; b=VkRN/k9NXJGzOGUF6r8kdXjEhN
+	8D95wAZ9VIxmH4Pdkq4s1XVBGfBdVYZ3MU2R4yeyU+yYLZ88kD1AgKF3M7hK3RxmeF71qeWl+iH4Z
+	0uRSdPACDTpPbQ9Chxx0YopDtzAujtUdAnW5kZgqYzcCY5FTV+suitqUu5o+uk2YkaipQfyu7AD5U
+	5tAQrbnOi3JDcmGNJpqYH0OC+1PRCr2heMXyL0/aCg7QU5pf8j9axMV+IHWJNVo+Gjuf9UuhqfvSg
+	ose6sXrgcz/4WtAF42mXOSy9oHhUyFpD9rBo2NqgDGCR6rTocygzKdN4ch4IMS+j+xhXAzRtoodQv
+	yOmre+NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgKZ-0000000E489-0YoO;
-	Wed, 05 Nov 2025 16:25:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGgMq-0000000E4Li-0zBy;
+	Wed, 05 Nov 2025 16:28:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgKX-0000000E47p-3CwZ
+	id 1vGgMo-0000000E4Lc-006Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:25:54 +0000
+	Wed, 05 Nov 2025 16:28:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D277E60215;
-	Wed,  5 Nov 2025 16:25:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BBBC116B1;
-	Wed,  5 Nov 2025 16:25:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 026AA60207;
+	Wed,  5 Nov 2025 16:28:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33848C4CEF8;
+	Wed,  5 Nov 2025 16:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762359952;
-	bh=G3m8tDEn6jVD0cr5Gp1rwvwl7UyEMdHtRYtaTdfC7yU=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=pOW5ARcZv9+dYr4KlPTm3rUtb31/yvolifs20CAsTZVkKBstFI2X84sLbx2ko7LIo
-	 t/+nww6iK0lhv3skgG12FajNtRn0jIuVEaVSo3rk6ZaqTp8ToGNkBL1XtUk7NrI4I8
-	 RuC9wRI291hb9SrmSLT3o77kQraoNfwBzg1van1sDmXqDT4gXkMQo1+JzdXzC1olTz
-	 c6J/WmcNxvJzqLxxaybol5vL9U11NhMwtx4ZFmh35gd5Zl/E3N2RcQ6VMsVT1hjeh3
-	 PyQIgQ1kAW8sRhDdgoqnlmMhOyiuaMh974Qa54MT7Jj+MdUaFfWzAjcBLBNcGgmkUn
-	 uZrd0G786pb6w==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 202C0CE0B1D; Wed,  5 Nov 2025 08:25:51 -0800 (PST)
-Date: Wed, 5 Nov 2025 08:25:51 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <8f7997f5-fdb3-443b-90be-3c68d796b416@paulmck-laptop>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
- <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
- <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQoyPox1DjlBT32O@arm.com>
- <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
- <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
- <aQtufeFU-PAE6YDk@arm.com>
+	s=k20201202; t=1762360092;
+	bh=XZsR+JyD+p+0AmVN0UT/SExpbSqoB4WWhXwZyYv1juM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EVPncHIh/EOqGFCdREjl+2w+VGlqkjCAARlMMggMBvZaXK8WL0I7nOF5N4aUy12Cq
+	 1MSijhgS4t1291bQKTZV13FU2rRXBsTAO6sw3VIanGxLl45tXeypLZpfH9cBgrprC5
+	 fM1xwVaxJiZq6874ZxPd6vM4+G2lil3Imv1yectPVArs+70jgStj+MFd3Ah71oFg6O
+	 zr7opLT5qYj/5SwzNxTtzqY28hyfZ5N9A4zxq7eSVVstrYiRaE1amTmjR9YabuZCi8
+	 h9RLNiMmdI08k8CXbIE1EcfMEPVNt1U4TNNFRL6y1/AssFAz50F6+TmhCRxSGER9yX
+	 s9v6wleyskP0A==
+Date: Wed, 5 Nov 2025 17:28:10 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 16/33] PCI: Flush PCI probe workqueue on cpuset isolated
+ partition change
+Message-ID: <aQt7Gg3XJ7fVdD3W@localhost.localdomain>
+References: <20251013203146.10162-17-frederic@kernel.org>
+ <20251014205034.GA906667@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <aQtufeFU-PAE6YDk@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251014205034.GA906667@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,88 +93,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 03:34:21PM +0000, Catalin Marinas wrote:
-> On Tue, Nov 04, 2025 at 12:10:36PM -0800, Paul E. McKenney wrote:
-> > On Tue, Nov 04, 2025 at 10:43:02AM -0800, Paul E. McKenney wrote:
-> > > On Tue, Nov 04, 2025 at 05:05:02PM +0000, Catalin Marinas wrote:
-> > > > For the SRCU case, STADD especially together with the DMB after lock and
-> > > > before unlock, executing it far does slow things down. A microbenchmark
-> > > > doing this in a loop is a lot worse than it would appear in practice
-> > > > (saturating buses down the path to memory).
-> > > 
-> > > In this srcu_read_lock_fast_updown() case, there was no DMB.  But for
-> > > srcu_read_lock() and srcu_read_lock_nmisafe(), yes, there would be a DMB.
-> > > (The srcu_read_lock_fast_updown() is new and is in my -rcu tree.)
-> > > 
-> > > > A quick test to check this theory, if that's the functions you were
-> > > > benchmarking (it generates LDADD instead):
-> > > 
-> > > Thank you for digging into this!
+Le Tue, Oct 14, 2025 at 03:50:34PM -0500, Bjorn Helgaas a écrit :
+> On Mon, Oct 13, 2025 at 10:31:29PM +0200, Frederic Weisbecker wrote:
+> > The HK_TYPE_DOMAIN housekeeping cpumask is now modifyable at runtime. In
+> > order to synchronize against PCI probe works and make sure that no
+> > asynchronous probing is still pending or executing on a newly made
+> > isolated CPU, the housekeeping susbsystem must flush the PCI probe
+> > works.
 > > 
-> > And this_cpu_inc_return() does speed things up on my hardware to about
-> > the same extent as did the prefetch instruction, so thank you again.
-> > However, it gets me more than a 4x slowdown on x86, so I cannot make
-> > this change in common code.
+> > However the PCI probe works can't be flushed easily since they are
+> > queued to the main per-CPU workqueue pool.
+> > 
+> > Solve this with creating a PCI probe specific pool and provide and use
+> > the appropriate flushing API.
 > 
-> Definitely not suggesting that we use the 'return' variants in the
-> generic code. More likely change the arm64 code to use them for the
-> per-CPU atomics.
+> s/modifyable/modifiable/
+> s/newly made isolated/newly isolated/
+> s/susbsystem/subsystem/
+> s/PCI probe specific pool/PCI probe-specific pool/
 
-Whew!!!  ;-)
+All fixed! Thanks.
 
-> > So, my thought is to push arm64-only this_cpu_inc_return() into SRCU via
-> > something like this_cpu_inc_srcu(), but not for the upcoming merge window,
-> > but the one after that, sticking with my current interrupt-disabling
-> > non-atomic approach in the meantime (which gets me most of the benefit).
-> > Alternatively, would it work for me to put that cache-prefetch instruction
-> > into SRCU for arm64?  My guess is "absolutely not!", but I figured that
-> > I should ask.
-> 
-> Given that this_cpu_*() are meant for the local CPU, there's less risk
-> of cache line bouncing between CPUs, so I'm happy to change them to
-> either use PRFM or LDADD (I think I prefer the latter). This would not
-> be a generic change for the other atomics, only the per-CPU ones.
 
-I have easy access to only the one type of ARM system, and of course
-the choice must be driven by a wide range of systems.  But yes, it
-would be much better if we can just use this_cpu_inc().  I will use the
-non-atomics protected by interrupt disabling in the meantime, but look
-forward to being able to switch back.
-
-> > But if both of these approaches proves problematic, I might need some
-> > way to distinguish between systems having slow LSE and those that do not.
-> 
-> It's not that systems have slow or fast atomics, more like they are slow
-> or fast for specific use-cases. Their default behaviour may differ and
-> at least in the Arm Ltd cases, this is configurable. An STADD executed
-> in the L1 cache (near) may be better for your case and some
-> microbenchmarks but not necessarily for others. I've heard of results of
-> database use-cases where STADD executed far is better than LDADD
-> executed near when the location is shared between multiple CPUs. In
-> these cases even a PRFM can be problematic as it tends to bring a unique
-> copy of the cacheline invalidating the others (well, again, microarch
-> specific).
-
-Fair point, and I do need to be careful not to read too much into the
-results from my one type of system.  Plus, to your point elsewhere in
-this thread, making the hardware better would be quite welcome as well.
-
-> For the Arm Ltd implementations, I think the behaviour for most of the
-> (recent) CPUs is that load atomics, CAS, SWP are executed near while the
-> store atomics far (subject to configuration, errata, interconnect). Arm
-> should probably provide some guidance here so that other implementers
-> and software people know how/when to use them.
-
-Or make the hardware figure out what to do automatically for each use
-case as it executes.  Perhaps a bit utopian, but it is nevertheless a
-good direction to aim for.
-
-							Thanx, Paul
-
-> -- 
-> Catalin
+-- 
+Frederic Weisbecker
+SUSE Labs
 
