@@ -4,59 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C64CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E177CCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 04:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2LyWeTyegHwca46QgB4OyH6fFu1GViJJKZV5UZOvuw=; b=bQRQY2WZgXcTY4dInbxaDSHn7m
-	NHpaD4U4W+qaFOKSMMk3xQ2DkYBpxYqUmGGlTa42QbigJcADeYF4yjCtAUG3aPY4UpiAfAgS3jK+W
-	813hMfjtnFd13RLc1FI52xY+dhsxKDRAdTFe2OfXsn1xsTvQ/4v3OcgRYkppmCOpG7OpEucbU8IHV
-	TmtuJdpHZhlgaDq64rzKtBjZQNDNHcn03Cc7GUu6W3buuuBvdhqCerf18tcr/mFfmfy7X0zcqwbbg
-	jNhFU85N0p2IKAFBeXyDZfOCp27hhNt7AS+DajZHswLfKwVIwxFHGHU5KXTRq/pG6xzfPv++5a9cN
-	N2h0e0Sg==;
+	bh=YsH5r/6vzUJZtwJSh4laP2CRaInCJhfRCw+nEMpXmAE=; b=PkjNZ90gYKml5KAIB2epR3IAvs
+	H1Jr5MKSqSRMNFyCyXp3bcLmew6mfpdiO5RNC89xI0YoENs/NMZaxL9KsOJ87/jDQq4C5TLwj5+bC
+	XMxorPnI+vIZlrUD8g7oHBfKLT4FpA1g2yQuH9fnZq2kPEbNMZKtS8oT1aQ7pkEx/x+MEbmdecWl5
+	iHJKfKjRNV33SRNOfwgDKDUH/HXlzLpiMPKNupn3sxZMoZW+rG044xbwn2Ih1C9qQKZ944PFr/In6
+	79oCd/f7KUPT0wWCtydqw6A+vvKg2OjbNdCUlHCeKBTYHDB96Ax9D9nQuU9yRomMprIw8G8QZRuO8
+	PM/guBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUe2-0000000CymM-0BhQ;
-	Wed, 05 Nov 2025 03:57:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUdy-0000000Cykj-1hb3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 03:57:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF0EB16F2;
-	Tue,  4 Nov 2025 19:57:00 -0800 (PST)
-Received: from [10.164.136.37] (unknown [10.164.136.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 855B13F66E;
-	Tue,  4 Nov 2025 19:57:05 -0800 (PST)
-Message-ID: <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
-Date: Wed, 5 Nov 2025 09:27:02 +0530
+	id 1vGUjI-0000000CzES-1CuG;
+	Wed, 05 Nov 2025 04:02:40 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGUjF-0000000CzE3-1E70;
+	Wed, 05 Nov 2025 04:02:38 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A53GHPb022581;
+	Wed, 5 Nov 2025 04:02:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=YsH5r/6vzUJZtwJSh4laP2CRaInCJhfRCw+nEMpXmAE=; b=
+	eRNmz8V+0wX2p5FgaNbOxo00KhVqq1gHlRmxlqb3zqjm9QNZ4FD/U6Qesc2EaGBX
+	XtLNinPDiyA4p4a+7oSTIjhespG4pAoA6DwDlAl5frJNSxLQjnkVj3pPLq+Fs9tR
+	tuZWGKWt0rLNN2xoLrLgNj1XkXR0DpkFMYvJlO19oBKltbAQa8mWgqRkE6AC0mlT
+	ZQehWWNOMN5aVmOyiemakDaWMSljpmbYr147zPAr7jNddUm7/QS2CENI7lcXosXv
+	3T7M0lm6sdRU88oWuTvC8BJ7Y7MeuL5B3cDJ78a7KMGwyijUphEWNgrw2DLu0ilt
+	T0fsKwkMheSX0utflxaxug==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4a7xhdg201-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 05 Nov 2025 04:02:28 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5A524FLm024893;
+	Wed, 5 Nov 2025 04:02:28 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4a58ne15j1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 05 Nov 2025 04:02:28 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5A542Pro005395;
+	Wed, 5 Nov 2025 04:02:27 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4a58ne15gy-6;
+	Wed, 05 Nov 2025 04:02:27 +0000
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: linux-scsi@vger.kernel.org, peter.wang@mediatek.com
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        alim.akhtar@samsung.com, avri.altman@wdc.com, bvanassche@acm.org,
+        robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+        conor+dt@kernel.org, jejb@linux.ibm.com, lgirdwood@gmail.com,
+        broonie@kernel.org, matthias.bgg@gmail.com,
+        angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, wenst@chromium.org,
+        michael@walle.cc, conor.dooley@microchip.com, chu.stanley@gmail.com,
+        chun-hung.wu@mediatek.com, alice.chao@mediatek.com,
+        naomi.chu@mediatek.com, ed.tsai@mediatek.com
+Subject: Re: [PATCH v1] dt-bindings: ufs: mediatek,ufs: Update maintainer information in mediatek,ufs.yaml
+Date: Tue,  4 Nov 2025 23:02:20 -0500
+Message-ID: <176231440764.2306382.16356889887368434971.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251031122008.1517549-1-peter.wang@mediatek.com>
+References: <20251031122008.1517549-1-peter.wang@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Will Deacon <will@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- ryan.roberts@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20251103061306.82034-1-dev.jain@arm.com>
- <aQjHQt2rYL6av4qw@willie-the-truck>
- <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
- <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
- <aQn4EwKar66UZ7rz@willie-the-truck>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <aQn4EwKar66UZ7rz@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_02,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 mlxscore=0 bulkscore=0
+ malwarescore=0 adultscore=0 spamscore=0 mlxlogscore=921 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
+ definitions=main-2511050024
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA1MDAxOSBTYWx0ZWRfX+uE1GIt984Gq
+ 4/GHMEsw9maJTT375X+rmpBf5mLpXxua/eTTSKpNLnEGcmns2VLHp2v9fHVEKAuCzVnrZEIhCAm
+ 9erOZPx6vRi8KgbnS5iMXT7ojITDj7WqJIhCMqjRDbhxvkl48Ketl+YjXTZBbJXi1NvKBWfROxS
+ R9+x+365zLpzU0Kc9H3sN5IOs7RnKfkXkSPm8gphNh+OWhLvU8Xzi3R4WlKDRSTnpm6rXQzx/UN
+ WBNqsTx46cDHbk9eLm/CevyLK+0U696VVxkQgeaFv0RP/zgIWVtLUV5dGpyNwtBNrkAA6tYoyIK
+ 5sl+8AiW5T7FuuQEdusv+qDnDi3IxTt7kEF+yilQJt4fhSJus6YP+qnGHDLYG8UxJTHd/qVC/kL
+ 6MqSTyfIHUsbn3KOwsKN3RhLYgVVuP4P3bp8Df7TMnj4uqM9uXs=
+X-Authority-Analysis: v=2.4 cv=ZpDg6t7G c=1 sm=1 tr=0 ts=690acc54 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=mpaa-ttXAAAA:8 a=8d0GUG1h20LVvl_VnrYA:9 a=QEXdDO2ut3YA:10
+ cc=ntf awl=host:13657
+X-Proofpoint-ORIG-GUID: HuzLGcL3yYhgijfTvd2LcY2rHs5jwfRD
+X-Proofpoint-GUID: HuzLGcL3yYhgijfTvd2LcY2rHs5jwfRD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_195710_534725_3B5FD916 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20251104_200237_471936_4FCE2C56 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,94 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 31 Oct 2025 20:19:12 +0800, peter.wang@mediatek.com wrote:
 
-On 04/11/25 6:26 pm, Will Deacon wrote:
-> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
->> On 04/11/25 12:15 am, Yang Shi wrote:
->>> On 11/3/25 7:16 AM, Will Deacon wrote:
->>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
->>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
->>>>> rodata=full"),
->>>>> __change_memory_common has a real chance of failing due to split
->>>>> failure.
->>>>> Before that commit, this line was introduced in c55191e96caa,
->>>>> still having
->>>>> a chance of failing if it needs to allocate pagetable memory in
->>>>> apply_to_page_range, although that has never been observed to be true.
->>>>> In general, we should always propagate the return value to the caller.
->>>>>
->>>>> Cc: stable@vger.kernel.org
->>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
->>>>> areas to its linear alias as well")
->>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>>> ---
->>>>> Based on Linux 6.18-rc4.
->>>>>
->>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
->>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->>>>> index 5135f2d66958..b4ea86cd3a71 100644
->>>>> --- a/arch/arm64/mm/pageattr.c
->>>>> +++ b/arch/arm64/mm/pageattr.c
->>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
->>>>> long addr, int numpages,
->>>>>        unsigned long size = PAGE_SIZE * numpages;
->>>>>        unsigned long end = start + size;
->>>>>        struct vm_struct *area;
->>>>> +    int ret;
->>>>>        int i;
->>>>>          if (!PAGE_ALIGNED(addr)) {
->>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
->>>>> long addr, int numpages,
->>>>>        if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
->>>>>            for (i = 0; i < area->nr_pages; i++) {
->>>>> - __change_memory_common((u64)page_address(area->pages[i]),
->>>>> +            ret =
->>>>> __change_memory_common((u64)page_address(area->pages[i]),
->>>>>                               PAGE_SIZE, set_mask, clear_mask);
->>>>> +            if (ret)
->>>>> +                return ret;
->>>> Hmm, this means we can return failure half-way through the operation. Is
->>>> that something callers are expecting to handle? If so, how can they tell
->>>> how far we got?
->>> IIUC the callers don't have to know whether it is half-way or not
->>> because the callers will change the permission back (e.g. to RW) for the
->>> whole range when freeing memory.
->> Yes, it is the caller's responsibility to set VM_FLUSH_RESET_PERMS flag.
->> Upon vfree(), it will change the direct map permissions back to RW.
-> Ok, but vfree() ends up using update_range_prot() to do that and if we
-> need to worry about that failing (as per your commit message), then
-> we're in trouble because the calls to set_area_direct_map() are unchecked.
->
-> In other words, this patch is either not necessary or it is incomplete.
+> Replace Stanley Chu with me and Chaotian in the maintainers field,
+> since his email address is no longer active.
+> 
+> 
 
-Here is the relevant email, in the discussion between Ryan and Yang:
+Applied to 6.19/scsi-queue, thanks!
 
-https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com/
+[1/1] dt-bindings: ufs: mediatek,ufs: Update maintainer information in mediatek,ufs.yaml
+      https://git.kernel.org/mkp/scsi/c/480ca7954664
 
-We had concluded that all callers of set_memory_ro() or set_memory_rox() (which require the
-linear map perm change back to default, upon vfree() ) will call it for the entire region (vm_struct).
-So, when we do the set_direct_map_invalid_noflush, it is guaranteed that the region has already
-been split. So this call cannot fail.
-
-https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com/
-
-This email notes that there is some code doing set_memory_rw() and unnecessarily setting the VM_FLUSH_RESET_PERMS
-flag, but in that case we don't care about the set_direct_map_invalid_noflush call failing because the protections
-are already RW.
-
-Although we had also observed that all of this is fragile and depends on the caller doing the
-correct thing. The real solution should be somehow getting rid of the BBM style invalidation.
-Ryan had proposed some methods in that email thread.
-
-One solution which I had thought of, is that, observe that we are doing an overkill by
-setting the linear map to invalid and then default, for the *entire* region. What we
-can do is iterate over the linear map alias of the vm_struct *area and only change permission
-back to RW for the pages which are *not* RW. And, those relevant mappings are guaranteed to
-be split because they were changed from RW to not RW.
-
->
-> Will
+-- 
+Martin K. Petersen
 
