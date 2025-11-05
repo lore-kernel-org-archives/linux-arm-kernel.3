@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B81CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 12:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7074ACCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qiUQ5+8FLYyesS1B4gyvaAybOQsKXnDyTRwQJ0HYTII=; b=WboOE+MFQnQrcpewbq2BigZt54
-	4XylbsFE0ZjzsuDqrmjZiTLW3ci2M70AtuV1jynlBad+ENfWbnAbEM9767iY//VUNYQj1/M3ZNYNj
-	v6XJnbloEK6hSyrrGB2IeSrgvENHJ7O56M2NVsa8cu+xac8+yI4tYNTTND8K7O4psAgbh+MoBIaJa
-	xv2+gohl5K2U/vg7seaCZcmIvhLfSgjSVn5vySxKlzIl85Fi/4iC0dT3EZxEE/1PD9DMKW2UJzmDE
-	jo9MO+/iryP0ED/1XxphwjXRnVLN8B9b0QtO8Gl+gPceXOt20JETyqE1kUN2Cs+1q/rw6cjeIidgP
-	KCaTxw0w==;
+	bh=w1qv8HlVsu3CnEcBUPhNsDCp/x71dPiqlB14h03+nMo=; b=WlPwAY1/p43DF+y+4M5vj3lxux
+	zfr+SyZDSVkQdkS8MAju3IPVO1OL/47Qvup3CXdB94seWUujQhs1xBFnTXk4tzHSafuoxywlUWUGE
+	CJ0WWFYt22nT1wSjuOqNZ4xhg/Owcw99qbef+9Hovn6bKEkyDHMGexZBFn5C9JfD5Vh9lXODSt7rh
+	jvUIm5CJfgfFEXXG73Zun94i4sJVg9/l1cr7x6i6PyHR2eyB0ccjyfKG7SA0I+CHHtgyTHa3eTQfP
+	OwN2MkOPUKO1BJJ0dIbbtM9E+Jw6IL3I/vkoktOYqbbNo9/26mzemLNwjzwjI1Ys3Nnl8IyPj7QGU
+	kZ/QpDaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGd78-0000000Diqq-0Szw;
-	Wed, 05 Nov 2025 12:59:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGdCB-0000000DjF7-2IDd;
+	Wed, 05 Nov 2025 13:05:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGd77-0000000DiqZ-00KG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 12:59:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 617CE60207;
-	Wed,  5 Nov 2025 12:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E96C4CEF8;
-	Wed,  5 Nov 2025 12:59:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762347588;
-	bh=pYdcHxsRXCEZFJBLVGty+ksLBg504S9Nj7797A0+RDM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lo6PWFFomtjkMPv9RA6+wNc5mPpF9LdKXUl4uGjIockxE58Bo3dfCp+m7aVZkrxVa
-	 qSHEIK+CmAFYbUKQ5qFuaFjCoLHSvcAnH7fr/jsAQ/ddBCM7szS9Vd6OISh+o/+kpz
-	 yFh43T6Ne8ErIXehYOjWn412WMvKeMLGdKPs764oiZ0WYnxBq3DGSVcNmtbgjEd9/U
-	 76ltNZgtGyCjjTXm0qUADIxuK1aeR0xfE1JjtcHIpeENxkSb5FPJM5IBRsFmfIitGG
-	 tzfqpv11GccEVaYFnvxCgWw5S3xVY9WrwgoslXARgAjqjzvafPBypOnHRVcDkSvMW0
-	 iAcJQJ013PXYw==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Will Deacon <will@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	bpf@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	Yonghong Song <yhs@fb.com>,
-	Song Liu <songliubraving@fb.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mahe Tardy <mahe.tardy@gmail.com>
-Subject: [PATCH 2/2] selftests/bpf: Add test for bpf_override_return helper
-Date: Wed,  5 Nov 2025 13:59:24 +0100
-Message-ID: <20251105125924.365205-2-jolsa@kernel.org>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251105125924.365205-1-jolsa@kernel.org>
-References: <20251105125924.365205-1-jolsa@kernel.org>
+	id 1vGdC8-0000000DjES-2iyA;
+	Wed, 05 Nov 2025 13:05:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1762347897;
+	bh=/lcv0CRLqvhN1u0t7OFVDn+bvcyVjciZS0ifR6L0Ymo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CzFOvzAmTBrDXgxrOwrrqIx7gs/r5A98UFhUYqc3e1yH1jxo+Y/O9bdF6Pqij5DdB
+	 sVH3pO1h7Bp0sl9UjCg+IyxSZdL5RarAZ+Gdh6F/GAqkSo6tHx4pykUci3gtZQFct0
+	 0h3sBhu7RIncDqqNnF+MkL7xhBSjk0WdordJsMCcCbkTD8prf2H5ww+7ERPsttCEbD
+	 9Ias+BPY+6HeyUUq4YaVyzhT3NFP4vxcstuuAYWIYMgh7Sl2/CrWx5UsiXZHCFymRB
+	 sGv4Vnl35s3mrNcDW71Hy2UaoS6Csp1xRZvNfC6h79qkfxMP3bIJMi3UCjH1xcLhro
+	 +WnIVH7unOwug==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 055C217E0062;
+	Wed,  5 Nov 2025 14:04:56 +0100 (CET)
+Message-ID: <46e8ec8e-977d-4e7c-9f65-0c5d9c517825@collabora.com>
+Date: Wed, 5 Nov 2025 14:04:56 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] SPMI: MediaTek: Add support for multi-bus
+To: sboyd@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, hsin-hsiung.wang@mediatek.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20251024083247.25814-1-angelogioacchino.delregno@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251024083247.25814-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_050500_883331_3CAE1F6F 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,132 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We do not actualy test the bpf_override_return helper functionality
-itself at the moment, only the bpf program being able to attach it.
+Il 24/10/25 10:32, AngeloGioacchino Del Regno ha scritto:
+> Changes in v4:
 
-Adding test that override prctl syscall return value on top of
-kprobe and kprobe.multi.
+Gentle ping for this series.
 
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
----
- .../bpf/prog_tests/kprobe_multi_test.c        | 61 +++++++++++++++++++
- .../bpf/progs/kprobe_multi_override.c         | 15 +++++
- 2 files changed, 76 insertions(+)
+Cheers,
+Angelo
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-index 6cfaa978bc9a..b5e5cc54b89a 100644
---- a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-+++ b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-@@ -1,4 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <errno.h>
-+#include <sys/prctl.h>
- #include <test_progs.h>
- #include "kprobe_multi.skel.h"
- #include "trace_helpers.h"
-@@ -540,6 +542,63 @@ static void test_attach_override(void)
- 	kprobe_multi_override__destroy(skel);
- }
- 
-+/* XXX I'll move this to common place and share with
-+ * SYS_NANOSLEEP_KPROBE_NAME macro on repost.
-+ */
-+#ifdef __x86_64__
-+#define SYS_PREFIX "__x64_"
-+#elif defined(__s390x__)
-+#define SYS_PREFIX "__s390x_"
-+#elif defined(__aarch64__)
-+#define SYS_PREFIX "__arm64_"
-+#elif defined(__riscv)
-+#define SYS_PREFIX "__riscv_"
-+#else
-+#define SYS_PREFIX ""
-+#endif
-+
-+static void test_override(void)
-+{
-+	struct kprobe_multi_override *skel = NULL;
-+	int err;
-+
-+	skel = kprobe_multi_override__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "kprobe_multi_empty__open_and_load"))
-+		goto cleanup;
-+
-+	skel->bss->pid = getpid();
-+
-+	/* no override */
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, -1, "err");
-+
-+	/* kprobe.multi override */
-+	skel->links.test_override = bpf_program__attach_kprobe_multi_opts(skel->progs.test_override,
-+						SYS_PREFIX "sys_prctl", NULL);
-+	if (!ASSERT_OK_PTR(skel->links.test_override, "bpf_program__attach_kprobe_multi_opts")) {
-+		goto cleanup;
-+	}
-+
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, 123, "err");
-+
-+	bpf_link__destroy(skel->links.test_override);
-+	skel->links.test_override = NULL;
-+
-+	/* kprobe override */
-+	skel->links.test_kprobe_override = bpf_program__attach_kprobe(skel->progs.test_kprobe_override,
-+							false, SYS_PREFIX "sys_prctl");
-+	if (!ASSERT_OK_PTR(skel->links.test_kprobe_override, "bpf_program__attach_kprobe")) {
-+		goto cleanup;
-+	}
-+
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, 123, "err");
-+
-+cleanup:
-+	kprobe_multi_override__destroy(skel);
-+}
-+
- #ifdef __x86_64__
- static void test_attach_write_ctx(void)
- {
-@@ -597,6 +656,8 @@ void test_kprobe_multi_test(void)
- 		test_attach_api_fails();
- 	if (test__start_subtest("attach_override"))
- 		test_attach_override();
-+	if (test__start_subtest("override"))
-+		test_override();
- 	if (test__start_subtest("session"))
- 		test_session_skel_api();
- 	if (test__start_subtest("session_cookie"))
-diff --git a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-index 28f8487c9059..14f39fa6d515 100644
---- a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-+++ b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-@@ -5,9 +5,24 @@
- 
- char _license[] SEC("license") = "GPL";
- 
-+int pid = 0;
-+
- SEC("kprobe.multi")
- int test_override(struct pt_regs *ctx)
- {
-+	if (bpf_get_current_pid_tgid() >> 32 != pid)
-+		return 0;
-+
-+	bpf_override_return(ctx, 123);
-+	return 0;
-+}
-+
-+SEC("kprobe")
-+int test_kprobe_override(struct pt_regs *ctx)
-+{
-+	if (bpf_get_current_pid_tgid() >> 32 != pid)
-+		return 0;
-+
- 	bpf_override_return(ctx, 123);
- 	return 0;
- }
--- 
-2.51.1
+>   - Refactored IRQ domain handling due to deprecation of function
+>     irq_domain_add_tree() to use the new irq_domain_create_tree()
+>   - Added .irq_eoi() callback for rcs_irq as that better reflects
+>     the actual functionality of this interrupt controller (as its
+>     SLV_x_y_EINT registers are really signaling "EOI", not "ACK")
+>   - Fixed to use generic_handle_domain_irq_safe() to avoid races
+>   - Tested again on MT8196 Chromebook
+> 
+> Changes in v3:
+>   - Added Fixes tag to commit 3, collected R-b tag from wenst
+> 
+> Changes in v2:
+>   - Fixed indentation error in dt-bindings
+> 
+> This series adds basic support for multi-bus (multi-master) SPMI
+> controllers, as found in the MediaTek MT8196 Chromebook SoC and
+> the MediaTek MT6991 Dimensity 9400 Smartphone SoC, including RCS
+> interrupt handling and per-bus registration.
+> 
+> AngeloGioacchino Del Regno (5):
+>    dt-bindings: spmi: Add MediaTek MT8196 SPMI 2 Arbiter/Controllers
+>    spmi: mtk-pmif: Add multi-bus support for SPMI 2.0
+>    spmi: mtk-pmif: Keep spinlock until read is fully done
+>    spmi: mtk-pmif: Implement Request Capable Slave (RCS) interrupt
+>    spmi: mtk-pmif: Add support for MT8196 SPMI Controller
+> 
+>   .../bindings/spmi/mediatek,mt8196-spmi.yaml   | 138 +++++
+>   drivers/spmi/spmi-mtk-pmif.c                  | 472 +++++++++++++++---
+>   2 files changed, 530 insertions(+), 80 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+> 
+
 
 
