@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A9ECCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72785CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FC/fyZ8C9xRdWYPMtkFbwEq+3j0Lh4Kf9aUPI+WedvI=; b=wMP9TBc0OU3MYrBPhf9MtjY/zW
-	LGKcfkGl8XGKShkzF+l4NlH1xPZumW4gu6wCki/HS6mnNhpVmWij0oeuRbcojnwdvtO0VQkz5FwoO
-	efz4NZ+CT7TBWKKx+yNtuGVUJfCvBfnzPxh3o6i5dNs2zpoNGnJLuvo1hRKj2LDPQcmgq7slu4l72
-	8DiWEKAMixgiYkOlchfCYtyuA/fteD15ydBhlTs61oowbLWec4kneQRoLkRjrAmBDX0pOyG+JHvAR
-	QtVpwvv1TSLg++/bZelSHNVfgAdwihdIETNSpS10my1m9WUkI+VzaUCr0joQS1+5UHMnwMAHodx5b
-	rxvqmGNQ==;
+	bh=Jo8Wdjvj3YfXYEEpEI+fQEmDmOtHAHT+I0W8XkKzZIw=; b=xWqxEhN/z6rwxW8CXpcd0pl+mN
+	QxcpyE/eipbWUUcWMZFPcZXvDVrpjOWYPte7GGbF1dFvsdl3RYgCX/oNDUB8YfgCn1Ki5ph8zav4n
+	flmbmhH0+eW6qybo/laPI8P4o3tqI9WYhNv2SzhrTxGzXxMfOCosfPQFl9KQoBBH9+/gNxIxK2FXq
+	sWtmk0XbK+3i9cHL0MMoBXTz3sRJCIuIkvhSMMZrDyce63pzBUHL39+iYy5WQaN3c4kJTUA3A+xZr
+	9QW7FW1r5yyK27CQQxL22m0c+IkJCQzCQVjACmTjpPZJQ0U0jnTH9S/H1PYs7ZspvIAjRYInXqSc7
+	UE0ZbkdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkgP-0000000EPwh-0Uj6;
-	Wed, 05 Nov 2025 21:04:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGkgW-0000000EQ0k-1ol1;
+	Wed, 05 Nov 2025 21:04:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkgM-0000000EPuc-11O6
+	id 1vGkgU-0000000EPz2-0wXq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 21:04:43 +0000
+	Wed, 05 Nov 2025 21:04:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C44B44651;
+	by tor.source.kernel.org (Postfix) with ESMTP id A0DBC60224;
+	Wed,  5 Nov 2025 21:04:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F24B5C4CEF5;
 	Wed,  5 Nov 2025 21:04:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC92FC116D0;
-	Wed,  5 Nov 2025 21:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762376681;
-	bh=vCqQjRKewdSvMhojsrACl76twRmsMBvlBV6cm47g7uk=;
+	s=k20201202; t=1762376689;
+	bh=4bRWbV0YuzmDy1B/sRgCWln6RMh7KL9GReKc3Nnqm6c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=T5kGeur44NFLworbF2dzO61n4fKCzm2Vesu/gMHqpcwG2IH7hRGsS9PE3e3XFJnQC
-	 J0x2USmpchyTqj1LejPMzaUkNNfX70M3i2D7ma/ibICB95gMSZHSQ1EFwshSOEi0w3
-	 Y2xGpqy0WEnVnV5hr5rHANSN95LQq4K0VBQdv8Bpc5HhxD51Fp/g/DRMKEUmJSI5CF
-	 B9gp8T6FWJNEKckRpqLNdjGecevv0JO7AyVADISC9OI6I7LsupnxmUoheiOeM/E5ra
-	 KXQhbVGao3xX3Opx9iLWtpyIpgQtuSCz1guXSJCOca83e+ubrEX1RpgKRH5FBPyQ5/
-	 wWGOm2PHDKFtQ==
+	b=W3jxBxnchXPJZKH2so0QCGrjyVavB6XgcFLZnwbf0ylrkboEezz9X/2eMG8q91HHH
+	 IAy92pFmbbdtvG33O3dU7hzjvMro+XMvvQrNO/4OHnD9UvLBMJlxfs33g9qiYG2hYK
+	 Z0ilCk2hxybBfgiC79MXfe3wp5DcBV55tZ8C2OtTr6lrdTxYZyW0YhSWQqXLYhiguS
+	 KJRtlYb248Pfs9ZOvisxol44RbREaI0m1UwUFynnMWwx9v9jprD0lSiNDM6UD69QkS
+	 z51fmf04HQKK4hqG5yCwVC8LmdU7H4H6mQNm+oJwCuT4iwU5cBY2Mo98ASdwndibIo
+	 jTUvvHb6LCGVg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,17 +80,14 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 05/31] sched/isolation: Save boot defined domain flags
-Date: Wed,  5 Nov 2025 22:03:21 +0100
-Message-ID: <20251105210348.35256-6-frederic@kernel.org>
+Subject: [PATCH 06/31] cpuset: Convert boot_hk_cpus to use HK_TYPE_DOMAIN_BOOT
+Date: Wed,  5 Nov 2025 22:03:22 +0100
+Message-ID: <20251105210348.35256-7-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251105210348.35256-1-frederic@kernel.org>
 References: <20251105210348.35256-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_130442_322158_B0CF960B 
-X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +102,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-but also cpuset isolated partitions.
-
-Housekeeping still needs a way to record what was initially passed
-to isolcpus= in order to keep these CPUs isolated after a cpuset
-isolated partition is modified or destroyed while containing some of
-them.
-
-Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
+boot_hk_cpus is an ad-hoc copy of HK_TYPE_DOMAIN_BOOT. Remove it and use
+the official version.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 Reviewed-by: Phil Auld <pauld@redhat.com>
 ---
- include/linux/sched/isolation.h | 4 ++++
- kernel/sched/isolation.c        | 5 +++--
- 2 files changed, 7 insertions(+), 2 deletions(-)
+ kernel/cgroup/cpuset.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
 
-diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-index d8501f4709b5..109a2149e21a 100644
---- a/include/linux/sched/isolation.h
-+++ b/include/linux/sched/isolation.h
-@@ -7,8 +7,12 @@
- #include <linux/tick.h>
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 52468d2c178a..8595f1eadf23 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -81,12 +81,6 @@ static cpumask_var_t	subpartitions_cpus;
+  */
+ static cpumask_var_t	isolated_cpus;
  
- enum hk_type {
-+	/* Revert of boot-time isolcpus= argument */
-+	HK_TYPE_DOMAIN_BOOT,
- 	HK_TYPE_DOMAIN,
-+	/* Revert of boot-time isolcpus=managed_irq argument */
- 	HK_TYPE_MANAGED_IRQ,
-+	/* Revert of boot-time nohz_full= or isolcpus=nohz arguments */
- 	HK_TYPE_KERNEL_NOISE,
- 	HK_TYPE_MAX,
+-/*
+- * Housekeeping (HK_TYPE_DOMAIN) CPUs at boot
+- */
+-static cpumask_var_t	boot_hk_cpus;
+-static bool		have_boot_isolcpus;
+-
+ /* List of remote partition root children */
+ static struct list_head remote_children;
  
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index a4cf17b1fab0..8690fb705089 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -11,6 +11,7 @@
- #include "sched.h"
+@@ -1686,15 +1680,16 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
+  * @new_cpus: cpu mask
+  * Return: true if there is conflict, false otherwise
+  *
+- * CPUs outside of boot_hk_cpus, if defined, can only be used in an
++ * CPUs outside of HK_TYPE_DOMAIN_BOOT, if defined, can only be used in an
+  * isolated partition.
+  */
+ static bool prstate_housekeeping_conflict(int prstate, struct cpumask *new_cpus)
+ {
+-	if (!have_boot_isolcpus)
++	if (!housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
+ 		return false;
  
- enum hk_flags {
-+	HK_FLAG_DOMAIN_BOOT	= BIT(HK_TYPE_DOMAIN_BOOT),
- 	HK_FLAG_DOMAIN		= BIT(HK_TYPE_DOMAIN),
- 	HK_FLAG_MANAGED_IRQ	= BIT(HK_TYPE_MANAGED_IRQ),
- 	HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
-@@ -216,7 +217,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
+-	if ((prstate != PRS_ISOLATED) && !cpumask_subset(new_cpus, boot_hk_cpus))
++	if ((prstate != PRS_ISOLATED) &&
++	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
+ 		return true;
  
- 		if (!strncmp(str, "domain,", 7)) {
- 			str += 7;
--			flags |= HK_FLAG_DOMAIN;
-+			flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
- 			continue;
- 		}
+ 	return false;
+@@ -3824,12 +3819,9 @@ int __init cpuset_init(void)
  
-@@ -246,7 +247,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
+ 	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
  
- 	/* Default behaviour for isolcpus without flags */
- 	if (!flags)
--		flags |= HK_FLAG_DOMAIN;
-+		flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
+-	have_boot_isolcpus = housekeeping_enabled(HK_TYPE_DOMAIN);
+-	if (have_boot_isolcpus) {
+-		BUG_ON(!alloc_cpumask_var(&boot_hk_cpus, GFP_KERNEL));
+-		cpumask_copy(boot_hk_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN));
+-		cpumask_andnot(isolated_cpus, cpu_possible_mask, boot_hk_cpus);
+-	}
++	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
++		cpumask_andnot(isolated_cpus, cpu_possible_mask,
++			       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
  
- 	return housekeeping_setup(str, flags);
+ 	return 0;
  }
 -- 
 2.51.0
