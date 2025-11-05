@@ -4,148 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50707CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605A6CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=; b=Wrv66GiBqXaEbz4n2VyjVRgftk
-	j0YWOPhaNDgkxAn/lAP2dZfRBavnAMtTVIRJ7UgxHHi6uoZq8r2f2NdUE62s9ykc182kb2RmvYMsP
-	HkmPjJy7dTbg5zi3nfDfJ31zLAM2BEypGb+D1HsK5sCh5FAUeU2XBiCcVvE2S7NxFd/3PKetgY+wP
-	eC5KN6NQ900a5SY7hRQoxnFFeqITmLn4URBmI7fv1o6zCRuYZzhxm3iwesgEHh9EhXn2wlJxNymlS
-	6iif/xhSv/5tSQQ0USMcNqS8JfhP3/z4g/I8qlKQgjql0WbGPl6BFhC8K+TmvTYq8VMtgr6rv/z5Q
-	JfL+gJkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tIixtti18FxXl7wjKKBq9lzfPp4dJm0StESipiKw1lo=; b=P629K6wOg2cSI8K/tWMXo5TRws
+	qtvgykA8PT5XA0s3QEyzMnBosnxE6kOzZzPOfa0Q2YCsFliQnjqKu6zKJc1/tT7zp+xvEcs2Rr+eB
+	f5tlS5N/V4TXa0+2BjCj4vwmfOS15Fz03T6uvd+mnZrj1PYhcUjfkHPqNVzs5db9OkLroBF3HLQFU
+	yZSvNjZYA+PZrbb4H5OvUrHMneihSJ4VEog3SP3OiDYwikW1asrIe9DH/sPPTHjco2gijip81o+9X
+	sa8iiv8grPW/RxUSbmK3mDQ2PhtSASWIywiAnlshD55Kr4+BOz5iug7NofMX3ViV/gBJ8k4ShnRKc
+	diywadaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg8Q-0000000E22A-1p6F;
-	Wed, 05 Nov 2025 16:13:22 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGg8N-0000000E21N-3xDx
+	id 1vGg8n-0000000E28T-1wSc;
+	Wed, 05 Nov 2025 16:13:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGg8k-0000000E27O-2XQU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:13:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uAr7+EJ0c+cak+571FQYa83h+g0+Z3j53eh8OyWJceNJlLAHuOVlYdxT+km9cRbbOPJHW/dnYtrq1zvPOz/VXJ7pW9Gtsx/wEpGrU/2hHYBdlTPrCIpjx3q3iwe53QO5Uvtqxsd+pgYrbIPnlUsnVMpFqDgu2cfh14rmYJlqsDXUEVLo7aTc707xOY7b7BHYbP5tQW5iDLGOzL+Lts3F0dFpFULTuvLtmQrFyMhik1kM5XlgcA2LsvK3bD0YG3ZfQ0zZkOcPuskXLPzYzO2butmAiRmSykAa/elvPD+bohqn7dPT/TihGHSg8SX9eQ3kC0pJU+xSpTA51N01K0Sg2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=;
- b=ANi3Pd0AfjSkis3Bcb8jdtcoD2s3VLAV1WAZWExvNLj94KvBYLg3BJHtnNWRZVNSzAlPX9Vc8XLgfABcSfkoDT8gPEYQ19kpemnv3+glhkSrafTsnXHvZegTyJP8Ke9gh1SxhhM6QOcrch+vntKE9M4QX0rGCzbeCta/HdYS1UrYImKZnjkBRrMHOYJaA2VHaKL3GsM3MLAk4Vm8nNPbJETDjHgwze3ljcaoZcx2iAfeJBWLqcV17xPTEsmrRcalM5AHfVwthoK5UgvUcS+gRztcMB+wiW7phBk8+BnhVOO7mUFpIt95AXaqP6fYY8R8aKtEFqGnNXXvsh1eJFdilQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EPtLryQQWx89i+zmKj4fWT5f6CWWHYksI706KvUuijc=;
- b=bp2WKdEByi2yCrjF+sXJWcwlW9wvtzcV/mlWhbO44dXw6rV8loLcwOzctG7RjnbxPxWdi9T+XP8b2fuSeCK0qFS3l4mwjUuAawaSE4odzWAB8atAz0Uii2msoPBBbX/cPVlMy72tMkt7lCd+nYQBtjIEF/uNZ8hHNiSmzQ0qbaMDu65aqofv4a/3Ecx1idQlbw+khT+Voaykf6FGow49WTyu+3Te9OeXzNFgPnnPh+kn79A+2L88TR9mbsj4VFbCA7IoWHBTHoYYfO0SYFgdeesvAi8TKA+ILWnjppVEp+vXNFqCpGSQi4s96Jf6vXeOCWm0uWG1pe+ywyV8YpTUfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
- by VI0PR04MB12078.eurprd04.prod.outlook.com (2603:10a6:800:313::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Wed, 5 Nov
- 2025 16:13:15 +0000
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad%7]) with mapi id 15.20.9298.007; Wed, 5 Nov 2025
- 16:13:15 +0000
-Date: Thu, 6 Nov 2025 00:06:36 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com
-Subject: Re: [PATCH 2/2] usb: dwc3: imx8mp: disable auto suspend for host role
-Message-ID: <63knf2kyyqmo2znym7suhb5ua2si2xse7ptufoo77jkddldjyu@3hat6xulwgbe>
-References: <20251105074504.1427926-1-xu.yang_2@nxp.com>
- <20251105074504.1427926-2-xu.yang_2@nxp.com>
- <aQtw+dNQEWkKxs5D@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQtw+dNQEWkKxs5D@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SG2PR02CA0081.apcprd02.prod.outlook.com
- (2603:1096:4:90::21) To PAXPR04MB8829.eurprd04.prod.outlook.com
- (2603:10a6:102:20c::17)
+	Wed, 05 Nov 2025 16:13:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75BE5169C;
+	Wed,  5 Nov 2025 08:13:33 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EBEB63F694;
+	Wed,  5 Nov 2025 08:13:39 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Xiaoqi Zhuang <xiaoqi.zhuang@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v3] coresight: ETR: Fix ETR buffer use-after-free issue
+Date: Wed,  5 Nov 2025 16:13:30 +0000
+Message-ID: <176235893222.387743.2128022832743502879.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251021-fix_etr_issue-v3-1-99a2d066fee2@oss.qualcomm.com>
+References: <20251021-fix_etr_issue-v3-1-99a2d066fee2@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|VI0PR04MB12078:EE_
-X-MS-Office365-Filtering-Correlation-Id: e947cbba-7c4e-4092-ac17-08de1c8639bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|1800799024|376014|7416014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?odfF7I980FflcP+U3abM+Vo9lloS59fXIZ8jnrOM3u0BD+hho5rwaNEP7Fw9?=
- =?us-ascii?Q?SOI4UQFB0T10vcDqYcE2fTdgIvkoPDdIw1PeeKvRFcCiT09B2Nao5EGJxHu5?=
- =?us-ascii?Q?2lnHpLObLSRgHyCEwSFkUMlgbX/xACUoyMtcHJv5Z72EYBpgD2WQiR5Zz4iP?=
- =?us-ascii?Q?M22YGYtN+B+4ebPm0UwCVDpJsKWFQcVLkZ9LawyEbqokwhyiycLHf9C/bWL7?=
- =?us-ascii?Q?kLzZb8ZWERdcaKtMtK/PmN5rQAJRbj/3EJEfaQSiGbH4gRQIVNBJ6M8NHz5J?=
- =?us-ascii?Q?IsQE71b3q7ZGZeOYyywFFCEgnrICnu89tSvpJPbSaAZL370yoWWuS7uFEp6d?=
- =?us-ascii?Q?EE/Bs27UOsquBW1nJk8CQPOWD2Bxu7wp63VUSeQYD7BC9Mdtw13jNgu+VTOC?=
- =?us-ascii?Q?gFDwoi5IEc28bAqXhgXlpGTX4zdzOgx8FMf/f2xSgbPo5nCVReV7Dx/mV4YY?=
- =?us-ascii?Q?NyJA+P48st3a+EiIJ8kzYelHQMbyNt8czfEUzdB8HXRxi8QBIyzOhoMP2DlC?=
- =?us-ascii?Q?OR2zlpUY2N/ARvZGyyXXL9pUjpeDgsgD+MO/VaOTYs1WQEY1yrXCz+3RYslh?=
- =?us-ascii?Q?4i4/TSmHE5ASIU41mfZzyqFaEe4iHxtEPlzXGBylYnUJI+5u2Lsgb8xAaGPo?=
- =?us-ascii?Q?DGZQ5QOyPCO1Zw7HXrMLHmFoDHpuk+tCX0yefwStlx6LGNLm+AnBsq6+8ehx?=
- =?us-ascii?Q?BSNUx4X2IzwflOqxx9A7E5YpxNeb894hWnAVMjylcfwszSZp9CwHFmJM/MwH?=
- =?us-ascii?Q?cbJxFMPT70H1eLlB02sNWDbf8xIG2rbAUdF3z/zos7AgThkRJMKQbr+MIP0V?=
- =?us-ascii?Q?GDM6lMWXHj9jF1+Xo3CNMQ6nt04ixFPYLkIbz1CmGlSS8gO06q1ZvPFhTi+F?=
- =?us-ascii?Q?RNgBGUgqYPT7Za93chW3Kk5+KLV9tYC7FDIlQdBRjNEHLseznl38on2kBBjn?=
- =?us-ascii?Q?P5zDzxggrwpSp5mLfLTNSu6stqdLNn6kzRXDXPQdhZ4ceCSBoAokcm4+HY5U?=
- =?us-ascii?Q?u3YEdam/l1F+qDCjNCHx4zcUp4lkXcUQxDVtl0Ksz0UGNHOkJnZ0PBEVY+Qi?=
- =?us-ascii?Q?KKj7S1ptUvlU0lp8IwOad5L1+ss1u46rxuGF2fqlzw4MgaLnN/LU40Kncpy9?=
- =?us-ascii?Q?eWvTNNgXnDMuzH3qGfAve5n++BpzPVO8eUGkQ/kIoqloKmm9AwwezvdOYjHQ?=
- =?us-ascii?Q?SolZwo3OJrEDI7teBTc+93PLMJfuurA9seCIe+fVZWnDk0RRUqIVjYxnIaY/?=
- =?us-ascii?Q?Z6sKbHR7wuZVOkH6RPAqc/I/oNn0aiT456G5FD7wMue/wvS+vf5uU4xowYjc?=
- =?us-ascii?Q?GV0gsviNMr2DzRduKt3TSX2nH2xS6eCh6mREHIL6ulm1zioU9rUMQlD96aUw?=
- =?us-ascii?Q?13UiUQFWG81ZR8QumM0ePUYVHgEZhFIujQ8c+i+CLFVavipE5oam/bAYqTg1?=
- =?us-ascii?Q?nAh4j8Qu1SpHvhXUx+1GZBL6Frfs9CgIrJqFAW46VIX/rG24LAr8rUzJjVup?=
- =?us-ascii?Q?/l0NrKyFmQYzyx1YvoZCJtWbPCrBV3nFIgq4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(376014)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R8t3ZPcg7SypRbI4tpJKF1i+gOYvr3RHW9YbmCulkXbgSyvNqGNkGQuOR6aE?=
- =?us-ascii?Q?mGW96p7R0HPayNtg/joz+f8yozaZk7BvhBXd5tYubij4YCoxJ+pYwE+QyL9e?=
- =?us-ascii?Q?VhUgUG8Lv5gN7towz1bJmDMhgrtW8nduh1s2N3d5JNTex+PdeAr6UsqVn0Gr?=
- =?us-ascii?Q?jTig94r7glszzz/13ssPmE4XfSomI5U+FA+urZptROWGmGGTC5rKNNvbNAPl?=
- =?us-ascii?Q?BSzWY93ZjflBk3PkHr5mb4r5QIdrWYzKzh3S1HshcqnlbRJDDubrz9M5TOMZ?=
- =?us-ascii?Q?vSncs8tMgOk9/YxDe3fAfSrL3VT2Q/W7y7sSGMM3+2WdlTRGt0N7dCqIb5Vj?=
- =?us-ascii?Q?d8HpfbbiN+ya25I9QK9U7HxvxGDCN6I7I5t0p9oFwDwfkkSrRKda64wj3a6t?=
- =?us-ascii?Q?XD6fW6YG66a/aUWad4DrlqBQhrFgnbRmXx5uGq4Pli1F5qCDEkVgSpePapoI?=
- =?us-ascii?Q?/rZTXkEghJKoURf8TyWb68a0b8ntns5c90C//BKnRuvNzpymxDRTaEA9K8WH?=
- =?us-ascii?Q?nZSkIiQf8jojzXsfqOH3oazUGexuiM5J3cQtWY5wGJbOUKS6hiO0QgPf4jV2?=
- =?us-ascii?Q?HiKu8gJ3q7t2oU3C9FPlgNo4ZxpAdR6ACOJdneRUPD+6bo8yoS05C0AITyRA?=
- =?us-ascii?Q?4mkmxcQh7p7YO8Mt4P9B5d1gSZiZe3FPY2fUexTW8mu3N1FSUIjAo0fE0Nuq?=
- =?us-ascii?Q?Wt97hDOze1C8wRIL/hhUttlKxGNoCk931CiFWhlRZ0CfjmVgdIWdFVivOFEn?=
- =?us-ascii?Q?HJMIidPJe4as/Iu2ZWbs3q9zaf0RL9qx6XU+3defx9WLNpakrvsDIGPsgLtR?=
- =?us-ascii?Q?79lXneJxM8zIIaeNUuGE+kVKDHJLVh5yBZj3YQj76f25EzjKcJr+oSivmF+i?=
- =?us-ascii?Q?ScpddypxrkRFroR5HrTG34B8iaHuq6/fAg40mPP5ec81fK60SZzrooVkQ/87?=
- =?us-ascii?Q?8G1SljJhfh2MN3zo9Vzwr8w0p+uzjXzWenKWUQwtNx1xY80hDUxrtslmJQRw?=
- =?us-ascii?Q?+fIZEmOxlP6pEemOAXXm1aCwVQdn6Z5aLX5Id2ITUfQUcWNWMPbHyt6hLsoo?=
- =?us-ascii?Q?fcPo4Ek2tQbFNNGMNedBtVGjP3/BugboZnb9L+Q4DtPGFhhmh8UhrIZGOKjn?=
- =?us-ascii?Q?9tp3Qe3GbwnRjhFZXPMCB9896Oj2CAQW6KS3D3gksMEl8PVGfe+Ffl8XRoEG?=
- =?us-ascii?Q?Yx/+rnNs8RGXjEEy+asrZv6ZM5k+UTwNfucCheyZtau3xQovolBqeFsqrmnt?=
- =?us-ascii?Q?FHxIy98TjqDDkvNw7QD/SU2OdBmo5sWlVsZaeELw1EmntvwNuvdT6OdV4Lq4?=
- =?us-ascii?Q?U26yeLh66+jWN8E346JO+MwWq35ExqHKKIpW6+F/fO5EBvE8ACjNWpnP8PfA?=
- =?us-ascii?Q?3KIIGSC19kMdjKrt/k5LWDLfmAjouK2LKuBKQid3QPe9ctpcDUkHKKbil3YP?=
- =?us-ascii?Q?tc+VZlGzF5p9zsZQ5qmro9rVETKaQLrqT/Tgl825QsX2CausZ1qwzqUFalSr?=
- =?us-ascii?Q?NICCM7m0oLK1LaHtl8HwgVpjmymXPGH3EwIJbJKg2KfIdGVpBlX/qGi9m1sl?=
- =?us-ascii?Q?ngBrYXFJz6ejueLJ/twetkkHVhtJ30OdGURkgOoO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e947cbba-7c4e-4092-ac17-08de1c8639bc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:13:15.4571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 52shyonmxu9hR1PhzJZbCtboL4t2Pvy+7wyySyZM4fZ6Ai7s8mjbQ1yrvaWOTNHE7WfnPXRqjD/tJ89uvDnNIA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12078
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_081319_988436_836FE09B 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20251105_081342_680967_2D3C236E 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,35 +71,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 10:44:57AM -0500, Frank Li wrote:
-> On Wed, Nov 05, 2025 at 03:45:03PM +0800, Xu Yang wrote:
-> > Do dwc3 core auto suspend enable for device and disable for host
-> > , this can make sure dwc3 core device auto suspend setting is
-> > correct all the time, the background of disable dwc3 core device
-> > auto suspend is to make its parent device suspend immediately
-> > (so wakeup enable can be enabled) after xhci-plat device suspended,
+
+On Tue, 21 Oct 2025 16:45:25 +0800, Xiaoqi Zhuang wrote:
+> When ETR is enabled as CS_MODE_SYSFS, if the buffer size is changed
+> and enabled again, currently sysfs_buf will point to the newly
+> allocated memory(buf_new) and free the old memory(buf_old). But the
+> etr_buf that is being used by the ETR remains pointed to buf_old, not
+> updated to buf_new. In this case, it will result in a memory
+> use-after-free issue.
 > 
-> Does wakeup only enable at runtime pm suspend? why core delay runtime
+> [...]
 
-Yes.
+Applied, thanks!
 
-> pm suspend impact wakeup function?
+[1/1] coresight: ETR: Fix ETR buffer use-after-free issue
+      https://git.kernel.org/coresight/c/35501ac3c7d4
 
-If xhci is suspended, I mean the wakeup function comes from external glue logic.
-
-When xhci is suspended, it will stop host controller (RUN_STOP = 0) which means
-it can't detect connect/disconnect event. Meanwhile, if dwc3 is active, the
-wakeup IRQs (in glue) is still disabled. when a device is attached, xhci can't
-detect this event and the external wakeup logic is still unfunctional. When dwc3
-is suspended, the previous connect event can't be fired again even though wakeup
-IRQ is enabled. So that event will be lost. 
-
-Thanks,
-Xu Yang
-
-> 
-> Frank
-> 
-> > for device mode, we keep the dwc3 core device auto suspend is to
-> > give some wait for gadget to be enumerated.
+Best regards,
+-- 
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
