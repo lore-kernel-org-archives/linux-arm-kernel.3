@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B539CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92299CCFA07
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G0CqTUx3Cu276P230mxDI5U9zk41TV8q0tEjiEXQ1fo=; b=sy0cIRQbjwgmELY7PFdgENgbtE
-	AeybNeA+jO3sB1//tcQuH6onIadWWbaa9/eT9GzRVNaQkaU5t2PWdAESW3tIf0ZFfr3wIZR1JF3FB
-	q/shh+pMjvuuDlnyHLKgf7Adgq0RsZiyOncMzWsRTvNGqZDP5lO//Nb5K4RosRPjvUz6e3MXcM57I
-	dFDCpUU5qVZO7/BlYZ7VE2ROCbDWn/wStTZW9l/kaTCE+65+Xv9S3uPJOTyhvqvDyZU/ouSTQ5sX9
-	OhkKJdPTMPpBMTLDB+eOoVwRJHdUE589rPb15OZzuxjzX3Lt1voQJk9vj3CDksbXgCmXqPYaP8K1a
-	1SnRRg6Q==;
+	bh=l52egr3VyLEzwK3mNU6F3fDWYzUcpYPs9zIpo4jX3hI=; b=ze7EaXKdVmty/vX9YrP6CwfDma
+	sBuYe/t+wiF8MFEh6+kU4HtWDzMS5Ge+PkUUa9Doa19QYyd7jbR8t5DRPx79oRClDSASyIw7xMif7
+	TbiuanjP74xrMUoEaZ3ct6t3Qm5yx5ZYUY8A8N0+DIwM+a2tk+JOgTBA7l8f4efLjiEnfb7D0+57p
+	qt81kyv3CDiNXY2FWjPYUZ5U9zSNRSdz9pAj1s1QIwXY6iezkuOs9zACTNLg4cV7PNS7kaZkWkRPk
+	KXAYAy1NI9B5GzRDh3EhrmPeWGQPcnELA2K0CX9MI2mTeEc96FBdOZKGIOVn8wM8RVJ4z6sAB1m+d
+	eZJ8bI5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZQ9-0000000DLRT-1LgO;
-	Wed, 05 Nov 2025 09:03:13 +0000
+	id 1vGZT3-0000000DLmB-1frb;
+	Wed, 05 Nov 2025 09:06:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZQ6-0000000DLQv-3Oc9
+	id 1vGZSx-0000000DLla-2hnX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 09:03:11 +0000
+	Wed, 05 Nov 2025 09:06:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E93544A1D;
-	Wed,  5 Nov 2025 09:03:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81BE1C4CEFB;
-	Wed,  5 Nov 2025 09:03:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C6EB4079C;
+	Wed,  5 Nov 2025 09:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9783EC4CEF8;
+	Wed,  5 Nov 2025 09:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762333390;
-	bh=hQ/jGydxUaD/JpGjbYckC8YXEagYSitACWYk/eSODd8=;
+	s=k20201202; t=1762333567;
+	bh=ZD5azKHvw0PZPSJq2qS7q/xJk5AQrGcPEbBQCh7ll8Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YI/2gs+0AWGiBduFomCc+RSz1PCliizkdX1DVBz+qdRtB9QHQQlvuvravV0A+hm6Y
-	 ycTn1M9KZzRuZMz7gB5uMs7MsAQvhmziwe3rlInOFvLpQUzlJQTsuY5c104zvEuoxo
-	 3PlPRyS3XQuTDMfwJylcUp/NXIjsh8qSiRhz+kLr7LGN7G9HzijAeWQShxUJNg9v7Q
-	 zzVixHEinoDnPZ3y05mHfFklPh8ujBSlB1JmIOrQyd+nnuBhz8US5fu3yBfHsd6fP2
-	 NUHT9+mZDjkEy4cA0w2m1GLt9Jboh4Abz5kU29UCjPR4wRojFiUtOMKGfCLtC8J/rK
-	 6lS6a34xQoImQ==
-Message-ID: <38452e04-255e-477d-8262-53aeb3c87a01@kernel.org>
-Date: Wed, 5 Nov 2025 10:03:04 +0100
+	b=twZ2xhROt8QLVBUdNQk5rOXFyW4cVEZxdzIgrh8DbVN1yl9LA16Qqfsix4nneZPVD
+	 5lXezOIKqiDRjqoXNeeJWwTMKL+gEEj1GIptalyQuqNQQUT6WZafpa3RZhsvR2mblx
+	 bgh8ME78gSFwy8mvWw3nPkSIcJDZi09qphe0wHWFlTRi90GpoGj8WMh6tq0Q9S8WH6
+	 TujLlJxZ7gIxPKdwKTiYLz8HADYsN0KiDPoxW3nhgevZbYqmvmaFHq5mA7CrhBXNTg
+	 z/zK58AHa1qBAY01R8+JRIHMWvmNmjs+rUjr7YHLecYQ1b7ShvUOjS9KU5FWJbPAHV
+	 dDVQTghMWI/0A==
+Message-ID: <17c3ee70-66e3-418f-8c79-926c8a139d16@kernel.org>
+Date: Wed, 5 Nov 2025 10:06:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v7 1/7] dt-bindings: arm: Add support for Qualcomm TGU
@@ -109,8 +109,8 @@ In-Reply-To: <b9e7f8ba-a629-4316-a6dd-d765ed0037ee@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_010310_891683_7E08BE69 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20251105_010607_726838_FDA42823 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,64 +126,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 05/11/2025 09:49, Songwei Chai wrote:
-> 
-> On 11/5/2025 4:15 PM, Krzysztof Kozlowski wrote:
->> On 05/11/2025 09:11, Songwei Chai wrote:
->>> On 11/5/2025 3:49 PM, Krzysztof Kozlowski wrote:
->>>> On Mon, Nov 03, 2025 at 10:40:37PM -0800, Songwei Chai wrote:
->>>>> The Trigger Generation Unit (TGU) is designed to detect patterns or
->>>>> sequences within a specific region of the System on Chip (SoC). Once
->>>>> configured and activated, it monitors sense inputs and can detect a
->>>>> pre-programmed state or sequence across clock cycles, subsequently
->>>>> producing a trigger.
->>>>>
->>>> I do not understand: You got review which you ignored and then you
->>>> removed pieces of this code to make it incorrect. Go back to previous
->>>> versions so you won't waste our time re-doing review.
->>> Hi Krzysztof,
->>>
->>> The previous reviewed-by is no longer applicable because in this
->>> version, we moved
->>>
->>> the driver from /drivers/hwtracing/coresight/ to
->>> /drivers/hwtracing/qcom/. This means the
->>>
->>> required compatible has changed from "/qcom,coresight-tgu/" to "/qcom,tgu/".
->>>
->>> Since this involves changes to devicetree binding, i didn't not carry
->>> over the previous review tags.
->> And which part of changelog explains the exact reasons to drop review
->> tags? Not mentioning that changelog is almost impossible to find, buried
->> under 10 pages of some repetitive introduction
->>
->> Did you read submitting patches?
-> 
-> As I mentioned above, the |compatible| string in this version has 
-> changed compared to
-> 
-> the previously reviewed binding. Therefore, I believe it's a default 
-> rule that the previous
-> 
-> |Reviewed-by|tags are no longer applicable. If the community requires a 
-> note in the changelog to explain this,
-> 
-> I will make sure to include it in the next version.
-> 
-> 
-> “
-> 
-> Did you read submitting patches?
-> 
-> ”
-> 
-> Yes, the explanations in the cover letter were written by me, so I have 
-> definitely read them. All of these explanatory documents are
-> 
 
+> Once again, I apologize for not including these modifications in the 
+> changelog.
+> 
+>> All qcom coresight bindings are called coresight and I do not see reason
+>> why this is being changed.
+> 
+> The reason for removing the |coresight| keywords is that this patch 
+> series was not
+> 
+> accepted by the maintainers of the Coresight subsystem (as explained in 
+> the cover letter).
+> 
+> Therefore, we decided to make it a Qualcomm-specific driver.
 
-Heh, why I am even reviewing this... you indicated in your address list
-that you do not wish review from me, so I will keep that in mind and not
-provide review.
+Use standard email paragraphs
+
+not
+
+broken
+
+by
+
+two lines each.
+
+Anyway, above discussion explains nothing about compatible. I might be
+missing something, so please quote here Mike the part where he asks to
+*change the compatible and hardware name*. Please quote EXACTLY that part.
 
 Best regards,
 Krzysztof
