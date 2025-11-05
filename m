@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB61CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B54ECCFA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IokSDhSQKkPKqVDUsmpbY8pfE2HypH7GPpU5B3pqfWE=; b=f3bCD61qb8SMryiC8EX3BmNXIa
-	zJtSdEQoU6iEnRxDxZ1bX7ArhI/dMsU0d6CU5IDjwHKyFiEvc2l02IUrwd4fAobSf5LsXVlIlis7B
-	7bTCkdaaAaD7xXrVBGpT972rSIP8jKZ6gZL4IUyXZpBW4dMiu4zLzcse0DBXdytJXBOAxToAIbaiR
-	X5VTRofBu5Ud1BF9rP+Xedri1FL6KThIqFS+qd0AzTOJ+QAuWcYq85xef8Za+JAvjoZiWvSb+1DOM
-	aOsPJSVMVHIPJoXI5Hcu+DT+8zBhPi/iosXeYyG3ZiPVGC4+W/Qx0I2Yi+WYQmd8/GHtn2MtX/9di
-	zx/Xa+Pw==;
+	bh=29Q6xk7IFg8PpcWu8GRmDN8viS9VOyL7/E4COju7Xn4=; b=SbFOdCYOCToAyggRysKq0AUmes
+	G6MvSPjceDZPAJtC6xgciNlnJUZStYVakljzsc8EdluAJAk6fqCxI+kyfd0L/mMvq3Ap5dRVWwMer
+	2doLqDGxa/Y4dGBsvvwC8/13u8vWT6I/n8Tis+J5QKpNZ6ktOAkLqMrPslNsKpYcQGlrBWH7dS1NE
+	/AXaYYCBoDAiZBHCSNgq03DLnyLcMTyuQfaM9Cleg9I31cVrPycRLahxvw56IsZTqGBNP/M3DoTqE
+	YENTp+JoOsA4Ch9Cgd+CHko95/z5G5/bPsnCX8WnF5e6IiB6+TIb1KZmdexYylL9xgAUK7pi+Kdoj
+	mMINVeIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZzK-0000000DOzP-1XoJ;
-	Wed, 05 Nov 2025 09:39:34 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1vGa6L-0000000DPcG-2wm2;
+	Wed, 05 Nov 2025 09:46:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZzH-0000000DOz2-3abq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 09:39:33 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-94822ad1baeso484233639f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 01:39:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762335570; x=1762940370; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IokSDhSQKkPKqVDUsmpbY8pfE2HypH7GPpU5B3pqfWE=;
-        b=PmaF/suh50n8NGSPuijPyh7Rn19EF0R6SuoRf6DmyhiYViylJ+8ygy23vvYhJjP41Z
-         ukm4lJ2jWu9ZKjZjj3Vtlj7gaUp8Sy6zJDz00ZMK0Kf7JaAgY8u8O36IR2sbxpO1NR60
-         noEkiK76xrmYRuHu1qRPtjic9NyAH+G1aY22caufKaS7u6gb5UTFSJAEAwPxwyH2rTuL
-         O7EgpOV0iVhWIgtZUZFNCpavgbye3EWppis9KptYhdT2LF8IS4SCJFh27Hbh3N2oumWl
-         Ylc+8wZqYPHgBNsU62myG416FK/rmcX9EfBFuDaFuLL1X8ccUV5rUklghbfEBlBrjNep
-         rSPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762335570; x=1762940370;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IokSDhSQKkPKqVDUsmpbY8pfE2HypH7GPpU5B3pqfWE=;
-        b=ctdSg1Qdf7mPNkzpvHArbPXIo84zJ+96VgIxL4lrHuMHeyE+Hxb+pJuznmbQ7gB2fs
-         LF1tVCtveIX+z3hLJ+dCPfy4gvf4gl9PAwiF++U2MSO1irAqeGiJQl+EUMFeVNRU9fBS
-         q0IXGSSfl2zuK3/OvwElHg3izKyCzKJrN/X8lrjbf+WyFhZJJtzH+njgzg7DY4ELB9YT
-         FJrz6RVamPXdpvR9cFXkEim8qAnLKzQHIzJFn3qnq+pNQgyiYUQkuLpVa/6hM955qY66
-         eyaO/hcfh77vYz5825PT/Tq1r3AvHkRp7EjvqMe8LN01OsF/9HIDs+EM11A1a5ldjimh
-         SYvA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwe4q0WHusqtT5SBVItfKJWZ0BS6QUNU1QiATBKagFDlAQcmIplVsE5R/OqFn4m+NO1KMrN5IeIbrkfaAl6u7t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfKCq5+wGJ2mslyu5up2ManEN9zUIsLWir5WzFyN7+If+wr/YR
-	jzwql2iTHuJDekmaAv+n+N2Cu9pK2qEJpNW8i7gOeO5ktOJ3UrT51RJeA9G579Ch5PRw4EoFDz5
-	NWOJaQtHJGHqhoaQ4XZkbjzdMU7Lnsn5bc9+ecmbD
-X-Gm-Gg: ASbGncsN4EU4WT67Grhdt9bMGCuyWxq4sLQQXEwOu/Fx8N/DXgVS2Uun9yjuGu1/XhA
-	Kl+7cD+Mgpo/pT18ktgLGAuESa08bis2eaon2hXpHbqL6bPHTy7KXt98M/TEcwhd4SDHKgx8qZw
-	n/kH+qjS/AEvIuY47xkKvi2JKgN4kjMW7SQn34PyuPloJ7WnDlB4IzmfeVx6nTFBjzzOVYD+gPT
-	JAAS2c1+ERJL+J4x4JXRZuwbsqplNTFvgSd4y6HCkRmxMEJ68/nmDLpRoLk7CoDlHRetphlsXXI
-	9BX4nOT2F+75qfQWeN+GDRhngw==
-X-Google-Smtp-Source: AGHT+IGXLbbRU5MhL2X6azrT9+Ed7fePpTvasCLz4jFrgzitDBWxITHaWT5lJQbLWmk2HCxh3hRCi/RttZSE4Xvr3cw=
-X-Received: by 2002:a05:6e02:221a:b0:425:7534:ab09 with SMTP id
- e9e14a558f8ab-4334078f120mr35093715ab.7.1762335569928; Wed, 05 Nov 2025
- 01:39:29 -0800 (PST)
+	id 1vGa6J-0000000DPZi-0Hn3;
+	Wed, 05 Nov 2025 09:46:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A37B60222;
+	Wed,  5 Nov 2025 09:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BEC1FC19424;
+	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762336005;
+	bh=99fVqQTCZBU9q5RiQ5PSykLF8wyOcIjkV7EDXi3gtDo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=V0cvidc48untLCOIe0dsVO4llOu1xbYpPEp6xyO4M6Av56tPwhRTRCBd4k7uf9/t0
+	 QCDTWiknhOlg+y9mVY4sdGNPBSLfV/ZpndL94mXBtRwX6Pi1ttx50f9re2wXVJ+7cm
+	 /ho1sATEQOOJyKC0isDlXA2xMz6PIYfcuVYM3/oULigePrDA8edhWyqhNgU59TYvfj
+	 zh0Nhkhi3xrdHbJw51hrf6AXMsuHCPEIX2W9MPvj2O401Bek6CTXgvPDX5YPFstKQT
+	 AXvLnD1RRnGfoZoa4+RUhNy0LvecnOf0fk+CrXOtd4M22r79sCoVDLC8rpn5YZenJA
+	 817jXuMX6NSsw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B875CCCFA18;
+	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Wed, 05 Nov 2025 17:45:35 +0800
+Subject: [PATCH 4/5] arm64: dts: Add gpio_intc node for Amlogic S7 SoCs
 MIME-Version: 1.0
-References: <20251017185645.26604-1-james.morse@arm.com>
-In-Reply-To: <20251017185645.26604-1-james.morse@arm.com>
-From: Peter Newman <peternewman@google.com>
-Date: Wed, 5 Nov 2025 10:39:17 +0100
-X-Gm-Features: AWmQ_bn8Nja5HuwDjw2eZbobrBQf02LNxNGny9JK1-OjQ312TKkOMmFAuKxVAX4
-Message-ID: <CALPaoCjbDyvRbW2bcrhB3opF1ieDLhv1961Gr7vYv=k-nzC27Q@mail.gmail.com>
-Subject: Re: [PATCH v3 00/29] arm_mpam: Add basic mpam driver
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-acpi@vger.kernel.org, 
-	D Scott Phillips OS <scott@os.amperecomputing.com>, carl@os.amperecomputing.com, 
-	lcherian@marvell.com, bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com, 
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>, 
-	Xin Hao <xhao@linux.alibaba.com>, dfustini@baylibre.com, amitsinght@marvell.com, 
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com, baisheng.gao@unisoc.com, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, 
-	Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_013931_912614_2E90E6E6 
-X-CRM114-Status: GOOD (  33.15  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251105-irqchip-gpio-s6-s7-s7d-v1-4-b4d1fe4781c1@amlogic.com>
+References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762336003; l=916;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=epwwC+3IrP75yFrjS6QYa+JuNwM3q8u7ctb1sF519+k=;
+ b=9g12a7vCOUn6deBMg7xiDglM5u2DDjHNnX7gk6tSKw3Oz6vdJimIXuAuJ7zb4mu6Jgvs0PGe4
+ DRwarPvJw0sCrFT3VpNbh5xHGHAVXNjVelV/aI6s1rM4aDdcNy2ansG
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,151 +85,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-On Fri, Oct 17, 2025 at 8:57=E2=80=AFPM James Morse <james.morse@arm.com> w=
-rote:
->
-> Hello,
->
-> A slew of minor changes, nothing really sticks out.
-> Changes are noted on each patch.
->
-> ~
->
-> This is just enough MPAM driver for ACPI. DT got ripped out. If you need =
-DT
-> support - please share your DTS so the DT folk know the binding is what i=
-s
-> needed.
-> This doesn't contain any of the resctrl code, meaning you can't actually =
-drive it
-> from user-space yet. Because of that, its hidden behind CONFIG_EXPERT.
-> This will change once the user interface is connected up.
->
-> This is the initial group of patches that allows the resctrl code to be b=
-uilt
-> on top. Including that will increase the number of trees that may need to
-> coordinate, so breaking it up make sense.
->
-> The locking got simplified, but is still strange - this is because of the=
- 'mpam-fb'
-> firmware interface specification that is still alpha. That thing needs to=
- wait for
-> an interrupt after every system register write, which significantly impac=
-ts the
-> driver. Some features just won't work, e.g. reading the monitor registers=
- via
-> perf.
->
-> I've not found a platform that can test all the behaviours around the mon=
-itors,
-> so this is where I'd expect the most bugs.
->
-> The MPAM spec that describes all the system and MMIO registers can be fou=
-nd here:
-> https://developer.arm.com/documentation/ddi0598/db/?lang=3Den
-> (Ignored the 'RETIRED' warning - that is just arm moving the documentatio=
-n around.
->  This document has the best overview)
->
-> The expectation is this will go via the arm64 tree.
->
->
-> This series is based on v6.18-rc4, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driv=
-er/v3
->
-> The rest of the driver can be found here:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snap=
-shot/v6.18-rc1
->
-> What is MPAM? Set your time-machine to 2020:
-> https://lore.kernel.org/lkml/20201030161120.227225-1-james.morse@arm.com/
->
-> This series was previously posted here:
-> [v2] lore.kernel.org/r/20250910204309.20751-1-james.morse@arm.com
-> [v1] lore.kernel.org/r/20250822153048.2287-1-james.morse@arm.com
-> [RFC] lore.kernel.org/r/20250711183648.30766-2-james.morse@arm.com
->
->
-> James Morse (27):
->   ACPI / PPTT: Add a helper to fill a cpumask from a processor container
->   ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear
->     levels
->   ACPI / PPTT: Find cache level by cache-id
->   ACPI / PPTT: Add a helper to fill a cpumask from a cache_id
->   arm64: kconfig: Add Kconfig entry for MPAM
->   ACPI / MPAM: Parse the MPAM table
->   arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
->   arm_mpam: Add the class and component structures for firmware
->     described ris
->   arm_mpam: Add MPAM MSC register layout definitions
->   arm_mpam: Add cpuhp callbacks to probe MSC hardware
->   arm_mpam: Probe hardware to find the supported partid/pmg values
->   arm_mpam: Add helpers for managing the locking around the mon_sel
->     registers
->   arm_mpam: Probe the hardware features resctrl supports
->   arm_mpam: Merge supported features during mpam_enable() into
->     mpam_class
->   arm_mpam: Reset MSC controls from cpuhp callbacks
->   arm_mpam: Add a helper to touch an MSC from any CPU
->   arm_mpam: Extend reset logic to allow devices to be reset any time
->   arm_mpam: Register and enable IRQs
->   arm_mpam: Use a static key to indicate when mpam is enabled
->   arm_mpam: Allow configuration to be applied and restored during cpu
->     online
->   arm_mpam: Probe and reset the rest of the features
->   arm_mpam: Add helpers to allocate monitors
->   arm_mpam: Add mpam_msmon_read() to read monitor value
->   arm_mpam: Track bandwidth counter state for overflow and power
->     management
->   arm_mpam: Add helper to reset saved mbwu state
->   arm_mpam: Add kunit test for bitmap reset
->   arm_mpam: Add kunit tests for props_mismatch()
->
-> Rohit Mathew (2):
->   arm_mpam: Probe for long/lwd mbwu counters
->   arm_mpam: Use long MBWU counters if supported
->
->  arch/arm64/Kconfig                  |   25 +
->  drivers/Kconfig                     |    2 +
->  drivers/Makefile                    |    1 +
->  drivers/acpi/arm64/Kconfig          |    3 +
->  drivers/acpi/arm64/Makefile         |    1 +
->  drivers/acpi/arm64/mpam.c           |  384 ++++
->  drivers/acpi/pptt.c                 |  248 ++-
->  drivers/acpi/tables.c               |    2 +-
->  drivers/resctrl/Kconfig             |   22 +
->  drivers/resctrl/Makefile            |    4 +
->  drivers/resctrl/mpam_devices.c      | 2701 +++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h     |  661 +++++++
->  drivers/resctrl/test_mpam_devices.c |  389 ++++
->  include/linux/acpi.h                |   26 +
->  include/linux/arm_mpam.h            |   58 +
->  include/linux/platform_device.h     |    1 +
->  16 files changed, 4519 insertions(+), 9 deletions(-)
->  create mode 100644 drivers/acpi/arm64/mpam.c
->  create mode 100644 drivers/resctrl/Kconfig
->  create mode 100644 drivers/resctrl/Makefile
->  create mode 100644 drivers/resctrl/mpam_devices.c
->  create mode 100644 drivers/resctrl/mpam_internal.h
->  create mode 100644 drivers/resctrl/test_mpam_devices.c
->  create mode 100644 include/linux/arm_mpam.h
->
-> --
-> 2.39.5
->
+Add GPIO interrupt controller device.
 
-I applied this series and booted the kernel on a Google Cloud C4A host
-(baremetal) and confirmed through sysfs that all MSCs were probed
-successfully.
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Tested-by: Peter Newman <peternewman@google.com>
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+index d0b63d3fc953..aef7aad95667 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+@@ -221,6 +221,16 @@ gpiocc: gpio@300 {
+ 					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
+ 				};
+ 			};
++
++			gpio_intc: interrupt-controller@4080 {
++				compatible = "amlogic,s7-gpio-intc",
++					     "amlogic,meson-gpio-intc";
++				reg = <0x0 0x4080 0x0 0x20>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				amlogic,channel-interrupts =
++					<10 11 12 13 14 15 16 17 18 19 20 21>;
++			};
+ 		};
+ 	};
+ };
 
-Thanks!
--Peter
+-- 
+2.37.1
+
+
 
