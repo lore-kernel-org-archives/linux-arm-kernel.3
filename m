@@ -4,80 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FCACCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F36CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X85nZt7p7vb/qD/lGUHggKCAt1bAVU7uPQtEmAjo2co=; b=GBbjdeglG86ug/YkUtjHbe38HV
-	h8oibmdCrCaS/yIEY4wMucDRo6wt8YLWNwfAKJghqmFCzdtgU/yg4z6tIYVDLKnIor2KBLgq2toOG
-	1mCncmehpoirqhHs5h8zcQSlRNKRd++QIGsPDkncSNXuRKUhj4Oxq1K/FuxTFKfVs5BLqvRlD1vxf
-	ruLSP6aXAx1fpq2ZJPWcggPBBIVD1P2axO0umtbNNvl5DRchaVMQqh2d8RR0FQL0E1m9vP5Pkf/TJ
-	gUUonbcVStu1XcWlo2Hcrmj2B+TAl71xoj2LQuO6RVnsOFtTkf8w/RHpJXoxOjqkq/NHBVVzseCaA
-	EkLVJW8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KSkImeW26wxHMAXfbe7WvrT7t//6KWteMn9Q9gZQJTU=; b=Sf/L2566Tnx1m2OmAGSry23lU1
+	yoMVuA4k5vYCpoVeGh2MCMSCVm2DHEQjM9S8/qQb9yCBsWT8kh5k4Gz2dor+3fiyZj1t+9ey2wI5P
+	6i7CKzyZ3be2RM+z7X+erTkjOCUcprfeHv6o9X/Barw++l740KzwClhhWX0xwwxa4hYKW9yLMo645
+	WDtK5+qpkj7t5rthHxrUHgxENotNxMp0L8h6vlO8K+k4e4JT4K+S0yEIbpzCXlVfI9jnkQk6ALoKc
+	P0ImgoBiRR4NWBdmq221JDLhaXOxp6wAaMGdjjJnVZHsjz6JYbo6p6xDNrkMGxmo05N//iAGp3rEc
+	dwFi1k1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGa6P-0000000DPhj-2MUR;
-	Wed, 05 Nov 2025 09:46:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGa8y-0000000DQKE-1WMN;
+	Wed, 05 Nov 2025 09:49:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGa6I-0000000DPZU-1Pez;
-	Wed, 05 Nov 2025 09:46:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B6A744AAE;
-	Wed,  5 Nov 2025 09:46:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D4703C2BCB0;
-	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762336005;
-	bh=QF6T53HtbrDYtFNe4R0219yVnnRMyuYxyu6D6l67B/4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Im9zw4yyP0agTF6oZLK6adt3b6YKbJJv8hbWRRBpncWjbFFYqoZQOnHmGC7kIltCM
-	 xbtIcGZeWWMcEwADOiM50ZUrnEFbGB0lxyA0J9H5GdbIYmewhNLkuXd946QhUD29BW
-	 fvg22q82VkHnSQNupJ8PG9EP605uL3Mzgv6rzKGZQWPIHQO1PLtkccTTWbwLfZmHu3
-	 K7dfk+dl8HDLvvGNrdinBbU5L1ONxRRnYKtT/u9Lnpezcw+RVI+vpCQfNkiRsjA+vt
-	 pZl3IzYVjPfaigC3pPMnp7S30lHzz5Wtvb0JRJNg8rmxnJh1qz5sGv5CIDE3vGIQJD
-	 P5hRqi5xYGOfg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB53BCCFA0D;
-	Wed,  5 Nov 2025 09:46:45 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 05 Nov 2025 17:45:36 +0800
-Subject: [PATCH 5/5] arm64: dts: Add gpio_intc node for Amlogic S7D SoCs
+	id 1vGa8x-0000000DQK2-0td2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Nov 2025 09:49:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KSkImeW26wxHMAXfbe7WvrT7t//6KWteMn9Q9gZQJTU=; b=oSxaDdSLXKOFET+zUySX/s06rh
+	KtQC+so8PPhx0nnyF3FdqvRFm9I+YfYVjHQJ6qOAZUUN5qFT1xtVL2iFU9CNxdPHy7z2hV4oEdnZ1
+	ZZW/d/SHQOj6jjgiTcl793UyIKrf8H2xyhtqlJo2t3GJn0DLedFqjO3UCNqvionzqX1vEOsfIScBX
+	qwGFp/xuJeCua9PUxOOhOM5Dm1jF/dDOqTit9gnGQs4+C5C2d2fLl+5clgfvdI6ZLHNyuC/d5m8r5
+	MtYV6+rm6d80EftFHJlYTSQjhJ1KHHUeVO7vb75Lx0OuN9zq2x5t1g4tCKEd0VwM3R/OkX+ksbDNA
+	oMvGodvw==;
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGZHC-00000001n2m-46TL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 08:54:00 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7ae4656d6e4so604932b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 01:49:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762336166; x=1762940966; darn=lists.infradead.org;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KSkImeW26wxHMAXfbe7WvrT7t//6KWteMn9Q9gZQJTU=;
+        b=lZoD/CMawQ23bTgpo1eI2SRwnzebrr087lKWTiglZQeknTbZYYayfDzfifh5Y0IStL
+         vd/6g7ZvqnMU44nawmXCWyMH6X/X9Ru9pDUHunjCOFs6A0kqLUaltyfzOoLdsV5wazft
+         4gsdoeNEuwIJjOhJTJmO5CEXMu5qmn3faHWFkDOqFH59aVWcQFGP+QG8ojjD13Bf32ix
+         qUbmEvBJmbRmQHxlT8OkMpek8vfc/Z3vuvbSzvr1SJJuD714r/nKZosK0/QUnIeG8UzI
+         rxuM37SliMk5tf0DnwzL/7XOmZR5dP9ndxRY36TxdGg6FywJOLPKjLvNEAXqmsM7Cm67
+         gAow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762336166; x=1762940966;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KSkImeW26wxHMAXfbe7WvrT7t//6KWteMn9Q9gZQJTU=;
+        b=hwrqbfBx9jMInbYB9B28Y8mYoliN8rLlv0kC8LH5l81IikcH+baS+N0LnjvKRNtoYz
+         4aM9z6k0buzAzgTpuQR+DpeXfB7WiVJL3i4q0VL6H1GQwicFU/OWM16YQh69uhoORngn
+         E8u3cl1p+how9NTnhaCipDvPoBcWOwjWlMdzc18KMvbjUWRr0smZiH84qJUvVRvFUGN2
+         W26gknTfj1+PZBP/+EBe623IwPCp0jXcaoZe+c1ApX9lEl8XAWqBlO7awNrWwOlI2Vdc
+         LsTnEAehmTZ6exjhI+kVUptqlJUwuxkS8FPQjgN9Mt8kRerFaaoGYhyESvuxGEATXHvO
+         MLUw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrPFz7CDSyIhyDYw1TLuGxNAUtvxPxhv/xntPce16aNCwrOhAil7kwaYvPIKfoROau4Un5vD7TKKJMS6uWaYzz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxcAPQwMeNteR+y/M3weYeVGTmjgdxvc/T3Gc3sTX7RaM0IEvj
+	NauqwEMLcmPs66ArCWiQIgoVmmP5Ey/xC/3fSw8+gj8Afsf5qAVGXYiZ
+X-Gm-Gg: ASbGncue8+VmFBlKC35amSQ71BZQfYi7/5cl/8jQQZMCH8Z332INUEMs6ZNcN0OkUku
+	PsepZsS0dSvC78+82z4J38hdUdBjgEBsQDzGVnDXoFeSd3AJDBKm5edf2htU3N/ol61Csxl85Az
+	g4+jobCtAThYNtXX3PohfbpGj7lrgflLqE+WvrI6xSg7qX07yy4QpZwPOP+C6313Z0Oj8l8UJ0I
+	K+x/dRSjliFwDTgvTW6YNMyw7nqF6N+F5THdMZdeQX0Xygg20d+jA3LKxB+BGzXlaQIfUzESW9g
+	VoDnAWPmBw0/QrhUrEnujMTOIpk51NCEqNSvLRradR8b1eDniwXs4m6iw4TJaUT6Y6F4FyR+sIe
+	DVPZ18KYS4GPnIyuQO1ylIu9Cr4PZmT+6Sw0AErjrnnDyZh4GmVAADrWVTdOml/KXQcmyow==
+X-Google-Smtp-Source: AGHT+IGvXEix8Ale69u5jY13ojKwbWl3rHLnPywsClHEKGLTCQBX8z03LTjZkKtfW5wInDfRAomLmQ==
+X-Received: by 2002:a05:6a20:7283:b0:343:88b4:a722 with SMTP id adf61e73a8af0-34f862ff4a8mr3711914637.52.1762336166397;
+        Wed, 05 Nov 2025 01:49:26 -0800 (PST)
+Received: from dw-tp ([171.76.85.117])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba1f765f148sm5030694a12.24.2025.11.05.01.49.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Nov 2025 01:49:25 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
+	David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, 
+	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, 
+	Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, 
+	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+Subject: Re: [PATCH v4 09/12] powerpc/mm: replace batch->active with in_lazy_mmu_mode()
+In-Reply-To: <20251029100909.3381140-10-kevin.brodsky@arm.com>
+Date: Wed, 05 Nov 2025 15:10:20 +0530
+Message-ID: <87ldkk4y2j.ritesh.list@gmail.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-10-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251105-irqchip-gpio-s6-s7-s7d-v1-5-b4d1fe4781c1@amlogic.com>
-References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
-In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Heiner Kallweit <hkallweit1@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762336003; l=922;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=2AYFwRRhMKaUI5x+oJaokYbcjNo1luvhZzq4ySuPuPs=;
- b=+EosMo/CxCiQsNno/KnRUjzh/vq1pZfPr6Q1/RpifdI+hS7YvwZOYvznaTxnMv5sjiqBthCgb
- IxDWULNQCA3BjPo4FyxUUr5oujNzZ8hXdcJW25GrzOhkH6eZye74rjR
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_014646_400202_FF925805 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_085359_139401_19297FB7 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +121,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Kevin Brodsky <kevin.brodsky@arm.com> writes:
 
-Add GPIO interrupt controller device.
+> A per-CPU batch struct is activated when entering lazy MMU mode; its
+> lifetime is the same as the lazy MMU section (it is deactivated when
+> leaving the mode). Preemption is disabled in that interval to ensure
+> that the per-CPU reference remains valid.
+>
+> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+> mode. We can therefore use the generic helper in_lazy_mmu_mode()
+> to tell whether a batch struct is active instead of tracking it
+> explicitly.
+>
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 9 ---------
+>  arch/powerpc/mm/book3s64/hash_tlb.c                | 2 +-
+>  2 files changed, 1 insertion(+), 10 deletions(-)
+>
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+This looks good to me.
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-index f1c2e91ec6c5..74f98fae7dac 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-@@ -194,6 +194,16 @@ gpiocc: gpio@300 {
- 					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
- 				};
- 			};
-+
-+			gpio_intc: interrupt-controller@4080 {
-+				compatible = "amlogic,s7d-gpio-intc",
-+					     "amlogic,meson-gpio-intc";
-+				reg = <0x0 0x4080 0x0 0x20>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				amlogic,channel-interrupts =
-+					<10 11 12 13 14 15 16 17 18 19 20 21>;
-+			};
- 		};
- 	};
- };
-
--- 
-2.37.1
-
-
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 
