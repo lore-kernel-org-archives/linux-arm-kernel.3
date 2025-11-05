@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4470ECCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49622CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHaqzL7mvC14m8Ho25rFrMU7LT2PL5e7Fk11M4Z3hhM=; b=Z49Am2b5rjWvlwaLuy/GIuLn+y
-	N9u0PhfDtAaEtX9hzcsvjqJMlcneHUlDNzZ4poAxiMXkPZqLF8szeKhGvAS7YM210HR72JMdpucwR
-	zxtkCqrNrvdaFpldfWCYYos+iv2amHcsoxHuw3Y/jgy+4uel91tWOBxnyaMG1WegT4Toj4tpg7PDp
-	KDC83uLrODVFAhQjC11wZ5khsbcBCk54LHbBa68fmw3jLe6zv5h5/Pj8rJVV5EmcjEbLNoWifUUvp
-	ERa0gORLH0UmqhQAtf+wRsh333DpescX9TpzyYapM9qYOfsaZRcXMlviGwowOCBtBHLMCtclgABAl
-	CPuKoafw==;
+	bh=7lghsdtJqQPkyeqPZcgsEqUxzm/bu72iLJp6V770hM8=; b=N8IIdTAZ4+zFt8oTSmHNE0LPPO
+	p88RMpNo7kx4Ce7Ua1MjGbDE+PA6pW7I1jhaJ8pxgnv8OGr0WgF/c3dqaOsML8vg/BbFMkbN1/Mjr
+	j2eVHA3DPAtXy6c5q3kWFtoZlp3aWwjTMh5Szbn9fEDF8+zmc+vnoZmuWQTba2nUnT26QEyS2UnBf
+	hcCExSICrDSzQRkna4ZZDP6cju75Hs/XfNIBnHF5nR4QSkDIIEq1ynPaZ+oRr8kziUQwM4Nw8iP4E
+	3U6de6cri5Xm7yDoyxo5GQ8ehRekJEXOZRzERGSYQSLPjWJSpd2M0P6uzURbnpoFng/iUv0O/2xGQ
+	Vtwu4xng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhEo-0000000E9ut-2Lwn;
-	Wed, 05 Nov 2025 17:24:02 +0000
+	id 1vGhHO-0000000EA8C-3VDc;
+	Wed, 05 Nov 2025 17:26:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhEl-0000000E9uH-2Ys4
+	id 1vGhHM-0000000EA7h-2PT3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 17:24:02 +0000
+	Wed, 05 Nov 2025 17:26:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B4AE43917;
-	Wed,  5 Nov 2025 17:23:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1F78C4CEF8;
-	Wed,  5 Nov 2025 17:23:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 31D7A41A7D;
+	Wed,  5 Nov 2025 17:26:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92223C4CEF8;
+	Wed,  5 Nov 2025 17:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762363438;
-	bh=zYzES0C46I5oaK/IMxZNYFdLG7G3HDGtdUjOFFV3sZQ=;
+	s=k20201202; t=1762363600;
+	bh=YFkDJLxlVgB8fCGfrzLzPiyZl67TcHqa4QAD1eCk1n4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s8xESqtBwpjaZ4m9f2ZDJN5gPsDifp+UfvU3rzrsSEnf0GikBshBw5nFVFuwF07ck
-	 0yBwVY6pmNe9jJeH5oxPaak/+/+HEtErZOVBL1DJnyC0fOcFQs0ygwLPSeu3u03xd5
-	 4w0ngjerQEEghhRcnm6x70rCECwLZMn6n5NIp8BCXudGSoXeeOjtOyVOggqmhpUs/g
-	 ehWHzELGJtAT9FMLNfUPsYTM6sZqtSYbRFZmEG9QHb2YTdZDrMAzvoOZWhzcrIXnk0
-	 EZnAjCx00Jjnj3+Ioa134/nk/7XNVcOWRrmMmmB6+RR8iuCs/ml3MUzfyn1bbfnRSD
-	 eLhcmZU6qIgwQ==
-Date: Wed, 5 Nov 2025 22:53:44 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
-	krishna.chundru@oss.qualcomm.com, qiang.yu@oss.qualcomm.com, shradha.t@samsung.com, 
-	thippeswamy.havalige@amd.com, inochiama@gmail.com, fan.ni@samsung.com, cassel@kernel.org, 
-	kishon@kernel.org, 18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v5 4/4] PCI: keystone: Add support to build as a loadable
- module
-Message-ID: <fkzokskbjklt6atqrpwc46zsjr5ptpuynzhx4kvfurr4h37kae@rwcqljsjvzl6>
-References: <20251029080547.1253757-1-s-vadapalli@ti.com>
- <20251029080547.1253757-5-s-vadapalli@ti.com>
+	b=OParZvIIPyLR/7+d2Nc6dNNHFfgvciQYcDXNfvWRUfLM3ALdZr2Qma8M0FObiSEDX
+	 4yAZaB4HMBbFQrVX9l1Nc5Mz9Akx6GYVPeFSxJauPuNjV+cvXZHiYCJny752RKPXaZ
+	 nb6HFbh2rTIqP1/GSHtyqu5D4fAirasFidCHLVTYcLZQRPj1LLeRYNMtTIBUkecGZD
+	 NUQfI4i1crcBXLrqQ3YrkVWcmSf4kYDrq048l6zq2V/zPjyDvLarmgFinhmBNoPsqB
+	 5DP9Yf37WOYWdxdZegji5DJs83/ZGNy27MtOeueRr7A8jum6leEhur43LN6wcOt6ld
+	 1Fax28SwoFeww==
+Date: Wed, 5 Nov 2025 18:26:37 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 30/33] kthread: Add API to update preferred affinity on
+ kthread runtime
+Message-ID: <aQuIzQo3tDbwoytv@localhost.localdomain>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-31-frederic@kernel.org>
+ <aO5Dn2AwQWn0SQKQ@horms.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251029080547.1253757-5-s-vadapalli@ti.com>
+In-Reply-To: <aO5Dn2AwQWn0SQKQ@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_092400_942566_71EE9E2D 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20251105_092640_633398_DEA5472F 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +99,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 01:34:52PM +0530, Siddharth Vadapalli wrote:
-> The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-> Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-> that the 'pci-keystone.c' driver depends upon have been exported for use,
-> enable support to build the driver as a loadable module.
+Le Tue, Oct 14, 2025 at 01:35:43PM +0100, Simon Horman a �crit :
+> On Mon, Oct 13, 2025 at 10:31:43PM +0200, Frederic Weisbecker wrote:
 > 
-> Additionally, the functions marked by the '__init' keyword may be invoked:
-> a) After a probe deferral
-> OR
-> b) During a delayed probe - Delay attributed to driver being built as a
->    loadable module
+> ...
 > 
-> In both of the cases mentioned above, the '__init' memory will be freed
-> before the functions are invoked. This results in an exception of the form:
+> > @@ -900,6 +899,46 @@ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
+> >  }
+> >  EXPORT_SYMBOL_GPL(kthread_affine_preferred);
+> >  
+> > +/**
+> > + * kthread_affine_preferred_update - update a kthread's preferred affinity
+> > + * @p: thread created by kthread_create().
+> > + * @cpumask: new mask of CPUs (might not be online, must be possible) for @k
+> > + *           to run on.
 > 
-> 	Unable to handle kernel paging request at virtual address ...
-> 	Mem abort info:
-> 	...
-> 	pc : ks_pcie_host_init+0x0/0x540
-> 	lr : dw_pcie_host_init+0x170/0x498
-> 	...
-> 	ks_pcie_host_init+0x0/0x540 (P)
-> 	ks_pcie_probe+0x728/0x84c
-> 	platform_probe+0x5c/0x98
-> 	really_probe+0xbc/0x29c
-> 	__driver_probe_device+0x78/0x12c
-> 	driver_probe_device+0xd8/0x15c
-> 	...
-> 
-> To address this, introduce a new function namely 'ks_pcie_init()' to
-> register the 'fault handler' while removing the '__init' keyword from
-> existing functions.
-> 
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> v4:
-> https://lore.kernel.org/r/20251022095724.997218-5-s-vadapalli@ti.com/
-> Changes since v4:
-> - To fix the build error on ARM32 platforms as reported at:
->   https://lore.kernel.org/r/202510281008.jw19XuyP-lkp@intel.com/
->   patch 4 in the series has been updated by introducing a new config
->   named "PCI_KEYSTONE_TRISTATE" which allows building the driver as
->   a loadable module. Additionally, this newly introduced config can
->   be enabled only for non-ARM32 platforms. As a result, ARM32 platforms
->   continue using the existing PCI_KEYSTONE config which is a bool, while
->   ARM64 platforms can use PCI_KEYSTONE_TRISTATE which is a tristate, and
->   can optionally enabled loadable module support being enabled by this
->   series.
-> 
-> Regards,
-> Siddharth.
-> 
->  drivers/pci/controller/dwc/Kconfig        | 15 +++--
->  drivers/pci/controller/dwc/Makefile       |  3 +
->  drivers/pci/controller/dwc/pci-keystone.c | 78 +++++++++++++----------
->  3 files changed, 59 insertions(+), 37 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index 349d4657393c..c5bc2f0b1f39 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -482,15 +482,21 @@ config PCI_DRA7XX_EP
->  	  to enable device-specific features PCI_DRA7XX_EP must be selected.
->  	  This uses the DesignWare core.
->  
-> +# ARM32 platforms use hook_fault_code() and cannot support loadable module.
->  config PCI_KEYSTONE
->  	bool
->  
-> +# On non-ARM32 platforms, loadable module can be supported.
-> +config PCI_KEYSTONE_TRISTATE
-> +	tristate
-> +
->  config PCI_KEYSTONE_HOST
-> -	bool "TI Keystone PCIe controller (host mode)"
-> +	tristate "TI Keystone PCIe controller (host mode)"
->  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
->  	depends on PCI_MSI
->  	select PCIE_DW_HOST
-> -	select PCI_KEYSTONE
-> +	select PCI_KEYSTONE if ARM
-> +	select PCI_KEYSTONE_TRISTATE if !ARM
+> nit: @mask: ...
 
-Wouldn't below change work for you?
+Thanks! I'm dropping the current patch anyway but...
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index 349d4657393c..b1219e7136c9 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -486,8 +486,9 @@ config PCI_KEYSTONE
-        bool
- 
- config PCI_KEYSTONE_HOST
--       bool "TI Keystone PCIe controller (host mode)"
-+       tristate "TI Keystone PCIe controller (host mode)"
-        depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-+       default y if ARCH_KEYSTONE
-        depends on PCI_MSI
-        select PCIE_DW_HOST
-        select PCI_KEYSTONE
+> 
+> Likewise for the documentation of kthread_affine_preferred()
+> in a subsequent patch in this series.
 
-- Mani
+...fixing it to that patch.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Frederic Weisbecker
+SUSE Labs
 
