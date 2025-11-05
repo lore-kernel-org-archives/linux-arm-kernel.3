@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B6BCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91324CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1PNdgknOyyk2mzZmr1xYTl18CtGDJfdBKGGVXljgnw=; b=wxrFi8dHJtJBgUpaOfNRCH8kUR
-	CLuO8TbWqhk5nR5SS+wggPIV272wmwcr4GVkgkyYXy7r5/HzFQffGwPVG90AZVTIPMcJF1/lLsFnW
-	V5VfP/bYOG5woN2uhSMkT9JgJI6bkEbtbyawACNYkuXCaLPVpnrLJDj64R27sueBP9U4X+usBOREr
-	5fECnZciYAsPTJBTwVGOWXty4JsH5JKVKeXLWVmd2LnfT/+Bwl3u2InJbPY9TWvLB2f5zYqhDY9qh
-	mD9xScZV5Ve677d8YShUJAfAcgBv/oGoOVLn7O+404vNturUX21jzd0bnotzLo08QGBFq+r5w1l9B
-	OdYPMU4g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=; b=zcIHxu2zR2kp7Nypc53WFgPduI
+	Z+VlSQIGIu32TCej9xZPMCAaojxRdLFKspvCOZdz3ZNMgOejYUnS60Dv8D0+1q0QLP1ev8BhhrYfG
+	Kx6ELA9cYpHp9v6iLxXLh+oQ40VmCWgO/tbqK85D8epFbnTpRnGsIDU9CL27kkwnVI3vFBAXKfclm
+	Yd/VLNkC3Q2jubTUKb6Llq8++kjqyImQfvnFSHjg4g6VRLDsIqNi0/Fce7cZJ/FGX9K8D7SM2z2ZP
+	XnzEEX+gvTuG37Fuo6uywC7MsMAujDf4rdiRdLE9+R6oF043o3zhjVUxN+GpYXM2Ve3z8h1S7sD7z
+	3Lej9IdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkjh-0000000ESYZ-1Tol;
-	Wed, 05 Nov 2025 21:08:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGkjz-0000000ESm9-2L2j;
+	Wed, 05 Nov 2025 21:08:27 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkjg-0000000ESXV-0NjF
+	id 1vGkjw-0000000ESio-2yHw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 21:08:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CF136021F;
-	Wed,  5 Nov 2025 21:08:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D4C2C116C6;
-	Wed,  5 Nov 2025 21:07:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762376887;
-	bh=Jrc2SP9zuO/q8lVKXeMSZQ2TjjYp5fXU9+UkI2oxxh8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MvMmy9z/Tgk53O6EbE+zG2oKCMSZwHnfkHuPoSeCh479KVbDuJNzsb/Q95ddbdX1O
-	 YQTf2wfL/dngH/FTqEV6nyuyONeRGG6HmXIoUpQYnvRwoBce1dGez5Rnclx/R54AJG
-	 jF46uVQGSBmc+QMKekLAz3yISaEfO/lEUBh/VXH4j9x5/+pRiLN7gYF1+fWkOKQ36F
-	 j1wBHxPHnmeF1FuhdLWetNBKgWb0hoEHcy6zOXnoMX7DeUEMTwVgqvZecZg7n+SX65
-	 jdNVvmiqi+lM6qGacp0TkqxYpP3U9TZXPPfxP2T1eiIo+XV5uRXCcGxIxzrr4Zr+Kh
-	 OUYcrvQZvJ2Zg==
-From: Frederic Weisbecker <frederic@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>,
-	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org,
+	Wed, 05 Nov 2025 21:08:25 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b5a8184144dso34485966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 13:08:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762376902; x=1762981702; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=;
+        b=ezpn6I52yd/QnaXBR7R7+7kiIavPpI4Z6GiqBe8xIGocZKDUHIsxkcPHnyuCC5fOOm
+         kzErvxQi1JaPi3NbVaGMOjcQqymRhAhO+FgYD/gTztubC8mn7ILcqr/ehaAcePkZcQcE
+         j6tKSNPl3BEhqDEV2tvt8cNujIT3tSMzVQWN9qV/aI3eEen4gK1m9/Sln+jacdoLNzBX
+         eROexM4hJmlmsZedTq+hpEVl/+b2b2c3QLRf7Og2TGReLPt0/1fTbSdTdRf19Nw6a88L
+         sZS+JoCGOmQ4x5EyoVD2tSwwMOtbmFIDqkdRC5+Bzaq7bib3yhoNrKfE814B+V9O+5cv
+         rZXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762376902; x=1762981702;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=;
+        b=o2VksEiIy0G7Ps49mCUOZyFFNUUjyLMaHubV21z+jqW7p7JixQAEPy78MNfqouqlQn
+         DWQh22/hKBff+qGv2WzPy0e/Q0c9i15qJL31RBXjMhr90/Fjg473HdKK5MvfpUzATm7J
+         ur1nYRMtIwM/WivgwuIcHIU0zImjLsecQPGy4hUiEfYyP3vx8ctwi5iO2Rrd6/SAQTBV
+         NXeEuehLjC1MJS2ZJj8Y+2xXPY+kXB/1Hp/fmn2MMc0NdrYUkHDnQDRK/6LeNO5z5OzS
+         sdu8NIPNaj69Cu+jhyl4+z/JaGuTsS0NJoDgVTIOistYvfRvp8kiXusJaqvBqrCGocxL
+         ROQg==
+X-Forwarded-Encrypted: i=1; AJvYcCXYhbYIRZ5hZKhs0MU6dPrUVz+L3OjUJhKizvvOD4UQdImAe8CdeWKp+JrsMdQTVbPqUepi47TxTq+ngvZAlsFz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzglN7DdBvFhsjd7AQ3m3CB2mYHbvQvcV8hBB/N/lJDCSXMW9eL
+	4R7lpBqrTUlA4kpwnmu3YGFAg/7j1T1SOtpjfKpD0BX98FqsdvPD7YHU
+X-Gm-Gg: ASbGncti19aDWPeuvMUFnOb/5O61lShju5UvIsVhRzwZlpS5XDSxvC4sr8D0RSQLpcm
+	TS1tw9OksWoeaxVFFRnDWIQI4JDf9MFeKgrNHwqZXmNqLmJcPHzziJwWL+P7N3k29oQvT6NglU5
+	CxiVn/pRa9I6JQLfrf/EIrYpuMKmsi6GsmK65VJ2N9N+tRyoDl0D0J16v/hSbovIHezJ1VfKknL
+	PCkRyZPT7ztRZX5xSBJ/ULfz0nzSqnum5Hk+2mq9cf99XMBB3eoMs627ld3xoMZYSfLboDsFTDp
+	tqaQGnqsJTno3cYc1SKquitrZl1Y3oXmf2qR5g0CQVdp0Vvl3Q5PPQW/Kmo/yokThZ8r7Zqv4ne
+	/9j5wvc2LKH9/yI1HyBYE6snepz/Oph5qszWxkrR/F01lKp5rJNA5qpWJlPqV43pK9P7gSBnHil
+	RNTWQzAEE9wb/k91A9b9YXub1jnHT8nlhuBghisipbH79eNg==
+X-Google-Smtp-Source: AGHT+IEQN8LEBzg2FibdPs1zW7myIBbg1Dg3RX0BLIHipmkT0F6MtRX6Fdv53CQhOLloh0SQE8k81g==
+X-Received: by 2002:a17:907:968c:b0:b72:5983:db0a with SMTP id a640c23a62f3a-b7265297e0amr437027566b.15.1762376902297;
+        Wed, 05 Nov 2025 13:08:22 -0800 (PST)
+Received: from HomePC (89-67-214-154.dynamic.play.pl. [89.67.214.154])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b728937cc8dsm54005766b.17.2025.11.05.13.08.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Nov 2025 13:08:21 -0800 (PST)
+From: Andrey Leonchikov <andreil499@gmail.com>
+To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH 31/31] doc: Add housekeeping documentation
-Date: Wed,  5 Nov 2025 22:03:47 +0100
-Message-ID: <20251105210348.35256-32-frederic@kernel.org>
+	linux-rockchip@lists.infradead.org
+Cc: Andrey Leonchikov <andreil499@gmail.com>,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de
+Subject: [PATCH] arm64: dts: rockchip: Fix USB power enable pin for BTT CB2 and Pi2
+Date: Wed,  5 Nov 2025 22:07:33 +0100
+Message-ID: <20251105210741.850031-1-andreil499@gmail.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251105210348.35256-1-frederic@kernel.org>
-References: <20251105210348.35256-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_130824_810885_65BB0D08 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,129 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
----
- Documentation/cpu_isolation/housekeeping.rst | 111 +++++++++++++++++++
- 1 file changed, 111 insertions(+)
- create mode 100644 Documentation/cpu_isolation/housekeeping.rst
 
-diff --git a/Documentation/cpu_isolation/housekeeping.rst b/Documentation/cpu_isolation/housekeeping.rst
-new file mode 100644
-index 000000000000..e5417302774c
---- /dev/null
-+++ b/Documentation/cpu_isolation/housekeeping.rst
-@@ -0,0 +1,111 @@
-+======================================
-+Housekeeping
-+======================================
-+
-+
-+CPU Isolation moves away kernel work that may otherwise run on any CPU.
-+The purpose of its related features is to reduce the OS jitter that some
-+extreme workloads can't stand, such as in some DPDK usecases.
-+
-+The kernel work moved away by CPU isolation is commonly described as
-+"housekeeping" because it includes ground work that performs cleanups,
-+statistics maintainance and actions relying on them, memory release,
-+various deferrals etc...
-+
-+Sometimes housekeeping is just some unbound work (unbound workqueues,
-+unbound timers, ...) that gets easily assigned to non-isolated CPUs.
-+But sometimes housekeeping is tied to a specific CPU and requires
-+elaborated tricks to be offloaded to non-isolated CPUs (RCU_NOCB, remote
-+scheduler tick, etc...).
-+
-+Thus, a housekeeping CPU can be considered as the reverse of an isolated
-+CPU. It is simply a CPU that can execute housekeeping work. There must
-+always be at least one online housekeeping CPU at any time. The CPUs that
-+are not	isolated are automatically assigned as housekeeping.
-+
-+Housekeeping is currently divided in four features described
-+by the ``enum hk_type type``:
-+
-+1.	HK_TYPE_DOMAIN matches the work moved away by scheduler domain
-+	isolation performed through ``isolcpus=domain`` boot parameter or
-+	isolated cpuset partitions in cgroup v2. This includes scheduler
-+	load balancing, unbound workqueues and timers.
-+
-+2.	HK_TYPE_KERNEL_NOISE matches the work moved away by tick isolation
-+	performed through ``nohz_full=`` or ``isolcpus=nohz`` boot
-+	parameters. This includes remote scheduler tick, vmstat and lockup
-+	watchdog.
-+
-+3.	HK_TYPE_MANAGED_IRQ matches the IRQ handlers moved away by managed
-+	IRQ isolation performed through ``isolcpus=managed_irq``.
-+
-+4.	HK_TYPE_DOMAIN_BOOT matches the work moved away by scheduler domain
-+	isolation performed through ``isolcpus=domain`` only. It is similar
-+	to HK_TYPE_DOMAIN except it ignores the isolation performed by
-+	cpusets.
-+
-+
-+Housekeeping cpumasks
-+=================================
-+
-+Housekeeping cpumasks include the CPUs that can execute the work moved
-+away by the matching isolation feature. These cpumasks are returned by
-+the following function::
-+
-+	const struct cpumask *housekeeping_cpumask(enum hk_type type)
-+
-+By default, if neither ``nohz_full=``, nor ``isolcpus``, nor cpuset's
-+isolated partitions are used, which covers most usecases, this function
-+returns the cpu_possible_mask.
-+
-+Otherwise the function returns the cpumask complement of the isolation
-+feature. For example:
-+
-+With isolcpus=domain,7 the following will return a mask with all possible
-+CPUs except 7::
-+
-+	housekeeping_cpumask(HK_TYPE_DOMAIN)
-+
-+Similarly with nohz_full=5,6 the following will return a mask with all
-+possible CPUs except 5,6::
-+
-+	housekeeping_cpumask(HK_TYPE_KERNEL_NOISE)
-+
-+
-+Synchronization against cpusets
-+=================================
-+
-+Cpuset can modify the HK_TYPE_DOMAIN housekeeping cpumask while creating,
-+modifying or deleting an isolated partition.
-+
-+The users of HK_TYPE_DOMAIN cpumask must then make sure to synchronize
-+properly against cpuset in order to make sure that:
-+
-+1.	The cpumask snapshot stays coherent.
-+
-+2.	No housekeeping work is queued on a newly made isolated CPU.
-+
-+3.	Pending housekeeping work that was queued to a non isolated
-+	CPU which just turned isolated through cpuset must be flushed
-+	before the related created/modified isolated partition is made
-+	available to userspace.
-+
-+This synchronization is maintained by an RCU based scheme. The cpuset update
-+side waits for an RCU grace period after updating the HK_TYPE_DOMAIN
-+cpumask and before flushing pending works. On the read side, care must be
-+taken to gather the housekeeping target election and the work enqueue within
-+the same RCU read side critical section.
-+
-+A typical layout example would look like this on the update side
-+(``housekeeping_update()``)::
-+
-+	rcu_assign_pointer(housekeeping_cpumasks[type], trial);
-+	synchronize_rcu();
-+	flush_workqueue(example_workqueue);
-+
-+And then on the read side::
-+
-+	rcu_read_lock();
-+	cpu = housekeeping_any_cpu(HK_TYPE_DOMAIN);
-+	queue_work_on(cpu, example_workqueue, work);
-+	rcu_read_unlock();
+ Fix typo into regulator GPIO definition. With current
+ definition - USB powered off. Valid definition can be found on "pinctrl"
+ section:
+ 		vcc5v0_usb2t_en: vcc5v0-usb2t-en {
+ 				rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 				 		};
+
+ 		vcc5v0_usb2b_en: vcc5v0-usb2b-en {
+ 			rockchip,pins = <4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+
+Fixes: bfbc663d2733a ("arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2")
+Signed-off-by: Andrey Leonchikov <andreil499@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
+index f74590af7e33..b6cf03a7ba66 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
+@@ -187,7 +187,7 @@ vcc5v0_usb: regulator-vcc5v0-usb {
+ 	vcc5v0_usb2b: regulator-vcc5v0-usb2b {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+-		gpio = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
++		gpio = <&gpio4 RK_PC4 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&vcc5v0_usb2b_en>;
+ 		regulator-name = "vcc5v0_usb2b";
+@@ -199,7 +199,7 @@ vcc5v0_usb2b: regulator-vcc5v0-usb2b {
+ 	vcc5v0_usb2t: regulator-vcc5v0-usb2t {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+-		gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
++		gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&vcc5v0_usb2t_en>;
+ 		regulator-name = "vcc5v0_usb2t";
 -- 
 2.51.0
 
