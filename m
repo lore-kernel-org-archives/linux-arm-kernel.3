@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB337CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1D0CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfHcNOjs1vVxo7ZbicdZoCFdzxjO2ktx5+teVjDma8g=; b=U8gRujJ1MqXwuPxj4dezQLZXXD
-	mOBtNpEbTeA9SF5C28l+MId0sNZ499HtvStISNqAfsqspHPlWFDbblM6oXSi4ff4fUH0STOedDWr9
-	R/kNJf49kw4664mfxpfPl9UMbTMkToNekxFBAzqW5W87Sa3ZDUWhXDw7pFsX1I+rsxrmrOqJiuLkP
-	cFH36YJnubAkrXTJYJj214hWsYUCuRXPOsX0fRsb88yznsc0km6BzB5aDx6Kiy/JkQAA48nErUhHH
-	Bd1srbd4qFdUeIV4MddfZUbOrecXWbgDDG3//2pMlOCbsB9qyoiGizYB/e9MY5plU/ur6Avr3Eimc
-	bNX0rLlA==;
+	bh=ix6cTrI12x/DWHKCw9azBbhzrRj4SPpFUjDhf1tp3cg=; b=VXOa7Qq4bFoKWtq0ANHnvqDLIx
+	fgWx6ECOY+hzKdrGIwfxCrofde/ynRm365IdrdEgNmpApOrbLEvYoH6Mk6b4gH+nSrru9cjsv0VfG
+	VcwzdTm9fLJXLXFGvHBnG2/wsTtVtkJfFVEBGDU9NC5szTUqSPO4bTBDOrADfPdAJGkrqegBJZFuL
+	fd1aGCpRCJITesPSWIlskHGv+HU8E60V4C0L1Q/u7bd1HXgfiDBq117Dk0MLggpsMDp0k1KHQrnep
+	iMQkyxciGzbipXPMkpYDewbSMUh/Vj9oT+yDwQroiNGCkNXTctzH/ZTgWwfubLLKgRVqlOGLvknP0
+	u5acVqag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGki4-0000000ERGK-34a0;
-	Wed, 05 Nov 2025 21:06:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGkiD-0000000ERNg-0Eey;
+	Wed, 05 Nov 2025 21:06:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGki1-0000000ERDD-0wji
+	id 1vGki9-0000000ERJr-0ckm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 21:06:27 +0000
+	Wed, 05 Nov 2025 21:06:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DABCD409E3;
-	Wed,  5 Nov 2025 21:06:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A479C116D0;
-	Wed,  5 Nov 2025 21:06:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD30344812;
+	Wed,  5 Nov 2025 21:06:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F01FC4CEF5;
+	Wed,  5 Nov 2025 21:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762376784;
-	bh=1PXFAoSc5EaQ1yzCGftJTnGf1OCO/kq+1cRjiff+B0o=;
+	s=k20201202; t=1762376792;
+	bh=/4qlBV0o6wHpMCHv+PGJIH0/5p5VMnEM2VldkFFk/hA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rA4n9pw2FOv+9hxUmMxi6GGt4SJ3mYCQWb06W9IiZHm52r67O+JOAmfjrIMDYzNSR
-	 7hhMjSR+V0LaaEHgGb4EMGkqcbc7bh4k157CK1CGKnWGgH60SQaTfVEcf14bx2R1a7
-	 W6AmRByimN4vv61qfnqKvrVtt84nUxX+ewRIrIERljtsHj4WPpzYQzQ3ro10IQ6UaJ
-	 i2NEpKm2VX4EY/sin6yFQF7A7VLkFpIueTpaU6/WWugVABg+bzYoul5wol8HkxJPqI
-	 0HmF/ZV2mQzCZGdW4X6JtSqcQOvv8qs5gwBPd8rNVz7Y8l7f4Pvcd6F+y4NHWaQkyb
-	 mwjWG2dqzoj+Q==
+	b=WPMVl7UvVPMRPQhKg2eY/RDKFC1vZcXdD08AGo6Qq/JtNgo8kPbs91s/W0brc+V5w
+	 YScVpXtDvf96TJiGbbd3qjQihx33QG/l0iLxhIfzXvXPIv/C6GBZcpUsAOA5/LUs1n
+	 oaHLFsM5/jX9GEIO4TEpslLn6l3LkI9tBTlpdE50e1TEqi8N11MwGL1neMCwf138kP
+	 PlCf+SEUHcmKj9utkNTtcf5yDLRO3jFxTVgZtfFtvRXo7um6DMx6SJcAdriB6p90Nq
+	 yLFLyG0eKaF2fF2W+V+aALv1nrBq3tM7L8gCnFVt09OqEynVIJmKSvNgTQpXOuXEU1
+	 1rE/ac7aW9QzQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,18 +80,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 18/31] cpuset: Remove cpuset_cpu_is_isolated()
-Date: Wed,  5 Nov 2025 22:03:34 +0100
-Message-ID: <20251105210348.35256-19-frederic@kernel.org>
+Subject: [PATCH 19/31] sched/isolation: Remove HK_TYPE_TICK test from cpu_is_isolated()
+Date: Wed,  5 Nov 2025 22:03:35 +0100
+Message-ID: <20251105210348.35256-20-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251105210348.35256-1-frederic@kernel.org>
 References: <20251105210348.35256-1-frederic@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_130625_347337_8F72015E 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20251105_130633_210692_482CBD43 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The set of cpuset isolated CPUs is now included in HK_TYPE_DOMAIN
-housekeeping cpumask. There is no usecase left interested in just
-checking what is isolated by cpuset and not by the isolcpus= kernel
-boot parameter.
+It doesn't make sense to use nohz_full without also isolating the
+related CPUs from the domain topology, either through the use of
+isolcpus= or cpuset isolated partitions.
+
+And now HK_TYPE_DOMAIN includes all kinds of domain isolated CPUs.
+
+This means that HK_TYPE_KERNEL_NOISE (of which HK_TYPE_TICK is only an
+alias) should always be a subset of HK_TYPE_DOMAIN.
+
+Therefore if a CPU is not HK_TYPE_DOMAIN, it shouldn't be
+HK_TYPE_KERNEL_NOISE either. Testing the former is then enough.
+
+Simplify cpu_is_isolated() accordingly.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/cpuset.h          |  6 ------
- include/linux/sched/isolation.h |  4 +---
- kernel/cgroup/cpuset.c          | 12 ------------
- 3 files changed, 1 insertion(+), 21 deletions(-)
+ include/linux/sched/isolation.h | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-index 051d36fec578..a10775a4f702 100644
---- a/include/linux/cpuset.h
-+++ b/include/linux/cpuset.h
-@@ -78,7 +78,6 @@ extern void cpuset_lock(void);
- extern void cpuset_unlock(void);
- extern void cpuset_cpus_allowed(struct task_struct *p, struct cpumask *mask);
- extern bool cpuset_cpus_allowed_fallback(struct task_struct *p);
--extern bool cpuset_cpu_is_isolated(int cpu);
- extern nodemask_t cpuset_mems_allowed(struct task_struct *p);
- #define cpuset_current_mems_allowed (current->mems_allowed)
- void cpuset_init_current_mems_allowed(void);
-@@ -208,11 +207,6 @@ static inline bool cpuset_cpus_allowed_fallback(struct task_struct *p)
- 	return false;
- }
- 
--static inline bool cpuset_cpu_is_isolated(int cpu)
--{
--	return false;
--}
--
- static inline nodemask_t cpuset_mems_allowed(struct task_struct *p)
- {
- 	return node_possible_map;
 diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-index aaf2a672f8dc..a127629adb32 100644
+index a127629adb32..a24acefacf9f 100644
 --- a/include/linux/sched/isolation.h
 +++ b/include/linux/sched/isolation.h
-@@ -2,7 +2,6 @@
- #define _LINUX_SCHED_ISOLATION_H
+@@ -82,8 +82,7 @@ static inline bool housekeeping_cpu(int cpu, enum hk_type type)
  
- #include <linux/cpumask.h>
--#include <linux/cpuset.h>
- #include <linux/init.h>
- #include <linux/tick.h>
- 
-@@ -84,8 +83,7 @@ static inline bool housekeeping_cpu(int cpu, enum hk_type type)
  static inline bool cpu_is_isolated(int cpu)
  {
- 	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN) ||
--	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK) ||
--	       cpuset_cpu_is_isolated(cpu);
-+	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK);
+-	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN) ||
+-	       !housekeeping_test_cpu(cpu, HK_TYPE_TICK);
++	return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN);
  }
  
  #endif /* _LINUX_SCHED_ISOLATION_H */
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index ea102e4695a5..e19d3375a4ec 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -29,7 +29,6 @@
- #include <linux/mempolicy.h>
- #include <linux/mm.h>
- #include <linux/memory.h>
--#include <linux/export.h>
- #include <linux/rcupdate.h>
- #include <linux/sched.h>
- #include <linux/sched/deadline.h>
-@@ -1405,17 +1404,6 @@ static void update_housekeeping_cpumask(bool isolcpus_updated)
- 	WARN_ON_ONCE(ret < 0);
- }
- 
--/**
-- * cpuset_cpu_is_isolated - Check if the given CPU is isolated
-- * @cpu: the CPU number to be checked
-- * Return: true if CPU is used in an isolated partition, false otherwise
-- */
--bool cpuset_cpu_is_isolated(int cpu)
--{
--	return cpumask_test_cpu(cpu, isolated_cpus);
--}
--EXPORT_SYMBOL_GPL(cpuset_cpu_is_isolated);
--
- /**
-  * rm_siblings_excl_cpus - Remove exclusive CPUs that are used by sibling cpusets
-  * @parent: Parent cpuset containing all siblings
 -- 
 2.51.0
 
