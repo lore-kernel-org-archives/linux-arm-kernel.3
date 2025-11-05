@@ -4,64 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF216CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 06:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9498CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 06:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3jBEw7Jy/T28wSQc6c2W5ztuhx1BYHAtBcKXgni9Oc=; b=ottnPWHdkC/4KbwJ5ht2XyHwqs
-	kc7jv3BFfINSmoFjs78xGEBXGLMclEDPizG0zdiYzxxc+4tOw2M8pZRFrJVu2cLvv7Sjwsj392z2p
-	pNyucckoB7zeOlpPB6MEefQD3HgQjKD+lf/D6kWpbwu3/4hcd0pledgvd56+/RlwuEgbe4KNoAuJ8
-	VL8KZS53O5Rs3xttzuPV6Dfqp9aTcAHeqTV22NyAHdOzqvbQgPdH2n7o7wwshtItWhNMl5qWhgvoJ
-	uAjZjojjGbiJ8gWsCWQzZjhPfy1nD35QWzdWlbwVDiLSLemGB/5YFlxUBPgpeLeVXMCRzFMXukY1N
-	WWsXUMAA==;
+	bh=SowBz4FuxCIhHBwO2dD4Ym/m7NoUT7fdaCFqmF4nQmI=; b=w3SX7Vfx0u1//pQGykrIrF4+Ww
+	PGUaRwuzjqbl8mWAcWn1a8hqmbfDjDWK/WMOeEOYjG2Y8LFrCw9JF2gsnQ7qq2s+U4H7Ewa2LwCE2
+	xjdo2twysjz2MeUinoNKBgnCz1dH2cLi2XVtytYfGaqR6+6ObkmJeauMW/yGJbRatQL1PqyrYo+Wv
+	/kTCiRxuQvYOtlJy2HtYMwO1LHrNGG1WFlefcCfyl5VdN8Sbj6DldSFYsiOmnJ7BPWN25gHrUbl/g
+	Uan4W+LT1nlW8evp5WbjWMonmOHS1ZB7+Aq9yV1ehlgNQaeX30GCoVUZT8N4G+XtTsZlZyE1ZNiUs
+	pSibyWkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGX7Q-0000000D51u-1cQY;
-	Wed, 05 Nov 2025 06:35:44 +0000
-Received: from mail-m3295.qiye.163.com ([220.197.32.95])
+	id 1vGX7w-0000000D584-44wj;
+	Wed, 05 Nov 2025 06:36:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGX7M-0000000D51J-3Rmf;
-	Wed, 05 Nov 2025 06:35:42 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 28738ad08;
-	Wed, 5 Nov 2025 14:35:29 +0800 (GMT+08:00)
-Message-ID: <ba120577-42da-424d-8102-9d085c1494c8@rock-chips.com>
-Date: Wed, 5 Nov 2025 14:35:28 +0800
+	id 1vGX7u-0000000D57Y-1lig
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Nov 2025 06:36:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 36D3344065;
+	Wed,  5 Nov 2025 06:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 363C4C4CEF8;
+	Wed,  5 Nov 2025 06:36:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762324573;
+	bh=cyiUtBMf0HVK7nta4KCI5/6yhs0aN0/f1yRIycEVfeE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ciKBTREZ5bs98apzuR0e1OEKOkhwJJg/YRyZEThRF8K5pXzGx5ScMrxwZINOK9hmm
+	 85gderGg7s9AzQiSW19lp1c8lIYxPI9x4qLqXUm9ZbGIhPSqgmljvpTaNgWs2RWPfh
+	 yis4KDlrpogHI7B43C63tCkC6l/+7Pq00x0vZ3y3BgYC/LqE0r6A5F+UdzqMJq4vtY
+	 6dD8sHXzj/WJCkiWGMhnM3Zv/uRFrU2RSvVUngmdiG2VjSLolN2M8q8R0YPcs69rWr
+	 xNPdO0L6VPd8MfMxHX6Y2aye6oQkR/9+WJMwzil2DC/0eGQhO2vBUP6wEPohmj0kQF
+	 6a3i5fjeERILQ==
+Message-ID: <08ecbe3a-258b-4d02-b4cb-bb767e013d68@kernel.org>
+Date: Wed, 5 Nov 2025 07:36:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-References: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a52ba413509cckunmc2aaee18cb0988
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk9CSVYaTENLQx8YT0gYQ0xWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=OMV8z0tr5MTsd4IVw0FOfwUChjbcdL35pQsXtIjZ5ru+eWExEIhbd2fGG14g2NLimccEK4Hdkh+ROPo2UcnU+xSjp2L831Arzc99lmfLqETzC8isZ2mtWUL5kNS1US4NePVDmO5r/aLHP/3MJvGfiVOVyH3VN1uh0hc5r0MUSAE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=w3jBEw7Jy/T28wSQc6c2W5ztuhx1BYHAtBcKXgni9Oc=;
-	h=date:mime-version:subject:message-id:from;
+Subject: Re: [PATCH v2 1/3] arm64: defconfig: enable i.MX AIPSTZ driver
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251104150612.1874-1-laurentiumihalcea111@gmail.com>
+ <20251104150612.1874-2-laurentiumihalcea111@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251104150612.1874-2-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_223541_368342_4416E5DE 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20251104_223614_504378_B2D9BE45 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geraldo,
-
-在 2025/11/05 星期三 13:55, Geraldo Nascimento 写道:
-> The PERST# side-band signal is defined by PCIe spec as an open-drain
-
-I couldn't find any clue that says PERST# is an open-drain signal. Could
-you quote it from PCI Express Card Electromechanical Specification?
-
-> active-low signal that depends on a pull-up resistor to keep the
-> signal high when deasserted. Align bindings to the spec.
-
-This is not true from my POV. An open-drain PCIe side-band  signal
-is used for both of EP and RC to achieve some special work-flow, like
-CLKREQ# for L1ss, etc. Since both ends could control it. But PERST# is a
-fundamental reset signal driven by RC which should be in sure state,
-high or low, has nothing to do with open-drain.
-
+On 04/11/2025 16:06, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > 
-> Note that the relevant driver hacks the active-low signal as
-> active-high and switches the normal polarity of PERST#
-> assertion/deassertion, 1 and 0 in that order, and instead uses
-> 0 to signal low (assertion) and 1 to signal deassertion.
+> Enable the i.MX AIPSTZ driver, which is used for i.MX8MP-based boards such
+> as NXP's IMX8MP-EVK.
 > 
-> Incidentally, this change makes hardware that refused to work
-> with the Rockchip-IP PCIe core working for me, which was the
-> object of many fool's errands.
-> 
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > ---
->   arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> index aa70776e898a..8dcb03708145 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> @@ -383,9 +383,9 @@ &pcie_phy {
->   };
->   
->   &pcie0 {
-> -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-> +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 03d89f29e7c1..ae5d32ea9fc3 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -271,6 +271,7 @@ CONFIG_GOOGLE_FIRMWARE=y
+>  CONFIG_GOOGLE_CBMEM=m
+>  CONFIG_GOOGLE_COREBOOT_TABLE=m
+>  CONFIG_EFI_CAPSULE_LOADER=y
+> +CONFIG_IMX_AIPSTZ=y
 
-So my biggest guess is we don't need this change at all.
-gpio0b4 is used as gpio function, the problem you faced is that it
-didn't set gpio0b4 as pull-up, because the defaut state is pull-down.
+This should be a module.
 
-Maybe the drive current of this IO is too weak, making it unable to 
-fully drive high in the pull-down state? If that's the case, can you see 
-a half-level signal on the oscilloscope?
-
->   	num-lanes = <4>;
-> -	pinctrl-0 = <&pcie_clkreqnb_cpm>;
-> +	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
->   	pinctrl-names = "default";
->   	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
->   	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
-> @@ -408,6 +408,10 @@ pcie {
->   		pcie_pwr: pcie-pwr {
->   			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
->   		};
-> +		pcie_perst: pcie-perst {
-> +			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +
->   	};
->   
->   	pmic {
-
+Best regards,
+Krzysztof
 
