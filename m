@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85931CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAD1CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkVRaa7s7VXIQ+R3dS7uFD2VK8mY1bhgcgXZNkaeHTY=; b=4jInEWWOMJfHWZp3ULPU49sG++
-	FVV99G0fXPaL83tp9jJKcTG0gIvgwxFrsa10TDfK4lAzbl+SEaEcFFuLyJmIBtGgagmIpyJNVxNiU
-	615LPf3YwDw1Z2OgNx3m5kgNDpFWsscvhoSr3/rBXMSBtDjEBC3Z+tNrQ5htTAPUoR53KuOj9QO77
-	66db8SDYGNTe43T7eTwUIRie4pXrIfX2gPWZoaQsVT8ELut7IOfAnz2DnXyfGO8uKUAKqZL9pNpEd
-	nXE1db2Lp2IGribGngmsu4gIs383+bnb0W0vOhh8WFpQV29XflWSihh0RAwBTXkz8htRJ/2m5GaOR
-	uAHKxQwQ==;
+	bh=Io1VyLd1gRAuF4noSMJeCvamZeFl5b2WHdevUDZuHy0=; b=oaXY0LBlDFJIz5Xa2gZfd1N6fK
+	c0fFctXQAGjidmuna90FzRIUEWlhnaPBR0682h4Vb76UuZFFgGumxRxXzCTZ2O0x0KBZzEN9spEsX
+	b0Va8AITqjmnuTE/ljhjFEO821F3GXVXtQHhyoKm5XkAhyeVNIhwY0FTTDRGt5YU2T0nD+a9tBqPU
+	r+7aIAEDeavBziojkzhN7WVPn0twIc+AXZ8aSePCYTtTNhk/Aa2VPAFzFeVIKG6xsO18jHC2MWrj1
+	cDLA+aVYIzO3zsQnZniWD9RGQXYwq5Rb7dsrATGIvPGbg0Bf1+z21RoKCUHXdsfGAqazBKQDzWqwK
+	pdQGEE+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfqX-0000000Dzwd-0l01;
-	Wed, 05 Nov 2025 15:54:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGfrJ-0000000E027-2KXD;
+	Wed, 05 Nov 2025 15:55:41 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfqV-0000000DzwH-0zjs
+	id 1vGfrG-0000000E01a-42Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:54:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DA11446A9;
-	Wed,  5 Nov 2025 15:54:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193C3C4CEF5;
-	Wed,  5 Nov 2025 15:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762358090;
-	bh=bDmEE2pN81Z2g2YR6bc8i2bpngqkwZUwaRFhJlKpZyg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AhPg/B8VjNxHnaY9m3hnZIhVsfN/3ger3hDaKJ9juGhQPT7Q31FIKz1GfEfLm9lBa
-	 wrAPYeNff06W8A4sFdAO2lNwEpLpU2ajxjJ9dUcwuY7m+SscGOKuC5fdhsbPghxw74
-	 zSGTeyl4KBT41Udl3hjxU4mDyLdsKUAgFuNDFVCS8iiV9ISY9HTyt6CmPEaFPFnZGx
-	 QAon7Q7JSmhdpin7RYleSsDcCrNAmrM8ZAI8nmv/Z8dDncdspGea3eRv71ydSLjWyK
-	 0NxQojLJ76Y7QBH+SFUUgf3k5GPK/BjpWc7DYQ28wGu7ZTgORMYRsfITRpaiAuNk/F
-	 eweO4CzhLS7Ug==
-Message-ID: <11b93504-c0a1-4a2a-9061-034e92f84bb4@kernel.org>
-Date: Wed, 5 Nov 2025 16:54:45 +0100
+	Wed, 05 Nov 2025 15:55:40 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-591ec7af7a1so5915727e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 07:55:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762358137; x=1762962937; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Io1VyLd1gRAuF4noSMJeCvamZeFl5b2WHdevUDZuHy0=;
+        b=FboLYrpSd8UVEPzD7nc4TggvuOQ3Y/OPQYtWUsM9KvFF/9GY66ORyx0wZw3u8AWdNd
+         ahwQdIYkvgragMVHbWf+5zV9oEisvJSCD3T0iw55lyDySkvvDuzmd2CN9bROpRdg7Pe3
+         45LBznF8Wj1ZyNVISsiv7VCok38/4c+okD74+smNSYlo8GKq/Uu/KIetY22w0iKPuz8r
+         JafOiuHOvSIysI18uvMlBlFiZWSdUKQO5A9x1/N3KmBSj5SWem8g8Y9DA1tQoPA4bQfx
+         pN5iXr/vBFqAN24GCaNtFqr2sXGIqZdqix/2z/VLJTrg0MqXCYc0xyg6sUCusGEr3cWE
+         oF0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762358137; x=1762962937;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Io1VyLd1gRAuF4noSMJeCvamZeFl5b2WHdevUDZuHy0=;
+        b=pApnGQEdAdm43zj+HYEHlgRHb+JGg3hOciUjcz2YE0pQb2Ew7o+SHHbnMo5zpCQbJi
+         9/RbL8f0Z1PZ+UxP6p7GQqD5ydxo0ULN4GO61jIW9FEamdFd6UDEpGtLZCjfbEULOI1M
+         Wzs5cm8gr36tjvhn2qy2CbxhQfgQ3E2vgXFcctrWAZVoOjNu/DknaUOVARdfx3kMf/i8
+         MziTn7IOm4MJMnR+5EmgKE9RM+2SsdGcKLt5G98l21A1UMlSSFGCyQS0Fv44+av7TyU5
+         WkO10dqHXcHv2dMLC8bRJxMwe1EedESLzYYx5a/UhOHN0DWAag8e0kGXXE/PMCQbpO5r
+         vwuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXT27Y01WmyDgwGkyKRRI5j4J/D4AsKXZd5TFh7PY4PpztLBTuktnnAzmyIAM1oSn1jufbcckXLbJHpLx+Ja5Lx@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd+SbcJrowoIctBPXkcUJHqG6Ikn+0aWGmxhAPVGqKHXAOFiga
+	uAvY3/u31HRS0v+EGPTdazUN6FMN6I3TF+lkH10qtFLsJlVCko9gOjMLwDi73hIK3iWEdrQBCM2
+	w8Ux4+4fjjGKMlOBWy5i8EO3pIKsD9L4=
+X-Gm-Gg: ASbGncvGhBDqF9g8Hr+hjJ7WU7xKGCh5ILw53mIG8dermMcDEEps5QonBBiKy/H8jqn
+	4h/R8d4zX9lTrDH1ElUS0XHNth3eP6RmLS6o+xKKYgPLYUgDerDC2CxmENRsfoNJyMdHxi8ljyg
+	FHSxg9EUarsYXdTxMKXuyOB7NHONWmJdWfVaZhi/ulbShS4HOpm0VQzDCHRtGg/Q7hCutT1GdQ1
+	/nx+dsLHDh1lG28XvnisUcDmVWC12hcFkYaHdERIpt04l54MMOYlVh2GUsohkLiKZCGzodfYGPX
+	kEpe2in606L6oUuc
+X-Google-Smtp-Source: AGHT+IEKZD2r+A6glfOrMrg4LC6QbMe/1oJABd/0/CzvD1LhjWBFWqHF/ZzZ6hEZaZ4L0CrW3eHh11z1a5+Hf0RYLbg=
+X-Received: by 2002:a05:6512:1390:b0:592:fc68:5b9d with SMTP id
+ 2adb3069b0e04-5943d55dbe3mr1269961e87.10.1762358136484; Wed, 05 Nov 2025
+ 07:55:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net V2 2/2] veth: more robust handing of race to avoid txq
- getting stuck
-To: Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
-Cc: Eric Dumazet <eric.dumazet@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
- makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
-References: <176159549627.5396.15971398227283515867.stgit@firesoul>
- <176159553930.5396.4492315010562655785.stgit@firesoul>
- <154ebe12-6e3c-4b16-9f55-e10a30f5c989@redhat.com>
-Content-Language: en-US
-From: Jesper Dangaard Brouer <hawk@kernel.org>
-In-Reply-To: <154ebe12-6e3c-4b16-9f55-e10a30f5c989@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251105152555.1992513-1-michal.vokac@ysoft.com> <20251105152555.1992513-2-michal.vokac@ysoft.com>
+In-Reply-To: <20251105152555.1992513-2-michal.vokac@ysoft.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 5 Nov 2025 12:55:25 -0300
+X-Gm-Features: AWmQ_bkzywn6dkKu5hKn_kdsHkqaeTB3gPh3L9WBztucxEsOta2CD1J3nctobCE
+Message-ID: <CAOMZO5AKmKWciyF7-f_mVfJWdLB1rjh_Xi=BhkBAcmV=cJ-nyg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ARM: dts: imx6dl-yapp4: Model the RGB LED as a single
+ multi-led part
+To: =?UTF-8?B?TWljaGFsIFZva8OhxI0=?= <michal.vokac@ysoft.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_075451_342549_151D1D86 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20251105_075539_007108_548AF964 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,88 +100,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 5, 2025 at 12:26=E2=80=AFPM Michal Vok=C3=A1=C4=8D <michal.voka=
+c@ysoft.com> wrote:
+>
+> Describe the RGB LED indicator according to the reality - it is a single
+> part containing all the three R,G and B LEDs in one package.
+> With this description the chan-name property becomes useless, remove it.
+>
+> issue: HWOS-816
 
-
-On 30/10/2025 13.28, Paolo Abeni wrote:
-> On 10/27/25 9:05 PM, Jesper Dangaard Brouer wrote:
->> (3) Finally, the NAPI completion check in veth_poll() is updated. If NAPI is
->> about to complete (napi_complete_done), it now also checks if the peer TXQ
->> is stopped. If the ring is empty but the peer TXQ is stopped, NAPI will
->> reschedule itself. This prevents a new race where the producer stops the
->> queue just as the consumer is finishing its poll, ensuring the wakeup is not
->> missed.
-> 
-> [...]
-> 
->> @@ -986,7 +979,8 @@ static int veth_poll(struct napi_struct *napi, int budget)
->>   	if (done < budget && napi_complete_done(napi, done)) {
->>   		/* Write rx_notify_masked before reading ptr_ring */
->>   		smp_store_mb(rq->rx_notify_masked, false);
->> -		if (unlikely(!__ptr_ring_empty(&rq->xdp_ring))) {
->> +		if (unlikely(!__ptr_ring_empty(&rq->xdp_ring) ||
->> +			     (peer_txq && netif_tx_queue_stopped(peer_txq)))) {
->>   			if (napi_schedule_prep(&rq->xdp_napi)) {
->>   				WRITE_ONCE(rq->rx_notify_masked, true);
->>   				__napi_schedule(&rq->xdp_napi);
-> 
-> Double checking I'm read the code correctly. The above is supposed to
-> trigger when something alike the following happens
-> 
-> [producer]				[consumer]
-> 					veth_poll()
-> 					[ring empty]
-> veth_xmit
->    veth_forward_skb
->    [NETDEV_TX_BUSY]		
-> 					napi_complete_done()
-> 					
->    netif_tx_stop_queue
->    __veth_xdp_flush()
->    rq->rx_notify_masked == true
-> 					WRITE_ONCE(rq->rx_notify_masked,
-> 						   false);
-> 
-> ?
-> 
-> I think the above can't happen, the producer should need to fill the
-> whole ring in-between the ring check and napi_complete_done().
-
-The race I can see is slightly different.  It is centered around the
-consumer manage to empty the ring after [NETDEV_TX_BUSY].
-We have 256 packets in queue and I observe NAPI packet processing time
-of 7.64 usec on a given ARM64 metal. This means it takes 1956 usec or
-1.96 ms to empty the queue (which is the time needed for the race to
-occur in below during "(something interrupts)").
-
-It would look like this:
-
-  [producer]			[consumer]
-				veth_poll() - already running
-  veth_xmit
-   veth_forward_skb
-   [ring full]
-   [NETDEV_TX_BUSY]
-   (something interrupts)
-				veth_poll()
-				manage to [empty ring]
-				napi_complete_done()
-   netif_tx_stop_queue
-   __veth_xdp_flush()
-    - No effect of flush as:
-    - rq->rx_notify_masked == true
-				WRITE_ONCE(rq->rx_notify_masked, false)
-				[empty ring] don't restart NAPI
-				Observe netif_tx_queue_stopped == true
-
-
-Notice: at end (the consumer) do observe netif_tx_queue_stopped is true.
-This is leveraged in the patch by moving the netif_tx_queue_stopped
-check to the end of veth_poll(). This now happens after rx_notify_masked
-is changed to false, which is the race fix.
-
-Other cases where veth_poll() stop NAPI and exits, is recovered by
-__veth_xdp_flush() in producer.
-
---Jesper
-
+This issue notation appears to be an internal matter. Please remove it.
 
