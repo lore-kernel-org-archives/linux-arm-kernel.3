@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA73CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 23:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F8CCCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 00:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+U+2OT0FEQDBEjE7PvdbjsFGjvlFaLiZZoCZT0U7HwU=; b=r0TijlgZQB5emgJ2gGQM97TQYX
-	XL60U3Jo89aTG5cEo5VeomsfdQQq5xq6dCePiYABvBhitumAadCykX2zPFStwPYTBP+xGJKEyrXCy
-	PIFhrrzABjAYF4UnyH06TdLnNSlQXTtIDNHHP19bAJbuqeTGpLM34B1kySBjvuzQp3gNpSU+hejRK
-	XDtWXTNwNL29cd+2wTmI/nqhv84nsmT8Z9wJ0VGwR88vN+IDdnQB2dpcKtsJ5FE+gJuJrv8Mm+krY
-	vhytIdKRvjo0TP0mobfH4s8TesCxzYg8OIyWR1hJk2i0iXcILNbvbeJOTF/2dTpA5sQlA0ZsyNhmx
-	d0Cbh6Xw==;
+	bh=V/FJpKyU+MF/aXXgYOCgn5htgwX9FXbZ2s93yGG7Ric=; b=neuqTc2/76aMcOLLhI0tj/IpXb
+	H/27kSEQmp+0gIXcLhWqy6nCex+ubQJxqzWu1jn5FYs6LSiy17Co/t3tHWK4jPx/1PqORDHIk9ubU
+	AvsCh9+p6IlS61Ajz0AMpyAasuQncDXaeNxNFh+LTIM8dRQZKPpq8KPZCWiptVyjxdMsILCUqWuv5
+	FAU0TVuaovvK2LeqwXi9akmHUBBWNZ2rxh+beyMAflKWGcM3MXBqJJ6xvszI0BBOaT9DCh7gtLyh5
+	TZgjF3KXESQA9LIzDotVCAKPJ1t2GOuVQgfZZCVFWGvPBPMRfdH5z4sbFpMW7U27B+7TSpszgl1I8
+	S+/cgmtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQlM-0000000CleA-46et;
-	Tue, 04 Nov 2025 23:48:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGRGe-0000000CnCo-2pha;
+	Wed, 05 Nov 2025 00:20:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGQlL-0000000Cldz-45Ro
+	id 1vGRGc-0000000CnCB-00vD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 23:48:32 +0000
+	Wed, 05 Nov 2025 00:20:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 095B1601EF;
-	Tue,  4 Nov 2025 23:48:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75E23C4CEF7;
-	Tue,  4 Nov 2025 23:48:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5491D44861;
+	Wed,  5 Nov 2025 00:20:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C497C116B1;
+	Wed,  5 Nov 2025 00:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762300110;
-	bh=Q2/QncbSe1650Y8pwvQWHnA5DpeavIeF6BYxviBnp1I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NitVMveQvbt1i533gsvJWGVaHAnqN/0sBwsYa/Uj4lT1tXlWsD+c9rFs04/3twCP6
-	 hZiAPAEqAx1dsVqmhmLijeiZidxoJv5WKRme4Qbe5uRKVjpPlLhiLdHatBcnqX9CZB
-	 kUjOfrDt5nZ/Z0GrQRC9cEePN8uSu2ae7AsOmk2o1ZcHcsNoMu/kJH0jpEQpzHd9zn
-	 iSYE+Or3T3HRGVUm/YyU/YgeUs2nfFRKJYdDSVXolI8tOf5+H0OEfZ1iTQ3kdV46Ch
-	 rpZfegPYodVRzcnAva0IC6+e8QXTnGqMr+xVEHPg4ZezsNQbQhSrohuqPqC9hubz5u
-	 24ZSXGiVLaOXA==
-Date: Tue, 4 Nov 2025 15:48:28 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: Paolo Abeni <pabeni@redhat.com>, <horms@kernel.org>,
- <namcao@linutronix.de>, <vadim.fedorenko@linux.dev>,
- <jacob.e.keller@intel.com>, <christian.koenig@amd.com>,
- <sumit.semwal@linaro.org>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
- <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
- <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
- <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
- <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: Re: [EXTERNAL] Re: [PATCH net-next v4 2/6] net: ti: icssg-prueth:
- Add XSK pool helpers
-Message-ID: <20251104154828.7aa20642@kernel.org>
-In-Reply-To: <c792f4da-3385-4c14-a625-e31b09675c32@ti.com>
-References: <20251023093927.1878411-1-m-malladi@ti.com>
-	<20251023093927.1878411-3-m-malladi@ti.com>
-	<05efdc9a-8704-476e-8179-1a9fc0ada749@redhat.com>
-	<ba1b48dc-b544-4c4b-be8a-d39b104cda21@ti.com>
-	<c792f4da-3385-4c14-a625-e31b09675c32@ti.com>
+	s=k20201202; t=1762302049;
+	bh=3MKFuCG76JthLJcZE3T3Op7stJ2k8Ttv8bqnfs9tWiE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=INojycZy/a78lhVsLvVbeiECZLvsgpUyNONTu4veLZSMfi2e3lJyk0lhbjUy3QZHZ
+	 NGDkYI9wKuMd+GNF8uaYyfmeV5vBqYG0eNH75xE9lfqkLTr6by2JUbcU2MxPGWLMNY
+	 wjqIqv4bXs0DnB0y1BJG5h7QYMVEH01j69TJfwp9D1CNtZ1GKdR3YLFkYEgU89DU9H
+	 3qJgmPG4RulqybvIwgtHGcVoUQR9GI0YGS1eP6mJzlwxLW39Q+Ha8g3OunNUZMxdz+
+	 mYWN4bT+tNgUNH9kDvYI8/YyHC9cMX7rIZ2X0P+YdUkW7agsF7NY7onfZo5qshndfO
+	 CmVHFirNLCsOA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CB2380AA54;
+	Wed,  5 Nov 2025 00:20:24 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 00/11] net: stmmac: multi-interface stmmac
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176230202300.3035250.17732707564655810857.git-patchwork-notify@kernel.org>
+Date: Wed, 05 Nov 2025 00:20:23 +0000
+References: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
+In-Reply-To: <aQiWzyrXU_2hGJ4j@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ festevam@gmail.com, imx@lists.linux.dev, kuba@kernel.org,
+ jan.petrous@oss.nxp.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com, kernel@pengutronix.de,
+ s32@nxp.com, s.hauer@pengutronix.de, shawnguo@kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251104_162050_079641_2D16C348 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Nov 2025 14:23:24 +0530 Meghana Malladi wrote:
-> > I tried honoring Jakub's comment to avoid freeing the rx memory wherever 
-> > necessary.
-> > 
-> > "In case of icssg driver, freeing the rx memory is necessary as the
-> > rx descriptor memory is owned by the cppi dma controller and can be
-> > mapped to a single memory model (pages/xdp buffers) at a given time.
-> > In order to remap it, the memory needs to be freed and reallocated."
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 3 Nov 2025 11:49:35 +0000 you wrote:
+> Hi,
 > 
-> Just to make sure we are on the same page, does the above explanation 
-> make sense to you or do you want me to make any changes in this series 
-> for v5 ?
+> This series adds a callback for platform glue to configure the stmmac
+> core interface mode depending on the PHY interface mode that is being
+> used. This is currently only called justbefore the dwmac core is reset
+> since these signals are latched on reset.
+> 
+> [...]
 
-No. Based on your reply below you seem to understand what is being
-asked, so you're expected to do it.
+Here is the summary with links:
+  - [net-next,01/11] net: stmmac: imx: use phylink's interface mode for set_clk_tx_rate()
+    https://git.kernel.org/netdev/net-next/c/42190a188fdb
+  - [net-next,02/11] net: stmmac: s32: move PHY_INTF_SEL_x definitions out of the way
+    https://git.kernel.org/netdev/net-next/c/d8df08b0df02
+  - [net-next,03/11] net: stmmac: add phy_intf_sel and ACTPHYIF definitions
+    https://git.kernel.org/netdev/net-next/c/38e8c0fb0fc3
+  - [net-next,04/11] net: stmmac: add stmmac_get_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/2f2a7b907446
+  - [net-next,05/11] net: stmmac: add support for configuring the phy_intf_sel inputs
+    https://git.kernel.org/netdev/net-next/c/15ade7dbf64f
+  - [net-next,06/11] net: stmmac: imx: convert to PHY_INTF_SEL_xxx
+    https://git.kernel.org/netdev/net-next/c/8088ca0d88f8
+  - [net-next,07/11] net: stmmac: imx: use FIELD_PREP()/FIELD_GET() for PHY_INTF_SEL_x
+    https://git.kernel.org/netdev/net-next/c/27db57875c08
+  - [net-next,08/11] net: stmmac: imx: use stmmac_get_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/cb09d1b9582a
+  - [net-next,09/11] net: stmmac: imx: simplify set_intf_mode() implementations
+    https://git.kernel.org/netdev/net-next/c/8fc75fe5948d
+  - [net-next,10/11] net: stmmac: imx: cleanup arguments for set_intf_mode() method
+    https://git.kernel.org/netdev/net-next/c/fb526d0c16c1
+  - [net-next,11/11] net: stmmac: imx: use ->set_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/da836959c78a
 
-> >> I think you should:
-> >> - stop the H/W from processing incoming packets,
-> >> - spool all the pending packets
-> >> - attach/detach the xsk_pool
-> >> - refill the ring
-> >> - re-enable the H/W
-> > 
-> > Current implementation follows the same sequence:
-> > 1. Does a channel teardown -> stop incoming traffic
-> > 2. free the rx descriptors from free queue and completion queue -> spool 
-> > all pending packets/descriptors
-> > 3. attach/detach the xsk pool
-> > 4. allocate rx descriptors and fill the freeq after mapping them to the 
-> > correct memory buffers -> refill the ring
-> > 5. restart the NAPI - re-enable the H/W to recv the traffic
-> > 
-> > I am still working on skipping 2 and 4 steps but this will be a long 
-> > shot. Need to make sure all corner cases are getting covered. If this 
-> > approach looks doable without causing any regressions I might post it as 
-> > a followup patch later in the future.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
