@@ -4,87 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D46CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B45FCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2Mm0MsrMQG2Og7FMXueo+n8c9h6gOgi1Q8m4UCT67k=; b=JbxNKpjNrtKTY/LKNXd2Ci+K1+
-	Y6klboXr9Ip7hztzuzpNjexaIEfLSeeOPCSdZWvAf2WhSpNGUYvpKQAXXcn3aX9joAZgo/Tt2KgA3
-	nGj9zapa5C6VpYHPhT8VHfK/yghl1w7ca0S99wiJz4UV1uifY8u6A9pgxSA3BpmSaQu5PpMW/oURa
-	GCl+FQf97gdmLWeoq4ROYaWt5xM3hshnXUfak9emvPloi3C1tYUdHrt0tHKL1cof8RvyEYvtuxJUl
-	/NdexcUTSHW5HeOxjREEsc6hnbFfmfeaAAma0NLrRhkfGv5cjKe0f1H0f6gF9M1fVGzZGfoIoMe+V
-	yKCHjXvA==;
+	bh=hoOO0E96ahCdATo2vQq4UFuH8BQoyWGvRJ67v+d6zmY=; b=dI69OfqofHwStXEYMGY/RIIV0j
+	walkKBylGxZVPcabJTEZLEa8/XmCR3D2ed2yiPZtVb3jJXjLjCkUExfFgnmb58JPGt/we99pCQc0I
+	7BaTiytvjAbpaSeAyvVJ/oJkxeVLa9iBi8DLJopu3WLAh7K6LopPpNLDjOigdDez/iwmETEU02Gn9
+	CNPlfO91Hn23VmTEguLVaibptcIBknQxeMTrJI85uu2Gffljg3ObKwNay5QRNvEl6awcV1n8Be+KT
+	cLgLYYY/f+13maSfbrBDCHAuIKNSEQBcD7L+5a1BzkeBoWJ+pKE7/HFVY44SpFVYXhbA7fOEce5dD
+	s87wNOgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGftR-0000000E0Gd-3ZGf;
-	Wed, 05 Nov 2025 15:57:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vGg8G-0000000E20c-0Yom;
+	Wed, 05 Nov 2025 16:13:12 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGftP-0000000E0Fq-2pEJ
+	id 1vGg8D-0000000E208-1oux
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:57:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0AFF6446E4;
-	Wed,  5 Nov 2025 15:57:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 626DAC4CEF5;
-	Wed,  5 Nov 2025 15:57:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762358270;
-	bh=QE/o0Mh+dZdKXtnvDA4J2WYsUMjW6VDyfclBimdmgSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oICOgyYKQxTIre82iUXxYQa+v511n78p0LH/55yOrC/qPcixKX87gwddDj+41MvaU
-	 udDR3K3EBQpgaowODsG18JDcxc/9Tm00bcjPVXc3wnknNjtgfgAbq406aWeHYZjI5z
-	 4uu77joC5oJffXn+3DZusDdh4FUBNZjP+i+b3b0F4GSCsrwLEaBgWDor4d6LqO/29r
-	 Pv3KNro8m3YZiHAE2j4eVhzRxEZTXzdKwYbom7E6szRwPYBQga2bH0zXkFLHi9b4jL
-	 AJ2ZrrbUyJI3JInBqsQp2I7DwoEBzEHAGOgWbygjatGbYoaDoSc1t79LMgiLlaLprW
-	 4ShYMDmkm4j5A==
-Date: Wed, 5 Nov 2025 16:57:48 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Phil Auld <pauld@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-Message-ID: <aQtz_ODTgiCGS_oB@localhost.localdomain>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-14-frederic@kernel.org>
- <20251031125951.GA430420@pauld.westford.csb>
+	Wed, 05 Nov 2025 16:13:10 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A54HYRj019236;
+	Wed, 5 Nov 2025 16:12:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=hoOO0E96ahCdATo2vQq4UFuH8BQoyW
+	GvRJ67v+d6zmY=; b=SGkprtBRmnhHNGgfbF3sg7Go+c8inCeDqeC9AZjQfWNjqP
+	UlImdvXnB2eMzCk0pwDJKkF+IyFhEL/jEE8u1kZi8IReERwiQ1FVxGw+w2LhH+sy
+	2G0xn4JOOstfTzc1c06KaQNGCHeOXa9vK9rwN0ha3pMsSVpC2jcrtdLnZUA5XPvR
+	m+dXvo/F5oe8kUj+LdeKJtJbBvr0BqSaBvx8WxcuOGrxYtiM/WL6KzUAgfQRUPkh
+	RrK27EIk9Nv7KGFJk1CZtMDciaSlLsrEXmshoHrTVS3KKkC1OsBwg3P57glcc1m8
+	Yx7AzbSh81g2JkUW5G52BRvU1+355886S8zrCK3Q==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mra2tj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 16:12:27 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A5FVr3J003755;
+	Wed, 5 Nov 2025 16:12:27 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mra2tb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 16:12:27 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A5Fg5qS009863;
+	Wed, 5 Nov 2025 16:12:26 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4a5x1kgw7a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 16:12:26 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A5GCOji52167096
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Nov 2025 16:12:24 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3071320043;
+	Wed,  5 Nov 2025 16:12:24 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 136CC20040;
+	Wed,  5 Nov 2025 16:12:23 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  5 Nov 2025 16:12:23 +0000 (GMT)
+Date: Wed, 5 Nov 2025 17:12:21 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Ritesh Harjani <ritesh.list@gmail.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        David Woodhouse <dwmw2@infradead.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        x86@kernel.org
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+Message-ID: <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+ <87ms5050g0.ritesh.list@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251031125951.GA430420@pauld.westford.csb>
+In-Reply-To: <87ms5050g0.ritesh.list@gmail.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 0NFs_GrYa4zcH0BLNom4mOsajrCSPUxj
+X-Authority-Analysis: v=2.4 cv=MKhtWcZl c=1 sm=1 tr=0 ts=690b776c cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=CPQ9TFRCZcvXz5jfQC4A:9 a=CjuIK1q_8ugA:10 a=DXsff8QfwkrTrK3sU8N1:22
+ a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-ORIG-GUID: NNqKmXG2tTtHuvXhjQOh-riRMNlVPLAT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAwMSBTYWx0ZWRfX2KnrArcnBxcH
+ TeGoejtsfYJDuRV3FbvjuDEBFMmDeOQEbaaSQExJ7765sDaLesq0lIorOycsEibo64TNmmHRSNz
+ 6XIuQLSaO5SrKkE/QNnJd3smjWHr0HSQ+uA+bMkugv+Df6gPVeHmGXHRAMUP3/n0rbDuuZ3m9UR
+ Vw/WmiOn8NrnsxKTvVsuwmGs5I8kM0QBGFJCMl0xuCoTJbnjBxb2U37aEnIf2iT73qQhw1Rsaku
+ Qftv0wlHgsh4K3kTYYn5/INUGE4LK5ev6oQVqwHTw5VhjuNirNmgcqWMIXq1s/3gqUc/RmuAgWN
+ rH1ZA/5Add3j27sIoKtigY6uE1hzOktXQSO9iyvuDIkbiOtgLSq15NhyhwbIusKnV/r5/eZHbpi
+ xbMKu5ZjKQ3ntqUuRquH+Yb1K/SdzA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_06,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 bulkscore=0 impostorscore=0 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 adultscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_075751_739233_6768AC2C 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20251105_081309_763435_047E946A 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +148,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Oct 31, 2025 at 08:59:51AM -0400, Phil Auld a écrit :
-> > +int housekeeping_update(struct cpumask *mask, enum hk_type type)
-> > +{
-> > +	struct cpumask *trial, *old = NULL;
+On Wed, Nov 05, 2025 at 02:19:03PM +0530, Ritesh Harjani wrote:
+> > + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+> > + * currently enabled.
+> >   */
+> >  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+> >  static inline void lazy_mmu_mode_enable(void)
+> >  {
+> > -	arch_enter_lazy_mmu_mode();
+> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
 > > +
-> > +	if (type != HK_TYPE_DOMAIN)
-> > +		return -ENOTSUPP;
+> > +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
+> > +	/* enable() must not be called while paused */
+> > +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
 > > +
-> > +	trial = kmalloc(sizeof(*trial), GFP_KERNEL);
-> > +	if (!trial)
-> > +		return -ENOMEM;
-> > +
-> > +	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), mask);
-> > +	if (!cpumask_intersects(trial, cpu_online_mask)) {
-> > +		kfree(trial);
-> > +		return -EINVAL;
+> > +	if (state->nesting_level++ == 0) {
+> > +		state->active = true;
+> > +		arch_enter_lazy_mmu_mode();
 > > +	}
-> > +
-> > +	if (!housekeeping.flags)
-> > +		static_branch_enable(&housekeeping_overridden);
-> > +
-> > +	if (!(housekeeping.flags & BIT(type)))
-> > +		old = housekeeping_cpumask_dereference(type);
-> > +	else
-> > +		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
+> >  }
 > 
-> Isn't this backwards?   If the bit is not set you save old to free it
-> and if the bit is set you set it again.
+> Some architectures disables preemption in their
+> arch_enter_lazy_mmu_mode(). So shouldn't the state->active = true should
+> happen after arch_enter_lazy_mmu_mode() has disabled preemption()? i.e.
 
-That's completely backward!
+Do you have some scenario in mind that could cause an issue?
+IOW, what could go wrong if the process is scheduled to another
+CPU before preempt_disable() is called?
 
-Thanks for pointing out!
+>   static inline void lazy_mmu_mode_enable(void)
+>   {
+>  -	arch_enter_lazy_mmu_mode();
+>  +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+>  +
+>  +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
+>  +	/* enable() must not be called while paused */
+>  +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
+>  +
+>  +	if (state->nesting_level++ == 0) {
+>  +		arch_enter_lazy_mmu_mode();
+>  +		state->active = true;
+>  +	}
+>   }
+> 
+> ... I think it make more sense to enable the state after the arch_**
+> call right.
 
--- 
-Frederic Weisbecker
-SUSE Labs
+But then in_lazy_mmu_mode() would return false if called from
+arch_enter_lazy_mmu_mode(). Not big problem, but still..
+
+> >  static inline void lazy_mmu_mode_disable(void)
+> >  {
+> > -	arch_leave_lazy_mmu_mode();
+> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> > +
+> > +	VM_WARN_ON_ONCE(state->nesting_level == 0);
+> > +	VM_WARN_ON(!state->active);
+> > +
+> > +	if (--state->nesting_level == 0) {
+> > +		state->active = false;
+> > +		arch_leave_lazy_mmu_mode();
+> > +	} else {
+> > +		/* Exiting a nested section */
+> > +		arch_flush_lazy_mmu_mode();
+> > +	}
+> >  }
+> 
+> This looks ok though.
+> 
+> >  
+> >  static inline void lazy_mmu_mode_pause(void)
+> >  {
+> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> > +
+> > +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
+> > +
+> > +	state->active = false;
+> >  	arch_leave_lazy_mmu_mode();
+> >  }
+> >  
+> >  static inline void lazy_mmu_mode_resume(void)
+> >  {
+> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> > +
+> > +	VM_WARN_ON(state->nesting_level == 0 || state->active);
+> > +
+> > +	state->active = true;
+> >  	arch_enter_lazy_mmu_mode();
+> >  }
+> 
+> Ditto.
+> 
+> -ritesh
 
