@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35965CCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 02:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD070CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 02:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65Ps9qXcJmkYN5naDnSeSEAYjvtgLNJPf7+BDIuqQwg=; b=h4RpN4E5vXnpMkxlcaq+crKgfT
-	FJL1nnmdRGOrrgEKUxrUwSjpv921Y66iEOm9WMiICl54+bKI1KpcR0BrpLOEql3KH2aMfpAlEzVAV
-	T5sGc13CqKE7XlbjUiybt2EdbvqmcATz0DRntHVBPVPKctTnAu5iHDgu7PSHhJRu4vQK/pGRDnP25
-	WDJEigkKa3feAIMBlc4lROiL8K85lnJQbPOe+wIA520AMPMHSuyOvaZ/gfv4Y/FeLJ4tCYNZyqD8d
-	CsKT2H9mjWw5xsyN2xPnw29zIzWh6Q3EQ8gYiwVnEwJv/WKEVGf+l6ZXl3uU2pj08t8svgiPfghdq
-	fgDYoAXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/p2mNp4gNAgGCW3IMGenGM2K7t6SvD8ichbCMBxhLHs=; b=XZ9DDxdI7QOFk6Gp7GlVOGw7hU
+	C67r3jhyOLkAepAUrbTvL6ccD+MnU7rOneOsDzwW9HzW8XDVm0U8Gdzoi8ygcqp8Zccho8IoFKmMD
+	SANXs9CZQPG//uMNrFaK747IGpYJ1cPX2Ad5e62+en5yqzWQlQ1lCDi9Loe4L9Zj9EJh5A2NTQLAL
+	sVCKspak+XvLsj6eZMkccWsq/i34Q4/w5a4kYrUdmS+kr42DESZu27x4ngJFPXTTPmHSE5O6i6+XH
+	8cEn8bXBT4LSWB7cRBIu1g4M+cytpWxRF551n9jFHTJTVsbRS0Njvtu9npeH0132ukkSz9uRH8xsL
+	pObkMsLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGT8m-0000000CtjO-0KrK;
-	Wed, 05 Nov 2025 02:20:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGTDm-0000000Cu3c-3T2m;
+	Wed, 05 Nov 2025 02:26:02 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGT8j-0000000Ctim-2Zc6
+	id 1vGTDj-0000000Cu3A-1Os7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 02:20:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8A06432AD;
-	Wed,  5 Nov 2025 02:20:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C8EC116B1;
-	Wed,  5 Nov 2025 02:20:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762309246;
-	bh=Zr+j+565XvfLm2SsJQls3yEiyOWPm+Rp4hCYDk/hfMQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=TTlt6/mfwNYAeXcYZVsj04yfi3BxoCxKnbDh12OvrwUbwinCSls2Ya7CGR5y1z6wc
-	 L33AsUzJEkNoiKSPXmfxh0eFHmzssZI3uMzSr5XgmkP8eAOGyMu5hzJojGJ5i/CTrG
-	 LXmAsWHcL2KyCSad6aqSk8gvxKtPYQkNretC3L/J/Osc4Ztpup9Ggqa53ot/5bvnnE
-	 Xghw62eAUx2/MuSatdVi/2lTkz6R6UQH3qZxJS8dNtb+Fp2sjB+yloQ0BcteWU0GZE
-	 kmuROI8uLR/tuEt+hryeFHMcKPjUpaqhqU07S4zDEEq5bq3bzr57KjGWxltrmqMiuZ
-	 fLgyrBpuInHgA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE89380AA57;
-	Wed,  5 Nov 2025 02:20:21 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Wed, 05 Nov 2025 02:26:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=/p
+	2mNp4gNAgGCW3IMGenGM2K7t6SvD8ichbCMBxhLHs=; b=DgtSb4ROT+7ZTf/2Kw
+	jBA/cNT0xndd6kmGtsY/9Y6GoESOOBLBIVJev0UhoQs26x93eJg7bIpJzu2PC/4L
+	YaxB9paFN3809Q93RC9j4ucM85eVXagvt9rvLfrysoHBjoKhqlvvRsb10u4Bt0SW
+	nTLyDpVrNcK/neROxwzkH2UIw=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDH3_GYtQppMrN8BQ--.117S2;
+	Wed, 05 Nov 2025 10:25:31 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com
+Cc: linux-kernel@vger.kernel.org,
+	alsa-devel@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdich9700@163.com>,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH v2] ALSA: hda/conexant: Fix pop noise on conexant codec
+Date: Wed,  5 Nov 2025 10:25:26 +0800
+Message-Id: <20251105022527.69770-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/4] net: altera-tse: Cleanup init sequence
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176230922050.3062547.8083675540294624198.git-patchwork-notify@kernel.org>
-Date: Wed, 05 Nov 2025 02:20:20 +0000
-References: <20251103104928.58461-1-maxime.chevallier@bootlin.com>
-In-Reply-To: <20251103104928.58461-1-maxime.chevallier@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk, horms@kernel.org,
- boon.khai.ng@altera.com, alexis.lothore@bootlin.com,
- thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CM-TRANSID: _____wDH3_GYtQppMrN8BQ--.117S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZr18KF45Gr1xAF4kGFykXwb_yoW5tFyUpr
+	15Ga43GrZ3JF1I9r4fJr4fA3WYkFykWFsxJ34ft3W3Jw43Kry7Wa1jqFyI9F1fJrW7Kry2
+	vF42vrWUKrW5JFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi0JPtUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/xtbCwBtwv2kKtZvLrgAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_182049_675007_BDA62D78 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20251104_182559_763640_7AE49614 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +76,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: wangdicheng <wangdich9700@163.com>
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Pop noise mitigation: When headphones are unplugged during playback,mute
+speaker DAC(0x17)immediately and restore after 20ms delay to avoid
+audible popping.
 
-On Mon,  3 Nov 2025 11:49:23 +0100 you wrote:
-> Hi, this is a V2 for Altera TSE cleanup to make sure everything is
-> properly intialized before registering the netdev.
-> 
-> When Altera TSE was converted to phylink, the PCS and phylink creation
-> were added after register_netdev(), which is wrong as this may race
-> with .ndo_open() once the netdev is registered.
-> 
-> [...]
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+---
+ sound/hda/codecs/conexant.c | 65 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 65 insertions(+)
 
-Here is the summary with links:
-  - [net-next,v2,1/4] net: altera-tse: Set platform drvdata before registering netdev
-    https://git.kernel.org/netdev/net-next/c/687452051886
-  - [net-next,v2,2/4] net: altera-tse: Warn on bad revision at probe time
-    https://git.kernel.org/netdev/net-next/c/dd2619d38d7e
-  - [net-next,v2,3/4] net: altera-tse: Don't use netdev name for the PCS mdio bus
-    https://git.kernel.org/netdev/net-next/c/9350ea63fec6
-  - [net-next,v2,4/4] net: altera-tse: Init PCS and phylink before registering netdev
-    https://git.kernel.org/netdev/net-next/c/055e554b8fff
-
-You are awesome, thank you!
+diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
+index 5fcbc1312c69..2c16d1930a75 100644
+--- a/sound/hda/codecs/conexant.c
++++ b/sound/hda/codecs/conexant.c
+@@ -43,6 +43,9 @@ struct conexant_spec {
+ 	unsigned int gpio_mute_led_mask;
+ 	unsigned int gpio_mic_led_mask;
+ 	bool is_cx11880_sn6140;
++
++	struct hda_codec *conexant_codec;
++	struct delayed_work change_pinctl_work;
+ };
+ 
+ 
+@@ -216,6 +219,63 @@ static void cx_remove(struct hda_codec *codec)
+ 	snd_hda_gen_remove(codec);
+ }
+ 
++static void mute_unmute_speaker(struct hda_codec *codec, hda_nid_t nid, bool mute)
++{
++	unsigned int conn_sel, dac, conn_list, gain_left, gain_right;
++
++	conn_sel = snd_hda_codec_read(codec, nid, 0, 0xf01, 0x0);
++	conn_list = snd_hda_codec_read(codec, nid, 0, 0xf02, 0x0);
++
++	dac = ((conn_list >> (conn_sel * 8)) & 0xff);
++	if (dac == 0)
++		return;
++
++	gain_left = snd_hda_codec_read(codec, dac, 0, 0xba0, 0x0);
++	gain_right = snd_hda_codec_read(codec, dac, 0, 0xb80, 0x0);
++
++	if (mute) {
++		gain_left |= 0x80;
++		gain_right |= 0x80;
++	} else {
++		gain_left &= (~(0x80));
++		gain_right &= (~(0x80));
++	}
++
++	snd_hda_codec_write(codec, dac, 0, 0x3a0, gain_left);
++	snd_hda_codec_write(codec, dac, 0, 0x390, gain_right);
++
++	if (mute) {
++		snd_hda_codec_write(codec, nid, 0, 0x707, 0);
++		codec_dbg(codec, "mute_speaker, set 0x%x  PinCtrl to 0.\n", nid);
++	} else {
++		snd_hda_codec_write(codec, nid, 0, 0x707, 0x40);
++		codec_dbg(codec, "unmute_speaker, set 0x%x  PinCtrl to 0x40.\n", nid);
++	}
++}
++
++static void change_pinctl_worker(struct work_struct *work)
++{
++	struct hda_codec *codec;
++	struct conexant_spec *spec;
++
++	spec = container_of(work, struct conexant_spec, change_pinctl_work.work);
++	codec = spec->conexant_codec;
++
++	return mute_unmute_speaker(codec, 0x17, false);
++}
++
++static void cx_auto_mute_unmute_speaker(struct hda_codec *codec, struct hda_jack_callback *event)
++{
++	struct conexant_spec *spec = codec->spec;
++	int phone_present;
++
++	phone_present = snd_hda_codec_read(codec, 0x16, 0, 0xf09, 0x0);
++	if (!(phone_present & 0x80000000)) {
++		mute_unmute_speaker(codec, 0x17, true);
++		schedule_delayed_work(&spec->change_pinctl_work, 20);
++	}
++}
++
+ static void cx_process_headset_plugin(struct hda_codec *codec)
+ {
+ 	unsigned int val;
+@@ -1178,6 +1238,10 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
+ 	spec = kzalloc(sizeof(*spec), GFP_KERNEL);
+ 	if (!spec)
+ 		return -ENOMEM;
++
++	INIT_DELAYED_WORK(&spec->change_pinctl_work, change_pinctl_worker);
++	spec->conexant_codec = codec;
++
+ 	snd_hda_gen_spec_init(&spec->gen);
+ 	codec->spec = spec;
+ 
+@@ -1187,6 +1251,7 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
+ 	case 0x14f11f87:
+ 		spec->is_cx11880_sn6140 = true;
+ 		snd_hda_jack_detect_enable_callback(codec, 0x19, cx_update_headset_mic_vref);
++		snd_hda_jack_detect_enable_callback(codec, 0x16, cx_auto_mute_unmute_speaker);
+ 		break;
+ 	}
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.25.1
 
 
