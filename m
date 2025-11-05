@@ -4,102 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDABDCCFA04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6203CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Nov 2025 07:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=; b=d+48u56nxJoDfKAYY9XZsJIWe2
-	GeA5CNNKH8FUEuzWEa91IejkMS9qMTwu2WYY7geOpsswKEJZtCKfX2GsdGzrZibBagixgIK00abd0
-	HBACWUOUefOqVqu47fMFB1MFCiur3u7r+IpDQmiuQbJGNGubM9rvPdZxRBQ94Db4rAYFk72CFg7c1
-	5G2FIGmHZb0HcIp/Jp+qF/Vk5YSXYF/huSYaOLRdcO4Uex0C7akM5Bg9UNxlGFoSfp/6/7N1PRq1/
-	gnbBMUPgNzkvi0Ry3JWoinJewGONs2cf2pgZfHMgcC1uJwGFt4joLG2nLLLpKiWXA0/bYwBE7FNVL
-	xnWjX0WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IIaNLN8Yd4Txhb9bSY+7kMvbPVgTOperEEV/7lJ/36w=; b=icHMHLY+iryVofbcwE4Z2gSnXu
+	t6VyJqluaYtusg+5ekjNBGEYxblK9/OIbA/CBI0LkrRciIJApTCnAvKsclH5wOULYtwx2CUfznCuA
+	MIBnjxSIx0aOyO/V9H/tdHizfRx8gIXNx6NdGCwxco+yemhCTK4DGjArCEXndtvuxnHWKFJ+QWHCx
+	/gP2AjDuClzZRZpDMqirxHEROcpKH9Osg7VFRj9bc4oGlO7tfszxFCkxa1VVvwiKtI3W87YOPFDqF
+	3rjafB97R7dAG9FFKA8ET/K+KRA2KsTwCxMgT+OgcoKrP3soDVh8Nq9Ygoy8ZtRZr+dl2bz4OborH
+	2XyZlaKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBTJ-0000000BKSu-2hcK;
-	Tue, 04 Nov 2025 07:28:53 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vGBXV-0000000BKwu-29np;
+	Tue, 04 Nov 2025 07:33:13 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGBTE-0000000BKQt-3tBf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Nov 2025 07:28:52 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-429b7ba208eso3164123f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Nov 2025 23:28:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762241327; x=1762846127; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=;
-        b=eEbAu7PGRKjlQ/zRhyjfMaoJ2prXRkwpUXLDIJ1V43eOmAkP1tB7oxHC8jO1yZHryb
-         TRXvuGcHikNZn5CtFtBv9iuXXg3jpGSNOEyR0gbf2daTdk0gl15tAFxLCX8OuwcnsLoC
-         nX9j+xQsI9NJE7t8826lqruEwW5tdY7aKpFxIL77i7drlNa0bh3am99CaCYYDT+pulvE
-         0A20dAEUARZ83Vl3opTPKGLzqPdQA+ipRkBRQB3BSizRQVYLdubInP2vsmtmeVEzM2GT
-         LqMNhUYChsp4xz/c94pJPnhzLFqTApHVJ5/pfXfEmfhqaeApFhNSO09ZpHm7kDMntpPI
-         5X9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762241327; x=1762846127;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RQrVztubx2u+pACffgEQuXsypBYi+W9z0hLwySF7Kwo=;
-        b=M3CzbyorIvd+Kcob8dZA8cUCl70alaslDyoFfNqYt8ZYUHRa3TdPsMsczn7Ff3xmhh
-         aQ0hrHu9GucbQ3DWSou+AwrJGPJQkh0LdxoeLcEbUH+MweRZt1sM/7ZB7G5OM/AdvtHk
-         +2cye6oFToHtFVF1jyIOnw5N7mJ8JkUsldVRBeUdzpyXgF3A+GFYmsKPU/6TJjo++tuQ
-         rMDN7rqRC2OoIEpuyycKU4ZMnq9Z4P8W2pypHMGljmn3phHXKfgJZrMcA/nn7VYimNaL
-         /4IrrAgCr96Ez3B2n2zfPfaqm9NzaGdYKX4JBVPrxf1MuA3CSWheJe+7u1Kz3WMbHpq9
-         kZLg==
-X-Forwarded-Encrypted: i=1; AJvYcCVj8dMWXACc4PQVE8K23sTwcu4uF1wFuWtO27Ubxqz58gNhRybVUNceT3O2idCUsr8ViiCDtvv7sK85bp/jzWSB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLtdszVj228dwDmiK5QdqPPcPQ8Lh8e+y4H5HjNXkTE8zQ+6yk
-	i6b/YWHWUzhvdyuq7XAeHk/s2CWMYKxrZzly6U8/WAjq74dZMMKNZ1pL
-X-Gm-Gg: ASbGnctdL2A4cK65oi+W5R7rUnIRwlwhdL7Am1L8upLksIv2C6G9ijfMoEMFsuTIRQj
-	kK8oWWFhRZt1Tgdg5EN2ZND43rlSJk2gbwG9+uDvyB156pU2IzrE0OqiaXSSzKjqRRvMsaWASOx
-	h0rzorfHSSSO7DSRE2isfSfNeVmn9KVIKHpoOo5YodcKlN7mBrE9ETZVj7Mzsj2LAuAcKMsB/NQ
-	oV61ifPCPHu/4uFb3vvi1xZJNVKI/Yb8Aax5+kEaPWcH1T1tDessfvQW9k+eaNCbeIcrCUQ02od
-	udegIQae439iIsugPmsG3Ww8NNttfmmNwSAaOwc1FNa6l66jQBCpNZZkfo7PBpYlsE2ByGNtJAE
-	WNnzWwIC4xV0x23ShisbJaR8ONdBGGZqnxK/y5igDKuPQK1kAM3/rr1K3fFIpA4xWPoIU8JcAYP
-	N+z210QIeLw9BY8bc9+M1I3NpnpWq039wVyet2S3mJh5gLM4iEVHBeC52ZVRnVyQlCvqt8Kdo=
-X-Google-Smtp-Source: AGHT+IE/zGw+D0u9TFjklGUocQN9vuvOn2j0IijPm9wr89yrvoE3rgFyzPC1PsYWnF6kAditU4Rbhw==
-X-Received: by 2002:a05:6000:714:b0:429:c711:22c5 with SMTP id ffacd0b85a97d-429c7112421mr9065018f8f.42.1762241326271;
-        Mon, 03 Nov 2025 23:28:46 -0800 (PST)
-Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc19227csm2989084f8f.11.2025.11.03.23.28.44
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 03 Nov 2025 23:28:45 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
-Subject: Re: [PATCH 0/3] Add Amlogic stateless H.264 video decoder for S4
-From: Christian Hewitt <christianshewitt@gmail.com>
-In-Reply-To: <540d98ea-114c-43bc-94c0-e944b5613d74@amlogic.com>
-Date: Tue, 4 Nov 2025 11:28:33 +0400
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-media@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <2B4BFCAC-57FF-429F-BD57-457E634A24E8@gmail.com>
-References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
- <b976b442-7d07-4fef-b851-ccd14661a233@linaro.org>
- <540d98ea-114c-43bc-94c0-e944b5613d74@amlogic.com>
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-X-Mailer: Apple Mail (2.3826.700.81)
+	id 1vGBXR-0000000BKwC-1Gcq;
+	Tue, 04 Nov 2025 07:33:12 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowAAHhOswrAlpskJmAQ--.18495S2;
+	Tue, 04 Nov 2025 15:33:04 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: ukleinek@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] pwm: mediatek: Remove unneeded semicolon
+Date: Thu,  6 Nov 2025 05:48:47 +0800
+Message-Id: <20251105214847.1279520-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAAHhOswrAlpskJmAQ--.18495S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DWFy5Ww1Utrb_yoWfJrcE9w
+	4kWrsrXrWUGwn8KrnxJ3yxZr9FyFn5uw409FsYvr43t3sruF40vFy0vrsIgw4DA340gFWD
+	K39xWr1fZF17ZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M280x2IEY4vEnII2IxkI6ry26F1DM28lY4IEw2IIxx
+	k0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK
+	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjc
+	xK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8CwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7sR_TKZPUUUUU==
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251103_232849_036352_719DC880 
-X-CRM114-Status: GOOD (  32.38  )
+X-CRM114-CacheID: sfid-20251103_233310_096104_0E521EEB 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,359 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 28 Oct 2025, at 3:47=E2=80=AFpm, Zhentao Guo =
-<zhentao.guo@amlogic.com> wrote:
->=20
-> =E5=9C=A8 2025/10/28 18:50, Neil Armstrong =E5=86=99=E9=81=93:
->> [ EXTERNAL EMAIL ]
->>=20
->> Hi,
->>=20
->> On 10/27/25 06:42, Zhentao Guo via B4 Relay wrote:
->>> Introduce initial driver support for Amlogic's new video =
-acceleration
->>> hardware architecture, designed for video stream decoding.
->>>=20
->>> Compared to the current Amlogic video decoder hardware architecture,
->>> this new implementation eliminates the Esparser hardware component,
->>> enabling direct vb2 buffer input. The driver is designed to support
->>> the V4L2 M2M stateless decoder API. The initial phase includes =
-support
->>> for H.264 decoding on Amlogic S805X2 platform.
+Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
+semantic patch at scripts/coccinelle/misc/semicolon.cocci.
 
-S805X2 looks challenging to test (without hardware) and this will =
-prevent
-wider feedback. Can you extend the driver for G12B? - it has good =
-upstream
-support and lots of good boards. This would also demonstrate (in =
-patches)
-how further expansion is handled. The only minor complication is that
-meson-g12-common.dtsi has vdec nodes for the staging driver that need to =
-be
-reworked. This probably leads into a discussion (with Neil mostly) about
-how to drop/clean-up the staging driver. NB: There is also a canvas =
-driver
-long-merged upstream. Can this be reused or adapted instead of adding =
-new
-canvas code?
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/pwm/pwm-mediatek.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->>> The driver is capable of:
->>> - Supporting stateless H.264 decoding up to a resolution =
-1920x1088(on the S805X2 platform).
->>> - Supporting I/P/B frame handling.
->>> - Supporting vb2 mmap and dma-buf modes.
->>> - Supporting frame-based decode mode. (Note that some H.264 =
-bitstreams require
->>>    DPB reordering to generate reference lists, the stateless decoder =
-driver
->>>    cannot access reordered reference lists in this mode, requiring =
-the driver
->>>    to perform reference list reordering itself)
->>> - Supporting NV12/NV21 output.
->>> - Supporting Annex B start codes.
->>=20
->> Thanks for the initial drop, it's very nice !
->>=20
->> First of all, this still requires some work so it would be better if =
-you
->> used the RFC tag until all issues are sorted out.
->>=20
-> Thanks for the reminder, I will add the RFC tag from the next patch =
-version.
->> You didn't tell anything about the firmware, did you build a specific =
-version
->> of the firmware to handle the stateless and bypass ESPARSER ?
->> Will this technique work with the released firmwares of GXL/G12/SM1 ?
-> For the firmware, we need to build a specific version for stateless =
-decoder
-> driver. The ESPARSER is fully dropped. As I mentioned, this technique =
-needs
-> specific firmware so it would not work with the released firmware of =
-the older
-> SOCs. We plan to submit the new firmware to the linux-firmware repo. I =
-will
-> share the commit once the upload is completed.
-
-linux-firmware only accepts files for merged drivers so while things are
-still in development you either need to share firmware blobs as an extra
-patch with the series (tagged as DONOTMERGE) or you need to put files in
-a repo and share a link in the cover-letter. You are welcome to abuse =
-the
-LibreELEC org on GitHub if you need somewhere friendly to push files (we
-already host similar things for distro packaging).
-
->> Will you support the compressed format and 10bit with this ?
-> No, the compressed format and 10bit are not supported.
-
-Understood that AFBC and 10-bit are not part of this initial series, but
-are they planned for a follow-up series? .. or never?
-
->>> This driver is tested with Gstreamer.
->>> Example:
->>> gst-launch-1.0 filesrc =
-location=3D/tmp/video_640x360_mp4_hevc_450kbps_no_b.mp4 !
->>> parsebin ! v4l2slh264dec ! filesink location=3D/tmp/output.yuv
->>>=20
->>> The driver passes v4l2 compliance test, test reports :
->>> v4l2-compliance 1.30.1, 64 bits, 64-bit time_t
->>>=20
->>> Compliance test for aml-vdec-drv device /dev/video0:
->>>=20
->>> Driver Info:
->>>          Driver name      : aml-vdec-drv
->>>          Card type        : platform:aml-vdec-drv
->>>          Bus info         : platform:fe320000.video-codec
->>>          Driver version   : 6.16.0
->>>          Capabilities     : 0x84204000
->>>                  Video Memory-to-Memory Multiplanar
->>>                  Streaming
->>>                  Extended Pix Format
->>>                  Device Capabilities
->>>          Device Caps      : 0x04204000
->>>                  Video Memory-to-Memory Multiplanar
->>>                  Streaming
->>>                  Extended Pix Format
->>>          Detected Stateless Decoder
->>> Media Driver Info:
->>>          Driver name      : aml-vdec-drv
->>>          Model            : aml-vdec-drv
->>>          Serial           :
->>>          Bus info         : platform:fe320000.video-codec
->>>          Media version    : 6.16.0
->>>          Hardware revision: 0x00000000 (0)
->>>          Driver version   : 6.16.0
->>> Interface Info:
->>>          ID               : 0x0300000c
->>>          Type             : V4L Video
->>> Entity Info:
->>>          ID               : 0x00000001 (1)
->>>          Name             : aml_dev_drv-source
->>>          Function         : V4L2 I/O
->>>          Pad 0x01000002   : 0: Source
->>>            Link 0x02000008: to remote pad 0x1000004 of entity =
-'aml_dev_drv-proc' (Video Decoder): Data, Enabled, Immutable
->>>=20
->>> Required ioctls:
->>>          test MC information (see 'Media Driver Info' above): OK
->>>          test VIDIOC_QUERYCAP: OK
->>>          test invalid ioctls: OK
->>>=20
->>> Allow for multiple opens:
->>>          test second /dev/video0 open: OK
->>>          test VIDIOC_QUERYCAP: OK
->>>          test VIDIOC_G/S_PRIORITY: OK
->>>          test for unlimited opens: OK
->>>=20
->>> Debug ioctls:
->>>          test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
->>>          test VIDIOC_LOG_STATUS: OK (Not Supported)
->>>=20
->>> Input ioctls:
->>>          test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
->>>          test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
->>>          test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
->>>          test VIDIOC_ENUMAUDIO: OK (Not Supported)
->>>          test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
->>>          test VIDIOC_G/S_AUDIO: OK (Not Supported)
->>>          Inputs: 0 Audio Inputs: 0 Tuners: 0
->>>=20
->>> Output ioctls:
->>>          test VIDIOC_G/S_MODULATOR: OK (Not Supported)
->>>          test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
->>>          test VIDIOC_ENUMAUDOUT: OK (Not Supported)
->>>          test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
->>>          test VIDIOC_G/S_AUDOUT: OK (Not Supported)
->>>          Outputs: 0 Audio Outputs: 0 Modulators: 0
->>>=20
->>> Input/Output configuration ioctls:
->>>          test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
->>>          test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
->>>          test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
->>>          test VIDIOC_G/S_EDID: OK (Not Supported)
->>>=20
->>> Control ioctls:
->>>          test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
->>>          test VIDIOC_QUERYCTRL: OK
->>>          test VIDIOC_G/S_CTRL: OK
->>>          test VIDIOC_G/S/TRY_EXT_CTRLS: OK
->>>          test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
->>>          test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
->>>          Standard Controls: 6 Private Controls: 0
->>>          Standard Compound Controls: 4 Private Compound Controls: 0
->>>=20
->>> Format ioctls:
->>>          test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
->>>          test VIDIOC_G/S_PARM: OK (Not Supported)
->>>          test VIDIOC_G_FBUF: OK (Not Supported)
->>>          test VIDIOC_G_FMT: OK
->>>          test VIDIOC_TRY_FMT: OK
->>>          test VIDIOC_S_FMT: OK
->>>          test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
->>>          test Cropping: OK (Not Supported)
->>>          test Composing: OK (Not Supported)
->>>          test Scaling: OK (Not Supported)
->>>=20
->>> Codec ioctls:
->>>          test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
->>>          test VIDIOC_G_ENC_INDEX: OK (Not Supported)
->>>          test VIDIOC_(TRY_)DECODER_CMD: OK
->>>=20
->>> Buffer ioctls:
->>>          test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
->>>          test CREATE_BUFS maximum buffers: OK
->>>          test VIDIOC_REMOVE_BUFS: OK
->>>          test VIDIOC_EXPBUF: OK
->>>          test Requests: OK
->>>          test blocking wait: OK
->>=20
->> Please also enable the streaming tests.
-> Yes, we did some streaming tests with Gstreamer, fluster test and bug =
-fix is also in progress.
->>>=20
->>> Total for aml-vdec-drv device /dev/video0: 49, Succeeded: 49, =
-Failed: 0, Warnings: 0
->>>=20
->>> Some Fluster test cases are still failing. We will publish the final =
-results
->>> once all these Fluster test failures have been resolved.
->>=20
->> As Christian reported, please add the flutter results aswell.
-> Thanks. We have now tested the JVT-AVC_V1.
-> Result:
-> Ran 54/135 tests successfully
->=20
-> - 52 test vectors failed due to interlaced or mbaff clips: The Amlogic =
-stateless
->   decoder driver only support bitstreams with frame_mbs_only_flags =3D=3D=
- 1.
->   Test Vectors:
->         cabac_mot_fld0_full
->         cabac_mot_mbaff0_full
->         cabac_mot_picaff0_full
->         CABREF3_Sand_D
->         CAFI1_SVA_C
->         CAMA1_Sony_C
->         CAMA1_TOSHIBA_B
->         cama1_vtc_c
->         cama2_vtc_b
->         CAMA3_Sand_E
->         cama3_vtc_b
->         CAMACI3_Sony_C
->         CAMANL1_TOSHIBA_B
->         CAMANL2_TOSHIBA_B
->         CAMANL3_Sand_E
->         CAMASL3_Sony_B
->         CAMP_MOT_MBAFF_L30
->         CAMP_MOT_MBAFF_L31
->         CANLMA2_Sony_C
->         CANLMA3_Sony_C
->         CAPA1_TOSHIBA_B
->         CAPAMA3_Sand_F
->         cavlc_mot_fld0_full_B
->         cavlc_mot_mbaff0_full_B
->         cavlc_mot_picaff0_full_B
->         CVCANLMA2_Sony_C
->         CVFI1_Sony_D
->         CVFI1_SVA_C
->         CVFI2_Sony_H
->         CVFI2_SVA_C
->         CVMA1_Sony_D
->         CVMA1_TOSHIBA_B
->         CVMANL1_TOSHIBA_B
->         CVMANL2_TOSHIBA_B
->         CVMAPAQP3_Sony_E
->         CVMAQP2_Sony_G
->         CVMAQP3_Sony_D
->         CVMP_MOT_FLD_L30_B
->         CVNLFI1_Sony_C
->         CVNLFI2_Sony_H
->         CVPA1_TOSHIBA_B
->         FI1_Sony_E
->         MR6_BT_B
->         MR7_BT_B
->         MR8_BT_B
->         MR9_BT_B
->         Sharp_MP_Field_1_B
->         Sharp_MP_Field_2_B
->         Sharp_MP_Field_3_B
->         Sharp_MP_PAFF_1r2
->         Sharp_MP_PAFF_2r
->         CVMP_MOT_FRM_L31_B
-> - 3 test vectors failed due to unsupported bitstream.
->   num_slice_group_minus1 greater than zero is not supported by the
->   hardware.
->   Test Vectors:
->         FM1_BT_B
->         FM1_FT_E
->         FM2_SVA_C
-> - 2 test vectors failed because SP_SLICE type is not supported by the
->   hardware.
->   Test Vectors:
->         SP1_BT_A
->         sp2_bt_b
->=20
-> We are working with the remain failures, we think that these fail =
-cases
->=20
-> must be resolved.
->=20
-> I'll add the fluster result to the cover-letter from the next patch =
-version.
-
-Thanks, it=E2=80=99s good to understand where things are. All good :)
-
-Christian
-
-
->>=20
->> Neil
->>=20
->>>=20
->>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
->>> ---
->>> Zhentao Guo (3):
->>>        dt-bindings: vdec: Add binding document of Amlogic decoder =
-accelerator
->>>        dts: decoder: Support V4L2 stateless decoder dt node for S4
->>>        decoder: Add V4L2 stateless H.264 decoder driver
->>>=20
->>>   .../bindings/media/amlogic,vcodec-dec.yaml         |   96 ++
->>>   MAINTAINERS                                        |    7 +
->>>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi          |   24 +
->>>   drivers/media/platform/amlogic/Kconfig             |    2 +
->>>   drivers/media/platform/amlogic/Makefile            |    1 +
->>>   drivers/media/platform/amlogic/vdec/Kconfig        |   15 +
->>>   drivers/media/platform/amlogic/vdec/Makefile       |    4 +
->>>   drivers/media/platform/amlogic/vdec/aml_vdec.c     |  759 =
-+++++++++
->>>   drivers/media/platform/amlogic/vdec/aml_vdec.h     |   31 +
->>>   .../platform/amlogic/vdec/aml_vdec_canvas_utils.c  |  154 ++
->>>   .../platform/amlogic/vdec/aml_vdec_canvas_utils.h  |   22 +
->>>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.c |  263 +++
->>>   drivers/media/platform/amlogic/vdec/aml_vdec_drv.h |  194 +++
->>>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.c  |  652 +++++++
->>>   drivers/media/platform/amlogic/vdec/aml_vdec_hw.h  |  182 ++
->>>   .../platform/amlogic/vdec/aml_vdec_platform.c      |   37 +
->>>   .../platform/amlogic/vdec/aml_vdec_platform.h      |   62 +
->>>   drivers/media/platform/amlogic/vdec/h264.c         | 1790 =
-++++++++++++++++++++
->>>   drivers/media/platform/amlogic/vdec/h264.h         |  300 ++++
->>>   drivers/media/platform/amlogic/vdec/reg_defines.h  |  175 ++
->>>   20 files changed, 4770 insertions(+)
->>> ---
->>> base-commit: 72fb0170ef1f45addf726319c52a0562b6913707
->>> change-id: 20251027-b4-s4-vdec-upstream-0603c1a4c84a
->>>=20
->>> Best regards,
->>=20
-> Thank you
->=20
-> Zhentao
->=20
->=20
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
+index f2c918c0d26a..fecc1b91e14c 100644
+--- a/drivers/pwm/pwm-mediatek.c
++++ b/drivers/pwm/pwm-mediatek.c
+@@ -266,7 +266,7 @@ static int pwm_mediatek_round_waveform_fromhw(struct pwm_chip *chip, struct pwm_
+ 				DIV_ROUND_UP_ULL(NSEC_PER_SEC, clk_rate),
+ 			.duty_length_ns = 0,
+ 		};
+-	};
++	}
+ 
+ 	dev_dbg(&chip->dev, "pwm#%u: ENABLE: %x, CLKDIV: %x, PERIOD: %x, DUTY: %x @%lu -> %lld/%lld\n",
+ 		pwm->hwpwm, wfhw->enable, clkdiv, cnt_period, cnt_duty, clk_rate,
+-- 
+2.25.1
 
 
