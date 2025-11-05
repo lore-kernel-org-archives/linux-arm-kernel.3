@@ -4,58 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E31CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75847CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++09DX5Kr/cWbiaoDWd6CXQyso+aKi4c8sdLh6Pg8e0=; b=xsO1TisAPOQW27D/URuFPdpwOz
-	7+EbNRQHzouJ6Dr8tI7KBbA6u1Y67i3CwP9qN+uIG4igJIzbr9RegGLztJ4H2PqSl3TxTBcz1cklA
-	cGyVY/8tCBVeqtHrMy8DUkSwdZ1bEQ+DthjFCSge/HAt40Injx4v20L6XsIdejpBTJopTKtmJv0OG
-	vUZ5wSWui7DxBjOnVHwMQ5g96wJ9CJotVjcM9B2Mepa0jHoDEvwRKL1BDiXkpj18k2MMggAArLNxv
-	9r3a0XBvYUEkraA5FBeFPG4HoQat5jQDZx2VivZ6oGphHO9yQLjsQZPzz1L3fulh5sR6jD1qVf5ZK
-	fi4Rk8jQ==;
+	bh=mBCDjFCtIralqPbaobJr9w45EqrrTPgVKXorpBh75DA=; b=XgXVFaQiYosrWg7ctisCVL+oFh
+	VDdJ7MAydmsKw2TpGIVJ0pVDA4gqQ7HKAb+wBbJoXevOyqPjJxmo4JBOFYXn1rF2elVC6LK+Lfa0C
+	OvbJ+H5QCDpnwOkZmYPwnD0AFUG6o+O93Wem9Cful7C0H5JlvBe/tuaSuTN05IImLqfcCPL/Wh1G2
+	iIznUrCBb6a8gjVPKKMsrJZJtYmME2xNK491q0d7ViSx3Cc95O5/rO6KbRWe1a72YSOhg0E4Xle4H
+	kGlAqJc2Oa9KKrwheSye4/BhMgZ9p6aNpz3jlKErTlIj29zwBq9K00ZkHfC9/gxJkLsrqVO/C74lH
+	c8aZAM4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfWl-0000000Dwva-1btO;
-	Wed, 05 Nov 2025 15:34:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfWj-0000000Dwuk-0Bgm
+	id 1vGfXQ-0000000Dx3c-2zjd;
+	Wed, 05 Nov 2025 15:35:08 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGfXM-0000000Dx2N-2SBA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:34:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2C8514BF;
-	Wed,  5 Nov 2025 07:34:16 -0800 (PST)
-Received: from arm.com (unknown [10.1.26.217])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB02A3F63F;
-	Wed,  5 Nov 2025 07:34:23 -0800 (PST)
-Date: Wed, 5 Nov 2025 15:34:21 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <aQtufeFU-PAE6YDk@arm.com>
-References: <e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop>
- <aQUAR9MRxP6_qtEH@arm.com>
- <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
- <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQoyPox1DjlBT32O@arm.com>
- <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
- <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
+	Wed, 05 Nov 2025 15:35:07 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A57hVAj007179;
+	Wed, 5 Nov 2025 15:34:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=mBCDjF
+	CtIralqPbaobJr9w45EqrrTPgVKXorpBh75DA=; b=kJJvQMKSobCn/AX0FM8hiu
+	lAg3CQC5+pPaGaYOYIf58zJOni1GZeBU5r+Ebpnwm1cT0Y2oN+LZHcCV1AQGy5ib
+	qF0K8CkDnXRO3u+NJ6fCUcRwPNyXTzebzR/1kBMjNE2Du5ppzZk6r0ed08NSlok4
+	BG42+N57/9Pz/7iG3qodXH/AVEVRn1lt7Wp+xfxzW8Mc8+KJtePmcayAgc/3sXkU
+	bEde9/gBVgl3qsanMHgkoEtEGfkLfYWvSabDJoCV796DtA5RfDDhBuG1gLBp65Hj
+	5kCUO4tHPdGz34RItxvzgRYx4bF2NhlaTB9c8EYikfmlyWRKpxX9/Grx/RPi1bBg
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mr9vpe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 15:34:36 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A5FQeET022630;
+	Wed, 5 Nov 2025 15:34:35 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a57mr9vpb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 15:34:35 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A5ChDTP021482;
+	Wed, 5 Nov 2025 15:34:34 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5xrjrkr3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Nov 2025 15:34:34 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A5FYURj53674336
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Nov 2025 15:34:30 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A883920040;
+	Wed,  5 Nov 2025 15:34:30 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 13AF62004B;
+	Wed,  5 Nov 2025 15:34:29 +0000 (GMT)
+Received: from osiris (unknown [9.155.211.25])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  5 Nov 2025 15:34:28 +0000 (GMT)
+Date: Wed, 5 Nov 2025 16:34:26 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+        Vincenzo Frascino <vincenzo.frascino@arm.com>,
+        Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Nick Alcock <nick.alcock@oracle.com>, John Stultz <jstultz@google.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        Shuah Khan <shuah@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+        "Jason A. Donenfeld" <Jason@zx2c4.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+        Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Subject: Re: [PATCH v4 24/35] vdso/datastore: Allocate data pages dynamically
+Message-ID: <20251105153426.16228C13-hca@linux.ibm.com>
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-24-e0607bf49dea@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-24-e0607bf49dea@linutronix.de>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: GGdzfD5G3hQ68-39VW7GakGxAH7MovxB
+X-Authority-Analysis: v=2.4 cv=MKhtWcZl c=1 sm=1 tr=0 ts=690b6e8c cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=8nJEP1OIZ-IA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=ebG-ZW-8AAAA:8 a=e1b3s80Sx_c-5AZqzBwA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=Bj2TwAA_C77lQ_X2_dkp:22 a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22
+ a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-ORIG-GUID: FA8Qn-I58re3Fj-7DCZVJVXwZ4DiaPYs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAwMSBTYWx0ZWRfX79q+aRjocr8A
+ WsJicIkrDzeZowDTKWdSRpdbbSTYSdnAKh3ClmRCNP0S8je+b6bwR4QAObGY+JaivfKMlj2hBVw
+ KLzTBb1GVj2u/8kaK8wfeBTBcwczqZx2uJUW94XwBBfiT1PIHgcud1V1IaGBQ7/80r1+m5QVf5y
+ 2MAbdeeWJFA/uN5CkUVEPIEOGTIF7nMUT8yZgz8qLQcWjKcDN5xrV+ylstwr289JOHk8UDvW+If
+ ZS0Vh+xa015UpwIHMHQi/pVyWTfCCQ7nEswkEgkvxtiBx1AXWt5u1z1b8gL7A+PMKBFcztnM0NI
+ NBBPJSUKiH3NfGjyVbk1no9yQUjK4mCZusqZxNsqflVQ6b/X2GCXdlXaNPmhI6deTnzJKGTxcvZ
+ 8le1/uj5xZfo4KJOYkdyfW8kJi0g6w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_06,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 bulkscore=0 impostorscore=0 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 adultscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_073425_340081_99B33E8C 
-X-CRM114-Status: GOOD (  29.54  )
+X-CRM114-CacheID: sfid-20251105_073505_093533_3B7E0F31 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,65 +152,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 12:10:36PM -0800, Paul E. McKenney wrote:
-> On Tue, Nov 04, 2025 at 10:43:02AM -0800, Paul E. McKenney wrote:
-> > On Tue, Nov 04, 2025 at 05:05:02PM +0000, Catalin Marinas wrote:
-> > > For the SRCU case, STADD especially together with the DMB after lock and
-> > > before unlock, executing it far does slow things down. A microbenchmark
-> > > doing this in a loop is a lot worse than it would appear in practice
-> > > (saturating buses down the path to memory).
-> > 
-> > In this srcu_read_lock_fast_updown() case, there was no DMB.  But for
-> > srcu_read_lock() and srcu_read_lock_nmisafe(), yes, there would be a DMB.
-> > (The srcu_read_lock_fast_updown() is new and is in my -rcu tree.)
-> > 
-> > > A quick test to check this theory, if that's the functions you were
-> > > benchmarking (it generates LDADD instead):
-> > 
-> > Thank you for digging into this!
+On Tue, Oct 14, 2025 at 08:49:10AM +0200, Thomas Weiﬂschuh wrote:
+> Allocating the datapages as part of the kernel image does not work on
+> SPARC. It is also problematic with regards to dcache aliasing as there is
+> no guarantee that the virtual addresses used by the kernel are compatible
+> with those used by userspace.
 > 
-> And this_cpu_inc_return() does speed things up on my hardware to about
-> the same extent as did the prefetch instruction, so thank you again.
-> However, it gets me more than a 4x slowdown on x86, so I cannot make
-> this change in common code.
+> Allocate the data pages through the page allocator instead.
+> Unused pages in the vDSO VMA are still allocated to keep the virtual
+> addresses aligned.
+> 
+> These pages are used by both the timekeeping, random pool and architecture
+> initialization code. Introduce a new early initialization step, to make
+> sure they are available when needed.
+> 
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> Tested-by: Andreas Larsson <andreas@gaisler.com>
+> Reviewed-by: Andreas Larsson <andreas@gaisler.com>
+> ---
+>  include/linux/vdso_datastore.h |  6 ++++++
+>  init/main.c                    |  2 ++
+>  lib/vdso/datastore.c           | 44 ++++++++++++++++++++++--------------------
+>  3 files changed, 31 insertions(+), 21 deletions(-)
 
-Definitely not suggesting that we use the 'return' variants in the
-generic code. More likely change the arm64 code to use them for the
-per-CPU atomics.
+...
 
-> So, my thought is to push arm64-only this_cpu_inc_return() into SRCU via
-> something like this_cpu_inc_srcu(), but not for the upcoming merge window,
-> but the one after that, sticking with my current interrupt-disabling
-> non-atomic approach in the meantime (which gets me most of the benefit).
-> Alternatively, would it work for me to put that cache-prefetch instruction
-> into SRCU for arm64?  My guess is "absolutely not!", but I figured that
-> I should ask.
+> +void __init vdso_setup_data_pages(void)
+> +{
+> +	unsigned int order = get_order(VDSO_NR_PAGES * PAGE_SIZE);
+> +	struct folio *folio = folio_alloc(GFP_KERNEL, order);
 
-Given that this_cpu_*() are meant for the local CPU, there's less risk
-of cache line bouncing between CPUs, so I'm happy to change them to
-either use PRFM or LDADD (I think I prefer the latter). This would not
-be a generic change for the other atomics, only the per-CPU ones.
+I'm seeing random hangs on s390 too with our CI, but unfortunately I cannot
+reproduce it manually. But looking at one of the dumps it looks to me like the
+vdso time page contains (more or less) random junk at the end. Or in other
+words, shouldn't this be:
 
-> But if both of these approaches proves problematic, I might need some
-> way to distinguish between systems having slow LSE and those that do not.
+	struct folio *folio = folio_alloc(GFP_KERNEL | __GFP_ZERO, order);
 
-It's not that systems have slow or fast atomics, more like they are slow
-or fast for specific use-cases. Their default behaviour may differ and
-at least in the Arm Ltd cases, this is configurable. An STADD executed
-in the L1 cache (near) may be better for your case and some
-microbenchmarks but not necessarily for others. I've heard of results of
-database use-cases where STADD executed far is better than LDADD
-executed near when the location is shared between multiple CPUs. In
-these cases even a PRFM can be problematic as it tends to bring a unique
-copy of the cacheline invalidating the others (well, again, microarch
-specific).
-
-For the Arm Ltd implementations, I think the behaviour for most of the
-(recent) CPUs is that load atomics, CAS, SWP are executed near while the
-store atomics far (subject to configuration, errata, interconnect). Arm
-should probably provide some guidance here so that other implementers
-and software people know how/when to use them.
-
--- 
-Catalin
+? At least that is a difference to before as far as I can tell.
 
