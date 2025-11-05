@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A5BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 12:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F78BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 12:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4/EbTg9KYclkAUKHMkSEKqfOyePRIgIyqDHwwGBf+g=; b=gk7d7wkLxFwc86Kb3GDdb7suqf
-	y1IV/a2jioLsqVkj/NWSQ8p7fu/Vg8rgbBaxT5XQB2HRlukviEAFGty1rLFIaLRIQds5lW3s/Mlly
-	Kwj4i47ZJlK2EqH60X53zuwFnZfxnVovhLE1gjdF+aZuK+IGxOttms+9IjsKEJIuXWN7QzjRx8e5I
-	oWQYPFuFJQKFBN3nd3HnkR85lL445p+JQVOHEeiZDXk9JCSNp8m9O2yS4D1It80Db0CFdbuJYRT1M
-	a9GzypRoqdmzDaMDskdzICqP+BCk5aVVmGvDCxtnduH6GcVe/+UJfmzWpoCjRcDyM2QKRm0xwvNyo
-	WgvQRRww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G1dodx/W6V2vRanrdyrFobxtAPht3IBjUXG7tqnemMo=; b=lXaB8RsVrVMI7A/ocJ0WxIBagb
+	jXFN90CJ5OZSRLsizdI+p8jCEtduVU03pmvv0LDRrvJM1bhyjqLsmyU2wykuwuwUrOa5gH9Hreuec
+	KzBtzVglLJiZpMedwWvKSC8EmuWwywwpU39BvFdVJxMx2ae2Sh/OLvgQbxs2QDQdH7YlY0kjRDRGE
+	wrsJvMqDKBvxO8sr80pPq3OEhORGTQFbd85JmDS+kaD4z0xj6KSPeXR0a8i0tWSzJnmiq31ICSUs4
+	dHL2rTb6RI71J9B1TVUiJBhsi5kczmqw5AhA/HmwmITtXKXikQPSOLEzfbZKdWEiSCCAgIl/ykOQ9
+	Xxg/va2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGcf1-0000000Db4G-0cA9;
-	Wed, 05 Nov 2025 12:30:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vGcid-0000000DbHC-0pXK;
+	Wed, 05 Nov 2025 12:34:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGcey-0000000Db3f-3Fbw;
-	Wed, 05 Nov 2025 12:30:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92D234336D;
-	Wed,  5 Nov 2025 12:30:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4F9C4CEFB;
-	Wed,  5 Nov 2025 12:30:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762345843;
-	bh=sOca8qlDfIBDsxvVAIy7C2EdJfQ9Z0/Cd6qn0qL0vGA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=aO/3M89k+D6Jfli9zFpP/uHdguxuGFk9TJ4fhmXgVR6oXi1V7UqFQ0N8eeZsXACWi
-	 ACGLD5bTZ2vlUaztBCPptZFADukmoXcsaFTcBbZiiV57G/KUvIH29XWZPIfNK1/prG
-	 agPGjb8hiZf0Kfz99IIKsgKOGYDIJAzhzEfI3yhU+3O8BdsuomK3CSTRl7t5TtF6t5
-	 4J+6EFwuTAWZlJtdiZSPQyTWOTEvWtaAqoIsWHocA0UGZRkAh57lFfD9Wrz7f/jJ1O
-	 L2DWX9zWYCF83Lqih5a08c8BUoopZfutNpsOKslICZ6TWsGobmem9nvrWQdmjkLF3S
-	 4iA354oZx9ZnA==
-Date: Wed, 05 Nov 2025 06:30:41 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1vGcib-0000000DbGq-0X0s;
+	Wed, 05 Nov 2025 12:34:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1762346066;
+	bh=UMSS8SlF1ZpDPeqH+yFQO3jA5s+oh4KLe88rrJ2+bxg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bcdgeY+X4d42ju21u9ouguNkx+sAkHLrFdtoOdfrYifMeiAFNJNA1XNxUP43b6UJX
+	 tlnlwWUse3ZMbACKuxaIGdtxNA9U8mlsauR/zeUhnL8jnSD5LHKh0aeM0Uc1rqfetj
+	 i6iH/18EbR5lbJV//sVViA8M1qIhGET0vhxUKymPAvlD9W/vpuNxlWVZbB8AbmyDuZ
+	 eZwuAXiEBfaI0/pPTZJeDa5GEkO6DZQMUw49uLj38zJiL6GqmusBfUMKR4+6o4/Wra
+	 PQZuE3/jEsZKgR9JL//jqNWFiVdB4ESp3bHcC60rFFsiW3tDmrTN45DJfhqIKWwKGA
+	 /uYcSaKHjDyEQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBBC517E0B46;
+	Wed,  5 Nov 2025 13:34:25 +0100 (CET)
+Message-ID: <0e4d55b5-92c2-4b59-8b58-419187e99a25@collabora.com>
+Date: Wed, 5 Nov 2025 13:34:25 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- conor+dt@kernel.org, cy.huang@realtek.com, afaerber@suse.de, 
- linux-arm-kernel@lists.infradead.org, james.tai@realtek.com, 
- linux-realtek-soc@lists.infradead.org, stanley_chang@realtek.com, 
- krzk+dt@kernel.org, lee@kernel.org
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-In-Reply-To: <20251105104452.6336-3-eleanor.lin@realtek.com>
-References: <20251105104452.6336-1-eleanor.lin@realtek.com>
- <20251105104452.6336-3-eleanor.lin@realtek.com>
-Message-Id: <176234584170.562648.2189277623860888038.robh@kernel.org>
-Subject: Re: [PATCH 2/3] dt-bindings: mfd: Add Realtek ISO system
- controller
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/6] dt-bindings: pinctrl: mt7988: allow gpio-hogs
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20251027132817.212534-1-linux@fw-web.de>
+ <20251027132817.212534-2-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251027132817.212534-2-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_043044_836658_C7D056C9 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20251105_043429_324950_70D746A0 
+X-CRM114-Status: UNSURE (   5.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,39 +82,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 05 Nov 2025 18:44:51 +0800, Yu-Chun Lin wrote:
-> Add DT binding schema for Realtek system controller.
+Il 27/10/25 14:28, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
->  .../bindings/mfd/realtek,iso-system.yaml      | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
+> Allow gpio-hogs in pinctrl node for switching pcie on Bananapi R4 Pro.
 > 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Reviewed-by: AngeloGioacchino Del Regno <angelogiocchino.delregno@collabora.com>
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/arm/realtek.yaml:76:1: [warning] too many blank lines (2 > 1) (empty-lines)
-
-dtschema/dtc warnings/errors:
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251105104452.6336-3-eleanor.lin@realtek.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
 
 
