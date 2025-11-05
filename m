@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF2ECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E4CCCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 17:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=062oThQfCiAu6RO0RcHJ7UUZxncftkZICnZEVJAs4lo=; b=zOgnj+iFFzmDzQJvQckLtCQimq
-	NjfRlSp5MxyJ1Bh2vwUCoj8bjANDUU/WH9vmHtY2+GLMtgcpbaA5ScJCxVuwR8EB8B1jF67vvwW2n
-	SFjPl5GtKzYJY54QI+2NQ8YVIiay07voxtYnmLdgBMSWYCm1YFRbmVlP2d4jTqXCcKsR7WXzXjPci
-	c627X6k3Q+pJaGuEJDw6/LIfAQ5YaYk0oFXUPJy+GI1M15IQ7+r+vh1sKDU3E0xkUZa8vVEq6Mxs4
-	4t1/OaN/KOKaVhI3Dc08bZzs0u5DXZwKYRXLPOQUxYW0H9LAu+DyUanwJj/Gr5ZT7jM1fXHoItped
-	BPs0AoNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ml2ENV49YDjBG99uR33VmgiseqTqkLu/oQRDXQnYV0A=; b=iksCtJqO4LbXFOETEHEc8iQj4f
+	iL4Qn5NOPGdoBlb3mnakjt0RsGv4rE6buMmtbCrsLVilwARy9NeZ0mJQFLuFeKxShpxnHkXErChha
+	r73szHHkyca6rZVUuh0+62T+Fm/7M3mMfdqcAQsFoeyq8h/naBWN9B619ddTbyyE9PnBXpIDe64/D
+	cPSv0SpwErxU/Aw6aZrLSEWqZ9gPoeugb9h9u09RajL+IZJ2HalCCl1hh8WFjU+CXnPwlRQ7VdP3u
+	1+ytH+Yb+CGmkS7wDVtwDmPYHw5aEW/n8v7bCTY+pKWSQkqyYm5BEPWg/PmPpJkhgvK8dsSyEyKof
+	Pf8RsNgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhYv-0000000ECNP-2Dzn;
-	Wed, 05 Nov 2025 17:44:49 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1vGhac-0000000ECWT-3yew;
+	Wed, 05 Nov 2025 17:46:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGhYs-0000000ECMt-0sWu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 17:44:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1762364672; x=1762969472; i=markus.elfring@web.de;
-	bh=062oThQfCiAu6RO0RcHJ7UUZxncftkZICnZEVJAs4lo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Od4OuV5DbXNYRcsHDU5X9ll7ryJSe0auYV2mmGCpeuPnuP/cxxKmB0N2khyPOsgN
-	 y5FbWA37hFsFIDPEAHAovhEV/yhZEbao12yLt80RvMVFzX4V7HaV08UXOiCK2/wms
-	 hzNHstO7e5bWTRwYueDS+HJp22p2HrIfsBtqRr6QJnVs0kdyuk91FODLrfIXHT8jv
-	 Y9iQtQGB5soFgT7wsrm7IolvSMVNRr2+FcVmglTWaTwMqQwl3rJkbiXrPCitIoMIZ
-	 9TetPnCLi6w56ax44sc+AKIjm3FEQOlHCjY048ajMHRQY58CpqQGZNsRvofH1gf8s
-	 nXvCWZu5VjXApllk8w==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.250]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MMGuC-1vYuvu05by-00Hw0X; Wed, 05
- Nov 2025 18:44:32 +0100
-Message-ID: <1a234e96-b41e-4f6c-b23c-e57426ff6aa1@web.de>
-Date: Wed, 5 Nov 2025 18:44:27 +0100
+	id 1vGhaa-0000000ECVy-2Mk6;
+	Wed, 05 Nov 2025 17:46:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF14441943;
+	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1533CC4CEF5;
+	Wed,  5 Nov 2025 17:46:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762364791;
+	bh=woawi0pKo/kryyYybe6UTBTWMoVsh5qziqijASjnREk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X7Mf6l0akmdIq5iKgqrPQJacdZIwvZNDplWJ7ZFAiTj1m5jo/r4RZiwBnuufL7FJz
+	 rvjLuH5kIUsBewW58/KIJ4AtGpjFM65vgcq5Mq40hqFViVaFYaMO3B+3S2DJBgREr8
+	 Ydhgli/Ewi5GXUbKU7XplIRtFLKzGALUr+LrfoBKdNnCob1uuo8LERCMDso+bO1Ogb
+	 2kFxvq6vNnlZJHsASSZyjiY4DFFHKnlLj9M1sIw8Xs7M5lI6s7rwKH+tP57RLGeYQo
+	 I7shlbbDQcR6rzKbVlqZcx0moVDvOcKmF1aICmG6LscQYeQvqFcaYK64Yfrix1vGrk
+	 oPe9jn359SAFw==
+Date: Wed, 5 Nov 2025 18:46:28 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <aQuNdOEmPYkI03my@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aQDuY3rgOK-L8D04@localhost.localdomain>
+ <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQJLpSYz3jdazzdb@localhost.localdomain>
+ <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, linux-spi@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- openbmc@lists.ozlabs.org, =?UTF-8?Q?C=C3=A9dric_Le_Goater?=
- <clg@redhat.com>, Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: lkp@intel.com, LKML <linux-kernel@vger.kernel.org>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
- Mark Brown <broonie@kernel.org>
-References: <20251105084952.1063489-1-chin-ting_kuo@aspeedtech.com>
-Subject: Re: [PATCH] spi: aspeed: Use devm_iounmap() to unmap devm_ioremap()
- memory
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20251105084952.1063489-1-chin-ting_kuo@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:jot5tDQJo1L36cL8JOgENIFyiccB0wx8wvoPXnsvMFO7Sx3sCtA
- qDsGMlMmcQ2G1W/kFisssqz4WcxD4S2GeztozjrMc1rGpu7fh2OWU3/BgAAJUJXdzmCVbdC
- pVeLpxkUuTNVafWFIW+Axl3Qcxz9aLGDtldOUyCrvVFAi/vxOOA9Q47kD1xIZECAE0gl0JU
- Exv31t3Z6fWyvu8AgoBDg==
-UI-OutboundReport: notjunk:1;M01:P0:y3tOmy+s550=;Vq3Xa/8PM7c7WYUJcqufPVueOLZ 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 Eng6ujTNmnh2u/Qy9gP5waVNp/uOM6gefvg=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_094446_532154_9FCA4624 
-X-CRM114-Status: UNSURE (   6.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_094632_642562_7AF2B524 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +110,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The AHB IO memory for each chip select is mapped using
-> devm_ioremap(), so it should be unmapped using devm_iounmap()
-> to ensure proper device-managed resource cleanup.
-=E2=80=A6
+Le Wed, Nov 05, 2025 at 05:24:29PM +0100, Valentin Schneider a écrit :
+> On 29/10/25 18:15, Frederic Weisbecker wrote:
+> > Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a écrit :
+> >> I need to have a think about that one; one pain point I see is the context
+> >> tracking work has to be NMI safe since e.g. an NMI can take us out of
+> >> userspace. Another is that NOHZ-full CPUs need to be special cased in the
+> >> stop machine queueing / completion.
+> >>
+> >> /me goes fetch a new notebook
+> >
+> > Something like the below (untested) ?
+> >
+> 
+> Some minor nits below but otherwise that looks promising.
+> 
+> One problem I'm having however is reasoning about the danger zone; what
+> forbidden actions could a NO_HZ_FULL CPU take when entering the kernel
+> while take_cpu_down() is happening?
+> 
+> I'm actually not familiar with why we actually use stop_machine() for CPU
+> hotplug; I see things like CPUHP_AP_SMPCFD_DYING::smpcfd_dying_cpu() or
+> CPUHP_AP_TICK_DYING::tick_cpu_dying() expect other CPUs to be patiently
+> spinning in multi_cpu_stop(), and I *think* nothing in the entry code up to
+> context_tracking entry would disrupt that, but it's not a small thing to
+> reason about.
+> 
+> AFAICT we need to reason about every .teardown callback from
+> CPUHP_TEARDOWN_CPU to CPUHP_AP_OFFLINE and their explicit & implicit
+> dependencies on other CPUs being STOP'd.
 
-* You may occasionally put more than 61 characters into text lines
-  of such a change description.
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
-Documentation/process/submitting-patches.rst?h=3Dv6.18-rc4#n658
+You're raising a very interesting question. The initial point of stop_machine()
+is to synchronize this:
 
-* Would another imperative wording become helpful for an improved change d=
-escription?
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
-Documentation/process/submitting-patches.rst?h=3Dv6.18-rc4#n94
+    set_cpu_online(cpu, 0)
+    migrate timers;
+    migrate hrtimers;
+    flush IPIs;
+    etc...
 
+against this pattern:
 
-Regards,
-Markus
+    preempt_disable()
+    if (cpu_online(cpu))
+        queue something; // could be timer, IPI, etc...
+    preempt_enable()
+
+There have been attempts:
+
+      https://lore.kernel.org/all/20241218171531.2217275-1-costa.shul@redhat.com/
+
+And really it should be fine to just do:
+
+    set_cpu_online(cpu, 0)
+    synchronize_rcu()
+    migrate / flush stuff
+
+Probably we should try that instead of the busy loop I proposed
+which only papers over the problem.
+
+Of course there are other assumptions. For example the tick
+timekeeper is migrated easily knowing that all online CPUs are
+not idle (cf: tick_cpu_dying()). So I expect a few traps, with RCU
+for example and indeed all these hotplug callbacks must be audited
+one by one.
+
+I'm not entirely unfamiliar with many of them. Let me see what I can do...
+
+Thanks.
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
