@@ -4,93 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5996ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13EC1CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=; b=tT9i3L5hiEtOiH3A5w+CjhzUcv
-	6zv9Wr7sKhMRrrmG5RJS+4epz5lRia6RfB4vNvzMzAdRuRISmQ9O6JPInA2WHSwXS9qOLh44az2TC
-	lgoJ7xWilNQz1r1asBCCH85uYEdVuqd8bF7T1tD9ETk44AyPxC3zc88e2ZvegpEvJf93A6HWRSxgZ
-	OqkPaEs6rsh7JAhL6vjuSwkXlq4vcOoYLYa8VpHKW+0D2R21ThufjPOn+W90KQ5BphU86Oq+87MWM
-	tlvP8EbpvWTRtrqN50RDzIPOmYz9gox2HsZlM7jMnno53RQH4BvMb0sLgOhuB/D6G7CJHmsRQEzOu
-	1sd6tmaA==;
+	bh=yru0XVMu/9JgVXC1Fe4UQ12H4UfttcSBLb4c1hDa7sA=; b=2vm6qLj7+yMJjmqWvlrhlxtUuz
+	t5aQTWlBJovTmdwwpmDVkvfkX3oBIrUNND/qBb+3MvcvXIWbGDbi6HHmfqPyXAKo+SD42yU01N4zm
+	UpAEuaEKbRfnCP5UZOh8v1U4595v4iNKZ1K02dlda4NMZP+/KkE7pwtqdMa4AWuKxypJeXo5bhleV
+	dmfeny3EX9ngPVeyahp0aEGZUC08EkSlAAXtD/yNJrsDmzkJKwp0UKNWlu9JTwO8+2xyOR14x7pbk
+	QvwLMcatfm1Z5STUJPJuCCGgn/7H7Oe823ELqjwy9qr7r6Wlfx+W52HVYk4NGxc3ylbjz3V2KrL+f
+	XZA0VWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgcZ-0000000E5io-1fTC;
-	Wed, 05 Nov 2025 16:44:31 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vGgfm-0000000E5z0-0Jho;
+	Wed, 05 Nov 2025 16:47:50 +0000
+Received: from mail-northeuropeazon11010022.outbound.protection.outlook.com ([52.101.84.22] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgcW-0000000E5i7-4Ag2
+	id 1vGgfj-0000000E5xu-0zo9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:44:30 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4711b95226dso155705e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:44:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762361067; x=1762965867; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=;
-        b=b/U4VMUoQT5ifINeMrEfRMQqK9jEfD3KOSX/Wge+B1c6t+PAmZNWMWg0z4XuVYxky9
-         VBA2OVUjyx5RKEU0PxmTGFgxOvbz7dH4rpFNrQGW4tv/AchIUUq2G/uhQeBBSD8P2BTi
-         C8uc5FcE24Us9Hg5fJcQY1IvAaMVQAMv4uWCOwpbnxMMDPpZtNrOR9r9BcaHpMIH76qG
-         ucvWvlwAUhGOgK9anga5ZrKGcfA5Zi66T6ptR2IqF7Hfp4SX8unMTzviMzAYMdem3FLb
-         ot7U7cka0dM18mouRILcQq/4Wzxq6omlZRhVwzqb+5u/6ulB+4HJa/dpZJpsY82KOHEF
-         TqMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762361067; x=1762965867;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZY2ovksieRapgk658pHLWkUZACRChu2RMh3Rj1+1OEY=;
-        b=GXR2nLCpDqIXq+uIy/v0u/RPnbkhViHKFfGraHipn1vJN3N9wPZZBjOVPZ1RFDt/z3
-         G9jMsV9hZTMgzX0WkNwHrZ3Oj4u0+SXHWH+6kbGUj+PZrzDUcxmxqxNIWmKucUYUNCmL
-         Zx56Mk0RPhrqa9VaGNpRpf3X8xryYRfM1jG1LyhO0dbNNzZVM0DKSbZgFhJCbSADO/vv
-         DHPKsiSP1/X6AuMMjmQmr8T4g6IOj9D1YWuD6gB1GRRPoMGI7MW4TBiP5PVUZQ+VGWKC
-         4H1Jrla1+SrIFoBOXUK1dz1UgCprrpt51slPA9ytTy0uI2RKnJamEmiCi9PF0Rj8tfuk
-         jpKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWx9PCr03PhbiwM0NSzNcKikuhSSvHCWqRCpVC+wWhsF1pt8gYqg9UAIcZ+STomlQ534VvDCi2hQTYLO6a2HBGs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA29uf0db2jmJiM6CDQs40h2VVS2MqVVp4eIe+JVe3/fYt8z9j
-	MPI3tGKj8osUvqDxiimyoUgaowjAsSDginE8h9bE0N9W7Xf88vLFaBkK
-X-Gm-Gg: ASbGncu6YCZXomkMq6ErszW9zoB+V76oDEKPQAkgjeOSfR0slSduVUs9yWwUykAYK1n
-	NibQiKPlkUX7x33HRECfzUU9FpZI5YE4mVerOlJAfAmykzNTB1674or50VLCBTRKjHjtatSAiyg
-	+FkTDlm315gFM6b5iHAkl1a65ewaxyXsQ+GnFrj6ek4sXf0L6j7aHEBP2QXEPDmOVBcLZrtRxdp
-	OT2+GUD5RNXlfOTj8T3V1lGL8Yqidi51LDbSqag1Zn7q7UHQnRE6oay9djlrpT/28DSWTtoLFz4
-	OfyPbNfcTNShvM743QsTZiKOVtlvldtbkU5aYUsCGTAcn4IriSptCNK4gb/BCgSvErZIvE/HvtK
-	M0akXd7b5/UXu9RDs7ilAvSY0CYtvhNFyrpZE2jBTSBQZqKOY2pPJQFE0iUH3qcnkSI57Lr/TD8
-	NKl69GlnPMFQ9/KmDiTNOuYiCqE6lcZ/kWnyiIVsdh7+GupbX7KtGi0v6adw==
-X-Google-Smtp-Source: AGHT+IGU8h8RqLt1fJTOpph+Kb6J+YXpLSWNisJ5Rw8ElaLdkndSmhqlDVbaDGVZcwA5Mkqog8YWaw==
-X-Received: by 2002:a05:600c:1c90:b0:477:589e:6c2f with SMTP id 5b1f17b1804b1-4775ce1eabamr35876305e9.22.1762361066679;
-        Wed, 05 Nov 2025 08:44:26 -0800 (PST)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc1fdef7sm11938330f8f.43.2025.11.05.08.44.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 08:44:24 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Marco Crivellari <marco.crivellari@suse.com>
-Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Frederic Weisbecker <frederic@kernel.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko <mhocko@suse.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
-Date: Wed, 05 Nov 2025 17:44:22 +0100
-Message-ID: <12772271.O9o76ZdvQC@jernej-laptop>
-In-Reply-To: <20251105152023.259813-1-marco.crivellari@suse.com>
-References: <20251105152023.259813-1-marco.crivellari@suse.com>
+	Wed, 05 Nov 2025 16:47:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sXOdbjNXtLlAjoEYsNog3tfWfSeru5LNeyGTBlWizOvSCAvBolW8VemUkES31OwB7FGfjqhHmkAYl/d7Qw2r5kViEGSWETnOpieY3y1a885++J7R60m1sQA9QWvAaLfh5ybjryH841hinDo5407VjdpAUX1PX6pV/oe3858NjFpDqLnZ06y41Kdn2lFE+x2EHyqh3SgyWK5DxJpTqD5wUmerqX+muDd5khn3nd8iormpawTFhpRWNUoI49tXBlFlpnMbC1VHq9kAO0TxB487Wf4NfmdCNxAuHLWfGphtQpA+AGh0wK/VKEFJTJj60u99cQxvZd5/skD/PvU/4EB5kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yru0XVMu/9JgVXC1Fe4UQ12H4UfttcSBLb4c1hDa7sA=;
+ b=WobGfkrhgHaGnL/XOoGl3sYtXiege9V+5Ckq8139nLY/NqVkntmJcD0YqM/3y/KeLuFXJs5xZI+lQLnU7MPeTGcXCxS5/E7hUgMTQ1jq/WCz1/4dQNhhI+XAq30g2DtgppKtaZnk6ziurkppBf0XG9CoEUVElokQ7JlAwGZQb0cc5+mZjlKST/ryt8uD5wGfL4Org+CG8yqB3lbX85xRK6WDx5i9O8zm/5VsFz/dyHFbN1tni1ecowfhKRUcSyg5NzD1IEaHp7wGKfSOH0/YZc5j0OKbdx/4NWTQgi+PlY196pfnvKR7328xloBcQuR6itQce7W6cCDRJZAnAE5JFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yru0XVMu/9JgVXC1Fe4UQ12H4UfttcSBLb4c1hDa7sA=;
+ b=hQJyjfv8SrDx/17azi1opES+W2+LTpDRLwjqdvGL+ESqr9v1pesn07MK8UGawqMojR+r8rDjsEeRPE1yOTR4jdOXF+/YEsUfFUpSjaOmkkQRVJTkVAThtWZH/cdACFd5qryZGXus3yk3QdoqDe6BpFqRCtyvOgG2NG1zTHMBJuzOaeLf0MwYYHsh+R+9t9PClZiWwX1nng5AIerFtPHnznCJDJbW1RFL+FUp2X2LyG8dos7dqyDjE/uU//vz54G4fEsnGRG2dYGshZQKuJKUwqEAZ9+QixcCSZwHn2h3PZLj72AeiTql1xY3ecJTxkQZDba19mM564ZUtUWxLQ3zkA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DU2PR04MB8693.eurprd04.prod.outlook.com (2603:10a6:10:2dc::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Wed, 5 Nov
+ 2025 16:47:41 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
+ 16:47:40 +0000
+Date: Wed, 5 Nov 2025 11:47:32 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Michael Tretter <m.tretter@pengutronix.de>
+Cc: Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hans.verkuil@cisco.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org,
+	Michael Tretter <michael.tretter@pengutronix.de>
+Subject: Re: [PATCH 1/2] media: staging: imx: request mbus_config in csi_start
+Message-ID: <aQt/pE/7BMI95+Hl@lizhi-Precision-Tower-5810>
+References: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
+ <20251105-media-imx-fixes-v1-1-99e48b4f5cbc@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251105-media-imx-fixes-v1-1-99e48b4f5cbc@pengutronix.de>
+X-ClientProxiedBy: SJ0PR03CA0344.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::19) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB8693:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9316d0e-157f-482a-9ed2-08de1c8b08cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7h8SH7DGyYpcw8DBHC6aDv77XhsKFVgBCBAq4ZUEoCI6xNRdWu9R//FVXwmy?=
+ =?us-ascii?Q?+ndjoCIs+y4L2XAvUeAHh2qvqum1T1lslGkLYxV6aiyDFFvAdqbCeq4Nn8S0?=
+ =?us-ascii?Q?0jDNjYymyRtgaWU8QBU0k12NHom7h5G09owu6PsXAx0z+o+qrJeZd+PHrmKi?=
+ =?us-ascii?Q?qgDK8LqYF+oZasrN+JKFkJYxe+Zr2Jrark2uWnfQwLhJ6tZmqZaDOYJnodhp?=
+ =?us-ascii?Q?I595B/N8PxWiNmjujA6MW4vldcpjmOFoUv49llDpji8o8DXBiDEmhmu0mW61?=
+ =?us-ascii?Q?Y+Gx0MpFDgBlrsiJL6xaNUwUBkQo3lWi+wjgJQA0UOgxjfRWXz8xxHb47eSa?=
+ =?us-ascii?Q?GgNdyOYDOvBZjHsysO24qJkOa2sBsm0bu59+oXz3+/sON4s3JyrdYZduhC9K?=
+ =?us-ascii?Q?cDkNiQ8lJ2jMglk/rbYJR5ldUxeoTz4huBp6KIl9pk3skNz9QT0CvblqvhyF?=
+ =?us-ascii?Q?VNbOHOi8z+h0NgL1cV+vgPSbrOLca9Bph2+40TrAHZFmgyF2EAqiYUxoHzYB?=
+ =?us-ascii?Q?+K0J+lnb0SqMEJ6KMdyEasnL5YfVxsjpR7wQ+787bJy8LsLRRX16XQSLUU+c?=
+ =?us-ascii?Q?+X0g7H4mRGZmfV2CLn6aw+cvdDFRFVLONzjCrDxZDsLNfpWd3cWeuZrobjRf?=
+ =?us-ascii?Q?GcP9KB+WKQHWchx2OrWp33q75BUhkQgk6Ktj51G9C4pqnR18qa96DN61sbYN?=
+ =?us-ascii?Q?MBV/5Ww7NwOwZ9ARLKvD8SDDY7yHRmFtVl55BeWh9G+sb6txkppWppTUDKC+?=
+ =?us-ascii?Q?bJ/W39gGwrb2yG890cA15bFcmh16E2tRZwAeLwBN1+24f2wjBsj4Q4yOmJNf?=
+ =?us-ascii?Q?XGB9IhGTJfOaksn2k8wRxUO0QHZXaQ700EZ/bqIkst/3L/67UXf3/6j9Vxod?=
+ =?us-ascii?Q?wVK8prVe9Qn+4kN55N/Gzu7n32JxdFY8nidTKP6oDugY4CmDn+S6ebZZco+n?=
+ =?us-ascii?Q?Ts1D8bhrkMCsLrWW5gbL6BteEGGuDEWRJj/OiH7hlywN8TV+kg9NP5gdF8y6?=
+ =?us-ascii?Q?UQq3bbVDAqP/fwS/zyK7T9b/ENgtANtAS51VAz9ico0FlAIEyfkzBMQL/gab?=
+ =?us-ascii?Q?Jfa3+2ndQ+aqiVQIZGUvmWx0IJ5MDnv66osSv/L04YhVnC8zZUjrqH59/8ni?=
+ =?us-ascii?Q?+A+WEzCzuHPXiZStl2EFVshadrMYcQXOS7XYIeETgwbXLFA5YzQNqEOSrBY1?=
+ =?us-ascii?Q?hzEW+34Vyn0yRRib0GL1CzoMBemRl4PhKpQzmzzjkiiHOe2qxSQtaAnLOxNo?=
+ =?us-ascii?Q?K22i6T7FftF8LjEnIYbdPuxgubQHteG4rzOSpX+vpVRGwl7+Ij1rFFC/QuE/?=
+ =?us-ascii?Q?LqkXPDYDxdF5hnyMRGKMFo8y3aVlwMVpzim3gvnknZX1AVFKacW5gEZ51mV4?=
+ =?us-ascii?Q?wSv34iN7r6VFIDTjccMancshH93gI31V/QLU3uHvjs+eVFZ+4ZadB7M13RWA?=
+ =?us-ascii?Q?u35kDf3Y9lE4ItzfG1UYQ/AywJxn92rvng/BdwtufbO7m++Knq/d4F8qGGeV?=
+ =?us-ascii?Q?AaLQiYMR72dRTo6YZytcGNBvw+vyJpmUPpCp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bQMZhKREadD8cQVdpUF4WAsuQX9xV5a+cKxiOEKKr5qfqfhBKrLRCErzvPUG?=
+ =?us-ascii?Q?3dypUOm5CkAkpgDo8XHJxuR0d3udjbEO9xhcq4Zd0JV9oJTNd9aKRVQ6+uAv?=
+ =?us-ascii?Q?75wXIOFD1inQj92DLQXVb6AGQcqcwXLLHtv5aBWbR9GoPqQwtno+YNA1EBBQ?=
+ =?us-ascii?Q?qaqZIvSU1GG+TmT+uzmKyrv+8amJy3fdAK+WlQZA99h9wTzBkuEJEDk9yUuO?=
+ =?us-ascii?Q?tc8Rok7fPtH+oKkwzamLJpQ/4WQyUYhObo7qnJGJc7dXVeDaFVq9YQs5Vr3N?=
+ =?us-ascii?Q?aBQYTwyzroKu5+RSs+P1U4Woh7tJ3j4FPXjeLV24Y9yTROcmERJfCc4AtOHB?=
+ =?us-ascii?Q?TPfkVEgPf1LL02FycUkXbXD51UfP2Vxhza4lUhUGk224BoMC+YLDhurKkt9X?=
+ =?us-ascii?Q?YOrzHcj9thUIzTY9j24s4lFLdv055y0OtqZVLEhOfBax+XXiZhJjxD+0YP7J?=
+ =?us-ascii?Q?RI55Oh5abr8+uN5BVaar320BE7lbxpvy1bBmqPoZbdwRGUTNZbmFAcZg61s8?=
+ =?us-ascii?Q?zZSKN/MrTtv7fek8luQCwdn1eg1sB4CGjgvdJ6X6zTlBiB/D5j00MENlgGjp?=
+ =?us-ascii?Q?GBpgSeORFEQ3Yf9zQ8Z19KWeb5KhFx/AYXEGCgmap5RlRrM/AqLbjC9tpbgE?=
+ =?us-ascii?Q?2IiSFgmTsVHSgicewkhaioNwe1qunZqaJVS2E7lRrYrFffzjkQytL1jzbqVU?=
+ =?us-ascii?Q?FvkrxizhMtQ3nZwQzoHp17ydQsnLjcCXlU0gvQSnLRyBRs4RBUmwrccD6nP5?=
+ =?us-ascii?Q?RdxmKYU4/RUCsEH4IV+VTkQvE5EeEOP3kO2IWc2nDNCVwgOwgDtk4HpCP8xe?=
+ =?us-ascii?Q?9E5FUeB82hXbzqqI6BhuscenPubrdoRBTdDYlDLjxE8lnFv+mDAiWJ792SRo?=
+ =?us-ascii?Q?IDrJpm2M6Cp0ms34svTyppU6TW8VnF6QI65wtRTtVChudpKrLQXXUetutJC2?=
+ =?us-ascii?Q?uIawmZpBzozWorJDUCuI+WseQhULOEgEplhYy4DnHvIT+5nlcFRwLLD/ja2t?=
+ =?us-ascii?Q?XyoJH7/miWvLU1NZgAPv497gREfIFMrUQxprE/uj0COdTU9S3ZzNCT08T1j3?=
+ =?us-ascii?Q?cL68kPIs7D9zlni8rVgDHb6SBM93myQkiCdfutNpZL23aMDCOeLvBNXFNGcP?=
+ =?us-ascii?Q?Pi48gEFpvsCruMg8w4+GXyZh4gZ84M7VrirnxtdNgHeSOObFxvsyxkDVxOgp?=
+ =?us-ascii?Q?9dPXFx5GPuKh3GeN0wI6s6va6fLvhOB9931ajJYkg3z1v+nbAu+klf+rMsxz?=
+ =?us-ascii?Q?5H+aOk5FCY8meCypQA2kTOAq8HoeIBw8aWb+NES+1QMPTocJmxmPjvwUw5+N?=
+ =?us-ascii?Q?CgHdbxf2bv5Cg6WFaFyyaMbPpQ0qllV4nBCo/Ho5LL/LPZ9Y3mvPATcGH+VE?=
+ =?us-ascii?Q?b1UQ2DGdMLjMu5optwkVLmmR268jE24IZcwrnCCT+DGgJ/iOUPiTRqIeGOZI?=
+ =?us-ascii?Q?+So9Txzxv+odUUvPf06/d6XAO/qTzzDf13kjZOB9Xdb4dcKfk+4kuSZHUavI?=
+ =?us-ascii?Q?DDMOO9e7+X+eioTYzM4EJvuFN3Xg8g0/F63ibe8WCnVdVXKZLxUwdi8JpOml?=
+ =?us-ascii?Q?e0euwN/Flr4Yz/+AUzQ=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9316d0e-157f-482a-9ed2-08de1c8b08cd
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:47:40.8785
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ngY/FHwn/mZnxHG+8kyYP/oTg2BioZH9SX/288BJfl9u+grZhL2F33ZwXWzPlLb462NcdkqoTZOa6MORyiMp0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8693
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_084429_093575_DA1D3781 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20251105_084747_439828_F053BDC4 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +164,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 5. november 2025 ob 16:20:23 Srednjeevropski standardni =C4=8Das=
- je Marco Crivellari napisal(a):
-> Currently if a user enqueues a work item using schedule_delayed_work() the
-> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-> schedule_work() that is using system_wq and queue_work(), that makes use
-> again of WORK_CPU_UNBOUND.
->=20
-> This lack of consistency cannot be addressed without refactoring the API.
->=20
-> This patch continues the effort to refactor worqueue APIs, which has begun
-> with the change introducing new workqueues and a new alloc_workqueue flag:
->=20
-> commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-> commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
->=20
-> Replace system_wq with system_percpu_wq, keeping the same behavior.
-> The old wq (system_wq) will be kept for a few release cycles.
->=20
-> Suggested-by: Tejun Heo <tj@kernel.org>
-> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+On Wed, Nov 05, 2025 at 04:18:49PM +0100, Michael Tretter wrote:
+> Request the upstream mbus_config in csi_start, which starts the stream,
+> instead of caching it in link_validate.
+>
+> This allows to get rid of the mbus_cfg field in the struct csi_priv and
+> avoids state in the driver.
+>
+> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+> Fixes: 4a34ec8e470c ("[media] media: imx: Add CSI subdev driver")
+> Cc: stable@vger.kernel.org
+> ---
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Best regards,
-Jernej
-
-
+>  drivers/staging/media/imx/imx-media-csi.c | 40 ++++++++++++++++++-------------
+>  1 file changed, 24 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+> index fd7e37d803e7..55a7d8f38465 100644
+> --- a/drivers/staging/media/imx/imx-media-csi.c
+> +++ b/drivers/staging/media/imx/imx-media-csi.c
+> @@ -97,9 +97,6 @@ struct csi_priv {
+>  	/* the mipi virtual channel number at link validate */
+>  	int vc_num;
+>
+> -	/* media bus config of the upstream subdevice CSI is receiving from */
+> -	struct v4l2_mbus_config mbus_cfg;
+> -
+>  	spinlock_t irqlock; /* protect eof_irq handler */
+>  	struct timer_list eof_timeout_timer;
+>  	int eof_irq;
+> @@ -403,7 +400,8 @@ static void csi_idmac_unsetup_vb2_buf(struct csi_priv *priv,
+>  }
+>
+>  /* init the SMFC IDMAC channel */
+> -static int csi_idmac_setup_channel(struct csi_priv *priv)
+> +static int csi_idmac_setup_channel(struct csi_priv *priv,
+> +				   struct v4l2_mbus_config *mbus_cfg)
+>  {
+>  	struct imx_media_video_dev *vdev = priv->vdev;
+>  	const struct imx_media_pixfmt *incc;
+> @@ -432,7 +430,7 @@ static int csi_idmac_setup_channel(struct csi_priv *priv)
+>  	image.phys0 = phys[0];
+>  	image.phys1 = phys[1];
+>
+> -	passthrough = requires_passthrough(&priv->mbus_cfg, infmt, incc);
+> +	passthrough = requires_passthrough(mbus_cfg, infmt, incc);
+>  	passthrough_cycles = 1;
+>
+>  	/*
+> @@ -572,11 +570,12 @@ static void csi_idmac_unsetup(struct csi_priv *priv,
+>  	csi_idmac_unsetup_vb2_buf(priv, state);
+>  }
+>
+> -static int csi_idmac_setup(struct csi_priv *priv)
+> +static int csi_idmac_setup(struct csi_priv *priv,
+> +			   struct v4l2_mbus_config *mbus_cfg)
+>  {
+>  	int ret;
+>
+> -	ret = csi_idmac_setup_channel(priv);
+> +	ret = csi_idmac_setup_channel(priv, mbus_cfg);
+>  	if (ret)
+>  		return ret;
+>
+> @@ -595,7 +594,8 @@ static int csi_idmac_setup(struct csi_priv *priv)
+>  	return 0;
+>  }
+>
+> -static int csi_idmac_start(struct csi_priv *priv)
+> +static int csi_idmac_start(struct csi_priv *priv,
+> +			   struct v4l2_mbus_config *mbus_cfg)
+>  {
+>  	struct imx_media_video_dev *vdev = priv->vdev;
+>  	int ret;
+> @@ -619,7 +619,7 @@ static int csi_idmac_start(struct csi_priv *priv)
+>  	priv->last_eof = false;
+>  	priv->nfb4eof = false;
+>
+> -	ret = csi_idmac_setup(priv);
+> +	ret = csi_idmac_setup(priv, mbus_cfg);
+>  	if (ret) {
+>  		v4l2_err(&priv->sd, "csi_idmac_setup failed: %d\n", ret);
+>  		goto out_free_dma_buf;
+> @@ -701,7 +701,8 @@ static void csi_idmac_stop(struct csi_priv *priv)
+>  }
+>
+>  /* Update the CSI whole sensor and active windows */
+> -static int csi_setup(struct csi_priv *priv)
+> +static int csi_setup(struct csi_priv *priv,
+> +		     struct v4l2_mbus_config *mbus_cfg)
+>  {
+>  	struct v4l2_mbus_framefmt *infmt, *outfmt;
+>  	const struct imx_media_pixfmt *incc;
+> @@ -719,7 +720,7 @@ static int csi_setup(struct csi_priv *priv)
+>  	 * if cycles is set, we need to handle this over multiple cycles as
+>  	 * generic/bayer data
+>  	 */
+> -	if (is_parallel_bus(&priv->mbus_cfg) && incc->cycles) {
+> +	if (is_parallel_bus(mbus_cfg) && incc->cycles) {
+>  		if_fmt.width *= incc->cycles;
+>  		crop.width *= incc->cycles;
+>  	}
+> @@ -730,7 +731,7 @@ static int csi_setup(struct csi_priv *priv)
+>  			     priv->crop.width == 2 * priv->compose.width,
+>  			     priv->crop.height == 2 * priv->compose.height);
+>
+> -	ipu_csi_init_interface(priv->csi, &priv->mbus_cfg, &if_fmt, outfmt);
+> +	ipu_csi_init_interface(priv->csi, mbus_cfg, &if_fmt, outfmt);
+>
+>  	ipu_csi_set_dest(priv->csi, priv->dest);
+>
+> @@ -745,9 +746,17 @@ static int csi_setup(struct csi_priv *priv)
+>
+>  static int csi_start(struct csi_priv *priv)
+>  {
+> +	struct v4l2_mbus_config mbus_cfg = { .type = 0 };
+>  	struct v4l2_fract *input_fi, *output_fi;
+>  	int ret;
+>
+> +	ret = csi_get_upstream_mbus_config(priv, &mbus_cfg);
+> +	if (ret) {
+> +		v4l2_err(&priv->sd,
+> +			 "failed to get upstream media bus configuration\n");
+> +		return ret;
+> +	}
+> +
+>  	input_fi = &priv->frame_interval[CSI_SINK_PAD];
+>  	output_fi = &priv->frame_interval[priv->active_output_pad];
+>
+> @@ -758,7 +767,7 @@ static int csi_start(struct csi_priv *priv)
+>  		return ret;
+>
+>  	/* Skip first few frames from a BT.656 source */
+> -	if (priv->mbus_cfg.type == V4L2_MBUS_BT656) {
+> +	if (mbus_cfg.type == V4L2_MBUS_BT656) {
+>  		u32 delay_usec, bad_frames = 20;
+>
+>  		delay_usec = DIV_ROUND_UP_ULL((u64)USEC_PER_SEC *
+> @@ -769,12 +778,12 @@ static int csi_start(struct csi_priv *priv)
+>  	}
+>
+>  	if (priv->dest == IPU_CSI_DEST_IDMAC) {
+> -		ret = csi_idmac_start(priv);
+> +		ret = csi_idmac_start(priv, &mbus_cfg);
+>  		if (ret)
+>  			goto stop_upstream;
+>  	}
+>
+> -	ret = csi_setup(priv);
+> +	ret = csi_setup(priv, &mbus_cfg);
+>  	if (ret)
+>  		goto idmac_stop;
+>
+> @@ -1138,7 +1147,6 @@ static int csi_link_validate(struct v4l2_subdev *sd,
+>
+>  	mutex_lock(&priv->lock);
+>
+> -	priv->mbus_cfg = mbus_cfg;
+>  	is_csi2 = !is_parallel_bus(&mbus_cfg);
+>  	if (is_csi2) {
+>  		/*
+>
+> --
+> 2.47.3
+>
 
