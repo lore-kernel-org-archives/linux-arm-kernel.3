@@ -4,133 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF68CCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B40CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 09:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zB4b3sxSbheBbYOZ0Cg6VV5suwUnxR1Yw3auDzIvZZ0=; b=y5fhaZNvM+JrLEXy55dxj/pu7L
-	Esoq0qN6ERc+uFWlF8rV9jmIMsVNAMA79gKUhSRqi5XqMuDF64ozpqI/Xuhl06sVW2mv1f0EEXBzd
-	WkGqkay6ttyKh+Um2czHtDdEJbWFnRiDyCyU3ESlbbPh0pakSb5oH45/sMvZ86+GPJ2XLc/seN5qz
-	wKd88wehiPX+Hhj6gzDUndCg95uhWNFTziiZh05Qlgs8IvEzWVQK5nlndPx6hy1EqHix839NZN8Ox
-	TDHH9YkF1px5xkBoYqTCj8kZpIUsXJXjrCpgbnuXx3Jts3Jbtr4d+7iVIG4whAPixVSdHBAZh9ldl
-	VxRtqe3g==;
+	bh=Za5SFfJdUSs4ovxk3irOqAFzaOUi+WDBP56v5okOn24=; b=A/BBg1qQMPkRH6xUXZ7HG66uKq
+	q9ZgNo3fqKJ7VJ9FooY7Fc1COiqXkYO60c0GhK67resyMAlDGhlwvmg5TzkmrCEzGAs4FqAtgAlE5
+	0sH8nyvHiODE22vgbYhGD0Ajm3ezt6zmAllM1zzitTExeUaG//A3NHFNf3YhBJfVWrIus59Zn/1pH
+	Ob/M/TmGC6cYlhxdO547lqXz+eYgkH0uamHsTIQG/YBD6hUgUVbpuvAhQq3MkTlWCvk/775b6W3iz
+	sZd0rt4OXibwXzcBsUHSl3u41cjspGrf5W25tIMv5LkzwLMUqyALQS3qPaiXcVi60caxWfGkAGKUT
+	DAT/hJkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZbJ-0000000DMQZ-1S1e;
-	Wed, 05 Nov 2025 09:14:46 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vGZc7-0000000DMcP-3WUo;
+	Wed, 05 Nov 2025 09:15:35 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZbG-0000000DMP1-1JZ1
+	id 1vGZc2-0000000DMaX-2YnP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 09:14:43 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A58HgWQ3050165
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Nov 2025 09:14:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zB4b3sxSbheBbYOZ0Cg6VV5suwUnxR1Yw3auDzIvZZ0=; b=IpLjVI8GlPRF17Za
-	O7tBG1lFcNCsHn51PdUDeedvuu/9c2CLlvdcE/knaIfIGIXhHjrP78xQ/F8KXCOM
-	NoFgnrJTXncR+jRs5DxdvY8zbm/GEnwahoOQbBQPbLGClndwEwlpp4inbAhp2uaQ
-	5IYHfJkq2I5k2BiioF/A2/HnOfSYhn0G+vI6cAc5nIQF9BMGiieHiwSdiSN74yIw
-	BDwY3Gc30Sr9gkQZxx0Zn6iyw82MM5BBfkbDFB31JgPRrjoThzThGvsB6VqGvi7x
-	I+EprkI6CqAkyxbiJLbsmkog2BSG6FahM8N2v51IQ+JeBw7CrA3SVBU/zj/E2bMO
-	vaxtrw==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a7ex7urq4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 09:14:41 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ed5ff5e770so5309781cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 01:14:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762334080; x=1762938880; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zB4b3sxSbheBbYOZ0Cg6VV5suwUnxR1Yw3auDzIvZZ0=;
-        b=jw/8WI4xYjTE7T3AmpoS/XCF2dJrfvnG/dQzk1XOhGGtRO3Xf4/tmeifRz6+IY9Z9B
-         lkq4ac1lm6ion5BmCJ3VUCF0uLW2ykxAcObyn/Ow4acyAIuQLB0nOzug2QjrVYZ+F9ue
-         O6czhpNqS9SFv8ODcEjM+5xR/l4fzuEptgIb9/mtU2z21PcJOop6RzOhdg3NFPKts7vT
-         GeQbFKpTjZkAZ6JAdF1K2V/QNYFyTFE03TXdC/c2yd7Ro/TvG6fuj/po2L4O94wSBnvN
-         zmzcacvQu4wEiKYtAOzEqlSXmWyRT1x7sczEJf4tCDx66wgnhvE/bDy3IYf35iQZLSyx
-         kn9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762334080; x=1762938880;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zB4b3sxSbheBbYOZ0Cg6VV5suwUnxR1Yw3auDzIvZZ0=;
-        b=anigmKUvDy9CBMSczViqDhoe17Xty/LLXFWvGY1XFMUuwFpEObRlioK4LtIF6TLUK1
-         I5nqv43KG6d5hRLOP/ybC8CawzN3eztP8e7OqHtjUNUs5ELda/EYlFPvLGuSqnvmWYIh
-         /k1wPGC1SkZyDo3HxLqinnVF2tziINuYrCbM3TCkgCV8mA/M0oHTgVkYVxhnN8VGZNe0
-         i34s/hRowvK73PbD9x6NcDe/ppZWxIvAAFi4MtQEXHLfm3VjwD9FXgMeNWdBu1SL465T
-         0evuRAjxqLylNNhtwxStSa7D4WyJhBXoUMzH0biwddUe9JOSHfzR90PeXlqyUYyaYiSp
-         MOvg==
-X-Forwarded-Encrypted: i=1; AJvYcCVoVrlWSGMbaHYsXIsfNox+Pug6Q2Gvh2lkn2vMtXG4mrpw/4UK9se8+dWM8h0/c0Nf1JRJi9DzURWjqnEFZylV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7EqAAR3G4SQZ+NR9PA1FnGe4qMCWUcNwV7IvLWLTideteWPsu
-	94DlqxH/saAnmCYM1ZKept4Z3EkPD7uh+BFaVUKS7scKSehcZqqkulVQ7o7osW05vwel8XqAktn
-	sIm+dn7UX19bY8QKmK1MVDTc+pAVX32QzS9WJ9hIjbDIMKXrZCRCTt6cv8nRdniDhZHUSxWTh79
-	/fsg==
-X-Gm-Gg: ASbGncuoonp9fkWrHBdO/w1lMjQk8rDGgvIuAS8yc5xIJINZbDZ0vpcej3RBgkcznpx
-	YmdzwMTujg1NoCOCcdWuiVX7fS+neqkzO1SueMaK6xMrVIJZMlhg404ew1xLCOUNF5FB+d5384o
-	TsCwDho8zhOdKkGsexFGHrqtEQPYwuVqKSnmVW3YL6TTsUPVeRF3NW2bsJn6xMtS/uyVm9tJoLP
-	c6ZL/bZEWLPzQFXcwy35KbkHq/EE1LaDaGddBLX3eqA0++5SK0x3h9ei3EIdOKabQHpsLPJ/dxP
-	NTt3avvLzgG+26zBYn0qkwc34kPlTIT8ezt3JYG0nE7vnpXEnzFkFIMSpzTHz9/dPmu1SnD+yS2
-	dXPsUOx5Gofi6SybUgBvy8j7Wfiy80xHm8vcrsxWAS9QsSuQzS2I4D+oD
-X-Received: by 2002:a05:622a:306:b0:4ed:70bd:d9e2 with SMTP id d75a77b69052e-4ed71b0c0bemr20671691cf.0.1762334080466;
-        Wed, 05 Nov 2025 01:14:40 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFmtSI3CAHA+k1D8XrOBNP1lVPWy2EaQ/BbbivT/VBaf8u+Sr4kLRQ8RzgcFfgQj/lftw8C6Q==
-X-Received: by 2002:a05:622a:306:b0:4ed:70bd:d9e2 with SMTP id d75a77b69052e-4ed71b0c0bemr20671501cf.0.1762334079984;
-        Wed, 05 Nov 2025 01:14:39 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b723f6e06e2sm456019866b.40.2025.11.05.01.14.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Nov 2025 01:14:39 -0800 (PST)
-Message-ID: <eb596f7a-e13b-4edd-8ee7-05424ea3d9e5@oss.qualcomm.com>
-Date: Wed, 5 Nov 2025 10:14:37 +0100
+	Wed, 05 Nov 2025 09:15:32 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5BE6F7E0;
+	Wed,  5 Nov 2025 10:13:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762334011;
+	bh=50jz2fHstpIgoTh2QxMi6UxDUq/i0Zl8H9ZlZ8RG8SA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Lxg2kyugG4pYF8iZgxINcyCpcEMzP6BaTuL83xDZfRN4kkFZh5ZI4lmjzRGS7vLl7
+	 De+c7KgdMkJvlORK7G0M9t7L++1MP/XApvP/6k6KoJ+FWZe2UJOX6rYBjLmu6CNcdw
+	 eWd/8RHtOuEYLXO4o9rBMmxpSuzFDdpvLptBpP+Q=
+Message-ID: <e9d031b8-0410-4245-bf86-311e6cb4915d@ideasonboard.com>
+Date: Wed, 5 Nov 2025 11:15:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu: add actlr settings for mdss and fastrpc
-To: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>,
-        robin.clark@oss.qualcomm.com, will@kernel.org, robin.murphy@arm.com,
-        joro@8bytes.org, dmitry.baryshkov@oss.qualcomm.com
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251105075307.1658329-1-charan.kalla@oss.qualcomm.com>
+Subject: Re: [PATCH v6 00/11] drm: Add new pixel formats for Xilinx Zynqmp
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Pekka Paalanen <ppaalanen@gmail.com>,
+ Pekka Paalanen <pekka.paalanen@collabora.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+References: <20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com>
+ <ab125f71-8ae0-4758-a69b-abab4e6a0f40@ideasonboard.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20251105075307.1658329-1-charan.kalla@oss.qualcomm.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <ab125f71-8ae0-4758-a69b-abab4e6a0f40@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA1MDA2OCBTYWx0ZWRfX7KEvYa4bmMR2
- Td1sl9dzMDL9lcJhFhXuu0a6J23bwxY6vyimkBHV0REg7hOKiK8sDrZ44qkkyJjk46QPTci5fe1
- XYoF8kqQppcxOhDxE3Y/Qkr7I6fGAdz+AfFDNjMiN0qNlM9HRSS9tBQEPUZbnZ2vGX8zyuUeYVx
- uMtxKA2waNm/P3M1rACBhDOmzUARey2Ut7BeAcCq0fymcNDRV4gn+2xzToWVqIyAnqzh5Ji6SVR
- gOupk5p17c8BPjO/NCEWhda4bchr5+i4MD0zfri5VoAQaBmK8fPan6P+jJbusSBYeJNEaHndS1x
- SkcY3+R7lWer/7SIEKtMkNXEg143ocryLtPATmdHh1Sg+yEd5QWjGDoTK5+nUSuladHxIlWlMtk
- romh1krU4X2hsALUegAXuYAuV7LcRA==
-X-Proofpoint-ORIG-GUID: gI49-EXWJagq8Ip-5gLbQW84SRe93yn2
-X-Proofpoint-GUID: gI49-EXWJagq8Ip-5gLbQW84SRe93yn2
-X-Authority-Analysis: v=2.4 cv=auy/yCZV c=1 sm=1 tr=0 ts=690b1581 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=LtfW4vqWST33oogqdjEA:9
- a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-05_03,2025-11-03_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 bulkscore=0 impostorscore=0 clxscore=1015
- priorityscore=1501 lowpriorityscore=0 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511050068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_011442_485306_C195A86E 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20251105_011530_800157_786C125E 
+X-CRM114-Status: GOOD (  34.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,46 +122,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/5/25 8:53 AM, Charan Teja Kalla wrote:
-> Add ACTLR settings for the device nodes with below compatibility
-> and is mainly targeted for sa8775p:
+Hi Maintainers,
 
-The commit subject should mention it's the lemans MDSS specifically
-> 1) sa8775p-mdss
-> 2) qcom,fastrpc-compute-cb
+Pinging on this again.
+
+ Tomi
+
+On 22/10/2025 10:33, Tomi Valkeinen wrote:
+> Hi DRM maintainers,
 > 
-> As a side note, "qcom,fastrpc" compatibility is already defined but that
-> seems inept as the devices that will be attached to the SMMU is going to
-> be with "qcom,fastrpc-compute-cb" compat string.
-
-If you say it's a NOP after all, please split the fastrpc change into
-a separate commit explaining the issue and removing the wrong entry
-
-> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-> ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 4 ++++
->  1 file changed, 4 insertions(+)
+> On 01/10/2025 16:22, Tomi Valkeinen wrote:
+>> Add new DRM pixel formats and add support for those in the Xilinx zynqmp
+>> display driver.
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> index c21a401c71eb..c76f6076f487 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -47,6 +47,10 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
->  			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->  	{ .compatible = "qcom,sm8550-mdss",
->  			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-> +	{ .compatible = "qcom,sa8775p-mdss",
-> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> Could someone merge this one, or at least the patches 1 to 6 (I can
+> merge the xilinx patches separately).
+> 
+>  Tomi
+> 
+>> All other formats except XVUY2101010 are already supported in upstream
+>> gstreamer, but gstreamer's kmssink does not have the support yet, as it
+>> obviously cannot support the formats without kernel having the formats.
+>>
+>> Xilinx has support for these formats in their BSP kernel, and Xilinx has
+>> a branch here, adding the support to gstreamer kmssink:
+>>
+>> https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
+>>
+>> New formats added:
+>>
+>> DRM_FORMAT_Y8
+>> - 8-bit Y-only
+>> - fourcc: "GREY"
+>> - gstreamer: GRAY8
+>>
+>> DRM_FORMAT_Y10_P32
+>> - 10-bit Y-only, three pixels packed into 32-bits
+>> - fourcc: "YPA4"
+>> - gstreamer: GRAY10_LE32
+>>
+>> DRM_FORMAT_XV15
+>> - Like NV12, but with 10-bit components
+>> - fourcc: "XV15"
+>> - gstreamer: NV12_10LE32
+>>
+>> DRM_FORMAT_XV20
+>> - Like NV16, but with 10-bit components
+>> - fourcc: "XV20"
+>> - gstreamer: NV16_10LE32
+>>
+>> DRM_FORMAT_X403
+>> - 10-bit planar 4:4:4, with three samples packed into 32-bits
+>> - fourcc: "X403"
+>> - gstreamer: Y444_10LE32
+>>
+>> XVUY2101010
+>> - 10-bit 4:4:4, one pixel in 32 bits
+>> - fourcc: "XY30"
+>>
+>> Some notes:
+>>
+>> I know the 8-bit greyscale format has been discussed before, and the
+>> guidance was to use DRM_FORMAT_R8. While I'm not totally against that, I
+>> would argue that adding DRM_FORMAT_Y8 makes sense, as:
+>>
+>> 1) We can mark it as 'is_yuv' in the drm_format_info, and this can help
+>>    the drivers handle e.g. full/limited range. Probably some hardware
+>>    handles grayscale as a value used for all RGB components, in which case
+>>    R8 makes sense, but when the hardware handles the Y-only pixels as YCbCr,
+>>    where Cb and Cr are "neutral", it makes more sense to consider the
+>>    format as an YUV format rather than RGB.
+>>
+>> 2) We can have the same fourcc as in v4l2. While not strictly necessary,
+>>    it's a constant source of confusion when the fourccs differ.
+>>
+>> 3) It (possibly) makes more sense for the user to use Y8/GREY format
+>>    instead of R8, as, in my experience, the documentation usually refers
+>>    to gray(scale) format or Y-only format.
+>>
+>> As we add new Y-only formats, it makes sense to have similar terms, so
+>> we need to adjust the Y10_P32 format name accordingly.
+>>
+>> I have made some adjustments to the formats compared to the Xilinx's
+>> branch. E.g. The DRM_FORMAT_Y10_P32 format in Xilinx's kmssink uses
+>> fourcc "Y10 ", and DRM_FORMAT_Y10. I didn't like those, as the format is
+>> a packed format, three 10-bit pixels in a 32-bit container, and I think
+>> Y10 means a 10-bit pixel in a 16-bit container.
+>>
+>> Generally speaking, if someone has good ideas for the format define
+>> names or fourccs, speak up, as it's not easy to invent good names =).
+>> That said, keeping them the same as in the Xilinx trees will, of course,
+>> be slightly easier for the users of Xilinx platforms.
+>>
+>> I made WIP additions to modetest to support most of these formats,
+>> partially based on Xilinx's code:
+>>
+>> https://github.com/tomba/libdrm.git xilinx
+>>
+>> A few thoughts about that:
+>>
+>> modetest uses bo_create_dumb(), and as highlighted in recent discussions
+>> in the kernel list [1], dumb buffers are only for RGB formats. They may
+>> work for non-RGB formats, but that's platform specific. None of the
+>> formats I add here are RGB formats. Do we want to go this way with
+>> modetest?
+>>
+>> I also feel that the current structure of modetest is not well suited to
+>> more complicated formats. Both the buffer allocation is a bit more
+>> difficult (see "Add virtual_width and pixels_per_container"), and the
+>> drawing is complicated (see, e.g., "Add support for DRM_FORMAT_XV15 &
+>> DRM_FORMAT_XV20").
+>>
+>> I have recently added support for these Xilinx formats to both kms++ [2] and
+>> pykms/pixutils [3][4] (WIP), and it's not been easy... But I have to say I
+>> think I like the template based version in kms++. That won't work in
+>> modetest, of course, but a non-templated version might be implementable,
+>> but probably much slower.
+>>
+>> In any case, I slighly feel it's not worth merging the modetest patches
+>> I have for these formats: they complicate the code quite a bit, break
+>> the RGB-only rule, and I'm not sure if there really are (m)any users. If
+>> we want to add support to modetest, I think a bigger rewrite of the test
+>> pattern code might be in order.
+>>
+>> [1] https://lore.kernel.org/all/20250109150310.219442-26-tzimmermann%40suse.de/
+>> [2] git@github.com:tomba/kmsxx.git xilinx
+>> [3] git@github.com:tomba/pykms.git xilinx
+>> [4] git@github.com:tomba/pixutils.git xilinx
+>>
+>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>> ---
+>> Changes in v6:
+>> - Added tags for reviews
+>> - Rebased on v6.17
+>> - Link to v5: https://lore.kernel.org/r/20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com
+>>
+>> Changes in v5:
+>> - Add comment about Y-only formats, clarifying how the display pipeline
+>>   handles them (they're handled as YCbCr, with Cb and Cr as "neutral")
+>> - Clarify X403 format in the patch description
+>> - Set unused Y-only CSC offsets to 0 (instead of 0x1800).
+>> - Add R-bs
+>> - Link to v4: https://lore.kernel.org/r/20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com
+>>
+>> Changes in v4:
+>> - Reformat the drm_format_info entries a bit
+>> - Calculate block size only once in drm_format_info_bpp()
+>> - Declare local variables in separate lines
+>> - Add review tags
+>> - Fix commit message referring to Y10_LE32 (should be Y10_P32)
+>> - Link to v3: https://lore.kernel.org/r/20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com
+>>
+>> Changes in v3:
+>> - Drop "drm: xlnx: zynqmp: Fix max dma segment size". It is already
+>>   pushed.
+>> - Add XVUY2101010 format.
+>> - Rename DRM_FORMAT_Y10_LE32 to DRM_FORMAT_Y10_P32.
+>> - Link to v2: https://lore.kernel.org/r/20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com
+>>
+>> Changes in v2:
+>> - I noticed V4L2 already has fourcc Y10P, referring to MIPI-style packed
+>>   Y10 format. So I changed Y10_LE32 fourcc to YPA4. If logic has any
+>>   relevance here, P means packed, A means 10, 4 means "in 4 bytes".
+>> - Added tags to "Fix max dma segment size" patch
+>> - Updated description for "Add warning for bad bpp"
+>> - Link to v1: https://lore.kernel.org/r/20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com
+>>
+>> ---
+>> Tomi Valkeinen (11):
+>>       drm/fourcc: Add warning for bad bpp
+>>       drm/fourcc: Add DRM_FORMAT_XV15/XV20
+>>       drm/fourcc: Add DRM_FORMAT_Y8
+>>       drm/fourcc: Add DRM_FORMAT_Y10_P32
+>>       drm/fourcc: Add DRM_FORMAT_X403
+>>       drm/fourcc: Add DRM_FORMAT_XVUY2101010
+>>       drm: xlnx: zynqmp: Use drm helpers when calculating buffer sizes
+>>       drm: xlnx: zynqmp: Add support for XV15 & XV20
+>>       drm: xlnx: zynqmp: Add support for Y8 and Y10_P32
+>>       drm: xlnx: zynqmp: Add support for X403
+>>       drm: xlnx: zynqmp: Add support for XVUY2101010
+>>
+>>  drivers/gpu/drm/drm_fourcc.c       | 28 ++++++++++++++++---
+>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 55 +++++++++++++++++++++++++++++++++++---
+>>  include/uapi/drm/drm_fourcc.h      | 29 ++++++++++++++++++++
+>>  3 files changed, 105 insertions(+), 7 deletions(-)
+>> ---
+>> base-commit: e5f0a698b34ed76002dc5cff3804a61c80233a7a
+>> change-id: 20241120-xilinx-formats-f71901621833
+>>
+>> Best regards,
+> 
 
-This list should be sorted alphanumerically
-
-> +	{ .compatible = "qcom,fastrpc-compute-cb",
-> +			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-
-This will be globally applied to all smmu-v2 targets with fastrpc,
-starting from MSM8996 ending at Kaanapali and everything inbetween
-
-Are these settings always valid?
-
-Konrad
 
