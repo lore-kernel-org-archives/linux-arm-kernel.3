@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BC9CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65A9CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VMJYEHv13rgpz0q3SiXAsQqdkKrsEqxXnatakO1sW8=; b=uoLf7DTn+fUC+x7+FwYFtS70oO
-	deZ9CA4VVAEjrk+yNk3Kni27lJCW5e2/nt3OLsNda26tyhojUdhKrRaDHoCVwEzDHXX3WWWwk/DX8
-	Z16nExWkwVGJzN1rxbPcSg5o3bInWahjN0r5OlC/TzLgOsOypR6KkzaESQMTUYoHhf9YpyuNRRg1F
-	gN7/Al9Tw0CSQkFpw96ZEsns4nAHyYDQ1kNJqYaPNj5T58+l3pcW7Rno6pEgPWOLYYAltNFZpJse2
-	+bqlGdTFHjYJsSX3TaUzTJv05zMF30HGRynjFs6PHbyMnmWcm1lO91/GEQ8/VMPN98a27s0EhnPwA
-	0w2smGSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tQ3dfkBlGHO9v9rqbnjdOgO0YfSQlNFm7epapPtn++k=; b=3W8izOwKC+9cFnfvTgWbWSCAM/
+	qGM/9USTvkqBl87I7q8biV85CUCc001VTydGzOwBZIvLu7hjvKI6jkF62Af+tZi5Dlgw92TX9NiZM
+	Mw4g63oLmgNIuZF2+Z8gt4/OC72toqa8lClNTg0phdsp1ABE5tqobWcElO42GD0f/lUk/7NtSHxTu
+	OHFDWSm9lW2/pt0412WQKkLIqlHEWnXYjeYsdTmTKtV9F1EId7DJO8UGlLR7TVsJl235uQs6fuDYO
+	YO0Cs//6g9yb5VgjJ9sFSMaZT3OreuxBmw+ruBQ//1D6WEEGYNR7plLOLGd6jrBgfk2IbHIITuMqb
+	wxcbmPSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfGC-0000000DuDR-3nyt;
-	Wed, 05 Nov 2025 15:17:20 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1vGfH0-0000000DuKs-2qLX;
+	Wed, 05 Nov 2025 15:18:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfG8-0000000DuCK-0z9v
+	id 1vGfGz-0000000DuKe-1PXR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:17:19 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b6d402422c2so458798566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 07:17:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1762355834; x=1762960634; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+VMJYEHv13rgpz0q3SiXAsQqdkKrsEqxXnatakO1sW8=;
-        b=JkjtcEpva5EsiOZ/B3gpUD9VKieER8luCoY1l0+FSh3E2bPs4noyM+efq6MAnNDL4z
-         qY35M/97SLTqePtQwy9auCagCCKp7AFR+F01a55qCjdMJyzcUHIXjVyR0g8Nr/mUHKp0
-         w2OgsGgkKsVaW96MYbkGaKDVpxL8KLhvWrg/sHX/sMIJ8BDt5tSYpddNlR5EzJ02pq9s
-         TBQLl0tjZp5s/kzp+D/3Ah4JtxTXFVatEC/h0ueX5dQPqzQFYssT6vD3qqgJoAa/jjHi
-         39Lg5Q+PzlK78SwMDQ2dvo/TvdE5TtneFnzYOBviyCxRwhWlGCrm7hKzGk8Re02f/UqM
-         rKJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762355834; x=1762960634;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+VMJYEHv13rgpz0q3SiXAsQqdkKrsEqxXnatakO1sW8=;
-        b=kEvrn3MBcjhreAGWObJ3tPPfopZrCLSva+AhRjoGXc6i5RWOgn3AMtjwF1Qr6ISC+b
-         7IcXYIu4KudsiLc6hsACaFxn/Ar2cdG5UJOb8hsxUQ4vCDDGKQ0SJYy7+DjFjytTG+Rh
-         wSG7xBkIS3oJWavGWHu+POWwjJYP/jFr7n5VAhqi969MdykLoKi2GNSoUdHDxGWD20hj
-         y9IUESi7LJJcmm2/cUGLCaGc/r48emYMXldq1umL/hLUdAkB/afwEhTujfw0jS7mhP9t
-         CfFUOFE29rcTNu9pPcFakdwqQLdbvJVBtazpIXHajm+Xwl7k6xSPG3Bl26AaUfsOSjjG
-         qrDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUJs23SUd11mZ/GcMwgEJKYwx/T/aSXwnhagEDM/ZkGBAhSafkxilXd3M/bbGoq42G8jfEyWgg0FkxaEyumd5CS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2WicOR9nneFV+jbEAcj/fCFiYH4PD0QSmGtuRYojHfsJ/tudY
-	upyHm8sdB+E9y5uz+cqCNBTo0yJrFxKTaBv+GBI4hIidb29qUb2IMbdsR1mcqWoR0KlHq6cFah3
-	p9LliO2wiCD624o8QBAg8LcFrwxJTk2WsoPoflk0WaQ==
-X-Gm-Gg: ASbGncvLjjX95eXXN55Zelqd3jcbxi/y9wtd1RLILASrq5tnjaVjGKWykV3hSHBNCsA
-	CiVTB1/leKimWJc0CwO/7q2D5KTfLgQiRrQLuRdLcegCUn8J2XhBItRnpBi7i08ozdLQWA836pz
-	q3kl0gudpO3LE2nDEGhVUP+bIAw6aumhHxW/q2V30KlB1sMhAPBiQN5DYIgPi1Y1se8QQ/UPlUX
-	ElNWttXmjEdgaEe3E7wOuwdxm1fFAg+6EXe0KD2VOHYmIrM3duolV121/B67rm313u9KNQdAyVv
-	QyR2kWz69n/M1xo=
-X-Google-Smtp-Source: AGHT+IHWWILPTh6wQLo7BhIyqMWdWcigBfh5bW5d6mXT0L3VqgnnKMCEBmPzvCQne0H9XOH5eLXUyGNFvai/MaYUBnw=
-X-Received: by 2002:a17:906:b10a:b0:b72:6935:6bac with SMTP id
- a640c23a62f3a-b72693594ffmr212362966b.49.1762355833625; Wed, 05 Nov 2025
- 07:17:13 -0800 (PST)
+	Wed, 05 Nov 2025 15:18:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7120D601DD;
+	Wed,  5 Nov 2025 15:18:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B230C4CEF5;
+	Wed,  5 Nov 2025 15:18:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762355888;
+	bh=KrTmSd/KLHnmJp6uY5VjqlnOzYc3oRuRzLcvqn1keFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VlA6UEYiwYN0luQ/4V7V5KntlUFeIZMU+NmpkL7d+M3N2iUQ1IOTeflqlF+lIm90q
+	 HiYedRgVi60NobljBr8hiMWKlKYaC0H2qpqcbgA62caHhlCZRV0lAw+K6rG/pGXCdM
+	 v2fUWpgA1cuUl7tJFOCWW5vd5SlcBeqwuZxogThAgO6JWjnfivWSGwf1FZmVbvLp51
+	 DXvXopX+g369NCQ/HianrAkrAREQeoj/7Y3X5e7jN/22+bQDoRUOUhUSyljHri7cDD
+	 BYyWmWicrYUBAv0SObOJUefhS668cWVoSkzNKG1fBJO8d3jvGpTEthtLNQuTTZy+9f
+	 X1oSJavknulag==
+Date: Wed, 5 Nov 2025 16:18:05 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Chen Ridong <chenridong@huaweicloud.com>
+Cc: Waiman Long <llong@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
+ rcu pointers
+Message-ID: <aQtqrYlvMsjX91Vn@localhost.localdomain>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-13-frederic@kernel.org>
+ <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
+ <510b0185-51d6-44e6-8c39-dfc4c1721e03@redhat.com>
+ <aQThLsnmqu8Lor6c@localhost.localdomain>
+ <14cd347c-42c9-4134-9c1c-1a222b553c2f@huaweicloud.com>
 MIME-Version: 1.0
-References: <20251029-vchiq-destage-v3-6-da8d6c83c2c5@ideasonboard.com> <f11dd2de-d8fd-4d8f-ba29-6974ba923b4e@suswa.mountain>
-In-Reply-To: <f11dd2de-d8fd-4d8f-ba29-6974ba923b4e@suswa.mountain>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Wed, 5 Nov 2025 15:17:01 +0000
-X-Gm-Features: AWmQ_bnN3lXKloJO_CcCsYJ6HlRIq3eUeG-Srf-bIi6yPA9EoglO3sEKOs5JtdY
-Message-ID: <CAMEGJJ1Rsjsa9CGB4Hv6ukf=xi41TTDRNf7nkrX4nQniEp+8zw@mail.gmail.com>
-Subject: Re: [PATCH v3 6/7] platform/raspberrypi: Destage VCHIQ interface
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: oe-kbuild@lists.linux.dev, Jai Luthra <jai.luthra@ideasonboard.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, lkp@intel.com, oe-kbuild-all@lists.linux.dev, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	kernel-list@raspberrypi.com, Stefan Wahren <wahrenst@gmx.net>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Kieran Bingham <kieran.bingham@ideasonboard.com>, Umang Jain <uajain@igalia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_071716_646984_6C199C38 
-X-CRM114-Status: GOOD (  14.46  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <14cd347c-42c9-4134-9c1c-1a222b553c2f@huaweicloud.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,782 +99,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+Le Mon, Nov 03, 2025 at 10:22:47AM +0800, Chen Ridong a écrit :
+> 
+> 
+> On 2025/11/1 0:17, Frederic Weisbecker wrote:
+> > Le Tue, Oct 21, 2025 at 12:03:05AM -0400, Waiman Long a écrit :
+> >> On 10/20/25 9:46 PM, Chen Ridong wrote:
+> >>>
+> >>> On 2025/10/14 4:31, Frederic Weisbecker wrote:
+> >>>> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
+> >>>> A synchronization mechanism is then needed to synchronize the updates
+> >>>> with the housekeeping cpumask readers.
+> >>>>
+> >>>> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
+> >>>> cpumask will be modified, the update side will wait for an RCU grace
+> >>>> period and propagate the change to interested subsystem when deemed
+> >>>> necessary.
+> >>>>
+> >>>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> >>>> ---
+> >>>>   kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
+> >>>>   kernel/sched/sched.h     |  1 +
+> >>>>   2 files changed, 37 insertions(+), 22 deletions(-)
+> >>>>
+> >>>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> >>>> index 8690fb705089..b46c20b5437f 100644
+> >>>> --- a/kernel/sched/isolation.c
+> >>>> +++ b/kernel/sched/isolation.c
+> >>>> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
+> >>>>   EXPORT_SYMBOL_GPL(housekeeping_overridden);
+> >>>>   struct housekeeping {
+> >>>> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
+> >>>> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
+> >>>>   	unsigned long flags;
+> >>>>   };
+> >>>> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
+> >>>>   }
+> >>>>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
+> >>>> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
+> >>>> +{
+> >>>> +	if (static_branch_unlikely(&housekeeping_overridden)) {
+> >>>> +		if (housekeeping.flags & BIT(type)) {
+> >>>> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+> >>>> +		}
+> >>>> +	}
+> >>>> +	return cpu_possible_mask;
+> >>>> +}
+> >>>> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+> >>>> +
+> >>>>   int housekeeping_any_cpu(enum hk_type type)
+> >>>>   {
+> >>>>   	int cpu;
+> >>>>   	if (static_branch_unlikely(&housekeeping_overridden)) {
+> >>>>   		if (housekeeping.flags & BIT(type)) {
+> >>>> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
+> >>>> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
+> >>>>   			if (cpu < nr_cpu_ids)
+> >>>>   				return cpu;
+> >>>> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
+> >>>> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
+> >>>>   			if (likely(cpu < nr_cpu_ids))
+> >>>>   				return cpu;
+> >>>>   			/*
+> >>>> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
+> >>>>   }
+> >>>>   EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
+> >>>> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
+> >>>> -{
+> >>>> -	if (static_branch_unlikely(&housekeeping_overridden))
+> >>>> -		if (housekeeping.flags & BIT(type))
+> >>>> -			return housekeeping.cpumasks[type];
+> >>>> -	return cpu_possible_mask;
+> >>>> -}
+> >>>> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+> >>>> -
+> >>>>   void housekeeping_affine(struct task_struct *t, enum hk_type type)
+> >>>>   {
+> >>>>   	if (static_branch_unlikely(&housekeeping_overridden))
+> >>>>   		if (housekeeping.flags & BIT(type))
+> >>>> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
+> >>>> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
+> >>>>   }
+> >>>>   EXPORT_SYMBOL_GPL(housekeeping_affine);
+> >>>>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
+> >>>>   {
+> >>>> -	if (static_branch_unlikely(&housekeeping_overridden))
+> >>>> -		if (housekeeping.flags & BIT(type))
+> >>>> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
+> >>>> +	if (housekeeping.flags & BIT(type))
+> >>>> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+> >>>>   	return true;
+> >>>>   }
+> >>>>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+> >>>> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
+> >>>>   	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
+> >>>>   		sched_tick_offload_init();
+> >>>> -
+> >>>> +	/*
+> >>>> +	 * Realloc with a proper allocator so that any cpumask update
+> >>>> +	 * can indifferently free the old version with kfree().
+> >>>> +	 */
+> >>>>   	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
+> >>>> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
+> >>>> +
+> >>>> +		if (WARN_ON_ONCE(!nmask))
+> >>>> +			return;
+> >>>> +
+> >>>> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
+> >>>> +
+> >>>>   		/* We need at least one CPU to handle housekeeping work */
+> >>>> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
+> >>>> +		WARN_ON_ONCE(cpumask_empty(omask));
+> >>>> +		cpumask_copy(nmask, omask);
+> >>>> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
+> >>>> +		memblock_free(omask, cpumask_size());
+> >>>>   	}
+> >>>>   }
+> >>>>   static void __init housekeeping_setup_type(enum hk_type type,
+> >>>>   					   cpumask_var_t housekeeping_staging)
+> >>>>   {
+> >>>> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
+> >>>> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
+> >>>> -	cpumask_copy(housekeeping.cpumasks[type],
+> >>>> -		     housekeeping_staging);
+> >>>> +	cpumask_copy(mask, housekeeping_staging);
+> >>>> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
+> >>>>   }
+> >>>>   static int __init housekeeping_setup(char *str, unsigned long flags)
+> >>>> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+> >>>>   		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
+> >>>>   			if (!cpumask_equal(housekeeping_staging,
+> >>>> -					   housekeeping.cpumasks[type])) {
+> >>>> +					   housekeeping_cpumask(type))) {
+> >>>>   				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
+> >>>>   				goto free_housekeeping_staging;
+> >>>>   			}
+> >>>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> >>>> index 1f5d07067f60..0c0ef8999fd6 100644
+> >>>> --- a/kernel/sched/sched.h
+> >>>> +++ b/kernel/sched/sched.h
+> >>>> @@ -42,6 +42,7 @@
+> >>>>   #include <linux/ktime_api.h>
+> >>>>   #include <linux/lockdep_api.h>
+> >>>>   #include <linux/lockdep.h>
+> >>>> +#include <linux/memblock.h>
+> >>>>   #include <linux/minmax.h>
+> >>>>   #include <linux/mm.h>
+> >>>>   #include <linux/module.h>
+> >>> A warning was detected:
+> >>>
+> >>> =============================
+> >>> WARNING: suspicious RCU usage
+> >>> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
+> >>> -----------------------------
+> >>> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
+> >>>
+> >>> other info that might help us debug this:
+> >>>
+> >>>
+> >>> rcu_scheduler_active = 2, debug_locks = 1
+> >>> 1 lock held by swapper/0/1:
+> >>>   #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
+> >>>
+> >>> stack backtrace:
+> >>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
+> >>> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
+> >>> Call Trace:
+> >>>   <TASK>
+> >>>   dump_stack_lvl+0x68/0xa0
+> >>>   lockdep_rcu_suspicious+0x148/0x1b0
+> >>>   housekeeping_cpumask+0xaa/0xb0
+> >>>   housekeeping_test_cpu+0x25/0x40
+> >>>   find_get_block_common+0x41/0x3e0
+> >>>   bdev_getblk+0x28/0xa0
+> >>>   ext4_getblk+0xba/0x2d0
+> >>>   ext4_bread_batch+0x56/0x170
+> >>>   __ext4_find_entry+0x17c/0x410
+> >>>   ? lock_release+0xc6/0x290
+> >>>   ext4_lookup+0x7a/0x1d0
+> >>>   __lookup_slow+0xf9/0x1b0
+> >>>   walk_component+0xe0/0x150
+> >>>   link_path_walk+0x201/0x3e0
+> >>>   path_openat+0xb1/0xb30
+> >>>   ? stack_depot_save_flags+0x41e/0xa00
+> >>>   do_filp_open+0xbc/0x170
+> >>>   ? _raw_spin_unlock_irqrestore+0x2c/0x50
+> >>>   ? __create_object+0x59/0x80
+> >>>   ? trace_kmem_cache_alloc+0x1d/0xa0
+> >>>   ? vprintk_emit+0x2b2/0x360
+> >>>   do_open_execat+0x56/0x100
+> >>>   alloc_bprm+0x1a/0x200
+> >>>   ? __pfx_kernel_init+0x10/0x10
+> >>>   kernel_execve+0x4b/0x160
+> >>>   kernel_init+0xe5/0x1c0
+> >>>   ret_from_fork+0x185/0x1d0
+> >>>   ? __pfx_kernel_init+0x10/0x10
+> >>>   ret_from_fork_asm+0x1a/0x30
+> >>>   </TASK>
+> >>> random: crng init done
+> >>>
+> >> It is because bh_lru_install() of fs/buffer.c calls cpu_is_isolated()
+> >> without holding a rcu_read_lock. Will need to add a rcu_read_lock() there.
+> > 
+> > But this is called within bh_lru_lock() which should have either disabled
+> > IRQs or preemption off. I would expect rcu_dereference_check() to automatically
+> > verify those implied RCU read-side critical sections.
+> > 
+> > Let's see, lockdep_assert_in_rcu_reader() checks preemptible(), which is:
+> > 
+> > #define preemptible()	(preempt_count() == 0 && !irqs_disabled())
+> > 
+> > Ah but if !CONFIG_PREEMPT_COUNT:
+> > 
+> > #define preemptible()	0
+> > 
+> > Chen did you have !CONFIG_PREEMPT_COUNT ?
+> > 
+> > Probably lockdep_assert_in_rcu_reader() should be fixed accordingly and consider
+> > preemption always disabled whenever !CONFIG_PREEMPT_COUNT. Let me check that...
+> > 
+> > Thanks.
+> > 
+> 
+> I compiled with CONFIG_PREEMPT_COUNT=y and CONFIG_SMP=y.
 
-On Wed, 5 Nov 2025 at 15:00, Dan Carpenter <dan.carpenter@linaro.org> wrote=
-:
->
-> Hi Jai,
->
-> kernel test robot noticed the following build warnings:
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Jai-Luthra/staging=
--vc04_services-Drop-bcm2835-camera-driver/20251029-184912
-> base:   dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
-> patch link:    https://lore.kernel.org/r/20251029-vchiq-destage-v3-6-da8d=
-6c83c2c5%40ideasonboard.com
-> patch subject: [PATCH v3 6/7] platform/raspberrypi: Destage VCHIQ interfa=
-ce
-> config: arm-randconfig-r071-20251102 (https://download.01.org/0day-ci/arc=
-hive/20251103/202511031105.3z4Gf3FT-lkp@intel.com/config)
-> compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d=
-2625a438020ad35330cda29c3def102c1687b1b)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> | Closes: https://lore.kernel.org/r/202511031105.3z4Gf3FT-lkp@intel.com/
->
-> smatch warnings:
-> drivers/platform/raspberrypi/vchiq-interface/vchiq_dev.c:602 vchiq_ioctl(=
-) warn: iterator 'i' not incremented
-> drivers/platform/raspberrypi/vchiq-interface/vchiq_dev.c:1250 vchiq_relea=
-se() warn: iterator 'i' not incremented
->
-> vim +/i +602 drivers/platform/raspberrypi/vchiq-interface/vchiq_dev.c
->
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  583  static long
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  584  vchiq_ioctl(struct file *file, unsign=
-ed int cmd, unsigned long arg)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  585  {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  586   struct vchiq_instance *instance =3D =
-file->private_data;
-> 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  587   int status =3D 0;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  588   struct vchiq_service *service =3D NU=
-LL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  589   long ret =3D 0;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  590   int i, rc;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  591
-> 96622d58f50b8f drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Thomas Wei=C3=9Fschuh 2025-03-11  592   dev_dbg(instance->state->dev, "=
-arm: instance %p, cmd %s, arg %lx\n", instance,
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  593           ((_IOC_TYPE(cmd) =3D=3D VCHI=
-Q_IOC_MAGIC) && (_IOC_NR(cmd) <=3D VCHIQ_IOC_MAX)) ?
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  594           ioctl_names[_IOC_NR(cmd)] : =
-"<invalid>", arg);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  595
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  596   switch (cmd) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  597   case VCHIQ_IOC_SHUTDOWN:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  598           if (!instance->connected)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  599                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  600
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  601           /* Remove all services */
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21 @602           i =3D 0;
->
-> i is not used any more.  Delete.
+Oh actually I think it's my fault. This should be fixed with this:
 
-No, don't do that. It's passed as an in/out parameter to
-next_service_by_instance - it maintains the iterator position. This is
-a false positive.
-
->
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  603           while ((service =3D next_ser=
-vice_by_instance(instance->state,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  604                                       =
-               instance, &i))) {
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  605                   status =3D vchiq_rem=
-ove_service(instance, service->handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  606                   vchiq_service_put(se=
-rvice);
-> 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  607                   if (status)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  608                           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  609           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  610           service =3D NULL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  611
-> 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  612           if (!status) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  613                   /* Wake the completi=
-on thread and ask it to exit */
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  614                   instance->closing =
-=3D 1;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  615                   complete(&instance->=
-insert_event);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  616           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  617
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  618           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  619
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  620   case VCHIQ_IOC_CONNECT:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  621           if (instance->connected) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  622                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  623                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  624           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  625           rc =3D mutex_lock_killable(&=
-instance->state->mutex);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  626           if (rc) {
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  627                   dev_err(instance->st=
-ate->dev,
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  628                           "arm: vchiq:=
- connect: could not lock mutex for state %d: %d\n",
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  629                           instance->st=
-ate->id, rc);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  630                   ret =3D -EINTR;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  631                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  632           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  633           status =3D vchiq_connect_int=
-ernal(instance->state, instance);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  634           mutex_unlock(&instance->stat=
-e->mutex);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  635
-> 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  636           if (!status)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  637                   instance->connected =
-=3D 1;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  638           else
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  639                   dev_err(instance->st=
-ate->dev,
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  640                           "arm: vchiq:=
- could not connect: %d\n", status);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  641           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  642
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  643   case VCHIQ_IOC_CREATE_SERVICE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  644           struct vchiq_create_service =
-__user *argp;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  645           struct vchiq_create_service =
-args;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  646
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  647           argp =3D (void __user *)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  648           if (copy_from_user(&args, ar=
-gp, sizeof(args))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  649                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  650                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  651           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  652
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  653           ret =3D vchiq_ioc_create_ser=
-vice(instance, &args);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  654           if (ret < 0)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  655                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  656
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  657           if (put_user(args.handle, &a=
-rgp->handle)) {
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  658                   vchiq_remove_service=
-(instance, args.handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  659                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  660           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  661   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  662
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  663   case VCHIQ_IOC_CLOSE_SERVICE:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  664   case VCHIQ_IOC_REMOVE_SERVICE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  665           unsigned int handle =3D (uns=
-igned int)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  666           struct user_service *user_se=
-rvice;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  667
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  668           service =3D find_service_for=
-_instance(instance, handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  669           if (!service) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  670                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  671                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  672           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  673
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  674           user_service =3D service->ba=
-se.userdata;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  675
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  676           /*
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  677            * close_pending is false on=
- first entry, and when the
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  678            * wait in vchiq_close_servi=
-ce has been interrupted.
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  679            */
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  680           if (!user_service->close_pen=
-ding) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  681                   status =3D (cmd =3D=
-=3D VCHIQ_IOC_CLOSE_SERVICE) ?
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  682                            vchiq_close=
-_service(instance, service->handle) :
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  683                            vchiq_remov=
-e_service(instance, service->handle);
-> 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  684                   if (status)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  685                           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  686           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  687
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  688           /*
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  689            * close_pending is true onc=
-e the underlying service
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  690            * has been closed until the=
- client library calls the
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  691            * CLOSE_DELIVERED ioctl, si=
-gnalling close_event.
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  692            */
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  693           if (user_service->close_pend=
-ing &&
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  694               wait_for_completion_inte=
-rruptible(&user_service->close_event))
-> 82a9eb4a3561e1 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  695                   status =3D -EAGAIN;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  696           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  697   }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  698
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  699   case VCHIQ_IOC_USE_SERVICE:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  700   case VCHIQ_IOC_RELEASE_SERVICE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  701           unsigned int handle =3D (uns=
-igned int)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  702
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  703           service =3D find_service_for=
-_instance(instance, handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  704           if (service) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  705                   ret =3D (cmd =3D=3D =
-VCHIQ_IOC_USE_SERVICE) ?
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  706                           vchiq_use_se=
-rvice_internal(service) :
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  707                           vchiq_releas=
-e_service_internal(service);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  708                   if (ret) {
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  709                           dev_err(inst=
-ance->state->dev,
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  710                                   "sus=
-pend: cmd %s returned error %ld for service %p4cc:%03d\n",
-> e70f17ed997cb7 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  711                                   (cmd=
- =3D=3D VCHIQ_IOC_USE_SERVICE) ?
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  712                                   "VCH=
-IQ_IOC_USE_SERVICE" :
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  713                                   "VCH=
-IQ_IOC_RELEASE_SERVICE",
-> ae094de38e430e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-10-25  714                                   ret,=
- &service->base.fourcc,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  715                                   serv=
-ice->client_id);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  716                   }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  717           } else {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  718                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  719           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  720   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  721
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  722   case VCHIQ_IOC_QUEUE_MESSAGE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  723           struct vchiq_queue_message a=
-rgs;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  724
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  725           if (copy_from_user(&args, (c=
-onst void __user *)arg,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  726                              sizeof(ar=
-gs))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  727                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  728                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  729           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  730
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  731           service =3D find_service_for=
-_instance(instance, args.handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  732
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  733           if (service && (args.count <=
-=3D MAX_ELEMENTS)) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  734                   /* Copy elements int=
-o kernel space */
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  735                   struct vchiq_element=
- elements[MAX_ELEMENTS];
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  736
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  737                   if (copy_from_user(e=
-lements, args.elements,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  738                                      a=
-rgs.count * sizeof(struct vchiq_element)) =3D=3D 0)
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  739                           ret =3D vchi=
-q_ioc_queue_message(instance, args.handle, elements,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  740                                       =
-                  args.count);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  741                   else
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  742                           ret =3D -EFA=
-ULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  743           } else {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  744                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  745           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  746   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  747
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  748   case VCHIQ_IOC_QUEUE_BULK_TRANSMIT:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  749   case VCHIQ_IOC_QUEUE_BULK_RECEIVE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  750           struct vchiq_queue_bulk_tran=
-sfer args;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  751           struct vchiq_queue_bulk_tran=
-sfer __user *argp;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  752
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  753           enum vchiq_bulk_dir dir =3D
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  754                   (cmd =3D=3D VCHIQ_IO=
-C_QUEUE_BULK_TRANSMIT) ?
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  755                   VCHIQ_BULK_TRANSMIT =
-: VCHIQ_BULK_RECEIVE;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  756
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  757           argp =3D (void __user *)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  758           if (copy_from_user(&args, ar=
-gp, sizeof(args))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  759                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  760                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  761           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  762
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  763           ret =3D vchiq_irq_queue_bulk=
-_tx_rx(instance, &args,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  764                                       =
-     dir, &argp->mode);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  765   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  766
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  767   case VCHIQ_IOC_AWAIT_COMPLETION: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  768           struct vchiq_await_completio=
-n args;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  769           struct vchiq_await_completio=
-n __user *argp;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  770
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  771           argp =3D (void __user *)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  772           if (copy_from_user(&args, ar=
-gp, sizeof(args))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  773                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  774                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  775           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  776
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  777           ret =3D vchiq_ioc_await_comp=
-letion(instance, &args,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  778                                       =
-     &argp->msgbufcount);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  779   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  780
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  781   case VCHIQ_IOC_DEQUEUE_MESSAGE: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  782           struct vchiq_dequeue_message=
- args;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  783
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  784           if (copy_from_user(&args, (c=
-onst void __user *)arg,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  785                              sizeof(ar=
-gs))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  786                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  787                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  788           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  789
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  790           ret =3D vchiq_ioc_dequeue_me=
-ssage(instance, &args);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  791   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  792
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  793   case VCHIQ_IOC_GET_CLIENT_ID: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  794           unsigned int handle =3D (uns=
-igned int)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  795
-> bad44825fbf5ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  796           ret =3D vchiq_get_client_id(=
-instance, handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  797   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  798
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  799   case VCHIQ_IOC_GET_CONFIG: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  800           struct vchiq_get_config args=
-;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  801           struct vchiq_config config;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  802
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  803           if (copy_from_user(&args, (c=
-onst void __user *)arg,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  804                              sizeof(ar=
-gs))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  805                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  806                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  807           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  808           if (args.config_size > sizeo=
-f(config)) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  809                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  810                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  811           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  812
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  813           vchiq_get_config(&config);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  814           if (copy_to_user(args.pconfi=
-g, &config, args.config_size)) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  815                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  816                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  817           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  818   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  819
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  820   case VCHIQ_IOC_SET_SERVICE_OPTION: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  821           struct vchiq_set_service_opt=
-ion args;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  822
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  823           if (copy_from_user(&args, (c=
-onst void __user *)arg,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  824                              sizeof(ar=
-gs))) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  825                   ret =3D -EFAULT;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  826                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  827           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  828
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  829           service =3D find_service_for=
-_instance(instance, args.handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  830           if (!service) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  831                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  832                   break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  833           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  834
-> 14780bb174266e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Adrien Thierry   2022-05-18  835           ret =3D vchiq_set_service_op=
-tion(instance, args.handle, args.option,
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  836                                       =
-   args.value);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  837   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  838
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  839   case VCHIQ_IOC_LIB_VERSION: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  840           unsigned int lib_version =3D=
- (unsigned int)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  841
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  842           if (lib_version < VCHIQ_VERS=
-ION_MIN)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  843                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  844           else if (lib_version >=3D VC=
-HIQ_VERSION_CLOSE_DELIVERED)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  845                   instance->use_close_=
-delivered =3D 1;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  846   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  847
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  848   case VCHIQ_IOC_CLOSE_DELIVERED: {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  849           unsigned int handle =3D (uns=
-igned int)arg;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  850
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  851           service =3D find_closed_serv=
-ice_for_instance(instance, handle);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  852           if (service) {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  853                   struct user_service =
-*user_service =3D
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  854                           (struct user=
-_service *)service->base.userdata;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  855                   close_delivered(user=
-_service);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  856           } else {
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  857                   ret =3D -EINVAL;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  858           }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  859   } break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  860
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  861   default:
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  862           ret =3D -ENOTTY;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  863           break;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  864   }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  865
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  866   if (service)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  867           vchiq_service_put(service);
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  868
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  869   if (ret =3D=3D 0) {
-> ab73dc85328195 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  870           if (status =3D=3D -EINVAL)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  871                   ret =3D -EIO;
-> 82a9eb4a3561e1 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2022-12-23  872           else if (status =3D=3D -EAGA=
-IN)
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  873                   ret =3D -EINTR;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  874   }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  875
-> f67af5940d6d2e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-10-24  876   if (!status && (ret < 0) && (ret !=
-=3D -EINTR) && (ret !=3D -EWOULDBLOCK)) {
-> 55e23aa95b1073 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  877           dev_dbg(instance->state->dev=
-,
-> 96622d58f50b8f drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Thomas Wei=C3=9Fschuh 2025-03-11  878                   "arm: ioctl ins=
-tance %p, cmd %s -> status %d, %ld\n",
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  879                   instance, (_IOC_NR(c=
-md) <=3D VCHIQ_IOC_MAX) ?
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  880                   ioctl_names[_IOC_NR(=
-cmd)] : "<invalid>", status, ret);
-> f67af5940d6d2e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-10-24  881   } else {
-> 078666d7ee6d3c drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-12-05  882           dev_dbg(instance->state->dev=
-,
-> 96622d58f50b8f drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Thomas Wei=C3=9Fschuh 2025-03-11  883                   "arm: ioctl ins=
-tance %p, cmd %s -> status %d\n, %ld\n",
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  884                   instance, (_IOC_NR(c=
-md) <=3D VCHIQ_IOC_MAX) ?
-> 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Gaston Gonzalez  2021-09-12  885                   ioctl_names[_IOC_NR(=
-cmd)] : "<invalid>", status, ret);
-> f67af5940d6d2e drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Umang Jain       2023-10-24  886   }
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  887
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  888   return ret;
-> f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_de=
-v.c Ojaswin Mujoo    2021-07-21  889  }
->
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
->
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index 95d69c2102f6..b2cb75513336 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -56,8 +56,8 @@ static bool housekeeping_dereference_check(enum hk_type type)
+ 
+ static inline struct cpumask *housekeeping_cpumask_dereference(enum hk_type type)
+ {
+-	return rcu_dereference_check(housekeeping.cpumasks[type],
+-				     housekeeping_dereference_check(type));
++	return rcu_dereference_all_check(housekeeping.cpumasks[type],
++					 housekeeping_dereference_check(type));
+ }
+ 
+ const struct cpumask *housekeeping_cpumask(enum hk_type type)
 
