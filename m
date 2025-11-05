@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F6ECCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11061CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 03:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9PpcYW9rXkka09Jy11m9xJQRt/n8jdZMdqOTeKYVeZk=; b=2Y+paizhr7TFScP+Yd0ufKf+SI
-	FJL338Ylq2yHHR8SEtgnIMN3tZoan9S0eTVugTKiwmxjstSAhPx+06SLB+0TLjDgfYNnLlZyF/gIJ
-	IC0UE+WrlfrqVUVtc8j52zgELDKX/txz5CaptJYpIUTlgQbv8+V342oFMAFKkcdrnEIaD49YvhiRX
-	ClEanQawmMysRyk6a2rSyAXXL4kko3WJyiGhmFfsT76DYUqaHbQfcxwEaoV7LrxDi9sa0f3hR/RKq
-	bqVIeTF65ZM/KpNSzSiBOJ3k+nua1E4RGguYs5mBANdEL1tscF3WLJLDgSf9p5iOxu55ncsF1f8Yr
-	2VII5DXA==;
+	bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=; b=C1c//Btx7bFJ4MC/Krpr3nmP/K
+	nmbdIocvvO0cbfNWR0ItprGnTg1E8QwLbfstKoRaI4ycIMs+QrrZdM0XbHDdKmHqqo+mPl7DSVDRG
+	J4ZJbLz6LoZ1M+t+Qvr8EiDjQd6Y1nn7RsDsYglAXY2inLXH4ia5+gEjXm6VW7aOX5a223Vy/2o7x
+	NWgtudb0TRo9tcX0OAoC9cNA7lavMmS4vNAfoje8Z4WJKeY/IbIIBDsbZQwqvqMMScazCqod7P9Ql
+	pGoARSHL+nRKqhutPC+41S97D1b35Sia8PAJz/8jCUdeoPfSgHKfG7/QGYz7D+XfkNRDCQkFxat2t
+	5iQU8CNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUPI-0000000Cy5k-2lvl;
-	Wed, 05 Nov 2025 03:42:00 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vGUcj-0000000CycN-2PPI;
+	Wed, 05 Nov 2025 03:55:53 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGUPF-0000000Cy5A-341P
+	id 1vGUcg-0000000Cybb-1dnK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 03:41:58 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-29555415c5fso51170895ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 19:41:57 -0800 (PST)
+	Wed, 05 Nov 2025 03:55:51 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7c28c21aba1so3869224a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Nov 2025 19:55:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762314117; x=1762918917; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9PpcYW9rXkka09Jy11m9xJQRt/n8jdZMdqOTeKYVeZk=;
-        b=mw43FkwHptiKiebzDdlRzgwJJ0VsqkIgmD+Xfnol9C1iwjvMYcgobTKUOLdcxM3NCP
-         LCX6u+OKUnYe/b2QPhZAdKUTYKLxLo8UEuMx5DBlPhzt+CedcSuUPCsUzw/dT0gKLqrY
-         wrJf2Fv95rXaQYuYcZg680VQkdcqSYWvuUnX/W8PshKANufE1GEIhZ+ovjq3mhg27Isb
-         aBJ3IkI6dgRgzvvUyMdQADceDXBkG3eJwN+sIJnNeioA+z9Y5D3JQ6CruP3zWLfPhVhw
-         t/NquOkJkE1gQRfSHiRmeYUpam9r580o7PgkT0uHYhUZuB/nFJrgx+M5MHNkPA1VZTir
-         oUJw==
+        d=gmail.com; s=20230601; t=1762314947; x=1762919747; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=;
+        b=h9h3Z5Sl89b3le6Rlbc0qVgriaLZffJbAW7/FeHb2W8DoJM7LRWEVxXbyIzCH2b2rC
+         rzF5UgtCAhNHR3bYPPR8iefqAwznNS4MrK6vInk521HsdK9gscEgwK/RQgl0Dg0mtYv2
+         P453C612DWX3S1LslRoHQEE1q1J90o1eFpOOkVNi6ZwP/Bn/t3kO8ZpRLV4+i0MV01it
+         K5vUTJuBEAG/isB81zx4hutgNi7bAb6FaKUT+EdUnsASP8bMrfao0n3j0Wpd3/pL/N2F
+         WgkJTSkTsMopcsITyRXLffF+y7rm50jqron+wKOu9rtcz2ycl0Rf4lQdrps0BWzsj9hU
+         z7BQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762314117; x=1762918917;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9PpcYW9rXkka09Jy11m9xJQRt/n8jdZMdqOTeKYVeZk=;
-        b=plsq4KyaboX0DDC2rmTBzDFSbutHSMQppSVfpnqhfCRKkmHpbgCfjZpzMgQrxZNu9E
-         mZ3hbId5kJhE/GhmntQgEktkg9kW5jHDNdYUY75dEd9pvModgYCw4jd7Uc7yYPYD5uQG
-         Ov0bGkT1RjCjKuDcHyZqHQaNLSARGuwFq3+Qkd903M/aM2G1pJszgcr9DzC27XsVTJvK
-         C7UfB/SEX7j/S60T/l4/czWT4BUvBdb2YN6OXUGO8R/gFJ6SJkaLclwz77hzZ9aTUP5J
-         21gfeqKM9SjJ6a/vo0MWsODx58KliXvYxymSsVXhs6DVwMOiOv3b6hBrHcE3WkDudAL5
-         Agvw==
-X-Forwarded-Encrypted: i=1; AJvYcCV/cdUPTtB8ys6PxN/TH13oq/iX3qu7IZNeTnVkEZOE58R8f7G8ZoMJRLf82ZEh0cGMlQrBmGdWVRkqbSqJioMR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuHWbHiUJebS4KOIRAgihdvzCcU71SCkjbvaTaF+vJYWwAWKBZ
-	Al8Uz9FqbfX8/4LVdFZOm3F97wXHm/TSPlN+0on1h9aLMP1ovfvGt8tH
-X-Gm-Gg: ASbGncumHbsb3oQy2FhyllhGeFjBU8QDJXD+tqhP4ygWuPBBCWBtFxMP5Lr0TpFb6p0
-	QTz7tFTJVZrDO24wHDz8F+77XpddQQsiUoTjtdwWUl1IEAeSaXemyaODa2Ty3vh0Xr8+hcJJTek
-	Hp+yDlvnbfpOJ0qiw/GukHjbuRGK8AWIOHOeJrZRxpfoRqGxDxM/Ldo56HgdkUmNFX0luPEgTAf
-	vCJkwVpFQdoMVlbNNsfCaJMzuq16E5BJ8+NtpY/puPEZQyrrEaLEZ3lFas0vysY1uY8IqPAGWMO
-	rNDVzaDuZFs8MqPTr8waihIFzUKeKYZt5/r8J/C5o6wK+z6DKEnkF/rPBjfu+zqQnZ9VzcQal/x
-	gCi61xD3lBOTQAExCg/8tIBso2ErWRM30ERC+60VL7BbFxazXcOUQHZj851RY0J+2xEW26A==
-X-Google-Smtp-Source: AGHT+IHU+u4c4m70sp/Km2qphWV2GETQaiqBJlBLQ9oH8KuDbSRxjLHzXNgoB+GOOUcEEs7QOw2HMQ==
-X-Received: by 2002:a17:903:944:b0:295:7f1d:b02d with SMTP id d9443c01a7336-2962ad3340fmr26429125ad.22.1762314116721;
-        Tue, 04 Nov 2025 19:41:56 -0800 (PST)
-Received: from dw-tp ([171.76.85.117])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29601a61418sm43663725ad.96.2025.11.04.19.41.45
+        d=1e100.net; s=20230601; t=1762314947; x=1762919747;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wv7IaACCUzIWH4jmcnmsJlWAx3z3kfU+CsmKqPSjqn0=;
+        b=EOqHvMfmUXLrOFFUCqXj9GnKDmrjJUQtVKylY77g8Ngeu4IFJtJr35iWzMuRybFS4S
+         b/fUNj1t8Ag7kSzTCLpNx8AYpHv56X8ZdTzqdJDII6VSX7jW+FuBLvrrApWMkaW06p1K
+         qh5lTLPlCoMLjIYlWQyvXgLSe757OMb5JQKJkGpewnXGGiHFKCNpRWB9tvVxskXV2FTi
+         oFPn5nHnpp/hnEb7no6+4TuLrELD2yBYxk3LXGXnZvOap7Fe75s6SKNaR/Izwwj833Nk
+         LX9gpXOYFzxO7kbKaWeN7/N6fVjrqcSfhmu0mmREeNhefdM3eEW7NcEC2LZABRdIXuQW
+         WXrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVnmN1MAlGsbfju8xoUTaFevDzanE8DLh7wOtj6Inhg1iIXAsXOT50Woy4AO2iWBBFPYyBRg8u+QysbBybSUQdC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7qvkhwUoPLN29MvDhfBN+hcyirLIbw5pkZbySpOu9he9A/BYU
+	dDITK+vDRhYAyAWhd//TqFM14PWg8inQj5oeR4S5ecntkaIXUKxhn2AM
+X-Gm-Gg: ASbGncuNJitDDeJpWWddvJFb8t9t0qPYH+BaXTvFyPyXApEVSIDWo7cL3CLhc7F31Av
+	bu5Yl/+aIX0VjnN5rPExDJ2Me1HGtRNB2ZeymDl0o7OpD9ETOFJqTUqprg4Sp+qCKnpX6ilgEQy
+	8dt4iGcFCPbZ4XcdUMndM2s09ctX+B222WYBQOVFweQ6/roUDJJvTb/VxZXqBhkjQqvkFcPMSo4
+	J8YfSc4Yy9L/zc+OMmFKTs3W15RRd6nFjc0Ra+WtvyVXtWOcLtZPdhI7j53vSt2XziK0PDNR6QD
+	f1dCSOs3s6ZeU8fyuEebanfmb85KC45GDHvKhJZCluYt6LYgKY0CP9Or6XMcguCa3Jz7daykD7k
+	gkBvTUL7OE5H8jVLUlElm2nxQhzyu2Kd+aOKm3me89iQAE2CZDZvf+Wp90ps/mww=
+X-Google-Smtp-Source: AGHT+IGWD1WRog8lycQihpGXGLWzNtQQjp25qDmoblZFd4CJMmxeCSVNZEnsc+5uJPofTa4YPXd5Fg==
+X-Received: by 2002:a05:6830:91a:b0:7af:1d61:1055 with SMTP id 46e09a7af769-7c6d13e115amr1105444a34.21.1762314946928;
+        Tue, 04 Nov 2025 19:55:46 -0800 (PST)
+Received: from geday ([2804:7f2:800b:2c34::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c6c246fb2fsm1599542a34.13.2025.11.04.19.55.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Nov 2025 19:41:56 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
-	David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, 
-	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, 
-	Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, 
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-Subject: Re: [PATCH v4 03/12] powerpc/mm: implement arch_flush_lazy_mmu_mode()
-In-Reply-To: <20251029100909.3381140-4-kevin.brodsky@arm.com>
-Date: Wed, 05 Nov 2025 08:45:06 +0530
-Message-ID: <87pl9x41c5.ritesh.list@gmail.com>
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-4-kevin.brodsky@arm.com>
+        Tue, 04 Nov 2025 19:55:45 -0800 (PST)
+Date: Wed, 5 Nov 2025 00:55:32 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Johan Jonker <jbx6244@gmail.com>
+Subject: Re: [RFC PATCH 2/2] PCI: rockchip-host: drop wait on PERST# toggle
+Message-ID: <aQrKtFT0ldc70gKj@geday>
+References: <d3d0c3a387ff461e62bbd66a0bde654a9a17761e.1762150971.git.geraldogabriel@gmail.com>
+ <20251103181038.GA1814635@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251103181038.GA1814635@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_194157_793938_2DCA8D6A 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20251104_195550_478783_BAA9FEF1 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,82 +108,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kevin Brodsky <kevin.brodsky@arm.com> writes:
+On Mon, Nov 03, 2025 at 12:10:38PM -0600, Bjorn Helgaas wrote:
+> On Mon, Nov 03, 2025 at 03:27:25AM -0300, Geraldo Nascimento wrote:
+> > With this change PCIe will complete link-training with a known quirky
+> > device - Samsung OEM PM981a SSD. This is completely against the PCIe
+> > spec and yet it works as long as the power regulator for 3v3 PCIe
+> > power is not defined as always-on or boot-on.
+> 
+> What is against the spec?  In what way is this SSD "known quirky"?  Is
+> there a published erratum for it?
+> 
+> Removing this delay might make this SSD work, but if this delay is
+> required per PCIe spec, how can we be confident that other devices
+> will still work?
+> 
+> Reports of devices that still work is not really enough to move this
+> from the "hack that makes one device work" column to the "safe and
+> effective for all devices" column.
+> 
+> It's easy to see how *lack* of a delay can break something, but much
+> harder to imagine how *removing* a delay can make something work.
+> Devices must be able to tolerate pretty much arbitrary delays.
 
-> Upcoming changes to the lazy_mmu API will cause
-> arch_flush_lazy_mmu_mode() to be called when leaving a nested
-> lazy_mmu section.
->
-> Move the relevant logic from arch_leave_lazy_mmu_mode() to
-> arch_flush_lazy_mmu_mode() and have the former call the latter.
->
-> Note: the additional this_cpu_ptr() on the
-> arch_leave_lazy_mmu_mode() path will be removed in a subsequent
-> patch.
->
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  .../powerpc/include/asm/book3s/64/tlbflush-hash.h | 15 +++++++++++----
->  1 file changed, 11 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> index 146287d9580f..7704dbe8e88d 100644
-> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> @@ -41,6 +41,16 @@ static inline void arch_enter_lazy_mmu_mode(void)
->  	batch->active = 1;
->  }
->  
-> +static inline void arch_flush_lazy_mmu_mode(void)
-> +{
-> +	struct ppc64_tlb_batch *batch;
-> +
-> +	batch = this_cpu_ptr(&ppc64_tlb_batch);
-> +
-> +	if (batch->index)
-> +		__flush_tlb_pending(batch);
-> +}
-> +
+Hi Bjorn!
 
-This looks a bit scary since arch_flush_lazy_mmu_mode() is getting
-called from several of the places in later patches(). 
+I did some more testing, intrigued by why would a delay of more than
+5 ms after the enablement of the power rails trigger failure in
+initial link-training.
 
-Although I think arch_flush_lazy_mmu_mode() will only always be called
-in nested lazy mmu case right?
+Something in my intuition kept telling me this was PERST# related,
+and so I followed that rabbit-hole.
 
-Do you think we can add a VM_BUG_ON(radix_enabled()); in above to make
-sure the above never gets called in radix_enabled() case. 
+It seems the following change will allow the SSD to work with the
+Rockchip-IP PCIe core without any other changes. So it is purely
+a DT change and we are able to keep the mandatory 100ms delay
+after driving PERST# low, as well as the always-on/boot-on
+properties of the 3v3 power regulator.
 
-I am still going over the patch series, but while reviewing this I
-wanted to take your opinion.
+This time everything is within the PCIe spec AFAICT, PERST# indeed
+is an Open Drain signal, and indeed it does requires pull-up resistor
+to maintain the drive after driving it high.
 
-Ohh wait.. There is no way of knowing the return value from
-arch_enter_lazy_mmu_mode().. I think you might need a similar check to
-return from arch_flush_lazy_mmu_mode() too, if radix_enabled() is true.
+I'm still testing the overall stability of this, let's hope for the
+best!
 
+Thanks,
+Geraldo Nascimento
 
--ritesh
-
-
->  static inline void arch_leave_lazy_mmu_mode(void)
->  {
->  	struct ppc64_tlb_batch *batch;
-> @@ -49,14 +59,11 @@ static inline void arch_leave_lazy_mmu_mode(void)
->  		return;
->  	batch = this_cpu_ptr(&ppc64_tlb_batch);
->  
-> -	if (batch->index)
-> -		__flush_tlb_pending(batch);
-> +	arch_flush_lazy_mmu_mode();
->  	batch->active = 0;
->  	preempt_enable();
->  }
->  
-> -#define arch_flush_lazy_mmu_mode()      do {} while (0)
-> -
->  extern void hash__tlbiel_all(unsigned int action);
->  
->  extern void flush_hash_page(unsigned long vpn, real_pte_t pte, int psize,
-> -- 
-> 2.47.0
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+index aa70776e898a..1c5afc0413bc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
+@@ -383,13 +383,14 @@ &pcie_phy {
+ };
+ 
+ &pcie0 {
+-	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
++	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 	num-lanes = <4>;
+-	pinctrl-0 = <&pcie_clkreqnb_cpm>;
++	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
+ 	pinctrl-names = "default";
+ 	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
+ 	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
+ 	vpcie3v3-supply = <&vcc3v3_pcie>;
++	max-link-speed = <2>;
+ 	status = "okay";
+ };
+ 
+@@ -408,6 +409,10 @@ pcie {
+ 		pcie_pwr: pcie-pwr {
+ 			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
++		pcie_perst: pcie-perst {
++			rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++
+ 	};
+ 
+ 	pmic {
 
