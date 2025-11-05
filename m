@@ -4,170 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8885CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFA9CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h962CRkL+ysz6qrjulF5cjWF6J9POgfjZSQqPYVjs1k=; b=0BaaoclABXRcCVn35quSiUBs34
-	pAKX3Eu2eWWFZyeVmql5QqYRX+5RjZAjVc6ft4M5f92Kc7Rosx2DSRSgTi72hNgHl4rvZ9Mb/u1Q6
-	SE21glR0UNm4SQfwSeyHxhlRMMnQS9SeCjkMMWGI/7+ToJ26q6FOPiFMGf/GanQsazCsK/P+DKzOQ
-	9C0aQb2dYiMARsUZj4iEiIA0kkpp4ez80RbkYxP1o6IRXMA3w+TZqumUyWVgWgBL4uOP4aC7QKUKl
-	WXAga0DZvOvISaSZWrjVtX+FjYdmcFrGNG4VPvZfr45d8S+y01XaEFhGwOgy7IJI4qub5DRYjzz5b
-	q6Lpb7ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9bTb5CRzxftRBVGejuCBkLpZLLxpNmtdQUR2a+493A=; b=tr6S/5ES6MMBqWPJ6yyr7lFPrU
+	kfULUOGiliCv8fDEIg/Q1G6c4CgRiwGWBv6erTUOW783b40p4Ha5BRPxrd8+B063RCuzzpCOhiqhl
+	aN7dOZDa4noR1dfrht2XCDUqnoaw0LalyRiNKmXz1oj/2HnYVyou4DaIIoUly4uENGDFjlh79zRZY
+	0HPG4cJAqzkcibFv8Ai9+kAoWLjlX65jzppqaiR3fyPGqzFD2t1eTq4ZZjgiDEAeudOt4cASACxKV
+	OkStg07VEkhuDPAxuf8DHgGLPulkzaYb7rZuo58Bp8uDImazpfxPhbJFedmrANXDRiFAgqDkAKaLr
+	mN37ODYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfj2-0000000Dz5M-1w4m;
-	Wed, 05 Nov 2025 15:47:08 +0000
-Received: from mail-westus3azon11010040.outbound.protection.outlook.com ([52.101.201.40] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vGfkm-0000000DzWh-3P4V;
+	Wed, 05 Nov 2025 15:48:56 +0000
+Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfiy-0000000Dz1O-2l6x
+	id 1vGfkk-0000000DzW3-2jlF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:47:06 +0000
+	Wed, 05 Nov 2025 15:48:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H3tRUS/M4Pge2mnuM4ai7eX5XD4S+c9A6M5NSvtsnxtvISP7u/GElaEkAl+CIrp/sC9EBqHbdQbktidyf5qCmqo4iSXoS1khURL7rh1Kc0aXYoK+Gop4Elc3s1C0jDk/THEQKxsZwjCrExtQUUD7gWgOVt/oBhZwyoeLyXJ5ULQf7ioQOkFNrtgResjUnDWWOL1hmTmaCGdsU4t0ci7+MFYFrY8cEwP2IB39aAH1/G43pzdmT0gEuByHsREEPYf1QYV6iJrAW3XcRifhM07d0BCWnXi5JWOTWBl7iwJyDRWgENKqRLBaF7gCoXqHE0HkvZMwmYm0wgfyuIDaFg7ixw==
+ b=E8X1oEX0I1l6+elCObVjQxig8QMTTcUsZ5klT6xHt+v/O2drYQl/efcNFlpay6q7eeE+9n3OF6hgztxRHXCZhTasNgIgIZqpus4r9iT1WZsMGXPIaEMpPoQcfSKReK8DRhvti46rwl/RO4P5tmWNpSFnWY8aDWJAZAUNUX+Cu2EZ4XbMqKPZV4QNlKre1DC/PQDEwZHjnNFrLQLfZKNhG6uSJ2WL2+YqXZDbuEZ3S+v4zI/pZkL3hWhnDD109K4jZqbkzzBFR2oevDXQSOzFpWt3AoCmJ1JUTYrSIBhWltPszt4VfS/007JEPfNCQ3Yhpx254V/fdCoqvba3RJWEnA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h962CRkL+ysz6qrjulF5cjWF6J9POgfjZSQqPYVjs1k=;
- b=vMbQFOb/ABouGvZAYj9Ni/pi16d5yOpHzt89OmPwrGA30sQu4EXytcAYCQyJjTJP4C6OKZS4JTykRwhCR8FO5AWWVVlTajGfUyZsS6zJsKCYTa+Ygaz8o2SB3+gd+T3zDV63LARxmg9bhsr6O9TnaylZKjzj2u3HNoOES+ZnNthy2AHJSiIwAVVC2DsxuVnb2j5lSV/lAVW6SUAL4/sJ3cpy3OB1Rp0AIBkP4XmCS3iu4pgeAKLOqrcXg7XjdsVNcLdqbzvLGyjoAwPcGKZUC/BhERZ8UtJ0MK89rETNBniftCpYcHGajJnX9R9i2SEHJU9vcvQb5zTCelQE8pem6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=atomide.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=Q9bTb5CRzxftRBVGejuCBkLpZLLxpNmtdQUR2a+493A=;
+ b=Qd7YTK2nh/mtZcMr2YAApCQh/0eSoERrKKo6dFNaYimCUK15or1SEVqwe50LFIDcNhXH0Rl+ub1FgbzEJ/SjeyemXKNpfJ6DnuaXpHnpzivtEYq/LlD7Vyhx+HD2x3POPLUsq6SmiOC/pfc9ttt8lspaXfuZ6Hf7pl723xm+i4qlhjZj/ZINc2ALNVv//MHA+EdQVWGO01eyyS5pEIt41o5KKMFqD8lxgrhDenfZw0ut1mK2SBCRHkzJwipatlnV3R21d5WbU6hf2f1YEyoiI3+82Poc9qBrqMyb6yK8jBydyYlzIcZX9zKu6SVmHDZYSbWbVFKUqmegjJr6NQZXrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h962CRkL+ysz6qrjulF5cjWF6J9POgfjZSQqPYVjs1k=;
- b=NjuJilWYk8+wAjTKIaycq1wuNnqEsbU1H6g3hJUz8XSndQ7lptJKCPrh3hCW8J9jpDH1AMw85sYG+nd2bY3XLJ2+M+lqyOBlsSgP+OdYp1EYACjFkayMgBEEXvOHQO4AYuh7x+gk0425rjGoHfnDkNIzyqVGki5KCwnUe9caowY=
-Received: from BN0PR03CA0011.namprd03.prod.outlook.com (2603:10b6:408:e6::16)
- by DS4PPFAEF42CAE1.namprd10.prod.outlook.com (2603:10b6:f:fc00::d40) with
+ bh=Q9bTb5CRzxftRBVGejuCBkLpZLLxpNmtdQUR2a+493A=;
+ b=fQRw4vsQJunjIOUa2sPquj3os3cLVj27JT8lDAM7cO40Zt7Llbf3I9A5NixphqyS304+WQx32YxxL65YYf3CkeZk4KWFHlq5FP2OjaN3lNTAjOVR812xb9kx5lDi5SyXvnFeQmbi21gtKLjopTPK6WRtT1VaG4bzO1dHPxuiykhBfZRlb4gIQTYCdWgYsA9kfrnjf4eyFPxqaJ9RKQoaosHKnrRUGB5MMNDjnN3aOTTpbj1uIT2pagKlEC/mM9viSLEzoxZBOb95gj27b1bip36GldrjWJLjVF45+h8hCSfHK9YE9u8HasCUaprCJibRqetEZAKSu3TthRpmXYYDug==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM8PR04MB7395.eurprd04.prod.outlook.com (2603:10a6:20b:1c4::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Wed, 5 Nov
- 2025 15:46:56 +0000
-Received: from BN1PEPF00006003.namprd05.prod.outlook.com
- (2603:10b6:408:e6:cafe::bf) by BN0PR03CA0011.outlook.office365.com
- (2603:10b6:408:e6::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.7 via Frontend Transport; Wed, 5
- Nov 2025 15:46:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN1PEPF00006003.mail.protection.outlook.com (10.167.243.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Wed, 5 Nov 2025 15:46:55 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
- 2025 09:46:46 -0600
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
- 2025 09:46:46 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 5 Nov 2025 09:46:46 -0600
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A5FkkXM3944727;
-	Wed, 5 Nov 2025 09:46:46 -0600
-From: Bryan Brattlof <bb@ti.com>
-Date: Wed, 5 Nov 2025 09:46:43 -0600
-Subject: [PATCH v8 2/3] arm64: dts: ti: k3-am62l: add initial
- infrastructure
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251105-am62lx-v8-2-496f353e8237@ti.com>
-References: <20251105-am62lx-v8-0-496f353e8237@ti.com>
-In-Reply-To: <20251105-am62lx-v8-0-496f353e8237@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Andrew
- Davis" <afd@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.8; Wed, 5 Nov
+ 2025 15:48:47 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.007; Wed, 5 Nov 2025
+ 15:48:47 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Sebin Francis <sebin.francis@ti.com>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, "Tony
- Lindgren" <tony@atomide.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	<linux-gpio@vger.kernel.org>, Bryan Brattlof <bb@ti.com>, Dhruva Gole
-	<d-gole@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=30096; i=bb@ti.com;
- h=from:subject:message-id; bh=XdzSspuPw9vVmPnBN2ufG7WchGTRk/evCM90SFWosTo=;
- b=owNCWmg5MUFZJlNZrjRevAAAYf///v/503//i3j8lcyjtOunvw//+f3ff/fjx//bmvje6d8wA
- RsZpA0NAA9QaAA0A0DQBiA0aZAwjIyMmg0AAA0DTTCBoDI09TEDTJo9I9JtMkOTQGhoaZAGgDJo
- DT1ADIAB+qMhhAPSPUDQAyBiekAMg9Q0aG1MgYmgxANAzVD1AZA0aNNAGjE00BpoyGgaaMI000A
- yABhMTQwTIABoAxGmQZAGmgGg0DDNRBpVCYIcWIJYwqgMzULqQMPGiQrMJp1ATWNdJoH3gAkeVJ
- +ioSCKYVyLV9oFxI4j+QjMVhMYBTIpaEqXytjDJmi+t7YVhFzZSiCxHEeIjAplxGi5U9DtCyVyw
- 7lpt2DPpGtqBkn1xVTeSzhDnweCmk6E6PMpvDBFIHezzLTvAICWcvLJBIP9uv3ExAMWcD2o0qNz
- VyjnWaI+/9tb1slYqfmFgehcvh1vpYnNKn+g+FRcu3FsGSelKr7pcRi59NrDpATey6ddkayYzhW
- oB8WjufUUeD/N1AHhyPrRO3+kEJHCdwoPx5trIALVDV7jjrxZERsF39RRrqJy4onyK7uoULj7SX
- PFnnM8X/D4YzJJ85GKnAMmHBeA+AcTH1/Cuda1Y4J8e1uU2CpglL+8+nFOd2jtem85Xm/lpMg/A
- MNIATAz24/xdyRThQkK40XrwA==
-X-Developer-Key: i=bb@ti.com; a=openpgp;
- fpr=D3D177E40A38DF4D1853FEEF41B90D5D71D56CE0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00006003:EE_|DS4PPFAEF42CAE1:EE_
-X-MS-Office365-Filtering-Correlation-Id: db4d605f-5308-478f-4ade-08de1c828c36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|34020700016|7416014|376014|82310400026|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UzlMUTdiUzlvdk5tVlQvUk45QythUE1uNXpVbFA3UlhqaERseUY4aWM3M2Fx?=
- =?utf-8?B?ZVdscmNDQVZYc2J5RHB6MTN6eW1iNEhIQm4wR0J5Q2dYM0VNazJ1UnBzR29r?=
- =?utf-8?B?YzdrNWg3bncybm1ad1dvS2Z4eFVnK2dEd25JUVNiN2ExWFZVcHNoOWJ6SW4y?=
- =?utf-8?B?WUVEZCtqY2ZSNC93MzJRSmNERlBpbFZqeW4wRWs1aEpFSmlZTHNNOHdpQ1pT?=
- =?utf-8?B?RUlHcm00YldBQ3daalI0YStiV3J2NmFrbnA3Z0hmL2g4V2twUHdTOUhhdTBj?=
- =?utf-8?B?OWY4akM3TXg1RnFKOUxRQ3d3bzV5amdzcjlVREZKRWNsVVNlSG9VL2hGVlBY?=
- =?utf-8?B?cmZCeTM3QnAyT2d3cjFlc0s1ajhmU1MzYXlLWk1lWDd2MjVOVmlnU05ldGFB?=
- =?utf-8?B?eWdpOHJPOVo3cFFrMnBzdW9hU2VaS3NoN0poOTduTnlNK1RtY092RmEyZ0pR?=
- =?utf-8?B?MVhoc2FYTllzY2ppOVJDSVN5b3pVNFMzd1l3RkV1ellyakZsQlY3V1VwU0lY?=
- =?utf-8?B?S3JUWGN2dzQ3S0xnQ2x4Mm9GYUNKL3BVUnBFTEZqSEdsKzNIKzJvaGh2dGkz?=
- =?utf-8?B?ZGVTSlZZeHZPZE1TUEpvN0FSUk5EdmM3R0pGblI5aVE5Q2YzcU5EMUx1ckgr?=
- =?utf-8?B?S3AvMlNGcHZ5SENOYlliZGM4bHBGbmd0REgrdW40QXlzVnhkWG04N1BXZm8z?=
- =?utf-8?B?WXcrVklZM3lRK2hJTDIzWm9BOENMY1IvVTh3MFJBMTVMZmRuOVVKblgvK1Vt?=
- =?utf-8?B?Z2MreWJaTUJZY0pZTkhqNmlWdDJWVEwxQUptckFKaFQ4bXVYdkNGNnhiOTd4?=
- =?utf-8?B?SndMNlNEZVFzdWU3VmZ3NWVON2tSSDg0b1ppMDFSSWtVSnlxZ0xXTmdwOFM5?=
- =?utf-8?B?cVNvMWxGcWpQOVBrcytoaDhjYXhpTkJyWFhoTEVqckkvV2lobGU0UFhibXNM?=
- =?utf-8?B?bU5rS2ozSHJZeFNveWlVWm5zZmoxUTBISHcxWkI1USsvbGlKejk0RDNscVdE?=
- =?utf-8?B?Ly9pVnVVWXNFSzBVMzVlVzNubTcvWExEWjJvbTdyQTZIYThRQkl5UGlWTE9n?=
- =?utf-8?B?RVZlYXhyUVNEZk1QdzVWSm5LOGNEd1BiMmpmSWxaYWtsa3NobTY0NGRXL2Vm?=
- =?utf-8?B?bnFZaTJvc29ldzVDMmlPYmcvOVFJMVIzRVlGcnF3UFZhSWx4NDFSTWRQVmFU?=
- =?utf-8?B?OHI5V1JOeCs1TGV1N0l2aXZPWHh3RlhDN0FSMW1qK0swVmtjYjRGOXBWcEV3?=
- =?utf-8?B?U2F6WHpRd2xrMW10Y0VEa3dSREY0bFJwOGdlSjJvbjdkNWw1VlllQlVvU3JV?=
- =?utf-8?B?UnN2ZGh4V1NlSEtpOTM1SkptSUZIZ2hpL1RFRStocy8rVllpZXVvaTc5Tmtu?=
- =?utf-8?B?bThCb3kwRjZkbnd0QWUxY2tuRVNxa21xS2JpODNxUHdIUVg2ZUlhRmpYY25p?=
- =?utf-8?B?bzlpUTZiemFYSUt5Rks5NjNyVzdjUUx3WDg1MWJlQjI3dTI1bEFWdHJNQ0Zr?=
- =?utf-8?B?dnRhVTFuMVNFVkI2RlVqY213OXllblRhclR0MUxKMzk0a0pDUWs5NUhPa1F3?=
- =?utf-8?B?OWFsMCt4TW51TjJHVnY5OEd6YnFuc0l5SkFxYXlFTDQxYkRtejYyVXhWeWJq?=
- =?utf-8?B?MEFraGFGbTE1Wm1XQ2c5QWpUL2RxYTRjdUxKTzArdVBDeWwyMG1zOHZ2Uk9P?=
- =?utf-8?B?SHVFSG9CejdkMXJrV0dZYjFsc3pjR2FDeVdaaENpR0o3UVFkVkMrcktua1Vo?=
- =?utf-8?B?OG1EVWE5VkVtMEoyMWRKdU9QYkVDOVJqalArZmlDMktWc2xYZWZXVGEyWGhY?=
- =?utf-8?B?N2RFUnRkRmRERGZnNEZmU1ZabXhrdGpUWnUvazh1WFVJMFBuVHdHa25QK2cy?=
- =?utf-8?B?cjhvUmt5U2UzZzRPVGxkdnZzWVpITVZoVzhMZFMrR3lrVmNEV0NRdGcvc0RZ?=
- =?utf-8?B?R25ZVXdNMktrQWo5eEJFUzg1U0hGaHh4ZFVBb3ZJQXlheWJlNFhISEhJZmJh?=
- =?utf-8?B?UTFIZTA4MTV6Q1BWZmEzZlY1d2pYWXYwbHVGakZtVW9wa0o3eU55TytHV0Rm?=
- =?utf-8?Q?HsQa3X?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(34020700016)(7416014)(376014)(82310400026)(36860700013)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 15:46:55.5703
+	<conor+dt@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi
+	<cristian.marussi@arm.com>, Brian Masney <bmasney@redhat.com>, Vignesh R
+	<vigneshr@ti.com>
+CC: Dan Carpenter <dan.carpenter@linaro.org>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+Thread-Topic: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+Thread-Index: AQHcOM+l7sFcrdl8hEKQrktlH0f/Y7TinB8AgAHIe4A=
+Date: Wed, 5 Nov 2025 15:48:47 +0000
+Message-ID: <PAXPR04MB8459AE5010282F9A6DB4456988C5A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com>
+ <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
+ <6de227bc-af06-491a-97f2-800b7523ea42@ti.com>
+In-Reply-To: <6de227bc-af06-491a-97f2-800b7523ea42@ti.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM8PR04MB7395:EE_
+x-ms-office365-filtering-correlation-id: 11a27753-024f-44d2-22be-08de1c82cead
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|921020|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?Nm4yWGlneE5DWlJTWVZ4dlJDM1BHKzhRRXpwbTBod3ljVlBFd2FuQlY3ZnMz?=
+ =?utf-8?B?bUJUTFNpNEdjUTlTTUdLaktkQnd0NlJLZUZveUxwcndkcVdFdEt0TGF2L21s?=
+ =?utf-8?B?NUhhc1ZVbEtRc3N1dDVlYmJjb056QW1NOE1oTkVzSnJGdklFYkF1anZHMkFv?=
+ =?utf-8?B?RlNJNldDZjdNdGFYby91clppZk4xVWVCaitNcGZYVlFGbnpHWW0rSEl3cEIr?=
+ =?utf-8?B?TjFSTXc0QkdlZXdiZmVjYUNZaldXSnZrMmZqOHEzcFNuWGltTUJRUldVWXlG?=
+ =?utf-8?B?cGdKQzVxV0R4MHYrTG1lN3RqajhmeFM3dENlem5RNVNCb2Y3V255RWdTcldX?=
+ =?utf-8?B?Q2k0eDMyd1BCNEVGOUlLWWU0TjgvYk50RHJ3RVgvaDV5M3l0TW1JT0dIVmcx?=
+ =?utf-8?B?MUJMbGd5ZVo0QzBxRmxhZGFlZmJvNFQwd0pTSWlYK25LQ1FmdmJFdXhpVlUy?=
+ =?utf-8?B?THNCVjJMVWpaY2U5L3c4bkF1RERtV1ZIOFFCVEFhUkNFNytFanU1eS9CL2ZK?=
+ =?utf-8?B?TUh6dTdQMnFxdnhZZWthYmllZXZwRGc1OEtrenRCU09XSnBIZ2p6UnZBamJG?=
+ =?utf-8?B?SFRrcjE2Z2Vld0Y5d1lJa2tqRCtyQlRvem1NSnRaSDZyM1cwUVJnT2pESm1F?=
+ =?utf-8?B?YjZqUWZHV21yUmhkUFBUMmptcUJwMmxGSU84d25Qd1ppK3dHcEIxTlZ4UzZK?=
+ =?utf-8?B?VnJIRXZTYWUvZ2twNXNNZG9jbUw3cXNVUFVVZDJFbVpVRXFOcjdrL29TWWxq?=
+ =?utf-8?B?MkZGdms3ZWgzbzZHY25rZm55d3Z3ejRPZlJmS3BwUzJHTjFHRzhwL0libGU3?=
+ =?utf-8?B?eEpYby9GK0JRWmxBWHE0bUdZL3VsTnFKN2N6bmduOXVDTlJjTWFudUlzczlS?=
+ =?utf-8?B?eWFyREFLNkdKYjlzWVZRcFhlbFpDREVlNHlydFU4QXFhKzNqakQ1c3ZkbzFu?=
+ =?utf-8?B?eWx6cW1lVUN6WlNwQ1VZdUU5VFI5bXR5Y0JMRmt4Y0Z4VG1hRjNleE53SDcv?=
+ =?utf-8?B?TjdQY05PcmQxUDhIQk1lSGdhMTlGbytZQXA4eFFIN1NtZTUzYTVaRmpkR2hn?=
+ =?utf-8?B?amlhT3hvNkgvMFJTMEYxa3ZEa3BtbUduQXNrNFVqUVpkd2c3d0RhRnZacWNC?=
+ =?utf-8?B?OGswTktkOEZpeFNJNUxTaVpRemllY2pLTzJkUmZ4dncxTzBhNTdpUEg3bUNt?=
+ =?utf-8?B?NTI3cHZkcXFvL1pwSXJKZXI3TGY4ejBZbnArblJZWWFuNVh2Z2o2VHRBRGt4?=
+ =?utf-8?B?bFlIRlZjcE9FVzJCeENEeDBtWU4zWWJvODFudU9sRndnbnBmWXl6V0RWdVgz?=
+ =?utf-8?B?MjlDeWgvYnlDbVg3Um9VSEpkZXVRd2hPOVZ1OUNxa1ZwcGswa0ptcEtMVGVI?=
+ =?utf-8?B?OTMwNUFOZUdlcnV0SWZRTXY0OHoyUlJlVG96UmFmRUtkMUtkR1BXUkNpVktz?=
+ =?utf-8?B?RjNVaHZEdUlja2U1VE51QUdQM0hkY21Lb1ZTcnBrRk01RUN3dGJwSWFKNXdw?=
+ =?utf-8?B?cmFZKzkvNlhaUkRPeWVlN1dhOUJpc0NmSFdDb1NCWForQlFqYklndUtGMG5w?=
+ =?utf-8?B?TE1lMGFPM201dGpSZE9RZ0NpWVhkSis0N3NEYWVEWEZ4L1NHZzh6RVAxMHdJ?=
+ =?utf-8?B?VmcyMXBiZVlZUUZ3QmZ5b2RPWEJyOW1BM3dhTy9FRSs1Y2ZSdzFhVTlNWGtO?=
+ =?utf-8?B?MXFjQzYrTVU4ZlJ2enM4Wm9hV0R2ak5kUXR1T1pzVmF5OGJobjAwbEw3ODNx?=
+ =?utf-8?B?QysyMkJ6Rng0a1hKUDUzdUtWWko5QUwvenZNajRlZXVsd2tycmZyRnlyS1V1?=
+ =?utf-8?B?OCtlb2NWK3BVS1h6UCszYlRHcVFxR0ZkTG9oSkxVdUwzeWV4cUlFbHMydVY1?=
+ =?utf-8?B?ZWFoTnl3QU5KZVFlV29pTFZ4ajFvdUJZd2Q1UFlqMlhLdjNJc1FXTkxrbnBQ?=
+ =?utf-8?B?MjJ6ZkxqcWxrUHcwbjBjTHlOV2dKWWoyS1JQUlR2OCs0M21aOHFJRVJjdWdl?=
+ =?utf-8?B?VVdBNE1QY1ljM1QvOVhVTENRNllWaS9jNjF4RlVRL0hteWVxeTN5UDRiVTRv?=
+ =?utf-8?B?SXFVaHh2eXRSSzlpZndoOVNNSDRjQjVod2UvZz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Yk9Yek1pNjR1Y0VuYzNGcUFkSmVYQXQ5OE1OR0s4Q0tiNUo4akxwb05lbThX?=
+ =?utf-8?B?cUNNZUNFL2xWUXhWWFhSazloYVZUaUFRbk1MM3lYZCtBZURGRFEyL0pmTkZB?=
+ =?utf-8?B?b1NRaXcrQU9RS0ovZVhiaGFqU3JoVHZvVFZFcWNQTXZjcTNxUTlzQWxFWUpj?=
+ =?utf-8?B?aVhLMkRvTWFCVWpsYm5pTWJKclJ2SmRLMVlmVXovV0NkVmhOeFYxbHdQL3Z2?=
+ =?utf-8?B?ME5HOU5YdloyZ0R4My9aVG5YeE5HbDlEWjJDTktPVy9lbU9tdDRnZkNXalZZ?=
+ =?utf-8?B?UE1sZUtkcXJCd1pmNFFZbzVqd1JNZ2JYeFUxQitTMjNOb25iTUlPQkJDUTZy?=
+ =?utf-8?B?TUxKZjNlNUx4bTRHWXUrYllnTVB5OW5OQVRYNXp4WUZQZENiWFpBRG5ycEE1?=
+ =?utf-8?B?anRxNldJVTZVMm1QeEZJcFdIY0g4bzA1QzN0ZElHWGdnc0g1UzFpcVJQNjh2?=
+ =?utf-8?B?Qks2Umw0SW5YWjdpQVV4TEpxM1dSNUtZbkhFQk96OVhKOUZsUGl2cHlSMjQz?=
+ =?utf-8?B?Tkg1V1lZYStuOTVkOGo5RXRYVDRadXRIbGYrUndRN01aTnozTkI4TzlWMjQw?=
+ =?utf-8?B?aGkrVUplSWFQTC92Ny9JTEhnd1YvaEdDbnRWQVdFK3dJakhndHRwZ0tBdWE3?=
+ =?utf-8?B?NDRVZkhxcVZ1TW92WWlWcjFlM000WDdsMU05MmtaYjN0LzhyS1BNMGpVdXd6?=
+ =?utf-8?B?NWpnVi9XZ2RoVUZ5QXRscjRIRFgrMUl4L0QrVTJNOWlGT21Oek1LRlN2SVJI?=
+ =?utf-8?B?cmZXT25oZURPbXpUMHJ5Vng3MFZmVEZPTkNoUitZRmwzV3Z3Mk5ya1k2aDBn?=
+ =?utf-8?B?VzN3ay91UjluTnhidmFReHd5cCtCMENOQVlLTWhrZTRmQ3RjZFFvSS9lUzAv?=
+ =?utf-8?B?V1F6M2VoR0h2TVBDb3hicFRxa2IyWC9FZ1VaQ1RaMUI0SXl2d2g2SEZmNWtw?=
+ =?utf-8?B?MWVqOW5aM2lURlJsNHpnU2V1QlBrN05ad2t0dTJCOGRqOFY3ZjVqL3ZxSmc5?=
+ =?utf-8?B?TExQY2E1NW52SlVkZ2pSOVcrTUl5QkFDUGNtME9YZEh6UUpkeWhtSXFodTlH?=
+ =?utf-8?B?VE1YZ3lQQ05NaEV3SnJYaUd1dVVqalhoMTRmWkNxODVxcEpuRWpoK3ArRXp4?=
+ =?utf-8?B?NW00SzNSRDExN3dzR2ZwQVNzNnZXNG1tRXIxbUJxb0JkK25VaUJKQUZPWGNK?=
+ =?utf-8?B?dFhFNkFsaUR4QjhlWkdwYlp6ZEpsUWtuSkptcVE3YkJYTnVDZWVoUTBldjd2?=
+ =?utf-8?B?RjVxbnBmKzZ1NEZXR1lEeEY0YUNmSHcwQThKTU9vY2dJYkJnK0V5bWh2dTRC?=
+ =?utf-8?B?Z3Z4ODhDclNYd25qSWhLcEJ5VXUwUDJIMFk1cERjZ05qSDdBSmFyK0lsZ2xH?=
+ =?utf-8?B?eVF2SjhuY1FjSlo3UVZsTkdHcWtaQTRKMjdBKzV4RDRTNUh5cmVxY2hoTzNj?=
+ =?utf-8?B?eXQwRlhxR0ZoR3E5UzdROHkwaGd2YUoydWZKbWZFR3E4WnF4MGd2ckZqcFlY?=
+ =?utf-8?B?UjRHaXdBT0dyK0hOWmdpL0daZDZWa0ZaeUFybWZoQWZJL3dxSUpPMnJjNnVZ?=
+ =?utf-8?B?eVBVUTluYTU4ZFlMcGVJSVBrZE1UYzhJd05JOERwcU1VcU1RbjdOL3R3bU11?=
+ =?utf-8?B?dmRQQnBhNkVIRm1HbzQyM0w5WEJvZit3OVlhMmVPdG5MdUE4UTkwdXlaOWx5?=
+ =?utf-8?B?bldvMkdRK0xoOEhGRmdvbWNRa2lhZUtZemtETGJEQUV3V3NjemRpNGtnWkZr?=
+ =?utf-8?B?UHpJVVE2TTdDNC9NNjJSeHJMdlZSNSt4S2cxOGlBVXZhOUdpQ1lFVUJNei9m?=
+ =?utf-8?B?Z0F0TWhjYkJqK0VWaXZIY3k3WnZ2Njl0eE9HMEx2VEplTElwUCtBd3VqUXpB?=
+ =?utf-8?B?blc1WndiRGt1OEd3WXVjQ05FUFUydWtyZVVkOFI3UC9vY2pHL3lTUVFXcVJ4?=
+ =?utf-8?B?bDFZWjQ2YnlEaEZ0L3ViRXNTQU9MNzlXUTA5cks2NmxpN1doY3Z1UjFVSlB2?=
+ =?utf-8?B?TjR6d3d3a0h4RE5kU0FNajg3SEFrSzBnbGgxa0Q1cjJ0dmgzd2JtenBqRXkx?=
+ =?utf-8?B?bHI3OWtXbVEzZUNqTmwyNWw3WUk5dlcvT3RDNFBzaTZnM0lCVGRvSE8zdS95?=
+ =?utf-8?Q?tefA=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11a27753-024f-44d2-22be-08de1c82cead
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Nov 2025 15:48:47.1747
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: db4d605f-5308-478f-4ade-08de1c828c36
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006003.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPFAEF42CAE1
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ThGZj91MIVynIYQmIoDr+O9xEb3HnvhNwbWTT+VbO8yRhckTCasD7peIgWhRnXzLeQ1qWRi+wFw1Cjw8VoFLOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7395
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_074704_773280_165755FE 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20251105_074854_698662_D5B63085 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,987 +191,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
-
-Add the initial infrastructure needed for the AM62L. ALl of which can be
-found in the Technical Reference Manual (TRM) located here:
-
-    https://www.ti.com/lit/pdf/sprujb4
-
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Signed-off-by: Bryan Brattlof <bb@ti.com>
----
-Changes in v8
- - Enabled &gpio0 and &gpio1 by default
-
-Changes in v7:
- - Removed dss{} node until binding doc can be updated
-
-Changes in v4:
- - Corrected Copyright year
- - Used 'ranges' property in the fss{} node
-
-Changes in v3:
- - Added more nodes now that the SCMI interface is ready
-
-Changes in v1:
- - switched to non-direct links to TRM updates are automatic
- - fixed white space indent issues with a few nodes
- - separated out device tree bindings
----
- arch/arm64/boot/dts/ti/k3-am62l-main.dtsi   | 580 ++++++++++++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi | 141 +++++++
- arch/arm64/boot/dts/ti/k3-am62l.dtsi        | 118 ++++++
- arch/arm64/boot/dts/ti/k3-am62l3.dtsi       |  67 ++++
- arch/arm64/boot/dts/ti/k3-pinctrl.h         |   2 +
- 5 files changed, 908 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..883beb76ba9c48c87e256b0d72e7f938239d0a4f
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-main.dtsi
-@@ -0,0 +1,580 @@
-+// SPDX-License-Identifier: GPL-2.0-only or MIT
-+/*
-+ * Device Tree file for the AM62L main domain peripherals
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-+ */
-+
-+&cbass_main {
-+	gic500: interrupt-controller@1800000 {
-+		compatible = "arm,gic-v3";
-+		reg = <0x00 0x01800000 0x00 0x10000>,	/* GICD */
-+		      <0x00 0x01840000 0x00 0xc0000>,	/* GICR */
-+		      <0x01 0x00000000 0x00 0x2000>,    /* GICC */
-+		      <0x01 0x00010000 0x00 0x1000>,    /* GICH */
-+		      <0x01 0x00020000 0x00 0x2000>;    /* GICV */
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		#interrupt-cells = <3>;
-+		interrupt-controller;
-+		/*
-+		 * vcpumntirq:
-+		 * virtual CPU interface maintenance interrupt
-+		 */
-+		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		gic_its: msi-controller@1820000 {
-+			compatible = "arm,gic-v3-its";
-+			reg = <0x00 0x01820000 0x00 0x10000>;
-+			socionext,synquacer-pre-its = <0x1000000 0x400000>;
-+			msi-controller;
-+			#msi-cells = <1>;
-+		};
-+	};
-+
-+	gpio0: gpio@600000 {
-+		compatible = "ti,am64-gpio", "ti,keystone-gpio";
-+		reg = <0x00 0x00600000 0x00 0x100>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 260 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 261 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 263 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 264 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 265 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 267 IRQ_TYPE_EDGE_RISING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		power-domains = <&scmi_pds 34>;
-+		clocks = <&scmi_clk 140>;
-+		clock-names = "gpio";
-+		ti,ngpio = <126>;
-+		ti,davinci-gpio-unbanked = <0>;
-+	};
-+
-+	gpio2: gpio@610000 {
-+		compatible = "ti,am64-gpio", "ti,keystone-gpio";
-+		reg = <0x00 0x00610000 0x00 0x100>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 281 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 282 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 283 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 284 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 285 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 286 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 287 IRQ_TYPE_EDGE_RISING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		power-domains = <&scmi_pds 35>;
-+		clocks = <&scmi_clk 141>;
-+		clock-names = "gpio";
-+		ti,ngpio = <79>;
-+		ti,davinci-gpio-unbanked = <0>;
-+	};
-+
-+	timer0: timer@2400000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2400000 0x00 0x400>;
-+		interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 58>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 15>;
-+		ti,timer-pwm;
-+	};
-+
-+	timer1: timer@2410000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2410000 0x00 0x400>;
-+		interrupts = <GIC_SPI 171 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 63>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 16>;
-+		ti,timer-pwm;
-+	};
-+
-+	timer2: timer@2420000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2420000 0x00 0x400>;
-+		interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 77>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 17>;
-+		ti,timer-pwm;
-+	};
-+
-+	timer3: timer@2430000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2430000 0x00 0x400>;
-+		interrupts = <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 82>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 18>;
-+		ti,timer-pwm;
-+	};
-+
-+	uart0: serial@2800000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02800000 0x00 0x100>;
-+		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 89>;
-+		clocks = <&scmi_clk 358>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart1: serial@2810000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02810000 0x00 0x100>;
-+		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 77>;
-+		clocks = <&scmi_clk 312>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart2: serial@2820000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02820000 0x00 0x100>;
-+		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 78>;
-+		clocks = <&scmi_clk 314>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart3: serial@2830000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02830000 0x00 0x100>;
-+		interrupts = <GIC_SPI 99 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 79>;
-+		clocks = <&scmi_clk 316>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart4: serial@2840000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02840000 0x00 0x100>;
-+		interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 80>;
-+		clocks = <&scmi_clk 318>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart5: serial@2850000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02850000 0x00 0x100>;
-+		interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 81>;
-+		clocks = <&scmi_clk 320>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	uart6: serial@2860000 {
-+		compatible = "ti,am64-uart", "ti,am654-uart";
-+		reg = <0x00 0x02860000 0x00 0x100>;
-+		interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 82>;
-+		clocks = <&scmi_clk 322>;
-+		clock-names = "fclk";
-+		status = "disabled";
-+	};
-+
-+	conf: bus@9000000 {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x00 0x00 0x09000000 0x380000>;
-+
-+		phy_gmii_sel: phy@1be000 {
-+			compatible = "ti,am654-phy-gmii-sel";
-+			reg = <0x1be000 0x8>;
-+			#phy-cells = <1>;
-+		};
-+
-+		epwm_tbclk: clock-controller@1e9100 {
-+			compatible = "ti,am62-epwm-tbclk";
-+			reg = <0x1e9100 0x4>;
-+			#clock-cells = <1>;
-+		};
-+	};
-+
-+	usbss0: dwc3-usb@f900000 {
-+		compatible = "ti,am62-usb";
-+		reg = <0x00 0x0f900000 0x00 0x800>,
-+		      <0x00 0x0f908000 0x00 0x400>;
-+		clocks = <&scmi_clk 331>;
-+		clock-names = "ref";
-+		ti,syscon-phy-pll-refclk = <&usb_phy_ctrl 0x0>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		power-domains = <&scmi_pds 95>;
-+		ranges;
-+		status = "disabled";
-+
-+		usb0: usb@31000000 {
-+			compatible = "snps,dwc3";
-+			reg = <0x00 0x31000000 0x00 0x50000>;
-+			interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>, /* irq.0 */
-+				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>; /* irq.0 */
-+			interrupt-names = "host", "peripheral";
-+			maximum-speed = "high-speed";
-+			dr_mode = "otg";
-+			snps,usb2-gadget-lpm-disable;
-+			snps,usb2-lpm-disable;
-+		};
-+	};
-+
-+	usbss1: dwc3-usb@f910000 {
-+		compatible = "ti,am62-usb";
-+		reg = <0x00 0x0f910000 0x00 0x800>,
-+		      <0x00 0x0f918000 0x00 0x400>;
-+		clocks = <&scmi_clk 338>;
-+		clock-names = "ref";
-+		ti,syscon-phy-pll-refclk = <&usb_phy_ctrl 0x4>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		power-domains = <&scmi_pds 96>;
-+		ranges;
-+		status = "disabled";
-+
-+		usb1: usb@31100000 {
-+			compatible = "snps,dwc3";
-+			reg = <0x00 0x31100000 0x00 0x50000>;
-+			interrupts = <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>, /* irq.0 */
-+			<GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>; /* irq.0 */
-+			interrupt-names = "host", "peripheral";
-+			maximum-speed = "high-speed";
-+			dr_mode = "otg";
-+			snps,usb2-gadget-lpm-disable;
-+			snps,usb2-lpm-disable;
-+		};
-+	};
-+
-+	sdhci1: mmc@fa00000 {
-+		compatible = "ti,j721e-sdhci-4bit";
-+		reg = <0x00 0x0fa00000 0x00 0x1000>,
-+		      <0x00 0x0fa08000 0x00 0x400>;
-+		interrupts = <GIC_SPI 237 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 26>;
-+		clocks = <&scmi_clk 106>, <&scmi_clk 109>;
-+		clock-names = "clk_ahb", "clk_xin";
-+		assigned-clocks = <&scmi_clk 109>;
-+		bus-width = <4>;
-+		ti,clkbuf-sel = <0x7>;
-+		ti,otap-del-sel-legacy = <0x0>;
-+		ti,itap-del-sel-legacy = <0x0>;
-+		status = "disabled";
-+	};
-+
-+	sdhci0: mmc@fa10000 {
-+		compatible = "ti,am62-sdhci";
-+		reg = <0x00 0xfa10000 0x00 0x1000>,
-+		      <0x00 0xfa18000 0x00 0x400>;
-+		interrupts = <GIC_SPI 239 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 28>;
-+		clocks = <&scmi_clk 122>, <&scmi_clk 125>;
-+		clock-names = "clk_ahb", "clk_xin";
-+		assigned-clocks = <&scmi_clk 125>;
-+		bus-width = <8>;
-+		ti,clkbuf-sel = <0x7>;
-+		ti,otap-del-sel-legacy = <0x0>;
-+		ti,otap-del-sel-mmc-hs = <0x0>;
-+		ti,otap-del-sel-hs200 = <0x6>;
-+		status = "disabled";
-+	};
-+
-+	sdhci2: mmc@fa20000 {
-+		compatible = "ti,am62-sdhci";
-+		reg = <0x00 0x0fa20000 0x00 0x1000>,
-+		      <0x00 0x0fa28000 0x00 0x400>;
-+		interrupts = <GIC_SPI 238 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 27>;
-+		clocks = <&scmi_clk 114>, <&scmi_clk 117>;
-+		clock-names = "clk_ahb", "clk_xin";
-+		assigned-clocks = <&scmi_clk 117>;
-+		bus-width = <4>;
-+		ti,clkbuf-sel = <0x7>;
-+		ti,otap-del-sel-legacy = <0x0>;
-+		ti,itap-del-sel-legacy = <0x0>;
-+		status = "disabled";
-+	};
-+
-+	i2c0: i2c@20000000 {
-+		compatible = "ti,am64-i2c", "ti,omap4-i2c";
-+		reg = <0x00 0x20000000 0x00 0x100>;
-+		interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 53>;
-+		clocks = <&scmi_clk 246>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	i2c1: i2c@20010000 {
-+		compatible = "ti,am64-i2c", "ti,omap4-i2c";
-+		reg = <0x00 0x20010000 0x00 0x100>;
-+		interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 54>;
-+		clocks = <&scmi_clk 250>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	i2c2: i2c@20020000 {
-+		compatible = "ti,am64-i2c", "ti,omap4-i2c";
-+		reg = <0x00 0x20020000 0x00 0x100>;
-+		interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 55>;
-+		clocks = <&scmi_clk 254>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	i2c3: i2c@20030000 {
-+		compatible = "ti,am64-i2c", "ti,omap4-i2c";
-+		reg = <0x00 0x20030000 0x00 0x100>;
-+		interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 56>;
-+		clocks = <&scmi_clk 258>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	mcan0: can@20701000 {
-+		compatible = "bosch,m_can";
-+		reg = <0x00 0x20701000 0x00 0x200>,
-+		      <0x00 0x20708000 0x00 0x8000>;
-+		reg-names = "m_can", "message_ram";
-+		power-domains = <&scmi_pds 47>;
-+		clocks = <&scmi_clk 179>, <&scmi_clk 178>;
-+		clock-names = "hclk", "cclk";
-+		interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "int0", "int1";
-+		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
-+		status = "disabled";
-+	};
-+
-+	mcan1: can@20711000 {
-+		compatible = "bosch,m_can";
-+		reg = <0x00 0x20711000 0x00 0x200>,
-+		      <0x00 0x20718000 0x00 0x8000>;
-+		reg-names = "m_can", "message_ram";
-+		power-domains = <&scmi_pds 48>;
-+		clocks = <&scmi_clk 185>, <&scmi_clk 184>;
-+		clock-names = "hclk", "cclk";
-+		interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "int0", "int1";
-+		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
-+		status = "disabled";
-+	};
-+
-+	mcan2: can@20721000 {
-+		compatible = "bosch,m_can";
-+		reg = <0x00 0x20721000 0x00 0x200>,
-+		      <0x00 0x20728000 0x00 0x8000>;
-+		reg-names = "m_can", "message_ram";
-+		power-domains = <&scmi_pds 49>;
-+		clocks = <&scmi_clk 191>, <&scmi_clk 190>;
-+		clock-names = "hclk", "cclk";
-+		interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "int0", "int1";
-+		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
-+		status = "disabled";
-+	};
-+
-+	spi0: spi@20100000 {
-+		compatible = "ti,am654-mcspi", "ti,omap4-mcspi";
-+		reg = <0x00 0x20100000 0x00 0x400>;
-+		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 72>;
-+		clocks = <&scmi_clk 299>;
-+		status = "disabled";
-+	};
-+
-+	spi1: spi@20110000 {
-+		compatible = "ti,am654-mcspi","ti,omap4-mcspi";
-+		reg = <0x00 0x20110000 0x00 0x400>;
-+		interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 73>;
-+		clocks = <&scmi_clk 302>;
-+		status = "disabled";
-+	};
-+
-+	spi2: spi@20120000 {
-+		compatible = "ti,am654-mcspi","ti,omap4-mcspi";
-+		reg = <0x00 0x20120000 0x00 0x400>;
-+		interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 74>;
-+		clocks = <&scmi_clk 305>;
-+		status = "disabled";
-+	};
-+
-+	spi3: spi@20130000 {
-+		compatible = "ti,am654-mcspi","ti,omap4-mcspi";
-+		reg = <0x00 0x20130000 0x00 0x400>;
-+		interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 75>;
-+		clocks = <&scmi_clk 308>;
-+		status = "disabled";
-+	};
-+
-+	epwm0: pwm@23000000 {
-+		compatible = "ti,am64-epwm", "ti,am3352-ehrpwm";
-+		reg = <0x00 0x23000000 0x00 0x100>;
-+		power-domains = <&scmi_pds 40>;
-+		clocks = <&epwm_tbclk 0>, <&scmi_clk 164>;
-+		clock-names = "tbclk", "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	epwm1: pwm@23010000 {
-+		compatible = "ti,am64-epwm", "ti,am3352-ehrpwm";
-+		reg = <0x00 0x23010000 0x00 0x100>;
-+		power-domains = <&scmi_pds 41>;
-+		clocks = <&epwm_tbclk 1>, <&scmi_clk 165>;
-+		clock-names = "tbclk", "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	epwm2: pwm@23020000 {
-+		compatible = "ti,am64-epwm", "ti,am3352-ehrpwm";
-+		reg = <0x00 0x23020000 0x00 0x100>;
-+		power-domains = <&scmi_pds 42>;
-+		clocks = <&epwm_tbclk 2>, <&scmi_clk 166>;
-+		clock-names = "tbclk", "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	ecap0: pwm@23100000 {
-+		compatible = "ti,am3352-ecap";
-+		reg = <0x00 0x23100000 0x00 0x100>;
-+		power-domains = <&scmi_pds 23>;
-+		clocks = <&scmi_clk 99>;
-+		clock-names = "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	ecap1: pwm@23110000 {
-+		compatible = "ti,am3352-ecap";
-+		reg = <0x00 0x23110000 0x00 0x100>;
-+		power-domains = <&scmi_pds 24>;
-+		clocks = <&scmi_clk 100>;
-+		clock-names = "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	ecap2: pwm@23120000 {
-+		compatible = "ti,am3352-ecap";
-+		reg = <0x00 0x23120000 0x00 0x100>;
-+		power-domains = <&scmi_pds 25>;
-+		clocks = <&scmi_clk 101>;
-+		clock-names = "fck";
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
-+	eqep0: counter@23200000 {
-+		compatible = "ti,am62-eqep";
-+		reg = <0x00 0x23200000 0x00 0x100>;
-+		power-domains = <&scmi_pds 29>;
-+		clocks = <&scmi_clk 127>;
-+		interrupts = <GIC_SPI 162 IRQ_TYPE_EDGE_RISING>;
-+		status = "disabled";
-+	};
-+
-+	eqep1: counter@23210000 {
-+		compatible = "ti,am62-eqep";
-+		reg = <0x00 0x23210000 0x00 0x100>;
-+		power-domains = <&scmi_pds 30>;
-+		clocks = <&scmi_clk 128>;
-+		interrupts = <GIC_SPI 163 IRQ_TYPE_EDGE_RISING>;
-+		status = "disabled";
-+	};
-+
-+	eqep2: counter@23220000 {
-+		compatible = "ti,am62-eqep";
-+		reg = <0x00 0x23220000 0x00 0x100>;
-+		power-domains = <&scmi_pds 31>;
-+		clocks = <&scmi_clk 129>;
-+		interrupts = <GIC_SPI 164 IRQ_TYPE_EDGE_RISING>;
-+		status = "disabled";
-+	};
-+
-+	elm0: ecc@25010000 {
-+		compatible = "ti,am64-elm";
-+		reg = <0x00 0x25010000 0x00 0x2000>;
-+		interrupts = <GIC_SPI 243 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&scmi_pds 25>;
-+		clocks = <&scmi_clk 102>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	gpmc0: memory-controller@3b000000 {
-+		compatible = "ti,am64-gpmc";
-+		power-domains = <&scmi_pds 37>;
-+		clocks = <&scmi_clk 149>;
-+		clock-names = "fck";
-+		reg = <0x00 0x3b000000 0x00 0x400>,
-+		      <0x00 0x50000000 0x00 0x8000000>;
-+		reg-names = "cfg", "data";
-+		interrupts = <GIC_SPI 244 IRQ_TYPE_LEVEL_HIGH>;
-+		gpmc,num-cs = <3>;
-+		gpmc,num-waitpins = <2>;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		status = "disabled";
-+	};
-+
-+	oc_sram: sram@70800000 {
-+		compatible = "mmio-sram";
-+		reg = <0x00 0x70800000 0x00 0x10000>;
-+		ranges = <0x00 0x00 0x70800000 0x10000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		scmi_shmem: sram@0 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x00 0x100>;
-+			bootph-all;
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..494b299a0e651da992966f09db189302d9ca6ab2
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-@@ -0,0 +1,141 @@
-+// SPDX-License-Identifier: GPL-2.0-only or MIT
-+/*
-+ * Device Tree file for the AM62L wakeup domain peripherals
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-+ */
-+
-+#include <dt-bindings/bus/ti-sysc.h>
-+
-+&cbass_wakeup {
-+	vtm0: temperature-sensor@b00000 {
-+		compatible = "ti,j7200-vtm";
-+		reg = <0x00 0xb00000 0x00 0x400>,
-+		      <0x00 0xb01000 0x00 0x400>;
-+		power-domains = <&scmi_pds 46>;
-+		#thermal-sensor-cells = <1>;
-+	};
-+
-+	pmx0: pinctrl@4084000 {
-+		compatible = "ti,am62l-padconf", "pinctrl-single";
-+		reg = <0x00 0x4084000 0x00 0x24c>;
-+		pinctrl-single,register-width = <32>;
-+		pinctrl-single,function-mask = <0xffffffff>;
-+		#pinctrl-cells = <1>;
-+	};
-+
-+	wkup_gpio0: gpio@4201000 {
-+		compatible = "ti,am64-gpio", "ti,keystone-gpio";
-+		reg = <0x00 0x04201000 0x00 0x100>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gic500>;
-+		interrupts = <GIC_SPI 276 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 704 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 705 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 706 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 707 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 708 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 709 IRQ_TYPE_EDGE_RISING>,
-+			     <GIC_SPI 710 IRQ_TYPE_EDGE_RISING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		power-domains = <&scmi_pds 36>;
-+		clocks = <&scmi_clk 146>;
-+		clock-names = "gpio";
-+		ti,ngpio = <7>;
-+		ti,davinci-gpio-unbanked = <0>;
-+		status = "disabled";
-+	};
-+
-+	wkup_timer0: timer@2b100000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2b100000 0x00 0x400>;
-+		interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 93>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 19>;
-+		ti,timer-pwm;
-+	};
-+
-+	wkup_timer1: timer@2b110000 {
-+		compatible = "ti,am654-timer";
-+		reg = <0x00 0x2b110000 0x00 0x400>;
-+		interrupts = <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&scmi_clk 98>;
-+		clock-names = "fck";
-+		power-domains = <&scmi_pds 20>;
-+		ti,timer-pwm;
-+	};
-+
-+	wkup_i2c0: i2c@2b200000 {
-+		compatible = "ti,am64-i2c", "ti,omap4-i2c";
-+		reg = <0x00 0x2b200000 0x00 0x100>;
-+		interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		power-domains = <&scmi_pds 57>;
-+		clocks = <&scmi_clk 262>;
-+		clock-names = "fck";
-+		status = "disabled";
-+	};
-+
-+	target-module@2b300050 {
-+		compatible = "ti,sysc-omap2", "ti,sysc";
-+		reg = <0x00 0x2b300050 0x00 0x4>,
-+		      <0x00 0x2b300054 0x00 0x4>,
-+		      <0x00 0x2b300058 0x00 0x4>;
-+		reg-names = "rev", "sysc", "syss";
-+		ranges = <0x00 0x00 0x2b300000 0x100000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		power-domains = <&scmi_pds 83>;
-+		clocks = <&scmi_clk 324>;
-+		clock-names = "fck";
-+		ti,sysc-mask = <(SYSC_OMAP2_ENAWAKEUP |
-+				 SYSC_OMAP2_SOFTRESET |
-+				 SYSC_OMAP2_AUTOIDLE)>;
-+		ti,sysc-sidle = <SYSC_IDLE_FORCE>,
-+				<SYSC_IDLE_NO>,
-+				<SYSC_IDLE_SMART>,
-+				<SYSC_IDLE_SMART_WKUP>;
-+		ti,syss-mask = <1>;
-+		ti,no-reset-on-init;
-+		status = "disabled";
-+
-+		wkup_uart0: serial@0 {
-+			compatible = "ti,am64-uart", "ti,am654-uart";
-+			reg = <0x00 0x100>;
-+			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&scmi_clk 324>;
-+			assigned-clocks = <&scmi_clk 324>;
-+			clock-names = "fclk";
-+			status = "disabled";
-+		};
-+	};
-+
-+	wkup_conf: bus@43000000 {
-+		compatible = "simple-bus";
-+		ranges = <0x00 0x00 0x43000000 0x80000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		chipid: chipid@14 {
-+			compatible = "ti,am654-chipid";
-+			reg = <0x14 0x4>;
-+			bootph-all;
-+		};
-+
-+		cpsw_mac_syscon: ethernet-mac-syscon@2000 {
-+			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
-+			reg = <0x2000 0x8>;
-+		};
-+
-+		usb_phy_ctrl: syscon@45000 {
-+			compatible = "ti,am62-usb-phy-ctrl", "syscon";
-+			reg = <0x45000 0x8>;
-+			bootph-all;
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l.dtsi b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..25a5f15a8960e755cb151cb99af90d51861ab91b
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
-@@ -0,0 +1,118 @@
-+// SPDX-License-Identifier: GPL-2.0-only or MIT
-+/*
-+ * Device Tree Source for AM62L SoC Family
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+#include "k3-pinctrl.h"
-+
-+/ {
-+	model = "Texas Instruments K3 AM62L3 SoC";
-+	compatible = "ti,am62l3";
-+	interrupt-parent = <&gic500>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	firmware {
-+		optee {
-+			compatible = "linaro,optee-tz";
-+			method = "smc";
-+		};
-+
-+		psci: psci {
-+			compatible = "arm,psci-1.0";
-+			method = "smc";
-+		};
-+
-+		scmi: scmi {
-+			compatible = "arm,scmi-smc";
-+			arm,smc-id = <0x82004000>;
-+			shmem = <&scmi_shmem>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			scmi_clk: protocol@14 {
-+				reg = <0x14>;
-+				#clock-cells = <1>;
-+				bootph-all;
-+			};
-+
-+			scmi_pds: protocol@11 {
-+				reg = <0x11>;
-+				#power-domain-cells = <1>;
-+				bootph-all;
-+			};
-+		};
-+	};
-+
-+	a53_timer0: timer-cl0-cpu0 {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>, /* cntpsirq */
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>, /* cntpnsirq */
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>, /* cntvirq */
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>; /* cnthpirq */
-+	};
-+
-+	pmu: pmu {
-+		compatible = "arm,cortex-a53-pmu";
-+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	cbass_main: bus@f0000 {
-+		compatible = "simple-bus";
-+		ranges = <0x00 0x00600000 0x00 0x00600000 0x00 0x00010100>, /* GPIO */
-+			 <0x00 0x01000000 0x00 0x01000000 0x00 0x01b28400>, /* First Peripheral Window */
-+			 <0x00 0x00a40000 0x00 0x00a40000 0x00 0x00000400>, /* Timesync Router */
-+			 <0x00 0x08000000 0x00 0x08000000 0x00 0x00200000>, /* CPSW */
-+			 <0x00 0x09000000 0x00 0x09000000 0x00 0x00400000>, /* CTRL MMRs */
-+			 <0x00 0x0e000000 0x00 0x0e000000 0x00 0x1a001400>, /* Second Peripheral Window */
-+			 <0x00 0x301c0000 0x00 0x301c0000 0x00 0x00001000>, /* DPHY-TX */
-+			 <0x00 0x30200000 0x00 0x30200000 0x00 0x0000b000>, /* DSS */
-+			 <0x00 0x30270000 0x00 0x30270000 0x00 0x00390000>, /* DSI Wrapper */
-+			 <0x00 0x30500000 0x00 0x30500000 0x00 0x00100000>, /* DSI Config */
-+			 <0x00 0x31000000 0x00 0x31000000 0x00 0x00050000>, /* USB0 DWC3 Core Window */
-+			 <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, /* USB1 DWC3 Core Window */
-+			 <0x00 0x3b000000 0x00 0x3b000000 0x00 0x00000400>, /* GPMC0 */
-+			 <0x00 0x45810000 0x00 0x45810000 0x00 0x03170000>, /* DMSS */
-+			 <0x00 0x50000000 0x00 0x50000000 0x00 0x08000000>, /* GPMC DATA */
-+			 <0x00 0x60000000 0x00 0x60000000 0x00 0x08000000>, /* FSS DAT1 */
-+			 <0x00 0x70800000 0x00 0x70800000 0x00 0x00018000>, /* OCSRAM */
-+			 <0x01 0x00000000 0x01 0x00000000 0x00 0x00310000>, /* A53 PERIPHBASE */
-+			 <0x04 0x00000000 0x04 0x00000000 0x01 0x00000000>, /* FSS DAT0 */
-+			 <0x05 0x00000000 0x05 0x00000000 0x01 0x00000000>, /* FSS DAT3 */
-+
-+			 /* Wakeup Domain Range */
-+			 <0x00 0x00a80000 0x00 0x00a80000 0x00 0x00034000>, /* GTC */
-+			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
-+			 <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
-+			 <0x00 0x04201000 0x00 0x04201000 0x00 0x00000100>, /* GPIO */
-+			 <0x00 0x2b100000 0x00 0x2b100000 0x00 0x00100100>, /* Wakeup Peripheral Window */
-+			 <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
-+			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		cbass_wakeup:  bus@43000000 {
-+			compatible = "simple-bus";
-+			ranges = <0x00 0x00a80000 0x00 0x00a80000 0x00 0x00034000>, /* GTC */
-+				 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
-+				 <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
-+				 <0x00 0x04201000 0x00 0x04201000 0x00 0x00000100>, /* GPIO */
-+				 <0x00 0x2b100000 0x00 0x2b100000 0x00 0x00100100>, /* Wakeup Peripheral Window */
-+				 <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
-+				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+		};
-+	};
-+};
-+
-+/* Now include peripherals for each bus segment */
-+#include "k3-am62l-main.dtsi"
-+#include "k3-am62l-wakeup.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..da220b85151227c63f59b2b8ec48ae2ebb37e7bf
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0-only or MIT
-+/*
-+ * Device Tree file for the AM62L3 SoC family (Dual Core A53)
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Technical Reference Manual: https://www.ti.com/lit/pdf/sprujb4
-+ */
-+
-+/dts-v1/;
-+
-+#include "k3-am62l.dtsi"
-+
-+/ {
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu-map {
-+			cluster0: cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+			};
-+		};
-+
-+		cpu0: cpu@0 {
-+			compatible = "arm,cortex-a53";
-+			reg = <0x000>;
-+			device_type = "cpu";
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "arm,cortex-a53";
-+			reg = <0x001>;
-+			device_type = "cpu";
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+		};
-+	};
-+
-+	l2_0: l2-cache0 {
-+		compatible = "cache";
-+		cache-unified;
-+		cache-level = <2>;
-+		cache-size = <0x40000>;
-+		cache-line-size = <64>;
-+		cache-sets = <256>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index e46f7bf527019f46fbd8bcf037467af8a55b373e..dc8e03ae74c897fc95d1fe8f0dfb42ae9c00df12 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -123,6 +123,8 @@
- #define AM62PX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
- #define AM62PX_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
- 
-+#define AM62LX_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
-+
- #define AM62X_IOPAD(pa, val, muxmode)		(((pa) & 0x1fff)) ((val) | (muxmode))
- #define AM62X_MCU_IOPAD(pa, val, muxmode)	(((pa) & 0x1fff)) ((val) | (muxmode))
- 
-
--- 
-2.50.1
-
+SGkgU2ViaW4sDQoNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2NSA2LzZdIGNsazogc2NtaTogQWRk
+IGkuTVg5NSBPRU0gZXh0ZW5zaW9uDQo+IHN1cHBvcnQgZm9yIFNDTUkgY2xvY2sgZHJpdmVyDQo+
+IA0KPiBIaSBQZW5nLA0KPiANCj4gT24gMDkvMTAvMjUgMDk6MTgsIFBlbmcgRmFuIHdyb3RlOg0K
+PiA+ICAgLSBJbnRyb2R1Y2UgJ2Nsay1zY21pLW9lbS5jJyB0byBzdXBwb3J0IHZlbmRvci1zcGVj
+aWZpYyBPRU0NCj4gZXh0ZW5zaW9ucw0KPiA+ICAgICBmb3IgdGhlIFNDTUkgY2xvY2sgZHJpdmVy
+LCBhbGxvd3MgY2xlYW4gaW50ZWdyYXRpb24gb2YgdmVuZG9yLQ0KPiBzcGVjaWZpYw0KPiA+ICAg
+ICBmZWF0dXJlcyB3aXRob3V0IGltcGFjdGluZyB0aGUgY29yZSBTQ01JIGNsb2NrIGRyaXZlciBs
+b2dpYy4NCj4gPiAgIC0gRXh0ZW5kICdjbGstc2NtaS5oJyB3aXRoICdzY21pX2Nsa19vZW0nIHN0
+cnVjdHVyZSBhbmQgcmVsYXRlZA0KPiBkZWNsYXJhdGlvbnMuDQo+ID4gICAtIEluaXRpYWxpemUg
+T0VNIGV4dGVuc2lvbnMgdmlhICdzY21pX2Nsa19vZW1faW5pdCgpJy4NCj4gPiAgIC0gU3VwcG9y
+dCBxdWVyeWluZyBPRU0tc3BlY2lmaWMgZmVhdHVyZXMgYW5kIHNldHRpbmcgc3ByZWFkDQo+IHNw
+ZWN0cnVtLg0KPiA+ICAgLSBQYXNzICdzY21pX2RldmljZScgdG8gJ3NjbWlfY2xrX29wc19zZWxl
+Y3QoKScgZm9yIE9FTSBkYXRhIGFjY2Vzcy4NCj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IFBlbmcg
+RmFuIDxwZW5nLmZhbkBueHAuY29tPg0KPiANCj4gVGhhbmtzIGZvciB0aGUgcGF0Y2guIEkgb25s
+eSBoYXZlIGEgbWlub3IgY29tbWVudCwgb3RoZXJ3aXNlIHRoZQ0KPiBwYXRjaCBsb29rcyBnb29k
+Lg0KPiANCj4gWy4uLl0NCj4gDQo+ID4gKw0KPiA+ICtpbnQgc2NtaV9jbGtfb2VtX2luaXQoc3Ry
+dWN0IHNjbWlfZGV2aWNlICpzZGV2KSB7DQo+ID4gKwljb25zdCBzdHJ1Y3Qgc2NtaV9oYW5kbGUg
+KmhhbmRsZSA9IHNkZXYtPmhhbmRsZTsNCj4gPiArCWludCBpLCBzaXplID0gQVJSQVlfU0laRShp
+bmZvKTsNCj4gPiArDQo+ID4gKwlmb3IgKGkgPSAwOyBpIDwgc2l6ZTsgaSsrKSB7DQo+ID4gKwkJ
+aWYgKHN0cmNtcChoYW5kbGUtPnZlcnNpb24tPnZlbmRvcl9pZCwNCj4gU0NNSV9JTVhfVkVORE9S
+KSB8fA0KPiA+ICsJCSAgICBzdHJjbXAoaGFuZGxlLT52ZXJzaW9uLT5zdWJfdmVuZG9yX2lkLA0K
+PiBTQ01JX0lNWF9TVUJWRU5ET1IpKQ0KPiA+ICsJCQljb250aW51ZTsNCj4gPiArCQlpZiAoaW5m
+b1tpXS5jb21wYXRpYmxlICYmDQo+ID4gKwkJICAgICFvZl9tYWNoaW5lX2lzX2NvbXBhdGlibGUo
+aW5mb1tpXS5jb21wYXRpYmxlKSkNCj4gPiArCQkJY29udGludWU7DQo+ID4gKw0KPiA+ICsJCWJy
+ZWFrOw0KPiA+ICsJfQ0KPiA+ICsNCj4gPiArCWlmIChpIDwgc2l6ZSkNCj4gPiArCQlkZXZfc2V0
+X2RydmRhdGEoJnNkZXYtPmRldiwgKHZvaWQgKilpbmZvW2ldLmRhdGEpOw0KPiA+ICsNCj4gPiAr
+CXJldHVybiAwOw0KPiA+ICt9DQo+IA0KPiBUaGlzIGFib3ZlIGxvZ2ljIGlzIHRhaWxvciBtYWRl
+IGZvciBJTVggaXMgaXQgcG9zc2libGUgdG8gbWFrZSBpdCBnZW5lcmljPw0KDQpZZWFoLiBJIHdp
+bGwgdXBkYXRlIGl0LiBJdCBzaG91bGQgY29tcGFyZSB3aXRoIGVhY2ggZW50cnkgaW4NCmNvbnN0
+IHN0cnVjdCBzY21pX2Nsa19vZW1faW5mbyBpbmZvW10gPSB7DQoJeyBTQ01JX0lNWF9WRU5ET1Is
+IFNDTUlfSU1YX1NVQlZFTkRPUiwgTlVMTCwgJnNjbWlfY2xrX29lbV9pbXggfSwNCn07DQoNClRv
+IFRJLCBJIHRoaW5rIGl0IGNvdWxkIGJlIGV4dGVuZGVkIHRvDQorY29uc3Qgc3RydWN0IHNjbWlf
+Y2xrX29lbV9pbmZvIGluZm9bXSA9IHsNCisJeyBTQ01JX0lNWF9WRU5ET1IsIFNDTUlfSU1YX1NV
+QlZFTkRPUiwgTlVMTCwgJnNjbWlfY2xrX29lbV9pbXggfSwNCisJeyBTQ01JX1RJX1ZFTkRPUiwg
+U0NNSV9USV9TVUJWRU5ET1IsIE5VTEwsICZzY21pX2Nsa19vZW1fdGkgfSwNCit9Ow0KDQpSZWdh
+cmRzDQpQZW5nLg0KDQo+IA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsay9jbGstc2NtaS5j
+IGIvZHJpdmVycy9jbGsvY2xrLXNjbWkuYyBpbmRleA0KPiA+DQo+IGJmODU5MjRkNjE5ODVlYjll
+NTk2NDE5MzQ5ZWI4ODNlMzgxN2RlNzMuLjFlZDIwOTFlM2Q0YTk1MQ0KPiBjODY2MmRiNGM5NGRl
+DQo+ID4gZTRiOWM5OGI4MzI2IDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvY2xrL2Nsay1zY21p
+LmMNCj4gPiArKysgYi9kcml2ZXJzL2Nsay9jbGstc2NtaS5jDQo+ID4gQEAgLTE0LDYgKzE0LDgg
+QEANCj4gPiAgICNpbmNsdWRlIDxsaW51eC9zY21pX3Byb3RvY29sLmg+DQo+ID4gICAjaW5jbHVk
+ZSA8YXNtL2RpdjY0Lmg+DQo+ID4NCj4gPiArI2luY2x1ZGUgImNsay1zY21pLmgiDQo+IA0KPiBb
+Li4uXQ0KPiANCj4gDQo+IFRoYW5rcw0KPiBTZWJpbg0K
 
