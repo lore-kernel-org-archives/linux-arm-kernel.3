@@ -4,92 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E4BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AEFCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=; b=AgmACVAQryOYgGAl9vUNQk57b/
-	tk6/8VCd1N304yZZ2V/SasLugFmeEBCD1JXn7oERzU44/VxNo+W/56+AcY7jgIz3t8G+SbiMtFiiv
-	igO3c9m9xM8wngoDvn814USnBaKJdBoNWxS3vfDszxA0FV+sAP9TKgwbYzIhNImR1dAr9+efolHf7
-	3xTMMxtXbYaL/FCS2ySlXEw2Dg0VfBMHtXy0uMgnXBcWaK1aoqbXR/MqXyo+aljhhm2Bvw+qk8H4+
-	oLnzySc5gONBQKouOhVgOSooSA3rZaZGVmWSQKdS18kamHHCszro0jlH4WQoiKcM32ZUdJDSGPi8w
-	4wPamBPg==;
+	bh=iq3vbpW/kRSUmv1WEJxGwDLxw/jYLVEuneyC24Vc9AQ=; b=olqrFeerLnYU6jPIHASHXWSG89
+	pWa5yUsL+J/NoKtS9PwAKCvfYIyqVUgRiEmEj1p8LqN8EU+ivFSGBfBthquJ8+wjE9j+3LZe7HhPu
+	dDO3fIa0gI5ncj1oG9ge8w/YImAdQdGXwajBDqQq3hL9wSJoTjNAOZlbTHTKeAvAXz/+Vla64/kvU
+	Ux1A5VohvgV9FUZ05dHNVak4TvktUufR7Y46HWc5FB0250ncz5kNdAIxCpNxouqAYIlrTIp+Mr82t
+	i4DesAFgmVFWipHu+RmWbJpl0asKz6v1Vvy5bJogt2wuUOh0EqwmdRyD/ltvnf8HQgXpnTKayClfS
+	9bGLaKnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgjw-0000000E6Ua-3NFp;
-	Wed, 05 Nov 2025 16:52:08 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vGglL-0000000E6jn-0DEu;
+	Wed, 05 Nov 2025 16:53:35 +0000
+Received: from mail-westeuropeazon11011059.outbound.protection.outlook.com ([52.101.70.59] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGgju-0000000E6Te-1Pwf
+	id 1vGglI-0000000E6il-1htA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:52:07 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47754e9cc7fso1675e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:52:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762361524; x=1762966324; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
-        b=GieOOprjK5I6Sta4p8T2L45iyTVa25DWchJGuXKNJwMq1riXK3doOn/nO3el70HJ3J
-         Kn5MnT5joFFfvyxiQ2abFvlK1nXJoseLjOnKVYs1ojyidRKVp4/CIYK/X8Ha+k7/DNfH
-         eyf3IPTxCjoaeOw5NHPHmoTlWRj/JfaSyLhHyXMnUJaKBAdfefNx/zRqBLDjjKjJEz5t
-         qgFJ4KgG1NZ0XjzOhVQRnjoAZQgsEa2XBpU48oqzth2jU7mp2tDXbtvrUR7kIf6WwpJV
-         6tWnzRuEGQMz7agF4yWxE+I1+qHbrUVHQ1VTO1eSZ6rQf+21R3MoD59x/B7fnniUAFc/
-         vhjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762361524; x=1762966324;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
-        b=DHb8RlteLv1KN6K+18XcDUswHG4GcVVM8uD+BAADl0GkXhEF99Jt+4lp2oIG4Cb7Nk
-         cHH+BnOwOd1DImEk+HUD87meazq3+LZoOvzdHGipBMP5iHIjezYtB/E4hrMjsduj5hvI
-         AOQTWisNvp6bnh47iamUtoyM/wAW9Ds5KjAcYIZftq7ODIeMF9TdHPKulhGumopor/ED
-         L8iA1nfJ68yulcdyGE06dF3zl3k6/aLapE4pMb9A1H++y6xpUnaJ0uQEmEJ4TOxBbNPY
-         S+EuWXpC0LM5HxhvZjbhouMY+p6N2VeHC6dGYN/ATMCwvv7L+Oq+FdCYM5QR7o5WBjTA
-         mmbA==
-X-Forwarded-Encrypted: i=1; AJvYcCUz+VmamNJ7347VIEtN4FidL52EjpdyExlAFj5VWdfrt78Q+RVUqPEy/ZcyswueqwgXDlyMQfNkwkOAtggdyoHe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8eZvdp44kOe1RYRIOjWYcL7WaFmfX5SnBhaGlqKIR3Ko5cftS
-	ZBo6K2GP61ZQWSWDGuAGr2oJTo3+6Ak7b7n52s5rw9j67m+8wWHjJRoR
-X-Gm-Gg: ASbGnct/a5n7ri9J1vNI1hjTlsLKnnrSV3bdIfcIHJzQYoZcgy5+hoQ8Tn90p7ZZcwU
-	OZjH2HPf0Zvi/MSrDY2Qn8SDqxy+4JcvKxCz0qPotJLltjhkcSL6VGNKVDzWRY30AFgGd81Lmbv
-	ACiXuWNhqbd0IsGe8CPqEfL3cvEI1ZlDfBrqeqOAXDf+a4zfYo5iSocOg0AQXAtDgr84qZGsV3+
-	egGVMIJWuk18M4a3DykzQl8f7z3SAgb2jk2CY+DkDQ+SHgPB8MD8AXldTTvGVtukyVKfohLS+hu
-	rMx7edL+vO0Y8Z/nuawuPjaodwdzGnbwvY3DDArzgeTwGxU4/9xgwZevJrv9xjpfi4bOlwtlGN3
-	3XuC0Q1gi9U+YOKoc0u75gwsZfjrSUzxKWLhqYzdQy+It8Nc+2fDsNLzD/symnsibyhrUcBC/LP
-	EJdFNAVWOwxI45NOMc/hdt+n/NcsoeApY/2IsqdaEpF85z+FaIayChyKNtjgSFjsI=
-X-Google-Smtp-Source: AGHT+IF1eT04urNHEfsD9kdCj32CNL1YcHJ6oGuMVK3cU2BLT/aQRFRmm7ox5OYZe77ML31HK9v5ow==
-X-Received: by 2002:a05:600c:1c94:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-4775ce23efemr42468465e9.17.1762361524090;
-        Wed, 05 Nov 2025 08:52:04 -0800 (PST)
-Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4775ce210a7sm59725725e9.12.2025.11.05.08.52.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 08:52:02 -0800 (PST)
-Date: Wed, 5 Nov 2025 17:52:01 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-Message-ID: <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m>
-References: <20251029163336.2785270-1-thierry.reding@gmail.com>
- <20251029163336.2785270-2-thierry.reding@gmail.com>
- <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ykyajizgfjgayrmb"
+	Wed, 05 Nov 2025 16:53:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nFizffKFI6hsHwzezwZmOaRyvFhRs9qJNs4ss7TGj6bqmwqB2syqK1WKmBYrK7fWljg7a5sXEYikowNEsJNGoqG4Xc7CUEgewJ3EWCgW52IAH7nS+XmZDXf7ES2azHy/zG5HH3WyHG+v2dzij80AfNqDnzcw1/gDewq1jIU75o6S/tX2OHMRW0+j+K41FNCrg/q9Q6XfSlE2y/IL/01Ewtdmteg5JXvz8pKgEMyfcUBSiexcZLcI4lxZuWzkj96ysD88qDtumBwLsatNaS8os1rAOTdrQQ9QK4ldY1DmDzBZpNtnrM6MB+JEX8Umglb1KtN48435/cHLwYzElLmr7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iq3vbpW/kRSUmv1WEJxGwDLxw/jYLVEuneyC24Vc9AQ=;
+ b=feSR1wkuOLC/n1tPt2LurWqH7/QQk/8wnMT3VG2oVn7PXR07wbmVI7fa3ZSSDvZkmq9YCDavklZYyHb7BogIO/zEZZH1fH71xttQgk6vpuO2gY3cx+qig2ieeQj6wkXCY/jVF0vf2XPJoR0H9e1C1gfUuYQ6pMiJVULp136noVIOja7ZoDWLJcXHLDe1O9AlImyP0nx7PG3I/3LaGCbPNuOzVlDMuMUX7vT+54IOLem9Z1gVsNPSStWUj/Ru4xG69nqfl+cSP7RsDuMlOuKfB3l9KxcUrDf0cpXGYI8ZTiiwMjFfZbeni6vY3gid6QL124fBVITrrGJXwgSMFFBmZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iq3vbpW/kRSUmv1WEJxGwDLxw/jYLVEuneyC24Vc9AQ=;
+ b=fC7ug+NzTBrnIUN24kbc++5ZqnFCZCmlUuymstWCWzrkNZIm86cvYlXhRF8W1HD7QkvI/omZGVZaoW58lVSBMwWCeR0eLMba3xuZDWsVcMZaDrZy0jYbjmI0uCxl22du10TRlqTrOucO4aFd6+xrjKBFzt/oel6vy85DTcfFxTNumNzcxr8MqHErBTT0URGyhbxA7/ycrUomSUhlIIFpzPPi4+3AVsvUDHezE091JiKJdOjX7SZlxGFqQVFRFs2XJwmFrJfdXSaE3nQiQK9Bc1ToG3Q6Jv5KPCpWIZY2Npij9pHSr2TQs693+NhQRjAyfhkRqh0GOAKLaB3giqQ1RQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DU2PR04MB8693.eurprd04.prod.outlook.com (2603:10a6:10:2dc::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Wed, 5 Nov
+ 2025 16:53:28 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
+ 16:53:28 +0000
+Date: Wed, 5 Nov 2025 11:53:22 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Michael Tretter <m.tretter@pengutronix.de>
+Cc: Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hans.verkuil@cisco.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org,
+	Michael Tretter <michael.tretter@pengutronix.de>
+Subject: Re: [PATCH 2/2] media: staging: imx: configure src_mux in csi_start
+Message-ID: <aQuBAmJkm1MvOUfr@lizhi-Precision-Tower-5810>
+References: <20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de>
+ <20251105-media-imx-fixes-v1-2-99e48b4f5cbc@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
+In-Reply-To: <20251105-media-imx-fixes-v1-2-99e48b4f5cbc@pengutronix.de>
+X-ClientProxiedBy: SA9PR13CA0143.namprd13.prod.outlook.com
+ (2603:10b6:806:27::28) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB8693:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cae6f1b-8ee5-4825-260f-08de1c8bd80b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8qcgUCHSf9UuYAY4/pjFiRiHnGkmT7b1w2OBQeEPQuYnXKrY0ZUlr5iEOjfG?=
+ =?us-ascii?Q?07Ev9xmI6/NndP9iZOB4Z5L3jDZ2HRJ9uD9ENPUo1+N817iVftXtglETC3Om?=
+ =?us-ascii?Q?8SGU7ZdZqsTz6wmN0qg+e9r/0sJk0r4pn4nOj64+p3RctFpnfjAFnpNGEXrQ?=
+ =?us-ascii?Q?2NP8YJSwld3BbsLqXStnhcoCfNuEBpj+s3NMvtTG7J2wrjtlMEYO9JtZb9ef?=
+ =?us-ascii?Q?rCRqqco/flVQx5SDkCUui/2ELyf5DUwpOuZRyxWHUSQ9HCt1IYWZB9uuDrji?=
+ =?us-ascii?Q?ixHEHcQtuesTls90oPI0uW8tO5WnS4JqXzD2QWAf+Zl1iMLyxtJAJP1KDckU?=
+ =?us-ascii?Q?NmD7LNX23TbqLZXKxQOTBJaYfdEKcLxa2+3lDD+5205rfRZYnngh7NxPchhG?=
+ =?us-ascii?Q?5qGthLkLOyETzHawOPHVgGeK7rTBTPmbtVD5taVUQFu/WFWTEf1AvinIES0z?=
+ =?us-ascii?Q?vCOQancQLKgLftaXh7ZTWvODGqtl9upA2DHG4nWwIIu6XI9wEJ5TNXqAGXlM?=
+ =?us-ascii?Q?WNXlTxxGr9i4UC9A5rg/CzohlBcMuIrvI16tY0Rz3IcZ5j0y5HLOb4loar0n?=
+ =?us-ascii?Q?iWYAEDbT3qfkBmVdFKuHpY2sUTKmhhDNdIl/yNwFmRzXEif6NistwFBL7pnr?=
+ =?us-ascii?Q?68rHxf4l1y6a8afkZkVCD/GSnYSfOpmGrgy4vIVBhgjt/49W+q5PrzaGiYQ0?=
+ =?us-ascii?Q?9/OBP8RrN7SFZlJV+EXI3fmWXPClmjeKop8xEFs7LuMBC1El7/xo3zPB4WvU?=
+ =?us-ascii?Q?3w/qBUOKmHaQwWv8DMjf5t9XMG9VcO36VoaSL+RmL24KlXshxEUZyJPe7IEm?=
+ =?us-ascii?Q?UPY3WcwoB00+3URDAzBKVpd78hxuXExm5D4tYeOGPRDc9IGSAsjldEXcaiqv?=
+ =?us-ascii?Q?u5c2LYqgTzCVH3t7edzWyksnZ5SkJOxSbNRcQq/+/ggGQcQGMc9a12+/wyYi?=
+ =?us-ascii?Q?n8RbQ5e6rS0N+NdkslAG6aI6aqnu2moy0OrPVqPRUKoPoZOh0VJ5llos2qKd?=
+ =?us-ascii?Q?7U2I54PhON+30biMsPT6PdJC2IEoqZTq8dbF5haTBH3tzSiQ7wN3Hao0t+Rv?=
+ =?us-ascii?Q?sXfr3qUPKDT0iELWgz3jlE2mpohqYpcGFktSaMZV6i47JPaQhM7cQrjwDdct?=
+ =?us-ascii?Q?ETzB+hLLzuajKR9Z+VQagamFWvz333zuBrJj6oioIRKh1HvcNYsa2mSMGXNB?=
+ =?us-ascii?Q?G4mn5dMq2ehufYyw75rF3B2aFfJp9kKF2fRHvLXKuAHvSs2cyNDSPPs6Va/l?=
+ =?us-ascii?Q?WU9ZVGuEM6PZ5aVMCPAFIrIsOlUxdmF+T+ytBCog9+WJ4rqmRGPEdMKqytHN?=
+ =?us-ascii?Q?omWaLUXZRtc6VCV4l3A0LWg9aJrrViJBZm1hiDIWGh0++TNNFWE4kyeiJbHX?=
+ =?us-ascii?Q?tiQKjWZpfLuNqsyYbNoCeCI+Ist9yir0XmKuYff1YHg3ZpGPX0aIc+p/WwCl?=
+ =?us-ascii?Q?ci4rxbzqn4gvqqzBkDBCyJ3wBg7osJg6vjujUebWZpGfnbqtrK2B8icb9pPy?=
+ =?us-ascii?Q?/NzHLa+AKdRL+r7xr1iPeIcYm0xzIkLK0Lqw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B4b+Ig/lTGx0Oo+PPQrWCvFxfDLcwvybT8nus0OFx/1RLbBlgkCHYpp/BLzE?=
+ =?us-ascii?Q?Cvu5k9v+kag0SlDZGOV81z3Odn0B0o48FLZrH5vXpNlkr3R9pPWZ/gM/UHiI?=
+ =?us-ascii?Q?/73FqDcvj22MMWu0N4nO2625GLpN2eg1hkA2a2Ipch1MHoAPKDyrsrBNQRSJ?=
+ =?us-ascii?Q?lbGPnczObaevBKj7hVDnHyD6ua+lmMN576HK+1AYHOX74rAwezmo3BBG6F29?=
+ =?us-ascii?Q?f3qn37g2XQZwlcEekGamQAsrRAIydmi0089pqDBlo4MxQ04HOAC8boDq88XI?=
+ =?us-ascii?Q?dC4jg7l6JjNIRj4bN7JVvv5lkSjUoXkWkfaTInVfgDHeux28VEWw8g/q27lA?=
+ =?us-ascii?Q?uZlJfQJk2+pNtqkMgDSiJGowiZM35rTr6VEO0aA/C2h4wWs5Lg6OUfoJ9MBD?=
+ =?us-ascii?Q?fLs/GV+/PLOO/uTUoXWG1cjIqv3QCC+M8r0Ws51o3qw/wRBStNGPMOpMF00e?=
+ =?us-ascii?Q?wFDabfhn2dw0HSAhtdfAlhHuLjhS3Bys8hQYgiBGpMCAAEC9P06yCvJooYPA?=
+ =?us-ascii?Q?pmuFWuBZ5VNV3bW/F5lSJTHYyApvtYkdwi2AdA/3wKiD/mLYSjJLrPIpntRg?=
+ =?us-ascii?Q?VWEUIreFq+cGi0ezshzOeKVXGCPZjHpIzNmXCwKziCjya29Bewb+w9xFq1T0?=
+ =?us-ascii?Q?h+iQ1DdTZADrxoJsbR24voGKo8r18xPHlYmki6Z40Ci43yzTZuoWaM5aHtn+?=
+ =?us-ascii?Q?YxLTw1Q+ayoRrhR7mFyDkFGMxhqjVpQqhaW3heB5U+vDAncMGfm/vTzODUFT?=
+ =?us-ascii?Q?B4pBAkKRmkaZWNy34Xhmr7YDPV0kEVk2AElrK8vcegu2hZmNZ/3TCSYH/FLB?=
+ =?us-ascii?Q?50NxKzkI3a3rexozA1e5K6Cc9E1gURxL90GLjs4/86PaPqhVJ1s1VxlWGu0+?=
+ =?us-ascii?Q?dLBu/d346ej0UMyYQBggbfriDjjo//GeKOIKcTxiXsl0WwxENwv8azABtwP8?=
+ =?us-ascii?Q?I1A8K55riFJTEaPFeEmV/Zwpoictq6vkXsyjGrfvuThki1aJnf/vDIwIT1Tk?=
+ =?us-ascii?Q?hQJbrkpHYPMsA5tTlcxAMM6EHYC2OM70XplS0PON9u5Pid0Pm78/WJ1j9LNw?=
+ =?us-ascii?Q?jFz/nV4Imw4F+uUbCCsVOQPirb9oxNAW7neNzm1kPZg9kdAScUr5vAZDQvC3?=
+ =?us-ascii?Q?meVJkIyvb/Hx7txqSYESD44wcmABNiJgammu1eR8b/NuMiwdF4uiR8BZv7Lw?=
+ =?us-ascii?Q?HCgxfNJL5V0uma+Er+45Z3dDXDTSAUQH6kdaeUaDqmmxCzZp828y+DybCV+c?=
+ =?us-ascii?Q?Kg7kitdFa85eMFIuEyT+GGb8v28OuBW+Rxv2hHDCi2mqREic/KpxMKzcdNW/?=
+ =?us-ascii?Q?CwPy/D9Y3GMZIB7DXyc7lhK7IxFBUvQTakvz+fmCoVKDO5BB29c5m5AwwQaB?=
+ =?us-ascii?Q?C5xskIc3sliLUQ8VKiNQq2bxy0jDAZtDySL9ShsGcPd9bBn/7V/MshV647zj?=
+ =?us-ascii?Q?+1/s5ZHR0T7tf0OaRgDYAsIetfgEM9XpncXJMA7v+osfTtWqZoKok4xa/djD?=
+ =?us-ascii?Q?Yg2aU0kd893A384+X3p0GsCfTspKTl+eyg6dUPtPzvjA9tU/tacvhnl7D75Z?=
+ =?us-ascii?Q?BchtA533E6NOgAvscfOVbnygmEOQIVpfx1z6ud1M?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cae6f1b-8ee5-4825-260f-08de1c8bd80b
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 16:53:28.6082
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TPy8tYBsu0Id4pe+fKQepDGPtjYoE8NgAyDO1Bz8gVFyhUDjXRApbaREqvPeJxtaZEbScrlkZD9I1b5PFdTsHA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8693
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_085206_400483_0D7CB0D5 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20251105_085332_666224_F0D7EA63 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +164,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 05, 2025 at 04:18:50PM +0100, Michael Tretter wrote:
+> After media_pipeline_start() was called, the media graph is assumed to
+> be validated. It won't be validated again if a second stream starts.
+>
+> The imx-media-csi driver, however, changes hardware configuration in the
+> link_validate() callback. This can result in started streams with
+> misconfigured hardware.
+>
+> In the concrete example, the ipu2_csi1_mux is driven by a parallel video
+> input. After the media pipeline has been started with this
+> configuration, a second stream is configured to use ipu1_csi0 with
+> MIPI-CSI input from imx6-mipi-csi2. This may require the reconfiguration
+> of ipu1_csi0 with ipu_set_csi_src_mux(). Since the media pipeline is
+> already running, link_validate won't be called, and the ipu1_csi0 won't
+> be reconfigured. The resulting video is broken, because the
+> ipu1_csi0_mux is misconfigured, but no error is reported.
+>
+> Move ipu_set_csi_src_mux from csi_link_validate to csi_start to ensure
+> that input to ipu1_csi0 is configured correctly when starting the
+> stream. This is a local reconfiguration in ipu1_csi0 and is possible
+> while the media pipeline is running.
+>
+> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+> Fixes: 4a34ec8e470c ("[media] media: imx: Add CSI subdev driver")
+> Cc: stable@vger.kernel.org
+> ---
+>  drivers/staging/media/imx/imx-media-csi.c | 44 +++++++++++++++++--------------
+>  1 file changed, 24 insertions(+), 20 deletions(-)
+>
+...
+>
+>  	ret = v4l2_subdev_link_validate_default(sd, link,
+> @@ -1145,25 +1168,6 @@ static int csi_link_validate(struct v4l2_subdev *sd,
+>  		return ret;
+>  	}
+>
+> -	mutex_lock(&priv->lock);
 
---ykyajizgfjgayrmb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-MIME-Version: 1.0
+Is it safe to remove lock? I think put justification in commit message
+about removing lock.
 
-On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
-> On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.reding@gm=
-ail.com> wrote:
-> >
-> > From: Thierry Reding <treding@nvidia.com>
-> >
-> > Several drivers can benefit from registering per-instance data along
-> > with the syscore operations. To achieve this, move the modifiable fields
-> > out of the syscore_ops structure and into a separate struct syscore that
-> > can be registered with the framework. Add a void * driver data field for
-> > drivers to store contextual data that will be passed to the syscore ops.
-> >
-> > Signed-off-by: Thierry Reding <treding@nvidia.com>
->=20
-> This change is fine with me, so I can apply it unless somebody has any
-> specific heartburn related to it (Greg?), but in case you want to
-> route it differently
->=20
-> Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-
-I have a few follow-up patches for the Tegra PMC driver that depend on
-this. 6.19 is what I was targetting, so if we could put this into a
-stable branch that'd be the best solution. I can set that up via the
-Tegra tree if you and Greg are okay with it.
-
-If that's all too complicated, I can probably wait until the next cycle
-to merge the PMC changes.
-
-Thierry
-
---ykyajizgfjgayrmb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkLgLAACgkQ3SOs138+
-s6F0Lg//dTn1/PUCYHRhF8cm1xB6JKggiLC40TRct49fcf9eF5gAdCqXm44qKoaF
-67aqiXAiwzovTctJIu3rz8p71/FeXp/qGWDdPm/+wI7yD+BoCcVO0nmvXuPwCzhd
-ZMwqeaRVm57JX4M9S5BdkOGtDLgAjyZ/6Qq/2isiQSPiWWl/IT3YiLyzw8vq8mcY
-VoepQGK5hm7CHFf8FOBs+sMt6q5JJDm0VjNi+seVcCNg9U25GaXCRc2D9ztAqRib
-3768/KMhlftnoJKsizCwWq2Gyw0Se7ifz66djjf51sHd064LLDv7OZpfeGyiFK01
-MvVGXoPFuIJB0yqIoMRBbeRULm4kq+dkUkt1JWwYAMw9ZJnhXPJJI8bal2IASj8/
-E6NADiYd9HS8kAXWYvLkm0xHv4FN5WXWG2a+Gf6K2vpBm07zG2xnI+eVjYQSnb9W
-O9TcZf3jDWvgEQ31plH5JFY32sI4vjLAdcKS2oRfkbxFDJvTS+RRjj3EPqFshNXf
-B5E6pXTCltOkUepuhbGDzIifVWzYgg/GyXNfwzdnJUXcAz7QPPJySfMraf/dn+8S
-hggVgAivRFDEtaNEqKU6iqoePR3HIUJe/Ebjrb199RV9t4FcnVYOpviJRf5EWpsF
-2YEUJPiA7neiac9fPLwCoRh33bJTIzanmWVxmFF1nQ2vozIt68U=
-=3Mmd
------END PGP SIGNATURE-----
-
---ykyajizgfjgayrmb--
+Frank
+> -
+> -	is_csi2 = !is_parallel_bus(&mbus_cfg);
+> -	if (is_csi2) {
+> -		/*
+> -		 * NOTE! It seems the virtual channels from the mipi csi-2
+> -		 * receiver are used only for routing by the video mux's,
+> -		 * or for hard-wired routing to the CSI's. Once the stream
+> -		 * enters the CSI's however, they are treated internally
+> -		 * in the IPU as virtual channel 0.
+> -		 */
+> -		ipu_csi_set_mipi_datatype(priv->csi, 0,
+> -					  &priv->format_mbus[CSI_SINK_PAD]);
+> -	}
+> -
+> -	/* select either parallel or MIPI-CSI2 as input to CSI */
+> -	ipu_set_csi_src_mux(priv->ipu, priv->csi_id, is_csi2);
+> -
+> -	mutex_unlock(&priv->lock);
+>  	return ret;
+>  }
+>
+>
+> --
+> 2.47.3
+>
 
