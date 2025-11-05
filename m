@@ -4,89 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA06CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 18:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E98CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 18:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDR+q2zeCYxeHmzpXH/Dda5YqWtZ7Vb4o/yh6EkNIEg=; b=lmDNZAd1T3uiFA/JkJ6GLjhOBn
-	mgdHnZU8p+JEF1QzMoM54/IQg0RtFO+74lFJJK+k/m2WOCouoLuFnBOAVVkUprr5YG5G9RNpZMrQM
-	2I4AjPXq+KhGzimRB/p2Xb5Piug0VPQFsav6Ydi+VmRKEPZd19sBlJ3Ew828Zrak7JgxrqyXCX4Qx
-	5Fjqf7KS943rtJM+jJBrjWBtxiODhSqZkANFL/zbPEhFv6/TomG6A6WbO9vChVaglEDfSVsY1QY7G
-	uOP4rGdhNM+ByggpjLITCY5fpPe0XIVzo0U6RshHiup5DFAzM6YoF56QtNNQFnyBhybj8l0lEGPTZ
-	tAHcDHtw==;
+	bh=TVbxH8zZg/dBSjSSQnbJVnTvN0blKg05thaY9dEiC+c=; b=EZ7iEiYxzQP29/B/F2m4UcLSDa
+	i07OWx9fn1v7JYT+aQqflnSs98oc4T+Rwm1ey0xLKbOYF8L5DfoscjFFGJPCSj64oI2lBpUF955hX
+	Cx3+o+UU38zEqH8uffS6QpPXzVkKDq2znGhN39MHeqSQFmCO/+oChaCsYBP/RT6X5rfjCfl53qyro
+	a3iayDZyK5ETjwf245IhHXB5GB7Q9ltGtIBC3dpGnwC0j5Gs2ZoBYKHNLTFFeWviXa4UgLOFdiZu6
+	OElT016RRhADjVRYd3sO+szSG5+GZKMTGYuIfvzvJzuTtDS5Vl6UBqrv376YspIYNnm22N7qZyCXS
+	WvSUCZpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGi0E-0000000EDrT-04It;
-	Wed, 05 Nov 2025 18:13:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vGi5d-0000000EE8F-2fY5;
+	Wed, 05 Nov 2025 18:18:37 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGi0B-0000000EDr7-00pL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 18:13:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NDR+q2zeCYxeHmzpXH/Dda5YqWtZ7Vb4o/yh6EkNIEg=; b=cflWPXs+zbj5/nd+7TN66l9ou5
-	WFOrS032mN7GeZrwsNGFyBeCCiozycElXmFZPezvFkgj41bWxdZgEhOWUJGhN0iyBRXycsDnZtrMd
-	92jFb4qEPoAr3KUPehapj09B6XfKaBxDfFMyQAkOHnklfmv3f82MKlLnjWhew73x4cedUqN3gplj0
-	PpfNanhBg7STMWcR1K5536JmDHugakzRBR1yusHUkAdYpSCnfb8CtX4eaQHT1EpOYfuod+Wbn7nmU
-	qEZ+kWdg+kyrLqdxK0AvwAgoamvebZBk6X4n648D/Rz8Uv6DS35fzVOeCOyNI3FMm7RnEjOgbpeCC
-	xjBHaf7w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35518)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vGhzv-000000003nT-1oKc;
-	Wed, 05 Nov 2025 18:12:43 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vGhzq-000000005tm-0jnF;
-	Wed, 05 Nov 2025 18:12:38 +0000
-Date: Wed, 5 Nov 2025 18:12:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Furong Xu <0x1207@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 0/3] net: stmmac: phylink PCS conversion part 3
- (dodgy stuff)
-Message-ID: <aQuTldBf4CPTzS77@shell.armlinux.org.uk>
-References: <aP03aQLADMg-J_4W@shell.armlinux.org.uk>
- <aQExx0zXT5SvFxAk@oss.qualcomm.com>
- <aQHc6SowbWsIA1A5@shell.armlinux.org.uk>
- <aQNmM5+cptKllTS8@oss.qualcomm.com>
- <aQOB_yCzCmAVM34V@shell.armlinux.org.uk>
- <aQtxQgPWQ3+CCrZI@oss.qualcomm.com>
+	id 1vGi5X-0000000EE7D-3hWG;
+	Wed, 05 Nov 2025 18:18:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IKuNbrr5ooxS5PArsMEkxfRbFzaQ65qM7fznj9vRFC2eLUY5mdYTsfH1MriLNd/mmcXLiYefzxGASSU5cYZDyOvJw6MrIGa5Vf0EKUf+oql8g/t2Q3z/Pn8VaG8JF0kf14i9nwiahfcNRP2LZctjdyS2Zx8IIpZZQq3SNdU6lGm3yCedCQZ1PC8La5TVc1N5pawLSN3mq0vLPUnE2+JivYtdE6BPQrkWGgUSLBoOhT5i3p5VKVsTwJOkQ+veYcu4Wl1+MgVxHb61dV0T5xi5H0YkOUx/QOMcJoIT1ZGUSNyU1FDYvZMgs8R9Pr34iJ7F2ll4cWAku6kCzKRBgGofmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TVbxH8zZg/dBSjSSQnbJVnTvN0blKg05thaY9dEiC+c=;
+ b=XxH/xwmmG3L+izbkVl/yKju4l0HT5aHQTtT3qPW65/9mbUGyNCtPtMVg6snwKGRHZn7TuQLxGhwUUOl8neXA9YNK3OLsTew7F+STVxE0qsWRULsRJxbtfGnAiKvRN2h2GFSv0f67kMhynxGjfNSAFyjgrBOsnNsFnW38h2LU3/JxhBKRP44q7BpHfwNefgMXsn8cO4axhjMPAtOY/Q0eaFYMlnZAmFhcN/EvIJZSH9dNUv6rPccBgT17iuUTQVb//o+9I2KXffE2IG7hWi9rscJcjLeSEsT5Lyqh73kPETdZxrScdiJRuMV+YWocBinZirWQzEKBlvkCX+FjQlJigg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TVbxH8zZg/dBSjSSQnbJVnTvN0blKg05thaY9dEiC+c=;
+ b=sukUT+O4vTDXOL68jp0W6wppVHjS3HCDfExAbcnzRPnMwKZFYYmQUaapn0mE2x/LCtUwDm4Aw9guMBjGwcAWK9rf9ymZkytWLgOXHuCMvMz8JpPCVz6SqZp7cP8lOufC1tGqiA58EjpZT2jN+X4kyE5HaJU9bZNXswKiAkSGqOQIh1KOkFDA1kePW/wpu66l/7X21/0AddT0S1Yff3qCC1opCVFAelSdhQe24tmUqLQxNBOlQ144igzwAxt9J0iZe4CVrfAE+vjYzxsYjDSCAcdRVn6lCJOUc2qKOgTHBdhXFSr7TQj62yDvS9q/bq+CEt1/1Qod1lj0WMLIHhdU7g==
+Received: from SJ0PR13CA0198.namprd13.prod.outlook.com (2603:10b6:a03:2c3::23)
+ by MN6PR12MB8591.namprd12.prod.outlook.com (2603:10b6:208:471::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Wed, 5 Nov
+ 2025 18:18:22 +0000
+Received: from SJ1PEPF0000231C.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c3:cafe::c8) by SJ0PR13CA0198.outlook.office365.com
+ (2603:10b6:a03:2c3::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.5 via Frontend Transport; Wed, 5
+ Nov 2025 18:18:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF0000231C.mail.protection.outlook.com (10.167.242.233) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Wed, 5 Nov 2025 18:18:22 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 10:18:04 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 5 Nov
+ 2025 10:18:04 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 5 Nov 2025 10:18:02 -0800
+Date: Wed, 5 Nov 2025 10:18:01 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
+	<j@jannau.net>, "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
+	"dwmw2@infradead.org" <dwmw2@infradead.org>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "yong.wu@mediatek.com" <yong.wu@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "tjeznach@rivosinc.com"
+	<tjeznach@rivosinc.com>, "pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "heiko@sntech.de" <heiko@sntech.de>,
+	"schnelle@linux.ibm.com" <schnelle@linux.ibm.com>, "mjrosato@linux.ibm.com"
+	<mjrosato@linux.ibm.com>, "wens@csie.org" <wens@csie.org>,
+	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "samuel@sholland.org"
+	<samuel@sholland.org>, "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "virtualization@lists.linux.dev"
+	<virtualization@lists.linux.dev>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 02/20] iommu: Introduce a test_dev domain op and an
+ internal helper
+Message-ID: <aQuU2dic75VkSyjr@Asurada-Nvidia>
+References: <cover.1760312725.git.nicolinc@nvidia.com>
+ <32ce256a2ece5d63e99d5858f953586859818ffc.1760312725.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276D10BD480FE66881870B08CFBA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aQO//+6/B/WbdK2h@Asurada-Nvidia>
+ <20251103185400.GA1537560@nvidia.com>
+ <BN9PR11MB527638C0E43E8AA000410B878CC5A@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aQtxQgPWQ3+CCrZI@oss.qualcomm.com>
+In-Reply-To: <BN9PR11MB527638C0E43E8AA000410B878CC5A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231C:EE_|MN6PR12MB8591:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ba14651-9b7d-41ac-b073-08de1c97b458
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026|7416014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fyNu0vYIWg5Wi5i56jiDih4IKeySzyyzBaJlMhyvaIH9i1tZ5wzcB0ygDsKs?=
+ =?us-ascii?Q?bAgB6SeAPmJxS34aUS9cgYK43nzigsJ4nAZ8lBchHXqG8D6O0P6lIaZV1YJp?=
+ =?us-ascii?Q?1ngPK7eSr68QfkpwtdMWaS2Y+qKUfBQTdvUV/+PX7A+wuxtTDqlLuw56y0OQ?=
+ =?us-ascii?Q?cOunGV7XE3dSZUzojr00xKGfNqjqPUz2Y0uU37+Npzj76ldF4vqYsjFr23Qy?=
+ =?us-ascii?Q?wrDzF9VNkEJ5Nb6qF0CsGlIP5j2st7L0GvsrqnvDYq8FMyo2ViGPSb64MO/S?=
+ =?us-ascii?Q?KwEsNtlik6J+UdbW2dut7LS2nFAWy9t8JiymSA95GBS6nblDE0kEvVRv4QWj?=
+ =?us-ascii?Q?Xtv8io5X3exvLxXdUsppPlsfpp6hLoYSegxpzJYI3jOOIaEALUIvK8+JxgZe?=
+ =?us-ascii?Q?WAxxRS9V4K24RllZ1/JKcRvXHbmQjziOqzuVYf/MjzqGIkcWDIY/xMkQz5yl?=
+ =?us-ascii?Q?nWXAljB+JbuZSqAQKH3bYhiKGAvwfbeuraNAfFDhXljlumrpxXSVZmjrB+Ec?=
+ =?us-ascii?Q?zvb3H1q4BSNkso1Ikv69ymWP+J4r4wROnP8Ez0mwFXqkteD+dvEjX3xlku8f?=
+ =?us-ascii?Q?97gRZi6PN+8st+NLfDwbpGulfnrTinOx2BEqXzQpy1+6radCHn9ElYfR1Wwg?=
+ =?us-ascii?Q?BYxj+M2VIyjL2sojXsWXW4V/Pkmb2Ncta6SJPDta+tGSxNjxGJb9nwWi+Ddv?=
+ =?us-ascii?Q?WMN8Es/nGI6U1DIDuSISwhhj5lbasKVSbCLb20BXXgkJX39AEFohJoYlLqOa?=
+ =?us-ascii?Q?7CnETMnS0E81igjZmbMyXN8esmWuZvhdcmFVZSU0iFrRxXBEy6Xjjx2fySvo?=
+ =?us-ascii?Q?BIs1HDLxz+hpoASn0XSRQyd7BnjyvmSG85hERMITZZgoARUK2jWERAhLTm4r?=
+ =?us-ascii?Q?m/cuucM6K9Qmr0WEorkx+FnfX2la/FexlZnrPqnC3KbcLC9lLCglyGPVUGyG?=
+ =?us-ascii?Q?mz6Azf1RZhw5dvuRR68UZL9gQ+r4L0lFTuwY0e1rJ0VDIyRotnK9zjoEwIAw?=
+ =?us-ascii?Q?xhnJTWIslLaIvACsgaVTbvp4cbo7HR4ZQTYWPo7uru1SsdzWn0KkYYV7GllG?=
+ =?us-ascii?Q?eP33f7+iQpCX4cnmWW5QSJPE1kxSUMYddQ6VSG9Vnx1WgUgJ/PbBWrLy+TR7?=
+ =?us-ascii?Q?zbek45sd5vm41RtvOmOjLzPFkNVnxPCzw5pIlgmXz/KWFQwF0f0nF+rqtIH0?=
+ =?us-ascii?Q?lgPovybw/X+8tm9n/uIShFtmofcv57MHAt6rrwY8pxmegesjTbzFuavtFlcX?=
+ =?us-ascii?Q?NIsKhOTXfXIQKMXNwLVbqpRZrsEJlNiR+qixpMrhmSpOY+Fi2fY+WmxJmPAB?=
+ =?us-ascii?Q?hiGCHpbA77F/vHMt9Yu4xqXT/6kTgXaDaT1k/siuYyTvUYAj3Y5ku59ftEqd?=
+ =?us-ascii?Q?7y8lOfI3tAdphTWIIh7zd1Dp+QiKF79LlB972HgUrM6Ayg5UR85ZxziUlVpV?=
+ =?us-ascii?Q?JRmUVaveZgSZ7cH3Z0C0GijVaZHRNdk47a0bzIQsKtdp7Nfyww7Zpsba/t98?=
+ =?us-ascii?Q?vKfXgY/In3nTLQXdMQhbcVBq5O1rNCAYfOywpZK9ZS2if0uU5hE6sgyEgXNL?=
+ =?us-ascii?Q?H45fT9JVcUNlUCv9V1Ew2RC6OgA6olppabvpLIa9?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026)(7416014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 18:18:22.3550
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ba14651-9b7d-41ac-b073-08de1c97b458
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231C.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8591
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_101259_230055_DADDBE99 
-X-CRM114-Status: GOOD (  40.36  )
+X-CRM114-CacheID: sfid-20251105_101832_148541_A3291D66 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,207 +185,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 09:16:10PM +0530, Mohd Ayaan Anwar wrote:
-> Hello Russell,
-> 
-> I finally got some time to test out 100M/1G/2.5G with all these changes
-> on the QCS9100 Ride R3 board (AQR115C PHY, qcom-ethqos).
-> 
-> Apart from this patch series, I incorporated the following changes:
-> 1. Hacks suggested to have the PCS code work for 2500Base-X.
-> 2. Removed snps,ps-speed from DT.
-> 3. Picked [PATCH net-next v2] net: stmmac: qcom-ethqos: remove
-> MAC_CTRL_REG modification.
-> 
-> Apologies for the lengthy email- I’ve included phylink logs for all
-> five points for completeness.
-
-That's fine, thanks.
-
-> *Observations:*
-> 
-> 1. 2.5G Link up - no warning about the PCS configuration getting changed
-> by glue. Data path works fine.
-> 
-> 	[   10.342908] qcom-ethqos 23000000.ethernet eth0: PHY stmmac-0:00 uses interfaces 4,23,27, validating 23
-> 	[   10.352486] qcom-ethqos 23000000.ethernet eth0:  interface 23 (2500base-x) rate match pause supports 0-7,9,13-14,47
-> 	[   10.363215] qcom-ethqos 23000000.ethernet eth0: PHY [stmmac-0:00] driver [Aquantia AQR115C] (irq=365)
-> 	[   10.372690] qcom-ethqos 23000000.ethernet eth0: phy: 2500base-x setting supported 0000000,00000000,00008000,000062ff advertising 0000000,00000000,00008000,000062ff
-> 	[   10.428389] qcom-ethqos 23000000.ethernet eth0: configuring for phy/2500base-x link mode
-> 	[   10.436717] qcom-ethqos 23000000.ethernet eth0: major config, requested phy/2500base-x
-> 	[   10.444870] qcom-ethqos 23000000.ethernet eth0: interface 2500base-x inband modes: pcs=01 phy=00
-> 	[   10.453913] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/2500base-x
-> 	[   10.462506] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/2500base-x/none adv=0000000,00000000,00000000,00000000 pause=00
-> 	[   10.485700] qcom-ethqos 23000000.ethernet eth0: phy link down 2500base-x/Unknown/Unknown/none/off/nolpi
-> 	[   15.131941] qcom-ethqos 23000000.ethernet eth0: phy link up 2500base-x/2.5Gbps/Full/none/rx/tx/nolpi
-> 	[   15.143632] qcom-ethqos 23000000.ethernet eth0: ethqos_configure_sgmii : Speed = 2500
-> 	[   15.153226] stmmac_pcs: Link Up
-> 	[   15.153274] qcom-ethqos 23000000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
-> 
-> 
-> 2. 1G Link up - Warning (PCS configuration changed from phylink by glue,
-> please report: 0x00040000 -> 0x00041200). Data path works fine.
-> 
-...
-> 	[   10.532328] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/2500base-x
-> 	[   10.540919] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/2500base-x/none adv=0000000,00000000,00000000,00000000 pause=00
-> 	[   10.563437] qcom-ethqos 23000000.ethernet eth0: phy link down 2500base-x/Unknown/Unknown/none/off/nolpi
-> 	[   13.912074] qcom-ethqos 23000000.ethernet eth0: phy link up sgmii/1Gbps/Full/none/rx/tx/nolpi
-> 	[   13.919074] stmmac_pcs: Link Up
-> 	< a *bunch* of "stmmac_pcs: Link Down" prints, more details in 4.>
-> 	[   14.948996] stmmac_pcs: Link Up
-> 	[   14.949149] stmmac_pcs: Link Down
-> 	[   14.949169] stmmac_pcs: Link Up
-
-This is showing that the link state is flapping, which I guess is caused
-by the PHY having switched to 1.25Mbaud SGMII but still being programmed
-for 3.125Mbaud for 2.5G rate.
-
-> 	[   14.949301] qcom-ethqos 23000000.ethernet eth0: major config, requested phy/sgmii
-> 	[   14.949317] stmmac_pcs: Link Down
-> 	[   14.949326] qcom-ethqos 23000000.ethernet eth0: interface sgmii inband modes: pcs=03 phy=03
-> 	[   14.949331] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/sgmii
-> 	[   14.949335] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/sgmii/none adv=0000000,00000000,00000000,00000000 pause=03
-> 	[   14.952026] qcom-ethqos 23000000.ethernet eth0: ethqos_configure_sgmii : Speed = 1000
-> 	[   14.952033] dwmac: PCS configuration changed from phylink by glue, please report: 0x00040000 -> 0x00041200
-> 	[   14.952057] qcom-ethqos 23000000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
-> 	[   15.035977] stmmac_pcs: ANE process completed
-> 	[   15.035978] stmmac_pcs: Link Down
-> 	[   15.036004] stmmac_pcs: Link Up
-
-Since we are using phy/outband mode (see "major config, active") this
-means we're not expecting to use in-band, so the PCS has in-band
-disabled by the PCS code, but then re-enabled by the glue code.
-
-One thing which occurs to me though is that dwmac_ctrl_ane() doesn't
-clear GMAC_AN_CTRL_SGMRAL when srgmi_ral is false, which means its
-taking the speed information from the PS and FES bits in the MAC
-control register.
-
-Now, the question is, what happens if the call to
-ethqos_pcs_set_inband() / stmmac_pcs_ctrl_ane() are omitted? Does
-traffic still flow over the interface?
-
-> 3. 100M Link up - Warning (PCS configuration changed from phylink by
-> glue, please report: 0x00040000 -> 0x00041200). Data path works fine.
-> 
-...
-> 	[   20.390144] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/2500base-x
-> 	[   20.398720] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/2500base-x/none adv=0000000,00000000,00000000,00000000 pause=00
-> 	[   20.418477] stmmac_pcs: Link Down
-> 	[   20.421912] stmmac_pcs: Link Down
-> 	[   20.426255] qcom-ethqos 23000000.ethernet eth0: phy link down 2500base-x/100Mbps/Full/none/rx/tx/nolpi
-> 	[   20.440795] stmmac_pcs: Link Down
-> 	[   23.095229] qcom-ethqos 23000000.ethernet eth0: phy link up sgmii/100Mbps/Full/none/rx/tx/nolpi
-> 	[   23.101362] stmmac_pcs: Link Down
-> 	[   23.106527] qcom-ethqos 23000000.ethernet eth0: major config, requested phy/sgmii
-> 	[   23.107624] stmmac_pcs: Link Down
-> 	[   23.118707] stmmac_pcs: Link Down
-> 	[   23.124703] qcom-ethqos 23000000.ethernet eth0: interface sgmii inband modes: pcs=03 phy=03
-> 	[   23.128141] stmmac_pcs: Link Down
-> 	[   23.136699] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/sgmii
-> 	[   23.140126] stmmac_pcs: Link Down
-> 	[   23.148232] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/sgmii/none adv=0000000,00000000,00000000,00000000 pause=03
-> 	[   23.151657] stmmac_pcs: Link Down
-> 	[   23.166924] qcom-ethqos 23000000.ethernet eth0: ethqos_configure_sgmii : Speed = 100
-> 	[   23.167584] stmmac_pcs: Link Down
-> 	[   23.175511] dwmac: PCS configuration changed from phylink by glue, please report: 0x00040000 -> 0x00041200
-> 	[   23.178944] stmmac_pcs: Link Up
-> 	[   23.188862] qcom-ethqos 23000000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
-> 	[   23.192097] stmmac_pcs: Link Down
-> 	[   23.204346] stmmac_pcs: ANE process completed
-> 	[   23.208828] stmmac_pcs: Link Up
-
-It would be interesting to see how this behaves as well without the
-call to ethqos_pcs_set_inband() / stmmac_pcs_ctrl_ane().
-
-> 4. Sometimes after toggling the interface or even during boot-up, the
-> console gets flooded with "stmmac_pcs: Link Down" prints. For e.g.,
-> 
-> 	// Interface toggled
-> 	< a bunch of "stmmac_pcs: Link Down" prints>
-> 	[  549.898750] stmmac_pcs: Link Down
-> 	[  549.902186] stmmac_pcs: Link Down
-> 	[  549.905628] stmmac_pcs: Link Down
-> 	[  549.909069] stmmac_pcs: Link Down
-> 	[  549.912509] stmmac_pcs: Link Down
-> 	[  549.915948] stmmac_pcs: Link Down
-> 	[  549.919391] stmmac_pcs: Link Down
-> 	[  549.922858] stmmac_pcs: Link Down
-> 	[  549.924140] qcom-ethqos 23000000.ethernet eth0: ethqos_configure_sgmii : Speed = 2500
-> 	[  549.926304] stmmac_pcs: Link Down
-> 	[  549.934349] qcom-ethqos 23000000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
-> 	[  549.937746] stmmac_pcs: Link Up
-> 
->    ethtool stats reveal an unusually high number of interrupts (I have
->    seen this number go as high as about 16000 when booting up with a 1G
->    link)
-> 	     irq_pcs_ane_n: 0
-> 	     irq_pcs_link_n: 1998	
-
-Some PCS have this, caused by spuriously detecting what they think is a
-valid signal but isn't. We don't enable comma detection for SGMII, but
-maybe that would help avoid this? It depends how the serdes is
-implemented. The alternative is that we may need to disable the IRQ
-(we're not really using it for anything in this mode, as we're using
-outband mode.)
-
-> 5. Switching between 100M/1G/2.5G link is a bit of a mixed bag.
-> Sometimes it works, sometimes the data path breaks and needs an
-> interface toggle to be functional again. I don't necessarily think that
-> it's due to the speed specific configurations done by configure_sgmii as
-> that shouldn't impact switching between 1G and 2.5G, or even the switch
-> from 1G/2.5G to 100M.
-
-Maybe this is the lack of comma detect being enabled - what I read in
-the databook, dwmac expects the external serdes to do comman detection
-when enabled. It appears that the ECD bit just toggles an output to
-the implementation's serdes to tell it to enable this, but it's
-entirely possible that an implementation doesn't need this control.
-It's something worth trying though.
-
-> While this is *broken* on net-next as well, the current patch series
-> allowed me to notice a peculiar behavior - it looks like sometimes the
-> PCS link doesn't come up:
-> 	
-> 	[   55.491996] qcom-ethqos 23000000.ethernet eth0: phy link down 2500base-x/2.5Gbps/Full/none/rx/tx/nolpi
-> 	[   55.501622] qcom-ethqos 23000000.ethernet eth0: Link is Down
-> 	[   58.907705] qcom-ethqos 23000000.ethernet eth0: phy link up sgmii/1Gbps/Full/none/rx/tx/nolpi
-> 	[   58.913724] stmmac_pcs: Link Down
-> 	[   58.919947] qcom-ethqos 23000000.ethernet eth0: major config, requested phy/sgmii
-> 	[   58.927656] qcom-ethqos 23000000.ethernet eth0: interface sgmii inband modes: pcs=03 phy=03
-> 	[   58.936256] qcom-ethqos 23000000.ethernet eth0: major config, active phy/outband/sgmii
-> 	[   58.944409] qcom-ethqos 23000000.ethernet eth0: phylink_mac_config: mode=phy/sgmii/none adv=0000000,00000000,00000000,00000000 pause=03
-> 	[   58.958298] qcom-ethqos 23000000.ethernet eth0: ethqos_configure_sgmii : Speed = 1000
-> 	[   58.967448] dwmac: PCS configuration changed from phylink by glue, please report: 0x00040000 -> 0x00041200
-> 	[   58.977392] qcom-ethqos 23000000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
-> 
-> 
-> Since 5 is unrelated to this series (I'll try to debug it separately),
-> let me know if you'd like me to run any other experiments for 2, 3, and
-> 4.
-
-As mentioned above, ECD may help. If the serdes needs this signal
-enabled to perform command detection and word synchronisation, not
-enabling it is likely to result in the PCS receiving unaligned words
-that it can't make sense of.
-
-> > The "invalid port speed" warning that results if this property is
-> > not set to 10, 100 or 1000 is another bug - only if this warning
-> > is printed will the "normal" mode be selected.
+On Wed, Nov 05, 2025 at 06:57:31AM +0000, Tian, Kevin wrote:
+> > From: Jason Gunthorpe <jgg@nvidia.com>
+> > Sent: Tuesday, November 4, 2025 2:54 AM
 > > 
-> > Since the PCS series 1 and 2 have been merged into net-next, it
-> > will be safe to submit patches removing these properties from your
-> > DT files, without fear of this warning appearing.
+> > On Thu, Oct 30, 2025 at 12:43:59PM -0700, Nicolin Chen wrote:
+> > 
+> > > FWIW, I am thinking of another design based on Jason's remarks:
+> > > https://lore.kernel.org/linux-iommu/aQBopHFub8wyQh5C@Asurada-
+> > Nvidia/
+> > >
+> > > So, instead of core initiating the round trip between the blocking
+> > > domain and group->domain, it forwards dev_reset_prepare/done to the
+> > > driver where it does a low-level attachment that wouldn't fail:
+> > >   For SMMUv3, it's an STE update.
+> > >   For intel_iommu, it seems to be the context table update?
+> > 
+> > Kevin, how bad do you think the UAPI issue is if we ignore it?
 > > 
 > 
-> Thanks for the explanation. I see the incorrect use of snps,ps-speed in
-> the DT of a couple of more boards that use the same MAC core. Would it
-> be okay to add your Suggested-by when submitting the fix patches?
+> yeah probably better to leave it. I didn't see a clean way and the
+> value didn't justify the complexity.
+> 
+> Regarding to PF reset, it's a devastating operation while the vf user
+> is operating the vf w/o any awareness. there must be certain
+> coordination in userspace. otherwise nobody can recover the
+> registers. Comparing to that, solving the domain attach problem
+> is less important...
 
-Yes please, and definitely! Thanks!
+If I capture these correctly, we should go with a -EBUSY version:
+ - Reject concurrent attachments during a device reset
+ - Skip reset for devices having sibling group devices
+ - Allow PF to stop IOMMU, ignoring VFs
+?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+That sounds pretty much like this v4:
+https://lore.kernel.org/linux-iommu/0f6021b500c74db33af8118210dd7a2b2fd31b3c.1756682135.git.nicolinc@nvidia.com/
+by dropping the SRIOV concern.
+
+Thanks
+Nicolin
 
