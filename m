@@ -4,102 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12DCCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E4BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 16:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmFotMcFPtd7mRBsLfVlVk451p+y5nFGd9HEIFSHePA=; b=Q19oIchvwwdFs0ZwWNW2i+qroR
-	w+y1jHxcLJ6VZoUHLJbAzDEvxrnn+p7FSb2vLe8M7PCc23P6ZKFQ3AT80hez2HnjCEtgWpEWZuETl
-	7rNKLgVBE/rP0PibvWp92BU31ooX5FtybSL7NTA/2a7NSbjFz0c6RbkY2BN0L9Qdun5P2ogS3625d
-	e7YYI+Z83JFQ3OzDgtrhUXqN6gphmpVHHvbI7BibFx1ls1FLYLAktFqsYe4fj5toP+ql1LWH5G6D0
-	tW8UtVqpefazBhV7KtuIXFOmGmFDKEwdR5L/I8qlSB7wgjf/4DeGrCWg2Mx5DnqAy5qmah1c+M13O
-	4e6fTBOw==;
+	bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=; b=AgmACVAQryOYgGAl9vUNQk57b/
+	tk6/8VCd1N304yZZ2V/SasLugFmeEBCD1JXn7oERzU44/VxNo+W/56+AcY7jgIz3t8G+SbiMtFiiv
+	igO3c9m9xM8wngoDvn814USnBaKJdBoNWxS3vfDszxA0FV+sAP9TKgwbYzIhNImR1dAr9+efolHf7
+	3xTMMxtXbYaL/FCS2ySlXEw2Dg0VfBMHtXy0uMgnXBcWaK1aoqbXR/MqXyo+aljhhm2Bvw+qk8H4+
+	oLnzySc5gONBQKouOhVgOSooSA3rZaZGVmWSQKdS18kamHHCszro0jlH4WQoiKcM32ZUdJDSGPi8w
+	4wPamBPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGggL-0000000E64E-3UkF;
-	Wed, 05 Nov 2025 16:48:25 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1vGgjw-0000000E6Ua-3NFp;
+	Wed, 05 Nov 2025 16:52:08 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGggI-0000000E632-31HY
+	id 1vGgju-0000000E6Te-1Pwf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 16:48:23 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b70bee93dc4so624266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:48:22 -0800 (PST)
+	Wed, 05 Nov 2025 16:52:07 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47754e9cc7fso1675e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 08:52:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762361301; x=1762966101; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=XmFotMcFPtd7mRBsLfVlVk451p+y5nFGd9HEIFSHePA=;
-        b=VFSO4iRrK+YZm0Yfk77lSTSG7sa8h/4cvMbzen/4McZgYsFb8NL5nWv9EZJ1C2bpxP
-         xNR8auN9ynIyRYXRSBANF2YQz2rXkVDElUjfKPcrlheFf1VVM1PdtO719+b35pt/7y3X
-         JO+sL+675x6OJlqvall6rr0HYo2PpG5/MqJ1lsa3zAX3tvnQw5L7/RdS/2MiFRrcamc2
-         DKxIs5lpHA6klsyb1tPd6W9ang6aLCt+aAW/bwc7DJ0k9AWkT6tvHrBZB8qdQq0I0JyX
-         fq8CutQ3Ma8IGeI01cQ+NyuuMLetsCKPqMxevljrj6dhhGaM7VrL0hx6juzL1xkLjpmR
-         h/wg==
+        d=gmail.com; s=20230601; t=1762361524; x=1762966324; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
+        b=GieOOprjK5I6Sta4p8T2L45iyTVa25DWchJGuXKNJwMq1riXK3doOn/nO3el70HJ3J
+         Kn5MnT5joFFfvyxiQ2abFvlK1nXJoseLjOnKVYs1ojyidRKVp4/CIYK/X8Ha+k7/DNfH
+         eyf3IPTxCjoaeOw5NHPHmoTlWRj/JfaSyLhHyXMnUJaKBAdfefNx/zRqBLDjjKjJEz5t
+         qgFJ4KgG1NZ0XjzOhVQRnjoAZQgsEa2XBpU48oqzth2jU7mp2tDXbtvrUR7kIf6WwpJV
+         6tWnzRuEGQMz7agF4yWxE+I1+qHbrUVHQ1VTO1eSZ6rQf+21R3MoD59x/B7fnniUAFc/
+         vhjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762361301; x=1762966101;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XmFotMcFPtd7mRBsLfVlVk451p+y5nFGd9HEIFSHePA=;
-        b=Xq/lnyYMatEQmo/LxklTZ2BWlxNG8M42M2RVN4lJ0J1sr5APSVbHuvKuB8YLu661pH
-         NJRwuIHfoaZBnStqU6bEswwqFodmKz4tqEAl8nyZPnaqQa8Fjv1jxTEohUAUfG69uvxF
-         jtUS6g4GIKIeo3ZeGNFpefixu+QXSqKx/uznq2kSr6a8cgfAQjo0uj37mIZUIJud2vub
-         rd0W8JtItO6I2uGxQQRgK+3X3kkg3RSNThf1rZk7dTK4Onr5Mbw8xqiZlY9tNUavt30O
-         avocCLghl6YzfgE63TG7FlcLye+bsgzb1ILEGOMvWPnDbhRPk9op1uzZcu1kTYqOv/5J
-         05CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXiG24QuDnBS7kh4cs8oHK5PqqkuyRCi6N4bb5V0T4F4SoXAMmN7zXGZxpIy1Up/FYYmiRvvs3KmkC+LRsiOwh7@lists.infradead.org
-X-Gm-Message-State: AOJu0YywAJRiCLntnJgaH3lJj7DxkYW6vA01e7Q5INYEkyQPhQh0yCBC
-	rr7XzdeqGPJw/2si4rRoGXGm2FTFP4wFQkxFbveiwweZECg/tKiN03zeP0BNnWsFiqM=
-X-Gm-Gg: ASbGnct5SB4Jf8Tab5KT89aCCdxPXpq4o32IL2iWLpsfpLI01lQVyMmjqtVey89bKc0
-	3QufXZHsJM3fo6L/HbPwvOA3GtrHGcTwh+kP8fhOLAUidoHzWQDGtrDuf2BqgKjxCOOdUVD2oeH
-	V3x3kjGfctWmJ4nmSyHfArI3L8NKyJ7aEXXlyJSTLDwtvR3wD+VddL2xZif9463wLxnxxWo7E8D
-	XEQZqSvrMB31P4qH2NvmARUFTO7CRYvgyXK+UWhDIn36HfQP4zRMC1NVWX80SbSG1E7FQ0GuyEL
-	J3N3xE80kj2AjW9+lYqgGe9fKsTaC6j1EYp9fLhYegGfMMisXYxJiIJyQFYJLfeMYtaWQFN5+eP
-	g6WkrJnZssQxMM3Fc9oX23kGHLLNcFYh/82T0ICOprvU6vGfP6hEeD3daSw1q2iMvP9vEXaxfvi
-	gfWgJZpy/W5fLa
-X-Google-Smtp-Source: AGHT+IGm3Wa56XUydCTKudmGMentGaT4iUui9wuImfhosfZAtqWdEBdlJW8tn8ToaWyI3p+ndFALWA==
-X-Received: by 2002:a17:907:3e0b:b0:b70:b3cb:3b30 with SMTP id a640c23a62f3a-b726567fa67mr356526566b.59.1762361300655;
-        Wed, 05 Nov 2025 08:48:20 -0800 (PST)
-Received: from localhost ([87.213.113.147])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72893cbc72sm3380366b.29.2025.11.05.08.48.20
+        d=1e100.net; s=20230601; t=1762361524; x=1762966324;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=esO8jRq9uTUw55PJsW3htw0zar+bIhexF73TArzHxxk=;
+        b=DHb8RlteLv1KN6K+18XcDUswHG4GcVVM8uD+BAADl0GkXhEF99Jt+4lp2oIG4Cb7Nk
+         cHH+BnOwOd1DImEk+HUD87meazq3+LZoOvzdHGipBMP5iHIjezYtB/E4hrMjsduj5hvI
+         AOQTWisNvp6bnh47iamUtoyM/wAW9Ds5KjAcYIZftq7ODIeMF9TdHPKulhGumopor/ED
+         L8iA1nfJ68yulcdyGE06dF3zl3k6/aLapE4pMb9A1H++y6xpUnaJ0uQEmEJ4TOxBbNPY
+         S+EuWXpC0LM5HxhvZjbhouMY+p6N2VeHC6dGYN/ATMCwvv7L+Oq+FdCYM5QR7o5WBjTA
+         mmbA==
+X-Forwarded-Encrypted: i=1; AJvYcCUz+VmamNJ7347VIEtN4FidL52EjpdyExlAFj5VWdfrt78Q+RVUqPEy/ZcyswueqwgXDlyMQfNkwkOAtggdyoHe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8eZvdp44kOe1RYRIOjWYcL7WaFmfX5SnBhaGlqKIR3Ko5cftS
+	ZBo6K2GP61ZQWSWDGuAGr2oJTo3+6Ak7b7n52s5rw9j67m+8wWHjJRoR
+X-Gm-Gg: ASbGnct/a5n7ri9J1vNI1hjTlsLKnnrSV3bdIfcIHJzQYoZcgy5+hoQ8Tn90p7ZZcwU
+	OZjH2HPf0Zvi/MSrDY2Qn8SDqxy+4JcvKxCz0qPotJLltjhkcSL6VGNKVDzWRY30AFgGd81Lmbv
+	ACiXuWNhqbd0IsGe8CPqEfL3cvEI1ZlDfBrqeqOAXDf+a4zfYo5iSocOg0AQXAtDgr84qZGsV3+
+	egGVMIJWuk18M4a3DykzQl8f7z3SAgb2jk2CY+DkDQ+SHgPB8MD8AXldTTvGVtukyVKfohLS+hu
+	rMx7edL+vO0Y8Z/nuawuPjaodwdzGnbwvY3DDArzgeTwGxU4/9xgwZevJrv9xjpfi4bOlwtlGN3
+	3XuC0Q1gi9U+YOKoc0u75gwsZfjrSUzxKWLhqYzdQy+It8Nc+2fDsNLzD/symnsibyhrUcBC/LP
+	EJdFNAVWOwxI45NOMc/hdt+n/NcsoeApY/2IsqdaEpF85z+FaIayChyKNtjgSFjsI=
+X-Google-Smtp-Source: AGHT+IF1eT04urNHEfsD9kdCj32CNL1YcHJ6oGuMVK3cU2BLT/aQRFRmm7ox5OYZe77ML31HK9v5ow==
+X-Received: by 2002:a05:600c:1c94:b0:477:fcb:2256 with SMTP id 5b1f17b1804b1-4775ce23efemr42468465e9.17.1762361524090;
+        Wed, 05 Nov 2025 08:52:04 -0800 (PST)
+Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4775ce210a7sm59725725e9.12.2025.11.05.08.52.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 08:48:20 -0800 (PST)
-Date: Wed, 5 Nov 2025 19:48:19 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Phil Elwell <phil@raspberrypi.com>
-Cc: oe-kbuild@lists.linux.dev, Jai Luthra <jai.luthra@ideasonboard.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Umang Jain <uajain@igalia.com>
-Subject: Re: [PATCH v3 6/7] platform/raspberrypi: Destage VCHIQ interface
-Message-ID: <99c95bb6-6595-4b68-afa7-1614f619a20f@suswa.mountain>
-References: <20251029-vchiq-destage-v3-6-da8d6c83c2c5@ideasonboard.com>
- <f11dd2de-d8fd-4d8f-ba29-6974ba923b4e@suswa.mountain>
- <CAMEGJJ1Rsjsa9CGB4Hv6ukf=xi41TTDRNf7nkrX4nQniEp+8zw@mail.gmail.com>
+        Wed, 05 Nov 2025 08:52:02 -0800 (PST)
+Date: Wed, 5 Nov 2025 17:52:01 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
+Message-ID: <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m>
+References: <20251029163336.2785270-1-thierry.reding@gmail.com>
+ <20251029163336.2785270-2-thierry.reding@gmail.com>
+ <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ykyajizgfjgayrmb"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMEGJJ1Rsjsa9CGB4Hv6ukf=xi41TTDRNf7nkrX4nQniEp+8zw@mail.gmail.com>
+In-Reply-To: <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_084822_789056_9BE35B7C 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20251105_085206_400483_0D7CB0D5 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +104,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 03:17:01PM +0000, Phil Elwell wrote:
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  583  static long
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  584  vchiq_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  585  {
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  586   struct vchiq_instance *instance = file->private_data;
-> > 3414994ba84042 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Umang Jain       2022-12-23  587   int status = 0;
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  588   struct vchiq_service *service = NULL;
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  589   long ret = 0;
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  590   int i, rc;
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  591
-> > 96622d58f50b8f drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Thomas Weißschuh 2025-03-11  592   dev_dbg(instance->state->dev, "arm: instance %p, cmd %s, arg %lx\n", instance,
-> > 8757f705d936ad drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Gaston Gonzalez  2021-09-12  593           ((_IOC_TYPE(cmd) == VCHIQ_IOC_MAGIC) && (_IOC_NR(cmd) <= VCHIQ_IOC_MAX)) ?
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  594           ioctl_names[_IOC_NR(cmd)] : "<invalid>", arg);
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  595
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  596   switch (cmd) {
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  597   case VCHIQ_IOC_SHUTDOWN:
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  598           if (!instance->connected)
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  599                   break;
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  600
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21  601           /* Remove all services */
-> > f05916281fd75d drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c Ojaswin Mujoo    2021-07-21 @602           i = 0;
+
+--ykyajizgfjgayrmb
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
+MIME-Version: 1.0
+
+On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
+> On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.reding@gm=
+ail.com> wrote:
 > >
-> > i is not used any more.  Delete.
-> 
-> No, don't do that. It's passed as an in/out parameter to
-> next_service_by_instance - it maintains the iterator position. This is
-> a false positive.
-> 
+> > From: Thierry Reding <treding@nvidia.com>
+> >
+> > Several drivers can benefit from registering per-instance data along
+> > with the syscore operations. To achieve this, move the modifiable fields
+> > out of the syscore_ops structure and into a separate struct syscore that
+> > can be registered with the framework. Add a void * driver data field for
+> > drivers to store contextual data that will be passed to the syscore ops.
+> >
+> > Signed-off-by: Thierry Reding <treding@nvidia.com>
+>=20
+> This change is fine with me, so I can apply it unless somebody has any
+> specific heartburn related to it (Greg?), but in case you want to
+> route it differently
+>=20
+> Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
-Uh...  Crud.  You're right.
+I have a few follow-up patches for the Tegra PMC driver that depend on
+this. 6.19 is what I was targetting, so if we could put this into a
+stable branch that'd be the best solution. I can set that up via the
+Tegra tree if you and Greg are okay with it.
 
-I knew this check was generating false positives but I try to filter it
-manually.  Which is lazy.  I will fix this false positive.
+If that's all too complicated, I can probably wait until the next cycle
+to merge the PMC changes.
 
-regards,
-dan carpenter
+Thierry
 
+--ykyajizgfjgayrmb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkLgLAACgkQ3SOs138+
+s6F0Lg//dTn1/PUCYHRhF8cm1xB6JKggiLC40TRct49fcf9eF5gAdCqXm44qKoaF
+67aqiXAiwzovTctJIu3rz8p71/FeXp/qGWDdPm/+wI7yD+BoCcVO0nmvXuPwCzhd
+ZMwqeaRVm57JX4M9S5BdkOGtDLgAjyZ/6Qq/2isiQSPiWWl/IT3YiLyzw8vq8mcY
+VoepQGK5hm7CHFf8FOBs+sMt6q5JJDm0VjNi+seVcCNg9U25GaXCRc2D9ztAqRib
+3768/KMhlftnoJKsizCwWq2Gyw0Se7ifz66djjf51sHd064LLDv7OZpfeGyiFK01
+MvVGXoPFuIJB0yqIoMRBbeRULm4kq+dkUkt1JWwYAMw9ZJnhXPJJI8bal2IASj8/
+E6NADiYd9HS8kAXWYvLkm0xHv4FN5WXWG2a+Gf6K2vpBm07zG2xnI+eVjYQSnb9W
+O9TcZf3jDWvgEQ31plH5JFY32sI4vjLAdcKS2oRfkbxFDJvTS+RRjj3EPqFshNXf
+B5E6pXTCltOkUepuhbGDzIifVWzYgg/GyXNfwzdnJUXcAz7QPPJySfMraf/dn+8S
+hggVgAivRFDEtaNEqKU6iqoePR3HIUJe/Ebjrb199RV9t4FcnVYOpviJRf5EWpsF
+2YEUJPiA7neiac9fPLwCoRh33bJTIzanmWVxmFF1nQ2vozIt68U=
+=3Mmd
+-----END PGP SIGNATURE-----
+
+--ykyajizgfjgayrmb--
 
