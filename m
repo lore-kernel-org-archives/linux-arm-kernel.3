@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29C7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537FECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 13:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVMlu0Q1OUNTl4sulZerShRZpU4e5GsfzFnKvceTdJM=; b=1BeqjLC5ooNvYimwZbBFnpRT12
-	1q3G1ic8ZMwa0+fa2ZXHgCbV9o+9/+qLICIglHGilrya96BhkNmgVLvbRBiYJtyxJzStaPZGEsFcZ
-	0f6iiJYobvU2cl7y+SG7ZZu1NXUlutvtN7P8NwD07khF7jW6OROA2oNA0yE3azM56tkfrKNYJKVFX
-	JxvRZv7qo1dpb9M+ZMkDgzgFFyOo7R5xbThyHgqk+DW7XW/EwOB322cqD9S07KLERdPdkFE/LGQ8Z
-	UqNSchGUbAPiiwAv3YRcTp9RTNg6kI/bEt4FkfHHyztZIxt8e42DE344dp1fjmmX2eYu8LMSDTHwB
-	Ewn7V5/w==;
+	bh=xj/bA4YiE91gjTI/ZRKfRaV6kuiSzvsAX6um4VA4U2I=; b=IABO1dUEgAuo9s2IEPuuA2cu2r
+	iQdsT2A5/tupRpnliqiwmExhxmdhs7hkVc3ADdeqqR34JfheSJHSb3nWhQWsHhgEkQB7TQV3qc+IN
+	yXxu2cT3FiIyjkbwBPojOGCMVCmIKTYB23C8hRDL/HBPp8oybffzh9+tOt9Pg1prWswC/9v+mnEiV
+	2rRaeW+3AbUdC1AXA/Nd69nLU+3WrbirAOl3w6JD22odAxRh+gQcNyImyi3afOend7YF4SecXnUB0
+	o44/4/h1v+ZIryZFldQm3xhJdh7VyEf7dG90TTR1TXfabTxOhkd3dp2Xfqwpl8NLdM/cz70Dw0+mO
+	fo4ZfdvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdXV-0000000Dlyt-1hmt;
-	Wed, 05 Nov 2025 13:27:05 +0000
+	id 1vGdXe-0000000Dm6i-37Dn;
+	Wed, 05 Nov 2025 13:27:14 +0000
 Received: from pandora.armlinux.org.uk ([78.32.30.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGdXT-0000000DlwB-3z1d
+	id 1vGdXc-0000000Dm3X-2cg7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 13:27:05 +0000
+	Wed, 05 Nov 2025 13:27:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aVMlu0Q1OUNTl4sulZerShRZpU4e5GsfzFnKvceTdJM=; b=aoaeK20t2wZjGLf2Adx1ohaTbP
-	qblMbDxNRrcn1khDXuu0YIE5OGFfRxigEt20vA4GpmO3T2VWO1Wx56NoUKUo7faZycNsL6ST1tDV0
-	/AgU8/LRX+SQKC3yNY4cyRgYlwBzBgILH4hAEQv2cnX3E5BpNLyNTAdKbl6vgPN25pqQg/gGbSPPK
-	jJy8w73yw8vOx+V2wCaycWMagCslukO+fIE7tj8uMdmYsDdKTADRHcyfcnrDKfruWCdX57+WAi5RF
-	FtrNHqtNK9uOvR24qYU3aG/fZxGR7q2PwQGtJyaphdX3/rWfBCkTHA6Nh0NzOBvvVUdtqHchVgz50
-	2iT4uj6A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:56828 helo=rmk-PC.armlinux.org.uk)
+	bh=xj/bA4YiE91gjTI/ZRKfRaV6kuiSzvsAX6um4VA4U2I=; b=S60fujAcZUB3o8B/3JwWbng5Ac
+	OGMmz2mA+igVyVhFGhhcZDjeaxMaHqXf208AEWWpglvfZISB/jZRephM8/7akCPceFFXQgP7pdps1
+	17Jq7xrsaAHwmXpEYfSviyQCC7MvaNN1nr/au4QKW6oPPhazHeLQ3lGnIvG8sxTqGVEwbesm3nf+J
+	S3SL0CDSAqzxisQ1smA8Br2Snx14lqHePg4WU/z/9WMn9Qpub3iURDpxT5zDEcYdLqK2OdMFUV3ti
+	NPAyeZTbhviYg5yOc2Zm+8t5RNx9oKvmiCeBf77dW+0UtaYsZfANCvpGVhYiT3hD9vQvhA26FLmYQ
+	Mxp7FE+g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50744 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vGdXM-000000003U6-43yU;
-	Wed, 05 Nov 2025 13:26:57 +0000
+	id 1vGdXV-000000003Ui-1Gpg;
+	Wed, 05 Nov 2025 13:27:05 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vGdXJ-0000000CloA-3yVc;
-	Wed, 05 Nov 2025 13:26:53 +0000
+	id 1vGdXU-0000000CloN-0lOu;
+	Wed, 05 Nov 2025 13:27:04 +0000
 In-Reply-To: <aQtQYlEY9crH0IKo@shell.armlinux.org.uk>
 References: <aQtQYlEY9crH0IKo@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 09/11] net: stmmac: ingenic: simplify x2000
- mac_set_mode()
+Subject: [PATCH net-next 11/11] net: stmmac: ingenic: use ->set_phy_intf_sel()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vGdXJ-0000000CloA-3yVc@rmk-PC.armlinux.org.uk>
-Date: Wed, 05 Nov 2025 13:26:53 +0000
+Message-Id: <E1vGdXU-0000000CloN-0lOu@rmk-PC.armlinux.org.uk>
+Date: Wed, 05 Nov 2025 13:27:04 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_052703_995957_97CEB458 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20251105_052712_761187_6C76E6B8 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per the previous commit, we have validated that the phy_intf_sel
-value is one that is permissible for this SoC, so there is no need to
-handle invalid PHY interface modes. We can also apply the other
-configuration based upon the phy_intf_sel value rather than the
-PHY interface mode.
+Rather than placing the phy_intf_sel() setup in the ->init() method,
+move it to the new ->set_phy_intf_sel() method.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 26 +++++--------------
- 1 file changed, 6 insertions(+), 20 deletions(-)
+ .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 33 +++++++------------
+ 1 file changed, 11 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-index 7b2576fbb1e1..98fd4c31a694 100644
+index 5ea26ee8e9d8..28548d0000ae 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-@@ -122,35 +122,21 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
- 	unsigned int val;
+@@ -134,32 +134,21 @@ static int x2000_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+ }
  
--	switch (plat_dat->phy_interface) {
--	case PHY_INTERFACE_MODE_RMII:
-+	if (phy_intf_sel == PHY_INTF_SEL_RMII) {
- 		val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN) |
--			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN);
--		break;
+-static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
++static int ingenic_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
+ {
+ 	struct ingenic_mac *mac = bsp_priv;
+-	phy_interface_t interface;
+-	int phy_intf_sel, ret;
 -
--	case PHY_INTERFACE_MODE_RGMII:
--	case PHY_INTERFACE_MODE_RGMII_ID:
--	case PHY_INTERFACE_MODE_RGMII_TXID:
--	case PHY_INTERFACE_MODE_RGMII_RXID:
--		val = 0;
-+		      FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN);
-+	} else if (phy_intf_sel == PHY_INTF_SEL_RGMII) {
- 		if (mac->tx_delay == 0)
--			val |= FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN);
-+			val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN);
- 		else
--			val |= FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_DELAY) |
--				   FIELD_PREP(MACPHYC_TX_DELAY_MASK, (mac->tx_delay + 9750) / 19500 - 1);
-+			val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_DELAY) |
-+			      FIELD_PREP(MACPHYC_TX_DELAY_MASK, (mac->tx_delay + 9750) / 19500 - 1);
+-	if (mac->soc_info->set_mode) {
+-		interface = mac->plat_dat->phy_interface;
+-
+-		phy_intf_sel = stmmac_get_phy_intf_sel(interface);
+-		if (phy_intf_sel < 0 || phy_intf_sel >= BITS_PER_BYTE ||
+-		    ~mac->soc_info->valid_phy_intf_sel & BIT(phy_intf_sel)) {
+-			dev_err(mac->dev, "unsupported interface %s\n",
+-				phy_modes(interface));
+-			return phy_intf_sel < 0 ? phy_intf_sel : -EINVAL;
+-		}
  
- 		if (mac->rx_delay == 0)
- 			val |= FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN);
- 		else
- 			val |= FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_DELAY) |
- 				   FIELD_PREP(MACPHYC_RX_DELAY_MASK, (mac->rx_delay + 9750) / 19500 - 1);
--
--		break;
--
--	default:
--		dev_err(mac->dev, "Unsupported interface %s\n",
--			phy_modes(plat_dat->phy_interface));
--		return -EINVAL;
- 	}
+-		dev_dbg(mac->dev, "MAC PHY control register: interface %s\n",
+-			phy_modes(interface));
++	if (!mac->soc_info->set_mode)
++		return 0;
  
- 	val |= FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
+-		ret = mac->soc_info->set_mode(mac, phy_intf_sel);
+-		if (ret)
+-			return ret;
+-	}
++	if (phy_intf_sel >= BITS_PER_BYTE ||
++	    ~mac->soc_info->valid_phy_intf_sel & BIT(phy_intf_sel))
++		return phy_intf_sel < 0 ? phy_intf_sel : -EINVAL;
++
++	dev_dbg(mac->dev, "MAC PHY control register: interface %s\n",
++		phy_modes(mac->plat_dat->phy_interface));
+ 
+-	return 0;
++	return mac->soc_info->set_mode(mac, phy_intf_sel);
+ }
+ 
+ static int ingenic_mac_probe(struct platform_device *pdev)
+@@ -221,7 +210,7 @@ static int ingenic_mac_probe(struct platform_device *pdev)
+ 	mac->plat_dat = plat_dat;
+ 
+ 	plat_dat->bsp_priv = mac;
+-	plat_dat->init = ingenic_mac_init;
++	plat_dat->set_phy_intf_sel = ingenic_set_phy_intf_sel;
+ 
+ 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+ }
 -- 
 2.47.3
 
