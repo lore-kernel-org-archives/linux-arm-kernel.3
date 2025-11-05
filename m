@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD26CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 20:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58AFCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 20:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGtKX+kQnYgPPm0B/oZUuJgVsr7xVl18n8n8kA+uaNM=; b=KEN6PjbNMgNnavEhYYHqw+dO5t
-	J+WOgJ/x/ExAnRvgLwqpfDeZCxxVQoxDb5lhgI5mopbzZ35vt/7DhI9mmHTLz+rc/YasZwsWWpVoJ
-	zZl1SRgieSXP6crCEW8zcDPW6U1YtpqNsWz94XYl0WeYLVSV2MoN4S7dfHhkaMV6Ys18Ya7exHrj+
-	SRhEk8tgkMhE9RAYYZY5bbmoPqXbNLC3vk2YAJ8jhzjIQ/6Puv3dl774rqvn27UJlBpz4+DWM6IhC
-	UJUwk2s4iqf2ddeGEqrlrmoTXvEDqKLFOmRHtJ6XyEE2gE34EcR/6GE4YrZt2iDttobgDKc4L8hnl
-	wW1FN6IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6rhyoAUyPYyqrPfPQh+VFBxKkmqZ6zauTIFwADmmkdY=; b=mRxpZ1P0Wa7czXhz0cjKRyeldH
+	Wq+1NFJEp1I+EuwoThrjgJjCFEIKDpst2iHAQTTQnQlpMYlOwyN0TdIeY6kuLARG4V3v4Hnge9hUu
+	JzudFS5ZY7MNVwXzWtXxvvyh2JOq6T/Gc6UTtFkGTfGrY9bNA72vq0XUpv5ZGBNXb6/eSs+iNjQM3
+	Z5O1E67XKalyu8i5k2KmUdPm44JvLJesg3FTtNhDi1R1ZvoBT8p7o1r5/5PATRWFMGZWLJlr/nHw4
+	4UJ96k2IrxDQ6zjSY/yTem66g/E02wwDEnSHb+GAK7IntQGv/HqA1uEWFJZ9Yrc0JL/LefmBy6WPq
+	/BJhEi3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGjwh-0000000EMZQ-0XWz;
-	Wed, 05 Nov 2025 20:17:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGkB8-0000000ENct-2SYB;
+	Wed, 05 Nov 2025 20:32:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGjwf-0000000EMZI-2mh1
+	id 1vGkB6-0000000ENby-1Vdz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 20:17:29 +0000
+	Wed, 05 Nov 2025 20:32:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CC3E601F1;
-	Wed,  5 Nov 2025 20:17:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C32C4CEF5;
-	Wed,  5 Nov 2025 20:17:27 +0000 (UTC)
-Date: Wed, 5 Nov 2025 20:17:25 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <aQuw1WUZAjWLRgop@arm.com>
-References: <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQoyPox1DjlBT32O@arm.com>
- <d132771d-3a3f-486c-b674-de4ec976e929@paulmck-laptop>
- <174614f9-70f0-440e-ae68-dc5f540b8454@paulmck-laptop>
- <aQtufeFU-PAE6YDk@arm.com>
- <8f7997f5-fdb3-443b-90be-3c68d796b416@paulmck-laptop>
- <aQuGR1fx2qBrJSA-@arm.com>
- <8ef2390c-e805-4b8c-8417-88a6762f9a54@paulmck-laptop>
- <aQuimp4CRywdy97S@arm.com>
- <dd77458f-95f0-4c3f-ae5c-4a09b51e386a@paulmck-laptop>
+	by sea.source.kernel.org (Postfix) with ESMTP id C49F444AA3;
+	Wed,  5 Nov 2025 20:32:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 959E7C116B1;
+	Wed,  5 Nov 2025 20:32:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762374740;
+	bh=3SQyEsKa4vegmpwnk5NwDoYKeDgsfEpb4R+BPinWNcE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Vhydh/tQI9xr/YlHbbUKT9zHxmVTJ6t+ba3rjA8qgpeoIQrB56U/+bcCd2s6qrqcY
+	 7smrOg/+KvBe9txgBp5nzq9uiPHthKUSp0Y1FkseYDmMJOaxtXvDhS/LIjP/Dq48Zs
+	 xQvCyBF+NMHrht2k7PfBH6lKyKYti6Mmw+z35Vj6jfcB3/fLg4xSxULoEOThhIROGP
+	 I8QQDYUlBgyVOLdMvCkVsZEx8TjNNee1O+JZEu0ff56JeVlfzMVKOIlXY+RP1Buuqp
+	 NMYt36OPnMYbB4RhUS49kGrl7D1D8q+lG8vmgaGqdKSUIHMYrafKfB3XDy8sMNbpSb
+	 nzlTTu9qmXFsw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id AB7C6CE0FF9; Wed,  5 Nov 2025 12:32:18 -0800 (PST)
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: rcu@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	kernel-team@meta.com,
+	rostedt@goodmis.org,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
+Date: Wed,  5 Nov 2025 12:32:15 -0800
+Message-Id: <20251105203216.2701005-15-paulmck@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
+References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dd77458f-95f0-4c3f-ae5c-4a09b51e386a@paulmck-laptop>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_123224_436250_BAFB60CC 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,26 +82,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 11:47:07AM -0800, Paul E. McKenney wrote:
-> On Wed, Nov 05, 2025 at 07:16:42PM +0000, Catalin Marinas wrote:
-> > I think we should change the percpu atomics, it makes more sense to do
-> > them near, but I'll keep the others as they are. Planning to post a
-> > proper patch tomorrow and see if Will NAKs it ;) (I've been in meetings
-> > all day). Something like below but with more comments and a commit log:
-> 
-> I do like fixing this in the arm64 percpu atomics.  However, this gets
-> me assembler errors, perhaps because I am using an old version of gcc
-> or perhaps because I am still based off of v6.17-rc1:
-> 
-> 	/tmp/ccYlMkU1.s: Assembler messages:
-> 	/tmp/ccYlMkU1.s:9292: Error: invalid addressing mode at operand 2 -- `stadd x2,x4,[x0]'
-> 	/tmp/ccYlMkU1.s:9428: Error: invalid addressing mode at operand 2 -- `stadd x3,x6,[x1]'
-> 	/tmp/ccYlMkU1.s:9299: Error: attempt to move .org backwards
-> 	/tmp/ccYlMkU1.s:9435: Error: attempt to move .org backwards
+Some arm64 platforms have slow per-CPU atomic operations, for example,
+the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+atomic operations to interrupt-disabled non-read-modify-write-atomic
+atomic_read()/atomic_set() operations.  This works because
+SRCU-fast-updown is not invoked from read-side primitives, which
+means that if srcu_read_unlock_fast() NMI handlers.  This means that
+srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+exclude themselves and each other
 
-Are you sure it is applied correctly? There shouldn't be any trace of
-stadd in asm/percpu.h.
+This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+it sure beats 100ns.
 
+This command was used to measure the overhead:
+
+tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
+
+Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: <linux-arm-kernel@lists.infradead.org>
+Cc: <bpf@vger.kernel.org>
+---
+ include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 48 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
+index d6f978b50472..0e06f87e1d7c 100644
+--- a/include/linux/srcutree.h
++++ b/include/linux/srcutree.h
+@@ -253,6 +253,34 @@ static inline struct srcu_ctr __percpu *__srcu_ctr_to_ptr(struct srcu_struct *ss
+ 	return &ssp->sda->srcu_ctrs[idx];
+ }
+ 
++/*
++ * Non-atomic manipulation of SRCU lock counters.
++ */
++static inline struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_na(struct srcu_struct *ssp)
++{
++	atomic_long_t *scnp;
++	struct srcu_ctr __percpu *scp;
++
++	lockdep_assert_preemption_disabled();
++	scp = READ_ONCE(ssp->srcu_ctrp);
++	scnp = raw_cpu_ptr(&scp->srcu_locks);
++	atomic_long_set(scnp, atomic_long_read(scnp) + 1);
++	return scp;
++}
++
++/*
++ * Non-atomic manipulation of SRCU unlock counters.
++ */
++static inline void notrace
++__srcu_read_unlock_fast_na(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
++{
++	atomic_long_t *scnp;
++
++	lockdep_assert_preemption_disabled();
++	scnp = raw_cpu_ptr(&scp->srcu_unlocks);
++	atomic_long_set(scnp, atomic_long_read(scnp) + 1);
++}
++
+ /*
+  * Counts the new reader in the appropriate per-CPU element of the
+  * srcu_struct.  Returns a pointer that must be passed to the matching
+@@ -327,8 +355,18 @@ __srcu_read_unlock_fast(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
+ static inline
+ struct srcu_ctr __percpu notrace *__srcu_read_lock_fast_updown(struct srcu_struct *ssp)
+ {
+-	struct srcu_ctr __percpu *scp = READ_ONCE(ssp->srcu_ctrp);
++	struct srcu_ctr __percpu *scp;
+ 
++	if (IS_ENABLED(CONFIG_ARM64) && IS_ENABLED(CONFIG_ARM64_USE_LSE_PERCPU_ATOMICS)) {
++		unsigned long flags;
++
++		local_irq_save(flags);
++		scp = __srcu_read_lock_fast_na(ssp);
++		local_irq_restore(flags); /* Avoids leaking the critical section. */
++		return scp;
++	}
++
++	scp = READ_ONCE(ssp->srcu_ctrp);
+ 	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
+ 		this_cpu_inc(scp->srcu_locks.counter); // Y, and implicit RCU reader.
+ 	else
+@@ -350,10 +388,17 @@ static inline void notrace
+ __srcu_read_unlock_fast_updown(struct srcu_struct *ssp, struct srcu_ctr __percpu *scp)
+ {
+ 	barrier();  /* Avoid leaking the critical section. */
+-	if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE))
++	if (IS_ENABLED(CONFIG_ARM64)) {
++		unsigned long flags;
++
++		local_irq_save(flags);
++		 __srcu_read_unlock_fast_na(ssp, scp);
++		local_irq_restore(flags);
++	} else if (!IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE)) {
+ 		this_cpu_inc(scp->srcu_unlocks.counter);  // Z, and implicit RCU reader.
+-	else
++	} else {
+ 		atomic_long_inc(raw_cpu_ptr(&scp->srcu_unlocks));  // Z, and implicit RCU reader.
++	}
+ }
+ 
+ void __srcu_check_read_flavor(struct srcu_struct *ssp, int read_flavor);
 -- 
-Catalin
+2.40.1
+
 
