@@ -4,197 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1BACCFA07
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF682CCFA04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 07:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jrbVvVV7Lbtrq3MF7g7soch5HyB6b54V8ztjd8tvPBQ=; b=cwp6egXpis7gqNNM1Tm6y5pmWP
-	vR/NhQ2+e/XGrQB0FinTmXulq1zZbEyQR9TY/bDumzfBKMJ/yitoDd6+AcQ05lFivBwHufq+sv15+
-	hWhQtqvcDMbGsVQsjjL3brcVNiNze6Zo7rcOFEDJiSPtQQ9KQRc3YA7JZTridIVRx/RUK/Bt8Ifr+
-	ifrM9M0tpp1lkd94xRQTb8A8JbT1MLl22ipn83ZsJEAsmdvKrk6n1Oc84P8tXtkC072c15wEUXhNS
-	4xq2bcwEUlxgiEPRVy1ZzbV3gsaFkURxJmLZ0bnykmDQeHZ4vJ3aTXyXD2MFhk0dgHC0Hv2Xg2E+C
-	j0UYEjVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVznKrEnrij0RB/Hlv2EoVhlytvAntMVhI6idUfFh/M=; b=Wx67eNCOGSaCU+QU2yLWWCsWwC
+	HLpW5+bxCyckRI5ewFGvZx2fZXiJRFEOGhI1ZZur/t1Tx9FCRpPNqGpHJHkIY+pXr0jpUyn3nxIM1
+	krfpdVKt4Qm4shCnWbupmwNPlp5Vels6SmVQ5pErLRwvugii1c3saa+ro+Apv5BXID69XU0anPKTi
+	C0zq7PsmHY0hw71PIlfQUCac+AJ94irf+VS27GmFOKu+/HXAT+lN7Weob/6w3v/WoCmYa7VgXAyuD
+	CEsiQ4QtclUajTa1t456WjP4Ffj3MjF1q9Ep+8NVu5ZMcxVJqqZuT9zPHlkb17oad3U26ndn9vli0
+	OM+CrDFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGY2X-0000000DCxF-3COF;
-	Wed, 05 Nov 2025 07:34:45 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vGY3c-0000000DD7t-0lq1;
+	Wed, 05 Nov 2025 07:35:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGY2U-0000000DCwP-0Ycm;
-	Wed, 05 Nov 2025 07:34:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762328082; x=1793864082;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=zq11GAr43sPwTZR15h2cBItUdusfxqdwx8osk8sOsk8=;
-  b=QHQJszs0bx5mcMXdVsp4kXJGFs+1gM/T46yT4OV60Alv7hFAW6WhIilV
-   QN6Mj6wmdcxxOb2u+FQpmvScNKqQ2b15yk/aZY4z9cLt2JYlmWMguQHnt
-   kz9htL52vRvz+LvZtKasNfnHAwVCO47PI9M1osTjJRA1HQ+2GOWaWt8Hh
-   PGmOVqRYio/wJrB7XqXSHOr86IWEIb757IvGd8vIg221L/TisdFs8E9K2
-   guiyz3lr3k+IWhuRihp0d2MOCqxs70r3nW8/+ZQsbqHzvRFlCDOh66cUa
-   f4O3v7pjN8Hk07yL4bxUrgbKwn4I6ORmQPzCl5UC8grMzinfHSE3/7Id8
-   Q==;
-X-CSE-ConnectionGUID: 8hJLcUvVQTOoGIWFX8XNLA==
-X-CSE-MsgGUID: O2CIwabNSWyXtGl7usbN1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11603"; a="64583339"
-X-IronPort-AV: E=Sophos;i="6.19,281,1754982000"; 
-   d="scan'208";a="64583339"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2025 23:34:41 -0800
-X-CSE-ConnectionGUID: pX3ZU/frT4a7OKigT/M1fw==
-X-CSE-MsgGUID: 3XrUvOEzT9Sq8ZE2yBxXiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,281,1754982000"; 
-   d="scan'208";a="187830649"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2025 23:34:40 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Tue, 4 Nov 2025 23:34:39 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Tue, 4 Nov 2025 23:34:39 -0800
-Received: from BN1PR04CU002.outbound.protection.outlook.com (52.101.56.48) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Tue, 4 Nov 2025 23:34:39 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YE/tT6AaxbMLYDrTnZHlBQIPJcoMq/VCgpLrIXz7fwQhAxyCNzqp9LOa1l5tvFCy8n7jF6gBHyrJkEtb+/3RzCqnOriBPtsvjHCGLbdJ1/t7LJqXXsQf9bmQEj6Ru2/4tY8fLXlkxzRQgUUlZucRUQX3pAiisHrUAHALk5GPKMM2G0fuCcbunM3ynFPtI42HAIMSxrp8s7Ml+012JG83ImDZN4ERi/+UHYEbKyB+jxYjlueXvZokC4Z/piPvW97+51VbSDVgNv7UUyeQO4uAwiphUlg/AInwLTGaHd0PJQw86EibgL1QvYOn9GBYARqXOSMWQNhju5zeTtGVVdKvDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jrbVvVV7Lbtrq3MF7g7soch5HyB6b54V8ztjd8tvPBQ=;
- b=JELLnAkaiAqf0Aalj9lF5cqTo45jgmJywFerhLuRXiKMEi5j69nYWpX01XRTFQPcm3bG73nCqZ7qR8pklIQAWx2Z2DtDqs4chtLh2S7j3XH/DXIEupq7NSselxfVjMZ9vGA6nLjDBFEQ3VHr0uW8e9bwa+3kFLU5GnY/8fLS7OqzxN6PaJo63JitWtRDH8+jptXHH00FVxHXGsMV4TpymN2wzSGdNjQdoMEtbWIb1p91/DXPT8liRRWUH7hldQ6tSXJBC5THVxpiBvisFHaE6yBZNLo4lLqjUmdyrYchMLhMhV3kERZRZDwDAKSI+TqplyW4Bafx3N1KxsOmBp7+5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- CO1PR11MB4946.namprd11.prod.outlook.com (2603:10b6:303:9e::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.8; Wed, 5 Nov 2025 07:34:36 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9275.015; Wed, 5 Nov 2025
- 07:34:35 +0000
-Date: Wed, 5 Nov 2025 15:32:29 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
- Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
-	<kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, Vishal Annapurve
-	<vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Ackerley Tng <ackerleytng@google.com>, Binbin Wu <binbin.wu@linux.intel.com>
-Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
- guest_memfd pfn into TDP MMU
-Message-ID: <aQr9jW/7zwWJaDFf@yzhao56-desk.sh.intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
- <20251017003244.186495-5-seanjc@google.com>
- <aPhjYcOFjL1Z8m2s@yzhao56-desk.sh.intel.com>
- <aQMi/n9DVyeaWsVH@yzhao56-desk.sh.intel.com>
- <aQo-hus99rE7WBgb@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aQo-hus99rE7WBgb@google.com>
-X-ClientProxiedBy: SI1PR02CA0036.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::20) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1vGY3a-0000000DD7a-2ard;
+	Wed, 05 Nov 2025 07:35:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86304601FF;
+	Wed,  5 Nov 2025 07:35:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F404C4CEFB;
+	Wed,  5 Nov 2025 07:35:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762328148;
+	bh=BrWa/lzA23oyRXVpHd04uUOezDwX9GRDHz8VGSC/tcQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FHXe7M6i3Dyl1CPBdWHLGb9KKKCS8oXugkm38c2A3fTh3YhLjTYU/CAu8wHLUwcwH
+	 zi+xnCqG0E7kWGZJoQ6i6cpF3It6QIwNsRmqoS5mmCteAvvApyI4kr1Aud1c352JKf
+	 uijzo0EOaz+Gx77HT0PNhWjAbnVlibJoH/VtP5KjTt/wBR/K45KhEmb8o81EPHrWRl
+	 1Zg9G54lW8qXUt+Yo6F1Amue7aiQu9MuVLAALUXVnMZd9FhknV7Xvs0uvQCIkdHEZz
+	 VBntuwXrx8FzKUNf/bNFK47I3SPNdJNPwqNI7t4/i7C8xNaes42Z924KoLT7BWutpW
+	 SOt4sOsgK15fw==
+Message-ID: <89733ddf-8af3-42d0-b6e5-20b7a4ef588c@kernel.org>
+Date: Wed, 5 Nov 2025 08:35:41 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|CO1PR11MB4946:EE_
-X-MS-Office365-Filtering-Correlation-Id: caeabc42-1357-482f-ed2e-08de1c3dc4f9
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jBFHBRiy+lb25Spc1JhPYuYeKD43Qs/ynhp5zsi0PUBNVxYf4JTceIcdPRi3?=
- =?us-ascii?Q?9miPSO0FGiXZWPd0cTbEC9L+gplGxqcfn4dht+XcaslLy5nrpsXFQyC6ONEP?=
- =?us-ascii?Q?fJyZ8eoTu78zNwEG+egIW+sdUudyIaG9FIzgP7hKHiGiXyZtZPEA/ljKw7FW?=
- =?us-ascii?Q?S4IMHDiQfbKJYdNGbnXND1MDpoTuUGsq555LI2NgoZlak65xnuwXlHMIfInM?=
- =?us-ascii?Q?CCZypwI4TSR5uhRXaO7ctX3pzTJICs8LngQrhsxe4qmb7rpvgpzsawGj6Ayq?=
- =?us-ascii?Q?WehL4jTsAIFvd5s6j8yklxwkaR1+U5vSR534dO5APVQWRsD7lDj24HSwg07/?=
- =?us-ascii?Q?wbpc3ZEsELW0exH6SlGunfH4XVlS/U+7Ikmv+hqHL4CRpD7l3OFl+MSCrt0h?=
- =?us-ascii?Q?CAHIPipq/7TTs8OmJXobd6ry+PkIL5Z76fOlDVBQaIxuAA4cGVETv+6duIcD?=
- =?us-ascii?Q?K+kcFvpmPlATh2IRtydEYSgUXyADODkfrIGPg0MuBc3rOlja7th7A58lQBM1?=
- =?us-ascii?Q?i0jHmKhDqt1LCPLW+RDuSZgTNxV1gMRIRySQpwtcsuOp78gMFcgbOKjtwDwd?=
- =?us-ascii?Q?snSLCugg4P6J0MGZg6QoA17oNdw+8CO6nz/9gFGUp8Ae3tyGNPDeAiwKGkVB?=
- =?us-ascii?Q?RH8lZBGs63EPjL6P8IuMQzPgJ7bVbpN3ol6JjELlUQGzv10WBUtyY8qBRYFA?=
- =?us-ascii?Q?mrV5w1DszlcFSXsAGabZMrn9jltQ/sKpc+iygwmxZSaHqv24iTsFH0cRtmY+?=
- =?us-ascii?Q?8QPvsI0KmOVfsDAePBaa19uURLayQl1LBijNBbZ28uc2IjJPPv9kASFScMTP?=
- =?us-ascii?Q?1r9kDMREe9dK+SEldoA2tNHDWSuCy4Sa8F50n0a6XCYpx7+nndHKEWsF4ofh?=
- =?us-ascii?Q?jZRoHo5n0O/52P+8J7kBwSvg2U8Xu6RNgVYZWi1K0NWrW1M1JN62QBC6VZlr?=
- =?us-ascii?Q?KMZwyXJap9SCsCI/2izeZiPo0SwSQWn68c5GF6kVqCc7CeFWJMl1wwtswpBu?=
- =?us-ascii?Q?JRA6Z9GWR1SU8PDnZYuPoDN8JWy0P1w0IHWF78BagnL9GkvhJj+XsveLhtn2?=
- =?us-ascii?Q?KWJxRTBXAD5n0Dam86szTuqlQa8o2pd8S0s8KjfQwJB4OS3LO1vEeBy25nhB?=
- =?us-ascii?Q?ipViIIMnVbbs61n69nxtjx5wTx2kHpfb/fuNsl3Up7cBmmNVyk5Kzm3R55oR?=
- =?us-ascii?Q?xcRkunKUzcgOIJqignMhHVQGp7rOmScxmS4Cv19/8faVrOKPhKVUrCugtY3S?=
- =?us-ascii?Q?zqVzUr94cRsfEl4NCa8cNspKqXi6T17YHZitn9sDe8pT4oat6yaevFJSLKvD?=
- =?us-ascii?Q?Zi0DqKJCOKcskyn4lvCHxddyf1bp8YOSxZoSHrqaLmQdv7ZI6FTx3GqUxVM5?=
- =?us-ascii?Q?AE2FuCmW9kG/Un7RRoi5RvNQlV0BK7fNR1Q/mEl64eNZqynDtwyc+HY7Nl48?=
- =?us-ascii?Q?qOti+qdah/qr+lHMlDLORRU2B2uCejHTgW6wIsmKbxlML88ez3GV6g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gmDFeY1fENQOZnVS1n6LUcStbd0grd1f5fUdym78JeRfLOTL1dojCpcauoSi?=
- =?us-ascii?Q?ShSIQ+H33aWBigY5RLjNB2wA5EQ8ATx9UZ2+8WNh+N4EeK5fwNrbERyxfYSz?=
- =?us-ascii?Q?mIfMNn+IJNHTPBMsTogUfMXHj36Dh/jYiLZ6b+Xt83XM0F35/PV+l046qe/o?=
- =?us-ascii?Q?rFqzfHN1ZrmggPz0DN0SBmIymX1bG5Xqyi7dQD2HXLnlIu3onirg7fpbUjTb?=
- =?us-ascii?Q?6IkjiEEsSep2laMmevsHbw62c4bIyUeyO6gYaNRV7bDChZVncDvHf/8sCI2a?=
- =?us-ascii?Q?wqQmbJfSbYOPmj5l54orLkfXhKY/w3Huvf/oQ7+43TVRZAY4NGCpRY8gLm8S?=
- =?us-ascii?Q?PgOJqCJqYavk17nR7oQvBuvC1HFuzFnp29q1/tuJXJAZ90KmFOXnbnFBLDSj?=
- =?us-ascii?Q?FeYvbNLUZHa5X0oTUgQg1R0Is5VYmkhCKOZVphOntZc+Ex3LeHEYq1YlHavo?=
- =?us-ascii?Q?Ewlq0PX8c0m1qRrZPWcBCGQGs2qnbjJNHyg/hQn6GXKv2wibnGGCyLdd8lOG?=
- =?us-ascii?Q?2IzTZfO3xUkcPwDCke8RLIC3Y1AuYY9hNI/1jq9ZmBGAhLi1FrtksaQKJVXg?=
- =?us-ascii?Q?JbPjyDu+6nXmamQyCNO8UuyfFDFa9iJQcsNIw/TurZl23F6R07x5Z7vVG1oy?=
- =?us-ascii?Q?aViG4qHuJjGx4PFTlEdgbBOzpswqpX90h4vMRJ/uacdsd4pqKm/l82qCjgNO?=
- =?us-ascii?Q?H52ocqxJ39EhafdP9fHtDtl8XVQ+RlAKkO/vHlFPPLKlaGe1SexUM+UDcbN0?=
- =?us-ascii?Q?ZdgFuVc04ah3amXh8EsLhvCjK9EBopCnz2iNtc3d7L7Zz9UW1FgV6GoG2EZG?=
- =?us-ascii?Q?+hN61YKYdJ7yZ2KC8X6LvjMN26wOimHb1gaKeMTXrHBQwfDZdyS3xVzynpPV?=
- =?us-ascii?Q?tNPWSLVvWkXrBHn6Fu8P9oSct1Wz/WU7GcGbFKEVk/TvT0R47mYljncwlwX1?=
- =?us-ascii?Q?CkW0XGjqPosu8ph3zEu1M10vg0l08BPT+VOR37Uwfjre84zzobFwteS16rcp?=
- =?us-ascii?Q?jjjxiRNFXc3UUFoUEh8KrYIGKIJwr/02xxn9ZFQE5W1X+HTP4SSksjYkHzei?=
- =?us-ascii?Q?5URGkpgETb7Xs00io26beo/Ahy8wzvxXZ9qCI8aQiOrlmzA/LrsKwHPLoXGg?=
- =?us-ascii?Q?nPLD4kEJCCK1HqopsP9Q0+JkrtZ46xDXZUVg0MhDp0FYc8XmYlxtgfRbvRmM?=
- =?us-ascii?Q?8D/sdRjkqWI8gCPki0/+obDpiWNAHjUm+HVy+dRZpQQPZ9fKYinbKY16aA6u?=
- =?us-ascii?Q?MySottrEtPAiJvdnMUAHRAasEscYOg/sk4ZGgRhWIxi+mqyuQmG4Vwmme63h?=
- =?us-ascii?Q?+ZwZClTIPon7KyCiIttUpVwGNcIa8ZiZNfdNoQvDcPKiIOnaMBCVJ77soCrj?=
- =?us-ascii?Q?K1K4hPkaOWPTvq/i9QkAGimFt0GV6xmpayzSVvvMbD4dFnJLv/VLhC3qTC7/?=
- =?us-ascii?Q?lII2/GVgyMqbZcs/8Ec5Wipvu8Dl6xtzTc4xGj3ZGoe8UlGZrNR516QQcp3B?=
- =?us-ascii?Q?/6ln2QfFps46TWTtgBldyhX7WBPAnIlCCQp+hATmwHXoRpU83mfQeAj+dhk9?=
- =?us-ascii?Q?nUvrN9QQ0dpgPPRAPPGShuIlTfzk526SuTH6UBDe?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: caeabc42-1357-482f-ed2e-08de1c3dc4f9
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 07:34:35.8381
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cMyY9RXdGWP7Ql1BfNYyjYNqPXr0x3JvaWvyLpHEI2YluXdHvTVtA2QmLRqCARVxVRAhGoyHlLYmuWZXjX/2lA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4946
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251104_233442_243699_FA1A2D4A 
-X-CRM114-Status: GOOD (  14.67  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB
+ PHY
+To: Roy Luo <royluo@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Doug Anderson
+ <dianders@google.com>, Joy Chakraborty <joychakr@google.com>,
+ Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan
+ <badhri@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20251029214032.3175261-1-royluo@google.com>
+ <20251029214032.3175261-2-royluo@google.com>
+ <20251030-cunning-copper-jellyfish-1b5f3b@kuoka>
+ <CA+zupgxV7SH8Jmghg7HUkWi63dN3m6KLQNBbf+BOQPFbRsiKiw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CA+zupgxV7SH8Jmghg7HUkWi63dN3m6KLQNBbf+BOQPFbRsiKiw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,45 +123,227 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 09:57:26AM -0800, Sean Christopherson wrote:
-> On Thu, Oct 30, 2025, Yan Zhao wrote:
-> > On Wed, Oct 22, 2025 at 12:53:53PM +0800, Yan Zhao wrote:
-> > > On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
-> > > > Link: https://lore.kernel.org/all/20250709232103.zwmufocd3l7sqk7y@amd.com
-> > > 
-> > > Hi Sean,                                                                         
-> > > 
-> > > Will you post [1] to fix the AB-BA deadlock issue for huge page in-place
-> > > conversion as well?
+On 01/11/2025 00:45, Roy Luo wrote:
+> On Thu, Oct 30, 2025 at 12:37 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On Wed, Oct 29, 2025 at 09:40:31PM +0000, Roy Luo wrote:
+>>> Document the device tree bindings for the USB PHY interfaces integrated
+>>> with the DWC3 controller on Google Tensor SoCs, starting with G5
+>>> generation. The USB PHY on Tensor G5 includes two integrated Synopsys
+>>> PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
+>>>
+>>> Due to a complete architectural overhaul in the Google Tensor G5, the
+>>> existing Samsung/Exynos USB PHY binding for older generations of Google
+>>> silicons such as gs101 are no longer compatible, necessitating this new
+>>> device tree binding.
+>>>
+>>> Signed-off-by: Roy Luo <royluo@google.com>
+>>> ---
+>>>  .../bindings/phy/google,gs5-usb-phy.yaml      | 127 ++++++++++++++++++
+>>>  1 file changed, 127 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+>>> new file mode 100644
+>>> index 000000000000..8a590036fbac
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+>>> @@ -0,0 +1,127 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +# Copyright (C) 2025, Google LLC
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Google Tensor Series (G5+) USB PHY
+>>> +
+>>> +maintainers:
+>>> +  - Roy Luo <royluo@google.com>
+>>> +
+>>> +description: |
+>>> +  Describes the USB PHY interfaces integrated with the DWC3 USB controller on
+>>> +  Google Tensor SoCs, starting with the G5 generation.
+>>> +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.0 PHY IP
+>>> +  and USB 3.2/DisplayPort combo PHY IP.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: google,gs5-usb-phy
+>>> +
+>>> +  reg:
+>>> +    items:
+>>> +      - description: USB3.2/DisplayPort combo PHY core registers.
+>>> +      - description: USB3.2/DisplayPort combo PHY Type-C Assist registers.
+>>> +      - description: USB2 PHY configuration registers.
+>>> +      - description: USB3.2/DisplayPort combo PHY top-level registers.
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: usb3_core
+>>> +      - const: usb3_tca
+>>> +      - const: usb2_cfg
+>>> +      - const: usb3_top
+>>
+>> These prefixes are redundant. Also, you are still referencing here
+>> completely different devices. MMIO of IP blocks do not have size of 0xc
+>> and they do not span over other blocks (0x0c410000 and then next one is
+>> 0x0c637000).
 > 
-> If you (or anyone) has the bandwidth, please pick it up.  I won't have cycles to
-> look at that for many weeks (potentially not even this calendar year).
-Got it!
-On the other hand, do you think we can address the warning as below?
-The code is based on [2].
+> I'd like to explain why MMIO of IP blocks looks discontinuous.
+> As outlined in the description, this device contains two SNPS PHY IPs
+> including eUSB2 PHY and USB3.2/DP combo PHY, and is integrated
+> with the SNPS DWC3 USB controller. A top-level subsystem wrapper
+> sits above the PHYs and controller. This wrapper integrates these IPs
+> and is where the Tensor-specific implementation resides. It's essential
+> to touch these wrapper registers to control the underlying SNSP IPs.
+> Unfortunately, the top-level wrapper's MMIO space lacks a clear
+> boundary between these IPs. Specifically, the registers required to
+> configure a particular IP are not always adjacent to that IP, and in
+> some cases, multiple IPs may even share the same address space.
+> 
+> The following is the register layout overview:
+> - 0xc400000: Dedicated address space for DWC3 controller IP.
+> - 0xc410000: Dedicated address space for USB3.2/DP combo PHY IP.
+> - 0cc440000: Dedicated address space for the eUSB2 PHY IP.
+>                       While this is not in use, it should perhaps be
+> called out in
+>                       the binding for completeness.
+> - 0xc450000: This address range contains top-level wrapper registers
+>                       and its space is shared by two devices: the DWC3
+>                       controller and the eUSB2 PHY.
+>                       It includes control registers for the DWC3 controller
+>                       (e.g. hibernation control and interrupt registers) and
+>                       the eUSB2 PHY (e.g. registers for USB2 PHY
+>                       frequency configuration).
+>                       Because the space is shared, the MMIO range for the
+>                       PHY becomes fragmented and is only allocated a size
+>                       of 0xc, as the remaining registers in this range are
+>                       assigned to the DWC3 controller.
+> - 0xc460000: This address range contains registers for other blocks
+>                       within the same top-level wrapper (such as PCIe PHY
+>                       and DP controller) which are not relevant to USB.
+> - 0xc637000: Another region of top-level wrapper registers.
+>                       This area is relevant to both the eUSB2 PHY IP
+>                       (e.g. control register for vbus valid) and USB3.2/DP
+>                       combo PHY (e.g. registers relevant to PHY firmware).
 
-@@ -853,6 +859,10 @@ static int kvm_gmem_init_inode(struct inode *inode, loff_t size, u64 flags)
-        inode->i_size = size;
-        mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
-        mapping_set_inaccessible(inode->i_mapping);
-+       if (flags &GUEST_MEMFD_FLAG_MMAP)
-+               lockdep_set_class_and_subclass(&inode->i_mapping->invalidate_lock,
-+                                              &inode->i_sb->s_type->invalidate_lock_key, 1);
-+
-        /* Unmovable mappings are supposed to be marked unevictable as well. */
-        WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
+To me it all feels like you pick up individual registers from the
+common, miscellaneous register region aka syscon.
+
+And if that's the case then you create a narrowly constrained binding
+which won't work with next generations where hardware engineers decide
+to make that shared region a bigger syscon.
+
+> 
+> Thanks for taking the time to go through this wall of text.
+> This is definitely not an ideal register layout, but I'm open
+> to any suggestions on how best to address this fragmentation.
+> If discontinuous MMIO space is a concern, does it make sense to
+> make the wrapper registers a syscon node so that it can be
+> shared by multiple devices?
+
+0xc450014 looks like that. 0x0c637000, depends how other devices really
+use it.
+
+You should post somewhere full DTS for clarity. It's not a requirement
+but it actually can answer several questions.
+
+> 
+>>
+>>
+>>> +            reg = <0 0x0c410000 0 0x20000>,
+>>> +                  <0 0x0c430000 0 0x1000>,
+>>> +                  <0 0x0c450014 0 0xc>,
+>>> +                  <0 0x0c637000 0 0xa0>;
+>>> +
+>>> +  "#phy-cells":
+>>> +    description: |
+>>> +      The phandle's argument in the PHY specifier selects one of the three
+>>> +      following PHY interfaces.
+>>> +      - 0 for USB high-speed.
+>>> +      - 1 for USB super-speed.
+>>> +      - 2 for DisplayPort.
+>>> +    const: 1
+>>> +
+>>> +  clocks:
+>>> +    minItems: 2
+>>> +    items:
+>>> +      - description: USB2 PHY clock.
+>>> +      - description: USB2 PHY APB clock.
+>>> +      - description: USB3.2/DisplayPort combo PHY clock.
+>>> +      - description: USB3.2/DisplayPort combo PHY firmware clock.
+>>> +    description:
+>>> +      USB3 clocks are optional if the device is intended for USB2-only
+>>> +      operation.
+>>
+>> No, they are not. SoCs are not made that internal wires are being
+>> disconnected when you solder it to a different board.
+>>
+>> I stopped reviewing here.
+>>
+>> You are making unusual, unexpected big changes after v4. At v4 you
+>> received only few nits because the review process was about to finish.
+>>
+>> Now you rewrite everything so you ask me to re-review from scratch.
+> 
+> Apologies for the trouble, my intent was to address your feedback on v4
+> by describing the USB3/DP PHY block for completeness.
+> Like mentioned earlier, this device contains two underlying IPs: eUSB2
+> PHY and USB3.2/DP combo PHY. The device can operate in USB2-only
+> mode by initializing just the eUSB2 block without touching the USB3
+> PHY block - but not the other way around. The v4 patch reflected this
+> USB2-only configuration.
+
+You describe the device in your SoC. This SoC either has both or has
+not. The case of "can operate in USB2-only mode" is simply not real.
+
+> I tried to support the USB 2.0-only configuration in the binding by
+> making the USB 3.0 clocks and resets optional. However, if I
+> understand your comment correctly, the binding should describe
+> FULL hardware capability. I will make USB3 resources mandatory
+> in the next version, please let me know if I've misunderstood it.
+
+Yes, binding should describe complete hardware picture, so with USB3 and
+all wires/signals being required.
+
+> 
+>>
+>>> +
+>>> +  clock-names:
+>>> +    minItems: 2
+>>> +    items:
+>>> +      - const: usb2
+>>> +      - const: usb2_apb
+>>> +      - const: usb3
+>>> +      - const: usb3_fw
+>>
+>> Again, what's with the prefixes? apb is bus clock, so how you could have
+>> bus clock for usb2 and usb3? This means you have two busses, so two
+>> devices.
+> 
+> The prefixes are to differentiate the clocks and resets for the
+> underlying two SNPS IP as outlined in the device description.
+> - eUSB2 PHY IP needs clocks and resets for the phy itself
+>   and its apb bus.
+> - USB3.2/DP combo PHY has its own clocks and resets for
+>   the phy, plus it needs a clock for its PHY firmware.
+
+If you have two bus clocks I think you have two separate devices...
+
+> Technically these are two separate IPs, but they're deeply
+> integrated together so that they share top-level wrapper
+> register space (see the register layout above), and they
+> have implicit hardware dependency like mentioned earlier
+> (USB2 PHY can work without USB3 PHY, but not vice-versa),
+> hence I'm describing them in the same device.
+
+But okay, if that's the case naming is fine.
 
 
-As noted in [3], the only scenario can trigger the warning after [2] is when a
-process creates a TDX VM with non-in-place-conversion guest_memfd and a normal
-VM with in-place-conversion guest_memfd. The two invalidate_lock's don't contend
-with each other theoretically.
-
-
-[2] https://lore.kernel.org/all/cover.1760731772.git.ackerleytng@google.com/
-[3] https://lore.kernel.org/all/aQMi%2Fn9DVyeaWsVH@yzhao56-desk.sh.intel.com/
+Best regards,
+Krzysztof
 
