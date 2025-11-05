@@ -4,171 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDEBFCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 19:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46995CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 19:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=; b=2DNAsnkw0RGlcGQSBwPFGldmeq
-	sszb7lUq8x/M8qe/Vyn56A2XVJeKTL5Bj+UH4xPGiofAG+08ysl7xzw1HkAoF8+0CPjhO7AX/sT59
-	PBKLzJ9VsuZZxol1pmoQJ5Sd+CboUm5SsysV75b0656SsmL1D4lJZWPlO3HEc7I3IODsELsGwCafW
-	CQ/UjHE2T7EHashQ2vvbCbVP+y8Y69LK8UkUKzmCfqdGE13ONYHTliH+AJjdBb7Sr98REAiH/UPZD
-	QdU6RqjIjOFSknTAbWMrAFjAo+fWcffyy6qjLqY7lJlHjFo2IdNoDv1BPozYuuzgpnfnqMLCpV72u
-	7vzzsmNw==;
+	bh=W2I3VQegSFx+o1eosI30+XZ8D9IOQq1JJdeZxqs+aI0=; b=ACM/P376BrOZWlhBhlKADAFU06
+	LI+EbhpS7JwFsRBWXsuEiQZFY7Aygh8+k3JQlMNuE/eSFiontaX+O2h6yHsYPRLBb+e9WOiQ8egrf
+	jxMnV77WSTmdd/Gj2IGgx46eRxrWv0k/frBU3/sY/QGZG9Z6ZCozeLhUp9DnSpc/CVAA35NN9NrS2
+	iRedHCxwk5hJ9+Y/Iv898LghagPJ6ShrqXDPyf11bbKbOD7HOSZv9nFmnNzSfazVIa4vjDGjxvkvz
+	TgsOLoYDW56gikAb2gIQgcfXvaPKCAwL3mfFJ5d4cZxEKqZPGNm76VzHT8/zl+/5h0w7USm40PV71
+	TOs1oR3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGjE8-0000000EIu2-1a7a;
-	Wed, 05 Nov 2025 19:31:28 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vGjGk-0000000EJ3W-3gWZ;
+	Wed, 05 Nov 2025 19:34:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGjE4-0000000EItW-3F3f
+	id 1vGjGh-0000000EJ36-1wWl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 19:31:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GAJXdKXRU5B7dGpzNv6Dfnre7E50tZL3Jma8QK0hfXkoR5I+z9ef6s3oXqqwqItskfiCu/pBxKE2NaPisebhQ4EMhQkq9GSYaDGUNXtBqUR1GZIP9kBxVuzjgZLd8Yj6KuaZjSZYd4Sf7fHXGT12JqLVOSsl7cfvLFCN4JguRkuBPIT0IJCPN0abZQbq+/aOf8D13IkaZFsijAXGTzibNRn6BsxEhi0HWPQ/BJRKgUty6wWidcjeflNrUZH0ch0SFmLJoGzeZafsQQfcr0GzmCaA54rA2P6Hxa31DXYb5v4g8y53EXgAp3L+h3flv0PszXg4nL/6l5AspzEPSbdfrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=;
- b=h1xjbPYWyO6wbqkSZBj5DX9DO+dcwmxVaaA17FV5uZamhoJzFQJooXEWBVFZsdsyPysv47Z5PxFQ3b6kIz7VuRDqNDY3y1haTtGFfoCd52Gm7V8pGAvPBQfTCdQpNuH8Tr3c1p+sYwHUgPHRD6a/40Vh/bkxAjnhfytvzSGYpbZpg+q2yziRaMdURa/cwQq+GMxsWPSd8r4amk2qJ7tOmFWopto1sMR32oqlwt9nH2MCO+lAE+Awb2BhllcalsAWucGghG5TguqBGU+dj6EkT84HqeyGTK+Cm2RTELI6lZmBgUoirDlUUIL/CDF7NSsoKUpxOna9vf2SjaogLgbtfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i6fePZORu0ev2k1P64QAjzHPEeyerH1zMh0EnNCNJ6I=;
- b=CWLCUZ1wgowmLMn0wZRZ3Mbmuy47OArdBrDhKH310/gl5ABpAZfveJHlFAkMiCPZT129y1Sz1plb/Pb6H3esf38O6gnng8Uf+WlJH4KaW9ec0toIHQd5b8qPbNQOor/ZnaPYW2XG2qRurOYVA9WkpG7YmLELikS6YaNuGJ760XKOynxHtAm6WsOGjUQduqaG1T8Icej4zgc9lHFKN1mHpJHHmfJThn8wt7xdeXxAYpiGYj9hH9G7LaYKEacIH0u/fVbMK7A9mOx/ZoXsUp98ffeVqcHAQrRq1BFMSBa2zirbbdp7ZAgxvqayyo/ubBwIhS8BqdL7aKCBNkbhlZ8HXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PA1PR04MB10097.eurprd04.prod.outlook.com (2603:10a6:102:459::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Wed, 5 Nov
- 2025 19:31:19 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Wed, 5 Nov 2025
- 19:31:19 +0000
-Date: Wed, 5 Nov 2025 14:31:09 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Alice Yuan <alice.yuan@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Robert Chiras <robert.chiras@nxp.com>,
-	Zhipeng Wang <zhipeng.wang_1@nxp.com>,
-	Hans Verkuil <hans@jjverkuil.nl>,
-	Sakari Ailus <sakari.ailus@iki.fi>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>
-Subject: Re: [PATCH v4 0/5] media: imx8qxp: add parallel camera support
-Message-ID: <aQul/VGG8e3MJxhx@lizhi-Precision-Tower-5810>
-References: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
- <20250805010822.GC24627@pendragon.ideasonboard.com>
- <aLbcpEZXm5G1Onq7@lizhi-Precision-Tower-5810>
- <20250902123920.GM13448@pendragon.ideasonboard.com>
- <aLhJDXnz9HPGrWcp@lizhi-Precision-Tower-5810>
- <aQuDSROHLGHIhtlh@lizhi-Precision-Tower-5810>
- <20251105171928.GB6046@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251105171928.GB6046@pendragon.ideasonboard.com>
-X-ClientProxiedBy: PH8P221CA0021.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:2d8::22) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 05 Nov 2025 19:34:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762371244;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W2I3VQegSFx+o1eosI30+XZ8D9IOQq1JJdeZxqs+aI0=;
+	b=ClfGrvCXhBGi8AlsHsu0RAgfHFop4kC/wd4n9IFV8JTo2PMI0R5W6RO4U8K8kNoePPDwuE
+	botdVe1ROO6bPtoKjW8xm14Rh0knqkfTGK777nh0RwjUInISGQ6vvLO2pPWXsi9yPX8h2L
+	PnrK1Z1784SEiuea/mjHThclw1hwvuM=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-434-nduGZTyqNqewKTnLPUYuDg-1; Wed, 05 Nov 2025 14:34:01 -0500
+X-MC-Unique: nduGZTyqNqewKTnLPUYuDg-1
+X-Mimecast-MFC-AGG-ID: nduGZTyqNqewKTnLPUYuDg_1762371241
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-891504015e5so52464185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 11:34:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762371241; x=1762976041;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W2I3VQegSFx+o1eosI30+XZ8D9IOQq1JJdeZxqs+aI0=;
+        b=HDKG47peY2DZDhbvv33B6HNAgEs9sSVgdkEwQhoHAZJufuyW8LHcS/RZVWVL1vJA7A
+         cBhPWlrTDeiQX//2q5GDU0ys/12WI6h76H75XxA2jFLv47U0m2EH6j77IwaOG2KX7FdM
+         lMsUuJJPNLGwEb0S8jbJxtGBEfKS7NVMe/DrE7T96xEXoK24Hp1xg0F1Dx+E1aMqHwd+
+         Wga2EzxdpowDTr8e9b10oBryvGDXhJhE9WdCHs4ptupJnxUZXk7YLGp1IuwWa03KUTC7
+         aNK1mUz8JzSZOk7/EmXAi/iSPWpGbuPe4ajiOO4G7IBjSXaJzY+QJRC5qp2VoCYIu4kt
+         +mGg==
+X-Forwarded-Encrypted: i=1; AJvYcCXWT9nOy+4Yl7OgtDELtpo7EMafC9GJ2HyMLVT1LAgvL4VEH30UA5g7peAafJ70rbTNbjYRcQeoUHi7TAGXMnrn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG9Wc36tJgleNVaj8VacMHteF48nYA2i43jRiadCSArnRYjy6/
+	8gQ9QfEE/p86TqjZCCurnlfrsCICXN2EBlCPx5nKShf9RYNkNAd2g8RisY6fNO5KcOS8pe3Q1t6
+	NjoSeLHR1HoOL60mPWmDmN1mhbGCi7LkrDY6B0hi7vSkU4IM85RojpaxaVh2dZO9yLMM9/VavEn
+	1J
+X-Gm-Gg: ASbGncviNVVVMBEn5KmnMZpTQEBevefwcgttrkO8sD0n7smxqEJikYBb5jiHW3M3xXF
+	gX5iiQorFkEPjNHtgOLQ6opyCx34i2ZcOUnTOCcSFnuc3IuECWFavkYOF/688h7uJIF2sIQj5wr
+	XDVZjcgfGpmE0W5U+LSh4DWJeu0NFWnz6EY4xxPGdHeIRClHmiv+30RUAxtKZztxVYwGL3VscI8
+	c/fIt7qsCXaTvmP8bJBQ0yQAiItiI9JGdNJB2oGeR/DgX54a2uhiTlIXljTVh8rxpMg8UPlhkhc
+	1FAO19cqByDZFHkueNEM711vYz78oyJsJdq6uuN35hSuf8c+PER/fT3dx/AHFDH1roqaqKZqqMz
+	oPfXoC5WZgDKSXLmLST37mbwBBd1tth1pyEDWFZLK0kiUbg==
+X-Received: by 2002:a05:620a:4807:b0:8a2:e35f:90 with SMTP id af79cd13be357-8b220b1d46emr570523585a.30.1762371241148;
+        Wed, 05 Nov 2025 11:34:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGiRwB16QATLm26IUQJMPlOrIcZC/Pp82bOb2D9HMznRcFkSivER3LckBzG5MspPvf0gexFmQ==
+X-Received: by 2002:a05:620a:4807:b0:8a2:e35f:90 with SMTP id af79cd13be357-8b220b1d46emr570517185a.30.1762371240407;
+        Wed, 05 Nov 2025 11:34:00 -0800 (PST)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b2357dbcc5sm28762885a.35.2025.11.05.11.33.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Nov 2025 11:33:59 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <a5e3294b-4d37-4e98-9442-e35ca1949c17@redhat.com>
+Date: Wed, 5 Nov 2025 14:33:57 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA1PR04MB10097:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cd4fe40-c09f-4ab5-6fe3-08de1ca1e52c
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|366016|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6GPV2vqlJ3Q/dl6fUW7VnOdNkFsH87e63Q5ofh/BlpdfPUXOMG9xrPcstsak?=
- =?us-ascii?Q?2y7yujhcWm6OQvaT15ZBNKt56xNRsT/HHauWon5EiqYDlaLJIL3Y1K/Zptaa?=
- =?us-ascii?Q?YQoEsBppyKkRD7jTrnxAswF3X+Ml+GlIHNCu1KolLNRR4p2VsBpRn57z8Hv0?=
- =?us-ascii?Q?RWVWG9+KosN++Hm/Z4yQc9w8dA8N5pdFUHZbPVnC8Ae1Vo9gtLgFMjvI68gl?=
- =?us-ascii?Q?eXSR9Z686N0Xb9hSVOOBrBbfZ7XVSTEjSTdRl/kqtvaEFXNKS4xVFRM3AVhN?=
- =?us-ascii?Q?eqZWL2SM8AxGxpXxlvSpjlZlW++hTfEU5DwaoHrPoYLjyl84AL145UzuDRau?=
- =?us-ascii?Q?+/ZtgDS+kkQovlCPOKfHjZf3xMOCg2Gq2R/CxjdS9DiYPq6GpSs5CnXk7AIr?=
- =?us-ascii?Q?vl0ON0FizQrr+KCtaIA7PPXYqLq3ex4PgUy8urdIoNoWVb1yUCuohxv2UGp4?=
- =?us-ascii?Q?8S5lGISg+yKSRzcnbzxU3mbLd9P/wr373vPmVIhkmH7SejfXRZJa4YYDORpG?=
- =?us-ascii?Q?baFKZZuj/679OqbseBEYwj94yqfrZJF8xuYgQG7HGQkIx4otXtuqxqVb+gWA?=
- =?us-ascii?Q?UPQRmJWgewCX4y6CYEgjfMIlZfVAnkRErkFcYVT9NZdVbtKn4KTej9lDS4JM?=
- =?us-ascii?Q?CDhTjhEdnzG/+diaqRS79Y2wp6cb5A3QxEVe8HM/phe4RpYDfXbZxdTKlkFP?=
- =?us-ascii?Q?Wkdi/o/Tyd/pJbej85xu9zZKI7FyupMQliRqOYnCPUaZI5fw5qQCLcJ2sOTF?=
- =?us-ascii?Q?udxX7SUulbTWEnIvewCR7ukUDS3dECVrpLq7o2a57d+tnfQILKjzLpkQR8QB?=
- =?us-ascii?Q?ENtDl0C4Cb3NfQG+vzuY64zoNHAmJNH53ajnmTGhdxcfKLLyJD4iX7sO2PHC?=
- =?us-ascii?Q?SclYWoB53dDM+CUF/Ki7QONRWL8yJI2v5aCv1ZnuVdgr+pY3FEbxhVinPlIK?=
- =?us-ascii?Q?pU45aWJHesmXGLqOyJ713RWwye+G8TuADxdkIOGDyteZ9E6rZQWG+i2/fR9u?=
- =?us-ascii?Q?fTtcS4cyyBjyB6HdtI/42mEygieLUNatihRWxsXi4v+95TFCC1SbsnHxurBB?=
- =?us-ascii?Q?S8LhbuXGaHz30L7wNcQj3OGq+1I6+WXhvLlina11UdGbZd0xbqct8P6h4joV?=
- =?us-ascii?Q?HbYGyDM+uWLVbYIqglNbpJAbqKrO+WZ8Bws3yZVwn/sJuYdoIxT7B2XDMwB4?=
- =?us-ascii?Q?jbseS7ZhZtLHS8CIB/aDUsrsFTD2OfzMHORy/AYenbyxPV9UZ5aBhs7+tkNr?=
- =?us-ascii?Q?A9627RwQmLsL42+EYkIWnPlh4A/iFjZpJxpStAP8Q3yxMcIbRduDwmSPx9T9?=
- =?us-ascii?Q?D+sE8c92rHh0VUC7JFbniuDqGfl/yBRPZIAgR3WYZvjUvoSjZd8CCJB/pue5?=
- =?us-ascii?Q?LHq8dzM4+QfroHbcMGNqH6R1kOy+73F19kjxNhuOMBHp8UqlDgX8jcR0L3fZ?=
- =?us-ascii?Q?xpWkQ7jUepWzKvU+yBrv10r+KRaKU2Ku1eOHmJSZdkZvVHZ+qXGVtHO8+Wt5?=
- =?us-ascii?Q?VTHk+H32B6dtQAciYdSEEpPuFxSeU8B5/qjW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L10hJcAPQQVrbpqwjrJmjHff9fwTHMvo3/sU525DcIolm7ESBWvRaZl08CCy?=
- =?us-ascii?Q?2DA5ka8X/rhw2BHHW1zECDRym10XOtENd7Ajsh3G/P8xORF9rW8T7+W9qBae?=
- =?us-ascii?Q?X3wQ25QvIlpAqEMkB5fXwjEL3X0WFTEIYCqgKr3IFTfUtAFoWgdKRdUv5uAu?=
- =?us-ascii?Q?tJET8S1KBlw9RxPKdaDIbrlnqRNeFciH+S3YN3NCypZznVH1sbKWu3DtTGx4?=
- =?us-ascii?Q?+mHfITtS+ML2GQbsNt7qeAXRqRboSuphLBkhbU84KSp9lngJeB7OGKH4hePy?=
- =?us-ascii?Q?JGvwcIPXTMsmu7zvDV6/DF9M8Xse9Pc3o4lTyL6yH8yPQwZ1yvHBnqLLwilc?=
- =?us-ascii?Q?ygLVwnfUnHOYoWjbrcBSIGSUyQx/t7AxWLC4YFy6vxapBYsMdP9eGz6bLWQL?=
- =?us-ascii?Q?wrGAoodTI9QW4e2r8NLDyGrl9k4mD9jqbPJXHjRazIfJ9FKyWbZdhL5Rabt4?=
- =?us-ascii?Q?wjLtx/mNrpx2BwTzr5cSVaKws8NXR095lVL739PiGVSnU53+Cga6+2CVT7c0?=
- =?us-ascii?Q?XhBzuTDYS4diKu8fD4XoloUsDfrBBW8BvZbPqAHKiEUO/VNuxIXNGA1jPMfD?=
- =?us-ascii?Q?iQE40GzsJKMmC7C2uOCrK78KLdXdYfCIMMD3rDGoqz1jl9+vtFgf17OwFYAN?=
- =?us-ascii?Q?yFYuLvL2aFPSgN0E6q5D7iI9+K/EC1w11T0qbSbl5m52+5BbAAbeXTHwpTtC?=
- =?us-ascii?Q?k+DfKRF0PjSsVQA8t4n6hwKlTB5I+svsPCcxrUiqFNeyC5invSWg9a8jKDt9?=
- =?us-ascii?Q?jcm+DNkxjVdpPeFyc7ffppq1UsbhNa6aIojiBnhHuKY9cItCno7hiLhOGYX+?=
- =?us-ascii?Q?FLK2KEWFH9m4vjYZ/s8Bb6weugUtfJTG3BoUs1RunwkSB+lAvO8VDVrRZjuH?=
- =?us-ascii?Q?LVnOFhWntjErNnWzUpYOHs2tzqpWA2aKHF1BIT92fW43t0TWsv1XP4sVyAyV?=
- =?us-ascii?Q?9NaZoY2uhny7hUusevWLKQsUBhfLDmUUTIbOPox3lXw35SSyR0xoW4WTZVUX?=
- =?us-ascii?Q?JUbIyqKxExfwPQdr0GYwVweUZgybSS2wJSvg+j/asH8H96PYjPpu6PgvOmOr?=
- =?us-ascii?Q?ZfZ8zaaOpvlnCoqPRWJBtYMcab4iJlKZNCrm+ETYThCm5ubObW5UsCLo36mJ?=
- =?us-ascii?Q?dnoi5DL3QT/dzbE+MFrBz5qFWpgKfTNN0cu0Fz+Ubt6w422Ojb2YnRwRtrf1?=
- =?us-ascii?Q?RWmjXTisxtDJHBH9k2wedx3OK2ExsSnmIQPU/aUR26gH36sAnThiT2KazAeW?=
- =?us-ascii?Q?SZYvzls8NSXpQTBgJe1bDOXr//mF3zHvcqSS85L7jBVaVqRjenHmCfkaJzUn?=
- =?us-ascii?Q?9BRlBMyzw3ms6Cq1ahFDtNnp0z+6CpqSnhxYgifm8wEQYgeSRgqb6c5V4iVh?=
- =?us-ascii?Q?g1jZ+Tx/Aqu44RtV3KTPqMn+7/HBxiLJxiWHezhbkGyNQhMq48TuBbDEz5xN?=
- =?us-ascii?Q?kyMSFJi1Ey5R/oZUkHctL7huabtaDmOvAqEaMuTFoflccXLIoNrkWdfR8x2C?=
- =?us-ascii?Q?cvV7n2ZAeZSi6/dcW3Z/Yii7LJsN4ntyZwx0/AoRaSvc7wAnXrdwlL91KjZc?=
- =?us-ascii?Q?ooaCg1ENjvptf9G/7YHhYO7uIcv8NslVxB0R6b53?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cd4fe40-c09f-4ab5-6fe3-08de1ca1e52c
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2025 19:31:19.5405
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: u23yVicpBzUwi607GWCvkLYOE6gKNCt3mDcG570r52/E605ZZ03J2iwP8aRynYytaufevmedXAWbmuPBWBuSsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10097
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+To: Frederic Weisbecker <frederic@kernel.org>, Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-14-frederic@kernel.org>
+ <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
+ <aQtwbRrFBCUoQ2Yj@localhost.localdomain>
+In-Reply-To: <aQtwbRrFBCUoQ2Yj@localhost.localdomain>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: GUEV7bA9XcHa4yhjBGPlnNyBJycea5cLNBHcqSczju4_1762371241
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_113125_008887_360F111F 
-X-CRM114-Status: GOOD (  43.54  )
+X-CRM114-CacheID: sfid-20251105_113407_576296_01500B70 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,158 +134,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 07:19:28PM +0200, Laurent Pinchart wrote:
-> Hi Frank,
+On 11/5/25 10:42 AM, Frederic Weisbecker wrote:
+> Le Tue, Oct 21, 2025 at 12:10:16AM -0400, Waiman Long a écrit :
+>> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+>>> Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+>>> CPUs passed through isolcpus= boot option. Users interested in also
+>>> knowing the runtime defined isolated CPUs through cpuset must use
+>>> different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
+>>>
+>>> There are many drawbacks to that approach:
+>>>
+>>> 1) Most interested subsystems want to know about all isolated CPUs, not
+>>>     just those defined on boot time.
+>>>
+>>> 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+>>>     concurrent cpuset changes.
+>>>
+>>> 3) Further cpuset modifications are not propagated to subsystems
+>>>
+>>> Solve 1) and 2) and centralize all isolated CPUs within the
+>>> HK_TYPE_DOMAIN housekeeping cpumask.
+>>>
+>>> Subsystems can rely on RCU to synchronize against concurrent changes.
+>>>
+>>> The propagation mentioned in 3) will be handled in further patches.
+>>>
+>>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>>> ---
+>>>    include/linux/sched/isolation.h |  2 +
+>>>    kernel/cgroup/cpuset.c          |  2 +
+>>>    kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
+>>>    kernel/sched/sched.h            |  1 +
+>>>    4 files changed, 74 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+>>> index da22b038942a..94d5c835121b 100644
+>>> --- a/include/linux/sched/isolation.h
+>>> +++ b/include/linux/sched/isolation.h
+>>> @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+>>>    extern bool housekeeping_enabled(enum hk_type type);
+>>>    extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+>>>    extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+>>> +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
+>>>    extern void __init housekeeping_init(void);
+>>>    #else
+>>> @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>>>    	return true;
+>>>    }
+>>> +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
+>>>    static inline void housekeeping_init(void) { }
+>>>    #endif /* CONFIG_CPU_ISOLATION */
+>>> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+>>> index aa1ac7bcf2ea..b04a4242f2fa 100644
+>>> --- a/kernel/cgroup/cpuset.c
+>>> +++ b/kernel/cgroup/cpuset.c
+>>> @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
+>>>    	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
+>>>    	WARN_ON_ONCE(ret < 0);
+>>> +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
+>>> +	WARN_ON_ONCE(ret < 0);
+>>>    }
+>>>    /**
+>>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>>> index b46c20b5437f..95d69c2102f6 100644
+>>> --- a/kernel/sched/isolation.c
+>>> +++ b/kernel/sched/isolation.c
+>>> @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
+>>>    bool housekeeping_enabled(enum hk_type type)
+>>>    {
+>>> -	return !!(housekeeping.flags & BIT(type));
+>>> +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+>>>    }
+>>>    EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>>> +static bool housekeeping_dereference_check(enum hk_type type)
+>>> +{
+>>> +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
+>>> +		/* Cpuset isn't even writable yet? */
+>>> +		if (system_state <= SYSTEM_SCHEDULING)
+>>> +			return true;
+>>> +
+>>> +		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
+>>> +		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
+>>> +			return true;
+>>> +
+>>> +		/* Cpuset lock held, partitions not writable */
+>>> +		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
+>>> +			return true;
+>> I have some doubt about this condition as the cpuset_mutex may be held in
+>> the process of making changes to an isolated partition that will impact
+>> HK_TYPE_DOMAIN cpumask.
+> Indeed and therefore if the current process is holding the cpuset mutex,
+> it is guaranteed that no other process will update the housekeeping cpumask
+> concurrently.
 >
-> On Wed, Nov 05, 2025 at 12:03:05PM -0500, Frank Li wrote:
-> > On Wed, Sep 03, 2025 at 09:56:29AM -0400, Frank Li wrote:
-> > > On Tue, Sep 02, 2025 at 02:39:20PM +0200, Laurent Pinchart wrote:
-> > > > On Tue, Sep 02, 2025 at 08:01:40AM -0400, Frank Li wrote:
-> > > > > On Tue, Aug 05, 2025 at 04:08:22AM +0300, Laurent Pinchart wrote:
-> > > > > > Hi Frank,
-> > > > > >
-> > > > > > Thank you for the patches.
-> > > > > >
-> > > > > > I've quite busy these days, and I don't believe I will have time to
-> > > > > > review this series before coming back from OSS Europe at the beginning
-> > > > > > of September. Let's see if anyone on CC could volunteer.
-> > > > >
-> > > > > Laurent Pincha
-> > > > > 	I hope you have good time at OSS.
-> > > > >
-> > > > > 	Do you have chance to review this patch?
-> > > >
-> > > > I'm going through my mail backlog, which is really big at the moment.
-> > >
-> > > Understand.
-> > >
-> > > > I'd like someone else to volunteer to review this series. It won't scale
-> > > > if I have to review all NXP media patches in my spare time :-/
-> > >
-> > > Yes, but none volunteer review this in passed months. Expecially key
-> > > reviewer. I am reviewing i3c patches. but Not familiar v4l system yet. It
-> > > need scalable solution. I can help filter some common and simple problem
-> > > from beginning.
-> >
-> > Laurent Pinchart:
-> >
-> > 	Do you have chance to check this serise? this one should be related simple.
-> > 	This one sent at 7/29. Still not any volunteer to review it.
->
-> I'm afraid I won't have time to review this for the time being. My spare
-> time is already exhausted by all the other drivers I maintain upstream.
->
-> > 	How do we move forward?
->
-> I think this is a question for the subsystem maintainers. Hans, Mauro ?
+> So the housekeeping mask is guaranteed to be stable, right? Of course
+> the current task may be changing it but while it is changing it, it is
+> not reading it.
 
-Mauro Carvalho Chehab and Hans Verkuil:
+Right. The lockdep check is for the current task, not other tasks that 
+holding the lock.
 
-	Laurent provided great help about review and land i.MX related
-patches in past, who are quite famillar with i.MX chips. But he is quite
-busy. So the whole reviews cycles takes quite long time and offten cross
-some merge windows.
+Thanks,
+Longman
 
-	In pull requests for 6.19:
-https://lore.kernel.org/all/4989c563-47f4-478c-80c4-41f7e98597e4@kernel.org/
-only 10 patches, and 4 patches is trivial clean up.
-
-	In reviewing patch queue, there are
-	1: media: nxp: imx8-isi: Add ISI support for i.MX95
-	   https://lore.kernel.org/imx/20251105-isi_imx95-v3-0-3987533cca1c@nxp.com/T/#t
-	   This one already review, but I am not sure if it capture 6.19 cycle because
-PULL-request already sent.
-
-	2: Add MIPI CSI-2 support for i.MX8ULP
-	   https://lore.kernel.org/imx/20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com/
-
-	3: media: add imx93 mipi/controller csi support
-	   https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
-	   This one is quite big, but first 10 patches is simple trivial cleanup patches.
-	   I post at 8/27, but get first feedback around 10/27, I am not
-	   sure if missing somethings.
-
-	4: This series, laurent already said no time review it.
-
-	5: ap1302 sensor patches
-           https://lore.kernel.org/imx/20250811-ap1302-v4-0-80cc41b91662@nxp.com/
-           binding already ACK, most maintainer want to pick binding with
-	   driver together, but not an feedback since 8/11.
-
-	I jump into and help do some review.
-
-	The questions is how to move forward pending patches, like [3], [4],
-[5]. How to keep good community channel to avoid long time pending?
-
-Best regards
-Frank Li
-
->
-> > > > > > On Tue, Jul 29, 2025 at 12:06:21PM -0400, Frank Li wrote:
-> > > > > > > Add parallel camera support for i.MX8 chips.
-> > > > > > >
-> > > > > > > The below patch to add new format support to test ov5640 sensor
-> > > > > > >    media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
-> > > > > > >
-> > > > > > > The bindings and driver for parallel CSI
-> > > > > > >    dt-bindings: media: add i.MX parallel csi support
-> > > > > > >    media: nxp: add V4L2 subdev driver for parallel CSI
-> > > > > > >
-> > > > > > > DTS part need depend on previous MIPI CSI patches.
-> > > > > > >   https://lore.kernel.org/imx/20250522-8qxp_camera-v5-13-d4be869fdb7e@nxp.com/
-> > > > > > >
-> > > > > > >   arm64: dts: imx8: add parellel csi nodes
-> > > > > > >   arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
-> > > > > > >
-> > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > > ---
-> > > > > > > Changes in v4:
-> > > > > > > - remove imx93 driver support since have not camera sensor module to do test now.
-> > > > > > >   Add it later
-> > > > > > > - Add new patch
-> > > > > > >   media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
-> > > > > > > - See each patche's change log for detail.
-> > > > > > > - Link to v3: https://lore.kernel.org/r/20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com
-> > > > > > >
-> > > > > > > Changes in v3:
-> > > > > > > - replace CSI with CPI.
-> > > > > > > - detail change see each patch's change logs
-> > > > > > > - Link to v2: https://lore.kernel.org/r/20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com
-> > > > > > >
-> > > > > > > Changes in v2:
-> > > > > > > - remove patch media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
-> > > > > > >   because pcif controller convert 2x8 to 1x16 to match isi's input
-> > > > > > > - rename comaptible string to fsl,imx8qxp-pcif
-> > > > > > > - See each patches's change log for detail
-> > > > > > > - Link to v1: https://lore.kernel.org/r/20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com
-> > > > > > >
-> > > > > > > ---
-> > > > > > > Alice Yuan (2):
-> > > > > > >       dt-bindings: media: add i.MX parallel CPI support
-> > > > > > >       media: nxp: add V4L2 subdev driver for camera parallel interface (CPI)
-> > > > > > >
-> > > > > > > Frank Li (3):
-> > > > > > >       media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
-> > > > > > >       arm64: dts: imx8: add camera parallel interface (CPI) node
-> > > > > > >       arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
-> > > > > > >
-> > > > > > >  .../devicetree/bindings/media/fsl,imx93-pcif.yaml  | 126 ++++
-> > > > > > >  MAINTAINERS                                        |   2 +
-> > > > > > >  arch/arm64/boot/dts/freescale/Makefile             |   3 +
-> > > > > > >  arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     |  13 +
-> > > > > > >  .../boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso |  83 +++
-> > > > > > >  arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  27 +
-> > > > > > >  drivers/media/platform/nxp/Kconfig                 |  11 +
-> > > > > > >  drivers/media/platform/nxp/Makefile                |   1 +
-> > > > > > >  drivers/media/platform/nxp/imx-parallel-cpi.c      | 728 +++++++++++++++++++++
-> > > > > > >  include/media/v4l2-common.h                        |  30 +
-> > > > > > >  10 files changed, 1024 insertions(+)
-> > > > > > > ---
-> > > > > > > base-commit: 37a294c6211bea9deb14bedd2dcce498935cbd4e
-> > > > > > > change-id: 20250626-imx8qxp_pcam-d851238343c3
->
-> --
-> Regards,
->
-> Laurent Pinchart
 
