@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FAD3CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C59CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmjmfo22QwufKip+RFN2GwcKXDk7+fDMohFzNqFh1wo=; b=yvK3Ak/soKTOD7pP8CCGGAK0Xt
-	LiZvZUVM3VjgjUDTHOp3bPburnXcKNydvra23drFPpgnWEvYIPLUG5c77FLyrfZhCzcKRAEpkx0zP
-	XAPRFYR8+Fs3aFV09l4FjJkhDWeWchfkxbz+/1jsYDwaxB2KdItXKjPoatvIcIRokC7ANDk6f0bEl
-	5i5092hsYMqvVd7Ep7UsBPBy35fwkFX9cwnEvp9xekQYjlOCZZwWhpNbCCNmQAtlcmT1FAOaI1gNy
-	7ga55lavbvP8MVeyAWchclhNUSjQ/aw+5PFCnbfuIeRnU9L3u2Jaq0nQnM4pFNXpi3AJGrJyHgfTG
-	sSLeQm8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/3nfux16ZKQG2m9VQWPawdpfD+7ff1vFtMyoP8aJnbw=; b=1zEIRATQ8qU8OFhqu9iluAddgI
+	fBz83lbJX8+RRpNJUjrMNgz5A8gsBhk4vtPX2oCii+nu5cJLs6KAA6n7xeAZwEEKL7+pwhAjT3AHF
+	00KWsvEXzxf7I2f+qexPyjZAMkm0zmhQCO7Mr2xmAGG+nCykJAWPdFUQ6SGH/fU36jC9f90K2fSi4
+	OnSR9dwiF3DxuZnQhql2zle81nNgWD8o8CmrZLZoGNqhTdkOqSZIQL+etFCPupkI8uXY5byNToQ32
+	Uubvav6coNUUDt4HVct9A16QK3orHjcLn3WHHNuu77H/581C8YAtHI6gOg6l3QtjSOm6WRvzhrlOV
+	6JiMinMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfPC-0000000Dw3J-31rQ;
-	Wed, 05 Nov 2025 15:26:38 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vGfPU-0000000Dw9o-2V95;
+	Wed, 05 Nov 2025 15:26:56 +0000
+Received: from uho.ysoft.cz ([81.19.3.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfPA-0000000Dw2L-18Ts
+	id 1vGfPR-0000000Dw6k-08RH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:26:37 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3418ada9e6cso1978169a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 07:26:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762356395; x=1762961195; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dmjmfo22QwufKip+RFN2GwcKXDk7+fDMohFzNqFh1wo=;
-        b=iDewj5jzpJ4BBrzV4dZGab58MK62rovLkvr+hG4RFcoGHlYhQv7iLb2JGDGOwxK9dG
-         jtf7FF1RAcPgZhrqCQjjmO0qA7gXYDXGUBPkerDVd4wRMlYcBxzSaJspRzcrnoTufLx3
-         dnabE8POzccSz7v+pMgInT10JnK6JxxY1DPf4SR1gBbSBtQmfvDYuSRpozIdnd6RpAd3
-         xjwMhGgeJwqKPqN+H4uNLDSSfz0HtRY/y+3PiZtUVhMPxhZvIr3HWRlBCJmjAnF5wLyf
-         nDF/UHn8LuZKREmY93wNgMGRX7nYM9Bgstq5reSDHh00uhZkIEytjxTV87HcO8w44EzR
-         IgVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762356395; x=1762961195;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dmjmfo22QwufKip+RFN2GwcKXDk7+fDMohFzNqFh1wo=;
-        b=rOfhGb4mD7aTT+TVEcC9kuZWFtufQvBmfmHkEATLvIrCWsW8zsIIK0Es0kdCrSaptC
-         xU8CdXa4Yvc2EU2iJl9Xk9M/EiG+uOALHsWUktBRw+mmIKFSuOeddHlzMFMj6ZQPAcbz
-         Tj8FTMuY0Vl8q4XJsNskdGCQbJ9EmLqxmPGIID3Tpt8mBYXAwOZBypNJlIAz1QWgX8v6
-         dE5FCNkIN4vRZjbL9XqtGnLe3NjZwzkDuCOPRUvr1dbeBA7FjMfKQFpKS417RTlG3woF
-         P1nkodbNenTvT/oyGhuLB0j35F0BXIWbtpuYGsiQStOdnhkL8BxeldU/CVEJ56pp5bKJ
-         PK3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU18+RX7wPeznimzJ9+IO2kZKQsB4n8wXPnLuj1bVNsqwFAVdw6P3DN3I1rg67Nf5dz1JOGgWNM9DKKuizsBwFf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjVuXwcZgCuXXAH2g25nzEd/fC27XqcGj/qa0Yuu4/LkCuuFVs
-	2qSOuhqKYqXmP9dBJjmsumBnA/K8RuipyMy7XlD/2MNBef3QGQmO1dZHyx5dx0l4sPpJ67Fim8G
-	jVKAC7A==
-X-Google-Smtp-Source: AGHT+IEksiko2nLkYHDcuQoizh41Xk4dhEPlLcSxUswEaWhydqjlp9gNPv6q5VYl/pXem0FsGEVxprPZGIk=
-X-Received: from pjbtc7.prod.google.com ([2002:a17:90b:5407:b0:340:b503:505f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:384d:b0:340:9cf1:54d0
- with SMTP id 98e67ed59e1d1-341a6c08e65mr4623520a91.1.1762356395074; Wed, 05
- Nov 2025 07:26:35 -0800 (PST)
-Date: Wed, 5 Nov 2025 07:26:33 -0800
-In-Reply-To: <aQsBI1/SIXGbf9nA@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-5-seanjc@google.com>
- <aPhjYcOFjL1Z8m2s@yzhao56-desk.sh.intel.com> <aQMi/n9DVyeaWsVH@yzhao56-desk.sh.intel.com>
- <aQo-hus99rE7WBgb@google.com> <aQr9jW/7zwWJaDFf@yzhao56-desk.sh.intel.com> <aQsBI1/SIXGbf9nA@yzhao56-desk.sh.intel.com>
-Message-ID: <aQtsqXPaZo2SMdJU@google.com>
-Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
- guest_memfd pfn into TDP MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 05 Nov 2025 15:26:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ysoft.com;
+	s=20160406-ysoft-com; t=1762356407;
+	bh=/3nfux16ZKQG2m9VQWPawdpfD+7ff1vFtMyoP8aJnbw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ahmy7OJElGvW+VWqcGKDd7BljNCRMBG3J3Yj+OMXH3WQOJY9n76Ytzzb80Lgt/YV6
+	 0ZpDQEHZb75zGY6vE0m5HkyLMqwhyE/2iksjc73v7G5V8QUx0JXj1Bs5XSgGuQuYAe
+	 JORaRFJzODjLuw/SvqUeWwGXPMIM7nb0U9sOmSSc=
+Received: from vokac-nb.ysoft.local (unknown [10.1.8.111])
+	by uho.ysoft.cz (Postfix) with ESMTP id 05B17A0364;
+	Wed,  5 Nov 2025 16:26:47 +0100 (CET)
+From: =?UTF-8?q?Michal=20Vok=C3=A1=C4=8D?= <michal.vokac@ysoft.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Michal=20Vok=C3=A1=C4=8D?= <michal.vokac@ysoft.com>
+Subject: [PATCH 1/2] ARM: dts: imx6dl-yapp43: Enable pwm-beeper on boards with speaker
+Date: Wed,  5 Nov 2025 16:25:53 +0100
+Message-ID: <20251105152555.1992513-1-michal.vokac@ysoft.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_072636_317352_B5FB1137 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20251105_072653_233043_18C7BC65 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +74,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025, Yan Zhao wrote:
-> On Wed, Nov 05, 2025 at 03:32:29PM +0800, Yan Zhao wrote:
-> > On Tue, Nov 04, 2025 at 09:57:26AM -0800, Sean Christopherson wrote:
-> > > On Thu, Oct 30, 2025, Yan Zhao wrote:
-> > > > On Wed, Oct 22, 2025 at 12:53:53PM +0800, Yan Zhao wrote:
-> > > > > On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
-> > > > > > Link: https://lore.kernel.org/all/20250709232103.zwmufocd3l7sqk7y@amd.com
-> > > > > 
-> > > > > Hi Sean,                                                                         
-> > > > > 
-> > > > > Will you post [1] to fix the AB-BA deadlock issue for huge page in-place
-> > > > > conversion as well?
-> > > 
-> > > If you (or anyone) has the bandwidth, please pick it up.  I won't have cycles to
-> > > look at that for many weeks (potentially not even this calendar year).
-> > Got it!
-> > On the other hand, do you think we can address the warning as below?
-> > The code is based on [2].
-> Hmm, updated the diff.
-> 
-> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> index 7b4a4474d468..543e1eb9db65 100644
-> --- a/virt/kvm/guest_memfd.c
-> +++ b/virt/kvm/guest_memfd.c
-> @@ -853,6 +853,9 @@ static int kvm_gmem_init_inode(struct inode *inode, loff_t size, u64 flags)
->         inode->i_size = size;
->         mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
->         mapping_set_inaccessible(inode->i_mapping);
-> +       if (flags &GUEST_MEMFD_FLAG_MMAP)
-> +               lockdep_set_subclass(&inode->i_mapping->invalidate_lock, 1);
-> +
->         /* Unmovable mappings are supposed to be marked unevictable as well. */
->         WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
-> 
->  
-> > As noted in [3], the only scenario can trigger the warning after [2] is when a
-> > process creates a TDX VM with non-in-place-conversion guest_memfd and a normal
-> > VM with in-place-conversion guest_memfd. The two invalidate_lock's don't contend
-> > with each other theoretically.
+Lynx, Pegasus and Pegasus+ boards have a speaker connected to the PWM3.
+Enable a pwm-beeper on these boards so the system can produce simple
+sounds.
 
-Hmm, no, I think we need to hoist gup() call outside of filemap_invalidate_lock(),
-because I don't think this is strictly limited to TDX VMs without in-place
-conversion.  Even with in-place conversion, I think KVM should allow the source
-page to be shared memory, at which point I believe this becomes a legimate AB-BA
-issue.
+Signed-off-by: Michal Vokáč <michal.vokac@ysoft.com>
+---
+ .../boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts    |  8 ++++++++
+ .../dts/nxp/imx/imx6dl-yapp43-common.dtsi     | 19 +++++++++++++++++++
+ .../boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts  |  8 ++++++++
+ .../dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts |  8 ++++++++
+ 4 files changed, 43 insertions(+)
 
-In general, playing lockdep games with so many subsystems involved terrifies me.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
+index 5c2cd517589b..0a6b668428a3 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp4-lynx.dts
+@@ -21,6 +21,10 @@ &backlight {
+ 	status = "okay";
+ };
+ 
++&beeper {
++	status = "okay";
++};
++
+ &lcd_display {
+ 	status = "okay";
+ };
+@@ -37,6 +41,10 @@ &pwm1 {
+ 	status = "okay";
+ };
+ 
++&pwm3 {
++	status = "okay";
++};
++
+ &reg_usb_h1_vbus {
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
+index 2f42c56c21f6..6f9bd163ffbe 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-yapp43-common.dtsi
+@@ -26,6 +26,12 @@ backlight: backlight {
+ 		status = "disabled";
+ 	};
+ 
++	beeper: beeper {
++		compatible = "pwm-beeper";
++		pwms = <&pwm3 0 500000 0>;
++		status = "disabled";
++	};
++
+ 	gpio_keys: gpio-keys {
+ 		compatible = "gpio-keys";
+ 		pinctrl-names = "default";
+@@ -466,6 +472,13 @@ MX6QDL_PAD_GPIO_9__PWM1_OUT	0x8
+ 		>;
+ 	};
+ 
++	pinctrl_sound: soundgrp {
++		fsl,pins = <
++			MX6QDL_PAD_SD1_DAT0__GPIO1_IO16	0x1b0b0
++			MX6QDL_PAD_SD1_DAT1__PWM3_OUT	0x8
++		>;
++	};
++
+ 	pinctrl_touch: touchgrp {
+ 		fsl,pins = <
+ 			MX6QDL_PAD_GPIO_19__GPIO4_IO05	0x1b098
+@@ -551,6 +564,12 @@ &pwm1 {
+ 	status = "disabled";
+ };
+ 
++&pwm3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sound>;
++	status = "disabled";
++};
++
+ &uart1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart1>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts b/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
+index ec6651ba4ba2..7332f2718982 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-yapp4-pegasus.dts
+@@ -17,6 +17,10 @@ memory@10000000 {
+ 	};
+ };
+ 
++&beeper {
++	status = "okay";
++};
++
+ &gpio_oled {
+ 	status = "okay";
+ };
+@@ -37,6 +41,10 @@ &oled_1309 {
+ 	status = "okay";
+ };
+ 
++&pwm3 {
++	status = "okay";
++};
++
+ &reg_pu {
+ 	regulator-always-on;
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts b/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
+index 4a961a33bf2d..770a85e0561c 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6qp-yapp4-pegasus-plus.dts
+@@ -17,6 +17,10 @@ memory@10000000 {
+ 	};
+ };
+ 
++&beeper {
++	status = "okay";
++};
++
+ &gpio_oled {
+ 	status = "okay";
+ };
+@@ -37,6 +41,10 @@ &oled_1309 {
+ 	status = "okay";
+ };
+ 
++&pwm3 {
++	status = "okay";
++};
++
+ &reg_pu {
+ 	regulator-always-on;
+ };
+-- 
+2.43.0
 
-> > [2] https://lore.kernel.org/all/cover.1760731772.git.ackerleytng@google.com/
-> > [3] https://lore.kernel.org/all/aQMi%2Fn9DVyeaWsVH@yzhao56-desk.sh.intel.com/
 
