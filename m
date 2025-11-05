@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91324CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB9BCCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 21:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=; b=zcIHxu2zR2kp7Nypc53WFgPduI
-	Z+VlSQIGIu32TCej9xZPMCAaojxRdLFKspvCOZdz3ZNMgOejYUnS60Dv8D0+1q0QLP1ev8BhhrYfG
-	Kx6ELA9cYpHp9v6iLxXLh+oQ40VmCWgO/tbqK85D8epFbnTpRnGsIDU9CL27kkwnVI3vFBAXKfclm
-	Yd/VLNkC3Q2jubTUKb6Llq8++kjqyImQfvnFSHjg4g6VRLDsIqNi0/Fce7cZJ/FGX9K8D7SM2z2ZP
-	XnzEEX+gvTuG37Fuo6uywC7MsMAujDf4rdiRdLE9+R6oF043o3zhjVUxN+GpYXM2Ve3z8h1S7sD7z
-	3Lej9IdA==;
+	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=59vsqQ0JqH9pWu9RaayMP8MYSzxTsVH9ss8hNgzFB6A=; b=Tr6iumHYS/SkmyhRE6Euz1o9j8
+	T54ZULyAJBtB+0wwhzz2R5M6/Xu/vvWX+xdorByRs0o0ImVbL5kCadhHTyXyrLBvDqQamirGT1Hos
+	IqtBGwtHuhREs+9tAy5PnkTe5qZvc7EDkkd/oxQYB2FOxy7Sj3yt2mG30/6aCwmB/BwTVoeDcb5Xq
+	ofdurS7xhymdzU+TIQklcPHlZc1OqDSBK96wLEQry5PzC9BhvF4y4NTFow1vE2ztV6GHqu4lbKcDF
+	3b9sjggLQEtuR16UbAiXDkQQgzI8OncLwIFb05tPGKeMjj81J+3lQ3xPPGQTHVjB4eGXv1Hi9hbGz
+	3vUY1bKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkjz-0000000ESm9-2L2j;
-	Wed, 05 Nov 2025 21:08:27 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vGkoe-0000000ETNP-2cBD;
+	Wed, 05 Nov 2025 21:13:16 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGkjw-0000000ESio-2yHw
+	id 1vGkob-0000000ETMA-3BJJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 21:08:25 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b5a8184144dso34485966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 13:08:23 -0800 (PST)
+	Wed, 05 Nov 2025 21:13:15 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2953ad5517dso3051335ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 13:13:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762376902; x=1762981702; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=;
-        b=ezpn6I52yd/QnaXBR7R7+7kiIavPpI4Z6GiqBe8xIGocZKDUHIsxkcPHnyuCC5fOOm
-         kzErvxQi1JaPi3NbVaGMOjcQqymRhAhO+FgYD/gTztubC8mn7ILcqr/ehaAcePkZcQcE
-         j6tKSNPl3BEhqDEV2tvt8cNujIT3tSMzVQWN9qV/aI3eEen4gK1m9/Sln+jacdoLNzBX
-         eROexM4hJmlmsZedTq+hpEVl/+b2b2c3QLRf7Og2TGReLPt0/1fTbSdTdRf19Nw6a88L
-         sZS+JoCGOmQ4x5EyoVD2tSwwMOtbmFIDqkdRC5+Bzaq7bib3yhoNrKfE814B+V9O+5cv
-         rZXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762376902; x=1762981702;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1762377192; x=1762981992; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4/N5rROtcnxc6d5f0IUPrUWxw9x/K7/M9hcGw0GwgYE=;
-        b=o2VksEiIy0G7Ps49mCUOZyFFNUUjyLMaHubV21z+jqW7p7JixQAEPy78MNfqouqlQn
-         DWQh22/hKBff+qGv2WzPy0e/Q0c9i15qJL31RBXjMhr90/Fjg473HdKK5MvfpUzATm7J
-         ur1nYRMtIwM/WivgwuIcHIU0zImjLsecQPGy4hUiEfYyP3vx8ctwi5iO2Rrd6/SAQTBV
-         NXeEuehLjC1MJS2ZJj8Y+2xXPY+kXB/1Hp/fmn2MMc0NdrYUkHDnQDRK/6LeNO5z5OzS
-         sdu8NIPNaj69Cu+jhyl4+z/JaGuTsS0NJoDgVTIOistYvfRvp8kiXusJaqvBqrCGocxL
-         ROQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXYhbYIRZ5hZKhs0MU6dPrUVz+L3OjUJhKizvvOD4UQdImAe8CdeWKp+JrsMdQTVbPqUepi47TxTq+ngvZAlsFz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzglN7DdBvFhsjd7AQ3m3CB2mYHbvQvcV8hBB/N/lJDCSXMW9eL
-	4R7lpBqrTUlA4kpwnmu3YGFAg/7j1T1SOtpjfKpD0BX98FqsdvPD7YHU
-X-Gm-Gg: ASbGncti19aDWPeuvMUFnOb/5O61lShju5UvIsVhRzwZlpS5XDSxvC4sr8D0RSQLpcm
-	TS1tw9OksWoeaxVFFRnDWIQI4JDf9MFeKgrNHwqZXmNqLmJcPHzziJwWL+P7N3k29oQvT6NglU5
-	CxiVn/pRa9I6JQLfrf/EIrYpuMKmsi6GsmK65VJ2N9N+tRyoDl0D0J16v/hSbovIHezJ1VfKknL
-	PCkRyZPT7ztRZX5xSBJ/ULfz0nzSqnum5Hk+2mq9cf99XMBB3eoMs627ld3xoMZYSfLboDsFTDp
-	tqaQGnqsJTno3cYc1SKquitrZl1Y3oXmf2qR5g0CQVdp0Vvl3Q5PPQW/Kmo/yokThZ8r7Zqv4ne
-	/9j5wvc2LKH9/yI1HyBYE6snepz/Oph5qszWxkrR/F01lKp5rJNA5qpWJlPqV43pK9P7gSBnHil
-	RNTWQzAEE9wb/k91A9b9YXub1jnHT8nlhuBghisipbH79eNg==
-X-Google-Smtp-Source: AGHT+IEQN8LEBzg2FibdPs1zW7myIBbg1Dg3RX0BLIHipmkT0F6MtRX6Fdv53CQhOLloh0SQE8k81g==
-X-Received: by 2002:a17:907:968c:b0:b72:5983:db0a with SMTP id a640c23a62f3a-b7265297e0amr437027566b.15.1762376902297;
-        Wed, 05 Nov 2025 13:08:22 -0800 (PST)
-Received: from HomePC (89-67-214-154.dynamic.play.pl. [89.67.214.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b728937cc8dsm54005766b.17.2025.11.05.13.08.21
+        bh=59vsqQ0JqH9pWu9RaayMP8MYSzxTsVH9ss8hNgzFB6A=;
+        b=IEzdI+/RcHrSA3gaLiOiY32UihMWG7f76bIckTQO/WaR3YwyY6lyjuuFTpo6zvuY2e
+         McCoPyjbJu5DqeA0YSoY5jyKpCQgQiHXTSBcJTFwHGXLQ7J2pa8F4M2+WqzaN/2U7ZGy
+         zPZh7nlNLF2ozBluTnACNhbZA4rkE4Z7I3k1VbJN06c1AoT9Vd/Zu7V8o0BNYa+jQf18
+         DHpBx5yBPAZtFE07magWMAQWeQHCG1N64g/9kAO1QQcHbY3qtiAYiaLjnPC8XGi6Yb1v
+         0hAR7xwyBBjaTnLrzcpcwKrr2wUo2FXFMAn06R+w+W4+mZYMsUXY9HyL61dOsG7fFWV7
+         Fh4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762377192; x=1762981992;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=59vsqQ0JqH9pWu9RaayMP8MYSzxTsVH9ss8hNgzFB6A=;
+        b=Ivlhm+XrA9fbG/BsAUdyfoQaBAfIu9b0iteOSRm/uw9x/8MzcEkJXmwYsU97YRYCpu
+         gAcjjRq6PkF50Qe3bUKNc0yojriyLfdFWDqEpbsuVFMbD1MkxhYe5NGlzDwmeCFDXfPx
+         UbOo111Fejvbo+dfHVSfFxQn5Kq1sTI76Fji0nKz0UktWp4kTq3b77kONXJacJndOwdq
+         ig5xxT7bMQJY1A4gUU1d4hCUhyrtVE6ja/87J8E8OuY2Q/McDPh5WmrqhHsReO9y/0MT
+         y76d3b3yuy9iEmkh1uhKJ1+w5g7rcItf5WAScM7lTvWvyOCFRuq17soScCinavySgwrb
+         ebTw==
+X-Forwarded-Encrypted: i=1; AJvYcCVypJgX+KOsEnuf/lG8KO7/MOy/SmjHK9DD9Qd2KJPHZjkWc48psRctEunMqKBKx2Lbui6uQqnyb2d2ZM9F5cgH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE3uKGAVVhisbZHRpVKuxs7VWkDbnBypeWtzIlT0uB1O+qJngM
+	UJc41vHaZ7c3MO3CNR/3frXBp36dpHaFt7T+Iw7skMfvXabkunFRljqcE+pdHnDBFnk=
+X-Gm-Gg: ASbGnctKAubX3kXIBPkfLBQ8ycYBddq8/E1II+rHmQ0frr0y45GLklFIWsFNSGMlOlO
+	N4jqNiuznXV0QjaRBdbLkCHQH+B0ZtQsOdXuS3kfiyqJZ3aTON3QYp3BBMshqOfjYY7i1ENwPKD
+	aCA5SoTF7t3joik3m7mk7NmAYKzo+4Sz7CgYKzsOJ621r9yY3kNWqVXovfpbDKBSoEmY1yHV/VL
+	O+bnfPdqHdOomBOBvXiLZeKJ/xYas0p+DAjyieYOZIwG4YaSgWqC/HGSRzaIqrVc7sewJh6Vs1q
+	O2/V649pnze+wBJI0gMh3Y099U2O3Xn8RheAwuHrL1VvNA7pFbQzGrVrGoE2PrX8l5oE37eEWnE
+	YDd0II9O5cEvHZOGkIHlvPdlzeISZNh7Y+o6vNDoRvaXqEAn6JV/eD+yuiQariGL7C0S2Nza2cr
+	bPjd8OweB+EaibeINc0L2bRhkCpoGR0g==
+X-Google-Smtp-Source: AGHT+IE59DB0TFxKIEaN2I6TeCD5JT2tKfuN5ua8cycm1nXwuok/ynSystUmnzz/dmt/rwdeaNCrkQ==
+X-Received: by 2002:a17:902:d550:b0:295:86a1:5008 with SMTP id d9443c01a7336-2962ae4d0b5mr60653295ad.38.1762377191563;
+        Wed, 05 Nov 2025 13:13:11 -0800 (PST)
+Received: from localhost ([2620:10d:c090:500::6:4896])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651c93cebsm4667625ad.90.2025.11.05.13.13.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 13:08:21 -0800 (PST)
-From: Andrey Leonchikov <andreil499@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Cc: Andrey Leonchikov <andreil499@gmail.com>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de
-Subject: [PATCH] arm64: dts: rockchip: Fix USB power enable pin for BTT CB2 and Pi2
-Date: Wed,  5 Nov 2025 22:07:33 +0100
-Message-ID: <20251105210741.850031-1-andreil499@gmail.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
+        Wed, 05 Nov 2025 13:13:10 -0800 (PST)
+Date: Wed, 05 Nov 2025 13:13:10 -0800 (PST)
+X-Google-Original-Date: Wed, 05 Nov 2025 13:13:08 PST (-0800)
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+In-Reply-To: <aQuimp4CRywdy97S@arm.com>
+CC: paulmck@kernel.org, Will Deacon <will@kernel.org>,
+  Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Message-ID: <mhng-28F4A0BA-47EC-49AD-90A5-73EA7D029CA3@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_130824_810885_65BB0D08 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20251105_131313_926012_AF018B2B 
+X-CRM114-Status: GOOD (  49.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +99,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 05 Nov 2025 11:16:42 PST (-0800), Catalin Marinas wrote:
+> On Wed, Nov 05, 2025 at 09:40:32AM -0800, Paul E. McKenney wrote:
+>> On Wed, Nov 05, 2025 at 05:15:51PM +0000, Catalin Marinas wrote:
+>> > On Wed, Nov 05, 2025 at 08:25:51AM -0800, Paul E. McKenney wrote:
+>> > > On Wed, Nov 05, 2025 at 03:34:21PM +0000, Catalin Marinas wrote:
+>> > > > Given that this_cpu_*() are meant for the local CPU, there's less risk
+>> > > > of cache line bouncing between CPUs, so I'm happy to change them to
+>> > > > either use PRFM or LDADD (I think I prefer the latter). This would not
+>> > > > be a generic change for the other atomics, only the per-CPU ones.
+>> > >
+>> > > I have easy access to only the one type of ARM system, and of course
+>> > > the choice must be driven by a wide range of systems.  But yes, it
+>> > > would be much better if we can just use this_cpu_inc().  I will use the
+>> > > non-atomics protected by interrupt disabling in the meantime, but look
+>> > > forward to being able to switch back.
+>> >
+>> > BTW, did you find a problem with this_cpu_inc() in normal use with SRCU
+>> > or just in a microbenchmark hammering them? From what I understand from
+>> > the hardware folk, doing STADD in a loop saturates some queues in the
+>> > interconnect and slows down eventually. In normal use, it's just a
+>> > posted operation not affecting the subsequent instructions (or at least
+>> > that's the theory).
+>>
+>> Only in a microbenchmark, and Breno did not find any issues in larger
+>> benchmarks, so good to hear!
 
- Fix typo into regulator GPIO definition. With current
- definition - USB powered off. Valid definition can be found on "pinctrl"
- section:
- 		vcc5v0_usb2t_en: vcc5v0-usb2t-en {
- 				rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
- 				 		};
+FWIW, I have a proxy workload where enabling ATOMIC_*_FORCE_NEAR is ~1% 
+better (at application-level throughput).  It's supposed to be 
+representative of real workloads and isn't supposed to have contention, 
+but I don't trust these workloads at all so take that with a grain of 
+salt...
 
- 		vcc5v0_usb2b_en: vcc5v0-usb2b-en {
- 			rockchip,pins = <4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
+I still had looking into this on my TODO list, I was planning on doing 
+it all internally as a tuning thing but LMK if folks think it's 
+interesting and I'll try to find some way to talk about it publicly.
 
-Fixes: bfbc663d2733a ("arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2")
-Signed-off-by: Andrey Leonchikov <andreil499@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+>> Now, some non-arm64 systems deal with it just fine, but perhaps I owe
+>> everyone an apology for the firedrill.
+>
+> That was a useful exercise, I learnt more things about the arm atomics.
+>
+>> But let me put it this way...  Would you ack an SRCU patch that resulted
+>> in 100ns microbenchmark numbers on arm64 compared to <2ns numbers on
+>> other systems?
+>
+> Only if it's backed by other microbenchmarks showing significant
+> improvements ;).
+>
+> I think we should change the percpu atomics, it makes more sense to do
+> them near, but I'll keep the others as they are. Planning to post a
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-index f74590af7e33..b6cf03a7ba66 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-@@ -187,7 +187,7 @@ vcc5v0_usb: regulator-vcc5v0-usb {
- 	vcc5v0_usb2b: regulator-vcc5v0-usb2b {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
--		gpio = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+		gpio = <&gpio4 RK_PC4 GPIO_ACTIVE_HIGH>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&vcc5v0_usb2b_en>;
- 		regulator-name = "vcc5v0_usb2b";
-@@ -199,7 +199,7 @@ vcc5v0_usb2b: regulator-vcc5v0-usb2b {
- 	vcc5v0_usb2t: regulator-vcc5v0-usb2t {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
--		gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&vcc5v0_usb2t_en>;
- 		regulator-name = "vcc5v0_usb2t";
--- 
-2.51.0
+I guess I kind of went down a rabbit hole here, but I think I found some 
+interesting stuff.  This is all based on some modifications of Breno's 
+microbenchmark to add two things:
 
+* A contending thread, which performs the same operation on the same 
+  counter in a loop, with operations separated by a variable-counted 
+  loop of NOPs.
+* Some busy work for the timed thread, which is also just a loop of 
+  NOPs.
+
+Those loops look like
+
+    for (d = 0; d < duty; d++)
+        __asm__ volatile ("nop");
+
+in the code and get compiled to
+
+                            for (d = 0; d < duty; d++)
+      41037c:       f90007ff        str     xzr, [sp, #8]
+      410380:       14000001        b       410384 <run_core_benchmark+0x74>
+      410384:       f94007e8        ldr     x8, [sp, #8]
+      410388:       f85e03a9        ldur    x9, [x29, #-32]
+      41038c:       eb090108        subs    x8, x8, x9
+      410390:       54000102        b.cs    4103b0 <run_core_benchmark+0xa0>  // b.hs, b.nlast
+      410394:       14000001        b       410398 <run_core_benchmark+0x88>
+                                    __asm__ volatile ("nop");
+      410398:       d503201f        nop
+      41039c:       14000001        b       4103a0 <run_core_benchmark+0x90>
+                            for (d = 0; d < duty; d++)
+      4103a0:       f94007e8        ldr     x8, [sp, #8]
+      4103a4:       91000508        add     x8, x8, #0x1
+      4103a8:       f90007e8        str     x8, [sp, #8]
+      4103ac:       17fffff6        b       410384 <run_core_benchmark+0x74>
+                    }
+
+which is I guess kind of wacky generated code, but is maybe a reasonable 
+proxy for work -- it's got load/stores/branches, which IIUC is what real 
+code does ;)
+
+I ran a bunch of cases with those:
+
+ CPU: 0 - Latency Percentiles:
+====================
+LSE (stadd)     (c                0, d                0):   p50: 063.65 ns        p95: 065.02 ns          p99: 065.32 ns
+LSE (stadd)     (c                0, d              100):   p50: 063.71 ns        p95: 064.96 ns          p99: 065.68 ns
+LSE (stadd)     (c                0, d              200):   p50: 068.07 ns        p95: 082.98 ns          p99: 083.24 ns
+LSE (stadd)     (c                0, d              300):   p50: 098.96 ns        p95: 121.14 ns          p99: 122.04 ns
+LSE (stadd)     (c               10, d                0):   p50: 115.33 ns        p95: 117.25 ns          p99: 117.35 ns
+LSE (stadd)     (c               10, d              300):   p50: 115.30 ns        p95: 119.12 ns          p99: 121.68 ns
+LSE (stadd)     (c               10, d              500):   p50: 162.94 ns        p95: 185.24 ns          p99: 195.79 ns
+LSE (stadd)     (c               30, d                0):   p50: 115.17 ns        p95: 117.14 ns          p99: 117.84 ns
+LSE (stadd)     (c              100, d                0):   p50: 115.17 ns        p95: 117.13 ns          p99: 117.35 ns
+LSE (stadd)     (c            10000, d                0):   p50: 064.81 ns        p95: 066.24 ns          p99: 067.08 ns
+LL/SC           (c                0, d                0):   p50: 005.66 ns        p95: 006.45 ns          p99: 006.47 ns
+LL/SC           (c                0, d               10):   p50: 006.19 ns        p95: 006.98 ns          p99: 007.01 ns
+LL/SC           (c                0, d               20):   p50: 007.35 ns        p95: 008.88 ns          p99: 009.46 ns
+LL/SC           (c               10, d                0):   p50: 164.16 ns        p95: 462.97 ns          p99: 580.92 ns
+LL/SC           (c               10, d               10):   p50: 303.22 ns        p95: 575.03 ns          p99: 609.62 ns
+LL/SC           (c               10, d               20):   p50: 032.24 ns        p95: 042.03 ns          p99: 048.71 ns
+LL/SC           (c             1000, d                0):   p50: 017.37 ns        p95: 018.18 ns          p99: 018.19 ns
+LL/SC           (c             1000, d               10):   p50: 019.54 ns        p95: 020.37 ns          p99: 021.79 ns
+LL/SC           (c          1000000, d                0):   p50: 015.46 ns        p95: 017.00 ns          p99: 017.25 ns
+LL/SC           (c          1000000, d               10):   p50: 017.57 ns        p95: 019.16 ns          p99: 019.47 ns
+LDADD           (c                0, d                0):   p50: 004.33 ns        p95: 004.64 ns          p99: 005.13 ns
+LDADD           (c                0, d              100):   p50: 032.15 ns        p95: 040.29 ns          p99: 040.69 ns
+LDADD           (c                0, d              200):   p50: 067.97 ns        p95: 083.04 ns          p99: 083.30 ns
+LDADD           (c                0, d              300):   p50: 098.93 ns        p95: 120.79 ns          p99: 122.52 ns
+LDADD           (c                1, d              100):   p50: 049.19 ns        p95: 072.23 ns          p99: 072.38 ns
+LDADD           (c                1, d              200):   p50: 143.15 ns        p95: 145.34 ns          p99: 145.90 ns
+LDADD           (c                1, d              300):   p50: 153.91 ns        p95: 162.57 ns          p99: 163.84 ns
+LDADD           (c               10, d                0):   p50: 012.46 ns        p95: 013.24 ns          p99: 014.33 ns
+LDADD           (c               10, d              100):   p50: 049.34 ns        p95: 069.35 ns          p99: 070.71 ns
+LDADD           (c               10, d              200):   p50: 141.66 ns        p95: 143.65 ns          p99: 144.31 ns
+LDADD           (c               10, d              300):   p50: 152.82 ns        p95: 163.51 ns          p99: 164.03 ns
+LDADD           (c              100, d                0):   p50: 012.37 ns        p95: 013.23 ns          p99: 014.52 ns
+LDADD           (c              100, d               10):   p50: 014.32 ns        p95: 015.11 ns          p99: 015.15 ns
+PFRM_KEEP+STADD (c                0, d                0):   p50: 003.97 ns        p95: 005.23 ns          p99: 005.49 ns
+PFRM_KEEP+STADD (c               10, d                0):   p50: 126.02 ns        p95: 127.72 ns          p99: 128.72 ns
+PFRM_KEEP+STADD (c          1000000, d                0):   p50: 021.97 ns        p95: 023.93 ns          p99: 024.97 ns
+PFRM_KEEP+STADD (c          1000000, d              100):   p50: 076.28 ns        p95: 080.88 ns          p99: 081.50 ns
+PFRM_KEEP+STADD (c          1000000, d              200):   p50: 089.62 ns        p95: 091.49 ns          p99: 091.89 ns
+PFRM_STRM+STADD (c                0, d                0):   p50: 003.97 ns        p95: 005.23 ns          p99: 005.47 ns
+PFRM_STRM+STADD (c               10, d                0):   p50: 126.75 ns        p95: 128.96 ns          p99: 129.48 ns
+PFRM_STRM+STADD (c          1000000, d                0):   p50: 021.83 ns        p95: 023.75 ns          p99: 023.96 ns
+PFRM_STRM+STADD (c          1000000, d              100):   p50: 074.48 ns        p95: 079.56 ns          p99: 080.73 ns
+PFRM_STRM+STADD (c          1000000, d              200):   p50: 089.76 ns        p95: 091.14 ns          p99: 092.46 ns
+
+Which I'm interpreting to say the following:
+
+* LL/SC is pretty good for the common cases, but gets really bad under 
+  the pathological cases.  It still seems always slower that LDADD.
+* STADD has latency that blocks other STADDs, but not other CPU-local 
+  work.  I'd bet there's a bunch of interactions with caches and memory 
+  ordering here, but those would all juts make STADD look worse so I'm 
+  just ignoring them.
+* LDADD is better than STADD even under pathologically highly contended 
+  cases.  I was actually kind of surprised about this one, I thought the 
+  far atomics would be better there.
+* The prefetches help STADD, but they don't seem to make it better that 
+  LDADD in any case.
+* The LDADD latency also happens concurrently with other CPU operations 
+  like the STADD latency does.  It has less latency to hide, so the 
+  latency starts to go up with less extra work, but it's never worse 
+  that STADD.
+
+So I think at least on this system, LDADD is just always better.
+
+[My code's up in a PR to Breno's repo: 
+https://github.com/leitao/debug/pull/2]
+
+> proper patch tomorrow and see if Will NAKs it ;) (I've been in meetings
+> all day). Something like below but with more comments and a commit log:
+>
+> ------------------------8<--------------------------
+> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> index 9abcc8ef3087..d4dff4b0cf50 100644
+> --- a/arch/arm64/include/asm/percpu.h
+> +++ b/arch/arm64/include/asm/percpu.h
+> @@ -77,7 +77,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
+>  	"	stxr" #sfx "\t%w[loop], %" #w "[tmp], %[ptr]\n"		\
+>  	"	cbnz	%w[loop], 1b",					\
+>  	/* LSE atomics */						\
+> -		#op_lse "\t%" #w "[val], %[ptr]\n"			\
+> +		#op_lse "\t%" #w "[val], %" #w "[tmp], %[ptr]\n"	\
+>  		__nops(3))						\
+>  	: [loop] "=&r" (loop), [tmp] "=&r" (tmp),			\
+>  	  [ptr] "+Q"(*(u##sz *)ptr)					\
+> @@ -124,9 +124,9 @@ PERCPU_RW_OPS(8)
+>  PERCPU_RW_OPS(16)
+>  PERCPU_RW_OPS(32)
+>  PERCPU_RW_OPS(64)
+> -PERCPU_OP(add, add, stadd)
+> -PERCPU_OP(andnot, bic, stclr)
+> -PERCPU_OP(or, orr, stset)
+> +PERCPU_OP(add, add, ldadd)
+> +PERCPU_OP(andnot, bic, ldclr)
+> +PERCPU_OP(or, orr, ldset)
+>  PERCPU_RET_OP(add, add, ldadd)
+>
+>  #undef PERCPU_RW_OPS
 
