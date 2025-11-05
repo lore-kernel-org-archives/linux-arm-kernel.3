@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FCFCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37861CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 15:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=; b=avJ4di2aVNdAOcAs0nPYm6wbQw
-	BWU0Ic+HSziNBJjVCphhr/z7OGHbkapH4bH4t3UN6S1TKrIuSmZXEa/uqn4Le+3wvaG51iv5jQ3Oe
-	JYh+POZ0G0UpjeVX3CKlwBZ16xAF3d6x8ZqcdzxhQgYo4ezwdIMHW43ma3TQ6LxEU756UlMEsxugI
-	eGbgIprVJWmNp8Pq4zGRBMrIGL0tYtxA6DjB8PyubwgoarE1K1XQR5u54d9L+WpVLK//iSUWwGmE9
-	r6dT+X67LcIRx2Vgws3cDwbgEvINp00BoTOiDUqfm65VcVZRD9HreYX1MKuEBFFNAS2aZSQydQnlx
-	BEQUCQhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v5C7QxURq//NocpIY9CEsDLZ2QT+8QdYxClseUAsngY=; b=1p0h6YUoa9mPuJ4kx6rvPPUccE
+	XKDkYdtBbQTNNdrsF5wXZ6EO+nfbbtCIxJXOaTszWyqjdlQnjyIF2wiJXv0CdCvB/tslz9/jwCsea
+	q6PEygowYTL/ISJZAYhZTRzV4pnjkRO0A5mwW0EnW8edwyXX2wsrA+5QoWicy1Oc9Nb/FoD18eBEm
+	njeDlHgMMjGUH9LDktTdYXyzxYfJB7K+PryFI50E9xlKcV7f4wT5WCAQUCDoejLqUmRWjakKCEKj8
+	wUykwubyivNdconFzmn0mRyFchIZ8gEE0fpLIlWyZfMfbMKw3by3ANJPPZj9LI8neo5I26OFloPdL
+	kHgRuguA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfJN-0000000DuqG-3Ztk;
-	Wed, 05 Nov 2025 15:20:37 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vGfLn-0000000DvAf-3lRV;
+	Wed, 05 Nov 2025 15:23:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGfJK-0000000DupM-3EhW
+	id 1vGfLl-0000000DvA6-07aX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 15:20:37 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-426f1574a14so4213468f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 07:20:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1762356033; x=1762960833; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=;
-        b=P1MQ5hcM2KFGnyw9pKxGWKWbCuFLDd14MkHV1HSp3GEibmGbjrFs16t4fsjdBtq2Ot
-         yfXgV6oXKVtfSZqgMAG8PZpjLMa8RWnPuMMRMgL6oqR2sr6gItC1paAuOdVHXnjWw8Ch
-         DJhZLVIkkhv1FfZvV5oqFBLMIHV40k3UKligXWMC/RN46H8X/wwr/+WGVdCyoYZib86k
-         B/FBxpXmgRVRIrAfmYIvKxxihpeECKS2HnVhtBMiXfqGVrpSllI9HzlIVxuaf+ii/Yoa
-         ChHh87RbD15vft1iV9jI6/yKxaELRLjBzjkZMtJ+Jb6mfrtTJawv6ek6BYzgifOMT4UN
-         FV5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762356033; x=1762960833;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ranMJA7nhTTLeDvlm0qxHCF2jeri90ZrthFQur/cI2M=;
-        b=YnQVzZGB1uLk2OjlK4UPwzN09gwH2GgwBzu1EArozDKw7WrYgk+4qLecyMhCOhFVer
-         zIoYv7OvwBDcVb3AuDqgwXj5vBI70QI7uRQPYlSZF9r7jf1rvFdvXMta08Fu74bgRMxd
-         5zU+29QyKByNtBImtxf+HEmW/XiV3lLko6P/yXhjcBE/t4c2vdUc175+QNnu7wLMeIgj
-         ggLqlai7QebYVOvAezolgkscbf9pMmYmAxPJydYGEO21MgTXO0C61rTQyrtrnvIyaxk2
-         FE6JS/7SuHKsjzNKoBKkq6QTpr2bAl/0TluSKt/+3YP9zFKH9oGOZiTiwBQCrnSvDKOh
-         rtxA==
-X-Forwarded-Encrypted: i=1; AJvYcCUW/LwPvpHEfwE0UZ2HPYBze2Zti3PVB8FD/qiAHsfNJupRl/QY/sUKvXMWJR7TU3sAw2YC2K0df8GEcyRAHMeA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVK0Fu79g1AQCCU7CkfY7+KNXDy3K2ADksLZTyxpPZO2FJMXdM
-	1c+H1GgD67lZvC3f25L+seVJuCIaIi43MPGBwA6gpzo3+ABHscX62+34CJnUrcHGre0=
-X-Gm-Gg: ASbGncslgjq7G3eSogRI6EAHZasx8XuQ6axLkPREFqKQZsnkGy4Y+XFAFjepuS7D4pI
-	7EXd6o/+AyK0XCQyDvwevjM9Hq+kdvpHg5J13nr25/lDgayNmiT8EB+B1TsA9qiUlvNKrud8Xl9
-	4ci9lIzihIIiQr3wZRGxx5zzRPLzzyK5/ccCMheIKR/9UMI06NwuKrgjmgQiuyNRIvj4YYLk9WV
-	mzkj1slov6BEIqoIdiz+QEfsTGFd4E/X0ZnhA3gIhfjLB+6XPVLpjVITNyBqQTg2qaX9MCLh8C/
-	J/Obo4iXL9imdXvvRSJHPissnw3Za8eR6h/Bruln1nIluXg7XtmE8LSO3YEKRHMm0tTLmk8Agm6
-	SI2wAiq5Ns3zHbv0CndwqKjRMCUb+Zm4ex36s1h1VA5g40CebII3QHgquqduVJvy54hRdqplUY5
-	mm6PbB8NX9jhnUFMbP5cpQ1SY=
-X-Google-Smtp-Source: AGHT+IHUa1UagvSj8MVB8CHfM78Fkv+vbGeo68mTbHX615SxRGVOlXbaT5kn8JdN3BRCGmBUMVJgvw==
-X-Received: by 2002:a05:6000:22ca:b0:429:c774:dbfc with SMTP id ffacd0b85a97d-429e32c8168mr3259102f8f.12.1762356032871;
-        Wed, 05 Nov 2025 07:20:32 -0800 (PST)
-Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429dc200878sm11018117f8f.45.2025.11.05.07.20.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Nov 2025 07:20:32 -0800 (PST)
-From: Marco Crivellari <marco.crivellari@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Cc: Tejun Heo <tj@kernel.org>,
+	Wed, 05 Nov 2025 15:23:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0418844362;
+	Wed,  5 Nov 2025 15:23:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CEDBC4CEF5;
+	Wed,  5 Nov 2025 15:23:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762356183;
+	bh=fusB0gibvJKJQXePl8CXgegfMzOrPm+adEItFF8rn4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fI54FeAijnMRfBlbxLG2+Iek1ya9gdrVicMOy6ppH48QNJY1JwCA0YIcMTsGcAyyZ
+	 KuEb2RQHhUEh749M7gs858+NV46mLYZbGP/8Mp4QmoJ81PcA4BX5I+j9kHoraKETyY
+	 5/xsZ+pDWMBJe6yrYwpFs/GuyQIvd/XVyzYLrl689vn8XudarKTwU0ZOlC8B+b3wxA
+	 4M04j8KUlHVMArmw92JUAxOG0ooE93fYnwL/Ap60WXkOAbqG1sxhteuwbYCz02ush8
+	 Nel4ht9ZvEnSBScs7Jx0YygYSCSf5Dvon/HzaCuHFaOaiCZMR0DrRHFWElXp1YaKVm
+	 4kzXv9mqOHBdg==
+Date: Wed, 5 Nov 2025 16:23:01 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
 	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
-Date: Wed,  5 Nov 2025 16:20:23 +0100
-Message-ID: <20251105152023.259813-1-marco.crivellari@suse.com>
-X-Mailer: git-send-email 2.51.1
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
+ rcu pointers
+Message-ID: <aQtr1VM9k5-uJbfu@localhost.localdomain>
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-13-frederic@kernel.org>
+ <083388fb-3240-4329-ad49-b81cd89acffd@redhat.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <083388fb-3240-4329-ad49-b81cd89acffd@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_072034_842334_762F4330 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20251105_072305_087658_95011FE3 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,97 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently if a user enqueues a work item using schedule_delayed_work() the
-used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-schedule_work() that is using system_wq and queue_work(), that makes use
-again of WORK_CPU_UNBOUND.
+Le Mon, Oct 20, 2025 at 11:49:53PM -0400, Waiman Long a écrit :
+> >   bool housekeeping_test_cpu(int cpu, enum hk_type type)
+> >   {
+> > -	if (static_branch_unlikely(&housekeeping_overridden))
+> > -		if (housekeeping.flags & BIT(type))
+> > -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
+> > +	if (housekeeping.flags & BIT(type))
+> > +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+> >   	return true;
+> >   }
+> 
+> The housekeeping_overridden static key check is kept in other places except
+> this one. Should we keep it for consistency?
 
-This lack of consistency cannot be addressed without refactoring the API.
+Indeed!
 
-This patch continues the effort to refactor worqueue APIs, which has begun
-with the change introducing new workqueues and a new alloc_workqueue flag:
+Thanks.
 
-commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
-
-Replace system_wq with system_percpu_wq, keeping the same behavior.
-The old wq (system_wq) will be kept for a few release cycles.
-
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
----
- drivers/phy/allwinner/phy-sun4i-usb.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
-index 59d38d88efb0..e2fbf8ccf99e 100644
---- a/drivers/phy/allwinner/phy-sun4i-usb.c
-+++ b/drivers/phy/allwinner/phy-sun4i-usb.c
-@@ -359,7 +359,7 @@ static int sun4i_usb_phy_init(struct phy *_phy)
- 		/* Force ISCR and cable state updates */
- 		data->id_det = -1;
- 		data->vbus_det = -1;
--		queue_delayed_work(system_wq, &data->detect, 0);
-+		queue_delayed_work(system_percpu_wq, &data->detect, 0);
- 	}
- 
- 	return 0;
-@@ -482,7 +482,7 @@ static int sun4i_usb_phy_power_on(struct phy *_phy)
- 
- 	/* We must report Vbus high within OTG_TIME_A_WAIT_VRISE msec. */
- 	if (phy->index == 0 && sun4i_usb_phy0_poll(data))
--		mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
-+		mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
- 
- 	return 0;
- }
-@@ -503,7 +503,7 @@ static int sun4i_usb_phy_power_off(struct phy *_phy)
- 	 * Vbus gpio to not trigger an edge irq on Vbus off, so force a rescan.
- 	 */
- 	if (phy->index == 0 && !sun4i_usb_phy0_poll(data))
--		mod_delayed_work(system_wq, &data->detect, POLL_TIME);
-+		mod_delayed_work(system_percpu_wq, &data->detect, POLL_TIME);
- 
- 	return 0;
- }
-@@ -542,7 +542,7 @@ static int sun4i_usb_phy_set_mode(struct phy *_phy,
- 
- 	data->id_det = -1; /* Force reprocessing of id */
- 	data->force_session_end = true;
--	queue_delayed_work(system_wq, &data->detect, 0);
-+	queue_delayed_work(system_percpu_wq, &data->detect, 0);
- 
- 	return 0;
- }
-@@ -654,7 +654,7 @@ static void sun4i_usb_phy0_id_vbus_det_scan(struct work_struct *work)
- 		extcon_set_state_sync(data->extcon, EXTCON_USB, vbus_det);
- 
- 	if (sun4i_usb_phy0_poll(data))
--		queue_delayed_work(system_wq, &data->detect, POLL_TIME);
-+		queue_delayed_work(system_percpu_wq, &data->detect, POLL_TIME);
- }
- 
- static irqreturn_t sun4i_usb_phy0_id_vbus_det_irq(int irq, void *dev_id)
-@@ -662,7 +662,7 @@ static irqreturn_t sun4i_usb_phy0_id_vbus_det_irq(int irq, void *dev_id)
- 	struct sun4i_usb_phy_data *data = dev_id;
- 
- 	/* vbus or id changed, let the pins settle and then scan them */
--	mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
-+	mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
- 
- 	return IRQ_HANDLED;
- }
-@@ -676,7 +676,7 @@ static int sun4i_usb_phy0_vbus_notify(struct notifier_block *nb,
- 
- 	/* Properties on the vbus_power_supply changed, scan vbus_det */
- 	if (val == PSY_EVENT_PROP_CHANGED && psy == data->vbus_power_supply)
--		mod_delayed_work(system_wq, &data->detect, DEBOUNCE_TIME);
-+		mod_delayed_work(system_percpu_wq, &data->detect, DEBOUNCE_TIME);
- 
- 	return NOTIFY_OK;
- }
 -- 
-2.51.1
-
+Frederic Weisbecker
+SUSE Labs
 
