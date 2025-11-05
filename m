@@ -4,118 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FA8CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82ACCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Nov 2025 08:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UzhJ0D8m0FjOLM03YsXKOaPpbsXXkuTeXHNIj12fW0g=; b=gwX69k0JI+wz0bK3xR/GQT2/lr
-	fouPf/y5hDCkelHL6OwDWL2uhL6BJhp7wyR/s5YBP44rv7HLDfycrJng6oS3ubmFatEtgUmiq3tZN
-	4amzwpSUsVOZBnUiaB+xleGXMGUGeAxh/+BDTae3fP0NJcaxCDlFwOV3DwwZo1lY8bmRSJIGvLOKA
-	6++wsMDACYUHgwkoefVkYDuF94qrOu5+6vj3IHmy1pp8zx8CmA9L0Gey8bTxnFwvGP1wkLc3221zx
-	oiZwC8/3GiKbXBx883C+ufIenSUWyGR6QIzMiev1um80j+5duWSnVPAKkhvVWnH0I6a6sFaDOw9UJ
-	pKqYRcYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kHGJcgxXA2m+dBzaF0yr8plMLyL3QJy6q7UOn7QXQA=; b=GPsMQjuaUDX8VOLxH6JXcMQH/I
+	9NMrkvMSFrF9/+l6kSN+xHfno2vkHbD5WUdskRuZyicDGYCOFgH0JGjIBPzP0zRHPiFdQDGWSdy0F
+	aLxQIfAJgFrVb+FpZKs7XYC0v0e160oFPnQneHhP4LlNneCgpQSEO8SrbeKHmlyzuV6rMCl4XuBTG
+	UDKAJ2zIaax+t7YHJjByHIstz7+CMkMbICq/w9YX/mI/CsW4CMVPVZ9cpl0fl/Kkel9+Ax2lAZJLC
+	dogBaA+LA1AQV9qnaaI53ZGgEarjSDMqDbGNgzNKB5VcKoDoo00OEhSlhAFT+WhfXxfdvZRIxjkhF
+	b1kaXKiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZGK-0000000DKLS-0erQ;
-	Wed, 05 Nov 2025 08:53:04 +0000
-Received: from 2.mo548.mail-out.ovh.net ([178.33.255.19])
+	id 1vGZIa-0000000DKW9-2ZRu;
+	Wed, 05 Nov 2025 08:55:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGZGF-0000000DKKN-42iL
+	id 1vGZIZ-0000000DKW0-3sDL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Nov 2025 08:53:02 +0000
-Received: from mxplan5.mail.ovh.net (unknown [10.109.254.216])
-	by mo548.mail-out.ovh.net (Postfix) with ESMTPS id 4d1fGh54yzz5xfm;
-	Wed,  5 Nov 2025 08:52:44 +0000 (UTC)
-Received: from kaod.org (37.59.142.103) by DAG8EX2.mxp5.local (172.16.2.72)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.61; Wed, 5 Nov
- 2025 09:52:43 +0100
-Authentication-Results: garm.ovh; auth=pass (GARM-103G005ce6bb1a2-7bc6-41ef-8de6-5c9013ba0575,
-                    67C45F718E61F6068C46D45FDE48FB82D97FBBF4) smtp.auth=clg@kaod.org
-X-OVh-ClientIp: 82.64.250.170
-Message-ID: <e34f80cc-1455-4655-b2f6-64264860072e@kaod.org>
-Date: Wed, 5 Nov 2025 09:52:42 +0100
+	Wed, 05 Nov 2025 08:55:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2122060205;
+	Wed,  5 Nov 2025 08:55:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 644C5C4CEF8;
+	Wed,  5 Nov 2025 08:55:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762332922;
+	bh=q2HC6BJNcGczMQ4oM0u2Hv/pTJcPtCPZlJD79dhiWOY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gYQsUvuFU7j6zma2SH7ae6HUyFpK2svx5uMUr2Ek79kxlgEHMA04WfdZL7BGa8Mja
+	 IJM2vMMgSq1MRGlUiv4VxZzEUgkiN6dlH69DPvDhoEG8nzqFZeJIBE5a45CJqPjcvh
+	 TKJbqUkiI0/L5E8Ye4Ecny5fRPy/6NuvHon6Vr/fUhsVb6kdSvk4c/xMuvxmUlbel3
+	 bGmzjB9NJyGbl7M6Stc1AP2QmhMZBXCll7aMFci0Yq/YJ9ctaH1fFvxlUf3AiWSuof
+	 sl4BXH+wZOt6HZD6AS8PXANkZ/pWTsAHjGOyshy7wg/myyovBbN5SiM6G/ONZI9/Cg
+	 ZAzBTMwwQQQJQ==
+Date: Wed, 5 Nov 2025 09:55:20 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dan.carpenter@linaro.org, kernel-team@android.com, willmcvicker@google.com, arnd@arndb.de
+Subject: Re: [PATCH 1/2] dt-bindings: soc: samsung: exynos-pmu: remove syscon
+ for google,gs101-pmu
+Message-ID: <20251105-guillemot-of-demonic-courtesy-6127ac@kuoka>
+References: <20251103-remove-pmu-syscon-compat-v1-0-f2cb7f9ade6f@linaro.org>
+ <20251103-remove-pmu-syscon-compat-v1-1-f2cb7f9ade6f@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: aspeed: Use devm_iounmap() to unmap devm_ioremap()
- memory
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, <joel@jms.id.au>,
-	<andrew@codeconstruct.com.au>, <broonie@kernel.org>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: kernel test robot <lkp@intel.com>
-References: <20251105084952.1063489-1-chin-ting_kuo@aspeedtech.com>
-From: =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>
-Content-Language: en-US, fr
-Autocrypt: addr=clg@kaod.org; keydata=
- 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
-In-Reply-To: <20251105084952.1063489-1-chin-ting_kuo@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [37.59.142.103]
-X-ClientProxiedBy: DAG5EX2.mxp5.local (172.16.2.42) To DAG8EX2.mxp5.local
- (172.16.2.72)
-X-Ovh-Tracer-GUID: 19e21827-40f9-48a7-a6c1-3cc3a3a50470
-X-Ovh-Tracer-Id: 1178817205650492338
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 0
-X-VR-SPAMCAUSE: dmFkZTGIa25WpJ6T7W6ehLzRIX51L5OQjMn4sfjiiOiCnCKizGTNWHCFNg+x+Jd+3wOOG7V7UQznLOOI8UZVH3ZU7ZWSdOPFHpCwmLcv/oUjlS36BTUKGybDjpXph1U2RKA2f2Z8tVIety+zS8fa9wVg2L37rrR/mfWQRRwE9Yr6NeB78TQUPCXtap/0caj3pAFSCR2c+X4uKlq3x054QWnnbQ/mLZmNHj3huuNoaSWMT56BhIhanmM0tj/f/kgRE0Ua1+83dA9/8JqKr5xu46t5lXMt7K75kYQdPHdVb6jxznnA/qzZsMOG6s3inuAukJovaW/vw9Eb1bNeNNNbCFjjYZXqSp7oqwPA4feQj8oUACRZkYIR2AXrrKUhjJsbW0187sRseRgvXu2IrMUIYdvlTOornKdSRC8J23XKwYNzSol/wlHDwBNZHlUWRQvcoepA4ibpXuw1pFBONbm9jjwg2RgZHjuSitm5dLsj18WY7ph6BNe/T+yDtq/VeGDodTq31KQHacONMcFadNeuTLrSM1pwmnoCidDnyZ2NvFwFZ3uiWvV0OwuyTpHXMOe2eyE9bbXMZy/aoeKysqzgl9/YcKM61RU2VlV8Z0oUwj3U3N23LUgCGWeG6v70mojo7HhEg+sAWNM9dQvRK+7n5/5wJ17zZIRJaK5Ow2Ya0Jt42eZcDw
-DKIM-Signature: a=rsa-sha256; bh=UzhJ0D8m0FjOLM03YsXKOaPpbsXXkuTeXHNIj12fW0g=;
- c=relaxed/relaxed; d=kaod.org; h=From; s=ovhmo393970-selector1;
- t=1762332766; v=1;
- b=Bb1Ezue4PwjjvMfO8iYDnkpvMyeohr8PhB5+2Z9M+EOrUAIUSA3DbfZv+hqD0D5sNONyJtJ1
- OI8l4ltkBOGWZNeulkgB06pRkz9ZyU3sHZtlbsPgSiUxpTb8O49bTjqLzJAjsXwAGVMg7XCIfr5
- KHctbxoS4uPbBoVcwjNcKrkgJUhVy8F4psb/UWlo+o+dRWVAWa/1Q4p2PYQcTeJvBgasAoT0wcf
- c4drub32rPIh7oLrEz47zx9HOUBTdfFk+Q1zs4iPAjm589XBr3domu6uos7Ee73llGN0x960+F+
- Hst9ck7xnxOUx0KsfVMK9KDgSxlt10iCO3KY7t4xtFZ5A==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_005301_132709_DF12F45B 
-X-CRM114-Status: GOOD (  14.93  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251103-remove-pmu-syscon-compat-v1-1-f2cb7f9ade6f@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/5/25 09:49, Chin-Ting Kuo wrote:
-> The AHB IO memory for each chip select is mapped using
-> devm_ioremap(), so it should be unmapped using devm_iounmap()
-> to ensure proper device-managed resource cleanup.
+On Mon, Nov 03, 2025 at 08:03:10AM +0000, Peter Griffin wrote:
+> Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
+> "syscon" compatible") it is possible to register a regmap without the
+> syscon compatible in the node.
 > 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202510292356.JnTUBxCl-lkp@intel.com/
-> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-> ---
->   drivers/spi/spi-aspeed-smc.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-> index e8bd8fe6c4e7..179c47ffbfeb 100644
-> --- a/drivers/spi/spi-aspeed-smc.c
-> +++ b/drivers/spi/spi-aspeed-smc.c
-> @@ -396,7 +396,7 @@ static int aspeed_spi_set_window(struct aspeed_spi *aspi)
->   
->   	for (cs = 0; cs < aspi->data->max_cs; cs++) {
->   		if (aspi->chips[cs].ahb_base) {
-> -			iounmap(aspi->chips[cs].ahb_base);
-> +			devm_iounmap(dev, aspi->chips[cs].ahb_base);
->   			aspi->chips[cs].ahb_base = NULL;
->   		}
->   	}
+> Update the bindings for google,gs101-pmu so that the syscon compatible is
 
+That's an ABI break...
 
-Reviewed-by: Cédric Le Goater <clg@redhat.com>
+> no longer required. As it isn't really correct to claim we are compatible with
+> syscon (as a mmio regmap created by syscon will not work on gs101).
 
-Thanks,
+... with kind of a reason, but then the question I have: was the
+standard MMIO regmap exposed via syscon ever working for any part of
+this PMU?
 
-C.
+Original posting here:
+https://lore.kernel.org/all/20231209233106.147416-2-peter.griffin@linaro.org/
+did not change PMU driver and did not express that the syscon is broken.
 
+Best regards,
+Krzysztof
 
 
