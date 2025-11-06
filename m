@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E162CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF007CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6I2Iu+cJT3+xxGMe7PrlNglBTOagx6IwbhJZJqxqBGE=; b=nAYPn31oopWtZcBRQRV2J9hUXZ
-	/GCRAzu8aDRvjTGOEbMNDJZT/Hmy8pYdlRjwRKD2wPDMzF4q16qL36vap9gQEAVlu1aAOrnNoipDB
-	vO+vUzM6rrdtzOl0ApcOgv+E876VqOsty8X0KmKkWMHxGO8RFVre33ygIZSNjKMjrLuKr0Tgagp3t
-	FAmfV7PzegO4SA2/7SYm+jIVYjEkbQsEAA5MKVgtd+8Qo3HbwaF7FUgwSGuW4Cfx5ZBh/qOveRiqY
-	1PFek9RQBvi/0a5tFU8EpDVrAxPpjoDKBxfL3S9WwVrHMlSHPgPmxvqnONZChSh3fW7o6A3Uqvh6l
-	dN0crj8A==;
+	bh=z4N6Bf0T0VYiK5Mxxn0CGxAsoHE2qIVKOD0hThM6PDA=; b=svV8JlWTfXFN4J5obCL6DTOsVT
+	fIEwvZ50rAb34WM9ZZ+qQqI4AhtI/06NMe98dfXd6gpMxfebpUlpNPQt/7nm9uWkshcJRIlfYCAQs
+	/bhXudN8KyVe2gvW/JeUAM8YhCOgx3ci69Y1FPBgeYKfePxE3X5UDwIjIrAynzGBqlzvYNRufGmbP
+	FV4hIwi/IL3lHPrMhxA8HHJ4i6A3f2fv0BYWdu77Xjb+EjcnqbCb5T1HUdYz3pae5zfyb7teU2zM8
+	eEfZH7pnJ5wWnSewEiyIK2V1sOrYcl7r5vobdjGQqaAc8eH9ENXRgJlOi1Se0FvLbm1b2Ge8mqygG
+	VsEsFXKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1WD-0000000FkBG-2EE5;
-	Thu, 06 Nov 2025 15:03:21 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1vH1WS-0000000FkDJ-3U3z;
+	Thu, 06 Nov 2025 15:03:37 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1WA-0000000FkAm-0Hjo
+	id 1vH1WP-0000000FkC2-0ENA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 15:03:20 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id EB6071F93B;
-	Thu,  6 Nov 2025 16:03:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1762441394;
-	bh=6I2Iu+cJT3+xxGMe7PrlNglBTOagx6IwbhJZJqxqBGE=; h=From:To:Subject;
-	b=XSZGqn6GIJD61EDUYa00+rIE5rUeW4v9fNypsOF6u/RPK6BxPlVVAj6tAdbZDNfGj
-	 cESdjMrFBVhb0ZAs0GkNehC3GhXkfzDZGj7kPYpt72E/HCIqoP6lW8ygTB+zRtJqpy
-	 6Po4wRrC44QVQNpSgJg1diuMDwpfrj3Hiuss0M7OZQJBz5X6DXtTJb7Mjj2/+u6MeM
-	 Wj+a8mbumaROEssjFPUKxPPXXk62WIvnVZ4PLNESgWQAH7WoTn6miY14uF36aFhcS3
-	 olAz+zgdzG8RaiZkOj46PIkzBTyOnSJ1iuTRY3FOWf5x6EpXgGVtlBPNJ56ZESvD7Z
-	 V4pZ95whObyhQ==
-Date: Thu, 6 Nov 2025 16:03:09 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Andrew Davis <afd@ti.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Parth Pancholi <parth.pancholi@toradex.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add Aquila AM69 Support
-Message-ID: <20251106150309.GA44898@francesco-nb>
-References: <20251104144915.60445-1-francesco@dolcini.it>
- <20251104145240.61219-1-francesco@dolcini.it>
- <20251104145240.61219-2-francesco@dolcini.it>
- <d77bf3dd-4501-4f17-a776-3353f96f4fb1@ti.com>
- <20251105115335.GA14157@francesco-nb>
- <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
- <20251106101932.GA5975@francesco-nb>
- <be8040c0-76b1-46e3-bd89-841cbfa10c84@ti.com>
+	Thu, 06 Nov 2025 15:03:34 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 2CCFA1F80051
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Nov 2025 15:03:23 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 35728B0AA88; Thu,  6 Nov 2025 15:03:21 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id D776CB0A6F3;
+	Thu,  6 Nov 2025 15:03:19 +0000 (UTC)
+Date: Thu, 6 Nov 2025 16:03:17 +0100
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH] drm/sun4i: Cleanup v3s mixer config fields ordering and
+ indentation
+Message-ID: <aQy4tVdoQeoEyuMV@collins>
+References: <20250704154149.3464461-1-paulk@sys-base.io>
+ <aKhFPRP8ILNkKAvy@shepard>
+ <CAGb2v66=Ppqw+_fpAsRYd_4OBOhbHkk7RetfEXbYmvQ_+hoe7g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0I3HyHXU+o/IGbUL"
 Content-Disposition: inline
-In-Reply-To: <be8040c0-76b1-46e3-bd89-841cbfa10c84@ti.com>
+In-Reply-To: <CAGb2v66=Ppqw+_fpAsRYd_4OBOhbHkk7RetfEXbYmvQ_+hoe7g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_070318_857919_F426F549 
-X-CRM114-Status: GOOD (  29.59  )
+X-CRM114-CacheID: sfid-20251106_070333_266483_6C52DC13 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew,
 
-On Thu, Nov 06, 2025 at 07:32:44AM -0600, Andrew Davis wrote:
-> On 11/6/25 4:19 AM, Francesco Dolcini wrote:
-> > On Wed, Nov 05, 2025 at 02:01:35PM -0600, Andrew Davis wrote:
-> > > On 11/5/25 5:53 AM, Francesco Dolcini wrote:
-> > > > On Tue, Nov 04, 2025 at 11:41:54AM -0600, Andrew Davis wrote:
-> > > > > On 11/4/25 8:52 AM, Francesco Dolcini wrote:
+--0I3HyHXU+o/IGbUL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-...
+Hi Chen-Yu,
 
-> > > > > > +/* Aquila SPI_1 */
-> > > > > > +&main_spi2 {
-> > > > > > +	pinctrl-names = "default";
-> > > > > > +	pinctrl-0 = <&pinctrl_main_spi2>, <&pinctrl_main_spi2_cs0>;
-> > > > > > +	status = "disabled";
-> > > > > 
-> > > > > This is already disabled by default in the SoC dtsi file.
-> > > > 
-> > > > Yes, known. Is this an issue?
-> > > > 
-> > > > This node must be disabled, no matter what is present in any included
-> > > > dtsi file, it's a deliberate decision.
-> > > > 
-> > > > This dtsi file describes a SoM, the used pins/functions are defined on
-> > > > the pinout, but this node cannot be enabled unless the SoM is mated with
-> > > > a carrier board that is exposing it.
-> > > 
-> > > Same as my point above, you shouldn't enable nodes that are not used
-> > > or have anything attached. The SoM only has some edge connectors so
-> > > it should not be enabled at the SoM level, that we seem to agree, but
-> > > the carrier board doesn't connect those lines to anything either. They
-> > > just run to a pin header with nothing attached, how is that header
-> > > any different than the pins on the edge of the SoM?
-> > 
-> > You are commenting something unrelated here, or I am not understanding
-> > you.
-> 
-> Yes this was a bit of a tangent to the comment above. The point here
-> was more on the pinmux, as a new carrier board might use these pins
-> for something other than SPI, the pinmuxing shouldn't be done at the
-> SoM dtsi level. Instead do it at the point the node is connected to
-> some hardware on the carrier board in its DTS.
+Le Thu 06 Nov 25, 14:01, Chen-Yu Tsai a =C3=A9crit :
+> On Fri, Aug 22, 2025 at 6:24=E2=80=AFPM Paul Kocialkowski <paulk@sys-base=
+=2Eio> wrote:
+> >
+> > Hi,
+> >
+> > On Fri 04 Jul 25, 17:41, Paul Kocialkowski wrote:
+> > > The v3s mixer config definition is a bit messy. Tidy it up.
+> > > No function change is intended.
+> >
+> > This patch didn't make it in the previous cycle.
+> > Would it be possible to pick it up this time?
+>=20
+> I guess this is going to conflict with Jernej's refactoring / cleanup
+> series.
+>=20
+> And, I think v3s is not the only one that has fields in a different order.
+> Might we clean this up after all the refactoring?
 
-Our SoM implements a specific pinout, with well defined functions,
-therefore the functionality of the pin is defined at the SoM level [1].
+Sure, it's better if this doesn't get in the way of the rework.
+I'll send something after the rework is merged if the issue still exists.
 
-[1] https://docs1.toradex.com/116801-aquila_family_specification.pdf
-	  page 13, 14, 15
+Thanks,
 
+Paul
 
-Francesco
+--=20
+Paul Kocialkowski,
 
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--0I3HyHXU+o/IGbUL
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmkMuLUACgkQhP3B6o/u
+lQw+jg/+Mg60NxB2i+9ikMTfbzq3n2Owcv3rvikDcScmhu8WSIKRvFQC8jGJbUM4
+5jsEuxjK/RtQyvoxmkuD404H54uPHes5kFIhZ5V2OJqxTN3UUptRmgsHhqwElZQI
+G1be0tjhzXpoF1R/KsWfWi1xmf3tyf+kgapFhmAfdIU/E9To5b3BJydLDk0vMFFF
+3bg+wujCC5OLjIWe3HbgrkAdHaqctEf4eMQCDQTW6TcyX3WMz6yRh7BCQluxtun4
+R4a8XOMV5Pe6fgSWDLTSQ+QL5e1hcFjNTGRWzPqQ0CJkAVo7AdfOfUNxhQcTjbRB
+jynrXFpdIoQAfj2NnSdrPheb/0cbKphnKlPSC1oiFM2DlJwveYUxTBliHBPUFO5g
+Pxp9djf6mRLf3wXJXcozb9o4RWX0YXSh0jobwb6UeEIN8xYxix+5pMvFfO73IrQg
+4hD+P7EfN53wQcMg993CWfO6h7d36XWDglFBUJQI7jIXQuuIOhIKCpv+1+RWZ/9m
+UE0JJgPOXp3Suz7fR3IsVeNaoL4sGWY510e/ZUdddZflJNv7pAhklLCV/TbTPf54
+jInSCc2fitmkqYGqCa+n9g0Yn8OoPMwGoqwI6FxT9QbaF5hWEKt0uvlp9uAs1srN
+lpy0Pnxeniypj5RUxCNb0VoQ8FxJjeLkKqEzrD0uJheXl7Vpph4=
+=lqF6
+-----END PGP SIGNATURE-----
+
+--0I3HyHXU+o/IGbUL--
 
