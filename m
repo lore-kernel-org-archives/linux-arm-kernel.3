@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D10CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A3ACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+bQGGgEleKR6qKcL7e+IzIL4DEdxuTbcX+pJZvo9tw=; b=M0LtWcNHdXNgW164Pezb5IW03d
-	VS/UC8TLE3J51Lc2tQu9xejTATOPlYIHzmhHjsSIYtPNTJJsqbHdr70tPYK9mhxTdM0fke3/4EV9R
-	640WTBF3u+ij+OeszRDlNV8guv0i2ra27hkecTl9FDttu6uM1hJ1TfTkkloVFuowTKSOufrODijfK
-	Bv2e/yip3W+cOLPjwASJtlYUP9ltiC6PMJuSnzYbgw/VRTPPqTdKdYKQrYEQ+f4QdXAO8FXjooAzF
-	SMAnDLFu36FyoAr5KY+9HclAEjbzxggDAZH/BgsMNlsBxHq2jRMXVJoOLZ3/iSJhfj+yrDeKJbHzp
-	hc15pKmw==;
+	bh=hBw5Uw1xTFSkt2IyDChXADePP6hnrVSQHkAiEvYpbaA=; b=p4uECjg1pdsvyYREzvQqpn/EaN
+	rM0r6bEB1AbKjJ/7B7Pzs4WBFc1FV+Ip9h8RmusYII+8BJH8yGVoPcck30Mve2dDS1K+pURnipPNJ
+	5o6lAXtW4aB//O2WtWwRdvV4PvUrHhAzaJ3bynyrPJpQ3/fsKkbgeQtT7enjDJaz4oqgmMFZXCVaW
+	t2/1ZcKx0vgsMjxFCsIJMb7K2v9O4wpLv75IEualv4RFjU0m1ak83Kx6K8xCxJogCeEO8d/mP3pHr
+	9J8IizX2QNzq52tHXGy1gbXxsBQqPoBn8a/rLO1bvbFfrKxVLe6FI/56UnwdHMlBZgBbpuI5O9KHT
+	XXObPu3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwpC-0000000FEvx-2VLK;
-	Thu, 06 Nov 2025 10:02:38 +0000
+	id 1vGwpD-0000000FEws-0Sr4;
+	Thu, 06 Nov 2025 10:02:39 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwou-0000000FEYw-303s
+	id 1vGwow-0000000FEaZ-0nqH
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Nov 2025 10:02:23 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762423337;
+	s=2020; t=1762423339;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=L+bQGGgEleKR6qKcL7e+IzIL4DEdxuTbcX+pJZvo9tw=;
-	b=Koq81XN4V8ajlEgOf1GpsEXnRwjdINGxTEzarRe+pvGWi3AxnBOuWGx7BKVC5ZsknjofI/
-	//bs8dPiQLq8cy47ZPN5f8O3DChhE/qUhNoKVj1WulDSr0P3aSE2cU9bPXX8KuNlHdhPwn
-	9YtIo/CkMnnC4iHzy75BZCDSDZJdol823RZJKpBAR7lxwQvMEhU0xn1DiJTbO6mCnvlwCc
-	x1ocowmXLfAngvQWItIQNKrol6CYme1w71LKP7se2xcMLvA+NjfSjFo2vg9TG+lk7IxvEj
-	6/U8GMGYP+bR42PNCl8GAk/Bq4flCRBXp9dlF+NKeAHv6VjBLUZgHEFzYFBLIA==
+	bh=hBw5Uw1xTFSkt2IyDChXADePP6hnrVSQHkAiEvYpbaA=;
+	b=agleDmAwZyAMFSuOJwEQBUvpvS+xtn5awHEIr056d/+t3DZZJWkCSUDNVh7Y87hk7jabg3
+	L3VVS7N035jh8U0RuiQDypX7mW5XxYrGIQxG5MFLqngAhiEpP+dwyK57XMTSK4cFpaKY90
+	3vKD7+87njYyRJs+3tVeTqe2iIzO4xcx0YXcTNXyUpRezRM9KTRpD+WS/OxyoRVDrWlKBy
+	Z53XNYQEsyD9Y5jCs0zuLX4UcqpdY3WQbrX2HDqrL1PBWY6Jc8p578HlVYsvM41T+Ao+B6
+	iGZt3nFFuAO7usDc6ps/TOp3WhHjivfxlHGX9Wi8ndG5YMdRkK+FvR3RImjjbw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762423337;
+	s=2020e; t=1762423339;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=L+bQGGgEleKR6qKcL7e+IzIL4DEdxuTbcX+pJZvo9tw=;
-	b=NebslIGCP/0XBY+t6xRTaJURoXZKSjWZFHf8pSrAWZ3The6aG2X+Qt9lmqbkSzAXevxSQX
-	nu3akSQUYoAcRQCw==
-Date: Thu, 06 Nov 2025 11:02:07 +0100
-Subject: [PATCH v5 14/34] vdso/datapage: Remove inclusion of gettimeofday.h
+	bh=hBw5Uw1xTFSkt2IyDChXADePP6hnrVSQHkAiEvYpbaA=;
+	b=V9mvq2WPyHzmH/rMO1GF3ZSdm/c8xglUTyqZ4gntsnqgF+UJLPuliKPdl8KdJC+Z1v40zk
+	cgf28gqS1psaWsAg==
+Date: Thu, 06 Nov 2025 11:02:09 +0100
+Subject: [PATCH v5 16/34] random: vDSO: trim vDSO includes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-14-97ff2b6542f7@linutronix.de>
+Message-Id: <20251106-vdso-sparc64-generic-2-v5-16-97ff2b6542f7@linutronix.de>
 References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -81,16 +81,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=1995;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=781;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=4Cu28HtGZeNZ2tWXY+8GZcEypzFGKNdtzWDHnoy4D9o=;
- b=wgfZC8v12n5R65IRKOFb/E4l4M/8XCUDoIsKPpV04GCQ82zd29+fO6qo2g7MRa/a7nzUf2+c7
- F09BjOCS+zkBhCF0FslbeiK0EA0nAZIK7R42CgRjbARl3mrrIE55iOg
+ bh=at2WHYQMWa0qZ9sRgIO7R8kScM/WkZbDWmC1hAg3nZ4=;
+ b=IB2rdUCHkbK4hefR4nX7CQinuLUiSuxl19rXY7JTrhLVZzBEQtqlRQ5O47N+Gug/jlDIxsriT
+ oYkXq6ALfw0A2782UbhGNc56N1ZlpSghM85EFFDXV0jttAviixFJvKK
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020222_284359_D40000A0 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20251106_020222_407890_2B3E86B2 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,63 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vdso/datapage.h is useful without pulling in the architecture-specific
-gettimeofday() helpers.
-
-Move the include to the only users which needs it.
+These includes are not used, remove them.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- include/vdso/datapage.h | 11 -----------
- lib/vdso/gettimeofday.c | 11 +++++++++++
- 2 files changed, 11 insertions(+), 11 deletions(-)
+ drivers/char/random.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 23c39b96190fdfc2f31bf76a8614d69a3a98017c..752856b36a3abf82b849451e5d5233b1067b86f2 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -184,17 +184,6 @@ enum vdso_pages {
- 	VDSO_NR_PAGES
- };
- 
--/*
-- * The generic vDSO implementation requires that gettimeofday.h
-- * provides:
-- * - __arch_get_hw_counter(): to get the hw counter based on the
-- *   clock_mode.
-- * - gettimeofday_fallback(): fallback for gettimeofday.
-- * - clock_gettime_fallback(): fallback for clock_gettime.
-- * - clock_getres_fallback(): fallback for clock_getres.
-- */
--#include <asm/vdso/gettimeofday.h>
--
- #else /* !__ASSEMBLY__ */
- 
+diff --git a/drivers/char/random.c b/drivers/char/random.c
+index b8b24b6ed3fe436c8102968392278d5cb5544f06..3860ddd9527930780d5c13cd4742fbc3c27acc42 100644
+--- a/drivers/char/random.c
++++ b/drivers/char/random.c
+@@ -57,9 +57,7 @@
+ #include <crypto/chacha.h>
+ #include <crypto/blake2s.h>
  #ifdef CONFIG_VDSO_GETRANDOM
-diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
-index 7b3fbae85544c2f2f6b9abd5437f130706fb6ec6..9dddf6c23913e87a62bdaa50c5e32d2951c92760 100644
---- a/lib/vdso/gettimeofday.c
-+++ b/lib/vdso/gettimeofday.c
-@@ -12,6 +12,17 @@
- #include <vdso/time32.h>
- #include <vdso/time64.h>
- 
-+/*
-+ * The generic vDSO implementation requires that gettimeofday.h
-+ * provides:
-+ * - __arch_get_hw_counter(): to get the hw counter based on the
-+ *   clock_mode.
-+ * - gettimeofday_fallback(): fallback for gettimeofday.
-+ * - clock_gettime_fallback(): fallback for clock_gettime.
-+ * - clock_getres_fallback(): fallback for clock_getres.
-+ */
-+#include <asm/vdso/gettimeofday.h>
-+
- /* Bring in default accessors */
- #include <vdso/vsyscall.h>
- 
+-#include <vdso/getrandom.h>
+ #include <vdso/datapage.h>
+-#include <vdso/vsyscall.h>
+ #endif
+ #include <asm/archrandom.h>
+ #include <asm/processor.h>
 
 -- 
 2.51.0
