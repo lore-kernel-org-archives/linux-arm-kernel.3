@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF3ACCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE15CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=; b=C8H08cLIm6DNj5el0rNoOjN44P
-	jAY6ql8syRoflntcc4hl67e30HBtLlrsjHmDnYJzD0aPA2Y81yO2ykJMco6AsLVeTFKMJ1Da9J4AP
-	c4Rf4bJzMaSs2NBQSb6zVX8gzIlQvoqqcLlsfRvju7/8p7/02x7DHxldrt6q+ITv8ceEWJjSWSDqa
-	igiDIUWXStQZNsXlwHAD5XdQFHzK5yf1xgw7vcwwUYlJTq83pyIZVPinhBQSZlV2h/P4iNkC2znST
-	FFXjZUgXGSOFvvr+23dipZqStbJ5wbQC9sLXTZ/l5G4WH60KFBzjHRVWY5lsAgt8HgSbCEgmfSS5b
-	wAj+vR2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4oSZTMv5D/sOGGLnpJ+IvuCz5xyHo5sq+jQga6CKtnM=; b=iKU2kOHEK3DgnwM5aZ6fbBAl1g
+	MWSXj2zaOMJ4NVefc2YvfaODfKW2SONCvdU+eNfbjF8dxC+ypq0ly6d+729sEUZU6GU/rKJzm1it4
+	l6KTxByIlsN9zigLgejYp6Bi+cKLgOG8a4qCzUqMdO1V5+E08YXbEU4neVkW9CU+BhL4v/xy+ofNJ
+	JO4locM/Jx0tomZG4653SjuOcY72qkzymieeGnaWDqp4q+5vs+2HPGJScAdLvuyqKVt0XoolGX1WE
+	rLRMf5e0KUFYL8hcHctsHaobSKnSCccSYeCJ+QuLBfIqjPghlOE+dIVmCYifUV6Z79zjzS7NHcEL/
+	uORtQn+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGuhj-0000000F1L0-0dFb;
-	Thu, 06 Nov 2025 07:46:47 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1vGuli-0000000F1YN-3TUQ;
+	Thu, 06 Nov 2025 07:50:54 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGuhg-0000000F1Ke-0stb
+	id 1vGulf-0000000F1Xx-3m7g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 07:46:45 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b996c8db896so583681a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 23:46:44 -0800 (PST)
+	Thu, 06 Nov 2025 07:50:53 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b3e9d633b78so118557766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 23:50:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762415203; x=1763020003; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=;
-        b=GBlyfYyU+OYrY+fXmPf5TR0HbB+xJMvtxMCqAISZJXyvSmGUOl7mDv8KKUa7x78ux1
-         n3F9LERAIyj1st0Cg2Tw2GEgWpKVPzscmY7Ub5d1t5eCjp4s1Scr0t4RcvItECeaKJRR
-         h44QnwJQ9c3tCbgQR142zlwGAlbL+ZhbGlsEoq72T/2r29ieptzaLVUJluUWt/jWlRko
-         D4by5FOW4i674H6M6hr9lNUcA8Q+y4GX+GWPTuFnUZ+TrT+lzxoUHwuxlAEGUELoN94p
-         kyjJVEFD3FSDvG20bY9yhdwe4OGBvcmiaO5KvSnKV+XELNR5tnh5W6iOwE3jRn8iBVWP
-         81Fg==
+        d=linaro.org; s=google; t=1762415450; x=1763020250; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4oSZTMv5D/sOGGLnpJ+IvuCz5xyHo5sq+jQga6CKtnM=;
+        b=JHsEMo8p8nwkCSHwPCSVkkMobLwXeIc/Uv+9Raa6XZe5wMr2KbG200AXWey7W1AsQF
+         m0sZ4GS3Vp90r2sf4dSJbpb4knKzXNEuklWV40PSoHahxfs6Gj7TmGYVDqZxT+Vo6wl7
+         5q+xmd0qilL/7YIo4Nnxt+hQ31d/PtkmQ0wuLRjI63SyM0n+tWNTzEJtSf/3EVHBFwGJ
+         9RiJzlmtm1GU5tI6cdj8e4fI6esmErbEqV82ECK2aMQTiqv6OHcIXLORb9Ag5xfGwzbe
+         qHfJWHWzkjKnh3Fhk30RM2b9xqHOxxNCmrGAdXmwTep/v2PXC0HCBclETvViOWRnKVb/
+         x2YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762415203; x=1763020003;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=;
-        b=fInhPxCVzAID+aRk1I0IAka6bSpZoNgNqnc94ThGQYCuFA5RUPdOmwKCuDjE7dSuSc
-         D+Ga+Fzym5OGftjLJaLv5VZM4CJuedW/CC/bUfQig7zPUD33WULds4kEiP3hX+E6vT2n
-         /a6gQbYe+gPTzdoXP+FrLm4b/vWrTLqNIYAjhusjlLaBHhYL1wgOjNQTrvWGGXsSkVM8
-         mgWZWMtwE+1KVZcWU0R+fujF7R826uANyvTN7z6KKegCMWqjkHpQaZdAKS9nmVRswyNQ
-         l68Wmj21TYWjgKdSdY94J7heb66+ZCbi9s3sKSu4qe43NTYMSXEKsU+R8pgtY0nptNY7
-         qVRg==
-X-Forwarded-Encrypted: i=1; AJvYcCXvR1c91/dqo7nxu/Z5ApIu2b/wiRm1elG7xpEyvk3EhBxUV9KfhgjLQDgxMIlHV8aQTb2ejCb4WaEzmOdvgvV/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0xYTX5JNyw9691gAfCzvZhogWctTVWE/9v+78DScYyb/5ftJ5
-	VbdBDYrpQVsat11NTgi+bH1rFMOFJKNXB/h6YhAhEigefZ+HDxFEhh6a7t96E+2p7qKrM4jp7oZ
-	Wgg2AINBZhcKlo39Es2YNsrGPUe5dUZmWJy7rj57lfg==
-X-Gm-Gg: ASbGncuZV2zVXXQe8DNTf8sWxxWfQJp2YGlxijnuu5mlqTnC7CW2tOvrFj8/XrGmFHN
-	HKzx9AWKOvvYMDYEe1Y9oOCb34MwvUmHHaDWOACBeRqyJI4riDQe2tuQW7HAPL2E1AzSoXeRh//
-	EYyIjGg7zYggzYQ1DRPGlHj8SCQ7tvKwQiMIsRc0tU5EBva6FFcsYvvpqF19aXaPW9Ge9F6bA8/
-	M63Yx3J+mnRFk+wmvN6lqHCOrC7Bdtaks+vmGlfpUOktwwsiRkYsx6+tdu5eA==
-X-Google-Smtp-Source: AGHT+IFvj7BYATFPUUfyyTquYUZ+XG2ltlcW863lIimOI+3G3/lJLUOzbLQ43b0xX7YM+rdDM6ZeBwU/rpFRv4aSwps=
-X-Received: by 2002:a05:6a20:728f:b0:350:ee00:3c9f with SMTP id
- adf61e73a8af0-350ee004101mr3256044637.48.1762415203454; Wed, 05 Nov 2025
- 23:46:43 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762415450; x=1763020250;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4oSZTMv5D/sOGGLnpJ+IvuCz5xyHo5sq+jQga6CKtnM=;
+        b=Qo5cCUgitLJr0LGV1se3XpENCJCIvQySz6QovYLQiEJe3y4I66eBWEPJT+f3tWW9Gs
+         5XgJTEDF88u1b0jOZbAwg4VlpxreXukPhj/B8KiEP1qJixm6/JmUkPcG9YXPTr5Vj6j4
+         QnyfqmZYaerChdGk09Ygo3ITeJBU9d3Duda/utfkvANDmwqLrTQsJvV06iBcVt4oG6gU
+         WBeWp29yS830JpSFUbqTR5ZT8XwMcT84rEoSsn43R5MSnvRiuRi8TECSSvPqm0ThmisR
+         MZFYHdbEUHGj416hH06HnXk/FCCyhjMMRsNkFJHKI8T7V9LtOCnP1G7/rBGnAmFEBx+x
+         +gZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUDhDyk/NxN2pcUCYX0NzblGIqyUBGBDPsM30RGcLIXE2JES1j6uAmphJ9J0xbn34P77WpU3x3vKjg74dwDRSOM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIqqxCvXBLLUn6rulduAlZImnrvAqHBhz5nHEfOGJGiFxP3v7M
+	qADnXMHM3plgITEUf9XRzDzHP6w5YlEWij1KCJ0bpYu0EKj+XSjaD0wij330vCd9ApfYopkgS+6
+	u2bzGG28S00a+Uk1KPF2SrbjGccKGKTSr3GftQ9fUVA==
+X-Gm-Gg: ASbGncul9x0R0MacVxPvIoCs6/KBdiYHaM2KPLiyifBgWyAW2u/VjNHXlwKAwwPC+tE
+	E1izOTsvIjf+8/s4BKQ4+az4ryOKFj2w2YYHX/ZUoygCOgMh5XP5xw2Z4yUbR/LghoaXcjSDELJ
+	fpQzJ8rxVsMO4xrmIar2h0CBxvh1eUVFP/o8o6OhjmkLETQ3vLP7+T4QojCGSwTiFHY+Wu5jTyT
+	JTmEOQ0mzZ5vTMVvDveDaVHem3Jr4KKVWOiVz0Oua5Lpfa0M2XUdO7MG99L6g==
+X-Google-Smtp-Source: AGHT+IGTqwA2P7XvjyYF/Izos2lVy+T5to2mL8X2E6WlWDzOEu9Bmz8GxKORg8EJlnHJ5cxaDH8TQQoU0UmnunUk7JI=
+X-Received: by 2002:a17:907:94d2:b0:b72:6d68:6663 with SMTP id
+ a640c23a62f3a-b728964dea0mr251219566b.31.1762415449844; Wed, 05 Nov 2025
+ 23:50:49 -0800 (PST)
 MIME-Version: 1.0
 References: <CAKfTPtCtHquxtK=Zx2WSNm15MmqeUXO8XXi8FkS4EpuP80PP7g@mail.gmail.com>
- <20251106000531.GA1930429@bhelgaas>
-In-Reply-To: <20251106000531.GA1930429@bhelgaas>
+ <20251106000531.GA1930429@bhelgaas> <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
+In-Reply-To: <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 6 Nov 2025 08:46:27 +0100
-X-Gm-Features: AWmQ_bmqVCNR3dJpEZPSNIsk4oiASQ7wTNG-cdh5_x2RX44MkoIq9HcAbtR0V5w
-Message-ID: <CAKfTPtA+_VgQQB37Y8qCd6cc5U22kqUkagy2PFnB-5biWUhB9w@mail.gmail.com>
+Date: Thu, 6 Nov 2025 08:50:37 +0100
+X-Gm-Features: AWmQ_bkYpQyZF7OktEjeeIhdfj_KOUOxVV3OYB8DSDbc8qdV2MpPBlN_Lqu--DE
+Message-ID: <CAKfTPtB=oMPsfjRFcQrAKM1m97B1LL9RJYVix+ea9Vb0FqDk3A@mail.gmail.com>
 Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, chester62515@gmail.com, mbrugger@suse.com, 
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, 
+	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
 	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
 	cassel@kernel.org, Richard Zhu <hongxing.zhu@nxp.com>, 
@@ -87,9 +88,10 @@ Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com,
 	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
 	Christian Bruel <christian.bruel@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_234644_417155_BEE781D3 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20251105_235051_991598_81738D96 
+X-CRM114-Status: GOOD (  39.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,85 +106,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Nov 2025 at 01:05, Bjorn Helgaas <helgaas@kernel.org> wrote:
+On Thu, 6 Nov 2025 at 07:24, Manivannan Sadhasivam <mani@kernel.org> wrote:
 >
-> [+cc imx6, layerscape, stm32 maintainers for possible suspend bug]
->
-> On Fri, Oct 24, 2025 at 08:50:46AM +0200, Vincent Guittot wrote:
-> > On Wed, 22 Oct 2025 at 21:04, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > > On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
-> > > > Add initial support of the PCIe controller for S32G Soc family. Only
-> > > > host mode is supported.
->
-> > > > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
-> > > > +{
-> > > > ...
-> > > > +     /*
-> > > > +      * Make sure we use the coherency defaults (just in case the settings
-> > > > +      * have been changed from their reset values)
-> > > > +      */
-> > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> > >
-> > > This seems sketchy and no other driver uses memblock_start_of_DRAM().
-> > > Shouldn't a physical memory address like this come from devicetree
-> > > somehow?
+> On Wed, Nov 05, 2025 at 06:05:31PM -0600, Bjorn Helgaas wrote:
+> > [+cc imx6, layerscape, stm32 maintainers for possible suspend bug]
 > >
-> > I was using DT but has been asked to not use it and was proposed to
-> > use memblock_start_of_DRAM() instead
+> > On Fri, Oct 24, 2025 at 08:50:46AM +0200, Vincent Guittot wrote:
+> > > On Wed, 22 Oct 2025 at 21:04, Bjorn Helgaas <helgaas@kernel.org> wrot=
+e:
+> > > > On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
+> > > > > Add initial support of the PCIe controller for S32G Soc family. O=
+nly
+> > > > > host mode is supported.
+> >
+> > > > > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
+> > > > > +{
+> > > > > ...
+> > > > > +     /*
+> > > > > +      * Make sure we use the coherency defaults (just in case th=
+e settings
+> > > > > +      * have been changed from their reset values)
+> > > > > +      */
+> > > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
+> > > >
+> > > > This seems sketchy and no other driver uses memblock_start_of_DRAM(=
+).
+> > > > Shouldn't a physical memory address like this come from devicetree
+> > > > somehow?
+> > >
+> > > I was using DT but has been asked to not use it and was proposed to
+> > > use memblock_start_of_DRAM() instead
+> >
+> > Can you point me to that conversation?
+> >
+> > > > > +     s32g_pp->ctrl_base =3D devm_platform_ioremap_resource_bynam=
+e(pdev, "ctrl");
+> > > > > +     if (IS_ERR(s32g_pp->ctrl_base))
+> > > > > +             return PTR_ERR(s32g_pp->ctrl_base);
+> > > >
+> > > > This looks like the first DWC driver that uses a "ctrl" resource.  =
+Is
+> > > > this something unique to s32g, or do other drivers have something
+> > > > similar but use a different name?
+> > >
+> > > AFAICT this seems to be s32g specific in the RM
+> >
+> > It does look like there's very little consistency in reg-names across
+> > drivers, so I guess it's fine.
+> >
+> > > > > +static int s32g_pcie_suspend_noirq(struct device *dev)
+> > > > > +{
+> > > > > +     struct s32g_pcie *s32g_pp =3D dev_get_drvdata(dev);
+> > > > > +     struct dw_pcie *pci =3D &s32g_pp->pci;
+> > > > > +
+> > > > > +     if (!dw_pcie_link_up(pci))
+> > > > > +             return 0;
+> > > >
+> > > > Does something bad happen if you omit the link up check and the lin=
+k
+> > > > is not up when we get here?  The check is racy (the link could go d=
+own
+> > > > between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
+> > > > completely reliable.
+> > > >
+> > > > If you have to check, please add a comment about why this driver ne=
+eds
+> > > > it when no other driver does.
+> > >
+> > > dw_pcie_suspend_noirq returns an error and the suspend fails
+> >
+> > The implication is that *every* user of dw_pcie_suspend_noirq() would
+> > have to check for the link being up.  There are only three existing
+> > callers:
+> >
+> >   imx_pcie_suspend_noirq()
+> >   ls_pcie_suspend_noirq()
+> >   stm32_pcie_suspend_noirq()
+> >
+> > but none of them checks for the link being up.
+> >
 >
-> Can you point me to that conversation?
+> If no devices are attached to the bus, then there is no need to broadcast
+> PME_Turn_Off and wait for L2/L3. I've just sent out a series that fixes i=
+t [1].
+> Hopefully, this will allow Vincent to use dw_pcie_{suspend/resume}_noirq(=
+) APIs.
 
-https://lore.kernel.org/all/CAKfTPtDcvrAcgFcyFLnzaKnfuU3iB551qed4fnZH=b7Ntkpxpg@mail.gmail.com/
+I'm going to test it
+
+Thanks
 
 >
-> > > > +     s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-> > > > +     if (IS_ERR(s32g_pp->ctrl_base))
-> > > > +             return PTR_ERR(s32g_pp->ctrl_base);
-> > >
-> > > This looks like the first DWC driver that uses a "ctrl" resource.  Is
-> > > this something unique to s32g, or do other drivers have something
-> > > similar but use a different name?
-> >
-> > AFAICT this seems to be s32g specific in the RM
+> - Mani
 >
-> It does look like there's very little consistency in reg-names across
-> drivers, so I guess it's fine.
+> [1] https://lore.kernel.org/linux-pci/20251106061326.8241-1-manivannan.sa=
+dhasivam@oss.qualcomm.com/
 >
-> > > > +static int s32g_pcie_suspend_noirq(struct device *dev)
-> > > > +{
-> > > > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-> > > > +     struct dw_pcie *pci = &s32g_pp->pci;
-> > > > +
-> > > > +     if (!dw_pcie_link_up(pci))
-> > > > +             return 0;
-> > >
-> > > Does something bad happen if you omit the link up check and the link
-> > > is not up when we get here?  The check is racy (the link could go down
-> > > between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
-> > > completely reliable.
-> > >
-> > > If you have to check, please add a comment about why this driver needs
-> > > it when no other driver does.
-> >
-> > dw_pcie_suspend_noirq returns an error and the suspend fails
->
-> The implication is that *every* user of dw_pcie_suspend_noirq() would
-> have to check for the link being up.  There are only three existing
-> callers:
->
->   imx_pcie_suspend_noirq()
->   ls_pcie_suspend_noirq()
->   stm32_pcie_suspend_noirq()
->
-> but none of them checks for the link being up.
->
-> > I will add a comment
-> > /*
-> >  * If the link is not up, there is nothing to suspend and resume
->
-> Sometimes true, but still racy as I mentioned, and doesn't explain why
-> s32g is different from imx, ls, and stm32.
->
-> > > > +     return dw_pcie_suspend_noirq(pci);
-> > > > +}
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
