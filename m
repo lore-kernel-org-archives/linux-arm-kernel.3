@@ -4,147 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A99FBCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5675CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qjj+QBaDInsXfXxbUNAL4B1lu0Uvbge8gSGkcg+9kCY=; b=UVZjVHCjXjlbDG1095WVBo88iL
-	1LqOe0U+HyRSmclYzBFCWJ20h1A0lyPYFO65C5lCMlnQhIaZKxwlN3kjwoiWxjpxH1oiCPdHjk7hl
-	VWA6fGksqhv5aCTHg0JpR8ZeO34XuseCgdzXzWmf9EgaoSbyGCBzqP0H+A35BOj2N/lAyGz7dhrKU
-	OsQvHmXSICujoFSD3kTy2mhkrlIPl6UwlETNUpmnNqDpfpqr66oDHsAd03LEA7iQxmHtQR7coHlhL
-	taClCgd//jyCQLmOiIHY3buPUz1ccVJCdgsaxcdqLOrQYFA14ng+uYfJkyrpbzfKc37JpgDB9Lhhb
-	aYPR9Mdg==;
+	bh=xhs4+8dcbkMAZTBfzvawWLtLzaXRFwQ3evVG0RTFMz0=; b=kjUAqhJyjQwSya9iBwDrnY28jN
+	tMBGu3yX16vbOma+YebDXm59FMdPimT7p0Y5/YKlYx2h9O9dn9bb7dKsZNOPjMEs93bn4YLEwKQa7
+	dQYAkeAE5JXECtSMBW9IFhuoRc2fypsCswr1IMYY9HCuqE3vYTWIKb98K47feEf/hJLEe/0lvXG2e
+	4UbkXjpt8is1scnjEQvLNKzqC5kK4G8Mj8ln8HExTPBC/wNR6ToPQs5eBXA344xKPu6PkD/J0cYQg
+	ponuqlVjBns7bXTJli9J1a2dtN5QsI9S3ZQgHmJC/hRfe4jF1C3+nOVv9RfCGu8VLbfS9xNoF4Thb
+	+HXcPabw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGz9L-0000000FSTC-2QXi;
-	Thu, 06 Nov 2025 12:31:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vGzL3-0000000FTPq-2UVv;
+	Thu, 06 Nov 2025 12:43:41 +0000
+Received: from mail-eastusazon11011022.outbound.protection.outlook.com ([52.101.52.22] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGz9I-0000000FSSb-0PAm
+	id 1vGzL1-0000000FTPT-1Ogd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 12:31:34 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A68jiWr3383532
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 6 Nov 2025 12:31:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qjj+QBaDInsXfXxbUNAL4B1lu0Uvbge8gSGkcg+9kCY=; b=W+F7gcQdrvMjRLYx
-	QCER3VX9iIbnJ5gbWy3k5MtDQ2jiy4MKmn1NBq8c8/negwia1AHsloxufa4tcO86
-	N1nn6ftXl8/jBYEdqQp9PjyMpza+3WQkWOjyFBIlfrBneNbxc30tx3WvbxWdgTKi
-	MfkhHxzFqMJQTNQm8+yAfDhiQapcgrTOMEzF9BoYvmqjMObZg0c1sVI6r0EBE/yZ
-	wtgKqzFb1bWTmfV5Sr2rFkmv5t1zFB9h/8j/Pngs+wRkjUC+w5sZkbDv4vdo2VAG
-	bp5WI7/st/85U+yQ4DhHD/h7uRgk6DRZ/pXhLNSaLeJvrG3ZgXEmaIbsM5TDVb/L
-	Sy5CiA==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a8reurk2n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 12:31:28 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-7a432101881so644000b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 04:31:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762432287; x=1763037087; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qjj+QBaDInsXfXxbUNAL4B1lu0Uvbge8gSGkcg+9kCY=;
-        b=jIJNEGqz+FpuxL4cyunb1+cHT4qFXXoZuXB/ZmUtTd0OxLaE/j6PvNpimk/YNscMq4
-         aNTND7mO0pRUTczc5EDqZqY6aE+3YfPLO9fpJwYZTiZTUef9vko5m1Hkk/65GjM19cBM
-         PK++NBK4qsxxMecy7YXQu81pbxVt7246dpGpSRsahFEJKQo61gS4oN7mlh2tWy/NRYnt
-         lj161Yc9nhIu0pbDR0IjcZK4mOV+HEsF0mwgbYDpOP4OSUHH2SECxUOtaycC27tGx/s3
-         QM2ERr0x0dw5XsS5NvESfKCBqt9cimy6FTjKekI5BpyxYUWn7EqHNw+RK+dFutQMeN2r
-         xirA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762432287; x=1763037087;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qjj+QBaDInsXfXxbUNAL4B1lu0Uvbge8gSGkcg+9kCY=;
-        b=JdCa+Vox9d/LBqFzrCfh1sBamkxrVUhM5NLb7RNZuCtdDCBbOZikvOqInlmA45B2yk
-         TJY3cuZsoyX/CIs39Zl0XgO3edMoOpmtpGKEcGwjTKce3yK8J4QIoU0V6f78ydPoQn4Y
-         neddDD6KuACuvB88huGuUdNkA2dpZWdP8oq1aWxf28KzpdZ27tre5Mx5ucS8a3ZIEsb/
-         n+riYOY4NxtYrsfuOFsa3Rd0/AqdXFIs1sHpWrnNE64pXuuhXbyiJtFs6iRHU6Nf1vpV
-         aaaJLGo+j1Rv5ZSUMWzP9nWvfaQIE5oIvle39npVgFhVnBJP49wDdXakqWeB+iAhfo2d
-         v06A==
-X-Forwarded-Encrypted: i=1; AJvYcCWakDrV0X/XRLgQdNNDouwSKnH3s5kWwf8cGUCp8mQDxw6vcwpVPXrUuaD7oilPwwhsVGt/Min5+FHM3CsVQB/d@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZw2GGHYPANqqTWfdcay8ryjjPPA12RWCflFaFsyOt7wQ+YK+B
-	Whd/QJUBaZe+7vR/wPmfEPJdmBe/ZxW8ql6T7/0PJwrmgzRIGFCIbNsbB9dd4j4sqrjr2WL4NL6
-	dwd2LFnUNpbJxCqz3FZ+anYgv20Nn6yNNiSJ25UI5TSrrPQterZWq/mcl1av6Zq3+dgFirrOcvj
-	aIQQ==
-X-Gm-Gg: ASbGnctJTz6fIrn6kpcrkBUH+T1gArUase6ZZl4yQYM9cUAOcOAEaahrOeMAcJPDf2M
-	IGyB70zJXiq+mTf4VynK7boGX/LD9b+qBa+Wq6NSEeFb8216vHreOeM5URz4lBSwc0jf8pCy0rr
-	0sgoZ+YC3W3t/ElUTMa63TZk9p+zTv/uUbyC6iBQzlQ6ZEbFuxSREviivKj7Nl8SmUXxSYi9sms
-	ol3U74D/SOvVUTYOGuLoD8WV4S1BBUAn7ByCDgM6yROs4W5gXcsEMSM/v1uWf4BqzTfztV4bm01
-	lD1SDwzA5GgnXvZEj031EGGlnj7wZgmYzYH6HBm6nuN8lNhKkPjOLQzsmkzBB6XUGQ5nQYnOwvF
-	4+ZKST50nUaEtq2zcr7TaZA6J45zgAZ9VtHnnNDHKTm4I7HEso8JqD3vPQjBiHBfDwTfXHNs=
-X-Received: by 2002:a05:6a00:2d06:b0:793:11fc:783f with SMTP id d2e1a72fcca58-7ae1f88d49emr8765914b3a.29.1762432287209;
-        Thu, 06 Nov 2025 04:31:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG75PqOaLkYAniMFlBOQLbATtdKixQY+QD+kP+iUj4dsUvm4BQRvME30Q2HB7LbSA6fruzZFg==
-X-Received: by 2002:a05:6a00:2d06:b0:793:11fc:783f with SMTP id d2e1a72fcca58-7ae1f88d49emr8765848b3a.29.1762432286426;
-        Thu, 06 Nov 2025 04:31:26 -0800 (PST)
-Received: from [10.133.33.147] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7af825fbc63sm2695815b3a.49.2025.11.06.04.31.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Nov 2025 04:31:25 -0800 (PST)
-Message-ID: <d28a3fa6-f092-4186-afd7-8005aecbfc38@oss.qualcomm.com>
-Date: Thu, 6 Nov 2025 20:31:17 +0800
+	Thu, 06 Nov 2025 12:43:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JYd823quS56tcIJVJB/qVz2NO752/wWJYJ9HX8GMpT1mCiRut9LPnwFSsxGhA93PWWUzB2S6Sao+ACLeUSGv97ZIEjUhrY2zQy1KBKlAtxVBivDJWEoT5nchVQC8hUe8HhvEUnK/TKCDaIkLwoyuo7aWvocbZEeeCCDCpVSmSJLlVxavqW6fd8a1g0Ysy1kz47cWX667JDZ8iBG9ywowSK45XC07S9waqMNGp/K//fFGq7SftSo5XoKFrV6JNUehcaI66UhP8eOwY+bb0wEGFflcZm8c0WvWUR/uV4xlIlH3GZ0rNnxcEVFTCfzp0ShBF9jCKNmVxOHGzcm3HsbV7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xhs4+8dcbkMAZTBfzvawWLtLzaXRFwQ3evVG0RTFMz0=;
+ b=QqX4TgJMnBq/APyvySsMH+xpNaTdF0ErQX04ADrvmarZ9A4mcnTmiVmNRN6RGhDsT+BSVPy9qrvCx1rJuIxbxW5LVzQia9vMCVnGzbN0Frg3w+JbxLuYFyiW/x0Ch4wEMp7v4VkRrt8C7c6GVTys/rUUBV3QhoIqzCXiGI36qJyvAeatCIcG5ryEnB24FW2rDUXBi3tE91MJ+mbNS+aKYEl1m7WCR6pVZgNGy1kxQ54ep8GOYlw6DiHbyRB3Q+SxgLJ4vdZSvLS8XRGbvaS0p0YDC45Vs5pB399FWKIDIpBqu+Jt8UO3Xl5Kh+IF+MLQp59GIkiX/OElE+B1syJi0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux.ibm.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xhs4+8dcbkMAZTBfzvawWLtLzaXRFwQ3evVG0RTFMz0=;
+ b=egDMC77CxUlUHvYrbiIdYLawG3LjRA+wYdJ7kMYN/8DYyPekGfpAjH/akJSI258AIdNQ6jOPOhoao93DGZiQeq0Oa8oM528wsn54fPucEMDqgXsX27wDb+jMdaUDZTjQCQdR7K3GWznwoockBnB0A4BcNcIgqtNfMcxzf8kcUHw=
+Received: from BY3PR03CA0024.namprd03.prod.outlook.com (2603:10b6:a03:39a::29)
+ by MN0PR12MB5786.namprd12.prod.outlook.com (2603:10b6:208:375::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Thu, 6 Nov
+ 2025 12:43:30 +0000
+Received: from CO1PEPF000044FC.namprd21.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::dc) by BY3PR03CA0024.outlook.office365.com
+ (2603:10b6:a03:39a::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
+ 6 Nov 2025 12:43:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CO1PEPF000044FC.mail.protection.outlook.com (10.167.241.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.0 via Frontend Transport; Thu, 6 Nov 2025 12:43:30 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 6 Nov
+ 2025 04:43:29 -0800
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 6 Nov
+ 2025 04:43:29 -0800
+Received: from [172.31.39.154] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 6 Nov 2025 04:43:18 -0800
+Message-ID: <977b68ad-6796-4c3d-9c34-d023597f8ab2@amd.com>
+Date: Thu, 6 Nov 2025 18:13:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/5] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-        linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-imx@nxp.com, Andrew Lunn <andrew@lunn.ch>,
-        zhongqiu.han@oss.qualcomm.com
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-5-shenwei.wang@nxp.com>
+Subject: Re: [PATCH v4 24/35] vdso/datastore: Allocate data pages dynamically
+To: Heiko Carstens <hca@linux.ibm.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
+	<thomas.weissschuh@linutronix.de>
+CC: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson
+	<andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, John Stultz
+	<jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, "John Paul Adrian
+ Glaubitz" <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Russell King <linux@armlinux.org.uk>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
+	<npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, "Huacai
+ Chen" <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, "Thomas
+ Bogendoerfer" <tsbogend@alpha.franken.de>, Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+	"Nagarathnam Muthusamy" <nagarathnam.muthusamy@oracle.com>, Shannon Nelson
+	<sln@onemain.com>, <linux-kernel@vger.kernel.org>,
+	<sparclinux@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<loongarch@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-24-e0607bf49dea@linutronix.de>
+ <20251105153426.16228C13-hca@linux.ibm.com>
 Content-Language: en-US
-From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-In-Reply-To: <20251104203315.85706-5-shenwei.wang@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA2MDA5OCBTYWx0ZWRfX31yO8S2Wn4st
- lWJ/FuEAD8UsjhipWLSCcmzowaoAuI25Ihf/6YsZXFM/jn6FCBB3v6XwHXnO0FzqpbODI5BU9KX
- rEZKB2RwAaw3FouzVhOEIduXKUFa9mbvomuRcK6rwH9wUqtQr8K3Vx3IziKVBScMpDnzdD+voAF
- HQaknfe8r42T5lba6LoV6AtY0WkJCqYHwZPcD/jNG+jW4mDBb2xuk5RxlEopbJKGQ/VuwZ1LcOy
- /CkxkqkeddA/cAM7bBPMsyF3PYOcaudVfWrfPul938ZN3bcwSbD3DZtFB7J1JJzq70np6PV8tUI
- vG+OMv3YDZ0IVRn7krOg15dZlUSAGlfBbOu4paW/XDTP2Dgi1XL8N3uapZw36fuO9X3puQ/JCB+
- xb05w4r7BybvA3hXGOZDNu/JsWBIpQ==
-X-Proofpoint-ORIG-GUID: RIiv77SNMTgkSfb9GO_KMUh4FpXiZTEx
-X-Authority-Analysis: v=2.4 cv=RrDI7SmK c=1 sm=1 tr=0 ts=690c9520 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8AirrxEcAAAA:8 a=uyWvSDY7ZH1JoBaCOfwA:9
- a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-GUID: RIiv77SNMTgkSfb9GO_KMUh4FpXiZTEx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-06_03,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- malwarescore=0 adultscore=0 priorityscore=1501 phishscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511060098
+From: "Aithal, Srikanth" <sraithal@amd.com>
+In-Reply-To: <20251105153426.16228C13-hca@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000044FC:EE_|MN0PR12MB5786:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2eee96c-9b85-46e0-9f63-08de1d3216d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z2s3YWdLZTI3SUZFRHhyZkdPUmlCSFlndkFaZ1YwQ3NmNlFFRmdMaEhvMDht?=
+ =?utf-8?B?YTNrekZOeWk2anYxcWt6Umk5S1MwNlJjaU54ZDNxaCsxT1FVSkFmSlNSa2hJ?=
+ =?utf-8?B?N0tRcVNRZndKWnpNcmtCUWZvbWkzTzhJUkFBN1ZSeTY5cWpWaUVxeW9rMFAy?=
+ =?utf-8?B?aXlINHlRc0gzRjF1bEloNTR5SlNjd1BQMWt6VTZ5VlRLVmxIbHZMWHZoanVQ?=
+ =?utf-8?B?S3FCaU52djljQlFMVTlYWTZTTFNZNDNCbzB4TEQ0alZrM1FjOFF6Y1d1WlJx?=
+ =?utf-8?B?YlF6cCtHcmExRHdGNkxSL0p0SXhNUjR0VTYxUjJ6aGUwNzBCckMzcnNPVkFr?=
+ =?utf-8?B?QUNSZWpSbUR3V240R2dEQThYdjkrV2ZYb0I2d1ZqT2wwSmFJRUw1VmplUGlM?=
+ =?utf-8?B?TGNVVmY3bS9VTEo5MnNoM3kxci8vWkE1RmhJZm9JY0tqa2k0YU5GTUtvdVN4?=
+ =?utf-8?B?UE96b0hTTmNRZTdISGc3OEhFdkZrSmdmM1pERkJqa0oyVHp1KzI4ckUwQUJp?=
+ =?utf-8?B?Vy85U0pOcEF3RFVpcFFHQWo2U1U1aWRScWRMRWQ0VEI2ZGtLMmtVVWd5dG01?=
+ =?utf-8?B?bEZRS1l6SUwyV09KbG5neDJYd290a1I3aER1am1aQ211SW9OVldmM0lNM3pq?=
+ =?utf-8?B?ZnZQWVh3T3o2Y3FZRnhGQTZ2YU9hUnAzNCtkUlBiR3IwcXFKN3ZqTGdLdytL?=
+ =?utf-8?B?ZHdDdFdkQ1dNcUlrVEdtY0l4bDdQK1ZaK0t4T1lWTG5kKzlSc0ZDRmoyb3RZ?=
+ =?utf-8?B?bDBRTEF4OU5NSlBlV08rajkzbnRpUXpiRmxwakRobi9PL1JBbGJaVndxVnox?=
+ =?utf-8?B?WHRDMVd4Q2cwek0rNzNwRjV6RW0rSTAxZEQ4emZwQmVYSTdPdzhELzJIdDhq?=
+ =?utf-8?B?ZGVsdXQ3T0QzdWZDN3VSbHIrSmdyOENLSHR6azVncG9mOHN3NndSS3NCMHBT?=
+ =?utf-8?B?VzMrSjVjb0ZFQ0tMbUZucEpnTzhHL1RUdGhZUFpMQ05SbnJDZ0I4NUZzdXR0?=
+ =?utf-8?B?YlhQRWxQSkg0ZHgveVNPamkxSkE3Q0hJUVc0ejJpQ21tK3FMSGZzemFDS1Uz?=
+ =?utf-8?B?L21haEROYXdnaWI1QTd4Rk1lQ1gvSEhEMENMWmpZV3d1NU9EYmVKU1VhVkFS?=
+ =?utf-8?B?cERzWXVuQmdaVmFJNHZudUJEdERPU2FUK3BwUTlnbG0vTjFqT2hoejRXMUpE?=
+ =?utf-8?B?cHpSOWk5RGUzR3hrYnZJZVpYekZ0YytFNWFGSktxYk9PM2ZsOUVRSnk1RXMr?=
+ =?utf-8?B?MURKdm9kanhxbnVabHlzS3BHMEYzSC9XaDRqelJoOUp2TXhhOTBYNlNwYXEz?=
+ =?utf-8?B?UVNxWkJLSjl5UU1nY0w1RjBVbTMrNkM0bHJheE9Hcnp2c045d2xkNHNGeE8v?=
+ =?utf-8?B?RmVsT2VXeGQwTGd1bGpydWFDWDA2V0gwY2hFV1RzZ1kxL05rdzBhQXdJY29U?=
+ =?utf-8?B?TTNzNHpUOWlQOU1yLzlKZEt4ZkVBclZHeEZvSUEvNjBab3FUbkMvMWRjeHFZ?=
+ =?utf-8?B?cG52bW4ySGFrVHpPdDFIK1Fxc3Z0QlZWRUhCa1I4a29JWnFPbHV5MHg3Uk5X?=
+ =?utf-8?B?UGZESHJaQ0xhZ2pDSURSS2NKZDF5TEZ4VzNtenN1Z2J6R0xPcG9JR21qOVNX?=
+ =?utf-8?B?c1NIeGp2K3pUQU9Jd0tLMEdLWC9GTTNvSW1TeStEOVlrdURVOEtnc09DUkVV?=
+ =?utf-8?B?TmdOTnZzZTZWSXBLZUp1ajFJQSttWHA3SC9LMTFEZDhtYzNraEpEcUZLZnlR?=
+ =?utf-8?B?cGJ0ajN0WGhIL2Q1QzVsUW11UHpjeTg1a1VrTjJ4aU5FaisrZ29BQkdoM1l3?=
+ =?utf-8?B?UUdpclkwcmV2RVNYYkVweGtCZXRTVUJZUHR3N3lyL01hSFV6dy9DM3NPZ3RR?=
+ =?utf-8?B?V21yaGI2bGE1Q3FVMGJGN0pkaWVyK1JnOElzRGZnbGhySmdoVEozeGY0UW9Z?=
+ =?utf-8?B?OWkrQ1lSVFhGRHFsbXNJT1JMNklseHBBbUEvQm56OStSQm95OTVrb3FvekpH?=
+ =?utf-8?B?bGhOWHFkd0c3QzVObUdGbld1alZPVmpNYVdBRzdXMUhKK1lWeGZBZDNtRnFN?=
+ =?utf-8?B?Mm55UzcxVEE0S0hiUXgzNEdRK1F1Um12M3BMdHFVUlVsT3ZpQUtQT0ZFVnRG?=
+ =?utf-8?Q?gUrU=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 12:43:30.0259
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2eee96c-9b85-46e0-9f63-08de1d3216d1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044FC.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5786
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_043132_342878_9FEE4861 
-X-CRM114-Status: GOOD (  31.16  )
+X-CRM114-CacheID: sfid-20251106_044339_378026_E1F3BB79 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,564 +180,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/5/2025 4:33 AM, Shenwei Wang wrote:
-> On i.MX SoCs, the system may include two processors:
-> 	- An MCU running an RTOS
-> 	- An MPU running Linux
+On 11/5/2025 9:04 PM, Heiko Carstens wrote:
+> On Tue, Oct 14, 2025 at 08:49:10AM +0200, Thomas Weißschuh wrote:
+>> Allocating the datapages as part of the kernel image does not work on
+>> SPARC. It is also problematic with regards to dcache aliasing as there is
+>> no guarantee that the virtual addresses used by the kernel are compatible
+>> with those used by userspace.
+>>
+>> Allocate the data pages through the page allocator instead.
+>> Unused pages in the vDSO VMA are still allocated to keep the virtual
+>> addresses aligned.
+>>
+>> These pages are used by both the timekeeping, random pool and architecture
+>> initialization code. Introduce a new early initialization step, to make
+>> sure they are available when needed.
+>>
+>> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+>> Tested-by: Andreas Larsson <andreas@gaisler.com>
+>> Reviewed-by: Andreas Larsson <andreas@gaisler.com>
+>> ---
+>>   include/linux/vdso_datastore.h |  6 ++++++
+>>   init/main.c                    |  2 ++
+>>   lib/vdso/datastore.c           | 44 ++++++++++++++++++++++--------------------
+>>   3 files changed, 31 insertions(+), 21 deletions(-)
 > 
-> These processors communicate via the RPMSG protocol.
-> The driver implements the standard GPIO interface, allowing
-> the Linux side to control GPIO controllers which reside in
-> the remote processor via RPMSG protocol.
+> ...
 > 
-> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
-> Cc: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->   drivers/gpio/Kconfig          |  17 ++
->   drivers/gpio/Makefile         |   1 +
->   drivers/gpio/gpio-imx-rpmsg.c | 475 ++++++++++++++++++++++++++++++++++
->   3 files changed, 493 insertions(+)
->   create mode 100644 drivers/gpio/gpio-imx-rpmsg.c
+>> +void __init vdso_setup_data_pages(void)
+>> +{
+>> +	unsigned int order = get_order(VDSO_NR_PAGES * PAGE_SIZE);
+>> +	struct folio *folio = folio_alloc(GFP_KERNEL, order);
 > 
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index a437fe652dbc..97eda94b0ba1 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -1847,6 +1847,23 @@ config GPIO_SODAVILLE
+> I'm seeing random hangs on s390 too with our CI, but unfortunately I cannot
+> reproduce it manually. But looking at one of the dumps it looks to me like the
+> vdso time page contains (more or less) random junk at the end. Or in other
+> words, shouldn't this be:
 > 
->   endmenu
+> 	struct folio *folio = folio_alloc(GFP_KERNEL | __GFP_ZERO, order);
 > 
-> +menu "RPMSG GPIO drivers"
-> +	depends on RPMSG
-> +
-> +config GPIO_IMX_RPMSG
-> +	tristate "NXP i.MX SoC RPMSG GPIO support"
-> +	depends on IMX_REMOTEPROC
-> +	select GPIOLIB_IRQCHIP
-> +	default IMX_REMOTEPROC
-> +	help
-> +	  Say yes here to support the RPMSG GPIO functions on i.MX SoC based
-> +	  platform.  Currently supported devices: i.MX7ULP, i.MX8ULP, i.MX8x,
-> +	  and i.MX9x.
-> +
-> +	  If unsure, say N.
-> +
-> +endmenu
-> +
->   menu "SPI GPIO expanders"
->   	depends on SPI_MASTER
-> 
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index 379f55e9ed1e..e01465c03431 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -83,6 +83,7 @@ obj-$(CONFIG_GPIO_I8255)		+= gpio-i8255.o
->   obj-$(CONFIG_GPIO_ICH)			+= gpio-ich.o
->   obj-$(CONFIG_GPIO_IDIO_16)		+= gpio-idio-16.o
->   obj-$(CONFIG_GPIO_IDT3243X)		+= gpio-idt3243x.o
-> +obj-$(CONFIG_GPIO_IMX_RPMSG)		+= gpio-imx-rpmsg.o
->   obj-$(CONFIG_GPIO_IMX_SCU)		+= gpio-imx-scu.o
->   obj-$(CONFIG_GPIO_IT87)			+= gpio-it87.o
->   obj-$(CONFIG_GPIO_IXP4XX)		+= gpio-ixp4xx.o
-> diff --git a/drivers/gpio/gpio-imx-rpmsg.c b/drivers/gpio/gpio-imx-rpmsg.c
-> new file mode 100644
-> index 000000000000..888c3fdeaa04
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-imx-rpmsg.c
-> @@ -0,0 +1,475 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2025 NXP
-> + *
-> + * The driver exports a standard gpiochip interface to control
-> + * the GPIO controllers via RPMSG on a remote processor.
-> + */
-> +
-> +#include <linux/completion.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/init.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/rpmsg.h>
-> +#include <linux/rpmsg/imx_rpmsg.h>
-> +
-> +#define IMX_RPMSG_GPIO_PER_PORT	32
-> +#define RPMSG_TIMEOUT	1000
-> +
-> +enum gpio_input_trigger_type {
-> +	GPIO_RPMSG_TRI_IGNORE,
-> +	GPIO_RPMSG_TRI_RISING,
-> +	GPIO_RPMSG_TRI_FALLING,
-> +	GPIO_RPMSG_TRI_BOTH_EDGE,
-> +	GPIO_RPMSG_TRI_LOW_LEVEL,
-> +	GPIO_RPMSG_TRI_HIGH_LEVEL,
-> +};
-> +
-> +enum gpio_rpmsg_header_type {
-> +	GPIO_RPMSG_SETUP,
-> +	GPIO_RPMSG_REPLY,
-> +	GPIO_RPMSG_NOTIFY,
-> +};
-> +
-> +enum gpio_rpmsg_header_cmd {
-> +	GPIO_RPMSG_INPUT_INIT,
-> +	GPIO_RPMSG_OUTPUT_INIT,
-> +	GPIO_RPMSG_INPUT_GET,
-> +	GPIO_RPMSG_DIRECTION_GET,
-> +};
-> +
-> +struct gpio_rpmsg_data {
-> +	struct imx_rpmsg_head header;
-> +	u8 pin_idx;
-> +	u8 port_idx;
-> +	union {
-> +		u8 event;
-> +		u8 retcode;
-> +		u8 value;
-> +	} out;
-> +	union {
-> +		u8 wakeup;
-> +		u8 value;
-> +	} in;
-> +} __packed __aligned(8);
-> +
-> +struct imx_rpmsg_gpio_pin {
-> +	u8 irq_shutdown;
-> +	u8 irq_unmask;
-> +	u8 irq_mask;
-> +	u32 irq_wake_enable;
-> +	u32 irq_type;
-> +	struct gpio_rpmsg_data msg;
-> +};
-> +
-> +struct imx_gpio_rpmsg_info {
-> +	struct rpmsg_device *rpdev;
-> +	struct gpio_rpmsg_data *notify_msg;
-> +	struct gpio_rpmsg_data *reply_msg;
-> +	struct completion cmd_complete;
-> +	struct mutex lock;
-> +	void **port_store;
-> +};
-> +
-> +struct imx_rpmsg_gpio_port {
-> +	struct gpio_chip gc;
-> +	struct imx_rpmsg_gpio_pin gpio_pins[IMX_RPMSG_GPIO_PER_PORT];
-> +	struct imx_gpio_rpmsg_info info;
-> +	int idx;
-> +};
-> +
+> ? At least that is a difference to before as far as I can tell.
 
-Hello Shenwei,
-I'd like to go over a few aspects of this patch.
+I was also hitting random hangs with an x86 KVM guest boot on an AMD64 
+platform. The bisection landed on this commit as the culprit.
+I see that v5 has been posted. I am in the process of testing that 
+version and will reply to the v5 thread with the results.
 
-
-> +static int gpio_send_message(struct imx_rpmsg_gpio_port *port,
-> +			     struct gpio_rpmsg_data *msg,
-> +			     bool sync)
-> +{
-> +	struct imx_gpio_rpmsg_info *info = &port->info;
-> +	int err;
-> +
-> +	if (!info->rpdev) {
-> +		dev_dbg(&info->rpdev->dev,
-
-1.NULL pointer dereference here.
-
-> +			"rpmsg channel doesn't exist, is remote core ready?\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	reinit_completion(&info->cmd_complete);
-> +	err = rpmsg_send(info->rpdev->ept, (void *)msg,
-> +			 sizeof(struct gpio_rpmsg_data));
-> +	if (err) {
-> +		dev_err(&info->rpdev->dev, "rpmsg_send failed: %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	if (sync) {
-> +		err = wait_for_completion_timeout(&info->cmd_complete,
-> +						  msecs_to_jiffies(RPMSG_TIMEOUT));
-> +		if (!err) {
-> +			dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> +			return -ETIMEDOUT;
-> +		}
-> +
-> +		if (info->reply_msg->out.retcode != 0) {
-> +			dev_err(&info->rpdev->dev, "remote core replies an error: %d!\n",
-> +				info->reply_msg->out.retcode);
-> +			return -EINVAL;
-> +		}
-> +
-> +		/* copy the reply message */
-> +		memcpy(&port->gpio_pins[info->reply_msg->pin_idx].msg,
-> +		       info->reply_msg, sizeof(*info->reply_msg));
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static struct gpio_rpmsg_data *gpio_setup_msg_header(struct imx_rpmsg_gpio_port *port,
-> +						     unsigned int offset,
-> +						     u8 cmd)
-> +{
-> +	struct gpio_rpmsg_data *msg = &port->gpio_pins[offset].msg;
-> +
-> +	memset(msg, 0, sizeof(struct gpio_rpmsg_data));
-> +	msg->header.cate = IMX_RPMSG_GPIO;
-> +	msg->header.major = IMX_RMPSG_MAJOR;
-> +	msg->header.minor = IMX_RMPSG_MINOR;
-> +	msg->header.type = GPIO_RPMSG_SETUP;
-> +	msg->header.cmd = cmd;
-> +	msg->pin_idx = offset;
-> +	msg->port_idx = port->idx;
-> +
-> +	return msg;
-> +};
-> +
-> +static int imx_rpmsg_gpio_get(struct gpio_chip *gc, unsigned int gpio)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +	int ret;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_setup_msg_header(port, gpio, GPIO_RPMSG_INPUT_GET);
-> +
-> +	ret = gpio_send_message(port, msg, true);
-> +	if (!ret)
-> +		ret = !!port->gpio_pins[gpio].msg.in.value;
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_rpmsg_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +	int ret;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_setup_msg_header(port, gpio, GPIO_RPMSG_DIRECTION_GET);
-> +
-> +	ret = gpio_send_message(port, msg, true);
-> +	if (!ret)
-> +		ret = !!port->gpio_pins[gpio].msg.in.value;
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_rpmsg_gpio_direction_input(struct gpio_chip *gc,
-> +					  unsigned int gpio)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_setup_msg_header(port, gpio, GPIO_RPMSG_INPUT_INIT);
-> +
-> +	return gpio_send_message(port, msg, true);
-> +}
-> +
-> +static int imx_rpmsg_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_setup_msg_header(port, gpio, GPIO_RPMSG_OUTPUT_INIT);
-> +	msg->out.value = val;
-> +
-> +	return gpio_send_message(port, msg, true);
-> +}
-> +
-> +static int imx_rpmsg_gpio_direction_output(struct gpio_chip *gc,
-> +					unsigned int gpio, int val)
-> +{
-> +
-> +	return imx_rpmsg_gpio_set(gc, gpio, val);
-> +}
-> +
-> +static int imx_rpmsg_irq_set_type(struct irq_data *d, u32 type)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +	int edge = 0;
-> +	int ret = 0;
-> +
-> +	switch (type) {
-> +	case IRQ_TYPE_EDGE_RISING:
-> +		edge = GPIO_RPMSG_TRI_RISING;
-> +		break;
-> +	case IRQ_TYPE_EDGE_FALLING:
-> +		edge = GPIO_RPMSG_TRI_FALLING;
-> +		break;
-> +	case IRQ_TYPE_EDGE_BOTH:
-> +		edge = GPIO_RPMSG_TRI_BOTH_EDGE;
-> +		break;
-> +	case IRQ_TYPE_LEVEL_LOW:
-> +		edge = GPIO_RPMSG_TRI_LOW_LEVEL;
-> +		break;
-> +	case IRQ_TYPE_LEVEL_HIGH:
-> +		edge = GPIO_RPMSG_TRI_HIGH_LEVEL;
-> +		break;
-> +	default:
-> +		ret = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	port->gpio_pins[gpio_idx].irq_type = edge;
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_rpmsg_irq_set_wake(struct irq_data *d, u32 enable)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_wake_enable = enable;
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * This function will be called at:
-> + *  - one interrupt setup.
-> + *  - the end of one interrupt happened
-> + * The gpio over rpmsg driver will not write the real register, so save
-> + * all infos before this function and then send all infos to M core in this
-> + * step.
-> + */
-> +static void imx_rpmsg_unmask_irq(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_unmask = 1;
-> +}
-> +
-> +static void imx_rpmsg_mask_irq(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +	/*
-> +	 * No need to implement the callback at A core side.
-> +	 * M core will mask interrupt after a interrupt occurred, and then
-> +	 * sends a notify to A core.
-> +	 * After A core dealt with the notify, A core will send a rpmsg to
-> +	 * M core to unmask this interrupt again.
-> +	 */
-> +	port->gpio_pins[gpio_idx].irq_mask = 1;
-> +}
-> +
-> +static void imx_rpmsg_irq_shutdown(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_shutdown = 1;
-> +}
-> +
-> +static void imx_rpmsg_irq_bus_lock(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +
-> +	mutex_lock(&port->info.lock);
-> +}
-> +
-> +static void imx_rpmsg_irq_bus_sync_unlock(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	if (port == NULL) {
-> +		mutex_unlock(&port->info.lock);
-> +		return;
-> +	}
-> +
-
-2.Unlocking port->info.lock when port is NULL will crash due to a NULL
-pointer dereference. Please fix the logic as well.> +	/*
-> +	 * For mask irq, do nothing here.
-> +	 * M core will mask interrupt after a interrupt occurred, and then
-> +	 * sends a notify to A core.
-> +	 * After A core dealt with the notify, A core will send a rpmsg to
-> +	 * M core to unmask this interrupt again.
-> +	 */
-> +
-> +	if (port->gpio_pins[gpio_idx].irq_mask && !port->gpio_pins[gpio_idx].irq_unmask) {
-> +		port->gpio_pins[gpio_idx].irq_mask = 0;
-> +		mutex_unlock(&port->info.lock);
-> +		return;
-> +	}
-> +
-> +	msg = gpio_setup_msg_header(port, gpio_idx, GPIO_RPMSG_INPUT_INIT);
-> +
-> +	if (port->gpio_pins[gpio_idx].irq_shutdown) {
-> +		msg->out.event = GPIO_RPMSG_TRI_IGNORE;
-> +		msg->in.wakeup = 0;
-> +		port->gpio_pins[gpio_idx].irq_shutdown = 0;
-> +	} else {
-> +		 /* if not set irq type, then use low level as trigger type */
-> +		msg->out.event = port->gpio_pins[gpio_idx].irq_type;
-> +		if (!msg->out.event)
-> +			msg->out.event = GPIO_RPMSG_TRI_LOW_LEVEL;
-> +		if (port->gpio_pins[gpio_idx].irq_unmask) {
-> +			msg->in.wakeup = 0;
-> +			port->gpio_pins[gpio_idx].irq_unmask = 0;
-> +		} else /* irq set wake */
-> +			msg->in.wakeup = port->gpio_pins[gpio_idx].irq_wake_enable;
-> +	}
-> +
-> +	gpio_send_message(port, msg, false);
-> +	mutex_unlock(&port->info.lock);
-> +}
-> +
-> +static const struct irq_chip imx_rpmsg_irq_chip = {
-> +	.irq_mask = imx_rpmsg_mask_irq,
-> +	.irq_unmask = imx_rpmsg_unmask_irq,
-> +	.irq_set_wake = imx_rpmsg_irq_set_wake,
-> +	.irq_set_type = imx_rpmsg_irq_set_type,
-> +	.irq_shutdown = imx_rpmsg_irq_shutdown,
-> +	.irq_bus_lock = imx_rpmsg_irq_bus_lock,
-> +	.irq_bus_sync_unlock = imx_rpmsg_irq_bus_sync_unlock,
-> +	.flags = IRQCHIP_IMMUTABLE,
-> +};
-> +
-> +static int imx_rpmsg_gpio_callback(struct rpmsg_device *rpdev,
-> +	void *data, int len, void *priv, u32 src)
-> +{
-> +	struct gpio_rpmsg_data *msg = (struct gpio_rpmsg_data *)data;
-> +	struct imx_rpmsg_gpio_port *port = NULL;
-> +	struct imx_rpmsg_driver_data *drvdata;
-> +
-> +	drvdata = dev_get_drvdata(&rpdev->dev);
-> +	if (msg)
-> +		port = drvdata->channel_devices[msg->port_idx];
-> +
-> +	if (!port)
-> +		return -ENODEV;
-> +
-> +	if (msg->header.type == GPIO_RPMSG_REPLY) {
-> +		port->info.reply_msg = msg;
-> +		complete(&port->info.cmd_complete);
-> +	} else if (msg->header.type == GPIO_RPMSG_NOTIFY) {
-> +		port->info.notify_msg = msg;
-> +		generic_handle_domain_irq_safe(port->gc.irq.domain, msg->pin_idx);
-> +	} else
-> +		dev_err(&rpdev->dev, "wrong command type!\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static void imx_rpmsg_gpio_remove_action(void *data)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = data;
-> +
-> +	port->info.port_store[port->idx] = NULL;
-> +}
-> +
-> +static int imx_rpmsg_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct imx_rpmsg_driver_data *pltdata = pdev->dev.platform_data;
-> +	struct imx_rpmsg_gpio_port *port;
-> +	struct gpio_irq_chip *girq;
-> +	struct gpio_chip *gc;
-> +	int ret;
-> +
-> +	if (!pltdata)
-> +		return -EPROBE_DEFER;
-> +
-> +	port = devm_kzalloc(&pdev->dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	ret = device_property_read_u32(&pdev->dev, "reg", &port->idx);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (port->idx > MAX_DEV_PER_CHANNEL)
-> +		return -EINVAL;
-> +
-> +	ret = devm_mutex_init(&pdev->dev, &port->info.lock);
-> +	if (ret)
-> +		return ret;
-> +
-> +	init_completion(&port->info.cmd_complete);
-> +	port->info.rpdev = pltdata->rpdev;
-> +	port->info.port_store = pltdata->channel_devices;
-> +	port->info.port_store[port->idx] = port;
-> +	if (!pltdata->rx_callback)
-> +		pltdata->rx_callback = imx_rpmsg_gpio_callback;
-> +
-> +	gc = &port->gc;
-> +	gc->owner = THIS_MODULE;
-> +	gc->parent = &pdev->dev;
-> +	gc->label = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-gpio%d",
-> +				   pltdata->rproc_name, port->idx);
-> +	gc->ngpio = IMX_RPMSG_GPIO_PER_PORT;
-> +	gc->base = -1;
-> +
-> +	gc->direction_input = imx_rpmsg_gpio_direction_input;
-> +	gc->direction_output = imx_rpmsg_gpio_direction_output;
-> +	gc->get_direction = imx_rpmsg_gpio_get_direction;
-> +	gc->get = imx_rpmsg_gpio_get;
-> +	gc->set = imx_rpmsg_gpio_set;
-> +
-> +	platform_set_drvdata(pdev, port);
-> +	girq = &gc->irq;
-> +	gpio_irq_chip_set_chip(girq, &imx_rpmsg_irq_chip);
-> +	girq->parent_handler = NULL;
-> +	girq->num_parents = 0;
-> +	girq->parents = NULL;
-> +	girq->chip->name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-gpio%d",
-> +					  pltdata->rproc_name, port->idx);
-> +
-> +	ret = devm_add_action_or_reset(&pdev->dev, imx_rpmsg_gpio_remove_action, port);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return devm_gpiochip_add_data(&pdev->dev, gc, port);
-> +}
-> +
-> +static const struct of_device_id imx_rpmsg_gpio_dt_ids[] = {
-> +	{ .compatible = "fsl,imx-rpmsg-gpio" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver imx_rpmsg_gpio_driver = {
-> +	.driver	= {
-> +		.name = "gpio-imx-rpmsg",
-> +		.of_match_table = imx_rpmsg_gpio_dt_ids,
-> +	},
-> +	.probe = imx_rpmsg_gpio_probe,
-> +};
-> +
-> +module_platform_driver(imx_rpmsg_gpio_driver);
-> +
-> +MODULE_AUTHOR("Shenwei Wang <shenwei.wang@nxp.com>");
-> +MODULE_DESCRIPTION("NXP i.MX SoC rpmsg gpio driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.43.0
-> 
-> 
-
-
--- 
-Thx and BRs,
-Zhongqiu Han
+Thank you
+Srikanth Aithal <sraithal@amd.com>
 
