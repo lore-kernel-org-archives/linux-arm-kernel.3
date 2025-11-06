@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC89CCFA1E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED59CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pR/zA7NHuz/iSgfuExTYGBCAYU1piUOghds7Ej4rutQ=; b=KXbu2/eytaGwhSJ22NuWb1T13B
-	bfNHEdAceAwAmNqZ4FUW7k7yDF60jfZF/CuBTuHNOgSWWTs1LVPOeVQbUzBfmYhjFEjqCbZlOsvFj
-	Fs3BbFUJrEkqAffyrvCjZu4BSPfynCFZDjuX3YvtcRC2cn2BFAwfv6LY09YT/Q0WesBimGwOuX/nJ
-	E0dNCvculWRSnNK2rSQxodXgAVL7cCTLiv7+zQ/n8aAQzhUksieqp1Vthg6NG9u5hPZGZVqU0FW3+
-	ougk8ohYfuaNxtDmvjGC4Nk3gtE65d92fUcEWxdb3yuJRbRP+64gnPYODEnMnXFYbH7nJgSAVXPcB
-	9twA7ZCA==;
+	bh=cixBlqzeA1rYEei235pjO9MOZJgcYixfO+t17HjPi8A=; b=JZvvaQleVK8ZBqYNhPTFtP5xEp
+	j16YKXX175N/ZFl6TMaXoBQAw5fI7+yEwW+xibAXzvZGerkNOxqGnMd2SQzrnf7Lr8bNlPzn/4T5p
+	X1AcNbv0VKFqA++2eeGO8DtEZU6QQE+GSN8YbfDTRFXX056D+cu+WMqxb4SKjIbZWDcHIJ7xSIetp
+	yg2bh6bSw5wrzRT7ZWU83ermf0gNgtpz6xFi9XYKRpd7+R9Qiezc49AplUw1sdPVEf2qTqYFRpgEV
+	5mgfmTNE6zgxsdcsGIxYOcBUR4EgjziJSd9ey8dG83yOs1+ni4GsahUEAofegkspD42qiUYiUNSic
+	eCFaJTdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwpE-0000000FEzP-28PD;
+	id 1vGwpE-0000000FEye-0CKv;
 	Thu, 06 Nov 2025 10:02:40 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwox-0000000FEbj-3fur
+	id 1vGwox-0000000FEaa-0XaE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:02:25 +0000
+	Thu, 06 Nov 2025 10:02:24 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1762423340;
@@ -34,28 +34,27 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pR/zA7NHuz/iSgfuExTYGBCAYU1piUOghds7Ej4rutQ=;
-	b=IUsuDmGs4PRzFFRyr7vD8MIHrSJ+2CfOmRQy52IUMQk3iUzZSmR0Z9yHYsiJqDtSDbiFvL
-	XDo11tmBDptuROw9amD9zCloSEFM3zZyGirghc5AXtLKFjRnQZAjDMige60I6dNO/C563V
-	9mb2vWdM/YR3sm9ruhffdxa8tElNBvMThxftQTGOHqFXgAG3ZZiepa5WZrKrlWPFKO7Hj7
-	xJYDS+M3Qtol/8NuTdzPV3Gzl2ovZWsu5QkZGHb/VpDClyqoNcAISMCx3skpxA6SAFVR9V
-	OHOXdihLe9gcmOH2y2A1c8sSAYzpzx4YR0hAdhFwCtb8ydP0SKoGxIBRO6meBA==
+	bh=cixBlqzeA1rYEei235pjO9MOZJgcYixfO+t17HjPi8A=;
+	b=ZjdK6ta/n8YYzvHEK0WHauJgsh4QmbpVm/Sx15dJXqmGL9Tv6g4v/UqBtqKmYOyEoJ7wEw
+	fcnjuScSBGXqOWeutlo0dYVU18S9X2XOijC8nAux9aS6weSQshvGFhKLr3AxtshgqvHZ+n
+	VZlv23w17odS0ATYJzRi4ZRQiNOtDPzGM4qrexCSp967iAxEDzqZkB9ImGV9Dcibs4mhGL
+	0uJYKwuNMcju2XcHKZlFAcVW54795M2vOkmbtcuEZEzALBgsbDjXJgf+FVV+jqqkOYhG1r
+	P5TsSWyzSdI9ajUl8IZZbn9rHvFUZiUTT/m/osF65S1zn/oZkS4rv5fBk/PTlA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1762423340;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pR/zA7NHuz/iSgfuExTYGBCAYU1piUOghds7Ej4rutQ=;
-	b=tpiCzaPoOQcXkY4NknlzZ/2TDP+yG4JRj8lKHuWKNHLuRAwCWQbBf1oeLYma+HGiwxuljR
-	pBDGmjYXUpYsepAw==
-Date: Thu, 06 Nov 2025 11:02:11 +0100
-Subject: [PATCH v5 18/34] random: vDSO: split out datapage update into
- helper functions
+	bh=cixBlqzeA1rYEei235pjO9MOZJgcYixfO+t17HjPi8A=;
+	b=H6I/XjB9yNRprw85RtmRtDbZPIcnuU6Vs+TvVdl8mbCXa6u2VFETgx+z1hkUJuIkPtyCS3
+	XLs0N6CCrGL9+XAw==
+Date: Thu, 06 Nov 2025 11:02:10 +0100
+Subject: [PATCH v5 17/34] random: vDSO: remove ifdeffery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-18-97ff2b6542f7@linutronix.de>
+Message-Id: <20251106-vdso-sparc64-generic-2-v5-17-97ff2b6542f7@linutronix.de>
 References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,16 +81,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=3858;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=2338;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=Yjs06k6xtXBqaQesLwEwImUgnZrxr+a65u05KeyUpws=;
- b=jUXgMFk4v+OnZC2gVGG9vK1t35/kfm+bhSmfGpborAwsZpS/GFqmA3fKYIB+bX9Tvdv7UNdzc
- kVcLAX4ceRmDX1YtnrgL84BUAsv/un8o1m0D75hNLssyK6QnbPcNQzF
+ bh=zvq1hf5MGNIYhzE4YabXwYr2K6c63l5kL3/cxd5Yi1s=;
+ b=6tenBCsPcJZa6J980m/uevcOMZQcz/Zm2Udm03kgARH9LNrwTpQrKbXiW1a0BQIVpYAr+un8z
+ KBChXogR04pCsWpoQvrOxnXZxzUJrDJS4yDmNx3X9u2nMHz0fPQY12t
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020224_081984_C90352CC 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20251106_020223_324123_7421BAF8 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +105,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some upcoming changes will introduce additional callers of them.
+Ifdeffery in C source files is discouraged.
+
+Use IS_ENABLED() instead.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- drivers/char/random.c | 51 +++++++++++++++++++++++++++++++++------------------
- 1 file changed, 33 insertions(+), 18 deletions(-)
+ drivers/char/random.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index b0b88c6f6a1afcdb770e39b7a64cb3408e33bd2c..73c53a4fb949bfd2ed723fa3cec3fe0d066a7fa3 100644
+index 3860ddd9527930780d5c13cd4742fbc3c27acc42..b0b88c6f6a1afcdb770e39b7a64cb3408e33bd2c 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
-@@ -246,6 +246,37 @@ static unsigned int crng_reseed_interval(void)
- /* Used by crng_reseed() and crng_make_state() to extract a new seed from the input pool. */
- static void extract_entropy(void *buf, size_t len);
- 
-+/* This updates the generation in the vDSO data page */
-+static void random_vdso_update_generation(unsigned long next_gen)
-+{
-+	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
-+		return;
-+
-+	/* base_crng.generation's invalid value is ULONG_MAX, while
-+	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
-+	 * former to arrive at the latter. Use smp_store_release so that this
-+	 * is ordered with the write above to base_crng.generation. Pairs with
-+	 * the smp_rmb() before the syscall in the vDSO code.
-+	 *
-+	 * Cast to unsigned long for 32-bit architectures, since atomic 64-bit
-+	 * operations are not supported on those architectures. This is safe
-+	 * because base_crng.generation is a 32-bit value. On big-endian
-+	 * architectures it will be stored in the upper 32 bits, but that's okay
-+	 * because the vDSO side only checks whether the value changed, without
-+	 * actually using or interpreting the value.
-+	 */
-+	smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
-+}
-+
-+/* This sets is_ready in the vDSO data page */
-+static void random_vdso_set_ready(void)
-+{
-+	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
-+		return;
-+
-+	WRITE_ONCE(vdso_k_rng_data->is_ready, true);
-+}
-+
- /* This extracts a new crng key from the input pool. */
- static void crng_reseed(struct work_struct *work)
- {
-@@ -272,22 +303,7 @@ static void crng_reseed(struct work_struct *work)
+@@ -56,9 +56,7 @@
+ #include <linux/sched/isolation.h>
+ #include <crypto/chacha.h>
+ #include <crypto/blake2s.h>
+-#ifdef CONFIG_VDSO_GETRANDOM
+ #include <vdso/datapage.h>
+-#endif
+ #include <asm/archrandom.h>
+ #include <asm/processor.h>
+ #include <asm/irq.h>
+@@ -274,7 +272,7 @@ static void crng_reseed(struct work_struct *work)
  	if (next_gen == ULONG_MAX)
  		++next_gen;
  	WRITE_ONCE(base_crng.generation, next_gen);
--
--	/* base_crng.generation's invalid value is ULONG_MAX, while
--	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
--	 * former to arrive at the latter. Use smp_store_release so that this
--	 * is ordered with the write above to base_crng.generation. Pairs with
--	 * the smp_rmb() before the syscall in the vDSO code.
--	 *
--	 * Cast to unsigned long for 32-bit architectures, since atomic 64-bit
--	 * operations are not supported on those architectures. This is safe
--	 * because base_crng.generation is a 32-bit value. On big-endian
--	 * architectures it will be stored in the upper 32 bits, but that's okay
--	 * because the vDSO side only checks whether the value changed, without
--	 * actually using or interpreting the value.
--	 */
--	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
--		smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
-+	random_vdso_update_generation(next_gen);
- 
+-#ifdef CONFIG_VDSO_GETRANDOM
++
+ 	/* base_crng.generation's invalid value is ULONG_MAX, while
+ 	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
+ 	 * former to arrive at the latter. Use smp_store_release so that this
+@@ -288,8 +286,9 @@ static void crng_reseed(struct work_struct *work)
+ 	 * because the vDSO side only checks whether the value changed, without
+ 	 * actually using or interpreting the value.
+ 	 */
+-	smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
+-#endif
++	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
++		smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
++
  	if (!static_branch_likely(&crng_is_ready))
  		crng_init = CRNG_READY;
-@@ -741,8 +757,7 @@ static void __cold _credit_init_bits(size_t bits)
+ 	spin_unlock_irqrestore(&base_crng.lock, flags);
+@@ -742,9 +741,8 @@ static void __cold _credit_init_bits(size_t bits)
  		if (static_key_initialized && system_unbound_wq)
  			queue_work(system_unbound_wq, &set_ready);
  		atomic_notifier_call_chain(&random_ready_notifier, 0, NULL);
--		if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
--			WRITE_ONCE(vdso_k_rng_data->is_ready, true);
-+		random_vdso_set_ready();
+-#ifdef CONFIG_VDSO_GETRANDOM
+-		WRITE_ONCE(vdso_k_rng_data->is_ready, true);
+-#endif
++		if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
++			WRITE_ONCE(vdso_k_rng_data->is_ready, true);
  		wake_up_interruptible(&crng_init_wait);
  		kill_fasync(&fasync, SIGIO, POLL_IN);
  		pr_notice("crng init done\n");
