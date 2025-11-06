@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFA4CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3BCCCFA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aJfT3al64j89KUZlTband3H4GOH/hk+OuA8dIFJ1TmA=; b=WpIOI7wSosZI5gCiq+j4tgUSn+
-	BrpPZr07Oa6o/oV0K5P+wXnw28w5w04fkZ0cYjne8a/iOCS5Q/Bs4lax9MB6xio24T3f5HzGGaSSn
-	BVGkInc5e1H8J9qxcWQKIqOEgcoAztODeuAZkCQGBP+B81SVLrHhB73lnyV+xLXhzt2wYyOYMqEbD
-	F/7ADFisxF4uUgzQsy2xNClOMWr3X3X6d+iLwcaam2/me0+F0DazNU89gepTmcFpmXdQsJfu11xHf
-	uer+4VVGRhORTvOZ4/S7/E23wNCXpnW19DOu8XG8Yh0+X3czJ1zQ96FUQ0brwO0lJVo8lt7yinKf7
-	qVdpwzbA==;
+	bh=9yCjsaoFkOvmC3WJaoawYLPivucq321KJsantBtPkYE=; b=Fi02MdaK8lYx1c4EeCnle4YXXh
+	K/2YYIi6IKgzIVEg5W+ehbnd8gnUotl2KKAVmI3ZYkVSbrWrouDAfe+0ayIQyLJEfjo+8QkZmJnpD
+	bg6pFNA7ktjgsrmKlJ2NgM9yIcTnnSJgmAi4F1hg7c9oEjkyEgZJrVVSQFIKqqNniwFK3pGjC6xkR
+	hyX6yRPjq4cqVPlMmyO8i7iRs1jy4lI2GIrBaTv1mBd/zfST0ThwxgSQdpf2V2IFsn4hGbjjw9ryl
+	JVCf2sYyPVaRsGX/rYI82krjnmBpmY0pkdzEgCfJcDSzVdVWZ9nzX/ocQ9F9mioEcgzWiSJU71M6t
+	1tLWH0kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpPQ-0000000EjPg-1Vkp;
-	Thu, 06 Nov 2025 02:07:32 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1vGpPR-0000000EjR1-0xWt;
+	Thu, 06 Nov 2025 02:07:33 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpPL-0000000EjGt-3FCO;
+	id 1vGpPL-0000000EjGr-3itw;
 	Thu, 06 Nov 2025 02:07:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1762394821;
-	bh=aJfT3al64j89KUZlTband3H4GOH/hk+OuA8dIFJ1TmA=;
+	s=altu2504; t=1762394817;
+	bh=9yCjsaoFkOvmC3WJaoawYLPivucq321KJsantBtPkYE=;
 	h=From:To:Subject:Date:Message-Id;
-	b=YAMzm5Vf+xNv1ToAgP0q47eMYraDXkm6A3a9ioofICo8SCGt9j5uUilHhvT07OmRG
-	 NnTATt+M59f891jAHtyrGQv81KTp4wmEfK1OdSykiAnzWCbB+ZOYLN4+0UtlnOdp58
-	 KJHSTvD9QsnOxAkKIcY6uRHqylZu7Y4reQ4DF0n0=
-X-QQ-mid: esmtpgz15t1762394819t768674e9
-X-QQ-Originating-IP: UM6wceQl0W0g/3PA4zWPUeXO1m1KWpgObbxmmmz1aKA=
+	b=dm555Ud/bmZKwapq4//dn1xIkHHF3D84kxzgaebaKQ1otml/PdW2NUY8xmywXeJfZ
+	 cX+kBgd+Y3Tm45dJdTzAVWbBN7bLv+IWFoNZe2QAWvnO0rtOfdRVRBkP5JsFgbPN4U
+	 J3dEuUWPzfFP/VyPkBil5FyHNtua3unIxxzao3fY=
+X-QQ-mid: esmtpgz15t1762394815tba64791d
+X-QQ-Originating-IP: xOTzFY12cbSb/MFbDxpiyuQb1pU09c+X3VAD/uHNlBU=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 06 Nov 2025 10:06:56 +0800 (CST)
+	id ; Thu, 06 Nov 2025 10:06:53 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5131190821667047602
+X-BIZMAIL-ID: 6204674981207334838
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
@@ -64,35 +64,35 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-rockchip@lists.infradead.org,
 	linux-phy@lists.infradead.org,
 	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH 4/9] dt-bindings: display: rockchip,vop: Add compatible for rk3506
-Date: Thu,  6 Nov 2025 10:06:27 +0800
-Message-Id: <20251106020632.92-5-kernel@airkyi.com>
+Subject: [PATCH 3/9] dt-bindings: display: rockchip,dw-mipi-dsi: Add compatible for rk3506
+Date: Thu,  6 Nov 2025 10:06:26 +0800
+Message-Id: <20251106020632.92-4-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251106020632.92-1-kernel@airkyi.com>
 References: <20251106020632.92-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MvWsgqCEECOfPYMVn5vCz4J74sJwC9vSpGLaeFiiVJlMZZiS7ytL3P0S
-	BqKWhHrwxo1dhdAPR6Tr1Xz9LkRE8uMEQlyawBS5p5MF3dlA+jwurBcCCR/BkzCafsGg6x8
-	K0LdYkgv29hvyTAW8txi4iSNAhw8DE4Yq3ccD1MzpuWUwsxE9KV62cBy2LnZoZfc1YZkJnK
-	7Fs7fcVGK/oCB8nTOBL+SKvJsk8CmM+Zt3e/xxKQS8Ku3K/mNfwVTsRda74tSkyK0MTvJaY
-	0qW0jZ9lX/ux1L8G0nn12NmbmCbLJ/CaUWTg4XR4Llij+k14wvTiDHnosSmYDkI5WnGJkzE
-	k6o2e+oCKfvuh+ckXWTbDPSOr+jJbThJuawuwN3VKaJep95Gc7Btyr6n9LjM1es4v1xwpSe
-	Jb8H8hxX30Jwy7M2iQaPB/Lv1B39L4sr8XiEo+FMaRaozLQBikxyRURHp7qpUSkJ1nfr5RK
-	/mQZ/2n7EJiJErx6xtWWSijyO7dQ2Pshcxq7GiF1419HXZLOR46QnRlAeu2kbNRXNcQ5Mbb
-	y2odrpb4nQI3a1KCHn2fROx/1zDpPq6jThXUN3o0HGKDr1VSOWmBAEP7gl7qnlnKRh21ASR
-	kYR0rHhizWbU20N0zEQtSGufVI2R9Lf5DbxrlSIeTc9NAplJlo68PgqKBU8TPc/dkAhSg6C
-	wR0qRrdtDQ4pGuBvfjTHNBdGibTj/b+K17Cg/V9nGKh8xF2eEXJXKONc5u5IAY5HU7LlxYf
-	8+Zi3gxZiThF+CTKF0BkVD9npkf/PXkhwdi/ztbGOmVKuU9HFulEChLW8WiFK5wsJXzcrTd
-	Lr0jXUGpAvicGcpGjLchZ4UQ3a38XIrvr/Qn3VkdyKCY3uO4UawOQVeP6bdiRJi6f7j46qW
-	3mARXa0aEWVs9j65bnIsLmC8ACXJr+4WZTsxsaEVBooxXcP+YrHd+p9e/MSYnnBu69UrGBn
-	hpW5knfqzNOHqnhdxv9gsdvmOM2jUXshJ9iAHu598Z+gpHqx5XDxJkRnHkD5JZ1EGdJY+lZ
-	xD3IqmvZ5uG/QRtf/8U9edwBmFnwk=
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-XMAILINFO: OVdyvDaZFkszlfAdqQIKMczp6crbpwZOUDN0fThezjR5l+O+KepqWIxp
+	FxALUlukqNb5b8wQc9j9AkcwCwwlMj7at9SeyILcZMaeufuKGya6TrpsktV2X2pZHiL8abr
+	EdknnfdVLdrUFLzVgC8HvFJ/CNZ6zE8iVfiJGcymGm8hIHsjuH3E0JO+RhqJbFoGS8R3Zmt
+	AT0Gz2etjHJuub2BRLc6UxEMHMls8i8g1cnH4BgKko7aF8yM7cXtmVk0VuI8BWhstg86nH5
+	M3P7oKqpjnHCFB4NJOydDXCEWMqiLLkuvySUV+tWAD59zPXYZImSJMX4w6mwEpXWldQfv4f
+	sHFVTpYtziLNbgM1bm5WLgn56yPqUMUDTic7vWsRk+vEfLux+4Jf6intW6hBbC19+UCzoOO
+	g847JCXcKF++jNuGmmCRSabVL2Z3I4LyH8Pu+QJmdcxyWkU09b4wcs7UhZxsQMBes2e29dk
+	Slc27aes+6Dyk0vOXhQM4c0go7kcL4//L20XW5dpbbBVDgF+WtxxEkGMk8w3oxGQkOO6NA6
+	EDY6TU+4cXNTrMIU/3ugtEoA6yxCmijEHJRiqWFCdOQWkMISal5/IQoAV5X0cffY84OANY1
+	28uxGhMHY1yhphZTm/Fpp7lpyDIAkNlzxHEIIYHMit+n2d26COPYCFHlrHp3FB7BizvnTRe
+	FtVnFzZ92GkFBn0GWfduUxADOACppENEc0goQp+Y6CoYEnRjgZ/DznuypJ5V9LC+ETCa2AF
+	yx/y42+fUwn2vp5GNqOqWxsZMQugJX9tbmF5tFjZiheIjdXzP8HB7a1xhAbAtc+T85czbem
+	kcB7bK8DJBUU6Tf43Fjw4Y+t67KLuKPrHYmZODV1tHyB6gLRU8pJ8mIHHypUp2IFRm7tRV8
+	SsQc/pRnjEKyPi2MOkecHm2vm3ZcT1mff9P+s+yJq9jbTy7p23JLCrGknAnYlOwjOzlVgCg
+	JjdBbq+mZVfgUPqyAOwosxzd3A/NtD9tSTQdCwQFf1LI9dvEQKz8RF4cDz0Y7/M/JCb5jZL
+	88/VNVKc70Rky5bVOlXBizoDmcd+g=
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_180728_212280_C7ABA26E 
-X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-CacheID: sfid-20251105_180728_772462_D64B9F86 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,26 +110,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The rk3506 VOP has adopted a new implementation.
-Add a new compatible string for it.
+Document a compatible string for the rk3506 mipi-dsi.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
- .../devicetree/bindings/display/rockchip/rockchip-vop.yaml       | 1 +
+ .../bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml          | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-index 8b5f58103dda..fdf4b1109da2 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-@@ -31,6 +31,7 @@ properties:
-       - rockchip,rk3368-vop
-       - rockchip,rk3399-vop-big
-       - rockchip,rk3399-vop-lit
-+      - rockchip,rk3506-vop
-       - rockchip,rv1126-vop
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
+index c59df3c1a3f7..d949750a3afd 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
+@@ -73,6 +73,7 @@ allOf:
+             enum:
+               - rockchip,px30-mipi-dsi
+               - rockchip,rk3128-mipi-dsi
++              - rockchip,rk3506-mipi-dsi
+               - rockchip,rk3568-mipi-dsi
+               - rockchip,rv1126-mipi-dsi
  
-   reg:
 -- 
 2.51.1
 
