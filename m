@@ -4,118 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8394BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EE0CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eScuLIkUxRIPtIqEAvPGMRjpBX5AffvPWMd1EMYumTo=; b=HixxrypvPlv/Mi+xjPWiH0CIJU
-	gpOhbh6Rbzd7cHz41a9Xzg4BB62xiRy0xIVVqhkawYTHcVfhD9l0e8ON+bQqRJVPDzsnlrCk7dVJE
-	eyKp3jQWQ7CrPZiGVs+yGg4iHLjcJZlV0GgYSMgqLwrGm1k+MzYBjPutjJkqT1A03zS0pafFSQGsR
-	2w2GNqAgK32mrPgZvL6dq1Za4o7W0FzlEdHBDdX1IpxEugw8kmB6fNXbx0trvULYpnJ9G+D2Er7N/
-	Zzv/wsypuIIv0t2fmDEx5k2wARQcHtLL8w8Y89kZVXbvQAHQKWxPSmlOcKs8rj8rbZkTND9rLWbih
-	uJJMsE1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fPoSQh6RVd8FMXKZkZ85J09JZuSMMI6FbJBEpchnaN0=; b=G3bBxmEAfNZthpCenVFboc9rb5
+	upuhM3sNV3D7ll5jmB3BdE9EdHZUXsna4kjDQY6UKqNeU9A9IYCkvwf1QVQKvdDGZRrga4Hc8KNAI
+	+HIbMgBh1UAJmvGAzjcLfMYf1V+az7yHCuFdoiF6le4pAkYWHwAJqfEWgPz5K2przUMONZVVnsaMC
+	48Jw0F5/XSaLfmaG/0WxCluajj0hd7v6gEi2R0zAALNW/hEp+j6x+1xXMHbDva7ixvTllzC4nWVl+
+	reVTwvnaPDG48Bi2bRMMzoLpIKnTBrZDZQ2q9gj+G9EEDFFfOmwM7HckdhrGhYpmXRScDU4h8jRxa
+	15+LtZmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGvJQ-0000000F3sZ-1rcc;
-	Thu, 06 Nov 2025 08:25:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGvKt-0000000F410-3Xua;
+	Thu, 06 Nov 2025 08:27:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGvJP-0000000F3ru-069w
+	id 1vGvKr-0000000F40s-2JXn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 08:25:43 +0000
+	Thu, 06 Nov 2025 08:27:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EBF460216;
-	Thu,  6 Nov 2025 08:25:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F66FC4CEF7;
-	Thu,  6 Nov 2025 08:25:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E70E860216;
+	Thu,  6 Nov 2025 08:27:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0826FC4CEF7;
+	Thu,  6 Nov 2025 08:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762417541;
-	bh=DCnfh7mLbukTm540wr5ypp9ub3cRbfvtzASA2bFr5UQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o2X8erI1WCidQeB/fJ3hxdn68JhhCmdtURxZ6pDYRokF3gwUy3KaKMn7O4GTtA3TS
-	 1rb3a9qyv6iCCJaD1KO3ta7K8muaEObJoUT7o/VwawUWqzkWOb7Ndqintz04nuqFxQ
-	 +WnOkaOIXhS6BYJYesjASd3tTIvP33NmpdgxJuhpVhxKlGeVrg33QiSyf/ROHm5vfB
-	 eUUmf2jQCB02sOhlqFCt43Lg/o3o/NfI8tq4WTa7EKswLccErikKuZdAOXXig9GQaq
-	 q6QJdpvp1kYqYw2hE7tFTecDW2hSeEiix/pGJ8VUufDI2eqjYJ+6Z3smGLqvSrpow7
-	 SWjL0CCqsJSiA==
-Message-ID: <1f3106e6-c49f-4fb3-9d5a-890229636bcd@kernel.org>
-Date: Thu, 6 Nov 2025 09:25:36 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
- properties for AST2600
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "taoren@meta.com" <taoren@meta.com>
-References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
- <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
- <20251104-victorious-crab-of-recreation-d10bf4@kuoka>
- <SEYPR06MB5134B91F5796311498D87BE29DC4A@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <9ae116a5-ede1-427f-bdff-70f1a204a7d6@kernel.org>
- <SEYPR06MB5134004879B45343D135FC4B9DC2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	s=k20201202; t=1762417632;
+	bh=z5CUnIFcxYpg/qcDL2lc1ciSvozZtGdVoApOxfgjqgQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IQOd+w87rTb48tKJAnd0inB2WzSV5a0mgZ47zMntQnFpgkEufy5/cnQ7e6tEfZmW6
+	 RHsjIt5Ncs3gDLyzBBb8t3ryKP/gDwH/7LMaauPyDO8RvilYtIZ7VlYnRcjfUDdhah
+	 vcQtaEIWBCTl7RhjHb6luE9120lUgo4yGlp9KTTn/BFgxj0IucaaYu7G/widQnZetC
+	 fajiOSGMIXyckgVlxGYx544BbWABeofqcNFx4P+cG9pogOKQhF7iHW74JtWz37xT+z
+	 9CZMnvBBKz8w+TkvhmOv9EBA8LaktBk4WgYtnlZ6hqfPjfjgpYhnfYlP3hcqDFs3cq
+	 yrc6Cxomb9/yg==
+Date: Thu, 6 Nov 2025 09:27:10 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <SEYPR06MB5134004879B45343D135FC4B9DC2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-binding: arm: add CTCU device for hamoa
+Message-ID: <20251106-imaginary-speedy-agama-c8f437@kuoka>
+References: <20251106-enable-etr-and-ctcu-for-hamoa-v2-0-cdb3a18753aa@oss.qualcomm.com>
+ <20251106-enable-etr-and-ctcu-for-hamoa-v2-1-cdb3a18753aa@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251106-enable-etr-and-ctcu-for-hamoa-v2-1-cdb3a18753aa@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,55 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2025 06:41, Jacky Chou wrote:
->>>>> Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
->>>>> Add conditional schema constraints for Aspeed AST2600 MAC controllers:
->>>>> - For "aspeed,ast2600-mac01", require rx/tx-internal-delay-ps properties
->>>>>   with 45ps step.
->>>>> - For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps properties
->>>>>   with 250ps step.
->>>>
->>>> That difference does not justify different compatibles. Basically you
->>>> said they have same programming model, just different hardware
->>>> characteristics, so same compatible.
->>>>
->>>
->>> This change was originally based on feedback from a previous review
->> discussion.
->>> At that time, another reviewer suggested introducing separate
->>> compatibles for
->>> MAC0/1 and MAC2/3 on AST2600, since the delay characteristics differ
->>> and they might not be fully compatible.
->>
->>
->> Your commit msg does not provide enough of rationale for that.
->> Difference in DTS properties is rather a counter argument for having separate
->> compatibles. That's why you have these properties - to mark the difference.
->>
+On Thu, Nov 06, 2025 at 09:57:25AM +0800, Jie Gan wrote:
+> Document the CTCU compatible for Hamoa, enabling support for the
+> CTCU device on the Hamoa platform.
 > 
-> Actually, on the AST2600 there are two dies, and each die has its own MAC.
-> The MACs on these two dies indeed have different delay configurations.
-
-Is this the logic like: we have multiple snps,dw-apb-uart UARTs on the
-device, so we need snps,dw-apb-uart-1, snps,dw-apb-uart-2 and
-snps,dw-apb-uart-3?
-
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Previously, the driver did not configure these delays — they were set earlier during 
-> the bootloader stage. Now, I’m planning to use the properties defined in 
-> ethernet-controller.yaml to configure these delays properly within the driver.
-> 
-> Since these legacy settings have been used for quite some time, I’d like to deprecate 
-> the old compatible and clearly distinguish that the AST2600 contains two different 
-> MACs. Future platforms based on the AST2600 will use the new compatibles with 
-> the correct PHY and delay configurations.
 
-Why are you repeating the same? So I will repeat the same. You need to
-provide rationale why different compatible is justified. Difference in
-delay itself is not the enough. Please write concise answer based on
-device programming model differences or other rules expressed in writing
-bindings or numerous presentations.
+Nothing changes, so same comment.
 
 Best regards,
 Krzysztof
+
 
