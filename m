@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2E7CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CDACCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SVD86QWVMtMhcMtxlQ147HgkWJ2YNlabe4lBsrH58d0=; b=lSNts1aCrt1tSMOuxCgQJmOm2T
-	5tSzgXrtnr5RuNclvOFbfLnPJGs2EKdiRVVC0CVUlzARpr6BkDdTqdb81fp03rg2kKjNkEP68AMob
-	P0c4xwdslxMs4PyhIp6HNtB1GnJghV+Kdb8cc3hit5Yp4aKwNlLO5ejaiu0pcrzFOGPlMFyqpBuPT
-	N0Mb2t3wOAQhehjZRxgcFZMeqzIDsx/Uy1rIDerZjV5yp9j/HRo5TeUWKUCRaRLEzZogagfTUtlbb
-	mTMB/FG6TNAaL1AzZ2bWloX9g8erjrp0n4ZFwqz1XferjeNWSbnuwoNQXHjqwTNI6nvh69QTSwSCy
-	yyqytrXg==;
+	bh=jUOcQwJRln67uS82tlcAA1G+Boy+nymiclVKiSDZbQQ=; b=4NPPeo1LYB1432IbVmrzazcr7w
+	dN2VxzrrEYzFBYpVUuELLkbSk+RBkphwDwbIFuaw+dhkyN/Sq5IbN9eA0OxhL3KwEEdVDknZaRtpt
+	MThteQ4sk+UvfULn/jHfT4nyCqIAYjAm8kfeWmPmQ+aEkdKBuDkVzCfSgk8zH6xfiqwk2cXI3oz8o
+	PBkialwne7oGx9oVtcoHAYl40lR3eG7UMfjo/hJ4jM5jph+S0Kfs/5M1h0YiiHy13gv/wYlwPF2uF
+	AqBDYqisysG2RxtrGNZMkRkk6hDyXMeZt2SqtSBQcktSg/USbRhENFFr8/zAwR0UX6IVvu+gInQEr
+	uqKsqe8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH42P-0000000G2zn-2PuX;
-	Thu, 06 Nov 2025 17:44:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vH45c-0000000G3H3-354p;
+	Thu, 06 Nov 2025 17:48:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH42M-0000000G2zG-0nWb
+	id 1vH45Z-0000000G3GX-3Yfz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:44:43 +0000
+	Thu, 06 Nov 2025 17:48:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C9E440B58;
-	Thu,  6 Nov 2025 17:44:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 537F2C4CEFB;
-	Thu,  6 Nov 2025 17:44:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 23E6042B05;
+	Thu,  6 Nov 2025 17:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCD86C116C6;
+	Thu,  6 Nov 2025 17:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762451081;
-	bh=s+hOfpwfVBSoBV09E+QkoZp1hloRIcTVQh6C7/aLE14=;
+	s=k20201202; t=1762451281;
+	bh=13WsgUGoeK4bC41loapHpdur+Ccm2Mdg30VVAbVHLjg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JmQK3NK/k9EkXb6/MfI17SXwa3NF/9LE4cGV9CXpIPVTWUS+D6maDS+Hx2v2sznsz
-	 HPDK3oE6XYv0Ko4jBSUmTEq5KXI42A6XhKf5+y8S8NoUrRfk9RTifi/hi4LL4+Ib6T
-	 ROb/8UmLf9vacQJtf1/v7sFTfUbPDFnvZJF23LHofZD9N1awX6mdrMU8OBmSz9ahhJ
-	 oHJt3cjKYMsUfI1N1y7tsWMh3qAC0pK7zTIdU8edfMFD2ujG31k59FoMe37n08oS9P
-	 OXehpgliJR8aVcQ6Ev1C8KOSytgbGaTFJ59R5Lo98ggdWJfUazHY5/ub1ZuGgjE2bK
-	 l/lpaXuVZF3ww==
-Date: Thu, 6 Nov 2025 17:44:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: clock: imx6ul-clock: add optional clock
- enet1_ref_pad
-Message-ID: <20251106-seventeen-gilled-5146c6dc9720@spud>
-References: <20251105-ccm_dts-v1-0-6aadcdf97cb8@nxp.com>
- <20251105-ccm_dts-v1-1-6aadcdf97cb8@nxp.com>
+	b=Z9FnDBrLQxnVZ8j0S6dXWmgDdhzRapTlDLeZphuGquMG48Y0ehHhp+zTZ1t5KXHbE
+	 txcGrmgh0jjFrb2R7Z4I4+T/u5lzxWz5dX1+SmKtEgYTcAlIG9Z7mJs448ffRsunb/
+	 NKjfdgOv8bmEebgrBMp3h9vh4pR0Pq8RkV/w1GvjFyMBhyadJ/0oXUr1y1nJ50U0ub
+	 aJnzIoOLRuwk0h/lQKZix1kH9a4jtd/PFlGQeCzBFejhXmzM34PXGVkA6w+0UTpxmg
+	 kZW7+JyfWA+DtE0VoLbWXC2bDxthopkWbymWnjEda4G9uauXq3ZbYJQm9H/atPuoWh
+	 K90fOO5tmdSWQ==
+Date: Thu, 6 Nov 2025 10:47:52 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	linux-efi@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH] kbuild: Add '-fms-extensions' to areas with dedicated
+ CFLAGS
+Message-ID: <20251106174752.GA2440428@ax162>
+References: <20251101-kbuild-ms-extensions-dedicated-cflags-v1-1-38004aba524b@kernel.org>
+ <20251105-amnesie-eisig-277559b69bae@brauner>
+ <20251105193931.GA2480016@ax162>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="faLTa5Z8RzHut49n"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251105-ccm_dts-v1-1-6aadcdf97cb8@nxp.com>
+In-Reply-To: <20251105193931.GA2480016@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_094442_272174_FEC1DA4E 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20251106_094801_927629_0A3C8A7D 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,102 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 05, 2025 at 12:39:31PM -0700, Nathan Chancellor wrote:
+> I was planning to make it stable tomorrow to give folks time to chime in
+> at the beginning of the week. I have your tag and Ard's to add. After
+> that, we will just have to rely on the link to this submission for
+> follow ups.
 
---faLTa5Z8RzHut49n
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Alright, this should be the final result. If there are any other Acks
+that come in later, they will just have to be recorded here. If there
+are any follow up fixes needed, I will apply them on top and update the
+tag but the branch will not be rebased.
 
-On Wed, Nov 05, 2025 at 11:55:28AM -0500, Frank Li wrote:
-> Add optional clock source enet1_ref_pad, which input from ENET ref pad.
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  Documentation/devicetree/bindings/clock/imx6q-clock.yaml  | 4 ++++
->  Documentation/devicetree/bindings/clock/imx6ul-clock.yaml | 4 ++++
->  2 files changed, 8 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/imx6q-clock.yaml b/D=
-ocumentation/devicetree/bindings/clock/imx6q-clock.yaml
-> index cd3c04c883df4ab02af29582369757df36269cb6..49475aec22a81ba87048eef58=
-8368261cbb38465 100644
-> --- a/Documentation/devicetree/bindings/clock/imx6q-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/imx6q-clock.yaml
-> @@ -29,20 +29,24 @@ properties:
->      const: 1
-> =20
->    clocks:
-> +    minItems: 4
->      items:
->        - description: 24m osc
->        - description: 32k osc
->        - description: ckih1 clock input
->        - description: anaclk1 clock input
->        - description: anaclk2 clock input
-> +      - description: clock input from enet1 ref pad
-> =20
->    clock-names:
-> +    minItems: 4
->      items:
->        - const: osc
->        - const: ckil
->        - const: ckih1
->        - const: anaclk1
->        - const: anaclk2
-> +      - const: enet1_ref_pad
+Cheers,
+Nathan
 
-I think you could drop the _pad from here, and just make it enet1_ref.
-Only a suggestion though,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-> =20
->    fsl,pmic-stby-poweroff:
->      $ref: /schemas/types.yaml#/definitions/flag
-> diff --git a/Documentation/devicetree/bindings/clock/imx6ul-clock.yaml b/=
-Documentation/devicetree/bindings/clock/imx6ul-clock.yaml
-> index d57e18a210cc1d8a836b50058613dfb0308fbf11..035002721a3b3b65fe67734e1=
-3b686b91539f328 100644
-> --- a/Documentation/devicetree/bindings/clock/imx6ul-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/imx6ul-clock.yaml
-> @@ -29,18 +29,22 @@ properties:
->      const: 1
-> =20
->    clocks:
-> +    minItems: 4
->      items:
->        - description: 32k osc
->        - description: 24m osc
->        - description: ipp_di0 clock input
->        - description: ipp_di1 clock input
-> +      - description: clock input from enet1 ref pad
-> =20
->    clock-names:
-> +    minItems: 4
->      items:
->        - const: ckil
->        - const: osc
->        - const: ipp_di0
->        - const: ipp_di1
-> +      - const: enet1_ref_pad
-> =20
->  required:
->    - compatible
->=20
-> --=20
-> 2.34.1
->=20
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
---faLTa5Z8RzHut49n
-Content-Type: application/pgp-signature; name="signature.asc"
+are available in the Git repository at:
 
------BEGIN PGP SIGNATURE-----
+  git://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git tags/kbuild-ms-extensions-6.19
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQzehAAKCRB4tDGHoIJi
-0li0AP0X6venSRgjjxG9X1+jQvK3e+ds+gItM0mvxCkUAiEFtQD+PyCxXMtSstG5
-WwI6mPxRa8Fd/1QmOnlKcjMMfpH9Vgk=
-=JAlp
------END PGP SIGNATURE-----
+for you to fetch changes up to 5ff8ad3909524ad55297a434f87c238224825bf4:
 
---faLTa5Z8RzHut49n--
+  kbuild: Add '-fms-extensions' to areas with dedicated CFLAGS (2025-10-30 21:26:28 -0400)
+
+----------------------------------------------------------------
+Shared branch between Kbuild and other trees for enabling '-fms-extensions' for 6.19
+
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+
+----------------------------------------------------------------
+Nathan Chancellor (2):
+      jfs: Rename _inline to avoid conflict with clang's '-fms-extensions'
+      kbuild: Add '-fms-extensions' to areas with dedicated CFLAGS
+
+Rasmus Villemoes (1):
+      Kbuild: enable -fms-extensions
+
+ Makefile                              | 3 +++
+ arch/arm64/kernel/vdso32/Makefile     | 3 ++-
+ arch/loongarch/vdso/Makefile          | 2 +-
+ arch/parisc/boot/compressed/Makefile  | 2 +-
+ arch/powerpc/boot/Makefile            | 3 ++-
+ arch/s390/Makefile                    | 3 ++-
+ arch/s390/purgatory/Makefile          | 3 ++-
+ arch/x86/Makefile                     | 4 +++-
+ arch/x86/boot/compressed/Makefile     | 7 +++++--
+ drivers/firmware/efi/libstub/Makefile | 4 ++--
+ fs/jfs/jfs_incore.h                   | 6 +++---
+ scripts/Makefile.extrawarn            | 4 +++-
+ 12 files changed, 29 insertions(+), 15 deletions(-)
 
