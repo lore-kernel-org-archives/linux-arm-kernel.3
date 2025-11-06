@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB8CCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D3BCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0PFoYQFQD3v0a3p0/J9i6DxvK68dy02tZEojFdax54Y=; b=u825C6XdRWlXZaSrcE0JpUQT/j
-	Gwr88daSpN2+AWz/nRf3tzEQn/ExGoB6BYb61N7AqkwqBgPJduX4Hzbgj3rVavr0EfQ/qomXTIOae
-	BzrSE4QGRhihMAwViV5PnU808sF9cJ4jI0tx6k4UJhDpahaGFgxIH7GSlP62gknsv3O2nfmUj9ehY
-	6hQDfmvHzD+BPmzBDz7mla0PdQ4DzM0LJEzh393aeCOmn38NgRxa3FJxD0mQDZqUNZ8A9pyrKsArb
-	LgOJ1SSVEB03jFRQsIwrn278C2ghTqImaGl6DqymUUaS1JicovYi7WdTUjdq6bv6F4bA3Kvrqg+9X
-	KaDkNlxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=; b=xclxJEUiPjrdZOOUqc6czH6orO
+	5bGgjcwGNrjviI0IFOJNvFVhk1NoOVHQGXxtAY7RdqwvVTw2SZ52Ij0ugvii2dbEmihpg5qV9JkhI
+	56YqLOqebTULofPb7GqaR3wRQ37IMaGpc6KWnTLU/M2TZ33e2adu+UFMvIlXHZeil/P5VZYgV+d9X
+	Q6JlE6Iv6Agl/i2c6L4BtjJ2FeASkY/k+uE7k4l4bplcZaNfv0HF+qCCUmYRks1EWiBlO1ONJeR31
+	ZSFHmExbU/J3KZe42b1Z/+fym506YKY45x7E9XbsDr5vLve6oXpXHilQTyyYRBGpv6f3ZMBj+ETyP
+	fcTwp/Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGzUp-0000000FWAW-1uYA;
-	Thu, 06 Nov 2025 12:53:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGzVK-0000000FWHF-0MHy;
+	Thu, 06 Nov 2025 12:54:18 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGzUo-0000000FWAE-457J;
-	Thu, 06 Nov 2025 12:53:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB8AD601F7;
-	Thu,  6 Nov 2025 12:53:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11ED8C2BC9E;
-	Thu,  6 Nov 2025 12:53:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762433625;
-	bh=qpqMp5e8lEXU9t5JyBNe+DMT96p8uWWzgodHjoDXtyc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=sK/GHvf0T4ru/v2C1wNir30tUj1EJimdN7YqKaypLWURIAc8WzoazVEchtDcaFK9d
-	 GJ3p7ewE5mHyYh5FPL5jRWSJ8fzgIzxx8I2SKMcZsTeke04AcCXUYkc5NrwHJ3UPxm
-	 GrdkoJMy45DcRCeeIK+0L0rzrepMmlD550232Hb9gMDFH36+ROJnSQzfh27RDjrb/Q
-	 m2aDM4p+1oV3/qpSpiBr6O3UyQf6iLl4f9Z2QUFu7RJTzkb/K8/QP5jnaNMemJTJK8
-	 hkfxGViuyx1Zz+kiCMxCFc06QY4Acgm6e89s1EoxtaGDoCRcZUpe8OU8ye8Bj0fOUG
-	 +3Oj6H5fuGoPA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 06 Nov 2025 13:53:23 +0100
-Subject: [PATCH net-next v2] net: airoha: Add the capability to consume
- out-of-order DMA tx descriptors
+	id 1vGzVG-0000000FWGN-43Om
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 12:54:16 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-8b22319db92so101433085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 04:54:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762433653; x=1763038453; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=;
+        b=VoQxV5TsBIkkU4fxM7JUuZn7PC2S659B9Okrm3CsD0Nsc9fwcFSfwzPlvSVcgNFBSn
+         NdIKOTL1oDyqhoqslCr/H4zR0X8YnlIYNpjbZDGwzvRiS0ZfB4hIsjorTiH//8oyZiHw
+         cJn3/v9FWQOHYmEQN7tMbW0AGwy2vAN2rFJeVz1Cik9+QV2AOEQKhNDldfR6gJeRYr+B
+         G8A5lPGw8CgAAVfwTKozUWxVtcUBXGzqElBGMtENi4x9fiegIArYhzlAWCNQ9k6P3CGm
+         4aUFUp3KMTdpWQHY2O+bL9zXPp58REW8DFTnksRKVhulm+5OcDpEv8GGul1Wne6gXjmS
+         MnkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762433653; x=1763038453;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=;
+        b=UGaXQfLbuE0ufErBILXKDiIjbnoBOSyus7y4ekRA527AU1+8+i5EUyQ6REE8clh+Z2
+         hLvSj39uHxhoBN+W8pGXzvUQApArPkE2jSkcwhFuJhqUX2jQbybI3M8pul7cpIqvYv5t
+         PJdMNNrTGgkD7++cODYBLdHyTygRyuUibMZ/g/o3jujUy1A4m/u2FLXM2s5fT9RLKtPG
+         z9dFQwj0AzXnbXcOpT/T/2CZu83intDSnMZWCPVZLHcMgwupVg7NZuL8W8qKWlrRpeE3
+         KK7M0JPMvme+DsRmmfSifxspWiM8F4i1OOrP41utXDNF4SXfSX2mBbSQmxh3L45FKs2/
+         C29w==
+X-Forwarded-Encrypted: i=1; AJvYcCVljGrq05Blur8n9Om9yUyYSjHlbivOugu7Xo+PrQ/vlobzWeUwwe5JnA77rXilAjthZAslqxNenQ9nWqFXfZfx@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywdu8y5mt+ZmZ+URhTqbHL34/W8QjvaDbGqZwZZaivLPKFHgPX1
+	pjiM/wO/FPQYNfLX1T+mDWM00/NCDlb3M6u1aDs1HYK7pn5JhdfpdD2XC/kS5CzeXC89XFitCWw
+	/i1TcYMN69b4FV5eYBfI/hrTedO2E8a+TT55J5ZzsKQ==
+X-Gm-Gg: ASbGncvXVSn8zYM0uUBvWbjM7s5tWdaaOl/kGPnC1QaY7Myn8e34AgoJ0/uDBZDxN/B
+	Jx4AqduLtH/4TpXbwwv6amNOxImXFmB0V4a/EXIhRv6Dn3G+PS3nOod0dTTCqbt/t95OeLPXAwd
+	2XzNHeEK40Wvd6+imEeCbWdZLV58VTe/p4B4UOsesJ11KlH3uuJrU28PCjiNkN8w7fNPPtbsoXy
+	ZqLx7iRTCL+QivMue0f9QNlp9SzghixwsylF71Fkm3P5TvBbQe2hZPd1ruu8mZtc7U5xC5X+i8+
+	Ouxy2P5QuAgLnGR4uA==
+X-Google-Smtp-Source: AGHT+IEpN34zsZ5wwP2Owr6OUUnpRIoC3kvxluiNbq9Twjvdxl3iJYLPHL5b6ByEpptX+tubFgXzvxv/TWtG9ClhlUI=
+X-Received: by 2002:a05:620a:4548:b0:88e:1123:ec9 with SMTP id
+ af79cd13be357-8b2353258bamr344615485a.36.1762433653176; Thu, 06 Nov 2025
+ 04:54:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251106-airoha-tx-linked-list-v2-1-0706d4a322bd@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAEKaDGkC/3WNQQqDMBBFr1Jm3SlJpKhd9R7FxWimOihJmYhYx
- Ls3teuuhvf5/80GiVU4we20gfIiSWLI4M4n6AYKPaP4zOCMu1pjSyTROBDOK04SRvb5pBkN+bZ
- 2bUW185C3L+WnrIf30WQecinq+3iz2G/6M1pT/DEuFg22RKasK9d1hbmPrIGnS9Qemn3fP28ee
- Ha7AAAA
-X-Change-ID: 20251017-airoha-tx-linked-list-0adb92b8a92d
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>, Jacob Keller <jacob.e.keller@intel.com>
-X-Mailer: b4 0.14.2
+References: <CAJ9a7VjTqBczkdMYXqb1WmDRUYhC--dY6Ky5R=NfUZaYkiWmVw@mail.gmail.com>
+ <20251103084615.3666468-1-yingchao.deng@oss.qualcomm.com>
+In-Reply-To: <20251103084615.3666468-1-yingchao.deng@oss.qualcomm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 6 Nov 2025 12:54:01 +0000
+X-Gm-Features: AWmQ_bnQTEL57TvE0l2_raUBvNJd91O5zIwL8GGfWa4dYKgD0z8HrW_TTtLT6k8
+Message-ID: <CAJ9a7Viir9Eows=Lphw_W9qVGDoHRd3uzMxXbwEPMcjXvPth2w@mail.gmail.com>
+Subject: Re: [PATCH v5 0/2] Add Qualcomm extended CTI support
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Cc: alexander.shishkin@linux.intel.com, coresight@lists.linaro.org, 
+	james.clark@linaro.org, jinlong.mao@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, 
+	suzuki.poulose@arm.com, tingwei.zhang@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_045415_045675_A1B0DC80 
+X-CRM114-Status: GOOD (  38.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,259 +100,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 and AN7583 SoCs are capable of DMA mapping non-linear tx skbs on
-non-consecutive DMA descriptors. This feature is useful when multiple
-flows are queued on the same hw tx queue since it allows to fully utilize
-the available tx DMA descriptors and to avoid the starvation of
-high-priority flow we have in the current codebase due to head-of-line
-blocking introduced by low-priority flows.
+Hi,
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Drop patch 2/2
-- Rely on list_move_tail() wherever possible
-- Link to v1: https://lore.kernel.org/r/20251103-airoha-tx-linked-list-v1-0-baa07982cc30@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 85 +++++++++++++++-----------------
- drivers/net/ethernet/airoha/airoha_eth.h |  7 ++-
- 2 files changed, 45 insertions(+), 47 deletions(-)
+On Mon, 3 Nov 2025 at 08:46, Yingchao Deng
+<yingchao.deng@oss.qualcomm.com> wrote:
+>
+> >Hi,
+> >
+> >This set is looking good now and appears to be getting close to being re=
+ady.
+> >
+> >There are a few minor issues in the second patch and a few items that
+> >need to be confirmed.
+> >1) I note that you removed the code to prevent calling claim/disclaim.
+> >Does this mean that you confirm that you have tested the patch update
+> >for claim tags I posted works on your system?
+>
+> I just tested this patch, the default value of qcom_cti's CLAIMSET regist=
+er is 0xf,
+> and unlike the standard CTI (write 0 is no effect), it can be written wit=
+h 0.
+> So, is it acceptable to write 0 to the claimset register of qcom_cti afte=
+r reading the
+> devarch register during the probe phase?
+>
+>         devarch =3D readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
+>         if (CTI_DEVARCH_ARCHITECT(devarch) =3D=3D ARCHITECT_QCOM) {
+>                 drvdata->subtype =3D QCOM_CTI;
+>                 drvdata->offsets =3D cti_extended_offset;
+>                 writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+>         } else {
+>                 drvdata->subtype =3D ARM_STD_CTI;
+>                 drvdata->offsets =3D cti_normal_offset;
+>         }
+>
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 688faf999e4c0a30d53a25877b4a81a33ec7fca2..75893c90a0a17c528c27fc0e986de194e7736637 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -892,19 +892,13 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
--		memset(e, 0, sizeof(*e));
-+		e->dma_addr = 0;
-+		list_add_tail(&e->list, &q->tx_list);
-+
- 		WRITE_ONCE(desc->msg0, 0);
- 		WRITE_ONCE(desc->msg1, 0);
- 		q->queued--;
- 
--		/* completion ring can report out-of-order indexes if hw QoS
--		 * is enabled and packets with different priority are queued
--		 * to same DMA ring. Take into account possible out-of-order
--		 * reports incrementing DMA ring tail pointer
--		 */
--		while (q->tail != q->head && !q->entry[q->tail].dma_addr)
--			q->tail = (q->tail + 1) % q->ndesc;
--
- 		if (skb) {
- 			u16 queue = skb_get_queue_mapping(skb);
- 			struct netdev_queue *txq;
-@@ -949,6 +943,7 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 	q->ndesc = size;
- 	q->qdma = qdma;
- 	q->free_thr = 1 + MAX_SKB_FRAGS;
-+	INIT_LIST_HEAD(&q->tx_list);
- 
- 	q->entry = devm_kzalloc(eth->dev, q->ndesc * sizeof(*q->entry),
- 				GFP_KERNEL);
-@@ -961,9 +956,9 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 		return -ENOMEM;
- 
- 	for (i = 0; i < q->ndesc; i++) {
--		u32 val;
-+		u32 val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
- 
--		val = FIELD_PREP(QDMA_DESC_DONE_MASK, 1);
-+		list_add_tail(&q->entry[i].list, &q->tx_list);
- 		WRITE_ONCE(q->desc[i].ctrl, cpu_to_le32(val));
- 	}
- 
-@@ -973,9 +968,9 @@ static int airoha_qdma_init_tx_queue(struct airoha_queue *q,
- 
- 	airoha_qdma_wr(qdma, REG_TX_RING_BASE(qid), dma_addr);
- 	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
--			FIELD_PREP(TX_RING_CPU_IDX_MASK, q->head));
-+			FIELD_PREP(TX_RING_CPU_IDX_MASK, 0));
- 	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
--			FIELD_PREP(TX_RING_DMA_IDX_MASK, q->head));
-+			FIELD_PREP(TX_RING_DMA_IDX_MASK, 0));
- 
- 	return 0;
- }
-@@ -1031,17 +1026,21 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- {
- 	struct airoha_eth *eth = q->qdma->eth;
-+	int i;
- 
- 	spin_lock_bh(&q->lock);
--	while (q->queued) {
--		struct airoha_queue_entry *e = &q->entry[q->tail];
-+	for (i = 0; i < q->ndesc; i++) {
-+		struct airoha_queue_entry *e = &q->entry[i];
-+
-+		if (!e->dma_addr)
-+			continue;
- 
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
- 		dev_kfree_skb_any(e->skb);
-+		e->dma_addr = 0;
- 		e->skb = NULL;
--
--		q->tail = (q->tail + 1) % q->ndesc;
-+		list_add_tail(&e->list, &q->tx_list);
- 		q->queued--;
- 	}
- 	spin_unlock_bh(&q->lock);
-@@ -1883,20 +1882,6 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
- }
- 
--static bool airoha_dev_tx_queue_busy(struct airoha_queue *q, u32 nr_frags)
--{
--	u32 tail = q->tail <= q->head ? q->tail + q->ndesc : q->tail;
--	u32 index = q->head + nr_frags;
--
--	/* completion napi can free out-of-order tx descriptors if hw QoS is
--	 * enabled and packets with different priorities are queued to the same
--	 * DMA ring. Take into account possible out-of-order reports checking
--	 * if the tx queue is full using circular buffer head/tail pointers
--	 * instead of the number of queued packets.
--	 */
--	return index >= tail;
--}
--
- static int airoha_get_fe_port(struct airoha_gdm_port *port)
- {
- 	struct airoha_qdma *qdma = port->qdma;
-@@ -1919,8 +1904,10 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
- 	u32 nr_frags, tag, msg0, msg1, len;
-+	struct airoha_queue_entry *e;
- 	struct netdev_queue *txq;
- 	struct airoha_queue *q;
-+	LIST_HEAD(tx_list);
- 	void *data;
- 	int i, qid;
- 	u16 index;
-@@ -1966,7 +1953,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	txq = netdev_get_tx_queue(dev, qid);
- 	nr_frags = 1 + skb_shinfo(skb)->nr_frags;
- 
--	if (airoha_dev_tx_queue_busy(q, nr_frags)) {
-+	if (q->queued + nr_frags >= q->ndesc) {
- 		/* not enough space in the queue */
- 		netif_tx_stop_queue(txq);
- 		spin_unlock_bh(&q->lock);
-@@ -1975,11 +1962,13 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 
- 	len = skb_headlen(skb);
- 	data = skb->data;
--	index = q->head;
-+
-+	e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+			     list);
-+	index = e - q->entry;
- 
- 	for (i = 0; i < nr_frags; i++) {
- 		struct airoha_qdma_desc *desc = &q->desc[index];
--		struct airoha_queue_entry *e = &q->entry[index];
- 		skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
- 		dma_addr_t addr;
- 		u32 val;
-@@ -1989,7 +1978,14 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		if (unlikely(dma_mapping_error(dev->dev.parent, addr)))
- 			goto error_unmap;
- 
--		index = (index + 1) % q->ndesc;
-+		list_move_tail(&e->list, &tx_list);
-+		e->skb = i ? NULL : skb;
-+		e->dma_addr = addr;
-+		e->dma_len = len;
-+
-+		e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
-+				     list);
-+		index = e - q->entry;
- 
- 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, len);
- 		if (i < nr_frags - 1)
-@@ -2002,15 +1998,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		WRITE_ONCE(desc->msg1, cpu_to_le32(msg1));
- 		WRITE_ONCE(desc->msg2, cpu_to_le32(0xffff));
- 
--		e->skb = i ? NULL : skb;
--		e->dma_addr = addr;
--		e->dma_len = len;
--
- 		data = skb_frag_address(frag);
- 		len = skb_frag_size(frag);
- 	}
--
--	q->head = index;
- 	q->queued += i;
- 
- 	skb_tx_timestamp(skb);
-@@ -2019,7 +2009,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	if (netif_xmit_stopped(txq) || !netdev_xmit_more())
- 		airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid),
- 				TX_RING_CPU_IDX_MASK,
--				FIELD_PREP(TX_RING_CPU_IDX_MASK, q->head));
-+				FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
- 
- 	if (q->ndesc - q->queued < q->free_thr)
- 		netif_tx_stop_queue(txq);
-@@ -2029,10 +2019,13 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	return NETDEV_TX_OK;
- 
- error_unmap:
--	for (i--; i >= 0; i--) {
--		index = (q->head + i) % q->ndesc;
--		dma_unmap_single(dev->dev.parent, q->entry[index].dma_addr,
--				 q->entry[index].dma_len, DMA_TO_DEVICE);
-+	while (!list_empty(&tx_list)) {
-+		e = list_first_entry(&tx_list, struct airoha_queue_entry,
-+				     list);
-+		dma_unmap_single(dev->dev.parent, e->dma_addr, e->dma_len,
-+				 DMA_TO_DEVICE);
-+		e->dma_addr = 0;
-+		list_move_tail(&e->list, &q->tx_list);
- 	}
- 
- 	spin_unlock_bh(&q->lock);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index eb27a4ff51984ef376c6e94607ee2dc1a806488b..fbbc58133364baefafed30299ca0626c686b668e 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -169,7 +169,10 @@ enum trtcm_param {
- struct airoha_queue_entry {
- 	union {
- 		void *buf;
--		struct sk_buff *skb;
-+		struct {
-+			struct list_head list;
-+			struct sk_buff *skb;
-+		};
- 	};
- 	dma_addr_t dma_addr;
- 	u16 dma_len;
-@@ -193,6 +196,8 @@ struct airoha_queue {
- 	struct napi_struct napi;
- 	struct page_pool *page_pool;
- 	struct sk_buff *skb;
-+
-+	struct list_head tx_list;
- };
- 
- struct airoha_tx_irq_queue {
+OK - if you look at v2 of the cliam tag set you will see we introduce
+a "claim_tag_info" attribute to the coresight_device structure. This
+is initially set to CS_CLAIM_TAG_UNKNOWN, and on the first
+claim/disclaim API call the claim tags validity will be tested and a
+value of  CS_CLAIM_TAG_STD_PROTOCOL or  CS_CLAIM_TAG_NOT_IMPL set,
+skipping the test on all subsequent claim calls.
 
----
-base-commit: 0567c84d683d1f38dc41928eec786ec5c02bf7b4
-change-id: 20251017-airoha-tx-linked-list-0adb92b8a92d
+if you set this  in the probe function i.e.  csdev->claim_tag_info =3D
+CS_CLAIM_TAG_NOT_IMPL, then the claim tags will not be used.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
 
+whichever method you use, please ensure a comment appears in the code
+describing why the workaround is necessary.
+
+Regards
+
+Mike
+
+
+> >2) In patch 2 I made some comments in regard to ARCH values - please
+> >confirm that these are accurate and have been tested as working on
+> >your system
+>
+> Yes, the bits 31:20 in qcom_cti's DEVARCH register are 0x8EF.
+>
+> >3) As mentioned in the comments to patch 2 - you need to update the
+> >docs for the new sysfs selection file you have added
+>
+> Will update in v6.
+>
+> Thanks
+> Yingchao
+>
+> >
+> >Thanks and Regards
+> >
+> >Mike
+> >
+> >On Mon, 20 Oct 2025 at 08:12, Yingchao Deng
+> ><yingchao.deng@oss.qualcomm.com> wrote:
+> >>
+> >> The QCOM extended CTI is a heavily parameterized version of ARM=E2=80=
+=99s CSCTI.
+> >> It allows a debugger to send to trigger events to a processor or to se=
+nd
+> >> a trigger event to one or more processors when a trigger event occurs =
+on
+> >> another processor on the same SoC, or even between SoCs.
+> >>
+> >> QCOM extended CTI supports up to 128 triggers. And some of the registe=
+r
+> >> offsets are changed.
+> >>
+> >> The commands to configure CTI triggers are the same as ARM's CTI.
+> >>
+> >> Changes in v5:
+> >> 1. Move common part in qcom-cti.h to coresight-cti.h.
+> >> 2. Convert trigger usage fields to dynamic bitmaps and arrays.
+> >> 3. Fix holes in struct cti_config to save some space.
+> >> 4. Revert the previous changes related to the claim tag in
+> >>    cti_enable/disable_hw.
+> >> Link to v4 - https://lore.kernel.org/linux-arm-msm/20250902-extended_c=
+ti-v4-1-7677de04b416@oss.qualcomm.com/
+> >>
+> >> Changes in v4:
+> >> 1. Read the DEVARCH registers to identify Qualcomm CTI.
+> >> 2. Add a reg_idx node, and refactor the coresight_cti_reg_show() and
+> >> coresight_cti_reg_store() functions accordingly.
+> >> 3. The register offsets specific to Qualcomm CTI are moved to qcom_cti=
+.h.
+> >> Link to v3 - https://lore.kernel.org/linux-arm-msm/20250722081405.2947=
+294-1-quic_jinlmao@quicinc.com/
+> >>
+> >> Changes in v3:
+> >> 1. Rename is_extended_cti() to of_is_extended_cti().
+> >> 2. Add the missing 'i' when write the CTI trigger registers.
+> >> 3. Convert the multi-line output in sysfs to single line.
+> >> 4. Initialize offset arrays using designated initializer.
+> >> Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic=
+_jinlmao@quicinc.com/
+> >>
+> >> Changes in V2:
+> >> 1. Add enum for compatible items.
+> >> 2. Move offset arrays to coresight-cti-core
+> >>
+> >> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> >> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> >> ---
+> >> Yingchao Deng (2):
+> >>       coresight: cti: Convert trigger usage fields to dynamic bitmaps =
+and arrays
+> >>       coresight: cti: Add Qualcomm extended CTI support
+> >>
+> >>  drivers/hwtracing/coresight/coresight-cti-core.c   | 144 ++++++++++++=
++---
+> >>  .../hwtracing/coresight/coresight-cti-platform.c   |  16 +-
+> >>  drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 184 ++++++++++++=
++++------
+> >>  drivers/hwtracing/coresight/coresight-cti.h        |  60 ++++++-
+> >>  drivers/hwtracing/coresight/qcom-cti.h             |  29 ++++
+> >>  5 files changed, 346 insertions(+), 87 deletions(-)
+> >> ---
+> >> base-commit: 1fdbb3ff1233e204e26f9f6821ae9c125a055229
+> >> change-id: 20251016-extended_cti-2a426c8894b1
+> >>
+> >> Best regards,
+> >> --
+> >> Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> >>
+
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
