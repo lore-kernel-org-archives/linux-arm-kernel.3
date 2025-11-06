@@ -4,49 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED46CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D05CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3N8l4T7mp47tFSd/EXFsd5tDqUHvsW23SoAUY7mUwsQ=; b=PgBZ5aB+JZaYMVYRCm8wkj1M/Y
-	NTUbqLUnBIMcnJiMkVcJPoyOkV6h6htyTxoF9ajprIh5t3onxp7NFy6+UcQQ9X1HhO6DzPNkjPc7V
-	97YlvWKTbjS3Pl6dD/+xG+pMl5y7dE8qZkXFedTlpbWVFGPl2WbWrCrNA5zXPvcP3x+1MgfnX01ex
-	XGIEfyxCIB2uI9v63YXyGnlX3wV23KhUNT85aF/ZnPFWOiGinAFThbpuMVhCpGV9aM3lkcgqogMtU
-	mV8iebi02UWwDU/GP16sY/EtJYsnLP0mBplptWyGtnjOGUyv7uKRF6WI5ckzm8OAgUKjyAPX1oHrk
-	5srTrFlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BXAxixt9GM7maY9WiyNJ807ZjQvjfYIYPaHuIp98CD8=; b=b3WdEHg6y2TR7sI3d4cMnnaduR
+	Pxv0fdc51V6o77UxKeB66z5VHg4B0gSED3AS7B2fyRFXKn2eRKTRzDZ/PGZyS9hXHaqBRAbyXhIUb
+	CDBSquTFBMPJ6OJjI7ZU5nysTUWOznpB6fB0FXXoQhvgLYWs7KiATio24BOsa1vbRf5Q/8Xu23zgl
+	KTnP3QOCVL4J1s4Puyin7Urr9yC15IY1KsJ2m/GPECQO7Q5z0jwqFHLGyUGprNHsFTqXczZg2T3+m
+	mviSB5NSbret8jqTx+Z9pGsKQKSbg/iyJ97ci5Med2HlgLzKFfaCavWhAJZkBiC4V9gQgBUsRxnAi
+	P1ePuygQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Hc-0000000FqcW-0lnz;
-	Thu, 06 Nov 2025 15:52:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vH2NN-0000000Fr2T-45sD;
+	Thu, 06 Nov 2025 15:58:18 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Hb-0000000FqcK-0nx9
+	id 1vH2NL-0000000Fr1w-1p8V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 15:52:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2287161908;
-	Thu,  6 Nov 2025 15:52:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 178D3C4CEF7;
-	Thu,  6 Nov 2025 15:52:15 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Willy Tarreau <w@1wt.eu>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yicong Yang <yangyccccc@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH] arm64: Use load LSE atomics for the non-return per-CPU atomic operations
-Date: Thu,  6 Nov 2025 15:52:13 +0000
-Message-ID: <20251106155213.3186582-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
+	Thu, 06 Nov 2025 15:58:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cUM6iFQU3j7Fhd+cROMhAmt9Fj3z3GPuREGFSjlC3582/duuxybKIpKXT8oEJUIADdlOyCMdzVhlMGZTyxFltExauHOLk58J/zYLPVHckfxP94lS43WnOjVQysqtuTLAesy08y20oNt1exOtjORVq3lh6FFJFP+fXoyalYt88rLlHLobQgEE7W/v2KUdPA26A+xbEYEkCzgxTrS9htUKfbkSCAOlGDHe9U53dHL4qMqTUskCOZAxf0GGO+OTMeQOrA0YmXYuCQAnGqer1CjBas189NTsbCzhTTWQWsOqifdT2yICTUSlxkPfJzhwVFVpgaceumNb2Du2t4NethP4+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BXAxixt9GM7maY9WiyNJ807ZjQvjfYIYPaHuIp98CD8=;
+ b=LjmIv8X/IDJsoPe10Tfq+/5r9tPjgAmR+7GeZG0s35kzJ0w+wqPFbiDOd5h5IOHedHKS34Ne/V5FG0zemMZRNHXsv+IrRNBvuoMLDRdPvdPFax2TfC3nC5um6xZX8Qj9u8GmYry2bCIQejSXjl338AwZtkMFgWFc9Yl+pJxN00Uy8wospiPcf7Ek0A9x58lB+iIQIW/JbB5hQeC+WfGYf8+Z/jgo+9P6+oAg7Q3lStGWAeP/Z9F4Z0g/VMUKpIzhgznz9xnqAmNKSeaWwwMdsw1yT3GEcxvbE78aQ5wJfoANEw9ju4fBVeEYWRfRVhFbtNXuqIZl8UEyQs0EDD2eYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BXAxixt9GM7maY9WiyNJ807ZjQvjfYIYPaHuIp98CD8=;
+ b=DMRvk+RGRKSx4TRAeIBJpzgqCjQ4wh3L9v4Lhil6Wpx8HaRUP15VrzZB/Va+ka/tIZijwQSe569hqcIW/k+a/m6ZJfWzlIttOhJ2qLC5+kxyc8LdcoYm375ZNQLFKd/6DdFwRfoQff5rSmp7Z0Ub6/N4VSIehHEWztx8domX89rc+alNdXFJmAJzAXzAqtRYW8O9pPCw/qnRaksfeqnOX0TzLtMsfJmzUI7MBivcQPb6Yp+DHjf+iE8ENeQ+++B7XyCIYnrZsDHcuetxb/dHAekfZVkeEekeHefbIfwihoIWpS9EZSgfu6BkUD8ZScxj31rnrZRvZiDFdEXGlUA63Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AM7PR04MB6950.eurprd04.prod.outlook.com (2603:10a6:20b:105::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
+ 2025 15:58:10 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Thu, 6 Nov 2025
+ 15:58:10 +0000
+Date: Thu, 6 Nov 2025 10:58:00 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Sakari Ailus <sakari.ailus@iki.fi>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>
+Subject: Re: [PATCH v4 0/5] media: imx8qxp: add parallel camera support
+Message-ID: <aQzFiEOQvtZjHIsr@lizhi-Precision-Tower-5810>
+References: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
+ <20250805010822.GC24627@pendragon.ideasonboard.com>
+ <aLbcpEZXm5G1Onq7@lizhi-Precision-Tower-5810>
+ <20250902123920.GM13448@pendragon.ideasonboard.com>
+ <aLhJDXnz9HPGrWcp@lizhi-Precision-Tower-5810>
+ <aQuDSROHLGHIhtlh@lizhi-Precision-Tower-5810>
+ <20251105171928.GB6046@pendragon.ideasonboard.com>
+ <aQul/VGG8e3MJxhx@lizhi-Precision-Tower-5810>
+ <DE1JMG95RZME.2YSV10RI9AME4@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DE1JMG95RZME.2YSV10RI9AME4@gmail.com>
+X-ClientProxiedBy: PH7P221CA0064.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::18) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM7PR04MB6950:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa88fa88-c183-4ec5-079c-08de1d4d48cd
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tSJu5Uamk0/q4Gov6av7nCcjbITiuHg0X383kC7yIp2JF3WzGidkB+I4pNfS?=
+ =?us-ascii?Q?W7Mod7tViTYXgb/rloFfYJ2T7vrT/wKHC2tEL935spfWbzdrsmtAd9T8aQij?=
+ =?us-ascii?Q?33BrKgbAUFxD0hUoVoKTuJ0AI6ZmnUk0FKSJzj7et7QEbHvjfSVwDsMx7oL+?=
+ =?us-ascii?Q?9abnSexwnS8maLyVbr10NuIVB7oBOHCFMr4dqVLrLxuOT/m9cNMkHue+HVAP?=
+ =?us-ascii?Q?bOKWCeNFrVq4FKa7wx7VIEzKGP52D67KfLHJ40t16fZvCA/ix928ijO8ohTM?=
+ =?us-ascii?Q?wBEjCHMedOfqOztEfCAbV4JTM6vElBvNV0WWBN5zKYisGdLfGiPpm1vScA3t?=
+ =?us-ascii?Q?qBNpwx8TFGpMqp8Guf5WgZuS5sHS3mA65Pb8ZcSSpfsNFRJ48UFt+2UHWBkT?=
+ =?us-ascii?Q?XlOAM0ZddXv2vWapVPzaraZC1sWArJ/VkCV+Tqv9pOkZlzvWLJif/bhuZi59?=
+ =?us-ascii?Q?yk0/a1CoUWXbJVPFt2uWOEywx+/2Zp4eWfrxq3Bzd6JofQ1bPKiivdAUDGY5?=
+ =?us-ascii?Q?V8XyBNMK6PtUdmjEieIsQlB5usYPI0l7M+1+Ga7TvI7L5mNkEOxui5WaPKNa?=
+ =?us-ascii?Q?/gOEaHdtJDryMJSBy+68T74shFdPe7uV0WXmhz1J0u+U7cEuRUersQRcU2Rc?=
+ =?us-ascii?Q?EjX20RRhgaVJVVliZ4g2gd9DDD50zLGxclMlA6E1PK39HRTX0vOVaCOkYmLo?=
+ =?us-ascii?Q?VYkY/fgH/E78nZDQxJzjgZDxnKEYhM4dbpJ4BG/oYAJxqVH5sAoPMfkZAtUa?=
+ =?us-ascii?Q?9kMClmJ8xKYc+Z/UJcuX7QXdgwcDgkem6OSxpR3bJ4BeluWVK/4AT2/fbCZP?=
+ =?us-ascii?Q?CIb//GKh9n5J+Vnqd6VI8v83n0s5TAb+tIYrVDEJ1M8jsLCirG5IHYeOAylF?=
+ =?us-ascii?Q?mje0EuBdPTs/aWUtn6vujArh5OYHwgwAIDJVQij49TVioY2eTWWoxGrk/J+w?=
+ =?us-ascii?Q?jPv6viE2GFRyesQFt6nsm+PK4miiqOd2RkkliyyXx/JP8vZeBRzvP1QGIXJV?=
+ =?us-ascii?Q?QI233wdWwsz8vZYqivUsYb/MswPctB86Pp/3PBnjS7+aQv6wJ9bR6DgDHReT?=
+ =?us-ascii?Q?Y+7TA+97lrWvV8pPdViKnfFiGNSvKzzktx0pI+3rc8KDuurD+ojv4uHeR6+5?=
+ =?us-ascii?Q?4HYxwSNCgS6XZTdqnw/hjTPvG+JLWPiGPB/W3rxstASK8MbUnXRGdAMqM4pM?=
+ =?us-ascii?Q?SIbGfRnpFGpLCSnTwcgncY4vZtazMZ5wvBMQs5iBrkTARH+S3vDnvV9Lar8R?=
+ =?us-ascii?Q?sAeqla2bbCwwqMuOkGlb2LkDuI0dHyiUtemsFbayanFBTED7Tp/MwoPMRsj9?=
+ =?us-ascii?Q?p5PlGpdGlVF90yVYDJ8Iwb0/iBSSuYYFiD6+wGpKkTwfE5CqWOyxcCdR2ww8?=
+ =?us-ascii?Q?cX2a3ASkepBL0SnaSjHAcQGXBbezf0aXsfb6r83aBehZoxVrLFES2EVJD2fx?=
+ =?us-ascii?Q?KwD6WHtz1nYrUtTri9d7dLiv5/jWuGDGfhIXTyW1mUu1ZLuDW7ge2qJ9Zr2X?=
+ =?us-ascii?Q?MO+GHgj6FyPzdIfR2d8mfthEwrA01Il9PAHg?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HwB8JS9bBFaZO0LHMZlo0NXNvBVxCEDlBukCgGTAx9VQPzKAkiDB0gC19Ysn?=
+ =?us-ascii?Q?StIbLQVNMXOYpoddDI+b11k1xYb7Oi6n2sqYdWPfx36ZTxKYd8efGKL0mAn2?=
+ =?us-ascii?Q?v2QdiUGX07nCh9mB8uhzAt+678vPztjxU0k5IluMTerSsZwB4W2vwHgGvDZ2?=
+ =?us-ascii?Q?GFbw1Ongg8HkLoo63wVSL56vcZBtkgXF18WuwRkxcaxyHWXfiKjjayQAHk0S?=
+ =?us-ascii?Q?SVTRQy4F8l+Bg9eDjJzSY64oNrHZPn9Phy+K0OYt0GhitbOFn46YRrkGYBOc?=
+ =?us-ascii?Q?7Zw/MSWC0zrs89Z0q/EFjCLsQrfGMlLmWwtnMRAr4o572XXw0QxdG+A2Vlxk?=
+ =?us-ascii?Q?ObKt9vDo6VKFPCPWIag3HmyGfNenNdpiFy4VUROTsWOTfmfVD2+A77wubwrn?=
+ =?us-ascii?Q?ab6+cZL9SxwiasTuQM7u0E9qQUuTOewQ5iUUyoAFNFK9YC8cZ9pHu9YunYfW?=
+ =?us-ascii?Q?01MyFjp3s1breJZQUyU5rK3PsLD7XwA9g5xLydvr2LYeWaetW8vHdIHhhwcK?=
+ =?us-ascii?Q?8nz2LaVx19d166aStaHOPIMpmCFLTQOR88okRXBUNNa09/ooF/OzwzxeibbS?=
+ =?us-ascii?Q?h8IkpwSiAuqp/5BQMmUoYo/suysA2Da6/PCRSpl7FEHMle5KcAvwsacquPRk?=
+ =?us-ascii?Q?BMF29tqhOMqOiVpFKAqnrKlsSW3SIPg+RbWvKszrP1GrvRLQjIa8J5vECRiN?=
+ =?us-ascii?Q?atngg+4hlwkxT7x056QnwHgkZWTacdmb9UZxFEs67Tt5WEnGLIT2IK8TU73T?=
+ =?us-ascii?Q?TacCBu4L0KrQAsqUFEQ3c6hLtGImbhIIDFEbT7zo0adCvW/5QoOu8UAs0882?=
+ =?us-ascii?Q?Cu+sfg3wtudbKvAfP6UTBCFvOdM3xQxy16x6PUnyN5tBhBBEh4cdP0QzLvpY?=
+ =?us-ascii?Q?AAdLWuCgEu/4PiUelUl9IKxvDZR49gTxQ9dr3nDTn3B/G3YPb2sQz334/iK6?=
+ =?us-ascii?Q?NrJb4Wo5gxcdlfk/i9Yc4GPsZXHmC6Wzn992ZkZ3D3xRgthAM1uFWLrsIzpJ?=
+ =?us-ascii?Q?EiBg8/SVbv9fIIEROb9MBLTy1zkX2shlqW20d6S9hRUVDc55GQDTjVRqF8K3?=
+ =?us-ascii?Q?8mfd4Lh7c6ZuJ9xVUILQlw5TbGy475dvJk/7KMSroxxXZeN9gQ4xH6pylQxx?=
+ =?us-ascii?Q?SLRboBuLT6arsE1ucqyAgIAVWKBK6GY4KSTcoaryD3JOw6i1gKWcj1/tzCeG?=
+ =?us-ascii?Q?4kytw8EDIEb3Yo4PxQ9gJzy0AfM31M9cHRf2QORSHP7t3XEhUhN854E13SU2?=
+ =?us-ascii?Q?CsGL1bw+0Ki6UXedULDuvjNHEJLaFnTSCSga3XJGIYoZcf8gge6pj6A+x9vy?=
+ =?us-ascii?Q?vj+O5DlvE3OzwDN/SDxVDeisibOWIv+Y/gHmrbFo2cRLrDRr957xWaPDYCH4?=
+ =?us-ascii?Q?rikxCMvf4QwOP/CnMaQSwQGxVH6+KvQotck8iAl1kYhs5CueSDTE4bkVtKgk?=
+ =?us-ascii?Q?eU2Vhgp3Nuq2uNIk/QF//scl2CQR6cBJXdmLD5dpXjeqGyLs+FRzHCO+lytX?=
+ =?us-ascii?Q?VNcou0qm+CLT5qAXyWSOX1GNPboFpk10sA47Nq6l/a0cm05YmFkhwFZ1bMnU?=
+ =?us-ascii?Q?KcLg0h6Nmbt2CCIJYvabFleQXaSv+QQsdqB7Z1X7?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa88fa88-c183-4ec5-079c-08de1d4d48cd
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 15:58:10.5668
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L6LwQzwR1VPu/vgD5cCgUb32ngstnMly1m2xJKxtflA5/p1p0UYB6G4L/RwW1ut7X3wFMVMmr1D34aIPVwn7WQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6950
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_075815_497619_7036F988 
+X-CRM114-Status: GOOD (  44.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,55 +184,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The non-return per-CPU this_cpu_*() atomic operations are implemented as
-STADD/STCLR/STSET when FEAT_LSE is available. On many microarchitecture
-implementations, these instructions tend to be executed "far" in the
-interconnect or memory subsystem (unless the data is already in the L1
-cache). This is in general more efficient when there is contention as it
-avoids bouncing cache lines between CPUs. The load atomics (e.g. LDADD
-without XZR as destination), OTOH, tend to be executed "near" with the
-data loaded into the L1 cache.
+On Thu, Nov 06, 2025 at 10:34:48AM +0000, Rui Miguel Silva wrote:
+> On Wed Nov 5, 2025 at 7:31 PM WET, Frank Li wrote:
+>
+> > On Wed, Nov 05, 2025 at 07:19:28PM +0200, Laurent Pinchart wrote:
+> >> Hi Frank,
+> >>
+> >> On Wed, Nov 05, 2025 at 12:03:05PM -0500, Frank Li wrote:
+> >> > On Wed, Sep 03, 2025 at 09:56:29AM -0400, Frank Li wrote:
+> >> > > On Tue, Sep 02, 2025 at 02:39:20PM +0200, Laurent Pinchart wrote:
+> >> > > > On Tue, Sep 02, 2025 at 08:01:40AM -0400, Frank Li wrote:
+> >> > > > > On Tue, Aug 05, 2025 at 04:08:22AM +0300, Laurent Pinchart wrote:
+> >> > > > > > Hi Frank,
+> >> > > > > >
+> >> > > > > > Thank you for the patches.
+> >> > > > > >
+> >> > > > > > I've quite busy these days, and I don't believe I will have time to
+> >> > > > > > review this series before coming back from OSS Europe at the beginning
+> >> > > > > > of September. Let's see if anyone on CC could volunteer.
+> >> > > > >
+> >> > > > > Laurent Pincha
+> >> > > > > 	I hope you have good time at OSS.
+> >> > > > >
+> >> > > > > 	Do you have chance to review this patch?
+> >> > > >
+> >> > > > I'm going through my mail backlog, which is really big at the moment.
+> >> > >
+> >> > > Understand.
+> >> > >
+> >> > > > I'd like someone else to volunteer to review this series. It won't scale
+> >> > > > if I have to review all NXP media patches in my spare time :-/
+> >> > >
+> >> > > Yes, but none volunteer review this in passed months. Expecially key
+> >> > > reviewer. I am reviewing i3c patches. but Not familiar v4l system yet. It
+> >> > > need scalable solution. I can help filter some common and simple problem
+> >> > > from beginning.
+> >> >
+> >> > Laurent Pinchart:
+> >> >
+> >> > 	Do you have chance to check this serise? this one should be related simple.
+> >> > 	This one sent at 7/29. Still not any volunteer to review it.
+> >>
+> >> I'm afraid I won't have time to review this for the time being. My spare
+> >> time is already exhausted by all the other drivers I maintain upstream.
+> >>
+> >> > 	How do we move forward?
+> >>
+> >> I think this is a question for the subsystem maintainers. Hans, Mauro ?
+> >
+> > Mauro Carvalho Chehab and Hans Verkuil:
+> >
+> > 	Laurent provided great help about review and land i.MX related
+> > patches in past, who are quite famillar with i.MX chips. But he is quite
+> > busy. So the whole reviews cycles takes quite long time and offten cross
+> > some merge windows.
+> >
+> > 	In pull requests for 6.19:
+> > https://lore.kernel.org/all/4989c563-47f4-478c-80c4-41f7e98597e4@kernel.org/
+> > only 10 patches, and 4 patches is trivial clean up.
+> >
+> > 	In reviewing patch queue, there are
+> > 	1: media: nxp: imx8-isi: Add ISI support for i.MX95
+> > 	   https://lore.kernel.org/imx/20251105-isi_imx95-v3-0-3987533cca1c@nxp.com/T/#t
+> > 	   This one already review, but I am not sure if it capture 6.19 cycle because
+> > PULL-request already sent.
+> >
+> > 	2: Add MIPI CSI-2 support for i.MX8ULP
+> > 	   https://lore.kernel.org/imx/20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com/
+> >
+> > 	3: media: add imx93 mipi/controller csi support
+> > 	   https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
+> > 	   This one is quite big, but first 10 patches is simple trivial cleanup patches.
+> > 	   I post at 8/27, but get first feedback around 10/27, I am not
+> > 	   sure if missing somethings.
+> >
+> > 	4: This series, laurent already said no time review it.
+> >
+> > 	5: ap1302 sensor patches
+> >            https://lore.kernel.org/imx/20250811-ap1302-v4-0-80cc41b91662@nxp.com/
+> >            binding already ACK, most maintainer want to pick binding with
+> > 	   driver together, but not an feedback since 8/11.
+> >
+> > 	I jump into and help do some review.
+> >
+> > 	The questions is how to move forward pending patches, like [3], [4],
+> > [5]. How to keep good community channel to avoid long time pending?
+>
+> Sorry, but like Laurent I am really without spare cycles to go over the
+> patch series that have arrived in media (also I do not have any hw anymore).
+> So, Frank or maybe Laurent knows someone that would like to be add also as
+> maintainer of this drivers for me would be great, that would also help to
+> avoid such bottlenecks.
 
-STADD executed back to back as in srcu_read_{lock,unlock}*() incur an
-additional overhead due to the default posting behaviour on several CPU
-implementations. Since the per-CPU atomics are unlikely to be used
-concurrently on the same memory location, encourage the hardware to to
-execute them "near" by issuing load atomics - LDADD/LDCLR/LDSET - with
-the destination register unused (but not XZR).
+If there are not other candidate, I can help maintain it although I am more
+familar with dt binding, i3c and dmaengine. I can start from simple patches
+and we have test team to help cover testing on the real hardware.
 
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Link: https://lore.kernel.org/r/e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop
-Reported-by: Paul E. McKenney <paulmck@kernel.org>
-Tested-by: Paul E. McKenney <paulmck@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/percpu.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 9abcc8ef3087..d4dff4b0cf50 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -77,7 +77,7 @@ __percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
- 	"	stxr" #sfx "\t%w[loop], %" #w "[tmp], %[ptr]\n"		\
- 	"	cbnz	%w[loop], 1b",					\
- 	/* LSE atomics */						\
--		#op_lse "\t%" #w "[val], %[ptr]\n"			\
-+		#op_lse "\t%" #w "[val], %" #w "[tmp], %[ptr]\n"	\
- 		__nops(3))						\
- 	: [loop] "=&r" (loop), [tmp] "=&r" (tmp),			\
- 	  [ptr] "+Q"(*(u##sz *)ptr)					\
-@@ -124,9 +124,9 @@ PERCPU_RW_OPS(8)
- PERCPU_RW_OPS(16)
- PERCPU_RW_OPS(32)
- PERCPU_RW_OPS(64)
--PERCPU_OP(add, add, stadd)
--PERCPU_OP(andnot, bic, stclr)
--PERCPU_OP(or, orr, stset)
-+PERCPU_OP(add, add, ldadd)
-+PERCPU_OP(andnot, bic, ldclr)
-+PERCPU_OP(or, orr, ldset)
- PERCPU_RET_OP(add, add, ldadd)
- 
- #undef PERCPU_RW_OPS
+Frank
+>
+> Thanks in advance,
+> Cheers,
+>     Rui
+> >
+> > Best regards
+> > Frank Li
 
