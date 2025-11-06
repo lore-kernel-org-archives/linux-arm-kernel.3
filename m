@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4214ACCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D42CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=; b=P/iTWV+e9bc73+
-	/pPz0LS0RfQDeVjIk93+UlxSeeTN88gEX+4WTjOg2U0UlLXnS5J0hWCiKacHTND9lks9pj7u3b6SS
-	syLxjB2FRjx7g6KoZ9HhkCyE3VXJx8MgrjIkV3RelkMCEypGH/GAZZ+OmYFrgY7+cmHhzM2Mqc/9x
-	sW/JdBbw/RVWFkGXW7Egnb/cNe6UQky5/yQdLpfODkN1DTI4cI9x0AHDhdCMb8htE1xkVKUzMuonN
-	ru6Vq9J72RnqfxqZtwNZssBnJV3FQbdJF0oMwPirsHv5lgnzDjq0A5EY/t+/Cvo0TI9HHy3CZ7L5O
-	VLv2nFwIdR/tWwmbPVFg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UC7o/Lm5tysqi1r/QiS1zppEaC6hX+4dTRHAwtxyreU=; b=LK/cfUJVzhOGA74zHguPCxbzeD
+	Vc3F01fo7TAQCbh8TU539z88fqiM8vlv/KCHdgPC8Xt/p0kb/DTDhdPAy5uf4THqS5pJsitg4OCiN
+	MeA6AvdlsVM0TWhm7T+95m29ewcD/7T5VCqyOrPd2vRkz08TZ6Eul3E9KA5bupC3TB1yGlCaoU7S4
+	yrRGGgSeO5TR8grpro2rg1/ko1j5d4N9TTqveQGJWLwnsKr2McD8WLn7gK9ZfLsPmzmeuTv3pXGJC
+	Hd7CncMznQKZQ9DAuYJWBq93qUuiRlu/ZRAQiHlxnOuHyt/B+o+ZQjqlD22EJ7unxth/ghW1oJRjB
+	URzJDcuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5LB-0000000G7uW-1KHN;
-	Thu, 06 Nov 2025 19:08:13 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vH5LD-0000000G7wv-3BJI;
+	Thu, 06 Nov 2025 19:08:15 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5L7-0000000G7t6-3le1
+	id 1vH5LA-0000000G7tc-0GRC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 19:08:12 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-64124e430adso151284a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 11:08:09 -0800 (PST)
+	Thu, 06 Nov 2025 19:08:13 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b3c82276592so17753066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 11:08:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762456088; x=1763060888; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=;
-        b=O1Z7VrzPXegsBX8HiP5j5mH1tL6LyV5QThWJJmQOZ2m4SddgIDUixMoeq/+ZpHuyjN
-         JDM8o65Eg8UJKoWmGifuHB20lHV0cT2nlNnqyztlFM8NucPdPW0ggsUKG56uU4XsZ0cN
-         qweveibqW6LNN60wBYi7zaMRRQFMfdw2djWt6l22081XDnxk87dwr1FTv3hjkQnjF638
-         ZwES+saIzwzuYgQjR9RVPzodZZwDJeTm+l62ybQ9pP8M8Zh/Eaa4kJHfrfJhXzzTskDG
-         pOg6d5EaZOYEm6oxvgvM9Bj6VJZ+dcE0uWwv7sbeckyZ/HNadMe02+J/ZTBHX5OlAczr
-         sOjw==
+        d=linaro.org; s=google; t=1762456090; x=1763060890; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UC7o/Lm5tysqi1r/QiS1zppEaC6hX+4dTRHAwtxyreU=;
+        b=n9lPkElk9ByBp0vkoEMF0g1Nsa1tOFq4OdvW8y5d0E4gIvaFxxdCRhKNJ/1XISKBUX
+         Yqvmmg5lLUtXtMgC6krHqXdQ2VvsdHmak56Zp7sf55aRVt7VvCXtJ5sdK9oQf1FnC0mZ
+         WrhAyrjOeT0ZDnThye7X/1rlx4YUgIsfe8O0xV3J65tNsganyHP1hX3BGe39F0rAMNIg
+         VecEA/QJxuxjqIDovVUo8YJM7iypVYBxQS157OBBuUF0kohXXBgJykrN7R8sHgsUcJQT
+         DbZekHv/z8KTyUKZFCCDDHmrwnV80X8FZA19Wayp9wsZY3cJ5plZanQnP2R0qZ3TwFgb
+         45Jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762456088; x=1763060888;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=;
-        b=fIAIj429zC/H2BJa3fzk96K51JRcNk3lT2Jw0YZSrEbmF/9bazyXw8NsBBXkDL6Wcj
-         sVjnp3VeVA1dJzQ8VNUsbf9zV7Q4/chaTFLum4EIixjyNiIOhEWvtroJHHSK0ibEyB3B
-         laVZ3fpNavOnUVoVqgWZ1Hf8Bz/U1nTJ/b7odamuEAfFl8ec8KvlDmkDX2vyZ6N39APo
-         Quma2TAVBa5QIeH11ZyJZHmwFvQBZg05WSgQXbUpMzQFjJyzRbw215aAL3KvUkWlFHGD
-         tKlUfl9E1/gFHhwis7YFf8f6OMvGXH9IYdmpFrFyYmzeg5HzCR6zrBJhd4ZUL8vipoE/
-         CocQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIkchUN4R0R4V0YVaw9E/WCEFbdvOoyTHyU0vJZqxoWKfGQ/kJLJbaBb+MVtoX66ax/7r5iq1haIYWGeatskCn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAAY1yPFZfehynTAoDEHylI9+ioB2z9W48sH+qBnmBeoBUrPDH
-	0PeJ6EhUOZe8tJzUepbcj/9CmiiZIsBsK0G/xfSD/Afz+SE2fXAorSu0QP+Orn6FS9Q=
-X-Gm-Gg: ASbGncvx0b9sJDZo82iN8a1sRA9eM6lU4Qnc7rlItLRUy0e+5DrnGfr00QdbvFWq/9H
-	Il79zU289vcrO5bMdxH03blyLWpK0B0u1jO+H6gvqqvblRORDGk25xCqjpAyiKosliQYwkYLZoV
-	SFAg72jXlnbFa0o6JviuzYtty5pI6f2y+t4jyR6zPixMLPAbUePSEmrYvS3cRLsIUSm4vbCIB6X
-	gJH9KV2mp29/NbuQtpjcLQAJIcaJGxGkz4CKzkydJhiyNZ9+su+2UVfrIHwwGKNc7k2AzE8mzQ8
-	PO0EEXggzJiYp27FhnEccBRULuYmET34JhK+nxo8/2ya/kdUg5OX7S4Cwy9JKXDmskO/PF3e/mH
-	R/GVUdBbWpKtMi00Kb3pAnQkwg7dy2jKLIciZfV5y0DyuL0KrmK9nS2w9qc4Ri5NGzmFLkHCsWj
-	/5jV7DIDfTVH+tR48/9LtMpME53Yw=
-X-Google-Smtp-Source: AGHT+IFGWzZTlk6Pep5z9JJh/2iQFwbYfqTOhkd0VSyzz3YH59510NL660TZKF8rj5tPeiZrlMyDNQ==
-X-Received: by 2002:a17:907:3f24:b0:b65:c8b8:144f with SMTP id a640c23a62f3a-b72c0996c95mr16124866b.6.1762456087865;
-        Thu, 06 Nov 2025 11:08:07 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762456090; x=1763060890;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=UC7o/Lm5tysqi1r/QiS1zppEaC6hX+4dTRHAwtxyreU=;
+        b=wLl/NfDEHgTB1I59Ok+D9SQmeBDzghi7ApsXIa7wwpNFB+Xs/w2LpJCA5fN6VPE/bP
+         lqLJFFiL4Fa4QlQgf4ONe6mu9VbeMG3T3fBnaIbOAJbN7tBUJt3CBQxXRwu3O58oKZJK
+         RnfO+1WHOwKG3o42Psz3G3qAxB3PRO1d4COLkiaEs7T+Z5QSDFOSrds73/44ilB2NSiE
+         +FW18KSrW3v4K5Cui1e4EUxigmhIcaemV2ygOICTnBl0HV+HA9n/IkCoxy0CrI5kTpHU
+         o86jk0ivvlxvF585G1ooudQ8efzGcZ1gk3th2V8vYcFQg8hBgTLbwETwe3hpRIlakjMV
+         RyDg==
+X-Forwarded-Encrypted: i=1; AJvYcCW20XCXxLbHWyUoD6iaXkw0+ifTRYCZU45cBE1rtMduAL1/9OsGSfkDW/KRA7QucyGsQTjKy6/90QxQv1AmL6QY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR3j3gDKc+Zk1oSANkDCBs+LM7fTTxxbZg/ESRCBucNDcj15zk
+	L5QoU1cf5OvjD5Jlhzxa5LZmPYfu+gQqzKWmSEllltayGF/Qsb7l4ITFfhZPfXWrST0=
+X-Gm-Gg: ASbGncvJv4CBVBS8SwFDs0vIUiss2kfn8XV66blC9X/iJr4EERnzUM/hCkEmtzpPWWc
+	Ww8FSTatubVurB8RW22W5UVOeRDSqqXvWPZnTseZa0dGMoK0Bmt+SNJcbvlzPcJpYeRRQuKVBiy
+	GZC5Zz6INbhqQBd98qq6yS3u67T+FPF2zDhfX6yo9sSVKEIMtZc7YZBqF4Y68EGjMUtXuwvChWD
+	IYkWrY4Q8JwszWDvau/8RUJTSeweq8Ts+ZTDOStslFEEh/+gJV10wvrSNlnZn+v9lO/UIIyd4n6
+	w3rxLH5SJThHkaQZPq1m+dCW1zV5nGNPtIv5/04Wqrct4+Pq6KpOR+tzTwRw6/rArn89RW/tymE
+	oYRpl5HpekRBlwI1ESlzRacaRWeLbu2zPELyhtM/CsharTyDeQAFbtvUKb4cq60qJ+t/qP9VmEj
+	MgI5QRg0Hi29RdURWZdlF6VMIA9GU=
+X-Google-Smtp-Source: AGHT+IH4u0visRizZo2d3rYJCHF6DFTUhu6yOMzJeaTU5w4S3ldRzQL6ooWntCfuedndsflKkieXmA==
+X-Received: by 2002:a17:907:1c01:b0:b6a:382a:1516 with SMTP id a640c23a62f3a-b72c0d52bf6mr17951666b.5.1762456090174;
+        Thu, 06 Nov 2025 11:08:10 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bfa2510esm26739566b.72.2025.11.06.11.08.05
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bfa2510esm26739566b.72.2025.11.06.11.08.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 11:08:07 -0800 (PST)
+        Thu, 06 Nov 2025 11:08:09 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 00/13] of: Add wrappers to match root node with OF device
+Date: Thu, 06 Nov 2025 20:07:08 +0100
+Subject: [PATCH 01/13] of: Add wrappers to match root node with OF device
  ID tables
-Date: Thu, 06 Nov 2025 20:07:07 +0100
-Message-Id: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANzxDGkC/yWMMQqAMAwAvyKZDbQSi/gVcYiaagartCKC+HeLL
- gc33N2QJKokaIsbopyadAtZbFnAuHCYBXXKDpWpamuNw4Fw87jyMS4/NQhOfDASOxq8IddYgtz
- vUbxe37vrn+cFIRAvI2sAAAA=
-X-Change-ID: 20251106-b4-of-match-matchine-data-4a64bf046814
+Message-Id: <20251106-b4-of-match-matchine-data-v1-1-d780ea1780c2@linaro.org>
+References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
+In-Reply-To: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
 To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
  "Rafael J. Wysocki" <rafael@kernel.org>, 
  Viresh Kumar <viresh.kumar@linaro.org>, 
@@ -109,26 +108,26 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-tegra@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2925;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3693;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=0/jEOxtSFPK0PmIemOfKHGwBErRDUi05GZgJASgkD0U=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDPIG5LkF6rev9ukV/+9Qtp68gNcluS7tTEY5b
- xPa3VIbKtCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzyBgAKCRDBN2bmhouD
- 12G3D/9mfBQ7HGLDU/SZRXrLmtiPXCTDREluXdWUYAg8kpONNNEE75+x3up7wKYhs7S49bz7J27
- LN8BPJka1h7vYjEBYECOIAX9bwtTdR1QgpU+tJJRaN37ZNfdhdTG0SRuIbUpU5ONVnCTVbD+yzf
- 7zBhrdKxAlht4mclM1I6Gnv97bmFqpGq/Pp5p4YJBGUrlBvuzoL8u9W9CA+xxXjW93uVjGixBu8
- omyiKyhRMdLgPamka6AttrpGLvvpFJVQChi30yQdAEQVdbp+zHnz4jkteGLGPjH6jy4+PLURMgC
- 9FJfaviKGJDnBQYR1Vd/kpu9tnP/tW69frilBMHYt5kyIHvL5H31PJaQ+iBNmpavlBaLTjuylT+
- 5sTnNNeO2R2ewpIY2kWOYuIrjiGSYc+zeHjf8l/zFKVa3zpvFMpjcomXpu0vHESDLc9qBRt8EG5
- oRhuhAqACjuTy33Nt3xExzTEAmOENK7qDzWl2xWbiFO1sLRbMA2auneH6jgY+Vb9yIqwNUv2zJA
- /jZShiOwmSnJMha7tiydbA6xvwNQhNMBW1Rs5WJzcEmzRwCWNGTqmhZHOSAQsES3xDV/pFdvbJY
- 81lzvN3L/XYxoZ0HV75pW19zvzOuwUG+sbhLwIDHO5mlCNQ4qN/lssv+82nTDl+i971szhjo8Kd
- Jzhgda147d1CC0A==
+ bh=O33tzwOMuFzj5je6ou6p3VavVz9CrO7CoaSioDAC7d0=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDPIJjcqOIsRPKVtKm1n48qkLFTKl0iTeRLJML
+ O0ig2VobJSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzyCQAKCRDBN2bmhouD
+ 16upD/0ZvU0jba0Dx7VybPnYT2mGXlqQGiRbmnASkWMky8rIi6Sp8RSTLDhpclz2LmVx2skpz9v
+ 0r6fP/FAMEFShI7EOBA+3f2t6USlukHdnPVV5xooagFdsMEyVL6+LwbgBm0f51zE6VM/tdjSDvM
+ lCVONspGTJH1L/sttThdI2ovYpqbZYDhIgRcyLipKeWZte4YfeSzgnv3mOsaZFNFZKNt1Y8jn5q
+ lAnXZCY6RgamYZplen5FS1RlMwii6jqAT4iMGTBELYGQSe4sB6WFyV4jpa5ZvU6gKmSjgMPVrAa
+ u+SHuX1DmTVBI+iqI+OHv0K5lS2PQIvbQOYEI1nVsSxLPQj3FZDmO2dIMvtZq/A1xk150fjigAN
+ IXNMW7CdnSTV4oloo/K2XJKpIqVWKtkjEMeQz8y3d7z+i9ufMn+SvYkCQwhDWwr26gkfEIHxLRd
+ GcS4JoNkEeK1NPDp1DJsvbGwTtKcfxX5AE/GI11SX5KqZmCOcZfsh3AxXQsI6q/r/HIoj0pWGr/
+ aawjN/1UsCSiEDwm7T0yFZgc40VQp5wqrhuIZclvDr0ycCO6vt4LEFykBHRt5xA27HSsxSWVT35
+ oEZvCZypUBmVZTUMfjm3P2tcxblSskFAWSXealeXfawQqRW3usvcwdwSGsJ4wz1RkezOFDOI08h
+ PmOXu5HeggsWkCw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_110809_986613_2CAF0807 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20251106_110812_144861_D258C7C0 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,13 +142,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dependency/merging
-==================
-All patches depend on the first patch, thus everything could go via
-Rob's tree with people's acks.
-
-Description
-===========
 Several drivers duplicate same code for getting reference to the root
 node, matching it against 'struct of_device_id' table and getting out
 the match data from the table entry.
@@ -164,46 +156,107 @@ Add two wrappers, similar to existing of_device_get_match_data():
 2. of_machine_get_match_data() doing the matching and returning
    associated driver data for found compatible.
 
-Best regards,
-Krzysztof
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 ---
-Krzysztof Kozlowski (13):
-      of: Add wrappers to match root node with OF device ID tables
-      cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
-      cpufreq: mediatek: Simplify with of_machine_get_match_data()
-      cpufreq: sun50i: Simplify with of_machine_device_match()
-      cpufreq: ti: Simplify with of_machine_device_match()
-      cpuidle: big_little: Simplify with of_machine_device_match()
-      firmware: qcom: scm: Simplify with of_machine_device_match()
-      irqchip/atmel-aic: Simplify with of_machine_get_match_data()
-      platform: surface: Simplify with of_machine_get_match_data()
-      powercap: dtpm: Simplify with of_machine_get_match_data()
-      soc: qcom: Simplify with of_machine_get_match_data()
-      soc: qcom: ubwc: Simplify with of_machine_get_match_data()
-      soc: tegra: Simplify with of_machine_device_match()
 
- drivers/cpufreq/cpufreq-dt-platdev.c               | 15 ++-----
- drivers/cpufreq/mediatek-cpufreq.c                 | 12 +-----
- drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 11 +----
- drivers/cpufreq/ti-cpufreq.c                       | 13 +-----
- drivers/cpuidle/cpuidle-big_little.c               | 11 +----
- drivers/firmware/qcom/qcom_scm.c                   | 17 +-------
- drivers/irqchip/irq-atmel-aic-common.c             | 15 ++-----
- drivers/of/base.c                                  | 47 ++++++++++++++++++++++
- .../platform/surface/surface_aggregator_registry.c | 13 +-----
- drivers/powercap/dtpm.c                            | 16 +-------
- drivers/soc/qcom/qcom_pd_mapper.c                  | 17 +-------
- drivers/soc/qcom/ubwc_config.c                     | 14 ++-----
- drivers/soc/tegra/common.c                         | 12 +-----
- include/linux/of.h                                 | 13 ++++++
- 14 files changed, 82 insertions(+), 144 deletions(-)
+All further patches depend on this.
 ---
-base-commit: e5efebeef746a24f45b98dbdfcf334285848b32a
-change-id: 20251106-b4-of-match-matchine-data-4a64bf046814
+ drivers/of/base.c  | 47 +++++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/of.h | 13 +++++++++++++
+ 2 files changed, 60 insertions(+)
 
-Best regards,
+diff --git a/drivers/of/base.c b/drivers/of/base.c
+index 7043acd971a0..0b65039ece53 100644
+--- a/drivers/of/base.c
++++ b/drivers/of/base.c
+@@ -434,6 +434,53 @@ bool of_machine_compatible_match(const char *const *compats)
+ }
+ EXPORT_SYMBOL(of_machine_compatible_match);
+ 
++/**
++ * of_machine_device_match - Test root of device tree against a of_device_id array
++ * @matches:	NULL terminated array of of_device_id match structures to search in
++ *
++ * Returns true if the root node has any of the given compatible values in its
++ * compatible property.
++ */
++bool of_machine_device_match(const struct of_device_id *matches)
++{
++	struct device_node *root;
++	const struct of_device_id *match = NULL;
++
++	root = of_find_node_by_path("/");
++	if (root) {
++		match = of_match_node(matches, root);
++		of_node_put(root);
++	}
++
++	return match != NULL;
++}
++EXPORT_SYMBOL(of_machine_device_match);
++
++/**
++ * of_machine_get_match_data - Tell if root of device tree has a matching of_match structure
++ * @matches:	NULL terminated array of of_device_id match structures to search in
++ *
++ * Returns data associated with matched entry or NULL
++ */
++const void *of_machine_get_match_data(const struct of_device_id *matches)
++{
++	const struct of_device_id *match;
++	struct device_node *root;
++
++	root = of_find_node_by_path("/");
++	if (!root)
++		return NULL;
++
++	match = of_match_node(matches, root);
++	of_node_put(root);
++
++	if (!match)
++		return NULL;
++
++	return match->data;
++}
++EXPORT_SYMBOL(of_machine_get_match_data);
++
+ static bool __of_device_is_status(const struct device_node *device,
+ 				  const char * const*strings)
+ {
+diff --git a/include/linux/of.h b/include/linux/of.h
+index 121a288ca92d..01bb3affcd49 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -407,6 +407,8 @@ extern int of_alias_get_id(const struct device_node *np, const char *stem);
+ extern int of_alias_get_highest_id(const char *stem);
+ 
+ bool of_machine_compatible_match(const char *const *compats);
++bool of_machine_device_match(const struct of_device_id *matches);
++const void *of_machine_get_match_data(const struct of_device_id *matches);
+ 
+ /**
+  * of_machine_is_compatible - Test root of device tree for a given compatible value
+@@ -855,6 +857,17 @@ static inline bool of_machine_compatible_match(const char *const *compats)
+ 	return false;
+ }
+ 
++static inline bool of_machine_device_match(const struct of_device_id *matches)
++{
++	return false;
++}
++
++static inline const void *
++of_machine_get_match_data(const struct of_device_id *matches)
++{
++	return NULL;
++}
++
+ static inline bool of_console_check(const struct device_node *dn, const char *name, int index)
+ {
+ 	return false;
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.48.1
 
 
