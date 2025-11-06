@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCD0CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7868FCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CF4ODf2wTRFML1B4tRmpvs9bZoB7DEQ9x1Ify504Ygo=; b=TJesr5zERY3sxA5Nme9HX820Q+
-	bz/I/7sdviWnTajAGibvC8Xq9rstyCM52FxjhZGhchtDGLfT9SENw++MXJoOXNpzLdwhkJRn5psz2
-	4SAXlF0wqe6EQ4vj32YhW/BKfqJkfRuTXl0S/5YxKCFuS7NCJCJy+tyByOqUFb/K0GjHnr3nFoi1l
-	b/llq1TwM0hCxsb+2uirDNsCNCYbGyS2z11AkfI9vHbhEzCrkSxNNmoSjsQ+riVmtWevmW5pwhcJG
-	8ILn8BbLIySdHAc4BF73H87MrcEf13EQu7EFurvoAz7ZiLOaWEn1d48ObxzP9+G28hrzOlxQ7pqFg
-	OMOliuiw==;
+	bh=GMxbGaHTegvxzjmrCuxMyXkM1amJUDVoE5ZIXTzbZNE=; b=Jzc305GxSMO1VodFfRFLNf/oQR
+	NlWOyQjyasGsu6fgwvxbarR9suleX5IZ8MBPPGtgundUe7KnvTq4VqgCQXIr1xPRoxwNjN5DaGIo2
+	3yahFh1Xb8y7IUVtDPCQH1Aj//PuPvhFaJ6vT5M0dq5nZ8Ivb9WTT1St+n2Bs2VpAZxYBp8RlAU2a
+	F8J4ZFtYdDeZLCBThXl+HZdA4RnKTOcibZuaaoXrObANcANQl99u4KdPDU51jQAtKmuGuLTuzLHRg
+	mKwYQ3i0EsUXE6y29JxtP9uSlpnhjxSevR0dJqVJSmxlnOLCIzCkuODesGWp6jC+/3pA4t6FkP/SF
+	o9MfeURQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3eY-0000000G0SP-1hDj;
-	Thu, 06 Nov 2025 17:20:06 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vH3eh-0000000G0Vk-3Bn9;
+	Thu, 06 Nov 2025 17:20:15 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3eU-0000000G0Po-2lSg
+	id 1vH3ed-0000000G0Si-11bw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:20:04 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-426fc536b5dso851000f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 09:20:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1762449601; x=1763054401; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CF4ODf2wTRFML1B4tRmpvs9bZoB7DEQ9x1Ify504Ygo=;
-        b=wBD+VsZUZrxZ9d4kWOKwXdRHZ8WBDlnDv1uesGs7LorTwP6lCuzfREE87sYDDR9pGF
-         rE3l0VL8MZcASFX0aqxwHzkwVrpMEMi93UjaJ+CU2/9y+n+JOXZFYNFtNUC0FHTRq4qP
-         yugf4GnsZxaRHisxZYEz+sc1ijUde/aoJlqSaiygnYjHiySzG65T16gi9e0CEt5pTMEy
-         ELI9PZVXdlBajcwhZJU4WlViL3SQX+8IfQcuddnvmP0mhkYGXvFFRiruFfT79zO4w68B
-         kpFMxCEK6m9GAX18EFwpRPmYxbdKJbVsw5IeWBQTMKVVfzhdVjzg1wJ8dKvu/zyUBhmf
-         7VPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762449601; x=1763054401;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CF4ODf2wTRFML1B4tRmpvs9bZoB7DEQ9x1Ify504Ygo=;
-        b=uKl0Lz7sZO/s3hyQhTSacPNianTYF4rJ/jniC1VCHltbtG6QyiOCEYlsl8CrwQtmvP
-         Nc7LonwF/qswmcUUSxptkpmhyxplWbXuydXNk+TVTUi+FtA0abWEVXjP6to9Ya8Do9Jj
-         wKYe5tWq6HCh5WLqq0B86AEVnyTZn6eO+zau4TdCV5656ai0cbRglKGSXlRCS2CrxXuk
-         E2Wa4q1N3rAG/Vupg26y4LOp5BY9/8QIhXMHI0IDeu3y8RBG9kMlIm2nJNFSfhwM73C3
-         Mn5QSwXswxEE7MpZdZtmihQFhFeebt3akR+2fp9dxfsD/9lthWCcGKWVPjni7BUD3w7P
-         kW6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWEV00rQ8uwzbdJlKY/RSMSuMLivO/OeD6a1mW6b6B5/30FQjYJa6OBPFIrAG5prGOK1kjYP6hJj3xPBGmcoyS/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoKAZf6NyHjm32ErkyrSQ0FDNo3+70nWG70hV2cGcM61/TDF9b
-	2MnUftL7ZvHxmYloPzhxHQHZaiafAC3tnmhIU5UAH8rCZbPdOJaKN4XfHTlAzp0cxLE=
-X-Gm-Gg: ASbGncsfN7XN5LiDwF3v+qIYm4SUrYNAiY/cbxtDZ6gr6Ty5XgoDa+js2tAMBzZZ9VC
-	0LOLqh0iI0V4PnsaDXVi5iA4xpdCa/OJDCoUX8sb4AYsQHtTQ34M8wIEeRMchoTyNbBQtuTF37J
-	YOMHegldhTvTCOSKxtUI7CFDl8xr/bRgpt06t7dDtUYxC2F+fj4R/dlfYhpmQToDNdOHfRyMeOL
-	rO00y8KKN6Zz4GOgCTUypq5y5+Bjqty1sCirPGMsf0YQv9dbaLjF48ckbXQ+7p49F7ItREmGUBA
-	Tat5WRfc/R0WGfvncVrBkB1gUrT1+GWAj6DYIIsAdKUAims3roZbq8Cag7GnEJUEK8nkiK2eNbS
-	9/unQUJAUKVdFVDeWyhKIQcbkc86XUxnWaBjInWehhzP1zmjoDCUr7sOrevpepd7HQdsdcg==
-X-Google-Smtp-Source: AGHT+IGv3ddFv7Ixmi0z+24Qd5qosIPKUTQKcEJpg9ieaTfBELOhzQHfNLOSGn3SU4H3SmjfT+TvKA==
-X-Received: by 2002:a05:6000:22ca:b0:429:cd3f:f43b with SMTP id ffacd0b85a97d-42adc68940bmr1528f8f.4.1762449600670;
-        Thu, 06 Nov 2025 09:20:00 -0800 (PST)
-Received: from brgl-uxlite ([2a01:cb1d:dc:7e00:d9de:4038:a78:acab])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677b41csm215368f8f.34.2025.11.06.09.19.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 09:20:00 -0800 (PST)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: Re: (subset) [PATCH 0/4] gpio: Simplify with of_device_get_match_data()
-Date: Thu,  6 Nov 2025 18:19:58 +0100
-Message-ID: <176244959622.43499.14570364732284486996.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
-References: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
+	Thu, 06 Nov 2025 17:20:14 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251106172002epoutp0468464fd3532215bdca32e25babcb7e90~1epNENlvg0967309673epoutp045
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Nov 2025 17:20:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251106172002epoutp0468464fd3532215bdca32e25babcb7e90~1epNENlvg0967309673epoutp045
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1762449602;
+	bh=GMxbGaHTegvxzjmrCuxMyXkM1amJUDVoE5ZIXTzbZNE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=OYJ1GXgfV/XZM6ojtZSaI/3vG020gvqa7gJISvsW8Z2xJwsaN2nIoU2D582IRZA0o
+	 3qlBInMo1MbRvN7mEJspmxW45nJxNVQQCjtRRybuZ+DgyuLKQjGTEuzDqqyzhse9sJ
+	 utOjWzduvIZmewRbGl1E3fbsDQo3vqYzXkyHR8RY=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20251106172001epcas5p1dda439ff0736d2ad8b7b1fe79939d39c~1epMgioyt1461914619epcas5p1R;
+	Thu,  6 Nov 2025 17:20:01 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4d2TTX3cTNz6B9m4; Thu,  6 Nov
+	2025 17:20:00 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251106171959epcas5p1bfa773e26cfc783e69ddcb7ffca54190~1epLEgwkF1620916209epcas5p10;
+	Thu,  6 Nov 2025 17:19:59 +0000 (GMT)
+Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251106171954epsmtip2bfb46d347a900a171b074f453dd1a3cf~1epFsVcSg0814108141epsmtip2f;
+	Thu,  6 Nov 2025 17:19:54 +0000 (GMT)
+From: "Faraz Ata" <faraz.ata@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Andi Shyti'"
+	<andi.shyti@kernel.org>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<alim.akhtar@samsung.com>, <linux-i2c@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>,
+	<pritam.sutar@samsung.com>
+In-Reply-To: <7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
+Subject: RE: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
+ ports
+Date: Thu, 6 Nov 2025 22:49:03 +0530
+Message-ID: <000001dc4f41$948cb470$bda61d50$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFOiGH9IZBP/MALtVgmdgdp0NuXDgFMvpOsAcCx1FYC93HaobXRSjbA
+Content-Language: en-us
+X-CMS-MailID: 20251106171959epcas5p1bfa773e26cfc783e69ddcb7ffca54190
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251014111455epcas5p30731028365023e101dad3b9ba1f90bec
+References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
+	<20251014112338.2023223-1-faraz.ata@samsung.com>
+	<2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
+	<7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_092002_945861_F23B184D 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251106_092011_942833_3AE9A50F 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,25 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+HI  Krzysztof
 
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: Thursday, October 30, 2025 9:11 PM
+> To: Andi Shyti <andi.shyti=40kernel.org>; Faraz Ata <faraz.ata=40samsung.=
+com>
+> Cc: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
+> alim.akhtar=40samsung.com; linux-i2c=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
+> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> pritam.sutar=40samsung.com
+> Subject: Re: =5BPATCH v2=5D arm64: dts: exynosautov920: Add DT node for a=
+ll I2C
+> ports
+>=20
+> On 30/10/2025 16:34, Andi Shyti wrote:
+> > Hi Faraz,
+> >
+> > On Tue, Oct 14, 2025 at 04:53:38PM +0530, Faraz Ata wrote:
+> >> Universal Serial Interface (USI) supports three serial protocol like
+> >> uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
+> >> Add i2c nodes for all the instances.
+> >>
+> >> Signed-off-by: Faraz Ata <faraz.ata=40samsung.com>
+> >
+> > what happened to patch 1/1?
+>=20
+> Different patchset, no?
 
-On Thu, 06 Nov 2025 17:16:24 +0100, Krzysztof Kozlowski wrote:
-> Few simple cleanups, not tested on the hardware.
-> 
-> Care has to be taken when converting of_match_data() into
-> of_device_get_match_data(), because first can check arbitrary
-> device_node and the latter checks device's node.  Cases here should be
-> safe because of_match_data() uses 'pdev->dev.of_node'.
-> 
-> [...]
+In order to address your below comment=20
+https://lore.kernel.org/all/000001dc39a2=242cf5e570=2486e1b050=24=40samsung=
+.com/
 
-Applied, thanks!
+I added the lore link to dt binding in v2=20
+https://lore.kernel.org/all/176044840242.3094524.6549941972513295895.robh=
+=40kernel.org/
 
-[1/4] gpio: tb10x: Drop unused tb10x_set_bits() function
-      https://git.kernel.org/brgl/linux/c/4436f484cb437ba28dc58b7f787a6f80a65aa5c3
+Please suggest if anything else need to be done  and via which tree this pa=
+tch set will go
+>=20
+> Best regards,
+> Krzysztof
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
