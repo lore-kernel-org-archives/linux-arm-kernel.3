@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E5A9CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7747DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbx/QURwIjeUHxXbRkGU120xvy1OzyC8WzA8ZpLbBU8=; b=WxnST6WYHpFlL/Klzd8R9WGDQ5
-	dCvfdQriclR8ZU+KMpgFM3MUTAOWcZDRG045SGdsVA/VKYpm75avzfz5y1vZvMBt0pJpqNOt6kH3F
-	QGGOGsyiKJDAdI96+NczyvJ5r6OFDLt1S6v3erqPbmQQgZcVAtyNIp/arN/XV6Wnr7eIDoHnD8uoU
-	uLMVrztxl/iCaLzoMlOI1p5xMpqDuwcM+pzJNzwA3U4hxkTh9wpS3kTnaRIfo1h2IsESOctZah4Kg
-	ezC2IueQEpLHPPU87rJPvl9cq95h0BvhtI/i09f2TnzjWPPhpqbi014vuetVSNdj7V5qM+j2EWjDe
-	bIkyvWAg==;
+	bh=J2Dfi8ObLWDtR4Ds26hqQWc9pn2P2eSkWbDnDzh2tek=; b=zctBWGLg93B6/TKE9oynrGWkoh
+	yWpJ+Q1XH8b2vY7EU9frjcHxP8/VK9sL+nOtX53lwfyp9VhxDBvR/K0aK2VHAfXowCQBgap9x54K2
+	2aK1/OxOIDeozlmJ8NlV5W6FTBsnACnBBS/NwwrkP8/ZCFew4P6g3XjJCbmDlH3RWUhkl9LFQHM8N
+	IvE091XfDEUDEYvZ/CoW5oJvUl02f9UAITBgQcjTZk/F0Q6VZCNJkZoqtkce8eT5I+Hfn+KDrzd89
+	ucr2voeeksFSs829vWs/BiSFpIuK6befdlwlNiUegGU+QRSEDunLrqexGALau38FA/Gxf7hvEN+uK
+	nsfKbu0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpPd-0000000EjjZ-2g3M;
-	Thu, 06 Nov 2025 02:07:45 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1vGpPr-0000000Ek0o-2qt0;
+	Thu, 06 Nov 2025 02:07:59 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpPa-0000000EjHW-0ixY;
-	Thu, 06 Nov 2025 02:07:44 +0000
+	id 1vGpPn-0000000EjQ9-3Hx2;
+	Thu, 06 Nov 2025 02:07:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1762394831;
-	bh=hbx/QURwIjeUHxXbRkGU120xvy1OzyC8WzA8ZpLbBU8=;
+	s=altu2504; t=1762394838;
+	bh=J2Dfi8ObLWDtR4Ds26hqQWc9pn2P2eSkWbDnDzh2tek=;
 	h=From:To:Subject:Date:Message-Id;
-	b=dbMNM1WcveNPRCNa+XdBH4Mgf/F0VHbSBQyfSdVE803JWmgojptyukcQt1+nWaFX6
-	 3E1jAaXNr818MRUOQIQ8owxVyeDhlsi0Er56qHBGPlpFEdTOhuGvkcOzbgJNWLfQ80
-	 AsFro4FFyWDnb9V9IqX3s0ngIZ+ZXhxal1q4+sc4=
-X-QQ-mid: esmtpgz15t1762394829t0f07c30b
-X-QQ-Originating-IP: QZPMgX2USNKo5HEA2++y4wEpyHyL9QH/EATI2ze4C+o=
+	b=QWIMM8WMLgmM1GHI2ekmPYFThz45q9VZVmq8Tu/S+w+MjnJDs2JJKQrU8Tvupgr+7
+	 6bt1dw2uq68DQKZfSlWhkS2WbEyYGaocSqjGAQh9Qh3AkTrKWPk7JkscrPROkLZZBh
+	 jd+i5m3MBZx1lu4jT570uTwKfyaptIFTt8vWguiU=
+X-QQ-mid: esmtpgz15t1762394836t5c25a9a9
+X-QQ-Originating-IP: MNgHLaivXKIqdVXO1uJSHb8Co2TeOFaAisJDtLBd4mA=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 06 Nov 2025 10:07:07 +0800 (CST)
+	id ; Thu, 06 Nov 2025 10:07:14 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4356867921177031121
+X-BIZMAIL-ID: 4187062248744172939
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
@@ -63,36 +63,36 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-phy@lists.infradead.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Hongming Zou <hongming.zou@rock-chips.com>
-Subject: [PATCH 7/9] drm/rockchip: dsi: Add support for rk3506
-Date: Thu,  6 Nov 2025 10:06:30 +0800
-Message-Id: <20251106020632.92-8-kernel@airkyi.com>
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH 9/9] drm/rockchip: vop: Add support for rk3506
+Date: Thu,  6 Nov 2025 10:06:32 +0800
+Message-Id: <20251106020632.92-10-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251106020632.92-1-kernel@airkyi.com>
 References: <20251106020632.92-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M7OGOwGJ/FwKEJNhnwTmktqSTqpPSEiEb4tzm1v004AAuRZv2UE0hzKK
-	urqskMQaMtrJaOUrzCVyyKtPM1P1KQ2lcfVqw0v5vF/Ete7BZdPONjh8vrGe22hTnJmcUJi
-	89SSxFIv/dNwKAugT6ry3rzoJoRD2khwH9nPUL/mmEKzFkCw12W9GQJ1mPDQwMUXhyEoyrF
-	u2i6Pa5wKCzmwHqwUCd2XCN97v6j1+n9ZYmQGBVyWumSGDQ7qZYVuOKVpsbA+V1RyNBvSId
-	tDvZFP518ZLfb4HmGS2b7YqI22Np/32EmiI/9MnHgjAAl/Av5QS9U9Z5nVxp5wAZZU2mP3d
-	RMNp5hkZ1RCZjsCHXz5fBs7Wj/JlBe0YkivmnwweYjEyI89TtVOn2Zd2zp+GhMnLyHCbv8A
-	/ZrQObm2zvP5MMsx0/wGDA4YBzcy5WeKIHt1AjEIxXniZ3Rnl0AUEXUk4Vyj++1Hjg7tx+y
-	RPK58lmJJLhlmVgYFPs1OgyL5mnaavHx4zx4XVdw1tfQbKvyT/nvZOOD/SSBvfqSDVrrdjV
-	wJ6xf5ifG1p7+lP1L9p3n/zqSVbbtZ9AVrPJc0OsPQ8aVf8wfGk221PKXEiuhBTrgvwPVgD
-	f2WBj6WIFn7mSC9gmEvpfdby/m0piJDz2qUyQu6qhI9nuewO/62M1Fc6f1Oy6DM798/n60E
-	O/QrqkxsuZ9o6mRGHvsrED+3CA0SfwiS3+okq63DPFEc4c9QX0fDBdaCQUItaeyOdrDSg9X
-	E/qmwRmJA7dBP6xtkznXEJJKXelxHLiEuUAgH+tEheikZzIuKCDfjVgWqC2d0Y/UndBhHGZ
-	McUeElQFh0JC1ouWR+ycH9hXLGhyyxsR6zgkhxd9d4M4MK/1k7UMoAkEXhs10yXapblKnXu
-	MSU6G8smsVywpb3t7rxkPMJdfxpgGYkriDArOPoLBQ2rqMryIVNOWsfIDmbBJOYhX7nRGIB
-	gOLvjovBqLFV1BvLQAWGv8EJhdsCMH1TrPZHZH++nau1Oli19Uot9vXqbDB3vEytn8Wg=
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-XMAILINFO: NmjM7tI9iA2tclLMxUkABYeywUVgWiGT5d+cHlw3fxtG6M+TkmOC9emn
+	G69z+CUpiKxYB9BKG/DFScyQE8b3X/uNE/2uorCMt64eUnZNggaXcdE9RuEeU3SfX8t+v20
+	/q+3fZrScWbp1gKT11rm3JOBwHio8wzuHhUfUwMYMD6iG9MZ8ZKHtbs5ICB2MGAe+CS2Vvj
+	dwaeHOvdFxEaLWbkG+xakq2cj23rc6wSmXy8VUzYgZ14Q3ZtCTpzTXbU6hhXhgFaNu0qkSq
+	FNpIHtG+Mg2Hqu/M9vzIECGuk7PRduFdD5CqWKcXRJiHFPuBCapxh+4Z6DBzS4zSzEY+Cz1
+	FglCY6+XjFVkElG39Gge9aFcs2DGcybzjYCgF/ILu2/6GjB0wSgU36djHPFVmRWJ1hYM+fb
+	CL1p7036Z1zP7Eg25C/yKBU/SuriIzTU671fbKpttmolJPmS8Uo6mIGwfLRHGr9md+qOYmf
+	C0lUYJe8YIMitmlB0NdRSspNnALLMDBA415mN2KPhnO7/afL5Y1Xp+U0ddxwC4wLZG5f6bz
+	MHJfVutBlHwYywJq58B357JHw/IiWLqxtMTuyno5fUyGPMP6cNTW26wCG//ay/utfZCW2ol
+	0VrOfDUCE6yPVTbckosU+0wmajJwHPYPWOAue4S7modGzpKwj9AkVZNxNPS64BwgRHECVbk
+	uYV+rZ6TqXdpJNQ1PICVVh7cZL1J/Xh6EmHtKLt7sT/iwZqRLNWMB14wetJ73MXxJ+iQxui
+	oBj/yBhOmMqgFDjG6dDqXP/Tp23vnT5uXAUrpaElIdNzpSoodAT1ylCJxPy5m6VRvuajNWW
+	uz0qXWVOgpz1pdzAS/9rvmRebi32ZvaNTvLnGzh4iKK30GIYDQvagnLtQwN7hDHIcwmBk1X
+	uPtunjxzZoNxnWQZcEIkmO9p4irwsrLwa1aBXbd8lVCPQrLAG2iL33RJFiyTheugHKlPzr7
+	UVnxHqGNJ1FawHFzZdcaizdxn6zp+6kryDTJDU9sgKQKi8uA5uiPVIdYWmI+tUM7Wzc1r97
+	PACVtKgHNmY52td5yLJ1MXIO00/Z+CtxrgpTMcqA==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_180742_793787_1BF49A87 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20251105_180756_278681_A8FDE1DE 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +109,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The dsi controller found on RK3506 supports up to 2 lanes.
+The VOP on rk3506:
+- Support 2 lane MIPI DSI interface, 1.5Gbps/lane.
+- Support RGB interface.
+- Max output resolution is 1280x1280@60fps.
+- WIN1 layer support RGB888/ARGB8888/RGB565.
+- Support Gamma LUT.
+- ...
 
-Signed-off-by: Hongming Zou <hongming.zou@rock-chips.com>
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
- .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_vop_reg.c | 57 +++++++++++++++++++++
+ drivers/gpu/drm/rockchip/rockchip_vop_reg.h | 14 +++++
+ 2 files changed, 71 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 5523911b990d..06e58cf287d3 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -192,6 +192,11 @@
- #define RK3568_DSI0_TURNDISABLE		BIT(2)
- #define RK3568_DSI0_FORCERXMODE		BIT(0)
- 
-+#define RK3506_SYS_GRF_SOC_CON6		0x0018
-+#define RK3506_DSI_FORCETXSTOPMODE	(0xf << 4)
-+#define RK3506_DSI_TURNDISABLE		BIT(2)
-+#define RK3506_DSI_FORCERXMODE		BIT(0)
-+
- /*
-  * Note these registers do not appear in the datasheet, they are
-  * however present in the BSP driver which is where these values
-@@ -1643,6 +1648,18 @@ static const struct rockchip_dw_dsi_chip_data rk3399_chip_data[] = {
- 	{ /* sentinel */ }
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
+index d1f788763318..6b654b682a94 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
+@@ -1179,6 +1179,61 @@ static const struct vop_data rk3328_vop = {
+ 	.max_output = { 4096, 2160 },
  };
  
-+static const struct rockchip_dw_dsi_chip_data rk3506_chip_data[] = {
-+	{
-+		.reg = 0xff640000,
-+		.lanecfg1_grf_reg = RK3506_SYS_GRF_SOC_CON6,
-+		.lanecfg1 = (FIELD_PREP_WM16_CONST(RK3506_DSI_TURNDISABLE, 0) |
-+			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
-+			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
-+		.max_data_lanes = 2,
-+	},
-+	{ /* sentinel */ }
++static const struct vop_common rk3506_common = {
++	.standby = VOP_REG_SYNC(RK3506_SYS_CTRL2, 0x1, 1),
++	.out_mode = VOP_REG(RK3506_DSP_CTRL2, 0xf, 16),
++	.dsp_blank = VOP_REG(RK3506_DSP_CTRL2, 0x1, 14),
++	.dither_down_en = VOP_REG(RK3506_DSP_CTRL2, 0x1, 8),
++	.dither_down_sel = VOP_REG(RK3506_DSP_CTRL2, 0x1, 7),
++	.dither_down_mode = VOP_REG(RK3506_DSP_CTRL2, 0x1, 6),
++	.dsp_lut_en = VOP_REG(RK3506_DSP_CTRL2, 0x1, 5),
++	.dither_up = VOP_REG(RK3506_DSP_CTRL2, 0x1, 2),
++	.cfg_done = VOP_REG_SYNC(RK3506_REG_CFG_DONE, 0x1, 0),
 +};
 +
- static const struct rockchip_dw_dsi_chip_data rk3568_chip_data[] = {
- 	{
- 		.reg = 0xfe060000,
-@@ -1690,6 +1707,9 @@ static const struct of_device_id dw_mipi_dsi_rockchip_dt_ids[] = {
- 	}, {
- 	 .compatible = "rockchip,rk3399-mipi-dsi",
- 	 .data = &rk3399_chip_data,
-+	}, {
-+	 .compatible = "rockchip,rk3506-mipi-dsi",
-+	 .data = &rk3506_chip_data,
- 	}, {
- 	 .compatible = "rockchip,rk3568-mipi-dsi",
- 	 .data = &rk3568_chip_data,
++static const struct vop_output rk3506_output = {
++	.rgb_en = VOP_REG(RK3506_DSP_CTRL0, 0x1, 0),
++	.rgb_pin_pol = VOP_REG(RK3506_DSP_CTRL0, 0x7, 2),
++	.mipi_en = VOP_REG(RK3506_DSP_CTRL0, 0x1, 24),
++	.mipi_dclk_pol = VOP_REG(RK3506_DSP_CTRL0, 0x1, 25),
++	.mipi_pin_pol = VOP_REG(RK3506_DSP_CTRL0, 0x7, 26),
++};
++
++static const struct vop_win_phy rk3506_win1_data = {
++	.data_formats = formats_win_lite,
++	.nformats = ARRAY_SIZE(formats_win_lite),
++	.format_modifiers = format_modifiers_win_lite,
++	.enable = VOP_REG(RK3506_WIN1_CTRL0, 0x1, 0),
++	.format = VOP_REG(RK3506_WIN1_CTRL0, 0x7, 4),
++	.rb_swap = VOP_REG(RK3506_WIN1_CTRL0, 0x1, 12),
++	.channel = VOP_REG(RK3506_WIN1_CTRL1, 0xf, 8),
++	.yrgb_vir = VOP_REG(RK3506_WIN1_VIR, 0x1fff, 0),
++	.yrgb_mst = VOP_REG(RK3506_WIN1_MST, 0xffffffff, 0),
++	.dsp_info = VOP_REG(RK3506_WIN1_DSP_INFO, 0xffffffff, 0),
++	.dsp_st = VOP_REG(RK3506_WIN1_DSP_ST, 0xffffffff, 0),
++	.alpha_en = VOP_REG(RK3506_WIN1_ALPHA_CTRL, 0x1, 0),
++	.alpha_mode = VOP_REG(RK3506_WIN1_ALPHA_CTRL, 0x1, 1),
++	.alpha_pre_mul = VOP_REG(RK3506_WIN1_ALPHA_CTRL, 0x1, 2),
++};
++
++static const struct vop_win_data rk3506_vop_win_data[] = {
++	{ .base = 0x00, .phy = &rk3506_win1_data,
++	  .type = DRM_PLANE_TYPE_PRIMARY },
++};
++
++static const struct vop_data rk3506_vop = {
++	.version = VOP_VERSION(2, 0xe),
++	.feature = VOP_FEATURE_INTERNAL_RGB,
++	.intr = &px30_intr,
++	.common = &rk3506_common,
++	.modeset = &px30_modeset,
++	.output = &rk3506_output,
++	.win = rk3506_vop_win_data,
++	.win_size = ARRAY_SIZE(rk3506_vop_win_data),
++	.lut_size = 256,
++	.max_output = { 1280, 1280 },
++};
++
+ static const struct vop_common rv1126_common = {
+ 	.standby = VOP_REG_SYNC(PX30_SYS_CTRL2, 0x1, 1),
+ 	.out_mode = VOP_REG(PX30_DSP_CTRL2, 0xf, 16),
+@@ -1259,6 +1314,8 @@ static const struct of_device_id vop_driver_dt_match[] = {
+ 	  .data = &rk3228_vop },
+ 	{ .compatible = "rockchip,rk3328-vop",
+ 	  .data = &rk3328_vop },
++	{ .compatible = "rockchip,rk3506-vop",
++	  .data = &rk3506_vop },
+ 	{ .compatible = "rockchip,rv1126-vop",
+ 	  .data = &rv1126_vop },
+ 	{},
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop_reg.h b/drivers/gpu/drm/rockchip/rockchip_vop_reg.h
+index addf8ca085f6..7805533e88bc 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop_reg.h
++++ b/drivers/gpu/drm/rockchip/rockchip_vop_reg.h
+@@ -1033,4 +1033,18 @@
+ #define RK3066_DSP_LUT_ADDR		0x800
+ /* rk3066 register definition end */
+ 
++/* rk3506 register definition */
++#define RK3506_REG_CFG_DONE		0x00
++#define RK3506_SYS_CTRL2		0x18
++#define RK3506_DSP_CTRL0		0x20
++#define RK3506_DSP_CTRL2		0x28
++#define RK3506_WIN1_CTRL0		0x90
++#define RK3506_WIN1_CTRL1		0x94
++#define RK3506_WIN1_VIR			0x98
++#define RK3506_WIN1_MST			0xa0
++#define RK3506_WIN1_DSP_INFO		0xa4
++#define RK3506_WIN1_DSP_ST		0xa8
++#define RK3506_WIN1_ALPHA_CTRL		0xbc
++/* rk3506 register definition end */
++
+ #endif /* _ROCKCHIP_VOP_REG_H */
 -- 
 2.51.1
 
