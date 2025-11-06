@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7BEFCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5C3CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d61fN+YsBbfOpc/TI9xXXEgh8u4ram9nD50U99mHlYE=; b=yaH/tuP5hL7RuqxDEAfbGJZHha
-	t/E+fmJLcnX2m+8jmx2Vx+eq9iFGSKFZdtHUFNGXarWi+lgUZ1ec5Dzu2CK82ppfnjIi9Mqc/YDvE
-	LZaJ6xD8nyNcIhhBNQDO6f1g9EB4ko5iznvM8UdEV7PvC93evNvra3ruBeU7CdWMJp/Kp6zHFiyy0
-	LifFCjV9/uQZ9CEvS+AAhjNwxW28RnCHr+6q5wPH/eqsACcDsCTtpkb4Bu1mCh/9X1vHBlsNOGWMC
-	xNZsI15kFeSGueYiYPvGebM8iar8RDC4bR9WmKP6aOlTVhw6WbhunBkv8qgcfFqe3opPgzrLEykqa
-	WqDC/RKQ==;
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=; b=DQBv7VNEWPpPo1/nFsJQQyCskY
+	wQEXd3yQqcxCjRq1oDwBSD5L25I3VSdkiQutWE/FxbVBlLX6du2mcJVXVq56kUQNt8AT1lnYgNPVu
+	G1whqRMdnpTqjl3deg/LAnkGxyO2IigftmcMiH6a6B2Pk/hMb7ojZm7z9m6L7v6Ei4b0WPCdDHWdU
+	RmXMZP/eSREWSiSW23xQwfKpRMjIERKzwgentMyUI21xNLxsKAkxAjFdwB38HFU2mlv9mMcJ6CI2k
+	d/WXRCpyCpwvLH0BwzhkDyg327DlUgBqky4jeMrVxI7QW+886D/x5tpr4507Oqu8oIYZITOFts4FA
+	SzPSOgYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwor-0000000FEVt-2CDJ;
-	Thu, 06 Nov 2025 10:02:17 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vGwox-0000000FEc2-0spU;
+	Thu, 06 Nov 2025 10:02:23 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwom-0000000FESF-3xDq
+	id 1vGwom-0000000FES9-1slX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:02:16 +0000
+	Thu, 06 Nov 2025 10:02:17 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762423331;
+	s=2020; t=1762423330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=d61fN+YsBbfOpc/TI9xXXEgh8u4ram9nD50U99mHlYE=;
-	b=CZq9Wu29/BJLN8xesS+fKvmG1nv36JlDSJ08JYmTChRiPH3pFjjoTZVsuEHtE7/NjtI9YA
-	YJMEFbkvYTBVSFiTI5rExiIWya8v7PZ5xFs38uZHp2RQKD5RuPIvvxUbt5ByzazItDNu3L
-	mAATXLbZEBLRAKhRfsUTkIfyb8OnQSzlJ1EhzuA7arp2ROcXTteWn9ravQGD5ERyklNRe1
-	QlUUaNbtCO5xem0Y2pgdj0nAlkOoialkJGgIMCLPp2RTu4WKwAah2lKOLYd+kDV5HcZ7kk
-	xc+QO2kvkbD5clIRDuiddBhx7teFC6hrCM+l+CaNWS4/3hUpjSXTeK+W5ZiHWQ==
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
+	b=hm7jLjPZC3DNZd+mkVfN1lMzCb3u9kivIlsycw+gwfmiaCsYsN0ANrTxXLlpz5OhDS/4bh
+	WqTGfyX9mGYLHMGKqDbVX/P3iESHlyihWmEGwhDSHW+WsOHGuTqxHlvYnZ3j3h7n9nvLln
+	X9ifkX3o5r5rKMPzGTaXNhJwIp7/8LAlUIJMRbZvH4DgmVt+MVWs9CEEqzMEFIaTEXa6Iu
+	JkYrVPQDma4I2SSoADQZyslE7YrabKx0HCtu4UXD7bT3nsz1J1NCJ+GYbzvZ2mbw6D15/R
+	tbK5uAxCXPC+qTKS7CfH2ZYDmyqjkg/FDEYwypouUlsioepkOd/ygPZ/Q0/nAg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762423331;
+	s=2020e; t=1762423330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=d61fN+YsBbfOpc/TI9xXXEgh8u4ram9nD50U99mHlYE=;
-	b=d8Y4q6xGHeWZSFTaw6xKwtX2QEMXFsfEkbUXtkn6AAQuREvr9ASttKf2YQISbUxSOyht3Q
-	cJYdpKIJ9okV3tAA==
-Date: Thu, 06 Nov 2025 11:01:56 +0100
-Subject: [PATCH v5 03/34] arm64: vDSO: gettimeofday: Explicitly include
- vdso/clocksource.h
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
+	b=wfA+JYYxRMMV+QkT5tYVabNViCFlYaQ2lVXLrOdy8Ok91sBH9uMkSlWws9WuhFHg9Uc6sR
+	LAo0Jb1ENdleDJBg==
+Date: Thu, 06 Nov 2025 11:01:55 +0100
+Subject: [PATCH v5 02/34] arm64: vDSO: getrandom: Explicitly include
+ asm/alternative.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-3-97ff2b6542f7@linutronix.de>
+Message-Id: <20251106-vdso-sparc64-generic-2-v5-2-97ff2b6542f7@linutronix.de>
 References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,16 +82,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=950;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=1038;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=XfbRCZJaIPPL9RqG5I4uWuUiOvFF0sMMnDdDPpO0Deo=;
- b=3GS8tpkvgHKiJsfgHWm5ubVV3I9cKnKzRWQdI3BUDk0saE9EvuDLjaf1Hnk6AktCIMkBuZ3PL
- IRavzTBjoL5CCZ57tc9RUOnuLxLNp3A1Z6w12JRbI6JL0LWjT+ZOfVN
+ bh=/RM2+eho8hCHlVVsxMDHxgwRFdNnaqJNQrWh/y7GNvw=;
+ b=dZ7KLH36vebcT3Ftq2fW/Lbv53KxGB1dFjCDsdQBFAwF/tOHnrR386UTCh04Ib/bMdTzsbHFG
+ hklbRXwhAROBU6PGi5meyVTV4jtwSlU0eRZ8hJB1KKxaJbs6V5UX992
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020213_122202_8D3D41C1 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20251106_020212_630483_D475762D 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,9 +107,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The reference to VDSO_CLOCKMODE_NONE requires vdso/clocksource.h. Currently
-this header is included transitively, but that transitive inclusion is
-about to go away.
+The call to alternative_has_cap_likely(ARM64_HAS_FPSIMD) requires symbols
+from asm/alternative.h. Currently this header is included transitively, but
+that transitive inclusion is about to go away.
 
 Explicitly include the header.
 
@@ -117,22 +117,22 @@ Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/arm64/include/asm/vdso/gettimeofday.h | 2 ++
+ arch/arm64/kernel/vdso/vgetrandom.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
-index c59e84105b43cdb0c823da3dd793a83781f84302..909780bcadae92109b175e23cb05e966683731d4 100644
---- a/arch/arm64/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/gettimeofday.h
-@@ -9,6 +9,8 @@
+diff --git a/arch/arm64/kernel/vdso/vgetrandom.c b/arch/arm64/kernel/vdso/vgetrandom.c
+index 832fe195292b34e2029f593ea170347c98e06dac..0aef124c90899dc0c8956b0f32f54992aa3acf0b 100644
+--- a/arch/arm64/kernel/vdso/vgetrandom.c
++++ b/arch/arm64/kernel/vdso/vgetrandom.c
+@@ -2,6 +2,8 @@
  
- #ifndef __ASSEMBLY__
+ #include <uapi/asm-generic/errno.h>
  
-+#include <vdso/clocksource.h>
++#include <asm/alternative.h>
 +
- #include <asm/alternative.h>
- #include <asm/arch_timer.h>
- #include <asm/barrier.h>
+ typeof(__cvdso_getrandom) __kernel_getrandom;
+ 
+ ssize_t __kernel_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
 
 -- 
 2.51.0
