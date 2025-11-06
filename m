@@ -4,88 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7868FCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F129CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMxbGaHTegvxzjmrCuxMyXkM1amJUDVoE5ZIXTzbZNE=; b=Jzc305GxSMO1VodFfRFLNf/oQR
-	NlWOyQjyasGsu6fgwvxbarR9suleX5IZ8MBPPGtgundUe7KnvTq4VqgCQXIr1xPRoxwNjN5DaGIo2
-	3yahFh1Xb8y7IUVtDPCQH1Aj//PuPvhFaJ6vT5M0dq5nZ8Ivb9WTT1St+n2Bs2VpAZxYBp8RlAU2a
-	F8J4ZFtYdDeZLCBThXl+HZdA4RnKTOcibZuaaoXrObANcANQl99u4KdPDU51jQAtKmuGuLTuzLHRg
-	mKwYQ3i0EsUXE6y29JxtP9uSlpnhjxSevR0dJqVJSmxlnOLCIzCkuODesGWp6jC+/3pA4t6FkP/SF
-	o9MfeURQ==;
+	bh=TQ4GgdM8KMjiFNoveJBSCQRm3uDbF8oZgBhhE89LoX4=; b=SUe12PvqPmHnyHeKSEF8MiGc4x
+	I+qGIljriABmipGLJ1UXoB2YD3F8c6eA2cL3oBxGVroIyC5M6d4Iz1S7e2hQgHiMGfVhlGj2y7aFc
+	hh8h5YGuPSsa0wIGQnr/nyj6TWDDgJMmRGiRH37WEiAmleL8ApPftrKk2GKvwbqPEFSNsw0rBkuiR
+	AlgcB+xm52BKi0t1CRA0VruzwU9vrP7k2geT9JP7+p+IBFT6lrkEPcYJsnrhRfiuLlTKBbO9hg0BO
+	cwgBxl00ZBloAEzIK238V49uZ1upV/HY+Y4+b4YouYfi9rKttZt/c+p6qsfJOlXOWYPy5RMBF2c13
+	iPUjVTEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3eh-0000000G0Vk-3Bn9;
-	Thu, 06 Nov 2025 17:20:15 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1vH3gc-0000000G0mp-150r;
+	Thu, 06 Nov 2025 17:22:14 +0000
+Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3ed-0000000G0Si-11bw
+	id 1vH3gZ-0000000G0mN-0wEd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:20:14 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251106172002epoutp0468464fd3532215bdca32e25babcb7e90~1epNENlvg0967309673epoutp045
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Nov 2025 17:20:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251106172002epoutp0468464fd3532215bdca32e25babcb7e90~1epNENlvg0967309673epoutp045
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1762449602;
-	bh=GMxbGaHTegvxzjmrCuxMyXkM1amJUDVoE5ZIXTzbZNE=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=OYJ1GXgfV/XZM6ojtZSaI/3vG020gvqa7gJISvsW8Z2xJwsaN2nIoU2D582IRZA0o
-	 3qlBInMo1MbRvN7mEJspmxW45nJxNVQQCjtRRybuZ+DgyuLKQjGTEuzDqqyzhse9sJ
-	 utOjWzduvIZmewRbGl1E3fbsDQo3vqYzXkyHR8RY=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251106172001epcas5p1dda439ff0736d2ad8b7b1fe79939d39c~1epMgioyt1461914619epcas5p1R;
-	Thu,  6 Nov 2025 17:20:01 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4d2TTX3cTNz6B9m4; Thu,  6 Nov
-	2025 17:20:00 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251106171959epcas5p1bfa773e26cfc783e69ddcb7ffca54190~1epLEgwkF1620916209epcas5p10;
-	Thu,  6 Nov 2025 17:19:59 +0000 (GMT)
-Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251106171954epsmtip2bfb46d347a900a171b074f453dd1a3cf~1epFsVcSg0814108141epsmtip2f;
-	Thu,  6 Nov 2025 17:19:54 +0000 (GMT)
-From: "Faraz Ata" <faraz.ata@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Andi Shyti'"
-	<andi.shyti@kernel.org>
-Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alim.akhtar@samsung.com>, <linux-i2c@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>,
-	<pritam.sutar@samsung.com>
-In-Reply-To: <7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
-Subject: RE: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
- ports
-Date: Thu, 6 Nov 2025 22:49:03 +0530
-Message-ID: <000001dc4f41$948cb470$bda61d50$@samsung.com>
+	Thu, 06 Nov 2025 17:22:13 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 7131AEC025B;
+	Thu,  6 Nov 2025 12:22:07 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 06 Nov 2025 12:22:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1762449727;
+	 x=1762536127; bh=TQ4GgdM8KMjiFNoveJBSCQRm3uDbF8oZgBhhE89LoX4=; b=
+	PtsuK0f319LO45lQah6VIlHKcBebKDpwzs+8+S63Ih2uA1rnN8V+VHZwIo2IR6gE
+	UotFl2nTxcby+j5R8f+Vmuhxgv4Hm5O90ixA7ZgJVMPMdu/irmAXQa3pHZxYlZUc
+	Y3f3UI4bGgKxUqnYTCJr8stJZjZ49rN3UUh+m/DZ2yRbXZ06n5E35cbZ7jN2ns4R
+	YE4x8CAbK0h4ChU4SWLti5Pf+Q+ujzQi+QAQehiYOzJbLeI8TuzyVsoRzZGYGEV2
+	A792tJTOa9P3sKs4bNkVl89ferrG8+rQk6iKTByyeeLSfS2GncgY4E+R048EQ6c8
+	OuiDEnH515NYfsukF4a9Ig==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1762449727; x=
+	1762536127; bh=TQ4GgdM8KMjiFNoveJBSCQRm3uDbF8oZgBhhE89LoX4=; b=2
+	I7NVcIlWD2z3AfmYy/yeycsO4xGBqfCc1aJomcwzCoFur0AJ2uwG5Pxj9ZVMWP/P
+	3fkJnC+MlLYdb1437+n4JwWje2YGCl5TBbkERKxQek8I3DXRTHm2Ov/xL3gU1AUH
+	lP25GALiK/8YCJS8GJQMXZISwykI/bvZzMQbD6IqleeaQ1xHQk/pf4XLW8a89ZNv
+	OX95Ffje2Bgdlk2/B9QwfyYmnNd/eTvKG06IuZyVGFox9K+C6ON4INyUtY+B4P7i
+	/U1aaoL3jCfy65gUg/S0o/6AqzGuFurnw9i9bJjp27E1jQXjw2J61Znbq74l6Sdk
+	spCFNTas3qBD8tC8Dw+Jw==
+X-ME-Sender: <xms:PNkMaZMO1lPn7wub_x6RJYgXvPR-dmuVBOLe0MmQ3izKbD81hs6pnA>
+    <xme:PNkMaWwaT8hRBGLxXu_WTAWlI-HdBAVJFL4oRJhvE5E1lv6zloisZkL9eWoT0SWaT
+    IBdHg99pY-IDRQaDME0mJ54bwa48zwh-Mbn5smpD0W0gHaoCVNujIo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddukeejfeejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepkedvuefhiedtueeijeevtdeiieejfeelvefffeelkeeiteejffdvkefgteeuhffg
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
+    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
+    phhtthhopeefkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepthhssghoghgvnh
+    gusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgtphhtthhopegtrghtrghlihhnrdhm
+    rghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepvhhinhgtvghniihordhfrhgrsh
+    gtihhnohesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidr
+    ohhrghdruhhkpdhrtghpthhtoheptghhrhhishhtohhphhgvrdhlvghrohihsegtshhgrh
+    houhhprdgvuhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhr
+    tghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghupdhrtghpthhtoheprghnug
+    hrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehnphhighhgihhnsehgmhgr
+    ihhlrdgtohhm
+X-ME-Proxy: <xmx:PNkMaVUYfrmc5te1EUxSvgQ8TRVDaDGzRierkf5jayA311IlXx5ADA>
+    <xmx:PNkMabX_DlTmYrLzD_sdL2tXkJ4F4s076mdaMi8qr6vq8DbuWNylbw>
+    <xmx:PNkMaYMfKmo2E2B0ITXYRv6LyemjW9LOLDP3wOmyt7voffmGNPYxVA>
+    <xmx:PNkMafizk25mJNDFFaNeFGIdB428VC0-WvGeQMoXVrdUlnXuPgrPYA>
+    <xmx:P9kMaUCgmYPQKJzxhj8GAva_-VVQifLJ9oCwH3jMqxAHtW82r16n0xOk>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 78838700054; Thu,  6 Nov 2025 12:22:04 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: AisJtzLZ_1Kg
+Date: Thu, 06 Nov 2025 18:20:36 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Andy Lutomirski" <luto@kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Nick Alcock" <nick.alcock@oracle.com>,
+ "John Stultz" <jstultz@google.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ shuah <shuah@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Shannon Nelson" <sln@onemain.com>
+Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-s390@vger.kernel.org,
+ "Arnd Bergmann" <arnd@kernel.org>
+Message-Id: <95430a56-1ee4-46e2-814e-01a8cd074a48@app.fastmail.com>
+In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+Subject: Re: [PATCH v5 00/34] sparc64: vdso: Switch to the generic vDSO library
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFOiGH9IZBP/MALtVgmdgdp0NuXDgFMvpOsAcCx1FYC93HaobXRSjbA
-Content-Language: en-us
-X-CMS-MailID: 20251106171959epcas5p1bfa773e26cfc783e69ddcb7ffca54190
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251014111455epcas5p30731028365023e101dad3b9ba1f90bec
-References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
-	<20251014112338.2023223-1-faraz.ata@samsung.com>
-	<2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
-	<7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_092011_942833_3AE9A50F 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20251106_092211_604492_20AD0CF0 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +142,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HI  Krzysztof
+On Thu, Nov 6, 2025, at 11:01, Thomas Wei=C3=9Fschuh wrote:
+> The generic vDSO provides a lot common functionality shared between
+> different architectures. SPARC is the last architecture not using it,
+> preventing some necessary code cleanup.
+>
+> Make use of the generic infrastructure.
+>
+> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+>
+> SPARC64 can not map .bss into userspace, so the vDSO datapages are
+> switched over to be allocated dynamically. This requires changes to the
+> s390 and random subsystem vDSO initialization as preparation.
+> The random subsystem changes in turn require some cleanup of the vDSO
+> headers to not end up as ugly #ifdef mess.
+>
+> Tested on a Niagara T4 and QEMU.
+>
+> This has a semantic conflict with my series "vdso: Reject absolute
+> relocations during build" [0]. The last patch of this series expects a=
+ll
+> users of the generic vDSO library to use the vdsocheck tool.
+> This is not the case (yet) for SPARC64. I do have the patches for the
+> integration, the specifics will depend on which series is applied firs=
+t.
+>
+> Based on v6.18-rc1.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: Thursday, October 30, 2025 9:11 PM
-> To: Andi Shyti <andi.shyti=40kernel.org>; Faraz Ata <faraz.ata=40samsung.=
-com>
-> Cc: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
-> alim.akhtar=40samsung.com; linux-i2c=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
-> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> pritam.sutar=40samsung.com
-> Subject: Re: =5BPATCH v2=5D arm64: dts: exynosautov920: Add DT node for a=
-ll I2C
-> ports
->=20
-> On 30/10/2025 16:34, Andi Shyti wrote:
-> > Hi Faraz,
-> >
-> > On Tue, Oct 14, 2025 at 04:53:38PM +0530, Faraz Ata wrote:
-> >> Universal Serial Interface (USI) supports three serial protocol like
-> >> uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> >> Add i2c nodes for all the instances.
-> >>
-> >> Signed-off-by: Faraz Ata <faraz.ata=40samsung.com>
-> >
-> > what happened to patch 1/1?
->=20
-> Different patchset, no?
+I had a look at this version and everything looks fine to me.
 
-In order to address your below comment=20
-https://lore.kernel.org/all/000001dc39a2=242cf5e570=2486e1b050=24=40samsung=
-.com/
+Acked-by: Bergmann <arnd@arndb.de>
 
-I added the lore link to dt binding in v2=20
-https://lore.kernel.org/all/176044840242.3094524.6549941972513295895.robh=
-=40kernel.org/
+I see that you have sent the series 'to' a lot of people, so
+I'm not sure who you expect to merge it. I assume this will all
+go through the tip/timers/vdso branch, unless you need me to
+pick it up through the asm-generic tree instead.
 
-Please suggest if anything else need to be done  and via which tree this pa=
-tch set will go
->=20
-> Best regards,
-> Krzysztof
-
+     Arnd
 
