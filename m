@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C3ACCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B4BCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y3tGpR5SbTtmYH9/UhUB7FG7sTK6XysaxzCJ0fbVJv4=; b=Yl0hZn7eU2tXKiSCZbwgeDqHEb
-	WfeMaoSFsgkSBDoEzz0e3ZOwQrcRhU4aIRqua2+KLd9pUZja7KLkby6OZ0POJWu6MqzCWRxBG6Jz+
-	mWekCF2On4sQI31Yc2cXYtpyuZDnniPHQ1cXRNbn2Jkz4q8vLEm3No3HNye8NjZij4Cow8mwyTk7E
-	8w4VnXMZe6vrUqMxu6o0bIX7gCWW2Nx8W6NlzXRngWou13qhdZc+mOkuWoyTGikcsAge9RMJJcTMR
-	QxtyAMJrznODRsVthcBBtE+PMUsTfpqSDcsyIQQ5N6W0eogcWyxUlkDpCxa9MNn/Uyez7jOzbzrBd
-	lQN8BxHQ==;
+	bh=KXnY5RDni4beXSbCleFNj0bRZgRx9ddsylJ7nscxaEI=; b=OQ5pklgMD8R6vGkhvAAfTIgIUC
+	UJfR3qGMIQf93UKdQYXcZpNjRDqZZ5dOAtoFQ+AtjnBLj97R8HqQCyVHSXWBqqlvlZb7aZWJTx92T
+	pqK+aKHMiWGwJechFmbPa76bKDv4kR4i7hVKfG4wahK1pG/a/loLfwXNJiKQOur6ezghpAGYeHjZs
+	npikRPAnLeU5A7eKcMcVDqAWRBARAVurR1JXhBAWMbBryfRl+Avc7bJfW1RVUThwmaArwVSm0kQih
+	TsqyxNUH9kSIvwjL9YK6bAREjZ2gSqqKCOo/L5xNDnmt9OA8rGpEHpvfHEU+jQpmIsQxiz0//3N4t
+	IK+f3E+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwpF-0000000FF1D-29kw;
-	Thu, 06 Nov 2025 10:02:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vGwpG-0000000FF3e-3Q7c;
+	Thu, 06 Nov 2025 10:02:42 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwoz-0000000FEdx-1flx
+	id 1vGwp1-0000000FEgw-2izX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:02:27 +0000
+	Thu, 06 Nov 2025 10:02:29 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762423341;
+	s=2020; t=1762423344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y3tGpR5SbTtmYH9/UhUB7FG7sTK6XysaxzCJ0fbVJv4=;
-	b=IS82j6FDl7Ny+WZ6JAbmEnikWn5fk5BKXLGg330FI4L/O4Ay1WXhQlvWJtGmMxqipV2KLM
-	Yyi4cIW0x+8Z2gsq3GhASyD0VgfilEm9lZ852jE1hsXYHm3cDkzarje7iUbTCAsZhb+S/F
-	S6KBL64/N/d2QDM6THqZ+LqVn6PKSjwLFqdScgsG7JZs8K/EtL/xi/oSJiH6kxEmhKV6I1
-	p17oBsinUPILAKY3wKRPgBuyjXUEpZSL5RajdlPtxQKX4x0iZgr9QXFRBNCjmBMu6jZGEe
-	UaofP2CLbPOqvVUKeUrwqBkqrrGejcEdVWGiL4mjxm0L/wY2zNP1hWX+Fwz+4Q==
+	bh=KXnY5RDni4beXSbCleFNj0bRZgRx9ddsylJ7nscxaEI=;
+	b=tbND+MAMeyx+fk0yJ/fd24KGe5mJWd1cpYUF+EgEy5RSMWNU9wVKBFuZYuVDE0ZKa2FEK+
+	W8fOKOfS90fbs7xsRINOdinHo39c88MVnDe5/117liIbYwLgOL/lTECYOP+9IsfjWCDYqJ
+	CWfH13aFVOnG27l6AZN+9QhOdCyMcFh7MWNVicil+DbnVZ7IwFynyz9dt7qCBWjMNhxbeW
+	GCwDQun6KMhFpv40hsVTFVyhZVASE11p/ufs+S/uqPKRRF9KkWq37UarEwHZkIB9R9XgSb
+	aSesWat6wMyC2ENPjNaBUMEQXsfU/nf7vY8MMienT1glPNzLtNaOTk8pSTeg5A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762423341;
+	s=2020e; t=1762423344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y3tGpR5SbTtmYH9/UhUB7FG7sTK6XysaxzCJ0fbVJv4=;
-	b=IQzJWc/I58sgXAbxGDnvHbnbx22zuN+uYONk9lslfn28Stw1YS7Z19VBWQxpa8nJ0rzmlF
-	5ao8jqHUHC914jBQ==
-Date: Thu, 06 Nov 2025 11:02:13 +0100
-Subject: [PATCH v5 20/34] s390/time: Set up vDSO datapage later
+	bh=KXnY5RDni4beXSbCleFNj0bRZgRx9ddsylJ7nscxaEI=;
+	b=KJxy0Hu0nIBB0e3Xqn7BzYWIodf33bvrkshbLjQ3LDFKz2LO6cHs19pUT2WMB6WMI6WIGu
+	YulAuRKpCrMmrfBw==
+Date: Thu, 06 Nov 2025 11:02:15 +0100
+Subject: [PATCH v5 22/34] vdso/datastore: Drop inclusion of
+ linux/mmap_lock.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-20-97ff2b6542f7@linutronix.de>
+Message-Id: <20251106-vdso-sparc64-generic-2-v5-22-97ff2b6542f7@linutronix.de>
 References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -81,16 +82,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=1384;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=869;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=2hSFMUISgDavbKKRu1atPOpNqM6l7sLyIWcWtFRLYDU=;
- b=Ov4mzaNxAT2GTQwh7RPz3N1qjaNCSocF2bw0jkDMXSFmOiEJkoHSjG7+bqcrj2PG3wzY60VRh
- T/MQVcZTM9PDCxCMhOiQu3NLt8WCtCrc/0M9p20icPbA/+4/MccBS9w
+ bh=T+uiAGc1CKmq8YVTkteEEzyKwhHBee7QKhXDO+NLJos=;
+ b=l/pDlRvM2BSxqqMkxOdOUvUnuXngh23FFVWXSCYQvPR+cRdcuQH2SRNBlbp3Bc8G73DYayDcK
+ 5pW8XK3eTAaAwV+0g4nLCmb2Ffn03OnxY51ln9XIdb5JvG1h5gFOsl7
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020225_691201_9513FBF8 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20251106_020227_894274_1A1F5807 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upcoming changes to the generic vDSO library will mean that the vDSO
-datapage will not yet be usable during time_early_init().
+This header is unnecessary and together with some upcoming changes would
+introduce compiler warnings.
 
-Move the initialization to time_init() which is called later. This is
-valid as the value of tod_clock_base.tod only changes in stop_machine()
-context and both time_init_early() and time_init() are called before
-interrupts are enabled.
-
+Link: https://lore.kernel.org/lkml/20250916-mm-rcuwait-v1-1-39a3beea6ec3@linutronix.de/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/s390/kernel/time.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ lib/vdso/datastore.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/s390/kernel/time.c b/arch/s390/kernel/time.c
-index 63517b85f4c930b799235c381d9d6b263fff5431..6b948b9e61fe674bbc842a0143dd35a26b91a860 100644
---- a/arch/s390/kernel/time.c
-+++ b/arch/s390/kernel/time.c
-@@ -78,8 +78,6 @@ void __init time_early_init(void)
- 	struct ptff_qto qto;
- 	struct ptff_qui qui;
+diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
+index 2cca4e84e5b5e7686d6a2b42b41af4f399cc5261..7377fcb6e1dfe31d02ffcae371fdf9da069ae4c1 100644
+--- a/lib/vdso/datastore.c
++++ b/lib/vdso/datastore.c
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-only
  
--	vdso_k_time_data->arch_data.tod_delta = tod_clock_base.tod;
--
- 	if (!test_facility(28))
- 		return;
- 
-@@ -248,6 +246,8 @@ struct clocksource * __init clocksource_default_clock(void)
-  */
- void __init time_init(void)
- {
-+	vdso_k_time_data->arch_data.tod_delta = tod_clock_base.tod;
-+
- 	/* Reset time synchronization interfaces. */
- 	stp_reset();
- 
+ #include <linux/linkage.h>
+-#include <linux/mmap_lock.h>
+ #include <linux/mm.h>
+ #include <linux/time_namespace.h>
+ #include <linux/types.h>
 
 -- 
 2.51.0
