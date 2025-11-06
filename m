@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F9ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927B8CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGOV0ooMQY/V8sNj942IejiSVoKAMf7LNwfGT3xIOZU=; b=y43j5M/aHmey7OSteW57Y+YZhC
-	UFW4KpcU48Z3e8DN8VvIdk57e9dtXHL9Kz5ZWVB4QC9LChqJkPapPZJcm2oFLhuFdjMa7C1EEVJxH
-	jFjUZ2mSvJFaIOLHs/Ds+smdYJSXaw6M8a1BQw9k8nOaiIs6fzxuY16/Dqcv1NCPMLKkP92+TaPya
-	UlP/lY3lfB6j6vb3hB5bdwiQgfzHQltt8VuacOt3wbKEnVLzz4RZZcj9dUkjD7pSU/oM38uqW9oMD
-	0MoEBA8/vI3K/3PhyX31rUnp54e8o2Ix3PTBjdLhrEfN2nTejT67UlspZlkXPeH0tRdWQdJyDQYZe
-	BKu3zy+w==;
+	bh=5KYZxA4YJH9uVQqfnlIQeaSC+UTHBZf1ocK/1v86G9k=; b=hZpf9TcypRaxvjy0qodh2Z9QM4
+	D8tZrF5CuBhn41I3bYYgq1zjc4BGoYfvhsGnSXsAzxtz1XU9Vo1MiWOU2vnX0O6DdH611mnAX9of8
+	oitDCu0mK3pkBeQnSfh4HlE/fW4qqULDb78yMxHgyYKv3KO2cU7X2jSu82tNMBAYr9e+cThIOP92e
+	4w2bkYMY8V2RSH7AdAOMzB0mqdgofwbONzwTG764Hqh44gXjVnwTWbehL7hI/FYjsBQroQKpxSMO6
+	/yEW6wphtm7pbV+ZJ6/PleGfa7QOJq63QTLKG7XXnFRb1PAyNDSUV5cfnb2TCoDdKFawovWPGliZC
+	65k6rmSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwyB-0000000FITB-15Si;
-	Thu, 06 Nov 2025 10:11:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwy8-0000000FISM-3w9g
+	id 1vGwzg-0000000FIgA-22V4;
+	Thu, 06 Nov 2025 10:13:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vGwzd-0000000FIfG-2a68
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:11:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1449C1596;
-	Thu,  6 Nov 2025 02:11:44 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40ECF3F66E;
-	Thu,  6 Nov 2025 02:11:47 -0800 (PST)
-Message-ID: <d6b4d9d5-f5bc-4a7d-a221-4451456fbbd3@arm.com>
-Date: Thu, 6 Nov 2025 10:11:45 +0000
+	Thu, 06 Nov 2025 10:13:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2D1011A18F0;
+	Thu,  6 Nov 2025 10:13:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id ECFA46068C;
+	Thu,  6 Nov 2025 10:13:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7297111850A0C;
+	Thu,  6 Nov 2025 11:13:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762424002; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=5KYZxA4YJH9uVQqfnlIQeaSC+UTHBZf1ocK/1v86G9k=;
+	b=GtiPL+uhuD6tubpnA1wX5x0gydoJzaIP/M2RCEs6N0EpDQUAyJwVJPNOyCNoRRTor4p0X7
+	qKbiJpt7eDnPvdc3jveKsjXVmfXObYahALXWQxV67DJJBEymH/Yw3Jjmm59DrLUDbSuRKr
+	86a4A2cS2rJ3ETB9OsEHW2O0M2a7IAeRGkDDXkQKW4F7/9A5hJ/XOOsxxdO7pjRSN2UTiy
+	Jm6nGoChz1DGptw0qcIwMWiiNhLvmmW274HQALDPwrjc5ai+FShrnjWhbNXdZ2OOdp4cvG
+	zp7VHXnU/EzuMWGVuWb/Ucb6qPd/322sTJDaNvFC2D8Z+/kssCtx5Xm9a7yMfA==
+Message-ID: <a8147104-9799-4151-8469-ad05b0aa4a9c@bootlin.com>
+Date: Thu, 6 Nov 2025 11:13:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 20/29] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-To: Peter Newman <peternewman@google.com>,
- "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: James Morse <james.morse@arm.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- Jamie Iles <quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "amitsinght@marvell.com" <amitsinght@marvell.com>,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-21-james.morse@arm.com>
- <OSZPR01MB8798162B444DA35707A4E3798BFCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
- <CALPaoChLKRQqjZO+O92WQ=MsWjV+q=hVE8=BXCOdkta6ZEXNMQ@mail.gmail.com>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH net-next v2 07/11] net: stmmac: ingenic: move "MAC PHY
+ control register" debug
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aQxinH5WWcunfP7p@shell.armlinux.org.uk>
+ <E1vGvoU-0000000DWot-29Rw@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <CALPaoChLKRQqjZO+O92WQ=MsWjV+q=hVE8=BXCOdkta6ZEXNMQ@mail.gmail.com>
+In-Reply-To: <E1vGvoU-0000000DWot-29Rw@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_021153_059842_7A697985 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20251106_021325_814927_9E70DA23 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,210 +84,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng, Peter,
 
-On 11/5/25 16:16, Peter Newman wrote:
-> On Mon, Oct 27, 2025 at 9:48 AM Shaopeng Tan (Fujitsu)
-> <tan.shaopeng@fujitsu.com> wrote:
->>
->> Hello James,
->>
->>> When CPUs come online the MSC's original configuration should be restored.
->>>
->>> Add struct mpam_config to hold the configuration. This has a bitmap of
->>> features that were modified. Once the maximum partid is known, allocate a
->>> configuration array for each component, and reprogram each RIS configuration
->>> from this.
->>>
->>> CC: Dave Martin <Dave.Martin@arm.com>
->>> Signed-off-by: James Morse <james.morse@arm.com>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
->>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->>> ---
->>> Changes since v2:
->>>  * Call mpam_init_reset_cfg() on alloated config as 0 is not longer correct.
->>>  * init_garbage() on each config - the array has to be freed in one go, but
->>>    otherwise this looks weird.
->>>  * Use struct initialiser in mpam_init_reset_cfg(),
->>>  * Moved int err definition.
->>>  * Removed srcu lock taking based on squinting at the only caller.
->>>  * Moved config reset to mpam_reset_component_cfg() for re-use in
->>>    mpam_reset_component_locked(), previous memset() was not enough
->>> since zero
->>>    no longer means reset.
->>>
->>> Changes since v1:
->>>  * Switched entry_rcu to srcu versions.
->>>
->>> Changes since RFC:
->>>  * Added a comment about the ordering around max_partid.
->>>  * Allocate configurations after interrupts are registered to reduce churn.
->>>  * Added mpam_assert_partid_sizes_fixed();
->>>  * Make reset use an all-ones instead of zero config.
->>> ---
->>>  drivers/resctrl/mpam_devices.c  | 284
->>> +++++++++++++++++++++++++++++---
->>> drivers/resctrl/mpam_internal.h |  23 +++
->>>  2 files changed, 287 insertions(+), 20 deletions(-)
->>>
->>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>> index ab37ed1fb5de..e990ef67df5b 100644
->>> --- a/drivers/resctrl/mpam_devices.c
->>> +++ b/drivers/resctrl/mpam_devices.c
->>> @@ -118,6 +118,17 @@ static inline void init_garbage(struct mpam_garbage
->>> *garbage)  {
->>>       init_llist_node(&garbage->llist);
->>>  }
->>> +
->>> +/*
->>> + * Once mpam is enabled, new requestors cannot further reduce the
->>> +available
->>> + * partid. Assert that the size is fixed, and new requestors will be
->>> +turned
->>> + * away.
->>> + */
->>> +static void mpam_assert_partid_sizes_fixed(void)
->>> +{
->>> +     WARN_ON_ONCE(!partid_max_published);
->>> +}
->>> +
->>>  static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)  {
->>>       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
->>> &msc->accessibility)); @@ -366,12 +377,16 @@ static void
->>> mpam_class_destroy(struct mpam_class *class)
->>>       add_to_garbage(class);
->>>  }
->>>
->>> +static void __destroy_component_cfg(struct mpam_component *comp);
->>> +
->>>  static void mpam_comp_destroy(struct mpam_component *comp)  {
->>>       struct mpam_class *class = comp->class;
->>>
->>>       lockdep_assert_held(&mpam_list_lock);
->>>
->>> +     __destroy_component_cfg(comp);
->>> +
->>>       list_del_rcu(&comp->class_list);
->>>       add_to_garbage(comp);
->>>
->>> @@ -812,48 +827,102 @@ static void mpam_reset_msc_bitmap(struct
->>> mpam_msc *msc, u16 reg, u16 wd)
->>>       __mpam_write_reg(msc, reg, bm);
->>>  }
->>>
->>> -static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
->>> +/* Called via IPI. Call while holding an SRCU reference */ static void
->>> +mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
->>> +                                   struct mpam_config *cfg)
->>>  {
->>>       struct mpam_msc *msc = ris->vmsc->msc;
->>>       struct mpam_props *rprops = &ris->props;
->>>
->>> -     WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
->>> -
->>>       mutex_lock(&msc->part_sel_lock);
->>>       __mpam_part_sel(ris->ris_idx, partid, msc);
->>>
->>> -     if (mpam_has_feature(mpam_feat_cpor_part, rprops))
->>> -             mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
->>> rprops->cpbm_wd);
->>> +     if (mpam_has_feature(mpam_feat_cpor_part, rprops) &&
->>> +         mpam_has_feature(mpam_feat_cpor_part, cfg)) {
->>> +             if (cfg->reset_cpbm)
->>> +                     mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
->>> +                                           rprops->cpbm_wd);
->>> +             else
->>> +                     mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
->>> +     }
->>>
->>> -     if (mpam_has_feature(mpam_feat_mbw_part, rprops))
->>> -             mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM,
->>> rprops->mbw_pbm_bits);
->>> +     if (mpam_has_feature(mpam_feat_mbw_part, rprops) &&
->>> +         mpam_has_feature(mpam_feat_mbw_part, cfg)) {
->>> +             if (cfg->reset_mbw_pbm)
->>> +                     mpam_reset_msc_bitmap(msc,
->>> MPAMCFG_MBW_PBM,
->>> +                                           rprops->mbw_pbm_bits);
->>> +             else
->>> +                     mpam_write_partsel_reg(msc, MBW_PBM,
->>> cfg->mbw_pbm);
->>> +     }
->>>
->>> -     if (mpam_has_feature(mpam_feat_mbw_min, rprops))
->>> +     if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
->>> +         mpam_has_feature(mpam_feat_mbw_min, cfg))
->>>               mpam_write_partsel_reg(msc, MBW_MIN, 0);
->>>
->>> -     if (mpam_has_feature(mpam_feat_mbw_max, rprops))
->>> -             mpam_write_partsel_reg(msc, MBW_MAX,
->>> MPAMCFG_MBW_MAX_MAX);
->>> +     if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
->>> +         mpam_has_feature(mpam_feat_mbw_max, cfg))
->>> +             mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
->>>
->>>       mutex_unlock(&msc->part_sel_lock);
->>>  }
->>>
->>> +struct reprogram_ris {
->>> +     struct mpam_msc_ris *ris;
->>> +     struct mpam_config *cfg;
->>> +};
->>> +
->>> +/* Call with MSC lock held */
->>> +static int mpam_reprogram_ris(void *_arg) {
->>> +     u16 partid, partid_max;
->>> +     struct reprogram_ris *arg = _arg;
->>> +     struct mpam_msc_ris *ris = arg->ris;
->>> +     struct mpam_config *cfg = arg->cfg;
->>> +
->>> +     if (ris->in_reset_state)
->>> +             return 0;
->>> +
->>> +     spin_lock(&partid_max_lock);
->>> +     partid_max = mpam_partid_max;
->>> +     spin_unlock(&partid_max_lock);
->>> +     for (partid = 0; partid <= partid_max + 1; partid++)
->>> +             mpam_reprogram_ris_partid(ris, partid, cfg);
->>> +
->>> +     return 0;
->>> +}
->>> +
->>> +static void mpam_init_reset_cfg(struct mpam_config *reset_cfg) {
->>> +     *reset_cfg = (struct mpam_config) {
->>> +             .cpbm = ~0,
->>> +             .mbw_pbm = ~0,
->>> +             .mbw_max = MPAMCFG_MBW_MAX_MAX,
->>
->> When rdtgroup_schemata_show() is called, the "cpbm" value is output to the schema file.
->> Since bitmap lengths are chip-dependent, I think we just need to reset the bitmap length portion.
->> Otherwise, 0xffffffff(u32) will be output from the schemata file.
-> 
-> When I apply additional patches to add the mpam_resctrl.c stuff I
-> notice this too:
-> 
-> # grep L3 schemata
-> L3:1=ffffffff
-> # cat info/L3/shareable_bits
-> ffff
-> 
-> I noticed that new groups also get a too-long cbm as long as any other
-> groups have a too-long cbm. Maybe this out-of-range value is bleeding
-> into new groups in __init_one_rdt_domain() when it calls
-> resctrl_arch_get_config() on all other groups.
-> 
-> -Peter
 
-mpam_init_reset_cfg() is used in places, one for ris reset and another
-for component reset. In component reset these values persist and with
-resctrl support added turn up in the schemata. More significantly, the
-reset flags, reset_cpbm etc, are not reset to false and so the control
-configuration doesn't take effect. I have an update for the component
-case which I'll include when I repost this series for James.
+On 06/11/2025 09:57, Russell King (Oracle) wrote:
+> Move the printing of the MAC PHY control register interface mode
+> setting into ingenic_set_phy_intf_sel(), and use phy_modes() to
+> print the string rather than using the enum name.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Thanks,
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Ben
+Maxime
+
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-ingenic.c    | 18 +++---------------
+>  1 file changed, 3 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
+> index 79735a476e86..539513890db1 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
+> @@ -77,22 +77,12 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  
+>  	switch (plat_dat->phy_interface) {
+>  	case PHY_INTERFACE_MODE_MII:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_MII\n");
+> -		break;
+> -
+>  	case PHY_INTERFACE_MODE_GMII:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_GMII\n");
+> -		break;
+> -
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+> -		break;
+> -
+>  	case PHY_INTERFACE_MODE_RGMII:
+>  	case PHY_INTERFACE_MODE_RGMII_ID:
+>  	case PHY_INTERFACE_MODE_RGMII_TXID:
+>  	case PHY_INTERFACE_MODE_RGMII_RXID:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RGMII\n");
+>  		break;
+>  
+>  	default:
+> @@ -115,7 +105,6 @@ static int x1000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  
+>  	switch (plat_dat->phy_interface) {
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+>  		break;
+>  
+>  	default:
+> @@ -136,7 +125,6 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  
+>  	switch (plat_dat->phy_interface) {
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+>  		break;
+>  
+>  	default:
+> @@ -160,7 +148,6 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  	switch (plat_dat->phy_interface) {
+>  	case PHY_INTERFACE_MODE_RMII:
+>  		val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII);
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+>  		break;
+>  
+>  	default:
+> @@ -185,7 +172,6 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  	case PHY_INTERFACE_MODE_RMII:
+>  		val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN) |
+>  			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN);
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+>  		break;
+>  
+>  	case PHY_INTERFACE_MODE_RGMII:
+> @@ -205,7 +191,6 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
+>  			val |= FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_DELAY) |
+>  				   FIELD_PREP(MACPHYC_RX_DELAY_MASK, (mac->rx_delay + 9750) / 19500 - 1);
+>  
+> -		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RGMII\n");
+>  		break;
+>  
+>  	default:
+> @@ -237,6 +222,9 @@ static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
+>  			return phy_intf_sel < 0 ? phy_intf_sel : -EINVAL;
+>  		}
+>  
+> +		dev_dbg(mac->dev, "MAC PHY control register: interface %s\n",
+> +			phy_modes(interface));
+> +
+>  		ret = mac->soc_info->set_mode(mac->plat_dat, phy_intf_sel);
+>  		if (ret)
+>  			return ret;
 
 
