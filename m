@@ -4,219 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F130CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755D9CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0LPwIjnDbBwbClFrNFPJK371RcwxKeQqm0SqrsJvzPc=; b=SC02tubRmZf6Q2+XyqA7DAKPJ8
-	pa5FxzmdWsBitj2bn7ESyTZ3x4TwvD0OfnH0Z3Ck0GGV/UDfk3u81Np4qtsTnTgltPl2G+ofWfJmD
-	jYdbQp7+ogqTSjTT5oINXRxdmRh06Ncvi3vQoyG6mCIXj/ea4PhERtDxzIZtD8FsJPw7WLCGb1QOv
-	PzouMVi5uJ9CQU2uDV0SJnJH7Xa4YACZR+6Q4mjVmbH72uhg3GL1uLp9Zj3x5nGwj36PeFntpsyx4
-	h4kmp6vnPQaohFEOtU5gIpi77sR2MZi3y8ZGqjCyqXV55T3p9Q65xzG+02bN2hTCbtV1K8OTwItWy
-	i6uceoRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=od7Lqh0ho4ogjz8Pbh+DhQWDrwuddtwph5S6ttSJvJ4=; b=ug+OcqWr+EfreWLFm3pzIrVZC2
+	M6RPqdKw2DsA0+4nByf4C4K/ERpFsp1wmKD37QUARm83Ne1q22YwwxMbb5dPF2PmpU11/iYV28HJE
+	cFDqI+gY8fYY1U7PFspugWK6/NSTxsGktF73/9HAhVNcw5u3x+9VqyHH2P4vcVeXi7PsVx888N3Id
+	6HTEavG+mMJP7fl1tjgJEdv4vBz1SCqEyHudsFcl+Eqm3DWI231wPxLVoElOhkKPkBBcrczjTgEyH
+	6ichWZhlC74/jMDcXvmk4cyUCqjOk0regD+5w68rypvMldziMRPfxgUXpj46kzdJk7xjRxEKIfMhC
+	7ETFmpqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGx3r-0000000FJ1w-2IsM;
-	Thu, 06 Nov 2025 10:17:47 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1vGx5x-0000000FJFW-2JBP;
+	Thu, 06 Nov 2025 10:19:57 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGx3o-0000000FJ1V-3UTB
+	id 1vGx5t-0000000FJDo-2Tc7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:17:46 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A6A5UMc1422413;
-	Thu, 6 Nov 2025 11:17:18 +0100
-Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013034.outbound.protection.outlook.com [40.107.159.34])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4a8e57tq52-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 06 Nov 2025 11:17:17 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fLI+b9/2+KY7m+uIYDhugm4J5tNtwRdeMe9GWsu8st6R0O1PBuzzjSoY3p68vx0DWvT3CSu+IIOkfrmzbFXCS5BXdmiqgfkmoxHMhpX+J3Fb/B3UNiT5X97AwylCoib/Pu/qv+uc2t4HpVWQWlJF1Iv/XtwdB10HS0oPAoPoRzzTEAJlEawzgx3C+BF1JzaUKec7sSrkhk+UdAi7ldgHstlQpFVfGWrmKjXZB3AuY8oqwmtcsQbiUrEos2Psb73isPZ2n+4mZey/qT42BSV6yE1HkY7Z4YPnY034hKC1+AEYTytmNcoiMvVVohIbO9+DGIy+Ry1Zw+ouBkzpWY2XDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0LPwIjnDbBwbClFrNFPJK371RcwxKeQqm0SqrsJvzPc=;
- b=M2VF8G77C1kCJQZHSFx6gYW68lp6I2awYniM8ju32MTbCb9kaSVOTJF6z9z1i9vJXRKJZMUDsQ3pJz29umNyxSrpVQwtCo+Pvpl9rOWUi9PVVozAx8XJa98eUNC3kJEmMTyY7BYOgc7UlBSMSO0vDEM32fQqxLZctGshOaBosQB1Fff4OMiuKHyv0lpu//dFLVFtPw/LSlpHWT2+j2igPFKDeGgz200wx6vz847yHkqic7HmEaU0p4ZuF4/ctfX5fWpn1THq2P41sUtlmSS9QBs8WuBJztTDm10L2fdjlBCp0NAk0abEp23kxgQdOrxP20M4vJGbWTCflQ2pHZdlFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=nxp.com smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0LPwIjnDbBwbClFrNFPJK371RcwxKeQqm0SqrsJvzPc=;
- b=Z9t715dy93VxMKeKbZEx4iMKTk1aF+/88U2R9NejuqQJxF2EVWHim+VDXPwYIxyveIw+K0PJq02jyX87AUPhYaml5wj/6sRVLnfGXavkuUNT3tZ3G+KiHcij3b4QT/lq4aJeKvZCD9xYGVxEEwaOwq0p943LLUYiZX/gkRJAcyU5pQVDD/SthW3hW7UVa8FfqvnrVjTwWUvJTU76d184QkCz5QOXEFewMmezzFU1dIkN/aEjkc84bMcpAKayJ3Bfu5aJ1aIMlbqeJg8JdbdsYZQQQIw8KNMLbcLop8TWtliSV3omgtn8gxoa3e51avfjNQjLWVB+KhlzwRzr5U9HTw==
-Received: from DU7PR01CA0003.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:50f::17) by AM0PR10MB3505.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:15a::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 6 Nov
- 2025 10:17:15 +0000
-Received: from DB1PEPF000509EA.eurprd03.prod.outlook.com
- (2603:10a6:10:50f:cafe::e4) by DU7PR01CA0003.outlook.office365.com
- (2603:10a6:10:50f::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
- 6 Nov 2025 10:17:17 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- DB1PEPF000509EA.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 10:17:14 +0000
-Received: from EQNCAS1NODE4.st.com (10.75.129.82) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 6 Nov
- 2025 11:09:53 +0100
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNCAS1NODE4.st.com
- (10.75.129.82) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 6 Nov
- 2025 11:17:12 +0100
-Received: from [10.252.17.135] (10.252.17.135) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 6 Nov
- 2025 11:17:11 +0100
-Message-ID: <aff734de-0d61-4239-9e67-78a4ab258c30@foss.st.com>
-Date: Thu, 6 Nov 2025 11:17:10 +0100
+	Thu, 06 Nov 2025 10:19:56 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id DA6D520617;
+	Thu,  6 Nov 2025 11:19:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1762424389;
+	bh=od7Lqh0ho4ogjz8Pbh+DhQWDrwuddtwph5S6ttSJvJ4=; h=From:To:Subject;
+	b=ZkArOHjMhaYcnQJgMbqRGeRC00woC2pZDnIV3vcYm7+tlJN+NWZd4DI/sqSH3yjOa
+	 IlkD8B6Vec/SvXyhRl1sDLXyaJ9ZuTEqrssr3I+fFBAFc90sqcMPUZDUY6/PjKpHPA
+	 XcpE5/ydDd/5TZSfcR9TS7MgtncIM9OFV/xWW4jZsvpSmdKP9Vqc37rPzTf86tVP93
+	 J06ADqq9TCzKT/dlm1amRaAe3cRKUPt+ZzjPHGpADD+IR5YVPOizzUXOqo04pwnxwP
+	 jYKdp38WoT+o/iEu8jmNXhBZ6t/Wi0I+UeR+FYrG/7li0FFLlIMJlkXx/jNIjnD81w
+	 KfM16Lu2ze3+g==
+Date: Thu, 6 Nov 2025 11:19:45 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Andrew Davis <afd@ti.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add Aquila AM69 Support
+Message-ID: <20251106101932.GA5975@francesco-nb>
+References: <20251104144915.60445-1-francesco@dolcini.it>
+ <20251104145240.61219-1-francesco@dolcini.it>
+ <20251104145240.61219-2-francesco@dolcini.it>
+ <d77bf3dd-4501-4f17-a776-3353f96f4fb1@ti.com>
+ <20251105115335.GA14157@francesco-nb>
+ <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
-To: Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, "Shawn
- Guo" <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        "Jonathan
- Corbet" <corbet@lwn.net>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        "Bartosz
- Golaszewski" <brgl@bgdev.pl>
-CC: Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam
-	<festevam@gmail.com>,
-        "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>,
-        "imx@lists.linux.dev" <imx@lists.linux.dev>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>,
-        dl-linux-imx <linux-imx@nxp.com>,
-        Randy Dunlap
-	<rdunlap@infradead.org>, Andrew Lunn <andrew@lunn.ch>,
-        "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <PAXPR04MB8459C54EAF106184E7A378D888C5A@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <05a0c630-3bd5-4307-8b94-1889ba191c33@foss.st.com>
- <PAXPR04MB91858EA1057672295ECF793889C5A@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <PAXPR04MB91858EA1057672295ECF793889C5A@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.17.135]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509EA:EE_|AM0PR10MB3505:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f0b9171-d950-4481-aa7e-08de1d1da879
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N256N2hNaEdvRXl3NG4rZ2hwc0tjb3Ftd2U0bXRIZkc1T1MxeTdIRGhlQlU2?=
- =?utf-8?B?V2l1L3dDRytpU3lKOHdveEVYZk13RmNOMitZY0E2WFljM1paZ0dyR1l0UEhW?=
- =?utf-8?B?UkpJV1pqQ2duV2RoUGRsV0FkZU1CNXBybXpnVXQrMy85b3VPOWNmaHFndVNk?=
- =?utf-8?B?ei84MnR2N2JNd2x1dE9JSGJyVllYbVRGTDNtUGs4empQQ1pzUFU3Y3dwWU4v?=
- =?utf-8?B?QURocDgwS2o2YmFkLzdKZjFIL29RTDcxUHNhUkRkRmM5OUI0c1dlcmVpNXhJ?=
- =?utf-8?B?Y1ZQU3V4OHQ2NVFQa0dTSm0xNEFpb0M5anM1OVJnS1BuVmp6ZCtHdVV6UVFl?=
- =?utf-8?B?UEp0UzRRYmZHRFN5UjZoa1pVSTdjTmxSc0k2WmtTajFwa2ZtcUFUZVJvM0pw?=
- =?utf-8?B?cUYya1YwN09TSDJhNjVKeWxwNXpjRUR2Y29JazFDZGRuaEpucVVjTXJWcDFW?=
- =?utf-8?B?aWl6SkRoNW5ialBNRUJLSENjcmpwa3hGLzFta2hSRmhHTnJLVzZKaVBJbXdk?=
- =?utf-8?B?WWxTLy96anlrcUg2MzY0RCtwdnFjR1lOYlBXQ1NQaFllZXJTYlBJTDA4RUNh?=
- =?utf-8?B?Z01sblVjRE5VeDNITzZzbytKdC9yRmRndlZtOWd1aXBBUnFvTDgyaG93VnRm?=
- =?utf-8?B?NCs2M3N5cENTblpHeW4xU1M2MTFReFQzTzN1RSswSzlnMS9meDM5UnF2NlFB?=
- =?utf-8?B?RThGKzUvWVNVVDhTMnl2eWJUSWRYSFI0UVFncFk4anlPWVZ0bHNLN1J2Z3py?=
- =?utf-8?B?SFNaSGFSL08xeFRRbG1sa3llVk5LeCsvL2RCMmJoOGRLc04wVUF5OWEvNnlN?=
- =?utf-8?B?R3dLT1VaNW94Uit5SUxxNTRLOTE1bjh1R3A5OUVDVG5Vb0VuNVc4VnFHQThF?=
- =?utf-8?B?TElHWTVxcEZmU1N3ZmdIYXRtbVhtY1UvMDlSb2g3bTZhRXFtMHZKRUJIbTBk?=
- =?utf-8?B?UVJaTjl3VHZ5dFIrd2E0MW5rczlDa2xML3AxaWZTT3VCRUY1ZDV5V0hMc1BK?=
- =?utf-8?B?U3pMSjduL0ZuVzV1SnRGTzhxQTJIWVZIK0o2ek5DYXlMSjBRTDlTTXZ0eEw3?=
- =?utf-8?B?U1lZQlExN3BocGJFcEEwdHIrZGpMZEFvUmswa2dTYlBtUVBUWHJsT0M0VWFG?=
- =?utf-8?B?NmNvYzcxWFY1MTVrSFJ0M210QURWa1dQQzBFSlB5b0RmZ0lnc1g3Q0hyaFFM?=
- =?utf-8?B?KzAxVTRuM2VicDQzVEo3UGcvNVRHTkt3Y1ZWMGpySm1veVZqbW96NURGM29s?=
- =?utf-8?B?VDhlMEZZNEx1S2VKVC9lQVNzRE1wcnZOUGRRRXFqd0Q5Q3pOWGxhMVhadCtL?=
- =?utf-8?B?NEV3SjI3OFU1MFRCMlQ1a2UwNEthdEdCTUNKS3BaZlpmWTlmTXZGclQ4aHpI?=
- =?utf-8?B?eUxmUXl1WFZVT21PZ0R1aUJacXhXUnZWczZCbXlGald4WWZHVkJPdTJNa1JV?=
- =?utf-8?B?VjNmckwrV2VRZGtLeDVrL1BKUkFCZ1gxRU9rallVTXNRTUJTVzE0YWNIcTJ2?=
- =?utf-8?B?WDFBYjJVdGFYOVdsejhVQVNUNHprTUZVZVZ5RnBGWlZuY3RLMVFSbzI0blJa?=
- =?utf-8?B?M1pYcDNZaTNnVzJPbE1ZN3pYMnVpYWsycjduV1hsSjY4TkFpZ2t1NGpKSnlD?=
- =?utf-8?B?OElJM0NRTk4vUVlScU16RjY3NmswTlFLTm85Q2M1VTZRdGRLeFNhc3NLaGcx?=
- =?utf-8?B?U0RhSFdvSUFieWNjQm90NmJEYmUwUzZaM3c1cDdjaE9TeUdBdTJoVzg0YzZQ?=
- =?utf-8?B?ZXpLMURLUXpicG52QldOV0J5dkdZbk1MTEZvNnBpZEEwQjE5UDZlZEdRU0xK?=
- =?utf-8?B?dzl2NVBUQ2NJWjhjSTFGOE4rcUJFMkRKdEFYR2dzZUhuSmZwbnJJNEtDRzhY?=
- =?utf-8?B?VXl4ZmdkTnFoeUhWUFg1QUo4OTk4ZlpUdzFlOVhjMmgxWjdOaGdZa0lxQWgz?=
- =?utf-8?B?TzByeEJPSXpibVlTZmVTeTk2aXR0Z2JsRnZHN1JIZ3NtNzNQbnpTUXJWeitI?=
- =?utf-8?B?ektJMDczUVBaQmlnUnd5bDJOdVZRVkphK2tYcE1vY2pTbVN5L1Mrb3J6b2Qr?=
- =?utf-8?B?Z2JoSUx6K2FBZ0doNmw0MUtMY015ZTRwQkYvcHhRMEMwd2NCTFNpaXdyb0I4?=
- =?utf-8?Q?kWL4dWsDmWfN3zCAKXc8k6wwj?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 10:17:14.9745
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f0b9171-d950-4481-aa7e-08de1d1da879
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EA.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3505
-X-Proofpoint-ORIG-GUID: 2R9hU18N5EFlUZduFRlGv1sgGl6ujz7T
-X-Proofpoint-GUID: 2R9hU18N5EFlUZduFRlGv1sgGl6ujz7T
-X-Authority-Analysis: v=2.4 cv=QuRTHFyd c=1 sm=1 tr=0 ts=690c75ad cx=c_pps
- a=sVz80lr63r+noJKTyf6duQ==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=i8swKbHhBpcA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8
- a=KKAkSRfTAAAA:8 a=07d9gI8wAAAA:8 a=pGLkceISAAAA:8 a=JfrnYn6hAAAA:8
- a=yGR9Ld5_Y51QbCr_SjcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=T3LWEMljR5ZiDmsYVIUa:22 a=ST-jHhOKWsTCqRlWije3:22 a=cvBusfyB2V15izCimMoJ:22
- a=e2CUPOnPG4QKp8I52DXD:22 a=1CNFftbPRP8L7MoqJWF3:22 a=HhbK4dLum7pmb74im6QT:22
- a=nl4s5V0KI7Kw-pW0DWrs:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA2MDA4MCBTYWx0ZWRfX5Bm0EnE1pnqB
- JLQPiKh2htH4p+6uucevcqem9AOINgeGS2CCxe2k7a7KdkfHEgs648p2tLjmlirRUwrglnNBKLU
- KQI3jrc5R/7s1l5Wr6+Pg/7/5AzA+LKOzNh2sqxCa+UdQ1JrXxGohviAo5bZumP3QO+MGD64psT
- xiUefgyGjxQElf6NGC14fQVNdB4twtWJ7PiLYiZDdRTPuh9/BjGoRxIf1+fBu1LP6ZhjTCgy4hj
- 4y414y4YB8oJK5dtEzhTN/7t22/pFl8XAgdDwN3F9rHdmxomF8inI8n4Ga1ZYZM8o+wo0/IozmA
- XRfNNbmRK7EBQJf4iyWy3n2JwvIrRTyMqfTVoCnpUchzbpBKvidPeAP2f53tsiq5xH7new6AYdK
- pAob8hmNuChmFqyI+VvvRjQakw1m9Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-06_02,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1015
- spamscore=0 priorityscore=1501 malwarescore=0 lowpriorityscore=0
- impostorscore=0 bulkscore=0 suspectscore=0 phishscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511060080
+In-Reply-To: <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_021745_137162_8439FC85 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20251106_021954_683133_343DB2A8 
+X-CRM114-Status: GOOD (  47.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -231,80 +84,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shenwei,
+Hello Andrew,
 
-On 11/5/25 15:12, Shenwei Wang wrote:
-> Hi Arnaud,
+On Wed, Nov 05, 2025 at 02:01:35PM -0600, Andrew Davis wrote:
+> On 11/5/25 5:53 AM, Francesco Dolcini wrote:
+> > On Tue, Nov 04, 2025 at 11:41:54AM -0600, Andrew Davis wrote:
+> > > On 11/4/25 8:52 AM, Francesco Dolcini wrote:
+> > > > From: Parth Pancholi <parth.pancholi@toradex.com>
+> > > > 
+> > > > Add support for the Toradex Aquila AM69 and its Development Carrier
+> > > > Board.
+> > > > 
+> > > > The Aquila AM69 SoM is based on the TI AM69 SoC from the Jacinto 7
+> > > > family and is designed for high-end embedded computing, featuring up to
+> > > > 32GB of LPDDR4 and 256GB eMMC storage, extensive multimedia support (3x
+> > > > Quad CSI, 2x Quad DSI, DisplayPort, 5x Audio I2S/TDM), six Ethernet
+> > > > interfaces (1x 1G, 4x 2.5G SGMII, 1x 10G), USB 3.2 Host/DRD support, and
+> > > > a Wi-Fi 7/BT 5.3 module, alongside an RX8130 RTC, I2C EEPROM and
+> > > > Temperature Sensor, and optional TPM 2.0 module.
+> > > > 
+> > > > Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
+> > > > Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+> > > > Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
+> > > > Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > > > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > > > Co-developed-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > Co-developed-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> > > > Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> > > > Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > > > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > > > ---
+> > > >    arch/arm64/boot/dts/ti/Makefile               |    1 +
+> > > >    arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts |  576 ++++++
+> > > >    arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi    | 1840 +++++++++++++++++
+> > > >    3 files changed, 2417 insertions(+)
+> > > >    create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+> > > >    create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
+> > > > 
+> > > > diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> > > > index 361248dcfff4..6ce652fe98fa 100644
+> > > > --- a/arch/arm64/boot/dts/ti/Makefile
+> > > > +++ b/arch/arm64/boot/dts/ti/Makefile
+> > > > @@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+> > > >    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+> > > >    # Boards with J784s4 SoC
+> > > > +dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev.dtb
+> > > >    dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
+> > > >    dtb-$(CONFIG_ARCH_K3) += k3-am69-sk-pcie0-ep.dtbo
+> > > >    dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
+> > > > diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+> > > > new file mode 100644
+> > > > index 000000000000..c7ce804eac70
+> > > > --- /dev/null
+> > > > +++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+> > > > @@ -0,0 +1,576 @@
+> > > > +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+> > > > +/*
+> > > > + * Copyright (C) 2025 Toradex
+> > > > + *
+> > > > + * https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
+> > > > + * https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+> > > > + */
+> > > > +
+> > > > +/dts-v1/;
+> > > > +
+> > > > +#include <dt-bindings/pwm/pwm.h>
+> > > > +#include "k3-am69-aquila.dtsi"
+> > > > +
+> > > 
+> > > [...]
+> > > 
+> > > > +/* Aquila SPI_2 */
+> > > > +&main_spi0 {
+> > > > +	status = "okay";
+> > > > +};
+> > > > +
+> > > > +/* Aquila SPI_1 */
+> > > > +&main_spi2 {
+> > > > +	status = "okay";
+> > > 
+> > > Why enable this with nothing connected to it?
+> > 
+> > It's a development carrier board, the SPI pins go to a pins header,
+> > accessible to the user, where anything can be hooked up for
+> > prototyping/testing.
+> > 
 > 
->> -----Original Message-----
->> From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
->> Sent: Wednesday, November 5, 2025 4:26 AM
->> To: Peng Fan <peng.fan@nxp.com>; Shenwei Wang <shenwei.wang@nxp.com>;
->> Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
->> <mathieu.poirier@linaro.org>; Rob Herring <robh@kernel.org>; Krzysztof
->> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Shawn
->> Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
->> Jonathan Corbet <corbet@lwn.net>; Linus Walleij <linus.walleij@linaro.org>;
->> Bartosz Golaszewski <brgl@bgdev.pl>
->> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
->> <festevam@gmail.com>; linux-remoteproc@vger.kernel.org;
->> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
->> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>; Randy Dunlap
->> <rdunlap@infradead.org>; Andrew Lunn <andrew@lunn.ch>; linux-
->> gpio@vger.kernel.org
->> Subject: [EXT] Re: [PATCH v5 0/5] Enable Remote GPIO over RPMSG on i.MX
->> Platform
->> Hi,
->>
->> On 11/5/25 02:12, Peng Fan wrote:
->>> Hi Shenwei
->>>
->>>> Subject: [PATCH v5 0/5] Enable Remote GPIO over RPMSG on i.MX
->>>> Platform
->>>>
->>>> Support the remote devices on the remote processor via the RPMSG bus
->>>> on i.MX platform.
->>>>
->>>
->>> I have not look into the details of new version, but before that, just
->>> want to check, have we agreed on what Arnaud suggested?
->>> or continue to proceed to be this as i.MX specific?
->>
->> Thanks, Peng, for pointing this out. Regarding the V3 discussions, it seems that I
->> am not the only one suggesting a generic driver.
->>
+> Sure, and when a device is attached to that pin header it will need
+> described in DT with a node for that attached device and in that
+> node/overlay is where you enable the nodes you make use of.
 > 
-> As I mentioned before, the only i.MX-specific part is the transport protocol over the RPMSG bus.
-> In this v5 patches, weâ€™ve included detailed documentation for the protocol in a separate file. Any
-> platform that follows the same protocol should work right out of the box.
+> > One use case would be to just bind this in userspace to spidev for some
+> > prototyping/testing.
+> > 
 > 
-> If you spot anything that could be improved, please let me know!
+> But you are not adding a spidev node here, you are attaching nothing
+> but enabling the node anyway.
 
-My concerns remain the same as those shared previously:
+The idea would be that you can bind the spidev driver from userspace,
+without having to change anything in the DT. For this to be possible the
+SPI node must be enabled.
 
-1) The simpler one: gpio-imx-rpmsg.c should be renamed to gpio-rpmsg.c.
-
-2) The more complex one: the driver should be independent of the 
-remoteproc driver. The rpmsg protocol relies on virtio and can be used 
-in contexts other than remoteproc. In other words, the struct 
-rpmsg_driver and its associated operations should be defined within the 
-rpmsg-gpio driver, not in the remoteproc driver.
+My understanding is that this should be possible, and it's the suggested
+way to debug/prototype anything with spidev. If my understanding is not
+correct, I agree with you and there is no point in enabling this node.
 
 
-Thanks,
-Arnaud
-
+> > > [...]
+> > > 
+> > > > +/* Aquila SPI_1 */
+> > > > +&main_spi2 {
+> > > > +	pinctrl-names = "default";
+> > > > +	pinctrl-0 = <&pinctrl_main_spi2>, <&pinctrl_main_spi2_cs0>;
+> > > > +	status = "disabled";
+> > > 
+> > > This is already disabled by default in the SoC dtsi file.
+> > 
+> > Yes, known. Is this an issue?
+> > 
+> > This node must be disabled, no matter what is present in any included
+> > dtsi file, it's a deliberate decision.
+> > 
+> > This dtsi file describes a SoM, the used pins/functions are defined on
+> > the pinout, but this node cannot be enabled unless the SoM is mated with
+> > a carrier board that is exposing it.
 > 
-> Thanks,
-> Shenwei
-> 
->> Thanks,
->> Arnaud
->>
->>>
->>> Thanks
->>> Peng.
-> 
+> Same as my point above, you shouldn't enable nodes that are not used
+> or have anything attached. The SoM only has some edge connectors so
+> it should not be enabled at the SoM level, that we seem to agree, but
+> the carrier board doesn't connect those lines to anything either. They
+> just run to a pin header with nothing attached, how is that header
+> any different than the pins on the edge of the SoM?
 
+You are commenting something unrelated here, or I am not understanding
+you.
+
+You commented that the status = "disabled" is redundant. We both agree
+that this node needs to be disabled in the SoM dtsi, and it is already
+like that.
+
+I would prefer to keep the redundant "disabled", because I see value on
+not having to rely on what is done on any included dtsi, where the
+original node is defined. I see this as a common pattern in multiple
+dts/dtsi file and is what I would prefer to have (and I do not see any
+kind of maintenance  overhead on having it nor this being in conflict
+with dts-coding-style.rst).
+
+Vignesh, Nishanth, what is your expectation on this redundant
+`status = "disabled"` property?
+	
+Francesco
+
+
+
+> Anyway, the right spot to enable would be when you bind a device to
+> the SPI, which it seems you do in overlays[0], so that would be were
+> you set status = "okay" and all the pinmux info for that SPI device
+> and carrier board combination.
+> 
+> [0] https://developer.toradex.com/torizon/os-customization/use-cases/device-tree-overlays-on-torizon/#spidev
 
