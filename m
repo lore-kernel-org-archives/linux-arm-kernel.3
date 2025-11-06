@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23899CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 09:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C89CCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 09:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xO3NV2AkXl4wmFnIJ9I6wZJJMXHkLNjzYeQiiXS8t/8=; b=AbAmrSE7U2d3d2iinEuooy+9dD
-	ImYL7dEQkT1EYhOy+H8kNwcTk4fyEIMj/Mpn9/Gt5cubN9DKOx4CCedJLOVzNyE89IJBMurc0FrOp
-	jTbd1JnQ7ZKxjIaeAKpO/hZrp+jfcP2TRFX15NPUpz+WzAcicw38lx4LF4IyK7gWMmUN28pa4aY1m
-	rLKwrUhLER08SSmL4YfvPSUI8I2b3GXlgL7OrkVxjt4jqJ3cjgozf0rG1QXMoOrm9rhNo7faskIgG
-	F/hH5bZQc31zsgHYPV3Je6WUDR+m5117IdsTw366YK9qlow+iMAkumIu12w0yNhLaMYHl+k0xtSCz
-	f8YiWnVg==;
+	bh=fmp4wafkdiIV9RPs6myiZuo5+ItcdF0jCaL0ZPt2pEA=; b=OkKRrwb5cX0rwfSklr4z6YbcsM
+	o4E4oiW+e5XONaSNYiHycY3Hendv9ESH+pPdzlMNhfLwP7Q1g82/b9SiELfYxFp9LGjB4ySj3KelF
+	pR1PYX303rXXSSHlgBHqcdWgELoc4qbstdOX3/RlcnzKpOOLhotbSHIhIhx3nyeBpDHmvW+JuBf08
+	MJUa5W9bN1eLIXROUErafl1UTmFDdv7VdF2nEXdrZY0pA0jLyzJT98SPajiX2KtXZU2YFhq4MHose
+	ZntLXQIHStth9x+OJFjZ+jM4n2yeFWQvGCnSamSE+Wsz9ftoEtCpBKQ2dDDbLW73UspiBF6wTnEg0
+	yUQwzgXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwbp-0000000FC7A-3oYY;
-	Thu, 06 Nov 2025 09:48:49 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vGwbs-0000000FCB1-3vUu;
+	Thu, 06 Nov 2025 09:48:53 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwbm-0000000FC1n-1nq5
+	id 1vGwbp-0000000FC4z-1LV9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 09:48:48 +0000
+	Thu, 06 Nov 2025 09:48:50 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 053764E41562;
-	Thu,  6 Nov 2025 09:48:45 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D2A5E1A18F1;
+	Thu,  6 Nov 2025 09:48:47 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CF33C6068C;
-	Thu,  6 Nov 2025 09:48:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60AB11185080F;
-	Thu,  6 Nov 2025 10:48:40 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A54256068C;
+	Thu,  6 Nov 2025 09:48:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 92F421185081C;
+	Thu,  6 Nov 2025 10:48:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762422523; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1762422526; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=xO3NV2AkXl4wmFnIJ9I6wZJJMXHkLNjzYeQiiXS8t/8=;
-	b=zGTMR+S8edzHGnbuQ5Emc/YjvYSZHiAT/OfNuuKetHmLV3bveHOMBDEcDQ95ZhUz3c7bly
-	YInJTptefoIpLeW+w+VzV/i/g2JV5223fYs424jDDlBYYzcukRksZJl27f7XD3nkPkMHBG
-	jQ3mEKopjaSQRT5gSms0F6qP8HqDuzrJFBSBnnq/NTbSoPgpsIfzVmdV6MhPR7bKqFWvxs
-	k6RvgiiMG0Z4ZDkPTBqfRAYGXUK6OsInj4JaG1t4XCSAfW0rvT/vRRo8aJn/v5XOb32dEN
-	Zm+R4hDHMYdkU55HArE2nPi6SDkveTt4p0tvatReMTbyaBh+2MfCTIrIQZh28g==
+	bh=fmp4wafkdiIV9RPs6myiZuo5+ItcdF0jCaL0ZPt2pEA=;
+	b=Rm90rUTXX/a/59DoOes3+Lj/wxongYZRRILzvl7nInUjluEJggIQIoguqdsC8JeMkOUmnX
+	zoskFk6tzeRr8hHwE3r0XfWsnXJ2r35RYH6enGZPdNpVtd/bDdbnnI+xcRB4QamkkMwZwl
+	DMclHXBOyf/hAfwrg9h3vWk1w60ECGHoKYwqgSmqO0JYWGiFpVj49USxepX2KT4bB8iGxe
+	6E9bThX8fS6OYDkIiF6KXusJKFvZFdF2vxeSPgkElfwSoUtQkIAcMyS4lB5WSRGhi8qZFJ
+	rAxCyCWujyn0S0o6UI++qdFVPLJJ2gKGgNC/C1UASaexq7Qo0iyTczJmHJGKVg==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -76,9 +76,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v15 13/15] net: phy: Only rely on phy_port for PHY-driven SFP
-Date: Thu,  6 Nov 2025 10:47:38 +0100
-Message-ID: <20251106094742.2104099-14-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v15 14/15] net: phy: dp83822: Add SFP support through the phy_port interface
+Date: Thu,  6 Nov 2025 10:47:39 +0100
+Message-ID: <20251106094742.2104099-15-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
 References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
@@ -86,8 +86,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_014846_809354_F6E4D0A3 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20251106_014849_519598_1BD816B7 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,151 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all PHY drivers that support downstream SFP have been converted
-to phy_port serdes handling, we can make the generic PHY SFP handling
-mandatory, thus making all phylib sfp helpers static.
+The DP83822 can support 100BaseFX. This mode was only accessible through
+custom DT properties, but there also exist SFP modules that support
+these modes. As this only requires setting the relevant supported
+interface in the driver, expose the port capability with the new
+phy_port API, allowing SFP support.
 
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phy_device.c | 28 +++++++++-------------------
- include/linux/phy.h          |  6 ------
- 2 files changed, 9 insertions(+), 25 deletions(-)
+ drivers/net/phy/dp83822.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 9e39424164c3..c2084d29a5d2 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -1532,7 +1532,7 @@ static DEVICE_ATTR_RO(phy_standalone);
-  *
-  * Return: 0 on success, otherwise a negative error code.
-  */
--int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
-+static int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
- {
- 	struct phy_device *phydev = upstream;
- 	struct net_device *dev = phydev->attached_dev;
-@@ -1542,7 +1542,6 @@ int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
- 
- 	return 0;
- }
--EXPORT_SYMBOL(phy_sfp_connect_phy);
- 
- /**
-  * phy_sfp_disconnect_phy - Disconnect the SFP module's PHY from the upstream PHY
-@@ -1554,7 +1553,7 @@ EXPORT_SYMBOL(phy_sfp_connect_phy);
-  * will be destroyed, re-inserting the same module will add a new phy with a
-  * new index.
-  */
--void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
-+static void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
- {
- 	struct phy_device *phydev = upstream;
- 	struct net_device *dev = phydev->attached_dev;
-@@ -1562,7 +1561,6 @@ void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
- 	if (dev)
- 		phy_link_topo_del_phy(dev, phy);
- }
--EXPORT_SYMBOL(phy_sfp_disconnect_phy);
- 
- /**
-  * phy_sfp_attach - attach the SFP bus to the PHY upstream network device
-@@ -1571,7 +1569,7 @@ EXPORT_SYMBOL(phy_sfp_disconnect_phy);
-  *
-  * This is used to fill in the sfp_upstream_ops .attach member.
-  */
--void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
-+static void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
- {
- 	struct phy_device *phydev = upstream;
- 
-@@ -1579,7 +1577,6 @@ void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
- 		phydev->attached_dev->sfp_bus = bus;
- 	phydev->sfp_bus_attached = true;
- }
--EXPORT_SYMBOL(phy_sfp_attach);
- 
- /**
-  * phy_sfp_detach - detach the SFP bus from the PHY upstream network device
-@@ -1588,7 +1585,7 @@ EXPORT_SYMBOL(phy_sfp_attach);
-  *
-  * This is used to fill in the sfp_upstream_ops .detach member.
-  */
--void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
-+static void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- {
- 	struct phy_device *phydev = upstream;
- 
-@@ -1596,7 +1593,6 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- 		phydev->attached_dev->sfp_bus = NULL;
- 	phydev->sfp_bus_attached = false;
- }
--EXPORT_SYMBOL(phy_sfp_detach);
- 
- static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
- {
-@@ -1747,10 +1743,8 @@ static int phy_setup_sfp_port(struct phy_device *phydev)
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-- * @ops: SFP's upstream operations
-  */
--int phy_sfp_probe(struct phy_device *phydev,
--		  const struct sfp_upstream_ops *ops)
-+static int phy_sfp_probe(struct phy_device *phydev)
- {
- 	struct sfp_bus *bus;
- 	int ret = 0;
-@@ -1762,7 +1756,7 @@ int phy_sfp_probe(struct phy_device *phydev,
- 
- 		phydev->sfp_bus = bus;
- 
--		ret = sfp_bus_add_upstream(bus, phydev, ops);
-+		ret = sfp_bus_add_upstream(bus, phydev, &sfp_phydev_ops);
- 		sfp_bus_put(bus);
+diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
+index c012dfab3171..f31b6d974d22 100644
+--- a/drivers/net/phy/dp83822.c
++++ b/drivers/net/phy/dp83822.c
+@@ -979,6 +979,13 @@ static int dp83822_attach_mdi_port(struct phy_device *phydev,
+ 		}
  	}
  
-@@ -1771,7 +1765,6 @@ int phy_sfp_probe(struct phy_device *phydev,
- 
- 	return ret;
++	/* If attached from SFP, is_mii is set, but not the mediums. */
++	if (port->is_mii)
++		dp83822->fx_enabled = true;
++
++	if (dp83822->fx_enabled)
++		__set_bit(PHY_INTERFACE_MODE_100BASEX, port->interfaces);
++
+ 	return 0;
  }
--EXPORT_SYMBOL(phy_sfp_probe);
  
- static bool phy_drv_supports_irq(const struct phy_driver *phydrv)
- {
-@@ -3578,12 +3571,9 @@ static int phy_setup_ports(struct phy_device *phydev)
- 	if (ret)
- 		return ret;
- 
--	/* Use generic SFP probing only if the driver didn't do so already */
--	if (!phydev->sfp_bus) {
--		ret = phy_sfp_probe(phydev, &sfp_phydev_ops);
--		if (ret)
--			goto out;
--	}
-+	ret = phy_sfp_probe(phydev);
-+	if (ret)
-+		goto out;
- 
- 	if (phydev->n_ports < phydev->max_n_ports) {
- 		ret = phy_default_setup_single_port(phydev);
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 2a9763e923fd..17486802d6cb 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -2121,12 +2121,6 @@ int phy_suspend(struct phy_device *phydev);
- int phy_resume(struct phy_device *phydev);
- int __phy_resume(struct phy_device *phydev);
- int phy_loopback(struct phy_device *phydev, bool enable, int speed);
--int phy_sfp_connect_phy(void *upstream, struct phy_device *phy);
--void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy);
--void phy_sfp_attach(void *upstream, struct sfp_bus *bus);
--void phy_sfp_detach(void *upstream, struct sfp_bus *bus);
--int phy_sfp_probe(struct phy_device *phydev,
--	          const struct sfp_upstream_ops *ops);
- struct phy_device *phy_attach(struct net_device *dev, const char *bus_id,
- 			      phy_interface_t interface);
- struct phy_device *phy_find_next(struct mii_bus *bus, struct phy_device *pos);
 -- 
 2.49.0
 
