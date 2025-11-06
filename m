@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E398CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6A0CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=8khqmivdHqvLRaEjWc9ce8rzijxmIFPMF+BQyZmHFIg=; b=2K18WqQCF6g+zT
-	UfjVpKcpkgGpRZ11wJXLMdvvaAQw44KVFTtero/ScRu+vxOHk7zc7zQHxeF2Q/Lb/iSYpi3nvxLqD
-	cFljx2pfedC0xQShC6vrM9HKtsTCWeMvbM4kD35B6OyBPSXq1/tSSl2EczrTF7IX/Cag86N4t3joY
-	vTmDyv/JHd60dmBpaVaFNwJU++ZcWrflLlwpDtK2bvFxlbfKygd/bR/NbU15CIfRmmCFwlXv4w5C3
-	oUoEgkq2ihB92deYOurf2iCRQvIkti1gdU20TcfR6WUTmeYLlyiHq0uEfgh3OaevA/oYyQIL/WTgK
-	oD36DW1waGThKEci1JWg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYg6fgvglOEUOS0tGf68vRf9+3J6E84/lSBqd1aI1sk=; b=SAEPQMHxxbgTKl/syVE5FKd0UX
+	wM0ku29567cd9ljRZDCU2n97l6sm5UrMzRKoB5GRxEnuCSiWIkvQF8jJf6GgsqcEFTnaLDVDI8a4w
+	5C6jr9zZbT2uBXpWrkXkrbfkbnmu7ZztuYxL7Y8Q8DetYSjoXgOQw8Y8ndwUxb2OMJKJty744/Tsm
+	mcW04F6szxgZHucsZkq5luawz5xpMw9cfP8LfNFZ47adSZERmxRLiUH4afs30TLkh72VjM6pqurr3
+	Ts7pcELiMrT35eL98Gvc881hbzrgAKHFhMNrils8Fb0Eo3bD+TQrJjcql52dndnvgWqAGW3WDB9al
+	Sx8dTbiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3wn-0000000G2W8-2RQB;
-	Thu, 06 Nov 2025 17:38:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vH419-0000000G2mt-2ak1;
+	Thu, 06 Nov 2025 17:43:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3wl-0000000G2Vm-2A1J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:38:56 +0000
+	id 1vH418-0000000G2mg-2M3S;
+	Thu, 06 Nov 2025 17:43:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E12AE4018C;
-	Thu,  6 Nov 2025 17:38:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90CEEC16AAE;
-	Thu,  6 Nov 2025 17:38:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6490D618FE;
+	Thu,  6 Nov 2025 17:43:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1992C116B1;
+	Thu,  6 Nov 2025 17:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762450734;
-	bh=KT4NxU4wzZtWzjzdNyOaIb2J5xsI7ldg+J7TbPIxc2s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=RKZnoXF2yCM0esJy0nNdLPHb5DCoMw2//OUPJtCchG/Cd8esCy4W7xNGUF9NZtym8
-	 HKyyWeEERf8/AN3v7TvGd/1muy/vbounHttD2Uc0onBdB+RQRKH1NUJ7jKOVP9HDn9
-	 Udy27sHloM66hl2xBTgbs2TbZwUcZ/Q/PVqMKc69O8gNSxB2HEzAvcW+p+ri7OXkGT
-	 iDCXL8yE6hySjYsZIRNmC+WnR8BqEOjSREVal8M5UEwfGbaZgVEj0BLT7kUkRl9utH
-	 HiSeM77VN+qtG1pvUMbvDqQqHVhWrp8g3W6VLu1wLV7rMErYylWqQWpoGbikP1WMgS
-	 8EdbtQuGnnPDg==
-Date: Thu, 6 Nov 2025 11:38:53 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, chester62515@gmail.com,
-	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
-	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, cassel@kernel.org,
-	Senchuan Zhang <zhangsenchuan@eswincomputing.com>
-Subject: Re: [PATCH 1/4 v3] dt-bindings: PCI: s32g: Add NXP PCIe controller
-Message-ID: <20251106173853.GA1959661@bhelgaas>
+	s=k20201202; t=1762451005;
+	bh=RYg6fgvglOEUOS0tGf68vRf9+3J6E84/lSBqd1aI1sk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hPnTsvEgCJHP5uPcj0x5eVXQi3cMNZ3Qh0DH6GuT2Brcz4OAEObzwAJFdboPG/gLX
+	 8GSHcYXT4Noef9AFiK1iBJDo8YlryvJdp0kxSD1sV2+gROS0x+l6Lv7F7TbTkhL6ll
+	 KJyhAn7zGvRZpQpU2xOXGt1lI7N4mwWaaZzdb6T4ypEaPz+apFQ4Gau8pm2iDkkGrb
+	 XhCb5DKYZfYBditTwh/GpFgDqFcLaEjy4sNqxMPOu4QHrVDxwInnT7D4LzblzB4sMm
+	 zopAbMSwiK5hI/KA/AIeAN/EUF3QskeLr+5n66PxysHmlJ3EacoVgpy/0lUsbcaFtb
+	 mxPaP5xiSPlEw==
+Date: Thu, 6 Nov 2025 17:43:19 +0000
+From: Conor Dooley <conor@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: frank-w@public-files.de, Frank Wunderlich <linux@fw-web.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	AngeloGioacchino Del Regno <angelogiocchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: pinctrl: mt7988: allow gpio-hogs
+Message-ID: <20251106-strewn-carport-a33a8b812794@spud>
+References: <20251105195007.199229-1-linux@fw-web.de>
+ <20251105195007.199229-2-linux@fw-web.de>
+ <5DB7D99D-A30D-42A1-8E3E-B0204A1E6E6D@public-files.de>
+ <1af7077b-42a3-4efe-a8cb-6117136c8f2a@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kxHVsfn4TTebUpw9"
 Content-Disposition: inline
-In-Reply-To: <CAKfTPtC87w7RVSDAXWXRX1sjgo4s=_Z_k62+mfTXrMZwmkEpFg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_093855_576447_C09A010C 
-X-CRM114-Status: GOOD (  23.61  )
+In-Reply-To: <1af7077b-42a3-4efe-a8cb-6117136c8f2a@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +82,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Senchuan]
 
-On Thu, Nov 06, 2025 at 09:09:01AM +0100, Vincent Guittot wrote:
-> On Thu, 6 Nov 2025 at 08:12, Manivannan Sadhasivam <mani@kernel.org> wrote:
-> > On Wed, Oct 22, 2025 at 07:43:06PM +0200, Vincent Guittot wrote:
-> > > Describe the PCIe host controller available on the S32G platforms.
+--kxHVsfn4TTebUpw9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > > +            phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> >
-> > PHY is a Root Port specific resource, not Root Complex. So it
-> > should be moved to the Root Port node and the controller driver
-> > should parse the Root Port node and control PHY. Most of the
-> > existing platforms still specify PHY and other Root Port
-> > properties in controller node, but they are wrong.
-> 
-> Yeah, we had similar discussion on v1 and as designware core code
-> doesn't support it, the goal was to follow other implementations
-> until designware core is able to parse root port nodes.  I can add a
-> root port node for the phy and parse it in s32 probe function but
-> then If I need to restrict the number of lane to 1 instead of the
-> default 2 with num-lanes then I have to put it the controller node
-> otherwise designware core node will not get it.
+On Thu, Nov 06, 2025 at 10:01:41AM +0100, AngeloGioacchino Del Regno wrote:
+> Il 05/11/25 21:01, Frank Wunderlich ha scritto:
+> > Am 5. November 2025 20:50:01 MEZ schrieb Frank Wunderlich <linux@fw-web=
+=2Ede>:
+> > > From: Frank Wunderlich <frank-w@public-files.de>
+> > >=20
+> > > Allow gpio-hogs in pinctrl node for switching pcie on Bananapi R4 Pro.
+> > >=20
+> > > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> > > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > > Reviewed-by: AngeloGioacchino Del Regno <angelogiocchino.delregno@col=
+labora.com>
+> >=20
+> > Seems Angelos RB tag is missing "a" in "Gioacchino" in email
+> >=20
+> > Got error:
+> > said: 550 5.1.1 User does not exist -
+> > <angelogiocchino.delregno@collabora.com> (in reply to RCPT TO command)
+> >=20
+> > maybe this can be fixed while applying?
+> >=20
+> > regards Frank
+>=20
+> Eh, have I typoed my own name?
+>=20
+> So cool. Lol
+>=20
+> Just in case it's needed:
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
 
-I think it's better to put the PHY info, including num-lanes, in Root
-Port DT nodes now even thought the DWC core doesn't explicitly support
-that yet because it's much easier to change the DWC core and the
-driver code than it is to change the DT structure.
+I have a vim macro to a) save my hands typing lots of tags b) make sure
+I don't typo. ;)
 
-That will mean a little extra code in the s32g driver now, but we will
-be able to remove that eventually.  If we leave the PHY in the DT
-controller node, we may eventually end up having to support two s32g
-DT structures: the single RP style with PHY in the controller, and a
-multiple RP style with PHY in the RP.
 
-We'll likely have both structures for many existing drivers, but I
-think it will be simpler if new drivers can avoid the old one.
+--kxHVsfn4TTebUpw9
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The eic7700 driver is an example of num-lanes support in the driver:
-https://lore.kernel.org/linux-pci/20251030083143.1341-1-zhangsenchuan@eswincomputing.com/
+-----BEGIN PGP SIGNATURE-----
 
-Bjorn
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQzeNwAKCRB4tDGHoIJi
+0sEBAQDh3ELz8Pk02klEc4eajrCSPIBQRJI5YYEM84+8jup61wD/TIDv3g+lbIbM
+UpPplLaIvc9wo+kbqV2fcUYFO7jELAY=
+=yvxB
+-----END PGP SIGNATURE-----
+
+--kxHVsfn4TTebUpw9--
 
