@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 925A2CCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84ECECCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=; b=V4MTrWopHrxBoutTek3uyKc/7y
-	mas4L6bwsu7X/6K+G80eGoV3e1zmyo4Fw1yi49qEXyqlZXokJDsGg2yjUwIMb/VPwnZ/c5hP7X6CN
-	/swBpGPY4yTqkFZdbVa0KsfKZzFbfCSnLiTWqBWtqlxOEu8i19EtYuNXJT1dByfA8HmOkyd1PStFQ
-	grrSFtNaMJAGBlHmWxcmAr/HMB8f1lQg8hlLp1qeZddVbVa9gao3abga/rw8L/Q/9jIP05HmDqiIz
-	xAJRZET8BY5JWYpuFg1T+D1vQtBVwvj4YyZrJmBx5FkuWapLkY2q3s7DsV0O0IwWtZ6h4b21Ulohy
-	IAMSf07Q==;
+	bh=bB4z51LIflJklurj0g7UdBUTO3OdObbc/NJxwgKEh/c=; b=ZpKvdU2484C9Zpt9wPqSNqpwAS
+	S/aDnwsZDETkLiN8zzB2cnwe0jW6Bd1oyKq4rG+MglELDyxWwpmh24bV4TTFLFhtO3+qqxo/bhPZ/
+	IJudb6I0TBIxkfs3ZMbS4pJmGzIF1uewqJGfrrI9uV3r6/XJz7GGdDkxXvTLFAcjIS48s9FmXrn/1
+	/ZxZX5E32XrDh5/Dr4S/N4+OQ+DKTfOOCM0dN4DJYMEysmKzudHaVVtB2w3OZsHjfLWB9JqYlc5eX
+	NJRE+3keW6Jilyn9Dom77udFSGnbp6faGbbg9zML4W49aeFEoy2hzMwhydOjSdfgmATYP7FAvMaX7
+	Yy1ole+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fF-0000000FtyW-0DKX;
-	Thu, 06 Nov 2025 16:16:45 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vH2fH-0000000Fu0I-1W8Q;
+	Thu, 06 Nov 2025 16:16:47 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fC-0000000Ftw1-0ZEw
+	id 1vH2fE-0000000Ftx3-0ffg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:16:43 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-64124e430adso123593a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:16:41 -0800 (PST)
+	Thu, 06 Nov 2025 16:16:45 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-640ef45546cso203923a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:16:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762445800; x=1763050600; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762445802; x=1763050602; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=;
-        b=KsMKQk23k+yMjckewXUBkqxvZv8b0s1jzV3/tuE2a9dM5BytPLKoMZlIbogT1g3Cxl
-         zKY6FYBw/SXM9TwChNh8z2wYKtso1G3vzeiD5/U9ilsVl1LUvF41lMnrwzByMpl/fYyZ
-         TNTrcis4/g87bBt7EmX+tCLbxjd7FGSHRugFofwVedVzF2+4Ze7V1HOONMbUxJTHbXRP
-         PtDK0sBBtYZtGorFTYeClGXBtO+df/as2XEdCaSZcLRyVsJEgBGOcv/G1BdK59gmOppB
-         w3uOAzzOTNEy1j4+Ua0otdymDZyqS29m6jGNpGX/gbLhRKwQimL7rFbkxGM3Th35jOH+
-         yn5A==
+        bh=bB4z51LIflJklurj0g7UdBUTO3OdObbc/NJxwgKEh/c=;
+        b=aSasU14fkqpJviz4s68ArG2azhfTpzqa/J03KFGNRKDT8rvE3acqJ8FjuSoPsx9DH1
+         oh8vIRa1jwe8t/tEDun5tPl1i4eEaGtLbM/SL4ZIJ3YU81guWUhyY1zvc/fWaAOlqdkH
+         OlYMpAVJtm4PC9pmXCzcteRVmjPAQ6JGpA0Ra0xVH3ucaNd8AAAOGAQCvzsMsnyOGpZ6
+         Ne+oYQT+2UuFuKB1rpOHn3QuEwPUh9zTTKmJMZIHVGy0iDbPPQ4cn1EroRzTgHwkiq90
+         mmURDXv/5CiDW754UiiFVaDGSsPCOqeIZVgxNm9yCUsKmgm8RDiNHp9CDg16pA5LYhhS
+         cJ3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762445800; x=1763050600;
+        d=1e100.net; s=20230601; t=1762445802; x=1763050602;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=;
-        b=LXR9IqfgZGlC/0A5tpJK4SOXtK8E1FWStZ5aPetElmdBIR+meHKZYLgrmOM0MvkLtr
-         I/5+RNODgoSibvSX2MQR/vXU/XXWYV/z5VUWLtnmXHZnEcboRsF+Hzyr3xqYriw9+YQ4
-         hJycPu+svsrEThC2c/DzA0wVtAtzRk60vtmLipdVICDZYJGNkyDLs7+/mHKSPpIXidjo
-         NMUUqtg1IF6eSyzGveMqaL0SD9JLpT6s8DLU+uUz8wmsD435lIEuCPkqn5OYEzDJg1+6
-         FBhWPJBijC/6/Hc6BBNuGvuq3GmVBP++wwi2gfA4KFTs+QjOI7pMLN9eEiQyTj+x5JEo
-         uZ/g==
-X-Forwarded-Encrypted: i=1; AJvYcCWe/Df/FXqAxxWGtw6IU9gI1kh2kYwJ+AUs3v39XYLSF3bMNp6LbI/xzw3bsvIVUPTnm7nXx10Eu/nrvKuiBv07@lists.infradead.org
-X-Gm-Message-State: AOJu0YyADvAnqWnMYntWxwizJw6fe62BlvzEeOotRyn9uwH088yKC8PD
-	gLNCVTa2nb427kuPgYHlqnqbR/yNs3mOrrkt/rH3QE0PC4d0sFOzVad0r6kpgrqj7yUwk5OaBLc
-	v+E66
-X-Gm-Gg: ASbGncsaqL6HtcHqf3yZ8wIdCXa7zMtuAxdGkGuTWectwsXDoFBRhcPlgrFIE18M6Me
-	AWZwdSgr0SQWaL3vK9y0w/FGYk9FXjXsXqSemKyvwsQ92aAhLyFG82EXw/Lj1O1FSW/IxxDgt2t
-	5XpICf+D/KyAOqCt7fPAuCnlh0t7dG1XK3nZWbFjHBQVlKG5tViiibI0oHVpppG5x7MWoxroYMK
-	Tleul+hAhTkh7qqOjxA6ApG/SzKeupnlPmkFsK8P7zV0nOz3I60kx6XVbNbvn/KP1koPOIzKfCD
-	fjogO3UoPJWFqTEUX+XMVV6jwnYnvXs3QkcQz9N4s1y+bDjfHt92hqCbP/vuEeH4E37CSLs0573
-	oL1XO6XNlgNvVKf+BSro29lHIMjhptdz8XbH8lExZvk5bK/xc1e7zWDHCQQlabxtcVFeq0PQscB
-	yxdjPja3TnNFFrEwE/bz6lUCsv4gI=
-X-Google-Smtp-Source: AGHT+IG/5tTc7ZxspWUa/B8lb4VJAe+mwb5eciTvDLKhw+fK6fmt5UhwDE0B5Na16xt3VKGSskNthQ==
-X-Received: by 2002:a05:6402:234a:b0:640:9aed:6ac4 with SMTP id 4fb4d7f45d1cf-64105a44b67mr3713567a12.3.1762445800269;
-        Thu, 06 Nov 2025 08:16:40 -0800 (PST)
+        bh=bB4z51LIflJklurj0g7UdBUTO3OdObbc/NJxwgKEh/c=;
+        b=lA2Fcnm51F4ueIhorg87wsAZR3d95qQW4rigyewMG5x9n4h5BXJA3xJmOHUZIUrO2j
+         tfekxpN5XjRuV8gDdNE4MPk1dPGMR0dTqpW4c4AR52Tt4QBn75wLcLLPzrCOe2XrzELZ
+         4MafF3ITG3B5ZOiJ3lLQ/RYkbs3KjvYdGJIZ8ypRX/T+Q9tKQrriXkfmLKBZVudtSCfN
+         pkswuZeMlBg0YEfN7tcYoopP/fwcQ0bB02yIUyiZ/BIOSSZYQE5UDdLs3K+iQNTpGqat
+         5AnqlMeRYPfxkRT0ZohhocnhsmNhuwJnKlsrrhL8VJQYRcomKFvT4poyUGQKk2L9p2fI
+         xXYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUamRnpe4Bp6aMCqt4tWCXPvwpL6K+mL0s3o3MVsVhJuLYEltuoQsfF8KLWHm3TcAJb8BIvnERck5atieIgXLCj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVpslP17fxEZRBUtcW9Npb6XdNe/r1ZG5ppQi1K/AbF0w0bJ5E
+	J+kIicZBW1j+bkzLR9RFBeCU7k9a3KNJLHVM6Sz7jb/vcUs5Z8TKzspA+MRZ20j6e5Q=
+X-Gm-Gg: ASbGncvWgYpPHqSz2lzauhp7Ou4usePp6DCvKRjwYn2555o9CUQfxkSMGHm9GBWYlIz
+	hF1sfdQ9K7VtlMl9erQFyAywV5KUjb/6l6y6u/BqFHRr0/Cv91mRCLyyMRwgKW561uHWXwUlc0P
+	ogXvs8QR60T4WRJPQmJlBr+uqB3E4VMAtAxn0upgwdyKuPjpTakpvjGtnnzwOegJ0sHRT761yZ+
+	C/8cegLyxCVuIIsuQde+C7k0gJZ5UpwSXHSpvqu5HDyF2rwhzsjTJkUB2byH/TDb3avAbc7h9mo
+	SRIQ8ayRRt6ZE0s5vL5wi+puk5SC7D5oImuhpI+NdHY/cbFsOxjEcBXFc6QGNbE0fFxKNlRqfFA
+	IhDljMdPpTiRClwgTAtyibIbZR5OxozwPe7SnOmfrc4SLONPAXYWb5SdvaqgbpT3FtT7q4kko0J
+	WYF7F7G1peVoE61Gtsu+79gg7ajIk=
+X-Google-Smtp-Source: AGHT+IFtC1GinaspbkQnd4wYug5IUHjv3SVNkj0rWIxppV9FyKPtYa1YcloDSaQrqrRVLMWxj8ovrQ==
+X-Received: by 2002:a05:6402:26c9:b0:640:9eb3:3683 with SMTP id 4fb4d7f45d1cf-6411f615d03mr1806671a12.1.1762445802063;
+        Thu, 06 Nov 2025 08:16:42 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f813eabsm2113408a12.11.2025.11.06.08.16.38
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f813eabsm2113408a12.11.2025.11.06.08.16.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 08:16:39 -0800 (PST)
+        Thu, 06 Nov 2025 08:16:41 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Thu, 06 Nov 2025 17:16:26 +0100
-Subject: [PATCH 2/4] gpio: aspeed: Simplify with of_device_get_match_data()
+Date: Thu, 06 Nov 2025 17:16:27 +0100
+Subject: [PATCH 3/4] gpio: creg-snps: Simplify with
+ of_device_get_match_data()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251106-gpio-of-match-v1-2-50c7115a045e@linaro.org>
+Message-Id: <20251106-gpio-of-match-v1-3-50c7115a045e@linaro.org>
 References: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
 In-Reply-To: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -91,26 +91,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1473;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1132;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=ZT2hMJMzDp444RtFAMt6NxeIg8ehhxp6qQkq6o38pVU=;
- b=kA0DAAoBwTdm5oaLg9cByyZiAGkMyd/IHnLxQ8aaVNi31HhlicsroQ2rUZcgWUqQhqbqfNgTz
- 4kCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJpDMnfAAoJEME3ZuaGi4PXQc0P/A43
- VlDZbJcd8JJgzif8Kxz45G85Cei+azNOhCDEWH00UmdsmhkuwJmwLV+Ajksw1M4M6mgS80zGzly
- 5O02OU5dduEuqs5AZNvaL0cVqHiVZhq+YhmANDSBQ0/E3jRTOOR/y9Kzpb9wIJ9YPoNJ2Qtyf3m
- 9CiCBFsHGxIT2Asnc0bw2xxxIXDfLJkc0ru5+Hzwr5y0OH6ips03STdfYXBGn82p0xsT4abiVXr
- XW38qszaEhKlyNt/SNUyEhOmddIAXFWNGLymNcCKEUrXEsNJFmCMEbC5SjHYcBkmHthI7LIIAF+
- Xxpmjh52IS6RfKOOLmJEVlRlayLX80kQ9FsGDef3p6FtQEkX9tJPerYMs4SFtxopCN+HF7MixoY
- buUncg8Cw7RYV6DswaMKg4q01FNFuvYAVMAmOTAO1apdaWDsQi40ET5rYH0vkJ1fL7gvPByVP3L
- /uyg6aZubCZd8D55phWmbVsC0kW8hgiZKvjuR7A1zzIhKIxGrx8bpIgiEMaUbxsDIl5G4qxqIh8
- tcABibfodCZr+m12ITCbUUoCgEfmSwcoE57jaZ6Cf6Y0wwzIEnqqP1h0L/smNhts94gcsIoTZMG
- edD5iw8glo6+FCxSFKYbaOvyeqrRYLGb6SNZPRh9N0GGlO3Cch7OoaZuBlidPfbXhcC/r6xtUUG
- VRHv1
+ bh=8j8xzdpWWGIQJTuLOAuFntqmfK/jylg0S/LsK5+N6+E=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDMngzkBYrj3JN8lP0o3ovEK2e++MYdMvcveA8
+ m4ZPs0/rzmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzJ4AAKCRDBN2bmhouD
+ 1/57D/4pRWUnTW5hXv8wZdB6uRuQ55K28z8ZH3FaoCDGOnKAN61qaX0gKcjyK1QpdBM92q8dQlX
+ 7WOn1TtYWAGTHFqZ0FYGKUVtRg4AA40VNmIBZS0onPYiR3iUWjL91r8g+jFJRB2IsLwSt7sl1Gq
+ aA8Xl3cHY3fo+3OVmd2TcZNyffc2f+8zM23RJHTHC2vO2JO7UgyiwzK+D8FukZVWziot6mdGL0s
+ Z7BNjDHl8QiwXA4KWruLpwle9ZSdWVEM3zYUXEHb/UmvDvDHtyIhrW/7+ar1nPSXgWNLAys3C6p
+ e8aU5fpUXAotF7tV+80nDFZe1fMdKUzUX2y2aeR3ErcwwuH+S7B5biM0GMzctAs/JaADM6JIKVA
+ twdMBzL4Gw+dgCByJDc7fyqMY+vu3YtPwyla7Lw8PbtVd1OFaXAsJMEKoBb03X6xoHosdxtBR+i
+ xrFfcnQBVxZi8UDPDa8gIgfK84U7Hp/6B4S47THfEkyZuJF511L1ii8URMSs1sPrFGMbCi0jKoB
+ 9cBGcwJqifeOyVVm/O+r2r9CSMGKdf+pXk2RVCW1CtCGEt4QyVYtucVFqw96bgGmqaJwkp2wKC5
+ JdUL+O0Tk9wvaEynfCPgNCQSDSUUhm78cVRhcsmdO40bTXxVrupADbP2q/6asWxvHK/z02SPoq4
+ V5KGI9l4mXh3aFg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_081642_203290_CA5FF9DD 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20251106_081644_222741_46CEB4C1 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,41 +131,31 @@ simplified with of_device_get_match_data().
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/gpio/gpio-aspeed.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ drivers/gpio/gpio-creg-snps.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
-index 2e0ae953dd99..3d675b63936c 100644
---- a/drivers/gpio/gpio-aspeed.c
-+++ b/drivers/gpio/gpio-aspeed.c
-@@ -1305,7 +1305,6 @@ MODULE_DEVICE_TABLE(of, aspeed_gpio_of_table);
+diff --git a/drivers/gpio/gpio-creg-snps.c b/drivers/gpio/gpio-creg-snps.c
+index f8ea961fa1de..cdb103b0fae3 100644
+--- a/drivers/gpio/gpio-creg-snps.c
++++ b/drivers/gpio/gpio-creg-snps.c
+@@ -134,7 +134,6 @@ static const struct of_device_id creg_gpio_ids[] = {
  
- static int aspeed_gpio_probe(struct platform_device *pdev)
+ static int creg_gpio_probe(struct platform_device *pdev)
  {
--	const struct of_device_id *gpio_id;
- 	struct gpio_irq_chip *girq;
- 	struct aspeed_gpio *gpio;
- 	int rc, irq, i, banks, err;
-@@ -1323,8 +1322,8 @@ static int aspeed_gpio_probe(struct platform_device *pdev)
+-	const struct of_device_id *match;
+ 	struct device *dev = &pdev->dev;
+ 	struct creg_gpio *hcg;
+ 	u32 ngpios;
+@@ -148,8 +147,7 @@ static int creg_gpio_probe(struct platform_device *pdev)
+ 	if (IS_ERR(hcg->regs))
+ 		return PTR_ERR(hcg->regs);
  
- 	raw_spin_lock_init(&gpio->lock);
- 
--	gpio_id = of_match_node(aspeed_gpio_of_table, pdev->dev.of_node);
--	if (!gpio_id)
-+	gpio->config = of_device_get_match_data(&pdev->dev);
-+	if (!gpio->config)
+-	match = of_match_node(creg_gpio_ids, pdev->dev.of_node);
+-	hcg->layout = match->data;
++	hcg->layout = of_device_get_match_data(dev);
+ 	if (!hcg->layout)
  		return -EINVAL;
  
- 	gpio->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-@@ -1334,8 +1333,6 @@ static int aspeed_gpio_probe(struct platform_device *pdev)
- 		gpio->clk = NULL;
- 	}
- 
--	gpio->config = gpio_id->data;
--
- 	if (!gpio->config->llops->reg_bit_set || !gpio->config->llops->reg_bit_get ||
- 	    !gpio->config->llops->reg_bank_get)
- 		return -EINVAL;
 
 -- 
 2.48.1
