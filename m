@@ -4,75 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A0BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8394BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FnkNdHhMVBUSWhSH665J4Pt2qzWSihqM7/C3ojK3sM=; b=RSGkrWPovWgKUiVSdh/Nwi2W/J
-	ZZ/xrgqseoBqaXzHn7HJ98jLAKGwjBYL3SoFMRAJr1V09FDEZldu9qUPxhkWXbd86GsvolsbBlaPG
-	z1YhZ6qDITJLbXWfRnuYd4HBmK68yptQ7NDsfju+gwXNd+Yo7piRbHh4yq81AFGQ3rsY/O90bey6p
-	18XUVFHcsvKn00xcnS7wYwD4hBgyadO2fiwZZqMQH1A0gT8yLzOJH6/XnVBv97VHuZXafyFgnIQqR
-	my3M2OdA0wgdv+v0Jl4K4mH+CM5nzRfqq+XPRZFnmF33kXsggghFoohNL7EHc61p4iMEhPwzvV84Q
-	ai0YmcfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eScuLIkUxRIPtIqEAvPGMRjpBX5AffvPWMd1EMYumTo=; b=HixxrypvPlv/Mi+xjPWiH0CIJU
+	gpOhbh6Rbzd7cHz41a9Xzg4BB62xiRy0xIVVqhkawYTHcVfhD9l0e8ON+bQqRJVPDzsnlrCk7dVJE
+	eyKp3jQWQ7CrPZiGVs+yGg4iHLjcJZlV0GgYSMgqLwrGm1k+MzYBjPutjJkqT1A03zS0pafFSQGsR
+	2w2GNqAgK32mrPgZvL6dq1Za4o7W0FzlEdHBDdX1IpxEugw8kmB6fNXbx0trvULYpnJ9G+D2Er7N/
+	Zzv/wsypuIIv0t2fmDEx5k2wARQcHtLL8w8Y89kZVXbvQAHQKWxPSmlOcKs8rj8rbZkTND9rLWbih
+	uJJMsE1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGvIR-0000000F3iq-2MS9;
-	Thu, 06 Nov 2025 08:24:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vGvJQ-0000000F3sZ-1rcc;
+	Thu, 06 Nov 2025 08:25:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGvIQ-0000000F3ic-1JMW;
-	Thu, 06 Nov 2025 08:24:42 +0000
+	id 1vGvJP-0000000F3ru-069w
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 08:25:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A105F6022B;
-	Thu,  6 Nov 2025 08:24:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3145C4CEFB;
-	Thu,  6 Nov 2025 08:24:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EBF460216;
+	Thu,  6 Nov 2025 08:25:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F66FC4CEF7;
+	Thu,  6 Nov 2025 08:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762417480;
-	bh=tnT+oLc/kBo4dvSKn58H5wJqyeTpfH6PqdkJR5lwiCI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MQfFohEUn+hXz5i9qgPu11Y8k2A6IGar+vdTxNhbAo5kq96oZC66SvEwCEwZLngMa
-	 nZqgVO6+lGr5SbnAscnFEGlOYth+V4uFEvuRy8xVQMnvVEiHxMmse/uc5VnagiJNt8
-	 7+LUyj+hqpudRx/65qxTU8MdcRF9WWbQQgyoIMJ5FYNqvVvXm0EJe3tzNLVe4x9hWN
-	 OwMtBjGFSqk12yNZ+IiQNnuFCH6ChjQrOxCXNG3qNwMylFktFN1x1Sr2exkVzhcv2W
-	 GcbUH/H4EasrjeEnAZuC2B/VAI67qBmhIzlMObyBFLthPShiCWyultl0kZZGY0ZbBJ
-	 1YtPynLoEba2g==
-Date: Thu, 6 Nov 2025 10:24:24 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Pratyush Yadav <pratyush@kernel.org>,
-	Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com,
-	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org,
-	bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, robh@kernel.org,
-	rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <aQxbOG65t-Vu6TVe@kernel.org>
-References: <20250509074635.3187114-1-changyuanl@google.com>
- <20250509074635.3187114-2-changyuanl@google.com>
- <ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
- <mafs0wm4yluej.fsf@kernel.org>
- <mafs0h5w2lpqu.fsf@kernel.org>
- <2ege2jfbevtunhxsnutbzde7cqwgu5qbj4bbuw2umw7ke7ogcn@5wtskk4exzsi>
- <mafs0cy6pljci.fsf@kernel.org>
- <c2nrxby4atq75o5yhwdpoikyso42tzimwn2bnl7fk54wuwdqax@i6kdssez3kfj>
+	s=k20201202; t=1762417541;
+	bh=DCnfh7mLbukTm540wr5ypp9ub3cRbfvtzASA2bFr5UQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o2X8erI1WCidQeB/fJ3hxdn68JhhCmdtURxZ6pDYRokF3gwUy3KaKMn7O4GTtA3TS
+	 1rb3a9qyv6iCCJaD1KO3ta7K8muaEObJoUT7o/VwawUWqzkWOb7Ndqintz04nuqFxQ
+	 +WnOkaOIXhS6BYJYesjASd3tTIvP33NmpdgxJuhpVhxKlGeVrg33QiSyf/ROHm5vfB
+	 eUUmf2jQCB02sOhlqFCt43Lg/o3o/NfI8tq4WTa7EKswLccErikKuZdAOXXig9GQaq
+	 q6QJdpvp1kYqYw2hE7tFTecDW2hSeEiix/pGJ8VUufDI2eqjYJ+6Z3smGLqvSrpow7
+	 SWjL0CCqsJSiA==
+Message-ID: <1f3106e6-c49f-4fb3-9d5a-890229636bcd@kernel.org>
+Date: Thu, 6 Nov 2025 09:25:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c2nrxby4atq75o5yhwdpoikyso42tzimwn2bnl7fk54wuwdqax@i6kdssez3kfj>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "taoren@meta.com" <taoren@meta.com>
+References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+ <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
+ <20251104-victorious-crab-of-recreation-d10bf4@kuoka>
+ <SEYPR06MB5134B91F5796311498D87BE29DC4A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <9ae116a5-ede1-427f-bdff-70f1a204a7d6@kernel.org>
+ <SEYPR06MB5134004879B45343D135FC4B9DC2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <SEYPR06MB5134004879B45343D135FC4B9DC2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,108 +130,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Breno,
+On 06/11/2025 06:41, Jacky Chou wrote:
+>>>>> Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
+>>>>> Add conditional schema constraints for Aspeed AST2600 MAC controllers:
+>>>>> - For "aspeed,ast2600-mac01", require rx/tx-internal-delay-ps properties
+>>>>>   with 45ps step.
+>>>>> - For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps properties
+>>>>>   with 250ps step.
+>>>>
+>>>> That difference does not justify different compatibles. Basically you
+>>>> said they have same programming model, just different hardware
+>>>> characteristics, so same compatible.
+>>>>
+>>>
+>>> This change was originally based on feedback from a previous review
+>> discussion.
+>>> At that time, another reviewer suggested introducing separate
+>>> compatibles for
+>>> MAC0/1 and MAC2/3 on AST2600, since the delay characteristics differ
+>>> and they might not be fully compatible.
+>>
+>>
+>> Your commit msg does not provide enough of rationale for that.
+>> Difference in DTS properties is rather a counter argument for having separate
+>> compatibles. That's why you have these properties - to mark the difference.
+>>
+> 
+> Actually, on the AST2600 there are two dies, and each die has its own MAC.
+> The MACs on these two dies indeed have different delay configurations.
 
-On Wed, Nov 05, 2025 at 02:18:11AM -0800, Breno Leitao wrote:
-> Hello Pratyush,
-> 
-> On Tue, Oct 14, 2025 at 03:10:37PM +0200, Pratyush Yadav wrote:
-> > On Tue, Oct 14 2025, Breno Leitao wrote:
-> > > On Mon, Oct 13, 2025 at 06:40:09PM +0200, Pratyush Yadav wrote:
-> > >> On Mon, Oct 13 2025, Pratyush Yadav wrote:
-> > >> >
-> > >> > I suppose this would be useful. I think enabling memblock debug prints
-> > >> > would also be helpful (using the "memblock=debug" commandline parameter)
-> > >> > if it doesn't impact your production environment too much.
-> > >> 
-> > >> Actually, I think "memblock=debug" is going to be the more useful thing
-> > >> since it would also show what function allocated the overlapping range
-> > >> and the flags it was allocated with.
-> > >> 
-> > >> On my qemu VM with KVM, this results in around 70 prints from memblock.
-> > >> So it adds a bit of extra prints but nothing that should be too
-> > >> disrupting I think. Plus, only at boot so the worst thing you get is
-> > >> slightly slower boot times.
-> > >
-> > > Unfortunately this issue is happening on production systems, and I don't
-> > > have an easy way to reproduce it _yet_.
-> > >
-> > > At the same time, "memblock=debug" has two problems:
-> > >
-> > >  1) It slows the boot time as you suggested. Boot time at large
-> > >     environments is SUPER critical and time sensitive. It is a bit
-> > >     weird, but it is common for machines in production to kexec
-> > >     _thousands_ of times, and kexecing is considered downtime.
-> > 
-> > I don't know if it would make a real enough difference on boot times,
-> > only that it should theoretically affect it, mainly if you are using
-> > serial for dmesg logs. Anyway, that's your production environment so you
-> > know best.
-> > 
-> > >
-> > >     This would be useful if I find some hosts getting this issue, and
-> > >     then I can easily enable the extra information to collect what
-> > >     I need, but, this didn't pan out because the hosts I got
-> > >     `memblock=debug` didn't collaborate.
-> > >
-> > >  2) "memblock=debug" is verbose for all cases, which also not necessary
-> > >     the desired behaviour. I am more interested in only being verbose
-> > >     when there is a known problem.
-> 
-> I am still interested in this problem, and I finally found a host that
-> constantly reproduce the issue and I was able to get `memblock=debug`
-> cmdline. I am running 6.18-rc4 with some debug options enabled.
-> 
-> 	DMA-API: exceeded 7 overlapping mappings of cacheline 0x0000000006d6e400
-> 	WARNING: CPU: 58 PID: 828 at kernel/dma/debug.c:463 add_dma_entry+0x2e4/0x330
-> 	pc : add_dma_entry+0x2e4/0x330
-> 	lr : add_dma_entry+0x2e4/0x330
-> 	sp : ffff8000b036f7f0
-> 	x29: ffff8000b036f800 x28: 0000000000000001 x27: 0000000000000008
-> 	x26: ffff8000835f7fb8 x25: ffff8000835f7000 x24: ffff8000835f7ee0
-> 	x23: 0000000000000000 x22: 0000000006d6e400 x21: 0000000000000000
-> 	x20: 0000000006d6e400 x19: ffff0003f70c1100 x18: 00000000ffffffff
-> 	x17: ffff80008019a2d8 x16: ffff80008019a08c x15: 0000000000000000
-> 	x14: 0000000000000000 x13: 0000000000000820 x12: ffff00011faeaf00
-> 	x11: 0000000000000000 x10: ffff8000834633d8 x9 : ffff8000801979d4
-> 	x8 : 00000000fffeffff x7 : ffff8000834633d8 x6 : 0000000000000000
-> 	x5 : 00000000000bfff4 x4 : 0000000000000000 x3 : ffff0001075eb7c0
-> 	x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0001075eb7c0
-> 	Call trace:
-> 	add_dma_entry+0x2e4/0x330 (P)
-> 	debug_dma_map_phys+0xc4/0xf0
-> 	dma_map_phys (/home/leit/Devel/upstream/./include/linux/dma-direct.h:138 /home/leit/Devel/upstream/kernel/dma/direct.h:102 /home/leit/Devel/upstream/kernel/dma/mapping.c:169)
-> 	dma_map_page_attrs (/home/leit/Devel/upstream/kernel/dma/mapping.c:387)
-> 	blk_dma_map_direct.isra.0 (/home/leit/Devel/upstream/block/blk-mq-dma.c:102)
-> 	blk_dma_map_iter_start (/home/leit/Devel/upstream/block/blk-mq-dma.c:123 /home/leit/Devel/upstream/block/blk-mq-dma.c:196)
-> 	blk_rq_dma_map_iter_start (/home/leit/Devel/upstream/block/blk-mq-dma.c:228)
-> 	nvme_prep_rq+0xb8/0x9b8
-> 	nvme_queue_rq+0x44/0x1b0
-> 	blk_mq_dispatch_rq_list (/home/leit/Devel/upstream/block/blk-mq.c:2129)
-> 	__blk_mq_sched_dispatch_requests (/home/leit/Devel/upstream/block/blk-mq-sched.c:314)
-> 	blk_mq_sched_dispatch_requests (/home/leit/Devel/upstream/block/blk-mq-sched.c:329)
-> 	blk_mq_run_work_fn (/home/leit/Devel/upstream/block/blk-mq.c:219 /home/leit/Devel/upstream/block/blk-mq.c:231)
-> 	process_one_work (/home/leit/Devel/upstream/kernel/workqueue.c:991 /home/leit/Devel/upstream/kernel/workqueue.c:3213)
-> 	worker_thread (/home/leit/Devel/upstream/./include/linux/list.h:163 /home/leit/Devel/upstream/./include/linux/list.h:191 /home/leit/Devel/upstream/./include/linux/list.h:319 /home/leit/Devel/upstream/kernel/workqueue.c:1153 /home/leit/Devel/upstream/kernel/workqueue.c:1205 /home/leit/Devel/upstream/kernel/workqueue.c:3426)
-> 	kthread (/home/leit/Devel/upstream/kernel/kthread.c:386 /home/leit/Devel/upstream/kernel/kthread.c:457)
-> 	ret_from_fork (/home/leit/Devel/upstream/entry.S:861)
-> 
-> 
-> Looking at memblock debug logs, I haven't seen anything related to
-> 0x0000000006d6e400.
+Is this the logic like: we have multiple snps,dw-apb-uart UARTs on the
+device, so we need snps,dw-apb-uart-1, snps,dw-apb-uart-2 and
+snps,dw-apb-uart-3?
 
-It looks like the crash happens way after memblock passed all the memory to
-buddy. Why do you think this is related to memblock?
- 
-> I got the output of `dmesg | grep memblock` in, in case you are curious:
 > 
-> 	https://github.com/leitao/debug/blob/main/pastebin/memblock/dmesg_grep_memblock.txt
+> Previously, the driver did not configure these delays — they were set earlier during 
+> the bootloader stage. Now, I’m planning to use the properties defined in 
+> ethernet-controller.yaml to configure these delays properly within the driver.
 > 
-> Thanks
-> --breno
-> 
+> Since these legacy settings have been used for quite some time, I’d like to deprecate 
+> the old compatible and clearly distinguish that the AST2600 contains two different 
+> MACs. Future platforms based on the AST2600 will use the new compatibles with 
+> the correct PHY and delay configurations.
 
--- 
-Sincerely yours,
-Mike.
+Why are you repeating the same? So I will repeat the same. You need to
+provide rationale why different compatible is justified. Difference in
+delay itself is not the enough. Please write concise answer based on
+device programming model differences or other rules expressed in writing
+bindings or numerous presentations.
+
+Best regards,
+Krzysztof
 
