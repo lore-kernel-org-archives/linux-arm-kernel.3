@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C92BCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7911ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mcLZ7dYUGJ4Tr4r793apvg2uH+96yLQ3ru7C6V36Zn8=; b=cp4ldOJxGE2dNkOpHK6FxtJSH1
-	ewMwjD26qtn8JxWRV0/fol3m4en8yNQ4SRWSkpHmBQwd8uG8oE778DR4j3H5oPM2X1gG1vGNpbXjt
-	S9cezOXpYSFf/VAynURIewJVFjppScEJNVgkdpgeNrHq/W022590AafHBpMpis2d3fZk2EsukIjEd
-	BzvkKdO2AEeQpmn92uclgvJqTbCdK0Nt5lEzrWOoMT3cgyRmTRJCUblgmkGNwVmGMDoa1livdnFAI
-	8HtdZ6355bR/ArNXGX/PjYYdsoM9wTJdw1gT1nsxSTnbWn+sSLIU2myEFYXgvrnpiL66RJ2wzyQHu
-	Jyy8H3JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1QSw+y5HT3TcUyd3F/MxUjly0CwHD5TKPc20p//UxFU=; b=GQjQs1Yf0UvI7aZUiokMcYWgZ1
+	b7FfnJDWXI9zxX3X8kl65+rpOWhyjnigUk/fVZoOZeiE8tdPbbe2p9nqw66ZY8Ss1ivsha7mUnAsP
+	6u3J3vX8olsWfg3fBmDf+vLT/8eWEGp2YN/md/mupyqlmapf3GXdWUn8XvuzSLnbzKQbYe6V1PxNh
+	w7o1IV7h/Gj8nkQZ28cwQBCHBxLWdNOo1MDOWP4TkN2Mf7vJVK0flFbpm5Yp2175uZ5SAhDxJC07C
+	j0zLO905hpgJ9LvpeQs2Vbkfa91bMGJDTXyNNDiF/8qHSNiPyqQ81pMZBGn5usVKlH1d84N14salI
+	qNa9lkbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtQJ-0000000EwPN-3buS;
-	Thu, 06 Nov 2025 06:24:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGtZK-0000000EwmT-1zwb;
+	Thu, 06 Nov 2025 06:34:02 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtQI-0000000EwPH-1S0S
+	id 1vGtZH-0000000Ewm6-36bV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 06:24:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 794FB60216;
-	Thu,  6 Nov 2025 06:24:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 519A4C4CEF7;
-	Thu,  6 Nov 2025 06:24:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762410281;
-	bh=27Pe8FUEHZhfluKmwcfeGnyxW6smtWLMLoJyzAni44c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fRJJ1H4J3GeszBfV1hToQ3FtuV2IZEsEKV/wI2DSAElwJWUkObr/RtpW4V6AYAP7j
-	 kzclCPXk+of9CsLTi2sSUCxjJBEAp546g7hVvQ5QLnmvK1fDLHtlC6tjVFdArJ7gGS
-	 2h6x1fEGQtiQXr6udYxVlomrcH9shBfv2Q2TR65zqezowcDzPVs1L4B+f2/0aZ7poF
-	 3lnYtSrjmzPzmz9HEpOO6+Jsma6kar+0PT7QVz2y1MTlYYiwQXrrDRWqjYv8evl2Fz
-	 z118nreIhF0LaUS2a8xKhbsBrpnuKsHH1kXUf+LcthYry1Qt7DOczlxwYgaHUWUzy2
-	 /5Snmb3l/In7g==
-Date: Thu, 6 Nov 2025 11:54:18 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com, 
-	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, 
-	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
-	Christian Bruel <christian.bruel@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
-References: <CAKfTPtCtHquxtK=Zx2WSNm15MmqeUXO8XXi8FkS4EpuP80PP7g@mail.gmail.com>
- <20251106000531.GA1930429@bhelgaas>
+	Thu, 06 Nov 2025 06:34:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=1QSw+y5HT3TcUyd3F/MxUjly0CwHD5TKPc20p//UxFU=;
+	b=LczhEutbWhnRAhZdt07+G3NJC4N8E2OK6xesEjD+hiUQ/+J+gMoSaxw9XSZxXB
+	2q5eSubM7NTO40N35Od9PJms8Ok/YxVgiBuHbDIjZPJcF7lm+yC0pGKzUb5vN6aA
+	RnR5ipNKuPw5eUKVWdc1qRNYRU+MkHRSIskuYoJQ9rmw0=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wCHRAJFQQxpjDa9Bg--.91S2;
+	Thu, 06 Nov 2025 14:33:42 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdich9700@163.com>,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH] ALSA: au88x0: Fix array bounds warning in EQ drivers
+Date: Thu,  6 Nov 2025 14:33:39 +0800
+Message-Id: <20251106063339.114596-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251106000531.GA1930429@bhelgaas>
+X-CM-TRANSID: _____wCHRAJFQQxpjDa9Bg--.91S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF47JryDCrW7Cry8tr1kKrg_yoW8XFWfpr
+	Z3C3s7ArWUJrsrCwnYva1UZ34UJFs8XayxAa12kws7Cws8JFWUGr90k3yDJw4IvrZxCF1F
+	9FW7Xw13J3Z8JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piUPE3UUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1tbibhj9T2kMMt8qKgABsN
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_223400_195781_E74F3C4F 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 06:05:31PM -0600, Bjorn Helgaas wrote:
-> [+cc imx6, layerscape, stm32 maintainers for possible suspend bug]
-> 
-> On Fri, Oct 24, 2025 at 08:50:46AM +0200, Vincent Guittot wrote:
-> > On Wed, 22 Oct 2025 at 21:04, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > > On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
-> > > > Add initial support of the PCIe controller for S32G Soc family. Only
-> > > > host mode is supported.
-> 
-> > > > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
-> > > > +{
-> > > > ...
-> > > > +     /*
-> > > > +      * Make sure we use the coherency defaults (just in case the settings
-> > > > +      * have been changed from their reset values)
-> > > > +      */
-> > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> > >
-> > > This seems sketchy and no other driver uses memblock_start_of_DRAM().
-> > > Shouldn't a physical memory address like this come from devicetree
-> > > somehow?
-> > 
-> > I was using DT but has been asked to not use it and was proposed to
-> > use memblock_start_of_DRAM() instead
-> 
-> Can you point me to that conversation?
-> 
-> > > > +     s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-> > > > +     if (IS_ERR(s32g_pp->ctrl_base))
-> > > > +             return PTR_ERR(s32g_pp->ctrl_base);
-> > >
-> > > This looks like the first DWC driver that uses a "ctrl" resource.  Is
-> > > this something unique to s32g, or do other drivers have something
-> > > similar but use a different name?
-> > 
-> > AFAICT this seems to be s32g specific in the RM
-> 
-> It does look like there's very little consistency in reg-names across
-> drivers, so I guess it's fine.
-> 
-> > > > +static int s32g_pcie_suspend_noirq(struct device *dev)
-> > > > +{
-> > > > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-> > > > +     struct dw_pcie *pci = &s32g_pp->pci;
-> > > > +
-> > > > +     if (!dw_pcie_link_up(pci))
-> > > > +             return 0;
-> > >
-> > > Does something bad happen if you omit the link up check and the link
-> > > is not up when we get here?  The check is racy (the link could go down
-> > > between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
-> > > completely reliable.
-> > >
-> > > If you have to check, please add a comment about why this driver needs
-> > > it when no other driver does.
-> > 
-> > dw_pcie_suspend_noirq returns an error and the suspend fails
-> 
-> The implication is that *every* user of dw_pcie_suspend_noirq() would
-> have to check for the link being up.  There are only three existing
-> callers:
-> 
->   imx_pcie_suspend_noirq()
->   ls_pcie_suspend_noirq()
->   stm32_pcie_suspend_noirq()
-> 
-> but none of them checks for the link being up.
-> 
+From: wangdicheng <wangdich9700@163.com>
 
-If no devices are attached to the bus, then there is no need to broadcast
-PME_Turn_Off and wait for L2/L3. I've just sent out a series that fixes it [1].
-Hopefully, this will allow Vincent to use dw_pcie_{suspend/resume}_noirq() APIs.
+In file included from ../sound/pci/au88x0/au8830.c:15:
+In function ‘vortex_Eqlzr_SetAllBandsFromActiveCoeffSet’,
+../sound/pci/au88x0/au88x0_eq.c:571:9: error: ‘vortex_EqHw_SetRightGainsTarget’ reading 2 bytes from a region of size 0 [-Werror=stringop-overread]
+	vortex_EqHw_SetRightGainsTarget(vortex, &(eq->this130[eq->this10]));
 
-- Mani
+Modified the array access in vortex_Eqlzr_SetAllBandsFromActiveCoeffSet() to use pointer arithmetic instead of array indexing.
+This resolves a compiler warning that incorrectly flagged a buffer overread when accessing the EQ gain array.
+The this130 array has fixed size 20 and the index is safely within bounds, making the original code correct but confusing to static analysis.
 
-[1] https://lore.kernel.org/linux-pci/20251106061326.8241-1-manivannan.sadhasivam@oss.qualcomm.com/
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+---
+ sound/pci/au88x0/au88x0_eq.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/sound/pci/au88x0/au88x0_eq.c b/sound/pci/au88x0/au88x0_eq.c
+index 71c13100d7ef..81a63b5bb31c 100644
+--- a/sound/pci/au88x0/au88x0_eq.c
++++ b/sound/pci/au88x0/au88x0_eq.c
+@@ -568,7 +568,7 @@ static int vortex_Eqlzr_SetAllBandsFromActiveCoeffSet(vortex_t * vortex)
+ 	eqlzr_t *eq = &(vortex->eq);
+ 
+ 	vortex_EqHw_SetLeftGainsTarget(vortex, eq->this130);
+-	vortex_EqHw_SetRightGainsTarget(vortex, &(eq->this130[eq->this10]));
++	vortex_EqHw_SetRightGainsTarget(vortex, eq->this130 + eq->this10);
+ 
+ 	return 0;
+ }
 -- 
-மணிவண்ணன் சதாசிவம்
+2.25.1
+
 
