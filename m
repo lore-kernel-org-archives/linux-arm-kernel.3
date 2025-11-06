@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7093ACCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0ABECCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tlnHBwLOV+7xxht9xDo/WQz9BuB9weliyu9uQ3vhws=; b=NXz5j4WTnHj8sScgdv/RuQWoFO
-	pquaDnE9nkHBlgE1WGKlnw258ncVL0xovYMVa921FHwq8j4z7CXteYkykJORwcA+mj12ySIeS5yZX
-	HF4QGTSxTSsvURrM/CwhlTdyehtwT1c6Ap0yEjCFd2e9PFjAN+fmhT+FL/GGpSjy22WSzLd/PfQbk
-	/Myd4aISF5aFFfjcBGKTfGOVFtZxnPdn3B94e0vwiq4ZDY4nlT8YE0lwGWR2mqedIqRqBnOD2c1Ia
-	eLzt8My13LVHiXImDOUDMxF/DyePWavv3DIl6cdq6eB1T8xYdUioMfoaUYS7ge7B8xgz3nPCxKtl7
-	EAolrkKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/A/N8vcwKdT8TcSs16ZitfAWE/4Ic1WBoYeYHx9o7uA=; b=QeuV3kUZ7CzU17Oc1RGfQd9Edh
+	3O9zhn8WwEA8kAw4He0GxcrO9B/aO9P4zyHkDzKvTPaN+z+6JFwE8yGSZSWk1Bu7up7gN+Ju8+ron
+	RBdKTpfYX7ws11dWeS2/TDQJE9rPoadIg4aHiOgb/5yWzgrb/7ZIH/qKIptaEj6NR69d+as1Iboii
+	LosCIgCxy8a1ahRMTQW/c5xp4FSfm1RsOWh5M86kC+nFAG45ae8BOKBrY5OUgRHcApI+DCM6I1B5f
+	FcI3weLwNFXRoqrs+VC8axgBqL+WgqGaCN93Ug0Yo8A3OwBYHQk7VDHS9BkNOK/uUKs9zd3+2aTkn
+	FFxtKkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1kG-0000000Fn5Q-0bSD;
-	Thu, 06 Nov 2025 15:17:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vH1lR-0000000Fo7F-36HA;
+	Thu, 06 Nov 2025 15:19:05 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1kD-0000000Fn4I-1TJS;
-	Thu, 06 Nov 2025 15:17:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762442266;
-	bh=DRgu+1zEiLJzFvpqNcYywnec1hhXYCa75y4/TrlRBwg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=H3PJOxvtqbQ72kA29/dtPRySRy3X/JZY1JnX8vB8mMpkAnGTDMeazey1oWJ2Ho9bt
-	 zeyRgpkd6g8h6igHZu13qSn79r4sGm7JHTfoDCk8iAX1CHOFL+AxPlO4inD6jJ1QqB
-	 uPQrJdaTa1qv33cFL6/UrVxby54yqTFa+ngnn6rQ5plXOROKyynfxGemVj56YAIDCt
-	 D/evrmMFyB4XrDTUjJMYmLQiugeCmw2UdOWrpJPgLxqjgs5wRcuGmlmi52GRaxxVHg
-	 8LUUNLXrhQl8bSoRw4FfLkKQW4xHjNzNSlBQJ/s523TL00QFWSRe4L5hYjAft+T3LG
-	 eXeZ4etQ4nneA==
-Received: from [IPv6:2606:6d00:11:ef24::c41] (unknown [IPv6:2606:6d00:11:ef24::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CFAF817E090D;
-	Thu,  6 Nov 2025 16:17:43 +0100 (CET)
-Message-ID: <bd2f63265df829ec9bb3498c83126827415c2ebf.camel@collabora.com>
-Subject: Re: [PATCH v5 5/8] media: mediatek: vcodec: fix vp9 4096x2176 fail
- for profile2
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
- <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
- <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
- <george.sun@mediatek.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
- Yilong Zhou <yilong.zhou@mediatek.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	 <andrzejtp2010@gmail.com>
-Date: Thu, 06 Nov 2025 10:17:42 -0500
-In-Reply-To: <20251106061323.2193-6-kyrie.wu@mediatek.com>
-References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
-	 <20251106061323.2193-6-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-p4Bu9/Ayloxs70Y/YXH1"
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1vH1lO-0000000Fo4C-3i5p
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 15:19:04 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-63bdfd73e6eso3753792a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 07:19:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1762442340; x=1763047140; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/A/N8vcwKdT8TcSs16ZitfAWE/4Ic1WBoYeYHx9o7uA=;
+        b=4Q7MT2VucWJ5e/3tM0DIUaxp+pX3jXGbnyW6lyMqvhDewtJgz8LwVmCrFT6R+ckSGz
+         FQv//ema5lyC4EeV5IsYpZDoaMCw4bRDM5iygxUNkbWpjXcUe/NgkXUcyL/J8NmqdG9k
+         HB8N+p2MW3qsHqK7OuBWTNJr5td4pLQ8XNzwU5STLdOJJ762jNnezhWKioWSLg7qkXQF
+         9Yne1KX8wmrPwP35unqOs3P772tACb6S37dVd48ysJv3MQWPy2tNWy8NkvwoJzQdEMev
+         TYlD/amnWXywIOgoL2sir03nVV5MhPZ7R4zQ4qX5Ro7pDC4Ax9vzdbcgnDe5OSAT/5JX
+         VPeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762442340; x=1763047140;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/A/N8vcwKdT8TcSs16ZitfAWE/4Ic1WBoYeYHx9o7uA=;
+        b=mmYYXxYry/+y7xJ5Z8VaSQWRatjr/Z1plBAWNJBaEFXGcueMDl7UkUebLeLxqWr1z5
+         p9XFpej7iv3I9Zr3C47UnlXZXwaYNgkAgzBwRNcdRN19uEfPIEmuX2aZgc7Opo3ElVlF
+         Z+TK01ZtvmFZL08OplwnCeSlh53cvNaR9nqHCp57Bfh7F8PL3cJtib7q3RAuJmwRiAa7
+         v+eFaOscuOZ/dVlraPkY6bpH4w5jBTXGcbvxSy6vu41JlAdkfCqIElhoUGzNROGsqOzr
+         ELlwmVanHqPRAoWonPWOsYUyFDskV9Gf0KZ00/Ai8XNm7mep3jb9ouvt0lMKfSoQGnRr
+         3adw==
+X-Forwarded-Encrypted: i=1; AJvYcCU/E/P/YFevj9wmivboNyXebggBF/C96TyQvvrovoMYPjsvPtji1rh6pyCVnZYPSxznlhiqTfR0nXsNmFkey9Uv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhD66wlU48i13vU3kiQ7RhI2IGovaWAUoKdB9+DtUFgF/WZWhZ
+	saA4RpzvFzvKpsPP4yKl4+1E9atbwD8S2QqbWW1vWbNTOMd8ybmOEgeruRjXBfo6OC7Rg+p5Blb
+	ysYmeg+CDVZynlJ341JKtrcZkmOqwgplDSNA+9H4T
+X-Gm-Gg: ASbGncvvVHceMhIVqlBV+xHd0eR1xN7IJ+NdQnONi3x66BoTZgHUlaN6muNOVa3TDPW
+	oCXIkFur/D1FnenjOnjaTSbnjIVdfb5vHjcWnWa6gT8aC2PcJLgICjg/WJ5II2OJZzDJCesxc7m
+	igjnH14CPxL5/tTcR+2AAV0fQcRTW5IVyIRYAvFq9PnlQDXp5ztNp9FoY5K+DgT9AdR4k1NrKN4
+	Du8FHkfnEd6HAALflof2ZJPFNyPOVC+e59gMxpBTQAfbEbHmLapViEvjPmY5PG7vG+zPiQKGRbv
+	l9ibPf0WiBxAUKCsMX0Spg5mnA==
+X-Google-Smtp-Source: AGHT+IF6Lll39KroNtxrdzA3gXGbJk/g7xVSYA1QFmn3GNRu2l+pGUrp6SFXaJvuJgPAcXhUpJgSt6CYI17zoKm2B0Y=
+X-Received: by 2002:a17:907:3d4c:b0:b4a:e7c9:84c1 with SMTP id
+ a640c23a62f3a-b72893578ecmr431586766b.7.1762442339871; Thu, 06 Nov 2025
+ 07:18:59 -0800 (PST)
 MIME-Version: 1.0
+References: <20251017185645.26604-1-james.morse@arm.com> <20251017185645.26604-27-james.morse@arm.com>
+In-Reply-To: <20251017185645.26604-27-james.morse@arm.com>
+From: Peter Newman <peternewman@google.com>
+Date: Thu, 6 Nov 2025 16:18:47 +0100
+X-Gm-Features: AWmQ_bkGOrB1RKIT7idbIMCPIItvAN0p_zrVirGPYYJwN3Yf4xWvxB7PQou8e6U
+Message-ID: <CALPaoCgO+NW9Hnb0x-eL7oR-Yj75V14hOW=LxAEYUEeK9SMCUA@mail.gmail.com>
+Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-acpi@vger.kernel.org, 
+	D Scott Phillips OS <scott@os.amperecomputing.com>, carl@os.amperecomputing.com, 
+	lcherian@marvell.com, bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com, 
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>, 
+	Xin Hao <xhao@linux.alibaba.com>, dfustini@baylibre.com, amitsinght@marvell.com, 
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com, baisheng.gao@unisoc.com, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, 
+	Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>, 
+	Ben Horgan <ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_071749_567221_9CC51295 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251106_071902_988047_0C2074CA 
+X-CRM114-Status: GOOD (  34.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +109,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
---=-p4Bu9/Ayloxs70Y/YXH1
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Le jeudi 06 novembre 2025 =C3=A0 14:13 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> The dram addr of vp9 decoder tile number, which use dram mode
-> to set tile information, may reach to 36bits for 4096x2176.
-> It needs to get the highest 4bit of tile buffer address to
-> set tile buffer address.
-
-An after thought, I don't see any call to vb2_dma_contig_set_max_seg_size()=
- or
-dma_set_coherent_mask() with DMA_BIT_MASK(32)/DMA_BIT_MASK(36) in this driv=
-er.
-How do you control this ?
-
-Nicolas
-
->=20
-> Fixes: 5d418351ca8f1 ("media: mediatek: vcodec: support stateless VP9
-> decoding")
->=20
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com>
+On Fri, Oct 17, 2025 at 8:59=E2=80=AFPM James Morse <james.morse@arm.com> w=
+rote:
+>
+> From: Rohit Mathew <rohit.mathew@arm.com>
+>
+> Now that the larger counter sizes are probed, make use of them.
+>
+> Callers of mpam_msmon_read() may not know (or care!) about the different
+> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
+> driver pick the counter to use.
+>
+> Only 32bit accesses to the MSC are required to be supported by the
+> spec, but these registers are 64bits. The lower half may overflow
+> into the higher half between two 32bit reads. To avoid this, use
+> a helper that reads the top half multiple times to check for overflow.
+>
+> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+> [morse: merged multiple patches from Rohit, added explicit counter select=
+ion ]
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 > ---
-> =C2=A0.../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 5 ++++-
-> =C2=A01 file changed, 4 insertions(+), 1 deletion(-)
->=20
-> diff --git
-> a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> index d966914db4b9..91c563c049bd 100644
+> Changes since v2:
+>  * Removed mpam_feat_msmon_mbwu as a top-level bit for explicit 31bit cou=
+nter
+>    selection.
+>  * Allow callers of mpam_msmon_read() to specify mpam_feat_msmon_mbwu and=
+ have
+>    the driver pick a supported counter size.
+>  * Rephrased commit message.
+>
+> Changes since v1:
+>  * Only clear OFLOW_STATUS_L on MBWU counters.
+>
+> Changes since RFC:
+>  * Commit message wrangling.
+>  * Refer to 31 bit counters as opposed to 32 bit (registers).
 > ---
-> a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> +++
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
-.c
-> @@ -1156,7 +1156,10 @@ static int vdec_vp9_slice_setup_tile_buffer(struct
-> vdec_vp9_slice_instance *inst
-> =C2=A0			tiles->size[i][j] =3D size;
-> =C2=A0			if (tiles->mi_rows[i]) {
-> =C2=A0				*tb++ =3D (size << 3) + ((offset << 3) & 0x7f);
-> -				*tb++ =3D pa & ~0xf;
-> +				*tb =3D pa & ~0xf;
-> +				if (IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT))
-> +					*tb |=3D (pa >> 32) & 0xf;
-> +				tb++;
-> =C2=A0				*tb++ =3D (pa << 3) & 0x7f;
-> =C2=A0				mi_row =3D (tiles->mi_rows[i] - 1) & 0x1ff;
-> =C2=A0				mi_col =3D (tiles->mi_cols[j] - 1) & 0x3f;
+>  drivers/resctrl/mpam_devices.c | 134 ++++++++++++++++++++++++++++-----
+>  1 file changed, 116 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_device=
+s.c
+> index f4d07234ce10..c207a6d2832c 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -897,6 +897,48 @@ struct mon_read {
+>         int                             err;
+>  };
+>
+> +static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+> +{
+> +       return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->pr=
+ops) ||
+> +               mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->pr=
+ops));
+> +}
+> +
+> +static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+> +{
+> +       int retry =3D 3;
+> +       u32 mbwu_l_low;
+> +       u64 mbwu_l_high1, mbwu_l_high2;
+> +
+> +       mpam_mon_sel_lock_held(msc);
+> +
+> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz=
+);
+> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessib=
+ility));
+> +
+> +       mbwu_l_high2 =3D __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+> +       do {
+> +               mbwu_l_high1 =3D mbwu_l_high2;
+> +               mbwu_l_low =3D __mpam_read_reg(msc, MSMON_MBWU_L);
+> +               mbwu_l_high2 =3D __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+> +
+> +               retry--;
+> +       } while (mbwu_l_high1 !=3D mbwu_l_high2 && retry > 0);
+> +
+> +       if (mbwu_l_high1 =3D=3D mbwu_l_high2)
+> +               return (mbwu_l_high1 << 32) | mbwu_l_low;
+> +       return MSMON___NRDY_L;
+> +}
+> +
+> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+> +{
+> +       mpam_mon_sel_lock_held(msc);
+> +
+> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz=
+);
+> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessib=
+ility));
+> +
+> +       __mpam_write_reg(msc, MSMON_MBWU_L, 0);
+> +       __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
+> +}
+> +
+>  static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>                                    u32 *flt_val)
+>  {
+> @@ -924,7 +966,9 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m=
+, u32 *ctl_val,
+>                                                ctx->csu_exclude_clean);
+>
+>                 break;
+> -       case mpam_feat_msmon_mbwu:
+> +       case mpam_feat_msmon_mbwu_31counter:
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +       case mpam_feat_msmon_mbwu_63counter:
+>                 *ctl_val |=3D MSMON_CFG_MBWU_CTL_TYPE_MBWU;
+>
+>                 if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->=
+props))
+> @@ -946,7 +990,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read *=
+m, u32 *ctl_val,
+>                 *ctl_val =3D mpam_read_monsel_reg(msc, CFG_CSU_CTL);
+>                 *flt_val =3D mpam_read_monsel_reg(msc, CFG_CSU_FLT);
+>                 return;
+> -       case mpam_feat_msmon_mbwu:
+> +       case mpam_feat_msmon_mbwu_31counter:
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +       case mpam_feat_msmon_mbwu_63counter:
+>                 *ctl_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>                 *flt_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+>                 return;
+> @@ -959,6 +1005,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read =
+*m, u32 *ctl_val,
+>  static void clean_msmon_ctl_val(u32 *cur_ctl)
+>  {
+>         *cur_ctl &=3D ~MSMON_CFG_x_CTL_OFLOW_STATUS;
+> +
+> +       if (FIELD_GET(MSMON_CFG_x_CTL_TYPE, *cur_ctl) =3D=3D MSMON_CFG_MB=
+WU_CTL_TYPE_MBWU)
+> +               *cur_ctl &=3D ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+>  }
+>
+>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon_re=
+ad *m, u32 ctl_val,
+>                 mpam_write_monsel_reg(msc, CSU, 0);
+>                 mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_C=
+FG_x_CTL_EN);
+>                 break;
+> -       case mpam_feat_msmon_mbwu:
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +       case mpam_feat_msmon_mbwu_63counter:
+> +               mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+> +               fallthrough;
+> +       case mpam_feat_msmon_mbwu_31counter:
+>                 mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+>                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>                 mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+>                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_=
+CFG_x_CTL_EN);
+>
+>                 mbwu_state =3D &m->ris->mbwu_state[m->ctx->mon];
+> @@ -993,10 +1047,19 @@ static void write_msmon_ctl_flt_vals(struct mon_re=
+ad *m, u32 ctl_val,
+>         }
+>  }
+>
+> -static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+> +static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+>  {
+> -       /* TODO: scaling, and long counters */
+> -       return GENMASK_ULL(30, 0);
+> +       /* TODO: implement scaling counters */
+> +       switch (type) {
+> +       case mpam_feat_msmon_mbwu_63counter:
+> +               return GENMASK_ULL(62, 0);
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +               return GENMASK_ULL(43, 0);
+> +       case mpam_feat_msmon_mbwu_31counter:
+> +               return GENMASK_ULL(30, 0);
+> +       default:
+> +               return 0;
+> +       }
+>  }
+>
+>  /* Call with MSC lock held */
+> @@ -1037,11 +1100,24 @@ static void __ris_msmon_read(void *arg)
+>                         nrdy =3D now & MSMON___NRDY;
+>                 now =3D FIELD_GET(MSMON___VALUE, now);
+>                 break;
+> -       case mpam_feat_msmon_mbwu:
+> -               now =3D mpam_read_monsel_reg(msc, MBWU);
+> -               if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops=
+))
+> -                       nrdy =3D now & MSMON___NRDY;
+> -               now =3D FIELD_GET(MSMON___VALUE, now);
+> +       case mpam_feat_msmon_mbwu_31counter:
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +       case mpam_feat_msmon_mbwu_63counter:
 
---=-p4Bu9/Ayloxs70Y/YXH1
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Should you check for one of these three features instead of
+mpam_feat_msmon_mbwu further up in this function when checking for
+reset_on_next_read?
 
------BEGIN PGP SIGNATURE-----
+-       if (m->type =3D=3D mpam_feat_msmon_mbwu) {
++       switch (m->type) {
++       case mpam_feat_msmon_mbwu_31counter:
++       case mpam_feat_msmon_mbwu_44counter:
++       case mpam_feat_msmon_mbwu_63counter:
+                mbwu_state =3D &ris->mbwu_state[ctx->mon];
+                if (mbwu_state) {
+                        reset_on_next_read =3D mbwu_state->reset_on_next_re=
+ad;
+                        mbwu_state->reset_on_next_read =3D false;
+                }
++               break;
++       default:
++               break;
+        }
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaQy8FgAKCRDZQZRRKWBy
-9NPSAP4g8gTapYL8m2LxcUUuZCeWMhCOGTCX8BR5UqAbTL8qfwD/WKrYbiY+6bxl
-DWa6+3ECPDXoTJi+A2WmiP1MGLhfOQc=
-=PEsx
------END PGP SIGNATURE-----
+> +               if (m->type !=3D mpam_feat_msmon_mbwu_31counter) {
+> +                       now =3D mpam_msc_read_mbwu_l(msc);
+> +                       if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy=
+, rprops))
+> +                               nrdy =3D now & MSMON___NRDY_L;
+> +
+> +                       if (m->type =3D=3D mpam_feat_msmon_mbwu_63counter=
+)
+> +                               now =3D FIELD_GET(MSMON___LWD_VALUE, now)=
+;
+> +                       else
+> +                               now =3D FIELD_GET(MSMON___L_VALUE, now);
+> +               } else {
+> +                       now =3D mpam_read_monsel_reg(msc, MBWU);
+> +                       if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy=
+, rprops))
+> +                               nrdy =3D now & MSMON___NRDY;
+> +                       now =3D FIELD_GET(MSMON___VALUE, now);
+> +               }
+>
+>                 if (nrdy)
+>                         break;
+> @@ -1050,7 +1126,7 @@ static void __ris_msmon_read(void *arg)
+>
+>                 /* Add any pre-overflow value to the mbwu_state->val */
+>                 if (mbwu_state->prev_val > now)
+> -                       overflow_val =3D mpam_msmon_overflow_val(ris) - m=
+bwu_state->prev_val;
+> +                       overflow_val =3D mpam_msmon_overflow_val(m->type)=
+ - mbwu_state->prev_val;
+>
+>                 mbwu_state->prev_val =3D now;
+>                 mbwu_state->correction +=3D overflow_val;
+> @@ -1106,13 +1182,26 @@ static int _msmon_read(struct mpam_component *com=
+p, struct mon_read *arg)
+>         return any_err;
+>  }
+>
+> +static enum mpam_device_features mpam_msmon_choose_counter(struct mpam_c=
+lass *class)
+> +{
+> +       struct mpam_props *cprops =3D &class->props;
+> +
+> +       if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, cprops))
+> +               return mpam_feat_msmon_mbwu_44counter;
+> +       if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, cprops))
+> +               return mpam_feat_msmon_mbwu_63counter;
+> +
+> +       return mpam_feat_msmon_mbwu_31counter;
+> +}
+> +
+>  int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>                     enum mpam_device_features type, u64 *val)
+>  {
+>         int err;
+>         struct mon_read arg;
+>         u64 wait_jiffies =3D 0;
+> -       struct mpam_props *cprops =3D &comp->class->props;
+> +       struct mpam_class *class =3D comp->class;
+> +       struct mpam_props *cprops =3D &class->props;
+>
+>         might_sleep();
+>
+> @@ -1129,9 +1218,12 @@ int mpam_msmon_read(struct mpam_component *comp, s=
+truct mon_cfg *ctx,
+>         };
+>         *val =3D 0;
+>
+> +       if (type =3D=3D mpam_feat_msmon_mbwu)
+> +               type =3D mpam_msmon_choose_counter(class);
 
---=-p4Bu9/Ayloxs70Y/YXH1--
+`type` was already recorded in arg->type, so the result of this lookup
+will be ignored on the first call to _msmon_read()
+
+If mpam_feat_msmon_mbwu can somehow still result in -EBUSY, then the
+repeat call may use the right type.
+
+Thanks,
+-Peter
 
