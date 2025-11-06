@@ -4,165 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23657CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 20:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57543CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 20:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZjGlaHIz69o8hPoDvfMqSpAmwihFcxv4HwAXIJoZdfA=; b=EypaL6epqrtfBFZNa0p1TNQXmd
-	d2XykP1xSpLZOG1E+aOSQekuVpRSsA5jfUYIOiY4nxlcuMdVolbR7XXX2BtRNTZrasZMnGME15j6i
-	PHjz0I8p5YvVb9AorshLB+zVrmhS9ODjMsdJvgiaGANY6ZRl7OaRqUM3Y/+NZQ3sqXC7sTKxhbbym
-	8m3PUwTgWapHiuizsL7NVrGlHmAaGPBee+vr9GxpuXr93yr8ROgn4JmL7XNiKnBygfkNcP8pLtJk+
-	msHyYbwSerbcVUKfl4luPB9nA/KNb8JXCw2ZWkUyHDQmvhpA9ZEjYPm5oftJKuIaZJ+1i6yDPLXe6
-	cp9wA+QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DtyRNsvriBd/dk083GIqz9mtDdrB5E1V+0uuLeS/xM8=; b=nXPa91NLAmeuzSCi6SX4y7EJDr
+	TmyZPpbWkp37cI2obN45CTAzrZf5r8tA39d1Co0Wm9O+D7jpPU3C0hjTO4E9eDYpEa0oxivasYJT8
+	RdwuGZD3eTwErTwf+XPRDM1VEV8SQFvGhWpoNAVzCjeK69nsJ94T2iRh4qiO2ow6+XieJhShKuTTc
+	Ugz9dMxFTsjVNocgrJY5DfzxxqtmAUYPDOONP8KB3wwBCCDUOPqixszscLE/ASrjxf/BR/21l6Ag1
+	4l3ItOOwU322V8VH8ErGAkiKWb2zpOgQGWLuEfdxonH4wslTgka45bN+E/yzA1WTAebRGXThWm5JK
+	QrbJyBng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH6hU-0000000GDze-0aVg;
-	Thu, 06 Nov 2025 20:35:20 +0000
-Received: from mail-southcentralusazon11012047.outbound.protection.outlook.com ([40.93.195.47] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vH6mD-0000000GEdB-1xIP;
+	Thu, 06 Nov 2025 20:40:13 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH6hO-0000000GDo5-00PC;
-	Thu, 06 Nov 2025 20:35:17 +0000
+	id 1vH6mB-0000000GEci-0Kos
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 20:40:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F9zJ8Ut2dYLOxnbryLJJJTn2s0XilS1SD6QmQiyUpav90bJKOMyqN9lSdAdVeHGY6HVcMMSQboaV/5nsnBguC6VwmYXeNN810KHahr2gMrSNh5qjhWgO0POsS85oK9qMUQde8xxhw5C+UHUJbyQNZ9eqKPrM25Rj6UWGlx0HXS3XbjKlq7wdPcVvTCRbjgU51amQVsK9MhIzH+p2RAfkq4CFa2KzIdEQ9rEYjvROjwcpW8jW0RZuF3vyVvjXwrcakWfd7jz/ZcQJ8o43Fqzy7uKh1Vc41KkfoItvhrx3Ffd7E2E0Nvy2itw1Ywf5BqnBoSjH1S46kunPMhsAr2NNdg==
+ b=B5Jh1x0Mma7EvQSSEmRQzZyp1YU6ukx7GDYMoPSrF146Xhga6tH6W5ZmnGuSopsqYBlBFZt4+1bbdgFqKPbbDE0+sumt3X8qsFX9EvzUkkjJZAprlsgn+YLlEc5LD9dAbklLyX8BGL88NJ8HtLwzKHz4Bcbzel3fc7lFKV5iCmYFPSslAKTSgHZLsGG6+7vK8xvnj1v2pGACYp/HJ662xPWkmXf/ih9uTPvi24q7Qg+H1JtXYiK0rfEi2x9bNmZZThaKfJ7D67WEYvSGN8aiW5wfZm3hTQSa9fY9gtPb903teLxyjMU2w4fBldMMeYkTVMtE4ymrHrtJyYsTUmZE9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZjGlaHIz69o8hPoDvfMqSpAmwihFcxv4HwAXIJoZdfA=;
- b=i31JSNNHz0yuXBsBWVDM6iFbJX09r+Pf+AzGr2mpQzsVGcdCVbToPN2i4ji5tnRQHv57N0tLQ+JD62tWpTiHK1Ax/4skyFgazAJQ2l+sAD1hCdV+cm6fxXodsbKHztNCS0l9f4q1BkXyK8hx7m3W/QllOKmWMOgnJI4+1pR6jmeY9lYYHBXzKsW52mDs2XQZn9Tz/GEV19YLbJyRZIYhcBRDKmDXWNDy9iJ0MscMJEMzrZ3hXqFF/SQk4wiIV9uuSk7HOjpOAUeRdq3ikzrkOayIMaQKvbBqtGP00M/Dg5NkDa2JZv+bUelMSy0YPmgQGkbnUt2LWkzLPIIhsHOoqw==
+ bh=DtyRNsvriBd/dk083GIqz9mtDdrB5E1V+0uuLeS/xM8=;
+ b=pSlUTLsaIEzzvpV/H7dIY/HONGdlbnNLejV10Nx5WuoI6GS+R/Fg6+NP3RO33PXmm3QHIPAg9BA80A8KEFly8aF4Nd5P3qOLNgihhmpTXZqyv0vYAPbaGxGUy0DBWWMjNFOjjeCtOFcZHSIfu7tRIRbKJ5YAuQIzZEK9rEHQBsKeEGCo+10paUkeQi4GkXzqACme1cH12xX223paWkWSJZBVr5MuxObAnqs1Ohv6PM7pCXXUyFZ+K+OS3mZzglGRcRHmS0uj7wpnAbv2eq8QlUyQTJGuXfJtSi3OAGdXtZv9zSoZPrwwN/pKj/V46Ei63wlixd2BYbX5qAfEr7r9ow==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZjGlaHIz69o8hPoDvfMqSpAmwihFcxv4HwAXIJoZdfA=;
- b=FJLmR9wrfkaeId8YRDKYCIDrSuvzI5wQwMjeWyjdNB+SigZDHUcsdCoBdaoFaTgRfNTasmvYD5U5be8XrC0GPiDtoAr2y3DvuR6iJJ0o/X/gePgHEqpRLT9DMCV2o8uwLqxUl673lYOYm5NfEdMxQkxfA7/F52NqUyXQ3Sds9/Z9b89Yikp2lQzO7TOKf8OzxIOqtw0m77RpjIZLUa9C0sMuTpgGYKdOJaAmMaTJyW+Xa79zE0Gid4XTEg9ei1Hs5nXRJ/V8xcBDeoo+w1e0gIwIQdqpMKeOqn/wSkIgd1hJp1b9Y2o9oMBcZBTZOOhtNxT7hGpgdWKGiWRXOo2cJw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by SN7PR12MB7108.namprd12.prod.outlook.com (2603:10b6:806:2a3::21) with
+ bh=DtyRNsvriBd/dk083GIqz9mtDdrB5E1V+0uuLeS/xM8=;
+ b=Ubo9S/5oXBS4nWkP0SHPkBI1+98KjnEHUgcWvjC6PO7wdthbTm4Lj44pkIBXQfoQCtYjHQyyHPFo4+aUbJrCa4arUFac5SZJ2ih9xbEo7RHkpSu8jW5UsawfZZr2+zbuAWlWyDRj+kRRCWlOlMEvV8sVMlS0P+NzFg4z/L38rQEvaL1epcsh0J4rGp/AoYpCthvGO9Wavvax9lNQYHBW/DWxvzY8D8Jr68Ne6X3Nds9IQ4vx8iRf2RrP5mobDXtosDDkC7rwx99Om6DVOh38IIqu0LFieB1vRSMbamTurMNM4nEg3pjvC/AX37acwumtnRV92EaNjmGXF/70nSKgdw==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by PA4PR04MB9710.eurprd04.prod.outlook.com (2603:10a6:102:268::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.13; Thu, 6 Nov
- 2025 20:35:02 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9298.006; Thu, 6 Nov 2025
- 20:35:02 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rdma@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
-	patches@lists.linux.dev
-Subject: [PATCH v2 3/3] iommu: Allow drivers to say if they use report_iommu_fault()
-Date: Thu,  6 Nov 2025 16:34:59 -0400
-Message-ID: <3-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
-In-Reply-To: <0-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BN9P222CA0017.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:408:10c::22) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.20; Thu, 6 Nov
+ 2025 20:40:06 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9298.010; Thu, 6 Nov 2025
+ 20:40:06 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Jonathan Corbet
+	<corbet@lwn.net>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+Thread-Topic: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+Thread-Index: AQHcT12IO/eL+GhPRU2oFpUsQtz5fA==
+Date: Thu, 6 Nov 2025 20:40:05 +0000
+Message-ID: <PAXPR04MB9185C4A4B91F863CFD49718E89C2A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-4-shenwei.wang@nxp.com>
+ <9fd8ccd9-560a-43b4-a48d-f7a3eaa07eb1@lunn.ch>
+In-Reply-To: <9fd8ccd9-560a-43b4-a48d-f7a3eaa07eb1@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|PA4PR04MB9710:EE_
+x-ms-office365-filtering-correlation-id: ee3bceaa-d6e0-44da-8cf5-08de1d74ab4d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?RVqb0U8APevdRKp+I4WpYPt5Nko5ECoSzo0+KDiGHewJiHJghAU7yd4Eqm4I?=
+ =?us-ascii?Q?a09AjHQuoHHZfWhE5Qimdiv2vF3oosQ9XMsAWEIai2l59/qnqTE3DyxbI9ba?=
+ =?us-ascii?Q?Nn8wXeW+hxozIreoPEsFKya0fbh0hvOWFUfyTGgFCDy+n+NB6+WtcrJBPCcT?=
+ =?us-ascii?Q?9AIT8l2JJXrSQVyZ1y+XC1eKazSxWe9aVuMdbbloEGHporB3f81pjTYZR7uX?=
+ =?us-ascii?Q?esmih2IjJDy/xWExi/lampRxXJQyvK1aCfLttaQduQMGsle3rQEoJ5Tx0jRP?=
+ =?us-ascii?Q?igBeApCdlVUwEO7poWENtOQzHDqHo88CC9IXzfQZey2y4409nG2au5wnc/gN?=
+ =?us-ascii?Q?YjGaRtAIo62h7FFBia1cvkLTwdARbiJ/3AZPeTZT83D3IYpmtTv3NXKSLl2q?=
+ =?us-ascii?Q?9JZODWocOxMzBDabm7cUzoyvrIK7BLpgQ9WrO9q1VeJw2M0ZIUIiecc/35F0?=
+ =?us-ascii?Q?4kHnwDVecTk/rSlegNDgS8IsT8PYOm4qrU2ygjBa+oiOWhtHU1Obh2ZVPac+?=
+ =?us-ascii?Q?MQ0CEw/bxfkB2NyLPv0Q4eEeAsUXjoYQ0c3ZsduwVhLOrnt0fPOPf6JPB3u0?=
+ =?us-ascii?Q?/Vzcez6lzwqMslHjL8pJxBlYvpmobpOEBNtml1Nu4ZrJb2dBfL+i2/myEn+o?=
+ =?us-ascii?Q?K/KhCLrZprGuSbPobetc19p2A0G2LCoxMmsZXI9/zgGwRAb3MyxLME//uFL9?=
+ =?us-ascii?Q?7uY9n+98pur2kCaV9E32bybLJt83C89whajjPsaHOtyIfAoUkp7mM+q+cvv+?=
+ =?us-ascii?Q?VAWjOwSJHoNJfD+D6KAA9VcBWw3RKSgGuz4p7NqaO2xpfETa/4HQ2++EU+08?=
+ =?us-ascii?Q?AxvbnKc7IL3Y9sMNMD0ZhooxYyd0jAHIfOgrrlz/QQQMedi/zmGhqJm5i8MD?=
+ =?us-ascii?Q?9d3wmoslOB5OAssMbiZ8lW5FuRrJVN6BxfTz5E9orMyOfcXp3qxhliNhHALD?=
+ =?us-ascii?Q?NWU/4QsA+Oldq6s2rMzEcCYNgObYmOuDb8Hy/F8nwGfaX6rnVnO+ch6pcj2N?=
+ =?us-ascii?Q?8s3u0KtKp02+vqOFolJF6RRjwqFBRqzzTyQVskysG9fdaeQxd2ONunq8vnp/?=
+ =?us-ascii?Q?ntwBzTvFciXmsnAaq2uKtnYuyCadB6slPD72DDgfqtXUpwnq7L2LOY92wZb1?=
+ =?us-ascii?Q?cHMgZoXqdqchvmE0oohipWimX4UK0jL3Uex5GpsEPjNyGFG+wyRggddhxwk+?=
+ =?us-ascii?Q?mPBxU//goeM3T/MxtOnNsYhihCPpp7k4rwKqqtm8Cin5jxuigzbAMBhcIR25?=
+ =?us-ascii?Q?gnns9qG5LIcCj9ulFjsiL4STczueEhdoWvFI1s8FCAuSMHGZQUd5eyuiXPcZ?=
+ =?us-ascii?Q?l4JRkQ4Ocn6zJVvxlfYFBcqa2bW6hz+OdSVI9DUFHucTY5Qwn3pME8wNi1L1?=
+ =?us-ascii?Q?OV6u5uACXgVthsihX2a6yg46uvzuDzAPp3eVc4mBo6ltGEFrwKlPqAZMo5Ys?=
+ =?us-ascii?Q?MuCFBVlmOulno+roRlHryNAUMrp/ggU1Lr3y5Pv7n6fCcfdMLEUulbdFbPmP?=
+ =?us-ascii?Q?WfBxnOxUdqxouody7Im9tye9QI6uLmD2khB7?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?WzMpxkSj76McpPMqGGRPatQtGeOFIXw98y22gbPMi6v8Ef63O+SEZ/gtwxsw?=
+ =?us-ascii?Q?EQRagPtyygMQSUuitO0agZF5i7h7DyR5JLI/a4MJ1vhL1ZiDykjiWekuXqx8?=
+ =?us-ascii?Q?55YrIyit11ZkyMdM1Kt44+vtXxp6CqGztOVkfgbA1525x3uTgXjluBlgeTeZ?=
+ =?us-ascii?Q?2mSGKXpnevQddd911p/bOd4CA3SzYkxO0bVnH8iZYs66Pbk5JtBiLci3R4Ad?=
+ =?us-ascii?Q?6zRfhU1jVw+kiCBuHFvYXoTFLof42vi+Ya7nUTqEQzWhFPg/7uzZ7NADjVFY?=
+ =?us-ascii?Q?3962J8YOEVv1SsJh/t0QPUb4x3jKYvpbwppS3OjeuvYqLHy7+nbkJTJgCU7C?=
+ =?us-ascii?Q?EWqSQYzmNluza0CN9RK/RUlOj+D03XHm/oUejv/KTKXxp/U6JlrjI9+FzMy/?=
+ =?us-ascii?Q?4iksD1fHXSN+lX6SWkk0Y5pwkYQbop6tEvgc/Wl8mQSTGHzTHf7k3fOwtvUV?=
+ =?us-ascii?Q?xdVhTeDoz6ki3wM1W5uED20Z/4q7ucyfeFD5OIZ05vGomtt7Ev+an04O3Uoy?=
+ =?us-ascii?Q?i+MF8o8r4rlnAJMFl7+dw8kluWC0RyzHx+HrEnbXRwKqy+hV4TwGD0SdgPtC?=
+ =?us-ascii?Q?Y4a+GAH7M9TukWQntaTtyPDvHS1DDHKYtynF/kkq5KeLulPcY+/5ISjbSahD?=
+ =?us-ascii?Q?vR3IBfYElzHYpdvuq5jJm7Aa0AJWQcfIMlfy9dGkk8EnfDXHges7pnI5eLwu?=
+ =?us-ascii?Q?bEfWrpS7QUvkU7OFOXIxS7eYqiPLz0Lmcv0oJDqq5GOv7TrZbvyyVVimWHsn?=
+ =?us-ascii?Q?dyTuuG7g1W5+OKLSEI5mcoCulesVOPcKvLaF3lOZjm6VG4HAMMyx6LoPpZ3j?=
+ =?us-ascii?Q?v4Yn3UXzRmFaeajqDgkn3kwqdR6XgmIXAtoF6YhrcGJlukcxJlrmfmNyeNov?=
+ =?us-ascii?Q?+lxYWrwN20YqKpBDRvrcf488NYeopkYi0OrEy0qSelM/BsffaH6O5tsEFbLU?=
+ =?us-ascii?Q?Ey2AJ2pFoLUBDhR4E5izBXibewmLocdrH1cTgMPgpklpN4FK2/FvAmTMq/rH?=
+ =?us-ascii?Q?WtkPv0vKUDGmDPtpYn/svJH6jKUzbVAyqfFaw0mF1UE3SD17dL+EbTd7zozU?=
+ =?us-ascii?Q?BIbQ+BKh6rs2LXx9KcnMNh6GrTU0KOLvjBh4eEPZpNFROpTexBZ96OWepOMm?=
+ =?us-ascii?Q?cOTiS9RKAqULtbuUhbSvvidtxfZdfPaNSp9PPaMyYzVx750mZez5NzBgIzHA?=
+ =?us-ascii?Q?svncjw3x5ZulPHo6q34inkya5ngLtLPx8g6nr1qJumo5c8nBMEzO6T9VycNE?=
+ =?us-ascii?Q?Bv9XBq0MLnwoC5UK2BB590lwqtiLy9OT6jg8KEtpglaxgHBQWUFCTiKgltA9?=
+ =?us-ascii?Q?QW4LdMDCvAvVM+16aPXjra1soojq8cXvy2q0NWWlkNggUBx77LX9yC2Cd5CJ?=
+ =?us-ascii?Q?pIcrDaJGv3M8KKFbAvGMdE6WYTVnQqq4mx4udEeZ1YCmuP1sn2wlwn8QNrJS?=
+ =?us-ascii?Q?o/Le+AsjHk8eu/85OV4c9tngWcizqJx5jyJsEuc2sk/QFj1SNY0khRsv6grN?=
+ =?us-ascii?Q?N/vv2AKAfQqDz+WcE8w2qllmYO8o7WyLPlf71tkKwUoXEvcuYakIzraJLc3v?=
+ =?us-ascii?Q?F5ftByS6iAZoa1mKQnY=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|SN7PR12MB7108:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b919955-67cd-45a4-6d0b-08de1d73f596
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Auc7sGIIt5n8LnyZiKQpy7WKLHnpLDn6xmPBHv4A4TbnyLQqwCLJBSSAIELN?=
- =?us-ascii?Q?qIok8e83r/pvECkL764znxbmy72fhyqZCipI+SxfAhTFCb5GhJCRsP+hnbnW?=
- =?us-ascii?Q?J+bob6Y/UDrkP/c+tWfB5wFPTiGcXCNgz9W9LOjN/KEavLJF4x1Z++FSFxmV?=
- =?us-ascii?Q?OOsC2Gr7pPR82plZ3BNNLSxzjT051IpAmEZjA9ggPtW0C2Tt0TLwbcfLGNFy?=
- =?us-ascii?Q?DVmg8Y6K1pIE5XQGHAFF0SzC0spgXQt767suXMT+gn6t+LcNUvjljW38OQa8?=
- =?us-ascii?Q?xm6WSHJAHnZEntiPE7Fp2xxvaR2q3Gz2BdaNdWwZxCvN3tBx067Orz7h7Dt7?=
- =?us-ascii?Q?GuYAY+1DueLpvxnSLLu3pl3bhLrSYSFxvpw4VuHVHvfp7pp1N7I5VxPzDVgh?=
- =?us-ascii?Q?GyqTT2L5KFVnZjHBjiDghcYBfXnBLmzV4ZTEGF+QP6hV9FHTKJUzOPvCEEAY?=
- =?us-ascii?Q?zN9TjNYtmTOWnr/s+YkxPaA5OPKbUXjSx9T4aCbcA85t35XGew/v5cYpKTcH?=
- =?us-ascii?Q?iTBeVrHj749Qq/GkuhCCvs/CIuGSW9QP4l0BSLQ1OqsHj0T1dkUZl/fWszFa?=
- =?us-ascii?Q?tm0AIrKk0MubC4VtLVtIL6AExTM3VXXYqByC4ChNlHLQgg15HvhLa5qrxl3A?=
- =?us-ascii?Q?9RR9T0dRdHg+GtUQ/Dq8VE9ZY2LlPrb2KJcvffZIafsajm2ox3OFRwzDTWQ0?=
- =?us-ascii?Q?nWQFxtVmhOypU+EjfEmShdK6rIBDbeaBsq1Eqjba29SErtnc9WyfyQ6iHmI5?=
- =?us-ascii?Q?O/njRj8kAL4Q3BYGZ+PjxXf6br7v0avnAhAT1fsNnd1nFgSdwbs8CELOW2cF?=
- =?us-ascii?Q?o+MfBu+1qXd02tVeaX9NB3JSReivOvRXkR+gQubSnOBhaSAfH79E+7O10hES?=
- =?us-ascii?Q?spx8B1RA/dIjw+Q/Z3y2rv33KEeUmhsBUMalT9Bp7puvGvSui2nt2+QVuIgk?=
- =?us-ascii?Q?aHDNvhU4eSd5GB2j4MZ1xWlNISN2xnxIgAqZCap5mLvXhZTIYzBjCUkuJP8F?=
- =?us-ascii?Q?tObsZAZHJvm+1eNZR0sJ9+VwaQWtsHRkKiW8pAk/qF4R+IU6qwrsiaUyp1mG?=
- =?us-ascii?Q?CB5ZdOEKtN5/eHkVLV5GCmK2OvXsHt+Wo8OrWK2HS6GlP0RcIGiB2ETVgC5p?=
- =?us-ascii?Q?5Rvhs1FYYfhLGz93ljEOP5CnlhEIZ09XEhIOn+i0pgBoIOO804rdVskATqns?=
- =?us-ascii?Q?6IbHmguiD2BCTDZg/ZpRBrGXEPqNSycOVOAYL3FMRd5RIsPrP6wmHt2jRSWM?=
- =?us-ascii?Q?zAcqe5HpCpjYecJJqUw75vUZFyDmZPi+Tm/Io/XJsIJghPDBl13OJVue05tp?=
- =?us-ascii?Q?0sJ/RZ3rGhhuKW3D1ojxTyNCrK8+mwITyKKFtn8opUOriJ2aT6g/Krd6/TbO?=
- =?us-ascii?Q?xiz1B7ENyfvHUYvtTrFMEp9IwBXCq0Nga5BMPEBKs4pnHTIzMF6NivZgyqS6?=
- =?us-ascii?Q?+ne78nuJrTf+Dal8WBL5DoBKOhDn2mfhbC4gn5r9d0R0TUyJKgd20/8Vr9yR?=
- =?us-ascii?Q?N8sDIjeqv0IyVUE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7+jFhWT5eHxVVTW6nt2bJXv1GKIzovNYohBZBp6Z1M7ovm4nl+UP89U9lVE8?=
- =?us-ascii?Q?NcbHy/7aPPC86PPCBsVIDAefbItahF62pt9xrrmLhdtYs4lckTgacWK4mzvL?=
- =?us-ascii?Q?3lEmV5xPQxZGKakEmvIHZ+aD5TV5Bc/aNGB7/p6l/q1A/fqVOIhQuyDg+fxL?=
- =?us-ascii?Q?48qQeAazFfxFJ9RCR9wHwYShl7Ou76TTSKaeJAUbykuVkw4ewiKe22T/c5Uc?=
- =?us-ascii?Q?9yUOzEdqg28xftrhrrxeKI408q3WIwarsmYf6oLXUeQiS87TQd0lGPB43fMs?=
- =?us-ascii?Q?/NDA5/Kc+M4UFmDab6uLfjA5DTPIjJ940/qBsXE//rxGBDD1TIiOsbVoAbez?=
- =?us-ascii?Q?BkTMITr17KxQ2ELBV1z/pgXFToDnC3ALop98fC4dH8P6Jhc6LNF8MXDW0e6v?=
- =?us-ascii?Q?qKRe1xg0jhdURLxBjBzvGE9fD3Zok7k0TTL6egFB66o0DvdLjdGbyuCUjDPY?=
- =?us-ascii?Q?2h9M/Q7AzMksreb4aoP6+3j/ZkuyO7z1EvVRwpjnbwPdF9c1uCB+1M83z5MA?=
- =?us-ascii?Q?bkmOR/R4L2ZQrnEKI7lPL7dM12A938mAB3PqtGheZfTUs3eUQCQ42YVVK/hL?=
- =?us-ascii?Q?ihfSAv0oPjJTiM6i7SYFLSHwY6Xi/lsiyNnDvzNqP+Si6Q9QoefxCjidvc7F?=
- =?us-ascii?Q?oygcRsP5ARuZsbe2gXYmR+AizWxs8/1Zf04BZzvwXQVLNn6j4DAjHc68n+M7?=
- =?us-ascii?Q?JctYrYufYCEd+b4HVXx39wDzRjjQxgxoxF+yOVppaYDWDZJdT9z5hfN1dat4?=
- =?us-ascii?Q?gdJ2HuWcwUXmkmxTd9BvT5pma/UYrh3N6UC/ESjHy3BRprtd3i466SOfbIi8?=
- =?us-ascii?Q?T9J5248QjnUAmw1bGeW2R0AQmfAb7QCemnhqP7vWPPTVQIF3eoyyC9cXBR3S?=
- =?us-ascii?Q?xMyn0gwigJPG+keagRQQPyomiwE0ysq9Z7S6CplrDU8x60ABHbZGMH+gow26?=
- =?us-ascii?Q?YYx0/XzGRx+KVv3yvGcK778bXJKkQzt6nA6q6uUTkyqZT5welzhsiw3ZS4AF?=
- =?us-ascii?Q?RELtuMorvX9QCOBj7sZwQ6ccqPEH5ptU9K6WR1GgQqgixzuVR4Km8Cpzh9pG?=
- =?us-ascii?Q?Y30n9pkUc2dZfezV863LXPPdP6IpRtwWwJN1rycY1UTFqs8Bued0u3ygobng?=
- =?us-ascii?Q?38COjSSDT9XEuqnpwUDytbFcPEwZScZq+BrzaFKwN6xI4/Rkmo4651jimzVn?=
- =?us-ascii?Q?E63d5kknTTazCnjOx+iEM9A7WnIuC1a8VLK2ypPo9DogKBmTrzT/w9wNOCXQ?=
- =?us-ascii?Q?srKRBk78tJdzA3xp2bb7RfcQctnne0vd4FB/33nAdEND50tP/1lamMEVQD0V?=
- =?us-ascii?Q?SzJItBO/xNapaD1jIqsgEkYiHiBd+6evYVoYZeFc+7I7+sA4DZS34zYtGkQO?=
- =?us-ascii?Q?z2ccLPT8XC6d7zJJisHpGv+dHK4YLeliIEVtBjf6bVaSHPzY2makpbwgvHTy?=
- =?us-ascii?Q?ZKSiBSJsS2e+WPZxWeQm+Bxua7e5VLeeXepqm3W6rmxewSkZuVFeSWWGYLpF?=
- =?us-ascii?Q?to8Hw0jRO/ABulJdRMDckU5cgmewOtnHSwmKUDGkvA9e+XD9hSlKshKDQfGa?=
- =?us-ascii?Q?erltcnWb6foEuv4wpkc=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b919955-67cd-45a4-6d0b-08de1d73f596
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 20:35:01.4070
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee3bceaa-d6e0-44da-8cf5-08de1d74ab4d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2025 20:40:06.0298
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ijoR5zFUspLJGictDbbGfdJf1qV7yxezHHkchjfJSkvlDvQs7X3ujChZtRYtkJ4n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7108
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wIVcrUEtvjbWyGhFL6mydKtf4Ip8pg5lUc92GjLoKJ9g58MCf3eLUBM0lhYav/BNYsIsnXsImWedwchN8/mtbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9710
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_123514_147051_952C84F0 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20251106_124011_315970_43694FDE 
+X-CRM114-Status: GOOD (  33.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,178 +173,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-report_iommu_fault() is an older API that has been superseded by
-iommu_report_device_fault() which is capable to support PRI.
+Hi Andrew,
 
-Only two external drivers consume this, drivers/remoteproc and
-drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
-now protect against accidentally mix and matching the wrong components.
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: Thursday, November 6, 2025 1:06 PM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> <mathieu.poirier@linaro.org>; Rob Herring <robh@kernel.org>; Krzysztof
+> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Shawn
+> Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
+> Jonathan Corbet <corbet@lwn.net>; Linus Walleij <linus.walleij@linaro.org=
+>;
+> Bartosz Golaszewski <brgl@bgdev.pl>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
+> <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rp=
+msg bus
+> > +   +-----+------+------+-----+-----+------------+-----+-----+-----+---=
+-+
+> > +   |0x00 |0x01  |0x02  |0x03 |0x04 |0x05..0x09  |0x0A |0x0B |0x0C |0x0=
+D|
+> > +   |cate |major |minor |type |cmd  |reserved[5] |line |port |  data   =
+ |
+> > +
+> > + +-----+------+------+-----+-----+------------+-----+-----+-----+----
+> > + +
+> > +
+> > +- **Cate (Category field)**: Indicates the category of the message, su=
+ch as
+> GPIO, I2C, PMIC, AUDIO, etc.
+>=20
+> We know it is a GPIO message, this document is titled "GPIO RPMSG Protoco=
+l". So
+> i don't see the need for cate. I can however understand that your device =
+does
+> support multiple functions, but to make this generic, it would be better =
+if each
+> function had its own channel.
+>=20
 
-The iommu drivers support either the old iommu_set_fault_handler() via the
-driver calling report_iommu_fault(), or they are newer server focused
-drivers that call iommu_report_device_fault().
+These details are defined in the message header to support multiple functio=
+ns. For=20
+the GPIO-specific implementation, the header values are fixed and do not re=
+quire=20
+modification, provided the transport protocol version remains unchanged.
 
-Include a flag in the iommu_ops if the driver calls report_iommu_fault()
-and block iommu_set_fault_handler() for domain's of iommu drivers that
-can't support it.
+Then I should remove those unrelated definitions from this document. Is my =
+understanding
+correct?
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu.c   | 1 +
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 1 +
- drivers/iommu/iommu.c                   | 6 +++++-
- drivers/iommu/ipmmu-vmsa.c              | 1 +
- drivers/iommu/mtk_iommu.c               | 1 +
- drivers/iommu/mtk_iommu_v1.c            | 1 +
- drivers/iommu/omap-iommu.c              | 1 +
- drivers/iommu/rockchip-iommu.c          | 1 +
- drivers/iommu/sun50i-iommu.c            | 1 +
- include/linux/iommu.h                   | 3 +++
- 10 files changed, 16 insertions(+), 1 deletion(-)
+> > +
+> > +  Defined categories:
+> > +
+> > +  - 1: RPMSG_LIFECYCLE
+> > +  - 2: RPMSG_PMIC
+> > +  - 3: RPMSG_AUDIO
+> > +  - 4: RPMSG_KEY
+> > +  - 5: RPMSG_GPIO
+> > +  - 6: RPMSG_RTC
+> > +  - 7: RPMSG_SENSOR
+> > +  - 8: RPMSG_AUTO
+> > +  - 9: RPMSG_CATEGORY
+> > +  - A: RPMSG_PWM
+> > +  - B: RPMSG_UART
+> > +
+> > +- **Major**: Major version number.
+> > +
+> > +- **Minor**: Minor version number.
+>=20
+> What is the purpose of Major and Minor? What values are valid. What shoul=
+d
+> happen if an invalid value is passed?
+>=20
+> What you should think about is, if you gave this specification to somebod=
+y else,
+> could they implement it?
+>=20
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 4ced4b5bee4df3..f68a0576b9a3a6 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -1643,6 +1643,7 @@ static const struct iommu_ops arm_smmu_ops = {
- 	.get_resv_regions	= arm_smmu_get_resv_regions,
- 	.def_domain_type	= arm_smmu_def_domain_type,
- 	.owner			= THIS_MODULE,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev		= arm_smmu_attach_dev,
- 		.map_pages		= arm_smmu_map_pages,
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index c5be95e560317e..173d5957796790 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -597,6 +597,7 @@ static const struct iommu_ops qcom_iommu_ops = {
- 	.probe_device	= qcom_iommu_probe_device,
- 	.device_group	= generic_device_group,
- 	.of_xlate	= qcom_iommu_of_xlate,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= qcom_iommu_attach_dev,
- 		.map_pages	= qcom_iommu_map,
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 59244c744eabd2..8d9086a37671e1 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2005,6 +2005,9 @@ EXPORT_SYMBOL_GPL(iommu_group_has_isolated_msi);
-  * This function should be used by IOMMU users which want to be notified
-  * whenever an IOMMU fault happens.
-  *
-+ * This is a legacy API not supported by all drivers. New users should look
-+ * to using domain->iopf_handler for the modern API.
-+ *
-  * The fault handler itself should return 0 on success, and an appropriate
-  * error code otherwise.
-  */
-@@ -2012,7 +2015,8 @@ void iommu_set_fault_handler(struct iommu_domain *domain,
- 					iommu_fault_handler_t handler,
- 					void *token)
- {
--	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE))
-+	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE ||
-+		    !domain->owner->report_iommu_fault_supported))
- 		return;
- 
- 	domain->cookie_type = IOMMU_COOKIE_FAULT_HANDLER;
-diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
-index ffa892f6571406..04a5836bf36000 100644
---- a/drivers/iommu/ipmmu-vmsa.c
-+++ b/drivers/iommu/ipmmu-vmsa.c
-@@ -884,6 +884,7 @@ static const struct iommu_ops ipmmu_ops = {
- 	.device_group = IS_ENABLED(CONFIG_ARM) && !IS_ENABLED(CONFIG_IOMMU_DMA)
- 			? generic_device_group : generic_single_device_group,
- 	.of_xlate = ipmmu_of_xlate,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= ipmmu_attach_device,
- 		.map_pages	= ipmmu_map,
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index 0e0285348d2b8e..ccf6fdeb64a261 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -1018,6 +1018,7 @@ static const struct iommu_ops mtk_iommu_ops = {
- 	.of_xlate	= mtk_iommu_of_xlate,
- 	.get_resv_regions = mtk_iommu_get_resv_regions,
- 	.owner		= THIS_MODULE,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= mtk_iommu_attach_device,
- 		.map_pages	= mtk_iommu_map,
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index 10cc0b1197e801..3dd6222d210921 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -581,6 +581,7 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
- 	.release_device	= mtk_iommu_v1_release_device,
- 	.device_group	= generic_device_group,
- 	.owner          = THIS_MODULE,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= mtk_iommu_v1_attach_device,
- 		.map_pages	= mtk_iommu_v1_map,
-diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-index 5c6f5943f44b1f..7ba67600f32915 100644
---- a/drivers/iommu/omap-iommu.c
-+++ b/drivers/iommu/omap-iommu.c
-@@ -1723,6 +1723,7 @@ static const struct iommu_ops omap_iommu_ops = {
- 	.release_device	= omap_iommu_release_device,
- 	.device_group	= generic_single_device_group,
- 	.of_xlate	= omap_iommu_of_xlate,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= omap_iommu_attach_dev,
- 		.map_pages	= omap_iommu_map,
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0861dd469bd866..932b5a62bac572 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -1173,6 +1173,7 @@ static const struct iommu_ops rk_iommu_ops = {
- 	.release_device = rk_iommu_release_device,
- 	.device_group = generic_single_device_group,
- 	.of_xlate = rk_iommu_of_xlate,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= rk_iommu_attach_device,
- 		.map_pages	= rk_iommu_map,
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index de10b569d9a940..13c37b1be481d7 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -848,6 +848,7 @@ static const struct iommu_ops sun50i_iommu_ops = {
- 	.domain_alloc_paging = sun50i_iommu_domain_alloc_paging,
- 	.of_xlate	= sun50i_iommu_of_xlate,
- 	.probe_device	= sun50i_iommu_probe_device,
-+	.report_iommu_fault_supported = true,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= sun50i_iommu_attach_device,
- 		.flush_iotlb_all = sun50i_iommu_flush_iotlb_all,
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index c30d12e16473df..941e4971b05fd3 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -659,6 +659,8 @@ __iommu_copy_struct_to_user(const struct iommu_user_data *dst_data,
-  *                    no user domain for each PASID and the I/O page faults are
-  *                    forwarded through the user domain attached to the device
-  *                    RID.
-+ * @report_iommu_fault_supported: True if the domain supports
-+ *                                iommu_set_fault_handler()
-  */
- struct iommu_ops {
- 	bool (*capable)(struct device *dev, enum iommu_cap);
-@@ -710,6 +712,7 @@ struct iommu_ops {
- 	struct iommu_domain *release_domain;
- 	struct iommu_domain *default_domain;
- 	u8 user_pasid_table:1;
-+	u8 report_iommu_fault_supported:1;
- };
- 
- /**
--- 
-2.43.0
+Okay. Will change those fields to fixed number and remove the above definit=
+ions.
 
+> > +
+> > +- **Type (Message Type)**: For the GPIO category, can be one of:
+> > +
+> > +  - 0: GPIO_RPMSG_SETUP
+> > +  - 1: GPIO_RPMSG_REPLY
+> > +  - 2: GPIO_RPMSG_NOTIFY
+>=20
+> Is _SETUP always from Linux to the firmware? Is a setup always followed b=
+y a
+> _REPLY? Do you need to wait for the _REPLY before sending the next _SETUP=
+? If
+> there is no _REPLY within X seconds, should Linux retry? Can an _NOTIFY a=
+rrive
+> between a _SETUP and a _REPLY?
+>=20
+
+Yes, the SETUP message is always sent from Linux to the remote firmware. Ea=
+ch SETUP=20
+corresponds to a single REPLY message. The GPIO driver serializes messages =
+and determines=20
+whether a REPLY is required. If a REPLY is expected but not received within=
+ the timeout=20
+period (currently 1 second in the driver), the driver returns -ETIMEOUT.
+
+A NOTIFY message can arrive between a SETUP and the REPLY, and the driver i=
+s designed to handle this scenario.
+
+> > +
+> > +- **Cmd**: Command code, used for GPIO_RPMSG_SETUP messages.
+> > +
+> > +- **reserved[5]**: Reserved bytes.
+>=20
+> Why are these in the middle. It is more normal to have reserved bytes at =
+the end.
+>=20
+
+The reserved[5] bytes may be used for other type of functions. For GPIO, al=
+l should be 0.
+
+> You should also specify these bytes should be set to 0. If you don't it w=
+ill be hard
+> to use them in the future, because they will contain 42, or some other ra=
+ndom
+> values.
+>=20
+> Is there a relationship between major:minor and reserved?
+>=20
+
+No so far. Maybe it could be related if the protocol is updated in the futu=
+re.
+
+> > +
+> > +- **line**: The GPIO line index.
+> > +
+> > +- **port**: The GPIO controller index.
+>=20
+> data?
+>=20
+
+Data is explained in the commands below.
+
+> > +GPIO Commands
+> > +-------------
+>=20
+> This is a GPIO specification, so i would only expect GPIO commands...
+>=20
+> > +
+> > +Commands are specified in the **Cmd** field for **GPIO_RPMSG_SETUP**
+> (Type=3D0) messages.
+> > +
+> > +GPIO_RPMSG_INPUT_INIT (Cmd=3D0)
+> > +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > +
+> > +**Request:**
+> > +
+> > +.. code-block:: none
+> > +
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> > +   | 5   | 1   | 0   | 0   | 0   |  0        |line |port | val | wk |
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +
+> > +- **val**: Interrupt trigger type.
+> > +
+> > +  - 0: Interrupt disabled
+> > +  - 1: Rising edge trigger
+> > +  - 2: Falling edge trigger
+> > +  - 3: Both edge trigger
+> > +  - 4: Low level trigger
+> > +  - 5: High level trigger
+> > +
+> > +- **wk**: Wakeup enable.
+> > +
+> > +  - 0: Disable wakeup from GPIO
+> > +  - 1: Enable wakeup from GPIO
+>=20
+> What do you mean by wakeup?
+>=20
+
+The gpio line can be enabled as an wakeup source for the system.
+
+> > +
+> > +**Reply:**
+> > +
+> > +.. code-block:: none
+> > +
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> > +   | 5   | 1   | 0   | 1   | 1   |  0        |line |port | err | 0  |
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +
+> > +- **err**: Error code from the remote core.
+> > +
+> > +  - 0: Success
+> > +  - 1: General error (early remote software only returns this
+> > + unclassified error)
+> > +  - 2: Not supported
+> > +  - 3: Resource not available
+> > +  - 4: Resource busy
+> > +  - 5: Parameter error
+>=20
+> It would be good to give some examples of when these should be used.
+>=20
+> Say the hardware does not support both edges. Is that 2? Why would a reso=
+urce
+> be busy? How is busy different to not available?
+>=20
+> > +
+> > +GPIO_RPMSG_OUTPUT_INIT (Cmd=3D1)
+> > +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > +
+> > +**Request:**
+> > +
+> > +.. code-block:: none
+> > +
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> > +   | 5   | 1   | 0   | 0   | 1   |  0        |line |port | val | 0  |
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +
+> > +- **val**: Output level.
+> > +
+> > +  - 0: Low
+> > +  - 1: High
+>=20
+> Maybe make a comment about the order. Some GPIO controllers suffer from
+> glitches when you swap them from input to output. While it is an input, y=
+ou first
+> need to set the output value, and then configure the pin for output.
+>=20
+
+These are platform-dependent details that should be managed by the remote f=
+irmware.=20
+In the Linux driver, we simply request the remote side to configure the GPI=
+O direction.
+
+> > +Notification Message
+> > +--------------------
+> > +
+> > +Notifications are sent with **Type=3D2 (GPIO_RPMSG_NOTIFY)**:
+> > +
+> > +.. code-block:: none
+> > +
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> > +   | 5   | 1   | 0   | 2   | 0   |  0        |line |port | 0   | 0  |
+> > +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> > +
+> > +- **line**: The GPIO line index.
+> > +- **port**: The GPIO controller index.
+>=20
+> There is no need to acknowledge the notification? How do level interrupts=
+ work?
+>=20
+
+Currently, there is no need to acknowledge the message, as the interrupt is=
+ managed entirely=20
+by the remote firmware. On the Linux side, a single notification message is=
+ received when an=20
+interrupt is triggered.
+
+Thanks,
+Shenwei
+
+>         Andrew
 
