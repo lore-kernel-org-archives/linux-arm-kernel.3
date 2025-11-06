@@ -4,63 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC847CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 04:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168BCCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 05:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYKn7lkOtQQNUQVhQwR8UaceIK0WNcT5tH8vbm6pxCo=; b=Vi5PKXYCxJUrmiba9QvCOtSjPi
-	ytW4JzR2EwaU4y/z5zt9CsVN3RUIX6yvLwBoSXpak/6Y8E1UCSVx8bxcAMrpDWrUUzNLcUqH314B/
-	MuNC/cP9EIBkDvhYE2dWWbZ+zANzI4c/nBJtJ1EJ69MfNa3BbwM8sBsU7XC11GwKW6jSEPmMFaq66
-	Z1v5kw/EPoOH1CvEZQEH05jnaBOH+NeNq8UF4I0630TWr4g5umtz50AC3/NweXGGAIS1vSo0pOgqZ
-	7THuxAnif/fPhD+V+Y9WrV6Hg15s9SYRNCtoaroRAvBILQqapdXPicM9tbCg+rSq7kwMWVEiS3KuO
-	GXrrFbzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RbncP33QuByCSLGI1byB0rZspAPVjU3fy2uppZLE2jY=; b=0g8B9NvW+R8GiCKIiOLImhUdoA
+	2In0BWAYHtY7qgOpqniG2U8vpW4GQHn6y4aG7+40R6COPApXy0KiJffk1P4jWGbwSuy+Fn6e8mvH0
+	JOgG1Xw5GRG41UmU1Vexh08hRmmAxe0AGPw0tZePgEMVxchqcAGAE9S16wYzOg5A/1rDiUgW8ZO2v
+	qL5DTMjn51C850KunGWndLwq65YFb/33rFTpmyMZ2bF0udcF2KyPzsnv8g076LSIFznrV8VMwhjek
+	57ajmsnSAi5SR/Wtg0voCFMDcA+V/r6cVZcBI/360wk+jwDY64TxOwGVp56bkkaK57RWeopwlctFc
+	aen1wtkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGriV-0000000ErMh-1LFI;
-	Thu, 06 Nov 2025 04:35:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vGsQ5-0000000EsXn-0x1m;
+	Thu, 06 Nov 2025 05:20:25 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGriU-0000000ErMW-1N5U
+	id 1vGsQ3-0000000EsXS-02SQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 04:35:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6BA1060051;
-	Thu,  6 Nov 2025 04:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C62ACC4CEF7;
-	Thu,  6 Nov 2025 04:35:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762403721;
-	bh=j/5/qmy4jIrHUj6xDBmoQ+We3edlP+5ky0U44w5itsA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DSyTqaRL5m/48V8JP5XBhTRXBYNS68W9KvpEZSFaFbYm15M+Hb+sCSxfiZwKpnh+4
-	 i0XKur1Ak/atYZK8c/FXKaZcBqo/u4/GKPQ/c5/rYqEsqqmOqkPCry2o/IHeI2CVpv
-	 OfPGSA2L9pFMlNMuQqJBciVr33bO4Fyem02acQ53anuvOz6DesgtxJbZbDFQ7gJbkt
-	 lBHj6/XcnVJEP09JkmzjS4lGvqeFJCeI+LAdoAnqXw4dPKdHsX9vncpvNCb/kGOR65
-	 uQKb5zoRWve7/auk+1mEj0RNfKzKYlBuCi+ltf0nN1hOWlsu5cOHhD3KsxLE/o0hgN
-	 LK90v0+0TsnQw==
-Date: Wed, 5 Nov 2025 20:33:40 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Harald Freudenberger <freude@linux.ibm.com>
-Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/15] SHA-3 library
-Message-ID: <20251106043340.GC1650@sol>
-References: <20251026055032.1413733-1-ebiggers@kernel.org>
- <20251103173404.GE1735@sol>
- <4188d18bfcc8a64941c5ebd8de10ede2@linux.ibm.com>
+	Thu, 06 Nov 2025 05:20:24 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A61O3q42798824
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 6 Nov 2025 05:20:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RbncP33QuByCSLGI1byB0rZspAPVjU3fy2uppZLE2jY=; b=WY5U3PG4eUJLipRu
+	BebhURNIeJ9CDJWrOCxeTHjrsPo5v3vVvjZ5rTe62ecmyJEkBvPfDPSnpDJYWLY3
+	LtD8YTOqv3vzjXA82IizMEH/BAZXyh9ubpV41rpDKnOv9tbFUaLShk5O0rpAtRvR
+	8aREZj1pZblM5WYszuAAj7vxoXGSOOoxc47MEptdZZOKj8Lzt8e+9XkdHaRcjoGH
+	DYC2UE6tv6BXeraAQQFkXjQG19VkrUcp6eKEaU2TBqJkPP/NfNuzjKb7ODqRvJgj
+	gspW0qNK4zE+4u/ghe+kkteBNMB/oG7NLhJyGjwK9LdWmMesN78fthJWs3A4KPeW
+	FVkPdQ==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a8hytrhjd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 05:20:22 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-32eb18b5500so98788a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 21:20:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1762406421; x=1763011221; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RbncP33QuByCSLGI1byB0rZspAPVjU3fy2uppZLE2jY=;
+        b=iI+84VKIrh8IqahF7KUkPKAhaHyboKpLbFxWDgO6vTw/h+70c5yCGBlicjDLlqBVBk
+         XI8OZxNEh56hvdcKOjoAfvY0vyoa92vO4xLwQx7Up66E9ExmJ4NF6Lql9nKcNeqpoi0c
+         KYpgvx4HSKBFzns7aRrvH6Qg5FcgCUCXM5Sm7e3g5v12R2CU9RueDOGozucBnhSR4UBO
+         1Ohi8/doQZnOpUzrGb0k9dSYKq3UUsz0UFtOd6i7CfoJDyoN7TtKSxLLI2BMMolBzfuP
+         gPWMvCtB+gvy0TbxTAeC1HdU0FpDweH6SUHJ/GHgN0D1fOyT4ZU/tweWjun4xxKldG10
+         rFBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762406421; x=1763011221;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RbncP33QuByCSLGI1byB0rZspAPVjU3fy2uppZLE2jY=;
+        b=CLp2zk8m/JO62vxeUfS6i/7g/osp8nwnC2EC4GDDDmo8WGlTa8JxLhm1YTKdzjStyZ
+         rW5j9rCFtlPV09GiC9S3QfBwpY0SEr8aSIZu8yCDgdydVtvubh09ZluJr3dGJAS7Yn3H
+         IYS2459472pMVTXRU8LYjtbEkeBqCMnLuMQwT3s0nhA0Bx7PLQh5yk3TbDAI1d2G2xRb
+         9yafbuJHbVdJAagUTZJaRWehBYFKPK2sRh/jKH+xkeNNTfJBNTUgojHOJxXvYxyPOgFT
+         Qbli0zsHwKqym+ogLDR3BFDZelaXiT+FrpRmZQKXkH1NufuN7YOcsCAqn3ADk3askNCS
+         PY3w==
+X-Forwarded-Encrypted: i=1; AJvYcCWCXdzby5zmlA6cfPx4pFSAwwlQJ8qd2aYwd1zXUnHKTyDSNSeaA1TE/A/PNBZYZ5E2h6UMJC+ThDWGEy+qGJIh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz10jx9bahXVyelwwU+Tr4Mqmhe3lojFm8zKXDVlZtU7PHmvLO
+	EPnNXjVDSaY3Tb9F85gtBmJRWpz9yutDCsZkoN0IrettPf0A7jhUZ5yQK0dVPPNKwGpUtpWqeof
+	HvEoc7GAYsVOvD2VSXe+rQBWdCfyw4v0NEfR0zMhGpHkYMa5k6JzFcIJc3pioCokV8861Ai7Fdv
+	9myQ==
+X-Gm-Gg: ASbGncuCql8Wb6eflASMVr8629muC54tOcSn6siO76dERcQvmA00J08oGZ2afgkXtBR
+	n0K1CeCe/EtP6Iuhj3i1SoPfLRB2boIcnK1yqtKOHhM4i9CRcJJsTI2e/WsdQV90ziFgnPy3QQP
+	7cyX1ZAp+S2xQIzyS4XDjfsHme6X++letUZvR6PnZEA6eTbgw9qaADBWmH32nowyj/n4Kgr/xE4
+	TOGCp7khJ7BwoeSmzdKrw+QJLgLRFw7MepobLFSth0QowYeS8tTwbv5lgySZNpI2TY9EXbpmgct
+	uj8KJ2mCMAKR2P44jPmj+c/Jo3GL8b1SjX1c8m+NpRyhaL5N2GnGu4cZzbP13VgiMb7mGwWwh+u
+	BJT/xLcKiYtBR0MMZbBSL8eJOdeswkCGUdxde9rndfPsgfQJRlicCGtQ/kck0wmN+
+X-Received: by 2002:a17:90b:4a0e:b0:33b:b453:c900 with SMTP id 98e67ed59e1d1-341a6dc3ef0mr7716785a91.19.1762406421345;
+        Wed, 05 Nov 2025 21:20:21 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEA8v7A+ayync/726jkKTD5KYJxkRhenVh6tscIPPHnasEdHKYvxouPnrmMzhPLa+hczUysXQ==
+X-Received: by 2002:a17:90b:4a0e:b0:33b:b453:c900 with SMTP id 98e67ed59e1d1-341a6dc3ef0mr7716756a91.19.1762406420807;
+        Wed, 05 Nov 2025 21:20:20 -0800 (PST)
+Received: from [10.133.33.139] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-341d1347db0sm535859a91.4.2025.11.05.21.20.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Nov 2025 21:20:19 -0800 (PST)
+Message-ID: <cfc7871a-73b0-43ca-bdf0-bcb8b5f17396@oss.qualcomm.com>
+Date: Thu, 6 Nov 2025 13:20:13 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4188d18bfcc8a64941c5ebd8de10ede2@linux.ibm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/3] coresight: add static TPDM support
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Tao Zhang <tao.zhang@oss.qualcomm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20251028-add_static_tpdm_support-v4-0-84e21b98e727@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20251028-add_static_tpdm_support-v4-0-84e21b98e727@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 9Diy87Uxq6qOhj4SqkT4tnPbM3VliCGX
+X-Proofpoint-ORIG-GUID: 9Diy87Uxq6qOhj4SqkT4tnPbM3VliCGX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA2MDA0MCBTYWx0ZWRfX73S0OQNuStk5
+ QQLXX9q6dfSGqixzi0iq+g2Knu/NFJ+JI1MByrzcBcv8F0/DJ1fzDwv10HHpl9W4T7GuaMjUsF8
+ SpNcQ2k8IFl/Xsj23fgYIUxO5vB2zs4VP/HmTqut2zrKvDqfyyNDWcf5QfuO6FhwfltGKyttMXw
+ BoxmKceszZ45aNtEvzsPKGEWzgukq8O5eftO8i4yCr0PD88PFpycXedaAHP+tN/U7zgIdooC3qq
+ 2Wt9fnp4gdgjHAPehbXSr2PK3W0aP19Op7ebQucyWdXWQ9CDhAQItDoWLkmb1eS9K98H0IluILb
+ scX3k61cAII+Na8z/hRMVCbH+eVEow//PW0qCqXjZqxM3qgQeSywHA8TVlTGtdIizxTWdL+JvW0
+ ck6IWiupC8bsfm5B3tlXGe03AbkOOQ==
+X-Authority-Analysis: v=2.4 cv=X+Rf6WTe c=1 sm=1 tr=0 ts=690c3016 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=43WlQIeRwcEhdZomQpkA:9 a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-05_09,2025-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
+ clxscore=1015 malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511060040
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251105_212023_072686_CC0C9F61 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +155,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 04:39:01PM +0100, Harald Freudenberger wrote:
-> On 2025-11-03 18:34, Eric Biggers wrote:
-> > On Sat, Oct 25, 2025 at 10:50:17PM -0700, Eric Biggers wrote:
-> > > This series is targeting libcrypto-next.  It can also be retrieved
-> > > from:
-> > > 
-> > >     git fetch
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git
-> > > sha3-lib-v2
-> > > 
-> > > This series adds SHA-3 support to lib/crypto/.  This includes support
-> > > for the digest algorithms SHA3-224, SHA3-256, SHA3-384, and SHA3-512,
-> > > and also support for the extendable-output functions SHAKE128 and
-> > > SHAKE256.  The SHAKE128 and SHAKE256 support will be needed by ML-DSA.
-> > > 
-> > > The architecture-optimized SHA-3 code for arm64 and s390 is migrated
-> > > into lib/crypto/.  (The existing s390 code couldn't really be
-> > > reused, so
-> > > really I rewrote it from scratch.)  This makes the SHA-3 library
-> > > functions be accelerated on these architectures.
-> > > 
-> > > Finally, the sha3-224, sha3-256, sha3-384, and sha3-512 crypto_shash
-> > > algorithms are reimplemented on top of the library API.
-> > 
-> > I've applied this series to
-> > https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next,
-> > excluding the following 2 patches which are waiting on benchmark results
-> > from the s390 folks:
-> > 
-> >     lib/crypto: sha3: Support arch overrides of one-shot digest
-> > functions
-> >     lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest functions
-> > 
-> > I'd be glad to apply those too if they're shown to be worthwhile.
-> > 
-> > Note: I also reordered the commits in libcrypto-next to put the new
-> > KUnit test suites (blake2b and sha3) last, and to put the AES-GCM
-> > improvements on a separate branch that's merged in.  This will allow
-> > making separate pull requests for the tests and the AES-GCM
-> > improvements, which I think aligns with what Linus had requested before
-> > (https://lore.kernel.org/linux-crypto/CAHk-=wi5d4K+sF2L=tuRW6AopVxO1DDXzstMQaECmU2QHN13KA@mail.gmail.com/).
-> > 
-> > - Eric
-> 
-> Here are now some measurements on a LPAR with 500 runs once with
-> sha3-lib-v2 branch full ("with") and once with reverting only the
-> b2e169dd8ca5 lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest
-> functions
-> patch ("without"). With the help of gnuplot I generated distribution
-> charts over the results of the len=16, 64, 256, 1024 and 4096 benchmark.
-> See attached pictures - Sorry but I see no other way to provide this data
-> than using an attachment.
-> 
-> Clearly the patch brings a boost - especially for the 256 byte case.
-> 
-> Harald Freudenberger
 
-Thanks.  I applied "lib/crypto: sha3: Support arch overrides of one-shot
-digest functions" and "lib/crypto: s390/sha3: Add optimized one-shot
-SHA-3 digest functions" to libcrypto-next.  For the latter, I improved
-the commit message to mention your benchmark results:
 
-commit 862445d3b9e74f58360a7a89787da4dca783e6dd
-Author: Eric Biggers <ebiggers@kernel.org>
-Date:   Sat Oct 25 22:50:29 2025 -0700
+On 10/28/2025 6:11 PM, Jie Gan wrote:
+> The static TPDM function as a dummy source, however, it is essential
+> to enable the port connected to the TPDA and configure the element size.
+> Without this, the TPDA cannot correctly receive trace data from the
+> static TPDM. Since the static TPDM does not require MMIO mapping to
+> access its registers, a clock controller is not mandatory for its
+> operation.
+> 
+> Meanwhile, a function has been introduced to determine whether the
+> current csdev is a static TPDM. This check enables the TPDA device
+> to correctly read the element size and activate its port accordingly.
+> Otherwise the TPDA cannot receive the trace data from the TPDM device.
+> 
 
-    lib/crypto: s390/sha3: Add optimized one-shot SHA-3 digest functions
-    
-    Some z/Architecture processors can compute a SHA-3 digest in a single
-    instruction.  arch/s390/crypto/ already uses this capability to optimize
-    the SHA-3 crypto_shash algorithms.
-    
-    Use this capability to implement the sha3_224(), sha3_256(), sha3_384(),
-    and sha3_512() library functions too.
-    
-    SHA3-256 benchmark results provided by Harald Freudenberger
-    (https://lore.kernel.org/r/4188d18bfcc8a64941c5ebd8de10ede2@linux.ibm.com/)
-    on a z/Architecture machine with "facility 86" (MSA level 12):
-    
-        Length (bytes)    Before (MB/s)   After (MB/s)
-        ==============    =============   ============
-              16                212             225
-              64                820             915
-             256               1850            3350
-            1024               5400            8300
-            4096              11200           11300
-    
-    Note: the original data from Harald was given in the form of a graph for
-    each length, showing the distribution of throughputs from 500 runs.  I
-    guesstimated the peak of each one.
-    
-    Harald also reported that the generic SHA-3 code was at most 259 MB/s
-    (https://lore.kernel.org/r/c39f6b6c110def0095e5da5becc12085@linux.ibm.com/).
-    So as expected, the earlier commit that optimized sha3_absorb_blocks()
-    and sha3_keccakf() is the more important one; it optimized the Keccak
-    permutation which is the most performance-critical part of SHA-3.
-    Still, this additional commit does notably improve performance further
-    on some lengths.
-    
-    Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-    Tested-by: Harald Freudenberger <freude@linux.ibm.com>
-    Link: https://lore.kernel.org/r/20251026055032.1413733-13-ebiggers@kernel.org
-    Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+Gentle reminder.
+
+> Changes in V4:
+> 1. decouple from tpda driver code.
+> 2. Introduce a new solution to identify static TPDM.
+> Link to V3 - https://lore.kernel.org/all/20251013-add-static-tpdm-support-v3-0-a720b73e83db@oss.qualcomm.com/
+> 
+> Changes in V3:
+> 1. rebased on next-20251010
+> Link to V2 - https://lore.kernel.org/all/20250911-add_static_tpdm_support-v2-0-608559d36f74@oss.qualcomm.com/
+> 
+> Changes in V2:
+> 1. Remove the dependency.
+> 2. Collect tags from Rob and Konard for patchset 1 and patchset 3.
+> Link to V1 - https://lore.kernel.org/all/20250822103008.1029-1-jie.gan@oss.qualcomm.com/
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+> Jie Gan (3):
+>        dt-bindings: arm: document the static TPDM compatible
+>        coresight: tpdm: add static tpdm support
+>        arm64: dts: qcom: lemans: enable static TPDM
+> 
+>   .../bindings/arm/qcom,coresight-tpdm.yaml          |  23 ++-
+>   arch/arm64/boot/dts/qcom/lemans.dtsi               | 105 +++++++++++++
+>   drivers/hwtracing/coresight/coresight-tpda.c       |   7 -
+>   drivers/hwtracing/coresight/coresight-tpdm.c       | 174 +++++++++++++++++----
+>   drivers/hwtracing/coresight/coresight-tpdm.h       |  12 ++
+>   5 files changed, 279 insertions(+), 42 deletions(-)
+> ---
+> base-commit: f7d2388eeec24966fc4d5cf32d706f0514f29ac5
+> change-id: 20251028-add_static_tpdm_support-1f62477857e2
+> 
+> Best regards,
+
 
