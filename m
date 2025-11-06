@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA86CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837F2CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lQBlUaV8mHeTuGtQUKejSKsUaDFp0QHBYZs9jo/l+EU=; b=W3639lClAXZi6b
-	P5UG1nmT8aL7QvJzeUfd20uV6OxC5IrstVI0Os4IDrEuEv6vWXbvGDQQpkast7tv1M+m9V/IAuiLo
-	rjtppMMP7HivgBCjYkoGDMkyopdF7VKO03V6hyZjnWNV5OKLb9qIMnRikqguFa9PYa/Cd/LnIWQpO
-	BBpDPEg2xvzXwWC098cb2+SIH+CFwJjZeUSVqivaFgaZv1gNmHh9qUHuikdqZAZ9dnunGnEejSgtw
-	Qa+xeJTl+Qv+vpx2RnRCoVSsH2wO1UM78ByRqb6h3fayocNzwv1hm+JmPcxAyDQ8hA6uyIvyY4F6h
-	PCS3lQkSzKnuJ6aa7lZw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WTiuGCaVTAiVJKKKlWqCv6SA9W0CyzxAyfEzvBxFcPU=; b=gzHzm0DGbplRW8AUsk3ofK8NMH
+	5KJEMLtvEAYQhQBk0DCoBxXnIr9abQ/0Pv97MyAD3eDbrnj5YPDCVV86Kzw6DzbIxQFvuxl028pN7
+	dgkqKeI1VykqW4Md7PyNywOBDQZtQoCdyErP6NIIQGVNlwA0OFudwRhH9ZP7V3DLdWPbjpapFoaby
+	rCAV7hOCPvvCh8YLBQoSkKqwQJjsnU6Ycy/kabMz7jmT4tsIwRjihSS9sqwvp/MRO5/ocSlZTQmZp
+	wkbrVNy7cyfeK2Reb8m6soYvtWPiCWdUkFN65aotglCZVRaTjHWZ3h9jHXPaItBKcmgUpWW3gE1EJ
+	h7tThOxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2u8-0000000FvqL-27Rs;
-	Thu, 06 Nov 2025 16:32:08 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vH2u9-0000000Fvr0-1RzR;
+	Thu, 06 Nov 2025 16:32:09 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2u4-0000000Fvnv-3rKA
+	id 1vH2u6-0000000Fvoe-2cMo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:32:06 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b7128683174so17196966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:32:04 -0800 (PST)
+	Thu, 06 Nov 2025 16:32:07 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64124874e6dso131681a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:32:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762446723; x=1763051523; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lQBlUaV8mHeTuGtQUKejSKsUaDFp0QHBYZs9jo/l+EU=;
-        b=DrmJGQoP2X5iskeDA6itbDuLmW4aR3kLkJqRlasvPT3uKaQNEv8JdxulwYWBMwNVhI
-         8/JJPj4kE+8Q3KpAn9pcy9OVTrJm9vKPNf7ebEMvf1beomSLCEcBfPtS3ymZaKmnwr56
-         X6khfdLy6AJZcy2xTsa0+1OfTpQnxyZmajcxVF0wVtoFEjXeVzgTyHfvekFszSNK7opE
-         r6ssadzRFDze+RdiIIiJrZZke5CM3S//ArBrd4qNffQGvVbvnzUZ9IWWZB4XN2t5DlSD
-         sf/4+rBxV8d8+bwLJ4xFfoUpbM3bviKa1Do2UBA8o7C2isOZi3ZUE1oWzoNMwB5kyp+Y
-         uxyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762446723; x=1763051523;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1762446725; x=1763051525; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lQBlUaV8mHeTuGtQUKejSKsUaDFp0QHBYZs9jo/l+EU=;
-        b=IKP7bH8PT4XhnLK8sSYJJfb3mBzZRJGRhlAYAgWzUz4IKL0AzXCLEcf1KYZvSSsLlP
-         owoY6tijHmH+az2YfF+pHKwfwhwsnIJyCU4TmYAphJX31gOg4m2X03jy7ZWWz8Mg0dHY
-         b4tCuEqo2Do0zcIGHEUpRdrtUdiI9ds8dRiK8XQa+NcOItwGQoygxhFjLHKD3ZSWuXxT
-         1ekww20oZ+rXzd2zRmUyMQBaKt1OUyDqcFkObJBwZANXMmrhS9QWxWVRA1Q4ax+PM0dZ
-         Or2PveasnOppzK1gLKiBfsTr5I31p/+mHE7PHLAOGkrQk5L+jtOZ/lErXEI2q51ev7YD
-         N5vg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4PC9Ae/FzRTZ+3io1GFsjD3TJ39SlBQVutaFvI5WjyMIOHLwH2QqQKlH2q6UQ/9lR3p+X56YfXFr6ABkcN6rF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXc718+KghzmUsH2tV9JUz6r0/PkIbqgOIk0g/Cy+fCV/mFjVr
-	Vb5KWNac532xMWhyVSq05rXNMN671qZJ4l2bFx1QLffGB0xyZoXdrl7NY1XQ0XVshec=
-X-Gm-Gg: ASbGncuFV9nPGufYrXuTu9qMRmlOpHg8CB+yZngXk1097jJ+RnTUhh4xB3YpatWBvKR
-	E2ApXivc2S+CeYFTYFR9Z/PZJU/ENq6JuFDDpVDSc1VwQ7aIz8isZIZGpuvyjRo19cxfQwvYB0q
-	X0iEIm3cXXTorQmnxr6Sjh4BYc1s+OHbBfOCyyvEErAvBy+I6EEcrOSPkI15Jfn9FDGFu9OLCzS
-	NjMlVZwK1pLXQeCqTxMK/4SgL0IBkA62fLn5rzqM61RPNGO2Kh+fgOzubjG18nazWk4F4WmC3ze
-	8J/QzbkrFKzej3V0aLAA/TestgW99qXiVgLBh+a7QZwkb4KhrgYw75Pl4zSX0TK5345YEVDsQ3f
-	baZaCASLfTSb6Qd5zsxWmAHYClGh/6RQa9RQa1u4IXY1g38v4kKZGGOY+oMIaRuDxEwrPzHp/IZ
-	LAe8qpLLnHpC3GA6AIEL01Pnp1QyM=
-X-Google-Smtp-Source: AGHT+IFaJFGgKtpOfjyJyZjnu6imsT7N583yoy9FXtJIdPh3n6YTMEucNPOZE8ZpXrIC8xcqZHTMPA==
-X-Received: by 2002:a17:906:f34e:b0:b72:6762:f76c with SMTP id a640c23a62f3a-b726762f87amr306427566b.5.1762446722811;
-        Thu, 06 Nov 2025 08:32:02 -0800 (PST)
+        bh=WTiuGCaVTAiVJKKKlWqCv6SA9W0CyzxAyfEzvBxFcPU=;
+        b=pEWjo1RFBqWirpvGvOkgF1nS5mSXnmlyFCw1Kulb8gR6GKsmwHfRBgxjC2ac+KjAq5
+         3SokXetty1UKTv/BkhkVoV7fzGVPcXLgXnxAPXOABmNQGxI5yZ3lZg2m+7IE155xqavv
+         zgBt2MwCtlK87Xunw1vdBU6SZCTX8R6m0Y8RWuRPw/BWJE9OORDwUTeLBldunQ4p3qOy
+         g7NnL/XZ77qShlSyk2qCIgtFt2G+0yZmm38PPie5NZrDRU4rLkBmhJg9JrGYuazBzXwM
+         ZPPgs4yHVOxQC+23l5hVQxISoBSspa6MYqMxLUwwbWs/yxw+2ydLJDdSfo4gL2Tdwlai
+         d5kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762446725; x=1763051525;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WTiuGCaVTAiVJKKKlWqCv6SA9W0CyzxAyfEzvBxFcPU=;
+        b=Gc2aZDnc2KCQ6CQmL/YSmWH0D1hAm6dvXl/+QSLlBwk5s3zaRTcIFvMQCTGnAjthUa
+         EAyJ2il82KfvLBj4aorWfgli+HPZAhtssBI9dqK7gUd5oOUEj5OW3R6qcWnyeahz/H49
+         ds6yflhS9n4g3F/Kgkk6f5dp0Dcbks7H7/+zMm6QVjiAxmVosHBOQsu2NkOuUez35M1f
+         +qjG9QXOnx1pJ0f0Fp52ouOoogQQ0XExq7MgEb6g9/S5X6Ua4zac4GWKkhjhMu5oMpTg
+         +AX0zckmINf8DbcobZFxM3OlhfbV9PD2W2gVVusTzDAbldQQMNfSkZhq/0QQU8dzMqt1
+         KKUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhvzbfYoQb51JfWigq/erTUcdgbygxJcljR3FNn8C8DXw+SWDhD2Pyk1MD5j4rdaIqwrmbcw7ICeKIuI0GqNgN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpkv2FYvMFUP974bIhAdwYZClbEsMAqfZJd62YslVtGGEWzx6W
+	2Nt9ldH6NCzdYnN+eFqdFwf8mYpwwELDOrlA5itTbemGj+iZ4i9h8MeZ3WAeg5ohPjE=
+X-Gm-Gg: ASbGnct/sHI80ultQo65rXXrwrn9ONwMCKxbHyvIv1yCxbb3qRs/zwCm5CqmLI5UFFs
+	meKrqIzQv90pPrO1jlSWV6tc8DvSovSX1ftwYcaYzIs3F/pK6ayJ8BG0XfR3aRSk0UvxFyu0khb
+	/nMijtynj6AM+CGSCgD7eiMp8NltK/COQ/NmhDqIBGeP9e0v+jhNkMv2LJaJlTYKJC8/3Fbq7dH
+	Rr4r8LIahuiDF6ImV6zwbaIaK0nq7Z9+QC5pRW6YdJktsv8/zLrQAN9XnqN+oxhulofycskpk6F
+	YOJv5AIt6bGe6RoIjccz5wPxd81MJemELqQxtrTfAoKyPEVNcetg8pHgXieX5257efVMLf/LLIz
+	U8swSRz7S1IMkj76GzGC3PZLS+XjmCfVYhGQ/M+a7ZXaXJTWM23lNzTVg6r8a8nj6WnCTNzY3T5
+	rddzqXurWXF6I1F+W9
+X-Google-Smtp-Source: AGHT+IFJFC9RL8ABDmFdtdRmcZ3Dy1rT+k2Sx6X6okxkxPVdsUhn4dsPyGeIOTfuz4qNIhn0Sy5VQw==
+X-Received: by 2002:a17:907:1c93:b0:b5f:d4db:731 with SMTP id a640c23a62f3a-b728b816db9mr234127466b.0.1762446724660;
+        Thu, 06 Nov 2025 08:32:04 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7289682544sm249625566b.53.2025.11.06.08.32.01
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7289682544sm249625566b.53.2025.11.06.08.32.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 08:32:02 -0800 (PST)
+        Thu, 06 Nov 2025 08:32:04 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 0/6] crypto/hwrng: Simplify with of_device_get_match_data()
-Date: Thu, 06 Nov 2025 17:31:52 +0100
-Message-Id: <20251106-crypto-of-match-v1-0-36b26cd35cff@linaro.org>
+Date: Thu, 06 Nov 2025 17:31:53 +0100
+Subject: [PATCH 1/6] hwrng: bcm2835 - Move MODULE_DEVICE_TABLE() to table
+ definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHjNDGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDQwMz3eSiyoKSfN38NN3cxJLkDF0jI3Mjs7S0FCODJBMloK6CotS0zAq
- widGxtbUA/Gvy/WEAAAA=
-X-Change-ID: 20251106-crypto-of-match-22726ffd20b4
+Message-Id: <20251106-crypto-of-match-v1-1-36b26cd35cff@linaro.org>
+References: <20251106-crypto-of-match-v1-0-36b26cd35cff@linaro.org>
+In-Reply-To: <20251106-crypto-of-match-v1-0-36b26cd35cff@linaro.org>
 To: Olivia Mackall <olivia@selenic.com>, 
  Herbert Xu <herbert@gondor.apana.org.au>, 
  Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -96,27 +96,26 @@ Cc: linux-crypto@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@axis.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1245;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1159;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=baW5v4LiXQ29IowCK0UwIQQ6FO1aSTxQN7dB9lPn4Ww=;
- b=kA0DAAoBwTdm5oaLg9cByyZiAGkMzXqhz9TLDI3aAR+DBM6TzDg9T7YbMFtedDKOWlzXoGLMP
- okCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJpDM16AAoJEME3ZuaGi4PX/DsP/ikj
- 8d5AdXEKvQqdeiixME5VLLoqQzb1CpAY1z5OBRhAsVBqHCJbeV6UZ5TtBUk4TeBMb1O3TLsCOk2
- hCeA95G51Irgo3wFG9H19uFb9K9SgUOXexFuv013deXvqjF9MXv+Lqjz+ahaRge0mWDhpqJVTnz
- yabl4NqWMTzzu3JeP0MvnDhN4/65fmtGaSv8nnYezNSb8GuscDH74rO5erp1DS7KdTXB8/Cbvyw
- /QQ86RtXYbiYkN6EwolAI7YqWHGXQg7eKhp0Wska/sYwh7qh39XHgASx3R8Zrf2qgyJUXTSUGsX
- QYaiOT3t0gjzStMjPMv6XVPN9IIIOW+mkTRDa6ICEuvyHrLrC9Hzsex815WCQQ1JiplUM6810Fu
- 4b829gs6JhbUHqbQptqPPMSbffsyf8HyAC2SQGbXuF/yKpPh5fkzR+xnsIYypsJ6aNynObVOozg
- gUG0thCuhQju5aPPXDRU7IEuQOgWrYUoekn9Dx4HfoctPvtw/JMo/pYEvkPJ4zSXDZ9ZGKfkvz0
- dia4w8SHW5bBRpSbVlb6anR9NTfLvlcZrH6socpQ/TzZMby86F6IN8ECn8awltWzE3MGzsD3toq
- gb0+rlWSAR/Fv2lLwnnKNDbtbNPOW9A8+DQJ7RhK70U3dMQMYSsbG6yvyEu0Fpk57pSSqprfj5I
- nqnpy
+ bh=xg80kiqnHSCNXwJUc4z9P8NCrVmVT83uMX9FIiKX5sA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDM17upx0MRGUBjQ/tdX5Rem+B0vFDSLjscqjV
+ RxcfXdfCVqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzNewAKCRDBN2bmhouD
+ 12mjEACNaUET4bG8Ms53cjywxTlnDVDM4fOiiJTV0eNuYz+yQxopkwfslu+z+XpGpp2onkBRQNN
+ q6OdnMGXee/pVh49eofDDW+dZ/hGQ6yL89U8WIzM6s3/c56dxppov1yJMj5LlrMSHeU0FF77mDs
+ U0fsPQtPxjj9Wm6ScwPdr6iIyR+P+7WonOVJI7J5Tw05cY8deLC67d5YTsjFSg5JtsWYPfRD62K
+ IthSFNol6ep5g5H5GzxLzVwQq6CsSmh/cYQZcbf9uLpVLxcUxveU7cKj/vNwmiachL7KlYmKA8+
+ y4ZNmA2Fp5TlE/SiLb19tVsvNlO4W+EyucS9aiAtSpXMsWoLJvUe3gxQJf9kzdAzCZEUHk2DxtQ
+ Coeth0TfNVAhAvo7HTRETnMR+96s/zYAfIGYVXy9Uj/sFMLH0Gnm2fZMLPNdxr5UXACsytnPiE5
+ i9sYVtdf3iMxuwwgEeKozPJOnBn6vEdC0qQCSBl6/GwLdZ4FlcSnS/s3a6TQGzlUm+vRdJdKHOg
+ aOpfw67z5/6anqIQqofjgdxNboUQUxnK052bwK1+8DhvW+NJzdmgZDzU69XLO+TOtyEA5oXLWS/
+ 5tBcJIwCkATSjUWVfT49f/FAop4Xw3oCBAh+KkVWLRkvN8+lc6wJ2N9NELiXOG/Ez3sTmWOBG33
+ uEcbGns5V48mkVg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_083205_066619_B4A53765 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251106_083206_681556_298078A6 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,37 +130,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Few simple cleanups, not tested on the hardware.
+Convention is to place MODULE_DEVICE_TABLE() immediately after
+definition of the affected table, so one can easily spot missing such.
+There is on the other hand no benefits of putting MODULE_DEVICE_TABLE()
+far away.
 
-Care has to be taken when converting of_match_data() into
-of_device_get_match_data(), because first can check arbitrary
-device_node and the latter checks device's node.  Cases here should be
-safe because of_match_data() uses 'dev.of_node'.
-
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Krzysztof Kozlowski (6):
-      hwrng: bcm2835 - Move MODULE_DEVICE_TABLE() to table definition
-      hwrng: bcm2835 - Simplify with of_device_get_match_data()
-      crypto: artpec6 - Simplify with of_device_get_match_data()
-      crypto: ccp - Constify 'dev_vdata' member
-      crypto: ccp - Simplify with of_device_get_match_data()
-      crypto: cesa - Simplify with of_device_get_match_data()
+ drivers/char/hw_random/bcm2835-rng.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
- drivers/char/hw_random/bcm2835-rng.c | 11 +++--------
- drivers/crypto/axis/artpec6_crypto.c |  9 +++------
- drivers/crypto/ccp/sp-dev.h          |  2 +-
- drivers/crypto/ccp/sp-platform.c     | 17 +++--------------
- drivers/crypto/marvell/cesa/cesa.c   |  7 ++-----
- 5 files changed, 12 insertions(+), 34 deletions(-)
----
-base-commit: 8297f2f148634bfa98b0faec66bab14942801d95
-change-id: 20251106-crypto-of-match-22726ffd20b4
+diff --git a/drivers/char/hw_random/bcm2835-rng.c b/drivers/char/hw_random/bcm2835-rng.c
+index aa2b135e3ee2..0b67cfd15b11 100644
+--- a/drivers/char/hw_random/bcm2835-rng.c
++++ b/drivers/char/hw_random/bcm2835-rng.c
+@@ -138,6 +138,7 @@ static const struct of_device_id bcm2835_rng_of_match[] = {
+ 	{ .compatible = "brcm,bcm6368-rng"},
+ 	{},
+ };
++MODULE_DEVICE_TABLE(of, bcm2835_rng_of_match);
+ 
+ static int bcm2835_rng_probe(struct platform_device *pdev)
+ {
+@@ -191,8 +192,6 @@ static int bcm2835_rng_probe(struct platform_device *pdev)
+ 	return err;
+ }
+ 
+-MODULE_DEVICE_TABLE(of, bcm2835_rng_of_match);
+-
+ static const struct platform_device_id bcm2835_rng_devtype[] = {
+ 	{ .name = "bcm2835-rng" },
+ 	{ .name = "bcm63xx-rng" },
 
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.48.1
 
 
