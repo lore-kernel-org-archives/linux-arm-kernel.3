@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5EFCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC2ECCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2yLyeCjgls6cM1HvoV4Agizj+GB/rHC0r8rByuRqqxM=; b=vMWUnXjbM7pQ0VX+rbkmdCll0h
-	OHfKQDybdLzKWH0QJhJ4+zeFecIUSURh9YyR7EjUy/zHpFRV63bt+FAqcsBx9qdfkS6KfhGbj2qKw
-	1a7uyYzfBlIZSvbx4EAyDyu6mJx6llzwB6LAp0ZiRIQ32YNUk0b13OYejqIRTJlEQZr56816Yrd9j
-	An60SXdVhbVb7mzd0G/BnsaIdv7SBeivl38SNFL3ZPYVZyU4XRuTd5nBbm4XutwgZtAEc3CpfnByW
-	nVkNpfAGvGKzo7nMHmBv8busdKQlPEmr7Gvm6+fRL2Xt70wYH8wf2PI4ho7HdMObgiV4hnHD7YjKm
-	PDKqb8Pw==;
+	bh=5QvPSUGb//zRFPRLtsCtC5iw3J3piVlBv6zJlWuYiB0=; b=1zeK0fNc9bnSDNgyrWL6GJTIy7
+	m5wknFCn3X0FJrQutLuPXBYpOzQKk3u1YS16MNagGjeqH/YkR+pLMgQRdgHq5Hz7tfJFpiYbeHIct
+	pYFePN0N6xTazLnyAWw9RzJX2aCFXk8lOFH5KtFzT8zUftHofolG4LHu+CMSAn1aX85zPtkMF0GER
+	9Uc5ftzQRW1Zc+NvMOKlQ6f/PTQwjMTzle1zDted/d8+dTkd2h/uXNKIU+KrUr6zWPFdIseU+Dk9f
+	sS975Okl5zjIjGp68/kMWQHzmxPAHJXe6Rhz2/bAeVqQxdA2+BLX4oqlpi8b+G5SqgNHf+Un60WMf
+	QxhrzeBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGziL-0000000FXKl-34Wf;
-	Thu, 06 Nov 2025 13:07:45 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vGzib-0000000FXOt-0A9k;
+	Thu, 06 Nov 2025 13:08:01 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGziI-0000000FXJq-1zn4
+	id 1vGziX-0000000FXNJ-47zp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 13:07:43 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47112a73785so6131555e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 05:07:41 -0800 (PST)
+	Thu, 06 Nov 2025 13:07:59 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47721743fd0so4498625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 05:07:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762434460; x=1763039260; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762434476; x=1763039276; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2yLyeCjgls6cM1HvoV4Agizj+GB/rHC0r8rByuRqqxM=;
-        b=ByKUlULLxmx4XeDH9HgukvhQ9O63Zt3I0b4wyJeNTCn5Dvf7CBiJpJCKrgKs1CkPrL
-         LRoaSs9XAvJ0WeXmAcSrvfQxtXtCQjiNenptnkuyySjt9Z4Odeo3lhd0SSfzOvG4gtX3
-         JAMKGCuweTyxsVn7ktT6p6szgcMA9qzc6u8mXPV+MJLwhPLWQZaIfzb9aiUcKMJBVuVi
-         HKBPKeQVHMHkeFEUmvUh6cqYrohPAR/yqPJBOcqzEZ0nTtwkCR+EVPsCtwK6hC5F1u4f
-         kN9c44YrQGwzkVq9tseIhtZAWP4FvfG+g/qeCZ8H9rzzXo3UqhOfW7jbR8PdiyKEBwwl
-         +5yQ==
+        bh=5QvPSUGb//zRFPRLtsCtC5iw3J3piVlBv6zJlWuYiB0=;
+        b=OB9kwMFH58C3hCcHjqBtuBLhEKvZVpJVncOQo8ldvhqtFRp62jZcfymPd4j9xTiX0r
+         famfzRdS2njK+e3uemxxm6Fqj1HyTeqlDPUMnkZq04NjvlkvnK5qNP3qihKo9RDjB3KG
+         qi0WIbZTh8jXdvoD7VpmyIReoX3tF1SHRH1mDRuEV8xpAi0aqa0hKO4dIQddjVuUfvwN
+         s/YIbDPiEBbThaKdz6QQ3Xpuu8Nyju4eHXM4sa9EwiM2RORAkExJK4Y/NAveNZcqjxt/
+         Gdb3ZxPNsLxxmx+3wagq3Dxg3kdYcTdh7gozrl2qu8Cs2Z7vsW71e9oAV6wCwEaAvFjL
+         ouTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762434460; x=1763039260;
+        d=1e100.net; s=20230601; t=1762434476; x=1763039276;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=2yLyeCjgls6cM1HvoV4Agizj+GB/rHC0r8rByuRqqxM=;
-        b=siaxN+GUtxSc67vCrSJDbfaSCo/344Yd+QyOQ88ShVlPIZKJHUo1AD7RriBUlCse6z
-         tEY4fIFjG+pbcq6/uy96uQWek4xmAxiHMSgEjMtvwQK3tYU6rdKBX0WeKwn9GXA68j6/
-         AjXeEepwHcNv4xuM87gAY/HocBjW9/xBglylpLQ4FVCV2QzJRBdz2+bDGmlUPJZssWjj
-         ebRCHGuU4kaaBGQfbsdQ7O5KcUoLncveRwDIF791/R6MEVnDf+jrt9fmX7xT66CbBvc+
-         Po3u8fxkCRuWGS4Zo4e6f/JCuQBloO07+bet2d2gr7/K3E/6A4K3S7H015GghYgXiz6F
-         0sxg==
-X-Forwarded-Encrypted: i=1; AJvYcCVDBfnXogAwI/QeAP4Lz4RoSdD2KShMo2x2vb1gjkAGz5h1yllcMtDUm6tY280mXKwVoyoPcsQg4yjAVf3zvmSf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/sFyrc/verKLfdO3/zemuayJSkKdfTqCCU+MDzKVYR1KEhn2X
-	vTieUjLMel3hRy0YG+9Cu28gQtppuEYBBt9yjfcHo0TBkQzdkffis6i/DjrxHnu7CTk=
-X-Gm-Gg: ASbGncu8QNPEd/d+ngB5wBb7nYhrGbTdAL6j8cBiUyKZLtgOB57plDOKDOuld5jvJuY
-	4wWWebRfN+XQV3Aq6DX0r468XsGHPZFQwT2Im0GwIxq0UAq7Gi3Flr3WZfo5kcJDsejrY76sDLG
-	O+LtsVXGy40okts2PYYBkiBQr/7//EbsDiOYlAT+2J5HZXLeTZtnRtAIPvdUQzi2mAfruQB3GE/
-	0u0wcVw+bWNvToGrf9MTB8cNNcsXD7kJexScTZ4ZcTVFoLWDIQh7n8zso8IviGFBZpTedjsZyBe
-	xqF6+7oAWU8p13rYJNzjqtsWjdis/acFrQ32nb6z5Up8nWq1SiXVq8ax9m+5OXNoEi4+hItTLWH
-	99ysdLgdBURQ4F2i8OLS9DFrnUT2440mqdjuQAjZuT2WwiyAlNeGCsp5oz2XKQZBNM1cl7YXJrt
-	ncyXbnN71Ls5T4ysYGR/0ysHtLqmBPEST4jA==
-X-Google-Smtp-Source: AGHT+IFAsKArlrU067DkxQxwFDKfyGP6fHe4iUyS/Bdq+iRDMjLgKkS8gLp/s5Zpe2BQhezfS1P8SA==
-X-Received: by 2002:a05:600c:1d88:b0:477:54cd:202e with SMTP id 5b1f17b1804b1-4775cdad6aamr62589075e9.2.1762434459994;
-        Thu, 06 Nov 2025 05:07:39 -0800 (PST)
+        bh=5QvPSUGb//zRFPRLtsCtC5iw3J3piVlBv6zJlWuYiB0=;
+        b=XGJTL+sqpdcBEIQMXJl//pNFHq98HskxzGZUtaM+85CQuqV/NgZEOc4ePauhFWy5Qn
+         GSUV2tgwED+NnbejyG7iRcpGC4QFkEPZSwRR+02Nk6k5NSoF7XITEYBW7UyweEQVufme
+         kEsknLI2Rr8Q4ka5MqRMRQrxUyN8CR0FCI1DLzH5m4FNHUYFm7xkaPE+ZHAlx2K4L6+v
+         iuMZiomFG4a+AelvMuLX1tbREFzWPXlKXeCVeuHz+JRS0Gk222JDgHtGfXHPGYMC1TCZ
+         clKzSMIAFyNnl6mLxiRgSgCUnBodulJHfxZ4wooFM9MGQjpCOgWyUNwHgJJOIzlgsSRn
+         c48g==
+X-Forwarded-Encrypted: i=1; AJvYcCUd2fygI5P3X3Q0D+Bdtjf8orN2G5QtA/AZNkAmNB4/5t2OfkqJZnfn1AqMSsF85abYGu8KG7UMDfFyw4JzG9jO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfQP/+Yvcu5JkekMSRO7FAqnVxFxx8LpMvZYanyrTKcyl43Yo7
+	yoNXKa6rdARPFUT9xYEseYEWYMP1xPk/Ab6qJ9WdGCs04+Am0NEWTKd51p5k6Ks/ZKI=
+X-Gm-Gg: ASbGncs2nBOar0weS918jlly/V70PhP/j2+IkqZ8sZ164rA0bdVreI9lS6kg30xcEm/
+	l+jmD21dcMqzo8T4C0wwEVHbFTh97ph6j8iY3tYGYEws9OXheLd4uy5mWc94awRZWlgHOpWBauZ
+	CvslF+TOXtSiLajcgwLAqDxdohbzM4dRVjWfHRGKipsw0hydF41G6r14An6+b+BiQepj2Vi7ZBU
+	cO8AgBRySZFC4310JYGhRnSO9HWniizv8liQmdRRMgXUHxYWeGuk4kdwwsNN+5xKDGImXxF1d6K
+	jl/zZrutffnM9tdEoPDN9t7E+BZ/osNzf855LCxBKzfc+AJ0AR+ncS+JRNuBIedZf/q+qYViJc6
+	ZCjse23mULmhdFjnyrJNGygUFqnZ0sSm7rUIAS9q39XZL5tNBkTrufLq7fhYUa9iO1MXlgEkgN/
+	fMp73199+BM4Uer1ccDr7B3peA9NKkgjVh+Q==
+X-Google-Smtp-Source: AGHT+IEcA0Q2m/qVvATLPTcfnYahR6FSKXQ5pQBy1S1Zf1wyKWuv6GZxoL1JXLz9q2/EUWawAmfXkQ==
+X-Received: by 2002:a05:600c:190a:b0:45d:d97c:236c with SMTP id 5b1f17b1804b1-47769d50827mr12690725e9.21.1762434472702;
+        Thu, 06 Nov 2025 05:07:52 -0800 (PST)
 Received: from [192.168.27.65] (home.rastines.starnux.net. [82.64.67.166])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47763e4d7f2sm15640615e9.4.2025.11.06.05.07.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47767749916sm25485755e9.4.2025.11.06.05.07.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Nov 2025 05:07:39 -0800 (PST)
-Message-ID: <f324cafd-c466-4cb8-81ab-fbabac7bbca7@linaro.org>
-Date: Thu, 6 Nov 2025 14:07:38 +0100
+        Thu, 06 Nov 2025 05:07:52 -0800 (PST)
+Message-ID: <73e4c1d0-f6a5-4989-a918-ba0d5cc69878@linaro.org>
+Date: Thu, 6 Nov 2025 14:07:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 2/5] irqchip: Add support for Amlogic S6 S7 and S7D SoCs
+Subject: Re: [PATCH 3/5] arm64: dts: Add gpio_intc node for Amlogic S6 SoCs
 To: xianwei.zhao@amlogic.com, Thomas Gleixner <tglx@linutronix.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
@@ -87,7 +87,7 @@ To: xianwei.zhao@amlogic.com, Thomas Gleixner <tglx@linutronix.de>,
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
 References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
- <20251105-irqchip-gpio-s6-s7-s7d-v1-2-b4d1fe4781c1@amlogic.com>
+ <20251105-irqchip-gpio-s6-s7-s7d-v1-3-b4d1fe4781c1@amlogic.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -114,12 +114,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-2-b4d1fe4781c1@amlogic.com>
+In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-3-b4d1fe4781c1@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_050742_550402_34EA1485 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20251106_050758_043668_8E8D88D8 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,79 +138,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 11/5/25 10:45, Xianwei Zhao via B4 Relay wrote:
 > From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> The Amlogic S6/S7/S7D SoCs support 12 GPIO IRQ lines,
-> details are as below.
-> 
->      S6 IRQ Number:
->      - 99:98    2 pins on bank CC
->      - 97       1 pin  on bank TESTN
->      - 96:81   16 pins on bank A
->      - 80:65   16 pins on bank Z
->      - 64:45   20 pins on bank X
->      - 44:37    8 pins on bank H offs H1
->      - 36:32    5 pins on bank F
->      - 31:25    7 pins on bank D
->      - 24:22    3 pins on bank E
->      - 21:14    8 pins on bank C
->      - 13:0    14 pins on bank B
-> 
->      S7 IRQ Number:
->      - 83:82    2 pins on bank CC
->      - 81       1 pin  on bank TESTN
->      - 80:68   13 pins on bank Z
->      - 67:48   20 pins on bank X
->      - 47:36   12 pins on bank H
->      - 35:24   12 pins on bank D
->      - 23:22    2 pins on bank E
->      - 21:14    8 pins on bank C
->      - 13:0    14 pins on bank B
-> 
->      S7D IRQ Number:
->      - 83:82    2 pins on bank CC
->      - 81:75    7 pins on bank DV
->      - 74       1 pin  on bank TESTN
->      - 73:61   13 pins on bank Z
->      - 60:41   20 pins on bank X
->      - 40:29   12 pins on bank H
->      - 28:24    5 pins on bank D
->      - 23:22    2 pins on bank E
->      - 21:14    8 pins on bank C
->      - 13:0    14 pins on bank B
+> Add GPIO interrupt controller device.
 > 
 > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
->   drivers/irqchip/irq-meson-gpio.c | 11 +++++++++++
->   1 file changed, 11 insertions(+)
+>   arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
 > 
-> diff --git a/drivers/irqchip/irq-meson-gpio.c b/drivers/irqchip/irq-meson-gpio.c
-> index 7d177626d64b..7e718b07e960 100644
-> --- a/drivers/irqchip/irq-meson-gpio.c
-> +++ b/drivers/irqchip/irq-meson-gpio.c
-> @@ -174,6 +174,14 @@ static const struct meson_gpio_irq_params s4_params = {
->   	INIT_MESON_S4_COMMON_DATA(82)
->   };
->   
-> +static const struct meson_gpio_irq_params s6_params = {
-> +	INIT_MESON_S4_COMMON_DATA(100)
-> +};
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+> index 0dca64a2ef9e..3ee1b563a34a 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+> @@ -199,6 +199,16 @@ gpiocc: gpio@300 {
+>   					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
+>   				};
+>   			};
 > +
-> +static const struct meson_gpio_irq_params s7_params = {
-> +	INIT_MESON_S4_COMMON_DATA(84)
-> +};
-> +
->   static const struct meson_gpio_irq_params c3_params = {
->   	INIT_MESON_S4_COMMON_DATA(55)
+> +			gpio_intc: interrupt-controller@4080 {
+> +				compatible = "amlogic,s6-gpio-intc",
+> +					     "amlogic,meson-gpio-intc";
+> +				reg = <0x0 0x4080 0x0 0x20>;
+> +				interrupt-controller;
+> +				#interrupt-cells = <2>;
+> +				amlogic,channel-interrupts =
+> +					<10 11 12 13 14 15 16 17 18 19 20 21>;
+> +			};
+>   		};
+>   	};
 >   };
-> @@ -195,6 +203,9 @@ static const struct of_device_id meson_irq_gpio_matches[] __maybe_unused = {
->   	{ .compatible = "amlogic,a4-gpio-ao-intc", .data = &a4_ao_params },
->   	{ .compatible = "amlogic,a4-gpio-intc", .data = &a4_params },
->   	{ .compatible = "amlogic,a5-gpio-intc", .data = &a5_params },
-> +	{ .compatible = "amlogic,s6-gpio-intc", .data = &s6_params },
-> +	{ .compatible = "amlogic,s7-gpio-intc", .data = &s7_params },
-> +	{ .compatible = "amlogic,s7d-gpio-intc", .data = &s7_params },
->   	{ .compatible = "amlogic,c3-gpio-intc", .data = &c3_params },
->   	{ .compatible = "amlogic,t7-gpio-intc", .data = &t7_params },
->   	{ }
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
