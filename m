@@ -4,177 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86ABCCCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7669CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wV/sFDZTwBNz2pfDfoh1TtHjaHyckDnlyycDziTq16Q=; b=F4RuWFyTNsE4j28sLVxNHMR6HG
-	EAM6DrTQwMeAFJWjoWewLY7poWRwH1ws5euNgwprUXw67tutIrY1u5hUj9WvDHBY71zlkqNcOQTBQ
-	bm6yev44KfIXgUcxQkSnpUbIYdTKctcBZ8Ai7tPT+zV43EBBgBuBgBDOk28ddG1mAkD+9Z+SKsf1Z
-	M7fivMfrziJcR6XjAktQSVD8sqNhRLZ6NNSiDuTJEoYoMVL+1lR93UZJBcgoO4YoVQPVYICiFqkqN
-	OU+rRr4ge8r4pFzLl1FhsL30mTzkejVksXXimJbgT/bb1IKxCZ7w9sUZ6+1/icZhy/nvPHOPADGeS
-	687SgR1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a5Q9hI2kKNXBqUVmtuuosCNq4MGtkh7gicigwbF8wWg=; b=sB2T0E5YfgujaqoPSybRnOF/X2
+	ZfUI5Vo47JoO7XB6fgwO48jgGcIXbrDHoQHmjuW9JtbCmcKJ0K2xJXB/Q32cNX3Q6hZbAP2FEPrHp
+	lSjpIWIp3/jjPCuvyyWH/nhbfyLj03psPxp4txXQU+HsKYZj5dXBfDTYZVM8/Ux246dmP5sxksj9b
+	dAPi0E7r4xZ7mohTgS8UNyGHJS1u4fOM9xBCvl+v51lwzMOW+Xv5jgIpYVARWlKF4yH75Rhjj1wmi
+	gWYvaUPN1tAacjMHjlCHwA9V69G4RPLpJRF2BPU0N5WtUW5r2bi+a9+DXKX1IhyOvySkujpjF/tdZ
+	wzRyEwQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtEn-0000000Euwo-3R3u;
-	Thu, 06 Nov 2025 06:12:49 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vGtFZ-0000000Ev2S-0lhq;
+	Thu, 06 Nov 2025 06:13:37 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtEk-0000000EuwB-2fdZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 06:12:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V91UNipuE/S1vdPuuFstVyfVYs++mG5hAo+Kk6CFVIHO2xs/O+S0wfCF6SmL+i3v6tCeVe/6DtwEtIIt65q9ilGSTCrCzxh/GXrSDcoItPyEF4gGr9bgbwAxRWGbuTXvrgsRQfit6f/LtjCpw5k5CRpH3Dvqn00wKMwwsb4vYcoN+2CzTFS5zYoc8N4oYVo6A168cpHKzXt3cs7Z/p0ZXemvgDz8H2S7WMNc2PIiirGF+1R+suIW3RbC++0XBxPiw1OU4uz8tk/dxIT7EUGHEORDqJ7NSRFYwpgVXMxB7KiR0zKwrORoHSQnvIo96HCbhG3o6S+x3tvWN1zeBOt+PQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wV/sFDZTwBNz2pfDfoh1TtHjaHyckDnlyycDziTq16Q=;
- b=Xf0kjGy6NkSk0W+OzzLP2HPqe11Vj6jaaGE57vugGQX9ywj3VN36yvAN7fZQ6FzYXocaE/quGXsu4NkD6+8tQ07ZOuYCLEXLvDPWOZSSjO9bnSlmy2Rb6mWMkOvxlFKFkKqIBu4L7T2MeLl5HraIfAYFHvWw7njtYzwMupZ0CYhPvqooraY55RVnZUTgIW9q9nj7EDy1MJcx5Y1pD+nDOcbBifhGSoOw6uWPWpGmcmIwikMXqOoD4IMuAV+P4TkM5i36qxBb4ABIGy3gPhclThW6yaPDRU6jZ4pap9ZL1nnKbyAWLfmacTqYvzmDTAUHG8wUTse/t7nluQ2b2A0vIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wV/sFDZTwBNz2pfDfoh1TtHjaHyckDnlyycDziTq16Q=;
- b=lRmSuKk5tkhgyJPBSek3NieUm7St0OEHzpZIWYCiOmcc14bx4a+G272BX++NvTnqUuNPrx7U9TAIGPx7muWz0qK4re6p+JmuoelEpuXqDbZPSGiIthYYsfkH8+GIfD1CeI4Y6fQ8tBsVDRK1q0Y1G9/i9pcxt/1y52/A1Outj+a1Lk8KnklIxcaUcV6wQC4+0l7Z7+0WMS1fAZv4vJEqKQLXRQl9YtpH9kqvoetFD+dpe1jc9LxQMksqGFKxCjhFXhqi6gf8pHqlmwXlMtYq91oTDkYLTEmEI4v0lIoDHwg6iBZtAgGYCzckrxIIqb/ailzvFaju0c8XDVYVVvN3Xg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA1PR04MB10141.eurprd04.prod.outlook.com (2603:10a6:102:467::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Thu, 6 Nov
- 2025 06:12:37 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.010; Thu, 6 Nov 2025
- 06:12:37 +0000
-Date: Thu, 6 Nov 2025 14:13:14 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 00/11] remoteproc: imx_dsp_rproc: Refactor to use new ops
- and remove switch-case logic
-Message-ID: <aQw8emAk2tJMBjSN@shlinux89>
-References: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
-X-ClientProxiedBy: SG2PR01CA0188.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1vGtFX-0000000Ev1Q-2Bl7;
+	Thu, 06 Nov 2025 06:13:36 +0000
+X-UUID: b779a716bad711f09f706fa2197c6ceb-20251105
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=a5Q9hI2kKNXBqUVmtuuosCNq4MGtkh7gicigwbF8wWg=;
+	b=u1ZlJzvTSp5Tuv5g0W1fDJp9lg3v843CSj+XtNPt9fSdrAQIPbEWIP3LvIRzwF9Yc7eSW4ATV7qBpglghRkBlM5UEew+p4zuUc447LO88KGeVFpbtRwybf8W1lmU+GtBDoXo1xkKHmmV2MtaJRDcw+g3nQV42dKVjbsIrCUqc0Y=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:a84a5a5c-ff50-47e6-b1f8-7711a0f4249f,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:f66e196b-d4bd-4ab9-8221-0049857cc502,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b779a716bad711f09f706fa2197c6ceb-20251105
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 531384252; Wed, 05 Nov 2025 23:13:30 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Thu, 6 Nov 2025 14:13:28 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Thu, 6 Nov 2025 14:13:27 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, "Arnd
+ Bergmann" <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Yilong Zhou <yilong.zhou@mediatek.com>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>
+Subject: [PATCH v5 2/8] media: mediatek: vcodec: add decoder compatible to support MT8189
+Date: Thu, 6 Nov 2025 14:13:17 +0800
+Message-ID: <20251106061323.2193-3-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20251106061323.2193-1-kyrie.wu@mediatek.com>
+References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA1PR04MB10141:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce0eeed8-19e4-45a6-063e-08de1cfb7b4c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q25lbU1YVnBRaTdha0tSa2Z0SkZVeHJhNWk0a1d6RXJkSUtWaGJUNTBoOHJk?=
- =?utf-8?B?dEw4NytYWE5KNTJBVVh6bmh5ZTg5TjNsQzJsdnp0TDlKNmFyVHgvWUhoZWt4?=
- =?utf-8?B?U0RMNXhxNlhHTTJvRzNULzBiakRrYlhjVVR3UXBrZy9qWXNrN2ZNOXB4M1hu?=
- =?utf-8?B?aGR3VTA1Y2c2ejFwNUo1YXJJVThQMy92QnVjcW1nazdDNkJ6MDhwbUVOem1C?=
- =?utf-8?B?TkQzbGw1OU1ObWVxdG1yQkpCRjVxV3pxS29GRWpieHhwM0pNTm0yTWhpN1JB?=
- =?utf-8?B?QWhRZzh1SkEyb1k0N0cvZmpnbUZOZEx4dCtwQklGdGhsakxGVHVrQ1Y1UjZq?=
- =?utf-8?B?TVoyU1JUdisrZVZPVExKeWExeStWVEhrVTBURkJTenJZZkErQUNaUWcvbTF6?=
- =?utf-8?B?ZHQ4aWhHaFJBdGIzM09rTUV5TXE4TVNpUkF1Ulo5Rm5wSjE3Z3Qzc2NkYi9y?=
- =?utf-8?B?N3ZtSDhRZUU1dzhVTEJBM2xSZGNObksrdFhqc2NIMDQ5V2M2TU1kNXloOVJv?=
- =?utf-8?B?NnYwTWZGVVFidHoySEdmNnNucHg3N3p4Vi83NXhjUzdxbVpjTUpTOUllM0E0?=
- =?utf-8?B?Yjg1cmtMWGdvbGRpaCs1S0p4ZkF6Z2tOZEMwbk9kL1pQb0J3RjkwaHFTd3dD?=
- =?utf-8?B?WWdMWWt6VHN6Q0RXOGQ3bnZUTUVjYmN1N1hzck1KSldkSHFyc1BOYUpzTWwx?=
- =?utf-8?B?NUdhZjhBZ1dONWMvdHV1TzV1UTdHcG91Y2xockUwSUw4NXFnY2tDb0NtQTQx?=
- =?utf-8?B?eDRaOGozSEY1ekd6dmNDdU42ZEVGbG5GdkJjZXQ5UTZ4TE1XSUQzbktVYU95?=
- =?utf-8?B?dFN3WmozYUN4MndTOXlzMzZWRnp6MkZJTmdWeUFUMUUyL1hmblhWQnB2Z2Rt?=
- =?utf-8?B?NFlaTWsrd3pobHhDRVcyb0swamJkK2E0QnBqanpMRDN6NmlnS1hzK2dTRHJT?=
- =?utf-8?B?RnY2TnBOUmhYSmp3NE5WTnY2VzloSGpTNWNJeXYxNUpNSVZTV0dEcGE1TlhW?=
- =?utf-8?B?YTR3SzhzemRjME1CWWw2TkUrN3RXeWdIbWdoZWxxL1dJaTFQQXRUR0Jvb1Zz?=
- =?utf-8?B?ZjQraGJpZ2RpOUdlcFFYL25acGpxb3hLdXdqam05ajRUWVNOZEpUUHRjcVRu?=
- =?utf-8?B?UmpuSkZKa2pWQ1pVZi8yN0FGVU5FL2o0SHQ2V0hQc0YvQmF4NCtGOWF3Qldi?=
- =?utf-8?B?blN4T3FHdVVFZjVvczBXRzNaRjEwaUdEL3ZNWGY3RlRrRXV0YU5yMnpOQmFN?=
- =?utf-8?B?TTlUY3VvOVNTRzlDbFVjWkpXNTJOUFV5dDdPaTRXNnpPaTFYRkIvRTQwKzFU?=
- =?utf-8?B?Qyszb1FaVytueGVtMGRHL3VCQVBsTUMwMmFua0hzd1g2ejJQTWdJUUJQcW94?=
- =?utf-8?B?RmF6KzcyMjZsWDd1eXVnNW5kRnd4Z2twOUd3bEYzOEE3VEhSQ3JjV3lQYlcz?=
- =?utf-8?B?elBrYTJ2UXljVlBGUjlJa2xTVm5ML2xoNXVDc25wOHNKdzE4RWRzYUpNcmwy?=
- =?utf-8?B?MUNMV3psWXJiMTdQVE1RcE5SQXhPKzlXVEcxa2tlcUhnck5iZkN2V05lTmln?=
- =?utf-8?B?VFlJWjRsVWJQdXBoVmJPY29SRW9CSitTVjduVWljRURHMVBPUlg0bU54M3pr?=
- =?utf-8?B?a2h4VytPU1BmRElFT2Nzc2I3dVVJWnNyc0l5K0NjQW51WDVCVDBQU24rZkM5?=
- =?utf-8?B?WnJTaWVNNG00YzRLWXpFZ0Qzay9NaXVkVVN6NkZxZEZMalUxbzE2cTJtTUJi?=
- =?utf-8?B?VzBMbVJlYitpTmxyMHJYclNUcHVHMEVqQTIxWTZ1WmdwaHcwS0lkc21ia05r?=
- =?utf-8?B?dFZNc05JaDEyZFphUm9BYlk3Y2xrUGZMdzNOOU9Lc2RVR3k4ZWZNTjI1N0Yy?=
- =?utf-8?B?UWNGVGhuUldSQzBZUFhTZ09INjZNa1FWSE1WODF2QW9DQTlMeHY1UE1tSUlZ?=
- =?utf-8?B?dWE2Q3ppM1NIa0YxbFh5N0JORUpYbldROXFNZmNMUFpnWHZmaldldnZDRWZx?=
- =?utf-8?B?RHNwSWxIQmV3eE1yOThoTjVRMmZmSWJLM2NwQTl6SVdwNHdxdFNnUFZEMFRK?=
- =?utf-8?Q?HdYQGK?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aDBkT0xtRkhxelZJY3k0MmZHTVNOSzBhdkJkcG5vZm5rMFhXaEhmMnVOUFNH?=
- =?utf-8?B?c3Q3MjJZaFFmbUpabzVRZnZJejVPekdBdWtTTFJTV1NzV0pXVHd2ZC9mdVE3?=
- =?utf-8?B?clU2QWs0eldyUUlWdXhUMlAvNDQvWVl3OHNLenI5b3dHUVNhZ0R5Q2lhQjIz?=
- =?utf-8?B?bzJYbkt6RVhZMElaYU9ubldmOFExaExXb1hLamh6SGFyKzZTM3pzWmlXYitU?=
- =?utf-8?B?d0RnSXB6YUQ5akIzSFlEU1VUZjhCZjZXSllYZWJyTFhFdWxLOXlOdnFJUmpW?=
- =?utf-8?B?TkxCL0x3S1djMTZFTXN4Mm1lbkI0d3dxdEdPZVFMQjNEZHRreHpaejlEZG1W?=
- =?utf-8?B?VDFpcHJDbUdjOVhFd1BUYlNpMk5neDlYZUFvd0taOW1sTnptdkNYMWZHcXNN?=
- =?utf-8?B?RnZmUXBFeGMyL1VEMEIwZDJFZWxqUWdRbUFXUzM3elM1MnVDMzdyeWJ3Wllw?=
- =?utf-8?B?a0dBVndCMC9ldFdJZWREaUJlT3VmOWpVQ2V6cTNQVFIyWDRBRTBuMk1VYmR2?=
- =?utf-8?B?Ukc3RWJITDlPVG5QQzNXMitVWXFMMzF4amM1TDc5Ymxaa0kwazlFZFJHcVha?=
- =?utf-8?B?U0d2eU1ocmIwT0ZIYVlTTTZyOVQwMXFUYjV0TWJacDR5MFpOWjR6TEQ1akNH?=
- =?utf-8?B?bUZBUy9vOWhhRnl6UUQ0RmU2QnRxcm9VTjJOVG5WTUlzK2FmSldZejhlOHBP?=
- =?utf-8?B?RFZwekVpLy9kclJFK2pNeW9xSklmOHpZWlRMbUxLS1ZOZVgwUWUvSXB3WWVv?=
- =?utf-8?B?QVhCMXNkVUUrYVBpQlc1Rk1YczFzK1EyeWQ2VDh1VS9aQks1UFl0NTBtb1do?=
- =?utf-8?B?S2x5bThUcXJBM1hvQllaaUs5YWpqQU5DNXNmK0d6OUVqL0tldzcwVHVnZm0x?=
- =?utf-8?B?OXNsTDR6aFdjak5xUmJoT3Z1eGcreUhHcE8rUVl2S3Z3cEpuTGg1QzlzdjBu?=
- =?utf-8?B?c0xFcWhVNTl3blRVTElEbk5MVTR3TnNJdklkNGJVaFkwMldWZ0VJaDhlRjdM?=
- =?utf-8?B?ZW5nakoweTBFa0FGeEU3bFIrTDlIL2IwL2s4bElxd2loZFZZR290ckpzQThY?=
- =?utf-8?B?U04vN2k0ZFp4TkR5aEpyZXFpRjBHU042azdkUC9yOTVzWFlFRWpYYmFPL3pO?=
- =?utf-8?B?ekdUQkJaOEhYaXdpYlhnZHozZmtoV3MyaHB3SjA4Nm5BNC9McEozYWFsdmIr?=
- =?utf-8?B?L3dxeXh2dkVEM2FtNTBuMlNKTW5vNUl2OThhR2w2cWpGRGYzbXdyM09DdUxM?=
- =?utf-8?B?amE5NGdlQTVTOXI5ZFFFNHJOVUpLcng3WGlOOFoyRHRraHZ0a3duZ3gxZ2Jo?=
- =?utf-8?B?WEJrMkxLVXBuY0hyWUNhd0t3WWJCR3hCZ1o3WlVSSTdDT2FkdXdFSXRMMGwx?=
- =?utf-8?B?NGIrVFJRVFRWSmswWjdWeVBQR2FDa053b0xFRStIdlJaTzc2UllyOS95dEh5?=
- =?utf-8?B?Zk5CanFFajJmeHR5emZsL2o1dDRKMWdPWGVmaVNhQ29hbGN4c1ltZDhTQmdy?=
- =?utf-8?B?dURLYmk3eWFySG1ISUZXUnlBUjJDTTNSRjE5VWFXamtqOXQzSml5NEVRaFFh?=
- =?utf-8?B?TnZNbHMvWmxXbkx0aE1OTGtvMDhmYU52Y1BwTjkwMjM2RzBRRTdIUmVzZEk5?=
- =?utf-8?B?RlBYS1FsNVl1V1FjQnAwdGJxZHovTGdCc0lKM0Q3akFLS2xxd2JKNWxnbi8v?=
- =?utf-8?B?SWs0Ri8rT200QUpoR0swRlJQVys1a0J4NXVVdytEN2FNdDdqc3I5NWJpc3VV?=
- =?utf-8?B?QTFoWXhXL01paDhTOWo5NE9YN1p3N3FXZlVBNDdBL3NydUp1UTZ3bVk0T1dZ?=
- =?utf-8?B?WUxpYTAyclZlYXYwbkFRVnVSYnl2RTJYYmVSL0lZdFk0cVVxQXNCOEdrYlgy?=
- =?utf-8?B?eDFSUDNuRHNaOHBVSThtaThyRVptVTZseUJsa0hXZldDakZqTFp0emtVQ2hD?=
- =?utf-8?B?TEM1dUkxUHlFSnE0NGFCY2hDeUVwbm5MUE5FNElGVktmMWZLQllqTVIxVVJH?=
- =?utf-8?B?WDZTR0ViZUhvUG1XOUQ1aHJSMmZwL201dFA3bTNsTGo0ZFJtWEdnZVluTWsw?=
- =?utf-8?B?aDlvRlNXaEJOejEzU1NUZXN6bjdzZFp3clR2emRESHpQZmkybXR5UndrWDg2?=
- =?utf-8?Q?2opQkXklEKTKHVUvtJUEoqgdZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce0eeed8-19e4-45a6-063e-08de1cfb7b4c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 06:12:37.7204
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 49UJu2pdbpUhx0RdrSgXNt9a/z4MC+XIcK3Ape0AJ55RqAHoeRBjWDYW2dzknhrHR9WGFJzAhivR91KlC3r9PQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10141
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_221246_712237_00C27D97 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20251105_221335_585951_11CDF773 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,57 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+MT8189 is pure single core architecture. Support its compatible and
+use `mtk_vdec_single_core_pdata` to initialize platform data.
 
-After using b4 shazam to collect patches, "b4 prep --force-revision 2" was
-missed to bump the version. Please let me know if I need to resend
-with V2 tag.
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c   | 6 ++++++
+ .../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h   | 1 +
+ 2 files changed, 7 insertions(+)
 
-Thanks,
-Peng
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+index 6fb05bb00641..fca60e81e3c7 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+@@ -347,6 +347,8 @@ static void mtk_vcodec_dec_get_chip_name(struct mtk_vcodec_dec_dev *vdec_dev)
+ 		vdec_dev->chip_name = MTK_VDEC_MT8188;
+ 	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8196-vcodec-dec"))
+ 		vdec_dev->chip_name = MTK_VDEC_MT8196;
++	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8189-vcodec-dec"))
++		vdec_dev->chip_name = MTK_VDEC_MT8189;
+ 	else
+ 		vdec_dev->chip_name = MTK_VDEC_INVAL;
+ }
+@@ -574,6 +576,10 @@ static const struct of_device_id mtk_vcodec_match[] = {
+ 		.compatible = "mediatek,mt8196-vcodec-dec",
+ 		.data = &mtk_lat_sig_core_pdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8189-vcodec-dec",
++		.data = &mtk_vdec_single_core_pdata,
++	},
+ 	{},
+ };
+ 
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+index 429b32952194..9421fd4fda1d 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+@@ -25,6 +25,7 @@ enum mtk_vcodec_dec_chip_name {
+ 	MTK_VDEC_MT8183 = 8183,
+ 	MTK_VDEC_MT8186 = 8186,
+ 	MTK_VDEC_MT8188 = 8188,
++	MTK_VDEC_MT8189 = 8189,
+ 	MTK_VDEC_MT8192 = 8192,
+ 	MTK_VDEC_MT8195 = 8195,
+ 	MTK_VDEC_MT8196 = 8196,
+-- 
+2.45.2
 
-On Thu, Nov 06, 2025 at 11:30:26AM +0800, Peng Fan wrote:
->This patchset aligns imx_dsp_rproc with the cleanup and modernization
->previously applied to imx_rproc.c. The goal is to simplify the driver by
->transitioning to the new ops-based method, eliminating the legacy
->switch-case logic for a cleaner and more maintainable design.
->
->Patches 1–5: General cleanup, including code simplification and adoption
->             of the devres API.
->Patches 6–10: Transition to the new ops-based approach, removing the
->              switch-case structure.
->Patch 11: Remove the obsolete enum imx_rproc_method.
->
->Signed-off-by: Peng Fan <peng.fan@nxp.com>
->---
->Changes in v2:
->- Collected R-b
->- Patch 3: Update commit per Frank/Daniel
->- patch 8: Use priv->dsp_dcfg->dcfg to avoid adding "const struct imx_rproc_dsp_dcfg *dsp_dcfg"
->- Link to v1: https://lore.kernel.org/linux-remoteproc/CAEnQRZAOTFw=sBppHTYQAdfDBuNqkqk6gVO4FyP0EBsva3Oi+Q@mail.gmail.com/T/#m27c93af9fb1e7fdeb0766bdbffbaae39d79eefab
->
->---
->Peng Fan (11):
->      remoteproc: imx_dsp_rproc: simplify power domain attach and error handling
->      remoteproc: imx_dsp_rproc: Use devm_rproc_add() helper
->      remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable() helper
->      remoteproc: imx_dsp_rproc: Use dev_err_probe() for firmware and mode errors
->      remoteproc: imx_dsp_rproc: Drop extra space
->      remoteproc: imx_dsp_rproc: Use start/stop/detect_mode ops from imx_rproc_dcfg
->      remoteproc: imx_dsp_rproc: Move imx_dsp_rproc_dcfg closer to imx_dsp_rproc_of_match
->      remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO switch case
->      remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_SCU_API switch case
->      remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_RESET_CONTROLLER switch case
->      remoteproc: imx_rproc: Remove enum imx_rproc_method
->
-> drivers/remoteproc/imx_dsp_rproc.c | 342 ++++++++++++++++++++-----------------
-> drivers/remoteproc/imx_rproc.h     |  14 --
-> 2 files changed, 182 insertions(+), 174 deletions(-)
->---
->base-commit: 84d39fb9d529f27d2f3d295430d1be0abdae7a6d
->change-id: 20251106-imx-dsp-2025-11-06-bfe458cfc24c
->
->Best regards,
->-- 
->Peng Fan <peng.fan@nxp.com>
->
 
