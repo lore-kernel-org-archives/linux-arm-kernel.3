@@ -4,141 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A259CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33199CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58vrfhXX7bWYkImndvSweELPzaHPdaMGJ2fp41SAblE=; b=vmS7lCcrxuS5Q6wwq9xbN2NdA7
-	ipENKDWuDMWwI7Am3H7+jjW7J0swvm5TbFLDceqLNmZ7QZVkB6e4w5koHMR6nyRUGffLWI0YaZVh7
-	IP7K/uwRLnDI9ts4iBGXbg1pB0c2RD0l1P3DIeCGJJt1shoLXHK0xa7Sq96rOf5CHouaoxQJQybu/
-	ZxQSwMLIbUELzj3qk+DjnG18l38wSkR0s5OcXKIGQR1MYcEJMCtw+nMW5WhAGhM0WIuEkQ2v1SM4M
-	bCC/iDVoLXMXqtM1lt4x8yt5TqcxGKHUNdkxtzERizPttS4vzHyB0m5Zbq/Md7l2CKlooIzXMS2F3
-	S0MZ0xAA==;
+	bh=0ORo1xqmWZ5pKXroAjbSmyJ1XsOLfjCUVVUX+CFoxLU=; b=Kvy0H2UavzZLDHPL7Up/LBsBsz
+	7IlqXVaw1G9wbRKlG+mDhoyMdCj+euPZyJmJWTeAH3Tx9GJ7r/B3TbGZfiqUI685IKRAyuI4dxSwx
+	MtcnC8ZLYA03YHrYiNtP40/6o/vqfFSOb+OGZ2A+NsCkW8UNi7iZd+q587QNchXNB+ws8I6plzbiA
+	k2XOP+SbhyT9ASOXFnzcldhKKRUAy8Jh6rOgz9d/qk5PW+wU2QDwjdEtQ46RUUCgg8eyVYnDMUU+H
+	/JJWMTRJb0uL4hwRFTPP0a9Lgv9reYUMIkCwTf8MAtClfdG0qR58AX0k4UrHT/bSY/s6CytOvFbUP
+	aClgz96A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0Md-0000000FdG2-1Eza;
-	Thu, 06 Nov 2025 13:49:23 +0000
-Received: from mail-westcentralusazhn15010018.outbound.protection.outlook.com ([52.102.133.18] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0Ma-0000000FdFc-42nw
+	id 1vH0QJ-0000000Fdg4-2Sgy;
+	Thu, 06 Nov 2025 13:53:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vH0QH-0000000FdfR-0wbD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 13:49:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WM8KA46xYEKQIy8Gid/b+NLePs49CA6GLbXhySXQd8pRMZaEEbMNaN7VzPYjoIXDOGI0DTB3TtA88lHMsBSTVRDFlTACOOMQBbWbkkuxsOR62+SaD7usP4Rzy91DVdenlaFiV8OtUKl6NfskWsb/RJ+bgqBKtxjchVqUjGxxUG8txdcmf/7aNEh1K1fcKxiTwkA8qaMGluXAY9e/dXRuRLNhT8JyF8ZrAKllR4N7qn0Io/6SBTaDhDksX6devHQgYUSX4CXeWLOy3eJmeYGySIQc0r23Svbk1XeLef8+AGTmnUdpqswIf9e01U2Df6IttDSikmKrlQOfauKgPvYw9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=58vrfhXX7bWYkImndvSweELPzaHPdaMGJ2fp41SAblE=;
- b=cNewRTU7fftyQQ0LunG1Lik4vHGKFxpLSUYpBA/a5PQT8l6e962oN9jynFQDM0RGg+SlvFQ8aew3CJX3DQKcVXbBZJnuUbVFuRA0CuuogKTclfY3qdlrb+8+W/dbHRNSuex8o9RiWwLIIX9kVZXhG6AF2KGKEKhBqwwMvHjXy0yVxTYn1jbxn6ETZJDAmA5PIejkIyVzaZoIVNMa/60TzqQg+iCGRuAGHmmzIpJ0FWwSu0HUd+bX3q9OW+mq/FvrswNz8V0JLmfVT0ccvITG0Ukycn3dV1JdTWQWsU5lent5gl6T35J6HqCFpF1WOoKkBpgTOH5a2771Kge7iMs1Vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=58vrfhXX7bWYkImndvSweELPzaHPdaMGJ2fp41SAblE=;
- b=YMFdkvHkqf05NWWPt7VrAXPkYpU8w8/O8rATzwsjgxBReae7pyYI5oPdKSPuyQi2M6HQu5/qfeYVWnmj1V24TaCS/i2Dh3sqpuyKw7B0AWvul9EZGYFtyQmFXyginSGGJXaBFrwuXKVm3xs1DZaoi2WF2dqs6AjXu6O37PREIuo=
-Received: from LV3P220CA0021.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:234::13)
- by PH5PR10MB997735.namprd10.prod.outlook.com (2603:10b6:510:34d::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Thu, 6 Nov
- 2025 13:49:17 +0000
-Received: from BN1PEPF0000468D.namprd05.prod.outlook.com
- (2603:10b6:408:234:cafe::26) by LV3P220CA0021.outlook.office365.com
- (2603:10b6:408:234::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.9 via Frontend Transport; Thu, 6
- Nov 2025 13:49:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN1PEPF0000468D.mail.protection.outlook.com (10.167.243.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 13:49:16 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 07:49:11 -0600
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 07:49:11 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 6 Nov 2025 07:49:11 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A6DnBNf1304724;
-	Thu, 6 Nov 2025 07:49:11 -0600
-Date: Thu, 6 Nov 2025 07:49:11 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Md Shofiqul Islam <shofiqtest@gmail.com>
-CC: <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] soc: ti: knav_qmss_queue: free resources in remove
- callback
-Message-ID: <20251106134911.nfe2fwqodeehir6y@disorder>
-References: <20251105013049.45646-1-shofiqtest@gmail.com>
+	Thu, 06 Nov 2025 13:53:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB65F1596;
+	Thu,  6 Nov 2025 05:52:59 -0800 (PST)
+Received: from arm.com (RQ4T19M611-5.cambridge.arm.com [10.1.31.13])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC1713F66E;
+	Thu,  6 Nov 2025 05:53:06 -0800 (PST)
+Date: Thu, 6 Nov 2025 13:53:04 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Willy Tarreau <w@1wt.eu>
+Cc: Yicong Yang <yangyccccc@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <aQyoQMHA_2HuK9sH@arm.com>
+References: <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
+ <aQU7l-qMKJTx4znJ@arm.com>
+ <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
+ <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
+ <aQXtqoUEtDr-xUeS@arm.com>
+ <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
+ <aQtQRSoL8GGVNrUQ@arm.com>
+ <20251105134231.GF22848@1wt.eu>
+ <aQtkA0cOb6Fm9Mrc@arm.com>
+ <20251106074439.GB24713@1wt.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251105013049.45646-1-shofiqtest@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468D:EE_|PH5PR10MB997735:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77f41903-07f8-42c8-f992-08de1d3b4720
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|34020700016|36860700013|12100799066;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5X2L1Qlb3dt575wFylXeqtFf7tT6wMZu2YkKmqAVZAc8AxzifvFHOKIKquJp?=
- =?us-ascii?Q?7EdXXLQVY/zbk/iAPIIPjQpUr/d/jhzYeSWdffXHu5gsKrQ+L+4N81lKAmae?=
- =?us-ascii?Q?5G+jvF0cqT31LvEz4z/OmE1j/Jb0/EYtzmRPnwBVZN2MLhjm3YDjrih8aeqf?=
- =?us-ascii?Q?HHDeJ+eRJwCVR1K/8z0L64dHkdCCXU3j6uWxcVFHdoZJyGj7RFha/LlA0iKn?=
- =?us-ascii?Q?TXoLdN7iU78spFvxqH0aYaxi+VxIEyjf6vtpxxGH7GFWpDQNu8otC/NUz50/?=
- =?us-ascii?Q?0xKELPG8ey2dxeLlxGmwxqBRobZhj0SUcTG99fyk2G1h3y2Y+raqVVR+c2F+?=
- =?us-ascii?Q?ayFyrd0ymo5+ZJZfW3oTRJfkkj7x+XiAcl+SOSjMtCc+rigcmu1cIPx3FPHt?=
- =?us-ascii?Q?WodUUkjNaNCpg1NPY1w8XMVjXuA3Qa+JsxwmJ+/T4w3HJ4Ys37RBr02w7/Db?=
- =?us-ascii?Q?gMPnw6zFk0UYur+d3zQsnVQ9SZssWR4VI/SlDblWj9eJQLmAf6o4X5z5dDOk?=
- =?us-ascii?Q?t3j4yWLwgd3nmSNUUuSzXbsyJUZXkWt+fzwFPhrzHTiwcTDKYDl3Fa3mENKx?=
- =?us-ascii?Q?QpcnSp9F2ZwLMcDbFcXjX6ndJkouNQlflEXmMU85lm9CCRzTxCSTcbEufOdE?=
- =?us-ascii?Q?duyzbjYk0sVhgTQZ9XBPA7+qm9LoDr1436sxdowLI0nOYnsXvxDuGgYs/40u?=
- =?us-ascii?Q?BRDRYx2W9iUQug3HMSA8z7hPg/fEtB3G2TsMToBDKaonTjHrFogMuObz9Exx?=
- =?us-ascii?Q?NH0tKwVq4zIfm1tB8hmUd/nMSNUJnvIX6GniF6qtXrypYKZ5KxZvdpEv96nP?=
- =?us-ascii?Q?2Cv0NBN3FNwQyEbUfyKyqyw4lFbjMztdjwQTMvClIRqsZ17XHd54rLpTmM/M?=
- =?us-ascii?Q?w3+TOXlAWSeG/HKj1gSwGzp/InjSib/ynJfAKSnIkCcw7L3A+5iAIGMCWkzR?=
- =?us-ascii?Q?YVKofBWMeNZ11pyFj4AayWnE+c8OOEEzIv8KR5OjOKlHg1E+PKTB8HDNSSQx?=
- =?us-ascii?Q?mju7ba9Ko+P1Kwzw4EKSqtFXqML4tHMqFqDmu7X1tW5CO0otxdYXEqofaJMJ?=
- =?us-ascii?Q?8w5Uel4jCpzWmcncEu7YZx6yYxvh/gSNsCs+sEdCnb7oxAc/UNE0xts82KOT?=
- =?us-ascii?Q?zwfkJ1aPnbP2GVkYWxNWOUcmDTFiL8VNe1eaZ+9t9vnrUpEa6gjRgvEuRe2q?=
- =?us-ascii?Q?I6e3uIcWxu/HYxK+VG7wQnA/H69xQ6d9q5LgLZrN4EWmfzK35kQHGdz7KT4w?=
- =?us-ascii?Q?WHQckzzCJvbrYOKCuP92UP3EUWhcrevDmVgElWpxg/Hz1DhHD+HaKOKfTHlv?=
- =?us-ascii?Q?0aeCZIWGvpTSR0pj6bk9sLQUMmy9w9rqRKo9w6nDpiQHFR8BtjA+9CJWd0Lg?=
- =?us-ascii?Q?H/9r+2jPUtmAyn7Ql7PmRtywNKUQCoH0O9lmHEoqt/5Gcz6sXMx5Qu0ZbVZr?=
- =?us-ascii?Q?ly30fm610pJZnA9jbArs18PlOKX9WhnXkunV+piIjjNaKbQcnhZQ3+0I7qvC?=
- =?us-ascii?Q?W/ZMWBwvlY3E2BrkoTycgfTN91JT9/jtViEwH3YX0a1nQE21ow2z5nj15g3M?=
- =?us-ascii?Q?KMtzWEwI8o9RrK0a2ys=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(34020700016)(36860700013)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 13:49:16.5575
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77f41903-07f8-42c8-f992-08de1d3b4720
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468D.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH5PR10MB997735
+In-Reply-To: <20251106074439.GB24713@1wt.eu>
+X-TUID: aDGuSLsQUONB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_054921_012396_57907246 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20251106_055309_410644_4FF5B7EF 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,51 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03:30-20251105, Md Shofiqul Islam wrote:
-> Implement the TODO in knav_queue_remove() by stopping PDSPs and
-> freeing queue regions and queue ranges before disabling runtime PM,
-> mirroring the allocations performed in the probe path.
-> 
-> This ensures resources are released on driver unbind and avoids
-> leaking queue/region state.
-> 
-> Signed-off-by: Md Shofiqul Islam <shofiqtest@gmail.com>
-> ---
->  drivers/soc/ti/knav_qmss_queue.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-> index 6e56e7609ccd..1e5f3e9faa99 100644
-> --- a/drivers/soc/ti/knav_qmss_queue.c
-> +++ b/drivers/soc/ti/knav_qmss_queue.c
-> @@ -1884,9 +1884,14 @@ static int knav_queue_probe(struct platform_device *pdev)
->  
->  static void knav_queue_remove(struct platform_device *pdev)
->  {
-> -	/* TODO: Free resources */
-> -	pm_runtime_put_sync(&pdev->dev);
-> -	pm_runtime_disable(&pdev->dev);
-> +    struct knav_device *kdev = platform_get_drvdata(pdev);
-> +
-> +    knav_queue_stop_pdsps(kdev);
-> +    knav_queue_free_regions(kdev);
-> +    knav_free_queue_ranges(kdev);
-> +
-> +    pm_runtime_put_sync(&pdev->dev);
-> +    pm_runtime_disable(&pdev->dev);
->  }
->  
->  static struct platform_driver keystone_qmss_driver = {
-> -- 
-> 2.51.1
-> 
+On Thu, Nov 06, 2025 at 08:44:39AM +0100, Willy Tarreau wrote:
+> Do you have pointers to some docs suggesting what instructions to use
+> when you prefer a near or far operation, like here with stadd vs ldadd ?
 
-Please follow linux coding conventions about usage of tabs - this should
-be exposed by running checkpatch.pl --strict on the patch.
+Unfortunately, the architecture spec does not make any distinction
+between far or near atomics, that's rather a microarchitecture and
+system implementation detail. Some of the information is hidden in
+specific CPU TRMs and the behaviour may differ between implementations.
+
+I hope Arm will publish some docs/blogs to give some guidance to
+software folk (and other non-Arm Ltd microarchitects; it would be good
+if they are all aligned, though some may see this as their value-add).
+
+> Also does this mean that with LSE a pure store will always be far unless
+> prefetched ? Or should we trick stores using stadd mem,0 / ldadd mem,0
+> to hint a near vs far store for example ?
+
+For the Arm Ltd implementations, _usually_ store-only atomics are
+executed far while those returning a value are near. But that's subject
+to implementation-defined configurations (e.g. IMP_CPUECTLR_EL1). Also
+the hardware may try to be smarter, e.g. detect contention and switch
+from one behaviour to another.
+
+> I'm also wondering about CAS,
+> if there's a way to perform the usual load+CAS sequence exclusively using
+> far operations to avoid cache lines bouncing in contended environments,
+> because there are cases where a constant 50-60ns per CAS would be awesome,
+> or maybe even a CAS that remains far in case of failure or triggers the
+> prefetch of the line in case of success, for the typical
+> CAS(ptr, NULL, mine) used to try to own a shared resource.
+
+Talking to other engineers in Arm, I learnt that the architecture even
+describes a way the programmer can hint at CAS loops. Instead of an LDR,
+use something (informally) called ICAS - a CAS where the Xs and Xt
+registers are the same (actual registers, not the value they contain).
+The in-memory value comparison with Xs either passes and the written
+value would be the same (imp def whether a write actually takes place)
+or fails (in theory, hw is allowed to write the same old value back). So
+while the value in Xs is less relevant, CAS will return the value in
+memory. The hardware detects the ICAS+CAS constructs and aims to make
+them faster.
+
+From the C6.2.50 in the Arm ARM (the CAS description):
+
+  For a CAS or CASA instruction, when <Ws> or <Xs> specifies the same
+  register as <Wt> or <Xt>, this signals to the memory system that an
+  additional subsequent CAS, CASA, CASAL, or CASL access to the
+  specified location is likely to occur in the near future. The memory
+  system can respond by taking actions that are expected to enable the
+  subsequent CAS, CASA, CASAL, or CASL access to succeed when it does
+  occur.
+
+I guess something to add to Breno's microbenchmarks.
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Catalin
 
