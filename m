@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A03CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 03:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479E2CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 03:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vSjirDMcIwt2DpAHpPxl8O3FqT6wTGihXYmQLv4yGY4=; b=g9xwfqiRN3nfZGX+waqrCXOjlS
-	S//XfwXDcVh6SQLxAzHgN+uT7S90Y4n+J24KRWVhUZCJ60cDeeZmxwUMDwLcqYVkMyXxuxclUtEv1
-	gvbgUNjeDsYFaUuA3C93tbxupMcGC2GN7ZP+vPGZOgjRVHQao7U59hH0Dzct27w3qvTlGwNtsW56Q
-	XN4NsrxdvArIRyFDyUh32dDaEucC459Ai5Mww+MdprcU+QoIYdkoZNyPH4Q1mWKAE2oFd1XDFA9mF
-	D4i4hmiTK2JSjxPYK2pQ0PSjFNebMHMfVlkcTOt4zyRAQlGQmGE72f1GcEfGnDGWa9NJb0MfYHgEF
-	s8u0JHAQ==;
+	bh=0eZVXCKfTD48oWYcUMSXO8jVUm+ueuSjn9uH27gyeaY=; b=LgL1aFL+Gq/dSjY1w3CttZZU7J
+	WKHdQMwxJKP5MQaUBz0FwQQAlyUTmRNJGGRZ31p8eNyvZXYlpS9x3kFdLCrX9CJcNipFU+JGgVNsG
+	Z4A+UGhV6mrMaNsM0vsvX/RoZOeHNZoU0Nxm/yiGj38rbJkmDZnkAHz4YJThItyksjGS6Z+BD4ZYm
+	cc0174cWlLJZAbXWYO11mHtkuMP7NsQ7yc8ZbZXIjFvbewsgsllc9EQ9VyHyYv8HIjFmu62itf6e/
+	+70ed0hwLt/7hZB3Rjk7KEpM2R8NwYiE9UU+hnpkgJ31Ynd1Y2EB99+cO5xZcPXKeAAl6g53ckJaR
+	/7Ejs1cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGqMe-0000000Ennn-3C9p;
-	Thu, 06 Nov 2025 03:08:44 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vGqWi-0000000Eo4L-0fcK;
+	Thu, 06 Nov 2025 03:19:08 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGqMa-0000000EnnF-1XEO
+	id 1vGqWf-0000000Eo3q-0BoN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 03:08:42 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-01 (Coremail) with SMTP id qwCowADXQWwwEQxpWgyhAQ--.7059S2;
-	Thu, 06 Nov 2025 11:08:33 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
+	Thu, 06 Nov 2025 03:19:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0e
+	ZVXCKfTD48oWYcUMSXO8jVUm+ueuSjn9uH27gyeaY=; b=H8oeiFDnBeh6rPvOm8
+	7A07mMjPdqPcvMHylvyTmsIu2BT3xJ+oRlIM114dDjqcJHt0r2vYxv7Hc8zI0oam
+	9gSN55g+jQNL+M6ZflSGNLkl1O9Fi9BFS4qhN++yDMilIYtljroS2xrbYyvWbgPw
+	CbQD3/TKrIK7EA8fejmPvYtXc=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBXNueKEwxp3uGrCw--.54468S2;
+	Thu, 06 Nov 2025 11:18:35 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com
+Cc: linux-kernel@vger.kernel.org,
+	alsa-devel@alsa-project.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] soc: imx93: fix missing clock disable in remove path
-Date: Thu,  6 Nov 2025 11:08:22 +0800
-Message-ID: <20251106030822.1139-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	wangdicheng <wangdich9700@163.com>,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH] ALSA: hda/senary: Fix potential resource leak in set_beep_amp
+Date: Thu,  6 Nov 2025 11:18:33 +0800
+Message-Id: <20251106031833.80303-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowADXQWwwEQxpWgyhAQ--.7059S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XFyktFykJw4kCr17Cw48WFg_yoWkKFXEy3
-	WUCr9agw43Ar4IvFn5tr1YvwnFqF9Fvrn0gFy0qF13CrWUA3WfZ3yYyr13XFy7Wrs7Aa4D
-	AF18Ary7CryxujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUe4SrUUUUU
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwkSA2kL5JjfdwAAsp
+X-CM-TRANSID: PigvCgBXNueKEwxp3uGrCw--.54468S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7urW8WFWfCr45tF13XF4kXrb_yoW8Jw1DpF
+	1fG34rtFsxJa92yr4rGa1UW3Z3Wa4kWF15JayUKw1fZF4Yyr48tw1rtw12ga1rKrWI9a13
+	ZFy2vF1UKa98AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piFApUUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/xtbCvwxFlGkME4wdKgAA3v
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_190840_790434_1251EE8D 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20251105_191905_501351_61E1068F 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The remove function never disables clocks that were enabled
-in probe when the domain was initially on. The function
-pm_genpd_remove() does not invoke the .power_off callback,
-so clocks may remain prepared and enabled if the power domain
-has not been powered off before removal.
+From: wangdicheng <wangdich9700@163.com>
 
-Explicitly disable and unprepare the clocks in
-imx93_pd_remove() to ensure proper resource cleanup.
+Add proper error handling in set_beep_amp function to avoid potential
+resource leaks when snd_hda_gen_add_kctl fails.
 
-Fixes: 0a0f7cc25d4a ("soc: imx: add i.MX93 SRC power domain driver")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
 ---
- drivers/pmdomain/imx/imx93-pd.c | 2 ++
- 1 file changed, 2 insertions(+)
+ sound/hda/codecs/senarytech.c | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pmdomain/imx/imx93-pd.c b/drivers/pmdomain/imx/imx93-pd.c
-index d68273330687..da5b7b81dd98 100644
---- a/drivers/pmdomain/imx/imx93-pd.c
-+++ b/drivers/pmdomain/imx/imx93-pd.c
-@@ -91,6 +91,8 @@ static void imx93_pd_remove(struct platform_device *pdev)
+diff --git a/sound/hda/codecs/senarytech.c b/sound/hda/codecs/senarytech.c
+index 9aa1e9bcd9ec..99af8d5e51db 100644
+--- a/sound/hda/codecs/senarytech.c
++++ b/sound/hda/codecs/senarytech.c
+@@ -47,17 +47,28 @@ static int set_beep_amp(struct senary_spec *spec, hda_nid_t nid,
+ {
+ 	struct snd_kcontrol_new *knew;
+ 	unsigned int beep_amp = HDA_COMPOSE_AMP_VAL(nid, 1, idx, dir);
+-	int i;
++	int i, err;
  
- 	of_genpd_del_provider(np);
- 	pm_genpd_remove(&domain->genpd);
-+	if (!(readl(domain->addr + MIX_FUNC_STAT_OFF) & FUNC_STAT_ISO_STAT_MASK))
-+		clk_bulk_disable_unprepare(domain->num_clks, domain->clks);
+ 	spec->gen.beep_nid = nid;
+ 	for (i = 0; i < ARRAY_SIZE(senary_beep_mixer); i++) {
+ 		knew = snd_hda_gen_add_kctl(&spec->gen, NULL,
+ 					    &senary_beep_mixer[i]);
+-		if (!knew)
+-			return -ENOMEM;
++		if (!knew) {
++			err = -ENOMEM;
++			goto error;
++		}
+ 		knew->private_value = beep_amp;
+ 	}
+ 	return 0;
++
++error:
++	/* Clean up any successfully added controls */
++	while (i-- > 0) {
++		/* The gen spec will be cleaned up in senary_remove,
++		 * so we don't need individual cleanup here
++		 */
++	}
++	return err;
  }
  
- static int imx93_pd_probe(struct platform_device *pdev)
+ static int senary_auto_parse_beep(struct hda_codec *codec)
 -- 
-2.50.1.windows.1
+2.25.1
 
 
