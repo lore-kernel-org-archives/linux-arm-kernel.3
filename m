@@ -4,147 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7887CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9436DCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwlKsDXAyd4qlaamF8RAvN3x3zyji7/h09GYHZOJ980=; b=2y1NRpaG9FOr6FN+9fQcRJHsHK
-	X/fvuZznEZNbYauJqeE7t+f1gsB0ACHg9iF2Ns7Tm1tX+AjIb2Q2oPHSMFIDty8s581rJ9MF3pd1M
-	MzWnTgxCihIaPHlFm4q9tc9C825V+sMMYxkhQyEhZl+HNedVM78d89so7hTYlffczXJvvxDdT6cyi
-	6RY8g+rAbHEQJ0KvaqpaoD1L6Ww+lcsgy+n+FN3q+CGw+DWHjJGWsROujyBL/axHtwcPhPfkPV/W4
-	w/x2KUMYJVFqnpWjWG99o2lbSATEBncwYCGq9CFkqrNCqD3K1oEsGRuN6KFFde/AGQEWlINkchR+G
-	09EgOS5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=; b=G1rfHB9bA1IblxChGQt9hh1DgD
+	GK8ytA9roEjablGoUUzPeXwB9uATb+cxNke0P0FTpDZVjiPAsEceLbLHmTBx1/0JlfA9KtKNIkcc7
+	7/lII8FxTZmpNRWF/garItHgFEeffAlneAupXqHr/xGtlAdVv9GBA1Cqp8Zx+d4AN3SE6Xp04S1SS
+	xlIWOarOavA+TP7T/ZbayzrEWsbJCo9/FPKl/8l2Rugpf40Zf9F5VgK3HrcsVce4wIHYxXGWk7rFa
+	Tmk71mZxYm5Txuhq5aqT2/IkbGzrZ9nuXNdjxaMGeVSJRgz7GVTwnJctYq6kCcDsjRCMxwaKBl0Hh
+	atBaQMhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0jm-0000000FfWo-0xYS;
-	Thu, 06 Nov 2025 14:13:18 +0000
-Received: from mail-southcentralusazhn15013037.outbound.protection.outlook.com ([52.102.140.37] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1vH0kl-0000000Ffwb-1xJm;
+	Thu, 06 Nov 2025 14:14:19 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0jj-0000000FfUH-2uMd
+	id 1vH0kj-0000000FfvI-1lVg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 14:13:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VfqNU8FpgZfB4HGnIqvenCyi7aeeskmWt2lhIbXgUcWGyeEyHZBgreElriY8gehM5rI0q2rZeYRneOaX25tXjD+/cWObC4KbnSBDWrnqJCBOIXhVAPiB2K0xsHbDvodcswy+nOq5gCsQnX2sETwIle+L+wljDFaIZd28OJnsBaU9F3Zj3HthRzm6J5uIQCDVQgWHQfidjXxp0MTHV5WlEm+vk1m3VPdvRjcuUwbQVa4SF6RekDuh5PeOdBKPuC8+b83NhzNcyAjpQK2DDuvI3tPIoN5Z0pxhAO7uORHmwT5nivKWHIhZbocQJ68YOPHUpkNwFFypz+FGayP4HgVSNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wwlKsDXAyd4qlaamF8RAvN3x3zyji7/h09GYHZOJ980=;
- b=taGh7VEHPUs18qRCPApLi6Zs+g2thncbSKErql9JK0Nti1CLzZl/0k20wsC+PDGBQNRafI4FokO+EHuAm1JFGeWDQ8PcG/a2bG0vHpvCrPrMqdyvnf0rqasujqhe1NhuEKGsDXqWdza0mPbj4u6NbG4RVkIJFrngqgdsgHaD6D9wPTVnOQsvfbf2E5PAJACSLZb3nyNl39Hi/SVhOvNcCOl6k3zT/gWAmyQiUbbtqokzdHFGxF2NHs/srMljkX0N3ZTbDIxpXb6okDHGtlyVuHxJGiKsz3/EqxzlXgr9gRy5zGoueDSGxNWkpmSMkSa3UUJL0Ls02oF2SOJ986/FwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wwlKsDXAyd4qlaamF8RAvN3x3zyji7/h09GYHZOJ980=;
- b=XcI4EWlD2wdN1nPaEcMYssyX+Xy6IFX1Sx1SF9tWwNrYvslxfqEHluGeLB/8KvuZ9C7NmUox4PsYnRpghkpxZzoREVFOcw48IINfD9TWgP1NtpdZ5W3Rr56OnVpOy48aD/hhXug5JfdHmKQrW1iQKLUSfEnsa9h1VVKR4uiUzuc=
-Received: from PH5P220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::6)
- by SA1PR10MB7683.namprd10.prod.outlook.com (2603:10b6:806:386::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.7; Thu, 6 Nov
- 2025 14:13:08 +0000
-Received: from CY4PEPF0000EE3E.namprd03.prod.outlook.com
- (2603:10b6:510:34a:cafe::d2) by PH5P220CA0008.outlook.office365.com
- (2603:10b6:510:34a::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
- 6 Nov 2025 14:13:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CY4PEPF0000EE3E.mail.protection.outlook.com (10.167.242.16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 14:13:08 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 08:13:04 -0600
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 08:13:04 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 6 Nov 2025 08:13:04 -0600
-Received: from a0512632.dhcp.ti.com (a0512632.dhcp.ti.com [172.24.233.20])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A6ECRES1335893;
-	Thu, 6 Nov 2025 08:12:58 -0600
-From: Swamil Jain <s-jain1@ti.com>
-To: <jyri.sarha@iki.fi>, <tomi.valkeinen@ideasonboard.com>,
-	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>, <nm@ti.com>,
-	<vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <lee@kernel.org>,
-	<louis.chauvet@bootlin.com>, <aradhya.bhatia@linux.dev>
-CC: <devarsht@ti.com>, <praneeth@ti.com>, <h-shenoy@ti.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [RESEND PATCH v2 5/5] drm/tidss: Fix sampling edge configuration
-Date: Thu, 6 Nov 2025 19:42:27 +0530
-Message-ID: <20251106141227.899054-6-s-jain1@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251106141227.899054-1-s-jain1@ti.com>
-References: <20251106141227.899054-1-s-jain1@ti.com>
+	Thu, 06 Nov 2025 14:14:18 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7810289cd4bso938277b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 06:14:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762438456; x=1763043256; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=;
+        b=RVumk+Mr/aLUmGAp6lzdFmzdW7lwQZBatchVC8fNFGfaXOnmgsTei5C+IAzLU6Y7B8
+         g2STvlvMhf3EdIbeiDtDJ0uN9JD5lGTBBvajs5Uwk/PcLqfQ9WLQcVKwR3wNtd40Udfr
+         ZQd/5c3yFpfyi4kNiG2FzMkcTkwl6ZbSHO6G293bydMo+jdQhfQt19uiwrJxIiVA9H2w
+         1SGZww4Q7J6TJUNdKlQMNuPPcNEcnid4jkHHolbw8slP4ccDkcGTrnTBSaCO5nbjFztC
+         oPx5sMKE8qo1mHuUqkAHTNfpY0nPKb6is1oNnD4u6jmt2Jm6sCte8+5aLfaH/uJ2QYt0
+         hqXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762438456; x=1763043256;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=;
+        b=PMoaGpBEo4gftBHbI4GemuOtMRrAKks3Je9+7FdiFHJAVsRIZwVkuHNh8gXSuTr8c/
+         qG6JKJweOvkqtUJbUWHyQUinsrXNmS2IfqvUPpdscGR7gFq9CCuF6llUTOLO5kzhb3jC
+         qh0BJoebsS2DgEbVKJjV4vyo0PHPIG5G/Mvg5SLGxLgTx/xaZI+xSppHBl3v7U2SIPDH
+         lTgDTv7wVI89JoudS0xUZrmZDX/FOJKTjCbfvb1bNvolzbriWXoCzUTE+ZZxGCP1Nj8o
+         Kj2uwGsRG42EP9dUS1vhXedj1Rsfi7PrI+paUW21+h5oQeCMk6ndr4TrrDOvmT+dTIqx
+         8e4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVsYOtZlYpUxOikD9VlOf14eJ+GI/mG4Tvr+RE/UQ5PQb1llH0VZnKhX5NQoIUP4sixCK+VdUK7T9CCDBkXS+/t@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt8NKHzj6Au7elJYL3h35BDxofOmRk9NU1vZ9w2yZZqPzLlIiO
+	EX1Dg3uHnFaogb6XucgALjaXubUnBALV3G4jeHp/hNhxJH2vSg4RopSe
+X-Gm-Gg: ASbGncsJRTFMlv5WqgEZnP+kBMFvb2QebPv0OWYpe417zkFXUiPcWGsYj0Tmr1+K8vQ
+	s24kuc1Ijktoje1pRymjEuYtB8jItNPbTjSqqAEvDwBCbGFtheZYjIREe2PtupkJ+nyTTLWo5w6
+	AQWbupa2GjoeDHr5AyWJEuFBtE9+GNewDvYDxt8TN0y7hpcyYaKCM/uyFp3BBN/yPJhJ0f8qczI
+	+yZKru5gOVYpnK8+VLhxFFd9bNDCI60cm74pksnABq6aEOW0FevvSdldw9PO3HDASjNf7pbZkuV
+	bWcy1Z5wjM3V3eZTgwIqqhgMWN3bjoh8kPwWKdHofmlnkshI6J4DVHWUEeCYDGCRMZg4DDuRoc6
+	V4/Yn2sGVIKvMioyfjnfVN1YZ0nlE0LCMdtqUKyITxu4UP2b1Q2AdVotD6W+0EkDlG3GdIYf7LA
+	DBOUrWkP1tJOrhjZqNgIKZPhBCBxBURxrrRDvsQhz7hzoJm8lZOK45bOS+OpJ2oMzeQ4mDxOpI
+X-Google-Smtp-Source: AGHT+IEo3lyx4SSF6ocI62uHYt7YAX7f4+Hxtin616U9H0IjwoISSx5SOupuX9cHRYryvyjl4G9V4w==
+X-Received: by 2002:a05:6a20:9186:b0:341:c4e5:f626 with SMTP id adf61e73a8af0-34f838e271dmr8901776637.7.1762438456066;
+        Thu, 06 Nov 2025 06:14:16 -0800 (PST)
+Received: from [192.168.99.24] (i218-47-167-230.s42.a013.ap.plala.or.jp. [218.47.167.230])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7af82208befsm2890508b3a.39.2025.11.06.06.14.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Nov 2025 06:14:15 -0800 (PST)
+Message-ID: <4abd5327-ccb7-4dbc-9b09-e98069312e2f@gmail.com>
+Date: Thu, 6 Nov 2025 23:14:11 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3E:EE_|SA1PR10MB7683:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5eb7caa7-a774-454c-96e1-08de1d3e9c9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700013|34020700016|921020|12100799066;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?M0cGdcT3VbW6LcL+M5y1NsTkdTQ4w0M38hZG0gDHveWtOKT5V22EXme8q7/T?=
- =?us-ascii?Q?MgnhXdrLhoP8MlZ61v5iv+QKS5f/Swlt4Uw4WQdyqU1G5qgNNWoevjSWpUSd?=
- =?us-ascii?Q?jKds3yAsC3GOQwa4mg7ziUpnx0xIW5wkM1Y88QQWDQRVSMklpCtwSMR4qSpS?=
- =?us-ascii?Q?wZ+lqqhFI0+FK0inpP5HkgB8u53lk1qfbEwWPt8upFQeXfOk5/jheq6U6Afj?=
- =?us-ascii?Q?6HKZeRtM6neYN62/lMcpCF9Cenji9IkLDGcTspZi6ju/i/OVKNM6BljnJZfU?=
- =?us-ascii?Q?BRwBfaahU3FOnDP8805o8TmfMJVmx2aeBpineQRJzEeJ9B2Gf7/Z7kcj7gXt?=
- =?us-ascii?Q?7NjjqbLBQwE2sZg8GWGRdWrrDyheV0qvbh1/tFb7KJICJ6gH9TPuigBjW0NV?=
- =?us-ascii?Q?+vdJQJim1y11gE/XtcIv4Xc1yLOtlxi8dDdPOw6MVWcUVCalMx+60sA4qaCe?=
- =?us-ascii?Q?5PTRq4RTP6bVc3lrDlW6vqjOojsaPQEAImh0pDYozUFCAHHfK7PlZR1juQ3p?=
- =?us-ascii?Q?Fd7RmhxTF7hEUOcRVqJY9//gtZDNFhFXPsA/HLNgS9+VlLNeloisKogIfPge?=
- =?us-ascii?Q?twjZN3mwhPsFRxXLMxa7kDS6E6rrJ8iSlEe7oltGpScd5XSHQg/3cKWtuB/J?=
- =?us-ascii?Q?RmtGX02Fz0OUHqOtLg1HzGJqW3QC/vtMG2dGtZ9RTrgkdgG5T8sakpCDwzLv?=
- =?us-ascii?Q?YOiJmu7uZe0GlykPo9Lv2NUk+6HAojvlW0MljjLSo2Bd4hr9oYZG6MGERI+y?=
- =?us-ascii?Q?9cW3VB+DjFnzWMUEPTnSiOKDzmuJqASwPbVuvZ4bpaWIP6+Ox5J9pjFIKAkb?=
- =?us-ascii?Q?II5iKbxeEW2OukkDErzxnJO51BujpcWgE0YOhs+uf7P3/nUYg+lXE6r/P29i?=
- =?us-ascii?Q?i5JCnH2u8Hger3pHwHZd3t3WqGj5zUuIYTTD1RjQ+jpvO6MNbsOWYdNJYhCJ?=
- =?us-ascii?Q?nCCowy/x5JC44Yzz+m2X3uq1TektCwIXZdK7LTJNMbIxBZ5tOX4op2BBZ436?=
- =?us-ascii?Q?eYrKJzCUpOwR3uAOTmiF3L0PJ8v8L02VS9fDdQLyRraM+aD9g5A8UW0twUcH?=
- =?us-ascii?Q?I++LFtczji6ptETNqMYwkADocXOGLe5cGUrfSwWsbZTYIrO+Y92g+wd/fWZX?=
- =?us-ascii?Q?DKI11IYtxQqOF5uRgIFKwDvQzRxNnfXgLsLXjrPXOBD/R4AujFwxF/4r7RFc?=
- =?us-ascii?Q?mpWLcfB+ozx8jxvjZI/K1xk0Jmq0SBGUWxwzCTO/Q7wgV6u/6LvL+RQyDgXA?=
- =?us-ascii?Q?PE/8s6uPkJPFy+dgk52V+3WJzncd+0b6I71tnM1tShLS4SehZwvbtsnvsEkd?=
- =?us-ascii?Q?lA29ZZFNo/REFdr8HLi0a2aQYlJg1iaoZMmq6xUxNTykRTum3FInZYkCKFpx?=
- =?us-ascii?Q?7jtj4V0i4Fhhg6O41Wyp4ca/r8Mh+xEtJxCRZ1dugX33qQmHGhwLO1HJsRxU?=
- =?us-ascii?Q?kn9pJ49KA7wrUq0xyOYLObM/WxwbRfsYCKT5i7Hz/jn1Mee8ehrRCPAcEOVD?=
- =?us-ascii?Q?6D3/ITjm5uN8h0YezUyjFuz4y+g6XdKZGqozXfYFZNl4BdeNg4DIWomix/Oa?=
- =?us-ascii?Q?HqoIVwTa51hYjtPYnktGku05mfkCHDMRiMD8lO0/?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700013)(34020700016)(921020)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 14:13:08.5509
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5eb7caa7-a774-454c-96e1-08de1d3e9c9d
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3E.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7683
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net V3 2/2] veth: more robust handing of race to avoid txq
+ getting stuck
+To: Jesper Dangaard Brouer <hawk@kernel.org>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, ihor.solodrai@linux.dev,
+ "Michael S. Tsirkin" <mst@redhat.com>, makita.toshiaki@lab.ntt.co.jp,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com,
+ =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+ netdev@vger.kernel.org
+References: <176236363962.30034.10275956147958212569.stgit@firesoul>
+ <176236369968.30034.1538535221816777531.stgit@firesoul>
+Content-Language: en-US
+From: Toshiaki Makita <toshiaki.makita1@gmail.com>
+In-Reply-To: <176236369968.30034.1538535221816777531.stgit@firesoul>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_061315_732619_0295FBA4 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20251106_061417_475499_6C2F62E4 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,65 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Louis Chauvet <louis.chauvet@bootlin.com>
+On 2025/11/06 2:28, Jesper Dangaard Brouer wrote:
+> Commit dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to
+> reduce TX drops") introduced a race condition that can lead to a permanently
+> stalled TXQ. This was observed in production on ARM64 systems (Ampere Altra
+> Max).
+> 
+> The race occurs in veth_xmit(). The producer observes a full ptr_ring and
+> stops the queue (netif_tx_stop_queue()). The subsequent conditional logic,
+> intended to re-wake the queue if the consumer had just emptied it (if
+> (__ptr_ring_empty(...)) netif_tx_wake_queue()), can fail. This leads to a
+> "lost wakeup" where the TXQ remains stopped (QUEUE_STATE_DRV_XOFF) and
+> traffic halts.
+> 
+> This failure is caused by an incorrect use of the __ptr_ring_empty() API
+> from the producer side. As noted in kernel comments, this check is not
+> guaranteed to be correct if a consumer is operating on another CPU. The
+> empty test is based on ptr_ring->consumer_head, making it reliable only for
+> the consumer. Using this check from the producer side is fundamentally racy.
+> 
+> This patch fixes the race by adopting the more robust logic from an earlier
+> version V4 of the patchset, which always flushed the peer:
+> 
+> (1) In veth_xmit(), the racy conditional wake-up logic and its memory barrier
+> are removed. Instead, after stopping the queue, we unconditionally call
+> __veth_xdp_flush(rq). This guarantees that the NAPI consumer is scheduled,
+> making it solely responsible for re-waking the TXQ.
+>    This handles the race where veth_poll() consumes all packets and completes
+> NAPI *before* veth_xmit() on the producer side has called netif_tx_stop_queue.
+> The __veth_xdp_flush(rq) will observe rx_notify_masked is false and schedule
+> NAPI.
+> 
+> (2) On the consumer side, the logic for waking the peer TXQ is moved out of
+> veth_xdp_rcv() and placed at the end of the veth_poll() function. This
+> placement is part of fixing the race, as the netif_tx_queue_stopped() check
+> must occur after rx_notify_masked is potentially set to false during NAPI
+> completion.
+>    This handles the race where veth_poll() consumes all packets, but haven't
+> finished (rx_notify_masked is still true). The producer veth_xmit() stops the
+> TXQ and __veth_xdp_flush(rq) will observe rx_notify_masked is true, meaning
+> not starting NAPI.  Then veth_poll() change rx_notify_masked to false and
+> stops NAPI.  Before exiting veth_poll() will observe TXQ is stopped and wake
+> it up.
+> 
+> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
+> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
 
-As stated in the AM62x Technical Reference Manual (SPRUIV7B)[1], the data
-sampling edge needs to be configured in two distinct registers: one in the
-TIDSS IP and another in the memory-mapped control register modules. Since
-the latter is not within the same address range, a phandle to a syscon
-device is used to access the regmap.
+Reviewed-by: Toshiaki Makita <toshiaki.makita1@gmail.com>
 
-Configure the CTRL_MMR register, as mentioned in the Technical Reference
-Manual to fix sampling edge.
-
-[1]: https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf
-
-Fixes: ad2ac9dc9426 ("drm/tidss: Add support for AM625 DSS")
-Fixes: 5cc5ea7b6d7b ("drm/tidss: Add support for AM62A7 DSS")
-Cc: stable@vger.kernel.org
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-Signed-off-by: Swamil Jain <s-jain1@ti.com>
----
- drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index d8e1a1bcd660..d09eecb72dc0 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -500,6 +500,7 @@ struct dispc_device {
- 	const struct dispc_features *feat;
- 
- 	struct clk *fclk;
-+	struct regmap *clk_ctrl;
- 
- 	bool is_enabled;
- 
-@@ -1234,6 +1235,11 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
- 				  mode->crtc_hdisplay - 1) |
- 		       FIELD_PREP(DISPC_VP_SIZE_SCREEN_VDISPLAY_MASK,
- 				  mode->crtc_vdisplay - 1));
-+
-+	if (dispc->clk_ctrl) {
-+		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
-+		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
-+	}
- }
- 
- void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
-@@ -3003,6 +3009,14 @@ int dispc_init(struct tidss_device *tidss)
- 
- 	dispc_init_errata(dispc);
- 
-+	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
-+								   "ti,clk-ctrl");
-+	if (IS_ERR(dispc->clk_ctrl)) {
-+		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
-+				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
-+		return r;
-+	}
-+
- 	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
- 				      sizeof(*dispc->fourccs), GFP_KERNEL);
- 	if (!dispc->fourccs)
 
