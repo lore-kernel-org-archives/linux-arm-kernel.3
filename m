@@ -4,97 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6491CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDF7CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5TrCJ8rM6COJyeuRSCikD41wUdKbRdfNE6Ql6QgkeSU=; b=MTV0BMe/H+2Bk51A+vzWZlOznb
-	68ulGSWSW42fz3RxiywEHlkXPL5FGIvNrIfXgOYpb8C8gJAtPqddxmEASUsoWQ3u6YzpXdO+TkFv+
-	xMN3AOxW86jtKXbUpTvBuxNJwYZfDaIf/F/Qny2OZQWAUzxKckXbdAGn11aOuuPNhoMJc3SPxT7Xs
-	VyZxB2bJuK6f3c2S3EVC2/xZ7+a9mcmkQ8AQszVzryeEAhk3x7hBJfm4rzYLXJFGX1GEtNWs5PMKf
-	0Bhci0TPMVV/TEdwxsQjee0hWmh2e3OcOJr7lV3r9eWZe2oBtTiVc9tVNxc78OsrYfiPOlRCjq8jN
-	KAyoOLUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZyZQS/LAvIPJGv0J0eCeF7AHt5QC4UEFxwyQfmkPZSA=; b=qZUVh2hepxS8tAMoZZafcG+AdJ
+	BkpElFzDI/6hzlnBBaPQVMzscxgENeeYWskjZHtJcC81FeJ1bIyQn1RJWrmjRyPh+NaIZcl9cuizb
+	suB321sZRSW94cmnlerizI+8aG7AfLL1VzmQfPDC1LIlRvvBuotTOvQEoYIWgeiwBbyJIrl47v+hQ
+	E9mV0CB3KN3A5OuCQp3Je+GGNKLyZOuHOghHrrV/eldDGFLWwhh7rKvWoTetFHZ48UHCUod+P9x/M
+	+/C5rhlQZ1vu56sv6NXYvIQOK+9NCNkFtkIj9jhC22pPMnkxunMYZE4LptrhHwBdJJaloPQKN9oWy
+	anm8J3cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH02c-0000000FZRC-09dW;
-	Thu, 06 Nov 2025 13:28:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vH06h-0000000FZod-34Nj;
+	Thu, 06 Nov 2025 13:32:55 +0000
+Received: from mail-westus2azon11012038.outbound.protection.outlook.com ([52.101.48.38] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH02Z-0000000FZQp-2egm
+	id 1vH06d-0000000FZny-2YAS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 13:28:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE767419F2;
-	Thu,  6 Nov 2025 13:28:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FECAC116C6;
-	Thu,  6 Nov 2025 13:28:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762435718;
-	bh=pHx7Ian/X+twZyKuV1qCMvRdBak+Kdv7mBA0LYUw3f0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L7bNYOIqPwAUgWLm4YhM3ffu/zRMoeKCp1eaXQXhrENpICHRiNCuTEmHlBT96Z0m+
-	 F+hbg+7uygvNI5ZgSUDkFkVZN3J4a3XXTZfjnsO0kWxk0cXKGL7xAEkWLHyZA7TURp
-	 dYkbgQnJ/WEsW1RozEKGwAAOYPl5T6iYV5aI3ERUNB0+PPe4x5IEzG9qug+JyCr1D1
-	 2RTLdw/FwcxrfwHiwlxipFJDFyNVTP7NwxOoHf5HOeKKAJsEn4efEFhjEgriWoqLT6
-	 x4ohT4c5UPSiBGo0raXEauWkpqzfT16ujOYEikscoo4VmJ6bzZVvsyjOXRU8pan2yg
-	 y70+cTCKx1mbA==
-Date: Thu, 6 Nov 2025 13:28:35 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Nick Alcock <nick.alcock@oracle.com>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
-	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com,
-	Ryan.Roberts@arm.com
-Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
-Message-ID: <aQyig5TNkw2YJm19@finisterre.sirena.org.uk>
-References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
- <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
- <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
- <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
- <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+	Thu, 06 Nov 2025 13:32:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k8F5BknjrXRvkMhmB4c9abjEvERLyIjJKAxQFPlIgSAUrRoc1PJGXSjQ9Islk8T6SudT20BtojhGfzYP+P30p1tfKIzFcXhyiOb0inbrTouQ1djcY8SyfPVJzWNYpWSwTdTtgN48WaWXQRMTtr6UbfvEiOgBoSdDmw4d9cnp4RicMAP6rT3jZB2N1X8fyjiPVoAk041/uh9CGh8EXmcjLPlE1/ZM/tVwpZ/QhRBJ/vLTxmQGRT9jrgZubGTx+sA/GcHrp/kh7+7aIuNRvCbkmkbgLS6W+Itl8Q2Q/oREp43Qptfy0Fw5mQkl76yJP+/7AL29WbCdxggQxxk127J9+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZyZQS/LAvIPJGv0J0eCeF7AHt5QC4UEFxwyQfmkPZSA=;
+ b=IH3LA/SK0v36fj0yWtYBEk5hVZmSvwI98gRQohE0q2vS946c4D0QgR7bDsMWZmAgFGEAhtwYD2LvgM1JbXUTPlwTn8nWFx/RfVQ313pNX9T2tt4uo0uKqrtPT+MwhT8+x/Aa6xB/FQu28WAJ00V5QWPopfO5eGRue/ESRX9M+jqp3b6r1wLF1E65gPINEKosDbhvW4zDY4oN8OQXCA6r0h4JQEkhmG5mWVfwlVhLHwlZSVWFO8UBIGmQp5yPJIW6I5suIEqPfp4E4+FNspCGgMpzuodT61Sx5NxVmsz1JVuxh/YGaJeF1bqq6f3aFif0k/4qfGBz+JgpNkEZ6fy6Pw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=toradex.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZyZQS/LAvIPJGv0J0eCeF7AHt5QC4UEFxwyQfmkPZSA=;
+ b=O+hc2EeeXtw3zvMc8LbbCgsdEqsITUPHt6rFETUMxJVmF0Rf8YF7MzA1vBLr92j4qJw7xovvUElw8WhlblkrVX5lmk90FXrPpfq7zs2+ON0iokhBMrO4AdTwB269HTRU2Matzll4KHUsHv/Oce05WXIiZYb1+F1z4MtvA65TVDY=
+Received: from BL1PR13CA0117.namprd13.prod.outlook.com (2603:10b6:208:2b9::32)
+ by BLAPR10MB4850.namprd10.prod.outlook.com (2603:10b6:208:324::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Thu, 6 Nov
+ 2025 13:32:46 +0000
+Received: from MN1PEPF0000ECDB.namprd02.prod.outlook.com
+ (2603:10b6:208:2b9:cafe::8f) by BL1PR13CA0117.outlook.office365.com
+ (2603:10b6:208:2b9::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.8 via Frontend Transport; Thu, 6
+ Nov 2025 13:32:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MN1PEPF0000ECDB.mail.protection.outlook.com (10.167.242.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 13:32:46 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
+ 2025 07:32:45 -0600
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
+ 2025 07:32:45 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 6 Nov 2025 07:32:45 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A6DWjv71332727;
+	Thu, 6 Nov 2025 07:32:45 -0600
+Message-ID: <be8040c0-76b1-46e3-bd89-841cbfa10c84@ti.com>
+Date: Thu, 6 Nov 2025 07:32:44 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="j5CacU2bPsziLjSM"
-Content-Disposition: inline
-In-Reply-To: <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
-X-Cookie: Forty two.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add Aquila AM69 Support
+To: Francesco Dolcini <francesco@dolcini.it>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Parth
+ Pancholi" <parth.pancholi@toradex.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Emanuele Ghidoli
+	<emanuele.ghidoli@toradex.com>, Ernest Van Hoecke
+	<ernest.vanhoecke@toradex.com>, =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
+	<joao.goncalves@toradex.com>, Francesco Dolcini
+	<francesco.dolcini@toradex.com>
+References: <20251104144915.60445-1-francesco@dolcini.it>
+ <20251104145240.61219-1-francesco@dolcini.it>
+ <20251104145240.61219-2-francesco@dolcini.it>
+ <d77bf3dd-4501-4f17-a776-3353f96f4fb1@ti.com>
+ <20251105115335.GA14157@francesco-nb>
+ <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
+ <20251106101932.GA5975@francesco-nb>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20251106101932.GA5975@francesco-nb>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECDB:EE_|BLAPR10MB4850:EE_
+X-MS-Office365-Filtering-Correlation-Id: b71b65c4-3558-422e-0c76-08de1d38f8fe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|34020700016|376014|82310400026|36860700013|1800799024|7053199007|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjZKdHcyNXd6NWxzTkpqa2h0RzFSdlh1cXdpSTVnbXBEbndLMUhMRzdVUVBh?=
+ =?utf-8?B?a0R3cHlYdE1lS1FOQ1hvdVVjNU44VHlaZ1VQNGtGVmhTUm00aTVhdXdGSjIr?=
+ =?utf-8?B?VVNIRWpMazVlcFFSTlBKTlhFaWs4SW1TZ1pkYUlTUHZBZkkvNkhBS2pGTTRh?=
+ =?utf-8?B?Qm1NS2l4dWFHNk51YTRtRklwUDJPdTJjTGtPMk1jMGE5Y2FRTStuTDhFTmln?=
+ =?utf-8?B?b0VxTUFGUVNDQ3FNb00rbzNVdnM4MnRlYXhnakNKRml6cG40NUZhQlFUQVVC?=
+ =?utf-8?B?KzhUV3FDdHlVWjhZVldlVkk5dzkvY0Rma1MvQzFJMEI2UGtDSW40ZThxdjVN?=
+ =?utf-8?B?U3VqUitHWU10YjRlc0ZKQkZyb0dKTTNXSUtXUUI1ZkdZUTNLTmg3ZnRWdVN3?=
+ =?utf-8?B?eDRLYy9McFpWMmd1eDdRTWNtQk8rcHN4THh4V0JMRHpiMXZ2Z2daaTZsNTlk?=
+ =?utf-8?B?YkhsOU9PQmNVanNmWUJ0NkgwTFFwRXdRN2k2SExvV2lNMlJUT3BWL3BjblI4?=
+ =?utf-8?B?RnJJNXBCeFlMN1N3MlpUMFEwNGd3T2lmeFBIMXBTN2RacHRVWEs4Wk1pMXdK?=
+ =?utf-8?B?OFcxcW5YUkRVaEtLRVEvV29MSnlmcVNUZHFJOW1nTWtvYkdCQXZXanR0Smh6?=
+ =?utf-8?B?VUpMUjVzZ3h1aVZRQjI4cy9WTFM3bUdUbXBQaVp3OG1hMVQvSFhWWU0rMzhW?=
+ =?utf-8?B?U2t0NFlJRHdUendERDAwRVdjbGVOWldBTHVMUGMyODVtME1uQ3BrRnA4azdm?=
+ =?utf-8?B?WDhCMis1dmJsb0pNbzRJekpuOHJoZTVjL1RtcDNOUXdERDNSV3E0OVNTN0hZ?=
+ =?utf-8?B?WXN0cHYzaWxhcmxwVVUvS2tBeHAyZDNxUWZNc0lYN0ZzWWwxZGdBL1FqQ2k0?=
+ =?utf-8?B?WW82YUhyMTFZRlFoalduVnhBWGZlUytrdExmWUVkZHVaeFdoaUR3b0x1Z2tp?=
+ =?utf-8?B?OEtSRWVuTHFkYXFSSkhPOTgxSnIvN0RxMS9xYUUzbStrdjUwWG1lS0dRZzZZ?=
+ =?utf-8?B?bHZScVdXRmxuaGxkRk93anZWRG9kNEtxdFJZcWVNcDFKL2pjUElZU1djY2d6?=
+ =?utf-8?B?ZGFNdUVIK0RyT0xzMEpCT2tPS1R1NHYzYkpWT2Y2TFlmQjhHR1AxbGgwOXJp?=
+ =?utf-8?B?WVNJbEpud0xPS1E1Y1BBSWVUTi9MbldQc0J4cFdkN0o3bmoyQ2pTTW9naVdN?=
+ =?utf-8?B?TkhjaWVHenQvd0o5cFlzMFNrL0ZpNXZCVFA5eVg1TTBnWVl0ejhib0JYMzdV?=
+ =?utf-8?B?WkJ1blczT3N1Qk1DT2FLcTRkMjI4amZUNUlHQm5ya1UvQ3RUdXNZTlUvQ2Fk?=
+ =?utf-8?B?dm9IdUZLQmd5a3V4aDQrOFkzZm9QbHRrWmZ2aUYrUmdySHJiQ0NlYzZFaXZR?=
+ =?utf-8?B?SXhmcTNneGhoYTNRTUx0YVZlYmpiL2x6eUJJWjA4RlNETHdOQUJ5ZlZFMi9r?=
+ =?utf-8?B?MXFKWC94V3RNbGx4NnJFMnk0Y3B5VlB3cUVGWXJUdm91S09zN0t4UVA5WG1r?=
+ =?utf-8?B?S1ZTRmVRREtFb250SnVPMjk2elNzbW0wMWhNd2NFcVNUdE8yck5VSDd1U3Zw?=
+ =?utf-8?B?Vk4ydHVNMk43eHF0bFBNV3B2VmZ0a2YycCtvRVUzeVZsdmovVTNxZmN1YjlJ?=
+ =?utf-8?B?VkozUWl4UCtJbnlJdy95QSsxcWNOWUtqWXl6MEQ5KzJ1SGhNQXRwdmhEL1hn?=
+ =?utf-8?B?VmVkUk1ndjJheGFkd0JZS09qa1FEUGZSZ0s4WDEzcFNJb2FHdEk2dU1WSk95?=
+ =?utf-8?B?SXYrdFFFbW4zRVJMUFFCUXUrdFdLa2hiMWMycDdxc1RRS05LbDR0MVN1Y0ZB?=
+ =?utf-8?B?S3RjTjJGbllOYnhGS3hPZVl3NjlvRUwwRkdLMVZTQkJLOVdRSU4yREZqZ0lK?=
+ =?utf-8?B?K2hJTDZhSFV1RGFwYmwvZldwUEdwT25CWlFEV2RsMlRXdXZXdlNVSDZvbVcv?=
+ =?utf-8?B?Ukt4YXRSWjN0dGhJQms3NlhVRWl5Rm1rWkc3NWpOZFpjaktGUDU4VXNoYU1n?=
+ =?utf-8?B?eTdGMnJqR0txZEVid1RMMFJsekxpeUl0WjNKcUdHT1QxTEIwWEJHam04Z1F3?=
+ =?utf-8?B?cUV4bDUvSTY3anlTQk9kcEkwWU1FYTg5cFVKOXovZkovRGs4VDdrSzdlRDNT?=
+ =?utf-8?Q?bjmU=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(34020700016)(376014)(82310400026)(36860700013)(1800799024)(7053199007)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 13:32:46.4736
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b71b65c4-3558-422e-0c76-08de1d38f8fe
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECDB.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB4850
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_052839_718969_81855703 
-X-CRM114-Status: GOOD (  35.80  )
+X-CRM114-CacheID: sfid-20251106_053251_765633_F1E6EA84 
+X-CRM114-Status: GOOD (  32.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,132 +177,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/6/25 4:19 AM, Francesco Dolcini wrote:
+> Hello Andrew,
+> 
+> On Wed, Nov 05, 2025 at 02:01:35PM -0600, Andrew Davis wrote:
+>> On 11/5/25 5:53 AM, Francesco Dolcini wrote:
+>>> On Tue, Nov 04, 2025 at 11:41:54AM -0600, Andrew Davis wrote:
+>>>> On 11/4/25 8:52 AM, Francesco Dolcini wrote:
+>>>>> From: Parth Pancholi <parth.pancholi@toradex.com>
+>>>>>
+>>>>> Add support for the Toradex Aquila AM69 and its Development Carrier
+>>>>> Board.
+>>>>>
+>>>>> The Aquila AM69 SoM is based on the TI AM69 SoC from the Jacinto 7
+>>>>> family and is designed for high-end embedded computing, featuring up to
+>>>>> 32GB of LPDDR4 and 256GB eMMC storage, extensive multimedia support (3x
+>>>>> Quad CSI, 2x Quad DSI, DisplayPort, 5x Audio I2S/TDM), six Ethernet
+>>>>> interfaces (1x 1G, 4x 2.5G SGMII, 1x 10G), USB 3.2 Host/DRD support, and
+>>>>> a Wi-Fi 7/BT 5.3 module, alongside an RX8130 RTC, I2C EEPROM and
+>>>>> Temperature Sensor, and optional TPM 2.0 module.
+>>>>>
+>>>>> Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
+>>>>> Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+>>>>> Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
+>>>>> Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+>>>>> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+>>>>> Co-developed-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+>>>>> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+>>>>> Co-developed-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>>>>> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>>>>> Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>>>> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>>>> ---
+>>>>>     arch/arm64/boot/dts/ti/Makefile               |    1 +
+>>>>>     arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts |  576 ++++++
+>>>>>     arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi    | 1840 +++++++++++++++++
+>>>>>     3 files changed, 2417 insertions(+)
+>>>>>     create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+>>>>>     create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+>>>>> index 361248dcfff4..6ce652fe98fa 100644
+>>>>> --- a/arch/arm64/boot/dts/ti/Makefile
+>>>>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>>>>> @@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+>>>>>     dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+>>>>>     # Boards with J784s4 SoC
+>>>>> +dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev.dtb
+>>>>>     dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
+>>>>>     dtb-$(CONFIG_ARCH_K3) += k3-am69-sk-pcie0-ep.dtbo
+>>>>>     dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
+>>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+>>>>> new file mode 100644
+>>>>> index 000000000000..c7ce804eac70
+>>>>> --- /dev/null
+>>>>> +++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+>>>>> @@ -0,0 +1,576 @@
+>>>>> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+>>>>> +/*
+>>>>> + * Copyright (C) 2025 Toradex
+>>>>> + *
+>>>>> + * https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
+>>>>> + * https://www.toradex.com/products/carrier-board/aquila-development-board-kit
+>>>>> + */
+>>>>> +
+>>>>> +/dts-v1/;
+>>>>> +
+>>>>> +#include <dt-bindings/pwm/pwm.h>
+>>>>> +#include "k3-am69-aquila.dtsi"
+>>>>> +
+>>>>
+>>>> [...]
+>>>>
+>>>>> +/* Aquila SPI_2 */
+>>>>> +&main_spi0 {
+>>>>> +	status = "okay";
+>>>>> +};
+>>>>> +
+>>>>> +/* Aquila SPI_1 */
+>>>>> +&main_spi2 {
+>>>>> +	status = "okay";
+>>>>
+>>>> Why enable this with nothing connected to it?
+>>>
+>>> It's a development carrier board, the SPI pins go to a pins header,
+>>> accessible to the user, where anything can be hooked up for
+>>> prototyping/testing.
+>>>
+>>
+>> Sure, and when a device is attached to that pin header it will need
+>> described in DT with a node for that attached device and in that
+>> node/overlay is where you enable the nodes you make use of.
+>>
+>>> One use case would be to just bind this in userspace to spidev for some
+>>> prototyping/testing.
+>>>
+>>
+>> But you are not adding a spidev node here, you are attaching nothing
+>> but enabling the node anyway.
+> 
+> The idea would be that you can bind the spidev driver from userspace,
+> without having to change anything in the DT. For this to be possible the
+> SPI node must be enabled.
+> 
+> My understanding is that this should be possible, and it's the suggested
+> way to debug/prototype anything with spidev. If my understanding is not
+> correct, I agree with you and there is no point in enabling this node.
+> 
+> 
+>>>> [...]
+>>>>
+>>>>> +/* Aquila SPI_1 */
+>>>>> +&main_spi2 {
+>>>>> +	pinctrl-names = "default";
+>>>>> +	pinctrl-0 = <&pinctrl_main_spi2>, <&pinctrl_main_spi2_cs0>;
+>>>>> +	status = "disabled";
+>>>>
+>>>> This is already disabled by default in the SoC dtsi file.
+>>>
+>>> Yes, known. Is this an issue?
+>>>
+>>> This node must be disabled, no matter what is present in any included
+>>> dtsi file, it's a deliberate decision.
+>>>
+>>> This dtsi file describes a SoM, the used pins/functions are defined on
+>>> the pinout, but this node cannot be enabled unless the SoM is mated with
+>>> a carrier board that is exposing it.
+>>
+>> Same as my point above, you shouldn't enable nodes that are not used
+>> or have anything attached. The SoM only has some edge connectors so
+>> it should not be enabled at the SoM level, that we seem to agree, but
+>> the carrier board doesn't connect those lines to anything either. They
+>> just run to a pin header with nothing attached, how is that header
+>> any different than the pins on the edge of the SoM?
+> 
+> You are commenting something unrelated here, or I am not understanding
+> you.
 
---j5CacU2bPsziLjSM
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yes this was a bit of a tangent to the comment above. The point here
+was more on the pinmux, as a new carrier board might use these pins
+for something other than SPI, the pinmuxing shouldn't be done at the
+SoM dtsi level. Instead do it at the point the node is connected to
+some hardware on the carrier board in its DTS.
 
-On Tue, Nov 04, 2025 at 09:44:38AM +0100, Marek Szyprowski wrote:
-> On 03.11.2025 16:24, Mark Brown wrote:
-> > On Tue, Oct 14, 2025 at 08:49:09AM +0200, Thomas Wei=DFschuh wrote:
+> 
+> You commented that the status = "disabled" is redundant. We both agree
+> that this node needs to be disabled in the SoM dtsi, and it is already
+> like that.
+> 
+> I would prefer to keep the redundant "disabled", because I see value on
+> not having to rely on what is done on any included dtsi, where the
+> original node is defined. I see this as a common pattern in multiple
+> dts/dtsi file and is what I would prefer to have (and I do not see any
+> kind of maintenance  overhead on having it nor this being in conflict
+> with dts-coding-style.rst).
+> 
 
-Copying in Ryan Roberts who's much more likely to have some idea about
-memory management stuff for arm64 than I am (I have been poking at this
-a bit but not got anywhere notable).  Not deleting context for his
-benefit.
+We do make sure to disable nodes in base files that are incomplete and
+only enable them at the time they become complete. But if you have a
+strong preference for having this redundant status then I won't object.
 
-Given that this issue is very disruptive to userspace it's causing us to
-miss huge amounts of test coverage for -next, would it be possible to
-drop these patches until we resolve the issue?
+Andrew
 
-> >> An upcoming change will allocate the datapages dynamically instead of =
-as
-> >> part of the kernel image. Such pages can only be mapped through
-> >> 'struct page' and not through PFNs.
+> Vignesh, Nishanth, what is your expectation on this redundant
+> `status = "disabled"` property?
+> 	
+> Francesco
+> 
+> 
+> 
+>> Anyway, the right spot to enable would be when you bind a device to
+>> the SPI, which it seems you do in overlays[0], so that would be were
+>> you set status = "okay" and all the pinmux info for that SPI device
+>> and carrier board combination.
+>>
+>> [0] https://developer.toradex.com/torizon/os-customization/use-cases/device-tree-overlays-on-torizon/#spidev
 
-> > I'm seeing some boot failures on some arm64 platforms in -next which are
-> > bisecting to this patch in -next.  Unfortunately the diagnostics aren't
-> > super useful, we seem to just stop making progress in userspace with no
-> > obvious output.  One sample log from the FVP is:
-
-> >     https://lava.sirena.org.uk/scheduler/job/2036229#L1268
-
-> > which isn't super instructive.  Not all platforms seem to be affected,
-> > I've seen this on at least the Arm FVP, Orion O6 and Libretech Renegade
-> > Elite.  The diagnostics aren't very clear here but given that I'm seeing
-> > the same issue and bisect result on multiple platforms it seemed worth
-> > mentioning.  Some platforms do seem fine.
-> >
-> > We do have some other serious breakage affecting arm64 in -next which
-> > are making it hard to get a clear picture of which platforms are
-> > affected, at least the FVP and O6 are unaffected by those other issues
-> > (due to using MTE on platforms that don't have it, those platforms do
-> > have MTE).
->=20
-> I got almost the same result while bisecting on ARM 32bit Exynos-based=20
-> boards, so the issue with this patchset is not fully ARM64 specific. For=
-=20
-> some reasons it also doesn't affect all systems though. It is even=20
-> worse, because it affected only a subset of boards, but different for=20
-> each tested commit. The observed failure looks exactly the same:
->=20
-> ...
->=20
-> [=A0=A0 10.199852] devtmpfs: mounted
-> [=A0=A0 10.205013] Freeing unused kernel image (initmem) memory: 1024K
-> [=A0=A0 10.210086] Run /sbin/init as init process
->=20
-> INIT: version 2.88 booting
->=20
-> (no more messages)
->=20
-> The only difference is that bisecting on ARM32bit lead me to the next=20
-> patch (10d91dac2ea5 ("vdso/datastore: Allocate data pages dynamically")=
-=20
-> / [PATCH v4 24/35]).
->=20
-> Then I've tested it on ARM64bit (RaspberrryPi3b+ board) and got the=20
-> following panic on 6a011a228293 ("vdso/datastore: Map pages through=20
-> struct page") commit:
->=20
-> VFS: Mounted root (ext4 filesystem) on device 179:3. Trying to move old=
-=20
-> root to /initrd ... okay devtmpfs: mounted Freeing unused kernel memory:=
-=20
-> 12672K Run /sbin/init as init process Unable to handle kernel paging=20
-> request at virtual address ffffffffc20b5d48 Mem abort info: ESR =3D=20
-> 0x0000000096000006 EC =3D 0x25: DABT (current EL), IL =3D 32 bits SET =3D=
- 0,=20
-> FnV =3D 0 EA =3D 0, S1PTW =3D 0 FSC =3D 0x06: level 2 translation fault D=
-ata=20
-> abort info: ISV =3D 0, ISS =3D 0x00000006, ISS2 =3D 0x00000000 CM =3D 0, =
-WnR =3D=20
-> 0, TnD =3D 0, TagAccess =3D 0 GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, X=
-s =3D 0=20
-> swapper pgtable: 4k pages, 48-bit VAs, pgdp=3D000000000230b000=20
-> [ffffffffc20b5d48] pgd=3D0000000000000000, p4d=3D0000000003618403,=20
-> pud=3D0000000003619403, pmd=3D0000000000000000 Internal error: Oops:=20
-> 0000000096000006 [#1] SMP Modules linked in: CPU: 2 UID: 0 PID: 1 Comm:=
-=20
-> init Tainted: G W 6.18.0-rc1+ #16136 PREEMPT Tainted: [W]=3DWARN Hardware=
-=20
-> name: Raspberry Pi 3 Model B (DT) pstate: 80000005 (Nzcv daif -PAN -UAO=
-=20
-> -TCO -DIT -SSBS BTYPE=3D--) pc : vvar_fault+0x7c/0x17c lr :=20
-> vvar_fault+0x24/0x17c ... Call trace: vvar_fault+0x7c/0x17c (P)=20
-> special_mapping_fault+0x24/0xd0 __do_fault+0x3c/0x238=20
-> __handle_mm_fault+0xaa0/0x19e0 handle_mm_fault+0xcc/0x384=20
-> do_page_fault+0x1a0/0x720 do_translation_fault+0x60/0x6c=20
-> do_mem_abort+0x44/0x94 el0_da+0x54/0x230 el0t_64_sync_handler+0xd0/0xe4=
-=20
-> el0t_64_sync+0x198/0x19c Code: f2d83fe0 8b010063 d34cfc63 8b031803=20
-> (f9400461) ---[ end trace 0000000000000000 ]--- Kernel panic - not=20
-> syncing: Attempted to kill init! exitcode=3D0x0000000b SMP: stopping=20
-> secondary CPUs Kernel Offset: disabled CPU features:=20
-> 0x000000,00180000,40004000,0400421b Memory Limit: none ---[ end Kernel=20
-> panic - not syncing: Attempted to kill init! exitcode=3D0x0000000b ]---
->=20
-> Reverting "clocksource: Remove ARCH_CLOCKSOURCE_DATA", "vdso/datastore:=
-=20
-> Allocate data pages dynamically" and "vdso/datastore: Map pages through=
-=20
-> struct page" on top of linux-next fixes booting on all tested boards.
-
---j5CacU2bPsziLjSM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkMooIACgkQJNaLcl1U
-h9Dw7AgAg9GsCOBRN0q/qDr5G2z91i8kYc7YU3DdBVh5X2Y33e7iAavfRYtIa4CH
-9JV1CKNyeqLhro3/zvRfWBzcwiZ/VPI7riN6BjNUieQz5HMu6gXnUzx1yOUdA/yS
-fQKuGtBMlBpw9QNDjlWLSqtZVpoh5fbkIDESy9FeX/OoEY8UoPQhE4OOfs0aLZFa
-4BoLnWHDTboRHK8i8/C4/0rwfsahUjaBmud4ues9QOd/Ry9S4LUgiKuBEY80Lb/O
-vvkKrkg2oJDSrSlTGr2mAvK00J/P+YPOu4AFe6QAd1ws1YiIBwwKbYdFvccYPIDT
-BAJJrme8pKXneraMH7ubTVy5zgWD0Q==
-=jdSz
------END PGP SIGNATURE-----
-
---j5CacU2bPsziLjSM--
 
