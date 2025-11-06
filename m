@@ -4,93 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CC9CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95FACCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOfmdTRGSdQNFoZmWDuk2vT3PGkkDHv6vLd11s49CqI=; b=CAaPja6H5doNOLgPMZNTMZ7qMr
-	QFmPHfLyHWUg1D9c+MDWOGO9vqeMSWXT3NFvu1amWfzXycW+jTgx7FGP+MHJGs0TJ2y+6yTJ3XDyG
-	ibRXpEKXuprJ/sgE7csR3Q/S8y1ixahH9C1vd3sHzPjogLyci/3ANjdJq+onOFFfwaLu/DAr1LJRb
-	KvnQ32r7Opn3iptFfNVfXA4etcDl3aIiKwSPUrDTOyLGPaU2pJfMGBWJlw9ElQ3FPEIA7V+/N5q06
-	gqufPcP3U/d5Gjqtr93UwdlLfwcZak4DoUxNrex2A79li249SBwtXdZCvOfCbprsoQjCFk2KIpEaO
-	fqCuwdqA==;
+	bh=MVdSTjzPPKZ2l7IW0u0zSr5SxYY9yMb26AdkoDhOwNg=; b=KVwaFeU/GC/lPxYoMsvfApu68x
+	OEG2IUSX2YrnBnSDq5HMGes5VxVDDGGdRwCLSkTSw2g3TDfrbB0nkWFMVoJU0a3VT8rRkraG+ae5n
+	SbqJETqvtRR9jQQuHnU6GVi/bfBDjFIA+KHbBGRHYanbteoE/PlnkFa/GO/BZc+qLshLsSfW8o8nx
+	mBrOffVfMpj8Yu32gj6jUvTaY8J0gAB5WPlVpUnHVvzME6kgCxZtxnTCJM5sqXAw6IRnPlfYzgyx6
+	zQR80qjfxk0s/OPZ44M+XuOakwruQZPNIEXMK9USAYCr79bHzRX12zs6cKtxql9kMm/AWh+tVRCzn
+	C/Xj8/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwpc-0000000FFVM-0Boo;
-	Thu, 06 Nov 2025 10:03:04 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vGwpm-0000000FFoS-2sVh;
+	Thu, 06 Nov 2025 10:03:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwp9-0000000FEqe-1pQv
+	id 1vGwpZ-0000000FFNT-0dHR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:02:38 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762423349;
+	Thu, 06 Nov 2025 10:03:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762423379;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=AOfmdTRGSdQNFoZmWDuk2vT3PGkkDHv6vLd11s49CqI=;
-	b=YVfxbhABMMe5Eoi8h8PJQ1SvlG8E6j9eEdquqsU/gVz/XaRO/KreBjCuK8Jpy+WLoNLF3N
-	W262JhhC18oM4KVDvrho4PCCMocwBINB+KjwBfiSoZkJ+IXPbeEtK5FRxNTCTV8kqrNM1+
-	ZG9xG9iguR0/v+YwqC+4YIoLOegc6jD0O0IY0qwII3xJebn5OH8kMjT5tLYPN5DA49247z
-	wvFPFWwXQscRrfKmamm8ANozccvZgZaTIX1mE79v8vkJHf7xTS/MFkShJ+/y08oqxjYiWq
-	IvSZbcV6GsiyoEROxoTspZ2FK4kzdUtISptjx2h3fPlNuERvRSpUZ6EjMnY5vA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762423349;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AOfmdTRGSdQNFoZmWDuk2vT3PGkkDHv6vLd11s49CqI=;
-	b=JIko1HoD1Ug/YvLja133vAbDjhXuSuFsr8gqmqLaV8VeNlbmzav46ZVv4azeqY49JhFacZ
-	qNKyjC9mxmOjK0DQ==
-Date: Thu, 06 Nov 2025 11:02:23 +0100
-Subject: [PATCH v5 30/34] sparc64: vdso: Switch to the generic vDSO library
+	bh=MVdSTjzPPKZ2l7IW0u0zSr5SxYY9yMb26AdkoDhOwNg=;
+	b=JWxdw8LGYTzH8S+ZZj50fQEgxDtnxvrOwJl+xr/XCxsZWBvGt2cQ674anbYp0R6RWbMm4P
+	Oim9E9aMTsJpdrWD8/0AZwvypTkaArfR4KUcdOQTRjcFaOpdFcmSgVNVNOXOIHeavypMHf
+	XUe2KT6gIygOpYJcrIqyD0lHyxdz/14=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-74-YEonhYx5OQOh-iR7HjVQdw-1; Thu, 06 Nov 2025 05:02:38 -0500
+X-MC-Unique: YEonhYx5OQOh-iR7HjVQdw-1
+X-Mimecast-MFC-AGG-ID: YEonhYx5OQOh-iR7HjVQdw_1762423358
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-429c8d07874so421998f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 02:02:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762423357; x=1763028157;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tvrt5C8X1gp1kp6b+KY8cbLTeVcvbbT6G6kNQJkblK8=;
+        b=jTNCcumYFrHY7BK4PIQxaaEbmP/3jy9q1mDgamRWI8FDxKN+rbq21T3KKzjuWGwgj/
+         quNSRyzYoLnsCUbWdhUH944J43uJYpnwXhsELIPnzhaQ9nwNYtx1QKMse5b/U++tSN90
+         lF2PkPCbd1yfp5djd5Nlr8ayyugKrKwxnT8TC4lov+OqGkl1J2jCqSkQleoUU3f52yPc
+         tid17rGZcEV492cOhTi88XvZ3vVk8+6I9nmhkIxcchTqbvXyTKQEg++87gQOiu3MkJjd
+         mAZDDz4j4MCeBpwyrVY+2yyZviF8XUBoF+pVeK7GoQk3/nL1YOPFoh7dLAIW2WK4Yxv7
+         kHfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXHb0fjYhKWKgM3T4QQzBghkfKL4dkO9X8vPyzPHlV7IrVu+pFMQop+NN1Wq9AOU2gpt4KyaHLq1tvknCq8tYxi@lists.infradead.org
+X-Gm-Message-State: AOJu0YylQtI2xoTgcSf4H3QrMXmyAjvTLutYO8QXrXPL1SwplDOb6GoT
+	Ly3edV2gsyQNlS8mgseYbFFwSSPD/mkFoRYn5WpMsddsYwts+JtjWM1u6UWT6vekDqA0wIi1Mr5
+	eKagVwRdfSuOa5mFVgU12OU0HCyLCK1yVuK2w4W56cpuXga4virVmS1nQSQ2prfOB7A5hIkMogm
+	iI
+X-Gm-Gg: ASbGncsPDf3+9KY6HGMnYWDNxEUlMuchrLj/VVUC8ROGUMs6Aa9aNubG3V2x5dRbNvk
+	bT20JwntYii5UXuoy1iV1L9K9Bzbsqqs0gn6iWm+EAAwQUq1PJLcsHzoA2Q+sBykrUBRrNVoe3m
+	Ny3vykz87Y1Tfvh1VcCiw+0BbqAJQtryUsq1Yn36HnSFjeV7VYZcrHHSzObS6VKB0Oe5CAtNSR2
+	56zs+MGFIaaJ0vzTy3Vswg5Aw1edPo/d4iXdhakFeTUusAB7aUegrnQjFSePSDTze4XqI0Tj46+
+	6BXSO+2pGfYA9TCUI8MUX8L48vKQsMP98m72FB+h8qR9Iefbtzg8NojvBRAjFpjuYwFkzr7Zd/W
+	WBsc6sJzx42rw6KNM0TgP0IZ1zjhwnoaiF087ftqtJ8sPXgOcBfi4oUfycmXO
+X-Received: by 2002:a05:6000:2007:b0:429:bd09:e7ce with SMTP id ffacd0b85a97d-429e32e3751mr5572219f8f.18.1762423357511;
+        Thu, 06 Nov 2025 02:02:37 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFFeAmOLmzeYzGPgujTP1e064ll50Q3Ih/Pj2s9y519WV4ZUw6Tz0GJFNvPvZOTYQG+myOLaw==
+X-Received: by 2002:a05:6000:2007:b0:429:bd09:e7ce with SMTP id ffacd0b85a97d-429e32e3751mr5572131f8f.18.1762423356748;
+        Thu, 06 Nov 2025 02:02:36 -0800 (PST)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429eb477203sm4112751f8f.29.2025.11.06.02.02.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Nov 2025 02:02:36 -0800 (PST)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: Phil Auld <pauld@redhat.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
+ Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Josh Poimboeuf
+ <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann
+ <arnd@arndb.de>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
+ <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
+ <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, "David S.
+ Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+In-Reply-To: <aQuNdOEmPYkI03my@localhost.localdomain>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aQDuY3rgOK-L8D04@localhost.localdomain>
+ <xhsmhzf9aov51.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQJLpSYz3jdazzdb@localhost.localdomain>
+ <xhsmh8qgk5txe.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <aQuNdOEmPYkI03my@localhost.localdomain>
+Date: Thu, 06 Nov 2025 11:02:34 +0100
+Message-ID: <xhsmh5xbn5vid.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-30-97ff2b6542f7@linutronix.de>
-References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
-In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
- "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>
-Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
- linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=24732;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=JGEdDNQqI96lDS16VanvUj5KipZ/qsAjsCRSdQmV+1I=;
- b=btLuMT1h1F0PpovVibLG2ujhezruCESQwRKxt/0laoS0L+ZEiarI/eY3c1/LcUw/vUPwZX884
- fTOeaOUXzkWAHF5BtIhG56ewusJ8dyUxAxiW5QFLF01GJeNYg/aJQ4m
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6K249T5fS9SlyLPfKMPmMnaCLMbxWMRXt7GvLuJVXuQ_1762423358
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020236_330570_29A0C924 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20251106_020301_995998_70748839 
+X-CRM114-Status: GOOD (  29.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,794 +138,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic vDSO provides a lot common functionality shared between
-different architectures. SPARC is the last architecture not using it,
-preventing some necessary code cleanup.
+On 05/11/25 18:46, Frederic Weisbecker wrote:
+> Le Wed, Nov 05, 2025 at 05:24:29PM +0100, Valentin Schneider a =C3=A9crit=
+ :
+>> On 29/10/25 18:15, Frederic Weisbecker wrote:
+>> > Le Wed, Oct 29, 2025 at 11:32:58AM +0100, Valentin Schneider a =C3=A9c=
+rit :
+>> >> I need to have a think about that one; one pain point I see is the co=
+ntext
+>> >> tracking work has to be NMI safe since e.g. an NMI can take us out of
+>> >> userspace. Another is that NOHZ-full CPUs need to be special cased in=
+ the
+>> >> stop machine queueing / completion.
+>> >>
+>> >> /me goes fetch a new notebook
+>> >
+>> > Something like the below (untested) ?
+>> >
+>>
+>> Some minor nits below but otherwise that looks promising.
+>>
+>> One problem I'm having however is reasoning about the danger zone; what
+>> forbidden actions could a NO_HZ_FULL CPU take when entering the kernel
+>> while take_cpu_down() is happening?
+>>
+>> I'm actually not familiar with why we actually use stop_machine() for CP=
+U
+>> hotplug; I see things like CPUHP_AP_SMPCFD_DYING::smpcfd_dying_cpu() or
+>> CPUHP_AP_TICK_DYING::tick_cpu_dying() expect other CPUs to be patiently
+>> spinning in multi_cpu_stop(), and I *think* nothing in the entry code up=
+ to
+>> context_tracking entry would disrupt that, but it's not a small thing to
+>> reason about.
+>>
+>> AFAICT we need to reason about every .teardown callback from
+>> CPUHP_TEARDOWN_CPU to CPUHP_AP_OFFLINE and their explicit & implicit
+>> dependencies on other CPUs being STOP'd.
+>
+> You're raising a very interesting question. The initial point of stop_mac=
+hine()
+> is to synchronize this:
+>
+>     set_cpu_online(cpu, 0)
+>     migrate timers;
+>     migrate hrtimers;
+>     flush IPIs;
+>     etc...
+>
+> against this pattern:
+>
+>     preempt_disable()
+>     if (cpu_online(cpu))
+>         queue something; // could be timer, IPI, etc...
+>     preempt_enable()
+>
+> There have been attempts:
+>
+>       https://lore.kernel.org/all/20241218171531.2217275-1-costa.shul@red=
+hat.com/
+>
+> And really it should be fine to just do:
+>
+>     set_cpu_online(cpu, 0)
+>     synchronize_rcu()
+>     migrate / flush stuff
+>
 
-Make use of the generic infrastructure.
+That's what I was thinking as well, at the very least for the
+cpu_online_mask bit.
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-Tested-by: Andreas Larsson <andreas@gaisler.com>
-Reviewed-by: Andreas Larsson <andreas@gaisler.com>
-Acked-by: Andreas Larsson <andreas@gaisler.com>
----
- arch/sparc/Kconfig                         |   3 +-
- arch/sparc/include/asm/clocksource.h       |   9 --
- arch/sparc/include/asm/vdso/clocksource.h  |  10 ++
- arch/sparc/include/asm/vdso/gettimeofday.h |  58 ++++++++--
- arch/sparc/include/asm/vdso/vsyscall.h     |  10 ++
- arch/sparc/include/asm/vvar.h              |  75 -------------
- arch/sparc/kernel/Makefile                 |   1 -
- arch/sparc/kernel/time_64.c                |   6 +-
- arch/sparc/kernel/vdso.c                   |  69 ------------
- arch/sparc/vdso/Makefile                   |   6 +-
- arch/sparc/vdso/vclock_gettime.c           | 169 ++++-------------------------
- arch/sparc/vdso/vdso-layout.lds.S          |   7 +-
- arch/sparc/vdso/vma.c                      |  70 +++---------
- 13 files changed, 118 insertions(+), 375 deletions(-)
+> Probably we should try that instead of the busy loop I proposed
+> which only papers over the problem.
+>
+> Of course there are other assumptions. For example the tick
+> timekeeper is migrated easily knowing that all online CPUs are
+> not idle (cf: tick_cpu_dying()). So I expect a few traps, with RCU
+> for example and indeed all these hotplug callbacks must be audited
+> one by one.
+>
+> I'm not entirely unfamiliar with many of them. Let me see what I can do..=
+.
+>
 
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index a630d373e6453c745ab8bf58fc5622cf0edaf4c9..404b4c790eac0859e2d64963f90fbc62dbbab3e3 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -102,7 +102,6 @@ config SPARC64
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_USE_QUEUED_SPINLOCKS
- 	select GENERIC_TIME_VSYSCALL
--	select ARCH_CLOCKSOURCE_DATA
- 	select ARCH_HAS_PTE_SPECIAL
- 	select PCI_DOMAINS if PCI
- 	select ARCH_HAS_GIGANTIC_PAGE
-@@ -112,6 +111,8 @@ config SPARC64
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	select ARCH_SUPPORTS_SCHED_SMT if SMP
- 	select ARCH_SUPPORTS_SCHED_MC  if SMP
-+	select HAVE_GENERIC_VDSO
-+	select GENERIC_GETTIMEOFDAY
- 
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
-diff --git a/arch/sparc/include/asm/clocksource.h b/arch/sparc/include/asm/clocksource.h
-index d63ef224befebd68637d0be5d19c5cbf657d590d..68303ad26eb26e99180bb71789f1d6fafe4a2225 100644
---- a/arch/sparc/include/asm/clocksource.h
-+++ b/arch/sparc/include/asm/clocksource.h
-@@ -5,13 +5,4 @@
- #ifndef _ASM_SPARC_CLOCKSOURCE_H
- #define _ASM_SPARC_CLOCKSOURCE_H
- 
--/* VDSO clocksources */
--#define VCLOCK_NONE   0  /* Nothing userspace can do. */
--#define VCLOCK_TICK   1  /* Use %tick.  */
--#define VCLOCK_STICK  2  /* Use %stick. */
--
--struct arch_clocksource_data {
--	int vclock_mode;
--};
--
- #endif /* _ASM_SPARC_CLOCKSOURCE_H */
-diff --git a/arch/sparc/include/asm/vdso/clocksource.h b/arch/sparc/include/asm/vdso/clocksource.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..007aa8ceaf522ebc11b05dd46dfcdf72a328822f
---- /dev/null
-+++ b/arch/sparc/include/asm/vdso/clocksource.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_VDSO_CLOCKSOURCE_H
-+#define __ASM_VDSO_CLOCKSOURCE_H
-+
-+/* VDSO clocksources */
-+#define VDSO_ARCH_CLOCKMODES	\
-+	VDSO_CLOCKMODE_TICK,	\
-+	VDSO_CLOCKMODE_STICK
-+
-+#endif /* __ASM_VDSO_CLOCKSOURCE_H */
-diff --git a/arch/sparc/include/asm/vdso/gettimeofday.h b/arch/sparc/include/asm/vdso/gettimeofday.h
-index 429dc080568f59145cc0bc696060adeb60ac177a..a35875fba45470ba961a7df3ae52bc17d2a4a4a0 100644
---- a/arch/sparc/include/asm/vdso/gettimeofday.h
-+++ b/arch/sparc/include/asm/vdso/gettimeofday.h
-@@ -9,15 +9,14 @@
- #include <uapi/linux/time.h>
- #include <uapi/linux/unistd.h>
- 
-+#include <vdso/align.h>
-+#include <vdso/clocksource.h>
-+#include <vdso/datapage.h>
-+#include <vdso/page.h>
-+
- #include <linux/types.h>
--#include <asm/vvar.h>
- 
- #ifdef	CONFIG_SPARC64
--static __always_inline u64 vdso_shift_ns(u64 val, u32 amt)
--{
--	return val >> amt;
--}
--
- static __always_inline u64 vread_tick(void)
- {
- 	u64	ret;
-@@ -48,6 +47,7 @@ static __always_inline u64 vdso_shift_ns(u64 val, u32 amt)
- 			     : "g1");
- 	return ret;
- }
-+#define vdso_shift_ns vdso_shift_ns
- 
- static __always_inline u64 vread_tick(void)
- {
-@@ -70,9 +70,9 @@ static __always_inline u64 vread_tick_stick(void)
- }
- #endif
- 
--static __always_inline u64 __arch_get_hw_counter(struct vvar_data *vvar)
-+static __always_inline u64 __arch_get_hw_counter(s32 clock_mode, const struct vdso_time_data *vd)
- {
--	if (likely(vvar->vclock_mode == VCLOCK_STICK))
-+	if (likely(clock_mode == VDSO_CLOCKMODE_STICK))
- 		return vread_tick_stick();
- 	else
- 		return vread_tick();
-@@ -102,7 +102,20 @@ static __always_inline u64 __arch_get_hw_counter(struct vvar_data *vvar)
- 	"cc", "memory"
- 
- static __always_inline
--long clock_gettime_fallback(clockid_t clock, struct __kernel_old_timespec *ts)
-+long clock_gettime_fallback(clockid_t clock, struct __kernel_timespec *ts)
-+{
-+	register long num __asm__("g1") = __NR_clock_gettime;
-+	register long o0 __asm__("o0") = clock;
-+	register long o1 __asm__("o1") = (long) ts;
-+
-+	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
-+			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
-+	return o0;
-+}
-+
-+#ifndef CONFIG_SPARC64
-+static __always_inline
-+long clock_gettime32_fallback(clockid_t clock, struct old_timespec32 *ts)
- {
- 	register long num __asm__("g1") = __NR_clock_gettime;
- 	register long o0 __asm__("o0") = clock;
-@@ -112,6 +125,7 @@ long clock_gettime_fallback(clockid_t clock, struct __kernel_old_timespec *ts)
- 			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
- 	return o0;
- }
-+#endif
- 
- static __always_inline
- long gettimeofday_fallback(struct __kernel_old_timeval *tv, struct timezone *tz)
-@@ -125,4 +139,30 @@ long gettimeofday_fallback(struct __kernel_old_timeval *tv, struct timezone *tz)
- 	return o0;
- }
- 
-+static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
-+{
-+	unsigned long ret;
-+
-+	/*
-+	 * SPARC does not support native PC-relative code relocations.
-+	 * Calculate the address manually, works for 32 and 64 bit code.
-+	 */
-+	__asm__ __volatile__(
-+		"1:\n"
-+		"call 3f\n"                     // Jump over the embedded data and set up %o7
-+		"nop\n"                         // Delay slot
-+		"2:\n"
-+		".word vdso_u_time_data - .\n"  // Embedded offset to external symbol
-+		"3:\n"
-+		"add %%o7, 2b - 1b, %%o7\n"     // Point %o7 to the embedded offset
-+		"ldsw [%%o7], %0\n"             // Load the offset
-+		"add %0, %%o7, %0\n"            // Calculate the absolute address
-+		: "=r" (ret)
-+		:
-+		: "o7");
-+
-+	return (const struct vdso_time_data *)ret;
-+}
-+#define __arch_get_vdso_u_time_data __arch_get_vdso_u_time_data
-+
- #endif /* _ASM_SPARC_VDSO_GETTIMEOFDAY_H */
-diff --git a/arch/sparc/include/asm/vdso/vsyscall.h b/arch/sparc/include/asm/vdso/vsyscall.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..8bfe703fedc56f9334773b26b5e1ecec42781378
---- /dev/null
-+++ b/arch/sparc/include/asm/vdso/vsyscall.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _ASM_SPARC_VDSO_VSYSCALL_H
-+#define _ASM_SPARC_VDSO_VSYSCALL_H
-+
-+#define __VDSO_PAGES 4
-+
-+#include <asm-generic/vdso/vsyscall.h>
-+
-+#endif /* _ASM_SPARC_VDSO_VSYSCALL_H */
-diff --git a/arch/sparc/include/asm/vvar.h b/arch/sparc/include/asm/vvar.h
-deleted file mode 100644
-index 6eaf5cfcaae1319808e63884d624899895d9b6a5..0000000000000000000000000000000000000000
---- a/arch/sparc/include/asm/vvar.h
-+++ /dev/null
-@@ -1,75 +0,0 @@
--/*
-- * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
-- */
--
--#ifndef _ASM_SPARC_VVAR_DATA_H
--#define _ASM_SPARC_VVAR_DATA_H
--
--#include <asm/clocksource.h>
--#include <asm/processor.h>
--#include <asm/barrier.h>
--#include <linux/time.h>
--#include <linux/types.h>
--
--struct vvar_data {
--	unsigned int seq;
--
--	int vclock_mode;
--	struct { /* extract of a clocksource struct */
--		u64	cycle_last;
--		u64	mask;
--		int	mult;
--		int	shift;
--	} clock;
--	/* open coded 'struct timespec' */
--	u64		wall_time_sec;
--	u64		wall_time_snsec;
--	u64		monotonic_time_snsec;
--	u64		monotonic_time_sec;
--	u64		monotonic_time_coarse_sec;
--	u64		monotonic_time_coarse_nsec;
--	u64		wall_time_coarse_sec;
--	u64		wall_time_coarse_nsec;
--
--	int		tz_minuteswest;
--	int		tz_dsttime;
--};
--
--extern struct vvar_data *vvar_data;
--extern int vdso_fix_stick;
--
--static inline unsigned int vvar_read_begin(const struct vvar_data *s)
--{
--	unsigned int ret;
--
--repeat:
--	ret = READ_ONCE(s->seq);
--	if (unlikely(ret & 1)) {
--		cpu_relax();
--		goto repeat;
--	}
--	smp_rmb(); /* Finish all reads before we return seq */
--	return ret;
--}
--
--static inline int vvar_read_retry(const struct vvar_data *s,
--					unsigned int start)
--{
--	smp_rmb(); /* Finish all reads before checking the value of seq */
--	return unlikely(s->seq != start);
--}
--
--static inline void vvar_write_begin(struct vvar_data *s)
--{
--	++s->seq;
--	smp_wmb(); /* Makes sure that increment of seq is reflected */
--}
--
--static inline void vvar_write_end(struct vvar_data *s)
--{
--	smp_wmb(); /* Makes the value of seq current before we increment */
--	++s->seq;
--}
--
--
--#endif /* _ASM_SPARC_VVAR_DATA_H */
-diff --git a/arch/sparc/kernel/Makefile b/arch/sparc/kernel/Makefile
-index 22170d4f8e06023eb9de917e91e94254afd9a6ae..497b5714fa8ff52c4c048f88c167cdc39ec35b51 100644
---- a/arch/sparc/kernel/Makefile
-+++ b/arch/sparc/kernel/Makefile
-@@ -41,7 +41,6 @@ obj-$(CONFIG_SPARC32)   += systbls_32.o
- obj-y                   += time_$(BITS).o
- obj-$(CONFIG_SPARC32)   += windows.o
- obj-y                   += cpu.o
--obj-$(CONFIG_SPARC64)	+= vdso.o
- obj-$(CONFIG_SPARC32)   += devices.o
- obj-y                   += ptrace_$(BITS).o
- obj-y                   += unaligned_$(BITS).o
-diff --git a/arch/sparc/kernel/time_64.c b/arch/sparc/kernel/time_64.c
-index b32f27f929d1ab49a5aa05cde60d3b88e90928ba..87b267043ccd21b9397e316b017f0ae3ab8585c6 100644
---- a/arch/sparc/kernel/time_64.c
-+++ b/arch/sparc/kernel/time_64.c
-@@ -838,14 +838,14 @@ void __init time_init_early(void)
- 	if (tlb_type == spitfire) {
- 		if (is_hummingbird()) {
- 			init_tick_ops(&hbtick_operations);
--			clocksource_tick.archdata.vclock_mode = VCLOCK_NONE;
-+			clocksource_tick.vdso_clock_mode = VDSO_CLOCKMODE_NONE;
- 		} else {
- 			init_tick_ops(&tick_operations);
--			clocksource_tick.archdata.vclock_mode = VCLOCK_TICK;
-+			clocksource_tick.vdso_clock_mode = VDSO_CLOCKMODE_TICK;
- 		}
- 	} else {
- 		init_tick_ops(&stick_operations);
--		clocksource_tick.archdata.vclock_mode = VCLOCK_STICK;
-+		clocksource_tick.vdso_clock_mode = VDSO_CLOCKMODE_STICK;
- 	}
- }
- 
-diff --git a/arch/sparc/kernel/vdso.c b/arch/sparc/kernel/vdso.c
-deleted file mode 100644
-index 0e27437eb97bff16aba53b1634c7e9fa7db20b46..0000000000000000000000000000000000000000
---- a/arch/sparc/kernel/vdso.c
-+++ /dev/null
-@@ -1,69 +0,0 @@
--/*
-- *  Copyright (C) 2001 Andrea Arcangeli <andrea@suse.de> SuSE
-- *  Copyright 2003 Andi Kleen, SuSE Labs.
-- *
-- *  Thanks to hpa@transmeta.com for some useful hint.
-- *  Special thanks to Ingo Molnar for his early experience with
-- *  a different vsyscall implementation for Linux/IA32 and for the name.
-- */
--
--#include <linux/time.h>
--#include <linux/timekeeper_internal.h>
--
--#include <asm/vvar.h>
--
--void update_vsyscall_tz(void)
--{
--	if (unlikely(vvar_data == NULL))
--		return;
--
--	vvar_data->tz_minuteswest = sys_tz.tz_minuteswest;
--	vvar_data->tz_dsttime = sys_tz.tz_dsttime;
--}
--
--void update_vsyscall(struct timekeeper *tk)
--{
--	struct vvar_data *vdata = vvar_data;
--
--	if (unlikely(vdata == NULL))
--		return;
--
--	vvar_write_begin(vdata);
--	vdata->vclock_mode = tk->tkr_mono.clock->archdata.vclock_mode;
--	vdata->clock.cycle_last = tk->tkr_mono.cycle_last;
--	vdata->clock.mask = tk->tkr_mono.mask;
--	vdata->clock.mult = tk->tkr_mono.mult;
--	vdata->clock.shift = tk->tkr_mono.shift;
--
--	vdata->wall_time_sec = tk->xtime_sec;
--	vdata->wall_time_snsec = tk->tkr_mono.xtime_nsec;
--
--	vdata->monotonic_time_sec = tk->xtime_sec +
--				    tk->wall_to_monotonic.tv_sec;
--	vdata->monotonic_time_snsec = tk->tkr_mono.xtime_nsec +
--				      (tk->wall_to_monotonic.tv_nsec <<
--				       tk->tkr_mono.shift);
--
--	while (vdata->monotonic_time_snsec >=
--	       (((u64)NSEC_PER_SEC) << tk->tkr_mono.shift)) {
--		vdata->monotonic_time_snsec -=
--				((u64)NSEC_PER_SEC) << tk->tkr_mono.shift;
--		vdata->monotonic_time_sec++;
--	}
--
--	vdata->wall_time_coarse_sec = tk->xtime_sec;
--	vdata->wall_time_coarse_nsec =
--			(long)(tk->tkr_mono.xtime_nsec >> tk->tkr_mono.shift);
--
--	vdata->monotonic_time_coarse_sec =
--		vdata->wall_time_coarse_sec + tk->wall_to_monotonic.tv_sec;
--	vdata->monotonic_time_coarse_nsec =
--		vdata->wall_time_coarse_nsec + tk->wall_to_monotonic.tv_nsec;
--
--	while (vdata->monotonic_time_coarse_nsec >= NSEC_PER_SEC) {
--		vdata->monotonic_time_coarse_nsec -= NSEC_PER_SEC;
--		vdata->monotonic_time_coarse_sec++;
--	}
--
--	vvar_write_end(vdata);
--}
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index 2e911ccc9db71b2888ffc432d75ac8815ecce0f7..1822676b4ebdc2dc55ea1a9fb83be0e25ea2cfef 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -3,6 +3,9 @@
- # Building vDSO images for sparc.
- #
- 
-+# Include the generic Makefile to check the built vDSO:
-+include $(srctree)/lib/vdso/Makefile.include
-+
- # files to link into the vdso
- vobjs-y := vdso-note.o vclock_gettime.o
- 
-@@ -105,6 +108,7 @@ $(obj)/vdso32.so.dbg: FORCE \
- quiet_cmd_vdso = VDSO    $@
-       cmd_vdso = $(LD) -nostdlib -o $@ \
- 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
--		       -T $(filter %.lds,$^) $(filter %.o,$^)
-+		       -T $(filter %.lds,$^) $(filter %.o,$^); \
-+		       $(cmd_vdso_check)
- 
- VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined -z noexecstack
-diff --git a/arch/sparc/vdso/vclock_gettime.c b/arch/sparc/vdso/vclock_gettime.c
-index e768c0b84b3420deab2f74335892d40a5b515ee7..093a7ff4dafce1cf0af5af4c303bef86e159858a 100644
---- a/arch/sparc/vdso/vclock_gettime.c
-+++ b/arch/sparc/vdso/vclock_gettime.c
-@@ -12,169 +12,40 @@
-  * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
-  */
- 
--#include <linux/kernel.h>
--#include <linux/string.h>
--#include <asm/io.h>
--#include <asm/timex.h>
--#include <asm/clocksource.h>
--#include <asm/vdso/gettimeofday.h>
--#include <asm/vvar.h>
-+#include <linux/compiler.h>
-+#include <linux/types.h>
- 
--/*
-- * Compute the vvar page's address in the process address space, and return it
-- * as a pointer to the vvar_data.
-- */
--notrace static __always_inline struct vvar_data *get_vvar_data(void)
--{
--	unsigned long ret;
-+#include <vdso/gettime.h>
- 
--	/*
--	 * vdso data page is the first vDSO page so grab the PC
--	 * and move up a page to get to the data page.
--	 */
--	__asm__("rd %%pc, %0" : "=r" (ret));
--	ret &= ~(8192 - 1);
--	ret -= 8192;
-+#include <asm/vdso/gettimeofday.h>
- 
--	return (struct vvar_data *) ret;
--}
-+#include "../../../../lib/vdso/gettimeofday.c"
- 
--notrace static __always_inline u64 vgetsns(struct vvar_data *vvar)
-+int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
- {
--	u64 v;
--	u64 cycles = __arch_get_hw_counter(vvar);
--
--	v = (cycles - vvar->clock.cycle_last) & vvar->clock.mask;
--	return v * vvar->clock.mult;
-+	return __cvdso_gettimeofday(tv, tz);
- }
- 
--notrace static __always_inline int do_realtime(struct vvar_data *vvar,
--					       struct __kernel_old_timespec *ts)
--{
--	unsigned long seq;
--	u64 ns;
--
--	do {
--		seq = vvar_read_begin(vvar);
--		ts->tv_sec = vvar->wall_time_sec;
--		ns = vvar->wall_time_snsec;
--		ns += vgetsns(vvar);
--		ns = vdso_shift_ns(ns, vvar->clock.shift);
--	} while (unlikely(vvar_read_retry(vvar, seq)));
--
--	ts->tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
--	ts->tv_nsec = ns;
-+int gettimeofday(struct __kernel_old_timeval *, struct timezone *)
-+	__weak __alias(__vdso_gettimeofday);
- 
--	return 0;
--}
--
--notrace static __always_inline int do_monotonic(struct vvar_data *vvar,
--						struct __kernel_old_timespec *ts)
-+#if defined(CONFIG_SPARC64)
-+int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
- {
--	unsigned long seq;
--	u64 ns;
--
--	do {
--		seq = vvar_read_begin(vvar);
--		ts->tv_sec = vvar->monotonic_time_sec;
--		ns = vvar->monotonic_time_snsec;
--		ns += vgetsns(vvar);
--		ns = vdso_shift_ns(ns, vvar->clock.shift);
--	} while (unlikely(vvar_read_retry(vvar, seq)));
--
--	ts->tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
--	ts->tv_nsec = ns;
--
--	return 0;
--}
--
--notrace static int do_realtime_coarse(struct vvar_data *vvar,
--				      struct __kernel_old_timespec *ts)
--{
--	unsigned long seq;
--
--	do {
--		seq = vvar_read_begin(vvar);
--		ts->tv_sec = vvar->wall_time_coarse_sec;
--		ts->tv_nsec = vvar->wall_time_coarse_nsec;
--	} while (unlikely(vvar_read_retry(vvar, seq)));
--	return 0;
-+	return __cvdso_clock_gettime(clock, ts);
- }
- 
--notrace static int do_monotonic_coarse(struct vvar_data *vvar,
--				       struct __kernel_old_timespec *ts)
--{
--	unsigned long seq;
--
--	do {
--		seq = vvar_read_begin(vvar);
--		ts->tv_sec = vvar->monotonic_time_coarse_sec;
--		ts->tv_nsec = vvar->monotonic_time_coarse_nsec;
--	} while (unlikely(vvar_read_retry(vvar, seq)));
-+int clock_gettime(clockid_t, struct __kernel_timespec *)
-+	__weak __alias(__vdso_clock_gettime);
- 
--	return 0;
--}
-+#else
- 
--notrace int
--__vdso_clock_gettime(clockid_t clock, struct __kernel_old_timespec *ts)
-+int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts)
- {
--	struct vvar_data *vvd = get_vvar_data();
--
--	switch (clock) {
--	case CLOCK_REALTIME:
--		if (unlikely(vvd->vclock_mode == VCLOCK_NONE))
--			break;
--		return do_realtime(vvd, ts);
--	case CLOCK_MONOTONIC:
--		if (unlikely(vvd->vclock_mode == VCLOCK_NONE))
--			break;
--		return do_monotonic(vvd, ts);
--	case CLOCK_REALTIME_COARSE:
--		return do_realtime_coarse(vvd, ts);
--	case CLOCK_MONOTONIC_COARSE:
--		return do_monotonic_coarse(vvd, ts);
--	}
--	/*
--	 * Unknown clock ID ? Fall back to the syscall.
--	 */
--	return clock_gettime_fallback(clock, ts);
-+	return __cvdso_clock_gettime32(clock, ts);
- }
--int
--clock_gettime(clockid_t, struct __kernel_old_timespec *)
--	__attribute__((weak, alias("__vdso_clock_gettime")));
- 
--notrace int
--__vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
--{
--	struct vvar_data *vvd = get_vvar_data();
-+int clock_gettime(clockid_t, struct old_timespec32 *)
-+	__weak __alias(__vdso_clock_gettime);
- 
--	if (likely(vvd->vclock_mode != VCLOCK_NONE)) {
--		if (likely(tv != NULL)) {
--			union tstv_t {
--				struct __kernel_old_timespec ts;
--				struct __kernel_old_timeval tv;
--			} *tstv = (union tstv_t *) tv;
--			do_realtime(vvd, &tstv->ts);
--			/*
--			 * Assign before dividing to ensure that the division is
--			 * done in the type of tv_usec, not tv_nsec.
--			 *
--			 * There cannot be > 1 billion usec in a second:
--			 * do_realtime() has already distributed such overflow
--			 * into tv_sec.  So we can assign it to an int safely.
--			 */
--			tstv->tv.tv_usec = tstv->ts.tv_nsec;
--			tstv->tv.tv_usec /= 1000;
--		}
--		if (unlikely(tz != NULL)) {
--			/* Avoid memcpy. Some old compilers fail to inline it */
--			tz->tz_minuteswest = vvd->tz_minuteswest;
--			tz->tz_dsttime = vvd->tz_dsttime;
--		}
--		return 0;
--	}
--	return gettimeofday_fallback(tv, tz);
--}
--int
--gettimeofday(struct __kernel_old_timeval *, struct timezone *)
--	__attribute__((weak, alias("__vdso_gettimeofday")));
-+#endif
-diff --git a/arch/sparc/vdso/vdso-layout.lds.S b/arch/sparc/vdso/vdso-layout.lds.S
-index 9e0804789d11696948f11be367480b530a1f18d9..180e5d0ee07170a5dec88016a304a44f87eb8d88 100644
---- a/arch/sparc/vdso/vdso-layout.lds.S
-+++ b/arch/sparc/vdso/vdso-layout.lds.S
-@@ -4,6 +4,10 @@
-  * This script controls its layout.
-  */
- 
-+#include <vdso/datapage.h>
-+#include <vdso/page.h>
-+#include <asm/vdso/vsyscall.h>
-+
- SECTIONS
- {
- 	/*
-@@ -13,8 +17,7 @@ SECTIONS
- 	 * segment. Page size is 8192 for both 64-bit and 32-bit vdso binaries
- 	 */
- 
--	vvar_start = . -8192;
--	vvar_data = vvar_start;
-+	VDSO_VVAR_SYMS
- 
- 	. = SIZEOF_HEADERS;
- 
-diff --git a/arch/sparc/vdso/vma.c b/arch/sparc/vdso/vma.c
-index 582d84e2e5ba8932f39948bb0ca2678fc8f06a10..38a664d697829b8203f0c7cd9e6d7cc8bed4796f 100644
---- a/arch/sparc/vdso/vma.c
-+++ b/arch/sparc/vdso/vma.c
-@@ -16,17 +16,16 @@
- #include <linux/linkage.h>
- #include <linux/random.h>
- #include <linux/elf.h>
-+#include <linux/vdso_datastore.h>
- #include <asm/cacheflush.h>
- #include <asm/spitfire.h>
- #include <asm/vdso.h>
--#include <asm/vvar.h>
- #include <asm/page.h>
- 
--unsigned int __read_mostly vdso_enabled = 1;
-+#include <vdso/datapage.h>
-+#include <asm/vdso/vsyscall.h>
- 
--static struct vm_special_mapping vvar_mapping = {
--	.name = "[vvar]"
--};
-+unsigned int __read_mostly vdso_enabled = 1;
- 
- #ifdef	CONFIG_SPARC64
- static struct vm_special_mapping vdso_mapping64 = {
-@@ -40,10 +39,8 @@ static struct vm_special_mapping vdso_mapping32 = {
- };
- #endif
- 
--struct vvar_data *vvar_data;
--
- /*
-- * Allocate pages for the vdso and vvar, and copy in the vdso text from the
-+ * Allocate pages for the vdso and copy in the vdso text from the
-  * kernel image.
-  */
- static int __init init_vdso_image(const struct vdso_image *image,
-@@ -51,9 +48,8 @@ static int __init init_vdso_image(const struct vdso_image *image,
- 				  bool elf64)
- {
- 	int cnpages = (image->size) / PAGE_SIZE;
--	struct page *dp, **dpp = NULL;
- 	struct page *cp, **cpp = NULL;
--	int i, dnpages = 0;
-+	int i;
- 
- 	/*
- 	 * First, the vdso text.  This is initialied data, an integral number of
-@@ -76,31 +72,6 @@ static int __init init_vdso_image(const struct vdso_image *image,
- 		copy_page(page_address(cp), image->data + i * PAGE_SIZE);
- 	}
- 
--	/*
--	 * Now the vvar page.  This is uninitialized data.
--	 */
--
--	if (vvar_data == NULL) {
--		dnpages = (sizeof(struct vvar_data) / PAGE_SIZE) + 1;
--		if (WARN_ON(dnpages != 1))
--			goto oom;
--		dpp = kcalloc(dnpages, sizeof(struct page *), GFP_KERNEL);
--		vvar_mapping.pages = dpp;
--
--		if (!dpp)
--			goto oom;
--
--		dp = alloc_page(GFP_KERNEL);
--		if (!dp)
--			goto oom;
--
--		dpp[0] = dp;
--		vvar_data = page_address(dp);
--		memset(vvar_data, 0, PAGE_SIZE);
--
--		vvar_data->seq = 0;
--	}
--
- 	return 0;
-  oom:
- 	if (cpp != NULL) {
-@@ -112,15 +83,6 @@ static int __init init_vdso_image(const struct vdso_image *image,
- 		vdso_mapping->pages = NULL;
- 	}
- 
--	if (dpp != NULL) {
--		for (i = 0; i < dnpages; i++) {
--			if (dpp[i] != NULL)
--				__free_page(dpp[i]);
--		}
--		kfree(dpp);
--		vvar_mapping.pages = NULL;
--	}
--
- 	pr_warn("Cannot allocate vdso\n");
- 	vdso_enabled = 0;
- 	return -ENOMEM;
-@@ -155,9 +117,12 @@ static unsigned long vdso_addr(unsigned long start, unsigned int len)
- 	return start + (offset << PAGE_SHIFT);
- }
- 
-+static_assert(VDSO_NR_PAGES == __VDSO_PAGES);
-+
- static int map_vdso(const struct vdso_image *image,
- 		struct vm_special_mapping *vdso_mapping)
- {
-+	const size_t area_size = image->size + VDSO_NR_PAGES * PAGE_SIZE;
- 	struct mm_struct *mm = current->mm;
- 	struct vm_area_struct *vma;
- 	unsigned long text_start, addr = 0;
-@@ -170,23 +135,20 @@ static int map_vdso(const struct vdso_image *image,
- 	 * region is free.
- 	 */
- 	if (current->flags & PF_RANDOMIZE) {
--		addr = get_unmapped_area(NULL, 0,
--					 image->size - image->sym_vvar_start,
--					 0, 0);
-+		addr = get_unmapped_area(NULL, 0, area_size, 0, 0);
- 		if (IS_ERR_VALUE(addr)) {
- 			ret = addr;
- 			goto up_fail;
- 		}
--		addr = vdso_addr(addr, image->size - image->sym_vvar_start);
-+		addr = vdso_addr(addr, area_size);
- 	}
--	addr = get_unmapped_area(NULL, addr,
--				 image->size - image->sym_vvar_start, 0, 0);
-+	addr = get_unmapped_area(NULL, addr, area_size, 0, 0);
- 	if (IS_ERR_VALUE(addr)) {
- 		ret = addr;
- 		goto up_fail;
- 	}
- 
--	text_start = addr - image->sym_vvar_start;
-+	text_start = addr + VDSO_NR_PAGES * PAGE_SIZE;
- 	current->mm->context.vdso = (void __user *)text_start;
- 
- 	/*
-@@ -204,11 +166,7 @@ static int map_vdso(const struct vdso_image *image,
- 		goto up_fail;
- 	}
- 
--	vma = _install_special_mapping(mm,
--				       addr,
--				       -image->sym_vvar_start,
--				       VM_READ|VM_MAYREAD,
--				       &vvar_mapping);
-+	vma = vdso_install_vvar_mapping(mm, addr);
- 
- 	if (IS_ERR(vma)) {
- 		ret = PTR_ERR(vma);
-
--- 
-2.51.0
+Here be dragons :-)
 
 
