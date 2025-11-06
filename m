@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F1CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E019FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNxxLoSaj80bOvxwS+x8aO/LQaPqTkbFKbIYZM/ccx0=; b=p5jlM/G1BDwUzk8CGW83dhP7UK
-	ne8LUBcHEZafFeXeD6AgasTYFxSKQ0+Yoe5Dv+Xl8W9eDrsBRqaRTyvnJ8XSNUzYgQll3W7RbH7fq
-	ZGdTFxGlzTLEEuzSuFpA9lm/4Nmag7aFb9cZQzQpBOD5CkHJbhgwOYCpyWPp/ILLOBDSGiTiiO/VS
-	3/ax8EenZp2UEgYTjlqH+Rex01A6vhGlwnVcrLADxH+BTwFG/84ZBGZT1TgsVaMYlCMp3cDgyS1zw
-	wagKiyG/D/uXOj6L7YTd1MnyMMxpTEMU0GRtELUrqCvYFnUEEOxnGGMredWcD0TLmMstJ2MlOyjYA
-	Ifu1e0rg==;
+	bh=bxov72UyUn5mUwjUmSOs6l4UzgvBpIy2o3tIk+RMuig=; b=PU1McBER5//8blKBwA/6WYQ2Vx
+	s8mcP3b3LSvqw8KJH88U3zjAosUGtV+uaMtyGlrB5KQd7zmU9W194rcKhySExZ4pBLL5baZTP/LC3
+	9/jnPbQWeFm8roRTtzQQk27F9iNS7C3GeAQ8avgnk3dyc02nMyPwNa9lFvmyA1BLYdnMUM4jy5CPj
+	4yoyfZBWJP9DaHHWi7ikVlZXukglt5v/Q3/dQJIWzNjUrgYwKxtQoAb0Lg3HpX7ILrayJVOcD3zmH
+	cev+JGz/7XiLH6tZsLvl0AYBRtThpya1WqJIgP69DLCnN2QnVEBy9t88LRJ2ocLSeSx3/wgPjaiA+
+	2MPkLSEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fK-0000000Fu2k-2jn9;
-	Thu, 06 Nov 2025 16:16:50 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fG-0000000FtzA-2mY1
+	id 1vH2gt-0000000FuSB-0ioI;
+	Thu, 06 Nov 2025 16:18:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vH2gq-0000000FuRn-2MYm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:16:47 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-640fb1e568bso183135a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:16:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762445805; x=1763050605; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LNxxLoSaj80bOvxwS+x8aO/LQaPqTkbFKbIYZM/ccx0=;
-        b=hs9K9dO+GHmkUpErKkfq29YH+71ghLeF8PvrkDIs9R8jiVyFnOjdbOAiIPGfwKzJDx
-         pEF4bCVi1i+L/m7v9bF7zAptNed63iVIZqKvnUBd6FANKxzLRXgiLAqjB6QgOjzGs2C4
-         mzU6kknmLz/9YTJKBUk005D7bQbwHxu/bCvFqrSj7R4wm7d5qYTFSF1nv6vS+yi6BsqJ
-         T5MG4DScK9XUAFpphVkD3AouYWbC6CQptX1Vo1e7BEVAAZQzx3yOQsVMxpSbuV8+XWyX
-         jtdckY3zxVXR72uOVg1qgKpTe/Ts79Wnc50kSTi2PsBhI5DO+sjptHnQiJ1+qYQ9rjIQ
-         Fl4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762445805; x=1763050605;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LNxxLoSaj80bOvxwS+x8aO/LQaPqTkbFKbIYZM/ccx0=;
-        b=Hap9u6S/cFGWE91M8lOw3xAFRTS6MVd8pP7CCyuZFjJCyIQgNTDmzaSBHfcdZTW9pQ
-         hJ1EGPA4UXOs6EetubQuG3txDHjtW8L6EekzxpphMuiILt0z/3Jdt0eiza3+Awq0LAIg
-         al7vM8iRduTpkIJOoaIcH/SzcWp/mrYqJ5NynMdJcYXtaJUlCX8gbrOwAC6XGYARBHmG
-         dK/H5tSxNxiDiOIC9JPr9P1/UogOKT4L7+7p7Pc9n4aFPWMHk+NjmJZI5+f1/vDJzwFK
-         bW3wKm7mceCcxqG3ymlRA5Ku3tKzg7IPzGK5SlxVlJY/kY4hEhqjZP6I7yJhSlQjnfEB
-         BdlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3LrD7SPwKxBD6RFMabo/3UeMOvSGu0STqK0EX6koJlpbTytXZFijiG9zse05uBOnZtaIbvCpzGGK48oVbMtMm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7oSqWA1XgHV6Yji0ugRl+uAbI9k42+rMs79PJ9sg2tEDenmok
-	vJmOiI/9hjJT2I0Vmi19akxIy/eWZXy68cBAU4CPf5yHX1RXOKCXGg/ogpVhdYSlD3Q=
-X-Gm-Gg: ASbGncubTzQ0HAimB4tmgp4OUCvEtTOIv4GXUuk0FY4hwD77RWuQo/kjJSzL3fSNLBZ
-	aE5wU8f8IsA6en3tRzgI7Mdcg6s8+0FefRVh9ibrNDF9sxtlaRCN49aAF6y5/IWIGV8EzJ663cf
-	aw27XufnxwdddC39EiabEBTN4KpzjNdbP1Q816sizFJGK3nzvQsVuKpAvU3Il3Nky5pClQb7B8u
-	RM3XlC9ma3gbrXJmIEw5qQ32Ilgra8dtH526V4VGHAdpSVRffl9Jem83W0OqiRZQFkW0D0xoLh0
-	AeXJ28Au02I9/klscJcSxz9XS6df+jYDNx0lzxIz4RwOi1kaV2x6MX4pOSeSNljCqpiNlT5WKTO
-	Aq6oDHy0NE/CXGsIVqVTBUzidR5e8ZTT2Oh1P4Ovjeb5fpuaqO6KQlArDM8MuyLeu07AYI+XUsD
-	aoURiDzi1gGQ88niN0q8U09jQai5I=
-X-Google-Smtp-Source: AGHT+IGxqQY1TKHhlv59jD9rXPj3NM3yoBtmJAbJOzQqYLTcCXhQ3w1hdyfA1R6qDfeGfCwDVofBBg==
-X-Received: by 2002:a05:6402:35cb:b0:640:9b11:5d7d with SMTP id 4fb4d7f45d1cf-64105b79e3cmr4181740a12.7.1762445804550;
-        Thu, 06 Nov 2025 08:16:44 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f813eabsm2113408a12.11.2025.11.06.08.16.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 08:16:43 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Thu, 06 Nov 2025 17:16:28 +0100
-Subject: [PATCH 4/4] gpio: zynq: Simplify with of_device_get_match_data()
+	Thu, 06 Nov 2025 16:18:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EC8F12FC;
+	Thu,  6 Nov 2025 08:18:15 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DC073F66E;
+	Thu,  6 Nov 2025 08:18:18 -0800 (PST)
+Message-ID: <cc81b3f4-5736-4c11-894a-b37cf1c7c0a8@arm.com>
+Date: Thu, 6 Nov 2025 16:18:16 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/29] ACPI / PPTT: Add a helper to fill a cpumask from
+ a cache_id
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Jeremy Linton <jeremy.linton@arm.com>
+Cc: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-5-james.morse@arm.com>
+ <50a8cc38-810b-4bea-9a73-2463a6160b9f@arm.com>
+ <20251024152256.00003f8e@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251024152256.00003f8e@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251106-gpio-of-match-v1-4-50c7115a045e@linaro.org>
-References: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
-In-Reply-To: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
- Srinivas Neeli <srinivas.neeli@amd.com>, 
- Michal Simek <michal.simek@amd.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1280;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=KyCK4WaX8DTPr8e9FQEpVrY1lPGKIUEEeXomozdcgIk=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDMnhaeYJvXX2uO3vKVe9JEZmeNPGFfrC9cmTl
- 8PnkWe0SIaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzJ4QAKCRDBN2bmhouD
- 14SHD/0RJ4iQBsacOdNNfDcM2yGY5n7EhMle4k1LQGwzgE8xaJZd0bNJ5SuXB7KiK8M0d+ncBIG
- Vpgc5uJxPllzlkLTWU57w6XNurghRyy10l5bLnj3zVPqE8uDm8zaYb2f2KCLUY0ZFHBwC6ZZD0S
- EywKXF8tXCNuyHqUd/d2gc/hufQSKswUKOk0awanMijo9zIoPIAvdWP/68XTrDaJrUggH0VLWDA
- DirP1LDVncWKXiLonYBU0Dzj+E6zW9e09uUsKpYlzqLp9X5b0nZqAky4VSuFbrlQOTYP5qOQYI8
- 6mcG6WQJGAQizQ5aDwZqz9BVLYC5A4wUFrZEOzZITZlVateMtaA36tFKB9ykvpXKYOtZbyDNzrY
- vF5L6KKkjCRSQMKv/97axV9dFeuK62nPFn6zCzJhtfuVW2X5gl/S7p4SKcVW+XzIb9B9Fd6UgWP
- xPUerlWtE7IzxdDyf5dKH0FnDkSm6SsqecuZaHZHyj1YvZOa8P+CK9o5BudRj9cUprLWEckBgGh
- vyk+OrhUR9i6hakDiow8oUA49HjhJCl3AAtwwFm9u0lRDlNi1XKdtGXrfZWUXbgT+BcW316eDTy
- c8bwP6f+3kHFzKoVOnytycrNZ1R3CfM400ReIYFDpY5ucGP37m3DcHa3ZSoiNYwzWaMPxuK5DhU
- Mad4nYQwDNFnyyw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_081646_728082_0EC8556A 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20251106_081824_757790_A4D387C8 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,43 +84,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Driver's probe function matches against driver's of_device_id table,
-where each entry has non-NULL match data, so of_match_node() can be
-simplified with of_device_get_match_data().
+Hi Jonathan, Jeremy,
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/gpio/gpio-zynq.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+(Replying for James as I'll post the next version of this series.)
 
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 0ffd76e8951f..26071ed1bf22 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -904,18 +904,16 @@ static int zynq_gpio_probe(struct platform_device *pdev)
- 	struct zynq_gpio *gpio;
- 	struct gpio_chip *chip;
- 	struct gpio_irq_chip *girq;
--	const struct of_device_id *match;
- 
- 	gpio = devm_kzalloc(&pdev->dev, sizeof(*gpio), GFP_KERNEL);
- 	if (!gpio)
- 		return -ENOMEM;
- 
--	match = of_match_node(zynq_gpio_of_match, pdev->dev.of_node);
--	if (!match) {
--		dev_err(&pdev->dev, "of_match_node() failed\n");
-+	gpio->p_data = of_device_get_match_data(&pdev->dev);
-+	if (!gpio->p_data) {
-+		dev_err(&pdev->dev, "of_device_get_match_data() failed\n");
- 		return -EINVAL;
- 	}
--	gpio->p_data = match->data;
- 	platform_set_drvdata(pdev, gpio);
- 
- 	gpio->base_addr = devm_platform_ioremap_resource(pdev, 0);
+On 10/24/25 15:22, Jonathan Cameron wrote:
+> On Wed, 22 Oct 2025 07:58:36 -0500
+> Jeremy Linton <jeremy.linton@arm.com> wrote:
+> 
+>> Hi,
+>>
+>> This is largely looking pretty solid, but..
+>>
+>>
+>> On 10/17/25 1:56 PM, James Morse wrote:
+>>> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
+>>>
+>>> The driver needs to know which CPUs are associated with the cache.
+>>> The CPUs may not all be online, so cacheinfo does not have the
+>>> information.
+>>>
+>>> Add a helper to pull this information out of the PPTT.
+>>>
+>>> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+>>> Signed-off-by: James Morse <james.morse@arm.com>
+>>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+>>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>>> ---
+[...]
+>>
+>> Is the core acpi definition in actbl2.h correct? Shouldn't it be 
+>> something along the lines of:
+>>
+>> struct acpi_pptt_cache_v1 {
+>>   struct acpi_subtable_header header;
+>>   u16 reservedd;
+>>   u32 flags;
+>>   u32 next_level_of_cache;
+>>   u32 size;
+>>   u32 number_of_sets;
+>>   u8 associativity;
+>>   u8 attributes;
+>>   u16 lines_size;
+>>   u32 cache_id;
+>> }
+>>
+>>
+>> Then that solves the detection of the additional field problem correctly 
+>> because the length (24 vs 28) of the subtable then tells you which 
+>> version your dealing with. (and goes back to why much of this is coded 
+>> to use ACPI_ADD_PTR rather than structure+ logic.)
+>>
+> 
+> Do we want to deal with arguing the change in ACPICA? 
+> I fully agree that it would be much nicer if that didn't use this weird
+> bits of structures approach :(  
 
--- 
-2.48.1
+For the moment I've added:
+
+struct acpi_pptt_cache_v1_full {
+	struct acpi_pptt_cache		f;
+	struct acpi_pptt_cache_v1	extra;
+} __packed;
+
+in drivers/acpi/pptt.c
+A stop gap but the length can be used to check for field presence and
+you can avoid some ACPI_ADD_PTR usages.
+
+> 
+> https://github.com/acpica/acpica/blob/master/source/include/actbl2.h#L3497
+> is where this is coming from.
+> 
+> Maybe can do it in parallel. Rafael, what do you think is best way forwards
+> with this?
+> 
+> Jonathan
+Thanks,
+
+Ben
 
 
