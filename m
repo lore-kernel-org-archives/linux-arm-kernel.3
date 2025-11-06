@@ -4,68 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07EE2CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448D3CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NZcAZhP4Zghdyd2BfdRPY7JveQ+oefPRtoJSjHbAAM=; b=OApSd0/L+dscYo+Huco//Af1+T
-	gpKbwI+q4GxxaMojlZoSFeHWJsTKMErzp+CAYngI/UdnIRS5g3o/glNwckdfGj9kraNVYz5EShY84
-	2JLNEktE1Hvc2V/2qBjAHPMV3JZjhU+7tBYmbYLiTOmnQSgw3MtZ76U5/ycypfBAbOWpEuYZzVqU7
-	rAK/ITPOk0HLNN02EC9X3sh4mbpS83XjbD1ECkYuhW9/utFRti24P84ISabW6DS4DCtahEx2hn3i7
-	mUkO4YnRFijdMUPVa4pFqxaPVB981JLyZjGFas8yOLy8/T1O+EbS/H5Mm3JseoU3xY9dkSn33U6Sg
-	urDlqG5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=; b=mKqdGk2UQBjwuWUuwk0i+1xRJX
+	DcVynI/Utc1AxT5N/WzCrgmLhW3u5JKYl5iQopjukb1A5D8qXGqI5zKlD3pqeYox2ss/xklYnzeMM
+	bEwl37ocyon3GC+NWbVZywg6P9R5dRVFrIortg4hTQ+f4jqCBgzQ46e53erdmFBCrrEx3YFXXKf74
+	1zu6cb1/WmVU89Vjb3lVSAkjqq/fTMSzvjsWk5XsiyguD1Z5A0JIbux+cJXgRkzRB8S9YqS+Pq1Mq
+	Ri/puoKrQToC6mCYm4R+o3E20kiWAkRn9yr+r6NBVwTxdnr3jOzz97jfNQr043Zeg+2V/o8xi9jPX
+	yP1wMAQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Wf-0000000FsDq-38yk;
-	Thu, 06 Nov 2025 16:07:53 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vH2X9-0000000FsLD-3p4b;
+	Thu, 06 Nov 2025 16:08:23 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Wc-0000000FsCx-2HhD
+	id 1vH2X7-0000000FsKJ-3vtB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:07:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=/NZcAZhP4Zghdyd2BfdRPY7JveQ+oefPRtoJSjHbAAM=; b=auuKwiOQJ53h1UklL7LaJUlfOX
-	HFpGrt2YbbO+V951ZW/zaPHmismr3D0FWvwPp2NxFfVd8SW0jZ6J3QA8t4R+E7PhAvWh79lEqcsDc
-	UwdiMuKvmACVoZfSMbRsr4VYIyvJJv2C6wvl+gt1QwkywW62hd+ViIypPjbn1wNVN6RBdCueeEVos
-	Ak14yFFAee7gzMV87tDVTlI4J7hikC7iI/pkp1lM5/7pU+7bT8HmUpHv6d0jcbqFVI9ZJliQwMksD
-	r1oQxDw8zV2cULo7+zS8FmFppeC7XvRtQ0BTWxUmJw2aLEiO+RRGZ6RtT6YatFeUJb+KftnjBLQIy
-	9Ayp2yAg==;
-Received: from [191.8.29.151] (helo=steammachine)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1vH2WV-0034gL-B9; Thu, 06 Nov 2025 17:07:43 +0100
-From: =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-dev@igalia.com,
-	Ryan Houdek <houdek.ryan@fex-emu.org>,
-	Billy Laws <blaws05@gmail.com>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>
-Subject: [RFC PATCH 1/1] arch: arm64: Implement unaligned atomic emulation
-Date: Thu,  6 Nov 2025 13:07:35 -0300
-Message-ID: <20251106160735.2638485-2-andrealmeid@igalia.com>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251106160735.2638485-1-andrealmeid@igalia.com>
-References: <20251106160735.2638485-1-andrealmeid@igalia.com>
+	Thu, 06 Nov 2025 16:08:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TyH+WtNFBJTQjiWWR8wzc0vHwOg++RWrk9jwngjXEkGCwe5mkvuhTHWzYyBW/W7cPb8j6A5cgo5l/p4BJFkQ5SeV82TIc1QIhU3gPEeeXy5B5VSeNtEfY3lxNXqRSB1qzvzLMtb/tot7TYFcymbOJv8lcfzTcXBbYPe/qL/IvJJMzHLGYjhZsGcCxlqTwacnna+EVNyDHy7vNx7f0cVzeBkY0UwHlXQAvkbBiEDND7/evkyoQawDkGP15doFYZ4L3DX6ASdjml7wNnFR+lc9V43lYvfD9cVs0uGGFAHTa63pyY31KWHp0rBCOAvo8iXKnCn9zOA0dmdSsmskMfu2LQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=;
+ b=AykKU1lUlIQ6Xu+7IWsWMZmwOmuOlBiMXuhYw29iPx9csIUb+EkDk3TBIMUwki4Rq+HRQSjfM8zDmPu7x+B7VehOniKk2VRDB5KmwMZN3xy0mkZ5pzawa+7+FVySdIj190c3UtctvDuUURXWH2HrC8H3AHbP/hsAGwFo0cVkv744JZxt9rerGC8zWjOzRmeMKH/AyZzOHsbZ1i+jMVntvf5SaEoRE7VbQE7vC5vUMBk/kGOcrnxa015v0wYCs0YeyHn3QncM2QgDlh2YfMf05F1W19dOgGV0L/ZfTiRJChI+8wVD67RZhS6zZhTdukGCXXL/A+sPA/ySzBA4GQ9iRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=;
+ b=dXzqQtAkTJT7cCF7k4s88wdNQITPgYsDVFLYGO6InCQfoYQ5H5urKv8UTACt+GeJoS9XHpF7cVlb4DSO26pyuvXYSIbrdy3r3Z6I8eJoGAuOklsO6QksvRz2EjFGEaerxGW9wQmQ35TPGEIK04WddQAuLQfUMVZJ7Ylb94d2Z/vjtr8lS/TVmsw/8z9RVUpMECOP76eZOp/RwfFk1V8AMtd8HH0jqlgRaFE7au3oosrKER5ih6Evjdo/7IvlJJ6McieHd7ForgXFtMOD4BJbkRv6M/PJ7HcWIQnccd3B/Gn6vBtY3nRiX7gAVUaXsfgcRfkJctzYgzEKOJXfUOat+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by VI1PR04MB9977.eurprd04.prod.outlook.com (2603:10a6:800:1d9::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
+ 2025 16:08:16 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Thu, 6 Nov 2025
+ 16:08:16 +0000
+Date: Thu, 6 Nov 2025 11:08:07 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/11] remoteproc: imx_dsp_rproc: Use dev_err_probe() for
+ firmware and mode errors
+Message-ID: <aQzH54KT5Y3WAV1v@lizhi-Precision-Tower-5810>
+References: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
+ <20251106-imx-dsp-2025-11-06-v1-4-46028bc3459a@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251106-imx-dsp-2025-11-06-v1-4-46028bc3459a@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0354.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::29) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|VI1PR04MB9977:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e7135c4-8959-4ff7-8955-08de1d4eb197
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1y0svSTdlRPprHDIcIEs42ZetLisLWYGLSbbXRluWfmNF0adjvbdeW+Qs6pr?=
+ =?us-ascii?Q?gZPzS3IhgDVtH7TJDFkdL28UpbB2iBdsQbvwUcOKSxsBccnyl/TjwIy3TL92?=
+ =?us-ascii?Q?gRMZR3q48FvpXr31m92KfNvPNHdhGC16IwbROSbTHGrp/PjTEJtNIcQ2f2yR?=
+ =?us-ascii?Q?hW6fK6ykX+ZRsIW0+zA+dLPG/DaZdLZjBWDASBBb5zv2pJP7iwMMjM+G9I0I?=
+ =?us-ascii?Q?0ha8AZyx3s1x2lRxvDWgamm2+KP+CrtJVPsnsK7jVhAC+sEn4wQvFFKtoWO+?=
+ =?us-ascii?Q?TzRs6NE60BY+xgF0j/YOXlcK0H0Cd7V+uYdL0Z7D0YD5F/Iq0vbhymDYlY3v?=
+ =?us-ascii?Q?mB7NSdVjWVa19ZquuaeJg0nEI+2Qd865YDaAN5Sp++E2sUDNR2qiP5wFG0xX?=
+ =?us-ascii?Q?V4xf20Dy2Qwtb0c2zhiKDGp5TUozjR7JG6yH9sp+UUmKhZOpDb2JOEK84xzd?=
+ =?us-ascii?Q?gtJmNChusUzBHXWMG3bb63grFLZtJm9+WKQfuqfioqS7Zf+zOQsS/2T/PydN?=
+ =?us-ascii?Q?aIm4imXxTOSCBAnC/XWtUEb8I5T5u14o4chnk61Wc99ykvqlbinEkF409BkZ?=
+ =?us-ascii?Q?z5NxWwYQAG3d5Js8x2XqSrtLVoZNx2DAdPSON9+j0sF7UcBsilqsPOvo/SMC?=
+ =?us-ascii?Q?iv/uVQXFVXpf1laU/BLyc5FsY6bdVbj0yXhIX7ZXo4IxLZwKGlb36VVUAojE?=
+ =?us-ascii?Q?U48EXEqumUuT5bFwJzhpTO00j8/YFOb9Kh/Zx8qnOa3VrMTFdITKw9ky7Y2S?=
+ =?us-ascii?Q?ppEhcKcv7szD8aDKXT8r+NWfjPOf6b2A5UDo+Nk+bimnGIV1ngIxhGqlxYnO?=
+ =?us-ascii?Q?EaWDRqn+/u9/d7Cds8PaXf/aKcjpcRoHA3GGSz0sN44vwbCeI/XSmKYV4rpV?=
+ =?us-ascii?Q?2qBX0qyxNkbrnPa5DzusZ9w4QyLzhU7S767Flh1FZoNwIekCKYnMikw9VWEs?=
+ =?us-ascii?Q?cGNn9ybrNpauumNUSuUo66c7zgLXf8tMj98bI275auJ/p/xQOmXQxDKAYv/0?=
+ =?us-ascii?Q?0LyCmsx1c2CLT4qp+dVxqRmiCEWdWeKo9ETl5zGWNhYh2SZeFWXFp3m0UMjr?=
+ =?us-ascii?Q?ebwSTznpDAy/q7yy+5rIfnt9WeUKdQHFfGjwp8uRrDxxLiqIr8juu0hq3fHx?=
+ =?us-ascii?Q?BwJC89SD4k2MuSNJvrcT0CuQzl6jjWHtpsWkROK3KSFhQWIZETym/tt2uCuy?=
+ =?us-ascii?Q?TqPDapdi8PTSfL86CVkhkyNhyHzN4E6XzxQWBJFJhJmOBnz6ZxR702Hy7FAr?=
+ =?us-ascii?Q?KceTw+L3el/+26FVEgcYZwJqrxcDFXR2porLvLL7E58YQuQqX08GCGpAh7rW?=
+ =?us-ascii?Q?8SNCTMlKKXKy7YKU8H4jHg8SCt98dV+rIFfRmA0oVox59izQJ9sKPVsVQkul?=
+ =?us-ascii?Q?F8LtKSdrWZesWquvjADM2iJlD7//2djupSxs7COKgruoymN+GQM2cnZewmyH?=
+ =?us-ascii?Q?Oel8CLFT9NUamoTnxyQ4IpyVFXXviPhLRKZpP9xaSoYNBK4YdhpWCQk4lzZF?=
+ =?us-ascii?Q?oOGgf4M0odJmBes2k0AMYLg3B5z/MPaJSr0M?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iFC3eKDeCClqboP8MUPQROHhZlT1onqx1pqoZWA7oB5vXKSzjEiMzmtNboRw?=
+ =?us-ascii?Q?YwbuQC0PrKr6K+UsPdi6PRQC8MttwzaEu++9w1Zf5v2oIDJp6WNFTjp4kUTv?=
+ =?us-ascii?Q?xtmfKHS3NuTusyouItQcJ+sQY/Ds0eL56LGYSalPzqsW+M3WHVL7xXRup12C?=
+ =?us-ascii?Q?9i4y2tzQtmxCrjkX0reqZ1CkWhyPz4kNsCcL22UHwX6HnfqhLYY3ZxZOEaax?=
+ =?us-ascii?Q?eDYW7M9VNDP8I5XaFIEWkKV8b89986aqbfhPw08UUsQLSXLADh8b3ig1zSsg?=
+ =?us-ascii?Q?sVFL0KpT8yVhq+m+b0Npg3474AFcwBKM0Meey0G8/7sBomlkdH8UJIs5WA65?=
+ =?us-ascii?Q?nFMAxXEke1BHesORGBPsZQlFKKQJJpLBAnAjY9KcCvwsL5m1xyx29FHkGR2x?=
+ =?us-ascii?Q?oNg7BA703b/SCjOid+Hls4koCgYhE65gEpU3OJmqPsI0NOkANuhslYjL/BYR?=
+ =?us-ascii?Q?DgZCF2+4gspjuAIVCINnph5oO4Bvhf2oqQ3Wce6NaOy5WzJyooCzZvJY3tnG?=
+ =?us-ascii?Q?qxkMMZVkC6g1XbnyHLYMTMIcxOeb8KJ1cYI2/19OPwmi8lLM9F7mGoGeia+k?=
+ =?us-ascii?Q?R7NGpkOwyG9Qg9JXq482/RCUNHzmOqGq9iDHft+lAZ8j9DYueBB2TxZU7BOS?=
+ =?us-ascii?Q?xRJp1rW3Vg9EzvV6aeUffC9eFYI0SR5TPKg2bQmLhIQCBtmHPvuf9id1axVC?=
+ =?us-ascii?Q?F5itG0XJvR3HZ2BDzN6Jhobbas47w9nBffqSbBue5gi1dvX5Qzl8iCHRSeE2?=
+ =?us-ascii?Q?YapPqOvzpQ/Y/3Bxcf+IkEXqL4TlugMqLIiTFmBi1k7ehRUN0fvK/cfLBfm+?=
+ =?us-ascii?Q?C1VFnVNQxSXfLnhPKAzE/cpYGRCq9kGegeYPLSSObp4o0V835Ap7tlg1HSlk?=
+ =?us-ascii?Q?p3qeX4Jmvt7/zQJSYPYS01AeDmbZ1eDIojetK/8wUVr28kBVnijFBFJpBHxj?=
+ =?us-ascii?Q?GH+W2C5acG41PvbLuiZKv8uvGhdt8jeUt5a1fr4j7tF/Yrhv3/fRMGDHv5Vo?=
+ =?us-ascii?Q?c51zuKRfWXvH2P8w9ZsxNF/FncT5NddbZjYkmWH0zy386No3do+Fy17I5GYP?=
+ =?us-ascii?Q?O/I6f6gO/ee0WuFRAqL/BnyYTPvBy1jG0NI80AL/jKL588Y5ebPBXu+rNHc+?=
+ =?us-ascii?Q?BZvJgEWYsLmPFLtitofqXM5FYHcwrSrxlrtjsvr010KVj/BvOMgrRP/rq6lp?=
+ =?us-ascii?Q?QtVJ3S//lyay7OJh6nm5Y9AqAqMyGpb8nV3H827Wq4L8Dtbj+bF4zV3Bqtfn?=
+ =?us-ascii?Q?QZHpPw09LxPx4FOOIug4eEsgbcQXFxDBstvzuJY9O1A8mgYE/fjBlN/fXzvv?=
+ =?us-ascii?Q?JJE+N5LLmnqtRxKQlzPoPwQEA1j87GJBUBMlIGI2z3iBCPLoxVCkP+G6ndFk?=
+ =?us-ascii?Q?Tdiszp5oTm3eheSvtSUlMYPtAUcKinE97MnNo5bC2zqwk/MOIt/j6YXxBDV8?=
+ =?us-ascii?Q?A3ywRxO/rnLplx0mjHj3krQO7KrR4Jbaq1wHIxpq6WuiarQenNgM0PMsadyd?=
+ =?us-ascii?Q?HOBxVuBD+aXOCNKd+npHqIT4QglgTz5BofQhRdVtYryLCaqHvcHETNjDlBy7?=
+ =?us-ascii?Q?a3KqgjgdOmPpEiD3xqHKgipV9Pxv1gJih+GBheFP?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e7135c4-8959-4ff7-8955-08de1d4eb197
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 16:08:16.0745
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wr5rRSQ6A9PghoDht+tcjnRPFmhIQAPGsNz8UhjP69v10iXPOGB9Lc7tMJo6/fV0683SBkfOeWgoilnVCAbbtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9977
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_080750_926097_19B362EF 
-X-CRM114-Status: GOOD (  35.05  )
+X-CRM114-CacheID: sfid-20251106_080821_980782_F7A329BB 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,684 +168,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement support for emulating unaligned atomic operations on arm64.
-User applications that wish to enable support for this should use the
-pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`.
+On Thu, Nov 06, 2025 at 11:30:30AM +0800, Peng Fan wrote:
+> Replace error logging and return handling in rproc_of_parse_firmware() and
+> imx_dsp_rproc_detect_mode() with dev_err_probe() to streamline error
+> reporting and improve consistency.
+>
+> Reduces boilerplate and aligns with modern kernel error handling practices.
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/arm64/include/asm/exception.h   |   1 +
- arch/arm64/include/asm/processor.h   |   3 +
- arch/arm64/include/asm/thread_info.h |   1 +
- arch/arm64/kernel/Makefile           |   2 +-
- arch/arm64/kernel/process.c          |  15 +
- arch/arm64/kernel/unaligned_atomic.c | 520 +++++++++++++++++++++++++++
- arch/arm64/mm/fault.c                |  10 +
- include/uapi/linux/prctl.h           |   5 +
- kernel/sys.c                         |   7 +-
- 9 files changed, 562 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/kernel/unaligned_atomic.c
+Nit: simple said
 
-diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index a2da3cb21c24..f6dd1b9afe69 100644
---- a/arch/arm64/include/asm/exception.h
-+++ b/arch/arm64/include/asm/exception.h
-@@ -82,6 +82,7 @@ void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs)
- void bad_el0_sync(struct pt_regs *regs, int reason, unsigned long esr);
- void do_el0_cp15(unsigned long esr, struct pt_regs *regs);
- int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs);
-+int do_unaligned_atomic_fixup(struct pt_regs *regs, u64 *fault_addr);
- void do_el0_svc(struct pt_regs *regs);
- void do_el0_svc_compat(struct pt_regs *regs);
- void do_el0_fpac(struct pt_regs *regs, unsigned long esr);
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 61d62bfd5a7b..bc62a690cd00 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -437,5 +437,8 @@ int set_tsc_mode(unsigned int val);
- #define GET_TSC_CTL(adr)        get_tsc_mode((adr))
- #define SET_TSC_CTL(val)        set_tsc_mode((val))
- 
-+int set_unalign_atomic_ctl(unsigned int val);
-+#define ARM64_SET_UNALIGN_ATOMIC_CTL(val)	set_unalign_atomic_ctl((val))
-+
- #endif /* __ASSEMBLY__ */
- #endif /* __ASM_PROCESSOR_H */
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index f241b8601ebd..636a44d72064 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -86,6 +86,7 @@ void arch_setup_new_exec(void);
- #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
- #define TIF_LAZY_MMU		31	/* Task in lazy mmu mode */
- #define TIF_LAZY_MMU_PENDING	32	/* Ops pending for lazy mmu mode exit */
-+#define TIF_UNALIGN_ATOMIC_EMULATE	33
- 
- #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 76f32e424065..54ce606d0552 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
- 			   cpufeature.o alternative.o cacheinfo.o		\
- 			   smp.o smp_spin_table.o topology.o smccc-call.o	\
- 			   syscall.o proton-pack.o idle.o patching.o pi/	\
--			   rsi.o jump_label.o
-+			   rsi.o jump_label.o unaligned_atomic.o
- 
- obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
- 					   sys_compat.o
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 95d4bb848096..c47ec1ac8fe2 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -967,3 +967,18 @@ int set_tsc_mode(unsigned int val)
- 
- 	return do_set_tsc_mode(val);
- }
-+
-+int set_unalign_atomic_ctl(unsigned int val)
-+{
-+	unsigned long valid_mask = PR_ARM64_UNALIGN_ATOMIC_EMULATE;
-+	if (val & ~valid_mask)
-+		return -EINVAL;
-+
-+	/*
-+	 * TODO: check if this is running in a ARM v8.1 or greater.
-+	 * Refuse otherwise.
-+	 */
-+
-+	update_thread_flag(TIF_UNALIGN_ATOMIC_EMULATE, val & PR_ARM64_UNALIGN_ATOMIC_EMULATE);
-+	return 0;
-+}
-diff --git a/arch/arm64/kernel/unaligned_atomic.c b/arch/arm64/kernel/unaligned_atomic.c
-new file mode 100644
-index 000000000000..fc1a7f4ddfdd
---- /dev/null
-+++ b/arch/arm64/kernel/unaligned_atomic.c
-@@ -0,0 +1,520 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Unaligned atomic emulation by André Almeida <andrealmeid@igalia.com>
-+ * Derived from original work by Billy Laws <blaws05@gmail.com>
-+ */
-+
-+#include <linux/cacheflush.h>
-+#include <linux/compiler.h>
-+#include <linux/errno.h>
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/semaphore.h>
-+#include <linux/uaccess.h>
-+
-+#include <asm/alternative-macros.h>
-+#include <asm/asm-extable.h>
-+#include <asm/exception.h>
-+#include <asm/ptrace.h>
-+#include <asm/traps.h>
-+
-+#define __LOAD_ACQUIRE_RCPC(sfx, regs...) \
-+	ALTERNATIVE("ldar" #sfx "\t" #regs,     \
-+			".arch_extension rcpc\n"    \
-+			"ldapr" #sfx "\t" #regs,    \
-+			ARM64_HAS_LDAPR)
-+
-+struct fault_info {
-+	int error;
-+	u64 addr;
-+	u64 size;
-+};
-+
-+#define ATOMIC_MEM_MASK 0x3b200c00
-+#define ATOMIC_MEM_INST 0x38200000
-+
-+#define RCPC2_MASK  0x3fe00c00
-+#define LDAPUR_INST 0x19400000
-+#define STLUR_INST  0x19000000
-+
-+#define LDAXR_MASK 0x3ffffc00
-+
-+#define LDAXP_MASK 0xbfff8000
-+#define LDAXP_INST 0x887f8000
-+
-+#define LDAR_INST  0x08dffc00
-+#define LDAPR_INST 0x38bfc000
-+#define STLR_INST  0x089ffc00
-+
-+#define ATOMIC_ADD_OP	0x0
-+#define ATOMIC_CLR_OP	0x1
-+#define ATOMIC_EOR_OP	0x2
-+#define ATOMIC_SET_OP	0x3
-+#define ATOMIC_SWAP_OP	0x8
-+
-+#define get_reg(gprs, reg) (reg == 31 ? 0 : gprs[reg])
-+#define set_reg(gprs, reg, val) do { if (reg != 31) gprs[reg] = val; } while (0)
-+
-+#define get_addr_reg(instr) ((instr >> 5) & 0b11111)
-+#define get_size(instr) (1 << (instr >> 30))
-+
-+static DEFINE_MUTEX(buslock);
-+
-+static struct fault_info do_load_acquire_128(u64 addr, u128 *result)
-+{
-+	u64 lower, upper, orig_addr = addr;
-+	int ret;
-+
-+	addr = (u64)__uaccess_mask_ptr((void __user *)addr);
-+
-+	if (!access_ok((void __user *)orig_addr, 16))
-+		return (struct fault_info) {.error = -EFAULT, .addr = orig_addr, .size = 16};
-+
-+	uaccess_enable_privileged();
-+	asm volatile("1: ldaxp %[resultlower], %[resultupper], [%[addr]]\n"
-+			"   clrex\n"
-+			"2:\n"
-+			_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w[ret])
-+			: [resultlower] "=r"(lower), [resultupper] "=r"(upper), [ret] "+r"(ret)
-+			: [addr] "r"(addr)
-+			: "memory");
-+	uaccess_disable_privileged();
-+
-+	if (ret)
-+		return (struct fault_info) {.error = ret, .addr = orig_addr, .size = 16};
-+
-+	*result = (u128)upper << 64 | lower;
-+
-+	return (struct fault_info) {0};
-+}
-+
-+/*
-+ * Do a load acquire at address `addr` and save it at `result`
-+ */
-+static struct fault_info do_load_acquire_64(u64 addr, u64 *result)
-+{
-+	u64 orig_addr = addr;
-+	int ret = 0;
-+
-+	addr = (u64)__uaccess_mask_ptr((void __user *)addr);
-+
-+	if (!access_ok((void __user *)orig_addr, 8))
-+		return (struct fault_info) {.error = -EFAULT, .addr = orig_addr, .size = 8};
-+
-+	uaccess_enable_privileged();
-+	asm volatile("1: " __LOAD_ACQUIRE_RCPC(, %[result], [%[addr]]) "\n"
-+			"2:\n"
-+			_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w[ret])
-+			: [result] "=r"(*result), [ret] "+r"(ret)
-+			: [addr] "r"(addr)
-+			: "memory");
-+	uaccess_disable_privileged();
-+
-+	return (struct fault_info) {.error = ret, .addr = orig_addr, .size = 8};
-+}
-+
-+/*
-+ * If *expected value is found in addr, swap it for val
-+ * Otherwise, write the value found at addr at expected address
-+ */
-+static struct fault_info do_store_cas_64(u64 *expected, u64 val, u64 addr)
-+{
-+	u64 orig_addr = addr, tmp, oldval;
-+	int ret = 0;
-+
-+	addr = (u64)__uaccess_mask_ptr((void __user *)addr);
-+
-+	if (!access_ok((void __user *)orig_addr, 8))
-+		return (struct fault_info) {.error = -EFAULT, .addr = orig_addr, .size = 8};
-+
-+	uaccess_enable_privileged();
-+	asm volatile("1: ldxr %[oldval], [%[addr]]\n"
-+			"   cmp  %[oldval], %[expected]\n"
-+			"   b.ne 3f\n"
-+			"2: stlxr %w[tmp], %[val], [%[addr]]\n"
-+			"   cbnz %w[tmp], 1b\n"
-+			"3:\n"
-+			_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w[ret])
-+			_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w[ret])
-+			: [tmp] "=&r"(tmp), [oldval] "=&r"(oldval), [ret] "+r"(ret)
-+			: [addr] "r"(addr), [expected] "r"(*expected), [val] "r"(val)
-+			: "memory", "cc");
-+	uaccess_disable_privileged();
-+
-+	if (ret)
-+		return (struct fault_info) {.error = ret, .addr = orig_addr, .size = 8};
-+
-+	if (oldval != *expected) {
-+		*expected = oldval;
-+		return (struct fault_info) {.error = -EAGAIN};
-+	}
-+
-+	return (struct fault_info) {0};
-+}
-+
-+/*
-+ * If possible, do one 128 bit load. Otherwise, do two 64 bit loads and combine
-+ * the results.
-+ */
-+static struct fault_info do_load_64(u64 addr, u64 *result)
-+{
-+	u64 alignment_mask = 0b1111, align_offset = addr & alignment_mask;
-+	struct fault_info fi = {0};
-+	u128 tmp;
-+
-+	/* The address crosses a 16 byte boundary and needs two loads */
-+	if (align_offset > 8) {
-+		u64 alignment = addr & 0b111, upper_val, lower_val;
-+
-+		addr &= ~0b111ULL;
-+
-+		fi = do_load_acquire_64(addr + 8, &upper_val);
-+		if (fi.error)
-+			return fi;
-+
-+		fi = do_load_acquire_64(addr, &lower_val);
-+		if (fi.error)
-+			return fi;
-+
-+		tmp = ((u128) upper_val << 64) | lower_val;
-+		*result = tmp >> (alignment * 8);
-+	} else {
-+		addr &= ~alignment_mask;
-+
-+		fi = do_load_acquire_128(addr, &tmp);
-+		if (fi.error)
-+			return fi;
-+
-+		*result = tmp >> (align_offset * 8);
-+	}
-+
-+	return fi;
-+}
-+
-+static u64 do_atomic_mem_op(u8 op, u64 src_val, u64 desired)
-+{
-+	switch (op) {
-+	case ATOMIC_ADD_OP:
-+		return src_val + desired;
-+	case ATOMIC_CLR_OP:
-+		return src_val & ~desired;
-+	case ATOMIC_EOR_OP:
-+		return src_val & desired;
-+	case ATOMIC_SET_OP:
-+		return src_val ^ desired;
-+	case ATOMIC_SWAP_OP:
-+		return desired;
-+	default:
-+		BUG();
-+	}
-+
-+	/* Unreachable */
-+	return 0;
-+}
-+
-+static struct fault_info load_cas(u64 desired_src, u64 addr, u8 op, u64 alignment,
-+				     u128 *aux_desired, u128 *aux_expected,
-+				     u128 *aux_actual)
-+{
-+	u128 tmp_expected, tmp_desired, tmp_actual, mask = ~0ULL, desired, expected, neg_mask;
-+	u64 addr_upper, load_order_upper, load_order_lower;
-+	struct fault_info fi;
-+
-+	mask <<= alignment * 8;
-+	addr_upper = addr + 8;
-+	neg_mask = ~mask;
-+
-+	fi = do_load_acquire_64(addr_upper, &load_order_upper);
-+	if (fi.error)
-+		return fi;
-+	fi = do_load_acquire_64(addr, &load_order_lower);
-+	if (fi.error)
-+		return fi;
-+
-+	tmp_actual = (u128)load_order_upper << 64 | load_order_lower;
-+
-+	desired = do_atomic_mem_op(op, tmp_actual >> (alignment * 8), desired_src);
-+	expected = (tmp_actual >> (alignment * 8));
-+
-+	tmp_expected = tmp_actual;
-+	tmp_expected &= neg_mask;
-+	tmp_expected |= expected << (alignment * 8);
-+
-+	tmp_desired = tmp_expected;
-+	tmp_desired &= neg_mask;
-+	tmp_desired |= desired << (alignment * 8);
-+
-+	*aux_desired = tmp_desired;
-+	*aux_expected = tmp_expected;
-+	*aux_actual = tmp_actual;
-+
-+	return (struct fault_info) {0};
-+}
-+
-+/*
-+ * After CAS failed, check if we need to try again or if we should return error.
-+ * Returns true if needs to retry.
-+ */
-+static bool handle_fail(u128 tmp_expected, u128 tmp_desired, u128 mask,
-+			u64 *result, bool retry, bool tear,
-+			u64 alignment)
-+{
-+	u128 neg_mask = ~mask,
-+	     failed_result_our_bits = tmp_expected & mask,
-+	     failed_result_not_our_bits = tmp_expected & neg_mask,
-+	     failed_desired_not_our_bits = tmp_desired & neg_mask;
-+	u64 failed_result = failed_result_our_bits >> (alignment * 8);
-+
-+	/*
-+	 * If the bits changed weren't part of our regular CAS, then we retry.
-+	 */
-+	if ((failed_result_not_our_bits ^ failed_desired_not_our_bits) != 0)
-+		return true;
-+
-+	/*
-+	 * This happens in the case that between load and CAS that something has
-+	 * store our desired in to the memory location. This means our CAS fails
-+	 * because what we wanted to store was already stored.
-+	 */
-+	if (retry) {
-+		/* If we are retrying and tearing then we can't do anything */
-+		if (tear) {
-+			*result = failed_result;
-+			return false;
-+		} else {
-+			return true;
-+		}
-+	} else {
-+		/*
-+		 * With we were called without retry, then we have failed
-+		 * regardless of tear. CAS failed but handled successfully
-+		 */
-+		*result = failed_result;
-+	}
-+
-+	return false;
-+}
-+
-+/*
-+ * This instruction reads a 64-bit doubleword from memory, and compares it
-+ * against the value held in a first register. If the comparison is equal, the
-+ * value in a second register is written to memory. If the comparison is not
-+ * equal, the architecture permits writing the value read from the location to
-+ * memory.
-+ *
-+ * To handle an unaligned CAS, the code first loads two 64-bit words. Then, if
-+ * what is found in the word is the same as the expected value, the code tries
-+ * to do two 64-bit writes in the address. If both stores works then return
-+ * success. If only the first store works, then the code is in a "tear" state
-+ * and returns with the word found in the address.
-+ *
-+ * TODO: here we threat every operation as it's a cross cache address,
-+ * meaning that we need two 64 bit ops to make it work. That works for
-+ * all cases, but it's slower and unnecessary for the cases that doesn't
-+ * cross it and can do a single 128 bit operation.
-+ */
-+static struct fault_info do_cas_64(bool retry, u64 desired_src, u64 expected_src,
-+				   u64 addr, u8 op, u64 *result)
-+{
-+	u128 tmp_expected, tmp_desired, tmp_actual, mask = ~0ULL;
-+	u64 alignment = addr & 0b111, addr_upper;
-+	struct fault_info fi;
-+	bool tear = false;
-+
-+	mask <<= alignment * 8;
-+	addr &= ~0b111ULL;
-+	addr_upper = addr + 8;
-+
-+	/*
-+	 * TODO: take this lock only if we need to emulate a split lock
-+	 */
-+	guard(mutex)(&buslock);
-+
-+retry:
-+	fi = load_cas(desired_src, addr, op, alignment, &tmp_desired, &tmp_expected, &tmp_actual);
-+	if (fi.error)
-+		return fi;
-+
-+	if (tmp_expected == tmp_actual) {
-+		u128 expected = (tmp_actual >> (alignment * 8));
-+		u64 tmp_expected_lower = tmp_expected,
-+		    tmp_expected_upper = tmp_expected >> 64,
-+		    tmp_desired_lower = tmp_desired,
-+		    tmp_desired_upper = tmp_desired >> 64;
-+
-+		fi = do_store_cas_64(&tmp_expected_upper, tmp_desired_upper, addr_upper);
-+		if (fi.error && fi.error != -EAGAIN)
-+			return fi;
-+
-+		if (fi.error == 0) {
-+			fi = do_store_cas_64(&tmp_expected_lower, tmp_desired_lower, addr);
-+			if (fi.error && fi.error != -EAGAIN)
-+				return fi;
-+
-+			/* Both store() worked, CAS succeeded */
-+			if (fi.error == 0) {
-+				*result = expected;
-+				return fi;
-+			/* A partial store() happened, tear state */
-+			} else {
-+				tear = true;
-+			}
-+		}
-+
-+		tmp_expected = tmp_expected_upper;
-+		tmp_expected <<= 64;
-+		tmp_expected |= tmp_expected_lower;
-+	} else {
-+		tmp_expected = tmp_actual;
-+	}
-+
-+	if (handle_fail(tmp_expected, tmp_desired, mask, result, retry, tear, alignment))
-+		goto retry;
-+
-+	return (struct fault_info) {0};
-+}
-+
-+/*
-+ * For a giving atomic memory operation, parse it and call the desired op
-+ */
-+static struct fault_info handle_atomic_mem_op(u32 instr, u64 *gprs)
-+{
-+	u32 size = get_size(instr), result_reg = instr & 0b11111,
-+		   source_reg = (instr >> 16) & 0b11111,
-+		   addr_reg = get_addr_reg(instr);
-+	u64 addr = get_reg(gprs, addr_reg);
-+	u8 op = (instr >> 12) & 0xf;
-+	struct fault_info fi = {0};
-+
-+	if (size == 8) {
-+		u64 res = 0;
-+
-+		switch (op) {
-+		case ATOMIC_ADD_OP:
-+		case ATOMIC_CLR_OP:
-+		case ATOMIC_EOR_OP:
-+		case ATOMIC_SET_OP:
-+		case ATOMIC_SWAP_OP:
-+			break;
-+		default:
-+			pr_warn("Unhandled atomic mem op 0x%02x\n", op);
-+			return (struct fault_info) {.error = -EINVAL};
-+		}
-+
-+		fi = do_cas_64(true, get_reg(gprs, source_reg), 0, addr, op, &res);
-+
-+		/*
-+		 * If the operation succeeded and our dest reg is not zero, we
-+		 * need to update the result reg with what was in memory
-+		 */
-+		if (!fi.error)
-+			set_reg(gprs, result_reg, res);
-+	} else {
-+		fi.error = -EINVAL;
-+	}
-+
-+	return fi;
-+}
-+
-+static struct fault_info handle_atomic_load(u32 instr, u64 *gprs, s64 offset)
-+{
-+	u32 size = get_size(instr), result_reg = instr & 0b11111,
-+		   addr_reg = get_addr_reg(instr);
-+	u64 addr = get_reg(gprs, addr_reg) + offset, res;
-+
-+	struct fault_info fi = {0};
-+
-+	if (size == 8) {
-+		fi = do_load_64(addr, &res);
-+		if (!fi.error)
-+			set_reg(gprs, result_reg, res);
-+	} else {
-+		fi.error = -EINVAL;
-+	}
-+
-+	return fi;
-+}
-+
-+static struct fault_info handle_atomic_store(u32 instr, u64 *gprs, s64 offset)
-+{
-+	u32 size = get_size(instr), data_reg = instr & 0x1F, addr_reg = get_addr_reg(instr);
-+	u64 addr = get_reg(gprs, addr_reg) + offset;
-+	struct fault_info fi = {0};
-+
-+	if (size == 8) {
-+		u64 res;
-+
-+		fi = do_cas_64(false, get_reg(gprs, data_reg), 0, addr, ATOMIC_SWAP_OP, &res);
-+	} else {
-+		fi.error = -EINVAL;
-+	}
-+
-+	return fi;
-+}
-+
-+static struct fault_info decode_instruction(u32 instr, u64 *gprs)
-+{
-+	struct fault_info fi = {0};
-+	s32 offset = (s32)(instr) << 11 >> 23, size = get_size(instr);
-+
-+	/* TODO: We only support 64-bit instructions for now */
-+	if (size != 8)
-+		goto exit;
-+
-+	if ((instr & LDAXR_MASK) == LDAR_INST || (instr & LDAXR_MASK) == LDAPR_INST)
-+		return handle_atomic_load(instr, gprs, 0);
-+
-+	if ((instr & LDAXR_MASK) == STLR_INST)
-+		return  handle_atomic_store(instr, gprs, 0);
-+
-+	if ((instr & RCPC2_MASK) == LDAPUR_INST)
-+		return handle_atomic_load(instr, gprs, offset);
-+
-+	if ((instr & RCPC2_MASK) == STLUR_INST)
-+		return handle_atomic_store(instr, gprs, offset);
-+
-+	if ((instr & ATOMIC_MEM_MASK) == ATOMIC_MEM_INST)
-+		return handle_atomic_mem_op(instr, gprs);
-+
-+	/* TODO: Handle CASAL and CASPAL as well */
-+
-+exit:
-+	fi.error = -EINVAL;
-+	return fi;
-+}
-+
-+/*
-+ * After a fault access happened, move the pointer to the end of the bad section
-+ */
-+static void increment_fault_address(u64 **fault_addr, int size)
-+{
-+	u64 *addr = *fault_addr;
-+	u8 tmp;
-+	int i;
-+
-+	for (i = 0; i < size - 1 && !get_user(tmp, (u8 __user *)(addr + i)); i++)
-+		(*fault_addr)++;
-+}
-+
-+int do_unaligned_atomic_fixup(struct pt_regs *regs, u64 *fault_addr)
-+{
-+	u32 *pc = (u32 *)regs->pc, instr;
-+	u64 *gprs = (u64 *)regs->regs;
-+	struct fault_info fi;
-+
-+	if (get_user(instr, (u32 __user *)(pc)))
-+		return -EFAULT;
-+
-+	fi = decode_instruction(instr, gprs);
-+
-+	if (fi.error) {
-+		*fault_addr = fi.addr;
-+		if (fi.error == -EFAULT)
-+			increment_fault_address(&fault_addr, fi.size);
-+
-+		return fi.error;
-+	}
-+
-+	arm64_skip_faulting_instruction(regs, 4);
-+	return 0;
-+}
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index d816ff44faff..7bd93aaa5140 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -798,6 +798,16 @@ static int do_alignment_fault(unsigned long far, unsigned long esr,
- 	if (IS_ENABLED(CONFIG_COMPAT_ALIGNMENT_FIXUPS) &&
- 	    compat_user_mode(regs))
- 		return do_compat_alignment_fixup(far, regs);
-+
-+	if (user_mode(regs) && test_thread_flag(TIF_UNALIGN_ATOMIC_EMULATE)) {
-+		u64 page_fault_address;
-+		int ret = do_unaligned_atomic_fixup(regs, &page_fault_address);
-+
-+		if (!ret)
-+			return 0;
-+		else if (ret == -EFAULT)
-+			return do_translation_fault(page_fault_address, ESR_ELx_FSC_FAULT | ESR_ELx_WNR, regs);
-+	}
- 	do_bad_area(far, esr, regs);
- 	return 0;
- }
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 51c4e8c82b1e..1202ce10e386 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -386,4 +386,9 @@ struct prctl_mm_map {
- # define PR_FUTEX_HASH_SET_SLOTS	1
- # define PR_FUTEX_HASH_GET_SLOTS	2
- 
-+#define PR_ARM64_SET_UNALIGN_ATOMIC 0x46455849
-+# define PR_ARM64_UNALIGN_ATOMIC_EMULATE	(1UL << 0)
-+# define PR_ARM64_UNALIGN_ATOMIC_BACKPATCH	(1UL << 1)
-+# define PR_ARM64_UNALIGN_ATOMIC_STRICT_SPLIT_LOCKS	(1UL << 2)
-+
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index 8b58eece4e58..5966ce4a075c 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -158,7 +158,9 @@
- #ifndef PPC_SET_DEXCR_ASPECT
- # define PPC_SET_DEXCR_ASPECT(a, b, c)	(-EINVAL)
- #endif
--
-+#ifndef ARM64_SET_UNALIGN_ATOMIC_CTL
-+# define ARM64_SET_UNALIGN_ATOMIC_CTL(a)		(-EINVAL)
-+#endif
- /*
-  * this is where the system-wide overflow UID and GID are defined, for
-  * architectures that now have 32-bit UID/GID but didn't in the past
-@@ -2868,6 +2870,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_FUTEX_HASH:
- 		error = futex_hash_prctl(arg2, arg3, arg4);
- 		break;
-+	case PR_ARM64_SET_UNALIGN_ATOMIC:
-+		error = ARM64_SET_UNALIGN_ATOMIC_CTL(arg2);
-+		break;
- 	default:
- 		trace_task_prctl_unknown(option, arg2, arg3, arg4, arg5);
- 		error = -EINVAL;
--- 
-2.51.1
+Use dev_err_probe() simplify the code. No functional change.
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c | 13 ++++---------
+>  1 file changed, 4 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index f5d0aec52c56664d6074272e276edb0c4175c9ea..87f4a026c05fbf1c9371058290b2d33cb94b9e54 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -1150,11 +1150,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
+>  		return -ENODEV;
+>
+>  	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
+> -	if (ret) {
+> -		dev_err(dev, "failed to parse firmware-name property, ret = %d\n",
+> -			ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to parse firmware-name property\n");
+>
+>  	rproc = devm_rproc_alloc(dev, "imx-dsp-rproc", &imx_dsp_rproc_ops,
+>  				 fw_name, sizeof(*priv));
+> @@ -1177,10 +1174,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
+>  	INIT_WORK(&priv->rproc_work, imx_dsp_rproc_vq_work);
+>
+>  	ret = imx_dsp_rproc_detect_mode(priv);
+> -	if (ret) {
+> -		dev_err(dev, "failed on imx_dsp_rproc_detect_mode\n");
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed on imx_dsp_rproc_detect_mode\n");
+>
+>  	/* There are multiple power domains required by DSP on some platform */
+>  	ret = imx_dsp_attach_pm_domains(priv);
+>
+> --
+> 2.37.1
+>
 
