@@ -4,66 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5868DCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46C3CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcMpoXUKVXMjYCvogzPOASfPfc3YpL4LMcc+GiU8eNE=; b=DA2c5V7JnMGIX04ajXehPcOBAY
-	uSBx6bQDaZYLMENgqhYNbTa3HXFtQ+ACZMETFm9pqwqpQ/RQOQJf0mWJbW4UTnsKKSxrzcKuHbJz4
-	2PjTeouSrFUV6Z6Z/STj25jPXMF4IS76j4Lbhi1IVlKCz46TEYiqNv8U61wrrZ/3K1u5cD6PPgXDx
-	zyqPB4Da9JDQgbSg8M6BSjiAapKKDX9fP+vPWhc4MbLKeR7SEBIxof5rFosNaFpjmr5jA73sE0ZjF
-	56xGDKwbEo/i7j7BQYS13A1HtrSJEIHKVAxu4FG/3UCatdMJIGFfDewNMKwa9p3samp1VvE8mn9a9
-	roDpSoGg==;
+	bh=DN2mabEZ89SC2dDCu1ufR8aIG5qATE1Ds1hKiXQhtao=; b=t/XnWxywak+Y4uSpGJKQH9FqMu
+	LbsCf4qmzrn0BLzohFj2ZORmA0WfMMHQn+S1TQf5tlb9xScPNv/dkJRuyG5cNWWdCNv3J/d4PZlBV
+	Siw6YSHOIphOsyfR/1ZbEXarCkHlstr+Xr9emgJcc8UZn6ibC6b5Wms2CnjblzL+vmpnfwV0KVmxk
+	o9zT506IMo7YUdbu2YoMXTdCMkhcdTp+oHu4zUKIzUA3Vm4mlyUunti2KDsDN9peKVIm8i+XmUyin
+	d50Spkwqx3mzoQtxAXpIJuiOX+zsU4qbqpFuT7mr+EFn5rv7UQBwPE8y21GgcGQZC813V0SOY4d4s
+	VVwwBniQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH61K-0000000GBL7-3qJe;
-	Thu, 06 Nov 2025 19:51:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vH636-0000000GBWq-0Mm3;
+	Thu, 06 Nov 2025 19:53:36 +0000
+Received: from mail-westeuropeazon11013010.outbound.protection.outlook.com ([52.101.72.10] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH61K-0000000GBKx-1u9n
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 19:51:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43DCD6022D;
-	Thu,  6 Nov 2025 19:51:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C217C113D0;
-	Thu,  6 Nov 2025 19:51:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762458705;
-	bh=j1nqThs17GwNA3HQ/A0bAO+y61WfI0vCdvNcpIIVI0U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ku8tjLpZn9OPHJbydRU7gLzhb71B7VOxwwhTuM+6D49u01Eypvvg5berXffNnTRSM
-	 XrvByyKlFst/3LSbp27p2/zQTcMTdDrYl4b+8xn1WxRhCiyaYKUNFTXq+/CE+jvFw4
-	 AJiRpUk0rWqEE8JaKHOLf6HK/bR+JzQSEDHrY5VZjS1JJ5Bgt51BtyNB8Zku7hhS0v
-	 EIOT8kLgmaxP243njyF+UaPfj2OK1T1gvGRNrLREalCh4xbj9SjvFjLmfFX7MfuEDB
-	 IhzJl2nZkQ7dHakk2z7neV839/0V+BGXiItOON8gu6ZCq6pxoFVz+YM5/wU/mHZ8w7
-	 x9Mojx8MuyjZQ==
-Date: Thu, 6 Nov 2025 11:51:42 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Harald Freudenberger <freude@linux.ibm.com>
-Cc: linux-crypto@vger.kernel.org, David Howells <dhowells@redhat.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/15] SHA-3 library
-Message-ID: <20251106195142.GB3318@quark>
-References: <20251026055032.1413733-1-ebiggers@kernel.org>
- <20251103173404.GE1735@sol>
- <4188d18bfcc8a64941c5ebd8de10ede2@linux.ibm.com>
- <20251106043340.GC1650@sol>
- <20251106072233.GA117499@sol>
- <55ec60661fb672bdd0696a3bd92e21bd@linux.ibm.com>
-MIME-Version: 1.0
+	id 1vH633-0000000GBWH-2HXG;
+	Thu, 06 Nov 2025 19:53:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Uy+pj0pcCDWyAjdeIRu/RDEsd+Xn//vvBxj7Z/EeXAslcVNSN2/iTLC2aGCn3Udm+igcIdgnS7hzUJUaSXjV6LS6+qGlMH3RG/sKBWV7PKSi9Wv+mmn8kwdQqIfdlfxz/jT4n+Gf6hm7dDr+Hm/i63XT3F/HnGn5LoRli7HqlasxhLE+PG+dMioB42uWHQGm7sWlPy3Nu2zJgX5W3AA8Dt2MiNJhWaoFMaQwhz3+KiWLQgB1DeQmo/FrugZFqrNytk5CrhhZoUuu2Yb61kv+fd4DRsk0+C0Je+4dC9iS9lM1HPZN/4qtTyqw6d5jwFn5sW+MYcEuZgK4reYSUR0arw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DN2mabEZ89SC2dDCu1ufR8aIG5qATE1Ds1hKiXQhtao=;
+ b=Pen/YBkHav1NTzjDYJVxO+1/CF45/FJHFcmlHzuxr35pGB/Zqs+fQxrJ/9Y1gEnlxsWJVRrH/w2MA7e70eMLJBxJiwTP8TpicRS8IhjqWmDxaHdVbXvExGR7Un0SesRDlYsrjKqpG8czakf8jRrTG0E9CHAD+hCQXb7g2y/TpKQF6k/wMs31Da4woBN2LsOvN1h8A3JaUKSYfs9gHF/u9kmsgXJzBePGGyFoISrAU+YSLd1JHodUs2fzDH9Eo3jEy77X8fnWxLE0+oGE3O+JQGTSxid4dcVJDKvJRxp6XjgmHw1037MRdjFA+9GqTVL5XiLpLY1pci8i5KRTirM5iA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DN2mabEZ89SC2dDCu1ufR8aIG5qATE1Ds1hKiXQhtao=;
+ b=D4NcDL4hcpZhi1OIsSqwTqxDHSyGr5AyUr7ZNy5PTj3vSJWMNurbRzQgvOCxR39w1QCJnIFuC1i3KkK4gmBSvJtIGSeye9ZBWL089y2HiwCw/DtW4AzdX00xSRdUTfbXepKw407zdNNwJ36L7YLA+EuwQ2D+Cr/9wuRXlZu3uHMV6kGjTV2/BhUkT3VVqLRTRCaz99qLq/xmjRPsbbcpv8h8UJ/XMyta2vfp6tthi1/O9jYLjx08pzme/XkzGgrmkJCJbOVQdhb3j8EBC8jaJgrLEnGg+w3vxOL5jhxwuEgGBDToVyzUFgsPW1fkTGikPuduwTFA/VqG7TqG78+R+Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB8151.eurprd04.prod.outlook.com (2603:10a6:20b:3f3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Thu, 6 Nov
+ 2025 19:53:28 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Thu, 6 Nov 2025
+ 19:53:28 +0000
+Date: Thu, 6 Nov 2025 14:53:17 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Maximilian Luz <luzmaximilian@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH 01/13] of: Add wrappers to match root node with OF device
+ ID tables
+Message-ID: <aQz8rW9GE66xPYrL@lizhi-Precision-Tower-5810>
+References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
+ <20251106-b4-of-match-matchine-data-v1-1-d780ea1780c2@linaro.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <55ec60661fb672bdd0696a3bd92e21bd@linux.ibm.com>
+In-Reply-To: <20251106-b4-of-match-matchine-data-v1-1-d780ea1780c2@linaro.org>
+X-ClientProxiedBy: PH7P221CA0054.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::34) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8151:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53af9b15-dbe3-45b6-d10b-08de1d6e2758
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|366016|1800799024|7416014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BClG8opJ5ptWKwlgyYgKkaku2Hw4f9veCJQn0K07t/ktqxEbrcBupWhUDBJ5?=
+ =?us-ascii?Q?f1XY5dsTN6ciWRcPPpUBCE8/dQFHTGw6+tQ0jD3K+hQ001g6EEJRoOsYp4zJ?=
+ =?us-ascii?Q?ctHMFi/aCQI/Rc6JW5nKWnGtvmnpJq/Pfz9drie6uyYFOCeY5nvqQwHvfRRW?=
+ =?us-ascii?Q?y8XhzkUxNwXi3+L3c/clsawCnf9ykdyP5xvbFMPKB8ERsC3pY42HTY+pwvIl?=
+ =?us-ascii?Q?VfQztafu72jgabYJhKGZyXzG6xETKgbGPRX+CCNofJiNhVEt/9QDXAIvf4Zt?=
+ =?us-ascii?Q?p8YngQJqpIwi6jnMxnJGwtsZYGSdckufdfDviQY2pZLt6haIfrbnWyymQvPv?=
+ =?us-ascii?Q?gGrFjWI5K5P4Ew8NZ5YDhC/6s3Dy3mjYsP7O2PzaU5psAuDPLiKx42kFX6/W?=
+ =?us-ascii?Q?9Tj6fa4mgkkDQ910Nfnmw/pbeYxoY5ZCL1ZmfimkDIAa2dFPZWMkGd91q8eB?=
+ =?us-ascii?Q?irwFe+tJaeJjuwpM0egZlHLfRiF+9FhXF16Neah1rgQYAV9oCjzz4lQFs05x?=
+ =?us-ascii?Q?HVW7fowA0EUgdjZ+gOGk3PePcE5s3ERudsLg34VlvpHIU8ougDeiSS+MgXVT?=
+ =?us-ascii?Q?gKySjYlYrJPTGMlhc+cpFE2VEAuZUOMn0FB85vfF41HRy1VdVpS4U8I+r6yX?=
+ =?us-ascii?Q?cOLacxDmivyyWjF0uXt71DhWNAQyqKl1HhscqMT6eB8i7jPGGoOzJNGfqqYx?=
+ =?us-ascii?Q?e93TxySz3F3mqOGtN/sXNtg7ffN+0w50yEZ0bFR+LUeRdq8t2JGD11+cxjuq?=
+ =?us-ascii?Q?CU7FOMRIgpwnVN2zSzdBOiBWrwoPDLEkz4a8Vf9h7+zDEMjCNtjjiz/RWMwL?=
+ =?us-ascii?Q?fRcaYI+IRe1kzsmbpljd7tbUq1loM9kCNaemHJ/lQIy+zzKI0V66rEaKcpVI?=
+ =?us-ascii?Q?zZdpn55Kn5RRcbCssiKrzQMdL8Wt/hOLg+if6dsh6siKUs6HgFzB1+KK3O0r?=
+ =?us-ascii?Q?fnjD7G7P+rEQfWypPHS0JRPX0D8Y3BspqDhVIqe+0/gpPzGGuulRtpuTLOPA?=
+ =?us-ascii?Q?MZQRO3M1rx68vTZO2FLtfIbRzrjRjUD1h2W6gGw8yDRTOFra9DZccq9w3B5H?=
+ =?us-ascii?Q?sTortyrfukPq6Z2Z6gHcJB1Y3tkSt1de7VGMbXhT1AdiOjmivwD5LC5yUjQk?=
+ =?us-ascii?Q?FD44zQnwitIdpFpP1EqU4zrcM7wjBQrRTTiFPOq7i8zjSa7UKfHtga3BQZ2M?=
+ =?us-ascii?Q?eMlxwlnVlt84PUE+m1JpxZ05sflQ2dF4zLt/jbusWsx5Tha8v+ka7/Qd9Ckm?=
+ =?us-ascii?Q?b1ealFvpnG73ihGZWKZZkO0HjhgeYpsqxCMimG1dUt17FlvWr0P7VfDgO2pC?=
+ =?us-ascii?Q?hEmn3e59joHH1Gb7oFUbYtqK/DeB0g7EGEHwd6KkM1Tl17/92guSrJLoEEhu?=
+ =?us-ascii?Q?6bnBrUeg++Rlwwpc3SttFy+7Le6KfjAEvFKvtEll9+afJ6oxMvW9C7Ui++R6?=
+ =?us-ascii?Q?Guo3+x+ROMU3tPle4z5bq79YOHufW8/ATbY8+vsA8Vu5xCp2cR/MGDUYG8pX?=
+ =?us-ascii?Q?LbX5h3VL0Jpbvg8s/y6ngVHNMkDX7YISCBJw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(366016)(1800799024)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PG7OPYwdaNr7Yi1R0UyWZ5SHX7xcQRPjL75TTH+HnkbdIKE9TPtKH3BHsGOd?=
+ =?us-ascii?Q?FVGVJhKTtgDZfmOiSw08iSv9JQZttz/w4IojD9nnKt3C/h99xFTmaiNkezW7?=
+ =?us-ascii?Q?IGFxpzUHXSTI9ug5tIrkf/lLFZfsXvXCoXGxN3gZTuwwiM7hM8lLYWofbj/X?=
+ =?us-ascii?Q?HOeEFCRAi8K77/7Zhv4dRzeVjH9cXKe+g+MHWmzFW+Q2QRPkIhMWpzx9KMyt?=
+ =?us-ascii?Q?ZDzfXn3tlRrNvUPfCIuWSDvrAZgzrFHddb3n+1ZZFi15LYK7ASkAS9owyoFS?=
+ =?us-ascii?Q?KPRfFQcYF1DHz8IKyMDNhd2m16FqTwmcTjAHc34n+FBhH4hRWAKHCcyeE8Ar?=
+ =?us-ascii?Q?a25pYQdRrQIYnoEUmoWD9f2xH5E3Hk+IBrX/JsNt1HAIzAKP9UzHoHtAkKq3?=
+ =?us-ascii?Q?Z5WyMZtoiGBmR9rdbgdBK6/9gasEgMzWl8XM2U6/Vs1aq14unobM0hfA0sJN?=
+ =?us-ascii?Q?AwcFrDPFV0W8/dlkdFNUpg2mSAzTgg0ZtYCusdAPral6x+H1ULrOPBld1Loa?=
+ =?us-ascii?Q?IvVPKfZKzO5WuyZMkHHl+X8FGS6YN6fypPXXgOM7NOr6Pg2tcFhQeqL4WU5e?=
+ =?us-ascii?Q?86KNPaZEtNsuYbr2FuelT+yyg+Dg9+ulZiPvlvPo9YHxe5q9GPAh0JVyH+NZ?=
+ =?us-ascii?Q?9vwJYLbmJlVsvIWaFabKYd6Nbc7hsd+aAfJIzLc1MW32/487I3eMD8eHwlZv?=
+ =?us-ascii?Q?hkWid9D8NHLtKScIiXd4GFLCTkQe/O0QWfrw5KVdBxAXNtfPMug1D8QgmGNH?=
+ =?us-ascii?Q?r5w0P321gtP7LcJ6Vzpq3Kn4L+r9DrKHF5P1oGy/xomEMxkLZ6HwL4cnuyaQ?=
+ =?us-ascii?Q?Fhg3+pi/ooOmTCTtxyuQ/D1PgcS7oGW48Smd9j4uy0x5riHbPJsZQWbOmcNk?=
+ =?us-ascii?Q?cktst2CEK/RWcby3C/hQ6uzfnFPxgq7q9/2yh4Pe3sqBKT6ZNDWyqAfTyoGc?=
+ =?us-ascii?Q?qwlBsQU8l2yHPp+I6uryKVElFtUx1yeUSdtncNMMQCMdmd+0gZlyWbKk/kVT?=
+ =?us-ascii?Q?3HLdopQs40lT3ixD67bcB5Uqj1C7NsirZRHRfsjL1DPtaOoy8nX2uKFhoaqz?=
+ =?us-ascii?Q?mGgzXaObE318IcrlJD3BQCCXMNwqzBSmpP3XX3wB+wzzA9QgNGubcJmeBqij?=
+ =?us-ascii?Q?JEs3Dvbgtn63CB5tVAPjAHrfhU/tP1DdVWnZTQx0Yco9QQSSoEE+NQiY3aHM?=
+ =?us-ascii?Q?s3WWwb4WxbrgEs3b9iW7EwaBDEf7DJMUdeolmPwut7iYjjRFSx5TY6c7NRW0?=
+ =?us-ascii?Q?pVa0izowRo9vpuA3jexqfxer3lPj/ShJTjqeCac83lKtCLC8Naj5Z6uw1nW8?=
+ =?us-ascii?Q?0E/mv/WlOaswHDA50dWvijAW1+TpTkTPSIs7cvZFo8VP4RnrIXcgc9q5XfL8?=
+ =?us-ascii?Q?RLH1OVrZziQOkppru9SLWuPURbfpSwnBmrou0XVX0lWJGo4QZoC+55vx5rrd?=
+ =?us-ascii?Q?xxV6QumptMbEy4/upx7fmRZSxO2CRZilN9Of1JMOcVVac9RjltIjDnZ2q/33?=
+ =?us-ascii?Q?rC4+ggsV05mLp/IYaaDMLHCyeOohNwWzD9psiqwLzmmoOVEtmHAHIr3UhC5l?=
+ =?us-ascii?Q?98DS75L6azydU/L3C+k=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53af9b15-dbe3-45b6-d10b-08de1d6e2758
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 19:53:28.7617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8SjHJYdAPNmK6tAxfY10FZT7TcHN4E+UTFVmW4/rhcOPq+lsWO7jj5+zab+0aWxPd5VD6+RgJeLfROvGQly5ZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8151
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_115333_588030_7103949A 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +182,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 09:54:59AM +0100, Harald Freudenberger wrote:
-> > Also, I'm wondering what your plan to add support for these instructions
-> > to QEMU is?  The status quo, where only people with an s390 mainframe
-> > can test this code, isn't sustainable.
-> > 
-> > I already have s390 in my testing matrix; I run the crypto and CRC tests
-> > on all architectures with optimized crypto or CRC code.  But most of the
-> > s390 optimized crypto code isn't actually being executed.
-> > 
-> > - Eric
-> 
-> Well, there are no plans. However, there has been a decision some while ago
-> that "we" may support this in the future. But as there are currently no
-> human resources available and working there I suspect a qemu CPACF support
-> in general will not come soon.
+On Thu, Nov 06, 2025 at 08:07:08PM +0100, Krzysztof Kozlowski wrote:
+> Several drivers duplicate same code for getting reference to the root
+> node, matching it against 'struct of_device_id' table and getting out
+> the match data from the table entry.
+>
+> There is a of_machine_compatible_match() wrapper but it takes array of
+> strings, which is not suitable for many drivers since they want the
+> driver data associated with each compatible.
+>
+> Add two wrappers, similar to existing of_device_get_match_data():
+> 1. of_machine_device_match() doing only matching against 'struct
+>    of_device_id' and returning bool.
+> 2. of_machine_get_match_data() doing the matching and returning
+>    associated driver data for found compatible.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>
+> ---
+>
+> All further patches depend on this.
+> ---
 
-Great to hear that you might have someone work on this in the future.
-It should be noted that this is a significant gap that puts s390 behind
-all the major architectures (x86_64, arm64, arm32, riscv, etc.) and
-makes it much more likely that s390 specific bugs be introduced.
+...
+>
+> +/**
+> + * of_machine_device_match - Test root of device tree against a of_device_id array
+> + * @matches:	NULL terminated array of of_device_id match structures to search in
+> + *
+> + * Returns true if the root node has any of the given compatible values in its
+> + * compatible property.
+> + */
+> +bool of_machine_device_match(const struct of_device_id *matches)
 
-We need to have higher standards for cryptography code.
+Will it be more useful if pass down path
 
-As I've mentioned before, I don't plan to accept code that uses new
-instructions without QEMU support.  The SHA-{1,2,3} code is allowed only
-because the instructions were already being used by arch/s390/crypto/.
+of_machine_device_match(const char* path, const struct of_device_id *matches)
 
-I see that Jason actually added support for CPACF_*_SHA_512 to QEMU a
-few years ago
-(https://github.com/qemu/qemu/commit/9f17bfdab422887807cbd5260ed6b0b6e54ddb33).
-So clearly it's possible to support these instructions in QEMU.
-Someone just needs to add support for the other SHA algorithms.
+caller just pass "\", or NULL point as root
 
-> Please note also that this is really an implementation of crypto
-> algorithms then and as such it needs to apply to some regulations with
-> regards of the EAR of the US Bureau of Industry and Security...
+> +{
+> +	struct device_node *root;
+> +	const struct of_device_id *match = NULL;
+> +
+> +	root = of_find_node_by_path("/");
 
-Like Linux, QEMU is an open source project, published publicly, and
-which already contains many cryptographic algorithms.  Check out
-https://www.linuxfoundation.org/resources/publications/understanding-us-export-controls-with-open-source-projects
+Use clean up will simplify code
 
-- Eric
+	struct device_node *root = __free(device_node) = of_find_node_by_path("/");
+
+Frank
+> +	if (root) {
+> +		match = of_match_node(matches, root);
+> +		of_node_put(root);
+> +	}
+> +
+> +	return match != NULL;
+> +}
+> +EXPORT_SYMBOL(of_machine_device_match);
+> +
+...
+>
+> --
+> 2.48.1
+>
 
