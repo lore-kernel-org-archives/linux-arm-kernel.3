@@ -4,175 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 597E9CCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B04CCFA0D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 02:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81YynOTQgj7WiIiwy3n90LzRrn4zM0NOwSStlT3Ipl4=; b=xa9PDd3ByvgQ094K1lKsurWWp9
-	cmrt2ag6QAM0buHpsHjKh/WWtp3t+Qn9pQa9Rf4hNh+bzo2lx/twF4RUwJXJGH/ORZ7gMKZaN+Rq6
-	qHPYJTRTXhFEiQCj9O6lbS3AMWKrN/AJ4wWu6OOv4inW/sb7n/VYQWHECutTnkqO+BrZUvWG2xWDu
-	zLbwKqyMgCFqRow91S2rF9cFx4GMPeohk6NHUVb6t33KPCuUOnWqh3LPeHtRDJ5g2yh1XqtP1j0J1
-	VbPJ8BdBXG8QKsqlNmT96WrybbX/BTcgC3PE1mEV7ogAw+H8f44Gf2t9jIP7gVXs3b/DwFBZix0XR
-	NviFTUQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vqV83Z6jyR2ex1aXweIWz+uIiWlYmXUgywvYFJHDbYY=; b=I6f4+rRyHe+wTziVIzuws5R2pk
+	7kZh5ATRAPU81d6/lp8xuBStwtQiNmmi+PlTr6VtmE5RnsEttCA8IHiz8egCBXhiHac9qR2UQimFo
+	3KHOL+FWnScSYCf+/OoqSlaWC8dd9apgHioED03DoJWCa9HL+Dn8yIRa6C3Se90hmcJM68x83o8qs
+	5Z4Y/5mh8THEFmcfXQEFS4ni3STiUWUbjoKJe7oSyC4M3yIXDYJb2j/XmKC4cThJHybwRNUPSHR1w
+	HohjF90AlLgojdfk299eykwjHRB+FUEZgk9PTRyTMRcg+dxSVGuMveLYIfLPPAjHA69yJ/vWsiERy
+	KYK41jpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpz7-0000000EmSI-0cCi;
-	Thu, 06 Nov 2025 02:44:25 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1vGq0g-0000000EmbI-3OZB;
+	Thu, 06 Nov 2025 02:46:04 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGpz5-0000000EmRw-20iY;
-	Thu, 06 Nov 2025 02:44:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TLsrW7H15sYUWqM4qiVNobHPSre7GwwLNHwTh1BkLtZYqwCpUXwVn5B+TL+cpTFSWxv4ja8uDr5Z0D7iZvWhRVDFpeD74CCrS9AQACnvyv7oqxjZqRf5j+qTsr72Zj1zcFlK0zbeITV/5UkBsG4CkeaxObWdrEln2oDCb3cFQSnGzHgQ8Au/GGpovWPPqFNQ+6mMCQS5hmlQGcwKkNAIKl8/yPtIUK0U7NsrzgINbD4Cy6qWGHLDe88E66hubI+xQSwU/y5Op0Le0Pf8lA0GFdl9S0T3GIdhH6D2QlVxPAqOjRg005cVfrPgvGISf3Gh1XzmL4X5tZH8mDDvzcG7hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=81YynOTQgj7WiIiwy3n90LzRrn4zM0NOwSStlT3Ipl4=;
- b=AkJK2BHG+o0xOt4ocWzXSQXkIuuwP9lqKj1sOJnmPrZNql918/Ixn2AuhJNdig+en3basexbmustwSJ7l2eeEEUoQswtBMZekk7aCUgOwJIq9rqh5bBan06HAv+X6M/wv/qrtS7HMMPcwJlvpoyVY0Pg3mnnO3fkJHbO6X1HSinjIuagxa1pu4Eh+/ZiGhYkj5SxlJCEaJQFZWe1dlpvRGlnEnyHRzrDQua2GUGkwHwdZVV8WN0Ny8Z5/EgsrJS+3408sJ5jiOZpfu9T6pTqDS69T52tbLpQaaEe26oKCDOnTewlF86oIjIKYZQ1VkiCXkOFWqfLAJRvYcxsxDTZxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=81YynOTQgj7WiIiwy3n90LzRrn4zM0NOwSStlT3Ipl4=;
- b=qgdJ2Lzzf4rORmTM92zvY9Uw60WquFTVjDt79TBX4zbT00PwxdN9JlS9AfpnDf0AEqL0mTwFOewfSQrGs7y6D83vLVPlhg7HYu2Bn9RBoNukklVYPHmIiTz222ZvfskvTQv/SmENW0ex7X29gypQRm3dryDa9VkQx0RiBS4VJ0zuaUYULSb8Q5qOevmceEtf1Eq7Yp1k6lSyI27sYTVtCWM1XE/OfqNdCbcqsyM/0k4LpWENMlx1g3NKg4L9YXv2ldvDZMj170ip5NrfCtdPKkk7lGllsAlIXXCgw3QBmN3MA3QjdE+756UN4GjuqRVvTfCedlPj79tDNajN1xt/3A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
- by SE3PR03MB9513.apcprd03.prod.outlook.com (2603:1096:101:2e9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Thu, 6 Nov
- 2025 02:44:15 +0000
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e%4]) with mapi id 15.20.9298.010; Thu, 6 Nov 2025
- 02:44:15 +0000
-Message-ID: <8c78922c-ad31-4016-8cd5-df2b2a3bdd1b@amlogic.com>
-Date: Thu, 6 Nov 2025 10:44:12 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Add Amlogic stateless H.264 video decoder for S4
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com>
- <b976b442-7d07-4fef-b851-ccd14661a233@linaro.org>
- <540d98ea-114c-43bc-94c0-e944b5613d74@amlogic.com>
- <b6e6881197dc4c83e43ef5eb1f20c2bf1887d395.camel@ndufresne.ca>
- <174ef722-99f0-440d-8eee-5dca086e13f0@amlogic.com>
- <6d046cef20dcef4eb14aba6fa89e30d303f6a1b5.camel@ndufresne.ca>
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-In-Reply-To: <6d046cef20dcef4eb14aba6fa89e30d303f6a1b5.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR01CA0174.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::30) To KL1PR03MB5521.apcprd03.prod.outlook.com
- (2603:1096:820:51::12)
+	id 1vGq0d-0000000EmaO-3gQN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 02:46:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=vq
+	V83Z6jyR2ex1aXweIWz+uIiWlYmXUgywvYFJHDbYY=; b=a4Ov3bDl94yfakajqC
+	oYekMkiBJqaKNELmZVCDjIaReVaP5l4DoJ9YRE9GUx5VgtX750SCpQO4ZpR2f50s
+	wizN4UCAM3AeLImggFmwsvKd+gnYLOguNIxwgyHOp0HdOZqkP15TGTMKL2V3RqPB
+	+CrxRlFjZU8SPgw8WWt8zjqbI=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wCnb2vHCwxpGdHxBw--.24507S2;
+	Thu, 06 Nov 2025 10:45:28 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com
+Cc: linux-kernel@vger.kernel.org,
+	alsa-devel@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdich9700@163.com>,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH] [PATCH v3] ALSA: hda/conexant: Fix pop noise on CX11880/SN6140 codecs
+Date: Thu,  6 Nov 2025 10:45:21 +0800
+Message-Id: <20251106024521.71812-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|SE3PR03MB9513:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24d0571e-9a92-4932-9336-08de1cde5fc5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SWIwOFlkeEorMTg3Z3RFTk5kbGVBVVlySE5tN21jYlFOV0VzRmt5eE4xbFFm?=
- =?utf-8?B?eG1RNTcrK05WcjZYWXJSdUxCKzNNK3BYUXdFS29WY1lHdkgzVjJpQnkwUVhs?=
- =?utf-8?B?L055alNBRFEyZXg2dVVNVUtsR2JZWmFVc1pPT2luTUtDMForZjFBelhUQjVM?=
- =?utf-8?B?VDJ4aG42SVp1eG52R2RyandEdkE2bUMwakM0Mk9WV1YwQk5ZZytSM2M5TzZH?=
- =?utf-8?B?Q3dCWGJvaXMzVkI3MWNodVNha25NaWNTOWVoS3ltd3VORFBDbzA5YU1nOEdY?=
- =?utf-8?B?NERzL0MxMzh3cUhOU3pmOHJVM0sxU21rU0pXN21IamVpWlljWm4weldEdzIv?=
- =?utf-8?B?akJSNlc4Ny9Ba0I0Z2JLN1JMUDUyYksvbXNMZzM3NmppcWdUSk9KTk5TMmJn?=
- =?utf-8?B?WHRyZk4rd3llNFN6bll6K1VMRElTUWFhWEJZWjU3NWVhWjBNVU5UbnNsbU44?=
- =?utf-8?B?eGNybjBPN1ZXSmxVUVltNUFZTVEzeU0yNzY0TlpJMFVJRFMzMzZBdEw1NHpv?=
- =?utf-8?B?WnVmc3ZKeU5lNklnWk5Rb0VNR3FnS1BtQVA0OWFoWTJhSGUwWHlucHhQYXVK?=
- =?utf-8?B?OWJPWUxqeWRMRjJWUDlvWDUyYkYzZllEaVhMUE1vaEgwNnZGZkpzT2ZZWG5Q?=
- =?utf-8?B?aW44V2ZEYUVrOHc2MWRxcElycUc5L3NMYUdqRmVCVmtqTGJoQWticnlaMmZv?=
- =?utf-8?B?R00wMU1qMDN4VTJjYUNmYzJPZG42WWkwd3JXbzRwcUhKT0lTNFhCYmxZa3Rv?=
- =?utf-8?B?UVJ2czRBdHoyOGFMZG83Y2dmMHQyOVVZM3YvM2VMVktuTkRsOUhJYlJPajF2?=
- =?utf-8?B?aXE3Z2JFK0tMNm9pSmpCR0ZlVDZxeHJtNzI1ODhjM0F3anVEWUNFakNNcnUv?=
- =?utf-8?B?TEVhTDNUMTNMVWY3U2N3aDB2aU9IVE5jdTlJdTRKLzJ3UjJVS25KeXJUaWd6?=
- =?utf-8?B?Z01DcUIvUW1xdEcrVzRTQW9zbkYwa2xQQXBycWg4UzBFaitZMVBtSFIyZ0lw?=
- =?utf-8?B?aU5sRXlFT0ljcXJTSkovcjVLZnRDVEo1RTRHbnFUTjRseXlIZkJsSk5reUtD?=
- =?utf-8?B?eWRtVUVQWStXNW42U3I0eitaTy95NVpNR21KL2k2Y3RCNnY1K0liT1RLK0dl?=
- =?utf-8?B?c2ZLZjJoRFZDZkk1WDdCQ1F4Wm5jbmNKWWhVWHoxdVNjNVhjamQxem9paUha?=
- =?utf-8?B?Mm1LRU56eFgwcHpZYURyS3hqZ210REo1d3U3UFp5TWR0KzM0aDZJbnE5MVVn?=
- =?utf-8?B?b3ZMOUdmS1JZc0hwMi9nUGE3Q1NuazNyZDBudW1HTVFMVEZ5TWI5OTJsR01q?=
- =?utf-8?B?elZTUlBVUXpld2dWcUdBU0lOQ2N6UFFJVTlYb2RqSi8rRDJJOVB2d09WbXQ3?=
- =?utf-8?B?UVZmVlNRQi9TS1ppSldRQTFMTEc5dXZrc0greXRNSUNEeHA5d3Q1cHJkVlVh?=
- =?utf-8?B?Vnp2c0dhdEt4dGNjUmVjenN4cmxKd2tSOWdxOTNGUkVLSWV6bDRBOTJEYzBl?=
- =?utf-8?B?YlFubVVHeE5zdlk0Y1pya2tLNlptMnFHbWtkS3hJN085dTV4QzJjb3JIU0dP?=
- =?utf-8?B?a1dYdkp2LzMrNmhEN1NUYlNmaW53akFVVWE4bFgwVXdtMUR2Mk9Zb0ovUnhq?=
- =?utf-8?B?Tk1QOExMK2hwdFJwRUY0eXMvTXNYVjRCSmRyaE1CZGFCeUU5d3pHZUNkYU5B?=
- =?utf-8?B?U1A5aTNRMk9wYTc1WFFDOTJzam5TM25QeDhnVnh3bHJhRFBYUVlCNFlYa1lC?=
- =?utf-8?B?aUlUVHRFU1VZcmlhZ2VwZThPYURZMFBzd2lVbUJUZ3BxR0owRERlUkpEQ2I3?=
- =?utf-8?B?a2Y2N1o0Tm1nRnJmVkZacXhhemdxTTJVWjhHQVg4ZjBMM1NJa0xpT0hZUFo3?=
- =?utf-8?B?MVFWN0piS0draWdCbVNTM1gyNHpqY29kdWx6QzdDVG94VFBMNDhwbStpWDRX?=
- =?utf-8?Q?UKEtEb1CXZJyZM+IA53ouwyHUt46UW4k?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHlHd0RVZWsyU0JWclJGcjVRa1NoZ05QQjAxb1VMckd1aTFvMFJ6QjgraFJ0?=
- =?utf-8?B?SzFBelpTUWoyUjc2OUxieFpyQmhNdENRZWVSb0tLeWc4a2dKTFc2UnkzNWg1?=
- =?utf-8?B?UlVzVVo2cGxNeWMwdUhENjY0MHVCN1lQMm5tV25nV01UU1N1QWFjZEVvSnFh?=
- =?utf-8?B?SEoyVHpXUkx6bWpOZHQ1Ry9wR3lrd2VhVkFkVXdncm56d1pHN3BDQzNCSzJF?=
- =?utf-8?B?MlRrc3pHb3hjbTJnU3BYMFcwUjhrWTk1Sm9UYWVUSk5aeEZ6cXZ5M1YxUU9O?=
- =?utf-8?B?TWNCT2R1SS90UFVsMjJveU90RUg1VWRIUnRWNjM2VW1nUFJpaXprbGF0V1FF?=
- =?utf-8?B?MGFJLy9wMDdMRXlXaGE0YTZTWWh4cFNZR1lBN0VCNGc3RU5sUlhlVjNlNE13?=
- =?utf-8?B?Nk42VkF3RmxpamtGOHRsUmtlV3k4NDU1V1NjaGRIVnM2Q25xN3oxb3F2MDc2?=
- =?utf-8?B?bkNrVXZEQ1l1TmIvN0E5N3NuQ1IycjZ6WWowSGdJcnU5Z0w0ZDdpdTkzYUZ0?=
- =?utf-8?B?Qk16Z1dFSThnTzQwOHdsWXpQZXllMmVVV0U3d0NydWp6MHBIRDRRbDVySmdK?=
- =?utf-8?B?NTBjaHpmVDk0a3AwUEFITkkycllQZGdsci9wVURiVjROOTRoUU1FU21MUk9o?=
- =?utf-8?B?aVRIekllcTF2Nk12YW5SRSt1UzFzdEVwcDBpd25mQ3djaEs2Q3dtTllsTmg1?=
- =?utf-8?B?Y0JTYVluNUNkR3JwMnJxdTcrNDU3THJWMHdrZjhnbzc5aU1Ld0xpRU1GOVBG?=
- =?utf-8?B?Z3NxOWZIby9HSnR5WjJmTWdoWlh1TnY5eXN5dC82VFA4VU80Nys4eEZDQitV?=
- =?utf-8?B?WmNORFhZWjhuMFlGK3Z0QnpLTC9meGVPMis3cStSZWtaZVJJWVFJM1JRTnNJ?=
- =?utf-8?B?b3BDVnFwNGU5bUNQOTY3cmd6VW42ZHdGZ01QM2lvZ2VxdXBlSFhIeUxLZTJG?=
- =?utf-8?B?RDZ1K2d6NUJwRU9HK04vM1AvK2ZrK1RiR21GaVczcG5Va3RYOGwxeEtZV3Zh?=
- =?utf-8?B?UVltZHJWT29aVlhZOUJMQXdWbnBPNGFCNEpUdy9oWElJNXFxTmFra1RVOUVO?=
- =?utf-8?B?TUtNL3YzaDRwYUpNUUhhR29tRHdzQzhEalZjcDVTR2FyT2FKRnBBVlAzcmhz?=
- =?utf-8?B?STFsTGJoTEhuL2VNNkVwcUQzS25iYmsvMkhUbFk5eXpBd1hJQXArWkNsTzV6?=
- =?utf-8?B?VjlnZUhCY3czL3dZTXhHQkUySWFuTm9wY2VoMnN3OFBIQTlIZVV5YzlVai9t?=
- =?utf-8?B?SndCK2lQZk1tT09WM2hFT251UStXOTdkejB5WDFhcnZZc0lBTlE0MVJoSHF6?=
- =?utf-8?B?WjJ3YkUxaFhRTzlUc0JWVFZkTERhOWt5aTBoTmZpdDA4UnhoUVR6b0NvV2E0?=
- =?utf-8?B?K253VXRLYmVlSTJTNU9ETVpTYm12di9OeDA4dzk5ZEsxeHBmUmFTOFdiT3Rp?=
- =?utf-8?B?REVOK25OSTNZMFZnbGZUUS9lSXZ5ZStBZHRDQjVZSURGK2xZSkNMV2VjeUVJ?=
- =?utf-8?B?ZTBzUmwyUHZESlZrOS9pNlJrMUpLOW12Y21pRXdBWDRPMVdCVGJPZEtqLzVU?=
- =?utf-8?B?SUZERjlHMUFOSnVFVVlmQVZBWTN0WklmUVVqSENYV0Z3S2grd0xlU3Vva016?=
- =?utf-8?B?V0tmaHVrZTBIZjRuZ2FlYkg1VTN2NnFKZUQxZGxQUFhaRnBQSGpYQXRleUIx?=
- =?utf-8?B?RVVIaUw1bUUzSjF4L09ibXduUnlyOWxQaTV2L0JabmR0bDI2K1h2eUI0M2lO?=
- =?utf-8?B?dk5tSEd0ZlVzQUV5QjBPTmxzQzhoVUc4eDI0c05jamFkU0YvWFNNRUM1T25J?=
- =?utf-8?B?VVBQUzhuSThFRFZTenIxcGk3b25KN3hJaDd0cm15eHFLTnJFTHF4RlN1Qmlt?=
- =?utf-8?B?cW9xS004UFN3bzFZM3Mva3JjVlZkMm5XYUN0dW40TzIzMm9oMTlaNXBYdndT?=
- =?utf-8?B?cWhlRm1ndFArQkdGS2hGMEU2aXl1NkZtQnhod01hTWY2eFZXN2duUUo0ZzI3?=
- =?utf-8?B?aU53QkdLK0xoSE1JektaR1dBd2pWWXZ1SzBrUCt3RGs2TlV0bExGaDhFMDF2?=
- =?utf-8?B?NXBZcHdBWi9lQXBtbXRSeXVFV2cvbWtxaXNsNWZyM1BpWkZvZnhMZWpqMEFm?=
- =?utf-8?B?dnBRbVRLV1YxbkpRV0ZjTG54QXpMTUJkc1I3NmNHSzFBaVhDMVBoUDdnZUJ0?=
- =?utf-8?B?REE9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24d0571e-9a92-4932-9336-08de1cde5fc5
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 02:44:15.4680
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cgR0/AMWgxc1eugtjK03pEaWHEYE5k46g4EeguT21kpCPoAJKdNBtyBBvjnpBx75vQlYjbel/JC3cGopQzBqJw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR03MB9513
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wCnb2vHCwxpGdHxBw--.24507S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxXF1fZw43Kr48uF4kCw1UGFg_yoWrCFW8pr
+	15Ka43K393JF1Ivr4fJr48Z3WFgF95WFsrJ343t3W3JwsxKry7Wa1jgryxKF1rJryqgFW2
+	vF42vryUKr45AF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piw0ePUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1tbibgD9T2kMCCtr9wAAsG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_184423_522338_EDAB56C9 
-X-CRM114-Status: UNSURE (   5.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_184600_289215_A6F8B84D 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,9 +77,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks! Look forward to see your feedback and I will take it seriously.
+From: wangdicheng <wangdich9700@163.com>
 
-在 2025/11/5 21:51, Nicolas Dufresne 写道:
-> Nicolas Dufresne
-Zhentao
+Pop noise mitigation: When headphones are unplugged during playback, mute
+speaker DAC (0x17) immediately and restore after 20ms delay to avoid
+audible popping. This fix is specifically for CX11880 (0x14f11f86) and
+SN6140 (0x14f11f87) codecs based on testing verification.
+
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+---
+V2 -> V3:
+- Fixed container_of usage by storing codec pointer in spec structure
+- Added cancellation of delayed work when headphone is re-plugged
+- Limited the fix to specific device IDs (0x14f11f86, 0x14f11f87) based on testing
+- Added proper cleanup in remove function
+
+ sound/hda/codecs/conexant.c | 73 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+
+diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
+index 5fcbc1312c69..f2f447ab749e 100644
+--- a/sound/hda/codecs/conexant.c
++++ b/sound/hda/codecs/conexant.c
+@@ -43,6 +43,10 @@ struct conexant_spec {
+ 	unsigned int gpio_mute_led_mask;
+ 	unsigned int gpio_mic_led_mask;
+ 	bool is_cx11880_sn6140;
++
++	/* Pop noise mitigation */
++	struct hda_codec *codec;
++	struct delayed_work pop_mitigation_work;
+ };
+ 
+ 
+@@ -212,10 +216,74 @@ static void cx_auto_shutdown(struct hda_codec *codec)
+ 
+ static void cx_remove(struct hda_codec *codec)
+ {
++	struct conexant_spec *spec = codec->spec;
++
++	cancel_delayed_work_sync(&spec->pop_mitigation_work);
+ 	cx_auto_shutdown(codec);
+ 	snd_hda_gen_remove(codec);
+ }
+ 
++static void mute_unmute_speaker(struct hda_codec *codec, hda_nid_t nid, bool mute)
++{
++	unsigned int conn_sel, dac, conn_list, gain_left, gain_right;
++
++	conn_sel = snd_hda_codec_read(codec, nid, 0, 0xf01, 0x0);
++	conn_list = snd_hda_codec_read(codec, nid, 0, 0xf02, 0x0);
++
++	dac = ((conn_list >> (conn_sel * 8)) & 0xff);
++	if (dac == 0)
++		return;
++
++	gain_left = snd_hda_codec_read(codec, dac, 0, 0xba0, 0x0);
++	gain_right = snd_hda_codec_read(codec, dac, 0, 0xb80, 0x0);
++
++	if (mute) {
++		gain_left |= 0x80;
++		gain_right |= 0x80;
++	} else {
++		gain_left &= (~(0x80));
++		gain_right &= (~(0x80));
++	}
++
++	snd_hda_codec_write(codec, dac, 0, 0x3a0, gain_left);
++	snd_hda_codec_write(codec, dac, 0, 0x390, gain_right);
++
++	if (mute) {
++		snd_hda_codec_write(codec, nid, 0, 0x707, 0);
++		codec_dbg(codec, "mute_speaker, set 0x%x PinCtrl to 0.\n", nid);
++	} else {
++		snd_hda_codec_write(codec, nid, 0, 0x707, 0x40);
++		codec_dbg(codec, "unmute_speaker, set 0x%x PinCtrl to 0x40.\n", nid);
++	}
++}
++
++static void pop_mitigation_worker(struct work_struct *work)
++{
++	struct conexant_spec *spec = container_of(work, struct conexant_spec,
++			pop_mitigation_work.work);
++	struct hda_codec *codec = spec->codec;
++
++	mute_unmute_speaker(codec, 0x17, false);
++}
++
++static void cx_auto_pop_mitigation(struct hda_codec *codec,
++		struct hda_jack_callback *event)
++{
++	struct conexant_spec *spec = codec->spec;
++	int phone_present;
++
++	phone_present = snd_hda_codec_read(codec, 0x16, 0, 0xf09, 0x0);
++	if (!(phone_present & 0x80000000)) {
++		/* Headphone unplugged, mute speaker immediately */
++		mute_unmute_speaker(codec, 0x17, true);
++		/* Schedule unmute after 20ms delay */
++		schedule_delayed_work(&spec->pop_mitigation_work, msecs_to_jiffies(20));
++	} else {
++		/* Headphone plugged in, cancel any pending unmute */
++		cancel_delayed_work_sync(&spec->pop_mitigation_work);
++	}
++}
++
+ static void cx_process_headset_plugin(struct hda_codec *codec)
+ {
+ 	unsigned int val;
+@@ -1178,6 +1246,9 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
+ 	spec = kzalloc(sizeof(*spec), GFP_KERNEL);
+ 	if (!spec)
+ 		return -ENOMEM;
++
++	spec->codec = codec;
++	INIT_DELAYED_WORK(&spec->pop_mitigation_work, pop_mitigation_worker);
+ 	snd_hda_gen_spec_init(&spec->gen);
+ 	codec->spec = spec;
+ 
+@@ -1187,6 +1258,8 @@ static int cx_probe(struct hda_codec *codec, const struct hda_device_id *id)
+ 	case 0x14f11f87:
+ 		spec->is_cx11880_sn6140 = true;
+ 		snd_hda_jack_detect_enable_callback(codec, 0x19, cx_update_headset_mic_vref);
++		/* Enable pop noise mitigation for both codecs */
++		snd_hda_jack_detect_enable_callback(codec, 0x16, cx_auto_pop_mitigation);
+ 		break;
+ 	}
+ 
+-- 
+2.25.1
+
 
