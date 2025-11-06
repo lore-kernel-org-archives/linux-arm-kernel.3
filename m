@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0A5CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C8DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFtqgc7QVhIpVUQ5fmXJEqExxhqvPolsoRTuWzAEKxo=; b=OFKKEAkpe78THQlLVWPh1FddWG
-	d0m7+A4TdNz+hDtxEWlJJQaWQqWB50sM7Eww1BgRnvRHNwAMeb29cAH27v51ew7o7QlDJvZpmeUmX
-	xdnbrZw3TbxdGE8OgtZstfcZk8QAcPlvpdA2jPHDeBDd9BWr92ggGNeJxuyRSHe5bBvFi1tbSp13V
-	p9oyP5Gr/xp2iUVVT1oC/C5WnP0EgFUkGPm+pVPGk17dY+dGib6EYK3eAILNoyptArg6La6UU3xVk
-	zBGxGRZYVYIVcACQDuxUDzaGglp+NSx8PvyF8rhKOdHmqxaSfotkIsoweRcHRjvOu31D9JR1wzJBN
-	c0sCLN7A==;
+	bh=aTiGsBKiP0VhHkiM5i+vII8KYWVV/ip0LaNVfiZBrxk=; b=CbSm+kuORU9VqVPFT+03i41fQg
+	G1S+kjvgaltsJCcqHU05Vnx25/iUdpUuWcJ7+ohVqLt8d/v4i5p/t4L1FQV10SWGjB9wLoXeJ+rXI
+	gB+jlFjrQiU2mRhcehxZ33vqMk4x/M8W79cnukgyNw24Wt+VorSw9xsSYubMBhLlyq4wx+pOu/ZAN
+	MG8IIMwUmdTTHhD7eXtydvugjxNLwozElIwCYRqOVxPiuR58qTil/Il0rY6gQkg6gzbNzCi/4Ys2X
+	OEwzI6ml4lkilGXM7L5R25K7TCsuJsF2UQqFbT6wh7JnJdihhA0qTLNmTDIXpFX4zypGDEMV8Mm/e
+	t/rFH/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtiL-0000000ExiN-3Ihb;
-	Thu, 06 Nov 2025 06:43:21 +0000
-Received: from mail-centralusazhn15010018.outbound.protection.outlook.com ([52.102.139.18] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vGtsI-0000000Ey4c-3kOJ;
+	Thu, 06 Nov 2025 06:53:38 +0000
+Received: from mail-westus3azon11010044.outbound.protection.outlook.com ([52.101.201.44] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtiH-0000000ExeE-37am
+	id 1vGtsG-0000000Ey4H-0Hk4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 06:43:19 +0000
+	Thu, 06 Nov 2025 06:53:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hYLIXUyXgVBnxHEbpCtu1B7LORxq90P1BK4CD997VFWgUgVAwi7RpnSul9sEXElxD/gkEvqZBS+HCTKJm+EVlZnyY16xGGvcbIXcLpF+WyWO6miHlZT8VjFzPJrheIhqc/4KKCcmdDcARe4rshSMhbOmHOwmiekGr8y5WZloMVBTGvphiha2ywZ0Pc3ak0LvFV8yDo89TaxH3IIRL/Cg5VXySDppyfM4494dJNYq9vSyFFFx0zYg+U0mDEtCN9JyFuTOo+LgzOv5GEWhajizxFNSAMo+cjge+wEUvq9atP3H6X6sI86Rt0vClwBjPj8K0I+3sLF0pHxAE8nrvY08qQ==
+ b=wz7R2sdLqNWpfHNGbNTVIbaUmVLMR1wr+3jskq86x11VLNGD6erd8ZJBxJNva72YFTGdY9B+0Pzlu55RqocfeTZoen2hiprB9FbWygkyTsSbELapdA4bI0Tl+/LmNzbEWa1jdAxVGHHVPBljyrmZmrE+bZOLrtTtqTIbzvCPtu6L8iIVgTslD4rNtjlF5BJv2341tbXNkUtFDlH+rJyBT60Y+gQXSMg0WO2/BvXZ2xvi5SdCAHCgtc6cWG7XFsf9cOi73tKiMVId6a2l1I86RA48BfDvYOIjgWg4eddI2pwLrqfFF3gruZDsMb2zStK8mqnynGdNUivvvrdqqFEUyg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eFtqgc7QVhIpVUQ5fmXJEqExxhqvPolsoRTuWzAEKxo=;
- b=t7WAeZ1AcLRTVH0i9CQbSyVempfBTwLgFp7oRiUUUAS71/S+voJw/BpuKRinc21TfP61Tplyun3EkU1LDvb8McFfzkrYfo08BQVZBDdRC8tQ5z/ZENX4XccMliCTqZ34IItOlbZ6Rn05ktA/PodhqJoQurl2Sbsqdfd96o7/ql9/ko7LEGcF8m5rNVXHvHtQbSZdACpUZuaIbsgqfGspABOMRC9AAJWqVdZ3CGALarIZge1WviIE0wfwjXkJtVmuvCGnGiE6/R+dSs3cO8bOExkFWiEDD08NBGrZEXVJkrgoL78bzpx8f9HptEsO4kwkLjBM0AE3rrGPVEsRBAz/uQ==
+ bh=aTiGsBKiP0VhHkiM5i+vII8KYWVV/ip0LaNVfiZBrxk=;
+ b=KtY1WIlwGTRWH59I6GZRg9sOD7SkfQDeNsAJKOpRFNHtTuxofG/KEEIHsyaelVY4I8qrph1QLZsAXAWWN89jRJC7s+7Vjf6Gh5lflh0yVtWdOyeJdAPTpf7Gpdi4GOIJjAwnkDnH41JninesMy7tLW0zG2DYc10PO2NT8PSh/ylNR4+TbmO9XqCs/RBPRIVTiTespHNfskmDJeGPzNakgdMHhcItsHEPE+aYJbsbnWibwAnaYeXbqz9ey9cSJlMrbxMhBPg5pQzXVTqPVgbNLkrBxtzr7QTU+KNTCT9z13p3WooEX6JR+NltcUeOtWl1jd0DYwHYVqt/j7Dva4Zbuw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eFtqgc7QVhIpVUQ5fmXJEqExxhqvPolsoRTuWzAEKxo=;
- b=Ee9gXkgeckCC9/CT5yL5iwmNhzbjUIVNCTyR4S8mwT7Ala7ZgF6KyHnqDcW2nIwzvndNewk+5AzxeKdJQxpffSWoNsFyY4jicYLo25pEeCnaL0Hz51PiDJnwiT0suGu+xjW/s5E5MugJ5pYEfPOQACsxeVHsQM8uQSyDE9A44Uc=
-Received: from CH2PR11CA0024.namprd11.prod.outlook.com (2603:10b6:610:54::34)
- by SJ0PR10MB4447.namprd10.prod.outlook.com (2603:10b6:a03:2dc::21) with
+ bh=aTiGsBKiP0VhHkiM5i+vII8KYWVV/ip0LaNVfiZBrxk=;
+ b=G+yfkb2k6eI2JMERt/f1iTpOsL8UB3jl9RrbnLLeWdX6rArJiABKqxtNdaAXI8Y4V/BbTXlsSalslGCknpPpEEh7ZrmkYKorEW2J49Qf47zOBMlzsVE8tKiqN/kp3j+UrEl0+HgQibaeQQ6qnWRsBrbvH2thgUu7PSh9llBaeG4=
+Received: from CH2PR11CA0003.namprd11.prod.outlook.com (2603:10b6:610:54::13)
+ by LV0PR10MB997614.namprd10.prod.outlook.com (2603:10b6:408:33d::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.10; Thu, 6 Nov
- 2025 06:43:05 +0000
-Received: from CH1PEPF0000A348.namprd04.prod.outlook.com
- (2603:10b6:610:54:cafe::52) by CH2PR11CA0024.outlook.office365.com
- (2603:10b6:610:54::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.9 via Frontend Transport; Thu, 6
- Nov 2025 06:43:03 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
+ 2025 06:53:31 +0000
+Received: from CH2PEPF000000A0.namprd02.prod.outlook.com
+ (2603:10b6:610:54:cafe::74) by CH2PR11CA0003.outlook.office365.com
+ (2603:10b6:610:54::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
+ 6 Nov 2025 06:53:17 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -59,40 +59,38 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.21.194 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
 Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH1PEPF0000A348.mail.protection.outlook.com (10.167.244.4) with Microsoft
+ CH2PEPF000000A0.mail.protection.outlook.com (10.167.244.26) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 06:43:03 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
+ 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 06:53:29 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
  (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 00:42:58 -0600
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 00:53:20 -0600
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 00:42:57 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 00:53:20 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 6 Nov 2025 00:42:57 -0600
+ Transport; Thu, 6 Nov 2025 00:53:20 -0600
 Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A66gr3T817583;
-	Thu, 6 Nov 2025 00:42:54 -0600
-Message-ID: <ddc4e2df0a5593d4a6051057c6406db338f4c0ba.camel@ti.com>
-Subject: Re: TI K3 AM69 Kernel Panic when PCIe Controller is Enabled
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A66rGVL831554;
+	Thu, 6 Nov 2025 00:53:16 -0600
+Message-ID: <9b9f4bb33620bbd30d4fc8d440f6e8fab71ed6ff.camel@ti.com>
+Subject: Re: [PATCH v2] PCI: cadence: Enable support for applying lane
+ equalization presets
 From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: =?ISO-8859-1?Q?Jo=E3o?= Paulo =?ISO-8859-1?Q?Gon=E7alves?=
-	<jpaulo.silvagoncalves@gmail.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Kishon
- Vijay Abraham I" <kishon@ti.com>, Swapnil Jakhade <sjakhade@cadence.com>,
-	Andrew Davis <afd@ti.com>, Francesco Dolcini <francesco@dolcini.it>,
-	=?ISO-8859-1?Q?Jo=E3o?= Paulo =?ISO-8859-1?Q?Gon=E7alves?=
-	<joao.goncalves@toradex.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>
-Date: Thu, 6 Nov 2025 12:13:07 +0530
-In-Reply-To: <oawjd2mscz2untz6zc5mqn6ak2oxdul6pnaexiohe6ae3bow2r@afkvpu4izrvt>
-References: <pod3anzbqdwl3l2zldz4sd47rtbruep72ehaf7kwcuh2bgflb2@y4ox65e66mkj>
-	 <cf751cf7-53a5-438b-9903-903bd8c39b23@ti.com>
-	 <oawjd2mscz2untz6zc5mqn6ak2oxdul6pnaexiohe6ae3bow2r@afkvpu4izrvt>
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <robh@kernel.org>,
+	<bhelgaas@google.com>, <kishon@kernel.org>, <18255117159@163.com>,
+	<unicorn_wang@outlook.com>, <linux-pci@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Date: Thu, 6 Nov 2025 12:23:30 +0530
+In-Reply-To: <57nw5lae3ev7krf3dtrllxaq2wvoajijq62ac5uttvajxjvpor@cmahebflp37x>
+References: <20251028134601.3688030-1-s-vadapalli@ti.com>
+	 <57nw5lae3ev7krf3dtrllxaq2wvoajijq62ac5uttvajxjvpor@cmahebflp37x>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.1-1 
@@ -100,61 +98,61 @@ MIME-Version: 1.0
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A348:EE_|SJ0PR10MB4447:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf4c8d20-5e3d-4d62-0c43-08de1cffbca1
+X-MS-TrafficTypeDiagnostic: CH2PEPF000000A0:EE_|LV0PR10MB997614:EE_
+X-MS-Office365-Filtering-Correlation-Id: e586f13d-ee07-42cf-a099-08de1d0131b6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|34020700016|376014|82310400026|36860700013|12100799066;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?elMzamlrZC8xb1o5b0o1YkEwVDdiNWpmY3NSYnNyaDJrREdXbjhEbFhPdzBz?=
- =?utf-8?B?RWJEeUVYSGRqbC91a0NJRktBTm9FRjJqV1R6djBGMVljRXUwbGVkN2JpK29E?=
- =?utf-8?B?Um5OWjdoakxkSVVZcG5ZOHdaRkV4ZlIvZlZETGx0eGo2OFNXcktFR0g4VEQ5?=
- =?utf-8?B?clE4UCt1VXNRRGlEVU1rZHRLdTdFdkNEUHR0bDFPVUxXeXJZQW84bGRoaytw?=
- =?utf-8?B?Wk1ZVzkrUU05YWkyNURldkJUa0ZLZ1VQZUlTZjVYS1J3TGN2MzBRNU91VnhW?=
- =?utf-8?B?M1dHQzRScU5Fc1BMQ3JUWEFKdWZWazBqSFBqTGlFaHdyTmp0dldmdVpZcEpR?=
- =?utf-8?B?VXgrMVNVaHpiUnZ2eEtUUUJNNEluUGU4MmplMXo3aWM0a1N2RjhRR0hNZ0pw?=
- =?utf-8?B?UzczUzF3T1pweThkUVRSN29FblA3clBuSGFpVXlGbFUvWmVvUDVuNUNmQzIr?=
- =?utf-8?B?U2tPR0VlRFlTc1RYRUcrZEg4UHQrOHJUSzE5USs3TVorUlFDZ1NnV2g5WjZC?=
- =?utf-8?B?Q2RYSGRiZFJKeDZXUGxiZUY2ZmJjRk9FbFJ0OS9MQWM5QkFLL2FnUWRNTjAy?=
- =?utf-8?B?MnFmb0FCL1ZHTHRDQzhOY3FvcjZHYldFZWhXNFMxYUZqR0wvYXV3ekJlWVdV?=
- =?utf-8?B?L2FoZzNBSkwrcXlFdk1mQVZmaFBTU3dmL3dkQ0MvdVNwTFZZbmZub3ZJcU45?=
- =?utf-8?B?MkNrSmVpUG9QWEFDZGFZYkZac01aN3BNZWRnSE42c2E1ZEpSS2M1MEllOGh6?=
- =?utf-8?B?OHUxT1VMZVBZd3NiMktITzZxYkNCcnZNNFE3UVZGUXgyWS9JRHN4aEI1M3dm?=
- =?utf-8?B?RjQwOTNzalBWa3pWK1Y5UnBOODBiWFl1blgrQ0padFk4M1NyT3o0K0loUDVa?=
- =?utf-8?B?OXcraS9iT2VHdzYxaWE4aVNtbEdxaHpuNU1Ld1BXVm1WS3Q2M3p5OS9RU2hz?=
- =?utf-8?B?VWtlbDl2MDJkWSt2ejNJVURwdVR0OUpnQ21Rb1dqYys3NXdUTnlUTlo4TTdv?=
- =?utf-8?B?ZVJ4ci84YzV5bldMYmYyV0hFTEFTaE5yUmRQZG5vYUxSb0R6cVo2QnM3bytk?=
- =?utf-8?B?dHY4emptTmUyY002Q0p6MkJ2NjlpbERXbUhaM2hlQy95NjF6cUd0Tnl0NEFB?=
- =?utf-8?B?Qnc1d2QrK0UyRWV0UEdTNEo1emxGR2Yvd1dCUXRtZ0RyNW1BRWxwaGNLdGo0?=
- =?utf-8?B?d0ZydGZSTXgzNW91SHFZWlZIdkQyS0tHYllwWW5aWEZ5QWJyWVNaYkJjUjBl?=
- =?utf-8?B?dmFuM0NZamw3YnQwYWNWYWlJTUFld2l1UTZZOFlWTWd3YVQrM1RxUGFUdjNY?=
- =?utf-8?B?VUtXVHA0ZVBQV25hZ3lOKyt2c1I1WFdNR085YVAzaFJYLzg4ek1jSGxnbG1p?=
- =?utf-8?B?WXJJMmFac2tjWSt4NTJqWXRYelNjTFBlSEhBdHNwRU8zRGQwNWZqTlYrY3Fs?=
- =?utf-8?B?WEZKOU5lSFppSmt6Y015MXRVZkF3R0dURkY2NC84V1p1U2IzbFFqZTdNY2JO?=
- =?utf-8?B?N2sxZ0V1elduU0NsY0ZXR2ZQUTlKcCtselpVUzJPNFFyYkRSN0dRUk4rNm50?=
- =?utf-8?B?MVlYTDdFNkVHaEV6ZUsrVGhBUk5KbTJXeThmc2xhZHdKRi9rNHA5dk5jTHJK?=
- =?utf-8?B?MVE0WHhqWDYwMktxbnZVSXRlWDMzdWt0dHFjR2ZyNXkvZFRlYWVSUGpUS2hH?=
- =?utf-8?B?NFZoSmtMNXE3L1JDTkQyRlEzWUxmM0J5Zk13SzF2QWpwMGYyTko5aVF4RktI?=
- =?utf-8?B?dytybDlTb1pjQ3hDSUF3Q1Q1b08xS0FXOEE4NmZaaHhOMXQvdWhqRnN2VEJ1?=
- =?utf-8?B?djJ0MUF5Mzd6MDF6UDJOVlhNbG1YZXlkYlp1dHBVK0lETUVqdkJuVUY5SkMr?=
- =?utf-8?B?dW12N2NVRllwOWVzVkt3dndLeU9rL0R2eStVbTI3UzA5RXpBODhoaklWMkNJ?=
- =?utf-8?B?Y1drWDVhWC9ubUJLQmRLaFRXelJ3TFQrSktIaVZFUXY5ZFp3VDd1Tk1xYmxx?=
- =?utf-8?B?Um4rVUtJYkJuZlB1Vk1aTDJUSUFqbGtrWmZZbmIvME01TDErQmUwcEtTNFlY?=
- =?utf-8?B?N09jYTVGaWdQdHlFTWIyclhIcGs1SWJYNWRPaXJzZXlKT1ludktHdm5yUito?=
- =?utf-8?Q?Nwj4=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(34020700016)(376014)(82310400026)(36860700013)(12100799066);DIR:OUT;SFP:1501;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|32650700017|34020700016|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UEEzWDNHMHJjaDl0UG1RZGNFd2srUDNIS05MSWxTVi9peHEwVlRJSENydWcv?=
+ =?utf-8?B?UklqN0ZCY3QvZnVXdWp0Vm8rT3ZMN0hiT2NJdjZTMzFQWk9kampQeG9OZ0pz?=
+ =?utf-8?B?VzIyNU03ZmVhNFlQSU5IWnpPZjh3R3VCVDV3d1pqcG9OSk1SbkdYVVVsRUVC?=
+ =?utf-8?B?UzNyWGNJVWJrMWRnUFF6b3lzUG9lbzhBQ3FDVzhaMm1HcXR6dG95cXl0cXc4?=
+ =?utf-8?B?T1I5WW1vNlp0NDJON2JvT096aDNteEQ1bEx2VnJpTHhzaWRVanUwbXhvNzhG?=
+ =?utf-8?B?b3psTEdnQzdEbk5SWm85OGNoRVpDUEgrZ2lsNjNLOGhjMmk4K2VjYWhLcEh4?=
+ =?utf-8?B?M2s1cVpzVmROejByakNtZ25iTnQ3RVF2RzZwSEphSVFrVUJMYTRIR2J3WDVS?=
+ =?utf-8?B?aTJCemsrRkV3L0Zna1lPdER3ckFCZkltVjgrbTd4ci84Mi9iUTI2dkZqNHY2?=
+ =?utf-8?B?cDFHcGJUN204YVhSWnFoS29HczZNQml0akVHRmFWeisvSTliaE5mai9RN3hY?=
+ =?utf-8?B?Yk1UVTdBbWw0emI4YkZ3cFhtTGIvd3hlNTljNk04ZFhFVVdCUUE0RjJCcGpZ?=
+ =?utf-8?B?M2JRSm0vQXNlcjBXYnppbnRMU0hjVEUvVWhWNEhRa1JkMGtZV3Z1LzlwWUFW?=
+ =?utf-8?B?SXNvSFJkVTJWc091ZDJwaXVBeW1nUjVsS0ZrZ1B1UjdQamZDaEpaOXlJelFD?=
+ =?utf-8?B?UEo5bG9uUS9ZTWJ4a2xmQnhUOHhHdE1XMDN0aDgxTE5PWjRNRmJRQUVyaXZm?=
+ =?utf-8?B?S1JxaFlacThId3JCNVBvRDdpU0c0aFdpQ0R3Y0ZNSDlWejY1eG9rTXMxM21F?=
+ =?utf-8?B?MVAvaWE3bjhXWTliNkdpRWVEb3ZrQzRVb0tXbEQyQ24vdk54Y2t1UDQyTHVy?=
+ =?utf-8?B?WXdYWUVFSTZRSThjU0xxdm1mcThPZ2ZKZTZCZmJmMlJnMzhVZmxOcTBzUkRO?=
+ =?utf-8?B?c29Qd3FLeDIyRE96VHFBQkwyTlg0VG1OSlpLN0g1UTFiVUFSUUNDdSthYzl1?=
+ =?utf-8?B?UVJMZWwvK3dMVHlkK1hQTnpkUm1QaGFmNkNDQTBSMVJpSFY4RnppUi95WE9V?=
+ =?utf-8?B?SldVNWMyV1JBNDlOMWhxd2s0ekZaa0xnNTFaSzcrRUlaZHVtamkxQTkzaVlx?=
+ =?utf-8?B?d3J5Y1BFak4zS09HOFR4L2FqMlBUNTJPNUFhb1JndXEwOWZrSCtyMkwxMG1z?=
+ =?utf-8?B?c1JwZWFZbmZFdHc5VmFlalNtN2FMK3J0SFhVM3c5UWdjVWp6Ymt1Y29jVnpS?=
+ =?utf-8?B?b1FDbzFRYjBOeHFRaWRvY285RWN6THprSDl1UHNnOVE4cXErSTdqcEJib1RI?=
+ =?utf-8?B?OHk5MlBkcW92QktZMnBFWVc5dnkxaUp0T25rN250S3l3NWJaOE9hR09IL2dW?=
+ =?utf-8?B?dFZEOVNQa2ZMZ1FxalpaMlA4QzR1eTR4OFJTVVIyNTBMRi9RckxxRGNGZWxO?=
+ =?utf-8?B?UWhWTWdMbHUzbGI3N1dGK0ovOUlpaHVpTFVHSzV3aGczSXo5NGFLTHNxdlpY?=
+ =?utf-8?B?eVpuR3JkOWxKN3Zwck5wUEQvUUt5WjNFVDVmM3ZtT1V1NFFjTXdCeFVPRW14?=
+ =?utf-8?B?N2tIcExlQnBXM1JNZFcrdlJKUjE1SVhPa3dzc2lFNnVtYWFoNmlZeWdhWmlG?=
+ =?utf-8?B?aDlranV4dWJKY1cvNWIwaWJ4RkJzM3hPemo1Vmd4VUxjVnI1ZDZrYWM2VXJS?=
+ =?utf-8?B?MnJVSVd6ZVNFQkUxWmtqZ2hxQWg4STNrN0V1R2ZnK1RaSXhySFVLMytJdXh5?=
+ =?utf-8?B?ZlcxVkU2UCtLaUg5YXhKQk1GOU1oOVFwRlFuUEFsc3NhdWtJWFpGdGFWQTJB?=
+ =?utf-8?B?V3NoRUVSdkExb3hUeFJZaHlxeENtbDFxQnVHOS9rZTNuK3l0ZUJlNnJuMVdn?=
+ =?utf-8?B?QlBMV2x3Y0dTTWZjMGovWTZ1UEhNK3FHcUR6S1o1WjVpOGd3K092WnhxbW9W?=
+ =?utf-8?B?OS9HOVQrRjQyMlJ6MFludzJKRkhsTm9IYVhPb24xa1Y0ODRMaldpb3RuY3RW?=
+ =?utf-8?B?amkxQitZTlBsWHpOSmY5c0xCQ3owZ1VJbWw3Z0hMenhWd2VMeDY1eFRJamhk?=
+ =?utf-8?B?K2hkYXhJK0sxVTg2bEozRGN2QndPM3YxMGhNbjQ0MWFUeFhPOWhpRDhscExo?=
+ =?utf-8?Q?VLbg=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(32650700017)(34020700016)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 06:43:03.9062
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 06:53:29.6765
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf4c8d20-5e3d-4d62-0c43-08de1cffbca1
+X-MS-Exchange-CrossTenant-Network-Message-Id: e586f13d-ee07-42cf-a099-08de1d0131b6
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A348.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF000000A0.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4447
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR10MB997614
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_224317_897663_6759CFA3 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20251105_225336_137049_A2A280FE 
+X-CRM114-Status: GOOD (  34.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,69 +167,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-11-05 at 11:10 -0300, Jo=C3=A3o Paulo Gon=C3=A7alves wrote:
-> Hi Siddharth,
+On Wed, 2025-11-05 at 20:40 +0530, Manivannan Sadhasivam wrote:
+> On Tue, Oct 28, 2025 at 07:15:58PM +0530, Siddharth Vadapalli wrote:
+> > The PCIe Link Equalization procedure allows peers on a PCIe Link to
+> > improve the signal quality by exchanging transmitter presets and
+> > receiver preset hints in the form of Ordered Sets.
+> >=20
+> > For link speeds of 8.0 GT/s and above, the transmitter presets and the
+> > receiver preset hints are configurable parameters which can be tuned to
+> > establish a stable link. This allows setting up a stable link that is
+> > specific to the peers across a Link.
+> >=20
+> > The device-tree property 'eq-presets-Ngts' (eq-presets-8gts,
+> > eq-presets-16gts, ...) specifies the transmitter presets and receiver
+> > preset hints to be applied to every lane of the link for every supporte=
+d
+> > link speed that is greater than or equal to 8.0 GT/s.
+> >=20
+> > Hence, enable support for applying the 'optional' lane equalization
+> > presets when operating in the Root-Port (Root-Complex / Host) mode.
+> >=20
+> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > ---
+> >=20
+> > Hello,
+> >=20
+> > This patch is based on linux-next tagged next-20251028.
 >=20
-> > The E2E thread above leads to another one where the issue was claimed t=
-o be
-> > seen only with the usage of an external reference clock, and it was fix=
-ed
-> > with the usage of the internal reference clock. Does this hold true for=
- the
-> > board that you are using as well?
+> Just rebase on top of pci/main or any topic branches in pci tree if there=
+ are
+> any dependency.
+
+There are no dependencies. I tested on top of linux-next to see if there
+may be any issues with changes from other subsystems. Also, I ensured that
+the patch applies on v6.18-rc1 as stated below.
+
 >=20
-> No, we changed to use the internal reference clocks on the current
-> hardware revision (sent upstream on [1]) and still have the same issue.
-> Please look at the PCIe nodes in [1] so you can confirm this. For
-> example:
+> > It also applies cleanly on v6.18-rc1.
+> >=20
+> > Link to v1 patch:
+> > https://lore.kernel.org/r/20251027133013.2589119-1-s-vadapalli@ti.com/
+> > Changes since v1:
+> > - Implemented Bjorn's suggestion of adding 'fallthrough' keyword in
+> >   switch-case to avoid compilation warnings, since 'fallthrough' is
+> >   intentional.
+> >=20
+> > Regards,
+> > Siddharth.
+> >=20
+> >  .../controller/cadence/pcie-cadence-host.c    | 85 +++++++++++++++++++
+> >  drivers/pci/controller/cadence/pcie-cadence.h |  5 ++
+> >  2 files changed, 90 insertions(+)
+> >=20
+> > diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drive=
+rs/pci/controller/cadence/pcie-cadence-host.c
+> > index fffd63d6665e..ae85ad8cce82 100644
+> > --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
+> > +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+> > @@ -168,6 +168,90 @@ static void cdns_pcie_host_enable_ptm_response(str=
+uct cdns_pcie *pcie)
+> >  	cdns_pcie_writel(pcie, CDNS_PCIE_LM_PTM_CTRL, val | CDNS_PCIE_LM_TPM_=
+CTRL_PTMRSEN);
+> >  }
+> > =20
+> > +static void cdns_pcie_setup_lane_equalization_presets(struct cdns_pcie=
+_rc *rc)
+> > +{
+> > +	struct cdns_pcie *pcie =3D &rc->pcie;
+> > +	struct device *dev =3D pcie->dev;
+> > +	struct device_node *np =3D dev->of_node;
+> > +	int max_link_speed, max_lanes, ret;
+> > +	u32 lane_eq_ctrl_reg;
+> > +	u16 cap;
+> > +	u16 *presets_8gts;
+> > +	u8 *presets_ngts;
+> > +	u8 i, j;
+> > +
+> > +	ret =3D of_property_read_u32(np, "num-lanes", &max_lanes);
+> > +	if (ret)
+> > +		return;
+> > +
+> > +	/* Lane Equalization presets are optional, so error message is not ne=
+cessary */
+> > +	ret =3D of_pci_get_equalization_presets(dev, &rc->eq_presets, max_lan=
+es);
+> > +	if (ret)
+> > +		return;
+> > +
+> > +	max_link_speed =3D of_pci_get_max_link_speed(np);
 >=20
-> //file k3-am69-aquila.dtsi
-> /* Aquila PCIE_1 */
-> &pcie0_rc {
-> 	pinctrl-names =3D "default";
-> 	pinctrl-0 =3D <&pinctrl_pcie0_reset>;
-> 	clocks =3D <&k3_clks 332 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
-> 	clock-names =3D "fck", "pcie_refclk";
-> 	num-lanes =3D <2>;
-> 	phy-names =3D "pcie-phy";
-> 	phys =3D <&serdes1_pcie0_2l_link>;
-> 	reset-gpios =3D <&main_gpio0 32 GPIO_ACTIVE_HIGH>;
-> 	ti,syscon-acspcie-proxy-ctrl =3D <&acspcie1_proxy_ctrl 0x3>;
-> 	status =3D "disabled";
-> };
+> 'max-link-speed' property is used to *limit* the max link speed of the
+> controller, in case the hardware default value is wrong or to workaround =
+the
+> hardware defect. If you goal is to find the actual max link speed of the =
+Root
+> Port, you should read the Link Capabilities register.
+
+The intent was to get the maximum link speed that the user wants the
+Controller to support. The idea is that the user will only specify the
+presets in the device-tree ranging from 8.0 GT/s until the maximum link
+speed that they desire. The Controller could support a higher link speed in
+Hardware, but if the user doesn't intend to enable it, the presets won't be
+present in the device-tree anyway.
+
 >=20
-> [1] https://lore.kernel.org/lkml/20251104144915.60445-1-francesco@dolcini=
-.it/
+> Unfortunately, the ti,j721e-pci-host.yaml binding has marked this propert=
+y as
+> 'required'. It should've been optional instead.
+>=20
+> > +	if (max_link_speed < 0) {
+> > +		dev_err(dev, "%s: link-speed unknown, skipping preset setup\n", __fu=
+nc__);
+>=20
+> Don't print the function names in error log.
 
-Thank you for the details. From the logs shared in your email at:
-https://lore.kernel.org/r/pod3anzbqdwl3l2zldz4sd47rtbruep72ehaf7kwcuh2bgflb=
-2@y4ox65e66mkj/
-the following lines make me suspect that the issue is related to PCIe ASPM
-(Active State Power Management):
-
-[    7.480637] pci 0000:01:00.0: ASPM: DT platform, enabling L0s-up L0s-dw
-L1 ASPM-L1.1 ASPM-L1.2 PCI-PM-L1.1 PCI-PM-L1.2
-[    7.493685] pci 0000:01:00.0: ASPM: DT platform, enabling ClockPM
-
-I have two suggestions:
-1. Disable ASPM using the Linux commandline option:
-pcie_aspm=3Doff
-If the bootloader that you are using is U-Boot, you could run:
-setenv optargs pcie_aspm=3Doff
-at U-Boot prompt before booting Linux.
-2. I had seen an ASPM issue long back in 2022 and had narrowed it down to
-the Data Link Layer being inactive when the PCIe Core in Linux accesses the
-Configuration Space of the PCIe Endpoint:
-https://lore.kernel.org/r/faa13ac2-27b6-94f3-ecde-60256bbbda1b@ti.com/
-The fix for it is the patch to which I have replied above. Direct link to
-the patch is:
-https://lore.kernel.org/r/20220602065544.2552771-1-nathan@nathanrossi.com/
-and it modifies the ASPM driver to wait for sufficient time if the PCIe
-Controller doesn't have the
-ability to report the Data Link Layer state (this is the case for the PCIe
-Controller on the AM69 and other K3 SoCs from TI).
-
-Please test them and let me know the results.
+I will fix this in v3. Thank you for reviewing the patch. Please let me
+know if you have further feedback regarding my comment above on the
+'maximum link speed'.
 
 Regards,
 Siddharth.
