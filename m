@@ -4,88 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650ABCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69960CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hmfITIeUR9zgNyqEDGMxgw+mqlzR44/20xSo7lqFBRg=; b=Z0WC3tWu9719l7pGE/JNmqv0Ft
-	khg0ABc6EctrQpTn6GErD+Yvve+OOyYl0zyXQUmEj8LdH6KSzLaf8wyAHTwFF/3ED9sb96JmdB0GA
-	K+R8fPIa4lkV0L9yfbF03VKxogNpFCidJEkwSa6FsGKq4vjyNxsfo8RLD5o4KOhxzsJZlUjkVqm6k
-	jWQ8B1cJhXMrRN++C40/RYq3CmyAQv0jVZy6UUWO/7iJU04jx2FlzAvwjhpyAZZs8ay/j50UAf6bN
-	/IaQ/dcCLwC2KpX350P70a40BmWq/POt7BDHNDGIYt/JSglfdgElNW0zx0EQjidhRDFfKvn+M2ln0
-	/PfIfkwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nxXbjl0HhdoITaZBDxLqmLJTjrhCiLD5WEPTG0leRLU=; b=132jwzpNpzv7O8AcoJ8X/Yn78R
+	LMDAS66uerVn61nCtqjzp8/PwMKAOa5NA0OQpZzj/97NjqSN3d5a75q3z5isZibYS8cSRqqBY9SIB
+	qLaji6aYquOCieA81MAm7OtWTyBiIoICXHsvphgz3NkzmWdhJ5Sl+G/KtcAUVoDVNC53UDgJBV235
+	DsutMj74aY0k4aquDBjAAqLAkbyRrs2nQ4G3ohh9bZBC7/BZd9Ha/GgIT6gtKXOFHlsYo0Q5Lhb8W
+	mWDBNo22sH1IbU0wcIZROttvoAK8vdm9u6OodAuHlOcz3t7gNXGuXiaO5RyXmvfwyFe+BhAjpgZBy
+	d/yxbgDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3Q4-0000000FzFS-2nKQ;
-	Thu, 06 Nov 2025 17:05:08 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1vH3Tu-0000000FzV8-11Gc;
+	Thu, 06 Nov 2025 17:09:06 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3Q2-0000000FzF1-0BEC
+	id 1vH3Tr-0000000FzUV-39rC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:05:07 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4283be7df63so656475f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 09:05:05 -0800 (PST)
+	Thu, 06 Nov 2025 17:09:04 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-781ea2cee3fso1204436b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 09:09:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762448704; x=1763053504; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hmfITIeUR9zgNyqEDGMxgw+mqlzR44/20xSo7lqFBRg=;
-        b=cZ3vwO4HErQSnD+wfgkqxUmX4euHalT9d3d0REEKGojjOr/tKgkJgQGcHVLkkcFofk
-         W41WxXPRbyCjJs3G3qVqPnyD8vJzvrD3MveFf6B6RO2KHZ7wvpLyuoFmf/ormtRDZgUj
-         /yIy0+S+c1P8IihOh+AskgBP0HrE4Got/Z5iSADVH6aUx920uX3xv48gSJvvGwGdOhQA
-         qqVFtegci7lEgunK/fJ0/DJPxWm5xuQ7sccwCxdXxIsFV3XgKNYRYUVtonRkRWHs2Q6g
-         OauaLer45pY9LynYsJ7t1I6OMCmgmTNSD7aEjRxkabWxGKwOKpuPgAvsCX1813YZcOnN
-         gwCg==
+        d=gmail.com; s=20230601; t=1762448943; x=1763053743; darn=lists.infradead.org;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nxXbjl0HhdoITaZBDxLqmLJTjrhCiLD5WEPTG0leRLU=;
+        b=PicgfLp0YtjjIbtZFaHjCvGIrwMKjR4qHeelBj4VH8LzPlzDmxp+E2cWasifUWTqrV
+         O/SGjpUuQj1xclh389vYGqp2PRSVJHiAMSNV0MJe8LGvHKp92x0nD+MMG/nsuu0voYqc
+         yxlM2ZBdNnGD0RrPYKUin655kqyn8o27bI8XDlHmn/nC2oY7XyUYTlihBEe4BRuum3pM
+         uFDEJkOM3PUaiCK/pcnZwroEhJmcc5Qv0l83jN874iT1Ke7F0CuIUdeTD3uVW1ihvIxF
+         Mim4px+56WoSBHz8UBRoIWVJH2JuE8deJc0RIzpWd9ZUjuv8PsNeNxNtMUWwL975ub6U
+         fSiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762448704; x=1763053504;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1762448943; x=1763053743;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hmfITIeUR9zgNyqEDGMxgw+mqlzR44/20xSo7lqFBRg=;
-        b=L+gNL57Kqa+xjELg4AkNhQiv0IaodXxalBfqXpzRN5/eEPZTouodzQKVzsxcQZnrf1
-         XDKsEyCHXaXWXM12hGOjb7weWAo7p5xFsfTl9BKJLcSa6AVReYYU8PPlfiNbGqihSsmW
-         fXEx/Tsrk0feMsyQz0MUlBJAL5n4n3L9FrCUoipg2UCIMD9c9WkDF4GPyzng5HKIItJl
-         7hD/DdRp90Ro4yS8oT8lFkHWLJzal3AhhbAG2mXjHsQi44NiTjrFgWsBL9yjtq/xVGZq
-         2yiGmZs6YUwBEjeDxID1Uwd7Ztzqo4r1sE6Vp3aEsen9s9ie6+VV+SbDS4V+xoer4tep
-         gUhg==
-X-Forwarded-Encrypted: i=1; AJvYcCUn8tuKID/ODlIlVg5WA5Sid+RFZD0X5SoHWjZDnol5B902tY6oav05wU53BvL+okZvnBGhAsqxpiQnmc9eFmlS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJmLIINvwII7SaN1nDlwHHDsHY7MuyckZmdUfEJmEHRZ8y11Hl
-	6nQwE/n81+44zZnluiBavqKxOLU0HpR2uL5seGm/wgXzIJivcqQW1m1EwKfGNT478nY=
-X-Gm-Gg: ASbGncvYUJnb5K3kL92zhII1IaZgo3Si21IgxHZn0T9txmi2yOLp6Y5I5faACXC15sx
-	t+LaJY/tQk/YPJeNR/XERsMA4gshA3bQOb0MHD+9g5pEa/gSnW64pLpyb6ertYPL+WVnJYMOqcn
-	jvsz173c4Odl+4Wy6lvmCB1zNUm5pLzeitHtQXjjrYrUhyspE3hyCD/YIogI3y6ikzjAsjTOwXh
-	9NIoXMCiy3THJZGS43kZaVVn9zRf18eKVYzmHpabAAd36Olah7FNQBQlGXPMJmOWkHARL8BJ7Ln
-	nsUUrlRdJpriBx3w7nIU65SB/61bmhp6j7QuMd/nEVHD60t4hxukUtolI8u7ZY8c2oVKoMCSPP7
-	UxpOZIjyr09e6rm397EsMXet17KzxkC1Hz0nNf1BvSU9cfy04RJSSoKZ3y/mjvfQ3mRh3roxulq
-	OomgIecTPg+/yw6dV9vr26nHR7N6zNdNrpdGNH5ellYS/jWZb2V0MK8TPL6RDpER3NY21+
-X-Google-Smtp-Source: AGHT+IG6+Y8/xO+RlybIvSJ8UToflUonXatZYaEe3GrS+kZrJwAjzGUthljg2YYqVXNYggrOwWqgxg==
-X-Received: by 2002:a05:6000:60f:b0:425:7329:e1d2 with SMTP id ffacd0b85a97d-429e32e452bmr7320490f8f.16.1762448704063;
-        Thu, 06 Nov 2025 09:05:04 -0800 (PST)
-Received: from linaro.org ([217.38.114.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d54fsm104227f8f.45.2025.11.06.09.05.02
+        bh=nxXbjl0HhdoITaZBDxLqmLJTjrhCiLD5WEPTG0leRLU=;
+        b=sM6+9pmH609qLluix2DjikcezwAK8t1f259RCdEW4ufDIVHifr4ZVeHpx1VpgDm9qd
+         G+MuFlQWvdnKNxEghU4gdsPwEHq2IVsOyb3IeMDWrlt2sbGLcOOqmP+5Z9+TqelDrrbc
+         GDhARnEr7NO5a8iDtch/dzcgbqD4In/7jEfw0bGRILasIYjW+fgZPMD/1aFnU5JwVcVb
+         1yX3f7208GTCAjdyeh9usMFZvUBscrCQIqpjpdE3XASyRBcXO49qLRkaq5xb0LMv8bOm
+         KNvJXoa8QaCsssWo2dtXPdhEDyyD/S2UncZsPR2A+vq5G2agHq3iW57bugoIBcumrXD7
+         QhLw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2q7brNTy2C2DlJoo1lyM1aCy6qP/RY2zpf+qg91hmhwW3CnokpXR3OC5PhNwErd6QN6MXECylWcOSssq3Lm0T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd+7IfXr7bWydVV8cpoBJN9/ow6qFU+CMmRYGnU+sfmtJoOhqu
+	2dp7lY7ctooPI57hPHRxhnxdvQHknBbx57MvOfIWWNIxt4HB33acw+6u
+X-Gm-Gg: ASbGncvCw4RYVCrasAlL14JcTxw9vthUMxfBlEgehWmDvR3bx0OKYbQCoAFKtrrcDwP
+	kIdyB7xtCezf8QWN5lLxs4rIGuxpY+yec7nBRf4l3HYaumtwcwfA/ovvVjA+8ch2pSk7Su8LEbE
+	zwmxPDE/h4Uc8gJ6HbHwlhESIID42kg8PuIeVuIchWObx/scXWx6F6CmMjoraYblpDIlGnoseiQ
+	ouI0D1qNP57iJSyaxvEscFDkRcbOltG7G6p6oX9Cm4VYuzzpelbwV4vFem+YUwIPNmT7qVeXpg9
+	evSn1DFN09EAe7+4YQoF83gkfHyDCA2Hrw2HQ9a+Wy97l8jXCF6V7TNGghwRZ5lC4pqeF/kzCgD
+	8MXdUhiKM+IocXo8im5mP0xddTkKEMWCw/txWVZ/cRJtsrUqIqbZQDEVzX5Zwhb+qjnpaRw==
+X-Google-Smtp-Source: AGHT+IGcGbtG/gxArci+CopvKuv0vsWkSHD0Cj0H8EsVfNgzuLLOXCCQpVWCS8AAZU2IHguSNAAo3Q==
+X-Received: by 2002:aa7:88c2:0:b0:7a9:f465:f25 with SMTP id d2e1a72fcca58-7b0bdb856abmr331762b3a.27.1762448942695;
+        Thu, 06 Nov 2025 09:09:02 -0800 (PST)
+Received: from dw-tp ([171.76.85.117])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0c9c0874bsm68007b3a.16.2025.11.06.09.08.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 09:05:03 -0800 (PST)
-From: Mike Leach <mike.leach@linaro.org>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	leo.yan@arm.com,
-	james.clark@linaro.org,
-	Mike Leach <mike.leach@linaro.org>
-Subject: [PATCH] coresight: tmc: Prevent sysfs parameter changes if sink in use
-Date: Thu,  6 Nov 2025 17:04:59 +0000
-Message-Id: <20251106170459.2348-1-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.32.0
+        Thu, 06 Nov 2025 09:09:02 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Andreas Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>, 
+	"David S. Miller" <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>, 
+	Juergen Gross <jgross@suse.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, x86@kernel.org
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+In-Reply-To: <87ikfn3yvs.ritesh.list@gmail.com>
+Date: Thu, 06 Nov 2025 22:31:27 +0530
+Message-ID: <87h5v73xjs.ritesh.list@gmail.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-8-kevin.brodsky@arm.com> <87ms5050g0.ritesh.list@gmail.com> <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com> <87ikfn3yvs.ritesh.list@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_090506_112370_75336492 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20251106_090903_798836_2D4F3D44 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,110 +111,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sysfs files that change the operational parameters for TMC buffer_size,
-stop_on_flush and trigger_cntr are writable when the TMC is in use.
+Ritesh Harjani (IBM) <ritesh.list@gmail.com> writes:
 
-The new values will have no effect and be silently ignored.
+> For e.g... 
+>   
+>     arch_enter_lazy_mmu_mode()
+>         hpte_need_flush()
+>             get_cpu_var()   // this takes care of preempt_disable() 
+>             adds vpns to per-cpu batch[i]
+>             put_cpu_var()   // 
+>     arch_leave_lazy_mmu_mode()
+>
 
-Alter the sysfs functions to return -EBUSY if the TMC is currently
-in use, and also protect the write values using the spinlock.
+Sorry, here is the more accurate call sequence for previous email.
 
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
----
- .../hwtracing/coresight/coresight-tmc-core.c  | 41 ++++++++++++++++---
- 1 file changed, 35 insertions(+), 6 deletions(-)
+caller()... 
+     arch_enter_lazy_mmu_mode()
+     ptep_xxx_()
+        pte_update()
+             hpte_need_flush()
+                get_cpu_var()   // this takes care of preempt_disable() 
+                adds vpns to per-cpu batch[i]
+                put_cpu_var()   // 
+     arch_leave_lazy_mmu_mode()
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 36599c431be6..a1216a1f9681 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -489,15 +489,24 @@ static ssize_t trigger_cntr_store(struct device *dev,
- 			     const char *buf, size_t size)
- {
- 	int ret;
--	unsigned long val;
-+	unsigned long val, flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
-+	/* do not permit write if the sink is currently in use */
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-+	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED) {
-+		ret = -EBUSY;
-+		goto out;
-+	}
- 	drvdata->trigger_cntr = val;
--	return size;
-+	ret = size;
-+out:
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	return ret;
- }
- static DEVICE_ATTR_RW(trigger_cntr);
- 
-@@ -514,7 +523,7 @@ static ssize_t buffer_size_store(struct device *dev,
- 				 const char *buf, size_t size)
- {
- 	int ret;
--	unsigned long val;
-+	unsigned long val, flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	/* Only permitted for TMC-ETRs */
-@@ -527,8 +536,18 @@ static ssize_t buffer_size_store(struct device *dev,
- 	/* The buffer size should be page aligned */
- 	if (val & (PAGE_SIZE - 1))
- 		return -EINVAL;
-+
-+	/* do not permit write if the sink is currently in use */
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-+	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED) {
-+		ret = -EBUSY;
-+		goto out;
-+	}
- 	drvdata->size = val;
--	return size;
-+	ret = size;
-+out:
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	return ret;
- }
- 
- static DEVICE_ATTR_RW(buffer_size);
-@@ -547,17 +566,27 @@ static ssize_t stop_on_flush_store(struct device *dev,
- {
- 	int ret;
- 	u8 val;
-+	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
- 	ret = kstrtou8(buf, 0, &val);
- 	if (ret)
- 		return ret;
-+
-+	/* do not permit write if the sink is currently in use */
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-+	if (coresight_get_mode(drvdata->csdev) != CS_MODE_DISABLED) {
-+		ret = -EBUSY;
-+		goto out;
-+	}
- 	if (val)
- 		drvdata->stop_on_flush = true;
- 	else
- 		drvdata->stop_on_flush = false;
--
--	return size;
-+	ret = size;
-+out:
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	return ret;
- }
- 
- static DEVICE_ATTR_RW(stop_on_flush);
--- 
-2.32.0
-
+-ritesh
 
