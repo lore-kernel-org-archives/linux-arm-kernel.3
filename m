@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999A1CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0A4CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=6RZSAqmHTk6SehAdO+Uvs0SISAtFsddmbBkamguNBdI=; b=TRg61UHo7Scrlq
-	fwDyunM1rJnh2ErbNx/wvpX2MRpjY6QFFz57CnX6v66iCI7DrlXfPb9IX6+5Fu3l52YEhHpbvxElM
-	KH0lPjrw6ojvVsVykuVsUp+TFabKgBxx5lHvF7zWa8ZhaYhUBz2ph33hpYI2m6j4LC0s0mQYmuZtb
-	X2k8ztDzL7KR31R55YBqKYLuyaHyJzabVLUmAT9ubxiglKiBnYjeQkuF+yzZPL8QrB09T5EWvKnwN
-	sYeowLnqTLBm+pvzal3mBljzV7GlDVnTPncV3F7IcURCivIX005F7P6ufC7Lk6JMocUPSUsKc4rn1
-	CJKX9ZQZGN7ej9A4vJbw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lUYNwn621b4INnVv6cYUd9i8ygchqkVKYYeeytWLys8=; b=p06y9RAjdxk/+mu8V7J+9Jfg5b
+	1UTLtOlBr/0JbiwyaUcItRkHSRi7UAUBimETlsEd5iDbJxJUaOvOrkdHtbXNFNHfsLz9JZs7Mlo5v
+	yHYpwouxL65YPEPtnOJhDGpczwYHZhu3VNNZwNHbKak1/S+vRy5rmDwBWf6hKcqv4xqEPjfcFm89Q
+	Ik0qIf0Fr+ga/nHcVJG7GiKEnFLVzTz6omQ86PMo0fwoU3aPtJND8NkaoTPuQP7yQm5L3/vWjuAS6
+	jZ76/Ygsu6gkATbke30Cco9PDM6eVdH8jBNgbRLUJiD5m28ZE/ERM16l5LSM+7Rx25XG06C7J6CFv
+	KqQod5pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3hc-0000000G0ug-1V7n;
-	Thu, 06 Nov 2025 17:23:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vH3lb-0000000G1AO-06sp;
+	Thu, 06 Nov 2025 17:27:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3ha-0000000G0uF-3n9K
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:23:14 +0000
+	id 1vH3lX-0000000G19v-3RwQ;
+	Thu, 06 Nov 2025 17:27:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11086618FF;
-	Thu,  6 Nov 2025 17:23:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A333C19421;
-	Thu,  6 Nov 2025 17:23:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E2AF74433B;
+	Thu,  6 Nov 2025 17:27:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC827C116C6;
+	Thu,  6 Nov 2025 17:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762449793;
-	bh=Gw5TYH30f99oo5GV+N2fvATCCzkEDos8mvZjTzd6Z1o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=DgBHopWbQvz5DFxCGmbgRetww5Af5HfRE44GSZZSbnwqAYR9vOj11uB+6AwWJXMeG
-	 pySaPgAmNDjwgKVDaDHOG8AxZ2At0nLbP/aD7jTCOSjwjAwat/fMCvmfhDbYewfmjF
-	 CYHeCJZasSERVwFyaClXKVeuuEQkYtvtrEgA4sUYDegmdJIVjFKXPgmGlCsmwk3Efh
-	 ke32e3NnzgTNhwqDbwgQoasz4m331sLSlOZaXQRFuDyNum99nwBoaZaCcOIcWMLUuW
-	 aTUKcd2MYaedHPbu3+M2tAOvOln/iQlp00SDs+zm+K94uG8PSgjSoySDjG+mfo0IjD
-	 ypY8P5nb9rewA==
-Date: Thu, 6 Nov 2025 11:23:12 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, cassel@kernel.org
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <20251106172312.GA1931285@bhelgaas>
+	s=k20201202; t=1762450038;
+	bh=lUYNwn621b4INnVv6cYUd9i8ygchqkVKYYeeytWLys8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AmMzs73VnjPXmC/0CawgwdAAECJ1wJXAWnwMQs7cvyNsJ8gcIKEmofrUeLkYBv1bd
+	 1dwbVsduZY9Hh2P4Er88otWdF/OtGWQBj59m5EtsoxzMWIQqz4I/gg5CSBj2A1TXk5
+	 +CDYE5TE1HSL3IZtGbNZ/4X9hMqqYJj3wEvS3IweFoWj2AE2jtIarNJYcPWV3e6Try
+	 T5g4cl/zNIMVWgstSipeHjVO7I4mYPDg0HSmdLE1UpofGJZx4AuNIgH3xfYWXSof1Y
+	 TW1r3xus5GPisF2NMyuBSwOVbEIQhFCmZEWc+SbXjqHg69Zu9aFNrWLLQm5Z4gR/u/
+	 7DpEB7V12nwxg==
+Date: Thu, 6 Nov 2025 17:27:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH 2/9] dt-bindings: phy: rockchip-inno-dsidphy: Add
+ compatible for rk3506
+Message-ID: <20251106-litigate-cultivate-75a4aac333c7@spud>
+References: <20251106020632.92-1-kernel@airkyi.com>
+ <20251106020632.92-3-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="V33MzIjcuA2BZAPY"
 Content-Disposition: inline
-In-Reply-To: <20251022174309.1180931-4-vincent.guittot@linaro.org>
+In-Reply-To: <20251106020632.92-3-kernel@airkyi.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_092719_879079_1F3716ED 
+X-CRM114-Status: UNSURE (   6.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
-> Add initial support of the PCIe controller for S32G Soc family. Only
-> host mode is supported.
 
-> +config PCIE_NXP_S32G
-> +	tristate "NXP S32G PCIe controller (host mode)"
-> +	depends on ARCH_S32 || COMPILE_TEST
-> +	select PCIE_DW_HOST
-> +	help
-> +	  Enable support for the PCIe controller in NXP S32G based boards to
-> +	  work in Host mode. The controller is based on DesignWare IP and
-> +	  can work either as RC or EP. In order to enable host-specific
-> +	  features PCIE_S32G must be selected.
+--V33MzIjcuA2BZAPY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Did you mean PCIE_NXP_S32G here?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-PCIE_S32G itself doesn't appear in this series.
+--V33MzIjcuA2BZAPY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQzacAAKCRB4tDGHoIJi
+0hUTAQD7NwjnqRmBmopmm9xS3ZqfaL4Lj+EawXUG/K8Qy/2v1QEArBXv4nDqLv9S
+VD0Fl63GQYh+57qF0vwhbIjEcBRyQgs=
+=XWuK
+-----END PGP SIGNATURE-----
+
+--V33MzIjcuA2BZAPY--
 
