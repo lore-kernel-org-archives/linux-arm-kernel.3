@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB711CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 04:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFB5CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 04:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7iwbbb29wVewcrUtqmSsxEVWBRgR+SWD7H3XDAsjIyY=; b=K+GnIs2ybETatFKtErtMe+ZoEu
-	fnYuPqSMfeEJs2KG4CHF55i2Vs7wam1VVrM3oXrKDV3TOYKACDdS6VLn24/+1a3/8KS+PoaHvCmFg
-	ZAxvvRlXxgCvwAoKcmtAstWxUI3mTMJGZxYV7eNYePL8OGK4mr87y3d2hkPNths5RQFt3g4F3RgWL
-	KLi7g9qVt0G0B0haLr5+NsOsSiteCraW+7liIdNkvCSBYkpRYICpaa3LYtHky9rcdRw4cQb1W7Whj
-	3BEx8MWKboSZB2/ZBPyl4KARpHi/C26ANadd9U2Azwa5nbH49IDszs2E/LeI/ZYnfJygoeWJWgekZ
-	GsnrinxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xFVF8hcyyJXywbekbwZWS0m4c7TNp2T6eU3I4HWZyY0=; b=2SVSCw7CFkZj+zHPVJ1OZ3HCoa
+	Hi6bGB5Br6txlAUskL+DnTu3fE1G2k5jDlPxwuylsS7lG3nH1q1xvLHVLpj+CIHEb43y5uEorRh/S
+	cJJI8sVd7UeTxLGRAe+Zp3n19NyNM/URYTk1dheQ3u3TvN11SnFxKHZZOqqin4+QVD+5hFVTDWRXX
+	QKADXffRiZqVgvXs44Va0DjMDaFDQE32UH44KW9YodaS2YPBEa7ghhTNImVwo2vCU3ONLEj+XQ432
+	eWQ0M5Fzs5TaDbtc8mBXWIxQ363eFd2qvov35L9+3ikgSgeQFHGdwse9AteSrcEMmFOH2O6GPnRO8
+	Qafgp05Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGrMD-0000000EqbR-3YOP;
-	Thu, 06 Nov 2025 04:12:21 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1vGrh0-0000000ErGh-3qBd;
+	Thu, 06 Nov 2025 04:33:50 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGrMB-0000000Eqav-0fD5
+	id 1vGrgy-0000000ErGF-10KG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 04:12:21 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4d27yY3qs7z1K96d;
-	Thu,  6 Nov 2025 12:10:29 +0800 (CST)
-Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92A101A016C;
-	Thu,  6 Nov 2025 12:12:03 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemr500004.china.huawei.com
- (7.202.195.141) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 6 Nov
- 2025 12:12:02 +0800
-Message-ID: <bf38a9cb-41a9-4a40-ba17-afe679018003@hisilicon.com>
-Date: Thu, 6 Nov 2025 12:12:01 +0800
+	Thu, 06 Nov 2025 04:33:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=xFVF8hcyyJXywbekbwZWS0m4c7TNp2T6eU3I4HWZyY0=; 
+	b=V21XD2ciC8mWSIgvOmJBojTX0vMkPP04EFgOkmJrcZN6TmUxITVstbnIrV/jq8J59DNAlgvtJJW
+	8swxpyfbZI4rL0lT3mcWtbRm47/wW3EfQZy7jEgDxtlYlo56YtYiPOVmnknDL5MlDsrZnm5L+tT1G
+	kuWauin+hDLmcwsxoaYndsq7nEDTrCKkuVFXYekNn31CJ3H3N75dTlo5/8ToFxxUjaJayDMZvO2zr
+	SkEUCMpgq+bAByJDYFfBUaSv2PJqPzSylu5lP+QFpbIS7Pvd3HPXXSDOwDV2QjuyAYw+6eXC6PkhP
+	XBmkEAhaESb9lOE2jHz/9HPse101Mi35PAFw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1vGrgY-000qB9-2T;
+	Thu, 06 Nov 2025 12:33:23 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 06 Nov 2025 12:33:22 +0800
+Date: Thu, 6 Nov 2025 12:33:22 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Harsh Jain <h.jain@amd.com>
+Cc: davem@davemloft.net, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mounika.botcha@amd.com,
+	sarat.chand.savitala@amd.com, michal.simek@amd.com,
+	linux-arm-kernel@lists.infradead.org, jay.buddhabhatti@amd.com
+Subject: Re: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation to
+ select HW keys
+Message-ID: <aQwlEgMlYr8EPrTo@gondor.apana.org.au>
+References: <20251029102158.3190743-1-h.jain@amd.com>
+ <20251029102158.3190743-10-h.jain@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: topology: Improve AMU-based frequency
- calculation
-To: Bowen Yu <yubowen8@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<beata.michalska@arm.com>, <ptsm@linux.microsoft.com>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>
-CC: <prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>,
-	<xuwei5@huawei.com>, <zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>
-References: <20251104075544.3243606-1-yubowen8@huawei.com>
- <20251104075544.3243606-2-yubowen8@huawei.com>
-Content-Language: en-US
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <20251104075544.3243606-2-yubowen8@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500004.china.huawei.com (7.202.195.141)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029102158.3190743-10-h.jain@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_201219_531785_F609AFD0 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20251105_203348_781949_93B88A4E 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,112 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/4/2025 3:55 PM, Bowen Yu wrote:
-> The current approach of reverse-calculating CPU frequency from capacity
-> values introduces quantization errors due to intermediate scaling of
-> arch_scale_freq_capacity, which results in the calculated frequency having
-> only 1/1024 resolution.
+On Wed, Oct 29, 2025 at 03:51:52PM +0530, Harsh Jain wrote:
+> Currently keylen 1 is used to select hw key. There are -ve self test
+> which can fail for setkey length 1. Update driver to use 4 bytes
+> with magic number to select H/W key type.
 > 
-> This patch:
-> 1. Directly computes frequency using AMU counters in amu_scale_freq_tick():
-> freq = (core_cycles_delta * timer_freq) / (const_cycles_delta * 1000)
->  - core_cycles_delta: Measured CPU cycles
->  - timer_freq: Architectural timer frequency
->  - const_cycles_delta: Reference cycles from fixed-frequency timer
-> 2. Returns pre-computed avgfreq in arch_freq_get_on_cpu()
-> 
-> examples:
-> Before change
-> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
-> 2297851
-> 2297851
-> 2295312
-> 2297851
-> 2297851
-> 2295312
-> 2297851
-> 2295312
-> 2297851
-> 2297851
-> 2297851
-> 2295312
-> 2295312
-> 2297851
-> 2297851
-> 2297851
-> 2297851
-> 2300390
-> 2297851
-> 2297851
-> 2297851
-> 
-> After change
-> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
-> 2299177
-> 2298117
-> 2299188
-> 2297330
-> 2296530
-> 2298817
-> 2298434
-> 2298986
-> 2298596
-> 2299395
-> 2299560
-> 2298446
-> 2299108
-> 2299294
-> 2298707
-> 2298453
-> 2298632
-> 2299218
-> 2297962
-> 
-> Signed-off-by: Bowen Yu <yubowen8@huawei.com>
+> Signed-off-by: Harsh Jain <h.jain@amd.com>
 > ---
->  arch/arm64/kernel/topology.c | 20 +++++++++++---------
->  1 file changed, 11 insertions(+), 9 deletions(-)
-> 
-...
-> @@ -288,7 +293,7 @@ int arch_freq_get_on_cpu(int cpu)
->  	unsigned int start_cpu = cpu;
->  	unsigned long last_update;
->  	unsigned int freq = 0;
-> -	u64 scale;
-> +	u64 delta_core_kHz;
+>  drivers/crypto/xilinx/zynqmp-aes-gcm.c | 94 ++++++++++++++++----------
+>  1 file changed, 60 insertions(+), 34 deletions(-)
+
+The hardware key support should be registered under the name paes
+instead of aes.  Grep for paes in drivers/crypto for examples.
+
+> @@ -218,32 +220,42 @@ static int zynqmp_aes_aead_setkey(struct crypto_aead *aead, const u8 *key,
+>  				  unsigned int keylen)
+>  {
+>  	struct crypto_tfm *tfm = crypto_aead_tfm(aead);
+> -	struct zynqmp_aead_tfm_ctx *tfm_ctx =
+> -			(struct zynqmp_aead_tfm_ctx *)crypto_tfm_ctx(tfm);
+> +	struct zynqmp_aead_tfm_ctx *tfm_ctx = crypto_tfm_ctx(tfm);
+> +	struct xilinx_hwkey_info hwkey;
+>  	unsigned char keysrc;
+> +	int err;
 >  
->  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
->  		return -EOPNOTSUPP;
-> @@ -340,14 +345,11 @@ int arch_freq_get_on_cpu(int cpu)
->  			break;
+> -	if (keylen == ZYNQMP_KEY_SRC_SEL_KEY_LEN) {
+> -		keysrc = *key;
+> +	if (keylen == sizeof(struct xilinx_hwkey_info)) {
+> +		memcpy(&hwkey, key, sizeof(struct xilinx_hwkey_info));
+> +		if (hwkey.magic != XILINX_KEY_MAGIC)
+> +			return -EINVAL;
+> +		keysrc = hwkey.type;
+>  		if (keysrc == ZYNQMP_AES_KUP_KEY ||
+>  		    keysrc == ZYNQMP_AES_DEV_KEY ||
+>  		    keysrc == ZYNQMP_AES_PUF_KEY) {
+> -			tfm_ctx->keysrc = (enum zynqmp_aead_keysrc)keysrc;
+> -		} else {
+> -			tfm_ctx->keylen = keylen;
+> +			tfm_ctx->keysrc = keysrc;
+> +			tfm_ctx->keylen = sizeof(struct xilinx_hwkey_info);
+> +			return 0;
 >  		}
->  	}
-> -	/*
-> -	 * Reversed computation to the one used to determine
-> -	 * the arch_freq_scale value
-> -	 * (see amu_scale_freq_tick for details)
-> -	 */
-> -	scale = arch_scale_freq_capacity(cpu);
-> -	freq = scale * arch_scale_freq_ref(cpu);
-> -	freq >>= SCHED_CAPACITY_SHIFT;
-> +
-> +	if (check_mul_overflow(per_cpu(core_delta, cpu), arch_timer_get_cntfrq(), &delta_core_kHz))
-Hi Bowen,
-
-IIUC, the variable 'delta_core_kHz' doesn't mean its name.
-'core_delta * timer_freq' is just a transitional number.
-The naming is misleading.
-
-Perhaps consider reusing 'freq'? i.e. define 'freq' as u64 and replace
-'delta_core_kHz' with 'freq', then return (int)freq at the end.
-
-Jie
+> -	} else {
 > +		return -EINVAL;
+> +	}
 > +
-> +	freq = div_u64(delta_core_kHz, per_cpu(const_delta, cpu) * HZ_PER_KHZ);
->  	return freq;
->  }
+> +	if (keylen == ZYNQMP_AES_KEY_SIZE && tfm_ctx->keysrc == ZYNQMP_AES_KUP_KEY) {
+>  		tfm_ctx->keylen = keylen;
+> -		if (keylen == ZYNQMP_AES_KEY_SIZE) {
+> -			tfm_ctx->keysrc = ZYNQMP_AES_KUP_KEY;
+> -			memcpy(tfm_ctx->key, key, keylen);
+> -		}
+> +		memcpy(tfm_ctx->key, key, keylen);
+> +	} else if (tfm_ctx->keysrc != ZYNQMP_AES_KUP_KEY) {
+> +		return -EINVAL;
+>  	}
 >  
+>  	tfm_ctx->fbk_cipher->base.crt_flags &= ~CRYPTO_TFM_REQ_MASK;
+>  	tfm_ctx->fbk_cipher->base.crt_flags |= (aead->base.crt_flags &
+>  					CRYPTO_TFM_REQ_MASK);
+>  
+> -	return crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
+> +	err = crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
+> +	if (!err)
+> +		tfm_ctx->keylen = keylen;
+
+You can't have a fallback when there is a hardware key.  How did
+the fallback not return an error here?
+
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
