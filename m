@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA053CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8DFCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xv6mPGh8OTRRAPa/vnnTLwXHmpQDOc+h8v1HfQuws/k=; b=waWnlg/jNUhk199fOvhn8Q9L34
-	x1qT/X+KbvEhmyRLbNNX1ou3SOtYC7aFvNTlMPKLqGBdbRM8W9TnaA1AxijYipba1t8ifQcGHwvDq
-	8CtjPuv2PLdFpVZLeruymYWOvhdIXCPnPVldwp4e6/k4JBRkZbwp84hXjQs7D/mQGDJi/QsRw8mcR
-	my4kXIcS8cU6MwYWNuMf8rXnwGZzSpgrW/qlZHCQ09y4BI6toRe2R/Qb1i+4w68opNvqabP3u7BwZ
-	w415fIoXxm03fiflz3dpNKerXZzVKaUWPGGZSILyHkUK9hWbriDEfnlryv+Q9TgJnm0wB7o+1ZcS/
-	LV/EZ5rQ==;
+	bh=LVT8Txx/Scbf0YsnpBUfFRCSXg4kFOTdvNtWb0kXmpc=; b=1ClA2ON8xrzV9BNtIrff/9hRc3
+	QmNZiRl1Y6jtueXsUW/gbZ1AHEWPtWN23O6jpNx9WiiMv9zDjsUC4gLkqYionXucJ939xhchDZPlL
+	wxr+BC6LnvDYhh4oqZBdMTqGN7IUOg2ZEXWJvGmvfAfZLR8x0VYUDXR0y8NyJ5n+KOJ8d7J2nxoLW
+	y2tKlD1/Y4aw71vx74cYhVlU8rpEhJdtWq0EklyCrVVlmJ7bJa5+Lsj78n35a9lSadv3qwTkk2BvX
+	v4PBVSqbp0j+kFBepeRFMcDDZLMHl6uYUilMyxQJ+az+Yy3U8wInLCBihWSdEZuV5YCQJP7KlP0bO
+	8Z3h1zOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3GF-0000000Fy31-36Cl;
-	Thu, 06 Nov 2025 16:54:59 +0000
+	id 1vH3Gw-0000000FyCj-3sXn;
+	Thu, 06 Nov 2025 16:55:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3GB-0000000Fy2B-2UF5
+	id 1vH3Gs-0000000FyC4-3VvI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:54:57 +0000
+	Thu, 06 Nov 2025 16:55:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7FEB1596;
-	Thu,  6 Nov 2025 08:54:46 -0800 (PST)
-Received: from [10.1.30.195] (XHFQ2J9959.cambridge.arm.com [10.1.30.195])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E7ED3F694;
-	Thu,  6 Nov 2025 08:54:51 -0800 (PST)
-Message-ID: <bd10dd8a-8cdc-404e-8259-4d65ca9a650d@arm.com>
-Date: Thu, 6 Nov 2025 16:54:49 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2CEA1596;
+	Thu,  6 Nov 2025 08:55:29 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 04D2B3F694;
+	Thu,  6 Nov 2025 08:55:32 -0800 (PST)
+Message-ID: <54e8aa78-27bc-4375-95ef-374d79758762@arm.com>
+Date: Thu, 6 Nov 2025 16:55:31 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -v4 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-Content-Language: en-GB
-To: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>,
- Huang Ying <ying.huang@linux.alibaba.com>,
+Subject: Re: [PATCH v3 06/29] ACPI / MPAM: Parse the MPAM table
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Barry Song <baohua@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Yin Fengwei <fengwei_yin@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
- <20251104095516.7912-3-ying.huang@linux.alibaba.com>
- <2b9fa85b-54ff-415c-9163-461e28b6d660@gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <2b9fa85b-54ff-415c-9163-461e28b6d660@gmail.com>
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-7-james.morse@arm.com>
+ <20251024171350.00005451@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251024171350.00005451@huawei.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_085455_728290_6E68C329 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20251106_085540_096989_ED5F0795 
+X-CRM114-Status: GOOD (  53.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,148 +83,398 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2025 09:47, David Hildenbrand (Red Hat) wrote:
-> On 04.11.25 10:55, Huang Ying wrote:
->> A multi-thread customer workload with large memory footprint uses
->> fork()/exec() to run some external programs every tens seconds.  When
->> running the workload on an arm64 server machine, it's observed that
->> quite some CPU cycles are spent in the TLB flushing functions.  While
->> running the workload on the x86_64 server machine, it's not.  This
->> causes the performance on arm64 to be much worse than that on x86_64.
->>
->> During the workload running, after fork()/exec() write-protects all
->> pages in the parent process, memory writing in the parent process
->> will cause a write protection fault.  Then the page fault handler
->> will make the PTE/PDE writable if the page can be reused, which is
->> almost always true in the workload.  On arm64, to avoid the write
->> protection fault on other CPUs, the page fault handler flushes the TLB
->> globally with TLBI broadcast after changing the PTE/PDE.  However, this
->> isn't always necessary.  Firstly, it's safe to leave some stale
->> read-only TLB entries as long as they will be flushed finally.
->> Secondly, it's quite possible that the original read-only PTE/PDEs
->> aren't cached in remote TLB at all if the memory footprint is large.
->> In fact, on x86_64, the page fault handler doesn't flush the remote
->> TLB in this situation, which benefits the performance a lot.
->>
->> To improve the performance on arm64, make the write protection fault
->> handler flush the TLB locally instead of globally via TLBI broadcast
->> after making the PTE/PDE writable.  If there are stale read-only TLB
->> entries in the remote CPUs, the page fault handler on these CPUs will
->> regard the page fault as spurious and flush the stale TLB entries.
->>
->> To test the patchset, make the usemem.c from
->> vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-
->> scalability.git).
->> support calling fork()/exec() periodically.  To mimic the behavior of
->> the customer workload, run usemem with 4 threads, access 100GB memory,
->> and call fork()/exec() every 40 seconds.  Test results show that with
->> the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
->> flush functions reduces from ~50.5% to ~0.3% in perf profile.
->>
+Hi Jonathan,
+
+On 10/24/25 17:13, Jonathan Cameron wrote:
+> On Fri, 17 Oct 2025 18:56:22 +0000
+> James Morse <james.morse@arm.com> wrote:
 > 
-> All makes sense to me.
+>> Add code to parse the arm64 specific MPAM table, looking up the cache
+>> level from the PPTT and feeding the end result into the MPAM driver.
+>>
+>> This happens in two stages. Platform devices are created first for the
+>> MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
+>> to discover the RIS entries the MSC contains.
+>>
+>> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
+>> the MPAM driver with optional discovered data about the RIS entries.
+>>
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+>> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>>
+> Hi James,
 > 
-> Some smaller comments below.
+> Various comments inline.  One challenge with this is that a few
+> very generic things (the acpi table DEFINE_FREE() stuff and the
+> platform device put equivalent) aren't obvious enough that I'd expect
+> those concerned to necessarily notice them.  I'd break those out
+> as precursor patches, or narrow what they do to not be generic.
+
+I've moved these both to separate patches.
+
 > 
-> [...]
 > 
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> new file mode 100644
+>> index 000000000000..59712397025d
+>> --- /dev/null
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -0,0 +1,377 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
 >> +
->> +static inline void local_flush_tlb_page_nonotify(
->> +    struct vm_area_struct *vma, unsigned long uaddr)
+>> +/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
+>> +
+>> +#define pr_fmt(fmt) "ACPI MPAM: " fmt
+>> +
+>> +#include <linux/acpi.h>
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/bits.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/platform_device.h>
+>> +
+>> +#include <acpi/processor.h>
+>> +
+>> +/*
+>> + * Flags for acpi_table_mpam_msc.*_interrupt_flags.
+>> + * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
 > 
-> NIT: "struct vm_area_struct *vma" fits onto the previous line.
+> This needs to ultimately end up in ACPICA.  Perhaps fine to have it here
+> for now. Maybe can't happen until this isn't a beta? I'm not sure on
+> policy around that.
+
+I've kept it here for the moment.
+
+> 
+>> + */
+>> +#define ACPI_MPAM_MSC_IRQ_MODE                              BIT(0)
+>> +#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                         GENMASK(2, 1)
+>> +#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                        0
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK                BIT(3)
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR           0
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER 1
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID                    BIT(4)
+>> +
+>> +/*
+>> + * Encodings for the MSC node body interface type field.
+>> + * See 2.1 MPAM MSC node, Table 4 of DEN0065B_MPAM_ACPI_3.0-bet.
+>> + */
+>> +#define ACPI_MPAM_MSC_IFACE_MMIO   0x00
+>> +#define ACPI_MPAM_MSC_IFACE_PCC    0x0a
+>> +
+> 
+>> +static bool acpi_mpam_register_irq(struct platform_device *pdev, int intid,
+>> +				   u32 flags, int *irq)
+> Given irq value of 0 is invalid, could just return the irq from this.
+> Or even return error codes for what went wrong given negative irqs are invalid
+> as well.
 > 
 >> +{
->> +    __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +    dsb(nsh);
->> +}
+>> +	u32 int_type;
+>> +	int sense;
 >> +
->> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
->> +                    unsigned long uaddr)
->> +{
->> +    __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +    mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
->> +                        (uaddr & PAGE_MASK) + PAGE_SIZE);
->> +    dsb(nsh);
->> +}
+>> +	if (!intid)
+>> +		return false;
 >> +
->>   static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->>                          unsigned long uaddr)
->>   {
->> @@ -472,6 +512,22 @@ static inline void __flush_tlb_range(struct
->> vm_area_struct *vma,
->>       dsb(ish);
->>   }
->>   +static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
->> +                       unsigned long addr)
->> +{
->> +    unsigned long asid;
+>> +	if (_is_ppi_partition(flags))
+>> +		return false;
 >> +
->> +    addr = round_down(addr, CONT_PTE_SIZE);
->> +
->> +    dsb(nshst);
->> +    asid = ASID(vma->vm_mm);
->> +    __flush_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid,
->> +                 3, true, lpa2_is_enabled());
->> +    mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
->> +                            addr + CONT_PTE_SIZE);
->> +    dsb(nsh);
->> +}
->> +
->>   static inline void flush_tlb_range(struct vm_area_struct *vma,
->>                      unsigned long start, unsigned long end)
->>   {
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index c0557945939c..589bcf878938 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -622,8 +622,7 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->>               __ptep_set_access_flags(vma, addr, ptep, entry, 0);
->>             if (dirty)
->> -            __flush_tlb_range(vma, start_addr, addr,
->> -                            PAGE_SIZE, true, 3);
->> +            local_flush_tlb_contpte(vma, start_addr);
+>> +	sense = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE, flags);
 > 
-> In this case, we now flush a bigger range than we used to, no?
+> Given it's one bit that indicates 1 if edge, I'd call this edge (which
+> inherently doesn't mean level).  Sense as a term I think can incorporate
+> this and rising/falling high/low.  It's parse to acpi_register_gsi()
+> which calls it trigger so that would work as well.
 
-I don't believe so, no; we are still flushing the same contpte region (i.e. 64K
-for 4K base page config).
+I've gone with 'trigger'.
 
 > 
-> Probably I am missing something (should this change be explained in more detail
-> in the cover letter), but I'm wondering why this contpte handling wasn't
-> required before on this level.
+>> +	int_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags);
+>> +	if (int_type != ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
+>> +		return false;
+>> +
+>> +	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
+>> +	if (*irq <= 0) {
+>> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
+>> +			    intid);
+>> +		return false;
+>> +	}
+>> +
+>> +	return true;
+>> +}
+>> +
+>> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+>> +				 struct acpi_mpam_msc_node *tbl_msc,
+>> +				 struct resource *res, int *res_idx)
+>> +{
+>> +	u32 flags, intid;
+>> +	int irq;
+>> +
+>> +	intid = tbl_msc->overflow_interrupt;
+>> +	flags = tbl_msc->overflow_interrupt_flags;
+>> +	if (acpi_mpam_register_irq(pdev, intid, flags, &irq))
+>> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
+>> +
+>> +	intid = tbl_msc->error_interrupt;
+>> +	flags = tbl_msc->error_interrupt_flags;
+>> +	if (acpi_mpam_register_irq(pdev, intid, flags, &irq))
+>> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
+>> +}
+>> +
+> 
+> 
+> This function has a bit of a dual use to it. I think it needs some documentation
+> to explain under what conditions acpi_id is set.
+> 
+>> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+>> +				     struct platform_device *pdev,
+>> +				     u32 *acpi_id)
+>> +{
+>> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1] = { 0 };
+>> +	bool acpi_id_valid = false;
+>> +	struct acpi_device *buddy;
+>> +	char uid[11];
+>> +	int err;
+>> +
+>> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+>> +	       sizeof(tbl_msc->hardware_id_linked_device));
+>> +
+>> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+>> +		*acpi_id = tbl_msc->instance_id_linked_device;
+>> +		acpi_id_valid = true;
+>> +	}
+>> +
+>> +	err = snprintf(uid, sizeof(uid), "%u",
+>> +		       tbl_msc->instance_id_linked_device);
+>> +	if (err >= sizeof(uid)) {
+> 
+> The err naming is a bit confusing as it's not an error code. Could call it
+> something like len or just avoid having a local variable at all.
 
-The previous __flush_tlb_range() API was flushing the same region. But that API
-broadcasts. We decided not to just create a local version of that API because it
-is more complex than it needs to be for this use case.
+Changed to 'len'.
 
-The whole (arm64-private) TLB flush interface is creeking and needs some
-refactoring, which I'm planning to do as a follow up to this.
+> 
+> 	if (snprintf(uid, sizeof(uid), "%u",
+> 		     tbl_msc->instance_id_linked_device) >= sizeof(uid))
+>> +		pr_debug("Failed to convert uid of device for power management.");
+>> +		return acpi_id_valid;
+>> +	}
+>> +
+>> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
+>> +	if (buddy)
+>> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
+>> +
+>> +	return acpi_id_valid;
+>> +}
+> 
+>> +
+>> +static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_node *tbl_msc)
+>> +{
+>> +	struct platform_device *pdev __free(platform_device_put) = platform_device_alloc("mpam_msc", tbl_msc->identifier);
+> That's too long. Format as
+> 	struct platform_device *pdev __free(platform_device_put) =
+> 		platform_device_alloc("mpam_msc", tbl_msc->identifier);
+> 
+>> +	int next_res = 0, next_prop = 0, err;
+> 
+> ...
+> 
+>> +
+>> +static int __init acpi_mpam_parse(void)
+>> +{
+>> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	struct platform_device *pdev;
+>> +
+>> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
+> Check acpi_disabled || !system_supports_mpam() before
+> 
+> 	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> 	
+> 	if (IS_ERR(table))
+> 		return 0;
+> 
+> That way we aren't relying on acpi_get_table_ret() doing the right thing if acpi_disabled == true
+> which seems gragile even though it is fine today
+> 
+> Declaring stuff using __free() inline is fine (commonly done).
+> 
+>> +		return 0;
+>> +
+> 
+> ...
+> 
+>> +int acpi_mpam_count_msc(void)
+>> +{
+>> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	int count = 0;
+>> +
+>> +	if (IS_ERR(table))
+> Why fewer things to guard on in here than in the parse function?
+> I guess this may only be called in circumstances where we know those
+> other reasons not to carry on aren't true, but still seem odd.
+> 
+>> +		return 0;
+>> +
+>> +	if (table->revision < 1)
+>> +		return 0;
+>> +
+>> +	table_end = (char *)table + table->length;
+>> +
+>> +	while (table_offset < table_end) {
+>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +		if (!tbl_msc->mmio_size)
+> 
+> Bit marginal on how much we protect against garbage, but perhaps
+> check the length is long enough to get here. Or can you just
+> do the length checks first?
+
+This check is for disable/not present mscs and was added in the latest
+revision of the mpam acpi.
+
+> 
+>> +			continue;
+> 
+> Infinite loop?  table_offset isn't updated so this
+> keeps checking the same value. Similar to funciton above, I'd
+> do the table_offset update before check this (and modify
+> the appropriate checks below).
+
+Good spot. I've moved this after the table_offset increment.
+
+> 
+>> +
+>> +		if (tbl_msc->length < sizeof(*tbl_msc))
+>> +			return -EINVAL;
+>> +		if (tbl_msc->length > table_end - table_offset)
+>> +			return -EINVAL;
+>> +		table_offset += tbl_msc->length;
+>> +
+>> +		count++;
+>> +	}
+>> +
+>> +	return count;
+>> +}
+>  
+>> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+>> index a9dbacabdf89..9d66421f68ff 100644
+>> --- a/include/linux/acpi.h
+>> +++ b/include/linux/acpi.h
+>> @@ -8,6 +8,7 @@
+>>  #ifndef _LINUX_ACPI_H
+>>  #define _LINUX_ACPI_H
+>>  
+>> +#include <linux/cleanup.h>
+>>  #include <linux/errno.h>
+>>  #include <linux/ioport.h>	/* for struct resource */
+>>  #include <linux/resource_ext.h>
+>> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
+>>  void acpi_table_init_complete (void);
+>>  int acpi_table_init (void);
+>>  
+>> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
+> I wonder if it's worth instance being a variable.  11 instances of 1, 52 instances of 0
+> (almost nothing else).  Maybe just about worth it...
+> 
+> Whilst I like the general nature of this I wonder if smoother
+> to merge acpi_get_table_mpam() that does this first and then
+> look at generalizing when it's not on the critical path for this
+> patch set?  If ACPI folk are fine with this I don't mind it being
+> in here though as generally useful to have.
+> (I may well be arguing with earlier me on this :)
+> 
+>> +{
+>> +	struct acpi_table_header *table;
+>> +	int status = acpi_get_table(signature, instance, &table);
+>> +
+>> +	if (ACPI_FAILURE(status))
+>> +		return ERR_PTR(-ENOENT);
+>> +	return table;
+>> +}
+>> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
+> 
+> Ben raised earlier comment on checking for NULL as well to let the compiler optimize
+> things better.
+> 
+>> +
+>>  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
+>>  int __init_or_acpilib acpi_table_parse_entries(char *id,
+>>  		unsigned long table_size, int entry_id,
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> new file mode 100644
+>> index 000000000000..3d6c39c667c3
+>> --- /dev/null
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -0,0 +1,48 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/* Copyright (C) 2025 Arm Ltd. */
+>> +
+>> +#ifndef __LINUX_ARM_MPAM_H
+>> +#define __LINUX_ARM_MPAM_H
+>> +
+>> +#include <linux/acpi.h>
+>> +#include <linux/types.h>
+> 
+> ...
+> 
+>> +enum mpam_class_types {
+>> +	MPAM_CLASS_CACHE,       /* Well known caches, e.g. L2 */
+> 
+> Curious comment.  As opposed to the lesser known l5?   I get
+> what you mean about not including the weird like memory-side caches
+> but TLBs are also well known caches so I'd just go with
+> /* Caches, e.g. l2, l3 */
+> or something like that.
+> 
+>> +	MPAM_CLASS_MEMORY,      /* Main memory */
+>> +	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
+>> +};
+>> +
+>> +#ifdef CONFIG_ACPI_MPAM
+>> +/* Parse the ACPI description of resources entries for this MSC. */
+> 
+> I'd push more detailed documentation down along side the implementation
+> rather than having it here.  The function name and parameters make this fairly
+> obvious anyway.
+> 
+>> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
+>> +			      struct acpi_mpam_msc_node *tbl_msc);
+>> +
+>> +int acpi_mpam_count_msc(void);
+>> +#else
+> 
+>> diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+>> index 074754c23d33..23a30ada2d4c 100644
+>> --- a/include/linux/platform_device.h
+>> +++ b/include/linux/platform_device.h
+>> @@ -232,6 +232,7 @@ extern int platform_device_add_data(struct platform_device *pdev,
+>>  extern int platform_device_add(struct platform_device *pdev);
+>>  extern void platform_device_del(struct platform_device *pdev);
+>>  extern void platform_device_put(struct platform_device *pdev);
+>> +DEFINE_FREE(platform_device_put, struct platform_device *, if (_T) platform_device_put(_T))
+> 
+> I'd break this out as a separate precursor patch mostly so people notice it.
+> Likely will get some review from folk who aren't going to spot it down here.
+> They may well tell you to not have it as a separate patch but at least you'll
+> be sure it was noticed!
+> 
+> Jonathan
+> 
+>>  
+>>  struct platform_driver {
+>>  	int (*probe)(struct platform_device *);
+> 
+> 
 
 Thanks,
-Ryan
 
-> 
->>       } else {
->>           __contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
->>           __ptep_set_access_flags(vma, addr, ptep, entry, dirty);
->> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->> index d816ff44faff..22f54f5afe3f 100644
->> --- a/arch/arm64/mm/fault.c
->> +++ b/arch/arm64/mm/fault.c
->> @@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
->>         /* Invalidate a stale read-only entry */
-> 
-> I would expand this comment to also explain how remote TLBs are handled very
-> briefly -> flush_tlb_fix_spurious_fault().
-> 
->>       if (dirty)
->> -        flush_tlb_page(vma, address);
->> +        local_flush_tlb_page(vma, address);
->>       return 1;
->>   }
->>   
-> 
+Ben
 
 
