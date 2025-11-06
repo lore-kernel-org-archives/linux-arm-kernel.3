@@ -4,160 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B487CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1305CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7Lq+LFeAMurs2Tl7eDUkZp7Sk42LHrVgEvI6mIOlmQ=; b=uZz+Imdog2NYaqy4RzZ/mFd5hK
-	UD5oarSMoLiTtZ6uRpTghWXWupcV2sMthJFCY1mICA8yZf/AHofxus9YgjEzRQeD7bh63Ld0iFasm
-	1hl9RqNVOYtJ2d1q1R/v6S7WszTBawc6Gn1P5cXnrq/bAAIOGHCNbh4WIvQVDCb8Wxji6qQFLTUXT
-	Kc5m/oEbwfNJygXemRl8rjMULGIDq1K/Bwsf6sIloxQa0cxOcq2j4+BoL282mS8T9SMNTwiCe/uFr
-	7P5NFVVWFjNCASiSeXARBRG9LZidj0USNKEcedtJhhdacRsZ4MDhdjndzNlrM8oeCi/Bw8HkuEeOZ
-	x5+/4jNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wJRRyH1biVoQpuVUMOuahV2xY2HkN9uZ9WuOiYC82es=; b=vRMhPmxRCx5f0bmCeS+GJG1/Ra
+	HIZZcyUaSg8kiGHVnTkrko2qjsKxhR9ydMGJOv88UZtPPRX/O0O8Evw64xAelUXnzsrbx5fp/2MyL
+	sA1xA8yloq1THqDqfg3yFqKKkLplNVPYg8JbLEv+in86JVsvQfwhO0DIFUcJKfLCvyVHNcZuzYyO6
+	3O2ZYnORYg9qljBWo2NSYuJthOQ2Ioaje294m3ku3KQEM3fr1SBX5y6leKchHOYMBD5o0C6MLa9QV
+	wRrkZ/IWOEwBxL560xR+nbYq6piLsg/mxbQYDj4NpaTNMBpshQFXzo0WdwikzFdM/DueYk+4ctrXE
+	0DlGc71w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtzi-0000000EyUN-1hue;
-	Thu, 06 Nov 2025 07:01:18 +0000
-Received: from mail-eastus2azhn15010017.outbound.protection.outlook.com ([52.102.138.17] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1vGu1K-0000000Eyc0-42ah;
+	Thu, 06 Nov 2025 07:02:58 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtzd-0000000EyTx-3Lzz
+	id 1vGu1I-0000000EybR-1sYX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 07:01:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZTQCxEb6H8CMasMFIO7eCp5wfYEqffZqR+ZTYrTBK48SWCi/78xbk++behU71YUKbQ4KThphuoozkICjZRXhiL2sBuJi4YbkdzvdNy9te+6pNCk+64JFT+OJ+BbMndgyD21V2d+ehk4aDR7kArMCEfI6AxXRF54pT+GG6f8uEazB9eL+RmK3Zrydx9zG5OpKD8BWHf1HFXTsP6nf4A4zdfrFNcL7aGurObhwd36tAqPqGdyhNM58Y8mdO/6Cbrz4OOMJqLpH48Hxz3vNT/t0owP02Zs4spgT95qf60TN4gh5n230RggRtvHs7TbHl/Sx3FE/5LlqVTGpGYy0MX+BJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N7Lq+LFeAMurs2Tl7eDUkZp7Sk42LHrVgEvI6mIOlmQ=;
- b=ecW10f+gG/3ItRUzMfJNcP0GtT1++30OYcc7QNLgKi76Zq487tQVNGM0qFqylgfW73VkvYvAtqo/OTyrcf2AowM3XHcq031PCDa4fHET9MA0Y7EsjKQ7v+kYDWB13tsQ68EqWdWFfDwisyxLrRsDmyoYAWeEy1DwK74A5WldsqUYzmYWC/cjEo9JzuMZ7CnMbA6u1Ip+1403Lz8jk5JYisN82zqOHDaOdEOjo4TWLiPeDSAAyikWMWP35NjLRjFuYavwC3dVrxjzVFK4rJ2SyoeKopHj5ZK0oxq+JDwxMmzBC6+rfJMnF0BZH3Q/qV6d7TqQ2Y0uurzLFPEd/PEH0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N7Lq+LFeAMurs2Tl7eDUkZp7Sk42LHrVgEvI6mIOlmQ=;
- b=CXJiICBS9X/QJkqSUtB6vFHcr2XHvS3RQOeDMXzr5JVhgC6ghsIZf1oCOXowH4V9HQD2+52RLQxhR7mowvvHq/iry66eizVf9xsD30lYaBBA0Stt/vMPVjzEWsBD2Tgk2ws1ahelkwz2tVu62A+0Ku04IsW8HDV4c9VZQO42rlU=
-Received: from SJ0PR03CA0350.namprd03.prod.outlook.com (2603:10b6:a03:39c::25)
- by SJ5PPFE654FA166.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::7da) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
- 2025 07:01:09 +0000
-Received: from BY1PEPF0001AE19.namprd04.prod.outlook.com
- (2603:10b6:a03:39c:cafe::d7) by SJ0PR03CA0350.outlook.office365.com
- (2603:10b6:a03:39c::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
- 6 Nov 2025 07:00:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BY1PEPF0001AE19.mail.protection.outlook.com (10.167.242.101) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 07:01:07 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 01:01:00 -0600
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 6 Nov
- 2025 01:01:00 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 6 Nov 2025 01:01:00 -0600
-Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A670scI842574;
-	Thu, 6 Nov 2025 01:00:54 -0600
-Message-ID: <d65f44cac2d7fb6c4a139065b304cb4ab790acb3.camel@ti.com>
-Subject: Re: [PATCH v5 4/4] PCI: keystone: Add support to build as a
- loadable module
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <robh@kernel.org>,
-	<bhelgaas@google.com>, <jingoohan1@gmail.com>, <christian.bruel@foss.st.com>,
-	<krishna.chundru@oss.qualcomm.com>, <qiang.yu@oss.qualcomm.com>,
-	<shradha.t@samsung.com>, <thippeswamy.havalige@amd.com>,
-	<inochiama@gmail.com>, <fan.ni@samsung.com>, <cassel@kernel.org>,
-	<kishon@kernel.org>, <18255117159@163.com>, <rongqianfeng@vivo.com>,
-	<jirislaby@kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, <s-vadapalli@ti.com>
-Date: Thu, 6 Nov 2025 12:31:08 +0530
-In-Reply-To: <fkzokskbjklt6atqrpwc46zsjr5ptpuynzhx4kvfurr4h37kae@rwcqljsjvzl6>
-References: <20251029080547.1253757-1-s-vadapalli@ti.com>
-	 <20251029080547.1253757-5-s-vadapalli@ti.com>
-	 <fkzokskbjklt6atqrpwc46zsjr5ptpuynzhx4kvfurr4h37kae@rwcqljsjvzl6>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Thu, 06 Nov 2025 07:02:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1762412542; x=1763017342; i=markus.elfring@web.de;
+	bh=wJRRyH1biVoQpuVUMOuahV2xY2HkN9uZ9WuOiYC82es=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=HJTTxuzfxLdgb8c6b1Myhjh8Tr3DTCONApo5RD7nmPuleAzbNd6t3nrEhZ21VKYO
+	 UK9LpFhk6nPd0O3WedENt+Jso1PqnUxM7UCf8fwIwIhyvd9k8G29bYvTOaEOZOWwZ
+	 DjcegI09Qw7mBHEz7+6HpQT1D7qd2rf5W91oyEUlplm19unMcyoePfsaoqODXyRJB
+	 nV2jFdreoRbF4SVvlKDyEvfnMvYpH1uPb25VO+9OKiOYcT9emOV/+gex6uq7oAj3l
+	 pyj3E6cPY0y0vqmp8vesVN8u1MnNnd4KmaYd3l/CzD97WpN+UFTh9oz0/8D6xqrKk
+	 hM8IL5GWO5SdZBliaw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.214]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MDMzM-1vPBCS2fZO-00Ccl8; Thu, 06
+ Nov 2025 08:02:22 +0100
+Message-ID: <f8edb81d-f38a-4756-ab58-6bffd9ac501e@web.de>
+Date: Thu, 6 Nov 2025 08:02:17 +0100
 MIME-Version: 1.0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE19:EE_|SJ5PPFE654FA166:EE_
-X-MS-Office365-Filtering-Correlation-Id: 385f01e1-6533-49bc-6863-08de1d0242b0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|34020700016|36860700013|82310400026|1800799024|7416014|376014|12100799066;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dGdvMDJzLzVaODZUV1VVRmphOWlsOU15MmFJVTlVUVZFdFBhcW1iaHNab0lI?=
- =?utf-8?B?anlWUzNzcjRpbk96TDFKa2pFYTV0ZjV5dmU3cSs1am5iMEpMdXc4RitQeWVu?=
- =?utf-8?B?K3NET2psZ1EyZENFdmh4VUFmSUp6c2dxSDZQd2xBWWtKY2xVV25sdXdPTG9F?=
- =?utf-8?B?MVZod3ArWFA1OXV0RHQwTmtrNHZPYWRpd0NpOFJmUGhFT3lUTklBYXYvVE1O?=
- =?utf-8?B?Nm9Nc05WQW9aUU5pUHRHa0d0SUZFQitOaTNQQVBJU3p5QXdQV25qVXF6V1BU?=
- =?utf-8?B?UkhiWUdYNXYyNWd0SWNTb3BKdXhxLy9XLzJTWExDMUxLM0crZDV0RWx0K3ht?=
- =?utf-8?B?TU9Rb2I3SU1pWWtLVXdHbU53VUpBOFFObUd0cUVHb3dyZzVoZ05lUGRkUGtZ?=
- =?utf-8?B?QllxbTNtTUZ5M3lzZ2l6MlZveWEyZ0pnblI2S2U1NlAwcjFrRnJXZktESVdr?=
- =?utf-8?B?emV0U2xrSnVUMjhjdnNVY3paaGhmZ3BteExMb0QzRWJBcXFoZ0pZUEdxMkV4?=
- =?utf-8?B?TTR5T2R3d1VNRnRLYzJYckRaSkowaGFPcm9Ibnh2ZFR5Wm9BZjl2S2hsSXpP?=
- =?utf-8?B?UzZrZTRQNFlFUVp5d3VFaEhmWU16TERZTXVySVhiLzUvLysvUDladVBHcmNl?=
- =?utf-8?B?LzdrY2JwZnpaWlNndWRkbmhwSHoyMGErS0E1NXBLM0VZWUNVQzR4MCs3YUVX?=
- =?utf-8?B?MGxpUCtQd2xiYWhZNWROamFDV2EyUm80WC9GSjRvWE9XOVN5cUl6VXdGUURz?=
- =?utf-8?B?Y1hLU052ckF4Vm9JWXQ4QWJxdzFlUmxWNEtWRk44Tm83TU5Gdy9jVW1La3ZJ?=
- =?utf-8?B?OGhtdmFFWW02bi9HWmtrTVp1Z0hKeGE2elVvbDRaT2ovQURqQi9TZElkU0Ru?=
- =?utf-8?B?eStGT1ZyYTlZTHBreTJHTGFNajFKWXFTM2VLNHhjUHk1T3ZVdnNpS0hiYXFB?=
- =?utf-8?B?OG1ZUGFaeVZrb3I5RFd2Z0MwOU85cEp6L1R0SXZaZEdhbjN0ayt0Lyt3WEFG?=
- =?utf-8?B?YndqcGE1OXoranZxbUIyOXhMMWpGOEtJNzA2bXEvS0k3MnpYMDZWaXdwK0ty?=
- =?utf-8?B?ZGt6Wm9sRSswamlkeXRtM1dLRTF5eFV3R0k5K2FnSXVCODVvMHF5NzdoZXhk?=
- =?utf-8?B?RXp6TU5IWjhuNXJUYkhZN05BcUVUL3pEM1JabHJXVURNTnlubnY0OHdTdHdE?=
- =?utf-8?B?S24rTkFJYktxTm5KeGI5NFVtdFI3S2VHRUE1bURPWG1yTXFGVGlLV3pyd0tV?=
- =?utf-8?B?bzVmVzAzWkZrY0duWmJraERtWXY4NWpTVWJUNlkrMXFxaFV6MWxPUmMrcHVE?=
- =?utf-8?B?cTRHRnJ6SkRuQmF0NzUvMDFmdS9EQThqT2tIaloxZmttUVlBQkFDODNsbG9M?=
- =?utf-8?B?YTFOeW1mL0xiQUc5RnkvVWI2ZEpzR0Mxb2xMUnJQRkEzL2w3UnVJdFgzdjUr?=
- =?utf-8?B?STNPd1VoYTQyT3dqVzdFWmozdHZPbWJkZ1Bvd3BQQTJiNzYyMzhQQUdYZXYx?=
- =?utf-8?B?WUJpdVlRaDk4N2dQSkIxV0RCeGZ0MlNGZ3BENVJZUVhacW1EMWxIeWhEK2FR?=
- =?utf-8?B?bXBaZXNTMHNld0RPbEZhVWdzT09KZzBKZlMydS9UZUhWYnRVN2xiMlorRVFN?=
- =?utf-8?B?T0JYeFJoQ0JCa2dtUEFmVGtsVkw3ZW5xQlBmbnBtNnNOSFl0V3pidDZDa3Vm?=
- =?utf-8?B?QU11dmkwL1p6cjlCQzZiellRYkdVcmRFcUdzN3V6bmVIcVRncHdBS0FQZ1ZF?=
- =?utf-8?B?cVBNdlFoNWVBZGRrL0ovemkzS3EyWW8xMkxuYnVMeDVHNzJObHVCdmxCczhM?=
- =?utf-8?B?UGE5cFQ5bWt2U0g0ekJqODMyOVhYYjlPdVYrUDIzcER5NElnS0pIRWFhdzU5?=
- =?utf-8?B?R2Q3ODluZXBDRURMbDFQcDhmcnMxbWNLUmJCUldmUWZiTS9jaDcyeGc3RjV5?=
- =?utf-8?B?TUVudUtscm9yR0FvQTlQY0tMMkJYZmU4OERJR0pvMWorMU9vVVdnd3U2bTBB?=
- =?utf-8?B?dGtTdDNtYjNtakZjS3Z4RE5MU1JxbmJ4MTk3YzZYUnU5ejFINlkrcy9LZm9Z?=
- =?utf-8?B?cmt1U1VZVHVBTnJLNmlLMWZsSExJcCs3U25iOG5OM3FTdEsyZ2s1NEZ1aThN?=
- =?utf-8?Q?VHCg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(34020700016)(36860700013)(82310400026)(1800799024)(7416014)(376014)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 07:01:07.8280
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 385f01e1-6533-49bc-6863-08de1d0242b0
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE19.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFE654FA166
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] spi: aspeed: Use devm_iounmap() to unmap devm_ioremap()
+ memory
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, linux-spi@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ openbmc@lists.ozlabs.org, =?UTF-8?Q?C=C3=A9dric_Le_Goater?=
+ <clg@redhat.com>, Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: lkp@intel.com, LKML <linux-kernel@vger.kernel.org>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
+ Mark Brown <broonie@kernel.org>, BMC-SW@aspeedtech.com
+References: <20251105084952.1063489-1-chin-ting_kuo@aspeedtech.com>
+ <1a234e96-b41e-4f6c-b23c-e57426ff6aa1@web.de>
+ <TYZPR06MB5203380D58961A36922E0436B2C2A@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <TYZPR06MB5203380D58961A36922E0436B2C2A@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:wPBf2YQTiaXxrbnaV2IYm9gh7k0gc/6cfk/pxby3/CaDEx+9fkv
+ yEuq4IajSOXl9D9jXeJueK75jbZTAofY5DH/UBnvtprpln6OhDTnK00VdXGPtpfFG8lJj2w
+ NZ3qIymA+C6O+ZkKj5EErsHPzTMD8dfHU1c5hBdhN6V6OTX4wvRwVVZqdhSYkTOHAmCA/kc
+ zfHnuqtjsTQRnhKLE3Y8w==
+UI-OutboundReport: notjunk:1;M01:P0:DucKiG8aLfs=;U+2xBOGRHUc0OQqeiQil5V0Cgpi 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 +PHuos7ffGlrxw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_230113_848446_0C15D0E8 
-X-CRM114-Status: GOOD (  33.40  )
+X-CRM114-CacheID: sfid-20251105_230256_863897_B436178E 
+X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,137 +90,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-11-05 at 22:53 +0530, Manivannan Sadhasivam wrote:
-> On Wed, Oct 29, 2025 at 01:34:52PM +0530, Siddharth Vadapalli wrote:
-> > The 'pci-keystone.c' driver is the application/glue/wrapper driver for =
-the
-> > Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-> > that the 'pci-keystone.c' driver depends upon have been exported for us=
-e,
-> > enable support to build the driver as a loadable module.
-> >=20
-> > Additionally, the functions marked by the '__init' keyword may be invok=
-ed:
-> > a) After a probe deferral
-> > OR
-> > b) During a delayed probe - Delay attributed to driver being built as a
-> >    loadable module
-> >=20
-> > In both of the cases mentioned above, the '__init' memory will be freed
-> > before the functions are invoked. This results in an exception of the f=
-orm:
-> >=20
-> > 	Unable to handle kernel paging request at virtual address ...
-> > 	Mem abort info:
-> > 	...
-> > 	pc : ks_pcie_host_init+0x0/0x540
-> > 	lr : dw_pcie_host_init+0x170/0x498
-> > 	...
-> > 	ks_pcie_host_init+0x0/0x540 (P)
-> > 	ks_pcie_probe+0x728/0x84c
-> > 	platform_probe+0x5c/0x98
-> > 	really_probe+0xbc/0x29c
-> > 	__driver_probe_device+0x78/0x12c
-> > 	driver_probe_device+0xd8/0x15c
-> > 	...
-> >=20
-> > To address this, introduce a new function namely 'ks_pcie_init()' to
-> > register the 'fault handler' while removing the '__init' keyword from
-> > existing functions.
-> >=20
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > ---
-> >=20
-> > v4:
-> > https://lore.kernel.org/r/20251022095724.997218-5-s-vadapalli@ti.com/
-> > Changes since v4:
-> > - To fix the build error on ARM32 platforms as reported at:
-> >   https://lore.kernel.org/r/202510281008.jw19XuyP-lkp@intel.com/
-> >   patch 4 in the series has been updated by introducing a new config
-> >   named "PCI_KEYSTONE_TRISTATE" which allows building the driver as
-> >   a loadable module. Additionally, this newly introduced config can
-> >   be enabled only for non-ARM32 platforms. As a result, ARM32 platforms
-> >   continue using the existing PCI_KEYSTONE config which is a bool, whil=
-e
-> >   ARM64 platforms can use PCI_KEYSTONE_TRISTATE which is a tristate, an=
-d
-> >   can optionally enabled loadable module support being enabled by this
-> >   series.
-> >=20
-> > Regards,
-> > Siddharth.
-> >=20
-> >  drivers/pci/controller/dwc/Kconfig        | 15 +++--
-> >  drivers/pci/controller/dwc/Makefile       |  3 +
-> >  drivers/pci/controller/dwc/pci-keystone.c | 78 +++++++++++++----------
-> >  3 files changed, 59 insertions(+), 37 deletions(-)
-> >=20
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controlle=
-r/dwc/Kconfig
-> > index 349d4657393c..c5bc2f0b1f39 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -482,15 +482,21 @@ config PCI_DRA7XX_EP
-> >  	  to enable device-specific features PCI_DRA7XX_EP must be selected.
-> >  	  This uses the DesignWare core.
-> > =20
-> > +# ARM32 platforms use hook_fault_code() and cannot support loadable mo=
-dule.
-> >  config PCI_KEYSTONE
-> >  	bool
-> > =20
-> > +# On non-ARM32 platforms, loadable module can be supported.
-> > +config PCI_KEYSTONE_TRISTATE
-> > +	tristate
-> > +
-> >  config PCI_KEYSTONE_HOST
-> > -	bool "TI Keystone PCIe controller (host mode)"
-> > +	tristate "TI Keystone PCIe controller (host mode)"
-> >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> >  	depends on PCI_MSI
-> >  	select PCIE_DW_HOST
-> > -	select PCI_KEYSTONE
-> > +	select PCI_KEYSTONE if ARM
-> > +	select PCI_KEYSTONE_TRISTATE if !ARM
+> How about change the description to the below one?
 >=20
-> Wouldn't below change work for you?
->=20
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/=
-dwc/Kconfig
-> index 349d4657393c..b1219e7136c9 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -486,8 +486,9 @@ config PCI_KEYSTONE
->         bool
-> =20
->  config PCI_KEYSTONE_HOST
-> -       bool "TI Keystone PCIe controller (host mode)"
-> +       tristate "TI Keystone PCIe controller (host mode)"
+> Use devm_iounmap() to unmap memory mapped with devm_ioremap().
+> This ensures proper cleanup of device-managed resources.
 
-This doesn't alter the build of the pci-keystone.c driver. From the
-existing Makefile, we have:
- obj-$(CONFIG_PCI_KEYSTONE) +=3D pci-keystone.o
-implying that it is only CONFIG_PCI_KEYSTONE that determines whether the
-pci-keystone.c driver is built as a loadable module or a built-in module.
-
->         depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> +       default y if ARCH_KEYSTONE
-
-The default flag only specifies what should be selected by default, but it
-doesn't prevent the user from attempting to built it as a loadable module
-using menuconfig. Building the pci-keystone.c driver as a loadable module
-(CONFIG_PCI_KEYSTONE set to 'm') will cause build errors for ARM32
-platforms due to the presence of hook_fault_code() which is __init code.
-
-The Kconfig and Makefile changes made by the patch do the following:
-1. Allow building the pci-keystone.c driver as a loadable module for non-
-ARM32 platforms by introducing the PCI_KEYSTONE_TRISTATE config which is a
-tristate unlike the existing PCI_KEYSTONE config which is a bool.
-2. Associate PCI_KEYSTONE with ARM32 platforms and associate
-PCI_KEYSTONE_TRISTATE with non-ARM32 platforms to prevent users from
-building the pci-keystone.c driver as a loadable module for ARM32
-platforms.
+  Thus ensure?
 
 Regards,
-Siddharth.
+Markus
 
