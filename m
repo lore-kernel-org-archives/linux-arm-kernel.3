@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14718CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FE5CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7e79lIR0MUUagRf25jA//CylembXpgfk5oULi2Sh4yk=; b=ZNj8971gB4x1/bKu422A02Rblo
-	pO/uWxo01hnef3nF3D+oOWPTNbbH9RBtt9kIbHOAbuFNv7JbIVWxt2zKWFJ/pV6QRY8ip38XTi0m7
-	bqPAPlA0xCqB4fAHBmz5Y6qfJCJrn4FuN42em6n0d54ZS6e4gYIgVWO5GrupeLEYtSLiUJnlnt769
-	Ix695MsTnkrIJ6t5fTlB0W0FDZK1By9h3QFlHBmkb/pE93IiTEi3iN+IiODDvozO1m9hSMC2Eq9kP
-	3vGf3T+TDhsOrDtM9fVToC6SAUaIUK114xsRgZUd55tTkRgRl2cQ9zWZ+a/7jWPwljQNMdM+5i2xo
-	YxggtlWA==;
+	bh=dkI++qoDm4Uo+Uzaml7VI1OSsCot69Mx7xxPSBWfWwQ=; b=HHxFgNPosKS7L4SFESnELlkCwB
+	q2HIXD71/sPRZVhe5ncvV4aeGVd4xt9Cf0iN9c23bUBo5JXxBiv2lY9xwxLfe40Pg+kgOZAoTobSH
+	XXbku+OfoJQM+ggkh+NM9SQQxVv8/uSxKeQaXNRQB6MxKS7+dPg6hzEOzIUI0PKjMvXkuKpSI6b7A
+	X0kJG5kfnnyeUMaJwdwNQvoHE7Bc6LdIOJL1cPWVM9mnIRHCuc28uLkU3Z8eBU5OtRz4/96kwBS8P
+	40ncXM4SSgBbK7rozi2cY1g6hLITNPALNcd+n2azWSnS8zyYVdOdyvLcXemjbIwDsDKQa0jrHhxMy
+	w1cPzwsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Yo-0000000Fsr9-3zPi;
-	Thu, 06 Nov 2025 16:10:06 +0000
+	id 1vH2ZP-0000000Ft66-1eTO;
+	Thu, 06 Nov 2025 16:10:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2Yj-0000000FsmF-0cze
+	id 1vH2ZM-0000000Ft4f-0nf8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:10:02 +0000
+	Thu, 06 Nov 2025 16:10:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8D7C15A1;
-	Thu,  6 Nov 2025 08:09:52 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E69B3F66E;
-	Thu,  6 Nov 2025 08:09:59 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	yang@os.amperecomputing.com,
-	david@redhat.com,
-	ardb@kernel.org,
-	dev.jain@arm.com,
-	scott@os.amperecomputing.com,
-	cl@gentwo.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	David Hildenbrand <david@kernel.org>
-Subject: [PATCH v2 3/3] arm64: mm: Tidy up force_pte_mapping()
-Date: Thu,  6 Nov 2025 16:09:43 +0000
-Message-ID: <20251106160945.3182799-4-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251106160945.3182799-1-ryan.roberts@arm.com>
-References: <20251106160945.3182799-1-ryan.roberts@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9141215A1;
+	Thu,  6 Nov 2025 08:10:31 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C71A93F66E;
+	Thu,  6 Nov 2025 08:10:34 -0800 (PST)
+Message-ID: <02f008a8-1bd6-4044-99f0-553d441d6d4b@arm.com>
+Date: Thu, 6 Nov 2025 16:10:33 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/29] ACPI / PPTT: Stop acpi_count_levels() expecting
+ callers to clear levels
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-3-james.morse@arm.com>
+ <20251024122921.000004bc@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251024122921.000004bc@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_081001_327235_962B8811 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20251106_081040_357163_A7F47D66 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,89 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tidy up the implementation of force_pte_mapping() to make it easier to
-read and introduce the split_leaf_mapping_possible() helper to reduce
-code duplication in split_kernel_leaf_mapping() and
-arch_kfence_init_pool().
+Hi Jonathan,
 
-Suggested-by: David Hildenbrand (Red Hat) <david@kernel.org>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/mm/mmu.c | 43 +++++++++++++++++++++++--------------------
- 1 file changed, 23 insertions(+), 20 deletions(-)
+On 10/24/25 12:29, Jonathan Cameron wrote:
+> On Fri, 17 Oct 2025 18:56:18 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> In acpi_count_levels(), the initial value of *levels passed by the
+>> caller is really an implementation detail of acpi_count_levels(), so it
+>> is unreasonable to expect the callers of this function to know what to
+>> pass in for this parameter.  The only sensible initial value is 0,
+>> which is what the only upstream caller (acpi_get_cache_info()) passes.
+>>
+>> Use a local variable for the starting cache level in acpi_count_levels(),
+>> and pass the result back to the caller via the function return value.
+>>
+>> Get rid of the levels parameter, which has no remaining purpose.
+>>
+>> Fix acpi_get_cache_info() to match.
+>>
+>> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> 
+> Another meh, the name is confusing type comment. 
+> 
+>> -static void acpi_count_levels(struct acpi_table_header *table_hdr,
+>> -			      struct acpi_pptt_processor *cpu_node,
+>> -			      unsigned int *levels, unsigned int *split_levels)
+>> +static int acpi_count_levels(struct acpi_table_header *table_hdr,
+>> +			     struct acpi_pptt_processor *cpu_node,
+>> +			     unsigned int *split_levels)
+>>  {
+>> +	int starting_level = 0;
+>> +
+>>  	do {
+>> -		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
+>> +		acpi_find_cache_level(table_hdr, cpu_node, &starting_level, split_levels, 0, 0);
+>>  		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+>>  	} while (cpu_node);
+>> +
+>> +	return starting_level;
+> Given it's not the starting level at this point... Maybe just call it level or current_level.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 652bb8c14035..2ba01dc8ef82 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -710,12 +710,26 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
- 
- static inline bool force_pte_mapping(void)
- {
--	bool bbml2 = system_capabilities_finalized() ?
-+	const bool bbml2 = system_capabilities_finalized() ?
- 		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
- 
--	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
--			   is_realm_world())) ||
--		debug_pagealloc_enabled();
-+	if (debug_pagealloc_enabled())
-+		return true;
-+	if (bbml2)
-+		return false;
-+	return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
-+}
-+
-+static inline bool split_leaf_mapping_possible(void)
-+{
-+	/*
-+	 * !BBML2_NOABORT systems should never run into scenarios where we would
-+	 * have to split. So exit early and let calling code detect it and raise
-+	 * a warning.
-+	 */
-+	if (!system_supports_bbml2_noabort())
-+		return false;
-+	return !force_pte_mapping();
- }
- 
- static DEFINE_MUTEX(pgtable_split_lock);
-@@ -725,22 +739,11 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
- 	int ret;
- 
- 	/*
--	 * !BBML2_NOABORT systems should not be trying to change permissions on
--	 * anything that is not pte-mapped in the first place. Just return early
--	 * and let the permission change code raise a warning if not already
--	 * pte-mapped.
--	 */
--	if (!system_supports_bbml2_noabort())
--		return 0;
--
--	/*
--	 * If the region is within a pte-mapped area, there is no need to try to
--	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
--	 * change permissions from atomic context so for those cases (which are
--	 * always pte-mapped), we must not go any further because taking the
--	 * mutex below may sleep.
-+	 * Exit early if the region is within a pte-mapped area or if we can't
-+	 * split. For the latter case, the permission change code will raise a
-+	 * warning if not already pte-mapped.
- 	 */
--	if (force_pte_mapping() || is_kfence_address((void *)start))
-+	if (!split_leaf_mapping_possible() || is_kfence_address((void *)start))
- 		return 0;
- 
- 	/*
-@@ -1039,7 +1042,7 @@ bool arch_kfence_init_pool(void)
- 	int ret;
- 
- 	/* Exit early if we know the linear map is already pte-mapped. */
--	if (!system_supports_bbml2_noabort() || force_pte_mapping())
-+	if (!split_leaf_mapping_possible())
- 		return true;
- 
- 	/* Kfence pool is already pte-mapped for the early init case. */
--- 
-2.43.0
+Makes sense. I've made this update.
+
+>>  }
+>>  
+>>  /**
+>> @@ -645,7 +649,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+>>  	if (!cpu_node)
+>>  		return -ENOENT;
+>>  
+>> -	acpi_count_levels(table, cpu_node, levels, split_levels);
+>> +	*levels = acpi_count_levels(table, cpu_node, split_levels);
+>>  
+>>  	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
+>>  		 *levels, split_levels ? *split_levels : -1);
+> 
+> 
+
+Thanks,
+
+Ben
 
 
