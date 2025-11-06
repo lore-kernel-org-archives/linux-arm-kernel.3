@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C6CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737A4CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5fJe9feAElneP/yta870eC//hgCpWA6xE5I2Oa5k7I=; b=TyYaHpj/d3NvLKlmhj+G9c2tax
-	ErrU0DvmjqAigLrLSIVFZjtDmZK7U0VS0idp3x0S381KMARR3BKKQtI7XqYzO6qbZWEecsMzUIugF
-	E9RSJg3gE6oQSGi2xSz7RV8vuAkt2vciWj4j1jyFkCbmVfU3A2r53YGVQgxHYPpnOJ6O9c8xF9wLk
-	5cVPSPED5jR3tQFbSfxckA+YfTqL2UR7YURnQSzlmWYiCHKN5H2q653aqtEikYUiH+Rquq+xSsrwn
-	C27SbvamTGyUXteF0mTx5NkBizhIuBKtGTbzHP5X6lQ8MjkmK/YqL5PnMR8y57UkQo52RUalau5ui
-	dK40tflA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMLwGIoNYOp5BTjdjZEw24Nsm4q49zJb/gk4akyApJw=; b=QyGQSYPvsWf3l14GqJfogD9/+X
+	Zq+/j38V2AqSioFO8rHFezkJqNWUQjTvT4tmqNHK9iIxAgVOmFX6G5WIulzCmosEtAWMqnKn447EP
+	BLl1Z+W9aAUMEQawYUcx7MV0hUS460CHHeJOVDTlQpYDcU9a7tWRc5+RDHPmZTvLICZCJtNVaReAi
+	6YgmskTyo2DE03lGzHzemHrI4qdjsixjJcDLIEJCLvLVCdtSFE8YDxx6BVEfgl8DxO7D6TD/KiFfC
+	gLuiYF5uBh5PGDmlBK0eC+xcxVrJJ9g2IF9m7yT2huxgilkUqihsy1+mvozwGMiRkl8nQjx8bwBwQ
+	3McqV6pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGx8v-0000000FJZ9-2E0X;
-	Thu, 06 Nov 2025 10:23:01 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vGx9A-0000000FJbF-3fnh;
+	Thu, 06 Nov 2025 10:23:16 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGx8s-0000000FJYn-1ZXR
+	id 1vGx98-0000000FJaR-0weP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:22:59 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 18353C0FA88;
-	Thu,  6 Nov 2025 10:22:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 254486068C;
-	Thu,  6 Nov 2025 10:22:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8707311850A2F;
-	Thu,  6 Nov 2025 11:22:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762424574; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=t5fJe9feAElneP/yta870eC//hgCpWA6xE5I2Oa5k7I=;
-	b=ZQS17aoUlaouBr/Th7AG4xsr2oqMcu/GinPQqFkQmC3wjFGHIPu30a52ty9p2Q4qew1evE
-	0uHxqGq5FRHTS2Gp6/WiT2uZXCPao8yiAmCEAFaWwqXbOD+H63m+VHZ9J12guey1poraFU
-	W4SGyNZCJZzAmfuLAw4yUJCi3oSF0NcvWuYiBCjddbgoAT7P+ZLTv9ju4/PpqTApV8vppS
-	OIspgVcfO0sFkL7CQlJRpohcS5djOzfo1lEhD1G+Y+UeSKJ9tI/V2bHUobpbe4fvTNKtMb
-	l4NzZLq1bux1UE+pIbKvBrSpY6Z0aQs93ay8JMeyoX+CiJz5bRyW2JwP1ltIPQ==
-Message-ID: <898f6533-2b6a-47d8-8102-1e89e1769c3e@bootlin.com>
-Date: Thu, 6 Nov 2025 11:22:52 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 10/11] net: stmmac: ingenic: pass ingenic_mac
- struct rather than plat_dat
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
+	Thu, 06 Nov 2025 10:23:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=OMLwGIoNYOp5BTjdjZEw24Nsm4q49zJb/gk4akyApJw=; b=0iLpV6p5k1d8XZXOo/2wtp0gck
+	ILbjL960etTl/6BeAYcs/QMyVWExZWDAeMF+oAHtNoYiCOzpV5QEOK4xqvkNFufxXQLqyzGbQBefM
+	RMMUgqcuHBZILrfmsDw4z2NejnvVU8Hm2SpjN5ogRVj7gLLFUL2K2PAffbccV3OjkNb2m18CB79uP
+	FvsNUheSqT9dqIqb9Fh7EFTQB6NFTndHHzvyonYwYhVF9TCkkiuD+LsYjMhlZRojbmghmFQcT0Ovd
+	ddYUd8ebcYjWLWluaPZO6Z3gdr6TwOZwoNfT6l56QjcsOeGh0yBA8Zxiph5QFPw4PZGaHrUspZwtC
+	/wDPW3Dg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60346)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vGx8z-000000004nS-3qZ9;
+	Thu, 06 Nov 2025 10:23:05 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vGx8w-000000006ZU-32os;
+	Thu, 06 Nov 2025 10:23:02 +0000
+Date: Thu, 6 Nov 2025 10:23:02 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 00/11] net: stmmac: ingenic: convert to
+ set_phy_intf_sel()
+Message-ID: <aQx3Brj6t48O6wPg@shell.armlinux.org.uk>
 References: <aQxinH5WWcunfP7p@shell.armlinux.org.uk>
- <E1vGvoj-0000000DWpE-3b5C@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1vGvoj-0000000DWpE-3b5C@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+ <6ad7667a-f2be-4674-99a2-2895a82b762a@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6ad7667a-f2be-4674-99a2-2895a82b762a@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_022258_597035_5998ADFB 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20251106_022314_262541_0B7DF543 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,100 +88,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 06/11/2025 09:58, Russell King (Oracle) wrote:
-> It no longer makes sense to pass a pointer to struct
-> plat_stmmacenet_data when calling the set_mode() methods to only use it
-> to get a pointer to the ingenic_mac structure that we already had in
-> the caller. Simplify this by passing the struct ingenic_mac pointer.
+On Thu, Nov 06, 2025 at 10:57:55AM +0100, Maxime Chevallier wrote:
+> Hi Russell,
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 25 ++++++-------------
->  1 file changed, 7 insertions(+), 18 deletions(-)
+> On 06/11/2025 09:55, Russell King (Oracle) wrote:
+> > On Wed, Nov 05, 2025 at 01:25:54PM +0000, Russell King (Oracle) wrote:
+> > Convert ingenic to use the new ->set_phy_intf_sel() method that was
+> > recently introduced in net-next.
+> > 
+> > This is the largest of the conversions, as there is scope for cleanups
+> > along with the conversion.
+> > 
+> > v2: fix build warnings in patch 9 by rearranging the code
+> > 
+> >  .../net/ethernet/stmicro/stmmac/dwmac-ingenic.c    | 165 ++++++---------------
+> >  1 file changed, 45 insertions(+), 120 deletions(-)
+> > 
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-> index eb5744e0b9ea..41a2071262bc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-> @@ -64,15 +64,13 @@ struct ingenic_soc_info {
->  	enum ingenic_mac_version version;
->  	u32 mask;
->  
-> -	int (*set_mode)(struct plat_stmmacenet_data *plat_dat, u8 phy_intf_sel);
-> +	int (*set_mode)(struct ingenic_mac *mac, u8 phy_intf_sel);
->  
->  	u8 valid_phy_intf_sel;
->  };
->  
-> -static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
-> -			       u8 phy_intf_sel)
-> +static int jz4775_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
->  {
-> -	struct ingenic_mac *mac = plat_dat->bsp_priv;
->  	unsigned int val;
->  
->  	val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel) |
-> @@ -82,19 +80,14 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
->  	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
->  }
->  
-> -static int x1000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
-> -			      u8 phy_intf_sel)
-> +static int x1000_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
->  {
-> -	struct ingenic_mac *mac = plat_dat->bsp_priv;
-> -
->  	/* Update MAC PHY control register */
->  	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, 0);
->  }
->  
-> -static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
-> -			      u8 phy_intf_sel)
-> +static int x1600_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
->  {
-> -	struct ingenic_mac *mac = plat_dat->bsp_priv;
->  	unsigned int val;
->  
->  	val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
-> @@ -103,10 +96,8 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
->  	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
->  }
->  
-> -static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
-> -			      u8 phy_intf_sel)
-> +static int x1830_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
->  {
-> -	struct ingenic_mac *mac = plat_dat->bsp_priv;
->  	unsigned int val;
->  
->  	val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII) |
-> @@ -116,10 +107,8 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
->  	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
->  }
->  
-> -static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat,
-> -			      u8 phy_intf_sel)
-> +static int x2000_mac_set_mode(struct ingenic_mac *mac, u8 phy_intf_sel)
->  {
-> -	struct ingenic_mac *mac = plat_dat->bsp_priv;
->  	unsigned int val;
->  
->  	val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
-> @@ -165,7 +154,7 @@ static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
->  		dev_dbg(mac->dev, "MAC PHY control register: interface %s\n",
->  			phy_modes(interface));
->  
-> -		ret = mac->soc_info->set_mode(mac->plat_dat, phy_intf_sel);
-> +		ret = mac->soc_info->set_mode(mac, phy_intf_sel);
->  		if (ret)
->  			return ret;
->  	}
+> Damned, missed that V2 and started reviewing V1... I'll resend the tags
+> for V2.
 
+Yes, Jakub reported build warnings on patch 9 last night, followed by
+the kernel build bot reporting the same thing. The dangers of not
+building with W=1, but then W=1 is noisy which makes spotting new
+warnings difficult.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
