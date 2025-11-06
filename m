@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBF7CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C2ECCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZXM85LzUN1S9RuETzRQRWeG480lhQN5Z2f49tA8IVw=; b=1p5oGa6UAc4WSIsu61OGkg3S7d
-	NmiVkn1F1NQL/f3r7mBhjXSdKRuBbnWPZwG80/pM83yL4MO+vgVjOklRzh1X6DKhsslZWdZI6XXG4
-	a+llbXwT4/aZVu7XdNLhQirH4ZXfaXkQpwdfr2AIlkrfsH5J7r6EB+FLj0olsFVCnFIsPE3H4VQwY
-	u3gER4kLsr1W178tSAftycU+/Hy6rKcZPIfcq18R/U3xuZW4jwr73RnwwFv+eJJ5SZMgLcL4ELmfT
-	ee7G88jH4WM6d63l84vdk4nLVZo0Pb9wkLtKlB2bVb9CF0ZD+FOpy9391fZ1QAoWJGS/0TFbYsyuS
-	tNXbOBVA==;
+	bh=vui8q4HaCi6tVBnL2yxZ+tr0ue024XeMZ+Nm5+3ZEoU=; b=SJIO/TAEgS9I6JCLVDeslhIJnM
+	7+rYDPfM+pzgvTb3sRVoCC3imzf3Xe0sD2OOoEDC19/0a3FUyA7ligYGJ4e77/nruJI1X9r/1VsyT
+	CQFDRFu0VF+5ewYc1eqoGTbYnYaB5MAq5tslhfFeuNOmpS4fQW8ViOC2ld1Tw7ifgA2duJ2pOjBHl
+	sTDV7cYwsGwlNG9TJOcsB8/M93V8YHA+e/ufn+/OGbJJq6ioQKWe5KsslZUkFC/qxcOUe8cV5PG8/
+	ylFw+KGV7WFt+58CUMF4bhfMppHO+VzvBIYPc+BqAFPpwXV38ny8Tyk9W1uAtQVjlTUE0hmSAuIwn
+	fvQBIbXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1HU-0000000FjNA-0vHP;
-	Thu, 06 Nov 2025 14:48:08 +0000
+	id 1vH1KF-0000000FjZS-010y;
+	Thu, 06 Nov 2025 14:50:59 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH1HR-0000000FjMi-3rWJ;
-	Thu, 06 Nov 2025 14:48:07 +0000
+	id 1vH1KB-0000000FjZ0-0Kfz;
+	Thu, 06 Nov 2025 14:50:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762440482;
-	bh=NVoG3xWPvFWyuV2+Q1vbOfMzlKfY/nHbZuN7h+LhVCE=;
+	s=mail; t=1762440651;
+	bh=/SG/uHMsoaaVW3+7tXj7IiAdklogSCYak1q0Xfk61P0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=P8Sv5o1Kb09LlCaWkB+QK7hoSOb16P0TO5TFjuDulBvhJRcJkGPowf8PaKnBxRJdG
-	 V2YobvLU02bh8dJcu0Gf+dMocbbQOKJbRyczUiBFfL90h+f5yEVW7yqOTCXU/vVGGv
-	 5adodBHM5VC44k3x8MBmzUTIuIr+YHZc4LjF1SkRrgzv4zOhQlclVxVrLxlLe4rOUL
-	 8bS8LeSNZM64HoNojXzX2AlyOJ8PESU304M5KdQ8DnTiMKWA8wHAAKxZQNkP8YcEZK
-	 Jr7FHovQBnYRLW7uNCLuJacBtpE99T2SR12WKzNvMqpAXs4GmGHTYXMTX6JMjPGD0I
-	 FISUbrf33E2lw==
+	b=Stdd40RacKZw2D0Fy/FjlcXcwk25KKymleVxtYJOCdyMfxKbcp73AX8F67dj17YlC
+	 pHUMHHR7pZteAcofaqFrO8wCKp8uONFwA+Pj9k87pAaHosCb4I3P5RVOmgtY3S+Mw/
+	 hWS47k66EaSNIpjOBLRAvI7MOYKkRKlT0HvK4+h0KNRlxekneKNCxtRSUg85jbfn7b
+	 zAdwHWkb9OARETdi44ww05eCHH1rS+SDb2oxvMgk0ycPyMMp4TFpaRB3t5UTbgcnn+
+	 Jj4E6AeKO8lqRjyjgNkTKAQYAhfOLkrZKht2CCdS70mPoiBakitrNAqDXc+SaTXrWO
+	 sMx1KtXZ8W/xw==
 Received: from [IPv6:2606:6d00:11:ef24::c41] (unknown [IPv6:2606:6d00:11:ef24::c41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9746D17E0CA1;
-	Thu,  6 Nov 2025 15:47:59 +0100 (CET)
-Message-ID: <b5daa900a1af6f379d5fb9757d2712102ca0fc51.camel@collabora.com>
-Subject: Re: [PATCH v5 6/8] media: mediatek: vcodec: fix media device node
- number
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 54A9917E1352;
+	Thu,  6 Nov 2025 15:50:49 +0100 (CET)
+Message-ID: <21be57561dbf7bd28367193e62296a43212e6030.camel@collabora.com>
+Subject: Re: [PATCH v5 8/8] media: mediatek: encoder: Add MT8189 encoder
+ compatible data
 From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
  <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
@@ -62,10 +62,10 @@ To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
  Yilong Zhou <yilong.zhou@mediatek.com>
 Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
 	 <andrzejtp2010@gmail.com>
-Date: Thu, 06 Nov 2025 09:47:58 -0500
-In-Reply-To: <20251106061323.2193-7-kyrie.wu@mediatek.com>
+Date: Thu, 06 Nov 2025 09:50:47 -0500
+In-Reply-To: <20251106061323.2193-9-kyrie.wu@mediatek.com>
 References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
-	 <20251106061323.2193-7-kyrie.wu@mediatek.com>
+	 <20251106061323.2193-9-kyrie.wu@mediatek.com>
 Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -81,12 +81,12 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-dw0k1cyaTR4cTZonInhf"
+	protocol="application/pgp-signature"; boundary="=-bxeZ/yTsP3Z84TE9zFdJ"
 User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_064806_129690_AE8B81E3 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20251106_065056_180438_6DDF47E1 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,66 +102,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-dw0k1cyaTR4cTZonInhf
+--=-bxeZ/yTsP3Z84TE9zFdJ
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi,
-
-fix -> Fix
-
 Le jeudi 06 novembre 2025 =C3=A0 14:13 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> change media register device node number to a correct value
+> add compatible data to support MT8189 encoding.
 
-You already say that in the subject, the description should explain why vfd=
-_dec-
->minor was wrong.
+Don't copy your subject, briefly describe the configuration instead.
 
 Nicolas
-=09
 
->=20
-> Fixes: 41f03c673cb7b ("media: mediatek: vcodec: replace pr_* with dev_* f=
-or
-> v4l2 debug message")
 >=20
 > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com>
 > ---
-> =C2=A0.../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 | 3 ++-
-> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
+> =C2=A0.../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0 | 14 +=
++++++++++++++
+> =C2=A01 file changed, 14 insertions(+)
 >=20
 > diff --git
-> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> index fca60e81e3c7..f3e49597602a 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> @@ -516,7 +516,8 @@ static int mtk_vcodec_probe(struct platform_device *p=
-dev)
-> =C2=A0			goto err_media_reg;
-> =C2=A0		}
+> a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> index 6b3d2e72fad9..2cc92a8f7a0d 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> @@ -467,6 +467,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdat=
+a =3D {
+> =C2=A0	.set_dma_bit_mask =3D true,
+> =C2=A0};
 > =C2=A0
-> -		dev_dbg(&pdev->dev, "media registered as /dev/media%d",
-> vfd_dec->minor);
-> +		dev_dbg(&pdev->dev, "media registered as /dev/media%d",
-> +			dev->mdev_dec.devnode->minor);
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	mtk_vcodec_dbgfs_init(dev, false);
+> +static const struct mtk_vcodec_enc_pdata mt8189_pdata =3D {
+> +	.venc_model_num =3D 8189,
+> +	.capture_formats =3D mtk_video_formats_capture_h264,
+> +	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264),
+> +	.output_formats =3D mtk_video_formats_output,
+> +	.num_output_formats =3D ARRAY_SIZE(mtk_video_formats_output),
+> +	.min_bitrate =3D 64,
+> +	.max_bitrate =3D 100000000,
+> +	.core_id =3D VENC_SYS,
+> +	.uses_common_fw_iface =3D true,
+> +	.set_dma_bit_mask =3D true,
+> +};
+> +
+> =C2=A0static const struct of_device_id mtk_vcodec_enc_match[] =3D {
+> =C2=A0	{.compatible =3D "mediatek,mt8173-vcodec-enc",
+> =C2=A0			.data =3D &mt8173_avc_pdata},
+> @@ -477,6 +490,7 @@ static const struct of_device_id mtk_vcodec_enc_match=
+[] =3D
+> {
+> =C2=A0	{.compatible =3D "mediatek,mt8192-vcodec-enc", .data =3D &mt8192_p=
+data},
+> =C2=A0	{.compatible =3D "mediatek,mt8195-vcodec-enc", .data =3D &mt8195_p=
+data},
+> =C2=A0	{.compatible =3D "mediatek,mt8196-vcodec-enc", .data =3D &mt8196_p=
+data},
+> +	{.compatible =3D "mediatek,mt8189-vcodec-enc", .data =3D &mt8189_pdata}=
+,
+> =C2=A0	{},
+> =C2=A0};
+> =C2=A0MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
 
---=-dw0k1cyaTR4cTZonInhf
+--=-bxeZ/yTsP3Z84TE9zFdJ
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaQy1HgAKCRDZQZRRKWBy
-9BVgAQC+iAI0ZqnWQqu2KvJUTK7prLEhAUHzmKwd9pG9Nx+E7AEAo7bjfYGdm8u7
-z40OWyl6fz38vMuFu2rqg/NIamcIKwQ=
-=vTvd
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaQy1xwAKCRDZQZRRKWBy
+9Nw3AP46aJhDUk8PCHIbnonlNvXHPCIlwt4w3LWBJOBQeHlX8wD/cpB2lPrG4xJG
+OyCOr3eXLc3FFA8/ZvNPBkKHgRQIpQs=
+=nBUW
 -----END PGP SIGNATURE-----
 
---=-dw0k1cyaTR4cTZonInhf--
+--=-bxeZ/yTsP3Z84TE9zFdJ--
 
