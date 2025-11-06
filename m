@@ -4,88 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D3BCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD40CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 12:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=; b=xclxJEUiPjrdZOOUqc6czH6orO
-	5bGgjcwGNrjviI0IFOJNvFVhk1NoOVHQGXxtAY7RdqwvVTw2SZ52Ij0ugvii2dbEmihpg5qV9JkhI
-	56YqLOqebTULofPb7GqaR3wRQ37IMaGpc6KWnTLU/M2TZ33e2adu+UFMvIlXHZeil/P5VZYgV+d9X
-	Q6JlE6Iv6Agl/i2c6L4BtjJ2FeASkY/k+uE7k4l4bplcZaNfv0HF+qCCUmYRks1EWiBlO1ONJeR31
-	ZSFHmExbU/J3KZe42b1Z/+fym506YKY45x7E9XbsDr5vLve6oXpXHilQTyyYRBGpv6f3ZMBj+ETyP
-	fcTwp/Ow==;
+	bh=BaH4jL/kGe8N/E21Aq+Ilky+SDexErt27SV2D0lZmWs=; b=E1aDfWd96wwWMfasHquzcBBRdM
+	/FHh7oDVMouX+fIHY+svmRqDNcglHIIv5EDfg1Vqgg+JWec9x8cYXBWrE7vly+4WKhGzPbpivA/P7
+	jnwC9lswU2tNBDo5s1sZ012EH3Kxdh27yPQx/sk3gaVyFsCf7IZyXF/hiiXzSlfpHTyXsMhlgBUb3
+	Ss//jcLDN6IoU4Iu4MAttYBI/iA7a2b/jRdmLBGAStNFnJbe5Cr4bqzNKKWGHouJupPpoCgjKoEjm
+	Dq+dIfkYQznR2BuiuhWIGrVNjbFpJyxG1TslW2hfQH19WrF4IMTnwpBeQO/qlyvjWqAZSaYHtp/X0
+	tIvfPZBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGzVK-0000000FWHF-0MHy;
-	Thu, 06 Nov 2025 12:54:18 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1vGzXM-0000000FWZH-2O8j;
+	Thu, 06 Nov 2025 12:56:24 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGzVG-0000000FWGN-43Om
+	id 1vGzXH-0000000FWYb-1qF2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 12:54:16 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-8b22319db92so101433085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 04:54:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762433653; x=1763038453; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=;
-        b=VoQxV5TsBIkkU4fxM7JUuZn7PC2S659B9Okrm3CsD0Nsc9fwcFSfwzPlvSVcgNFBSn
-         NdIKOTL1oDyqhoqslCr/H4zR0X8YnlIYNpjbZDGwzvRiS0ZfB4hIsjorTiH//8oyZiHw
-         cJn3/v9FWQOHYmEQN7tMbW0AGwy2vAN2rFJeVz1Cik9+QV2AOEQKhNDldfR6gJeRYr+B
-         G8A5lPGw8CgAAVfwTKozUWxVtcUBXGzqElBGMtENi4x9fiegIArYhzlAWCNQ9k6P3CGm
-         4aUFUp3KMTdpWQHY2O+bL9zXPp58REW8DFTnksRKVhulm+5OcDpEv8GGul1Wne6gXjmS
-         MnkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762433653; x=1763038453;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a/LVRGbg/R0cjzjNFLUaSneDEebgcwM8tmDj+wYNpmo=;
-        b=UGaXQfLbuE0ufErBILXKDiIjbnoBOSyus7y4ekRA527AU1+8+i5EUyQ6REE8clh+Z2
-         hLvSj39uHxhoBN+W8pGXzvUQApArPkE2jSkcwhFuJhqUX2jQbybI3M8pul7cpIqvYv5t
-         PJdMNNrTGgkD7++cODYBLdHyTygRyuUibMZ/g/o3jujUy1A4m/u2FLXM2s5fT9RLKtPG
-         z9dFQwj0AzXnbXcOpT/T/2CZu83intDSnMZWCPVZLHcMgwupVg7NZuL8W8qKWlrRpeE3
-         KK7M0JPMvme+DsRmmfSifxspWiM8F4i1OOrP41utXDNF4SXfSX2mBbSQmxh3L45FKs2/
-         C29w==
-X-Forwarded-Encrypted: i=1; AJvYcCVljGrq05Blur8n9Om9yUyYSjHlbivOugu7Xo+PrQ/vlobzWeUwwe5JnA77rXilAjthZAslqxNenQ9nWqFXfZfx@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdu8y5mt+ZmZ+URhTqbHL34/W8QjvaDbGqZwZZaivLPKFHgPX1
-	pjiM/wO/FPQYNfLX1T+mDWM00/NCDlb3M6u1aDs1HYK7pn5JhdfpdD2XC/kS5CzeXC89XFitCWw
-	/i1TcYMN69b4FV5eYBfI/hrTedO2E8a+TT55J5ZzsKQ==
-X-Gm-Gg: ASbGncvXVSn8zYM0uUBvWbjM7s5tWdaaOl/kGPnC1QaY7Myn8e34AgoJ0/uDBZDxN/B
-	Jx4AqduLtH/4TpXbwwv6amNOxImXFmB0V4a/EXIhRv6Dn3G+PS3nOod0dTTCqbt/t95OeLPXAwd
-	2XzNHeEK40Wvd6+imEeCbWdZLV58VTe/p4B4UOsesJ11KlH3uuJrU28PCjiNkN8w7fNPPtbsoXy
-	ZqLx7iRTCL+QivMue0f9QNlp9SzghixwsylF71Fkm3P5TvBbQe2hZPd1ruu8mZtc7U5xC5X+i8+
-	Ouxy2P5QuAgLnGR4uA==
-X-Google-Smtp-Source: AGHT+IEpN34zsZ5wwP2Owr6OUUnpRIoC3kvxluiNbq9Twjvdxl3iJYLPHL5b6ByEpptX+tubFgXzvxv/TWtG9ClhlUI=
-X-Received: by 2002:a05:620a:4548:b0:88e:1123:ec9 with SMTP id
- af79cd13be357-8b2353258bamr344615485a.36.1762433653176; Thu, 06 Nov 2025
- 04:54:13 -0800 (PST)
+	Thu, 06 Nov 2025 12:56:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j2GHcblU6n5NlAmubrpUQkMUALr8qZZ/CXHFINW07sB90eTLQpMsslSeLhdlmOu30P8ThDCGO9soc+XrWZxfMqvj9PVLMgKL/8vHiRiwPCu7YE0De6JxFjkmiTXWDyDn507hni7ngLfobz7IEk16QYvY8w130NS1oq1cu/v4Jq0JIDhMPO/sSwlUjQTTLIxDW/SXZBzTO6dqbM5fKrDor5gPVDZMe0S0TYPGa/8rLzSSf074JNUMmaqoN8T965Ter42Yz75KvNK9lUwglVPC81CasxU5f7OFOCyyJTgzC0mvIohyNBYPTR8u9Uc+asxTDPeFB7AE5logbFxewneisw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BaH4jL/kGe8N/E21Aq+Ilky+SDexErt27SV2D0lZmWs=;
+ b=EDU5/Rki3JVMceB1izlQO5xJfhe+NbiyGwlsrtDFXn41cd9V15tPBZmt0kqQQ4iOEEnkzTo43FUOBM862Zn83uH79UxXYmNLHxjWUU9/Sa9wYW5/p6ro1SzHS3jQ4Lng7cL/VA3uTTick+J++46W6lvC6YoRHtLgsm4QgbIH/IWZresoCFpWW2QpXuhKsf7347BCdqrLDtjbCHxZIKcOisHuxSwNuFdPVDNwP5vsmab3EnrACDxv+5SOMpjfixaLPqb0LZ75MxdBnfxCBipZdMqoOoKXHjqILy+pBL0nbn1jlIdJ7jrHOH7+zmX2dQTYykDeKvmrUoyxEg119oPzUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BaH4jL/kGe8N/E21Aq+Ilky+SDexErt27SV2D0lZmWs=;
+ b=1s1a115TFEP1DrlJDqN4/IPRyVEJP//LsBSuVUSugCvldJ34+1Mo9w0+qCPEtJIsbklt7reTDvpov7CH7v7v6gp11enDxWblrtK9yJvbxFimeFeGA0AG8DEDcgwc7zrDXNdmgFwRh62AX+cg1QBcyWTQp/cM3uQftXpMSkF6Z+g=
+Received: from CY5PR15CA0256.namprd15.prod.outlook.com (2603:10b6:930:66::27)
+ by DS0PR12MB8342.namprd12.prod.outlook.com (2603:10b6:8:f9::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.9; Thu, 6 Nov
+ 2025 12:56:06 +0000
+Received: from CY4PEPF0000EDD0.namprd03.prod.outlook.com
+ (2603:10b6:930:66:cafe::4e) by CY5PR15CA0256.outlook.office365.com
+ (2603:10b6:930:66::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Thu,
+ 6 Nov 2025 12:56:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY4PEPF0000EDD0.mail.protection.outlook.com (10.167.241.196) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Thu, 6 Nov 2025 12:56:05 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Thu, 6 Nov
+ 2025 04:56:02 -0800
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Nov
+ 2025 06:56:02 -0600
+Received: from [172.31.39.154] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 6 Nov 2025 04:55:50 -0800
+Message-ID: <c1b74f44-27eb-4e7c-a2dc-ee48ccfe34a3@amd.com>
+Date: Thu, 6 Nov 2025 18:25:49 +0530
 MIME-Version: 1.0
-References: <CAJ9a7VjTqBczkdMYXqb1WmDRUYhC--dY6Ky5R=NfUZaYkiWmVw@mail.gmail.com>
- <20251103084615.3666468-1-yingchao.deng@oss.qualcomm.com>
-In-Reply-To: <20251103084615.3666468-1-yingchao.deng@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 6 Nov 2025 12:54:01 +0000
-X-Gm-Features: AWmQ_bnQTEL57TvE0l2_raUBvNJd91O5zIwL8GGfWa4dYKgD0z8HrW_TTtLT6k8
-Message-ID: <CAJ9a7Viir9Eows=Lphw_W9qVGDoHRd3uzMxXbwEPMcjXvPth2w@mail.gmail.com>
-Subject: Re: [PATCH v5 0/2] Add Qualcomm extended CTI support
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: alexander.shishkin@linux.intel.com, coresight@lists.linaro.org, 
-	james.clark@linaro.org, jinlong.mao@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, 
-	suzuki.poulose@arm.com, tingwei.zhang@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/34] sparc64: vdso: Switch to the generic vDSO
+ library
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, "Andy
+ Lutomirski" <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	"Vincenzo Frascino" <vincenzo.frascino@arm.com>, Arnd Bergmann
+	<arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson
+	<andreas@gaisler.com>, "Nick Alcock" <nick.alcock@oracle.com>, John Stultz
+	<jstultz@google.com>, "Stephen Boyd" <sboyd@kernel.org>, John Paul Adrian
+ Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>,
+	"Catalin Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	"Theodore Ts'o" <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Russell King <linux@armlinux.org.uk>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, Nicholas
+ Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>,
+	"Vasily Gorbik" <gor@linux.ibm.com>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>
+CC: <linux-kernel@vger.kernel.org>, <sparclinux@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linux-s390@vger.kernel.org>, Arnd Bergmann
+	<arnd@kernel.org>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+Content-Language: en-US
+From: "Aithal, Srikanth" <sraithal@amd.com>
+In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+Received-SPF: None (SATLEXMB04.amd.com: sraithal@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD0:EE_|DS0PR12MB8342:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a55891a-6f69-4c80-2198-08de1d33d95e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|1800799024|82310400026|921020|7053199007|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?azRLNUtMRXJ1bHRwcjMycEZIa1k5TCtTemZreW5HUzQvckNLY1krN1RQVW9s?=
+ =?utf-8?B?U2VJQStFbXlHU2hLOWUwMWQ4SXhrVmxkaHhKSkJyRU84WUh1dytzM21GSUVu?=
+ =?utf-8?B?SFRtTlRSUll0UmxVMW9NWUw2Q0RmaVlGVHdOb25uYU1XZXlBamZ1bG9zMGp5?=
+ =?utf-8?B?eC82QVhjeDVYRDZLanpXS3lNeDdPam9UUGxZOVdBWEZaTjR2ZlpEWUtkSDRX?=
+ =?utf-8?B?VVcrbFpBTUxvTmJkT2lpTnVEeUpBOThMcVJuWGRIVWRhUTZrejI3MzFMeVcx?=
+ =?utf-8?B?WHRNR1BaazNGVWd1UGgxNVp2OFBVYmZYamlEYXpQQmtoRTZ5Rk9mRTRDMjls?=
+ =?utf-8?B?Vmlzb0UyY0tHa3p2bW9JbEorMnJabytjcEszbVdESk1lNDRBL0IvMnRuemgw?=
+ =?utf-8?B?Z0ptQzBPV1lSZmNJUXAxU2UxeWlZU1ZFbmxGempoRTMvT1I5SzV6VzVNbVlK?=
+ =?utf-8?B?OEhCU0psa2dLaXJYWWJGaUptbEFKcHhOcEFqUDdjMGJuZFdDNUVyNFVaNzhM?=
+ =?utf-8?B?TFNoQi9NeWVReW95V1NLQVVuTnRsZzFnUnhTZFpjSFBVMjNhdnlvZVV5aFFw?=
+ =?utf-8?B?Y0RmL2s0b2xyOHEyaElISVVoY1RXZmJzU3dXN09GVVc1c0VoQjYrVXJ6dkhN?=
+ =?utf-8?B?NldadHVOU0N5QUg3VE5Ca1diTWM1QWhNMWowejNZT1lDZCtVZnM1VnlRd3Iw?=
+ =?utf-8?B?WGZ6YWtkSlZnM1JDU2ZhbmVxRDY3RUkrYnhDQWhsRk92ZldBNTU3OSsyRFpy?=
+ =?utf-8?B?UmhFenNGQnRmb2JWT3N1YkhMbzEvTVBYaitmdjNLRzZsYkl3R2NmQU5Qb3Uv?=
+ =?utf-8?B?YkN5cU5PT045OVljc1Z2TUgvd3BHbThKaDRGRFZlYjZWbVdqSDR1eCtKT2hz?=
+ =?utf-8?B?UTlFeFBJc3J6TWR3UEpaRHNYYXU2OFI1bWJKV2RLem4yeWp1bmVoa3dMNUJP?=
+ =?utf-8?B?QUk0bVVMcTN5bnlqOWdpRm5XQkZkM3hxVWpzNkxyRFRyelVIR3NpQzFYNUhY?=
+ =?utf-8?B?WDBuNTlpVFFNS3hIaUpPNXlRMXBkNnJqOFZWclRtSFo0TE9xVk9XUGc3c2xu?=
+ =?utf-8?B?czl0anF2TFRLV2dXeWhRTXJNRXNWL0pFWUdDSkhYWlVuYVQ2MTN2bDBnSzdU?=
+ =?utf-8?B?ZmV2RlVDeTRGSUFHcngycXdZeUo4WG5qbndCTVdWZHQ5ZDc1SDJmWnVEZXR1?=
+ =?utf-8?B?OCsyVVVGaWp5TDh1b2o5ZGs3aEQ4bkRMb3ZVeXkzQTFBSW8zQ1FVMVRicVJZ?=
+ =?utf-8?B?TTduWGlrRnpid281Yk5xQXQyNHJGNndUdE12bjlBa05ZbHBFbVFiQU9lUGdY?=
+ =?utf-8?B?a0xCSDF3aWhmY3haZ3BjVnVUbzg3U0tOUHRyTlVlRWxGYWJjVFVKSlRPTmlZ?=
+ =?utf-8?B?YzFkMjJwb3dhRVVJK00vbC9na0dkbE5WTEhVU09PT29JcDg0MUw4Ri9UMzNo?=
+ =?utf-8?B?eW5yUGFncFpyQS9UVE5iM0NDT0NXMTJ3UkNWQlFUMFhJVVhEWktsd3BsU0J5?=
+ =?utf-8?B?M3pDUUxtNjl2UWZCVWR1ek42bnBPUDZVblg0TnQvWHE3V080NDBlaHI5NGMx?=
+ =?utf-8?B?NGhNNnVxRUVpRFJHZi9mOThNK21mTlZLU08zdlhodkszVTFuTGNXMWpvTHVm?=
+ =?utf-8?B?M0k4eGhPeG45TVczeTg2cUFRd0RUSjVXZE1WSHpsb2R5WDRCdmJTd1ZZS0Uw?=
+ =?utf-8?B?MnFSUG5kVDZ3VTVGV2FVQWo1VEM1bjl3UEdoc3k3a0gvRXVuMkVkOURJdDZX?=
+ =?utf-8?B?UCszMm12b2dMc293aVBwc25RYm1NUVBDWVE4dzhhbUIzL1kyL2NLV05CSTVI?=
+ =?utf-8?B?eWJKUUJZa2dqb0lacDVWbEJZM3Z4Wnk5ZzB4OEV5Q2pqNXNjRngvNmRDN2lV?=
+ =?utf-8?B?dHRlOG5HSWlsSmJWSjBzbzJIcWdtL05tN0tiVzVuUHVTcFIvZUJ2TitOQUI0?=
+ =?utf-8?B?NWFmbGVDaXNiaUdnSkxEN2lTbFVNMkpMTUp0VlhhaFNNMFoyWHBCaUR2a28z?=
+ =?utf-8?B?WTdJdEpjV1FrOXptL1NqaFhsblBFYWU2VHBzeDkyY013MUxuVDRRODl4WnlM?=
+ =?utf-8?B?L0V2MG1KSHA0VnhGdTRKMnYxYUNvOEsrT3JLa3I1UG02cC9vaFR5Zmc4eldW?=
+ =?utf-8?Q?aa8f76PjUIX6n7lAN6xooVZBM?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(1800799024)(82310400026)(921020)(7053199007)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 12:56:05.9668
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a55891a-6f69-4c80-2198-08de1d33d95e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8342
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_045415_045675_A1B0DC80 
-X-CRM114-Status: GOOD (  38.88  )
+X-CRM114-CacheID: sfid-20251106_045621_708212_45D0CAE4 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,155 +180,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 11/6/2025 3:31 PM, Thomas WeiÃschuh wrote:
+> The generic vDSO provides a lot common functionality shared between
+> different architectures. SPARC is the last architecture not using it,
+> preventing some necessary code cleanup.
+> 
+> Make use of the generic infrastructure.
+> 
+> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+> 
+> SPARC64 can not map .bss into userspace, so the vDSO datapages are
+> switched over to be allocated dynamically. This requires changes to the
+> s390 and random subsystem vDSO initialization as preparation.
+> The random subsystem changes in turn require some cleanup of the vDSO
+> headers to not end up as ugly #ifdef mess.
+> 
+> Tested on a Niagara T4 and QEMU.
+> 
+> This has a semantic conflict with my series "vdso: Reject absolute
+> relocations during build" [0]. The last patch of this series expects all
+> users of the generic vDSO library to use the vdsocheck tool.
+> This is not the case (yet) for SPARC64. I do have the patches for the
+> integration, the specifics will depend on which series is applied first.
+> 
+> Based on v6.18-rc1.
+> 
+> [0] https://lore.kernel.org/lkml/20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de/
+> 
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> ---
+> Changes in v5:
+> - Merge the patches for 'struct page' mapping and dynamic allocation
+> - Zero out newly-allocated data pages
+> - Pick up review tags
+> - Link to v4: https://lore.kernel.org/r/20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de
+> 
+> Changes in v4:
+> - Rebase on v6.18-rc1.
+> - Keep inclusion of asm/clocksource.h from linux/clocksource.h
+> - Reword description of "s390/time: Set up vDSO datapage later"
+> - Link to v3: https://lore.kernel.org/r/20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de
+> 
+> Changes in v3:
+> - Allocate vDSO data pages dynamically (and lots of preparations for that)
+> - Drop clock_getres()
+> - Fix 32bit clock_gettime() syscall fallback
+> - Link to v2: https://lore.kernel.org/r/20250815-vdso-sparc64-generic-2-v2-0-b5ff80672347@linutronix.de
+> 
+> Changes in v2:
+> - Rebase on v6.17-rc1
+> - Drop RFC state
+> - Fix typo in commit message
+> - Drop duplicate 'select GENERIC_TIME_VSYSCALL'
+> - Merge "sparc64: time: Remove architecture-specific clocksource data" into the
+>    main conversion patch. It violated the check in __clocksource_register_scale()
+> - Link to v1: https://lore.kernel.org/r/20250724-vdso-sparc64-generic-2-v1-0-e376a3bd24d1@linutronix.de
+> 
+> ---
+> Arnd Bergmann (1):
+>        clocksource: remove ARCH_CLOCKSOURCE_DATA
+> 
+> Thomas Weißschuh (33):
+>        selftests: vDSO: vdso_test_correctness: Handle different tv_usec types
+>        arm64: vDSO: getrandom: Explicitly include asm/alternative.h
+>        arm64: vDSO: gettimeofday: Explicitly include vdso/clocksource.h
+>        arm64: vDSO: compat_gettimeofday: Add explicit includes
+>        ARM: vdso: gettimeofday: Add explicit includes
+>        powerpc/vdso/gettimeofday: Explicitly include vdso/time32.h
+>        powerpc/vdso: Explicitly include asm/cputable.h and asm/feature-fixups.h
+>        LoongArch: vDSO: Explicitly include asm/vdso/vdso.h
+>        MIPS: vdso: Add include guard to asm/vdso/vdso.h
+>        MIPS: vdso: Explicitly include asm/vdso/vdso.h
+>        random: vDSO: Add explicit includes
+>        vdso/gettimeofday: Add explicit includes
+>        vdso/helpers: Explicitly include vdso/processor.h
+>        vdso/datapage: Remove inclusion of gettimeofday.h
+>        vdso/datapage: Trim down unnecessary includes
+>        random: vDSO: trim vDSO includes
+>        random: vDSO: remove ifdeffery
+>        random: vDSO: split out datapage update into helper functions
+>        random: vDSO: only access vDSO datapage after random_init()
+>        s390/time: Set up vDSO datapage later
+>        vdso/datastore: Reduce scope of some variables in vvar_fault()
+>        vdso/datastore: Drop inclusion of linux/mmap_lock.h
+>        vdso/datastore: Allocate data pages dynamically
+>        sparc64: vdso: Link with -z noexecstack
+>        sparc64: vdso: Remove obsolete "fake section table" reservation
+>        sparc64: vdso: Replace code patching with runtime conditional
+>        sparc64: vdso: Move hardware counter read into header
+>        sparc64: vdso: Move syscall fallbacks into header
+>        sparc64: vdso: Introduce vdso/processor.h
+>        sparc64: vdso: Switch to the generic vDSO library
+>        sparc64: vdso2c: Drop sym_vvar_start handling
+>        sparc64: vdso2c: Remove symbol handling
+>        sparc64: vdso: Implement clock_gettime64()
+> 
+>   arch/arm/include/asm/vdso/gettimeofday.h           |   2 +
+>   arch/arm64/include/asm/vdso/compat_gettimeofday.h  |   3 +
+>   arch/arm64/include/asm/vdso/gettimeofday.h         |   2 +
+>   arch/arm64/kernel/vdso/vgetrandom.c                |   2 +
+>   arch/loongarch/kernel/process.c                    |   1 +
+>   arch/loongarch/kernel/vdso.c                       |   1 +
+>   arch/mips/include/asm/vdso/vdso.h                  |   5 +
+>   arch/mips/kernel/vdso.c                            |   1 +
+>   arch/powerpc/include/asm/vdso/gettimeofday.h       |   1 +
+>   arch/powerpc/include/asm/vdso/processor.h          |   3 +
+>   arch/s390/kernel/time.c                            |   4 +-
+>   arch/sparc/Kconfig                                 |   3 +-
+>   arch/sparc/include/asm/clocksource.h               |   9 -
+>   arch/sparc/include/asm/processor.h                 |   3 +
+>   arch/sparc/include/asm/processor_32.h              |   2 -
+>   arch/sparc/include/asm/processor_64.h              |  25 --
+>   arch/sparc/include/asm/vdso.h                      |   2 -
+>   arch/sparc/include/asm/vdso/clocksource.h          |  10 +
+>   arch/sparc/include/asm/vdso/gettimeofday.h         | 184 ++++++++++
+>   arch/sparc/include/asm/vdso/processor.h            |  41 +++
+>   arch/sparc/include/asm/vdso/vsyscall.h             |  10 +
+>   arch/sparc/include/asm/vvar.h                      |  75 ----
+>   arch/sparc/kernel/Makefile                         |   1 -
+>   arch/sparc/kernel/time_64.c                        |   6 +-
+>   arch/sparc/kernel/vdso.c                           |  69 ----
+>   arch/sparc/vdso/Makefile                           |   8 +-
+>   arch/sparc/vdso/vclock_gettime.c                   | 380 ++-------------------
+>   arch/sparc/vdso/vdso-layout.lds.S                  |  26 +-
+>   arch/sparc/vdso/vdso.lds.S                         |   2 -
+>   arch/sparc/vdso/vdso2c.c                           |  24 --
+>   arch/sparc/vdso/vdso2c.h                           |  45 +--
+>   arch/sparc/vdso/vdso32/vdso32.lds.S                |   4 +-
+>   arch/sparc/vdso/vma.c                              | 274 +--------------
+>   drivers/char/random.c                              |  71 ++--
+>   include/linux/clocksource.h                        |   6 +-
+>   include/linux/vdso_datastore.h                     |   6 +
+>   include/vdso/datapage.h                            |  23 +-
+>   include/vdso/helpers.h                             |   1 +
+>   init/main.c                                        |   2 +
+>   kernel/time/Kconfig                                |   4 -
+>   lib/vdso/datastore.c                               |  74 ++--
+>   lib/vdso/getrandom.c                               |   3 +
+>   lib/vdso/gettimeofday.c                            |  17 +
+>   .../testing/selftests/vDSO/vdso_test_correctness.c |   8 +-
+>   44 files changed, 449 insertions(+), 994 deletions(-)
+> ---
+> base-commit: 28b1ac5ccd8d4900a8f53f0e6e84d517a7ccc71f
+> change-id: 20250722-vdso-sparc64-generic-2-25f2e058e92c
+> 
+> Best regards,
 
-On Mon, 3 Nov 2025 at 08:46, Yingchao Deng
-<yingchao.deng@oss.qualcomm.com> wrote:
->
-> >Hi,
-> >
-> >This set is looking good now and appears to be getting close to being re=
-ady.
-> >
-> >There are a few minor issues in the second patch and a few items that
-> >need to be confirmed.
-> >1) I note that you removed the code to prevent calling claim/disclaim.
-> >Does this mean that you confirm that you have tested the patch update
-> >for claim tags I posted works on your system?
->
-> I just tested this patch, the default value of qcom_cti's CLAIMSET regist=
-er is 0xf,
-> and unlike the standard CTI (write 0 is no effect), it can be written wit=
-h 0.
-> So, is it acceptable to write 0 to the claimset register of qcom_cti afte=
-r reading the
-> devarch register during the probe phase?
->
->         devarch =3D readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
->         if (CTI_DEVARCH_ARCHITECT(devarch) =3D=3D ARCHITECT_QCOM) {
->                 drvdata->subtype =3D QCOM_CTI;
->                 drvdata->offsets =3D cti_extended_offset;
->                 writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
->         } else {
->                 drvdata->subtype =3D ARM_STD_CTI;
->                 drvdata->offsets =3D cti_normal_offset;
->         }
->
+The regression [1] v4 series patchset [2] had caused as part of [3]
+has been fixed by this series.
 
-OK - if you look at v2 of the cliam tag set you will see we introduce
-a "claim_tag_info" attribute to the coresight_device structure. This
-is initially set to CS_CLAIM_TAG_UNKNOWN, and on the first
-claim/disclaim API call the claim tags validity will be tested and a
-value of  CS_CLAIM_TAG_STD_PROTOCOL or  CS_CLAIM_TAG_NOT_IMPL set,
-skipping the test on all subsequent claim calls.
+Tested-by: Srikanth Aithal <sraithal@amd.com>
 
-if you set this  in the probe function i.e.  csdev->claim_tag_info =3D
-CS_CLAIM_TAG_NOT_IMPL, then the claim tags will not be used.
-
-
-whichever method you use, please ensure a comment appears in the code
-describing why the workaround is necessary.
-
-Regards
-
-Mike
-
-
-> >2) In patch 2 I made some comments in regard to ARCH values - please
-> >confirm that these are accurate and have been tested as working on
-> >your system
->
-> Yes, the bits 31:20 in qcom_cti's DEVARCH register are 0x8EF.
->
-> >3) As mentioned in the comments to patch 2 - you need to update the
-> >docs for the new sysfs selection file you have added
->
-> Will update in v6.
->
-> Thanks
-> Yingchao
->
-> >
-> >Thanks and Regards
-> >
-> >Mike
-> >
-> >On Mon, 20 Oct 2025 at 08:12, Yingchao Deng
-> ><yingchao.deng@oss.qualcomm.com> wrote:
-> >>
-> >> The QCOM extended CTI is a heavily parameterized version of ARM=E2=80=
-=99s CSCTI.
-> >> It allows a debugger to send to trigger events to a processor or to se=
-nd
-> >> a trigger event to one or more processors when a trigger event occurs =
-on
-> >> another processor on the same SoC, or even between SoCs.
-> >>
-> >> QCOM extended CTI supports up to 128 triggers. And some of the registe=
-r
-> >> offsets are changed.
-> >>
-> >> The commands to configure CTI triggers are the same as ARM's CTI.
-> >>
-> >> Changes in v5:
-> >> 1. Move common part in qcom-cti.h to coresight-cti.h.
-> >> 2. Convert trigger usage fields to dynamic bitmaps and arrays.
-> >> 3. Fix holes in struct cti_config to save some space.
-> >> 4. Revert the previous changes related to the claim tag in
-> >>    cti_enable/disable_hw.
-> >> Link to v4 - https://lore.kernel.org/linux-arm-msm/20250902-extended_c=
-ti-v4-1-7677de04b416@oss.qualcomm.com/
-> >>
-> >> Changes in v4:
-> >> 1. Read the DEVARCH registers to identify Qualcomm CTI.
-> >> 2. Add a reg_idx node, and refactor the coresight_cti_reg_show() and
-> >> coresight_cti_reg_store() functions accordingly.
-> >> 3. The register offsets specific to Qualcomm CTI are moved to qcom_cti=
-.h.
-> >> Link to v3 - https://lore.kernel.org/linux-arm-msm/20250722081405.2947=
-294-1-quic_jinlmao@quicinc.com/
-> >>
-> >> Changes in v3:
-> >> 1. Rename is_extended_cti() to of_is_extended_cti().
-> >> 2. Add the missing 'i' when write the CTI trigger registers.
-> >> 3. Convert the multi-line output in sysfs to single line.
-> >> 4. Initialize offset arrays using designated initializer.
-> >> Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic=
-_jinlmao@quicinc.com/
-> >>
-> >> Changes in V2:
-> >> 1. Add enum for compatible items.
-> >> 2. Move offset arrays to coresight-cti-core
-> >>
-> >> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
-> >> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> >> ---
-> >> Yingchao Deng (2):
-> >>       coresight: cti: Convert trigger usage fields to dynamic bitmaps =
-and arrays
-> >>       coresight: cti: Add Qualcomm extended CTI support
-> >>
-> >>  drivers/hwtracing/coresight/coresight-cti-core.c   | 144 ++++++++++++=
-+---
-> >>  .../hwtracing/coresight/coresight-cti-platform.c   |  16 +-
-> >>  drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 184 ++++++++++++=
-+++------
-> >>  drivers/hwtracing/coresight/coresight-cti.h        |  60 ++++++-
-> >>  drivers/hwtracing/coresight/qcom-cti.h             |  29 ++++
-> >>  5 files changed, 346 insertions(+), 87 deletions(-)
-> >> ---
-> >> base-commit: 1fdbb3ff1233e204e26f9f6821ae9c125a055229
-> >> change-id: 20251016-extended_cti-2a426c8894b1
-> >>
-> >> Best regards,
-> >> --
-> >> Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> >>
-
-
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+[1] 
+https://lore.kernel.org/all/977b68ad-6796-4c3d-9c34-d023597f8ab2@amd.com/T/#u
+[2] 
+https://lore.kernel.org/all/977b68ad-6796-4c3d-9c34-d023597f8ab2@amd.com/T/#m5a310ed22ed9203672b0d0d85ecda0a8fec481c4 
+specifically "[PATCH v4 24/35] vdso/datastore: Allocate data pages 
+dynamically"
+[3] next-20251103, 
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
