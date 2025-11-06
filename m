@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAAFCCFA18
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB73CCFA03
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 10:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIeraRtAg206FkETryDgO1ccxuAvqFlxDc9eSmaYkEM=; b=sGEAa8ZFQoxlPrP9ucXLuQ1pOG
-	39WGVNe00LWBsGbdqwRC5YJw2sWGcx8ykuD7jOVaY+cNj9cKFiIw/vQheXKjpKWX5rWoc/KOz0ijD
-	wO9GSrpjB8ncBlXTaYiShqD8+Hv92AozSe9sfyvL6XDi3ZkFFLRXmvaLwlpZvkFBEyCJ/DSkqxxMv
-	dXWqHPYpMmzkvis/dSN8iog1Eos/Tmv4++YkFb2IEfeDrpkcXVREQ6xMSsaoC2ngmQk9j+hMo6jAQ
-	h1vVPEB4xrXtrYXki9vGX+1/KfQ66sR0qwFXbdqi9gTJU4APxPiQzzt42C1HH9BAMfe4jw7ZQNlKh
-	9cJGEcFw==;
+	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=; b=WzfSlTJVfUEjzA+z+ial1ZmeU+
+	zmfryrcWOh30kmu+Ou7dAcwV5XuSbVtnp2UbY/SMAVctbEdnGU9b+7yIzwhsr/IxamAvOBQUVygdt
+	EqRw6OurGRW1mDhtpzucxjJR1qwBNSpBiT5AszfTYl4alNEtZrWs+EOQwJSFrkM4c1AICL3BV9NHO
+	018GX7YR4VBrobvvy7jmq5Jt2Tazx27dVcXpygxDvcoz5Mjd2Ia/nxD76mmBS5Xl1C0tyQqQDjFSH
+	pf04WRu1lv6j0rMJyrLDJhdmE5/BZnV/ju9+KbeLT1GAiCa45kyL+kf+GV7PqAELLMC0owQ7lv+e/
+	G2bxYcjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwoy-0000000FEe0-1CH1;
-	Thu, 06 Nov 2025 10:02:24 +0000
+	id 1vGwor-0000000FEXI-3zw9;
+	Thu, 06 Nov 2025 10:02:17 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwoq-0000000FEUB-3oqv
+	id 1vGwom-0000000FES5-1vQg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 10:02:19 +0000
+	Thu, 06 Nov 2025 10:02:16 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762423332;
+	s=2020; t=1762423330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FIeraRtAg206FkETryDgO1ccxuAvqFlxDc9eSmaYkEM=;
-	b=r9kzcBb9+YvtLhBZ2RS02DiToWWWbSYeZwRl8W1sHLCDhGfJnryMADIdaJekBNz1YvCCSM
-	1AhODjNbwCTc4Xtf2Bngh4p6auUrgjRX7jtJL9zflCqX3CLFZSyqxPPlf2vZi+rOe+lNeJ
-	etz/wCgZ3alj9B0Ttsg1BcK/z+FQcMkmbXtvQYlCSLovv1yDJvHE++/ulOV4tLT/WbXXTq
-	pGqKOTefBfEdUI/mxYCWEVIY2lYRChTVyjnmS5PaIdd4q2Eh1HsXjmuSn39l0UI7gaWl84
-	T6PJRYSD8rCYst/jdfiwtCMW0LmSdvx6FdWzghzqVKn86HfAtjvifWf273qF0w==
+	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=;
+	b=3DlZXekoeUVgZGZq1e0UHUf4vqg+iP0Iiv49LFrZb+KA4zg2DvjCmBbDy7TMduS1Vkn+sm
+	7lygfi+V6fz8N+54m323xijINmw7GRXOynR7P15ZdKKRFQ847u1yLmCtC8r3R4aOU8IDIj
+	0ZPh22CZilmq3FxLKJWQhqUErxHcNi5auVzMgBWQmx5HFYseRiBmDNp6Y1OyXOouP994Ed
+	9wE9yVSAipvmGt6X2/0YvMZZVkeHlkdzs7jy27JWaWJZISYo7tzdYUmRz2kmrOfQWhTDxp
+	a1Vdqg37Qisa/UoIFU50Li3Fx32JB1OzFgZ1WPLKdJZM30+axxLPdLvckSyqOg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762423332;
+	s=2020e; t=1762423330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FIeraRtAg206FkETryDgO1ccxuAvqFlxDc9eSmaYkEM=;
-	b=QT8pOm0xeKLE/BsI8QXhaK1N/TxtxS9ql/DDfYYgzdbTP91feBDAN1p/kYYNXwYwpMNMg/
-	Ki6PLtVthWfvQeCQ==
-Date: Thu, 06 Nov 2025 11:01:58 +0100
-Subject: [PATCH v5 05/34] ARM: vdso: gettimeofday: Add explicit includes
+	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=;
+	b=UIrdcFPc8+dP8m8pKm+dgGqLTWrzmrlX406z9MxIGmXKut48R0lhhFzf3GmVV5sw2g3cha
+	4xh1P9O64p472WBQ==
+Date: Thu, 06 Nov 2025 11:01:54 +0100
+Subject: [PATCH v5 01/34] selftests: vDSO: vdso_test_correctness: Handle
+ different tv_usec types
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251106-vdso-sparc64-generic-2-v5-5-97ff2b6542f7@linutronix.de>
+Message-Id: <20251106-vdso-sparc64-generic-2-v5-1-97ff2b6542f7@linutronix.de>
 References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -81,17 +82,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=1057;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762423327; l=1636;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=tZGss8cb1z8/0WWBQUsSvBIRS+73IHhbGKdGrpAcpcw=;
- b=4TmnZudoivPgBuTFtxV0rPx1M5gz7LfAw/U75KxmtFw8e+BgnsF5QEPLLPGqy87T6Hl18fHJv
- aV30wu840YVAK804kEeGj7tVA2bb02xYGGs7mPZ3a9Pr8xnfrUEuV/e
+ bh=xwlcFnQEXqQ5ZW5NFBVaIG/RI+shPsghmy7vrrzmGh4=;
+ b=canjkzbdZHbeS1vGHhpZnqXrZGddUYcT7pedmpgnoiLPVjcEMXGH6bhQX30E0/Jm7w3U4v16Y
+ uVrH006OPfNB/pUPz63LangKR6suhJTmLUPhdNvTeuwHl4NdBc19EoZ
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_020217_248158_13634742 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251106_020212_642113_27469531 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The reference to VDSO_CLOCKMODE_NONE requires vdso/clocksource.h and
-'struct old_timespec32' requires vdso/time32.h. Currently these headers
-are included transitively, but those transitive inclusions are about to go
-away.
+On SPARC the field tv_usec of 'struct timespec' is not a 'long int', but
+only a regular int. In this case the format string is incorrect and will
+trigger compiler warnings.
 
-Explicitly include the headers.
+Avoid the warnings by casting to 'long long', similar to how it is done for
+the tv_sec and what the other similar selftests are doing.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/arm/include/asm/vdso/gettimeofday.h | 2 ++
- 1 file changed, 2 insertions(+)
+ tools/testing/selftests/vDSO/vdso_test_correctness.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/include/asm/vdso/gettimeofday.h b/arch/arm/include/asm/vdso/gettimeofday.h
-index 1e9f81639c88cc23cae7cf267bf4674c6d6acec0..26da5d8621cc938f9fdb57fc4b8d240c71e950be 100644
---- a/arch/arm/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm/include/asm/vdso/gettimeofday.h
-@@ -11,6 +11,8 @@
- #include <asm/errno.h>
- #include <asm/unistd.h>
- #include <asm/vdso/cp15.h>
-+#include <vdso/clocksource.h>
-+#include <vdso/time32.h>
- #include <uapi/linux/time.h>
+diff --git a/tools/testing/selftests/vDSO/vdso_test_correctness.c b/tools/testing/selftests/vDSO/vdso_test_correctness.c
+index da651cf53c6ca4242085de109c7fc57bd807297c..5229fcaae8194d51b2cdffdbae59f00cfaeb96dc 100644
+--- a/tools/testing/selftests/vDSO/vdso_test_correctness.c
++++ b/tools/testing/selftests/vDSO/vdso_test_correctness.c
+@@ -412,10 +412,10 @@ static void test_gettimeofday(void)
+ 		return;
+ 	}
  
- #define VDSO_HAS_CLOCK_GETRES		1
+-	printf("\t%llu.%06ld %llu.%06ld %llu.%06ld\n",
+-	       (unsigned long long)start.tv_sec, start.tv_usec,
+-	       (unsigned long long)vdso.tv_sec, vdso.tv_usec,
+-	       (unsigned long long)end.tv_sec, end.tv_usec);
++	printf("\t%llu.%06lld %llu.%06lld %llu.%06lld\n",
++	       (unsigned long long)start.tv_sec, (long long)start.tv_usec,
++	       (unsigned long long)vdso.tv_sec, (long long)vdso.tv_usec,
++	       (unsigned long long)end.tv_sec, (long long)end.tv_usec);
+ 
+ 	if (!tv_leq(&start, &vdso) || !tv_leq(&vdso, &end)) {
+ 		printf("[FAIL]\tTimes are out of sequence\n");
 
 -- 
 2.51.0
