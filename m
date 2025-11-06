@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8DFCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C759CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVT8Txx/Scbf0YsnpBUfFRCSXg4kFOTdvNtWb0kXmpc=; b=1ClA2ON8xrzV9BNtIrff/9hRc3
-	QmNZiRl1Y6jtueXsUW/gbZ1AHEWPtWN23O6jpNx9WiiMv9zDjsUC4gLkqYionXucJ939xhchDZPlL
-	wxr+BC6LnvDYhh4oqZBdMTqGN7IUOg2ZEXWJvGmvfAfZLR8x0VYUDXR0y8NyJ5n+KOJ8d7J2nxoLW
-	y2tKlD1/Y4aw71vx74cYhVlU8rpEhJdtWq0EklyCrVVlmJ7bJa5+Lsj78n35a9lSadv3qwTkk2BvX
-	v4PBVSqbp0j+kFBepeRFMcDDZLMHl6uYUilMyxQJ+az+Yy3U8wInLCBihWSdEZuV5YCQJP7KlP0bO
-	8Z3h1zOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+mwdpEtZUkKLd4HieJ0n4xeeNKNrAgrCllkk+QdYNeo=; b=a5GwiXywrdIESlgicnfuAnGgs0
+	5SVjdUGtvthkATQ409i7h1L0xr5ie6RRT8PZ4QCk/sDvjGpwQVKBqkRsSOAuunR9iAgTVT/Mr8gOR
+	Ymp1kVwl+hCZyLEad/gmrBb7XkvFZGUMwDtqjJ/WVWFcG9OYDjdLx4OUuQaiuKg1ffhndImguLu+O
+	3h3HiBYmyBqZH5D27hNKBpf4uGid7jEU8ImJTdAQ/gzzj4WqHXb3aGdAcneCHJaiurGdBrx+G+Vtd
+	nRf/p4VbUfkU3VNRYGa5DJaqTbYwWsEQPVJD9VOEiW+BJ5Uvfe3e5AXiZnRY7sFjFMLT5ar67mPGB
+	RRcIiuYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3Gw-0000000FyCj-3sXn;
-	Thu, 06 Nov 2025 16:55:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3Gs-0000000FyC4-3VvI
+	id 1vH3K0-0000000FyYT-3MjB;
+	Thu, 06 Nov 2025 16:58:52 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vH3Jy-0000000FyY6-0HEY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:55:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2CEA1596;
-	Thu,  6 Nov 2025 08:55:29 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 04D2B3F694;
-	Thu,  6 Nov 2025 08:55:32 -0800 (PST)
-Message-ID: <54e8aa78-27bc-4375-95ef-374d79758762@arm.com>
-Date: Thu, 6 Nov 2025 16:55:31 +0000
+	Thu, 06 Nov 2025 16:58:51 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-29470bc80ceso14513945ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:58:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762448329; x=1763053129; darn=lists.infradead.org;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+mwdpEtZUkKLd4HieJ0n4xeeNKNrAgrCllkk+QdYNeo=;
+        b=JXW6hOcczpz1igoXnnZQPSSe7x5pNXVAdutqWMJzrX7dSFZzop9zTq7pRi3ow+F1n0
+         vsDTa0oxfF6h3Ya2eGRlecojZYOd7V/gk+9H3fDDC8co5pAJG1r7/1XdHE9cx9DlyauO
+         YKLVKVwN6A45Zp3BwaP/EsF/0P5bN0hP9hGjBC/KRAFVF1eDjRyFWPSe15AHdaZKe9G1
+         DBz85ZR+NUYV5romWgm6fR0A49+lAQuvPheasZA01AbFtzMBv+5lvWbU05wne9yAqA1T
+         D1DZcQoXAXKWbQx379qSa52OBK+E38EubNOjncvJ29Gu0dKalUM+7Ciphoij0dUYXVCt
+         v1nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762448329; x=1763053129;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+mwdpEtZUkKLd4HieJ0n4xeeNKNrAgrCllkk+QdYNeo=;
+        b=IGQsz6c3lgNLtUHcSSAg5Jb1v/1F0GoO0cRk/3J9mgsyeZ7f1CiqTPlVVNAlYZIC1X
+         TW79Euk98uzvTwR5qfXLeEOd7JhW8j8iMLHcpBjLo5AQrETbBggfMoQf5gK4ukaFTtd6
+         ukDStEuCHTmNCqUnNcWCEOc5TIpExbAvNCieo7tGxpQr8mQsnHSH3ZBRMAM7IHkKHmAF
+         hIFw4r66bxmoZITkzxISl8/+zPpE9qdzK/EYjNfSo6y/6aaJT77KFoAlzRsYgwY3kk9B
+         JoO9K7aayp3Jz4b1jOSs3ckapd2dJGkSWg0GThfc555lUjhTy266ow0+z5G4C+iMABHu
+         JY+A==
+X-Forwarded-Encrypted: i=1; AJvYcCX3A8a1LcdWpB/MB64YwF5iKCj92v61y89eTeaPCImRdrPK7rZsW3S1jInxKKfPJGO9I52+AER6SQfkhALlzodn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx79eY+uNyvCJ9Rsrd/caM4mXzq5/1rxCgArSwFIOE2n2yiCknN
+	HbRKbe9GRe5duuw5pAwQCGRP9a7jzMFS/fnBPl/17XiYqw2457S30Vme
+X-Gm-Gg: ASbGncs+yPLSlDfFDFpCbwmQpleZmgtbZtTK1wz3Cc7zGXEQF9Q5LWPq2qlFuK3gmaD
+	5cG8djSXKLtPb2AkvcRfYkVajEinJSZ7WQb0IhiHMYkSlRJHczdgeaw771ImBbqINFXEe9sjwas
+	nb5wAeQbJ0njPATgWLneT/ZRk0I4D61RthYyDl1/tb2KPUBx37gjyB+T0YuerxsTug+QAcE5w0A
+	+mbsd41bFkC1U6hxxT0IUvXEELLO4wmmBQ6CsIT2Xwb58L4nZzO3Ovi6mEDh1OJT/mvaRA3o6dq
+	14yQPfQckItua00BhPlb+gWoLLekgGU/vyaoWmUVmRhIUmQCrl3FSTnElDZ/PiZBeYdAK6ns4WR
+	J3ckmD0VCxzuGt0Y5KcqLaQuwxY/PpjPG1/ayvvnBw8N535qG2LnEa8J7i2BalGreaIp3WA==
+X-Google-Smtp-Source: AGHT+IEmGC1fJcE4OAtV0Owu2fNKpRqQY3VzTeskRzxNQPbLVeyWOXOzToL4xIfj+nPDKGb1lmA/VA==
+X-Received: by 2002:a17:902:ce07:b0:295:50f5:c0e3 with SMTP id d9443c01a7336-297c00b9141mr3517035ad.14.1762448328641;
+        Thu, 06 Nov 2025 08:58:48 -0800 (PST)
+Received: from dw-tp ([171.76.85.117])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba8f8c880c5sm3013244a12.6.2025.11.06.08.58.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Nov 2025 08:58:47 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Andreas Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>, 
+	"David S. Miller" <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>, 
+	Juergen Gross <jgross@suse.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, x86@kernel.org
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+In-Reply-To: <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
+Date: Thu, 06 Nov 2025 22:02:39 +0530
+Message-ID: <87ikfn3yvs.ritesh.list@gmail.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-8-kevin.brodsky@arm.com> <87ms5050g0.ritesh.list@gmail.com> <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/29] ACPI / MPAM: Parse the MPAM table
-To: Jonathan Cameron <jonathan.cameron@huawei.com>,
- James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-7-james.morse@arm.com>
- <20251024171350.00005451@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251024171350.00005451@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_085540_096989_ED5F0795 
-X-CRM114-Status: GOOD (  53.29  )
+X-CRM114-CacheID: sfid-20251106_085850_131214_2E90BE22 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,398 +110,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Alexander Gordeev <agordeev@linux.ibm.com> writes:
 
-On 10/24/25 17:13, Jonathan Cameron wrote:
-> On Fri, 17 Oct 2025 18:56:22 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
->> Add code to parse the arm64 specific MPAM table, looking up the cache
->> level from the PPTT and feeding the end result into the MPAM driver.
->>
->> This happens in two stages. Platform devices are created first for the
->> MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
->> to discover the RIS entries the MSC contains.
->>
->> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
->> the MPAM driver with optional discovered data about the RIS entries.
->>
->> CC: Carl Worth <carl@os.amperecomputing.com>
->> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
->> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->>
-> Hi James,
-> 
-> Various comments inline.  One challenge with this is that a few
-> very generic things (the acpi table DEFINE_FREE() stuff and the
-> platform device put equivalent) aren't obvious enough that I'd expect
-> those concerned to necessarily notice them.  I'd break those out
-> as precursor patches, or narrow what they do to not be generic.
+> On Wed, Nov 05, 2025 at 02:19:03PM +0530, Ritesh Harjani wrote:
+>> > + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+>> > + * currently enabled.
+>> >   */
+>> >  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>> >  static inline void lazy_mmu_mode_enable(void)
+>> >  {
+>> > -	arch_enter_lazy_mmu_mode();
+>> > +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+>> > +
+>> > +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
+>> > +	/* enable() must not be called while paused */
+>> > +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
+>> > +
+>> > +	if (state->nesting_level++ == 0) {
+>> > +		state->active = true;
+>> > +		arch_enter_lazy_mmu_mode();
+>> > +	}
+>> >  }
+>> 
+>> Some architectures disables preemption in their
+>> arch_enter_lazy_mmu_mode(). So shouldn't the state->active = true should
+>> happen after arch_enter_lazy_mmu_mode() has disabled preemption()? i.e.
+>
+> Do you have some scenario in mind that could cause an issue?
+>
+No not really. But that's a deviation from what previous arch hooks were
+expecting. Although thinking this through - I don't have any usecase
+where this can be a problem. 
 
-I've moved these both to separate patches.
+But let me re-visit some of the code paths on ppc64 lazy mmu... 
 
-> 
-> 
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> new file mode 100644
->> index 000000000000..59712397025d
->> --- /dev/null
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -0,0 +1,377 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2025 Arm Ltd.
->> +
->> +/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
->> +
->> +#define pr_fmt(fmt) "ACPI MPAM: " fmt
->> +
->> +#include <linux/acpi.h>
->> +#include <linux/arm_mpam.h>
->> +#include <linux/bits.h>
->> +#include <linux/cpu.h>
->> +#include <linux/cpumask.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include <acpi/processor.h>
->> +
->> +/*
->> + * Flags for acpi_table_mpam_msc.*_interrupt_flags.
->> + * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
-> 
-> This needs to ultimately end up in ACPICA.  Perhaps fine to have it here
-> for now. Maybe can't happen until this isn't a beta? I'm not sure on
-> policy around that.
+Looking at the arch specific usecase I see we always do get_cpu_var()
+for accessing the per-cpu batch array which disables preemption before
+accessing the per-cpu structure.. This per-cpu structure is where we
+batch pte updates... 
 
-I've kept it here for the moment.
+For e.g... 
+  
+    arch_enter_lazy_mmu_mode()
+        hpte_need_flush()
+            get_cpu_var()   // this takes care of preempt_disable() 
+            adds vpns to per-cpu batch[i]
+            put_cpu_var()   // 
+    arch_leave_lazy_mmu_mode()
 
-> 
->> + */
->> +#define ACPI_MPAM_MSC_IRQ_MODE                              BIT(0)
->> +#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                         GENMASK(2, 1)
->> +#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                        0
->> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK                BIT(3)
->> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR           0
->> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER 1
->> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID                    BIT(4)
->> +
->> +/*
->> + * Encodings for the MSC node body interface type field.
->> + * See 2.1 MPAM MSC node, Table 4 of DEN0065B_MPAM_ACPI_3.0-bet.
->> + */
->> +#define ACPI_MPAM_MSC_IFACE_MMIO   0x00
->> +#define ACPI_MPAM_MSC_IFACE_PCC    0x0a
->> +
-> 
->> +static bool acpi_mpam_register_irq(struct platform_device *pdev, int intid,
->> +				   u32 flags, int *irq)
-> Given irq value of 0 is invalid, could just return the irq from this.
-> Or even return error codes for what went wrong given negative irqs are invalid
-> as well.
-> 
->> +{
->> +	u32 int_type;
->> +	int sense;
->> +
->> +	if (!intid)
->> +		return false;
->> +
->> +	if (_is_ppi_partition(flags))
->> +		return false;
->> +
->> +	sense = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE, flags);
-> 
-> Given it's one bit that indicates 1 if edge, I'd call this edge (which
-> inherently doesn't mean level).  Sense as a term I think can incorporate
-> this and rising/falling high/low.  It's parse to acpi_register_gsi()
-> which calls it trigger so that would work as well.
+> IOW, what could go wrong if the process is scheduled to another
+> CPU before preempt_disable() is called?
 
-I've gone with 'trigger'.
+So from above - I don't think your sequence to update
+   state->active = true 
+before calling arch_enter hook should be a problem.
+Based on above this looks mostly ok to me.
 
-> 
->> +	int_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags);
->> +	if (int_type != ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
->> +		return false;
->> +
->> +	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
->> +	if (*irq <= 0) {
->> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
->> +			    intid);
->> +		return false;
->> +	}
->> +
->> +	return true;
->> +}
->> +
->> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
->> +				 struct acpi_mpam_msc_node *tbl_msc,
->> +				 struct resource *res, int *res_idx)
->> +{
->> +	u32 flags, intid;
->> +	int irq;
->> +
->> +	intid = tbl_msc->overflow_interrupt;
->> +	flags = tbl_msc->overflow_interrupt_flags;
->> +	if (acpi_mpam_register_irq(pdev, intid, flags, &irq))
->> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
->> +
->> +	intid = tbl_msc->error_interrupt;
->> +	flags = tbl_msc->error_interrupt_flags;
->> +	if (acpi_mpam_register_irq(pdev, intid, flags, &irq))
->> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
->> +}
->> +
-> 
-> 
-> This function has a bit of a dual use to it. I think it needs some documentation
-> to explain under what conditions acpi_id is set.
-> 
->> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
->> +				     struct platform_device *pdev,
->> +				     u32 *acpi_id)
->> +{
->> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1] = { 0 };
->> +	bool acpi_id_valid = false;
->> +	struct acpi_device *buddy;
->> +	char uid[11];
->> +	int err;
->> +
->> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
->> +	       sizeof(tbl_msc->hardware_id_linked_device));
->> +
->> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
->> +		*acpi_id = tbl_msc->instance_id_linked_device;
->> +		acpi_id_valid = true;
->> +	}
->> +
->> +	err = snprintf(uid, sizeof(uid), "%u",
->> +		       tbl_msc->instance_id_linked_device);
->> +	if (err >= sizeof(uid)) {
-> 
-> The err naming is a bit confusing as it's not an error code. Could call it
-> something like len or just avoid having a local variable at all.
-
-Changed to 'len'.
-
-> 
-> 	if (snprintf(uid, sizeof(uid), "%u",
-> 		     tbl_msc->instance_id_linked_device) >= sizeof(uid))
->> +		pr_debug("Failed to convert uid of device for power management.");
->> +		return acpi_id_valid;
->> +	}
->> +
->> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
->> +	if (buddy)
->> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
->> +
->> +	return acpi_id_valid;
->> +}
-> 
->> +
->> +static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_node *tbl_msc)
->> +{
->> +	struct platform_device *pdev __free(platform_device_put) = platform_device_alloc("mpam_msc", tbl_msc->identifier);
-> That's too long. Format as
-> 	struct platform_device *pdev __free(platform_device_put) =
-> 		platform_device_alloc("mpam_msc", tbl_msc->identifier);
-> 
->> +	int next_res = 0, next_prop = 0, err;
-> 
-> ...
-> 
->> +
->> +static int __init acpi_mpam_parse(void)
->> +{
->> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
->> +	char *table_end, *table_offset = (char *)(table + 1);
->> +	struct acpi_mpam_msc_node *tbl_msc;
->> +	struct platform_device *pdev;
->> +
->> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
-> Check acpi_disabled || !system_supports_mpam() before
-> 
-> 	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> 	
-> 	if (IS_ERR(table))
-> 		return 0;
-> 
-> That way we aren't relying on acpi_get_table_ret() doing the right thing if acpi_disabled == true
-> which seems gragile even though it is fine today
-> 
-> Declaring stuff using __free() inline is fine (commonly done).
-> 
->> +		return 0;
->> +
-> 
-> ...
-> 
->> +int acpi_mpam_count_msc(void)
->> +{
->> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
->> +	char *table_end, *table_offset = (char *)(table + 1);
->> +	struct acpi_mpam_msc_node *tbl_msc;
->> +	int count = 0;
->> +
->> +	if (IS_ERR(table))
-> Why fewer things to guard on in here than in the parse function?
-> I guess this may only be called in circumstances where we know those
-> other reasons not to carry on aren't true, but still seem odd.
-> 
->> +		return 0;
->> +
->> +	if (table->revision < 1)
->> +		return 0;
->> +
->> +	table_end = (char *)table + table->length;
->> +
->> +	while (table_offset < table_end) {
->> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
->> +		if (!tbl_msc->mmio_size)
-> 
-> Bit marginal on how much we protect against garbage, but perhaps
-> check the length is long enough to get here. Or can you just
-> do the length checks first?
-
-This check is for disable/not present mscs and was added in the latest
-revision of the mpam acpi.
-
-> 
->> +			continue;
-> 
-> Infinite loop?  table_offset isn't updated so this
-> keeps checking the same value. Similar to funciton above, I'd
-> do the table_offset update before check this (and modify
-> the appropriate checks below).
-
-Good spot. I've moved this after the table_offset increment.
-
-> 
->> +
->> +		if (tbl_msc->length < sizeof(*tbl_msc))
->> +			return -EINVAL;
->> +		if (tbl_msc->length > table_end - table_offset)
->> +			return -EINVAL;
->> +		table_offset += tbl_msc->length;
->> +
->> +		count++;
->> +	}
->> +
->> +	return count;
->> +}
->  
->> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
->> index a9dbacabdf89..9d66421f68ff 100644
->> --- a/include/linux/acpi.h
->> +++ b/include/linux/acpi.h
->> @@ -8,6 +8,7 @@
->>  #ifndef _LINUX_ACPI_H
->>  #define _LINUX_ACPI_H
->>  
->> +#include <linux/cleanup.h>
->>  #include <linux/errno.h>
->>  #include <linux/ioport.h>	/* for struct resource */
->>  #include <linux/resource_ext.h>
->> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
->>  void acpi_table_init_complete (void);
->>  int acpi_table_init (void);
->>  
->> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
-> I wonder if it's worth instance being a variable.  11 instances of 1, 52 instances of 0
-> (almost nothing else).  Maybe just about worth it...
-> 
-> Whilst I like the general nature of this I wonder if smoother
-> to merge acpi_get_table_mpam() that does this first and then
-> look at generalizing when it's not on the critical path for this
-> patch set?  If ACPI folk are fine with this I don't mind it being
-> in here though as generally useful to have.
-> (I may well be arguing with earlier me on this :)
-> 
->> +{
->> +	struct acpi_table_header *table;
->> +	int status = acpi_get_table(signature, instance, &table);
->> +
->> +	if (ACPI_FAILURE(status))
->> +		return ERR_PTR(-ENOENT);
->> +	return table;
->> +}
->> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
-> 
-> Ben raised earlier comment on checking for NULL as well to let the compiler optimize
-> things better.
-> 
->> +
->>  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
->>  int __init_or_acpilib acpi_table_parse_entries(char *id,
->>  		unsigned long table_size, int entry_id,
->> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
->> new file mode 100644
->> index 000000000000..3d6c39c667c3
->> --- /dev/null
->> +++ b/include/linux/arm_mpam.h
->> @@ -0,0 +1,48 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/* Copyright (C) 2025 Arm Ltd. */
->> +
->> +#ifndef __LINUX_ARM_MPAM_H
->> +#define __LINUX_ARM_MPAM_H
->> +
->> +#include <linux/acpi.h>
->> +#include <linux/types.h>
-> 
-> ...
-> 
->> +enum mpam_class_types {
->> +	MPAM_CLASS_CACHE,       /* Well known caches, e.g. L2 */
-> 
-> Curious comment.  As opposed to the lesser known l5?   I get
-> what you mean about not including the weird like memory-side caches
-> but TLBs are also well known caches so I'd just go with
-> /* Caches, e.g. l2, l3 */
-> or something like that.
-> 
->> +	MPAM_CLASS_MEMORY,      /* Main memory */
->> +	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
->> +};
->> +
->> +#ifdef CONFIG_ACPI_MPAM
->> +/* Parse the ACPI description of resources entries for this MSC. */
-> 
-> I'd push more detailed documentation down along side the implementation
-> rather than having it here.  The function name and parameters make this fairly
-> obvious anyway.
-> 
->> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
->> +			      struct acpi_mpam_msc_node *tbl_msc);
->> +
->> +int acpi_mpam_count_msc(void);
->> +#else
-> 
->> diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
->> index 074754c23d33..23a30ada2d4c 100644
->> --- a/include/linux/platform_device.h
->> +++ b/include/linux/platform_device.h
->> @@ -232,6 +232,7 @@ extern int platform_device_add_data(struct platform_device *pdev,
->>  extern int platform_device_add(struct platform_device *pdev);
->>  extern void platform_device_del(struct platform_device *pdev);
->>  extern void platform_device_put(struct platform_device *pdev);
->> +DEFINE_FREE(platform_device_put, struct platform_device *, if (_T) platform_device_put(_T))
-> 
-> I'd break this out as a separate precursor patch mostly so people notice it.
-> Likely will get some review from folk who aren't going to spot it down here.
-> They may well tell you to not have it as a separate patch but at least you'll
-> be sure it was noticed!
-> 
-> Jonathan
-> 
->>  
->>  struct platform_driver {
->>  	int (*probe)(struct platform_device *);
-> 
-> 
-
-Thanks,
-
-Ben
-
+-ritesh
 
