@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43EDCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DDCCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvpySRHgLIWKGb+sMO8FMNbde9Et/+YXOX6pluAwOOg=; b=KRJP/7WA4BStbjOQ5DKzdOG4Xj
-	l8gy455PfVrzj32dh6JvEEniJuF9sTu4NHZjPAWq/qjutQMzZSSxL9A4WtYnflCwhnRx9KAsh/rH5
-	Zdej9XPi059j+uMzbDtnFBp0Elg+8fJrf8JwIST80Tb6zqyjjbwaKMo2M3zfAZwkJBRw9JRG+9GW0
-	CakpPSNVES+Yxrl8M5eZ+FqMyRiDPvuEvxfLUWAWyv1vYe+C7O8EAEfaHOEwOotcDGHlW3UynuNHO
-	VR/Mf5sYp8QvttquKbbHpa27Wo1mTq0TGc5b1CdReG2FKL6GL91smww/U8VewCeP7p856u+2JrPG6
-	LbJfpmrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FOOLV+Wt6cHX8IB56gpRGewt+8/m8I9TnkK1yGUVBrw=; b=3IBJYmlDEvncR36/tKlGVeWeiL
+	c08Tq3Gt9YvmHphBrol9lwOh9bZLCa/6PRp7V7PD1lRQOKNaY+g3ZFdFHi12ebggGBzyz/7HrWoaA
+	x3igfH2GTUGnyLKCMRNt5tARTyylsULx+8Vr6f108JJggNwvURLPb5+HYvGvmTG8PVXq+Yb1irzJu
+	A1ljqlHE+/766s90aG5nZ10SN/JLc22Z1MuOgAgdqx8syMdFK+JUgEXMpTv62QSKW3Ftiqi1ol6HF
+	/Zb/sx7g+XTZjPZ4vo+ddq2rFm+DWCplY+Z7zzdNbxDBONQu5niWViTMNx/AlOq3NEVN8aNOCVIVN
+	SoG76ALw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH13h-0000000Fhkl-39BA;
-	Thu, 06 Nov 2025 14:33:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vH1By-0000000FiKa-0LdR;
+	Thu, 06 Nov 2025 14:42:26 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH13g-0000000FhkO-04xn
+	id 1vH1Bv-0000000FiK6-1mKP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 14:33:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AD22448B3;
-	Thu,  6 Nov 2025 14:33:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D53B2C19421;
-	Thu,  6 Nov 2025 14:33:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762439631;
-	bh=9FjKKSnEVIEhKwTItusx1yIHUqSaD65zlSGBhCdIHLo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XVwrIrX5FlWKMcZnaj2v+TPP1jfPV01Z/YKxg3cg1fMDkWVZzzdACPx+g2Rs2ywhP
-	 9Bw8Sb/jhVSUjmdRGlJYxUOrXVQEu0D86+FFEw6qJ+rDDG2ZgCexzxJTk68ObQzzSi
-	 cYQZ8s+TuZ544rgzxcNXsrYw7O/Fh7TnS18Y4EOcQPD28mlpnbAQ0T0yw7ICd407wo
-	 mkFbZafRKnH20dvhdysR8sZQT3aRHkw3AeVr0Tlf8plV/CFpWdMWn1h5mXOoTBCjH+
-	 ckERdaHaKl7dOTKgVL/vxCLbhOriIaTuyXa5fFux96U4++kISN9ZnwCWjoc7No6nEM
-	 9lZdN287RFNVg==
-Date: Thu, 6 Nov 2025 14:33:47 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, sudeep.holla@arm.com,
-	james.clark@linaro.org, robh@kernel.org, anshuman.khandual@arm.com,
-	jonathan.cameron@huawei.com, hejunhao3@huawei.com,
-	linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com,
-	wangyushan12@huawei.com, yangyicong@hisilicon.com,
-	yangyccccc@gmail.com
-Subject: Re: [PATCH v3 1/1] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT
- cores
-Message-ID: <aQyxy3vCbk-Ux9Zp@finisterre.sirena.org.uk>
-References: <20250922033010.4596-1-yangyicong@huawei.com>
+	Thu, 06 Nov 2025 14:42:24 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1762440140;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=FOOLV+Wt6cHX8IB56gpRGewt+8/m8I9TnkK1yGUVBrw=;
+	b=PAy1N3a7SmuG/It82kUVWs7XH1XoUuU2LBMSWsQe92MYeMc6fMk99Oh2ED4REz0DfKwJ7e
+	snLOGoEi+h6rxH1AToYSm6dkyPydDkO9dEhJ0bOdYmPxSj+iypgGI75fBIGHPJdOZkuoCe
+	J3ncdAZaHl51xGEEOuBW2HDMRjfxWhiDWeakQoYNgDOIo8S1zvb/OqDN/npoehXCUnH4qV
+	xniuDaI04M6z6lU8oswSbqY6Y1ekuPeEk1+ENq4jwYiWlFalpdYVZ3dEiOgXqfBiPT62Ep
+	/Ty/UZRoQ9t5mouKRmdM0FJr6c4Apvnuk0qFSYyrJLz7Q+xkW6Clx7W9w0lx9A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1762440140;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=FOOLV+Wt6cHX8IB56gpRGewt+8/m8I9TnkK1yGUVBrw=;
+	b=ii6JmfXp0RoYt2PeZHZB0fv0OUb2E/wmb9jj0+DNATMOesrbqgHuWyzipDdk8KyujH9YzS
+	JK0cxBo5oSub6nBw==
+Date: Thu, 06 Nov 2025 15:41:57 +0100
+Subject: [PATCH] ASoC: stm32: dfsdm: don't use %pK through printk
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JLHuGXexjAplQPnq"
-Content-Disposition: inline
-In-Reply-To: <20250922033010.4596-1-yangyicong@huawei.com>
-X-Cookie: User hostile.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251106-restricted-pointers-stm-v1-1-7d03eb5020ba@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIALSzDGkC/x3MMQqAMAxA0atIZgNWrYhXEYfaRs1glaSIIN7d4
+ viG/x9QEiaFoXhA6GLlI2aYsgC/ubgScsiGuqqtMVWHQpqEfaKA58ExkShq2tHOi2/70LjWW8j
+ 1KbTw/Z/H6X0/bulgGmkAAAA=
+X-Change-ID: 20251106-restricted-pointers-stm-5bfc48d3a4c5
+To: Olivier Moysan <olivier.moysan@foss.st.com>, 
+ Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762440134; l=1480;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=u3JHp/qpCUvTjf3bCgMmhxbdgh3vpao1Tq40kL7L4U4=;
+ b=JX2/pGtnxIWSvsmEmArg+q9ng4flIkflN4nEGjJUT8CwoyuR9/ggaXsSr1SLyL16fci8pTktn
+ zlfGtfCQCGcB4MC6P//HH2Iz7Zt1s9RNoqJx57MVyEwkMl2KPH6djk0
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_063352_101723_EE20DA6C 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20251106_064223_615743_6E4AB1CD 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +90,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In the past %pK was preferable to %p as it would not leak raw pointer
+values into the kernel log.
+Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+the regular %p has been improved to avoid this issue.
+Furthermore, restricted pointers ("%pK") were never meant to be used
+through printk(). They can still unintentionally leak raw pointers or
+acquire sleeping locks in atomic contexts.
 
---JLHuGXexjAplQPnq
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Switch to the regular pointer formatting which is safer and
+easier to reason about.
 
-On Mon, Sep 22, 2025 at 11:30:10AM +0800, Yicong Yang wrote:
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ sound/soc/stm/stm32_adfsdm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> index d72d6e5aa200..daa1af2e8204 100644
-> --- a/include/linux/arch_topology.h
-> +++ b/include/linux/arch_topology.h
-> @@ -89,6 +89,17 @@ void remove_cpu_topology(unsigned int cpuid);
->  void reset_cpu_topology(void);
->  int parse_acpi_topology(void);
->  void freq_inv_set_max_ratio(int cpu, u64 max_rate);
-> +
-> +/*
-> + * Architectures like ARM64 don't have reliable architectural way to get=
- SMT
-> + * information and depend on the firmware (ACPI/OF) report. Non-SMT core=
- won't
-> + * initialize thread_id so we can use this to detect the SMT implementat=
-ion.
-> + */
-> +static inline bool topology_core_has_smt(int cpu)
-> +{
-> +	return cpu_topology[cpu].thread_id !=3D -1;
-> +}
+diff --git a/sound/soc/stm/stm32_adfsdm.c b/sound/soc/stm/stm32_adfsdm.c
+index c914d1c4685019ef1fd66ab92d73bd06cf8d14a1..1797a91fea7ae85671ba9991c2f8bfa8c9d1ce92 100644
+--- a/sound/soc/stm/stm32_adfsdm.c
++++ b/sound/soc/stm/stm32_adfsdm.c
+@@ -180,7 +180,7 @@ static int stm32_afsdm_pcm_cb(const void *data, size_t size, void *private)
+ 		src_size >>= 1;
+ 	cur_size = src_size;
+ 
+-	dev_dbg(rtd->dev, "%s: buff_add :%pK, pos = %d, size = %zu\n",
++	dev_dbg(rtd->dev, "%s: buff_add :%p, pos = %d, size = %zu\n",
+ 		__func__, &pcm_buff[priv->pos], priv->pos, src_size);
+ 
+ 	if ((priv->pos + src_size) > buff_size) {
 
-I'm seeing build failures in -next on arm v5 and v6:
+---
+base-commit: 7ea30958b3054f5e488fa0b33c352723f7ab3a2a
+change-id: 20251106-restricted-pointers-stm-5bfc48d3a4c5
 
-/build/stage/linux/drivers/perf/arm_pmu.c: In function =E2=80=98armpmu_regi=
-ster=E2=80=99:
-/build/stage/linux/drivers/perf/arm_pmu.c:935:24: error: implicit declarati=
-on of
- function =E2=80=98topology_core_has_smt=E2=80=99; did you mean =E2=80=98to=
-pology_core_cpumask=E2=80=99? [-Wimpl
-icit-function-declaration]
-  935 |         pmu->has_smt =3D topology_core_has_smt(cpumask_first(&pmu->=
-support
-ed_cpus));
-      |                        ^~~~~~~~~~~~~~~~~~~~~
-      |                        topology_core_cpumask
-make[5]: *** [/build/stage/linux/scripts/Makefile.build:287: drivers/perf/a=
-rm_pm
-u.o] Error 1
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
-The above function is inside a CONFIG_GENERIC_ARCH_TOPOLOGY guard, we
-need a stub definition for architectures which don't have topology
-support or for the users to have guards.
-
---JLHuGXexjAplQPnq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkMscsACgkQJNaLcl1U
-h9CXewf/VfZLUia31MZO5i8rEEeXPT9TloeqYOCq/4ddTUTEcEnjI0zXnwF6O/du
-q4kuSAMvFgF9aeFTyIojLD9/EDJRiegU8ev5Kt89S5CKvAYsAvmxWWXjNe02/39e
-+7IpHENO4CILwoXh4UQZCUgWCO9Df++8z03nivM3KE4SuE/1u5c6zrTDr+mh/JL1
-rOJwEHsrNrRIQNzNDpguctcrkKwmqG93MOJLoxiu6eCWjMZeRFimchWMt/QvFV5U
-RsbtZL8XJ60nBAqbasUvjxw6u1NRhUgm6bRfUpnY+G0xOI7hXavDUoqOLN4keqsB
-5wDzLNqC2w3KA3iDaot5bM5whox8WQ==
-=0YMK
------END PGP SIGNATURE-----
-
---JLHuGXexjAplQPnq--
 
