@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1469CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC95ECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sYkiyBWZv/gdDO2SH4rhBeTgqDXK9+UcXf3Mn8ccUU=; b=LE7wXUt10TcOiSfZlGGSEHrRdz
-	0mPiJmmSfoNFdR8wdQDeSUsjd1gpvBCK618xWzCthpEr0g+ANCurcobbiZjK77Sbg9E6ruw0locEx
-	vwpMt7qQ5cI6FvJSdKZnhHliixyxUHbcVXuDgV43Kb3zrjsNKuAH6oMFOq1ZbilmqMxNVs9vgYa8e
-	htRGdcISsLE+f/73Qj8rQfAk1dTx2zSV1ANO+8Gy1fwhhdWNHf1nYIpqqfHKGxpHUrtJ7/fdS4/Dx
-	2YEMiTl7MMHnUJ4Y4BlqDkyjsbH5V94k3LFkymnqF7znkxJoxqf0xc+T2l5Lyh1h6scmdkgGi3rw6
-	U8Y+2VPg==;
+	bh=sEOhzAy99ok5RAW6jieLPiegp4B3qFQ45Dzi1nI4ADE=; b=PND9i9p8HSIVhbqYi8gUYPPoN1
+	JUBC2HDKA1SfTb+HPWmjx1RRJscBZe5/z2a4aYYGrPxI3k1aMQlHnIFvj4pEYSZQO3V/fi4aB4VyG
+	DJjXrt16sq9Zf6CDjPViX3Or+yne3geRPMlrAP2y11trRnEbTyYSwAth2gn/MAXr1cV0tuHP1HaRP
+	6TJO2pnL/uI/NjfFGwdu8n9aTa9bo1vWiM5epD/8gZT+3NKZ8jZOCZTALqj7O6XybXWOc1/yNTpy4
+	p76lEZiWnNdXT5ThNIF6T/9h88nhGiz5pKVu4Epp/qEdtukTL1nIJuFO0owmdBnVm61tBAPJk4D7t
+	JtYBncoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH06o-0000000FZqS-2XXr;
-	Thu, 06 Nov 2025 13:33:02 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vH08Q-0000000Fa53-2nPk;
+	Thu, 06 Nov 2025 13:34:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH06l-0000000FZou-1xcU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 13:33:00 +0000
-Date: Thu, 6 Nov 2025 14:32:56 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762435976;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/sYkiyBWZv/gdDO2SH4rhBeTgqDXK9+UcXf3Mn8ccUU=;
-	b=XS5vcpYsyAxNvRXOzuV5hRb/nQgFMLuPJMVo17+GbZKgOVszq7TxXwgPILyevsEeD41fRn
-	qOecx6vaBm+bot7gT0OvheUUOzSI/pCShMR7tGzNjWpRHVrPUfjroThu/dYpXsZWlxaEeV
-	xJ5xEAUZvXg5zU2IycYwgMGtSJLdOOxj/L6FphMysTTnqID+uvpkGIepHgdU3dYJMYHK0D
-	NqmpgjE3ZZBGM791NCYCLB4PlFTInSDtb+xizEDEsMjUL1/vQ2L3uOAXQyBpRCYcmc1FsI
-	2+nm2NpDf8vOD6oEAqJpBSUip2moNPpLvHwoBacGawqj3f0ZCv3Emz/VsYjdKA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762435976;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/sYkiyBWZv/gdDO2SH4rhBeTgqDXK9+UcXf3Mn8ccUU=;
-	b=h2lJfuFW33gCMREswtFH2osl5Sj9f2XsBF94AxG8++SjialvXzh6EqV+QL44v58SNQ52NN
-	ToDU5p9Dbx2lwbCA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
-	Nick Alcock <nick.alcock@oracle.com>, John Stultz <jstultz@google.com>, 
-	Stephen Boyd <sboyd@kernel.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-	Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King <linux@armlinux.org.uk>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com, 
-	Ryan.Roberts@arm.com
-Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
-Message-ID: <20251106142956-d6251eba-c696-4a2f-a3e3-af461530d932@linutronix.de>
-References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
- <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
- <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
- <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
- <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
- <aQyig5TNkw2YJm19@finisterre.sirena.org.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	id 1vH08N-0000000Fa4B-47Oc;
+	Thu, 06 Nov 2025 13:34:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0FF974020C;
+	Thu,  6 Nov 2025 13:34:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4C6C116C6;
+	Thu,  6 Nov 2025 13:34:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762436078;
+	bh=UxsA7mpBbTvyv+g/LrSCFPsTpp7DeoIh9dJ/dkCgAxY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=llznu7vxVvCdwnCl/IdM4fTDwJiq1ztqiQ6zJ2Ed1+c3HAjvpQk1TkOwDcnTxNJRZ
+	 wWff58/kXcPtX0BGe7JdTaR4eGFQSAUwCj2ySVW6AYwbPeVsN463BW05DfIpCWw/hl
+	 Jj06IfZCO6KqhJ0grsxnLXj72NGc6eQw5N1vyoBG8o7dBfKxaUqBZ/Bg5VwJpot8/O
+	 CvuRqY0Q0zTKdoKJinZos92gB/UOC/NIbZwxyhbXL+BeTpjbnSQOo7CUBr7c+L9Zc6
+	 P4WKltBa+np+i9Frx4hv7oveioFV9m0sYcgu5mhVs4L50JnJ7xN3RgtvTtIp0le4rg
+	 jmxcZgsRfxNtg==
+Date: Thu, 06 Nov 2025 07:34:37 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aQyig5TNkw2YJm19@finisterre.sirena.org.uk>
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, sirius.wang@mediatek.com, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-pm@vger.kernel.org, 
+ linux-clk@vger.kernel.org, netdev@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, jh.hsu@mediatek.com, 
+ devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ Qiqi Wang <qiqi.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Michael Turquette <mturquette@baylibre.com>, vince-wl.liu@mediatek.com, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+In-Reply-To: <20251106124330.1145600-3-irving-ch.lin@mediatek.com>
+References: <20251106124330.1145600-1-irving-ch.lin@mediatek.com>
+ <20251106124330.1145600-3-irving-ch.lin@mediatek.com>
+Message-Id: <176243607706.3652517.3944575874711134298.robh@kernel.org>
+Subject: Re: [PATCH v3 02/21] dt-bindings: power: mediatek: Add MT8189
+ power domain definitions
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_053259_650686_9A65C7DA 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20251106_053440_046759_EB244724 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
 
-On Thu, Nov 06, 2025 at 01:28:35PM +0000, Mark Brown wrote:
-> On Tue, Nov 04, 2025 at 09:44:38AM +0100, Marek Szyprowski wrote:
-> > On 03.11.2025 16:24, Mark Brown wrote:
-> > > On Tue, Oct 14, 2025 at 08:49:09AM +0200, Thomas Weißschuh wrote:
+On Thu, 06 Nov 2025 20:41:47 +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
 > 
-> Copying in Ryan Roberts who's much more likely to have some idea about
-> memory management stuff for arm64 than I am (I have been poking at this
-> a bit but not got anywhere notable).  Not deleting context for his
-> benefit.
+> Add device tree bindings for the power domains of MediaTek MT8189 SoC.
+> 
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> ---
+>  .../power/mediatek,power-controller.yaml      |  1 +
+>  .../dt-bindings/power/mediatek,mt8189-power.h | 38 +++++++++++++++++++
+>  2 files changed, 39 insertions(+)
+>  create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
+> 
 
-It turned out not even to be an mm problem.
-Instead the data pages were not zeroed out on allocation.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> Given that this issue is very disruptive to userspace it's causing us to
-> miss huge amounts of test coverage for -next, would it be possible to
-> drop these patches until we resolve the issue?
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml:25:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
 
-This issue and the observed panics should be fixed in v5 of the series:
-https://lore.kernel.org/lkml/20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de/
+dtschema/dtc warnings/errors:
 
-I'll ping tglx directly.
+doc reference errors (make refcheckdocs):
 
-(...)
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251106124330.1145600-3-irving-ch.lin@mediatek.com
 
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Thomas
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
