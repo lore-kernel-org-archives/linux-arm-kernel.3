@@ -4,178 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2BCCCFA0D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 03:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB711CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 04:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sf2whmWQN5dKodqoBrvEqYVleht56eGLU0oBXzmOtqk=; b=orLfGvPqvU5l9QsnRsVMCmD3na
-	gaPRrBIJBdFGoGclV2eMmqEtTu+DiuyzW6DhaV1SJdZgOIqhzJ4xL1eYJP3Xj8mrDmhdDEcca8Tjx
-	1Op83ip9Gcy0kn/P87mtyFiIyXqUIXv4venKe05WV3Hrj6n0H3mNYuI/dQvvVcosFFLowta3+waPu
-	R6DbtNWm+gZLVVEQWxL0PJF3D9ahyHFgACJHfgo6Am0pt8PB9yM22Ynu+BHVo/EqppHoOR9OHawMz
-	3VgeE4YlYYT/geDJQFfwuD0uEj6SkEnfK70mupkpzaeh2q5Y9fYqmJXy40eMSeKLpmA1v7CjTQUL5
-	gwZznf7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7iwbbb29wVewcrUtqmSsxEVWBRgR+SWD7H3XDAsjIyY=; b=K+GnIs2ybETatFKtErtMe+ZoEu
+	fnYuPqSMfeEJs2KG4CHF55i2Vs7wam1VVrM3oXrKDV3TOYKACDdS6VLn24/+1a3/8KS+PoaHvCmFg
+	ZAxvvRlXxgCvwAoKcmtAstWxUI3mTMJGZxYV7eNYePL8OGK4mr87y3d2hkPNths5RQFt3g4F3RgWL
+	KLi7g9qVt0G0B0haLr5+NsOsSiteCraW+7liIdNkvCSBYkpRYICpaa3LYtHky9rcdRw4cQb1W7Whj
+	3BEx8MWKboSZB2/ZBPyl4KARpHi/C26ANadd9U2Azwa5nbH49IDszs2E/LeI/ZYnfJygoeWJWgekZ
+	GsnrinxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGqjE-0000000Ep9Q-03tF;
-	Thu, 06 Nov 2025 03:32:04 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vGrMD-0000000EqbR-3YOP;
+	Thu, 06 Nov 2025 04:12:21 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGqj9-0000000Ep41-15N1
+	id 1vGrMB-0000000Eqav-0fD5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 03:32:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qXn5FUDUhhJm+H4Gpsd3551e4sNqG/raMO9W6A7QHnFo/R805A1s3V92b6Pmzd+/YQmBFkwi3WklkQIj7z3dYwa5TDym3KFcf+ILsqcAI9k7cmZ0js2Rq6r9pTp/oiMM6gT8Uu0FMBUirHzJ/pgBCx0qvEdBLYix0hUkVlw3zJYUJxEvuRjFgTPh0n/g/j6cQUg6YKCZwlzzqI9e68SQqMN2xqVvbo9iJJ7vlh3uGQIKCYcsyWu72VLgj8A/IiW0Go9PBtTPMELBqYPR+Vp/TMmZa6RbMg1E+gcfv+PWGy8T4aDXuQ8lrpXBBHtdzpj2bGWkT07eZ/nWRTweTaqcow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sf2whmWQN5dKodqoBrvEqYVleht56eGLU0oBXzmOtqk=;
- b=yi5E/4SpAYTi9C+eccD9CkywOX0vvV/U2up3/eOYTsNuEvPsJwNxvQKhkO5bDjdV6o5Syqr3lhoOHaWm09ehM8neT9h/Gens9Kcla7KJfffRhzEEGql5vUzmhrmeVRTsIZ/pSJpaWQV+nxwWUk7u9VezLYc31DGHGl0Ju9lHQeNbNGUGZprdUN3ABsmxOg/a8Nz2ILVyv8xGIDYrI7YRJqPKJzGm51WAVnvne5+jfWtvrY9YvKzJ2ZAnBMvcFcGaMMdIPyUgJbehSxwQUeEH/dCVWdiTG8gFR2loSTlTXHTx4ezRivCm0ENJJW5/qv5xewm32gA0OmkYRUldkjzzqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sf2whmWQN5dKodqoBrvEqYVleht56eGLU0oBXzmOtqk=;
- b=WycDnRnqXoOe+SaSsweXgXvh6OCfn43lRVnnpI+efux3AVooBH4nEc+N/soMkEsdXJjSxKDy5HWkMuz/yI3EQ9Io0rsMWVT6KhO4yCYkGUgbDL4/SpsjoDu/Hg/X4dCGvMmWqI7PCcatElEvQfKhZvUbSYwpo4tTZuzfOKJz8PXoDxKPkG+D8C7WsWYOE9+5DlRdh7Quz0R5oOOzhfSc9ssv2pDUD6R9X7RAF/6E+V9ag6iXPC0i2a3EgmwTMmvT+p4MjZnIe8QAEdQuOVDbHKu6J1QYMcQ1yi/ZU2a0e3APVbv/CoIE6VpVynNfgqNKPQXvEpLK/Dw7R/g0excXfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI1PR04MB6813.eurprd04.prod.outlook.com (2603:10a6:803:13c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.15; Thu, 6 Nov
- 2025 03:31:45 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.010; Thu, 6 Nov 2025
- 03:31:45 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Thu, 06 Nov 2025 11:30:37 +0800
-Subject: [PATCH 11/11] remoteproc: imx_rproc: Remove enum imx_rproc_method
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251106-imx-dsp-2025-11-06-v1-11-46028bc3459a@nxp.com>
-References: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
-In-Reply-To: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, 
- Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762399839; l=1152;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=wpplMwcEJ3v7rrfEfqpOXt5gQqU5ZoZirvtf/OXL3a4=;
- b=vj1IgdJldm1iMAS3NXi31nVGg4in/O16Ipu86ErtjiOVoizWv4CbBPFtXrw+BCu/DLxfaBjwL
- KLqTfmeZBiqAeUXDLRD4PvRlX5rWWXcCZA8y8OYeetxwNVj6KDN0X/n
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2P153CA0028.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::15)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Thu, 06 Nov 2025 04:12:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4d27yY3qs7z1K96d;
+	Thu,  6 Nov 2025 12:10:29 +0800 (CST)
+Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
+	by mail.maildlp.com (Postfix) with ESMTPS id 92A101A016C;
+	Thu,  6 Nov 2025 12:12:03 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemr500004.china.huawei.com
+ (7.202.195.141) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 6 Nov
+ 2025 12:12:02 +0800
+Message-ID: <bf38a9cb-41a9-4a40-ba17-afe679018003@hisilicon.com>
+Date: Thu, 6 Nov 2025 12:12:01 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB6813:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4f68b3a-3656-4089-642c-08de1ce502d9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|366016|7416014|376014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?THEvVVJPRG8xWFNxbTlEL210Q0VIbEpFVXlROUN0eXAwYWNPWWtrbzFLeHNl?=
- =?utf-8?B?MnNyNnVrK2hrV3ljYmhITEpJZnppYVk4Z3FGQlFnTHpaWE1MNW0rZWdPYnJC?=
- =?utf-8?B?djlrNWJaNWRZOUp5MUltTU81UjdKRDFYTDlSMWxhNjBiUXNmV3R5Ums0c0Zt?=
- =?utf-8?B?NFo1YU1yaGpScEVBMnBBVG00SEx5OUc2eUt3VHFmUnlCRDg3SW5lQ2JqWHhP?=
- =?utf-8?B?WDlialNSanVET2J5MCtwOExVMitsaUhoS0xrYjV1d0J6VHVHanpXOEJPSjJw?=
- =?utf-8?B?aitKYlc4RnlGeGVBTUMzWUpqMzQwNUthZlpXQWVJTndGaWV0Rlk2bzdoeFQ4?=
- =?utf-8?B?L2RYNjJGQTNRSVVoZW5SaHUxMFpxdXpabUhDbFFRZEN1cjNYYTkwRnlWdzJZ?=
- =?utf-8?B?SlhqRlFacCthSnhNeUFmRFp2YVhYSGFMRFJFQlZ0YXVpSU1Rd3pFQkNDdUl2?=
- =?utf-8?B?OTVyUmlwcnVCL2pqM0EvNEdqNXJqOEcxWSsrT2t6OVNmNFpzV3hDMlFWc3k3?=
- =?utf-8?B?Qmh5eFhJYWEyeXZlbFgvQkQ4akRoazd2clo0dUIyTGFWVXZGenl1S1Rpb1Bi?=
- =?utf-8?B?YzlvbCtlQ3R3TGd1d0pGMUpYZmdFS1piNjRndjk5RXlDa05aTXQ4VklFSmZj?=
- =?utf-8?B?K3ZKMy9LRnlESGJGTXNVaVJXb0w5TkNmSGl1eUNncVI4SVY2dU9Wb0p0bVJh?=
- =?utf-8?B?bzRUNFRsYmpKQWIzbFllbENPZDd4WWJXYWJzNjFHY2UySWNWMno2b0FGamZz?=
- =?utf-8?B?WFJJbFA5cVIzODFOWjlDR1VDYmNHY0xydjJDYTl0K0d2ZGVJT0tvNWxiRXNn?=
- =?utf-8?B?eHdUWU1YblQwc05FekFNNStleThxZjRQK1JoeHFZbFVUaTEyejNwSG1laGpz?=
- =?utf-8?B?REI1NUR4MVBsVk9HcmthYk9kVlVZUjlBM25Vc1VLTjRPMVEyN0pxUCsxeHlS?=
- =?utf-8?B?VG9Gd29FbHNMSk5tVzF2OWZqRjIyb21jQjJ6Tk5oSkM4cXh1UTdpWk5hSU1l?=
- =?utf-8?B?dUtoa3VUcU9ZNnQ2MUtnNzV6YzFBK0FScGF5MVJQZmdodE92OVROTXl6akVJ?=
- =?utf-8?B?dmROekRIUUsvdE1JaXRIMDh2UjhYQ1UxMGFicWRxMjNwblB5RVc4UnVvK2Fu?=
- =?utf-8?B?MExJL044VkdmSUZVbWw5VDA0YmljQktvN2QrblErZVM5U0prSFEwNk9ORjBS?=
- =?utf-8?B?cno1VFhJckVjYXhtR0w0Z3VBTDJBbkJmNHNqbXgxZDhlYi9SZHkvZFpwaUNR?=
- =?utf-8?B?NkhHaHhXNCtObDdxb2RvYVBNajcrbmJUSzVOcFNQK0VQOFcwQklxSmFScmRT?=
- =?utf-8?B?Ti9aTE5NdnFGckF5a3krLzVCdGZKTjlyTFBGWHRXTmNYMjV1Z1RtK1hYZEc0?=
- =?utf-8?B?YXc1Tng4WE5xK2NWbGZ2cG1RdVlWYUtVT2M1QU5NektvTXRsZi9HbjI3QjJV?=
- =?utf-8?B?UmhRR1BMcjZoOEl5aFlhSGR3em5jRXZLSVVuQVhlQ1V6WlloZEFadW42N1kw?=
- =?utf-8?B?Z2p3bm9RZVhDOWl5d3JNZHB6NnZ4alluMnFCTURnRVlvQ3FxWlZaaHVnS1dw?=
- =?utf-8?B?L0FJaENBOHZXNDljcjJSS1BxWHhhSUlpSkFOeWtEYU1Qb2JVd21iVC9aRXBv?=
- =?utf-8?B?UHg4ZS90T1pzSzF0TkRkM3ZiWE95WGZOT3hvNHcvdjR6OXJzREJNZC9jcHA2?=
- =?utf-8?B?UjhRK29hMXFyKzJKclE4RzRxVXlsdjlPbFI4Q0w5TFd5SUZ5R2ZoczJkMlN2?=
- =?utf-8?B?NVo3RmR2VjJyMFVOQzJRb0xkaFllVTJtMTJZRDRlTlY5aUs4MUxKV20yTklC?=
- =?utf-8?B?NEZpbk9PVWF1QmVNVGRsT0N6TU4wZ1o1TFJDUkp0aXhYQTFwS3RTdFM2bXNS?=
- =?utf-8?B?bHFTQ2JVbDM4VFg0ZWpQS0dMYzdXM1dGZ2VnSk94SFNZWVU2eTM0K1ZTb0Fl?=
- =?utf-8?B?ei9Ma0VVcFhHaFVsMEhPU1JreEZWdGxURXFaSmI4dDhYWElnMWRjRUNyUDgx?=
- =?utf-8?B?Y3Vjb1BxaTM2dGVCajN5MkZtTENnUU9qcUNZVHZTekZkdWovOGU3bElCc1BT?=
- =?utf-8?B?ZWUrdm05VFdXaUNZYW04Unh2bEhudGtlM25ZUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(366016)(7416014)(376014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V3RvN2U3RVZrbDFUMWg4anJpb0Zhb2RmU2hPSFZNVDFMNEJ2SW9wd2RRRG45?=
- =?utf-8?B?YnpKM1paeS9zdmFwWDRudll6SGZ6cTJISG9zWkd3UjJVR2tZS0IrRDF5N2xK?=
- =?utf-8?B?S0Q3V3lOTlBPMGJQSW9wZktiYUUrNzMzNnJveGlkeGNFNUFHZW1TMDdGWWFF?=
- =?utf-8?B?QllYK3N0WmRVdGNLT1lNays1TlVUVmtaVDRLUXZtOVFUaks5c1VXZmhTNzZD?=
- =?utf-8?B?aStieVp3cVZ6alBwQnVrM283TGhyQlRDbWZ1ejlxK2FhYUJwUVVrSkVKWi9L?=
- =?utf-8?B?WVM1YjZYNkcvVjFudFNLOGFvMm1FTlg5RnJaRXZ5YjNia0N1TFQwYnhrTC9s?=
- =?utf-8?B?S0JHMWVXbmRIVXFUdGRWakZSY0Y0WXNsUHVnd243cTZKTzhQS1c5eG10N1dG?=
- =?utf-8?B?NVM3ZXJBdHhtTTVhczRGVng4UFJSM3ltOHo1YUhjekN0WlJid1EzMXlNbEFM?=
- =?utf-8?B?NDlwR3VGblpFMUQ4V0taMTJ5UlF4bzJGTGFLdFZYTXIwTjMyWm9pTFRnVFZP?=
- =?utf-8?B?WFdsMnI2Tmc1VmFrTE1wRHJWRXpuWXRTRzIwTVRyQVBrNEJqdnVRV0pGejdk?=
- =?utf-8?B?a0ZxOStsVVRkUVk5NXMxRXE0QmgvdGF5OW9ObGxXRUtEakE1OC82b1BOdy9j?=
- =?utf-8?B?clNsRWpqOHhLMit0UmxHWi9hOVVVRFFVZm4yTzNpb3lscWFVbjdzVTNibTR6?=
- =?utf-8?B?RWdXS3VhVzIxMWV4Q1B0VUtnNC9UUWVFV0F2Ull3OWwzSmJMdWxSSlZMWVVL?=
- =?utf-8?B?a0xybGpPU2d1QWxsek5BZGJxV2ZkNUZvRE9ScW9KU2h2WmR0Sm1leHJhQ29z?=
- =?utf-8?B?Umc1c3BIOUZ4UUdEMjQ0NldhUWhXL1hzZG54NzMvUC9CdzJNaStVZUlyM2hH?=
- =?utf-8?B?WlJSZXV2ZTVZU0NGaURWM05XV2JmVHppTzlpdmdkQkNFSnJnejR1UmVUZGUv?=
- =?utf-8?B?RmN6aTRqWUdpUFhrcFB6K08zQWhuT2Q0UUJGUzhNTHdIalFDZG0vSmJjQWYx?=
- =?utf-8?B?ZjMwbEJqLy9kREpVNVRMU0ZweXZBSzBPVXhYR0x0M3I4ek5Gc1IwaVZoSDc3?=
- =?utf-8?B?ZWpEU3k0eEpIbFVCVzNLOUorc0xhLzROeHRTUXBSVGhBRCtGeFByRlpVa1h6?=
- =?utf-8?B?MDJkK2NQWnVBREwxVDNxVndZSE1relQza3BJWlFZRkdQNVkzQmpFOURtQ0FN?=
- =?utf-8?B?ME92cFljbFRRU2pTRzl0TWtUa3Ztdis3ODdTTlNwa2pzekRmc3hOTUlRWVA3?=
- =?utf-8?B?dW9sVE1VcUpiaG5PQlh0TDZaZTRwdzBFT0V0M1NSV2FHVnN3L1h6VVBnWHJs?=
- =?utf-8?B?SmwwczRac2FvTzM4OHNpbkF0R2doeFBqeWdYenFBRDlBRGNQNDVKcXNaOHEx?=
- =?utf-8?B?UjhLYURycXUybDcvMHRYUVdscDJRMW9LUUp5NVF5bmpoc3BSMmZQZzNnRjcr?=
- =?utf-8?B?YlhmbkR2L254d1FnTlRZL2VIc01pOEFmc2hPbnhnbWd2dlhsWWdkYTIwdFRY?=
- =?utf-8?B?aVBodFJYakVCVEhxdnRvajBxTHhVUTdqekpIWjdPbEt5M2NXd2dkejBRK21h?=
- =?utf-8?B?ekgvLzIraWhjV2hoMFFhZ3Y0OUZiejFoVVYxZUdHcnBYZko3UzVUb1orS0Rx?=
- =?utf-8?B?N2s4WkFCNFlhNng0WHJTRFFvd1FLQncvbDE3UUdCZWVhdHRDV0ovZWNZTG5Z?=
- =?utf-8?B?M3N0RnNQMzFTcmxwNXpVMTl6cTVMazJwRzdnTUFxKy8xWVJ0QmVSaUlESVI0?=
- =?utf-8?B?dDZPeTZuSGcxdlg4RElTZHk2MEpINnZOSFlLL2p0Y3cwSjNxU093RVh1a3VG?=
- =?utf-8?B?OW8zYmhmYmwwL2ZHWGNuc1RDd3oxTmQ4QVJzbEhRUVpKZVN0RTZHc2dJTTFy?=
- =?utf-8?B?NmdzMmZEZnkrcmxUZjNsRG1VS2JrMUthUHdIVExRRWp1c0k3d2pocjgxSEhj?=
- =?utf-8?B?OHNrazZCbVFmTU13QjhITUthbHBCYlBwYmdrdlB1ZVQ1aVhxc3F5dnJlQzha?=
- =?utf-8?B?TGRqdzFMc3RNYUJWRzBTY2E4MGh1RnBTeXUyU0pQTE9xRUZoUkQ1R0Q5Njkx?=
- =?utf-8?B?WmIvM2dqYkk4cDhiZzh3dVdVbjltMnp6dGNqRUxad2lQSnBUOVBrZmpQT0tG?=
- =?utf-8?Q?njEryOIQy6nFqB8jeIRviVfUs?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4f68b3a-3656-4089-642c-08de1ce502d9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 03:31:45.6391
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yx00SnGn1UUG8xb77tA08TNjY9Qj6Cbtw8HRyLO2PtL56G7TMk2S9l9UGG2mea2fxlxn+489+QnusfXSiacSwg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6813
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] arm64: topology: Improve AMU-based frequency
+ calculation
+To: Bowen Yu <yubowen8@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<beata.michalska@arm.com>, <ptsm@linux.microsoft.com>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>
+CC: <prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>,
+	<xuwei5@huawei.com>, <zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>
+References: <20251104075544.3243606-1-yubowen8@huawei.com>
+ <20251104075544.3243606-2-yubowen8@huawei.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20251104075544.3243606-2-yubowen8@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr500004.china.huawei.com (7.202.195.141)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_193159_378081_B8F45609 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251105_201219_531785_F609AFD0 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,45 +76,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no user of enum imx_rproc_method after moved to ops based
-method. Remove it.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/remoteproc/imx_rproc.h | 8 --------
- 1 file changed, 8 deletions(-)
 
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 6a7359f05178a937d02b027fe4166319068bd65c..1b2d9f4d6d19dcdc215be97f7e2ab3488281916a 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -15,13 +15,6 @@ struct imx_rproc_att {
- 	int flags;
- };
- 
--/* Remote core start/stop method */
--enum imx_rproc_method {
--	IMX_RPROC_NONE,
--	/* Through ARM SMCCC */
--	IMX_RPROC_SMC,
--};
--
- /* dcfg flags */
- #define IMX_RPROC_NEED_SYSTEM_OFF	BIT(0)
- #define IMX_RPROC_NEED_CLKS		BIT(1)
-@@ -42,7 +35,6 @@ struct imx_rproc_dcfg {
- 	u32				gpr_wait;
- 	const struct imx_rproc_att	*att;
- 	size_t				att_size;
--	enum imx_rproc_method		method;
- 	u32				flags;
- 	const struct imx_rproc_plat_ops	*ops;
- };
+On 11/4/2025 3:55 PM, Bowen Yu wrote:
+> The current approach of reverse-calculating CPU frequency from capacity
+> values introduces quantization errors due to intermediate scaling of
+> arch_scale_freq_capacity, which results in the calculated frequency having
+> only 1/1024 resolution.
+> 
+> This patch:
+> 1. Directly computes frequency using AMU counters in amu_scale_freq_tick():
+> freq = (core_cycles_delta * timer_freq) / (const_cycles_delta * 1000)
+>  - core_cycles_delta: Measured CPU cycles
+>  - timer_freq: Architectural timer frequency
+>  - const_cycles_delta: Reference cycles from fixed-frequency timer
+> 2. Returns pre-computed avgfreq in arch_freq_get_on_cpu()
+> 
+> examples:
+> Before change
+> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
+> 2297851
+> 2297851
+> 2295312
+> 2297851
+> 2297851
+> 2295312
+> 2297851
+> 2295312
+> 2297851
+> 2297851
+> 2297851
+> 2295312
+> 2295312
+> 2297851
+> 2297851
+> 2297851
+> 2297851
+> 2300390
+> 2297851
+> 2297851
+> 2297851
+> 
+> After change
+> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
+> 2299177
+> 2298117
+> 2299188
+> 2297330
+> 2296530
+> 2298817
+> 2298434
+> 2298986
+> 2298596
+> 2299395
+> 2299560
+> 2298446
+> 2299108
+> 2299294
+> 2298707
+> 2298453
+> 2298632
+> 2299218
+> 2297962
+> 
+> Signed-off-by: Bowen Yu <yubowen8@huawei.com>
+> ---
+>  arch/arm64/kernel/topology.c | 20 +++++++++++---------
+>  1 file changed, 11 insertions(+), 9 deletions(-)
+> 
+...
+> @@ -288,7 +293,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  	unsigned int start_cpu = cpu;
+>  	unsigned long last_update;
+>  	unsigned int freq = 0;
+> -	u64 scale;
+> +	u64 delta_core_kHz;
+>  
+>  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
+>  		return -EOPNOTSUPP;
+> @@ -340,14 +345,11 @@ int arch_freq_get_on_cpu(int cpu)
+>  			break;
+>  		}
+>  	}
+> -	/*
+> -	 * Reversed computation to the one used to determine
+> -	 * the arch_freq_scale value
+> -	 * (see amu_scale_freq_tick for details)
+> -	 */
+> -	scale = arch_scale_freq_capacity(cpu);
+> -	freq = scale * arch_scale_freq_ref(cpu);
+> -	freq >>= SCHED_CAPACITY_SHIFT;
+> +
+> +	if (check_mul_overflow(per_cpu(core_delta, cpu), arch_timer_get_cntfrq(), &delta_core_kHz))
+Hi Bowen,
 
--- 
-2.37.1
+IIUC, the variable 'delta_core_kHz' doesn't mean its name.
+'core_delta * timer_freq' is just a transitional number.
+The naming is misleading.
 
+Perhaps consider reusing 'freq'? i.e. define 'freq' as u64 and replace
+'delta_core_kHz' with 'freq', then return (int)freq at the end.
+
+Jie
+> +		return -EINVAL;
+> +
+> +	freq = div_u64(delta_core_kHz, per_cpu(const_delta, cpu) * HZ_PER_KHZ);
+>  	return freq;
+>  }
+>  
 
