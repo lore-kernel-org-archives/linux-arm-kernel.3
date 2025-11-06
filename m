@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32278CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 18:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A095CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 18:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbaUwN97vGeANThuFDgulgsFTpORSyAqqWAycmMvn0Q=; b=ZVM+g0pkxNu3u3jjz3VUAWO+uY
-	IW+QpEjXOX4b4Jpkv943KA10kj0d2uczYp/Qj73J/c8sTyhmaC/LCrmxivrIK0Ql2ktNgN1+1xz9q
-	i8i0rJa8Hy2fdbEjGr635lQjgAkjL2U8BgFXBIInIFR7g3EiHj9K1lMvh1ooPSFgTQkFNMMTYdCT+
-	J4OS1/Im8fxI2tjx2Gk9LObPMvLAyyXLzbyDwdVfclSVuWJmkVIZdnC1p5IP1rM645OKwdqN7+ejx
-	3rKHjPnOKjSoAoHTsoFW3gUGINmRtNoha64WdCuhP/z4RcqjWd7heR71smbSZQer0de9w/N41MlCE
-	YiE1SSmA==;
+	bh=vhHvTNreRheNZnwkv+jEyS0ZIZrro/GQVLO5u3qCIyA=; b=HBKtreusZaCnTppq2qODsIzvx/
+	ZiZ57+N9NyQXOm1Q9z9Elf8QR6hpcwJx3zSuzsUs2rzDP8g2TeBB6EYjdpdzWBIdOEDSt+lvTzrlw
+	NF/yMKr6C55EH1FR0XSIyuwZkSKbqIsyimqszDOhfBQaGcgoSm59SUKLHmd4Qh5LWTcmLZaM3HKV+
+	zjWtsTk0PXUW5a2GyrKCIFcK/jBvpf8pLY4yUD/V7Af9Q5NEICKHlV0iM9DbDH9rX6Sp8EJeFmzV4
+	c2RRVO0K4CIGq4se2sqHUNxwiPbVHLofGe4t2qtS62W4K7gHx0v5j3cnLHDy0pN6yFNJm8mNgBpjs
+	xjwPa15A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH4XE-0000000G5D3-2mNC;
-	Thu, 06 Nov 2025 18:16:36 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1vH4Z9-0000000G5QO-2LGD;
+	Thu, 06 Nov 2025 18:18:35 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH4XC-0000000G5Cf-011K
+	id 1vH4Z6-0000000G5Pk-0YI8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 18:16:35 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 055C04447C;
-	Thu,  6 Nov 2025 18:16:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
-	t=1762452989;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IbaUwN97vGeANThuFDgulgsFTpORSyAqqWAycmMvn0Q=;
-	b=UAurMIDhvSirMkEYhH8XOdIrF0QaJtlbdslpce4O9SGmzZ/RKVM2eyy3koQ1nl05Ga1WZP
-	MIIwfeUBRdE4R7HtdNQgD57Z4zaSOcFfy76RbFos318PSt9gCCOHdXeT1e6e5LB2nBJaY5
-	kJXkGISsNkt9PJKtrBDT/Tx0VhibOWRh4auHXKLPA90bT2s7UzHj0wpVY0I8P+vTQ5s7hj
-	NIyGIKu2Hj5jB9mUJ0LU5oE8qRFon9ywu8lkYFg9UgTtm7vwwFR0z5q4c3E8s81VgjVZ68
-	dyfbk+1hPIPAUNuMSq9bPGb6asMguUHhfTTRJXxiGnA/qEm0HkKKA3TKKcUu7A==
-From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Greg Ungerer <gerg@linux-m68k.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Olivia Mackall <olivia@selenic.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] m68k: coldfire: Add RNG support for MCF54418
-Date: Thu, 06 Nov 2025 19:16:17 +0100
-Message-ID: <4689159.LvFx2qVVIh@jeanmichel-ms7b89>
-In-Reply-To: <aQzHO6Ty+l1Bwt6N@lizhi-Precision-Tower-5810>
-References: <20251106-m5441x-add-rng-support-v1-1-ee8230910d17@yoseli.org>
- <aQzHO6Ty+l1Bwt6N@lizhi-Precision-Tower-5810>
+	Thu, 06 Nov 2025 18:18:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vhHvTNreRheNZnwkv+jEyS0ZIZrro/GQVLO5u3qCIyA=; b=N4PJSDn9Y+nGaK5rdqlVuMzsHx
+	4+Gc6CED93EJtPPFcXUmokKkE5BRTQuANAJ9oUuVqfXDS+mODt2Wkr/DVeqaIJr3qHiZuTFnSBN3U
+	xeZlGKKOa9DI3e4sgzYk9XC3wuKuM4s2KLed1Lnpn+VssMwW7M960FFXI2b7PwtYc2+Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vH4Yr-00D982-3s; Thu, 06 Nov 2025 19:18:17 +0100
+Date: Thu, 6 Nov 2025 19:18:17 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH v5 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Message-ID: <e2cc2645-9eb4-485b-9c18-650a1ba70e62@lunn.ch>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-2-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddukeejgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkfgjfhgggfgtsehtqhertddttdejnecuhfhrohhmpeflvggrnhdqofhitghhvghlucfjrghuthgsohhishcuoehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrgheqnecuggftrfgrthhtvghrnhepffevhfduvdeludeugfdtleduuedvhfeuvdevgfeiieefieevteektdettdeifeetnecukfhppedvrgdtudemvgdtrgemudeileemjedugedtmedvrgegtdemfhefrggrmeejudejvgemudefsgdvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmeduieelmeejudegtdemvdgrgedtmehffegrrgemjedujegvmedufegsvddphhgvlhhopehjvggrnhhmihgthhgvlhdqmhhsjegskeelrdhlohgtrghlnhgvthdpmhgrihhlfhhrohhmpehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdpnhgspghrtghpthhtohepudegpdhrtghpthhtohephfhrrghnkhdrlhhisehngihprdgtohhmpdhrtghpthhtohepghgvrhhgsehlihhnuhigqdhmieekkhdrohhrghdprhgtphhtthhopehgvggvrhhtsehlihhnu
- higqdhmieekkhdrohhrghdprhgtphhtthhopeholhhivhhirgesshgvlhgvnhhitgdrtghomhdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggv
-X-GND-Sasl: jeanmichel.hautbois@yoseli.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251104203315.85706-2-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_101634_715524_04940FAE 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20251106_101832_168177_DD07DD94 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,70 +82,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, Nov 04, 2025 at 02:33:11PM -0600, Shenwei Wang wrote:
+> Remote processors may announce multiple devices (e.g., I2C, GPIO) over
+> an RPMSG channel. These devices may require corresponding device tree
+> nodes, especially when acting as providers, to supply phandles for their
+> consumers.
+> 
+> Define an RPMSG node to work as a container for a group of RPMSG channels
+> under the imx_rproc node.
+> 
+> Each subnode within "rpmsg" represents an individual RPMSG channel. The
+> name of each subnode corresponds to the channel name as defined by the
+> remote processor.
+> 
+> All remote devices associated with a given channel are defined as child
+> nodes under the corresponding channel node.
+> 
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 123 ++++++++++++++++++
+>  1 file changed, 123 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index 57d75acb0b5e..897a16c4f7db 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -84,6 +84,92 @@ properties:
+>        This property is to specify the resource id of the remote processor in SoC
+>        which supports SCFW
+>  
+> +  rpmsg:
+> +    type: object
+> +    additionalProperties: false
+> +    description:
+> +      Present a group of RPMSG channel devices.
+> +
+> +    properties:
+> +      rpmsg-io-channel:
+> +        type: object
+> +        additionalProperties: false
+> +        properties:
+> +          '#address-cells':
+> +            const: 1
+> +
+> +          '#size-cells':
+> +            const: 0
+> +
+> +        patternProperties:
+> +          "gpio@[0-9a-f]+$":
+> +            type: object
+> +            unevaluatedProperties: false
+> +            properties:
+> +              compatible:
+> +                enum:
+> +                  - fsl,imx-rpmsg-gpio
 
-Le jeudi 6 novembre 2025, 17:05:15 heure normale d=E2=80=99Europe centrale =
-=46rank Li a=20
-=C3=A9crit :
-> On Thu, Nov 06, 2025 at 08:10:08AM +0100, Jean-Michel Hautbois wrote:
-> > Add platform device support for the MCF54418 RNGB hardware with clock
-> > enabled at platform initialization.
-> >=20
-> > The imx-rngc driver now uses devm_clk_get_optional() to support both
-> > Coldfire (always-on clock) and i.MX platforms (managed clock).
-> >=20
-> > Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> > ---
-> >=20
-> >  arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
-> >  arch/m68k/coldfire/m5441x.c       |  2 +-
-> >  arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
-> >  drivers/char/hw_random/Kconfig    |  3 ++-
-> >  drivers/char/hw_random/imx-rngc.c |  9 ++++++++-
-> >  5 files changed, 48 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
-> > index
-> > b6958ec2a220cf91a78a14fc7fa18749451412f7..9d8f844e319a98f0afb79cceb544c=
-2d
-> > 3029482a4 100644 --- a/arch/m68k/coldfire/device.c
-> > +++ b/arch/m68k/coldfire/device.c
-> > @@ -622,6 +622,31 @@ static struct platform_device mcf_flexcan0 =3D {
-> >=20
-> >  };
-> >  #endif /* MCFFLEXCAN_SIZE */
-> >=20
-> > +#ifdef MCF_RNG_BASE
-> > +/*
-> > + * Random Number Generator (RNG) - only on MCF54418
-> > + */
-> > +static struct resource mcf_rng_resource[] =3D {
->=20
-> const?
+The compatible should be generic. Or at least, you need a generic
+fallback, since the one driver should be able to handle all
+implementation.
 
-Why not, but I wanted to be consistent with all the other structures in thi=
-s=20
-file.
+> +
+> +              reg:
+> +                maxItems: 1
+> +
+> +              "#gpio-cells":
+> +                const: 2
+> +
+> +              gpio-controller: true
+> +
+> +              interrupt-controller: true
+> +
+> +              "#interrupt-cells":
+> +                const: 2
+> +
+> +            required:
+> +              - compatible
+> +              - reg
+> +              - "#gpio-cells"
+> +              - "#interrupt-cells"
+> +
+> +            allOf:
+> +              - $ref: /schemas/gpio/gpio.yaml#
+> +              - $ref: /schemas/interrupt-controller.yaml#
 
-JM
+The gpio part should really be pulled out into a separate .yaml file,
+because it should be identical for all implementation. You just need
+to reference it here.
 
-> Frank
->=20
-> > +	{
-> > +		.start =3D MCF_RNG_BASE,
-> > +		.end   =3D MCF_RNG_BASE + MCF_RNG_SIZE - 1,
-> > +		.flags =3D IORESOURCE_MEM,
-> > +	},
-> > +	{
-> > +		.start =3D MCF_IRQ_RNG,
-> > +		.end   =3D MCF_IRQ_RNG,
-> > +		.flags =3D IORESOURCE_IRQ,
-> > +	},
-> > +};
->=20
-> ...
-
-
-
-
+	Andrew
 
