@@ -4,138 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E5FACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF887CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 15:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USDQ8ElKabVeXvYmFW0YLq1tEPCwDR9lnFGrXCv6r44=; b=3up2zNWGIAIgRSb5Gf5rZH04kj
-	e2M4ovgw0jMPIigA078BqAGYmZ0iFQC72dP0h0h6I8/ql516M7U+3XsOlD8AK8E0vrEeXoFYrvMkA
-	DWJc5o/lHesQzBkt5dD7T+fnFp1engQR6hyXZYDNsn215Ss1yya8zezhLEwNpnE/9RPc42veAsK1C
-	aUMccFLwe75Pnv9UNCvECBaTH3BmyDmwzeZHdwtBIB1fwko6zI6sZgX/jAhl1vmi7FD9NSAauJ2GW
-	HHrORI7WjX1z3SrIH4gUTu3mw7mzdGSvpZImjsyJSVkHNvUnzJcM4sm04jFbORRDkW/fS5axm5aIb
-	a10LQUfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5xFZuIwzfOTMUb4IA86Mr5Kbz2dzYNoS4YEoK0eqHLA=; b=nDPLq19Gu8eO42EnN8R3X3riAR
+	GAxUL+cxUkTbG4I4dRyHRe5JaGM3eM6XH3SIiFn9inhkd89m7+St1XZMkGL7YZa14l17Ikk2EqiZc
+	HFL5W61DUbc8e6RQfV0om+aDUwxMQbTd/RtxsGw2GYtEHV0P/KCxA31LMzJWXP40N8mGnDfYriZV+
+	CzJlgFbqMPZjBBMA1xl4sZkrADZjYmAvnw2woA5j8RsSetik8VhsCoSjEZKYt+vITM7uBvtwQj6Ri
+	jjV7xPhWfL6SW/iuX4DFurSjaUUtLLxxs30kYSCwYEkoI3bPa311kUyXG1C1q0qfC72elaFDCRShH
+	xRkCMJMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH209-0000000FpHP-1eVH;
-	Thu, 06 Nov 2025 15:34:18 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH205-0000000FpGY-3LkL
+	id 1vH29E-0000000Fq3B-1NZn;
+	Thu, 06 Nov 2025 15:43:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vH29B-0000000Fq2h-14X2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 15:34:15 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A673rWV004542;
-	Thu, 6 Nov 2025 15:33:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=USDQ8ElKabVeXvYmFW0YLq1tEPCwDR
-	9lnFGrXCv6r44=; b=Ud1ezlZulJ19pMoMC9cV2Puhpc6xfvY5kH8l9lzJzReHWw
-	mKEvGrCq+8tKTYQ2MxDxhIU69JV0pOnXy39LBfKHxozegDXvBfvTmpds52s5U6cE
-	/B8hVE2W8NjEjWAswsJNBdI1NjgMAEZpxAZmQ2gRLaUTDivnAluHG4qYTu7XsDwF
-	Vsk72wk+IJjAz3KWLN/C9Bbd92H7vh+BDHU0ZjrBqUI/zYCcM9fmOWIHGJocsLRR
-	RFqfscnpogqSAjX1viBd8MZh0c3dOnzgnvPYX0MV5maeP1AFCCwYIoJhH103h2O4
-	ttiB6tX1e7rVFmgT6CXyJjvDJ+Kc6/eoN7Ra3efQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xc7x4v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Nov 2025 15:33:33 +0000 (GMT)
-Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5A6FXWW0020778;
-	Thu, 6 Nov 2025 15:33:32 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a59xc7x4m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Nov 2025 15:33:32 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A6FSEis009863;
-	Thu, 6 Nov 2025 15:33:30 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4a5x1kp3cv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Nov 2025 15:33:30 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A6FXSer15008248
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 6 Nov 2025 15:33:28 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8439B20043;
-	Thu,  6 Nov 2025 15:33:28 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 90CA520040;
-	Thu,  6 Nov 2025 15:33:27 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu,  6 Nov 2025 15:33:27 +0000 (GMT)
-Date: Thu, 6 Nov 2025 16:33:26 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ritesh Harjani <ritesh.list@gmail.com>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        David Woodhouse <dwmw2@infradead.org>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        x86@kernel.org
-Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
-Message-ID: <d5435e75-036b-44a5-a989-722e13f94b3e-agordeev@linux.ibm.com>
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-8-kevin.brodsky@arm.com>
- <87ms5050g0.ritesh.list@gmail.com>
- <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
- <48a4ecb5-3412-4d3f-9e43-535f8bee505f@arm.com>
+	Thu, 06 Nov 2025 15:43:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 378B715A1;
+	Thu,  6 Nov 2025 07:43:26 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69DAE3F694;
+	Thu,  6 Nov 2025 07:43:29 -0800 (PST)
+Message-ID: <9dbc4e1a-d614-4427-a7e8-066a3e29055e@arm.com>
+Date: Thu, 6 Nov 2025 15:43:28 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <48a4ecb5-3412-4d3f-9e43-535f8bee505f@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTAxMDAyMSBTYWx0ZWRfX/YZyxmYrnrJ9
- xCd4ujIZq7y0lim+YrboYNwl5TsRqk1oOoSjjpPrN2bdS3Yj8+BGw0eDwtF58nU1AxMxpNChFIt
- kjix63Qwyja0jEYGMpU1W2106lg0/CJxII5rA6IH8ca9YKwDy28POrrS/UliHt5WUxWiY4RvYvK
- KvjB7Q8W206gTc1ADhSmWj/G5k8ScNY8TzY3EvQXr/BVbxmytuyeX5wifFN5ALnc+chrAMwW/6j
- QnaXo4exfOcjHuuvP3Y/8qCuhkp//Cj/oqysiN8ehC/uU7vBozF7kWjRZh1pps/+U+PuMO1myX5
- CRiCQpqgahhrliHsenckRMbSmwXbtqSltJhRXk0UqsG5hBu7Va14xA+ZT8E/Z1xVt8mLCpJRj/v
- zoQNd/ElbUWMuQJeG/kbcYXCoAfCRQ==
-X-Proofpoint-GUID: TFOhjUGUwcHF-txd3JWs84wNA_RrcFJO
-X-Authority-Analysis: v=2.4 cv=OdCVzxTY c=1 sm=1 tr=0 ts=690cbfcd cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=20KFwNOVAAAA:8 a=ENMs_uJo8d3F8rUHHo4A:9 a=CjuIK1q_8ugA:10
- a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-ORIG-GUID: 0GlCJX74XkrUHHpzFp_J9wLdkqJNwiej
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-06_03,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 spamscore=0 suspectscore=0 impostorscore=0
- lowpriorityscore=0 priorityscore=1501 clxscore=1015 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511010021
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
+To: Peter Newman <peternewman@google.com>, James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, dfustini@baylibre.com,
+ amitsinght@marvell.com, David Hildenbrand <david@redhat.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-27-james.morse@arm.com>
+ <CALPaoCgO+NW9Hnb0x-eL7oR-Yj75V14hOW=LxAEYUEeK9SMCUA@mail.gmail.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <CALPaoCgO+NW9Hnb0x-eL7oR-Yj75V14hOW=LxAEYUEeK9SMCUA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_073413_860432_9ECB0D9D 
-X-CRM114-Status: GOOD (  34.54  )
+X-CRM114-CacheID: sfid-20251106_074337_390771_F1BDE34D 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,120 +83,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 10:51:43AM +0000, Kevin Brodsky wrote:
-> On 05/11/2025 16:12, Alexander Gordeev wrote:
-> > On Wed, Nov 05, 2025 at 02:19:03PM +0530, Ritesh Harjani wrote:
-> >>> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
-> >>> + * currently enabled.
-> >>>   */
-> >>>  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
-> >>>  static inline void lazy_mmu_mode_enable(void)
-> >>>  {
-> >>> -	arch_enter_lazy_mmu_mode();
-> >>> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> >>> +
-> >>> +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
-> >>> +	/* enable() must not be called while paused */
-> >>> +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
-> >>> +
-> >>> +	if (state->nesting_level++ == 0) {
-> >>> +		state->active = true;
-> >>> +		arch_enter_lazy_mmu_mode();
-> >>> +	}
-> >>>  }
-> >> Some architectures disables preemption in their
-> >> arch_enter_lazy_mmu_mode(). So shouldn't the state->active = true should
-> >> happen after arch_enter_lazy_mmu_mode() has disabled preemption()? i.e.
-> > Do you have some scenario in mind that could cause an issue?
-> > IOW, what could go wrong if the process is scheduled to another
-> > CPU before preempt_disable() is called?
+Hi Peter,
+
+On 11/6/25 15:18, Peter Newman wrote:
+> Hi James,
 > 
-> I'm not sure I understand the issue either.
+> On Fri, Oct 17, 2025 at 8:59 PM James Morse <james.morse@arm.com> wrote:
+>>
+>> From: Rohit Mathew <rohit.mathew@arm.com>
+>>
+>> Now that the larger counter sizes are probed, make use of them.
+>>
+>> Callers of mpam_msmon_read() may not know (or care!) about the different
+>> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
+>> driver pick the counter to use.
+>>
+>> Only 32bit accesses to the MSC are required to be supported by the
+>> spec, but these registers are 64bits. The lower half may overflow
+>> into the higher half between two 32bit reads. To avoid this, use
+>> a helper that reads the top half multiple times to check for overflow.
+>>
+>> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+>> [morse: merged multiple patches from Rohit, added explicit counter selection ]
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> ---
+>> Changes since v2:
+>>  * Removed mpam_feat_msmon_mbwu as a top-level bit for explicit 31bit counter
+>>    selection.
+>>  * Allow callers of mpam_msmon_read() to specify mpam_feat_msmon_mbwu and have
+>>    the driver pick a supported counter size.
+>>  * Rephrased commit message.
+>>
+>> Changes since v1:
+>>  * Only clear OFLOW_STATUS_L on MBWU counters.
+>>
+>> Changes since RFC:
+>>  * Commit message wrangling.
+>>  * Refer to 31 bit counters as opposed to 32 bit (registers).
+>> ---
+>>  drivers/resctrl/mpam_devices.c | 134 ++++++++++++++++++++++++++++-----
+>>  1 file changed, 116 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index f4d07234ce10..c207a6d2832c 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -897,6 +897,48 @@ struct mon_read {
+>>         int                             err;
+>>  };
+>>
+>> +static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+>> +{
+>> +       return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props) ||
+>> +               mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
+>> +}
+>> +
+>> +static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+>> +{
+>> +       int retry = 3;
+>> +       u32 mbwu_l_low;
+>> +       u64 mbwu_l_high1, mbwu_l_high2;
+>> +
+>> +       mpam_mon_sel_lock_held(msc);
+>> +
+>> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+>> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>> +
+>> +       mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+>> +       do {
+>> +               mbwu_l_high1 = mbwu_l_high2;
+>> +               mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
+>> +               mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+>> +
+>> +               retry--;
+>> +       } while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
+>> +
+>> +       if (mbwu_l_high1 == mbwu_l_high2)
+>> +               return (mbwu_l_high1 << 32) | mbwu_l_low;
+>> +       return MSMON___NRDY_L;
+>> +}
+>> +
+>> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+>> +{
+>> +       mpam_mon_sel_lock_held(msc);
+>> +
+>> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+>> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>> +
+>> +       __mpam_write_reg(msc, MSMON_MBWU_L, 0);
+>> +       __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
+>> +}
+>> +
+>>  static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>>                                    u32 *flt_val)
+>>  {
+>> @@ -924,7 +966,9 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>>                                                ctx->csu_exclude_clean);
+>>
+>>                 break;
+>> -       case mpam_feat_msmon_mbwu:
+>> +       case mpam_feat_msmon_mbwu_31counter:
+>> +       case mpam_feat_msmon_mbwu_44counter:
+>> +       case mpam_feat_msmon_mbwu_63counter:
+>>                 *ctl_val |= MSMON_CFG_MBWU_CTL_TYPE_MBWU;
+>>
+>>                 if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
+>> @@ -946,7 +990,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>>                 *ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
+>>                 *flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
+>>                 return;
+>> -       case mpam_feat_msmon_mbwu:
+>> +       case mpam_feat_msmon_mbwu_31counter:
+>> +       case mpam_feat_msmon_mbwu_44counter:
+>> +       case mpam_feat_msmon_mbwu_63counter:
+>>                 *ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>>                 *flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+>>                 return;
+>> @@ -959,6 +1005,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>>  static void clean_msmon_ctl_val(u32 *cur_ctl)
+>>  {
+>>         *cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
+>> +
+>> +       if (FIELD_GET(MSMON_CFG_x_CTL_TYPE, *cur_ctl) == MSMON_CFG_MBWU_CTL_TYPE_MBWU)
+>> +               *cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+>>  }
+>>
+>>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>>                 mpam_write_monsel_reg(msc, CSU, 0);
+>>                 mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>>                 break;
+>> -       case mpam_feat_msmon_mbwu:
+>> +       case mpam_feat_msmon_mbwu_44counter:
+>> +       case mpam_feat_msmon_mbwu_63counter:
+>> +               mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+>> +               fallthrough;
+>> +       case mpam_feat_msmon_mbwu_31counter:
+>>                 mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+>>                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>>                 mpam_write_monsel_reg(msc, MBWU, 0);
+>> +
+>>                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>>
+>>                 mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+>> @@ -993,10 +1047,19 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>>         }
+>>  }
+>>
+>> -static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+>> +static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+>>  {
+>> -       /* TODO: scaling, and long counters */
+>> -       return GENMASK_ULL(30, 0);
+>> +       /* TODO: implement scaling counters */
+>> +       switch (type) {
+>> +       case mpam_feat_msmon_mbwu_63counter:
+>> +               return GENMASK_ULL(62, 0);
+>> +       case mpam_feat_msmon_mbwu_44counter:
+>> +               return GENMASK_ULL(43, 0);
+>> +       case mpam_feat_msmon_mbwu_31counter:
+>> +               return GENMASK_ULL(30, 0);
+>> +       default:
+>> +               return 0;
+>> +       }
+>>  }
+>>
+>>  /* Call with MSC lock held */
+>> @@ -1037,11 +1100,24 @@ static void __ris_msmon_read(void *arg)
+>>                         nrdy = now & MSMON___NRDY;
+>>                 now = FIELD_GET(MSMON___VALUE, now);
+>>                 break;
+>> -       case mpam_feat_msmon_mbwu:
+>> -               now = mpam_read_monsel_reg(msc, MBWU);
+>> -               if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+>> -                       nrdy = now & MSMON___NRDY;
+>> -               now = FIELD_GET(MSMON___VALUE, now);
+>> +       case mpam_feat_msmon_mbwu_31counter:
+>> +       case mpam_feat_msmon_mbwu_44counter:
+>> +       case mpam_feat_msmon_mbwu_63counter:
 > 
-> >>   static inline void lazy_mmu_mode_enable(void)
-> >>   {
-> >>  -	arch_enter_lazy_mmu_mode();
-> >>  +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-> >>  +
-> >>  +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
-> >>  +	/* enable() must not be called while paused */
-> >>  +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
-> >>  +
-> >>  +	if (state->nesting_level++ == 0) {
-> >>  +		arch_enter_lazy_mmu_mode();
-> >>  +		state->active = true;
-> >>  +	}
-> >>   }
-> >>
-> >> ... I think it make more sense to enable the state after the arch_**
-> >> call right.
-> > But then in_lazy_mmu_mode() would return false if called from
-> > arch_enter_lazy_mmu_mode(). Not big problem, but still..
+> Should you check for one of these three features instead of
+> mpam_feat_msmon_mbwu further up in this function when checking for
+> reset_on_next_read?
 > 
-> The ordering of nesting_level/active was the way you expected in v3, but
-> the conclusion of the discussion with David H [1] is that it doesn't
-> really matter so I simplified the ordering in v4 - the arch hooks
-> shouldn't call in_lazy_mmu_mode() or inspect lazy_mmu_state.
-> arch_enter()/arch_leave() shouldn't need it anyway since they're called
-> once per outer section (not in nested sections). arch_flush() could
-> potentially do something different when nested, but that seems unlikely.
+> -       if (m->type == mpam_feat_msmon_mbwu) {
+> +       switch (m->type) {
+> +       case mpam_feat_msmon_mbwu_31counter:
+> +       case mpam_feat_msmon_mbwu_44counter:
+> +       case mpam_feat_msmon_mbwu_63counter:
+>                 mbwu_state = &ris->mbwu_state[ctx->mon];
+>                 if (mbwu_state) {
+>                         reset_on_next_read = mbwu_state->reset_on_next_read;
+>                         mbwu_state->reset_on_next_read = false;
+>                 }
+> +               break;
+> +       default:
+> +               break;
+>         }
 > 
-> - Kevin
+
+Yes, this looks like a correct change to me.
+
+[...]
+>>  int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>>                     enum mpam_device_features type, u64 *val)
+>>  {
+>>         int err;
+>>         struct mon_read arg;
+>>         u64 wait_jiffies = 0;
+>> -       struct mpam_props *cprops = &comp->class->props;
+>> +       struct mpam_class *class = comp->class;
+>> +       struct mpam_props *cprops = &class->props;
+>>
+>>         might_sleep();
+>>
+>> @@ -1129,9 +1218,12 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>>         };
+>>         *val = 0;
+>>
+>> +       if (type == mpam_feat_msmon_mbwu)
+>> +               type = mpam_msmon_choose_counter(class);
 > 
-> [1]
-> https://lore.kernel.org/all/af4414b6-617c-4dc8-bddc-3ea00d1f6f3b@redhat.com/
+> `type` was already recorded in arg->type, so the result of this lookup
+> will be ignored on the first call to _msmon_read()
+> 
+> If mpam_feat_msmon_mbwu can somehow still result in -EBUSY, then the
+> repeat call may use the right type.
 
-I might be misunderstand this conversation, but it looked to me as a discussion
-about lazy_mmu_state::nesting_level value, not lazy_mmu_state::active.
+Good spot. I think we can just move the 'if' further up. I'll make these
+changes when I do the repost for James.
 
-I do use in_lazy_mmu_mode() (lazy_mmu_state::active) check from the arch-
-callbacks. Here is the example (and likely the only case so far) where it hits:
+> 
+> Thanks,
+> -Peter
 
-static int kasan_populate_vmalloc_pte(pte_t *ptep, unsigned long addr,
-				      void *_data)
-{
-	lazy_mmu_mode_pause();
-	...
-	if (likely(pte_none(ptep_get(ptep)))) {
+Thanks,
 
-		/* Here set_pte() checks whether we are in lazy_mmu mode */
-		set_pte_at(&init_mm, addr, ptep, pte);	<--- calls set_pte()
-		data->pages[index] = NULL;
-	}
-	...
-	lazy_mmu_mode_resume();
-	...
-}
+Ben
 
-So without in_lazy_mmu_mode() check above the arch-specific set_pte()
-implementation enters a wrong branch, which ends up in:
-
-[  394.503134] Call Trace:
-[  394.503137]  [<00007fffe01333f4>] dump_stack_lvl+0xbc/0xf0 
-[  394.503143]  [<00007fffe010298c>] vpanic+0x1cc/0x418 
-[  394.503149]  [<00007fffe0102c7a>] panic+0xa2/0xa8 
-[  394.503154]  [<00007fffe01e7a8a>] check_panic_on_warn+0x8a/0xb0 
-[  394.503160]  [<00007fffe082d122>] end_report+0x72/0x110 
-[  394.503166]  [<00007fffe082d3e6>] kasan_report+0xc6/0x100 
-[  394.503171]  [<00007fffe01b9556>] ipte_batch_ptep_get+0x146/0x150 
-[  394.503176]  [<00007fffe0830096>] kasan_populate_vmalloc_pte+0xe6/0x1e0 
-[  394.503183]  [<00007fffe0718050>] apply_to_pte_range+0x1a0/0x570 
-[  394.503189]  [<00007fffe07260fa>] __apply_to_page_range+0x3ca/0x8f0 
-[  394.503195]  [<00007fffe0726648>] apply_to_page_range+0x28/0x40 
-[  394.503201]  [<00007fffe082fe34>] __kasan_populate_vmalloc+0x324/0x340 
-[  394.503207]  [<00007fffe076954e>] alloc_vmap_area+0x31e/0xbf0 
-[  394.503213]  [<00007fffe0770106>] __get_vm_area_node+0x1a6/0x2d0 
-[  394.503218]  [<00007fffe07716fa>] __vmalloc_node_range_noprof+0xba/0x260 
-[  394.503224]  [<00007fffe0771970>] __vmalloc_node_noprof+0xd0/0x110 
-[  394.503229]  [<00007fffe0771a22>] vmalloc_noprof+0x32/0x40 
-[  394.503234]  [<00007fff604eaa42>] full_fit_alloc_test+0xb2/0x3e0 [test_vmalloc] 
-[  394.503241]  [<00007fff604eb478>] test_func+0x488/0x760 [test_vmalloc] 
-[  394.503247]  [<00007fffe025ad68>] kthread+0x368/0x630 
-[  394.503253]  [<00007fffe01391e0>] __ret_from_fork+0xd0/0x490 
-[  394.503259]  [<00007fffe24e468a>] ret_from_fork+0xa/0x30 
-
-I could have cached lazy_mmu_state::active as arch-specific data
-and check it, but then what is the point to have it generalized?
-
-Thanks!
 
