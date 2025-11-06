@@ -4,162 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4C4CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A0BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 08:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eSvqKvuRYnnqc0g1AAY5YP/eDbwIrO8ljMhMS7PfyhQ=; b=eL55lUmxkvnvZ9ziAbJP56ufwt
-	FkWdUU44CunMYGq9vQhldV85/N1QLGDchXQRcT9bnd9q3rUkgODGpht4lHH9Jrjnwb9bPpm+STuMn
-	Pn6k5eWd5WgV0oFvCNoM29QIDDxAlI5yiT3Z5JYhFtXEiyPpqZv8mM34fMYYDmNbJvWxBCnQ+Qo4i
-	5YNQtemWrxz+/kzQdMPc1SbgFo33taM/QigVtUodD+p84L/OyNPXt+NnK5Our656jdWrYHDbzcBE/
-	GAlqQwE7McMQ0KaN46twk5elwGdrI70HRl9lhdIZnnIk7sQMb1zxGBIIh9jlWoBdhnuVpOWONGq5+
-	Lp0zc11w==;
+	bh=8FnkNdHhMVBUSWhSH665J4Pt2qzWSihqM7/C3ojK3sM=; b=RSGkrWPovWgKUiVSdh/Nwi2W/J
+	ZZ/xrgqseoBqaXzHn7HJ98jLAKGwjBYL3SoFMRAJr1V09FDEZldu9qUPxhkWXbd86GsvolsbBlaPG
+	z1YhZ6qDITJLbXWfRnuYd4HBmK68yptQ7NDsfju+gwXNd+Yo7piRbHh4yq81AFGQ3rsY/O90bey6p
+	18XUVFHcsvKn00xcnS7wYwD4hBgyadO2fiwZZqMQH1A0gT8yLzOJH6/XnVBv97VHuZXafyFgnIQqR
+	my3M2OdA0wgdv+v0Jl4K4mH+CM5nzRfqq+XPRZFnmF33kXsggghFoohNL7EHc61p4iMEhPwzvV84Q
+	ai0YmcfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGv5b-0000000F3AH-3EpB;
-	Thu, 06 Nov 2025 08:11:27 +0000
-Received: from mail-westeuropeazon11013060.outbound.protection.outlook.com ([52.101.72.60] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vGvIR-0000000F3iq-2MS9;
+	Thu, 06 Nov 2025 08:24:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGv5Z-0000000F39X-1C8i
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 08:11:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=epvA3VlrCqJAcxq1HHShqwnkMIDeLVCxPZ5mf2NgF2pHm4H8P2h4BlGOSovrOtUHyBNYuZFbUHLbJd+X0ZxZZ0KuYfG7BIzmUEhCBwTOUrvOvZhstWgNMQqre5kmpfkENHHPJK4pMs9ADjyZB/tBnHi2rfzIQsbMseutlAhb2zajdseNN3Oor7e8skP6rmeQyuMBZV3pHrYoapOC1G4sKnVxe1Zcfm701y7scSN1N3ZWJU7c5mgPse1qhDQH6aG2HDJbO9t/7OctU9Br5MOD28NKXuyMZmJ8+9l6KnvOWCCJ7c5jV09Nnb0GFOlAaGW6W3yJnfNGfoUdQ+clvDrY4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eSvqKvuRYnnqc0g1AAY5YP/eDbwIrO8ljMhMS7PfyhQ=;
- b=F2IUcC2BzWn67JkN7V4PEEz/LpyeCp/lu35cqJggXxD3iQy7E3FN7xRL1yELzKxVFgVUSYjNmTsbNOTo+4vef/3sNkfUfxHd9DuaVa19/y6uUQljh2C7Q+DSxKSjp1+RJq72JV6zhU/IxsZ0131NVLU2bn2r0Grdzsb3mZ/u29w+MgAmbI+/9yVCCUCJSa37ghpuUJfuROIBLWsVh3NyqcFcrafZ5JaD9GNg/znVvKhEQcnBby/gCvFlAzJ/H/zHv9oxXX5AM6+ycc8d2dRgurYPnwlkYKFjeSzn229nzdN9Yxlg6OPgyUGT9G7Va+8cQRj7HitUYQGc0hNfHZMxWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eSvqKvuRYnnqc0g1AAY5YP/eDbwIrO8ljMhMS7PfyhQ=;
- b=CWm0QPK9QKsk0PA7LEHdI0B3P5Oxj43pYajUHLiEIwRgWERSCcxV9XHX7j/uS9pVRl/yODjzlK4mMzwdVFVtG6oxxSBpoxrrnJ3u5COQ99TqcgqZjJ4hEWwAEafGNG+WN1I2osuh/VS8yKMFSfMDa4uuuOMednwXkVYg+fLXeK0tArl2mSONx5uHYc97iNW+8cUl21H5V3od5xjzKbhaB0JPnJpyvAIv566k+ePdFY3rmiKPkS6nrR7vkoxu1IICumc/zpUhrctF7TPJaksdP1FOmFN6FZbi6VQN6hdJBvSLU3fpathhP3wkoBNSf34QEp4oyeXW9mLqCRj58A/VZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB8396.eurprd04.prod.outlook.com (2603:10a6:10:24a::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
- 2025 08:11:20 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.010; Thu, 6 Nov 2025
- 08:11:20 +0000
-Date: Thu, 6 Nov 2025 16:12:03 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-imx@nxp.com, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v5 4/5] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-Message-ID: <aQxYU+QN+8hLZC7n@shlinux89>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-5-shenwei.wang@nxp.com>
+	id 1vGvIQ-0000000F3ic-1JMW;
+	Thu, 06 Nov 2025 08:24:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A105F6022B;
+	Thu,  6 Nov 2025 08:24:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3145C4CEFB;
+	Thu,  6 Nov 2025 08:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762417480;
+	bh=tnT+oLc/kBo4dvSKn58H5wJqyeTpfH6PqdkJR5lwiCI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MQfFohEUn+hXz5i9qgPu11Y8k2A6IGar+vdTxNhbAo5kq96oZC66SvEwCEwZLngMa
+	 nZqgVO6+lGr5SbnAscnFEGlOYth+V4uFEvuRy8xVQMnvVEiHxMmse/uc5VnagiJNt8
+	 7+LUyj+hqpudRx/65qxTU8MdcRF9WWbQQgyoIMJ5FYNqvVvXm0EJe3tzNLVe4x9hWN
+	 OwMtBjGFSqk12yNZ+IiQNnuFCH6ChjQrOxCXNG3qNwMylFktFN1x1Sr2exkVzhcv2W
+	 GcbUH/H4EasrjeEnAZuC2B/VAI67qBmhIzlMObyBFLthPShiCWyultl0kZZGY0ZbBJ
+	 1YtPynLoEba2g==
+Date: Thu, 6 Nov 2025 10:24:24 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Pratyush Yadav <pratyush@kernel.org>,
+	Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com,
+	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org,
+	bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
+	pbonzini@redhat.com, peterz@infradead.org, robh@kernel.org,
+	rostedt@goodmis.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <aQxbOG65t-Vu6TVe@kernel.org>
+References: <20250509074635.3187114-1-changyuanl@google.com>
+ <20250509074635.3187114-2-changyuanl@google.com>
+ <ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
+ <mafs0wm4yluej.fsf@kernel.org>
+ <mafs0h5w2lpqu.fsf@kernel.org>
+ <2ege2jfbevtunhxsnutbzde7cqwgu5qbj4bbuw2umw7ke7ogcn@5wtskk4exzsi>
+ <mafs0cy6pljci.fsf@kernel.org>
+ <c2nrxby4atq75o5yhwdpoikyso42tzimwn2bnl7fk54wuwdqax@i6kdssez3kfj>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251104203315.85706-5-shenwei.wang@nxp.com>
-X-ClientProxiedBy: SI2PR01CA0048.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB8396:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6aa1f7c9-578d-4cf9-b9c7-08de1d0c1148
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|7416014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xq+q+InOCS3+rEfq7kO4l0pJHotmrRuVTdKRCj+KFkbRcYlqAQHip2RMgXiI?=
- =?us-ascii?Q?i06SyHgxD6mcELyKO0/KgdXOGPsUtdSBEcPuChAFnH9K5Cf94JxpTq691C0y?=
- =?us-ascii?Q?FTl/Ybc/cThFQ2UGZil3epdfev/HUfhdYTlFR8YeuKaBbnixB4cEV/+UBSaJ?=
- =?us-ascii?Q?nlE5IWzqlVh7Zt7Wn3gVrOOEp0+1M9FjHshu49lkNLZfNbjgpOrrExG7gir5?=
- =?us-ascii?Q?cEqa5iYiebIDtgHAIuKdYBSrbWl1xMPYhiKCQExzsN0LIJt7rSy6TYJq/HHr?=
- =?us-ascii?Q?N/xNytn0FSgaw0Iv6g3PXT3zuc6YA0xjxEX80V//spmJzmuYP0p5ZMe4Kaq3?=
- =?us-ascii?Q?ayEJxb1pm+uHwxO0OvrvVQAwWGbZpCTuVOdRqFSCYKAp1EAivd6TiyBoUsPs?=
- =?us-ascii?Q?XiRn/oRfr0WBO6pGR+O5QsrUe7quSi0s6u69hFsqv9kroPk4yUdp0v88ZorW?=
- =?us-ascii?Q?AH/L9oGRLxsCQAo1oXDYIj4ks42Y5T4TNwqtoARukPay1+Ygvrz9x094DdUD?=
- =?us-ascii?Q?eBPsAZn2kTdMoHphdPnu1wNxa3gQpjzWFniDa7wdj2fy9YlF2p39ILgxzKSn?=
- =?us-ascii?Q?qwlpVVTyqKILxKb6aFiUsL6esf4xPXp43C0AmfTKjySoKH23vXjrKg6sTOQJ?=
- =?us-ascii?Q?27Q98TOdKhxkpekkA+KcnbR+MU/a4++yEqu43asPP92WNQKNOX5nDx92ReqW?=
- =?us-ascii?Q?3PglslxRlwfhtzPJ5Oxm6kFuisnQ9FwFxxIZFSYoImeleCdV6eKZipjmFpXR?=
- =?us-ascii?Q?+iQ6FKWpTFn4IiBJOWF/akCW+Gzpea5lu4EqTS/W0krvF5Q437GYY77KdgKW?=
- =?us-ascii?Q?8ulSwJPLsXr0SkQhE0wN51ZdAhOXwpmWQunffsOaEq/8kd6oMmgXy2uYQKiA?=
- =?us-ascii?Q?2rwXv/cvgpDGOfWpLerAFvfHVUEB17IzUSAhU2+rBPg8sNIA9rmVfAe9pti8?=
- =?us-ascii?Q?8ZXpzqAnocjIO5lB9RJGymjJHM7GorY4rlx8VI0Ag6GVwzddUfQWs72NwVKL?=
- =?us-ascii?Q?4T/YlgLFd3oiS+X3SA6uEzw76TETlRoXB8KVjD9CSkq+vaQAOwS9pkHELNKo?=
- =?us-ascii?Q?/5RVSVUuQCAKbsgGQ2V/lnOnmNmh5uuFwioX45r+8EtEXNOvGEzvUQpVVVfb?=
- =?us-ascii?Q?ZCavCu9saHKc0izY7v+X7XrZ9PEHVVfXejLl7KqFf7lQjgNps86MPrRp/ixh?=
- =?us-ascii?Q?VVd6Wei5L8S6t13lEg7Ep1t17dgUuJ90tSra6uHWA1YjLgQt2b8U+2gzsOSS?=
- =?us-ascii?Q?V8utEEz8Advn26gjHYQekbVwYH4gf6Nm3DM3390TCxvXXnfpiOiOIkihFz7i?=
- =?us-ascii?Q?rwgiqVHkzP1eymmGai3TKP1Sab/3Gq4+bJvDGBKN0uWtnCmTD27OyykROcRF?=
- =?us-ascii?Q?ORg4o8OKjUrfuWbryBiL0hwENgI1/6s3wbek5gn1uQur1ytnhV+pTt5tkELF?=
- =?us-ascii?Q?ShNDGF0XnqCQxkDwNDzPH0NH4N8YfoTxGKr37s7KNFGj8e7Lb91h1mUqm3JV?=
- =?us-ascii?Q?57m4d8eQpOeEgpKpnFMpDX95cBdhTG7K3jXx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GkydEkXo/N0Hhe3SF4un+5xfPrGxpJ8YRMIlJukAvKVVnFjuxLAyhLXzMZnc?=
- =?us-ascii?Q?LTEn0w5BzzDSPHdM9Ib1jAKl611iDbR1DbUjrk3BR19FaZbF9xBP0mqg69P8?=
- =?us-ascii?Q?I7Ry0ZD4GIdLoeah95tSwrM+3xp1oKl5TzE0wNTLrRz6/fsdWYfL4suD1jQN?=
- =?us-ascii?Q?tpiP6UQXxr/I/DSuSbrzX301iWwzENXYgNt9/w8DHZAx/ZDfsL03b5KTny77?=
- =?us-ascii?Q?/J3OnmJc4B1aFF/r4r2Som6yA7XPWJSTbXL49MlH2hPC5YcQdk+G7H71MJqM?=
- =?us-ascii?Q?bqV+EBF1Ceqx0pPySDLorWaTPhCK2ke4ndDlK/1Ki/olAOJESjzNkWrgN5Lg?=
- =?us-ascii?Q?9xAlvh8l5PNp8Y7AsgRRVr4oc6MGZcPagkO/WnAhcN/8bMuSLLvR9VHBvnnm?=
- =?us-ascii?Q?sCg/4cVxTRrXKpX4PlVKTsPyRUrjFkF7QXo1bKqNmfA2Oshm9q7r8NdmRwFB?=
- =?us-ascii?Q?MVfbOApNuXPWUnkWyO8K3WEtxO52ixhvT4CdH+nEPKCPchOxzM9y55LKxPxf?=
- =?us-ascii?Q?TvwQMhRbpw635v4Pz/EIRnQpKs5dU9Bv8DtMdJBT70GxdCfm02bhWOD5VHzY?=
- =?us-ascii?Q?/mlxC/47TAA+LLfv9XcEvCR/JQnSae/dMEhuwQ/tq3gU+JMak2pEjY1g95cM?=
- =?us-ascii?Q?OGa3ob6W9dRxZkGbyuNBlRS1tom9oQUDM28X1kWqNPCKKgzfY8adepIlt8Mm?=
- =?us-ascii?Q?nFd7agewItFRl6keBvSoYDdZhkzMsgHYvVqRWtXymqNldm66x1ufGoT506xX?=
- =?us-ascii?Q?uVk+CZdb3sFgJyM+SkHZMUVA4GB2+QQmpxxZisk50PrOH8mRiU+iAzNMjDKl?=
- =?us-ascii?Q?4cRwLebT8oGvE1Pp2XPeqLESc+vmpfTcNlPN4SbuYcNKKV7wVcLq7yH10sVG?=
- =?us-ascii?Q?78vKM2tTxbg67iTeWna6XmBOmEzOZN5PYONpEh19BwSpkarQyjFyVMXZWZm+?=
- =?us-ascii?Q?LNSaPyx1jCDMGtQFT24nChgLjDwG9cUQ3Y5KTjIIyDkjAMhLMcUzwvoFrJKV?=
- =?us-ascii?Q?LMLWb3PE8rYq+gtG4JuChVsNP8/AyqOOBz793CnfMh45x1B5yyWNpDsGblT9?=
- =?us-ascii?Q?6jbjULY1vItm7qXIUz/hymSeZDdtiQJCyV74GgbAWFr9rvTYxH0l8U3W+QW8?=
- =?us-ascii?Q?yWhrbR3i9FzDxsBPCLRo/A3tt+zF2VSuRNh2slUQfnZF5KNXU4tR6pCtHHjv?=
- =?us-ascii?Q?CzYE4Y/gmWO8l9/nLfWPzSidRQuDSAR8KItiZKSzU2kuAVzbU2L3O9aEdWb7?=
- =?us-ascii?Q?D+ZXX5GkaIhP1eEFlZiEsb2c6mY6UoeEPVuPvTLi05eHEBqxchC+ifSs+759?=
- =?us-ascii?Q?kzust5qz6rIa8UbBopxG84aZ1kMHHBmkCOMQcAHjParWypHJsLLWlduNZmFX?=
- =?us-ascii?Q?N3lBh5UY/B79xtddSeR4/htDsOKeeAIva0hwGr/iNxu7OFA53ZwYShxw4WB3?=
- =?us-ascii?Q?4TMmNtW9MDWeSkjXanZzvEibBLiBmhbGsECQLeOfd600Ekjlxw3upaZ/A+F1?=
- =?us-ascii?Q?SgijUHM9jY5eU/32fMHpVMGiKZ15tDJ//erKhHrSoE0RCfRlgtLHTLVKbHfo?=
- =?us-ascii?Q?V9dCfwWmmha1H9p6a6NAO2Z6ioEu4lu2qxD/yqzb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6aa1f7c9-578d-4cf9-b9c7-08de1d0c1148
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 08:11:20.3571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7V+W7zJLxp/ojyS8+dXsbRSZ/NCMvx7WT7M8Bo4rknNhlHRuFO++3Z9Ir6EkBToHK0jJEU3q84fmPDBzeTnXWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8396
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_001125_326732_5EEECADB 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <c2nrxby4atq75o5yhwdpoikyso42tzimwn2bnl7fk54wuwdqax@i6kdssez3kfj>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,29 +87,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shenwei,
+Hello Breno,
 
-On Tue, Nov 04, 2025 at 02:33:14PM -0600, Shenwei Wang wrote:
->On i.MX SoCs, the system may include two processors:
->	- An MCU running an RTOS
->	- An MPU running Linux
->
->These processors communicate via the RPMSG protocol.
->The driver implements the standard GPIO interface, allowing
->the Linux side to control GPIO controllers which reside in
->the remote processor via RPMSG protocol.
->
->Cc: Bartosz Golaszewski <brgl@bgdev.pl>
->Cc: Andrew Lunn <andrew@lunn.ch>
->Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
->---
-> drivers/gpio/Kconfig          |  17 ++
-> drivers/gpio/Makefile         |   1 +
-> drivers/gpio/gpio-imx-rpmsg.c | 475 ++++++++++++++++++++++++++++++++++
+On Wed, Nov 05, 2025 at 02:18:11AM -0800, Breno Leitao wrote:
+> Hello Pratyush,
+> 
+> On Tue, Oct 14, 2025 at 03:10:37PM +0200, Pratyush Yadav wrote:
+> > On Tue, Oct 14 2025, Breno Leitao wrote:
+> > > On Mon, Oct 13, 2025 at 06:40:09PM +0200, Pratyush Yadav wrote:
+> > >> On Mon, Oct 13 2025, Pratyush Yadav wrote:
+> > >> >
+> > >> > I suppose this would be useful. I think enabling memblock debug prints
+> > >> > would also be helpful (using the "memblock=debug" commandline parameter)
+> > >> > if it doesn't impact your production environment too much.
+> > >> 
+> > >> Actually, I think "memblock=debug" is going to be the more useful thing
+> > >> since it would also show what function allocated the overlapping range
+> > >> and the flags it was allocated with.
+> > >> 
+> > >> On my qemu VM with KVM, this results in around 70 prints from memblock.
+> > >> So it adds a bit of extra prints but nothing that should be too
+> > >> disrupting I think. Plus, only at boot so the worst thing you get is
+> > >> slightly slower boot times.
+> > >
+> > > Unfortunately this issue is happening on production systems, and I don't
+> > > have an easy way to reproduce it _yet_.
+> > >
+> > > At the same time, "memblock=debug" has two problems:
+> > >
+> > >  1) It slows the boot time as you suggested. Boot time at large
+> > >     environments is SUPER critical and time sensitive. It is a bit
+> > >     weird, but it is common for machines in production to kexec
+> > >     _thousands_ of times, and kexecing is considered downtime.
+> > 
+> > I don't know if it would make a real enough difference on boot times,
+> > only that it should theoretically affect it, mainly if you are using
+> > serial for dmesg logs. Anyway, that's your production environment so you
+> > know best.
+> > 
+> > >
+> > >     This would be useful if I find some hosts getting this issue, and
+> > >     then I can easily enable the extra information to collect what
+> > >     I need, but, this didn't pan out because the hosts I got
+> > >     `memblock=debug` didn't collaborate.
+> > >
+> > >  2) "memblock=debug" is verbose for all cases, which also not necessary
+> > >     the desired behaviour. I am more interested in only being verbose
+> > >     when there is a known problem.
+> 
+> I am still interested in this problem, and I finally found a host that
+> constantly reproduce the issue and I was able to get `memblock=debug`
+> cmdline. I am running 6.18-rc4 with some debug options enabled.
+> 
+> 	DMA-API: exceeded 7 overlapping mappings of cacheline 0x0000000006d6e400
+> 	WARNING: CPU: 58 PID: 828 at kernel/dma/debug.c:463 add_dma_entry+0x2e4/0x330
+> 	pc : add_dma_entry+0x2e4/0x330
+> 	lr : add_dma_entry+0x2e4/0x330
+> 	sp : ffff8000b036f7f0
+> 	x29: ffff8000b036f800 x28: 0000000000000001 x27: 0000000000000008
+> 	x26: ffff8000835f7fb8 x25: ffff8000835f7000 x24: ffff8000835f7ee0
+> 	x23: 0000000000000000 x22: 0000000006d6e400 x21: 0000000000000000
+> 	x20: 0000000006d6e400 x19: ffff0003f70c1100 x18: 00000000ffffffff
+> 	x17: ffff80008019a2d8 x16: ffff80008019a08c x15: 0000000000000000
+> 	x14: 0000000000000000 x13: 0000000000000820 x12: ffff00011faeaf00
+> 	x11: 0000000000000000 x10: ffff8000834633d8 x9 : ffff8000801979d4
+> 	x8 : 00000000fffeffff x7 : ffff8000834633d8 x6 : 0000000000000000
+> 	x5 : 00000000000bfff4 x4 : 0000000000000000 x3 : ffff0001075eb7c0
+> 	x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0001075eb7c0
+> 	Call trace:
+> 	add_dma_entry+0x2e4/0x330 (P)
+> 	debug_dma_map_phys+0xc4/0xf0
+> 	dma_map_phys (/home/leit/Devel/upstream/./include/linux/dma-direct.h:138 /home/leit/Devel/upstream/kernel/dma/direct.h:102 /home/leit/Devel/upstream/kernel/dma/mapping.c:169)
+> 	dma_map_page_attrs (/home/leit/Devel/upstream/kernel/dma/mapping.c:387)
+> 	blk_dma_map_direct.isra.0 (/home/leit/Devel/upstream/block/blk-mq-dma.c:102)
+> 	blk_dma_map_iter_start (/home/leit/Devel/upstream/block/blk-mq-dma.c:123 /home/leit/Devel/upstream/block/blk-mq-dma.c:196)
+> 	blk_rq_dma_map_iter_start (/home/leit/Devel/upstream/block/blk-mq-dma.c:228)
+> 	nvme_prep_rq+0xb8/0x9b8
+> 	nvme_queue_rq+0x44/0x1b0
+> 	blk_mq_dispatch_rq_list (/home/leit/Devel/upstream/block/blk-mq.c:2129)
+> 	__blk_mq_sched_dispatch_requests (/home/leit/Devel/upstream/block/blk-mq-sched.c:314)
+> 	blk_mq_sched_dispatch_requests (/home/leit/Devel/upstream/block/blk-mq-sched.c:329)
+> 	blk_mq_run_work_fn (/home/leit/Devel/upstream/block/blk-mq.c:219 /home/leit/Devel/upstream/block/blk-mq.c:231)
+> 	process_one_work (/home/leit/Devel/upstream/kernel/workqueue.c:991 /home/leit/Devel/upstream/kernel/workqueue.c:3213)
+> 	worker_thread (/home/leit/Devel/upstream/./include/linux/list.h:163 /home/leit/Devel/upstream/./include/linux/list.h:191 /home/leit/Devel/upstream/./include/linux/list.h:319 /home/leit/Devel/upstream/kernel/workqueue.c:1153 /home/leit/Devel/upstream/kernel/workqueue.c:1205 /home/leit/Devel/upstream/kernel/workqueue.c:3426)
+> 	kthread (/home/leit/Devel/upstream/kernel/kthread.c:386 /home/leit/Devel/upstream/kernel/kthread.c:457)
+> 	ret_from_fork (/home/leit/Devel/upstream/entry.S:861)
+> 
+> 
+> Looking at memblock debug logs, I haven't seen anything related to
+> 0x0000000006d6e400.
 
-The patch looks good to me, but since the protocol is already generic
-enough, I would prefer to drop "imx" in this patch.
+It looks like the crash happens way after memblock passed all the memory to
+buddy. Why do you think this is related to memblock?
+ 
+> I got the output of `dmesg | grep memblock` in, in case you are curious:
+> 
+> 	https://github.com/leitao/debug/blob/main/pastebin/memblock/dmesg_grep_memblock.txt
+> 
+> Thanks
+> --breno
+> 
 
-Thanks,
-Peng
+-- 
+Sincerely yours,
+Mike.
 
