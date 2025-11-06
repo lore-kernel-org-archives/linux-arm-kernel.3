@@ -4,156 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448D3CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C55BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=; b=mKqdGk2UQBjwuWUuwk0i+1xRJX
-	DcVynI/Utc1AxT5N/WzCrgmLhW3u5JKYl5iQopjukb1A5D8qXGqI5zKlD3pqeYox2ss/xklYnzeMM
-	bEwl37ocyon3GC+NWbVZywg6P9R5dRVFrIortg4hTQ+f4jqCBgzQ46e53erdmFBCrrEx3YFXXKf74
-	1zu6cb1/WmVU89Vjb3lVSAkjqq/fTMSzvjsWk5XsiyguD1Z5A0JIbux+cJXgRkzRB8S9YqS+Pq1Mq
-	Ri/puoKrQToC6mCYm4R+o3E20kiWAkRn9yr+r6NBVwTxdnr3jOzz97jfNQr043Zeg+2V/o8xi9jPX
-	yP1wMAQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDA8Rn8P10pKwvXb+LSgDWoKAa6kJcxmviqNi517CuY=; b=IjZKBPBuocMUFMHPBAwMQyqpug
+	Dj3RIXtnXLc39pC6WnpGcvhxSe/Br/yqGGE6dNTWfuV1YsLdAUkvzihOhi0xWfEmg8U7dQJXVw9cj
+	R6PcqFsuZ0F9Jkd57W0YM7hmQG4xoFiAcOpxZtsqnvaOIlON6bLXqEsBgmoeMWmCYevykokX621N9
+	Pp2GO/K3uru3sRAnzgIxw0hPv70ot4LprU9r6QrNYN0oG+DwCGw7/a/y6YhmEVKaDIlgpq5IbnL/j
+	IkJLYRa/YtGopKTx96zBmBEECmfCooJeaNwApKewCj9y5TSGVS7zjiXf4CNJbEm2yCCGPe1dEqVmo
+	elsq0p9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2X9-0000000FsLD-3p4b;
-	Thu, 06 Nov 2025 16:08:23 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2X7-0000000FsKJ-3vtB
+	id 1vH2YM-0000000FsfQ-3utc;
+	Thu, 06 Nov 2025 16:09:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vH2YK-0000000FseT-1yTA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:08:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TyH+WtNFBJTQjiWWR8wzc0vHwOg++RWrk9jwngjXEkGCwe5mkvuhTHWzYyBW/W7cPb8j6A5cgo5l/p4BJFkQ5SeV82TIc1QIhU3gPEeeXy5B5VSeNtEfY3lxNXqRSB1qzvzLMtb/tot7TYFcymbOJv8lcfzTcXBbYPe/qL/IvJJMzHLGYjhZsGcCxlqTwacnna+EVNyDHy7vNx7f0cVzeBkY0UwHlXQAvkbBiEDND7/evkyoQawDkGP15doFYZ4L3DX6ASdjml7wNnFR+lc9V43lYvfD9cVs0uGGFAHTa63pyY31KWHp0rBCOAvo8iXKnCn9zOA0dmdSsmskMfu2LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=;
- b=AykKU1lUlIQ6Xu+7IWsWMZmwOmuOlBiMXuhYw29iPx9csIUb+EkDk3TBIMUwki4Rq+HRQSjfM8zDmPu7x+B7VehOniKk2VRDB5KmwMZN3xy0mkZ5pzawa+7+FVySdIj190c3UtctvDuUURXWH2HrC8H3AHbP/hsAGwFo0cVkv744JZxt9rerGC8zWjOzRmeMKH/AyZzOHsbZ1i+jMVntvf5SaEoRE7VbQE7vC5vUMBk/kGOcrnxa015v0wYCs0YeyHn3QncM2QgDlh2YfMf05F1W19dOgGV0L/ZfTiRJChI+8wVD67RZhS6zZhTdukGCXXL/A+sPA/ySzBA4GQ9iRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IbP1KearppWvvqn0sMoFf+o4oP7lZ12WSv+DIZyMOSE=;
- b=dXzqQtAkTJT7cCF7k4s88wdNQITPgYsDVFLYGO6InCQfoYQ5H5urKv8UTACt+GeJoS9XHpF7cVlb4DSO26pyuvXYSIbrdy3r3Z6I8eJoGAuOklsO6QksvRz2EjFGEaerxGW9wQmQ35TPGEIK04WddQAuLQfUMVZJ7Ylb94d2Z/vjtr8lS/TVmsw/8z9RVUpMECOP76eZOp/RwfFk1V8AMtd8HH0jqlgRaFE7au3oosrKER5ih6Evjdo/7IvlJJ6McieHd7ForgXFtMOD4BJbkRv6M/PJ7HcWIQnccd3B/Gn6vBtY3nRiX7gAVUaXsfgcRfkJctzYgzEKOJXfUOat+w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by VI1PR04MB9977.eurprd04.prod.outlook.com (2603:10a6:800:1d9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Thu, 6 Nov
- 2025 16:08:16 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.006; Thu, 6 Nov 2025
- 16:08:16 +0000
-Date: Thu, 6 Nov 2025 11:08:07 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 04/11] remoteproc: imx_dsp_rproc: Use dev_err_probe() for
- firmware and mode errors
-Message-ID: <aQzH54KT5Y3WAV1v@lizhi-Precision-Tower-5810>
-References: <20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com>
- <20251106-imx-dsp-2025-11-06-v1-4-46028bc3459a@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251106-imx-dsp-2025-11-06-v1-4-46028bc3459a@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0354.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::29) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Thu, 06 Nov 2025 16:09:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A750812FC;
+	Thu,  6 Nov 2025 08:09:27 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA2FC3F66E;
+	Thu,  6 Nov 2025 08:09:30 -0800 (PST)
+Message-ID: <40b19590-d97c-472b-a577-0b637f6507ef@arm.com>
+Date: Thu, 6 Nov 2025 16:09:29 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|VI1PR04MB9977:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e7135c4-8959-4ff7-8955-08de1d4eb197
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1y0svSTdlRPprHDIcIEs42ZetLisLWYGLSbbXRluWfmNF0adjvbdeW+Qs6pr?=
- =?us-ascii?Q?gZPzS3IhgDVtH7TJDFkdL28UpbB2iBdsQbvwUcOKSxsBccnyl/TjwIy3TL92?=
- =?us-ascii?Q?gRMZR3q48FvpXr31m92KfNvPNHdhGC16IwbROSbTHGrp/PjTEJtNIcQ2f2yR?=
- =?us-ascii?Q?hW6fK6ykX+ZRsIW0+zA+dLPG/DaZdLZjBWDASBBb5zv2pJP7iwMMjM+G9I0I?=
- =?us-ascii?Q?0ha8AZyx3s1x2lRxvDWgamm2+KP+CrtJVPsnsK7jVhAC+sEn4wQvFFKtoWO+?=
- =?us-ascii?Q?TzRs6NE60BY+xgF0j/YOXlcK0H0Cd7V+uYdL0Z7D0YD5F/Iq0vbhymDYlY3v?=
- =?us-ascii?Q?mB7NSdVjWVa19ZquuaeJg0nEI+2Qd865YDaAN5Sp++E2sUDNR2qiP5wFG0xX?=
- =?us-ascii?Q?V4xf20Dy2Qwtb0c2zhiKDGp5TUozjR7JG6yH9sp+UUmKhZOpDb2JOEK84xzd?=
- =?us-ascii?Q?gtJmNChusUzBHXWMG3bb63grFLZtJm9+WKQfuqfioqS7Zf+zOQsS/2T/PydN?=
- =?us-ascii?Q?aIm4imXxTOSCBAnC/XWtUEb8I5T5u14o4chnk61Wc99ykvqlbinEkF409BkZ?=
- =?us-ascii?Q?z5NxWwYQAG3d5Js8x2XqSrtLVoZNx2DAdPSON9+j0sF7UcBsilqsPOvo/SMC?=
- =?us-ascii?Q?iv/uVQXFVXpf1laU/BLyc5FsY6bdVbj0yXhIX7ZXo4IxLZwKGlb36VVUAojE?=
- =?us-ascii?Q?U48EXEqumUuT5bFwJzhpTO00j8/YFOb9Kh/Zx8qnOa3VrMTFdITKw9ky7Y2S?=
- =?us-ascii?Q?ppEhcKcv7szD8aDKXT8r+NWfjPOf6b2A5UDo+Nk+bimnGIV1ngIxhGqlxYnO?=
- =?us-ascii?Q?EaWDRqn+/u9/d7Cds8PaXf/aKcjpcRoHA3GGSz0sN44vwbCeI/XSmKYV4rpV?=
- =?us-ascii?Q?2qBX0qyxNkbrnPa5DzusZ9w4QyLzhU7S767Flh1FZoNwIekCKYnMikw9VWEs?=
- =?us-ascii?Q?cGNn9ybrNpauumNUSuUo66c7zgLXf8tMj98bI275auJ/p/xQOmXQxDKAYv/0?=
- =?us-ascii?Q?0LyCmsx1c2CLT4qp+dVxqRmiCEWdWeKo9ETl5zGWNhYh2SZeFWXFp3m0UMjr?=
- =?us-ascii?Q?ebwSTznpDAy/q7yy+5rIfnt9WeUKdQHFfGjwp8uRrDxxLiqIr8juu0hq3fHx?=
- =?us-ascii?Q?BwJC89SD4k2MuSNJvrcT0CuQzl6jjWHtpsWkROK3KSFhQWIZETym/tt2uCuy?=
- =?us-ascii?Q?TqPDapdi8PTSfL86CVkhkyNhyHzN4E6XzxQWBJFJhJmOBnz6ZxR702Hy7FAr?=
- =?us-ascii?Q?KceTw+L3el/+26FVEgcYZwJqrxcDFXR2porLvLL7E58YQuQqX08GCGpAh7rW?=
- =?us-ascii?Q?8SNCTMlKKXKy7YKU8H4jHg8SCt98dV+rIFfRmA0oVox59izQJ9sKPVsVQkul?=
- =?us-ascii?Q?F8LtKSdrWZesWquvjADM2iJlD7//2djupSxs7COKgruoymN+GQM2cnZewmyH?=
- =?us-ascii?Q?Oel8CLFT9NUamoTnxyQ4IpyVFXXviPhLRKZpP9xaSoYNBK4YdhpWCQk4lzZF?=
- =?us-ascii?Q?oOGgf4M0odJmBes2k0AMYLg3B5z/MPaJSr0M?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iFC3eKDeCClqboP8MUPQROHhZlT1onqx1pqoZWA7oB5vXKSzjEiMzmtNboRw?=
- =?us-ascii?Q?YwbuQC0PrKr6K+UsPdi6PRQC8MttwzaEu++9w1Zf5v2oIDJp6WNFTjp4kUTv?=
- =?us-ascii?Q?xtmfKHS3NuTusyouItQcJ+sQY/Ds0eL56LGYSalPzqsW+M3WHVL7xXRup12C?=
- =?us-ascii?Q?9i4y2tzQtmxCrjkX0reqZ1CkWhyPz4kNsCcL22UHwX6HnfqhLYY3ZxZOEaax?=
- =?us-ascii?Q?eDYW7M9VNDP8I5XaFIEWkKV8b89986aqbfhPw08UUsQLSXLADh8b3ig1zSsg?=
- =?us-ascii?Q?sVFL0KpT8yVhq+m+b0Npg3474AFcwBKM0Meey0G8/7sBomlkdH8UJIs5WA65?=
- =?us-ascii?Q?nFMAxXEke1BHesORGBPsZQlFKKQJJpLBAnAjY9KcCvwsL5m1xyx29FHkGR2x?=
- =?us-ascii?Q?oNg7BA703b/SCjOid+Hls4koCgYhE65gEpU3OJmqPsI0NOkANuhslYjL/BYR?=
- =?us-ascii?Q?DgZCF2+4gspjuAIVCINnph5oO4Bvhf2oqQ3Wce6NaOy5WzJyooCzZvJY3tnG?=
- =?us-ascii?Q?qxkMMZVkC6g1XbnyHLYMTMIcxOeb8KJ1cYI2/19OPwmi8lLM9F7mGoGeia+k?=
- =?us-ascii?Q?R7NGpkOwyG9Qg9JXq482/RCUNHzmOqGq9iDHft+lAZ8j9DYueBB2TxZU7BOS?=
- =?us-ascii?Q?xRJp1rW3Vg9EzvV6aeUffC9eFYI0SR5TPKg2bQmLhIQCBtmHPvuf9id1axVC?=
- =?us-ascii?Q?F5itG0XJvR3HZ2BDzN6Jhobbas47w9nBffqSbBue5gi1dvX5Qzl8iCHRSeE2?=
- =?us-ascii?Q?YapPqOvzpQ/Y/3Bxcf+IkEXqL4TlugMqLIiTFmBi1k7ehRUN0fvK/cfLBfm+?=
- =?us-ascii?Q?C1VFnVNQxSXfLnhPKAzE/cpYGRCq9kGegeYPLSSObp4o0V835Ap7tlg1HSlk?=
- =?us-ascii?Q?p3qeX4Jmvt7/zQJSYPYS01AeDmbZ1eDIojetK/8wUVr28kBVnijFBFJpBHxj?=
- =?us-ascii?Q?GH+W2C5acG41PvbLuiZKv8uvGhdt8jeUt5a1fr4j7tF/Yrhv3/fRMGDHv5Vo?=
- =?us-ascii?Q?c51zuKRfWXvH2P8w9ZsxNF/FncT5NddbZjYkmWH0zy386No3do+Fy17I5GYP?=
- =?us-ascii?Q?O/I6f6gO/ee0WuFRAqL/BnyYTPvBy1jG0NI80AL/jKL588Y5ebPBXu+rNHc+?=
- =?us-ascii?Q?BZvJgEWYsLmPFLtitofqXM5FYHcwrSrxlrtjsvr010KVj/BvOMgrRP/rq6lp?=
- =?us-ascii?Q?QtVJ3S//lyay7OJh6nm5Y9AqAqMyGpb8nV3H827Wq4L8Dtbj+bF4zV3Bqtfn?=
- =?us-ascii?Q?QZHpPw09LxPx4FOOIug4eEsgbcQXFxDBstvzuJY9O1A8mgYE/fjBlN/fXzvv?=
- =?us-ascii?Q?JJE+N5LLmnqtRxKQlzPoPwQEA1j87GJBUBMlIGI2z3iBCPLoxVCkP+G6ndFk?=
- =?us-ascii?Q?Tdiszp5oTm3eheSvtSUlMYPtAUcKinE97MnNo5bC2zqwk/MOIt/j6YXxBDV8?=
- =?us-ascii?Q?A3ywRxO/rnLplx0mjHj3krQO7KrR4Jbaq1wHIxpq6WuiarQenNgM0PMsadyd?=
- =?us-ascii?Q?HOBxVuBD+aXOCNKd+npHqIT4QglgTz5BofQhRdVtYryLCaqHvcHETNjDlBy7?=
- =?us-ascii?Q?a3KqgjgdOmPpEiD3xqHKgipV9Pxv1gJih+GBheFP?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e7135c4-8959-4ff7-8955-08de1d4eb197
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2025 16:08:16.0745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wr5rRSQ6A9PghoDht+tcjnRPFmhIQAPGsNz8UhjP69v10iXPOGB9Lc7tMJo6/fV0683SBkfOeWgoilnVCAbbtw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9977
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/29] ACPI / PPTT: Add a helper to fill a cpumask from
+ a processor container
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-2-james.morse@arm.com>
+ <20251024122650.00001d00@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251024122650.00001d00@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_080821_980782_F7A329BB 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20251106_080936_610283_69062D9E 
+X-CRM114-Status: GOOD (  39.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,60 +84,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 11:30:30AM +0800, Peng Fan wrote:
-> Replace error logging and return handling in rproc_of_parse_firmware() and
-> imx_dsp_rproc_detect_mode() with dev_err_probe() to streamline error
-> reporting and improve consistency.
->
-> Reduces boilerplate and aligns with modern kernel error handling practices.
+Hi Jonathan,
 
-Nit: simple said
+Replying for James as he's busy and I've been tasked with posting the
+next version of this series.
 
-Use dev_err_probe() simplify the code. No functional change.
+On 10/24/25 12:26, Jonathan Cameron wrote:
+> On Fri, 17 Oct 2025 18:56:17 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> The ACPI MPAM table uses the UID of a processor container specified in
+>> the PPTT to indicate the subset of CPUs and cache topology that can
+>> access each MPAM System Component (MSC).
+>>
+>> This information is not directly useful to the kernel. The equivalent
+>> cpumask is needed instead.
+>>
+>> Add a helper to find the processor container by its id, then walk
+>> the possible CPUs to fill a cpumask with the CPUs that have this
+>> processor container as a parent.
+>>
+>> CC: Dave Martin <dave.martin@arm.com>
+>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+> Hi James,
+> 
+> V2 has dropped out of my memory more or less so to get this back in
+> I'll do a fresh review (even of ones I've already given an RB on).
+> Nothing here to change that tag. Just some naming / comment suggestions
+> that I think would help a little with readability.
+> 
+> Some of these comments come from me forgetting how the spec named
+> things and so going to take a look.  The spec isn't consistent with the
+> naming (e.g. ACPI PROCESSOR ID is not necessarily a processor
+> ID) but I think keeping closer to spec names will help readers. 
+> 
+> Note this may all be in the category of perfect being the enemy of
+> good + upstream so I don't mind if you ignore.
+> 
+>> ---
+>> Changes since v2:
+>>  * Grouped two nested if clauses differently to reduce scope of cpu_node.
+>>  * Removed stale comment refering to the return value.
+>>
+>> Changes since v1:
+>>  * Replaced commit message with wording from Dave.
+>>  * Fixed a stray plural.
+>>  * Moved further down in the file to make use of get_pptt() helper.
+>>  * Added a break to exit the loop early.
+>>
+>> Changes since RFC:
+>>  * Removed leaf_flag local variable from acpi_pptt_get_cpus_from_container()
+>>
+>> Changes since RFC:
+>>  * Dropped has_leaf_flag dodging of acpi_pptt_leaf_node()
+>>  * Added missing : in kernel-doc
+>>  * Made helper return void as this never actually returns an error.
+>> ---
+>>  drivers/acpi/pptt.c  | 82 ++++++++++++++++++++++++++++++++++++++++++++
+>>  include/linux/acpi.h |  3 ++
+>>  2 files changed, 85 insertions(+)
+>>
+>> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+>> index 54676e3d82dd..58cfa3916a13 100644
+>> --- a/drivers/acpi/pptt.c
+>> +++ b/drivers/acpi/pptt.c
+>> @@ -817,3 +817,85 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>>  	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>>  					  ACPI_PPTT_ACPI_IDENTICAL);
+>>  }
+>> +
+>> +/**
+>> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT processor node
+> 
+> The spec calls these Processor Hierarchy Node Structures. I think the
+> addition of the Hierarchy word will help people understand this isn't
+> finding things below a node specific to a processor but to some higher
+> level hierarchy structure.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I've taken your suggestions around adding hierarchy in the comments but
+for the variable and function names I've kept them as they are as adding
+hierarchy in made them more unwieldy.
 
->
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/remoteproc/imx_dsp_rproc.c | 13 ++++---------
->  1 file changed, 4 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index f5d0aec52c56664d6074272e276edb0c4175c9ea..87f4a026c05fbf1c9371058290b2d33cb94b9e54 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -1150,11 +1150,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
->  		return -ENODEV;
->
->  	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
-> -	if (ret) {
-> -		dev_err(dev, "failed to parse firmware-name property, ret = %d\n",
-> -			ret);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to parse firmware-name property\n");
->
->  	rproc = devm_rproc_alloc(dev, "imx-dsp-rproc", &imx_dsp_rproc_ops,
->  				 fw_name, sizeof(*priv));
-> @@ -1177,10 +1174,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
->  	INIT_WORK(&priv->rproc_work, imx_dsp_rproc_vq_work);
->
->  	ret = imx_dsp_rproc_detect_mode(priv);
-> -	if (ret) {
-> -		dev_err(dev, "failed on imx_dsp_rproc_detect_mode\n");
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed on imx_dsp_rproc_detect_mode\n");
->
->  	/* There are multiple power domains required by DSP on some platform */
->  	ret = imx_dsp_attach_pm_domains(priv);
->
-> --
-> 2.37.1
->
+> 
+>> + * @table_hdr:		A reference to the PPTT table.
+>> + * @parent_node:	A pointer to the processor node in the @table_hdr.
+> 
+> Likewise, calling this a "processor hierarchy node" would make things
+> clearer.
+> 
+>> + * @cpus:		A cpumask to fill with the CPUs below @parent_node.
+>> + *
+>> + * Walks up the PPTT from every possible CPU to find if the provided
+>> + * @parent_node is a parent of this CPU.
+>> + */
+>> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+>> +				     struct acpi_pptt_processor *parent_node,
+>> +				     cpumask_t *cpus)
+>> +{
+>> +	struct acpi_pptt_processor *cpu_node;
+> 
+> This is definitely a processor hierarchy node.  To my mind
+> cpu_node doesn't convey this.  See below for more, but perhaps just renaming
+> it to include hierarchy in the name would help.
+> 
+>> +	u32 acpi_id;
+>> +	int cpu;
+>> +
+>> +	cpumask_clear(cpus);
+>> +
+>> +	for_each_possible_cpu(cpu) {
+>> +		acpi_id = get_acpi_id_for_cpu(cpu);
+>> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> 
+> Here it is indeed a CPU.
+> 
+>> +
+>> +		while (cpu_node) {
+>> +			if (cpu_node == parent_node) {
+>> +				cpumask_set_cpu(cpu, cpus);
+>> +				break;
+>> +			}
+>> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> 
+> But here it is a processor container or a private node.  So
+> cpu_hieriarchy_node or something along those lines would be more appropriate.
+> 
+>> +		}
+>> +	}
+>> +}
+>> +
+>> +/**
+>> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+>> + *                                       processor container
+>> + * @acpi_cpu_id:	The UID of the processor container.
+>> + * @cpus:		The resulting CPU mask.
+>> + *
+>> + * Find the specified Processor Container, and fill @cpus with all the cpus
+>> + * below it.
+>> + *
+>> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
+> 
+> I'd go with 'Processor Hierarchy' here
+>  
+>> + * Container, they may exist purely to describe a Private resource. CPUs
+>> + * have to be leaves, so a Processor Container is a non-leaf that has the
+>> + * 'ACPI Processor ID valid' flag set.
+>> + */
+>> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+>> +{
+>> +	struct acpi_table_header *table_hdr;
+>> +	struct acpi_subtable_header *entry;
+>> +	unsigned long table_end;
+>> +	u32 proc_sz;
+>> +
+>> +	cpumask_clear(cpus);
+>> +
+>> +	table_hdr = acpi_get_pptt();
+>> +	if (!table_hdr)
+>> +		return;
+>> +
+>> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+>> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+>> +			     sizeof(struct acpi_table_pptt));
+>> +	proc_sz = sizeof(struct acpi_pptt_processor);
+>> +	while ((unsigned long)entry + proc_sz <= table_end) {
+>> +
+>> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
+>> +			struct acpi_pptt_processor *cpu_node;
+> similar naming thing here. 
+>> +
+>> +			cpu_node = (struct acpi_pptt_processor *)entry;
+>> +			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+>> +			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+>> +			    cpu_node->acpi_processor_id == acpi_cpu_id) {
+>> +					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> The double tab indent here is odd.
+> 			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+> 			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+> 			    cpu_node->acpi_processor_id == acpi_cpu_id) {
+> 				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> 
+> Isn't find I think for readability.  I could understand the bonus tab if it was
+> close to aligning with the line above but it isn't.
+
+Indent fixed.
+
+> 
+>> +					break;
+>> +			}
+>> +		}
+>> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+>> +				     entry->length);
+>> +	}
+>> +}
+> 
+> 
+> 
+
+Thanks,
+
+Ben
+
 
