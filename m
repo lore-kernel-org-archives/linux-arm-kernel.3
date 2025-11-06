@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA946CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E398CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 17:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVFA7b5QNQKKgbY4Sgbk0fAZQJ8jQ8t0W8uUVANJyQ0=; b=Jk4o4EucOPuApIBFWoqHTeii8Z
-	y9sWzJKXQhjjzYgNTgrvEXSY3rc0SE/Y3+5ldFFkRK0GSfHzsJD29zUemE5vwg4zFHoYCssLZyRJP
-	dWUZoJ0xUGtqE3ScovjCDJJep4Qsg173s8RsrgorlwkAJacts1280CBN9gNB7ad5dEf+Hq9oISmIx
-	SoAoGFOSTo2VeR7zlxMs4v4pEVvGFgz+HYJRMvScVH+BdiAaEx8DNoKmoSMdcSWVlxosyAnLYU13l
-	OqzWOlDsk8MQUlLNk1j5RlpPL42HLyhkPLNVZzHebXd9nA7kDtQkDMiCLxi7lr/TLB98gXHTH2ekv
-	RLuHpxtA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8khqmivdHqvLRaEjWc9ce8rzijxmIFPMF+BQyZmHFIg=; b=2K18WqQCF6g+zT
+	UfjVpKcpkgGpRZ11wJXLMdvvaAQw44KVFTtero/ScRu+vxOHk7zc7zQHxeF2Q/Lb/iSYpi3nvxLqD
+	cFljx2pfedC0xQShC6vrM9HKtsTCWeMvbM4kD35B6OyBPSXq1/tSSl2EczrTF7IX/Cag86N4t3joY
+	vTmDyv/JHd60dmBpaVaFNwJU++ZcWrflLlwpDtK2bvFxlbfKygd/bR/NbU15CIfRmmCFwlXv4w5C3
+	oUoEgkq2ihB92deYOurf2iCRQvIkti1gdU20TcfR6WUTmeYLlyiHq0uEfgh3OaevA/oYyQIL/WTgK
+	oD36DW1waGThKEci1JWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3sE-0000000G24d-0yLd;
-	Thu, 06 Nov 2025 17:34:14 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vH3wn-0000000G2W8-2RQB;
+	Thu, 06 Nov 2025 17:38:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH3sC-0000000G24C-0MQV
+	id 1vH3wl-0000000G2Vm-2A1J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 17:34:13 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-64034284521so1953660a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 09:34:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762450450; x=1763055250; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UVFA7b5QNQKKgbY4Sgbk0fAZQJ8jQ8t0W8uUVANJyQ0=;
-        b=U18JmAI5lNwjN3vcI7QDghnHc90dJW2UUM0IrRVSgx6Ko5upmf8MR1r369JFFfucgp
-         3Lc7g9bQKVeM5m6N4XwzLhEPTTpGMWmWUE/hKFWdLTy9ikV2LWPykZQYmjJLe+/ShZ/Q
-         03OsRqtmtefDD6Hs/mSKzNuAe3CFwfh32sdkSIF5Bh44Nz09WE0PagR0ATtHsKv96lOT
-         bJ/mRyYTHZVeeU9jaBOxLqs9ZHxsO4Mano1xidByV76BAam4la+geq5JBAFZBG2CPL6M
-         eF2dHChr66ha74DhQ2DmYpLagFVMhUvQnbnHjs614E1r8wtNEXGjcHFf8MQ1vhXBY1wJ
-         Bkmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762450450; x=1763055250;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UVFA7b5QNQKKgbY4Sgbk0fAZQJ8jQ8t0W8uUVANJyQ0=;
-        b=oH31jvjpmon054PNPrlNZtJT2T1ZMEGP8nPQI1RVx8P0uEAue/qdw/KO62dP5k465D
-         keWHKT/URhMi0GvWzC4RAPbIe7iENf1QWg+z7WoT8hUBbLNE72NZFodXbqR0cQBwHBbg
-         T3B1HQo25Ieoxa98Q/NLf+Q5G6TP8AKPsWuENRC2dYmddcflAfS/pJHXmBFBnJ22kULx
-         p303D/+HBhyG2aJ9XZVERVzIb4NYU53e9sfoELGyEfsjQgWm4DGtNWVDGbhuDRUx6lGt
-         fkfIiJvevp9nRPOTl57DkcTYo7GM64YbsF4Bn+/46zpQwDv8P0hmVtccJUb0z+9wa99d
-         huAg==
-X-Forwarded-Encrypted: i=1; AJvYcCVjigk59F4upuWTK+ATbA/Lu1+WrlonCI3rPrUqjNvwpN0+hxw5Wuha4iY37okxHIRZIeIkZPjQzzKrDGdhfO24@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH7hK40P+Nfh3RlkCzz8AB07WcRgfPREQRfIubv/euwrmNVMzC
-	b9AhHKoOBfX1AkNDee60RwH5KRAcD91xcWDA0HshSIdoxMI4OHoElgIoLouzPVfj3dyfkhRXj+t
-	uFGi+BYFyGiR15SEUTTj0r+fePYAP2cux+amd8PmRLw==
-X-Gm-Gg: ASbGnctzWqGmnwLOaRUkAQgJGb4Qlsr4W9tXd005Y7FmzvvlZrwp/WdyGA5B8i1pdO7
-	W2dzx/nv5+5ZKGZFnZnYbtdkCAUlssKwIcA/Ypr3e1XBB5+HBMTCNAe+nuv18zU1CgMQSAP2i8i
-	tkD2uMPc4Ha5qiVHzcw2lBTK8EjOdPhshVxcA4AIBnJp5G5w5udzkE48YaWkLEN4s9ffXeUXx8c
-	q1mhxAlZFJfYha/yjWUadgI6Efe9tsbLVLkGUlIhx+iwh/MJLMvFSLHx0O38w==
-X-Google-Smtp-Source: AGHT+IHa3dttDqTITgV3tGTkp6TSuSmsFY+1K88280Yqh8YjVvfMj6OJH0DKtk3h1bhQap8rFtBGhpjoLqExb/O6Ijo=
-X-Received: by 2002:a05:6402:35c3:b0:641:3090:cba3 with SMTP id
- 4fb4d7f45d1cf-6413f094b4amr145941a12.37.1762450450078; Thu, 06 Nov 2025
- 09:34:10 -0800 (PST)
+	Thu, 06 Nov 2025 17:38:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E12AE4018C;
+	Thu,  6 Nov 2025 17:38:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90CEEC16AAE;
+	Thu,  6 Nov 2025 17:38:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762450734;
+	bh=KT4NxU4wzZtWzjzdNyOaIb2J5xsI7ldg+J7TbPIxc2s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=RKZnoXF2yCM0esJy0nNdLPHb5DCoMw2//OUPJtCchG/Cd8esCy4W7xNGUF9NZtym8
+	 HKyyWeEERf8/AN3v7TvGd/1muy/vbounHttD2Uc0onBdB+RQRKH1NUJ7jKOVP9HDn9
+	 Udy27sHloM66hl2xBTgbs2TbZwUcZ/Q/PVqMKc69O8gNSxB2HEzAvcW+p+ri7OXkGT
+	 iDCXL8yE6hySjYsZIRNmC+WnR8BqEOjSREVal8M5UEwfGbaZgVEj0BLT7kUkRl9utH
+	 HiSeM77VN+qtG1pvUMbvDqQqHVhWrp8g3W6VLu1wLV7rMErYylWqQWpoGbikP1WMgS
+	 8EdbtQuGnnPDg==
+Date: Thu, 6 Nov 2025 11:38:53 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, chester62515@gmail.com,
+	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
+	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
+	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, cassel@kernel.org,
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>
+Subject: Re: [PATCH 1/4 v3] dt-bindings: PCI: s32g: Add NXP PCIe controller
+Message-ID: <20251106173853.GA1959661@bhelgaas>
 MIME-Version: 1.0
-References: <20251022174309.1180931-4-vincent.guittot@linaro.org> <20251106172312.GA1931285@bhelgaas>
-In-Reply-To: <20251106172312.GA1931285@bhelgaas>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 6 Nov 2025 18:33:58 +0100
-X-Gm-Features: AWmQ_bnxeRp9L3wzoigXubjMbIkUdPeZ-SXfzJV0HZAKsvwmODUh-S8pANI5ZcY
-Message-ID: <CAKfTPtDn8r-YfgspLscd=4oE0GukFg6tORpsUqd7fUs7DJqnLA@mail.gmail.com>
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtC87w7RVSDAXWXRX1sjgo4s=_Z_k62+mfTXrMZwmkEpFg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_093412_144526_A0554FE6 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20251106_093855_576447_C09A010C 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Nov 2025 at 18:23, Bjorn Helgaas <helgaas@kernel.org> wrote:
->
-> On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
-> > Add initial support of the PCIe controller for S32G Soc family. Only
-> > host mode is supported.
->
-> > +config PCIE_NXP_S32G
-> > +     tristate "NXP S32G PCIe controller (host mode)"
-> > +     depends on ARCH_S32 || COMPILE_TEST
-> > +     select PCIE_DW_HOST
-> > +     help
-> > +       Enable support for the PCIe controller in NXP S32G based boards to
-> > +       work in Host mode. The controller is based on DesignWare IP and
-> > +       can work either as RC or EP. In order to enable host-specific
-> > +       features PCIE_S32G must be selected.
->
-> Did you mean PCIE_NXP_S32G here?
->
-> PCIE_S32G itself doesn't appear in this series.
+[+cc Senchuan]
 
-Yes I failed to rename this one.
+On Thu, Nov 06, 2025 at 09:09:01AM +0100, Vincent Guittot wrote:
+> On Thu, 6 Nov 2025 at 08:12, Manivannan Sadhasivam <mani@kernel.org> wrote:
+> > On Wed, Oct 22, 2025 at 07:43:06PM +0200, Vincent Guittot wrote:
+> > > Describe the PCIe host controller available on the S32G platforms.
+
+> > > +            phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+> >
+> > PHY is a Root Port specific resource, not Root Complex. So it
+> > should be moved to the Root Port node and the controller driver
+> > should parse the Root Port node and control PHY. Most of the
+> > existing platforms still specify PHY and other Root Port
+> > properties in controller node, but they are wrong.
+> 
+> Yeah, we had similar discussion on v1 and as designware core code
+> doesn't support it, the goal was to follow other implementations
+> until designware core is able to parse root port nodes.  I can add a
+> root port node for the phy and parse it in s32 probe function but
+> then If I need to restrict the number of lane to 1 instead of the
+> default 2 with num-lanes then I have to put it the controller node
+> otherwise designware core node will not get it.
+
+I think it's better to put the PHY info, including num-lanes, in Root
+Port DT nodes now even thought the DWC core doesn't explicitly support
+that yet because it's much easier to change the DWC core and the
+driver code than it is to change the DT structure.
+
+That will mean a little extra code in the s32g driver now, but we will
+be able to remove that eventually.  If we leave the PHY in the DT
+controller node, we may eventually end up having to support two s32g
+DT structures: the single RP style with PHY in the controller, and a
+multiple RP style with PHY in the RP.
+
+We'll likely have both structures for many existing drivers, but I
+think it will be simpler if new drivers can avoid the old one.
+
+The eic7700 driver is an example of num-lanes support in the driver:
+https://lore.kernel.org/linux-pci/20251030083143.1341-1-zhangsenchuan@eswincomputing.com/
+
+Bjorn
 
