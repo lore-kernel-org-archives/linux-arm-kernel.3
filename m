@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B163CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 925A2CCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 16:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iuhfmQr7uINSDkC4BFuRhNQ4HVMgm7l+cfZeaeFW1fQ=; b=t0Qw2g74BX/DFw/EuL+lf4YZ1j
-	IENl5PO05qZMfZNsNLBsplnpCY1e7wRRoCd9vJWAn5r3sxzDNObtmnNu8pLAhh8fp9m2pO4fxJrxz
-	yoDMVTsBfbEfuWWq+9wLQBP1GLrXGa40bbEO9r2jwBQ0BZ+eU72T8CGUt23hcGlwE0x7iaw2XEsTw
-	mJsM6PnUk+DFFvEIw2c8pNGq68j3SkvZg5AuDQkChukMkqLFJsWPfxVcJMUlXsQgtmy2trD/GQkkD
-	cTNI6Ji2iky6XY6v9xk6/4wcYFqSWUCqm9c2P79JgG55bfyQrB54unU2t+csuGhqt61e1yd9wwlet
-	rshDYtBA==;
+	bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=; b=V4MTrWopHrxBoutTek3uyKc/7y
+	mas4L6bwsu7X/6K+G80eGoV3e1zmyo4Fw1yi49qEXyqlZXokJDsGg2yjUwIMb/VPwnZ/c5hP7X6CN
+	/swBpGPY4yTqkFZdbVa0KsfKZzFbfCSnLiTWqBWtqlxOEu8i19EtYuNXJT1dByfA8HmOkyd1PStFQ
+	grrSFtNaMJAGBlHmWxcmAr/HMB8f1lQg8hlLp1qeZddVbVa9gao3abga/rw8L/Q/9jIP05HmDqiIz
+	xAJRZET8BY5JWYpuFg1T+D1vQtBVwvj4YyZrJmBx5FkuWapLkY2q3s7DsV0O0IwWtZ6h4b21Ulohy
+	IAMSf07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fD-0000000FtxA-0YCV;
-	Thu, 06 Nov 2025 16:16:43 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vH2fF-0000000FtyW-0DKX;
+	Thu, 06 Nov 2025 16:16:45 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH2fA-0000000FtvJ-1DMG
+	id 1vH2fC-0000000Ftw1-0ZEw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 16:16:41 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-64124874e6dso128794a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:16:39 -0800 (PST)
+	Thu, 06 Nov 2025 16:16:43 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-64124e430adso123593a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 08:16:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762445798; x=1763050598; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762445800; x=1763050600; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iuhfmQr7uINSDkC4BFuRhNQ4HVMgm7l+cfZeaeFW1fQ=;
-        b=PfpuCZgoHAGkBvhOdQJydTjp0D5DQclnIG2aNCUoMh+rPYqMD5XhG8jGXmcrUrhaQg
-         IKTK4dCcrump+xBGLjrkjU9/0IOPonBSXJIUeAytTXmDBfY6ZA+xBLtq2zkgJf1Ec1tR
-         uX3Fde5kc7nvd/NCSDf0ojjjB6PXLfpVAYadONALYfgxdIsK/FV/UTLWw3lfKfrHh38q
-         V1X6Lmo7ht4xE9lpxPhuLcwfqq1jXxw01QZhR44tkCCL7APZsrXrnPy5j1f8vvVUQJgd
-         7MCUk12Kah7GBPDhBjql3QU9kjxCZg0aJ3kqe2iZVRP9u1bDGVC2lXZYfXyB5a0K0KDS
-         3PoA==
+        bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=;
+        b=KsMKQk23k+yMjckewXUBkqxvZv8b0s1jzV3/tuE2a9dM5BytPLKoMZlIbogT1g3Cxl
+         zKY6FYBw/SXM9TwChNh8z2wYKtso1G3vzeiD5/U9ilsVl1LUvF41lMnrwzByMpl/fYyZ
+         TNTrcis4/g87bBt7EmX+tCLbxjd7FGSHRugFofwVedVzF2+4Ze7V1HOONMbUxJTHbXRP
+         PtDK0sBBtYZtGorFTYeClGXBtO+df/as2XEdCaSZcLRyVsJEgBGOcv/G1BdK59gmOppB
+         w3uOAzzOTNEy1j4+Ua0otdymDZyqS29m6jGNpGX/gbLhRKwQimL7rFbkxGM3Th35jOH+
+         yn5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762445798; x=1763050598;
+        d=1e100.net; s=20230601; t=1762445800; x=1763050600;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iuhfmQr7uINSDkC4BFuRhNQ4HVMgm7l+cfZeaeFW1fQ=;
-        b=hDypvTTqY8GQfrfwW6M+45S/+aaiLsD+ldxJn7/bnCusQsWO9B23avsOi86hpA5u0N
-         kuAyG7sycdX7EY68wuGQGdOYGaWLRqdYX0GZBJMuCQLFBjkAz4xtF6pKTCMW9rvFHeGX
-         Ev6rfcWB/TYXpgYSTpEeD9DxPUeqvsu1B8U3xvLRu717qCxZ5mlhQOtn5HLB6MpIuPPg
-         Vv8pFTQGNli/jaVQL11urk9G2ofXJl29U9OHGTtId9QVAEfe5edy7rTMIbkVRhXHoO9P
-         BjpfQcn5NANbjGeucK7PvTFUKrscgzJSJzgrfpyrc4M5pProQSE6dc/gPAiYfZ+0wjTM
-         L7XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWegQe4TAz9tI78ZSlzH4fChcblXeHtUnMod6YzwEYWftyzt+flMn9rhMzxRAzqXyqmUGGBvqzLtoKryw+qBeLw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNODsfR/KtMO8CxcwOyS7IIU+Lg9L+nT7CYnfvtF9zQKf7GDWF
-	Jf7q7VTJttR/YaHHzlOImWsJfHuyrIvI04sUnRXli9YdwaEqkBmSZTu//CgnsgWKWnA=
-X-Gm-Gg: ASbGncuxMRK7pnpupHSOLsbew4d+P3TdGNI2ZOse9mYBRpdnk8cHHz8Eu1WplfyOA+9
-	2bv5G+B5fJxInZFzpcF6UT1zIctmJ+QJGSdHZCST9Kz+yChnhj7je4YKtIHME8Kbn/aDBCAcFKA
-	avGrxdmqAtDHUS8UamfUEo5WYjqQM/cjWa7cXNm2rqxr2rwdvjKstTPscM3QrA/+IPt0KChIrKK
-	9xuJtrAgPGyX1hGIXcm7n7cpRN0xwmS600XKCjvBbQZh0De1ESwZgQAPjRm+ThYXnM1UvWtx2hr
-	rrxQMz4f8ezBbjQfD/7XFCeCxpyK2ucFuCGukt08nXf8r0Phg8Ctu1uQxNxLt2z3Pu4kNyFDyMo
-	Jgc+8jKFT7aQefzDggoNDUlWJe2w7jjvU3S2801X2jsQ6voy1QNyBSR8af7yCscBySva7DWYivD
-	GV3BkgCZA+tHwqB/vFoWuRPNQE8Z0=
-X-Google-Smtp-Source: AGHT+IGnKjqzbkhuvdWC2zI52BeV7MMIvf9OsVAI4XiKB15JDfOLSX5YIo7aBUdC8ZUdmjSM/iA6Sw==
-X-Received: by 2002:a05:6402:358a:b0:640:be87:a86b with SMTP id 4fb4d7f45d1cf-6411f6b3baamr1693540a12.5.1762445798504;
-        Thu, 06 Nov 2025 08:16:38 -0800 (PST)
+        bh=3fnpzlv5TqPyTNVopTKhYQKTQxoXkISz35QRtVU9Hac=;
+        b=LXR9IqfgZGlC/0A5tpJK4SOXtK8E1FWStZ5aPetElmdBIR+meHKZYLgrmOM0MvkLtr
+         I/5+RNODgoSibvSX2MQR/vXU/XXWYV/z5VUWLtnmXHZnEcboRsF+Hzyr3xqYriw9+YQ4
+         hJycPu+svsrEThC2c/DzA0wVtAtzRk60vtmLipdVICDZYJGNkyDLs7+/mHKSPpIXidjo
+         NMUUqtg1IF6eSyzGveMqaL0SD9JLpT6s8DLU+uUz8wmsD435lIEuCPkqn5OYEzDJg1+6
+         FBhWPJBijC/6/Hc6BBNuGvuq3GmVBP++wwi2gfA4KFTs+QjOI7pMLN9eEiQyTj+x5JEo
+         uZ/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWe/Df/FXqAxxWGtw6IU9gI1kh2kYwJ+AUs3v39XYLSF3bMNp6LbI/xzw3bsvIVUPTnm7nXx10Eu/nrvKuiBv07@lists.infradead.org
+X-Gm-Message-State: AOJu0YyADvAnqWnMYntWxwizJw6fe62BlvzEeOotRyn9uwH088yKC8PD
+	gLNCVTa2nb427kuPgYHlqnqbR/yNs3mOrrkt/rH3QE0PC4d0sFOzVad0r6kpgrqj7yUwk5OaBLc
+	v+E66
+X-Gm-Gg: ASbGncsaqL6HtcHqf3yZ8wIdCXa7zMtuAxdGkGuTWectwsXDoFBRhcPlgrFIE18M6Me
+	AWZwdSgr0SQWaL3vK9y0w/FGYk9FXjXsXqSemKyvwsQ92aAhLyFG82EXw/Lj1O1FSW/IxxDgt2t
+	5XpICf+D/KyAOqCt7fPAuCnlh0t7dG1XK3nZWbFjHBQVlKG5tViiibI0oHVpppG5x7MWoxroYMK
+	Tleul+hAhTkh7qqOjxA6ApG/SzKeupnlPmkFsK8P7zV0nOz3I60kx6XVbNbvn/KP1koPOIzKfCD
+	fjogO3UoPJWFqTEUX+XMVV6jwnYnvXs3QkcQz9N4s1y+bDjfHt92hqCbP/vuEeH4E37CSLs0573
+	oL1XO6XNlgNvVKf+BSro29lHIMjhptdz8XbH8lExZvk5bK/xc1e7zWDHCQQlabxtcVFeq0PQscB
+	yxdjPja3TnNFFrEwE/bz6lUCsv4gI=
+X-Google-Smtp-Source: AGHT+IG/5tTc7ZxspWUa/B8lb4VJAe+mwb5eciTvDLKhw+fK6fmt5UhwDE0B5Na16xt3VKGSskNthQ==
+X-Received: by 2002:a05:6402:234a:b0:640:9aed:6ac4 with SMTP id 4fb4d7f45d1cf-64105a44b67mr3713567a12.3.1762445800269;
+        Thu, 06 Nov 2025 08:16:40 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f813eabsm2113408a12.11.2025.11.06.08.16.36
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f813eabsm2113408a12.11.2025.11.06.08.16.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 08:16:37 -0800 (PST)
+        Thu, 06 Nov 2025 08:16:39 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Thu, 06 Nov 2025 17:16:25 +0100
-Subject: [PATCH 1/4] gpio: tb10x: Drop unused tb10x_set_bits() function
+Date: Thu, 06 Nov 2025 17:16:26 +0100
+Subject: [PATCH 2/4] gpio: aspeed: Simplify with of_device_get_match_data()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251106-gpio-of-match-v1-1-50c7115a045e@linaro.org>
+Message-Id: <20251106-gpio-of-match-v1-2-50c7115a045e@linaro.org>
 References: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
 In-Reply-To: <20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -90,27 +91,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1295;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1473;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=bV1csp2rWHEChhH2wtc+ipip96VeBDB9QOyjlvKNG/s=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDMne//1G4nx6sAjk0fip9F0NwApN5hshBoZuD
- RHWNh/iIoOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzJ3gAKCRDBN2bmhouD
- 15IED/0XzrXZAYuaXb8FfmaclQ0RY6jfzxQrHGsf/WmuK02ww2efB75Exltpwwtm91fHOTkDU+T
- d2Kykn+OUAn6bPtd7LG5TSjCDI1tyM+/Nmd1wpAecJLUwG74wFPmu/ofjaxFh7lT6wZihV7lyHt
- 8YmM+qnYuUolGhcqcfv7MDurJ8J2Bsqpat4m7N5nHOw++bPTo+SUOojVuhOwrXUI+9kKJ7myKLI
- cKXvLFDL0IOZDKcsJ6iq5nunmneht/iT7YFCKW6+gD1WTJpoziwV/6SXm8XJ6upKBSlnq9KxPSj
- NJ5fAe4+xkXGcBrd5oN7v7sbLM7FSPVyKlmrmHlv8YD3Vxl/t+0CwfwD/YkXVuUYFGOhPzRq1p1
- 2eYQ0DqHsM9ulF4ZqHMFaRpLmHwNu1noNDT8MzzuoMNAWW4XN5JJtqeYlHHvlrcSFufrmyWAMpm
- 5gZv8IPPiJx3Zw/XyFAwIepY+evhUcdg39kj+D/DVwWnTUGrdKgT/OYrpvvcE3Lxa+MjtAD3lji
- 3DB8a4wIM9Y6xyQDaN3gtz5pxIPJGG+kyoN1ctUWXZlnUPRzzb20y01PoVvuhmiyPqOvVHa4+8O
- qGOKxXXWJBJOE+bPEc1yIlencBqk4SY4CpcNcxsvQ8A5Av5IswK60aumWzlZL+3v+oM/XHcxZeo
- xNC7jP93MIRL56Q==
+ bh=ZT2hMJMzDp444RtFAMt6NxeIg8ehhxp6qQkq6o38pVU=;
+ b=kA0DAAoBwTdm5oaLg9cByyZiAGkMyd/IHnLxQ8aaVNi31HhlicsroQ2rUZcgWUqQhqbqfNgTz
+ 4kCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJpDMnfAAoJEME3ZuaGi4PXQc0P/A43
+ VlDZbJcd8JJgzif8Kxz45G85Cei+azNOhCDEWH00UmdsmhkuwJmwLV+Ajksw1M4M6mgS80zGzly
+ 5O02OU5dduEuqs5AZNvaL0cVqHiVZhq+YhmANDSBQ0/E3jRTOOR/y9Kzpb9wIJ9YPoNJ2Qtyf3m
+ 9CiCBFsHGxIT2Asnc0bw2xxxIXDfLJkc0ru5+Hzwr5y0OH6ips03STdfYXBGn82p0xsT4abiVXr
+ XW38qszaEhKlyNt/SNUyEhOmddIAXFWNGLymNcCKEUrXEsNJFmCMEbC5SjHYcBkmHthI7LIIAF+
+ Xxpmjh52IS6RfKOOLmJEVlRlayLX80kQ9FsGDef3p6FtQEkX9tJPerYMs4SFtxopCN+HF7MixoY
+ buUncg8Cw7RYV6DswaMKg4q01FNFuvYAVMAmOTAO1apdaWDsQi40ET5rYH0vkJ1fL7gvPByVP3L
+ /uyg6aZubCZd8D55phWmbVsC0kW8hgiZKvjuR7A1zzIhKIxGrx8bpIgiEMaUbxsDIl5G4qxqIh8
+ tcABibfodCZr+m12ITCbUUoCgEfmSwcoE57jaZ6Cf6Y0wwzIEnqqP1h0L/smNhts94gcsIoTZMG
+ edD5iw8glo6+FCxSFKYbaOvyeqrRYLGb6SNZPRh9N0GGlO3Cch7OoaZuBlidPfbXhcC/r6xtUUG
+ VRHv1
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_081640_391479_38FAE649 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251106_081642_203290_CA5FF9DD 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,47 +125,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tb10x_set_bits() is not referenced anywhere leading to W=1 warning:
-
-  gpio-tb10x.c:59:20: error: unused function 'tb10x_set_bits' [-Werror,-Wunused-function]
-
-After its removal, tb10x_reg_write() becomes unused as well.
+Driver's probe function matches against driver's of_device_id table,
+where each entry has non-NULL match data, so of_match_node() can be
+simplified with of_device_get_match_data().
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/gpio/gpio-tb10x.c | 19 -------------------
- 1 file changed, 19 deletions(-)
+ drivers/gpio/gpio-aspeed.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpio/gpio-tb10x.c b/drivers/gpio/gpio-tb10x.c
-index 09a448ce3eec..3c8fd322a713 100644
---- a/drivers/gpio/gpio-tb10x.c
-+++ b/drivers/gpio/gpio-tb10x.c
-@@ -50,25 +50,6 @@ static inline u32 tb10x_reg_read(struct tb10x_gpio *gpio, unsigned int offs)
- 	return ioread32(gpio->base + offs);
- }
+diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
+index 2e0ae953dd99..3d675b63936c 100644
+--- a/drivers/gpio/gpio-aspeed.c
++++ b/drivers/gpio/gpio-aspeed.c
+@@ -1305,7 +1305,6 @@ MODULE_DEVICE_TABLE(of, aspeed_gpio_of_table);
  
--static inline void tb10x_reg_write(struct tb10x_gpio *gpio, unsigned int offs,
--				u32 val)
--{
--	iowrite32(val, gpio->base + offs);
--}
--
--static inline void tb10x_set_bits(struct tb10x_gpio *gpio, unsigned int offs,
--				u32 mask, u32 val)
--{
--	u32 r;
--
--	guard(gpio_generic_lock_irqsave)(&gpio->chip);
--
--	r = tb10x_reg_read(gpio, offs);
--	r = (r & ~mask) | (val & mask);
--
--	tb10x_reg_write(gpio, offs, r);
--}
--
- static int tb10x_gpio_to_irq(struct gpio_chip *chip, unsigned offset)
+ static int aspeed_gpio_probe(struct platform_device *pdev)
  {
- 	struct tb10x_gpio *tb10x_gpio = gpiochip_get_data(chip);
+-	const struct of_device_id *gpio_id;
+ 	struct gpio_irq_chip *girq;
+ 	struct aspeed_gpio *gpio;
+ 	int rc, irq, i, banks, err;
+@@ -1323,8 +1322,8 @@ static int aspeed_gpio_probe(struct platform_device *pdev)
+ 
+ 	raw_spin_lock_init(&gpio->lock);
+ 
+-	gpio_id = of_match_node(aspeed_gpio_of_table, pdev->dev.of_node);
+-	if (!gpio_id)
++	gpio->config = of_device_get_match_data(&pdev->dev);
++	if (!gpio->config)
+ 		return -EINVAL;
+ 
+ 	gpio->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+@@ -1334,8 +1333,6 @@ static int aspeed_gpio_probe(struct platform_device *pdev)
+ 		gpio->clk = NULL;
+ 	}
+ 
+-	gpio->config = gpio_id->data;
+-
+ 	if (!gpio->config->llops->reg_bit_set || !gpio->config->llops->reg_bit_get ||
+ 	    !gpio->config->llops->reg_bank_get)
+ 		return -EINVAL;
 
 -- 
 2.48.1
