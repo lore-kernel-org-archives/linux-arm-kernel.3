@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83829CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C92BCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 06:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZPJA+GKSfS6A3u4jgkqnZAkiPeOjVCRngtZ24Z+P+I=; b=e8j/3crw24vX4l573tqzYg+DoN
-	cx30S1qRVT5evUqf1N64tgef6vyHGjbHhF3+pmKpf+7thF0wt5EJMZP8FRTnFdqeAYmX7aX3+iaTE
-	H4kvo8fFql/OZCI/vZON1Hz25Wp3K5rddJxe8QWBA5g7gV5YfsZFyzLeIVAle9dVJLV9KYBgstOwL
-	KSXhQ4r7s1XE9cld4zCtfRSLz7EZEdt4uXUe5h0sAmHo0fKw1IlaGI6jJNZ8GWHqBA+rTHgy4+UCK
-	7BdfVPmfOCn/uK3rTJE9Yg8BorvEIsqcbvicZ1/u5KqRK1+EFIlRI2gRJAsH4MyDBHETVuSCal7K9
-	aJeIBxGg==;
+	bh=mcLZ7dYUGJ4Tr4r793apvg2uH+96yLQ3ru7C6V36Zn8=; b=cp4ldOJxGE2dNkOpHK6FxtJSH1
+	ewMwjD26qtn8JxWRV0/fol3m4en8yNQ4SRWSkpHmBQwd8uG8oE778DR4j3H5oPM2X1gG1vGNpbXjt
+	S9cezOXpYSFf/VAynURIewJVFjppScEJNVgkdpgeNrHq/W022590AafHBpMpis2d3fZk2EsukIjEd
+	BzvkKdO2AEeQpmn92uclgvJqTbCdK0Nt5lEzrWOoMT3cgyRmTRJCUblgmkGNwVmGMDoa1livdnFAI
+	8HtdZ6355bR/ArNXGX/PjYYdsoM9wTJdw1gT1nsxSTnbWn+sSLIU2myEFYXgvrnpiL66RJ2wzyQHu
+	Jyy8H3JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtFl-0000000EvJt-3N1u;
-	Thu, 06 Nov 2025 06:13:49 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vGtQJ-0000000EwPN-3buS;
+	Thu, 06 Nov 2025 06:24:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGtFd-0000000Ev6V-4225;
-	Thu, 06 Nov 2025 06:13:43 +0000
-X-UUID: bc05b8c4bad711f09f706fa2197c6ceb-20251105
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qZPJA+GKSfS6A3u4jgkqnZAkiPeOjVCRngtZ24Z+P+I=;
-	b=nASt7FSnm/gzt8qMKNafCDQ4RFqnzoVj1V8cS5MmWjevCZZ7/+NLGIcMF5oPNyqPwTDU6SYvaxZXLkKwub4g3WStlxKJcvI5RFLgdaut1LdSARTX9VBZm5mwhQese4nHVK3yqu4UFEeWq/e5nY7z5ygXUERINJNv8jzo2JW8rC4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:abd1908b-8a7a-4c8f-811e-47ff6b4bf0cd,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:dba2fa18-3399-4579-97ab-008f994989ea,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bc05b8c4bad711f09f706fa2197c6ceb-20251105
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1442261484; Wed, 05 Nov 2025 23:13:38 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Thu, 6 Nov 2025 14:13:35 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Thu, 6 Nov 2025 14:13:34 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Yilong Zhou <yilong.zhou@mediatek.com>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 7/8] dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
-Date: Thu, 6 Nov 2025 14:13:22 +0800
-Message-ID: <20251106061323.2193-8-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251106061323.2193-1-kyrie.wu@mediatek.com>
-References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
+	id 1vGtQI-0000000EwPH-1S0S
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 06:24:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 794FB60216;
+	Thu,  6 Nov 2025 06:24:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 519A4C4CEF7;
+	Thu,  6 Nov 2025 06:24:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762410281;
+	bh=27Pe8FUEHZhfluKmwcfeGnyxW6smtWLMLoJyzAni44c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fRJJ1H4J3GeszBfV1hToQ3FtuV2IZEsEKV/wI2DSAElwJWUkObr/RtpW4V6AYAP7j
+	 kzclCPXk+of9CsLTi2sSUCxjJBEAp546g7hVvQ5QLnmvK1fDLHtlC6tjVFdArJ7gGS
+	 2h6x1fEGQtiQXr6udYxVlomrcH9shBfv2Q2TR65zqezowcDzPVs1L4B+f2/0aZ7poF
+	 3lnYtSrjmzPzmz9HEpOO6+Jsma6kar+0PT7QVz2y1MTlYYiwQXrrDRWqjYv8evl2Fz
+	 z118nreIhF0LaUS2a8xKhbsBrpnuKsHH1kXUf+LcthYry1Qt7DOczlxwYgaHUWUzy2
+	 /5Snmb3l/In7g==
+Date: Thu, 6 Nov 2025 11:54:18 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com, 
+	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, 
+	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
+	Christian Bruel <christian.bruel@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
+Message-ID: <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
+References: <CAKfTPtCtHquxtK=Zx2WSNm15MmqeUXO8XXi8FkS4EpuP80PP7g@mail.gmail.com>
+ <20251106000531.GA1930429@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_221342_011143_5ED903B6 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251106000531.GA1930429@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +79,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MT8189 encoder compatible string to distinguish former ICs
-MTK's. Compared with MT8196, the maximum resolution of MT8189
-encoder is only 4K, and the fps is only 30, which cannot reach
-the highest parameter of MT8196: level6.2, 8K@60fps.
-Compared with MT8188, the level can only support 5.1, which is less
-than 5.2 of MT8188. But the maximum bitrate is 100Mbps, which is twice
-that of MT8188. And MT8189 could support NBM mode.
+On Wed, Nov 05, 2025 at 06:05:31PM -0600, Bjorn Helgaas wrote:
+> [+cc imx6, layerscape, stm32 maintainers for possible suspend bug]
+> 
+> On Fri, Oct 24, 2025 at 08:50:46AM +0200, Vincent Guittot wrote:
+> > On Wed, 22 Oct 2025 at 21:04, Bjorn Helgaas <helgaas@kernel.org> wrote:
+> > > On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
+> > > > Add initial support of the PCIe controller for S32G Soc family. Only
+> > > > host mode is supported.
+> 
+> > > > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
+> > > > +{
+> > > > ...
+> > > > +     /*
+> > > > +      * Make sure we use the coherency defaults (just in case the settings
+> > > > +      * have been changed from their reset values)
+> > > > +      */
+> > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
+> > >
+> > > This seems sketchy and no other driver uses memblock_start_of_DRAM().
+> > > Shouldn't a physical memory address like this come from devicetree
+> > > somehow?
+> > 
+> > I was using DT but has been asked to not use it and was proposed to
+> > use memblock_start_of_DRAM() instead
+> 
+> Can you point me to that conversation?
+> 
+> > > > +     s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
+> > > > +     if (IS_ERR(s32g_pp->ctrl_base))
+> > > > +             return PTR_ERR(s32g_pp->ctrl_base);
+> > >
+> > > This looks like the first DWC driver that uses a "ctrl" resource.  Is
+> > > this something unique to s32g, or do other drivers have something
+> > > similar but use a different name?
+> > 
+> > AFAICT this seems to be s32g specific in the RM
+> 
+> It does look like there's very little consistency in reg-names across
+> drivers, so I guess it's fine.
+> 
+> > > > +static int s32g_pcie_suspend_noirq(struct device *dev)
+> > > > +{
+> > > > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> > > > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > > > +
+> > > > +     if (!dw_pcie_link_up(pci))
+> > > > +             return 0;
+> > >
+> > > Does something bad happen if you omit the link up check and the link
+> > > is not up when we get here?  The check is racy (the link could go down
+> > > between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
+> > > completely reliable.
+> > >
+> > > If you have to check, please add a comment about why this driver needs
+> > > it when no other driver does.
+> > 
+> > dw_pcie_suspend_noirq returns an error and the suspend fails
+> 
+> The implication is that *every* user of dw_pcie_suspend_noirq() would
+> have to check for the link being up.  There are only three existing
+> callers:
+> 
+>   imx_pcie_suspend_noirq()
+>   ls_pcie_suspend_noirq()
+>   stm32_pcie_suspend_noirq()
+> 
+> but none of them checks for the link being up.
+> 
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
- 1 file changed, 2 insertions(+)
+If no devices are attached to the bus, then there is no need to broadcast
+PME_Turn_Off and wait for L2/L3. I've just sent out a series that fixes it [1].
+Hopefully, this will allow Vincent to use dw_pcie_{suspend/resume}_noirq() APIs.
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-index bb4dbf23ccc5..7f355470b63c 100644
---- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-@@ -22,6 +22,7 @@ properties:
-               - mediatek,mt8173-vcodec-enc
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
-               - mediatek,mt8196-vcodec-enc
-@@ -100,6 +101,7 @@ allOf:
-             enum:
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
- 
+- Mani
+
+[1] https://lore.kernel.org/linux-pci/20251106061326.8241-1-manivannan.sadhasivam@oss.qualcomm.com/
+
 -- 
-2.45.2
-
+மணிவண்ணன் சதாசிவம்
 
