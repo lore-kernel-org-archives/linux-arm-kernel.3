@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9436DCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB91CCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=; b=G1rfHB9bA1IblxChGQt9hh1DgD
-	GK8ytA9roEjablGoUUzPeXwB9uATb+cxNke0P0FTpDZVjiPAsEceLbLHmTBx1/0JlfA9KtKNIkcc7
-	7/lII8FxTZmpNRWF/garItHgFEeffAlneAupXqHr/xGtlAdVv9GBA1Cqp8Zx+d4AN3SE6Xp04S1SS
-	xlIWOarOavA+TP7T/ZbayzrEWsbJCo9/FPKl/8l2Rugpf40Zf9F5VgK3HrcsVce4wIHYxXGWk7rFa
-	Tmk71mZxYm5Txuhq5aqT2/IkbGzrZ9nuXNdjxaMGeVSJRgz7GVTwnJctYq6kCcDsjRCMxwaKBl0Hh
-	atBaQMhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=; b=gbuG7g9r4uY6m+DqsgAGXOj+43
+	U51Jp2hGK+3mm/7tmgulavc28Ikr1U+WvmHpQHJ0xkapyqdTp8kDdWpkWTwlNY0mNg4SPftKmNkIw
+	8OQqtcLU1aEwRR8JbWIYvU9ObibYsZZyVSCMG9SAfsw609QC3T0/27/fndy9teXM6mVCXLmGM/SV9
+	2aL8iH6ZeoqNQ9Bk4xAaE/igJJJYXfQPpWzSckLnUq78jQrce7QCHkdCd+77o8iGcMiNFsNoJU/q0
+	W37iO1PbL6YQ3mf7Yj0E73ltXQX3M44c2s0ACwD6/AwNfYUnnAPsPS1tLZlKgubYcSX/+cxNPJkYR
+	wEumnPoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0kl-0000000Ffwb-1xJm;
+	id 1vH0kl-0000000FfwJ-0l03;
 	Thu, 06 Nov 2025 14:14:19 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0kj-0000000FfvI-1lVg
+	id 1vH0ki-0000000Ffv3-2WZp
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Nov 2025 14:14:18 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7810289cd4bso938277b3a.2
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8906eb94264so101126985a.0
         for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 06:14:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762438456; x=1763043256; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=;
-        b=RVumk+Mr/aLUmGAp6lzdFmzdW7lwQZBatchVC8fNFGfaXOnmgsTei5C+IAzLU6Y7B8
-         g2STvlvMhf3EdIbeiDtDJ0uN9JD5lGTBBvajs5Uwk/PcLqfQ9WLQcVKwR3wNtd40Udfr
-         ZQd/5c3yFpfyi4kNiG2FzMkcTkwl6ZbSHO6G293bydMo+jdQhfQt19uiwrJxIiVA9H2w
-         1SGZww4Q7J6TJUNdKlQMNuPPcNEcnid4jkHHolbw8slP4ccDkcGTrnTBSaCO5nbjFztC
-         oPx5sMKE8qo1mHuUqkAHTNfpY0nPKb6is1oNnD4u6jmt2Jm6sCte8+5aLfaH/uJ2QYt0
-         hqXQ==
+        d=linaro.org; s=google; t=1762438455; x=1763043255; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=;
+        b=FTCm//A/q4l6iKOsSt9l/49p9aL1OfeREOqdzAxUGa73xGnlSvkYsMR4z8e1YSpzmi
+         Up4bv1nXk/5H4NFz0IhDlTJIFohg1anH9II5OU6J+0PgDL540eE30sZuvPrRirzRK7W7
+         tEL+RO6EulWEXFtFiM8rV0RRPTJGHln4p7Ht/VfngPDtWw+G1c8U/gSBi4r1hDwc4vjd
+         JvP29jbI589IJ8zoKKOZ5ZmC5SECg63oq0WzZfsE4MEf51wuNnez44BxVmrderD64Dfx
+         0HIciUnp9FUSvOR8L0mk5IjgWHcEw0g4Uq/cktsw1VPkT3O5ZHtnS4hOlznDAiFr31z8
+         UfzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762438456; x=1763043256;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=72EH5m1JIiQ8HjYUz65OXp9Zw63/fhkgRyPRxQjDTxo=;
-        b=PMoaGpBEo4gftBHbI4GemuOtMRrAKks3Je9+7FdiFHJAVsRIZwVkuHNh8gXSuTr8c/
-         qG6JKJweOvkqtUJbUWHyQUinsrXNmS2IfqvUPpdscGR7gFq9CCuF6llUTOLO5kzhb3jC
-         qh0BJoebsS2DgEbVKJjV4vyo0PHPIG5G/Mvg5SLGxLgTx/xaZI+xSppHBl3v7U2SIPDH
-         lTgDTv7wVI89JoudS0xUZrmZDX/FOJKTjCbfvb1bNvolzbriWXoCzUTE+ZZxGCP1Nj8o
-         Kj2uwGsRG42EP9dUS1vhXedj1Rsfi7PrI+paUW21+h5oQeCMk6ndr4TrrDOvmT+dTIqx
-         8e4w==
-X-Forwarded-Encrypted: i=1; AJvYcCVsYOtZlYpUxOikD9VlOf14eJ+GI/mG4Tvr+RE/UQ5PQb1llH0VZnKhX5NQoIUP4sixCK+VdUK7T9CCDBkXS+/t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt8NKHzj6Au7elJYL3h35BDxofOmRk9NU1vZ9w2yZZqPzLlIiO
-	EX1Dg3uHnFaogb6XucgALjaXubUnBALV3G4jeHp/hNhxJH2vSg4RopSe
-X-Gm-Gg: ASbGncsJRTFMlv5WqgEZnP+kBMFvb2QebPv0OWYpe417zkFXUiPcWGsYj0Tmr1+K8vQ
-	s24kuc1Ijktoje1pRymjEuYtB8jItNPbTjSqqAEvDwBCbGFtheZYjIREe2PtupkJ+nyTTLWo5w6
-	AQWbupa2GjoeDHr5AyWJEuFBtE9+GNewDvYDxt8TN0y7hpcyYaKCM/uyFp3BBN/yPJhJ0f8qczI
-	+yZKru5gOVYpnK8+VLhxFFd9bNDCI60cm74pksnABq6aEOW0FevvSdldw9PO3HDASjNf7pbZkuV
-	bWcy1Z5wjM3V3eZTgwIqqhgMWN3bjoh8kPwWKdHofmlnkshI6J4DVHWUEeCYDGCRMZg4DDuRoc6
-	V4/Yn2sGVIKvMioyfjnfVN1YZ0nlE0LCMdtqUKyITxu4UP2b1Q2AdVotD6W+0EkDlG3GdIYf7LA
-	DBOUrWkP1tJOrhjZqNgIKZPhBCBxBURxrrRDvsQhz7hzoJm8lZOK45bOS+OpJ2oMzeQ4mDxOpI
-X-Google-Smtp-Source: AGHT+IEo3lyx4SSF6ocI62uHYt7YAX7f4+Hxtin616U9H0IjwoISSx5SOupuX9cHRYryvyjl4G9V4w==
-X-Received: by 2002:a05:6a20:9186:b0:341:c4e5:f626 with SMTP id adf61e73a8af0-34f838e271dmr8901776637.7.1762438456066;
-        Thu, 06 Nov 2025 06:14:16 -0800 (PST)
-Received: from [192.168.99.24] (i218-47-167-230.s42.a013.ap.plala.or.jp. [218.47.167.230])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7af82208befsm2890508b3a.39.2025.11.06.06.14.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Nov 2025 06:14:15 -0800 (PST)
-Message-ID: <4abd5327-ccb7-4dbc-9b09-e98069312e2f@gmail.com>
-Date: Thu, 6 Nov 2025 23:14:11 +0900
+        d=1e100.net; s=20230601; t=1762438455; x=1763043255;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=;
+        b=XhrrCNvk/udwKKFiwktfR4PHwc941Bs+CG2rVHK87Y+jK8gxxb5XnXmoz8CC1TPIrE
+         UkwDehdx1X/v4zTzWN3xyGb2A1rmLx6txfy6Oc7ga5POeCvW9MX7LYRfhoHtBtPPJZ/u
+         1UW9fwVLry02tPpfXISBBikFZ61/SjaHS60lMvF4nyTLC2c3q52Zk16/XEfLa9/YDX0D
+         egVhM0MHcIklKX7eN9lSAMHQ2xl0LSVt29baz4gRxwbjycgz3p5ZW0urRnlOj+tHR7NE
+         AApOFCnRFoyV6LyKjWUftlyqofffVU1aO0eKmAT90/j2IKHzC8rzNH039uLquXKHJgN3
+         eWDA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPCKKVVlGm6t2u6hvddp8VpCkpRm1vvXMAK4UPiq03lS2uaf9Jx38vL9rrtShLbARQyp2CF2QzjEKzvr6gdnuT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBjo02eBZjp8MVW6MIF51PxT9sCFZZaKvGlP3pY5zi7CjRzFdl
+	+Os1d4hg4YzZBFctJhaIhrsp/sBM2Uk67gEF/X2ndvFJzz/tcO8I6CPRKEF7Z6Dl5vGVpqO85cF
+	AmSagYuiTIk8TcYlBWQACavlab2wD6gltEoqmB3fL3w==
+X-Gm-Gg: ASbGnctuWWnFY8Q48fFyXAKEeG8B40P4gymy8NeEwaV4Y6ri37QLHJq8TjIspA+jIbS
+	0MGdFHJkhBx7sSrcyx9ANNAhauo58XcLOXYcyv5hla6dXqAohvnXqDKGApWh/WRX0SR5IPE7flJ
+	AJf1Vhfzzs86Zf8RHFXLfflILaxHaxXoS885ySWjVP1nw3hXmEqQDdFaBvE7Ru4F4uPwYe5Z06D
+	0R9FX6eTKHsZGPTygXpQpVvv+zmmywKP7xXzzvWXytiZDncRqTaDjLrfZeNE7d6ppodMKOe2uhw
+	cYlGJqwdK1SSuaYPDRPWQ1jPjMsy
+X-Google-Smtp-Source: AGHT+IEL/OjdpCudnpto7EM9lmyvDKegeMK7BC71b7SfH+up9yag/BCWFhn9z12orK4BrZX5VPjYqt/GlifmAA0brpU=
+X-Received: by 2002:a05:620a:454d:b0:8b2:294:1cf1 with SMTP id
+ af79cd13be357-8b220b1c9b7mr943868385a.29.1762438455191; Thu, 06 Nov 2025
+ 06:14:15 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net V3 2/2] veth: more robust handing of race to avoid txq
- getting stuck
-To: Jesper Dangaard Brouer <hawk@kernel.org>
-Cc: Eric Dumazet <eric.dumazet@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, ihor.solodrai@linux.dev,
- "Michael S. Tsirkin" <mst@redhat.com>, makita.toshiaki@lab.ntt.co.jp,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com,
- =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
- netdev@vger.kernel.org
-References: <176236363962.30034.10275956147958212569.stgit@firesoul>
- <176236369968.30034.1538535221816777531.stgit@firesoul>
-Content-Language: en-US
-From: Toshiaki Makita <toshiaki.makita1@gmail.com>
-In-Reply-To: <176236369968.30034.1538535221816777531.stgit@firesoul>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251021-fix_etr_issue-v3-1-99a2d066fee2@oss.qualcomm.com> <176235893222.387743.2128022832743502879.b4-ty@arm.com>
+In-Reply-To: <176235893222.387743.2128022832743502879.b4-ty@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 6 Nov 2025 14:14:03 +0000
+X-Gm-Features: AWmQ_blBAvwJrBuwMN552m9J7iG9zQVh_LDuoQgBSibOW9xk--Ct5-VQl5IDv-s
+Message-ID: <CAJ9a7Vji3fFnc-XPhdTxh00QW+AjqLqJo=zt+SMwovttQRwR8Q@mail.gmail.com>
+Subject: Re: [PATCH v3] coresight: ETR: Fix ETR buffer use-after-free issue
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Linu Cherian <lcherian@marvell.com>, 
+	Xiaoqi Zhuang <xiaoqi.zhuang@oss.qualcomm.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_061417_475499_6C2F62E4 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20251106_061417_031081_44623327 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +97,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/11/06 2:28, Jesper Dangaard Brouer wrote:
-> Commit dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to
-> reduce TX drops") introduced a race condition that can lead to a permanently
-> stalled TXQ. This was observed in production on ARM64 systems (Ampere Altra
-> Max).
-> 
-> The race occurs in veth_xmit(). The producer observes a full ptr_ring and
-> stops the queue (netif_tx_stop_queue()). The subsequent conditional logic,
-> intended to re-wake the queue if the consumer had just emptied it (if
-> (__ptr_ring_empty(...)) netif_tx_wake_queue()), can fail. This leads to a
-> "lost wakeup" where the TXQ remains stopped (QUEUE_STATE_DRV_XOFF) and
-> traffic halts.
-> 
-> This failure is caused by an incorrect use of the __ptr_ring_empty() API
-> from the producer side. As noted in kernel comments, this check is not
-> guaranteed to be correct if a consumer is operating on another CPU. The
-> empty test is based on ptr_ring->consumer_head, making it reliable only for
-> the consumer. Using this check from the producer side is fundamentally racy.
-> 
-> This patch fixes the race by adopting the more robust logic from an earlier
-> version V4 of the patchset, which always flushed the peer:
-> 
-> (1) In veth_xmit(), the racy conditional wake-up logic and its memory barrier
-> are removed. Instead, after stopping the queue, we unconditionally call
-> __veth_xdp_flush(rq). This guarantees that the NAPI consumer is scheduled,
-> making it solely responsible for re-waking the TXQ.
->    This handles the race where veth_poll() consumes all packets and completes
-> NAPI *before* veth_xmit() on the producer side has called netif_tx_stop_queue.
-> The __veth_xdp_flush(rq) will observe rx_notify_masked is false and schedule
-> NAPI.
-> 
-> (2) On the consumer side, the logic for waking the peer TXQ is moved out of
-> veth_xdp_rcv() and placed at the end of the veth_poll() function. This
-> placement is part of fixing the race, as the netif_tx_queue_stopped() check
-> must occur after rx_notify_masked is potentially set to false during NAPI
-> completion.
->    This handles the race where veth_poll() consumes all packets, but haven't
-> finished (rx_notify_masked is still true). The producer veth_xmit() stops the
-> TXQ and __veth_xdp_flush(rq) will observe rx_notify_masked is true, meaning
-> not starting NAPI.  Then veth_poll() change rx_notify_masked to false and
-> stops NAPI.  Before exiting veth_poll() will observe TXQ is stopped and wake
-> it up.
-> 
-> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
-> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
+Hi,
 
-Reviewed-by: Toshiaki Makita <toshiaki.makita1@gmail.com>
+Is this fixing the correct problem? If we prevent the buffer size from
+being changed while the sink is active - which is probably what we
+should do anyway as no real good can come from allowing this - then
+the problem disappears.
 
+Changing the buffer size while the sink is active should return -EBUSY;
+
+Mike
+
+On Wed, 5 Nov 2025 at 16:13, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>
+>
+> On Tue, 21 Oct 2025 16:45:25 +0800, Xiaoqi Zhuang wrote:
+> > When ETR is enabled as CS_MODE_SYSFS, if the buffer size is changed
+> > and enabled again, currently sysfs_buf will point to the newly
+> > allocated memory(buf_new) and free the old memory(buf_old). But the
+> > etr_buf that is being used by the ETR remains pointed to buf_old, not
+> > updated to buf_new. In this case, it will result in a memory
+> > use-after-free issue.
+> >
+> > [...]
+>
+> Applied, thanks!
+>
+> [1/1] coresight: ETR: Fix ETR buffer use-after-free issue
+>       https://git.kernel.org/coresight/c/35501ac3c7d4
+>
+> Best regards,
+> --
+> Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
