@@ -4,69 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749FDCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4214ACCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTVwOrLx1UbE0Vl3BjsmOsYDPFhlnrm5D/cBlveQU0c=; b=k/ShqZdBfzNx3nUKMrBfhKFUxO
-	BGe/kKCaof7YFFF0e26psKi/IDROnIvkAI80+1hJTLczfjL+9uHa0C6lTNtaOyCw7Uzz5pt3TXuGV
-	pVHewM/hnkJ9LofGQJYLlpihNZTCZPOVC+bxD29iM6uGYp5Q2/FRKq6eHxFJspFHzFw5sN1eMX1J5
-	xbpqfW1Rj7rHeD6GXP03UhVVoskrAYmXuuoSFglDTzKysf0L28mdTkybYcBiN+NIlDZ0437T71++3
-	WnpNrAg4K9kd2N7OPGNuxFcHanFYe6N2uRqy0Y8qcHMxCtS2Qh2qDxQv1GbTig+eUoc5i6eMPQ7WB
-	8En7AyIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=; b=P/iTWV+e9bc73+
+	/pPz0LS0RfQDeVjIk93+UlxSeeTN88gEX+4WTjOg2U0UlLXnS5J0hWCiKacHTND9lks9pj7u3b6SS
+	syLxjB2FRjx7g6KoZ9HhkCyE3VXJx8MgrjIkV3RelkMCEypGH/GAZZ+OmYFrgY7+cmHhzM2Mqc/9x
+	sW/JdBbw/RVWFkGXW7Egnb/cNe6UQky5/yQdLpfODkN1DTI4cI9x0AHDhdCMb8htE1xkVKUzMuonN
+	ru6Vq9J72RnqfxqZtwNZssBnJV3FQbdJF0oMwPirsHv5lgnzDjq0A5EY/t+/Cvo0TI9HHy3CZ7L5O
+	VLv2nFwIdR/tWwmbPVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5J3-0000000G7kM-2EP6;
-	Thu, 06 Nov 2025 19:06:01 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vH5LB-0000000G7uW-1KHN;
+	Thu, 06 Nov 2025 19:08:13 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5J0-0000000G7jt-1pYk
+	id 1vH5L7-0000000G7t6-3le1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 19:05:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=VTVwOrLx1UbE0Vl3BjsmOsYDPFhlnrm5D/cBlveQU0c=; b=FQtfPdRBFzpQkercfXOel4CHob
-	PBuWKc3onbvnRWQTgjNel017mgzQ6E+kJ208LhMfDe66dPD/pSKlOr7DK+fIgfNm9h+iMNAefwM89
-	qBlj12ogwElccciqMkbAl4fnSQUM7sOdPJJRtpGO3maEG+KF8n0wzoX6VwyCvfuurGFc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vH5Is-00D9Ej-Cl; Thu, 06 Nov 2025 20:05:50 +0100
-Date: Thu, 6 Nov 2025 20:05:50 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-imx@nxp.com
-Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
-Message-ID: <9fd8ccd9-560a-43b4-a48d-f7a3eaa07eb1@lunn.ch>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-4-shenwei.wang@nxp.com>
+	Thu, 06 Nov 2025 19:08:12 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-64124e430adso151284a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 11:08:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762456088; x=1763060888; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=;
+        b=O1Z7VrzPXegsBX8HiP5j5mH1tL6LyV5QThWJJmQOZ2m4SddgIDUixMoeq/+ZpHuyjN
+         JDM8o65Eg8UJKoWmGifuHB20lHV0cT2nlNnqyztlFM8NucPdPW0ggsUKG56uU4XsZ0cN
+         qweveibqW6LNN60wBYi7zaMRRQFMfdw2djWt6l22081XDnxk87dwr1FTv3hjkQnjF638
+         ZwES+saIzwzuYgQjR9RVPzodZZwDJeTm+l62ybQ9pP8M8Zh/Eaa4kJHfrfJhXzzTskDG
+         pOg6d5EaZOYEm6oxvgvM9Bj6VJZ+dcE0uWwv7sbeckyZ/HNadMe02+J/ZTBHX5OlAczr
+         sOjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762456088; x=1763060888;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TOmMRtW5FXW0MAi6xEIHqEbujsChcuuW9+3rNb6Efhc=;
+        b=fIAIj429zC/H2BJa3fzk96K51JRcNk3lT2Jw0YZSrEbmF/9bazyXw8NsBBXkDL6Wcj
+         sVjnp3VeVA1dJzQ8VNUsbf9zV7Q4/chaTFLum4EIixjyNiIOhEWvtroJHHSK0ibEyB3B
+         laVZ3fpNavOnUVoVqgWZ1Hf8Bz/U1nTJ/b7odamuEAfFl8ec8KvlDmkDX2vyZ6N39APo
+         Quma2TAVBa5QIeH11ZyJZHmwFvQBZg05WSgQXbUpMzQFjJyzRbw215aAL3KvUkWlFHGD
+         tKlUfl9E1/gFHhwis7YFf8f6OMvGXH9IYdmpFrFyYmzeg5HzCR6zrBJhd4ZUL8vipoE/
+         CocQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUIkchUN4R0R4V0YVaw9E/WCEFbdvOoyTHyU0vJZqxoWKfGQ/kJLJbaBb+MVtoX66ax/7r5iq1haIYWGeatskCn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAAY1yPFZfehynTAoDEHylI9+ioB2z9W48sH+qBnmBeoBUrPDH
+	0PeJ6EhUOZe8tJzUepbcj/9CmiiZIsBsK0G/xfSD/Afz+SE2fXAorSu0QP+Orn6FS9Q=
+X-Gm-Gg: ASbGncvx0b9sJDZo82iN8a1sRA9eM6lU4Qnc7rlItLRUy0e+5DrnGfr00QdbvFWq/9H
+	Il79zU289vcrO5bMdxH03blyLWpK0B0u1jO+H6gvqqvblRORDGk25xCqjpAyiKosliQYwkYLZoV
+	SFAg72jXlnbFa0o6JviuzYtty5pI6f2y+t4jyR6zPixMLPAbUePSEmrYvS3cRLsIUSm4vbCIB6X
+	gJH9KV2mp29/NbuQtpjcLQAJIcaJGxGkz4CKzkydJhiyNZ9+su+2UVfrIHwwGKNc7k2AzE8mzQ8
+	PO0EEXggzJiYp27FhnEccBRULuYmET34JhK+nxo8/2ya/kdUg5OX7S4Cwy9JKXDmskO/PF3e/mH
+	R/GVUdBbWpKtMi00Kb3pAnQkwg7dy2jKLIciZfV5y0DyuL0KrmK9nS2w9qc4Ri5NGzmFLkHCsWj
+	/5jV7DIDfTVH+tR48/9LtMpME53Yw=
+X-Google-Smtp-Source: AGHT+IFGWzZTlk6Pep5z9JJh/2iQFwbYfqTOhkd0VSyzz3YH59510NL660TZKF8rj5tPeiZrlMyDNQ==
+X-Received: by 2002:a17:907:3f24:b0:b65:c8b8:144f with SMTP id a640c23a62f3a-b72c0996c95mr16124866b.6.1762456087865;
+        Thu, 06 Nov 2025 11:08:07 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bfa2510esm26739566b.72.2025.11.06.11.08.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Nov 2025 11:08:07 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 00/13] of: Add wrappers to match root node with OF device
+ ID tables
+Date: Thu, 06 Nov 2025 20:07:07 +0100
+Message-Id: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251104203315.85706-4-shenwei.wang@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANzxDGkC/yWMMQqAMAwAvyKZDbQSi/gVcYiaagartCKC+HeLL
+ gc33N2QJKokaIsbopyadAtZbFnAuHCYBXXKDpWpamuNw4Fw87jyMS4/NQhOfDASOxq8IddYgtz
+ vUbxe37vrn+cFIRAvI2sAAAA=
+X-Change-ID: 20251106-b4-of-match-matchine-data-4a64bf046814
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2925;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=0/jEOxtSFPK0PmIemOfKHGwBErRDUi05GZgJASgkD0U=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDPIG5LkF6rev9ukV/+9Qtp68gNcluS7tTEY5b
+ xPa3VIbKtCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQzyBgAKCRDBN2bmhouD
+ 12G3D/9mfBQ7HGLDU/SZRXrLmtiPXCTDREluXdWUYAg8kpONNNEE75+x3up7wKYhs7S49bz7J27
+ LN8BPJka1h7vYjEBYECOIAX9bwtTdR1QgpU+tJJRaN37ZNfdhdTG0SRuIbUpU5ONVnCTVbD+yzf
+ 7zBhrdKxAlht4mclM1I6Gnv97bmFqpGq/Pp5p4YJBGUrlBvuzoL8u9W9CA+xxXjW93uVjGixBu8
+ omyiKyhRMdLgPamka6AttrpGLvvpFJVQChi30yQdAEQVdbp+zHnz4jkteGLGPjH6jy4+PLURMgC
+ 9FJfaviKGJDnBQYR1Vd/kpu9tnP/tW69frilBMHYt5kyIHvL5H31PJaQ+iBNmpavlBaLTjuylT+
+ 5sTnNNeO2R2ewpIY2kWOYuIrjiGSYc+zeHjf8l/zFKVa3zpvFMpjcomXpu0vHESDLc9qBRt8EG5
+ oRhuhAqACjuTy33Nt3xExzTEAmOENK7qDzWl2xWbiFO1sLRbMA2auneH6jgY+Vb9yIqwNUv2zJA
+ /jZShiOwmSnJMha7tiydbA6xvwNQhNMBW1Rs5WJzcEmzRwCWNGTqmhZHOSAQsES3xDV/pFdvbJY
+ 81lzvN3L/XYxoZ0HV75pW19zvzOuwUG+sbhLwIDHO5mlCNQ4qN/lssv+82nTDl+i971szhjo8Kd
+ Jzhgda147d1CC0A==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_110558_620188_4161CA34 
-X-CRM114-Status: GOOD (  31.64  )
+X-CRM114-CacheID: sfid-20251106_110809_986613_2CAF0807 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,208 +143,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 02:33:13PM -0600, Shenwei Wang wrote:
-> Describes the gpio rpmsg transport protocol over the rpmsg bus between
-> the cores.
-> 
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  Documentation/staging/gpio-rpmsg.rst | 202 +++++++++++++++++++++++++++
->  Documentation/staging/index.rst      |   1 +
->  2 files changed, 203 insertions(+)
->  create mode 100644 Documentation/staging/gpio-rpmsg.rst
-> 
-> diff --git a/Documentation/staging/gpio-rpmsg.rst b/Documentation/staging/gpio-rpmsg.rst
-> new file mode 100644
-> index 000000000000..ad6207a3093f
-> --- /dev/null
-> +++ b/Documentation/staging/gpio-rpmsg.rst
-> @@ -0,0 +1,202 @@
-> +.. SPDX-License-Identifier: GPL-2.0-or-later
-> +
-> +GPIO RPMSG Protocol
-> +===================
-> +
-> +The GPIO RPMSG transport protocol is used for communication and interaction
-> +with GPIO controllers located on remote cores on the RPMSG bus.
-> +
-> +Message Format
-> +--------------
-> +
-> +The RPMSG message consists of a 14-byte packet with the following layout:
-> +
-> +.. code-block:: none
-> +
-> +   +-----+------+------+-----+-----+------------+-----+-----+-----+----+
-> +   |0x00 |0x01  |0x02  |0x03 |0x04 |0x05..0x09  |0x0A |0x0B |0x0C |0x0D|
-> +   |cate |major |minor |type |cmd  |reserved[5] |line |port |  data    |
-> +   +-----+------+------+-----+-----+------------+-----+-----+-----+----+
-> +
-> +- **Cate (Category field)**: Indicates the category of the message, such as GPIO, I2C, PMIC, AUDIO, etc.
+Dependency/merging
+==================
+All patches depend on the first patch, thus everything could go via
+Rob's tree with people's acks.
 
-We know it is a GPIO message, this document is titled "GPIO RPMSG
-Protocol". So i don't see the need for cate. I can however understand
-that your device does support multiple functions, but to make this
-generic, it would be better if each function had its own channel.
+Description
+===========
+Several drivers duplicate same code for getting reference to the root
+node, matching it against 'struct of_device_id' table and getting out
+the match data from the table entry.
 
-> +
-> +  Defined categories:
-> +
-> +  - 1: RPMSG_LIFECYCLE
-> +  - 2: RPMSG_PMIC
-> +  - 3: RPMSG_AUDIO
-> +  - 4: RPMSG_KEY
-> +  - 5: RPMSG_GPIO
-> +  - 6: RPMSG_RTC
-> +  - 7: RPMSG_SENSOR
-> +  - 8: RPMSG_AUTO
-> +  - 9: RPMSG_CATEGORY
-> +  - A: RPMSG_PWM
-> +  - B: RPMSG_UART
-> +
-> +- **Major**: Major version number.
-> +
-> +- **Minor**: Minor version number.
+There is a of_machine_compatible_match() wrapper but it takes array of
+strings, which is not suitable for many drivers since they want the
+driver data associated with each compatible.
 
-What is the purpose of Major and Minor? What values are valid. What
-should happen if an invalid value is passed?
+Add two wrappers, similar to existing of_device_get_match_data():
+1. of_machine_device_match() doing only matching against 'struct
+   of_device_id' and returning bool.
+2. of_machine_get_match_data() doing the matching and returning
+   associated driver data for found compatible.
 
-What you should think about is, if you gave this specification to
-somebody else, could they implement it? 
+Best regards,
+Krzysztof
 
-> +
-> +- **Type (Message Type)**: For the GPIO category, can be one of:
-> +
-> +  - 0: GPIO_RPMSG_SETUP
-> +  - 1: GPIO_RPMSG_REPLY
-> +  - 2: GPIO_RPMSG_NOTIFY
+---
+Krzysztof Kozlowski (13):
+      of: Add wrappers to match root node with OF device ID tables
+      cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
+      cpufreq: mediatek: Simplify with of_machine_get_match_data()
+      cpufreq: sun50i: Simplify with of_machine_device_match()
+      cpufreq: ti: Simplify with of_machine_device_match()
+      cpuidle: big_little: Simplify with of_machine_device_match()
+      firmware: qcom: scm: Simplify with of_machine_device_match()
+      irqchip/atmel-aic: Simplify with of_machine_get_match_data()
+      platform: surface: Simplify with of_machine_get_match_data()
+      powercap: dtpm: Simplify with of_machine_get_match_data()
+      soc: qcom: Simplify with of_machine_get_match_data()
+      soc: qcom: ubwc: Simplify with of_machine_get_match_data()
+      soc: tegra: Simplify with of_machine_device_match()
 
-Is _SETUP always from Linux to the firmware? Is a setup always
-followed by a _REPLY? Do you need to wait for the _REPLY before
-sending the next _SETUP? If there is no _REPLY within X seconds, should
-Linux retry? Can an _NOTIFY arrive between a _SETUP and a _REPLY?
+ drivers/cpufreq/cpufreq-dt-platdev.c               | 15 ++-----
+ drivers/cpufreq/mediatek-cpufreq.c                 | 12 +-----
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 11 +----
+ drivers/cpufreq/ti-cpufreq.c                       | 13 +-----
+ drivers/cpuidle/cpuidle-big_little.c               | 11 +----
+ drivers/firmware/qcom/qcom_scm.c                   | 17 +-------
+ drivers/irqchip/irq-atmel-aic-common.c             | 15 ++-----
+ drivers/of/base.c                                  | 47 ++++++++++++++++++++++
+ .../platform/surface/surface_aggregator_registry.c | 13 +-----
+ drivers/powercap/dtpm.c                            | 16 +-------
+ drivers/soc/qcom/qcom_pd_mapper.c                  | 17 +-------
+ drivers/soc/qcom/ubwc_config.c                     | 14 ++-----
+ drivers/soc/tegra/common.c                         | 12 +-----
+ include/linux/of.h                                 | 13 ++++++
+ 14 files changed, 82 insertions(+), 144 deletions(-)
+---
+base-commit: e5efebeef746a24f45b98dbdfcf334285848b32a
+change-id: 20251106-b4-of-match-matchine-data-4a64bf046814
 
-> +
-> +- **Cmd**: Command code, used for GPIO_RPMSG_SETUP messages.
-> +
-> +- **reserved[5]**: Reserved bytes.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Why are these in the middle. It is more normal to have reserved bytes
-at the end.
-
-You should also specify these bytes should be set to 0. If you don't
-it will be hard to use them in the future, because they will contain
-42, or some other random values.
-
-Is there a relationship between major:minor and reserved?
-
-> +
-> +- **line**: The GPIO line index.
-> +
-> +- **port**: The GPIO controller index.
-
-data? 
-
-> +GPIO Commands
-> +-------------
-
-This is a GPIO specification, so i would only expect GPIO commands...
-
-> +
-> +Commands are specified in the **Cmd** field for **GPIO_RPMSG_SETUP** (Type=0) messages.
-> +
-> +GPIO_RPMSG_INPUT_INIT (Cmd=0)
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +**Request:**
-> +
-> +.. code-block:: none
-> +
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
-> +   | 5   | 1   | 0   | 0   | 0   |  0        |line |port | val | wk |
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +
-> +- **val**: Interrupt trigger type.
-> +
-> +  - 0: Interrupt disabled
-> +  - 1: Rising edge trigger
-> +  - 2: Falling edge trigger
-> +  - 3: Both edge trigger
-> +  - 4: Low level trigger
-> +  - 5: High level trigger
-> +
-> +- **wk**: Wakeup enable.
-> +
-> +  - 0: Disable wakeup from GPIO
-> +  - 1: Enable wakeup from GPIO
-
-What do you mean by wakeup? 
-
-> +
-> +**Reply:**
-> +
-> +.. code-block:: none
-> +
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
-> +   | 5   | 1   | 0   | 1   | 1   |  0        |line |port | err | 0  |
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +
-> +- **err**: Error code from the remote core.
-> +
-> +  - 0: Success
-> +  - 1: General error (early remote software only returns this unclassified error)
-> +  - 2: Not supported
-> +  - 3: Resource not available
-> +  - 4: Resource busy
-> +  - 5: Parameter error
-
-It would be good to give some examples of when these should be used.
-
-Say the hardware does not support both edges. Is that 2? Why would a
-resource be busy? How is busy different to not available?
-
-> +
-> +GPIO_RPMSG_OUTPUT_INIT (Cmd=1)
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +**Request:**
-> +
-> +.. code-block:: none
-> +
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
-> +   | 5   | 1   | 0   | 0   | 1   |  0        |line |port | val | 0  |
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +
-> +- **val**: Output level.
-> +
-> +  - 0: Low
-> +  - 1: High
-
-Maybe make a comment about the order. Some GPIO controllers suffer from
-glitches when you swap them from input to output. While it is an
-input, you first need to set the output value, and then configure the
-pin for output. 
-
-> +Notification Message
-> +--------------------
-> +
-> +Notifications are sent with **Type=2 (GPIO_RPMSG_NOTIFY)**:
-> +
-> +.. code-block:: none
-> +
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
-> +   | 5   | 1   | 0   | 2   | 0   |  0        |line |port | 0   | 0  |
-> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
-> +
-> +- **line**: The GPIO line index.
-> +- **port**: The GPIO controller index.
-
-There is no need to acknowledge the notification? How do level
-interrupts work?
-
-	Andrew
 
