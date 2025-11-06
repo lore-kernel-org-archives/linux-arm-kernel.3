@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB91CCFA03
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20ACDCCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 14:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=; b=gbuG7g9r4uY6m+DqsgAGXOj+43
-	U51Jp2hGK+3mm/7tmgulavc28Ikr1U+WvmHpQHJ0xkapyqdTp8kDdWpkWTwlNY0mNg4SPftKmNkIw
-	8OQqtcLU1aEwRR8JbWIYvU9ObibYsZZyVSCMG9SAfsw609QC3T0/27/fndy9teXM6mVCXLmGM/SV9
-	2aL8iH6ZeoqNQ9Bk4xAaE/igJJJYXfQPpWzSckLnUq78jQrce7QCHkdCd+77o8iGcMiNFsNoJU/q0
-	W37iO1PbL6YQ3mf7Yj0E73ltXQX3M44c2s0ACwD6/AwNfYUnnAPsPS1tLZlKgubYcSX/+cxNPJkYR
-	wEumnPoQ==;
+	bh=c2VPx4SC40voz1ATNAf0R3FKhbAwgkeS2tAM6J0ElSE=; b=IStVzLNmy+8gz6eMEpWCnrmcYE
+	2cqD71MehO2ajSB4xEtRMY6SekXXsMAOsEmipPb3CZ4M0GntNe/+v0/pUJO6CR8muQIDywVfzVhxg
+	qlLX7AdSDwksrL1wWZUZfTNBa/olCIFz29uIoLQ0Oce1pHQmPTWys/0JvNGRTtJ2hYByZOMDXiwo/
+	0MuQZkzwkPaaWqtRUbNBEnQTs2tAtWHMjewzRlgnOLxZVjhaRI8lQjbCCpBLKChcn0hlXIilgkVgA
+	6ZYMJisx7oYnuXkFmC6gClSO/NU/EhnSIBIDpNzaR0tpPnYlBzEvQio0E/qsmykn6/awuJ8AmH+Om
+	gAugQ56w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0kl-0000000FfwJ-0l03;
-	Thu, 06 Nov 2025 14:14:19 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1vH0nJ-0000000FgEU-3x4n;
+	Thu, 06 Nov 2025 14:16:57 +0000
+Received: from mta1.formilux.org ([51.159.59.229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0ki-0000000Ffv3-2WZp
+	id 1vH0nG-0000000FgDh-3a3z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 14:14:18 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8906eb94264so101126985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 06:14:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762438455; x=1763043255; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=;
-        b=FTCm//A/q4l6iKOsSt9l/49p9aL1OfeREOqdzAxUGa73xGnlSvkYsMR4z8e1YSpzmi
-         Up4bv1nXk/5H4NFz0IhDlTJIFohg1anH9II5OU6J+0PgDL540eE30sZuvPrRirzRK7W7
-         tEL+RO6EulWEXFtFiM8rV0RRPTJGHln4p7Ht/VfngPDtWw+G1c8U/gSBi4r1hDwc4vjd
-         JvP29jbI589IJ8zoKKOZ5ZmC5SECg63oq0WzZfsE4MEf51wuNnez44BxVmrderD64Dfx
-         0HIciUnp9FUSvOR8L0mk5IjgWHcEw0g4Uq/cktsw1VPkT3O5ZHtnS4hOlznDAiFr31z8
-         UfzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762438455; x=1763043255;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KYFaoUaPqBFs4zpnq3Lm30Kel2vQ+Isi1f4CetV78uY=;
-        b=XhrrCNvk/udwKKFiwktfR4PHwc941Bs+CG2rVHK87Y+jK8gxxb5XnXmoz8CC1TPIrE
-         UkwDehdx1X/v4zTzWN3xyGb2A1rmLx6txfy6Oc7ga5POeCvW9MX7LYRfhoHtBtPPJZ/u
-         1UW9fwVLry02tPpfXISBBikFZ61/SjaHS60lMvF4nyTLC2c3q52Zk16/XEfLa9/YDX0D
-         egVhM0MHcIklKX7eN9lSAMHQ2xl0LSVt29baz4gRxwbjycgz3p5ZW0urRnlOj+tHR7NE
-         AApOFCnRFoyV6LyKjWUftlyqofffVU1aO0eKmAT90/j2IKHzC8rzNH039uLquXKHJgN3
-         eWDA==
-X-Forwarded-Encrypted: i=1; AJvYcCXPCKKVVlGm6t2u6hvddp8VpCkpRm1vvXMAK4UPiq03lS2uaf9Jx38vL9rrtShLbARQyp2CF2QzjEKzvr6gdnuT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBjo02eBZjp8MVW6MIF51PxT9sCFZZaKvGlP3pY5zi7CjRzFdl
-	+Os1d4hg4YzZBFctJhaIhrsp/sBM2Uk67gEF/X2ndvFJzz/tcO8I6CPRKEF7Z6Dl5vGVpqO85cF
-	AmSagYuiTIk8TcYlBWQACavlab2wD6gltEoqmB3fL3w==
-X-Gm-Gg: ASbGnctuWWnFY8Q48fFyXAKEeG8B40P4gymy8NeEwaV4Y6ri37QLHJq8TjIspA+jIbS
-	0MGdFHJkhBx7sSrcyx9ANNAhauo58XcLOXYcyv5hla6dXqAohvnXqDKGApWh/WRX0SR5IPE7flJ
-	AJf1Vhfzzs86Zf8RHFXLfflILaxHaxXoS885ySWjVP1nw3hXmEqQDdFaBvE7Ru4F4uPwYe5Z06D
-	0R9FX6eTKHsZGPTygXpQpVvv+zmmywKP7xXzzvWXytiZDncRqTaDjLrfZeNE7d6ppodMKOe2uhw
-	cYlGJqwdK1SSuaYPDRPWQ1jPjMsy
-X-Google-Smtp-Source: AGHT+IEL/OjdpCudnpto7EM9lmyvDKegeMK7BC71b7SfH+up9yag/BCWFhn9z12orK4BrZX5VPjYqt/GlifmAA0brpU=
-X-Received: by 2002:a05:620a:454d:b0:8b2:294:1cf1 with SMTP id
- af79cd13be357-8b220b1c9b7mr943868385a.29.1762438455191; Thu, 06 Nov 2025
- 06:14:15 -0800 (PST)
+	Thu, 06 Nov 2025 14:16:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1762438610; bh=c2VPx4SC40voz1ATNAf0R3FKhbAwgkeS2tAM6J0ElSE=;
+	h=From:Message-ID:From;
+	b=Pys7zE6tSl8cKTtVArZnrUg71bdETdAdffbYT35q9vBG5YfqW52lz5tvvhlvovlIO
+	 ZnpRxEkEI50as+NT68tmrykJmGlzNTMhzSME27qt2d6NX3fH4Nosv4pBE7OuNGSvfh
+	 q6eyyRKDpeLnNzY1eK0ruEzInrL7DZzNB0AHuhAA=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 3BE21C0960;
+	Thu, 06 Nov 2025 15:16:50 +0100 (CET)
+Received: (from willy@localhost)
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 5A6EGnlj025280;
+	Thu, 6 Nov 2025 15:16:49 +0100
+Date: Thu, 6 Nov 2025 15:16:49 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Yicong Yang <yangyccccc@gmail.com>,
+        "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: Overhead of arm64 LSE per-CPU atomics?
+Message-ID: <20251106141649.GC24713@1wt.eu>
+References: <aQU7l-qMKJTx4znJ@arm.com>
+ <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
+ <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
+ <aQXtqoUEtDr-xUeS@arm.com>
+ <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
+ <aQtQRSoL8GGVNrUQ@arm.com>
+ <20251105134231.GF22848@1wt.eu>
+ <aQtkA0cOb6Fm9Mrc@arm.com>
+ <20251106074439.GB24713@1wt.eu>
+ <aQyoQMHA_2HuK9sH@arm.com>
 MIME-Version: 1.0
-References: <20251021-fix_etr_issue-v3-1-99a2d066fee2@oss.qualcomm.com> <176235893222.387743.2128022832743502879.b4-ty@arm.com>
-In-Reply-To: <176235893222.387743.2128022832743502879.b4-ty@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 6 Nov 2025 14:14:03 +0000
-X-Gm-Features: AWmQ_blBAvwJrBuwMN552m9J7iG9zQVh_LDuoQgBSibOW9xk--Ct5-VQl5IDv-s
-Message-ID: <CAJ9a7Vji3fFnc-XPhdTxh00QW+AjqLqJo=zt+SMwovttQRwR8Q@mail.gmail.com>
-Subject: Re: [PATCH v3] coresight: ETR: Fix ETR buffer use-after-free issue
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Linu Cherian <lcherian@marvell.com>, 
-	Xiaoqi Zhuang <xiaoqi.zhuang@oss.qualcomm.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aQyoQMHA_2HuK9sH@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_061417_031081_44623327 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20251106_061655_325249_24CEDBCD 
+X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Nov 06, 2025 at 01:53:04PM +0000, Catalin Marinas wrote:
+> On Thu, Nov 06, 2025 at 08:44:39AM +0100, Willy Tarreau wrote:
+> > Do you have pointers to some docs suggesting what instructions to use
+> > when you prefer a near or far operation, like here with stadd vs ldadd ?
+> 
+> Unfortunately, the architecture spec does not make any distinction
+> between far or near atomics, that's rather a microarchitecture and
+> system implementation detail. Some of the information is hidden in
+> specific CPU TRMs and the behaviour may differ between implementations.
+> 
+> I hope Arm will publish some docs/blogs to give some guidance to
+> software folk (and other non-Arm Ltd microarchitects; it would be good
+> if they are all aligned, though some may see this as their value-add).
 
-Is this fixing the correct problem? If we prevent the buffer size from
-being changed while the sink is active - which is probably what we
-should do anyway as no real good can come from allowing this - then
-the problem disappears.
+Yes I can definitely understand that it's never easy to place the cursor
+between how to help developers get the most of your arch and how to keep
+competitors away.
 
-Changing the buffer size while the sink is active should return -EBUSY;
+> > Also does this mean that with LSE a pure store will always be far unless
+> > prefetched ? Or should we trick stores using stadd mem,0 / ldadd mem,0
+> > to hint a near vs far store for example ?
+> 
+> For the Arm Ltd implementations, _usually_ store-only atomics are
+> executed far while those returning a value are near. But that's subject
+> to implementation-defined configurations (e.g. IMP_CPUECTLR_EL1). Also
+> the hardware may try to be smarter, e.g. detect contention and switch
+> from one behaviour to another.
 
-Mike
+OK, thanks for the explanation. It makes sense and tends to match what
+one could naturally expect.
 
-On Wed, 5 Nov 2025 at 16:13, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
->
-> On Tue, 21 Oct 2025 16:45:25 +0800, Xiaoqi Zhuang wrote:
-> > When ETR is enabled as CS_MODE_SYSFS, if the buffer size is changed
-> > and enabled again, currently sysfs_buf will point to the newly
-> > allocated memory(buf_new) and free the old memory(buf_old). But the
-> > etr_buf that is being used by the ETR remains pointed to buf_old, not
-> > updated to buf_new. In this case, it will result in a memory
-> > use-after-free issue.
-> >
-> > [...]
->
-> Applied, thanks!
->
-> [1/1] coresight: ETR: Fix ETR buffer use-after-free issue
->       https://git.kernel.org/coresight/c/35501ac3c7d4
->
-> Best regards,
-> --
-> Suzuki K Poulose <suzuki.poulose@arm.com>
+> > I'm also wondering about CAS,
+> > if there's a way to perform the usual load+CAS sequence exclusively using
+> > far operations to avoid cache lines bouncing in contended environments,
+> > because there are cases where a constant 50-60ns per CAS would be awesome,
+> > or maybe even a CAS that remains far in case of failure or triggers the
+> > prefetch of the line in case of success, for the typical
+> > CAS(ptr, NULL, mine) used to try to own a shared resource.
+> 
+> Talking to other engineers in Arm, I learnt that the architecture even
+> describes a way the programmer can hint at CAS loops. Instead of an LDR,
+> use something (informally) called ICAS - a CAS where the Xs and Xt
+> registers are the same (actual registers, not the value they contain).
+> The in-memory value comparison with Xs either passes and the written
+> value would be the same (imp def whether a write actually takes place)
+> or fails (in theory, hw is allowed to write the same old value back).
 
+This is super interesting, thanks for sharing!
 
+> So
+> while the value in Xs is less relevant, CAS will return the value in
+> memory. The hardware detects the ICAS+CAS constructs and aims to make
+> them faster.
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+I had already notice some x86 models being able to often succeed on the
+second CAS attempt, and suspected that they'd force the L1 to hold the
+line until the next attempt for this purpose. This could be roughly
+similar.
+
+> >From the C6.2.50 in the Arm ARM (the CAS description):
+> 
+>   For a CAS or CASA instruction, when <Ws> or <Xs> specifies the same
+>   register as <Wt> or <Xt>, this signals to the memory system that an
+>   additional subsequent CAS, CASA, CASAL, or CASL access to the
+>   specified location is likely to occur in the near future. The memory
+>   system can respond by taking actions that are expected to enable the
+>   subsequent CAS, CASA, CASAL, or CASL access to succeed when it does
+>   occur.
+> 
+> I guess something to add to Breno's microbenchmarks.
+
+I think so as well. Many thanks again for sharing such precious info!
+
+Willy
 
