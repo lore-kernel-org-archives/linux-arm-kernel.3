@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8542CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 09:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEC9CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 09:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQRRLCc2yik2zNK9z3lw20s/6/csYN/C0XKZ+/9+N2I=; b=kFzeuBiMCeqPFD2grcAp/ihMAV
-	tE8VctK4NtqLhXLIeJMulg0GxoSHlj8B7EMkm51KvXNueseb+JW07M+PcKdpiUhWofDgETpfK9Kgv
-	gzrdoORiJjwIzg36Bbg7t1zenT3fPJIEtpIjJ6l6vMtlavs0UAkw3JiF8wyXWh7+/kLE9XekB9kZR
-	53WAty45EDDAH70fnPEwS0FPYJ0GiEGVtnwBMGiuYCc47OrWwIsJpu6QzLILEAl9jTylCPyey1V0H
-	LccOHHSY8TWt2RfglmCTLga5xiHlCir77Ad7rCqRuZJNTaG79TZR7sK/OXdhsY0sHp8x9lCmL9/zV
-	Rh/S2XFA==;
+	bh=ujtVeNSIJPy7SGjp5cYbadBPd4yXu6tnLXY2+k3zhfo=; b=fEiAIVW9OSTGMh3Sec9P4FwDUZ
+	nL2TP/xdf2iyE4vYQlnKjviMElshElJiML9SQpZe5aRgBhiqYI/vaGvSjZmkFavQGIfElHSryhr7J
+	+Xgi14nfUaEQRVIrB6NtOTPlgsd2H8EYm6DhYBsT4zVq/vx8m5/sN26vxlXDtrEKKC91Saj3IrPKz
+	GMJhDXru5Khlq3joNkK4U8H2fafSlz4fEpRujXgq6OktN4po3j2a6bCAGbr81KZOKCRBFdTTVkgwG
+	j4plJfpKDg3ys6gysiuDh61ntqKd0x2QpcolRpi/61EikA44gi2otmXLok14EmexVEIej7ekqjQDq
+	aleDXvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwbR-0000000FBgC-1HLl;
-	Thu, 06 Nov 2025 09:48:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vGwbT-0000000FBib-3guZ;
+	Thu, 06 Nov 2025 09:48:27 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGwbM-0000000FBbG-2ef8
+	id 1vGwbQ-0000000FBeI-0dXO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 09:48:23 +0000
+	Thu, 06 Nov 2025 09:48:26 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 048B4C0FA83;
-	Thu,  6 Nov 2025 09:47:58 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B7ABC1A18F1;
+	Thu,  6 Nov 2025 09:48:22 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 10F236068C;
-	Thu,  6 Nov 2025 09:48:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75BD311850803;
-	Thu,  6 Nov 2025 10:48:14 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8AF586068C;
+	Thu,  6 Nov 2025 09:48:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1DBB111850800;
+	Thu,  6 Nov 2025 10:48:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762422497; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1762422501; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=zQRRLCc2yik2zNK9z3lw20s/6/csYN/C0XKZ+/9+N2I=;
-	b=nKpeWF/OrP/pqFW9wNQ45T++eR8H43OQ7xB/LLElJGAktt/GtFumu6LUfWbTeXnuaXJ942
-	7Zjon8LeXgBthb2aZ+CuvlPyhznSvclzBORLD7hJoj7XwmfM/B5DPG1XnIXl63Kx9UOd9r
-	yjXQaboDwTLO32xgafZAhMckKlaV4V1LXBVLjsWvWlu645isNa/l/r/u5MhwOYVRL4nFcO
-	nKuVxF4OLQ0Z5FrLnEVUMlGVLrIHdCXJxGgpyySViftkcuAtiQa6CsqoNHOJCuej+nQLKT
-	OJmvvQzCm1Y6mR00xirl692zipFpZaX+R1NW23JitQnsofrVAxLm/ncMavmBGQ==
+	bh=ujtVeNSIJPy7SGjp5cYbadBPd4yXu6tnLXY2+k3zhfo=;
+	b=yxZG5H9Ku71AYwBQByZxIiM7S/XW47WQBpfE0cEGPI4d6ugULLDQlokhuwjClncNNcl0Gp
+	Edp2c4coni6L4V5e46YHnghUmiqn+6sSnILvLOUtbTcN3HvehYM5es3MIxe5P6WpfVQTq4
+	qSgLpsC+Oet8JpYJzxfCkkaoX7e3eY0huvpxQN5xONs55ExU4URdHnN9msPsIorOUm92Ce
+	QjJ/zARe1CzRQ0/Uqn0ybsRGDbPpthJCtnCpPBzBXRbCw7ikKIsDlsmFFA3QknC8Cvi6w9
+	57RvPY7oZvZpUgmqeV6sy1GXBHou16WF5dceAEbD7gFdhYOqMVZHNHfz+1uTMg==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -76,9 +76,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v15 06/15] net: phy: Create a phy_port for PHY-driven SFPs
-Date: Thu,  6 Nov 2025 10:47:31 +0100
-Message-ID: <20251106094742.2104099-7-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v15 07/15] net: phy: Introduce generic SFP handling for PHY drivers
+Date: Thu,  6 Nov 2025 10:47:32 +0100
+Message-ID: <20251106094742.2104099-8-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
 References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
@@ -86,8 +86,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_014820_880218_247E0E6B 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20251106_014824_365038_31567A8B 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +102,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some PHY devices may be used as media-converters to drive SFP ports (for
-example, to allow using SFP when the SoC can only output RGMII). This is
-already supported to some extend by allowing PHY drivers to registers
-themselves as being SFP upstream.
+There are currently 4 PHY drivers that can drive downstream SFPs:
+marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
+logic is boilerplate, either calling into generic phylib helpers (for
+SFP PHY attach, bus attach, etc.) or performing the same tasks with a
+bit of validation :
+ - Getting the module's expected interface mode
+ - Making sure the PHY supports it
+ - Optionaly perform some configuration to make sure the PHY outputs
+   the right mode
 
-However, the logic to drive the SFP can actually be split to a per-port
-control logic, allowing support for multi-port PHYs, or PHYs that can
-either drive SFPs or Copper.
+This can be made more generic by leveraging the phy_port, and its
+configure_mii() callback which allows setting a port's interfaces when
+the port is a serdes.
 
-To that extent, create a phy_port when registering an SFP bus onto a
-PHY. This port is considered a "serdes" port, in that it can feed data
-to anther entity on the link. The PHY driver needs to specify the
-various PHY_INTERFACE_MODE_XXX that this port supports.
+Introduce a generic PHY SFP support. If a driver doesn't probe the SFP
+bus itself, but an SFP phandle is found in devicetree/firmware, then the
+generic PHY SFP support will be used, relying on port ops.
 
+PHY driver need to :
+ - Register a .attach_port() callback
+ - When a serdes port is registered to the PHY, drivers must set
+   port->interfaces to the set of PHY_INTERFACE_MODE the port can output
+ - If the port has limitations regarding speed, duplex and aneg, the
+   port can also fine-tune the final linkmodes that can be supported
+ - The port may register a set of ops, including .configure_mii(), that
+   will be called at module_insert time to adjust the interface based on
+   the module detected.
+
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phy_device.c | 24 ++++++++++++++++++++++++
- drivers/net/phy/phy_port.c   | 14 ++++++++++++++
- 2 files changed, 38 insertions(+)
+ drivers/net/phy/phy_device.c | 107 +++++++++++++++++++++++++++++++++++
+ include/linux/phy.h          |   2 +
+ include/linux/phy_port.h     |   2 +
+ 3 files changed, 111 insertions(+)
 
 diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index ef4ebf1aab68..8e51de932e54 100644
+index 8e51de932e54..9e39424164c3 100644
 --- a/drivers/net/phy/phy_device.c
 +++ b/drivers/net/phy/phy_device.c
-@@ -1643,6 +1643,26 @@ static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
- 	phydev->n_ports--;
+@@ -1598,6 +1598,86 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
  }
+ EXPORT_SYMBOL(phy_sfp_detach);
  
-+static int phy_setup_sfp_port(struct phy_device *phydev)
++static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
 +{
-+	struct phy_port *port = phy_port_alloc();
++	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
++	struct phy_device *phydev = upstream;
++	const struct sfp_module_caps *caps;
++	struct phy_port *port;
 +
++	phy_interface_t iface;
++
++	linkmode_zero(sfp_support);
++
++	port = phy_get_sfp_port(phydev);
 +	if (!port)
-+		return -ENOMEM;
++		return -EINVAL;
 +
-+	port->parent_type = PHY_PORT_PHY;
-+	port->phy = phydev;
++	caps = sfp_get_module_caps(phydev->sfp_bus);
 +
-+	/* The PHY is a media converter, the port connected to the SFP cage
-+	 * is a MII port.
-+	 */
-+	port->is_mii = true;
++	linkmode_and(sfp_support, port->supported, caps->link_modes);
++	if (linkmode_empty(sfp_support)) {
++		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted, no common linkmode\n");
++		return -EINVAL;
++	}
 +
-+	phy_add_port(phydev, port);
++	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
++	if (iface == PHY_INTERFACE_MODE_NA) {
++		dev_err(&phydev->mdio.dev, "PHY %s does not support the SFP module's requested MII interfaces\n",
++			phydev_name(phydev));
++		return -EINVAL;
++	}
++
++	if (phydev->n_ports == 1)
++		phydev->port = caps->port;
++
++	if (port->ops && port->ops->configure_mii)
++		return port->ops->configure_mii(port, true, iface);
 +
 +	return 0;
 +}
 +
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-@@ -1664,6 +1684,10 @@ int phy_sfp_probe(struct phy_device *phydev,
- 		ret = sfp_bus_add_upstream(bus, phydev, ops);
- 		sfp_bus_put(bus);
- 	}
++static void phy_sfp_module_remove(void *upstream)
++{
++	struct phy_device *phydev = upstream;
++	struct phy_port *port = phy_get_sfp_port(phydev);
 +
-+	if (phydev->sfp_bus)
-+		ret = phy_setup_sfp_port(phydev);
++	if (port && port->ops && port->ops->configure_mii)
++		port->ops->configure_mii(port, false, PHY_INTERFACE_MODE_NA);
 +
++	if (phydev->n_ports == 1)
++		phydev->port = PORT_NONE;
++}
++
++static void phy_sfp_link_up(void *upstream)
++{
++	struct phy_device *phydev = upstream;
++	struct phy_port *port = phy_get_sfp_port(phydev);
++
++	if (port && port->ops && port->ops->link_up)
++		port->ops->link_up(port);
++}
++
++static void phy_sfp_link_down(void *upstream)
++{
++	struct phy_device *phydev = upstream;
++	struct phy_port *port = phy_get_sfp_port(phydev);
++
++	if (port && port->ops && port->ops->link_down)
++		port->ops->link_down(port);
++}
++
++static const struct sfp_upstream_ops sfp_phydev_ops = {
++	.attach = phy_sfp_attach,
++	.detach = phy_sfp_detach,
++	.module_insert = phy_sfp_module_insert,
++	.module_remove = phy_sfp_module_remove,
++	.link_up = phy_sfp_link_up,
++	.link_down = phy_sfp_link_down,
++	.connect_phy = phy_sfp_connect_phy,
++	.disconnect_phy = phy_sfp_disconnect_phy,
++};
++
+ static int phy_add_port(struct phy_device *phydev, struct phy_port *port)
+ {
+ 	int ret = 0;
+@@ -1657,6 +1737,7 @@ static int phy_setup_sfp_port(struct phy_device *phydev)
+ 	 * is a MII port.
+ 	 */
+ 	port->is_mii = true;
++	port->is_sfp = true;
+ 
+ 	phy_add_port(phydev, port);
+ 
+@@ -3497,6 +3578,13 @@ static int phy_setup_ports(struct phy_device *phydev)
+ 	if (ret)
+ 		return ret;
+ 
++	/* Use generic SFP probing only if the driver didn't do so already */
++	if (!phydev->sfp_bus) {
++		ret = phy_sfp_probe(phydev, &sfp_phydev_ops);
++		if (ret)
++			goto out;
++	}
++
+ 	if (phydev->n_ports < phydev->max_n_ports) {
+ 		ret = phy_default_setup_single_port(phydev);
+ 		if (ret)
+@@ -3532,6 +3620,25 @@ static int phy_setup_ports(struct phy_device *phydev)
  	return ret;
  }
- EXPORT_SYMBOL(phy_sfp_probe);
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-index 87181909b20c..a8264a386034 100644
---- a/drivers/net/phy/phy_port.c
-+++ b/drivers/net/phy/phy_port.c
-@@ -125,6 +125,20 @@ void phy_port_update_supported(struct phy_port *port)
- 			port->pairs = max_t(int, port->pairs,
- 					    ethtool_linkmode_n_pairs(mode));
  
-+	/* Serdes ports supported through SFP may not have any medium set,
-+	 * as they will output PHY_INTERFACE_MODE_XXX modes. In that case, derive
-+	 * the supported list based on these interfaces
-+	 */
-+	if (port->is_mii && linkmode_empty(supported)) {
-+		unsigned long interface, link_caps = 0;
++/**
++ * phy_get_sfp_port() - Returns the first valid SFP port of a PHY
++ * @phydev: pointer to the PHY device to get the SFP port from
++ *
++ * Returns: The first active SFP (serdes) port of a PHY device, NULL if none
++ * exist.
++ */
++struct phy_port *phy_get_sfp_port(struct phy_device *phydev)
++{
++	struct phy_port *port;
 +
-+		/* Get each interface's caps */
-+		for_each_set_bit(interface, port->interfaces,
-+				 PHY_INTERFACE_MODE_MAX)
-+			link_caps |= phy_caps_from_interface(interface);
++	list_for_each_entry(port, &phydev->ports, head)
++		if (port->active && port->is_sfp)
++			return port;
 +
-+		phy_caps_linkmodes(link_caps, port->supported);
-+	}
- }
- EXPORT_SYMBOL_GPL(phy_port_update_supported);
++	return NULL;
++}
++EXPORT_SYMBOL_GPL(phy_get_sfp_port);
++
+ /**
+  * fwnode_mdio_find_device - Given a fwnode, find the mdio_device
+  * @fwnode: pointer to the mdio_device's fwnode
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 0d33669f3471..2a9763e923fd 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -2420,6 +2420,8 @@ int __phy_hwtstamp_set(struct phy_device *phydev,
+ 		       struct kernel_hwtstamp_config *config,
+ 		       struct netlink_ext_ack *extack);
  
++struct phy_port *phy_get_sfp_port(struct phy_device *phydev);
++
+ extern const struct bus_type mdio_bus_type;
+ extern const struct class mdio_bus_class;
+ 
+diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
+index ce0208fbccf7..550c3f4ab19f 100644
+--- a/include/linux/phy_port.h
++++ b/include/linux/phy_port.h
+@@ -49,6 +49,7 @@ struct phy_port_ops {
+  * @active: Indicates if the port is currently part of the active link.
+  * @is_mii: Indicates if this port is MII (Media Independent Interface),
+  *          or MDI (Media Dependent Interface).
++ * @is_sfp: Indicates if this port drives an SFP cage.
+  */
+ struct phy_port {
+ 	struct list_head head;
+@@ -67,6 +68,7 @@ struct phy_port {
+ 	unsigned int not_described:1;
+ 	unsigned int active:1;
+ 	unsigned int is_mii:1;
++	unsigned int is_sfp:1;
+ };
+ 
+ struct phy_port *phy_port_alloc(void);
 -- 
 2.49.0
 
