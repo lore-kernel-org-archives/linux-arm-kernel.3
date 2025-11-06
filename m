@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9A9CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193FFCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Dhb9IRZrY5OxNh4l78kpxnIPd2RjSS1cMW9ZzlM+Dc=; b=puOC2nd4GGpIbMNpV2FulY8POy
-	xuXmNltEF4oPBVOaF2TnN325kiFeJjRUMzYsB1JNl919f2XBPgXqTZGmRksJWf1eJ1lSXXG7AhxQg
-	ponSWGTbS36lh30DTirP4I+IDu8E4xgcNqGO8W7BOiQhV/ibj9pcmFCHb1FO26pn2WU+AgtQ3hD8e
-	vjSsKeOFQse59SqcI8WVpn6ki7w8faiNwI52fce7KSvAIFXgAgo3DY8hB/5jhvziOiu/E5QcYi7br
-	TXhZ6p3fcV2EvJy6QjBaJbrTOt9YBacDNe+pj/KW1YJUeJJNgCnoMYd6vxx0zn26J0QOQgXITRZgv
-	jphTyX0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LPJLetMPIdvYKqkTc8SZL1HtK8BtN16RAneelvqr+bw=; b=38So3Y4J0yvze6Gc2grCIuAOZ4
+	+3UNhkDFXyZRudQj/klN5DUhcYTeHjKBPNr36Hb4Ed+vSUnBUe0KWvOnuw5w9PuX0lDSVKFowBnzc
+	+pZBLHL+yW82Qmrs2vnA+fbVzK9/45KYEq4q62a9/eK2kZBbyQlDmFHtp33LL00BTkNxDB5BQdOBt
+	y6eQCkAa9sDG9CykVd8vNvX+iHw+mJKAcjZ5WUKET2ixAyT+Iam5yLJHE7JUjjIm8XA7jtbER+Qj2
+	oFEkB24QyNMXgVMo0XjOjZZS1sNfS+XORTUyQCWpIjEVKru0U3DXZxW7yj4vp345+gQko+S5imqQ+
+	07wx/vFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0T8-0000000Fe4X-06oh;
-	Thu, 06 Nov 2025 13:56:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vH0Tj-0000000FeB3-3Wc1;
+	Thu, 06 Nov 2025 13:56:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH0T6-0000000Fe3z-0RZj
+	id 1vH0Ti-0000000FeAv-2IkF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 13:56:05 +0000
+	Thu, 06 Nov 2025 13:56:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E88343D27;
-	Thu,  6 Nov 2025 13:56:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14698C4CEF7;
-	Thu,  6 Nov 2025 13:55:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 97E4C601B8;
+	Thu,  6 Nov 2025 13:56:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC85C4CEF7;
+	Thu,  6 Nov 2025 13:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762437363;
-	bh=NDmfeyNji4d6yMNWtsY5RGMB0RhVGt7DeQaYrl2G384=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IY8B4am+n9NPjHPxZal5gV/UG3Re3bytgQq8hfMNy5qEzwKVHjCaOvI3JeKXmxK57
-	 VTh/RqIonvmgwvwGprCRMzRuDec9Sq7FB8XbuGwZN32qe+6IMpZ1XsfLni2OWTjtDh
-	 cBgfbf2WsN6SjwBN/SM3T+19kcjVoe0wpYM+o46dHDtQ106yLYGXw7UMIJ0MWQtKUq
-	 cEzWr/SPp7enQrmwejVsCFA0vcSTZEt5cALgvUX8uAZ5xJgdsxIvXEuo5HanP10Usk
-	 veWBTrqvT14esfPHuHmlLBjv+nBnUzqz4yTQS3hy3VCIoBtSDFNOlASCHNoWlBTwzU
-	 HtcCNHpAQMANg==
-Date: Thu, 6 Nov 2025 13:55:56 +0000
+	s=k20201202; t=1762437401;
+	bh=CAPtG3qawnkmkv2IEXIZXUOloOY618BfaIpnP1GF1Mw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ByGmuJzM2cujoKMGT/JaCi6BvzNoQnznyt/Q878ToDqrJHMubMPtbW9IU4uGH3ypg
+	 KfEMXXduaJJQ2nYIbJh5D1u24H2y2i3aWOdDVcejcq7a96IXDRN9skun5LzhGbg6X5
+	 0NVwfmflt+6Zk8xzrdBXL6UUMA28HEt8dxieQ/MZjtPbMbMdMHkw4PuqfTzlUqgRaP
+	 XXl/yqQRRel+0yztGVDIH/z3X3e5DRGaVSdgaMsjsQoOXxEBD3ymVqsqZJVTMFMnSg
+	 s2nzTLI3+vnePHqS6U87XKAsaLNdrXzw48bi2tzOXLvTGRUK5gRyKzTe7Zz8uEZBCN
+	 nDUP+GvX2YXNQ==
 From: Lee Jones <lee@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org, Mark Kettenis <kettenis@openbsd.org>,
-	Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH v4 00/11] mfd: macsmc: add rtc, hwmon and hid subdevices
-Message-ID: <20251106135556.GP8064@google.com>
-References: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ James Calligeros <jcalligeros99@gmail.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-input@vger.kernel.org, linux-doc@vger.kernel.org
+In-Reply-To: <20251025-macsmc-subdevs-v4-5-374d5c9eba0e@gmail.com>
+References: <20251025-macsmc-subdevs-v4-5-374d5c9eba0e@gmail.com>
+Subject: Re: (subset) [PATCH v4 05/11] mfd: macsmc: Add new __SMC_KEY macro
+Message-Id: <176243739664.1858806.689981774095492869.b4-ty@kernel.org>
+Date: Thu, 06 Nov 2025 13:56:36 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_055604_164035_9CBEB0FC 
-X-CRM114-Status: GOOD (  23.08  )
+X-Mailer: b4 0.15-dev-52d38
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Oct 2025, James Calligeros wrote:
+On Sat, 25 Oct 2025 10:24:36 +1000, James Calligeros wrote:
+> When using the _SMC_KEY macro in switch/case statements, GCC 15.2.1 errors
+> out with 'case label does not reduce to an integer constant'. Introduce
+> a new __SMC_KEY macro that can be used instead.
+> 
+> 
 
-> Hi all,
-> 
-> This series adds support for the remaining SMC subdevices. These are the
-> RTC, hwmon, and HID devices. They are being submitted together as the RTC
-> and hwmon drivers both require changes to the SMC DT schema.
-> 
-> The RTC driver is responsible for getting and setting the system clock,
-> and requires an NVMEM cell. This series replaces Sven's original RTC driver
-> submission [1].
-> 
-> The hwmon function is an interesting one. While each Apple Silicon device
-> exposes pretty similar sets of sensors, these all seem to be paired to
-> different SMC keys in the firmware interface. This is true even when the
-> sensors are on the SoC. For example, an M1 MacBook Pro will use different
-> keys to access the LITTLE core temperature sensors to an M1 Mac mini. This
-> necessitates describing which keys correspond to which sensors for each
-> device individually, and populating the hwmon structs at runtime. We do
-> this with a node in the device tree. This series includes only the keys
-> for sensors which we know to be common to all devices. The SMC is also
-> responsible for monitoring and controlling fan speeds on systems with fans,
-> which we expose via the hwmon driver.
-> 
-> The SMC also handles the hardware power button and lid switch. Power
-> button presses and lid opening/closing are emitted as HID events, so we
-> add an input subdevice to handle them.
-> 
-> Since there are no real dependencies between the components of this series,
-> it should be fine for each subsystem to take the relevant patches through
-> their trees. The mfd one-liners should be taken in order to avoid trivial
-> conflicts.
+Applied, thanks!
 
-The MFD parts look okay.  Let me know when the other drivers have been
-accepted and I'll apply them all.
+[05/11] mfd: macsmc: Add new __SMC_KEY macro
+        commit: 8c3290b4c975e35a01aecfb51e0e004b6f7c0480
 
--- 
+--
 Lee Jones [李琼斯]
+
 
