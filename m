@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80CBCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749FDCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 19:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmBA/KK70v6rBVGjZpKXDIBM4WBJIcvL/O3YLKuQiHw=; b=1Cd5ZWzJxXGRhKMC9fFgoSf2f3
-	LzhACaCivLenOE8xxM6kqRcSo0jJtykPBEWJBT8zefT06YYE/DO/d0figakNSBf791yOq+vHyLCMC
-	QRMxJhKvLv76qRdm9G6RCf19qK/9jwtk5bMAoS3lwH+/73vpQ+NXREtWdIHqLW6/HsF6XkypeXF0p
-	YilPu/+CPUnlagQ3NISWn+NelifhAwEcMadknDP/r8ehXErEC0QEcG8Nzrz9zNFCZ0sc0cacXGUGW
-	xyGKZK9TaYxD6Fbd1oTrohYEMIZxcWjJzD1a6ZgtmPR3VMQHi44BYKet1xQZ929QnUGjZOeSzkML2
-	ACIxkSxw==;
+	bh=VTVwOrLx1UbE0Vl3BjsmOsYDPFhlnrm5D/cBlveQU0c=; b=k/ShqZdBfzNx3nUKMrBfhKFUxO
+	BGe/kKCaof7YFFF0e26psKi/IDROnIvkAI80+1hJTLczfjL+9uHa0C6lTNtaOyCw7Uzz5pt3TXuGV
+	pVHewM/hnkJ9LofGQJYLlpihNZTCZPOVC+bxD29iM6uGYp5Q2/FRKq6eHxFJspFHzFw5sN1eMX1J5
+	xbpqfW1Rj7rHeD6GXP03UhVVoskrAYmXuuoSFglDTzKysf0L28mdTkybYcBiN+NIlDZ0437T71++3
+	WnpNrAg4K9kd2N7OPGNuxFcHanFYe6N2uRqy0Y8qcHMxCtS2Qh2qDxQv1GbTig+eUoc5i6eMPQ7WB
+	8En7AyIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5El-0000000G7Sl-2ZXV;
-	Thu, 06 Nov 2025 19:01:35 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vH5J3-0000000G7kM-2EP6;
+	Thu, 06 Nov 2025 19:06:01 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH5Ej-0000000G7S3-0Teu
+	id 1vH5J0-0000000G7jt-1pYk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 19:01:34 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-641018845beso2122427a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 11:01:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762455691; x=1763060491; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rmBA/KK70v6rBVGjZpKXDIBM4WBJIcvL/O3YLKuQiHw=;
-        b=kNHTG8VOYpAK4ZiRFn2pgjuwQ5Bww41ySZVlG7EtWdzIIMFEpwsRiaQhS1p55o44Rw
-         syd9/4OsEJhxfho4mC1JBAM4skP/tPVX58WKeChB5F8pyxLZqaAzDFegMIi8OyhMeEKt
-         DJpdkPtgwYBFcOwnbPtvbUX2MMn/nS7dbsmH9ipVWPBTAHaOj9KDSOPaBttsRgnrXb26
-         5onOyj+OSwcop0t7TGO/656sLNd9kZIAbIPwqHI7sh+6yG0orcqjnVdeB9IZxoMajh3F
-         uLS8kC53LGrKLm+fBconQCSkIl8/l1d5Bzsb3AEd1/XqR0ej0ieqrfIo9p3/t+RpzEjB
-         3qqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762455691; x=1763060491;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rmBA/KK70v6rBVGjZpKXDIBM4WBJIcvL/O3YLKuQiHw=;
-        b=Dp6kDmnFdN52oX1j9Ppuac0tAtt3QVJpPjM+PV3TgGE7BWjDX/EUYddImvjFmeOPcx
-         9liGuvYvvRzE59CPU5wVnocp5cTqfQkfeESxMNgxfbUIVMSjvpq4/gXFbQ6Tmdm5GZDn
-         b/RvGdCfy9eoq9Y1OaPUiDHh0mZCbTZjsWlZW9WhpXcud6Lbn/6+a1r1kvwncMFYfrZ6
-         vVLZtYowkk8oQvBnNly3plDElwYgHzAgD4g0/JCLEt79Fhi/IQ3XFI15FLa/Z89OHCKd
-         jS/zp84zTF9uIZNnNdGMs7tTnqw9q4h7LIXUY2Vf0Wv6mrQHAjFw98060Zbd65/e6kjs
-         dyCw==
-X-Forwarded-Encrypted: i=1; AJvYcCWefjfu2SNDRbMiP1mpHESZvS6Lmt2BpQoXbC8qu4jVJwOIlcBskXPlgmwAMHESD6mh5zpsMOvZzBLWojz91+OS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCu3BRdWE+qsywsEa/BV0x86bRhrRBXjMtWwI4/c76w1mCQ2wk
-	oejmOgpcitNxqJDs4Qvhp7+XIySS6eLt6Q2irgY7UxaqgQDtyuf1OZE7SDXdA43eGwrm4sXpTSg
-	P4Al0/0Gf5CIfxpMZY9lGKo4O10fj9gQ=
-X-Gm-Gg: ASbGncv8J+F+OSsa8V9+7+lARCzPElCv0HYSOrsRD8NfyB8WMq4ECthHgqoKBWeNAFu
-	r6Mv8fAPKECwoHsbDVRB5t4i1ZFMilWipOlqla9TJ4L0392kwyP2Cwi2yx/3WIy/M2Bxl0GxrTa
-	Eto6s1s8UL7qwYg9//N17asQHhGon11faZnv4zdm6B62h3fJ1SJR+oeqvhsyFSrlhxMs8HdkI9K
-	I8yxddXFF6iad3RTwTa464LzZ5Y56faC3lkGX0hdBYWjIIInQe3wGXXGiI=
-X-Google-Smtp-Source: AGHT+IH+Y4Mu5BYHnpAhpDDYEu9pnY0g5fsOj+T+jrFEJrqRN2a3pdfy5tPNDE4xFkznVewhY7OLbh6GTw5tCYHmiBc=
-X-Received: by 2002:a05:6402:26c8:b0:634:ce70:7c5 with SMTP id
- 4fb4d7f45d1cf-6413f063506mr466646a12.17.1762455690583; Thu, 06 Nov 2025
- 11:01:30 -0800 (PST)
+	Thu, 06 Nov 2025 19:05:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=VTVwOrLx1UbE0Vl3BjsmOsYDPFhlnrm5D/cBlveQU0c=; b=FQtfPdRBFzpQkercfXOel4CHob
+	PBuWKc3onbvnRWQTgjNel017mgzQ6E+kJ208LhMfDe66dPD/pSKlOr7DK+fIgfNm9h+iMNAefwM89
+	qBlj12ogwElccciqMkbAl4fnSQUM7sOdPJJRtpGO3maEG+KF8n0wzoX6VwyCvfuurGFc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vH5Is-00D9Ej-Cl; Thu, 06 Nov 2025 20:05:50 +0100
+Date: Thu, 6 Nov 2025 20:05:50 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+Message-ID: <9fd8ccd9-560a-43b4-a48d-f7a3eaa07eb1@lunn.ch>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-4-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-References: <20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com>
- <cf6zumlp4iiltglu7bbrpdeysaznrkyvlemwl4lxwkfjkgux7a@wl37bxilsprx> <cbvcjgcd7saxj42ifgqn3l6mwpgenlhbr4zuf5ibqbtj6rmzqh@yuc7flbwyi2y>
-In-Reply-To: <cbvcjgcd7saxj42ifgqn3l6mwpgenlhbr4zuf5ibqbtj6rmzqh@yuc7flbwyi2y>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 7 Nov 2025 00:31:12 +0530
-X-Gm-Features: AWmQ_bnqyEL1PybATXbJIxvw3HT9eVFRywU_mWpf-A2S9gMDT2HPtzblvdFHBN0
-Message-ID: <CANAwSgSvtc57kh-VJewk5=_MvfL3KVxNFU8C+tGh4iqJhnEVtw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/9] PCI: dw-rockchip: add system suspend support
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251104203315.85706-4-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_110133_159638_DE456CBE 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20251106_110558_620188_4161CA34 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +81,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Tue, Nov 04, 2025 at 02:33:13PM -0600, Shenwei Wang wrote:
+> Describes the gpio rpmsg transport protocol over the rpmsg bus between
+> the cores.
+> 
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
+>  Documentation/staging/gpio-rpmsg.rst | 202 +++++++++++++++++++++++++++
+>  Documentation/staging/index.rst      |   1 +
+>  2 files changed, 203 insertions(+)
+>  create mode 100644 Documentation/staging/gpio-rpmsg.rst
+> 
+> diff --git a/Documentation/staging/gpio-rpmsg.rst b/Documentation/staging/gpio-rpmsg.rst
+> new file mode 100644
+> index 000000000000..ad6207a3093f
+> --- /dev/null
+> +++ b/Documentation/staging/gpio-rpmsg.rst
+> @@ -0,0 +1,202 @@
+> +.. SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +GPIO RPMSG Protocol
+> +===================
+> +
+> +The GPIO RPMSG transport protocol is used for communication and interaction
+> +with GPIO controllers located on remote cores on the RPMSG bus.
+> +
+> +Message Format
+> +--------------
+> +
+> +The RPMSG message consists of a 14-byte packet with the following layout:
+> +
+> +.. code-block:: none
+> +
+> +   +-----+------+------+-----+-----+------------+-----+-----+-----+----+
+> +   |0x00 |0x01  |0x02  |0x03 |0x04 |0x05..0x09  |0x0A |0x0B |0x0C |0x0D|
+> +   |cate |major |minor |type |cmd  |reserved[5] |line |port |  data    |
+> +   +-----+------+------+-----+-----+------------+-----+-----+-----+----+
+> +
+> +- **Cate (Category field)**: Indicates the category of the message, such as GPIO, I2C, PMIC, AUDIO, etc.
 
-On Tue, 4 Nov 2025 at 00:29, Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> Hi,
->
-> On Sat, Nov 01, 2025 at 07:29:41PM +0530, Manivannan Sadhasivam wrote:
-> > On Wed, Oct 29, 2025 at 06:56:39PM +0100, Sebastian Reichel wrote:
-> > > I've recently been working on fixing up at least basic system suspend
-> > > support on the Rockchip RK3576 platform. Currently the biggest open
-> > > issue is missing support in the PCIe driver. This series is a follow-up
-> > > for Shawn Lin's series with feedback from Niklas Cassel and Manivannan
-> > > Sadhasivam being handled as well as some of my own changes fixing up
-> > > things I noticed.
-> > >
-> > > In opposite to Shawn Lin I did not test with different peripherals as my
-> > > main goal is getting basic suspend to ram working in the first place.
-> >
-> > Wouldn't it break users who have connected endpoint devices and suspend their
-> > platform? I don't want to have an untested feature that could potentially cause
-> > regressions, just for the sake of getting basic system PM.
-> >
-> > But if your goal is to just add basic system PM operations for CI
-> > testing, then I would suggest you to do something minimal in the
-> > suspend/resume path that don't disrupt the operation of a device.
-> >
-> > But this also should be tested with some devices for sanity.
->
-> My goal is proper system PM support, but I would like to go step by
-> step. Right now system suspend on the Rockchip RK3576 EVB just hangs
-> the board and it has to be power cycled afterwards. In parallel to
-> this series I've send a bunch of fixes to get it working. It surely
-> isn't perfect, but I fear things regressing again in other areas while
-> the complex PCIe system sleep is being worked on - simply blocking system
-> suspend is not very helpful, since it effectively hides suspend problems.
->
-As per my understanding, the current DTS configuration is missing definitions
-for critical PCIe power management GPIOs (clkreq-gpios, perst-gpios, wake-gpios)
+We know it is a GPIO message, this document is titled "GPIO RPMSG
+Protocol". So i don't see the need for cate. I can however understand
+that your device does support multiple functions, but to make this
+generic, it would be better if each function had its own channel.
 
-clkreq-gpios, such as PCIE30x1_0_CLKREQn_M1_L (not sure if it is used ?)
-perst-gpios such as PCIE30x1_0_PERSTn_M1_L
-wake-gpios, such as PCIE30x1_0_WAKEn_M1_L.
+> +
+> +  Defined categories:
+> +
+> +  - 1: RPMSG_LIFECYCLE
+> +  - 2: RPMSG_PMIC
+> +  - 3: RPMSG_AUDIO
+> +  - 4: RPMSG_KEY
+> +  - 5: RPMSG_GPIO
+> +  - 6: RPMSG_RTC
+> +  - 7: RPMSG_SENSOR
+> +  - 8: RPMSG_AUTO
+> +  - 9: RPMSG_CATEGORY
+> +  - A: RPMSG_PWM
+> +  - B: RPMSG_UART
+> +
+> +- **Major**: Major version number.
+> +
+> +- **Minor**: Minor version number.
 
-However, the RK3588 TRM indicates that these power management functions
-can be controlled programmatically using specific memory-mapped registers:
+What is the purpose of Major and Minor? What values are valid. What
+should happen if an invalid value is passed?
 
-The PCIE_CLIENT_POWER_CON register at 0x002C provides comprehensive
-power management controls, including link-state management, wake-up
-event handling,
-and clock management.
+What you should think about is, if you gave this specification to
+somebody else, could they implement it? 
 
-In PHY GRF, we have the PCIe3PHY_GRF_PHY0_LN0_CON0 register at 0x1000 allows
-direct control over the PHY's power state (P-states like P1, P2),
-enabling transitions into
-deep suspend (L2/L3) via register writes
-clkreq_n Clock request for lane X. This is a side-band signal that a
-PIPE 4.2 controller needs
-to enter and exit P1.CPM, P1.1, and P1.2 power states.
+> +
+> +- **Type (Message Type)**: For the GPIO category, can be one of:
+> +
+> +  - 0: GPIO_RPMSG_SETUP
+> +  - 1: GPIO_RPMSG_REPLY
+> +  - 2: GPIO_RPMSG_NOTIFY
 
-My thought is that using rockchip_pcie_phy_deinit() in the suspend
-routine and rockchip_pcie_phy_init() in the resume routine are
-incorrect; these functions
-likely perform full resets or power cuts rather than managed power
-state transitions,
-thus disrupting the desired suspended state of the PCIe link
+Is _SETUP always from Linux to the firmware? Is a setup always
+followed by a _REPLY? Do you need to wait for the _REPLY before
+sending the next _SETUP? If there is no _REPLY within X seconds, should
+Linux retry? Can an _NOTIFY arrive between a _SETUP and a _REPLY?
 
-I tried a few things on my own, but I am not moving forward.
+> +
+> +- **Cmd**: Command code, used for GPIO_RPMSG_SETUP messages.
+> +
+> +- **reserved[5]**: Reserved bytes.
 
-Thanks
--Anand
+Why are these in the middle. It is more normal to have reserved bytes
+at the end.
+
+You should also specify these bytes should be set to 0. If you don't
+it will be hard to use them in the future, because they will contain
+42, or some other random values.
+
+Is there a relationship between major:minor and reserved?
+
+> +
+> +- **line**: The GPIO line index.
+> +
+> +- **port**: The GPIO controller index.
+
+data? 
+
+> +GPIO Commands
+> +-------------
+
+This is a GPIO specification, so i would only expect GPIO commands...
+
+> +
+> +Commands are specified in the **Cmd** field for **GPIO_RPMSG_SETUP** (Type=0) messages.
+> +
+> +GPIO_RPMSG_INPUT_INIT (Cmd=0)
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +**Request:**
+> +
+> +.. code-block:: none
+> +
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> +   | 5   | 1   | 0   | 0   | 0   |  0        |line |port | val | wk |
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +
+> +- **val**: Interrupt trigger type.
+> +
+> +  - 0: Interrupt disabled
+> +  - 1: Rising edge trigger
+> +  - 2: Falling edge trigger
+> +  - 3: Both edge trigger
+> +  - 4: Low level trigger
+> +  - 5: High level trigger
+> +
+> +- **wk**: Wakeup enable.
+> +
+> +  - 0: Disable wakeup from GPIO
+> +  - 1: Enable wakeup from GPIO
+
+What do you mean by wakeup? 
+
+> +
+> +**Reply:**
+> +
+> +.. code-block:: none
+> +
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> +   | 5   | 1   | 0   | 1   | 1   |  0        |line |port | err | 0  |
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +
+> +- **err**: Error code from the remote core.
+> +
+> +  - 0: Success
+> +  - 1: General error (early remote software only returns this unclassified error)
+> +  - 2: Not supported
+> +  - 3: Resource not available
+> +  - 4: Resource busy
+> +  - 5: Parameter error
+
+It would be good to give some examples of when these should be used.
+
+Say the hardware does not support both edges. Is that 2? Why would a
+resource be busy? How is busy different to not available?
+
+> +
+> +GPIO_RPMSG_OUTPUT_INIT (Cmd=1)
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +**Request:**
+> +
+> +.. code-block:: none
+> +
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> +   | 5   | 1   | 0   | 0   | 1   |  0        |line |port | val | 0  |
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +
+> +- **val**: Output level.
+> +
+> +  - 0: Low
+> +  - 1: High
+
+Maybe make a comment about the order. Some GPIO controllers suffer from
+glitches when you swap them from input to output. While it is an
+input, you first need to set the output value, and then configure the
+pin for output. 
+
+> +Notification Message
+> +--------------------
+> +
+> +Notifications are sent with **Type=2 (GPIO_RPMSG_NOTIFY)**:
+> +
+> +.. code-block:: none
+> +
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +   |0x00 |0x01 |0x02 |0x03 |0x04 |0x05..0x09 |0x0A |0x0B |0x0C |0x0D|
+> +   | 5   | 1   | 0   | 2   | 0   |  0        |line |port | 0   | 0  |
+> +   +-----+-----+-----+-----+-----+-----------+-----+-----+-----+----+
+> +
+> +- **line**: The GPIO line index.
+> +- **port**: The GPIO controller index.
+
+There is no need to acknowledge the notification? How do level
+interrupts work?
+
+	Andrew
 
