@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB897CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF3ACCFA03
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 07:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNngsz3qBNA3SpiGQGbZ/LzcecWjVAN7epFRMpCU8AQ=; b=r0v7rvMbQ+0J2fobUtSXdwkHOq
-	jvEW8AqflskE+C1f3gfXwHmw1TtBbCvjiyBXRtztOohXzpQrbzGkcTqRHhQX/aw4of5pTrNu2dhiR
-	hAtGYneoyzJ6gmZTjDvVOwpkvyFzlkZzUHREDkZNySW4PYm0/kCwKLbqQ/pILfJxZTchidc3xYca1
-	IJuz2nZevmgTc8cCHDGvgUldDPU8mM+7K8is4cp+6EN0O60Dvus+RAHcrmtWJbK+3EdezROSBcNLB
-	UHoO08vcC6MO7D0joCV2HWNsC+DMmdLLtdmwmrqNn6dMbfxSXu1ej3y7C8D2xZNhHTj19UgdYl9Oq
-	+CTI+8gQ==;
+	bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=; b=C8H08cLIm6DNj5el0rNoOjN44P
+	jAY6ql8syRoflntcc4hl67e30HBtLlrsjHmDnYJzD0aPA2Y81yO2ykJMco6AsLVeTFKMJ1Da9J4AP
+	c4Rf4bJzMaSs2NBQSb6zVX8gzIlQvoqqcLlsfRvju7/8p7/02x7DHxldrt6q+ITv8ceEWJjSWSDqa
+	igiDIUWXStQZNsXlwHAD5XdQFHzK5yf1xgw7vcwwUYlJTq83pyIZVPinhBQSZlV2h/P4iNkC2znST
+	FFXjZUgXGSOFvvr+23dipZqStbJ5wbQC9sLXTZ/l5G4WH60KFBzjHRVWY5lsAgt8HgSbCEgmfSS5b
+	wAj+vR2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGufl-0000000F1CI-2ugR;
-	Thu, 06 Nov 2025 07:44:45 +0000
-Received: from mta1.formilux.org ([51.159.59.229])
+	id 1vGuhj-0000000F1L0-0dFb;
+	Thu, 06 Nov 2025 07:46:47 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vGufj-0000000F1Bp-1BmA
+	id 1vGuhg-0000000F1Ke-0stb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 07:44:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1762415079; bh=JNngsz3qBNA3SpiGQGbZ/LzcecWjVAN7epFRMpCU8AQ=;
-	h=From:Message-ID:From;
-	b=Aw0/sHskOEvsmaWT4fbXHm5ix4D6fXhNIJ3orDHguHMNQsBf4+ev7fwmExSFI3MHN
-	 JZG/zkw5HRRBd866gExwxp82Uz1umCCzLWUQCvv1xBbXt5jQO1tO1dBdx/qRz5e8Ec
-	 MBvfrnAq9v+0zwNpQj8q5jLQRY7corlR0ccl1vLk=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 9C349C095C;
-	Thu, 06 Nov 2025 08:44:39 +0100 (CET)
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 5A67id5u024761;
-	Thu, 6 Nov 2025 08:44:39 +0100
-Date: Thu, 6 Nov 2025 08:44:39 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Yicong Yang <yangyccccc@gmail.com>,
-        "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: Overhead of arm64 LSE per-CPU atomics?
-Message-ID: <20251106074439.GB24713@1wt.eu>
-References: <aQUAR9MRxP6_qtEH@arm.com>
- <31847558-db84-4984-ab43-a5f6be00f5eb@paulmck-laptop>
- <aQU7l-qMKJTx4znJ@arm.com>
- <5ab48722-8323-45af-b585-23b34af3017e@paulmck-laptop>
- <e819db66-7f60-464d-9ee8-4e8ee3e59acf@paulmck-laptop>
- <aQXtqoUEtDr-xUeS@arm.com>
- <3868c862-cf16-4259-829e-e9004028b3c1@gmail.com>
- <aQtQRSoL8GGVNrUQ@arm.com>
- <20251105134231.GF22848@1wt.eu>
- <aQtkA0cOb6Fm9Mrc@arm.com>
+	Thu, 06 Nov 2025 07:46:45 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b996c8db896so583681a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Nov 2025 23:46:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762415203; x=1763020003; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=;
+        b=GBlyfYyU+OYrY+fXmPf5TR0HbB+xJMvtxMCqAISZJXyvSmGUOl7mDv8KKUa7x78ux1
+         n3F9LERAIyj1st0Cg2Tw2GEgWpKVPzscmY7Ub5d1t5eCjp4s1Scr0t4RcvItECeaKJRR
+         h44QnwJQ9c3tCbgQR142zlwGAlbL+ZhbGlsEoq72T/2r29ieptzaLVUJluUWt/jWlRko
+         D4by5FOW4i674H6M6hr9lNUcA8Q+y4GX+GWPTuFnUZ+TrT+lzxoUHwuxlAEGUELoN94p
+         kyjJVEFD3FSDvG20bY9yhdwe4OGBvcmiaO5KvSnKV+XELNR5tnh5W6iOwE3jRn8iBVWP
+         81Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762415203; x=1763020003;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0f5wmX+yoZg0wz1UxGaCZPnItqaKdkuDqolTF8KvNuo=;
+        b=fInhPxCVzAID+aRk1I0IAka6bSpZoNgNqnc94ThGQYCuFA5RUPdOmwKCuDjE7dSuSc
+         D+Ga+Fzym5OGftjLJaLv5VZM4CJuedW/CC/bUfQig7zPUD33WULds4kEiP3hX+E6vT2n
+         /a6gQbYe+gPTzdoXP+FrLm4b/vWrTLqNIYAjhusjlLaBHhYL1wgOjNQTrvWGGXsSkVM8
+         mgWZWMtwE+1KVZcWU0R+fujF7R826uANyvTN7z6KKegCMWqjkHpQaZdAKS9nmVRswyNQ
+         l68Wmj21TYWjgKdSdY94J7heb66+ZCbi9s3sKSu4qe43NTYMSXEKsU+R8pgtY0nptNY7
+         qVRg==
+X-Forwarded-Encrypted: i=1; AJvYcCXvR1c91/dqo7nxu/Z5ApIu2b/wiRm1elG7xpEyvk3EhBxUV9KfhgjLQDgxMIlHV8aQTb2ejCb4WaEzmOdvgvV/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0xYTX5JNyw9691gAfCzvZhogWctTVWE/9v+78DScYyb/5ftJ5
+	VbdBDYrpQVsat11NTgi+bH1rFMOFJKNXB/h6YhAhEigefZ+HDxFEhh6a7t96E+2p7qKrM4jp7oZ
+	Wgg2AINBZhcKlo39Es2YNsrGPUe5dUZmWJy7rj57lfg==
+X-Gm-Gg: ASbGncuZV2zVXXQe8DNTf8sWxxWfQJp2YGlxijnuu5mlqTnC7CW2tOvrFj8/XrGmFHN
+	HKzx9AWKOvvYMDYEe1Y9oOCb34MwvUmHHaDWOACBeRqyJI4riDQe2tuQW7HAPL2E1AzSoXeRh//
+	EYyIjGg7zYggzYQ1DRPGlHj8SCQ7tvKwQiMIsRc0tU5EBva6FFcsYvvpqF19aXaPW9Ge9F6bA8/
+	M63Yx3J+mnRFk+wmvN6lqHCOrC7Bdtaks+vmGlfpUOktwwsiRkYsx6+tdu5eA==
+X-Google-Smtp-Source: AGHT+IFvj7BYATFPUUfyyTquYUZ+XG2ltlcW863lIimOI+3G3/lJLUOzbLQ43b0xX7YM+rdDM6ZeBwU/rpFRv4aSwps=
+X-Received: by 2002:a05:6a20:728f:b0:350:ee00:3c9f with SMTP id
+ adf61e73a8af0-350ee004101mr3256044637.48.1762415203454; Wed, 05 Nov 2025
+ 23:46:43 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQtkA0cOb6Fm9Mrc@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <CAKfTPtCtHquxtK=Zx2WSNm15MmqeUXO8XXi8FkS4EpuP80PP7g@mail.gmail.com>
+ <20251106000531.GA1930429@bhelgaas>
+In-Reply-To: <20251106000531.GA1930429@bhelgaas>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 6 Nov 2025 08:46:27 +0100
+X-Gm-Features: AWmQ_bmqVCNR3dJpEZPSNIsk4oiASQ7wTNG-cdh5_x2RX44MkoIq9HcAbtR0V5w
+Message-ID: <CAKfTPtA+_VgQQB37Y8qCd6cc5U22kqUkagy2PFnB-5biWUhB9w@mail.gmail.com>
+Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
+	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
+	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Minghuan Lian <minghuan.Lian@nxp.com>, 
+	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
+	Christian Bruel <christian.bruel@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251105_234443_742179_4B331244 
-X-CRM114-Status: GOOD (  33.46  )
+X-CRM114-CacheID: sfid-20251105_234644_417155_BEE781D3 
+X-CRM114-Status: GOOD (  37.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,72 +104,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 02:49:39PM +0000, Catalin Marinas wrote:
-> On Wed, Nov 05, 2025 at 02:42:31PM +0100, Willy Tarreau wrote:
-> > On Wed, Nov 05, 2025 at 01:25:25PM +0000, Catalin Marinas wrote:
-> > > > But need to add the prefetch in per-cpu implementation as you've
-> > > > noticed above (didn't add it since no prefetch for LL/SC
-> > > > implementation there, maybe a missing?)
-> > > 
-> > > Maybe no-one stressed these to notice any difference between LL/SC and
-> > > LSE.
-> > 
-> > Huh ? I can say for certain that LL/SC is a no-go beyond 16 cores, for
-> > having faced catastrophic performance there on haproxy, while with LSE
-> > it continues to scale almost linearly at least till 64.
-> 
-> I was referring only to the this_cpu_add() etc. functions (until Paul
-> started using them).
+On Thu, 6 Nov 2025 at 01:05, Bjorn Helgaas <helgaas@kernel.org> wrote:
+>
+> [+cc imx6, layerscape, stm32 maintainers for possible suspend bug]
+>
+> On Fri, Oct 24, 2025 at 08:50:46AM +0200, Vincent Guittot wrote:
+> > On Wed, 22 Oct 2025 at 21:04, Bjorn Helgaas <helgaas@kernel.org> wrote:
+> > > On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
+> > > > Add initial support of the PCIe controller for S32G Soc family. Only
+> > > > host mode is supported.
+>
+> > > > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
+> > > > +{
+> > > > ...
+> > > > +     /*
+> > > > +      * Make sure we use the coherency defaults (just in case the settings
+> > > > +      * have been changed from their reset values)
+> > > > +      */
+> > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
+> > >
+> > > This seems sketchy and no other driver uses memblock_start_of_DRAM().
+> > > Shouldn't a physical memory address like this come from devicetree
+> > > somehow?
+> >
+> > I was using DT but has been asked to not use it and was proposed to
+> > use memblock_start_of_DRAM() instead
+>
+> Can you point me to that conversation?
 
-Ah OK thanks for clarifying!
+https://lore.kernel.org/all/CAKfTPtDcvrAcgFcyFLnzaKnfuU3iB551qed4fnZH=b7Ntkpxpg@mail.gmail.com/
 
-> There definitely have been lots of benchmarks on
-> the scalability of LL/SC. That's one of the reasons Arm added the LSE
-> atomics years ago.
-
-Yes that's what I thought, which is why your sentence shocked me in the
-first place :-)
-
-> > But that does
-> > not mean that if some possibilities are within reach to recover 90% of
-> > the atomic overhead in uncontended case we shouldn't try to grab it at
-> > a reasonable cost!
-> 
-> I agree. Even for these cases, I don't think the solution is LL/SC but
-> rather better use of LSE (and better understanding of the hardware
-> behaviour; feedback here should go both ways).
-
-I totally agree. I'm happy to have discovered the near vs far distinction
-there that I was not aware of because it will make me think differently
-in the future when having to design around shared stuff.
-
-> > I'm definitely adding in my todo list to experiment more on this on
-> > various CPUs now ;-)
-> 
-> Thanks for the tests so far, very insightful. I think what's still
-> good to assess is how PRFM+STADD compares to LDADD (without PRFM) in
-> Breno's microbenchmarks. I suspect LDADD is still better.
-
-Yep as confirmed with Breno's last test after your message.
-
-> FWIW, Neoverse-N1 has an erratum affecting the far atomics and they are
-> all forced near, so this explains the consistent results you got with
-> STADD on this CPU. On other CPUs, STADD would likely be executed far
-> unless it hits in the L1 cache.
-
-Ah, thanks for letting me know! This indeed explains the difference.
-Do you have pointers to some docs suggesting what instructions to use
-when you prefer a near or far operation, like here with stadd vs ldadd ?
-Also does this mean that with LSE a pure store will always be far unless
-prefetched ? Or should we trick stores using stadd mem,0 / ldadd mem,0
-to hint a near vs far store for example ? I'm also wondering about CAS,
-if there's a way to perform the usual load+CAS sequence exclusively using
-far operations to avoid cache lines bouncing in contended environments,
-because there are cases where a constant 50-60ns per CAS would be awesome,
-or maybe even a CAS that remains far in case of failure or triggers the
-prefetch of the line in case of success, for the typical
-CAS(ptr, NULL, mine) used to try to own a shared resource.
-
-Thanks,
-Willy
+>
+> > > > +     s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
+> > > > +     if (IS_ERR(s32g_pp->ctrl_base))
+> > > > +             return PTR_ERR(s32g_pp->ctrl_base);
+> > >
+> > > This looks like the first DWC driver that uses a "ctrl" resource.  Is
+> > > this something unique to s32g, or do other drivers have something
+> > > similar but use a different name?
+> >
+> > AFAICT this seems to be s32g specific in the RM
+>
+> It does look like there's very little consistency in reg-names across
+> drivers, so I guess it's fine.
+>
+> > > > +static int s32g_pcie_suspend_noirq(struct device *dev)
+> > > > +{
+> > > > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> > > > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > > > +
+> > > > +     if (!dw_pcie_link_up(pci))
+> > > > +             return 0;
+> > >
+> > > Does something bad happen if you omit the link up check and the link
+> > > is not up when we get here?  The check is racy (the link could go down
+> > > between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
+> > > completely reliable.
+> > >
+> > > If you have to check, please add a comment about why this driver needs
+> > > it when no other driver does.
+> >
+> > dw_pcie_suspend_noirq returns an error and the suspend fails
+>
+> The implication is that *every* user of dw_pcie_suspend_noirq() would
+> have to check for the link being up.  There are only three existing
+> callers:
+>
+>   imx_pcie_suspend_noirq()
+>   ls_pcie_suspend_noirq()
+>   stm32_pcie_suspend_noirq()
+>
+> but none of them checks for the link being up.
+>
+> > I will add a comment
+> > /*
+> >  * If the link is not up, there is nothing to suspend and resume
+>
+> Sometimes true, but still racy as I mentioned, and doesn't explain why
+> s32g is different from imx, ls, and stm32.
+>
+> > > > +     return dw_pcie_suspend_noirq(pci);
+> > > > +}
 
