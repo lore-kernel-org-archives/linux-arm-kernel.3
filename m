@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC95ECCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EE8CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 13:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEOhzAy99ok5RAW6jieLPiegp4B3qFQ45Dzi1nI4ADE=; b=PND9i9p8HSIVhbqYi8gUYPPoN1
-	JUBC2HDKA1SfTb+HPWmjx1RRJscBZe5/z2a4aYYGrPxI3k1aMQlHnIFvj4pEYSZQO3V/fi4aB4VyG
-	DJjXrt16sq9Zf6CDjPViX3Or+yne3geRPMlrAP2y11trRnEbTyYSwAth2gn/MAXr1cV0tuHP1HaRP
-	6TJO2pnL/uI/NjfFGwdu8n9aTa9bo1vWiM5epD/8gZT+3NKZ8jZOCZTALqj7O6XybXWOc1/yNTpy4
-	p76lEZiWnNdXT5ThNIF6T/9h88nhGiz5pKVu4Epp/qEdtukTL1nIJuFO0owmdBnVm61tBAPJk4D7t
-	JtYBncoA==;
+	bh=lvN082Tgo45NxAv9qOCzujCY0L4Wp+Q7wkeySWpj1K0=; b=4UdMit4vSWjQpAMbAIFwwBEbjE
+	E6edOF5ewTGNR5imeX7/z3rlRMCP4ewKa7l0acqqWI0yH7wdFipMEAgMA8O6k4I4BFSWIzFVUa7oW
+	Gt9HX5JGAafJBgZAcioQF896i5uIbvhlMEz4ytsUaXUg7PhOoq5FdYLx9GkCI+V+XjcEx9AA8UI6G
+	utlSbDoVWJHVzMECQ0o8uH3h2MMyai4hpSLii5wR8BYvp5NmCJDqRNDWe2Cc56sCLskK6uC5vQeJv
+	nmoKeDayO15u8dLq/mO1QeVaEw6nXhk8eWrIHxVA20ZKVpAXzFhLBpbgYw/Hmqvf54xVcV8pNjmFP
+	e0NKpc7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH08Q-0000000Fa53-2nPk;
-	Thu, 06 Nov 2025 13:34:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vH0DO-0000000FcA1-1ZNA;
+	Thu, 06 Nov 2025 13:39:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH08N-0000000Fa4B-47Oc;
-	Thu, 06 Nov 2025 13:34:41 +0000
+	id 1vH0DM-0000000Fc9m-2423
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Nov 2025 13:39:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FF974020C;
-	Thu,  6 Nov 2025 13:34:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4C6C116C6;
-	Thu,  6 Nov 2025 13:34:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E232F60236;
+	Thu,  6 Nov 2025 13:39:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FADC4CEF7;
+	Thu,  6 Nov 2025 13:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762436078;
-	bh=UxsA7mpBbTvyv+g/LrSCFPsTpp7DeoIh9dJ/dkCgAxY=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=llznu7vxVvCdwnCl/IdM4fTDwJiq1ztqiQ6zJ2Ed1+c3HAjvpQk1TkOwDcnTxNJRZ
-	 wWff58/kXcPtX0BGe7JdTaR4eGFQSAUwCj2ySVW6AYwbPeVsN463BW05DfIpCWw/hl
-	 Jj06IfZCO6KqhJ0grsxnLXj72NGc6eQw5N1vyoBG8o7dBfKxaUqBZ/Bg5VwJpot8/O
-	 CvuRqY0Q0zTKdoKJinZos92gB/UOC/NIbZwxyhbXL+BeTpjbnSQOo7CUBr7c+L9Zc6
-	 P4WKltBa+np+i9Frx4hv7oveioFV9m0sYcgu5mhVs4L50JnJ7xN3RgtvTtIp0le4rg
-	 jmxcZgsRfxNtg==
-Date: Thu, 06 Nov 2025 07:34:37 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1762436387;
+	bh=lvN082Tgo45NxAv9qOCzujCY0L4Wp+Q7wkeySWpj1K0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pj9jE7yoInr9BCWfLJ0Y8+K6jrgVmgkwml63N4WoByHVsIr4RWQ7jaDOc81VdNYJ8
+	 iTSCutwFS0KKGPYd8MgmLbSZozfDICTrA/EwOxswYw32R5r2FcMvYuyqLSnKlg09GK
+	 ZGqwqyOq5eWuvrCT8KWgRiq/B2qmCmSO815iikAweI9cxudRZAg/pcDZnnUrPzQRrs
+	 cN2lwF4mGeI/cbxWZtf3kduZfEEOnF+HlI1wbjFN0rVAlsEKu9W/Nk6ryO+lT+57Vi
+	 zzU+PGx4Sd+6r49nkGvK51PgNHObALx0PSlYhCn8Qq3ZiZYk2NFEy6IKxYmHxQusBf
+	 Wc8wnQM0TuucA==
+Date: Thu, 6 Nov 2025 13:39:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Nick Alcock <nick.alcock@oracle.com>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org, Aishwarya.TCV@arm.com,
+	Ryan.Roberts@arm.com
+Subject: Re: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
+Message-ID: <aQylIPCo1sEnJF4F@finisterre.sirena.org.uk>
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
+ <aQjJNmwniQwwjeBR@finisterre.sirena.org.uk>
+ <CGME20251104084442eucas1p2af1bd88393f4d6a532df1cd41f32a287@eucas1p2.samsung.com>
+ <e7f05748-a11c-47eb-b1fa-cdc9dc6d05e0@samsung.com>
+ <aQyig5TNkw2YJm19@finisterre.sirena.org.uk>
+ <20251106142956-d6251eba-c696-4a2f-a3e3-af461530d932@linutronix.de>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, sirius.wang@mediatek.com, 
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-pm@vger.kernel.org, 
- linux-clk@vger.kernel.org, netdev@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, jh.hsu@mediatek.com, 
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- Qiqi Wang <qiqi.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, vince-wl.liu@mediatek.com, 
- Project_Global_Chrome_Upstream_Group@mediatek.com
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
-In-Reply-To: <20251106124330.1145600-3-irving-ch.lin@mediatek.com>
-References: <20251106124330.1145600-1-irving-ch.lin@mediatek.com>
- <20251106124330.1145600-3-irving-ch.lin@mediatek.com>
-Message-Id: <176243607706.3652517.3944575874711134298.robh@kernel.org>
-Subject: Re: [PATCH v3 02/21] dt-bindings: power: mediatek: Add MT8189
- power domain definitions
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_053440_046759_EB244724 
-X-CRM114-Status: GOOD (  11.47  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EYbPhjGrYVw8SR92"
+Content-Disposition: inline
+In-Reply-To: <20251106142956-d6251eba-c696-4a2f-a3e3-af461530d932@linutronix.de>
+X-Cookie: If in doubt, mumble.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +109,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 06 Nov 2025 20:41:47 +0800, irving.ch.lin wrote:
-> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> 
-> Add device tree bindings for the power domains of MediaTek MT8189 SoC.
-> 
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> ---
->  .../power/mediatek,power-controller.yaml      |  1 +
->  .../dt-bindings/power/mediatek,mt8189-power.h | 38 +++++++++++++++++++
->  2 files changed, 39 insertions(+)
->  create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
-> 
+--EYbPhjGrYVw8SR92
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-My bot found errors running 'make dt_binding_check' on your patch:
+On Thu, Nov 06, 2025 at 02:32:56PM +0100, Thomas Wei=DFschuh wrote:
+> On Thu, Nov 06, 2025 at 01:28:35PM +0000, Mark Brown wrote:
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml:25:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+> > Given that this issue is very disruptive to userspace it's causing us to
+> > miss huge amounts of test coverage for -next, would it be possible to
+> > drop these patches until we resolve the issue?
 
-dtschema/dtc warnings/errors:
+> This issue and the observed panics should be fixed in v5 of the series:
+> https://lore.kernel.org/lkml/20251106-vdso-sparc64-generic-2-v5-0-97ff2b6=
+542f7@linutronix.de/
 
-doc reference errors (make refcheckdocs):
+> I'll ping tglx directly.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251106124330.1145600-3-irving-ch.lin@mediatek.com
+Ah, fantastic - I wasn't aware of the new version.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+--EYbPhjGrYVw8SR92
+Content-Type: application/pgp-signature; name="signature.asc"
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+-----BEGIN PGP SIGNATURE-----
 
-pip3 install dtschema --upgrade
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkMpSAACgkQJNaLcl1U
+h9ApqAf8DFWNLEwpnWuEpnrOTVfL+iVYzK6YSgBge+QboC8tTBNFnMnnQ5Ht92aC
+QaU0hO+PO0XJiyMXzjXfT5JgDO8ovlQIUShX3kjD7MF/MuSGdEAbRUEzoFj4d170
+GN1BVZ8iAysXN0NytDNcZImpsxwVva2BtBFzYouhWlcDg2eRPWhzd6tvmJY3b0ZI
+qn9eJOHvYiqh6I4jaF/7mI11G/JYp3x3738trx8FMvZxgxL6y0O0MQ8lETGJTaao
+EwYoM4wyzL8dDJ0r4bYy7pGAiIKFQXpASY1pInXJQ/NVO4fcAC7E47S0u5odZz1h
+lhDgGOw14KG8UFp0J4rBQQRfSWDhCA==
+=oxel
+-----END PGP SIGNATURE-----
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--EYbPhjGrYVw8SR92--
 
