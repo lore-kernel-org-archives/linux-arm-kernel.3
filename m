@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C0FCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B642CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iq6Mn4KynVM3zdZR5MRcgBZlJ8ESUoIHTSSvqCTJMgI=; b=C9XVqKMon+nz7gmS+I6nJrgChA
-	7XUvuig3Seydbk5dG2+csl7Li9ojR3Q70KPwBmZlv/JVdi1ZDI6cA0xjxMILhdkTkhO2QLGHwRrfa
-	peYHpwUPW2KDUHxBwr2r+oe2xfWVD1V057vQROiZSvM+rCLk36pzaf0zCC7Vp0X8ZOBmNudV+ALT8
-	eKDNPloA23FPFJjYPUoW4LglUcoKHm7IEQbeZH9E9cmPV7mparZ033PQkxE4L1WT+SezHnYP8wofb
-	GREIJwoXkOTTIP1aFm4228N4PZHJ4fF4iUWBHYqOGEWnSAKR3ZyUGFUK79fu/9IoykaITGxVAXvy9
-	7E8SaZIQ==;
+	bh=SAtRy4WP1JPtI6sdWBca6GEIetA1AxmFpW1HHfhlgqM=; b=jF42bvk18xRR8bnD55AB65H8DW
+	hhsQLIy+vaYf9bl8szmaxcQ1D7m8s5HMwmzQf9dpyflbxY1T/iGNkxoVMIPc37JxmOQz6caPPFIky
+	eJWxFnAecvKCRd3PFbmtzJm51N0iQKao99+GEqzeCJDzpnY2O7YrrfW3x9JuAsoRCNIM3mG0ug+Uf
+	lneOSvem0xCCWQyloDKubv2ZsE2t1Ir3f+VxQ3vI9GsnX3/jTRkef+XCrGlvES4MZ871yrtWOTQHr
+	1xMFrVlFvWNxFoWfZAIMI3rYonxps9uz+4D68jJTsKJh9isdC4DOIsz33F2ksgLnZqIo3wqTaAHzz
+	GK75f2Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNmn-0000000HWw0-2ofZ;
+	id 1vHNmn-0000000HWwX-45a1;
 	Fri, 07 Nov 2025 14:49:57 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNmj-0000000HWuf-15Gt
+	id 1vHNmj-0000000HWug-15Gf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 14:49:54 +0000
+	Fri, 07 Nov 2025 14:49:55 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vHNmh-0001Tb-I1; Fri, 07 Nov 2025 15:49:51 +0100
+	id 1vHNmh-0001Tb-JW; Fri, 07 Nov 2025 15:49:51 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Fri, 07 Nov 2025 15:49:51 +0100
-Subject: [PATCH 1/2] dt-bindings: arm: fsl: add Skov Rev.C HDMI support
+Date: Fri, 07 Nov 2025 15:49:52 +0100
+Subject: [PATCH 2/2] arm64: dts: imx8mp-skov: add Rev.C HDMI support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251107-v6-18-skov-revc-hdmi-v1-1-595549e5b496@pengutronix.de>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251107-v6-18-skov-revc-hdmi-v1-2-595549e5b496@pengutronix.de>
 References: <20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de>
 In-Reply-To: <20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -54,9 +54,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_064953_320381_A801C283 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_064953_320715_3B3ABA6D 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +77,36 @@ correct revc-hdmi compatible.
 
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/Makefile                  | 1 +
+ arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts | 8 ++++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 00cdf490b0620bf537330ee9342a197f13c8c8ab..cf4405389f68ab96e9927bb61a05e57cf698b4f1 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1110,6 +1110,7 @@ properties:
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
-               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
-+              - skov,imx8mp-skov-revc-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
-               - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
-               - ultratronik,imx8mp-ultra-mach-sbc # Ultratronik SBC i.MX8MP based board
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 525ef180481d331e9c4decd092b7b831c497b67e..9da685641aa9e102a8566f0e58c0b57bb822c7d0 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -233,6 +233,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..c263e8fd048464df637604a8776aef345877e4f6
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts
+@@ -0,0 +1,8 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++
++#include "imx8mp-skov-revb-hdmi.dts"
++
++/ {
++	model = "SKOV IMX8MP CPU revC - HDMI";
++	compatible = "skov,imx8mp-skov-revc-hdmi", "fsl,imx8mp";
++};
 
 -- 
 2.47.3
