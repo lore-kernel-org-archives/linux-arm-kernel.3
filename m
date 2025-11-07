@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F85CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AF9CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/LVrY8hEMW3dd5Z7rGEnvxZhEh6jLwG/2MWRpn0iONU=; b=srYuKeinuHyu+8cr44EC8a/dZ3
-	VxcjPq9zbo/+K5euMgWAWcuUEkVKqBf0PxC4JaV5w6gQsU7j3c9USV1Zn2m7T9h9MW7bMUptdnJmm
-	AB1SkvMkEnF/SwmJGCZRzarWrSl4Iz3U5ST/niSVGQAkaBRQehEYf8sws3lm8Hc60RWNTHNawBSUH
-	MM2+V29IVOAGSYFKYDGZC8bCLy2yus+QeAz6iBYi4bi00zAFZksivHkAuJUOLfNusf6LU6882WuDv
-	A/KTcmYPhg7bTBKNWVMurYhYGEjrHoHVCvchZtPILiKTlr2cQ/D/7+adG6FPnSirzlp0Xsk4vrA5u
-	+/Nlj+xg==;
+	bh=WaETOHLjzaqs8RU4eSCYVRFqd6YSrZAC3Jqm+PqW9VA=; b=PLp1Kanpqwx+hLL3JKEwzmDiQ/
+	aqQG8NGtKMBuN4jKhXsw9ssysmCDjpAjQjEBG83Upp6TddzRbFdt2tWxMsDqqM1mIsbhdfnTjRxo8
+	Ngj6Sy3MxL3+76L75O2eh/0bAKy5KxTDi/8P3ArQ5PYghTDbDRVaO9FYtxf206aUO0vFurt6BqACD
+	E0NXy2WeT0y53H5h1xMEtzAEWNNaibuxBCI8cljnTRTqArrvXcyN9kJXEvGq6YYaEKB0nYt2l+/qF
+	hqLAxXSNRWEeQvlRiRxaqmAs3vEp58UNKh7HVYUu+/qvelq5VUGnEjdvNa5wntp1TfIPl8FoCE1pQ
+	C9Bn3DqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOmr-00000000119-2HB0;
-	Fri, 07 Nov 2025 15:54:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHOmu-0000000013U-2fHu;
+	Fri, 07 Nov 2025 15:54:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOmo-000000000zK-3Yb5
+	id 1vHOmr-0000000010g-2dSx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 15:54:04 +0000
+	Fri, 07 Nov 2025 15:54:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87A5E40557;
+	by sea.source.kernel.org (Postfix) with ESMTP id EA0F54468C;
+	Fri,  7 Nov 2025 15:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00838C4CEF5;
 	Fri,  7 Nov 2025 15:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF71C4CEF7;
-	Fri,  7 Nov 2025 15:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762530842;
-	bh=lQKtc6BdFbB7ZvGXIikc/Mmj5z9LnBKsOwLvwGnv1pY=;
+	s=k20201202; t=1762530844;
+	bh=f5W0zlQImtuVz4ijpkSE3OW0/YOZZ9zWfzlQ9HOAXB4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XRnwBL5s5J7coCWXOS2ZQz+cPHxb2arH6z9tBdk4nXvzFBK2nbiMjmODvznt9wLjH
-	 kWJmp4PDF2ITpH5j3+vf0iV1d0FEYzfzpYpH7ckRY/oFSIQ4DOitXHGm3LeIRr1FEa
-	 7Z/IdRO+HolNN4l71GtpCFUohxtNiF0hds4r726sz6+9hjMVeMxL7rWUpBgWnvN6Hb
-	 kM/sk1oZLtPZdfSoKiGNDzR+9Ex1jh5kFXuZgch9uhiV0/3l/9Pi+JwjTcxyifHNW+
-	 fDBcc852IkLdpdgAQi/UMq0k0JgvrTY21I3yA33aQ7wk049u7CXyy2c3DABvulm4nU
-	 F3YUNQZR79Z2Q==
+	b=UAzPiJEyG3FCC8SZ9HzahNJFivkXiFHaON3c+3tp9cUB1+D/Be4mkAjUHJmn8quAp
+	 UAVjjMXuLqZHVFPr6fg5rkG1N+zQ32zpcYGIOgQ00OxMBWxiY+uSALvx+K6o48SSF9
+	 yfwyB+LEOJ/3QCRnBO9G0djbVbi8FmWDPn1fhaekpUFkXV/AsOTw0prVKBJDZx4AZB
+	 jUP5ABlt6+5i7bWU+KZoHsphmKvsPqhLycjx7yxfED7Vu+b5WUTa2CYhsjXrOjug9S
+	 LvStAC3E9DssfiHxc67kZIRx0KxSRD70YBHTVLVQfDq0yGCTI2nZCaKltHsa9YJt64
+	 y5gfilGwMQ8kA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Cc: kernel-team@android.com,
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Punit Agrawal <punita@qti.qualcomm.com>,
-	chenl311@chinatelecom.cn,
-	liuwei09@cestc.cn,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] arm64: acpi: Drop default console log message when using SPCR
-Date: Fri,  7 Nov 2025 15:53:44 +0000
-Message-Id: <176252541421.592251.6144901758020788544.b4-ty@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] perf/arm-ni: Fix and optimise register offset calculation
+Date: Fri,  7 Nov 2025 15:53:45 +0000
+Message-Id: <176252278054.581088.13167524929157815362.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251031111138.1262202-1-punit.agrawal@oss.qualcomm.com>
-References: <20251031111138.1262202-1-punit.agrawal@oss.qualcomm.com>
+In-Reply-To: <5db610facd51b81af04b1afee53191836315b17a.1762264719.git.robin.murphy@arm.com>
+References: <5db610facd51b81af04b1afee53191836315b17a.1762264719.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_075402_905907_6B306B1D 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20251107_075406_360967_1B1934F8 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 11:11:36 +0000, Punit Agrawal wrote:
-> Based on feedback, I've updated the original patch[0] to instead drop
-> the default console message when using SPCR.
+On Tue, 04 Nov 2025 18:29:40 +0000, Robin Murphy wrote:
+> LKP points out an operator precedence oversight in the new NoC S3
+> support that, annoyingly, my local W=1 build didn't flag. In fixing
+> that, we can also take the similarly-missed opportunity to cache the
+> version check itself at event_init time.
 > 
-> The first patch reverts the incorrect assumption about the return
-> values of acpi_parse_spcr(). The second drops the logging.
 > 
-> Thanks,
-> Punit
-> 
-> [...]
 
-Applied to arm64 (for-next/fixes), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/2] Revert "ACPI: Suppress misleading SPCR console message when SPCR table is absent"
-      https://git.kernel.org/arm64/c/eeb8c1989695
-[2/2] arm64: acpi: Drop message logging SPCR default console
-      https://git.kernel.org/arm64/c/7991fda619f7
+[1/1] perf/arm-ni: Fix and optimise register offset calculation
+      https://git.kernel.org/will/c/2d7a82480701
 
 Cheers,
 -- 
