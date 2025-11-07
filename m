@@ -4,145 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF31CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16B8CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CctWZc9KKI9EMTpaspEuce9jJHj/hy5L7BzuBUUity8=; b=C2bpd9RmOmjEXw8nUpMtNgjg5l
-	lXuAv/lQPN11Sxj5UG2KRIPU9OskDrZ83t90tC9lpY9oSzs1FXBbEsQ2OtzgPH/5qgizIkIc5ZLSe
-	db+SjwNSHlCV117lPA+i0SakoO+6cnfHpMyBkNqt8ksvqN2Pi6GkSxNKixEzI0HBqR0segNnEjZ12
-	+DCG6copJ/Zf7EYZCx2Lj+fpbLx8QO4vD03Or5vbIqXGGws2+0uIzH1M1OAgs1wsvJrQJTeyoLjP6
-	GqvyQefl3/Gj25QmI79/opI6bAvB5aKX4u3C/DPOCw4pbasj9dy9fl43wZhsKdf5SgTlimm9rRi+G
-	tZMK48Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=monGLLl72k03rW+XBHxv2n4ze7FfAMEbwcdE5Jp88/k=; b=07MNyCK/9dBhEh1JrvRjX080nD
+	BjeRlhjC5TZim9qKGjTz62o4CBbl8iVQMqFky+5DqR+rO4/BMMFHAx8cPbDu+LGSjnaoe3uImN1nB
+	ocWdbxxVfFKyVi6E0wMD1NswBAWns542VWCkS7KexaQ9ghfmNmJd1k0qffWSbFl4zS6+Ekcl8HCvY
+	19daJmPytcnpJMo4D5tod1jpmMBXYBvDDLr7dVqOMH2F46kaK97WSCKde0WjzH35IzDm50Nas9KjI
+	LJ1+V0LenBT1xdrEJodhfjeOqCRX0/hAHLavomnSLbCllo0eAy9otIqZ/tSfs76YPcgvhJZ7DqnlE
+	/DXf0+Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHL3e-0000000HFgU-0aFO;
-	Fri, 07 Nov 2025 11:55:10 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vHL67-0000000HFs5-2TYZ;
+	Fri, 07 Nov 2025 11:57:43 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHL3c-0000000HFg9-1Mb6
+	id 1vHL65-0000000HFrH-3Nk9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 11:55:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=asxk7/W6HCzaS/leCdaoBroeCON7DzaEzoBcWMjfg1VsbzYEFE4gZHwEc9NYjvTpBD3fzqkZ8y8XseF+0Xd+faaLFzIM5HWccZm47DrYGKHHT5HVzv2BrpzbQRLwv0AHn+7MuCgjb6mGiajFt5vPzz9ec1Idz+UzkAbwf5+0W2a42S0S5uoGKjI/wMTRJMQktpo+m+YFXW9yqkbUWpwYf8rCa9u6FTKyP4NmMPHI5WW+IGXwdvSAg5LQuUkoPwWprB/dkAdlCyFyl+Q6wMfICGy/q8W9hR7KydKv6V2Gc+Y12ktOPWCIfNaKTc7dOEt0SgSTtvaG7TsVPdKUHT5l0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CctWZc9KKI9EMTpaspEuce9jJHj/hy5L7BzuBUUity8=;
- b=TymtY7SsnCNZ9LN62MCWGvMx5RDEJFIsWMULVC+/mOSCCsEyAm8fKrYydbzjWF0NG0tp38PlZkrOFE0V31gsAqSSxnLVzrp2EU46iXS/mJejxgoriMz2YZh8VkVpFd7ft6OgF/a3q8aQpgCaR5XhVyhAPR2wJ8knNairLayhB04/ioACzzhtKNHskEQkiXW2O8gTlvx93qxy9SIFllw/F14yVsRMDROlmKOqqHygMpROYuMoLqhoZrxLPv0KSNsxLbv28iGMQzhE9cNoik/+pinKfkbO6fx2eudWAxtnJiM/UHOTqKFSbbV93TD0cYVZ4kNCsCU0CxUyaFNQ1I/2+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CctWZc9KKI9EMTpaspEuce9jJHj/hy5L7BzuBUUity8=;
- b=i7VR5jyNoyG6iUHXDXTggzVHlcm6eaht3ds/8KtjiqCFHXRzh6OszDuUpN0w93TWi8ap5YDeB+C7WlXKncfcnYxomc7qovDlnPaM1Xhn9MXY6DTZIx0mTBYLhryEoBTWQQIy2cp2q3sN0D76pcRpX3kPbX48xu0DakRdUTaEKPs=
-Received: from DS7PR05CA0076.namprd05.prod.outlook.com (2603:10b6:8:57::13) by
- DM3PPFBD8703CAB.namprd10.prod.outlook.com (2603:10b6:f:fc00::c46) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.13; Fri, 7 Nov
- 2025 11:55:02 +0000
-Received: from CY4PEPF0000E9D9.namprd05.prod.outlook.com
- (2603:10b6:8:57:cafe::50) by DS7PR05CA0076.outlook.office365.com
- (2603:10b6:8:57::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.8 via Frontend Transport; Fri, 7
- Nov 2025 11:55:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000E9D9.mail.protection.outlook.com (10.167.241.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 11:55:00 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 05:54:58 -0600
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 05:54:57 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 7 Nov 2025 05:54:57 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A7BsvlK2928509;
-	Fri, 7 Nov 2025 05:54:57 -0600
-Date: Fri, 7 Nov 2025 05:54:57 -0600
-From: Nishanth Menon <nm@ti.com>
-To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>, <richard.genoud@bootlin.com>,
-	Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
- Kumar" <a-kumar2@ti.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFC 2/2] firmware: ti_sci: handle IRQ restore in
- BOARDCFG_MANAGED mode during resume
-Message-ID: <20251107115457.i6tkt466bp62mwp2@whiff>
-References: <20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com>
- <20251017-ti-sci-jacinto-s2r-restore-irq-v1-2-34d4339d247a@bootlin.com>
+	Fri, 07 Nov 2025 11:57:42 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2958db8ae4fso5737085ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:57:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762516661; x=1763121461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:references
+         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=monGLLl72k03rW+XBHxv2n4ze7FfAMEbwcdE5Jp88/k=;
+        b=fAFg10z0hOLOrMMY8O4TkZkMCQlTSHS6BKsWF1tBsIhBC+Lvt2E5q3+whzWYGJeyen
+         70HsWl4FMNBvp+Q4zbR841clICZnVz8BpYNPhAWwxUoaaGMzULuT0BTPiHcb1sBZ/bQ/
+         fKmI1ewwFFYTyXuAEEzuF93Ek1gMV0huxLJyE6Fa25ShP5W8ksUqXSBnu+twW6Glfa6h
+         /KCBqRH3wg8FZfsGO4F995HrE+x1V706+87Qe8PS5bO/vWmiu9OlB4rUfwR2a9RJAk2S
+         wSxGmhGjHiSPJpWFRnx7/3Rwk4dLygbIyY7PButtewT1FkImxjADiCOAcdXaH2gEk8D2
+         NrRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762516661; x=1763121461;
+        h=content-transfer-encoding:mime-version:message-id:references
+         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=monGLLl72k03rW+XBHxv2n4ze7FfAMEbwcdE5Jp88/k=;
+        b=QFzUO4r2YKtQOjXEmEKioLKfiiDRBRfZ1/iNW4W4Ub9F7hoh+Pg98oLpl5zokaFyJ/
+         89wOeubQCsq1GqjwvARK64AFr2zaOxVSpAqUGFuNNvsetXa4aPFOBEq/CLGhJmgvhxtU
+         8v/QkiS8SCAWG0gPwre7qklfx6BrE9S3RPq9UftgoxbgCiBrr4nqiv3FJ5T5ku29TTet
+         RdvrKrRyGKPpvlIUOpG6fVSBhZjPZRFA+zPmkkJ9uvm2aj/oAOUi9YA7EtzNQLdjjvlq
+         6bFscxIpxjMYE6SmD/sHJgrL1GQ6dD9A5wGVciHN5/PmMb+B4JjbSkm3Nmbg+1TCoWZ/
+         Hzvg==
+X-Forwarded-Encrypted: i=1; AJvYcCWg4kgt0HPagV3jSgAC4ls9/yQLuWVv2NBudbm/MkWM4uWyz/4Kj5eUYuVLBKh7Eh6hburrZ62UELs/ooYCyFI0@lists.infradead.org
+X-Gm-Message-State: AOJu0YybJb+Z1B0LshNCDTMf/CmXlmhrHniimuE9QRDuHOgYKB/cIVKi
+	fuTA80UQl+H8g4VplKWwzq0ZgAxY2ZFDJkOZMyTkmWHpwLuD0ooAyjRCssPbewwb
+X-Gm-Gg: ASbGncv1OZbMfq8qlK5YNFeRtLNYYEmvngEaQVaFiKLy4Q7f59MHg8nSCJDCOFQhT02
+	r9yNJSxiAAANCnXzHIX2/04YfkeUuK7EStFzTLE3THUuIb1camFZZfp0Luo4XNkmjTinstB6vpS
+	Ek0YNWI5gZeNlsC2ratGlKmOqv0DBsTEFGzXUs5zCkZoOCJCymreLUhkJisuS9n9DUucZG/6nOT
+	3sM0NztJACckGaYg+OKFTk6ZrkLdftODbztPhEOc8mimUDaTzzVLrNmv5vQ3dxcA2g2dFGT3kLB
+	Gq14wRUrGEIY9cIH1Inja1T2LrEdr+FtSvQ0zTjOfjVIUr+3r7dORhnavMUmKZb46d+k1jXNOPS
+	rstVbjSKNAw11wdcAyhrk0+i8c060DF2gYxBWga3UOZY5ihTf6omEsS11H6JMqeOQ8s+Np9m5nX
+	wmECTCkkHDmhUwpb7taomVuif8Oazu5lB0
+X-Google-Smtp-Source: AGHT+IG2JNYUVu7xIzD0M5+jz0kLb7Hm7r7y9xBYeK5/FwHh5dDyBrOGwBvYmi7VcMJsmKn3/mqWGw==
+X-Received: by 2002:a17:903:2284:b0:297:d6c2:d06 with SMTP id d9443c01a7336-297d6c20d85mr8354715ad.20.1762516660819;
+        Fri, 07 Nov 2025 03:57:40 -0800 (PST)
+Received: from ehlo.thunderbird.net ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651c9c2a2sm58337585ad.93.2025.11.07.03.57.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Nov 2025 03:57:40 -0800 (PST)
+Date: Fri, 07 Nov 2025 19:36:58 +0800
+From: Coia Prant <coiaprant@gmail.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+CC: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ robh@kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_3/3=5D_arm64=3A_dts=3A_rockchip=3A?=
+ =?US-ASCII?Q?_Add_devicetree_for_the_9Tripod_X3568_v4?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <20251107110020.226562-1-amadeus@jmu.edu.cn>
+References: <20251103171702.1518730-4-coiaprant@gmail.com> <20251107110020.226562-1-amadeus@jmu.edu.cn>
+Message-ID: <6F2972A5-047F-48A5-B409-C3F3E71643AD@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251017-ti-sci-jacinto-s2r-restore-irq-v1-2-34d4339d247a@bootlin.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D9:EE_|DM3PPFBD8703CAB:EE_
-X-MS-Office365-Filtering-Correlation-Id: e0fa075a-fd03-4bd0-ec09-08de1df47b3c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?M+/WoEu2iAPHw9CPc3dbtv0UQKBMkKlD/5I5iP7Klqval0nARqzCr1ABTrXy?=
- =?us-ascii?Q?ofoWQckgHNb7j9j6S8RVrF6yLI9lxJhhK9xWW0Kj+bGvup4oFamq2WDqs83Z?=
- =?us-ascii?Q?Qvn1nrT2UbAY4kIOPiWbD//KNe0GvKWu7NaokQT8tdqWtNflq5To4m18gEyh?=
- =?us-ascii?Q?2qDnsMPQVxyYOSkbcDidJSIpOU5ocHy+Ieq5qB+qKf7CyOP7JC63fO+q0Rje?=
- =?us-ascii?Q?W2NmUIIhltIgnRinXJfb3+DZJjklPxiC25WkL+seKpEdJzaShDce/pwF/9Rv?=
- =?us-ascii?Q?WvIcwa5MSAzbi9w9p0ziKPjxqFkHhsHODEOmqjSaEJkc1xUO8RglCgi45Po5?=
- =?us-ascii?Q?4Dgcd9LPyShyBO4pb8jqJnA/qbIVigV362X/rDWpQGJYuTowAFZ2SAG7VhSK?=
- =?us-ascii?Q?Oo9ORsxgLLrtO1Iw8KEdwFhFgRhQ3ZQ6VjsixQhfep7h/0TDKBMTuiekWuDh?=
- =?us-ascii?Q?j4Qot16Q4npEUUzz/mrx86pRaCRKFBu3Zs1o0PPzQ1jX10Mhz5b464htGyCF?=
- =?us-ascii?Q?nssmZRPDC8jbc84pWIHlKfZHisoifK6xY/KPntD43uzkvfxoyBhevRIDkpsh?=
- =?us-ascii?Q?zM41E1PjDlpVRyoMve813+NrokUIABLIhPUU40dta4TFi5YWmWH/gojuorNk?=
- =?us-ascii?Q?PugWedMbZdYk6ri5E7NKaItLzAeG4Aab+qvXzHkuqwNrzbNDUjxfSyI42zhY?=
- =?us-ascii?Q?22tLmR5Gm4q25v+S9g3SU9Ad/SjZzXBJn4LSNKOg9fCyONcOrhpkTfp6eCpq?=
- =?us-ascii?Q?n4LZS/x9sE33SkdLEtFNksCiDMlxI6gHLKXm8/FxlpSztAquose2kWFHSWWU?=
- =?us-ascii?Q?eCpiutAsa3LL4p+xUx5alIx0DDfPoki265jDBjDGMCc3K4s/yOvTY+63/hk8?=
- =?us-ascii?Q?VB2S4rPV6y2P6JywWnHewIiqUXf5uUmeAKCTnlmEuiZrt67hRq8kQS89kTzk?=
- =?us-ascii?Q?2MCxDsK+OXLtTc2/2deHsSmSJSAZcLpG5hKTKqUN9ruwMopNpKal8yED8Yww?=
- =?us-ascii?Q?6r2YGxLbl9sah+z4+agy+lQWTaTDDC8WBKe/YMD9QsdEJISrxXACjcuMuv4r?=
- =?us-ascii?Q?GOrF+yBLOERRF1SLvslQOo+kkv3G194OC/OPLn4DSQf+2IJCavJXhHgucmpk?=
- =?us-ascii?Q?a1LHDXrevYgTYrs6IMqpWKioGOCAHRTJa0t2Ffmeunou4zWBLV4+YDnnnlrm?=
- =?us-ascii?Q?irlmj6LqgB7YpsHIYtwNF6IzUOno6uV/0Ej2aFN/2ti9DrIaTzTfDrMdXxaA?=
- =?us-ascii?Q?7//0yCqFAyeMaDP0L9LIaRWIjLHM+ewJGc+wWLIXj9LCL69EneEidfrCn3I4?=
- =?us-ascii?Q?2+ThRXCpDtOMEePOdkp0NG8Oz4M9yIc1yBwJP2LsVDbMrlwglEgCvNaq4wih?=
- =?us-ascii?Q?CBy03Ies3J+y06wxwFxwCZQYim4OAsAA9LZA7Itasle7dfLagofkr2iUhIMO?=
- =?us-ascii?Q?E23o1eBKkct0krLPyVoXjMKp4IOiKZyLO5rBHM/+ZWrFsQ3BwWxxjrfhewg4?=
- =?us-ascii?Q?Y+MCpbSp/h5qSdGQAuJHtIp/EIPVcvugwvV5qoTBNvqUUuj8wmcOOBa/k3Nc?=
- =?us-ascii?Q?7TV7/AAK5ny9HqAiQVI=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 11:55:00.9103
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0fa075a-fd03-4bd0-ec09-08de1df47b3c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFBD8703CAB
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_035508_371429_33A4F259 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20251107_035741_872854_71E519E6 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,77 +104,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:44-20251017, Thomas Richard (TI.com) wrote:
-> In BOARDCFG_MANAGED mode, the firmware cannot restore IRQs during
-> resume. This responsibility is delegated to the ti_sci driver,
-> which maintains an internal list of all requested IRQs. This list
-> is updated on each set/free operation, and all IRQs are restored
-> during the resume_noirq() phase.
+On November 7, 2025 7:00:20 PM GMT+08:00, Chukun Pan <amadeus@jmu=2Eedu=2Ec=
+n> wrote:
+>Hi,
+>
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-9tripod-x3568-v4-camera-demo=
+=2Edtso
+>> @@ -0,0 +1,84 @@
+>> +// SPDX-License-Identifier: (GPL-2=2E0-or-later OR MIT)
+>> +
+>> +// This is a sample reference, due to lack of hardware can not be test=
+ed, at your own risk
+>
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-9tripod-x3568-v4-video-demo=
+=2Edtso
+>> @@ -0,0 +1,154 @@
+>> +// SPDX-License-Identifier: (GPL-2=2E0-or-later OR MIT)
+>> +
+>> +// This is a sample reference, due to lack of hardware can not be test=
+ed, at your own risk
+>
+>Why are these demo DT Overlays needed? Are these optional accessories?
+>These untested DT Overlays should be removed=2E
+>
+>> +	vcc3v3_pcie: regulator-vcc3v3-pcie {
+>> +		compatible =3D "regulator-gpio";
+>
+>This should use regulator-fixed=2E
+>
+>> +		regulator-name =3D "vcc3v3_pcie";
+>> +		regulator-min-microvolt =3D <100000>;
+>> +		regulator-max-microvolt =3D <3300000>;
+>> +		pinctrl-names =3D "default";
+>> +		pinctrl-0 =3D <&vcc3v3_pcie_en_pin>;
+>
+>Is this the name from the schematic?
+>
+>> +	pinctrl-names =3D "default";
+>> +	pinctrl-0 =3D <&gmac0_miim
+>> +			&gmac0_tx_bus2
+>> +			&gmac0_rx_bus2
+>> +			&gmac0_rgmii_clk
+>> +			&gmac0_rgmii_bus
+>> +			&gmac0_clkinout>;
+>
+>> +	pinctrl-names =3D "default";
+>> +	pinctrl-0 =3D <&gmac1m1_miim
+>> +			&gmac1m1_tx_bus2
+>> +			&gmac1m1_rx_bus2
+>> +			&gmac1m1_rgmii_clk
+>> +			&gmac1m1_rgmii_bus
+>> +			&gmac1m1_clkinout>;
+>
+>Align Indentation=2E
+>
+>> +		codec {
+>> +			rockchip,mic-in-differential;
+>> +		};
+>
+>Is it confirmed to be differential signaling?
+>
+>> +	pmic {
+>> +		pmic_int: pmic_int {
+>> +			rockchip,pins =3D
+>> +				<0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
+>
+>No line break is needed here=2E
+>
+>> +/* Required remotectl for IR receiver */
+>> +&pwm7 {
+>> +	status =3D "disabled";
+>> +};
+>
+>This should be replaced with gpio-ir-receiver=2E
+>
+>> +&sdmmc2 {
+>> +	bus-width =3D <4>;
+>> +	disable-wp;
+>
+>The disable-wp property does not apply to SDIO cards=2E
+>
+>> +	sd-uhs-sdr12;
+>> +	sd-uhs-sdr25;
+>> +	sd-uhs-sdr50;
+>> +	sd-uhs-sdr104;
+>
+>Just declare the highest supported speed=2E
 
-Couple of drive by comments:
+PCIe and MIC picked from OEM source codes=2E
 
-clarify why is this not handled by ia / ir driver?
+PMIC picked from RK3568-EVB=2E
 
-> 
-> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
-> ---
->  drivers/firmware/ti_sci.c | 143 +++++++++++++++++++++++++++++++++++++++++++---
->  1 file changed, 135 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> index f9f1a67e8e66b0a4048fae04ce31be54ca5cba7a..a211f8805dd21c7675b8cefd61929ecfda8e0f7f 100644
-> --- a/drivers/firmware/ti_sci.c
-> +++ b/drivers/firmware/ti_sci.c
-> @@ -87,6 +87,16 @@ struct ti_sci_desc {
->  	int max_msg_size;
-[...]
-> +
-> +	irq_desc.valid_params = valid_params;
-> +	irq_desc.src_id = src_id;
-> +	irq_desc.src_index = src_index;
-> +	irq_desc.dst_id = dst_id;
-> +	irq_desc.dst_host_irq = dst_host_irq;
-> +	irq_desc.ia_id = ia_id;
-> +	irq_desc.vint = vint;
-> +	irq_desc.global_event = global_event;
-> +	irq_desc.vint_status_bit = vint_status_bit;
-> +	irq_desc.secondary_host = s_host;
-> +
-> +	list_for_each(this, &info->irqs.list) {
+Since parts of the OEM source code are not available in mainline, I refer =
+to other boards (e=2Eg=2E RK3568-EVB or RK3568-ROC-PC), but I don't have a =
+camera or screen to test, so I mark them as demo=2E
 
-list_for_each_entry_safe ?
-
-How big is this list on a j784s4 class device? is it worth creating a
-irq_desc_hash and using a hlist a better option?
+Do I need to release a new set of patches?
 
 
-> +		this_irq = list_entry(this, struct ti_sci_irq, list);
-> +		if (ti_sci_irq_equal(irq_desc, this_irq->desc)) {
-> +			list_del(&this_irq->list);
-> +			kfree(this_irq);
-> +			break;
-> +		}
-> +	}
-> +
-
-[...]
-
->  	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
->  	/* Do not fail to resume on error as the wake reason is not critical */
->  	if (!ret)
-> @@ -3961,6 +4085,9 @@ static int ti_sci_probe(struct platform_device *pdev)
->  	list_add_tail(&info->node, &ti_sci_list);
->  	mutex_unlock(&ti_sci_list_mutex);
->  
-> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED)
-> +		INIT_LIST_HEAD(&info->irqs.list);
-
-probably not worth doing a conditional initialization here.
-
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Thanks
 
