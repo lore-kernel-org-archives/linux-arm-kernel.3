@@ -4,96 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239DECCFA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307C1CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afGjVttI914lkamQzbwHFWQI/mW5NqG7gu6A5EIHDVY=; b=A0zp9gQBEgyrMaaBzCgYzNHQ9d
-	75tGSiqCeryx29MyxuvM8GLsWDspxBDAp8KZdHHLvSVOG0+t8vCJMu7GdZV8FBF6ool4nWuKlLAXa
-	+NLekdzU0P5zDmgKc8Ja+SiNUic7538zOP3/CMdkjag2Z5xYHsHz3ugO3PElRBrpVdsH0LrcFza5b
-	cjCxLckbXPcuT1R6WRaw5rJQ4Roc+5pL+pQI7udiaFWnzKefROKftInogii3S8dBNjQI+/WtJnEq6
-	EMrtDUprpyz/c/FngA4No7GiZKSV2bUYTT1qztgTOTtWci9Rw81ken8lqSXLLog+otHaQn3hZ0pKR
-	K/3vGRgQ==;
+	bh=VjsKnx6myc+SjSVfljlFz1uoxxYpQs+XjVirkwIqzsU=; b=5C44s0tXP2kVxK9FG2pVxGjDnT
+	hXqrXBWzMo62YNab8NqPFSEjSeZfe0SAIjZBtTci13pQqFiSFydQJdSQyWJOvJ4cvkmSC1hSksP7j
+	fuoV9nRG49IXee+O4YnPHWTHudYaf6APfZygSvSiyRdNEnpA6SZLGw9eoWV9/cTjxtLRdkLk5sDSI
+	jkgQa+ji7D8RVs66KAUJrLSg47TcPct7TzdLHGRvtkMXbA4ZMV1YQRldzHWBTUDqrtTrzgIW9cSWm
+	Dt5lQlJD4/MHiS9mrPxkXMi8tgSZwyfF4qyF2pawRF8+V65jszSV0xMuRw5pnBegutL5qdahAP2dV
+	nq5fS42g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIza-0000000H13p-2aLm;
-	Fri, 07 Nov 2025 09:42:50 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIzY-0000000H13F-1UJw
+	id 1vHJE8-0000000H1wB-3Gth;
+	Fri, 07 Nov 2025 09:57:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHJE6-0000000H1vM-0rqv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 09:42:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762508568; x=1794044568;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WJXOLztqSo4giTqFOw8G/lBkaE8BpltWb1JC16Iyvfc=;
-  b=b1W3K4zjOXJUrVFks0odcScGM8Dape/G3yLyyNc06CzWStiNePvlDi36
-   tSkwy0g5p4AC6xz4BOdHQssSYZlUUXSmH64psa2kaFgozADHbfz9lvkSV
-   SwfMMBbkFZQiLDBx/8FP+LoUM4Mldf6F/DE4POAZD/B2szS7tineInY2i
-   Bbe/jq8c/+RcQ/y8CF4ubTRrzFd131MwOqoY77+7NwCniZtndcl2e739d
-   xjU3krZSReC4UmLE5pFQy6VkrRYxYyPk0DBQ26He8ecuj/TS3cLXx/1hN
-   aSEXxxp9RofsLGbrzYtlv7fGigj1Nl2tuuG5mlTR8xYhhcNaL4RnCdvNm
-   Q==;
-X-CSE-ConnectionGUID: dlVkWNtOSw2/CJwO62T65Q==
-X-CSE-MsgGUID: BjdRBT1MROSg2V77dVkFwg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11605"; a="63668031"
-X-IronPort-AV: E=Sophos;i="6.19,286,1754982000"; 
-   d="scan'208";a="63668031"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2025 01:42:47 -0800
-X-CSE-ConnectionGUID: oCQK/vHQQpCJVDh93eyUgw==
-X-CSE-MsgGUID: jz6q+Cp+QiGNuEuTne9Otg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,286,1754982000"; 
-   d="scan'208";a="187253469"
-Received: from vpanait-mobl.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.245.27])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2025 01:42:43 -0800
-Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1vHIzQ-00000006QDe-05pD;
-	Fri, 07 Nov 2025 11:42:40 +0200
-Date: Fri, 7 Nov 2025 11:42:39 +0200
-From: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>,
-	"benh@kernel.crashing.org" <benh@kernel.crashing.org>,
-	"joel@jms.id.au" <joel@jms.id.au>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v21 3/4] i2c: ast2600: Add controller driver for new
- register layout
-Message-ID: <aQ2_D6vs4m1brNk0@smile.fi.intel.com>
-References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
- <20251027061240.3427875-4-ryan_chen@aspeedtech.com>
- <f08b1078-fc8c-4834-984c-813e01291033@kernel.org>
- <TY2PPF5CB9A1BE64FEBCCCDC7631B355135F2C3A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	Fri, 07 Nov 2025 09:57:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53BF714BF;
+	Fri,  7 Nov 2025 01:57:39 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B3523F66E;
+	Fri,  7 Nov 2025 01:57:45 -0800 (PST)
+Date: Fri, 7 Nov 2025 09:57:40 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Dylan Hatch <dylanbhatch@google.com>,
+	Fanqin Cui <cuifq1@chinatelecom.cn>
+Subject: Re: [PATCH v2 2/2] arch: arm64: Reject modules with internal
+ alternative callbacks
+Message-ID: <aQ3ClNpcT-YBlvnG@J2N7QTR9R3>
+References: <20250922130427.2904977-1-abarnas@google.com>
+ <20250922130427.2904977-3-abarnas@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <TY2PPF5CB9A1BE64FEBCCCDC7631B355135F2C3A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250922130427.2904977-3-abarnas@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_014248_406524_137F9A5D 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20251107_015750_286796_49AFA8F1 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,33 +69,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 06:26:39AM +0000, Ryan Chen wrote:
-> > On 27/10/2025 07:12, Ryan Chen wrote:
-
-...
-
-> Add new file i2c-aspeed-core.c to do legacy probe and i2c-ast2600 probe.
+On Mon, Sep 22, 2025 at 01:04:27PM +0000, Adrian Barnaś wrote:
+> During module loading, check if a callback function used by the
+> alternatives specified in the '.altinstruction' ELF section (if present)
+> is located in core kernel .text. If not fail module loading before
+> callback is called.
 > 
-> 	if (of_device_is_compatible(dev_of_node(dev), "aspeed,ast2600-i2c-bus") &&
+> Reported-by: Fanqin Cui <cuifq1@chinatelecom.cn>
+> Closes: https://lore.kernel.org/all/20250807072700.348514-1-fanqincui@163.com/
+> Signed-off-by: Adrian Barnaś <abarnas@google.com>
+> ---
+>  arch/arm64/include/asm/alternative.h |  7 +++++--
+>  arch/arm64/kernel/alternative.c      | 19 ++++++++++++-------
+>  arch/arm64/kernel/module.c           |  9 +++++++--
+>  3 files changed, 24 insertions(+), 11 deletions(-)
 
-	if (device_is_compatible(dev, "aspeed,ast2600-i2c-bus") &&
+[...]
 
-> 	    of_parse_phandle(dev_of_node(dev), "aspeed,global-regs", 0)) {
+> @@ -166,10 +166,13 @@ static void __apply_alternatives(const struct alt_region *region,
+>  		updptr = is_module ? origptr : lm_alias(origptr);
+>  		nr_inst = alt->orig_len / AARCH64_INSN_SIZE;
+>  
+> -		if (ALT_HAS_CB(alt))
+> +		if (ALT_HAS_CB(alt)) {
+>  			alt_cb  = ALT_REPL_PTR(alt);
+> -		else
+> +			if (!core_kernel_text((unsigned long)alt_cb))
+> +				return -ENOEXEC;
+> +		} else {
+>  			alt_cb = patch_alternative;
+> +		}
 
-Not sure why do you need this. Isn't it as simple as
+There's an existing noinstr safety issue there that this makes a bit
+worse.
 
-	    device_property_present(dev, "aspeed,global-regs", 0)) {
+The core_kernel_text() function is instrumentable, and so for
+(non-module) alternatives, calling that in the middle of patching isn't
+safe (as it could lead to calling arbitrary C code mid-patching).
 
-or something between these lines?
+That said, __apply_alternatives() aren't marked as noinstr, and cleaning
+that up properly is going to require some major rework. I don't think we
+want to block this patch on that.
 
-> 		ret = ast2600_i2c_probe(pdev);
-> 	} else {
-> 		ret = aspeed_i2c_probe(pdev);
-> 	}
+I think we can bodge around the worst of that for now with:
 
--- 
-With Best Regards,
-Andy Shevchenko
+	if (is_module && !core_kernel_text((unsigned long)alt_cb))
+		return -ENOEXEC;
 
+... which'll avoid calling out to other instrumentable code during the
+patching sequence, and minimize the risk of that blowing up during boot.
 
+I'll see about prioritizing a follow-up to fix the extant issues more
+thoroughly.
+
+Will, are you happy to add the 'is module &&' part to the condition?
+
+Mark.
 
