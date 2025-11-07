@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0482CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8836CCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JtrOP7D+6cn9NXpGOjOJ8EQlpfaQQ1W6MRTCW9ClTm4=; b=Z6Fz9zuxFBfNkxNxNJvHSc0KmP
-	XcRQ+/A0CvhqZlw0DqW/tsAxEd3QSm+NymN9X2p9oim4jtmIQ/+0N/Mz+qBVIINWBrDk74mSwtw5e
-	UbDpN9ZcJRov20gyu6CTq/fBGYsZWFxFnFwj867ehNKgqzLOs2Iis0JOlCHQihGNgrQufAJbAcGFo
-	oPGjIMpyOZJFNKY9QnKSM1aVF4JIF/e1uORky7txKtByr4LJxcfNrgu++hNHcvpYGBPTqSYepNp+n
-	GaRUHpzMabftCdtvMf19yXpOMoH0t8Rcs0ADDZRycLZU7KUs0QmTy3X1yvP940+It5l8iYPWrqEV0
-	goI4r5tQ==;
+	bh=7xX67g8MPpCr3MM+KOG098SbJpojLff6/hxQ78gpCEQ=; b=mtqClziD66kvUDWuNRau+FeVv0
+	aF70QWg+ShcMWUKtILvNGiWwmKTZ6NDGzD8vZOcQgH5Y9/wrUcBSpQyhtpbhYoNRGGU8ZuuDmqpde
+	Ir9gWtULj2ndYYApVpqBcW+fMs6pO4ihAyYcG7GhcmVw4MNu776C2xnVvx+Z13ex9eHq0ycG7pBd4
+	lSRzVDbD3BScnginyG5JsNEvFc2wuRYY9RlUV4Y6+BHhtFWwSgz64OulB5MZhEBft6Wkwnkx+JdfD
+	sP7boDExogyN3DWOA4B+hy7V9kmhS41H+c2YTIh1wGZeMVPN/es0ezZKyLaKT1Rg7wYxeZN9hudfF
+	nyZB3ZXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNvy-0000000HYGH-36df;
-	Fri, 07 Nov 2025 14:59:26 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNvw-0000000HYCl-0cwL
+	id 1vHNwa-0000000HYaD-2kv5;
+	Fri, 07 Nov 2025 15:00:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHNwX-0000000HYZ8-2FL3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 14:59:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1762527562;
- bh=JtrOP7D+6cn9NXpGOjOJ8EQlpfaQQ1W6MRTCW9ClTm4=;
- b=GsdV/n3gj2/U8wlqPdx9lCknr4kIrWyYXQ/e1lQpig7GRXMneQWMx1v697TpjzfoZbK18aCEE
- GGyB9eyvyVcC/18fP5Sdwq7dxC3BJmKzN/Q42BYFWW+OIB+R70Dsd2uzum6WMoGhtgsV/iftLzv
- PYYa7ytqvjx0mzlral2yKV11lwBc6ZFeEJJrnIIS5Ofck4hXQSoL1AWtY7mSmh804vXRaBKHQfe
- 2+ptNO2dJtTkoToR3tdcBpexON84jD880kOD2dTl7je4MCqE2su2C+7babzP/gKuoj362vIp8lA
- ArjGxHor5tUNmf/GVOv8zQ3u2SzzvcSUusIqtCLNynng==
-X-Forward-Email-ID: 690e094607551ffa40a0ed33
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.4.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <48108089-775a-428c-8dd1-a75344823ace@kwiboo.se>
-Date: Fri, 7 Nov 2025 15:59:12 +0100
+	Fri, 07 Nov 2025 15:00:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35D311515;
+	Fri,  7 Nov 2025 06:59:52 -0800 (PST)
+Received: from [10.57.86.134] (unknown [10.57.86.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 611CD3F694;
+	Fri,  7 Nov 2025 06:59:55 -0800 (PST)
+Message-ID: <999feffa-5d1d-42e3-bd3a-d949f2a9de9d@arm.com>
+Date: Fri, 7 Nov 2025 14:59:53 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 4/5] dt-bindings: clock: rockchip: Add RK3506
- clock and reset unit
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
- heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- huangtao@rock-chips.com, finley.xiao@rock-chips.com
-References: <20251107013757.5013-1-zhangqing@rock-chips.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20251107013757.5013-1-zhangqing@rock-chips.com>
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20251029100909.3381140-8-kevin.brodsky@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_065924_287121_634C76AD 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20251107_070001_666573_463F6EF5 
+X-CRM114-Status: GOOD (  48.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,134 +85,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Elaine,
-
-On 11/7/2025 2:37 AM, Elaine Zhang wrote:
-> From: Finley Xiao <finley.xiao@rock-chips.com>
+On 29/10/2025 10:09, Kevin Brodsky wrote:
+> Despite recent efforts to prevent lazy_mmu sections from nesting, it
+> remains difficult to ensure that it never occurs - and in fact it
+> does occur on arm64 in certain situations (CONFIG_DEBUG_PAGEALLOC).
+> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
+> made nesting tolerable on arm64, but without truly supporting it:
+> the inner call to leave() disables the batching optimisation before
+> the outer section ends.
 > 
-> Add device tree bindings for clock and reset unit on RK3506 SoC.
-> Add clock and reset IDs for RK3506 SoC.
+> This patch actually enables lazy_mmu sections to nest by tracking
+> the nesting level in task_struct, in a similar fashion to e.g.
+> pagefault_{enable,disable}(). This is fully handled by the generic
+> lazy_mmu helpers that were recently introduced.
 > 
-> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> lazy_mmu sections were not initially intended to nest, so we need to
+> clarify the semantics w.r.t. the arch_*_lazy_mmu_mode() callbacks.
+> This patch takes the following approach:
+> 
+> * The outermost calls to lazy_mmu_mode_{enable,disable}() trigger
+>   calls to arch_{enter,leave}_lazy_mmu_mode() - this is unchanged.
+> 
+> * Nested calls to lazy_mmu_mode_{enable,disable}() are not forwarded
+>   to the arch via arch_{enter,leave} - lazy MMU remains enabled so
+>   the assumption is that these callbacks are not relevant. However,
+>   existing code may rely on a call to disable() to flush any batched
+>   state, regardless of nesting. arch_flush_lazy_mmu_mode() is
+>   therefore called in that situation.
+> 
+> A separate interface was recently introduced to temporarily pause
+> the lazy MMU mode: lazy_mmu_mode_{pause,resume}(). pause() fully
+> exits the mode *regardless of the nesting level*, and resume()
+> restores the mode at the same nesting level.
+> 
+> Whether the mode is actually enabled or not at any point is tracked
+> by a separate "active" field in task_struct; this makes it possible
+> to check invariants in the generic API, and to expose a new
+> in_lazy_mmu_mode() helper to replace the various ways arch's
+> currently track whether the mode is enabled (this will be done in
+> later patches).
+> 
+> In summary (nesting/active represent the values *after* the call):
+> 
+> lazy_mmu_mode_enable()		-> arch_enter()	    nesting=1 active=1
+>     lazy_mmu_mode_enable()	-> ø		    nesting=2 active=1
+> 	lazy_mmu_mode_pause()	-> arch_leave()     nesting=2 active=0
+> 	lazy_mmu_mode_resume()	-> arch_enter()     nesting=2 active=1
+>     lazy_mmu_mode_disable()	-> arch_flush()     nesting=1 active=1
+> lazy_mmu_mode_disable()		-> arch_leave()     nesting=0 active=0
+> 
+> Note: in_lazy_mmu_mode() is added to <linux/sched.h> to allow arch
+> headers included by <linux/pgtable.h> to use it.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 > ---
->  .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
->  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
->  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
->  3 files changed, 547 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
->  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
->  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
-
-[snip]
-
-> diff --git a/include/dt-bindings/reset/rockchip,rk3506-cru.h b/include/dt-bindings/reset/rockchip,rk3506-cru.h
-> new file mode 100644
-> index 000000000000..f38cc066009b
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/rockchip,rk3506-cru.h
-> @@ -0,0 +1,211 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
-> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
-> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
-> +
-> +/* CRU-->SOFTRST_CON00 */
-> +#define SRST_NCOREPORESET0_AC		0
-> +#define SRST_NCOREPORESET1_AC		1
-> +#define SRST_NCOREPORESET2_AC		2
-> +#define SRST_NCORESET0_AC		3
-> +#define SRST_NCORESET1_AC		4
-> +#define SRST_NCORESET2_AC		5
-> +#define SRST_NL2RESET_AC		6
-> +#define SRST_ARESETN_CORE_BIU_AC	7
-> +#define SRST_HRESETN_M0_AC		8
-> +
-> +/* CRU-->SOFTRST_CON02 */
-> +#define SRST_NDBGRESET			9
-> +#define SRST_PRESETN_CORE_BIU		10
-> +#define SRST_RESETN_PMU			11
-> +
-> +/* CRU-->SOFTRST_CON03 */
-> +#define SRST_PRESETN_DBG		12
-> +#define SRST_POTRESETN_DBG		13
-> +#define SRST_PRESETN_CORE_GRF		14
-> +#define SRST_RESETN_CORE_EMA_DETECT	15
-> +#define SRST_RESETN_REF_PVTPLL_CORE	16
-> +#define SRST_PRESETN_GPIO1		17
-> +#define SRST_DBRESETN_GPIO1		18
-> +
-> +/* CRU-->SOFTRST_CON04 */
-> +#define SRST_ARESETN_CORE_PERI_BIU	19
-> +#define SRST_ARESETN_DSMC		20
-> +#define SRST_PRESETN_DSMC		21
-> +#define SRST_RESETN_FLEXBUS		22
-> +#define SRST_ARESETN_FLEXBUS		23
-> +#define SRST_HRESETN_FLEXBUS		24
-> +#define SRST_ARESETN_DSMC_SLV		25
-> +#define SRST_HRESETN_DSMC_SLV		26
-> +#define SRST_RESETN_DSMC_SLV		27
-> +
-> +/* CRU-->SOFTRST_CON05 */
-> +#define SRST_ARESETN_BUS_BIU		28
-> +#define SRST_HRESETN_BUS_BIU		29
-> +#define SRST_PRESETN_BUS_BIU		30
-> +#define SRST_ARESETN_SYSRAM		31
-> +#define SRST_HRESETN_SYSRAM		32
-> +#define SRST_ARESETN_DMAC0		33
-> +#define SRST_ARESETN_DMAC1		34
-> +#define SRST_HRESETN_M0			35
-> +#define SRST_RESETN_M0_JTAG		36
-> +#define SRST_HRESETN_CRYPTO		37
-
-My original question and your reply from v5 follow below.
-
-On 11/7/2025 2:24 AM, zhangqing wrote:
->> Is there a reason why this (and the RV1126B) reset names now include the
->> RESETN name in all reset constant?
->>
->> For RK3528 and prior mainline SoCs the RESETN part of the name has been
->> striped from the constant, suggest we also strip the RESETN part for
->> RK3506 and RV1126B for consistency with other RK SoCs.
->>
-> The current practice is to separate the reset id from the clk id.
+>  arch/arm64/include/asm/pgtable.h | 12 ------
+>  include/linux/mm_types_task.h    |  5 +++
+>  include/linux/pgtable.h          | 67 ++++++++++++++++++++++++++++++--
+>  include/linux/sched.h            | 16 ++++++++
+>  4 files changed, 84 insertions(+), 16 deletions(-)
 > 
-> Follow with others RK socs(RK3528、RK3588、RK3576.....)
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 54f8d6bb6f22..535435248923 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -82,18 +82,6 @@ static inline void queue_pte_barriers(void)
+>  
+>  static inline void arch_enter_lazy_mmu_mode(void)
+>  {
+> -	/*
+> -	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
+> -	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
+> -	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
+> -	 * permissions on the linear map with apply_to_page_range(), which
+> -	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
+> -	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
+> -	 * flush and clear the flag such that the remainder of the work in the
+> -	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
+> -	 * keeps tracking simple.
+> -	 */
+> -
+>  	if (in_interrupt())
+>  		return;
+>  
+> diff --git a/include/linux/mm_types_task.h b/include/linux/mm_types_task.h
+> index a82aa80c0ba4..632d404f8191 100644
+> --- a/include/linux/mm_types_task.h
+> +++ b/include/linux/mm_types_task.h
+> @@ -88,4 +88,9 @@ struct tlbflush_unmap_batch {
+>  #endif
+>  };
+>  
+> +struct lazy_mmu_state {
+> +	u8 nesting_level;
+> +	bool active;
+> +};
+> +
+>  #endif /* _LINUX_MM_TYPES_TASK_H */
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index b5fdf32c437f..e6064e00b22d 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -228,27 +228,86 @@ static inline int pmd_dirty(pmd_t pmd)
+>   * of the lazy mode. So the implementation must assume preemption may be enabled
+>   * and cpu migration is possible; it must take steps to be robust against this.
+>   * (In practice, for user PTE updates, the appropriate page table lock(s) are
+> - * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
+> - * and the mode cannot be used in interrupt context.
+> + * held, but for kernel PTE updates, no lock is held). The mode cannot be used
+> + * in interrupt context.
 
-and
+"The mode cannot be used in interrupt context"; except it is for arm64. KFENCE
+and/or DEBUG_PAGEALLOC will request the arch to change linear map permissions,
+which will enter lazy mmu (now using the new generic API). This can happen in
+softirq context.
 
-On 11/7/2025 2:44 AM, zhangqing wrote:
-> The reset id and rst-rk3506.c were automatically generated from our trm 
-> using tools, while some of the previous chips were filled in manually.
-> 
-> It is not recommended to manually modify the content generated by the 
-> tool to avoid unnecessary errors.
-> 
-> It is not necessary to change SRST_HRESETN_CRYPTO to SRST_H_CRYPTO.
 
-Why do we now need to have two part of the indices name to represent it
-is a reset, i.e. the SRST_ prefix and the RESETN in middle of the name.
+> + *
+> + * The lazy MMU mode is enabled for a given block of code using:
+> + *
+> + *   lazy_mmu_mode_enable();
+> + *   <code>
+> + *   lazy_mmu_mode_disable();
+> + *
+> + * Nesting is permitted: <code> may itself use an enable()/disable() pair.
+> + * A nested call to enable() has no functional effect; however disable() causes
+> + * any batched architectural state to be flushed regardless of nesting. After a
+> + * call to disable(), the caller can therefore rely on all previous page table
+> + * modifications to have taken effect, but the lazy MMU mode may still be
+> + * enabled.
+> + *
+> + * In certain cases, it may be desirable to temporarily pause the lazy MMU mode.
+> + * This can be done using:
+> + *
+> + *   lazy_mmu_mode_pause();
+> + *   <code>
+> + *   lazy_mmu_mode_resume();
+> + *
+> + * This sequence must only be used if the lazy MMU mode is already enabled.
+> + * pause() ensures that the mode is exited regardless of the nesting level;
+> + * resume() re-enters the mode at the same nesting level. <code> must not modify
+> + * the lazy MMU state (i.e. it must not call any of the lazy_mmu_mode_*
+> + * helpers).
+> + *
+> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+> + * currently enabled.
+>   */
 
-	resets = <&cru SRST_ARESETN_MAC1>;
+Nice documentation!
 
-The example above seem unnecessary verbose with 3x reset:
-- resets as prop name
-- SRST_ prefix (software? reset) in the indices name
-- RESETN in the indices name
+>  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  static inline void lazy_mmu_mode_enable(void)
+>  {
+> -	arch_enter_lazy_mmu_mode();
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
+> +	/* enable() must not be called while paused */
+> +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
+> +
+> +	if (state->nesting_level++ == 0) {
 
-Maybe the SRST_ prefix could be dropped if we now have RESETN as part of
-the indices name?
+Hmm... for the arm64 case of calling this in an interrupt, Is it safe?
 
-Your tool could be updated to strip the verbose naming. For RK3528 I
-used a small script/tool to strip away the RESETN name and to generate
-the macros used in rst driver.
+If a task is calling this function and gets interrupted here, nesting_level==1
+but active==false. The interrupt then calls this function and increments from 1
+to 2 but arch_enter_lazy_mmu_mode() hasn't been called.
 
-Regards,
-Jonas
+More dangerously (I think), when the interrupt handler calls
+lazy_mmu_mode_disable(), it will end up calling arch_flush_lazy_mmu_mode() which
+could be an issue because as far as the arch is concerned, it's not in lazy mode.
 
-[snip]
+The current arm64 implementation works because setting and clearing the thread
+flags is atomic.
+
+Perhaps you need to disable preemption around the if block?
+
+> +		state->active = true;
+> +		arch_enter_lazy_mmu_mode();
+> +	}
+>  }
+>  
+>  static inline void lazy_mmu_mode_disable(void)
+>  {
+> -	arch_leave_lazy_mmu_mode();
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON_ONCE(state->nesting_level == 0);
+> +	VM_WARN_ON(!state->active);
+> +
+> +	if (--state->nesting_level == 0) {
+> +		state->active = false;
+> +		arch_leave_lazy_mmu_mode();
+> +	} else {
+> +		/* Exiting a nested section */
+> +		arch_flush_lazy_mmu_mode();
+> +	}
+>  }
+>  
+>  static inline void lazy_mmu_mode_pause(void)
+>  {
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
+
+nit: do you need the first condition? I think when nesting_level==0, we expect
+to be !active?
+
+> +
+> +	state->active = false;
+>  	arch_leave_lazy_mmu_mode();
+>  }
+>  
+>  static inline void lazy_mmu_mode_resume(void)
+>  {
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON(state->nesting_level == 0 || state->active);
+
+Similar argument?
+
+> +
+> +	state->active = true;
+>  	arch_enter_lazy_mmu_mode();
+>  }
+>  #else
+> diff --git a/include/linux/sched.h b/include/linux/sched.h
+> index cbb7340c5866..11566d973f42 100644
+> --- a/include/linux/sched.h
+> +++ b/include/linux/sched.h
+> @@ -1441,6 +1441,10 @@ struct task_struct {
+>  
+>  	struct page_frag		task_frag;
+>  
+> +#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+> +	struct lazy_mmu_state		lazy_mmu_state;
+> +#endif
+> +
+>  #ifdef CONFIG_TASK_DELAY_ACCT
+>  	struct task_delay_info		*delays;
+>  #endif
+> @@ -1724,6 +1728,18 @@ static inline char task_state_to_char(struct task_struct *tsk)
+>  	return task_index_to_char(task_state_index(tsk));
+>  }
+>  
+> +#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+> +static inline bool in_lazy_mmu_mode(void)
+> +{
+> +	return current->lazy_mmu_state.active;
+> +}
+> +#else
+> +static inline bool in_lazy_mmu_mode(void)
+> +{
+> +	return false;
+
+Just pointing out that this isn't really a correct implementation:
+
+lazy_mmu_mode_enable()
+ASSERT(in_lazy_mmu_mode()) << triggers for arches without lazy mmu
+lazy_mmu_mode_disable()
+
+Although it probably doesn't matter in practice?
+
+Thanks,
+Ryan
+
+> +}
+> +#endif
+> +
+>  extern struct pid *cad_pid;
+>  
+>  /*
+
 
