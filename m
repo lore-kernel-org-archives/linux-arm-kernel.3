@@ -4,144 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4425CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 20:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAF2CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 20:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMiAlmZ5os5PJiSn3mse/lYqj6Ay26vK/U4XP5dRDMY=; b=WHPxMV/zHhgBJlbkA6I7pVixU/
-	myBjcXVtfJRkEk4KWRs7cvSVr8uTCJcp+xS48EZs9n2epuapF9xYlMvAYLAQqzXYpk45aQm46Ej7f
-	4rrXOIiNLD0w8cv6MEXdKqU4O365f4ALOiv61WLi6WNDmznUuzGVkQLKbHbJoYSGfGnRKUkky/REs
-	UJN7MCbMAFbLVzx8mxXVIfWgZp6LD++HiPVRcc3Jg4A0LJKV/UqnU2S1e+ZR6mpUxDxuafcl+VpCN
-	Aec/bZQeUn/J15M1t/xKNCGd/mZ6Ulnedzmrw95db+4ZkKf3/K1FtU7rUfMcRAo2Wi2xrztY96hp7
-	HRGx3ZTQ==;
+	bh=bDUTuqIm1mC7bv4+LL+huhJyC8iiKtLcTtZF/qxPnqw=; b=Uj6HukTvDx66w3ub3vud8A4XRZ
+	tRx+fnmnO7HV6QYnvxo9YgxwleTjf2AmGdVRTZESNYF58umKLeoGyUR+u7ratrc2LMVWWogb2E0fu
+	Vl5jVn0UcVXyVB64NlEqxm1sayCE5eJRhYqcGbCRyPF9KomvxS1UnqmON1VW0RO2AvOpnLqlHPVmO
+	kKLPKo6gHAMUxiFsMuto17ISM1cM4nQvoSZFDCpcdOAjofOD1zYevz046w+oOq+wlMCNcrqmSn8AM
+	z9DCAQkNkvnNXqVg1hlsTQyHzcIyRjuYS5FkpVqWSfPY+gV4hUIN9a3Jwp02V8J3od81+iK5pZrvx
+	JsLYoA7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHT0Y-00000000vfC-0uDK;
-	Fri, 07 Nov 2025 20:24:30 +0000
-Received: from mail-northcentralusazon11013070.outbound.protection.outlook.com ([40.107.201.70] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vHT6F-00000000wv1-05Ig;
+	Fri, 07 Nov 2025 20:30:23 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHT0W-00000000vdv-0Sm4
+	id 1vHT6D-00000000wtZ-1sZh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 20:24:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Pv7wN1UaOdDQleySC43eE52yJddi4bqIsjfWbcPsnwHKlVS7xOOEiyPMOutJuAuWR87QkYmbtwcSkNWgVdaCUyBzY7GKfxGt864Ez9EfToU0e/azca/OB4dP6pIJfb8SDqlsaHIPJxLcv0dwgeM+yjPAYzLpJNt8IWYHVrllgiwnc9BHFnU5uw+a4Y7M0Fo2uKJpQMPAzcVTys7dM/kW9F+1lvr+FG1s6AvwWZVaLjYT+8BagZpACz5C8rvsX3Zf1mHEBD/FysnbuQGuBkA1dZUc1rgeI+B4T/XC4W+fMsiXiniFXzmQ6CdwnQ/+3E+9z/HCwl58/O3GtcmdyKfQCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KMiAlmZ5os5PJiSn3mse/lYqj6Ay26vK/U4XP5dRDMY=;
- b=wd01u+nhB45OaZR3RyXz9vxI2e26xYF/pG6B0pOWCrkgB9hJ/zcncHDj4r8RFsuTB+hnXaYjzA+WUCc57/OlPrPqM4UHtedkzIpP/+GaFLy5ly42zMBs6lCa2FO3BxGtJWwlJSCgYygGjQFffa5tmyWkJD4296Gctxva3yesJjVzrlDFotQ0fvQtwhxJ4qD2r+0zhCWloiqvw9a4NvH2/tsudZQ1jCu6MqvGs6lCcx6j6Z5qBSJYG6UWkHOXwvHJUk8FsWaqOaDoE01pZdB8Ujm3mABbrW4EelZYoeKOKWRuIXSUhkjOffqkKhdhgPGtz7SueWOLLYD6R8phhH4hVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KMiAlmZ5os5PJiSn3mse/lYqj6Ay26vK/U4XP5dRDMY=;
- b=t8yVd6CZTw8E1XE7vTlwLxxW4GfM1HyZu96xOl/8OwH4AgUYNJ10fxxNbC4qxiBEbuq3amevYEUdv2GQf6mu/GdO++DJ8S9TWBywUSVkXlwMNqdUDBTBOugHbNXcct5ZPQ+Lb5o20Q4OZ0lBPK0MarKuFDfqso7jzlkbqqlis3H3UG432HBvQZW3Ghz8XKHcD99U/lc60lFq49+P8cdUeV8ym4Q04l8PWQlQMbE8F3CF7wc605KODCkHmNsnc6i/K4xGNioNXOpdXqJWcrM+uzs7nW/ZbWRpzSnb2eDnpwc14uBs4b0APuDuHxliIcZ7TrhbWIRLomCmPcaJ+SKbmw==
-Received: from BYAPR08CA0070.namprd08.prod.outlook.com (2603:10b6:a03:117::47)
- by IA1PR12MB7592.namprd12.prod.outlook.com (2603:10b6:208:428::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.13; Fri, 7 Nov
- 2025 20:24:22 +0000
-Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
- (2603:10b6:a03:117:cafe::bc) by BYAPR08CA0070.outlook.office365.com
- (2603:10b6:a03:117::47) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.13 via Frontend Transport; Fri,
- 7 Nov 2025 20:24:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 20:24:22 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 12:23:59 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
- 2025 12:23:58 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 7 Nov 2025 12:23:57 -0800
-Date: Fri, 7 Nov 2025 12:23:56 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <jean-philippe@linaro.org>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aQ5VXORy6nQ9yfwF@Asurada-Nvidia>
-References: <cover.1761590851.git.nicolinc@nvidia.com>
- <b7560a95f474bd642e037d5a43cfe5be76ea3fe7.1761590851.git.nicolinc@nvidia.com>
- <20251107194158.GB1932966@nvidia.com>
+	Fri, 07 Nov 2025 20:30:22 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8804a4235edso10988516d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 12:30:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1762547420; x=1763152220; darn=lists.infradead.org;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDUTuqIm1mC7bv4+LL+huhJyC8iiKtLcTtZF/qxPnqw=;
+        b=cisRBpv/ZRwGbviGsoykbY5YcsSo1nwPGSlcnkLlHULGFj3dOy+xwUTass2nrGyYVs
+         60wmuBx1k6dxWEww7fUfNtTspvXS/vcwqSP/8+uDzvNnxybabiRbGs/v2i9rEcVZEfuY
+         peVF/s1m5GMFWWgmwnM6IZ1u+t+5FB69mavtBtKcMCT+MRww5ie8e7PbGDhJm+f21QZo
+         AtIfvPI9c9dtydK2qdOed0wj3L1DhcA3+mzJtBBfib6klDTHbhEK7ukZFV3BpNRrvsnA
+         e4fDDq1er3DCxaoi/j8jvZbpw74XNoy/KARx8s+G2wpBsO4Gr26qF+wDCTXNFmAGFZ7+
+         Lsvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762547420; x=1763152220;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=bDUTuqIm1mC7bv4+LL+huhJyC8iiKtLcTtZF/qxPnqw=;
+        b=cZ+Av1ZkXec9FSHLC6KsjiK7//56EIDnfMKSArhZ2L2em16TByr+6RqJZimHmnXJqD
+         CAyTID5DoALwX1mBIcdd4aPRBX+yRVpHLLDBeOAJ3hy8VtC9xgRSqM/BXLhLHxcy1/fm
+         p0vYU7YE6xlecLDKPOw3FmaZ6UqeloXxD1+jB6I9FjeMRR5YROUk7w1JqiXsHmxovF2t
+         chH0p/+gjt+0Yo/frWleGgXSxbqyi4YYXpSpF54iB8qYmehE8hvNcHV9OiQmgyQeSONC
+         weZQ4voh/bTerRWdtr1u/JmEviigEcyEohVJGiA/Gg6JjOmKcx73n+2WBrNkRoOthym7
+         bQbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhgwgDHTsNYQQks9fWu6LWrDfI9Mwt/NBOPbovMFemMfs7Vza+cQjDsFsbcmjwg7iYAJJnQXJLBaOMAxiCNt8Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCimPEpxIviDnp7OsG7tfkU7SHzyrhCKh9/CqgOmODN4lADchz
+	C8+MGQC9p+X7Icdpf5wd9LjapAcKmto4LleGUkJ9IlnpjufthB9FT9cb4/E2UEGEnQ4=
+X-Gm-Gg: ASbGncv0cUaqRKhekemumM3GGfdq1Z49Q7hyFljY6qla+uvSQkx94kGw9S/lW6QBo8C
+	SeYz95eCwqYDdNMAd3ocH4BwxQyd3v0zBoxG36Iv+xubRuWA4QlwGqzvV00pggdsxjErHwe8flm
+	eGulmMHz8nDjgkWqnOPvFbEEBzwND0xCz3U/k0BrllgmQMVoOJirXHd8h4K8it62XN6PtIp6nfY
+	UmRHi3ivyPceuhF1QwSuJ2rgdeaXn78ihQ+0Q0/+52J+LeHWONfaO0Xdko+Nh0F4qTYLS8eBI6v
+	fTW3/G4ig8d023Ayc4ntygkI1RHXs7+23bHIR+aSBxmShLav6ynIrFhrUMUxzXZP9tJkejbSiAl
+	3MvrkZ3DVxZBl87Sb4uASWGLage0oIpifzZOr25heHfWhUEmyzIYVgpl+ct6ZwxGcSrdrDfHtIf
+	NKTZGHo2X7ve/7Nvlm
+X-Google-Smtp-Source: AGHT+IE9+bUnPNb+D1GoECSagGgXpcy/iSFjYsJia7JIfqLUwPkrl0EwAL48d7DeRv+bzbrI2oATHQ==
+X-Received: by 2002:a05:6214:dc4:b0:880:5001:17d1 with SMTP id 6a1803df08f44-8823871e956mr4781436d6.37.1762547418122;
+        Fri, 07 Nov 2025 12:30:18 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:ef24::c41? ([2606:6d00:11:ef24::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4eda578532csm1296591cf.19.2025.11.07.12.30.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Nov 2025 12:30:16 -0800 (PST)
+Message-ID: <65c923cda564f308eae5f24191afc1c15c500ea9.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 1/4] media: allegro-dvt: Move the current driver to a
+ subdirectory
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: yassine.ouaissa@allegrodvt.com, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Michael Tretter <m.tretter@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Michal Simek	
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Date: Fri, 07 Nov 2025 15:30:15 -0500
+In-Reply-To: <20250716-allegro_dvt_al300_dec_driver-v4-1-f87c01c9f7b5@allegrodvt.com>
+References: <20250716-allegro_dvt_al300_dec_driver-v4-0-f87c01c9f7b5@allegrodvt.com>
+	 <20250716-allegro_dvt_al300_dec_driver-v4-1-f87c01c9f7b5@allegrodvt.com>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ticGmTQqqGJykJCTcdtU"
+User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251107194158.GB1932966@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|IA1PR12MB7592:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2602c787-a3de-49c1-a4e6-08de1e3ba369
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UXJ+2SEmaAj9fdJDRmzaeJdJfMY0OX7S6PpZ+/cyhLScThua/LNz0VZWqRRZ?=
- =?us-ascii?Q?IBq5BRb466AxV7hPx0C/rukznq81/kI2P7RHGjGVdb11RU1KEtTAdT6VSCgZ?=
- =?us-ascii?Q?mjzi880bl2utS+TiR71Zyahsj3m6f1RQ7jQdmwCXD+mVcv6hY90f6huoWecc?=
- =?us-ascii?Q?+KvZVSuciHDU7W0KqfuknAr3dLOjTSAEI94SzsgzRYdd3397y/9HxZmSOAOq?=
- =?us-ascii?Q?Fs7d1r/69CARo6YsBgLTElkeN96PUc0gwBWNm5aD4JG87D+NLSPIZisYLHvQ?=
- =?us-ascii?Q?aexzClVQpJ/a+1Kdjvf7IRAc69Z58hexSgHsFRYGXUNSlfgsR0Qq8VZuIpa9?=
- =?us-ascii?Q?cBqMs19Ku9HBUJGoycEvm80T0101eO7dUa4uYImSM7apVloPEhN15B3I6kzF?=
- =?us-ascii?Q?vj4MkjlwWOkBIrDNFYsGmzT3rTpHUA4sKtaWJ2y9062tzQ6BUdWEL97mn7eO?=
- =?us-ascii?Q?1HGqw4ghPVDQvfV2A6Ml665a0qMjIjzJ0VVzIZOI/0Fhcu62HiQQtu2n4geY?=
- =?us-ascii?Q?XYYtuYjalP0UQbJKwEmutyyvftbp5a7RDkUqS/qgEmV5RG7gidoPF499ZjZA?=
- =?us-ascii?Q?3YugFqR+OcNiUGxaeOdMjJYx1Y2IUg5hHm6ZqVkgQG8yD1IoNEK+ahxJsBcD?=
- =?us-ascii?Q?sGQYS0T6aOEhu6QAYkg/HvRW5fySm1w/HZBUpNItqLcFPydDxyHBclpWTenH?=
- =?us-ascii?Q?NSgq9jd5NVrZwWtm7Mq6eKAxilvzSySPulr5+Rs2REsG2byB1+M8FdcasrtE?=
- =?us-ascii?Q?UMvarIUJNT5iTNh8VY9utZDQfauJyD92IZdpk0N/0SFiF/XTWe1agb251lsM?=
- =?us-ascii?Q?g59ZPLtkreKTLwfc2a8fdZWCasjB55FULS6YKNcZOjsCoaLQeOopWUPIujU/?=
- =?us-ascii?Q?qRlEG5bu5no7UUAIaBVYtMI7ub0NrfF5NJfElRbkeJ6iUaaGdIp1ncEk/Nzb?=
- =?us-ascii?Q?nmTQcQt9YKSjulftb9pE9T7ccftVH54hs7fhpwr8cOKOLj/qUQz1ynE59ypm?=
- =?us-ascii?Q?7YLU3lrp8T7fu6NorTyRe3ijITO2hwm+H8Vs8BO7wkdRlulZvoijbjtHQ3aQ?=
- =?us-ascii?Q?keInzSG9DQN+GBrdVExYGGHUpH/mcOtuottjJZKBfXm+RhcVdLH/oNOiL67e?=
- =?us-ascii?Q?BmjA91r1nseBG6tMGLBehlSB8Eyfy3ygCuBnZUCTegdMoHs+3dO2c1WtuR5t?=
- =?us-ascii?Q?gede8s5cXF3RbQv9Ah4J1QYJ9Yg3n+YnmP1DClmfHxistVf+klSTPa8fHMmE?=
- =?us-ascii?Q?LXwvar+kk5pIJOTFM4jZK33GAd/xt2EjUWgmljGzUhi6bI3zPWFVHrws7vGB?=
- =?us-ascii?Q?MImbGWTGGS0gL9J2a1YeBuj/j58QP2G3paizbBrIKfndPoW2vOUwxLStmy4P?=
- =?us-ascii?Q?AlKAXaWNsn0T4Y4m1Z/uhRbR7oPccSgKIFgvdzoiQuD5HzNcB3YBTbKxRaXU?=
- =?us-ascii?Q?b/Q3Xz1d2GXDRayLk2eMo5EiOxx9AaGxA61BiYHR5OMWDYDW0G+DyCthTerv?=
- =?us-ascii?Q?9CEzVhJsQHqhxDUinb9vw9ZEmRe5fQUSL2EjEQyQyRG6tu85ThpgowSV6W+L?=
- =?us-ascii?Q?+/vHXyR1uOQpuf0Icn0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 20:24:22.4883
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2602c787-a3de-49c1-a4e6-08de1e3ba369
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7592
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_122428_177001_1F59FEB0 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20251107_123021_518118_C13CEBE3 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,50 +105,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 03:41:58PM -0400, Jason Gunthorpe wrote:
-> On Mon, Oct 27, 2025 at 11:54:17AM -0700, Nicolin Chen wrote:
-> > +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
-> > +					  struct arm_smmu_invs *to_merge)
-> > +{
-> > +	struct arm_smmu_invs *new_invs;
-> > +	struct arm_smmu_inv *new;
-> > +	size_t num_trashes = 0;
-> > +	size_t num_adds = 0;
-> > +	size_t i, j;
-> > +
-> > +	for (i = j = 0; i != invs->num_invs || j != to_merge->num_invs;) {
-> > +		int cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
-> > +
-> > +		/* Skip any unwanted trash entry */
-> > +		if (cmp < 0 && !refcount_read(&invs->inv[i].users)) {
-> 
-> Do we need cmp < 0 here and in all these other similar ifs? Can't we
-> just fully ignore trash entries no matter how they cmopare to the
-> other list?
- 
-The index "i" might overflow in case of cmp > 1. So, if we don't
-check cmp, we'd need to check "i != invs->num_invs" instead.
 
-> If cmp ==0 and we do num_trash++ then the next iteration will see j
-> ass cmp > 1 so it will do num_adds++ and the two will cancel out.
+--=-ticGmTQqqGJykJCTcdtU
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Yea, cmp == 0 should work with an additional iteration.
+Hi,
 
-Perhaps we can do this:
+Le mercredi 16 juillet 2025 =C3=A0 14:55 +0000, Yassine Ouaissa via B4 Rela=
+y a =C3=A9crit=C2=A0:
+> From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+>=20
+> In preparation for the upcoming driver update, we need to relocate the
+> current driver.
+> This will help ensure a clean transition and avoid any potential
+> conflicts with the new driver.
+> This patch is crucial for keeping our directory organized and
+> facilitating a smooth integration of the new driver.
+>=20
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> ---
+> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
+> =C2=A0drivers/media/platform/allegro-dvt/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 16 +--------------=
+-
+> =C2=A0drivers/media/platform/allegro-dvt/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 5 +----
+> =C2=A0drivers/media/platform/allegro-dvt/zynqmp/Kconfig=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 17 +++++++++++++++++
+> =C2=A0drivers/media/platform/allegro-dvt/zynqmp/Makefile=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 6 ++++++
+> =C2=A0.../platform/allegro-dvt/{ =3D> zynqmp}/allegro-core.c=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 0
+> =C2=A0.../platform/allegro-dvt/{ =3D> zynqmp}/allegro-mail.c=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 0
+> =C2=A0.../platform/allegro-dvt/{ =3D> zynqmp}/allegro-mail.h=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-h264.c=C2=A0 |=C2=
+=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-h264.h=C2=A0 |=C2=
+=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-hevc.c=C2=A0 |=C2=
+=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-hevc.h=C2=A0 |=C2=
+=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-rbsp.c=C2=A0 |=C2=
+=A0 0
+> =C2=A0.../media/platform/allegro-dvt/{ =3D> zynqmp}/nal-rbsp.h=C2=A0 |=C2=
+=A0 0
+> =C2=A014 files changed, 26 insertions(+), 20 deletions(-)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 60bba48f5479a025f9da3eaf9dbacb67a194df07..2cea337bd426f203a8dd8f5f2=
+689f8091137175e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -817,7 +817,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+> =C2=A0L:	linux-media@vger.kernel.org
+> =C2=A0S:	Maintained
+> =C2=A0F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
+> -F:	drivers/media/platform/allegro-dvt/
+> +F:	drivers/media/platform/allegro-dvt/zynqmp
 
-+		int cmp;
-+
-+		/* Skip any trash entry */
-+		if (i != invs->num_invs && !refcount_read(&invs->inv[i].users)) {
-+			num_trashes++;
-+			i++;
-+			continue;
-+		}
-+
-+		cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
+If you can get Micheal approval, you can then carry over this for the follo=
+wup versions:
 
-And I will fix the other two places too.
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Thanks
-Nicolin
+cheers,
+Nicolas
+
+> =C2=A0
+> =C2=A0ALLIED VISION ALVIUM CAMERA DRIVER
+> =C2=A0M:	Tommaso Merciai <tomm.merciai@gmail.com>
+> diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/p=
+latform/allegro-dvt/Kconfig
+> index 2182e1277568a407f51a23ea437811c50b1183c8..e9008614c27b9490d1cd29fab=
+887977a1918ede4 100644
+> --- a/drivers/media/platform/allegro-dvt/Kconfig
+> +++ b/drivers/media/platform/allegro-dvt/Kconfig
+> @@ -2,18 +2,4 @@
+> =C2=A0
+> =C2=A0comment "Allegro DVT media platform drivers"
+> =C2=A0
+> -config VIDEO_ALLEGRO_DVT
+> -	tristate "Allegro DVT Video IP Core"
+> -	depends on V4L_MEM2MEM_DRIVERS
+> -	depends on VIDEO_DEV
+> -	depends on ARCH_ZYNQMP || COMPILE_TEST
+> -	select V4L2_MEM2MEM_DEV
+> -	select VIDEOBUF2_DMA_CONTIG
+> -	select REGMAP_MMIO
+> -	help
+> -	=C2=A0 Support for the encoder video IP core by Allegro DVT. This core =
+is
+> -	=C2=A0 found for example on the Xilinx ZynqMP SoC in the EV family and =
+is
+> -	=C2=A0 called VCU in the reference manual.
+> -
+> -	=C2=A0 To compile this driver as a module, choose M here: the module
+> -	=C2=A0 will be called allegro.
+> +source "drivers/media/platform/allegro-dvt/zynqmp/Kconfig"
+> diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/=
+platform/allegro-dvt/Makefile
+> index 66108a3037747020d549bc0a427881e0667a3f0a..d2aa6875edcf7760901996aac=
+4d5ac98282cce20 100644
+> --- a/drivers/media/platform/allegro-dvt/Makefile
+> +++ b/drivers/media/platform/allegro-dvt/Makefile
+> @@ -1,6 +1,3 @@
+> =C2=A0# SPDX-License-Identifier: GPL-2.0
+> =C2=A0
+> -allegro-objs :=3D allegro-core.o allegro-mail.o
+> -allegro-objs +=3D nal-rbsp.o nal-h264.o nal-hevc.o
+> -
+> -obj-$(CONFIG_VIDEO_ALLEGRO_DVT) +=3D allegro.o
+> +obj-y +=3D zynqmp/
+> diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Kconfig b/drivers/=
+media/platform/allegro-dvt/zynqmp/Kconfig
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..0a0a697c420da47f87f05153a=
+2dbfbe5d3ccf988
+> --- /dev/null
+> +++ b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
+> @@ -0,0 +1,17 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config VIDEO_ALLEGRO_DVT
+> +	tristate "Allegro DVT Video IP Core for ZynqMP"
+> +	depends on V4L_MEM2MEM_DRIVERS
+> +	depends on VIDEO_DEV
+> +	depends on ARCH_ZYNQMP || COMPILE_TEST
+> +	select V4L2_MEM2MEM_DEV
+> +	select VIDEOBUF2_DMA_CONTIG
+> +	select REGMAP_MMIO
+> +	help
+> +	=C2=A0 Support for the encoder video IP core by Allegro DVT. This core =
+is
+> +	=C2=A0 found for example on the Xilinx ZynqMP SoC in the EV family and =
+is
+> +	=C2=A0 called VCU in the reference manual.
+> +
+> +	=C2=A0 To compile this driver as a module, choose M here: the module
+> +	=C2=A0 will be called allegro.
+> diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers=
+/media/platform/allegro-dvt/zynqmp/Makefile
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..66108a3037747020d549bc0a4=
+27881e0667a3f0a
+> --- /dev/null
+> +++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
+> @@ -0,0 +1,6 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +allegro-objs :=3D allegro-core.o allegro-mail.o
+> +allegro-objs +=3D nal-rbsp.o nal-h264.o nal-hevc.o
+> +
+> +obj-$(CONFIG_VIDEO_ALLEGRO_DVT) +=3D allegro.o
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/=
+media/platform/allegro-dvt/zynqmp/allegro-core.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/allegro-core.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/=
+media/platform/allegro-dvt/zynqmp/allegro-mail.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/allegro-mail.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
+> diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/=
+media/platform/allegro-dvt/zynqmp/allegro-mail.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/allegro-mail.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
+> diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-h264.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-h264.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-h264.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-h264.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
+> diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-hevc.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-hevc.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-hevc.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-hevc.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
+> diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-rbsp.c
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
+> diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/medi=
+a/platform/allegro-dvt/zynqmp/nal-rbsp.h
+> similarity index 100%
+> rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
+> rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
+
+--=-ticGmTQqqGJykJCTcdtU
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaQ5W1wAKCRDZQZRRKWBy
+9LquAP4vrhxbrcsa2NVRSdgDGr1S60g6GOJFRtdYIYHSkGdo0AEAm0E/gtv2/K/S
+yEhiuHijQF7Oy/mcG+Fguwx5A8DoVAg=
+=tUk5
+-----END PGP SIGNATURE-----
+
+--=-ticGmTQqqGJykJCTcdtU--
 
