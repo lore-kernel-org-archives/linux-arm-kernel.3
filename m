@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89533CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 01:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04048CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 01:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QlcBKjJx4uP39C5Bp7ynHMky0Ctqov+yjLQA9z/pqvQ=; b=mn8x89d1fPLwz3Tsw10zA6pWQc
-	ZuFnzpNroQg4eVuNCbx1dmtekk1svr4k5WcTSa7mtXMWGumtfZS3lO62ce4567mmxfTowPZ8PBkzu
-	adKeYwLnXVaDTuyy4ty8wjeSOLvHdSMelNnYZ6Co5cmaSDgiBnQpV1A6vDGODaCBxXay9uM3Jbu7v
-	zE1GkWB8nmEHisFxjpxMcrlnFos+93oeCJ/8LxThAn84y3QgAulODgKDs7HVtXrsuyAYEtX5/op5o
-	ELJtCH6zyaSiIMW1ce8eJHrlCVzrTGcgdV6Bv96ARkt6s9a2V3mUr1+zVEmFOOS0/ubPvHuY46ha8
-	V5TrWphA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BT9/kYaBUsvDZ6jQJB9hieiRtpkS6G2Coh0SX63cMl0=; b=PybsIdZuVmMQOhXzPR3gn9lz1P
+	cJgp5dTKPnk+BKRvzDOfiGLu3RXyEjLL14zUQ8bIddJQFAMij2knR9BaJhvLP7eTt6BpEAO9YHBau
+	1K8dOQluWewJ2Z6XkTyg9/koGRC2OkevX3MnZlNGU+We5MIKJG1akiVn3/4m9l/Xw1c2DTBGc6sSh
+	LmEMdzVwny/yZ51rSIZcIyLrAJJ3meSTZ3y35xaWdZbtJ2kn9fWO6gwY9ilqobLbI1B4ty6Wjdgf5
+	c5+/Hl3uxvv6hcuGK9eCE8VuZZB+NcA9Y7ZPSKzTJ2zeu830wkyOzXk/atkJnV9LJoz5O2y1/SbmE
+	9HycMG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBI4-0000000GVc5-0vnI;
-	Fri, 07 Nov 2025 01:29:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHBNY-0000000GW9F-3ctp;
+	Fri, 07 Nov 2025 01:35:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBI2-0000000GVbm-2YKk
+	id 1vHBNW-0000000GW8G-0503
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 01:29:22 +0000
+	Fri, 07 Nov 2025 01:35:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96D7D601A7;
-	Fri,  7 Nov 2025 01:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FB4C4CEF7;
-	Fri,  7 Nov 2025 01:29:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C85CC409B9;
+	Fri,  7 Nov 2025 01:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DACEC116C6;
+	Fri,  7 Nov 2025 01:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762478961;
-	bh=GbsyoaoMgC5ugJX7CDMoP2LUinPt69SQz5ZnttGKylU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PxJdsgmg+BdMKGKF2RoB25bnZSE0JPB5UXZySz2/x9cQ0eoqEhJnzGsNRM/PP8VeU
-	 PiNLzTIlwkEPxzPBSo2GYUzwS386Ix8S+rTuRI5WpGxNtWvL1fZiuoGjNxqCmkwopq
-	 gDXGmXV79vMnoz9xJrSJXllSV0IDpLB4pBfm7tdh7BGni0nha6IaCK9d488cLTzUNn
-	 +qa+fUhUgjYHsLBpMkQT83JZtN1UZLzbUrf4Wznb4Puh6wu1EQ9GKndEerhXX++2/p
-	 03UWY8xFnLtf7xh4zjhiSkSVai5Fi9ex/qBu3giLMObs1+tMvXCHOrDXloA0xGdvSx
-	 M0a1B0E33uiag==
-Date: Thu, 6 Nov 2025 17:29:19 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jesper Dangaard Brouer <hawk@kernel.org>
-Cc: netdev@vger.kernel.org, Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?=
- <toke@toke.dk>, Eric Dumazet <eric.dumazet@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
- makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
-Subject: Re: [PATCH net V3 1/2] veth: enable dev_watchdog for detecting
- stalled TXQs
-Message-ID: <20251106172919.24540443@kernel.org>
-In-Reply-To: <176236369293.30034.1875162194564877560.stgit@firesoul>
-References: <176236363962.30034.10275956147958212569.stgit@firesoul>
-	<176236369293.30034.1875162194564877560.stgit@firesoul>
+	s=k20201202; t=1762479300;
+	bh=RhgYGJJVIlLV+16NDohuEfj0KiMHJzVZLFlNY7wo5fc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gi5srRG6NAm/xmowx3UzYgAKwRzlNNeYH3VC1F54sacFcNA6ZBwf3WlTC6Dnr+JgX
+	 rnKb0LawA9+d/53TLRRfHmf7SlJvZ+4lFppGlBsauI3AOnpK6fjpX44DwNotLNUINC
+	 0ND4UneIcQnZUgzO7Rc8MtTBnNkoI7wMCbaSlfM3NJXnaSU4FII/8AmTpyapKJer6+
+	 L0+U4p8/Je6J5AH8ktKlfz62c+oNRpbjdo3tcCW4yU+IstiKkT1aSAm5f6lbT063Pd
+	 afCaPLn+ZpuSKSHEX/h/aX5MUvER0N3J5tBlO9kXeQfMZPGsCwBNs2QBrPG0onen/M
+	 7bN8YthuG0ZSg==
+Date: Thu, 6 Nov 2025 17:34:59 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>
+Subject: Re: [PATCH v2 0/3] KVM: arm64: Fix handling of ID_PFR1_EL1.GIC
+Message-ID: <aQ1Mw-DRgBwutLG1@kernel.org>
+References: <20251030122707.2033690-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251030122707.2033690-1-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_173502_086739_9E700571 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,83 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Nov 2025 18:28:12 +0100 Jesper Dangaard Brouer wrote:
-> The changes introduced in commit dc82a33297fc ("veth: apply qdisc
-> backpressure on full ptr_ring to reduce TX drops") have been found to cau=
-se
-> a race condition in production environments.
->=20
-> Under specific circumstances, observed exclusively on ARM64 (aarch64)
-> systems with Ampere Altra Max CPUs, a transmit queue (TXQ) can become
-> permanently stalled. This happens when the race condition leads to the TXQ
-> entering the QUEUE_STATE_DRV_XOFF state without a corresponding queue wak=
-e-up,
-> preventing the attached qdisc from dequeueing packets and causing the
-> network link to halt.
->=20
-> As a first step towards resolving this issue, this patch introduces a
-> failsafe mechanism. It enables the net device watchdog by setting a timeo=
-ut
-> value and implements the .ndo_tx_timeout callback.
->=20
-> If a TXQ stalls, the watchdog will trigger the veth_tx_timeout() function,
-> which logs a warning and calls netif_tx_wake_queue() to unstall the queue
-> and allow traffic to resume.
->=20
-> The log message will look like this:
->=20
->  veth42: NETDEV WATCHDOG: CPU: 34: transmit queue 0 timed out 5393 ms
->  veth42: veth backpressure stalled(n:1) TXQ(0) re-enable
->=20
-> This provides a necessary recovery mechanism while the underlying race
-> condition is investigated further. Subsequent patches will address the ro=
-ot
-> cause and add more robust state handling.
->=20
-> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to =
-reduce TX drops")
-> Reviewed-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
-> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
+On Thu, Oct 30, 2025 at 12:27:04PM +0000, Marc Zyngier wrote:
+> Peter reported[0] that restoring a GICv2 VM fails badly, and correctly
+> points out that ID_PFR1_EL1.GIC isn't writable, while its 64bit
+> equivalent is. I broke that in 6.12.
+> 
+> The other thing is that fixing the ID regs at runtime isn't great.
+> specially when we could adjust them at the point where the GIC gets
+> created.
+> 
+> This small series aims at fixing these issues. I've only tagged the
+> first one as a stable candidate. With these fixes, I can happily
+> save/restore a GICv2 VM (both 32 and 64bit) on my trusty Synquacer.
 
-I think this belongs in net-next.. Fail safe is not really a bug fix.
-I'm slightly worried we're missing a corner case and will cause
-timeouts to get printed for someone's config.
+Reviewed-by: Oliver Upton <oupton@kernel.org>
 
-> +static void veth_tx_timeout(struct net_device *dev, unsigned int txqueue)
-> +{
-> +	struct netdev_queue *txq =3D netdev_get_tx_queue(dev, txqueue);
-> +
-> +	netdev_err(dev, "veth backpressure stalled(n:%ld) TXQ(%u) re-enable\n",
-> +		   atomic_long_read(&txq->trans_timeout), txqueue);
-
-If you think the trans_timeout is useful, let's add it to the message
-core prints? And then we can make this msg just veth specific, I don't
-think we should be repeating what core already printed.
-
-> +	netif_tx_wake_queue(txq);
-> +}
-> +
->  static int veth_open(struct net_device *dev)
->  {
->  	struct veth_priv *priv =3D netdev_priv(dev);
-> @@ -1711,6 +1723,7 @@ static const struct net_device_ops veth_netdev_ops =
-=3D {
->  	.ndo_bpf		=3D veth_xdp,
->  	.ndo_xdp_xmit		=3D veth_ndo_xdp_xmit,
->  	.ndo_get_peer_dev	=3D veth_peer_dev,
-> +	.ndo_tx_timeout		=3D veth_tx_timeout,
->  };
-> =20
->  static const struct xdp_metadata_ops veth_xdp_metadata_ops =3D {
-> @@ -1749,6 +1762,7 @@ static void veth_setup(struct net_device *dev)
->  	dev->priv_destructor =3D veth_dev_free;
->  	dev->pcpu_stat_type =3D NETDEV_PCPU_STAT_TSTATS;
->  	dev->max_mtu =3D ETH_MAX_MTU;
-> +	dev->watchdog_timeo =3D msecs_to_jiffies(5000);
-> =20
->  	dev->hw_features =3D VETH_FEATURES;
->  	dev->hw_enc_features =3D VETH_FEATURES;
->=20
->=20
-
+Thanks,
+Oliver
 
