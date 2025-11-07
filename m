@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FBCCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A25CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qzpp8wSwYUgP9C3Q7z5OhTyRVCbxhzGffU2XwkPMaNw=; b=UqUL5byBwhXdj5Trk2bWibKdbF
-	6V0pJdTDYSrVnv2rWYtPMkFUQeMoO8niM2hTFPvEO/pR9TIu55TVejdO2lvsjXYyOGujXDyCZM0p2
-	Zskc+29E4Fupu2qGg4XXKycqji+QBQ2xMvxehdi6V31f+hSjqoaOg2IzH0NvziKr43nnWjBD5k29c
-	elua0XKK5JoQJYsq9O7DgKCWc55APXypf0PQumj3Yi9MNP5M942jBBB78BoFM1IHRTyRvLTudsUcV
-	ztE00hrzfrttpvv7zQOD+qKFHx0sk6IsbMDImv8lMXm/IHzqTXR7/zgorblMnAT7j+tiNYZ02pCZ0
-	psT8vkwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7ILgVSl1cCXHuRsPTglZobkv3bXbExIQncijaA3L+c=; b=tP2f0Kc1wcI/mg6gZvWV7yVCip
+	z9FPnpNwVK0gcird53K2451YMpChc40yDmMjVT8fnNTB3wnXkZjHc+n7NtUStoXBKg27t5i97slJp
+	pRl3cP0cLHI9YbcT9VgeOgXpRTz/gC5axRvlpoKBPVcG0uiY804axiQ6Ypg3dJqHZDdysWpgrBLTx
+	+wrR79mJakCxTZ3T3Ypoch2ijvp3rYS5emGkRu6it1xd2/e9q1s9CUc6G/zseFgVN9zgIxZ5XPA/Q
+	n5w1IU2PbVmcvG4jK69G1e6InFU6a1AehGB78wgKG57KY4PqoPQzdZGLMzd0Q6f+KGCf/vE2sCScW
+	MHbC5/Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHp9-0000000Gs7l-44aa;
-	Fri, 07 Nov 2025 08:27:59 +0000
+	id 1vHHps-0000000GsFe-3LP1;
+	Fri, 07 Nov 2025 08:28:44 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHp7-0000000Gs73-1g1Q
+	id 1vHHpq-0000000GsEu-2BAB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 08:27:59 +0000
+	Fri, 07 Nov 2025 08:28:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qzpp8wSwYUgP9C3Q7z5OhTyRVCbxhzGffU2XwkPMaNw=; b=RxoLq0aGB2xpS1m8fA9PhMa5Sv
-	HTTuaxXneVdb7GFdYuCmAZ9r4/2shFfT8jTzWlPQn+zDregrwGvChDawtORrxNc5prea+SbrbqPxf
-	ZHlLoUNGIWv6Jfq7iTwjsvsaiMkM51T0OZRhfjQPHatsNBvU0NgF18gM0zM3x1/H1ZEp2IAQW5mXf
-	eRQ0gg2fFJNdb1QNHw/EKKLByUYSCChK3UAqG0ecWHvt6ymhEAIqoz02s/yTC+GjHBWm67sL7yaTO
-	buT3pgV+jgNOwTT+BTVjtotE2q5h2S6wc2g46Z0hd9AAvipITgCuQk3wTtJNhzVw/b9Fvo/BNViEY
-	D3y8SW6Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36028)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=g7ILgVSl1cCXHuRsPTglZobkv3bXbExIQncijaA3L+c=; b=Z4vWbDH8DlbE81UFNr0LreGoWB
+	bt2+X09KBN+ES4kUdAYQDQEjqpVyVQTUoVUbsF1TVkMTghkdX7cQqt3ckJEwDlzdVU2Ua4OIf6hB5
+	Ag57yJT0unQFnGrKfsqCV0BIpSyonA1albhbfgGL7evXgjHQFC9MlkVBRyvcepm3/c59d/F/i6Bry
+	VnK4fvjOTKC36KSwF4IMkj5Cs7/SYqwjcazWuCwtNT60MDu7cvLXcl6XLyXAQMgEs7yFSeXHb6AKN
+	PygDSuHBwAI9rxQXsuUSAMrw67Cg80jlWQW9G7wNkgLbTZ/4rM9W0xxzfDmW3wUhSf5HrloqY+sSY
+	PjlR5Gow==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58618 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vHHox-0000000068F-2Pqg;
-	Fri, 07 Nov 2025 08:27:47 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vHHou-000000007RV-21ho;
-	Fri, 07 Nov 2025 08:27:44 +0000
-Date: Fri, 7 Nov 2025 08:27:44 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vHHpj-0000000068d-33jw;
+	Fri, 07 Nov 2025 08:28:35 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vHHpi-0000000Djqp-4910;
+	Fri, 07 Nov 2025 08:28:35 +0000
+In-Reply-To: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
+References: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -59,18 +61,20 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v3 00/11] net: stmmac: ingenic: convert to
- set_phy_intf_sel()
-Message-ID: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
+Subject: [PATCH net-next v3 01/11] net: stmmac: ingenic: move
+ ingenic_mac_init()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vHHpi-0000000Djqp-4910@rmk-PC.armlinux.org.uk>
+Date: Fri, 07 Nov 2025 08:28:34 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_002757_730800_A0B151CF 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_002842_557903_B93017BD 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,19 +89,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert ingenic to use the new ->set_phy_intf_sel() method that was
-recently introduced in net-next.
+Move ingenic_mac_init() to between variant specific set_mode()
+implementations and ingenic_mac_probe(). No code changes.
 
-This is the largest of the conversions, as there is scope for cleanups
-along with the conversion.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 28 +++++++++----------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-v2: fix build warnings in patch 9 by rearranging the code
-v3: fix smatch warning in patch 11, added Maxime's r-b.
-
- .../net/ethernet/stmicro/stmmac/dwmac-ingenic.c    | 165 ++++++---------------
- 1 file changed, 45 insertions(+), 120 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
+index c1670f6bae14..8d0627055799 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
+@@ -71,20 +71,6 @@ struct ingenic_soc_info {
+ 	int (*set_mode)(struct plat_stmmacenet_data *plat_dat);
+ };
+ 
+-static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
+-{
+-	struct ingenic_mac *mac = bsp_priv;
+-	int ret;
+-
+-	if (mac->soc_info->set_mode) {
+-		ret = mac->soc_info->set_mode(mac->plat_dat);
+-		if (ret)
+-			return ret;
+-	}
+-
+-	return 0;
+-}
+-
+ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+@@ -234,6 +220,20 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+ }
+ 
++static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
++{
++	struct ingenic_mac *mac = bsp_priv;
++	int ret;
++
++	if (mac->soc_info->set_mode) {
++		ret = mac->soc_info->set_mode(mac->plat_dat);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
+ static int ingenic_mac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
