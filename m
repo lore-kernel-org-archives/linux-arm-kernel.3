@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347ACCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4303CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCvxgq9zYPyMV5RPPEtwvCqno8HSagbXhXnbN1FGzJY=; b=3L9uF1a9iZq4RC4oH1eQ4GixL3
-	LCKcpC/UEfdcfdWedUqGtklvWWvqJTDkpcZsy2zrSFn1UgIP8y0v+FUtP/oBxabe4R/tAsvQ2sW+j
-	t6XxNhPp7dl0IKEmqrBXkgu0ZObcenOVNUaUgWdb1DrHztKEjZkG20lnimBByPmTaJj9a6ThpRWR0
-	hWZTNi+oZcnyHdxQOChHVIBU/PXRr2TMYCiwfYofKxhxAAFh03lzgZeZfCazE9NBBNGxbsW009YHD
-	CrLQiSy0vS1iihBFkbNokdj2W9qmGaNcgenJ270mCLmjyfofImx4EkFd0hjgzQoF9HSuy9dwLXnor
-	EhGJ8Evg==;
+	bh=aU3ckHK9dgiwiJ1SDtj2Q9mmUFDa+cikTDpXLmxraq0=; b=Zw+ouY7SDeeEFPygePYvxEvRED
+	RH5DOaX5BGRvlbRI+SzEcFieqxQeio+gZWEV2GPjpLfAk7lB8qWYeFFVZeUKcMyqtzJE9/AOadKSc
+	LPVXx6DMi9gGc8mw752opexL2B3OiKdYsFhlCkODE2MioSCQafhIN7REx6n+GOHFbCp5/OchBPUGT
+	JZpG4tQrC+hmXkw6+ZMOwg/3b9VsB90EbF3cL82tWVlP1GU2qNaS0Xcfx2ABJaCD8pyi1PSZMJ6ZT
+	n28ZV0Uwx6jPwPbPJQpdC9J1pREa7UNIu/h7xrPOq7VBX7rNdsgd76x0xEGYqVKea94BDuoN2zzt/
+	QYGuUwXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHdz-0000000GqvT-25sX;
-	Fri, 07 Nov 2025 08:16:27 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vHHe2-0000000GqyJ-1XVw;
+	Fri, 07 Nov 2025 08:16:30 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHdw-0000000GqsC-1Pl3
+	id 1vHHdy-0000000Gqt6-0KpA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 08:16:25 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-429cbab5d36so64694f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 00:16:23 -0800 (PST)
+	Fri, 07 Nov 2025 08:16:27 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-429c5e0f94eso22927f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 00:16:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762503383; x=1763108183; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762503384; x=1763108184; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iCvxgq9zYPyMV5RPPEtwvCqno8HSagbXhXnbN1FGzJY=;
-        b=LOrVWyDk1fq/bXNA1i3n6csv2jHXBewsJtioWLjk9sE5YIApkb+22ee9HEzXBdWOkq
-         OTEn/HLAx5uVXs6pJpb9TTHnLRU/wMwqsyJgiXrl4st5jIR6AJchM6hBRO7o6EEppdO+
-         vLIDFbqOCMrqO5mYgBIx5fDrnBEMeSrvbTXmGtu53VyEe6DdZ1X5ldug4LqgrvphVONv
-         AbavmeSLXquklfGM9Zd+fKUVLjRinyOXTlLpp0+X01kkRxAqM4PCpro6lNLsxAULE3Gf
-         +VX1sovhFalI+dz4Nf2/4Oari2XSkCHBLoCxLiaM5yPb5RamLzDA+NSSIEvucrDBqiHS
-         EP8A==
+        bh=aU3ckHK9dgiwiJ1SDtj2Q9mmUFDa+cikTDpXLmxraq0=;
+        b=ptGW9eoJ8r6cPa9E0TbG1VVq65QTM0vN5nNeEx6kh47zlaCHrZ0+JFVBU1+m+aSSYj
+         g/iiCTlztgZtAflgNXUa8igxes8OvLbmYXFmmBM9itxk00u9sdt2hpgvWO5tvy04QxIN
+         GzhRQPFjOq83oiRu/04ZAyOnjJGy18ZQ4LCVI7neIMIpahsKiCyTyJOOM3dkt77mtQ8A
+         fjs6YU9JBG8MWiHleksInqWMyURn6ewGrpfw76Qtxicm1eHET2ajvBlNxAZ1tmdva8nW
+         DbmQG0zzi6sr+Vh+3ubSR20LT3dOca4xjvJHeRi66MsKTRVAOX0VfGih1UrMpSNJqDDp
+         3F4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762503383; x=1763108183;
+        d=1e100.net; s=20230601; t=1762503384; x=1763108184;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=iCvxgq9zYPyMV5RPPEtwvCqno8HSagbXhXnbN1FGzJY=;
-        b=egxki+LiFcgO0tFe/yN/Cg9UXJ7RAT645nWB5gLtYqMEMJUCrMt51BqV4U9pDyTUci
-         rQne+01HWbWjK4m8jX6AO4oLY+nQF5zxkPHo28zOnFTYAK2c//zM/eONlM28mXGmsdnn
-         RWYfdFPKcoDpfISPpKNlnBoEvsT57kr5QPkqb06xwh2u0rrqc6VDMdzrHLcU9tPercEE
-         n0PmwlfuxL9UNs4mHiQjvHJuuFZxrtuhknHaGVNxtAvicelJwmSxdCLEMPiKAUXDAio7
-         NTqhJRCHym7aQcqUPsjTiKyxvWHX/jZc6qUfy6xREqhp1hqEfZLckeb+SnMXB3XOBdf/
-         l2tQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUR0Q81aGDykykAIpnuxHMFA4qtJE0R8O/2+E5O73x5VYODiy+bgDHpUPqVuZSeLjQyw2W8iJ8K9gBsUsXseZBU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQrEefIJKoSMet6jomHb4K083Hr5/1cVs1bHbZwITNuTT+ix30
-	Y0Dbj/BHMgFXZ2u6QXIE4TnOTNT6zOqH7dR8PZ1jVympXC9kCc5Rbdx2VoZvawpEK3U=
-X-Gm-Gg: ASbGncs//Je+uvksCIwlfWsvWjyvxR2RWY2bBCCXwJjIWzGhj1JRbPe+xBhxI1ZIA5M
-	hENzwXqnOHxIGcq6esCB1wcCh2v/Cv+25M2ZmuMEGKmAoFp85gJFMsdgIxy3WuHSl+ALS2eJQTQ
-	lSFIt8WGDszcguAP37Mf+zUZI8GJt2U8Ge3lqJsoi5PI8elF8nPPCteaueJDh2x/XrHytHrjj6y
-	l6srCKewXduyo6rmHt5fWyrIibFKj81A5poiUVlO9fnBZ92VFbSeiC5k7k9XHuC6nXewvKQZjiP
-	j/9MRhN+lrk87RtYjQoOo6arjy1tZumlL9MIXt0Z+XEzB2wB8O48RlCgJlA79MNuJSHzNsl+mac
-	xKZ8XlK8u9b4cs9Fg6Lyjub35c4ahREREcTHr+UQ8Id9b391+RHvi/mK2FALdYrxzymTQn5mW1A
-	tNLcH23jpJoDGLPouJIK0ZX/vSlVY=
-X-Google-Smtp-Source: AGHT+IG1WfPwzcneuCdATSCE09C1Y773iKrUOLTnPDkh/cXKuCKQ3K5m15q+fwccDXPfnzCmzpQ3Jw==
-X-Received: by 2002:a05:600c:a06:b0:471:ab1:18f5 with SMTP id 5b1f17b1804b1-4776bcc5334mr10868915e9.7.1762503382674;
-        Fri, 07 Nov 2025 00:16:22 -0800 (PST)
+        bh=aU3ckHK9dgiwiJ1SDtj2Q9mmUFDa+cikTDpXLmxraq0=;
+        b=IGpaRXpPnCkNUbGqJB72sTQIm/O34L6HMFuzXZsUAwY4iN4q3oMHNCLvi2sI5/IYKu
+         ns0toihm7RYl5+MaopQXECXQFRX/UTQySehHNExuTlvYIaVYzRmtcI+5N59OrOhgOkBm
+         cv92wO+JO1EWXrE0Q6LQpufCVtu1ThkQikuTswtwUGYmW/1N4YhN+tLCSs/SEFWZiq7z
+         MRVvqVO+xtHHQ0QgMRSct1Jiil6QZet5gRMgb7sPYCvNTNMWApsx19SBNIYK8PszMDNV
+         P9ebUJNcfI/dO1ATHRfg4Fyo2Pz7XeI7acrbjj+WcR5bUpqBaS2UpzpCPgXw7ZhD9h6P
+         IWNA==
+X-Forwarded-Encrypted: i=1; AJvYcCXINtP4loXHtEWc6j7xhAGN7miJxLTe6b/wVsNcwSGToawkZabGw+kqawjRr4fCdwoU8/zQ2QzwiQQCbEQW6dy2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXxPTPvoTt0DAEgCVp1u5SiBDvr/GOdKlpZjzjba5p45WDJN/6
+	ygm/4+S4PGDh2WLtJtbrJApIHNhR05YrdyO5tgxzpvuVVmidNzVvXT5Ea8uYCZA8r50=
+X-Gm-Gg: ASbGncvJZKNQck7hyyZu3u0zlJgsdTC4m8kQMDztcjIybWFx43FGI+Sy+sSr8CpovHk
+	qKpwxCAMTDIZ/o4W14dw2Bb6OLHg5EvyF8J+CO3wsPklLgESzdI4GTpAk9U0PAVxUHVpdDjEZag
+	D3I6iulUwzWub60EglUFvoXTIYfmEVXoMYKao3eWdFdf4J562Qhst0QEkK6X7Sh9f1svurLUmBJ
+	F5TY3SK9p8ss9DQSDVbueeEqhvj/3dVhKPmfJ5AS9pSjJJnvAmwvpGSdyFrfD4LjgR77B+/36m3
+	mxuTzZCbX9a7QciOKhprgz9ds6PYKZowma/iOtwGY09nHYtGbDQHB7l4U0LEtNIGHn+xwgzYgCr
+	vVCLpeQdv8a4xfh4XC7U9dDo3PUMqMhuKM2C4nWCq4V0mS81Hc26j9QJFQfgz/x9wwBl4GaZKXU
+	ia8y59DNwBo7Wyn+kQ
+X-Google-Smtp-Source: AGHT+IH/RG0uxXiS/Bad3Qza1ZSpzCt5mxPh4pMV3zd/0zfxxfO/oX4SzRHF7EYOxVilfXSfENyJNA==
+X-Received: by 2002:a05:6000:1848:b0:429:b751:7922 with SMTP id ffacd0b85a97d-42ae5aeaef9mr862850f8f.8.1762503384161;
+        Fri, 07 Nov 2025 00:16:24 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d544sm4058381f8f.46.2025.11.07.00.16.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d544sm4058381f8f.46.2025.11.07.00.16.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 00:16:22 -0800 (PST)
+        Fri, 07 Nov 2025 00:16:23 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 07 Nov 2025 09:15:49 +0100
-Subject: [PATCH v2 2/6] hwrng: bcm2835 - Simplify with
+Date: Fri, 07 Nov 2025 09:15:50 +0100
+Subject: [PATCH v2 3/6] crypto: artpec6 - Simplify with
  of_device_get_match_data()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-crypto-of-match-v2-2-a0ea93e24d2a@linaro.org>
+Message-Id: <20251107-crypto-of-match-v2-3-a0ea93e24d2a@linaro.org>
 References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 In-Reply-To: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 To: Olivia Mackall <olivia@selenic.com>, 
@@ -96,26 +96,26 @@ Cc: linux-crypto@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@axis.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1474;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1653;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=KzWXn+yRUUjpBHJaXgRwSAXb1HJyVmNmYBGEb7asavE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDarNNAJtIDGyF0BhraA4Wnr5mnztF9FLWAyE4
- QqQdRi0AUaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQ2qzQAKCRDBN2bmhouD
- 15E5D/9wMVJ2fBEQHcIitgPv5MZFIyz/UJUAVG5KpW34AGSs13BNXX9GX9JhxLopOlp4kbCw7LD
- LM83IxKwW3aPefI/ObmGin+Z8QuT7c4+iBH3BF8oZLMY816wuEvhUUOBK25+MN92Et1e2GK2x47
- D+7l2c/Ckz5y/KZKuUaQVx4yqIVYHsDgQMmpYdQo4jAHOZ+vZ4UE5NPul6Di0O4xtNSHbdN9ppU
- ojKI++kkK2+aHUG5bbdZzh0HlXyYzYnZL2Mwd6d8eH77j5+rcOlmM25j3q2Rm3GHHyQlX72/WqI
- XyHZLur3iHCfwdLU5i+TnSydF02ZTC2RgmlW8g7JsRaIxaDnv8pG5c9Lv62kuI4uFyc7wpRN1eg
- D7FH7I5nO86WJUf9XsgTqqyBZ3xHsr372Xlmmcwql4bGQ0W/mtk9x6oINveXqB07jplrUK6jgaT
- ica/DQIrHkSwtGAYP1d3klEQJl9elCyP2rbqbMAcwCK4ugqTH9sKrItpB7nolG/fooCvwZhscaI
- tCvarQKE/ugM1/VKq2is7VECZJX9RdjtbVR3JDUqqt32PkTM5xPeCBbusX4Ze9O+FNPhtc9OqYa
- tJI8rzapmJEkLvPLX93C4eW27wIra8myCvPx1F5zyQh3z8LFN2cgajSoT+1h4eCE9kN+S/Y5yX3
- ED+hsjI9pJQgvqw==
+ bh=DQmjxDQk3FjHige1OE8Ou8+bJv85dK/Lal/Y6klcg5k=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDarNuKezPIUCrc4hA8Jc267ky7kEGrYSaIA8q
+ xzBceHykJGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQ2qzQAKCRDBN2bmhouD
+ 1yXbEACApfTnmc9QitQZ7XSNkCS4VPyfKF/yLOgWiI3obDxmie7No/brRdIf5LMnNazuIyPCZF3
+ cFWq/lMz/XGuXHwd6JfKiB/7CaeiEGhSVesqCG6xiLwn9swYpTXCRAkfkSfvLUJ1zw6Dqh79+nm
+ RcWi4MkYDvpv05EKstpdQAc0p93wcuPKRkneKXx+eaPyUE/Lh37ne4zR3Ct8U+21S0sLADr6CoN
+ cEwOiG5d3LIphAp78Y3xCT7+UqZKyQfKVrF04V5E3jF4bAbL9KiZhgHxfr6u1Ymtoigbvr75tHF
+ rrjHned89Lt/e4LJnp716ojV8vi8qBD0fziwotfbBGbZc9WCPWIddPJKbtcD6JEGZSBGptebElN
+ q5XqPkiqkSa4aWdQrwmi/H/uZ7aefqryw156F+Bj5DQwnJTuw+6tA4vFnB0N2caGA1hNIAoqvJQ
+ QS1fmrXafW0XOKw2lvkL5EJSix7d5URiz8RrEq6geM1aajgUHhypvhCFmUw3Pg1Zs0rp01uWCRd
+ CHkS0/IfDTayW/vN1mHLSqv81WjvP1xoesX5Vico0Y4V07eB8RwSIC8cGNs+0A2EgDPy6mJyacY
+ bQ/pElgAalP6edLqPZQS5dRVAwQA6cVRgw2JqSebY+zuOKUJwlNxGqWvYZbjVPpq/nQp8yVweXr
+ 9i4P/m1X/ZKL/bg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_001624_411506_974DE42C 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20251107_001626_226648_76B5AA27 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,45 +130,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Driver's probe function matches against driver's of_device_id table,
-where each entry has non-NULL match data, so of_match_node() can be
-simplified with of_device_get_match_data().
+Driver's probe function matches against driver's of_device_id table, so
+of_match_node() can be simplified with of_device_get_match_data().
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+This requires changing the enum used in the driver match data entries to
+non-zero, to be able to recognize error case of
+of_device_get_match_data().
+
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/char/hw_random/bcm2835-rng.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ drivers/crypto/axis/artpec6_crypto.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/char/hw_random/bcm2835-rng.c b/drivers/char/hw_random/bcm2835-rng.c
-index 0b67cfd15b11..6d6ac409efcf 100644
---- a/drivers/char/hw_random/bcm2835-rng.c
-+++ b/drivers/char/hw_random/bcm2835-rng.c
-@@ -142,9 +142,7 @@ MODULE_DEVICE_TABLE(of, bcm2835_rng_of_match);
+diff --git a/drivers/crypto/axis/artpec6_crypto.c b/drivers/crypto/axis/artpec6_crypto.c
+index 75ee065da1ec..b04d6379244a 100644
+--- a/drivers/crypto/axis/artpec6_crypto.c
++++ b/drivers/crypto/axis/artpec6_crypto.c
+@@ -252,7 +252,7 @@ struct artpec6_crypto_dma_descriptors {
+ };
  
- static int bcm2835_rng_probe(struct platform_device *pdev)
+ enum artpec6_crypto_variant {
+-	ARTPEC6_CRYPTO,
++	ARTPEC6_CRYPTO = 1,
+ 	ARTPEC7_CRYPTO,
+ };
+ 
+@@ -2842,7 +2842,6 @@ MODULE_DEVICE_TABLE(of, artpec6_crypto_of_match);
+ 
+ static int artpec6_crypto_probe(struct platform_device *pdev)
  {
--	const struct bcm2835_rng_of_data *of_data;
+-	const struct of_device_id *match;
+ 	enum artpec6_crypto_variant variant;
+ 	struct artpec6_crypto *ac;
  	struct device *dev = &pdev->dev;
--	const struct of_device_id *rng_id;
- 	struct bcm2835_rng_priv *priv;
- 	int err;
+@@ -2853,12 +2852,10 @@ static int artpec6_crypto_probe(struct platform_device *pdev)
+ 	if (artpec6_crypto_dev)
+ 		return -ENODEV;
  
-@@ -172,12 +170,10 @@ static int bcm2835_rng_probe(struct platform_device *pdev)
- 	priv->rng.cleanup = bcm2835_rng_cleanup;
+-	match = of_match_node(artpec6_crypto_of_match, dev->of_node);
+-	if (!match)
++	variant = (enum artpec6_crypto_variant)of_device_get_match_data(dev);
++	if (!variant)
+ 		return -EINVAL;
  
- 	if (dev_of_node(dev)) {
--		rng_id = of_match_node(bcm2835_rng_of_match, dev->of_node);
--		if (!rng_id)
--			return -EINVAL;
-+		const struct bcm2835_rng_of_data *of_data;
- 
- 		/* Check for rng init function, execute it */
--		of_data = rng_id->data;
-+		of_data = of_device_get_match_data(dev);
- 		if (of_data)
- 			priv->mask_interrupts = of_data->mask_interrupts;
- 	}
+-	variant = (enum artpec6_crypto_variant)match->data;
+-
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
 
 -- 
 2.48.1
