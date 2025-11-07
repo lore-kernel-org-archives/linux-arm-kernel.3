@@ -4,157 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6AECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88946CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=; b=QsTlTitp3o+H/tbAlrwB3h/Tp/
-	RcI7apTaNo6GPKcAKvvnLzH9JZRsWJIAGknENGuUANhGGzmqe9bYuFsiNk4AdT23QaUSurkBNNKbm
-	4oY46GoIej914Xa65sGwGRxPNnITN0U7MmcsMKHO2DlUtS1dghdOD/ECVShALQyC3PW29zdCJN2/+
-	gFIWIee2+P699pWe1TJxS7hSZwp190+QD3JgEVUPRVze3NYQ73mn0Pqyw2woKKXHSGw7vzm9joQoM
-	ed2FS0mfEVb6zrrqSMWw0H+oFEGvCbiJbqlEGS7Gd3gAYIOL9EE1mpjwa6V/kSxEU9+zPLyJ36Rwe
-	3lvP+pbg==;
+	bh=2rjFiVll6F8pDYxqKlD0sB6rd867IL61vQumHYQikbw=; b=lo3wxUEokYfOyxdZur4lV2TyR6
+	LweTAMWyrhhomV66I2Q3nqlhogCTAOB62iyO/4NcpJxHMdgN7VN5srHzD8SowxdkHHHd32am3NdU5
+	2ls/HhhAHk7nT0IZKu1I5zd6m2W/PXbhwYFMl2BrsWxReIw5YUUohceBWUUbww9Sv54EWVerhJlBH
+	BgmuD3xp0pmjImzNnjNGKtzt/noO/Se9u6klfiUlNLW4BiNOe7gkf7hVDj0zZdYKEBEvvIWN3Mmph
+	QAZvcWoN8BhMS8KBQaEbYZKqO3hCP0tuzBRx2X5+Jp4lJoUGoM+U8gWyFVOPAb20sshuk+9vo8p5J
+	rv9uwg6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVnN-00000001WF5-226O;
-	Fri, 07 Nov 2025 23:23:05 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vHVsK-00000001XME-0rFh;
+	Fri, 07 Nov 2025 23:28:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVnL-00000001WDf-2edv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 23:23:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zr/pxxHEabgxO1FymyGGkRxTi4tvKlXLqi2C1I9d5O+WomhKxrv/4Pl+pWeN2VyvP4KwznSTLHX543r9iyMTp18wQ37AIkQkpAwMMlkT4rkg0vy99jpOhRUr9EcK0W4q2krkVnfnqnONE5jhw5LQYgCeTmt/Z+2isI178ekMzVlJ8KBmvCFVVClzEAQ+aa21ZtMkMjtqEBK7nHGR0CocoegLZ70DMroEVd/nC24OE26g8c3bJKfiekY54dUaBwwnkHGIgQE5tV1WRUqMv5lVXGVfVkV+WyyKBPytCoThiBQXqdxW5+iRRWYUDIgR+WbyoArpKK/GjTRyiYgdtrFydQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=;
- b=KcL9RSJyKEKK8M8LjjQlHmILecHUIc0/eYRQRc9zya15oeskQHVvAWZBqz76hY7OSAmgatOa0xvhqetpiTuqrs+GiQC40QagGAHBLVEWsMJiqvmh3PbitE23G8wHAGZODlhFFphF8iYA/OgISFANuYeQZdeFyl28IzcGKYRU5oN5Vdz3xkZNzOvcZOM1s2H2ifUiC1ms0E8eUtOVUSQfCYG1l+ecjI849m1/r/HykWAIQu/Ei8N0yUU0KCzas/O7E1qzC1HXEVZZpkMafLYCLVRNH9sQwG2CzCrmm6t1mqgaze+KPNZF0WbbqvF2PCILMwgfYXASpRcwWFF58954mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=;
- b=kmfQXG3XjPz9zcluKoUp+R7PwmesUwiENpMPdOtUMi4Df4kfqaAEJEYT5K9u7Zdo0coe3MYd/ttTM2UsGt2T7UxIxJvaP3+ZX3ws+WoS8VIyqnxb1gA8T+qoIqEk8gpRG+GQVMOW2BUzGpQv4oA5cpFozb5dAx2D653dtY5XNkY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from BN0PR01MB6862.prod.exchangelabs.com (2603:10b6:408:161::11) by
- SA1PR01MB994236.prod.exchangelabs.com (2603:10b6:806:4a1::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.13; Fri, 7 Nov 2025 23:22:57 +0000
-Received: from BN0PR01MB6862.prod.exchangelabs.com
- ([fe80::8a1e:34a8:2ad9:7f83]) by BN0PR01MB6862.prod.exchangelabs.com
- ([fe80::8a1e:34a8:2ad9:7f83%2]) with mapi id 15.20.9298.012; Fri, 7 Nov 2025
- 23:22:57 +0000
-From: Carl Worth <carl@os.amperecomputing.com>
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- catalin.marinas@arm.com, dakr@kernel.org, dave.martin@arm.com,
- david@redhat.com, dfustini@baylibre.com, fenghuay@nvidia.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
- xhao@linux.alibaba.com, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
-In-Reply-To: <20251107123450.664001-1-ben.horgan@arm.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-Date: Fri, 07 Nov 2025 15:22:45 -0800
-Message-ID: <87y0ohbf7e.fsf@rasp.cworth.amperemail.amperecomputing.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4P220CA0024.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:303:115::29) To BN0PR01MB6862.prod.exchangelabs.com
- (2603:10b6:408:161::11)
+	id 1vHVsI-00000001XLq-0iw1;
+	Fri, 07 Nov 2025 23:28:11 +0000
+Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E1949C67;
+	Sat,  8 Nov 2025 00:26:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762557972;
+	bh=7puJJp7k1pUN31SftlxdSwkX5r60eraOi6UVLDs0viY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mVAKHJnTiEcxsDrfnz4OXSjxAADFIvxUb5psoFfkB+jals4HV7n8+G2sztMVnQk9F
+	 LsGyaflml20tC0LfmmXGZg/o3bS2yShkroaWw1AvTQ1uIND1hN94Hr3pTbLqbiJohL
+	 DZpoLz4T5BnleqTyCfZaDLt3+EXzJgIEqAjFg+4w=
+Date: Sat, 8 Nov 2025 01:28:02 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dan Scally <dan.scally@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Antoine Bouyer <antoine.bouyer@nxp.com>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 7/8] media: amlogic-c3: Use v4l2-isp for validation
+Message-ID: <20251107232802.GJ5558@pendragon.ideasonboard.com>
+References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
+ <20251020-extensible-parameters-validation-v8-7-afba4ba7b42d@ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN0PR01MB6862:EE_|SA1PR01MB994236:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27169ffd-2574-40d8-db05-08de1e5495d5
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|1800799024|376014|7416014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zNiHbzB1wG22Qd4fxQODgNHU5iPdydT/dCpDt67CiMeQiLY+3FJcFYg2ryPm?=
- =?us-ascii?Q?WBnJ6+frErQlFq1eeeh5RvFL8wX24/Fbi10kapBTb9m7roYD0IwbteAcikHV?=
- =?us-ascii?Q?pKTYhEnqBq2m4LLUyUmBwDdK80I20fr6kFe3LBbIrrGJUIfijcqtxa35FzRz?=
- =?us-ascii?Q?iSeIHWR956PWPi6y8TDJ3hEpPFqoVUedbizZlOfOK+c3b+6p51HF0a88cY6S?=
- =?us-ascii?Q?QlZfF96jedBy98bkktTcMuwcqUMfaKMc6gFd7LUrY9xILhtlfL80CufjRj/O?=
- =?us-ascii?Q?HNNWsv0rkAI9QxVXo+oSIpAo4d0A0Fot0qLvE1QDYZFxW3lGZQ9BHFV3dZn8?=
- =?us-ascii?Q?RncqggRTIpFEmyzXsO3YgXRggx+sqbTYRwDoNAUYufvJ7UVGCDW5d1sxJf9W?=
- =?us-ascii?Q?zA2rarIZ9HexiPz/01jYpwpUmaCJKVbItl7ptMetrNTmnJFsj0hW1QuetQ0N?=
- =?us-ascii?Q?ahmOLgM0rWhzhMvJMAxz95Wcq9X5MeNDcoRkyYBDsAEJh9CCfRoI7dgqdvcd?=
- =?us-ascii?Q?XwzWLLIZiF3NhtMxEgenEvd2lr34o7DK9qTUk7IEYh4qCLHahJLl7VJ5wC5y?=
- =?us-ascii?Q?ihBYXjKEj+tVxYfapl/PEOZsDZMIICJONj4Vtyp2vHYpPY9Lzwt6roeqHVYg?=
- =?us-ascii?Q?dN1Z1BXv2iygnLQYuXg7d1lWUGanNVBB2EHo9U/+L6s66hl+uYYPiuCiB+S7?=
- =?us-ascii?Q?I2a1KW0mS/Zg0yel2evUKGPeguFMi50aLFGhJMa9H1qtQsO7GQdD6qweZQyR?=
- =?us-ascii?Q?a0/06m7Jp78pRppXEU02IkM0CjLZFhxWJQcgBPmpHvG8McTofPiS6rOh4d7X?=
- =?us-ascii?Q?ktkVf1q9CHImGOuURehkl+fESafsHgloBBmikrTzojdUQpNcD9jNFuVwm9bA?=
- =?us-ascii?Q?kS5XQKNXyldnWxHeGYcudqkFqx/zYOaSJdXnHZOduVInvqIH/v4Cas0KvP67?=
- =?us-ascii?Q?/Fw9WPuisi7bV5jt1ipuedBXTuBQSRiCCoE4aE6xvKaNSgnWnUDQbI2OB5or?=
- =?us-ascii?Q?Tv6hMCdpZ7hC9N5u20VFbnxpGw9S1/Xwqb9ccKCYlJ1pzmBlpmiyDaKxrXim?=
- =?us-ascii?Q?KVh74YQI9xKi1UNRdbxQ4j4+xHa36v33V8E1m0tN2FBK1P50J7+OMaf+LlVi?=
- =?us-ascii?Q?dgCuLN8ROdV4GMp15G6feMvgpa5Fqvse9kIr+8fU+Pc4j+QeQY43YCgGUaSI?=
- =?us-ascii?Q?iZ9xMAeC3ZLFZEgd0pZrDiEgKWmPrccBFFv2iFNF+qbYpe7xm2qaPEB7IGMf?=
- =?us-ascii?Q?2ih4ZknxqdewauJGpao0wGMl6TGygUhW0vYhR7LWUym3aCHxOTTHo+eJDZ3p?=
- =?us-ascii?Q?eJ/x+2+33GeTvSeiISYnP5Kn3Os3lPc6agqE1aZYJc0e1al/fLwrF1ErLL5G?=
- =?us-ascii?Q?CAygsuWQ3wEEQ7Tdk3AAb3sVGh+q2HAeKt1lMz4yH5Vi9ov9J8HUufRR2TJd?=
- =?us-ascii?Q?iKIcPhLNnQDUCR/WcQegdYTnk4wrdkO4XZhYlexopaBq+19BL+NHYwQUsG0j?=
- =?us-ascii?Q?ixxgsHZJhCZGut3Y7nhHe8dQECDbSskffaJD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6862.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(376014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ekMQarHADsYro1vZ/62GwK1sD6aFRvq36EiKHeUKJlRcG/G9BEPXAYBebW2p?=
- =?us-ascii?Q?a8yANesczj6FHAdw1FcaR+m0RYxgwzOL20W00xEIeIun7MtCoL7abniW9sir?=
- =?us-ascii?Q?EvVqi/RtrwY0AIbFMRbodWUx+Nzv5A/Eys75aI27kOr0PVSFoF71Jew+Nc1N?=
- =?us-ascii?Q?zu0oTQ3wFs6T1Qm+LlSc1fmnp8p6iitdJK8m+iEZS0due4UNMQxW3d7MKlPH?=
- =?us-ascii?Q?EI1gIpwb1HU8kFtPJ73JjlyWxE1IViUauzzGfi8nIJE3Lrl4QpCwzrgwDQlH?=
- =?us-ascii?Q?/TuOlRgrlahq7MGLlGuaamTTfLM0ecklBhWvSfG4I/yl25zEFXsl4pXzdTci?=
- =?us-ascii?Q?/XZjD9OmH4Wujksh/+k4t5WTdT3SRYUbRXneZAz6ap0UR6yG3n6/Jg3K2B5X?=
- =?us-ascii?Q?mBd7Ohcvpfse/3JUJx3Q3rU1aGgg7+UhqsNThTVOyJej3Epu01d0BBIQ9CP6?=
- =?us-ascii?Q?17jzZpKmjzO9NJGRPiQYmDbHDC/x5oJEOpnOpBtJ9kOzOagDpTlEnXRVdrAB?=
- =?us-ascii?Q?kpHW6t2PGMw+nDQDVvJhtBWi0fbh7Euco7/tMwAgr3rMn8liybww9LRpVxl3?=
- =?us-ascii?Q?tpSMi+RwWLz9gPuSuB4CIPxJzs85fScEmzmjauIbKBIo31wKEG+yHODj7w4F?=
- =?us-ascii?Q?C++JJaUqzG3PzHJtYFYhgbO2TJwZfQENk9ZUYIMTvo4E84m41KKkoV4K44Nc?=
- =?us-ascii?Q?OboEOImn116NLenhHNpUqDOW+Z+vRt1QtBFWLuEy50z1hY0kVKUHgp+S7UQ+?=
- =?us-ascii?Q?bVGjeqfJwS8RrX+BweqrdhmMaLYe0eTyNkfFdPRrr3xQb+VBR6eZ6T1pJdm4?=
- =?us-ascii?Q?tbrMQ1JmSWNYtQNB/PFRFI4jh8mEcCXKpStNlkZ1LkPl5LFWacrbvUEPnkrN?=
- =?us-ascii?Q?AcQoEGg6QtFsPmN/TQb5cd4Z9qIpS+yayLPW5ok+xmYD+ZnYG+JKK5J7fhen?=
- =?us-ascii?Q?ozQJnBC8rpOyQk+PdLa71rhfViPojz93ykIRuuZWg+9OdDI868PuCKQ7pGKP?=
- =?us-ascii?Q?9KChSmMLMrNS0WRAileofxA1LkR25LTmBJBH4X1AwJXF1jpc2cmheE9TnSBu?=
- =?us-ascii?Q?39yI9BUa/3oRq2t5Y35q7MD21M7+BlIXxo9L1B9DUkJ6cuvVp7Cnh0FAerpQ?=
- =?us-ascii?Q?XLv9Z8h5rHVrefFKzOJI1x5lx68WUX7iOdSpMdEXwmB3kFmLERGgABK6+Y/K?=
- =?us-ascii?Q?D/bx2UAtpoAg7p7MDWPa/B9eBtJsgpU3lwgkYkhoxMU2GnxsgUeg/GDtvNYu?=
- =?us-ascii?Q?hbphjokhksKNg/sfIBJGyanpQY9CDiNLuq2gxPaXDZOnyUCGB2kJ4fzdy3z/?=
- =?us-ascii?Q?ksLyBUowImynM1n4cWjv8sas8mdINCnGAyhyqChU/8jlK15PaCTd7QLk8mpS?=
- =?us-ascii?Q?kH0dcz0jjcfAksZzRFemVrV/TejV4DY9fdWDvD7zwKjctNLx1sGKotc2zQ99?=
- =?us-ascii?Q?+4VBUhxAHGM1gf62R74cSdK+55vJ8QBtziR/CmwioJ8hfuX1L/L+xIYn0Boj?=
- =?us-ascii?Q?KkZKtjPOD/StApb4eLWFM2qyyOde5SecDvxO5S521EdmPTWBKe6rqIMVfhVT?=
- =?us-ascii?Q?VYT9uEoCZbISEqgNzz1qjpwPSVIqcm9G6FoFfhaz4KkL6jHmyLHyeW6XH2DL?=
- =?us-ascii?Q?Fat894Dd3fJgVQ9yDb2hR9o=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27169ffd-2574-40d8-db05-08de1e5495d5
-X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6862.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 23:22:57.5061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pHqSydiYINQTiZb3CB8vCxwd4UpwzBp7FwLm69bCi/qATymQsm66qKbg5NnnhfYgnTLBdgD7y/20Ja4hjE5e06ODfeSnhB4nuTVA2a0jxVo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB994236
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251020-extensible-parameters-validation-v8-7-afba4ba7b42d@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_152303_683730_5A670C44 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20251107_152810_366912_4395E2AA 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,54 +73,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ben Horgan <ben.horgan@arm.com> writes:
-> This version of the series comes to you from me as James is otherwise
-> engaged. I hope I have done his work justice. I've made quite a few
-> changes, rework, bugs, typos, all the usual. In order to aid review,
-> as Jonathan suggested, I've split out some patches and made an effort
-> to minimise the amount of churn between patches.
+Hi Jacopo,
 
-I've built this and booted on an Ampere system. It ends up reporting a
-successful message of:
+Thank you for the patch.
 
-	MPAM enabled with 1 PARTIDs and 1 PMGs
+On Mon, Oct 20, 2025 at 10:24:53AM +0200, Jacopo Mondi wrote:
+> Convert c3-isp-params.c to use the helpers defined in v4l2-isp.h
+> to perform validation of a ISP parameters buffer.
 
-So the code seems happy enough as far as that goes.
+s/a ISP/an ISP/
 
-But the expected number of PARTIDs on this system is much larger than 1,
-(MPAM with a single PARTID would not be useful at all).
+> 
+> Reviewed-by: Keke Li <keke.li@amlogic.com>
+> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>  drivers/media/platform/amlogic/c3/isp/Kconfig      |   1 +
+>  .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 124 +++++----------------
+>  2 files changed, 27 insertions(+), 98 deletions(-)
+> 
+> diff --git a/drivers/media/platform/amlogic/c3/isp/Kconfig b/drivers/media/platform/amlogic/c3/isp/Kconfig
+> index 02c62a50a5e88eac665e27abf163e5d654faed3f..809208cd7e3aa7ca0821cb07366ec73a47edb278 100644
+> --- a/drivers/media/platform/amlogic/c3/isp/Kconfig
+> +++ b/drivers/media/platform/amlogic/c3/isp/Kconfig
+> @@ -10,6 +10,7 @@ config VIDEO_C3_ISP
+>  	select VIDEO_V4L2_SUBDEV_API
+>  	select VIDEOBUF2_DMA_CONTIG
+>  	select VIDEOBUF2_VMALLOC
+> +	select V4L2_ISP
+>  	help
+>  	  Video4Linux2 driver for Amlogic C3 ISP pipeline.
+>  	  The C3 ISP is used for processing raw images and
+> diff --git a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+> index c80667dd766210d2b2e1ee60c8254a5814b9d81b..0e031d64de312cfdf0a52a46f70edbaf07563359 100644
+> --- a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+> +++ b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/pm_runtime.h>
+>  
+>  #include <media/v4l2-ioctl.h>
+> +#include <media/v4l2-isp.h>
+>  #include <media/v4l2-mc.h>
+>  #include <media/videobuf2-vmalloc.h>
+>  
+> @@ -51,11 +52,6 @@ union c3_isp_params_block {
+>  typedef void (*c3_isp_block_handler)(struct c3_isp_device *isp,
+>  				     const union c3_isp_params_block *block);
+>  
+> -struct c3_isp_params_handler {
+> -	size_t size;
+> -	c3_isp_block_handler handler;
+> -};
+> -
+>  #define to_c3_isp_params_buffer(vbuf) \
+>  	container_of(vbuf, struct c3_isp_params_buffer, vb)
+>  
+> @@ -523,38 +519,41 @@ static void c3_isp_params_cfg_blc(struct c3_isp_device *isp,
+>  				   ISP_TOP_BEO_CTRL_BLC_EN);
+>  }
+>  
+> -static const struct c3_isp_params_handler c3_isp_params_handlers[] = {
+> +static const c3_isp_block_handler c3_isp_params_handlers[] = {
+> +	[C3_ISP_PARAMS_BLOCK_AWB_GAINS] = c3_isp_params_cfg_awb_gains,
+> +	[C3_ISP_PARAMS_BLOCK_AWB_CONFIG] = c3_isp_params_cfg_awb_config,
+> +	[C3_ISP_PARAMS_BLOCK_AE_CONFIG] = c3_isp_params_cfg_ae_config,
+> +	[C3_ISP_PARAMS_BLOCK_AF_CONFIG] = c3_isp_params_cfg_af_config,
+> +	[C3_ISP_PARAMS_BLOCK_PST_GAMMA] = c3_isp_params_cfg_pst_gamma,
+> +	[C3_ISP_PARAMS_BLOCK_CCM] = c3_isp_params_cfg_ccm,
+> +	[C3_ISP_PARAMS_BLOCK_CSC] = c3_isp_params_cfg_csc,
+> +	[C3_ISP_PARAMS_BLOCK_BLC] = c3_isp_params_cfg_blc,
+> +};
+> +
+> +static const struct v4l2_isp_params_block_info c3_isp_params_blocks_info[] = {
+>  	[C3_ISP_PARAMS_BLOCK_AWB_GAINS] = {
+>  		.size = sizeof(struct c3_isp_params_awb_gains),
+> -		.handler = c3_isp_params_cfg_awb_gains,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_AWB_CONFIG] = {
+>  		.size = sizeof(struct c3_isp_params_awb_config),
+> -		.handler = c3_isp_params_cfg_awb_config,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_AE_CONFIG] = {
+>  		.size = sizeof(struct c3_isp_params_ae_config),
+> -		.handler = c3_isp_params_cfg_ae_config,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_AF_CONFIG] = {
+>  		.size = sizeof(struct c3_isp_params_af_config),
+> -		.handler = c3_isp_params_cfg_af_config,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_PST_GAMMA] = {
+>  		.size = sizeof(struct c3_isp_params_pst_gamma),
+> -		.handler = c3_isp_params_cfg_pst_gamma,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_CCM] = {
+>  		.size = sizeof(struct c3_isp_params_ccm),
+> -		.handler = c3_isp_params_cfg_ccm,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_CSC] = {
+>  		.size = sizeof(struct c3_isp_params_csc),
+> -		.handler = c3_isp_params_cfg_csc,
+>  	},
+>  	[C3_ISP_PARAMS_BLOCK_BLC] = {
+>  		.size = sizeof(struct c3_isp_params_blc),
+> -		.handler = c3_isp_params_cfg_blc,
+>  	},
+>  };
 
-> See below for a public branch. No public updated version of the
-> snapshot (the rest of the driver) I'm afraid.
+Same comment as with 6/8.
 
-Looking closer, it looks like the bogus value of 0 for mpam_partid_max
-is because the following patch (which does appear in James' various
-snapshots) isn't present yet in the code submitted to this point:
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-	commit 33c1f50970917ac9f2a8e224d850936374df6173
-	Author: James Morse <james.morse@arm.com>
-	Date:   Fri Jul 4 14:22:30 2025 +0100
-	
-	    arm64: mpam: Advertise the CPUs MPAM limits to the driver
-	    
-	    Requestors need to populate the MPAM fields on the interconnect. For
-	    the CPUs these fields are taken from the corresponding MPAMy_ELx
-	    register. Each requestor may have a limit on the largest PARTID or
-	    PMG value that can be used. The MPAM driver has to determine the
-	    system-wide minimum supported PARTID and PMG values.
-	    
-	    To do this, the driver needs to be told what each requestor's
-	    limit is.
+>  
+> @@ -568,14 +567,14 @@ static void c3_isp_params_cfg_blocks(struct c3_isp_params *params)
+>  
+>  	/* Walk the list of parameter blocks and process them */
+>  	while (block_offset < config->data_size) {
+> -		const struct c3_isp_params_handler *block_handler;
+>  		const union c3_isp_params_block *block;
+> +		c3_isp_block_handler block_handler;
+>  
+>  		block = (const union c3_isp_params_block *)
+>  			 &config->data[block_offset];
+>  
+> -		block_handler = &c3_isp_params_handlers[block->header.type];
+> -		block_handler->handler(params->isp, block);
+> +		block_handler = c3_isp_params_handlers[block->header.type];
+> +		block_handler(params->isp, block);
+>  
+>  		block_offset += block->header.size;
+>  	}
+> @@ -771,26 +770,15 @@ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+>  	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+>  	struct c3_isp_params_buffer *buf = to_c3_isp_params_buffer(vbuf);
+>  	struct c3_isp_params *params = vb2_get_drv_priv(vb->vb2_queue);
+> -	struct c3_isp_params_cfg *cfg = buf->cfg;
+>  	struct c3_isp_params_cfg *usr_cfg = vb2_plane_vaddr(vb, 0);
+>  	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> -	size_t header_size = offsetof(struct c3_isp_params_cfg, data);
+> -	size_t block_offset = 0;
+> -	size_t cfg_size;
+> -
+> -	/* Payload size can't be greater than the destination buffer size */
+> -	if (payload_size > params->vfmt.fmt.meta.buffersize) {
+> -		dev_dbg(params->isp->dev,
+> -			"Payload size is too large: %zu\n", payload_size);
+> -		return -EINVAL;
+> -	}
+> +	struct c3_isp_params_cfg *cfg = buf->cfg;
+> +	int ret;
+>  
+> -	/* Payload size can't be smaller than the header size */
+> -	if (payload_size < header_size) {
+> -		dev_dbg(params->isp->dev,
+> -			"Payload size is too small: %zu\n", payload_size);
+> -		return -EINVAL;
+> -	}
+> +	ret = v4l2_isp_params_validate_buffer_size(params->isp->dev, vb,
+> +						   params->vfmt.fmt.meta.buffersize);
+> +	if (ret)
+> +		return ret;
+>  
+>  	/*
+>  	 * Use the internal scratch buffer to avoid userspace modifying
+> @@ -798,70 +786,10 @@ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+>  	 */
+>  	memcpy(cfg, usr_cfg, payload_size);
+>  
+> -	/* Only v0 is supported at the moment */
+> -	if (cfg->version != C3_ISP_PARAMS_BUFFER_V0) {
+> -		dev_dbg(params->isp->dev,
+> -			"Invalid params buffer version: %u\n", cfg->version);
+> -		return -EINVAL;
+> -	}
+> -
+> -	/* Validate the size reported in the parameter buffer header */
+> -	cfg_size = header_size + cfg->data_size;
+> -	if (cfg_size != payload_size) {
+> -		dev_dbg(params->isp->dev,
+> -			"Data size %zu and payload size %zu are different\n",
+> -			cfg_size, payload_size);
+> -		return -EINVAL;
+> -	}
+> -
+> -	/* Walk the list of parameter blocks and validate them */
+> -	cfg_size = cfg->data_size;
+> -	while (cfg_size >= sizeof(struct c3_isp_params_block_header)) {
+> -		const struct c3_isp_params_block_header *block;
+> -		const struct c3_isp_params_handler *handler;
+> -
+> -		block = (struct c3_isp_params_block_header *)
+> -			&cfg->data[block_offset];
+> -
+> -		if (block->type >= ARRAY_SIZE(c3_isp_params_handlers)) {
+> -			dev_dbg(params->isp->dev,
+> -				"Invalid params block type\n");
+> -			return -EINVAL;
+> -		}
+> -
+> -		if (block->size > cfg_size) {
+> -			dev_dbg(params->isp->dev,
+> -				"Block size is greater than cfg size\n");
+> -			return -EINVAL;
+> -		}
+> -
+> -		if ((block->flags & (C3_ISP_PARAMS_BLOCK_FL_ENABLE |
+> -				     C3_ISP_PARAMS_BLOCK_FL_DISABLE)) ==
+> -		    (C3_ISP_PARAMS_BLOCK_FL_ENABLE |
+> -		     C3_ISP_PARAMS_BLOCK_FL_DISABLE)) {
+> -			dev_dbg(params->isp->dev,
+> -				"Invalid parameters block flags\n");
+> -			return -EINVAL;
+> -		}
+> -
+> -		handler = &c3_isp_params_handlers[block->type];
+> -		if (block->size != handler->size) {
+> -			dev_dbg(params->isp->dev,
+> -				"Invalid params block size\n");
+> -			return -EINVAL;
+> -		}
+> -
+> -		block_offset += block->size;
+> -		cfg_size -= block->size;
+> -	}
+> -
+> -	if (cfg_size) {
+> -		dev_dbg(params->isp->dev,
+> -			"Unexpected data after the params buffer end\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	return 0;
+> +	return v4l2_isp_params_validate_buffer(params->isp->dev, vb,
+> +					(struct v4l2_isp_params_buffer *)cfg,
+> +					c3_isp_params_blocks_info,
+> +					ARRAY_SIZE(c3_isp_params_blocks_info));
+>  }
+>  
+>  static int c3_isp_params_vb2_buf_init(struct vb2_buffer *vb)
 
-So, I guess I'm wondering what more I could do to test this code at this
-point, prior to merging it.
+-- 
+Regards,
 
-I'm very interested in seeing this code land upstream as soon as
-possible, and I've got access to an implementation to test whatever I
-can.
-
-So let me know what else I can do and I'll be glad to contribute my
-Tested-by when I've done it.
-
--Carl
+Laurent Pinchart
 
