@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D571CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E43CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DZ/Hzt/Z4dyeSpA3JZAv4iA86Nxbb9HIqSS2XvFzQ8=; b=aNTjxyZx2XNIRfjVJ9pK4u1zfL
-	P3Hnts4wfQf1dzYWLv6h0zeW8byb1HFeKQzXmDXP/su6+vRZA9KAClYLcZReoz5hBJNgIEFxusfNb
-	mCVrbZXUqTaX0j9IQrrwd4+GNPmc6F10ofVPlVUAukr/ocfgw9+hHk9Xkvx0iRYVCBfLad/mMCjPu
-	x3KKcJtC+GH2mkp9FKkS4Q1Zt2Dadj9+k6vsz04PaBaznQY4J3SNkj4oE3gVvZpueh0hFRtIQCVa/
-	eXt6h3hmTNZuGJoEBugASFNbUykCfxRBdYHwt410zOMXxjqY+RvDTZQwYFNNnMOZ1yvprCFjpsMiu
-	ZrQNupSw==;
+	bh=OAEkeQ8lL8zgGt9X5ptAhWwpyBVXGyV+fHaoeQsAx0w=; b=f62cZrjYMxuUiKER5YOYdlqSG2
+	cWC4wlvl4nBFEedqHPbF5vHe8Iy9F1yrE5/c9JA/En1u4YRF+E8YTXFvacXyTZLaxZoi3zWbboKXm
+	CEvJSkZuxoL+kE5dt9kNK+zmulmdDfvTMmi6jAdYd6x92r2AhXtNAojbISJh3pqrfC6Xi0NI0z6Sj
+	YxBMmqTsz75FcrEErlj70XJHN2usLwdEK2Wa+obEfM3R5XfbxQSC0eyWx5HrUQqWksFJRQ01PMR+g
+	pV89Q01Mngjp3D51ethLG9m3qIILK9E3X7Hf1wJxaLAFqC8tPxpE8W2FwngbNhczayUPRZJiSPZC4
+	2ewq0+RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKTQ-0000000HBb6-1Fgo;
-	Fri, 07 Nov 2025 11:17:44 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vHKTS-0000000HBcH-2Ui8;
+	Fri, 07 Nov 2025 11:17:46 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKTN-0000000HBa9-0tJn
+	id 1vHKTQ-0000000HBb5-2uYg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 11:17:43 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b6ce6d1d3dcso385743a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:17:40 -0800 (PST)
+	Fri, 07 Nov 2025 11:17:45 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b55517e74e3so590433a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:17:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762514260; x=1763119060; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1762514264; x=1763119064; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+DZ/Hzt/Z4dyeSpA3JZAv4iA86Nxbb9HIqSS2XvFzQ8=;
-        b=dyttUFERpPcbo96ET4gSfCMBbutrCq2Iv6o5nFJIjIRfMIPIKkMVbQGY7UMndjuBt5
-         qbSH8eowKsgGDUPGFvUAfxdU3C2YJMiaS3onH5GBMU256dRxsmE3n8Cu9tOyeT49ATnh
-         hbHyZ32c7kSQtLyn1V+GRWB/Hn2qzDmTUsJ2uWYYY3D6XIUs3xIai6bIgFt/mP9hpm+m
-         maBSgXgGlZ3XSmYj4mUmxK07sjWRS9wWbWqLKWV9Y5yg+8gK5tPWTu4uiTrUo78Hm+B7
-         FEU2Klx2+CTtT4wpPdDIFlfqW53amahtUsTLHmJ2i+/Gr1w5o+HhGfIWAjGJY2DazM6l
-         DOFA==
+        bh=OAEkeQ8lL8zgGt9X5ptAhWwpyBVXGyV+fHaoeQsAx0w=;
+        b=MhWllON4tvB9fU3J+KfbobGsnt6WcWbQusEa5iQw0As2Th5DqFO18G+8qOOB+Ri4fw
+         zrlOZSn2+X1820rJsIF5twf/pccKSYMIVkktU5Tq3rlyR//bVj8F+dcTPvNnBRwcPOMx
+         zdd2FScZSthka8AEuYy/TkCOx+e5RFHYM9kw8Y7dlPVtI5nvbsxL/XGisUln/hy5+Kk7
+         +pKKgFgUF89eRlOPFpUI34nXUyRSoSaUrV4c7wgmRTtznO02pjhMMRek26N9Ukx9T+39
+         eUnVXvjlb+9qYmpzn7+BlpQzQVyfFKHBv93i/VgIRoUXAzN2lYoxqWUrYFZBnedggr02
+         pnPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762514260; x=1763119060;
+        d=1e100.net; s=20230601; t=1762514264; x=1763119064;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=+DZ/Hzt/Z4dyeSpA3JZAv4iA86Nxbb9HIqSS2XvFzQ8=;
-        b=bBv1zindKcSEiJSWCrgExYqfa+K18ZAVh59vl9mgvNbc1GLXnqq+B6xGmW63hA3Yjv
-         X+mwvL7rmITaXJuVajk9/85MX50TRtOmH+KOFwMquSz8LJCaLABmRTo2k7R0yP0WZz5N
-         t4IYlAhUwsctcQnpgPJT2a+eh/aAHPp3H2EsKgxgxC7ViqWg9CoyyRxM/tPL7zze+kC7
-         nH7ggldS4hb/X222lQ7vQxjcfBfgATIDnSJvM+eX8rCrOZdi/T/BcNf9QD0zh7KdeKVN
-         hgeZ81QJDocRHtYo1g7e2R4L1RNE6w3rYRUVcCEY2oKfyAbAHypyThA4LQA/Hu73RpxT
-         9dCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVbRNk9KIrlIki1bRF0fSkiE1zVfGxuL87Gb13xmJDdhuCJ7skOhOqeBc1HZtxfraVGLh4D1K146i7pZ+ZWD3Ok@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk5TN9P9XCwkVSNz2Fy8NlilIxxzh0LRGzRjL9eSwzYZAsTalE
-	VuAqGv+eBaF+gqO9djvJRFk8TCrA3syaHCo70aY0M2wM8W7RI8yvRlEl
-X-Gm-Gg: ASbGncvxcnL8oGJOFknTsDb5Gg2vC6avNZym043Ia64jdqObpe73nHavQ/vDivhD/GG
-	3xjuH1OTVrlRvtLq1pzQYlNz54OYnj1jortQ0wwh62yYSEh2ZVccuUnsHjdUeFUk6JQ2HbNkQcS
-	+82eAs+2kRB7Tv5hQJZ5V/FSHkgG9zsMQKoxkuAhrU4wZIV+0C5nNlEO9IobGac4o9xR1x6vF8t
-	BZsKbiEQ/ooQWWbo3HhJ6KT67vugHuW0LEY2n7gCWYZth8VP1yzxBgclQyZpd7pn0kjY6sFdAWS
-	CafswU/CHyJzxcOdcwFXEjqofKW5UaZYMmV/ScrkjU+wzsMAC9lq4ZUQcq8mIeaF1gwj8cId7+j
-	YQqZnTHQysSr2IQdlSAxUDjr/Qg4d34PAhFw0y+KzAHauTTyzbgTsdeSlj7UgtHpSPajZNSiJ6c
-	A=
-X-Google-Smtp-Source: AGHT+IHjf5f+YuLvxkmcrd3cJvkmjsyY1yheeW5iHSKdbzLJ/p2M1xTgPY5ean6VA+ewJk0yolgl8w==
-X-Received: by 2002:a17:902:ec90:b0:24b:1625:5fa5 with SMTP id d9443c01a7336-297c03b66b9mr44655785ad.11.1762514260220;
-        Fri, 07 Nov 2025 03:17:40 -0800 (PST)
+        bh=OAEkeQ8lL8zgGt9X5ptAhWwpyBVXGyV+fHaoeQsAx0w=;
+        b=BoXcr3ZYxmCum/akfcWrMOz+N9yZT5YOzn6KpQ4GEEP5zJedEPfJ05KHW9dhak98Yh
+         1z9HxyMrbPQSGkK+8fWGc5Vw6yCR7kALZG5Pns8L4GN9XAKxk2wwcsNRh8X4MELe9zaq
+         0aDtzqMUSBkiIFade3kLhbKUVQEuj5u/vYEQB9e4aA83divqCTcFa4n0+9Nu1PN0M0M5
+         rZl/UPmefTq81yDUSgLY7O2U2OORrVSX1TuZK+vaPWwTg09WUJLurtfxla4tqpWGiTHG
+         vaT7gx37oIQxF1IPkEmtRfMtNkG/Bg+jFLhxrylXHelSurD3Gv0vRld0TntNfO9Vepmx
+         zT1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Ud6Hdd5ndTee1KPnvQw2tXcdadpk8HHWHZBwtNlRPND5BgGRK2tLOuAuU8oo1iXeRhlaBVCE7hjjMFEKJ/om@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFrjuyBvs3CC2SPcUX0/g4vAe/Ix76G7V4LYVAcG50q22881AC
+	/weQ2hYLhWlHes5XJe9LbpcZ1uc7cqW7HbwHzM9Khi2n8D1CzevJMWrW
+X-Gm-Gg: ASbGncvdm7/Vlwp/gOQhpJRgz95uGCuO9DFpC/IlOcPHufxYFZYhZaPZT07PNVBkAo+
+	0D+G4YmV8qAbIGR1oQQ2QiIbY+Uu9NBrbCs1Jsr+q+joh3YJIfLW7SB+xr1i57rKGdsxier4ILo
+	SfE70TXBMEZ+ww1SlIzPHw4ywBrvua2wnIhxzXnwPTpHRYjLTKOCE6joqWIzQymCd1GC4fjg57e
+	bcXZydS0ve6AYGWZ5bPaB/fkE2WHBeg1a7DDiRqQhz8CD4wleKJR6ue0J4HJXAGxozTVHf280yd
+	OBKPxObsgr4l0Enj2wd9lrV5gEjRGch8vUAYJzQOfZo7q921up/JQPiwFnlkHUDDY4Hb45mWMxS
+	7r7B0J5VXJysuxs27qBeAwSklpNKUX0MJPkjk0hEJIsa9PWb9XfPYzNU+PKcltqsQK+Sg3G4ExG
+	Q=
+X-Google-Smtp-Source: AGHT+IGmhW4l2QYXug4vN9BCUJXlqsiwbMW15g9DF995bQ1tw6dyuhIw+sFYeLzZjXJTBAXyKbUeTA==
+X-Received: by 2002:a17:903:1aee:b0:295:9db1:ff2b with SMTP id d9443c01a7336-297c048e371mr36463155ad.57.1762514263694;
+        Fri, 07 Nov 2025 03:17:43 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba8ffe3616fsm5131381a12.19.2025.11.07.03.17.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-297d766efe6sm5186215ad.49.2025.11.07.03.17.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 03:17:39 -0800 (PST)
+        Fri, 07 Nov 2025 03:17:43 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Han Gao <rabenda.cn@gmail.com>,
 	Icenowy Zheng <uwu@icenowy.me>,
@@ -98,18 +98,18 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v7 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy mode restriction
-Date: Fri,  7 Nov 2025 19:17:13 +0800
-Message-ID: <20251107111715.3196746-2-inochiama@gmail.com>
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: [PATCH v7 2/3] net: phy: Add helper for fixing RGMII PHY mode based on internal mac delay
+Date: Fri,  7 Nov 2025 19:17:14 +0800
+Message-ID: <20251107111715.3196746-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251107111715.3196746-1-inochiama@gmail.com>
 References: <20251107111715.3196746-1-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_031741_274038_0BF1AAAB 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20251107_031744_739376_FF7FE693 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,49 +124,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the ethernet controller of SG2044 and SG2042 only supports
-RGMII phy. Add phy-mode property to restrict the value.
+The "phy-mode" property of devicetree indicates whether the PCB has
+delay now, which means the mac needs to modify the PHY mode based
+on whether there is an internal delay in the mac.
 
-Also, since SG2042 has internal rx delay in its mac, make
-only "rgmii-txid" and "rgmii-id" valid for phy-mode.
+This modification is similar for many ethernet drivers. To simplify
+code, define the helper phy_fix_phy_mode_for_mac_delays(speed, mac_txid,
+mac_rxid) to fix PHY mode based on whether mac adds internal delay.
 
-Fixes: e281c48a7336 ("dt-bindings: net: sophgo,sg2044-dwmac: Add support for Sophgo SG2042 dwmac")
+Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../bindings/net/sophgo,sg2044-dwmac.yaml     | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ drivers/net/phy/phy-core.c | 43 ++++++++++++++++++++++++++++++++++++++
+ include/linux/phy.h        |  3 +++
+ 2 files changed, 46 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-index ce21979a2d9a..ce6fc458be61 100644
---- a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-@@ -70,6 +70,25 @@ required:
+diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+index 605ca20ae192..0c63e6ba2cb0 100644
+--- a/drivers/net/phy/phy-core.c
++++ b/drivers/net/phy/phy-core.c
+@@ -101,6 +101,49 @@ const char *phy_rate_matching_to_str(int rate_matching)
+ }
+ EXPORT_SYMBOL_GPL(phy_rate_matching_to_str);
  
- allOf:
-   - $ref: snps,dwmac.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: sophgo,sg2042-dwmac
-+    then:
-+      properties:
-+        phy-mode:
-+          enum:
-+            - rgmii-txid
-+            - rgmii-id
-+    else:
-+      properties:
-+        phy-mode:
-+          enum:
-+            - rgmii
-+            - rgmii-rxid
-+            - rgmii-txid
-+            - rgmii-id
++/**
++ * phy_fix_phy_mode_for_mac_delays - Convenience function for fixing PHY
++ * mode based on whether mac adds internal delay
++ *
++ * @interface: The current interface mode of the port
++ * @mac_txid: True if the mac adds internal tx delay
++ * @mac_rxid: True if the mac adds internal rx delay
++ *
++ * Return: fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
++ * not apply the internal delay
++ */
++phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
++						bool mac_txid, bool mac_rxid)
++{
++	if (!phy_interface_mode_is_rgmii(interface))
++		return interface;
++
++	if (mac_txid && mac_rxid) {
++		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
++			return PHY_INTERFACE_MODE_RGMII;
++		return PHY_INTERFACE_MODE_NA;
++	}
++
++	if (mac_txid) {
++		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
++			return PHY_INTERFACE_MODE_RGMII_RXID;
++		if (interface == PHY_INTERFACE_MODE_RGMII_TXID)
++			return PHY_INTERFACE_MODE_RGMII;
++		return PHY_INTERFACE_MODE_NA;
++	}
++
++	if (mac_rxid) {
++		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
++			return PHY_INTERFACE_MODE_RGMII_TXID;
++		if (interface == PHY_INTERFACE_MODE_RGMII_RXID)
++			return PHY_INTERFACE_MODE_RGMII;
++		return PHY_INTERFACE_MODE_NA;
++	}
++
++	return interface;
++}
++EXPORT_SYMBOL_GPL(phy_fix_phy_mode_for_mac_delays);
++
+ /**
+  * phy_interface_num_ports - Return the number of links that can be carried by
+  *			     a given MAC-PHY physical link. Returns 0 if this is
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 3c7634482356..0bc00a4cceb2 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -1813,6 +1813,9 @@ static inline bool phy_is_pseudo_fixed_link(struct phy_device *phydev)
+ 	return phydev->is_pseudo_fixed_link;
+ }
  
- unevaluatedProperties: false
- 
++phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
++						bool mac_txid, bool mac_rxid);
++
+ int phy_save_page(struct phy_device *phydev);
+ int phy_select_page(struct phy_device *phydev, int page);
+ int phy_restore_page(struct phy_device *phydev, int oldpage, int ret);
 -- 
 2.51.2
 
