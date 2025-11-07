@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04C4CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D14CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsNNpwuaNWCx6IF2fYdIjP4i3Bg9HiXabOkg1WM5zo8=; b=Jxkyyvh2maDE7mPXZnZqW2M6eS
-	+Iwre23VY2hYkiRLosnvGL/wlSER8UQ40ku8INpwEEg8U8Hg/2f1CrVvB7REdfnFzIP1B8A9ytTuO
-	3HrvokuQPBr2Z+3h1vS4UFdwqbOr4N10VOaZ4lHKqs/xsSNom7buFIhkE+N4m3S3OiIvlMM/xUejC
-	WTX7MO/Q0/ttgexVnYLBFknKcFZPshXo88hhR/M+8IYrK3EypIkTZyJfhIP3Hb/cOUKey7NGH1cDl
-	SG/5XI/tQ6/w0YOstJqi0Ov8XtWgzBk52DBKWoQAEeFwg1GRGMep3IgEwav17md2y6CrNG8zHi8FJ
-	dQwuu2rA==;
+	bh=gh34AbndNywb05Tdrv4hfUW+KpGu4PIlF7KQldm2Ahc=; b=zGS3VkhD5OQ2/VaCHw4ZPjiHOa
+	ssz6+OApCHlmDoJg7oT2NQqBXmEihMswbzpywqHRHQlAmgxviHeIOlqMp+RB5vIX28ZIeC8YsQGah
+	5N/boYbHIi4/Z9/5U2bQnWAtauMoR5wZmhQa9mvTrBifOOfEEK+kxTb4QpnbNtoCFn8+L5pAz+vd6
+	Cn9OThCsauK2S06M35gsdk+K9WwriBRvaIOZiGKT1dSdJb0jqzaq4gBQKynh9ER5u3eTqntdOGnWz
+	f2jSxdS+APYExs5E+7IkzXdugOhlsDAa8cVlMMDKEW+YzLyUlZrX3lEgUTjekyF0+ysxSTTBFDSxf
+	r1IoiVSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLIO-0000000HGr5-0CG5;
-	Fri, 07 Nov 2025 12:10:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLIL-0000000HGqi-007g
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 12:10:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46C6B1516;
-	Fri,  7 Nov 2025 04:10:12 -0800 (PST)
-Received: from [10.57.86.134] (unknown [10.57.86.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E6EB3F66E;
-	Fri,  7 Nov 2025 04:10:18 -0800 (PST)
-Message-ID: <823463ee-f8c9-4023-892e-6e6532a1a813@arm.com>
-Date: Fri, 7 Nov 2025 12:10:17 +0000
+	id 1vHLQv-0000000HHfP-0iux;
+	Fri, 07 Nov 2025 12:19:13 +0000
+Received: from mout.web.de ([212.227.15.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHLQs-0000000HHeg-0dHR;
+	Fri, 07 Nov 2025 12:19:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1762517615; x=1763122415; i=markus.elfring@web.de;
+	bh=gh34AbndNywb05Tdrv4hfUW+KpGu4PIlF7KQldm2Ahc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=kqXUlxvh46iY0aZHv+TgjUUUmy6KwdG85mJvHwHzCIUAdazGB9fYcrW71s8HECgh
+	 OJU3LIn5ejUPuJkJtumHHJqKWw5Lk0O4IqlNLpF111NigmvMzaqsfLuj59pMseJC3
+	 hpa1tEbRZePY9Fwb3L0qtUcIl48sB9kuvhAaWXATrJf/JQUQDhA8k7/azaMpoilFK
+	 RQgGEaDonhIQReqvTqhw1Pg6NguDc7Mcwg10ijXeV2Cj/tfsVyrcufslkySRGmHLq
+	 fr1UQ2nfjXuN1FpfDze8tdwjijN5K5iqyKN25H8KlSc2F5gIQ/94BWUajFcfVUZjC
+	 tWNTPevUUecK5zQ3yQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.187]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M8T7E-1vLlCJ2mUS-00EVzZ; Fri, 07
+ Nov 2025 13:13:35 +0100
+Message-ID: <7857ab09-7808-4abe-9df1-66235291436b@web.de>
+Date: Fri, 7 Nov 2025 13:13:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: Don't sleep in
- split_kernel_leaf_mapping() when in atomic context
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org, david@redhat.com, ardb@kernel.org, dev.jain@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Guenter Roeck <groeck@google.com>
-References: <20251106160945.3182799-1-ryan.roberts@arm.com>
- <20251106160945.3182799-2-ryan.roberts@arm.com>
- <d6d7e038-aa94-491a-8ad6-f48541b98b6a@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <d6d7e038-aa94-491a-8ad6-f48541b98b6a@os.amperecomputing.com>
+Subject: Re: [PATCH v2] ubi: fastmap: fix ubi->fm memory leak
+To: Liyuan Pang <pangliyuan1@huawei.com>, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ wanqian10@huawei.com, Yang Liu <young.liuyang@huawei.com>,
+ Zhihao Cheng <chengzhihao1@huawei.com>
+References: <20251107100057.1091153-1-pangliyuan1@huawei.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251107100057.1091153-1-pangliyuan1@huawei.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:WjGEBZcugvueK22o/z6jyun4bxJP6+QGZkpKqoKtoo4w/XAoiFQ
+ ZyTitNDrAMZlc8eVCx2rXH/HHJH5W0hbgybCc43LNrd2vFwlyeLFJuRgR1x2dQwLny6lWS9
+ wk15W/fppL5wd87VP8wcSLlHCxAXEF0il/pMUiC4ShNJutzq0LUPL24hLjPuOO++lPVOaL4
+ FEMXL0u0RvFqt8Eyi30Iw==
+UI-OutboundReport: notjunk:1;M01:P0:UIWbAsr5TsQ=;5KN0ScWvAXDZ0O6hEkDb6zFWoBI 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 2Ow/g==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_041021_848272_921DBD3E 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20251107_041910_543901_91D8575B 
+X-CRM114-Status: UNSURE (   5.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,250 +89,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2025 20:46, Yang Shi wrote:
-> 
-> 
-> On 11/6/25 8:09 AM, Ryan Roberts wrote:
->> It has been reported that split_kernel_leaf_mapping() is trying to sleep
->> in non-sleepable context. It does this when acquiring the
->> pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
->> CONFIG_KFENCE are enabled, which change linear map permissions within
->> softirq context during memory allocation and/or freeing. All other paths
->> into this function are called from sleepable context and so are safe.
->>
->> But it turns out that the memory for which these 2 features may attempt
->> to modify the permissions is always mapped by pte, so there is no need
->> to attempt to split the mapping. So let's exit early in these cases and
->> avoid attempting to take the mutex.
->>
->> There is one wrinkle to this approach; late-initialized kfence allocates
->> it's pool from the buddy which may be block mapped. So we must hook that
->> allocation and convert it to pte-mappings up front. Previously this was
->> done as a side-effect of kfence protecting all the individual pages in
->> its pool at init-time, but this no longer works due to the added early
->> exit path in split_kernel_leaf_mapping().
->>
->> So instead, do this via the existing arch_kfence_init_pool() arch hook,
->> and reuse the existing linear_map_split_to_ptes() infrastructure.
->>
->> Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-
->> c0eeac7a31c5@roeck-us.net/
->> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
->> Tested-by: Guenter Roeck <groeck@google.com>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> 
-> Reviewed-by: Yang Shi <yang@os.amperecomputing.com>
-> 
-> Just a nit below:
-> 
->> ---
->>   arch/arm64/include/asm/kfence.h |  3 +-
->>   arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
->>   2 files changed, 67 insertions(+), 28 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
->> index a81937fae9f6..21dbc9dda747 100644
->> --- a/arch/arm64/include/asm/kfence.h
->> +++ b/arch/arm64/include/asm/kfence.h
->> @@ -10,8 +10,6 @@
->>     #include <asm/set_memory.h>
->>   -static inline bool arch_kfence_init_pool(void) { return true; }
->> -
->>   static inline bool kfence_protect_page(unsigned long addr, bool protect)
->>   {
->>       set_memory_valid(addr, 1, !protect);
->> @@ -25,6 +23,7 @@ static inline bool arm64_kfence_can_set_direct_map(void)
->>   {
->>       return !kfence_early_init;
->>   }
->> +bool arch_kfence_init_pool(void);
->>   #else /* CONFIG_KFENCE */
->>   static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
->>   #endif /* CONFIG_KFENCE */
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index b8d37eb037fc..a364ac2c9c61 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long
->> addr)
->>       return ret;
->>   }
->>   +static inline bool force_pte_mapping(void)
->> +{
->> +    bool bbml2 = system_capabilities_finalized() ?
->> +        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
->> +
->> +    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
->> +               is_realm_world())) ||
->> +        debug_pagealloc_enabled();
->> +}
->> +
->>   static DEFINE_MUTEX(pgtable_split_lock);
->>     int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start,
->> unsigned long end)
->>       if (!system_supports_bbml2_noabort())
->>           return 0;
->>   +    /*
->> +     * If the region is within a pte-mapped area, there is no need to try to
->> +     * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->> +     * change permissions from atomic context so for those cases (which are
->> +     * always pte-mapped), we must not go any further because taking the
->> +     * mutex below may sleep.
-> 
-> The path 3 changed the comment, but since patch 3 just does some cleanup and
-> code deduplication, there is no functional change, so why not just use the
-> comment from patch 3?
+> The problem is that scan_fast() allocate memory for ubi->fm
+> and ubi->fm->e[x], but if the following attach process fails
+=E2=80=A6
 
-The reason I changed it is because in patch 3 we introduce
-split_leaf_mapping_possible(), which is also doing the
-!system_supports_bbml2_noabort() check above, so this original comment only
-applies to a subset of the reasons we may exit here. It felt confusing to me. So
-I decided to simplify it. The rationale is all captured in the commit log, so I
-didn't think it was a big deal.
+You may occasionally put more than 60 characters into text lines
+of such a change description.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.18-rc4#n658
 
-Thanks,
-Ryan
-
-> 
-> Thanks,
-> Yang
-> 
->> +     */
->> +    if (force_pte_mapping() || is_kfence_address((void *)start))
->> +        return 0;
->> +
->>       /*
->>        * Ensure start and end are at least page-aligned since this is the
->>        * finest granularity we can split to.
->> @@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start,
->> unsigned long end)
->>       return ret;
->>   }
->>   -static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->> -                      unsigned long next,
->> -                      struct mm_walk *walk)
->> +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->>   {
->> +    gfp_t gfp = *(gfp_t *)walk->private;
->>       pud_t pud = pudp_get(pudp);
->>       int ret = 0;
->>         if (pud_leaf(pud))
->> -        ret = split_pud(pudp, pud, GFP_ATOMIC, false);
->> +        ret = split_pud(pudp, pud, gfp, false);
->>         return ret;
->>   }
->>   -static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->> -                      unsigned long next,
->> -                      struct mm_walk *walk)
->> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->>   {
->> +    gfp_t gfp = *(gfp_t *)walk->private;
->>       pmd_t pmd = pmdp_get(pmdp);
->>       int ret = 0;
->>         if (pmd_leaf(pmd)) {
->>           if (pmd_cont(pmd))
->>               split_contpmd(pmdp);
->> -        ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
->> +        ret = split_pmd(pmdp, pmd, gfp, false);
->>             /*
->>            * We have split the pmd directly to ptes so there is no need to
->> @@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp,
->> unsigned long addr,
->>       return ret;
->>   }
->>   -static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->> -                      unsigned long next,
->> -                      struct mm_walk *walk)
->> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->>   {
->>       pte_t pte = __ptep_get(ptep);
->>   @@ -805,12 +824,18 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep,
->> unsigned long addr,
->>       return 0;
->>   }
->>   -static const struct mm_walk_ops split_to_ptes_ops __initconst = {
->> +static const struct mm_walk_ops split_to_ptes_ops = {
->>       .pud_entry    = split_to_ptes_pud_entry,
->>       .pmd_entry    = split_to_ptes_pmd_entry,
->>       .pte_entry    = split_to_ptes_pte_entry,
->>   };
->>   +static int range_split_to_ptes(unsigned long start, unsigned long end,
->> gfp_t gfp)
->> +{
->> +    return walk_kernel_page_table_range_lockless(start, end,
->> +                    &split_to_ptes_ops, NULL, &gfp);
->> +}
->> +
->>   static bool linear_map_requires_bbml2 __initdata;
->>     u32 idmap_kpti_bbml2_flag;
->> @@ -847,11 +872,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
->>            * PTE. The kernel alias remains static throughout runtime so
->>            * can continue to be safely mapped with large mappings.
->>            */
->> -        ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->> -                        &split_to_ptes_ops, NULL, NULL);
->> +        ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
->>           if (!ret)
->> -            ret = walk_kernel_page_table_range_lockless(kend, lend,
->> -                        &split_to_ptes_ops, NULL, NULL);
->> +            ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
->>           if (ret)
->>               panic("Failed to split linear map\n");
->>           flush_tlb_kernel_range(lstart, lend);
->> @@ -1002,6 +1025,33 @@ static void __init arm64_kfence_map_pool(phys_addr_t
->> kfence_pool, pgd_t *pgdp)
->>       memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
->>       __kfence_pool = phys_to_virt(kfence_pool);
->>   }
->> +
->> +bool arch_kfence_init_pool(void)
->> +{
->> +    unsigned long start = (unsigned long)__kfence_pool;
->> +    unsigned long end = start + KFENCE_POOL_SIZE;
->> +    int ret;
->> +
->> +    /* Exit early if we know the linear map is already pte-mapped. */
->> +    if (!system_supports_bbml2_noabort() || force_pte_mapping())
->> +        return true;
->> +
->> +    /* Kfence pool is already pte-mapped for the early init case. */
->> +    if (kfence_early_init)
->> +        return true;
->> +
->> +    mutex_lock(&pgtable_split_lock);
->> +    ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
->> +    mutex_unlock(&pgtable_split_lock);
->> +
->> +    /*
->> +     * Since the system supports bbml2_noabort, tlb invalidation is not
->> +     * required here; the pgtable mappings have been split to pte but larger
->> +     * entries may safely linger in the TLB.
->> +     */
->> +
->> +    return !ret;
->> +}
->>   #else /* CONFIG_KFENCE */
->>     static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
->> @@ -1009,16 +1059,6 @@ static inline void arm64_kfence_map_pool(phys_addr_t
->> kfence_pool, pgd_t *pgdp) {
->>     #endif /* CONFIG_KFENCE */
->>   -static inline bool force_pte_mapping(void)
->> -{
->> -    bool bbml2 = system_capabilities_finalized() ?
->> -        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
->> -
->> -    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
->> -               is_realm_world())) ||
->> -        debug_pagealloc_enabled();
->> -}
->> -
->>   static void __init map_mem(pgd_t *pgdp)
->>   {
->>       static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
-> 
-
+Regards,
+Markus
 
