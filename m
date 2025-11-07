@@ -4,63 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A609ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6AECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6iz603Ixy9otU3EnpLkGcQzhNkPS8mytXZb1tXmjtc=; b=VRhSFnBNdgQwSKjXJXjhlDFdxA
-	oqEZOLA44iD0l0OTPUlWbm+9CxFtINrZYhLF096ZiHmFSRtc6k2AXIK3ABFtHUlRydEox6gzk67Qe
-	42+2dy0gQNm7DJlxe4kHiRrX4bwSWLQauSnTLjIhE8ACDFii4uCEQmHdlZG1HSqsPrL3xH9RqKcTp
-	9pGa3WQvKNROp5wW/kaexg3AT+N76DWzHXYf/L9cxBMeGgQMVxF9odznQmvzF7YcZTufK3Tm1eDSx
-	CEV8PWS9/aqiUmqV3z0rodZUD6EhBbKbdNy8VMnWIB/lhIphLfU8X/wnOfORanKNBdkwWoUb45a7s
-	sHz5+D7w==;
+	bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=; b=QsTlTitp3o+H/tbAlrwB3h/Tp/
+	RcI7apTaNo6GPKcAKvvnLzH9JZRsWJIAGknENGuUANhGGzmqe9bYuFsiNk4AdT23QaUSurkBNNKbm
+	4oY46GoIej914Xa65sGwGRxPNnITN0U7MmcsMKHO2DlUtS1dghdOD/ECVShALQyC3PW29zdCJN2/+
+	gFIWIee2+P699pWe1TJxS7hSZwp190+QD3JgEVUPRVze3NYQ73mn0Pqyw2woKKXHSGw7vzm9joQoM
+	ed2FS0mfEVb6zrrqSMWw0H+oFEGvCbiJbqlEGS7Gd3gAYIOL9EE1mpjwa6V/kSxEU9+zPLyJ36Rwe
+	3lvP+pbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVlo-00000001Vzx-2KkJ;
-	Fri, 07 Nov 2025 23:21:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHVnN-00000001WF5-226O;
+	Fri, 07 Nov 2025 23:23:05 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVlm-00000001VzS-3SX1
+	id 1vHVnL-00000001WDf-2edv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 23:21:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47D1D40142;
-	Fri,  7 Nov 2025 23:21:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0162BC4CEF7;
-	Fri,  7 Nov 2025 23:21:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762557686;
-	bh=CUUuS8pprmMGGLz7wegIQEujEfE4Gb2O/WZVgS7MqME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OPTGRFWALroD5xLQ6hlpiA6i+i3394e6x06fYD1XpQhJr8O7BFLj6IYEm5ZqKxN4N
-	 p76Qch5FEKXd4URov25mOvc/30EBxn+CRXK5r0ZeMrnIpKC3C9MN5AfWU54/eq6XcI
-	 3MrhR4IJpXnBiah1CbvBR9SEJOduw9MlCIEZZ712lAGMIyPcoc27N3HUo9pwPt9rjA
-	 CFd1I3L1ntgcfXLxhP0jnnXFIVOjX5hbmVfAg53tWQSqUOjelvfujIwZKw+gooHwWI
-	 c5kghsRDGSStWstPRyUyjFvdOXRQmDUfXcg7XLR96aw8WRnFHTIxOI36/Gnyd7VIBT
-	 kHFCHO7D5agRA==
-Date: Fri, 7 Nov 2025 15:21:24 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, vladimir.murzin@arm.com
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Prevent host from managing timer
- offsets for protected VMs
-Message-ID: <aQ5-9PsBl3z9UxOS@kernel.org>
-References: <20251106144418.2847443-1-tabba@google.com>
- <20251106144418.2847443-5-tabba@google.com>
+	Fri, 07 Nov 2025 23:23:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zr/pxxHEabgxO1FymyGGkRxTi4tvKlXLqi2C1I9d5O+WomhKxrv/4Pl+pWeN2VyvP4KwznSTLHX543r9iyMTp18wQ37AIkQkpAwMMlkT4rkg0vy99jpOhRUr9EcK0W4q2krkVnfnqnONE5jhw5LQYgCeTmt/Z+2isI178ekMzVlJ8KBmvCFVVClzEAQ+aa21ZtMkMjtqEBK7nHGR0CocoegLZ70DMroEVd/nC24OE26g8c3bJKfiekY54dUaBwwnkHGIgQE5tV1WRUqMv5lVXGVfVkV+WyyKBPytCoThiBQXqdxW5+iRRWYUDIgR+WbyoArpKK/GjTRyiYgdtrFydQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=;
+ b=KcL9RSJyKEKK8M8LjjQlHmILecHUIc0/eYRQRc9zya15oeskQHVvAWZBqz76hY7OSAmgatOa0xvhqetpiTuqrs+GiQC40QagGAHBLVEWsMJiqvmh3PbitE23G8wHAGZODlhFFphF8iYA/OgISFANuYeQZdeFyl28IzcGKYRU5oN5Vdz3xkZNzOvcZOM1s2H2ifUiC1ms0E8eUtOVUSQfCYG1l+ecjI849m1/r/HykWAIQu/Ei8N0yUU0KCzas/O7E1qzC1HXEVZZpkMafLYCLVRNH9sQwG2CzCrmm6t1mqgaze+KPNZF0WbbqvF2PCILMwgfYXASpRcwWFF58954mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ANMYD83H8FGur216UUMrpjKfvdGNWRF6bDKSKDrkM7s=;
+ b=kmfQXG3XjPz9zcluKoUp+R7PwmesUwiENpMPdOtUMi4Df4kfqaAEJEYT5K9u7Zdo0coe3MYd/ttTM2UsGt2T7UxIxJvaP3+ZX3ws+WoS8VIyqnxb1gA8T+qoIqEk8gpRG+GQVMOW2BUzGpQv4oA5cpFozb5dAx2D653dtY5XNkY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from BN0PR01MB6862.prod.exchangelabs.com (2603:10b6:408:161::11) by
+ SA1PR01MB994236.prod.exchangelabs.com (2603:10b6:806:4a1::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.13; Fri, 7 Nov 2025 23:22:57 +0000
+Received: from BN0PR01MB6862.prod.exchangelabs.com
+ ([fe80::8a1e:34a8:2ad9:7f83]) by BN0PR01MB6862.prod.exchangelabs.com
+ ([fe80::8a1e:34a8:2ad9:7f83%2]) with mapi id 15.20.9298.012; Fri, 7 Nov 2025
+ 23:22:57 +0000
+From: Carl Worth <carl@os.amperecomputing.com>
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ catalin.marinas@arm.com, dakr@kernel.org, dave.martin@arm.com,
+ david@redhat.com, dfustini@baylibre.com, fenghuay@nvidia.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+ xhao@linux.alibaba.com, Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
+In-Reply-To: <20251107123450.664001-1-ben.horgan@arm.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+Date: Fri, 07 Nov 2025 15:22:45 -0800
+Message-ID: <87y0ohbf7e.fsf@rasp.cworth.amperemail.amperecomputing.com>
+Content-Type: text/plain
+X-ClientProxiedBy: MW4P220CA0024.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:303:115::29) To BN0PR01MB6862.prod.exchangelabs.com
+ (2603:10b6:408:161::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251106144418.2847443-5-tabba@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN0PR01MB6862:EE_|SA1PR01MB994236:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27169ffd-2574-40d8-db05-08de1e5495d5
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|1800799024|376014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zNiHbzB1wG22Qd4fxQODgNHU5iPdydT/dCpDt67CiMeQiLY+3FJcFYg2ryPm?=
+ =?us-ascii?Q?WBnJ6+frErQlFq1eeeh5RvFL8wX24/Fbi10kapBTb9m7roYD0IwbteAcikHV?=
+ =?us-ascii?Q?pKTYhEnqBq2m4LLUyUmBwDdK80I20fr6kFe3LBbIrrGJUIfijcqtxa35FzRz?=
+ =?us-ascii?Q?iSeIHWR956PWPi6y8TDJ3hEpPFqoVUedbizZlOfOK+c3b+6p51HF0a88cY6S?=
+ =?us-ascii?Q?QlZfF96jedBy98bkktTcMuwcqUMfaKMc6gFd7LUrY9xILhtlfL80CufjRj/O?=
+ =?us-ascii?Q?HNNWsv0rkAI9QxVXo+oSIpAo4d0A0Fot0qLvE1QDYZFxW3lGZQ9BHFV3dZn8?=
+ =?us-ascii?Q?RncqggRTIpFEmyzXsO3YgXRggx+sqbTYRwDoNAUYufvJ7UVGCDW5d1sxJf9W?=
+ =?us-ascii?Q?zA2rarIZ9HexiPz/01jYpwpUmaCJKVbItl7ptMetrNTmnJFsj0hW1QuetQ0N?=
+ =?us-ascii?Q?ahmOLgM0rWhzhMvJMAxz95Wcq9X5MeNDcoRkyYBDsAEJh9CCfRoI7dgqdvcd?=
+ =?us-ascii?Q?XwzWLLIZiF3NhtMxEgenEvd2lr34o7DK9qTUk7IEYh4qCLHahJLl7VJ5wC5y?=
+ =?us-ascii?Q?ihBYXjKEj+tVxYfapl/PEOZsDZMIICJONj4Vtyp2vHYpPY9Lzwt6roeqHVYg?=
+ =?us-ascii?Q?dN1Z1BXv2iygnLQYuXg7d1lWUGanNVBB2EHo9U/+L6s66hl+uYYPiuCiB+S7?=
+ =?us-ascii?Q?I2a1KW0mS/Zg0yel2evUKGPeguFMi50aLFGhJMa9H1qtQsO7GQdD6qweZQyR?=
+ =?us-ascii?Q?a0/06m7Jp78pRppXEU02IkM0CjLZFhxWJQcgBPmpHvG8McTofPiS6rOh4d7X?=
+ =?us-ascii?Q?ktkVf1q9CHImGOuURehkl+fESafsHgloBBmikrTzojdUQpNcD9jNFuVwm9bA?=
+ =?us-ascii?Q?kS5XQKNXyldnWxHeGYcudqkFqx/zYOaSJdXnHZOduVInvqIH/v4Cas0KvP67?=
+ =?us-ascii?Q?/Fw9WPuisi7bV5jt1ipuedBXTuBQSRiCCoE4aE6xvKaNSgnWnUDQbI2OB5or?=
+ =?us-ascii?Q?Tv6hMCdpZ7hC9N5u20VFbnxpGw9S1/Xwqb9ccKCYlJ1pzmBlpmiyDaKxrXim?=
+ =?us-ascii?Q?KVh74YQI9xKi1UNRdbxQ4j4+xHa36v33V8E1m0tN2FBK1P50J7+OMaf+LlVi?=
+ =?us-ascii?Q?dgCuLN8ROdV4GMp15G6feMvgpa5Fqvse9kIr+8fU+Pc4j+QeQY43YCgGUaSI?=
+ =?us-ascii?Q?iZ9xMAeC3ZLFZEgd0pZrDiEgKWmPrccBFFv2iFNF+qbYpe7xm2qaPEB7IGMf?=
+ =?us-ascii?Q?2ih4ZknxqdewauJGpao0wGMl6TGygUhW0vYhR7LWUym3aCHxOTTHo+eJDZ3p?=
+ =?us-ascii?Q?eJ/x+2+33GeTvSeiISYnP5Kn3Os3lPc6agqE1aZYJc0e1al/fLwrF1ErLL5G?=
+ =?us-ascii?Q?CAygsuWQ3wEEQ7Tdk3AAb3sVGh+q2HAeKt1lMz4yH5Vi9ov9J8HUufRR2TJd?=
+ =?us-ascii?Q?iKIcPhLNnQDUCR/WcQegdYTnk4wrdkO4XZhYlexopaBq+19BL+NHYwQUsG0j?=
+ =?us-ascii?Q?ixxgsHZJhCZGut3Y7nhHe8dQECDbSskffaJD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6862.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(376014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ekMQarHADsYro1vZ/62GwK1sD6aFRvq36EiKHeUKJlRcG/G9BEPXAYBebW2p?=
+ =?us-ascii?Q?a8yANesczj6FHAdw1FcaR+m0RYxgwzOL20W00xEIeIun7MtCoL7abniW9sir?=
+ =?us-ascii?Q?EvVqi/RtrwY0AIbFMRbodWUx+Nzv5A/Eys75aI27kOr0PVSFoF71Jew+Nc1N?=
+ =?us-ascii?Q?zu0oTQ3wFs6T1Qm+LlSc1fmnp8p6iitdJK8m+iEZS0due4UNMQxW3d7MKlPH?=
+ =?us-ascii?Q?EI1gIpwb1HU8kFtPJ73JjlyWxE1IViUauzzGfi8nIJE3Lrl4QpCwzrgwDQlH?=
+ =?us-ascii?Q?/TuOlRgrlahq7MGLlGuaamTTfLM0ecklBhWvSfG4I/yl25zEFXsl4pXzdTci?=
+ =?us-ascii?Q?/XZjD9OmH4Wujksh/+k4t5WTdT3SRYUbRXneZAz6ap0UR6yG3n6/Jg3K2B5X?=
+ =?us-ascii?Q?mBd7Ohcvpfse/3JUJx3Q3rU1aGgg7+UhqsNThTVOyJej3Epu01d0BBIQ9CP6?=
+ =?us-ascii?Q?17jzZpKmjzO9NJGRPiQYmDbHDC/x5oJEOpnOpBtJ9kOzOagDpTlEnXRVdrAB?=
+ =?us-ascii?Q?kpHW6t2PGMw+nDQDVvJhtBWi0fbh7Euco7/tMwAgr3rMn8liybww9LRpVxl3?=
+ =?us-ascii?Q?tpSMi+RwWLz9gPuSuB4CIPxJzs85fScEmzmjauIbKBIo31wKEG+yHODj7w4F?=
+ =?us-ascii?Q?C++JJaUqzG3PzHJtYFYhgbO2TJwZfQENk9ZUYIMTvo4E84m41KKkoV4K44Nc?=
+ =?us-ascii?Q?OboEOImn116NLenhHNpUqDOW+Z+vRt1QtBFWLuEy50z1hY0kVKUHgp+S7UQ+?=
+ =?us-ascii?Q?bVGjeqfJwS8RrX+BweqrdhmMaLYe0eTyNkfFdPRrr3xQb+VBR6eZ6T1pJdm4?=
+ =?us-ascii?Q?tbrMQ1JmSWNYtQNB/PFRFI4jh8mEcCXKpStNlkZ1LkPl5LFWacrbvUEPnkrN?=
+ =?us-ascii?Q?AcQoEGg6QtFsPmN/TQb5cd4Z9qIpS+yayLPW5ok+xmYD+ZnYG+JKK5J7fhen?=
+ =?us-ascii?Q?ozQJnBC8rpOyQk+PdLa71rhfViPojz93ykIRuuZWg+9OdDI868PuCKQ7pGKP?=
+ =?us-ascii?Q?9KChSmMLMrNS0WRAileofxA1LkR25LTmBJBH4X1AwJXF1jpc2cmheE9TnSBu?=
+ =?us-ascii?Q?39yI9BUa/3oRq2t5Y35q7MD21M7+BlIXxo9L1B9DUkJ6cuvVp7Cnh0FAerpQ?=
+ =?us-ascii?Q?XLv9Z8h5rHVrefFKzOJI1x5lx68WUX7iOdSpMdEXwmB3kFmLERGgABK6+Y/K?=
+ =?us-ascii?Q?D/bx2UAtpoAg7p7MDWPa/B9eBtJsgpU3lwgkYkhoxMU2GnxsgUeg/GDtvNYu?=
+ =?us-ascii?Q?hbphjokhksKNg/sfIBJGyanpQY9CDiNLuq2gxPaXDZOnyUCGB2kJ4fzdy3z/?=
+ =?us-ascii?Q?ksLyBUowImynM1n4cWjv8sas8mdINCnGAyhyqChU/8jlK15PaCTd7QLk8mpS?=
+ =?us-ascii?Q?kH0dcz0jjcfAksZzRFemVrV/TejV4DY9fdWDvD7zwKjctNLx1sGKotc2zQ99?=
+ =?us-ascii?Q?+4VBUhxAHGM1gf62R74cSdK+55vJ8QBtziR/CmwioJ8hfuX1L/L+xIYn0Boj?=
+ =?us-ascii?Q?KkZKtjPOD/StApb4eLWFM2qyyOde5SecDvxO5S521EdmPTWBKe6rqIMVfhVT?=
+ =?us-ascii?Q?VYT9uEoCZbISEqgNzz1qjpwPSVIqcm9G6FoFfhaz4KkL6jHmyLHyeW6XH2DL?=
+ =?us-ascii?Q?Fat894Dd3fJgVQ9yDb2hR9o=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27169ffd-2574-40d8-db05-08de1e5495d5
+X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6862.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 23:22:57.5061
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pHqSydiYINQTiZb3CB8vCxwd4UpwzBp7FwLm69bCi/qATymQsm66qKbg5NnnhfYgnTLBdgD7y/20Ja4hjE5e06ODfeSnhB4nuTVA2a0jxVo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB994236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_152126_905453_D3D159DA 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20251107_152303_683730_5A670C44 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,101 +169,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 02:44:16PM +0000, Fuad Tabba wrote:
-> For protected VMs, the guest's timer offset state is private and must
-> not be controlled by the host. Protected VMs must always run with a
-> virtual counter offset of 0.
-> 
-> The existing timer logic allowed the host to set and manage the timer
-> counter offsets (voffset and poffset) for protected VMs.
-> 
-> This patch disables all host-side management of timer offsets for
-> protected VMs by adding checks in the relevant code paths.
+Ben Horgan <ben.horgan@arm.com> writes:
+> This version of the series comes to you from me as James is otherwise
+> engaged. I hope I have done his work justice. I've made quite a few
+> changes, rework, bugs, typos, all the usual. In order to aid review,
+> as Jonathan suggested, I've split out some patches and made an effort
+> to minimise the amount of churn between patches.
 
-"This patch ..." is generally discouraged in changelogs, just state what
-you're doing in an imperative tone.
+I've built this and booted on an Ampere system. It ends up reporting a
+successful message of:
 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/arch_timer.c | 18 +++++++++++++-----
->  arch/arm64/kvm/sys_regs.c   |  6 ++++--
->  2 files changed, 17 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 3f675875abea..69f5631ebf84 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -1056,10 +1056,14 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->  
->  	ctxt->timer_id = timerid;
->  
-> -	if (timerid == TIMER_VTIMER)
-> -		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
-> -	else
-> -		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-> +	if (!kvm_vm_is_protected(vcpu->kvm)) {
-> +		if (timerid == TIMER_VTIMER)
-> +			ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
-> +		else
-> +			ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-> +	} else {
-> +		ctxt->offset.vm_offset = NULL;
-> +	}
->  
->  	hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
->  
-> @@ -1083,7 +1087,8 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->  		timer_context_init(vcpu, i);
->  
->  	/* Synchronize offsets across timers of a VM if not already provided */
-> -	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
-> +	if (!vcpu_is_protected(vcpu) &&
-> +	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
->  		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
->  		timer_set_offset(vcpu_ptimer(vcpu), 0);
->  	}
-> @@ -1687,6 +1692,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
->  	if (offset->reserved)
->  		return -EINVAL;
->  
-> +	if (kvm_vm_is_protected(kvm))
-> +		return -EBUSY;
-> +
+	MPAM enabled with 1 PARTIDs and 1 PMGs
 
-This should be -EINVAL as pVMs do not even advertise the capability.
+So the code seems happy enough as far as that goes.
 
-Since we already have a generic helper for filtering KVM_CAPs, I'd
-prefer that we have a similar thing for enforcing ioctl limitations too.
+But the expected number of PARTIDs on this system is much larger than 1,
+(MPAM with a single PARTID would not be useful at all).
 
-For example, you could maintain the ioctl => KVM_CAP mapping in a table
-and use kvm_pvm_ext_allowed() as the source of truth.
+> See below for a public branch. No public updated version of the
+> snapshot (the rest of the driver) I'm afraid.
 
->  	mutex_lock(&kvm->lock);
->  
->  	if (!kvm_trylock_all_vcpus(kvm)) {
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index e67eb39ddc11..3329a8f03436 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1606,11 +1606,13 @@ static int arch_timer_set_user(struct kvm_vcpu *vcpu,
->  		val &= ~ARCH_TIMER_CTRL_IT_STAT;
->  		break;
->  	case SYS_CNTVCT_EL0:
-> -		if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
-> +		if (!vcpu_is_protected(vcpu) &&
-> +		    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
->  			timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read() - val);
->  		return 0;
->  	case SYS_CNTPCT_EL0:
-> -		if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
-> +		if (!vcpu_is_protected(vcpu) &&
-> +		    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
->  			timer_set_offset(vcpu_ptimer(vcpu), kvm_phys_timer_read() - val);
+Looking closer, it looks like the bogus value of 0 for mpam_partid_max
+is because the following patch (which does appear in James' various
+snapshots) isn't present yet in the code submitted to this point:
 
-Isn't there a general expectation that userspace not have access to the
-vCPU state of a pVM? That should be the mechanism of enforcement instead
-of special-casing these registers.
+	commit 33c1f50970917ac9f2a8e224d850936374df6173
+	Author: James Morse <james.morse@arm.com>
+	Date:   Fri Jul 4 14:22:30 2025 +0100
+	
+	    arm64: mpam: Advertise the CPUs MPAM limits to the driver
+	    
+	    Requestors need to populate the MPAM fields on the interconnect. For
+	    the CPUs these fields are taken from the corresponding MPAMy_ELx
+	    register. Each requestor may have a limit on the largest PARTID or
+	    PMG value that can be used. The MPAM driver has to determine the
+	    system-wide minimum supported PARTID and PMG values.
+	    
+	    To do this, the driver needs to be told what each requestor's
+	    limit is.
 
-Thanks,
-Oliver
+So, I guess I'm wondering what more I could do to test this code at this
+point, prior to merging it.
+
+I'm very interested in seeing this code land upstream as soon as
+possible, and I've got access to an implementation to test whatever I
+can.
+
+So let me know what else I can do and I'll be glad to contribute my
+Tested-by when I've done it.
+
+-Carl
 
