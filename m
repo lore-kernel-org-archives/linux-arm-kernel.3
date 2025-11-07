@@ -4,187 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072A6CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 06:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8A9CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 06:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iig0t5BjZwVRLYoXmDmr3Ipb4QB4CODQU/ZAqvxJwOw=; b=ISw96tY7vyrP9v2NxLQLsOPBo1
-	PlsuE6WH9mNzR4UieiR6l/ChlDFrN+1dBSA6fyM2WATyaVVnHs68Fx1TL3FP/MsYK6dkAClRj6zyq
-	QW1M2FUcw1oy0+jIeNyEga8yoOsbpH2Nj9wa8ENoPJFWMbJgGvD1KlSk031VWks5Hib3e6yOlDotI
-	n2elK5/csr4n4Ee03l+t1BkiAAOXOvdYOtad6WBZQN2P8sy7aPUHU5eVLHIq8muwxQN8bGnJVi3cF
-	+btdXmJz6U8GcSjDDRkjFQSSnJIC8rx+AEAC1tq+hyWJpt1aeA8RQSOIdYeIx5cUOFjNb3T0iBNL3
-	q0HizN3A==;
+	bh=isv4S9vs8Yx9G66uhRTZIAXk+HFhHR8GTIdATy4ildw=; b=usuJ1beRCvGawPDuFzQcmYW3ci
+	5diDQP9ZqgQwdGCL+TxCCfd8JLIQZ9rCW9NTCnvp0oBJELTx3KzA+djFUSe4r586ezk6sum+ihIsh
+	rCyfQVtLMLqd0DMkmUD/JT+PngoEXwh940NqPyQNzw/sJGjULWVYCJAxyYWO0WzQl0nQROzlfmTev
+	W9F4OYL5IPNaucGv+9NOuHF1otRAmXm0Kc9062/SDUP+K0P7Zur6/FWyV5k/6WLJ56gyMUeGXR3XX
+	WzdGnoJgI6kQZH8C5NuEncoFZr+hmcN6utMoH0WolUR8LKZOAtx95x6vw3mN9zAus3dlFFR0goQ0K
+	Hl+jxRCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHG3z-0000000Gk0q-2eNh;
-	Fri, 07 Nov 2025 06:35:11 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vHGPV-0000000GkvB-48hi;
+	Fri, 07 Nov 2025 06:57:26 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHG3x-0000000Gk0G-1hPt
+	id 1vHGPS-0000000Gkug-3Id3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 06:35:10 +0000
+	Fri, 07 Nov 2025 06:57:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jKg94gfb6ZRdbZZUn1DmiIJ/8898shr1xDi7sfQKnf0RuRQ+ix+SrLQT57AYqQypZHJIBX5PWPUX1sbnBXM3UgJ+jJC10pOluQQ8AxMarxYuHWLGSJCAK043CWmwzWKdZ0lB3M3oQ9ba8in9EGNpUKWLVhZlXUy5nJU9vOlhTCP8+ii0i3jC4VVVvU3kpXt0H4zk2BPV4kRU9Mr5XLvZX+0z3oqEqEiHAdn4GMeXFbjn7qzucZ6FNdyQPg8v+bVbm/cKv3ATdOCM2O7XIwcay0EQ0wtpNbfHVTif/n6syPYovHJ0RWbKJmZNSdbmdnbK1Tjx+zkYoL5+hC9nkrmtgA==
+ b=t6TwObJkDkA9GJ/fse6MXYE6Z9xeSk8bxnAJmb3wDEwk2XH06RueC4GFwadgJcZ+h9JBgaCB1gMx3gFVuJX2Z0LGuwH/yF1XaxipfmnXNehnqTxFT3b2V6y2l+28MTlfkL9zfJkrqfAc/0eYKEY/+srmrUb9NeEgm1SuaBaaX4ikpPDHoRPN6CdMF9X1HDg+jrOKRwPQiIlYyNlUa1mNfEn0szmUQyR/G7xbCltL8w619jzngZ3dD0HlsLtoK2+3WcUCT5guLqhajLZstollOehNGuytaSwoOCJH5fUuKFSAS/jwN8APQD2kMCZ2UrumH0NoKRwi1Lc5iOl1kxh2Gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iig0t5BjZwVRLYoXmDmr3Ipb4QB4CODQU/ZAqvxJwOw=;
- b=MNK8+Eh6WUvDPjClV5IsSl60A54dpGfVFf3Rmb+sGH8bCC3fdgji1womGIWdBnO+Uoewqm2jnqMGy6RO+gQBAuTQjONiEPLi5UGePtxm3LmSvZQxxPt8hKVmXLxe+SlNUTrJt6+0KT/C4qj3YeD4/5RQM+diSlJ3KVDtuMpJ9sPKzOj3ARSPOjTlg0byvDJfco+vSunBE74yvHFJgjOqUHNwhLC+NxlxoIcvpfhZw2qW+yrKt8mb2gUbvySfVC3QKAF3/WVbIrFxm8XbbVhyYl8FUGr4N9pK3EA5uo6mGt0mLFKGVv5q9kAnPt4kmVHjqdYhCS7M2eHgdE6+0DmNTQ==
+ bh=isv4S9vs8Yx9G66uhRTZIAXk+HFhHR8GTIdATy4ildw=;
+ b=Sc0xmYQwhh2zdRdlV4ho6XXoPj2bj7luZDvrXlH0FBaHUrsXAilPXsdWtuw9RlpzTaVSPyeEyERdit6XP8jGjWX9mPOdREi6xS3SLW+Sz8zBvnriK4MYTYRUwZpg+F1qXkyYX+azGA15uM7KzFs59sJ++8yUA/8eEKLGiv7ek53MJToBVsbzbraepuCvimwYfBb76Wimn8OzmXONHTWHsdAKXYoyYvhHXtmJoW65AVEjODsgnvttIviI4egNTxqfvlh71ALAF71Ni30fVZamPT/JwyY1+Gosf1YU4TwEQbtxJS4i7J5yvs7Jub01xNkHd67P2be4qsOmLSmKgylBEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iig0t5BjZwVRLYoXmDmr3Ipb4QB4CODQU/ZAqvxJwOw=;
- b=RV3PZu1vIc2BYyr0mDEfgRh3AZTueviqnEYyYVHt92reOXYzDa3pJkigZQWLsOpzLzkwEWN98rS66TCXR+vhldnUqE2ODgeTPun8FjbVId4VOG/jKUZex0Ge3uuS4ZfeEOnJCo5YpgizrJE7Vrawif64xPywpnu+tPClBHf6f7PwuCxwkPyhL8gKdkxU9o3HXYuOuaqa84NA8XHUBrJ6mo2dfJ84Qmbjme2DlbnREdYFPxZvIXp0fxpu9jg2vnoTNtsz8S9vA7PClkpBpBQ00TJ9QhSBAz1/GYyMezz93bkviGNoudxPPPjYcyGTDwd1qNf+9YV3Ky8FnEdTyRqKoQ==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by SEYPR06MB5860.apcprd06.prod.outlook.com (2603:1096:101:bf::10) with
+ bh=isv4S9vs8Yx9G66uhRTZIAXk+HFhHR8GTIdATy4ildw=;
+ b=PQiMcq8mpsIEQzgrBB5JhDLf6ubmx9uNE3TNVgEVFdSwO0ux9udkfqorpY0zZmfWpyV2ZovSaRZ8vOtvsS9FVlvntxgkeXXSS6Hds5LDzYRJPzHzrJtW5uMDUtsAh+uaJ4FwYEncxotMA/h5dHKBBdlb04N2aTUnGDr7ecaROEBAmMcZ5xFZQ0sfXUd7YvmWUnGVTdd2SJZOpy/qDmkGvuJCXpSD99s5fDcLSO4PyWWX7sNmcqgkB6gfem/fvDn6+s2WpyMPLaTl+giG/zZ4dzTVCB8sYNYNZGqZIwiRagCg461kDf/KPI5K39oaxo3oG0e8PVXEtjHMSxS5dSkERg==
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+ by PA4PR04MB9272.eurprd04.prod.outlook.com (2603:10a6:102:2a7::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 06:35:01 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80%7]) with mapi id 15.20.9275.013; Fri, 7 Nov 2025
- 06:35:01 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>,
-	"benh@kernel.crashing.org" <benh@kernel.crashing.org>, "joel@jms.id.au"
-	<joel@jms.id.au>, "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "naresh.solanki@9elements.com"
-	<naresh.solanki@9elements.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-Thread-Topic: [PATCH v21 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-Thread-Index: AQHcRwi3xNYEORZZrU+2vI7qaB6dc7TWXdeAgAJ+8DCAACECAIAA8atQgAnHsICAAxs48A==
-Date: Fri, 7 Nov 2025 06:35:01 +0000
-Message-ID: <TY2PPF5CB9A1BE6AA78DB1519305B565746F2C3A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
- <20251027061240.3427875-3-ryan_chen@aspeedtech.com>
- <93a2ff5f-2f8e-494b-9652-b93bc243c229@kernel.org>
- <TY2PPF5CB9A1BE6DCA78BEDC3178B74FD75F2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <36e2b87f-5567-4bd6-bd1b-789623441461@kernel.org>
- <TY2PPF5CB9A1BE62BD449193B23A22DF941F2FBA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <7e3c1b0b-2880-4abc-b80f-30ffc16d6158@kernel.org>
-In-Reply-To: <7e3c1b0b-2880-4abc-b80f-30ffc16d6158@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
+ 2025 06:57:12 +0000
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827%3]) with mapi id 15.20.9298.006; Fri, 7 Nov 2025
+ 06:57:12 +0000
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+CC: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, Frank Li <frank.li@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [EXT] Re: [PATCH v19 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Topic: [EXT] Re: [PATCH v19 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Index: AQHcLvztIykpoCx+vU2TOsTcO77HnbTExb+AgBDxjcGAC9UegIAFbnEA
+Date: Fri, 7 Nov 2025 06:57:12 +0000
+Message-ID: <AM9PR04MB8604AA80EC97E06AADBF334695C3A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+References: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
+ <20251016114151.jzmapaecsmmnkpt3@pengutronix.de>
+ <AM9PR04MB8604C2AAA70406883320C5C995FCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20251103190811.wp4o7hlnus6ynn32@pengutronix.de>
+In-Reply-To: <20251103190811.wp4o7hlnus6ynn32@pengutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+ header.d=none;dmarc=none action=none header.from=nxp.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SEYPR06MB5860:EE_
-x-ms-office365-filtering-correlation-id: 74a8de6a-96cf-4b8e-0636-08de1dc7c79b
+x-ms-traffictypediagnostic: AM9PR04MB8604:EE_|PA4PR04MB9272:EE_
+x-ms-office365-filtering-correlation-id: 95e25270-412a-406c-53e8-08de1dcae0f1
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?aXViMDFHQ0YzYTdCZ0xxR1lzWHQwQVpqVDlyWUJSK3VzZnhTaWhkMS9YK2Yv?=
- =?utf-8?B?NWRaaS92RWJPSjk4eWZXR1BmazJFS1d3V3A0QW5GVWdBbDFlKzRnTXJrWi9D?=
- =?utf-8?B?T3grMEFlSnJ1aGduUWEwMmNQeUVVMG9LS2JxcEJkUmlJcFhDTEYzNGJ6MCtE?=
- =?utf-8?B?U2hrRWU2d3ViZEtOTk9wWnJWaTNzY3loSUdJQWtmS1VydzRWaWgzTFlDWEwv?=
- =?utf-8?B?MGUxekxqeFdrSU1tN2VjVHpOZjZRckZVZTRjNkN2YWtCeWxBeGY2TWJmVHA1?=
- =?utf-8?B?SGJlamtkNGIrNkQwOHplUHdtaWNYdXl5SFh0Y2FpV3J5eC9OS25BTWhHVzlQ?=
- =?utf-8?B?SGJiWkVsYmNjdzRKbDJid2F3dmttQll1cjFKbzBEQVl6bi9mZFJaNzhoUmg0?=
- =?utf-8?B?WDhOZ0tkWXAveTRwNTJZa0g3U2luVFZlajhFZGYwYU90a2QvUGswSVN4SHZY?=
- =?utf-8?B?RHpNOGduRHZHbU5pbVBBeWYyZEJpZEFLSWlUU0FYTlQ5QVpVdHAzUHVNSkYz?=
- =?utf-8?B?S2tRL2xDWkdEdHRCbVM1ejN1RG1zN1A4TzFBdmxyT20zOVlMMk1ZR3RoNDFh?=
- =?utf-8?B?VnhqZExvbFNYR0w3ZkNlcURpL3hHWHdqNEpmcHRNQmZ1Ly9OeUZsNUNBUEJU?=
- =?utf-8?B?WUlVMk9WcS9YcE5jNHRqOHRIU092c2pTM1RLdExqUUxwSWxnaEEyRFJPZnBh?=
- =?utf-8?B?VUZRNlh2RnBOYWMyM20zRWpwc2lyN0JHOE5VWFV1Ym0zaGlCZTlmTGJQckZX?=
- =?utf-8?B?ZnZsTS9JdEhGM0hmaGFlL2kxV0NMNnBhM1hzOVlpd2VNeGZ3b2NBTXRJYTZT?=
- =?utf-8?B?RTA4bnZDazM5OEtPZEV3cDJvYWMrVldOOG9lek1iTHF6N3JiQnE1bHBEcFBD?=
- =?utf-8?B?emRaOTRuNFIrRXFBQklFdVhUVEQ3bnRHN1Y2dUNJaG55N1RvUkZWeGJZUEwy?=
- =?utf-8?B?TldrZlluRjhCcmVlZ2hXSDJWWnZ6UFRsL015OTlCSFp3MEVSU0Y1MG5BZjds?=
- =?utf-8?B?cE5JWnBsWCt1WGYyaFcyR2Y3U3R2K0xRdjBQbUE0eHVQaGo5UGY0NEpENnVJ?=
- =?utf-8?B?NFpBd3VNUE80djVybUoxOHJMRkQyMHdqWkRhRUt6dUJzdmkzQXlTV3dGRXJy?=
- =?utf-8?B?QWJaZUg3Q0ZJWXlKOGVZVCs4MGVmMUJjZnM5UXNxNzFlWjhyS2dqSFF2czZr?=
- =?utf-8?B?VnR4NDJRRzlFbE9rTVA0TkJxTlVRTm56U0NoZStTV0FIbTFvaXBHYlREeXJV?=
- =?utf-8?B?VzRvdFYzaFl4aXFKeURVRGRCdHU2S3JJNldvSW1ENWpSd2t4bmttQjVCenJk?=
- =?utf-8?B?U2hLSi94Y1B3Mm5Hc0p0cGI2QzRmMVg2eHQ5alV3Z0FLVEFTem4zVXpCYVpv?=
- =?utf-8?B?bDgwaG5YNHBCYmVrNE84aDJIRkhKTjg2eHVSa3BkRHZXb3JIWWJwU1NhNkJo?=
- =?utf-8?B?T0NqQXdrQjRpTTNCaVljSzNZb0Y5MmN1UDVyWFVFMXp2Z2JGc1JNNHF3NG02?=
- =?utf-8?B?cS9Kb0pwK0ROeG5uQ25zc2cyeHV2NkZlbkl3a1gvNjRDUEJQQW1DR3BSTGVz?=
- =?utf-8?B?S3dOUXU4RjRqYzdMYXd5QWZUOWlCeUc5UEw4VGlzamZJNk5vNzlsdmZLOElq?=
- =?utf-8?B?WllQWGREVDdQZ3FCUzJvZGMzWWJtTlBJOFo5cjNGZ1FKbVgyTEl5aFJMTlV2?=
- =?utf-8?B?dzBwY0RqUzZkd1N6ZE9qTFM3RlRENklXR2lVK0VLbEZsUkRlUVJETjNkS0ZV?=
- =?utf-8?B?Q2hGVEJZdnF6MXVJMSt4UlFUL1hxTmcyd2VVK2ExNjBxd2p6UUx2S295UGxk?=
- =?utf-8?B?TTdWQy9mbCs3MVpZenZsMmNZMjBXWndtR3dWNCtNTUVqM2hUVWRiTWlCNWFE?=
- =?utf-8?B?Rm42dSs3dDR2ZUVmQ3E1MTNrcmRTTWIrYWZ1MGIrOUp4amZ3L2hYOEpFRXJy?=
- =?utf-8?B?RzByNmc4Yis4VGI2Wi9kOGQ5K0RBNVBUR3Y1ei9qZTROVkpLTG4xS1BDSjJ2?=
- =?utf-8?B?bUZwUEovMitPaFdLR3Ywck91bEUrVWJHQUg1TTBWeVFBMG5HYThEcGhtamdn?=
- =?utf-8?B?S0w2RHFieUJFNUFuM2M4NXpwV0pkZlUyQVl3QT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(38070700021);DIR:OUT;SFP:1102;
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|38070700021|13003099007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?o8zi7LHdvHyGnkL519B4l4RedWwQS+mBMEbfpKg8YFW7iU685K6t4riKzvkB?=
+ =?us-ascii?Q?gRIrL4TZKu3tYASAtzgg1Dusb2maHLYKwxp0hf5VJCSgG3qxHG9Hjk2+G6LC?=
+ =?us-ascii?Q?JtVPPtNm5jYfb16VT6Hg4mKN3Xn87JEdpvNKSEwY9k+b56N3V8/lHyXacJ9T?=
+ =?us-ascii?Q?0fcZRzjMczPOHbRh0+Q80LS+/uGt/CxiAKjlgA3aog2Ub/Ac5TKPXqYxXfNX?=
+ =?us-ascii?Q?Zj+Qe9clSPB8GvXD4XWjmTSurIVCpZMmkbNMYGFO+v3HOVj039iC3GJj2Dhb?=
+ =?us-ascii?Q?qY56WBKlaMTO+boQ6lJUyvO4zD8PTJtoQFILJfpBBwQuvTYCwz3B/+rxeDWt?=
+ =?us-ascii?Q?C9CDXguURsvgbECe41rx9yme0U5dompTIeJ6cahPOTM1VoAWTIG+G29+27D7?=
+ =?us-ascii?Q?rJrmvguxReDOb4zDOtle1ImE3r5PRG4G5g9KFdGTDtwodgbN3SLFkylgtJJc?=
+ =?us-ascii?Q?4BH2D93dqmfCOdt3udd5j1Ead17C1zpTZdz89HxiDBmasEoVCnPPc32muMSx?=
+ =?us-ascii?Q?i17iYJFYvTXJ1yGniNP6npI8/OgQ24aiue5U9HDjfXc3sWGfWxOtg8ekXrUw?=
+ =?us-ascii?Q?LhhOJU5wOGnS2csmWwRrd/1xZP45Z2hNLgWe86VOBGdKqMUdb+zbr2et8E10?=
+ =?us-ascii?Q?DZIgZwBRl2lBOOYqUYXUlYgfFTYhBMfanBU+OOfHlAy6Wm90x/VF/okssM/B?=
+ =?us-ascii?Q?UCvGQ/DTSKOEMm5IJK/cGV7v6/NfUva7mFTsywxxmO4CIrMrjBxzc9G/l2fp?=
+ =?us-ascii?Q?hBddUUdZZtwxxSi2vf+rNHB/VUKD1VjtaCu53UYWMPKgTw4lx7we7Ttq3j2X?=
+ =?us-ascii?Q?vw7bNogHyQas05wXxbC7XA8OaR4WC1x0ZW+ll4QYbTyPsPmx8rQ1kJPIGbSS?=
+ =?us-ascii?Q?hVzejnYLKFmDOwKybc2MOqjEeMS9PhFy8iopreVH2MVDBaq7E8j7C4s8W3Xm?=
+ =?us-ascii?Q?VS2VyrLbS+WbZqRyG5hHvRCqn5p5ja7Advq/5NolHp/pte0dJDB+jdaJxTja?=
+ =?us-ascii?Q?Ki5s7cNoyQfFLgMUCusvJR7TKuap55F714MAF0ytMTPL8X6k/5L2jujNK0Ib?=
+ =?us-ascii?Q?dxNqY1BMK9mOUW7n11CMRT3J8V5XWA/YP/GnvJd2zVFpSLkwQB2m6PPwWAhn?=
+ =?us-ascii?Q?S/wbJbnsJCVuoE3RSVEqLn5mUe57om2d0AN/bwxs8s3T/jXlpleJSc7CT1Ho?=
+ =?us-ascii?Q?SAsdoy9sO/IgBkJiVT/TNBAWRbF4nxqiobfiYQvSQqhUKUmTryWbEZxA6hI5?=
+ =?us-ascii?Q?R1Or2F8crlvbYvQKFGTbpvIPBNUqGH0goUdUYWg2CeVNoI/0zSNScy0m+nY6?=
+ =?us-ascii?Q?nrUL1pSsshXWMKWoGQI9SwbwyN7nDZ0QIIYoY03V7UvxriPel+pOTlpCxZoP?=
+ =?us-ascii?Q?+NN2O12KXxIh4aGciXrUaJkpj88FcuGK/ufPjzKVonBMBFnaNkTyjArctgUr?=
+ =?us-ascii?Q?ow33doEuAJOD/Z2OwNIxOsZ2n3xINSmD1Ch8aB+r/qwjuxW9VXycXA=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(38070700021)(13003099007);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YVRUT2JGazN4Tjc3WENxM2Y1RzlMTHdoekNWcnh1Nm1vbldXQ1daMHlhR0Uz?=
- =?utf-8?B?VldJa255M21leFNPMlVvUlM1NTdEZDllRTE4K3pGTk1ITks4NzJMdUJkYlNX?=
- =?utf-8?B?SnQybFByY2tRblNCamlNaUtGTGtqZHlibStiTWZVdXVlQllMcmdyeDExT0F1?=
- =?utf-8?B?ZHpqakpPS3pCRkVqalU4TzRHMnRZczV3SXNTN0pjakNlNE95NXdtQ3FxbXo0?=
- =?utf-8?B?dEtqb2N0VS9zWUsvLytrM0pHR0lsVDMzd0gxUWE2QXBXcFIrelNFZnJ2WnI3?=
- =?utf-8?B?eWttN3RzZEFhUXlCTDFWRVAwelNCeTZmRm85ckQvM09qekNaU0I0cWEvZVBi?=
- =?utf-8?B?NGgycGJWK2hQUktwTDJ3KzRHZWZyRmVHb1ltRWNlRnZ5cDV0bE1mRnhDb0R6?=
- =?utf-8?B?K3FHdGY1U05CMEY1NUtRYkxZZExCY2RuZW8vMXduWU9mbkNzeUdGWHhtbUht?=
- =?utf-8?B?SksyUVdWSit2NEJTNWdCU0dBYVBEdGJXN2lBdnM4S0hzeEJIYUZWenRqSWxC?=
- =?utf-8?B?SmZ2TTBpZ0JOWGZkVlRrN3BuamVyU0ZZSlN5S0Y0Nk02VmtDT1RGNGpnK1lP?=
- =?utf-8?B?bHB0NGdmdDBoT3MzM2JIVVFCY0pna1MvVUJ6TTdmK0o3WDJwMk9NT3RLMXBQ?=
- =?utf-8?B?OHNNZ0JYdzNhRWRpMmx4NXVqT0JzMXB1TGg0MUZxVDZiZUNQY3haa25NT0oy?=
- =?utf-8?B?YlJzUGl4SXVWV3ZLM0FQdEQ1Q2psQW1EYnFubjFMOG5PMi9KemFjamVVMk04?=
- =?utf-8?B?VGU2RHZYRyttRU9hNkZDUDZWdGsvMlFBck5sc09LK2VkTGF6THJyZ1AwaFpl?=
- =?utf-8?B?R1BQSzh3bFNZckN2Zk5KM1QxRWs5OVA4VWtzSUo3aFB0Tmd6VWxFSVRWc3I0?=
- =?utf-8?B?LzFNYzhneW1xNGszazRtakdJbUN0eEFweFU0SFRZWUNkMG0xa28zalo2NUtv?=
- =?utf-8?B?bFlmYzJtVnVqYVNLQlNZYlo2S2c1SFM1cUo3Y0E1ZFFDdERXbG4yWHIyR01l?=
- =?utf-8?B?RkllNDVEUmUrdlozOHlxM1lIUE9qYkhNZXJ3YTlJWVZvdTduZGNWTC9qNWhD?=
- =?utf-8?B?VDJpeUlUQ3NlenhvMytIZFdiOHdEbkc5ZjM5bDdGMnVZOFc5cDRscFIwbDdZ?=
- =?utf-8?B?c1hhNWpkOS9zY3pxdXJ0MHQzMUpyVzhIRVY1cFQ1SVBDSGFEaGQzYnovMnhx?=
- =?utf-8?B?NEVXNlpqelhVK3BVNVkydUVHM0Q2YmVZZlRvS1lVM0w1OFhQR0VjNHRtVHFa?=
- =?utf-8?B?QUc0YXJ4NVY4dXorV1RBWUhRSkRBa1R2VGNLR2srdmpuR2hYQXErdXRYMzg2?=
- =?utf-8?B?dzNqNGZZWU1wNE0vUk00d2JrTVk0cit1bVFDVXhvZWtmWXBPZkhrbFd2Z1hL?=
- =?utf-8?B?U2psb2o3dWxJTkVjRnFPQWdDcXdwR0dDSG5zMzRMQUN6NXNQMUFSRGdsZEhT?=
- =?utf-8?B?R2NobG1pdnZyNGYrdXA1ZEM2NmRWYVUrWnc1WXFCLzk3UWFTS2hhdW8zTXJv?=
- =?utf-8?B?Z0hTVHpONXdGQkFKNzdUVVFucEwzWjNZbkVMSjYvaCsxNVQvYTZ2MURKLzBP?=
- =?utf-8?B?Y3ltOXZzd2RqZ0RxREpOUFdUakhMNzBuNTk5M1UveDNUUjFDRHg5UUVNNTBt?=
- =?utf-8?B?Nm02aU1iQ0VMM3hSMEExRDJIenQrMG0vR0tkMTBKUEZWQmVZclloYWhzNGxp?=
- =?utf-8?B?bWRBU1I0dlc1N0lMcVlBN0l5aXZyMzBKbTc5YlZXTEhSRTFwT0ZtQ1h4Y2FL?=
- =?utf-8?B?UHZOeHg3MDAyR3hYc2J3dEhMd0JxVFhSUEdENWlYQVozZjMvU05UWDFpZUZV?=
- =?utf-8?B?YzlyY1RWUTRXUjFkZm9jWkxXeU5uNXQweUxuZWswckJmamRITWZBZFJqSE84?=
- =?utf-8?B?UFZXRHppZU9sZFk1SUxqVHdFTTc4UDh0WTdSMG93VkpBMmNyY2FUUElNbzRa?=
- =?utf-8?B?eXB0RzN1RGY2Z0dpdWdxMkVFM1FnSUZWSHo5RWlMczNqankwejExdnE5MFd3?=
- =?utf-8?B?SlFXdDFFcVQ3NkVFaFhoTHVqYi9Qa2x1cEh1bVdLNjI5TUxCL3dEd3lwVEhS?=
- =?utf-8?B?V2lLYUtFT2gzdXFIcWZQN2lJaXNIc0oyZ0lDeDFxalRVOTBDK3dudDU4Ujhk?=
- =?utf-8?Q?6neQblKKBhkWh9kLkvoygzfLz?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ni2EaIIaRY+17ZIbP/TZ3qSCrHXItag0u4VlifxcF6BWVxZtDECUSNTEuYLp?=
+ =?us-ascii?Q?FoVCVxAQWj1lPD8/Xu7LjLqozx8m9ylPz5G3tUq3OGYiBApUOxQplmPpf/lQ?=
+ =?us-ascii?Q?gY79W2Xj/1WIQqH+Q45Iaw7li+r2I5aCA4+HrX5m57FkZwgRysrYCDFWOLyF?=
+ =?us-ascii?Q?g8/1WBYNbc/OGIAgUeDGHUjVDA/RZz+BxGiVzidCeF4aOLH0lwumoBcPSSb6?=
+ =?us-ascii?Q?PrsVl/ZzD/Ku0a/765CwgrCdqvwMm4Hz+Xh8D3W98eQV+t1UO6nk0PT9VkpM?=
+ =?us-ascii?Q?qo7pXMRBCOA+jm7Vtoss9JvHGarCmdmUtuzZ/xiqJjg0nw7mXUCtAx7d6EbC?=
+ =?us-ascii?Q?Ij6wdTFLejCpPRl7IlC4kqi2nNahpIlJDCWDXPMNHACYon/G6U7tpnmgtl8H?=
+ =?us-ascii?Q?JzDqIm7E9aRC6QFxz8UF7L78KW0fq+bnwBG3PQkLI2emUM2iX55AimJwhlQz?=
+ =?us-ascii?Q?zyHU5jyh2qDyO7ejyTd+N+iSntWnYWI92uDA+ui7NBD8sRgkWdSZFORAGXuI?=
+ =?us-ascii?Q?rlnhnBCkrKLHxpcCMm8sZu0nZKTCaaUSnC0xuvnpBxJx+x15JSbV/DGQIRN4?=
+ =?us-ascii?Q?aqX8yx/Ykf42TLRhIMRrVuUzxjUS75R9px7vTvAEusY8awvBMHxtVKhqKkPq?=
+ =?us-ascii?Q?fMXnAAlwblN/EzV3dXhIJ/d/6l6x8Sd3dIR7Le8iq9AKYkdWlygLGRIBjQe7?=
+ =?us-ascii?Q?pF/ufbQY4ZhO+zQER3sJQ+S+jQMpwhLoACJy5YMkpXDfobmrfXL0nAINxzuW?=
+ =?us-ascii?Q?4f5HuIRSdfd6U6hKcVh4uKGRS05PDMJmKN6stthl5asfOYU9pj2gfsU8oEpG?=
+ =?us-ascii?Q?k7AvCnniTKm2sVo5JfUld9J7dbk+2ndtlQkuKf7u5hP6nu88Crc88oqf2BF7?=
+ =?us-ascii?Q?y0BHaQtzPMPyO+QiZ5S8+2gDEX+y3gc+aRz4hKc4JgAwR4kbs5eTEpa0mGLn?=
+ =?us-ascii?Q?KgRkct5gf5fZI8MyZ31UcQseVAIZcjbktZ3PY0ijcDdjOFc/m/Izi+PTuuIB?=
+ =?us-ascii?Q?5NyNBn59NZ9P36Yfhm1t7Uh4qYLZTPVe+cmyX5YE95H4KTDvyq8H5YwGy68e?=
+ =?us-ascii?Q?xuUdq+/Ey7Ncy/KHfqUTGO1HOjslLo7i8FZexVi8CYdWvJBzPlf5bPq9wX1s?=
+ =?us-ascii?Q?GitzIf5LkfZjlm2aOxSlGIklybZOskRjbbPNGSV5h+4p3Mb3NuRtyFajEzx6?=
+ =?us-ascii?Q?sXYsBhE9I+nWo0ZYTJbKJnsxK/vRMdGFaKGdCduusU2PREF9+2Y6F6GPcS8D?=
+ =?us-ascii?Q?2PqIanh2sSZ2R9Exq6MC7Mn82J9ctG0YvzYy8YzA5CnQ/qCacPGp5byyp4Ys?=
+ =?us-ascii?Q?SJUij/WYWXLW5y11KfhQqu8/NmH7OFwVXbmT/3XFw+ocu5jOlNt0l7Qp1bWo?=
+ =?us-ascii?Q?KnzW3wYgeH+Gz5ysYNU8jN2Lg+V2JPaqyGpAz4GXlCq1wsS3zOC9SWzIKYdx?=
+ =?us-ascii?Q?MYWh/uU0171pG5G84QG8Rm0kMjSyCfM9tnRcpks+ljMOFev0o+pir7ipq9Jo?=
+ =?us-ascii?Q?SpaSwkH7DBjgGJRVthpWrcZzVhyiFZwtulgPR/KVFSxg4GUaWNBa43FtIer8?=
+ =?us-ascii?Q?BTfwvUgq77M55zZfG5MHk1JxwhEF7+IxGwHUgANE?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74a8de6a-96cf-4b8e-0636-08de1dc7c79b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2025 06:35:01.7082
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95e25270-412a-406c-53e8-08de1dcae0f1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2025 06:57:12.7389
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pply18v/0iNBMBBLLLVrCpOTD0LSB4aUI1G5zqcS1b4ZgN6pFywQuHkAU0ce+Kpc+gIYSLhtjQhn7FDa6L1vSjFDiPpazbbQLLeYWsmwV0s=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5860
+X-MS-Exchange-CrossTenant-userprincipalname: iTDL1GlETVcgXutpFJQ1art+81iGyZqefeik5hllLT15e34e44W5ojOHsRIXAEMIkLeWoiN4kgEaFloZkrlQkw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_223509_573892_B7590D64 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20251106_225723_055536_1E01FCE7 
+X-CRM114-Status: GOOD (  33.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,52 +170,614 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYyMSAyLzRdIGR0LWJpbmRpbmdzOiBpMmM6IGFzdDI2MDAt
-aTJjLnlhbWw6IEFkZCBnbG9iYWwtcmVncw0KPiBhbmQgdHJhbnNmZXItbW9kZSBwcm9wZXJ0aWVz
-DQo+IA0KPiBPbiAzMC8xMC8yMDI1IDAyOjQ4LCBSeWFuIENoZW4gd3JvdGU6DQo+ID4+IFN1Ympl
-Y3Q6IFJlOiBbUEFUQ0ggdjIxIDIvNF0gZHQtYmluZGluZ3M6IGkyYzogYXN0MjYwMC1pMmMueWFt
-bDogQWRkDQo+ID4+IGdsb2JhbC1yZWdzIGFuZCB0cmFuc2Zlci1tb2RlIHByb3BlcnRpZXMNCj4g
-Pj4NCj4gPj4gT24gMjkvMTAvMjAyNSAxMDoyNSwgUnlhbiBDaGVuIHdyb3RlOg0KPiA+Pj4+IFN1
-YmplY3Q6IFJlOiBbUEFUQ0ggdjIxIDIvNF0gZHQtYmluZGluZ3M6IGkyYzogYXN0MjYwMC1pMmMu
-eWFtbDoNCj4gPj4+PiBBZGQgZ2xvYmFsLXJlZ3MgYW5kIHRyYW5zZmVyLW1vZGUgcHJvcGVydGll
-cw0KPiA+Pj4+DQo+ID4+Pj4gT24gMjcvMTAvMjAyNSAwNzoxMiwgUnlhbiBDaGVuIHdyb3RlOg0K
-PiA+Pj4+PiBUaGUgQVNUMjYwMCBJMkMgY29udHJvbGxlciBzdXBwb3J0cyB0aHJlZSB0cmFuc2Zl
-ciBtb2RlczogYnl0ZSwNCj4gPj4+Pj4gYnVmZmVyLCBhbmQgRE1BLiBUbyBhbGxvdyBib2FyZCBk
-ZXNpZ25lcnMgYW5kIGZpcm13YXJlIHRvDQo+ID4+Pj4+IGV4cGxpY2l0bHkgc2VsZWN0IHRoZSBw
-cmVmZXJyZWQgdHJhbnNmZXIgbW9kZSBmb3IgZWFjaCBjb250cm9sbGVyDQo+IGluc3RhbmNlLg0K
-PiA+Pj4+PiAiYXNwZWVkLHRyYW5zZmVyLW1vZGUiIHRvIGFsbG93IGRldmljZSB0cmVlIHRvIHNw
-ZWNpZnkgdGhlIGRlc2lyZWQNCj4gPj4+Pj4gdHJhbnNmZXIgbWV0aG9kIHVzZWQgYnkgZWFjaCBJ
-MkMgY29udHJvbGxlciBpbnN0YW5jZS4NCj4gPj4+Pj4NCj4gPj4+Pj4gQW5kIEFTVDI2MDAgaTJj
-IGNvbnRyb2xsZXIgaGF2ZSB0d28gcmVnaXN0ZXIgbW9kZSwgb25lIGlzIGxlZ2FjeQ0KPiA+Pj4+
-PiByZWdpc3RlciBsYXlvdXQgd2hpY2ggaXMgbWl4IGNvbnRyb2xsZXIvdGFyZ2V0IHJlZ2lzdGVy
-IGNvbnRyb2wNCj4gPj4+Pj4gdG9nZXRoZXIsIGFub3RoZXIgaXMgbmV3IG1vZGUgd2hpY2ggaXMg
-c2VwYXJhdGUgY29udHJvbGxlci90YXJnZXQNCj4gPj4+Pj4gcmVnaXN0ZXIgY29udHJvbC4NCj4g
-Pj4+Pj4NCj4gPj4+Pg0KPiA+Pj4+IFRoaXMgaW1wbGllcyB5b3VyICJyZWciIHByb3BlcnRpZXMg
-aGF2ZSBub3cgY29tcGxldGVseSBkaWZmZXJlbnQNCj4gPj4+PiBtZWFuaW5nIGFuZCB0aGlzIHdv
-dWxkIGJlIHF1aXRlIGFuIEFCSSBicmVhay4gV2UgZGlzY3Vzc2VkIHRoaXMNCj4gPj4+PiBwcm9i
-YWJseQ0KPiA+PiAxNSByZXZpc2lvbnMgYWdvLg0KPiA+Pj4+IFdoZXJlIGRpZCB5b3UgZG9jdW1l
-bnQgdGhlIHJlc29sdXRpb24gb2YgdGhhdCBkaXNjdXNzaW9uPw0KPiA+Pj4NCj4gPj4+IExldCBt
-ZSBleHBsYWluIG1vcmUgYWJvdXQgInJlZyINCj4gPj4+IFRoZSAncmVnJyBwcm9wZXJ0eSBjb250
-aW51ZXMgdG8gZGVzY3JpYmUgdGhlIHNhbWUgcmVnaXN0ZXIgcmVnaW9ucw0KPiA+Pj4gKGJ1cyBh
-bmQgYnVmZmVyKSBhcyBpbiB0aGUgbGVnYWN5IGxheW91dC4gVGhlIHNlbGVjdGlvbiBiZXR3ZWVu
-IHRoZQ0KPiA+Pj4gbGVnYWN5IGFuZCBuZXcgcmVnaXN0ZXIgbGF5b3V0IGlzIGNvbnRyb2xsZWQg
-YnkgYSBiaXQgaW4gdGhlDQo+ID4+PiBTb0MtbGV2ZWwgZ2xvYmFsIHJlZ2lzdGVyIGJsb2NrLCBy
-ZWZlcmVuY2VkIHRocm91Z2ggdGhlIG5ldw0KPiAnYXNwZWVkLGdsb2JhbC1yZWdzJw0KPiA+PiBw
-cm9wZXJ0eS4NCj4gPj4+IFRoZXJlZm9yZSwgdGhlIG1lYW5pbmcgb2YgdGhlICdyZWcnIHByb3Bl
-cnR5IGRvZXMgbm90IGNoYW5nZSBhbmQgbm8NCj4gPj4+IERUIEFCSSBicmVhayBvY2N1cnMuDQo+
-ID4+Pg0KPiA+Pj4gU2hvdWxkIEkgYWRkIGl0IGluIGNvbW1pdCBtZXNzYWdlIGFib3V0ICJyZWci
-ID8NCj4gPj4NCj4gPj4gVGhlbiB3aHkgZG9lcyB0aGUgYWRkcmVzcyBjaGFuZ2UgZnJvbSAweDQw
-IHRvIDB4ODAuIElmIGl0IGlzIHRoZQ0KPiA+PiBzYW1lLCBpdCBjYW5ub3QgY2hhbmdlLg0KPiA+
-Pg0KPiA+PiBZb3UgYXJlIGRlc2NyaWJpbmcgdGhlIElPIGFkZHJlc3Mgc3BhY2UsIHRvdGFsIGFk
-ZHJlc3Mgc3BhY2UsIGFzDQo+ID4+IGRlZmluZWQgYnkgZGF0YXNoZWV0LiBOb3Qgd2hhdGV2ZXIg
-aXMgaW4gdGhlIGRyaXZlci4NCj4gPg0KPiA+IFRoYW5rcyBmb3IgcG9pbnRpbmcgdGhhdCBvdXQu
-DQo+ID4NCj4gPiBCdXQgdG8gY2xhcmlmeTogdGhlIGFkZHJlc3MgY2hhbmdlIGZyb20gMHg0MCB0
-byAweDgwIGluIHRoZSBleGFtcGxlIGlzDQo+ID4gbm90IGFyYml0cmFyeS4gSXQgY29tZXMgZGly
-ZWN0bHkgZnJvbSB0aGUgQVNUMjYwMCBTb0MgZGF0YXNoZWV0LCB3aGVyZQ0KPiA+IHRoZQ0KPiAN
-Cj4gSG93IHNvPyBCaW5kaW5nIGhhcyBhbiBleGFtcGxlIGZvciBhc3QyNjAwIHdpdGggYWRkcmVz
-cyAweDQwLiBZb3Ugbm93IGNsYWltDQo+IHRoZSBjaGFuZ2UgaXMgdG8gYWRqdXN0IHRvIGFzdDI2
-MDAuIEJ1dCBpdCBpcyBBTFJFQURZIGFzdDI2MDAhDQo+IA0KVW5kZXJzdG9vZCwgSSB3aWxsIGtl
-ZXAgdGhlIGFkZHJlc3MuDQoNCkFuZCBJIGNhbiBmaXggaW4gcHJldmlvdXMgc3BsaXQgYXN0MjYw
-MC1pMmMueWFtbCBwYXRjaC4gYW0gSSByaWdodD8NCg0KPiANCj4gQmVzdCByZWdhcmRzLA0KPiBL
-cnp5c3p0b2YNCg==
+>> On 25-10-27, Pankaj Gupta wrote:
+>>> On 25-09-27, Pankaj Gupta wrote:
+>> > >> Highlight:
+>> > >>
+>> > >> There are long discussion at V18 with Marco Felsch.
+>> > >> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%
+>> > >> 2Fl
+>> > >>
+>> ore.kernel.org%2Fimx%2FAM9PR04MB8604F5A7DD8B1E41FDAD09039501
+>> A%40AM9
+>> > >>
+>> PR04MB&data=3D05%7C02%7Cpankaj.gupta%40nxp.com%7C853f73b919714
+>> 8e3c4ea
+>> > >>
+>> 08de1b0c6148%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6
+>> 38977937
+>> > >>
+>> 182676166%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUs
+>> IlYiOiIwL
+>> > >>
+>> jAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0
+>> %7C%
+>> > >>
+>> 7C%7C&sdata=3D2LXQbwdgb4Sb3PaYMUhn3gmSaJZW3%2FNXAJOX6d%2Fh%
+>> 2BwI%3D&re
+>> > >> served=3D0
+>> > >> 8604.eurprd04.prod.outlook.com/
+>> > >>
+>> > >> The key point is about using OP-TEE OS.
+>> > >>
+>> > >> Marco's questions:
+>> > >> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>> > >> Q1. Both MU(s) from each world - Secure & Non-secure, cannot be use=
+d
+>> > >>     simultaneously. Why?
+>> > >> A1. ELE FW fix is available, where concurrent access to ELE from bo=
+th the
+>> > >>     world is working. This fix is not required for the current patc=
+h-set for
+>> > >>     i.MX8ULP.
+>> > > According
+>> > > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2
+>> > > Fgi
+>> > > thub.com%2FOP-
+>> TEE%2Foptee_os%2Fpull%2F7268%2Fcommits%2F83b516edc0270
+>> > >
+>> ca8300ce524a0c3d560e67a0f48%23r1955899462&data=3D05%7C02%7Cpan
+>> kaj.gupt
+>> > >
+>> a%40nxp.com%7C853f73b9197148e3c4ea08de1b0c6148%7C686ea1d3bc2
+>> b4c6fa92
+>> > >
+>> cd99c5c301635%7C0%7C0%7C638977937182705340%7CUnknown%7CT
+>> WFpbGZsb3d8e
+>> > >
+>> yJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj
+>> oiT
+>> > >
+> WFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3Dk30VGVc%2BEYsHw3
+> QOABgFZw6
+> > > v%2F5oSZx7%2FekHCDaZjbH8%3D&reserved=3D0
+> > > there is no fix yet. Can you please point me to the fixed version?
+> >
+> > It is not yet up-streamed to OPTEE-OS repo.
+>=20
+> My intention of adding the above OP-TEE discussion link was to point=20
+> out that an ELE-FW bug exists which needs to be fixed.
+>=20
+> > Fix version is part of NXP LF Q3 released on 30 September.
+> > Commit can be found on this URL:
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fgith
+> u
+> b.com%2Fnxp-imx%2Fimx-optee-os%2Fcommits%2Flf-
+> 6.12.34_2.1.0%2F&data=3D05%7C02%7Cpankaj.gupta%40nxp.com%7C853f7
+> 3b9197148e3c4ea08de1b0c6148%7C686ea1d3bc2b4c6fa92cd99c5c30163
+> 5%7C0%7C0%7C638977937182721931%7CUnknown%7CTWFpbGZsb3d8e
+> yJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj
+> oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DU6Rh%2Be1CTBdJ
+> PGGyfm5hF4mqylkBcSQp6KNzE9cL%2FUo%3D&reserved=3D0.
+>=20
+> I assume you meant the following commit:
+>  -
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fgith
+> u
+> b.com%2Fnxp-imx%2Fimx-optee-
+> os%2Fcommit%2F039f15017cea38c401f908e0e1662ba8806ed4e3&data=3D0
+> 5%7C02%7Cpankaj.gupta%40nxp.com%7C853f73b9197148e3c4ea08de1b
+> 0c6148%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6389779
+> 37182737561%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydW
+> UsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D
+> %3D%7C0%7C%7C%7C&sdata=3D5mxtHM9Fy0i94lRNn1itWJcTWU4Ca%2F0ZR
+> ZUDRTl9WxQ%3D&reserved=3D0
+>=20
+> This adapts the timeout value to 100ms and seems more like an workaround.
+>=20
+There are additional fixes in OPTEE-OS, that will be part of LF Q4'25.
+
+> However, can NXP confirm that the ELE concurrent access is possible=20
+> without a previous ELE FW update?
+
+Fix in the ELE FW, released as part of LF Q3 2025,  is a must to include. O=
+PTEE fixes are also needed.
+OPTEE fixes will be up-streamed soon.
+
+>=20
+> > One more fix is coming in LF Q4. After that, these patches will=20
+> > up-streamed to OP-TEE-OS.
+> >
+> > Then you will be able locate it in OPTEE-OS git repo.
+>=20
+> Thanks for the sharing the links :)
+>=20
+> > Since the current Patch-set is for i.MX8ULP, where concurrent access=20
+> > from both the world is not possible.
+>=20
+> > In context to i.MX93, for OPTEE-OS patches, request you to please=20
+> > discuss in OPTEE community. Not here.
+>=20
+> Sure, as said above, my intention was to point out that concurrent=20
+> access is not possible with the current ELE-FW. At least my knowledge=20
+> was that it was/is a ELE FW issue and not an OP-TEE issue.
+>=20
+> > > Also, can you please outline why the fix is not required for i.MX8ULP=
+?
+> > > Unfortunately I can't remember.
+> >
+> > There is no Trust-MU for OPTEE-OS in i.MX8ULP. The ELE driver in=20
+> > OPTEE, is disabled for i.MX8ULP.
+>=20
+> Hm.. I thought there will be always two communication MUs one for the=20
+> secure-world and one for the non-secure world? Or what did you mean by:
+>=20
+> """
+> From i.MX9x & onwards, SoC(s) has at least one dedicated ELE MU(s) for=20
+> each world - Linux(one or more) and OPTEE-OS (one or more).
+> """
+>=20
+> (ref.:https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%
+> 2Fl ore.kernel.org%2Fall%2FAM9PR04MB8604C05882605EDB4913DA089549A
+> %40AM9PR04MB8604.eurprd04.prod.outlook.com%2F&data=3D05%7C02%7
+> Cpankaj.gupta%40nxp.com%7C853f73b9197148e3c4ea08de1b0c6148%7C
+> 686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6389779371827527
+> 25%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLj
+> AuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%
+> 7C%7C%7C&sdata=3DPhXXih6UnalGUPveMZPaS2EVAd2SMR%2FyblcjyuHRUrw
+> %3D&reserved=3D0)
+>=20
+> Does this mean that all i.MX9x, i.MX10x and so on do have the the=20
+> secure and non-secure MU setup? Or is it based on the SoC release date?
+> Because regarding the datasheet the i.MX8ULP is newer than the i.MX93,=20
+> therefore I assumed that the i.MX8ULP has two MUs as well.
+
+From i.MX93 and onward, there is only one RoT. Hence , it is designed to ha=
+ve dedicated MU for each world.
+
+>=20
+> I checked the the NXP OP-TEE source code and found the following commit:
+>=20
+> 8<----------------
+> commit 44388d37e68000ee50a9b1d656e0a60ae6614977
+> Author: Sahil Malhotra <sahil.malhotra@nxp.com>
+> Date:   Tue Apr 1 20:04:44 2025 +0200
+>=20
+>     core: imx: disable ELE on i.MX8ULP by default
+>=20
+>     On i.MX8ULP, there is only one MU to communicate with ELE,
+>     which cannot be dedicated on OP-TEE side all the time.
+>     There may be ELE services running on Linux side, which can
+>     cause conflict with OP-TEE, So disabling ELE by default.
+>     Moreover i.MX8ULP also has CAAM, so HUK and Random number
+>     are coming from CAAM.
+>=20
+>     Signed-off-by: Sahil Malhotra <sahil.malhotra@nxp.com>
+>     Acked-by: Jens Wiklander <jens.wiklander@linaro.org>
+> 8<----------------
+>=20
+> So it's possible to configure the XRDC (configured in the TF-A) in a=20
+> way to map the ELE access to the secure world. If I got the TF-A and OP-T=
+EE commits right.
+>=20
+> To me this sound more like a NXP design decision to move the ELE to=20
+> the non- secure and the CAAM to the secure world.
+>=20
+As per the i.MX8ULP boot-up sequence and ELE's initial role in boot-up, wit=
+h CAAM co-exists, ELE is logical to be with Linux.
+Another point here that CAAM has 4 JR(s) and hence CAAM can be shared betwe=
+en Linux and OPTEE-OS.
+
+> > Moreover, there is CAAM in i.MX8ULP, which is used for security=20
+> > services, in OPTEE-OS.
+>=20
+> i.MX8ULP is getting really interesting, though.
+>=20
+> May I ask what RoT is used by this SoC if there are two?
+>=20
+ELE is Root of Trust during secure boot.
+For OPTEE-OS, CAAM is RoT.
+
+>=20
+> > >> Q2. How is the secure and non-secure world talk to the ELE if there =
+is only
+> > >>     one MU?
+> > >> A2. From i.MX9x & onwards, SoC(s) has at least one dedicated ELE=20
+> > >> MU(s)
+> for
+> > >>     each world - Linux(one or more) and OP-TEE OS (one or more).=20
+> > >> Has
+> updated
+> > >>     the commit message of 3/7.
+> >
+> > > Does apply to the i.MX8ULP SoC as well?
+> >
+> > No. Since there is no trust-MU for OPTEE-OS, on i.MX8ULP, to=20
+> > communicate with ELE.
+>=20
+> As said above it would be possible to move the ELE communication to=20
+> the secure world.
+>=20
+> > > The NXP name scheme isn't very easy to follow.
+> >
+> > >> Q3. How exactly do the eFuse write access after the device was=20
+> > >> locked
+> down,
+> > >>     will be provided with single path; for the following case?
+> > >>     - For a verified boot setup, you need to burn an eFuse at some p=
+oint,
+> > >>     to tell the bootROM to boot only correct verified firmware image=
+s.
+> > >>     - After this lockdown, it's no longer possible to burn eFuses fr=
+om the
+> > >>     REE, while the production line setup still requires the support.
+> > >> A3. OP-TEE OS supports read fuses, currently as part of our=20
+> > >> quarterly
+> release.
+> > >>     Write fuse will be in coming release. Please note that the curre=
+nt patch-
+> > >>     set does not contain any read/write eFuse feature.
+> >
+> > > But one of your patches is mention it, right? So there will be=20
+> > > still two paths.
+> > Due to lack of trusted-mu, there is no way to read/write fuse on=20
+> > i.MX8ULP,
+> from OPTEE-OS.
+> > For current patch-set, it is the single path.
+>=20
+> How does the i.MX8ULP fuse flow work, after the LOCK_DOWN fuse is blown?
+There is no such issue on i.MX8ULP
+>=20
+> This was one of my main concers why having OP-TEE required in the=20
+> first place, because the i.MX93 requires the that the fuse-request=20
+> comes from the secure-world if the device is in LOCK_DOWN state.
+>=20
+> Is this also the case for the i.MX8ULP?
+>=20
+
+No, this is not a valid case for i.MX8ULP.
+
+> > > Also according your IOCTL docuementation you want to expose the=20
+> > > whole device to the user-space?
+> >
+> > > | What:          /dev/<se>_mu[0-9]+_ch[0-9]+
+> > > | Date:          Mar 2025
+> > > | KernelVersion: 6.8
+> > > | Contact:       linux-imx@nxp.com, pankaj.gupta@nxp.com
+> > > | Description:
+> > > |                NXP offers multiple hardware IP(s) for secure=20
+> > > | enclaves like
+> EdgeLock-
+> > > |                Enclave(ELE), SECO. The character device file descri=
+ptors
+> > > |                /dev/<se>_mu*_ch* are the interface between=20
+> > > | userspace NXP's
+> secure-
+> > > |                enclave shared library and the kernel driver.
+> > > |
+> > > |                The ioctl(2)-based ABI is defined and documented in
+> > > |                [include]<linux/firmware/imx/ele_mu_ioctl.h>.
+> > > |                ioctl(s) are used primarily for:
+> > > |                        - shared memory management
+> > > |                        - allocation of I/O buffers
+> > > |                        - getting mu info
+> > > |                        - setting a dev-ctx as receiver to=20
+> > > | receive all the commands
+> from FW
+> > > |                        - getting SoC info
+> > > |                        - send command and receive command=20
+> > > | response
+> >                                 ^
+> > > This is a rather uncommon approach. The kernel has interfaces to=20
+> > > abstract hardware. You completely bypass this if you expose=20
+> > > everything to the userspace.
+> >
+> > It is in-correct.
+> > Not everything, just exposed file-operation. and ioctl(s) for=20
+> > DMA(eable)
+> buffer allocation from reserved lower memory region.
+> > Things managed by Kernel:
+> > * Send/receive path to ELE, is managed by Kernel.
+> > * Receive/send patch to the ELE's slave NVM-manager, is managed by kern=
+el.
+> > * Low power management handled by kernel driver. In case of=20
+> > low-power
+> state, ELE driver re-init the V2X IP as part of resume.
+> > * Other kernel management layers like NVMEM, kernel HWRNG, will use=20
+> > the
+> api(s) exposed by this driver.
+>=20
+> But you also expose an uAPI which allows the user to bypass everything=20
+> via sending arbitrary commands, right?
+
+Yes. But it's not unusual at all. The pattern of userspace sending commands=
+ directly to the kernel, is quite common
+>=20
+> > * Loading the runtime FW.
+> > >
+> > >> Q4. What is the ELE behavior if the secure-world stresses the ELE? I=
+s there
+> > >>     a MU priority so the normal-world MU may get blocked (never
+> addressed)
+> > >>     or are both MUs scheduled in round-robin?
+> > >> A4. ELE will pick the message from Both MU(s), based on FIFO.
+> >
+> > > This doesn't answer my question. How gets the FIFO filled? If the=20
+> > > one of both worlds aways keep the MU busy?
+> >
+> > If both the world is keeping the MU busy. ELE will pick the first=20
+> > incoming message, let's say on MU#1, While acknowledge and queueing=20
+> > the incoming message on the other MU#2, to be picked once the=20
+> > handling of the current message at hand is completed. Despite the=20
+> > MU#1, is bombarded With next message, but it will process the=20
+> > message from MU#2,
+> while acking the incoming message from MU#1. And add it to its queue.=20
+> This way FIFO is maintained by ELE.
+>=20
+> :) Thanks for the explanation.
+>=20
+> > >> Q5. Why ELE performance matters?
+> > >>     - On i.MX8M, which uses the CAAM (the ELE predecessor), It can b=
+e
+> > >>     verified that the ARMv8 CE are much faster than the=20
+> > >> crypto-engine
+> itself.
+> > >>     Therefore the CAAM is mostly unused.
+> > >> A5. User looks for both type of implementation based on their usecas=
+e:
+> > >>     - Certain users still offload to CAAM, to save their ARM CPU cyc=
+les for
+> > >>     other priority tasks.
+> >
+> > > I have never seen such designs but okay.
+> > I assure you, there are several such cases with our system-engineering =
+team.
+> >
+> > >>     - While certain customer choose ARM-CE for the crypto=20
+> > >> offloads for
+> better
+> > >>     performance.
+> > >>     As far as ELE is concerned, it is not a crypto accelerator like =
+CAAM.
+> > >>     Performance hungry crypto-ops are not recommended to be=20
+> > >> offloaded
+> to ELE.
+> >
+> > > I don't get this point. So NXP doesn't recommend to use the ELE=20
+> > > for crypt-ops?
+> > NXP does not recommend to offload the Crypto-Op to ELE, for=20
+> > performance
+> cases.
+>=20
+> Good to know, thanks.
+>=20
+> > >> Q6. For the IOT-cases where real-time encrypted feed from=20
+> > >> sensors, will
+> take
+> > >>     latency hit, Does the ELE support inline en-/decryption?
+> > >> A6. Yes, ELE support Inline Encryption Engine (IEE), starting=20
+> > >> i.MX95
+> onwards.
+> >
+> > > May I ask, how is this connected and which interfaces are=20
+> > > connected to the IEE? I would have checked it by myself but=20
+> > > unfortunately NXP doesn't provide a TRM for the i.MX95 yet.
+> > We can discuss this in greater depth on one-one email, where I will=20
+> > touch
+> upon the IEE and its interfaces.
+> > But, like to inform that there is not IEE on i.MX8ULP or even on i.Mx93=
+.
+>=20
+> Sure, thanks.
+>=20
+> > >> Marco's Suggestions/NXP response:
+> > >> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > >> S1. Below listed ELE access requirements, can be done from OP-TEE=20
+> > >> OS in
+> all
+> > >>     the Life-Cycle states. then Why to use Linux?
+> > >>     - eFuse access (done via  OP-TEE OS i.MX specific PTA): OTP=20
+> > >> eFuse R/W
+> access
+> > >>     after doing the LOCK_DOWN fuse is no longer possible without =20
+> > >> OP-TEE
+> OS. This
+> > >>     involves general purpose (GP) eFuses too.
+> > >>     - ELE ping every 1 day (kernel SMC WDG driver, OP-TEE OS wd driv=
+er).
+> > >>     - HW-RNG (kernel HWRNG driver + OP-TEE OS HWRNG PTA).
+> > >> R1. There are i.MX9* users, that are not using OP-TEE OS, but still =
+want
+> > >>     to use ELE features from Linux. So, these users are requesting f=
+or this
+> > >>     driver in Linux.
+> >
+> > > Which ELE features?
+> > All the features from Linux, when OPTEE-OS is not present like:
+> > * Read/write efuses. (eg NVMEM Kernel driver). Where there is no
+> requirement to chenge the eFuse, during SoC in provision lifecycle.
+>=20
+> Some features require the device to be in LOCK_DOWN mode, which=20
+> requires secure-world eFuse write path only afterwards. But it seems=20
+> like NXP really wants to maintain two write paths.
+>=20
+> > * Low power management at Linux driver.
+>=20
+> The power-modes are selected via the ELE?
+
+Voltage regulation for i.MX93 in Linux kernel, is done by ELE.
+During Linux suspend-resume, Secure-enclave (V2X on i.MX95) part of wake-up=
+ domain, will be managed by secure-enclaves(ELE) part of always-on domain.
+>=20
+> > * Linux HWRNG.
+> > * Loading the secondary runtime fw.
+>=20
+> What is a secondary runtime-fw?
+ELE FW size is larger than the size of ELE internal secure memory.
+Hence FW is split into two.
+
+Primary FW, is the FW, that enables features that helps for SoC boot-up.
+Secondary runtime FW, is the FW, that enables features like HSM.
+
+>=20
+> > >>     As suggested by you, writing to eFuse after life-cycle closed st=
+ate, the
+> > >>     driver in OP-TEE OS is needed.
+> > >>     Though there are other OP-TEE OS features too, that needs to=20
+> > >> be
+> offloaded
+> > >>     to HSM, for security reasons, like:
+> > >>     - Hardware Unique Key(HUK) getting generated.
+> > >>     - OP-TEE OS's ASLR seed generation.
+> >
+> > > We're talking about features the normal world wants to have access=20
+> > > too, since you said ".. but still want to use ELE feature from=20
+> > > Linux ..". The HUK and the TEE ASLR seed is clearly not something=20
+> > > Linux wants to have access too.
+> > You misunderstood my point. I was stressing that there is a need for=20
+> > two paths, each from Linux and OPTEE-OS, in order to expose=20
+> > different feature-set required by respective worlds, where 1 or 2=20
+> > overlaps, while maximum are utilized by respective worlds.
+> >
+> > >> S2. Having one implementation is beneficial in the following ways:
+> > >>     - Multiple paths also requires more maintain- and testing effort=
+.
+> > >>     - FW files with having +1 FW for the new i.MX9*, where there are=
+ plenty
+> > >>       already eg.: bootloader, TF-A, ele-fw, scu-fw (i.MX95), increa=
+ses the
+> > >>       maintenance on both the paths.
+> > >>     - TEE code could be reused by other OSes.
+> > >>     - TEE is used anyway for new projects due to CRA and friends=20
+> > >> R2. As conveyed in R1, there are Linux only users, that are=20
+> > >> dependent on
+> SE
+> > >>     Linux kernel driver.
+> >
+> > > What difference does it make if these Linux-only users get the ELE=20
+> > > access via OP-TEE? It's just one binary more.
+> > If the User does not choose to include optional OPTEE-OS, then ELE=20
+> > access must be from Linux driver.
+>=20
+> Okay, I think we're going in circles here.
+>=20
+> > >> S3. Having one implementation is beneficial in the following ways:
+> > >>     - Adding the support for it to  OP-TEE OS do not requires ELE-FW=
+.
+> >
+> > > I never said that this requires no ELE FW! I said it requires no=20
+> > > ELE-FW update! Was the update already rolled out?
+> > Yes, the updated FW is already release part of LF Q3 released on=20
+> > September
+> 30, 2025.
+> > It is not released as part any open repo.
+>=20
+> So there is no ELE-FW update required to have both worlds running=20
+> concurrently.
+
+As mentioned below "But not for i.MX8ULP", concurrent access case is not a =
+valid case for i.MX8ULP & current patch-set.
+
+>=20
+> > >>     - Concurrent access handling is done by the TEE core.
+> > >> R3. As already mentioned that ELE FW fix is available, for=20
+> > >> concurrent
+> access.
+> > >>     Please note that FW fix is not required for the current patch-se=
+t.
+> >
+> > > Can you provide us a link to the fix please? The fix should fix=20
+> > > the concurrent normal-world <-> secure-world MU access issue. Why=20
+> > > is this fix not required if I have a running OP-TEE?
+> > The fix is very much required to run concurrent access for i.XM93=20
+> > and
+> onwards.
+> > But not for i.MX8ULP and current patch-set is based on i.MX8ULP.
+>=20
+> I see, the i.MX8ULP has only on MU. As said above my assumption was=20
+> that all ELE SoCs do have at least 2-MUs."
+
+As mentioned above "But not for i.MX8ULP", concurrent access case is not a =
+valid case for 8ULP & current patch-set.
+
+>=20
+> > >> S4. This series causes more confusions till the ELE FW fix is availa=
+ble to
+> > >>     allow concurrent access to ELE from both the worlds.
+> > >> R4. FW fix is already available, and concurrent access is enabled by=
+ default
+> > >>     in LF Q3'25, release. Please note that FW fix is not required fo=
+r the
+> > >>     current patch-set.
+> >
+> > > Please provide a link to the new FW and why is the fix nor=20
+> > > required for this patchset?
+> > Again. The fix is very much required to run concurrent access for=20
+> > i.XM93 and
+> onwards.
+> > But not for i.MX8ULP and current patch-set is based on i.MX8ULP.
+>=20
+> My bad, as said: my assumption was that all ELE SoCs do have at least=20
+> two MUs.
+>=20
+> > >> S5. Suggesting to add the  OP-TEE OS support for the required=20
+> > >> features
+> e.g. eFuses,
+> > >>     watchdog, HWRNG. The whole Linux part is mostly in place.
+> > >> R5. Yes, the secure world features like eFuse read/write will be add=
+ed
+> > >>     to OP-TEE OS. Please note that this patch-set does not=20
+> > >> contain any
+> read/write
+> > >>     eFuse feature.
+> >
+> > > I see, instead it expose the whole ELE to the userspace if I got=20
+> > > it correct according to your IOCTL documentation. This would be even =
+worse.
+> > No, it is not a correct interpretation. As mentioned above, ELE=20
+> > driver abstract all the hw interaction to have easy and simple file bas=
+es operations.
+>=20
+> But still, the user can send arbitrary commands to the ELE right?
+>=20
+> To conclude this longly discussion:
+>=20
+> My main concern was the concurrent access for the 2-MUs cases. This=20
+> can be closed, as it turns out NXP fixed/workarounded this by=20
+> increasing the ELE communication timeout to 100ms.
+>=20
+This will be not only the fix. There are other fixes like atomic write to t=
+rusted-MU.
+Let's discuss in OPTEE-forum.
+
+> I still have mixed feeling about the fusing (including the 1-MU case),=20
+> since it requires a secure-world OS in place once the LOCK_DOWN fuse was =
+burned.
+> It's fine by me if NXP wants to have and wants to maintain a multi-path h=
+ere.
+>=20
+Write fuse API will be added, to allow writing fuses from secure world too.
+
+> Last but least, the uAPI which can be used to send arbitrary ELE=20
+> commands seems unusual. But I don't know how secure-enclaves are=20
+> abstracted within the kernel, so these are just my two cents.
+
+it's not unusual at all. The pattern of userspace sending commands directly=
+ to the kernel via a queue is quite common like:
+GPUs: As you mentioned, userspace drivers (like those in Vulkan or CUDA) of=
+ten build command buffers and submit them directly to the kernel or hardwar=
+e.
+Secure Enclaves: In systems like Intel SGX or AMD SEV, userspace applicatio=
+ns interact with enclaves via ioctl or mmap interfaces, often sending struc=
+tured commands or messages.
+
+The uAPI (userspace API) for sending ELE (Enclave Lifecycle Engine?) comman=
+ds likely follows this same model - abstracting the enclave as a device or =
+subsystem and exposing a command queue or ioctl interface for userspace to =
+interact with it.
+
+>=20
+> I'm looking forward to the maintainers feedback.
+>=20
+> Regards,
+> Marco
+>=20
+>=20
+>>
+>>> Regards,
+>>> Marco
+>>
+> > Regards,
+>> Pankaj
 
