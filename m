@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32578CCF9F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD82CCFA1A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGxFwvQh6cQqmUKbcTm9erkBzLMvZYPymyCYu1i34tc=; b=Rsaa+NqEH8cB2+yChlS5oysnMg
-	aJpdV+xASYUEolSNGX+5NuChAJtiFeazGjwC3XqAKeNJEUdp0VGIR/kTALYnUlo2vvAZsAeIAWpno
-	seKTAe+Hipj0vlpxWMY+vvTywIapo7DNkDITLVpXd8qMNjOGLny7EtpgI/1pEfRcFWlT5LlwCFQNE
-	4H5X58tnqpjDCyfVArGoeaunBhkpeiPJ2pwFyc8sKJkF5zkxFToJDThNi0NBN1MCJNd1vlhRW6kH/
-	lgDZoH+rSLOSzBUB5xYxUEtxFCDmjuFTPRqaJdzEmQdWueEowXwTK8NmMszHxEbQih6PXFmSQhk24
-	6I850ctw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iJrNgA5TV91ITBEH7GvjPKMngymqgCXqueR7HZoiXy4=; b=cLoPaZHOTpf07J
+	gCwNz3jDU/9SRW1x2VYfMw0MpqQu1Q+L+rydvLYp/vd7gInH3YHyT79vYZ5mccfOgD40G2zVnXH5G
+	ZDS66oY4vgaUK5Wc3W9MYBU8bzOEkXMuz44F85+f1FyRW9hjWE9q5F3+SGIeLEuQrqpsiUF+pdE/o
+	aGc3uXJJM/oOCvYu782qEn8MAdmkBV+V1FNtKFbEavC/ZG3ai8lmyEbZjQblV2Q1MfQ1MnajKCJ6L
+	8G0JeZf1OC7rram+13kNRQI0AN7Ddy14/m15U9BD2KPXzBpAPPB6BRZK2dJMAoFsRisun1HHSwl+0
+	g+U1U/oAONLfgbWG7qUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJnz-0000000H6xz-0k0L;
+	id 1vHJnz-0000000H6yH-24vt;
 	Fri, 07 Nov 2025 10:34:55 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJnx-0000000H6xK-0LLo
+	id 1vHJnx-0000000H6xJ-0GGC
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 07 Nov 2025 10:34:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=JGxFwvQh6cQqmUKbcTm9erkBzLMvZYPymyCYu1i34tc=; b=CbomcIADzvKt2Yi8hceDtkhmQv
-	tFI+Zc5UzoyQdK2yod/c0oQTTn+yy0OlpgtdRKOSp/UWloYJ512P+SIhPkw061qNLQ+9Zh62jwUBm
-	NcoDX4saQliRAcJuX/OYeG0K/zt7mfUwIbof1TABtKsZ82tPnVDIsEIewKBWZJlCPYICBvUjDKVwY
-	o+IvcLDbLX6tTu6b4Hgdg20I9DnAPahOywXatsaBV3f4a3/a3DxzA2CsyTuBzolHKckXV3SPedZM8
-	jV2IcrGW9jilfv+T3E3/AtsbhHOzXs0rbkg4jidJ7+p0152UKKmqbhQ6rwEgRAJlhgVe3fE4oHtV+
-	gmzHCjOQ==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=iJrNgA5TV91ITBEH7GvjPKMngymqgCXqueR7HZoiXy4=; b=jIajsTLlNWy9hU9+iMHFRrcrkE
+	2EN+p4PthRtXlCrsdaNwql+rPvb0/GGscmeZlSBAy3fbItwAxzIwqz/ys6m/2bbUy0EHl2XlTZOTj
+	82CeCdf7XfYxl8XmOqmVQQ7HD5EtLN/DkklyP6MlY0+b+vKnAmU61RS0MyjNIxEzPY5J7SH8tGGSg
+	spBFZebpdzi1bPpdeftk4al3nFNQDWQCdaqdqCtcUc+Un0EAjO3UzohNR9Kdn4cs6mwtI+mGTnTWo
+	hxlTSnQd5K7F0z3//kZTfAQY/bRcdXRhgs3YireUu1T8OA9K9wjnpYb+9n70spDRMDfcZu9+ILmaZ
+	k6/e1n2w==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIwB-00000006C6i-207I
+	id 1vHIwB-00000006C6k-1qt0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 09:39:22 +0000
+	Fri, 07 Nov 2025 09:39:21 +0000
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vHJnp-0007dI-07; Fri, 07 Nov 2025 11:34:45 +0100
+	id 1vHJno-0007dI-Uo; Fri, 07 Nov 2025 11:34:44 +0100
 From: Michael Tretter <m.tretter@pengutronix.de>
-Date: Fri, 07 Nov 2025 11:34:33 +0100
-Subject: [PATCH v2 1/2] media: staging: imx: request mbus_config in
- csi_start
+Subject: [PATCH v2 0/2] media: staging: imx: fix multiple video input
+Date: Fri, 07 Nov 2025 11:34:32 +0100
+Message-Id: <20251107-media-imx-fixes-v2-0-07d949964194@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-media-imx-fixes-v2-1-07d949964194@pengutronix.de>
-References: <20251107-media-imx-fixes-v2-0-07d949964194@pengutronix.de>
-In-Reply-To: <20251107-media-imx-fixes-v2-0-07d949964194@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIADjLDWkC/3WNwQ6DIBBEf8XsudsA0VB76n8YDwir7kEwYImN8
+ d9Lvff4ZvJmDkgUmRI8qwMiZU4cfAF1q8DOxk+E7AqDEqqRUjS4kGODvOw48k4JjaVRa6sHIxU
+ Ua410FUXq+sIzpy3Ez3WQ5S/9v5UlCmxbqh9DPTZ2sK+V/PTeYvC83x1Bf57nFzDIF6CzAAAA
+X-Change-ID: 20251105-media-imx-fixes-acef77c7ba12
 To: Steve Longerbeam <slongerbeam@gmail.com>, 
  Philipp Zabel <p.zabel@pengutronix.de>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -71,8 +72,8 @@ X-SA-Exim-Mail-From: m.tretter@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_093919_886879_A9FC0C00 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20251107_093919_855234_30ED2AF8 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,167 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Request the upstream mbus_config in csi_start, which starts the stream,
-instead of caching it in link_validate.
+If the IMX media pipeline is configured to receive multiple video
+inputs, the second input stream may be broken on start. This happens if
+the IMX CSI hardware has to be reconfigured for the second stream, while
+the first stream is already running.
 
-This allows to get rid of the mbus_cfg field in the struct csi_priv and
-avoids state in the driver.
+The IMX CSI driver configures the IMX CSI in the link_validate callback.
+The media pipeline is only validated on the first start. Thus, any later
+start of the media pipeline skips the validation and directly starts
+streaming. This may leave the hardware in an inconsistent state compared
+to the driver configuration. Moving the hardware configuration to the
+stream start to make sure that the hardware is configured correctly.
 
-Fixes: 4a34ec8e470c ("[media] media: imx: Add CSI subdev driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+Patch 1 removes the caching of the upstream mbus_config in
+csi_link_validate and explicitly request the mbus_config in csi_start,
+to get rid of this implicit dependency.
+
+Patch 2 actually moves the hardware register setting from
+csi_link_validate to csi_start to fix the skipped hardware
+reconfiguration.
+
+Signed-off-by: Michael Tretter <michael.tretter@pengutronix.de>
 ---
- drivers/staging/media/imx/imx-media-csi.c | 40 ++++++++++++++++++-------------
- 1 file changed, 24 insertions(+), 16 deletions(-)
+Changes in v2:
+- Document changed locking in commit message
+- Link to v1: https://lore.kernel.org/r/20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de
 
-diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-index fd7e37d803e7..55a7d8f38465 100644
---- a/drivers/staging/media/imx/imx-media-csi.c
-+++ b/drivers/staging/media/imx/imx-media-csi.c
-@@ -97,9 +97,6 @@ struct csi_priv {
- 	/* the mipi virtual channel number at link validate */
- 	int vc_num;
- 
--	/* media bus config of the upstream subdevice CSI is receiving from */
--	struct v4l2_mbus_config mbus_cfg;
--
- 	spinlock_t irqlock; /* protect eof_irq handler */
- 	struct timer_list eof_timeout_timer;
- 	int eof_irq;
-@@ -403,7 +400,8 @@ static void csi_idmac_unsetup_vb2_buf(struct csi_priv *priv,
- }
- 
- /* init the SMFC IDMAC channel */
--static int csi_idmac_setup_channel(struct csi_priv *priv)
-+static int csi_idmac_setup_channel(struct csi_priv *priv,
-+				   struct v4l2_mbus_config *mbus_cfg)
- {
- 	struct imx_media_video_dev *vdev = priv->vdev;
- 	const struct imx_media_pixfmt *incc;
-@@ -432,7 +430,7 @@ static int csi_idmac_setup_channel(struct csi_priv *priv)
- 	image.phys0 = phys[0];
- 	image.phys1 = phys[1];
- 
--	passthrough = requires_passthrough(&priv->mbus_cfg, infmt, incc);
-+	passthrough = requires_passthrough(mbus_cfg, infmt, incc);
- 	passthrough_cycles = 1;
- 
- 	/*
-@@ -572,11 +570,12 @@ static void csi_idmac_unsetup(struct csi_priv *priv,
- 	csi_idmac_unsetup_vb2_buf(priv, state);
- }
- 
--static int csi_idmac_setup(struct csi_priv *priv)
-+static int csi_idmac_setup(struct csi_priv *priv,
-+			   struct v4l2_mbus_config *mbus_cfg)
- {
- 	int ret;
- 
--	ret = csi_idmac_setup_channel(priv);
-+	ret = csi_idmac_setup_channel(priv, mbus_cfg);
- 	if (ret)
- 		return ret;
- 
-@@ -595,7 +594,8 @@ static int csi_idmac_setup(struct csi_priv *priv)
- 	return 0;
- }
- 
--static int csi_idmac_start(struct csi_priv *priv)
-+static int csi_idmac_start(struct csi_priv *priv,
-+			   struct v4l2_mbus_config *mbus_cfg)
- {
- 	struct imx_media_video_dev *vdev = priv->vdev;
- 	int ret;
-@@ -619,7 +619,7 @@ static int csi_idmac_start(struct csi_priv *priv)
- 	priv->last_eof = false;
- 	priv->nfb4eof = false;
- 
--	ret = csi_idmac_setup(priv);
-+	ret = csi_idmac_setup(priv, mbus_cfg);
- 	if (ret) {
- 		v4l2_err(&priv->sd, "csi_idmac_setup failed: %d\n", ret);
- 		goto out_free_dma_buf;
-@@ -701,7 +701,8 @@ static void csi_idmac_stop(struct csi_priv *priv)
- }
- 
- /* Update the CSI whole sensor and active windows */
--static int csi_setup(struct csi_priv *priv)
-+static int csi_setup(struct csi_priv *priv,
-+		     struct v4l2_mbus_config *mbus_cfg)
- {
- 	struct v4l2_mbus_framefmt *infmt, *outfmt;
- 	const struct imx_media_pixfmt *incc;
-@@ -719,7 +720,7 @@ static int csi_setup(struct csi_priv *priv)
- 	 * if cycles is set, we need to handle this over multiple cycles as
- 	 * generic/bayer data
- 	 */
--	if (is_parallel_bus(&priv->mbus_cfg) && incc->cycles) {
-+	if (is_parallel_bus(mbus_cfg) && incc->cycles) {
- 		if_fmt.width *= incc->cycles;
- 		crop.width *= incc->cycles;
- 	}
-@@ -730,7 +731,7 @@ static int csi_setup(struct csi_priv *priv)
- 			     priv->crop.width == 2 * priv->compose.width,
- 			     priv->crop.height == 2 * priv->compose.height);
- 
--	ipu_csi_init_interface(priv->csi, &priv->mbus_cfg, &if_fmt, outfmt);
-+	ipu_csi_init_interface(priv->csi, mbus_cfg, &if_fmt, outfmt);
- 
- 	ipu_csi_set_dest(priv->csi, priv->dest);
- 
-@@ -745,9 +746,17 @@ static int csi_setup(struct csi_priv *priv)
- 
- static int csi_start(struct csi_priv *priv)
- {
-+	struct v4l2_mbus_config mbus_cfg = { .type = 0 };
- 	struct v4l2_fract *input_fi, *output_fi;
- 	int ret;
- 
-+	ret = csi_get_upstream_mbus_config(priv, &mbus_cfg);
-+	if (ret) {
-+		v4l2_err(&priv->sd,
-+			 "failed to get upstream media bus configuration\n");
-+		return ret;
-+	}
-+
- 	input_fi = &priv->frame_interval[CSI_SINK_PAD];
- 	output_fi = &priv->frame_interval[priv->active_output_pad];
- 
-@@ -758,7 +767,7 @@ static int csi_start(struct csi_priv *priv)
- 		return ret;
- 
- 	/* Skip first few frames from a BT.656 source */
--	if (priv->mbus_cfg.type == V4L2_MBUS_BT656) {
-+	if (mbus_cfg.type == V4L2_MBUS_BT656) {
- 		u32 delay_usec, bad_frames = 20;
- 
- 		delay_usec = DIV_ROUND_UP_ULL((u64)USEC_PER_SEC *
-@@ -769,12 +778,12 @@ static int csi_start(struct csi_priv *priv)
- 	}
- 
- 	if (priv->dest == IPU_CSI_DEST_IDMAC) {
--		ret = csi_idmac_start(priv);
-+		ret = csi_idmac_start(priv, &mbus_cfg);
- 		if (ret)
- 			goto stop_upstream;
- 	}
- 
--	ret = csi_setup(priv);
-+	ret = csi_setup(priv, &mbus_cfg);
- 	if (ret)
- 		goto idmac_stop;
- 
-@@ -1138,7 +1147,6 @@ static int csi_link_validate(struct v4l2_subdev *sd,
- 
- 	mutex_lock(&priv->lock);
- 
--	priv->mbus_cfg = mbus_cfg;
- 	is_csi2 = !is_parallel_bus(&mbus_cfg);
- 	if (is_csi2) {
- 		/*
+---
+Michael Tretter (2):
+      media: staging: imx: request mbus_config in csi_start
+      media: staging: imx: configure src_mux in csi_start
 
+ drivers/staging/media/imx/imx-media-csi.c | 84 ++++++++++++++++++-------------
+ 1 file changed, 48 insertions(+), 36 deletions(-)
+---
+base-commit: 27afd6e066cfd80ddbe22a4a11b99174ac89cced
+change-id: 20251105-media-imx-fixes-acef77c7ba12
+
+Best regards,
 -- 
-2.47.3
+Michael Tretter <m.tretter@pengutronix.de>
 
 
