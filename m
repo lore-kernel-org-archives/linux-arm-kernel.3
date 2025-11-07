@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF4ECCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0482CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxKxjy/C3oPWob4dBvPPL6F8jhZxW9+kJIyvEtBbh7A=; b=xPhaVb7a5EcNEBMxpR+orResEL
-	nC2++nRBrLJmsaNOFlGgyi2BA7mw4RuVgtlTYAPT8R0OhsBiuJRskJH0jwZhakTQgWkXprDjbQqJF
-	tvnGVgxYGO+re77WH9epkfconby0nlTqJrWITt15bhFQYwx7b1P5GjjJrEcmbWUxSep6PM4J3ad9/
-	7UlqDzG2+pjolTgiGzyPL13/9xBUTTNQBlAWe1dm2FLPOzT+xFKLydE2guYIQnPcJLT7R9i+GZq7B
-	XGsuxeW5HIenAJzQddtKtKPS1CnI4TeYyWwN8B3t6Gb+WygqE0S9IbFd7W94QJtUIb9kOimnfjVhm
-	9OMbherQ==;
+	bh=JtrOP7D+6cn9NXpGOjOJ8EQlpfaQQ1W6MRTCW9ClTm4=; b=Z6Fz9zuxFBfNkxNxNJvHSc0KmP
+	XcRQ+/A0CvhqZlw0DqW/tsAxEd3QSm+NymN9X2p9oim4jtmIQ/+0N/Mz+qBVIINWBrDk74mSwtw5e
+	UbDpN9ZcJRov20gyu6CTq/fBGYsZWFxFnFwj867ehNKgqzLOs2Iis0JOlCHQihGNgrQufAJbAcGFo
+	oPGjIMpyOZJFNKY9QnKSM1aVF4JIF/e1uORky7txKtByr4LJxcfNrgu++hNHcvpYGBPTqSYepNp+n
+	GaRUHpzMabftCdtvMf19yXpOMoH0t8Rcs0ADDZRycLZU7KUs0QmTy3X1yvP940+It5l8iYPWrqEV0
+	goI4r5tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNvw-0000000HYDE-0Svb;
-	Fri, 07 Nov 2025 14:59:24 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vHNvy-0000000HYGH-36df;
+	Fri, 07 Nov 2025 14:59:26 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNvt-0000000HYBF-3Ojq;
-	Fri, 07 Nov 2025 14:59:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nxKxjy/C3oPWob4dBvPPL6F8jhZxW9+kJIyvEtBbh7A=; b=CPnkQ/JKGlnhsZP7olTVHXoO56
-	ZtNRVW5PrJWImlfI+MZDhkWVn7VIaCAgmep0krm9sBkoCgWXCHbEaUaVR0MT84q98R4L/ghHWUhPs
-	FJ+Qh32UwhEcAtJVfgQeT3QJyYTrLQYKJq0lh3PGtuDxsx7qYup3jQM8NM5pnqUc3LJdk44jY4A2M
-	wd3t8p7v8gqZNGaBa7g/hSOD1KjSdsbjevxpvO/bY5pg3I4z91TbmxORLGXyJPK9xSCcxClue8hId
-	JGfee8ETjXeLLl20zbI0CNPgDMVcS516BVuGcGNn06nujeWe00Oh0hwtjxscycfUACiQFXEsf2rWP
-	ZSchN2qA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47708 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vHNSg-000000006j5-2SUq;
-	Fri, 07 Nov 2025 14:29:10 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vHNSb-0000000DkT4-1s8G;
-	Fri, 07 Nov 2025 14:29:05 +0000
-In-Reply-To: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
-References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	netdev@vger.kernel.org,
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 13/16] net: stmmac: stm32: use PHY_INTF_SEL_x
- directly
+	id 1vHNvw-0000000HYCl-0cwL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 14:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1762527562;
+ bh=JtrOP7D+6cn9NXpGOjOJ8EQlpfaQQ1W6MRTCW9ClTm4=;
+ b=GsdV/n3gj2/U8wlqPdx9lCknr4kIrWyYXQ/e1lQpig7GRXMneQWMx1v697TpjzfoZbK18aCEE
+ GGyB9eyvyVcC/18fP5Sdwq7dxC3BJmKzN/Q42BYFWW+OIB+R70Dsd2uzum6WMoGhtgsV/iftLzv
+ PYYa7ytqvjx0mzlral2yKV11lwBc6ZFeEJJrnIIS5Ofck4hXQSoL1AWtY7mSmh804vXRaBKHQfe
+ 2+ptNO2dJtTkoToR3tdcBpexON84jD880kOD2dTl7je4MCqE2su2C+7babzP/gKuoj362vIp8lA
+ ArjGxHor5tUNmf/GVOv8zQ3u2SzzvcSUusIqtCLNynng==
+X-Forward-Email-ID: 690e094607551ffa40a0ed33
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.4.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <48108089-775a-428c-8dd1-a75344823ace@kwiboo.se>
+Date: Fri, 7 Nov 2025 15:59:12 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v6 4/5] dt-bindings: clock: rockchip: Add RK3506
+ clock and reset unit
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
+ heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ huangtao@rock-chips.com, finley.xiao@rock-chips.com
+References: <20251107013757.5013-1-zhangqing@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251107013757.5013-1-zhangqing@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vHNSb-0000000DkT4-1s8G@rmk-PC.armlinux.org.uk>
-Date: Fri, 07 Nov 2025 14:29:05 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_065921_847697_CDA24020 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20251107_065924_287121_634C76AD 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,134 +81,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than defining separate constants for each, use the
-PHY_INTF_SEL_x definitions in the switch()es configuring the
-control register, and use one FIELD_PREP() to convert phy_intf_sel
-to the register value.
+Hi Elaine,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac-stm32.c | 32 ++++++++-----------
- 1 file changed, 13 insertions(+), 19 deletions(-)
+On 11/7/2025 2:37 AM, Elaine Zhang wrote:
+> From: Finley Xiao <finley.xiao@rock-chips.com>
+> 
+> Add device tree bindings for clock and reset unit on RK3506 SoC.
+> Add clock and reset IDs for RK3506 SoC.
+> 
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> ---
+>  .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
+>  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
+>  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
+>  3 files changed, 547 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+>  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
+>  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-index 1545772419d5..18d26f096f5f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-@@ -48,30 +48,17 @@
-  */
- #define SYSCFG_PMCR_ETH_SEL_MII		BIT(20)
- #define SYSCFG_PMCR_PHY_INTF_SEL_MASK	GENMASK(23, 21)
--#define SYSCFG_PMCR_ETH_SEL_RGMII	\
--	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_RGMII)
--#define SYSCFG_PMCR_ETH_SEL_RMII	\
--	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_RMII)
--#define SYSCFG_PMCR_ETH_SEL_GMII	\
--	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_GMII_MII)
- #define SYSCFG_MCU_ETH_SEL_MII		0
- #define SYSCFG_MCU_ETH_SEL_RMII		1
- 
- /* STM32MP2 register definitions */
- #define SYSCFG_MP2_ETH_MASK		GENMASK(31, 0)
- 
-+#define SYSCFG_ETHCR_ETH_SEL_MASK	GENMASK(6, 4)
- #define SYSCFG_ETHCR_ETH_PTP_CLK_SEL	BIT(2)
- #define SYSCFG_ETHCR_ETH_CLK_SEL	BIT(1)
- #define SYSCFG_ETHCR_ETH_REF_CLK_SEL	BIT(0)
- 
--#define SYSCFG_ETHCR_ETH_SEL_MASK	GENMASK(6, 4)
--#define SYSCFG_ETHCR_ETH_SEL_MII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
--						   PHY_INTF_SEL_GMII_MII)
--#define SYSCFG_ETHCR_ETH_SEL_RGMII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
--						   PHY_INTF_SEL_RGMII)
--#define SYSCFG_ETHCR_ETH_SEL_RMII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
--						   PHY_INTF_SEL_RMII)
--
- /* STM32MPx register definitions
-  *
-  * Below table summarizes the clock requirement and clock sources for
-@@ -244,10 +231,12 @@ static int stm32mp1_configure_pmcr(struct plat_stmmacenet_data *plat_dat)
- {
- 	struct stm32_dwmac *dwmac = plat_dat->bsp_priv;
- 	u32 reg = dwmac->mode_reg;
-+	u8 phy_intf_sel;
- 	int val = 0;
- 
- 	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_MII:
-+		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
- 		/*
- 		 * STM32MP15xx supports both MII and GMII, STM32MP13xx MII only.
- 		 * SYSCFG_PMCSETR ETH_SELMII is present only on STM32MP15xx and
-@@ -258,12 +247,12 @@ static int stm32mp1_configure_pmcr(struct plat_stmmacenet_data *plat_dat)
- 			val |= SYSCFG_PMCR_ETH_SEL_MII;
- 		break;
- 	case PHY_INTERFACE_MODE_GMII:
--		val = SYSCFG_PMCR_ETH_SEL_GMII;
-+		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
- 		if (dwmac->enable_eth_ck)
- 			val |= SYSCFG_PMCR_ETH_CLK_SEL;
- 		break;
- 	case PHY_INTERFACE_MODE_RMII:
--		val = SYSCFG_PMCR_ETH_SEL_RMII;
-+		phy_intf_sel = PHY_INTF_SEL_RMII;
- 		if (dwmac->enable_eth_ck)
- 			val |= SYSCFG_PMCR_ETH_REF_CLK_SEL;
- 		break;
-@@ -271,7 +260,7 @@ static int stm32mp1_configure_pmcr(struct plat_stmmacenet_data *plat_dat)
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
--		val = SYSCFG_PMCR_ETH_SEL_RGMII;
-+		phy_intf_sel = PHY_INTF_SEL_RGMII;
- 		if (dwmac->enable_eth_ck)
- 			val |= SYSCFG_PMCR_ETH_CLK_SEL;
- 		break;
-@@ -284,6 +273,8 @@ static int stm32mp1_configure_pmcr(struct plat_stmmacenet_data *plat_dat)
- 
- 	dev_dbg(dwmac->dev, "Mode %s", phy_modes(plat_dat->phy_interface));
- 
-+	val |= FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, phy_intf_sel);
-+
- 	/* Shift value at correct ethernet MAC offset in SYSCFG_PMCSETR */
- 	val <<= ffs(dwmac->mode_mask) - ffs(SYSCFG_MP1_ETH_MASK);
- 
-@@ -299,6 +290,7 @@ static int stm32mp1_configure_pmcr(struct plat_stmmacenet_data *plat_dat)
- static int stm32mp2_configure_syscfg(struct plat_stmmacenet_data *plat_dat)
- {
- 	struct stm32_dwmac *dwmac = plat_dat->bsp_priv;
-+	u8 phy_intf_sel = PHY_INTF_SEL_GMII_MII;
- 	u32 reg = dwmac->mode_reg;
- 	int val = 0;
- 
-@@ -307,7 +299,7 @@ static int stm32mp2_configure_syscfg(struct plat_stmmacenet_data *plat_dat)
- 		/* ETH_REF_CLK_SEL bit in SYSCFG register is not applicable in MII mode */
- 		break;
- 	case PHY_INTERFACE_MODE_RMII:
--		val = SYSCFG_ETHCR_ETH_SEL_RMII;
-+		phy_intf_sel = PHY_INTF_SEL_RMII;
- 		if (dwmac->enable_eth_ck) {
- 			/* Internal clock ETH_CLK of 50MHz from RCC is used */
- 			val |= SYSCFG_ETHCR_ETH_REF_CLK_SEL;
-@@ -317,7 +309,7 @@ static int stm32mp2_configure_syscfg(struct plat_stmmacenet_data *plat_dat)
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
--		val = SYSCFG_ETHCR_ETH_SEL_RGMII;
-+		phy_intf_sel = PHY_INTF_SEL_RGMII;
- 		fallthrough;
- 	case PHY_INTERFACE_MODE_GMII:
- 		if (dwmac->enable_eth_ck) {
-@@ -334,6 +326,8 @@ static int stm32mp2_configure_syscfg(struct plat_stmmacenet_data *plat_dat)
- 
- 	dev_dbg(dwmac->dev, "Mode %s", phy_modes(plat_dat->phy_interface));
- 
-+	val |= FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, phy_intf_sel);
-+
- 	/* Select PTP (IEEE1588) clock selection from RCC (ck_ker_ethxptp) */
- 	val |= SYSCFG_ETHCR_ETH_PTP_CLK_SEL;
- 
--- 
-2.47.3
+[snip]
 
+> diff --git a/include/dt-bindings/reset/rockchip,rk3506-cru.h b/include/dt-bindings/reset/rockchip,rk3506-cru.h
+> new file mode 100644
+> index 000000000000..f38cc066009b
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/rockchip,rk3506-cru.h
+> @@ -0,0 +1,211 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
+> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +
+> +/* CRU-->SOFTRST_CON00 */
+> +#define SRST_NCOREPORESET0_AC		0
+> +#define SRST_NCOREPORESET1_AC		1
+> +#define SRST_NCOREPORESET2_AC		2
+> +#define SRST_NCORESET0_AC		3
+> +#define SRST_NCORESET1_AC		4
+> +#define SRST_NCORESET2_AC		5
+> +#define SRST_NL2RESET_AC		6
+> +#define SRST_ARESETN_CORE_BIU_AC	7
+> +#define SRST_HRESETN_M0_AC		8
+> +
+> +/* CRU-->SOFTRST_CON02 */
+> +#define SRST_NDBGRESET			9
+> +#define SRST_PRESETN_CORE_BIU		10
+> +#define SRST_RESETN_PMU			11
+> +
+> +/* CRU-->SOFTRST_CON03 */
+> +#define SRST_PRESETN_DBG		12
+> +#define SRST_POTRESETN_DBG		13
+> +#define SRST_PRESETN_CORE_GRF		14
+> +#define SRST_RESETN_CORE_EMA_DETECT	15
+> +#define SRST_RESETN_REF_PVTPLL_CORE	16
+> +#define SRST_PRESETN_GPIO1		17
+> +#define SRST_DBRESETN_GPIO1		18
+> +
+> +/* CRU-->SOFTRST_CON04 */
+> +#define SRST_ARESETN_CORE_PERI_BIU	19
+> +#define SRST_ARESETN_DSMC		20
+> +#define SRST_PRESETN_DSMC		21
+> +#define SRST_RESETN_FLEXBUS		22
+> +#define SRST_ARESETN_FLEXBUS		23
+> +#define SRST_HRESETN_FLEXBUS		24
+> +#define SRST_ARESETN_DSMC_SLV		25
+> +#define SRST_HRESETN_DSMC_SLV		26
+> +#define SRST_RESETN_DSMC_SLV		27
+> +
+> +/* CRU-->SOFTRST_CON05 */
+> +#define SRST_ARESETN_BUS_BIU		28
+> +#define SRST_HRESETN_BUS_BIU		29
+> +#define SRST_PRESETN_BUS_BIU		30
+> +#define SRST_ARESETN_SYSRAM		31
+> +#define SRST_HRESETN_SYSRAM		32
+> +#define SRST_ARESETN_DMAC0		33
+> +#define SRST_ARESETN_DMAC1		34
+> +#define SRST_HRESETN_M0			35
+> +#define SRST_RESETN_M0_JTAG		36
+> +#define SRST_HRESETN_CRYPTO		37
+
+My original question and your reply from v5 follow below.
+
+On 11/7/2025 2:24 AM, zhangqing wrote:
+>> Is there a reason why this (and the RV1126B) reset names now include the
+>> RESETN name in all reset constant?
+>>
+>> For RK3528 and prior mainline SoCs the RESETN part of the name has been
+>> striped from the constant, suggest we also strip the RESETN part for
+>> RK3506 and RV1126B for consistency with other RK SoCs.
+>>
+> The current practice is to separate the reset id from the clk id.
+> 
+> Follow with others RK socs(RK3528、RK3588、RK3576.....)
+
+and
+
+On 11/7/2025 2:44 AM, zhangqing wrote:
+> The reset id and rst-rk3506.c were automatically generated from our trm 
+> using tools, while some of the previous chips were filled in manually.
+> 
+> It is not recommended to manually modify the content generated by the 
+> tool to avoid unnecessary errors.
+> 
+> It is not necessary to change SRST_HRESETN_CRYPTO to SRST_H_CRYPTO.
+
+Why do we now need to have two part of the indices name to represent it
+is a reset, i.e. the SRST_ prefix and the RESETN in middle of the name.
+
+	resets = <&cru SRST_ARESETN_MAC1>;
+
+The example above seem unnecessary verbose with 3x reset:
+- resets as prop name
+- SRST_ prefix (software? reset) in the indices name
+- RESETN in the indices name
+
+Maybe the SRST_ prefix could be dropped if we now have RESETN as part of
+the indices name?
+
+Your tool could be updated to strip the verbose naming. For RK3528 I
+used a small script/tool to strip away the RESETN name and to generate
+the macros used in rst driver.
+
+Regards,
+Jonas
+
+[snip]
 
