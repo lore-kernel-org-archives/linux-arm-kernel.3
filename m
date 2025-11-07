@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B929CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EC2CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WiC9ywZ2pGQE+sxxwQfRLPFc3pThbZLAIj2W54RHOeo=; b=ayXV4J1WD1z327/bLOF/d/LJWA
-	aUWK+GIi5Dh3/VXI6JPmFikgMwlnO7mu2p//AeCKlTLsELmbTmMikjuD44ae0mezzU8TFzpgqTZAN
-	gTvhyj0c3SebZzlTwaE/ezk6FhbpnVzQekBCNtElx6UyJa5vLV09+HGcm0V6NY44kB89J5pxLk7Ba
-	l7eyPCa44SoNqKr/jsilHV6Q5RPxUh92LIr/vmi2mE/2Wqfqt4BY4tMUEnJxwXA+U+vJtwBI/qjM1
-	8GUUtCh10G3eoo3MCyen4QMIv7lvKA+R4VM7lK6WPLVEDZ2aS9Tq5aZ60I0zXNdZotjTvL3LYrLbm
-	VgbZbF2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DQvqohK5zorMJlcntIoeWUI5fwQJCspysMRy3UPKFFo=; b=4xF14lcxn6M+PB
+	/37KWjxaIlw8PP2hj1G7eEyDsJt3RcektePqJczEFRpOmbsSBWvaulexqgvp+EfYUprkjO/p4hW4y
+	V3HhfBEB09AGq4aGykFBf+DzHYFTeww1n+T/2ogIK+RVIPsPsr7wWf38J9t2SBpKrFjW4lxiHL7jE
+	Od87eTQCcqFlsLweBHptgHAUA5q582CPX15sUf1sqmZ4AwGCq2Cl12U4DwQZhnYe3timKRAlatB3p
+	NK0Jkqh28j5DrOkIoNcRl+IvvqcilKycYjL2py07b07NDl+uiSxilYhhDfE1CCUMFgaL94ixEbdQX
+	fsHpjLVxqllpAud4CFbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJWE-0000000H3fb-3Zwi;
-	Fri, 07 Nov 2025 10:16:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJWC-0000000H3f4-22wo
+	id 1vHJWR-0000000H3j5-0e87;
+	Fri, 07 Nov 2025 10:16:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHJWP-0000000H3hM-2x2T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 10:16:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B30531515;
-	Fri,  7 Nov 2025 02:16:22 -0800 (PST)
-Received: from [10.57.40.58] (unknown [10.57.40.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9F5E3F66E;
-	Fri,  7 Nov 2025 02:16:17 -0800 (PST)
-Message-ID: <9f749c3e-4f93-40c1-b5c6-74d2ead92d00@arm.com>
-Date: Fri, 7 Nov 2025 10:16:12 +0000
+	Fri, 07 Nov 2025 10:16:46 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vHJWH-0003HZ-Jj; Fri, 07 Nov 2025 11:16:37 +0100
+From: Michael Tretter <m.tretter@pengutronix.de>
+Subject: [PATCH 0/3] media: imx-csi: cleanup media pipeline start
+Date: Fri, 07 Nov 2025 11:16:32 +0100
+Message-Id: <20251107-media-imx-cleanup-v1-0-f82a693c28f4@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Ritesh Harjani <ritesh.list@gmail.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-8-kevin.brodsky@arm.com>
- <87ms5050g0.ritesh.list@gmail.com>
- <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
- <48a4ecb5-3412-4d3f-9e43-535f8bee505f@arm.com>
- <d5435e75-036b-44a5-a989-722e13f94b3e-agordeev@linux.ibm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <d5435e75-036b-44a5-a989-722e13f94b3e-agordeev@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAADHDWkC/x3MQQqAIBBA0avErBvQwYi6SrQQnWogTZQiiO6et
+ HyL/x8onIULjM0DmS8pcsQK3TbgNhtXRvHVQIo6rVWPgb1YlHCj29nGM+GgiPxgtGVjoHYp8yL
+ 3/5zm9/0AuPJy4WMAAAA=
+X-Change-ID: 20251107-media-imx-cleanup-9022d941ae44
+To: Steve Longerbeam <slongerbeam@gmail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Michael Tretter <m.tretter@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_021632_617054_1191AD3F 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20251107_021645_749413_27125D04 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,97 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2025 15:33, Alexander Gordeev wrote:
->> [...]
->>>>   static inline void lazy_mmu_mode_enable(void)
->>>>   {
->>>>  -	arch_enter_lazy_mmu_mode();
->>>>  +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
->>>>  +
->>>>  +	VM_WARN_ON_ONCE(state->nesting_level == U8_MAX);
->>>>  +	/* enable() must not be called while paused */
->>>>  +	VM_WARN_ON(state->nesting_level > 0 && !state->active);
->>>>  +
->>>>  +	if (state->nesting_level++ == 0) {
->>>>  +		arch_enter_lazy_mmu_mode();
->>>>  +		state->active = true;
->>>>  +	}
->>>>   }
->>>>
->>>> ... I think it make more sense to enable the state after the arch_**
->>>> call right.
->>> But then in_lazy_mmu_mode() would return false if called from
->>> arch_enter_lazy_mmu_mode(). Not big problem, but still..
->> The ordering of nesting_level/active was the way you expected in v3, but
->> the conclusion of the discussion with David H [1] is that it doesn't
->> really matter so I simplified the ordering in v4 - the arch hooks
->> shouldn't call in_lazy_mmu_mode() or inspect lazy_mmu_state.
->> arch_enter()/arch_leave() shouldn't need it anyway since they're called
->> once per outer section (not in nested sections). arch_flush() could
->> potentially do something different when nested, but that seems unlikely.
->>
->> - Kevin
->>
->> [1]
->> https://lore.kernel.org/all/af4414b6-617c-4dc8-bddc-3ea00d1f6f3b@redhat.com/
-> I might be misunderstand this conversation, but it looked to me as a discussion
-> about lazy_mmu_state::nesting_level value, not lazy_mmu_state::active.
->
-> I do use in_lazy_mmu_mode() (lazy_mmu_state::active) check from the arch-
-> callbacks. Here is the example (and likely the only case so far) where it hits:
+The imx media device currently assumes that there is only a single media
+pipeline. However, the media graph has multiple imx capture devices.
+These may be started separately on media pipelines if they don't cause
+conflicts in the media graph.
 
-Sorry I didn't mean arch callbacks in general, I meant the ones called
-from lazy_mmu_mode_*, that is arch_*_lazy_mmu_mode.
+Move the media pipeline from the media device to the capture devices to
+properly track and handle multiple media pipelines for the imx-csi.
+Refactor the code to start the media pipeline from the driver to help
+the reader.
 
-Patch 8 also makes use of in_lazy_mmu_mode() in set_pte() et al. on arm64.
+Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+---
+Michael Tretter (3):
+      media: imx-csi: move media_pipeline to video device
+      media: imx-csi: explicitly start media pipeline on pad 0
+      media: imx-csi: use media_pad_is_streaming helper
 
-- Kevin
+ drivers/staging/media/imx/imx-media-capture.c |  8 ++++----
+ drivers/staging/media/imx/imx-media-utils.c   | 12 ++++++++----
+ drivers/staging/media/imx/imx-media.h         |  7 ++++---
+ 3 files changed, 16 insertions(+), 11 deletions(-)
+---
+base-commit: 1a31cb2782104969e48c7ce7e4fc06e403fcb5cf
+change-id: 20251107-media-imx-cleanup-9022d941ae44
 
-> static int kasan_populate_vmalloc_pte(pte_t *ptep, unsigned long addr,
-> 				      void *_data)
-> {
-> 	lazy_mmu_mode_pause();
-> 	...
-> 	if (likely(pte_none(ptep_get(ptep)))) {
->
-> 		/* Here set_pte() checks whether we are in lazy_mmu mode */
-> 		set_pte_at(&init_mm, addr, ptep, pte);	<--- calls set_pte()
-> 		data->pages[index] = NULL;
-> 	}
-> 	...
-> 	lazy_mmu_mode_resume();
-> 	...
-> }
->
-> So without in_lazy_mmu_mode() check above the arch-specific set_pte()
-> implementation enters a wrong branch, which ends up in:
->
-> [  394.503134] Call Trace:
-> [  394.503137]  [<00007fffe01333f4>] dump_stack_lvl+0xbc/0xf0 FWIW 
-> [  394.503143]  [<00007fffe010298c>] vpanic+0x1cc/0x418 
-> [  394.503149]  [<00007fffe0102c7a>] panic+0xa2/0xa8 
-> [  394.503154]  [<00007fffe01e7a8a>] check_panic_on_warn+0x8a/0xb0 
-> [  394.503160]  [<00007fffe082d122>] end_report+0x72/0x110 
-> [  394.503166]  [<00007fffe082d3e6>] kasan_report+0xc6/0x100 
-> [  394.503171]  [<00007fffe01b9556>] ipte_batch_ptep_get+0x146/0x150 
-> [  394.503176]  [<00007fffe0830096>] kasan_populate_vmalloc_pte+0xe6/0x1e0 
-> [  394.503183]  [<00007fffe0718050>] apply_to_pte_range+0x1a0/0x570 
-> [  394.503189]  [<00007fffe07260fa>] __apply_to_page_range+0x3ca/0x8f0 
-> [  394.503195]  [<00007fffe0726648>] apply_to_page_range+0x28/0x40 
-> [  394.503201]  [<00007fffe082fe34>] __kasan_populate_vmalloc+0x324/0x340 
-> [  394.503207]  [<00007fffe076954e>] alloc_vmap_area+0x31e/0xbf0 
-> [  394.503213]  [<00007fffe0770106>] __get_vm_area_node+0x1a6/0x2d0 
-> [  394.503218]  [<00007fffe07716fa>] __vmalloc_node_range_noprof+0xba/0x260 
-> [  394.503224]  [<00007fffe0771970>] __vmalloc_node_noprof+0xd0/0x110 
-> [  394.503229]  [<00007fffe0771a22>] vmalloc_noprof+0x32/0x40 
-> [  394.503234]  [<00007fff604eaa42>] full_fit_alloc_test+0xb2/0x3e0 [test_vmalloc] 
-> [  394.503241]  [<00007fff604eb478>] test_func+0x488/0x760 [test_vmalloc] 
-> [  394.503247]  [<00007fffe025ad68>] kthread+0x368/0x630 
-> [  394.503253]  [<00007fffe01391e0>] __ret_from_fork+0xd0/0x490 
-> [  394.503259]  [<00007fffe24e468a>] ret_from_fork+0xa/0x30 
->
-> I could have cached lazy_mmu_state::active as arch-specific data
-> and check it, but then what is the point to have it generalized?
->
-> Thanks!
+Best regards,
+-- 
+Michael Tretter <m.tretter@pengutronix.de>
+
 
