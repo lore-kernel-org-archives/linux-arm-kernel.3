@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E584CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23CFCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDugfFalF/+E2XIqgWe3ZPKkgGU5y0RPt1+YG9Yq6zI=; b=wg+c6HB2NWUijXsr5t0Sk/7qKb
-	N+PkrNNmMUFBPZSoJYXq00ZJgFTxORgbdvM0CEMSlutqo6p/Vrzt8CQukLJuyOi78aQXBZ81pHbMJ
-	sp+6zEIugPstU0FGZFED/AF26e2drBlnAdAnII4qyUgmOTOXcxZXysMD1Q0M0Cc5D5mI0FHC6ztWv
-	eaTIaQuHLfwa321xqnCoUrTg9Kj/aAJ7bc6VPkP/yej4JXCGXFiAnxGJR3QTu2XJcGLNAHe7PAkPE
-	hOHsTU+yK7aybw799HRfyExds4Oz8GanjgGG7Gj0nJDPWWElXHUoQlNpFypbEWP3eRqAkQfNOoRK6
-	KkcD7mYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8Ih8W61/2igKq+jp/SUxQHmllcTXqE/WlAIvDUyh2EU=; b=X/eHpD2zvRQPBvFgm2Q7PCOWG3
+	8u6PnAnKvJ5gmym1OO+/Dn5jwE/7tlJQp5plV5gC7bymzX6iveaHFHfIVTaFEvcoguKKzQ0efQUgy
+	WXIxuCFpZDZshSSqLpG+t4onYE6aCW1ljKWDwq6klV2ZTcEBEeNj/Jn0hmxIE+LRs/P6GgaaYPEtz
+	o1qDWcdPVwsQZ1VDFI7JEfqejbjqvm26hYJDg606Y/Q6S8/krAGT0nwNQjVDokr92WgeCtIsHbjBR
+	clSN3P00/J8/9pI0FQ0esA4l+JQKZVJ3Q6Sf/LFVeWxuxxhywwPT4PqzpOHDms/VEJmWZ3wSe6Izi
+	uhvDeAsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNQq-0000000HTXY-1j00;
-	Fri, 07 Nov 2025 14:27:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHNRL-0000000HTcf-01fF;
+	Fri, 07 Nov 2025 14:27:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNQp-0000000HTXM-0fm1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 14:27:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DC7761916;
-	Fri,  7 Nov 2025 14:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 912E6C4CEF8;
-	Fri,  7 Nov 2025 14:27:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762525633;
-	bh=Pzo7tfIaHjLpftx/B0TKs+rcupOkEug4Caccn3F0lig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GaP1BGy3T71n9873EJJSuRsl/8HamSIhcGxLlMEM0oxVZB7oBHT+ZDHodCwwmy5QN
-	 DCxldO4nQ9daC9l32//xRryV5Nk1BoS8ftLL7s/8CYGyMD7T5xChQPWZV06n5SuIGI
-	 NtozWcoRwGAnRWWDPRDzKbrxW1d3P8rewz7tokQpyHWyuB8S7A1frE4cuiQUMNB3tw
-	 fq3um2ZF0ht/mFb7uYoIvUuz2vP2X2pvXYxKPqAX7mlT8146hQ2DuPIKuVUPtLX48K
-	 2zw6KcbsQMXXrEs2uOJwvqU8f8tUaww59+KVzFKuzpUcdr4Rm1elTFkSGdMlpY6GMu
-	 7m87AYHK0nynw==
-Date: Fri, 7 Nov 2025 14:27:09 +0000
-From: Will Deacon <will@kernel.org>
-To: Dawei Li <dawei.li@linux.dev>
-Cc: catalin.marinas@arm.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	set_pte_at@outlook.com
-Subject: Re: [PATCH] arm64: Remove assertion on CONFIG_VMAP_STACK
-Message-ID: <aQ4BvRzFWP7rKLqi@willie-the-truck>
-References: <20251103152345.175463-1-dawei.li@linux.dev>
+	id 1vHNRG-0000000HTbu-49m6;
+	Fri, 07 Nov 2025 14:27:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8Ih8W61/2igKq+jp/SUxQHmllcTXqE/WlAIvDUyh2EU=; b=Sv2JOcASNdoVjoCSMJAI1x806j
+	BVVEdQJEpYIfEsWwJHQIeQIDdFjDQM9jtB72wRYVxzUkOkahUCltipp6IKZctSffgWUeGACG/jAVQ
+	0m5Lu+6djvKgPEVmWx7HCRViE1p83152mFDp/CRBj7qXZeOZ87WyLg7KOWfANxGnAxUzfLfhV17p1
+	kYnTMee7NGFexO57WRopGMM0q+GHIRbDl8shLQVWW5KYCEiHR5gFD7gWdHId6la8Kwfbbthr9r8Uq
+	p+E2FO24+ckTNfzRLUESN1NJrivmwe8IhFWOQwC/cYgL+i7xxCevwFmdXxJnEUoiB+OZUR2wUFJju
+	e9KG134g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57930)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vHNR4-000000006eH-3lYr;
+	Fri, 07 Nov 2025 14:27:30 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vHNQu-000000007ef-41bA;
+	Fri, 07 Nov 2025 14:27:20 +0000
+Date: Fri, 7 Nov 2025 14:27:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 00/16] net: stmmac: convert glue drivers to use
+ stmmac_get_phy_intf_sel()
+Message-ID: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251103152345.175463-1-dawei.li@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251107_062743_027813_4C67FB63 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,19 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 11:23:45PM +0800, Dawei Li wrote:
-> CONFIG_VMAP_STACK is selected by arm64 arch unconditionly since commit
-> ef6861b8e6dd ("arm64: Mandate VMAP_STACK").
-> 
-> Remove the redundant assertion and headers.
-> 
-> Signed-off-by: Dawei Li <dawei.li@linux.dev>
-> ---
->  arch/arm64/include/asm/vmap_stack.h | 4 ----
->  arch/arm64/kernel/sdei.c            | 4 ----
->  2 files changed, 8 deletions(-)
+This series converts the remaining glue drivers that support
+multi-interface to use stmmac_get_phy_intf_sel(). The reason these
+drivers are not converted to the set_phy_intf_sel() method is
+because it is unclear whether there are ordering dependencies that
+would prevent it.
 
-Acked-by: Will Deacon <will@kernel.org>
+For example, reading the stm32mp2 documentation, it is required to
+set the ETH1_SEL field while the dwmac core is in reset and before
+clocks are enabled. This requirement can not be satsified at the
+moment (but could with further changes.)
 
-Will
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson1.c  | 18 ++---
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 77 ++++++++--------------
+ .../net/ethernet/stmicro/stmmac/dwmac-meson8b.c    | 30 +++------
+ .../net/ethernet/stmicro/stmmac/dwmac-starfive.c   | 26 +++-----
+ drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c  | 44 +++++++------
+ .../net/ethernet/stmicro/stmmac/dwmac-visconti.c   | 26 ++------
+ 6 files changed, 82 insertions(+), 139 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
