@@ -4,134 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C30CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3866CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bo8hOLP5wIkBbrnuws1pinQ4AYj9Sz8IvZxz60kmJmU=; b=EIDRRuu0Heb1P4GemHi5FpI7vO
-	UyRafiF7I+qGEBQm8tF3jPt+UsHFiu5zgV5zznPZLT+coB9haFTMDtdGx0y4V8Zctrf72fbAFcqY0
-	059Ti3x1J3A9nKGqs3CmYFuLwFoG/3vmG8J/Qc3iRnBEJNUPjFy1MbyXCKbkb+34mqNJ1TSnJbey9
-	WUJMB6mvO02z5qusdZbqGozzOfWRxDw8VWQuLa8Z1q415r3S0si714Jvnu4g1O9Lwt7En8iwaHbOu
-	GPKhBCV+nR3TAQzmCWhkbL5S5U0OTFnnKwUfNAXFZg+X8sJepwR46nFys6mcmXv/W4iCct5KVUeG+
-	VT4GaQog==;
+	bh=bOuumwx74E/Crx5Q7u7GEctGQ1qytr7IkJwq2FULGX0=; b=mKsi3eCaGL8OPJNtaU2JnqRKfb
+	ACanVW6/dHr3yUjellxpHdYzYOIxum60LsbMldWWEFurP+7UMM2dE7VYpUZKr8gVMCmDDCvZ3XsF9
+	o9cP1sYkNGFtI+mQG5lgthiXOZWGYf1JX3+ye4wvpwZeQJiQF3nypYn3AwFWvycPeY5WOVELsb3AX
+	I345BCfEp7f6bFBbLUz67Ka5AdzgtFwz2FHwajxWmiay+qp3D7QLXrZOzaya7rLsUFoVHFtUVJCs1
+	JpBRWsj//HlcJESihFE+1oHz5Q1S3F0odPbR0NSM9ML09xqu/hKcyXbLEU54AzTxydaLwy9Udm8AL
+	kYsU+FEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOf4-000000000I8-3bm1;
-	Fri, 07 Nov 2025 15:46:02 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vHOkK-000000000d2-3nG1;
+	Fri, 07 Nov 2025 15:51:28 +0000
+Received: from mail-westeuropeazon11013062.outbound.protection.outlook.com ([52.101.72.62] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOf2-000000000He-1kfn
+	id 1vHOkI-000000000cY-1nvr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 15:46:01 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b64cdbb949cso169359466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 07:45:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1762530358; x=1763135158; darn=lists.infradead.org;
-        h=in-reply-to:autocrypt:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Bo8hOLP5wIkBbrnuws1pinQ4AYj9Sz8IvZxz60kmJmU=;
-        b=Ojtca85ZVvkzPQpdx7PdcSD5M05IIkkgw0d5cMZl/WadIHtBLawSjEDFGZ7dY663lL
-         zPlEFrdyp2Ha6EuplI0t/iKmEDsxVWdloK1f9AK0T5yd+zSaVnlPtDHOO3IDkR/Ue2Ag
-         WoEaI5uHYbYwB//HXXheroreqf0eZLTncw212mB6zvp7+wUurAjOmL9m5JhTZFHAHWFs
-         RUXwQ5e2Cf0FsNHnkPBfyEAoxhU2YNH9iqv62PsVAVDS1a8+8rtY8KcPJoIELSJugEfH
-         gHj+9YZnJS0K4/P8J3nBBvMjPBYRspaQsG8CATbJTe2vQpcv6Fr5XetoGuWiCHSdcOW3
-         7lxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762530358; x=1763135158;
-        h=in-reply-to:autocrypt:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bo8hOLP5wIkBbrnuws1pinQ4AYj9Sz8IvZxz60kmJmU=;
-        b=sSWfyMmcuEpFqCPeFdCfxdC17ydHsTssOSW2HkfwQvmqZ0XHXZR87CWJWFCRBYMqKU
-         bTongFzUdL8Dc7IHkcQyT6Ywepz2CybPvy/61Yrc/YAbWMbcw4hKrpLl93e2R5OFi6tt
-         kWuaE6U8eBxP0cL3+vLUJ4xDyXgaDEAqnUa831XDRThpXm9mo4fUxom2GhgbB7Fed8hG
-         wie9dMA/sZrUSUHTo9R1oWGRiNxnPNpKwww3rRpxGrW0+Cg26FIaQW6H3d3k5FMfnE9+
-         BHxl092nsVaZL6A/ImxpOTTAGXyrNkXwt+ficCerFZ7DgboKcSLQdzALfwXh2fabLXrI
-         lE2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWfWL26eev24SNlr31yDK1B7gA/1MWYc2+qVFrVZU0UnxkOsvKKFjtn43ztSSyXKymd1DiJviIU1jut2CwRYnYH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfgT+T3y/G/SQvfc1NJtwJxbcfBP7cRvmicoeglodhE75tX+R0
-	0hnTgFLTZ94W3V/D9cqvohH3Vg2Pp8B3slYKmraY4njfTtEEpy/4Hty2UBCHMhDIY2c=
-X-Gm-Gg: ASbGncuLEJIfSOvp3YIAf7L/mFQOMltX/ik3uVIz9QKVc6o8M5/o5+1NcMX6cdjaPG2
-	2Hvejjx6zwibx+FLHTDZy+iZQpn7Ir8NajAiHlK0YDGAuGVrdbzKy/tK/qByJG/xktiPQVZj0Y5
-	Exwz9T2KtQSecEzNwQ3s7kUuqfZFJkPG46Tm2pSbCB5nNnJ9WnomzBAi+Kyb93p1gfjE31BHShR
-	0EqkPEFtTylRIvtuw/b6kK4SHBOKjOJS8ESi4xzfgKep5w4sovVrEBBkLea2/yo8LeOua0BZQ3p
-	MOB8G0JZDHrT5AaWxz9OHSc2naChEulLilA911k7nzT86H6be82SutXMm6q/7oC4aUVVH1wsxmE
-	+xA6Zzo5mqDrjWe8JMGw6XeSvcGw6EGLBs9aacOOGZPlaB55cV8LkFfiFeGnuSa1nlcER2Bhchb
-	jALoBqZi40g6MSgM2YPYnWwgkpNzCj/diaPPrDeGVunfa+4AunKv7JE8IcYOVxhuHAUdzzRpqLJ
-	fQbwQORBkAOGjGWCl6UsExJFW6psezU5t0GfZY=
-X-Google-Smtp-Source: AGHT+IFuCx4lTV36ytxTOyAJ/RoowaLhIeY2jVZHeX87aG97vvwLOiA38P+znCtMJ8WqDnaM5A4vXg==
-X-Received: by 2002:a17:907:6096:b0:b6d:4dc2:7be3 with SMTP id a640c23a62f3a-b72c08dc800mr387131266b.9.1762530357944;
-        Fri, 07 Nov 2025 07:45:57 -0800 (PST)
-Received: from ?IPV6:2003:e5:870e:1500:7795:3e8a:56c1:ae53? (p200300e5870e150077953e8a56c1ae53.dip0.t-ipconnect.de. [2003:e5:870e:1500:7795:3e8a:56c1:ae53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bf9bdf15sm274044366b.62.2025.11.07.07.45.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Nov 2025 07:45:57 -0800 (PST)
-Message-ID: <ed4971b3-49ea-4263-b225-80a643bca0c4@suse.com>
-Date: Fri, 7 Nov 2025 16:45:56 +0100
+	Fri, 07 Nov 2025 15:51:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cKXlbPiduwxrkyvdJHLL6tplJeStKoiPlFY+gmyq2rqQvtwEnV6tc3OuI63LHEO5LCzPxQ0AWjrJJkjFAVkc6C5i+kwm2tvmidKhskTy01875nXLcEDcMlosO95XMBPQmbsOB5Vfv4FQqV0UhXlS6p+J8W85DR0sy9t8SHRQtbtMew9V3Hae4IpHMqqQE+L4JN5S+V2XxsH9xxLTD0px0RHgNT+sTOD10Guv2PD1DkQlOuWO2jBy4553GqWR7gVq3QaStZ8lAnbuXWTvnJkwCw5oxBSPFIl+dCCPSJ5hJMatHymYX5MLYwLZFPV455iweao6702dRwG/tbowjE54/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bOuumwx74E/Crx5Q7u7GEctGQ1qytr7IkJwq2FULGX0=;
+ b=jujUv9awWaFonAOPuK1N46Wy88WMOg4j/LkUnklcUZ/SMebIaTDL3StlqhabuLIiUU2Yyns0OnsrgcLa8iRHAA++ablhKnfRXyF0SFi/wy8UdtTbWLSzfdETRTeY/zJMIvp9xUxjaf98AoHZzq8Vvqw0nLsZ11JSiRscpWZ8v0anQX13jasSA52cn+2DLWoUtmOdOdNiPENAxhLdnNGQiqha0JMGJya1tDPbTPHsN5/DQm8C6QVMqgObZHHPLBCmdgvJ+FRfrFSd6mD7heoNAMrtdNdWETk6FYmACRzXkBapMk07Egc3dVsPAYfR2DUqBjZXYcvT+F/kBjWz9RqcXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bOuumwx74E/Crx5Q7u7GEctGQ1qytr7IkJwq2FULGX0=;
+ b=dXXeKQxaHtvOLMhR6gDPcD2cXn7GB0Ce8HNgep21QJpM6TFqh6/ZohUN5jb+FEI1IoisCa1nRhxWcb39a6dZL2itk2y4iX30Svc25DCMnyJXVmaPFTMeSR3AGvvTA800mL9cDUiOqucdSKY+BzpzSZxj1TcX2DTF9iCMrvC0OkLvgKYiG9w888HMZl5BNpbMRLxbcTMR7kX+mGEyzCAOJTOQ3IzbtkvBf3F5hE8zekMWxga+FgC3WHV3JnQJYmrCHBgLMlQfoxgux9KZQZhxKwDQHYWtoVVsInqXCJ+60sLt6yXag7fYrSON3600U+TxQZRnHqcJF3b5XAV78OnchA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PAXPR04MB8077.eurprd04.prod.outlook.com (2603:10a6:102:1c3::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
+ 2025 15:51:22 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
+ 15:51:22 +0000
+Date: Fri, 7 Nov 2025 10:51:11 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: maudspierings@gocontroll.com
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 2/4] backlight: add max25014atg backlighty
+Message-ID: <aQ4Vb4eUmSX0Nj6+@lizhi-Precision-Tower-5810>
+References: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
+ <20251107-max25014-v5-2-9a6aa57306bf@gocontroll.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251107-max25014-v5-2-9a6aa57306bf@gocontroll.com>
+X-ClientProxiedBy: SJ0PR05CA0038.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::13) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-3-kevin.brodsky@arm.com>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20251029100909.3381140-3-kevin.brodsky@arm.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------2KDMQGlJELWzw0JdPjGXTYgs"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PAXPR04MB8077:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee77eb30-ecb7-47ba-bcdd-08de1e157fae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G8KnTDEnw9E1YcpLbiiw9H6QWwUDJGIvjtlGHapJ/Xh3Nh54eH3M2wfoVW/T?=
+ =?us-ascii?Q?9WUAhqauEie7xim9Wn68mrzgXomSNEzxeNc4ylbVQ8LCe+7iyw8cB5NMIWRM?=
+ =?us-ascii?Q?is6N5p+jkYZ3+8D7d9E1Snho/UaTtIJ7SwTUx2NX46W1LGjYO47jlAJJXAHC?=
+ =?us-ascii?Q?v9PgL+/Y4GOBReZ/G+20ru5XaRn0hhPzpFIEEfXnZ8inlA7ih8LtFmka0qt8?=
+ =?us-ascii?Q?YnIeZXtuvIQbXYHGVDs7CU/K/wx8okCUtcy9kMl95eIuEcYgYwM+daJzHtXl?=
+ =?us-ascii?Q?PXYgOXtI7t8VbNlMypx28Wv8Jp0nMEPIoq5kDcuuFd/MIYEDJhEmfaRVy5O5?=
+ =?us-ascii?Q?+NqVb/4MAxlIQrnWEOUw/CvPtE/krDmFhx+XnHYf9BNH6EmmrFXE91sbbN1I?=
+ =?us-ascii?Q?I24lQElZN4kkL/C4laR4zsRGb5ltk38aUUkvmfU0N3pd9vbTYgkFdRkTxzwj?=
+ =?us-ascii?Q?gi/a6nV3Sm2RRTQJYH6c9aGlQFo/4TEDL0jLvygJ02Geq92+Tnh5IqKE9mbh?=
+ =?us-ascii?Q?MDomNF7HeyfohAU71XUt9nY5pGon7SeXhj7aujtBzKWWntBOs+yi+431/33a?=
+ =?us-ascii?Q?DsFpsRocHouSMq66XEuPaxv/7UUj3/wUz/8VwMCrn77E0BE73CH9Ha7g/ajl?=
+ =?us-ascii?Q?O7/nFVmXpXJOCBuVN7/Fsa11JqAW05MlDksmXfQrHsbbGSncsYGgU3xqj6Ai?=
+ =?us-ascii?Q?9WBwLsyHFOQPtKmPWaypANjvNu3G831MCUjjRZzlNHUzKVZ2BgUcW9m3Ckwf?=
+ =?us-ascii?Q?LLBPzOi1C3ObXV1opqWl1SbgPlm2TmJ7CHD3WfHXLfR1yruGU1Ie1rHc604s?=
+ =?us-ascii?Q?w5AkLfiWqEc+7hXnY0vk50Gjd+GoX1zmfoPY4lOPPsMjEiUTdvmQqJUEUtPx?=
+ =?us-ascii?Q?WJ/J7Wc6IBUCWwcamWSZ94EqDBRz0rz1BdWtjE0mxDEMJmJ+cY7PV4Bt9Brk?=
+ =?us-ascii?Q?H6NdlPh2uK6kgh9geKCAi69LrJY/wehVu0WRjARhPwCwTwRrc5aSbNrsCTS3?=
+ =?us-ascii?Q?p4KQJD/v7xIpU2dMxL6q6QnOSvH90xYMvlx/BcP7kAtmc4n03MU10hN5xQZR?=
+ =?us-ascii?Q?+TVuaBiV1lKH/GwxrCgP+pa8691205aAF15MfDSog23guef3cxYMoM73rgcv?=
+ =?us-ascii?Q?e2Tbj+8hOs1K/nGkHhnyrO9nzsPL7Hm1PzxqmxirebQ6XhZ2l4acSYIs6vfH?=
+ =?us-ascii?Q?CK3p9ALGSHGG0KeGFVxBl4U88ZOuWh4dKrB/t5uBHiYVHo8hNzVfxGWilCpE?=
+ =?us-ascii?Q?ES7UvsFIsf8gBR5bwEvbLcebzt4sM6yWZzjIMDvgkCHw/PVzY+Vv1V7FSe0k?=
+ =?us-ascii?Q?kEYxx6qjCs0xAd1MFGO59Zqdm5TTyPS+46954Bft68FCcKkDzAk7Bm8K+a3Z?=
+ =?us-ascii?Q?earwXGGKjhYROddCxKAF75k4bQ2vQaD01mtMLRb/rvhn77sRf940vhgpKjBb?=
+ =?us-ascii?Q?pXChFR+FSkysRndklWM0O+XE2iW5OSz0/e8CqcwKb1YX4lRexep1AWCcXuvU?=
+ =?us-ascii?Q?1nrrmNp/TiLVjT2SzkhxnQXHODZIk2vrcIXJ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DWBH3RLIl6EQKAoIIz7CB4YFb6bfgQy4FugDj3gf6XB6rwHuq19qePMbACVx?=
+ =?us-ascii?Q?S2UXlbMAzpW3ahQVKy1w/PbsmYmQG80uxCDYzLS+jIaIf/wpLdVuBK0Qd6TJ?=
+ =?us-ascii?Q?C1vuRIODsdjA9NshrgtIl141hcoJq1RxXX7XmOJndVswy9InHl0xm5Gcubg+?=
+ =?us-ascii?Q?Ncr52FiTxk4mwNnEw8YpRTeVbFDG9oQH0TKeq83DsWXq2OIHcM8LgXWyQC28?=
+ =?us-ascii?Q?8KXhgMqx7krnRfUbl4g6VOuahOx5QOB2G0Gl2eADWgGDLfNI2Z1OqhpzQkye?=
+ =?us-ascii?Q?quRhekUDamDPt6VvAlY6rRi6Wlv4c2LPiRAAD029hEO53lppxJZv2uQuzB/b?=
+ =?us-ascii?Q?k+QzU58Jk/QTmUZczSGjOuTDcIm6BqCRX50aG3duMVUR6PaqYatmI9p4ayMb?=
+ =?us-ascii?Q?RWPvuwQjyTXY6cqvRvMCJ1iKAB6xsHqvE0TMon33PGlGh1vBX54pTBRz2Td7?=
+ =?us-ascii?Q?aaoqctV7dPSW362LtwxaSk8y3oB+HuPtuzXiAufX/P3wQniWClA64x/yZMAA?=
+ =?us-ascii?Q?qaDripsDWrDcqGZ7ZbzuUk+vDcL/LMFOTWh6sD4jhv6m351vMOtew3mJNVjv?=
+ =?us-ascii?Q?K4PVk/r9iMlKAQB3aRiQvkPVGesJT7EN+Ms6xG6YIOWaa418gjQN0JdtBBX9?=
+ =?us-ascii?Q?emrk4KdHnnSTITTwjfvqFvGUF7F8Q1RaELlNEhru8xLUHv3+pnhxtD9HxJJf?=
+ =?us-ascii?Q?LjNJwUkHHrxe5jEe9PH3u3cIClra7vU7ewDKmntqllRu8LhzcIYBtivXito7?=
+ =?us-ascii?Q?FtV6pCcgQsQuPmdAJaTFBlbUSWulLV88E9W/MhPiZ05ZUlk0VpnJtCme87f9?=
+ =?us-ascii?Q?++/u4ELlEyAzfrYmysh+4gNyGW9YW8jbjwRgekajHXAsKXqgetv29zvssTU5?=
+ =?us-ascii?Q?RZJ8b8Xd3uC99dBSwre8Er+zrd9lAFMGAXg+lbhkFaHAGMsGBOhu9yyY/Wsf?=
+ =?us-ascii?Q?y3CFslvsQtfk7FATCG6p+ssRO7AEIDdPB4oKpuyFvSOJ5VJyrIhntBDU7sQw?=
+ =?us-ascii?Q?PcZydWgAsmdH3tm++QJi2vDmHo6vM0kdyBm2VKofliz25fuAgFIdcFPHaIls?=
+ =?us-ascii?Q?0/1zNSgEYXD4F5ybk+ra4vRWaBLCavHT6VxTMpQ5sGYvjTUjK6zQ1LAZSxjE?=
+ =?us-ascii?Q?xjat4rzb830U7Pa4tQZgW4B9o+pnWDbQr18QkZcIPjBH1xArzFRQ8RDSqljN?=
+ =?us-ascii?Q?Io+5rCxnTS5xmWf/sH6Rwx8oIhyTdS050HU62k39fqPWTu7kzzmvLfbJ1EO1?=
+ =?us-ascii?Q?Hmhr7xpsAFWhdGHqEu2VC2IXuCWw1Ehxcd775spxci+yTiN+BcYP1q1Fs25x?=
+ =?us-ascii?Q?NK78jwdbuNhGzMnR2CRZmJ9Xwz+X2Qgz6If4wZbu6Lo/kIt9PmmFkaiSW46a?=
+ =?us-ascii?Q?JNbLZu3V57sBSm9VejjJ7vuL8wpVd+P42jk3yJEdUw8qYXn2fq3kYsVYxupi?=
+ =?us-ascii?Q?a88N4DNkjH3q2QQPeg7R/Oorlkm+c5rOiNutfokfxvvN552t2uIn+R1wKh+g?=
+ =?us-ascii?Q?9JNTauquAEs78pa0Qxd7yOv7O2pQpQ0u3VsF3LLKC05gZXbnEP+KNyrEYJbf?=
+ =?us-ascii?Q?Fyw3nba1d82ZxNbQWyE=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee77eb30-ecb7-47ba-bcdd-08de1e157fae
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 15:51:21.9862
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WlOyp4AG9Qwn+rmdyM8GJf6i58i/5a+QYe+odocw60GTpmzXXQYolcqHvBLYuzIeLXfJyJaBFnkcEACwcbZ/iw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_074600_526683_9F02C831 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20251107_075126_617322_846F5D3A 
+X-CRM114-Status: GOOD (  34.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,141 +169,410 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------2KDMQGlJELWzw0JdPjGXTYgs
-Content-Type: multipart/mixed; boundary="------------knysrRNvahQGLFPAzdME9JNX";
- protected-headers="v1"
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-Message-ID: <ed4971b3-49ea-4263-b225-80a643bca0c4@suse.com>
-Subject: Re: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-3-kevin.brodsky@arm.com>
-In-Reply-To: <20251029100909.3381140-3-kevin.brodsky@arm.com>
+On Fri, Nov 07, 2025 at 01:49:59PM +0100, Maud Spierings via B4 Relay wrote:
+> From: Maud Spierings <maudspierings@gocontroll.com>
+>
+> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
+> with integrated boost controller.
+>
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+>  MAINTAINERS                        |   1 +
+>  drivers/video/backlight/Kconfig    |   7 +
+>  drivers/video/backlight/Makefile   |   1 +
+>  drivers/video/backlight/max25014.c | 409 +++++++++++++++++++++++++++++++++++++
+>  4 files changed, 418 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 606ce086f758..d082d3f8cfae 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -15265,6 +15265,7 @@ MAX25014 BACKLIGHT DRIVER
+>  M:	Maud Spierings <maudspierings@gocontroll.com>
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+> +F:	drivers/video/backlight/max25014.c
+>
+>  MAX31335 RTC DRIVER
+>  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
+> diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
+> index d9374d208cee..d3bb6ccd4185 100644
+> --- a/drivers/video/backlight/Kconfig
+> +++ b/drivers/video/backlight/Kconfig
+> @@ -262,6 +262,13 @@ config BACKLIGHT_DA9052
+>  	help
+>  	  Enable the Backlight Driver for DA9052-BC and DA9053-AA/Bx PMICs.
+>
+> +config BACKLIGHT_MAX25014
+> +	tristate "Backlight driver for the Maxim MAX25014 chip"
+> +	depends on I2C
+> +	select REGMAP_I2C
+> +	help
+> +	  If you are using a MAX25014 chip as a backlight driver say Y to enable it.
+> +
+>  config BACKLIGHT_MAX8925
+>  	tristate "Backlight driver for MAX8925"
+>  	depends on MFD_MAX8925
+> diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
+> index dfbb169bf6ea..1170d9ec40b8 100644
+> --- a/drivers/video/backlight/Makefile
+> +++ b/drivers/video/backlight/Makefile
+> @@ -45,6 +45,7 @@ obj-$(CONFIG_BACKLIGHT_LOCOMO)		+= locomolcd.o
+>  obj-$(CONFIG_BACKLIGHT_LP855X)		+= lp855x_bl.o
+>  obj-$(CONFIG_BACKLIGHT_LP8788)		+= lp8788_bl.o
+>  obj-$(CONFIG_BACKLIGHT_LV5207LP)	+= lv5207lp.o
+> +obj-$(CONFIG_BACKLIGHT_MAX25014)	+= max25014.o
+>  obj-$(CONFIG_BACKLIGHT_MAX8925)		+= max8925_bl.o
+>  obj-$(CONFIG_BACKLIGHT_MP3309C)		+= mp3309c.o
+>  obj-$(CONFIG_BACKLIGHT_MT6370)		+= mt6370-backlight.o
+> diff --git a/drivers/video/backlight/max25014.c b/drivers/video/backlight/max25014.c
+> new file mode 100644
+> index 000000000000..36bae508697e
+> --- /dev/null
+...
+> +
+> +struct max25014 {
+> +	struct i2c_client *client;
+> +	struct backlight_device *bl;
+> +	struct regmap *regmap;
+> +	struct gpio_desc *enable;
+> +	struct regulator *vin; /* regulator for boost converter Vin rail */
+> +	uint32_t iset;
+> +	uint8_t strings_mask;
+> +};
+> +
+> +static const struct regmap_config max25014_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 8,
+> +	.max_register = MAX25014_DIAG,
+> +};
+> +
+> +/**
+> + * @brief control the brightness with i2c registers
+> + *
+> + * @param regmap trivial
+> + * @param brt brightness
+> + * @return int
+> + */
+> +static int max25014_register_control(struct regmap *regmap, uint32_t brt)
+> +{
+> +	uint32_t reg = TON_STEP * brt;
+> +	int ret;
+> +	/*
+> +	 * 18 bit number lowest, 2 bits in first register,
+> +	 * next lowest 8 in the L register, next 8 in the H register
+> +	 * Seemingly setting the strength of only one string controls all of
+> +	 * them, individual settings don't affect the outcome.
+> +	 */
+> +
+> +	ret = regmap_write(regmap, MAX25014_TON_1_4_LSB, reg & 0b00000011);
+> +	if (ret != 0)
 
---------------knysrRNvahQGLFPAzdME9JNX
-Content-Type: multipart/mixed; boundary="------------0xpsCIW0ItmLiouLur0gOGNm"
+if (ret), check others regmap_*()
 
---------------0xpsCIW0ItmLiouLur0gOGNm
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+> +		return ret;
+> +	ret = regmap_write(regmap, MAX25014_TON1L, (reg >> 2) & 0b11111111);
+> +	if (ret != 0)
+> +		return ret;
+> +	return regmap_write(regmap, MAX25014_TON1H, (reg >> 10) & 0b11111111);
+> +}
+> +
+> +static int max25014_check_errors(struct max25014 *maxim)
+> +{
+> +	uint8_t i;
+> +	int ret;
+> +	uint32_t val;
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_OPEN, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
 
-T24gMjkuMTAuMjUgMTE6MDgsIEtldmluIEJyb2Rza3kgd3JvdGU6DQo+IGFyY2hfZmx1c2hf
-bGF6eV9tbXVfbW9kZSgpIGlzIGNhbGxlZCB3aGVuIG91dHN0YW5kaW5nIGJhdGNoZWQNCj4g
-cGd0YWJsZSBvcGVyYXRpb25zIG11c3QgYmUgY29tcGxldGVkIGltbWVkaWF0ZWx5LiBUaGVy
-ZSBzaG91bGQNCj4gaG93ZXZlciBiZSBubyBuZWVkIHRvIGxlYXZlIGFuZCByZS1lbnRlciBs
-YXp5IE1NVSBjb21wbGV0ZWx5LiBUaGUNCj4gb25seSBwYXJ0IG9mIHRoYXQgc2VxdWVuY2Ug
-dGhhdCB3ZSByZWFsbHkgbmVlZCBpcyB4ZW5fbWNfZmx1c2goKTsNCj4gY2FsbCBpdCBkaXJl
-Y3RseS4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IEtldmluIEJyb2Rza3kgPGtldmluLmJyb2Rz
-a3lAYXJtLmNvbT4NCg0KUmV2aWV3ZWQtYnk6IEp1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNl
-LmNvbT4NCg0KDQpKdWVyZ2VuDQo=
---------------0xpsCIW0ItmLiouLur0gOGNm
-Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Description: OpenPGP public key
-Content-Transfer-Encoding: quoted-printable
+uint32 always >= 0
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+So
+	if (val)
 
-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
-kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
-=3DeeAB
------END PGP PUBLIC KEY BLOCK-----
+> +		dev_err(&maxim->client->dev, "Open led strings detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
+> +		dev_err(&maxim->client->dev, "Short to ground detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
+> +		dev_err(&maxim->client->dev, "Shorted led detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_DIAG, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	/*
+> +	 * The HW_RST bit always starts at 1 after power up.
+> +	 * It is reset on first read, does not indicate an error.
+> +	 */
+> +	if (val > 0 && val != MAX25014_DIAG_HW_RST) {
+> +		if (val & 0b1)
 
---------------0xpsCIW0ItmLiouLur0gOGNm--
+BIT(0)
 
---------------knysrRNvahQGLFPAzdME9JNX--
+> +			dev_err(&maxim->client->dev,
+> +				"Overtemperature shutdown\n");
+> +		if (val & 0b10)
+> +			dev_err(&maxim->client->dev,
+> +				 "Chip is getting too hot (>125C)\n");
+> +		if (val & 0b1000)
+> +			dev_err(&maxim->client->dev,
+> +				"Boost converter overvoltage\n");
+> +		if (val & 0b10000)
+> +			dev_err(&maxim->client->dev,
+> +				"Boost converter undervoltage\n");
+> +		if (val & 0b100000)
+> +			dev_err(&maxim->client->dev, "IREF out of range\n");
+> +		return -EIO;
+> +	}
+> +	return 0;
+> +}
+> +
+...
+> +static int max25014_parse_dt(struct max25014 *maxim,
+> +			     uint32_t *initial_brightness)
+> +{
+> +	struct device *dev = &maxim->client->dev;
+> +	struct device_node *node = dev->of_node;
+> +	struct fwnode_handle *child;
+> +	uint32_t strings[4];
+> +	int res, i;
+> +
+> +	if (!node) {
+> +		dev_err(dev, "no platform data\n");
+> +		return -EINVAL;
+> +	}
 
---------------2KDMQGlJELWzw0JdPjGXTYgs
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+call from probe, check other place
 
------BEGIN PGP SIGNATURE-----
+	return dev_err_probe()
 
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmkOFDQFAwAAAAAACgkQsN6d1ii/Ey+9
-7Qf/T56S47fDqEb7wrI6i48Xr9hbJbL1cOc88MTixDkHAfIu70HOLvfAW2G+G73cTTY/1IFY+cr+
-wk6KhYqguuIbbFGh6hlD2neoBl0l4Fiujn0c9wTKQbJrDL6h8jDeODAFWmkuyd0Rtnawy6o+0tgP
-OLmQ4vhbq2u58C6zzLGQWIz6csmJqnGTKYGIQZI/h7xUZhz/b/RzD8p5aTRMGfVraJlKwuNAsKmp
-/f7DpPGGCI7nCZWglBlKRFiGM/bZFdt9rZRV30JAFzq5kyUL6Lp3Y0nGp91si4slpitgwPxEG3M6
-oApGVoFTsieG0o5HaiDhf8c0R7g+2PiCjn5h6HxMIA==
-=Eb3P
------END PGP SIGNATURE-----
+> +
+> +	child = device_get_next_child_node(dev, NULL);
+> +	if (child) {
+> +		res = fwnode_property_count_u32(child, "led-sources");
+> +		if (res > 0) {
+> +			fwnode_property_read_u32_array(child, "led-sources",
+> +						       strings, res);
+> +
+> +			/* set all strings as disabled, then enable those in led-sources*/
+> +			maxim->strings_mask = 0xf;
+> +			for (i = 0; i < res; i++) {
+> +				if (strings[i] <= 4)
+> +					maxim->strings_mask &= ~BIT(strings[i]);
+> +			}
+> +		}
+> +
+> +		fwnode_property_read_u32(child, "default-brightness",
+> +					 initial_brightness);
+> +
+> +		fwnode_handle_put(child);
+> +	}
+> +
+> +	maxim->iset = MAX25014_ISET_DEFAULT_100;
+> +	of_property_read_u32(node, "maxim,iset", &maxim->iset);
+> +
+> +	if (maxim->iset < 0 || maxim->iset > 15) {
+> +		dev_err(dev,
+> +			"Invalid iset, should be a value from 0-15, entered was %d\n",
+> +			maxim->iset);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (*initial_brightness < 0 || *initial_brightness > 100) {
+> +		dev_err(dev,
+> +			"Invalid initial brightness, should be a value from 0-100, entered was %d\n",
+> +			*initial_brightness);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int max25014_probe(struct i2c_client *cl)
+> +{
+> +	struct backlight_device *bl;
+> +	const struct i2c_device_id *id = i2c_client_get_device_id(cl);
+> +	struct max25014 *maxim;
+> +	struct backlight_properties props;
+> +	int ret;
+> +	uint32_t initial_brightness = 50;
 
---------------2KDMQGlJELWzw0JdPjGXTYgs--
+try keep reverise christmas order
+
+> +
+> +	maxim = devm_kzalloc(&cl->dev, sizeof(struct max25014), GFP_KERNEL);
+> +	if (!maxim)
+> +		return -ENOMEM;
+> +
+> +	maxim->client = cl;
+> +
+> +	ret = max25014_parse_dt(maxim, &initial_brightness);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	maxim->vin = devm_regulator_get_optional(&maxim->client->dev, "power");
+> +	if (IS_ERR(maxim->vin)) {
+> +		if (PTR_ERR(maxim->vin) == -EPROBE_DEFER)
+> +			return -EPROBE_DEFER;
+> +		maxim->vin = NULL;
+> +	}
+> +
+> +	if (maxim->vin) {
+> +		ret = regulator_enable(maxim->vin);
+> +		if (ret < 0) {
+> +			dev_err(&maxim->client->dev,
+> +				"failed to enable Vin: %d\n", ret);
+> +			return ret;
+> +		}
+> +	}
+
+use devm_regulator_get_enable_optional() to combine devm_regulator_get_optional()
+and regulator_enable() to one call.
+
+> +
+> +	maxim->enable = devm_gpiod_get_optional(&maxim->client->dev, "enable",
+> +						GPIOD_ASIS);
+> +	if (IS_ERR(maxim->enable)) {
+> +		ret = PTR_ERR(maxim->enable);
+> +		dev_err(&maxim->client->dev, "failed to get enable gpio: %d\n",
+> +			ret);
+> +		goto disable_vin;
+> +	}
+> +
+> +	if (maxim->enable)
+> +		gpiod_set_value_cansleep(maxim->enable, 1);
+
+gpiod_set_value_cansleep() tolerate NULL, so needn't if check here
+
+and if you pass GPIOD_OUT_HIGH at devm_gpiod_get_optional(), needn't call
+this function.
+
+> +
+> +	/* Enable can be tied to vin rail wait if either is available */
+> +	if (maxim->enable || maxim->vin) {
+> +		/* Datasheet Electrical Characteristics tSTARTUP 2ms */
+> +		usleep_range(2000, 2500);
+
+now perfer use fsleep()
+
+Frank
+> +	}
+> +
+> +	maxim->regmap = devm_regmap_init_i2c(cl, &max25014_regmap_config);
+> +	if (IS_ERR(maxim->regmap)) {
+> +		ret = PTR_ERR(maxim->regmap);
+> +		dev_err(&maxim->client->dev,
+> +			"failed to initialize the i2c regmap: %d\n", ret);
+> +		goto disable_full;
+> +	}
+> +
+> +	i2c_set_clientdata(cl, maxim);
+> +
+> +	ret = max25014_check_errors(maxim);
+> +	if (ret) { /* error is already reported in the above function */
+> +		goto disable_full;
+> +	}
+> +
+> +	ret = max25014_configure(maxim);
+> +	if (ret) {
+> +		dev_err(&maxim->client->dev, "device config err: %d", ret);
+> +		goto disable_full;
+> +	}
+> +
+> +	memset(&props, 0, sizeof(props));
+> +	props.type = BACKLIGHT_PLATFORM;
+> +	props.max_brightness = MAX_BRIGHTNESS;
+> +	props.brightness = initial_brightness;
+> +	props.scale = BACKLIGHT_SCALE_LINEAR;
+> +
+> +	bl = devm_backlight_device_register(&maxim->client->dev, id->name,
+> +					    &maxim->client->dev, maxim,
+> +					    &max25014_bl_ops, &props);
+> +	if (IS_ERR(bl))
+> +		return PTR_ERR(bl);
+> +
+> +	maxim->bl = bl;
+> +
+> +	return 0;
+> +
+> +disable_full:
+> +	if (maxim->enable)
+> +		gpiod_set_value_cansleep(maxim->enable, 0);
+> +disable_vin:
+> +	if (maxim->vin)
+> +		regulator_disable(maxim->vin);
+> +	return ret;
+> +}
+> +
+> +static void max25014_remove(struct i2c_client *cl)
+> +{
+> +	struct max25014 *maxim = i2c_get_clientdata(cl);
+> +
+> +	maxim->bl->props.brightness = 0;
+> +	max25014_update_status(maxim->bl);
+> +	if (maxim->enable)
+> +		gpiod_set_value_cansleep(maxim->enable, 0);
+> +	if (maxim->vin)
+> +		regulator_disable(maxim->vin);
+> +}
+> +
+> +static const struct of_device_id max25014_dt_ids[] = {
+> +	{ .compatible = "maxim,max25014", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, max25014_dt_ids);
+> +
+> +static const struct i2c_device_id max25014_ids[] = {
+> +	{ "max25014" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(i2c, max25014_ids);
+> +
+> +static struct i2c_driver max25014_driver = {
+> +	.driver = {
+> +		.name = KBUILD_MODNAME,
+> +		.of_match_table = of_match_ptr(max25014_dt_ids),
+> +	},
+> +	.probe = max25014_probe,
+> +	.remove = max25014_remove,
+> +	.id_table = max25014_ids,
+> +};
+> +module_i2c_driver(max25014_driver);
+> +
+> +MODULE_DESCRIPTION("Maxim MAX25014 backlight driver");
+> +MODULE_AUTHOR("Maud Spierings <maudspierings@gocontroll.com>");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.51.2
+>
+>
 
