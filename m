@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B241DCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7356CCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PjtAt3sGghEHLiE1UxsP8i1P/baxDVr2nvbuR8L7khs=; b=qH66H6Sgy5Q5RXBtJ7yqb8+y3u
-	C022AmpJdYOJCiZigLJmNOZ6sg0cQYSxR+p2CSeibChUoGI8IoV+/VSyMvFf0jMsIisN/A6yLX1ZW
-	5i5S0ufLo0oGYji8VvMmR6qPXog7nWlT5F2OwDUVwDE5hm16HMjLeILrN/dvSBOsUW18RZHaWjZZl
-	8hDKQkH9FlggOtyUmzQvgBMhFP2vmSxrTw4xRY1rXU+JXahyxyTPM/xasgIa6wcxO1E5im1yWhPQZ
-	mojCpL4ACx9CeiqgUG9DBTCZG+0myeqN0OX0wQ5isEdvCxooGd3hha+JntzgS+wJJAn2YOkdDAvmd
-	RZOgDYlQ==;
+	bh=dKdfc/nifvizPXu6zHyg6q4B2C0WsM/OrjAHPKMoa1E=; b=nFGiKuEonSGS60hhTOy32od6Io
+	p/Ul796voEtn/6VVAnOT8c4DTqS0G0qz1/OsXZSrDlvuQ1iLJkllo3yL7glqBOPIndtMmX+3Iw1ct
+	jyp5oMwuOfAz5875gySaU5vDRHs6ryLQzKwpq+ipQ0NcmkrCVQ/xvqIxg8mcnbvd6cJWVJqzZwaZw
+	kC91MQxV4VQnPgPHz5MmbBFDDGWc9cwK2YCbgrjrzV7fUSCq3ems7hVN6k9riAw1HtVGMQV/4Vflp
+	T8Gl48GzBkyJkLZx0qbXOUat3exruR1XHoQm0kx00xiyQXnIH3/VRDovDrGQkR0YVx8yMlyjRgOp3
+	rrLNif7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVyM-00000001YdQ-1AHS;
-	Fri, 07 Nov 2025 23:34:26 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vHW1L-00000001ZG7-2Kuq;
+	Fri, 07 Nov 2025 23:37:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVyJ-00000001Yd0-1tFP;
-	Fri, 07 Nov 2025 23:34:24 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 129F1A8F;
-	Sat,  8 Nov 2025 00:32:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762558345;
-	bh=v+aqR0oFDtbY2RGxbmZS4i8tsceD2wMT6FgrKxFkNuE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ez+Kc6Zz2r29s2sYFBQG5meYqDQS0uR06fGd3xSE43sTrHVbruW1AMszX9TAleTON
-	 u4RbeQ8JObhaehHFv3VGDLcKakJ5LehXpt9KkbYsUSV7k7MVrQAO9q0GNU73VX/6Ib
-	 4nJS82/EDBUunMnuyX6kPqAVpNiBvhX7KnNyXuzo=
-Date: Sat, 8 Nov 2025 01:34:15 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Antoine Bouyer <antoine.bouyer@nxp.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Michael Riesch <michael.riesch@collabora.com>
-Subject: Re: [PATCH v8 8/8] media: Documentation: kapi: Add v4l2 generic ISP
- support
-Message-ID: <20251107233415.GK5558@pendragon.ideasonboard.com>
-References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
- <20251020-extensible-parameters-validation-v8-8-afba4ba7b42d@ideasonboard.com>
+	id 1vHW1K-00000001ZFZ-2ouF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 23:37:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D2EB61934;
+	Fri,  7 Nov 2025 23:37:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DCA4C16AAE;
+	Fri,  7 Nov 2025 23:37:26 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="dDXksjjD"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1762558644;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dKdfc/nifvizPXu6zHyg6q4B2C0WsM/OrjAHPKMoa1E=;
+	b=dDXksjjDOnQQAvQYvE1Q2Si/elVheo7rfOJrlpPYzvIjolTh+DWB3ui0oD+WvKtYKtV2Ww
+	zVuEO6gqpBzF/6r8WDKVuMQ5M4RaIZEHQGhw8I82WVPVMX5+Ds9rkaDFEbCvWTMYH6NMS3
+	UtGxV+9w1jkJbyFOAxboRQuCCIQq60I=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id b0f7e3ba (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Fri, 7 Nov 2025 23:37:24 +0000 (UTC)
+Date: Sat, 8 Nov 2025 00:37:15 +0100
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Nick Alcock <nick.alcock@oracle.com>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Russell King <linux@armlinux.org.uk>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH v5 17/34] random: vDSO: remove ifdeffery
+Message-ID: <aQ6Cq_5kiIXllEoS@zx2c4.com>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+ <20251106-vdso-sparc64-generic-2-v5-17-97ff2b6542f7@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251020-extensible-parameters-validation-v8-8-afba4ba7b42d@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_153423_640838_2008C20C 
-X-CRM114-Status: GOOD (  27.62  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-17-97ff2b6542f7@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +101,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+On Thu, Nov 06, 2025 at 11:02:10AM +0100, Thomas Weißschuh wrote:
+> -#endif
+> +	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> +		smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
+> +
 
-Thank you for the patch.
+This is possible because vdso_k_rng_data is now defined in the C source
+on all platforms and under all configurations, even if
+!CONFIG_VDSO_GETRANDOM means it's null? Whereas before, some config's
+headers didn't have this at all, so the #ifdef was necessary?
 
-On Mon, Oct 20, 2025 at 10:24:54AM +0200, Jacopo Mondi wrote:
-> Add to the driver-api documentation the v4l2-isp.h types and
-> helpers documentation.
-> 
-> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> ---
->  Documentation/driver-api/media/v4l2-core.rst |  1 +
->  Documentation/driver-api/media/v4l2-isp.rst  | 49 ++++++++++++++++++++++++++++
->  MAINTAINERS                                  |  1 +
->  3 files changed, 51 insertions(+)
-> 
-> diff --git a/Documentation/driver-api/media/v4l2-core.rst b/Documentation/driver-api/media/v4l2-core.rst
-> index ad987c34ad2a8460bb95e97adc4d850d624e0b81..a5f5102c64cca57b57b54ab95882b26286fb27de 100644
-> --- a/Documentation/driver-api/media/v4l2-core.rst
-> +++ b/Documentation/driver-api/media/v4l2-core.rst
-> @@ -27,3 +27,4 @@ Video4Linux devices
->      v4l2-common
->      v4l2-tveeprom
->      v4l2-jpeg
-> +    v4l2-isp
-> diff --git a/Documentation/driver-api/media/v4l2-isp.rst b/Documentation/driver-api/media/v4l2-isp.rst
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..150ba39b257b23e6a8ca1a348047f5b55588fbf7
-> --- /dev/null
-> +++ b/Documentation/driver-api/media/v4l2-isp.rst
-> @@ -0,0 +1,49 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +V4L2 generic ISP parameters and statistics support
-> +^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> +
-> +Design rationale
-> +================
-> +
-> +ISP configuration parameters and statistics are processed and collected by
-> +drivers and exchanged with userspace through data types that usually
-> +reflect the ISP peripheral registers layout.
-> +
-> +Each ISP driver defines its own metadata output format for parameters and
-> +a metadata capture format for statistics. The buffer layout is realized by a
-> +set of C structures that reflects the registers layout. The number and types
-> +of C structures is fixed by the format definition and becomes part of the Linux
-> +kernel uAPI/uABI interface.
-> +
-> +Because of the hard requirement of backward compatibility when extending the
-> +user API/ABI interface, modifying an ISP driver capture or output metadata
-> +format after it has been accepted by mainline is very hard if not impossible.
-> +
-> +It generally happens, in fact, that after the first accepted revision of an ISP
-> +driver the buffers layout need to be modified, either to support new hardware
-> +blocks, to fix bugs or to support different revisions of the hardware.
-> +
-> +Each of these situations would require defining a new metadata format, making it
-> +really hard to maintain and extend drivers and requiring userspace to use
-> +the correct format depending on the kernel revision in use.
-> +
-> +V4L2 ISP configuration parameters
-> +=================================
-> +
-> +For these reasons, Video4Linux2 defines generic types for ISP configuration
-> +parameters and statistics. Drivers are still expected to define their own
-> +formats for their metadata output and capture nodes, but the buffers layout can
-> +be defined using the extensible and versioned types defined by
-> +include/uapi/linux/media/v4l2-isp.h.
-> +
-> +Drivers are expected to provide the definitions of their supported ISP blocks,
-> +the control flags and the expected maximum size of a buffer.
+If so, can you mention this in the commit message?
 
-What are the control flags here ? Is it a leftover from a previous
-version ?
-
-With this addressed,
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-
-> +
-> +For driver developers a set of helper functions to assist them with validation
-> +of the buffer received from userspace is available in
-> +drivers/media/v4l2-core/v4l2-isp.c
-> +
-> +V4L2 ISP support driver documentation
-> +=====================================
-> +.. kernel-doc:: include/media/v4l2-isp.h
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5833f82caa7f2f734bb0e1be144ade2109b23988..cd1137c7754538d02bd72521fec6c89e082246d2 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26856,6 +26856,7 @@ V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
->  M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->  L:	linux-media@vger.kernel.org
->  S:	Maintained
-> +F:	Documentation/driver-api/media/v4l2-isp.rst
->  F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
->  F:	drivers/media/v4l2-core/v4l2-isp.c
->  F:	include/media/v4l2-isp.h
-
--- 
-Regards,
-
-Laurent Pinchart
+Jason
 
