@@ -4,77 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B736CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D43FCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nI3CXGkvAFlQIUQ/j6GtegTtizhopghGL4+tXDlE14w=; b=gWoxG2/Menz/8K2fEzpe6ypFRb
-	Ban5qATzdGKQK5djrP9B1TuKZ5WtEA1iF6VPyRvlGbZMPKiPCgfQy4cWYTZDRG4iqBgetTtr/MKjY
-	pgtlAxX0Cz2hgzcgPhdPXfCwQZ3//eg3i1MAt+xLXvw/5RY+78nIaW/ECRdoobLgneURynDLZBPjq
-	Cwlt2fjmfGS201bfIjD6tfadKVOOhQRT9NRHap+l1M/jjle0j+xuqZv3F2dykALQ8YYDAx0Fy36Xp
-	L+QZ+IZwt5HT2FkmuGLTstLpuT/gwQELfNbGRkGozfO8E6Y33oUU387TYnHjvYm8ka5y4cyFgASh7
-	Ql70NeUw==;
+	bh=cQXAvugWsd+s6nUwtsH3mf35wynFSvwt4ZYvvCmiAP8=; b=4St1EaU3buuQDPhUpZ+iLkM0NJ
+	U/LvgnSxRdlj4mHoAn3I5K4KSSRtSQavgyLD2xMW3pTm2wRre2bdK6Co4GaKg0iVU0rJNgZbv4T2X
+	bAvmNyoO6LZjZkoVX+PEEK/n06xH7k+Bszf3qplRvvBLH/LoJCqalQ+Xpwzk2oxzQSvm3cijJX2KJ
+	rNQoHm+/IyyQvRvwZVSqr60udzqIoSg0bXQze9MGY9V8+iuSD4K7G1lMzLChcjQiGJqbIdNB6azoH
+	wXvaREtpO1cLxo8IwwOsIknCHf1jnKWkjUXGMn5RoMetH3GZ5auHFeCCHVW3hVBjjrgD9FjnxALOL
+	ux7VROyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGTc-0000000GlGF-12ZU;
-	Fri, 07 Nov 2025 07:01:40 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1vHGU9-0000000GlOh-2Vsu;
+	Fri, 07 Nov 2025 07:02:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGTV-0000000GlEa-1q49;
-	Fri, 07 Nov 2025 07:01:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1762498873; x=1763103673; i=markus.elfring@web.de;
-	bh=nI3CXGkvAFlQIUQ/j6GtegTtizhopghGL4+tXDlE14w=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=UfLkC3vY+o1sZDmcHZH9kkBYo5A0K9b8bVOlqP5/TJATwA7bbzxajYTnhVtoGZ1v
-	 ex0VRgryWn8miVR5b4pBfVt2nrpN3lkgKtXKJzZ2n25jNcNn8cYpTe/N/MKh0XEY6
-	 Ffx6j/j+h+oriIhLiqNPD7hBVPEeK9V56WGyuSccZF31kVKSNKJMQQsMHWuU4H7C4
-	 c9qJqVanAYD5aEnnV8JlfG1Y2kkOLt3PYBunTlfi2PXceJpEqw3BS3dXPZ0h/MG4b
-	 HqRAiopz9X9enfr3LdesErstm9xuXqqf9qC203q2W82ZL9wdScjusnLAX1wCEKt6o
-	 XbQ52VqyJE5Uk+zYTA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.187]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MQgks-1vcltX2w6A-00VV68; Fri, 07
- Nov 2025 08:01:13 +0100
-Message-ID: <396b2d11-29ca-4fae-97c3-7280c879cbfd@web.de>
-Date: Fri, 7 Nov 2025 08:00:51 +0100
+	id 1vHGU6-0000000GlNg-0MKL;
+	Fri, 07 Nov 2025 07:02:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DE9AB433A9;
+	Fri,  7 Nov 2025 07:02:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BBDC4CEF8;
+	Fri,  7 Nov 2025 07:02:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762498928;
+	bh=G4CqDOtfxOKTgeFOtwIs7RbRKrnzGiTvRUcznIc1IJs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=binHR/LTPx71bcgUOpp3wHw9VEYHZiJIYpwcCwT+C9Pwl26sij79RYSMEv0KrWSCI
+	 lYNKwlLw9+Pf487HDvLhCAk1IRxCqPT6sNSjOgFCiGoeBk6UHtNrH7hf7UnzuXepav
+	 FovCpkbsIUh3wPcVwMKKWCT/JpTkJv/jsRC4+WThT5aV6pVvWzD9CyiSc8BEbJK0Wx
+	 kqTRtjLEcgK5RF7LMY5KTNz78b0oeXC1QIY2iBZgQlM2hqU1NIk01RvCXZbwq26yCW
+	 Z7O63MTYVs4cMR5bP712CX0TQUkDXPPXjTFGEolrgnWI3dQOQLIGpYwXa4gkXD/k+A
+	 cr3ESFyspUD0Q==
+Message-ID: <a8952b46-94b6-4fe5-a5be-d69aa41d44cd@kernel.org>
+Date: Fri, 7 Nov 2025 08:02:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ubi: fastmap: fix ubi->fm memory leak
-To: Liyuan Pang <pangliyuan1@huawei.com>, linux-mtd@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- wanqian10@huawei.com, Yang Liu <young.liuyang@huawei.com>,
- Zhihao Cheng <chengzhihao1@huawei.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <dff05531-f5e3-400a-abf0-a5307c50357e@web.de>
- <20251107021137.874150-1-pangliyuan1@huawei.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20251107021137.874150-1-pangliyuan1@huawei.com>
+Subject: Re: [PATCH 11/13] soc: qcom: Simplify with
+ of_machine_get_match_data()
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
+ <20251106-b4-of-match-matchine-data-v1-11-d780ea1780c2@linaro.org>
+ <odmsib3dsxzzggq4gcx7gmh6vq3crlv25fz4z2l2ntezvx6gbi@uelqojwjjait>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <odmsib3dsxzzggq4gcx7gmh6vq3crlv25fz4z2l2ntezvx6gbi@uelqojwjjait>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+WdNf1CX4372udFUpsF6/LvjYNnzhBvXTIekGJH2+DckSbHGF5E
- KoK4pXI9XszPfc2Ya1kPKks6HpB7Flus+UTohWIhQk646qDuDebK+VnuXPKQCSxY+EZ8tRU
- oBd7DeuzeFONsGjtWRo9njPeLuyJPIf8vaXSxPQ+vC/whSTlyRaA8jY3AGLb1WtV2Z6LblB
- k3efc22BnQhRpj5YdV+tg==
-UI-OutboundReport: notjunk:1;M01:P0:oL26OuA+5Tc=;cxozs17R1289roWpigGmXh1D5vB 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 bf0AYeSraKjLd2TBSl/47vZ2co=
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_230133_836046_74E6ED74 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20251106_230210_173164_EFCA8A21 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +141,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> =E2=80=A6
->>> +++ b/drivers/mtd/ubi/fastmap.c
->>> @@ -1644,3 +1644,15 @@ int ubi_update_fastmap(struct ubi_device *ubi)
->> =E2=80=A6
->>> +void ubi_free_fastmap(struct ubi_device *ubi)
->>> +{
->>> +	int i;
->>> +
->>> +	if (ubi->fm) {
->> +		for (i =3D 0; i < ubi->fm->used_blocks; i++)
->> +			kmem_cache_free(ubi_wl_entry_slab, ubi->fm->e[i]);
->> =E2=80=A6
->> +	}
->> +}
->> =E2=80=A6
+On 07/11/2025 04:19, Dmitry Baryshkov wrote:
+> On Thu, Nov 06, 2025 at 08:07:18PM +0100, Krzysztof Kozlowski wrote:
+>> Replace open-coded getting root OF node, matching against it and getting
+>> the match data with new of_machine_get_match_data() helper.
 >>
->> May the local variable =E2=80=9Ci=E2=80=9D be defined in the loop heade=
-r?
->=20
-> I think it's better to leave it as it is, most of the code in
-> ubi defines variables outside the loop header, and defining
-> "i" in the loop header may cause compilation error in some old
-> kernel versions that use C89.
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>
+>> ---
+>>
+>> Depends on the first OF patch.
+>> ---
+>>  drivers/soc/qcom/qcom_pd_mapper.c | 17 ++---------------
+>>  1 file changed, 2 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/drivers/soc/qcom/qcom_pd_mapper.c b/drivers/soc/qcom/qcom_pd_mapper.c
+>> index 1bcbe69688d2..07198d44b559 100644
+>> --- a/drivers/soc/qcom/qcom_pd_mapper.c
+>> +++ b/drivers/soc/qcom/qcom_pd_mapper.c
+>> @@ -613,25 +613,12 @@ static void qcom_pdm_stop(struct qcom_pdm_data *data)
+>>  static struct qcom_pdm_data *qcom_pdm_start(void)
+>>  {
+>>  	const struct qcom_pdm_domain_data * const *domains;
+>> -	const struct of_device_id *match;
+>>  	struct qcom_pdm_data *data;
+>> -	struct device_node *root;
+>>  	int ret, i;
+>>  
+>> -	root = of_find_node_by_path("/");
+>> -	if (!root)
+>> -		return ERR_PTR(-ENODEV);
+>> -
+>> -	match = of_match_node(qcom_pdm_domains, root);
+>> -	of_node_put(root);
+>> -	if (!match) {
+>> -		pr_notice("PDM: no support for the platform, userspace daemon might be required.\n");
+>> -		return ERR_PTR(-ENODEV);
+>> -	}
+>> -
+>> -	domains = match->data;
+>> +	domains = of_machine_get_match_data(qcom_pdm_domains);
+>>  	if (!domains) {
+>> -		pr_debug("PDM: no domains\n");
+>> +		pr_notice("PDM: no support for the platform or no domains, userspace daemon might be required.\n");
+>>  		return ERR_PTR(-ENODEV);
+>>  	}
+> 
+> Here you are mixing two cases:
+> - There is not match in the table (in which case the driver should print
+>   a notice)
+> 
+> - There is a match in the table, but the data is NULL (the platform
+>   doesn't have PDM domains). In this case there should be no notice.
 
-Would you support to reduce the scope for such a variable to
-the code block of the if branch?
 
-Regards,
-Markus
+Why? Existing code printed notice in both cases. Why refactoring which
+tries to keep code functionally equivalent should change it?
+
+
+Best regards,
+Krzysztof
 
