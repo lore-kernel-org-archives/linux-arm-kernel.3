@@ -4,108 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23827CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB68CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AdCf4vPQQKcdIiUTBlgFWY6+CL84vbQobsHZpWBIrLI=; b=47yx4xpI7qaJDoj9lOUmoR/T3q
-	L90u1Wthf2LNx4Kg4oe4c6gtOMwbs8GRRC7yn+mvbxTy3HBot/VFE0eTPbIKm07mIVU22xXpQVYDl
-	lZlaaSwi8aDbkmZuIjZSJixoY/MK8RXrQ3aUxmWiwkHZ+TjXLLtq0zcLd2OouNbta7b2ioi2DRd+a
-	WrHB8Qcr/dq+Ra1rXokDVmyr+iuN7ZBorSt4iv2DG/eGmh2lG4K7tyga5QAvnYBNgWe5S6Us4y+Yv
-	Ji2eyPNQIHz69xB8jJfLOo88xvcE09u0hoQfp+qxH9VY50d5QnGW2ol1qvVpFhDMeFWBPlcOCdQvx
-	Yvq8uVTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=; b=LHKsdow+bAHP+EDfwEONbNDXa+
+	e7V4/30n1WS7EqvWobtDkrZs7XkbkKTPCgN7xRyvhr1/XsnjwpmXECbLmZYUsLYrB98GZ3MxrmBBH
+	wsLmE/5MLnJ8gwhH9mu0ciuLMvjGnUJqynAXT9VVxPtC8WkOx4erEKiTj4fmW9b+s1Lc/g24SODd5
+	tQX38b0E+5chlf9/RWn0XzTpUJdq5arZcBksu88llBJGSA3k3B88wYTHJZPRSia8kGqY1WeOviFyf
+	fkDcuHgxxsu9bpQbPOYxdSyU1/Q3lICHVhe+O7Ap93r/bxFVlbBYo1IEMgl0sLtPZtu295KwdsMoc
+	rV+6odiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMq8-0000000HQpP-3LgV;
-	Fri, 07 Nov 2025 13:49:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHMqI-0000000HQqt-0Vcc;
+	Fri, 07 Nov 2025 13:49:30 +0000
+Received: from mail-northeuropeazon11010056.outbound.protection.outlook.com ([52.101.84.56] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMq7-0000000HQpF-1GL4
+	id 1vHMqG-0000000HQq2-13Ru
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 13:49:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50ECD618FF;
-	Fri,  7 Nov 2025 13:49:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD796C16AAE;
-	Fri,  7 Nov 2025 13:49:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762523358;
-	bh=d5B/NwZk6ebhuP3QANVrGVMe+8wpDqpML+bx+HNq8b8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FxwATd/m8lKRhqAEHtVD9zS/H2TdFm+MLoy6kMMqNMcutonTnJ1vWtEEJGz+bfOme
-	 HM4uYVegWRerovkPIBdg193QZ7aSPETucmcR/4nXcppPSC5dcNmflMUYNTzL3Vlzxo
-	 DTLC4WEwuclQn3jOCkXijJozd/4YKnKtJ/HYG6MEPK/bwkHZFmsVLLKbw1oKdRPVEt
-	 CeqkIa89ikZfgGUh06yOadq9LGXXgCoL3Oa2HphHAJUfGQvnCDFYAbRPA26hZ4IAdE
-	 S7srCKBhVv1Jq5uvY8Z6arBsSLIJGTD3PDu+6/v/0U1oPc9lzkgjUKlyX9D8VHi6qQ
-	 Jm5UFbWk5UBSw==
-Message-ID: <82a4fc28-1cd7-4d89-a521-6e6e5a133f3c@kernel.org>
-Date: Fri, 7 Nov 2025 14:49:12 +0100
+	Fri, 07 Nov 2025 13:49:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=agxKUwNUmpy0e82iyEknNIirOe5ra9Dh6yFphdmK44CxChfzlZ9pWYwlYlgULi9jHtQt96uJMScBnNckMAXkSFzI6iJjLfotXcH0W+J6wZoA63Rx1CbPL8almmeXgfdBiivd/wmh6t4wT/5Nh39U8gjF2xTmmbdziBF6VJiq0a+KYtyrcWMwKNH5MFGyNGFlz0huKCiD0kD6gin/e4HFghIzZYFjqGT2reotxPCzCHaILfNqbL4Os3KbYLLOdbIOun5rF9a9hVRSvqNrt3+InMp/9o3eqcql9eBuhAVbn01ldbAcQzkEu2VSlb1/KRfvMyWP80M5RAijWgCiTHIbCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=;
+ b=NhcH0YdOxT8wTIpWdtbsjgmtEVY9I1yx4sbi/8W4eg3ltPQyjVR3a3DSfWXz6AnxwPTiDnQvFOlJgKjLdT/rtSsBWASZlnsxAeQi2fJiFHyO1yKwEAI7M9UirnFu0XiPnKWHfAFZroDDDNbzFRjdqpztsLev9ciLzjJhtHG3uqjNwI7ArAGEfmO5Sw25RV8ceM5gNfPcVaa0fMvc+fIMaC9c6jqF347gKj/QL93RAr8vK4e7kTl6SEE0J+JxPWWidrvmZwum+hfMdFWxzisCjnNqisZO3FhRu8vNdcoaENUYWtdoEucPzMWREdpn9cCcG7hwQBbuPy50aLtXFxLrGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=;
+ b=ksbk2fHnsPTHP8rhPO0LQia0ryzkTQSVpW3LEyxlyHCDWwrfoCnyI62WSR83l6hlW3amhlARZEq1qdKDmqrGvgo+hxheySSXBZ+6pyKghjlDfYkJm40PeceYUbOf/+E+N17F/SUOZKXsu0HZZuKb4bXhg6ucz04yFYxZt8As2zzcDpN4cem5eSq549P9ndIJtVufawdaNin8VPmEVghIv98vxM/5baUuSEMfpJus3mm7L4Ogw94mKh/050Wpidcsq/VC93X3z4YYMT61wHBHseGGVHmesZqn4OAoyVFzece/m3oXj2bZ9ysAiucAkmv2TROfToejaq8XSwS9OvYpxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PR3PR04MB7420.eurprd04.prod.outlook.com (2603:10a6:102:93::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
+ 2025 13:49:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
+ 13:49:19 +0000
+Date: Fri, 7 Nov 2025 21:49:58 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] remoteproc: imx_rproc: Add support for System
+ Manager API
+Message-ID: <aQ35BvxIwMetA5fm@shlinux89>
+References: <20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com>
+ <20251031-imx95-rproc-2025-10-31-v2-4-758b2e547a55@nxp.com>
+ <CAEnQRZC8PTbzNM056WUSR-kYqdf4Sgkr88z3S87ZFk+rc=q3=Q@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAEnQRZC8PTbzNM056WUSR-kYqdf4Sgkr88z3S87ZFk+rc=q3=Q@mail.gmail.com>
+X-ClientProxiedBy: SG2PR01CA0184.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: qcs8300: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- quic_nihalkum@quicinc.com, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20251107132154.436017-1-quic_vikramsa@quicinc.com>
- <20251107132154.436017-3-quic_vikramsa@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251107132154.436017-3-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7420:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b28fea7-89a8-404d-ae50-08de1e0472e7
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nbdvnwNSakdQqTqrIkB4J9jbKnQ1ten0+eqgGKhYlPofDiPTIP3hzEafOrII?=
+ =?us-ascii?Q?UKJNTea5MU5n1lyYHu5SfCKYEedXq5ixm5PUiIlbtbFyL55LyVNQ8oVUiqmE?=
+ =?us-ascii?Q?BliaDKtN4JFLQANBzVjOFY6qR4tjRkmJ18RCltIfgwSBMjAwcmcyffhCxlLW?=
+ =?us-ascii?Q?v/KdJMIVfMOzK7EG6qjKRm02jatIJItdT3/HlUHhHQLKZdyZv47JsJjKRumg?=
+ =?us-ascii?Q?XXFFDCjmP1urFlhT6lrRNUzef7Yvk5h5sq+k0Ud92FOYE/GmCBewGt+8Z1Q/?=
+ =?us-ascii?Q?IL3wWQMy5mzP7UY4RlCbH5pmv9eezJ8BekBbVnzE6QA1lF7DSVoyuohKxjsU?=
+ =?us-ascii?Q?Xd9G3Gux847bRruHaNL8b9SqJfB6naXhksMz07Sy/o3RvIypGB5LD4oOB1Q5?=
+ =?us-ascii?Q?MGEpzKkxc5ccHZv3oUODciqCZFdSD2r0kmLp96Nox/ipTA/V//3qVZg8qU4N?=
+ =?us-ascii?Q?B7OBw46Q+MI0u3+Ip2Z8gx6v4feGD6PwY++tGe5Hcjl+CtlcThGitmcnGWFJ?=
+ =?us-ascii?Q?crInz66o+CKlpAGBhW1i61spucGuu+BsNEA5xfTFbJY7rN7p5yVdyllYyH8D?=
+ =?us-ascii?Q?6CFXVcSZsBCEyn6YOxrm7Dg6q3MNDcjsVwe8T1y4NnJwZe9we2OeOxALBbCx?=
+ =?us-ascii?Q?umb2eY2/Z168/NTxD22JHbSxtZsXgUpX9RbWkvN+kTMkkJWN46lzojVS4n5U?=
+ =?us-ascii?Q?DlgshIRQRCfMtnRK76FNs8nXuMc1Ek8QeSxItDCKun1RZu87iqKyiX1NxDf5?=
+ =?us-ascii?Q?YLpyuVKci1PLU0I4c0mWeMwgCySfQGUqo+hhOyK9oFn2nhMVCLhAOgk19txQ?=
+ =?us-ascii?Q?nE4exGKKNOFdk7eEEZ3gPaglE59TseMpRRea/VUnY4dWJAyiaAGB88kJ02Fn?=
+ =?us-ascii?Q?I5nSfBjfV+TeDgRUcf1QgYSgaojIUcaAJ0HDx8DB4ZVp0h2cX9tkVrVBthdP?=
+ =?us-ascii?Q?DH24dIoE6mL/UW9zdRRUhG0aHw+nCy1GDDxFeT01WU3enrEKUNKd2V3fBmjA?=
+ =?us-ascii?Q?jHA53dcGf5UyEysHtqL4/+KDtDlfqwAeVL0KRlQwBHsM9jpnaXvfFMItYOIQ?=
+ =?us-ascii?Q?f3aWHCV33YFKw1XqQ6BiFFtjsHfHYP099BEfldvZBHB1LvRifEwpGCXptnKq?=
+ =?us-ascii?Q?vZ+PHM1O70ogndiZBhJgGRgd7lBE/3B7nxcFJnkthz94IDomV9VRSP88jhbK?=
+ =?us-ascii?Q?7NOOxL22SKHTJKpinE8V5xT2i879UBYNLddO4jsZomgV2Ka3Mja11IZqsloB?=
+ =?us-ascii?Q?+6ZsU380PMreAAwwzQp5R2G6qw0yHBUG+e17qWCT+yfNIWRvcs71K8umGMqZ?=
+ =?us-ascii?Q?y6wt7LjLLOgNAqDvdW1/jh7G11DY4E//j7y/0ipV/NZuIZv25pc+i1xAAMV6?=
+ =?us-ascii?Q?scwVcd+p5uKumpIjxb0fDaXNkhq+TVoNTfdiHbt4+2wgF3oa9Za3BBjMqhcV?=
+ =?us-ascii?Q?gaJiBbZ9nc0Y65P0D3lJGKqf4CWFCsLADz2duHpaGCYMmsJmOsR830bSEZbu?=
+ =?us-ascii?Q?5CJjkYJ2SOIVDGswy+5kJlMQBnu2e1YM4trO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pNKvJ2kgy+4rrwVFiMQL0WuHG94P+pd+EKgARbhJE5gfgap4wKn5980clJGH?=
+ =?us-ascii?Q?T8xx1OEwSRViwVFBV/lXWKhVyDgWZ6COTAyw3D6kocfyU3bGlvF0oXXAUyu+?=
+ =?us-ascii?Q?aGmtLVc3Y9ME+De7wrxIcdwxyF+94GAhrie5PkZQnmB1/gpwVTC+tvemk66e?=
+ =?us-ascii?Q?69J63LiN60ex/OIpzeXyaPP+4mtPq4bfAlT9kaSsv6EvrYonjKpjFC7Ra+pi?=
+ =?us-ascii?Q?L6ZKd4MP6H0PjBAl50OjsmK4RjptsHU1NafSR6z1IO/2BU7PwZpCPfremhkz?=
+ =?us-ascii?Q?zd19p89t1Dy/xaD8NX7ut/WoMFcFCb8YR7azNNfLLAFu/VQ4bmcEoelGJadY?=
+ =?us-ascii?Q?mFL/2DERFwPsTlbjv5RWeLad5IkjvrlXmU+IW20ttTcWQdytBw4zMdw0O4Ib?=
+ =?us-ascii?Q?BHD1qX5uemU6A97phYnbhrTi5hw8Prv7zASqzQ5SpjZDeGYIKd60IJ5rFVt4?=
+ =?us-ascii?Q?1GZgkTT3RR64N8UMCEbaetd9kx9q5g+OgYS1lhB6Y1aFLGWPEgm9vQlDCbmY?=
+ =?us-ascii?Q?Pgmq/vj8p7M6B9UUeAuzxNG6xEcwfZoJw2orkIMF3I0CDhbVRojVtxm8HJ42?=
+ =?us-ascii?Q?Yfq/vIFe/By+CTPpCMLdRIIW/njyr3Ks6F8MzWaauNvjs0j0tnRoZ88XJh1Z?=
+ =?us-ascii?Q?Liw1IsQt1WX3gykFGJykzVMvMSaxMyvaLcN5a5Gi2O6mLUsQFm64Q5u49hdK?=
+ =?us-ascii?Q?B95YkaNv5uBPn3EAO7+EknWR2825QI4R43J6E5BBEzSsAPOxLYhBOJkpHGKa?=
+ =?us-ascii?Q?vI9UwRLN5vSjRxkhz9UY9wtLXWW4gQ5rMiAQtvu6+Ihj/zKgz3uZd+IVasud?=
+ =?us-ascii?Q?X++TY1mTEayDrfR8FgFHx3InHJrpMzqFkEXCzcl6X+ovoVLYvwEfQC8ht4Rs?=
+ =?us-ascii?Q?BVx53iwbMRBRt60lwlNo9q+BpPqB+vZEDsP6r5dB03hOWzr8gH6ejv159gye?=
+ =?us-ascii?Q?E/s7RZZkDO93m0ZkgGgIOn7Q/xHnqI/AUYXingahyv2YYXbKtn6VT4fUEFhQ?=
+ =?us-ascii?Q?M8k2rpw3WVI2C1z7pSDKW05o7Dnz28AJZqLYLHkeJnflQey9rHYrsvgNKVLc?=
+ =?us-ascii?Q?VtuYBQIrP3NukyssTagW/GNMPQWC5kayxfBms+7s5t7hmE8YPBSpTPSOV+ix?=
+ =?us-ascii?Q?pCCLA0Zf6tdnvS8f8MrdtYmH9J/NlWenXk9CFzVzlYdPtPaU8sodEWB8mk9R?=
+ =?us-ascii?Q?OA/W8tAxJ3B0ctwNZk//67eJoWDLN0AXwqBJOwE3Ptnmyw+o21FkQXVRyw+P?=
+ =?us-ascii?Q?G/ixsNL0pvqEqQ/s0QOMIe7OoBea6EJzDy4ebVqcCAxK8b3EJ3S1unGTp7Jp?=
+ =?us-ascii?Q?vEuIrJLU5/xKq/qtd340m6dXmRPFD3UCxvTBLcY6z7MGU8grQIOqufs+g2Iq?=
+ =?us-ascii?Q?ZgG3hj1QGH1OvyPlxahwJbKDuKM1s9G04zmHhIcpzyEi9vvNCnx8BS9Hsj7g?=
+ =?us-ascii?Q?XCEM/7YIW/xk8RsdIB0jQtFrgvbJEeYk9ad4/j8Ht865ySBroJpAnuTo9TxD?=
+ =?us-ascii?Q?o/p8zVZvjGBuMiojazJSJkohLey9xj4p6vL89c9b0lYBRusRttEQ87vBFWd/?=
+ =?us-ascii?Q?yxl0SFRU68TDv70G66rSlwBWBeGQtlqEuaLli+I5?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b28fea7-89a8-404d-ae50-08de1e0472e7
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 13:49:19.2701
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QS8VyRcim40y9gvJDQYknWD75hJTQDv/7rR7TAaAk8s4iFbNsq8LU32zpnN7Sx10D0Gekg4EECMpxjRcPJMe8g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7420
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251107_054928_446416_C9EFF438 
+X-CRM114-Status: GOOD (  35.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +172,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 14:21, Vikram Sharma wrote:
-> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-> +			interconnect-names = "ahb",
-> +					     "hf_0";
-> +			iommus = <&apps_smmu 0x2400 0x20>;
-> +
-> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +			power-domain-names = "top";
+Hi Daniel,
 
-You introduce some unusual changes, not present in the existing sources,
-not being part of common (please read DTS coding style) or even qcom
-style. Please do not come with your own coding style.
+On Fri, Nov 07, 2025 at 11:10:15AM +0200, Daniel Baluta wrote:
+>> There are three cases for M7:
+>
+>Here we should specify how M7 gets into these three situations, is it
+>via the ATF configuration?
 
-Your previous patch was correct here - you had here blank line. Any
-advises around this are just incorrect. Qualcomm SoC maintainer already
-expressed this in other patch:
+It is not ATF configuration. This is configured in System Manager.
 
-https://lore.kernel.org/all/4a4a24aa-d8a2-4150-a7bd-1d0a4b141116@oss.qualcomm.com/
+>
+>e.g
+>
+>Depending on ATF configuration, M7 can be used as follows:
 
+I will use:
+"Depending on System Manager configuration, M7 can be used as follows:"
 
+>
+>>  (1) M7 in a separate Logical Machine(LM) that Linux can't control it.
+>
+>Here we should make it clear from who is M7 separate.
+>
+>e.g
+>
+>(1) M7 in a separate Logical Machine (LM) from A55 cores, that Linux
+>can't control
+>
+>>  (2) M7 in a separate Logical Machine that Linux can control it using
+>>      LMM protocol
+>
+>(2) M7 in a separate LM from A55 cores that Linux can control using
+>LMM protocol.
+>
+>>  (3) M7 runs in same Logical Machine as A55, so Linux can control it
+>>      using CPU protocol
+>>
+>
+>
+>> So extend the driver to using LMM and CPU protocol to manage the M7 core.
+>
+>
+>>  - Compare linux LM ID(got using scmi_imx_lmm_info) and M7 LM ID(the ID
+>>    is fixed as 1 in SM firmware if M7 is in a seprate LM),
+>
+>s/seprate/separate
+>
+>One question here: Is it OK to call scmi_imx_lmm_info no matter the
+>context are we in?
 
-Best regards,
-Krzysztof
+Yes. With LMM_ID_DISCOVER as parameter, this API will not fail in permission
+check. It will always return current LM ID.
+
+>
+>If this call fails is it safe to assume that we are in the case (1)
+>describe above? E.g Linux
+>cannot reach the M7 core through LMM protocol  or CPU protocol?
+
+Sadly no. See above.
+
+>
+>
+>>
+...
+>> +static const struct imx_rproc_plat_ops imx_rproc_ops_sm = {
+>
+>I think this should be called imx_rproc_ops_sm_lmm.
+
+ok.
+
+>
+>> +       .detect_mode    = imx_rproc_sm_detect_mode,
+>> +       .prepare        = imx_rproc_sm_lmm_prepare,
+>> +       .start          = imx_rproc_sm_lmm_start,
+>> +       .stop           = imx_rproc_sm_lmm_stop,
+>> +};
+>> +
+...
+>> +       /*
+>> +        * Use power on to do permission check. If rproc is in different LM,
+>> +        * and linux has permission to handle the LM, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
+>> +        */
+>> +       ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+>
+>I wonder if there is a better call to check if Linux has permissions
+>to handle to other LMM. This is a bit
+>strange but if no other option we can go witi it.
+
+Per doc drivers/firmware/arm_scmi/vendors/imx95.rst, this is the only one
+that could be used for runtime detection.
+
+>> +       if (ret != 0) {
+>> +               if (ret == -EACCES) {
+>> +                       /* Not under Linux Control, so only do IPC between rproc and Linux */
+>> +                       dev_info(dev, "lmm(%d) not under Linux Control\n", dcfg->lmid);
+>
+>Would this be an error? So if Linux cannot interact with the other LMM
+>via LMM API how IPC is possible?
+>via CPU protocol?
+
+When M7 is in a different LM, this means it is booted by ROM/SM, so
+there is only IPC between M7 and Linux.
+
+>
+>Maybe we need a better explanation here.
+
+"RPROC LM is booted before Linux and not under Linux Control, so only
+do IPC between RPROC and Linux, not return failure"
+
+>
+>
+>> +                       return 0;
+>> +               }
+>> +       /* else shutdown the LM to save power */
+
+...
+
+>> +       ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+>> +       if (ret) {
+>> +               dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+>
+>do we care to restore the flags field here on case of error?
+
+keep or clear, both should be fine. But restore the flags should be better
+code practice. I will add that.
+
+>
+>> +               return ret;
+>> +       }
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static int imx_rproc_sm_detect_mode(struct rproc *rproc)
+>> +{
+>
+><snip>
+>
+>> +
+>> +       ret = scmi_imx_cpu_started(dcfg->cpuid, &started);
+>
+>Is this CPU protocol call?
+
+Yes.
+
+>So we can still use this even if Host core
+>and remote core are in different LMMs?
+
+Yes. SM supports this.
+
+>
+>> +       if (ret) {
+>> +               dev_err(dev, "Failed to detect cpu(%d) status: %d\n", dcfg->cpuid, ret);
+>> +               return ret;
+>> +       }
+>> +
+>> +       if (started)
+>> +               priv->rproc->state = RPROC_DETACHED;
+>> +
+>> +       /* Get current Linux Logical Machine ID */
+>> +       ret = scmi_imx_lmm_info(LMM_ID_DISCOVER, &info);
+>> +       if (ret) {
+>> +               dev_err(dev, "Failed to get current LMM ID err: %d\n", ret);
+>> +               return ret;
+>> +       }
+>> +
+>> +       /*
+>> +        * Check whether remote processor is in same Logical Machine as Linux.
+>
+>Is in same -> is in the same. We need to always try to be consistent.
+>
+>Remote processor is a hardware part while Linux is a software part.
+>
+>So always use the same object types: e.g /*check whether remote
+>processor is in the same LM as host core (running Linux) */
+>
+>> +        * If yes, use CPU protocol API to manage remote processor.
+>> +        * If no, use Logical Machine API to manage remote processor.
+>> +        */
+>> +       is_cpu_ops = dcfg->lmid == info.lmid;
+>
+>No need for is_cpu_ops.
+>
+>Just go if(dcfg->lmid == info.lmid)
+
+ok.
+
+>
+>
+>> +
+>> +       if (is_cpu_ops) {
+>> +               priv->ops = &imx_rproc_ops_sm_cpu;
+>> +               dev_info(dev, "Using CPU Protocol OPS\n");
+>
+>I'm not sure we want to go with dev_info here. It it pollute the log
+>and at least confuse people.
+>But if you feel a strong need for this you can keep it.
+>
+>Also, shouldn't be here an else case where priv->ops gets set to LMM ops?
+
+Frank has same comment :)
+This LMM ops is assigned to dcfg->ops, see patch 5.
+
+But since both of you asked, adding else seems make it clear.
+
+>
+>> +               return 0;
+>> +       }
+>> +
+>> +       dev_info(dev, "Using LMM Protocol OPS\n");
+>> +
+>> +       return imx_rproc_sm_lmm_check(rproc, started);
+>
+>If this check fails is the info message above still valid? It will
+>confuse people.
+
+I prefer to keep the message above, imx_rproc_sm_lmm_check() will
+print out error message if there are any failures.
+
+>
+><snip>
+>
+>> @@ -52,6 +52,9 @@ struct imx_rproc_dcfg {
+>>         enum imx_rproc_method           method;
+>>         u32                             flags;
+>>         const struct imx_rproc_plat_ops *ops;
+>> +       /* For System Manager(SM) based SoCs, the IDs are from SM firmware */
+>
+>Keep here:
+>
+>/* For System Manager(SM) based SoCs */
+>
+>Then comment for each of the fields:
+>> +       u32                             cpuid; /* TODO.... CPU Id of the remote core? */
+>
+>> +       u32                             lmid;
+>
+>But how these fields are set? Are they the cpuid and lmid of the
+>remote core or local core (a55)?
+
+Both are for remote core. These fields are hard-coded in System Manager.
+
+Thanks
+Peng
+
 
