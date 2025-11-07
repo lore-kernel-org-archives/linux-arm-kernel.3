@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E72CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88E9CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 16:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZxAc2BQsRrMH4REaWyaYT4OlgH+tMplYPSOttdPQm4=; b=A2hF2W/2qvJzeukidt8464PUEU
-	7K+znlh1se0uHRsP7UcYY6RmudqDLa3rUOnsf5MDFHPL48Pzi/GztVaJth74EvF8PA/wUGhKyR8hQ
-	g2sTqLQCn7ZK4ld20hkkywP0+3935lGixAgcHazeVbBfnslMHBeDfKYWkjaIDkkwxVlZK+vwIDV8f
-	vfMzWTcTsKlN7WI9KfDWJqdUyj41hRXsSUwvnhg+/wtJHQUW8We0Od8MIYRijDRqJaeJmpYbKwVc9
-	9SWS1hSZuWTfLe0KCHOrrreR6xXD9sKis5Zogcfl08SQBWrAMg+uGIm25mRMxW2P6CwEQOF8X3AhB
-	qZlS4gLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wkBMuEFYniV7o/NZEZ9uUf/PpOYiog+if+0C8Zohm+8=; b=auqKbTPOKxGS8+xRMdHXsNQ2Gz
+	jza2QOHv3lpILtoQlUrH9QCgvTpu2lZ/vf5h6tYFcKkAB8Gnb8m2dSZY1+aKW8f92EOPznNEhFm0K
+	WXsIOaPjO5wXy/ZELKsCYDiSF7XYccPan1xaTN5q9p7hwp06kHK45cZpyjp0Xi6YTE7wieIZHj6z+
+	L9nibSOE248oz0cI3hHJscDNrgsAQlVWLDaOOdpAv6V5Sdi/dW7yGN259n2Q8HtyU7WqaFn4iNLVK
+	Dexn37+d9+Ey/BXVQQuhPewZJhxFcS5KAvCXixo+x/GTggUPgHeQPKu4h3sCgt0ztT/PT/QwMdR29
+	KyCZYOHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOsI-0000000029f-3cfG;
-	Fri, 07 Nov 2025 15:59:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHOtF-000000002aZ-2Ypf;
+	Fri, 07 Nov 2025 16:00:41 +0000
+Received: from mail-ej1-f49.google.com ([209.85.218.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOsG-0000000029A-2Z34;
-	Fri, 07 Nov 2025 15:59:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 082FC4010C;
-	Fri,  7 Nov 2025 15:59:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A247C16AAE;
-	Fri,  7 Nov 2025 15:59:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762531179;
-	bh=CutddtJdxTwBMPiBCGqUeSQ/z6FRLzP4zZy5fTdyK7c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=TLUJ/idfKTLc/iAjQNurzsGK1lWtnQlcdJbDFIX8Mk+ipdDi2vKPAdI3/v0FMg3FF
-	 W8KjmWKoEVDM3rzuX5WCkYKefvW7OOa4I7aOkojVmoMEmVQnRfDHVG3DeJ607o+o4j
-	 3UpP7Mq9PaTtn4K6xw6Kz/oJnzWeOEJpZFE+gVqrw1bTaY+eaeABGC/E559P0uzmDo
-	 QiOzwGmNakFraaQgRcXDz+X/ThnupkdgnTn2yVEWN7304gKf+w8Azj2mhDziLUzOfr
-	 yrPt2HI8rjdBGND4jh5JmqatfeRkK6xKRAH/aMffa4xZSPo3+e0TtRJMzbBRa8OeAp
-	 MU7E/TPDxP6DQ==
-From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, matthias.bgg@gmail.com, 
- angelogioacchino.delregno@collabora.com, Chen Ni <nichen@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20251107085109.2316999-1-nichen@iscas.ac.cn>
-References: <20251107085109.2316999-1-nichen@iscas.ac.cn>
-Subject: Re: [PATCH] regulator: mt6363: Remove unneeded semicolon
-Message-Id: <176253117500.2510929.10700935899599839032.b4-ty@kernel.org>
-Date: Fri, 07 Nov 2025 15:59:35 +0000
+	id 1vHOtC-000000002ZL-3Hbj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 16:00:40 +0000
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-b725ead5800so123167866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 08:00:37 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762531236; x=1763136036;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wkBMuEFYniV7o/NZEZ9uUf/PpOYiog+if+0C8Zohm+8=;
+        b=Z2rDFey58TIAToBNd5yqoP6+6awuGJqO8s9HDAwDrj8Ydsu38qA6fZx9l9yekt/vq+
+         P3sVZZJHIvbhfYo1utwwL5dkRKguhWNm6u2XgHp+9cVAvYtJwpRQT1NN656pNukZG9IW
+         lV4vfgfd6CrpROfDlBjaf+14QDrD2j3MlKrWemzMGbhnXqat4EpMjAbCJjNyrbaXicYE
+         2zuoIJ81XIOaXLw0FD7Ci/r5z4fp0MYKsS/rA46DtUkGBxcQ7R8GpMDOmyF/PF2Tj7N0
+         2y8klEI6+cOMc3qOEA3Zp0/joFZPF45XGdI26InxHzsJEf2cKRsbZsdhZmLhVHhsAEyV
+         pY4w==
+X-Forwarded-Encrypted: i=1; AJvYcCUPtQqAkqSptQWpdBRXkVF8VTdQj7uG/rmb1s/02ZaczPcgSU0lREnbRrkXdkyURvnZhMH704vB3O8kNlPNCFGa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlrmLZgByhWuBY9mJKvA8QEmnWw0i/84fLYVSyG+mN5PJnFe+Q
+	06WspkINXbALAySKHRL8K/VhwgCdFoPSji4Lc04r5pk6q/j1JdPYiG2xC81hcIcxX7DzX7Vk3xB
+	gy6WNxxYMUviCwlfublvNJzRbYXra1ig=
+X-Gm-Gg: ASbGncuzXE6LCE2rTVqvDNiAprjjdY2TY3rNAkRPTt8+TqUS7K5srl/SD9Vf2IJ57uv
+	ThEouSpmqalDVvy6veU3uxJixhqXhQHM3MiHid9HRuXyOCsw8F/9R+qMjf2X1jQ2d1UlI9yhKGV
+	8kYAirqlXJcUswAqjKDjbxwF3d+l2inIED7LZzPnYFt8oB3W0Jb3LG21ZdzFp0tcmrJlpkWZN0S
+	f4jzKfsCvp5rTLmfAfYSQjnxzFfRUxGs9GYGBkqsBcESYZyS7GPwa0Hla5d5CGM6YBzUbJ2iLHF
+	4iuSYeqUAEmuXlmpAA==
+X-Google-Smtp-Source: AGHT+IFOoHBXH/PzewtzvKKUtM610X3TQ1SmT9FLvQyuUDuxyBy4OLhIMpEqweiHRkcJBKlSnsBceRB/zJjkJgVr+9A=
+X-Received: by 2002:a17:906:f582:b0:b70:a9fd:1170 with SMTP id
+ a640c23a62f3a-b72c0eef5bfmr340953066b.65.1762531236039; Fri, 07 Nov 2025
+ 08:00:36 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 7 Nov 2025 11:00:35 -0500
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 7 Nov 2025 11:00:35 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-a6db3
+In-Reply-To: <E1vHNSR-0000000DkSt-0wDu@rmk-PC.armlinux.org.uk>
+References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk> <E1vHNSR-0000000DkSt-0wDu@rmk-PC.armlinux.org.uk>
+From: Emil Renner Berthing <kernel@esmil.dk>
+User-Agent: alot/0.0.0
+Date: Fri, 7 Nov 2025 11:00:35 -0500
+X-Gm-Features: AWmQ_bnSZQW08h0NXQTG6zSRGIlnDRSY70b9JlHXkxjmDNLgOFrMa4uAbMmEPzM
+Message-ID: <CANBLGczzW+kjvSqYm5YVt+2sdLtgyZfa=fhsU1Q-nUjSVvB4cw@mail.gmail.com>
+Subject: Re: [PATCH net-next 11/16] net: stmmac: starfive: use stmmac_get_phy_intf_sel()
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Keguang Zhang <keguang.zhang@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	netdev@vger.kernel.org, 
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Paolo Abeni <pabeni@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_075940_672746_157C1C77 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20251107_080038_828224_6D889ED6 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Nov 2025 16:51:09 +0800, Chen Ni wrote:
-> Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-> semantic patch at scripts/coccinelle/misc/semicolon.cocci.
-> 
-> 
+Quoting Russell King (Oracle) (2025-11-07 15:28:55)
+> Use stmmac_get_phy_intf_sel() to decode the PHY interface mode to the
+> phy_intf_sel value, validate the result and use that to set the
+> control register to select the operating mode for the DWMAC core.
+>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 22 +++++--------------
+>  1 file changed, 6 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> index 1ef72576c6f1..00078b7a6486 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+> @@ -35,25 +35,15 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+>         struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
+>         struct regmap *regmap;
+>         unsigned int args[2];
+> -       unsigned int mode;
+> +       int phy_intf_sel;
+>         int err;
+>
+> -       switch (plat_dat->phy_interface) {
+> -       case PHY_INTERFACE_MODE_RMII:
+> -               mode = STARFIVE_DWMAC_PHY_INFT_RMII;
+> -               break;
+> -
+> -       case PHY_INTERFACE_MODE_RGMII:
+> -       case PHY_INTERFACE_MODE_RGMII_ID:
+> -       case PHY_INTERFACE_MODE_RGMII_RXID:
+> -       case PHY_INTERFACE_MODE_RGMII_TXID:
+> -               mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
+> -               break;
 
-Applied to
+After these two patches the STARFIVE_DWMAC_PHY_INFT_RMII and ..RGMII macros are
+left unused. Maybe just squash the patches and remove the definitions?
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-
-Thanks!
-
-[1/1] regulator: mt6363: Remove unneeded semicolon
-      commit: 2089f086303b773e181567fd8d5df3038bd85937
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+/Emil
 
