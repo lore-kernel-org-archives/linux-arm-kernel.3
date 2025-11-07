@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C006CCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 17:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F22CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 17:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jg+/cSmWZ3S0pISvENcp84Pxt0oIzICkqotwu2cofT4=; b=O4wFgC3KAMTWC+nPVPTcSPCvm1
-	kjUOc79fmkuRlFuD7EWX9mfAd1OyEVhLG2zJPbFqHxZ67Xgb3XN5Yoa4oU5AsNaDHLQk7mx918jqQ
-	jAn6ClAEcoboZeQDVU8k/ycm2VIWvAVtR8k+ZroNh2Vv4E8IxJY4kGp69XD/sSVzwfWAckJKykkTT
-	eEy2OTKC+m47ygpFTkcTIQgfvh2S5MkOxSnOQDG2CS8Rqt2k8HX8UWkipHpdhOwWmZZZ/j8KaTVV+
-	zTYgahhWPCUVE3Dkz3g6mtoDInZIS1VNbSPkOXk5EPoN0Rcs6lQTe2hOWrO+Beh3xHMGrRThbWH0A
-	uViYWmvA==;
+	bh=tvD9gG0Rr9652jF+dmwkHloaVheVup3vGLAOVr0Cclw=; b=B/QV9eggQyCRmHto0pz0444x6s
+	dJ9jRLFUm13o2ndzeZNbmV9aSyzGiG7b1copyVmpSw4lAgRAm/C5Re91EUvZ/O5xa9nqcy9yG+R+9
+	HoMVlq0ToA6qGdcJ9aBq5k7PfpaxV8TRu15OB6ABrDUM/ry/17zI6b298YxIFo/IwFlekgnzttwgt
+	tQWHIgLpa4yYb73ioCGQ4/11sanc2KgM7nG/HMN7tHkd3Q2KK486rr0HzpYT/DKh2u3rHW7jU6TJh
+	qBm0LTQ3ijWtse9wp/Bi1yh+sFp6AhwTHqzVcJGutKh9lnQauXtVmMdxzHtGNsP/YCANgYMO1XDdk
+	Yd+hgWpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQYU-00000000Kkx-2J2v;
-	Fri, 07 Nov 2025 17:47:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHQZo-00000000LBQ-2Fa3;
+	Fri, 07 Nov 2025 17:48:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQYT-00000000Kkd-1M9d
+	id 1vHQZm-00000000LAF-0PGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 17:47:21 +0000
+	Fri, 07 Nov 2025 17:48:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B321961913;
-	Fri,  7 Nov 2025 17:47:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64B71C4CEF7;
-	Fri,  7 Nov 2025 17:47:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B45B64385E;
+	Fri,  7 Nov 2025 17:48:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C145C113D0;
+	Fri,  7 Nov 2025 17:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762537640;
-	bh=Jg+/cSmWZ3S0pISvENcp84Pxt0oIzICkqotwu2cofT4=;
+	s=k20201202; t=1762537721;
+	bh=tvD9gG0Rr9652jF+dmwkHloaVheVup3vGLAOVr0Cclw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GgrlbcpeNMyuSBzVJ/24KfJakT1KJ5Rk75Ti6+p+3gxKmupwC9NqmAszXV3M+OlLk
-	 K0gOAHVOF9/FRq/f+M33yLVDGpP+SXUcC48KqI5OPCAFY5ygZahRT28Sn6r5kG/tI4
-	 51JhTBK50mO01g/+AgXzqfbeiJGrUyQ+KTBoWIy6W1TPXZ7O/CDYCfGlGeJUPEL+6F
-	 1S5dlvzkmxaLLaTE0ARraLJO0D3xo77z5OxRRViI3yz3z8xzc1ZFcqtUj4lH7fqB+B
-	 A50s21Br7ar3hlAIEN3xMo//nOVBKvIo7L77VzHtjm1hzf9SrJr2753heWG3R5Z6zU
-	 H03pYVM5nd92w==
-Date: Fri, 7 Nov 2025 17:47:13 +0000
+	b=LbBrPZTHP9790hXjz8W5gFMTY6U6EZ9xMudqw8cNp2fuc9XcIsvaJlR9Fn121/pFT
+	 ejvHsi9TvMhq0roGgWGdDfZAmWYSlWFkPNnCceH6F++LlzWYTD7XJDyGYYoqJZyunZ
+	 PK11xIlA/yLpWFsVbwKA7wcI3xyNcEeglB5idacnS7T3fe6ruSNiU2oBQO8LX/CAJx
+	 IAtDRtXU8qwuVZQCJGgEAgo4uH5yYQOqolvMsuvN7WsosjWLWpH2Ko4jOE4Xnz+FqL
+	 aFkj+iaaEf9qo4xSb8lufcme6AN4mstXJ/ZS6x3gu8fkBrJ/LUtVqlrGMH/VgoWAId
+	 m0Hl8nQayiW2w==
+Date: Fri, 7 Nov 2025 17:48:33 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Josua Mayer <josua@solid-run.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -66,16 +66,19 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org, linux-input@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 03/11] dt-bindings: panel: lvds: add Winstar
- WF70A8SYJHLNGA
-Message-ID: <20251107-cubbyhole-certified-2de627004084@spud>
+Subject: Re: [PATCH v2 02/11] dt-bindings: display: panel: ronbo,rb070d30:
+ panel-common ref
+Message-ID: <20251107-cornbread-juggling-2e7e69bcac10@spud>
 References: <20251107-imx8mp-hb-iiot-v2-0-d8233ded999e@solid-run.com>
- <20251107-imx8mp-hb-iiot-v2-3-d8233ded999e@solid-run.com>
+ <20251107-imx8mp-hb-iiot-v2-2-d8233ded999e@solid-run.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9f64Ubgv4dqrvjxG"
+	protocol="application/pgp-signature"; boundary="E1JSShyRa8hSS1cg"
 Content-Disposition: inline
-In-Reply-To: <20251107-imx8mp-hb-iiot-v2-3-d8233ded999e@solid-run.com>
+In-Reply-To: <20251107-imx8mp-hb-iiot-v2-2-d8233ded999e@solid-run.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251107_094842_153010_8191B223 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +94,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---9f64Ubgv4dqrvjxG
+--E1JSShyRa8hSS1cg
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Nov 07, 2025 at 12:46:09PM +0100, Josua Mayer wrote:
+> Add missing ref on panel-common.yaml for this dsi panel so that common
+> properties can be shared.
+>=20
+> Drop reset-gpios and backlight as they are already in panel-common.
+>=20
+> Switch from additionalProperties to unevaluatedProperties so that common
+> panel properties are available without repeating them in this binding.
+>=20
+> Notably panel-common defines the "port" property for linking panels to a
+> source - which was missing from this panel. Mark it as required.
+>=20
+> Signed-off-by: Josua Mayer <josua@solid-run.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---9f64Ubgv4dqrvjxG
+--E1JSShyRa8hSS1cg
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ4woQAKCRB4tDGHoIJi
-0lYNAP982+xPMTBA8hmMHUV0GMWimASaZ/P0l9HC8fXdcwGPNAD7BF9R7aUisARG
-9v0SFmVQrHfXao9nLlNa46MCEI3asgU=
-=tZOE
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ4w8QAKCRB4tDGHoIJi
+0lf8AP9B3ouklPfp54vvg9I3TJdfddEIiCt1NbmFTMHP0V8FsgEAlb/T0FlPIhwK
+pozK27QDQ5mObhibwyqfrqzCa6WnmA4=
+=sj27
 -----END PGP SIGNATURE-----
 
---9f64Ubgv4dqrvjxG--
+--E1JSShyRa8hSS1cg--
 
