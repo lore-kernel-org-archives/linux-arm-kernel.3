@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E53CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575AACCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkYhDdjrUYXam2RryCDblKeJyVKOfPEiXpPVCAxcE9M=; b=LDGpAlMJ+YTctE4zoIi8zyJMhb
-	50YNLx8lmYD3GK6QhLGwS5+HdC6qxkX5Q20gAbDEeSfqAs5iAKY6T0Zl5loWtTD/LP2JnEd1mhXO3
-	t1xBpm2zqaazIBHzYYaqEUJuj25fkjFULahwGrE3IEWtscxFayK2GCI0cWtDImI53ZxbSNTRVbnDU
-	k8BMwBk/FTShJQEK444wJ1btnoQE+Fl/PYnIlwFxDWMfsAEoG7FjLPG7R8OfvKTXVx832m1SNwT9i
-	avLfBx36pv4CxenGJqHTdns5ceAo0VTaqTkVinS5VMcQyH+byxFmCnGd+GhiWaWlaTRDztmaSVk6V
-	Fv05IBaw==;
+	bh=mX+A7obXWhyErkQ1Y2+inFs2bQDryr2as2xfFh6jkqM=; b=I5sAhJxI2zBLWDr5M7kzlaaes3
+	rRVMzbfUR+VWBjWy11GlNgwQsLmqJ8dWT4Fg0lLu80Vzi3RuWP27F/WyQiHsF5Mg1jTPsDexRppP1
+	XYPpgT+3345cVUpgZW4WyyeS23VVgyp0qqjwD18myeeCK0sZgGXgsR8xcqAO1CWlOSWb1zSgrMGfh
+	zgLLglAzIhhG3FuTj7fIl4G7gENAaUuiJTFsWG22J6Uqeav7f/zQswO58+IaFJYdV4BuJqdO45Gxk
+	pBjDbA3L0+u2EZF45+4rT7gv9450P5L3Ob2A3JUob0cXFJyoSanaokeL3ohzVGSMbk0udrwISXoxx
+	jTVS/52w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHq8-0000000GsMi-31zl;
-	Fri, 07 Nov 2025 08:29:00 +0000
+	id 1vHHqJ-0000000GsR5-07nI;
+	Fri, 07 Nov 2025 08:29:11 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHq6-0000000GsKb-0bNM
+	id 1vHHqE-0000000GsOZ-40ha
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 08:28:59 +0000
+	Fri, 07 Nov 2025 08:29:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DkYhDdjrUYXam2RryCDblKeJyVKOfPEiXpPVCAxcE9M=; b=y7xvQHPfXUn0UnqH+F3c53L/vM
-	SWcNMaGowuxdM4Ou+aaCKbEnqXBjngWL5Tp8oIUyyaoJYwdz7tvWbdU+7xTGiLaGBCesRmsAx0Z3M
-	kexZS0GhCaNyKguqgPHz2jHrrSiPk7auTwUc79eDMEtYidAgT7LYTBAomiTTOf5RJ90EtmqSI81dY
-	GXvifOHQzGo6ZPWlh2rTYXoF+yhZM9u17wmiBtatIHr6XhTMFZobtG68TDmULiOIcsj5WRxeiFTlq
-	3s9atNwcEmZU9hgrWHd3ENLe0c3mOBa/L+D3JsjWTLe9DkjN/BkWsmlOcnlxupE9HwITDPxh0O+Ye
-	6g588gmw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48302 helo=rmk-PC.armlinux.org.uk)
+	bh=mX+A7obXWhyErkQ1Y2+inFs2bQDryr2as2xfFh6jkqM=; b=KDhsPERLfFfw/dnIlHeGjnxgTr
+	Fotg7Qmi37glOMDdVfCPi12mUyiD92ZNFBkE3zIJ6o8ygJ8G5/aN5BnkbNvZ2hylwJpLk64WkQ2Z4
+	sdIw0uiijTlEjKQXdB1fAHWpB+fFd4opPUaDW8NABrEyAh3BykO8/c55QRlKvROUBJcWQMzj15Fqe
+	tTZrTR1piz0yxlgtEblnn5yockfLbmjUlU0MD6AsyBeFOme/8XbsLsyn8nLWBsGFARMy76GT0/RaD
+	sjFBD8qqlo2ygr6k0d6E1/tZXR5yNKhkjdUZEudt+nMZyERuTfXPu68yeq99DgclHYQAPN22ckqQA
+	y+XRqQ2Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48306 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vHHpz-0000000069R-1FMn;
-	Fri, 07 Nov 2025 08:28:51 +0000
+	id 1vHHq6-0000000069p-26Lp;
+	Fri, 07 Nov 2025 08:28:58 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vHHpy-0000000Djr7-1R1m;
-	Fri, 07 Nov 2025 08:28:50 +0000
+	id 1vHHq3-0000000DjrD-1u8O;
+	Fri, 07 Nov 2025 08:28:55 +0000
 In-Reply-To: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
 References: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,18 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v3 04/11] net: stmmac: ingenic: use PHY_INTF_SEL_x
- directly
+Subject: [PATCH net-next v3 05/11] net: stmmac: ingenic: prep PHY_INTF_SEL_x
+ field after switch()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vHHpy-0000000Djr7-1R1m@rmk-PC.armlinux.org.uk>
-Date: Fri, 07 Nov 2025 08:28:50 +0000
+Message-Id: <E1vHHq3-0000000DjrD-1u8O@rmk-PC.armlinux.org.uk>
+Date: Fri, 07 Nov 2025 08:28:55 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_002858_296029_1BCA6F7F 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_002908_311041_09F241A1 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,97 +89,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PHY_INTF_SEL_x values directly in each of the mac_set_mode
-methods rather than the driver private MACPHYC_PHY_INFT_x definitions.
-Remove the MACPHYC_PHY_INFT_x definitions.
+Move the preparation of the PHY_INTF_SEL_x bitfield out of the switch()
+statement such that it only appears once.
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 20 ++++++++-----------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+ .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 34 +++++++++++++------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-index 5de2bd984d34..b56d7ada1939 100644
+index b56d7ada1939..6680f7d3a469 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-@@ -35,10 +35,6 @@
- #define MACPHYC_RX_DELAY_MASK		GENMASK(10, 4)
- #define MACPHYC_SOFT_RST_MASK		GENMASK(3, 3)
- #define MACPHYC_PHY_INFT_MASK		GENMASK(2, 0)
--#define MACPHYC_PHY_INFT_RMII		PHY_INTF_SEL_RMII
--#define MACPHYC_PHY_INFT_RGMII		PHY_INTF_SEL_RGMII
--#define MACPHYC_PHY_INFT_GMII		PHY_INTF_SEL_GMII_MII
--#define MACPHYC_PHY_INFT_MII		PHY_INTF_SEL_GMII_MII
- 
- #define MACPHYC_TX_DELAY_PS_MAX		2496
- #define MACPHYC_TX_DELAY_PS_MIN		20
-@@ -78,17 +74,17 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -71,20 +71,21 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+ 	unsigned int val;
++	u8 phy_intf_sel;
  
  	switch (plat_dat->phy_interface) {
  	case PHY_INTERFACE_MODE_MII:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_MII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_GMII_MII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_GMII_MII);
++		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_MII\n");
  		break;
  
  	case PHY_INTERFACE_MODE_GMII:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_GMII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_GMII_MII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_GMII_MII);
++		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_GMII\n");
  		break;
  
  	case PHY_INTERFACE_MODE_RMII:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
++		phy_intf_sel = PHY_INTF_SEL_RMII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
  		break;
  
-@@ -96,7 +92,7 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -92,7 +93,7 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
  	case PHY_INTERFACE_MODE_RGMII_ID:
  	case PHY_INTERFACE_MODE_RGMII_TXID:
  	case PHY_INTERFACE_MODE_RGMII_RXID:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RGMII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RGMII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RGMII);
++		phy_intf_sel = PHY_INTF_SEL_RGMII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RGMII\n");
  		break;
  
-@@ -138,7 +134,7 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -102,7 +103,8 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 		return -EINVAL;
+ 	}
+ 
+-	val |= FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT);
++	val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel) |
++	      FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT);
+ 
+ 	/* Update MAC PHY control register */
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+@@ -131,10 +133,11 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+ 	unsigned int val;
++	u8 phy_intf_sel;
  
  	switch (plat_dat->phy_interface) {
  	case PHY_INTERFACE_MODE_RMII:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
++		phy_intf_sel = PHY_INTF_SEL_RMII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
  		break;
  
-@@ -160,7 +156,7 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -144,6 +147,8 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 		return -EINVAL;
+ 	}
+ 
++	val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
++
+ 	/* Update MAC PHY control register */
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+ }
+@@ -152,11 +157,12 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+ 	unsigned int val;
++	u8 phy_intf_sel;
+ 
  	switch (plat_dat->phy_interface) {
  	case PHY_INTERFACE_MODE_RMII:
- 		val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII) |
--			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
-+			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
+-		val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
++		val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII);
++		phy_intf_sel = PHY_INTF_SEL_RMII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
  		break;
  
-@@ -183,7 +179,7 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -166,6 +172,8 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 		return -EINVAL;
+ 	}
+ 
++	val |= FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
++
+ 	/* Update MAC PHY control register */
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+ }
+@@ -174,12 +182,13 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+ 	unsigned int val;
++	u8 phy_intf_sel;
+ 
+ 	switch (plat_dat->phy_interface) {
  	case PHY_INTERFACE_MODE_RMII:
  		val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN) |
- 			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN) |
--			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
-+			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
+-			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RMII);
++			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN);
++		phy_intf_sel = PHY_INTF_SEL_RMII;
  		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
  		break;
  
-@@ -191,7 +187,7 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -187,7 +196,8 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
  	case PHY_INTERFACE_MODE_RGMII_ID:
  	case PHY_INTERFACE_MODE_RGMII_TXID:
  	case PHY_INTERFACE_MODE_RGMII_RXID:
--		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RGMII);
-+		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RGMII);
+-		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, PHY_INTF_SEL_RGMII);
++		val = 0;
++		phy_intf_sel = PHY_INTF_SEL_RGMII;
  
  		if (mac->tx_delay == 0)
  			val |= FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN);
+@@ -210,6 +220,8 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 		return -EINVAL;
+ 	}
+ 
++	val |= FIELD_PREP(MACPHYC_PHY_INFT_MASK, phy_intf_sel);
++
+ 	/* Update MAC PHY control register */
+ 	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
+ }
 -- 
 2.47.3
 
