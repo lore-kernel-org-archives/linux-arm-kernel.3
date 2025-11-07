@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C336CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 02:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476CACCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 02:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KZjeK6wWfSrWBcTcOZj4lHgWUS2TJviSTPcQPa8owWw=; b=srb1QVUEKHiiZMQQXbROeVSBx8
-	xogbiVLqPQWEG748juxRaIOHKwiEsHgQISRC9p+JhCimb6xdGbxET5dZWG63R1FJcsZsWfOjAOl6e
-	B8eGgZew0a/fukbGKp/nZdNBPIALmyP2UxqzIUTAmV6lejcAh1h9rIWZ1V5GFGLWizLe2iVSZ8KNW
-	MAlKfMU8vUmV6sE9MH8c78g0Ycn1qGTruWDk2ePCkSMOQZMZ9A4N6BEtw8Mja6MvfDnUEP4CFGWaO
-	nDrm8MJhxZOLBvbVZsAA6Tcf867JQR34ERr7nRXxRJO1v3fFoabSrbd6vUeU+KrgQcHhqgOVbL6/u
-	fYS5ceQw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ta4pHybjsRd5oAb5H49GhrRgg2InYaGc8HOWjDuWw8Q=; b=ZbZvchZT9HNNVz29bVKpao87UC
+	d8tn3uAG9wr6wUiXhLWlqBjlcdGu+nsVF12no6jkKlF6fcNMCLmF8j/Xu5v4AIsLdeYx8csdIeakh
+	6h5lkM3ylHw98tVfhGlLRqeWkJPvcT3OH80EbaXq0Vj+QQnxc0MqgbVPp5TgwvhPwIL+pmZ31QYNn
+	oKVLZAj331P5okJfx1z/L/mIrhWjAB2RvK8wtpQVS/mT5ufzMUu3SFoT8qSlM6FyhoHjrXFa8/NiQ
+	HNZjzmAIH6PmSCYYuMz04WyMgoI/eZQhNTkulfPBo8P1OwnfQnLEpRTo+mz2srCXjJ2bZt+7rhgjA
+	XNGJlaZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHCPV-0000000Ga8q-2h1B;
-	Fri, 07 Nov 2025 02:41:09 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1vHCR3-0000000GaHQ-0Bux;
+	Fri, 07 Nov 2025 02:42:45 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHCPP-0000000Ga8K-0PvS
+	id 1vHCR0-0000000GaGc-1fjf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 02:41:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=KZ
-	jeK6wWfSrWBcTcOZj4lHgWUS2TJviSTPcQPa8owWw=; b=acgNVMaomnRfJVPbln
-	bceAy3lm3DGwYsY7qZsCWEsg8DlbYdrAs9WinPLXvRDlHbzGtMKi7nYf0jNEe8GL
-	Y94/MihWCuqBv1F47xttjsswnXeeh3oVKAVlRiIwQcu0ocsawznS1LzTVR06AxaZ
-	EgI96+LUTW1TWtDrAIb712hxA=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3N1MfXA1p6qbzCA--.918S2;
-	Fri, 07 Nov 2025 10:40:33 +0800 (CST)
-From: wangdich9700@163.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	cezary.rojewski@intel.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: [PATCH v2] ALSA: hda/senary: Replace magic numbers with defined constants
-Date: Fri,  7 Nov 2025 10:40:30 +0800
-Message-Id: <20251107024030.36712-1-wangdich9700@163.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 07 Nov 2025 02:42:44 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-44fe903c1d6so67442b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 18:42:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1762483357; x=1763088157; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ta4pHybjsRd5oAb5H49GhrRgg2InYaGc8HOWjDuWw8Q=;
+        b=Jo4DktC7AN9cffe2cTWsZaiIauzEcLPplykUvEy1V8fkk9JRsTrWtWY/frhQDF4eLG
+         f2RmQuG03EW17y0FQV3VUTwqXFL/4BAPsIccM+5kKTqsuxeMWuv47fMFGXetnFWPSfCa
+         xR+bI8q1S2sgjdJ3lBMkcu7f9pzD5IrdsY91YGZo1Jwm+1fF5dXKeJZJJKGiN/0pVft0
+         cIhYxVHkfcQXvIwpFyo5VG1gqzWTh7bh2KjSODhLofpZ+CGGWafWwJDCcXzsTSZL8SR5
+         3iVA9mvoVlpa+E/33HDYJT0mE8yJ4TD5JFK3a6wjXfV8Y6ZjJC4TqIWBDq/ia8EWl2dE
+         pYPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762483357; x=1763088157;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ta4pHybjsRd5oAb5H49GhrRgg2InYaGc8HOWjDuWw8Q=;
+        b=pkWOXThPm4JJMRv4/+7+az6SBQCM9sHrQRRR5mlcOapEwwKngWqOxt2hpiRWTEQHWr
+         QsPHa4TEXOJqvJji5OhPo/j14bwazSWWsXW7jez3kyGWAu9ILiVNgIv97w5tQeNG0w/U
+         BGww6XaR+1We4/KbchDjldx6iTySIF0SkdnLm8qjZ80iPvyAvzlUivuJR48LhawAHsfe
+         77CCy1zWk/rT8ztUVyO8YE98Eb0GXYcQlF8JRk6HoQfTpQiEE3DdL91DD9kLf+Xuf2Bv
+         llhHV7HLS4EtXMyZxGeC+wlyOfe7vaN+v3GlT2IIYzKY6DYuTh8RorhrsyhRLKXHvvWq
+         eICw==
+X-Forwarded-Encrypted: i=1; AJvYcCXedbu6TADPskBwYNi14PE89zJisUyxHf911acDdNYItYQXOgCtxJ+OqQznRV30LqKu3y4wMnsXZLl32fTX8YNq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjS7V7MK2nbCy0rfjyVOvAIETLEwQzRDY7qNN3b3fM8kY6YVbP
+	gSSsI9zDzKp8hhk+4gEIn1QDk9A6UCMSpIsT1E9oFB7CiCsxnR6JfDq6OixAbPqEWcCuGq/6osg
+	TIYSHmkP4yiVZWno4PkhYXOtyD280b//PzpopHhBi7A==
+X-Gm-Gg: ASbGncsShhsFD2Qn3jP9H0tB1Rjp+AfOdpz0ZSmGS7R3OL7TFx1hpaiHbmiDURR63Pf
+	k9au6UT3aA5gPbLq35fSX96AGwt8yEEt3reugzudoWKUoPAJOOvMMa0ydt22ntsEoRo1T1XVKJe
+	z2wI+aZzae6dsjU/hp3vWScT3Oh7aoZPde6mcdRWR1SAImHvNx/BX5ZxyLtJLz8R4weELSgulS7
+	cF8yN3oX4Z0jTY8yPgDOA4+u7Uz4xSdcUjxRIwb00aMXsEH3YbjDuhiBRrnNzCmTiXUftsTZ3cI
+	x+0uVxzb
+X-Google-Smtp-Source: AGHT+IGb0n2soPVhA9HW3Yi/ug81lmtTpcvsCQ9ShMeI3zEImc6F3+dHOysOTdbZsRZbSPkSfqhccOrjI+KKkLT4UmA=
+X-Received: by 2002:a05:6808:f8d:b0:44f:e3d2:59db with SMTP id
+ 5614622812f47-45015d583cemr1045696b6e.16.1762483357292; Thu, 06 Nov 2025
+ 18:42:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3N1MfXA1p6qbzCA--.918S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ur1UuF4xGw45WF4UCw18uFg_yoW8Gw1kpr
-	n8CFyrKrZ3Jr10yr18Gay5ZFyrGa98XF43t3y7K3W5Zan2kFykX3WUXryaq3W3JF9rK3Wa
-	vryxZ34UC34qyaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jnmiiUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1tbibgT9T2kMbWHmRwABsR
+References: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+ <20251014031425.93284-2-cuiyunhui@bytedance.com> <aQixsIQXTjYyhRVj@willie-the-truck>
+In-Reply-To: <aQixsIQXTjYyhRVj@willie-the-truck>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 7 Nov 2025 10:42:25 +0800
+X-Gm-Features: AWmQ_bkNdWjndV3isxnVf7u1V6RwPPlMP2i7v5fPfn_48ruw1DHahvSQ2HKDsok
+Message-ID: <CAEEQ3wk5Ru4-=4Ecnc6kQAAbR57806xxYTz0o1z4KfgZE6Cg6w@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v4 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: Will Deacon <will@kernel.org>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	dianders@chromium.org, johannes@sipsolutions.net, lihuafei1@huawei.com, 
+	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_184103_593925_94FA0692 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251106_184242_753986_48C04B40 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +105,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: wangdicheng <wangdicheng@kylinos.cn>
+Hi Will,
 
-Replace hardcoded GPIO node value with a defined constant for better
-code readability and maintainability.
+On Mon, Nov 3, 2025 at 9:44=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
+>
+> On Tue, Oct 14, 2025 at 11:14:24AM +0800, Yunhui Cui wrote:
+> > @@ -306,3 +307,85 @@ void __init hardlockup_config_perf_event(const cha=
+r *str)
+> >       wd_hw_attr.type =3D PERF_TYPE_RAW;
+> >       wd_hw_attr.config =3D config;
+> >  }
+> > +
+> > +#ifdef CONFIG_WATCHDOG_PERF_ADJUST_PERIOD
+> > +/*
+> > + * Safe maximum CPU frequency in case a particular platform doesn't im=
+plement
+> > + * cpufreq driver. Although, architecture doesn't put any restrictions=
+ on
+> > + * maximum frequency but 5 GHz seems to be safe maximum given the avai=
+lable
+> > + * CPUs in the market which are clocked much less than 5 GHz. On the o=
+ther
+> > + * hand, we can't make it much higher as it would lead to a large hard=
+-lockup
+> > + * detection timeout on parts which are running slower (eg. 1GHz on
+> > + * Developerbox) and doesn't possess a cpufreq driver.
+> > + */
+> > +#define SAFE_MAX_CPU_FREQ    5000000000UL // 5 GHz
+> > +__weak u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> > +{
+> > +     unsigned int cpu =3D smp_processor_id();
+> > +     unsigned long max_cpu_freq;
+> > +
+> > +     max_cpu_freq =3D cpufreq_get_hw_max_freq(cpu) * 1000UL;
+> > +     if (!max_cpu_freq)
+> > +             max_cpu_freq =3D SAFE_MAX_CPU_FREQ;
+> > +
+> > +     return (u64)max_cpu_freq * watchdog_thresh;
+> > +}
+>
+> Why does this function become __weak? Neither arm64 nor riscv override
+> it afaict.
 
-Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
----
+Would you say there=E2=80=99s any particular issue here? If some architectu=
+res
+might need to override the hw_nmi_get_sample_period() function later
+on, wouldn=E2=80=99t __weak be a more reasonable choice?
 
-v1->v2:
--Align both From and Signed-off-by addresses
+>
+> Will
 
- sound/hda/codecs/senarytech.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
-
-diff --git a/sound/hda/codecs/senarytech.c b/sound/hda/codecs/senarytech.c
-index 99af8d5e51db..31ec4e53f6ff 100644
---- a/sound/hda/codecs/senarytech.c
-+++ b/sound/hda/codecs/senarytech.c
-@@ -19,6 +19,9 @@
- #include "hda_jack.h"
- #include "generic.h"
- 
-+/* GPIO node ID */
-+#define SENARY_GPIO_NODE	0x01
-+
- struct senary_spec {
- 	struct hda_gen_spec gen;
- 
-@@ -131,11 +134,11 @@ static void senary_init_gpio_led(struct hda_codec *codec)
- 	unsigned int mask = spec->gpio_mute_led_mask | spec->gpio_mic_led_mask;
- 
- 	if (mask) {
--		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_MASK,
-+		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_MASK,
- 				    mask);
--		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_DIRECTION,
-+		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_DIRECTION,
- 				    mask);
--		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_DATA,
-+		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_DATA,
- 				    spec->gpio_led);
- 	}
- }
--- 
-2.25.1
-
+Thanks,
+Yunhui
 
