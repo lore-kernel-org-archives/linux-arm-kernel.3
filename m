@@ -4,66 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4848DCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23827CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FlYgHz/D4hKU3+uskFuoj7XldrnPCdoyFfwgLpPIntM=; b=ql5hTl4cJ53UyrWot21Ktjpldj
-	MY25DU213g43W96vvxbWRb0hvkTyfZt+9l97TEJDQFNgSAwmMRDF4Q0UDp6q84ZRfqMJ/8NuS1YSI
-	UKOGg4xHjm246IGvnPX926mD5t1oHZM/e1deo0yzavK53BoYY2lgXgL1zv48DlzCL96SWQPSRxamd
-	SHB6IRemjJHyVto/okAOWrhLbMVPa9NZCEFlYKxiGcwqoFaD8BeBAsAERUF228Na/AboHnEcWC2Pr
-	aLVQY/rYpLJuOi2nlhtoc/qPRssX+A/r+R+aQnYOQuxSkiFj1oOwEbbLqDbEPiny9fqAif3QeHtL/
-	GXR+lsJg==;
+	bh=AdCf4vPQQKcdIiUTBlgFWY6+CL84vbQobsHZpWBIrLI=; b=47yx4xpI7qaJDoj9lOUmoR/T3q
+	L90u1Wthf2LNx4Kg4oe4c6gtOMwbs8GRRC7yn+mvbxTy3HBot/VFE0eTPbIKm07mIVU22xXpQVYDl
+	lZlaaSwi8aDbkmZuIjZSJixoY/MK8RXrQ3aUxmWiwkHZ+TjXLLtq0zcLd2OouNbta7b2ioi2DRd+a
+	WrHB8Qcr/dq+Ra1rXokDVmyr+iuN7ZBorSt4iv2DG/eGmh2lG4K7tyga5QAvnYBNgWe5S6Us4y+Yv
+	Ji2eyPNQIHz69xB8jJfLOo88xvcE09u0hoQfp+qxH9VY50d5QnGW2ol1qvVpFhDMeFWBPlcOCdQvx
+	Yvq8uVTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMk5-0000000HQQu-1EID;
-	Fri, 07 Nov 2025 13:43:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vHMq8-0000000HQpP-3LgV;
+	Fri, 07 Nov 2025 13:49:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMk3-0000000HQQg-3XQX
+	id 1vHMq7-0000000HQpF-1GL4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 13:43:03 +0000
+	Fri, 07 Nov 2025 13:49:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0871F618FD;
-	Fri,  7 Nov 2025 13:43:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBDA4C4CEF8;
-	Fri,  7 Nov 2025 13:42:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50ECD618FF;
+	Fri,  7 Nov 2025 13:49:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD796C16AAE;
+	Fri,  7 Nov 2025 13:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762522982;
-	bh=mVhNPlLjxSXohTIokzVQKOtrdJswU2kcvPbGFxRD4Ig=;
+	s=k20201202; t=1762523358;
+	bh=d5B/NwZk6ebhuP3QANVrGVMe+8wpDqpML+bx+HNq8b8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=APmylv60JbvoLid/67a1Lg2RUqkHsQeS27fqWkrDCeavaJYQCdjXy8wY6ud5MU+6+
-	 a1aOqgDi7sMGJMx9JkECexe3NyIeh1RM4BxFwBCaxosUXz6bpOByK3siWzcuOVTztW
-	 7MiCzKQ5fV3SvixxCCqyDpaaOC2Yri/TI0XQ4fkRq0h6YTdNDoY7/7VyS2IIuGpJm6
-	 AbjVvRQRI3Q5QG//gwAo8ec5jyhpXynjXbvjOqZQbRjJx4sGfBy8R41S4vu6Wm7Dx9
-	 sbhf1TTMAl+05Vs1ITmxlat8ACZXKISQxktdnP9GlRl/PeqDiZMYPsOK/0IKKAS2tY
-	 S1CgLdwCgUkVw==
-Message-ID: <b9f01e64-f7cc-4f5a-9716-5767b37e2245@kernel.org>
-Date: Fri, 7 Nov 2025 14:42:58 +0100
+	b=FxwATd/m8lKRhqAEHtVD9zS/H2TdFm+MLoy6kMMqNMcutonTnJ1vWtEEJGz+bfOme
+	 HM4uYVegWRerovkPIBdg193QZ7aSPETucmcR/4nXcppPSC5dcNmflMUYNTzL3Vlzxo
+	 DTLC4WEwuclQn3jOCkXijJozd/4YKnKtJ/HYG6MEPK/bwkHZFmsVLLKbw1oKdRPVEt
+	 CeqkIa89ikZfgGUh06yOadq9LGXXgCoL3Oa2HphHAJUfGQvnCDFYAbRPA26hZ4IAdE
+	 S7srCKBhVv1Jq5uvY8Z6arBsSLIJGTD3PDu+6/v/0U1oPc9lzkgjUKlyX9D8VHi6qQ
+	 Jm5UFbWk5UBSw==
+Message-ID: <82a4fc28-1cd7-4d89-a521-6e6e5a133f3c@kernel.org>
+Date: Fri, 7 Nov 2025 14:49:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net V3 1/2] veth: enable dev_watchdog for detecting
- stalled TXQs
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?=
- <toke@toke.dk>, Eric Dumazet <eric.dumazet@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
- makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
-References: <176236363962.30034.10275956147958212569.stgit@firesoul>
- <176236369293.30034.1875162194564877560.stgit@firesoul>
- <20251106172919.24540443@kernel.org>
+Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: qcs8300: Add support for camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ quic_nihalkum@quicinc.com, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20251107132154.436017-1-quic_vikramsa@quicinc.com>
+ <20251107132154.436017-3-quic_vikramsa@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Jesper Dangaard Brouer <hawk@kernel.org>
-In-Reply-To: <20251106172919.24540443@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251107132154.436017-3-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,98 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 07/11/2025 14:21, Vikram Sharma wrote:
+> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
+> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
+> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
+> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
+> +			interconnect-names = "ahb",
+> +					     "hf_0";
+> +			iommus = <&apps_smmu 0x2400 0x20>;
+> +
+> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
+> +			power-domain-names = "top";
+
+You introduce some unusual changes, not present in the existing sources,
+not being part of common (please read DTS coding style) or even qcom
+style. Please do not come with your own coding style.
+
+Your previous patch was correct here - you had here blank line. Any
+advises around this are just incorrect. Qualcomm SoC maintainer already
+expressed this in other patch:
+
+https://lore.kernel.org/all/4a4a24aa-d8a2-4150-a7bd-1d0a4b141116@oss.qualcomm.com/
 
 
-On 07/11/2025 02.29, Jakub Kicinski wrote:
-> On Wed, 05 Nov 2025 18:28:12 +0100 Jesper Dangaard Brouer wrote:
->> The changes introduced in commit dc82a33297fc ("veth: apply qdisc
->> backpressure on full ptr_ring to reduce TX drops") have been found to cause
->> a race condition in production environments.
->>
->> Under specific circumstances, observed exclusively on ARM64 (aarch64)
->> systems with Ampere Altra Max CPUs, a transmit queue (TXQ) can become
->> permanently stalled. This happens when the race condition leads to the TXQ
->> entering the QUEUE_STATE_DRV_XOFF state without a corresponding queue wake-up,
->> preventing the attached qdisc from dequeueing packets and causing the
->> network link to halt.
->>
->> As a first step towards resolving this issue, this patch introduces a
->> failsafe mechanism. It enables the net device watchdog by setting a timeout
->> value and implements the .ndo_tx_timeout callback.
->>
->> If a TXQ stalls, the watchdog will trigger the veth_tx_timeout() function,
->> which logs a warning and calls netif_tx_wake_queue() to unstall the queue
->> and allow traffic to resume.
->>
->> The log message will look like this:
->>
->>   veth42: NETDEV WATCHDOG: CPU: 34: transmit queue 0 timed out 5393 ms
->>   veth42: veth backpressure stalled(n:1) TXQ(0) re-enable
->>
->> This provides a necessary recovery mechanism while the underlying race
->> condition is investigated further. Subsequent patches will address the root
->> cause and add more robust state handling.
->>
->> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
->> Reviewed-by: Toke Høiland-Jørgensen <toke@redhat.com>
->> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
-> 
-> I think this belongs in net-next.. Fail safe is not really a bug fix.
-> I'm slightly worried we're missing a corner case and will cause
-> timeouts to get printed for someone's config.
-> 
 
-This is a recovery fix.  If the race condition fix isn't 100% then this
-patch will allow veth to recover.  Thus, to me it makes sense to group
-these two patches together.
-
-I'm more worried that we we're missing a corner case that we cannot
-recover from. Than triggering timeouts to get printed, for a config
-where NAPI consumer veth_poll() takes more that 5 seconds to run (budget
-max 64 packets this needs to consume packets at a rate less than 12.8
-pps). It might be good to get some warnings if the system is operating
-this slow.
-
-Also remember this is not the default config that most people use.
-The code is only activated if attaching a qdisc to veth, which isn't
-default. Plus, NAPI mode need to be activated, where in normal NAPI mode
-the producer and consumer usually runs on the same CPU, which makes it
-impossible to overflow the ptr_ring.  The veth backpressure is primarily
-needed when running with threaded-NAPI, where it is natural that
-producer and consumer runs on different CPUs. In our production setup
-the consumer is always slower than the producer (as the product inside
-the namespace have installed too many nftables rules).
-
-
->> +static void veth_tx_timeout(struct net_device *dev, unsigned int txqueue)
->> +{
->> +	struct netdev_queue *txq = netdev_get_tx_queue(dev, txqueue);
->> +
->> +	netdev_err(dev, "veth backpressure stalled(n:%ld) TXQ(%u) re-enable\n",
->> +		   atomic_long_read(&txq->trans_timeout), txqueue);
-> 
-> If you think the trans_timeout is useful, let's add it to the message
-> core prints? And then we can make this msg just veth specific, I don't
-> think we should be repeating what core already printed.
-
-The trans_timeout is a counter for how many times this TXQ have seen a
-timeout.  It is practical as it directly tell us if this a frequent
-event (without having to search log files for similar events).
-
-It does make sense to add this to the core message ("NETDEV WATCHDOG")
-with the same argument.  For physical NICs these logs are present in
-production. Looking at logs through Kibana (right now) and it would make
-my life easier to see the number of times the individual queues have
-experienced timeouts.  The logs naturally gets spaced in time by the
-timeout, making it harder to tell the even frequency. Such a patch would
-naturally go though net-next.
-
-Do you still want me to remove the frequency counter from this message?
-By the same argument it is practical for me to have as a single log line
-when troubleshooting this in practice.  BTW, I've already backported
-this watchdog patch to prod kernel (without race fix) and I'll try to
-reproduce the race in staging/lab on some ARM64 servers.  If I reproduce
-it will be practical to have this counter.
-
---Jesper
+Best regards,
+Krzysztof
 
