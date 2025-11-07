@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786ADCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F23ACCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/N0zytyf9GWg2MCOYMZ3KiEnbTtu2OLzkkLJO68YSF4=; b=MYtKOHar00NUW2bs2D5stu5XVM
-	4pm+dSETCrUaoz6UtxbYmqxBuDuDHO5QllVWV7ZvXSQhvbf7d+Z1NXrPpHcOZyxROwyNVItOrfiHb
-	f9qt5NwSVVibJ+17IwhWNUeGGzdBva8wLTCMj0YLVg/0MtAhaxIugP+GEDOpXSUcWVfmkQkHy/G3E
-	qL3NtNdLKWbqiH5ZFbYol3zxhBYX3f46SUpJFUUkb+uLKfFlOtMnNuf0LDvBZVkktHxb+hBWHJFti
-	u34oDLNC3BDxqHpZoM6WxabHnuXztVpVi0zvPEVR555prYITpYEkgvm/qCbcISEVcrzPeN+m8vUTo
-	UGa82vUg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=; b=xIZd6JxsXd0lPJ0OnSLTolcbxM
+	hE1/ftt+hrHhrkVr2MP9h3dXXdRq8GrpGiTEhgJObSejORojiuY8QFRIU4OltVSrh07l6hE7vXyPR
+	Xlicn6W7v+cbnXuD0zHLvh4dJSgfQDPztKsUeQgOj+PktYDUVo2jPyh7/apyjuRkuHOrHt83ndI6v
+	Cuml/S3n+OpS1chz8Uy6iPjeVJ56SLEVtqKr+pgcC0f7YdX18jdcMs2x88iYNFHyhY6Cxq6EvvemV
+	34O5qHykpNXIzmm1ffyQMRcVRDA8cNQlZ3F0Wva/1e+ooMIhoV82M5Ao9l7fa3g2vazYa8CZikx6A
+	IzU6l7jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMx4-0000000HRNX-0sty;
-	Fri, 07 Nov 2025 13:56:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMx1-0000000HRN9-2rNq
+	id 1vHNDG-0000000HS9y-3tUA;
+	Fri, 07 Nov 2025 14:13:14 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHNDE-0000000HS9D-052k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 13:56:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F05461515;
-	Fri,  7 Nov 2025 05:56:18 -0800 (PST)
-Received: from [10.57.86.134] (unknown [10.57.86.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 235F03F66E;
-	Fri,  7 Nov 2025 05:56:22 -0800 (PST)
-Message-ID: <6a9c846f-22b6-4d5f-81dc-6cdcd4905952@arm.com>
-Date: Fri, 7 Nov 2025 13:56:20 +0000
+	Fri, 07 Nov 2025 14:13:14 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-471b80b994bso8532825e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 06:13:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1762524790; x=1763129590; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=;
+        b=FUdnK2qY79aF2BCMPWkTDtBlkbWD5c8unKObqqJ+P1leOhPan/LzSK33+tQy5gJeHW
+         n4RmTHJwEhkNkSchVUd5ZFq9I/IEI+M/fXNkp5aTEa9+VdXJR+2KlcqDEosO8JcVpSMa
+         jvdNZBfOwU680vukM1E5K3ljOpvt/cQVeKRhvRch0BNLpLpURXDjNgbTbnXSReX2TvVL
+         T7qn/UXWOqLrXGHBuhBEvDOf8BKRUG18oq5BoC2wYYttM3Z+42UW0JTwCTj2ywxaqc+f
+         eZbD0YC18PelnkvRHvHXXRmJnxJyQBGN3Yel4Xm2UuDGUoeLnXe7ySnZIPPckC+OGH1Y
+         uo7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762524790; x=1763129590;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=;
+        b=mumN0eHTjCXgQAxp4/iluT8d+TAOu6szQVh9kxlr0oSwuP24YDKmpyosi2WIdErtFV
+         OGLdYjIElaDVM0CPQRh0eal9HiA/PPavi+TiPaJmOkcy8Mxjd1vnijuz+UQmpsUqAPdE
+         DfxOXzCY4zf+4D11rEB9CCBcDgpXFm+st4HXdM5px8OitFr/DGkFoHW1SE1ehNiSxYaK
+         lMsQ4lHsWWBtBsJAlO5WAG4WdJo04Rv+nlZjmIZms0GukDtaOUQsG1B8+HeaO8G2Up8h
+         Ox/5qOwsoOcjk/wv8+G1440iUvNgCE9oj1kvHBRoBUjFqogy+pDyYtF6kcCTIVvA9MLg
+         sXRw==
+X-Forwarded-Encrypted: i=1; AJvYcCV7rDVL0v2WdFHA8pALiG6v039QM2Dg73hbxr8m+rhxTJ67+4oF0ZMHMOp7l01EbwB8bzXxcmuYxwCjajbfZH3E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6fWB47PZYdpCvKCE/ZwWPa9KIm6DpQanCxqix84h+EFsdXa07
+	i2+wTF3IoFBFEF2SN1he35xoj9iNz+3g59nKvpyLPGb9UsJVeHayatr0QJ3S+IrbNaM=
+X-Gm-Gg: ASbGncsxzSHF2vaiuvOgULDpQ4NYLmmha2JirW9x16dup+3o8YayBMrC7DFPhzf3AQE
+	zumspIx8y7D+PVg3efyDuARaE0iwf+wiS+y27quT2J+hpBWrY7lF41oAqD85ybPNThNAamHWHj3
+	7+0STwapzIF+mQdVFfcU1X/zT167rP3xmnTZ4WWaPkcquC7cZF+9C8ewF77pfsdKH5uPjYvY24m
+	mQsGyuNcc/DxARGfIrdyTi22lymCYPV5VNmw9nVk8GMjJlDc01WLjxguxa1rv3rAphx3fqAwqjN
+	NvpLV8wy5XOfRXahqYbqAxL4FgVmOE1J5q4NNKpyQH9kfk6PHGzdqYtS/M8bEWTLXTpzkNmOmST
+	h0ZG8PLTZyJZskKFYfxXHP/lZFkK7nbXuyYCANU95KNu9AquVl/h8UHyc0T98hlTIbQAD5m5VZ8
+	D05at06lCeqBapOkpDZl1uBOgE2RPPABwwiKk=
+X-Google-Smtp-Source: AGHT+IGp7Uv+Rz0H0a9Tbxc8WVcxFYh+xPnB3f9zZgNkWgNSCruoFQ5+kEx67gRvEzujnx6ZhHmG0g==
+X-Received: by 2002:a05:600c:1f10:b0:475:dbb5:23a2 with SMTP id 5b1f17b1804b1-4776bc904efmr24244345e9.16.1762524790118;
+        Fri, 07 Nov 2025 06:13:10 -0800 (PST)
+Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477641b622asm42998605e9.4.2025.11.07.06.13.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Nov 2025 06:13:09 -0800 (PST)
+From: Marco Crivellari <marco.crivellari@suse.com>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: [PATCH] media: platform: mtk-mdp3: add WQ_PERCPU to alloc_workqueue users
+Date: Fri,  7 Nov 2025 15:13:03 +0100
+Message-ID: <20251107141303.223254-1-marco.crivellari@suse.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-6-kevin.brodsky@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251029100909.3381140-6-kevin.brodsky@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_055627_813228_4AC8478B 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20251107_061312_096939_FDE68A35 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,200 +107,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2025 10:09, Kevin Brodsky wrote:
-> Architectures currently opt in for implementing lazy_mmu helpers by
-> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
-> 
-> In preparation for introducing a generic lazy_mmu layer that will
-> require storage in task_struct, let's switch to a cleaner approach:
-> instead of defining a macro, select a CONFIG option.
-> 
-> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
-> arch select it when it implements lazy_mmu helpers.
-> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
-> relies on the new CONFIG instead.
-> 
-> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
-> selected. This creates some complications in arch/x86/boot/, because
-> a few files manually undefine PARAVIRT* options. As a result
-> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
-> breaks the build as <linux/pgtable.h> only defines them if
-> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
-> way out of this - let's just undefine that new CONFIG too.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/Kconfig                                 | 1 +
->  arch/arm64/include/asm/pgtable.h                   | 1 -
->  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
->  arch/powerpc/platforms/Kconfig.cputype             | 1 +
->  arch/sparc/Kconfig                                 | 1 +
->  arch/sparc/include/asm/tlbflush_64.h               | 2 --
->  arch/x86/Kconfig                                   | 1 +
->  arch/x86/boot/compressed/misc.h                    | 1 +
->  arch/x86/boot/startup/sme.c                        | 1 +
->  arch/x86/include/asm/paravirt.h                    | 1 -
->  include/linux/pgtable.h                            | 2 +-
->  mm/Kconfig                                         | 3 +++
->  12 files changed, 10 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6663ffd23f25..e6bf5c7311b5 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -122,6 +122,7 @@ config ARM64
->  	select ARCH_WANTS_NO_INSTR
->  	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
->  	select ARCH_HAS_UBSAN
-> +	select ARCH_HAS_LAZY_MMU_MODE
+Currently if a user enqueues a work item using schedule_delayed_work() the
+used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
+WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
+schedule_work() that is using system_wq and queue_work(), that makes use
+again of WORK_CPU_UNBOUND.
+This lack of consistency cannot be addressed without refactoring the API.
 
-nit: This list is mostly in alphabetical order. Further up the list there are a
-lot of ARCH_HAS_* entries. Perhaps move it to the correct position in that lot?
-Then ARCH_HAS_UBSAN stays out of order on its own.
+alloc_workqueue() treats all queues as per-CPU by default, while unbound
+workqueues must opt-in via WQ_UNBOUND.
 
-Otherwise, all looks reasonable to me:
+This default is suboptimal: most workloads benefit from unbound queues,
+allowing the scheduler to place worker threads where they’re needed and
+reducing noise when CPUs are isolated.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+This continues the effort to refactor workqueue APIs, which began with
+the introduction of new workqueues and a new alloc_workqueue flag in:
 
->  	select ARM_AMBA
->  	select ARM_ARCH_TIMER
->  	select ARM_GIC
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 0944e296dd4a..54f8d6bb6f22 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -80,7 +80,6 @@ static inline void queue_pte_barriers(void)
->  	}
->  }
->  
-> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	/*
-> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> index 7704dbe8e88d..623a8a8b2d0e 100644
-> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> @@ -24,8 +24,6 @@ DECLARE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
->  
->  extern void __flush_tlb_pending(struct ppc64_tlb_batch *batch);
->  
-> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> -
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	struct ppc64_tlb_batch *batch;
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-> index 7b527d18aa5e..2942d57cf59c 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -93,6 +93,7 @@ config PPC_BOOK3S_64
->  	select IRQ_WORK
->  	select PPC_64S_HASH_MMU if !PPC_RADIX_MMU
->  	select KASAN_VMALLOC if KASAN
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config PPC_BOOK3E_64
->  	bool "Embedded processors"
-> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-> index a630d373e645..2bad14744ca4 100644
-> --- a/arch/sparc/Kconfig
-> +++ b/arch/sparc/Kconfig
-> @@ -112,6 +112,7 @@ config SPARC64
->  	select NEED_PER_CPU_PAGE_FIRST_CHUNK
->  	select ARCH_SUPPORTS_SCHED_SMT if SMP
->  	select ARCH_SUPPORTS_SCHED_MC  if SMP
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config ARCH_PROC_KCORE_TEXT
->  	def_bool y
-> diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
-> index 925bb5d7a4e1..4e1036728e2f 100644
-> --- a/arch/sparc/include/asm/tlbflush_64.h
-> +++ b/arch/sparc/include/asm/tlbflush_64.h
-> @@ -39,8 +39,6 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
->  
->  void flush_tlb_kernel_range(unsigned long start, unsigned long end);
->  
-> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> -
->  void flush_tlb_pending(void);
->  void arch_enter_lazy_mmu_mode(void);
->  void arch_flush_lazy_mmu_mode(void);
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index fa3b616af03a..ef4332d720ab 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -804,6 +804,7 @@ config PARAVIRT
->  config PARAVIRT_XXL
->  	bool
->  	depends on X86_64
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config PARAVIRT_DEBUG
->  	bool "paravirt-ops debugging"
-> diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
-> index db1048621ea2..cdd7f692d9ee 100644
-> --- a/arch/x86/boot/compressed/misc.h
-> +++ b/arch/x86/boot/compressed/misc.h
-> @@ -11,6 +11,7 @@
->  #undef CONFIG_PARAVIRT
->  #undef CONFIG_PARAVIRT_XXL
->  #undef CONFIG_PARAVIRT_SPINLOCKS
-> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  #undef CONFIG_KASAN
->  #undef CONFIG_KASAN_GENERIC
->  
-> diff --git a/arch/x86/boot/startup/sme.c b/arch/x86/boot/startup/sme.c
-> index e7ea65f3f1d6..b76a7c95dfe1 100644
-> --- a/arch/x86/boot/startup/sme.c
-> +++ b/arch/x86/boot/startup/sme.c
-> @@ -24,6 +24,7 @@
->  #undef CONFIG_PARAVIRT
->  #undef CONFIG_PARAVIRT_XXL
->  #undef CONFIG_PARAVIRT_SPINLOCKS
-> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  
->  /*
->   * This code runs before CPU feature bits are set. By default, the
-> diff --git a/arch/x86/include/asm/paravirt.h b/arch/x86/include/asm/paravirt.h
-> index b5e59a7ba0d0..13f9cd31c8f8 100644
-> --- a/arch/x86/include/asm/paravirt.h
-> +++ b/arch/x86/include/asm/paravirt.h
-> @@ -526,7 +526,6 @@ static inline void arch_end_context_switch(struct task_struct *next)
->  	PVOP_VCALL1(cpu.end_context_switch, next);
->  }
->  
-> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	PVOP_VCALL0(mmu.lazy_mode.enter);
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 32e8457ad535..9894366e768b 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -231,7 +231,7 @@ static inline int pmd_dirty(pmd_t pmd)
->   * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
->   * and the mode cannot be used in interrupt context.
->   */
-> -#ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> +#ifndef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void) {}
->  static inline void arch_leave_lazy_mmu_mode(void) {}
->  static inline void arch_flush_lazy_mmu_mode(void) {}
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 0e26f4fc8717..5480c9a1bfb2 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1372,6 +1372,9 @@ config PT_RECLAIM
->  config FIND_NORMAL_PAGE
->  	def_bool n
->  
-> +config ARCH_HAS_LAZY_MMU_MODE
-> +	bool
-> +
->  source "mm/damon/Kconfig"
->  
->  endmenu
+commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
+commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
+
+This change adds a new WQ_PERCPU flag to explicitly request
+alloc_workqueue() to be per-cpu when WQ_UNBOUND has not been specified.
+
+With the introduction of the WQ_PERCPU flag (equivalent to !WQ_UNBOUND),
+any alloc_workqueue() caller that doesn’t explicitly specify WQ_UNBOUND
+must now use WQ_PERCPU.
+
+Once migration is complete, WQ_UNBOUND can be removed and unbound will
+become the implicit default.
+
+Suggested-by: Tejun Heo <tj@kernel.org>
+Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+---
+ drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+index 6559d72d5d42..9083367ae2e4 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+@@ -255,14 +255,16 @@ static int mdp_probe(struct platform_device *pdev)
+ 		goto err_free_mutex;
+ 	}
+ 
+-	mdp->job_wq = alloc_workqueue(MDP_MODULE_NAME, WQ_FREEZABLE, 0);
++	mdp->job_wq = alloc_workqueue(MDP_MODULE_NAME,
++				      WQ_FREEZABLE | WQ_PERCPU, 0);
+ 	if (!mdp->job_wq) {
+ 		dev_err(dev, "Unable to create job workqueue\n");
+ 		ret = -ENOMEM;
+ 		goto err_deinit_comp;
+ 	}
+ 
+-	mdp->clock_wq = alloc_workqueue(MDP_MODULE_NAME "-clock", WQ_FREEZABLE,
++	mdp->clock_wq = alloc_workqueue(MDP_MODULE_NAME "-clock",
++					WQ_FREEZABLE | WQ_PERCPU,
+ 					0);
+ 	if (!mdp->clock_wq) {
+ 		dev_err(dev, "Unable to create clock workqueue\n");
+-- 
+2.51.1
 
 
