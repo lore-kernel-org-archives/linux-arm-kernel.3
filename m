@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAF6CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F3BCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwLm9ZOqkxP5nRd61gUy/JOG5+aVOeMLvrzzIiEulOE=; b=oasHLmK6NzwaMUXCWQs9/o1CxK
-	HX6WvFRlSJav8oHrw5Pihycs24+vRLcMH0ui29RdvIVbC/puNi9SR6AP4Kqt9xIJC2aC8ocJPU5Ex
-	pBxkEpseMMmXYpjaDnT3kzkK07/dKKRacC51PrW1tB5ZuUmQy+6HiHuJyxX9+crvo+MBWt5nWKbSa
-	jf1+nKMAwncfhCTKDWpALkodTGVNF8a51gbQiXlemjcQvP5AXCD/gHjJzsy/HOwL5OoThHc+CnVkj
-	3xQ20OBpHhGF8tMs0LAt5qGKC6fepSdNnptr1m1hQtkHzt7JNZZ5+tFkfDONBmX37f55cCiXu79kB
-	xyL0fEQQ==;
+	bh=KJdRMzE2sMirb6Tls9X/j5sk41mA68F2wG8ZNddDp4M=; b=mPjyyGxie9QdRr3o6ar3m0FrXV
+	rGAd7KxO/6u+YkORQKtZoD5F5ZxPH5Ysq3esp9KTk2ULXwSky2CuV9qqpDxoYr2pPqHoM5G9en5Pd
+	f7MWR54t46+gJYVb5JNVwxZioHglKrRTHawmTkA9gcbTvYK2oNHtHJbthCe4IQRg/EwvQS5hoMpBr
+	tGze945mi4NVIYyfG70iTdmloh63z5VsakLzY5gobcHYWzZui7AKMd6W0udhc7xyPGAMomfl3gISe
+	WuSd4OlEAe6eKgZHayv8mV1Km8EQDwgCBjMDGx6qihJ3B9AMUEZslDsVtfcTXVQU3Nxum+mdDSjgs
+	sr21GBMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHe7-0000000Gr47-15AX;
-	Fri, 07 Nov 2025 08:16:35 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vHHe6-0000000Gr3O-2tkG;
+	Fri, 07 Nov 2025 08:16:34 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHe2-0000000Gqxx-2XoF
+	id 1vHHe1-0000000GqwB-0Ows
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Nov 2025 08:16:31 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-429cbab5d36so64719f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 00:16:30 -0800 (PST)
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-429c743e701so65473f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 00:16:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762503389; x=1763108189; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762503387; x=1763108187; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XwLm9ZOqkxP5nRd61gUy/JOG5+aVOeMLvrzzIiEulOE=;
-        b=i5HEcueuftu89Ds+Zy2V04qFwjIT+fy57LqPzqCGBrZTq8G7WJUg/AjpIm6MtqjWew
-         nOFRsHc+E6xNejLEfuI1LrWNejZRaOMJLW/H/X9JS0ed7VtjEEqLSHxJe3ugE4EAbzLK
-         a23HokktsN1ro1gTd5vtMSTcI8OsbjndjRFKRgMnIHjcG49yUnXiGT5Y/S/Vxg7WfRgj
-         9eF3R/gcm/CwwYtt5Mxs/sK8rTWfu0N0/Xz0AE06biisoYx4TfKjlEBHpKlGSPQ17Nfg
-         lY7hpsfDerosvgp3HPDslQZDj9YPOCUWlxVKzkhVId7CveimjzrT++Nhksz+rH7CkBc7
-         Y/hA==
+        bh=KJdRMzE2sMirb6Tls9X/j5sk41mA68F2wG8ZNddDp4M=;
+        b=RbrTZpzLKGMTaSqXSp+4ueVgXrLXGGtcE2dI/jbPU+acmCppZyLImAHqtmaetq5IIy
+         ciPAKSq4361XUqEg0x4xJdTLgrtSNQsQeN/czuJFxqv98hAqR4g/NMSJribEDq0ETM2W
+         a4ybrVu7EKl+nBttr1KLG8eswVVujG/Q1i5aTPPV9t+AJ8Ztk4IoBZSr138klc+A4CXc
+         yRCFPjjYp64viD5Cmf9FaJiOhoZkemW6MYHRgyRBs8qVygMAFw7pChRtV87u7akbcZGI
+         4EAA8Ugio442B798M+CV/pb+f+K3DGiFH1uI9I2EJQwDImREFHh+Ir4tYJTOJTz0OO2F
+         mPqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762503389; x=1763108189;
+        d=1e100.net; s=20230601; t=1762503387; x=1763108187;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=XwLm9ZOqkxP5nRd61gUy/JOG5+aVOeMLvrzzIiEulOE=;
-        b=X7vYi67deQdAR9+7EDX6R1gjS4JM6tgwvSShFf9XiCr4abr1ZlnbWI3H1z8d27u1Lm
-         8bdJqWtmBsmvjdydsVwqFjzZ9j0+LzoG+4cEH0bRtlJxs7cLW57QhsN4LtMmYRElAy48
-         QZyL0CJXFHJ8FT0ObatWuPpZO1r7Tl0vIMbIU6HJPbOUcYD5mBDcoBaeCrlKDMfjKeOW
-         yK8iBnP3cmtOxI97YK4yYcM6t0WZVgq+Joerus2ZbSxyB+UwQMjyvhOv+xIAAkM2xBp1
-         VSEWO4E+C4R1J4vijCCAWMtYhYbS39taY4wTOEZB6isL4E2Zqau/aG0m8Uw9x9AzQ65U
-         D9WA==
-X-Forwarded-Encrypted: i=1; AJvYcCVth5Irm1a9ptekUn0AE5TNDavziDyK+zVkZC0JAb9NKhC7ltFK9dCy9aGaNAemIW3PeGJHIUzSCeOU2E8cS4Se@lists.infradead.org
-X-Gm-Message-State: AOJu0YybRJARqSh1L5seArjoLU2v4bCCR4xs6r5DNtXqOH+xZOIrkZGO
-	XvQJe62M6sj7Zh74g5j+XOrlrrgETEZjTmLAeINdjBXm19bGbTeMt8DChHNam2HYO08=
-X-Gm-Gg: ASbGncvUpNffDEtHLoMPxQH9JgpFgkK7ZGD6POQv9x6mhnYLUmJn1SGo6RuMP+fkrc6
-	i7YOfXRE++smgessM9lVYilOqezKAZjCkPNgvN4yu98EM7fMwBXUbQAPDn6orxiKa4HDrqqIPf9
-	8Z8cPQ8WeZ+xp67Fy0T9HATUW1RIqazAxau31+ZagscLLPyDWic5hXApvBXyQMCcwcnZ5TdnvHW
-	A1tnnKev2/PfFVqQpwTq5p7Y/M7PlfwpHe3V30Ie4pAoDYmS4ceu73nMNWZ7ERzlGXIvOT/OL6y
-	TrtVan/yPfr51prYWPd7WI8U+b0LP9yEYRbGYYv83c1AytBwj79mIIsVhqOMoPvtNhwPPVMMTrD
-	mvrrhUwD4k+GjTSK7QjU7yyEhE7JH3cuBkRdHSoZuDbhAmBcr68diipvz3OuCUp2C0sG8rPrkmB
-	Ch4CqvM2p7M2HcioXoMIe7UeI4O00=
-X-Google-Smtp-Source: AGHT+IEW7931OZiZRGfsN4XwbENTbfXf5yTkeG5zUHKOhA4eCYE8JeVUBwhn/sIFVaN+bw8gO6m78g==
-X-Received: by 2002:adf:ec41:0:b0:42b:13cb:41bf with SMTP id ffacd0b85a97d-42b13cb4268mr623938f8f.9.1762503388885;
-        Fri, 07 Nov 2025 00:16:28 -0800 (PST)
+        bh=KJdRMzE2sMirb6Tls9X/j5sk41mA68F2wG8ZNddDp4M=;
+        b=LdBHGCbNlLoAqym+tWUhda4eFFmYZkglat8acXhm1w1sjW4a9vH0OyQDSLSjoGPuOo
+         s0aUYV0+uhjC6CNFAW5Zo1eyJmn/KyuPjbCv8iBgsMCGoKpptj9StYp75trL0Ox86V39
+         yB5tllzCpnfjFK1N8TTkBzhrCnKVKls9zC90CwxsmvAJvGFsuM7nhAsZrWc5pCEl8O6l
+         b8wplFianMjUfvAWUZYQ60hKKjc1IWg/3NfF5KJLJY7eo4COjY2KYUJmtyiwrZcGX/gf
+         fMlKWrk75V9gRLqT2MmG+SQD02Izn7O3AKxQ+bTWxcnIEUD6X+gZUzUnKaNdWtyuhXG+
+         VIlw==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Q+GMSCrR2itjh2vyfKpoQwvvzPgyBmuVMPW2ZCaGt3CfPgXi2CZWAI031jREgof1L79yGHy0VOKQqw+2kVYD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyZes/Iw3/mYz5uhLczs/4gE0uHXt/f90ZfIKeXtb97beFbkwP
+	sR/ErZ+L3tMuo4pjzykr2fxW4LU/kNrqOCScQb1nY92NZg8oZBAFW4sxM1kdXjSYwqs=
+X-Gm-Gg: ASbGncsZoq9oU2KHKDUcgZMmegvFQrKsvGHRbCqeD+R7t/ommp4DuWHKsB+pJUZm7Hv
+	q32fQZ+IldMq9mNjAT9SzT2br4TItKZvfY52CrBe28Tt49ktC+a9BeuvaVaBvk0G8AeUPFT7yDf
+	ge8jK/LVLbIFqb9yIWmBMmkU7sjB1G8BY8xcKQWhUisJ/V8gRy5FLo7r35774ugpS5phHOWkH68
+	AuMLtZPt5pNQgnqADSDVEmQ4sTzCzyUbzMNRj5sjVNspQwhM8RQO+74Fq/ofZMNtci6d2xOI0m0
+	IBdMAN4VqWqbflUhJlS1WYZ3QNCcZAB0tPEu1kRgPuo6hfBsby34XLDkwFvmQg7rBpnrEtaBxy1
+	o2D2dNBP/R3PP7/PI/TmOO4fOwDnZKgyh1EcoYblyl/Yk4wFNGViUMI5nW4vQ+9nPvoko7CdA+I
+	gleop2ma2kwhdOrVqqlliSjyG1nsJ0hjMxPTNIjQ==
+X-Google-Smtp-Source: AGHT+IGFP+Or1TYRkIggpm74Ke6SdN/q9dCVPUOpMov35dYLEJd55ABeP11Qdy6D7TpbjVv7dJYVeQ==
+X-Received: by 2002:a05:6000:4308:b0:429:d084:d210 with SMTP id ffacd0b85a97d-42ad6a771ddmr843479f8f.0.1762503387155;
+        Fri, 07 Nov 2025 00:16:27 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d544sm4058381f8f.46.2025.11.07.00.16.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d544sm4058381f8f.46.2025.11.07.00.16.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 00:16:28 -0800 (PST)
+        Fri, 07 Nov 2025 00:16:26 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 07 Nov 2025 09:15:53 +0100
-Subject: [PATCH v2 6/6] crypto: cesa - Simplify with
+Date: Fri, 07 Nov 2025 09:15:52 +0100
+Subject: [PATCH v2 5/6] crypto: ccp - Simplify with
  of_device_get_match_data()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-crypto-of-match-v2-6-a0ea93e24d2a@linaro.org>
+Message-Id: <20251107-crypto-of-match-v2-5-a0ea93e24d2a@linaro.org>
 References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 In-Reply-To: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 To: Olivia Mackall <olivia@selenic.com>, 
@@ -96,26 +96,26 @@ Cc: linux-crypto@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@axis.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1275;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1518;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=m3Rw4RghvlJpNqwmX5RdKGrpt4N2kWtJe21s2ySaS+U=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDarQIPQj/uwSRGyYOhxeW+nG59uNrfsSEqYi2
- oMqO3cMHzOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQ2q0AAKCRDBN2bmhouD
- 117lD/44tUDFYEjT0xJr9FfxIcOknzx85sePA1ZDeP3Oavbz5mSDgFRWG3DUqcS8jQOge532MGD
- bQjMZh6FAAXgJGYB+EHXJDe/SQrp4/DIppftDO9LMqt6wzkDR4caV24D59K7WrHRh+Ew4B4eX7H
- Tj0FOrTLAwACR0QCh3NIKEKODka/+oldeK71aizC4jVy+pODsfHA7ItLXF/FXjwrhykAoKx0RfQ
- 7ApCmu6gmBUHmOn+BwYj9NFnOpf0yI8MXnRvH0UbvXeJwJK94FXrA3GItVtAfNyY4L4sPIoT4Ej
- Xwk2j55yDLd01zbRWPoxgiw5feUeibT3g9P2T8tzZ0xP9IFFfRKYCufYydLHBkoX2izid4uZG7g
- 97WX+Cb3Jr8MH6pqpy9mf7T6qOTXCpGWCbrMWzAWVLTWeHsR9/MIc4uT4HvaHQnjS7j67p1rs7h
- lxsVtbgKHLUwIiuzQf5b93POHRRWwIjjzmagPIZyydUZt5hhIPxsBzfej51KDb8nqbycE8HBBL9
- kLEMB+5pQ5OisidwDx7ofZmxsKG3gL5uT7s4cifHxrkcK9jHQ9Y2NGtY5fkPCKzXbGr4c0mJQ1p
- jkSV2wodegqW3xwn+ba+mQxCItmBQXjlMqdASt7kbtMKHZGScO35Sdv8rl/aJd3U93rd3sMMdvm
- B9F8iTOyyri2UmA==
+ bh=EokAsdidD5G1bR5/UOxAtpT3N5gkiVxF5vZQDUQTwTc=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpDarPXV3bvhby1HPb99NpppHEOfCQPiXP0mxXL
+ SPMezY6nieJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaQ2qzwAKCRDBN2bmhouD
+ 17SqD/4sJRvlNLj9QaFrjoihtn4kBTpBm9DNcJcEdDkpBrrZRHV5vbXHsL19SheBL+VcjF9nb+K
+ SbcDaGWK8AB00dRiJ1ITbkQa/F5OWgeFnhLn7iMdnO+dgGySM8EtgxkVVembbfubkJXNczRGevV
+ GkMvt80eET0LpLsk3W/7LGBiCm//if1txGfFqys2QeFpsWFCQk1wVrbp5zzAKKd3I8f9lvssNHv
+ jhTDj4W6Azu84Qu0cSZEXv4lOhqyDkGnA6amZzPyNak2vsTbKzi8RPSETuFKjNhi9e/gkA5WHwO
+ UVTq6cRtUxy1o4z19Elg8Wgjfb1mIJ/OBC79xSRKUqDUA868qJOghxDoNpPM5Nj+0B2u17MAM4H
+ 4jo/KJfLbFM5ziArw4QZKC8JJSdCWjJNwPIwgiPoxqI2PApv0mA5NtUJVAiRPLyWM063PDPzMhs
+ TBm4rDhmnpCR7YV/XyCbJ/YRGFl8vTpWeooJth8f5WXG6aNnZ+Zr8iFrNj4s90tTp3Z1bSFxQn8
+ nMR27brFMMM9b9DgZdhvwNLVG9g9F0WBlUr34sRBdTAZ1gDR6oOxhDvu07HEErc0C+wfJ0KM01z
+ 37LUf+owsWufXqLfPa6Q5u0Ci/VcUIYm0XHOZULuCpWshPQA12J3DOwZBkAgUzr/DiR3wgOUtdw
+ uW5+O/ePtzNubvQ==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_001630_695099_9D722AD8 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251107_001629_177411_E5E443A8 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,37 +134,43 @@ Driver's probe function matches against driver's of_device_id table,
 where each entry has non-NULL match data, so of_match_node() can be
 simplified with of_device_get_match_data().
 
+Acked-by: Tom Lendacky <thomas.lendacky@amd.com>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/crypto/marvell/cesa/cesa.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ drivers/crypto/ccp/sp-platform.c | 13 +------------
+ 1 file changed, 1 insertion(+), 12 deletions(-)
 
-diff --git a/drivers/crypto/marvell/cesa/cesa.c b/drivers/crypto/marvell/cesa/cesa.c
-index 9c21f5d835d2..301bdf239e7d 100644
---- a/drivers/crypto/marvell/cesa/cesa.c
-+++ b/drivers/crypto/marvell/cesa/cesa.c
-@@ -420,7 +420,6 @@ static int mv_cesa_probe(struct platform_device *pdev)
- {
- 	const struct mv_cesa_caps *caps = &orion_caps;
- 	const struct mbus_dram_target_info *dram;
+diff --git a/drivers/crypto/ccp/sp-platform.c b/drivers/crypto/ccp/sp-platform.c
+index de8a8183efdb..3f9843fa7782 100644
+--- a/drivers/crypto/ccp/sp-platform.c
++++ b/drivers/crypto/ccp/sp-platform.c
+@@ -52,17 +52,6 @@ static const struct of_device_id sp_of_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, sp_of_match);
+ 
+-static struct sp_dev_vdata *sp_get_of_version(struct platform_device *pdev)
+-{
 -	const struct of_device_id *match;
- 	struct device *dev = &pdev->dev;
- 	struct mv_cesa_dev *cesa;
- 	struct mv_cesa_engine *engines;
-@@ -433,11 +432,9 @@ static int mv_cesa_probe(struct platform_device *pdev)
- 	}
- 
- 	if (dev->of_node) {
--		match = of_match_node(mv_cesa_of_match_table, dev->of_node);
--		if (!match || !match->data)
-+		caps = of_device_get_match_data(dev);
-+		if (!caps)
- 			return -ENOTSUPP;
 -
--		caps = match->data;
- 	}
+-	match = of_match_node(sp_of_match, pdev->dev.of_node);
+-	if (match && match->data)
+-		return (struct sp_dev_vdata *)match->data;
+-
+-	return NULL;
+-}
+-
+ static const struct sp_dev_vdata *sp_get_acpi_version(struct platform_device *pdev)
+ {
+ 	const struct acpi_device_id *match;
+@@ -123,7 +112,7 @@ static int sp_platform_probe(struct platform_device *pdev)
+ 		goto e_err;
  
- 	cesa = devm_kzalloc(dev, sizeof(*cesa), GFP_KERNEL);
+ 	sp->dev_specific = sp_platform;
+-	sp->dev_vdata = pdev->dev.of_node ? sp_get_of_version(pdev)
++	sp->dev_vdata = pdev->dev.of_node ? of_device_get_match_data(&pdev->dev)
+ 					 : sp_get_acpi_version(pdev);
+ 	if (!sp->dev_vdata) {
+ 		ret = -ENODEV;
 
 -- 
 2.48.1
