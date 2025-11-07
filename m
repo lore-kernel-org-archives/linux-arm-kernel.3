@@ -4,151 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B449DCCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239DECCFA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=; b=CADXszh+c5KhR7F0QtdVs5LDI+
-	8zBWLQcUMqVE0yWuVHfQtreN4w6Hq5aSlbgRUsq3x++V7r6cJ5heI5KN9BVzO97gu9zKHlgSY612f
-	1r4hQRgxgorJRCwI/QUSJK4Dh1IcyK//4us6bi2Qjxgq3OX7Xb/7ST0yRt4KLpuk6C6sr+bnaBImp
-	Wqr3Ag2PqC7k/bJ71ryUL39IC5fwY2ii3MzqmobALrbJP2jzb15ZMzkeHRhP+OtTriOOZw8ZCCpU1
-	6PuJ6MJcelB6s1JY9G0I4UjlRup9qVleUmSH60LfTVqUlVg6ndrS9K268TuJcRsd5i76u/XMimqmJ
-	eyhK6n1w==;
+	bh=afGjVttI914lkamQzbwHFWQI/mW5NqG7gu6A5EIHDVY=; b=A0zp9gQBEgyrMaaBzCgYzNHQ9d
+	75tGSiqCeryx29MyxuvM8GLsWDspxBDAp8KZdHHLvSVOG0+t8vCJMu7GdZV8FBF6ool4nWuKlLAXa
+	+NLekdzU0P5zDmgKc8Ja+SiNUic7538zOP3/CMdkjag2Z5xYHsHz3ugO3PElRBrpVdsH0LrcFza5b
+	cjCxLckbXPcuT1R6WRaw5rJQ4Roc+5pL+pQI7udiaFWnzKefROKftInogii3S8dBNjQI+/WtJnEq6
+	EMrtDUprpyz/c/FngA4No7GiZKSV2bUYTT1qztgTOTtWci9Rw81ken8lqSXLLog+otHaQn3hZ0pKR
+	K/3vGRgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIxD-0000000H06N-2MkL;
-	Fri, 07 Nov 2025 09:40:23 +0000
-Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vHIza-0000000H13p-2aLm;
+	Fri, 07 Nov 2025 09:42:50 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIwc-0000000GzCy-2wgv;
-	Fri, 07 Nov 2025 09:39:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MVcdrsCNoEQX6LoppphbbnCtQpvyg/qeCChLxctf80uDiW+cVJ9XofIAhIBk0PVeeUa08aQLUuV6I37c5YTdAJM9HOaPHXGe/4z3i+P6BR1v89HM1VhnQrY1tyDOrrIUo/CzObQvMVmYrgD8iHtPhkLqJlia8xu+vX+tPnijZoRsbINtpLzESzPOBeanMnXOdWK6GPMDGYEAQxQkkiLq/B9pZdRaty5dP0H8wnht/fh2bgJPVGT87ZNHTNkKdzNQ76jxueQCsEI/Y8wCgJ6oPzUcwksGa4rmQSoJ/6Cd35lSrK6at6mAgEXUXQRxzFcQsy6CmDs8cQEuJvPLhn9m8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=;
- b=sy2QghfxRdnVCiFIq8lEXln6ulma8/QJBvNlkfGOZbQSEyXLJR2eOSoD2QMFM8vcS2xNm6Mv2kQivCUju3UgMQ7Drylqllxj8A/2qyBqb6P4+/GM3WPT9Ga9vbHMpk/E8vFcB1VFgFa2trfV1oJBhkM9cgzQnIDS8H6343BFNu0eaFlTtWpmYV6GbNKR7VmZV2YvTuE7RiQK9hQ+KjGEc5pPhYLNuHwEb0i3KIEpVauZZull2yU5uo0bLdKJOHufuWrqPZBAR8e5J/nEN6t7JHrRU9JX+PSZdZQ154L8bFsolsuRmIBjop9JeiE5nHZCkhTcEnGOWXzcQE9TYuzI9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=amd.com smtp.mailfrom=axis.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=axis.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=;
- b=DeVUo5eBo0qXkxd+fzH4/Zp72gAXVBt8yR7ySxu/9DCFln1H0sdz7UPjirsd7CZz1oObnkOI9KsnEIWcciuooXU7uKb4ViYd0DcVHaT0pK87QndANlcCda271TBvz0t43KROe/ukWl1map5x34pZCsGsewWpc6J7bKewDMhBHZU=
-Received: from AS4P190CA0056.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:656::27)
- by PA4PR02MB7134.eurprd02.prod.outlook.com (2603:10a6:102:10e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 09:39:38 +0000
-Received: from AMS1EPF00000040.eurprd04.prod.outlook.com
- (2603:10a6:20b:656:cafe::b4) by AS4P190CA0056.outlook.office365.com
- (2603:10a6:20b:656::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Fri,
- 7 Nov 2025 09:39:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
- smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- AMS1EPF00000040.mail.protection.outlook.com (10.167.16.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 09:39:38 +0000
-Received: from SE-MAILARCH01W.axis.com (10.20.40.15) by se-mail11w.axis.com
- (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.39; Fri, 7 Nov
- 2025 10:39:37 +0100
-Received: from se-mail01w.axis.com (10.20.40.7) by SE-MAILARCH01W.axis.com
- (10.20.40.15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.61; Fri, 7 Nov
- 2025 10:39:37 +0100
-Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail01w.axis.com
- (10.20.40.7) with Microsoft SMTP Server id 15.1.2507.61 via Frontend
- Transport; Fri, 7 Nov 2025 10:39:37 +0100
-Received: from pc36611-1939.se.axis.com (pc36611-1939.se.axis.com [10.88.125.175])
-	by se-intmail01x.se.axis.com (Postfix) with ESMTP id EFA3518D0;
-	Fri,  7 Nov 2025 10:39:36 +0100 (CET)
-Received: by pc36611-1939.se.axis.com (Postfix, from userid 363)
-	id E9836604ED; Fri,  7 Nov 2025 10:39:36 +0100 (CET)
-Date: Fri, 7 Nov 2025 10:39:36 +0100
-From: Jesper Nilsson <jesper.nilsson@axis.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: Olivia Mackall <olivia@selenic.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, "Scott
- Branden" <sbranden@broadcom.com>, Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>, "David S. Miller"
-	<davem@davemloft.net>, Tom Lendacky <thomas.lendacky@amd.com>, John Allen
-	<john.allen@amd.com>, Srujana Challa <schalla@marvell.com>, Bharat Bhushan
-	<bbhushan2@marvell.com>, <linux-crypto@vger.kernel.org>,
-	<linux-rpi-kernel@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@axis.com>
-Subject: Re: [PATCH v2 3/6] crypto: artpec6 - Simplify with
- of_device_get_match_data()
-Message-ID: <aQ2-WHENLhXN_TAH@axis.com>
-References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
- <20251107-crypto-of-match-v2-3-a0ea93e24d2a@linaro.org>
+	id 1vHIzY-0000000H13F-1UJw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 09:42:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762508568; x=1794044568;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WJXOLztqSo4giTqFOw8G/lBkaE8BpltWb1JC16Iyvfc=;
+  b=b1W3K4zjOXJUrVFks0odcScGM8Dape/G3yLyyNc06CzWStiNePvlDi36
+   tSkwy0g5p4AC6xz4BOdHQssSYZlUUXSmH64psa2kaFgozADHbfz9lvkSV
+   SwfMMBbkFZQiLDBx/8FP+LoUM4Mldf6F/DE4POAZD/B2szS7tineInY2i
+   Bbe/jq8c/+RcQ/y8CF4ubTRrzFd131MwOqoY77+7NwCniZtndcl2e739d
+   xjU3krZSReC4UmLE5pFQy6VkrRYxYyPk0DBQ26He8ecuj/TS3cLXx/1hN
+   aSEXxxp9RofsLGbrzYtlv7fGigj1Nl2tuuG5mlTR8xYhhcNaL4RnCdvNm
+   Q==;
+X-CSE-ConnectionGUID: dlVkWNtOSw2/CJwO62T65Q==
+X-CSE-MsgGUID: BjdRBT1MROSg2V77dVkFwg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11605"; a="63668031"
+X-IronPort-AV: E=Sophos;i="6.19,286,1754982000"; 
+   d="scan'208";a="63668031"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2025 01:42:47 -0800
+X-CSE-ConnectionGUID: oCQK/vHQQpCJVDh93eyUgw==
+X-CSE-MsgGUID: jz6q+Cp+QiGNuEuTne9Otg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,286,1754982000"; 
+   d="scan'208";a="187253469"
+Received: from vpanait-mobl.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.245.27])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2025 01:42:43 -0800
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1vHIzQ-00000006QDe-05pD;
+	Fri, 07 Nov 2025 11:42:40 +0200
+Date: Fri, 7 Nov 2025 11:42:39 +0200
+From: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>,
+	"benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v21 3/4] i2c: ast2600: Add controller driver for new
+ register layout
+Message-ID: <aQ2_D6vs4m1brNk0@smile.fi.intel.com>
+References: <20251027061240.3427875-1-ryan_chen@aspeedtech.com>
+ <20251027061240.3427875-4-ryan_chen@aspeedtech.com>
+ <f08b1078-fc8c-4834-984c-813e01291033@kernel.org>
+ <TY2PPF5CB9A1BE64FEBCCCDC7631B355135F2C3A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251107-crypto-of-match-v2-3-a0ea93e24d2a@linaro.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF00000040:EE_|PA4PR02MB7134:EE_
-X-MS-Office365-Filtering-Correlation-Id: b8981ec9-7fc7-43b9-ba91-08de1de1921b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sYDuWVNOz0qiVVNPSa7vhdKoPGumrJAvWyu46huwck8X0u7AkhHlVfMsdRmz?=
- =?us-ascii?Q?ht0C+qANKltqP2gRryywudIG387Bwk4CfpdnaMvnQNWZ8V4nmrhlecuPA8LX?=
- =?us-ascii?Q?UFkZzBM/7QlbEgRKUDL3GfnvD30SIaKIJaRQg/tq2IheqQeJaxUVWHqthTVb?=
- =?us-ascii?Q?8krDrScyJ86QOPFdsbLrJytg67QY6oiu1xCVfktNtyUy3ZaRP8UZBivGMAX5?=
- =?us-ascii?Q?XtbuSKn/14oHNw2c6yq19a71fp/fT8c3GrGHNpbnLaMIGjvUaoX1QoHKPzVT?=
- =?us-ascii?Q?UkmxQFrY5gxn14A+dL9bhZUzguc4L4TG+RVHJir8nvJVIjfCBFtOfRlg727X?=
- =?us-ascii?Q?Ga0MOf8j2THsXlf8P1rqGu79cm2bgUL1eYOVzOzTp7JRYBcuEubWd7//865N?=
- =?us-ascii?Q?CaPwtS1Nlnkem0BLdrNLI/3PiMcUzrFEpIFgqKITWm47suemzPL9etqLBKWd?=
- =?us-ascii?Q?JZR808c4u/XDHaqU4KtFuIcFnK1emE4UsjOEIH5Ms36MWV+KodbB77r1TLXP?=
- =?us-ascii?Q?vCJPXKfn68GnwudPJKjUoPT9RlbZ1707H2Vhq6NPF5VFhTXtWP7OI1LavD4A?=
- =?us-ascii?Q?+BSdS6rg4EdoPrrkrg2vzDsQo4fPxFPXNZ+xrkQL7u0tRDaGC6C4NmfBl4gx?=
- =?us-ascii?Q?TV755GRTqnp0aulQhfTTwlTW/uq+ZRkdI3I7wIw1FoqKuSKTDINZtxAA6ITx?=
- =?us-ascii?Q?mmBeW8qlxBGHhdNlhkBp7ndPUu2BKW8zPbV0eZW/m+Cprq7XBEdj7VJKfJll?=
- =?us-ascii?Q?sCXQhqBrq8AWUQ5SR4BTLsYKl4yKS93Yp6bMfUS1wqI6eBcxevQSHVsGedWb?=
- =?us-ascii?Q?GD5nVUcy1xeK3isou/kMDwFhM8fmpIY47GECfPzYN3JMR79bCqMWTn24EdKC?=
- =?us-ascii?Q?aYR85lbd7863ggo14lfRXw1g2hYvuws0mGNXqJ5SHJiJuRK9vh8WqtUzOL2e?=
- =?us-ascii?Q?als6m0N0FkQIYY29WI/uDhFSdc4Rnf0J4My1H6yuZ9CCt+mQW6zhEAf3K9m2?=
- =?us-ascii?Q?PQWCR9rT1ITqtYiPyML8kLfkO7KYucSrJGZJEgjeekzG3CxpHtN+pG/CcQ1p?=
- =?us-ascii?Q?Eh2jl40goiB0zfUt1EJ8l9WNXlnYjDFbqh0OG0d81ptbnWkqzOB+K6rjZqFv?=
- =?us-ascii?Q?aPE/xrVl5EcAOA4cd+WhmpO2rg33vx5ERRQQieGqh9DZD/CYMGGpJNbv3FV2?=
- =?us-ascii?Q?ZOow5h5FOYmbBv1VHn/6SgU6So/HJiXCmz818tEfmt7I5CXIHHX6Z5NueoYW?=
- =?us-ascii?Q?cqNvi1JTrHgaG+k5WnlHB7WEVr6HWvgdRfrlBCL8nNuNNmycio9tpBB10KI9?=
- =?us-ascii?Q?k/WKnEBfFTjaa+mYdFhQ1VKrHMlYfbDL+mZ8QePGMkEjNuwXmmR8aM0zDizW?=
- =?us-ascii?Q?+bT2exfFhbZLECHivuImfEAKInoOWPsnYG//qWM7X81H9k/opC09vPfGGzta?=
- =?us-ascii?Q?Y9MiSDrH9yrLC1KRlU6LMCP0G7YINNschTwqsuctxHzQSJGvuq23uyMBiJiQ?=
- =?us-ascii?Q?MDeds+sJHqEDSB6yyyV8zv1Csh1WKuCstoIa8xLDjc1iVxhGq/mtigOEtHfg?=
- =?us-ascii?Q?YFLnzssowpB8bJNAfbc=3D?=
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 09:39:38.8894
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8981ec9-7fc7-43b9-ba91-08de1de1921b
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000040.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR02MB7134
+In-Reply-To: <TY2PPF5CB9A1BE64FEBCCCDC7631B355135F2C3A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_013946_799164_9DCF3062 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20251107_014248_406524_137F9A5D 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,19 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 09:15:50AM +0100, Krzysztof Kozlowski wrote
-> Driver's probe function matches against driver's of_device_id table, so
-> of_match_node() can be simplified with of_device_get_match_data().
-> 
-> This requires changing the enum used in the driver match data entries to
-> non-zero, to be able to recognize error case of
-> of_device_get_match_data().
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Fri, Nov 07, 2025 at 06:26:39AM +0000, Ryan Chen wrote:
+> > On 27/10/2025 07:12, Ryan Chen wrote:
 
-Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
+...
 
-/^JN - Jesper Nilsson
+> Add new file i2c-aspeed-core.c to do legacy probe and i2c-ast2600 probe.
+> 
+> 	if (of_device_is_compatible(dev_of_node(dev), "aspeed,ast2600-i2c-bus") &&
+
+	if (device_is_compatible(dev, "aspeed,ast2600-i2c-bus") &&
+
+> 	    of_parse_phandle(dev_of_node(dev), "aspeed,global-regs", 0)) {
+
+Not sure why do you need this. Isn't it as simple as
+
+	    device_property_present(dev, "aspeed,global-regs", 0)) {
+
+or something between these lines?
+
+> 		ret = ast2600_i2c_probe(pdev);
+> 	} else {
+> 		ret = aspeed_i2c_probe(pdev);
+> 	}
+
 -- 
-               Jesper Nilsson -- jesper.nilsson@axis.com
+With Best Regards,
+Andy Shevchenko
+
+
 
