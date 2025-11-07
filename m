@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D76CCFA1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F494CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9SCKyx8JVcZcbunGtzC4tU9aDWv+PHpjlA4RRsrxlg=; b=apiDszVtR7HfzQf3yTUMMkmNBH
-	3t6iGaH5jMMepVRcuJQrOZqa7TRqgxC9JH4BpHNr0SZ2HS9rc8RJPO7t7nYUeFOV4tuUI4letcnOf
-	d+qUQ17c6PoHL1Rjuw5T2RkYJYladhOE1EmN8Adh4+x0C6+48x8ikASEUExZqRhOTUUabjcz0dIcT
-	czjkq/L850PTPDc0DDEIj5Zg9pTFKQab7tIw3VMCjkVZMPbtZGw2HjmNcUw4BlXAC+aMOdedPHdFW
-	HkjIaRXb+cyeQRAZ14F4lZn5zcuWdUKyErKrIIQxqKIkTVtolC+QJbSVGVXcr9At0cUU7T7MPp/VN
-	tcV6V8qQ==;
+	bh=b50CLoxUTPJikqMkwR4EctlF+HYg9gQqhRHsEB89fGI=; b=zZ/DfUk2SbcxSk2g6cw9TCNS99
+	76OADDPTxU6M7Br9HCKtqFO+kK4heBBblBvHkBh4fpEna2aBM+VtICBnxl0w1J0ICyNPyeeO0c3EB
+	26KDEE/CGtM7nqSxsjjQPJxUSk/EdIrKnEIgRVXISzJHyX7Bk04yKsdnh3HEHPdxkkM67EgTJ9DSM
+	U4qSv+wsgh6OQcE1ooHGIX/3I3Vc5aVmMUINa3R+MJM3i7I5yJfSUbrMTq2VHOHdmv2lycPkyr7oc
+	zeJzHOOlGORQKwijqlHvmNDmtutjQwDcwK4jqTUBKANhrEIjma6GoFyxCikx2Bf0RrOJJNB35WUJE
+	fvRATc5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLv3-0000000HMUS-1SZc;
+	id 1vHLv3-0000000HMUw-2ojg;
 	Fri, 07 Nov 2025 12:50:21 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLuw-0000000HMQJ-24Pl
+	id 1vHLuw-0000000HMQE-0kgl
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Nov 2025 12:50:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57514446A1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DAAF43937;
 	Fri,  7 Nov 2025 12:50:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E5680C2BCB2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BB738C4CEF5;
 	Fri,  7 Nov 2025 12:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762519812;
-	bh=R+P9YC83++uFXox8Cc6IFwB64s3H9EKY1X6A/lJabnM=;
+	bh=SVdBXpEF1KNfNwK2nhAtCcMZuHOGWV/gg0lw0qdmO5w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=S+RZYTI+RdLo+1vo4VOX/6usH4H9TBYy4y4J35sfh6mpn5k4FGfrZAx5ZQM2Ku/cz
-	 Ukj5CNpnnm5vPnWcdEvkc9fn4mMl+CETMERGCKYwmsd+zinXz3SeuC8rFB6Gkd9ZBj
-	 dsOLxAmk3RMURZUL8wPVqpIOLgctyJ2runFexbTZh2HWpsMUvuiMJN7ro8K4Qlxgjb
-	 m+jaSEklLhPqX8DWgVLIw6HyKc8vyp5agwn/Wh6JdqmPkzi6/obARZxZEPYC2DLcrv
-	 LXvuNAxrtK6vHRGqzojZMGu9ucINrIewhRGdDvB9bPDCRQ8RWwHmb/FVDsnS8RdXdr
-	 dRFrO+NSU3DFQ==
+	b=Eg95syD9Q/SFbFp+kLe6dcEEpHa4jLufF6QqATOeZKNMi60kd6cbqiMRp1jchlupB
+	 pDkox7m6YRMsxq32ulsFNWEI+Vf/8UcBcWXff7Mwk38IqRgQkpxp3f774+u6XVMFk9
+	 jzNZqVDl8S0mokx4ncixAQ1vpnwIVhtPptc599C+kVj7wfalPe9WD+00HaMdky/c8I
+	 d+DiF/nGA/Oe7WBBWiixnatKfsEfJfQEM6A87jyrVg/d+JR5mBijemLnSZxLjdi9NM
+	 Ko6TAjIogXatL+gU1KXJgIIsYbX8WssSewO5dOD+dbOuFLBA8k4w/8VtROr3XzUmC7
+	 k3Ye8i3zw/pgA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF816CCF9E3;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B093ECCF9F8;
 	Fri,  7 Nov 2025 12:50:12 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Fri, 07 Nov 2025 13:50:01 +0100
-Subject: [PATCH v5 4/4] arm64: dts: freescale:
- moduline-display-av123z7m-n17: add backlight
+Date: Fri, 07 Nov 2025 13:49:58 +0100
+Subject: [PATCH v5 1/4] dt-bindings: backlight: Add max25014 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-max25014-v5-4-9a6aa57306bf@gocontroll.com>
+Message-Id: <20251107-max25014-v5-1-9a6aa57306bf@gocontroll.com>
 References: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
 In-Reply-To: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
 To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
@@ -69,19 +68,19 @@ Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762519811; l=1603;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762519811; l=3908;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=W3+O65MLK+QQ45G6UQnntYqpahuzB8Ny+hes04KZ2tw=;
- b=ezpjtjsv6GgTUKTj7VIN8Ol7x+BVdwyWUUs+AXJaY5Qg3P1dzkwOkW9zWLzP2vTxhen37C8V2
- EGi+m0I9ldbD7r5Bw0/dGwM/b7StU0TVUcAQqEYBAqeDlohud8dP0sb
+ bh=yqlsOQ0bzyoHsj2qRJ75h0XSLGQMppxTYnCL1bHyCEQ=;
+ b=DGuC6yQ694ydtHMszFGsmGH7tMYmvr96j6gDz3AJutZi3aJIs23c6A2ZujhuirBLtMI/J5AQJ
+ /l8hpmQFRkWAy0n0XF5YTFgKzIgZIyxfDDG3I79rP8HK/ssm+EFNgji
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_045014_582014_DF412BBF 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20251107_045014_279573_749DFA8D 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +98,151 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Add the missing backlight.
+The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
+with integrated boost controller.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso | 25 +++++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-index 3eb665ce9d5d..786a04ef40c8 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-@@ -16,6 +16,7 @@
- 
- 	panel {
- 		compatible = "boe,av123z7m-n17";
-+		backlight = <&backlight>;
- 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&pinctrl_panel>;
- 		pinctrl-names = "default";
-@@ -91,10 +92,32 @@ lvds1_out: endpoint {
- 		};
- 	};
- 
--	/* max25014 @ 0x6f */
-+	backlight: backlight@6f {
-+		compatible = "maxim,max25014";
-+		reg = <0x6f>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		maxim,iset = <7>;
+---
+
+In the current implementation the control registers for channel 1,
+control all channels. So only one led subnode with led-sources is
+supported right now. If at some point the driver functionality is
+expanded the bindings can be easily extended with it.
+---
+ .../bindings/leds/backlight/maxim,max25014.yaml    | 107 +++++++++++++++++++++
+ MAINTAINERS                                        |   5 +
+ 2 files changed, 112 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+new file mode 100644
+index 000000000000..e83723224b07
+--- /dev/null
++++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+@@ -0,0 +1,107 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+		led@0 {
-+			reg = <0>;
-+			led-sources = <0 1 2 3>;
-+			default-brightness = <50>;
-+		};
-+	};
- };
- 
- &iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
-+				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
-+		>;
-+	};
++title: Maxim max25014 backlight controller
 +
- 	pinctrl_lvds_bridge: lvdsbridgegrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_SAI1_TXD2__GPIO4_IO14
++maintainers:
++  - Maud Spierings <maudspierings@gocontroll.com>
++
++properties:
++  compatible:
++    enum:
++      - maxim,max25014
++
++  reg:
++    maxItems: 1
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
++  enable-gpios:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  power-supply:
++    description: Regulator which controls the boost converter input rail.
++
++  pwms:
++    maxItems: 1
++
++  maxim,iset:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    maximum: 15
++    default: 11
++    description:
++      Value of the ISET field in the ISET register. This controls the current
++      scale of the outputs, a higher number means more current.
++
++  led@0:
++    type: object
++    description: Properties for a string of connected LEDs.
++    $ref: common.yaml#
++
++    properties:
++      reg:
++        const: 0
++
++      led-sources:
++        allOf:
++          - minItems: 1
++            maxItems: 4
++            items:
++              minimum: 0
++              maximum: 3
++            default: [0, 1, 2, 3]
++
++      default-brightness:
++        minimum: 0
++        maximum: 100
++        default: 50
++
++    required:
++      - reg
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        backlight@6f {
++            compatible = "maxim,max25014";
++            reg = <0x6f>;
++            #address-cells = <1>;
++            #size-cells = <0>;
++            enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++            interrupt-parent = <&gpio1>;
++            interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
++            power-supply = <&reg_backlight>;
++            pwms = <&pwm1>;
++            maxim,iset = <7>;
++
++            led@0 {
++                reg = <0>;
++                led-sources = <0 1 2 3>;
++                default-brightness = <50>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 58c7e3f678d8..606ce086f758 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15261,6 +15261,11 @@ F:	Documentation/userspace-api/media/drivers/max2175.rst
+ F:	drivers/media/i2c/max2175*
+ F:	include/uapi/linux/max2175.h
+ 
++MAX25014 BACKLIGHT DRIVER
++M:	Maud Spierings <maudspierings@gocontroll.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
++
+ MAX31335 RTC DRIVER
+ M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
+ L:	linux-rtc@vger.kernel.org
 
 -- 
 2.51.2
