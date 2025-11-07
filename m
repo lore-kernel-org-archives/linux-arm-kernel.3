@@ -4,83 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BF0CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B449DCCFA19
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XbzgYWavEDkucaAQHkJWm/yuhE4r5kJ12caCWyV8SCQ=; b=utslqWrfV4yfFYcmHAIRG7SoKV
-	IRpavtVnrjuzB0xofLlU8CYe0qFVuZUh/Buv4D4xMtJ/cO338n7ib7TpgHhhqPTNfYqXLwXVAf/sr
-	+HuUyjOsBGnQ7x5rKV2x23HbmXPvhmljm6GMHpE7rN1ipHon3A2HATGIXwbm1BaO76hgHAO0ZDyID
-	CI75X4NPHdRw39Z5ciPIhzYfz1KW3NvdQXdDY6xap+Zy1HV/e4/aIdTJWMxLaLH+Nb3SLi8X09+CB
-	0DjuGPHikyTibAahNfvfVrxsJMJbyJBumju2ydzBRJGd6aug0Roy/dFzIaFgKfVunc5ppeRYcSr8X
-	1OY7knpA==;
+	bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=; b=CADXszh+c5KhR7F0QtdVs5LDI+
+	8zBWLQcUMqVE0yWuVHfQtreN4w6Hq5aSlbgRUsq3x++V7r6cJ5heI5KN9BVzO97gu9zKHlgSY612f
+	1r4hQRgxgorJRCwI/QUSJK4Dh1IcyK//4us6bi2Qjxgq3OX7Xb/7ST0yRt4KLpuk6C6sr+bnaBImp
+	Wqr3Ag2PqC7k/bJ71ryUL39IC5fwY2ii3MzqmobALrbJP2jzb15ZMzkeHRhP+OtTriOOZw8ZCCpU1
+	6PuJ6MJcelB6s1JY9G0I4UjlRup9qVleUmSH60LfTVqUlVg6ndrS9K268TuJcRsd5i76u/XMimqmJ
+	eyhK6n1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIx3-0000000Gzsa-2iLi;
-	Fri, 07 Nov 2025 09:40:13 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vHIxD-0000000H06N-2MkL;
+	Fri, 07 Nov 2025 09:40:23 +0000
+Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIw9-0000000Gyjz-0zgX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 09:39:30 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4775d8428e8so4007525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 01:39:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762508354; x=1763113154; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XbzgYWavEDkucaAQHkJWm/yuhE4r5kJ12caCWyV8SCQ=;
-        b=INf6FAKXFPkvUsrbZ+btm1dtcWdK2bj1xgoxF/xqU6nv7KhMv2KmaezIm/X9TlXAWW
-         HBAzc2wa9lTu0RS/r8qhGUxFbdycmK8hkCGucVH8I2D9z8o2qPbr5pSUMv0K4uAyLibJ
-         +fZuBmc11ttBn4es4uv1r9831GmRKbMleYVEzZJ0rbo6qZLJAvBpQuwVlZYCljU1lisS
-         IHTNNt5/ud+xgBsqGdaoBZTx7Ci3qwin0rUtMZghD8Pn/I1DzAaEuPEQa1pG8lU98koh
-         SoDh0+6XwoD6uwbwwafxhjZU6GYIyA0WiJ8Gwb5axfig39jnUvgXPqX59+FJms0pXgU0
-         XW/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762508354; x=1763113154;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XbzgYWavEDkucaAQHkJWm/yuhE4r5kJ12caCWyV8SCQ=;
-        b=lEZEWaZ5nuqDum26g2Vqn58EhhJpRTlAvEK00w8NIIlTRLdKWaGWzAZlejlNDgXF0A
-         Dscc7J0gMfUh7bfX5NxgHSHwi1j/4AcANxS5IYdmwAfEezhIfRK5S46eQh+g8TVBQNiP
-         J0tr/w5VOG9oGhx+Ao5rK1YoktpqczkHNZTg1V1MePvoqb9k4ZWwsE4LeelCUWRoz4cZ
-         H1zIUaYqncE6RczUKalffgu4I6catQmG7jiIrY/EjlQMSEcmUQi9Xfj8FF7/D0MrZMDN
-         SgxTshnHQ96njQsE0Stosgo7sC3fPluKPdSZNr/V7thrieLs3Fqqzj7yxI3Z+0sWx4/F
-         ikgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUzc4H3J4MMwX+AgnF60CrvdSSw/IhkpOGkNcgkqe/e2J6tHN5S9Nmn+cJmZ2t9qfpwk4WrdQbN8GDJytZc1MY2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6uSHIMTJPNSiw6otmDQoPJeHJVI2fb1oIhvNbu1AtUmAH5xMs
-	IIvarWVe/633HxBEi3WHUxpKa6sIRgSQZpKhjn13gxnKf/oAsVLzO2JNiEwDxAWlRipj+Juk5YT
-	OkJQKLgimtwPY0uZFf6tLOA==
-X-Google-Smtp-Source: AGHT+IF60dCQJ41NPrptxy3Gj7Wrk7uExuUAy3Aow0y9dEr8CGkC0R5jKhv9OaLVv5BJbKI98weG92o8nKAmsyEF
-X-Received: from wmdb6-n1.prod.google.com ([2002:a05:600d:486:10b0:46e:37d6:c1a6])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:468f:b0:46e:32a5:bd8d with SMTP id 5b1f17b1804b1-4776bc89facmr19293645e9.3.1762508354525;
- Fri, 07 Nov 2025 01:39:14 -0800 (PST)
-Date: Fri,  7 Nov 2025 09:38:40 +0000
-In-Reply-To: <20251107093840.3779150-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20251107093840.3779150-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251107093840.3779150-29-vdonnefort@google.com>
-Subject: [PATCH v8 28/28] tracing: selftests: Add pKVM trace remote tests
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	jstultz@google.com, qperret@google.com, will@kernel.org, 
-	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1vHIwc-0000000GzCy-2wgv;
+	Fri, 07 Nov 2025 09:39:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MVcdrsCNoEQX6LoppphbbnCtQpvyg/qeCChLxctf80uDiW+cVJ9XofIAhIBk0PVeeUa08aQLUuV6I37c5YTdAJM9HOaPHXGe/4z3i+P6BR1v89HM1VhnQrY1tyDOrrIUo/CzObQvMVmYrgD8iHtPhkLqJlia8xu+vX+tPnijZoRsbINtpLzESzPOBeanMnXOdWK6GPMDGYEAQxQkkiLq/B9pZdRaty5dP0H8wnht/fh2bgJPVGT87ZNHTNkKdzNQ76jxueQCsEI/Y8wCgJ6oPzUcwksGa4rmQSoJ/6Cd35lSrK6at6mAgEXUXQRxzFcQsy6CmDs8cQEuJvPLhn9m8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=;
+ b=sy2QghfxRdnVCiFIq8lEXln6ulma8/QJBvNlkfGOZbQSEyXLJR2eOSoD2QMFM8vcS2xNm6Mv2kQivCUju3UgMQ7Drylqllxj8A/2qyBqb6P4+/GM3WPT9Ga9vbHMpk/E8vFcB1VFgFa2trfV1oJBhkM9cgzQnIDS8H6343BFNu0eaFlTtWpmYV6GbNKR7VmZV2YvTuE7RiQK9hQ+KjGEc5pPhYLNuHwEb0i3KIEpVauZZull2yU5uo0bLdKJOHufuWrqPZBAR8e5J/nEN6t7JHrRU9JX+PSZdZQ154L8bFsolsuRmIBjop9JeiE5nHZCkhTcEnGOWXzcQE9TYuzI9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 195.60.68.100) smtp.rcpttodomain=amd.com smtp.mailfrom=axis.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=axis.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AbLAGwv5apbywanuU2A2GkL5nILXL3ZLe6fTst3Dc+Q=;
+ b=DeVUo5eBo0qXkxd+fzH4/Zp72gAXVBt8yR7ySxu/9DCFln1H0sdz7UPjirsd7CZz1oObnkOI9KsnEIWcciuooXU7uKb4ViYd0DcVHaT0pK87QndANlcCda271TBvz0t43KROe/ukWl1map5x34pZCsGsewWpc6J7bKewDMhBHZU=
+Received: from AS4P190CA0056.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:656::27)
+ by PA4PR02MB7134.eurprd02.prod.outlook.com (2603:10a6:102:10e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
+ 2025 09:39:38 +0000
+Received: from AMS1EPF00000040.eurprd04.prod.outlook.com
+ (2603:10a6:20b:656:cafe::b4) by AS4P190CA0056.outlook.office365.com
+ (2603:10a6:20b:656::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.12 via Frontend Transport; Fri,
+ 7 Nov 2025 09:39:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
+ smtp.mailfrom=axis.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=axis.com;
+Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
+ 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
+ client-ip=195.60.68.100; helo=mail.axis.com; pr=C
+Received: from mail.axis.com (195.60.68.100) by
+ AMS1EPF00000040.mail.protection.outlook.com (10.167.16.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 09:39:38 +0000
+Received: from SE-MAILARCH01W.axis.com (10.20.40.15) by se-mail11w.axis.com
+ (10.20.40.11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.39; Fri, 7 Nov
+ 2025 10:39:37 +0100
+Received: from se-mail01w.axis.com (10.20.40.7) by SE-MAILARCH01W.axis.com
+ (10.20.40.15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.61; Fri, 7 Nov
+ 2025 10:39:37 +0100
+Received: from se-intmail01x.se.axis.com (10.4.0.28) by se-mail01w.axis.com
+ (10.20.40.7) with Microsoft SMTP Server id 15.1.2507.61 via Frontend
+ Transport; Fri, 7 Nov 2025 10:39:37 +0100
+Received: from pc36611-1939.se.axis.com (pc36611-1939.se.axis.com [10.88.125.175])
+	by se-intmail01x.se.axis.com (Postfix) with ESMTP id EFA3518D0;
+	Fri,  7 Nov 2025 10:39:36 +0100 (CET)
+Received: by pc36611-1939.se.axis.com (Postfix, from userid 363)
+	id E9836604ED; Fri,  7 Nov 2025 10:39:36 +0100 (CET)
+Date: Fri, 7 Nov 2025 10:39:36 +0100
+From: Jesper Nilsson <jesper.nilsson@axis.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Olivia Mackall <olivia@selenic.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, "Scott
+ Branden" <sbranden@broadcom.com>, Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>, "David S. Miller"
+	<davem@davemloft.net>, Tom Lendacky <thomas.lendacky@amd.com>, John Allen
+	<john.allen@amd.com>, Srujana Challa <schalla@marvell.com>, Bharat Bhushan
+	<bbhushan2@marvell.com>, <linux-crypto@vger.kernel.org>,
+	<linux-rpi-kernel@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@axis.com>
+Subject: Re: [PATCH v2 3/6] crypto: artpec6 - Simplify with
+ of_device_get_match_data()
+Message-ID: <aQ2-WHENLhXN_TAH@axis.com>
+References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
+ <20251107-crypto-of-match-v2-3-a0ea93e24d2a@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251107-crypto-of-match-v2-3-a0ea93e24d2a@linaro.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000040:EE_|PA4PR02MB7134:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8981ec9-7fc7-43b9-ba91-08de1de1921b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sYDuWVNOz0qiVVNPSa7vhdKoPGumrJAvWyu46huwck8X0u7AkhHlVfMsdRmz?=
+ =?us-ascii?Q?ht0C+qANKltqP2gRryywudIG387Bwk4CfpdnaMvnQNWZ8V4nmrhlecuPA8LX?=
+ =?us-ascii?Q?UFkZzBM/7QlbEgRKUDL3GfnvD30SIaKIJaRQg/tq2IheqQeJaxUVWHqthTVb?=
+ =?us-ascii?Q?8krDrScyJ86QOPFdsbLrJytg67QY6oiu1xCVfktNtyUy3ZaRP8UZBivGMAX5?=
+ =?us-ascii?Q?XtbuSKn/14oHNw2c6yq19a71fp/fT8c3GrGHNpbnLaMIGjvUaoX1QoHKPzVT?=
+ =?us-ascii?Q?UkmxQFrY5gxn14A+dL9bhZUzguc4L4TG+RVHJir8nvJVIjfCBFtOfRlg727X?=
+ =?us-ascii?Q?Ga0MOf8j2THsXlf8P1rqGu79cm2bgUL1eYOVzOzTp7JRYBcuEubWd7//865N?=
+ =?us-ascii?Q?CaPwtS1Nlnkem0BLdrNLI/3PiMcUzrFEpIFgqKITWm47suemzPL9etqLBKWd?=
+ =?us-ascii?Q?JZR808c4u/XDHaqU4KtFuIcFnK1emE4UsjOEIH5Ms36MWV+KodbB77r1TLXP?=
+ =?us-ascii?Q?vCJPXKfn68GnwudPJKjUoPT9RlbZ1707H2Vhq6NPF5VFhTXtWP7OI1LavD4A?=
+ =?us-ascii?Q?+BSdS6rg4EdoPrrkrg2vzDsQo4fPxFPXNZ+xrkQL7u0tRDaGC6C4NmfBl4gx?=
+ =?us-ascii?Q?TV755GRTqnp0aulQhfTTwlTW/uq+ZRkdI3I7wIw1FoqKuSKTDINZtxAA6ITx?=
+ =?us-ascii?Q?mmBeW8qlxBGHhdNlhkBp7ndPUu2BKW8zPbV0eZW/m+Cprq7XBEdj7VJKfJll?=
+ =?us-ascii?Q?sCXQhqBrq8AWUQ5SR4BTLsYKl4yKS93Yp6bMfUS1wqI6eBcxevQSHVsGedWb?=
+ =?us-ascii?Q?GD5nVUcy1xeK3isou/kMDwFhM8fmpIY47GECfPzYN3JMR79bCqMWTn24EdKC?=
+ =?us-ascii?Q?aYR85lbd7863ggo14lfRXw1g2hYvuws0mGNXqJ5SHJiJuRK9vh8WqtUzOL2e?=
+ =?us-ascii?Q?als6m0N0FkQIYY29WI/uDhFSdc4Rnf0J4My1H6yuZ9CCt+mQW6zhEAf3K9m2?=
+ =?us-ascii?Q?PQWCR9rT1ITqtYiPyML8kLfkO7KYucSrJGZJEgjeekzG3CxpHtN+pG/CcQ1p?=
+ =?us-ascii?Q?Eh2jl40goiB0zfUt1EJ8l9WNXlnYjDFbqh0OG0d81ptbnWkqzOB+K6rjZqFv?=
+ =?us-ascii?Q?aPE/xrVl5EcAOA4cd+WhmpO2rg33vx5ERRQQieGqh9DZD/CYMGGpJNbv3FV2?=
+ =?us-ascii?Q?ZOow5h5FOYmbBv1VHn/6SgU6So/HJiXCmz818tEfmt7I5CXIHHX6Z5NueoYW?=
+ =?us-ascii?Q?cqNvi1JTrHgaG+k5WnlHB7WEVr6HWvgdRfrlBCL8nNuNNmycio9tpBB10KI9?=
+ =?us-ascii?Q?k/WKnEBfFTjaa+mYdFhQ1VKrHMlYfbDL+mZ8QePGMkEjNuwXmmR8aM0zDizW?=
+ =?us-ascii?Q?+bT2exfFhbZLECHivuImfEAKInoOWPsnYG//qWM7X81H9k/opC09vPfGGzta?=
+ =?us-ascii?Q?Y9MiSDrH9yrLC1KRlU6LMCP0G7YINNschTwqsuctxHzQSJGvuq23uyMBiJiQ?=
+ =?us-ascii?Q?MDeds+sJHqEDSB6yyyV8zv1Csh1WKuCstoIa8xLDjc1iVxhGq/mtigOEtHfg?=
+ =?us-ascii?Q?YFLnzssowpB8bJNAfbc=3D?=
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 09:39:38.8894
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8981ec9-7fc7-43b9-ba91-08de1de1921b
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000040.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR02MB7134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_013917_596390_27C429F1 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_013946_799164_9DCF3062 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,98 +163,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run the trace remote selftests with the pKVM trace remote "hypervisor".
+On Fri, Nov 07, 2025 at 09:15:50AM +0100, Krzysztof Kozlowski wrote
+> Driver's probe function matches against driver's of_device_id table, so
+> of_match_node() can be simplified with of_device_get_match_data().
+> 
+> This requires changing the enum used in the driver match data entries to
+> non-zero, to be able to recognize error case of
+> of_device_get_match_data().
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kselftest@vger.kernel.org
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-new file mode 100644
-index 000000000000..2de07e4d72fe
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor trace buffer size
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/buffer_size.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_buffer_size
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-new file mode 100644
-index 000000000000..48afc51627e8
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor trace buffer reset
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/reset.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_reset
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
-index 49dca7c3861a..00aed1c2e650 100644
---- a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
-@@ -1,9 +1,10 @@
- #!/bin/sh
- # SPDX-License-Identifier: GPL-2.0
--# description: Test pkvm hypervisor tracing pipe
-+# description: Test pkvm hypervisor non-consuming trace read
-+# requires: remotes/hypervisor/write_event
- 
- SOURCE_REMOTE_TEST=1
--. $TEST_DIR/remotes/trace_pipe.tc
-+. $TEST_DIR/remotes/trace.tc
- 
- set -e
- setup_remote "hypervisor"
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-new file mode 100644
-index 000000000000..b63339aca380
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor consuming trace read
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/trace_pipe.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_trace_pipe
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-new file mode 100644
-index 000000000000..eb1640a927cc
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor trace buffer unloading
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/unloading.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_unloading
+/^JN - Jesper Nilsson
 -- 
-2.51.2.1041.gc1ab5b90ca-goog
-
+               Jesper Nilsson -- jesper.nilsson@axis.com
 
