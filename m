@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2F7CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5D3CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ca5lhGGqaBETqt40r7l81d+A9rLEDgpXwZzo2yCZ60=; b=epkKlUecSCJZEOlCKqflXj5Jgm
-	r5b3Ekw1/U+PgaqRUt/bKBW9XEdKdBTY2vegKGXK7z/+ATwJ+Q7h4+Xx5FsxEDXTCM61HE8M9dlaQ
-	hRH+PqmJd7CyWqH7TeG1mT2iuPfUeHRzBoDkJXd9H+CtaGlIkCGOKHxmM05RlIxRpoxUQg8cWizvi
-	Fj2YCSGb3a6EYHkhXAVYeyfiOI5hg/B91vsoJQdP+WxgoLD5GrU6mWLTDjDZ8ChFMu012zln3nTbr
-	HW188XOsbqXI3MQm1Rg3jMUBMk+PjbBz8RLo6fMUQEg4oBNZ3xFNKEpmEeHBSTblYjRUkLko4y1Ql
-	5g7Q9CDg==;
+	bh=Xq0s5Fnw+sl1KkCos0qnvK+qJgK2ecEAIWYMksk++nk=; b=qjIpITr5TskNQR4iMtremGO3jO
+	bwRPQaoY0nSJPN4p5ns8lYZ/HbzoEyvZA2UKEJmTkKpI6lTx5+MTQ9OP846loRt4DaAkXdd++85zS
+	Gh6A24a8OoSiCqOPhM0iibB6P1cePy/0dV243TOLVr3rolk33TrbcGtHse1Q//H25liAYZ9j5V25K
+	RntnUGx+Y8Tn2jz0UdeE+nHXS81XMUHHr7VFqzhjSnLlPqiWZbtpAI4FDtbve2B9CvWmxHGryTGBa
+	AYTcyU7ip0a82SNZzt0Tj14qv4lWzpC0bk8/a9RBUDgaaz9MsYznRHgfse2WrrZh5YBmF69Xb3ABS
+	HKg6g/1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOmz-0000000016g-0vmp;
-	Fri, 07 Nov 2025 15:54:13 +0000
+	id 1vHOn2-000000001A5-2HlM;
+	Fri, 07 Nov 2025 15:54:16 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOmx-0000000015E-2dFO
+	id 1vHOn0-0000000017U-1hkO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 15:54:11 +0000
+	Fri, 07 Nov 2025 15:54:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CA406191E;
+	by tor.source.kernel.org (Postfix) with ESMTP id CC34161913;
+	Fri,  7 Nov 2025 15:54:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BCD7C2BC9E;
 	Fri,  7 Nov 2025 15:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A98CC4CEF5;
-	Fri,  7 Nov 2025 15:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762530850;
-	bh=ThVCjD0ZazmJiDGZYe6R+cB02JSMq5aoBRsaUWqYnxY=;
+	s=k20201202; t=1762530853;
+	bh=sDHvLVRjvkDnU4qYqkoNhTswWRcf8/38VCp6BJVNsss=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qFJld62mhwNq7PWePzTFsedd+c5UTwWQFiRGByxCkJ+IZNn5h8Zzdmv6CHk8oGaej
-	 9FHkSAMcm4JwiRYufuuayNXyahhJ6tJfgypUYG3AsfZbNu37tZpHDEneln6BJWT0Fq
-	 Ams9nwLCngn68BtzCQyF/wjA5MyERiFikX9gR9S41r37mrA9UsDHbURahPPrP8H4Qp
-	 Ch+8f2pS91tXQXlMdlyVXLjtEaNcNgko2C8IJHBzzeC1jY2Kj66i8l+9+vnzcR6T5x
-	 ZzICbfcZ5LSoQ9e9/c5mOftmom3lZ15ON8/6MemLmdz2yslh2Wf6zxnA84UwzjtSsD
-	 IR4ZYZl4hIfqQ==
+	b=d0r+vnfjnLbi8Q/AnZ2Ue3FbPBj8Su3koMzDbjgoJTuSYnztZdDoXOYsMAm+Nt/Qh
+	 3BxT22iVVGYfosnHBPE7d02klR4nDJ0MhuQ/E8DepSsZFvuERXd/z3qpAPpIbfl3c2
+	 sjwYdeH21mA7o3wD7AJg873KEY3hH9RpUvk7rC0PjZreR+94zf57WsJE137WZz+H29
+	 DguKiiU3xnFJgyDfwQ+0pDWOGt5L0ZKd8MtIpP+V2cIz7LVdZ90u3JwKi6zhI4mA41
+	 eu0Ti4LNqIYPTQBaRj4IfMaYQKC789MqO8MCje+tQ+QXitlkk/GKw91+LaLGU5wwry
+	 WOVPCKW4BBnEA==
 From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	catalin.marinas@arm.com,
-	shechenglong <shechenglong@xfusion.com>
+To: catalin.marinas@arm.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	punit.agrawal@oss.qualcomm.com,
+	Yang Shi <yang@os.amperecomputing.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stone.xulei@xfusion.com,
-	chenjialong@xfusion.com,
-	yuxiating@xfusion.com
-Subject: Re: [PATCH v3 0/2] arm64: spectre: Fix hard lockup and cleanup mitigation messages
-Date: Fri,  7 Nov 2025 15:53:47 +0000
-Message-Id: <176252676626.598584.6910045504284939214.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [v2 PATCH] arm64: kprobes: check the return value of set_memory_rox()
+Date: Fri,  7 Nov 2025 15:53:48 +0000
+Message-Id: <176252582270.594123.5776451852146900691.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251031091507.1896-1-shechenglong@xfusion.com>
-References: <20250918064907.1832-1-shechenglong@xfusion.com> <20251031091507.1896-1-shechenglong@xfusion.com>
+In-Reply-To: <20251104214947.799005-1-yang@os.amperecomputing.com>
+References: <20251104214947.799005-1-yang@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,22 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Oct 2025 17:15:04 +0800, shechenglong wrote:
-> On Wed, Oct 29, 2025 at 11:45:54AM +0800, Will Deacon wrote:
-> > Is the compiler smart enough to store a single string for the
-> > "mitigation disabled by command-line option\n" part? If not,
-> > you might want to use %s to avoid wasting memory. (I was going to
-> > check with llvm but I'm unable to apply your changes due to whitespace
-> > corruption).
+On Tue, 04 Nov 2025 13:49:47 -0800, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), __change_memory_common has more chance to fail due to
+> memory allocation failure when splitting page table. So check the return
+> value of set_memory_rox(), then bail out if it fails otherwise we may have
+> RW memory mapping for kprobes insn page.
+> 
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/2] arm64: proton-pack: Drop print when !CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY
-      https://git.kernel.org/arm64/c/62e72463ca71
-[2/2] arm64: proton-pack: Fix hard lockup due to print in scheduler context
-      https://git.kernel.org/arm64/c/7f1635737823
+[1/1] arm64: kprobes: check the return value of set_memory_rox()
+      https://git.kernel.org/arm64/c/0ec364c0c95f
 
 Cheers,
 -- 
