@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F23ACCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B7FCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=; b=xIZd6JxsXd0lPJ0OnSLTolcbxM
-	hE1/ftt+hrHhrkVr2MP9h3dXXdRq8GrpGiTEhgJObSejORojiuY8QFRIU4OltVSrh07l6hE7vXyPR
-	Xlicn6W7v+cbnXuD0zHLvh4dJSgfQDPztKsUeQgOj+PktYDUVo2jPyh7/apyjuRkuHOrHt83ndI6v
-	Cuml/S3n+OpS1chz8Uy6iPjeVJ56SLEVtqKr+pgcC0f7YdX18jdcMs2x88iYNFHyhY6Cxq6EvvemV
-	34O5qHykpNXIzmm1ffyQMRcVRDA8cNQlZ3F0Wva/1e+ooMIhoV82M5Ao9l7fa3g2vazYa8CZikx6A
-	IzU6l7jg==;
+	bh=RndfiI2tvXOM+1ZP6efdxoHZT1tlHUVs/LDHnVUxmno=; b=j6wCRAQx1Q9a+lC2MCCjEi8vPu
+	7ioKEhBzytvHLQeRB5sSkrODOoeo28kLb0BtGxJGEGxJxugbtaYSi2KPW/Q6h6cPFAAeXtZktwKjX
+	wWEjbMZ2EGG7bn8V0aXomZS7nkVh09VOTYXtIPK3p1hwYCUlasOkm3SF8aN8BPGDZvzpG6kkw1eNF
+	r8ws1cbQQndf7V7IVoV5UTs4oX0xb5G/CJHyIy6GL0wmH4AEm0/JTKU66HG8bZy6tzlspNi34KlDd
+	Uz2vXMnbW7GYsG9H98THm/67YdCn4r5b/2BeJA+5bvqpm/Tt70E49j9fePA9fEJwZzcMlQl2Lohzf
+	YNwuinfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNDG-0000000HS9y-3tUA;
-	Fri, 07 Nov 2025 14:13:14 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vHNJf-0000000HSk2-2ywx;
+	Fri, 07 Nov 2025 14:19:51 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNDE-0000000HS9D-052k
+	id 1vHNJc-0000000HSjC-2ggp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 14:13:14 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-471b80b994bso8532825e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 06:13:11 -0800 (PST)
+	Fri, 07 Nov 2025 14:19:49 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6408f9cb1dcso1442392a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 06:19:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1762524790; x=1763129590; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1762525186; x=1763129986; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=;
-        b=FUdnK2qY79aF2BCMPWkTDtBlkbWD5c8unKObqqJ+P1leOhPan/LzSK33+tQy5gJeHW
-         n4RmTHJwEhkNkSchVUd5ZFq9I/IEI+M/fXNkp5aTEa9+VdXJR+2KlcqDEosO8JcVpSMa
-         jvdNZBfOwU680vukM1E5K3ljOpvt/cQVeKRhvRch0BNLpLpURXDjNgbTbnXSReX2TvVL
-         T7qn/UXWOqLrXGHBuhBEvDOf8BKRUG18oq5BoC2wYYttM3Z+42UW0JTwCTj2ywxaqc+f
-         eZbD0YC18PelnkvRHvHXXRmJnxJyQBGN3Yel4Xm2UuDGUoeLnXe7ySnZIPPckC+OGH1Y
-         uo7w==
+        bh=RndfiI2tvXOM+1ZP6efdxoHZT1tlHUVs/LDHnVUxmno=;
+        b=jJkqxwODQepHiwgJTXZDFWK9vxkPdPz8rHpM37dvw2wLHWM1ROKCz4aYG+aV8J24QM
+         c6azD0awTPyZ3YesWsexSa1hC6FU0klY5+kep2ojakyA/UY3UGrSK66+uyRACG65OMLA
+         34y78qMo14P+rJkgCbgp+ONtQer5+6ny5234ZSZWggN2eB0AaascbDOUmWqkNLEf6wAB
+         +npCBo/DRWmIbjx0k85oQ/PjyHf6owSwNqCWzoxaKC1pELgxq1eBcsusgflNiCVBfnjx
+         zZToobBgAC0Yi7g3XJ1kN5dbB6u/xcOG9CeRGKrXyrJtxKugRsJfs/YMqaSvg6Mx4jHa
+         slKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762524790; x=1763129590;
+        d=1e100.net; s=20230601; t=1762525186; x=1763129986;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Zya9CDjAWwz/YQhtW3O1MV9PxrsdkYyA1iOu9tElgJc=;
-        b=mumN0eHTjCXgQAxp4/iluT8d+TAOu6szQVh9kxlr0oSwuP24YDKmpyosi2WIdErtFV
-         OGLdYjIElaDVM0CPQRh0eal9HiA/PPavi+TiPaJmOkcy8Mxjd1vnijuz+UQmpsUqAPdE
-         DfxOXzCY4zf+4D11rEB9CCBcDgpXFm+st4HXdM5px8OitFr/DGkFoHW1SE1ehNiSxYaK
-         lMsQ4lHsWWBtBsJAlO5WAG4WdJo04Rv+nlZjmIZms0GukDtaOUQsG1B8+HeaO8G2Up8h
-         Ox/5qOwsoOcjk/wv8+G1440iUvNgCE9oj1kvHBRoBUjFqogy+pDyYtF6kcCTIVvA9MLg
-         sXRw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7rDVL0v2WdFHA8pALiG6v039QM2Dg73hbxr8m+rhxTJ67+4oF0ZMHMOp7l01EbwB8bzXxcmuYxwCjajbfZH3E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6fWB47PZYdpCvKCE/ZwWPa9KIm6DpQanCxqix84h+EFsdXa07
-	i2+wTF3IoFBFEF2SN1he35xoj9iNz+3g59nKvpyLPGb9UsJVeHayatr0QJ3S+IrbNaM=
-X-Gm-Gg: ASbGncsxzSHF2vaiuvOgULDpQ4NYLmmha2JirW9x16dup+3o8YayBMrC7DFPhzf3AQE
-	zumspIx8y7D+PVg3efyDuARaE0iwf+wiS+y27quT2J+hpBWrY7lF41oAqD85ybPNThNAamHWHj3
-	7+0STwapzIF+mQdVFfcU1X/zT167rP3xmnTZ4WWaPkcquC7cZF+9C8ewF77pfsdKH5uPjYvY24m
-	mQsGyuNcc/DxARGfIrdyTi22lymCYPV5VNmw9nVk8GMjJlDc01WLjxguxa1rv3rAphx3fqAwqjN
-	NvpLV8wy5XOfRXahqYbqAxL4FgVmOE1J5q4NNKpyQH9kfk6PHGzdqYtS/M8bEWTLXTpzkNmOmST
-	h0ZG8PLTZyJZskKFYfxXHP/lZFkK7nbXuyYCANU95KNu9AquVl/h8UHyc0T98hlTIbQAD5m5VZ8
-	D05at06lCeqBapOkpDZl1uBOgE2RPPABwwiKk=
-X-Google-Smtp-Source: AGHT+IGp7Uv+Rz0H0a9Tbxc8WVcxFYh+xPnB3f9zZgNkWgNSCruoFQ5+kEx67gRvEzujnx6ZhHmG0g==
-X-Received: by 2002:a05:600c:1f10:b0:475:dbb5:23a2 with SMTP id 5b1f17b1804b1-4776bc904efmr24244345e9.16.1762524790118;
-        Fri, 07 Nov 2025 06:13:10 -0800 (PST)
-Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477641b622asm42998605e9.4.2025.11.07.06.13.08
+        bh=RndfiI2tvXOM+1ZP6efdxoHZT1tlHUVs/LDHnVUxmno=;
+        b=ZYu3Sy5jhf19XlaszvkZ1BQu2C3YrhJrP7stT6O2XNZla0C8QY3u2GsD/HNPldYIxP
+         2zkfYPgbHUt/DSzuyL5eXAby4FEOzAPQeliNaRJ4VAPD+i6HSzn+HKwLXQNwLbbKpC1M
+         VQ/3gTV+RMVYWs0Cg4gTzM3Uh6Z6C14bIQlBcPUdcxZf/hX+Zmy54rgWcRcTLGMrTlys
+         TUwTl/NXYhEiXYSaDFiPM6qUNiehbPxCCu7YrgPKJtgkyKCYhDrVoLJdjFKS106uBYFH
+         5KH+m0zvwY/IhJ6eRdjaHrdkCVXIOTIR8/pQ+adALmTDzB/8G1ymjn/sCxKqBJWGBzC1
+         CLTg==
+X-Forwarded-Encrypted: i=1; AJvYcCX2TMOFbsACPOj+pByBLqcXNk99zizY6VIITzkpBAspO4pLFoSHXTaGQyCpW+SQNjHVy37uN5L/1LvowMZVQ9Up@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMemc2dwP/zdl4g19LCQjwwwgh0P6fJYkKEWqPdFB+UfaVqBb/
+	AKHBjHNbuDzF7ytjyWoXAvyk3pkvxe6W0q8SubwqKjaTDWP2X7eC5ampcjJWqe/5+aJcPHtvJR9
+	zSxPdfGQT1Q==
+X-Gm-Gg: ASbGncsLXGAFMiu/ALQFqHDwKJUuZJXXrI0opgXQBZDGDBU1UUL2XTbe+6+/sz1ym+Z
+	yh6tpC4olWA7GsjqLJNKBVo+B0jQprblhvHbWFPRZJPpwj/QHePhl68Wq7WaC79BBU2P+naZJCC
+	VQ3RkxeLaQgwXmXOtJ61yfNaV1rrOo8l5d5wKZz8oIAQ9ZhE+Q0mJLMkO6Y6JTmJKPtJcsE+52V
+	D6fU3s6VAFaE++nY+ZlNY1EbcTvJI7afjHr/Rt6fFPSjKq+tMtp0h7lKk3M/RK5dpbEWdf2J4j7
+	8/BSZlOWWxtJk5AyOJMMW2ijJVx6Lk7VgdrLHBvGI+K2/WZoRJAoJfz/1O73Ul2q1pnfpi6f+eO
+	MoEjzUsMsOG1n16gysfyP+EpxegCcBfKD/zyL1iRS0hkxkQpy9r3dWfOSpRL5RMF88s+rvO8eN2
+	LVOjZ2VQgw72Ou8MnEJAWwIzgHlAi9I6vXtok82A==
+X-Google-Smtp-Source: AGHT+IHvcVjtU3i+l/XfslQjy66bL0j3tv+P0XVI6VzvvCI0MjbHHb2f1vtJQa8ltGMFapgBfUjvYw==
+X-Received: by 2002:a05:6402:21cb:b0:640:7f9c:e90c with SMTP id 4fb4d7f45d1cf-6413f06de7emr3189084a12.27.1762525186212;
+        Fri, 07 Nov 2025 06:19:46 -0800 (PST)
+Received: from fedora (cpe-94-253-164-190.zg.cable.xnet.hr. [94.253.164.190])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-6411f7139bdsm4245121a12.4.2025.11.07.06.19.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 06:13:09 -0800 (PST)
-From: Marco Crivellari <marco.crivellari@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
+        Fri, 07 Nov 2025 06:19:45 -0800 (PST)
+From: Robert Marko <robert.marko@sartura.hr>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: [PATCH] media: platform: mtk-mdp3: add WQ_PERCPU to alloc_workqueue users
-Date: Fri,  7 Nov 2025 15:13:03 +0100
-Message-ID: <20251107141303.223254-1-marco.crivellari@suse.com>
+	linux-kernel@vger.kernel.org
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH net-next] net: sparx5/lan969x: populate netdev of_node
+Date: Fri,  7 Nov 2025 15:18:59 +0100
+Message-ID: <20251107141936.1085679-1-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_061312_096939_FDE68A35 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20251107_061948_718863_9E9A3E22 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently if a user enqueues a work item using schedule_delayed_work() the
-used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-schedule_work() that is using system_wq and queue_work(), that makes use
-again of WORK_CPU_UNBOUND.
-This lack of consistency cannot be addressed without refactoring the API.
+Populate of_node for the port netdevs, to make the individual ports
+of_nodes available in sysfs.
 
-alloc_workqueue() treats all queues as per-CPU by default, while unbound
-workqueues must opt-in via WQ_UNBOUND.
-
-This default is suboptimal: most workloads benefit from unbound queues,
-allowing the scheduler to place worker threads where they’re needed and
-reducing noise when CPUs are isolated.
-
-This continues the effort to refactor workqueue APIs, which began with
-the introduction of new workqueues and a new alloc_workqueue flag in:
-
-commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
-
-This change adds a new WQ_PERCPU flag to explicitly request
-alloc_workqueue() to be per-cpu when WQ_UNBOUND has not been specified.
-
-With the introduction of the WQ_PERCPU flag (equivalent to !WQ_UNBOUND),
-any alloc_workqueue() caller that doesn’t explicitly specify WQ_UNBOUND
-must now use WQ_PERCPU.
-
-Once migration is complete, WQ_UNBOUND can be removed and unbound will
-become the implicit default.
-
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-index 6559d72d5d42..9083367ae2e4 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-@@ -255,14 +255,16 @@ static int mdp_probe(struct platform_device *pdev)
- 		goto err_free_mutex;
- 	}
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
+index 1d34af78166a..284596f1da04 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
+@@ -300,7 +300,11 @@ int sparx5_register_netdevs(struct sparx5 *sparx5)
  
--	mdp->job_wq = alloc_workqueue(MDP_MODULE_NAME, WQ_FREEZABLE, 0);
-+	mdp->job_wq = alloc_workqueue(MDP_MODULE_NAME,
-+				      WQ_FREEZABLE | WQ_PERCPU, 0);
- 	if (!mdp->job_wq) {
- 		dev_err(dev, "Unable to create job workqueue\n");
- 		ret = -ENOMEM;
- 		goto err_deinit_comp;
- 	}
- 
--	mdp->clock_wq = alloc_workqueue(MDP_MODULE_NAME "-clock", WQ_FREEZABLE,
-+	mdp->clock_wq = alloc_workqueue(MDP_MODULE_NAME "-clock",
-+					WQ_FREEZABLE | WQ_PERCPU,
- 					0);
- 	if (!mdp->clock_wq) {
- 		dev_err(dev, "Unable to create clock workqueue\n");
+ 	for (portno = 0; portno < sparx5->data->consts->n_ports; portno++)
+ 		if (sparx5->ports[portno]) {
+-			err = register_netdev(sparx5->ports[portno]->ndev);
++			struct net_device *port_ndev = sparx5->ports[portno]->ndev;
++
++			port_ndev->dev.of_node = sparx5->ports[portno]->of_node;
++
++			err = register_netdev(port_ndev);
+ 			if (err) {
+ 				dev_err(sparx5->dev,
+ 					"port: %02u: netdev registration failed\n",
 -- 
 2.51.1
 
