@@ -4,174 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431F2CCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 17:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E865ECCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 17:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/d4HNobGnJBP5LmJr5GGfUSzsZYLOr0wPp78InFogZg=; b=HHanA9ZCgUN6dmvHbig3aw9jxh
-	IZsFT+xt1nRi+oi1iZMlxcHpwHgjNtPsSXRhP7H2e81MkSObHMYHYiQBaPKaY9nmP4EP8q2VNqT7k
-	dm0bsnBmZ1K57MB+4oaxneFuVLJp117DVSWz209BEUEJjdcsq0vYZfYp9f+SvSAnJ1SRs2uD7vCmh
-	HnW2n2u8z93g2ZjKMRzbEyit7kiHG1Z8rxu0zr8LfpXUP3NRA5ZPIQIAVZUz9KVPJc+G+bHF/hw5O
-	qX7+x4p6n+XOPJqPecyoGYpTZ1bmW0HL7wRsl/qx3aCGLMSCOpUf7WHbzFTvyVUUixUk8JzUIHCUd
-	FMqLflGQ==;
+	bh=SU/nMSRraQJhTFgoNF+VDyXjK5A12cvx6hU8FhwqOJ8=; b=q8vL6lq422zaF0vO4xmZfvsgdR
+	w0cFrX5gd6J9CG2iWlgqutZZnItj3l9WrY3AYUhATg0w6CXZOlXZNr5+rwmnz4mi2zv+d7K5pHRcP
+	+QgObVfscNqdyxb54r0V/lZkPo72DZEY3aoosSAmOeER0gSJdLqEYKSxvHii6SxhgU4U/5adonxFV
+	QCPlgT95vmb4uKTVjbZNB6L/dbJfHNGd7Z6PYeI47/B65iWd+Lng9evKTCilXxczbCB9cOn4AIBrc
+	SHohHR8z1w2YP5pCIUi92LRNBtCN9i4gH2EAfwLHIgJaZBe47ZDI2cfNhSWChA7nZ9Wot1aFAxWtT
+	UbvL1VtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQ0Y-00000000Clr-0mtz;
-	Fri, 07 Nov 2025 17:12:18 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vHQ30-00000000DCm-1mWp;
+	Fri, 07 Nov 2025 17:14:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHQ0V-00000000CkS-40lq;
-	Fri, 07 Nov 2025 17:12:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CFxL4gwoUPxS9xpTnktmrc2W+ep7e5SaSOryYorO2HIt3cU/PvOsVYkQF5H0/ucq1cfxNkobLySlP+xsz49Qr8Kq3bqb8P4gp8Swd2He6MRM65dlY32ye0sJrbvy2W0uTohBoslOzAAWeugHdRYqjqku9NFbJAJ81ST4fELKoNal5T4haEoEwRoXkW8pOFsypYL6kAd760pOUZ+QXLe5gRgD7MeZtTJvBxRmCHYRMM3FHWEm1FKbHNpemB4POds7lIXSi7FaatQD5eVfIWs4PEkh4fS3lrTPRN9b6qjMRjIsr1o1VTW+L58XBOztZgkdaWDndhEKv0OkyhgGhVx/GQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/d4HNobGnJBP5LmJr5GGfUSzsZYLOr0wPp78InFogZg=;
- b=E1AUlaMpVXFZDDu6Lr5fngFCPAnRC2uzOjKHlJReRJxF54ma4H3QjUDduathp4JYYLdQhHAPV+n2LQsEK+I0vdce62Xi89tabZmyMIHkku6WjDEBOUgWsfkLRZ4EAuaM5vK9N7qNYjYeeDLUBNmGLzji8tbv7ditmZDx6iUPiHFjFpJg3vWLvZsiAzT417bn/sZlpp8gf4D169+oze7P4XjxV2I/9v4I5+P5ywB2otWKViY0d0jX6x6ASQOJupiM3B/GEpBsnxAA2+7pHMFlaIIba8eILrAyR9jmKHkXnwiSi8zmW4QC11tZ8g3ZnpSnL8vqInY7YXCNWj34Kv93xQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/d4HNobGnJBP5LmJr5GGfUSzsZYLOr0wPp78InFogZg=;
- b=Ns5N1yhiHbSpdfq1vOzOZ0V4GtQtXmHg28yGt/f87nVmD6cCFq6NtVJx8T/04gz4zQIGXHiycwmHKyx+VnYY8jpCNwOXcDXX0ix2rGO3MxiXnqL5QaPTGFvzXiVQ4us36lK949cg3bZL1pI8R2BDd261HAL9ujxg3gn1i94ecgxkhvAqgad8pdGQfZZJMo7zjMQWUt8V4hRI4V/mZE6HPSB/60pnuNbxlIuG7lmLFxpt1pk3sNST0VdVioRKeYg0FkBQcr5JlxbgLK5WUGVOzoweEG6TCWThACBCmZ248jE4RpgGiGKgYJ5X/xTnsMGzg+yhjRP0+7EP0V0cnBon3A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PA2PR04MB10514.eurprd04.prod.outlook.com (2603:10a6:102:41e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 17:11:57 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
- 17:11:57 +0000
-Date: Fri, 7 Nov 2025 12:11:45 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	id 1vHQ2v-00000000DBb-4AaZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 17:14:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6353F42AA3;
+	Fri,  7 Nov 2025 17:14:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A450C19423;
+	Fri,  7 Nov 2025 17:14:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762535685;
+	bh=iZ+FrXmrNg9m+vRphS3VtQYquQLEkFINHFmKNJIzHf0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ch4WLeykxW0UEitLCeqR5iRGkb3N1IvMlWvvO2kVip+YATE5uJqoryTiLs1VKE1c4
+	 fOC0t29HS+RHFklWe+3LyA7a2BxHfqj3W1RwbHeiDrm/5kyIwLpXQsc1sHJi+hz/L2
+	 vMfcZjUHYTkie+9w5AnCxlBH3l9a/hJtW2aRHmw3f09supzpeDBGKKuebZ3AeNUO4n
+	 bnTFhrXQcQZR6jKAAMjVav+lmBCLgNqK38earv+Fl7ngPVI5a4XpHWqO2bPI/E2p4y
+	 Zr56knLQp23Wfz/chOhb1p5d7lCZnOBVSzohujEStOWZO2oZ92kNvv6n4lXkqFvMpi
+	 DqPmX21yGYLLQ==
+Date: Fri, 7 Nov 2025 17:14:38 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: maudspierings@gocontroll.com, Lee Jones <lee@kernel.org>,
+	Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 01/13] of: Add wrappers to match root node with OF device
- ID tables
-Message-ID: <aQ4oUYkqg5Zi/61T@lizhi-Precision-Tower-5810>
-References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
- <20251106-b4-of-match-matchine-data-v1-1-d780ea1780c2@linaro.org>
- <aQz8rW9GE66xPYrL@lizhi-Precision-Tower-5810>
- <aced7337-eabd-4b05-a0d3-eea7079d08ec@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aced7337-eabd-4b05-a0d3-eea7079d08ec@kernel.org>
-X-ClientProxiedBy: BY1P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::15) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 1/4] dt-bindings: backlight: Add max25014 supporty
+Message-ID: <20251107-estimator-flap-158b1dc054af@spud>
+References: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
+ <20251107-max25014-v5-1-9a6aa57306bf@gocontroll.com>
+ <aQ4RqNiGsngOWrV5@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA2PR04MB10514:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74b71c63-e41b-40a8-e090-08de1e20c1ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cevkYDKTyWVmRFJkysIHh+UKbxGF/Z1lOiyk8WDgJp2Jg16pazV2X9QbiVYs?=
- =?us-ascii?Q?W1XLqyo0k+ljl59hkDSHAw4FoV504cbiLuJO0BjIFfEdGNcSW5kiXfO8hWae?=
- =?us-ascii?Q?9RjcONQpq6MQX4Ruhizbwm37bAArge65Mx8YN2zshPeTpPkozOBo6BcPsSqf?=
- =?us-ascii?Q?NPJYK6s1T84H7MDkaOpRYdhcXSQHDa+IBH544g0j15Rs9kVG7WGGmjTDuio6?=
- =?us-ascii?Q?iObWJ8ia2b8NGao2opY0VHoy+vmhGLwgoBTSItp68UGqoNJ6DsFmqHmOi5Le?=
- =?us-ascii?Q?9GlgfKWPrK8NpMlpCNt3mGqJSjj1TkhBEark7Gb5zzF7r05H/EzbzPV3OmOw?=
- =?us-ascii?Q?6ZzDUmxcv9kQRmsvain6J8plXgdJCSACMtxqqR+Ai72Hztl8f6YNo5yixgGY?=
- =?us-ascii?Q?r3DhuqibutK2ixB0LbRagf0VfKJJXRqq1h9F8wLkFVDQKMd2TuqSvceziZ2X?=
- =?us-ascii?Q?q8oQg7n5jKprcf/qYDBLLKdvk5Dz2REFP6a0LN3iF934V3nJMkKHg1v32Jc5?=
- =?us-ascii?Q?t438ei99CivDUeAg9jut3lJXddAH9L9pV25avVemnfHH3MkHbyw7LyaNBHYr?=
- =?us-ascii?Q?dgdW6vkFRu7i8/kgJLAtuFjtBrGg1aPfJWeLKEuBvtNOjJJ1mXMF1870pA0A?=
- =?us-ascii?Q?f5qQv3bWw4wSvSRuZbLdbkPZ+tQhyXd8kGhGXrqSWSE8kgcROeN5A5n7jjOQ?=
- =?us-ascii?Q?ckY136bvir2Ek8vlp1uDS9VKfLqzDxaIjt0Qmjmwj0jirCfFQ4s3Etrnkenc?=
- =?us-ascii?Q?E/lrHn98Q3ZDa2AYgpyvr89NAg1j4mmMQYOTqBrVHUS9f0ehmYceYqkI6i/f?=
- =?us-ascii?Q?lJTmJKzDhF3idhxL9qO13eTx105QYEzjsdQU5Oo3hWhKe1GTtpS7BiU1R3Ox?=
- =?us-ascii?Q?7IX9yfI+6X4MNuBGSYVxfrZ1SnxVGCDdCbTpN6bNqmgVilgQcb15gwg+F3Q+?=
- =?us-ascii?Q?3mteXjzYOuwJeFrc967ClBrguo2q4rs0G1HnT3Ah6lPZkSoiOIJIcp8oDkRw?=
- =?us-ascii?Q?TgwIeTBFvthxpJbkGURDSWnVPINe+xsu8ISlGKGiVvTxzZRtt3rvbub396Xp?=
- =?us-ascii?Q?KlsRoCSj3gMG+mCktJaRMaIkr9Mp268xrcSyHGGvfnhsKTW46GB5Kj5mmiBJ?=
- =?us-ascii?Q?hJnL42PLEmfAx/w7I8cJQMHNr5PUsVg26NY40yCla7HIG3N5dlLSiMdODvzB?=
- =?us-ascii?Q?/KW+ec6KUSpvyiLmuZ8q5MvAHhSyVoXTXf4twjY2FIHAMVPLrpkCHtZ0EyJk?=
- =?us-ascii?Q?KeY0rgzwmeJ+flCUlEEEHTZXXxqgivlIrGO1+Z9MtOih9eso0m9OZQExhc60?=
- =?us-ascii?Q?FycYjo/NKwsU9byAh72kFcWUEutU6Yj4OFDLr53qC9iadTJn2Nu2Iukvkubw?=
- =?us-ascii?Q?jWlyo3KKYrjMBPBhRnKraUOMjS1xuimZPg3+sniqNn2axbrq2T/YNTmoUAj3?=
- =?us-ascii?Q?UtbSZa4goVpnuEzZZCc1WuYJFwy6kXk+OiG/hIaJodZIao47mrL26wIlKtNS?=
- =?us-ascii?Q?O4Hcc5kZqu6/x513NZqupgMrdJXLOuTPtOPR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SvmOFnhl2zksbzAodIFd7djp6I/F2EWl/rscIpb9x1/1KTZseMSFYb3fNpKw?=
- =?us-ascii?Q?tEelFKSY1IrLN3qePx33L44Ut4RmA4ViEd8YD6MPfq3UeLQCnBCR5wWiTW/y?=
- =?us-ascii?Q?9jeeJl+Qoo+pcReTkqR9blIsCJ8BUHYQTU5NFm/QMiZjRKBNC1Ej2dMuSNru?=
- =?us-ascii?Q?ms+5/DKGjxmZ05BFlfZsFgNlWL1iwfQtwzn7Jy4JeYXWoOxRCZX4vWkUmxX0?=
- =?us-ascii?Q?l2rL2/FxH4JnBCCoWyFhxnt0TbQvylZ6FiTnzSJxtMDld0U7QKjqwiXkpWSO?=
- =?us-ascii?Q?tng9ER+X2nHiAqywgq54YowZ08w6QbDPjWUQLentOMqECP8j7kSD8EcEtcN3?=
- =?us-ascii?Q?bmD1VZ/iEWtrUFCCqzXqhD32JsLuECjIpYjfxZpVyU822qAPG+t59RCFchwf?=
- =?us-ascii?Q?g5+909HKlLMGsydWmmpeWERLZGcCplPIWKm9UlPed8xQ6e05S9lhUTDt+JTQ?=
- =?us-ascii?Q?+k7sEEV08O6WTEmoglLwdV+pkRcHSTJEVlAku0PEtw8tW/0eAU6usVCZ5YA2?=
- =?us-ascii?Q?Y9yi1L6iFtaFbjn3yCWTyg/xuWyOX5tP1rRrL0n+G+GwobIA6gSZTRCrVbGA?=
- =?us-ascii?Q?4xQA944Yi9nXgFi8Qmj/E/yAWjXmaDjPgb1caw0uw+qusLzZLU4CbFp3qTnj?=
- =?us-ascii?Q?niQ+2vHIOr+5MVt7/1mAJkmspxMxJAXjoKHJXP36zMT7W9Z1P+2YCXFtwLVW?=
- =?us-ascii?Q?u/OYRpXC55mYNIAnVFyNBw6q/cEw3GwdxgR2E92F6FXGfVqC7MO00WbQv/eI?=
- =?us-ascii?Q?oniOUU3EeS3dxdUN+M7LD8SUf/t1k9dD5sWUG1j/raCS3eXyBmCnaKe92BM9?=
- =?us-ascii?Q?vqZcZmSTtN6nUCmR3Q6+4EMo2XDUAgLv2lDjlFygrglO7gyJuYxB4QpZf1tT?=
- =?us-ascii?Q?ThqpDaEnVfQJXlWUEivwwlje8BFYcIiWf7+gNlFlMu0P8UrmXV8K9TMJ3DZj?=
- =?us-ascii?Q?00+kizac8GPYyjRxLXS4a3zRoDvu7PDkXc/qroeQJhl2r+iTigDLXC9aCRgs?=
- =?us-ascii?Q?gkyMJe0Y8Z9qPFHSL0jUOWrWGpslUoY2oQAjnP2DQymeD6DGEF9rch+SGqbZ?=
- =?us-ascii?Q?FFFqHaP4V5tUik3KDh7BrDQXJXt9lPtGnJ5ZlZtXxdJUH+ue6ZUyKE0wzDp/?=
- =?us-ascii?Q?+RtoKR2gxMvFTm04Bc1M0uOOlhe7SZc9j5+z7g1PZQGcb8owCreVvk0NdnIZ?=
- =?us-ascii?Q?uRL7d2JmPV6sO5K2OWjus0Dgh/ZZZCEqcR9jTB6TYcEZ7hQmEVnTZmObC5er?=
- =?us-ascii?Q?W+XpyUFstlPBGSNyWvSYZ4uAFJoe/FqRQCKj0xLoq2ICtRso3vvpCYtaHjs/?=
- =?us-ascii?Q?ouu786BHTan3Bb1ULNUZ2XER6DkYn2FTLLpZiDqgQ5rerelH2q2AzqlXdCri?=
- =?us-ascii?Q?wUC0acdnR6jZ90zBD5L90TbAF0jzeD582nFcqJac6Kpqcj5RVsQmwrMcP1K0?=
- =?us-ascii?Q?whXCrr2SAtFdWKP1DnAoCVi1lUfF7emRgWGvWaNhiRXiaKXPGlx3dBP2IVSM?=
- =?us-ascii?Q?2iN/z2r4xaU+j0KfCRIkFXVtYOYCWnJy8jBLruQd4E+tg/i2VWR5dn52sOuh?=
- =?us-ascii?Q?Njpn155S6mz5LHwiU6Q=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74b71c63-e41b-40a8-e090-08de1e20c1ab
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 17:11:57.1790
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qbYKCI2TUm3pu2vmoM2pZIjh+Ct0C1zQQ0gocA0X/K5pv9PeTIrh/gVfjyULFa86ljhip2/4mBo2Sk8iGqZuxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10514
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s6RySbGPqQzAw7m8"
+Content-Disposition: inline
+In-Reply-To: <aQ4RqNiGsngOWrV5@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_091216_013406_B3A1193E 
-X-CRM114-Status: GOOD (  30.26  )
+X-CRM114-CacheID: sfid-20251107_091446_054825_6452821F 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,77 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 08:00:53AM +0100, Krzysztof Kozlowski wrote:
-> On 06/11/2025 20:53, Frank Li wrote:
-> > On Thu, Nov 06, 2025 at 08:07:08PM +0100, Krzysztof Kozlowski wrote:
-> >> Several drivers duplicate same code for getting reference to the root
-> >> node, matching it against 'struct of_device_id' table and getting out
-> >> the match data from the table entry.
-> >>
-> >> There is a of_machine_compatible_match() wrapper but it takes array of
-> >> strings, which is not suitable for many drivers since they want the
-> >> driver data associated with each compatible.
-> >>
-> >> Add two wrappers, similar to existing of_device_get_match_data():
-> >> 1. of_machine_device_match() doing only matching against 'struct
-> >>    of_device_id' and returning bool.
-> >> 2. of_machine_get_match_data() doing the matching and returning
-> >>    associated driver data for found compatible.
-> >>
-> >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >>
-> >> ---
-> >>
-> >> All further patches depend on this.
-> >> ---
-> >
-> > ...
-> >>
-> >> +/**
-> >> + * of_machine_device_match - Test root of device tree against a of_device_id array
-> >> + * @matches:	NULL terminated array of of_device_id match structures to search in
-> >> + *
-> >> + * Returns true if the root node has any of the given compatible values in its
-> >> + * compatible property.
-> >> + */
-> >> +bool of_machine_device_match(const struct of_device_id *matches)
-> >
-> > Will it be more useful if pass down path
->
-> Path is fixed, there is no point to pass it. If you claim otherwise,
-> please bring example what benefits would it bring, instead of just
-> asking nitpicking questions.
 
-You design new APIs, which should be used more widely. Now there are not
-such user case yet, but just avoid need rename again when new case add if
-just little bits improve here. Of course, the policy is that add it when
-needs. But keep some extentable also negotiable.
+--s6RySbGPqQzAw7m8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
+On Fri, Nov 07, 2025 at 10:35:04AM -0500, Frank Li wrote:
+> On Fri, Nov 07, 2025 at 01:49:58PM +0100, Maud Spierings via B4 Relay wro=
+te:
+> > From: Maud Spierings <maudspierings@gocontroll.com>
 > >
-> > of_machine_device_match(const char* path, const struct of_device_id *matches)
+> > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
+> > with integrated boost controller.
 > >
-> > caller just pass "\", or NULL point as root
-> >
-> >> +{
-> >> +	struct device_node *root;
-> >> +	const struct of_device_id *match = NULL;
-> >> +
-> >> +	root = of_find_node_by_path("/");
-> >
-> > Use clean up will simplify code
-> >
-> > 	struct device_node *root = __free(device_node) = of_find_node_by_path("/");
-> Not much difference. Look at existing code first. This should not
-> introduce different style.
+> > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 
-__free() already used at base.c. It is not necessary to align with what
-will cleanup's code. I know it is little improvement, but code will be more
-clean and simple.
 
-Frank
+> > +  led@0:
+> > +    type: object
+> > +    description: Properties for a string of connected LEDs.
+> > +    $ref: common.yaml#
+> > +
+> > +    properties:
+> > +      reg:
+> > +        const: 0
+>=20
+> If reg is const 0, why need use led@0?
 
->
-> Best regards,
-> Krzysztof
+> > In the current implementation the control registers for channel 1,
+> > control all channels. So only one led subnode with led-sources is
+> > supported right now. If at some point the driver functionality is
+> > expanded the bindings can be easily extended with it.
+
+--s6RySbGPqQzAw7m8
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ4o/gAKCRB4tDGHoIJi
+0jIvAQD0+hh9svmOHdU5hyVROE565agXP34VdWQ0eWMxVyOYNAD9GBNH6x0Xyw93
+6zQVoS9McvIgls8VBa4UvQeukIIKJg4=
+=JBJl
+-----END PGP SIGNATURE-----
+
+--s6RySbGPqQzAw7m8--
 
