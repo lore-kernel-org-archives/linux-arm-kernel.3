@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B1CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 18:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BFACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 18:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrnQuKTAT15jPD34x5mJTltCdIB03Vq6YEXGl/Gp4YU=; b=QUBHRWiymLPypA417OOx0OcN7Q
-	eaLHimHg4XaWzJISgY2T7m0rkuLW/Ho5dSZVGSoJIaN86Z3XMSK4ShjP6BnNClPvkBh4Z2v136wJE
-	Go+j2UbGLXdoYheQIlLlrOHaXKrByBScFgZ9C5BbZZZB4sjYz6hMfmtFEO/ie1uMmfyJWXSNWloGt
-	OJqe+oMljBzNtF9JYRuoz4Tg8c3Rx1kCAVtaujpigqxxVttEBkeqDWDVfFxkYQjAm2aPJUrf7jGcF
-	gSsU82yxAmKdaUC6DXnT1uqhsGBOkBI5ptEEJnmXPH3znCY93F28LLVWoDzRaZ9GWhOmpcAWRoyh+
-	glS9mI6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HL/ia/gSVbKi3fiecZNeUOIq6+F0qjFPHUXwwTnWHW8=; b=SeCl3JZpZShLo1oJ2rrhuqHoud
+	PgIw7aLBDcMD/IEIGHIOcjgndLimqfvGIyQHvuQIqvLTSLzg1NgtS2W5LXpKCytQN8C5wjz2nx7ZI
+	5PSCz6pxrpA0Wrl7Avoav9m+02N6O93rOGbQAqRHl53DQYTrix76acxg49JfThVt9+KkUdFZrGGWC
+	kFMoSHjphlYLiDz0lAKbBVU7ODvAvILY/0zE0TQhPuirQhCaypNMDohgJQfStzCGfiks1zb2/aqaP
+	Ea7yFOzwOYkLGn4HGePE40eWJ39nsSu6Jv4xRvNTSiDQFc2u1IdLrlN+uHyR88z5Yasu28v3mjzNS
+	kiTO1VIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHR2V-00000000RsP-3vzB;
-	Fri, 07 Nov 2025 18:18:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHR7l-00000000SyQ-3nkF;
+	Fri, 07 Nov 2025 18:23:49 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHR2V-00000000Rrv-0YOw;
-	Fri, 07 Nov 2025 18:18:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B98B6190B;
-	Fri,  7 Nov 2025 18:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F5AC19423;
-	Fri,  7 Nov 2025 18:18:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762539502;
-	bh=jaL7jopAFlRxmRbiqtgWDWMCdCil7su+tqIETM3BZ7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U5ABhgdBgJ8xkku8oBI1QZi+g2rddDAUmX1HuVzsJzYtRZAuKHAcpYe65se/YObsr
-	 +2YdET6sMq/F0s//Nf+oZIxfcHkDGPzh5lgZgSbTxMgI0ngJLdp7rpHS6HYCVTxTyt
-	 T9YwgsSJ/T237E8l6wtjs1MeZrdBhQzboBi2VVFCxZTbSObV7IR1DZikAUEOFjP0HA
-	 19KN8TQdRTnGimBNtMQ2X5DDitkjiqtNJl55ZxcShALA1IIBs7YTsG64E7NNUxXQFA
-	 inkYobUD9mKpsKK12Qgz/qSRAP34nUGbX3Htj8Dv7HBQj++kHiq4M0DXvWTkZAy0Ev
-	 zJNnOkz4ySPBw==
-Date: Fri, 7 Nov 2025 18:18:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] dt-bindings: pinctrl: airoha: Document AN7583 Pin
- Controller
-Message-ID: <20251107-unvalued-fringe-96724cf9206c@spud>
-References: <20251106235713.1794668-1-ansuelsmth@gmail.com>
- <20251106235713.1794668-5-ansuelsmth@gmail.com>
- <20251107-washstand-motivator-c5e5e5d30dae@spud>
- <690e311d.5d0a0220.2f18f8.2b28@mx.google.com>
- <20251107-jasmine-unarmored-e3f5d544a1b7@spud>
- <690e3351.050a0220.15e225.cf82@mx.google.com>
+	id 1vHR7i-00000000SwB-0mGC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 18:23:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 6008C1A192B;
+	Fri,  7 Nov 2025 18:23:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 21613606A6;
+	Fri,  7 Nov 2025 18:23:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0D09611851120;
+	Fri,  7 Nov 2025 19:23:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762539819; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=HL/ia/gSVbKi3fiecZNeUOIq6+F0qjFPHUXwwTnWHW8=;
+	b=nM01/8L7C97trD4ZO22+Zl1ZUMI4ARanhQNmuXKobVAYp93mHornwY1U1m1Aal/ZaiJEN0
+	ZmfP1/zdd4aVjq/ZDnaSEXO00WPmCUWwpq8Kloz4McmuyHD9ENJuXnWhoIcxYHqYY78HZh
+	p5DHDP8lNgaZAfvCcfDM1Po9/GgH/OMrIrwqXmMZCRGUTghjpKucx1dwDfclxkTmnY9X1u
+	n5qjVn//S08Br5YZPu9NqjgnOe93QQwFQYODkZWu2PAMfUYUrHD/X7pdIjrQL44tFEp7W6
+	yhrXvGMp0jBec4LpLwZo8w7GRazlJuKZXNW7z/W+J1lQEY4nNUZxA4lvnp0YWA==
+Message-ID: <14f80863-5766-437a-8e38-8991a1a725f9@bootlin.com>
+Date: Fri, 7 Nov 2025 19:23:26 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZQCrllx4ihXxMaJD"
-Content-Disposition: inline
-In-Reply-To: <690e3351.050a0220.15e225.cf82@mx.google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 16/16] net: stmmac: visconti: use
+ stmmac_get_phy_intf_sel()
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
+ Keguang Zhang <keguang.zhang@gmail.com>, Kevin Hilman
+ <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-mips@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+ Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
+ <E1vHNSq-0000000DkTN-3RoV@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vHNSq-0000000DkTN-3RoV@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251107_102346_711058_571245DA 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,68 +94,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Russell,
 
---ZQCrllx4ihXxMaJD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 07/11/2025 15:29, Russell King (Oracle) wrote:
+> Use stmmac_get_phy_intf_sel() to decode the PHY interface mode to the
+> phy_intf_sel value, validate the result and use that to set the
+> control register to select the operating mode for the DWMAC core.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-visconti.c  | 26 +++++--------------
+>  1 file changed, 6 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
+> index 7b6b048e1be0..9497b13a5753 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c
+> @@ -42,10 +42,6 @@
+>  
+>  #define ETHER_CLK_SEL_RX_TX_CLK_EN (ETHER_CLK_SEL_RX_CLK_EN | ETHER_CLK_SEL_TX_CLK_EN)
+>  
+> -#define ETHER_CONFIG_INTF_MII	PHY_INTF_SEL_GMII_MII
+> -#define ETHER_CONFIG_INTF_RGMII	PHY_INTF_SEL_RGMII
+> -#define ETHER_CONFIG_INTF_RMII	PHY_INTF_SEL_RMII
+> -
+>  struct visconti_eth {
+>  	void __iomem *reg;
+>  	struct clk *phy_ref_clk;
+> @@ -150,22 +146,12 @@ static int visconti_eth_init_hw(struct platform_device *pdev, struct plat_stmmac
+>  {
+>  	struct visconti_eth *dwmac = plat_dat->bsp_priv;
+>  	unsigned int clk_sel_val;
+> -	u32 phy_intf_sel;
+> -
+> -	switch (plat_dat->phy_interface) {
+> -	case PHY_INTERFACE_MODE_RGMII:
+> -	case PHY_INTERFACE_MODE_RGMII_ID:
+> -	case PHY_INTERFACE_MODE_RGMII_RXID:
+> -	case PHY_INTERFACE_MODE_RGMII_TXID:
+> -		phy_intf_sel = ETHER_CONFIG_INTF_RGMII;
+> -		break;
+> -	case PHY_INTERFACE_MODE_MII:
+> -		phy_intf_sel = ETHER_CONFIG_INTF_MII;
+> -		break;
+> -	case PHY_INTERFACE_MODE_RMII:
+> -		phy_intf_sel = ETHER_CONFIG_INTF_RMII;
+> -		break;
+> -	default:
+> +	int phy_intf_sel;
+> +
+> +	phy_intf_sel = stmmac_get_phy_intf_sel(plat_dat->phy_interface);
+> +	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
+> +	    phy_intf_sel != PHY_INTF_SEL_RGMII &&
+> +	    phy_intf_sel != PHY_INTF_SEL_RMII) {
+>  		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n", plat_dat->phy_interface);
+>  		return -EOPNOTSUPP;
+>  	}
 
-On Fri, Nov 07, 2025 at 06:58:38PM +0100, Christian Marangi wrote:
-> On Fri, Nov 07, 2025 at 05:55:43PM +0000, Conor Dooley wrote:
-> > On Fri, Nov 07, 2025 at 06:49:13PM +0100, Christian Marangi wrote:
-> > > On Fri, Nov 07, 2025 at 05:24:21PM +0000, Conor Dooley wrote:
-> > > > On Fri, Nov 07, 2025 at 12:57:07AM +0100, Christian Marangi wrote:
-> > > > > Document Airoha AN7583 Pin Controller based on Airoha EN7581 with=
- some
-> > > > > minor difference on some function group (PCM and LED gpio).
-> > > > >=20
-> > > > > To not bloat the EN7581 schema with massive if condition, use a
-> > > > > dedicated YAML schema for Airoha AN7583.
-> > > >=20
-> > > > You went to more effort than I would have here with that conditiona=
-l!
-> > > >
-> > >=20
-> > > Well it was suggested by Rob and it's honestly a copy paste of en7581
-> > > with the relevant thing changed.
-> > >=20
-> > > > > +patternProperties:
-> > > > > +  '-pins$':
-> > > > > +    type: object
-> > > > > +
-> > > > > +    patternProperties:
-> > > > > +      '^mux(-|$)':
-> > > > > +        type: object
-> > > >=20
-> > > > What's up with this regex? Why does it allow either - or $?
-> > >=20
-> > > It's to permit either mux-* or unique node name with mux. Pattern is
-> > > also used by mt7622 or other schema. Other use mux- to require a name
-> > > after the mux.
-> >=20
-> > Ah right, because you can have the config properties like drive
-> > strength in the mux node, so sometimes a -pins has one mux node (mux:) =
-if
-> > all pins share settings and sometimes there could be multiple, which
-> > requires a suffix.
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > pw-bot: not-applicable
->=20
-> Mhhh why not-applicable ? :(
+Probably not too big of a deal, but don't we now incorrectly accept the
+"gmii" mode ?
 
-That's just dt-binding patchwork stuff, it clears it from our queue
-since it'll be applied to pinctrl.
-
---ZQCrllx4ihXxMaJD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ436AAKCRB4tDGHoIJi
-0u1rAP4+8ulSe9JeLCu3Gyu4scAX+ZVG1X8+tIGQbmjpnop6AwEAst9/qvwn3IEa
-sDwwxMVse34AsCQffwSceZT/1vAWjg0=
-=PDnc
------END PGP SIGNATURE-----
-
---ZQCrllx4ihXxMaJD--
+Maxime
 
