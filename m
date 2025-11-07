@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A38CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935F5CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 14:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkWDyRuLzly7HE6eDI+DM5wRxL4YkJvyXv44420PXio=; b=UUIBc4GST8ULFaJ/uUblxtZ/uw
-	mTz5IeMMUI+HCqJVybqMMEE6Akm69ekkg3+tzGM9OAt4wEKeL2CVYU0kKvSwgnaCW+QZ7+NCaPtnG
-	c/ExA492YtfK4bkzGZalthIlisPLweZXvD40JURpLOCfrXzsLfjwNo5MKVNxRhOLiiTS43/1ZGdcp
-	RvDwdPMZUhoWAIiflJjsqjhIAu4X+61sjHu+L9hOGX2H1HsBzjewEqmYueFZIVUGNfGJWIuhADILO
-	cqMXUnnS7x2/YVTgwopry8+ThP+useKqLsK4r88rNql3fjkuWr1b5SVh7H5qaHTdOA9l+1LuUel4+
-	vC99Gb7w==;
+	bh=H/rAGufk750DBlTCguDUu86O67RG1ULWAm11JqPmgqI=; b=W5o0tP+p9/mVN/TC4lh2AO32aE
+	B5QgIpijafvc68naKA1uAbCGmkTmafg9OofNAZN84QXQF7qKxZstQMRz/20p33VvDLQZTHhjLA4LU
+	I259zKbgSByBuY4VpiTTWMaBvTwMUk7v1QQNHIr0DpkpQz+sIxcY1bMqO2HK/e+XkPUwnOulvtPkW
+	vJvKffRjyXVt4ieQeMjWWpWUG4g89mjRODImnLQyH3XfZmpvU1eR8vJnqr/HvilUn5HQteTp0PCX7
+	1BthG45pNhUM7ZBU5RenNjMY9WCe0oNGaxP8dMLIDW0vaukTEQek5gxfihh9hfaNPAqWxo01LRgvd
+	SqvjVYdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNS0-0000000HTv6-2vhY;
-	Fri, 07 Nov 2025 14:28:28 +0000
+	id 1vHNS7-0000000HU1E-2Zzx;
+	Fri, 07 Nov 2025 14:28:35 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHNRx-0000000HTrk-25k1;
-	Fri, 07 Nov 2025 14:28:26 +0000
+	id 1vHNS4-0000000HTwj-2Bya;
+	Fri, 07 Nov 2025 14:28:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YkWDyRuLzly7HE6eDI+DM5wRxL4YkJvyXv44420PXio=; b=dtcocSWWChXSacjmfUGppfBUht
-	nwM9VECOOxptm1AYk8DD/Gh3Kk+DtGAmmuiFmtuLlCKPGEo9GF4Su0qy+Yd6yxM+Uo5pgWiCykqn6
-	Wq3iYgZyLfs1TF5NOLatu8zaXHXGqge3YNQ6ym65BDY7SakfM6viGWkp5sbVS7J6BegIVH5CRTp8y
-	aJDiNerYvotorUMtvnX9EhXydg+yTkilf4tHLEpXpteNlwDGo/IkNZjzndkGWt9DOdHMpu+wr+WqU
-	H1qK+cw2nFufbcpgswmlorFqvUizk3iP3TnDztw1OddcrMBpS1Ect2H87QnA2TUvMeV2mqVm7MJjY
-	GjNSWx7A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42706 helo=rmk-PC.armlinux.org.uk)
+	bh=H/rAGufk750DBlTCguDUu86O67RG1ULWAm11JqPmgqI=; b=i4M8+AixldyEAHwsKOahwPbiva
+	CmmkvchIn32GoQ//xuqoBBjQEsI9BBj1JkiRkh821XQ38Cobcxln8EzbCEiKaWnSg/5FoSKxr6lX4
+	FDFqMgODO9amFMYqyak9o5/5iajdYc1q6AqOojU6ToTkblfBlOjBBlGYpydve0jJNsrFaF9uJceP9
+	hwj4rmZncpOEc4Jmd+BEjguqBEyySyQLTlJeYzu3lO+YGi8y8Kqo2gwX/GyOFylEO+wMWJLwCjWiO
+	wMAcrRHajGgq+S2lvqwSo/cDoNtPuqcYvghxsz6v8WbDxC+LygpprCOCxI7P8t2XHji9/go8++VI8
+	GZ9toTbg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49690 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vHNRn-000000006fG-21rz;
-	Fri, 07 Nov 2025 14:28:15 +0000
+	id 1vHNRt-000000006fg-1OuK;
+	Fri, 07 Nov 2025 14:28:21 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vHNRm-0000000DkS7-1A57;
-	Fri, 07 Nov 2025 14:28:14 +0000
+	id 1vHNRr-0000000DkSD-1fm9;
+	Fri, 07 Nov 2025 14:28:19 +0000
 In-Reply-To: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
 References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -76,17 +76,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 03/16] net: stmmac: loongson1: use
- stmmac_get_phy_intf_sel()
+Subject: [PATCH net-next 04/16] net: stmmac: mediatek: use PHY_INTF_SEL_xxx
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vHNRm-0000000DkS7-1A57@rmk-PC.armlinux.org.uk>
-Date: Fri, 07 Nov 2025 14:28:14 +0000
+Message-Id: <E1vHNRr-0000000DkSD-1fm9@rmk-PC.armlinux.org.uk>
+Date: Fri, 07 Nov 2025 14:28:19 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_062825_539471_B9869E32 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20251107_062832_778254_E11C2A4C 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +101,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use stmmac_get_phy_intf_sel() to decode the PHY interface mode to the
-phy_intf_sel value, validate the result and use that to set the
-control register to select the operating mode for the DWMAC core.
+Use PHY_INTF_SEL_xxx definitions for the fields that correspond to the
+phy_intf_sel inputs to the dwmac core.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ .../ethernet/stmicro/stmmac/dwmac-mediatek.c   | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-index 5f9f66fbc191..894ee66f5c9b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-@@ -140,14 +140,9 @@ static int ls1c_dwmac_syscon_init(struct platform_device *pdev, void *priv)
- 	struct regmap *regmap = dwmac->regmap;
- 	int phy_intf_sel;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+index f1b36f0a401d..dcdf28418fec 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+@@ -17,9 +17,6 @@
  
--	switch (plat->phy_interface) {
--	case PHY_INTERFACE_MODE_MII:
--		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
--		break;
--	case PHY_INTERFACE_MODE_RMII:
--		phy_intf_sel = PHY_INTF_SEL_RMII;
--		break;
--	default:
-+	phy_intf_sel = stmmac_get_phy_intf_sel(plat->phy_interface);
-+	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
-+	    phy_intf_sel != PHY_INTF_SEL_RMII) {
- 		dev_err(&pdev->dev, "Unsupported PHY-mode %u\n",
- 			plat->phy_interface);
- 		return -EOPNOTSUPP;
+ /* Peri Configuration register for mt2712 */
+ #define PERI_ETH_PHY_INTF_SEL	0x418
+-#define PHY_INTF_MII		0
+-#define PHY_INTF_RGMII		1
+-#define PHY_INTF_RMII		4
+ #define RMII_CLK_SRC_RXC	BIT(4)
+ #define RMII_CLK_SRC_INTERNAL	BIT(5)
+ 
+@@ -118,16 +115,16 @@ static int mt2712_set_interface(struct mediatek_dwmac_plat_data *plat)
+ 	/* select phy interface in top control domain */
+ 	switch (plat->phy_mode) {
+ 	case PHY_INTERFACE_MODE_MII:
+-		intf_val |= PHY_INTF_MII;
++		intf_val |= PHY_INTF_SEL_GMII_MII;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RMII:
+-		intf_val |= (PHY_INTF_RMII | rmii_rxc | rmii_clk_from_mac);
++		intf_val |= PHY_INTF_SEL_RMII | rmii_rxc | rmii_clk_from_mac;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII:
+ 	case PHY_INTERFACE_MODE_RGMII_TXID:
+ 	case PHY_INTERFACE_MODE_RGMII_RXID:
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+-		intf_val |= PHY_INTF_RGMII;
++		intf_val |= PHY_INTF_SEL_RGMII;
+ 		break;
+ 	default:
+ 		dev_err(plat->dev, "phy interface not supported\n");
+@@ -297,17 +294,18 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat)
+ 	/* select phy interface in top control domain */
+ 	switch (plat->phy_mode) {
+ 	case PHY_INTERFACE_MODE_MII:
+-		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_MII);
++		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL,
++				       PHY_INTF_SEL_GMII_MII);
+ 		break;
+ 	case PHY_INTERFACE_MODE_RMII:
+-		intf_val |= (rmii_rxc | rmii_clk_from_mac);
+-		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_RMII);
++		intf_val |= rmii_rxc | rmii_clk_from_mac;
++		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_SEL_RMII);
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII:
+ 	case PHY_INTERFACE_MODE_RGMII_TXID:
+ 	case PHY_INTERFACE_MODE_RGMII_RXID:
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+-		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_RGMII);
++		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_SEL_RGMII);
+ 		break;
+ 	default:
+ 		dev_err(plat->dev, "phy interface not supported\n");
 -- 
 2.47.3
 
