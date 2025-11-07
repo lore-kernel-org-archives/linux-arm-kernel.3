@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248E2CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9797DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXxxLdb7XheOy75RFTu6qpzQ1CR6/qzHUiLBzTJbIfo=; b=Hc77uevl1vbKMVpWHio/SAMIkk
-	5yms6EgvwC6t3xRlOHyoHE0WLCx/4pRdwXE0sdtM7Ohx7HJwRwDn89Cn7FgUsFpWE6bgLyi6JBzNp
-	VanzxoP6yBVZYiXbUVLMSz9i2l++O9Pupwr/bwXSJUnFOS4bhhC2T54HpnpaoHP09zzp1o7IkAe9/
-	9poJjh0K6IgnO9gWA087jOX/zEfra8piyu6h6AsVJvGMIdAyKERNEaLiOCXGcNqKfhnmr3I5gg+eX
-	igdqt5oQcwWi9c9BdOuCAanMePgS39Tr6zsKOSyBP+IIV4MGhR1LzNEYJJomZ04daRqxVRRcZei3i
-	AVCWZmfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d3nAVq26ABkLe7YbYTpBzgZzTSoZK7RuOBFNBuFqk7o=; b=buXKeEpyrTDe2llQehfztWuS7Q
+	8rFyVGzFlvS7I+NMUI27hB5Xh8Ok1Vq9M5xqDM9l+77XnKlX4O4DFCgjEkNsO0XTJcBQ59VEs/AL1
+	K9xd32qeqx/Sq6RBiOZGsghjn+m9IF/eyiDiuHpk5Sh5zO+CSnrb0VKZhKr9MzLDvVVAIFoZ4RS2a
+	JD3If28EJ9sPpORUPXD7rLKtVx0x1wUVCjD0qrmofQbEfckeammLifljBcm5BV8FOlzWxoF5YPcgX
+	lUit7hfv4wavl6j1aCldmoa2bz7Xpe7ORDXCGv6zO6b9H/NAjhG7qOHyihTDmNhgFHZXDSXl5xuDa
+	6Q2/dDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJhO-0000000H4a7-2Rms;
-	Fri, 07 Nov 2025 10:28:06 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1vHJhS-0000000H4ap-3kMq;
+	Fri, 07 Nov 2025 10:28:10 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJhM-0000000H4Yj-0V0o
+	id 1vHJhN-0000000H4Yz-1ME9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 10:28:05 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1762511271;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WXxxLdb7XheOy75RFTu6qpzQ1CR6/qzHUiLBzTJbIfo=;
-	b=LTXY4niJ2Q4v9blFZDDIDMhmT6YuANss37XVrUPjaWkBRYbGPvukGIrKWMjfMtjCz9X4y2
-	D0icX131qTv+kScD53gosbMyEh9nKGD7IdwIhnbkx9kmiVcrc3fXJVV8w0StZO3YlSuV6u
-	N0fDkWwwzBQPhuNam3hUStygGtLEykiDTBETx/DGwquha8F2AIUK55iJQQjrfXkvH8ri19
-	JWvm9c3kuu8nOS8c0V9jSfOMNKS9NziiYCuireCSED3VE6TV87pkiPaoZ/tU7QArHk1qe1
-	UkRkKnx8n4UE05b8wzlOpUbvsSK+LAJmaMEErMTaPXGlZ7HCyBphXEv2Ab2MQw==
+	Fri, 07 Nov 2025 10:28:06 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vHJhF-0005T7-TE; Fri, 07 Nov 2025 11:27:57 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vHJhF-007VqL-0L;
+	Fri, 07 Nov 2025 11:27:57 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vHJhF-000000003eq-02yK;
+	Fri, 07 Nov 2025 11:27:57 +0100
+Message-ID: <3f97f737c00ce9d82a6b54955241458d0f77c4ec.camel@pengutronix.de>
+Subject: Re: [PATCH 1/3] media: imx-csi: move media_pipeline to video device
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michael Tretter <m.tretter@pengutronix.de>, Steve Longerbeam	
+ <slongerbeam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Pengutronix Kernel Team
+	 <kernel@pengutronix.de>
+Date: Fri, 07 Nov 2025 11:27:56 +0100
+In-Reply-To: <20251107-media-imx-cleanup-v1-1-f82a693c28f4@pengutronix.de>
+References: <20251107-media-imx-cleanup-v1-0-f82a693c28f4@pengutronix.de>
+	 <20251107-media-imx-cleanup-v1-1-f82a693c28f4@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 07 Nov 2025 11:27:45 +0100
-Message-Id: <DE2E3LND1O81.25N3JM01890FT@cknow-tech.com>
-Cc: "Bjorn Helgaas" <helgaas@kernel.org>,
- <linux-rockchip@lists.infradead.org>, "Shawn Lin"
- <shawn.lin@rock-chips.com>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan
- Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn
- Helgaas" <bhelgaas@google.com>, "Heiko Stuebner" <heiko@sntech.de>,
- <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Johan Jonker" <jbx6244@gmail.com>
-Subject: Re: [RFC PATCH 2/2] PCI: rockchip-host: drop wait on PERST# toggle
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Geraldo Nascimento" <geraldogabriel@gmail.com>
-References: <d3d0c3a387ff461e62bbd66a0bde654a9a17761e.1762150971.git.geraldogabriel@gmail.com> <20251103181038.GA1814635@bhelgaas> <aQrKtFT0ldc70gKj@geday> <DE0N4LA8MOJD.236O12UZ3I3C4@cknow-tech.com> <aQu_-JDy7qqeviUm@geday>
-In-Reply-To: <aQu_-JDy7qqeviUm@geday>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Evolution 3.56.1-1+deb13u1 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_022804_316020_70852002 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20251107_022805_364574_887C18C7 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geraldo,
+On Fr, 2025-11-07 at 11:16 +0100, Michael Tretter wrote:
+> The imx-media driver has a single imx_media_device. Attaching the
+> media_pipeline to the imx_media_device prevents the execution of
+> multiple media pipelines on the device. This should be possible as long
+> as the media_pipelines don't use the same pads or pads that be
+> configured while the other media pipeline is streaming.
+>=20
+> Move the media_pipeline to the imx_media_video_dev to be able to
+> construct media pipelines per imx capture device.
+>=20
+> If different media pipelines in the media device conflict, the
+> validation will fail. Thus, the pipeline will fail to start and signal
+> an error to user space.
+>=20
+> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
 
-On Wed Nov 5, 2025 at 10:22 PM CET, Geraldo Nascimento wrote:
-> On Wed, Nov 05, 2025 at 10:06:53AM +0100, Diederik de Haas wrote:
->> I have a Samsung PM981 (without the 'a') and AFAICT it works fine.
->> I had noticed that the PERST# (pinctrl) was missing, but 'ep-gpios'
->> was/is new to me and I hadn't had time to research that properly yet.
->> Good to see you already found it yourself :-)
->
-> Would you mind testing the following DT change to make sure your PM981
-> continues to work fine?
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-I just learned the the PCIe system on rk3399 is indeed different from
-the systems where I use it with (rk3568 & rk3588). And 'ep-gpios' is
-only used with rk3399 based devices (in the Rockchip dts tree), which
-explains why I hadn't seen that before.
-Which in turn means I can't test your proposed change.
-
-I guess I was triggered by RFC patch 2 which said 'a known quirky
-device' while my Samsung PM981's are working fine ... but with DW based
-IP. You did specify in your cover letter the connection with Rockchip
-PCI IP, which apparently can make a (lot of?) difference.
-Me finding the PERST# pinctrl in a few minutes and we finding
-improvements in RockPro64's PCI 'config' recently, indicated to me that
-a new look into the dts definition may be warranted, before changing
-``drivers/pci/controller/pcie-rockchip-host.c`` for everyone.
-
-Cheers,
-  Diederik
-
-> Thank you,
-> Geraldo Nascimento
->
-> ---
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch=
-/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> index aa70776e898a..b3d19dce539f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> @@ -383,7 +383,7 @@ &pcie_phy {
->  };
-> =20
->  &pcie0 {
-> -	ep-gpios =3D <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-> +	ep-gpios =3D <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_SINGLE_ENDED)>;
->  	num-lanes =3D <4>;
->  	pinctrl-0 =3D <&pcie_clkreqnb_cpm>;
->  	pinctrl-names =3D "default";
-
+regards
+Philipp
 
