@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E31DCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 02:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C336CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 02:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ttYbeCKJ3OLF2JIak+cm/+0cAJg3a7naHdhTZ5oTJCM=; b=y+lW0okLhtx9pTaxQ1tDwGOoue
-	qdiSDnR6R38O6H323nUER32ZblhKYmvJ3cUmGJIHXN7xgL34AF72s2tsBLYSJyes/3MMinvjS+DwK
-	o/SCNefqOUpHV29a3XAo9E+T0sJBfgR/nYqJ1KC0TQnLAi+nXirehaKb0dqF3R6ocga/u6lMHM3AZ
-	YfpGDFKbqLbRfiJqMwF5nuzD4hmf9sCYCnBvaLGVafmh2zabOrsFiL50Ly1/EDLCA1H74lXiudZT8
-	qEz8/MBdbHY8TJkWpgHsMruynERoypzj6QqLFdPRAIafhtZaAa4e0gDf/poDbsVyKhq7hMSGGgH5D
-	SqTj5wDQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KZjeK6wWfSrWBcTcOZj4lHgWUS2TJviSTPcQPa8owWw=; b=srb1QVUEKHiiZMQQXbROeVSBx8
+	xogbiVLqPQWEG748juxRaIOHKwiEsHgQISRC9p+JhCimb6xdGbxET5dZWG63R1FJcsZsWfOjAOl6e
+	B8eGgZew0a/fukbGKp/nZdNBPIALmyP2UxqzIUTAmV6lejcAh1h9rIWZ1V5GFGLWizLe2iVSZ8KNW
+	MAlKfMU8vUmV6sE9MH8c78g0Ycn1qGTruWDk2ePCkSMOQZMZ9A4N6BEtw8Mja6MvfDnUEP4CFGWaO
+	nDrm8MJhxZOLBvbVZsAA6Tcf867JQR34ERr7nRXxRJO1v3fFoabSrbd6vUeU+KrgQcHhqgOVbL6/u
+	fYS5ceQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBxe-0000000GZ6j-0Jt5;
-	Fri, 07 Nov 2025 02:12:22 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1vHCPV-0000000Ga8q-2h1B;
+	Fri, 07 Nov 2025 02:41:09 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBxb-0000000GZ5x-3pou;
-	Fri, 07 Nov 2025 02:12:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ttYbeCKJ3OLF2JIak+cm/+0cAJg3a7naHdhTZ5oTJCM=;
-	b=oTND7xti/NC2W3lp57ZxBg2RHkOYc/x3+yPpDVhMGAvw36UguiT3bsave9p82GjGlyyJlPVeJ
-	riF/XR32j7XsPV8Z5V3xtQ+vm+V4FQD0LAWcXx1na6m0zI3r0qH38BwDsXDVzMiYcML6iuRsn1G
-	5/ha/SAcUUlu419yWmwHzwM=
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4d2jFb4zgPz1cyV7;
-	Fri,  7 Nov 2025 10:10:27 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4D3F3140159;
-	Fri,  7 Nov 2025 10:12:04 +0800 (CST)
-Received: from kwepemq100008.china.huawei.com (7.202.195.91) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 7 Nov 2025 10:12:04 +0800
-Received: from DESKTOP-DKE2JV6.huawei.com (10.67.110.146) by
- kwepemq100008.china.huawei.com (7.202.195.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 7 Nov 2025 10:12:03 +0800
-From: Liyuan Pang <pangliyuan1@huawei.com>
-To: <markus.elfring@web.de>
-CC: <alexandre.torgue@foss.st.com>, <chengzhihao1@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mtd@lists.infradead.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<mcoquelin.stm32@gmail.com>, <miquel.raynal@bootlin.com>,
-	<pangliyuan1@huawei.com>, <richard@nod.at>, <vigneshr@ti.com>,
-	<wanqian10@huawei.com>, <young.liuyang@huawei.com>
-Subject: Re: [PATCH] ubi: fastmap: fix ubi->fm memory leak
-Date: Fri, 7 Nov 2025 10:11:37 +0800
-Message-ID: <20251107021137.874150-1-pangliyuan1@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <dff05531-f5e3-400a-abf0-a5307c50357e@web.de>
-References: <dff05531-f5e3-400a-abf0-a5307c50357e@web.de>
+	id 1vHCPP-0000000Ga8K-0PvS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 02:41:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=KZ
+	jeK6wWfSrWBcTcOZj4lHgWUS2TJviSTPcQPa8owWw=; b=acgNVMaomnRfJVPbln
+	bceAy3lm3DGwYsY7qZsCWEsg8DlbYdrAs9WinPLXvRDlHbzGtMKi7nYf0jNEe8GL
+	Y94/MihWCuqBv1F47xttjsswnXeeh3oVKAVlRiIwQcu0ocsawznS1LzTVR06AxaZ
+	EgI96+LUTW1TWtDrAIb712hxA=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3N1MfXA1p6qbzCA--.918S2;
+	Fri, 07 Nov 2025 10:40:33 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH v2] ALSA: hda/senary: Replace magic numbers with defined constants
+Date: Fri,  7 Nov 2025 10:40:30 +0800
+Message-Id: <20251107024030.36712-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="y"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.146]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq100008.china.huawei.com (7.202.195.91)
+X-CM-TRANSID: _____wD3N1MfXA1p6qbzCA--.918S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ur1UuF4xGw45WF4UCw18uFg_yoW8Gw1kpr
+	n8CFyrKrZ3Jr10yr18Gay5ZFyrGa98XF43t3y7K3W5Zan2kFykX3WUXryaq3W3JF9rK3Wa
+	vryxZ34UC34qyaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jnmiiUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1tbibgT9T2kMbWHmRwABsR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_181220_517461_DE1DCCA4 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20251106_184103_593925_94FA0692 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +77,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Nov 2025 16:16:05 +0100, Markus Elfring wrote:
->…
->> +++ b/drivers/mtd/ubi/fastmap.c
->> @@ -1644,3 +1644,15 @@ int ubi_update_fastmap(struct ubi_device *ubi)
->…
->> +void ubi_free_fastmap(struct ubi_device *ubi)
->> +{
->> +	int i;
->> +
->> +	if (ubi->fm) {
-> +		for (i = 0; i < ubi->fm->used_blocks; i++)
-> +			kmem_cache_free(ubi_wl_entry_slab, ubi->fm->e[i]);
->…
-> +	}
-> +}
->…
->
-> May the local variable “i” be defined in the loop header?
+From: wangdicheng <wangdicheng@kylinos.cn>
 
-I think it's better to leave it as it is, most of the code in
-ubi defines variables outside the loop header, and defining
-"i" in the loop header may cause compilation error in some old
-kernel versions that use C89.
+Replace hardcoded GPIO node value with a defined constant for better
+code readability and maintainability.
 
-Regards,
-Liyuan
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+---
+
+v1->v2:
+-Align both From and Signed-off-by addresses
+
+ sound/hda/codecs/senarytech.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/sound/hda/codecs/senarytech.c b/sound/hda/codecs/senarytech.c
+index 99af8d5e51db..31ec4e53f6ff 100644
+--- a/sound/hda/codecs/senarytech.c
++++ b/sound/hda/codecs/senarytech.c
+@@ -19,6 +19,9 @@
+ #include "hda_jack.h"
+ #include "generic.h"
+ 
++/* GPIO node ID */
++#define SENARY_GPIO_NODE	0x01
++
+ struct senary_spec {
+ 	struct hda_gen_spec gen;
+ 
+@@ -131,11 +134,11 @@ static void senary_init_gpio_led(struct hda_codec *codec)
+ 	unsigned int mask = spec->gpio_mute_led_mask | spec->gpio_mic_led_mask;
+ 
+ 	if (mask) {
+-		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_MASK,
++		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_MASK,
+ 				    mask);
+-		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_DIRECTION,
++		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_DIRECTION,
+ 				    mask);
+-		snd_hda_codec_write(codec, 0x01, 0, AC_VERB_SET_GPIO_DATA,
++		snd_hda_codec_write(codec, SENARY_GPIO_NODE, 0, AC_VERB_SET_GPIO_DATA,
+ 				    spec->gpio_led);
+ 	}
+ }
+-- 
+2.25.1
+
 
