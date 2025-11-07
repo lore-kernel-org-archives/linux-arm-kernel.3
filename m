@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946A3CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04C4CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UXCce5dvT8hmP+S5p4SwkpHdlAZ8QSQCXnL5AW2rt78=; b=XzXbL982VA3vSkEcl94rAqU7Ih
-	vUfsekv4/4oe8Suhas7NGbY9USeDcuJMwKWF4yTMNf+JsD5ySrgMZ8m7WgDy3ps81H054PWW+I+Vu
-	DzEZwwQ07WuTbiFWxxciuhLtyQ+iCru0OvW3X+LQZQ1dMBbSG+V+MYwFpoy8iL/vKrh0sWB/WkZVB
-	M7ZrgMTeWx5HVQyBO9F3Y2YBnNFlSKLxqpCTLSo+0BfrA4/gUKY4A7PdiXAx+3g7PwDvumDH+KVmB
-	DyjG++YhJRze/3X84ftBDY8czHN1LUkXOPzfUZrJTQx1gn1GpmKqsuTBJwdEbahK9QH7cm9407AT2
-	DsGChb9A==;
+	bh=NsNNpwuaNWCx6IF2fYdIjP4i3Bg9HiXabOkg1WM5zo8=; b=Jxkyyvh2maDE7mPXZnZqW2M6eS
+	+Iwre23VY2hYkiRLosnvGL/wlSER8UQ40ku8INpwEEg8U8Hg/2f1CrVvB7REdfnFzIP1B8A9ytTuO
+	3HrvokuQPBr2Z+3h1vS4UFdwqbOr4N10VOaZ4lHKqs/xsSNom7buFIhkE+N4m3S3OiIvlMM/xUejC
+	WTX7MO/Q0/ttgexVnYLBFknKcFZPshXo88hhR/M+8IYrK3EypIkTZyJfhIP3Hb/cOUKey7NGH1cDl
+	SG/5XI/tQ6/w0YOstJqi0Ov8XtWgzBk52DBKWoQAEeFwg1GRGMep3IgEwav17md2y6CrNG8zHi8FJ
+	dQwuu2rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLDZ-0000000HGdV-18pB;
-	Fri, 07 Nov 2025 12:05:25 +0000
+	id 1vHLIO-0000000HGr5-0CG5;
+	Fri, 07 Nov 2025 12:10:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLDX-0000000HGd9-1JEQ
+	id 1vHLIL-0000000HGqi-007g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 12:05:24 +0000
+	Fri, 07 Nov 2025 12:10:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DB731515;
-	Fri,  7 Nov 2025 04:05:13 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F20E3F66E;
-	Fri,  7 Nov 2025 04:05:19 -0800 (PST)
-Message-ID: <cb087e63-3dae-4d7d-ac8a-a8982e560be6@arm.com>
-Date: Fri, 7 Nov 2025 12:05:18 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46C6B1516;
+	Fri,  7 Nov 2025 04:10:12 -0800 (PST)
+Received: from [10.57.86.134] (unknown [10.57.86.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E6EB3F66E;
+	Fri,  7 Nov 2025 04:10:18 -0800 (PST)
+Message-ID: <823463ee-f8c9-4023-892e-6e6532a1a813@arm.com>
+Date: Fri, 7 Nov 2025 12:10:17 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-To: Zhou Wang <wangzhou1@hisilicon.com>, catalin.marinas@arm.com,
- will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- yuzenghui@huawei.com, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- yangyccccc@gmail.com, prime.zeng@hisilicon.com, xuwei5@huawei.com
-References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
- <20251107072127.448953-6-wangzhou1@hisilicon.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251107072127.448953-6-wangzhou1@hisilicon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 1/3] arm64: mm: Don't sleep in
+ split_kernel_leaf_mapping() when in atomic context
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
+ will@kernel.org, david@redhat.com, ardb@kernel.org, dev.jain@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guenter Roeck <groeck@google.com>
+References: <20251106160945.3182799-1-ryan.roberts@arm.com>
+ <20251106160945.3182799-2-ryan.roberts@arm.com>
+ <d6d7e038-aa94-491a-8ad6-f48541b98b6a@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <d6d7e038-aa94-491a-8ad6-f48541b98b6a@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_040523_452652_6F1BC32E 
-X-CRM114-Status: GOOD (  33.55  )
+X-CRM114-CacheID: sfid-20251107_041021_848272_921DBD3E 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,184 +69,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 07:21, Zhou Wang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On 06/11/2025 20:46, Yang Shi wrote:
 > 
-> Armv8.7 introduces single-copy atomic 64-byte loads and stores
-> instructions and its variants named under FEAT_{LS64, LS64_V}.
-> These features are identified by ID_AA64ISAR1_EL1.LS64 and the
-> use of such instructions in userspace (EL0) can be trapped. In
-> order to support the use of corresponding instructions in userspace:
-> - Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
-> - Add identifying and enabling in the cpufeature list
-> - Expose these support of these features to userspace through HWCAP3
->    and cpuinfo
 > 
-> ld64b/st64b (FEAT_LS64) and st64bv (FEAT_LS64_V) is intended for
-> special memory (device memory) so requires support by the CPU, system
-> and target memory location (device that support these instructions).
-> The HWCAP3_{LS64, LS64_V} implies the support of CPU and system (since
-> no identification method from system, so SoC vendors should advertise
-> support in the CPU if system also support them).
+> On 11/6/25 8:09 AM, Ryan Roberts wrote:
+>> It has been reported that split_kernel_leaf_mapping() is trying to sleep
+>> in non-sleepable context. It does this when acquiring the
+>> pgtable_split_lock mutex, when either CONFIG_DEBUG_PAGEALLOC or
+>> CONFIG_KFENCE are enabled, which change linear map permissions within
+>> softirq context during memory allocation and/or freeing. All other paths
+>> into this function are called from sleepable context and so are safe.
+>>
+>> But it turns out that the memory for which these 2 features may attempt
+>> to modify the permissions is always mapped by pte, so there is no need
+>> to attempt to split the mapping. So let's exit early in these cases and
+>> avoid attempting to take the mutex.
+>>
+>> There is one wrinkle to this approach; late-initialized kfence allocates
+>> it's pool from the buddy which may be block mapped. So we must hook that
+>> allocation and convert it to pte-mappings up front. Previously this was
+>> done as a side-effect of kfence protecting all the individual pages in
+>> its pool at init-time, but this no longer works due to the added early
+>> exit path in split_kernel_leaf_mapping().
+>>
+>> So instead, do this via the existing arch_kfence_init_pool() arch hook,
+>> and reuse the existing linear_map_split_to_ptes() infrastructure.
+>>
+>> Closes: https://lore.kernel.org/all/f24b9032-0ec9-47b1-8b95-
+>> c0eeac7a31c5@roeck-us.net/
+>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>> Tested-by: Guenter Roeck <groeck@google.com>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 > 
-> Otherwise for ld64b/st64b the atomicity may not be guaranteed or a
-> DABT will be generated, so users (probably userspace driver developer)
-> should make sure the target memory (device) also have the support.
-> For st64bv 0xffffffffffffffff will be returned as status result for
-> unsupported memory so user should check it.
+> Reviewed-by: Yang Shi <yang@os.amperecomputing.com>
 > 
-> Document the restrictions along with HWCAP3_{LS64, LS64_V}.
+> Just a nit below:
 > 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
-> ---
->   Documentation/arch/arm64/booting.rst    | 12 ++++++
->   Documentation/arch/arm64/elf_hwcaps.rst | 14 +++++++
->   arch/arm64/include/asm/hwcap.h          |  2 +
->   arch/arm64/include/uapi/asm/hwcap.h     |  2 +
->   arch/arm64/kernel/cpufeature.c          | 51 +++++++++++++++++++++++++
->   arch/arm64/kernel/cpuinfo.c             |  2 +
->   arch/arm64/tools/cpucaps                |  2 +
->   7 files changed, 85 insertions(+)
+>> ---
+>>   arch/arm64/include/asm/kfence.h |  3 +-
+>>   arch/arm64/mm/mmu.c             | 92 +++++++++++++++++++++++----------
+>>   2 files changed, 67 insertions(+), 28 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kfence.h b/arch/arm64/include/asm/kfence.h
+>> index a81937fae9f6..21dbc9dda747 100644
+>> --- a/arch/arm64/include/asm/kfence.h
+>> +++ b/arch/arm64/include/asm/kfence.h
+>> @@ -10,8 +10,6 @@
+>>     #include <asm/set_memory.h>
+>>   -static inline bool arch_kfence_init_pool(void) { return true; }
+>> -
+>>   static inline bool kfence_protect_page(unsigned long addr, bool protect)
+>>   {
+>>       set_memory_valid(addr, 1, !protect);
+>> @@ -25,6 +23,7 @@ static inline bool arm64_kfence_can_set_direct_map(void)
+>>   {
+>>       return !kfence_early_init;
+>>   }
+>> +bool arch_kfence_init_pool(void);
+>>   #else /* CONFIG_KFENCE */
+>>   static inline bool arm64_kfence_can_set_direct_map(void) { return false; }
+>>   #endif /* CONFIG_KFENCE */
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index b8d37eb037fc..a364ac2c9c61 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -708,6 +708,16 @@ static int split_kernel_leaf_mapping_locked(unsigned long
+>> addr)
+>>       return ret;
+>>   }
+>>   +static inline bool force_pte_mapping(void)
+>> +{
+>> +    bool bbml2 = system_capabilities_finalized() ?
+>> +        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+>> +
+>> +    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+>> +               is_realm_world())) ||
+>> +        debug_pagealloc_enabled();
+>> +}
+>> +
+>>   static DEFINE_MUTEX(pgtable_split_lock);
+>>     int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>> @@ -723,6 +733,16 @@ int split_kernel_leaf_mapping(unsigned long start,
+>> unsigned long end)
+>>       if (!system_supports_bbml2_noabort())
+>>           return 0;
+>>   +    /*
+>> +     * If the region is within a pte-mapped area, there is no need to try to
+>> +     * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+>> +     * change permissions from atomic context so for those cases (which are
+>> +     * always pte-mapped), we must not go any further because taking the
+>> +     * mutex below may sleep.
 > 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index e4f953839f71..2c56d76ecafb 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -556,6 +556,18 @@ Before jumping into the kernel, the following conditions must be met:
->   
->      - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
->   
-> +  For CPUs with support for 64-byte loads and stores without status (FEAT_LS64):
-> +
-> +  - If the kernel is entered at EL1 and EL2 is present:
-> +
-> +    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
-> +
-> +  For CPUs with support for 64-byte stores with status (FEAT_LS64_V):
-> +
-> +  - If the kernel is entered at EL1 and EL2 is present:
-> +
-> +    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
-> +
->   The requirements described above for CPU mode, caches, MMUs, architected
->   timers, coherency and system registers apply to all CPUs.  All CPUs must
->   enter the kernel in the same exception level.  Where the values documented
-> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-> index a15df4956849..b86059bc288b 100644
-> --- a/Documentation/arch/arm64/elf_hwcaps.rst
-> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
-> @@ -444,6 +444,20 @@ HWCAP3_MTE_STORE_ONLY
->   HWCAP3_LSFE
->       Functionality implied by ID_AA64ISAR3_EL1.LSFE == 0b0001
->   
-> +HWCAP3_LS64
-> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001. Note that
-> +    the function of instruction ld64b/st64b requires support by CPU, system
-> +    and target (device) memory location and HWCAP3_LS64 implies the support
-> +    of CPU. User should only use ld64b/st64b on supported target (device)
-> +    memory location, otherwise fallback to the non-atomic alternatives.
-> +
-> +HWCAP3_LS64_V
-> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010. Same to
-> +    HWCAP3_LS64 that HWCAP3_LS64_V implies CPU's support of instruction
-> +    st64bv but also requires the support from the system and target (device)
-> +    memory location. st64bv supports return status result and 0xFFFFFFFFFFFFFFFF
-> +    will be returned for unsupported memory location.
-> +
->   
->   4. Unused AT_HWCAP bits
->   -----------------------
-> diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-> index 6d567265467c..3c0804fb3435 100644
-> --- a/arch/arm64/include/asm/hwcap.h
-> +++ b/arch/arm64/include/asm/hwcap.h
-> @@ -179,6 +179,8 @@
->   #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
->   #define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
->   #define KERNEL_HWCAP_LSFE		__khwcap3_feature(LSFE)
-> +#define KERNEL_HWCAP_LS64		__khwcap3_feature(LS64)
-> +#define KERNEL_HWCAP_LS64_V		__khwcap3_feature(LS64_V)
->   
->   /*
->    * This yields a mask that user programs can use to figure out what
-> diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-> index 575564ecdb0b..79bc77425b82 100644
-> --- a/arch/arm64/include/uapi/asm/hwcap.h
-> +++ b/arch/arm64/include/uapi/asm/hwcap.h
-> @@ -146,5 +146,7 @@
->   #define HWCAP3_MTE_FAR		(1UL << 0)
->   #define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
->   #define HWCAP3_LSFE		(1UL << 2)
-> +#define HWCAP3_LS64		(1UL << 3)
-> +#define HWCAP3_LS64_V		(1UL << 4)
->   
->   #endif /* _UAPI__ASM_HWCAP_H */
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 5ed401ff79e3..dcc5ba620a7e 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -239,6 +239,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar0[] = {
->   };
->   
->   static const struct arm64_ftr_bits ftr_id_aa64isar1[] = {
-> +	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_LS64_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_XS_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_I8MM_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_DGH_SHIFT, 4, 0),
-> @@ -2259,6 +2260,38 @@ static void cpu_enable_e0pd(struct arm64_cpu_capabilities const *cap)
->   }
->   #endif /* CONFIG_ARM64_E0PD */
->   
-> +static bool has_ls64(const struct arm64_cpu_capabilities *entry, int __unused)
-> +{
-> +	u64 ls64;
-> +
-> +	ls64 = cpuid_feature_extract_field(__read_sysreg_by_encoding(entry->sys_reg),
-> +					   entry->field_pos, entry->sign);
+> The path 3 changed the comment, but since patch 3 just does some cleanup and
+> code deduplication, there is no functional change, so why not just use the
+> comment from patch 3?
 
-Why are we always reading from the "local" CPU ? Shouldn't this be based 
-on the SCOPE ?
+The reason I changed it is because in patch 3 we introduce
+split_leaf_mapping_possible(), which is also doing the
+!system_supports_bbml2_noabort() check above, so this original comment only
+applies to a subset of the reasons we may exit here. It felt confusing to me. So
+I decided to simplify it. The rationale is all captured in the commit log, so I
+didn't think it was a big deal.
 
-i.e., read from the sanitised feature state for SCOPE_SYSTEM (given that 
-is the SCOPE for the capability)
+Thanks,
+Ryan
 
-and read from the local CPU for SCOPE_LOCAL (for checks in late CPUs).
+> 
+> Thanks,
+> Yang
+> 
+>> +     */
+>> +    if (force_pte_mapping() || is_kfence_address((void *)start))
+>> +        return 0;
+>> +
+>>       /*
+>>        * Ensure start and end are at least page-aligned since this is the
+>>        * finest granularity we can split to.
+>> @@ -758,30 +778,30 @@ int split_kernel_leaf_mapping(unsigned long start,
+>> unsigned long end)
+>>       return ret;
+>>   }
+>>   -static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>> -                      unsigned long next,
+>> -                      struct mm_walk *walk)
+>> +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>> +                   unsigned long next, struct mm_walk *walk)
+>>   {
+>> +    gfp_t gfp = *(gfp_t *)walk->private;
+>>       pud_t pud = pudp_get(pudp);
+>>       int ret = 0;
+>>         if (pud_leaf(pud))
+>> -        ret = split_pud(pudp, pud, GFP_ATOMIC, false);
+>> +        ret = split_pud(pudp, pud, gfp, false);
+>>         return ret;
+>>   }
+>>   -static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>> -                      unsigned long next,
+>> -                      struct mm_walk *walk)
+>> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>> +                   unsigned long next, struct mm_walk *walk)
+>>   {
+>> +    gfp_t gfp = *(gfp_t *)walk->private;
+>>       pmd_t pmd = pmdp_get(pmdp);
+>>       int ret = 0;
+>>         if (pmd_leaf(pmd)) {
+>>           if (pmd_cont(pmd))
+>>               split_contpmd(pmdp);
+>> -        ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
+>> +        ret = split_pmd(pmdp, pmd, gfp, false);
+>>             /*
+>>            * We have split the pmd directly to ptes so there is no need to
+>> @@ -793,9 +813,8 @@ static int __init split_to_ptes_pmd_entry(pmd_t *pmdp,
+>> unsigned long addr,
+>>       return ret;
+>>   }
+>>   -static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>> -                      unsigned long next,
+>> -                      struct mm_walk *walk)
+>> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>> +                   unsigned long next, struct mm_walk *walk)
+>>   {
+>>       pte_t pte = __ptep_get(ptep);
+>>   @@ -805,12 +824,18 @@ static int __init split_to_ptes_pte_entry(pte_t *ptep,
+>> unsigned long addr,
+>>       return 0;
+>>   }
+>>   -static const struct mm_walk_ops split_to_ptes_ops __initconst = {
+>> +static const struct mm_walk_ops split_to_ptes_ops = {
+>>       .pud_entry    = split_to_ptes_pud_entry,
+>>       .pmd_entry    = split_to_ptes_pmd_entry,
+>>       .pte_entry    = split_to_ptes_pte_entry,
+>>   };
+>>   +static int range_split_to_ptes(unsigned long start, unsigned long end,
+>> gfp_t gfp)
+>> +{
+>> +    return walk_kernel_page_table_range_lockless(start, end,
+>> +                    &split_to_ptes_ops, NULL, &gfp);
+>> +}
+>> +
+>>   static bool linear_map_requires_bbml2 __initdata;
+>>     u32 idmap_kpti_bbml2_flag;
+>> @@ -847,11 +872,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
+>>            * PTE. The kernel alias remains static throughout runtime so
+>>            * can continue to be safely mapped with large mappings.
+>>            */
+>> -        ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>> -                        &split_to_ptes_ops, NULL, NULL);
+>> +        ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
+>>           if (!ret)
+>> -            ret = walk_kernel_page_table_range_lockless(kend, lend,
+>> -                        &split_to_ptes_ops, NULL, NULL);
+>> +            ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
+>>           if (ret)
+>>               panic("Failed to split linear map\n");
+>>           flush_tlb_kernel_range(lstart, lend);
+>> @@ -1002,6 +1025,33 @@ static void __init arm64_kfence_map_pool(phys_addr_t
+>> kfence_pool, pgd_t *pgdp)
+>>       memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
+>>       __kfence_pool = phys_to_virt(kfence_pool);
+>>   }
+>> +
+>> +bool arch_kfence_init_pool(void)
+>> +{
+>> +    unsigned long start = (unsigned long)__kfence_pool;
+>> +    unsigned long end = start + KFENCE_POOL_SIZE;
+>> +    int ret;
+>> +
+>> +    /* Exit early if we know the linear map is already pte-mapped. */
+>> +    if (!system_supports_bbml2_noabort() || force_pte_mapping())
+>> +        return true;
+>> +
+>> +    /* Kfence pool is already pte-mapped for the early init case. */
+>> +    if (kfence_early_init)
+>> +        return true;
+>> +
+>> +    mutex_lock(&pgtable_split_lock);
+>> +    ret = range_split_to_ptes(start, end, GFP_PGTABLE_KERNEL);
+>> +    mutex_unlock(&pgtable_split_lock);
+>> +
+>> +    /*
+>> +     * Since the system supports bbml2_noabort, tlb invalidation is not
+>> +     * required here; the pgtable mappings have been split to pte but larger
+>> +     * entries may safely linger in the TLB.
+>> +     */
+>> +
+>> +    return !ret;
+>> +}
+>>   #else /* CONFIG_KFENCE */
+>>     static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
+>> @@ -1009,16 +1059,6 @@ static inline void arm64_kfence_map_pool(phys_addr_t
+>> kfence_pool, pgd_t *pgdp) {
+>>     #endif /* CONFIG_KFENCE */
+>>   -static inline bool force_pte_mapping(void)
+>> -{
+>> -    bool bbml2 = system_capabilities_finalized() ?
+>> -        system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
+>> -
+>> -    return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+>> -               is_realm_world())) ||
+>> -        debug_pagealloc_enabled();
+>> -}
+>> -
+>>   static void __init map_mem(pgd_t *pgdp)
+>>   {
+>>       static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+> 
 
-
-> +
-> +	if (ls64 == ID_AA64ISAR1_EL1_LS64_NI ||
-> +	    ls64 > ID_AA64ISAR1_EL1_LS64_LS64_ACCDATA)
-
-Given this is FTR_LOWER_SAFE, why do we skip anything that is HIGHER 
-than a particular value ? You must be able to fall back to the 
-has_cpuid_feature() check for both these CAPs.
-
-
-> +		return false;
-> +
-
-
-
----8>---
-
-> +	if (entry->capability == ARM64_HAS_LS64 &&
-> +	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64)
-> +		return true;
-> +
-> +	if (entry->capability == ARM64_HAS_LS64_V &&
-> +	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64_V)
-> +		return true;
-> +
-> +	return false;
-
---<8---
-
-
-minor nit: You could simplify this to:
-
-	return (ls64 >= entry->min_field_value)
-
-
-Suzuki
 
