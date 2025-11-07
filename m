@@ -4,146 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18338CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E98CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=; b=1Wfc6oDVDABFwcIopHnTYnUMXG
-	zkbDM6UAi51S6/Ao5ihy0joWK3FouihpWZ34qAd5+PdlQSDq3d51i6D0K2plZRNisk1mP8lia0Dj1
-	c3BByzMAJO5ujqh8FBAfINGQdHHNXEyaj6Dc2c2KY4KKmvtekbzMir7Ra71q0KQU7JK4rkZrTqi/B
-	JpQdrcMML435EP2p8LLu0yeKh7Q6zlMfpvSnIU71Pqmq9jJmMbDScMGZbS/TW3mScXQxLsFdstjmO
-	eH7W0n2jcXT6Dl5zrQ3EVQmP1zrsXLv7NuqNHPAOZXvqbf8Wy2Zhg84XjmTZnCLCL28zT/l/82nuD
-	LN1jILUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S6UvMIVyFHQEXYx2VUEJCKqOTGz97qoHlz3hBNOwJbQ=; b=sbhpQLjRHx14sLDMuVTY/0fj+7
+	mMjCI9NjTwDEbQ521Vl8TD55ZQchgxbOjO5U3Oo56Xkv3qYjLyzpEbEWS17Kd1fdamyjcePY8OYqL
+	rUkF3+07qpEaOQY5Vmme5fH4aVHfMTJ2gSN2vbRBLuxG+wQHMWbJw3bfIj5ZAVAuorm4q31hMkxoL
+	ScnMCnDo9y0N8kC8duMcwlKamGxh9e27UiVa/t1c3v4jf/CCBxDRyppUDtKeTzUMGCIr+KTyMYPMA
+	+huT+S/hLYYpaAsjuozB0LtYWeXfKaAA7OBSdyV5YYt94/IB5NfYRPR2IJCa7/+slWo1fFDtG7/c+
+	sl6aU8Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKjr-0000000HDCY-18Tn;
-	Fri, 07 Nov 2025 11:34:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vHKqQ-0000000HDcu-3CzF;
+	Fri, 07 Nov 2025 11:41:30 +0000
+Received: from mail-westusazon11010058.outbound.protection.outlook.com ([52.101.85.58] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKjp-0000000HDCD-0wkt
+	id 1vHKqN-0000000HDc3-3KnK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 11:34:42 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A7548Mv2282023
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 7 Nov 2025 11:34:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=; b=mbhMlNg6a8Eh/Eg4
-	jC25f3ERL8KtItYqJP1T4SCPF5sO0yqkdB/xxI28Sow7f+paVZT8IcxO6q5WKQco
-	/QkkvXrNM/3Q3kWcCFtMNkq4grI8mKUGYV+bm4ugCTP2g8OQoXj8wj5BxmO5GoVj
-	HZ7k/6AECNCJ4h1xe4jlr2ulZQiI+U558tWmsPc1MgRZycHjGyxW5DjZ7RNYU/dj
-	YF8HL/C0CwjXjsbF36F5CLW6bgeQhOuajLrj4XgY7n1W5bzVRPTba0mryeYs9Is5
-	thz4vL1lu64xgwoyOettJbFuvWqG9u+hsQ5Kj8r1U3MZb4GtRTCqRERfMt5xuC8E
-	ay1pzQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a9a9sh3f5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 11:34:39 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ed6a906c52so1690081cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:34:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762515279; x=1763120079; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=;
-        b=X3ZmIS4oRxhf56yxvlye4pwnM3foH72y+T4AMeFFj4XBo9xQ/yMDO0LM0UIw/xPnM2
-         lW1uiCljcznmeWT7jN5FhH+bcncdd36mXwJpGTizl0JG9kcR4vkeh2X+XbZpSEhUelS0
-         MJtIj0492y3nK7E7z1raDl1bJVO+bytWS0Exvu7nuBecVGX26T3PHH0X3g6wzaO0DC0H
-         7ffwKkGjElxbz718wuHOFcY+a8j1S5PLtONA6PEGSrtFdg91frvxLgmeZXgA7uicNY64
-         5gfXXwZGPj2SW3LZYoCnAMQY4fQVZ9wqv9br8nf6rBEKefkBr51ewW/MJWlyOLPX+2mR
-         2s9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762515279; x=1763120079;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=;
-        b=ndLohqpGZUE8PdARV9aHKFAaC13+HLYV/GrahZeJf2A3OxdWA86cEFdouwBMES++oq
-         X7WxZq+vU1jcIuF40q4+HBQ8rRsO7jE5K9d2Ifo/dy/B876+rNKGlKnun/4Hh4ghB1iT
-         weTf9mU87zEjbnJFfzYMiAoO/pIMKqoxUmHwDpnssANbop7kNIyoohYqURE1ileziAGA
-         o41T0kNLbykIkNNiCaoMlFEy3zjpw7eivNYm+Yk4ztZl108KfE5m9p0UxmkvG0kRPG5N
-         WFqs44VDXsnGsoJa2WZGrTpJxI6RuFgWSrDt8reyAyAqNIL+Gys6NKmC2ox5MpqiputR
-         GEkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU601PT3NCd3Qj5qHrvBSs+zTcZEr1lp4dBNKyBGZx4D5N35kSCKA7uQkYAYq2tNwdbDRIP0pb+mCRDytA9mcCc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3OoGY9EYhwXkSjihiHEz+zencUncToIAfoPKGvGTIuGqM1Jug
-	YH5KGa8vUu921Ky5Srg41NttxgLFh9IGb/RCOGWrCiaEVOSHzz+5ySB8Rbz50nnQWEoaoVoxtO6
-	+/YIE4/PPq2U6lGiXutIcG0/O3m4w2UXtQY1YheSWQg9LmnmbeAaecg38CBylhcHTeGbEQCAbYr
-	XdKw==
-X-Gm-Gg: ASbGncv/TKeQRYiKQuSTK9owghkwe4CU5YqyarWx3uYMY3Z4nN1Vn5vIYxsoCvaZNdc
-	wukjM3mb4TW9X4LYBCr3gC/wcnnViD0ufjlXZixPrRhc8C7CAV/0aFjfkt5gq0fT6stw7f6qvxM
-	yYzKchlRnekLNCrVhA5bx+WKBJz6fMJpXvkidoPPDmSE0huIXT0DNFiYRiAUOoQ2UQvSaSp+CCk
-	cg3Snh03zHmgIOnwM128TH4hJUVY6vDKOHxE0Azt239VKCnFUyaxIgEmexPa/Rvd9+L3CUznizh
-	MMziHusuilgReLDhGEEhxjd+HctHNHvGVc+jaYrFNvhL4Uu0nJnvJbhw34qIeIMjV0l0fAcdN2A
-	BFqNo2bXyLrI7/JtXzOrriliB/xcNdAlvFS6b94AR4RncipbVemY2ey9E
-X-Received: by 2002:ac8:588f:0:b0:4b5:e4dc:1ee5 with SMTP id d75a77b69052e-4ed949427a0mr23309241cf.3.1762515278899;
-        Fri, 07 Nov 2025 03:34:38 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG+LAqOyus8ryKtljdjGtTT8tpekQXhHgSlDk1UkXksjpY7RbYCRhZLRuzIlyV/Mr61stF/eQ==
-X-Received: by 2002:ac8:588f:0:b0:4b5:e4dc:1ee5 with SMTP id d75a77b69052e-4ed949427a0mr23308921cf.3.1762515278322;
-        Fri, 07 Nov 2025 03:34:38 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bdbc95e4sm223260366b.12.2025.11.07.03.34.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Nov 2025 03:34:36 -0800 (PST)
-Message-ID: <a80d25e3-9178-441c-8b09-3f69b703484d@oss.qualcomm.com>
-Date: Fri, 7 Nov 2025 12:34:33 +0100
+	Fri, 07 Nov 2025 11:41:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TbvD9DDqS4/TDkt4/k65UXql7hNPe1mB13Dghqs7r5s1qhpUlVxiwXHtP2tGfKyPAhOpZKQi3cP4QumMxj7M0R+W3o8QA2+6Eq5rfbOiwbt0qAfXLw/MSRS99xggI3mDYnW3A56axCw8XTyrXI0rbSl9fLLC4BVIa0fwvEGG0w4UvD/P+GenvBUTADwebITU4ogQ+ocUrE8IBpU13K0O5IUPpvxYygWkKpxRR0Eiazuzf42NVvkDIAUoWT/MPb2ww37XinY5iWGkkwaUeSwgJnv36nygrRub11F08x02q4/rGaS8fqZ8nCl9CPTuTUwhIiY96nd5grP6EDAkAY5neQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S6UvMIVyFHQEXYx2VUEJCKqOTGz97qoHlz3hBNOwJbQ=;
+ b=opaqc9qfiZRZQ4Q08v1jQQdYtFcE6z2jUB4/MYaqZ/T9hGC+kjvg2PJZznrsJDo8JBMn41o90Yo7PtM+xuUKKoTpy3UxcVC7vu6NmYKjH7yaRIHk31FcjNBm29CR+VhC2Jc9vuAEuablg7pBlCrtWzsS637km1sT5hFrWP4TUAZh++yJUbGBUsOIz8i1VmkJbRpxFb3uNc9J+Hk4El46D9868N90yRl0st4QUASEScz2T/gz/n7gHvctwIbPxpE2pabWDUgscJHvHcIrPTP6CzLqC0K2kUgyb/lKlOuK11RP+q2/7j3BWAdbfZBlp7S5b+RZkoyxiPqyQn7cc4ZsTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S6UvMIVyFHQEXYx2VUEJCKqOTGz97qoHlz3hBNOwJbQ=;
+ b=HOHQiNCtCYfQKzUCpMEgP7sM1hFEYn3d+t51OMJMylm3bXLQ0Nl1dWbPF4I2sRD8l7esJvJSSnpNX7DeCNWWwHzesI0/37nlHncMgfArCZSLm7OnzTRGlJIDeiCaGDeFpJLFhUcsJj3TXi4OWEUUqP/ZJuN3/NulEkm0ZeGdAWE=
+Received: from MN0P220CA0028.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:52e::21)
+ by BLAPR10MB5121.namprd10.prod.outlook.com (2603:10b6:208:334::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Fri, 7 Nov
+ 2025 11:41:21 +0000
+Received: from BN2PEPF000044A6.namprd04.prod.outlook.com
+ (2603:10b6:208:52e:cafe::cd) by MN0P220CA0028.outlook.office365.com
+ (2603:10b6:208:52e::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.13 via Frontend Transport; Fri,
+ 7 Nov 2025 11:41:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF000044A6.mail.protection.outlook.com (10.167.243.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.6 via Frontend Transport; Fri, 7 Nov 2025 11:41:21 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
+ 2025 05:41:17 -0600
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Nov
+ 2025 05:41:16 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 7 Nov 2025 05:41:16 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A7BfGla2956373;
+	Fri, 7 Nov 2025 05:41:16 -0600
+Date: Fri, 7 Nov 2025 05:41:16 -0600
+From: Nishanth Menon <nm@ti.com>
+To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>, <richard.genoud@bootlin.com>,
+	Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
+ Kumar" <a-kumar2@ti.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH RFC 1/2] firmware: ti_sci: add BOARDCFG_MANAGED mode
+ support
+Message-ID: <20251107114116.f2laylu5yziueyia@budget>
+References: <20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com>
+ <20251017-ti-sci-jacinto-s2r-restore-irq-v1-1-34d4339d247a@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
- modification
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
- <7a774a6d-3f8f-4f77-9752-571eadd599bf@oss.qualcomm.com>
- <aQNXTscqFcucETEW@shell.armlinux.org.uk>
- <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
- <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=CdgFJbrl c=1 sm=1 tr=0 ts=690dd94f cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
- a=H4ebBzf8g92K_wxokogA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA3MDA5NCBTYWx0ZWRfX1NG16qyshPRR
- 8X2E/3hB2wkJg2VdUE0OYoFSps+zcIZIA0zGCXh/jf/fweBpxplvxsVQqRSdLyBMzNpLbFSsq2S
- D9r5LnZaPv+v2L+YgHbTebOkJN7Hfrfv0FqIws7uhLvfC7ejyxmsGVa/TPspoU3+/kuxbEjqmKt
- nFROcMYr1Qh8A0fMJ7OiE4Jt+b4gKyz5fGFitnkjnvvVxL1aRU0xZ2CMNfcXhZZUKg1OoMwWX6b
- ULAfKetbiUuIhsZBDv6wKN+mk9vSLXn/70ROk2ak77tkxfSK5shQM2G2NYGuoqU7cBs3D6jo9lt
- Ia9dyqnx14KLVSNCpGijG4F7CxXt7skdgfD2Db7hpqet0OmG01r4m7d7ybWYylmbgz3wZH9Lqpz
- QTDnfhO6Na1GnNot16COM9k7Ec1L5g==
-X-Proofpoint-ORIG-GUID: VSgsYiAWEefvSiDlOvWh1IA2lf4FmBqz
-X-Proofpoint-GUID: VSgsYiAWEefvSiDlOvWh1IA2lf4FmBqz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-07_02,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 malwarescore=0 spamscore=0 bulkscore=0
- phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511070094
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251017-ti-sci-jacinto-s2r-restore-irq-v1-1-34d4339d247a@bootlin.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A6:EE_|BLAPR10MB5121:EE_
+X-MS-Office365-Filtering-Correlation-Id: d600ac87-9f2a-4d53-f11b-08de1df29295
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SmfTKT80vLkMbQLe3GAsdkmEv/cYv3kzUpQjjJ56yMNK1xp2UsgIgoppszFO?=
+ =?us-ascii?Q?hcwQ+fppuHw8NsO/C9mVjR0R7pTjGCbnpsc/hU7YM9DGT+m4nrNiwllxdWfY?=
+ =?us-ascii?Q?jXBUIJZgAJ5ZWcnGlmtpJ02UuKrQtR/v/o0hgNWpgiPV1X/t3/LCcyNNMKba?=
+ =?us-ascii?Q?lZ+dh6uBB2SNdTmQBjbnsXJVhROJW5hx2+HCPgwngPEph8IAhEr5qRz2Fy1d?=
+ =?us-ascii?Q?/RMkxWITe2ny+xEyuM3isWpunLRxwXmY8+7F7eiV0TAbXpuoZXzUX+dpvFB0?=
+ =?us-ascii?Q?9DLffi/N+U+0rkbM0hmN2KVmLK+xISmNvxog8mwT9Y5S+kVijFuo34ioYEMi?=
+ =?us-ascii?Q?+nJEuqe+Wp827MYrZcFuI1owPyZcrrGxuN8iyOmtCqLZxOvCFsLe0RLMr7nE?=
+ =?us-ascii?Q?SII0Mi+RCGiUiv+1n9NIiOvTROA9R9NpVJ3KVITqMJ8Ubm1cIphtL6y9/iXA?=
+ =?us-ascii?Q?U43Fos9ZZ18nae6CTUDnNoSPiBCz57GSw4mutPWgxb+6kL9k+bTR/oxK5ZG3?=
+ =?us-ascii?Q?xZBG3A36Ji24qjClyjzjN5XmnDx0mHFHwQdpIM5oaHs4nm024OD2+NQ9gY4X?=
+ =?us-ascii?Q?nOmS9BAHkIhFFs1dTgetbUkv/RVj3zYpyBr+DptM7aAa3NcoNotBAupoOS1w?=
+ =?us-ascii?Q?Xd94Bq4qEtqZHOZLj32Cf5/GWzfFEudyGjzZtNO/2A44VzciNT6ycwFs/T8e?=
+ =?us-ascii?Q?jT9Fzw8kjmZBJ0cr82C+/nVt6tIv/hwFupY/d0vIT2UEc09AlpP6OcvXkT+0?=
+ =?us-ascii?Q?sHlzEH4DcB77MC50BFm8U4S5urXrVSd0xcJDQhiMNUsrEodBVxM2tsER8LJ1?=
+ =?us-ascii?Q?MGH/2lYQ0xamXjrylEc1Qj4cItxJtd+Oiaz9UOn9pNTZT3v0IOVPHHUZCwsX?=
+ =?us-ascii?Q?CfFZxQHGwSSDQqQ45BKbh7wz8/PqbNRCukhfKeW9QC1kYihoSJ5Ig2L1xfXQ?=
+ =?us-ascii?Q?33as58WRbXJnbvQDfoBoKPcRf5oi4XTl66O12OtXmw/LG65bu1OJXylPAOqK?=
+ =?us-ascii?Q?lKVWIJ5oHkoFQeL5+7DEXpFL9KVuq1MGKIXDU3zInspsI+kVEVOdAOjhgh7C?=
+ =?us-ascii?Q?ZjJ8v9sfUv7GNbM7Db8Kj2ixCfnvppLlKKJKgS8yNr3J7kl5bR2hmgJaU1bT?=
+ =?us-ascii?Q?WHfi9hzESlQKn9RwJWNKYWEqJh14dw5mPRgu/tJ7klArUe0ZOXnX5304FWDP?=
+ =?us-ascii?Q?dZ51iRbrJlaIPqOHVItu83m0OPVeMt0EFuoyf5SubXCG72dkwOv22XFWvTeQ?=
+ =?us-ascii?Q?Y5fiVzua5xZAEuTLnWNB5Wad4n0BoboJf/9HMnXpuFHgQfnNXARmya1LQPbA?=
+ =?us-ascii?Q?yzcv6ZykuNP3XktODeLcafAxYLNsCq21cSLj29pQ/VSnJB5oPBwn2BtNpot1?=
+ =?us-ascii?Q?Fd/5ser4f1T6mRv6n+5CNIaOr/LnoKdR8IDCz3FDld6WONgRLUThrQpQ+LMQ?=
+ =?us-ascii?Q?/gy7DMyIrl6IhdCXbce15G0qpV9oroCJofZX59AbiRE/2iTjj2zeT+kgxpyl?=
+ =?us-ascii?Q?D2MaWntr4zMFGO0d2MyIOMlDg19BsUcP+OxpPbB+2VwPdI0FKAUjwnfd7xed?=
+ =?us-ascii?Q?i1Bjioi00uNch11lPvI=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 11:41:21.0628
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d600ac87-9f2a-4d53-f11b-08de1df29295
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A6.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_033441_410660_19B1A62D 
-X-CRM114-Status: GOOD (  27.87  )
+X-CRM114-CacheID: sfid-20251107_034128_050634_4C89C41D 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,95 +157,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/30/25 3:05 PM, Russell King (Oracle) wrote:
-> On Thu, Oct 30, 2025 at 02:08:41PM +0100, Konrad Dybcio wrote:
->> On 10/30/25 1:17 PM, Russell King (Oracle) wrote:
->>> Konrad, Ayaan,
->>>
->>> Can you shed any light on the manipulation of the RGMII_IO_MACRO_CONFIG
->>> and RGMII_IO_MACRO_CONFIG2 registers in ethqos_configure_sgmii()?
->>>
->>> Specifically:
->>> - why would RGMII_CONFIG2_RGMII_CLK_SEL_CFG be set for 2.5G and 1G
->>>   speeds, but never be cleared for any other speed?
->>
->> BIT(16) - "enable to transmit delayed clock in RGMII 100/10 ID Mode"
-> 
-> I guess that means that changing this bit is not relevant for the SGMII
-> path, and thus can be removed:
-> 
->         switch (speed) {
->         case SPEED_2500:
-> -               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
-> -                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
-> -                             RGMII_IO_MACRO_CONFIG2);
->                 ethqos_set_serdes_speed(ethqos, SPEED_2500);
->                 ethqos_pcs_set_inband(priv, false);
->                 break;
->         case SPEED_1000:
-> -               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
-> -                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
-> -                             RGMII_IO_MACRO_CONFIG2);
->                 ethqos_set_serdes_speed(ethqos, SPEED_1000);
->                 ethqos_pcs_set_inband(priv, true);
-> 
->>> - why is RGMII_CONFIG_SGMII_CLK_DVDR set to SGMII_10M_RX_CLK_DVDR
->>>   for 10M, but never set to any other value for other speeds?
->>
->> [18:10] - In short, it configures a divider. The expected value is 0x13
->> for 10 Mbps / RMII mode
-> 
-> This gets confusing. Is the "/" meaning "10Mbps in RMII mode" or "10Mbps
-> or RMII mode".
-> 
->> which seems to have been problematic given:
->>
->> https://lore.kernel.org/all/20231212092208.22393-1-quic_snehshah@quicinc.com/
->>
->> But it didn't say what hardware had this issue.. whether it concerns a
->> specific SoC or all of them..
->>
->> A programming guide mentions the new 0x31 value for 10 Mbps in a
->> SoC-common paragraph so I suppose it's indeed better-er.. Perhaps issues
->> could arise if you switch back to a faster mode?
-> 
-> Could the 0x13 be a typo? Its suspicious that the two values are 0x13
-> vs 0x31. 0x13 = 19 vs 0x31 = 49. 0x31 makes more sense than 19.
-> 
-> The platform glue is required to supply clk_rx_i to the dwmac's MAC
-> receive path, deriving it from the 125MHz SGMII rx link clock divided
-> by 1, 5 or 50. Normally, this would be done by hardware signals output
-> from the dwmac.
-> 
-> This suggests that the value programmed is one less than the actual
-> divisor.
-> 
-> There's two possibilities why this value needs to be programmed:
-> 
-> 1. the hardware doesn't divide the SGMII rx link clock according to
-> the hardware signals output from the dwmac, and needs the divisor to
-> be manually programmed. This would require the divisor to also be
-> programmed to 4 for 100M (but the driver doesn't do this.)
-> 
-> 2. the hardware selects the clk_rx_i depending on the hardware
-> signals, and while 1G and 100M use a fixed divisor of 1 and 5, the
-> 10M divisor needs to be manually programmed.
-> 
-> Any ideas what's really going on here?
+On 16:44-20251017, Thomas Richard (TI.com) wrote:
+> In BOARDCFG_MANAGED mode, the low power mode configuration is done
+> statically for the DM via the boardcfg. Constraints are not supported, and
+> prepare_sleep() is not needed.
 
-The computer says:
+Will be good to get pointed to some documentation around this..
+> 
+> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+> ---
+>  drivers/firmware/ti_sci.c | 10 +++++++---
+>  drivers/firmware/ti_sci.h | 14 ++++++++------
+>  2 files changed, 15 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index da134ada64e179b4b307f7e0de5ed0f7371a96f2..f9f1a67e8e66b0a4048fae04ce31be54ca5cba7a 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -3693,8 +3693,11 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+>  			return ti_sci_cmd_prepare_sleep(&info->handle,
+>  							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
+>  							0, 0, 0);
+> +		} else if (info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED) {
+> +			/* Nothing to do in the BOARDCFG_MANAGED mode */
+> +			return 0;
+>  		} else {
+> -			/* DM Managed is not supported by the firmware. */
+> +			/* DM Managed and BoardCfg Managed are not supported by the firmware. */
+>  			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
+>  			return -EOPNOTSUPP;
+>  		}
+> @@ -3932,12 +3935,13 @@ static int ti_sci_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
+> -	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s\n",
+> +	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s\n",
+>  		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
+>  		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
+>  		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
+>  		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
+> -		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : ""
+> +		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
+> +		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : ""
+>  	);
+>  
+>  	ti_sci_setup_ops(info);
+> diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+> index 7559cde17b6ccfeeb1bc357fce5c5767c3f75c54..ac1cf6971b8678aa1277abb86d9ec672493f4c86 100644
+> --- a/drivers/firmware/ti_sci.h
+> +++ b/drivers/firmware/ti_sci.h
+> @@ -150,6 +150,7 @@ struct ti_sci_msg_req_reboot {
+>   *		MSG_FLAG_CAPS_LPM_DM_MANAGED: LPM can be managed by DM
+>   *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
+>   *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
+> + *		MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED: LPM config done statically for the DM via boardcfg
+>   *
+>   * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
+>   * providing currently available SOC/firmware capabilities. SoC that don't
+> @@ -157,12 +158,13 @@ struct ti_sci_msg_req_reboot {
+>   */
+>  struct ti_sci_msg_resp_query_fw_caps {
+>  	struct ti_sci_msg_hdr hdr;
+> -#define MSG_FLAG_CAPS_GENERIC		TI_SCI_MSG_FLAG(0)
+> -#define MSG_FLAG_CAPS_LPM_PARTIAL_IO	TI_SCI_MSG_FLAG(4)
+> -#define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
+> -#define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
+> -#define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
+> -#define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
+> +#define MSG_FLAG_CAPS_GENERIC			TI_SCI_MSG_FLAG(0)
+> +#define MSG_FLAG_CAPS_LPM_PARTIAL_IO		TI_SCI_MSG_FLAG(4)
+> +#define MSG_FLAG_CAPS_LPM_DM_MANAGED		TI_SCI_MSG_FLAG(5)
+> +#define MSG_FLAG_CAPS_LPM_ABORT			TI_SCI_MSG_FLAG(9)
+> +#define MSG_FLAG_CAPS_IO_ISOLATION		TI_SCI_MSG_FLAG(7)
+> +#define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(10)
+> +#define MSG_MASK_CAPS_LPM			GENMASK_ULL(4, 1)
 
-RGMII ID mode - speed == 10 ? 0x13 : dontcare?
-RMII Bypass ID mode - - speed == (10 || 100) ? 0x13 : dontcare?
-(*the 100 above says "default" but that's again 0x13)
+Driveby comment: let us not churn formatting..
 
-RMII mode (100 Mbps) - default (0x13)
-RMII mode (10 MBps) - 0x13
+>  	u64 fw_caps;
+>  } __packed;
+>  
+> 
+> -- 
+> 2.51.0
+> 
 
-SGMII mode - speed == 10 ? 0x31 : 0x13
-
-Make of that what you will, I would *guess* there may be something like
-2. going on
-
-Konrad
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
