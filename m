@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A25CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A860CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 08:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7ILgVSl1cCXHuRsPTglZobkv3bXbExIQncijaA3L+c=; b=tP2f0Kc1wcI/mg6gZvWV7yVCip
-	z9FPnpNwVK0gcird53K2451YMpChc40yDmMjVT8fnNTB3wnXkZjHc+n7NtUStoXBKg27t5i97slJp
-	pRl3cP0cLHI9YbcT9VgeOgXpRTz/gC5axRvlpoKBPVcG0uiY804axiQ6Ypg3dJqHZDdysWpgrBLTx
-	+wrR79mJakCxTZ3T3Ypoch2ijvp3rYS5emGkRu6it1xd2/e9q1s9CUc6G/zseFgVN9zgIxZ5XPA/Q
-	n5w1IU2PbVmcvG4jK69G1e6InFU6a1AehGB78wgKG57KY4PqoPQzdZGLMzd0Q6f+KGCf/vE2sCScW
-	MHbC5/Ig==;
+	bh=Vq3/6ZYbafYubf1aK0/dIDlH4j7ingOy1QcmAuZ6u3w=; b=CLDe250gfcFXzFoZvlEbVzDFFZ
+	Czbu0AV9woQFRLFVbTzVyUXAine9fgm8UqEvPes4iUro4vBXRkG5IrATaMW1mOhJpQrcwmRaQZ4qT
+	KPPbKbDW8jMJJbMcVuo7TIKn+cWh2SQyHOg43/0Tp6QIfCyb+KjEXc5nt9/cCNW+/bIxJcKl2wabT
+	bBFZCTs4d5n4wHLSb0qIbeFjRNLMEvjZSYghQs7+NMSw0mCIipJb009UpyxFWUEP2Bs6k++18STXo
+	JpGYpP7DS22KyrjVCJk9XX5c3oX/ix1WhwcM7l9U8rH3zkSaC8jak1yklhUFvH7IoFBZJGOoxT/2u
+	O7Kt8+RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHps-0000000GsFe-3LP1;
-	Fri, 07 Nov 2025 08:28:44 +0000
+	id 1vHHpy-0000000GsHm-0UnZ;
+	Fri, 07 Nov 2025 08:28:50 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHpq-0000000GsEu-2BAB
+	id 1vHHpt-0000000GsFX-2BXk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 08:28:43 +0000
+	Fri, 07 Nov 2025 08:28:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=g7ILgVSl1cCXHuRsPTglZobkv3bXbExIQncijaA3L+c=; b=Z4vWbDH8DlbE81UFNr0LreGoWB
-	bt2+X09KBN+ES4kUdAYQDQEjqpVyVQTUoVUbsF1TVkMTghkdX7cQqt3ckJEwDlzdVU2Ua4OIf6hB5
-	Ag57yJT0unQFnGrKfsqCV0BIpSyonA1albhbfgGL7evXgjHQFC9MlkVBRyvcepm3/c59d/F/i6Bry
-	VnK4fvjOTKC36KSwF4IMkj5Cs7/SYqwjcazWuCwtNT60MDu7cvLXcl6XLyXAQMgEs7yFSeXHb6AKN
-	PygDSuHBwAI9rxQXsuUSAMrw67Cg80jlWQW9G7wNkgLbTZ/4rM9W0xxzfDmW3wUhSf5HrloqY+sSY
-	PjlR5Gow==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58618 helo=rmk-PC.armlinux.org.uk)
+	bh=Vq3/6ZYbafYubf1aK0/dIDlH4j7ingOy1QcmAuZ6u3w=; b=wAMG7LTtIhl5jueewouUNmSUpo
+	fqWRJf8znaNYVorWtwM66PA0abMcQqq1HWfzgW0uFLXsE1dRjQcNiLVfgtSJDa7wNxAa4/a+fh6P6
+	QBf8kUcZZLHF0C/s/VR6XPKEAWbZFOD/Y9DAlL9p2pVMKttIhLkFredUPFV12TAd4dxr/XKRHuNMa
+	Re12TME7OpG2masaxdZfyP4zCezaARzBS9XFLR5tCTDR5yBEk9saOgnUX0AZSz1ZbYAh91d+geBjk
+	OoQurkU0/HN+lkcl2A6m7YnuHdhTP1tiYXzj5KYNHsasxFvaRbOelqNAuUAaDlIAAKc94CIXPeyiT
+	cooducEw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35512 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vHHpj-0000000068d-33jw;
-	Fri, 07 Nov 2025 08:28:35 +0000
+	id 1vHHpo-0000000068r-3hST;
+	Fri, 07 Nov 2025 08:28:40 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vHHpi-0000000Djqp-4910;
-	Fri, 07 Nov 2025 08:28:35 +0000
+	id 1vHHpo-0000000Djqv-0RD4;
+	Fri, 07 Nov 2025 08:28:40 +0000
 In-Reply-To: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
 References: <aQ2tgEu-dudzlZlg@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v3 01/11] net: stmmac: ingenic: move
- ingenic_mac_init()
+Subject: [PATCH net-next v3 02/11] net: stmmac: ingenic: simplify jz4775
+ mac_set_mode()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vHHpi-0000000Djqp-4910@rmk-PC.armlinux.org.uk>
-Date: Fri, 07 Nov 2025 08:28:34 +0000
+Message-Id: <E1vHHpo-0000000Djqv-0RD4@rmk-PC.armlinux.org.uk>
+Date: Fri, 07 Nov 2025 08:28:40 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_002842_557903_B93017BD 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20251107_002845_583014_064D8C8B 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +90,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move ingenic_mac_init() to between variant specific set_mode()
-implementations and ingenic_mac_probe(). No code changes.
+All paths configure the transmit clock as an input. Move this out of
+the switch() statement to simplify the code.
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 28 +++++++++----------
- 1 file changed, 14 insertions(+), 14 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-ingenic.c    | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-index c1670f6bae14..8d0627055799 100644
+index 8d0627055799..c6c82f277f62 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-@@ -71,20 +71,6 @@ struct ingenic_soc_info {
- 	int (*set_mode)(struct plat_stmmacenet_data *plat_dat);
- };
+@@ -78,20 +78,17 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
  
--static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
--{
--	struct ingenic_mac *mac = bsp_priv;
--	int ret;
--
--	if (mac->soc_info->set_mode) {
--		ret = mac->soc_info->set_mode(mac->plat_dat);
--		if (ret)
--			return ret;
--	}
--
--	return 0;
--}
--
- static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- {
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
-@@ -234,6 +220,20 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 	switch (plat_dat->phy_interface) {
+ 	case PHY_INTERFACE_MODE_MII:
+-		val = FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_MII);
++		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_MII);
+ 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_MII\n");
+ 		break;
+ 
+ 	case PHY_INTERFACE_MODE_GMII:
+-		val = FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_GMII);
++		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_GMII);
+ 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_GMII\n");
+ 		break;
+ 
+ 	case PHY_INTERFACE_MODE_RMII:
+-		val = FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
++		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
+ 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
+ 		break;
+ 
+@@ -99,8 +96,7 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+ 	case PHY_INTERFACE_MODE_RGMII_TXID:
+ 	case PHY_INTERFACE_MODE_RGMII_RXID:
+-		val = FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT) |
+-			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RGMII);
++		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RGMII);
+ 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RGMII\n");
+ 		break;
+ 
+@@ -110,6 +106,8 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 		return -EINVAL;
+ 	}
+ 
++	val |= FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT);
++
+ 	/* Update MAC PHY control register */
  	return regmap_update_bits(mac->regmap, 0, mac->soc_info->mask, val);
  }
- 
-+static int ingenic_mac_init(struct platform_device *pdev, void *bsp_priv)
-+{
-+	struct ingenic_mac *mac = bsp_priv;
-+	int ret;
-+
-+	if (mac->soc_info->set_mode) {
-+		ret = mac->soc_info->set_mode(mac->plat_dat);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static int ingenic_mac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
 -- 
 2.47.3
 
