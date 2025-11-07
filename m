@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B005CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B459CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uu0ZIPjTa43YK4+3U5QZ0hdnOMvXgZP4iC41BlLcD3I=; b=0QWWpiIUC7nDAgZU/G4PvAIzoc
-	q/Nfsw+bPhMRwFk9i3vPNHAmIbqRuR6wMtFoVgHQacBoJeA/hilKoBdW9RiY6nwtakCrIWQuC3S4w
-	Ix3MW55qCi+J/y3JGjY4utipURiK47xFD9xfgK9eRpcv1ZVZPKyFr0qL9TizTGDBcsh6Yuoj+bLUQ
-	vqdZHHjnj15Sz4v13DQsb8Cty3/LXfYF+atIxQfGNwJUqoY2y3FweQCIFR7D1W47nxgLB6fXu4WOK
-	+/Wk8Go9oS/7Zqh8qpW3+A+CfodMkdGAXt1B/7wWcEsK/DrOwZumbv5/YUwvWWqb+Cb+msyofOhQW
-	TsT7OZmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mk5OfZS4JLmgRhgsvjlhaRVTQhIGVSqHJQeTx0J3LiA=; b=DWxXpLsu5lqkuBg/y8vRkBspkO
+	PayA5UxtsHzHmwDYH49J8oMNsWdGivz5yso8lydUlrFyNFYGv3ikRuXNKrvNS/ntYjcAJ1kBKT7+t
+	gqkKvvtuHpou8R2Fr3T/k+5R7JIRjAu+XJhb8j2aLutyeurp2u3n289ZRqh/p7+r0/jU0WZ3dwTcS
+	E71Uj6Kb58YTjEy1D/4WH6E3Rl8eprjAaHMoyBbQodSYUNchqF+Or/uJaxX69X4gxihpkWryCpQrE
+	jP1bra9WsqGMCitQrA1HCBk+otbL/fKCgRLy9ATj4Zq+B4G4ydORhqgdqyDkUBWZXD4bt99s8loKS
+	WfiWpJBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMXC-0000000HPBs-2Y5f;
-	Fri, 07 Nov 2025 13:29:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMXA-0000000HPBR-2eJQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 13:29:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10EA61515;
-	Fri,  7 Nov 2025 05:29:36 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85B043F63F;
-	Fri,  7 Nov 2025 05:29:42 -0800 (PST)
-Message-ID: <4f5ad681-b531-48a1-8fae-a0c3b5a51a29@arm.com>
-Date: Fri, 7 Nov 2025 13:29:41 +0000
+	id 1vHMXY-0000000HPHb-0q3n;
+	Fri, 07 Nov 2025 13:30:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHMXW-0000000HPGm-2d6Y;
+	Fri, 07 Nov 2025 13:30:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 483B361904;
+	Fri,  7 Nov 2025 13:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDBECC4CEF7;
+	Fri,  7 Nov 2025 13:30:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762522205;
+	bh=ayKu6qJSzYXCMxqqx8+O/4F+Us8bRURTI3A5cDLYypM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kcqrujjBziW2PnvjdzfKWfsqY1cKDz8qMBny0eqYuge1EUE++z4ZhTutoDCsjA94n
+	 KkiSqfoFGO4WfZXdFy8weoDhV+xXAnay9BLKUeO+7PKRwt6E8gydq6tTYoI3K3lDer
+	 9nWaOGAv/rWit2dT4Xo1tFkNRgDRAhrv4bPDhNdF8ntAK2J53etURMCQYizPMR8qT8
+	 csdH8NFU/wPa+btDAlr2avZwcem3bXmBB9emaTc3kTfl3hguiSh2sKHSwXacic7jTn
+	 bOhPZlS04R0XcFZhHDWHoCJFjWhPWZ0ZdF9RKoVtj5eXxkaiQqleEPrvT+iKR+DRfY
+	 A+Lyy9rTz1X7Q==
+Date: Fri, 7 Nov 2025 14:30:02 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
+Message-ID: <aQ30WmbN_O60vEzl@lore-desk>
+References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
+ <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
+ <aEg1lvstEFgiZST1@lore-rh-laptop>
+ <20250611173626.54f2cf58@kernel.org>
+ <aEtAZq8Th7nOdakk@lore-rh-laptop>
+ <20250612155721.4bb76ab1@kernel.org>
+ <aFATYATliil63D5R@lore-desk>
+ <aQR2Z51Q45Zl99m_@lore-desk>
+ <20251031111641.08471c44@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: tpdm: remove redundant check for drvdata
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Tao Zhang <tao.zhang@oss.qualcomm.com>,
- Mao Jinlong <jinlong.mao@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251107-fix_tpdm_redundant_check-v1-1-b63468a2dd73@oss.qualcomm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251107-fix_tpdm_redundant_check-v1-1-b63468a2dd73@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_052944_719416_416ADEEE 
-X-CRM114-Status: GOOD (  14.33  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IjyweC8QavTyUWhR"
+Content-Disposition: inline
+In-Reply-To: <20251031111641.08471c44@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +79,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 06:16, Jie Gan wrote:
-> Remove the redundant check for drvdata data because the drvdata here already
-> has been guarranted to be non-NULL.
-> 
-> Fixes: 350ba15ae187 ("coresight-tpdm: Add nodes for dsb msr support")
-> Fixes: 8e8804145a46 ("coresight-tpdm: Add msr register support for CMB")
 
-This doesn't need to be backported as such, as it is a cleanup. I will 
-drop the Fixes tag and merge this.
+--IjyweC8QavTyUWhR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Suzuki
+> On Fri, 31 Oct 2025 09:42:15 +0100 Lorenzo Bianconi wrote:
+> > > > Hm, truesize is the buffer size, right? If the driver allocated n b=
+ytes
+> > > > of memory for packets it sent up the stack, the truesizes of the sk=
+bs
+> > > > it generated must add up to approximately n bytes. =20
+> > >=20
+> > > With 'truesize' I am referring to the real data size contained in the=
+ x-order
+> > > page returned by the hw. If this size is small, I was thinking to jus=
+t allocate
+> > > a skb for it, copy the data from the x-order page into it and re-inse=
+rt the
+> > > x-order page into the page_pool running page_pool_put_full_page().
+> > > Let me do some tests with order-2 page to see if the GRO can compensa=
+te the
+> > > reduced page size. =20
+> >=20
+> > Sorry for the late reply about this item.
+> > I carried out some comparison tests between GRO-only and GRO+LRO with o=
+rder-2
+> > pages [0]. The system is using a 2.5Gbps link. The device is receiving =
+a single TCP
+> > stream. MTU is set to 1500B.
+> >=20
+> > - GRO only:			~1.6Gbps
+> > - GRO+LRO (order-2 pages):	~2.1Gbps
+> >=20
+> > In both cases we can't reach the line-rate. Do you think the difference=
+ can justify
+> > the hw LRO support? Thanks in advance.
+> > =20
+> > [0] the hw LRO requires contiguous memory pages to work. I reduced the =
+size to
+> > order-2 from order-5 (original implementation).
+>=20
+> I think we're mostly advising about real world implications of=20
+> the approach rather than nacking. I can't say for sure if potentially
+> terrible skb->len/skb->truesize ratio will matter for a router
+> application. Maybe not.
+>=20
+> BTW is the device doing header-data split or the LRO frame has headers
+> and payload in a single buffer?
 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index 0e3896c12f07..06e0a905a67d 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -1402,11 +1402,11 @@ static int tpdm_probe(struct device *dev, struct resource *res)
->   		if (ret)
->   			return ret;
->   
-> -		if (drvdata && tpdm_has_dsb_dataset(drvdata))
-> +		if (tpdm_has_dsb_dataset(drvdata))
->   			of_property_read_u32(drvdata->dev->of_node,
->   					     "qcom,dsb-msrs-num", &drvdata->dsb_msr_num);
->   
-> -		if (drvdata && tpdm_has_cmb_dataset(drvdata))
-> +		if (tpdm_has_cmb_dataset(drvdata))
->   			of_property_read_u32(drvdata->dev->of_node,
->   					     "qcom,cmb-msrs-num", &drvdata->cmb_msr_num);
->   	} else {
-> 
-> ---
-> base-commit: df5d79720b152e7ff058f11ed7e88d5b5c8d2a0c
-> change-id: 20251107-fix_tpdm_redundant_check-a5a7bad4b7c8
-> prerequisite-change-id: 20251028-add_static_tpdm_support-1f62477857e2:v4
-> prerequisite-patch-id: eda8dd6884b831cb10affc22477aece39c78b408
-> prerequisite-patch-id: 7beb8b17d54ff21bc57eab10b56e6ffcfa4d1963
-> prerequisite-patch-id: f6f1e78dba3f1d3b1191ab827adab5a3b7b2326a
-> 
-> Best regards,
+According to my understanding the hw LRO is limited to a single order-x page
+containing both the headers and the payload (the hw LRO module is not capab=
+le
+of splitting the aggregated TCP segment over multiple pages).
+What we could do is disable hw LRO by default and feed hw rx queues with
+order-0 pages (current implementation). If the user enables hw LRO, we will
+free order-0 pages linked to the rx DMA descriptors and allocate order-x pa=
+ges
+(e.g. order-2) for hw LRO queues. Disabling hw LRO will switch back to orde=
+r-0
+pages.
 
+Regards,
+Lorenzo
+
+--IjyweC8QavTyUWhR
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaQ30WgAKCRA6cBh0uS2t
+rGZOAP9M9uVRlJXXgPl6G+OORxGKlgdXBTOwtW4DApLOp26PCAEAl8At5F9pJxhs
+BkRGi+/l6PhGdLpVmqI64CnAKZ+btwE=
+=OyjG
+-----END PGP SIGNATURE-----
+
+--IjyweC8QavTyUWhR--
 
