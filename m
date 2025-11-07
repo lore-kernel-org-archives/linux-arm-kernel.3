@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307C1CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1921CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjsKnx6myc+SjSVfljlFz1uoxxYpQs+XjVirkwIqzsU=; b=5C44s0tXP2kVxK9FG2pVxGjDnT
-	hXqrXBWzMo62YNab8NqPFSEjSeZfe0SAIjZBtTci13pQqFiSFydQJdSQyWJOvJ4cvkmSC1hSksP7j
-	fuoV9nRG49IXee+O4YnPHWTHudYaf6APfZygSvSiyRdNEnpA6SZLGw9eoWV9/cTjxtLRdkLk5sDSI
-	jkgQa+ji7D8RVs66KAUJrLSg47TcPct7TzdLHGRvtkMXbA4ZMV1YQRldzHWBTUDqrtTrzgIW9cSWm
-	Dt5lQlJD4/MHiS9mrPxkXMi8tgSZwyfF4qyF2pawRF8+V65jszSV0xMuRw5pnBegutL5qdahAP2dV
-	nq5fS42g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7kX1Xy2V1MN3IMg82+bocMlGGOsUiexNBkEAtBouJgU=; b=xD47xek9AAzY/c4ARz9TFTvHip
+	jTJX3ieJcMpCZ/+QhNW04L+7fX40Rsv7EfnFaxF/im8wA+o4vlo9M/oqSYQ9+dQjM+MEUzbft4Rya
+	D5Nk1xVTnHw/cLe6MNabnG26GZCHP2kU/Y1F8JmKZSNayVjk/tpVu8iBka7fc6E0EzQbmDqo/C6b+
+	MOGxFBxflkieyIC6ACKnLmbhlMQ13ECNj4ljRYH15wcEcMVaPkYv/YUs6LP5Rr79GsApcY4PjqXpU
+	mPJJWOV5/4obYfooCbJva2fCyajxO3Y3h1N/LuoSPEBHWouC3H/KNJgneaTXBOIuNS1PXQ0lCm7/+
+	KQCo3/bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJE8-0000000H1wB-3Gth;
-	Fri, 07 Nov 2025 09:57:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJE6-0000000H1vM-0rqv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 09:57:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53BF714BF;
-	Fri,  7 Nov 2025 01:57:39 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B3523F66E;
-	Fri,  7 Nov 2025 01:57:45 -0800 (PST)
-Date: Fri, 7 Nov 2025 09:57:40 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Dylan Hatch <dylanbhatch@google.com>,
-	Fanqin Cui <cuifq1@chinatelecom.cn>
-Subject: Re: [PATCH v2 2/2] arch: arm64: Reject modules with internal
- alternative callbacks
-Message-ID: <aQ3ClNpcT-YBlvnG@J2N7QTR9R3>
-References: <20250922130427.2904977-1-abarnas@google.com>
- <20250922130427.2904977-3-abarnas@google.com>
+	id 1vHJHS-0000000H2A4-3SH1;
+	Fri, 07 Nov 2025 10:01:18 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHJHL-0000000H295-10Zl;
+	Fri, 07 Nov 2025 10:01:18 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7kX1Xy2V1MN3IMg82+bocMlGGOsUiexNBkEAtBouJgU=;
+	b=NzQFRO5Gm300s7UctdcQgLIGYzyHgX6kdO8MUmXHveqhUE/YrMrn0ZyOV/E4bg2iWkPI2EHD/
+	ltJWoV/VSBpfpe6X4Y165XAbaJ1wMvnUBuDMgR6pE1iZS92N+siBr0sgk9keQvnL33vQCw3mZK8
+	4CphrojZy9QXAtvf+u6uYII=
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4d2vfk0xVGz1prlB;
+	Fri,  7 Nov 2025 17:59:26 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 344CB1402FC;
+	Fri,  7 Nov 2025 18:01:03 +0800 (CST)
+Received: from kwepemq100008.china.huawei.com (7.202.195.91) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 7 Nov 2025 18:01:03 +0800
+Received: from DESKTOP-DKE2JV6.huawei.com (10.67.110.146) by
+ kwepemq100008.china.huawei.com (7.202.195.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 7 Nov 2025 18:01:02 +0800
+From: Liyuan Pang <pangliyuan1@huawei.com>
+To: <richard@nod.at>, <chengzhihao1@huawei.com>, <miquel.raynal@bootlin.com>,
+	<vigneshr@ti.com>, <mcoquelin.stm32@gmail.com>,
+	<alexandre.torgue@foss.st.com>, <markus.elfring@web.de>
+CC: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <wanqian10@huawei.com>,
+	<young.liuyang@huawei.com>, Liyuan Pang <pangliyuan1@huawei.com>
+Subject: [PATCH v2] ubi: fastmap: fix ubi->fm memory leak
+Date: Fri, 7 Nov 2025 18:00:57 +0800
+Message-ID: <20251107100057.1091153-1-pangliyuan1@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250922130427.2904977-3-abarnas@google.com>
+Content-Type: text/plain
+X-Originating-IP: [10.67.110.146]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq100008.china.huawei.com (7.202.195.91)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_015750_286796_49AFA8F1 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20251107_020111_917074_903F7D0F 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,60 +82,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 01:04:27PM +0000, Adrian Barnaś wrote:
-> During module loading, check if a callback function used by the
-> alternatives specified in the '.altinstruction' ELF section (if present)
-> is located in core kernel .text. If not fail module loading before
-> callback is called.
-> 
-> Reported-by: Fanqin Cui <cuifq1@chinatelecom.cn>
-> Closes: https://lore.kernel.org/all/20250807072700.348514-1-fanqincui@163.com/
-> Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> ---
->  arch/arm64/include/asm/alternative.h |  7 +++++--
->  arch/arm64/kernel/alternative.c      | 19 ++++++++++++-------
->  arch/arm64/kernel/module.c           |  9 +++++++--
->  3 files changed, 24 insertions(+), 11 deletions(-)
+The problem is that scan_fast() allocate memory for ubi->fm
+and ubi->fm->e[x], but if the following attach process fails
+in ubi_wl_init or ubi_read_volume_table, the whole attach
+process will fail without executing ubi_wl_close to free the
+memory under ubi->fm.
 
-[...]
+Fix this by add a new ubi_free_fastmap function in fastmap.c
+to free the memory allocated for fm.
 
-> @@ -166,10 +166,13 @@ static void __apply_alternatives(const struct alt_region *region,
->  		updptr = is_module ? origptr : lm_alias(origptr);
->  		nr_inst = alt->orig_len / AARCH64_INSN_SIZE;
->  
-> -		if (ALT_HAS_CB(alt))
-> +		if (ALT_HAS_CB(alt)) {
->  			alt_cb  = ALT_REPL_PTR(alt);
-> -		else
-> +			if (!core_kernel_text((unsigned long)alt_cb))
-> +				return -ENOEXEC;
-> +		} else {
->  			alt_cb = patch_alternative;
-> +		}
+If SLUB_DEBUG and KUNIT are enabled, the following warning messages
+will show:
+ubi0: detaching mtd0
+ubi0: mtd0 is detached
+ubi0: default fastmap pool size: 200
+ubi0: default fastmap WL pool size: 100
+ubi0: attaching mtd0
+ubi0: attached by fastmap
+ubi0: fastmap pool size: 200
+ubi0: fastmap WL pool size: 100
+ubi0 error: ubi_wl_init [ubi]: no enough physical eraseblocks (4, need 203)
+ubi0 error: ubi_attach_mtd_dev [ubi]: failed to attach mtd0, error -28
+UBI error: cannot attach mtd0
+=================================================================
+BUG ubi_wl_entry_slab (Tainted: G    B      O L   ): Objects remaining in ubi_wl_entry_slab on __kmem_cache_shutdown()
+-----------------------------------------------------------------------------
 
-There's an existing noinstr safety issue there that this makes a bit
-worse.
+Slab 0xffff2fd23a40cd00 objects=22 used=1 fp=0xffff2fd1d0334fd8 flags=0x883fffc010200(slab|head|section=34|node=0|zone=1|lastcpupid=0x7fff)
+CPU: 0 PID: 5884 Comm: insmod Tainted: G    B      O L    5.10.0 #1
+Hardware name: LS1043A RDB Board (DT)
+Call trace:
+ dump_backtrace+0x0/0x198
+ show_stack+0x18/0x28
+ dump_stack+0xe8/0x15c
+ slab_err+0x94/0xc0
+ __kmem_cache_shutdown+0x1fc/0x39c
+ kmem_cache_destroy+0x48/0x138
+ ubi_init+0x1d4/0xf34 [ubi]
+ do_one_initcall+0xb4/0x24c
+ do_init_module+0x4c/0x1dc
+ load_module+0x212c/0x2260
+ __se_sys_finit_module+0xb4/0xd8
+ __arm64_sys_finit_module+0x18/0x28
+ el0_svc_common.constprop.0+0x78/0x1a0
+ do_el0_svc+0x78/0x90
+ el0_svc+0x20/0x38
+ el0_sync_handler+0xf0/0x140
+ normal+0x3d8/0x400
+Object 0xffff2fd1d0334e68 @offset=3688
+Allocated in ubi_scan_fastmap+0xf04/0xf40 [ubi] age=80 cpu=0 pid=5884
+	__slab_alloc.isra.21+0x6c/0xb4
+	kmem_cache_alloc+0x1e4/0x80c
+	ubi_scan_fastmap+0xf04/0xf40 [ubi]
+	ubi_attach+0x1f0/0x3a8 [ubi]
+	ubi_attach_mtd_dev+0x810/0xbc8 [ubi]
+	ubi_init+0x238/0xf34 [ubi]
+	do_one_initcall+0xb4/0x24c
+	do_init_module+0x4c/0x1dc
+	load_module+0x212c/0x2260
+	__se_sys_finit_module+0xb4/0xd8
+	__arm64_sys_finit_module+0x18/0x28
+	el0_svc_common.constprop.0+0x78/0x1a0
+	do_el0_svc+0x78/0x90
+	el0_svc+0x20/0x38
+	el0_sync_handler+0xf0/0x140
+	normal+0x3d8/0x400
 
-The core_kernel_text() function is instrumentable, and so for
-(non-module) alternatives, calling that in the middle of patching isn't
-safe (as it could lead to calling arbitrary C code mid-patching).
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=220744
 
-That said, __apply_alternatives() aren't marked as noinstr, and cleaning
-that up properly is going to require some major rework. I don't think we
-want to block this patch on that.
+Signed-off-by: Liyuan Pang <pangliyuan1@huawei.com>
+Reviewed-by: Zhihao Cheng <chengzhihao1@huawei.com>
+---
 
-I think we can bodge around the worst of that for now with:
+Changes in v2:
+* reduce the scope of variable "i" to the code block of the if branch
+* make ubi_free_fastmap an static inline function
+* link to v1:
+  https://lore.kernel.org/linux-mtd/20251107093843.1077536-1-pangliyuan1@huawei.com/T/#t
+---
+ drivers/mtd/ubi/attach.c     |  4 +++-
+ drivers/mtd/ubi/fastmap-wl.c |  8 +-------
+ drivers/mtd/ubi/ubi.h        | 12 ++++++++++++
+ 3 files changed, 16 insertions(+), 8 deletions(-)
 
-	if (is_module && !core_kernel_text((unsigned long)alt_cb))
-		return -ENOEXEC;
+diff --git a/drivers/mtd/ubi/attach.c b/drivers/mtd/ubi/attach.c
+index adc47b87b38a..884171871d0e 100644
+--- a/drivers/mtd/ubi/attach.c
++++ b/drivers/mtd/ubi/attach.c
+@@ -1600,7 +1600,7 @@ int ubi_attach(struct ubi_device *ubi, int force_scan)
+ 
+ 	err = ubi_read_volume_table(ubi, ai);
+ 	if (err)
+-		goto out_ai;
++		goto out_fm;
+ 
+ 	err = ubi_wl_init(ubi, ai);
+ 	if (err)
+@@ -1642,6 +1642,8 @@ int ubi_attach(struct ubi_device *ubi, int force_scan)
+ out_vtbl:
+ 	ubi_free_all_volumes(ubi);
+ 	vfree(ubi->vtbl);
++out_fm:
++	ubi_free_fastmap(ubi);
+ out_ai:
+ 	destroy_ai(ai);
+ 	return err;
+diff --git a/drivers/mtd/ubi/fastmap-wl.c b/drivers/mtd/ubi/fastmap-wl.c
+index 9bdb6525f128..e2bc1122bfd3 100644
+--- a/drivers/mtd/ubi/fastmap-wl.c
++++ b/drivers/mtd/ubi/fastmap-wl.c
+@@ -530,8 +530,6 @@ int ubi_is_erase_work(struct ubi_work *wrk)
+ 
+ static void ubi_fastmap_close(struct ubi_device *ubi)
+ {
+-	int i;
+-
+ 	return_unused_pool_pebs(ubi, &ubi->fm_pool);
+ 	return_unused_pool_pebs(ubi, &ubi->fm_wl_pool);
+ 
+@@ -540,11 +538,7 @@ static void ubi_fastmap_close(struct ubi_device *ubi)
+ 		ubi->fm_anchor = NULL;
+ 	}
+ 
+-	if (ubi->fm) {
+-		for (i = 0; i < ubi->fm->used_blocks; i++)
+-			kfree(ubi->fm->e[i]);
+-	}
+-	kfree(ubi->fm);
++	ubi_free_fastmap(ubi);
+ }
+ 
+ /**
+diff --git a/drivers/mtd/ubi/ubi.h b/drivers/mtd/ubi/ubi.h
+index c792b9bcab9b..44803d3329f4 100644
+--- a/drivers/mtd/ubi/ubi.h
++++ b/drivers/mtd/ubi/ubi.h
+@@ -969,10 +969,22 @@ int ubi_scan_fastmap(struct ubi_device *ubi, struct ubi_attach_info *ai,
+ 		     struct ubi_attach_info *scan_ai);
+ int ubi_fastmap_init_checkmap(struct ubi_volume *vol, int leb_count);
+ void ubi_fastmap_destroy_checkmap(struct ubi_volume *vol);
++static inline void ubi_free_fastmap(struct ubi_device *ubi)
++{
++	if (ubi->fm) {
++		int i;
++
++		for (i = 0; i < ubi->fm->used_blocks; i++)
++			kmem_cache_free(ubi_wl_entry_slab, ubi->fm->e[i]);
++		kfree(ubi->fm);
++		ubi->fm = NULL;
++	}
++}
+ #else
+ static inline int ubi_update_fastmap(struct ubi_device *ubi) { return 0; }
+ static inline int ubi_fastmap_init_checkmap(struct ubi_volume *vol, int leb_count) { return 0; }
+ static inline void ubi_fastmap_destroy_checkmap(struct ubi_volume *vol) {}
++static inline void ubi_free_fastmap(struct ubi_device *ubi) { }
+ #endif
+ 
+ /* block.c */
+-- 
+2.34.1
 
-... which'll avoid calling out to other instrumentable code during the
-patching sequence, and minimize the risk of that blowing up during boot.
-
-I'll see about prioritizing a follow-up to fix the extant issues more
-thoroughly.
-
-Will, are you happy to add the 'is module &&' part to the condition?
-
-Mark.
 
