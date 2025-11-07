@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8536CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFFDCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vv6qk5Zpr17e0IDW5t1IS6sWqsJZk5AzteKVx+1EjvA=; b=lBrygDSMtqhvpE+50jHo7LHg+C
-	Fzrq0iP2Y92OujGogagJ4UIwO35b7AzWGBnOJspDWnrIZ2aeKxj9IZmb1ILPQh/sBh1KXPToikdKo
-	0PRh3uuL4jrv9jzqSe04mbVn4bb0kdLbMYHNX7S8W1iRQmT2egJHNuOCzApi6eJkswMFkzAWzb0he
-	OvAFxCAc/ZwcVjX54zQv6Y0leKjEbQcPb5zP54f44FAPcsQr3VmQIaFWWmokNh6SmfQ3I2sLdp1L4
-	lQAg5S81FbEBtujxK8SDXXlNFsk6I3rPNdPg43fEUjNiaMWMCDlDGjrZ9E87cOjsL6ruOso/aA7+n
-	YIUrK5ew==;
+	bh=vMHEAkPotlkiYnoSSEvLXT3VvXGu9ZEXA8TGASLD9i8=; b=k+sWvb9FG1tHkUxwt/xAuY5TxD
+	IDkQsH6WtA1Eej0jWFnjsXj9Lx5HNgDO5wJfHm3/CAb2nTLbh63ghNVWMeSXGC3DyYChzYJIZLdaI
+	1Z7gYKS3OrbPOdU29ROgbxYban7K/BXUf0Hp+MRCYPDq6BmT1w52rzjQKR5rF3BQkSSVY01mexfj9
+	bFDQvF0m9DGOhjQQnXGZQBuZVR00E0KrPJT9sb/XCvL5RNys7aLQ8aH/9XxeA57tRK4uxW/eRLR+5
+	CcHQMmfF+lv6WDOsFhy4sRsjBTZ8292wvt63iG9ukG9xIxlphQwaMiziACOPo8BrkxyuvncofoiU2
+	hs2t6/HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHKt-0000000GpEa-1xWv;
-	Fri, 07 Nov 2025 07:56:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHHL9-0000000GpH8-3TWq;
+	Fri, 07 Nov 2025 07:56:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHKq-0000000GpEG-3WND
+	id 1vHHL8-0000000GpGL-1WMo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 07:56:41 +0000
+	Fri, 07 Nov 2025 07:56:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F02343AFA;
-	Fri,  7 Nov 2025 07:56:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17B45C113D0;
-	Fri,  7 Nov 2025 07:56:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 60EDF618FB;
+	Fri,  7 Nov 2025 07:56:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46181C4CEF5;
+	Fri,  7 Nov 2025 07:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762502200;
-	bh=7SeThI/GyvzdlsSjTq1A4LDVdLrB275PlAkljcI1F8g=;
+	s=k20201202; t=1762502217;
+	bh=C9zHY78YX9YpdsFqsh+rj2K4+ZmMGxUYmHW2MipC68c=;
 	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=c+SSYVZKKVQjWz0shHKqp/MRoMngGuKuIqsxHpq5YCP6WDZ0BHE07qRBjQ2n52C3D
-	 x+de6YxrXksrrgPeGnBWMPSQKCfH0nEozamZa8do5pa7ez35oFCP/IV9+pK/ZvFR3D
-	 NKOElNukb0ayF0H8xhnbEunj9F1jjJPET7cewZOJ+SMfnnhDYqlbywiMyvRHjSPDrc
-	 tX40alCh4KvlBfawu5wOuEVw7kJW1z4gnBkHNUc7ztXfXZRRwXTpkpEw3Sd7msC1f9
-	 tbEebxYY7fHIQ9axTDXvWYRF2/AK/WFlqHAIyJ4vb0UPNBWKu+NBAx0b4F7n2VgLMu
-	 dLp+GJo0Qp49g==
-Message-ID: <4aa4f664-0dc4-4f7d-8ecb-f1602e5cbfcc@kernel.org>
-Date: Fri, 7 Nov 2025 08:56:33 +0100
+	b=Cy5FzvyFGeGsRdbsmS/5IFvPQA91YJMfsEISDf+hoCN5A5GHQjROzrgiRSzqILqxB
+	 0gAqHcsDhZMMRmC7tUQfneWTMmNs9s1CscJzxBg+ZD5wZmxprqH7Air6j2AApsuYzn
+	 2p/mViAWhMZVIaL9zMdgNgHwrR9SK6sX8AidtWFYAmBxlh7uQoWc3L2YfyGnftePDU
+	 3/meit2xj4aPs+tNEgkrwVqakzd4wmjJdJwonebdgJ+Lh/dyaUh3qHQr/pNBFvto5e
+	 bmsPOMyEFFR4tSiKzxQvGI6wxAM7fVauur31uB3tP02+7lZqJbyAa3bXEPe1EGGf9B
+	 /8zDRraX9QKfQ==
+Message-ID: <a40e8329-0423-49a9-8675-3a3ecb9c9134@kernel.org>
+Date: Fri, 7 Nov 2025 08:56:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v2 1/5] dt-bindings: display: ti,am65x-dss: Add clk
- property for data edge synchronization
+Subject: Re: [RESEND PATCH v2 2/5] dt-bindings: mfd: syscon: Add
+ ti,am625-dss-clk-ctrl
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Swamil Jain <s-jain1@ti.com>
 Cc: jyri.sarha@iki.fi, tomi.valkeinen@ideasonboard.com,
@@ -59,8 +59,8 @@ Cc: jyri.sarha@iki.fi, tomi.valkeinen@ideasonboard.com,
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20251106141227.899054-1-s-jain1@ti.com>
- <20251106141227.899054-2-s-jain1@ti.com>
- <20251107-amaranth-platypus-from-betelgeuse-7673b9@kuoka>
+ <20251106141227.899054-3-s-jain1@ti.com>
+ <20251107-ambrosial-soft-grebe-ebaa3b@kuoka>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -105,12 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251107-amaranth-platypus-from-betelgeuse-7673b9@kuoka>
+In-Reply-To: <20251107-ambrosial-soft-grebe-ebaa3b@kuoka>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_235640_944570_E8C1F4CE 
-X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +122,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 08:54, Krzysztof Kozlowski wrote:
-> On Thu, Nov 06, 2025 at 07:42:23PM +0530, Swamil Jain wrote:
+On 07/11/2025 08:50, Krzysztof Kozlowski wrote:
+> On Thu, Nov 06, 2025 at 07:42:24PM +0530, Swamil Jain wrote:
 >> From: Louis Chauvet <louis.chauvet@bootlin.com>
 >>
->> The dt-bindings for the display, specifically ti,am65x-dss, need to
->> include a clock property for data edge synchronization. The current
-> 
-> clock properties are called "clocks". Please rephrase commit msg or use
-> proper clocks to indicate you access here a clock (if that's the case).
-> 
->> implementation does not correctly apply the data edge sampling property.
-> 
-> Where is "data edge sampling property"? I do not see it in this binding.
-> 
->>
->> To address this, synchronization of writes to two different registers is
-> 
-> How this binding achieves that "synchronization"? What are you even
-> describing here?
-> 
->> required: one in the TIDSS IP (which is already described in the tidss
->> node) and one is in the Memory Mapped Control Register Modules.
->>
->> As the Memory Mapped Control Register Modules is located in a different
-> 
-> And now another therm - MMCR...
-> 
-> This commit msg is barely parseable - language is correct but it is a
-> mix of completely wrong terms.
-> 
-> In case you used LLM to write this - don't. Ever.
-> 
->> IP, we need to use a phandle to write values in its registers.
+>> The dt-bindings for the multi-function device (mfd) syscon need to include
+>> ti,am625-dss-clk-ctrl. On AM62X, AM62A and AM62P devicess, the display
+>> controller (tidss) has external registers to control certain clock
+>> properties. These registers are located in the device configuration
+>> registers, so they need to be declared using syscon. They will later be
+>> used with a phandle in the tidss node.
 >>
 >> Fixes: ad2ac9dc9426 ("drm/tidss: Add support for AM625 DSS")
 >> Fixes: 5cc5ea7b6d7b ("drm/tidss: Add support for AM62A7 DSS")
 > 
-> You still did not describe the actual bug being fixed here.
+> Adding missing hardware is not a fix. Drop both.
 > 
+>> Cc: stable@vger.kernel.org
+> 
+> For sure not a stable commit. You just add new hardware.
+> 
+>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>> Signed-off-by: Swamil Jain <s-jain1@ti.com>
+>> ---
+>>  Documentation/devicetree/bindings/mfd/syscon.yaml | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> With these fixed/dropped:
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
+Un-acked, NAK.
 
-Actually, NAK, because you ignored entire previous feedback!
+You just ignored previous feedback.
 
 Best regards,
 Krzysztof
