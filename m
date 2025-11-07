@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07289CCFA19
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 05:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480EECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 05:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9F/IvZsA2czLwC1wWEwy2H4Mw/524eBYIDw2aNQh3ds=; b=Ahn6RC/5TOzBJv
-	DfLjjGLrgmxYKprZFTwXTH2aHzwOcYkLIkp39MkvcOCHNpMHf0nwaW/eFUPhCRLMydi8vRHdaRlAP
-	vWtg/Qq2nkj9pJLTZbSkNTwAcIj9R2Cmci0davhSZCkDLWPBXRFX2UM6fnRI3RMWTfbO7IlkLwLJ2
-	jMUQO/WYp/4/CvK5z7uiAonn11Ztspy/tUZAMGV1EVrNENebmIKUSbjED5vax4VmM4u64RnDXgVai
-	y6RVDXse0rKlLe6moKq4xZwodj5d3K95uKpC8ovk1yuR8frtQTw/Hpc2ctvrJ9K9woq/ZTV0h+2qo
-	VeNGCSdX9qRRCPL/mjCg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vz0IKsDXEV/iEkAiGPoQTBssbJuJT4Ke4vWuoRvmiu8=; b=fLnaG4WKbdE6yhX8qY+ZCTjgf9
+	ApoaxBSmgzux4BbqFJCzv9txjTk/w+EXSSQLBHDqioKoJE9o6Wmh4TGueGtbicJDjl5bMf21JTR4h
+	fA46l6OsJSist6enKZyJ4tqvSA/gZQNR6uQYph23G6bj9grmuX22ldmLiVdmiee8yJ2RuDefLGK22
+	jFXP4+xbShJsir4E9rnblN5TGXUctTuoOlnN79r8+/N5phnSaCVrEJJAI1+ZnKJpH0//JCyawKThq
+	pE0jHalRcM6Z4rBogwwT5fsjWwW7OVWskU+9VD6ncBYLkxp2FKK+AUShuXefiDfHLHLFa6seIEwf/
+	VDmmXsbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHFSl-0000000GhqN-2MWm;
-	Fri, 07 Nov 2025 05:56:43 +0000
+	id 1vHFSn-0000000Ghr5-3h0l;
+	Fri, 07 Nov 2025 05:56:45 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHFSi-0000000Ghpf-3nb7
+	id 1vHFSl-0000000Ghpf-0XKl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 05:56:42 +0000
+	Fri, 07 Nov 2025 05:56:44 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 7 Nov
  2025 13:56:30 +0800
 Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 7 Nov 2025 13:56:29 +0800
+ Transport; Fri, 7 Nov 2025 13:56:30 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
 To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -48,16 +48,20 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
 	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v7 0/5] Introduce ASPEED AST27xx BMC SoC
-Date: Fri, 7 Nov 2025 13:56:24 +0800
-Message-ID: <20251107055629.4075519-1-ryan_chen@aspeedtech.com>
+CC: Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v7 1/5] dt-bindings: arm: aspeed: Add AST2700 board compatible
+Date: Fri, 7 Nov 2025 13:56:25 +0800
+Message-ID: <20251107055629.4075519-2-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251107055629.4075519-1-ryan_chen@aspeedtech.com>
+References: <20251107055629.4075519-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_215640_947345_0E6D9F0C 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20251106_215643_165355_F5CBEA38 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,90 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This introduces initial support for the Aspeed AST27xx SoC and the AST2700
-Evaluation Board (EVB) to the Linux kernel. The AST27xx is the 8th
-generation Baseboard Management Controller (BMC) SoC from Aspeed,
-featuring improved performance, enhanced security, and expanded I/O
-capabilities compared to previous generations.
+Add device tree compatible string for AST2700 based boards
+("aspeed,ast2700-evb" and "aspeed,ast2700") to the Aspeed SoC
+board bindings. This allows proper schema validation and
+enables support for AST2700 platforms.
 
-AST27xx SOC Family
- - https://www.aspeedtech.com/server_ast2700/
- - https://www.aspeedtech.com/server_ast2720/
- - https://www.aspeedtech.com/server_ast2750/
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Bindings Dependencies: check with "make CHECK_DTBS=y W=1 arch/arm64/boot/dts/aspeed/ dtbs"
-- scu/silicon-id: Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-- gpio: Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
-Binding dependency patch:
-- intc: Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml 
- - https://lore.kernel.org/all/20251030060155.2342604-2-ryan_chen@aspeedtech.com/ (Acked-by)
-
-v7:
-- remove aspeed,ast2x00-scu.yaml modify
-- separate aspeed-g7.dtsi to aspeed-g7-a35.dtsi and aspeed-g7-common.dtsi
-- move aliases to ast2700-evb.dts file
-
-v6:
-- rebased on v6.18-rc1
-- aspeed,ast2x00-scu.yaml
- - fixed dt-binding yaml issuse report.
-
-v5:
-- modify ast27XX 7th generation description to 8th generation.
-- aspeed.yaml
- - modify missing blank line.
-- Kconfig.platforms
- - modify ast27XX 7th generation to 8th generation.
-
-v4:
-- make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ fix.
-- modify commit message remove itemlize.
-- remove modify aspeed,ast2700-intc.yaml patch.
-- aspeed.yaml
- - Add AST2700 board compatible.
-- aspeed-g7.dtsi
- - modify all size-cells from 1 to 2.
- - add serial aliases, gpio, mdio, uart0 ~ 14.
- - add firmware for optee, reserved memory for atf and optee.
- - modify cpu@0 to cpu0: cpu@0.
- - fix intc-ic for yaml dependency.
-- ast2700-evb.dts
- - update stdout-path = "serial12:115200n8";
-
-v3:
-- https://lore.kernel.org/all/20241212155237.848336-1-kevin_chen@aspeedtech.com/
-- Split clk and reset driver to other commits, which are in series of
-  "Add support for AST2700 clk driver".
-- For BMC console by UART12, add uart12 using ASPEED INTC architecture.
-
-aspeed,ast2700-intc.yaml
-- Add minItems to 1 to fix the warning by "make dtbs_check W=1".
-- Add intc1 into example.
-
-Kconfig.platforms
-  - Remove MACH_ASPEED_G7.
-
-Ryan Chen (6):
-  dt-bindings: arm: aspeed: Add AST2700 board compatible
-  arm64: Kconfig: Add Aspeed SoC family (ast27XX) Kconfig support
-  arm64: dts: aspeed: Add initial AST27xx SoC device tree
-  arm64: dts: aspeed: Add AST2700 Evaluation Board
-  arm64: configs: Update defconfig for AST2700 platform support
-
- .../bindings/arm/aspeed/aspeed.yaml           |   6 +
- arch/arm64/Kconfig.platforms                  |   6 +
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/aspeed/Makefile           |   4 +
- arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi | 148 ++++++++
- .../boot/dts/aspeed/aspeed-g7-common.dtsi     | 345 ++++++++++++++++++
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  26 ++
- arch/arm64/configs/defconfig                  |   1 +
- 8 files changed, 537 insertions(+)
- create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
- create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
- create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi
- create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index aedefca7cf4a..1c1a12fc3a91 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -109,4 +109,10 @@ properties:
+               - ufispace,ncplite-bmc
+           - const: aspeed,ast2600
+ 
++      - description: AST2700 based boards
++        items:
++          - enum:
++              - aspeed,ast2700-evb
++          - const: aspeed,ast2700
++
+ additionalProperties: true
 -- 
 2.34.1
 
