@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAB6CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FCCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6bBT8BJ8N21olYEHDW0yf2mkkTnhv/PWfg5Dndi16I=; b=gANiMtAwa4r1kfztrNqjtAIXmJ
-	bFhCfKUMqoSZNytum7VvYqhhlzb3lxyUTLJZw02JZkjSqhJ+h5CQAfptxUqWuE9ZO+gCstIOsSHS4
-	082FnhFQR065+hDXnitFkNVoCP8y6LCtoE2ATHA48zXVMlLRpGbQEw+66D5yhDGPkTQUf8VODqzVZ
-	HzSPMEHYHhf5z40yI8jrZVooNOf9QVxmrov9I/k9jCpFFR0FkDFJaENKjwPOabbLtVUDfTmHwYVgu
-	qySMozpNpKZmsA0R8nDp5NKMGjBYHmlKrBr0ZfTMfyIRQhzv6pmjaDwh0onU62batq3/Vn3sidxfU
-	IoLMWehQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m3vCS5fEBZTrIlk0oaQTEp9kJKU7A5DiAAXFXV5fdVI=; b=FTK7HmLBAaqCxsZ9JZbRS8ESUu
+	79fTCtso9ui7sWnbGczx0DqDg6vPaCiFGi1Vk8q8j4nad+AXneaeQLeiMeRKnlHKxSHFRDVG2R64x
+	sQgRhWMWtqn8gLodVFfVMDGX3twJNqrZ2e6yJEOMl0RvM1/X1TOFyvAg7KkWOgajXYqZ0yg3qM5EH
+	emD67fF27cXN1Mm8lLq/SOE0zNoyPJ8bhLLpDh9HPI04IDl4PkQEs1bVjToC3azjbLc09t/kc9Jba
+	yK7cmQMR69Bfbtm/P7RYw2cjSfOAOpUEBRcE3xEgfd0fkXWaVHzYahEP65Dlf6y9KksOaLLFyES/I
+	7bTxPC+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHFA-0000000GoSB-0gMg;
-	Fri, 07 Nov 2025 07:50:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vHHG4-0000000Goaj-3P4H;
+	Fri, 07 Nov 2025 07:51:44 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHF8-0000000GoS2-1n9I
+	id 1vHHG0-0000000GoZb-3q0A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 07:50:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 901AA60143;
-	Fri,  7 Nov 2025 07:50:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3410C4CEF5;
-	Fri,  7 Nov 2025 07:50:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762501845;
-	bh=ZXzKa8ciq7q/j+7BGMdEknERpfHO5K+oFihg98YcdwA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=imw/8VrnU5YGb2Z8C1CEjEKTn4GkSaIhA7J8yV/eZA0dJRdpIux3cmE/ecgKoVBgU
-	 CUfNPW/R2B/3WL+/Wvix8Jwvf28ryX9hpbt+zY2T0P3HkOMqVrfinGx7MJObmHCuEu
-	 OE3y5C6iH6BNc3U/em1VvLF4O75Ph28WcDQ0nuyVkPf034qPlCUn+kDpdWVRN8u5GJ
-	 pD1jV+oHOZ7PMrEfMPsuhui25OKYFQ0lGPgoajkdOy4yWhUZu8w05jRgdcxB79v41b
-	 UyII87fQxMwE2M7tt49BGYWbw8RAFrYHl0s1DeYxYpHLUpdy+HxcOHXnSCk3bIGHiW
-	 7nPCcLuLAhRMw==
-Date: Fri, 7 Nov 2025 08:50:42 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Swamil Jain <s-jain1@ti.com>
-Cc: jyri.sarha@iki.fi, tomi.valkeinen@ideasonboard.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, lee@kernel.org, louis.chauvet@bootlin.com, 
-	aradhya.bhatia@linux.dev, devarsht@ti.com, praneeth@ti.com, h-shenoy@ti.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RESEND PATCH v2 2/5] dt-bindings: mfd: syscon: Add
- ti,am625-dss-clk-ctrl
-Message-ID: <20251107-ambrosial-soft-grebe-ebaa3b@kuoka>
-References: <20251106141227.899054-1-s-jain1@ti.com>
- <20251106141227.899054-3-s-jain1@ti.com>
+	Fri, 07 Nov 2025 07:51:42 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-29470bc80ceso5049455ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 23:51:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762501900; x=1763106700; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m3vCS5fEBZTrIlk0oaQTEp9kJKU7A5DiAAXFXV5fdVI=;
+        b=Mj4myL5akshDxHcIdH0cjb9piWkAEZiTAse1fs0peVw/WLMavYHUvyd5E9QRift/vO
+         EeEgcjF48LkyR4NDV9/D3zA9DF08btQqVXQUT1+/OvSN9xyQojwBGZ7lVSXJcJHw+Jsp
+         Q3BlqUzWIfi5smi+psYZZkyOV2gBjmIGm8OARGBsyZ7RuxrBI2FQWvhfo4Fsh1dYu/sd
+         PMH1zjC1EEMaU2sJmWMq1f9sRzs3V1UVFKsg9gejhdCM32/3gRhXBqBgsWqeieRhQ+kE
+         gp5EsI/OpeqerSZY2u81Pues6gKzddDXfL3yCGyShrs970pkekx7U9KAoCWfxw9pyj1j
+         OQzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762501900; x=1763106700;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=m3vCS5fEBZTrIlk0oaQTEp9kJKU7A5DiAAXFXV5fdVI=;
+        b=c6pebCdQIMQgvsxJvCUdROcm5LDacShwtKZBM3XaCLBAuqkb8Xy+OaepuiYl4+N+qY
+         A/3gZ0tp4w4SWvCL7xr9mNbWTmx1Pgb+bt4XXsOQ6wEbQ0YK/xXZ78NcFCe21OOYWKdx
+         YA1NTjbA9ffpOXrQRtBbfZGGt270lQskqon/8Qop/OLhaOvqQqOdmBlwuZi0wv40Ijgt
+         +DM6Uwpp3xJxExLzvKgONNejTkdT1lGKrCnv3B9lcy54eNMu3FCoSu9mMuuBbzWaS20L
+         tX7XZUvVt0nNSRuqLam5gNJ+ttAEa/+WRgBBx9sLEQWxut5FPR9wmUezLLKPcsGatnBp
+         l8hA==
+X-Forwarded-Encrypted: i=1; AJvYcCXoVFANGdvh6KipaKj1GWhdQrElNYUl1rzfW2qKVpBms2e4pRsPqF2kV2y0/4C2avfEgVHv7Mj1SGij6zbtnYAG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwstX+ILPG62k+eUAUxtcf9m4H81s9chUd4btDir4/2NR7vSVgX
+	DMkLVgXsq+k9zFSE7odUxWZFWqmAeGWNtDS6M1VkyZjDuIiAsZ9C+m+WHCx8n0VhniGtUzh6+MG
+	FkV+/3l6G7OITiM87AjgXA9rZ2I0Y3Ao=
+X-Gm-Gg: ASbGnctsh0dpqmpXsbY0qLpOzZhGarsBLAF52V5coB70Bo1Dckfca2xNPKT6YttseWl
+	MzOxGxg0pgVjekmq48kroa+zguAUgfUzE2gpUSD4zvtwVto+OWBueSP/9JRWjHGY5PCIU/KD1I/
+	MQXtgy8Tm+eJfxz3py4eMQn6C0RXN6h7f8PMHefcNrAYGd95tTbgWupreCzW8yJKe1+od+EJBjR
+	AgqM5cNbwXlYcSD1JBoMEHEgPjewXmcJwHqqFpixyOCP68QQXkRjAqohA==
+X-Google-Smtp-Source: AGHT+IFkh8XME/XKdmm+TIe47BXYcMMyHnwgbqIA5X6bAhqAdmw5d+3JqyQ85nbSaeZPIXV7fRyM4oESPwNxWKjSk8M=
+X-Received: by 2002:a17:902:e847:b0:292:9ac7:2608 with SMTP id
+ d9443c01a7336-297c94b32a9mr11604375ad.8.1762501899726; Thu, 06 Nov 2025
+ 23:51:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251106141227.899054-3-s-jain1@ti.com>
+References: <20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com> <20251031-imx95-rproc-2025-10-31-v2-2-758b2e547a55@nxp.com>
+In-Reply-To: <20251031-imx95-rproc-2025-10-31-v2-2-758b2e547a55@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 7 Nov 2025 09:54:06 +0200
+X-Gm-Features: AWmQ_bnGeOFtoZrRWw9KhEpAzRXkaZJvKZO7s-geVquRIrpRxLbcQTb4ng5zby8
+Message-ID: <CAEnQRZBJCZOO9yLr-T_DT_QYerKgRP9gdasmUK+WN+d8VJPV6w@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] remoteproc: imx_rproc: Add runtime ops copy to
+ support dynamic behavior
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_235140_953336_C6F6BE37 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +102,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 07:42:24PM +0530, Swamil Jain wrote:
-> From: Louis Chauvet <louis.chauvet@bootlin.com>
-> 
-> The dt-bindings for the multi-function device (mfd) syscon need to include
-> ti,am625-dss-clk-ctrl. On AM62X, AM62A and AM62P devicess, the display
-> controller (tidss) has external registers to control certain clock
-> properties. These registers are located in the device configuration
-> registers, so they need to be declared using syscon. They will later be
-> used with a phandle in the tidss node.
-> 
-> Fixes: ad2ac9dc9426 ("drm/tidss: Add support for AM625 DSS")
-> Fixes: 5cc5ea7b6d7b ("drm/tidss: Add support for AM62A7 DSS")
+On Fri, Oct 31, 2025 at 4:27=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> Structure imx_rproc_dcfg contains a const pointer to imx_rproc_plat_ops,
+> which defines the start/stop/detect_mode operations for a remote processo=
+r.
+> To preserve the const correctness of the static configuration while
+> allowing runtime modification of ops behavior, introduce a new
+> imx_rproc_plat_ops member in struct imx_rproc named `ops`.
+>
+> During initialization, dcfg->ops is assigned to priv->ops.
+> Enable the driver to safely override ops at runtime without affecting the
+> original const configuration.
+>
+> Improve flexibility for platforms that require dynamic operation switchin=
+g
+> (e.g. i.MX95 Logical Machine ops and CPU ops).
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Adding missing hardware is not a fix. Drop both.
 
-> Cc: stable@vger.kernel.org
-
-For sure not a stable commit. You just add new hardware.
-
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> Signed-off-by: Swamil Jain <s-jain1@ti.com>
-> ---
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-
-With these fixed/dropped:
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
