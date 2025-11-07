@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8AACCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC82ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cAp3MFMi136cN0MmdCvvd/QddnaJYNoUSQTC8uc6oH4=; b=tSB301IAZDcMgD/qqmGlQImyAW
-	6CM3k0SW8qRbt1OsKfIWthG8/7iOIF81U2j/NGnb+1CHFzzjT2S2bJZRQAYy84gJkmH5tJcgbpx+r
-	zyOGX/NjP8iObc05ZyWWWn/HoiGnhx+TifEuLYekPrJOdzHwS6ILJBWmTHP4itblU3BiY7V1N+hQf
-	CXW0uJCUvFecouIjNWAddhfcBCP44nOkQD06BhcNgyL2/+USsz5iap/vS1Q4BaUk7phi2+71SE98K
-	TlRfA1wHqSw8rdu0H9pGG2jyHmk3BktMct5PUEepCSjph+KHWPhIqZR0UZSFRNOHkyl37RM6MSHbF
-	ophR9wzA==;
+	bh=Cixwgu02UTnd4XZ3L1ydMg0PESy7LgFYhDtsd1/DQ08=; b=r97VgqufRaU1+YL34JU6haYUWn
+	i9S9xSsEMkO2Jx4tJpDdvNoqLU8YMpRtNhESOqpUmANhQn++9QUApZraV2VGf1yuUgL30bczJ0DGO
+	JeYUVPje/iFe9+8aQf372hlKMWDGwo08wlmRRiQwsR8OgX4MyiIdteT9trobY32L0eiJksXJQFf9Q
+	lYcVpj1TW53KloyIlRIVg0r8DBX4PF+ZhbyTZ8rSV+0gIY94bgiCNsPZvf8s1uPA10cv+MZHHmk4s
+	boMgTn6QpLQ8lR26v99pEjv5IFSUF3505smzsj91/wrmLUTN4j0aEzo+n9Qhng53yxZIStsqGn72E
+	LXERarCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGjS-0000000Gm8E-3DoC;
-	Fri, 07 Nov 2025 07:18:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vHGkh-0000000GmFj-0e4Z;
+	Fri, 07 Nov 2025 07:19:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGjR-0000000Gm86-1nkm
+	id 1vHGkg-0000000GmFY-2kRC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 07:18:01 +0000
+	Fri, 07 Nov 2025 07:19:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E47E601BD;
-	Fri,  7 Nov 2025 07:18:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9028C4CEF8;
-	Fri,  7 Nov 2025 07:17:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 83157601BD;
+	Fri,  7 Nov 2025 07:19:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04465C4CEF8;
+	Fri,  7 Nov 2025 07:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762499880;
-	bh=K92xzXw2TGgFxkfG8gIWU9zqKMdyGhTpvJUjGXDffYE=;
+	s=k20201202; t=1762499957;
+	bh=eIFiIlQ3eHncTFNnz3oTs17dUSTN1tCkxG2T6Nsp0lE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u35KVjOzV7kLFbH1G/dw/RTUhI+95O12FkN5S+Xph2u6w1NLdJPKKd47Rdx9i/s5q
-	 xUHgwBjLRIn5R16tAN4qv7KjgMhQrbRoANMDSBOvjr1szHXEboslz73pPPbKj5eaqM
-	 Fn4+LPw5wQIHj515mxe7U3SrhnszQyKjPcoiCRkfVpSm6A2UVOk81otzq8qF9Q9BS0
-	 rjX6HRUAtLLcI0OAtIBx0BoS6ilJSvfD7JwLmneC7Ey1a8VatdQEn2NSywxib8ggft
-	 53gheGt37MAiuP4teYTiGWWIhorK4ej7ga0KVF6/Bi0jshQi3e8jgeiQnohaq4sD40
-	 oi3Wc5IS3oyeQ==
-Message-ID: <5eb82fa8-e02b-4355-aa7e-6a38ef669d4b@kernel.org>
-Date: Fri, 7 Nov 2025 08:17:55 +0100
+	b=TUUT/BxfE8COzA3LRM4lwzg4dhOKIjRLLqT9/Whx+x8j3adJbFWpJR5xfEgtiFjA1
+	 V3xXolImPsSvIIoWfjrV+UeiSkRmifl4avB98bJdMMsH3lBMg/Gq+ax2AMpfs/Rstd
+	 mg8Z7vIoTkrwVM1tnNxmhPhAQsqIk8ZgFI71fmQ3csmaCHU/0i5QbshWr9NDoyQZRW
+	 rHXGJNa/eS6GP1xdAdPXeKkdE+gauTYU++S3GP1uRBEyXheGh8KHts0bigsd10RhkL
+	 hnExAuUQxxMkh7YeOiV2kKfJDEZKyX/xtr26RoG2jVK5wVFETEiwOc/1xJhG3RXKoq
+	 D2nEiA2Ey0mdw==
+Message-ID: <69efdb9a-c03a-42f4-a78e-18c8a2b29322@kernel.org>
+Date: Fri, 7 Nov 2025 08:19:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: reset: add sky1 reset controller
+Subject: Re: [PATCH 2/3] Reset: cix: add support for cix sky1 resets
 To: Gary Yang <gary.yang@cixtech.com>, p.zabel@pengutronix.de,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
 References: <20251107033819.587712-1-gary.yang@cixtech.com>
- <20251107033819.587712-2-gary.yang@cixtech.com>
+ <20251107033819.587712-3-gary.yang@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,7 +98,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251107033819.587712-2-gary.yang@cixtech.com>
+In-Reply-To: <20251107033819.587712-3-gary.yang@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,75 +116,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 07/11/2025 04:38, Gary Yang wrote:
-> +maintainers:
-> +  - Gary Yang <gary.yang@cixtech.com>
-> +
-> +description: |
-> +  CIX Sky1 reset controller can be used to reset various set of peripherals.
-> +  There are two reset controllers, one is located in S0 domain, the other
-> +  is located in S5 domain.
-> +
-> +  See also:
-> +  - dt-bindings/reset/cix,sky1-rst.h
+> There are two reset controllers on Cix Sky1 Soc.
+> One is located in S0 domain, and the other is located
+> in S5 domain.
+> 
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 
-Use full path here.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - cix,sky1-rst
-> +          - cix,sky1-rst-fch
-> +      - const: syscon
-> +
-> +  reg:
-> +    maxItems: 2
+It is not "Reset:". Mark capitals.
 
-You need to list the items.
-
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#reset-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/reset/cix,sky1-rst.h>
-> +    reset-controller@16000000 {
-> +      compatible = "cix,sky1-rst", "syscon";
-> +      reg = <0x0 0x16000000 0x0 0x1000>;
-
-Clearly wrong - you said two items.
-
-> +      #reset-cells = <1>;
-> +    };
+> ---
 
 
 ...
 
+> +static struct platform_driver sky1_reset_driver = {
+> +	.probe	= sky1_reset_probe,
+> +	.driver = {
+> +		.name		= KBUILD_MODNAME,
+> +		.of_match_table	= sky1_reset_dt_ids,
+> +	},
+> +};
+> +static int __init reset_sky1_init(void)
+> +{
+> +	return platform_driver_register(&sky1_reset_driver);
+> +}
+> +subsys_initcall(reset_sky1_init);
+
+This should be rather just module_platform_driver. Does not look like
+part of subsystem, but looks like regular driver.
 
 > +
-> +#define SKY1_FCH_RESET_NUM	29
+> +static void __exit reset_sky1_exit(void)
+> +{
+> +	platform_driver_unregister(&sky1_reset_driver);
+> +}
+> +module_exit(reset_sky1_exit);
 
-Drop, not ABI (usually).
 
-> +
-> +#endif
-> +
-
-...
 
 > +
-> +#define SKY1_RESET_NUM				143
-
-Drop
+> +MODULE_AUTHOR("Jerry Zhu <jerry.zhu@cixtech.com>");
+> +MODULE_DESCRIPTION("Cix Sky1 reset driver");
+> +MODULE_LICENSE("GPL");
 
 
 
