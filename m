@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60CECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E695CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hht2khT+M/paWxzoLF4glbCzxzDG6WfHD/Jh8JDmVm8=; b=YeoQ/qIUOLs+VeUyUEqOXa/qsI
-	wxSRG5Dh91nA5TEkiJambFXvX6/nxhv4Lkxk08xbRLYuiUNsXnh3rmHTgjyWcr9DiQuiz5d8Z81f+
-	7UQ9gt1s1sfNSfF8j1WiU9RLiuk/fG1nRsafGmhiNhgchNWd+Lo63vbhT34iuRjLDB4YBUqIGDe9G
-	F10IQwycGi2miRSiq+Tss1bbPSmyV7cdr1YAuQNFHRwl/rzpAGCmAtZLJddY37KscVgAynHTzvKyf
-	wkSXn5xBx2sRpKlBV2PnCe8v8y3O0ZyJdxQE4NOfzsHdgdTVmJqWssSn0KZIH0UqZbZvZ4YxAkPh4
-	fbBkHJ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CCfN1W4PA6mWwb6xh2Jr3LD32MX/NukvOEpPUnuU8dk=; b=LlqrnzLhyy4Z6L71Mtr75tWOEB
+	PO6N9b2eKM4YCQVYU0uhHqVGmfnNMVRC5z6GOz4Z0WCjxCBV2hsvSzVIFE7QI6efy0SVQ/OxCABj0
+	69gwaiRoAIa1Z1ZkOJN2o/w1COeoCuoD29Z4+1RE7qtqog9KivPewvYDWKuURpt3KA6S3UEEoq40t
+	NJnpfrHcQMf2IQJVMeeyNKW8sf/qjUr240jOCMaORJ0rKLzqedm4p9NTYcY+xTj6kUG3lB5MSnbX0
+	u8SIpnDXfPF5ORTm2DxPWV1MqrRHRunpatj69M1YMy5m9cFp9nh2lmc3b7WVAXQLoxKulg6gL4vCB
+	14pPOtLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHIX-0000000GooM-3dFM;
-	Fri, 07 Nov 2025 07:54:17 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vHHIo-0000000Gorm-1wh6;
+	Fri, 07 Nov 2025 07:54:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHHIV-0000000Gonz-18Wd
+	id 1vHHIn-0000000Gor7-0yGb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 07:54:16 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7ade456b6abso406551b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 23:54:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762502054; x=1763106854; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hht2khT+M/paWxzoLF4glbCzxzDG6WfHD/Jh8JDmVm8=;
-        b=XyzW9vg43VJueF+mC25+BVzcxBWTst4yEL2IxfKcwQsuLb0Y2kHL0jaDmo0gy1jdZS
-         Cep9RrCf9LQ8tSaN5HC9vudNZ/Ueh9ilQIwGbZXjqldbywhs71m9O7n0RJlA8xuE0KmK
-         eFlfK3enRrhAcle6xhh5xIA5jr6ge5Lz+h+1BTXg7uTjwjCrG/zM70p/dITxVzSmazji
-         JgWgxrnNOnVJGn3aNVzpmwnodxccqom6stKELYRGTeOwjGnYYinaYJ/ClYJ6kK+czGFv
-         4RJ+aG9TmOWUeVdHPAopr0Hb6pzoPGtpuiPqJby2SxfoaiwkBcFyBPJV63780qCy88vZ
-         9nPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762502054; x=1763106854;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hht2khT+M/paWxzoLF4glbCzxzDG6WfHD/Jh8JDmVm8=;
-        b=BVtXEGq6ELOGnsdLDU6/U58waSX5p+caQMnnKw2tFpmsqKPfL2bImAQ4ZHjFSAmqdb
-         xcXI31AJvmXcf5/swFY30jm2XIxGFrhtaEgWByEYcjnq6mFUDpEjz7gBiq1cT9mJV28W
-         2YRq6KOdW/ZRiRDj4oF9pLaTYQdHgxFT50sUvkQ6muCezTax2nhRleqfTYWpi7wskkg2
-         m0sZtkHXtVc018jdjD1/hB14NfDfUR9IYlI/KfzTwSiY9YVwnzNlRikWpW7jsrzp8Gnt
-         7AftHqwhrdDCW0j99pgtsIxm+RrPSScJzI9wEyAPpxCp0ZGBf3ZpOGlp8x7O2xe99i+S
-         iD0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVsjetnfJzw9hF3gPbixsQmgbJSR3TYUVQztI4cPzWR8ZtMK9OkYQYaYfiyyjKy32y3Z3s9qeRg9lPNwAsK0Bns@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5wa0R8YlITtDbIlTL6IeaupkDOMXfvpqPxA82zKxCyL6SINFa
-	s50Xpq7E+B1iKpeHt3My6CNwfFf4rmFI9/ocQ2Skv0NoexoDKZTcqVOAokYXpY7s8o7W/JT1d8Z
-	AfEg/RJ7pfD7LPimozjVvngIHThIh6QU=
-X-Gm-Gg: ASbGncvTRXsEU9gdXSixhSLsQAGFsCUMfprIa5MsOL95TRi2qsWEWWzCLF36bAjbe0z
-	8dmxmKJ/AjY65ABsHlIDDFUZTYDYqKjLfu7ceSI8CFezReM0dVkvpdLK/kC0mQO/p2L99x4txSa
-	EV0rncD0+V8k7GbI/kKPm5KpllZVFHaPxTwgXAMvo3HAS5FYooeu/uXrSQGvPkg5AbXiNQwn8QW
-	bKPwl6kp5A0voFRC0i1n65iTKL83yZJzTMv0iutCOK51zOlLuozUoYdqA==
-X-Google-Smtp-Source: AGHT+IHL0mKF9QQYctg7K2SDNNvhbCsy5jQOa37KMcgcdBvRiNDOg88v8nsypzK+cTSQzbs7MXiMalVatyoMujxAM6A=
-X-Received: by 2002:a05:6a20:914f:b0:334:8e2e:2c55 with SMTP id
- adf61e73a8af0-35228572ba4mr3084918637.18.1762502054278; Thu, 06 Nov 2025
- 23:54:14 -0800 (PST)
-MIME-Version: 1.0
-References: <20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com> <20251031-imx95-rproc-2025-10-31-v2-3-758b2e547a55@nxp.com>
-In-Reply-To: <20251031-imx95-rproc-2025-10-31-v2-3-758b2e547a55@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 7 Nov 2025 09:56:40 +0200
-X-Gm-Features: AWmQ_bldmBxOD-3eNLQss-begsdemT3T5zDmdImzkOkUALSL6znnWYvoGByIzsQ
-Message-ID: <CAEnQRZB4szsOxtP2QmRdpwR+ZJ+8ydGg8hGAo5DqHC=tw23M8A@mail.gmail.com>
-Subject: Re: [PATCH v2 3/5] remoteproc: imx_rproc: Introduce prepare ops for imx_rproc_dcfg
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>, 
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Fri, 07 Nov 2025 07:54:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9CEB86190B;
+	Fri,  7 Nov 2025 07:54:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D82EAC116C6;
+	Fri,  7 Nov 2025 07:54:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762502072;
+	bh=3t8OmQN+HWYwvBz12hbfBvBSJ0jdJVm7jFSV6g0Km68=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MIH4cW3M/RQ8AdoJIJenlu9nKammXIewaPCtUDKifyrThHEXQ5kSlXxi2GPaClpZR
+	 jGykLAz3i530vApg7DV/VcBCCHArXeSWdN8xIeTBy8gdoyZVQirlaQBoNhW3gwIZKV
+	 S+eYCI+vxJlSUacb5MojnsnSYSJOr5Hs7fSkT/+35r/zINWl1Mh9GlYFl+2IHfYLXz
+	 eCYEqtpNNFEj3PHG3R+VboKSowfbKxLvUHUUPurABTZTg/Xk2jmFE01WhYb2J2gsVR
+	 dvjO1AxDgcOyzZmzxtdCqFkEC7rK26FyYAWlUxIe7PUBU/6v+ecxH7FuFLcQwrMQ8x
+	 ASUUGtzDbOsKg==
+Date: Fri, 7 Nov 2025 08:54:29 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Swamil Jain <s-jain1@ti.com>
+Cc: jyri.sarha@iki.fi, tomi.valkeinen@ideasonboard.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, lee@kernel.org, louis.chauvet@bootlin.com, 
+	aradhya.bhatia@linux.dev, devarsht@ti.com, praneeth@ti.com, h-shenoy@ti.com, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_235415_332967_B8C730FC 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [RESEND PATCH v2 1/5] dt-bindings: display: ti,am65x-dss: Add
+ clk property for data edge synchronization
+Message-ID: <20251107-amaranth-platypus-from-betelgeuse-7673b9@kuoka>
+References: <20251106141227.899054-1-s-jain1@ti.com>
+ <20251106141227.899054-2-s-jain1@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251106141227.899054-2-s-jain1@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,14 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 4:28=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
->
-> Allow each platform to provide its own prepare operations, preparing
-> for i.MX95 LMM and CPU ops support.
->
-> No functional changes.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Thu, Nov 06, 2025 at 07:42:23PM +0530, Swamil Jain wrote:
+> From: Louis Chauvet <louis.chauvet@bootlin.com>
+> 
+> The dt-bindings for the display, specifically ti,am65x-dss, need to
+> include a clock property for data edge synchronization. The current
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+clock properties are called "clocks". Please rephrase commit msg or use
+proper clocks to indicate you access here a clock (if that's the case).
+
+> implementation does not correctly apply the data edge sampling property.
+
+Where is "data edge sampling property"? I do not see it in this binding.
+
+> 
+> To address this, synchronization of writes to two different registers is
+
+How this binding achieves that "synchronization"? What are you even
+describing here?
+
+> required: one in the TIDSS IP (which is already described in the tidss
+> node) and one is in the Memory Mapped Control Register Modules.
+> 
+> As the Memory Mapped Control Register Modules is located in a different
+
+And now another therm - MMCR...
+
+This commit msg is barely parseable - language is correct but it is a
+mix of completely wrong terms.
+
+In case you used LLM to write this - don't. Ever.
+
+> IP, we need to use a phandle to write values in its registers.
+> 
+> Fixes: ad2ac9dc9426 ("drm/tidss: Add support for AM625 DSS")
+> Fixes: 5cc5ea7b6d7b ("drm/tidss: Add support for AM62A7 DSS")
+
+You still did not describe the actual bug being fixed here.
+
+> Cc: stable@vger.kernel.org
+
+Best regards,
+Krzysztof
+
 
