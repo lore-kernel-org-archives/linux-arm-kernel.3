@@ -4,98 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CF8CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Nov 2025 23:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26527CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 00:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ki1S0jNXHy4LyLENKd+AfEQuFaIOTGD4wQXEjzdKKY0=; b=CFzsxD7pTTbNQVKV2YQxAGCj3B
-	8jsplDiWhqvFxRQeSC6l5M1GuGPDtQena4AYa4qZ/HkyNdO7rIrH89XkNNwE9Q6dB4ReZPTwVmMpq
-	qPQWO05V3nJbwmSgFE5UCnt7FNPOMUcfTPqyEZ9/Wv4RQgtmXyh9OC2DNLSXP1uMWTtCNMX1LA+Yc
-	ygsutu7qukjMOZL/QxIA6asWv9jCI0N9QooIsyW793QvXm+5/Ihpq3KltklrC47+0/FVwdEhktuIi
-	tpRxUcofVxO9aVQpuwGqeGIA2yU8BiMorjy2lMSd59pv7ADMzNgT3mpJNyJVrr5fdnaSXX5o7TFjQ
-	YEzkwseQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fQomaAE+Mr8FcByMN4M+wS/CUOh83OdYYvUWqBXu24o=; b=Wz2uGOonKz2BvkOeHUlmG7JRVY
+	2wXH2mxrDM314L1NW0D8uqLj2s/9P36VpV8HsOjOjjqyncviNPN9cCCjglp+WiggB1AxRBSKhlVMO
+	Ypp7FzFiVnZxrUhaS5nd7Wh0LGS3lX6U8pXIGuzNJcqclD2K8Al86h9GkYZu2aQD+9JhAxekamxsU
+	RQ0ar4ybE//rc02NT2ZzplxhINiGKZIRrXkeESh3MWL0H4TkJHQP5i6/1l83OCYYGvmrLTKgWBCpa
+	w4PD9HTatU/qhCg2F1p0m1hGPoWvjq4H7MMcJvdodc3bbS/s/m7cN5EGSOs7ewu7lO1Kg7LhR6nkZ
+	I4aKUdhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH9rC-0000000GQKJ-4AgU;
-	Thu, 06 Nov 2025 23:57:34 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vHA9H-0000000GRZx-1s4e;
+	Fri, 07 Nov 2025 00:16:15 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vH9r8-0000000GQCS-0SwL
+	id 1vHA9B-0000000GRZX-2T7N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Nov 2025 23:57:32 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4710022571cso1484985e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Nov 2025 15:57:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762473448; x=1763078248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ki1S0jNXHy4LyLENKd+AfEQuFaIOTGD4wQXEjzdKKY0=;
-        b=OXPEhk7u3I7iJ6hn3Fit4/zeYlF9y8O4FwEKEYX7KRI2giwUp23dkO5sStX6zmWpjR
-         RrtpyTUvVXbzBMLiALtqlVl4U226+aDQQihMo/KfgFlxWgT2qYHaEdj3vu+WkaP5ebXO
-         0Z367tBWWDra7vwnw9ngdYQjqBEIuu6Xd5bVEu6NVBRaK/z+O3Ftt2O6QEjUN3cvrdVp
-         FWgqza8Ajz5MKg3qNaJ0F2JWr0VnQJlecOEKJ9oOBN00RXmtX1X6gwxI5mKqd4b7ouUL
-         0Jy/d8cztMRczcpv1z+dX3+rq4Nb3/yS3uXjWOGwRM9j+Tb4WuEDKUAAz+z1/Xjaut3S
-         FcvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762473448; x=1763078248;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Ki1S0jNXHy4LyLENKd+AfEQuFaIOTGD4wQXEjzdKKY0=;
-        b=OtGAPlAvqV90YjhSpkLHD8zDl4Qo+9tZBVy1eBdlzakkJ+YwY/svSTKks0NdHUj0+0
-         7VTk51+YPQUhmhEz3YT1D9Fh0RIC5qi3j15zDs3VZ9G5V5I7FbIhrVYmB1+bWQDE/Mg0
-         FYkCiBFysxQURVu5cjQTIcva5Nud9STxhcOxtuY7BxJv5Z2/Gc3IRrVEp7Set27XeQFi
-         xJF4LQVTLmoJsB4fD7szxhl8Gmi1Wgz1D17QMt8WSGCxpwemjrcXpyElfCmHpCpTXLjw
-         SSew2jsLAbZ4t3ZVdyqBBadFzC0QqPNPB/2Mp7t8NrkGirhKNUoKU8I6m1YOLtqS8mkn
-         k2iA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjtjE5GqO/8oyPHfbwR96vRc4HvGTx35koTDws2IHdOQiMP0xiDu4I6+cbEUhXB8YVedD5qL5yyCAFiMHvfwTJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwIgirqDpYn4SQnXxnZ6xytSoU/ftBFGTnARGMCBL9nQegiGr9
-	nCIPOJGu/tvnrUm5bzMY8ngRu9Z3CnFuWwIKHu3/R0nx3bJg8UEtbump
-X-Gm-Gg: ASbGnctTRLW5TWasR1XBf6W2kEaQbLs2BJT3wgZqlkcSOW6O1zwOtUJcIEpc+01yT9O
-	HVIV5eXShWFTVzERTe3hiNhR7lASamVc5S7DQUg4gjn8OwRvWHA4rIhg8LzQAfKjuhNOI43OFdG
-	kBvm+JJRkDl74yesOw+tpigD4TJ9GlmqtiwcxQu1SPf+9dM73o0eUCHb5fWgotdMl8XUEK7jOY4
-	YHv8arFtt6jyMeiobzesyza8wH7SB7x52zcUvBtDvzat+mDIfVYPS0faghB/NK4t0ajxtRc3nv3
-	EZHtMHjQ+A5H+zSJKEgZCZzATnnOotAOxOVoWaMiR+uNoFCBMmvaBQzUwjRVRCKSoieZE9KMlpu
-	WhFY+aU8bH7S68s4YSieivoJ7Ya0MBHUSIZXWM9x1jh9Jt7ICQ6Trldoq6G1uJ7rLNgaZklWxzX
-	CqXmhCLlqJVhINcgWEfoQj8yhS2uqbZg==
-X-Google-Smtp-Source: AGHT+IH25aQp/kE6yaawJbhvo+envTRVvgNUDYj3BDSfspkiiXwDReubi5FYTVfH3vZwmm3p5V7Vfg==
-X-Received: by 2002:a05:600c:1e8a:b0:477:e66:406e with SMTP id 5b1f17b1804b1-4776bcc376emr7319745e9.29.1762473447889;
-        Thu, 06 Nov 2025 15:57:27 -0800 (PST)
-Received: from Ansuel-XPS24 (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4775cd45466sm129470525e9.0.2025.11.06.15.57.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Nov 2025 15:57:27 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v2 5/5] pinctrl: airoha: add support for Airoha AN7583 PINs
-Date: Fri,  7 Nov 2025 00:57:08 +0100
-Message-ID: <20251106235713.1794668-6-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251106235713.1794668-1-ansuelsmth@gmail.com>
-References: <20251106235713.1794668-1-ansuelsmth@gmail.com>
+	Fri, 07 Nov 2025 00:16:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yK0W9aiCVpJhUCw5rC6tVxxpTGs/FgaVDXuNFoteJ7dLpeg1m6tTqgEX45oOboXVpjzTjmxYqTHJv68gcCnix9YAimOIXQsyguHSzOxHRJ3aDQewhz041gOlFiEReKy9oxkmXtjCsBEhXODpPsEK8wvnZIAjk9Gq1QRT76s+KXbmfoIRZ2jWpfmEFG4hHMgjuLnyGHwIyFmTENwTpTYIvT6WsBgBxiGE4cenmMHuWrOx6GZ8Q885YKAGmvc+zAFi2AGbzZZ/5G/QJf9tpcP7vVeg/dRiOPSqzg4v4l3RhMJIMJbweLrlhHOFY2+F5776txziR2AIG3suyPe+EPBJiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fQomaAE+Mr8FcByMN4M+wS/CUOh83OdYYvUWqBXu24o=;
+ b=j2thTpJpTxqq3GoWALf3bkCYhIQCQU03DMQ9Y9314nfhZWonMsC3fr88QLnHdRJUOMfU0Jwa0/W9oCxbr2Fd/JEbAooQNTlFVn/8JaTi4xBGf6XZ9k7s+UdHuqP6x/jp4+e/3RXvSBDCyeuC+3+79kKGkgFCtnpevtJPWCAm8J1WFgetdRuimwd2gOubAUMG0/9wLPAsipqQsitdxo8xumRXRurraq0+klCIA9/klobZKdwAciq40TjC0XsIWaToKtCPy2oRsd8XX2ZbBN1m3+VhoBn0BKBiBPVMTs532HGdxR2dqc5dverybeQ++ORhmdjRjN0tHuM8y7laloxUjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fQomaAE+Mr8FcByMN4M+wS/CUOh83OdYYvUWqBXu24o=;
+ b=HWhqWj1PeZYnOMNRl+jXjAwPW71a53joXLchC7g9nMuqng3VMmMM9LcLN2Cpt5ML+lW/u9E5EUytF1s5wKXUhnw6zCyLZTeA3wrpRTKJq7KXp5cZt0WE25L/TSXKFj46h52PP1LSQiBZuwbaxb5jjz8TTCfXlJrB0CgrhllVw8p5oTZvR7moXh9G1Y5g2Bkvie894uIh5GgZqjfWfmVBn4yFnZYHZr7pxD8aegyfNqyujrfaTuuEOwFIHQ1SYUWkaqY6keA0SZw3zkFlgWFcje3wzlCftDBRBBfvnRCJ8XgD+IvnAfxqcU9hP5rqTmKpX5up8a8Yxk49o2OjAHGQ0w==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by TYSPR06MB6972.apcprd06.prod.outlook.com (2603:1096:400:46a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.10; Fri, 7 Nov
+ 2025 00:15:54 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9298.007; Fri, 7 Nov 2025
+ 00:15:54 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
+Thread-Topic: [PATCH net-next v3 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
+Thread-Index: AQHcTJUB+TmCwKSgIEaeQsrh+oaRd7TiLi+AgAAZOmCAAAUCAIAC1hMQgAAyMgCAAQXHkA==
+Date: Fri, 7 Nov 2025 00:15:54 +0000
+Message-ID: <SEYPR06MB51346AEB8BF7C7FA057180CE9DC3A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com>
+ <20251103-rgmii_delay_2600-v3-1-e2af2656f7d7@aspeedtech.com>
+ <20251104-victorious-crab-of-recreation-d10bf4@kuoka>
+ <SEYPR06MB5134B91F5796311498D87BE29DC4A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <9ae116a5-ede1-427f-bdff-70f1a204a7d6@kernel.org>
+ <SEYPR06MB5134004879B45343D135FC4B9DC2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <1f3106e6-c49f-4fb3-9d5a-890229636bcd@kernel.org>
+In-Reply-To: <1f3106e6-c49f-4fb3-9d5a-890229636bcd@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|TYSPR06MB6972:EE_
+x-ms-office365-filtering-correlation-id: 4c48e27a-f5f3-472b-8e47-08de1d92d126
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?0NAf45ORCOFqMIlzC+rHODeEX97/Z+E/nWmKWd0D9HU/6foPaudRPjrTACx6?=
+ =?us-ascii?Q?RoQLcoH3EWss/s1LmCQCUiaJA67EboGBzgnqsDcdZ7ZH2LlpPZxWlH6S1BaM?=
+ =?us-ascii?Q?4HkKzdpzUN6X249EqLLqtpjH9SfiZoDPditesjslXCIa416+xtH5mfwcBGn3?=
+ =?us-ascii?Q?z6u4BqWekspa2jkDsqu1dWdpPINu1+/lkmkuO0v3IddHW8gf6sQ//5Y1pN5v?=
+ =?us-ascii?Q?lXiJ0rvFYCRBMbUCI1FAdYKpMA/rhFyyxotE6BOXX1B38eallq49HBysQSBj?=
+ =?us-ascii?Q?Zutg9nJXmk1Z+KSEJYiJc4+vhOBBNiQC6g4J95lYonZ3eqdKekaP5a4z3TK3?=
+ =?us-ascii?Q?hv+chid9STc9tT5OgJzcM1CMz5DIQWdYYW7UaiQ5D0BjUhLSfQm+tm7Ol9ti?=
+ =?us-ascii?Q?Ch7S19KfwAM7jgdd0kj3Ux160+IXaDeYsXjxkJkOe7Rqszsqk6gdzmCNpJpT?=
+ =?us-ascii?Q?ivSVYdd7Ghs66ttwhIZckG9eANzjiD5wRtoXFVpWx/okifVl+GhRFs3nlkrg?=
+ =?us-ascii?Q?ygkNyln3HqttIIWeBY0Xv+dkoPcdzFyTpmUhhVp2gyQwkdVTxtCWiMz7dI94?=
+ =?us-ascii?Q?5w3NaEv6QRydpSYdjEz8QAlJ8zYiaT7GK9+Ucn7UWrEitcwamFxwsKPfFVo3?=
+ =?us-ascii?Q?QSDbsyqeANj6vqbHPY9izlgnRK79AzrdFEKOBf2zEFxkWlTZ0nnVV14HGbZ1?=
+ =?us-ascii?Q?llneB/CxemKoPvpiUOefUlzxS6GYBy8MKIxPaSXNXV3GXs4MAvT6LlcoFDq8?=
+ =?us-ascii?Q?N3nhCgnJ90acsVXBr/uXwFpMDhBxPE4iXY7lVI9flNB1eE6DyYlzXhGdMHnU?=
+ =?us-ascii?Q?kIIEpGRTJXacH7xB1QRKmfmHnufXet4CGvxjpYibtw6UXQTVCjqTBgG1UTLW?=
+ =?us-ascii?Q?DE92Okxie6FqBgeli7GJ6LjJ2f9HpNQ6WrekQeyCCX/gHqnPaRdhobSwTPNM?=
+ =?us-ascii?Q?dWiPPsiSLvza5ov8gxDwdH9lVhCjK5mlvjC/LtVFIfEM0IBinNcDjnVidsD3?=
+ =?us-ascii?Q?77ZmZIk1BN3cFU6KWFFpZPooSPL/y+KYpJrsdqwzEiH/uc6A3HILXBpNZfvp?=
+ =?us-ascii?Q?egrlfVxTVFdGMt67MKJoPAnqemNFYAAYxXB+GUyfdLDglIX45NQ7pviGutIx?=
+ =?us-ascii?Q?kdw1vlMBbmA2xB5PIYlWrihpDw7QEx/fvTxcraOjYKX5jiRQ7bFCZjYKkjuF?=
+ =?us-ascii?Q?2Xj21xYrPzPHMxA/LYzwvKyDDEpIKVLpK0K7JcWAH5stoNi5BXC1gPpZ1R0c?=
+ =?us-ascii?Q?DWpFxnbphTwzSHY94hQexGlHyrimgFItZ11i9gateMvG62b1A8GcUkWXOVSx?=
+ =?us-ascii?Q?WMoMK3l2AWpDVywTa/P3A74uj2PEVtdhFl0aATkWiXruwO0+AqTM/8KF7/7m?=
+ =?us-ascii?Q?/ALM4Oi8b8p16FPCcpU4w5czSI8G7gusT5av2TofE95zrfB23gFAzVi63mI2?=
+ =?us-ascii?Q?rIEQqHnWja6Gi51q+v7RKY78vOsbKp6BC5P4AmwjLolh6zxI45YlANN+ILiS?=
+ =?us-ascii?Q?X6cJP8eguv0ReEUai2QeJ4dUo/GTkcvNcIjr?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?++nPJq2o8Ak4mQJ6acWz0TOEYLId+GBJtUv+yGVNLv+FulHykVuaBlw1QhqF?=
+ =?us-ascii?Q?tAM9zdOGBnTcrIuNxTPXDw6i5ntT5zBwvB4kFe+XMNpdq5bujfNOxtvDBGTa?=
+ =?us-ascii?Q?TdxWxxjwOV6gUuNSH4yJE5C4LrsFq9dN7DoBKmvzE1l0LMKYJgF6GHgM2mt+?=
+ =?us-ascii?Q?Ttqanc03MXtPBHVZlt42d8AJlk7MHAx3X31u83eW6FmajM9x5tJUK130oAWF?=
+ =?us-ascii?Q?W8cKtvy9kO6cj/IWEuEOHLrGUFQayz7WXjvd76Pfo29uuxOz4QF4R1BRpWcY?=
+ =?us-ascii?Q?rfXZUqkJ2B1kcafl4HMD+2+NHED7vkOfkizmToA+RXOl8ormvpKIvlKiCA3b?=
+ =?us-ascii?Q?Pi0t01PS9wZW9ddmqwGh8rX6BaqUBXHu9D/oDNxhvWmrS8cI6cygxmpmfOIU?=
+ =?us-ascii?Q?DsAbDlF2b6/lRs1bPdu6T0ZTVdLxlnProX/+2NLGcT7fkrHZhrtJWye2Fpd9?=
+ =?us-ascii?Q?BjSAwoMnCx6z988Wv2rmkrre5UgWE4ty8DLWCy/1UPG88LS8aOUSCp/+To2O?=
+ =?us-ascii?Q?7NZt+da2Ksosil98F8Ag4P9XxUZVqMsDyteDQuYJYNPpCeo/926lC9dL9Nsi?=
+ =?us-ascii?Q?+EjIjvAgWoN1qeQO4uBEaun5+HBT2Xtadg5fYdx7aL1L890leBiqxqadxLuY?=
+ =?us-ascii?Q?OGOyOepP2o9PMyEHrqipkKP2Sr9xQd6HVgvjjdaVZTy35Zsruc7unWwhH/g1?=
+ =?us-ascii?Q?dROLy0v0CZwGkRT1t3tOtiGw3CGgRwg3WrzS8+NmuVG5DlouUdRd//0srY5A?=
+ =?us-ascii?Q?npu0TsBLPb8V2dOm11ZcZximF1meAIsEZQkwmSq3JOPikZhP5iErJxqXWSRS?=
+ =?us-ascii?Q?m9Pc5ks8GNuNV2+spviWEifi1ZxBIHPKTBzIr5Mk5St/cKqC2/46G1UnlOih?=
+ =?us-ascii?Q?8tESVyd0AwSPlEP+OgQeD0sj473tChPUEmlD1WmQwwU6I5sIYj1PFoQhKgmm?=
+ =?us-ascii?Q?YYPPI4s057FJZDCpewgajCildaWFteEZ8uPIjfjyIkmi4vvLabYjTAk32bEH?=
+ =?us-ascii?Q?pbamcWRK+zkNTXzV5Fg/wkB6F6NQloKfkUo25oEyMtg1G5Lxmxbf3I7swkbW?=
+ =?us-ascii?Q?9/fxYSuzp8fUAqo/yutdOnpIiydpuHQkyqBexb8YXopgC0ymUtBmjOa0/TCR?=
+ =?us-ascii?Q?hz+BpqGJKbYLb4y+Jbv11REOvbyyNr7Vzdj1PexEzEPODzvo+cYUDz56FgEu?=
+ =?us-ascii?Q?cINBL+O2OvZIX91K/wl5gyoOuHWPvZxMCgqjErF6xSq3zryTJNnPz+wGQUMF?=
+ =?us-ascii?Q?riEnR3YmAb8hG298LPEG3AcS6fZgtuQF+aOLIJv3xTOqtJXl1p4LtcfOrXBx?=
+ =?us-ascii?Q?EYmgaHUEZS0u6LvUDgZDPUL+DIM1WiC7L46bErlRjxoKjdsMQmvoUEFQ+GIG?=
+ =?us-ascii?Q?TM9BxjFh3biWvgm1Zh/661K8zzEYFFz38K5fBPJmUORqWZcXbrGL6fbZactv?=
+ =?us-ascii?Q?cf6jmsbEWxcfs9i3HG8jrvM4/ga6MikqvT/It/cPt23rYGuvkJq10WRTdRUc?=
+ =?us-ascii?Q?u38io6eOwh/opgnjpkUco1C8HvRbAeRgPxBz/gZ2ccdmioiprsrI+J49mYgI?=
+ =?us-ascii?Q?NotDKfk1iSWQOB7h5T4mW3B5J70OublcqOZ9VY1yshUL+RKCVgZzoCfmebf6?=
+ =?us-ascii?Q?Zg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4c48e27a-f5f3-472b-8e47-08de1d92d126
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2025 00:15:54.4392
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: +Wls4qRz8QsBbNOdV2P3ublk2Xy8HNxgmYuicvDySmf1OsaMYUuprKnykzULdjo2Fb4KhTJJGtBgyY0RWSn6OODft1Z4iucdEJHyRfVXaYU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6972
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_155730_432254_A503A7A5 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20251106_161609_664204_7D94F992 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,972 +179,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all the required entry to add suppot for Airoha AN7583 PINs.
+> >>>>> Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
+> >>>>> Add conditional schema constraints for Aspeed AST2600 MAC
+> controllers:
+> >>>>> - For "aspeed,ast2600-mac01", require rx/tx-internal-delay-ps prope=
+rties
+> >>>>>   with 45ps step.
+> >>>>> - For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps prope=
+rties
+> >>>>>   with 250ps step.
+> >>>>
+> >>>> That difference does not justify different compatibles. Basically
+> >>>> you said they have same programming model, just different hardware
+> >>>> characteristics, so same compatible.
+> >>>>
+> >>>
+> >>> This change was originally based on feedback from a previous review
+> >> discussion.
+> >>> At that time, another reviewer suggested introducing separate
+> >>> compatibles for
+> >>> MAC0/1 and MAC2/3 on AST2600, since the delay characteristics differ
+> >>> and they might not be fully compatible.
+> >>
+> >>
+> >> Your commit msg does not provide enough of rationale for that.
+> >> Difference in DTS properties is rather a counter argument for having
+> >> separate compatibles. That's why you have these properties - to mark t=
+he
+> difference.
+> >>
+> >
+> > Actually, on the AST2600 there are two dies, and each die has its own M=
+AC.
+> > The MACs on these two dies indeed have different delay configurations.
+>=20
+> Is this the logic like: we have multiple snps,dw-apb-uart UARTs on the de=
+vice,
+> so we need snps,dw-apb-uart-1, snps,dw-apb-uart-2 and snps,dw-apb-uart-3?
+>=20
 
-Where possible the same function group are used from Airoha EN7581 to
-reduce code duplication.
+You are right. That doesn't make sense..
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/pinctrl/mediatek/pinctrl-airoha.c | 747 +++++++++++++++++++++-
- 1 file changed, 740 insertions(+), 7 deletions(-)
+> >
+> > Previously, the driver did not configure these delays - they were set
+> > earlier during the bootloader stage. Now, I'm planning to use the
+> > properties defined in ethernet-controller.yaml to configure these delay=
+s
+> properly within the driver.
+> >
+> > Since these legacy settings have been used for quite some time, I'd
+> > like to deprecate the old compatible and clearly distinguish that the
+> > AST2600 contains two different MACs. Future platforms based on the
+> > AST2600 will use the new compatibles with the correct PHY and delay
+> configurations.
+>=20
+> Why are you repeating the same? So I will repeat the same. You need to
+> provide rationale why different compatible is justified. Difference in de=
+lay itself
+> is not the enough. Please write concise answer based on device programmin=
+g
+> model differences or other rules expressed in writing bindings or numerou=
+s
+> presentations.
+>=20
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index f3cf48bdd1f8..bfcedc7f920b 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -70,6 +70,7 @@
- #define GPIO_PCM_SPI_CS3_MODE_MASK		BIT(20)
- #define GPIO_PCM_SPI_CS2_MODE_P156_MASK		BIT(19)
- #define GPIO_PCM_SPI_CS2_MODE_P128_MASK		BIT(18)
-+#define AN7583_GPIO_PCM_SPI_CS2_MODE_MASK	BIT(18)
- #define GPIO_PCM_SPI_CS1_MODE_MASK		BIT(17)
- #define GPIO_PCM_SPI_MODE_MASK			BIT(16)
- #define GPIO_PCM2_MODE_MASK			BIT(13)
-@@ -127,6 +128,8 @@
- 
- /* CONF */
- #define REG_I2C_SDA_E2				0x001c
-+#define AN7583_I2C1_SCL_E2_MASK			BIT(16)
-+#define AN7583_I2C1_SDA_E2_MASK			BIT(15)
- #define SPI_MISO_E2_MASK			BIT(14)
- #define SPI_MOSI_E2_MASK			BIT(13)
- #define SPI_CLK_E2_MASK				BIT(12)
-@@ -134,12 +137,16 @@
- #define PCIE2_RESET_E2_MASK			BIT(10)
- #define PCIE1_RESET_E2_MASK			BIT(9)
- #define PCIE0_RESET_E2_MASK			BIT(8)
-+#define AN7583_MDIO_0_E2_MASK			BIT(5)
-+#define AN7583_MDC_0_E2_MASK			BIT(4)
- #define UART1_RXD_E2_MASK			BIT(3)
- #define UART1_TXD_E2_MASK			BIT(2)
- #define I2C_SCL_E2_MASK				BIT(1)
- #define I2C_SDA_E2_MASK				BIT(0)
- 
- #define REG_I2C_SDA_E4				0x0020
-+#define AN7583_I2C1_SCL_E4_MASK			BIT(16)
-+#define AN7583_I2C1_SDA_E4_MASK			BIT(15)
- #define SPI_MISO_E4_MASK			BIT(14)
- #define SPI_MOSI_E4_MASK			BIT(13)
- #define SPI_CLK_E4_MASK				BIT(12)
-@@ -147,6 +154,8 @@
- #define PCIE2_RESET_E4_MASK			BIT(10)
- #define PCIE1_RESET_E4_MASK			BIT(9)
- #define PCIE0_RESET_E4_MASK			BIT(8)
-+#define AN7583_MDIO_0_E4_MASK			BIT(5)
-+#define AN7583_MDC_0_E4_MASK			BIT(4)
- #define UART1_RXD_E4_MASK			BIT(3)
- #define UART1_TXD_E4_MASK			BIT(2)
- #define I2C_SCL_E4_MASK				BIT(1)
-@@ -158,6 +167,8 @@
- #define REG_GPIO_H_E4				0x0030
- 
- #define REG_I2C_SDA_PU				0x0044
-+#define AN7583_I2C1_SCL_PU_MASK			BIT(16)
-+#define AN7583_I2C1_SDA_PU_MASK			BIT(15)
- #define SPI_MISO_PU_MASK			BIT(14)
- #define SPI_MOSI_PU_MASK			BIT(13)
- #define SPI_CLK_PU_MASK				BIT(12)
-@@ -165,12 +176,16 @@
- #define PCIE2_RESET_PU_MASK			BIT(10)
- #define PCIE1_RESET_PU_MASK			BIT(9)
- #define PCIE0_RESET_PU_MASK			BIT(8)
-+#define AN7583_MDIO_0_PU_MASK			BIT(5)
-+#define AN7583_MDC_0_PU_MASK			BIT(4)
- #define UART1_RXD_PU_MASK			BIT(3)
- #define UART1_TXD_PU_MASK			BIT(2)
- #define I2C_SCL_PU_MASK				BIT(1)
- #define I2C_SDA_PU_MASK				BIT(0)
- 
- #define REG_I2C_SDA_PD				0x0048
-+#define AN7583_I2C1_SDA_PD_MASK			BIT(16)
-+#define AN7583_I2C1_SCL_PD_MASK			BIT(15)
- #define SPI_MISO_PD_MASK			BIT(14)
- #define SPI_MOSI_PD_MASK			BIT(13)
- #define SPI_CLK_PD_MASK				BIT(12)
-@@ -178,6 +193,8 @@
- #define PCIE2_RESET_PD_MASK			BIT(10)
- #define PCIE1_RESET_PD_MASK			BIT(9)
- #define PCIE0_RESET_PD_MASK			BIT(8)
-+#define AN7583_MDIO_0_PD_MASK			BIT(5)
-+#define AN7583_MDC_0_PD_MASK			BIT(4)
- #define UART1_RXD_PD_MASK			BIT(3)
- #define UART1_TXD_PD_MASK			BIT(2)
- #define I2C_SCL_PD_MASK				BIT(1)
-@@ -625,10 +642,223 @@ static const struct pingroup en7581_pinctrl_groups[] = {
- 	PINCTRL_PIN_GROUP("pcie_reset2", en7581_pcie_reset2),
- };
- 
-+static struct pinctrl_pin_desc an7583_pinctrl_pins[] = {
-+	PINCTRL_PIN(2, "gpio0"),
-+	PINCTRL_PIN(3, "gpio1"),
-+	PINCTRL_PIN(4, "gpio2"),
-+	PINCTRL_PIN(5, "gpio3"),
-+	PINCTRL_PIN(6, "gpio4"),
-+	PINCTRL_PIN(7, "gpio5"),
-+	PINCTRL_PIN(8, "gpio6"),
-+	PINCTRL_PIN(9, "gpio7"),
-+	PINCTRL_PIN(10, "gpio8"),
-+	PINCTRL_PIN(11, "gpio9"),
-+	PINCTRL_PIN(12, "gpio10"),
-+	PINCTRL_PIN(13, "gpio11"),
-+	PINCTRL_PIN(14, "gpio12"),
-+	PINCTRL_PIN(15, "gpio13"),
-+	PINCTRL_PIN(16, "gpio14"),
-+	PINCTRL_PIN(17, "gpio15"),
-+	PINCTRL_PIN(18, "gpio16"),
-+	PINCTRL_PIN(19, "gpio17"),
-+	PINCTRL_PIN(20, "gpio18"),
-+	PINCTRL_PIN(21, "gpio19"),
-+	PINCTRL_PIN(22, "gpio20"),
-+	PINCTRL_PIN(23, "gpio21"),
-+	PINCTRL_PIN(24, "gpio22"),
-+	PINCTRL_PIN(25, "gpio23"),
-+	PINCTRL_PIN(26, "gpio24"),
-+	PINCTRL_PIN(27, "gpio25"),
-+	PINCTRL_PIN(28, "gpio26"),
-+	PINCTRL_PIN(29, "gpio27"),
-+	PINCTRL_PIN(30, "gpio28"),
-+	PINCTRL_PIN(31, "gpio29"),
-+	PINCTRL_PIN(32, "gpio30"),
-+	PINCTRL_PIN(33, "gpio31"),
-+	PINCTRL_PIN(34, "gpio32"),
-+	PINCTRL_PIN(35, "gpio33"),
-+	PINCTRL_PIN(36, "gpio34"),
-+	PINCTRL_PIN(37, "gpio35"),
-+	PINCTRL_PIN(38, "gpio36"),
-+	PINCTRL_PIN(39, "gpio37"),
-+	PINCTRL_PIN(40, "gpio38"),
-+	PINCTRL_PIN(41, "i2c0_scl"),
-+	PINCTRL_PIN(42, "i2c0_sda"),
-+	PINCTRL_PIN(43, "i2c1_scl"),
-+	PINCTRL_PIN(44, "i2c1_sda"),
-+	PINCTRL_PIN(45, "spi_clk"),
-+	PINCTRL_PIN(46, "spi_cs"),
-+	PINCTRL_PIN(47, "spi_mosi"),
-+	PINCTRL_PIN(48, "spi_miso"),
-+	PINCTRL_PIN(49, "uart_txd"),
-+	PINCTRL_PIN(50, "uart_rxd"),
-+	PINCTRL_PIN(51, "pcie_reset0"),
-+	PINCTRL_PIN(52, "pcie_reset1"),
-+	PINCTRL_PIN(53, "mdc_0"),
-+	PINCTRL_PIN(54, "mdio_0"),
-+};
-+
-+static const int an7583_pon_pins[] = { 15, 16, 17, 18, 19, 20 };
-+static const int an7583_pon_tod_1pps_pins[] = { 32 };
-+static const int an7583_gsw_tod_1pps_pins[] = { 32 };
-+static const int an7583_sipo_pins[] = { 34, 35 };
-+static const int an7583_sipo_rclk_pins[] = { 34, 35, 33 };
-+static const int an7583_mdio_pins[] = { 43, 44 };
-+static const int an7583_uart2_pins[] = { 34, 35 };
-+static const int an7583_uart2_cts_rts_pins[] = { 32, 33 };
-+static const int an7583_hsuart_pins[] = { 30, 31 };
-+static const int an7583_hsuart_cts_rts_pins[] = { 28, 29 };
-+static const int an7583_npu_uart_pins[] = { 7, 8 };
-+static const int an7583_uart4_pins[] = { 7, 8 };
-+static const int an7583_uart5_pins[] = { 23, 24 };
-+static const int an7583_i2c0_pins[] = { 41, 42 };
-+static const int an7583_i2c1_pins[] = { 43, 44 };
-+static const int an7583_jtag_udi_pins[] = { 23, 24, 22, 25, 26 };
-+static const int an7583_jtag_dfd_pins[] = { 23, 24, 22, 25, 26 };
-+static const int an7583_pcm1_pins[] = { 10, 11, 12, 13, 14 };
-+static const int an7583_pcm2_pins[] = { 28, 29, 30, 31, 24 };
-+static const int an7583_spi_pins[] = { 28, 29, 30, 31 };
-+static const int an7583_spi_quad_pins[] = { 25, 26 };
-+static const int an7583_spi_cs1_pins[] = { 27 };
-+static const int an7583_pcm_spi_pins[] = { 28, 29, 30, 31, 10, 11, 12, 13 };
-+static const int an7583_pcm_spi_rst_pins[] = { 14 };
-+static const int an7583_pcm_spi_cs1_pins[] = { 24 };
-+static const int an7583_emmc_pins[] = { 7, 8, 9, 22, 23, 24, 25, 26, 45, 46, 47 };
-+static const int an7583_pnand_pins[] = { 7, 8, 9, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 45, 46, 47, 48 };
-+static const int an7583_gpio0_pins[] = { 2 };
-+static const int an7583_gpio1_pins[] = { 3 };
-+static const int an7583_gpio2_pins[] = { 4 };
-+static const int an7583_gpio3_pins[] = { 5 };
-+static const int an7583_gpio4_pins[] = { 6 };
-+static const int an7583_gpio5_pins[] = { 7 };
-+static const int an7583_gpio6_pins[] = { 8 };
-+static const int an7583_gpio7_pins[] = { 9 };
-+static const int an7583_gpio8_pins[] = { 10 };
-+static const int an7583_gpio9_pins[] = { 11 };
-+static const int an7583_gpio10_pins[] = { 12 };
-+static const int an7583_gpio11_pins[] = { 13 };
-+static const int an7583_gpio12_pins[] = { 14 };
-+static const int an7583_gpio13_pins[] = { 15 };
-+static const int an7583_gpio14_pins[] = { 16 };
-+static const int an7583_gpio15_pins[] = { 17 };
-+static const int an7583_gpio16_pins[] = { 18 };
-+static const int an7583_gpio17_pins[] = { 19 };
-+static const int an7583_gpio18_pins[] = { 20 };
-+static const int an7583_gpio19_pins[] = { 21 };
-+static const int an7583_gpio20_pins[] = { 22 };
-+static const int an7583_gpio21_pins[] = { 24 };
-+static const int an7583_gpio23_pins[] = { 25 };
-+static const int an7583_gpio24_pins[] = { 26 };
-+static const int an7583_gpio25_pins[] = { 27 };
-+static const int an7583_gpio26_pins[] = { 28 };
-+static const int an7583_gpio27_pins[] = { 29 };
-+static const int an7583_gpio28_pins[] = { 30 };
-+static const int an7583_gpio29_pins[] = { 31 };
-+static const int an7583_gpio30_pins[] = { 32 };
-+static const int an7583_gpio31_pins[] = { 33 };
-+static const int an7583_gpio33_pins[] = { 35 };
-+static const int an7583_gpio34_pins[] = { 36 };
-+static const int an7583_gpio35_pins[] = { 37 };
-+static const int an7583_gpio36_pins[] = { 38 };
-+static const int an7583_gpio37_pins[] = { 39 };
-+static const int an7583_gpio38_pins[] = { 40 };
-+static const int an7583_gpio39_pins[] = { 41 };
-+static const int an7583_gpio40_pins[] = { 42 };
-+static const int an7583_gpio41_pins[] = { 43 };
-+static const int an7583_gpio42_pins[] = { 44 };
-+static const int an7583_gpio43_pins[] = { 45 };
-+static const int an7583_gpio44_pins[] = { 46 };
-+static const int an7583_gpio45_pins[] = { 47 };
-+static const int an7583_gpio46_pins[] = { 48 };
-+static const int an7583_gpio47_pins[] = { 49 };
-+static const int an7583_gpio48_pins[] = { 50 };
-+static const int an7583_pcie_reset0_pins[] = { 51 };
-+static const int an7583_pcie_reset1_pins[] = { 52 };
-+
-+static const struct pingroup an7583_pinctrl_groups[] = {
-+	PINCTRL_PIN_GROUP("pon", an7583_pon),
-+	PINCTRL_PIN_GROUP("pon_tod_1pps", an7583_pon_tod_1pps),
-+	PINCTRL_PIN_GROUP("gsw_tod_1pps", an7583_gsw_tod_1pps),
-+	PINCTRL_PIN_GROUP("sipo", an7583_sipo),
-+	PINCTRL_PIN_GROUP("sipo_rclk", an7583_sipo_rclk),
-+	PINCTRL_PIN_GROUP("mdio", an7583_mdio),
-+	PINCTRL_PIN_GROUP("uart2", an7583_uart2),
-+	PINCTRL_PIN_GROUP("uart2_cts_rts", an7583_uart2_cts_rts),
-+	PINCTRL_PIN_GROUP("hsuart", an7583_hsuart),
-+	PINCTRL_PIN_GROUP("hsuart_cts_rts", an7583_hsuart_cts_rts),
-+	PINCTRL_PIN_GROUP("npu_uart", an7583_npu_uart),
-+	PINCTRL_PIN_GROUP("uart4", an7583_uart4),
-+	PINCTRL_PIN_GROUP("uart5", an7583_uart5),
-+	PINCTRL_PIN_GROUP("i2c0", an7583_i2c0),
-+	PINCTRL_PIN_GROUP("i2c1", an7583_i2c1),
-+	PINCTRL_PIN_GROUP("jtag_udi", an7583_jtag_udi),
-+	PINCTRL_PIN_GROUP("jtag_dfd", an7583_jtag_dfd),
-+	PINCTRL_PIN_GROUP("pcm1", an7583_pcm1),
-+	PINCTRL_PIN_GROUP("pcm2", an7583_pcm2),
-+	PINCTRL_PIN_GROUP("spi", an7583_spi),
-+	PINCTRL_PIN_GROUP("spi_quad", an7583_spi_quad),
-+	PINCTRL_PIN_GROUP("spi_cs1", an7583_spi_cs1),
-+	PINCTRL_PIN_GROUP("pcm_spi", an7583_pcm_spi),
-+	PINCTRL_PIN_GROUP("pcm_spi_rst", an7583_pcm_spi_rst),
-+	PINCTRL_PIN_GROUP("pcm_spi_cs1", an7583_pcm_spi_cs1),
-+	PINCTRL_PIN_GROUP("emmc", an7583_emmc),
-+	PINCTRL_PIN_GROUP("pnand", an7583_pnand),
-+	PINCTRL_PIN_GROUP("gpio0", an7583_gpio0),
-+	PINCTRL_PIN_GROUP("gpio1", an7583_gpio1),
-+	PINCTRL_PIN_GROUP("gpio2", an7583_gpio2),
-+	PINCTRL_PIN_GROUP("gpio3", an7583_gpio3),
-+	PINCTRL_PIN_GROUP("gpio4", an7583_gpio4),
-+	PINCTRL_PIN_GROUP("gpio5", an7583_gpio5),
-+	PINCTRL_PIN_GROUP("gpio6", an7583_gpio6),
-+	PINCTRL_PIN_GROUP("gpio7", an7583_gpio7),
-+	PINCTRL_PIN_GROUP("gpio8", an7583_gpio8),
-+	PINCTRL_PIN_GROUP("gpio9", an7583_gpio9),
-+	PINCTRL_PIN_GROUP("gpio10", an7583_gpio10),
-+	PINCTRL_PIN_GROUP("gpio11", an7583_gpio11),
-+	PINCTRL_PIN_GROUP("gpio12", an7583_gpio12),
-+	PINCTRL_PIN_GROUP("gpio13", an7583_gpio13),
-+	PINCTRL_PIN_GROUP("gpio14", an7583_gpio14),
-+	PINCTRL_PIN_GROUP("gpio15", an7583_gpio15),
-+	PINCTRL_PIN_GROUP("gpio16", an7583_gpio16),
-+	PINCTRL_PIN_GROUP("gpio17", an7583_gpio17),
-+	PINCTRL_PIN_GROUP("gpio18", an7583_gpio18),
-+	PINCTRL_PIN_GROUP("gpio19", an7583_gpio19),
-+	PINCTRL_PIN_GROUP("gpio20", an7583_gpio20),
-+	PINCTRL_PIN_GROUP("gpio21", an7583_gpio21),
-+	PINCTRL_PIN_GROUP("gpio23", an7583_gpio23),
-+	PINCTRL_PIN_GROUP("gpio24", an7583_gpio24),
-+	PINCTRL_PIN_GROUP("gpio25", an7583_gpio25),
-+	PINCTRL_PIN_GROUP("gpio26", an7583_gpio26),
-+	PINCTRL_PIN_GROUP("gpio27", an7583_gpio27),
-+	PINCTRL_PIN_GROUP("gpio28", an7583_gpio28),
-+	PINCTRL_PIN_GROUP("gpio29", an7583_gpio29),
-+	PINCTRL_PIN_GROUP("gpio30", an7583_gpio30),
-+	PINCTRL_PIN_GROUP("gpio31", an7583_gpio31),
-+	PINCTRL_PIN_GROUP("gpio33", an7583_gpio33),
-+	PINCTRL_PIN_GROUP("gpio34", an7583_gpio34),
-+	PINCTRL_PIN_GROUP("gpio35", an7583_gpio35),
-+	PINCTRL_PIN_GROUP("gpio36", an7583_gpio36),
-+	PINCTRL_PIN_GROUP("gpio37", an7583_gpio37),
-+	PINCTRL_PIN_GROUP("gpio38", an7583_gpio38),
-+	PINCTRL_PIN_GROUP("gpio39", an7583_gpio39),
-+	PINCTRL_PIN_GROUP("gpio40", an7583_gpio40),
-+	PINCTRL_PIN_GROUP("gpio41", an7583_gpio41),
-+	PINCTRL_PIN_GROUP("gpio42", an7583_gpio42),
-+	PINCTRL_PIN_GROUP("gpio43", an7583_gpio43),
-+	PINCTRL_PIN_GROUP("gpio44", an7583_gpio44),
-+	PINCTRL_PIN_GROUP("gpio45", an7583_gpio45),
-+	PINCTRL_PIN_GROUP("gpio46", an7583_gpio46),
-+	PINCTRL_PIN_GROUP("gpio47", an7583_gpio47),
-+	PINCTRL_PIN_GROUP("gpio48", an7583_gpio48),
-+	PINCTRL_PIN_GROUP("pcie_reset0", an7583_pcie_reset0),
-+	PINCTRL_PIN_GROUP("pcie_reset1", an7583_pcie_reset1),
-+};
-+
- static const char *const pon_groups[] = { "pon" };
- static const char *const tod_1pps_groups[] = { "pon_tod_1pps", "gsw_tod_1pps" };
- static const char *const sipo_groups[] = { "sipo", "sipo_rclk" };
- static const char *const mdio_groups[] = { "mdio" };
-+static const char *const an7583_mdio_groups[] = { "mdio" };
- static const char *const uart_groups[] = { "uart2", "uart2_cts_rts", "hsuart",
- 					   "hsuart_cts_rts", "uart4",
- 					   "uart5" };
-@@ -641,11 +871,16 @@ static const char *const pcm_spi_groups[] = { "pcm_spi", "pcm_spi_int",
- 					      "pcm_spi_cs2_p156",
- 					      "pcm_spi_cs2_p128",
- 					      "pcm_spi_cs3", "pcm_spi_cs4" };
-+static const char *const an7583_pcm_spi_groups[] = { "pcm_spi", "pcm_spi_int",
-+						     "pcm_spi_rst", "pcm_spi_cs1",
-+						     "pcm_spi_cs2", "pcm_spi_cs3",
-+						     "pcm_spi_cs4" };
- static const char *const i2s_groups[] = { "i2s" };
- static const char *const emmc_groups[] = { "emmc" };
- static const char *const pnand_groups[] = { "pnand" };
- static const char *const pcie_reset_groups[] = { "pcie_reset0", "pcie_reset1",
- 						 "pcie_reset2" };
-+static const char *const an7583_pcie_reset_groups[] = { "pcie_reset0", "pcie_reset1" };
- static const char *const pwm_groups[] = { "gpio0", "gpio1",
- 					  "gpio2", "gpio3",
- 					  "gpio4", "gpio5",
-@@ -684,6 +919,22 @@ static const char *const phy3_led1_groups[] = { "gpio43", "gpio44",
- 						"gpio45", "gpio46" };
- static const char *const phy4_led1_groups[] = { "gpio43", "gpio44",
- 						"gpio45", "gpio46" };
-+static const char *const an7583_phy1_led0_groups[] = { "gpio1", "gpio2",
-+							"gpio3", "gpio4" };
-+static const char *const an7583_phy2_led0_groups[] = { "gpio1", "gpio2",
-+							"gpio3", "gpio4" };
-+static const char *const an7583_phy3_led0_groups[] = { "gpio1", "gpio2",
-+							"gpio3", "gpio4" };
-+static const char *const an7583_phy4_led0_groups[] = { "gpio1", "gpio2",
-+							"gpio3", "gpio4" };
-+static const char *const an7583_phy1_led1_groups[] = { "gpio8", "gpio9",
-+							"gpio10", "gpio11" };
-+static const char *const an7583_phy2_led1_groups[] = { "gpio8", "gpio9",
-+							"gpio10", "gpio11" };
-+static const char *const an7583_phy3_led1_groups[] = { "gpio8", "gpio9",
-+							"gpio10", "gpio11" };
-+static const char *const an7583_phy4_led1_groups[] = { "gpio8", "gpio9",
-+							"gpio10", "gpio11" };
- 
- static const struct airoha_pinctrl_func_group pon_func_group[] = {
- 	{
-@@ -761,6 +1012,25 @@ static const struct airoha_pinctrl_func_group mdio_func_group[] = {
- 	},
- };
- 
-+static const struct airoha_pinctrl_func_group an7583_mdio_func_group[] = {
-+	{
-+		.name = "mdio",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_PON_MODE,
-+			GPIO_SGMII_MDIO_MODE_MASK,
-+			GPIO_SGMII_MDIO_MODE_MASK
-+		},
-+		.regmap[1] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_MDC_IO_MASTER_MODE_MODE,
-+			GPIO_MDC_IO_MASTER_MODE_MODE
-+		},
-+		.regmap_size = 2,
-+	},
-+};
-+
- static const struct airoha_pinctrl_func_group uart_func_group[] = {
- 	{
- 		.name = "uart2",
-@@ -1002,6 +1272,73 @@ static const struct airoha_pinctrl_func_group pcm_spi_func_group[] = {
- 	},
- };
- 
-+static const struct airoha_pinctrl_func_group an7583_pcm_spi_func_group[] = {
-+	{
-+		.name = "pcm_spi",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_SPI_MODE_MASK,
-+			GPIO_PCM_SPI_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_int",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_INT_MODE_MASK,
-+			GPIO_PCM_INT_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_rst",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_RESET_MODE_MASK,
-+			GPIO_PCM_RESET_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_cs1",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_SPI_CS1_MODE_MASK,
-+			GPIO_PCM_SPI_CS1_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_cs2",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			AN7583_GPIO_PCM_SPI_CS2_MODE_MASK,
-+			AN7583_GPIO_PCM_SPI_CS2_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_cs3",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_SPI_CS3_MODE_MASK,
-+			GPIO_PCM_SPI_CS3_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcm_spi_cs4",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_SPI_CS1_MODE,
-+			GPIO_PCM_SPI_CS4_MODE_MASK,
-+			GPIO_PCM_SPI_CS4_MODE_MASK
-+		},
-+		.regmap_size = 1,
-+	},
-+};
-+
- static const struct airoha_pinctrl_func_group i2s_func_group[] = {
- 	{
- 		.name = "i2s",
-@@ -1072,6 +1409,28 @@ static const struct airoha_pinctrl_func_group pcie_reset_func_group[] = {
- 	},
- };
- 
-+static const struct airoha_pinctrl_func_group an7583_pcie_reset_func_group[] = {
-+	{
-+		.name = "pcie_reset0",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_PON_MODE,
-+			GPIO_PCIE_RESET0_MASK,
-+			GPIO_PCIE_RESET0_MASK
-+		},
-+		.regmap_size = 1,
-+	}, {
-+		.name = "pcie_reset1",
-+		.regmap[0] = {
-+			AIROHA_FUNC_MUX,
-+			REG_GPIO_PON_MODE,
-+			GPIO_PCIE_RESET1_MASK,
-+			GPIO_PCIE_RESET1_MASK
-+		},
-+		.regmap_size = 1,
-+	},
-+};
-+
- /* PWM */
- #define AIROHA_PINCTRL_PWM(gpio, mux_val)		\
- 	{						\
-@@ -1268,6 +1627,94 @@ static const struct airoha_pinctrl_func_group phy4_led1_func_group[] = {
- 				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(2)),
- };
- 
-+static const struct airoha_pinctrl_func_group an7583_phy1_led0_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED0("gpio1", GPIO_LAN0_LED0_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio2", GPIO_LAN1_LED0_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio3", GPIO_LAN2_LED0_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio4", GPIO_LAN3_LED0_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(0)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy2_led0_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED0("gpio1", GPIO_LAN0_LED0_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio2", GPIO_LAN1_LED0_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio3", GPIO_LAN2_LED0_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio4", GPIO_LAN3_LED0_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(1)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy3_led0_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED0("gpio1", GPIO_LAN0_LED0_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio2", GPIO_LAN1_LED0_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio3", GPIO_LAN2_LED0_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio4", GPIO_LAN3_LED0_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(2)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy4_led0_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED0("gpio1", GPIO_LAN0_LED0_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(3)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio2", GPIO_LAN1_LED0_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(3)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio3", GPIO_LAN2_LED0_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(3)),
-+	AIROHA_PINCTRL_PHY_LED0("gpio4", GPIO_LAN3_LED0_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(3)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy1_led1_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED1("gpio8", GPIO_LAN0_LED1_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio9", GPIO_LAN1_LED1_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio10", GPIO_LAN2_LED1_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(0)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio1", GPIO_LAN3_LED1_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(0)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy2_led1_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED1("gpio8", GPIO_LAN0_LED1_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio9", GPIO_LAN1_LED1_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio10", GPIO_LAN2_LED1_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(1)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio11", GPIO_LAN3_LED1_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(1)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy3_led1_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED1("gpio8", GPIO_LAN0_LED1_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio9", GPIO_LAN1_LED1_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio10", GPIO_LAN2_LED1_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio11", GPIO_LAN3_LED1_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(2)),
-+};
-+
-+static const struct airoha_pinctrl_func_group an7583_phy4_led1_func_group[] = {
-+	AIROHA_PINCTRL_PHY_LED1("gpio8", GPIO_LAN0_LED1_MODE_MASK,
-+				LAN0_LED_MAPPING_MASK, LAN0_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio9", GPIO_LAN1_LED1_MODE_MASK,
-+				LAN1_LED_MAPPING_MASK, LAN1_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio10", GPIO_LAN2_LED1_MODE_MASK,
-+				LAN2_LED_MAPPING_MASK, LAN2_PHY_LED_MAP(2)),
-+	AIROHA_PINCTRL_PHY_LED1("gpio11", GPIO_LAN3_LED1_MODE_MASK,
-+				LAN3_LED_MAPPING_MASK, LAN3_PHY_LED_MAP(2)),
-+};
-+
- static const struct airoha_pinctrl_func en7581_pinctrl_funcs[] = {
- 	PINCTRL_FUNC_DESC("pon", pon),
- 	PINCTRL_FUNC_DESC("tod_1pps", tod_1pps),
-@@ -1294,6 +1741,31 @@ static const struct airoha_pinctrl_func en7581_pinctrl_funcs[] = {
- 	PINCTRL_FUNC_DESC("phy4_led1", phy4_led1),
- };
- 
-+static const struct airoha_pinctrl_func an7583_pinctrl_funcs[] = {
-+	PINCTRL_FUNC_DESC("pon", pon),
-+	PINCTRL_FUNC_DESC("tod_1pps", tod_1pps),
-+	PINCTRL_FUNC_DESC("sipo", sipo),
-+	PINCTRL_FUNC_DESC("mdio", an7583_mdio),
-+	PINCTRL_FUNC_DESC("uart", uart),
-+	PINCTRL_FUNC_DESC("i2c", i2c),
-+	PINCTRL_FUNC_DESC("jtag", jtag),
-+	PINCTRL_FUNC_DESC("pcm", pcm),
-+	PINCTRL_FUNC_DESC("spi", spi),
-+	PINCTRL_FUNC_DESC("pcm_spi", an7583_pcm_spi),
-+	PINCTRL_FUNC_DESC("emmc", emmc),
-+	PINCTRL_FUNC_DESC("pnand", pnand),
-+	PINCTRL_FUNC_DESC("pcie_reset", an7583_pcie_reset),
-+	PINCTRL_FUNC_DESC("pwm", pwm),
-+	PINCTRL_FUNC_DESC("phy1_led0", an7583_phy1_led0),
-+	PINCTRL_FUNC_DESC("phy2_led0", an7583_phy2_led0),
-+	PINCTRL_FUNC_DESC("phy3_led0", an7583_phy3_led0),
-+	PINCTRL_FUNC_DESC("phy4_led0", an7583_phy4_led0),
-+	PINCTRL_FUNC_DESC("phy1_led1", an7583_phy1_led1),
-+	PINCTRL_FUNC_DESC("phy2_led1", an7583_phy2_led1),
-+	PINCTRL_FUNC_DESC("phy3_led1", an7583_phy3_led1),
-+	PINCTRL_FUNC_DESC("phy4_led1", an7583_phy4_led1),
-+};
-+
- static const struct airoha_pinctrl_conf en7581_pinctrl_pullup_conf[] = {
- 	PINCTRL_CONF_DESC(0, REG_I2C_SDA_PU, UART1_TXD_PU_MASK),
- 	PINCTRL_CONF_DESC(1, REG_I2C_SDA_PU, UART1_RXD_PU_MASK),
-@@ -1355,6 +1827,62 @@ static const struct airoha_pinctrl_conf en7581_pinctrl_pullup_conf[] = {
- 	PINCTRL_CONF_DESC(63, REG_I2C_SDA_PU, PCIE2_RESET_PU_MASK),
- };
- 
-+static const struct airoha_pinctrl_conf an7583_pinctrl_pullup_conf[] = {
-+	PINCTRL_CONF_DESC(2, REG_GPIO_L_PU, BIT(0)),
-+	PINCTRL_CONF_DESC(3, REG_GPIO_L_PU, BIT(1)),
-+	PINCTRL_CONF_DESC(4, REG_GPIO_L_PU, BIT(2)),
-+	PINCTRL_CONF_DESC(5, REG_GPIO_L_PU, BIT(3)),
-+	PINCTRL_CONF_DESC(6, REG_GPIO_L_PU, BIT(4)),
-+	PINCTRL_CONF_DESC(7, REG_GPIO_L_PU, BIT(5)),
-+	PINCTRL_CONF_DESC(8, REG_GPIO_L_PU, BIT(6)),
-+	PINCTRL_CONF_DESC(9, REG_GPIO_L_PU, BIT(7)),
-+	PINCTRL_CONF_DESC(10, REG_GPIO_L_PU, BIT(8)),
-+	PINCTRL_CONF_DESC(11, REG_GPIO_L_PU, BIT(9)),
-+	PINCTRL_CONF_DESC(12, REG_GPIO_L_PU, BIT(10)),
-+	PINCTRL_CONF_DESC(13, REG_GPIO_L_PU, BIT(11)),
-+	PINCTRL_CONF_DESC(14, REG_GPIO_L_PU, BIT(12)),
-+	PINCTRL_CONF_DESC(15, REG_GPIO_L_PU, BIT(13)),
-+	PINCTRL_CONF_DESC(16, REG_GPIO_L_PU, BIT(14)),
-+	PINCTRL_CONF_DESC(17, REG_GPIO_L_PU, BIT(15)),
-+	PINCTRL_CONF_DESC(18, REG_GPIO_L_PU, BIT(16)),
-+	PINCTRL_CONF_DESC(19, REG_GPIO_L_PU, BIT(17)),
-+	PINCTRL_CONF_DESC(20, REG_GPIO_L_PU, BIT(18)),
-+	PINCTRL_CONF_DESC(21, REG_GPIO_L_PU, BIT(18)),
-+	PINCTRL_CONF_DESC(22, REG_GPIO_L_PU, BIT(20)),
-+	PINCTRL_CONF_DESC(23, REG_GPIO_L_PU, BIT(21)),
-+	PINCTRL_CONF_DESC(24, REG_GPIO_L_PU, BIT(22)),
-+	PINCTRL_CONF_DESC(25, REG_GPIO_L_PU, BIT(23)),
-+	PINCTRL_CONF_DESC(26, REG_GPIO_L_PU, BIT(24)),
-+	PINCTRL_CONF_DESC(27, REG_GPIO_L_PU, BIT(25)),
-+	PINCTRL_CONF_DESC(28, REG_GPIO_L_PU, BIT(26)),
-+	PINCTRL_CONF_DESC(29, REG_GPIO_L_PU, BIT(27)),
-+	PINCTRL_CONF_DESC(30, REG_GPIO_L_PU, BIT(28)),
-+	PINCTRL_CONF_DESC(31, REG_GPIO_L_PU, BIT(29)),
-+	PINCTRL_CONF_DESC(32, REG_GPIO_L_PU, BIT(30)),
-+	PINCTRL_CONF_DESC(33, REG_GPIO_L_PU, BIT(31)),
-+	PINCTRL_CONF_DESC(34, REG_GPIO_H_PU, BIT(0)),
-+	PINCTRL_CONF_DESC(35, REG_GPIO_H_PU, BIT(1)),
-+	PINCTRL_CONF_DESC(36, REG_GPIO_H_PU, BIT(2)),
-+	PINCTRL_CONF_DESC(37, REG_GPIO_H_PU, BIT(3)),
-+	PINCTRL_CONF_DESC(38, REG_GPIO_H_PU, BIT(4)),
-+	PINCTRL_CONF_DESC(39, REG_GPIO_H_PU, BIT(5)),
-+	PINCTRL_CONF_DESC(40, REG_GPIO_H_PU, BIT(6)),
-+	PINCTRL_CONF_DESC(41, REG_I2C_SDA_PU, I2C_SCL_PU_MASK),
-+	PINCTRL_CONF_DESC(42, REG_I2C_SDA_PU, I2C_SDA_PU_MASK),
-+	PINCTRL_CONF_DESC(43, REG_I2C_SDA_PU, AN7583_I2C1_SCL_PU_MASK),
-+	PINCTRL_CONF_DESC(44, REG_I2C_SDA_PU, AN7583_I2C1_SDA_PU_MASK),
-+	PINCTRL_CONF_DESC(45, REG_I2C_SDA_PU, SPI_CLK_PU_MASK),
-+	PINCTRL_CONF_DESC(46, REG_I2C_SDA_PU, SPI_CS0_PU_MASK),
-+	PINCTRL_CONF_DESC(47, REG_I2C_SDA_PU, SPI_MOSI_PU_MASK),
-+	PINCTRL_CONF_DESC(48, REG_I2C_SDA_PU, SPI_MISO_PU_MASK),
-+	PINCTRL_CONF_DESC(49, REG_I2C_SDA_PU, UART1_TXD_PU_MASK),
-+	PINCTRL_CONF_DESC(50, REG_I2C_SDA_PU, UART1_RXD_PU_MASK),
-+	PINCTRL_CONF_DESC(51, REG_I2C_SDA_PU, PCIE0_RESET_PU_MASK),
-+	PINCTRL_CONF_DESC(52, REG_I2C_SDA_PU, PCIE1_RESET_PU_MASK),
-+	PINCTRL_CONF_DESC(53, REG_I2C_SDA_PU, AN7583_MDC_0_PU_MASK),
-+	PINCTRL_CONF_DESC(54, REG_I2C_SDA_PU, AN7583_MDIO_0_PU_MASK),
-+};
-+
- static const struct airoha_pinctrl_conf en7581_pinctrl_pulldown_conf[] = {
- 	PINCTRL_CONF_DESC(0, REG_I2C_SDA_PD, UART1_TXD_PD_MASK),
- 	PINCTRL_CONF_DESC(1, REG_I2C_SDA_PD, UART1_RXD_PD_MASK),
-@@ -1416,6 +1944,62 @@ static const struct airoha_pinctrl_conf en7581_pinctrl_pulldown_conf[] = {
- 	PINCTRL_CONF_DESC(63, REG_I2C_SDA_PD, PCIE2_RESET_PD_MASK),
- };
- 
-+static const struct airoha_pinctrl_conf an7583_pinctrl_pulldown_conf[] = {
-+	PINCTRL_CONF_DESC(2, REG_GPIO_L_PD, BIT(0)),
-+	PINCTRL_CONF_DESC(3, REG_GPIO_L_PD, BIT(1)),
-+	PINCTRL_CONF_DESC(4, REG_GPIO_L_PD, BIT(2)),
-+	PINCTRL_CONF_DESC(5, REG_GPIO_L_PD, BIT(3)),
-+	PINCTRL_CONF_DESC(6, REG_GPIO_L_PD, BIT(4)),
-+	PINCTRL_CONF_DESC(7, REG_GPIO_L_PD, BIT(5)),
-+	PINCTRL_CONF_DESC(8, REG_GPIO_L_PD, BIT(6)),
-+	PINCTRL_CONF_DESC(9, REG_GPIO_L_PD, BIT(7)),
-+	PINCTRL_CONF_DESC(10, REG_GPIO_L_PD, BIT(8)),
-+	PINCTRL_CONF_DESC(11, REG_GPIO_L_PD, BIT(9)),
-+	PINCTRL_CONF_DESC(12, REG_GPIO_L_PD, BIT(10)),
-+	PINCTRL_CONF_DESC(13, REG_GPIO_L_PD, BIT(11)),
-+	PINCTRL_CONF_DESC(14, REG_GPIO_L_PD, BIT(12)),
-+	PINCTRL_CONF_DESC(15, REG_GPIO_L_PD, BIT(13)),
-+	PINCTRL_CONF_DESC(16, REG_GPIO_L_PD, BIT(14)),
-+	PINCTRL_CONF_DESC(17, REG_GPIO_L_PD, BIT(15)),
-+	PINCTRL_CONF_DESC(18, REG_GPIO_L_PD, BIT(16)),
-+	PINCTRL_CONF_DESC(19, REG_GPIO_L_PD, BIT(17)),
-+	PINCTRL_CONF_DESC(20, REG_GPIO_L_PD, BIT(18)),
-+	PINCTRL_CONF_DESC(21, REG_GPIO_L_PD, BIT(18)),
-+	PINCTRL_CONF_DESC(22, REG_GPIO_L_PD, BIT(20)),
-+	PINCTRL_CONF_DESC(23, REG_GPIO_L_PD, BIT(21)),
-+	PINCTRL_CONF_DESC(24, REG_GPIO_L_PD, BIT(22)),
-+	PINCTRL_CONF_DESC(25, REG_GPIO_L_PD, BIT(23)),
-+	PINCTRL_CONF_DESC(26, REG_GPIO_L_PD, BIT(24)),
-+	PINCTRL_CONF_DESC(27, REG_GPIO_L_PD, BIT(25)),
-+	PINCTRL_CONF_DESC(28, REG_GPIO_L_PD, BIT(26)),
-+	PINCTRL_CONF_DESC(29, REG_GPIO_L_PD, BIT(27)),
-+	PINCTRL_CONF_DESC(30, REG_GPIO_L_PD, BIT(28)),
-+	PINCTRL_CONF_DESC(31, REG_GPIO_L_PD, BIT(29)),
-+	PINCTRL_CONF_DESC(32, REG_GPIO_L_PD, BIT(30)),
-+	PINCTRL_CONF_DESC(33, REG_GPIO_L_PD, BIT(31)),
-+	PINCTRL_CONF_DESC(34, REG_GPIO_H_PD, BIT(0)),
-+	PINCTRL_CONF_DESC(35, REG_GPIO_H_PD, BIT(1)),
-+	PINCTRL_CONF_DESC(36, REG_GPIO_H_PD, BIT(2)),
-+	PINCTRL_CONF_DESC(37, REG_GPIO_H_PD, BIT(3)),
-+	PINCTRL_CONF_DESC(38, REG_GPIO_H_PD, BIT(4)),
-+	PINCTRL_CONF_DESC(39, REG_GPIO_H_PD, BIT(5)),
-+	PINCTRL_CONF_DESC(40, REG_GPIO_H_PD, BIT(6)),
-+	PINCTRL_CONF_DESC(41, REG_I2C_SDA_PD, I2C_SCL_PD_MASK),
-+	PINCTRL_CONF_DESC(42, REG_I2C_SDA_PD, I2C_SDA_PD_MASK),
-+	PINCTRL_CONF_DESC(43, REG_I2C_SDA_PD, AN7583_I2C1_SCL_PD_MASK),
-+	PINCTRL_CONF_DESC(44, REG_I2C_SDA_PD, AN7583_I2C1_SDA_PD_MASK),
-+	PINCTRL_CONF_DESC(45, REG_I2C_SDA_PD, SPI_CLK_PD_MASK),
-+	PINCTRL_CONF_DESC(46, REG_I2C_SDA_PD, SPI_CS0_PD_MASK),
-+	PINCTRL_CONF_DESC(47, REG_I2C_SDA_PD, SPI_MOSI_PD_MASK),
-+	PINCTRL_CONF_DESC(48, REG_I2C_SDA_PD, SPI_MISO_PD_MASK),
-+	PINCTRL_CONF_DESC(49, REG_I2C_SDA_PD, UART1_TXD_PD_MASK),
-+	PINCTRL_CONF_DESC(50, REG_I2C_SDA_PD, UART1_RXD_PD_MASK),
-+	PINCTRL_CONF_DESC(51, REG_I2C_SDA_PD, PCIE0_RESET_PD_MASK),
-+	PINCTRL_CONF_DESC(52, REG_I2C_SDA_PD, PCIE1_RESET_PD_MASK),
-+	PINCTRL_CONF_DESC(53, REG_I2C_SDA_PD, AN7583_MDC_0_PD_MASK),
-+	PINCTRL_CONF_DESC(54, REG_I2C_SDA_PD, AN7583_MDIO_0_PD_MASK),
-+};
-+
- static const struct airoha_pinctrl_conf en7581_pinctrl_drive_e2_conf[] = {
- 	PINCTRL_CONF_DESC(0, REG_I2C_SDA_E2, UART1_TXD_E2_MASK),
- 	PINCTRL_CONF_DESC(1, REG_I2C_SDA_E2, UART1_RXD_E2_MASK),
-@@ -1477,6 +2061,62 @@ static const struct airoha_pinctrl_conf en7581_pinctrl_drive_e2_conf[] = {
- 	PINCTRL_CONF_DESC(63, REG_I2C_SDA_E2, PCIE2_RESET_E2_MASK),
- };
- 
-+static const struct airoha_pinctrl_conf an7583_pinctrl_drive_e2_conf[] = {
-+	PINCTRL_CONF_DESC(2, REG_GPIO_L_E2, BIT(0)),
-+	PINCTRL_CONF_DESC(3, REG_GPIO_L_E2, BIT(1)),
-+	PINCTRL_CONF_DESC(4, REG_GPIO_L_E2, BIT(2)),
-+	PINCTRL_CONF_DESC(5, REG_GPIO_L_E2, BIT(3)),
-+	PINCTRL_CONF_DESC(6, REG_GPIO_L_E2, BIT(4)),
-+	PINCTRL_CONF_DESC(7, REG_GPIO_L_E2, BIT(5)),
-+	PINCTRL_CONF_DESC(8, REG_GPIO_L_E2, BIT(6)),
-+	PINCTRL_CONF_DESC(9, REG_GPIO_L_E2, BIT(7)),
-+	PINCTRL_CONF_DESC(10, REG_GPIO_L_E2, BIT(8)),
-+	PINCTRL_CONF_DESC(11, REG_GPIO_L_E2, BIT(9)),
-+	PINCTRL_CONF_DESC(12, REG_GPIO_L_E2, BIT(10)),
-+	PINCTRL_CONF_DESC(13, REG_GPIO_L_E2, BIT(11)),
-+	PINCTRL_CONF_DESC(14, REG_GPIO_L_E2, BIT(12)),
-+	PINCTRL_CONF_DESC(15, REG_GPIO_L_E2, BIT(13)),
-+	PINCTRL_CONF_DESC(16, REG_GPIO_L_E2, BIT(14)),
-+	PINCTRL_CONF_DESC(17, REG_GPIO_L_E2, BIT(15)),
-+	PINCTRL_CONF_DESC(18, REG_GPIO_L_E2, BIT(16)),
-+	PINCTRL_CONF_DESC(19, REG_GPIO_L_E2, BIT(17)),
-+	PINCTRL_CONF_DESC(20, REG_GPIO_L_E2, BIT(18)),
-+	PINCTRL_CONF_DESC(21, REG_GPIO_L_E2, BIT(18)),
-+	PINCTRL_CONF_DESC(22, REG_GPIO_L_E2, BIT(20)),
-+	PINCTRL_CONF_DESC(23, REG_GPIO_L_E2, BIT(21)),
-+	PINCTRL_CONF_DESC(24, REG_GPIO_L_E2, BIT(22)),
-+	PINCTRL_CONF_DESC(25, REG_GPIO_L_E2, BIT(23)),
-+	PINCTRL_CONF_DESC(26, REG_GPIO_L_E2, BIT(24)),
-+	PINCTRL_CONF_DESC(27, REG_GPIO_L_E2, BIT(25)),
-+	PINCTRL_CONF_DESC(28, REG_GPIO_L_E2, BIT(26)),
-+	PINCTRL_CONF_DESC(29, REG_GPIO_L_E2, BIT(27)),
-+	PINCTRL_CONF_DESC(30, REG_GPIO_L_E2, BIT(28)),
-+	PINCTRL_CONF_DESC(31, REG_GPIO_L_E2, BIT(29)),
-+	PINCTRL_CONF_DESC(32, REG_GPIO_L_E2, BIT(30)),
-+	PINCTRL_CONF_DESC(33, REG_GPIO_L_E2, BIT(31)),
-+	PINCTRL_CONF_DESC(34, REG_GPIO_H_E2, BIT(0)),
-+	PINCTRL_CONF_DESC(35, REG_GPIO_H_E2, BIT(1)),
-+	PINCTRL_CONF_DESC(36, REG_GPIO_H_E2, BIT(2)),
-+	PINCTRL_CONF_DESC(37, REG_GPIO_H_E2, BIT(3)),
-+	PINCTRL_CONF_DESC(38, REG_GPIO_H_E2, BIT(4)),
-+	PINCTRL_CONF_DESC(39, REG_GPIO_H_E2, BIT(5)),
-+	PINCTRL_CONF_DESC(40, REG_GPIO_H_E2, BIT(6)),
-+	PINCTRL_CONF_DESC(41, REG_I2C_SDA_E2, I2C_SCL_E2_MASK),
-+	PINCTRL_CONF_DESC(42, REG_I2C_SDA_E2, I2C_SDA_E2_MASK),
-+	PINCTRL_CONF_DESC(43, REG_I2C_SDA_E2, AN7583_I2C1_SCL_E2_MASK),
-+	PINCTRL_CONF_DESC(44, REG_I2C_SDA_E2, AN7583_I2C1_SDA_E2_MASK),
-+	PINCTRL_CONF_DESC(45, REG_I2C_SDA_E2, SPI_CLK_E2_MASK),
-+	PINCTRL_CONF_DESC(46, REG_I2C_SDA_E2, SPI_CS0_E2_MASK),
-+	PINCTRL_CONF_DESC(47, REG_I2C_SDA_E2, SPI_MOSI_E2_MASK),
-+	PINCTRL_CONF_DESC(48, REG_I2C_SDA_E2, SPI_MISO_E2_MASK),
-+	PINCTRL_CONF_DESC(49, REG_I2C_SDA_E2, UART1_TXD_E2_MASK),
-+	PINCTRL_CONF_DESC(50, REG_I2C_SDA_E2, UART1_RXD_E2_MASK),
-+	PINCTRL_CONF_DESC(51, REG_I2C_SDA_E2, PCIE0_RESET_E2_MASK),
-+	PINCTRL_CONF_DESC(52, REG_I2C_SDA_E2, PCIE1_RESET_E2_MASK),
-+	PINCTRL_CONF_DESC(53, REG_I2C_SDA_E2, AN7583_MDC_0_E2_MASK),
-+	PINCTRL_CONF_DESC(54, REG_I2C_SDA_E2, AN7583_MDIO_0_E2_MASK),
-+};
-+
- static const struct airoha_pinctrl_conf en7581_pinctrl_drive_e4_conf[] = {
- 	PINCTRL_CONF_DESC(0, REG_I2C_SDA_E4, UART1_TXD_E4_MASK),
- 	PINCTRL_CONF_DESC(1, REG_I2C_SDA_E4, UART1_RXD_E4_MASK),
-@@ -1538,12 +2178,73 @@ static const struct airoha_pinctrl_conf en7581_pinctrl_drive_e4_conf[] = {
- 	PINCTRL_CONF_DESC(63, REG_I2C_SDA_E4, PCIE2_RESET_E4_MASK),
- };
- 
-+static const struct airoha_pinctrl_conf an7583_pinctrl_drive_e4_conf[] = {
-+	PINCTRL_CONF_DESC(2, REG_GPIO_L_E4, BIT(0)),
-+	PINCTRL_CONF_DESC(3, REG_GPIO_L_E4, BIT(1)),
-+	PINCTRL_CONF_DESC(4, REG_GPIO_L_E4, BIT(2)),
-+	PINCTRL_CONF_DESC(5, REG_GPIO_L_E4, BIT(3)),
-+	PINCTRL_CONF_DESC(6, REG_GPIO_L_E4, BIT(4)),
-+	PINCTRL_CONF_DESC(7, REG_GPIO_L_E4, BIT(5)),
-+	PINCTRL_CONF_DESC(8, REG_GPIO_L_E4, BIT(6)),
-+	PINCTRL_CONF_DESC(9, REG_GPIO_L_E4, BIT(7)),
-+	PINCTRL_CONF_DESC(10, REG_GPIO_L_E4, BIT(8)),
-+	PINCTRL_CONF_DESC(11, REG_GPIO_L_E4, BIT(9)),
-+	PINCTRL_CONF_DESC(12, REG_GPIO_L_E4, BIT(10)),
-+	PINCTRL_CONF_DESC(13, REG_GPIO_L_E4, BIT(11)),
-+	PINCTRL_CONF_DESC(14, REG_GPIO_L_E4, BIT(12)),
-+	PINCTRL_CONF_DESC(15, REG_GPIO_L_E4, BIT(13)),
-+	PINCTRL_CONF_DESC(16, REG_GPIO_L_E4, BIT(14)),
-+	PINCTRL_CONF_DESC(17, REG_GPIO_L_E4, BIT(15)),
-+	PINCTRL_CONF_DESC(18, REG_GPIO_L_E4, BIT(16)),
-+	PINCTRL_CONF_DESC(19, REG_GPIO_L_E4, BIT(17)),
-+	PINCTRL_CONF_DESC(20, REG_GPIO_L_E4, BIT(18)),
-+	PINCTRL_CONF_DESC(21, REG_GPIO_L_E4, BIT(18)),
-+	PINCTRL_CONF_DESC(22, REG_GPIO_L_E4, BIT(20)),
-+	PINCTRL_CONF_DESC(23, REG_GPIO_L_E4, BIT(21)),
-+	PINCTRL_CONF_DESC(24, REG_GPIO_L_E4, BIT(22)),
-+	PINCTRL_CONF_DESC(25, REG_GPIO_L_E4, BIT(23)),
-+	PINCTRL_CONF_DESC(26, REG_GPIO_L_E4, BIT(24)),
-+	PINCTRL_CONF_DESC(27, REG_GPIO_L_E4, BIT(25)),
-+	PINCTRL_CONF_DESC(28, REG_GPIO_L_E4, BIT(26)),
-+	PINCTRL_CONF_DESC(29, REG_GPIO_L_E4, BIT(27)),
-+	PINCTRL_CONF_DESC(30, REG_GPIO_L_E4, BIT(28)),
-+	PINCTRL_CONF_DESC(31, REG_GPIO_L_E4, BIT(29)),
-+	PINCTRL_CONF_DESC(32, REG_GPIO_L_E4, BIT(30)),
-+	PINCTRL_CONF_DESC(33, REG_GPIO_L_E4, BIT(31)),
-+	PINCTRL_CONF_DESC(34, REG_GPIO_H_E4, BIT(0)),
-+	PINCTRL_CONF_DESC(35, REG_GPIO_H_E4, BIT(1)),
-+	PINCTRL_CONF_DESC(36, REG_GPIO_H_E4, BIT(2)),
-+	PINCTRL_CONF_DESC(37, REG_GPIO_H_E4, BIT(3)),
-+	PINCTRL_CONF_DESC(38, REG_GPIO_H_E4, BIT(4)),
-+	PINCTRL_CONF_DESC(39, REG_GPIO_H_E4, BIT(5)),
-+	PINCTRL_CONF_DESC(40, REG_GPIO_H_E4, BIT(6)),
-+	PINCTRL_CONF_DESC(41, REG_I2C_SDA_E4, I2C_SCL_E4_MASK),
-+	PINCTRL_CONF_DESC(42, REG_I2C_SDA_E4, I2C_SDA_E4_MASK),
-+	PINCTRL_CONF_DESC(43, REG_I2C_SDA_E4, AN7583_I2C1_SCL_E4_MASK),
-+	PINCTRL_CONF_DESC(44, REG_I2C_SDA_E4, AN7583_I2C1_SDA_E4_MASK),
-+	PINCTRL_CONF_DESC(45, REG_I2C_SDA_E4, SPI_CLK_E4_MASK),
-+	PINCTRL_CONF_DESC(46, REG_I2C_SDA_E4, SPI_CS0_E4_MASK),
-+	PINCTRL_CONF_DESC(47, REG_I2C_SDA_E4, SPI_MOSI_E4_MASK),
-+	PINCTRL_CONF_DESC(48, REG_I2C_SDA_E4, SPI_MISO_E4_MASK),
-+	PINCTRL_CONF_DESC(49, REG_I2C_SDA_E4, UART1_TXD_E4_MASK),
-+	PINCTRL_CONF_DESC(50, REG_I2C_SDA_E4, UART1_RXD_E4_MASK),
-+	PINCTRL_CONF_DESC(51, REG_I2C_SDA_E4, PCIE0_RESET_E4_MASK),
-+	PINCTRL_CONF_DESC(52, REG_I2C_SDA_E4, PCIE1_RESET_E4_MASK),
-+	PINCTRL_CONF_DESC(53, REG_I2C_SDA_E4, AN7583_MDC_0_E4_MASK),
-+	PINCTRL_CONF_DESC(54, REG_I2C_SDA_E4, AN7583_MDIO_0_E4_MASK),
-+};
-+
- static const struct airoha_pinctrl_conf en7581_pinctrl_pcie_rst_od_conf[] = {
- 	PINCTRL_CONF_DESC(61, REG_PCIE_RESET_OD, PCIE0_RESET_OD_MASK),
- 	PINCTRL_CONF_DESC(62, REG_PCIE_RESET_OD, PCIE1_RESET_OD_MASK),
- 	PINCTRL_CONF_DESC(63, REG_PCIE_RESET_OD, PCIE2_RESET_OD_MASK),
- };
- 
-+static const struct airoha_pinctrl_conf an7583_pinctrl_pcie_rst_od_conf[] = {
-+	PINCTRL_CONF_DESC(51, REG_PCIE_RESET_OD, PCIE0_RESET_OD_MASK),
-+	PINCTRL_CONF_DESC(52, REG_PCIE_RESET_OD, PCIE1_RESET_OD_MASK),
-+};
-+
- static int airoha_convert_pin_to_reg_offset(struct pinctrl_dev *pctrl_dev,
- 					    struct pinctrl_gpio_range *range,
- 					    int pin)
-@@ -1708,7 +2409,7 @@ static const struct irq_chip airoha_gpio_irq_chip = {
- };
- 
- static int airoha_pinctrl_add_gpiochip(struct airoha_pinctrl *pinctrl,
--				       struct platform_device *pdev)
-+					struct platform_device *pdev)
- {
- 	struct airoha_pinctrl_gpiochip *chip = &pinctrl->gpiochip;
- 	struct gpio_chip *gc = &chip->chip;
-@@ -1743,7 +2444,7 @@ static int airoha_pinctrl_add_gpiochip(struct airoha_pinctrl *pinctrl,
- 		return irq;
- 
- 	err = devm_request_irq(dev, irq, airoha_irq_handler, IRQF_SHARED,
--			       dev_name(dev), pinctrl);
-+				dev_name(dev), pinctrl);
- 	if (err) {
- 		dev_err(dev, "error requesting irq %d: %d\n", irq, err);
- 		return err;
-@@ -1807,8 +2508,8 @@ static int airoha_pinmux_set_mux(struct pinctrl_dev *pctrl_dev,
- }
- 
- static int airoha_pinmux_set_direction(struct pinctrl_dev *pctrl_dev,
--				       struct pinctrl_gpio_range *range,
--				       unsigned int p, bool input)
-+					struct pinctrl_gpio_range *range,
-+					unsigned int p, bool input)
- {
- 	struct airoha_pinctrl *pinctrl = pinctrl_dev_get_drvdata(pctrl_dev);
- 	u32 mask, index;
-@@ -1898,7 +2599,7 @@ static int airoha_pinctrl_set_conf(struct airoha_pinctrl *pinctrl,
- 
- 
- 	if (regmap_update_bits(pinctrl->chip_scu, reg->offset, reg->mask,
--			       val << __ffs(reg->mask)))
-+				val << __ffs(reg->mask)))
- 		return -EINVAL;
- 
- 	return 0;
-@@ -2115,8 +2816,8 @@ static int airoha_pinconf_group_get(struct pinctrl_dev *pctrl_dev,
- 
- 	for (i = 0; i < pinctrl->grps[group].npins; i++) {
- 		if (airoha_pinconf_get(pctrl_dev,
--				       pinctrl->grps[group].pins[i],
--				       config))
-+					pinctrl->grps[group].pins[i],
-+					config))
- 			return -ENOTSUPP;
- 
- 		if (i && cur_config != *config)
-@@ -2275,8 +2976,40 @@ static const struct airoha_pinctrl_match_data en7581_pinctrl_match_data = {
- 	},
- };
- 
-+static const struct airoha_pinctrl_match_data an7583_pinctrl_match_data = {
-+	.pins = an7583_pinctrl_pins,
-+	.num_pins = ARRAY_SIZE(an7583_pinctrl_pins),
-+	.grps = an7583_pinctrl_groups,
-+	.num_grps = ARRAY_SIZE(an7583_pinctrl_groups),
-+	.funcs = an7583_pinctrl_funcs,
-+	.num_funcs = ARRAY_SIZE(an7583_pinctrl_funcs),
-+	.confs_info = {
-+		[AIROHA_PINCTRL_CONFS_PULLUP] = {
-+			.confs = an7583_pinctrl_pullup_conf,
-+			.num_confs = ARRAY_SIZE(an7583_pinctrl_pullup_conf),
-+		},
-+		[AIROHA_PINCTRL_CONFS_PULLDOWN] = {
-+			.confs = an7583_pinctrl_pulldown_conf,
-+			.num_confs = ARRAY_SIZE(an7583_pinctrl_pulldown_conf),
-+		},
-+		[AIROHA_PINCTRL_CONFS_DRIVE_E2] = {
-+			.confs = en7581_pinctrl_drive_e2_conf,
-+			.num_confs = ARRAY_SIZE(an7583_pinctrl_drive_e2_conf),
-+		},
-+		[AIROHA_PINCTRL_CONFS_DRIVE_E4] = {
-+			.confs = an7583_pinctrl_drive_e4_conf,
-+			.num_confs = ARRAY_SIZE(an7583_pinctrl_drive_e4_conf),
-+		},
-+		[AIROHA_PINCTRL_CONFS_PCIE_RST_OD] = {
-+			.confs = an7583_pinctrl_pcie_rst_od_conf,
-+			.num_confs = ARRAY_SIZE(an7583_pinctrl_pcie_rst_od_conf),
-+		},
-+	},
-+};
-+
- static const struct of_device_id airoha_pinctrl_of_match[] = {
- 	{ .compatible = "airoha,en7581-pinctrl", .data = &en7581_pinctrl_match_data },
-+	{ .compatible = "airoha,an7583-pinctrl", .data = &an7583_pinctrl_match_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, airoha_pinctrl_of_match);
--- 
-2.51.0
+I plan to remove the new compatible entry used to identify these MACs and i=
+nstead=20
+add a new property to specify the delay step value.
+However, I have one question I'd like to discuss with you.
 
+There are four MACs in the AST2600. In the DT bindings and DTS files, what =
+would be=20
+the recommended way to identify which MAC is which?
+In version 3 of my patches, I used the aliases in the DTSI file to allow th=
+e driver to get=20
+the MAC index.
+
+Do you think this is a good approach? Or would it be better to create a new=
+ property=20
+in the DTSI to explicitly configure the index and identify each MAC?
+
+Thanks for your time and suggestions.
+
+Thanks,
+Jacky
 
