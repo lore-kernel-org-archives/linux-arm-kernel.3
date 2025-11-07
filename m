@@ -4,94 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA76CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E049CCFA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=; b=kTHhtHkgUnW9fZbgetpsx28Fk0
-	4rFdj5wWsEW6DoyB2FKMFXfoY5ya5wKKQ2r9LPUf3SaLdwj36KvDwZGHRDjn+mag662hPJ23HZeSf
-	Au8aZrmrSycoxqoGNm5ijzLQCAgQ5nBwdXm/Wm2QFdNrnGFuj6xz36STP2tbDjHvJKsk5k2CW3sYt
-	KzDmAJfHEpFgStU6eOBoXN2L7xW9uHjn3qInidtQJ7ETW0VbAnFbmex4o7/2uqJ+FHgP7tn8EAvge
-	Jebql7TRDrccfY1G+qQ1Edu5jl3uAv8LH0hEIt5DlqTg57239Ji+u95EkHClYtu33TzAqwRO9bT39
-	uRLnmrUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OTaFnrMfgwsK/Y0rWELE74IDf4CX/iWox9UwYfRSyyM=; b=IOjKhnO/mlawKSWREq34RRPYwu
+	FTuJXuaeM+v8XfNiynH4eBBu2ZbKm8PGKqpCyvyTNg8qODgyoWBCBl2kJMQJzmmvXyiEmKr4EVp+D
+	+ixB7lKLOIdVg/dERwRMmis+24/8uIM5lIdxfcnqoJPnwnWIn3gnKQavJfCgjXPQA3rhz8lQ7cyq1
+	WinzipID/q0X6zhBlRmcZQ0RqcT4Zk2jtBQqa6ZS5MI/myYkzE9rPjt4tl51o4m0gtHCrDwWZ8Y5I
+	os4Wq6W8K8ROEgzGpY0YNk7HzYpJkU9Rlsn+h0hjQu16yCSA01uknZY6UnJ6jJZdGEMdar8kuYOFQ
+	By6ZpLgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJjY-0000000H5BO-4C7l;
-	Fri, 07 Nov 2025 10:30:21 +0000
+	id 1vHJkq-0000000H618-222H;
+	Fri, 07 Nov 2025 10:31:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJjV-0000000H57G-31Q1
+	id 1vHJkk-0000000H5yQ-1P7A
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Nov 2025 10:30:17 +0000
+	Fri, 07 Nov 2025 10:31:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=; b=kNt5V4eohbNmYDb1i+xlYbbVFn
-	PbwuleaZyktlyOYnyHsGBFwLXDihYQR8TXLv9IF7lhQe2FxkaVss3LqSXAMp7RrCLJ2U9aILUrlFd
-	GQCCPa0b6uRmHzD780aUH87HU4VLFDW/TnnQRUltyXMku2uLIO0r12GogGXoiJRA6JpI4Vw7H3tWu
-	lsU5nfK3nySqPBj3NnicmjGUisTVSE+oJpoa/bHw+HamgxLWJnqVzY9BkbrwyLxh0MauI+mqOKuD6
-	t+iMytjdC6zGJmoPOjI2sjM44H1Y1VGcFkRuVL0R4ScL4MhlWqNmg7Zh8cmNAyAYtWS5uxpcYy4tE
-	aXmHQkQw==;
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=OTaFnrMfgwsK/Y0rWELE74IDf4CX/iWox9UwYfRSyyM=; b=HQ0ZLh0UK6g1k53QEt0HgsX25s
+	wSIeQACU6W0WXXBmR9Lbi7U0vRV/U3OhGxO6s10gt+iBroB/JGRCB4Nr8Z/fxolm0DF4kgOlQuLj3
+	QujPdrfaEaFn485W02lAsb8j94R8vIm/qwTYWQ+iGFfWOvS5rUq+rAgpQi2q/+KtO0rQ8XX2zg6zB
+	yPCqgojbxjF4pUfkA1fzySNUlDUOZ1ZH+LityERz2qR7tBBQJWjjMyV4oBqKKk5gpH5q2FZirnx6k
+	DHOhscU5I1a7pbeAn51wWHzaAVWtOfDcj5w1Scit/KTrEKW6B8ODGLC3B6qSK57UBdf03vsQABPEE
+	h9SfOXaw==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIrk-00000006BG5-0E1h
+	id 1vHIt0-00000006BZd-1Cqo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 09:34:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EBB2944292;
-	Fri,  7 Nov 2025 10:29:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
-	t=1762511391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=;
-	b=aF213VrYZkaoeI7ntvYcD4qfJdxve7h8TfI/ZQPBx8nKe6RMTzyJDL7YNjzYERDBSI9hM2
-	89bAY58o3CKalW6GEyH3bvjkuYPEP8nY9ZNuA4P14gs6XX2NboXsiyMHB/ajxFh9I30oy2
-	qPtOq0H0jPJ/MZmvSE77FX72bQSy7ft09NnOYVfErakBaX1orsOjtxhHFIlvp15Yi+yqID
-	hh/ZoF45KAayWtgQ1zQyqIBmeliHmd1ryxNavIilp39PVrYM2+CnJdLkliF+NwxnPSUOHG
-	OHG+XJC0N3J0Bcad1SEeVJ0NavHbHNAY18sCnuqgBDhlRK7mCW792VqY9kjhtw==
-From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Date: Fri, 07 Nov 2025 11:29:44 +0100
-Subject: [PATCH v2 2/2] m68k: coldfire: Add RNG support for MCF54418
+	Fri, 07 Nov 2025 09:36:04 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-429c48e05aeso330941f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 02:31:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762511429; x=1763116229; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OTaFnrMfgwsK/Y0rWELE74IDf4CX/iWox9UwYfRSyyM=;
+        b=m9uqmmK/yvJHvQc24fsrh+RvWG46XaNBWUFhD1ZJvsWzgoAVwuNF/lzbMh/8HLfCnl
+         6nOKMaRQcCgAYLvYsi7fQEDiAzCO/NRST787eyq+SUFn8ZLWgt4YVEEQCQKLSGtn2ukO
+         17Ja/eBkLRxjLEcY2H8leXrzlJr+gu1pgfIFG3zCX6enY2cy2EYWA09ToGwt9yMOCa3M
+         urj1b9M1KHway8fitlQU3OvYHxfk+ap8WKoaY4/8JK/PAChP+EbTYemFzedsgsaFIvWY
+         wk8ykK5wKHo+rZkdUDuaCqvoq9Ti3LEzbN2C46taAoSdTY5AkTUbdY/lOZaJf/RymYeI
+         U9Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762511429; x=1763116229;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OTaFnrMfgwsK/Y0rWELE74IDf4CX/iWox9UwYfRSyyM=;
+        b=ddCqJG+3ZAEMfpDlNIJHwdZx7FJMDXG1Fxg9u75CVmLCm/GzBXIF0qt2eX9VM87rAU
+         YgvDCrFhshDCWVONEVyK0MXh1q+ZnhQEBs6BjUd9CdRrrBo5vMk4zBpVRM8fKKemcDoG
+         3r/iuv7w4n0NxBmOptOdZIEb9YEZYWFUEYk2hAK3AilzrwbM7KhEVSYvhSs7TxRwXHJf
+         1BB3Jv7dFygL3waqy21vWlKCokdCWzGdpc5szjjiWszBC/ixAFpdFFxrwS+i++hHFp4/
+         5mzTp4rZmkQ3QCSxTE9kq4uVX+6cHDUYpdx6vTLM22mHdsGSzdLXcfSDXRaMDFn0Sm7z
+         C1RQ==
+X-Gm-Message-State: AOJu0YyE8mqak8mhTsD411zFSDSwYZcxfgwYLfR9IX0xqsvZHlAnp3Iv
+	kplHnmq13NNMmu8bwj6FutXxZ/J17a24AoF5znQxTXyB9CMiWEIEG4NVYhc4kg==
+X-Gm-Gg: ASbGncsja16c87HDz0CX+CvZTahBNK8qqhGT8R+AC9X1lDjAhNjYuE/RptSPyyhw61K
+	uOpo2wTv5pJeBARLAGpEemtwHxxUyJRTwWMUaJiBxDWX5KpPAn7ULmWieubtldmRz4ZXMeFbJYu
+	F/mCUXdkl1ZTAN8fCWJJQyAdrkiiBDFQBy6ZZNTNWFUYpkVaQv8IUcFdF+1C1QWnpeP63Ke90Mi
+	GulXD4nZX2Bo+hHpsSqGL688A9k0LFpzfb2WMtsncANVnN3Sj/aLwYBXY16RTBYIFNRR/M+jm0N
+	2hsYXiVW6S+HaNp7x+xxgTvn3OHPSI78iNR0udB2SK6tVJ9XokMRZrSZbYjj/QW8G5xecqwxk25
+	FyvpU09CNZ2f/iiz9rc69TZ63iVdoHJYuQ+sc6NyuYcmaNJALDNxO/XSkkBYoVzNQAOOVJ9zsVD
+	97qWE5E+bdRG1OPyfn8Sg5k/yE6MQo90fZZ+vxYEWlJuMPi2kh/xE5ojH/TcXz1uJdr7oleQ/QO
+	Vb1B66uEve9CQJ8HUtKY4cypLjMijqXrdeyh369ZQ==
+X-Google-Smtp-Source: AGHT+IH9e3WHuUqghIJpAPhDDy64w9bMHrDK5rygv/+w/a+F3j9keJGpNvreBtnKXT2yCxrruP9uCQ==
+X-Received: by 2002:a05:6000:22ca:b0:429:ba83:dea7 with SMTP id ffacd0b85a97d-42b26fc3b3bmr1005075f8f.25.1762511429477;
+        Fri, 07 Nov 2025 02:30:29 -0800 (PST)
+Received: from ?IPV6:2003:d8:2f30:b00:cea9:dee:d607:41d? (p200300d82f300b00cea90deed607041d.dip0.t-ipconnect.de. [2003:d8:2f30:b00:cea9:dee:d607:41d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42abe63b7d7sm4706368f8f.11.2025.11.07.02.30.28
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Nov 2025 02:30:28 -0800 (PST)
+Message-ID: <5a56fddd-62a5-47b7-b048-8aaa8f283903@gmail.com>
+Date: Fri, 7 Nov 2025 11:30:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+To: linux-arm-kernel@lists.infradead.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+ <87ms5050g0.ritesh.list@gmail.com>
+ <50d1b63a-88d7-4484-82c0-3bde96e3207d-agordeev@linux.ibm.com>
+ <48a4ecb5-3412-4d3f-9e43-535f8bee505f@arm.com>
+ <d5435e75-036b-44a5-a989-722e13f94b3e-agordeev@linux.ibm.com>
+From: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>
+Content-Language: en-US
+In-Reply-To: <d5435e75-036b-44a5-a989-722e13f94b3e-agordeev@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
-References: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org>
-In-Reply-To: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org>
-To: Greg Ungerer <gerg@linux-m68k.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Olivia Mackall <olivia@selenic.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org, 
- linux-crypto@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762511384; l=5529;
- i=jeanmichel.hautbois@yoseli.org; s=20240925; h=from:subject:message-id;
- bh=PSrSWiIVbpn6czV4JmjiWTzr+3TkryO0Cfx8dgQT/XY=;
- b=EUGS7OCZpt1eCI5kkVQK7/hSxyPZTuOtSCCY8VQLiT6XtgYTF117WBjImk+M0Eq9+8h1vy5jQ
- djb/Z7vDqjKBY/IyELs3wLWOxX4d0Bm5RlRHb3mk9cKjwsc2LtYrw4P
-X-Developer-Key: i=jeanmichel.hautbois@yoseli.org; a=ed25519;
- pk=MsMTVmoV69wLIlSkHlFoACIMVNQFyvJzvsJSQsn/kq4=
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddukeelgeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomheplfgvrghnqdfoihgthhgvlhcujfgruhhtsghoihhsuceojhgvrghnmhhitghhvghlrdhhrghuthgsohhisheshihoshgvlhhirdhorhhgqeenucggtffrrghtthgvrhhnpeffjefhtdelhffhheevheeutefghfefteeluedvudfhgeegteeitddtuefhhfelteenucfkphepvdgrtddumegvtdgrmeduieelmeejudegtdemkegtrgdtmedukegtjeemhegvfhgtmegtsghfvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemudeileemjedugedtmeektggrtdemudektgejmeehvghftgemtggsfhdvpdhhvghlohephihoshgvlhhiqdihohgtthhordihohhsvghlihdrohhrghdpmhgrihhlfhhrohhmpehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdpnhgspghrtghpthhtohepudegpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqtghrhihpthhosehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehgvggvrhhtsehlihhnuhigqdhmieekkhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehgvghrgheslhhinhhugidqmheikehkrdhorhhg
-X-GND-Sasl: jeanmichel.hautbois@yoseli.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_093444_351197_F28EB91C 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20251107_093602_831242_CC7FF655 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,161 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add platform device support for the MCF54418 RNGB hardware with clock
-enabled at platform initialization.
+> So without in_lazy_mmu_mode() check above the arch-specific set_pte()
+> implementation enters a wrong branch, which ends up in:
+> 
+> [  394.503134] Call Trace:
+> [  394.503137]  [<00007fffe01333f4>] dump_stack_lvl+0xbc/0xf0
+> [  394.503143]  [<00007fffe010298c>] vpanic+0x1cc/0x418
+> [  394.503149]  [<00007fffe0102c7a>] panic+0xa2/0xa8
+> [  394.503154]  [<00007fffe01e7a8a>] check_panic_on_warn+0x8a/0xb0
+> [  394.503160]  [<00007fffe082d122>] end_report+0x72/0x110
+> [  394.503166]  [<00007fffe082d3e6>] kasan_report+0xc6/0x100
+> [  394.503171]  [<00007fffe01b9556>] ipte_batch_ptep_get+0x146/0x150
+> [  394.503176]  [<00007fffe0830096>] kasan_populate_vmalloc_pte+0xe6/0x1e0
+> [  394.503183]  [<00007fffe0718050>] apply_to_pte_range+0x1a0/0x570
+> [  394.503189]  [<00007fffe07260fa>] __apply_to_page_range+0x3ca/0x8f0
+> [  394.503195]  [<00007fffe0726648>] apply_to_page_range+0x28/0x40
+> [  394.503201]  [<00007fffe082fe34>] __kasan_populate_vmalloc+0x324/0x340
+> [  394.503207]  [<00007fffe076954e>] alloc_vmap_area+0x31e/0xbf0
+> [  394.503213]  [<00007fffe0770106>] __get_vm_area_node+0x1a6/0x2d0
+> [  394.503218]  [<00007fffe07716fa>] __vmalloc_node_range_noprof+0xba/0x260
+> [  394.503224]  [<00007fffe0771970>] __vmalloc_node_noprof+0xd0/0x110
+> [  394.503229]  [<00007fffe0771a22>] vmalloc_noprof+0x32/0x40
+> [  394.503234]  [<00007fff604eaa42>] full_fit_alloc_test+0xb2/0x3e0 [test_vmalloc]
+> [  394.503241]  [<00007fff604eb478>] test_func+0x488/0x760 [test_vmalloc]
+> [  394.503247]  [<00007fffe025ad68>] kthread+0x368/0x630
+> [  394.503253]  [<00007fffe01391e0>] __ret_from_fork+0xd0/0x490
+> [  394.503259]  [<00007fffe24e468a>] ret_from_fork+0xa/0x30
+> 
+> I could have cached lazy_mmu_state::active as arch-specific data
+> and check it, but then what is the point to have it generalized?
 
-The imx-rngc driver now uses devm_clk_get_optional() to support both
-Coldfire (always-on clock) and i.MX platforms (managed clock).
-
-Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
----
- arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
- arch/m68k/coldfire/m5441x.c       |  2 +-
- arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
- drivers/char/hw_random/Kconfig    |  3 ++-
- drivers/char/hw_random/imx-rngc.c |  9 ++++++++-
- 5 files changed, 48 insertions(+), 3 deletions(-)
-
-diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
-index 20adba27a687029ef53249bad71b342d563d612b..4183929b0b501459da25d1b4cde7d77f19c3dc16 100644
---- a/arch/m68k/coldfire/device.c
-+++ b/arch/m68k/coldfire/device.c
-@@ -622,6 +622,31 @@ static struct platform_device mcf_flexcan0 = {
- };
- #endif /* MCFFLEXCAN_SIZE */
- 
-+#ifdef MCF_RNG_BASE
-+/*
-+ * Random Number Generator (RNG) - only on MCF54418
-+ */
-+static const struct resource mcf_rng_resource[] = {
-+	{
-+		.start = MCF_RNG_BASE,
-+		.end   = MCF_RNG_BASE + MCF_RNG_SIZE - 1,
-+		.flags = IORESOURCE_MEM,
-+	},
-+	{
-+		.start = MCF_IRQ_RNG,
-+		.end   = MCF_IRQ_RNG,
-+		.flags = IORESOURCE_IRQ,
-+	},
-+};
-+
-+static struct platform_device mcf_rng = {
-+	.name           = "imx-rngc",
-+	.id             = -1,
-+	.num_resources  = ARRAY_SIZE(mcf_rng_resource),
-+	.resource       = mcf_rng_resource,
-+};
-+#endif /* MCF_RNG_BASE */
-+
- static struct platform_device *mcf_devices[] __initdata = {
- 	&mcf_uart,
- #ifdef MCFFEC_BASE0
-@@ -660,6 +685,9 @@ static struct platform_device *mcf_devices[] __initdata = {
- #ifdef MCFFLEXCAN_SIZE
- 	&mcf_flexcan0,
- #endif
-+#ifdef MCF_RNG_BASE
-+	&mcf_rng,
-+#endif
- };
- 
- /*
-diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
-index 7a25cfc7ac07570ff15da3c55d080a717cf93a06..ab5b006372379294db3b522820de88137bfb7e78 100644
---- a/arch/m68k/coldfire/m5441x.c
-+++ b/arch/m68k/coldfire/m5441x.c
-@@ -158,6 +158,7 @@ static struct clk * const enable_clks[] __initconst = {
- 	&__clk_0_33, /* pit.1 */
- 	&__clk_0_37, /* eport */
- 	&__clk_0_48, /* pll */
-+	&__clk_0_49, /* rng */
- 	&__clk_0_51, /* esdhc */
- 
- 	&__clk_1_36, /* CCM/reset module/Power management */
-@@ -179,7 +180,6 @@ static struct clk * const disable_clks[] __initconst = {
- 	&__clk_0_44, /* usb otg */
- 	&__clk_0_45, /* usb host */
- 	&__clk_0_47, /* ssi.0 */
--	&__clk_0_49, /* rng */
- 	&__clk_0_50, /* ssi.1 */
- 	&__clk_0_53, /* enet-fec */
- 	&__clk_0_54, /* enet-fec */
-diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
-index f48cf63bd7822fd53c33788128f984585c0c421a..dd64cdfcad3e810254c6854b9de5b6bbeb67b950 100644
---- a/arch/m68k/include/asm/m5441xsim.h
-+++ b/arch/m68k/include/asm/m5441xsim.h
-@@ -198,6 +198,15 @@
- #define MCFRTC_SIZE		(0xfc0a8840 - 0xfc0a8000)
- #define MCF_IRQ_RTC		(MCFINT2_VECBASE + MCFINT2_RTC)
- 
-+/*
-+ *  Random Number Generator (RNG) Module.
-+ *  Note: Only present in MCF54418, not in MCF54410/54415/54417
-+ */
-+#define MCF_RNG_BASE		0xfc0c4000
-+#define MCF_RNG_SIZE		0x1c
-+#define MCFINT2_RNG		28
-+#define MCF_IRQ_RNG		(MCFINT2_VECBASE + MCFINT2_RNG)
-+
- /*
-  *  GPIO Module.
-  */
-diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/Kconfig
-index 492a2a61a65be8bd9e46b0a70f3e43703973512e..e046eabaac2d9053a5a4a98c6e3733bb19258e54 100644
---- a/drivers/char/hw_random/Kconfig
-+++ b/drivers/char/hw_random/Kconfig
-@@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
- config HW_RANDOM_IMX_RNGC
- 	tristate "Freescale i.MX RNGC Random Number Generator"
- 	depends on HAS_IOMEM
--	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COMPILE_TEST
-+	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || M5441x || COMPILE_TEST
- 	default HW_RANDOM
- 	help
- 	  This driver provides kernel-side support for the Random Number
- 	  Generator Version C hardware found on some Freescale i.MX
- 	  processors. Version B is also supported by this driver.
-+	  Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
- 
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called imx-rngc.
-diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
-index 241664a9b5d9ac7244f15cbe5d5302ca3787ebea..44f20a05de0a425cb6ff7b2a347b111750ac3702 100644
---- a/drivers/char/hw_random/imx-rngc.c
-+++ b/drivers/char/hw_random/imx-rngc.c
-@@ -259,7 +259,7 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
- 	if (IS_ERR(rngc->base))
- 		return PTR_ERR(rngc->base);
- 
--	rngc->clk = devm_clk_get(&pdev->dev, NULL);
-+	rngc->clk = devm_clk_get_optional(&pdev->dev, NULL);
- 	if (IS_ERR(rngc->clk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(rngc->clk), "Cannot get rng_clk\n");
- 
-@@ -353,12 +353,19 @@ static const struct of_device_id imx_rngc_dt_ids[] = {
- };
- MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
- 
-+static const struct platform_device_id imx_rngc_devtype[] = {
-+	{ .name = "imx-rngc" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
-+
- static struct platform_driver imx_rngc_driver = {
- 	.driver = {
- 		.name = KBUILD_MODNAME,
- 		.pm = pm_ptr(&imx_rngc_pm_ops),
- 		.of_match_table = imx_rngc_dt_ids,
- 	},
-+	.id_table = imx_rngc_devtype,
- };
- 
- module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
-
--- 
-2.39.5
-
+Do you mean we should set ->active before calling into the arch 
+callback? We could do that I think.
 
