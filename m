@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A895CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D41CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 09:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZQXGkPHe9/U37tQNGKvI1ZfLYMo8CduBTar9VDjyVg=; b=mBT84UK0JDJ4fGLmMDdEyXcpG6
-	9Qv3gvxfHASykcRQLCq+TkogRCMRs9U9exYvetlTWGrHlVnquFwq1HsBPZ2MoK9GmA0nNs0boUQ1M
-	X7sJZLfKbUUztGLeC42uPMpYtkV9IcKUeydyJDJB8kexi+Jax7hvZJdyDoONPkA+j85S7p3Qye/2D
-	0McnyQiOqdtHIr3wD1BIUUKI1Sue5apnYPxJsFYbCNOp6L69TdkeEJCAfc9vKEgO8SyYCqEJfbvEK
-	aDIsh9X2vt/0GMsf23CZEYRTrQrng2BRRqLdzJhjJmWlIBAHCLazaew7Jn7qTYN7gAQ7vz5ys8u00
-	ECB2HXyg==;
+	bh=Rgw5xcElE8xbfMxk4XfNC90+k3Bbs57tvUPtv7wwrm4=; b=SC2u0Lbi6MABoL1or7q69XZ9Tj
+	wrY2MoJdKReTMaA3htvWVWSKdrYGb+kKVTlucSvocmADBtQkEfXpLzWEIPwu8E/FQnLwYv2e1FxhT
+	JmNsJnnXAWbso/3IoQ+y2lCjcihvrkC+GuKJoEqg2wizD8qjgs6aEUIdXA4NhanfNenTmJks7pKpG
+	NlPgNwNuyj4gDv+3sTLh+Jk+EyYL3vxk7aU/NKk0GtXugCldUcTBiFycFtV6mOZjV8bqxrZlGwftG
+	VVRuiEXZrJ5EJOO/M8I8QQostTJKx7+3z6UhzzsKSPacf5L4nYIFEfACyA1S+gRqit+g6qM4rSyWn
+	w1NgrR4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIw9-0000000GymK-2Mk4;
-	Fri, 07 Nov 2025 09:39:17 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vHIwE-0000000GypD-1Kkm;
+	Fri, 07 Nov 2025 09:39:22 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHIvs-0000000GyQa-3cYR
+	id 1vHIvt-0000000GyR0-1hKx
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Nov 2025 09:39:02 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4776079ada3so4795155e9.1
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-475dabb63f2so2588415e9.3
         for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 01:39:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762508339; x=1763113139; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1762508340; x=1763113140; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZQXGkPHe9/U37tQNGKvI1ZfLYMo8CduBTar9VDjyVg=;
-        b=jUffQQlLcVYALyXWYvWLLAXUPErxw7PnZZwAI5yzoLwFlzEwxfTHbcZ2l/1Iwk64Ja
-         nN3tdIL27hqAkrSJDyK6U0OniKk4Mya3GuSkMuTDtwJquTL1NBlqvy8DV+9v0QXcE3El
-         +tNysWEwF10btkvOHhgRPp0Z+cclKY4PpOEmHnvSOYPAOxSWxz0iZdP9yEgA/1I6mHzu
-         SXIDs5kmgnn3DOdFLEZ8m4oGxGaRp+9Guctj4ijsO835rZcjjyv7rTajpw1N+awtXTTi
-         hEsqeRFw8ER/VkCVTzk7J3qIQrx5uEBJ27n8S7ZYLliebFUToItBLMfB754CdBGkeojz
-         H4EQ==
+        bh=Rgw5xcElE8xbfMxk4XfNC90+k3Bbs57tvUPtv7wwrm4=;
+        b=2QP38yPjErKch/P8YLadRdxKdqi2HKGB3QRCZu4xOJ5db7a3a6mGL/O6E7ViRhHnBo
+         UITCjjKt9CUK0LiLed4Vjp5QWWyWUx0Lwu2Zfw5kThrKtw9FBGejZ11uAO2nrkVFvxJQ
+         43biMKPLCBmlXEOdwYO8lkV8+7OAo22jTdQXvGPVqQ3kjz8fb/QIxCxCD9V3dQcMkyrZ
+         xQIahH9QTFZ953axJICtRjTfo38dH6RhPi/oZITD9eSVhLZBz7wvDYTdIUhny93y84ht
+         5mYQtxQaOVpL9z/Oonz87vG20onoxI6ovz2bH5qgVQhVJYWH9Kuu/RXE06hp7b+sGzPi
+         7k/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762508339; x=1763113139;
+        d=1e100.net; s=20230601; t=1762508340; x=1763113140;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZQXGkPHe9/U37tQNGKvI1ZfLYMo8CduBTar9VDjyVg=;
-        b=Ll5cYzhJsZm+5KXb7sGxqmeLuRjZ7shsgzT+C4jQBe7BiQBgg3+H9ZvJiIKvMEKOkb
-         aMMTiSh4c+TzvvlD8/NHzf6uf8ADqyodZUZ1gfp4IwGLbLIfnv3RaYFhf3uUXvH9pFXS
-         SACHeC4J6GKvFtymBAtLKvvxbnmA70IETnskMU6REMpaQJCCA8AyL6X/3QmT+yxAhFXJ
-         ZWCeuHyyILWVk6RdRP/S7y+Ij4tyVohcjibYYoA4Pv/BScg0/JJ/wBozFWQGFM/qpnAk
-         EpZM5jGQCwVhaX1q1Ej5QqzI6djvt67ILTtLPsoqqF82Xv6bPRmHheNCFqzjOhtXDVrm
-         cGsg==
-X-Forwarded-Encrypted: i=1; AJvYcCXtoy5kMYS7bUfYK9ajz1w6T+pDYboESAKUtaQt+9LPfShKUWXh6Gc6tzdFMbTp0mXwZIbss9BjmYpxCs4BcrKG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJwSK0Y6+QGWmaoStY/n3A6eJ+aWijjRVrgGXW0sxHzk1jcXLI
-	ErTpaXWiJ/DnAU9u+uMnmWDNNDR7KDwXUQWexQFf1POx8lp1YDxJoLZq8V1p3WWuQbvfwAqaS3y
-	P3ybUXHlCKw95MUGrvLsqCw==
-X-Google-Smtp-Source: AGHT+IEgHqXeHwKXNC++2iV0+wfS/fik7pjpkk7m9+1zJmg2GRsFEpcM8FI8jOV3R+GhV8IJz514M5L5g+FvFVCF
-X-Received: from wman13.prod.google.com ([2002:a05:600c:6c4d:b0:477:14b1:69d7])
+        bh=Rgw5xcElE8xbfMxk4XfNC90+k3Bbs57tvUPtv7wwrm4=;
+        b=AsWgHwea162naYzi9zbzGmmfkP5Y9vg6tylYoCQTfslsC0xT+0tFEKJWwrd6iQBTJR
+         z0dHbh0hCLEQpczAbdFmUfzOppT+/r85jReYLRNJeURs+ObHJIYriHjmWeAjToMdjJL1
+         K8CaogUqAr2wUlGtxaM30xtwlNmCTsBs8lq0GINmkjWkNn5J4y/Hc766SJzA9cnfNdRR
+         m/auJD4uJHwVddekmPfvWS+CNZiADpIvPC7DyVdIlvCUbPVMMHVTuE23gXafvjVNoPkg
+         aZrKM7S1iCKUx1XIKKrNJvwxgL3Tr5AU27FisnO5PD+8ORB3ttv/TzoynlWQC9oIXk2x
+         WqQw==
+X-Forwarded-Encrypted: i=1; AJvYcCXFwbyw33C9hVYbEULIhKp93xfqfLT9KlGonOOpEKIyUamdQOcX7QHNCmocr1SKGHqHKDvK7cFrOFsYG7KX+KI7@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywte+tlCOzc9IdPuEqPXIhzCs26PLXx1I/e+mv8WRt2m5p1IccK
+	pqTjZBeziQJc0QAXjrFSklWFy9MjSxVz3xmNOfeTrY1N9MV5LOPWBQZ7oNZNeXmO3wlxD01VTjU
+	rp7RDiLvdR+8BJgpqKBWCKA==
+X-Google-Smtp-Source: AGHT+IGzpEKGlvdqnVA4OQ2DzHhBl+PUvu9fL2YcqmScAvttQ6S+PEAeuUHE8+kan3CeRRr5cSqqjY/5fBkD1tZM
+X-Received: from wmjq17.prod.google.com ([2002:a7b:ce91:0:b0:477:122d:f740])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4592:b0:471:11a3:a6a9 with SMTP id 5b1f17b1804b1-4776bccacd0mr18890925e9.37.1762508339110;
+ 2002:a05:600c:6289:b0:477:3543:3a3b with SMTP id 5b1f17b1804b1-4776bcb20a4mr20810655e9.6.1762508339806;
  Fri, 07 Nov 2025 01:38:59 -0800 (PST)
-Date: Fri,  7 Nov 2025 09:38:23 +0000
+Date: Fri,  7 Nov 2025 09:38:24 +0000
 In-Reply-To: <20251107093840.3779150-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20251107093840.3779150-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251107093840.3779150-12-vdonnefort@google.com>
-Subject: [PATCH v8 11/28] tracing: Add helpers to create trace remote events
+Message-ID: <20251107093840.3779150-13-vdonnefort@google.com>
+Subject: [PATCH v8 12/28] ring-buffer: Export buffer_data_page and macros
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_013900_942194_13D48FEB 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20251107_013901_485127_CA1A752F 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,124 +93,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Declaring remote events can be cumbersome let's add a set of macros to
-simplify developers life. The declaration of a remote event is very
-similar to kernel's events:
-
- REMOTE_EVENT(name, id,
-     RE_STRUCT(
-        re_field(u64 foo)
-     ),
-     RE_PRINTK("foo=%llu", __entry->foo)
- )
+In preparation for allowing the writing of ring-buffer compliant pages
+outside of ring_buffer.c, move buffer_data_page and timestamps encoding
+macros into the publicly available ring_buffer_types.h.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
-index a4449008a075..c8ae1e1f5e72 100644
---- a/include/linux/trace_remote_event.h
-+++ b/include/linux/trace_remote_event.h
-@@ -5,6 +5,7 @@
- 
- struct trace_remote;
- struct trace_event_fields;
-+struct trace_seq;
- 
- struct remote_event_hdr {
- 	unsigned short	id;
-@@ -20,4 +21,13 @@ struct remote_event {
- 	char				*print_fmt;
- 	void				(*print)(void *evt, struct trace_seq *seq);
- };
-+
-+#define RE_STRUCT(__args...) __args
-+#define re_field(__type, __field) __type __field;
-+
-+#define REMOTE_EVENT_FORMAT(__name, __struct)	\
-+	struct remote_event_format_##__name {	\
-+		struct remote_event_hdr hdr;	\
-+		__struct			\
-+	}
- #endif
-diff --git a/include/trace/define_remote_events.h b/include/trace/define_remote_events.h
+diff --git a/include/linux/ring_buffer_types.h b/include/linux/ring_buffer_types.h
 new file mode 100644
-index 000000000000..03c9f5515c5a
+index 000000000000..54577021a49d
 --- /dev/null
-+++ b/include/trace/define_remote_events.h
-@@ -0,0 +1,73 @@
++++ b/include/linux/ring_buffer_types.h
+@@ -0,0 +1,41 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_RING_BUFFER_TYPES_H
++#define _LINUX_RING_BUFFER_TYPES_H
 +
-+#include <linux/trace_events.h>
-+#include <linux/trace_remote_event.h>
-+#include <linux/trace_seq.h>
-+#include <linux/stringify.h>
++#include <asm/local.h>
 +
-+#define REMOTE_EVENT_INCLUDE(__file) __stringify(../../__file)
++#define TS_SHIFT        27
++#define TS_MASK         ((1ULL << TS_SHIFT) - 1)
++#define TS_DELTA_TEST   (~TS_MASK)
 +
-+#ifdef REMOTE_EVENT_SECTION
-+# define __REMOTE_EVENT_SECTION(__name) __used __section(REMOTE_EVENT_SECTION"."#__name)
++/*
++ * We need to fit the time_stamp delta into 27 bits.
++ */
++static inline bool test_time_stamp(u64 delta)
++{
++	return !!(delta & TS_DELTA_TEST);
++}
++
++#define BUF_PAGE_HDR_SIZE offsetof(struct buffer_data_page, data)
++
++#define RB_EVNT_HDR_SIZE (offsetof(struct ring_buffer_event, array))
++#define RB_ALIGNMENT		4U
++#define RB_MAX_SMALL_DATA	(RB_ALIGNMENT * RINGBUF_TYPE_DATA_TYPE_LEN_MAX)
++#define RB_EVNT_MIN_SIZE	8U	/* two 32bit words */
++
++#ifndef CONFIG_HAVE_64BIT_ALIGNED_ACCESS
++# define RB_FORCE_8BYTE_ALIGNMENT	0
++# define RB_ARCH_ALIGNMENT		RB_ALIGNMENT
 +#else
-+# define __REMOTE_EVENT_SECTION(__name)
++# define RB_FORCE_8BYTE_ALIGNMENT	1
++# define RB_ARCH_ALIGNMENT		8U
 +#endif
 +
-+#define __REMOTE_PRINTK_COUNT_ARGS(_0, _1, _2, _n, __args...) _n
-+#define REMOTE_PRINTK_COUNT_ARGS(__args...) __REMOTE_PRINTK_COUNT_ARGS(, ##__args, 2, 1, 0)
++#define RB_ALIGN_DATA		__aligned(RB_ARCH_ALIGNMENT)
 +
-+#define __remote_printk0()								\
-+	trace_seq_putc(seq, '\n')
-+
-+#define __remote_printk1(__fmt)								\
-+	trace_seq_puts(seq, " " __fmt "\n")						\
-+
-+#define __remote_printk2(__fmt, __args...)						\
-+do {											\
-+	trace_seq_putc(seq, ' ');							\
-+	trace_seq_printf(seq, __fmt, __args);						\
-+	trace_seq_putc(seq, '\n');							\
-+} while (0)
-+
-+/* Apply the appropriate trace_seq sequence according to the number of arguments */
-+#define remote_printk(__args...)							\
-+	CONCATENATE(__remote_printk, REMOTE_PRINTK_COUNT_ARGS(__args))(__args)
-+
-+#define RE_PRINTK(__args...) __args
-+
-+#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
-+	REMOTE_EVENT_FORMAT(__name, __struct);						\
-+	static void remote_event_print_##__name(void *evt, struct trace_seq *seq)	\
-+	{										\
-+		struct remote_event_format_##__name __maybe_unused *__entry = evt;	\
-+		trace_seq_puts(seq, #__name);						\
-+		remote_printk(__printk);						\
-+	}
-+#include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
-+
-+#undef REMOTE_EVENT
-+#undef RE_PRINTK
-+#undef re_field
-+#define re_field(__type, __field)							\
-+	{										\
-+		.type = #__type, .name = #__field,					\
-+		.size = sizeof(__type), .align = __alignof__(__type),			\
-+		.is_signed = is_signed_type(__type),					\
-+	},
-+#define __entry REC
-+#define RE_PRINTK(__fmt, __args...) "\"" __fmt "\", " __stringify(__args)
-+#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
-+	static struct trace_event_fields remote_event_fields_##__name[] = {		\
-+		__struct								\
-+		{}									\
-+	};										\
-+	static char remote_event_print_fmt_##__name[] = __printk;			\
-+	static struct remote_event __REMOTE_EVENT_SECTION(__name)			\
-+	remote_event_##__name = {							\
-+		.name		= #__name,						\
-+		.id		= __id,							\
-+		.fields		= remote_event_fields_##__name,				\
-+		.print_fmt	= remote_event_print_fmt_##__name,			\
-+		.print		= remote_event_print_##__name,				\
-+	}
-+#include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
++struct buffer_data_page {
++	u64		 time_stamp;	/* page time stamp */
++	local_t		 commit;	/* write committed index */
++	unsigned char	 data[] RB_ALIGN_DATA;	/* data of buffer page */
++};
++#endif
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 41975b92a960..f823d51b7b98 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -4,6 +4,7 @@
+  *
+  * Copyright (C) 2008 Steven Rostedt <srostedt@redhat.com>
+  */
++#include <linux/ring_buffer_types.h>
+ #include <linux/trace_recursion.h>
+ #include <linux/trace_events.h>
+ #include <linux/ring_buffer.h>
+@@ -156,23 +157,6 @@ int ring_buffer_print_entry_header(struct trace_seq *s)
+ /* Used for individual buffers (after the counter) */
+ #define RB_BUFFER_OFF		(1 << 20)
+ 
+-#define BUF_PAGE_HDR_SIZE offsetof(struct buffer_data_page, data)
+-
+-#define RB_EVNT_HDR_SIZE (offsetof(struct ring_buffer_event, array))
+-#define RB_ALIGNMENT		4U
+-#define RB_MAX_SMALL_DATA	(RB_ALIGNMENT * RINGBUF_TYPE_DATA_TYPE_LEN_MAX)
+-#define RB_EVNT_MIN_SIZE	8U	/* two 32bit words */
+-
+-#ifndef CONFIG_HAVE_64BIT_ALIGNED_ACCESS
+-# define RB_FORCE_8BYTE_ALIGNMENT	0
+-# define RB_ARCH_ALIGNMENT		RB_ALIGNMENT
+-#else
+-# define RB_FORCE_8BYTE_ALIGNMENT	1
+-# define RB_ARCH_ALIGNMENT		8U
+-#endif
+-
+-#define RB_ALIGN_DATA		__aligned(RB_ARCH_ALIGNMENT)
+-
+ /* define RINGBUF_TYPE_DATA for 'case RINGBUF_TYPE_DATA:' */
+ #define RINGBUF_TYPE_DATA 0 ... RINGBUF_TYPE_DATA_TYPE_LEN_MAX
+ 
+@@ -315,10 +299,6 @@ EXPORT_SYMBOL_GPL(ring_buffer_event_data);
+ #define for_each_online_buffer_cpu(buffer, cpu)		\
+ 	for_each_cpu_and(cpu, buffer->cpumask, cpu_online_mask)
+ 
+-#define TS_SHIFT	27
+-#define TS_MASK		((1ULL << TS_SHIFT) - 1)
+-#define TS_DELTA_TEST	(~TS_MASK)
+-
+ static u64 rb_event_time_stamp(struct ring_buffer_event *event)
+ {
+ 	u64 ts;
+@@ -337,12 +317,6 @@ static u64 rb_event_time_stamp(struct ring_buffer_event *event)
+ 
+ #define RB_MISSED_MASK		(3 << 30)
+ 
+-struct buffer_data_page {
+-	u64		 time_stamp;	/* page time stamp */
+-	local_t		 commit;	/* write committed index */
+-	unsigned char	 data[] RB_ALIGN_DATA;	/* data of buffer page */
+-};
+-
+ struct buffer_data_read_page {
+ 	unsigned		order;	/* order of the page */
+ 	struct buffer_data_page	*data;	/* actual data, stored in this page */
+@@ -401,14 +375,6 @@ static void free_buffer_page(struct buffer_page *bpage)
+ 	kfree(bpage);
+ }
+ 
+-/*
+- * We need to fit the time_stamp delta into 27 bits.
+- */
+-static inline bool test_time_stamp(u64 delta)
+-{
+-	return !!(delta & TS_DELTA_TEST);
+-}
+-
+ struct rb_irq_work {
+ 	struct irq_work			work;
+ 	wait_queue_head_t		waiters;
 -- 
 2.51.2.1041.gc1ab5b90ca-goog
 
