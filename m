@@ -4,96 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBA2CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 19:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF8FCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 19:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uecw5GuJ6xKMR/52t0KK0j/pRrv42h6jWvdNot4nYIc=; b=wBPo8DhRbISNVbvHoW+KbOuRUT
-	wjOqFulS5G4hilYiOKr8ufxeBZfgRIPd5QsKuexdIp+eNaeBGMh4sv3dZYsUJArIegWBUW0KAChMz
-	oWZR/YlFpv1cptbW6h6fpOarM8JEYQNW+YurUh4RiSk0jnawb7OE2uwexT4pN7Zw6aGsj5FokIxQI
-	fcIJWABdYOQYxwb7TqpnpuRHiV3ypyCP0WEAUQyfz2R6+0vh2J6afUdBXJcD5XRhs353IErEaFh84
-	ov2aRqvK7sQfiO7oOTJSN9wBgh3PaV4X4fMJT1j7rEONJx0e2TjIYaJ3rw6pRoTmGngXvmcFe+aMa
-	xUai07KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=; b=DAW+FiTtfe5qygMQ68KfZ3ied8
+	vix38Q5sYOsQfWXFCamXqSHzP92+27hK+znJjMZkWKqKpmJyFFUyOrvijcdbDGeQ3tk1XAC9iIIqU
+	5DOKChDQpJiKuZeFzTVY26o8WGanAQ/fC+OeeKqYfi6QBQFpAOD2gPwXFI5FvEIht2qF1qCXTYihz
+	R9j2lCYXfxrlsvfSabW278p3VBhRAXCd4Cp98zpR6J6Qeh/1MnHGvktYwyIqAbsAq7lFgOxck0z2u
+	5vEU5MAeSjoNEIF+VWjTqyoXBJE7WHgEQm1Ole4GtXFsxkMfj5MM+x98zbFNJ8YqqhxLWZC3hPN5u
+	IMpP524w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRx6-00000000gEL-3kN9;
-	Fri, 07 Nov 2025 19:16:52 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1vHRyJ-00000000gtW-18vo;
+	Fri, 07 Nov 2025 19:18:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHRx3-00000000gBN-0s7i
+	id 1vHRyH-00000000gsi-0vmd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Nov 2025 19:18:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=; b=D9tSwbNqxvZqsRO+aOEKeGYGQv
+	sMhvaaMmXAWgIxXmizQfj4od/0JoD73V1wEzgYm9bgOGpcMqh5vNxghd41N360JEbWr7PLFTPnWg0
+	3baFpJYWoHe1isZoGS5vFWaYlsEXuzL1kJOyHeNeJVUCzcA/Ns2gBybH32K0zsWppID7uZMtt4AcY
+	01Pxk/cSACJc4jPG7Is7vbb2id9Z1UvM/awg0qGEXUZlK7WnkGUyKrQzy2hJ+D/lAKmY94EMBBcHo
+	A8FfgJ0Qq/cpXSEnnfSz73+8pi1J/EWfI9pv6xJrIOEvKilHr8mS4MPpyeWiGQE0nw6LekpO7C3O3
+	vxdkOm5A==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHR6W-000000073cY-1W70
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 19:16:51 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-87bb66dd224so12376416d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 11:16:48 -0800 (PST)
+	Fri, 07 Nov 2025 18:22:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477632d45c9so7386535e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 11:18:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1762543008; x=1763147808; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uecw5GuJ6xKMR/52t0KK0j/pRrv42h6jWvdNot4nYIc=;
-        b=Uk3Lk10WB7mbTnM3YWfPzCEV6QoRtAj2P1trOBg36Lm3zHhEqeMl380d46U9c7rooc
-         g1zgLJdcYyuRxtOgTBXossWt/Dt9JN34hrrGTcV3qSLVmgRAQLPYbBv7RCquOY49Jw7u
-         xF9nWIXUJ15l6Lxm4oudT5El7IeycFby0guVyHiGIWUCQqrKURGZzreu8qFGJ8JoOYM4
-         dKQVeoPr/L/V5oolm0cMHQMh66a/LCY8lrpb+vjCz1Ex6kPKYqjv4ar7Xdq8iGyFwv6f
-         bs8YZmAafRJZZ52XsitEnkHcttKm8EuB6OC1mIoHTk1cWIUwP/emX7qsLVoE+8aExqA5
-         1pFA==
+        d=gmail.com; s=20230601; t=1762543079; x=1763147879; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=;
+        b=KSB8hF3oBKjuoFgcYj0nTEdhuWMbRn6xNgXkLXHyGHpPF/kdbeR8QgrP55NKSM7xTe
+         Fah8sDxHI8HzL30E0qiWqaBWp+Tu91wflnrqAC563QCqltWJB255BACpU8zhIObqLjei
+         ZwvtuiJuvhnU/14ONNoRGdu0fr40JBUSZKZu/HBXh+zc9ar5XJMO9z6fEqN7E3IJM+KV
+         aGCHTXjw37eSiwHfd1NqeQ/UpqIuWunaajTxww8lfwqRY+7mLoe534OWITcvHlpbaI9f
+         cW9t7Fn3l9nTHNmYgoacenDKkJHbr8o8tA1Q9E/ri87QBpDjeZuspw8o4NsQnLzc3Hih
+         azRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762543008; x=1763147808;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uecw5GuJ6xKMR/52t0KK0j/pRrv42h6jWvdNot4nYIc=;
-        b=Mj4CDJ6xfaTDpWTLfD497zaTQUcNdkkViYV9kbA5WgeemeiEbiQyd8K4OOJWEW7COb
-         gKSR8QunFsCoYbpb7twRxo1MGqKO0Meyhse8lCrT8WdJOblnwA26eGGQZ0Oe/b3W45O7
-         ztRIOhssbgLUzM0Md0l9A37Mj3n/cpUhrwTInXoRMK5dy2WzVpC9JXqgLfFCBnuXplwH
-         ENaj1YnbFk4cpaa/5WYXbsjeL1AMR+7H3lp6o11U045Gp3yJSmsbJuccrvlKrhX2fajD
-         4GTgC5RS2exFkqsjVn6e6iEhPls47vQs/tlk2xNwLlVO5ssuBuvIhTIsBApWXyNe9a51
-         jhHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHNDwRYmTnNucNRFor9N+NrKyPrzDdZbQrCh/gfNFZLpvyQuaPlsBYDgQOnyKbkei4SXrbSg3r/cpK0fx/kdmq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzylkZjBx7bTaiRwGHQUF+dVIy4g/9v18HmEbYAtYepZOQI0lGZ
-	ZqIzpeb+hfZmG/8WJB6t2QC68szQUXBtz26RlVHkRK/r9taPWPK/noZS1fs9BBxiz38=
-X-Gm-Gg: ASbGnctE1kRTgoTLAxByK5NKA+Lkt6s6vhE/LCKD6qIBHSndtL8cugWeUH+/eq1by4l
-	YygvYTuDJudwiPjXt4Y6AF7///DQ/E6NYGx5iDOtmhhwPNGnBYiMPCJGe/dUry2kbSM85rBt7HG
-	v3wsep3s7FGT6h31WCJRoWl+uE0n0sMN6FfZR6s+Sye+gshcguyJ08QcM47cESu+cdDXqiJzXR5
-	SOrFtvh+byJvHXD3wssTaB6q4tmQwAA4GwsoXCSUkbOcBE6kBgjmaQmu152I8jELoJ9KY3jQZqV
-	DeiHRm0K8IlVBQzSxspyesNN/swTUt7fdvrAkKLsEmZQgvqHnKBGIMbAVHECep5XYXHtvqQb6IF
-	k7+ZwIxpxpLqnstYRRUvs/PxkKE7TUgrKLn/6AWAx8e65pC7LzV/12Sh+0H+YaoocDZPZxH0gp3
-	YWZbCaNcaNPOU+LS3YMWgPueKBEZmzsFRsEGwPrOZ6coXU+g==
-X-Google-Smtp-Source: AGHT+IFuKO535u2kiOv/DIfBewHOhom5AEVBkvPZuA5a9xJpNKB2nCPzp+ZUXTed1YvzsoYZhtcP/A==
-X-Received: by 2002:ad4:5c66:0:b0:880:224e:aab1 with SMTP id 6a1803df08f44-8823871af07mr2487486d6.66.1762543007674;
-        Fri, 07 Nov 2025 11:16:47 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8823896a8d9sm593576d6.17.2025.11.07.11.16.47
+        d=1e100.net; s=20230601; t=1762543079; x=1763147879;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=BoyRAxBYJ97KZHdMcvP1wI7gdZM18PW/SDBquVzm/CM=;
+        b=S/fMR7A77s76SPPnj5dZ/Ius+swiq9hDTucLJ73Xlh6kK7OaNBHJvOzCXFAUa5BpO1
+         X/Vsno/LuV9T3YZvGRZwmBA2B0MOjwB197uE50adsoaF22RzV4p/Zg62+bxTZA0YY3Pg
+         9rEXnC+HnBItwYAaaRkcwvwDKFBm5zu1DGIKZN1wn35GFL212TzD0gxWxVYjWNmIvZ+E
+         zufU2szzPBdxF/HhPgY2nhjV4fwm0z2L22wXph6s6HH+rgfT86rC6mI3vYvwfe8fodtR
+         bfYIpvIuD9TagBNc8nGgfR/fSfS3vrqiLEfof9MrIbB7pgt0CTZyy6of77dkkHNF6TOe
+         k4pA==
+X-Forwarded-Encrypted: i=1; AJvYcCXmKF1EGg1ZZOtAnCLtgAEmP545aRhJ3G2BhwupAXqg9x1LBz1GwcT+aB0922M+HNfiEKjvov+wPhm7hoCCujo0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfXG6NTIeMStQ+AcdkRqi+DMw5wdFnkdk3bb1rJ7psxHALiEIb
+	LtONsk0pC5FjVht2bv/bM3mrRdhGoOj/JAk0A5qooTJBGkK/ijCE1PJ4
+X-Gm-Gg: ASbGncvxUF5aDvkvfa+WT/cKL8qGxdVcVS1IAjJSHX8vEtGCyHRHaNv4EPH6Shr2grm
+	MSK3G8lURgdFK0J3BzpGITYgSW3p3OhrwXVQeAvXhE5hThNUYVnLnQE38A+84IKu1aNEgcsOEjJ
+	YZlxkHJKViM1ud8wUC/hBVwUeEKipiCuV17btKsb4vrVEdu3gJW4w+5fV2jxD9swGQwooXI5pYU
+	ypgrhqCDPA4vVlXzkADu/s/ds/w7IfH4sWHfIVj0Nl2aYv5s5MDCSphbT1SYbF4Oiuf3IEubO7S
+	fN+6W2QuCU0eKqb+kqTlqrT1dq0DnYIxURAiVLPl7NWs8XCaCOceD9QRCLCQC1IDo6AfdqPSaJ2
+	MLJG5qLbiSOT5dky182OcWt+BTu7OqgMseM5fdUogHLkDiS+I6vq+CsU7Md9QZLnshdrUzupz2n
+	LkI+9w854XOuKoEfZHhWkkRZAy9ISqE9XMViYTCZ0SG1KdkhTHs4Td
+X-Google-Smtp-Source: AGHT+IGwWldiHMKs6o3o24t2zUapUEv2nDiVIW1qgftMpp+s7M3k154xFpb/vMUGopieuIUWMdpZmw==
+X-Received: by 2002:a05:600c:45c7:b0:477:55b6:cdd6 with SMTP id 5b1f17b1804b1-4777322f0a4mr1228445e9.10.1762543078570;
+        Fri, 07 Nov 2025 11:17:58 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42abe62b23csm6811350f8f.10.2025.11.07.11.17.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 11:16:47 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1vHRx0-00000008LqN-30pE;
-	Fri, 07 Nov 2025 15:16:46 -0400
-Date: Fri, 7 Nov 2025 15:16:46 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Ryan Huang <tzukui@google.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Daniel Mentz <danielmentz@google.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Fix error check in
- arm_smmu_alloc_cd_tables
-Message-ID: <20251107191646.GB1859178@ziepe.ca>
-References: <20251107190917.2858684-1-tzukui@google.com>
+        Fri, 07 Nov 2025 11:17:58 -0800 (PST)
+Date: Fri, 7 Nov 2025 19:17:53 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Linus Torvalds
+ <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>, Russell
+ King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
+ Carstens <hca@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
+ <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V5 07/12] uaccess: Provide scoped user access regions
+Message-ID: <20251107191753.7433d2dc@pumpkin>
+In-Reply-To: <20251027083745.546420421@linutronix.de>
+References: <20251027083700.573016505@linutronix.de>
+	<20251027083745.546420421@linutronix.de>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251107190917.2858684-1-tzukui@google.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_111649_375633_D631F2DB 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20251107_182232_481253_F98E2442 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +132,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 11:09:17AM -0800, Ryan Huang wrote:
-> In arm_smmu_alloc_cd_tables(), the error check following the
-> dma_alloc_coherent() for cd_table->l2.l1tab incorrectly tests
-> cd_table->l2.l2ptrs.
-> 
-> This means an allocation failure for l1tab goes undetected, causing
-> the function to return 0 (success) erroneously.
-> 
-> Correct the check to test cd_table->l2.l1tab.
-> 
-> Fixes: e3b1be2e73db ("iommu/arm-smmu-v3: Reorganize struct arm_smmu_ctx_desc_cfg")
-> Signed-off-by: Daniel Mentz <danielmentz@google.com>
-> Signed-off-by: Ryan Huang <tzukui@google.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, 27 Oct 2025 09:43:55 +0100 (CET)
+Thomas Gleixner <tglx@linutronix.de> wrote:
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> User space access regions are tedious and require similar code patterns all
+> over the place:
+...
+> There have been issues with using the wrong user_*_access_end() variant in
+> the error path and other typical Copy&Pasta problems, e.g. using the wrong
+> fault label in the user accessor which ends up using the wrong accesss end
+> variant. 
+> 
+> These patterns beg for scopes with automatic cleanup. The resulting outcome
+> is:
+>     	scoped_user_read_access(from, Efault)
+> 		unsafe_get_user(val, from, Efault);
+> 	return 0;
+>   Efault:
+> 	return -EFAULT;
+> 
+> The scope guarantees the proper cleanup for the access mode is invoked both
+> in the success and the failure (fault) path.
+> 
+...
 
-Jason
+The code doesn't work if the 'from' (above) is 'const foo __user *from'.
+Due to assigning away constness.
+
+The changes below fix the build, I suspect the code is then correct.
+
+...
+> +/* Define RW variant so the below _mode macro expansion works */
+> +#define masked_user_rw_access_begin(u)	masked_user_access_begin(u)
+> +#define user_rw_access_begin(u, s)	user_access_begin(u, s)
+> +#define user_rw_access_end()		user_access_end()
+> +
+> +/* Scoped user access */
+> +#define USER_ACCESS_GUARD(_mode)				\
+
+#define USER_ACCESS_GUARD(_mode, void)
+(but change all the void below to a different name...)
+
+> +static __always_inline void __user *				\
+> +class_user_##_mode##_begin(void __user *ptr)			\
+> +{								\
+> +	return ptr;						\
+> +}								\
+> +								\
+> +static __always_inline void					\
+> +class_user_##_mode##_end(void __user *ptr)			\
+> +{								\
+> +	user_##_mode##_access_end();				\
+> +}								\
+> +								\
+> +DEFINE_CLASS(user_ ##_mode## _access, void __user *,		\
+> +	     class_user_##_mode##_end(_T),			\
+> +	     class_user_##_mode##_begin(ptr), void __user *ptr)	\
+> +								\
+> +static __always_inline class_user_##_mode##_access_t		\
+> +class_user_##_mode##_access_ptr(void __user *scope)		\
+> +{								\
+> +	return scope;						\
+> +}
+> +
+> +USER_ACCESS_GUARD(read)
+> +USER_ACCESS_GUARD(write)
+> +USER_ACCESS_GUARD(rw)
+
+USER_ACCESS_GUARD(read, const void)
+USER_ACCESS_GUARD(write, void)
+USER_ACCESS_GUARD(rw, void)
+
+> +#undef USER_ACCESS_GUARD
+...
+> +#define __scoped_user_access(mode, uptr, size, elbl)					\
+> +for (bool done = false; !done; done = true)						\
+> +	for (void __user *_tmpptr = __scoped_user_access_begin(mode, uptr, size, elbl); \
+
+	for (typeof(uptr) _tmpptr = ...
+
+> +	     !done; done = true)							\
+> +		for (CLASS(user_##mode##_access, scope)(_tmpptr); !done; done = true)	\
+> +			/* Force modified pointer usage within the scope */		\
+> +			for (const typeof(uptr) uptr = _tmpptr; !done; done = true)
+> +
+
+	David
+
 
