@@ -4,63 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29685CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 21:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7DCCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 21:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=18/hRtcZ7Jpwt5r2jIqHkABCIMqEurt/5MGnB9tK66E=; b=23lPRU1vHOBfo0wE9h/8etP+ZA
-	/duGPvjymAUsXm/OJ+7jwnHBOtBIyuywzUTPsS9v/TpwLccqy7Cq2G1+jvTRwLFYG2mLeG/7r+Q4r
-	JsUtru8EWM1k1U9VE5p26UXVotAiLHu58kgo0IqXDxaK6UYVjCtCd9zvVW0SxF/zY8M/HkiYbva06
-	Bdr573Ir9X/A4tJIVg7+84z7PrLRiZgbgXJI8BV72QcPLXUceqPyR3YiZtYPYPOVM2cpU5AB/Ziey
-	hvJYjD+m1bNLddAbleaIwsysYI5ooeD+i2KzRtQQTDLCZ1g4H/ZEHREEFUmAzKxvBjvKVKskWZg9R
-	0yg3zbjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HBJ9Ptvb/JAWmGXBCIpoliNWM4CIlOEa1lPNfCweeWY=; b=o9QI8shboZryfEbU0dNzn49zCS
+	RI0ThTgAo1K3tbrCOBUZcLLyu1YKdSdDU1m2eNnnINaI+snVmrF41vEhXv/v5wg+/DGyynk7poSB0
+	YASTxm1uSVBc/5ZfVzDMkijNlZ6QUoiCm1ETE7yHAG3S9kQWmoyQh3uYVsgf+JyH/G+ePwgkVWOQ8
+	G0NFZtuZUnDTq2izQi/WYJThge7ALdFRcUfkQhd+KSqE2teZMvMQNmXSUXoWldcd799qqeWuHFB4H
+	vKteFBy4MqyAaNmC2q06dEik8riHICvQ2+aOzOR+YqxQxHFKAQ5JIhQuqjwYZntt72m2BakQVuI0Q
+	enec6Xng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHTg3-000000015Oc-25Cl;
-	Fri, 07 Nov 2025 21:07:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vHTv5-000000018cY-39Fe;
+	Fri, 07 Nov 2025 21:22:55 +0000
+Received: from mail-centralusazon11011050.outbound.protection.outlook.com ([52.101.62.50] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHTg1-000000015Nh-1R0z
+	id 1vHTv3-000000018ag-14t6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 21:07:22 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1vHTeG-0001aK-Mg; Fri, 07 Nov 2025 22:05:32 +0100
-Message-ID: <da41c891-db89-436f-a262-61dfd33d57f9@pengutronix.de>
-Date: Fri, 7 Nov 2025 22:05:30 +0100
-MIME-Version: 1.0
+	Fri, 07 Nov 2025 21:22:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VeTRXFCABzly8cfI96x6oc5H7eDD8WTudxiAtikPZ/vpgH4m+NrmoK13qMdnrR1HA/5dFf5ZMQooYz4HeP+999P9faDx51lY6aWeri90eXWw2kpCDZa/qnNfZZJbq9Jm/XmZPFObBWMTKOXNkgDskRnn9Tywv1K++qW/88dsV9VDwepSRZajLDAxx7dE6BcZY7xYXjJnc/TdO6qClMCvzK32370TTCz0mzh2AIkf92tZUaAANdLsvUAJGIhtUy7FtL+iOpKlNXr93o9Ys9CqUkSQbauczf5tYFGQMMOpFCaweQpxQFuhXLyP2MulBbaqtrkxxwq44rlJtMqO2zejsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HBJ9Ptvb/JAWmGXBCIpoliNWM4CIlOEa1lPNfCweeWY=;
+ b=R5EyADxrEiK4wVD2ZUhpCaVV1LfIliHlm+ToXPDGvcTQgID+WbVSf75DbUE5wBg55WJVDxtfSLYQ/NKlvB+jXrE//Wgp/6r77u+D5Uz8ibqmZXYrXoS0QaTzyy0vwi2Qq7cLc8zabdnUv6gxDkwbuC0D9tZENB4BWkk5ixIqIAye1q61iGXtSv0uh0q2yxInRX9iDyDMA/JXMPH6QTsVgwGba8rNV3vueRJzoDTLPLcuJWD5ftVDkYyAuulr4rVGiTemWoZD/PjH9uTAo8qUNfFHW9LsD1EMahM6ypTiq9yldDu+V/WYzuXK7+i3hhZWIiFzRRVIWL2nTCQ3KQJHnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HBJ9Ptvb/JAWmGXBCIpoliNWM4CIlOEa1lPNfCweeWY=;
+ b=AUTfR0zqsXOlNq9MCyt/REbuelkHfbDs8zIgKaaB8npZYTjby4YX2wMtBGagQ0TJo/y+ec23VkqJJkwlVLokOS8+B/C8AyTjhPn91j+TXtxSPr/8ic8DoQBLzAUlVag/c8btV2YXCuX5KZ6Td8UlbFhecoE8aMSN24Q3THvs7FMYU3TLC5Xy69f3jKgWOpBmT5C3MASTIuffP8ConWx5xaldaWQicjQ2GVCN7CL8hIUdHX6vuiaP+YB33Utf/FvFYYHzBuyjfrBpSujb1wHeS4SJADWnCMe6QWj7nUszOqqKX+d0fkzhg+kQ2947sY4klvRapimEFY/acl06i2MUDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ PH0PR12MB5629.namprd12.prod.outlook.com (2603:10b6:510:141::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
+ 2025 21:22:46 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Fri, 7 Nov 2025
+ 21:22:46 +0000
+Message-ID: <2f19b56f-04b3-4b37-99b2-0fa22473d13b@nvidia.com>
+Date: Fri, 7 Nov 2025 13:22:43 -0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4 1/3] dt-bindings: lcdif: Document a imx6sx-lcdif
- fallback
-To: Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
-Cc: marex@denx.de, stefan@agner.ch, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- shawnguo@kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20251013205155.1187947-1-festevam@gmail.com>
- <4bd512fd-b3df-484a-8a04-a1ed066c42fa@nxp.com>
- <CAOMZO5AGRejEwNvkH0Di0HVi8QPduTeCSud+_GqOkD4tqEcsdA@mail.gmail.com>
- <37b8d968-a725-404e-8fd4-84c2a0bb464c@nxp.com>
- <CAOMZO5B+VcGxx9Xa6FFXxeka0qcqBmATrartguqMLMDK4fGduA@mail.gmail.com>
+Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
+References: <20251107123450.664001-1-ben.horgan@arm.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <CAOMZO5B+VcGxx9Xa6FFXxeka0qcqBmATrartguqMLMDK4fGduA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251107123450.664001-1-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY3PR03CA0009.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::14) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|PH0PR12MB5629:EE_
+X-MS-Office365-Filtering-Correlation-Id: e79581d5-b33d-4f5d-a262-08de1e43cb77
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VngzYkoxQVdRaCsyMUlSckd6aG54VzVtOEQ1cVBlVW85TmZ3TVZRUWl0OFZ4?=
+ =?utf-8?B?NjB5Rld3WGtmU0xxMlZWUWQ4QjhtdjJZK2lCWXYrV0tpcU5NUEk2QUx2NDd5?=
+ =?utf-8?B?Q2JFYldtVTErTHpRMzhWaXgvMkNQZExob3R5QTFQZ3NYUUVrTDllUDI2WERB?=
+ =?utf-8?B?Y21nZnFDajhZMCtTZ3JFVXBJRjY0bElTU1k1U25wU0NhU1A1bTVoek1aY3VC?=
+ =?utf-8?B?S1ExdWFZM3JMZlN0TFJCS2FscFZMUUJLWlRUK2wvVEY2dk5OV2N6ZDUrYmd3?=
+ =?utf-8?B?dVoyb3lCOFVxekQ0dGVxNy9WaTE3VDgrZFMwcHVueU9pYmZkdEkxNGw1RXJv?=
+ =?utf-8?B?Qk5zdnE5R3pRd3RUWSs5emtKaWk5U1FyM21nU24vbnNIZVN5TE9nRFRwOGdi?=
+ =?utf-8?B?dzVQekpLQ0VITm9aTkRxdHlPT2Y5blRIRHkwc3JZMHZQU0JkTm1aeURlZEFm?=
+ =?utf-8?B?VUFCT2xZd3dPR0NEckhYVHQ0QVM3Q1NrWGloellWRkRyWlhjMUl4eEZCbGE4?=
+ =?utf-8?B?bFdiQ0xsMnpyaTU4bjdGWmVCREFPRG1jcmY1NGFTNjV4YmdjbmJjRHhoSlEv?=
+ =?utf-8?B?Zk9wdmZ4ejVVeEt3NkJ6emRRODZOa2NBU2R2SzUxQlI2dFAra1NzbThMbW5N?=
+ =?utf-8?B?MkF4NHJaNC9wWWZDTUFNRks1VmJDV2VHd2xCeTBIK2dqU2IrdS9MWXMxaXBO?=
+ =?utf-8?B?QkVodlVHcFhrMG0xajRMOTBYMzdXcHRERHpzNnZ4RXN1Q3NPYWxKOGh6RjYv?=
+ =?utf-8?B?Q0x0RUtEUUl3ZzdDZlMvVi9QM05tTDk1RWU4dXFpVEFUdk9UUytpVUtaaTRF?=
+ =?utf-8?B?Y3Y5cXAyalJKeVBteDQ4SjJtczlrNEZGaU1lc2J0NjUxOWMxekoxMGUvcWtK?=
+ =?utf-8?B?Z0N0QlQ4OVJET2tYK2hnWlBQTDZHOXlhYUs1eVdFVFNHREVHMnN1bTBEaEZ4?=
+ =?utf-8?B?N0cvOGxFVHZ6ejVNM2kzUVpHbW1UeFVUSTVEaHlUaHpjMmh0eUl5MStSUCtM?=
+ =?utf-8?B?NHRQREIzM1llVWVwajQ2WWxGcitoYTFXRklDUDNSb3ZjSVJZblZweDFDeEUz?=
+ =?utf-8?B?ZWN6azNIWVM5ZGU3dHRxUjRsanNxSWdCSDluN1RSdEhya2xwV01kUnovYlFH?=
+ =?utf-8?B?NVJadW41MUZNRVVuSkRzSFFtYkREWEUydGNXVmhDbXZJVGlPS3JXQUZSY1pL?=
+ =?utf-8?B?V1R3amdnQzN5WE1kUkR0U2lYUXlrVG1wT29tT3Z6RkRJWXpkeThaRkdydWpB?=
+ =?utf-8?B?d1ZIZzBQTlF4Um96MWpxYVhlUnlNUkdsTFE4Z2gzZXhtRWRLL3ZlVC84dWYy?=
+ =?utf-8?B?MzNINGM3c3ZmcGpkanN0RU51WVBnR3cxSXZ4S0FkRkw1STJzME1uMEJkY1U5?=
+ =?utf-8?B?eHBmUUJKNkZaSk5Ed2dIaFZ0T3pyd1ZPL2M2RFdSNTRNSHlCU0lFbnpqaENu?=
+ =?utf-8?B?MjFNR0dPdm0xMTQzRkFPR0dWeTNZL1VEbjJ3NmRwNXk3Q2FIRysrSEw5bmF0?=
+ =?utf-8?B?ODhLOXdPSkhtK05FMVV4WXNVYUtydk1zcit1UWlML09qTE4veWdCODNHQTZi?=
+ =?utf-8?B?UlBnSWtnUkdHeTA2RmpFMjh3cEtzZHpUSjBncHNTWC8rSnNRN3VvL2JZSWdx?=
+ =?utf-8?B?S2ZFaUtoK3NRM2Y5VXYyOVlGTVhvMDQwVEl3V2lPRTE5MjZ6UndZWjhiakpP?=
+ =?utf-8?B?bkRLZDRnc091dUhFdDh1OW9LN2l5RkxlUFBkdlRuQjlHSytEaEpuNDZJZUtY?=
+ =?utf-8?B?a0pKaVY2MXo0VytBQ0lFUXNuc3d6S1FOQkhTOHluOHczOTBWWHp1SlFZTWZY?=
+ =?utf-8?B?c3lYYkVKSGVJZCtRbFloa3QrOTFMczZueXEybk5pQVU3ZHVyT0pmcUpwVzg3?=
+ =?utf-8?B?VUVDN2EwQmNhQkhEVGRTdkhVU3ExdHUwenA2M1pURWZ1cStYNkQ0M3hUOXZa?=
+ =?utf-8?B?OWhYTGl5RHoyeXhNaEh3ZlFxMDFFUktGMzNJZGZDOXFKcXpxN1prbkVrVThR?=
+ =?utf-8?B?dDVKTitlZi9nPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TjYrSUFOV1lISkxuY0tsaEhENmNva1JFUksyM1FzbmYyVlQ0bk94eVNWZ0Fz?=
+ =?utf-8?B?OXBjaHE3K29IanBNemozSVBWMW1LNnhycDFqTWdJSjJORlczUk9Pd2NobEw5?=
+ =?utf-8?B?Wm9mclVLNkMrc0tGRlpZQVZkaDI1R21EejFzVlJEMkU1SzNIZ1hSQUluK29l?=
+ =?utf-8?B?V2R2QjRleDk1bG1SeHJpRG1iVzdWWldEb0dzSUhlM3FNRWM4R0puQUlHZzhE?=
+ =?utf-8?B?WWY4cFV0VkhLUFJXYzV6b0ZzZnFCcldHT3NTaStTaDBvZk5OUCswM0JxTDlk?=
+ =?utf-8?B?c1ZQTGo4U1hlcHY5WllDSkl3YVhxMFZ4QVNEeGI4S3QvTklZcXkwelFGNE44?=
+ =?utf-8?B?RS9GeGFuRzdjQ2pLMjRFTHF1SklKR20vMlpzdUxJRnYwZWh2QVA3SWhTbmxy?=
+ =?utf-8?B?Y2ZIN2hrMjg0MGRsU3dxN3pWRDkrNEI1Z1Fna3lFMm9CVU9tQzFhWDNCOEpo?=
+ =?utf-8?B?cDgyMEdjL0FkeHhYdk4vQWdsRlZqRjJMbTJ2QlJYNE5CMWw5MmkxL0daZjZn?=
+ =?utf-8?B?cWtyWUdVZlI1Qkpmb3ZGTkVkVWE4ZkRWa210a0poazZWQ0hVd0pmOVAwNkNt?=
+ =?utf-8?B?bDUxbGZVUVNHMnRwTTRBZ0dIbHVESzRaaDBsWi9vM0lybXFMQk9NTC9mMDlk?=
+ =?utf-8?B?M203SWUzQmZsUU5DSUt1MmRnVk5wdmJHTTZjcnZTekkxOGQrR1ExR1E2STlN?=
+ =?utf-8?B?V1ZEb1paaVI3MkFnMk0xTGhzcWtLaFJud2dvY1ppY0FvSnh5QVE3cFNsV0Ju?=
+ =?utf-8?B?VzdqS1RHRHlBUGcwNmo0Rk5RdllkUjJJS0F4T1paUFdzckRJZWcyZUVPYlcz?=
+ =?utf-8?B?OERBbGV6YUlZS0wvQ3htUkVrZnk3UjhpT29ZUm54WjkyVEhSRzdzd0JQYkJP?=
+ =?utf-8?B?NUhFYkVUS2pkdTdISHc1UlJ2OHJyS3JHMUtuMzN3dFlxdURVak9tdEwwcGwv?=
+ =?utf-8?B?eW4vRVl4WVF3Y2NTTXdvc1k5dHNUTXVYcE9tT1Q2ZVdQd2NiKzJEbzAvTDht?=
+ =?utf-8?B?LzFMOHBZMDBKSysvd0tKNzJYZmV0VUxTczNoZktUMEczVmRobEI2Z0JWKzJa?=
+ =?utf-8?B?dGhaeUFjUVZhU3VIVmdMdnZkY3NBT3ZJZ2tWV1pTTzJPWTlJRVlYdzBKeEs3?=
+ =?utf-8?B?MnNpMWFmZXhPdXhUbGZSRlY4OS9JOHd1WHYyUU8wM0lQcm41R1MrUzN6bDRk?=
+ =?utf-8?B?SG1ncG0rY0dzVllPWlVQZ0t5akxSMUErVVN2a1lseVk3NG5RZW5mejE0V2hu?=
+ =?utf-8?B?bVE4WUUySEg1RHIxVmRqN0laL3Q1NGNpQkZ1S2I0QVdJSTBBY09qcktoNzhz?=
+ =?utf-8?B?SnFaaG5wRWdrTXVxQVd0QzJrd3NCTEFMWWluc2NOcXFEcHh3bGdKYXBGRkY3?=
+ =?utf-8?B?SkVnSGVxLy9WbUkwSlNaRHdXM3JUNzRENGZXUnd4QjR3ZUpSLzZRbkIxYnhJ?=
+ =?utf-8?B?RWttS1VwZDFjekRPVzF1UnhuTnB1cGEvcGovOGhQR2hVNUs4SnB5c3N0RUIx?=
+ =?utf-8?B?UFZQQlNHZkdKYXZhL1MvRXY3MlZRMXNHTHJrMEFIdHVyL1ZJNXRCL3huME4w?=
+ =?utf-8?B?VU1ZcU1kNy9VNEc4Z3pvUkhSeE5iRUhndFJoSWljdSs2ZzVxTXExbHFMVnVM?=
+ =?utf-8?B?enk5aEkzTUJXaWM3WjlaMmFTellYVFZJZ1BFMzZLVmczczd4QTkvdEQ3TFZh?=
+ =?utf-8?B?dVZIU3oxZjhCdUQ5QmZSQU13b2JvY2htcnJON3JqdHM3ekR4MFJlQU9INmNz?=
+ =?utf-8?B?eGpLOXhRc3krKytBMzMxMFFCc3FuUGNSR0JmZ2tmQk5XS1p3VEhHUXJ3bGVq?=
+ =?utf-8?B?c3crV25IY2xNM2F0R1E4akVrWmExNjl6MFZlUFp6YnVoN2d0Z0NiendDeHNj?=
+ =?utf-8?B?Wmw5bnJNd3ZGVjYvc3BuRmV4ZlF1OENFNEFqSUhTWXFnMHpNTlBsS0dvQmNS?=
+ =?utf-8?B?V2lYZkJBOUZBZnZtYWtGQ3ZzNk1FM2tLVldNRnFsN3hyYklhVnkxYldDM25H?=
+ =?utf-8?B?UEdHZWNrem1OM014UDhUYWpTTmxYTUhnR3NyT0JtZUtndkZRQXExeGEra0JX?=
+ =?utf-8?B?YkYwSjRYS1BVK1JsNXYzOTl5SElEckhZWlp4eFNvZEpCbFdqNUNnVGxsVUgr?=
+ =?utf-8?Q?s+LXwTUii1cZJbBT0ZTXZeJh5?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e79581d5-b33d-4f5d-a262-08de1e43cb77
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 21:22:46.2495
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y6XIjw+JbvDzSeyAAr+NhWGDClHGEJ/I45xGVpsTjrJD/8xg83SvMV82FM39sV//nI+7G1hIa4yX0qzZRaRA1g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_130721_382543_F049236C 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20251107_132253_332869_258CFEAF 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +187,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 04.11.25 21:44, Fabio Estevam wrote:
-> On Mon, Oct 20, 2025 at 11:53 PM Liu Ying <victor.liu@nxp.com> wrote:
->> On 10/20/2025, Fabio Estevam wrote:
->>> On Tue, Oct 14, 2025 at 1:12 AM Liu Ying <victor.liu@nxp.com> wrote:
->>>
->>>> Strictly speaking, I don't think i.MX6SX LCDIF is compatible with i.MX28 LCDIF
->>>> because at least i.MX28 LCDIF has the version and debug{0,1,2} registers(at
->>>> 0x1c0, 0x1d0, 0x1e0 and 0x1f0) while i.MX6SX LCDIF hasn't.
-
-Thanks for pointing this out. In my opinion, these registers are auxiliary
-and don't really change the compatibility situation as a functional driver
-can be written without their use, evidenced by the Linux driver doing just
-fine without using these registers.
-
->>> There are some DT users, such as Barebox that matches against
->>> fsl,imx28-lcdif, so we cannot remove it.
->>
->> Hmmm, it looks like software projects like Barebox don't really follow this DT
->> binding.  Is it possible to fix Barebox to avoid changing this DT binding by
->> this patch?  I'm assuming that Uboot has already been fixed.
-> > What do you think?
-
-I am sorry my prior feedback ended up stalling this series.
-
-There is a lot of regressions happening due to upstream DT changes and I am
-just trying to raise awareness. Another example I stumbled over today:
-https://lore.kernel.org/all/91f764ab-bec1-4791-b01b-3ba0803ce8f8@pengutronix.de/
 
 
-I have submitted a patch[1] to barebox adding explicit i.MX6 SoloX support,
-so, having expressed my opinion above, please proceed as you see fit.
+On 11/7/25 04:34, Ben Horgan wrote:
+> Hi all,
+> 
+> This version of the series comes to you from me as James is otherwise
+> engaged. I hope I have done his work justice. I've made quite a few
+> changes, rework, bugs, typos, all the usual. In order to aid review,
+> as Jonathan suggested, I've split out some patches and made an effort
+> to minimise the amount of churn between patches.
 
-[1]: https://lore.barebox.org/barebox/20251107210033.2229781-3-a.fatoum@barebox.org/
+[SNIP]
 
-Cheers,
-Ahmad
+> This series is based on v6.18-rc4, and can be retrieved from:
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driver/v4
+
+Build, boot, ACPI parse, and Kunit tests pass.
 
 > 
-> Thanks
-> 
+> The rest of the driver can be found here: (no updated version - based on v3)
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.18-rc1
+[SNIP]
 
+Thanks.
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+-Fenghua
+
 
