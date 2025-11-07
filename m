@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FF0CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB37CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XtSkddwD/WDmFGCg39eRmShA6VwhT8kIPIGtzp3ms2Y=; b=40BZWQMMfMu4nP4EBotQ3OfYsH
-	KExIZ2hofp0kESVuafP4lCp3Kkn+48Lqzgi7fv+LRBel7ooSNxcJFRsNlzJTUp0dx6nVPElVXW37N
-	JBK3F9qtCgf4oGymUliG+gW/nv/iFJrCkg525n7VUHK8hL9uqPrOl8LgRNPSHT8GeXITQ0Xz1+Yaw
-	Anhx7Fe+e+UdXzZqGDFiKdh7VDwdfnEk5E65xfqjaztXIhQ3FVPA5pxqmMTpHf9kj2Dve4rf1K27M
-	ROCTy3BDhqmPJwHtyET/vN+LuXq2+zJ1lxep1M6xX+lx7iVaHUfOscr0h1EngVMZhTmNBtJEckFQ2
-	t2IMq4Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i09b4mFA7xw4plKuGu80sVAt+8eynQi8BA7ibZREf5M=; b=g8QP+8UKLiN55WBUmafqVIPIei
+	VjEcF5ZuGw5CKYJE4swsZLfpn9G+mAxrGSDnhn+Z78OeLhaOOovJlcN+7bQrFXiM/SljyOhPw/KW9
+	SPkecqQWh42Y4R0tGilAwGDmdG8hUoxWcQYyf+QcFw3mh1GxrvjH0UkYQYZ9Pngk9GvhYg1loHyr3
+	eoVzbSdu3JX9wYzWyBS4P/rFTNPGlN+ZnQwX2xt2I5XIPNFveZffIk498MN5tFTTCMWkftkhoLRU6
+	luswM5b2o3njk79XiSBd+29FxHFYLDs5DfpSlrXK9LGDHoEs1Le+DDoGC80E2T/zlKQnqTE5qX9MW
+	3PmNAm1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLk2-0000000HLWU-3GcD;
-	Fri, 07 Nov 2025 12:38:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLk0-0000000HLTv-2YBB
+	id 1vHLsh-0000000HMGK-2CBt;
+	Fri, 07 Nov 2025 12:47:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHLsf-0000000HMG0-2PlR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 12:38:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XtSkddwD/WDmFGCg39eRmShA6VwhT8kIPIGtzp3ms2Y=; b=ybgPoOga61pdrRlKUv7LHd1QNE
-	JH3d8zQ8ENjCCEKgv03vWO+HTMT1Bi+0T70rXtdkBQA/bcvx1CqOGA/HEI1WHmSkS+CZHxLY7AS0L
-	nl/Nqt+Hjj+qz/KGhJhbGeDQhA31vJnWuVW6sBIC8mpOrkxURH3UPUXD7FJElKdSU+NCrSheEsVhy
-	Vk0DAh9qd0CpSng84SvkaV715UlH1TM/3WmEHEh/TK1xE995eXi655tByWsCVZNnseJrGP6Z9NDC9
-	LdLgMXzHXxqI2RcqQnYcH0f0HEsmI8TpWm7fzhERAm6l5dKHfzsugHH3rKLEnnIEH6vzHbcQ2TyKV
-	PbCSnyuw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41666)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vHLju-000000006XW-4Be1;
-	Fri, 07 Nov 2025 12:38:51 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vHLjs-000000007aG-4B0v;
-	Fri, 07 Nov 2025 12:38:49 +0000
-Date: Fri, 7 Nov 2025 12:38:48 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Darshan Rathod <darshanrathod475@gmail.com>
-Cc: James.Bottomley@hansenpartnership.com, martin.petersen@oracle.com,
-	linux-arm-kernel@lists.infradead.org, linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] scsi/arm: Clean up coding style violations
-Message-ID: <aQ3oWITFc3F6Hwhu@shell.armlinux.org.uk>
-References: <20251107123435.1434-1-darshanrathod475@gmail.com>
+	Fri, 07 Nov 2025 12:47:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BB7C1515;
+	Fri,  7 Nov 2025 04:47:44 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D2A93F66E;
+	Fri,  7 Nov 2025 04:47:47 -0800 (PST)
+Message-ID: <11205aed-007c-4eef-ae84-5f7b2d27fc9b@arm.com>
+Date: Fri, 7 Nov 2025 12:47:46 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251107123435.1434-1-darshanrathod475@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
+To: james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
+ quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
+ rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+ xhao@linux.alibaba.com
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251107123450.664001-1-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_043856_660975_3FC5C249 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20251107_044753_656421_F830115E 
+X-CRM114-Status: UNSURE (   6.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,20 +76,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 12:34:34PM +0000, Darshan Rathod wrote:
-> Addressed checkpatch warnings by separating assignment from a conditional
-> statement and documenting the empty for loop. These updates improve code
-> clarity and maintain style consistency.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Darshan Rathod <darshanrathod475@gmail.com>
+This is a v4. Apologies for forgetting the version number!
 
-Up to the SCSI maintainers, but this code pre-dates many of the coding
-style updates, and I believe there is a general policy not to "fix"
-old code for such things. It creates noise and additional churn.
+On 11/7/25 12:34, Ben Horgan wrote:
+> Hi all,
+> 
+> This version of the series comes to you from me as James is otherwise
+> engaged. I hope I have done his work justice. I've made quite a few
+Thanks,
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Ben
+
 
