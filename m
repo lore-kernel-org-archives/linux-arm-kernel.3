@@ -4,74 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2A6CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF9ECCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 15:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbzUp7HLI49Fg8paD04i5ybzsDse9dFElebqMJiK6fk=; b=RpI9wYJMHwVvK5Ycqx+q1UgoEw
-	wP0MIVs36qmWPOfbPYtuyYbxcr2+LodJHhD6slxJc5bPuXWeQeevsNvxUbNy7g/iLVC9SO6+8Vd3B
-	Aj9hMtFbs69q0JmlzHs6kFkXuBUYR8TEpj9ifIautmZJz54RgGsoR0j0PGjdZXKW6pM4vEzKOsw0C
-	yZlphnrIPXgMtldpNLupneXVadPLAixWn05OMZ8lMzFfzXb/mIysxRY4jN4pZjR/Lql2Epn2Mi99u
-	1WAT0yO16jW87JAyNDvaXrLkJff9pe/lV4b39xhVbLYBg49FM70kogWJv6TfxtLt93iInS72w4Tt+
-	TqRmB4hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fxdY7zx2Lcq6leZZ6u+7BHY3IvlcL6bHKJEGfWYK4jg=; b=VKW+t1V5W1skYD2RHcnHHwd3SU
+	Pz4fmVDrv3sHyQFaTSMTomNbysu0Uyyg588BiKKMXvJTdxKyoQVrQqjWFawFMqWlrQdd+8nNdLYun
+	okul7GukYRuF2wjfMK9CzFunPNhOoiwda/V9xGIwo/lHlYzNC1qOFkEREHy+cHvcSplmOKJ+E7joN
+	UUCLklXvyKSyTTzEE2rBJft/9elLklOcA8ihFKWTd3a1ndhp7GchwJoFh31RRuNuwJs/MTgRdQ3OT
+	WyS9O5UN5pXHYNYIVB0/La4HY828X4DFKMF25u+a3TCyqzF+b0YPTB7gMU41iWMZ7d1Tw+m1I6jsC
+	VR33QBXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOOd-0000000HaFZ-1o44;
-	Fri, 07 Nov 2025 15:29:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHOOa-0000000HaEU-2dek
+	id 1vHOUh-0000000Hafa-3qp0;
+	Fri, 07 Nov 2025 15:35:19 +0000
+Received: from mail-northeuropeazon11012044.outbound.protection.outlook.com ([52.101.66.44] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHOUf-0000000HafD-2raA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 15:29:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55F981515;
-	Fri,  7 Nov 2025 07:28:51 -0800 (PST)
-Received: from [10.57.86.134] (unknown [10.57.86.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C13D3F694;
-	Fri,  7 Nov 2025 07:28:54 -0800 (PST)
-Message-ID: <06026ad7-fb85-4a78-ba70-7fa1f5bca0cd@arm.com>
-Date: Fri, 7 Nov 2025 15:28:53 +0000
+	Fri, 07 Nov 2025 15:35:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GxYgbaWsBffjhAKxZvEbIngCcQrCYzQisOsWVwQffPSIYMFGEz4wDztPXmzqka8YGx2AOktCNQ74qolDR6dAjzdXSNRjxXFvTQw8ehTmHAV0HnzLmxyV0YD6K/SwrhgANP4oPfZcs4PahDmwZvLmnzVYzTv50HMHXiZ9qcv+OMSQtkAfvFyuvvAWNnJnzPfXR8Vgz44WJMuqWuAZjRMpQlTs1di8DJODN677R2Y9hdD+aOL97MKz+6/uSO+pZiMFUfEvhsGFxQVhtrnzCq6YMs5r4p30r+CScyndB5QL805vKZXy3R+8W01ZIDiRD1iXcBIcX0nx8i232P+w1T05hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fxdY7zx2Lcq6leZZ6u+7BHY3IvlcL6bHKJEGfWYK4jg=;
+ b=PZbEEY9+9cKp6lMOZfcZ3XoYJDVlJgix95vxP5Z6IgCHh2Co97mTxTj017rg8eJCk3HxR3FiJS1Ry251QIe1bPb2yUwGA5HQeClELNl+NDaq4xdhZa9NPiL5zUYYEthWVigOeMNoCpj+NiiJl+hT2XuZSUGpBn38SeKN5RfAR62bRjbJdwtDn5RY8EbfPVArQ1fOb1bLAv+RP/PNHMFn3SIf4Pr/G3H6OrHPN8x+WFd/BlZJJjNVhpFG6CRqSycrJrrXtMzaOTbjentaYy1/2T9OpH+8CirK4iyDSABnLkseX9wo7KpT1CwYxQRTVXHZtZf17th09R0EO+sDcEQqjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fxdY7zx2Lcq6leZZ6u+7BHY3IvlcL6bHKJEGfWYK4jg=;
+ b=MEq4rgTh7ppdfkph/GGngIGaJSFdJA0zGWiLwiXoTSojPZODhhql9etQY1QJgdKON0lYQIfoZDzMM8q4hHMwBP/hikUiaHmxDN0T/ZcB4c9JJCmLzmhgho6tN9Sn/ubx4FR0eUwUxItBp/GaPFRluQ7w8mUQ7kLFm+9YpNfGfZV7BlX3BzRb9tNfmHCp+Wt1XQG+V9rm0LVbqk2Z2BNYfmx9Z9+IW+8f+UWATU7LE7eh0+W09MVUiNNrKwDe7ksSL6SOyFuCLt3WupTQxeSM+qt4W0nNil9w3v9IhVW+Cj9r9+o4GYWi59gU7P3THSNMIA9U+Z8Ui1VPcW7eA38lpQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DU2PR04MB8678.eurprd04.prod.outlook.com (2603:10a6:10:2dd::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Fri, 7 Nov
+ 2025 15:35:14 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
+ 15:35:14 +0000
+Date: Fri, 7 Nov 2025 10:35:04 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: maudspierings@gocontroll.com
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 1/4] dt-bindings: backlight: Add max25014 supporty
+Message-ID: <aQ4RqNiGsngOWrV5@lizhi-Precision-Tower-5810>
+References: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
+ <20251107-max25014-v5-1-9a6aa57306bf@gocontroll.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251107-max25014-v5-1-9a6aa57306bf@gocontroll.com>
+X-ClientProxiedBy: PH7P221CA0009.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::28) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/12] arm64: mm: replace TIF_LAZY_MMU with
- in_lazy_mmu_mode()
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-9-kevin.brodsky@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251029100909.3381140-9-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB8678:EE_
+X-MS-Office365-Filtering-Correlation-Id: b91d1534-99a9-46e3-485d-08de1e133ec7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|19092799006|7416014|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1jjV/zd1wp+BAG12hsPVj2OBns4xmWKmaVt1g3Gt359ntAe0femZq/VJApd4?=
+ =?us-ascii?Q?3M/xFgCp0sj/ANlA5ljYlnnASKEkPRuy7krO1tsv8E/V9CCrgRwDjo+A6tSa?=
+ =?us-ascii?Q?P9O4rI1PbfhS81I3sD+7MruyCGVtJa0Gxag8l/XQ6CdWx7xJzED/NBJhlM0+?=
+ =?us-ascii?Q?zf1XqtGJlafp8o71XtipddFb9ed7UXMimzG0u9jR8TKG8J2KKD6l0jNP9TYO?=
+ =?us-ascii?Q?zUAMgZXKNY7VpjPy+L/AXfDHWMiiLXXNcB2c2QFH+ize5xCePoyPdmOsXk8o?=
+ =?us-ascii?Q?ed1tXzm0OcEZMdQutGLAayawAwoE2w/ug4jbG8asIZ1gMTfgJ6wfTb2QeRCi?=
+ =?us-ascii?Q?t3L0tQNKRJbMi7OJD74/DwqKn4XWfFy+F+A9OziTuy0v8jCp/ANfsTL70tkt?=
+ =?us-ascii?Q?pyFe/iQH1720syvGdN6SZDzzdPY6hQwcCMRZICz+sl44ORX5bYjuUj34m+1z?=
+ =?us-ascii?Q?ERZQUiwS8orogXeMGHL7/1qrbpa7xshfpYHwvUcOTsHnmXtoAV4DQXego9Kk?=
+ =?us-ascii?Q?uMB0iU7N4TIQxNx9E9mcvyaRAT/N385CrqIPX5O7CCzB7Ogow0Qb0kLU8NgJ?=
+ =?us-ascii?Q?eedffQKohEkdtBvVA3iZ1DMyW2A5RK4GvKOCWS8FTG4jVL8R9nv9suZfEvdv?=
+ =?us-ascii?Q?6aYJVuYBtLoEnheN51glabOvqqIxRb+IJP2x4IKhn16ItiPG1aTFN4ykNpow?=
+ =?us-ascii?Q?Fy7nIOcJF/R8aU9w4d2xvd53LtY3oLKFNmnTJoya0bIZ7Xxm9xpQbdMcG4OL?=
+ =?us-ascii?Q?A+nW8R8T5akr1upgU3iV4fUrvLdQW7ey34c7zOnQ9YyYzUjA9froqp78ER79?=
+ =?us-ascii?Q?j067vlRkMYwm6/PJpPuiiKH+M6RGUeux1ycMD9fO5GrcfaDPHBLEb8fhM2oy?=
+ =?us-ascii?Q?F1j22RgVtLYc7qut3j9NqT3ZLAwnKm8QX5r1+nmpgHnD5vlPjDRe/kP4ZOKk?=
+ =?us-ascii?Q?KfZiXs59m4qe78uR21qEFp58FEPigxm6mqhrOpEq+He4YhuPMaXoffEURcyC?=
+ =?us-ascii?Q?TRo9yrJpOY7cY9CRXDfJUXP5H13AwmKCAlkMdKV6QdSVHD5lM5Cz3OI1cyeg?=
+ =?us-ascii?Q?biY0e+MV/vOIVZuiur1S8bjPEal5OjsX+Sa99kzXiu/0uDrkFEyKkPkw0JNT?=
+ =?us-ascii?Q?HZoB4c7KCEdOpANGWIDyBsVunNbgq9vNmNzQpQKBsDFIeqD0GlEQtkQ05sTg?=
+ =?us-ascii?Q?sl9nWXSCLFN/wI7nH/5Y4yr4Phg3Xqvo/usmQGlvwbidRrNE5EH+Oj0fW+I+?=
+ =?us-ascii?Q?N9EtoBflIlLzka/HaUgFHz//kJPeDkQxflEC2dfOy3y8quE0BlNhJGr+TRPk?=
+ =?us-ascii?Q?keljw0u0VDYlOE/XZfF5V1AY+GF9mhXvbrcLV3A4Z+Ci/P1cbD3IQC1MP3DP?=
+ =?us-ascii?Q?ABXIvOZg24XXLA9ESol7a6WNCN7X+KxzYwojK+MMc4+enT3OemWKvIfa1RiO?=
+ =?us-ascii?Q?so+LVVtQuOGFgMZ8WlRNijeXMOJXYxvnlYVpoQZBEjDmV7uOArHJVQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(19092799006)(7416014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5yHpDm0E3kp9MZG/kEvQw+ByFUWCnpD/SLJQ//+2YgJTIqooR4e5XByiR8f0?=
+ =?us-ascii?Q?kHLyWFLgnW1HAnCQQbzuLBBlUSxgOLmBEyD8vnA8tYqa82KI9yf8X2enRVuz?=
+ =?us-ascii?Q?oerS5upgt50mLwgnU+WJq7EEs/+AAPlpIgUaHB0zbUEmVeKXNTmT9bNcaaKX?=
+ =?us-ascii?Q?XUIvS/039ZbBNLhd+jZiJmHU/34X+nzcN2Vk7jUFvGGX9P5Tnk9C0BrbAXY6?=
+ =?us-ascii?Q?29MdPSbW50UoBfQtqThF0CvESzM3LuVVNgXiea8YwsJ1MRuWcWM8tu+B5Yje?=
+ =?us-ascii?Q?mw7kQJfw0uWMnyyCeq1an26D6fM5zTn7NNc6cAe7jH5uxVsWXkgUcwj145oy?=
+ =?us-ascii?Q?8VYhh+u5Fb9M7yu6X3jytR+XvBTC0G+Um6517WCWwoqpHE9eA6jq1rpI28Ki?=
+ =?us-ascii?Q?k79t5YVCXWCYaLcbazvYfEJ0yFGzI48/oSRRCRcwNUIrI8yk90Gf8sLZChKw?=
+ =?us-ascii?Q?B10vpF/gmz9APy9DAq04cNFgYRn32w6/FmWqhY0qsOqvwq/536jOlOaeQ8F5?=
+ =?us-ascii?Q?Y/f8+RUaaWKOMq3obP1KcvGhHFl7DPlJMERqAunzUwXoUv4kTSbQma9at6pB?=
+ =?us-ascii?Q?buSBLGs7gHYIgrORTD6Bs32DuvecxWxzSbxmqSak2zYidehtW0V0paMvRDfE?=
+ =?us-ascii?Q?syaNiUkr0bPyhV/MGGUtltNj/LNNgqh+2mQ9YU1Fm2m1e0Jr22hhP2JEjSJJ?=
+ =?us-ascii?Q?LLbBYmJNP96yKtB/KUkaNcQ1+HbTQbQZrgTP3ceMBWfq5O92rdgMB4AodEXg?=
+ =?us-ascii?Q?SkGrnKnGuAIfgD4Y4lrYq/AYgl9UF5q4Bxrif11hiuz//Mb50UhG7zNm92ce?=
+ =?us-ascii?Q?kuT3U7sTDmYXZm5OLxEtbYg09fbKZJ+91ehkqIPh46qbNJG/ytJZvom7+yGd?=
+ =?us-ascii?Q?/JUmaN59PTbUvTsku1CZ2+8btpTUmEsZnnKdc38mhzBibEqNfJc/TIBmoa+5?=
+ =?us-ascii?Q?RQ9YWeZjPazeM6csXLY7ZCada4QjX1KYPBy7YeTM3BDCDYu2dpX+grV6wFIH?=
+ =?us-ascii?Q?0pdSJ20iWSCwxDGpk1LoRNne73S+iwxTjt90boa/3IzdP9ql3xC6VJAPlCbu?=
+ =?us-ascii?Q?m4oMdC7FGx8yHgc7CCul+DwwM3xhg3B37cbaQKqE+A9J7egy50erFtjjBUZW?=
+ =?us-ascii?Q?PBfktyyyw8qozfhJXeLUv62egX3AZ9fZNFNnCQEH74tP8dxySEotQO7jjkno?=
+ =?us-ascii?Q?oimfbQhf4EwMKc69kayN9qVw2/jJ+bmTLbYl+Vdl7Yq1bpVuYuAK9X7ZWi1O?=
+ =?us-ascii?Q?dW2DRtDNzBvYEdn1aeJl2E18tln2V5wldvLmnt0gDZp46KyoNqrUG7D7r/6m?=
+ =?us-ascii?Q?GGGzJ6b/h2Yz+y5HtsDzIlQ4gXKI81r6uRKElcyiykGgLhYQbpU2yLacxjBb?=
+ =?us-ascii?Q?tT+mP68vCy2ZQK5/IKU7JRKJHgSEYkOEDooSdP0dYlXLp5vOxa6YhfNVZA7W?=
+ =?us-ascii?Q?Ny3o9dc5FMKCuqsKoQ4prSW3DRweSSfKdm/oT4mg/0oDgwBDfahf57kvxSKs?=
+ =?us-ascii?Q?A8ex4sHsHg7VrjjIYzYOL0sSOzzhbxW86GZgXh1f7qf3bql3UdcbjLDxyXh1?=
+ =?us-ascii?Q?YXmt/8cedWSyCDzQDImpAmuJAJWj/Ek0c2xN1rej?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b91d1534-99a9-46e3-485d-08de1e133ec7
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 15:35:14.1050
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i6FxjrVkt4O6LYxbvDIz+Bn6geZHK4ShUX47ySzRizXvGgtBO1c+xZe+d1NfnLaffJhHlda3znCkFn10eeG2Kg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_072900_802709_59344FB1 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20251107_073517_743698_3726BF07 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +168,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2025 10:09, Kevin Brodsky wrote:
-> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-> mode. As a result we no longer need a TIF flag for that purpose -
-> let's use the new in_lazy_mmu_mode() helper instead.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+On Fri, Nov 07, 2025 at 01:49:58PM +0100, Maud Spierings via B4 Relay wrote:
+> From: Maud Spierings <maudspierings@gocontroll.com>
+>
+> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
+> with integrated boost controller.
+>
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+>
 > ---
->  arch/arm64/include/asm/pgtable.h     | 16 +++-------------
->  arch/arm64/include/asm/thread_info.h |  3 +--
->  2 files changed, 4 insertions(+), 15 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 535435248923..61ca88f94551 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -62,30 +62,21 @@ static inline void emit_pte_barriers(void)
->  
->  static inline void queue_pte_barriers(void)
->  {
-> -	unsigned long flags;
-> -
->  	if (in_interrupt()) {
->  		emit_pte_barriers();
->  		return;
->  	}
->  
-> -	flags = read_thread_flags();
-> -
-> -	if (flags & BIT(TIF_LAZY_MMU)) {
-> -		/* Avoid the atomic op if already set. */
-> -		if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
-> -			set_thread_flag(TIF_LAZY_MMU_PENDING);
-> -	} else {
-> +	if (in_lazy_mmu_mode())
-> +		test_and_set_thread_flag(TIF_LAZY_MMU_PENDING);
+>
+> In the current implementation the control registers for channel 1,
+> control all channels. So only one led subnode with led-sources is
+> supported right now. If at some point the driver functionality is
+> expanded the bindings can be easily extended with it.
+> ---
+>  .../bindings/leds/backlight/maxim,max25014.yaml    | 107 +++++++++++++++++++++
+>  MAINTAINERS                                        |   5 +
+>  2 files changed, 112 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+> new file mode 100644
+> index 000000000000..e83723224b07
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+> @@ -0,0 +1,107 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Maxim max25014 backlight controller
+> +
+> +maintainers:
+> +  - Maud Spierings <maudspierings@gocontroll.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - maxim,max25014
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +  enable-gpios:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  power-supply:
+> +    description: Regulator which controls the boost converter input rail.
+> +
+> +  pwms:
+> +    maxItems: 1
+> +
+> +  maxim,iset:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    maximum: 15
+> +    default: 11
+> +    description:
+> +      Value of the ISET field in the ISET register. This controls the current
+> +      scale of the outputs, a higher number means more current.
+> +
+> +  led@0:
+> +    type: object
+> +    description: Properties for a string of connected LEDs.
+> +    $ref: common.yaml#
+> +
+> +    properties:
+> +      reg:
+> +        const: 0
 
-This removes the optimization to only do the atomic set operation if the bit is
-not already set. I think that should remain.
+If reg is const 0, why need use led@0?
 
-> +	else
->  		emit_pte_barriers();
-> -	}
->  }
->  
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	if (in_interrupt())
->  		return;
+Frank
 
-Why are you keeping this test? Surely it can go?
-
-> -
-> -	set_thread_flag(TIF_LAZY_MMU);
->  }
->  
->  static inline void arch_flush_lazy_mmu_mode(void)
-> @@ -103,7 +94,6 @@ static inline void arch_leave_lazy_mmu_mode(void)
->  		return;
->  
->  	arch_flush_lazy_mmu_mode();
-> -	clear_thread_flag(TIF_LAZY_MMU);
->  }
->  
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-> index f241b8601ebd..4ff8da0767d9 100644
-> --- a/arch/arm64/include/asm/thread_info.h
-> +++ b/arch/arm64/include/asm/thread_info.h
-> @@ -84,8 +84,7 @@ void arch_setup_new_exec(void);
->  #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
->  #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
->  #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
-> -#define TIF_LAZY_MMU		31	/* Task in lazy mmu mode */
-> -#define TIF_LAZY_MMU_PENDING	32	/* Ops pending for lazy mmu mode exit */
-> +#define TIF_LAZY_MMU_PENDING	31	/* Ops pending for lazy mmu mode exit */
->  
->  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
->  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
-
+> +
+> +      led-sources:
+> +        allOf:
+> +          - minItems: 1
+> +            maxItems: 4
+> +            items:
+> +              minimum: 0
+> +              maximum: 3
+> +            default: [0, 1, 2, 3]
+> +
+> +      default-brightness:
+> +        minimum: 0
+> +        maximum: 100
+> +        default: 50
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        backlight@6f {
+> +            compatible = "maxim,max25014";
+> +            reg = <0x6f>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+> +            interrupt-parent = <&gpio1>;
+> +            interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
+> +            power-supply = <&reg_backlight>;
+> +            pwms = <&pwm1>;
+> +            maxim,iset = <7>;
+> +
+> +            led@0 {
+> +                reg = <0>;
+> +                led-sources = <0 1 2 3>;
+> +                default-brightness = <50>;
+> +            };
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 58c7e3f678d8..606ce086f758 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -15261,6 +15261,11 @@ F:	Documentation/userspace-api/media/drivers/max2175.rst
+>  F:	drivers/media/i2c/max2175*
+>  F:	include/uapi/linux/max2175.h
+>
+> +MAX25014 BACKLIGHT DRIVER
+> +M:	Maud Spierings <maudspierings@gocontroll.com>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
+> +
+>  MAX31335 RTC DRIVER
+>  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
+>  L:	linux-rtc@vger.kernel.org
+>
+> --
+> 2.51.2
+>
+>
 
