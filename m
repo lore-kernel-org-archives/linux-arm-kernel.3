@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B23CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 12:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DF2CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLFHDmsOhkkjGzWML783xra/HFNOvVOGGpHhwmi+CiA=; b=JID2b3FqFkKtesLeaSMsv3/Vu0
-	q0aZulgVVr1EwzBEFbJxuGtyr0Yw4mCqROTcyNE3XkFEk7ivbbJThXt98hG10yGNi/jCXe5NLzGDM
-	A/fICwBHfKjUpJIx7A+SdGm8TCIujPG9u/QEfl7VPd/b0KZEDGpElH8Pr6Xh66k/Ot4gFg5hAV+4g
-	9DglV/AkbOJvZWdhuUFsyJYVYr69sWYMXLXWpja4A1/214c81+YJ9XOtm8gCp52Iyg3IrFQINLje/
-	q34hCn2BJAKZtqMPqUrKbbxy+SOx+7EHfNKnljVWXcGAnx0jIhGuH79hn+n0f+rzu0VNgmwbO/Eq3
-	HGA1277Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K7JGfFT/Ae86QXeNX8btOgOnDy+eoBhlZoZaxojdT4U=; b=hWPqfz5SucPvsi6P0gX2ck1iud
+	KJ+Lzx8bOaUx35VXE+50jdcvlJhpuaJSOVC8lVUCsF3+oNEyw/esCj1/0pQdarZhJeqPPIhYwQ7AO
+	qTPC5OYvLeF5VzOW4X6x4pnNYqF28AmEE5ZidThQH4d+iT/XlbJkMMFj41dL9Tu0DLiiEqPX5gfYQ
+	xD9G7BgL3omJmFv8t+YLEDJd0fo6byUoYwgDGV9AH3JU/DvlpVCPmw/LDcYd8ReJ1WC7mdrWWvcSm
+	Z3fVVmcdT/CMZf8AohMTodxwLiseXWQcG4BFB7c/v9yvfIXVbXSts9LMdqX9PA2cETugXOQissfMo
+	Cod0jh6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLv3-0000000HMTx-0Dr4;
-	Fri, 07 Nov 2025 12:50:21 +0000
+	id 1vHMF1-0000000HNYr-368g;
+	Fri, 07 Nov 2025 13:10:59 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHLuw-0000000HMQI-0hKG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 12:50:16 +0000
+	id 1vHMEz-0000000HNYP-1SwQ;
+	Fri, 07 Nov 2025 13:10:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D2C544685;
-	Fri,  7 Nov 2025 12:50:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DA9C8C19423;
-	Fri,  7 Nov 2025 12:50:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 60B0B43ACD;
+	Fri,  7 Nov 2025 13:10:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84724C19421;
+	Fri,  7 Nov 2025 13:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762519812;
-	bh=yDiqSOQULBB2rLC+PqQWvExsXr88gNjIXBSWnDJ9wPQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=p4RSu86onv9sOIt+YfjV3mgmADd7zeL2+8fOGxZjlVpreuOijIZYnHngGNaFxulAs
-	 WpI+7FT4sIDyqfQ+Bbz1VNPmAh73gOeTbbH/lEQJnCr/fT1e8/oho0/OH+n/XqRzmQ
-	 sBt5iNDdtdtCtAcweYj4jS4rDqTxaWPPSPvvPQHFJa7IjTbSEUJzkjSHqQsnQ1Khqx
-	 8Z8GVv6QiS/DyMevK7kcg2EPM6RN1/KNFWQRa4ND6jr3t1nTzDWcLNhaxx81chfC0f
-	 2DyLhFzA4YY+Ybadsn35v5KeBM3wj/UXfpdXOHFnFMzbIiNQyjsBL7NMKw7rxyu64C
-	 2BrURyPSJk3Ww==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D11D9CCFA18;
-	Fri,  7 Nov 2025 12:50:12 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Fri, 07 Nov 2025 13:50:00 +0100
-Subject: [PATCH v5 3/4] arm64: dts: freescale:
- moduline-display-av101hdt-a10: add backlight
+	s=k20201202; t=1762521056;
+	bh=9yNpA1SE+6LUazhxfaVM0P+KTY2xAhLSO9vXTnuC8wg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=K1pL5YGYFuG6hxkKpIelSp4d5IkSoL6mbBtbq2kEckqm8NKtXk0sV5yE4uZEwNt1q
+	 ethdg2+fJxg4IQ7wEAJCWBsr3M4QlRFC7sKNaUDJXDpXrb0nfCOAbjbv0gQI6Bru4h
+	 fydJwyetpw3hex5Orwn9R0FuIcYMuiERvBPHxKwFDX6pnNRSlfwUb95i792MUyccOa
+	 O9tAxtas6uw8A1dp02fOK28qXtF/zEGda7ciCQzGk07YYgKSw4/Oe51Xdq2hvdAj40
+	 vHZ4hzLyNf5jfkxq0b0gGTPJw99/B9LhRb33I8h/Xl0Ebl2LMSB+9pgDUEbMvSEIE1
+	 q358Q5AwLVEig==
+Date: Fri, 7 Nov 2025 13:10:47 +0000
+From: Will Deacon <will@kernel.org>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org,
+	aou@eecs.berkeley.edu, atish.patra@linux.dev,
+	catalin.marinas@arm.com, dianders@chromium.org,
+	johannes@sipsolutions.net, lihuafei1@huawei.com,
+	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org,
+	mingo@kernel.org, nicolas.schier@linux.dev, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, suzuki.poulose@arm.com,
+	thorsten.blum@linux.dev, wangjinchao600@gmail.com,
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [External] Re: [PATCH v4 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+Message-ID: <aQ3v15yrm9JaWgrm@willie-the-truck>
+References: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+ <20251014031425.93284-2-cuiyunhui@bytedance.com>
+ <aQixsIQXTjYyhRVj@willie-the-truck>
+ <CAEEQ3wk5Ru4-=4Ecnc6kQAAbR57806xxYTz0o1z4KfgZE6Cg6w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-max25014-v5-3-9a6aa57306bf@gocontroll.com>
-References: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
-In-Reply-To: <20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com>
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762519811; l=1620;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=VwDrQbdFl3MoeRR0Hyu6UwVAM4rKJvip1fa/fyci9zk=;
- b=hlqHu2mewfEp0ujJzmXMfvckTMU+B7F8ukuGjncq52pBkYOJc+zA1IMAV6XZr2pP/RKQmw5mE
- MJJKe4x+LluA4pORHbbNBQoezZCcupw8UmPUtS9FE4UsP220Mod4xUd
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEEQ3wk5Ru4-=4Ecnc6kQAAbR57806xxYTz0o1z4KfgZE6Cg6w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_045014_273683_23449055 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251107_051058_068713_949BD2CF 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +81,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On Fri, Nov 07, 2025 at 10:42:25AM +0800, yunhui cui wrote:
+> On Mon, Nov 3, 2025 at 9:44 PM Will Deacon <will@kernel.org> wrote:
+> >
+> > On Tue, Oct 14, 2025 at 11:14:24AM +0800, Yunhui Cui wrote:
+> > > @@ -306,3 +307,85 @@ void __init hardlockup_config_perf_event(const char *str)
+> > >       wd_hw_attr.type = PERF_TYPE_RAW;
+> > >       wd_hw_attr.config = config;
+> > >  }
+> > > +
+> > > +#ifdef CONFIG_WATCHDOG_PERF_ADJUST_PERIOD
+> > > +/*
+> > > + * Safe maximum CPU frequency in case a particular platform doesn't implement
+> > > + * cpufreq driver. Although, architecture doesn't put any restrictions on
+> > > + * maximum frequency but 5 GHz seems to be safe maximum given the available
+> > > + * CPUs in the market which are clocked much less than 5 GHz. On the other
+> > > + * hand, we can't make it much higher as it would lead to a large hard-lockup
+> > > + * detection timeout on parts which are running slower (eg. 1GHz on
+> > > + * Developerbox) and doesn't possess a cpufreq driver.
+> > > + */
+> > > +#define SAFE_MAX_CPU_FREQ    5000000000UL // 5 GHz
+> > > +__weak u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> > > +{
+> > > +     unsigned int cpu = smp_processor_id();
+> > > +     unsigned long max_cpu_freq;
+> > > +
+> > > +     max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
+> > > +     if (!max_cpu_freq)
+> > > +             max_cpu_freq = SAFE_MAX_CPU_FREQ;
+> > > +
+> > > +     return (u64)max_cpu_freq * watchdog_thresh;
+> > > +}
+> >
+> > Why does this function become __weak? Neither arm64 nor riscv override
+> > it afaict.
+> 
+> Would you say there’s any particular issue here? If some architectures
+> might need to override the hw_nmi_get_sample_period() function later
+> on, wouldn’t __weak be a more reasonable choice?
 
-Add the missing backlight driver.
+__weak is pretty brittle (it can depend on link order if you have multiple
+targets) and I suspect it prevents inlining when LTO isn't enabled. It's
+cleaner and more robust for architectures to provide their hooks by
+#defining the symbol, as is done commonly in other parts of the kernel.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso | 30 ++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+But in this particular case, it's completely unnecessary because there
+isn't an architectural override and so this function should simply be
+static.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-index e3965caca6be..0e2914861154 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-@@ -17,6 +17,7 @@
- 
- 	panel {
- 		compatible = "boe,av101hdt-a10";
-+		backlight = <&backlight>;
- 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&pinctrl_panel>;
- 		pinctrl-names = "default";
-@@ -40,7 +41,36 @@ reg_vbus: regulator-vbus {
- 	};
- };
- 
-+&i2c4 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	backlight: backlight@6f {
-+		compatible = "maxim,max25014";
-+		reg = <0x6f>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		maxim,iset = <7>;
-+
-+		led@0 {
-+			reg = <0>;
-+			led-sources = <0 1 2>;
-+			default-brightness = <50>;
-+		};
-+	};
-+};
-+
- &iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
-+				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
-+		>;
-+	};
-+
- 	pinctrl_panel: panelgrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
-
--- 
-2.51.2
-
-
+Will
 
