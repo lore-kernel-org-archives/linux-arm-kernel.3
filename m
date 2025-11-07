@@ -4,172 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFC7CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 22:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A40CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 23:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAZ4SbvoSTSUdZpfiuvITsft0eAQLLrdsklp0B59c4Y=; b=UT4FWm1r4ooUAwEWivFN/2JYyB
-	AIB0nodl7POpFifaNrmbY5ypIZIxTiRLs/wJGtPaJXl4R/FSPUt/NdEiSOtExsjCGFZigN3AeYgFC
-	/UYMlv+l53QIhf/oKkMxH86va1W8hqY9tcMWLmgsp9BqD2nAK67P25ft8IKip9nyTPtxQBLZL5f0d
-	rpdVK3yBYkX9ZxF0TSEFapO6xw9wUBcTnz5mQjU37DqDSLfwiLKVHsRXfNej1bwOFbL5Y2o0dIE6g
-	9ENSzB4PYDeuLj/+kBs6297kF+tOJVXP46ciAue5O2vXWAJWaDQb8LYvaWKYz6oZ7RrrrbywDRaJ5
-	JsVR9Rbw==;
+	bh=L5g3WJg5ro6ZPgCzGJHkVpWPf3BLafiGjcPsny3z3sE=; b=UlXpCYkiKhtx8SH8VnRZUd/T8K
+	oNEqLcBiGC4I/pkm+mUsQSHhsMB/vXoezQVZjAx7ezKdAPztaftzeexzcfyijnONJf/sIfz7hmJ2A
+	wltkVlTdYLgR9njY9SvIpEr72q8/IqDeuS091dNvtCd7jEO9BHE9CXH8GiWYCYCDQUS/g4eIU80jI
+	xSB1ciSb8XC1PSNGKd2/WLCgpf5YeBeCgVhmSAxs2R/ZcxT/4i3E3G+3nVKClGpqIGkG22pcdmQzp
+	uHiwXSKaJp7ITCwgZceMRfn3t7epOvfCCzVJGuZ5wuAdEF03Vb66bKl2I3gc3VICRwOdw/0QqIHNa
+	OMU46/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVDP-00000001Of9-45in;
-	Fri, 07 Nov 2025 22:45:56 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vHVcz-00000001Tt9-4BfW;
+	Fri, 07 Nov 2025 23:12:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHVDN-00000001Oag-0LTj
+	id 1vHVcx-00000001TsS-3pTz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 22:45:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S/In8XQ3aMTTsdr/3kYs/EMGN0w7NZfN+eVArPjiPQLha4ojz2N6jYFsdjU8C8x5GL+ldIRjAsw3FR/lwU0tqWxfSIN63RFqUJG4oiZjy9fYo1CcPjMNnnIoWfD/C/pUJwJNMpTWpGTE6fHZcx1yt7DhRZgBn2Ue8kcl5rffRmqv2EZWfpxxmu2/1J4maDi6g5ItM3vTp4CyoCkxpn1knpk3D4JzSW4nL1q/MsyKqJi/tiAHUa+/+c51jCfqIKeziLeNT5eN9uOgROUehKM+BuIUMK8KoxzOFrvZ7mhNsthDo0RguT4JT5wVxTQlWcdhYH8n0CFAmX+budF2z3VghA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EAZ4SbvoSTSUdZpfiuvITsft0eAQLLrdsklp0B59c4Y=;
- b=jWd3c6qlxStcA0z6BE/IeoFdqFwzk9CK1T4ShnpoS/Et8pLKYmA2nu/O0+oJ/M9U9nVhaNlGEIjHt5rvOqaYSnp6ggcyjow2MTPaxlzVo7J5GlH2r+DSrEEjF/wrgsPFGEnOVPYz7EGX+CkEm9e3cdrMHaUm1wyWKu/zzltgbOr2K1KA5xFwBF1rAlbLdpQaRD3/YA4Yy+EFfGeH+TSs+38fDgegTelcWhHvJeLsAtpIZXzOh6C214p7OJGq/0slqmlQIuc8bfXLjhpPN4YqMImmj0JTbhrODqKZAkKEhhEQm7sk0RSb4Xt3HRmkficVp09U2vBe1r+hvwXBBd23dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EAZ4SbvoSTSUdZpfiuvITsft0eAQLLrdsklp0B59c4Y=;
- b=bmNJXtbxKigDtpyNGW1s7nHEq889r24EVUFd/z0e/Xp3XH0A8YIyCKRSgTAyjuBT3p6ucKd4nybM4kkEutV2ZFZkx8GpyavMjTO4impfeJZdrhu5GYE1Ja+MF5i1LgBH7XkoqC2olWYDcVgbcbdSI8zcL5Rx7CLU5OupiWc9AvVNpQR6PbXvcpHV7BDAtz6hp+VMsz8aPtpSbDmqqqRfSEdK9RvKUMzf+CEuV6fECnzpU8RQB0pB2O2yQG8q6iDaplMVNLeeGiGNuIJ18dsTHQQeMHKIpFNNzm1sATckiqxW46dqEGn52+QNbXA2B+FzUGeK1YnOBdLtdJLjvI2kIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
- (2603:10b6:61f:fc00::627) by SJ0PR12MB6806.namprd12.prod.outlook.com
- (2603:10b6:a03:478::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9275.16; Fri, 7 Nov
- 2025 22:45:44 +0000
-Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
- ([fe80::7816:ec9f:a1fe:e5c9]) by CH1PPFDAD84AB72.namprd12.prod.outlook.com
- ([fe80::7816:ec9f:a1fe:e5c9%6]) with mapi id 15.20.9298.012; Fri, 7 Nov 2025
- 22:45:44 +0000
-From: Marc Olberding <molberding@nvidia.com>
-Date: Fri, 07 Nov 2025 14:45:37 -0800
-Subject: [PATCH v2 2/2] dts: aspeed: Add a dts for the nvidia msx4 hpm
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251107-msx1_devicetree-v2-2-6e36eb878db2@nvidia.com>
-References: <20251107-msx1_devicetree-v2-0-6e36eb878db2@nvidia.com>
-In-Reply-To: <20251107-msx1_devicetree-v2-0-6e36eb878db2@nvidia.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Marc Olberding <molberding@nvidia.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762555539; l=5870;
- i=molberding@nvidia.com; s=20250815; h=from:subject:message-id;
- bh=tuITM0vDGMpc5FE7fn3/K+mrEUwOuMW5UTcrQpypRwU=;
- b=X017JzTK35B5QFQR1dxT9OBgvsFL+Gw4hyo2Cia+1EtxWWnZi90yD6e6WauuzhARlnKSJvOOn
- YhqYuqzZEcmDWu4jk9RYS9GLad68rY3hjWfYEzncNPEIOV/wkgmgMrL
-X-Developer-Key: i=molberding@nvidia.com; a=ed25519;
- pk=qCpZ1WFEf5YiaL88PDdYhG+A/bKk7rHp7KF2K3GmkH0=
-X-ClientProxiedBy: MW4PR03CA0310.namprd03.prod.outlook.com
- (2603:10b6:303:dd::15) To CH1PPFDAD84AB72.namprd12.prod.outlook.com
- (2603:10b6:61f:fc00::627)
+	Fri, 07 Nov 2025 23:12:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4EA3D43967;
+	Fri,  7 Nov 2025 23:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07D1CC19422;
+	Fri,  7 Nov 2025 23:12:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762557139;
+	bh=B0AHPl2PuZVRK5tNUjTCgltSSw3SvWwui8ypfs0L1Bo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pR1paCW0yy1ljJ/PJey7H4gvzNzun7TU/nG39UXNM9qpH/AbmbkLBGrkhNaFJU2+m
+	 65lf8lfc5Fb9C9ih1kF5S/R3KK0jO2WMSYsd3nTq5m3jODKkIIKG7d0FlMQ5A1PQ4I
+	 tjyINcHKBmnviErAiQdE6Tb7vQs+1R0/JnrViPlLDsnVYZ+vP6imooi9jpGbsZoQBm
+	 rr0bXyYbdokB51EoaE5Kil5+0bsWAMS4PnE/w6oNljI7vGdbDkVu2NVAgAE0ASOUJW
+	 dF8bkNVSEEfXGyhi1HZUpaYkosV1ix/N3qEGDlq/MoiQYn5/YQob4mKT1QJk7aBV6K
+	 xkI/xnTTE0WIw==
+Date: Fri, 7 Nov 2025 15:12:17 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, vladimir.murzin@arm.com
+Subject: Re: [PATCH v2 5/5] KVM: arm64: Define FAR_MASK for fault IPA offset
+Message-ID: <aQ580W6SU1lGbd_D@kernel.org>
+References: <20251106144418.2847443-1-tabba@google.com>
+ <20251106144418.2847443-6-tabba@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PPFDAD84AB72:EE_|SJ0PR12MB6806:EE_
-X-MS-Office365-Filtering-Correlation-Id: 250b9bd0-a8e4-40bd-6d2b-08de1e4f6306
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Nkw5bmlFUFNhTytWb2w1T05laG5ZbTExOUMyTzR2a3l5cTc3VFNEYzRGY3BJ?=
- =?utf-8?B?cHJGU0NOb3N0MHBaaFBjN05aOHRlcjV3dExpamRsS0VvVzk3SGMvY0Q5WjhL?=
- =?utf-8?B?RkhJVk1vNXg2RE1FK1dTdm9mcEVGdGZ3N0hpaVJ6M3dET1VUNndCK09iMUsr?=
- =?utf-8?B?QVhBRnlsbFhxaStCeXQ5WWJoQnpHTlZ4enVJa3BIZGFaRW9HN1NhcVZSVCtJ?=
- =?utf-8?B?a1dMc3lCUllDNHAyN2w1MUc4ZnZ0MllWbVVQUmhwUmdVb09EQ2prM1F3ZFlF?=
- =?utf-8?B?SDBCaFJVdnY5NHpVZ0dVbmw4bmQ5UjlkNldoRkErWDBlR0NjcjNXOUR2YWEx?=
- =?utf-8?B?SWxTQUp1YkJFN2xpMnpscUY2QkZ3dUF6R2hKYzBHN29YKzI3RXNtSXM1dmxV?=
- =?utf-8?B?cGdnODI5aVM4enJUTHQxRjRzc3FvUHhHMVUvWUhlYWxYYWp1Q05xdkNTaU9F?=
- =?utf-8?B?cXZFR2JXQXZ4Y1dXOU9yUFJvaWRRZTVSbUVlNnBpYm1NTjY0aSszQTdwSXhO?=
- =?utf-8?B?ek1CODVWWjBEM2xPQURVOStEQkt0WE9RcjZhTHpvUzk4UDE4QWtiWFFFaGFu?=
- =?utf-8?B?R2dzR1R0NjErT2NHTklyemUyZWZzajhEOW5JdFE2THovUUtsc1BhVTVNci93?=
- =?utf-8?B?SXRMNys3L0lJRjloUkxFOEc5R2Jlc2hjNWd5UGZSNGdWYlpsY3RoYXNhVlEr?=
- =?utf-8?B?c3NyeTRJNEgySVVqbVR0UXBhNWViTmg3bEI1Z05QNisvalg3L2NRU3VFV3V2?=
- =?utf-8?B?cFFmRUQ5T2FnaklNUlhrRzhMM3VOZlpmVkNtcFFDNG5TVkVkcjhHV3ptTmZv?=
- =?utf-8?B?bHRqMkowNWRjNjZETGtjSlJ4UWphelZUeGRtVGdWR3JuZFdBeWxUK2R6QWxt?=
- =?utf-8?B?MlNRdDBndkdLOE1kTTRTeTdXVlFQMlhBTDQ5dDgxU3lYdVhJTzJ5c3ozMXBx?=
- =?utf-8?B?MjVHa1VVQ2hvMExNTEg1dE1ra3liakRUY1VNQkFkZUYzbHRSMUUyT29raWxv?=
- =?utf-8?B?V0lpNXBwNWpUWlZ0WmRsNDhUbWZ5b0E0STZUaGEzWU9Ca0ROK0d1MlQ3dlVZ?=
- =?utf-8?B?YWdQWDlZcFYyZU9FdENrdVdRVlRwVkJwQTE0aUY0KzlWZDBZQkI2TStoL3o3?=
- =?utf-8?B?VWVjSVBYZG5hMXkvWTVBZ1pSL3EveWFtc0w0WjNZbEV0T0dSclYwaS9XRDk2?=
- =?utf-8?B?VFpBdE1LcmJuWUpWTG4vTWdqdmErWEpyMjZRM1BkcGJUQUVwblZSRzZPRWh2?=
- =?utf-8?B?a0tSRHY4RGtlSjNZMEJreUcwSzhYZ1MzZis3N3NqRC9CRUY2Y3k4SnpkUW1X?=
- =?utf-8?B?RVZTRlREUkJHT2hRSXJHZzUxQTNWZUtCa1g5MFdpT0N5WnlBc3dwczFCNXZB?=
- =?utf-8?B?TnM0dkVpQ1I1TjU3Q0FTWHh4dXRtUGRmcnErenZBK3EvYW5sSU41dTdpRG43?=
- =?utf-8?B?SWUwcm14ZlFOZjk1VXYyVnltcmk5NDBPR3pXNGdSVVRzdTRnaEx1RytsOWha?=
- =?utf-8?B?d1czSElUYmFGNVlsWFNKK09tWGFCMXQ1cEVFV0xiMm9PbzI2c1NSUXk2bW5I?=
- =?utf-8?B?SS9xUzdnUDlXSnNYZSttancvNVBxMFU4M0I0VW01VmZNMnRJa042SVZVNlpu?=
- =?utf-8?B?eTBma1QyQVdaOUQxaHpYVTlBdzJ1VUZtNjByNmNydjk1ekNtMFVvTU1uc05R?=
- =?utf-8?B?eU5lZGJhVTIzWG5Tc3d4NVJyRytkbFZ6TUpVK2lpN2NWRktSekYwYUQ2Z0du?=
- =?utf-8?B?MUJaYmx0dElKTGwwejU0VlhqeTF0L0pkUHprSW5jS0FMcVdyZGdFRnBnNVBZ?=
- =?utf-8?B?SXFNVnV6U1pGNEdNVklFVHJjQnNQRmw2UG9wSFhueWZJNGJibWhnb2FaTCtB?=
- =?utf-8?B?RWRIa1gyRHhidm4vNzdOL3lpQ2I2USs3U2pzdE1YWXAydTNmOTBvaGpSaFYx?=
- =?utf-8?Q?2vNxVykvQkYBM48oz4dxQjZN7OwXGN7G?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH1PPFDAD84AB72.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MElMTThGVWZ5US9xTS9vVS9VTzdkanlKYkJDdlZmTG44RjRMaFFESlpPamMr?=
- =?utf-8?B?cTZjNFMxSU95Zit4QXRwT1pHaS84dnYwMnB3eEFnU1dEWnlKL00rMFE1L1RT?=
- =?utf-8?B?ZXoxMWNrSDhwY3RTSy80RDg4aDdJTEhDcitFKzNWcGJDcUx1emNWOVNGOC92?=
- =?utf-8?B?WWI5MFNaRnI4L25qZFMwT25OZWlJSjgzYTliZzE2aUp1bWRZZ3VndjAvZHdp?=
- =?utf-8?B?Z1V6QjhrYnAyVUlybmtEb2tlQ3JzRHo0UG9kZnFGWFRzY1dsZzd2S05pcGFD?=
- =?utf-8?B?YnNsdFJJcDJsbHJUK21OWWJQQ0FnVGxkZW55M1g4VTVlZzdoVXBPWTBBSGJ3?=
- =?utf-8?B?ek1NV3hkZk55TmpJdEF5VnE0Ym16Tm44NHM1dTZGVEdsWWwxekkvSkZNQUdJ?=
- =?utf-8?B?amRZY1VndWJJR1FtRzJldy9QekJEckh0enJaMVFNemxXY1IwcEpGdkVaWmRU?=
- =?utf-8?B?dFo2K2JwRmVXbTFvSVhuWTdCdFg5THJDTnBLUmxaWENaeWRtck00R3I1SGhv?=
- =?utf-8?B?QXJ3SitVRWxyNktPT3JXakJkOUovNkFWSVZjTllUZVFidGoyWis2eW1xcEsx?=
- =?utf-8?B?YnhDYXNYWTFxRHhoaDEwY2FoaEpNR2l4SVl6eENYT1VuWmJkSGJDcXNkTzdk?=
- =?utf-8?B?V0JrSEVtdWhib2F6Y2FIWk5kRy9PTjR6dGZ4U1lhbkV2dXlZZTZqeHBIWGJT?=
- =?utf-8?B?eWUzS3FMRzBpR1hhSEFGTmZ0SmxFVTlVUmFLMEpIaTJGd0c0RXBzSVhoMGtN?=
- =?utf-8?B?aU1BcjFpSGtqVXpVNVROLzN0UGVkMGxvWUk5MmtRYm8wVEpOK2trQUVkNzgy?=
- =?utf-8?B?SUt0TUp0YklOeGpIbS9RcE0xcW5NeHB3R2Z2Y3BQSDF2TWVqbFpPRC83enpZ?=
- =?utf-8?B?aUtCb0dlS29CbkNFR1Rody9nNWx6alhsVVArK1kyYzFLYjBubmkwL1pRcEZL?=
- =?utf-8?B?b0xZSElDY01nMnZzRUZDS3ZlUjVYY013OVdWdmd6Y3JhQ04yMkRlKy82Wk51?=
- =?utf-8?B?Uldab01RdWdKK2xBVTBzYTdjM0JsTElSNm5XbzVKTEZKWWIySENwVXdKeEtn?=
- =?utf-8?B?RmV4S3JiYWpEQ1YxVXp4MzhjRDlPOXppQzVGTjNiQTBBTEtuT1gwZFR5VGNj?=
- =?utf-8?B?cDBMdjV4UG4vYjN1dDREOE92UC9uYnZURm9wd1JzOC9YMm5VV1JKNUxKSHFX?=
- =?utf-8?B?MnlIZW11clhpWXh3WDBVN0VLbkRtNmY5RzIwa3RiTmhwUmNqNzhFdW81TkdW?=
- =?utf-8?B?blVkb0lWQW1FTFVHZWFkcTc4YVVZSUlsbyt1RG1DK3NGODh1US9HWHg5Y1dG?=
- =?utf-8?B?V3RHRnlMdUxEUEdLWHdiMU5aQ0UrNkFmR3NaNThOdWhxa1dObnBXa3VGVWRp?=
- =?utf-8?B?dHpPYWsxUmE0VEZYZVBEV0pMQ2g1V1hwOTdZSTgrV1crYmpadmwxNlI2SlF2?=
- =?utf-8?B?Q3ZiRUZNNUFpT3ZSQk81aUdEUUVMNzNMRzFjWjVHSFNrb1VCQWVNMTErNW1B?=
- =?utf-8?B?MThGcy9LUTNkRkE5Y1NEVUxxb2ljNjFpZXZtdk5EN2JaZ1ZhOWFjMERuU0dX?=
- =?utf-8?B?T1h6ZEplSlIySWsxK2pxWHhyNXRCMytuN1dvMGErcldkT0RtQVFvVk4wT2lY?=
- =?utf-8?B?MW5UalliZXc0MVFtL3AvaGdLbzNSaitvSVpoNWM2MU5TVkRRN3JCZk5LZmw5?=
- =?utf-8?B?a3B1cnhZUVk1VXEvRW8vQW1QSTQ3VDhsRlB3YUR6aXZPME10OWpSTm5DQkRy?=
- =?utf-8?B?TVNMY2w2M09rUFJOZVdtR1RaL0dSM1dxdHRIOFVPUU9wejhFN3RqbStYWnYz?=
- =?utf-8?B?N2VaWHV6cEZYUU4xYldOZEVwRzdHdGljZnA4YzJMZkdpb2FDL0d5R1N4Q3BO?=
- =?utf-8?B?bnlhOFB1L0Z2RWRtZDluUFkvRGEzUlJTbTBJZTQrMWZZMUc0VDhTM3Y0UmJu?=
- =?utf-8?B?YU93MC93WW5yYWxveGhKYVY2UVp1S3B6cHZiMFVXMGZkdUpQNzFGUWFXTURl?=
- =?utf-8?B?dVBCM2FWKzJvbzYwQjJYQU1Qa1REejNqZHJob2lDd09GRFJCSUw1VkxET09T?=
- =?utf-8?B?VGhXR1ptKzNXaHBLTURnTk80N08rVmplbE4vdHhxaHZsN1ZwajVLTzRqZHk1?=
- =?utf-8?Q?U92k/qGgf3gMoYFYdR9zqoEuA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 250b9bd0-a8e4-40bd-6d2b-08de1e4f6306
-X-MS-Exchange-CrossTenant-AuthSource: CH1PPFDAD84AB72.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 22:45:44.7340
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YAVEsfkMJrFsCe/nfBaIVUeLRWGizYJWrdSK++xABpEcYbjgVRZZynoiaxsCdeULZgsdBTxyV+f0eoxUwihiEA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6806
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251106144418.2847443-6-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_144553_131918_0314FC4D 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20251107_151219_998398_97F825BC 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,289 +74,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds a dts for the nvidia mgx pcie switchboard reference
-platformi hpm. This is a dual socket granite rapids based platform.
+On Thu, Nov 06, 2025 at 02:44:17PM +0000, Fuad Tabba wrote:
+> This 12-bit FAR mask is hard-coded as 'GENMASK(11, 0)' in several places
+> to reconstruct the full fault IPA.
+> 
+> Define FAR_MASK for this value in the shared header and replace all
+> open-coded instances to improve readability.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_arm.h         | 2 ++
+>  arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 2 +-
+>  arch/arm64/kvm/inject_fault.c            | 2 +-
+>  arch/arm64/kvm/mmu.c                     | 4 ++--
+>  4 files changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 1da290aeedce..e995e9b3a0c4 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -343,6 +343,8 @@
+>  #define PAR_TO_HPFAR(par)		\
+>  	(((par) & GENMASK_ULL(52 - 1, 12)) >> 8)
+>  
+> +#define FAR_MASK GENMASK_ULL(11, 0)
+> +
 
-Signed-off-by: Marc Olberding <molberding@nvidia.com>
----
- arch/arm/boot/dts/aspeed/Makefile                  |   1 +
- .../boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts | 254 +++++++++++++++++++++
- 2 files changed, 255 insertions(+)
+This seems really confusing to me, since FAR_MASK sounds like it
+represents the meaningful bits of FAR_ELx. Perhaps something like the
+following would better represent intent:
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 0f0b5b7076545e6babb2f25f302b5d70b71d8a19..c3ce0d218b53f2b4c37061cace483f5f2c6d3bf1 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -56,6 +56,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-lenovo-hr855xg2.dtb \
- 	aspeed-bmc-microsoft-olympus.dtb \
- 	aspeed-bmc-nvidia-gb200nvl-bmc.dtb \
-+	aspeed-bmc-nvidia-msx4-bmc.dtb \
- 	aspeed-bmc-opp-lanyang.dtb \
- 	aspeed-bmc-opp-mowgli.dtb \
- 	aspeed-bmc-opp-nicole.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..383e53656a3f3dbb0f394b5f8dddc58405cd8da2
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
-@@ -0,0 +1,254 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+#include <dt-bindings/i2c/i2c.h>
-+
-+/ {
-+	model = "AST2600 MSX4 Kernel";
-+	compatible = "nvidia,msx4-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		serial0 = &uart1;
-+		serial1 = &uart2;
-+		serial2 = &uart3;
-+		serial3 = &uart4;
-+		serial4 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "uart5:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		gfx_memory: framebuffer {
-+			compatible = "shared-dma-pool";
-+			size = <0x01000000>;
-+			alignment = <0x01000000>;
-+			reusable;
-+		};
-+
-+		video_engine_memory: jpegbuffer {
-+			compatible = "shared-dma-pool";
-+			size = <0x02000000>;	/* 32M */
-+			alignment = <0x01000000>;
-+			reusable;
-+		};
-+	};
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&fmc {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		label = "bmc";
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+		status = "okay";
-+		#include "openbmc-flash-layout-128.dtsi"
-+	};
-+};
-+
-+&gfx {
-+	memory-region = <&gfx_memory>;
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	gpio-line-names =
-+	/*A0-A7*/	"","","","","","","","",
-+	/*B0-B7*/	"ASSERT_BMC_READY","","","","","","","",
-+	/*C0-C7*/	"MON_PWR_GOOD","","","","","","","FP_ID_LED_N",
-+	/*D0-D7*/	"","","","","","","","",
-+	/*E0-E7*/	"","","","","","","","",
-+	/*F0-F7*/	"","","","","","","","",
-+	/*G0-G7*/	"","","FP_LED_STATUS_GREEN_N","FP_LED_STATUS_AMBER_N",
-+			"","","","",
-+	/*H0-H7*/	"","","","","","","","",
-+	/*I0-I7*/	"","","","","","","","",
-+	/*J0-J7*/	"","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"","","","","","","","",
-+	/*N0-N7*/	"","","","","","","","",
-+	/*O0-O7*/	"","","","","","","","",
-+	/*P0-P7*/	"MON_PWR_BTN_L","ASSERT_PWR_BTN_L","MON_RST_BTN_L",
-+			"ASSERT_RST_BTN_L","","ASSERT_NMI_BTN_L","","",
-+	/*Q0-Q7*/	"","","MEMORY_HOT_0","MEMORY_HOT_1","","","","",
-+	/*R0-R7*/	"ID_BTN","","","","","VBAT_GPIO","","",
-+	/*S0-S7*/	"","","RST_PCA_MUX","","","","","",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"","","","","","","","",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","","","","","","","",
-+	/*Y0-Y7*/	"","","","","","","","",
-+	/*Z0-Z7*/	"","","","","","","","";
-+};
-+
-+&gpio1 {
-+	gpio-line-names =
-+	/*18A0-18A7*/ "","","","","","","","",
-+	/*18B0-18B7*/ "","","","","","","","",
-+	/*18C0-18C7*/ "","","","","","","","",
-+	/*18D0-18D7*/ "","","","","","","","",
-+	/*18E0-18E3*/ "","","BMC_INIT_DONE","";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&i2c3 {
-+	status = "okay";
-+};
-+
-+&i2c4 {
-+	status = "okay";
-+
-+	eeprom@51 {
-+		compatible = "atmel,24c256";
-+		reg = <0x51>;
-+		pagesize = <64>;
-+		label = "sku";
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+};
-+
-+&i2c6 {
-+	status = "okay";
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+};
-+
-+&i2c8 {
-+	status = "okay";
-+};
-+
-+&i2c9 {
-+	status = "okay";
-+};
-+
-+&i2c10 {
-+	status = "okay";
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+};
-+
-+&i2c12 {
-+	status = "okay";
-+};
-+
-+&i2c13 {
-+	status = "okay";
-+};
-+
-+&i2c15 {
-+	status = "okay";
-+};
-+
-+&kcs1 {
-+	aspeed,lpc-io-reg = <0xca0>;
-+	status = "okay";
-+};
-+
-+&kcs2 {
-+	aspeed,lpc-io-reg = <0xca8>;
-+	status = "okay";
-+};
-+
-+&kcs3 {
-+	aspeed,lpc-io-reg = <0xca2>;
-+	status = "okay";
-+};
-+
-+&lpc_reset {
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	// bootloader takes care of proper mac delays for now.
-+	// set the phy mode to rgmii, and if/when the driver is
-+	// fixed, we can make the switchover to rgmii-id
-+	// and have the phy handle the delays.
-+	phy-mode = "rgmii";
-+	phy-handle = <&ethphy3>;
-+	status = "okay";
-+};
-+
-+&mdio3 {
-+	status = "okay";
-+
-+	ethphy3: ethernet-phy@2 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <2>;
-+	};
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&sgpiom0 {
-+	ngpios = <80>;
-+	status = "okay";
-+};
-+
-+&uart_routing {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	status = "okay";
-+};
-+
-+&uart4 {
-+	status = "okay";
-+};
-+
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&video {
-+	memory-region = <&video_engine_memory>;
-+	status = "okay";
-+};
+#define FAR_TO_FIPA_OFFSET(far)	((far) & GENMASK_ULL(11, 0))
 
--- 
-2.34.1
+Thanks,
+Oliver
 
+>  #define ECN(x) { ESR_ELx_EC_##x, #x }
+>  
+>  #define kvm_arm_exception_class \
+> diff --git a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+> index 78579b31a420..22898ed4dd6f 100644
+> --- a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+> +++ b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+> @@ -44,7 +44,7 @@ int __vgic_v2_perform_cpuif_access(struct kvm_vcpu *vcpu)
+>  
+>  	/* Build the full address */
+>  	fault_ipa  = kvm_vcpu_get_fault_ipa(vcpu);
+> -	fault_ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
+> +	fault_ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
+>  
+>  	/* If not for GICV, move on */
+>  	if (fault_ipa <  vgic->vgic_cpu_base ||
+> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+> index dfcd66c65517..8ef3453696a2 100644
+> --- a/arch/arm64/kvm/inject_fault.c
+> +++ b/arch/arm64/kvm/inject_fault.c
+> @@ -258,7 +258,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
+>  	unsigned long addr, esr;
+>  
+>  	addr  = kvm_vcpu_get_fault_ipa(vcpu);
+> -	addr |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
+> +	addr |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
+>  
+>  	__kvm_inject_sea(vcpu, kvm_vcpu_trap_is_iabt(vcpu), addr);
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 7cc964af8d30..21a9442f9b1e 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1959,7 +1959,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  
+>  		/* Falls between the IPA range and the PARange? */
+>  		if (fault_ipa >= BIT_ULL(VTCR_EL2_IPA(vcpu->arch.hw_mmu->vtcr))) {
+> -			fault_ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
+> +			fault_ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
+>  
+>  			return kvm_inject_sea(vcpu, is_iabt, fault_ipa);
+>  		}
+> @@ -2059,7 +2059,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  		 * faulting VA. This is always 12 bits, irrespective
+>  		 * of the page size.
+>  		 */
+> -		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
+> +		ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
+>  		ret = io_mem_abort(vcpu, ipa);
+>  		goto out_unlock;
+>  	}
+> -- 
+> 2.51.2.1041.gc1ab5b90ca-goog
+> 
 
