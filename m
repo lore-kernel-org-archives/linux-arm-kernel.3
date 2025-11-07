@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F7DCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 01:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89533CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 01:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrcLPjYRMh28B+ghpJStH6nxi8FMijAngji3KjqZsv8=; b=XfdxOsf+jxZ+FG+izNk+x9caKg
-	zn3lPPeJA08uQkVIobNkjw7ratGFMmJGngmbmejAYQfosa1ZCZQIea4qzZisISw1Nk6ITb7NVtfrC
-	X316VfFJYA+L13So33mLvD43lV3ujVnBrhi9ttfFHfdPaRXsZRY+L2RUoK6eL6BwbvvA0rLbRY6+o
-	cjqEPXzD8oT0rFGsxWAjSyXtyq7uJdBjdPDp25KFNDMu+9vFWAd3AYV3VBvKsRWJgYnEfjft1Eg6t
-	5QSTILVdh1Jh0txxOTkGI4Wt4l6652rVWp1rWTQzKfZ2dzUyq0Tvkjl4ZPCRhYqCUVLiXbl3QNG4k
-	pjllKu3g==;
+	bh=QlcBKjJx4uP39C5Bp7ynHMky0Ctqov+yjLQA9z/pqvQ=; b=mn8x89d1fPLwz3Tsw10zA6pWQc
+	ZuFnzpNroQg4eVuNCbx1dmtekk1svr4k5WcTSa7mtXMWGumtfZS3lO62ce4567mmxfTowPZ8PBkzu
+	adKeYwLnXVaDTuyy4ty8wjeSOLvHdSMelNnYZ6Co5cmaSDgiBnQpV1A6vDGODaCBxXay9uM3Jbu7v
+	zE1GkWB8nmEHisFxjpxMcrlnFos+93oeCJ/8LxThAn84y3QgAulODgKDs7HVtXrsuyAYEtX5/op5o
+	ELJtCH6zyaSiIMW1ce8eJHrlCVzrTGcgdV6Bv96ARkt6s9a2V3mUr1+zVEmFOOS0/ubPvHuY46ha8
+	V5TrWphA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBE0-0000000GVHN-09qS;
-	Fri, 07 Nov 2025 01:25:12 +0000
-Received: from mail-m49229.qiye.163.com ([45.254.49.229])
+	id 1vHBI4-0000000GVc5-0vnI;
+	Fri, 07 Nov 2025 01:29:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHBDw-0000000GVG5-2GlK;
-	Fri, 07 Nov 2025 01:25:10 +0000
-Received: from [172.16.12.30] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 28b3fcd75;
-	Fri, 7 Nov 2025 09:24:58 +0800 (GMT+08:00)
-Message-ID: <f39d34b3-5e52-4490-99d8-db9b32f1324e@rock-chips.com>
-Date: Fri, 7 Nov 2025 09:24:57 +0800
+	id 1vHBI2-0000000GVbm-2YKk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 01:29:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 96D7D601A7;
+	Fri,  7 Nov 2025 01:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FB4C4CEF7;
+	Fri,  7 Nov 2025 01:29:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762478961;
+	bh=GbsyoaoMgC5ugJX7CDMoP2LUinPt69SQz5ZnttGKylU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PxJdsgmg+BdMKGKF2RoB25bnZSE0JPB5UXZySz2/x9cQ0eoqEhJnzGsNRM/PP8VeU
+	 PiNLzTIlwkEPxzPBSo2GYUzwS386Ix8S+rTuRI5WpGxNtWvL1fZiuoGjNxqCmkwopq
+	 gDXGmXV79vMnoz9xJrSJXllSV0IDpLB4pBfm7tdh7BGni0nha6IaCK9d488cLTzUNn
+	 +qa+fUhUgjYHsLBpMkQT83JZtN1UZLzbUrf4Wznb4Puh6wu1EQ9GKndEerhXX++2/p
+	 03UWY8xFnLtf7xh4zjhiSkSVai5Fi9ex/qBu3giLMObs1+tMvXCHOrDXloA0xGdvSx
+	 M0a1B0E33uiag==
+Date: Thu, 6 Nov 2025 17:29:19 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jesper Dangaard Brouer <hawk@kernel.org>
+Cc: netdev@vger.kernel.org, Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?=
+ <toke@toke.dk>, Eric Dumazet <eric.dumazet@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
+ ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
+ makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
+Subject: Re: [PATCH net V3 1/2] veth: enable dev_watchdog for detecting
+ stalled TXQs
+Message-ID: <20251106172919.24540443@kernel.org>
+In-Reply-To: <176236369293.30034.1875162194564877560.stgit@firesoul>
+References: <176236363962.30034.10275956147958212569.stgit@firesoul>
+	<176236369293.30034.1875162194564877560.stgit@firesoul>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] dt-bindings: clock: rockchip: Add RK3506 clock and
- reset unit
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
- heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- huangtao@rock-chips.com, finley.xiao@rock-chips.com
-References: <20251027084147.4148739-1-zhangqing@rock-chips.com>
- <20251027084147.4148739-7-zhangqing@rock-chips.com>
- <241e4a1d-039c-4738-b492-6325ad354b2e@kwiboo.se>
-From: zhangqing <zhangqing@rock-chips.com>
-In-Reply-To: <241e4a1d-039c-4738-b492-6325ad354b2e@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a5beaae2203a3kunm52616c82d042dd
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxpLQ1YZTklLHRoZQxkaGh5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=i8obIctgp8PJQDzcSsl2yOaii93gYF/sd2SGLm2fBTKLXepQGj96EsKc9vZxFSs2R+cxyt5utlBL9WeBLT1in7BIZuTmtHSxAf+c2xZvlw+12j4KNs7jUIjsb+/tjhs4OVWDczanwxQx8PLDqO+ovB6kzJPmSTiEtrw91bj+9Ps=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=JrcLPjYRMh28B+ghpJStH6nxi8FMijAngji3KjqZsv8=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251106_172509_100476_C44BAA20 
-X-CRM114-Status: GOOD (  12.72  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,119 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 05 Nov 2025 18:28:12 +0100 Jesper Dangaard Brouer wrote:
+> The changes introduced in commit dc82a33297fc ("veth: apply qdisc
+> backpressure on full ptr_ring to reduce TX drops") have been found to cau=
+se
+> a race condition in production environments.
+>=20
+> Under specific circumstances, observed exclusively on ARM64 (aarch64)
+> systems with Ampere Altra Max CPUs, a transmit queue (TXQ) can become
+> permanently stalled. This happens when the race condition leads to the TXQ
+> entering the QUEUE_STATE_DRV_XOFF state without a corresponding queue wak=
+e-up,
+> preventing the attached qdisc from dequeueing packets and causing the
+> network link to halt.
+>=20
+> As a first step towards resolving this issue, this patch introduces a
+> failsafe mechanism. It enables the net device watchdog by setting a timeo=
+ut
+> value and implements the .ndo_tx_timeout callback.
+>=20
+> If a TXQ stalls, the watchdog will trigger the veth_tx_timeout() function,
+> which logs a warning and calls netif_tx_wake_queue() to unstall the queue
+> and allow traffic to resume.
+>=20
+> The log message will look like this:
+>=20
+>  veth42: NETDEV WATCHDOG: CPU: 34: transmit queue 0 timed out 5393 ms
+>  veth42: veth backpressure stalled(n:1) TXQ(0) re-enable
+>=20
+> This provides a necessary recovery mechanism while the underlying race
+> condition is investigated further. Subsequent patches will address the ro=
+ot
+> cause and add more robust state handling.
+>=20
+> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to =
+reduce TX drops")
+> Reviewed-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
 
-在 2025/10/30 21:55, Jonas Karlman 写道:
-> Hi Elaine,
->
-> On 10/27/2025 9:41 AM, Elaine Zhang wrote:
->> From: Finley Xiao <finley.xiao@rock-chips.com>
->>
->> Add device tree bindings for clock and reset unit on RK3506 SoC.
->> Add clock and reset IDs for RK3506 SoC.
->>
->> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
->> ---
->>   .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
->>   .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
->>   .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
->>   3 files changed, 547 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
->>   create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
->>   create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
-> [snip]
->
->> diff --git a/include/dt-bindings/reset/rockchip,rk3506-cru.h b/include/dt-bindings/reset/rockchip,rk3506-cru.h
->> new file mode 100644
->> index 000000000000..f38cc066009b
->> --- /dev/null
->> +++ b/include/dt-bindings/reset/rockchip,rk3506-cru.h
->> @@ -0,0 +1,211 @@
->> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->> +/*
->> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
->> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
->> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
->> +
->> +/* CRU-->SOFTRST_CON00 */
->> +#define SRST_NCOREPORESET0_AC		0
->> +#define SRST_NCOREPORESET1_AC		1
->> +#define SRST_NCOREPORESET2_AC		2
->> +#define SRST_NCORESET0_AC		3
->> +#define SRST_NCORESET1_AC		4
->> +#define SRST_NCORESET2_AC		5
->> +#define SRST_NL2RESET_AC		6
->> +#define SRST_ARESETN_CORE_BIU_AC	7
->> +#define SRST_HRESETN_M0_AC		8
->> +
->> +/* CRU-->SOFTRST_CON02 */
->> +#define SRST_NDBGRESET			9
->> +#define SRST_PRESETN_CORE_BIU		10
->> +#define SRST_RESETN_PMU			11
->> +
->> +/* CRU-->SOFTRST_CON03 */
->> +#define SRST_PRESETN_DBG		12
->> +#define SRST_POTRESETN_DBG		13
->> +#define SRST_PRESETN_CORE_GRF		14
->> +#define SRST_RESETN_CORE_EMA_DETECT	15
->> +#define SRST_RESETN_REF_PVTPLL_CORE	16
->> +#define SRST_PRESETN_GPIO1		17
->> +#define SRST_DBRESETN_GPIO1		18
->> +
->> +/* CRU-->SOFTRST_CON04 */
->> +#define SRST_ARESETN_CORE_PERI_BIU	19
->> +#define SRST_ARESETN_DSMC		20
->> +#define SRST_PRESETN_DSMC		21
->> +#define SRST_RESETN_FLEXBUS		22
->> +#define SRST_ARESETN_FLEXBUS		23
->> +#define SRST_HRESETN_FLEXBUS		24
->> +#define SRST_ARESETN_DSMC_SLV		25
->> +#define SRST_HRESETN_DSMC_SLV		26
->> +#define SRST_RESETN_DSMC_SLV		27
->> +
->> +/* CRU-->SOFTRST_CON05 */
->> +#define SRST_ARESETN_BUS_BIU		28
->> +#define SRST_HRESETN_BUS_BIU		29
->> +#define SRST_PRESETN_BUS_BIU		30
->> +#define SRST_ARESETN_SYSRAM		31
->> +#define SRST_HRESETN_SYSRAM		32
->> +#define SRST_ARESETN_DMAC0		33
->> +#define SRST_ARESETN_DMAC1		34
->> +#define SRST_HRESETN_M0			35
->> +#define SRST_RESETN_M0_JTAG		36
->> +#define SRST_HRESETN_CRYPTO		37
-> Is there a reason why this (and the RV1126B) reset names now include the
-> RESETN name in all reset constant?
->
-> For RK3528 and prior mainline SoCs the RESETN part of the name has been
-> striped from the constant, suggest we also strip the RESETN part for
-> RK3506 and RV1126B for consistency with other RK SoCs.
+I think this belongs in net-next.. Fail safe is not really a bug fix.
+I'm slightly worried we're missing a corner case and will cause
+timeouts to get printed for someone's config.
 
-The current practice is to separate the reset id from the clk id.
+> +static void veth_tx_timeout(struct net_device *dev, unsigned int txqueue)
+> +{
+> +	struct netdev_queue *txq =3D netdev_get_tx_queue(dev, txqueue);
+> +
+> +	netdev_err(dev, "veth backpressure stalled(n:%ld) TXQ(%u) re-enable\n",
+> +		   atomic_long_read(&txq->trans_timeout), txqueue);
 
-Follow with others RK socs(RK3528、RK3588、RK3576.....)
->
-> Regards,
-> Jonas
->
-> [snip]
->
--- 
-张晴
-瑞芯微电子股份有限公司
-Rockchip Electronics Co.,Ltd
-地址：福建省福州市铜盘路软件大道89号软件园A区21号楼
-Add:No.21 Building, A District, No.89 Software Boulevard Fuzhou, Fujian 350003, P.R.China
-Tel:+86-0591-83991906-8601
-邮编：350003
-E-mail:elaine.zhang@rock-chips.com
-****************************************************************************
-保密提示：本邮件及其附件含有机密信息，仅发送给本邮件所指特定收件人。若非该特定收件人，请勿复制、使用或披露本邮件的任何内容。若误收本邮件，请从系统中永久性删除本邮件及所有附件，并以回复邮件或其他方式即刻告知发件人。福州瑞芯微电子有限公司拥有本邮件信息的著作权及解释权，禁止任何未经授权许可的侵权行为。
+If you think the trans_timeout is useful, let's add it to the message
+core prints? And then we can make this msg just veth specific, I don't
+think we should be repeating what core already printed.
 
-IMPORTANT NOTICE: This email is from Fuzhou Rockchip Electronics Co., Ltd .The contents of this email and any attachments may contain information that is privileged, confidential and/or exempt from disclosure under applicable law and relevant NDA. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information is STRICTLY PROHIBITED. Please immediately contact the sender as soon as possible and destroy the material in its entirety in any format. Thank you.
-
-****************************************************************************
+> +	netif_tx_wake_queue(txq);
+> +}
+> +
+>  static int veth_open(struct net_device *dev)
+>  {
+>  	struct veth_priv *priv =3D netdev_priv(dev);
+> @@ -1711,6 +1723,7 @@ static const struct net_device_ops veth_netdev_ops =
+=3D {
+>  	.ndo_bpf		=3D veth_xdp,
+>  	.ndo_xdp_xmit		=3D veth_ndo_xdp_xmit,
+>  	.ndo_get_peer_dev	=3D veth_peer_dev,
+> +	.ndo_tx_timeout		=3D veth_tx_timeout,
+>  };
+> =20
+>  static const struct xdp_metadata_ops veth_xdp_metadata_ops =3D {
+> @@ -1749,6 +1762,7 @@ static void veth_setup(struct net_device *dev)
+>  	dev->priv_destructor =3D veth_dev_free;
+>  	dev->pcpu_stat_type =3D NETDEV_PCPU_STAT_TSTATS;
+>  	dev->max_mtu =3D ETH_MAX_MTU;
+> +	dev->watchdog_timeo =3D msecs_to_jiffies(5000);
+> =20
+>  	dev->hw_features =3D VETH_FEATURES;
+>  	dev->hw_enc_features =3D VETH_FEATURES;
+>=20
+>=20
 
 
