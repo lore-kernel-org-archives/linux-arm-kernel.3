@@ -4,160 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB68CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786ADCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 13:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=; b=LHKsdow+bAHP+EDfwEONbNDXa+
-	e7V4/30n1WS7EqvWobtDkrZs7XkbkKTPCgN7xRyvhr1/XsnjwpmXECbLmZYUsLYrB98GZ3MxrmBBH
-	wsLmE/5MLnJ8gwhH9mu0ciuLMvjGnUJqynAXT9VVxPtC8WkOx4erEKiTj4fmW9b+s1Lc/g24SODd5
-	tQX38b0E+5chlf9/RWn0XzTpUJdq5arZcBksu88llBJGSA3k3B88wYTHJZPRSia8kGqY1WeOviFyf
-	fkDcuHgxxsu9bpQbPOYxdSyU1/Q3lICHVhe+O7Ap93r/bxFVlbBYo1IEMgl0sLtPZtu295KwdsMoc
-	rV+6odiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/N0zytyf9GWg2MCOYMZ3KiEnbTtu2OLzkkLJO68YSF4=; b=MYtKOHar00NUW2bs2D5stu5XVM
+	4pm+dSETCrUaoz6UtxbYmqxBuDuDHO5QllVWV7ZvXSQhvbf7d+Z1NXrPpHcOZyxROwyNVItOrfiHb
+	f9qt5NwSVVibJ+17IwhWNUeGGzdBva8wLTCMj0YLVg/0MtAhaxIugP+GEDOpXSUcWVfmkQkHy/G3E
+	qL3NtNdLKWbqiH5ZFbYol3zxhBYX3f46SUpJFUUkb+uLKfFlOtMnNuf0LDvBZVkktHxb+hBWHJFti
+	u34oDLNC3BDxqHpZoM6WxabHnuXztVpVi0zvPEVR555prYITpYEkgvm/qCbcISEVcrzPeN+m8vUTo
+	UGa82vUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMqI-0000000HQqt-0Vcc;
-	Fri, 07 Nov 2025 13:49:30 +0000
-Received: from mail-northeuropeazon11010056.outbound.protection.outlook.com ([52.101.84.56] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHMqG-0000000HQq2-13Ru
+	id 1vHMx4-0000000HRNX-0sty;
+	Fri, 07 Nov 2025 13:56:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHMx1-0000000HRN9-2rNq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 13:49:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=agxKUwNUmpy0e82iyEknNIirOe5ra9Dh6yFphdmK44CxChfzlZ9pWYwlYlgULi9jHtQt96uJMScBnNckMAXkSFzI6iJjLfotXcH0W+J6wZoA63Rx1CbPL8almmeXgfdBiivd/wmh6t4wT/5Nh39U8gjF2xTmmbdziBF6VJiq0a+KYtyrcWMwKNH5MFGyNGFlz0huKCiD0kD6gin/e4HFghIzZYFjqGT2reotxPCzCHaILfNqbL4Os3KbYLLOdbIOun5rF9a9hVRSvqNrt3+InMp/9o3eqcql9eBuhAVbn01ldbAcQzkEu2VSlb1/KRfvMyWP80M5RAijWgCiTHIbCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=;
- b=NhcH0YdOxT8wTIpWdtbsjgmtEVY9I1yx4sbi/8W4eg3ltPQyjVR3a3DSfWXz6AnxwPTiDnQvFOlJgKjLdT/rtSsBWASZlnsxAeQi2fJiFHyO1yKwEAI7M9UirnFu0XiPnKWHfAFZroDDDNbzFRjdqpztsLev9ciLzjJhtHG3uqjNwI7ArAGEfmO5Sw25RV8ceM5gNfPcVaa0fMvc+fIMaC9c6jqF347gKj/QL93RAr8vK4e7kTl6SEE0J+JxPWWidrvmZwum+hfMdFWxzisCjnNqisZO3FhRu8vNdcoaENUYWtdoEucPzMWREdpn9cCcG7hwQBbuPy50aLtXFxLrGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4BdVlvxhGlVnRXtQcVzaOSTinLPPLBtr52U6+tCOpSw=;
- b=ksbk2fHnsPTHP8rhPO0LQia0ryzkTQSVpW3LEyxlyHCDWwrfoCnyI62WSR83l6hlW3amhlARZEq1qdKDmqrGvgo+hxheySSXBZ+6pyKghjlDfYkJm40PeceYUbOf/+E+N17F/SUOZKXsu0HZZuKb4bXhg6ucz04yFYxZt8As2zzcDpN4cem5eSq549P9ndIJtVufawdaNin8VPmEVghIv98vxM/5baUuSEMfpJus3mm7L4Ogw94mKh/050Wpidcsq/VC93X3z4YYMT61wHBHseGGVHmesZqn4OAoyVFzece/m3oXj2bZ9ysAiucAkmv2TROfToejaq8XSwS9OvYpxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PR3PR04MB7420.eurprd04.prod.outlook.com (2603:10a6:102:93::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Fri, 7 Nov
- 2025 13:49:19 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.010; Fri, 7 Nov 2025
- 13:49:19 +0000
-Date: Fri, 7 Nov 2025 21:49:58 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/5] remoteproc: imx_rproc: Add support for System
- Manager API
-Message-ID: <aQ35BvxIwMetA5fm@shlinux89>
-References: <20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com>
- <20251031-imx95-rproc-2025-10-31-v2-4-758b2e547a55@nxp.com>
- <CAEnQRZC8PTbzNM056WUSR-kYqdf4Sgkr88z3S87ZFk+rc=q3=Q@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAEnQRZC8PTbzNM056WUSR-kYqdf4Sgkr88z3S87ZFk+rc=q3=Q@mail.gmail.com>
-X-ClientProxiedBy: SG2PR01CA0184.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 07 Nov 2025 13:56:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F05461515;
+	Fri,  7 Nov 2025 05:56:18 -0800 (PST)
+Received: from [10.57.86.134] (unknown [10.57.86.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 235F03F66E;
+	Fri,  7 Nov 2025 05:56:22 -0800 (PST)
+Message-ID: <6a9c846f-22b6-4d5f-81dc-6cdcd4905952@arm.com>
+Date: Fri, 7 Nov 2025 13:56:20 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7420:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b28fea7-89a8-404d-ae50-08de1e0472e7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nbdvnwNSakdQqTqrIkB4J9jbKnQ1ten0+eqgGKhYlPofDiPTIP3hzEafOrII?=
- =?us-ascii?Q?UKJNTea5MU5n1lyYHu5SfCKYEedXq5ixm5PUiIlbtbFyL55LyVNQ8oVUiqmE?=
- =?us-ascii?Q?BliaDKtN4JFLQANBzVjOFY6qR4tjRkmJ18RCltIfgwSBMjAwcmcyffhCxlLW?=
- =?us-ascii?Q?v/KdJMIVfMOzK7EG6qjKRm02jatIJItdT3/HlUHhHQLKZdyZv47JsJjKRumg?=
- =?us-ascii?Q?XXFFDCjmP1urFlhT6lrRNUzef7Yvk5h5sq+k0Ud92FOYE/GmCBewGt+8Z1Q/?=
- =?us-ascii?Q?IL3wWQMy5mzP7UY4RlCbH5pmv9eezJ8BekBbVnzE6QA1lF7DSVoyuohKxjsU?=
- =?us-ascii?Q?Xd9G3Gux847bRruHaNL8b9SqJfB6naXhksMz07Sy/o3RvIypGB5LD4oOB1Q5?=
- =?us-ascii?Q?MGEpzKkxc5ccHZv3oUODciqCZFdSD2r0kmLp96Nox/ipTA/V//3qVZg8qU4N?=
- =?us-ascii?Q?B7OBw46Q+MI0u3+Ip2Z8gx6v4feGD6PwY++tGe5Hcjl+CtlcThGitmcnGWFJ?=
- =?us-ascii?Q?crInz66o+CKlpAGBhW1i61spucGuu+BsNEA5xfTFbJY7rN7p5yVdyllYyH8D?=
- =?us-ascii?Q?6CFXVcSZsBCEyn6YOxrm7Dg6q3MNDcjsVwe8T1y4NnJwZe9we2OeOxALBbCx?=
- =?us-ascii?Q?umb2eY2/Z168/NTxD22JHbSxtZsXgUpX9RbWkvN+kTMkkJWN46lzojVS4n5U?=
- =?us-ascii?Q?DlgshIRQRCfMtnRK76FNs8nXuMc1Ek8QeSxItDCKun1RZu87iqKyiX1NxDf5?=
- =?us-ascii?Q?YLpyuVKci1PLU0I4c0mWeMwgCySfQGUqo+hhOyK9oFn2nhMVCLhAOgk19txQ?=
- =?us-ascii?Q?nE4exGKKNOFdk7eEEZ3gPaglE59TseMpRRea/VUnY4dWJAyiaAGB88kJ02Fn?=
- =?us-ascii?Q?I5nSfBjfV+TeDgRUcf1QgYSgaojIUcaAJ0HDx8DB4ZVp0h2cX9tkVrVBthdP?=
- =?us-ascii?Q?DH24dIoE6mL/UW9zdRRUhG0aHw+nCy1GDDxFeT01WU3enrEKUNKd2V3fBmjA?=
- =?us-ascii?Q?jHA53dcGf5UyEysHtqL4/+KDtDlfqwAeVL0KRlQwBHsM9jpnaXvfFMItYOIQ?=
- =?us-ascii?Q?f3aWHCV33YFKw1XqQ6BiFFtjsHfHYP099BEfldvZBHB1LvRifEwpGCXptnKq?=
- =?us-ascii?Q?vZ+PHM1O70ogndiZBhJgGRgd7lBE/3B7nxcFJnkthz94IDomV9VRSP88jhbK?=
- =?us-ascii?Q?7NOOxL22SKHTJKpinE8V5xT2i879UBYNLddO4jsZomgV2Ka3Mja11IZqsloB?=
- =?us-ascii?Q?+6ZsU380PMreAAwwzQp5R2G6qw0yHBUG+e17qWCT+yfNIWRvcs71K8umGMqZ?=
- =?us-ascii?Q?y6wt7LjLLOgNAqDvdW1/jh7G11DY4E//j7y/0ipV/NZuIZv25pc+i1xAAMV6?=
- =?us-ascii?Q?scwVcd+p5uKumpIjxb0fDaXNkhq+TVoNTfdiHbt4+2wgF3oa9Za3BBjMqhcV?=
- =?us-ascii?Q?gaJiBbZ9nc0Y65P0D3lJGKqf4CWFCsLADz2duHpaGCYMmsJmOsR830bSEZbu?=
- =?us-ascii?Q?5CJjkYJ2SOIVDGswy+5kJlMQBnu2e1YM4trO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pNKvJ2kgy+4rrwVFiMQL0WuHG94P+pd+EKgARbhJE5gfgap4wKn5980clJGH?=
- =?us-ascii?Q?T8xx1OEwSRViwVFBV/lXWKhVyDgWZ6COTAyw3D6kocfyU3bGlvF0oXXAUyu+?=
- =?us-ascii?Q?aGmtLVc3Y9ME+De7wrxIcdwxyF+94GAhrie5PkZQnmB1/gpwVTC+tvemk66e?=
- =?us-ascii?Q?69J63LiN60ex/OIpzeXyaPP+4mtPq4bfAlT9kaSsv6EvrYonjKpjFC7Ra+pi?=
- =?us-ascii?Q?L6ZKd4MP6H0PjBAl50OjsmK4RjptsHU1NafSR6z1IO/2BU7PwZpCPfremhkz?=
- =?us-ascii?Q?zd19p89t1Dy/xaD8NX7ut/WoMFcFCb8YR7azNNfLLAFu/VQ4bmcEoelGJadY?=
- =?us-ascii?Q?mFL/2DERFwPsTlbjv5RWeLad5IkjvrlXmU+IW20ttTcWQdytBw4zMdw0O4Ib?=
- =?us-ascii?Q?BHD1qX5uemU6A97phYnbhrTi5hw8Prv7zASqzQ5SpjZDeGYIKd60IJ5rFVt4?=
- =?us-ascii?Q?1GZgkTT3RR64N8UMCEbaetd9kx9q5g+OgYS1lhB6Y1aFLGWPEgm9vQlDCbmY?=
- =?us-ascii?Q?Pgmq/vj8p7M6B9UUeAuzxNG6xEcwfZoJw2orkIMF3I0CDhbVRojVtxm8HJ42?=
- =?us-ascii?Q?Yfq/vIFe/By+CTPpCMLdRIIW/njyr3Ks6F8MzWaauNvjs0j0tnRoZ88XJh1Z?=
- =?us-ascii?Q?Liw1IsQt1WX3gykFGJykzVMvMSaxMyvaLcN5a5Gi2O6mLUsQFm64Q5u49hdK?=
- =?us-ascii?Q?B95YkaNv5uBPn3EAO7+EknWR2825QI4R43J6E5BBEzSsAPOxLYhBOJkpHGKa?=
- =?us-ascii?Q?vI9UwRLN5vSjRxkhz9UY9wtLXWW4gQ5rMiAQtvu6+Ihj/zKgz3uZd+IVasud?=
- =?us-ascii?Q?X++TY1mTEayDrfR8FgFHx3InHJrpMzqFkEXCzcl6X+ovoVLYvwEfQC8ht4Rs?=
- =?us-ascii?Q?BVx53iwbMRBRt60lwlNo9q+BpPqB+vZEDsP6r5dB03hOWzr8gH6ejv159gye?=
- =?us-ascii?Q?E/s7RZZkDO93m0ZkgGgIOn7Q/xHnqI/AUYXingahyv2YYXbKtn6VT4fUEFhQ?=
- =?us-ascii?Q?M8k2rpw3WVI2C1z7pSDKW05o7Dnz28AJZqLYLHkeJnflQey9rHYrsvgNKVLc?=
- =?us-ascii?Q?VtuYBQIrP3NukyssTagW/GNMPQWC5kayxfBms+7s5t7hmE8YPBSpTPSOV+ix?=
- =?us-ascii?Q?pCCLA0Zf6tdnvS8f8MrdtYmH9J/NlWenXk9CFzVzlYdPtPaU8sodEWB8mk9R?=
- =?us-ascii?Q?OA/W8tAxJ3B0ctwNZk//67eJoWDLN0AXwqBJOwE3Ptnmyw+o21FkQXVRyw+P?=
- =?us-ascii?Q?G/ixsNL0pvqEqQ/s0QOMIe7OoBea6EJzDy4ebVqcCAxK8b3EJ3S1unGTp7Jp?=
- =?us-ascii?Q?vEuIrJLU5/xKq/qtd340m6dXmRPFD3UCxvTBLcY6z7MGU8grQIOqufs+g2Iq?=
- =?us-ascii?Q?ZgG3hj1QGH1OvyPlxahwJbKDuKM1s9G04zmHhIcpzyEi9vvNCnx8BS9Hsj7g?=
- =?us-ascii?Q?XCEM/7YIW/xk8RsdIB0jQtFrgvbJEeYk9ad4/j8Ht865ySBroJpAnuTo9TxD?=
- =?us-ascii?Q?o/p8zVZvjGBuMiojazJSJkohLey9xj4p6vL89c9b0lYBRusRttEQ87vBFWd/?=
- =?us-ascii?Q?yxl0SFRU68TDv70G66rSlwBWBeGQtlqEuaLli+I5?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b28fea7-89a8-404d-ae50-08de1e0472e7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2025 13:49:19.2701
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QS8VyRcim40y9gvJDQYknWD75hJTQDv/7rR7TAaAk8s4iFbNsq8LU32zpnN7Sx10D0Gekg4EECMpxjRcPJMe8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7420
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-6-kevin.brodsky@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20251029100909.3381140-6-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_054928_446416_C9EFF438 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20251107_055627_813228_4AC8478B 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,249 +85,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On 29/10/2025 10:09, Kevin Brodsky wrote:
+> Architectures currently opt in for implementing lazy_mmu helpers by
+> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
+> 
+> In preparation for introducing a generic lazy_mmu layer that will
+> require storage in task_struct, let's switch to a cleaner approach:
+> instead of defining a macro, select a CONFIG option.
+> 
+> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
+> arch select it when it implements lazy_mmu helpers.
+> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
+> relies on the new CONFIG instead.
+> 
+> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
+> selected. This creates some complications in arch/x86/boot/, because
+> a few files manually undefine PARAVIRT* options. As a result
+> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
+> breaks the build as <linux/pgtable.h> only defines them if
+> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
+> way out of this - let's just undefine that new CONFIG too.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/arm64/Kconfig                                 | 1 +
+>  arch/arm64/include/asm/pgtable.h                   | 1 -
+>  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
+>  arch/powerpc/platforms/Kconfig.cputype             | 1 +
+>  arch/sparc/Kconfig                                 | 1 +
+>  arch/sparc/include/asm/tlbflush_64.h               | 2 --
+>  arch/x86/Kconfig                                   | 1 +
+>  arch/x86/boot/compressed/misc.h                    | 1 +
+>  arch/x86/boot/startup/sme.c                        | 1 +
+>  arch/x86/include/asm/paravirt.h                    | 1 -
+>  include/linux/pgtable.h                            | 2 +-
+>  mm/Kconfig                                         | 3 +++
+>  12 files changed, 10 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 6663ffd23f25..e6bf5c7311b5 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -122,6 +122,7 @@ config ARM64
+>  	select ARCH_WANTS_NO_INSTR
+>  	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
+>  	select ARCH_HAS_UBSAN
+> +	select ARCH_HAS_LAZY_MMU_MODE
 
-On Fri, Nov 07, 2025 at 11:10:15AM +0200, Daniel Baluta wrote:
->> There are three cases for M7:
->
->Here we should specify how M7 gets into these three situations, is it
->via the ATF configuration?
+nit: This list is mostly in alphabetical order. Further up the list there are a
+lot of ARCH_HAS_* entries. Perhaps move it to the correct position in that lot?
+Then ARCH_HAS_UBSAN stays out of order on its own.
 
-It is not ATF configuration. This is configured in System Manager.
+Otherwise, all looks reasonable to me:
 
->
->e.g
->
->Depending on ATF configuration, M7 can be used as follows:
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-I will use:
-"Depending on System Manager configuration, M7 can be used as follows:"
-
->
->>  (1) M7 in a separate Logical Machine(LM) that Linux can't control it.
->
->Here we should make it clear from who is M7 separate.
->
->e.g
->
->(1) M7 in a separate Logical Machine (LM) from A55 cores, that Linux
->can't control
->
->>  (2) M7 in a separate Logical Machine that Linux can control it using
->>      LMM protocol
->
->(2) M7 in a separate LM from A55 cores that Linux can control using
->LMM protocol.
->
->>  (3) M7 runs in same Logical Machine as A55, so Linux can control it
->>      using CPU protocol
->>
->
->
->> So extend the driver to using LMM and CPU protocol to manage the M7 core.
->
->
->>  - Compare linux LM ID(got using scmi_imx_lmm_info) and M7 LM ID(the ID
->>    is fixed as 1 in SM firmware if M7 is in a seprate LM),
->
->s/seprate/separate
->
->One question here: Is it OK to call scmi_imx_lmm_info no matter the
->context are we in?
-
-Yes. With LMM_ID_DISCOVER as parameter, this API will not fail in permission
-check. It will always return current LM ID.
-
->
->If this call fails is it safe to assume that we are in the case (1)
->describe above? E.g Linux
->cannot reach the M7 core through LMM protocol  or CPU protocol?
-
-Sadly no. See above.
-
->
->
->>
-...
->> +static const struct imx_rproc_plat_ops imx_rproc_ops_sm = {
->
->I think this should be called imx_rproc_ops_sm_lmm.
-
-ok.
-
->
->> +       .detect_mode    = imx_rproc_sm_detect_mode,
->> +       .prepare        = imx_rproc_sm_lmm_prepare,
->> +       .start          = imx_rproc_sm_lmm_start,
->> +       .stop           = imx_rproc_sm_lmm_stop,
->> +};
->> +
-...
->> +       /*
->> +        * Use power on to do permission check. If rproc is in different LM,
->> +        * and linux has permission to handle the LM, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
->> +        */
->> +       ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
->
->I wonder if there is a better call to check if Linux has permissions
->to handle to other LMM. This is a bit
->strange but if no other option we can go witi it.
-
-Per doc drivers/firmware/arm_scmi/vendors/imx95.rst, this is the only one
-that could be used for runtime detection.
-
->> +       if (ret != 0) {
->> +               if (ret == -EACCES) {
->> +                       /* Not under Linux Control, so only do IPC between rproc and Linux */
->> +                       dev_info(dev, "lmm(%d) not under Linux Control\n", dcfg->lmid);
->
->Would this be an error? So if Linux cannot interact with the other LMM
->via LMM API how IPC is possible?
->via CPU protocol?
-
-When M7 is in a different LM, this means it is booted by ROM/SM, so
-there is only IPC between M7 and Linux.
-
->
->Maybe we need a better explanation here.
-
-"RPROC LM is booted before Linux and not under Linux Control, so only
-do IPC between RPROC and Linux, not return failure"
-
->
->
->> +                       return 0;
->> +               }
->> +       /* else shutdown the LM to save power */
-
-...
-
->> +       ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
->> +       if (ret) {
->> +               dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
->
->do we care to restore the flags field here on case of error?
-
-keep or clear, both should be fine. But restore the flags should be better
-code practice. I will add that.
-
->
->> +               return ret;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static int imx_rproc_sm_detect_mode(struct rproc *rproc)
->> +{
->
-><snip>
->
->> +
->> +       ret = scmi_imx_cpu_started(dcfg->cpuid, &started);
->
->Is this CPU protocol call?
-
-Yes.
-
->So we can still use this even if Host core
->and remote core are in different LMMs?
-
-Yes. SM supports this.
-
->
->> +       if (ret) {
->> +               dev_err(dev, "Failed to detect cpu(%d) status: %d\n", dcfg->cpuid, ret);
->> +               return ret;
->> +       }
->> +
->> +       if (started)
->> +               priv->rproc->state = RPROC_DETACHED;
->> +
->> +       /* Get current Linux Logical Machine ID */
->> +       ret = scmi_imx_lmm_info(LMM_ID_DISCOVER, &info);
->> +       if (ret) {
->> +               dev_err(dev, "Failed to get current LMM ID err: %d\n", ret);
->> +               return ret;
->> +       }
->> +
->> +       /*
->> +        * Check whether remote processor is in same Logical Machine as Linux.
->
->Is in same -> is in the same. We need to always try to be consistent.
->
->Remote processor is a hardware part while Linux is a software part.
->
->So always use the same object types: e.g /*check whether remote
->processor is in the same LM as host core (running Linux) */
->
->> +        * If yes, use CPU protocol API to manage remote processor.
->> +        * If no, use Logical Machine API to manage remote processor.
->> +        */
->> +       is_cpu_ops = dcfg->lmid == info.lmid;
->
->No need for is_cpu_ops.
->
->Just go if(dcfg->lmid == info.lmid)
-
-ok.
-
->
->
->> +
->> +       if (is_cpu_ops) {
->> +               priv->ops = &imx_rproc_ops_sm_cpu;
->> +               dev_info(dev, "Using CPU Protocol OPS\n");
->
->I'm not sure we want to go with dev_info here. It it pollute the log
->and at least confuse people.
->But if you feel a strong need for this you can keep it.
->
->Also, shouldn't be here an else case where priv->ops gets set to LMM ops?
-
-Frank has same comment :)
-This LMM ops is assigned to dcfg->ops, see patch 5.
-
-But since both of you asked, adding else seems make it clear.
-
->
->> +               return 0;
->> +       }
->> +
->> +       dev_info(dev, "Using LMM Protocol OPS\n");
->> +
->> +       return imx_rproc_sm_lmm_check(rproc, started);
->
->If this check fails is the info message above still valid? It will
->confuse people.
-
-I prefer to keep the message above, imx_rproc_sm_lmm_check() will
-print out error message if there are any failures.
-
->
-><snip>
->
->> @@ -52,6 +52,9 @@ struct imx_rproc_dcfg {
->>         enum imx_rproc_method           method;
->>         u32                             flags;
->>         const struct imx_rproc_plat_ops *ops;
->> +       /* For System Manager(SM) based SoCs, the IDs are from SM firmware */
->
->Keep here:
->
->/* For System Manager(SM) based SoCs */
->
->Then comment for each of the fields:
->> +       u32                             cpuid; /* TODO.... CPU Id of the remote core? */
->
->> +       u32                             lmid;
->
->But how these fields are set? Are they the cpuid and lmid of the
->remote core or local core (a55)?
-
-Both are for remote core. These fields are hard-coded in System Manager.
-
-Thanks
-Peng
+>  	select ARM_AMBA
+>  	select ARM_ARCH_TIMER
+>  	select ARM_GIC
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 0944e296dd4a..54f8d6bb6f22 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -80,7 +80,6 @@ static inline void queue_pte_barriers(void)
+>  	}
+>  }
+>  
+> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>  static inline void arch_enter_lazy_mmu_mode(void)
+>  {
+>  	/*
+> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> index 7704dbe8e88d..623a8a8b2d0e 100644
+> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+> @@ -24,8 +24,6 @@ DECLARE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
+>  
+>  extern void __flush_tlb_pending(struct ppc64_tlb_batch *batch);
+>  
+> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+> -
+>  static inline void arch_enter_lazy_mmu_mode(void)
+>  {
+>  	struct ppc64_tlb_batch *batch;
+> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
+> index 7b527d18aa5e..2942d57cf59c 100644
+> --- a/arch/powerpc/platforms/Kconfig.cputype
+> +++ b/arch/powerpc/platforms/Kconfig.cputype
+> @@ -93,6 +93,7 @@ config PPC_BOOK3S_64
+>  	select IRQ_WORK
+>  	select PPC_64S_HASH_MMU if !PPC_RADIX_MMU
+>  	select KASAN_VMALLOC if KASAN
+> +	select ARCH_HAS_LAZY_MMU_MODE
+>  
+>  config PPC_BOOK3E_64
+>  	bool "Embedded processors"
+> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+> index a630d373e645..2bad14744ca4 100644
+> --- a/arch/sparc/Kconfig
+> +++ b/arch/sparc/Kconfig
+> @@ -112,6 +112,7 @@ config SPARC64
+>  	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+>  	select ARCH_SUPPORTS_SCHED_SMT if SMP
+>  	select ARCH_SUPPORTS_SCHED_MC  if SMP
+> +	select ARCH_HAS_LAZY_MMU_MODE
+>  
+>  config ARCH_PROC_KCORE_TEXT
+>  	def_bool y
+> diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
+> index 925bb5d7a4e1..4e1036728e2f 100644
+> --- a/arch/sparc/include/asm/tlbflush_64.h
+> +++ b/arch/sparc/include/asm/tlbflush_64.h
+> @@ -39,8 +39,6 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+>  
+>  void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+>  
+> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+> -
+>  void flush_tlb_pending(void);
+>  void arch_enter_lazy_mmu_mode(void);
+>  void arch_flush_lazy_mmu_mode(void);
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index fa3b616af03a..ef4332d720ab 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -804,6 +804,7 @@ config PARAVIRT
+>  config PARAVIRT_XXL
+>  	bool
+>  	depends on X86_64
+> +	select ARCH_HAS_LAZY_MMU_MODE
+>  
+>  config PARAVIRT_DEBUG
+>  	bool "paravirt-ops debugging"
+> diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
+> index db1048621ea2..cdd7f692d9ee 100644
+> --- a/arch/x86/boot/compressed/misc.h
+> +++ b/arch/x86/boot/compressed/misc.h
+> @@ -11,6 +11,7 @@
+>  #undef CONFIG_PARAVIRT
+>  #undef CONFIG_PARAVIRT_XXL
+>  #undef CONFIG_PARAVIRT_SPINLOCKS
+> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  #undef CONFIG_KASAN
+>  #undef CONFIG_KASAN_GENERIC
+>  
+> diff --git a/arch/x86/boot/startup/sme.c b/arch/x86/boot/startup/sme.c
+> index e7ea65f3f1d6..b76a7c95dfe1 100644
+> --- a/arch/x86/boot/startup/sme.c
+> +++ b/arch/x86/boot/startup/sme.c
+> @@ -24,6 +24,7 @@
+>  #undef CONFIG_PARAVIRT
+>  #undef CONFIG_PARAVIRT_XXL
+>  #undef CONFIG_PARAVIRT_SPINLOCKS
+> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  
+>  /*
+>   * This code runs before CPU feature bits are set. By default, the
+> diff --git a/arch/x86/include/asm/paravirt.h b/arch/x86/include/asm/paravirt.h
+> index b5e59a7ba0d0..13f9cd31c8f8 100644
+> --- a/arch/x86/include/asm/paravirt.h
+> +++ b/arch/x86/include/asm/paravirt.h
+> @@ -526,7 +526,6 @@ static inline void arch_end_context_switch(struct task_struct *next)
+>  	PVOP_VCALL1(cpu.end_context_switch, next);
+>  }
+>  
+> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>  static inline void arch_enter_lazy_mmu_mode(void)
+>  {
+>  	PVOP_VCALL0(mmu.lazy_mode.enter);
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 32e8457ad535..9894366e768b 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -231,7 +231,7 @@ static inline int pmd_dirty(pmd_t pmd)
+>   * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
+>   * and the mode cannot be used in interrupt context.
+>   */
+> -#ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+> +#ifndef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  static inline void arch_enter_lazy_mmu_mode(void) {}
+>  static inline void arch_leave_lazy_mmu_mode(void) {}
+>  static inline void arch_flush_lazy_mmu_mode(void) {}
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 0e26f4fc8717..5480c9a1bfb2 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -1372,6 +1372,9 @@ config PT_RECLAIM
+>  config FIND_NORMAL_PAGE
+>  	def_bool n
+>  
+> +config ARCH_HAS_LAZY_MMU_MODE
+> +	bool
+> +
+>  source "mm/damon/Kconfig"
+>  
+>  endmenu
 
 
