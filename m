@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C52FCCF9F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA76CCFA1A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 10:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=No6GwKzJfCCDDPKQIQxrIKzPon7QFA7coiXs9eLOLXY=; b=1LpiWzqh+YJE+ovIJzycPxFzvc
-	f6DK4LdMZkNbmgISnWVPLT2sBXLlL1gV5GBEEXR1fI9TXwYDhzzD3+UHDGgCrwLtQlRauibrB4iZO
-	mY5Mfn1FWkhmkHnqzpOlHD90mupih1TsnCG/dgyIlG5/Nmii2ZOgxvLifgqM3FOuB2UTp7DqkFZgq
-	hJvkLgcr619rMEFnudr23cw9ndTKnJZv7goO4xFWeOnF756sDYy6wPC/U3/y4RRyUZ2Nff9Zy6dE/
-	iFOtq/0dKDWpmpyX/tQQVBvM1ET1d61KVnDyZSwlRLUR8jhh13NTpfMTVHhePg05LKFZYsKIJQuOM
-	9saUrHBQ==;
+	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=; b=kTHhtHkgUnW9fZbgetpsx28Fk0
+	4rFdj5wWsEW6DoyB2FKMFXfoY5ya5wKKQ2r9LPUf3SaLdwj36KvDwZGHRDjn+mag662hPJ23HZeSf
+	Au8aZrmrSycoxqoGNm5ijzLQCAgQ5nBwdXm/Wm2QFdNrnGFuj6xz36STP2tbDjHvJKsk5k2CW3sYt
+	KzDmAJfHEpFgStU6eOBoXN2L7xW9uHjn3qInidtQJ7ETW0VbAnFbmex4o7/2uqJ+FHgP7tn8EAvge
+	Jebql7TRDrccfY1G+qQ1Edu5jl3uAv8LH0hEIt5DlqTg57239Ji+u95EkHClYtu33TzAqwRO9bT39
+	uRLnmrUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJjY-0000000H5An-1qLe;
-	Fri, 07 Nov 2025 10:30:20 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1vHJjY-0000000H5BO-4C7l;
+	Fri, 07 Nov 2025 10:30:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJjR-0000000H54m-3VpB
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vHJjV-0000000H57G-31Q1
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 07 Nov 2025 10:30:17 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b7277324204so97106466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 02:30:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762511412; x=1763116212; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=No6GwKzJfCCDDPKQIQxrIKzPon7QFA7coiXs9eLOLXY=;
-        b=UFzWxWj55mwVFZru2sxnMskUsAD4CacYFLmaNW3a2eJIMtaXpYkzEAaqIWcH1CmueN
-         9hLW0SpKDg2JYzkcKxAhqFNOMP+0kVv9DaT0t5n34zjG5+mj9eamJON9O4cpSCTENeQR
-         0ABNwsBJO3qThBidPnmQxU9schF95tif+RmQx4oMZUqHTdYF2/fd9fjgVCRs1+wS+Cma
-         jdz6CxqbuZ1TS346NdTtnD2SIqKK8RsPZcn/zVLAwumYM9txCc2mgEKH/60JstyaXayj
-         ZX5zmTZ1H/X45XihLfaPj9L7qQ7eKv1LSaRKHlJip/oRofOQgF6SGdpYhxQRB5pxvzjG
-         zsCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762511412; x=1763116212;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=No6GwKzJfCCDDPKQIQxrIKzPon7QFA7coiXs9eLOLXY=;
-        b=sFzzMXaIwpT7f17u59tYuVQVvx6XlH8Xk7vpIm/AmcSC57zkexIf/ctFbRRvu1MlBU
-         OCiJeqL4kB7fC5zo9xhr8vxSazUnJ3OJYE01QiKSzDEMLRJWi5GiuRtDe7WNGjSiHlhH
-         AIp3hycPzgTyXwikM0IiEFUdFirJExbRSmER4VH4rGa9M4llWfL3BLQu+oUfCEz4Ox8f
-         7Zz+bMpUR4rjj4vnTX2xVzeeL0hJysfxwZqdiL25qX4T4vbUX4jk9QLxmQ+STihuRjlc
-         +wwDtELv449Cvsw9BYAQkDvG48BYRaR2pS94s79VCnSz3VKyxh3LsH2xheqgtyJXtTdm
-         uhxw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4VDYcmGFn0isAl0YlrAVfkIrBsaK9W2YkWq0DExLwVTKVnEUaNMNaQPuKvJtPjDfXuYlbBLVt/mwrUlN0V0F/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRghoJZFRVp+owuBuBvOw6GthB00HaMGAj0Dez62AlEIXDr3Jl
-	ouqENCYL4SKjMt1nn9lff7BDO8fvLmjwkY9A9oW1Qs8w96jkDQIVBDkShpdo1FXwHYO5u6TbJWS
-	7yKoGbKmlp0QiARtHRCata+H1MmlUkPckjciUYSuf
-X-Gm-Gg: ASbGncs9myfrh79teFVvArdA9f/02ARrBnVfrfya7YMIj+iJEImHcNgUs/ymfHmZg/g
-	k8gHFAtJ9Y0IyOho7abeiP3tRlkA9I1+fT3ITWjEOvUCLpwOV5kavBvXw9c7g8+m6u7SshFYK9t
-	n09Lf1757ZFpEThl6nZN7TWJc8egDSvFEJxRjwX5Z7F9upoAc9QHkifiFLxOgyBQoj+tm/OE49T
-	QMz6f+kxQrCccZYDNBe0Qe236yoOeHrAw2jO1lQZSZt2uVNIWrZ5fUfotXjMfaRdQpUsOAkdnnH
-	yRCIxi7UfpgbuDZv0Xt/OrtIqw==
-X-Google-Smtp-Source: AGHT+IG30tRXexX+8frHnHjuclcK9+qrxNelFybJrdVL6a5BhtuhdUQJ6TpMRhSTiHHcagf2YAhFzsm/Fo0hqvK7D9E=
-X-Received: by 2002:a17:907:60cc:b0:b72:5f93:2959 with SMTP id
- a640c23a62f3a-b72c0ad3420mr268316166b.17.1762511411448; Fri, 07 Nov 2025
- 02:30:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=; b=kNt5V4eohbNmYDb1i+xlYbbVFn
+	PbwuleaZyktlyOYnyHsGBFwLXDihYQR8TXLv9IF7lhQe2FxkaVss3LqSXAMp7RrCLJ2U9aILUrlFd
+	GQCCPa0b6uRmHzD780aUH87HU4VLFDW/TnnQRUltyXMku2uLIO0r12GogGXoiJRA6JpI4Vw7H3tWu
+	lsU5nfK3nySqPBj3NnicmjGUisTVSE+oJpoa/bHw+HamgxLWJnqVzY9BkbrwyLxh0MauI+mqOKuD6
+	t+iMytjdC6zGJmoPOjI2sjM44H1Y1VGcFkRuVL0R4ScL4MhlWqNmg7Zh8cmNAyAYtWS5uxpcYy4tE
+	aXmHQkQw==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHIrk-00000006BG5-0E1h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Nov 2025 09:34:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EBB2944292;
+	Fri,  7 Nov 2025 10:29:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
+	t=1762511391;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BmMJrFZ2dloB0VnzDAR4oKmr7EZY45/bU42OgpgHP8U=;
+	b=aF213VrYZkaoeI7ntvYcD4qfJdxve7h8TfI/ZQPBx8nKe6RMTzyJDL7YNjzYERDBSI9hM2
+	89bAY58o3CKalW6GEyH3bvjkuYPEP8nY9ZNuA4P14gs6XX2NboXsiyMHB/ajxFh9I30oy2
+	qPtOq0H0jPJ/MZmvSE77FX72bQSy7ft09NnOYVfErakBaX1orsOjtxhHFIlvp15Yi+yqID
+	hh/ZoF45KAayWtgQ1zQyqIBmeliHmd1ryxNavIilp39PVrYM2+CnJdLkliF+NwxnPSUOHG
+	OHG+XJC0N3J0Bcad1SEeVJ0NavHbHNAY18sCnuqgBDhlRK7mCW792VqY9kjhtw==
+From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Date: Fri, 07 Nov 2025 11:29:44 +0100
+Subject: [PATCH v2 2/2] m68k: coldfire: Add RNG support for MCF54418
 MIME-Version: 1.0
-References: <20251017185645.26604-1-james.morse@arm.com> <20251017185645.26604-27-james.morse@arm.com>
- <CALPaoCjJXHD+HgFizzvNEvBorbUcJLTngLb7UJy-uMdybhCfrg@mail.gmail.com> <9e2f912d-2a2e-49ed-b0ab-4286fe94e145@arm.com>
-In-Reply-To: <9e2f912d-2a2e-49ed-b0ab-4286fe94e145@arm.com>
-From: Peter Newman <peternewman@google.com>
-Date: Fri, 7 Nov 2025 11:30:00 +0100
-X-Gm-Features: AWmQ_bmT_xoyb-k1HQ7hjOxxQERbHJYcErtYbLBLJOgCOM__r3wTvrdClo_rpzo
-Message-ID: <CALPaoCg7ZeQOgkeaPQ6ERKtaJqQ_n3xQUrK=qxi01CnuTjL4PA@mail.gmail.com>
-Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
-	D Scott Phillips OS <scott@os.amperecomputing.com>, carl@os.amperecomputing.com, 
-	lcherian@marvell.com, bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com, 
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>, 
-	Xin Hao <xhao@linux.alibaba.com>, dfustini@baylibre.com, amitsinght@marvell.com, 
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com, baisheng.gao@unisoc.com, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring <robh@kernel.org>, 
-	Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>, Gavin Shan <gshan@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
+References: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org>
+In-Reply-To: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org>
+To: Greg Ungerer <gerg@linux-m68k.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Olivia Mackall <olivia@selenic.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762511384; l=5529;
+ i=jeanmichel.hautbois@yoseli.org; s=20240925; h=from:subject:message-id;
+ bh=PSrSWiIVbpn6czV4JmjiWTzr+3TkryO0Cfx8dgQT/XY=;
+ b=EUGS7OCZpt1eCI5kkVQK7/hSxyPZTuOtSCCY8VQLiT6XtgYTF117WBjImk+M0Eq9+8h1vy5jQ
+ djb/Z7vDqjKBY/IyELs3wLWOxX4d0Bm5RlRHb3mk9cKjwsc2LtYrw4P
+X-Developer-Key: i=jeanmichel.hautbois@yoseli.org; a=ed25519;
+ pk=MsMTVmoV69wLIlSkHlFoACIMVNQFyvJzvsJSQsn/kq4=
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddukeelgeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomheplfgvrghnqdfoihgthhgvlhcujfgruhhtsghoihhsuceojhgvrghnmhhitghhvghlrdhhrghuthgsohhisheshihoshgvlhhirdhorhhgqeenucggtffrrghtthgvrhhnpeffjefhtdelhffhheevheeutefghfefteeluedvudfhgeegteeitddtuefhhfelteenucfkphepvdgrtddumegvtdgrmeduieelmeejudegtdemkegtrgdtmedukegtjeemhegvfhgtmegtsghfvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemudeileemjedugedtmeektggrtdemudektgejmeehvghftgemtggsfhdvpdhhvghlohephihoshgvlhhiqdihohgtthhordihohhsvghlihdrohhrghdpmhgrihhlfhhrohhmpehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdpnhgspghrtghpthhtohepudegpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqtghrhihpthhosehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehgvggvrhhtsehlihhnuhigqdhmieekkhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehgvghrgheslhhinhhugidqmheikehkrdhorhhg
+X-GND-Sasl: jeanmichel.hautbois@yoseli.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_023013_944603_C5222105 
-X-CRM114-Status: GOOD (  41.63  )
+X-CRM114-CacheID: sfid-20251107_093444_351197_F28EB91C 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,271 +106,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben
+Add platform device support for the MCF54418 RNGB hardware with clock
+enabled at platform initialization.
 
-On Thu, Nov 6, 2025 at 5:41=E2=80=AFPM Ben Horgan <ben.horgan@arm.com> wrot=
-e:
->
-> Hi Peter,
->
-> On 11/6/25 16:15, Peter Newman wrote:
-> > Hi Ben (and James),
-> >
-> > On Fri, Oct 17, 2025 at 8:59=E2=80=AFPM James Morse <james.morse@arm.co=
-m> wrote:
-> >>
-> >> From: Rohit Mathew <rohit.mathew@arm.com>
-> >>
-> >> Now that the larger counter sizes are probed, make use of them.
-> >>
-> >> Callers of mpam_msmon_read() may not know (or care!) about the differe=
-nt
-> >> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
-> >> driver pick the counter to use.
-> >>
-> >> Only 32bit accesses to the MSC are required to be supported by the
-> >> spec, but these registers are 64bits. The lower half may overflow
-> >> into the higher half between two 32bit reads. To avoid this, use
-> >> a helper that reads the top half multiple times to check for overflow.
-> >>
-> >> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
-> >> [morse: merged multiple patches from Rohit, added explicit counter sel=
-ection ]
-> >> Signed-off-by: James Morse <james.morse@arm.com>
-> >> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> >> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> >> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> >> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> >> ---
-> >> Changes since v2:
-> >>  * Removed mpam_feat_msmon_mbwu as a top-level bit for explicit 31bit =
-counter
-> >>    selection.
-> >>  * Allow callers of mpam_msmon_read() to specify mpam_feat_msmon_mbwu =
-and have
-> >>    the driver pick a supported counter size.
-> >>  * Rephrased commit message.
-> >>
-> >> Changes since v1:
-> >>  * Only clear OFLOW_STATUS_L on MBWU counters.
-> >>
-> >> Changes since RFC:
-> >>  * Commit message wrangling.
-> >>  * Refer to 31 bit counters as opposed to 32 bit (registers).
-> >> ---
-> >>  drivers/resctrl/mpam_devices.c | 134 ++++++++++++++++++++++++++++----=
--
-> >>  1 file changed, 116 insertions(+), 18 deletions(-)
-> >>
-> >> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_dev=
-ices.c
-> >> index f4d07234ce10..c207a6d2832c 100644
-> >> --- a/drivers/resctrl/mpam_devices.c
-> >> +++ b/drivers/resctrl/mpam_devices.c
-> >> @@ -897,6 +897,48 @@ struct mon_read {
-> >>         int                             err;
-> >>  };
-> >>
-> >> +static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
-> >> +{
-> >> +       return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris-=
->props) ||
-> >> +               mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris-=
->props));
-> >> +}
-> >> +
-> >> +static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
-> >> +{
-> >> +       int retry =3D 3;
-> >> +       u32 mbwu_l_low;
-> >> +       u64 mbwu_l_high1, mbwu_l_high2;
-> >> +
-> >> +       mpam_mon_sel_lock_held(msc);
-> >> +
-> >> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage=
-_sz);
-> >> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->acces=
-sibility));
-> >> +
-> >> +       mbwu_l_high2 =3D __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-> >> +       do {
-> >> +               mbwu_l_high1 =3D mbwu_l_high2;
-> >> +               mbwu_l_low =3D __mpam_read_reg(msc, MSMON_MBWU_L);
-> >> +               mbwu_l_high2 =3D __mpam_read_reg(msc, MSMON_MBWU_L + 4=
-);
-> >> +
-> >> +               retry--;
-> >> +       } while (mbwu_l_high1 !=3D mbwu_l_high2 && retry > 0);
-> >> +
-> >> +       if (mbwu_l_high1 =3D=3D mbwu_l_high2)
-> >> +               return (mbwu_l_high1 << 32) | mbwu_l_low;
-> >> +       return MSMON___NRDY_L;
-> >> +}
-> >> +
-> >> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
-> >> +{
-> >> +       mpam_mon_sel_lock_held(msc);
-> >> +
-> >> +       WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage=
-_sz);
-> >> +       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->acces=
-sibility));
-> >> +
-> >> +       __mpam_write_reg(msc, MSMON_MBWU_L, 0);
-> >> +       __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-> >> +}
-> >> +
-> >>  static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> >>                                    u32 *flt_val)
-> >>  {
-> >> @@ -924,7 +966,9 @@ static void gen_msmon_ctl_flt_vals(struct mon_read=
- *m, u32 *ctl_val,
-> >>                                                ctx->csu_exclude_clean)=
-;
-> >>
-> >>                 break;
-> >> -       case mpam_feat_msmon_mbwu:
-> >> +       case mpam_feat_msmon_mbwu_31counter:
-> >> +       case mpam_feat_msmon_mbwu_44counter:
-> >> +       case mpam_feat_msmon_mbwu_63counter:
-> >>                 *ctl_val |=3D MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> >>
-> >>                 if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ri=
-s->props))
-> >> @@ -946,7 +990,9 @@ static void read_msmon_ctl_flt_vals(struct mon_rea=
-d *m, u32 *ctl_val,
-> >>                 *ctl_val =3D mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-> >>                 *flt_val =3D mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-> >>                 return;
-> >> -       case mpam_feat_msmon_mbwu:
-> >> +       case mpam_feat_msmon_mbwu_31counter:
-> >> +       case mpam_feat_msmon_mbwu_44counter:
-> >> +       case mpam_feat_msmon_mbwu_63counter:
-> >>                 *ctl_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> >>                 *flt_val =3D mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> >>                 return;
-> >> @@ -959,6 +1005,9 @@ static void read_msmon_ctl_flt_vals(struct mon_re=
-ad *m, u32 *ctl_val,
-> >>  static void clean_msmon_ctl_val(u32 *cur_ctl)
-> >>  {
-> >>         *cur_ctl &=3D ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-> >> +
-> >> +       if (FIELD_GET(MSMON_CFG_x_CTL_TYPE, *cur_ctl) =3D=3D MSMON_CFG=
-_MBWU_CTL_TYPE_MBWU)
-> >> +               *cur_ctl &=3D ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
-> >>  }
-> >>
-> >>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> >> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon=
-_read *m, u32 ctl_val,
-> >>                 mpam_write_monsel_reg(msc, CSU, 0);
-> >>                 mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMO=
-N_CFG_x_CTL_EN);
-> >>                 break;
-> >> -       case mpam_feat_msmon_mbwu:
-> >> +       case mpam_feat_msmon_mbwu_44counter:
-> >> +       case mpam_feat_msmon_mbwu_63counter:
-> >> +               mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-> >> +               fallthrough;
-> >> +       case mpam_feat_msmon_mbwu_31counter:
-> >>                 mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> >>                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> >>                 mpam_write_monsel_reg(msc, MBWU, 0);
-> >
-> > The fallthrough above seems to be problematic, assuming the MBWU=3D0
-> > being last for 31-bit was intentional. For long counters, this is
-> > zeroing the counter before updating the filter/control registers, but
-> > then clearing the 32-bit version of the counter. This fails to clear
-> > the NRDY bit on the long counter, which isn't cleared by software
-> > anywhere else.
-> >
-> > From section 10.3.2 from the MPAM spec shared:
-> >
-> >  "On a counting monitor, the NRDY bit remains set until it is reset by
-> > software writing it as 0 in the monitor register, or automatically
-> > after the monitor is captured in the capture register by a capture
-> > event"
-> >
-> > If I update the 63-bit case to call
-> > mpam_msc_zero_mbwu_l(m->ris->vmsc->msc) after updating the
-> > control/filter registers (in addition to the other items I pointed in
-> > my last reply), I'm able to read MBWU counts from my hardware through
-> > mbm_total_bytes.
-> >
-> > Thanks,
-> > -Peter
->
-> Thanks for the testing and flagging the problem. We should do the
-> configuration in the same order for all the monitors.
->
-> I'll change the case to:
->
->         case mpam_feat_msmon_mbwu_31counter:
->         case mpam_feat_msmon_mbwu_44counter:
->         case mpam_feat_msmon_mbwu_63counter:
->                 mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
->                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->
->                 if (m->type =3D=3D mpam_feat_msmon_mbwu_31counter)
->                         mpam_write_monsel_reg(msc, MBWU, 0);
->                 else
->                         mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
->
->                 mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_=
-CFG_x_CTL_EN);
->                 break;
+The imx-rngc driver now uses devm_clk_get_optional() to support both
+Coldfire (always-on clock) and i.MX platforms (managed clock).
 
-I tried this out but wasn't able to read the counters. I needed to
-move the MBWU[_L] write to the end. Writing the registers directly on
-the hardware I'm testing with, I confirmed that just flipping
-MBWU_CTL.EN sets NRDY:
+Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+---
+ arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
+ arch/m68k/coldfire/m5441x.c       |  2 +-
+ arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
+ drivers/char/hw_random/Kconfig    |  3 ++-
+ drivers/char/hw_random/imx-rngc.c |  9 ++++++++-
+ 5 files changed, 48 insertions(+), 3 deletions(-)
 
-MBWU_L=3D0x880
-MBWU_CTL=3D0x828
+diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
+index 20adba27a687029ef53249bad71b342d563d612b..4183929b0b501459da25d1b4cde7d77f19c3dc16 100644
+--- a/arch/m68k/coldfire/device.c
++++ b/arch/m68k/coldfire/device.c
+@@ -622,6 +622,31 @@ static struct platform_device mcf_flexcan0 = {
+ };
+ #endif /* MCFFLEXCAN_SIZE */
+ 
++#ifdef MCF_RNG_BASE
++/*
++ * Random Number Generator (RNG) - only on MCF54418
++ */
++static const struct resource mcf_rng_resource[] = {
++	{
++		.start = MCF_RNG_BASE,
++		.end   = MCF_RNG_BASE + MCF_RNG_SIZE - 1,
++		.flags = IORESOURCE_MEM,
++	},
++	{
++		.start = MCF_IRQ_RNG,
++		.end   = MCF_IRQ_RNG,
++		.flags = IORESOURCE_IRQ,
++	},
++};
++
++static struct platform_device mcf_rng = {
++	.name           = "imx-rngc",
++	.id             = -1,
++	.num_resources  = ARRAY_SIZE(mcf_rng_resource),
++	.resource       = mcf_rng_resource,
++};
++#endif /* MCF_RNG_BASE */
++
+ static struct platform_device *mcf_devices[] __initdata = {
+ 	&mcf_uart,
+ #ifdef MCFFEC_BASE0
+@@ -660,6 +685,9 @@ static struct platform_device *mcf_devices[] __initdata = {
+ #ifdef MCFFLEXCAN_SIZE
+ 	&mcf_flexcan0,
+ #endif
++#ifdef MCF_RNG_BASE
++	&mcf_rng,
++#endif
+ };
+ 
+ /*
+diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
+index 7a25cfc7ac07570ff15da3c55d080a717cf93a06..ab5b006372379294db3b522820de88137bfb7e78 100644
+--- a/arch/m68k/coldfire/m5441x.c
++++ b/arch/m68k/coldfire/m5441x.c
+@@ -158,6 +158,7 @@ static struct clk * const enable_clks[] __initconst = {
+ 	&__clk_0_33, /* pit.1 */
+ 	&__clk_0_37, /* eport */
+ 	&__clk_0_48, /* pll */
++	&__clk_0_49, /* rng */
+ 	&__clk_0_51, /* esdhc */
+ 
+ 	&__clk_1_36, /* CCM/reset module/Power management */
+@@ -179,7 +180,6 @@ static struct clk * const disable_clks[] __initconst = {
+ 	&__clk_0_44, /* usb otg */
+ 	&__clk_0_45, /* usb host */
+ 	&__clk_0_47, /* ssi.0 */
+-	&__clk_0_49, /* rng */
+ 	&__clk_0_50, /* ssi.1 */
+ 	&__clk_0_53, /* enet-fec */
+ 	&__clk_0_54, /* enet-fec */
+diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
+index f48cf63bd7822fd53c33788128f984585c0c421a..dd64cdfcad3e810254c6854b9de5b6bbeb67b950 100644
+--- a/arch/m68k/include/asm/m5441xsim.h
++++ b/arch/m68k/include/asm/m5441xsim.h
+@@ -198,6 +198,15 @@
+ #define MCFRTC_SIZE		(0xfc0a8840 - 0xfc0a8000)
+ #define MCF_IRQ_RTC		(MCFINT2_VECBASE + MCFINT2_RTC)
+ 
++/*
++ *  Random Number Generator (RNG) Module.
++ *  Note: Only present in MCF54418, not in MCF54410/54415/54417
++ */
++#define MCF_RNG_BASE		0xfc0c4000
++#define MCF_RNG_SIZE		0x1c
++#define MCFINT2_RNG		28
++#define MCF_IRQ_RNG		(MCFINT2_VECBASE + MCFINT2_RNG)
++
+ /*
+  *  GPIO Module.
+  */
+diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/Kconfig
+index 492a2a61a65be8bd9e46b0a70f3e43703973512e..e046eabaac2d9053a5a4a98c6e3733bb19258e54 100644
+--- a/drivers/char/hw_random/Kconfig
++++ b/drivers/char/hw_random/Kconfig
+@@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
+ config HW_RANDOM_IMX_RNGC
+ 	tristate "Freescale i.MX RNGC Random Number Generator"
+ 	depends on HAS_IOMEM
+-	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COMPILE_TEST
++	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || M5441x || COMPILE_TEST
+ 	default HW_RANDOM
+ 	help
+ 	  This driver provides kernel-side support for the Random Number
+ 	  Generator Version C hardware found on some Freescale i.MX
+ 	  processors. Version B is also supported by this driver.
++	  Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
+ 
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called imx-rngc.
+diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+index 241664a9b5d9ac7244f15cbe5d5302ca3787ebea..44f20a05de0a425cb6ff7b2a347b111750ac3702 100644
+--- a/drivers/char/hw_random/imx-rngc.c
++++ b/drivers/char/hw_random/imx-rngc.c
+@@ -259,7 +259,7 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(rngc->base))
+ 		return PTR_ERR(rngc->base);
+ 
+-	rngc->clk = devm_clk_get(&pdev->dev, NULL);
++	rngc->clk = devm_clk_get_optional(&pdev->dev, NULL);
+ 	if (IS_ERR(rngc->clk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(rngc->clk), "Cannot get rng_clk\n");
+ 
+@@ -353,12 +353,19 @@ static const struct of_device_id imx_rngc_dt_ids[] = {
+ };
+ MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
+ 
++static const struct platform_device_id imx_rngc_devtype[] = {
++	{ .name = "imx-rngc" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
++
+ static struct platform_driver imx_rngc_driver = {
+ 	.driver = {
+ 		.name = KBUILD_MODNAME,
+ 		.pm = pm_ptr(&imx_rngc_pm_ops),
+ 		.of_match_table = imx_rngc_dt_ids,
+ 	},
++	.id_table = imx_rngc_devtype,
+ };
+ 
+ module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
 
- / # mmio_read32 $((msc + MBWU_CTL))
-0x80030042
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x03ecb2c0
-0x00000000
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x03f70580
-0x00000000
+-- 
+2.39.5
 
-Clear MBWU_CTL.EN:
-
- / # mmio_write32 $((msc + MBWU_CTL)) 0x00030042
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x05004680
-0x80000000
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x05004680
-0x80000000
-
-Clear NRDY and reenable MBWU_CTL.EN:
-
- / # mmio_write32 $((msc + MBWU_L)) 0; mmio_write32 $((msc + MBWU_L + 4)) 0
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x00000000
-0x00000000
- / # mmio_write32 $((msc + MBWU_CTL)) 0x80030042
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x001dee80
-0x80000000
-
-In fact, re-writing the same value back into MBWU_CTL.EN also sets NRDY:
-
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x00253e00
-0x00000000
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x00b1a6c0
-0x00000000
- / # mmio_write32 $((msc + MBWU_CTL)) 0x80030042
- / # mmio_read32 $((msc + MBWU_L)); mmio_read32 $((msc + MBWU_L + 4))
-0x018d1d40
-0x80000000
-
-Thanks,
--Peter
 
