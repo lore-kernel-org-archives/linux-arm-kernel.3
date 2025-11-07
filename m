@@ -4,127 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F79CCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18338CCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 11:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=; b=p4F77h+RuKPNO0Dg2rRMXi9Oyg
-	7qAAD7Xklcp81jdq25uNe7mi3lf67FNT/+k1G0V8AbNgZbFAKjysE7h5dpWOnj2rWUP+UQERE31Vo
-	KebLweX6ZrdipgLbwBjKuttND4v+SW8TPJNtauzcKu2x2WuMf6AA3fqYLfMFkSbKlgxsVaZS1c5Qe
-	4ytjDvQUiRii0jPy3Crg4bjOGn3Vm1+CQjhrt216TISUnhzTjHDhQj4zWMBu10YekL9sjKtjMwCsL
-	eq8u+4tUobT7zQUgw4zY4IzRnOSizSmOGJ+wDnTvc6kyyPph8CbhtXZmgXjpbuD9Fd05ZAAv7rjUd
-	ogXSE7kQ==;
+	bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=; b=1Wfc6oDVDABFwcIopHnTYnUMXG
+	zkbDM6UAi51S6/Ao5ihy0joWK3FouihpWZ34qAd5+PdlQSDq3d51i6D0K2plZRNisk1mP8lia0Dj1
+	c3BByzMAJO5ujqh8FBAfINGQdHHNXEyaj6Dc2c2KY4KKmvtekbzMir7Ra71q0KQU7JK4rkZrTqi/B
+	JpQdrcMML435EP2p8LLu0yeKh7Q6zlMfpvSnIU71Pqmq9jJmMbDScMGZbS/TW3mScXQxLsFdstjmO
+	eH7W0n2jcXT6Dl5zrQ3EVQmP1zrsXLv7NuqNHPAOZXvqbf8Wy2Zhg84XjmTZnCLCL28zT/l/82nuD
+	LN1jILUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKTa-0000000HBfF-3l8E;
-	Fri, 07 Nov 2025 11:17:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vHKjr-0000000HDCY-18Tn;
+	Fri, 07 Nov 2025 11:34:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHKTZ-0000000HBeI-1I7b
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Nov 2025 11:17:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=; b=jLztZKCIYm/KD7dGvpVVDZilqr
-	xQ+glnC0U2nYpyZq4WlpsbRjomRFrmbSb5/55NBcx1hGwajKn5in5qWB2sVe/Zdsteu6uT3cnVcKO
-	l92bDNkM6DV7oslOvBkdpyiaWNr65KVqFsD+NSKZc44Ci8UIaysDfXeQNvrCsK4dCKAq7/5TdvRMX
-	bSgRKs+UB6qTvi/PYSfspMMWTYuGKTQRShkNgdIX3HokAYDFG0jISjdyKS/l5dkEVpWFh0zhXB/OL
-	/OP4eHFPwkme3pbKhWBh9vMqXSVzug9fiRyFu0LozTp8CCOASb1EC/sBNVSV4JUYl87aV36ZOZiob
-	XzL4zpNw==;
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHJbp-00000006HDH-2uDX
+	id 1vHKjp-0000000HDCD-0wkt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 10:22:23 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-295247a814bso7885015ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:17:49 -0800 (PST)
+	Fri, 07 Nov 2025 11:34:42 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A7548Mv2282023
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 7 Nov 2025 11:34:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=; b=mbhMlNg6a8Eh/Eg4
+	jC25f3ERL8KtItYqJP1T4SCPF5sO0yqkdB/xxI28Sow7f+paVZT8IcxO6q5WKQco
+	/QkkvXrNM/3Q3kWcCFtMNkq4grI8mKUGYV+bm4ugCTP2g8OQoXj8wj5BxmO5GoVj
+	HZ7k/6AECNCJ4h1xe4jlr2ulZQiI+U558tWmsPc1MgRZycHjGyxW5DjZ7RNYU/dj
+	YF8HL/C0CwjXjsbF36F5CLW6bgeQhOuajLrj4XgY7n1W5bzVRPTba0mryeYs9Is5
+	thz4vL1lu64xgwoyOettJbFuvWqG9u+hsQ5Kj8r1U3MZb4GtRTCqRERfMt5xuC8E
+	ay1pzQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a9a9sh3f5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 11:34:39 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ed6a906c52so1690081cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 03:34:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762514268; x=1763119068; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=;
-        b=m8eu0iP8hA9FFGUr4f2RBaqDL7iEfgsRgjWeeyVDtGH95khdp/lX/WxrkDt2uju0/G
-         HftaOeRA37lPEJDmwjJFf0aLfLM8pwAzGmrZiD19fI+9PF8NGXDJ42lQ2nkhsRVuo3iU
-         jFRlo6+DBoKHCo3x5XmhYuL1uwi/HHkUwp67nqlYUN9BOnOZfi0oiEcHiReGP5Vk+4Rz
-         CazlLvR4ZNoOHEULBdUqdgnUsvZ1eVxEYLBTW3SccA+OGzYhURsRauK8ZBduz8303qIY
-         C4X+jh3XpW4ZuShjhYDlZgTIgPh/a0kTUhGkqZY+69ZOxQZFBZkbPQaO/iR1bSNtcGpo
-         Z+sQ==
+        d=oss.qualcomm.com; s=google; t=1762515279; x=1763120079; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=;
+        b=X3ZmIS4oRxhf56yxvlye4pwnM3foH72y+T4AMeFFj4XBo9xQ/yMDO0LM0UIw/xPnM2
+         lW1uiCljcznmeWT7jN5FhH+bcncdd36mXwJpGTizl0JG9kcR4vkeh2X+XbZpSEhUelS0
+         MJtIj0492y3nK7E7z1raDl1bJVO+bytWS0Exvu7nuBecVGX26T3PHH0X3g6wzaO0DC0H
+         7ffwKkGjElxbz718wuHOFcY+a8j1S5PLtONA6PEGSrtFdg91frvxLgmeZXgA7uicNY64
+         5gfXXwZGPj2SW3LZYoCnAMQY4fQVZ9wqv9br8nf6rBEKefkBr51ewW/MJWlyOLPX+2mR
+         2s9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762514268; x=1763119068;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xpMkuoemEQ8nHGHR+sKpMED/PEl2v5+7S85Qkm8JY+4=;
-        b=kc51n8rWoEpYXNmxSXlt65R/PYPLlEJuBGV6oaTK9i3JBu0D55DkyF48zJYm/VWZmw
-         vnNlTpxIO/VGKhkm/I4Zq16o74JLhh+IaPtx1UKyv0Uye0NKK6iB+n9DfhuXqt0MP817
-         FffSNZC/Uv54/gvZFC/YG+y8kHlnQmA1YPefSmWV7HL8qSbvfVGlCLY4+ENMaa7hyqzn
-         J1HE4fJk3odM7lsX+eJlAUAuRHqCARy7a+yTAkP3hvDOdpNGES/iKaoV7p4Au3pzmS9M
-         zh6fl6467ThpKCrCRhIzhDkxZx0Mk5yHLjPWPA6shHzxGKGvjND1yqjsy47Od/GqfCnA
-         iyYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWpD9viBG2HP/qGNHHyV68l6VK7RuVK/DncGu3JZruUsNBnNkIIDv2YAqcxFYKjklSx5Bz3wiWymIz+koq7GgWS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKEV6nqA9KNmW/IR3G1pboHUaZpijeO3bb8/Kk2bLK+e38eds4
-	IDMRjP+wLMddS+EXFzRfTuCpPNMPgNaBk7gPdFcMLglxWGAmakSMI2Mi
-X-Gm-Gg: ASbGnct6TGVMeUV+Q6TQ1U+HAA237QvdNJnNvdZTy+GQ/yH+/D0LazDHuROTg6ImCpz
-	guhErbxkWE1eD0Dx/fOMQYAqa7iUmUr57imbhKlLTmWh54ihYH/6omhIVjaBhmjbaE4WAY/MHsh
-	d+nhG8hd05ErZI5GydSHZDcvWe3nIw5JJEVvMc/eGnScHlKLJrq9l2B7q6+GgxROz8f0JosoPUT
-	wSn0e8T8cKsP3lLKtgN89ZlGmzep5lKJ4rQ9oxpdfGwWIaolocTwBD7OZy+3464ot8yPV/v+TTF
-	dJmwx0gW6RXmLpF7dvMrtDcIaZ2LVOi+JbtXw5r6K6Pm8jzewO4CxOBQLInw46mzGutaLDUC092
-	CrGh9+kUKf6fXGpoh2+MWmLAKqTEjFEy5MGGA4AIRHc3I1cnYM+WbBfQjYDwsMW4bVJ9ZiMichT
-	k=
-X-Google-Smtp-Source: AGHT+IH5sLTuwaNwygjS88Dd4DuKT5eyLF2e0aAe27R6LJvuFCPtCu+tqMNQVj8foqUaUxe+5POBzg==
-X-Received: by 2002:a17:902:f544:b0:295:9e4e:4092 with SMTP id d9443c01a7336-297c0485f18mr38236515ad.56.1762514267918;
-        Fri, 07 Nov 2025 03:17:47 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2965096825esm58574245ad.3.2025.11.07.03.17.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Nov 2025 03:17:47 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Han Gao <rabenda.cn@gmail.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yao Zi <ziyao@disroot.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v7 3/3] net: stmmac: dwmac-sophgo: Add phy interface filter
-Date: Fri,  7 Nov 2025 19:17:15 +0800
-Message-ID: <20251107111715.3196746-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251107111715.3196746-1-inochiama@gmail.com>
-References: <20251107111715.3196746-1-inochiama@gmail.com>
+        d=1e100.net; s=20230601; t=1762515279; x=1763120079;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UiFlhUG339a0VfWabSoqEEVYWNHYCJ3zv2+BmKWjfS8=;
+        b=ndLohqpGZUE8PdARV9aHKFAaC13+HLYV/GrahZeJf2A3OxdWA86cEFdouwBMES++oq
+         X7WxZq+vU1jcIuF40q4+HBQ8rRsO7jE5K9d2Ifo/dy/B876+rNKGlKnun/4Hh4ghB1iT
+         weTf9mU87zEjbnJFfzYMiAoO/pIMKqoxUmHwDpnssANbop7kNIyoohYqURE1ileziAGA
+         o41T0kNLbykIkNNiCaoMlFEy3zjpw7eivNYm+Yk4ztZl108KfE5m9p0UxmkvG0kRPG5N
+         WFqs44VDXsnGsoJa2WZGrTpJxI6RuFgWSrDt8reyAyAqNIL+Gys6NKmC2ox5MpqiputR
+         GEkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU601PT3NCd3Qj5qHrvBSs+zTcZEr1lp4dBNKyBGZx4D5N35kSCKA7uQkYAYq2tNwdbDRIP0pb+mCRDytA9mcCc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3OoGY9EYhwXkSjihiHEz+zencUncToIAfoPKGvGTIuGqM1Jug
+	YH5KGa8vUu921Ky5Srg41NttxgLFh9IGb/RCOGWrCiaEVOSHzz+5ySB8Rbz50nnQWEoaoVoxtO6
+	+/YIE4/PPq2U6lGiXutIcG0/O3m4w2UXtQY1YheSWQg9LmnmbeAaecg38CBylhcHTeGbEQCAbYr
+	XdKw==
+X-Gm-Gg: ASbGncv/TKeQRYiKQuSTK9owghkwe4CU5YqyarWx3uYMY3Z4nN1Vn5vIYxsoCvaZNdc
+	wukjM3mb4TW9X4LYBCr3gC/wcnnViD0ufjlXZixPrRhc8C7CAV/0aFjfkt5gq0fT6stw7f6qvxM
+	yYzKchlRnekLNCrVhA5bx+WKBJz6fMJpXvkidoPPDmSE0huIXT0DNFiYRiAUOoQ2UQvSaSp+CCk
+	cg3Snh03zHmgIOnwM128TH4hJUVY6vDKOHxE0Azt239VKCnFUyaxIgEmexPa/Rvd9+L3CUznizh
+	MMziHusuilgReLDhGEEhxjd+HctHNHvGVc+jaYrFNvhL4Uu0nJnvJbhw34qIeIMjV0l0fAcdN2A
+	BFqNo2bXyLrI7/JtXzOrriliB/xcNdAlvFS6b94AR4RncipbVemY2ey9E
+X-Received: by 2002:ac8:588f:0:b0:4b5:e4dc:1ee5 with SMTP id d75a77b69052e-4ed949427a0mr23309241cf.3.1762515278899;
+        Fri, 07 Nov 2025 03:34:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG+LAqOyus8ryKtljdjGtTT8tpekQXhHgSlDk1UkXksjpY7RbYCRhZLRuzIlyV/Mr61stF/eQ==
+X-Received: by 2002:ac8:588f:0:b0:4b5:e4dc:1ee5 with SMTP id d75a77b69052e-4ed949427a0mr23308921cf.3.1762515278322;
+        Fri, 07 Nov 2025 03:34:38 -0800 (PST)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bdbc95e4sm223260366b.12.2025.11.07.03.34.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Nov 2025 03:34:36 -0800 (PST)
+Message-ID: <a80d25e3-9178-441c-8b09-3f69b703484d@oss.qualcomm.com>
+Date: Fri, 7 Nov 2025 12:34:33 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: remove MAC_CTRL_REG
+ modification
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+References: <E1vE3GG-0000000CCuC-0ac9@rmk-PC.armlinux.org.uk>
+ <7a774a6d-3f8f-4f77-9752-571eadd599bf@oss.qualcomm.com>
+ <aQNXTscqFcucETEW@shell.armlinux.org.uk>
+ <bb2865b6-6c17-49e4-b18f-b9baad771830@oss.qualcomm.com>
+ <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <aQNwoC6aMPMMk4M1@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=CdgFJbrl c=1 sm=1 tr=0 ts=690dd94f cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
+ a=H4ebBzf8g92K_wxokogA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA3MDA5NCBTYWx0ZWRfX1NG16qyshPRR
+ 8X2E/3hB2wkJg2VdUE0OYoFSps+zcIZIA0zGCXh/jf/fweBpxplvxsVQqRSdLyBMzNpLbFSsq2S
+ D9r5LnZaPv+v2L+YgHbTebOkJN7Hfrfv0FqIws7uhLvfC7ejyxmsGVa/TPspoU3+/kuxbEjqmKt
+ nFROcMYr1Qh8A0fMJ7OiE4Jt+b4gKyz5fGFitnkjnvvVxL1aRU0xZ2CMNfcXhZZUKg1OoMwWX6b
+ ULAfKetbiUuIhsZBDv6wKN+mk9vSLXn/70ROk2ak77tkxfSK5shQM2G2NYGuoqU7cBs3D6jo9lt
+ Ia9dyqnx14KLVSNCpGijG4F7CxXt7skdgfD2Db7hpqet0OmG01r4m7d7ybWYylmbgz3wZH9Lqpz
+ QTDnfhO6Na1GnNot16COM9k7Ec1L5g==
+X-Proofpoint-ORIG-GUID: VSgsYiAWEefvSiDlOvWh1IA2lf4FmBqz
+X-Proofpoint-GUID: VSgsYiAWEefvSiDlOvWh1IA2lf4FmBqz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-07_02,2025-11-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 malwarescore=0 spamscore=0 bulkscore=0
+ phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511070094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_102221_826193_DFC77889 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20251107_033441_410660_19B1A62D 
+X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,72 +158,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the SG2042 has an internal rx delay, the delay should be removed
-when initializing the mac, otherwise the phy will be misconfigurated.
+On 10/30/25 3:05 PM, Russell King (Oracle) wrote:
+> On Thu, Oct 30, 2025 at 02:08:41PM +0100, Konrad Dybcio wrote:
+>> On 10/30/25 1:17 PM, Russell King (Oracle) wrote:
+>>> Konrad, Ayaan,
+>>>
+>>> Can you shed any light on the manipulation of the RGMII_IO_MACRO_CONFIG
+>>> and RGMII_IO_MACRO_CONFIG2 registers in ethqos_configure_sgmii()?
+>>>
+>>> Specifically:
+>>> - why would RGMII_CONFIG2_RGMII_CLK_SEL_CFG be set for 2.5G and 1G
+>>>   speeds, but never be cleared for any other speed?
+>>
+>> BIT(16) - "enable to transmit delayed clock in RGMII 100/10 ID Mode"
+> 
+> I guess that means that changing this bit is not relevant for the SGMII
+> path, and thus can be removed:
+> 
+>         switch (speed) {
+>         case SPEED_2500:
+> -               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+> -                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+> -                             RGMII_IO_MACRO_CONFIG2);
+>                 ethqos_set_serdes_speed(ethqos, SPEED_2500);
+>                 ethqos_pcs_set_inband(priv, false);
+>                 break;
+>         case SPEED_1000:
+> -               rgmii_updatel(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+> -                             RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+> -                             RGMII_IO_MACRO_CONFIG2);
+>                 ethqos_set_serdes_speed(ethqos, SPEED_1000);
+>                 ethqos_pcs_set_inband(priv, true);
+> 
+>>> - why is RGMII_CONFIG_SGMII_CLK_DVDR set to SGMII_10M_RX_CLK_DVDR
+>>>   for 10M, but never set to any other value for other speeds?
+>>
+>> [18:10] - In short, it configures a divider. The expected value is 0x13
+>> for 10 Mbps / RMII mode
+> 
+> This gets confusing. Is the "/" meaning "10Mbps in RMII mode" or "10Mbps
+> or RMII mode".
+> 
+>> which seems to have been problematic given:
+>>
+>> https://lore.kernel.org/all/20231212092208.22393-1-quic_snehshah@quicinc.com/
+>>
+>> But it didn't say what hardware had this issue.. whether it concerns a
+>> specific SoC or all of them..
+>>
+>> A programming guide mentions the new 0x31 value for 10 Mbps in a
+>> SoC-common paragraph so I suppose it's indeed better-er.. Perhaps issues
+>> could arise if you switch back to a faster mode?
+> 
+> Could the 0x13 be a typo? Its suspicious that the two values are 0x13
+> vs 0x31. 0x13 = 19 vs 0x31 = 49. 0x31 makes more sense than 19.
+> 
+> The platform glue is required to supply clk_rx_i to the dwmac's MAC
+> receive path, deriving it from the 125MHz SGMII rx link clock divided
+> by 1, 5 or 50. Normally, this would be done by hardware signals output
+> from the dwmac.
+> 
+> This suggests that the value programmed is one less than the actual
+> divisor.
+> 
+> There's two possibilities why this value needs to be programmed:
+> 
+> 1. the hardware doesn't divide the SGMII rx link clock according to
+> the hardware signals output from the dwmac, and needs the divisor to
+> be manually programmed. This would require the divisor to also be
+> programmed to 4 for 100M (but the driver doesn't do this.)
+> 
+> 2. the hardware selects the clk_rx_i depending on the hardware
+> signals, and while 1G and 100M use a fixed divisor of 1 and 5, the
+> 10M divisor needs to be manually programmed.
+> 
+> Any ideas what's really going on here?
 
-Fixes: 543009e2d4cd ("net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC")
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Tested-by: Han Gao <rabenda.cn@gmail.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
----
- .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 20 ++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+The computer says:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-index 3b7947a7a7ba..fcdda2401968 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-@@ -7,11 +7,16 @@
- 
- #include <linux/clk.h>
- #include <linux/module.h>
-+#include <linux/property.h>
- #include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- 
- #include "stmmac_platform.h"
- 
-+struct sophgo_dwmac_data {
-+	bool has_internal_rx_delay;
-+};
-+
- static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
- 				    struct plat_stmmacenet_data *plat_dat,
- 				    struct stmmac_resources *stmmac_res)
-@@ -32,6 +37,7 @@ static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
- static int sophgo_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-+	const struct sophgo_dwmac_data *data;
- 	struct stmmac_resources stmmac_res;
- 	struct device *dev = &pdev->dev;
- 	int ret;
-@@ -50,11 +56,23 @@ static int sophgo_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	data = device_get_match_data(&pdev->dev);
-+	if (data && data->has_internal_rx_delay) {
-+		plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
-+									  false, true);
-+		if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
-+			return -EINVAL;
-+	}
-+
- 	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
- }
- 
-+static const struct sophgo_dwmac_data sg2042_dwmac_data = {
-+	.has_internal_rx_delay = true,
-+};
-+
- static const struct of_device_id sophgo_dwmac_match[] = {
--	{ .compatible = "sophgo,sg2042-dwmac" },
-+	{ .compatible = "sophgo,sg2042-dwmac", .data = &sg2042_dwmac_data },
- 	{ .compatible = "sophgo,sg2044-dwmac" },
- 	{ /* sentinel */ }
- };
--- 
-2.51.2
+RGMII ID mode - speed == 10 ? 0x13 : dontcare?
+RMII Bypass ID mode - - speed == (10 || 100) ? 0x13 : dontcare?
+(*the 100 above says "default" but that's again 0x13)
 
+RMII mode (100 Mbps) - default (0x13)
+RMII mode (10 MBps) - 0x13
+
+SGMII mode - speed == 10 ? 0x31 : 0x13
+
+Make of that what you will, I would *guess* there may be something like
+2. going on
+
+Konrad
 
