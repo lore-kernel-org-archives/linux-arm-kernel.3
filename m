@@ -4,103 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8056CCCFA05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6CFCCFA05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Nov 2025 07:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vnl1S6GG6pIxoHM4+5WOoVSozkDaF9smuFunjJvUh1A=; b=hhD7ylC8F0faQAEXz4MAmxw1ik
-	ltUsCRLNd/C0iLGx9NN7aZBeMkuy+vW7MusfS2L2jCjSAyWecm9Fr6p7bOchUDUHI9dd6zCX1RHqL
-	Dtx2BBM8bdWHzIGGofyLR1QA0Ny8qNF0woVM06F5GCK0rIVUGlooWiTIPFuapYG9ix4fN6qIlySKn
-	PG7W2Fz7VvTVdBSbF28G5ZE3I9thFZ6jR5mRlNVUsKzRL4dV3Ngt7R2j66D638OTtA7EBXuB4JQNS
-	YpqVtKs6fGdeLzbobyu9wo3utwE9QmtnhDxkEY6Xoe4NxhIlRtCJppXpTTjqJjk4cAktjVYiSaPli
-	ag1FcNow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gvJ2RxUfI+jrknFXT7HZdvqiQDwQ/WM2aFRRZ7q+e1c=; b=bNcKJ3nhCiKymsdB1Gy+ZE9IXn
+	szZGDStgCl/LS0b7sw46kRf4SKkZpb7pxBRcIup5Asw+NyLopvqHyi5zIXRup6ichTCcZ6ocE0YcC
+	01itqsFaYs5BjMBDC35cqyZKOwDcyFzsPYbcUlLq+0Gs4T+7bDAVLe7B968SAq11YIQnnvUqGs6KG
+	GalVQyDSXYQYP0F3e2/2A8Mm9G7Qiq8fdwbpNyGl0Le5EagqTHV3nkzvezAIO2GA25WDTkv64Ud40
+	L5ImvQN9h8S7w/e2maLNwgSUI7/7W2HX14LR7LHXP3apLoxwiaxZ06jFEw4rTL804QL1dzmynmiXQ
+	pC5b5iXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGlL-0000000GmK3-213R;
-	Fri, 07 Nov 2025 07:19:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHGnj-0000000GmaF-28Lb;
+	Fri, 07 Nov 2025 07:22:27 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHGlK-0000000GmJm-0NRo
+	id 1vHGnh-0000000GmY3-0nYW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Nov 2025 07:19:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 840A560143;
-	Fri,  7 Nov 2025 07:19:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13DAAC113D0;
-	Fri,  7 Nov 2025 07:19:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762499997;
-	bh=MZUadLgnrcIzLLSlwBtT4BlpZpL1e9kjawOscJDDXro=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BN3he29Q5vCbeMkOnZTsHHSh+Lb08fGR7USWMTuSHbLKYGUHZ/HSkP+kLtlOopzs3
-	 vuyXlnHy8UBRXv/atyCIukNUFPOnbX51MblcDifBQJK2ZKUFHLITvmCaR6CybbGmWR
-	 v7ijpdVKmtV3f2VbEv+B4QZukvXHtxI3ftVQgcITLsipegPEsHFlZQHQTMVg+PCPg0
-	 CD1qPy2Hv03BIN6IGRNa3ErsLyJaphO7DUoDWWqo9t2cn/l9XgUuYMop5PtF3T5L8J
-	 2MnaOQ+pEwuVFcSY8N18dm4t86L70OXga+UnTkDugJ9tDDDYRJXSThEnkJNLI+P3YF
-	 oEw39qRaK3UBA==
-Message-ID: <d7770d3e-bc35-4539-a927-0387cdec2b2c@kernel.org>
-Date: Fri, 7 Nov 2025 08:19:53 +0100
+	Fri, 07 Nov 2025 07:22:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4d2r7Y2MhBzmV7X;
+	Fri,  7 Nov 2025 15:20:41 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id D916F140295;
+	Fri,  7 Nov 2025 15:22:17 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 7 Nov 2025 15:22:17 +0800
+Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
+ (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 7 Nov
+ 2025 15:22:17 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <arnd@arndb.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>,
+	<wangzhou1@hisilicon.com>
+Subject: [PATCH v7 2/7] KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
+Date: Fri, 7 Nov 2025 15:21:22 +0800
+Message-ID: <20251107072127.448953-3-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] dts: reset: add support for cix sky1 resets
-To: Gary Yang <gary.yang@cixtech.com>, p.zabel@pengutronix.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-References: <20251107033819.587712-1-gary.yang@cixtech.com>
- <20251107033819.587712-4-gary.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251107033819.587712-4-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251106_232225_541470_7560551C 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,59 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 04:38, Gary Yang wrote:
-> There are two reset conctrollers on Cix Sky1 Soc.
-> One is located in S0 domain, and the other is located
-> in S5 domain.
-> 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> ---
->  arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+From: Marc Zyngier <maz@kernel.org>
 
+Add a bit of documentation for KVM_EXIT_ARM_LDST64B so that userspace
+knows what to expect.
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+---
+ Documentation/virt/kvm/api.rst | 43 ++++++++++++++++++++++++++++------
+ 1 file changed, 36 insertions(+), 7 deletions(-)
 
-Please start paying attention to this.
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 57061fa29e6a..b4af2a04b51a 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -1303,12 +1303,13 @@ userspace, for example because of missing instruction syndrome decode
+ information or because there is no device mapped at the accessed IPA, then
+ userspace can ask the kernel to inject an external abort using the address
+ from the exiting fault on the VCPU. It is a programming error to set
+-ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
+-KVM_EXIT_ARM_NISV. This feature is only available if the system supports
+-KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
+-how userspace reports accesses for the above cases to guests, across different
+-userspace implementations. Nevertheless, userspace can still emulate all Arm
+-exceptions by manipulating individual registers using the KVM_SET_ONE_REG API.
++ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO,
++KVM_EXIT_ARM_NISV, or KVM_EXIT_ARM_LDST64B. This feature is only available if
++the system supports KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which
++provides commonality in how userspace reports accesses for the above cases to
++guests, across different userspace implementations. Nevertheless, userspace
++can still emulate all Arm exceptions by manipulating individual registers
++using the KVM_SET_ONE_REG API.
+ 
+ See KVM_GET_VCPU_EVENTS for the data structure.
+ 
+@@ -7050,12 +7051,14 @@ in send_page or recv a buffer to recv_page).
+ 
+ ::
+ 
+-		/* KVM_EXIT_ARM_NISV */
++		/* KVM_EXIT_ARM_NISV / KVM_EXIT_ARM_LDST64B */
+ 		struct {
+ 			__u64 esr_iss;
+ 			__u64 fault_ipa;
+ 		} arm_nisv;
+ 
++- KVM_EXIT_ARM_NISV:
++
+ Used on arm64 systems. If a guest accesses memory not in a memslot,
+ KVM will typically return to userspace and ask it to do MMIO emulation on its
+ behalf. However, for certain classes of instructions, no instruction decode
+@@ -7089,6 +7092,32 @@ Note that although KVM_CAP_ARM_NISV_TO_USER will be reported if
+ queried outside of a protected VM context, the feature will not be
+ exposed if queried on a protected VM file descriptor.
+ 
++- KVM_EXIT_ARM_LDST64B:
++
++Used on arm64 systems. When a guest using a LD64B, ST64B, ST64BV, ST64BV0,
++outside of a memslot, KVM will return to userspace with KVM_EXIT_ARM_LDST64B,
++exposing the relevant ESR_EL2 information and faulting IPA, similarly to
++KVM_EXIT_ARM_NISV.
++
++Userspace is supposed to fully emulate the instructions, which includes:
++
++	- fetch of the operands for a store, including ACCDATA_EL1 in the case
++	  of a ST64BV0 instruction
++	- deal with the endianness if the guest is big-endian
++	- emulate the access, including the delivery of an exception if the
++	  access didn't succeed
++	- provide a return value in the case of ST64BV/ST64BV0
++	- return the data in the case of a load
++	- increment PC if the instruction was successfully executed
++
++Note that there is no expectation of performance for this emulation, as it
++involves a large number of interaction with the guest state. It is, however,
++expected that the instruction's semantics are preserved, specially the
++single-copy atomicity property of the 64 byte access.
++
++This exit reason must be handled if userspace sets ID_AA64ISAR1_EL1.LS64 to a
++non-zero value, indicating that FEAT_LS64* is enabled.
++
+ ::
+ 
+ 		/* KVM_EXIT_X86_RDMSR / KVM_EXIT_X86_WRMSR */
+-- 
+2.33.0
 
-> 
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> index d21387224e79..fc68734f37c2 100644
-> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -348,6 +348,13 @@ i3c1: i3c@4100000 {
->  			status = "disabled";
->  		};
->  
-> +		src_fch: reset-controller@4160000 {
-> +			compatible = "cix,sky1-rst-fch", "syscon";
-> +			reg = <0x0 0x04160000 0x0 0x90>;
-> +			#reset-cells = <1>;
-> +			status = "okay";
-Why?
-
-> +		};
-> +
->  		iomuxc: pinctrl@4170000 {
->  			compatible = "cix,sky1-iomuxc";
->  			reg = <0x0 0x04170000 0x0 0x1000>;
-> @@ -568,6 +575,13 @@ ppi_partition1: interrupt-partition-1 {
->  			};
->  		};
->  
-> +		src: reset-controller@16000000 {
-> +			compatible = "cix,sky1-rst", "syscon";
-> +			reg = <0x0 0x16000000 0x0 0x1000>;
-> +			#reset-cells = <1>;
-> +			status = "okay";
-
-No, really, why?
-
-
-Best regards,
-Krzysztof
 
