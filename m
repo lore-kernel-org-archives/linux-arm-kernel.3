@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184EBCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 09:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F75CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 09:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRq2F/Fx5L2pqw/kvbroKu2B4rLSIR/GciQ6lz1GC2Y=; b=Plml9gMhw/41Nskgj/kJvIEDSc
-	O1OOSAzA6wJUh5jvOIgQAIZRKi0BYOwxsAFjOsDNnaYPOfOViU6ITu5sUiQO7gPJyv3HBEns2HfoD
-	OwCigV3oH6GjJth7GqpG6weTehr0WTBb+P6enIhsne32ggj4n7z9xYVOp7wLMscuauBt/W8Nk7OGg
-	+gUavHnTVxKWcinbFMEasaD/gAt19ZNMbF3xecCDjbD7X+hKK03x9fSUG7s94D1sYS3jOO5z3E//L
-	v27hf/s3Qatq/Unu8ZnnGlfKBw32tEAasXrPrNGWMGvQEBvfucPT9ezw1PCwzyi5dJTGLIUcCY3Ef
-	fV86hfXA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1CyknkAme4elZV84/7MK05eFN3kQAntRvNuaIK/zCqc=; b=x0C38Iyz9iOzClKcbZA7WLTNVG
+	LzGsuiE5KZ3iKAFbFz5VcjtbVeBpblckvZZ9D68U3p62AvGuF8RjqTySwdKb8shBSisH1OhTaOjme
+	KC4hkO6JUGxNc/yyzDLsq/TwjHS0jc3VHvyP7JYycdTd8vnpEmPll3/kFarZAWW4Oc3VmHlYTHbFa
+	STEJ4Nvc41N0l5nFXSdULiMXqIPf1pL/EGvXDuXuTZM0Qb85ZlLFsArF2UBFB58yUAnxSrL1vmJtG
+	qOb1NfGYnfqb4hInkhepyPr3T/t5XClVAAch1U9K2uI9AltjkVhbMDFLEyb1zFlMutnWvkWOzKYPa
+	Wyez5sqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHesy-00000002x9z-1ESH;
-	Sat, 08 Nov 2025 09:05:28 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vHevA-00000002xIg-3Ach;
+	Sat, 08 Nov 2025 09:07:44 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHesv-00000002x9U-1pnV
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 09:05:27 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4d3VPS328NzKHMbs
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  8 Nov 2025 17:05:00 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id D4A4E1A0D7D
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  8 Nov 2025 17:05:11 +0800 (CST)
-Received: from [10.67.111.176] (unknown [10.67.111.176])
-	by APP4 (Coremail) with SMTP id gCh0CgAnUF3GBw9pgLIYAA--.42082S2;
-	Sat, 08 Nov 2025 17:05:11 +0800 (CST)
-Message-ID: <e0c0f8b7-112f-40d7-b211-89065e9003b2@huaweicloud.com>
-Date: Sat, 8 Nov 2025 17:05:10 +0800
+	id 1vHev7-00000002xI8-3l77;
+	Sat, 08 Nov 2025 09:07:43 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout4.routing.net (Postfix) with ESMTP id 61B22100823;
+	Sat,  8 Nov 2025 09:07:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1762592856;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1CyknkAme4elZV84/7MK05eFN3kQAntRvNuaIK/zCqc=;
+	b=vYnMheWxSMz8itfJI9sBWPH1o2+/WDByDnUay0zuG7rM5ziF+ocP284TttKHXLGhCUTqYl
+	tXeI2VMgOWgAT61e7yLUa9fecAiCa8ufoPzVqdCVW66jgJA8Q45bVlmp8K41rNANbiz9Jr
+	LnaiMtpPdTzQl+b4t1pu6ghhuuQJN1Q=
+Received: from frank-u24.. (fttx-pool-217.61.148.22.bambit.de [217.61.148.22])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 331521226CD;
+	Sat,  8 Nov 2025 09:07:36 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Sam Shih <sam.shih@mediatek.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] clk: mediatek: mt7988-infracfg: fix USB port0 function for U2 only
+Date: Sat,  8 Nov 2025 10:07:25 +0100
+Message-ID: <20251108090726.7787-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/31] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
- Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-References: <20251105210348.35256-1-frederic@kernel.org>
- <20251105210348.35256-14-frederic@kernel.org>
-Content-Language: en-US
-From: Chen Ridong <chenridong@huaweicloud.com>
-In-Reply-To: <20251105210348.35256-14-frederic@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgAnUF3GBw9pgLIYAA--.42082S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7JrWUCF4fXF43Gr1UAF4kCrg_yoWDuFc_Wr
-	15WF4Uuw15JFyqgw1Yy34qga1fJa17t39aqa48try5W3Z5JF43Jrs3A345Ca13Xa4xJF1a
-	934kK393ZrnFqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxkYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4U
-	JwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	EksDUUUUU==
-X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_010526_041747_F823A404 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20251108_010742_148892_88CD3E30 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Sam Shih <sam.shih@mediatek.com>
 
+Fix the functionality of USB port0 U2 when U2 is enabled without U3.
+This change addresses the issue where port0 U3 is shared with PCIE2,
+ensuring that the port0 U2 function operates correctly without U3 support.
 
+Additionally, add support to enable the U2 function instead of disabling
+the entire USB port0 in the configuration for the 4 PCIe case. This
+change ensures that U2 functionality is properly activated.
 
-> +int housekeeping_update(struct cpumask *mask, enum hk_type type)
-> +{
-> +	struct cpumask *trial, *old = NULL;
-> +
-> +	if (type != HK_TYPE_DOMAIN)
-> +		return -ENOTSUPP;
-> +
-> +	trial = kmalloc(cpumask_size(), GFP_KERNEL);
-> +	if (!trial)
-> +		return -ENOMEM;
-> +
-> +	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), mask);
+Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
+Signed-off-by: Sam Shih <sam.shih@mediatek.com>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+ drivers/clk/mediatek/clk-mt7988-infracfg.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Since there's no comment for the 'mask' parameter, would it be better to name it 'isol_mask'? This
-would make it clearer that this is the isolation mask input and what is doing here.
-
-> +	if (!cpumask_intersects(trial, cpu_online_mask)) {
-> +		kfree(trial);
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (!housekeeping.flags)
-> +		static_branch_enable(&housekeeping_overridden);
-> +
-> +	if (housekeeping.flags & BIT(type))
-> +		old = housekeeping_cpumask_dereference(type);
-> +	else
-> +		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
-> +	rcu_assign_pointer(housekeeping.cpumasks[type], trial);
-> +
-> +	synchronize_rcu();
-> +
-> +	kfree(old);
-> +
-> +	return 0;
-> +}
-> +
-
-
+diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+index ef8267319d91..da4ad365e30f 100644
+--- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+@@ -229,8 +229,9 @@ static const struct mtk_gate infra_clks[] = {
+ 			  CLK_IS_CRITICAL),
+ 	GATE_INFRA3_FLAGS(CLK_INFRA_USB_FRMCNT_CK_P1, "infra_usb_frmcnt_ck_p1", "usb_frmcnt_p1_sel",
+ 			  9, CLK_IS_CRITICAL),
+-	GATE_INFRA3(CLK_INFRA_USB_PIPE, "infra_usb_pipe", "sspxtp_sel", 10),
+-	GATE_INFRA3(CLK_INFRA_USB_PIPE_CK_P1, "infra_usb_pipe_ck_p1", "usb_phy_sel", 11),
++	GATE_INFRA3_FLAGS(CLK_INFRA_USB_PIPE, "infra_usb_pipe", "sspxtp_sel", 10, CLK_IS_CRITICAL),
++	GATE_INFRA3_FLAGS(CLK_INFRA_USB_PIPE_CK_P1, "infra_usb_pipe_ck_p1", "usb_phy_sel", 11,
++			  CLK_IS_CRITICAL),
+ 	GATE_INFRA3(CLK_INFRA_USB_UTMI, "infra_usb_utmi", "top_xtal", 12),
+ 	GATE_INFRA3(CLK_INFRA_USB_UTMI_CK_P1, "infra_usb_utmi_ck_p1", "top_xtal", 13),
+ 	GATE_INFRA3(CLK_INFRA_USB_XHCI, "infra_usb_xhci", "usb_xhci_sel", 14),
 -- 
-Best regards,
-Ridong
+2.43.0
 
 
