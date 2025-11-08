@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF38ECCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 11:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02597CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 11:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b/IvZ2gRXzctsh6rFgjeTRaK80IstpW95h3jnmTvLNI=; b=NtNBv44ooYWZmvu9JhQFtAKHos
-	/gsQgrVTF+Sr/pwV9VFLA68Cf8TjEa+hLI3XjbNWCJV3Dj7Rpi8TxNVYUQ2dTLsbIq9NgaaA+PmDg
-	dcbhNkoBoonCMQt5LRqwHsW9U7YnDKAWkxAdR4tzg4yp855G4Lx77hVV4mIpytxVZUb1JUo14Cq5Z
-	OkOCSfUHybLyArqvaUH+Qz1zwVdM4oS5CdUlwi/N9F3a+rYxc4BETHAJ0yVMfGBL9jSq90MjlQdh5
-	Flnl4oPZqQ4Ok6N/tyQvvX6F05ODEQyGr4leTa0a2EV7xzlbu/RGQc+DMiAFiKNw6BmiaYrDXkhWt
-	R1IuSTyw==;
+	bh=AmyDI0V1Qk3/gyMiqxO2UWqNVuAH4OB8PcrvzYmBDcM=; b=0g29Q1P0Pu6mZ3ir2t0MWF/hcD
+	mQYwMrsuZkPR/WTgVNRWa5VexYBo+r0s5xq12hhSoy9rI1pxdI7L1YcPQ2TRNYk/kqSUhG0a2HrhT
+	hIwRV8EvB4PeUelhGnMkfwqQCOq0Dn89LCDh14FiveIWH/pUrj5XW6cgOF6b/Sz9rR++cAYlLvEm/
+	7cocn9fCXqxdRPKlLabwgNVwC+BjYbCq8fsEz2I8nCJq+TiDG21zWR6lnpwokNpI2+te+kRq1O602
+	J/+B9+O2CC9vlX7GISbY2FW5iHh2kBnUir8nLu0hTK/UXq6JiGnoVnPn4vtyauU2sA4aNwcTet+HE
+	LjIc2dXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHh8A-0000000346Q-36Qz;
-	Sat, 08 Nov 2025 11:29:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vHh8b-000000034BP-1lsu;
+	Sat, 08 Nov 2025 11:29:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHh87-0000000345r-3oH1;
-	Sat, 08 Nov 2025 11:29:17 +0000
+	id 1vHh8a-000000034B0-0C9Q;
+	Sat, 08 Nov 2025 11:29:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 857C4441DF;
-	Sat,  8 Nov 2025 11:29:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1481C116C6;
-	Sat,  8 Nov 2025 11:29:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F60D6013D;
+	Sat,  8 Nov 2025 11:29:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F46C116C6;
+	Sat,  8 Nov 2025 11:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762601354;
-	bh=vjeiEnAUZJfUFBgQYurxvhjSdDEvzlB44+vT/IR595I=;
+	s=k20201202; t=1762601383;
+	bh=xRQdJudR4YOfT1QYPaRJEv5pzd5rtXgXsGj9Rzaefpc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bC1KNeew6BfMuEPXc8tgSNyIL90oXwT4gwvJ4R/qJTzs6TDNaEh2g8Bn6CtcuLxTx
-	 aj9senqAMVXw3SkdetbhDpbIdim/EbMk9eqqIvJvBGJAXdBRFTtnL/yThmayIYuRoD
-	 SJRdzpb6ucFl5oPOE/k94XHRsq0rr46SrCuDMn8y3hj2CaVTvy+uNx9P12uwh8gDUt
-	 VyahIpBX/ItZGcsNfEg0NmbVqBb1o37d0hckeHj4XZf4Xxl8H3ipf1iGpbFB14K9d8
-	 xsnJNNyMUxsGq6bnjeP4oXCMJzCbg/kqL5ryN+s1smZ7uHCGFEse//x1iB6am0kx8g
-	 1rfA8FloYjFUw==
-Message-ID: <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
-Date: Sat, 8 Nov 2025 12:29:07 +0100
+	b=SeR07P86Gk3SxuWm/Cs04R+AwI5EVBYK4jeEf2suKpeiLuDRPS/TANPL1kEme0cZD
+	 +qhUl/f6j3Llgjpq5ZKRG6JA4XUIMF3MhF1pZMLIPk64ubT9WTuBseHR2g5D8HiTIp
+	 Mx5KJweQEaAhEUCawdodZMIROzVcpBgEcMNF7m1ww/5ZBgwzij4ZBpoMMKMYfHAayS
+	 uNJJwEa3VJwYNCbYLcPpt4F0UkpwzJmx6yLRjFJi4JJtc7a2u6AisC43IQlqriOspe
+	 P47jg35zy4hOX4YFDiKWdBG1ddzFp3eDzS6CApU46uUL4kkS/SNzplQEqW7zHz55Rj
+	 B8lfnGsT3nkrQ==
+Message-ID: <3f2ca0bc-de7b-47f1-b5a6-da6b1ba31def@kernel.org>
+Date: Sat, 8 Nov 2025 12:29:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+Subject: Re: [PATCH 3/3] riscv: defconfig: enable SUNXI_XUANTIE and
+ SUNXI_ANDES
 To: gaohan@iscas.ac.cn, Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
@@ -61,7 +62,7 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, Han Gao <rabenda.cn@gmail.com>
 References: <cover.1762588494.git.gaohan@iscas.ac.cn>
- <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
+ <bc141425b71f0cfc8f3ef0a3c6d08104fde1281f.1762588494.git.gaohan@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +108,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
+In-Reply-To: <bc141425b71f0cfc8f3ef0a3c6d08104fde1281f.1762588494.git.gaohan@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_032916_022303_603852A0 
-X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +128,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
 > From: Han Gao <gaohan@iscas.ac.cn>
 > 
-> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
-> using different IPs.
-> 
-> d1(s): Xuantie C906
-> v821: Andes A27 + XuanTie E907
-> v861/v881: XuanTie C907
+> These options need to be enabled to prepare for v821/v861/v881.
 > 
 > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 > ---
->  arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
->  1 file changed, 17 insertions(+), 5 deletions(-)
+>  arch/riscv/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 848e7149e443..7cba5d6ec4c3 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -54,14 +54,26 @@ config SOC_STARFIVE
->  	help
->  	  This enables support for StarFive SoC platform hardware.
->  
-> -config ARCH_SUNXI
-> -	bool "Allwinner sun20i SoCs"
-> +menuconfig ARCH_SUNXI
-> +	bool "Allwinner RISC-V SoCs"
-> +
-> +if ARCH_SUNXI
-> +
-> +config ARCH_SUNXI_XUANTIE
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index fc2725cbca18..ed0ac65babdc 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -29,6 +29,8 @@ CONFIG_ARCH_SOPHGO=y
+>  CONFIG_ARCH_SPACEMIT=y
+>  CONFIG_SOC_STARFIVE=y
+>  CONFIG_ARCH_SUNXI=y
+> +CONFIG_ARCH_SUNXI_XUANTIE=y
+> +CONFIG_ARCH_SUNXI_ANDES=y
 
-
-You should not get multiple ARCHs. ARCH is only one. There is also not
-much rationale in commit msg for that.
+No. One ARCH. You do not need more.
 
 Best regards,
 Krzysztof
