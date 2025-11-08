@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B16BCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 19:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA46ECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 20:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6aeQb1DWwKh9q0A988WnunX6ASTyvLF65eSlmDdPkY=; b=iNN8xOGzIbARxkEWveyzNEs8iX
-	PTkzzAzpXvud8NmCXOCQJZh4wfrIRKr0g4s7PxJk7qz89LkLFe51ojvu6SzORaA7aHTvWvGJI/mor
-	RmXyteLIEeCVYO/GSpqPYl/B+DGevyDhoDJWUFFCMf2M5esSFDz4tuvOsI5/zj+GVAUDDooDIrC1i
-	mn5a2DGHGk4m9P0d3A0cDT3mUJjZBmK6/3SPfK7An0bGQcbExnxzUElhDghkZLXdpLeZCNYPLsRQn
-	bMfzCjkAS8+z1bKZFawpy7UuBOeRSn+uLhWJfnkubSb81PWROYqGiCl/dFnxGQc9+/slg25JLS3aZ
-	P0JhwVLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1mUJqgslv16M+tfXM8XyUEotZBdEAoMyYYZaLsYGsc=; b=woz+BR7eVE1BpsAJ9tk3ZWe0j3
+	62fUMvw5TlVExFH2E2wiMfNI9mD9tlQkUQ5LvBFhARqX8FR5LhkZOka5t9NBTydd+fDJfOMGxABsk
+	CnivFHbwgSktVK/1l3jj/ZQQTSf6bbyWJS5y0n55hcuQ0FBY4Oek0ovW+ZG8EwFxQq9e8HI4xJB4x
+	Y5u5uhriZ0sP+O2W/gQQnAehJnvAYFFGzCFF8B98wqEYO1uZyTUvPZeopAqfurr0hsg6B7Dly/jrg
+	Z7NQR/wQ6L+gVSffcoP1GkZBCeL9YJ3b5HuirQbgJ2MP5/4ifdsmJ802ndYj2hRacswAGlo9JQrSh
+	kK9yUVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHoUh-00000003OGU-01cy;
-	Sat, 08 Nov 2025 19:21:03 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vHp9M-00000003QaD-1tRo;
+	Sat, 08 Nov 2025 20:03:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHoUd-00000003OG5-0pdj
+	id 1vHp9K-00000003QZp-1OE8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 19:21:01 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A8CN5sv021288;
-	Sat, 8 Nov 2025 19:20:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=R6aeQb1DWwKh9q0A9
-	88WnunX6ASTyvLF65eSlmDdPkY=; b=Gy0DfapYgtDTuRypTCHrLjflWhgUSwbd7
-	7nzMpOIwXwLC8shQih48AucxK1cP0YGsHyL8XY5n6MztEMY2noCPiPuh49ZbadzW
-	4uWwAxtHLuUJuSw6PZwY6BsAtzOw+hhryeVoQS/St7aEfbdhnVQZzyNCzzdqnOeN
-	5J8CyAQDB/++rkq9fJJUXA4eYnqfdYEuhieEbyh6utvZmi6XwSU9SrSewQ5ue9XX
-	aKWRTooBtrvbsQR1jtDKyZVlIKmnMD+3y303Y4FQBzzFm9nIk1gz+WcuNHTsRNHo
-	fZp/cq0Bg8Go1fWQMm1OGqWW0iPczhjA6IhHH6rmY2cpi3pm7QnwA==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4aa5tjgv62-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 08 Nov 2025 19:20:48 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A8I41sp021491;
-	Sat, 8 Nov 2025 19:20:48 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5xrk802x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 08 Nov 2025 19:20:47 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A8JKkPE54395318
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 8 Nov 2025 19:20:46 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4833D20043;
-	Sat,  8 Nov 2025 19:20:46 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2986A20040;
-	Sat,  8 Nov 2025 19:20:46 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Sat,  8 Nov 2025 19:20:46 +0000 (GMT)
-From: Jan Polensky <japo@linux.ibm.com>
-To: catalin.marinas@arm.com
-Cc: akpm@linux-foundation.org, david@redhat.com,
-        linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-        will@kernel.org
-Subject: [PATCH] mm/huge_memory: initialise the tags of the huge zero folio
-Date: Sat,  8 Nov 2025 20:19:47 +0100
-Message-ID: <20251108191948.684586-1-japo@linux.ibm.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251031170133.280742-1-catalin.marinas@arm.com>
-References: <20251031170133.280742-1-catalin.marinas@arm.com>
+	Sat, 08 Nov 2025 20:03:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F52543C09;
+	Sat,  8 Nov 2025 20:03:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97DD7C19422;
+	Sat,  8 Nov 2025 20:02:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762632180;
+	bh=mZx3reTRacDiFfpeRs79kIi23F+uPMRdn0mb7yCb4lA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lNKbxfnKqppFyjDbgVviqAKjzuqyrl142Vll5JtXbXhMZx9ScsfOQGWSjhVrVnTF/
+	 W46Amq2iHTbMWiCV73eSF5dNnu4nOzVILXSQ0LwZNmPAfs5De8lf7RP8n0+ocYLUNm
+	 Y0VB9/W4SBQYKN1XLrr7dsoUZ4XsZynyKqAhxqqge6RicKHf/c+V+JYIipWSV0NVV8
+	 Lheh82/DHzO8neWxDIm+NArCVP+u2Y2PHaLtEcwgjDMqVCKMgomUWZB9H7QUMJRnik
+	 NCFaIIMPr9Rrq/TqyVfDXSRrfIjwbI19FqZ5vVSIzcx/P5X6qOHcwJMWBACW0al3Fw
+	 9iOlOfua0KiDQ==
+Date: Sat, 8 Nov 2025 20:02:52 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>, arnd@arndb.de
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-cxl@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-mm@kvack.org, Dan Williams <dan.j.williams@intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Drew Fustini <fustini@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>, james.morse@arm.com,
+	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
+	Dave Jiang <dave.jiang@intel.com>
+Subject: Re: [PATCH v5 0/6]  Cache coherency management subsystem
+Message-ID: <20251108-spearmint-contend-aa3dd8a0220e@spud>
+References: <20251031111709.1783347-1-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: b3mCt8QQvAzP0MnNqKgGftHnBTK4IgMm
-X-Proofpoint-ORIG-GUID: b3mCt8QQvAzP0MnNqKgGftHnBTK4IgMm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA4MDA5OSBTYWx0ZWRfX5KEPNLD2szB6
- QM6UCsOSYijGIiQr4dlgLq4yblKBNNKg7xH3Y3k/r7vf5XWzP73UnBZYpe4vjUcVRaEW7Jsd5YJ
- xTW90ptfJKiyoqOYhQHvFcSXhD8hE0iXqA0PQuk4+I0JXsJJaSMgOlDWsYFGkjf/U5GbWQBXgjF
- iNooh/WCBa3V3Y3saw8NtMQw1IIddvhVIna85ntbjbtqBofikwoqejqtO1eK+oSz5x0yr18nmiR
- GNCwUOTbEe6fRIfu45al4Vr0Td6kDCKMmtUdp2ni8YfSXxcokrGRT7+2p4iqMV1ruI3e782YAqP
- G4O+jUIDJ88VEm/M12M1D/gEGqKPdtGJA3UHIpA1iM7CglcdPDBvRP0l8UUgDh6QvojwoPupe6h
- xwaP3VqH4hB2NB9qt1kNGUco01uRZw==
-X-Authority-Analysis: v=2.4 cv=V6xwEOni c=1 sm=1 tr=0 ts=690f9810 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
- a=20KFwNOVAAAA:8 a=Z4Rwk6OoAAAA:8 a=VnNF1IyMAAAA:8 a=GRmcs_4ORcCTOOSj304A:9
- a=a-qgeE7W1pNrGK8U0ZQC:22 a=HkZW87K1Qel5hWWM3VKY:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-08_05,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 lowpriorityscore=0 adultscore=0 malwarescore=0 impostorscore=0
- suspectscore=0 priorityscore=1501 phishscore=0 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511080099
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BnXojPaReIke2Qi9"
+Content-Disposition: inline
+In-Reply-To: <20251031111709.1783347-1-Jonathan.Cameron@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_112059_714258_83BDA3D4 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20251108_120302_450379_82B0B8FD 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,73 +89,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Catalin Marinas <catalin.marinas@arm.com>
 
-On arm64 with MTE enabled, a page mapped as Normal Tagged (PROT_MTE) in
-user space will need to have its allocation tags initialised.  This is
-normally done in the arm64 set_pte_at() after checking the memory
-attributes.  Such page is also marked with the PG_mte_tagged flag to avoid
-subsequent clearing.  Since this relies on having a struct page,
-pte_special() mappings are ignored.
+--BnXojPaReIke2Qi9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Commit d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero
-folio special") maps the huge zero folio special and the arm64
-set_pmd_at() will no longer zero the tags.  There is no guarantee that the
-tags are zero, especially if parts of this huge page have been previously
-tagged.
+Arnd,
 
-It's fairly easy to detect this by regularly dropping the caches to
-force the reallocation of the huge zero folio.
+On Fri, Oct 31, 2025 at 11:17:03AM +0000, Jonathan Cameron wrote:
+> Support system level interfaces for cache maintenance as found on some
+> ARM64 systems. It is expected that systems using other CPU architectures
+> (such as RiscV) that support CXL memory and allow for native OS flows
+> will also use this. This is needed for correct functionality during
+> various forms of memory hotplug (e.g. CXL). Typical hardware has MMIO
+> interface found via ACPI DSDT. A system will often contain multiple
+> hardware instances.
+>=20
+> Includes parameter changes to cpu_cache_invalidate_memregion() but no
+> functional changes for architectures that already support this call.
+>=20
+> How to merge?
+> - Current suggestion would be via Conor's drivers/cache tree which routes
+>   through the SoC tree.
 
-Allocate the huge zero folio with the __GFP_ZEROTAGS flag.  In addition,
-do not warn in the arm64 __access_remote_tags() when reading tags from the
-huge zero page.
+I was gonna put this in linux-next, but I'm not really sure that Arnd
+was satisfied with the discussion on the previous version about
+suitability of the directory: https://lore.kernel.org/all/20251028114348.00=
+0006ed@huawei.com/
 
-I bundled the arm64 change in here as well since they are both related to
-the commit mapping the huge zero folio as special.
+Arnd, did that response satisfy you, or nah?
 
-Link: https://lkml.kernel.org/r/20251031170133.280742-1-catalin.marinas@arm.com
-Fixes: d82d09e48219 ("mm/huge_memory: mark PMD mappings of the huge zero folio special")
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
-Cc: Will Deacon <will@kernel.org>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Jan Polensky <japo@linux.ibm.com>
----
- arch/arm64/kernel/mte.c | 3 ++-
- mm/huge_memory.c        | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+Cheers,
+Conor.
 
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 43f7a2f39403..32148bf09c1d 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -476,7 +476,8 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
- 
- 		folio = page_folio(page);
- 		if (folio_test_hugetlb(folio))
--			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio));
-+			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio) &&
-+				     !is_huge_zero_folio(folio));
- 		else
- 			WARN_ON_ONCE(!page_mte_tagged(page) && !is_zero_page(page));
- 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index b4ff49d96501..323654fb4f8c 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -214,7 +214,8 @@ static bool get_huge_zero_folio(void)
- 	if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
- 		return true;
- 
--	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE,
-+	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
-+				 ~__GFP_MOVABLE,
- 			HPAGE_PMD_ORDER);
- 	if (!zero_folio) {
- 		count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
--- 
-2.48.1
+>   *  Andrew Morton has expressed he is fine with the MM related changes
+>      going via another appropriate tree.
+>   *  CXL maintainers expressed that they don't consider it appropriate
+>      to go through theit tree.
+>   *  The tiny touching of Arm specific code has an ack from Catalin.
 
+--BnXojPaReIke2Qi9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaQ+h7AAKCRB4tDGHoIJi
+0mbmAPoDNoN5c++N+FdbOde62VPsuE/nQLuJqXMbpVYRgssj5gD9HgGSIr/5NCGC
+GU4C//DABkFlJ0fo45ADpizmnDu8JQ8=
+=3UFm
+-----END PGP SIGNATURE-----
+
+--BnXojPaReIke2Qi9--
 
