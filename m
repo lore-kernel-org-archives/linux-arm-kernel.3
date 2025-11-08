@@ -4,74 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F68CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 11:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF38ECCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 11:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5Aw03bpu4V54JyqiXiaLf/4yPtMhf/uWfKeSSy6ySY=; b=odAjO0b/kLMGYD2hm6iRHNVWqy
-	98oB7cxGKN1qNb9jk5PATE69EWhk8V0hpyVHFcQxxvcq6v2j+6kiIudeSmTGGN2rEM0uaFebiNVl2
-	anH0tD3EBt5rGLI8/1IDCCjea28j+rJ9FljqBb/NnXBIi7p5+JretQ+Fk7vtfbyGVPcRYSzeeWHHW
-	kkYns0KBojySDfe4z4sKYCUZogxMWOgILvikTt03HYTQMzGKkoBZauh5pUkU7hoJRQg4+12UVxgEi
-	FKDfPa5Wm4/1If8U02HnUyxnBQEA9kChpXpk0i3O+71grt+m2XmzHu5vdEWsuWZ7eOEX9qymEbvBc
-	BtjV1GfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b/IvZ2gRXzctsh6rFgjeTRaK80IstpW95h3jnmTvLNI=; b=NtNBv44ooYWZmvu9JhQFtAKHos
+	/gsQgrVTF+Sr/pwV9VFLA68Cf8TjEa+hLI3XjbNWCJV3Dj7Rpi8TxNVYUQ2dTLsbIq9NgaaA+PmDg
+	dcbhNkoBoonCMQt5LRqwHsW9U7YnDKAWkxAdR4tzg4yp855G4Lx77hVV4mIpytxVZUb1JUo14Cq5Z
+	OkOCSfUHybLyArqvaUH+Qz1zwVdM4oS5CdUlwi/N9F3a+rYxc4BETHAJ0yVMfGBL9jSq90MjlQdh5
+	Flnl4oPZqQ4Ok6N/tyQvvX6F05ODEQyGr4leTa0a2EV7xzlbu/RGQc+DMiAFiKNw6BmiaYrDXkhWt
+	R1IuSTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHh3r-000000033sx-0Rm3;
-	Sat, 08 Nov 2025 11:24:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHh8A-0000000346Q-36Qz;
+	Sat, 08 Nov 2025 11:29:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHh3p-000000033so-3el0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 11:24:49 +0000
+	id 1vHh87-0000000345r-3oH1;
+	Sat, 08 Nov 2025 11:29:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AEF89601D0;
-	Sat,  8 Nov 2025 11:24:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58FA3C19422;
-	Sat,  8 Nov 2025 11:24:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 857C4441DF;
+	Sat,  8 Nov 2025 11:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1481C116C6;
+	Sat,  8 Nov 2025 11:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762601087;
-	bh=WVKATNSn+dHdM78+/c06JPrFjsN/T65IToKcvJGfL6w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FzvaOpzs2h/YJ3CAsIcQXIX3cZWJZK0JuticaJOhS2Tn9hwUlQ5QWPuweu9BV7K4w
-	 etTd2syxrUJPu3TJCXHV80nkO2nffS9ZC4/Zqf8QsOu2xbC0UUgspPyAmX2ecrdoRH
-	 0G0aqq2nx6iHn84ipieOUaY69aaGuLVKgWN2cI+UWwnG0n7wKcK6YQK/YobEkzLU/Q
-	 DIswDymoKo3qqjTYeN7requVHZO7YzBQ34i06vvEa71/i1h4r1TkAhJL8laWSWaR2v
-	 s8Dkquhiwqh884Q8pqwiRNhfWRT29N4tHXBE8nEPqf/Kk0Sau8vbV9UzEkjhsEv9mK
-	 7LkFNr9P3LYqw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vHh3l-00000003TNw-03Dk;
-	Sat, 08 Nov 2025 11:24:45 +0000
-Date: Sat, 08 Nov 2025 11:24:44 +0000
-Message-ID: <86a50wvkar.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Maydell <peter.maydell@linaro.org>
-Subject: Re: [PATCH v2 0/3] KVM: arm64: Fix handling of ID_PFR1_EL1.GIC
-In-Reply-To: <264b9f2d-5fca-4fda-a0ce-1b0223906560@arm.com>
-References: <20251030122707.2033690-1-maz@kernel.org>
-	<264b9f2d-5fca-4fda-a0ce-1b0223906560@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, peter.maydell@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1762601354;
+	bh=vjeiEnAUZJfUFBgQYurxvhjSdDEvzlB44+vT/IR595I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bC1KNeew6BfMuEPXc8tgSNyIL90oXwT4gwvJ4R/qJTzs6TDNaEh2g8Bn6CtcuLxTx
+	 aj9senqAMVXw3SkdetbhDpbIdim/EbMk9eqqIvJvBGJAXdBRFTtnL/yThmayIYuRoD
+	 SJRdzpb6ucFl5oPOE/k94XHRsq0rr46SrCuDMn8y3hj2CaVTvy+uNx9P12uwh8gDUt
+	 VyahIpBX/ItZGcsNfEg0NmbVqBb1o37d0hckeHj4XZf4Xxl8H3ipf1iGpbFB14K9d8
+	 xsnJNNyMUxsGq6bnjeP4oXCMJzCbg/kqL5ryN+s1smZ7uHCGFEse//x1iB6am0kx8g
+	 1rfA8FloYjFUw==
+Message-ID: <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
+Date: Sat, 8 Nov 2025 12:29:07 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+To: gaohan@iscas.ac.cn, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yixun Lan <dlan@gentoo.org>,
+ Drew Fustini <fustini@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Guodong Xu <guodong@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
+ Joel Stanley <joel@jms.id.au>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, Han Gao <rabenda.cn@gmail.com>
+References: <cover.1762588494.git.gaohan@iscas.ac.cn>
+ <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251108_032916_022303_603852A0 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +127,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Nov 2025 10:06:23 +0000,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
+> From: Han Gao <gaohan@iscas.ac.cn>
 > 
-> Hi Marc
+> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
+> using different IPs.
 > 
-> On 30/10/2025 12:27, Marc Zyngier wrote:
-> > Peter reported[0] that restoring a GICv2 VM fails badly, and correctly
-> > points out that ID_PFR1_EL1.GIC isn't writable, while its 64bit
-> > equivalent is. I broke that in 6.12.
-> > 
-> > The other thing is that fixing the ID regs at runtime isn't great.
-> > specially when we could adjust them at the point where the GIC gets
-> > created.
-> > 
-> > This small series aims at fixing these issues. I've only tagged the
-> > first one as a stable candidate. 
+> d1(s): Xuantie C906
+> v821: Andes A27 + XuanTie E907
+> v861/v881: XuanTie C907
 > 
-> But, all 3 patches have the same Fixes tag, was that intentional ?
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+>  arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
+>  1 file changed, 17 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 848e7149e443..7cba5d6ec4c3 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -54,14 +54,26 @@ config SOC_STARFIVE
+>  	help
+>  	  This enables support for StarFive SoC platform hardware.
+>  
+> -config ARCH_SUNXI
+> -	bool "Allwinner sun20i SoCs"
+> +menuconfig ARCH_SUNXI
+> +	bool "Allwinner RISC-V SoCs"
+> +
+> +if ARCH_SUNXI
+> +
+> +config ARCH_SUNXI_XUANTIE
 
-Yes. Fixes don't necessarily need backporting, and the latter ones,
-while making things less awful, are not absolutely necessary to fix
-6.12.
 
-However, I have no doubt that the Artificial Idiots that automatically
-backport stuff to stable will pick whatever seems to apply without any
-discrimination.
+You should not get multiple ARCHs. ARCH is only one. There is also not
+much rationale in commit msg for that.
 
-I've stopped fighting that battle.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
