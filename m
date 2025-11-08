@@ -4,109 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5BDCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 14:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A64CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 14:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjskvN6jH7m+Duu1eq+hr6O2GRgMWF9LB47syyf4F5w=; b=O1q1tlx09YKLXpD62/4xi/fliS
-	rQioyiI+FOVVownMZwSDeF8KmhfeTnOGBY+36m4TQfSITbALsLqnOVkjfMGVsCLbVvKeoSJj0w/aD
-	ih0bpubnz9Z5o3ehxTpH66FHcmgliXOjOzd9xV6Z2p5c2tPVpPGCnOqmfLwBq9uyaab12dTfRRRST
-	gn0MDdTy14Gqju7SzOWABf43nPQLBv7swR2MjmeBvl3cugZGx45nKp5ASPOWKuBI0CJ95cBM+sc4C
-	Nn0vzvUaxRMWk9EyKm1LcAcaesPsCkRqJUShl8UzYfoZE9MjtC1Kj11YMMu27+o3268FTutOOj2fF
-	RNFtie7w==;
+	bh=KopGgc9wNhXNv6aUy2iwWzPGcUR7Lrgc7BISJyQ8M9c=; b=YArbr+n+0IHuenbA1s0juD0bdZ
+	m/W8aCeUGQLluItX7+la8wKpMYO+d7xF6kEDjbL/YMo8Fixi1UIBfOIegnVwCTNgkZ1GonPu3zmbA
+	uzNZXIhjJBXt5QSbOlwrXLVW4SjDZfznJ0QQGpd5KZqiBAeOMKnlndH0juqRbqWeUu0cyTevc+Emu
+	G7JdpXNkMv41a5//Ly/87IsmPurh34XEQK94n67tyRGuGvIL7t5Wk/4xUYTk3u3cv+zHXpK9+jTfL
+	gxAUtfP34bnbEFlaLYwgxzXWFekqJ0lRO4MlDoO4qJvH6ej68Ra5s9OvduG5JIq7B5Bouuxel5yV3
+	so9ic4OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHk5D-00000003CDm-36ZA;
-	Sat, 08 Nov 2025 14:38:27 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vHkDu-00000003CbF-21kQ;
+	Sat, 08 Nov 2025 14:47:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHk5A-00000003CD2-2TUh
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 14:38:25 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-42b3298502cso8084f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 06:38:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762612702; x=1763217502; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=CjskvN6jH7m+Duu1eq+hr6O2GRgMWF9LB47syyf4F5w=;
-        b=MAQ7sYXyoYH9FrapJPCTn/q0j1M9nvoIY4q0Hc19oVdpewa7Cd+NmKA3FpC31O/PrF
-         vA1X0IK+8h6HEJg7AAFThGKLZnR1K1lADdMFuKseesb1Vi/nPsQopxJZNwnqgToWdFqV
-         iRFIdA3EWiwoGhxC1hifyqz3JHUlz1JmUZcLMWDrAWWHpHfRmq/79StT1zoQlrXDtxzU
-         eGJrzvrOsAzDkgKrD3vsTNRSuDTOwjvzymQ21ASgWboud4BattXuG2V+Z9I0HA9XVXAw
-         C7auZ14y8suE9wRU5H72tUtEukILYeXL1cw0s0d3mQP86C2WsHIsyctc3e9KU1EFcbLj
-         KBJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762612702; x=1763217502;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CjskvN6jH7m+Duu1eq+hr6O2GRgMWF9LB47syyf4F5w=;
-        b=VoBqoFwb0w5roER8yzhhReV/AxQQ0FEK8Pr/yLrYTjgOlqZz72NAal76MVeC8DJNaM
-         bd/DSoAuOGUih1XQiqvhsYM+1Ys0XiYy2Eg2c8XTptHF4BflldDJ55q37vGys+LhMVuL
-         tcwcaZYGWd00hrX0CKZ0m8slUqH2b0Cf/qduAAGvYZUE+dC3xWBzz+0bZPh3QjV0IpFc
-         aLkFyWLDrHPw8NA0oUaE008FLZ/ApK4CCqrmgkFjernjOyR18oVb3hgl67aSJ4g1dvtd
-         QNER+WdSh7aK63QumipQCEEyIPQYZROP20TohVv9hiaExsx1cmwQ3K9x8RLhVeAOUzb8
-         4FKg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9sKsnE20NX+BfcyzlGJ29vL8jlD/98gmB0At865gtDFipz0PK/viR8sXeVdbK+0ZKXxy7dCcft6HVRoDzY3Ed@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVGbB/gHKgsBQ+WFvdsguf4tpDDmmxgyZNQos9WJwOhoM7wqMF
-	Mi8mg2nT9tIHUNBmajaT4IWDxeDVbnxmYhdSpGsc6cm4VOgEOQRCNo9dcRU0THmmDxQ=
-X-Gm-Gg: ASbGncv18hHpGPqX20UpYq8N6r+1VuLYpRqVhLbpU4E4rQShcIdJNPlEj7f+EQ/OMRI
-	NIBBT8tlrbhaZgyBUUT+cx8G6SfrKg7bH+EfSH9sBo5zXALZBIkec6VRCzhZmEOChmO3/1SnHcB
-	cPLeLqo6uyyxRJEzw1NO39Qn/6rdjUMLWKAxpluYX9rR7sRXLkCEKC91jvYkgZBKze+HUCxxdgP
-	CbwcHza4U1yPzrGkC2kbng2yefxZbaYkKasPjc1X+oET8F01z3urgU2isGW/pNfPd2DqNeSLI2j
-	GMoRTqNUWZaK/+8uNQATQvzHzjfkQQSo/8YQZKsr+yfjkNe6ucfRgEy2p98W4NGzUyigC+2gG6P
-	BH303Eznd8UfLqZq8SWqEtz1HrqbZfW5F2OrmFOA5LHIHUe4wsWHmBqkF/zduy5+8B0nCSGGot9
-	/otVwsS+RMRrAfPqsFswpiD247WWmwp64=
-X-Google-Smtp-Source: AGHT+IFiBiRhpsly3YGEqjvxj+Py3Q4DK+JCa0siSF6z5aJmBhaLltU7plhNOwZpv/U5i5Vxxf3qew==
-X-Received: by 2002:a05:600c:4ed1:b0:477:bb0:5e13 with SMTP id 5b1f17b1804b1-477732aa00amr11266585e9.8.1762612701759;
-        Sat, 08 Nov 2025 06:38:21 -0800 (PST)
-Received: from [192.168.1.29] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776a278a32sm56562505e9.12.2025.11.08.06.38.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Nov 2025 06:38:20 -0800 (PST)
-Message-ID: <07cbc020-ece3-4483-b078-c265e3400d2b@linaro.org>
-Date: Sat, 8 Nov 2025 15:38:18 +0100
+	id 1vHkDs-00000003Cb2-1tcn;
+	Sat, 08 Nov 2025 14:47:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E09A760052;
+	Sat,  8 Nov 2025 14:47:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE16C4CEFB;
+	Sat,  8 Nov 2025 14:47:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762613242;
+	bh=seiWAXWA40Itm0WaQziqNpXmGAyxL/tF/QM25Q9yPaE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W7dvfHhKNsU2mj3j+TrfjRX13sG7PZgOKWXoqyHVzmFjOfSxG4gU7KsPOiXMfgXV+
+	 AJH5lZFoupvkTfXhrp8dRruIYrtm5ZQ3xSpMJIQeQRR0+N6wzC7t9VpsJ1ZFusIW2v
+	 cW+tm6YfbFbWIFHr9bMWroKU/WgzeYm18BkDEdk6oiAst/kT7D76HvAgPK7iFPa18d
+	 x3OquFQ3LvWgGKiJOuSD1fxykDRiXNVK5wJw+8Lf9cAiXJzPFWoyO1P243A91bXLuy
+	 +6xYwJVXNo92+1XTdLO3u+2bQnZ2Lg7P2lzrdJ7eb9pWs4S96T535g3thIXSOzJpvx
+	 zJpp/RItwSa/A==
+Message-ID: <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
+Date: Sat, 8 Nov 2025 15:47:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/13] cpufreq: ti: Simplify with
- of_machine_device_match()
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org,
- linux-tegra@vger.kernel.org
-References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
- <20251106-b4-of-match-matchine-data-v1-5-d780ea1780c2@linaro.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+To: revy <gaohan@iscas.ac.cn>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, conor+dt@kernel.org,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yixun Lan <dlan@gentoo.org>,
+ Drew Fustini <fustini@kernel.org>, geert+renesas@glider.be,
+ Guodong Xu <guodong@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
+ Joel Stanley <joel@jms.id.au>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Han Gao <rabenda.cn@gmail.com>
+References: <cover.1762588494.git.gaohan@iscas.ac.cn>
+ <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
+ <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
+ <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
  JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
@@ -116,46 +74,42 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  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
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20251106-b4-of-match-matchine-data-v1-5-d780ea1780c2@linaro.org>
+ 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 a/A=
+In-Reply-To: <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_063824_734878_648B4C8A 
-X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,21 +124,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2025 20:07, Krzysztof Kozlowski wrote:
->  static int ti_cpufreq_probe(struct platform_device *pdev)
->  {
->  	u32 version[VERSION_COUNT];
-> @@ -564,8 +554,7 @@ static int __init ti_cpufreq_init(void)
->  	const struct of_device_id *match;
->  
->  	/* Check to ensure we are on a compatible platform */
-> -	match = ti_cpufreq_match_node();
-> -	if (match)
-> +	if (of_machine_device_match(ti_cpufreq_of_match))
->  		platform_device_register_data(NULL, "ti-cpufreq", -1, match,
->  					      sizeof(*match));
+On 08/11/2025 14:59, revy wrote:
+> 
+> 
+> 
+>> -----Original Messages-----
+>> From: "Krzysztof Kozlowski" <krzk@kernel.org>
+>> Sent Time: 2025-11-08 19:29:07 (Saturday)
+>> To: gaohan@iscas.ac.cn, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Yixun Lan" <dlan@gentoo.org>, "Drew Fustini" <fustini@kernel.org>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Guodong Xu" <guodong@riscstar.com>, "Haylen Chu" <heylenay@4d2.org>, "Joel Stanley" <joel@jms.id.au>
+>> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, "Han Gao" <rabenda.cn@gmail.com>
+>> Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
+>>
+>> On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
+>>> From: Han Gao <gaohan@iscas.ac.cn>
+>>>
+>>> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
+>>> using different IPs.
+>>>
+>>> d1(s): Xuantie C906
+>>> v821: Andes A27 + XuanTie E907
+>>> v861/v881: XuanTie C907
+>>>
+>>> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+>>> ---
+>>> arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
+>>> 1 file changed, 17 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+>>> index 848e7149e443..7cba5d6ec4c3 100644
+>>> --- a/arch/riscv/Kconfig.socs
+>>> +++ b/arch/riscv/Kconfig.socs
+>>> @@ -54,14 +54,26 @@ config SOC_STARFIVE
+>>> 	help
+>>> 	  This enables support for StarFive SoC platform hardware.
+>>>
+>>> -config ARCH_SUNXI
+>>> -	bool "Allwinner sun20i SoCs"
+>>> +menuconfig ARCH_SUNXI
+>>> +	bool "Allwinner RISC-V SoCs"
+>>> +
+>>> +if ARCH_SUNXI
+>>> +
+>>> +config ARCH_SUNXI_XUANTIE
+>>
+>>
+>> You should not get multiple ARCHs. ARCH is only one. There is also not
+>> much rationale in commit msg for that.
+> 
+> The main goal is to avoid choosing multiple IP addresses for erreta. 
+> If using Andes IPs, I don't want to choose XuanTIe (T-Head) ERRETA.
 
-This is obviously wrong patch... weird my W=1 builds did not flag it.
+Not explained in commit msg but anyway not a good argument. It is some
+sort of micro optimization and you completely miss the point we target
+multiarch kernels.
 
 Best regards,
 Krzysztof
