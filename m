@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76353CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 23:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1302ECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 23:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=; b=UhHPqM30W+alL3DFMG1FGcU+Dv
-	SQWPOjX7bQmsq/lygz9Ws866n5/RyN08mS2ZCUi1zbFW7zIvktBgMLTDE2UdFJlsRcIfeYhLEEkbC
-	y3r2By1HEzVcHmO4Dv5AJiJOCFSvZPH/A/L9vyro4mY3ttjVAVGiymkGFzUwqAD6d0CcLfQxvvpPz
-	JYT33Ap0Kz3JL1hhWbC+5enScTSGZJQBofVjupnr6m/kx8Z0OR3SDpK56XQT96mXZ4mV3Q+9vyzHL
-	HP2QfcS2IUUd4b1DG7Ml4kdWAnzzSPGud0QtQ4CD9dY3VfHlNTklBXJkiDSDj//j6HaSX2qS82Qtc
-	bSIOa/Kw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIdZxomTiawbxwfqpMnoqPSizZxwJiiryInuVxUgs40=; b=tMv864xuuVeCy2i+5vBIzBstcD
+	qAv4zNtUR1TUHCcOTFNxOfvfeIWEnfUbhsm3zT7HmLimDFd+5fwhAeEOniGcEpSApV5rv+7jEGqdm
+	GKtT1wF/WbtW6b2bP6qRRzGsB+55+QeNg9hUWYHbVStmUQs1vqTbE1EkZZaGPYsSX1AgSmoYPEFzC
+	PWTiR5ywoCeSgJ9QjnaAjGUgLAQo3TOcW+ORuP92xwe8bGi2r7117Jmsjl3AYjVTm6DeDvtrDc62L
+	u4tha9oG12tyQviudQl8+UuNMMR0FIQYDYQJW98/M8ZC7zKrST95B4BiTGiiJ8uR10RFRqhDsV0CA
+	dur6rslQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHs7U-00000003YRM-148q;
-	Sat, 08 Nov 2025 23:13:20 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vHs7Y-00000003YTg-2El0;
+	Sat, 08 Nov 2025 23:13:24 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHs7Q-00000003YQQ-3vwg
+	id 1vHs7W-00000003YRo-1clI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 23:13:18 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so2927657a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 15:13:16 -0800 (PST)
+	Sat, 08 Nov 2025 23:13:23 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6417313bddaso518264a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 15:13:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1762643595; x=1763248395; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=;
-        b=fuE/rkyJvoiP/S4xoQSKYMKaj5xYtEwgoRp6TLU2ZRE+cu7Tp1FbxRq6ck0nnXNs0u
-         dpHWuzBuzwa3Md54l6HD9Y0RjCH2kFWVS1gTW42Yopk24Ej/dANDusZNfXzYH1HsxgcQ
-         k4uc4L/Hx+ce+56gYjE8WDyGOyC4b+sMBQxTnMFd2apmfA3XtqycwtPZlCYjnDqEKwMH
-         iyH/K2A9OWnnZ3z7cmpiPKuTIKgCUTmoGhfCpDFwuttoWpL/5qw2G/F6qZT5C7IaemJn
-         r1Tw33FIAYgoKivqCFrox9Jp7SCdLq0yVbtUvaxNyci3FO/vIyCfAPSlFGWpt3SPHagl
-         nc9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762643595; x=1763248395;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=googlemail.com; s=20230601; t=1762643601; x=1763248401; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=;
-        b=nHGR/0hl/MHEAaf2rYxJU+7iDMRqktE+7+KEagAtCP+beAAwIix9mBOA3TK3R4ZyHu
-         byIjOP4BZyOOAW8mBW9XYOCbXZnBsf+2YDUEnqfzEYJgflsn1z//F1ZkWomsev8YVaI4
-         xZ4qoaB0Jvs8dcytiUwiN9UuHA8xSrENznE7y4884chw46LoaMVa4OxlaFbvLtmvf8es
-         a2oo7I5fVDYQO1oahuXYb+IsISmW8rKecjHfhskB6J3bgxYr/gFYAXdNHv7CrIUmgR2I
-         CBcAnQpWxqJxVTvfQPOxalLmEgkuW5XDd9cf2sM5UbBezqMbIJAMoK4XsJwTbNtZSowE
-         bUjw==
-X-Gm-Message-State: AOJu0YxGEPYbPJ+pIn+obMi0ZqNE6tjUvs/gpGSPSYglTIw980cBma7e
-	TPN/zr1Hic0rAJj1FFhlGNRI7IM9H1UICqIymSN03ENQw51Oj8ckkOx3
-X-Gm-Gg: ASbGncvoUuDmGPrkOoRzBtTsxXKgJ3KHf86/6J4xk8trTKAy3lpwvuqn5p4bSHnd5rN
-	Cvk9equkgnLRU6ce0dJ2UGM7ftw4GmyjFlJvkjV+xVw5HeRRrhUh5G2UfRdukHCsD/n3KM+hPa2
-	cy23cbzwlAf3L3plaYwHLh+PIQGX0/6twMEJUnWJYUBa0RfGcXTQLdT7fmEq9LZ97Zz5pJa/3eT
-	Z0MSzMHC3A1arSrXP9oTFIttcNYrIkunosi0wiPnbYN5Blura/Zf8qxzc1e5/wanvpto11czog4
-	2wkbo2okHAXlZb7gwSaqvb0C2DrpEpNS12PcL8hMCPmHJHm9zK5/NvjIPmmG/HslMGngHa6iXek
-	Wid7iNXHcm262BHWAsGh6YHzZsU6W9bAkvEixxacKIqSD0//pgSQLecDdRPM+zg6gt14Kl3+GlV
-	ebWQPoyc+uyXBloA6YzOIXM/8QX34AyPo1Nja74lW6n0lFs0DwqgbKnW4JmP2imNnInYa3s+isS
-	MhTUX2fvgTs5s8eMel3IiJ6tfg7RXB+FU/Yiq4p2ro=
-X-Google-Smtp-Source: AGHT+IHojjSOYkU74h70pOz5Juc0qTwy5Qm9aBj39UgCLbnQKLDh8bnfGClMfrPjx5Lm9oFsJdZQ9g==
-X-Received: by 2002:a05:6402:40d1:b0:640:bc0b:887d with SMTP id 4fb4d7f45d1cf-6415dc03146mr2946757a12.2.1762643594925;
-        Sat, 08 Nov 2025 15:13:14 -0800 (PST)
+        bh=OIdZxomTiawbxwfqpMnoqPSizZxwJiiryInuVxUgs40=;
+        b=SRfe7JHiDNeBT9XxqEp+H/WAH2z/P3K+5gwPooRK3JbVjniCuCidsqCVgGbKvmgabi
+         AOHFwV2ZzVO02Oy+V/R5D7DSXtx8xqMnmHkhdgcLNK4O25dwlGAbNQIjh9ZTQve/sEgn
+         3JnrXuOeUdmGFoUCr5WIiPOOSGwEkDdPh6e/6pmq7Cu5gWgQs8KxisjGZ4U3g6pWnyDW
+         lhLprEP7xiO9H8MZNWJcg4eGxIz/4vcGXSwQmCsBoAvsM2QG0Df/L4VnE2iJHerXEGPM
+         xft3Spm/zMwUHN4JSmVjyFoOk7nEJSQmwdQdUoDzPcqaBg/18ZQMwqTFxKIMemUjczro
+         wNPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762643601; x=1763248401;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OIdZxomTiawbxwfqpMnoqPSizZxwJiiryInuVxUgs40=;
+        b=QCHXW5W+ZL8LbOBdXShznbvJEIEfqT5aF80oIwfqDAH7IOeJ1Z1DRKdbVORrrKtLj/
+         mFC8MQbLsCUdVAe9AbSxiorYCcoDvZPzZ4Njs7aJU8wTeTyHw6WOUlWtmCshQnf+BJul
+         qA96ffxErbOrojA3KWykm+ZyMT0ep8YlB2C0ti3zzU8lw/drRDHUZHXK+i/taaOiDFfe
+         8mAPfqIE3WGNjKJiqmWG4ZV1fC4UdeUzkjBkiS7Jic/L8b5sWwN2jJVWwY0VN0SoJ0AN
+         +PZPZzmb29tpjqiH+jrpr1nRxJ6xbHGIOv1UpsQ+EDGmsW5vlJP0EuOtboVIXgOAYMCS
+         omCg==
+X-Gm-Message-State: AOJu0YyAnDsuIyON3zZL/QZZl8F3qPGa52O2rm8LgwvvMORTB7hiCqL1
+	dyVQfjHymDYngHd1Ovu8RWJdC5HZinxEznq5mA2SMMznZPQ24IEy4EE9
+X-Gm-Gg: ASbGncvK2rKkg/PQmB6qi73wWb1ZRdu9Zqn9HWVaN2A6HHmZZo3AxDo3fjPS1RRp4HU
+	7GuEyauWtgQGUtxIbYMyA0oZS4YqXzs4heh4nMvrKh4/RipG7Vs6Z8BVoOrVAkBsVygfcHPtebA
+	QzXoDj4AlEv789S3XAPlz4OeoqapWuWA0W4vvq8y4JIxfOnKYlDLxBwBYEpmvjpvlQCpvI6fFjt
+	MdXA9ZEn3MEuHWOu7Pzki+0clbrM7Z0x/lG0e2t1AQQSph7rl+G69P56opvC6FJlL6vaRBlenHN
+	ULniymTjMRqa7lEuLFUoGjW4JlY2nKtZM8LuE5y3IY3GBkAiaRTCs+RCNvveEJw71bWUzCDNx5e
+	NaEEwOMYhtwimcQNVySoYaJt0ayrE8HdUbOBLtuv/mriQaS8v6fPVW+60dG4i2YX0RgeDo/JVJI
+	W7SUOGc96pYPrKgnP5dYWutB8Tdo9OLHoMGZYnyA4hudfZ7iCbb+2DNwkPSkyLJ4FGnPMVTpx3x
+	BwjS2vL30AkM97dYjNfvNx4IP1IU/xn
+X-Google-Smtp-Source: AGHT+IFQjlRv39XcJklWKjtg5/kXtIXi7GGXYRLVU3hdPD9cbN+MwifNhIboaa4CWjMgje18D1/dkg==
+X-Received: by 2002:a05:6402:2106:b0:640:8eed:5601 with SMTP id 4fb4d7f45d1cf-6415e104231mr2993008a12.2.1762643600704;
+        Sat, 08 Nov 2025 15:13:20 -0800 (PST)
 Received: from blackbox (dynamic-2a02-3100-a9b3-6600-1e86-0bff-fe2f-57b7.310.pool.telefonica.de. [2a02:3100:a9b3:6600:1e86:bff:fe2f:57b7])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-6411f814164sm7642807a12.13.2025.11.08.15.13.13
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-6411f814164sm7642807a12.13.2025.11.08.15.13.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Nov 2025 15:13:13 -0800 (PST)
+        Sat, 08 Nov 2025 15:13:19 -0800 (PST)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 To: linux-amlogic@lists.infradead.org,
 	linux-mmc@vger.kernel.org
@@ -76,15 +77,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	ulf.hansson@linaro.org,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: [PATCH v1 0/7] mmc: meson-mx-sdio: Various driver improvements
-Date: Sun,  9 Nov 2025 00:12:46 +0100
-Message-ID: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+Subject: [PATCH v1 2/7] mmc: meson-mx-sdio: Use devm_clk_get_enabled()
+Date: Sun,  9 Nov 2025 00:12:48 +0100
+Message-ID: <20251108231253.1641927-3-martin.blumenstingl@googlemail.com>
 X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+References: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_151317_683783_AA68851F 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20251108_151322_443007_63B18874 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +102,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series contains patches to improve / simplify the code of the
-meson-mx-sdio driver by:
-- using regmap for simplifying register access (patch 1)
-- switching to modern clock functions/helpers (patches 2, 3) and
-  make the clock code not interfere when switching to
-  devm_mmc_alloc_host() (patch 3)
-- making use of the devm_mmc_alloc_host (patch 4)
-- using modern dev_err_probe() for better error handling (patch 5)
-- indentation fix (patch 6)
-- ignoring disabled mmc-slot device-tree nodes to allow describing
-  all slots in device-tree, even though the driver only uses the
-  first enabled slot (patch 7)
+This simplifies the code. No functional changes intended.
 
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+---
+ drivers/mmc/host/meson-mx-sdio.c | 23 +++++++----------------
+ 1 file changed, 7 insertions(+), 16 deletions(-)
 
-Binbin Zhou (1):
-  mmc: meson-mx-sdio: Use devm_mmc_alloc_host() helper
-
-Martin Blumenstingl (6):
-  mmc: meson-mx-sdio: Switch to regmap for register access
-  mmc: meson-mx-sdio: Use devm_clk_get_enabled()
-  mmc: meson-mx-sdio: Refactor internal clock initialization
-  mmc: meson-mx-sdio: Use dev_err_probe() where appropriate
-  mmc: meson-mx-sdio: Fix indentation in meson_mx_mmc_irq_thread()
-  mmc: meson-mx-sdio: Ignore disabled "mmc-slot" child-nodes
-
- drivers/mmc/host/Kconfig         |   1 +
- drivers/mmc/host/meson-mx-sdio.c | 339 +++++++++++++++----------------
- 2 files changed, 170 insertions(+), 170 deletions(-)
-
+diff --git a/drivers/mmc/host/meson-mx-sdio.c b/drivers/mmc/host/meson-mx-sdio.c
+index 2448f21bd683..1159cc911359 100644
+--- a/drivers/mmc/host/meson-mx-sdio.c
++++ b/drivers/mmc/host/meson-mx-sdio.c
+@@ -103,7 +103,6 @@ struct meson_mx_mmc_host {
+ 	struct device			*controller_dev;
+ 
+ 	struct clk			*parent_clk;
+-	struct clk			*core_clk;
+ 	struct clk_divider		cfg_div;
+ 	struct clk			*cfg_div_clk;
+ 	struct clk_fixed_factor		fixed_factor;
+@@ -627,6 +626,7 @@ static int meson_mx_mmc_probe(struct platform_device *pdev)
+ 	struct platform_device *slot_pdev;
+ 	struct mmc_host *mmc;
+ 	struct meson_mx_mmc_host *host;
++	struct clk *core_clk;
+ 	void __iomem *base;
+ 	int ret, irq;
+ 	u32 conf;
+@@ -676,9 +676,9 @@ static int meson_mx_mmc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto error_free_mmc;
+ 
+-	host->core_clk = devm_clk_get(host->controller_dev, "core");
+-	if (IS_ERR(host->core_clk)) {
+-		ret = PTR_ERR(host->core_clk);
++	core_clk = devm_clk_get_enabled(host->controller_dev, "core");
++	if (IS_ERR(core_clk)) {
++		ret = PTR_ERR(core_clk);
+ 		goto error_free_mmc;
+ 	}
+ 
+@@ -692,16 +692,10 @@ static int meson_mx_mmc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto error_free_mmc;
+ 
+-	ret = clk_prepare_enable(host->core_clk);
+-	if (ret) {
+-		dev_err(host->controller_dev, "Failed to enable core clock\n");
+-		goto error_free_mmc;
+-	}
+-
+ 	ret = clk_prepare_enable(host->cfg_div_clk);
+ 	if (ret) {
+ 		dev_err(host->controller_dev, "Failed to enable MMC clock\n");
+-		goto error_disable_core_clk;
++		goto error_free_mmc;
+ 	}
+ 
+ 	conf = 0;
+@@ -715,14 +709,12 @@ static int meson_mx_mmc_probe(struct platform_device *pdev)
+ 
+ 	ret = meson_mx_mmc_add_host(host);
+ 	if (ret)
+-		goto error_disable_clks;
++		goto error_disable_div_clk;
+ 
+ 	return 0;
+ 
+-error_disable_clks:
++error_disable_div_clk:
+ 	clk_disable_unprepare(host->cfg_div_clk);
+-error_disable_core_clk:
+-	clk_disable_unprepare(host->core_clk);
+ error_free_mmc:
+ 	mmc_free_host(mmc);
+ error_unregister_slot_pdev:
+@@ -742,7 +734,6 @@ static void meson_mx_mmc_remove(struct platform_device *pdev)
+ 	of_platform_device_destroy(slot_dev, NULL);
+ 
+ 	clk_disable_unprepare(host->cfg_div_clk);
+-	clk_disable_unprepare(host->core_clk);
+ 
+ 	mmc_free_host(host->mmc);
+ }
 -- 
 2.51.2
 
