@@ -4,65 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D466CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 07:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA16BCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 07:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5hRbEmCZAr8rZpKUXLSHNatmnQ6+I1kl4hbNoJwVz4=; b=zkh5aXeszjykHDrKpAuJdDxXZR
-	Yab8pUdePsRNxdsCZMDJnwsdaW0DyWjRfvekqADHiF1ziyk27RVMf/gzsUgbcPHojrVd2caVl4QuS
-	4X6/Ry45p/5+WQTGIgaZ252FvVPhINaFKSj7tNx0aw4TxY9KAdrPgYKEwYa9+1s5QjsDhCI8YiXLb
-	61erFOUN5+kaIR8zVKehcl3phiz11iVjnL3GyDmkg2NnJubEL23WAtRI6dVvloIQtzFjbEoivqwq1
-	Xuq4vpZoECV5Myi5lcJS/XRIx8FvFWLPTObpsTrbTz2/u65jxYf+z1qAllqvuAyLlDNaA1wt/zJi1
-	H5xJwtuA==;
+	bh=TGdoZognkXIiV0HydNaGqmGNn2PJy1yzawAViXgjG8s=; b=XN3DvOSher6MpjtvEb3paJf5wy
+	jG7YWR3rXqJ5esasUm0YRL0hRTkQHF0/aOKkhdz+zp6gxXePka2eK8innJCn6utmMydQ1rA0rxbZG
+	TZbPOTeB7Q1KZcw7DvsKx+dmgAuR2P/Pci28aazL2LOvWv990gd7P4k7ueZUMHFdHe2MFSMmX/VRH
+	RvqiNWG9IRE15vSSqPcTht2iAETsltpHtyZ8jCBCpI2v7p9GG6PAyytaIPSqwsX+eku3zMU0p59US
+	6V4GJ18ddVXDBk+diGxTFJJJh+bcs6z1Ex2y6rabWLAKO+m12BQxcnO64Vjj4z0+YIeZRClDuCcNq
+	em+9icEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHdFU-00000002ci2-2hLq;
-	Sat, 08 Nov 2025 07:20:36 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1vHdn1-00000002gCg-17n6;
+	Sat, 08 Nov 2025 07:55:15 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHdFR-00000002ch0-0m7s
+	id 1vHdmx-00000002gBe-3W6J
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 07:20:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1762586425; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=w5hRbEmCZAr8rZpKUXLSHNatmnQ6+I1kl4hbNoJwVz4=;
-	b=irMlCooeIbFjSXrp2p8fGXSNzg5HMMfKTN0sz9iWJE+bGItH/YKSk8oAl6mKxi7fLEoXwPyzO1fWvOXTd/yE2GZDb+vznPQbth/uxNP4ve4I7rGgwJbA2o1RJGAk0jf7GiPW0u1kY0zxD27hoqcyWmg/+Gx4wT3RJezZvvIvI8c=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0Wrv9onH_1762586422 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 08 Nov 2025 15:20:23 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  Ryan
- Roberts <ryan.roberts@arm.com>,  Barry Song <baohua@kernel.org>,  Lorenzo
- Stoakes <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,
-  Zi Yan <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
-  Yang Shi <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
- <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Anshuman Khandual
- <anshuman.khandual@arm.com>,  Kefeng Wang <wangkefeng.wang@huawei.com>,
-  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin Fengwei
- <fengwei_yin@linux.alibaba.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-mm@kvack.org
-Subject: Re: [PATCH -v4 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-In-Reply-To: <2b9fa85b-54ff-415c-9163-461e28b6d660@gmail.com> (David
-	Hildenbrand's message of "Thu, 6 Nov 2025 10:47:10 +0100")
-References: <20251104095516.7912-1-ying.huang@linux.alibaba.com>
-	<20251104095516.7912-3-ying.huang@linux.alibaba.com>
-	<2b9fa85b-54ff-415c-9163-461e28b6d660@gmail.com>
-Date: Sat, 08 Nov 2025 15:20:21 +0800
-Message-ID: <87qzu97zyi.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+	Sat, 08 Nov 2025 07:55:13 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 94BE7338D7;
+	Sat,  8 Nov 2025 07:55:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1762588508; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TGdoZognkXIiV0HydNaGqmGNn2PJy1yzawAViXgjG8s=;
+	b=LoxxDRRC2MtBarFArNz8UE89GztHUPawhICNckaG76WTjng11YLpVI4nYT5ZKTCoy7eyoO
+	/WclqEwyCPCwlHgtkctWIGEp5lcVRw0wGQdlBOjjS/1pGYaRY+XTptFOCHBYsEb7XF9q+2
+	rNUVp6IQLhk9NFx7i1y7mV9mqZpD4XI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1762588508;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TGdoZognkXIiV0HydNaGqmGNn2PJy1yzawAViXgjG8s=;
+	b=N8Hsa3ceVc8iGJV2lMysSJL50RkGC7lqfTzSVpXgb5el8bdrFUlZY1rnRi+PoKHxZfDiyz
+	YJfFXsIuxGFOyhCw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=BaRo542r;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=LAyvKMXw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1762588507; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TGdoZognkXIiV0HydNaGqmGNn2PJy1yzawAViXgjG8s=;
+	b=BaRo542rfa8do4d7KG9vDUgeeEuGlQk8EdtKTcF72iM8tlE70lmgAZJJIqxDzKmYHQHQJg
+	/T4di/58wnrTDHCOLsPm//imM3UIHlKApW+S+BlgZWh7Jws0Vvch5D9H7MQcAEFjyDLS3B
+	VNKAK96Zo0PNRjws52yReIwsXVFbffs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1762588507;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TGdoZognkXIiV0HydNaGqmGNn2PJy1yzawAViXgjG8s=;
+	b=LAyvKMXw2eQcrzeRzeFrcdVhem07cp3qqX2DgkK/MAD4u4PgTBJpxA6vjegH/obsMCZFYr
+	IjJMBVpYUngu1dAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 50F9113675;
+	Sat,  8 Nov 2025 07:55:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id DeBmElv3DmmEcgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Sat, 08 Nov 2025 07:55:07 +0000
+Date: Sat, 08 Nov 2025 08:55:06 +0100
+Message-ID: <87a50xq7qd.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: wangdich9700@163.com
+Cc: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: Re: [PATCH v2] ALSA: hda/senary: Replace magic numbers with defined constants
+In-Reply-To: <20251107024030.36712-1-wangdich9700@163.com>
+References: <20251107024030.36712-1-wangdich9700@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Rspamd-Queue-Id: 94BE7338D7
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.51 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	FREEMAIL_TO(0.00)[163.com];
+	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,intel.com,vger.kernel.org,lists.infradead.org,kylinos.cn];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	FROM_EQ_ENVFROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid,kylinos.cn:email];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_232033_925374_037C0137 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20251107_235512_715168_E19888BE 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,143 +144,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, David,
+On Fri, 07 Nov 2025 03:40:30 +0100,
+wangdich9700@163.com wrote:
+> 
+> From: wangdicheng <wangdicheng@kylinos.cn>
+> 
+> Replace hardcoded GPIO node value with a defined constant for better
+> code readability and maintainability.
+> 
+> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+> ---
+> 
+> v1->v2:
+> -Align both From and Signed-off-by addresses
 
-"David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com> writes:
+Applied to for-next branch now.  Thanks.
 
-> On 04.11.25 10:55, Huang Ying wrote:
->> A multi-thread customer workload with large memory footprint uses
->> fork()/exec() to run some external programs every tens seconds.  When
->> running the workload on an arm64 server machine, it's observed that
->> quite some CPU cycles are spent in the TLB flushing functions.  While
->> running the workload on the x86_64 server machine, it's not.  This
->> causes the performance on arm64 to be much worse than that on x86_64.
->> During the workload running, after fork()/exec() write-protects all
->> pages in the parent process, memory writing in the parent process
->> will cause a write protection fault.  Then the page fault handler
->> will make the PTE/PDE writable if the page can be reused, which is
->> almost always true in the workload.  On arm64, to avoid the write
->> protection fault on other CPUs, the page fault handler flushes the TLB
->> globally with TLBI broadcast after changing the PTE/PDE.  However, this
->> isn't always necessary.  Firstly, it's safe to leave some stale
->> read-only TLB entries as long as they will be flushed finally.
->> Secondly, it's quite possible that the original read-only PTE/PDEs
->> aren't cached in remote TLB at all if the memory footprint is large.
->> In fact, on x86_64, the page fault handler doesn't flush the remote
->> TLB in this situation, which benefits the performance a lot.
->> To improve the performance on arm64, make the write protection fault
->> handler flush the TLB locally instead of globally via TLBI broadcast
->> after making the PTE/PDE writable.  If there are stale read-only TLB
->> entries in the remote CPUs, the page fault handler on these CPUs will
->> regard the page fault as spurious and flush the stale TLB entries.
->> To test the patchset, make the usemem.c from
->> vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
->> support calling fork()/exec() periodically.  To mimic the behavior of
->> the customer workload, run usemem with 4 threads, access 100GB memory,
->> and call fork()/exec() every 40 seconds.  Test results show that with
->> the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
->> flush functions reduces from ~50.5% to ~0.3% in perf profile.
->> 
->
-> All makes sense to me.
->
-> Some smaller comments below.
 
-Thanks!
-
-> [...]
->
->> +
->> +static inline void local_flush_tlb_page_nonotify(
->> +	struct vm_area_struct *vma, unsigned long uaddr)
->
-> NIT: "struct vm_area_struct *vma" fits onto the previous line.
-
-Sure.
-
->> +{
->> +	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +	dsb(nsh);
->> +}
->> +
->> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
->> +					unsigned long uaddr)
->> +{
->> +	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
->> +						(uaddr & PAGE_MASK) + PAGE_SIZE);
->> +	dsb(nsh);
->> +}
->> +
->>   static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->>   					   unsigned long uaddr)
->>   {
->> @@ -472,6 +512,22 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
->>   	dsb(ish);
->>   }
->>   +static inline void local_flush_tlb_contpte(struct vm_area_struct
->> *vma,
->> +					   unsigned long addr)
->> +{
->> +	unsigned long asid;
->> +
->> +	addr = round_down(addr, CONT_PTE_SIZE);
->> +
->> +	dsb(nshst);
->> +	asid = ASID(vma->vm_mm);
->> +	__flush_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid,
->> +			     3, true, lpa2_is_enabled());
->> +	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
->> +						    addr + CONT_PTE_SIZE);
->> +	dsb(nsh);
->> +}
->> +
->>   static inline void flush_tlb_range(struct vm_area_struct *vma,
->>   				   unsigned long start, unsigned long end)
->>   {
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index c0557945939c..589bcf878938 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -622,8 +622,7 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->>   			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
->>     		if (dirty)
->> -			__flush_tlb_range(vma, start_addr, addr,
->> -							PAGE_SIZE, true, 3);
->> +			local_flush_tlb_contpte(vma, start_addr);
->
-> In this case, we now flush a bigger range than we used to, no?
->
-> Probably I am missing something (should this change be explained in
-> more detail in the cover letter), but I'm wondering why this contpte
-> handling wasn't required before on this level.
-
-As Ryan explained in his replay email.  The flush range doesn't change
-here.  We just replace global TLB flush with local TLB flush.
-
->>   	} else {
->>   		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
->>   		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
->> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->> index d816ff44faff..22f54f5afe3f 100644
->> --- a/arch/arm64/mm/fault.c
->> +++ b/arch/arm64/mm/fault.c
->> @@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
->>     	/* Invalidate a stale read-only entry */
->
-> I would expand this comment to also explain how remote TLBs are
-> handled very briefly -> flush_tlb_fix_spurious_fault().
-
-Sure.
-
->>   	if (dirty)
->> -		flush_tlb_page(vma, address);
->> +		local_flush_tlb_page(vma, address);
->>   	return 1;
->>   }
->>   
-
----
-Best Regards,
-Huang, Ying
+Takashi
 
