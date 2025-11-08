@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4D2CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 14:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0144DCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 14:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+vAYaVk9WZENjF6eHkSICn7UuLb/IhISNxFGvIkIKLE=; b=s6F5wlz7+760htB21K8JYUvfIx
-	/jgylQf4De9xcG1gA67e25NFRU6mTzB5TfiVAdhIZj4YstTE1D6YylGohTs7EnlT3pX5+Buo3Kdm+
-	Fyhv/0A9/PlfDzjEwc+ZQuOyNwOkx/La2VWIwM4MP+2s0Pp5zkDTKfTuA641BiEcrVgBRwDh58YFr
-	hhGAcNpvKAw5IBp0jYtea1PIpAK7sLZazV2qNxt+MzkQAdbnYJmb4kW0Ne2f2FwyggglVlTdfNcZd
-	5wXrUrYz9FP51qtVGDIOJ1HkAnWylADZDvYPPRuGzEfuyH85AhxyApBHmyvbZcj2sFOiafnVgkYcS
-	rosYy7Ug==;
+	bh=LPn9l+QoDiG2QhjIafrV6sGFlG1kFs7V/OcM6xzYO04=; b=Z9y9PRa/ntrL1aA3dE8squk6uY
+	lTcNjlp3OKvpKJ4+FiP9rnbs2mI/Ue5cakzjyvWhSMZuaK7MitL1kbSEps3CzMv3auNUXw49gEAOz
+	u3yLn7jbvSxZ7QdWSf9YMsntuejRVBTv5o+z3m41gGPGk0va5U2Ew2ylwp+cIi3X99ykLXDaXvup8
+	u6w5vgcurUQBWbSSaeRMf72S6ppAX4kWr6aF2SntDM9lzJyT2YavUIoKekPjXIU3T0CgiJFaLmxQQ
+	SUWz0acBKlma+4V3WdqDH4MGWs6uCqYOErVMIGBw1Dd9MTJ9YgwOCjvD4N9oOR5FC2sXVTbWNgXis
+	SEJ2ryPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHjU5-00000003Agu-3fYF;
-	Sat, 08 Nov 2025 14:00:05 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vHjpU-00000003BfV-0izg;
+	Sat, 08 Nov 2025 14:22:13 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHjU1-00000003Afu-1ENh;
-	Sat, 08 Nov 2025 14:00:04 +0000
-Received: from smtpclient.apple (unknown [180.172.111.150])
-	by APP-05 (Coremail) with SMTP id zQCowAA3pPK0TA9pT6IJAg--.54671S2;
-	Sat, 08 Nov 2025 21:59:17 +0800 (CST)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.100.1.1.5\))
-Subject: Re: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
-From: revy <gaohan@iscas.ac.cn>
-X-Priority: 3
-In-Reply-To: <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
-Date: Sat, 8 Nov 2025 21:59:06 +0800
-Cc: Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Rob Herring <robh@kernel.org>,
- krzk+dt@kernel.org,
- conor+dt@kernel.org,
- Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Yixun Lan <dlan@gentoo.org>,
- Drew Fustini <fustini@kernel.org>,
- geert+renesas@glider.be,
- Guodong Xu <guodong@riscstar.com>,
- Haylen Chu <heylenay@4d2.org>,
- Joel Stanley <joel@jms.id.au>,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev,
- Han Gao <rabenda.cn@gmail.com>
+	id 1vHjpQ-00000003Bed-2Y8W
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 14:22:09 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1762611715;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LPn9l+QoDiG2QhjIafrV6sGFlG1kFs7V/OcM6xzYO04=;
+	b=P189H++3jsjVCo2N95hPxrfBzWWByQ0uwh1OJKldQ/RBEV/5VZAgdfHmvB5vYrtufQnceg
+	WApyA74cMwLyug8RtetofDrFbjO4cC48jNDcwONMyeACAcv0mvZh7ZnQTHA9JWew3W9ZWi
+	qBH+ZmcO65lYR1rqmc/zMYzcY+ePOGBzLlpkSJWEtQRFD0OlobZPINuSI/Pfa3N7E2WfWU
+	nCCihzEoTb6LsqNm1+Vx+pUpNlYVm8rgximClhXyAVtwZVUFQ52C1a15J2j7sy2BtrbfAF
+	ZkHAeduwh8nm7yQz1YlcwyV/AAcYiwU/LwmBbOs2Z5KjF5B6UsH8uTsBVDLE8Q==
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
-References: <cover.1762588494.git.gaohan@iscas.ac.cn>
- <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
- <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: Apple Mail (2.3864.100.1.1.5)
-X-CM-TRANSID: zQCowAA3pPK0TA9pT6IJAg--.54671S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF13uFWkGr1UXFWDWw1fXrb_yoW8Kw15pF
-	4fCFsI9FW5XryIganFgryj9FW5ta93Gw43WryDJ34rZ34jv3yUWr90qr4xWF1DXryDWa17
-	Jr95uF1a93y5AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvCb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
-	wI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2Kf
-	nxnUUI43ZEXa7IU0uc_3UUUUU==
-X-Originating-IP: [180.172.111.150]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiCQ8ADGkPJyrqCQAAsC
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 08 Nov 2025 15:21:45 +0100
+Message-Id: <DE3DPAVIOGZP.7RW4SGB8HXUT@cknow-tech.com>
+Cc: "FUKAUMI Naoki" <naoki@radxa.com>, "Damien Le Moal"
+ <dlemoal@kernel.org>, "Anand Moon" <linux.amoon@gmail.com>,
+ <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Dragan Simic" <dsimic@manjaro.org>, "Lorenzo Pieralisi"
+ <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+ "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Heiko Stuebner" <heiko@sntech.de>
+Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Niklas Cassel" <cassel@kernel.org>, "Shawn Lin"
+ <shawn.lin@rock-chips.com>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
+In-Reply-To: <aQ9FWEuW47L8YOxC@ryzen>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_060001_885328_601B1AC5 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20251108_062208_782334_0FBEA2F5 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-
-> -----Original Messages-----
-> From: "Krzysztof Kozlowski" <krzk@kernel.org>
-> Sent Time: 2025-11-08 19:29:07 (Saturday)
-> To: gaohan@iscas.ac.cn, "Paul Walmsley" <pjw@kernel.org>, "Palmer =
-Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, =
-"Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>, =
-"Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" =
-<conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" =
-<jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, =
-"Yixun Lan" <dlan@gentoo.org>, "Drew Fustini" <fustini@kernel.org>, =
-"Geert Uytterhoeven" <geert+renesas@glider.be>, "Guodong Xu" =
-<guodong@riscstar.com>, "Haylen Chu" <heylenay@4d2.org>, "Joel Stanley" =
-<joel@jms.id.au>
-> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, =
-devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, =
-linux-sunxi@lists.linux.dev, "Han Gao" <rabenda.cn@gmail.com>
-> Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
->=20
-> On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
->> From: Han Gao <gaohan@iscas.ac.cn>
+On Sat Nov 8, 2025 at 2:27 PM CET, Niklas Cassel wrote:
+> On Sat, Nov 08, 2025 at 01:34:32PM +0100, Niklas Cassel wrote:
 >>=20
->> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
->> using different IPs.
->>=20
->> d1(s): Xuantie C906
->> v821: Andes A27 + XuanTie E907
->> v861/v881: XuanTie C907
->>=20
->> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
->> ---
->> arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
->> 1 file changed, 17 insertions(+), 5 deletions(-)
->>=20
->> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->> index 848e7149e443..7cba5d6ec4c3 100644
->> --- a/arch/riscv/Kconfig.socs
->> +++ b/arch/riscv/Kconfig.socs
->> @@ -54,14 +54,26 @@ config SOC_STARFIVE
->> 	help
->> 	  This enables support for StarFive SoC platform hardware.
->>=20
->> -config ARCH_SUNXI
->> -	bool "Allwinner sun20i SoCs"
->> +menuconfig ARCH_SUNXI
->> +	bool "Allwinner RISC-V SoCs"
->> +
->> +if ARCH_SUNXI
->> +
->> +config ARCH_SUNXI_XUANTIE
->=20
->=20
-> You should not get multiple ARCHs. ARCH is only one. There is also not
-> much rationale in commit msg for that.
+>> The pcie-dw-rockchip.c driver is modelled after the qcom driver.
+>> So if this is a problem when a ASM2806 switch is connected, I would
+>> expect qcom platforms to have the same problem.
+>
+> Looking more closely at this, comparing the "good" kernel:
 
-The main goal is to avoid choosing multiple IP addresses for erreta.=20
-If using Andes IPs, I don't want to choose XuanTIe (T-Head) ERRETA.
+There's another thing that caught my eye ...
 
-For example, v821 uses Andes ax27, but it used to select ERRATA_THEAD.
+> [    1.868857] pci 0004:40:00.0: [1d87:3588] type 01 class 0x060400 PCIe =
+Root Port
+> [    1.869509] pci 0004:40:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> ...
+> [    1.879764] pci 0004:41:00.0: enabling Extended Tags
+> [    1.880614] pci 0004:41:00.0: PME# supported from D0 D3hot D3cold
+> [    1.881409] pci 0004:41:00.0: 2.000 Gb/s available PCIe bandwidth, lim=
+ited by 2.5 GT/s PCIe x1 link at 0004:40:00.0 (capable of 15.752 Gb/s with =
+8.0 GT/s PCIe x2 link)
 
->=20
-> Best regards,
-> Krzysztof
+... 2.000 Gb/s ...
 
+> [    1.888729] pci 0004:41:00.0: bridge configuration invalid ([bus 00-00=
+]), reconfiguring
+> ...
+>
+>
+> With the "bad" kernel:
+> [    1.383075] pci 0004:40:00.0: [1d87:3588] type 01 class 0x060400 PCIe =
+Root Port
+> [    1.383738] pci 0004:40:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> ...
+> [    1.415746] pci 0004:41:00.0: enabling Extended Tags
+> [    1.416465] pci 0004:41:00.0: PME# supported from D0 D3hot D3cold
+> [    1.417181] pci 0004:41:00.0: 4.000 Gb/s available PCIe bandwidth, lim=
+ited by 5.0 GT/s PCIe x1 link at 0004:40:00.0 (capable of 15.752 Gb/s with =
+8.0 GT/s PCIe x2 link)
+
+... 4.0000 Gb/s
+
+I don't know if that's relevant or important, but wanted to mention it.
+
+Cheers,
+  Diederik
+
+> [    1.423384] pci 0004:41:00.0: bridge configuration invalid ([bus 00-00=
+]), reconfiguring
+> ...
+>
+>
+> We can see that the pcie-dw-rockchip.c driver detects the ASM2806 switch
+> in both cases. So the problem is not really with enumerating the root por=
+t.
+>
+> The problem seems to be that with the "bad" kernel, you get a lot of:
+> [    1.464651] pci 0004:42:00.0: devices behind bridge are unusable becau=
+se [bus 43] cannot be assigned for them
+>
+> Because the bus ends are different, and conflicts with each other.
+> I don't know why this happens.
+>
+> Perhaps we could add a quirk for ASM2806 that does some extra sleep if th=
+at
+> switch is detected, if for some reason, the switch is not actually ready
+> after the delays defined by the PCIe specification.
+>
+> (And btw. please test with the latest 6.18-rc, as, from experience, the
+> ASPM problems in earlier RCs can result in some weird problems that are
+> not immediately deduced to be caused by the ASPM enablement.)
+>
+>
+> Kind regards,
+> Niklas
 
