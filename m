@@ -4,61 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C86FCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 03:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E30CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 03:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sB2ioxHCNI5b6MHRv2+Us9SQhASeWWSYUz/U+g9J0Oc=; b=QqvfdTLL1S7qgnAoF8bUvc21QF
-	hPw2L0Dslbt6SKbDxzTPfnCoj9vp+phUrzXodrTEvtDCgSDk0t6YMdGUvgeHe6W5YeWPDNoi9T22W
-	sjXC7KoXANiAwa32a6uDpKCelWHV61eRDAZ3mCo9g2txZWB40S9qOVQpC3hyn0PkmZ6Nw3FgD3y24
-	AiL/g+AUDwaB3JazgdRtURbXd3d0wh/RqHIIRJZKIH/ATosYAKrQ9jl1z5vlsolSkdj4x4SsrHSKG
-	foU7m0oR/R5FyTaAk5KO1qIj5282V7NogR/QZZJSZTrgjJiq8xjXyslfeew4tgAlbiK8GgU9931Zt
-	XHNjOeeg==;
+	bh=AUhKXEzeGCikYXmExWl1kA2dGxV0NSVJEQeamA4bzzI=; b=J/XAuJoZEQq9bB8M644f/4xR7d
+	JMGM50Cg2CayHBvUauaIFf+my+p7rIT4pjazVpw8KfbLy9lWk4Z66S5eavVp8FuFql+s3Elhop++j
+	8F//Q7Yh5LE5Qj7HDyWWG7AWuT8sKMYs+XtlREWWof4b4BfcScWRyBMwBduAeBRZUD2Lz2QD/lgZl
+	/xAGWN7sGXKIz6jPIMSFfgCk0bKvYfuov9lO9EOt+z+T4au77VP9t/0KluX60M46WhoMkDPpf2slA
+	WN5PTYTnJsT4W0QivOe4sLI5DCsdI+vB3blPDMZKZVaes6pwXJGc0eco80VaCt8eUMlsKo6XHVbEn
+	j0m/lGRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHZCD-00000002ELz-2CDF;
-	Sat, 08 Nov 2025 03:00:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHZCC-00000002ELZ-1gZB;
-	Sat, 08 Nov 2025 03:00:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 894A0601CF;
-	Sat,  8 Nov 2025 03:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56FB7C116C6;
-	Sat,  8 Nov 2025 03:00:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762570855;
-	bh=00lq9mTgEdaXm1TiWcCpC7BbocJlckplKnaVhHwJplM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=WrXYuzHz+2VPuTxZOOasO4YmKvVFeGcQqABRgyeUpsFxX6T9r8WvQHxpZmMS7CyQh
-	 2TLiKu467MaK6QgEzctbpSOlWVBO6EGWdfkfFVlsBNaFACW8fbN4OlKeQi4ITKSlbn
-	 xiZCDO0urPGyDRtNhiI5xB8Q24JdTflW12qzWzFyN4kO1bevBTJnTZMweSjLDDW0yR
-	 zbpYtAyu/S3g5YteRfxNhk/dCry4xNSnJAxC1wCWzOndoo/SlaAGKESpUvKH8tdXyr
-	 2108EsZJP+FW7HfytpBtcB3avviqe085krqJ4+BiqRlSQnIp2oi6eNZ9aEnD2FpPq9
-	 6Gr7wTk2+DeJw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADCDC3A40FCA;
-	Sat,  8 Nov 2025 03:00:28 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vHZMn-00000002GZ9-26hc;
+	Sat, 08 Nov 2025 03:11:53 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHZMk-00000002GYP-3Jce;
+	Sat, 08 Nov 2025 03:11:50 +0000
+Message-ID: <c13574f7-b13c-42e0-9b35-a2acb594af33@infradead.org>
+Date: Fri, 7 Nov 2025 19:11:49 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?Q?Re=3A_=5BREGRESSION=5D_next/master=3A_=28build=29_implici?=
+ =?UTF-8?Q?t_declaration_of_function_=E2=80=98topology=5Fcore=5Fhas=5Fsmt?=
+ =?UTF-8?B?4oCZOyBkaWQgeW91IC4uLg==?=
+To: kernelci@lists.linux.dev, kernelci-results@groups.io,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-perf-users@vger.kernel.org, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: regressions@lists.linux.dev, gus@collabora.com, linux-next@vger.kernel.org
+References: <176225394342.3644.6412596085150396269@efdf33580483>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <176225394342.3644.6412596085150396269@efdf33580483>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: airoha: Add the capability to consume
- out-of-order DMA tx descriptors
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176257082729.1232193.2974398557983419520.git-patchwork-notify@kernel.org>
-Date: Sat, 08 Nov 2025 03:00:27 +0000
-References: <20251106-airoha-tx-linked-list-v2-1-0706d4a322bd@kernel.org>
-In-Reply-To: <20251106-airoha-tx-linked-list-v2-1-0706d4a322bd@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- xuegang.lu@airoha.com, jacob.e.keller@intel.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +58,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+[verified still present in linux-next 20251107]
+[adding CCs]
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 06 Nov 2025 13:53:23 +0100 you wrote:
-> EN7581 and AN7583 SoCs are capable of DMA mapping non-linear tx skbs on
-> non-consecutive DMA descriptors. This feature is useful when multiple
-> flows are queued on the same hw tx queue since it allows to fully utilize
-> the available tx DMA descriptors and to avoid the starvation of
-> high-priority flow we have in the current codebase due to head-of-line
-> blocking introduced by low-priority flows.
+On 11/4/25 2:59 AM, KernelCI bot wrote:
 > 
-> [...]
+> 
+> 
+> 
+> Hello,
+> 
+> New build issue found on next/master:
+> 
+> ---
+>  implicit declaration of function ‘topology_core_has_smt’; did you mean ‘topology_core_cpumask’? [-Werror=implicit-function-declaration] in drivers/perf/arm_pmu.o (drivers/perf/arm_pmu.c) [logspec:kbuild,kbuild.compiler.error]
+> ---
+> 
+> - dashboard: https://d.kernelci.org/i/maestro:b25c03bf6acc100aaa7e71de7eb2cb32868b54f5
+> - giturl: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> - commit HEAD:  17490bd0527f59d841168457b245581f314b5fa0
+> - tags: next-20251104
+> 
+> 
+> Log excerpt:
+> =====================================================
+> drivers/perf/arm_pmu.c:935:24: error: implicit declaration of function ‘topology_core_has_smt’; did you mean ‘topology_core_cpumask’? [-Werror=implicit-function-declaration]
+>   935 |         pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
+>       |                        ^~~~~~~~~~~~~~~~~~~~~
+>       |                        topology_core_cpumask
+>   CC      drivers/iio/adc/bcm_iproc_adc.o
+>   CC      drivers/devfreq/governor_simpleondemand.o
+>   CC      drivers/memory/tegra/tegra124.o
+>   CC      drivers/memory/brcmstb_dpfe.o
+> cc1: some warnings being treated as errors
+>   CC      drivers/memory/tegra/tegra20-emc.o
+> 
+> =====================================================
+> 
+> 
+> # Builds where the incident occurred:
+> 
+> ## multi_v7_defconfig+CONFIG_SMP=n on (arm):
+> - compiler: gcc-12
+> - config: https://files.kernelci.org/kbuild-gcc-12-arm-SMP-6909cb01f21f07610dca0839/.config
+> - dashboard: https://d.kernelci.org/build/maestro:6909cb01f21f07610dca0839
+> 
+> 
+> #kernelci issue maestro:b25c03bf6acc100aaa7e71de7eb2cb32868b54f5
+> 
+> Reported-by: kernelci.org bot <bot@kernelci.org>
+> 
+> --
+> This is an experimental report format. Please send feedback in!
+> Talk to us at kernelci@lists.linux.dev
+> 
+> Made with love by the KernelCI team - https://kernelci.org
+> 
 
-Here is the summary with links:
-  - [net-next,v2] net: airoha: Add the capability to consume out-of-order DMA tx descriptors
-    https://git.kernel.org/netdev/net-next/c/3f47e67dff1f
-
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+~Randy
 
 
