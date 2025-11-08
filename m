@@ -4,59 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6220DCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 08:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8D1CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 08:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGstWPR7c1VC1Ecy7nFORD38QY5nvebaQlN9p58vCz4=; b=k2nPnS0CKUshjP6zFqP5UdFMfd
-	HiSR/+mesjaxt8ruqI0JOy9JMdJZN6m8sdhZMWpa/6+FIt6TvPMlahWDunIiHp6hHPrJHLbXxLqbw
-	9KFnh9eZEotg1i4LRKTSdiEXsDAxXOK0/nOVtV4pgzYZ4YajW7KkcL7xr9U2qJQSizhxtLVCIQtO1
-	dRuMO0I79je0K/4EqZjm4QG+lRd+g3heDIsd/ANoxdlvsFHH1TOUGVIsUb8II1lKsDxXL52e5rIHt
-	aawi2ic5wXdtSNfaMl5UcpOMmYMdhvSfLzX1dM9nRJbT37nT4566c6RibmvXU2Q0OlYVTqK0PIZVc
-	GlJKMaMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=; b=4ljOyngbDhW8VJSyM1i7Gc2w+K
+	IKcKb7+2lv/iOPhsnRovxVbT6J9UOH5LGnksDuJEIKsg0v5P5giRAf0UtKGYnQYHscnDNAc+/SVD+
+	ZmkJSbONd6+szgTMQpc0DhN7PKviQ+AYZ+15yxv2/ZXnkEy8ZMUivqWxPTnla9BbuYCnzJ9AvPCJV
+	Vh3GdOiuwHjZwqHhNNH8D1/Z9/Rekl6M43u7iVzRmPP5/1K26K65y33sn/LfTTOH4pclM6XhxZcty
+	X7gAlRXwPEdeWlT4OksIkUsLk2fDeLTyIpBCAoe9vNf+QCJc10cRWR1Bti7TzfVgfymXl2mPs6sEY
+	hZ/nVa3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeaT-00000002tf5-0iOH;
-	Sat, 08 Nov 2025 08:46:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vHeiL-00000002vZP-1Xqk;
+	Sat, 08 Nov 2025 08:54:29 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeaQ-00000002tcr-31j8;
-	Sat, 08 Nov 2025 08:46:20 +0000
-Received: from ideasonboard.com (mob-5-90-142-135.net.vodafone.it [5.90.142.135])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E81E8A8F;
-	Sat,  8 Nov 2025 09:44:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762591458;
-	bh=5f9LLR2G5PjtiaSZgbdwtMDFj6zttyrTMGNkNYlOtFc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cXDIwjeKo1Xa20m4bm+sG9QKg04n6meFCVclWUEfYbuqVDy57Nnnpd5Cy+UM/tOlH
-	 ZX5JW4sLth1DJGhfUqgI5VCUh8CCDYcGR1lniTPN5h0npg2WRSNpfvWuZroQ0ia/+G
-	 V/koM0zsfmqJvcgg6hAa7NT/7O+0OpvyEyCqzChU=
-Date: Sat, 8 Nov 2025 09:46:10 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Dan Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Antoine Bouyer <antoine.bouyer@nxp.com>, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 6/8] media: rkisp1: Use v4l2-isp for validation
-Message-ID: <tkgroszon7wi43jvmte5vylbxdn7oafm665weecztkfguqhu6c@mw24ipqvwxou>
-References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
- <20251020-extensible-parameters-validation-v8-6-afba4ba7b42d@ideasonboard.com>
- <20251107231818.GH5558@pendragon.ideasonboard.com>
+	id 1vHeiG-00000002vXJ-3PJu
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 08:54:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762592063;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=;
+	b=EYzSJ6yK1mdWH2jAD85LCJ27+GCN8DpLatHaeoUutf3RHeHMaMEHVlqUHd3lp/dgImqv8I
+	G65qfwpxFeO1L0SAc85UugdTiCyATnHeEA8ANgASL5VSYL0l4k6BKSghUs2fyQOzBNbMfh
+	2KFXgNLaQmy4spMN3SWglGs5StbrA/U=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-147-sFO_u48ONNWATbty2wo3ZQ-1; Sat, 08 Nov 2025 03:54:21 -0500
+X-MC-Unique: sFO_u48ONNWATbty2wo3ZQ-1
+X-Mimecast-MFC-AGG-ID: sFO_u48ONNWATbty2wo3ZQ_1762592060
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-ba795c4d4a2so1076007a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 00:54:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762592060; x=1763196860;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=;
+        b=nGsvrisnbzOTp0/PjoWAz8vVKswCpK2bVRtkicpXgJJgSbZr9c4t5njc1SngN6Sj46
+         3SJjtt2wP6lgdpNwqIgupr+4tD9TODlvPmep3io0dvUxsv6C9qOPmWGy2Wqn4u+3ulC3
+         3f/rgVEfZC+Yu/OerHmt7rqm2js5GVX+6MyZF0i//HEyqpaDXMLyDjCdi1bmRWfwtuz4
+         RqerxjcRAgByti/mXShtyYTvLnqnPrrbCMMo2bplHcl7Ccu6zr1ynm8Ue65EwLZkl2F6
+         gTDj1eRdIa4ehTLTg4X6Bw5rWQyhBw2Y++rLAoqOvLnZJLv2ZEvC6jF6LS3w0rJ6zlKt
+         xGmg==
+X-Forwarded-Encrypted: i=1; AJvYcCU589NeNLYbhx9TmFWzeUpRrG6//fu3LvdZv6Gp9+sgPVgtMKCsxC+4sZ8hBvSOJoXDbHyZlm6Mpw8DfPoy26M1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNovjowTNOT3TW5wzJL8Y11ICOqRtESgj5WwKLn9CkmkIGfcgm
+	ELzi6DdeaYdfST/9cEciiuf15FoqlzQxbnPA0Ht2YjNdsWIjHnpMlRFPEoUVJUlkYnhZwhKcgMg
+	iHHkLBT4hcuhi5B2ketg34LelY39XozjQYF5K/uphtW67UykdWGW/5h9EWYqwrdAn6oCipBgLCP
+	Zi
+X-Gm-Gg: ASbGncto0fGYsizmy9Q3o1M0ItHR2kK/pZxunxdXOt4WTVOYlDg9yAmHrF4mVDU5jd5
+	GmvsYIrUhbPk/AdjOBWkpzoZU9T/TB8Mk2qW1VfWsfzKIvKkEpvHaC19bfIf8H3nC4JiUi8fe1n
+	iS9pmDfIKVq177GYWY2MCxg2cGbyYDHcddCz5wEQS8fzbyns9TGIuUCElDcgr+IPp4n/KD8ULGJ
+	JXXxzweF1XG1751ZbFJD/tesmNaU8imKjbrQmAghKzQbxhGKSNmhAmpYdzmtJNIOL9erim39+Pq
+	KOSbf0Xq/iIJ23+yK8S3T/MBqa/Qn0OmVPnnr0jVSn9XPPIQYezEGyceYjcmUyE5vydcPT8rxLG
+	AjUgkh5dVA6t8GDSaza16DIcbyod6bKHlBaGb4S4=
+X-Received: by 2002:a17:902:d581:b0:293:623:3260 with SMTP id d9443c01a7336-297e572957amr26787505ad.57.1762592060277;
+        Sat, 08 Nov 2025 00:54:20 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFO3lLxG4RJ4zN5r1PXdYwDZvdQhh26uJSeUhooMGV2gMBNa+/ZVC+3cOORD6W37lAcesaaaA==
+X-Received: by 2002:a17:902:d581:b0:293:623:3260 with SMTP id d9443c01a7336-297e572957amr26787045ad.57.1762592059742;
+        Sat, 08 Nov 2025 00:54:19 -0800 (PST)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651c7c841sm84261795ad.72.2025.11.08.00.54.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 08 Nov 2025 00:54:18 -0800 (PST)
+Message-ID: <835b49a3-cbe2-41b0-a442-f7cabaa644fd@redhat.com>
+Date: Sat, 8 Nov 2025 18:54:05 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251107231818.GH5558@pendragon.ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/33] ACPI / MPAM: Parse the MPAM table
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-10-ben.horgan@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20251107123450.664001-10-ben.horgan@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jnkLo9hLzU9zaCl_ZTuyRWaXKh7Dm7UOHChMl7vs4_c_1762592060
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_004619_043666_54B9922B 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20251108_005425_383713_FF7F5BBD 
+X-CRM114-Status: GOOD (  37.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,399 +124,606 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent
+Hi Ben,
 
-On Sat, Nov 08, 2025 at 01:18:18AM +0200, Laurent Pinchart wrote:
-> Hi Jacopo,
->
-> Thank you for the patch.
->
-> On Mon, Oct 20, 2025 at 10:24:52AM +0200, Jacopo Mondi wrote:
-> > Convert rkisp1-params.c to use the helpers defined in v4l2-isp.h
-> > to perform validation of a ISP parameters buffer.
-> >
-> > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/rockchip/rkisp1/Kconfig     |   1 +
-> >  .../media/platform/rockchip/rkisp1/rkisp1-params.c | 183 +++++++++------------
-> >  2 files changed, 77 insertions(+), 107 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/Kconfig b/drivers/media/platform/rockchip/rkisp1/Kconfig
-> > index 731c9acbf6efa33188617204d441fb0ea59adebc..f53eb1f3f3e7003d8e02c9236aeabb5ae8844f7b 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/Kconfig
-> > +++ b/drivers/media/platform/rockchip/rkisp1/Kconfig
-> > @@ -10,6 +10,7 @@ config VIDEO_ROCKCHIP_ISP1
-> >  	select VIDEOBUF2_VMALLOC
-> >  	select V4L2_FWNODE
-> >  	select GENERIC_PHY_MIPI_DPHY
-> > +	select V4L2_ISP
-> >  	default n
-> >  	help
-> >  	  Enable this to support the Image Signal Processing (ISP) module
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > index f1585f8fa0f478304f74317fd9dd09199c94ec82..a880a46d2eefefc6474b36dc5aa69b4f3dce51d1 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > @@ -12,6 +12,7 @@
-> >  #include <media/v4l2-common.h>
-> >  #include <media/v4l2-event.h>
-> >  #include <media/v4l2-ioctl.h>
-> > +#include <media/v4l2-isp.h>
-> >  #include <media/videobuf2-core.h>
-> >  #include <media/videobuf2-vmalloc.h>	/* for ISP params */
-> >
-> > @@ -2097,122 +2098,166 @@ typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
-> >  			     const union rkisp1_ext_params_config *config);
-> >
-> >  static const struct rkisp1_ext_params_handler {
-> > -	size_t size;
-> >  	rkisp1_block_handler handler;
-> >  	unsigned int group;
-> >  	unsigned int features;
-> >  } rkisp1_ext_params_handlers[] = {
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_bls_config),
-> >  		.handler	= rkisp1_ext_params_bls,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  		.features       = RKISP1_FEATURE_BLS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPCC] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_dpcc_config),
-> >  		.handler	= rkisp1_ext_params_dpcc,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_SDG] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_sdg_config),
-> >  		.handler	= rkisp1_ext_params_sdg,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_GAIN] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_awb_gain_config),
-> >  		.handler	= rkisp1_ext_params_awbg,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_FLT] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_flt_config),
-> >  		.handler	= rkisp1_ext_params_flt,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BDM] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_bdm_config),
-> >  		.handler	= rkisp1_ext_params_bdm,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CTK] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_ctk_config),
-> >  		.handler	= rkisp1_ext_params_ctk,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_GOC] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_goc_config),
-> >  		.handler	= rkisp1_ext_params_goc,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_dpf_config),
-> >  		.handler	= rkisp1_ext_params_dpf,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF_STRENGTH] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_dpf_strength_config),
-> >  		.handler	= rkisp1_ext_params_dpfs,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CPROC] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_cproc_config),
-> >  		.handler	= rkisp1_ext_params_cproc,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_IE] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_ie_config),
-> >  		.handler	= rkisp1_ext_params_ie,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_LSC] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_lsc_config),
-> >  		.handler	= rkisp1_ext_params_lsc,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_LSC,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_MEAS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_awb_meas_config),
-> >  		.handler	= rkisp1_ext_params_awbm,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_HST_MEAS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_hst_config),
-> >  		.handler	= rkisp1_ext_params_hstm,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AEC_MEAS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_aec_config),
-> >  		.handler	= rkisp1_ext_params_aecm,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AFC_MEAS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_afc_config),
-> >  		.handler	= rkisp1_ext_params_afcm,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_compand_bls_config),
-> >  		.handler	= rkisp1_ext_params_compand_bls,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  		.features	= RKISP1_FEATURE_COMPAND,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-> >  		.handler	= rkisp1_ext_params_compand_expand,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  		.features	= RKISP1_FEATURE_COMPAND,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-> >  		.handler	= rkisp1_ext_params_compand_compress,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  		.features	= RKISP1_FEATURE_COMPAND,
-> >  	},
-> >  	[RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR] = {
-> > -		.size		= sizeof(struct rkisp1_ext_params_wdr_config),
-> >  		.handler	= rkisp1_ext_params_wdr,
-> >  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> >  	},
-> >  };
-> >
-> > +static const struct v4l2_isp_params_block_info rkisp1_ext_params_blocks_info[] = {
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_bls_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPCC] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_dpcc_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_SDG] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_sdg_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_GAIN] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_awb_gain_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_FLT] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_flt_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BDM] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_bdm_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CTK] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_ctk_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_GOC] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_goc_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_dpf_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF_STRENGTH] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_dpf_strength_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CPROC] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_cproc_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_IE] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_ie_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_LSC] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_lsc_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_MEAS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_awb_meas_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_HST_MEAS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_hst_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AEC_MEAS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_aec_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AFC_MEAS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_afc_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_compand_bls_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-> > +	},
-> > +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR] = {
-> > +		.size		= sizeof(struct rkisp1_ext_params_wdr_config),
-> > +	},
->
-> We could make this more compact with
->
-> #define RKISP1_PARAMS_BLOCK_INFO(block, data) \
-> 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_ ## block] = { \
-> 		.size = sizeof(struct rkisp1_ext_params_ ## data ## _config), \
-> 	}
->
-> 	RKISP1_PARAMS_BLOCK_INFO(BLS, bls),
-> 	RKISP1_PARAMS_BLOCK_INFO(DPCC, dpcc),
-> 	RKISP1_PARAMS_BLOCK_INFO(SDG, sdg),
-> 	RKISP1_PARAMS_BLOCK_INFO(AWB_GAIN, awb_gain),
-> 	RKISP1_PARAMS_BLOCK_INFO(FLT, flt),
-> 	RKISP1_PARAMS_BLOCK_INFO(BDM, bdm),
-> 	RKISP1_PARAMS_BLOCK_INFO(CTK, ctk),
-> 	RKISP1_PARAMS_BLOCK_INFO(GOC, goc),
-> 	RKISP1_PARAMS_BLOCK_INFO(DPF, dpf),
-> 	RKISP1_PARAMS_BLOCK_INFO(DPF_STRENGTH, dpf_strength),
-> 	RKISP1_PARAMS_BLOCK_INFO(CPROC, cproc),
-> 	RKISP1_PARAMS_BLOCK_INFO(IE, ie),
-> 	RKISP1_PARAMS_BLOCK_INFO(LSC, lsc),
-> 	RKISP1_PARAMS_BLOCK_INFO(AWB_MEAS, awb_meas),
-> 	RKISP1_PARAMS_BLOCK_INFO(HST_MEAS, hst),
-> 	RKISP1_PARAMS_BLOCK_INFO(AEC_MEAS, aec),
-> 	RKISP1_PARAMS_BLOCK_INFO(AFC_MEAS, afc),
-> 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_BLS, compand_bls),
-> 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_EXPAND, compand_curve),
-> 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_COMPRESS, compand_curve),
-> 	RKISP1_PARAMS_BLOCK_INFO(WDR, wdr),
->
-> It helped me quickly visualize that the block types and data types
-> matched, so I think it could help reviews when adding new blocks.
->
-> This can also be done in a patch on top. Same for the c3-isp driver.
->
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+On 11/7/25 10:34 PM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> Add code to parse the arm64 specific MPAM table, looking up the cache
+> level from the PPTT and feeding the end result into the MPAM driver.
+> 
+> This happens in two stages. Platform devices are created first for the
+> MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
+> to discover the RIS entries the MSC contains.
+> 
+> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
+> the MPAM driver with optional discovered data about the RIS entries.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v3:
+> return irq from acpi_mpam_register_irq (Jonathan)
+> err -> len rename (Jonathan)
+> Move table initialisation after checking (Jonathan)
+> Add sanity checking in acpi_mpam_count_msc() (Jonathan)
+> ---
+>   arch/arm64/Kconfig          |   1 +
+>   drivers/acpi/arm64/Kconfig  |   3 +
+>   drivers/acpi/arm64/Makefile |   1 +
+>   drivers/acpi/arm64/mpam.c   | 403 ++++++++++++++++++++++++++++++++++++
+>   drivers/acpi/tables.c       |   2 +-
+>   include/linux/arm_mpam.h    |  47 +++++
+>   6 files changed, 456 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/acpi/arm64/mpam.c
+>   create mode 100644 include/linux/arm_mpam.h
+> 
 
-Nicer, thanks.
+With the following minor comments addressed:
 
-I've also added (here and in the C3 driver)
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-static_assert(ARRAY_SIZE(rkisp1_ext_params_handlers) ==
-              ARRAY_SIZE(rkisp1_ext_params_blocks_info));
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 67015d51f7b5..c5e66d5d72cd 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2025,6 +2025,7 @@ config ARM64_TLB_RANGE
+>   
+>   config ARM64_MPAM
+>   	bool "Enable support for MPAM"
+> +	select ACPI_MPAM if ACPI
+>   	help
+>   	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+>   	  optional extension to the Arm architecture that allows each
+> diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
+> index b3ed6212244c..f2fd79f22e7d 100644
+> --- a/drivers/acpi/arm64/Kconfig
+> +++ b/drivers/acpi/arm64/Kconfig
+> @@ -21,3 +21,6 @@ config ACPI_AGDI
+>   
+>   config ACPI_APMT
+>   	bool
+> +
+> +config ACPI_MPAM
+> +	bool
+> diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
+> index 05ecde9eaabe..9390b57cb564 100644
+> --- a/drivers/acpi/arm64/Makefile
+> +++ b/drivers/acpi/arm64/Makefile
+> @@ -4,6 +4,7 @@ obj-$(CONFIG_ACPI_APMT) 	+= apmt.o
+>   obj-$(CONFIG_ACPI_FFH)		+= ffh.o
+>   obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
+>   obj-$(CONFIG_ACPI_IORT) 	+= iort.o
+> +obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
+>   obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
+>   obj-$(CONFIG_ARM_AMBA)		+= amba.o
+>   obj-y				+= dma.o init.o
+> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+> new file mode 100644
+> index 000000000000..c199944862ed
+> --- /dev/null
+> +++ b/drivers/acpi/arm64/mpam.c
+> @@ -0,0 +1,403 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
+> +
+> +#define pr_fmt(fmt) "ACPI MPAM: " fmt
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/arm_mpam.h>
+> +#include <linux/bits.h>
+> +#include <linux/cpu.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include <acpi/processor.h>
+> +
+> +/*
+> + * Flags for acpi_table_mpam_msc.*_interrupt_flags.
+> + * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
+> + */
+> +#define ACPI_MPAM_MSC_IRQ_MODE                              BIT(0)
+> +#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                         GENMASK(2, 1)
+> +#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                        0
+> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK                BIT(3)
+> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR           0
+> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER 1
+> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID                    BIT(4)
+> +
+> +/*
+> + * Encodings for the MSC node body interface type field.
+> + * See 2.1 MPAM MSC node, Table 4 of DEN0065B_MPAM_ACPI_3.0-bet.
+> + */
+> +#define ACPI_MPAM_MSC_IFACE_MMIO   0x00
+> +#define ACPI_MPAM_MSC_IFACE_PCC    0x0a
+> +
+> +static bool _is_ppi_partition(u32 flags)
+> +{
+> +	u32 aff_type, is_ppi;
+> +	bool ret;
+> +
+> +	is_ppi = FIELD_GET(ACPI_MPAM_MSC_IRQ_AFFINITY_VALID, flags);
+> +	if (!is_ppi)
+> +		return false;
+> +
 
->
-> > +};
-> > +
-> >  static void rkisp1_ext_params_config(struct rkisp1_params *params,
-> >  				     struct rkisp1_ext_params_cfg *cfg,
-> >  				     u32 block_group_mask)
-> > @@ -2646,31 +2691,16 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
-> >  {
-> >  	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-> >  	struct rkisp1_params_buffer *params_buf = to_rkisp1_params_buffer(vbuf);
-> > -	size_t header_size = offsetof(struct rkisp1_ext_params_cfg, data);
-> >  	struct rkisp1_ext_params_cfg *cfg = params_buf->cfg;
-> >  	size_t payload_size = vb2_get_plane_payload(vb, 0);
-> >  	struct rkisp1_ext_params_cfg *usr_cfg =
-> >  		vb2_plane_vaddr(&vbuf->vb2_buf, 0);
-> > -	size_t block_offset = 0;
-> > -	size_t cfg_size;
-> > -
-> > -	/*
-> > -	 * Validate the buffer payload size before copying the parameters. The
-> > -	 * payload has to be smaller than the destination buffer size and larger
-> > -	 * than the header size.
-> > -	 */
-> > -	if (payload_size > params->metafmt->buffersize) {
-> > -		dev_dbg(params->rkisp1->dev,
-> > -			"Too large buffer payload size %zu\n", payload_size);
-> > -		return -EINVAL;
-> > -	}
-> > +	int ret;
-> >
-> > -	if (payload_size < header_size) {
-> > -		dev_dbg(params->rkisp1->dev,
-> > -			"Buffer payload %zu smaller than header size %zu\n",
-> > -			payload_size, header_size);
-> > -		return -EINVAL;
-> > -	}
-> > +	ret = v4l2_isp_params_validate_buffer_size(params->rkisp1->dev, vb,
-> > +						   params->metafmt->buffersize);
-> > +	if (ret)
-> > +		return ret;
-> >
-> >  	/*
-> >  	 * Copy the parameters buffer to the internal scratch buffer to avoid
-> > @@ -2678,71 +2708,10 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
-> >  	 */
-> >  	memcpy(cfg, usr_cfg, payload_size);
-> >
-> > -	/* Only v1 is supported at the moment. */
-> > -	if (cfg->version != RKISP1_EXT_PARAM_BUFFER_V1) {
-> > -		dev_dbg(params->rkisp1->dev,
-> > -			"Unsupported extensible format version: %u\n",
-> > -			cfg->version);
-> > -		return -EINVAL;
-> > -	}
-> > -
-> > -	/* Validate the size reported in the parameters buffer header. */
-> > -	cfg_size = header_size + cfg->data_size;
-> > -	if (cfg_size != payload_size) {
-> > -		dev_dbg(params->rkisp1->dev,
-> > -			"Data size %zu different than buffer payload size %zu\n",
-> > -			cfg_size, payload_size);
-> > -		return -EINVAL;
-> > -	}
-> > -
-> > -	/* Walk the list of parameter blocks and validate them. */
-> > -	cfg_size = cfg->data_size;
-> > -	while (cfg_size >= sizeof(struct rkisp1_ext_params_block_header)) {
-> > -		const struct rkisp1_ext_params_block_header *block;
-> > -		const struct rkisp1_ext_params_handler *handler;
-> > -
-> > -		block = (const struct rkisp1_ext_params_block_header *)
-> > -			&cfg->data[block_offset];
-> > -
-> > -		if (block->type >= ARRAY_SIZE(rkisp1_ext_params_handlers)) {
-> > -			dev_dbg(params->rkisp1->dev,
-> > -				"Invalid parameters block type\n");
-> > -			return -EINVAL;
-> > -		}
-> > -
-> > -		if (block->size > cfg_size) {
-> > -			dev_dbg(params->rkisp1->dev,
-> > -				"Premature end of parameters data\n");
-> > -			return -EINVAL;
-> > -		}
-> > -
-> > -		if ((block->flags & (RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE |
-> > -				     RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE)) ==
-> > -		   (RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE |
-> > -		    RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE)) {
-> > -			dev_dbg(params->rkisp1->dev,
-> > -				"Invalid parameters block flags\n");
-> > -			return -EINVAL;
-> > -		}
-> > -
-> > -		handler = &rkisp1_ext_params_handlers[block->type];
-> > -		if (block->size != handler->size) {
-> > -			dev_dbg(params->rkisp1->dev,
-> > -				"Invalid parameters block size\n");
-> > -			return -EINVAL;
-> > -		}
-> > -
-> > -		block_offset += block->size;
-> > -		cfg_size -= block->size;
-> > -	}
-> > -
-> > -	if (cfg_size) {
-> > -		dev_dbg(params->rkisp1->dev,
-> > -			"Unexpected data after the parameters buffer end\n");
-> > -		return -EINVAL;
-> > -	}
-> > -
-> > -	return 0;
-> > +	return v4l2_isp_params_validate_buffer(params->rkisp1->dev, vb,
-> > +				(struct v4l2_isp_params_buffer *)cfg,
-> > +				rkisp1_ext_params_blocks_info,
-> > +				ARRAY_SIZE(rkisp1_ext_params_blocks_info));
-> >  }
-> >
-> >  static int rkisp1_params_vb2_buf_prepare(struct vb2_buffer *vb)
->
-> --
-> Regards,
->
-> Laurent Pinchart
+A error message may be needed since the driver won't fully function without
+interrupt enabled. The error message gives a clear indication on what has
+happened to system administrator.
+
+> +	aff_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK, flags);
+> +	ret = (aff_type == ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER);
+> +	if (ret)
+> +		pr_err_once("Partitioned interrupts not supported\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static int acpi_mpam_register_irq(struct platform_device *pdev,
+> +				  int intid, u32 flags)
+> +{
+
+s/int intid/u32 intid
+
+All the callers pass a 'u32' parameter instead of 'int'.
+
+> +	int irq;
+> +	u32 int_type;
+> +	int trigger;
+> +
+> +	if (!intid)
+> +		return -EINVAL;
+> +
+> +	if (_is_ppi_partition(flags))
+> +		return -EINVAL;
+> +
+> +	trigger = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE, flags);
+> +	int_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags);
+> +	if (int_type != ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
+> +		return -EINVAL;
+> +
+
+Same as above, a error message may be needed here.
+
+> +	irq = acpi_register_gsi(&pdev->dev, intid, trigger, ACPI_ACTIVE_HIGH);
+> +	if (irq <= 0)
+> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n", intid);
+> +
+
+s/if (irq <= 0)/if (irq < 0)
+
+It's impossible for acpi_register_gsi() to return 0, which has been translated
+to -EINVAL in the function.
+
+> +	return irq;
+> +}
+> +
+> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+> +				 struct acpi_mpam_msc_node *tbl_msc,
+> +				 struct resource *res, int *res_idx)
+> +{
+> +	u32 flags, intid;
+> +	int irq;
+> +
+> +	intid = tbl_msc->overflow_interrupt;
+> +	flags = tbl_msc->overflow_interrupt_flags;
+> +	irq = acpi_mpam_register_irq(pdev, intid, flags);
+> +	if (irq > 0)
+> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
+> +
+> +	intid = tbl_msc->error_interrupt;
+> +	flags = tbl_msc->error_interrupt_flags;
+> +	irq = acpi_mpam_register_irq(pdev, intid, flags);
+> +	if (irq > 0)
+> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
+> +}
+> +
+> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+> +				    struct acpi_mpam_resource_node *res)
+> +{
+> +	int level, nid;
+> +	u32 cache_id;
+> +
+> +	switch (res->locator_type) {
+> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+> +		cache_id = res->locator.cache_locator.cache_reference;
+> +		level = find_acpi_cache_level_from_id(cache_id);
+> +		if (level <= 0) {
+> +			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
+> +			return -EINVAL;
+> +		}
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+> +				       level, cache_id);
+> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
+> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
+> +		if (nid == NUMA_NO_NODE) {
+> +			pr_debug("Bad proxmity domain %lld, using node 0 instead\n",
+> +				 res->locator.memory_locator.proximity_domain);
+> +			nid = 0;
+> +		}
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+> +				       255, nid);
+> +	default:
+> +		/* These get discovered later and are treated as unknown */
+> +		return 0;
+> +	}
+> +}
+> +
+> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
+> +			      struct acpi_mpam_msc_node *tbl_msc)
+> +{
+> +	int i, err;
+> +	char *ptr, *table_end;
+> +	struct acpi_mpam_resource_node *resource;
+> +
+> +	ptr = (char *)(tbl_msc + 1);
+> +	table_end = ptr + tbl_msc->length;
+> +	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
+> +		u64 max_deps, remaining_table;
+> +
+> +		if (ptr + sizeof(*resource) > table_end)
+> +			return -EINVAL;
+> +
+> +		resource = (struct acpi_mpam_resource_node *)ptr;
+> +
+> +		remaining_table = table_end - ptr;
+> +		max_deps = remaining_table / sizeof(struct acpi_mpam_func_deps);
+> +		if (resource->num_functional_deps > max_deps) {
+> +			pr_debug("MSC has impossible number of functional dependencies\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		err = acpi_mpam_parse_resource(msc, resource);
+> +		if (err)
+> +			return err;
+> +
+> +		ptr += sizeof(*resource);
+> +		ptr += resource->num_functional_deps * sizeof(struct acpi_mpam_func_deps);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Creates the device power management link and returns true if the
+> + * acpi id is valid and usable for cpu affinity.  This is the case
+> + * when the linked device is a processor or a processor container.
+> + */
+> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+> +				     struct platform_device *pdev,
+> +				     u32 *acpi_id)
+> +{
+> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1] = { 0 };
+> +	bool acpi_id_valid = false;
+> +	struct acpi_device *buddy;
+> +	char uid[11];
+> +	int len;
+> +
+> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+> +	       sizeof(tbl_msc->hardware_id_linked_device));
+> +
+> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+> +		*acpi_id = tbl_msc->instance_id_linked_device;
+> +		acpi_id_valid = true;
+> +	}
+> +
+> +	len = snprintf(uid, sizeof(uid), "%u",
+> +		       tbl_msc->instance_id_linked_device);
+> +	if (len >= sizeof(uid)) {
+> +		pr_debug("Failed to convert uid of device for power management.");
+> +		return acpi_id_valid;
+> +	}
+> +
+> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
+> +	if (buddy)
+> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
+> +
+> +	return acpi_id_valid;
+> +}
+> +
+> +static int decode_interface_type(struct acpi_mpam_msc_node *tbl_msc,
+> +				 enum mpam_msc_iface *iface)
+> +{
+> +	switch (tbl_msc->interface_type) {
+> +	case ACPI_MPAM_MSC_IFACE_MMIO:
+> +		*iface = MPAM_IFACE_MMIO;
+> +		return 0;
+> +	case ACPI_MPAM_MSC_IFACE_PCC:
+> +		*iface = MPAM_IFACE_PCC;
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_node *tbl_msc)
+> +{
+> +	struct platform_device *pdev __free(platform_device_put) =
+> +		platform_device_alloc("mpam_msc", tbl_msc->identifier);
+> +	int next_res = 0, next_prop = 0, err;
+> +	/* pcc, nrdy, affinity and a sentinel */
+> +	struct property_entry props[4] = { 0 };
+> +	/* mmio, 2xirq, no sentinel. */
+> +	struct resource res[3] = { 0 };
+> +	struct acpi_device *companion;
+> +	enum mpam_msc_iface iface;
+> +	char uid[16];
+> +	u32 acpi_id;
+> +
+> +	if (!pdev)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	/* Some power management is described in the namespace: */
+> +	err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+> +	if (err > 0 && err < sizeof(uid)) {
+> +		companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
+> +		if (companion)
+> +			ACPI_COMPANION_SET(&pdev->dev, companion);
+> +		else
+> +			pr_debug("MSC.%u: missing namespace entry\n",
+> +				 tbl_msc->identifier);
+> +	}
+> +
+
+{ } is needed for the block of code spanning multiple lines.
+
+> +	if (decode_interface_type(tbl_msc, &iface)) {
+> +		pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	if (iface == MPAM_IFACE_MMIO)
+> +		res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
+> +						       tbl_msc->mmio_size,
+> +						       "MPAM:MSC");
+> +	else if (iface == MPAM_IFACE_PCC)
+> +		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+> +							tbl_msc->base_address);
+> +
+
+As above, {} is needed here.
+
+> +	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+> +
+> +	WARN_ON_ONCE(next_res > ARRAY_SIZE(res));
+> +	err = platform_device_add_resources(pdev, res, next_res);
+> +	if (err)
+> +		return ERR_PTR(err);
+> +
+> +	props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
+> +						tbl_msc->max_nrdy_usec);
+> +
+> +	/*
+> +	 * The MSC's CPU affinity is described via its linked power
+> +	 * management device, but only if it points at a Processor or
+> +	 * Processor Container.
+> +	 */
+> +	if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id))
+> +		props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity", acpi_id);
+> +
+> +	WARN_ON_ONCE(next_prop > ARRAY_SIZE(props));
+> +	err = device_create_managed_software_node(&pdev->dev, props, NULL);
+> +	if (err)
+> +		return ERR_PTR(err);
+> +
+> +	/*
+> +	 * Stash the table entry for acpi_mpam_parse_resources() to discover
+> +	 * what this MSC controls.
+> +	 */
+> +	err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
+> +	if (err)
+> +		return ERR_PTR(err);
+> +
+> +	err = platform_device_add(pdev);
+> +	if (err)
+> +		return ERR_PTR(err);
+> +
+> +	return_ptr(pdev);
+> +}
+> +
+> +static int __init acpi_mpam_parse(void)
+> +{
+> +	char *table_end, *table_offset;
+> +	struct acpi_mpam_msc_node *tbl_msc;
+> +	struct platform_device *pdev;
+> +
+> +	if (acpi_disabled || !system_supports_mpam())
+> +		return 0;
+> +
+> +	struct acpi_table_header *table __free(acpi_put_table) =
+> +		acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> +
+> +	if (IS_ERR(table))
+> +		return 0;
+> +
+> +	if (table->revision < 1)
+> +		return 0;
+> +
+
+It's correct to return zero on IS_ERR(table) with an error message, but
+a message printed by pr_debug() may be worthywhile on "if (table->revison < 1)".
+
+> +	table_offset = (char *)(table + 1);
+> +	table_end = (char *)table + table->length;
+> +
+> +	while (table_offset < table_end) {
+> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> +		table_offset += tbl_msc->length;
+> +
+> +		if (table_offset > table_end) {
+> +			pr_err("MSC entry overlaps end of ACPI table\n");
+> +			return -EINVAL;
+> +		}
+> +
+
+Would be:
+
+		if (table_offset + sizeof(*tbl_msc) > table_end)
+
+> +		/*
+> +		 * If any of the reserved fields are set, make no attempt to
+> +		 * parse the MSC structure. This MSC will still be counted by
+> +		 * acpi_mpam_count_msc(), meaning the MPAM driver can't probe
+> +		 * against all MSC, and will never be enabled. There is no way
+> +		 * to enable it safely, because we cannot determine safe
+> +		 * system-wide partid and pmg ranges in this situation.
+> +		 */
+> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
+> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
+> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
+> +			continue;
+> +		}
+> +
+> +		if (!tbl_msc->mmio_size) {
+> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
+> +			continue;
+> +		}
+> +
+> +		pdev = acpi_mpam_parse_msc(tbl_msc);
+> +		if (IS_ERR(pdev))
+> +			return PTR_ERR(pdev);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * acpi_mpam_count_msc() - Count the number of MSC described by firmware.
+> + *
+> + * Returns the number of MSC, or zero for an error.
+
+s/MSC/MSCs
+
+> + *
+> + * This can be called before or in parallel with acpi_mpam_parse().
+> + */
+> +int acpi_mpam_count_msc(void)
+> +{
+> +	char *table_end, *table_offset;
+> +	struct acpi_mpam_msc_node *tbl_msc;
+> +	int count = 0;
+> +
+> +	if (acpi_disabled || !system_supports_mpam())
+> +		return 0;
+> +
+> +	struct acpi_table_header *table __free(acpi_put_table) =
+> +		acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+> +
+> +	if (IS_ERR(table))
+> +		return 0;
+> +
+> +	if (table->revision < 1)
+> +		return 0;
+> +
+> +	table_offset = (char *)(table + 1);
+> +	table_end = (char *)table + table->length;
+> +
+> +	while (table_offset < table_end) {
+> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+> +
+
+Would be worthy to check:
+
+		if (table_offset + sizeof(*tbl_msc) > table_end)
+			return -EINVAL;
+
+> +		if (tbl_msc->length < sizeof(*tbl_msc))
+> +			return -EINVAL;
+> +		if (tbl_msc->length > table_end - table_offset)
+> +			return -EINVAL;
+> +		table_offset += tbl_msc->length;
+> +
+> +		if (!tbl_msc->mmio_size)
+> +			continue;
+> +
+> +		count++;
+> +	}
+> +
+> +	return count;
+> +}
+> +
+> +/*
+> + * Call after ACPI devices have been created, which happens behind acpi_scan_init()
+> + * called from subsys_initcall(). PCC requires the mailbox driver, which is
+> + * initialised from postcore_initcall().
+> + */
+> +subsys_initcall_sync(acpi_mpam_parse);
+> diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
+> index 57fc8bc56166..4286e4af1092 100644
+> --- a/drivers/acpi/tables.c
+> +++ b/drivers/acpi/tables.c
+> @@ -408,7 +408,7 @@ static const char table_sigs[][ACPI_NAMESEG_SIZE] __nonstring_array __initconst
+>   	ACPI_SIG_PSDT, ACPI_SIG_RSDT, ACPI_SIG_XSDT, ACPI_SIG_SSDT,
+>   	ACPI_SIG_IORT, ACPI_SIG_NFIT, ACPI_SIG_HMAT, ACPI_SIG_PPTT,
+>   	ACPI_SIG_NHLT, ACPI_SIG_AEST, ACPI_SIG_CEDT, ACPI_SIG_AGDI,
+> -	ACPI_SIG_NBFT, ACPI_SIG_SWFT};
+> +	ACPI_SIG_NBFT, ACPI_SIG_SWFT, ACPI_SIG_MPAM};
+>   
+>   #define ACPI_HEADER_SIZE sizeof(struct acpi_table_header)
+>   
+> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+> new file mode 100644
+> index 000000000000..a3828ef91aee
+> --- /dev/null
+> +++ b/include/linux/arm_mpam.h
+> @@ -0,0 +1,47 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* Copyright (C) 2025 Arm Ltd. */
+> +
+> +#ifndef __LINUX_ARM_MPAM_H
+> +#define __LINUX_ARM_MPAM_H
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/types.h>
+> +
+> +#define GLOBAL_AFFINITY		~0
+> +
+> +struct mpam_msc;
+> +
+> +enum mpam_msc_iface {
+> +	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
+> +	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
+> +};
+> +
+> +enum mpam_class_types {
+> +	MPAM_CLASS_CACHE,       /* Caches, e.g. L2, L3 */
+> +	MPAM_CLASS_MEMORY,      /* Main memory */
+> +	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
+> +};
+> +
+> +#ifdef CONFIG_ACPI_MPAM
+> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
+> +			      struct acpi_mpam_msc_node *tbl_msc);
+> +
+> +int acpi_mpam_count_msc(void);
+> +#else
+> +static inline int acpi_mpam_parse_resources(struct mpam_msc *msc,
+> +					    struct acpi_mpam_msc_node *tbl_msc)
+> +{
+> +	return -EINVAL;
+> +}
+> +
+> +static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
+> +#endif
+> +
+> +static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+> +				  enum mpam_class_types type, u8 class_id,
+> +				  int component_id)
+> +{
+> +	return -EINVAL;
+> +}
+> +
+> +#endif /* __LINUX_ARM_MPAM_H */
+
+Thanks,
+Gavin
+
 
