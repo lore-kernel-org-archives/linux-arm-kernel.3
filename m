@@ -4,112 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8D1CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 08:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67ABCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 09:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=; b=4ljOyngbDhW8VJSyM1i7Gc2w+K
-	IKcKb7+2lv/iOPhsnRovxVbT6J9UOH5LGnksDuJEIKsg0v5P5giRAf0UtKGYnQYHscnDNAc+/SVD+
-	ZmkJSbONd6+szgTMQpc0DhN7PKviQ+AYZ+15yxv2/ZXnkEy8ZMUivqWxPTnla9BbuYCnzJ9AvPCJV
-	Vh3GdOiuwHjZwqHhNNH8D1/Z9/Rekl6M43u7iVzRmPP5/1K26K65y33sn/LfTTOH4pclM6XhxZcty
-	X7gAlRXwPEdeWlT4OksIkUsLk2fDeLTyIpBCAoe9vNf+QCJc10cRWR1Bti7TzfVgfymXl2mPs6sEY
-	hZ/nVa3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L2MWsO9KHqXFMm4t7txKowsMdaVN6entfOfWzGt7e7M=; b=Cdi6Eq9i3Ajbfe97LueMD+7Tlx
+	b/MHNTKYsm8REizfKaZC/xM9R7B6h4OkDs5N7sXaeD312AfcnqOLBqcvnfL7WYDr6FO7TT0RCtrGY
+	xn6xHiKsbr2bcj+QTCi0JItnmQ9bs90dxQqXArB8WpOgsFBC5g1FFo6eM0Fv0MtRUMatLsBBgHMwo
+	KjPYzeLTWrGhm7sFfI5P0yYytgVyw9g+jzS814TpK685oIwjUf6/xCOOG3VO/pjmqbBxCWvFsYfc0
+	F48fbI65k8RAorKreDonzUxUWFOqvl1j6j10HSGHNaYZoJ48+OEO9aaGQUNps4kBCLrCeND3ehC10
+	KUHq9vGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeiL-00000002vZP-1Xqk;
-	Sat, 08 Nov 2025 08:54:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vHenh-00000002ws5-2qui;
+	Sat, 08 Nov 2025 09:00:01 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHeiG-00000002vXJ-3PJu
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 08:54:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762592063;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=;
-	b=EYzSJ6yK1mdWH2jAD85LCJ27+GCN8DpLatHaeoUutf3RHeHMaMEHVlqUHd3lp/dgImqv8I
-	G65qfwpxFeO1L0SAc85UugdTiCyATnHeEA8ANgASL5VSYL0l4k6BKSghUs2fyQOzBNbMfh
-	2KFXgNLaQmy4spMN3SWglGs5StbrA/U=
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
- [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-147-sFO_u48ONNWATbty2wo3ZQ-1; Sat, 08 Nov 2025 03:54:21 -0500
-X-MC-Unique: sFO_u48ONNWATbty2wo3ZQ-1
-X-Mimecast-MFC-AGG-ID: sFO_u48ONNWATbty2wo3ZQ_1762592060
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-ba795c4d4a2so1076007a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 00:54:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762592060; x=1763196860;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=M7yzJWyGj9oSIDOz9vvpt+ezLGQM5udcp5yWo7UenKg=;
-        b=nGsvrisnbzOTp0/PjoWAz8vVKswCpK2bVRtkicpXgJJgSbZr9c4t5njc1SngN6Sj46
-         3SJjtt2wP6lgdpNwqIgupr+4tD9TODlvPmep3io0dvUxsv6C9qOPmWGy2Wqn4u+3ulC3
-         3f/rgVEfZC+Yu/OerHmt7rqm2js5GVX+6MyZF0i//HEyqpaDXMLyDjCdi1bmRWfwtuz4
-         RqerxjcRAgByti/mXShtyYTvLnqnPrrbCMMo2bplHcl7Ccu6zr1ynm8Ue65EwLZkl2F6
-         gTDj1eRdIa4ehTLTg4X6Bw5rWQyhBw2Y++rLAoqOvLnZJLv2ZEvC6jF6LS3w0rJ6zlKt
-         xGmg==
-X-Forwarded-Encrypted: i=1; AJvYcCU589NeNLYbhx9TmFWzeUpRrG6//fu3LvdZv6Gp9+sgPVgtMKCsxC+4sZ8hBvSOJoXDbHyZlm6Mpw8DfPoy26M1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNovjowTNOT3TW5wzJL8Y11ICOqRtESgj5WwKLn9CkmkIGfcgm
-	ELzi6DdeaYdfST/9cEciiuf15FoqlzQxbnPA0Ht2YjNdsWIjHnpMlRFPEoUVJUlkYnhZwhKcgMg
-	iHHkLBT4hcuhi5B2ketg34LelY39XozjQYF5K/uphtW67UykdWGW/5h9EWYqwrdAn6oCipBgLCP
-	Zi
-X-Gm-Gg: ASbGncto0fGYsizmy9Q3o1M0ItHR2kK/pZxunxdXOt4WTVOYlDg9yAmHrF4mVDU5jd5
-	GmvsYIrUhbPk/AdjOBWkpzoZU9T/TB8Mk2qW1VfWsfzKIvKkEpvHaC19bfIf8H3nC4JiUi8fe1n
-	iS9pmDfIKVq177GYWY2MCxg2cGbyYDHcddCz5wEQS8fzbyns9TGIuUCElDcgr+IPp4n/KD8ULGJ
-	JXXxzweF1XG1751ZbFJD/tesmNaU8imKjbrQmAghKzQbxhGKSNmhAmpYdzmtJNIOL9erim39+Pq
-	KOSbf0Xq/iIJ23+yK8S3T/MBqa/Qn0OmVPnnr0jVSn9XPPIQYezEGyceYjcmUyE5vydcPT8rxLG
-	AjUgkh5dVA6t8GDSaza16DIcbyod6bKHlBaGb4S4=
-X-Received: by 2002:a17:902:d581:b0:293:623:3260 with SMTP id d9443c01a7336-297e572957amr26787505ad.57.1762592060277;
-        Sat, 08 Nov 2025 00:54:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFO3lLxG4RJ4zN5r1PXdYwDZvdQhh26uJSeUhooMGV2gMBNa+/ZVC+3cOORD6W37lAcesaaaA==
-X-Received: by 2002:a17:902:d581:b0:293:623:3260 with SMTP id d9443c01a7336-297e572957amr26787045ad.57.1762592059742;
-        Sat, 08 Nov 2025 00:54:19 -0800 (PST)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651c7c841sm84261795ad.72.2025.11.08.00.54.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Nov 2025 00:54:18 -0800 (PST)
-Message-ID: <835b49a3-cbe2-41b0-a442-f7cabaa644fd@redhat.com>
-Date: Sat, 8 Nov 2025 18:54:05 +1000
+	id 1vHene-00000002wrM-0ZOz;
+	Sat, 08 Nov 2025 08:59:59 +0000
+Received: from ideasonboard.com (mob-5-90-142-135.net.vodafone.it [5.90.142.135])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 73AECA8F;
+	Sat,  8 Nov 2025 09:57:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762592279;
+	bh=GK9/pYpgxRpxkDg4lN3sV8PHwr9nJAKZZ5+5RMljr8E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l/q+RL7Za4EJNnOywr+3KQ/tcGWAovJDYcebgak0tCbhyIGtTPyjKwMNMn43pVeC7
+	 VkHQE+6He8RkKHM5OKxNuM8xTLneZaWcCILwSrYU5UXOysZLbmx/SnaTqp/nGGiGrx
+	 2mXW1Foc99KTYnC7B1e4lt2b6gWjfQR10WJUYOYo=
+Date: Sat, 8 Nov 2025 09:59:51 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Dan Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Antoine Bouyer <antoine.bouyer@nxp.com>, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Michael Riesch <michael.riesch@collabora.com>
+Subject: Re: [PATCH v8 4/8] media: Documentation: uapi: Add V4L2 ISP
+ documentation
+Message-ID: <ochkz2axakkaqv6ygqwfackxh37nmelcu45d3g6cpmh3dxxjmf@mg6jlfyb62iv>
+References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
+ <20251020-extensible-parameters-validation-v8-4-afba4ba7b42d@ideasonboard.com>
+ <20251108001713.GL5558@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/33] ACPI / MPAM: Parse the MPAM table
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-10-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20251107123450.664001-10-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jnkLo9hLzU9zaCl_ZTuyRWaXKh7Dm7UOHChMl7vs4_c_1762592060
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251108001713.GL5558@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_005425_383713_FF7F5BBD 
-X-CRM114-Status: GOOD (  37.92  )
+X-CRM114-CacheID: sfid-20251108_005958_344297_AB21F328 
+X-CRM114-Status: GOOD (  46.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,606 +73,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Laurent
 
-On 11/7/25 10:34 PM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> Add code to parse the arm64 specific MPAM table, looking up the cache
-> level from the PPTT and feeding the end result into the MPAM driver.
-> 
-> This happens in two stages. Platform devices are created first for the
-> MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
-> to discover the RIS entries the MSC contains.
-> 
-> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
-> the MPAM driver with optional discovered data about the RIS entries.
-> 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
-> return irq from acpi_mpam_register_irq (Jonathan)
-> err -> len rename (Jonathan)
-> Move table initialisation after checking (Jonathan)
-> Add sanity checking in acpi_mpam_count_msc() (Jonathan)
-> ---
->   arch/arm64/Kconfig          |   1 +
->   drivers/acpi/arm64/Kconfig  |   3 +
->   drivers/acpi/arm64/Makefile |   1 +
->   drivers/acpi/arm64/mpam.c   | 403 ++++++++++++++++++++++++++++++++++++
->   drivers/acpi/tables.c       |   2 +-
->   include/linux/arm_mpam.h    |  47 +++++
->   6 files changed, 456 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/acpi/arm64/mpam.c
->   create mode 100644 include/linux/arm_mpam.h
-> 
+On Sat, Nov 08, 2025 at 02:17:13AM +0200, Laurent Pinchart wrote:
+> Hi Jacopo,
+>
+> Thank you for the patch.
+>
+> On Mon, Oct 20, 2025 at 10:24:50AM +0200, Jacopo Mondi wrote:
+> > Add userspace documentation for V4L2 ISP generic parameters and
+> > statistics formats.
+> >
+> > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> > Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+> > Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > ---
+> >  .../userspace-api/media/v4l/meta-formats.rst       |   1 +
+> >  Documentation/userspace-api/media/v4l/v4l2-isp.rst | 120 +++++++++++++++++++++
+> >  MAINTAINERS                                        |   1 +
+> >  3 files changed, 122 insertions(+)
+> >
+> > diff --git a/Documentation/userspace-api/media/v4l/meta-formats.rst b/Documentation/userspace-api/media/v4l/meta-formats.rst
+> > index d9868ee88a0717c1acaa4ee477eaed96a6411f73..7b758ea9eb4ac3c4b354bf8e2f319985ed9e2b37 100644
+> > --- a/Documentation/userspace-api/media/v4l/meta-formats.rst
+> > +++ b/Documentation/userspace-api/media/v4l/meta-formats.rst
+> > @@ -25,3 +25,4 @@ These formats are used for the :ref:`metadata` interface only.
+> >      metafmt-vivid
+> >      metafmt-vsp1-hgo
+> >      metafmt-vsp1-hgt
+> > +    v4l2-isp
+> > diff --git a/Documentation/userspace-api/media/v4l/v4l2-isp.rst b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..b53df722ed29117c3827314e844fc4de61343f40
+> > --- /dev/null
+> > +++ b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
+> > @@ -0,0 +1,120 @@
+> > +.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
+> > +
+> > +.. _v4l2-isp:
+> > +
+> > +************************
+> > +Generic V4L2 ISP formats
+> > +************************
+> > +
+> > +ISP configuration and statistics: theory of operations
+> > +======================================================
+> > +
+> > +ISP configuration parameters are computed by userspace and programmed into a
+> > +*parameters buffer* which is queued to the ISP driver on a per-frame basis.
+> > +
+> > +ISP statistics are collected at a specific time point and drivers use them to
+> > +populate a *statistics buffer* which is then returned to userspace.
+> > +
+> > +The parameters and statistics buffers are organized in a driver-specific
+> > +way, and their data layout differs between one driver and another.
+> > +
+> > +ISP drivers generally exchange parameters and statistics with userspace through
+> > +a metadata output and capture node respectively, implementing the
+> > +:c:type:`v4l2_meta_format` interface. Each ISP driver defines one metadata
+> > +capture format and one metadata output format to be used on those video nodes,
+> > +and the buffer content layout and organization is fixed by the format definition.
+> > +
+> > +The uAPI/ABI problem
+> > +--------------------
+> > +
+> > +By upstreaming the metadata formats that describe the parameters and statistics
+> > +buffers layout, driver developers make them part of the Linux kernel ABI. As for
+> > +most peripherals, ISP driver development in Linux is often an iterative process,
+> > +in which not all of the hardware features are supported in the first version.
+> > +
+> > +The support for new features and/or bug fixes may land in the kernel at a later
+> > +stage and require changes to the metadata formats definition. This is
+> > +considered an ABI breakage that is strictly forbidden by the Linux kernel
+> > +policies. For this reason, any change in the ISP parameters and statistics
+> > +buffer layout would require defining a new metadata format.
+> > +
+> > +For these reasons Video4Linux2 has introduced support for generic ISP parameters
+> > +and statistics data types, designed with the goal of being:
+> > +
+> > +- Extensible: new features can be added later on without breaking the existing
+> > +  interface
+> > +- Versioned: different versions of the format can be defined without
+> > +  breaking the existing interface
+> > +
+> > +ISP configuration
+> > +=================
+> > +
+> > +Before the introduction of generic formats
+> > +------------------------------------------
+> > +
+> > +Metadata output formats that describe ISP configuration parameters were
+> > +typically realized by defining C structures that reflect the ISP registers
+> > +layout and get populated by userspace before queueing the buffer to the ISP.
+> > +Each C structure usually corresponds to one ISP *processing block*, with each
+> > +block implementing one of the ISP supported features.
+> > +
+> > +The number of supported ISP blocks, the layout of their configuration data are
+> > +fixed by the format definition, incurring in the above described uAPI/uABI
+> > +problem.
+> > +
+> > +Generic ISP parameters
+> > +----------------------
+> > +
+>
+> Most of the text above is a design rationale that in my opinion doesn't
+> belong to the UAPI documentation. You already include a design rationale
 
-With the following minor comments addressed:
+mm, you're right, I'll drop it
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+> in the kernel documentation, in patch 8/8. If some of the text above
+> contains a more verbose explanation, it could be moved there.
 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 67015d51f7b5..c5e66d5d72cd 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2025,6 +2025,7 @@ config ARM64_TLB_RANGE
->   
->   config ARM64_MPAM
->   	bool "Enable support for MPAM"
-> +	select ACPI_MPAM if ACPI
->   	help
->   	  Memory System Resource Partitioning and Monitoring (MPAM) is an
->   	  optional extension to the Arm architecture that allows each
-> diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
-> index b3ed6212244c..f2fd79f22e7d 100644
-> --- a/drivers/acpi/arm64/Kconfig
-> +++ b/drivers/acpi/arm64/Kconfig
-> @@ -21,3 +21,6 @@ config ACPI_AGDI
->   
->   config ACPI_APMT
->   	bool
-> +
-> +config ACPI_MPAM
-> +	bool
-> diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
-> index 05ecde9eaabe..9390b57cb564 100644
-> --- a/drivers/acpi/arm64/Makefile
-> +++ b/drivers/acpi/arm64/Makefile
-> @@ -4,6 +4,7 @@ obj-$(CONFIG_ACPI_APMT) 	+= apmt.o
->   obj-$(CONFIG_ACPI_FFH)		+= ffh.o
->   obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
->   obj-$(CONFIG_ACPI_IORT) 	+= iort.o
-> +obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
->   obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
->   obj-$(CONFIG_ARM_AMBA)		+= amba.o
->   obj-y				+= dma.o init.o
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> new file mode 100644
-> index 000000000000..c199944862ed
-> --- /dev/null
-> +++ b/drivers/acpi/arm64/mpam.c
-> @@ -0,0 +1,403 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
-> +
-> +#define pr_fmt(fmt) "ACPI MPAM: " fmt
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/arm_mpam.h>
-> +#include <linux/bits.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include <acpi/processor.h>
-> +
-> +/*
-> + * Flags for acpi_table_mpam_msc.*_interrupt_flags.
-> + * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
-> + */
-> +#define ACPI_MPAM_MSC_IRQ_MODE                              BIT(0)
-> +#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                         GENMASK(2, 1)
-> +#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                        0
-> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK                BIT(3)
-> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR           0
-> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER 1
-> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID                    BIT(4)
-> +
-> +/*
-> + * Encodings for the MSC node body interface type field.
-> + * See 2.1 MPAM MSC node, Table 4 of DEN0065B_MPAM_ACPI_3.0-bet.
-> + */
-> +#define ACPI_MPAM_MSC_IFACE_MMIO   0x00
-> +#define ACPI_MPAM_MSC_IFACE_PCC    0x0a
-> +
-> +static bool _is_ppi_partition(u32 flags)
-> +{
-> +	u32 aff_type, is_ppi;
-> +	bool ret;
-> +
-> +	is_ppi = FIELD_GET(ACPI_MPAM_MSC_IRQ_AFFINITY_VALID, flags);
-> +	if (!is_ppi)
-> +		return false;
-> +
+I think it's fine
 
-A error message may be needed since the driver won't fully function without
-interrupt enabled. The error message gives a clear indication on what has
-happened to system administrator.
+>
+> I would shorten all this to
+>
+> ************************
+> Generic V4L2 ISP formats
+> ************************
+>
+> Generic ISP formats are metadata formats that define a mechanism to pass ISP
+> parameters and statistics between userspace and drivers in V4L2 buffers. They
+> are designed to allow extending the data in a backward-compatible way.
+>
+> ISP configuration
+> =================
 
-> +	aff_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_MASK, flags);
-> +	ret = (aff_type == ACPI_MPAM_MSC_IRQ_AFFINITY_TYPE_PROCESSOR_CONTAINER);
-> +	if (ret)
-> +		pr_err_once("Partitioned interrupts not supported\n");
-> +
-> +	return ret;
-> +}
-> +
-> +static int acpi_mpam_register_irq(struct platform_device *pdev,
-> +				  int intid, u32 flags)
-> +{
+Now re-organized as
 
-s/int intid/u32 intid
+************************
+Generic V4L2 ISP formats
+************************
 
-All the callers pass a 'u32' parameter instead of 'int'.
+ISP parameters
+=================
 
-> +	int irq;
-> +	u32 int_type;
-> +	int trigger;
-> +
-> +	if (!intid)
-> +		return -EINVAL;
-> +
-> +	if (_is_ppi_partition(flags))
-> +		return -EINVAL;
-> +
-> +	trigger = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE, flags);
-> +	int_type = FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags);
-> +	if (int_type != ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
-> +		return -EINVAL;
-> +
+ISP Block enabling, disabling and configuration
+-----------------------------------------------
 
-Same as above, a error message may be needed here.
+ISP statistics
+==============
 
-> +	irq = acpi_register_gsi(&pdev->dev, intid, trigger, ACPI_ACTIVE_HIGH);
-> +	if (irq <= 0)
-> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n", intid);
-> +
+V4L2 ISP uAPI data types
+========================
 
-s/if (irq <= 0)/if (irq < 0)
+>
+> > +The generic ISP configuration parameters format is realized by a defining a
+> > +single C structure that contains a header, followed by a binary buffer where
+> > +userspace programs a variable number of ISP configuration data block, one for
+> > +each supported ISP feature.
+> > +
+> > +The :c:type:`v4l2_isp_params_buffer` structure defines the parameters buffer
+> > +header which is followed by a binary buffer of ISP configuration parameters.
+> > +Userspace shall correctly populate the buffer header with the versioning
+>
+> s/versioning information/extensible parameters format version/
 
-It's impossible for acpi_register_gsi() to return 0, which has been translated
-to -EINVAL in the function.
 
-> +	return irq;
-> +}
-> +
-> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
-> +				 struct acpi_mpam_msc_node *tbl_msc,
-> +				 struct resource *res, int *res_idx)
-> +{
-> +	u32 flags, intid;
-> +	int irq;
-> +
-> +	intid = tbl_msc->overflow_interrupt;
-> +	flags = tbl_msc->overflow_interrupt_flags;
-> +	irq = acpi_mpam_register_irq(pdev, intid, flags);
-> +	if (irq > 0)
-> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
-> +
-> +	intid = tbl_msc->error_interrupt;
-> +	flags = tbl_msc->error_interrupt_flags;
-> +	irq = acpi_mpam_register_irq(pdev, intid, flags);
-> +	if (irq > 0)
-> +		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
-> +}
-> +
-> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
-> +				    struct acpi_mpam_resource_node *res)
-> +{
-> +	int level, nid;
-> +	u32 cache_id;
-> +
-> +	switch (res->locator_type) {
-> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
-> +		cache_id = res->locator.cache_locator.cache_reference;
-> +		level = find_acpi_cache_level_from_id(cache_id);
-> +		if (level <= 0) {
-> +			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
-> +			return -EINVAL;
-> +		}
-> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
-> +				       level, cache_id);
-> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
-> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
-> +		if (nid == NUMA_NO_NODE) {
-> +			pr_debug("Bad proxmity domain %lld, using node 0 instead\n",
-> +				 res->locator.memory_locator.proximity_domain);
-> +			nid = 0;
-> +		}
-> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
-> +				       255, nid);
-> +	default:
-> +		/* These get discovered later and are treated as unknown */
-> +		return 0;
-> +	}
-> +}
-> +
-> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
-> +			      struct acpi_mpam_msc_node *tbl_msc)
-> +{
-> +	int i, err;
-> +	char *ptr, *table_end;
-> +	struct acpi_mpam_resource_node *resource;
-> +
-> +	ptr = (char *)(tbl_msc + 1);
-> +	table_end = ptr + tbl_msc->length;
-> +	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
-> +		u64 max_deps, remaining_table;
-> +
-> +		if (ptr + sizeof(*resource) > table_end)
-> +			return -EINVAL;
-> +
-> +		resource = (struct acpi_mpam_resource_node *)ptr;
-> +
-> +		remaining_table = table_end - ptr;
-> +		max_deps = remaining_table / sizeof(struct acpi_mpam_func_deps);
-> +		if (resource->num_functional_deps > max_deps) {
-> +			pr_debug("MSC has impossible number of functional dependencies\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		err = acpi_mpam_parse_resource(msc, resource);
-> +		if (err)
-> +			return err;
-> +
-> +		ptr += sizeof(*resource);
-> +		ptr += resource->num_functional_deps * sizeof(struct acpi_mpam_func_deps);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Creates the device power management link and returns true if the
-> + * acpi id is valid and usable for cpu affinity.  This is the case
-> + * when the linked device is a processor or a processor container.
-> + */
-> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
-> +				     struct platform_device *pdev,
-> +				     u32 *acpi_id)
-> +{
-> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1] = { 0 };
-> +	bool acpi_id_valid = false;
-> +	struct acpi_device *buddy;
-> +	char uid[11];
-> +	int len;
-> +
-> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
-> +	       sizeof(tbl_msc->hardware_id_linked_device));
-> +
-> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
-> +		*acpi_id = tbl_msc->instance_id_linked_device;
-> +		acpi_id_valid = true;
-> +	}
-> +
-> +	len = snprintf(uid, sizeof(uid), "%u",
-> +		       tbl_msc->instance_id_linked_device);
-> +	if (len >= sizeof(uid)) {
-> +		pr_debug("Failed to convert uid of device for power management.");
-> +		return acpi_id_valid;
-> +	}
-> +
-> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
-> +	if (buddy)
-> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
-> +
-> +	return acpi_id_valid;
-> +}
-> +
-> +static int decode_interface_type(struct acpi_mpam_msc_node *tbl_msc,
-> +				 enum mpam_msc_iface *iface)
-> +{
-> +	switch (tbl_msc->interface_type) {
-> +	case ACPI_MPAM_MSC_IFACE_MMIO:
-> +		*iface = MPAM_IFACE_MMIO;
-> +		return 0;
-> +	case ACPI_MPAM_MSC_IFACE_PCC:
-> +		*iface = MPAM_IFACE_PCC;
-> +		return 0;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_node *tbl_msc)
-> +{
-> +	struct platform_device *pdev __free(platform_device_put) =
-> +		platform_device_alloc("mpam_msc", tbl_msc->identifier);
-> +	int next_res = 0, next_prop = 0, err;
-> +	/* pcc, nrdy, affinity and a sentinel */
-> +	struct property_entry props[4] = { 0 };
-> +	/* mmio, 2xirq, no sentinel. */
-> +	struct resource res[3] = { 0 };
-> +	struct acpi_device *companion;
-> +	enum mpam_msc_iface iface;
-> +	char uid[16];
-> +	u32 acpi_id;
-> +
-> +	if (!pdev)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	/* Some power management is described in the namespace: */
-> +	err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
-> +	if (err > 0 && err < sizeof(uid)) {
-> +		companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
-> +		if (companion)
-> +			ACPI_COMPANION_SET(&pdev->dev, companion);
-> +		else
-> +			pr_debug("MSC.%u: missing namespace entry\n",
-> +				 tbl_msc->identifier);
-> +	}
-> +
+Thanks, I tried in the last versions to avoid the term "extensible"
+and I've used "generic" everywhere I could.
 
-{ } is needed for the block of code spanning multiple lines.
+I have reworded this as it follows to avoid repeating 'parameters' 3
+times in a single paragraph:
 
-> +	if (decode_interface_type(tbl_msc, &iface)) {
-> +		pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (iface == MPAM_IFACE_MMIO)
-> +		res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
-> +						       tbl_msc->mmio_size,
-> +						       "MPAM:MSC");
-> +	else if (iface == MPAM_IFACE_PCC)
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
-> +							tbl_msc->base_address);
-> +
+The :c:type:`v4l2_isp_params_buffer` structure defines the buffer header which
+is followed by a binary buffer of ISP configuration data. Userspace shall
+correctly populate the buffer header with the generic parameters format version
+and with the size (in bytes) of the binary data buffer where it will store the
+ISP blocks configuration.
 
-As above, {} is needed here.
+>
+> > +information and with the size (in bytes) of the binary data buffer where it will
+> > +store the ISP blocks configuration.
+> > +
+> > +Each *ISP configuration block* is preceded by an header implemented by the
+> > +:c:type:`v4l2_isp_params_block_header` structure, followed by the configuration
+> > +parameters for that specific block, defined by the ISP driver specific data
+> > +types.
+> > +
+> > +Userspace applications are responsible for correctly populating each block's
+> > +header fields (type, flags and size) and the block-specific parameters.
+> > +
+> > +ISP Block enabling, disabling and configuration
+> > +-----------------------------------------------
+> > +
+> > +When userspace wants to configure and enable an ISP block it shall fully
+> > +populate the block configuration and set the V4L2_ISP_PARAMS_FL_BLOCK_ENABLE
+> > +bit in the block header's `flags` field.
+> > +
+> > +When userspace simply wants to disable an ISP block the
+> > +V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bit should be set in block header's `flags`
+> > +field. Drivers accept a configuration parameters block with no additional
+> > +data after the header in this case.
+> > +
+> > +If the configuration of an already active ISP block has to be updated,
+> > +userspace shall fully populate the ISP block parameters and omit setting the
+> > +V4L2_ISP_PARAMS_FL_BLOCK_ENABLE and V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bits in the
+> > +header's `flags` field.
+> > +
+> > +Setting both the V4L2_ISP_PARAMS_FL_BLOCK_ENABLE and
+> > +V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bits in the flags field is not allowed and not
+> > +accepted.
+>
+> s/and not accepted/and returns an error/
+>
+> > +
+> > +Any further extension to the parameters layout that happens after the ISP driver
+>
+> s/Any further extension/Extensions/
+>
+> > +has been merged in Linux can be implemented by adding new blocks definition
+>
+> s/after the ISP driver has been merged in Linux //
 
-> +	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
-> +
-> +	WARN_ON_ONCE(next_res > ARRAY_SIZE(res));
-> +	err = platform_device_add_resources(pdev, res, next_res);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
-> +	props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
-> +						tbl_msc->max_nrdy_usec);
-> +
-> +	/*
-> +	 * The MSC's CPU affinity is described via its linked power
-> +	 * management device, but only if it points at a Processor or
-> +	 * Processor Container.
-> +	 */
-> +	if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id))
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity", acpi_id);
-> +
-> +	WARN_ON_ONCE(next_prop > ARRAY_SIZE(props));
-> +	err = device_create_managed_software_node(&pdev->dev, props, NULL);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
-> +	/*
-> +	 * Stash the table entry for acpi_mpam_parse_resources() to discover
-> +	 * what this MSC controls.
-> +	 */
-> +	err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
-> +	err = platform_device_add(pdev);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
-> +	return_ptr(pdev);
-> +}
-> +
-> +static int __init acpi_mpam_parse(void)
-> +{
-> +	char *table_end, *table_offset;
-> +	struct acpi_mpam_msc_node *tbl_msc;
-> +	struct platform_device *pdev;
-> +
-> +	if (acpi_disabled || !system_supports_mpam())
-> +		return 0;
-> +
-> +	struct acpi_table_header *table __free(acpi_put_table) =
-> +		acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> +
-> +	if (IS_ERR(table))
-> +		return 0;
-> +
-> +	if (table->revision < 1)
-> +		return 0;
-> +
+Reworded as
 
-It's correct to return zero on IS_ERR(table) with an error message, but
-a message printed by pr_debug() may be worthywhile on "if (table->revison < 1)".
+Extension to the parameters format can be implemented by adding new blocks
+definition without invalidating the existing ones.
 
-> +	table_offset = (char *)(table + 1);
-> +	table_end = (char *)table + table->length;
-> +
-> +	while (table_offset < table_end) {
-> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> +		table_offset += tbl_msc->length;
-> +
-> +		if (table_offset > table_end) {
-> +			pr_err("MSC entry overlaps end of ACPI table\n");
-> +			return -EINVAL;
-> +		}
-> +
+>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-Would be:
+Thanks
+  j
 
-		if (table_offset + sizeof(*tbl_msc) > table_end)
-
-> +		/*
-> +		 * If any of the reserved fields are set, make no attempt to
-> +		 * parse the MSC structure. This MSC will still be counted by
-> +		 * acpi_mpam_count_msc(), meaning the MPAM driver can't probe
-> +		 * against all MSC, and will never be enabled. There is no way
-> +		 * to enable it safely, because we cannot determine safe
-> +		 * system-wide partid and pmg ranges in this situation.
-> +		 */
-> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
-> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
-> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
-> +			continue;
-> +		}
-> +
-> +		if (!tbl_msc->mmio_size) {
-> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
-> +			continue;
-> +		}
-> +
-> +		pdev = acpi_mpam_parse_msc(tbl_msc);
-> +		if (IS_ERR(pdev))
-> +			return PTR_ERR(pdev);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * acpi_mpam_count_msc() - Count the number of MSC described by firmware.
-> + *
-> + * Returns the number of MSC, or zero for an error.
-
-s/MSC/MSCs
-
-> + *
-> + * This can be called before or in parallel with acpi_mpam_parse().
-> + */
-> +int acpi_mpam_count_msc(void)
-> +{
-> +	char *table_end, *table_offset;
-> +	struct acpi_mpam_msc_node *tbl_msc;
-> +	int count = 0;
-> +
-> +	if (acpi_disabled || !system_supports_mpam())
-> +		return 0;
-> +
-> +	struct acpi_table_header *table __free(acpi_put_table) =
-> +		acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> +
-> +	if (IS_ERR(table))
-> +		return 0;
-> +
-> +	if (table->revision < 1)
-> +		return 0;
-> +
-> +	table_offset = (char *)(table + 1);
-> +	table_end = (char *)table + table->length;
-> +
-> +	while (table_offset < table_end) {
-> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> +
-
-Would be worthy to check:
-
-		if (table_offset + sizeof(*tbl_msc) > table_end)
-			return -EINVAL;
-
-> +		if (tbl_msc->length < sizeof(*tbl_msc))
-> +			return -EINVAL;
-> +		if (tbl_msc->length > table_end - table_offset)
-> +			return -EINVAL;
-> +		table_offset += tbl_msc->length;
-> +
-> +		if (!tbl_msc->mmio_size)
-> +			continue;
-> +
-> +		count++;
-> +	}
-> +
-> +	return count;
-> +}
-> +
-> +/*
-> + * Call after ACPI devices have been created, which happens behind acpi_scan_init()
-> + * called from subsys_initcall(). PCC requires the mailbox driver, which is
-> + * initialised from postcore_initcall().
-> + */
-> +subsys_initcall_sync(acpi_mpam_parse);
-> diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
-> index 57fc8bc56166..4286e4af1092 100644
-> --- a/drivers/acpi/tables.c
-> +++ b/drivers/acpi/tables.c
-> @@ -408,7 +408,7 @@ static const char table_sigs[][ACPI_NAMESEG_SIZE] __nonstring_array __initconst
->   	ACPI_SIG_PSDT, ACPI_SIG_RSDT, ACPI_SIG_XSDT, ACPI_SIG_SSDT,
->   	ACPI_SIG_IORT, ACPI_SIG_NFIT, ACPI_SIG_HMAT, ACPI_SIG_PPTT,
->   	ACPI_SIG_NHLT, ACPI_SIG_AEST, ACPI_SIG_CEDT, ACPI_SIG_AGDI,
-> -	ACPI_SIG_NBFT, ACPI_SIG_SWFT};
-> +	ACPI_SIG_NBFT, ACPI_SIG_SWFT, ACPI_SIG_MPAM};
->   
->   #define ACPI_HEADER_SIZE sizeof(struct acpi_table_header)
->   
-> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-> new file mode 100644
-> index 000000000000..a3828ef91aee
-> --- /dev/null
-> +++ b/include/linux/arm_mpam.h
-> @@ -0,0 +1,47 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/* Copyright (C) 2025 Arm Ltd. */
-> +
-> +#ifndef __LINUX_ARM_MPAM_H
-> +#define __LINUX_ARM_MPAM_H
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/types.h>
-> +
-> +#define GLOBAL_AFFINITY		~0
-> +
-> +struct mpam_msc;
-> +
-> +enum mpam_msc_iface {
-> +	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
-> +	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
-> +};
-> +
-> +enum mpam_class_types {
-> +	MPAM_CLASS_CACHE,       /* Caches, e.g. L2, L3 */
-> +	MPAM_CLASS_MEMORY,      /* Main memory */
-> +	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
-> +};
-> +
-> +#ifdef CONFIG_ACPI_MPAM
-> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
-> +			      struct acpi_mpam_msc_node *tbl_msc);
-> +
-> +int acpi_mpam_count_msc(void);
-> +#else
-> +static inline int acpi_mpam_parse_resources(struct mpam_msc *msc,
-> +					    struct acpi_mpam_msc_node *tbl_msc)
-> +{
-> +	return -EINVAL;
-> +}
-> +
-> +static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
-> +#endif
-> +
-> +static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
-> +				  enum mpam_class_types type, u8 class_id,
-> +				  int component_id)
-> +{
-> +	return -EINVAL;
-> +}
-> +
-> +#endif /* __LINUX_ARM_MPAM_H */
-
-Thanks,
-Gavin
-
+>
+> > +without invalidating the existing ones.
+> > +
+> > +ISP statistics
+> > +==============
+> > +
+> > +Support for generic statistics format is not yet implemented in Video4Linux2.
+> > +
+> > +V4L2 ISP uAPI data types
+> > +========================
+> > +
+> > +.. kernel-doc:: include/uapi/linux/media/v4l2-isp.h
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index d925745077f21e5a1388a30217a24beeb4fff3b5..f52237d57710cadff78b297d2b4610b508f55092 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -26856,6 +26856,7 @@ V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
+> >  M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> >  L:	linux-media@vger.kernel.org
+> >  S:	Maintained
+> > +F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
+> >  F:	include/uapi/linux/media/v4l2-isp.h
+> >
+> >  VF610 NAND DRIVER
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
