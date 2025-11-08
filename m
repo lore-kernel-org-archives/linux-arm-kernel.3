@@ -4,103 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D77CCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 22:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76353CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 23:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woeNf9SnFDKMh9COMO6hWAKnDrWNbFGLLR+aeDPR/i8=; b=RnmdFC0B31J8MTBLdozUI4LB7B
-	5SP3WNiJE8TVdwVzzWwS2p2dbXvCxLajdABkCu+N4BHAgiFCDAl99JIjWuX8AXlugGNvu72mv0BIk
-	4El7mITx/DtJaHa+EOGfOJY/Akigmj7XyY6iapmJmou5W1+K0dk0T+rfAMxAMX2vMiSsx9x5PNGxL
-	Wz6n3qFkwqbpn76aFqWK6KBVWf7r+cdMMCpeCOorGmziUvfxVWVrHUS2bEjP3Cox6s/xYWutRwd4N
-	E4MOVOIkHqj63LgprsS7T8xLlVgE6/aGtWxhQHB0IpbZcgaJ3a7hY6PSsOyra81Soara4UBIuERw5
-	RY1qQNlQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=; b=UhHPqM30W+alL3DFMG1FGcU+Dv
+	SQWPOjX7bQmsq/lygz9Ws866n5/RyN08mS2ZCUi1zbFW7zIvktBgMLTDE2UdFJlsRcIfeYhLEEkbC
+	y3r2By1HEzVcHmO4Dv5AJiJOCFSvZPH/A/L9vyro4mY3ttjVAVGiymkGFzUwqAD6d0CcLfQxvvpPz
+	JYT33Ap0Kz3JL1hhWbC+5enScTSGZJQBofVjupnr6m/kx8Z0OR3SDpK56XQT96mXZ4mV3Q+9vyzHL
+	HP2QfcS2IUUd4b1DG7Ml4kdWAnzzSPGud0QtQ4CD9dY3VfHlNTklBXJkiDSDj//j6HaSX2qS82Qtc
+	bSIOa/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHroD-00000003Xnh-44Mc;
-	Sat, 08 Nov 2025 22:53:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vHs7U-00000003YRM-148q;
+	Sat, 08 Nov 2025 23:13:20 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHroC-00000003Xn6-21VW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 08 Nov 2025 22:53:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=woeNf9SnFDKMh9COMO6hWAKnDrWNbFGLLR+aeDPR/i8=; b=ZlDPQnpr+LwISks+nfggrW6UGY
-	h+4yzkcUn2Yx95+gwjqug12j1FDE8nImxha82X2Jmgz31gW1dHX06nBBfi8rt2qxEs9dOHohQB2Hg
-	tRLMLCDcD5G339TnH4lUgKTvwMl879N4xftxwvF3YAD46ulsSkm7cswy9QM5BGx4uDpCIfEvNgGB3
-	Uh1P2D0S72Qgqn2gG7AggIGQUge9xv0w0XEk++yOuThn3zVxZpDuSkOJUQTAEJTi0PFgPLj3Jrhl4
-	L1hGTXwe3POpz9RQUtHAM3MLeoWZ1N0hiPEzJUtlLIah9blCnaQQbgk/mdjYJLphRPo+jInMrf91K
-	UZ7BoVaA==;
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHqwT-00000008TUa-1ImJ
+	id 1vHs7Q-00000003YQQ-3vwg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 21:57:55 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-297ec50477aso3360525ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 14:53:20 -0800 (PST)
+	Sat, 08 Nov 2025 23:13:18 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so2927657a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 15:13:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1762642399; x=1763247199; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=woeNf9SnFDKMh9COMO6hWAKnDrWNbFGLLR+aeDPR/i8=;
-        b=MP1LzkSpxoDzOp/6PptknOYIQaSDsP3jJbh9numAS5HTnFDWbtPgmXLt/e/NCcx4FE
-         D7iHSF51YzW3KC5INNC/CQD2nojrEhMBsn8nP384TESXotePbeSaD8CvU+/xOwWD8KAU
-         /E7hfsvnpBCIu9MwZF9JXFhuKZniww2xAxXfwBLgSGx8f1gSh1YjYsdghMPcgQbyBoIw
-         AT+3DebvCOyxI8FIeZim4Y353XESL5jy5ggxZmWLMXE0IfZbFcez0uKy0vrRqrk/6TrQ
-         +PY62z84eHAel5KWXb45DPLQ9xbwxu7Vqh2XFwXTw6r3EyL1XRC2xBrsKIWnFAsaYvwv
-         3/Xw==
+        d=googlemail.com; s=20230601; t=1762643595; x=1763248395; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=;
+        b=fuE/rkyJvoiP/S4xoQSKYMKaj5xYtEwgoRp6TLU2ZRE+cu7Tp1FbxRq6ck0nnXNs0u
+         dpHWuzBuzwa3Md54l6HD9Y0RjCH2kFWVS1gTW42Yopk24Ej/dANDusZNfXzYH1HsxgcQ
+         k4uc4L/Hx+ce+56gYjE8WDyGOyC4b+sMBQxTnMFd2apmfA3XtqycwtPZlCYjnDqEKwMH
+         iyH/K2A9OWnnZ3z7cmpiPKuTIKgCUTmoGhfCpDFwuttoWpL/5qw2G/F6qZT5C7IaemJn
+         r1Tw33FIAYgoKivqCFrox9Jp7SCdLq0yVbtUvaxNyci3FO/vIyCfAPSlFGWpt3SPHagl
+         nc9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762642399; x=1763247199;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=woeNf9SnFDKMh9COMO6hWAKnDrWNbFGLLR+aeDPR/i8=;
-        b=fUlslGlAajtqiKuyCQAz7TEMGWbpGFzWk2bJlChrpCD4PqJy4B7a2F8HD+UreEHl2s
-         WTkgpNX936F2U91zZXog/PijIl4K+a7SfY05Rs62yKYMSz0fRO/3Dgi+uXNn402U9NIP
-         9G4vfxArckIDxXdbTkW2HXsRYy4IJzMjhZmB7A3iWFarHq7W4V9ME/6pl0iO5Q2yUCFE
-         Fpl067fhfQBkGFyQe4zJoVyPVuJzizywIBqo/XF5zl7Y0Ab0Gi26w13yM9Of6SOwedb6
-         ASxt1ucZiZhJdE7rnxKXgSx/WEvm5pf/5KZ/ZNIryMAU9/jIuY19erDjo4xwAzIme/wl
-         Yn4w==
-X-Forwarded-Encrypted: i=1; AJvYcCVME7YgyCPXWK3N5U1F2jwEagFr43e9WWDCxFz7UGHxmafob+5gA62ih2ujjrwVr0p/njv3OmwXhav6kV4vZUw7@lists.infradead.org
-X-Gm-Message-State: AOJu0YymqknPdY0i6e9oBEJj9acxmz/Qtum36QhIPIwjTLs0Qe49NVqo
-	OHyDqWMv/WnVrmU/vSXtXdpRig8N20xvV/2kq/AR6QKjUl8hUhazYpYvELpSSwYpL89zAei5LRX
-	Ev6AJj9TztmTtZBbayee1Fqlw7D0tOw0=
-X-Gm-Gg: ASbGncvt36NltVuNQJSpn4/0HMz87Nz3GeWmfxG9EcnqjIH0pFrchmnUn365LN4hpHZ
-	iPj8CGGIC7AeXWo1a5sEbneiPqzET2IB4Tm+jg93oo2fo2qXOredgO1tHnfNe2nNL1RcAYXWLa3
-	hoCrVd4VUGDJKO4XxQQGIjFPXaf4Ax3PBVSpUNcsiqYtkE2kwuRyeZyXbBVOMqF6GhzIfc3ZZhR
-	TMzL660CJSYz+zqHVr0xo3GjijjnJ5Ibo2SNZYYz6UzGq3XuAp6IHyky8+DdrjG1n616gseiFOM
-	muCHs43gNKMD53R70doPa5VDPIvg
-X-Google-Smtp-Source: AGHT+IG+/PJGnDmxUNMI7+aZcN60vo2SoWlora4RSCXqNkbJIUjbFrzUdNRAqKB5MSZuajIzoZgImhzbTKgTAYjlkVM=
-X-Received: by 2002:a17:903:37cf:b0:295:134:9ae5 with SMTP id
- d9443c01a7336-297e1e61caamr46129275ad.24.1762642398835; Sat, 08 Nov 2025
- 14:53:18 -0800 (PST)
-MIME-Version: 1.0
-References: <20251027-b4-s4-vdec-upstream-v1-0-620401813b5d@amlogic.com> <20251027-b4-s4-vdec-upstream-v1-3-620401813b5d@amlogic.com>
-In-Reply-To: <20251027-b4-s4-vdec-upstream-v1-3-620401813b5d@amlogic.com>
+        d=1e100.net; s=20230601; t=1762643595; x=1763248395;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ibTL9LFMoaISY8GQE81Db1c/RUt2bsWCzKF7aX8X54Q=;
+        b=nHGR/0hl/MHEAaf2rYxJU+7iDMRqktE+7+KEagAtCP+beAAwIix9mBOA3TK3R4ZyHu
+         byIjOP4BZyOOAW8mBW9XYOCbXZnBsf+2YDUEnqfzEYJgflsn1z//F1ZkWomsev8YVaI4
+         xZ4qoaB0Jvs8dcytiUwiN9UuHA8xSrENznE7y4884chw46LoaMVa4OxlaFbvLtmvf8es
+         a2oo7I5fVDYQO1oahuXYb+IsISmW8rKecjHfhskB6J3bgxYr/gFYAXdNHv7CrIUmgR2I
+         CBcAnQpWxqJxVTvfQPOxalLmEgkuW5XDd9cf2sM5UbBezqMbIJAMoK4XsJwTbNtZSowE
+         bUjw==
+X-Gm-Message-State: AOJu0YxGEPYbPJ+pIn+obMi0ZqNE6tjUvs/gpGSPSYglTIw980cBma7e
+	TPN/zr1Hic0rAJj1FFhlGNRI7IM9H1UICqIymSN03ENQw51Oj8ckkOx3
+X-Gm-Gg: ASbGncvoUuDmGPrkOoRzBtTsxXKgJ3KHf86/6J4xk8trTKAy3lpwvuqn5p4bSHnd5rN
+	Cvk9equkgnLRU6ce0dJ2UGM7ftw4GmyjFlJvkjV+xVw5HeRRrhUh5G2UfRdukHCsD/n3KM+hPa2
+	cy23cbzwlAf3L3plaYwHLh+PIQGX0/6twMEJUnWJYUBa0RfGcXTQLdT7fmEq9LZ97Zz5pJa/3eT
+	Z0MSzMHC3A1arSrXP9oTFIttcNYrIkunosi0wiPnbYN5Blura/Zf8qxzc1e5/wanvpto11czog4
+	2wkbo2okHAXlZb7gwSaqvb0C2DrpEpNS12PcL8hMCPmHJHm9zK5/NvjIPmmG/HslMGngHa6iXek
+	Wid7iNXHcm262BHWAsGh6YHzZsU6W9bAkvEixxacKIqSD0//pgSQLecDdRPM+zg6gt14Kl3+GlV
+	ebWQPoyc+uyXBloA6YzOIXM/8QX34AyPo1Nja74lW6n0lFs0DwqgbKnW4JmP2imNnInYa3s+isS
+	MhTUX2fvgTs5s8eMel3IiJ6tfg7RXB+FU/Yiq4p2ro=
+X-Google-Smtp-Source: AGHT+IHojjSOYkU74h70pOz5Juc0qTwy5Qm9aBj39UgCLbnQKLDh8bnfGClMfrPjx5Lm9oFsJdZQ9g==
+X-Received: by 2002:a05:6402:40d1:b0:640:bc0b:887d with SMTP id 4fb4d7f45d1cf-6415dc03146mr2946757a12.2.1762643594925;
+        Sat, 08 Nov 2025 15:13:14 -0800 (PST)
+Received: from blackbox (dynamic-2a02-3100-a9b3-6600-1e86-0bff-fe2f-57b7.310.pool.telefonica.de. [2a02:3100:a9b3:6600:1e86:bff:fe2f:57b7])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-6411f814164sm7642807a12.13.2025.11.08.15.13.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Nov 2025 15:13:13 -0800 (PST)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 8 Nov 2025 23:53:07 +0100
-X-Gm-Features: AWmQ_bni7l89RyP8uXpthsz3XoYRD2BT1Es7uRWB0DG1y_IRoUhPm173lpNSDGc
-Message-ID: <CAFBinCBy7vPq0oX0PQ=yC5E3Mx3sv6qdVHsMh-NQQzAkbDuvRQ@mail.gmail.com>
-Subject: Re: [PATCH 3/3] decoder: Add V4L2 stateless H.264 decoder driver
-To: zhentao.guo@amlogic.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: linux-amlogic@lists.infradead.org,
+	linux-mmc@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ulf.hansson@linaro.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v1 0/7] mmc: meson-mx-sdio: Various driver improvements
+Date: Sun,  9 Nov 2025 00:12:46 +0100
+Message-ID: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.51.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_215753_519023_C26172D8 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20251108_151317_683783_AA68851F 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,52 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-thank you for your work on this!
-
-On Mon, Oct 27, 2025 at 6:42=E2=80=AFAM Zhentao Guo via B4 Relay
-<devnull+zhentao.guo.amlogic.com@kernel.org> wrote:
-[...]
-+/**
-+ * enum aml_power_type_e - Type of decoder power.
-+ */
-+enum aml_power_type_e {
-+       AML_PM_PD =3D 0,
-+};
-Are there any other power types that you are already aware of - or is
-this added "just in case" an additional type is needed in future?
-
-> +/**
-> + * struct gate_switch_node - clock node definition
-> + * @clk: Pointer to clk instance.
-> + * @name: Clock name used.
-> + * @mutex: Mutex lock for multi decoder instance.
-> + * @ref_count: Curr clk instance ref count.
-> + */
-> +struct gate_switch_node {
-> +       struct clk *clk;
-> +       const char *name;
-> +       struct mutex mutex;
-> +       int ref_count;
-> +};
-Generally I'm not sure if the whole struct is needed as I think the
-common clock framework has everything we need.
-There's struct clk_bulk_data which allows mapping clocks from
-device-tree to an array in the code.
-
-drivers/staging/media/starfive/camss/stf-camss.h for defines an enum
-(stf_clk) to access each of the clocks by it's index in the array.
-You even seem to have an enum (clk_type_e) which you could use to
-simplify the code.
-
-My understanding is that one can call clk_prepare_enable() and
-clk_disable_unprepare() as often as you'd like and these functions
-will do the ref-counting internally.
-So I think the ref_count is not explicitly needed, as that's managed
-by the common clock framework.
+This series contains patches to improve / simplify the code of the
+meson-mx-sdio driver by:
+- using regmap for simplifying register access (patch 1)
+- switching to modern clock functions/helpers (patches 2, 3) and
+  make the clock code not interfere when switching to
+  devm_mmc_alloc_host() (patch 3)
+- making use of the devm_mmc_alloc_host (patch 4)
+- using modern dev_err_probe() for better error handling (patch 5)
+- indentation fix (patch 6)
+- ignoring disabled mmc-slot device-tree nodes to allow describing
+  all slots in device-tree, even though the driver only uses the
+  first enabled slot (patch 7)
 
 
-Best regards,
-Martin
+Binbin Zhou (1):
+  mmc: meson-mx-sdio: Use devm_mmc_alloc_host() helper
+
+Martin Blumenstingl (6):
+  mmc: meson-mx-sdio: Switch to regmap for register access
+  mmc: meson-mx-sdio: Use devm_clk_get_enabled()
+  mmc: meson-mx-sdio: Refactor internal clock initialization
+  mmc: meson-mx-sdio: Use dev_err_probe() where appropriate
+  mmc: meson-mx-sdio: Fix indentation in meson_mx_mmc_irq_thread()
+  mmc: meson-mx-sdio: Ignore disabled "mmc-slot" child-nodes
+
+ drivers/mmc/host/Kconfig         |   1 +
+ drivers/mmc/host/meson-mx-sdio.c | 339 +++++++++++++++----------------
+ 2 files changed, 170 insertions(+), 170 deletions(-)
+
+-- 
+2.51.2
+
 
