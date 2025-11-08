@@ -4,113 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D414DCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 09:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C319DCD1292
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 09:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0i5dxxm940H2oOUUNhD8Sa5E80jy/5NUyBR36hP8GDM=; b=H2sYCvouoM7rGTCao8ZmViNXw9
-	9Mmi5L3lIHvBikfbEekpEK1aBZGstA1JW0kRRVykhZwjIMFuni1aV4duS3WAYozgm3ins7HgJA+qI
-	5KYqzjz1UyPtCfzqd36PQQw5zcUSHGPBBev3hZcYaysiyJAHRJXJTZvkRhyD5hJRKbMyfuNaltvbL
-	H7tcw2Q8fjufgF8nYMKpsvkuK2gt6Ce0NPOMrbl7gDuv0iFiB9rL1dW3lSoPE1Sm62i9r4q3HY4Fq
-	dGMMudfCXA7JPH4tbWb7SqMyRnyZnZXuPjNYXIbMvZm3fUB7H4CNSdCCv+yOBw2fEL2EFcdw1aguT
-	TzkdCChg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uy5IHDwX7kuvvIxZc0dGYiC3/6Fn93loJRmRLujGxnA=; b=IVVqAfrobXsdRy
+	EJSLLeMMEW59DvuirpNBAosDBr08uxTInyeiCq8GDIjOJzLEUIRlpMvJTcTuWnw24aC8aJmqGKM5z
+	pCHm5j8DrtFlDQ2FeYQgAdJTDCqyc5N3MKoJXjz1q2O82scwU40CpDQhseKwMIymLkF58Hpcabzx8
+	pgh52silZ/lpSujtWNyi1xwKqrVMrGLJqHwKcrvMEKQwF8eWrhYdwseFAGA4xF6cYfrS7FYVy8DCF
+	ADbQEhmFa6aAQXK/ZUImnOjl4PyozxJQOrer5CfKyQ5Gg5l7ZA+Qa7r1FGalJjgOloxUXOEgN2EsU
+	3KuKHTlTevdq58wqMqTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHfFp-00000002y8h-0jI7;
-	Sat, 08 Nov 2025 09:29:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vHfNG-00000002yVy-2TEs;
+	Sat, 08 Nov 2025 09:36:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHfFm-00000002y8G-2nZf
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 09:29:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762594141;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0i5dxxm940H2oOUUNhD8Sa5E80jy/5NUyBR36hP8GDM=;
-	b=RXC3Yi455KfbdShHBmv5ekkkIbCB5ksZJRm+xe5OR/yC4kcidmlfmoaalVZcjQjg4PPZOr
-	JO2N718fc1t4m5uoCRgre9/7Av0P0RnN5qUc3C6v6Wi55S7nQsgNjuFArKqIp+WsI70YQZ
-	lWdDD08kZ497hbwOxPyTR/AcqUYxytk=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-176-SC8crlq4NiekVb5bB8w6wg-1; Sat, 08 Nov 2025 04:28:58 -0500
-X-MC-Unique: SC8crlq4NiekVb5bB8w6wg-1
-X-Mimecast-MFC-AGG-ID: SC8crlq4NiekVb5bB8w6wg_1762594138
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-7a2885329beso1514747b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 01:28:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762594138; x=1763198938;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0i5dxxm940H2oOUUNhD8Sa5E80jy/5NUyBR36hP8GDM=;
-        b=w75hmGg71cF+Pp+ZN8jaO9ACJADg/oZX4p0rLFn8zlMhuV+d2VjAIdWMHnKMPQ/4KW
-         WGbopA1cFIm1AOh7D0Ax4MO+BzPD5qX7xOKI5v1QX7ovo8qtodQGd/z8orwFTgluSLw9
-         aUSjPwK+jLOaTgdK1zW+yxt57iIXkKEhJP0qiB/LeSu7EP7iDv7HMUueQ0Wgl45P+jRg
-         kH3v052uR/oFKMHiXS67R9/kA8Ew/kSt1H+HXtEKP0fTlodOe5Soemljq5ZUsirqy7JR
-         fmr5m1ZZqWXiS1GJjf/E0G7TMAag1ChtNF6/gZv6kUsstfSMTAAREqPVV4DL+UyxRCXu
-         eUZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+lOevzjFoTnuBZgiLSur9IXqTiYYnJcPI93GIB8R7HIN00JoCtYvUF/TR9NGWP3kmxEPqxsn5YFMX9TJU0hOw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM6FgXrZ/ZCl37wnK1pbpzshj//nPsD5G0GGt+JOdPfXf9+IvS
-	f24b/s+g3wdPkIR03JHIIpT3m6X+Wnb5tVpObWXyU0PwNPwqchO/i46ci2kBSWW2pz3tSq/8mXA
-	Fbhg00jOS1xkXByOrKbTBKrF93v28n0wXT+iNq++c67wGKbO5Wl3y3RZwEKngNHrGE2pT7lx4OI
-	kz
-X-Gm-Gg: ASbGncv3/YT9IJ7xozrm9uKhwsSPc3s6/BTXHXJsg9/5fe4DFNslDXR/Ga9ITWzpxCs
-	2BbLFC7T+W7+xNWEl+jasYk2uBUOdwpAfUzRJgpEwpR9mxPvhTomE4rKY+1izYLR0yoNZWAmDYo
-	nyZ0nVYgVg04QKcQdFSKzgGaGwZM+R/x8w+M5PwXXqapPBdv1udhDdIaP2LM1yt/SRpzkOdb7uH
-	r5w04wPQ/+DLlu194tcwpb80u0nMU1wsFRNe34rZ7qDfoD0nMIW75u8PLR7cja/M9NmKCI9kGO8
-	quNc6DjzRBuskVRAwyyqQDEB7mCjUAd162sRVDRFFJrQGt2HgAnFpVbleKc1RfXT/SuDv2km9s6
-	37mm7TY69iRlEZLEzzO+NF86K6djoMUpnaFjQ9dA=
-X-Received: by 2002:a05:6a00:992:b0:7a2:83f4:1b5d with SMTP id d2e1a72fcca58-7b21800c3a7mr2839641b3a.6.1762594137700;
-        Sat, 08 Nov 2025 01:28:57 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH+zwxwjibEt64LEQj3V7SsxX7f792G4FQ4eCFL3ouTG/ujM7reC+2DTff72riVqEB11ER4KQ==
-X-Received: by 2002:a05:6a00:992:b0:7a2:83f4:1b5d with SMTP id d2e1a72fcca58-7b21800c3a7mr2839624b3a.6.1762594137250;
-        Sat, 08 Nov 2025 01:28:57 -0800 (PST)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0c963586fsm5368479b3a.10.2025.11.08.01.28.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Nov 2025 01:28:56 -0800 (PST)
-Message-ID: <5b9136d6-b6c0-4f24-a8d2-05d7700140a8@redhat.com>
-Date: Sat, 8 Nov 2025 19:28:43 +1000
+	id 1vHfND-00000002yUT-0HJg;
+	Sat, 08 Nov 2025 09:36:45 +0000
+Received: from [192.168.0.172] (mob-5-90-142-135.net.vodafone.it [5.90.142.135])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 33A98DD9;
+	Sat,  8 Nov 2025 10:34:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762594484;
+	bh=BhhSYA/yQZfYitLuF4IY7WD/v9JWZaXGBTVLojARsv0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=qmChAzpA1D9im/tXnzs+pwgybmBljME+K0Cr3qpeur/RS3clH3QBFZknzLiDxyyJw
+	 ufKt5n7PBSVUR9doHlwPxtRvct4ceQBJgsjL5WpYK92kIi3ZSQ68gN9Yc9MDGW0/3J
+	 ZE8tXPhsub7EZYWgsw3eyBAR3Z1WXK98SaooILv0=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: [PATCH v9 0/8] media: Introduce V4L2 generic ISP support
+Date: Sat, 08 Nov 2025 10:36:21 +0100
+Message-Id: <20251108-extensible-parameters-validation-v9-0-6a7e22aa57d0@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-11-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20251107123450.664001-11-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: WbU2EPJ6YfSfyH4mev-zii-QQYzXfKmm1eQcvGsMLqU_1762594138
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABUPD2kC/43Qz2oDIRAG8FcJnmvx76o59T1KDzqOjZDsBl2Wl
+ JB3rwm02UOXevwG5vcNcyUVS8ZK9rsrKbjkmqexBfeyI3Dw4yfSHFsmggnNDOMULzOONYcj0rM
+ v/oQzlkoXf8zRz22ZgpU8maQBWCCNORdM+fKoeP9o+ZDrPJWvR+PC79Mf3P6PL5wy6hIIAw6Ms
+ PCWI/o6jWHyJb7CdCL3jkWsXM46XNFcg2AdtwhKyQ1XPl3LXYcr7/dGYMxKZYNkG65auaLnXtV
+ cyRJq7xwEnjZc/XQd1x2ubi4OMTilBuvT1h+GX5czZjrcobk6Ge6iS9Kh3nDNyuWqwzXNHQZhA
+ 0YN3tkN167crv/a5voUvAreBCXiH+7tdvsG+TbCcT8DAAA=
+X-Change-ID: 20250701-extensible-parameters-validation-c831f7f5cc0b
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6558;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=BhhSYA/yQZfYitLuF4IY7WD/v9JWZaXGBTVLojARsv0=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBpDw8lZork7+wch0LJyMIkMt584D14/Y9QKj2ai
+ gExnKh1pSyJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaQ8PJQAKCRByNAaPFqFW
+ PA/aEADBfoMyvkoo9ErdWAMc+RKsrgooN5iAOIJjpAe15exE4BXXWvUq1qnSz5RmYmoSYTcqGTK
+ yjoqWeDGnQ0tRxlhLcqJrYqB5V0baX7WOWcsf4hmRR2leC8taO4RerDmxFE7PQEwmVIiadao4Iv
+ fsWncThhrpOt8OYVQPNBsynCvFuetIdUSyOLSfI8AE2Aos5czJ3nE7LdVJRx2cZivC/7ECkzP2h
+ 52NA9IApiLvcCrI0JMvarTQuv+9NKO8xJpx/t4pked46uMy8mfnrc19KCh9PIozWTUaIHFcK1AV
+ bct8Pj8/w/c0s8VZLwOxbNTyjoZILsR8o6jCCiXGvXOFoChHlgri146tdzDlyrYF40GatvwDOqu
+ JReAk1A023rqCLfzxvhZiWyg/Y2uPZxiJaF9e6jVIZdkoakqyjU/8TRr2DcdpgvA+EIESpULKk7
+ LYTi9cNDlaULrwvVVCEVfjdQJIEnROLmw2DBrJfOHTyPj/EbIit+05HV3izSGyaWYAH32EXAWAP
+ 9BprTFDJUpGvamJl5g8A1HKRBiEu1B4dUZopypGeqOAJKsqRoltnp3mVpC2OWFsZLD3pk9u/Jeb
+ SYFnbONeVeYuEHWkES5MrJ4onUxI4kmtkiV1/z9WBDlI2AkYjm1AvI1GZna0DghPnh7uXpIw+HT
+ bPayhmhf1V2SE8g==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_012902_893877_91437E93 
-X-CRM114-Status: GOOD (  42.09  )
+X-CRM114-CacheID: sfid-20251108_013644_056858_25A4984D 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,416 +97,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Extensible parameters meta formats have been introduced in the Linux
+kernel v6.12 initially to support different revision of the RkISP1 ISP
+implemented in different SoC. In order to avoid breaking userspace
+everytime an ISP configuration block is added or modified in the uAPI
+these new formats, which are versionated and extensible by their
+definition have been introduced.
 
-On 11/7/25 10:34 PM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
-> 
+See for reference:
+e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
+6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
 
-I'm not sure if below commit log is more clearer as I'm not a English
-native speaker:
+The Amlogic C3 ISP driver followed shortly, introducing an extensible
+format for the ISP configuration:
 
-MPAM probing is convoluted. MSCs that are integrated to a set of CPUs
-may only be accessible from those CPUs, ...
+6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
 
-> Start with driver probe/remove and mapping the MSC.
-> 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
->  From Jonathan:
-> Include cleanup
-> Use devm_mutex_init()
-> Add an ERR_CAST()
-> Fenghua:
-> Return zero from update_msc_accessibility()
-> Additional:
-> Fail probe if MSC doesn't have an MMIO interface
-> ---
->   arch/arm64/Kconfig              |   1 +
->   drivers/Kconfig                 |   2 +
->   drivers/Makefile                |   1 +
->   drivers/resctrl/Kconfig         |  15 +++
->   drivers/resctrl/Makefile        |   4 +
->   drivers/resctrl/mpam_devices.c  | 194 ++++++++++++++++++++++++++++++++
->   drivers/resctrl/mpam_internal.h |  49 ++++++++
->   7 files changed, 266 insertions(+)
->   create mode 100644 drivers/resctrl/Kconfig
->   create mode 100644 drivers/resctrl/Makefile
->   create mode 100644 drivers/resctrl/mpam_devices.c
->   create mode 100644 drivers/resctrl/mpam_internal.h
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index c5e66d5d72cd..004d58cfbff8 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2025,6 +2025,7 @@ config ARM64_TLB_RANGE
->   
->   config ARM64_MPAM
->   	bool "Enable support for MPAM"
-> +	select ARM64_MPAM_DRIVER if EXPERT	# does nothing yet
->   	select ACPI_MPAM if ACPI
->   	help
->   	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-> diff --git a/drivers/Kconfig b/drivers/Kconfig
-> index 4915a63866b0..3054b50a2f4c 100644
-> --- a/drivers/Kconfig
-> +++ b/drivers/Kconfig
-> @@ -251,4 +251,6 @@ source "drivers/hte/Kconfig"
->   
->   source "drivers/cdx/Kconfig"
->   
-> +source "drivers/resctrl/Kconfig"
-> +
->   endmenu
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index 8e1ffa4358d5..20eb17596b89 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -194,6 +194,7 @@ obj-$(CONFIG_HTE)		+= hte/
->   obj-$(CONFIG_DRM_ACCEL)		+= accel/
->   obj-$(CONFIG_CDX_BUS)		+= cdx/
->   obj-$(CONFIG_DPLL)		+= dpll/
-> +obj-y				+= resctrl/
->   
->   obj-$(CONFIG_DIBS)		+= dibs/
->   obj-$(CONFIG_S390)		+= s390/
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> new file mode 100644
-> index 000000000000..ef2f3adf64a9
-> --- /dev/null
-> +++ b/drivers/resctrl/Kconfig
-> @@ -0,0 +1,15 @@
-> +menuconfig ARM64_MPAM_DRIVER
-> +	bool "MPAM driver"
-> +	depends on ARM64 && ARM64_MPAM && EXPERT
-> +	help
-> +	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
-> +	  System IP, e,g. caches and memory controllers.
-> +
-> +if ARM64_MPAM_DRIVER
-> +
-> +config ARM64_MPAM_DRIVER_DEBUG
-> +	bool "Enable debug messages from the MPAM driver"
-> +	help
-> +	  Say yes here to enable debug messages from the MPAM driver.
-> +
-> +endif
+with a very similar, if not identical, implementation of the routines to
+validate and handle the ISP configuration in the ISP driver in the
+c3-isp-params.c file.
 
-I am asking myself why "depends on ARM64_MPAM_DRIVER" can't be used here? :-)
+fb2e135208f3 ("media: platform: Add C3 ISP driver")
 
-> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-> new file mode 100644
-> index 000000000000..898199dcf80d
-> --- /dev/null
-> +++ b/drivers/resctrl/Makefile
-> @@ -0,0 +1,4 @@
-> +obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
-> +mpam-y						+= mpam_devices.o
-> +
-> +ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> new file mode 100644
-> index 000000000000..6c6be133d73a
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -0,0 +1,194 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/gfp.h>
-> +#include <linux/list.h>
-> +#include <linux/lockdep.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/printk.h>
-> +#include <linux/srcu.h>
-> +#include <linux/types.h>
-> +
-> +#include "mpam_internal.h"
-> +
-> +/*
-> + * mpam_list_lock protects the SRCU lists when writing. Once the
-> + * mpam_enabled key is enabled these lists are read-only,
-> + * unless the error interrupt disables the driver.
-> + */
+With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
+a third user of extensible parameters is going to be itroduced in the
+kernel, duplicating again in the driver the procedure for validating and
+handling the ISP configuration blocks
 
-s/when writing/for writing
-s/are read-only/become read-only
+https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
 
-> +static DEFINE_MUTEX(mpam_list_lock);
-> +static LIST_HEAD(mpam_all_msc);
-> +
-> +struct srcu_struct mpam_srcu;
-> +
-> +/*
-> + * Number of MSCs that have been probed. Once all MSC have been probed MPAM
-> + * can be enabled.
-> + */
+To avoid duplicating again the validation routines and common types
+definition, this series introduces v4l2-isp.c/.h for the kAPI
+and v4l2-isp.h for the uAPI and re-organize the RkISP1
+and Amlogic C3 drivers to use the common types and the helper validation
+routines.
 
-s/all MSC/all MSCs  (?)
+The v4l2-isp abstraction will be augmented to support statistcs as well.
 
-> +static atomic_t mpam_num_msc;
-> +
-> +/*
-> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> + * corresponding cache may also be powered off. By making accesses from
-> + * one of those CPUs, we ensure this isn't the case.
-> + */
+If the here proposed approach is accepted, I propose to rebase the Mali
+C55 driver on top of this series, to use the new common types and
+helpers.
 
-s/An MSC/A MSC (?)
-s/from a/from the
-s/isn't the case/is the case (?)
+Tested on Mali C55 and RkISP1 with camshark
 
-> +static int update_msc_accessibility(struct mpam_msc *msc)
-> +{
-> +	u32 affinity_id;
-> +	int err;
-> +
-> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
-> +				       &affinity_id);
-> +	if (err)
-> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +	else
-> +		acpi_pptt_get_cpus_from_container(affinity_id,
-> +						  &msc->accessibility);
-> +	return 0;
-> +}
-> +
+Thanks
+  j
 
-{} is needed for the block spanning multiple lines.
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+Changes in v9:
+- Modify the RkISP1 and C3 params drivers to enumerate their block info
+  with macros (and static_assert they're of the correct size)
+- Modify documentation according to Laurent's suggestion
+- Link to v8: https://lore.kernel.org/r/20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com
 
-I would validate msc->accessibility here instead of its caller
-(do_mpam_msc_drv_probe()).
+Changes in v8:
+- Address Michael comments and reword documentation
+- Use the correct "metadata capture" for stats and "metadata output" for
+  parameters. I mixed up the two in the previous revisions.
+- Link to v7: https://lore.kernel.org/r/20251014-extensible-parameters-validation-v7-0-6628bed5ca98@ideasonboard.com
 
-		if (cpumask_empty(&msc->accessibility))
-			return {-EINVAL, -ENOENT};
+Changes in v7:
+- Moved version to the v4l2-isp uAPI
+- Moved version check to the v4l2-isp.c helpers
+- Link to v6: https://lore.kernel.org/r/20251007-extensible-parameters-validation-v6-0-5f719d9f39e5@ideasonboard.com
 
-> +static int fw_num_msc;
-> +
-> +static void mpam_msc_destroy(struct mpam_msc *msc)
-> +{
-> +	struct platform_device *pdev = msc->pdev;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&msc->all_msc_list);
-> +	platform_set_drvdata(pdev, NULL);
-> +}
-> +
-> +static void mpam_msc_drv_remove(struct platform_device *pdev)
-> +{
-> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
-> +
-> +	if (!msc)
-> +		return;
+Changes in v6:
+- Rename all symbols to v4l2_isp
+- Changed the interface of the two buffer validation functions
+- Reworked the rkisp1 and c3 porting accordingly
+- Updated documentation
+- I have moved v4l2_params_buffer_size() from uAPI because it was
+  convenient for linux but not required in userspace
+- Link to v5: https://lore.kernel.org/r/20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com
 
-'msc' is unlikely to be NULL here, so the check could be droped.
+Changes in v5:
+- Move everything to v4l2-isp prefix except from format documentation
+  which still is about 'extensible-parameters' (to be paired in future
+  with extensbile-stats)
+- Simplify documentation and move it part to the driver-api
+  Documentation
+- Remove 'group' and 'features' from the generic handlers definition and
+  adjust rkisp1 accordingly
+- Link to v4: https://lore.kernel.org/r/20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com
 
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	mpam_msc_destroy(msc);
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +	synchronize_srcu(&mpam_srcu);
-> +}
-> +
-> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	u32 tmp;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	struct device *dev = &pdev->dev;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +	if (!msc)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	err = devm_mutex_init(dev, &msc->probe_lock);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +	err = devm_mutex_init(dev, &msc->part_sel_lock);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +	msc->id = pdev->id;
-> +	msc->pdev = pdev;
-> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> +	INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +	err = update_msc_accessibility(msc);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +	if (cpumask_empty(&msc->accessibility)) {
-> +		dev_err_once(dev, "MSC is not accessible from any CPU!");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
+Changes in v4:
+- Fix the definition of V4L2_PARAMS_FL_PLATFORM_FLAGS
+- Add __counted_by() attribute to the data[] flexible-array member of
+  v4l2_params_buffer
+- Minor style change
+- Link to v3: https://lore.kernel.org/r/20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com
 
-As suggested above, this check would be done inside update_msc_accessibility().
+Changes in v3:
+- Rebased on latest media-committers/next
+- Take in Dan's suggestion in block size validation
+- Documentation minor spelling fixes
+- Link to v2: https://lore.kernel.org/r/20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com
 
-> +	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +		msc->iface = MPAM_IFACE_MMIO;
-> +	else
-> +		msc->iface = MPAM_IFACE_PCC;
-> +
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		void __iomem *io;
-> +
-> +		io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> +							    &msc_res);
-> +		if (IS_ERR(io)) {
-> +			dev_err_once(dev, "Failed to map MSC base address\n");
-> +			return ERR_CAST(io);
-> +		}
-> +		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> +		msc->mapped_hwpage = io;
-> +	} else {
-> +		return ERR_PTR(-ENOENT);
+Changes in v2:
+- Make v4l2_params_buffer directly usable
+- Centralize ENABLE/DISABLE flags definition and validation
+- Take in Dan's v4l2_params_buffer_size()
+- Allow blocks to only contain the header if they're going to be
+  disabled
+- Documentation fixes as reported by Nicolas
+- Link to v1: https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com
 
-Would be:
-		return ERR_PTR(-EINVAL);
+---
+Jacopo Mondi (8):
+      media: uapi: Introduce V4L2 generic ISP types
+      media: uapi: Convert RkISP1 to V4L2 extensible params
+      media: uapi: Convert Amlogic C3 to V4L2 extensible params
+      media: Documentation: uapi: Add V4L2 ISP documentation
+      media: v4l2-core: Introduce v4l2-isp.c
+      media: rkisp1: Use v4l2-isp for validation
+      media: amlogic-c3: Use v4l2-isp for validation
+      media: Documentation: kapi: Add v4l2 generic ISP support
 
-> +	}
-> +
-> +	list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
-> +	platform_set_drvdata(pdev, msc);
-> +
-> +	return msc;
-> +}
-> +
-> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc = NULL;
-> +	void *plat_data = pdev->dev.platform_data;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	msc = do_mpam_msc_drv_probe(pdev);
-> +	mutex_unlock(&mpam_list_lock);
-> +	if (!IS_ERR(msc)) {
-> +		/* Create RIS entries described by firmware */
-> +		err = acpi_mpam_parse_resources(msc, plat_data);
-> +		if (err)
-> +			mpam_msc_drv_remove(pdev);
-> +	} else {
-> +		err = PTR_ERR(msc);
-> +	}
-> +
-> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
-> +		pr_info("Discovered all MSC\n");
+ Documentation/driver-api/media/v4l2-core.rst       |   1 +
+ Documentation/driver-api/media/v4l2-isp.rst        |  49 ++++++
+ .../userspace-api/media/v4l/meta-formats.rst       |   1 +
+ Documentation/userspace-api/media/v4l/v4l2-isp.rst |  67 +++++++++
+ MAINTAINERS                                        |  10 ++
+ drivers/media/platform/amlogic/c3/isp/Kconfig      |   1 +
+ .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 165 ++++++---------------
+ drivers/media/platform/rockchip/rkisp1/Kconfig     |   1 +
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 150 ++++++-------------
+ drivers/media/v4l2-core/Kconfig                    |   4 +
+ drivers/media/v4l2-core/Makefile                   |   1 +
+ drivers/media/v4l2-core/v4l2-isp.c                 | 128 ++++++++++++++++
+ include/media/v4l2-isp.h                           |  91 ++++++++++++
+ include/uapi/linux/media/amlogic/c3-isp-config.h   |  92 +++---------
+ include/uapi/linux/media/v4l2-isp.h                | 102 +++++++++++++
+ include/uapi/linux/rkisp1-config.h                 | 107 +++----------
+ 16 files changed, 590 insertions(+), 380 deletions(-)
+---
+base-commit: b4fbb13db86adb0bae1d7f968b61ea8dc9635e33
+change-id: 20250701-extensible-parameters-validation-c831f7f5cc0b
 
-s/all MSC/all MSCs
-
-> +
-> +	return err;
-> +}
-> +
-> +static struct platform_driver mpam_msc_driver = {
-> +	.driver = {
-> +		.name = "mpam_msc",
-> +	},
-> +	.probe = mpam_msc_drv_probe,
-> +	.remove = mpam_msc_drv_remove,
-> +};
-> +
-> +static int __init mpam_msc_driver_init(void)
-> +{
-> +	if (!system_supports_mpam())
-> +		return -EOPNOTSUPP;
-> +
-> +	init_srcu_struct(&mpam_srcu);
-> +
-> +	fw_num_msc = acpi_mpam_count_msc();
-> +
-> +	if (fw_num_msc <= 0) {
-> +		pr_err("No MSC devices found in firmware\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return platform_driver_register(&mpam_msc_driver);
-> +}
-> +subsys_initcall(mpam_msc_driver_init);
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> new file mode 100644
-> index 000000000000..540066903eca
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -0,0 +1,49 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#ifndef MPAM_INTERNAL_H
-> +#define MPAM_INTERNAL_H
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/io.h>
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
-> +
-> +struct platform_device;
-> +
-> +struct mpam_msc {
-> +	/* member of mpam_all_msc */
-> +	struct list_head	all_msc_list;
-> +
-> +	int			id;
-> +	struct platform_device	*pdev;
-> +
-> +	/* Not modified after mpam_is_enabled() becomes true */
-> +	enum mpam_msc_iface	iface;
-> +	u32			nrdy_usec;
-> +	cpumask_t		accessibility;
-> +
-> +	/*
-> +	 * probe_lock is only taken during discovery. After discovery these
-> +	 * properties become read-only and the lists are protected by SRCU.
-> +	 */
-> +	struct mutex		probe_lock;
-> +	unsigned long		ris_idxs;
-> +	u32			ris_max;
-> +
-> +	/* mpam_msc_ris of this component */
-> +	struct list_head	ris;
-> +
-> +	/*
-> +	 * part_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
-> +	 * by RIS).
-> +	 * If needed, take msc->probe_lock first.
-> +	 */
-> +	struct mutex		part_sel_lock;
-> +
-> +	void __iomem		*mapped_hwpage;
-> +	size_t			mapped_hwpage_sz;
-> +};
-> +#endif /* MPAM_INTERNAL_H */
-
-Thanks,
-Gavin
+Best regards,
+-- 
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
 
