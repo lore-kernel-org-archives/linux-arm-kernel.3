@@ -4,46 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E30CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 03:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBB5CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 03:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUhKXEzeGCikYXmExWl1kA2dGxV0NSVJEQeamA4bzzI=; b=J/XAuJoZEQq9bB8M644f/4xR7d
-	JMGM50Cg2CayHBvUauaIFf+my+p7rIT4pjazVpw8KfbLy9lWk4Z66S5eavVp8FuFql+s3Elhop++j
-	8F//Q7Yh5LE5Qj7HDyWWG7AWuT8sKMYs+XtlREWWof4b4BfcScWRyBMwBduAeBRZUD2Lz2QD/lgZl
-	/xAGWN7sGXKIz6jPIMSFfgCk0bKvYfuov9lO9EOt+z+T4au77VP9t/0KluX60M46WhoMkDPpf2slA
-	WN5PTYTnJsT4W0QivOe4sLI5DCsdI+vB3blPDMZKZVaes6pwXJGc0eco80VaCt8eUMlsKo6XHVbEn
-	j0m/lGRg==;
+	bh=xrDU9iuO3h8fs/5flWhgbsmn8Bu4aapOuvAqkyRv/p8=; b=1wfpf4ftFL/1cMy4WyAxR6nSnp
+	zV5QUkm9oO7k5zQHI5pLXQ0fCu/aCdllUZl6dngYXEw3YM694BoZgepmY0ZbxRBIIaN6NeaQvX0NX
+	5SA3btnb2okpEWJHTlrpdOZ2UW578wIPADToG6xZ4DRTKRfgaa+IPdh5/aKtbYiYCKifPek9g2IjG
+	Rpx1T++oQacwLVKHjOjzktzVkRVX1uaKL6eJvr/6eNK6jPqTZrU/JH9egW1zD2oEJS2sW8UeSzDEG
+	n+xCvBHDalBi6ujL2k4AgAo/YPlT5TCVf68GoWHtXVGM3phV+RnWdSgbLUdOIqEffv9hJistk5EzV
+	hDsfQjKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHZMn-00000002GZ9-26hc;
-	Sat, 08 Nov 2025 03:11:53 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHZMk-00000002GYP-3Jce;
-	Sat, 08 Nov 2025 03:11:50 +0000
-Message-ID: <c13574f7-b13c-42e0-9b35-a2acb594af33@infradead.org>
-Date: Fri, 7 Nov 2025 19:11:49 -0800
+	id 1vHZVi-00000002ISN-1UTo;
+	Sat, 08 Nov 2025 03:21:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vHZVg-00000002ISB-2eiH
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 03:21:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9064D601CF;
+	Sat,  8 Nov 2025 03:21:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FC16C4CEF7;
+	Sat,  8 Nov 2025 03:21:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762572063;
+	bh=DP08fxj1Pdwkhh9oz9l/d6OztIyIzUnB15JwEWi8VFk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=G5QfO/MiUu27w75C/ZLOlvWMwACK1YXcNog7YMeLC7VyzhKmEW66mj5ZB3oL4uOeY
+	 ho19rE0+re+c9qvvkIkyQtvUfs384GH25HqlPKY3E+eSYKtG50678DWyAcJh8Gw2ec
+	 fXvI8j7y7S+0tpTlKuphx1hXd9Ghfy2Ytoo3Oa/f6+bctPWzyZiNcq22YxFwpB6UzW
+	 IyaIZF33P9q+LbpQO9QlRUjBYbo3qrD4SRPs9e+K1oHUTVi+yrZNp6PAuPLdFWq5/t
+	 oQ7VToqP0EhYpAKWLzCV48bpcXtGoH2cHUCEo/uCw/opFVhvOipzQfGJNsFQBo2xIc
+	 dN0oZxWgRZr5Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 716DC3A40FCA;
+	Sat,  8 Nov 2025 03:20:36 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?Q?Re=3A_=5BREGRESSION=5D_next/master=3A_=28build=29_implici?=
- =?UTF-8?Q?t_declaration_of_function_=E2=80=98topology=5Fcore=5Fhas=5Fsmt?=
- =?UTF-8?B?4oCZOyBkaWQgeW91IC4uLg==?=
-To: kernelci@lists.linux.dev, kernelci-results@groups.io,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-perf-users@vger.kernel.org, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: regressions@lists.linux.dev, gus@collabora.com, linux-next@vger.kernel.org
-References: <176225394342.3644.6412596085150396269@efdf33580483>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <176225394342.3644.6412596085150396269@efdf33580483>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/9] net: stmmac: lpc18xx and sti: convert to
+ set_phy_intf_sel()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176257203525.1236021.18202260388195244751.git-patchwork-notify@kernel.org>
+Date: Sat, 08 Nov 2025 03:20:35 +0000
+References: <aQyEs4DAZRWpAz32@shell.armlinux.org.uk>
+In-Reply-To: <aQyEs4DAZRWpAz32@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com, vz@mleia.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,65 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[verified still present in linux-next 20251107]
-[adding CCs]
+Hello:
 
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On 11/4/25 2:59 AM, KernelCI bot wrote:
+On Thu, 6 Nov 2025 11:21:23 +0000 you wrote:
+> This series converts lpc18xx and sti to use the new .set_phy_intf_sel()
+> method.
 > 
-> 
-> 
-> 
-> Hello,
-> 
-> New build issue found on next/master:
-> 
-> ---
->  implicit declaration of function ‘topology_core_has_smt’; did you mean ‘topology_core_cpumask’? [-Werror=implicit-function-declaration] in drivers/perf/arm_pmu.o (drivers/perf/arm_pmu.c) [logspec:kbuild,kbuild.compiler.error]
-> ---
-> 
-> - dashboard: https://d.kernelci.org/i/maestro:b25c03bf6acc100aaa7e71de7eb2cb32868b54f5
-> - giturl: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> - commit HEAD:  17490bd0527f59d841168457b245581f314b5fa0
-> - tags: next-20251104
-> 
-> 
-> Log excerpt:
-> =====================================================
-> drivers/perf/arm_pmu.c:935:24: error: implicit declaration of function ‘topology_core_has_smt’; did you mean ‘topology_core_cpumask’? [-Werror=implicit-function-declaration]
->   935 |         pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
->       |                        ^~~~~~~~~~~~~~~~~~~~~
->       |                        topology_core_cpumask
->   CC      drivers/iio/adc/bcm_iproc_adc.o
->   CC      drivers/devfreq/governor_simpleondemand.o
->   CC      drivers/memory/tegra/tegra124.o
->   CC      drivers/memory/brcmstb_dpfe.o
-> cc1: some warnings being treated as errors
->   CC      drivers/memory/tegra/tegra20-emc.o
-> 
-> =====================================================
-> 
-> 
-> # Builds where the incident occurred:
-> 
-> ## multi_v7_defconfig+CONFIG_SMP=n on (arm):
-> - compiler: gcc-12
-> - config: https://files.kernelci.org/kbuild-gcc-12-arm-SMP-6909cb01f21f07610dca0839/.config
-> - dashboard: https://d.kernelci.org/build/maestro:6909cb01f21f07610dca0839
-> 
-> 
-> #kernelci issue maestro:b25c03bf6acc100aaa7e71de7eb2cb32868b54f5
-> 
-> Reported-by: kernelci.org bot <bot@kernelci.org>
-> 
-> --
-> This is an experimental report format. Please send feedback in!
-> Talk to us at kernelci@lists.linux.dev
-> 
-> Made with love by the KernelCI team - https://kernelci.org
-> 
+>  .../net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c    | 42 ++++++++++--------
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c    | 50 ++++++++--------------
+>  2 files changed, 42 insertions(+), 50 deletions(-)
 
+Here is the summary with links:
+  - [net-next,1/9] net: stmmac: lpc18xx: convert to PHY_INTF_SEL_x
+    https://git.kernel.org/netdev/net-next/c/5636fcdb0211
+  - [net-next,2/9] net: stmmac: lpc18xx: use PHY_INTF_SEL_x directly
+    https://git.kernel.org/netdev/net-next/c/eb0533c7e63b
+  - [net-next,3/9] net: stmmac: lpc18xx: use stmmac_get_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/9882f1219408
+  - [net-next,4/9] net: stmmac: lpc18xx: validate phy_intf_sel
+    https://git.kernel.org/netdev/net-next/c/4bad4219249f
+  - [net-next,5/9] net: stmmac: lpc18xx: use ->set_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/7fe0e06a7364
+  - [net-next,6/9] net: stmmac: sti: use PHY_INTF_SEL_x to select PHY interface
+    https://git.kernel.org/netdev/net-next/c/9cd23c02ac57
+  - [net-next,7/9] net: stmmac: sti: use PHY_INTF_SEL_x directly
+    https://git.kernel.org/netdev/net-next/c/bd5a68159259
+  - [net-next,8/9] net: stmmac: sti: use stmmac_get_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/ef5e870be90f
+  - [net-next,9/9] net: stmmac: sti: use ->set_phy_intf_sel()
+    https://git.kernel.org/netdev/net-next/c/e3c8f25cf2aa
+
+You are awesome, thank you!
 -- 
-~Randy
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
