@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FF2CD1292
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 21:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C4FCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 21:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=; b=FbUYx6AaSDiKRxG/tv5fmGT8EB
-	BhjfZu81aY0hBTC7r9ICs1T5dBe5vjfWAE2M3xvLe5lr7qCvL4VqXGF6tbBctfxJ8SW2V2bPapY+E
-	cYByicqAqmJSWHObRsUicKxFcty3hGChPkftoD3WTrLDj+cjmqyiLUbLdS42OJwjjT+Zk95dSuGwR
-	o4qx9YTz0myY7x4WqtZLAZpVyNEQKIFYm9QSAlvSvClciA6ZlahSfNlKyMOk63xbZ9ZcetDWv9D2U
-	IeFUFGDLUTZm6kHRMz4KEuw+RuYBsaN+kC5W5qSPrmLInbPvlRWuAprJsec2hzTvfFhWLZzwARGLv
-	/In3hDCg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7ZgY2Y5BzkIraCasJSMFe50CTMRyvNR5i+L9TZ55dRQ=; b=gg7g28PpM/g+fznEKpOGaLZK+3
+	g3jttPnUAUFJ45TdmSsS8QaBe3js6+kaNRmAJ9EzbR3Pc/+VlE3w71VtgCkjUFilZU2G9ejopit0q
+	1EUvQG+Myy/mfW3eKT9YHB8Jye7jcMY/jHLU637JiS26TmW852TiC4Ct0HcPwhrK3GwrCrntQETBY
+	MhiShFUEPUUV5//XpzKwxhqtqPeuGW+AhcHJolMCHyoxmgJdRqzUQCVFtJ/zrLW8Pvh3FAwaSj3D/
+	ObO9La8oSiiAmwdJxht2K/9oXxbueZGx//N4CLaTesYsuDjsD8Jvy/a+hF09wrUGT2ZesE3xKyDRk
+	32qz93Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHq6s-00000003Sm8-0aOW;
-	Sat, 08 Nov 2025 21:04:34 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vHqHS-00000003THN-120M;
+	Sat, 08 Nov 2025 21:15:30 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHq6p-00000003Sku-1xrN
+	id 1vHqHP-00000003TGi-2PGc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 21:04:32 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7afd7789ccdso1739016b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 13:04:31 -0800 (PST)
+	Sat, 08 Nov 2025 21:15:28 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b3e9d633b78so327976166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 13:15:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1762635871; x=1763240671; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=;
-        b=RETtWwxx1mMS/E5l7xqeaA2qUYbtSMhf6OvLlhs1uabqs4rdXdsgLEu5iS852sJ9wp
-         /ttYlBR4KQclnFYudkLKhhNxuhAMZQ2tpruQoQwODiDCLW1mmEn9pIK3jMSryvng3deF
-         8/2zswzH8WsPKufd7583U8u0VASRmZUKuwapa6Z+dx8RmNe/4hOc4VFKgP8nVMxwXiOU
-         FAMNBwmblCHaxdtdpmDK5o6GdYlLUVWOOMwP1hCsA21vf4076c9YyaOU00fNaAA3CN0Q
-         SJvSoTHWGqKDgfqmFSiOXXuOTjvHzb8CzmS24bPsxmbioCkuQT/qRgvy7Vl6Kekgn2gu
-         jhCg==
+        d=googlemail.com; s=20230601; t=1762636526; x=1763241326; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7ZgY2Y5BzkIraCasJSMFe50CTMRyvNR5i+L9TZ55dRQ=;
+        b=QNc4JCEBmScy9HCepcpwRykw/HOnW7vvIbi1/UU28wuPilOElFHNeImJgfhpC6pIVY
+         RF5xg/NfhAm+Bx5AJqc1sP8TlCUeTCblCo5rLM2GdZ4WRumYIc7wZOq2H1EUecVHTQjb
+         MIORYZ33TupcNAd+JucIR/qROm6TD3E/xzM1asKkg0ExjszbaW9vIH3kdLpf8ER1VrDf
+         kSgKz02sC0LKepwUPIuiq/V0fPeH9S20a60qnlpL2BY+Y9goVyt3+x+JLXK6Vind1kTe
+         GXLFiKdQGwGZgARTenPrxO34+gGkzCGp+IbJWJ9ITynRnkfcfLyFzKtDuetXawB/rPSt
+         5KOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762635871; x=1763240671;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=;
-        b=KfthWDKKWxB6jGGjfynORbE2T8IM6xQCNJ51++wL9TbIQMkGeQ+9OcNdrpaIAITbb4
-         /mQBIy12kMejDwYbVWMDbLlLyOURQiC166Ssp9wT+HXiV1O5LgKfX2bmWyZnO9/wOSgB
-         HTVo6LedZT/vqc2WfjpSzvLQaudjFcczNvAMgCjiEOvJQV2G9VnxKEAtLmbmCanW7Vh3
-         88EwDix3fiRZBe/1OGCSHHNXRymLOy6SS/crAcuU+HmjLQRle+Bvazj9vj+3aQHpqfML
-         yviGnWisU3CRXQUYOrd+YA6Td+v51b4ABl8p2RP+uIWdyjeOR+6EF6azgor5i2/QUF94
-         yc+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXTj7DXjxZA4IxKBG+b0IpfMfb8n8WmYWR0sdh21YajITkkf8xXyJKP/G5PSyuVDW+WXn86D+SQaVcLkfb9p9ln@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6DFDkqsbEGQ7PtEzOzl3+sxatAWVeCKai0gydkvIuuj0x0plG
-	ACbgQA8ZhRgEmf6m/XDpAnZm6nwKi5dfcVIh1eYcINyeJKFuZ2MUIS/mhNwT1RV+GK5fEXFZ+8a
-	8jSRUVA/5eSLjkITp+DFKVF4AO0xlvDk=
-X-Gm-Gg: ASbGncvKFyBLoBkF+/1MSIVEyWD/iff+65xeAuVoo3CV2AstqKr+oQthMadb5vzBNND
-	LPsAU46tXTz1DhgvszrfEk2W/kOZARlXy4TJSqbN1sJMFBlORNTPY9jJ7HgiW4ywc1mMOFp/obK
-	q636LFxgs1d289eNfTRyRUnwHu75YotakMm7Rv1ys1S7BFzF1iTojvRWaD2iXw18dYz30gVB7Rl
-	M2HRR1hxbTN4ktZk6J6hkPw07LabGM5hJfp7UQNIbQmt0W/mAcnlF+ddl2weYQ29Ubtq9yzoZ1N
-	nc0Q7ut+vR8He1I2s3lvm82A68IG
-X-Google-Smtp-Source: AGHT+IH7CCB9+sHT4Gkgb/MZHAPPjHtlGiNAPQ/L76vDJz380AHMHqeGOPDuOGCkaP2NZNwlmUNoZ72lWfi2Lh0v9Ds=
-X-Received: by 2002:a17:903:1109:b0:24c:965a:f94d with SMTP id
- d9443c01a7336-297e56df7b3mr51858835ad.46.1762635870574; Sat, 08 Nov 2025
- 13:04:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com> <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
-In-Reply-To: <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
+        d=1e100.net; s=20230601; t=1762636526; x=1763241326;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7ZgY2Y5BzkIraCasJSMFe50CTMRyvNR5i+L9TZ55dRQ=;
+        b=kMn23pmtPTETjW0Lkn3BG0DcTxcT8QPTl8sSm2HkQMf//IRhyE+4bM50JgvYlTq6Q8
+         E67JFjfw3R7eZvsIq8rNNV2PEAUVTfmOUeFmqXUpNvuYlp7JBJm64p1WCI70hGco6z9i
+         yIRE3pAbvifTeoVzs6xcDof5Fqz7n2z8BPklVaa0mHh7WL7Qi2K0jcynIT7BgMn/wyPT
+         vTJF2q8cpOqXvGFKiaVW4ldiyB04dJQzSh+dKg4eN8eOhOKTrfqi4jpD7EdXAoLdqse2
+         7DlBj/QDq2EVyfv5ZRkbDLRyOBuR0IbPmQ7tWsLt/YoVhHNR+UqFcsTQgj6RovwYciV6
+         hJEA==
+X-Gm-Message-State: AOJu0YwvnjnpkA0G0FEgYVrJCP/IQDTc+cm5nkajA+bIHMelxGGWC7nw
+	6BdNducyRuX9UoCuJ9uxVSbu8ykiUrNOSVpsV1WxzalYim966oSWEF9D
+X-Gm-Gg: ASbGncuwdva/xdRZ6uf38W9iwv4sJ50umnhqvgur8Jlxflopw3Epq8g4CuAEK60mTpL
+	FW1gu8P2FzGC6jqwSoorXh8PzdACd71tcExF0aYN//gw+umuYda0anP3HnsrFyTqe0dkqyEtzVQ
+	V7jze0QMZs46tw7wA75E0Q/jgpllY8LVthutqvOf7jIVnpod8NmPy7mk6V/DKKAHwdmmbhYvnzD
+	lbfEIxT0TqY48N69QmsjDgRa3rt3Do/9PCmYpg+3qR9Rj1buw60s1SlBANQebuVCu6YaQmun+mA
+	UWraRHUR62o4kr06XbB3H7CYkZ+tQByVnyOmsEaWWUukS+3pSW2tbHf9C9VeWPQjNnXyIFBHQ3w
+	AJ1mG8n+0KhsQnzPZWWYgPSv2ZkT5Ax5hneg44CQUIpafsckXwv/0Y01x6MvpYCLEFfIVTiMQJR
+	9b6fNpcalX89vrF/OosNAEilOERViIt00CdYuWtS/4ZIUExzi/3RuoCvvfgEc5PA9dTuznwc80T
+	rat+YRI4wX6c8bw0nwyTM5FW9AmrzAKRlb/Lci0bu4=
+X-Google-Smtp-Source: AGHT+IFDQ1XE4DMnxHGoDNAOKOn2R9RCApPoGixxW18C4L6aTC8U7/yf3/RbX4oWw9F4XY3sUBF55g==
+X-Received: by 2002:a17:907:728f:b0:b71:ea7c:e501 with SMTP id a640c23a62f3a-b72df9055camr438123966b.4.1762636525488;
+        Sat, 08 Nov 2025 13:15:25 -0800 (PST)
+Received: from blackbox (dynamic-2a02-3100-a9b3-6600-1e86-0bff-fe2f-57b7.310.pool.telefonica.de. [2a02:3100:a9b3:6600:1e86:bff:fe2f:57b7])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-b72bf407a01sm625110666b.22.2025.11.08.13.15.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Nov 2025 13:15:23 -0800 (PST)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 8 Nov 2025 22:04:19 +0100
-X-Gm-Features: AWmQ_blQKnrslPLjhIDEU0j0xcOWcQJDgXAAfDygmB-XCYvmXNGV_pkvKxIws4c
-Message-ID: <CAFBinCDbx96byeCvLY-Cq2d7r4+RipUVuER57mz1zZ4fgqRd4A@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] clk: amlogic: Improve the issue of PLL lock failures
-To: chuan.liu@amlogic.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Kevin Hilman <khilman@baylibre.com>, linux-amlogic@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	neil.armstrong@linaro.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v1] ARM: dts: meson: drop iio-hwmon in favour of generic-adc-thermal
+Date: Sat,  8 Nov 2025 22:15:03 +0100
+Message-ID: <20251108211503.1578711-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.51.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_130431_503426_926CE511 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251108_131527_621335_A4D8AAE7 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,22 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 31, 2025 at 9:10=E2=80=AFAM Chuan Liu via B4 Relay
-<devnull+chuan.liu.amlogic.com@kernel.org> wrote:
->
-> From: Chuan Liu <chuan.liu@amlogic.com>
->
-> Due to factors such as temperature and process variations, the
-> internal circuits of the PLL may require a longer time to reach a
-> steady state, which can result in occasional lock failures on some
-> SoCs under low-temperature conditions.
->
-> After enabling the PLL and releasing its reset, a 20 us delay is
-> added at each step to provide enough time for the internal PLL
-> circuit to stabilize, thus reducing the probability of PLL lock
-> failure.
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-Tested-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com> # Odroi=
-d-C1
+Commit 85b21fdec906e ("thermal/drivers/generic-adc: Register thermal
+zones as hwmon sensors") made "generic-adc-thermal" also register hwmon
+attributes. That means we now have the temperature sensor shown twice:
+- once from iio-hwmon
+- and another time from generic-adc-thermal
+
+We need the latter for SoC temperature control, so simply drop the
+former so userspace doesn't see duplicate sensors. Also
+generic-adc-thermal provides a better name to userspace
+("soc_thermal-virtual-0") than iio_hwmon.
+
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+---
+ arch/arm/boot/dts/amlogic/meson.dtsi | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/arch/arm/boot/dts/amlogic/meson.dtsi b/arch/arm/boot/dts/amlogic/meson.dtsi
+index 28ec2c821cdc..6792377b2841 100644
+--- a/arch/arm/boot/dts/amlogic/meson.dtsi
++++ b/arch/arm/boot/dts/amlogic/meson.dtsi
+@@ -12,11 +12,6 @@ / {
+ 	#size-cells = <1>;
+ 	interrupt-parent = <&gic>;
+ 
+-	iio-hwmon {
+-		compatible = "iio-hwmon";
+-		io-channels = <&saradc 8>;
+-	};
+-
+ 	soc {
+ 		compatible = "simple-bus";
+ 		#address-cells = <1>;
+-- 
+2.51.2
+
 
