@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 15:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29231CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 15:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gDRQa/1X1Fd+cjuiAjnsNDV39M3JAXOnNml/zJMnjQ8=; b=nY1j0XeRpYnLiGIxlSPORcy4wu
-	vjsUDs+Drz1c2z0kyzbXktjamvAPfyH0rfNlb5G+wi6tfYrBMtMvBWD7ROKsqkdP6CqIuzlNeolJ0
-	SUFEpKzGE+hmFtIsg0Bvoe7Lv7uvj5VNPkeCzyIlPD4YPCyIzbAvF3P8eeTHUmbEmRM8rMQsaFOS8
-	3M+tqKkkNgYk9lIpyRT9O1EzKvKL1691TCgguAaQlxRJSvusKFxLXdNF3eovGehheHq2V54eccTkm
-	reAEF5XAPRHP7oSAzKkUa8GtPEiQb+0oaar1XC+w5X9nmSZCvRgcd2tDcqYcMxOB0G/YxWmMexAzw
-	alZaWh/w==;
+	bh=5MLPprCaZPID22E/AKUcNN8QRCTOmf2yAp9Z/GC3kA8=; b=NhOgIqCWo3Lg74lcM/nnbrW2AA
+	nMDzwIi6toVdwCfbBslGoJr1Zc3vLsP/IQikLHZye1nP78BeerOisPjDfOn1DEpbIKf5ELp7qshzb
+	c+JEGfkPE/NM0IQ2L94SrtvGxryUfb4dE4MhO4Pf4Zo9n10POPlaHqn9vClsG4yVpg7HS5P30pC6y
+	4t7Z8kyxH1lhS2Wb/QjPRngCQB5JTkTUf82o4CMuAQmx5weSU+CW/xzRoJQEO5SVNgueoKF4oXadz
+	Mzrfm3EAweBgvSUc9rgsmqC6Baz80iawWaMMRoVoCFX40NcjKyu02EUwx388fQzoC+qaCS0EmecCs
+	xikPOEUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkQs-00000003DJ5-2qB9;
-	Sat, 08 Nov 2025 15:00:50 +0000
+	id 1vHkfm-00000003Dkv-1sqI;
+	Sat, 08 Nov 2025 15:16:14 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkQo-00000003DIE-3dnr
+	id 1vHkfi-00000003DkW-2vN7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 15:00:49 +0000
+	Sat, 08 Nov 2025 15:16:13 +0000
 Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CB58A63F;
-	Sat,  8 Nov 2025 15:58:44 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id ACE8ADD9;
+	Sat,  8 Nov 2025 16:14:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762613925;
-	bh=rOIndJ1Wdl2UV9V5RlsJkymyLOcj1m1V4i8uqdWluyw=;
+	s=mail; t=1762614852;
+	bh=3qjL7RCdBSO1FNRsQ4bSgdzjhQnDKxvb9nUhhd5pNvw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=wR0OnXwCpxCWy0xX3HRb+afNMk2+8yFwIGqQf8lnJfXfiFj/3OQOlJrOGTfdigagO
-	 1J2QMVc/nH0TGjKOl/D1CJYUuSVwrGpT+lVYbrN0vxtKpuY+koSyBObY9BmIplsmnM
-	 uW9VvjcDS1VdMF+ktT903FFIiwNhUUhpmVz+sF3o=
-Message-ID: <64952f5f-0f3b-48c4-9304-9080f9052db6@ideasonboard.com>
-Date: Sat, 8 Nov 2025 15:00:38 +0000
+	b=PqHMAxcWSZxJKrfD9cbo5g0/XyiJdb0yD5qOcYcs/Mjtsb/95Ji9lLTjrtbglHIaL
+	 cSwDqSy/E7Nl/tVG4OLvwNKwP94wMG7RB2SeVawdmXUYPih4jWK1jotzU3XyzboHYG
+	 EwRhvkonof8JsrpXurRvEAhkuMcNLuzU1lQ3L6QE=
+Message-ID: <37015806-bf91-4e31-9550-50d17062b1e4@ideasonboard.com>
+Date: Sat, 8 Nov 2025 15:16:05 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
@@ -57,15 +57,16 @@ References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
  <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
  <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
  <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
- <uxojb4xpict6ccxpgogzavufpx63uvqfpi6vrbllyr7jf3aga5@45c7i27yv2uh>
+ <CA+V-a8vey1y0QAxk7vYNHzPHrOrQ4uTpjf4LCb9wSRRCT3v3Qg@mail.gmail.com>
+ <pwnwqoghzznwp5faozxhsjzfd6qx3xeqvwcmk4zpkcgmmbtetu@vafr5viwhizp>
 Content-Language: en-US
 From: Dan Scally <dan.scally@ideasonboard.com>
-In-Reply-To: <uxojb4xpict6ccxpgogzavufpx63uvqfpi6vrbllyr7jf3aga5@45c7i27yv2uh>
+In-Reply-To: <pwnwqoghzznwp5faozxhsjzfd6qx3xeqvwcmk4zpkcgmmbtetu@vafr5viwhizp>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_070047_458417_DA53052C 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20251108_071611_140117_73D74385 
+X-CRM114-Status: GOOD (  35.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,272 +81,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Afternoon Jacopo and Prabhakar
+Hi Jacopo, Prabhakar
 
-@Jacopo you asked below if I'd missed some questions from Prabhakar - I did! Thanks for pointing 
-that out, no idea how I missed them
-
-On 08/11/2025 13:14, Jacopo Mondi wrote:
-> Hi Dan
+On 08/11/2025 13:07, Jacopo Mondi wrote:
+> Hi
 > 
-> On Mon, Nov 03, 2025 at 04:17:24PM +0000, Dan Scally wrote:
->> Hi Prabhakar
+> On Wed, Nov 05, 2025 at 01:35:59PM +0000, Lad, Prabhakar wrote:
+>> Hi Dan,
 >>
->> On 28/10/2025 18:23, Lad, Prabhakar wrote:
->>> Hi Daniel,
+>> On Mon, Nov 3, 2025 at 4:17 PM Dan Scally <dan.scally@ideasonboard.com> wrote:
 >>>
->>> Thank you for the patch.
+>>> Hi Prabhakar
 >>>
->>> On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
->>> <dan.scally@ideasonboard.com> wrote:
+>>> On 28/10/2025 18:23, Lad, Prabhakar wrote:
+>>>> Hi Daniel,
 >>>>
->>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>>> Thank you for the patch.
 >>>>
->>>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
->>>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->>>> ---
->>>> Changes in v12:
->>>>
->>>>           - _Actually_ dropped the arm,inline property mode, having forgotten to
->>>>             do so in v11.
->>>>
->>>> Changes in v11:
->>>>
->>>>           - Dropped in arm,inline_mode property. This is now identical to the
->>>>             reviewed version 8, so I have kept the tags on there.
->>>>
->>>> Changes in v10:
->>>>
->>>>           - None
->>>>
->>>> Changes in v9:
->>>>
->>>>           - Added the arm,inline_mode property to differentiate between inline and
->>>>             memory input configurations
->>>>
->>>> Changes in v8:
->>>>
->>>>           - Added the video clock back in. Now that we have actual hardware it's
->>>>             clear that it's necessary.
->>>>           - Added reset lines
->>>>           - Dropped R-bs
->>>>
->>>> Changes in v7:
->>>>
->>>>           - None
->>>>
->>>> Changes in v6:
->>>>
->>>>           - None
->>>>
->>>> Changes in v5:
->>>>
->>>>           - None
->>>>
->>>> Changes in v4:
->>>>
->>>>           - Switched to port instead of ports
->>>>
->>>> Changes in v3:
->>>>
->>>>           - Dropped the video clock as suggested by Laurent. I didn't retain it
->>>>           for the purposes of the refcount since this driver will call .s_stream()
->>>>           for the sensor driver which will refcount the clock anyway.
->>>>           - Clarified that the port is a parallel input port rather (Sakari)
->>>>
->>>> Changes in v2:
->>>>
->>>>           - Added clocks information
->>>>           - Fixed the warnings raised by Rob
->>>> ---
->>>>    .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
->>>>    1 file changed, 82 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
->>>> new file mode 100644
->>>> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
->>>> @@ -0,0 +1,82 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: ARM Mali-C55 Image Signal Processor
->>>> +
->>>> +maintainers:
->>>> +  - Daniel Scally <dan.scally@ideasonboard.com>
->>>> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    const: arm,mali-c55
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  interrupts:
->>>> +    maxItems: 1
->>>> +
->>>> +  clocks:
->>>> +    items:
->>>> +      - description: ISP Video Clock
->>>> +      - description: ISP AXI clock
->>>> +      - description: ISP AHB-lite clock
->>> As per RZ/V2H HW manual we have reg clock looking at the driver code
->>> it does have readl. IVC has reg clock if IVC driver fails are you
->>> still able to read/write regs from ISP driver?
+>>>> On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
+>>>> <dan.scally@ideasonboard.com> wrote:
+>>>>>
+>>>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>>>>
+>>>>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+>>>>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>>> ---
+>>>>> Changes in v12:
+>>>>>
+>>>>>           - _Actually_ dropped the arm,inline property mode, having forgotten to
+>>>>>             do so in v11.
+>>>>>
+>>>>> Changes in v11:
+>>>>>
+>>>>>           - Dropped in arm,inline_mode property. This is now identical to the
+>>>>>             reviewed version 8, so I have kept the tags on there.
+>>>>>
+>>>>> Changes in v10:
+>>>>>
+>>>>>           - None
+>>>>>
+>>>>> Changes in v9:
+>>>>>
+>>>>>           - Added the arm,inline_mode property to differentiate between inline and
+>>>>>             memory input configurations
+>>>>>
+>>>>> Changes in v8:
+>>>>>
+>>>>>           - Added the video clock back in. Now that we have actual hardware it's
+>>>>>             clear that it's necessary.
+>>>>>           - Added reset lines
+>>>>>           - Dropped R-bs
+>>>>>
+>>>>> Changes in v7:
+>>>>>
+>>>>>           - None
+>>>>>
+>>>>> Changes in v6:
+>>>>>
+>>>>>           - None
+>>>>>
+>>>>> Changes in v5:
+>>>>>
+>>>>>           - None
+>>>>>
+>>>>> Changes in v4:
+>>>>>
+>>>>>           - Switched to port instead of ports
+>>>>>
+>>>>> Changes in v3:
+>>>>>
+>>>>>           - Dropped the video clock as suggested by Laurent. I didn't retain it
+>>>>>           for the purposes of the refcount since this driver will call .s_stream()
+>>>>>           for the sensor driver which will refcount the clock anyway.
+>>>>>           - Clarified that the port is a parallel input port rather (Sakari)
+>>>>>
+>>>>> Changes in v2:
+>>>>>
+>>>>>           - Added clocks information
+>>>>>           - Fixed the warnings raised by Rob
+>>>>> ---
+>>>>>    .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
+>>>>>    1 file changed, 82 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>>>>> new file mode 100644
+>>>>> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>>>>> @@ -0,0 +1,82 @@
+>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: ARM Mali-C55 Image Signal Processor
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Daniel Scally <dan.scally@ideasonboard.com>
+>>>>> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    const: arm,mali-c55
+>>>>> +
+>>>>> +  reg:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  interrupts:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  clocks:
+>>>>> +    items:
+>>>>> +      - description: ISP Video Clock
+>>>>> +      - description: ISP AXI clock
+>>>>> +      - description: ISP AHB-lite clock
+>>>> As per RZ/V2H HW manual we have reg clock looking at the driver code
+>>>> it does have readl. IVC has reg clock if IVC driver fails are you
+>>>> still able to read/write regs from ISP driver?
+>>>   >
+>>>   > I think we do need to pass reg clock too.
 >>>
->>> I think we do need to pass reg clock too.
->>
->> Yes - but I should clarify that the names are from the arm documentation
->> that we had when we originally developed the ISP driver. The RZ/V2H
->> documentation treats the ISP and IVC as one block that shares 4 clocks and
->> resets, but when we originally developed the ISP driver the platform we used
->> had the ISP implemented as an inline configuration (taking data directly
->> from a csi-2 receiver without an IVC equivalent), and the documentation
->> detailed just the three clocks and resets. The dtsi changes for the
->> RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named
->> reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
->>
->> The IVC gets pclk, vin_aclk and isp_sclk.
->>
->> [1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
->>
->>> Also for IVC we do have a main clock (which is a system clock).  Can
->>> you please educate me on what is the purpose of it. Just curious as we
->>> pass to IVC and not ISP.
->>
->> The IVC uniquely gets the one called "pclk" in renesas documentation, with
->> the description "Input Video Control block register access APB clock".
->>
->> Thanks
->> Dan
->>
+>>> Yes - but I should clarify that the names are from the arm documentation that we had when we
+>>> originally developed the ISP driver. The RZ/V2H documentation treats the ISP and IVC as one block
+>>> that shares 4 clocks and resets, but when we originally developed the ISP driver the platform we
+>>> used had the ISP implemented as an inline configuration (taking data directly from a csi-2 receiver
+>>> without an IVC equivalent), and the documentation detailed just the three clocks and resets. The
+>>> dtsi changes for the RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named
+>>> reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
 >>>
->>>> +
->>>> +  clock-names:
->>>> +    items:
->>>> +      - const: vclk
->>>> +      - const: aclk
->>>> +      - const: hclk
->>> Not sure if we want to have the same names as IVC or vice versa.
-
-I'll respond to this in the other thread to keep naming discussions all in one place
-
- >>>>>>> +
->>>> +  resets:
->>>> +    items:
->>>> +      - description: vclk domain reset
->>>> +      - description: aclk domain reset
->>>> +      - description: hclk domain reset
->>> Same query here, wrt register reset.
+>>> The IVC gets pclk, vin_aclk and isp_sclk.
 >>>
->>>> +
->>>> +  reset-names:
->>>> +    items:
->>>> +      - const: vresetn
->>>> +      - const: aresetn
->>>> +      - const: hresetn
->>> ditto naming.
+>>> [1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
 >>>
->>>> +
->>>> +  port:
->>>> +    $ref: /schemas/graph.yaml#/properties/port
->>>> +    description: Input parallel video bus
->>>> +
->>>> +    properties:
->>>> +      endpoint:
->>>> +        $ref: /schemas/graph.yaml#/properties/endpoint
->>>> +
->>>> +required:
->>>> +  - compatible
->>>> +  - reg
->>>> +  - interrupts
->>>> +  - clocks
->>>> +  - clock-names
->>>> +  - port
->>> maybe also resets and rest-names should be part of required properties?
->>>
+>> Thanks for the info.
 > 
-> Have you missed this question from Prabhakar ? What do you think ?
-Oops, yes I missed it, and yes I agree, I'll add them.>
->>>> +
->>>> +additionalProperties: false
->>>> +
->>>> +examples:
->>>> +  - |
->>>> +    mali_c55: isp@400000 {
->>> we could drop `mali_c55`
->>>
+> I won't question the Mali clock assignment as I don't have the
+> documentation you mentioned.
 > 
-> I think we should
+> But looking at the patch you shared
+> 
+> IVC:
+> +			clocks = <&cpg CPG_MOD 0xe3>,
+> +				 <&cpg CPG_MOD 0xe4>,
+> +				 <&cpg CPG_MOD 0xe5>;
+> +			clock-names = "reg", "axi", "isp";
+> 
+> Mali:
+> +			clocks = <&cpg CPG_MOD 0xe2>,
+> +				 <&cpg CPG_MOD 0xe4>,
+> +				 <&cpg CPG_MOD 0xe5>;
+> +			clock-names = "vclk", "aclk", "hclk";
+> 
+> It seems the IVC-only clock is
+> 
+>          <cpg CPG_MOD 0xe3> "reg"
+> 
+> trying to match the clocks here with the V2H documentation and the
+> above names
+> 
+>          clk     IVC             Mali    RZ V2H Doc
+>          0xe2                    vclk    vin_aclk   Video input data AXI bus clock
+>          0xe3    reg                     pclk       Input Video Control block register access APB clock
+>          0xe4    axi             aclk    reg_aclk   AXI to AHB bus bridge AXI slave cloc
+>          0xe5    isp             hclk    isp_sclk   ISP system clock (pixel clock)
 
-Works for me
+No I think it's:
+
+clk	IVC	ISP	V2H doc		Desc
+0xe2		vclk	reg_aclk	AXI to AHB bus bridge AXI slave clock
+0xe3	reg		pclk		Input Video Control Block register access APB clock
+0xe4	axi	aclk	vin_aclk	Video input data AXI bus clock
+0xe5	isp	hclk	isp_sclk	ISP system clock (pixel clock)
+
+So the IVC needs 227, 228, 229 and the bindings name them reg, axi and isp. The ISP needs 226, 228 
+and 229 and the bindings name them vclk, aclk, hclk. If we want to rename the ISP's binding names 
+then 228 and 229 become "axi" and "isp", and we need a sensible name for the "reg_aclk" from the 
+Renesas documentation..."ahb"? or "reg"?
+
 
 > 
->>>> +      compatible = "arm,mali-c55";
->>>> +      reg = <0x400000 0x200000>;
->>>> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
->>>> +      clock-names = "vclk", "aclk", "hclk";
->>>> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
->>>> +      reset-names = "vresetn", "aresetn", "hresetn";
->>>> +      interrupts = <0>;
->>> I would have a non-zero val here.
+> I would only question if the IVC shouldn't actually only get its reg
+> clock as the other 2 are mandatory for the ISP even when integrated
+> inline without an IVC.
+
+In my mind, given that we're treating them as separate devices, they ought to be fully (if 
+worthlessly) functional independently. If the IVC gets only its reg clock then it will not stream 
+until you power on the ISP separately, which does not seem right to me.>
+> I guess the question is if there are other IVC instances not paired
+> with a Mali ISP in other SoCs ?
+
+Good question, I too would be interested to know.
+
+
+>>
+>>>> Also for IVC we do have a main clock (which is a system clock).  Can
+>>>> you please educate me on what is the purpose of it. Just curious as we
+>>>> pass to IVC and not ISP.
+>>>
+>>> The IVC uniquely gets the one called "pclk" in renesas documentation, with the description "Input
+>>> Video Control block register access APB clock".
 > 
-> With the right include you could even use the actual value from the
-> dts:
->                  interrupts = <GIC_SPI 859 IRQ_TYPE_LEVEL_HIGH>;
+> Let alone I find 'reg' better, but if the documentation uses 'pclk'
+> why has 'reg' been used ?
 
-Works for me
+I used the documentation names for the ISP, but Krzysztof later convinced me that following the 
+documentation names isn't the best approach given it doesn't really tell us anything. The "reg" was 
+because the docs describe that one as the register access clock.
 
-> 
-> Please make sure to run dt_bindings_check if you do so
-> 
-> With a few questions clarified, if you resend and drop the label here
-> (you can even resend this single patch as v12.1 if it's more
-> convenient)
-
-I'm told that that works poorly with the tooling, but I can re-submit the series as a whole - I was 
-just waiting for the v4l2-isp to firm up in case that necessitated any changes.
-
-I think this driver should be collected for v6.19.
-
-That would be nice!
-> (Do you plan a v6 of the IVC with the small comments from Prabhakar
-> addressed ? Ideally we want it to get in at the same time)
-
-Also yes, I can do both early this week
-
+Thanks
 Dan
 
+> 
 > Thanks
->    j
+>     j
 > 
 >>>
->>> Cheers,
->>> Prabhakar
->>>
->>>> +
->>>> +      port {
->>>> +        isp_in: endpoint {
->>>> +            remote-endpoint = <&csi2_rx_out>;
->>>> +        };
->>>> +      };
->>>> +    };
->>>> +...
->>>>
->>>> --
->>>> 2.43.0
->>>>
->>>>
+>> Got you.
 >>
+>> Cheers,
+>> Prabhakar
 >>
 
 
