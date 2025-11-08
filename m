@@ -4,81 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83770CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 22:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04CECCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 22:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMIv9AGq780AijX5IiGXZgy94EnHSeQu6sTSzhiMxek=; b=Ywac6M+WQC+mSbnwOSxkfIGO7i
-	8x3tJRAESGxiNecLT7BvVYmLA4YgH1n7saThfJwRKGrDGaDii0r/y9VqAppozqYoffHLFQT0oXvec
-	KMSszV1ekfPF8cJUK+CqDnNPnuqCCc2UaCGcwXQC5s632yxo8Up0LO35mgxtIusDCFwJwA4oiYnuf
-	Z3p2c7+tcmU1PH8Yf0HXMqd3a6bf1JWisHFC8NkCYNMgmkc9+DeKTcwt7Zhk/7duNuiXBopgXjGqC
-	g+kEL+MBEpXIyxlNhnub7eG2I26fQozoOZ1yAwgyUz9nbqg5EH6ab7M+hd1NM/BDpSyKHmI4JqwwT
-	FsR1iv6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TxZAPUKdi9AxX63zPi/NWqNTntX+DYqp6OrCNhCWvus=; b=4qNnjlq1v6t2U2pzMzuyfmFMkZ
+	CIbXzFO08AevrvUR0JsQ7Qee+zNMNrzaWR/lzmOjlPkL9K0HJBS9jI5Jf1pWzijcllpeSFdlM2ABE
+	YUrWCWzpPHDT3vQckyk3kMvJIk3uCyaur8fdEGlP/o2+A0lpE8SsJYJvgS73F1DdDyVR6rs2IlllK
+	6FDDh0+SjaQOaSSlGdr5FH+4eG72l0ZJxiPP+GtN5Skn1CVRy0+8dQm3EwIQqWi1pKECvMnP3saW3
+	IWUrjXAMMpOxIKj+1hgRca0xa1YEE/kbMRiE401bebP8qX/v9oPjiAw5W+V3eKuAuyoFhKasRDB45
+	ivuxR0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHrBQ-00000003Vn5-3DNW;
-	Sat, 08 Nov 2025 22:13:20 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vHrFt-00000003WAl-1MWL;
+	Sat, 08 Nov 2025 22:17:57 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHrBO-00000003Vmb-1tqC;
-	Sat, 08 Nov 2025 22:13:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1762639989; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cHKQixeSbiQYgFr/nIMungXoozpc+I+XHBYAKYLIOMCBZoPMuiZ9juvWVCCIfB2Q/4tDXJ7Gzfwk6r7KVnxNZJ9qTtSiFHH2sYUbgoMesswY18rneR+me7pX011K+SopAoRMsd6CItg/WFC6tEBlyJNxmlCBX5m+7hvnrYyvwVI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1762639989; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=VMIv9AGq780AijX5IiGXZgy94EnHSeQu6sTSzhiMxek=; 
-	b=CoRS3XCRJtH5n/+F/hNiC4IUbAVjxoO9cRZG+aD8QfvIMk9gSRfOpcsSUPvFHzVbvTEz53jtm+pXYeZgjwgKyWWdwBFWZZqAdPEYA7NG0peepJ7HeHrJBE2H07Pwv+XPXWi9HiUVCENSXWOCTiRwEKhuoYx4Gz++AO13RSCHMH8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1762639989;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=VMIv9AGq780AijX5IiGXZgy94EnHSeQu6sTSzhiMxek=;
-	b=GgvaFjo7eVdA72Ou0P0SfF46EBvPLHLMhqhIPO5oG++ndoVBg4X+fymn97HzeZ5o
-	0OdtbgGC3fILokPh6Lh3y7261vKyjmiTvp5vPHPszkGqgodAM6Dm+xtw2TugzX1NVg1
-	vwizaabpSi0/U9lZ9vR8VJEZbTF5zDgE2DHJq6UY=
-Received: by mx.zohomail.com with SMTPS id 1762639987433151.93053330001715;
-	Sat, 8 Nov 2025 14:13:07 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 7A8E61801B3; Sat, 08 Nov 2025 23:12:54 +0100 (CET)
-Date: Sat, 8 Nov 2025 23:12:54 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Geraldo Nascimento <geraldogabriel@gmail.com>, 
-	Ye Zhang <ye.zhang@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Johan Jonker <jbx6244@gmail.com>, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
-Message-ID: <sbulnlwz3vxyk3yw2c2tcsdvyu57cdvyixkpeq2okh4vn6yyod@4o4kltfb5u6n>
-References: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
- <ba120577-42da-424d-8102-9d085c1494c8@rock-chips.com>
- <aQsIXcQzeYop6a0B@geday>
- <67b605b0-7046-448a-bc9b-d3ac56333809@rock-chips.com>
- <aQ1c7ZDycxiOIy8Y@geday>
- <d9e257bd-806c-48b4-bb22-f1342e9fc15a@rock-chips.com>
+	id 1vHrFr-00000003W9r-1etG
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 22:17:56 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59435d82c1fso1958452e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 14:17:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762640273; x=1763245073; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TxZAPUKdi9AxX63zPi/NWqNTntX+DYqp6OrCNhCWvus=;
+        b=nlA/acOPk4H1fEyscDtY4Md/IRM6j0v8lz1JOIFLmmMKBbqGtVNNCAQvVAeBNlx627
+         W81Fvxkj0ivNvfMdNIsu4YJHLl0+R/NoUc7sJFSqMl1K8wXem0MOcvqg38yWYnXs7xtk
+         ZulqYkS/9DfZwHwnuJZtE2rRz12Ny7QHGKM+htw+GONgIzqyCfP7DWBD2kTBMa6NzsWa
+         BT3vC9NReHQczo/zxIarHZ7yYiiO/XCoX/44MSQY8mKRB9OKVz0qVgzFm4uWEOhSMbWt
+         cHXFK8PcmUSlSivWdSh8WpacKO7cCkiXYVMJGBVAg72+WYXnAGtTl/vvqSKISSfEg3JZ
+         D0vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762640273; x=1763245073;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=TxZAPUKdi9AxX63zPi/NWqNTntX+DYqp6OrCNhCWvus=;
+        b=nmUQLHdxcGHprs4nbe7d/uOehQOL58ipJRiuhj0Y5RRWBRZMRuyAF6SJihvgqAo69f
+         lm503KRY8I2q4ijUYP2e9Kh1LLChcNnqjggc0c356Ri7qOEjldB41Y6M2q1IgS9Gnqlz
+         38XxpkCHQ+ED2RRJ5C0u5pV3TnzyAJJle3ID5cTHVpdtqENwnkRGotAD8L7IpwNl61Nl
+         SYrq3yUvu/Q4KCD0Se+/kMRfpEDXUYiT+u48tliFElz5QYJb2PtE5FNhFnYQBghESzXz
+         uMN0DdudxAWVQY1Hlqc6uKuu92ie4Y7GHh/LLDRBU1KcQhwR22vH8dxyInO+8RWEUcJF
+         iTgA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQhCxoQyfwyWvo3PJ8Vo3LMfL8uYP5COxU4SL6Rx11HVeVQJ9M8mpEx3lAh7XyocGI8NCD19kpPl8WGBGujrXu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtyPS/YpXEKEykSSG/uFhf6r47N5UBwTHKx7kErxyas1OtFrRa
+	NWk5B5/Mln3Fbv/cU7C1kwGU/ys3mHpqgSbop68LpdM6ghBTHCDmuPt5ohOYYekebcI=
+X-Gm-Gg: ASbGnctVY8kN7y1kccdocipVTFBwDWI8IHXzIs+VwYP23jYGXfwcyNYg7KTi2Hxc/oO
+	jO6LOSX+R2k+eY41TRdkLmLhpkM7rOEIfT62HH6gqa2EEDMPhsH+vqWvJfsCmRmaEdqOmvizSh5
+	BVpJq3xH0R2BnABYyOposkk4UB8xAzL5vIWRs/bz4lWG++qrxMWKjbJprJYYRIM+TTK25mI9Ekk
+	XsaxSD8RUjLn3brxWXk7Bjw2XkQr+WiU2lQ8UwMwVGSXDuXeQm1GHa+WXQjQtKZhS0/AauN/PH6
+	r+lmH+qskYx1AfDRwxGXl1Xzzoje5tIbCldzpabI6vUGN3PnoZBszJNpLE63uF/AQnnPKJCOX7x
+	+pwPF0qN50m4FhJyXz6NA6rHFKJu9OO9dbSpOp5lvMT1VXgTCUZ8Q2k545FmqRP3NwnKoZ38jp1
+	WqZRjPAcAQHajUgCbmlLgB3eV3BiKt/lQOhxp0cv3TizVtiS/9yk4MUA==
+X-Google-Smtp-Source: AGHT+IHolDwBEdVgVHkXvTMdRX9qh3n0EPVAJ6MxeIpHVw17L7ivQtjPHHGLRV+poAHUxhwCFcmwTA==
+X-Received: by 2002:a05:6512:2209:b0:594:27fb:e7ff with SMTP id 2adb3069b0e04-5945f1cb40amr1082915e87.51.1762640272741;
+        Sat, 08 Nov 2025 14:17:52 -0800 (PST)
+Received: from Shofiq.home (62-241-229-58.bb.dnainternet.fi. [62.241.229.58])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59449fd04b3sm2620347e87.0.2025.11.08.14.17.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Nov 2025 14:17:51 -0800 (PST)
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+To: nm@ti.com
+Cc: ssantosh@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Md Shofiqul Islam <shofiqtest@gmail.com>
+Subject: [PATCH] soc: ti: knav_qmss_queue: free resources in remove callback
+Date: Sun,  9 Nov 2025 00:17:41 +0200
+Message-ID: <20251108221741.48610-1-shofiqtest@gmail.com>
+X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251105013049.45646-1-shofiqtest@gmail.com>
+References: <20251105013049.45646-1-shofiqtest@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="npjyxqdavydus2a6"
-Content-Disposition: inline
-In-Reply-To: <d9e257bd-806c-48b4-bb22-f1342e9fc15a@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/262.598.13
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_141318_557085_1E74B50B 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20251108_141755_440356_77E0DCE4 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Implement the TODO in knav_queue_remove() by stopping PDSPs and
+freeing queue regions and queue ranges before disabling runtime PM,
+mirroring the allocations performed in the probe path.
 
---npjyxqdavydus2a6
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
-MIME-Version: 1.0
+This ensures resources are released on driver unbind and avoids
+leaking queue/region state.
 
-Hi,
+Signed-off-by: Md Shofiqul Islam <shofiqtest@gmail.com>
+---
+ drivers/soc/ti/knav_qmss_queue.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-On Fri, Nov 07, 2025 at 11:01:04AM +0800, Shawn Lin wrote:
-> + Ye Zhang
->=20
-> =E5=9C=A8 2025/11/07 =E6=98=9F=E6=9C=9F=E4=BA=94 10:43, Geraldo Nasciment=
-o =E5=86=99=E9=81=93:
-> > On Wed, Nov 05, 2025 at 04:56:36PM +0800, Shawn Lin wrote:
-> > > =E5=9C=A8 2025/11/05 =E6=98=9F=E6=9C=9F=E4=B8=89 16:18, Geraldo Nasci=
-mento =E5=86=99=E9=81=93:
-> > > > Hi Shawn, glad to hear from you.
-> > > >=20
-> > > > Perhaps the following change is better? It resolves the issue
-> > > > without the added complication of open drain. After you questioned
-> > > > if open drain is actually part of the spec, I remembered that
-> > > > GPIO_OPEN_DRAIN is actually (GPIO_SINGLE_ENDED | GPIO_LINE_OPEN_DRA=
-IN)
-> > > > so I decided to test with just GPIO_SINGLE_ENDED and it works.
-> >=20
-> > Shawn,
-> >=20
-> > I quote from the PCIe Mini Card Electromechanical Specification Rev 1.2
-> >=20
-> > "3.4.1. Logic Signal Requirements
-> >=20
-> > The 3.3V card logic levels for single-ended digital signals (WAKE#,
-> > CLKREQ#, PERST#, and W_DISABLE#) are given in Table 3-7. [...]"
-> >=20
-> > So while you are correct that PERST# is most definitely not Open Drain,
-> > there's evidence on the spec that defines this signal as Single-Ended.
-> >=20
->=20
-> This's true. But I couldn't find any user in dts using either
-> GPIO_SINGLE_ENDED or GPIO_OPEN_DRAIN for PCIe PERST#. I'm curious
-> how these two flags affect actual behavior of chips. Ye, could you
-> please help check it?
+diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+index 6e56e7609ccd..1e5f3e9faa99 100644
+--- a/drivers/soc/ti/knav_qmss_queue.c
++++ b/drivers/soc/ti/knav_qmss_queue.c
+@@ -1884,9 +1884,14 @@ static int knav_queue_probe(struct platform_device *pdev)
+ 
+ static void knav_queue_remove(struct platform_device *pdev)
+ {
+-	/* TODO: Free resources */
+-	pm_runtime_put_sync(&pdev->dev);
+-	pm_runtime_disable(&pdev->dev);
++    struct knav_device *kdev = platform_get_drvdata(pdev);
++
++    knav_queue_stop_pdsps(kdev);
++    knav_queue_free_regions(kdev);
++    knav_free_queue_ranges(kdev);
++
++    pm_runtime_put_sync(&pdev->dev);
++    pm_runtime_disable(&pdev->dev);
+ }
+ 
+ static struct platform_driver keystone_qmss_driver = {
+-- 
+2.51.1
 
-FWIW I assume single-ended in the spec means it's not differential
-like all the highspeed signals on the PCIe connection. This says
-nothing about open-drain, open-source or push-pull being used. The
-kernel on the other hand has a very specific understanding of
-GPIO_SINGLE_ENDED:
-
-	if (flags & OF_GPIO_SINGLE_ENDED) {
-		if (flags & OF_GPIO_OPEN_DRAIN)
-			lflags |=3D GPIO_OPEN_DRAIN;
-		else
-			lflags |=3D GPIO_OPEN_SOURCE;
-	}
-
-I.e. it is the same as configuring open-source ;)
-
-Greetings,
-
--- Sebastian
-
---npjyxqdavydus2a6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmkPwGIACgkQ2O7X88g7
-+pph/w/9EGXoEnn09vOlQ9Hk9Y4BurUJ0BtpcYyw58obAh4TBxpw6qpl2pEmL+ZA
-7R2h2AlQm3O5wuHTtOwRaiTJsRSIBNOFebqwSZO7lY3OpuOTknFfhUKR98tcuAlQ
-DJD0nQMupT6x3GJ0GzKyI1kn6jbV98BhQsqXnoL5Digupn89Z5XvaCHTsUG9quRn
-fy1iZlLtgTvpTHOHXoAZkPn0RWznH3hLTlELwwkhEayvdCAGP5m0igUMbO8WWryY
-J6358C7Q88GcSffavbmhJYmBsqCoadgN4A2hPwQEgmuIBgwlrgkefaP2dZG0qD5v
-GpTSYGiWdLw/bDEW87lq4sav9F+lOPiYJJ+MvhdjZWpLWMuVOJbJpGw/kTrZRTTN
-TfElFYQ+7ZWnJUhkCTlebraB8SzjwDA7nc2zIDMXeijIH9++NzAP2XzU48yqllsG
-gTlLKhi1Vva7XcPhwEHof6X2IJvUZGp4fwJF7VhI8j+uD90Sb30ZFD/665vrIfZb
-vUnY3qTY8Ypo2ITcF//tyeHV8xz5N9kWar8CWYpZcuHxl8/ea7PZYh0L1eDLHQxs
-vEOBqezfUI49QVEawDqFFXNflM63IoWyHFb7/VJ7r95O0WJvm9DmyfIWgBhGesXs
-hYHvk73EY+0JKzpK+rx/Jn88tD5LOlAG/b4AvYtrTIVIacxtDIk=
-=5sqv
------END PGP SIGNATURE-----
-
---npjyxqdavydus2a6--
 
