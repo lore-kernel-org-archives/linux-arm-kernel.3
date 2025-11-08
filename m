@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D69CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 11:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11401CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 12:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0i+5CC6oipqYl13UhGQr+9ghM37486zLwPqukqc/b0=; b=oQxbGiKH6c7P6NzxqMtyF6OOT7
-	qvQvly5sUcTHbFDV//jSqHO8SLsSTWzEtidOyLGDwd4v8ZEPWjztNSYonYJRAiKaYg5mkiyLyICt+
-	iTQP14QTPg3gcfpYBViWicwQtMk9RC+ABf6qpr3NkBIzaUYLNWie8Sks3fFsAvtSkcKwzwQBU/HIF
-	RmVbLEWgolyTvHk9DkQETJlVNkPQQKgzxDcZfX8ZZyPA6bV2HDyrcLNahSS8AG0Qpwp9lZJgmusX9
-	Qdu4UBhW+wigUA0V5fjg8QAJFbx1cLYFu2vEQR3xOsjzJmuXU4BTin1l13F32EQEvUx4whaqDJW4i
-	xKNdyuXQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n62R2EqW+gANOIv9RGBt0z5SefXFoeo+S6KwH5/iyzY=; b=LqsIL0hHYTjWWJCrwiCRwtxpI3
+	7HvQfw1/NKH2ugv+xt+UIDAkLGcxkKZzENtId+A5vrOmJgqmoYooxJSB4vcAvIMhZKywuQ1Qo4qIe
+	36oqFPFC50D+MK6yn9ViXp/fKLvAKVOfIAX4KFliKjU6ljLicJ4c1EC4Mjx5jNfrM0cVG0zU0L+FW
+	i5mfLlJjg88hU3SsCGZUKzNmlUs1NJFAtsqpgSlYy5Z3QUKVkfcTRChdDDFsWKJtKQ3evgSPCL645
+	1aeistM1u37gWi2tguZiKwLSkO9iXkWvbf0bhtuK405ZKBwNgmu6lPB5qdLadYdeA9VEyY4l9CdYZ
+	AnRBwBiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHhav-000000035wn-3PNG;
-	Sat, 08 Nov 2025 11:59:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHhhn-000000036EP-2yzT;
+	Sat, 08 Nov 2025 12:06:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHhat-000000035wS-2Hjk
+	id 1vHhhm-000000036EJ-0zjR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 11:59:00 +0000
+	Sat, 08 Nov 2025 12:06:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA79F43469;
-	Sat,  8 Nov 2025 11:58:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821EEC116C6;
-	Sat,  8 Nov 2025 11:58:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 39C3B6000A;
+	Sat,  8 Nov 2025 12:06:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0158C16AAE;
+	Sat,  8 Nov 2025 12:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762603137;
-	bh=71r+OcXQB1X7Xbdn1EcsiniewMLKe/3Ylt4UqFQfgeo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MfKQI63Vbjwp935xilRzB7++lSedhoFohgzR9zEsNcklEA+133G3o1yz+5cQBQSz4
-	 qOjcCgCMZWbtkP3MeT3Im8efloiXfyW9hR4mknFZmtGCUNmhtVXDFZzQW3EJ79+d1V
-	 bpTm0dfzJbc/v+NS/gVSxP2wHanU/SzneKSBSki6QJEdO/P1AFRBAHGPR1IgbKxesz
-	 qIScoFBBbgybCkwSxmkuKD+BMAj7NMzGcclNsHR9mG350P4ZS4NNaXy7udK4Bj685T
-	 txsytUteQy8HlC3jwTeWjgrLxrMKMYGnjYN/fGxuo/IeqNqy4PfNM8IkzLaA9Qq/Q7
-	 wl1kk+qsB6dhw==
+	s=k20201202; t=1762603564;
+	bh=BqxvbyHZr/XGWKF/eN0lTVeCKAfJuLLL6a2EREHic88=;
+	h=From:To:Cc:Subject:Date:From;
+	b=gpOULaszBBOdYMiNvXpJkrW80awPsF2l2D99okxCG+rj9Iok75GMS3Wgvm8ezpukH
+	 wak9qG2xuH3B8n64DDScG/UzTLXR+Ny89QNwauRHmXYmX6bVuCqrd6KuJ3gO7GIS7p
+	 Hgsxd4tQPgjyNXb22rkEqz83rshYnjKNt0+3p7V3bkWiE6rsrOPojLNM8lVmr3ajhJ
+	 3SOmjoBPMoIjg+SjP8YcWJP3Y03c9OvRsdNlUJ/6KHUWMBwVI7l2TcnA1tUHoTUcHK
+	 /u31rPctV8AP4VaP92NWfUi300N7IhyR6T9mzOKb+ei9SDirUAGhBV21oa8EQ4rTZT
+	 O+xHBiVXlGzJQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vHhap-00000003Ten-0jtr;
-	Sat, 08 Nov 2025 11:58:55 +0000
+	id 1vHhhi-00000003Tka-3aFc;
+	Sat, 08 Nov 2025 12:06:02 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Maximilian Dittgen <mdittgen@amazon.de>,
+	Oliver Upton <oupton@kernel.org>,
 	Peter Maydell <peter.maydell@linaro.org>,
-	Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH v2 0/3] KVM: arm64: Fix handling of ID_PFR1_EL1.GIC
-Date: Sat,  8 Nov 2025 11:58:47 +0000
-Message-ID: <176260312692.1201099.17567101607721197970.b4-ty@kernel.org>
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	stable@vger.kernel.org,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 6.18, take #2
+Date: Sat,  8 Nov 2025 12:05:59 +0000
+Message-ID: <20251108120559.1201561-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251030122707.2033690-1-maz@kernel.org>
-References: <20251030122707.2033690-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, oupton@kernel.org
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, broonie@kernel.org, mdittgen@amazon.de, oupton@kernel.org, peter.maydell@linaro.org, sascha.bischoff@arm.com, sebastianene@google.com, sebott@redhat.com, stable@vger.kernel.org, vdonnefort@google.com, will@kernel.org, yuzenghui@huawei.com, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_035859_669928_D7277E0F 
-X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +90,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Oct 2025 12:27:04 +0000, Marc Zyngier wrote:
-> Peter reported[0] that restoring a GICv2 VM fails badly, and correctly
-> points out that ID_PFR1_EL1.GIC isn't writable, while its 64bit
-> equivalent is. I broke that in 6.12.
-> 
-> The other thing is that fixing the ID regs at runtime isn't great.
-> specially when we could adjust them at the point where the GIC gets
-> created.
-> 
-> [...]
+Paolo,
 
-Applied to fixes, thanks!
+Much later than expected, but here's the second set of fixes KVM/arm64
+for 6.18. The core changes are mostly fixes for a bunch of recent
+regressions, plus a couple that address the way pKVM deals with
+untrusted data. The rest address a couple of selftests, and Oliver's
+new email address.
 
-[1/3] KVM: arm64: Make all 32bit ID registers fully writable
-      commit: 3f9eacf4f0705876a5d6526d7d320ca91d7d7a16
-[2/3] KVM: arm64: Set ID_{AA64PFR0,PFR1}_EL1.GIC when GICv3 is configured
-      commit: 8a9866ff860052efc5f9766f3f87fae30c983156
-[3/3] KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
-      commit: 50e7cce81b9b2fbd6f0104c1698959d45ce3cf58
-
-Cheers,
+Please pull,
 
 	M.
--- 
-Without deviation from the norm, progress is not possible.
 
+The following changes since commit ca88ecdce5f51874a7c151809bd2c936ee0d3805:
 
+  arm64: Revamp HCR_EL2.E2H RES1 detection (2025-10-14 08:18:40 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.18-2
+
+for you to fetch changes up to 4af235bf645516481a82227d82d1352b9788903a:
+
+  MAINTAINERS: Switch myself to using kernel.org address (2025-11-08 11:21:20 +0000)
+
+----------------------------------------------------------------
+KVM/arm654 fixes for 6.18, take #2
+
+* Core fixes
+
+  - Fix trapping regression when no in-kernel irqchip is present
+    (20251021094358.1963807-1-sascha.bischoff@arm.com)
+
+  - Check host-provided, untrusted ranges and offsets in pKVM
+    (20251016164541.3771235-1-vdonnefort@google.com)
+    (20251017075710.2605118-1-sebastianene@google.com)
+
+  - Fix regression restoring the ID_PFR1_EL1 register
+    (20251030122707.2033690-1-maz@kernel.org
+
+  - Fix vgic ITS locking issues when LPIs are not directly injected
+    (20251107184847.1784820-1-oupton@kernel.org)
+
+* Test fixes
+
+  - Correct target CPU programming in vgic_lpi_stress selftest
+    (20251020145946.48288-1-mdittgen@amazon.de)
+
+  - Fix exposure of SCTLR2_EL2 and ZCR_EL2 in get-reg-list selftest
+    (20251023-b4-kvm-arm64-get-reg-list-sctlr-el2-v1-1-088f88ff992a@kernel.org)
+    (20251024-kvm-arm64-get-reg-list-zcr-el2-v1-1-0cd0ff75e22f@kernel.org)
+
+* Misc
+
+  - Update Oliver's email address
+    (20251107012830.1708225-1-oupton@kernel.org)
+
+----------------------------------------------------------------
+Marc Zyngier (3):
+      KVM: arm64: Make all 32bit ID registers fully writable
+      KVM: arm64: Set ID_{AA64PFR0,PFR1}_EL1.GIC when GICv3 is configured
+      KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+
+Mark Brown (2):
+      KVM: arm64: selftests: Add SCTLR2_EL2 to get-reg-list
+      KVM: arm64: selftests: Filter ZCR_EL2 in get-reg-list
+
+Maximilian Dittgen (1):
+      KVM: selftests: fix MAPC RDbase target formatting in vgic_lpi_stress
+
+Oliver Upton (3):
+      KVM: arm64: vgic-v3: Reinstate IRQ lock ordering for LPI xarray
+      KVM: arm64: vgic-v3: Release reserved slot outside of lpi_xa's lock
+      MAINTAINERS: Switch myself to using kernel.org address
+
+Sascha Bischoff (1):
+      KVM: arm64: vgic-v3: Trap all if no in-kernel irqchip
+
+Sebastian Ene (1):
+      KVM: arm64: Check the untrusted offset in FF-A memory share
+
+Vincent Donnefort (1):
+      KVM: arm64: Check range args for pKVM mem transitions
+
+ .mailmap                                           |  3 +-
+ MAINTAINERS                                        |  2 +-
+ arch/arm64/kvm/hyp/nvhe/ffa.c                      |  9 ++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c              | 28 +++++++++
+ arch/arm64/kvm/sys_regs.c                          | 71 ++++++++++++----------
+ arch/arm64/kvm/vgic/vgic-debug.c                   | 16 +++--
+ arch/arm64/kvm/vgic/vgic-init.c                    | 16 ++++-
+ arch/arm64/kvm/vgic/vgic-its.c                     | 18 +++---
+ arch/arm64/kvm/vgic/vgic-v3.c                      |  3 +-
+ arch/arm64/kvm/vgic/vgic.c                         | 23 ++++---
+ tools/testing/selftests/kvm/arm64/get-reg-list.c   |  3 +
+ tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c |  9 ++-
+ 12 files changed, 137 insertions(+), 64 deletions(-)
 
