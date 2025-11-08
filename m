@@ -4,113 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6201ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 14:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 15:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RNT4M7YayDRQ8m5O2rHwbqr1Ke89PHotD60qNfW95I=; b=LcmAlqTRb8u7KlPFzq5NE0Cs5U
-	vmfQ3UDAKBLAha2o9CeW80PHwLIXmO/2lI/vo+g29k08V+JxCkrKpsd+kZ6f9yeMdteu7yLo82afO
-	X1i56/pUsJVmTtapYAglWaTpI1nueIRfsmt3s1Fb7Lh5Jas6Z/+w7zkbYonyoZ1y1FWtH1+odH1E+
-	PNHKdizw+yR7Tn81nw9J2MN3sBx6skeM8p1ZIgzg8f2bqblLzV89JGd3N8KdlBpeN/QHhgHqs+mO0
-	cPloVu3m8ywZvzxshnHmkrPvKNy8sg2R69k1c63UwfWDN37KcoTvEq3NST7zaiKSS4tJ3V5rcdpk9
-	54gSQSBQ==;
+	bh=gDRQa/1X1Fd+cjuiAjnsNDV39M3JAXOnNml/zJMnjQ8=; b=nY1j0XeRpYnLiGIxlSPORcy4wu
+	vjsUDs+Drz1c2z0kyzbXktjamvAPfyH0rfNlb5G+wi6tfYrBMtMvBWD7ROKsqkdP6CqIuzlNeolJ0
+	SUFEpKzGE+hmFtIsg0Bvoe7Lv7uvj5VNPkeCzyIlPD4YPCyIzbAvF3P8eeTHUmbEmRM8rMQsaFOS8
+	3M+tqKkkNgYk9lIpyRT9O1EzKvKL1691TCgguAaQlxRJSvusKFxLXdNF3eovGehheHq2V54eccTkm
+	reAEF5XAPRHP7oSAzKkUa8GtPEiQb+0oaar1XC+w5X9nmSZCvRgcd2tDcqYcMxOB0G/YxWmMexAzw
+	alZaWh/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkEu-00000003ClF-0SkP;
-	Sat, 08 Nov 2025 14:48:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHkQs-00000003DJ5-2qB9;
+	Sat, 08 Nov 2025 15:00:50 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHkEt-00000003Ckd-1S4o;
-	Sat, 08 Nov 2025 14:48:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F75660053;
-	Sat,  8 Nov 2025 14:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B07CC116C6;
-	Sat,  8 Nov 2025 14:48:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762613305;
-	bh=Oo6g0GMqZZTxcLBaU6ktO2ZbYIHNWh6xms/osvI8ZXk=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=p4MMhFNgIiEyu6JE5Sc+kBWEcofVF4L9uJDCtmLTbYMG+XZf/cxIwjGxpAnOpJCsP
-	 EB7vV4c1DKZL1kQJrxFX9GRiyCsO/w0QP/cUEmADttS+uOUEpVDziA64e0XrKxe1GL
-	 7ex1Q/pVH7TO7Gl15DeWbkfqOqcB+efTWhzxksys/R1bFufrXuhgq4EEx1MrdzdrmV
-	 jtzipSeOA5BSkFmP1O1Neud1d4jrjDqbQAs+DivvbSRh0ZzlhLxgcV6xvID/LWhGUo
-	 H507ZFLIxGZ9eBNUQYhws8KI/+07kQoWebBf4wUkHYs4BxSM37fFErYg2LJ9B8710y
-	 Aya/LGR/5d4MA==
-Message-ID: <8ae5d81d-4869-4c39-9561-cb0f87da70fd@kernel.org>
-Date: Sat, 8 Nov 2025 15:48:18 +0100
+	id 1vHkQo-00000003DIE-3dnr
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 15:00:49 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CB58A63F;
+	Sat,  8 Nov 2025 15:58:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762613925;
+	bh=rOIndJ1Wdl2UV9V5RlsJkymyLOcj1m1V4i8uqdWluyw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=wR0OnXwCpxCWy0xX3HRb+afNMk2+8yFwIGqQf8lnJfXfiFj/3OQOlJrOGTfdigagO
+	 1J2QMVc/nH0TGjKOl/D1CJYUuSVwrGpT+lVYbrN0vxtKpuY+koSyBObY9BmIplsmnM
+	 uW9VvjcDS1VdMF+ktT903FFIiwNhUUhpmVz+sF3o=
+Message-ID: <64952f5f-0f3b-48c4-9304-9080f9052db6@ideasonboard.com>
+Date: Sat, 8 Nov 2025 15:00:38 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: revy <gaohan@iscas.ac.cn>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, conor+dt@kernel.org,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Yixun Lan <dlan@gentoo.org>,
- Drew Fustini <fustini@kernel.org>, geert+renesas@glider.be,
- Guodong Xu <guodong@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
- Joel Stanley <joel@jms.id.au>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Han Gao <rabenda.cn@gmail.com>
-References: <cover.1762588494.git.gaohan@iscas.ac.cn>
- <d17a3a01e2b1297538c419b51953f9613426ba42.1762588494.git.gaohan@iscas.ac.cn>
- <e98a1e59-f3ff-4e9f-a180-79aea9943236@kernel.org>
- <43109A90-8447-4006-8E29-2D2C0866758F@iscas.ac.cn>
- <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
+Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
+ mali-c55
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
+ <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
+ <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
+ <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
+ <uxojb4xpict6ccxpgogzavufpx63uvqfpi6vrbllyr7jf3aga5@45c7i27yv2uh>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <287444fa-120c-42b4-9919-2f05ab1a2ab7@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <uxojb4xpict6ccxpgogzavufpx63uvqfpi6vrbllyr7jf3aga5@45c7i27yv2uh>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251108_070047_458417_DA53052C 
+X-CRM114-Status: GOOD (  36.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,65 +80,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2025 15:47, Krzysztof Kozlowski wrote:
-> On 08/11/2025 14:59, revy wrote:
->>
->>
->>
->>> -----Original Messages-----
->>> From: "Krzysztof Kozlowski" <krzk@kernel.org>
->>> Sent Time: 2025-11-08 19:29:07 (Saturday)
->>> To: gaohan@iscas.ac.cn, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Yixun Lan" <dlan@gentoo.org>, "Drew Fustini" <fustini@kernel.org>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Guodong Xu" <guodong@riscstar.com>, "Haylen Chu" <heylenay@4d2.org>, "Joel Stanley" <joel@jms.id.au>
->>> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, "Han Gao" <rabenda.cn@gmail.com>
->>> Subject: Re: [PATCH 1/3] riscv: soc: re-organized allwinner menu
->>>
->>> On 08/11/2025 09:20, gaohan@iscas.ac.cn wrote:
->>>> From: Han Gao <gaohan@iscas.ac.cn>
->>>>
->>>> Allwinner currently offers d1(s)/v821/v861/v881 on RISC-V,
->>>> using different IPs.
->>>>
->>>> d1(s): Xuantie C906
->>>> v821: Andes A27 + XuanTie E907
->>>> v861/v881: XuanTie C907
->>>>
->>>> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
->>>> ---
->>>> arch/riscv/Kconfig.socs | 22 +++++++++++++++++-----
->>>> 1 file changed, 17 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->>>> index 848e7149e443..7cba5d6ec4c3 100644
->>>> --- a/arch/riscv/Kconfig.socs
->>>> +++ b/arch/riscv/Kconfig.socs
->>>> @@ -54,14 +54,26 @@ config SOC_STARFIVE
->>>> 	help
->>>> 	  This enables support for StarFive SoC platform hardware.
->>>>
->>>> -config ARCH_SUNXI
->>>> -	bool "Allwinner sun20i SoCs"
->>>> +menuconfig ARCH_SUNXI
->>>> +	bool "Allwinner RISC-V SoCs"
->>>> +
->>>> +if ARCH_SUNXI
->>>> +
->>>> +config ARCH_SUNXI_XUANTIE
->>>
->>>
->>> You should not get multiple ARCHs. ARCH is only one. There is also not
->>> much rationale in commit msg for that.
->>
->> The main goal is to avoid choosing multiple IP addresses for erreta. 
->> If using Andes IPs, I don't want to choose XuanTIe (T-Head) ERRETA.
+Afternoon Jacopo and Prabhakar
+
+@Jacopo you asked below if I'd missed some questions from Prabhakar - I did! Thanks for pointing 
+that out, no idea how I missed them
+
+On 08/11/2025 13:14, Jacopo Mondi wrote:
+> Hi Dan
 > 
-> Not explained in commit msg but anyway not a good argument. It is some
-> sort of micro optimization and you completely miss the point we target
-> multiarch kernels.
+> On Mon, Nov 03, 2025 at 04:17:24PM +0000, Dan Scally wrote:
+>> Hi Prabhakar
+>>
+>> On 28/10/2025 18:23, Lad, Prabhakar wrote:
+>>> Hi Daniel,
+>>>
+>>> Thank you for the patch.
+>>>
+>>> On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
+>>> <dan.scally@ideasonboard.com> wrote:
+>>>>
+>>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>>>
+>>>> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+>>>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>> ---
+>>>> Changes in v12:
+>>>>
+>>>>           - _Actually_ dropped the arm,inline property mode, having forgotten to
+>>>>             do so in v11.
+>>>>
+>>>> Changes in v11:
+>>>>
+>>>>           - Dropped in arm,inline_mode property. This is now identical to the
+>>>>             reviewed version 8, so I have kept the tags on there.
+>>>>
+>>>> Changes in v10:
+>>>>
+>>>>           - None
+>>>>
+>>>> Changes in v9:
+>>>>
+>>>>           - Added the arm,inline_mode property to differentiate between inline and
+>>>>             memory input configurations
+>>>>
+>>>> Changes in v8:
+>>>>
+>>>>           - Added the video clock back in. Now that we have actual hardware it's
+>>>>             clear that it's necessary.
+>>>>           - Added reset lines
+>>>>           - Dropped R-bs
+>>>>
+>>>> Changes in v7:
+>>>>
+>>>>           - None
+>>>>
+>>>> Changes in v6:
+>>>>
+>>>>           - None
+>>>>
+>>>> Changes in v5:
+>>>>
+>>>>           - None
+>>>>
+>>>> Changes in v4:
+>>>>
+>>>>           - Switched to port instead of ports
+>>>>
+>>>> Changes in v3:
+>>>>
+>>>>           - Dropped the video clock as suggested by Laurent. I didn't retain it
+>>>>           for the purposes of the refcount since this driver will call .s_stream()
+>>>>           for the sensor driver which will refcount the clock anyway.
+>>>>           - Clarified that the port is a parallel input port rather (Sakari)
+>>>>
+>>>> Changes in v2:
+>>>>
+>>>>           - Added clocks information
+>>>>           - Fixed the warnings raised by Rob
+>>>> ---
+>>>>    .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
+>>>>    1 file changed, 82 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>>>> new file mode 100644
+>>>> index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+>>>> @@ -0,0 +1,82 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: ARM Mali-C55 Image Signal Processor
+>>>> +
+>>>> +maintainers:
+>>>> +  - Daniel Scally <dan.scally@ideasonboard.com>
+>>>> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    const: arm,mali-c55
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  interrupts:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  clocks:
+>>>> +    items:
+>>>> +      - description: ISP Video Clock
+>>>> +      - description: ISP AXI clock
+>>>> +      - description: ISP AHB-lite clock
+>>> As per RZ/V2H HW manual we have reg clock looking at the driver code
+>>> it does have readl. IVC has reg clock if IVC driver fails are you
+>>> still able to read/write regs from ISP driver?
+>>>
+>>> I think we do need to pass reg clock too.
+>>
+>> Yes - but I should clarify that the names are from the arm documentation
+>> that we had when we originally developed the ISP driver. The RZ/V2H
+>> documentation treats the ISP and IVC as one block that shares 4 clocks and
+>> resets, but when we originally developed the ISP driver the platform we used
+>> had the ISP implemented as an inline configuration (taking data directly
+>> from a csi-2 receiver without an IVC equivalent), and the documentation
+>> detailed just the three clocks and resets. The dtsi changes for the
+>> RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named
+>> reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
+>>
+>> The IVC gets pclk, vin_aclk and isp_sclk.
+>>
+>> [1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
+>>
+>>> Also for IVC we do have a main clock (which is a system clock).  Can
+>>> you please educate me on what is the purpose of it. Just curious as we
+>>> pass to IVC and not ISP.
+>>
+>> The IVC uniquely gets the one called "pclk" in renesas documentation, with
+>> the description "Input Video Control block register access APB clock".
+>>
+>> Thanks
+>> Dan
+>>
+>>>
+>>>> +
+>>>> +  clock-names:
+>>>> +    items:
+>>>> +      - const: vclk
+>>>> +      - const: aclk
+>>>> +      - const: hclk
+>>> Not sure if we want to have the same names as IVC or vice versa.
 
-Heh, and I actually did not forbid or discourage choosing erratas per
-your soc. I said you only get one top level ARCH. Look at all arm64
-platforms. How many ARCHs are there per one vendor?
+I'll respond to this in the other thread to keep naming discussions all in one place
 
-Best regards,
-Krzysztof
+ >>>>>>> +
+>>>> +  resets:
+>>>> +    items:
+>>>> +      - description: vclk domain reset
+>>>> +      - description: aclk domain reset
+>>>> +      - description: hclk domain reset
+>>> Same query here, wrt register reset.
+>>>
+>>>> +
+>>>> +  reset-names:
+>>>> +    items:
+>>>> +      - const: vresetn
+>>>> +      - const: aresetn
+>>>> +      - const: hresetn
+>>> ditto naming.
+>>>
+>>>> +
+>>>> +  port:
+>>>> +    $ref: /schemas/graph.yaml#/properties/port
+>>>> +    description: Input parallel video bus
+>>>> +
+>>>> +    properties:
+>>>> +      endpoint:
+>>>> +        $ref: /schemas/graph.yaml#/properties/endpoint
+>>>> +
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +  - interrupts
+>>>> +  - clocks
+>>>> +  - clock-names
+>>>> +  - port
+>>> maybe also resets and rest-names should be part of required properties?
+>>>
+> 
+> Have you missed this question from Prabhakar ? What do you think ?
+Oops, yes I missed it, and yes I agree, I'll add them.>
+>>>> +
+>>>> +additionalProperties: false
+>>>> +
+>>>> +examples:
+>>>> +  - |
+>>>> +    mali_c55: isp@400000 {
+>>> we could drop `mali_c55`
+>>>
+> 
+> I think we should
+
+Works for me
+
+> 
+>>>> +      compatible = "arm,mali-c55";
+>>>> +      reg = <0x400000 0x200000>;
+>>>> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
+>>>> +      clock-names = "vclk", "aclk", "hclk";
+>>>> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
+>>>> +      reset-names = "vresetn", "aresetn", "hresetn";
+>>>> +      interrupts = <0>;
+>>> I would have a non-zero val here.
+> 
+> With the right include you could even use the actual value from the
+> dts:
+>                  interrupts = <GIC_SPI 859 IRQ_TYPE_LEVEL_HIGH>;
+
+Works for me
+
+> 
+> Please make sure to run dt_bindings_check if you do so
+> 
+> With a few questions clarified, if you resend and drop the label here
+> (you can even resend this single patch as v12.1 if it's more
+> convenient)
+
+I'm told that that works poorly with the tooling, but I can re-submit the series as a whole - I was 
+just waiting for the v4l2-isp to firm up in case that necessitated any changes.
+
+I think this driver should be collected for v6.19.
+
+That would be nice!
+> (Do you plan a v6 of the IVC with the small comments from Prabhakar
+> addressed ? Ideally we want it to get in at the same time)
+
+Also yes, I can do both early this week
+
+Dan
+
+> Thanks
+>    j
+> 
+>>>
+>>> Cheers,
+>>> Prabhakar
+>>>
+>>>> +
+>>>> +      port {
+>>>> +        isp_in: endpoint {
+>>>> +            remote-endpoint = <&csi2_rx_out>;
+>>>> +        };
+>>>> +      };
+>>>> +    };
+>>>> +...
+>>>>
+>>>> --
+>>>> 2.43.0
+>>>>
+>>>>
+>>
+>>
+
 
