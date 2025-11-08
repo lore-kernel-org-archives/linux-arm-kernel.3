@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAE6CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 13:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A92ECD1288
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 13:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itK17zecY7r1cOK63rWDnY1JJEWlP1g3UaRWwrUvPmo=; b=rG27L6Kx5YPdssF9hTJYjW6w/c
-	OOGFxB5i48V96uT/h9ycLRFcH2JUIJyQ+9eDhtrIEAjHWI1zVscu63rYxUIuoUu75M+R9g1GwaDEv
-	RfsQ0XCRvnhOGoLfEuXxJ3NYTPypZvsDSY1nhN8br6aqR66/G8RSXFN2HNbrfEJ2qOaRu3QrIBjYw
-	2Cea9XjoQ48dGSJAo/+WxQIujkWrdkujZOIfL6y7hOkd4Qk3Etae23JEBBJix8IfZASeq94y1H4G8
-	GtdvOkoN9RpibjsCd+mzJk46j0QIcBrd51jHcfbzZ6CjKAvzVrAuRfKd4DfmonE/FMUMqEKt/Ww0s
-	Amm2btRA==;
+	bh=awQdgV7dqXhvUT2418LjPS/HHgJ8M3LKDpVmP9KP5r0=; b=iRbv6f/HbGTnImjdcb/cZBXT/e
+	jnubp4sWecsMFxqo2/wgurbP7RcdQ3nwYLQGvifcQc7iWYCwl9Y5GjF+Z/qsYxTmt5ofR4LNy3+/G
+	FwvdevP+B2VHMX/rzBdJ3v1wTq/ZJyu8pWYNqj29X0lFsGAUt1GoOKAmQoMtLxYObo8jar9nHuqwJ
+	LFadnt1+bsi2yoO1mBhCfSKnNKUgvLcFzNWlhxtkUCKTpVPXpRtoDWj6WaszBAs+Heu4SzF+mD0Wh
+	OcUWgFfMsfixjK38lrQJyLSsslqEqhtihAf2WwGyFDPoBLPD6H2ziWcxP5ExYxjDuYY8OUzLWdUMw
+	67/sbwXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHimD-000000038xg-3NfA;
-	Sat, 08 Nov 2025 13:14:46 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vHiz3-000000039On-1Edk;
+	Sat, 08 Nov 2025 13:28:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHimA-000000038xD-2AHL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 13:14:44 +0000
-Received: from ideasonboard.com (mob-5-90-142-135.net.vodafone.it [5.90.142.135])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 31670DD9;
-	Sat,  8 Nov 2025 14:12:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762607564;
-	bh=R3wnSaG7ODcWrFSrMhjpTwiVXbEH/PcVAG4boiRksNk=;
+	id 1vHiz1-000000039OK-0saS;
+	Sat, 08 Nov 2025 13:28:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22D13441B5;
+	Sat,  8 Nov 2025 13:27:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9A6C116C6;
+	Sat,  8 Nov 2025 13:27:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762608478;
+	bh=QeGuROr+Dr2oL5DcoUeRVOAIwOeC5RcqPRm5KXFpnsw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UlHCmjV3nxg0T7e6FVLoqjSs4GT4fc/PA6tcxNFccxEBfev47tcnVj0/3LS5iwZZB
-	 6+nxXGt8px1la1L+wahqOg/zERZqKM7dJ8EcWs6pFOmxkTLnjwDv9MqDZr5OtHvFvE
-	 NeIPh6cknKHtC1Q6M6AS6Hjx+oGnu4gYqwJ1ss4A=
-Date: Sat, 8 Nov 2025 14:14:32 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Dan Scally <dan.scally@ideasonboard.com>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, 
-	robh+dt@kernel.org, mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
-	laurent.pinchart@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <uxojb4xpict6ccxpgogzavufpx63uvqfpi6vrbllyr7jf3aga5@45c7i27yv2uh>
-References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
- <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
- <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
- <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
+	b=ilNH3q9NrhOHNla2+3dARxg/3Xfn1ZfQl4N1Bwdi/w3zRG3uAPUb0dj5OlNLq5szQ
+	 j4u2uMCLxotZPpjEkOHexu4uKUXfbGsRA3kRtVg8OKzxSxFVebmvnuOOo8VB9yO7iM
+	 Ob3otYACIYoorbZaU3eYWA9BHOuTblqgHt+u8YzeUwTBI3QNfwOt+opdia8WQWVGai
+	 +A13AQMVw4fQQCAnAyVi4Xz8eDT7/2Bo4iVZ6sy4cP1cTUUxc9bvO67WunBT7DvA0E
+	 EGE4cLJFasLg33S/kgZv7naDA9CrS8FNNlenKd8Aow39KEhiSvEHHYL2tZmjkoj/5k
+	 zaRF0XqP+48Wg==
+Date: Sat, 8 Nov 2025 14:27:52 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: FUKAUMI Naoki <naoki@radxa.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+Message-ID: <aQ9FWEuW47L8YOxC@ryzen>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
+In-Reply-To: <aQ840q5BxNS1eIai@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_051442_780090_B53377E8 
-X-CRM114-Status: GOOD (  47.14  )
+X-CRM114-CacheID: sfid-20251108_052759_370602_67627125 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,247 +81,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+On Sat, Nov 08, 2025 at 01:34:32PM +0100, Niklas Cassel wrote:
+> 
+> The pcie-dw-rockchip.c driver is modelled after the qcom driver.
+> So if this is a problem when a ASM2806 switch is connected, I would
+> expect qcom platforms to have the same problem.
 
-On Mon, Nov 03, 2025 at 04:17:24PM +0000, Dan Scally wrote:
-> Hi Prabhakar
->
-> On 28/10/2025 18:23, Lad, Prabhakar wrote:
-> > Hi Daniel,
-> >
-> > Thank you for the patch.
-> >
-> > On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
-> > <dan.scally@ideasonboard.com> wrote:
-> > >
-> > > Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
-> > >
-> > > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > > Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> > > Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > > ---
-> > > Changes in v12:
-> > >
-> > >          - _Actually_ dropped the arm,inline property mode, having forgotten to
-> > >            do so in v11.
-> > >
-> > > Changes in v11:
-> > >
-> > >          - Dropped in arm,inline_mode property. This is now identical to the
-> > >            reviewed version 8, so I have kept the tags on there.
-> > >
-> > > Changes in v10:
-> > >
-> > >          - None
-> > >
-> > > Changes in v9:
-> > >
-> > >          - Added the arm,inline_mode property to differentiate between inline and
-> > >            memory input configurations
-> > >
-> > > Changes in v8:
-> > >
-> > >          - Added the video clock back in. Now that we have actual hardware it's
-> > >            clear that it's necessary.
-> > >          - Added reset lines
-> > >          - Dropped R-bs
-> > >
-> > > Changes in v7:
-> > >
-> > >          - None
-> > >
-> > > Changes in v6:
-> > >
-> > >          - None
-> > >
-> > > Changes in v5:
-> > >
-> > >          - None
-> > >
-> > > Changes in v4:
-> > >
-> > >          - Switched to port instead of ports
-> > >
-> > > Changes in v3:
-> > >
-> > >          - Dropped the video clock as suggested by Laurent. I didn't retain it
-> > >          for the purposes of the refcount since this driver will call .s_stream()
-> > >          for the sensor driver which will refcount the clock anyway.
-> > >          - Clarified that the port is a parallel input port rather (Sakari)
-> > >
-> > > Changes in v2:
-> > >
-> > >          - Added clocks information
-> > >          - Fixed the warnings raised by Rob
-> > > ---
-> > >   .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
-> > >   1 file changed, 82 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> > > @@ -0,0 +1,82 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: ARM Mali-C55 Image Signal Processor
-> > > +
-> > > +maintainers:
-> > > +  - Daniel Scally <dan.scally@ideasonboard.com>
-> > > +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: arm,mali-c55
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 1
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: ISP Video Clock
-> > > +      - description: ISP AXI clock
-> > > +      - description: ISP AHB-lite clock
-> > As per RZ/V2H HW manual we have reg clock looking at the driver code
-> > it does have readl. IVC has reg clock if IVC driver fails are you
-> > still able to read/write regs from ISP driver?
-> >
-> > I think we do need to pass reg clock too.
->
-> Yes - but I should clarify that the names are from the arm documentation
-> that we had when we originally developed the ISP driver. The RZ/V2H
-> documentation treats the ISP and IVC as one block that shares 4 clocks and
-> resets, but when we originally developed the ISP driver the platform we used
-> had the ISP implemented as an inline configuration (taking data directly
-> from a csi-2 receiver without an IVC equivalent), and the documentation
-> detailed just the three clocks and resets. The dtsi changes for the
-> RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named
-> reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
->
-> The IVC gets pclk, vin_aclk and isp_sclk.
->
-> [1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
->
-> > Also for IVC we do have a main clock (which is a system clock).  Can
-> > you please educate me on what is the purpose of it. Just curious as we
-> > pass to IVC and not ISP.
->
-> The IVC uniquely gets the one called "pclk" in renesas documentation, with
-> the description "Input Video Control block register access APB clock".
->
-> Thanks
-> Dan
->
-> >
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: vclk
-> > > +      - const: aclk
-> > > +      - const: hclk
-> > Not sure if we want to have the same names as IVC or vice versa.
-> >
-> > > +
-> > > +  resets:
-> > > +    items:
-> > > +      - description: vclk domain reset
-> > > +      - description: aclk domain reset
-> > > +      - description: hclk domain reset
-> > Same query here, wrt register reset.
-> >
-> > > +
-> > > +  reset-names:
-> > > +    items:
-> > > +      - const: vresetn
-> > > +      - const: aresetn
-> > > +      - const: hresetn
-> > ditto naming.
-> >
-> > > +
-> > > +  port:
-> > > +    $ref: /schemas/graph.yaml#/properties/port
-> > > +    description: Input parallel video bus
-> > > +
-> > > +    properties:
-> > > +      endpoint:
-> > > +        $ref: /schemas/graph.yaml#/properties/endpoint
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - interrupts
-> > > +  - clocks
-> > > +  - clock-names
-> > > +  - port
-> > maybe also resets and rest-names should be part of required properties?
-> >
+Looking more closely at this, comparing the "good" kernel:
 
-Have you missed this question from Prabhakar ? What do you think ?
+[    1.868857] pci 0004:40:00.0: [1d87:3588] type 01 class 0x060400 PCIe Root Port
+[    1.869509] pci 0004:40:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+[    1.870050] pci 0004:40:00.0: PCI bridge to [bus 01-ff]
+[    1.870510] pci 0004:40:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.871044] pci 0004:40:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.871640] pci 0004:40:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.872353] pci 0004:40:00.0: supports D1 D2
+[    1.872738] pci 0004:40:00.0: PME# supported from D0 D1 D3hot
+[    1.875190] pci 0004:40:00.0: Primary bus is hard wired to 0
+[    1.875690] pci 0004:40:00.0: bridge configuration invalid ([bus 01-ff]), reconfiguring
+[    1.876543] pci 0004:41:00.0: [1b21:2806] type 01 class 0x060400 PCIe Switch Upstream Port
+[    1.877384] pci 0004:41:00.0: PCI bridge to [bus 00]
+[    1.877846] pci 0004:41:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.878389] pci 0004:41:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.879030] pci 0004:41:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.879764] pci 0004:41:00.0: enabling Extended Tags
+[    1.880614] pci 0004:41:00.0: PME# supported from D0 D3hot D3cold
+[    1.881409] pci 0004:41:00.0: 2.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x1 link at 0004:40:00.0 (capable of 15.752 Gb/s with 8.0 GT/s PCIe x2 link)
+[    1.888729] pci 0004:41:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    1.889766] pci 0004:42:00.0: [1b21:2806] type 01 class 0x060400 PCIe Switch Downstream Port
+[    1.890621] pci 0004:42:00.0: PCI bridge to [bus 00]
+[    1.891084] pci 0004:42:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.891628] pci 0004:42:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.892269] pci 0004:42:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.893028] pci 0004:42:00.0: enabling Extended Tags
+...
+[    1.928510] pci_bus 0004:43: busn_res: [bus 43-4f] end is updated to 44
+[    1.929432] pci_bus 0004:45: busn_res: [bus 45-4f] end is updated to 45
+[    1.944674] pci_bus 0004:46: busn_res: [bus 46-4f] end is updated to 46
+[    1.956691] pci_bus 0004:47: busn_res: [bus 47-4f] end is updated to 47
+[    1.957298] pci_bus 0004:42: busn_res: [bus 42-4f] end is updated to 47
+[    1.957893] pci_bus 0004:41: busn_res: [bus 41-4f] end is updated to 47
 
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    mali_c55: isp@400000 {
-> > we could drop `mali_c55`
-> >
 
-I think we should
+With the "bad" kernel:
+[    1.383075] pci 0004:40:00.0: [1d87:3588] type 01 class 0x060400 PCIe Root Port
+[    1.383738] pci 0004:40:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+[    1.384280] pci 0004:40:00.0: PCI bridge to [bus 01-ff]
+[    1.384740] pci 0004:40:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.385274] pci 0004:40:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.385871] pci 0004:40:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.386582] pci 0004:40:00.0: supports D1 D2
+[    1.386957] pci 0004:40:00.0: PME# supported from D0 D1 D3hot
+[    1.389549] pci 0004:40:00.0: Primary bus is hard wired to 0
+[    1.390062] pci 0004:40:00.0: bridge configuration invalid ([bus 01-ff]), reconfiguring
+[    1.390897] pci_bus 0004:41: busn_res: [bus 41-4f] end is updated to 41
+[    1.391505] pci 0004:40:00.0: ROM [mem 0xf4200000-0xf420ffff pref]: assigned
+[    1.392130] pci 0004:40:00.0: PCI bridge to [bus 41]
+[    1.392607] pci_bus 0004:40: resource 4 [io  0x0000-0xfffff]
+[    1.393103] pci_bus 0004:40: resource 5 [mem 0xf4200000-0xf4ffffff]
+[    1.393657] pci_bus 0004:40: resource 6 [mem 0xa00000000-0xa3fffffff]
+[    1.412296] pci 0004:41:00.0: [1b21:2806] type 01 class 0x060400 PCIe Switch Upstream Port
+[    1.413155] pci 0004:41:00.0: PCI bridge to [bus 00]
+[    1.413641] pci 0004:41:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.414204] pci 0004:41:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.414934] pci 0004:41:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.415746] pci 0004:41:00.0: enabling Extended Tags
+[    1.416465] pci 0004:41:00.0: PME# supported from D0 D3hot D3cold
+[    1.417181] pci 0004:41:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5.0 GT/s PCIe x1 link at 0004:40:00.0 (capable of 15.752 Gb/s with 8.0 GT/s PCIe x2 link)
+[    1.423384] pci 0004:41:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    1.424348] pci_bus 0004:42: busn_res: can not insert [bus 42-41] under [bus 41] (conflicts with (null) [bus 41])
+[    1.425351] pci 0004:42:00.0: [1b21:2806] type 01 class 0x060400 PCIe Switch Downstream Port
+[    1.426698] pci 0004:42:00.0: PCI bridge to [bus 00]
+[    1.427184] pci 0004:42:00.0:   bridge window [io  0x0000-0x0fff]
+[    1.427766] pci 0004:42:00.0:   bridge window [mem 0x00000000-0x000fffff]
+[    1.428415] pci 0004:42:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+[    1.429171] pci 0004:42:00.0: enabling Extended Tags
+...
+[    1.462051] pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.463116] pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+[    1.463718] pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.464651] pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+[    1.465688] pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.466747] pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+[    1.467351] pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.468283] pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+[    1.469322] pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.470370] pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+[    1.470960] pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.471902] pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+[    1.472930] pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.473985] pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+[    1.474578] pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.475530] pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+[    1.476414] pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+[    1.477001] pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+[    1.477911] pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+[    1.478814] pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
 
-> > > +      compatible = "arm,mali-c55";
-> > > +      reg = <0x400000 0x200000>;
-> > > +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
-> > > +      clock-names = "vclk", "aclk", "hclk";
-> > > +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
-> > > +      reset-names = "vresetn", "aresetn", "hresetn";
-> > > +      interrupts = <0>;
-> > I would have a non-zero val here.
 
-With the right include you could even use the actual value from the
-dts:
-                interrupts = <GIC_SPI 859 IRQ_TYPE_LEVEL_HIGH>;
+We can see that the pcie-dw-rockchip.c driver detects the ASM2806 switch
+in both cases. So the problem is not really with enumerating the root port.
 
-Please make sure to run dt_bindings_check if you do so
+The problem seems to be that with the "bad" kernel, you get a lot of:
+[    1.464651] pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
 
-With a few questions clarified, if you resend and drop the label here
-(you can even resend this single patch as v12.1 if it's more
-convenient) I think this driver should be collected for v6.19.
+Because the bus ends are different, and conflicts with each other.
+I don't know why this happens.
 
-(Do you plan a v6 of the IVC with the small comments from Prabhakar
-addressed ? Ideally we want it to get in at the same time)
+Perhaps we could add a quirk for ASM2806 that does some extra sleep if that
+switch is detected, if for some reason, the switch is not actually ready
+after the delays defined by the PCIe specification.
 
-Thanks
-  j
+(And btw. please test with the latest 6.18-rc, as, from experience, the
+ASPM problems in earlier RCs can result in some weird problems that are
+not immediately deduced to be caused by the ASPM enablement.)
 
-> >
-> > Cheers,
-> > Prabhakar
-> >
-> > > +
-> > > +      port {
-> > > +        isp_in: endpoint {
-> > > +            remote-endpoint = <&csi2_rx_out>;
-> > > +        };
-> > > +      };
-> > > +    };
-> > > +...
-> > >
-> > > --
-> > > 2.43.0
-> > >
-> > >
->
->
+
+Kind regards,
+Niklas
 
