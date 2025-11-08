@@ -4,128 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5CECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 07:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A508CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 07:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8ITrRH+YcsupiGQECJHppJ59lDIxrFeb+scWJOGz24=; b=ZBOETrP1et2FwYfyVYXCQjJiiR
-	LSg7XAgdJ+RKAUjuiamNehNU7tdgaxfrftwhBpkqNWk6Eq7A0IjTngRq3RA8hzJDrbpA5ETvYB3mt
-	+k8dY9RfeIceZ4Qrj7rl9eiizDj60hQ8pWuAqJ2Eq2SmpnHeLyk9hQFWe2z6kVEkbulUe8V0+wX35
-	Jus15pYHaN+BpG87i9wrtsahDZlrFKJAnGnHPVNqOE3nK79iEW+K9sVChUy9ZrQ3P8vVCqMa0Loh9
-	ScyxIIMw+Af7yLPbJdk8BHVkwDn8L8G7WWkD/TN9ZP0mupwAWenQPIrfO4e+gL0U5br4hPslWUSni
-	hj6paRNw==;
+	bh=13csuvQtsJof1dOcx8aG6Jr6ZCLtdjpsnRWnJo51I84=; b=GwarQ006W7SoHuut16tHr2kr85
+	BTJH1bHDeyFAxUVRu8JoR/54dD51JCwEaDfvz2bHPhAvT/fnA9rUPGi/ReSxzCgUEvi2o3Hne3EeH
+	rXMLkP3uTp7T4I+SklwA8fKN3rhBjQ6s6AHdQt/V8/LSsmbnPJN4Vi/OR9BZniKOkFVxr/d+2fjQq
+	aT356UAbgjyBMQcrBFR9isu39gKhPsegr5iesH7DDoVEzlpm0jJWpWdQk6BYxb4PcgVqmeWx95QHs
+	iF2ZK7mD+OzxIfvTV7UUZkgjC4cGLI5JsD8gFN5RizEfHEiXMXY8H56wzwvGWWSRl0n5sRyvrMkVn
+	EhXFCxRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHdnE-00000002gEe-2PXt;
-	Sat, 08 Nov 2025 07:55:29 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vHdqM-00000002h6H-07CG;
+	Sat, 08 Nov 2025 07:58:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHdnB-00000002gDl-1kcc
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 07:55:27 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id A366733AB5;
-	Sat,  8 Nov 2025 07:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762588523; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H8ITrRH+YcsupiGQECJHppJ59lDIxrFeb+scWJOGz24=;
-	b=qiEpD0x7r+GhCxqLrUH2AP0FRiYFpDO6JcZAmDOrkrhHA9Ux2zJx6/jdW/hNpRuh4LNAVr
-	kb299GmgDCQnD8pmsj/IBLCjDDtuOyKq1oRIYGd9Npd+lJ28KQAEza3GCIi7cWjjQno1kt
-	ApNcbrAKsI5J2BUur4NBHBQ0PcTlGOE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762588523;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H8ITrRH+YcsupiGQECJHppJ59lDIxrFeb+scWJOGz24=;
-	b=GWsG4oQTQ9O1mxJjBVx+z/7GC73jTqeXrLYJ8/7v7g8c+6OLdkupQImgIc2UIqWb/f9mJJ
-	j9/omqwqpyI5L0Ag==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762588523; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H8ITrRH+YcsupiGQECJHppJ59lDIxrFeb+scWJOGz24=;
-	b=qiEpD0x7r+GhCxqLrUH2AP0FRiYFpDO6JcZAmDOrkrhHA9Ux2zJx6/jdW/hNpRuh4LNAVr
-	kb299GmgDCQnD8pmsj/IBLCjDDtuOyKq1oRIYGd9Npd+lJ28KQAEza3GCIi7cWjjQno1kt
-	ApNcbrAKsI5J2BUur4NBHBQ0PcTlGOE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762588523;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H8ITrRH+YcsupiGQECJHppJ59lDIxrFeb+scWJOGz24=;
-	b=GWsG4oQTQ9O1mxJjBVx+z/7GC73jTqeXrLYJ8/7v7g8c+6OLdkupQImgIc2UIqWb/f9mJJ
-	j9/omqwqpyI5L0Ag==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 6369D13675;
-	Sat,  8 Nov 2025 07:55:23 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 2z8EF2v3DmmRcgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Sat, 08 Nov 2025 07:55:23 +0000
-Date: Sat, 08 Nov 2025 08:55:23 +0100
-Message-ID: <878qghq7pw.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: wangdich9700@163.com
-Cc: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	cezary.rojewski@intel.com,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
+	id 1vHdqJ-00000002h4N-2jo9;
+	Sat, 08 Nov 2025 07:58:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=13csuvQtsJof1dOcx8aG6Jr6ZCLtdjpsnRWnJo51I84=; b=Rv2wxtohwqYJPfuCefjstYazhS
+	J7sVL69bsh133ujRSUUL9rrB0a/kzxTXGGikUf2yKLeg7SmIMIT8UuJNoKhzCvfyGAAWz5Pe+EeEm
+	h2Q3xUXo+zHXfnRbj7Qyw+yNd1OHpPxkgHGUi0HVF6jlGu4p8MUsSzzkzdi1BfcZ8nJ49iFCq6/se
+	ZFmURo5WkmDkDgxbjYGaHpgr5UnQva3gNUyY8WgIrCVrLxhKy+ZdWv2qrhTCFKDvav2VUb6zLH+VB
+	pr2JJLW3b4SiifkY32GzQxiS7P334PO84sQOHxisN0vvi52hhb/G8h9REWWVIxAKPkvD8a139wNRt
+	Mb4K10Ng==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41096)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vHdq8-000000007Vz-3J1j;
+	Sat, 08 Nov 2025 07:58:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vHdpz-000000008Nb-48sV;
+	Sat, 08 Nov 2025 07:58:20 +0000
+Date: Sat, 8 Nov 2025 07:58:19 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: Re: [PATCH v2] ALSA: au88x0: Fix array bounds warning in EQ drivers
-In-Reply-To: <20251107024525.38454-1-wangdich9700@163.com>
-References: <20251107024525.38454-1-wangdich9700@163.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=ISO-8859-7
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.30 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.997];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[163.com];
-	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,intel.com,vger.kernel.org,lists.infradead.org,kylinos.cn];
-	RCPT_COUNT_SEVEN(0.00)[10];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[kylinos.cn:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo]
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 16/16] net: stmmac: visconti: use
+ stmmac_get_phy_intf_sel()
+Message-ID: <aQ74G_WqoAusC2wd@shell.armlinux.org.uk>
+References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
+ <E1vHNSq-0000000DkTN-3RoV@rmk-PC.armlinux.org.uk>
+ <14f80863-5766-437a-8e38-8991a1a725f9@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <14f80863-5766-437a-8e38-8991a1a725f9@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_235526_015268_DE8C0F01 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20251107_235839_716543_685FDB19 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,28 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Nov 2025 03:45:25 +0100,
-wangdich9700@163.com wrote:
+On Fri, Nov 07, 2025 at 07:23:26PM +0100, Maxime Chevallier wrote:
+> Hi Russell,
 > 
-> From: wangdicheng <wangdicheng@kylinos.cn>
+> On 07/11/2025 15:29, Russell King (Oracle) wrote:
+> > -	switch (plat_dat->phy_interface) {
+> > -	case PHY_INTERFACE_MODE_RGMII:
+> > -	case PHY_INTERFACE_MODE_RGMII_ID:
+> > -	case PHY_INTERFACE_MODE_RGMII_RXID:
+> > -	case PHY_INTERFACE_MODE_RGMII_TXID:
+> > -		phy_intf_sel = ETHER_CONFIG_INTF_RGMII;
+> > -		break;
+> > -	case PHY_INTERFACE_MODE_MII:
+> > -		phy_intf_sel = ETHER_CONFIG_INTF_MII;
+> > -		break;
+> > -	case PHY_INTERFACE_MODE_RMII:
+> > -		phy_intf_sel = ETHER_CONFIG_INTF_RMII;
+> > -		break;
+> > -	default:
+> > +	int phy_intf_sel;
+> > +
+> > +	phy_intf_sel = stmmac_get_phy_intf_sel(plat_dat->phy_interface);
+> > +	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
+> > +	    phy_intf_sel != PHY_INTF_SEL_RGMII &&
+> > +	    phy_intf_sel != PHY_INTF_SEL_RMII) {
+> >  		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n", plat_dat->phy_interface);
+> >  		return -EOPNOTSUPP;
+> >  	}
 > 
-> In file included from ../sound/pci/au88x0/au8830.c:15:
-> In function ¡vortex_Eqlzr_SetAllBandsFromActiveCoeffSet¢,
-> ../sound/pci/au88x0/au88x0_eq.c:571:9: error: ¡vortex_EqHw_SetRightGainsTarget¢ reading 2 bytes from a region of size 0 [-Werror=stringop-overread]
-> 	vortex_EqHw_SetRightGainsTarget(vortex, &(eq->this130[eq->this10]));
-> 
-> Modified the array access in vortex_Eqlzr_SetAllBandsFromActiveCoeffSet() to use pointer arithmetic instead of array indexing.
-> This resolves a compiler warning that incorrectly flagged a buffer overread when accessing the EQ gain array.
-> The this130 array has fixed size 20 and the index is safely within bounds, making the original code correct but confusing to static analysis.
-> 
-> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
-> ---
-> 
-> v1->v2:
-> -Align both From and Signed-off-by addresses
+> Probably not too big of a deal, but don't we now incorrectly accept the
+> "gmii" mode ?
 
-Applied to for-next branch now.  Thanks.
+We will accept GMII mode, but (a) does that matter, and (b) shouldn't
+the DT binding be checking the phy-mode (we have some bindings that do.)
 
-
-Takashi
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
