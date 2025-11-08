@@ -4,63 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855FBCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 00:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D92CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 00:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cqYBImo9lz+98hP4a6M/uMGEtd/gnTA7swr9lNih7/E=; b=jhECT5btStz83QoS+HRF7/+Gkl
-	cXNsazv4ZY+0eWJtc+suk8RtSk9bEqJ+X13gS7RupO1ba0dvbeLtWVgxWrh7UvADF1btZDyEIJ8JR
-	CKt0rvJ4MvDwa04UMxvtDI6tntjUSkhJXxVYfP/5OZ1/L0P3r0V24sbBcbl58eNyAHl+0OpLP74WD
-	3UL3mCZw5v4hsVXUJuFq6UMwcGm79EpU9Uy6Y752QDw9Zp48c5wPazHoz/fvK26oMzhq7QRcGN7hJ
-	eJS7gcqKO6dVE4sBptJRKR8BP6NUWrKXb0e3l5tKccyNjBSHMsUOCLaq5n6pkzwcboRpKOHtBB1hd
-	G+uPz3gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqrig/ICHvWgtJzEoNeYVDwQd4i37MdMTA/ueCaWo50=; b=rdVUyLjw6gR5YuCeT74k7R2Ssu
+	UfELKgvzybcwBBnUsw4zJoCFWN6O0DKnQRc3domJMnX4FXDbukET4khdZV3h283febbgw6IrI7LuL
+	wketYPGQyrl6ktEpPzQtzUn3pqrroQEAIIlu/oI9Jsb23zDgwmMTiA1OCgXYLDgVGrADU95L/sQhf
+	UyN7ehbijaIJDNudyBv2V1lxfDMYbkd5eaiEP/7n2dhvCZUwNuEc4droX0cNp3yR+R+LqcPqk4cUJ
+	x1lUqxMjTNanTVfUKAKWQDT/72U3UhKaiyoDjQaRgbED+Jc5Dk6sKBexOovxLtXf+DVC2aCROo2eT
+	xo1l6l1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHWdv-00000001hM3-07hA;
-	Sat, 08 Nov 2025 00:17:23 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vHWeC-00000001hTj-0O6L;
+	Sat, 08 Nov 2025 00:17:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHWdt-00000001hKv-199m;
-	Sat, 08 Nov 2025 00:17:22 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D9948B3;
-	Sat,  8 Nov 2025 01:15:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762560923;
-	bh=ojB+a2DTst1XfKFJV78Vgu0HOH/aW8mkmjJDGhjVS88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dXcqXRgTwgvkImn2+w7CpcGZrDRAEErxLOct0yKJycod7ino1Mz20CPU13jFLfwhw
-	 SRGiVrTchZun6ttRqi/Vt5PAq46h4J/1Ic/GsfoRDzHZFtDPRkJEC9Fp9svuZAy1QJ
-	 vQ+2qf6TrdNxVIqT7nFWb1OummJIFJNfm+IJpSKA=
-Date: Sat, 8 Nov 2025 02:17:13 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Antoine Bouyer <antoine.bouyer@nxp.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Michael Riesch <michael.riesch@collabora.com>
-Subject: Re: [PATCH v8 4/8] media: Documentation: uapi: Add V4L2 ISP
- documentation
-Message-ID: <20251108001713.GL5558@pendragon.ideasonboard.com>
-References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
- <20251020-extensible-parameters-validation-v8-4-afba4ba7b42d@ideasonboard.com>
+	id 1vHWeA-00000001hSf-34kt
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 00:17:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC01D61934;
+	Sat,  8 Nov 2025 00:17:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 570C7C4AF09;
+	Sat,  8 Nov 2025 00:17:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762561057;
+	bh=XUsG99xBjGBf0mGGPX30fWGrjmuEuoRvSI6cNRaW3uk=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=ZPZ3Vy4+Mwtd9u64BlwFmY6DmILtaZrSzmob9fOqpBDxe0Vricl0BZr8nconsigNL
+	 SYTDEJnaAeh2wKWKSpK71sYHmGNBfLi/udKjbzUvREvUi9BIO85f4fGuhHjLV8Ul+z
+	 8qEZnZe1tF/KaqDUNx9F1cVDDWxSyrWlYSD7e41mB7erF4YEJpMPeMGKvUaCSr8Kmu
+	 t9Q4lJ8QnwFq9H/ubkLYOjrZFTc+Xp0zqdPZHWEynJx9onXQCbbC3x7TWNl/JspQ9H
+	 GaMIKkq4WYKrixfV9Zg5Hw2UA54Qy7FuO7SwVRkjS8gm9KrB/c3pWQxLda/3j9cQAR
+	 fRFaQ1dnyywMA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 5F54BF40068;
+	Fri,  7 Nov 2025 19:17:35 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 07 Nov 2025 19:17:35 -0500
+X-ME-Sender: <xms:H4wOafrNzNh3F20iEtzGYLwdnG5HUk8owEhFzBq4bC4yrZFPBzDpnw>
+    <xme:H4wOaUcjSdohJ-lHpvtmDCy99XFBkf7MtPoTsUirPUpTjN2r6oDNLQ-LiaoJ013Zx
+    OSsZ3wJ9MR_FlQDZoIpMISCvYFbT_IdXYQn-RQ8McO3in1UX_e7ymo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduledutdejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehnugih
+    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
+    grthhtvghrnhephffgieeuueevvddvffehiedtteduveejtefhuedtteehfffgieehhfeg
+    ffehvddvnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiii
+    gvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrnhguhidomhgvshhmthhprghuthhh
+    phgvrhhsohhnrghlihhthidqudduiedukeehieefvddqvdeifeduieeitdekqdhluhhtoh
+    eppehkvghrnhgvlhdrohhrgheslhhinhhugidrlhhuthhordhushdpnhgspghrtghpthht
+    ohepfeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtshgsohhgvghnugesrg
+    hlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhi
+    nhgrshesrghrmhdrtghomhdprhgtphhtthhopehvihhntggvnhiiohdrfhhrrghstghinh
+    hosegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhg
+    rdhukhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheptghhrh
+    hishhtohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopegurghv
+    vghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrg
+    hnrdhiugdrrghupdhrtghpthhtoheprghnughrvggrshesghgrihhslhgvrhdrtghomh
+X-ME-Proxy: <xmx:H4wOaYj7xvXA29_Bib9C5PIR7PR0nsrqVdk5HtTm2H3d-R4y6hN7cA>
+    <xmx:H4wOaWyOOyhtvDHw5EQUulR9nlXXe4Ffhpq_shBAWohS0jRLkL-01g>
+    <xmx:H4wOaW5NDwwwriLNNzBHji6Fxg-C2vRU0eXN25y76ZiKUVW1dC5How>
+    <xmx:H4wOaQdjDWMtCC-ZhzLIVmqqVcgCiXSqauLHNTpK8yyJ4JDQQasaWw>
+    <xmx:H4wOaWqC_OPjl_9AhrIU-MZOmt6l20JMDdKC6pSM7VJpUei1L8Bhd8QE>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1E114700054; Fri,  7 Nov 2025 19:17:35 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: AdW-VwKItdLc
+Date: Fri, 07 Nov 2025 16:17:14 -0800
+From: "Andy Lutomirski" <luto@kernel.org>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Arnd Bergmann" <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Nick Alcock" <nick.alcock@oracle.com>,
+ "John Stultz" <jstultz@google.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "Shuah Khan" <shuah@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Shannon Nelson" <sln@onemain.com>
+Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-s390@vger.kernel.org, "Arnd Bergmann" <arnd@kernel.org>
+Message-Id: <b870aa47-5ed4-4dcf-a407-eca83d1733d8@app.fastmail.com>
+In-Reply-To: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+Subject: Re: [PATCH v5 00/34] sparc64: vdso: Switch to the generic vDSO library
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251020-extensible-parameters-validation-v8-4-afba4ba7b42d@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251107_161721_463505_9347152A 
-X-CRM114-Status: GOOD (  38.46  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,207 +131,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
 
-Thank you for the patch.
+On Thu, Nov 6, 2025, at 2:01 AM, Thomas Wei=C3=9Fschuh wrote:
+> The generic vDSO provides a lot common functionality shared between
+> different architectures. SPARC is the last architecture not using it,
+> preventing some necessary code cleanup.
+>
+> Make use of the generic infrastructure.
+>
+> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+>
+> SPARC64 can not map .bss into userspace, so the vDSO datapages are
+> switched over to be allocated dynamically. This requires changes to the
+> s390 and random subsystem vDSO initialization as preparation.
+> The random subsystem changes in turn require some cleanup of the vDSO
+> headers to not end up as ugly #ifdef mess.
+>
 
-On Mon, Oct 20, 2025 at 10:24:50AM +0200, Jacopo Mondi wrote:
-> Add userspace documentation for V4L2 ISP generic parameters and
-> statistics formats.
-> 
-> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> ---
->  .../userspace-api/media/v4l/meta-formats.rst       |   1 +
->  Documentation/userspace-api/media/v4l/v4l2-isp.rst | 120 +++++++++++++++++++++
->  MAINTAINERS                                        |   1 +
->  3 files changed, 122 insertions(+)
-> 
-> diff --git a/Documentation/userspace-api/media/v4l/meta-formats.rst b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> index d9868ee88a0717c1acaa4ee477eaed96a6411f73..7b758ea9eb4ac3c4b354bf8e2f319985ed9e2b37 100644
-> --- a/Documentation/userspace-api/media/v4l/meta-formats.rst
-> +++ b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> @@ -25,3 +25,4 @@ These formats are used for the :ref:`metadata` interface only.
->      metafmt-vivid
->      metafmt-vsp1-hgo
->      metafmt-vsp1-hgt
-> +    v4l2-isp
-> diff --git a/Documentation/userspace-api/media/v4l/v4l2-isp.rst b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b53df722ed29117c3827314e844fc4de61343f40
-> --- /dev/null
-> +++ b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
-> @@ -0,0 +1,120 @@
-> +.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
-> +
-> +.. _v4l2-isp:
-> +
-> +************************
-> +Generic V4L2 ISP formats
-> +************************
-> +
-> +ISP configuration and statistics: theory of operations
-> +======================================================
-> +
-> +ISP configuration parameters are computed by userspace and programmed into a
-> +*parameters buffer* which is queued to the ISP driver on a per-frame basis.
-> +
-> +ISP statistics are collected at a specific time point and drivers use them to
-> +populate a *statistics buffer* which is then returned to userspace.
-> +
-> +The parameters and statistics buffers are organized in a driver-specific
-> +way, and their data layout differs between one driver and another.
-> +
-> +ISP drivers generally exchange parameters and statistics with userspace through
-> +a metadata output and capture node respectively, implementing the
-> +:c:type:`v4l2_meta_format` interface. Each ISP driver defines one metadata
-> +capture format and one metadata output format to be used on those video nodes,
-> +and the buffer content layout and organization is fixed by the format definition.
-> +
-> +The uAPI/ABI problem
-> +--------------------
-> +
-> +By upstreaming the metadata formats that describe the parameters and statistics
-> +buffers layout, driver developers make them part of the Linux kernel ABI. As for
-> +most peripherals, ISP driver development in Linux is often an iterative process,
-> +in which not all of the hardware features are supported in the first version.
-> +
-> +The support for new features and/or bug fixes may land in the kernel at a later
-> +stage and require changes to the metadata formats definition. This is
-> +considered an ABI breakage that is strictly forbidden by the Linux kernel
-> +policies. For this reason, any change in the ISP parameters and statistics
-> +buffer layout would require defining a new metadata format.
-> +
-> +For these reasons Video4Linux2 has introduced support for generic ISP parameters
-> +and statistics data types, designed with the goal of being:
-> +
-> +- Extensible: new features can be added later on without breaking the existing
-> +  interface
-> +- Versioned: different versions of the format can be defined without
-> +  breaking the existing interface
-> +
-> +ISP configuration
-> +=================
-> +
-> +Before the introduction of generic formats
-> +------------------------------------------
-> +
-> +Metadata output formats that describe ISP configuration parameters were
-> +typically realized by defining C structures that reflect the ISP registers
-> +layout and get populated by userspace before queueing the buffer to the ISP.
-> +Each C structure usually corresponds to one ISP *processing block*, with each
-> +block implementing one of the ISP supported features.
-> +
-> +The number of supported ISP blocks, the layout of their configuration data are
-> +fixed by the format definition, incurring in the above described uAPI/uABI
-> +problem.
-> +
-> +Generic ISP parameters
-> +----------------------
-> +
+I hate to say it, but this patch series seems like a step backwards.  Yo=
+u're adding a whole lot of complexity and opportunity for screwups (boot=
+ failure? corruption?) to support SPARC, where other architectures have =
+no problem with the existing code.  And this complexity appears to infec=
+t basically every kernel subsystem that supplies data to the vDSO.
 
-Most of the text above is a design rationale that in my opinion doesn't
-belong to the UAPI documentation. You already include a design rationale
-in the kernel documentation, in patch 8/8. If some of the text above
-contains a more verbose explanation, it could be moved there.
+Can you at least explain what the problem is and maybe give some discuss=
+ion of why SPARC has no workaround available?  The closest I found was t=
+his bit from "[PATCH v4 24/35] vdso/datastore: Allocate data pages dynam=
+ically":
 
-I would shorten all this to
+> Allocating the datapages as part of the kernel image does not work on
+SPARC. It is also problematic with regards to dcache aliasing as there is
+no guarantee that the virtual addresses used by the kernel are compatible
+with those used by userspace.
 
-************************
-Generic V4L2 ISP formats
-************************
+Now I'm not an expert on any architecture that has these aliasing (color=
+ing?) issues, but from my limited understanding, it ought to be possible=
+ to choose a correctly colored address to map the vdso data given where =
+it's being mapped from.  If there's an issue with gathering a bunch of b=
+asically arbitrarily relatively positioned physical pages into their nec=
+essary arrangement in usermode, you could presumably fix it either with =
+some linker script magic or by rearranging the C code to stick everythin=
+g into a multipage structure.
 
-Generic ISP formats are metadata formats that define a mechanism to pass ISP
-parameters and statistics between userspace and drivers in V4L2 buffers. They
-are designed to allow extending the data in a backward-compatible way.
+Or maybe you could arrange to allocate all these pages during early boot=
+ and to fudge up some relocation to get all the existing generic code to=
+ find them.  Or create some pointers that all the generic code will use =
+that, on non-sparc architectures, will be statically populated with the =
+right addresses by the linker.  IOW, conceptually,
 
-ISP configuration
-=================
+struct the_type some_vdso_thing;
 
-> +The generic ISP configuration parameters format is realized by a defining a
-> +single C structure that contains a header, followed by a binary buffer where
-> +userspace programs a variable number of ISP configuration data block, one for
-> +each supported ISP feature.
-> +
-> +The :c:type:`v4l2_isp_params_buffer` structure defines the parameters buffer
-> +header which is followed by a binary buffer of ISP configuration parameters.
-> +Userspace shall correctly populate the buffer header with the versioning
+could change to:
 
-s/versioning information/extensible parameters format version/
+const struct the_type some_vdso_thing =3D &the_actual_data;
 
-> +information and with the size (in bytes) of the binary data buffer where it will
-> +store the ISP blocks configuration.
-> +
-> +Each *ISP configuration block* is preceded by an header implemented by the
-> +:c:type:`v4l2_isp_params_block_header` structure, followed by the configuration
-> +parameters for that specific block, defined by the ISP driver specific data
-> +types.
-> +
-> +Userspace applications are responsible for correctly populating each block's
-> +header fields (type, flags and size) and the block-specific parameters.
-> +
-> +ISP Block enabling, disabling and configuration
-> +-----------------------------------------------
-> +
-> +When userspace wants to configure and enable an ISP block it shall fully
-> +populate the block configuration and set the V4L2_ISP_PARAMS_FL_BLOCK_ENABLE
-> +bit in the block header's `flags` field.
-> +
-> +When userspace simply wants to disable an ISP block the
-> +V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bit should be set in block header's `flags`
-> +field. Drivers accept a configuration parameters block with no additional
-> +data after the header in this case.
-> +
-> +If the configuration of an already active ISP block has to be updated,
-> +userspace shall fully populate the ISP block parameters and omit setting the
-> +V4L2_ISP_PARAMS_FL_BLOCK_ENABLE and V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bits in the
-> +header's `flags` field.
-> +
-> +Setting both the V4L2_ISP_PARAMS_FL_BLOCK_ENABLE and
-> +V4L2_ISP_PARAMS_FL_BLOCK_DISABLE bits in the flags field is not allowed and not
-> +accepted.
+and SPARC could fix up the initialization of the pointer.  And generic c=
+ode would use the pointer instead of the_actual_data.
 
-s/and not accepted/and returns an error/
+If you really really really need to have non-arch-specific kernel C code=
+ running before the vdso data is allocated, can you give a very clear ex=
+planation of what, exactly, is wrong on sparc?  And maybe put that expla=
+nation into an appropriate comment somewhere so that future kernel progr=
+ammers don't look at the headers and the code and think "wow, what I mes=
+s -- I bet I can clean this up by using statically allocated data".
 
-> +
-> +Any further extension to the parameters layout that happens after the ISP driver
+(Can SPARC really not map things that existed during early boot into use=
+rspace?)
 
-s/Any further extension/Extensions/
-
-> +has been merged in Linux can be implemented by adding new blocks definition
-
-s/after the ISP driver has been merged in Linux //
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-
-> +without invalidating the existing ones.
-> +
-> +ISP statistics
-> +==============
-> +
-> +Support for generic statistics format is not yet implemented in Video4Linux2.
-> +
-> +V4L2 ISP uAPI data types
-> +========================
-> +
-> +.. kernel-doc:: include/uapi/linux/media/v4l2-isp.h
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d925745077f21e5a1388a30217a24beeb4fff3b5..f52237d57710cadff78b297d2b4610b508f55092 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26856,6 +26856,7 @@ V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
->  M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->  L:	linux-media@vger.kernel.org
->  S:	Maintained
-> +F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
->  F:	include/uapi/linux/media/v4l2-isp.h
->  
->  VF610 NAND DRIVER
-
--- 
-Regards,
-
-Laurent Pinchart
+--Andy
 
