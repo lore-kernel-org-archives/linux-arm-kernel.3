@@ -4,65 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22340CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 01:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D45ACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 02:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJG4XoNLe+HrOhW9uLO9r9lFJaRihaK5ZlquYGNlnDY=; b=FkgS/MAkY0agi574dE5xDKxy4S
-	iKCwjLJhhLrTx0227Xtkx1TjFRvTgUxWrJOlAOHgYK2jS6hM9F6s60fraTBbQ1R1VYpyGeYa81WlI
-	MFlqdhEJNiPnmInUfeJxuYBvi1oDMAbt3wLQ2YDX5j9qeEKjvpkNKVIz0MdjlajWXLdiqHpxBtNb9
-	wD83ilSqWRtNjCFJm2kKutphOZu/1Z/ZReeU/KAzA0YZi06jjSszFlJSezZdzuDQtUudaxPLi9sFZ
-	ejpuvRTmkLbG7T8Dq5BLU5FdCSpuz0jA743KBuVfziyxE3C7FawLT8+pewKiIcplS2K+nJtH1WGMQ
-	o1rRmX+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8bKq5Kbap+TGIzkU08hwTVasn8Atv2TAiFfbpOuCLu4=; b=cv3qT6tJc7+HXiRRVirr1kbiMX
+	XaSu32pF6Qkk/SowHvhANlKNpu+SVC4/aiktQy+BRyZoqf22UZCiTNl73uKt4TkvKJM5UKIqDbtLo
+	bC9FecxkWrOPIGY8eUWjdlQVWwvVzqvpacuV38ssUkJ1sCGXmbQX6wmSmikkEdBSbLzpNu5KGQ0Bo
+	RzFBuGMdjR7IBCjPL+9g0k8AZXD0n2x25+9RvyEcnQw784G9YW9MI1mY6R8u+8O+RIsPyg0IWVqP5
+	NTshD6/dCW/nQoOcux+ytic3fisSYkLLzrJQ7ITUql9TnYiS/opYLE36fHlCqBh2lJ4OhlgySQc2t
+	e6NlVQpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHYAD-000000021uC-2ukt;
-	Sat, 08 Nov 2025 01:54:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vHYlq-0000000297m-1i9B;
+	Sat, 08 Nov 2025 02:33:42 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHYAC-000000021tT-1YcJ
+	id 1vHYln-0000000296x-2lpl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 01:54:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7047A60194;
-	Sat,  8 Nov 2025 01:54:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EBE8C4CEF5;
-	Sat,  8 Nov 2025 01:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762566887;
-	bh=KwsTq0eN5+f8YdZnUHqQpE5xoyBoiV9hCa9F5h/P17o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Mf+Gza0JFU9wwYzaaLr+Yz+a/NK52E0dh7W0GPm5dBRZRLEOWC1aoz67jd6UiXZWN
-	 ggugPJh3Rg4bNcs3N4qCQzqznHh0xcz1m8CbkRqwTFfohJ0meHtsYwdDwL9s8sl2lJ
-	 3a+mBCq6YiSdLHlhQ60jbpdiMIZzsZw58o/QpPzYYETu5oaaKm2chHyHNDd4Gt5Tyw
-	 V67EoOgzymb0GmmZMZgazI7b9yPArdQk+846eQQXKxWHFgrZOxzznH/XkOtvfQziCO
-	 vYen+B+Jdbu+C1c5Sb/fhOtVMLquY0lG83/vFpnHKEUdQqUsQnH4rV0CdBnXDahCst
-	 IKf0IseIm7i/A==
-Date: Fri, 7 Nov 2025 17:54:45 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jesper Dangaard Brouer <hawk@kernel.org>
-Cc: netdev@vger.kernel.org, Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?=
- <toke@toke.dk>, Eric Dumazet <eric.dumazet@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
- makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
-Subject: Re: [PATCH net V3 1/2] veth: enable dev_watchdog for detecting
- stalled TXQs
-Message-ID: <20251107175445.58eba452@kernel.org>
-In-Reply-To: <b9f01e64-f7cc-4f5a-9716-5767b37e2245@kernel.org>
-References: <176236363962.30034.10275956147958212569.stgit@firesoul>
-	<176236369293.30034.1875162194564877560.stgit@firesoul>
-	<20251106172919.24540443@kernel.org>
-	<b9f01e64-f7cc-4f5a-9716-5767b37e2245@kernel.org>
+	Sat, 08 Nov 2025 02:33:40 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b98983bae8eso819299a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Nov 2025 18:33:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762569218; x=1763174018; darn=lists.infradead.org;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8bKq5Kbap+TGIzkU08hwTVasn8Atv2TAiFfbpOuCLu4=;
+        b=U0g0CEiMqw8TkxGp/PwEfjSL8tEBjqiymKlbKCsGNG1cR6xTITszxSJapYskqVHLmp
+         pqMofT0VFBv8KQWfns5oQH8AvWCkXLmaLfYq+Ysve3+NMAt/eEwX5wrM80CD7oSDQkUC
+         i09dHufcC0FC63sduLmHmJbr8MljN8NfDZAO3uKldVlxWmOIBDwkow6b3r6q7ksvc+rl
+         iZKmI506nQK7sQOpXIY18pgF+ATBlFuNL+7T0L1ju4KB9JVW5eYN7q7Nkf45DCr/AwPQ
+         GvBe6bG6DvawZXuoXqILual9zEA8AITp9ieUJzcIrqmzVr0mbGaZcdDZgkRmR/Kad7Da
+         tSiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762569218; x=1763174018;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8bKq5Kbap+TGIzkU08hwTVasn8Atv2TAiFfbpOuCLu4=;
+        b=NB0Nhix4rwrotmFKPs2HWzu9YNSz7dBtA0I3jjt1GiPnhgZO8VEWyT2na4BUTAznrt
+         dMXzyRIIDf6GNaIAoDgoOYm5HqLrk92XR1J2fzyqa1M6UgDjZJDRnEV6T4tSztLt+B0V
+         ABuUuR9/KzCJRcvO8pJC3mdNXR8yt+j0iJVTomh7YNPVTJMnc99YqEq0tnrfW6fEca/6
+         gCrmZ26t5Y641mtxvpkSavMmOLmRFotg3qBi3TpuMVl4X2GRMYzDRJ1hMjjCfA34ZFPP
+         96LJQ7G4t76txBcXQyLd8Xhox7HbBJuFE6xkAFqu80VsPZs/eMPHNgTAEORVlBrseSa3
+         AVNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV9hGtRQroYgNxmvNW1I7DfjYoU59bXhr2s41WORoDbQKox3SFm3DpD49frOLJLWz+KN9Qc8fNFczt2Cs2l37/K@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcAtigyDHCqjEwaLFDEknsYFYXdSNFWqljhBuvC4B8lSFNPJC5
+	JStgpCrewaoSX0+27QhWIwNZzae5DSm1nRxbgztRFaGbOSJyAcdig7aY
+X-Gm-Gg: ASbGnctRi2nYLZDhDErsXfNqJECwO3naKBtsSiAt9m4h04QnMj+Oz/SVAJy3DTHC8at
+	rhRd0c+/TZv+OB6neOE2uogfXO0LXk+YzrcO7TXRV1+ZioOZE6wc+go21AJdsq7BdJy62cn6fPi
+	IBaQmYFr0SdJqqfLIXGrRpzsIvw/+DDI3AZrIZqffWTwcwbvlX8Z3NEv81fTHNJWvyO0aTDXDU+
+	LcPTM53GQPpbfCFb7pULXJwQJWWS9J5DnLf/+V4BykEKPZbsCJFxQS90QneS6e+h26azqGEenUb
+	a3D9I/mb5LEkGgZMiN2SmxZS49ng6TZ3XBGcq/HzxU0Q4a+M5hJBCWOmbDJwj+RHUomaGNG0Yvs
+	9PPUpoMjj37rkESylKAqgr8XKXGNi0qkE58MUC5BG1PuWfk35MbllLIFqb1G5T0jTfkeGdtdBWR
+	H4Bd8D
+X-Google-Smtp-Source: AGHT+IH/Pe7wf3Ci181tpT0LHXQVq+Kf1iV5vunI2sKT5fx4KiiLBfIeJu3hgL/jAYkDOG6ZWRYxGw==
+X-Received: by 2002:a05:6a20:12c5:b0:33f:9581:5d2f with SMTP id adf61e73a8af0-3539f99e63emr1740681637.3.1762569218334;
+        Fri, 07 Nov 2025 18:33:38 -0800 (PST)
+Received: from dw-tp ([171.76.85.117])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba8f8d7eedcsm6587378a12.2.2025.11.07.18.33.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Nov 2025 18:33:37 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>, 
+	"David S. Miller" <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>, 
+	Juergen Gross <jgross@suse.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, x86@kernel.org, 
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Subject: Re: [PATCH v4 01/12] powerpc/64s: Do not re-activate batched TLB flush
+In-Reply-To: <b3e4a92f-5b51-4eee-bfb8-c454add0f0d2@arm.com>
+Date: Sat, 08 Nov 2025 06:05:17 +0530
+Message-ID: <87cy5t4b0a.ritesh.list@gmail.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com> <20251029100909.3381140-2-kevin.brodsky@arm.com> <87qzud42n1.ritesh.list@gmail.com> <b3e4a92f-5b51-4eee-bfb8-c454add0f0d2@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251107_183339_722771_28DD908E 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +112,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 14:42:58 +0100 Jesper Dangaard Brouer wrote:
-> > I think this belongs in net-next.. Fail safe is not really a bug fix.
-> > I'm slightly worried we're missing a corner case and will cause
-> > timeouts to get printed for someone's config.
-> 
-> This is a recovery fix.  If the race condition fix isn't 100% then this
-> patch will allow veth to recover.  Thus, to me it makes sense to group
-> these two patches together.
-> 
-> I'm more worried that we we're missing a corner case that we cannot
-> recover from. Than triggering timeouts to get printed, for a config
-> where NAPI consumer veth_poll() takes more that 5 seconds to run (budget
-> max 64 packets this needs to consume packets at a rate less than 12.8
-> pps). It might be good to get some warnings if the system is operating
-> this slow.
-> 
-> Also remember this is not the default config that most people use.
-> The code is only activated if attaching a qdisc to veth, which isn't
-> default. Plus, NAPI mode need to be activated, where in normal NAPI mode
-> the producer and consumer usually runs on the same CPU, which makes it
-> impossible to overflow the ptr_ring.  The veth backpressure is primarily
-> needed when running with threaded-NAPI, where it is natural that
-> producer and consumer runs on different CPUs. In our production setup
-> the consumer is always slower than the producer (as the product inside
-> the namespace have installed too many nftables rules).
+Kevin Brodsky <kevin.brodsky@arm.com> writes:
 
-I understand all of this, but IMO the fix is in patch 2.
-This is a resiliency improvement, not a fix.
+> On 05/11/2025 02:46, Ritesh Harjani (IBM) wrote:
+>> Kevin Brodsky <kevin.brodsky@arm.com> writes:
+>>
+>>> From: Alexander Gordeev <agordeev@linux.ibm.com>
+>>>
+>>> Since commit b9ef323ea168 ("powerpc/64s: Disable preemption in hash
+>>> lazy mmu mode") a task can not be preempted while in lazy MMU mode.
+>>> Therefore, the batch re-activation code is never called, so remove it.
+>>>
+>>> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+>>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>>> ---
+>>>  arch/powerpc/include/asm/thread_info.h |  2 --
+>>>  arch/powerpc/kernel/process.c          | 25 -------------------------
+>>>  2 files changed, 27 deletions(-)
+>>>
+>> Since the commit referenced in above disables the preemption in
+>> arch_enter_lazy_mmu(), so the expectation is that we will never be
+>> context switched while in lazy_mmu, hence the code changes in
+>> switch_to() around __flush_tlb_pending() should ideally never be called.
+>
+> Correct, that's the idea.
+>
+>> With this analysis - the patch looks good to me. I will give this entire
+>> patch series a try on Power HW with Hash mmu too (which uses lazy mmu and
+>> let you know the results of that)!
+>
+> That'd be very appreciated, thanks a lot!
+>
 
-> >> +static void veth_tx_timeout(struct net_device *dev, unsigned int txqueue)
-> >> +{
-> >> +	struct netdev_queue *txq = netdev_get_tx_queue(dev, txqueue);
-> >> +
-> >> +	netdev_err(dev, "veth backpressure stalled(n:%ld) TXQ(%u) re-enable\n",
-> >> +		   atomic_long_read(&txq->trans_timeout), txqueue);  
-> > 
-> > If you think the trans_timeout is useful, let's add it to the message
-> > core prints? And then we can make this msg just veth specific, I don't
-> > think we should be repeating what core already printed.  
-> 
-> The trans_timeout is a counter for how many times this TXQ have seen a
-> timeout.  It is practical as it directly tell us if this a frequent
-> event (without having to search log files for similar events).
-> 
-> It does make sense to add this to the core message ("NETDEV WATCHDOG")
-> with the same argument.  For physical NICs these logs are present in
-> production. Looking at logs through Kibana (right now) and it would make
-> my life easier to see the number of times the individual queues have
-> experienced timeouts.  The logs naturally gets spaced in time by the
-> timeout, making it harder to tell the even frequency. Such a patch would
-> naturally go though net-next.
+I did give this patch series a run on Power10 with Hash MMU. I ran the
+following stress-ng tests and didn't observe any issues (kernel warnings) so far.
 
-Right, I see how it'd be useful. I think it's worth adding in the core.
+stress-ng --all 0 -t 60s --perf -v --verify \
+--tlb-shootdown 0 \
+--fault 0 \
+--userfaultfd 0 \
+--fork 0 \
+--exec 0 \
+--memfd 0 \
+--numa 0 \
+--pkey 0 \
+--remap 0 \
+--vm 0 \
+--rmap 0 \
+-x swap,pagemove
+(Note not all options shown here will work with --verify)
 
-> Do you still want me to remove the frequency counter from this message?
-> By the same argument it is practical for me to have as a single log line
-> when troubleshooting this in practice. 
+Let me know what else I can run for validation?
+Do you know of any specific tests for validation of lazy mmu feature?
 
-IOW it makes it easier to query logs for veth timeouts vs non-veth
-timeouts? I'm tempted to suggest adding driver name to the logs in
-the core :) but it's fine, I'm already asking you to add the timeout
-count in the core.
+>> For this patch please feel free to add:
+>> Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+>>
+>>
+>> CC: Venkat who also runs CI on linux Power HW for upstream testing :)
+>
+> Ack, will Cc you both in the next version.
 
-I'm just trying to make sure everyone can benefit from the good ideas,
-rather than hiding them in one driver.
+Sure. Thanks!
 
-> BTW, I've already backported this watchdog patch to prod kernel
-> (without race fix) and I'll try to reproduce the race in staging/lab
-> on some ARM64 servers.  If I reproduce it will be practical to have
-> this counter.
+-ritesh
 
