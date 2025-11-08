@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1507CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 21:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FF2CD1292
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 21:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/7GraEMhRfGX80xNeYuFThBogqrpJru9RaOOCG7cpM=; b=HNJWtnHc+l4co5O5QK/EFByM/L
-	/1ZZ1KaI//GYaMuZma/SzmckIGxoFC7iMRxN0E/yVz6ZU8/RtpQzx5QCk69eb+MfVHnfQwhZXKAGh
-	E+iyzI9dcHLxiZ+HAYquD351hrz+o8fJ2Z8ODJrUXHoOmIws/0H8ayl9VhKXt3ZUFisNqEVn6riLi
-	vMhdwUQcqeZjNRotaerHgxz6TXDolhf//tULDLHVBOZYIzgq0gF/km1TAn20KjBt6EWl5TGoAMeTR
-	lEvPa7DfsYURUleers3jMmC1UX+JD04bdPRxPb6gzkbzXVhj6LtXtkm+gtsyelPCEeDru5DgosI/H
-	qjEn7d6w==;
+	bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=; b=FbUYx6AaSDiKRxG/tv5fmGT8EB
+	BhjfZu81aY0hBTC7r9ICs1T5dBe5vjfWAE2M3xvLe5lr7qCvL4VqXGF6tbBctfxJ8SW2V2bPapY+E
+	cYByicqAqmJSWHObRsUicKxFcty3hGChPkftoD3WTrLDj+cjmqyiLUbLdS42OJwjjT+Zk95dSuGwR
+	o4qx9YTz0myY7x4WqtZLAZpVyNEQKIFYm9QSAlvSvClciA6ZlahSfNlKyMOk63xbZ9ZcetDWv9D2U
+	IeFUFGDLUTZm6kHRMz4KEuw+RuYBsaN+kC5W5qSPrmLInbPvlRWuAprJsec2hzTvfFhWLZzwARGLv
+	/In3hDCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHq6g-00000003Sji-2G0B;
-	Sat, 08 Nov 2025 21:04:22 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1vHq6s-00000003Sm8-0aOW;
+	Sat, 08 Nov 2025 21:04:34 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHq6d-00000003Siv-2qvt
+	id 1vHq6p-00000003Sku-1xrN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Nov 2025 21:04:21 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7af73974a4bso1185868b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 13:04:19 -0800 (PST)
+	Sat, 08 Nov 2025 21:04:32 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7afd7789ccdso1739016b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 13:04:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1762635859; x=1763240659; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1762635871; x=1763240671; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A/7GraEMhRfGX80xNeYuFThBogqrpJru9RaOOCG7cpM=;
-        b=TeRLw1AQ7+mZRJ+PsJtkmXU7tu7GmvggQIuBA+koZh7JAZ3galwLJEJ8vHkqYvoM3X
-         KNfFVgzjXuFEB2+WIl4YX6arifasAMuM1ZJlj9r5J2h/FgNVVT9yEJ0ETCyncT2iuOAN
-         dXo7FDW3xwb2OtYvJqZIlxJfOqVf7wUDLxdNWbrb+Xygq7ER1xRSnQ2YDP7LC2wPwSPR
-         xL8RubCjHkdjAi8RXXwQgoYn4npA6cagzjFWEA1PSA/+79zFituq8+TaPE4GT77y8hHR
-         LvBuNZlml30AtdfnPILkkwvg6YDv84Y17vC2AdlJ+q47ddt3lSrBqg5PRojWDRSAhrDK
-         vyig==
+        bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=;
+        b=RETtWwxx1mMS/E5l7xqeaA2qUYbtSMhf6OvLlhs1uabqs4rdXdsgLEu5iS852sJ9wp
+         /ttYlBR4KQclnFYudkLKhhNxuhAMZQ2tpruQoQwODiDCLW1mmEn9pIK3jMSryvng3deF
+         8/2zswzH8WsPKufd7583U8u0VASRmZUKuwapa6Z+dx8RmNe/4hOc4VFKgP8nVMxwXiOU
+         FAMNBwmblCHaxdtdpmDK5o6GdYlLUVWOOMwP1hCsA21vf4076c9YyaOU00fNaAA3CN0Q
+         SJvSoTHWGqKDgfqmFSiOXXuOTjvHzb8CzmS24bPsxmbioCkuQT/qRgvy7Vl6Kekgn2gu
+         jhCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762635859; x=1763240659;
+        d=1e100.net; s=20230601; t=1762635871; x=1763240671;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=A/7GraEMhRfGX80xNeYuFThBogqrpJru9RaOOCG7cpM=;
-        b=m7azdwAXlzDhdxnOOWJg6F/UpjOiCdhDXZGPp4MU+1lu/Tyxi7xSB4kpZs3dXw3dAh
-         YFPhLU6LA1GufE85dWl+WMAw2iTZj/XurcYZO2zqdadNZuo+73NEism4IkoKBvBdmRS8
-         1UeFYKfM6FtxGpM2UfJOfduZotyh8oZvCBV31GKmZ088/XbOy88yiUKGIcghr9opd43s
-         yvV+Dui8c34YoC0xfexxi5ivYrOmhTOzS85wrC2h0TgCntfwefS/o2LknaYrIfGAGsuH
-         iNq/L3yVc/XntJ6yC9nBqXoAvJv1Lp3UlxhlTGjOxXivfAkBXh8YOV94ibtlXDsxsVlM
-         3ixw==
-X-Forwarded-Encrypted: i=1; AJvYcCUAqqiLRcw88CeSbTNVQDdCqGGaZFYZnUTkDKRZ5ngnvSwaI1OrmQZAGn6CK3duFbs0PbzvnNFXymyfwa4ygRjV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAYP4iSbY6Ig5pYKCVDK/Bpg6JEYkknupZJ4nzHTBYqCJRcNca
-	kZunDYIUuYIOzA1Mm7KgM55KsL0bXLUkxWNqFcQ2HgjbnyShW10S0QA3vFX/cbVi0OUBSPN8OVu
-	7wj5dYjqCDOa4I8O7jDBbalKfIr1/ds8=
-X-Gm-Gg: ASbGncu68r/C0rxI+t82y2jyKOQAPRr4Ew1BJfgvLQm/ytjH8AF9J2jRcHVdbEuF28b
-	FSuTXAv6jMgsSLBAFxGxlJkMgxlmUVTmYpbxmnOLD2YaO5tD0ZwLKJoe900GAuQmx9bwFp5tyx4
-	veo78gIIirUprRIfBXJutPqxhd/kiFDURyhMxEdXe+JBwpoyV8C2+tdOB/jmDIYsbHXMiakTihE
-	CPVwxSq4IlQYD38sWzWLzTFYH22F2Aizcjq/gaNUTgLXBuIHBgmyh0ljJWdfhKUlU6w2zmCiTPa
-	3LX+McroSLXEEiI5dyD6QRLJCQQ7
-X-Google-Smtp-Source: AGHT+IHYseG28VeVAj+noWF9xeZjKVsK8sMaLAuq9kZaFRIKXzdbOlTmekGRfg/kBIVHWNLoWwy6INlqqqY7HWNBhaU=
-X-Received: by 2002:a17:903:1a26:b0:25c:43f7:7e40 with SMTP id
- d9443c01a7336-297e1da7480mr46581775ad.10.1762635858817; Sat, 08 Nov 2025
- 13:04:18 -0800 (PST)
+        bh=QfBxOPKy7fDifZhi6nSzMhp9yBd8dZHhu1E69GOcGH8=;
+        b=KfthWDKKWxB6jGGjfynORbE2T8IM6xQCNJ51++wL9TbIQMkGeQ+9OcNdrpaIAITbb4
+         /mQBIy12kMejDwYbVWMDbLlLyOURQiC166Ssp9wT+HXiV1O5LgKfX2bmWyZnO9/wOSgB
+         HTVo6LedZT/vqc2WfjpSzvLQaudjFcczNvAMgCjiEOvJQV2G9VnxKEAtLmbmCanW7Vh3
+         88EwDix3fiRZBe/1OGCSHHNXRymLOy6SS/crAcuU+HmjLQRle+Bvazj9vj+3aQHpqfML
+         yviGnWisU3CRXQUYOrd+YA6Td+v51b4ABl8p2RP+uIWdyjeOR+6EF6azgor5i2/QUF94
+         yc+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXTj7DXjxZA4IxKBG+b0IpfMfb8n8WmYWR0sdh21YajITkkf8xXyJKP/G5PSyuVDW+WXn86D+SQaVcLkfb9p9ln@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6DFDkqsbEGQ7PtEzOzl3+sxatAWVeCKai0gydkvIuuj0x0plG
+	ACbgQA8ZhRgEmf6m/XDpAnZm6nwKi5dfcVIh1eYcINyeJKFuZ2MUIS/mhNwT1RV+GK5fEXFZ+8a
+	8jSRUVA/5eSLjkITp+DFKVF4AO0xlvDk=
+X-Gm-Gg: ASbGncvKFyBLoBkF+/1MSIVEyWD/iff+65xeAuVoo3CV2AstqKr+oQthMadb5vzBNND
+	LPsAU46tXTz1DhgvszrfEk2W/kOZARlXy4TJSqbN1sJMFBlORNTPY9jJ7HgiW4ywc1mMOFp/obK
+	q636LFxgs1d289eNfTRyRUnwHu75YotakMm7Rv1ys1S7BFzF1iTojvRWaD2iXw18dYz30gVB7Rl
+	M2HRR1hxbTN4ktZk6J6hkPw07LabGM5hJfp7UQNIbQmt0W/mAcnlF+ddl2weYQ29Ubtq9yzoZ1N
+	nc0Q7ut+vR8He1I2s3lvm82A68IG
+X-Google-Smtp-Source: AGHT+IH7CCB9+sHT4Gkgb/MZHAPPjHtlGiNAPQ/L76vDJz380AHMHqeGOPDuOGCkaP2NZNwlmUNoZ72lWfi2Lh0v9Ds=
+X-Received: by 2002:a17:903:1109:b0:24c:965a:f94d with SMTP id
+ d9443c01a7336-297e56df7b3mr51858835ad.46.1762635870574; Sat, 08 Nov 2025
+ 13:04:30 -0800 (PST)
 MIME-Version: 1.0
-References: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com>
-In-Reply-To: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com>
+References: <20251031-optimize_pll_driver-v3-0-92f3b2f36a83@amlogic.com> <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
+In-Reply-To: <20251031-optimize_pll_driver-v3-2-92f3b2f36a83@amlogic.com>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 8 Nov 2025 22:04:07 +0100
-X-Gm-Features: AWmQ_bmagaCbCEB_Hmpf3J-UvtRMuC04_pkThYtgGIcc82yezqw-vegzX0N5NQA
-Message-ID: <CAFBinCBSjKzHZ_k+c70B+YsJHiOS4qbjAgtnWaEeQy11xg94cA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] clk: amlogic: optimize the PLL driver
+Date: Sat, 8 Nov 2025 22:04:19 +0100
+X-Gm-Features: AWmQ_blQKnrslPLjhIDEU0j0xcOWcQJDgXAAfDygmB-XCYvmXNGV_pkvKxIws4c
+Message-ID: <CAFBinCDbx96byeCvLY-Cq2d7r4+RipUVuER57mz1zZ4fgqRd4A@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] clk: amlogic: Improve the issue of PLL lock failures
 To: chuan.liu@amlogic.com
 Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
 	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
@@ -83,8 +83,9 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_130419_736916_C3BDFF8E 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20251108_130431_503426_926CE511 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +103,19 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Oct 31, 2025 at 9:10=E2=80=AFAM Chuan Liu via B4 Relay
 <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 >
-> This patch series consists of four topics involving the amlogic PLL
-> driver:
-> - Fix out-of-range PLL frequency setting.
-> - Improve the issue of PLL lock failures.
-> - Add handling for PLL lock failure.
-> - Optimize PLL enable timing.
+> From: Chuan Liu <chuan.liu@amlogic.com>
 >
-> For easier review and management, these are submitted as a single
-> patch series.
+> Due to factors such as temperature and process variations, the
+> internal circuits of the PLL may require a longer time to reach a
+> steady state, which can result in occasional lock failures on some
+> SoCs under low-temperature conditions.
 >
-> The PLL timing optimization changes were merged into our internal
-> repository quite some time ago and have been verified on a large
-> number of SoCs:
-> - Already supported upstream: G12A, G12B, SM1, S4, A1, C3.
-> - Planned for upstream support: T7, A5, A4, S7, S7D, S6, etc.
+> After enabling the PLL and releasing its reset, a 20 us delay is
+> added at each step to provide enough time for the internal PLL
+> circuit to stabilize, thus reducing the probability of PLL lock
+> failure.
 >
-> Based on the upstream code base, I have performed functional testing
-> on G12A, A1, A5, A4, T7, S7, S7D, and S6, all of which passed.
-In the past I had most problems with Meson8/8b/8m2 CPU clock scaling
-(via sys_pll).
-So I tested this series locally using the following shell script on an
-Odroid-C1 (Meson8b):
-#!/bin/bash
-
-CPUFREQ=3D"/sys/bus/cpu/devices/cpu0/cpufreq"
-
-echo "userspace" > "${CPUFREQ}/scaling_governor"
-
-while read -ra LINE
-do
-    for (( i=3D0; i<${#LINE[*]}; i++ ))
-    do
-        for (( j=3D0; j<${#LINE[*]}; j++ ))
-        do
-            if [ $i !=3D $j ]
-            then
-                echo "${LINE[i]} -> ${LINE[j]}"
-                echo "${LINE[i]}" > "${CPUFREQ}/scaling_setspeed"
-                sleep 1s
-                echo "${LINE[j]}" > "${CPUFREQ}/scaling_setspeed"
-                sleep 1s
-            fi
-        done
-    done
-done < "${CPUFREQ}/scaling_available_frequencies"
-
-This has been running in a loop for two hours (at an ambient
-temperature of ~13=C2=B0C) and I haven't observed any problem.
-Since most patches are a no-op for my case I'll separately reply to
-patch #2 with my Tested-by (as that's what I've been effectively
-testing).
-
-
-Best regards,
-Martin
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+Tested-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com> # Odroi=
+d-C1
 
