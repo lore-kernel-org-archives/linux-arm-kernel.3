@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504C3CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 12:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 100F1CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Nov 2025 13:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nk056+VqDxXZufOchJymjHokNfL2GTVQtNNzkKkmAMs=; b=UL0nQsFd4aTV6W33I8Dkmu7Y41
-	m7tOUlwfOg0WikOz4hF/8OJzTJex/2yNBkh08J7pVb0bM4ZruuQ6GzWPX4E3rbxPdBpEyz4CcrdLl
-	AHeucDCUYub0ch7hhhOtc7rEylbyx1R6oGD79PvSNfG10WlWu2BJl+EiPvCDaIkOBAFtqZ+/8fnWz
-	NlB5thA6sX7wLqfKLrXXOwPw3l8vrmq/ixf6KTWoW3JPT3uX+RfCz4rUK4rUypO/9qp+5HNCzjGY8
-	oJhbEWqUF5JTxwN57CoVrIDD7HAWalc49PAmvKgGOU5oSZuVB4TrSitknGd8rPmmkbzpjj1ZDvfx7
-	lV18HrKQ==;
+	bh=+ZhH5AHrfy26M2dOTX3cXLGBKgESbaWXilRYPg8VS4w=; b=INXYFMX6d+VQ99uSVtjVKUh9E4
+	MXgI3p8YQk6PQGhDnDa33qRWFdj5lXswfotMVhZvvwF6P1QRMerjhL+RumIcP65ahgIlg45uBLc9b
+	b+Le1wbIrQ/ZrARV2si/5nQZ46ENN216slnI2Uhg2Zom8wtrUTfxRIFFqGbB/+RjHG1BibFUlozxS
+	yoUZiHnp638bUYvpLil9nkks7en8/sBEeCI1UhzLUvqsCgS0eAs7k+24hna1I9X5xs18CzJt/gcJl
+	nOcCuhR1WFKIUiMLsZ/EJbTffU+805xjHiMUGlsu+4/DH5wrTH+ZSBX4kJaOrOqs5/zD4Im+uawQE
+	eRhoJ7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHi9P-000000037T2-0b6R;
-	Sat, 08 Nov 2025 12:34:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vHiff-000000038aP-1bAN;
+	Sat, 08 Nov 2025 13:07:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHi9L-000000037Sc-25Jl;
-	Sat, 08 Nov 2025 12:34:37 +0000
+	id 1vHifa-000000038a2-21Or
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Nov 2025 13:07:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5998F4341D;
-	Sat,  8 Nov 2025 12:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A579C116C6;
-	Sat,  8 Nov 2025 12:34:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0CED60052;
+	Sat,  8 Nov 2025 13:07:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E95EC4CEF7;
+	Sat,  8 Nov 2025 13:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762605272;
-	bh=45EdQFA6NEw7zfaldijyvwunk1IEh60CWkYy3zjQTj8=;
+	s=k20201202; t=1762607271;
+	bh=i7HXPTYeK+e+Jl5vz+u8MqxdLo1lCA/B25zaKUgWUkY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZAe1C6aBQOu9ufMPYHKXtgVkRMFWTkasSqsDrHkF2pcnXXL2tKM478Rl/JOtw1fuA
-	 bD0mol7BLa/ILSTZ5qVjy6diwgDi24ZKHJyysi3Pl5wz4IzIy0Uraf3VwDMLdaRgpr
-	 AWFZCkK0vdShLRvi2D8ey+7byiPq9+7NaXIlNkITumuldt2OcQXRNyedOpLm9lBHrg
-	 P7bITn3re31Mn5YZ6PGiwnoBGL/jeNK1YeK2+0lMuOIvQ0Qu8Mxs3ThqN3blG22LJ+
-	 2wCof2QQuNkXYclObVKA0Mu34jcLNBvldL7On6QA5fE0MaWJAwAseZZHR3Ks29JLiX
-	 8O1QW3z1i8/kQ==
-Date: Sat, 8 Nov 2025 13:34:26 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: FUKAUMI Naoki <naoki@radxa.com>, Damien Le Moal <dlemoal@kernel.org>,
-	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Dragan Simic <dsimic@manjaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-Message-ID: <aQ840q5BxNS1eIai@ryzen>
-References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
- <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
- <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+	b=B7D+tM5kRH+NjazgLU1QcpEGK3MSiun+xEIGRss4cHMEJkPH+dAAG9aWL0+Ni/kzp
+	 tdgB8qNQ/5v8GCWh/yvzGxkmtXcLRIZPeEurA0js5LUFoZR/s/5Ql1kIfFWoAFIXVa
+	 7xLE/8CefNRlBnOVhFRWSP5mkIpzN3q4JwW7x6qPwc216NOTGhKbv1gs9U492MMFl+
+	 UCXxdzRBNa+58S/xIxPrtUkKQK8lKxoE467ijgeeYg/uJItdpy0C+EzqiY7umw00zf
+	 L7lketTeGJhxeWsBRGZjEYkqlMumv2nPYEWkrMiQTtzV98m6hmshhuMkN38ko+wC/O
+	 jEl8eGclEP93w==
+Date: Sat, 8 Nov 2025 13:07:45 +0000
+From: Will Deacon <will@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
+Message-ID: <aQ9AoauJKLYeYvrn@willie-the-truck>
+References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
+ <20251105203216.2701005-15-paulmck@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_043435_752208_07B09E62 
-X-CRM114-Status: GOOD (  21.98  )
+In-Reply-To: <20251105203216.2701005-15-paulmck@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Shawn,
+Hi Paul,
 
-On Tue, Oct 21, 2025 at 03:10:13PM +0800, Shawn Lin wrote:
-> 在 2025/10/21 星期二 12:26, FUKAUMI Naoki 写道:
-> > Hi Niklas, Bjorn,
-> > 
-> > I noticed an issue on the Rockchip RK3588S SoC using the ASMedia ASM2806
-> > PCIe bridge where devices behind the bridge fail to probe since v6.14.
-> > Specifically, this started happening after commit
-> > 647d69605c70368d54fc012fce8a43e8e5955b04.
-> > dmesg logs from before and after this commit are available at:
-> >   https://gist.github.com/RadxaNaoki/fca2bfca2ee80fefee7b00c7967d2e3d
-> > 
-> > I have confirmed that reverting the following commits fixes the issue:
-> >   commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we
-> > can detect Link Up")
-> >   commit 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on
-> > dll_link_up IRQ")
-> > 
+On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
+> Some arm64 platforms have slow per-CPU atomic operations, for example,
+> the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+> atomic operations to interrupt-disabled non-read-modify-write-atomic
+> atomic_read()/atomic_set() operations.  This works because
+> SRCU-fast-updown is not invoked from read-side primitives, which
+> means that if srcu_read_unlock_fast() NMI handlers.  This means that
+> srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+> exclude themselves and each other
 > 
-> Then these two commits would like to reply on link up irq instead of
-> fixed delay in dwc framework. Here is a not very precise timeline
-> description.
+> This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+> srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+> Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+> it sure beats 100ns.
 > 
-> time(ms) |  dw_pcie_wait_for_link（）     | sys irq_thread() | Hot reset
-> -------------------------------------------------------------------------
-> 0:       |  dw_pcie_link_up return false  |  link up irq     |
-> 1x       |  Physical link up happend      |                  |
-> 90:      |  dw_pcie_link_up return true   |                  |
-> 100:     |                                |  msleep(100) done|
-> 10x:     |                                |  pci_rescan_bus  |
-> 1xx:     |                                |                  | <==occur
-> 190:     |  msleep(90) done               |                  |
-> 19x:     |  pci_host_probe                |                  |
+> This command was used to measure the overhead:
 > 
-> What if the hot reset happens when pci_rescan_bus() starts. I think
-> scan devices possible fail when seeing 0xffffffff from cfg read. But
-> a 90ms delay perfectly avoids this event in dw_pcie_wait_for_link(), and by
-> the time the 90ms delay is completed, the link is actually in an
-> accessible state.
+> tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
+> 
+> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: Steven Rostedt <rostedt@goodmis.org>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Cc: <linux-arm-kernel@lists.infradead.org>
+> Cc: <bpf@vger.kernel.org>
+> ---
+>  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 48 insertions(+), 3 deletions(-)
 
-The pcie-dw-rockchip.c driver is modelled after the qcom driver.
-So if this is a problem when a ASM2806 switch is connected, I would
-expect qcom platforms to have the same problem.
+I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
+for 6.18, so please can you drop this SRCU commit from your tree?
 
+Cheers,
 
-Do we have a PCI trace that can tell us exactly what goes wrong?
+Will
 
-FUKAUMI-san tells us that the enumeration does not detect any devices,
-but also that there is no crash.
-
-If we assume the scenario from your timeline above, that a hot reset
-happens just after pci_rescan_bus(), after a hot reset, LTSSM should
-re-enter link training.
-
-I verified this:
-# bc=$(setpci -s 0000:00:00.0 BRIDGE_CONTROL)
-# setpci -s 0000:00:00.0 BRIDGE_CONTROL=$(printf "%04x" $((0x$bc | 0x40))) && sl eep 0.01 && setpci -s 0000:00:00.0 BRIDGE_CONTROL=$bc
-[   65.723990] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x7
-[   65.724701] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x30011
-[   65.825787] rockchip-dw-pcie a40000000.pcie: Received Link up event. Starting enumeration!
-
-So we get another link up IRQ after the hot reset.
-
-The IRQ handler for this IRQ will once again call pci_rescan_bus().
-So I would expect that this second pci_rescan_bus() call would actually
-be able to find the device behind the switch.
-
-
-Mani, Bjorn, thoughts?
-
-
-
-Kind regards,
-Niklas
+[1] https://git.kernel.org/arm64/c/535fdfc5a228
 
