@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6277FCD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34248CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0kYOwQBOze81/dkpFN6Tvr6xYXJCfIzivhCNow8vms=; b=iJbS2vPvfN0NexQEf+PTA9ByIz
-	OqDXRBYV1lRauFMWRJ2+n/ya9+kZjU5oUfzuHbgEXasoDxSFaC3DhdP7AvQFH66QcbY5NnB8MheLd
-	kMkAIA5hIAyT0vzZQI1QMi+VGImuggpbeEn0RaQgUcjv8nlxKR5W0BkRgA1Yh+J7R1JdsSDJxu7p6
-	PDDgiGz4AvA+uJLe0FZ+S/H5iSCmFfElihNPexCUhgJWPuhBSw3A0C2xxPXZb1oVEJJ4sSLD6ewpo
-	1G782o3lrrYfGsEJNXA3kDUrlJyNYM0uOrN7zR9owot3zlJeSqVxoJmSGB/cUn2yB47fQ3iaX1QtP
-	uo3AEsIg==;
+	bh=yox7L63o1aAkRDM05QvKW2de39iEsbwTh/h8gTUA+SQ=; b=EFg/k5LCpWJMo/BSeWd6VEzCi6
+	Qce8pviO/I/Iby/+Bb4s/9Sin6EKDoPKKH74vZy+at1ibvqXxVVx+g/IXqa5497jYPRnNAul4pjBH
+	W8h5z5KYU/ZPFjkuhP7uKA8W7hd+mBatVsH8tGC3jlFpjKhSW7XM7QlDL5HkwTioYEasvXxzGRZVZ
+	P79jhr97N2d7AhcXasf7L7PRpKFO2L9hkvKRc3boQGANl+a3zPthLsvk+vNVdA0E6AX4kerQZHUQl
+	C0VXiLCXdlYS8l7zsJzkryK037tOhOhkObOyAPu61mshqD/MvwWJuKFG6SY9bdwmq9h7cpuZw52+d
+	MkxCfSyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI93E-00000004EEl-0cw3;
-	Sun, 09 Nov 2025 17:18:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vI93G-00000004EIS-377n;
+	Sun, 09 Nov 2025 17:18:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91t-00000004CD2-32aP
+	id 1vI91t-00000004CC3-0LGf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:46 +0000
+	Sun, 09 Nov 2025 17:16:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99A9D446DA;
-	Sun,  9 Nov 2025 17:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 747DCC19421;
-	Sun,  9 Nov 2025 17:16:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE24F43F15;
+	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34D3C4CEF7;
+	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708601;
-	bh=Ztm8vFx9rv1rEKhzOuokkcS00uXfV2CgOqJXj5pGoyE=;
+	s=k20201202; t=1762708600;
+	bh=xc89zgOjmWN37MQ958dqM5lCxQ+sj0EtpjgG+2nlipQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GOds3juvKRkaaweP1L1mc7M0J33F+wC+TgTOw9t8D+kWZCUR+PJ6VcHpfp0wH8iAM
-	 pumfEGwk2S4RS75IUTxxGtKUiTRTJBcWevuKDnNod8r4c/bar6Blv/ErIjZKVdL67Z
-	 Lv59BigHiKtPm3HMV9/g/htE/b2gF6ZQC+zoUBIbsXUZ0a4vIEzfC1KEQoewTTKPHO
-	 rn/nr8fKYBjw73WS+xF86uFonlpJGw0nzTeim4HTF3lXA1Y+LlrxYwuRYErrxm2uMb
-	 prUubEA9OvJdknakpRzeUpyervRHHV7ICNwei/UrDoCUnqzj59tnbHyr04Zq9uK9OG
-	 AHKLmKDzdOgRw==
+	b=eHUuWBhRzKoaIgzxifPHIyGyVIFmPLWCKBE9D+C865M/hzCNOoh8bQrXfBCwGiNbZ
+	 x9mbZi/J02yUSaumbBWWxdh7mgCmGvnYKBEAU0AhZh8gmMBw92mm0sFGoAZ6TIEZHy
+	 ddt0OVLmd2TNHSpXF0cE+R8tsjRVMrI5dR2JRpKUF9qGR3UEXlbcqTH5RXiGcXGO6f
+	 qmA/3/e+2eSy/FW8CuuyAull9qIrrGN9S+xzxiaWJlCU5wfMHoDpSIo4z6z0VmJqRv
+	 qUEOWPWEIszqtjZ6js6puWNEh7HsGsWcuT5si2cHrs2NwR99dRIFj8HvzdS4Y75Hj8
+	 UtJ3EuC/kWLyw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91r-00000003exw-13dv;
-	Sun, 09 Nov 2025 17:16:39 +0000
+	id 1vI91q-00000003exw-3Kxj;
+	Sun, 09 Nov 2025 17:16:38 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 45/45] KVM: arm64: selftests: vgic_irq: Add timer deactivation test
-Date: Sun,  9 Nov 2025 17:16:19 +0000
-Message-ID: <20251109171619.1507205-46-maz@kernel.org>
+Subject: [PATCH v2 43/45] KVM: arm64: selftests: vgic_irq: Add asymmetric SPI deaectivation test
+Date: Sun,  9 Nov 2025 17:16:17 +0000
+Message-ID: <20251109171619.1507205-44-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
 References: <20251109171619.1507205-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091641_818679_3CA57658 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20251109_091641_170403_320C6897 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,95 +88,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new test case that triggers the HW deactivation emulation path
-when trapping ICV_DIR_EL1. This is obviously tied to the way KVM
-works now, but the test follows the expected architectural behaviour.
+Add a new test case that makes an interrupt pending on a vcpu,
+activates it, do the priority drop, and then get *another* vcpu
+to do the deactivation.
+
+Special care is taken not to trigger an exit in the process, so
+that we are sure that the active interrupt is in an LR. Joy.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 65 ++++++++++++++++++++
- 1 file changed, 65 insertions(+)
+ tools/testing/selftests/kvm/arm64/vgic_irq.c | 105 +++++++++++++++++++
+ 1 file changed, 105 insertions(+)
 
 diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index ff2c75749f5c5..9858187c7b6ea 100644
+index 72f7bb0d201e5..a53ab809fe8ae 100644
 --- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
 +++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -894,6 +894,70 @@ static void guest_code_group_en(struct test_args *args, int cpuid)
- 	GUEST_DONE();
+@@ -29,6 +29,7 @@ struct test_args {
+ 	bool level_sensitive; /* 1 is level, 0 is edge */
+ 	int kvm_max_routes; /* output of KVM_CAP_IRQ_ROUTING */
+ 	bool kvm_supports_irqfd; /* output of KVM_CAP_IRQFD */
++	uint32_t shared_data;
+ };
+ 
+ /*
+@@ -801,6 +802,109 @@ static void test_vgic(uint32_t nr_irqs, bool level_sensitive, bool eoi_split)
+ 	kvm_vm_free(vm);
  }
  
-+static void guest_code_timer_spi(struct test_args *args, int cpuid)
++static void guest_code_asym_dir(struct test_args *args, int cpuid)
 +{
-+	uint32_t intid;
-+	u64 val;
-+
 +	gic_init(GIC_V3, 2);
 +
 +	gic_set_eoi_split(1);
 +	gic_set_priority_mask(CPU_PRIO_MASK);
 +
-+	/* Add a pending SPI so that KVM starts trapping DIR */
-+	gic_set_priority(MIN_SPI + cpuid, IRQ_DEFAULT_PRIO);
-+	gic_irq_set_pending(MIN_SPI + cpuid);
++	if (cpuid == 0) {
++		uint32_t intid;
 +
-+	/* Configure the timer with a higher priority, make it pending */
-+	gic_set_priority(27, IRQ_DEFAULT_PRIO - 8);
++		local_irq_disable();
 +
-+	isb();
-+	val = read_sysreg(cntvct_el0);
-+	write_sysreg(val, cntv_cval_el0);
-+	write_sysreg(1, cntv_ctl_el0);
-+	isb();
++		gic_set_priority(MIN_PPI, IRQ_DEFAULT_PRIO);
++		gic_irq_enable(MIN_SPI);
++		gic_irq_set_pending(MIN_SPI);
 +
-+	GUEST_ASSERT(gic_irq_get_pending(27));
++		intid = wait_for_and_activate_irq();
++		GUEST_ASSERT_EQ(intid, MIN_SPI);
 +
-+	/* Enable both interrupts */
-+	gic_irq_enable(MIN_SPI + cpuid);
-+	gic_irq_enable(27);
++		gic_set_eoi(intid);
++		isb();
 +
-+	/* The timer must fire */
-+	intid = wait_for_and_activate_irq();
-+	GUEST_ASSERT(intid == 27);
++		WRITE_ONCE(args->shared_data, MIN_SPI);
++		dsb(ishst);
 +
-+	/* Check that we can deassert it */
-+	write_sysreg(0, cntv_ctl_el0);
-+	isb();
++		do {
++			dsb(ishld);
++		} while (READ_ONCE(args->shared_data) == MIN_SPI);
++		GUEST_ASSERT(!gic_irq_get_active(MIN_SPI));
++	} else {
++		do {
++			dsb(ishld);
++		} while (READ_ONCE(args->shared_data) != MIN_SPI);
 +
-+	GUEST_ASSERT(!gic_irq_get_pending(27));
++		gic_set_dir(MIN_SPI);
++		isb();
 +
-+	/*
-+	 * Priority drop, deactivation -- we expect that the host
-+	 * deactivation will have been effective
-+	 */
-+	gic_set_eoi(27);
-+	gic_set_dir(27);
-+
-+	GUEST_ASSERT(!gic_irq_get_active(27));
-+
-+	/* Do it one more time */
-+	isb();
-+	val = read_sysreg(cntvct_el0);
-+	write_sysreg(val, cntv_cval_el0);
-+	write_sysreg(1, cntv_ctl_el0);
-+	isb();
-+
-+	GUEST_ASSERT(gic_irq_get_pending(27));
-+
-+	/* The timer must fire again */
-+	intid = wait_for_and_activate_irq();
-+	GUEST_ASSERT(intid == 27);
++		WRITE_ONCE(args->shared_data, 0);
++		dsb(ishst);
++	}
 +
 +	GUEST_DONE();
 +}
 +
- static void *test_vcpu_run(void *arg)
++static void *test_vcpu_run(void *arg)
++{
++	struct kvm_vcpu *vcpu = arg;
++	struct ucall uc;
++
++	while (1) {
++		vcpu_run(vcpu);
++
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		case UCALL_DONE:
++			return NULL;
++		default:
++			TEST_FAIL("Unknown ucall %lu", uc.cmd);
++		}
++	}
++
++	return NULL;
++}
++
++static void test_vgic_two_cpus(void *gcode)
++{
++	pthread_t thr[2];
++	struct kvm_vcpu *vcpus[2];
++	struct test_args args = {};
++	struct kvm_vm *vm;
++	vm_vaddr_t args_gva;
++	int gic_fd, ret;
++
++	vm = vm_create_with_vcpus(2, gcode, vcpus);
++
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(vcpus[0]);
++	vcpu_init_descriptor_tables(vcpus[1]);
++
++	/* Setup the guest args page (so it gets the args). */
++	args_gva = vm_vaddr_alloc_page(vm);
++	memcpy(addr_gva2hva(vm, args_gva), &args, sizeof(args));
++	vcpu_args_set(vcpus[0], 2, args_gva, 0);
++	vcpu_args_set(vcpus[1], 2, args_gva, 1);
++
++	gic_fd = vgic_v3_setup(vm, 2, 64);
++
++	ret = pthread_create(&thr[0], NULL, test_vcpu_run, vcpus[0]);
++	if (ret)
++		TEST_FAIL("Can't create thread for vcpu 0 (%d)\n", ret);
++	ret = pthread_create(&thr[1], NULL, test_vcpu_run, vcpus[1]);
++	if (ret)
++		TEST_FAIL("Can't create thread for vcpu 1 (%d)\n", ret);
++
++	pthread_join(thr[0], NULL);
++	pthread_join(thr[1], NULL);
++
++	close(gic_fd);
++	kvm_vm_free(vm);
++}
++
+ static void help(const char *name)
  {
- 	struct kvm_vcpu *vcpu = arg;
-@@ -1011,6 +1075,7 @@ int main(int argc, char **argv)
+ 	printf(
+@@ -857,6 +961,7 @@ int main(int argc, char **argv)
+ 		test_vgic(nr_irqs, false /* level */, true /* eoi_split */);
+ 		test_vgic(nr_irqs, true /* level */, false /* eoi_split */);
  		test_vgic(nr_irqs, true /* level */, true /* eoi_split */);
- 		test_vgic_two_cpus(guest_code_asym_dir);
- 		test_vgic_two_cpus(guest_code_group_en);
-+		test_vgic_two_cpus(guest_code_timer_spi);
++		test_vgic_two_cpus(guest_code_asym_dir);
  	} else {
  		test_vgic(nr_irqs, level_sensitive, eoi_split);
  	}
