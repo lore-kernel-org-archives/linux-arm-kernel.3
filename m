@@ -4,65 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B0FCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 15:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAC9CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 16:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8wlgQwiaapKDvuuMcG/LHnApbqP6But5sj6HSYDOJ8=; b=G/Md38gvgbhhr3lJA0WfAUyX87
-	u/znmhifo7ysn5ES+VJY6pB94lZbcpcgTBPLO4Pux+o8V7pnxkuJcYOOd2k7UJciKdKQFFM99eeZF
-	cvKVvt/Ho1/6HlSpvODqgihLkc84Xte5AQXwsgpeFsKesQlY/GGvOE3wbTupwBDtzKzQ8sxXJlgNh
-	oO2Cx04CnCN3wrEwVRO2ri80gw/cl9R1SHVjE2jIdAZJJwy8lZneeiIE1FO2HNPB80RwpO+rFobfu
-	kS2OE1xt/WhAOiDRwiEMRTg0/XDncTEZguef2LFetFZ6EwT1ecwhzD6tKvfEIR4btVoFPlDSaAhNe
-	GghjPNxg==;
+	bh=JEE330ySaodkvhl3xDjKL/tIDsvMEMAgBil3ykH1mCk=; b=eUREMAxQtasqHtYvVmhUBkP/v+
+	NQc+pBjNqcDrSJ0vhS4h/PMRICWzVXvyMHuGhvjtYEpqr2hnPdTeXlOhUFZ4mAbpbctdxwVy3j/up
+	YfnOQ6CkTJiop9K+g583D49P2qc8ruSIa7CiBafRJNsbBjFCRovvm/923YDB/193NNOFp4YzHPQ1x
+	UIUmF0wf3EhWCcW1oY4hdwhML65X2dQxZe2Gj+Q4fAOA83KcDCLDTHEhFGBKEmCN9uHPTECtnDD2g
+	wBW/pJlx7x399cyB/bIfPpbqZycW05Vz68zate9HWg6L9fCkxMMTR+fd/TmEhRcGQx6CnCD9RchH/
+	n0w8h3AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI6xd-000000046oN-3udv;
-	Sun, 09 Nov 2025 15:04:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vI7yc-0000000491W-0mZm;
+	Sun, 09 Nov 2025 16:09:14 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI6xa-000000046nx-2IN0
+	id 1vI7yY-0000000490f-3ISv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 15:04:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5468D402F6;
-	Sun,  9 Nov 2025 15:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5045C116B1;
-	Sun,  9 Nov 2025 15:04:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762700644;
-	bh=IUXxyPcnqpDHiv1qOb2dy4VYfAq79Wb3o8hOBTShskU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DkIOeFV1+f18yDyApLUJy74bTRcPycSJScKMDXtjh3tIhxmXLqADiOOBXZhAF0uqo
-	 h3rVu6lHHaCdm2TISoR9+A117zDZhQKc8IM4iXJSOMDV7LaHpYL6eK3nMWlDBiLRur
-	 YBD8oaHA44QzSL665ddvLAmpZvaph/jDhKh+C74COZxwvp7q1k7PxUIyvLiUA/USjB
-	 czfi8cgRi9iyQo3bV3TOzBNxFs0QDaxxbFOfxh3WB23vr+yHNKCQC2o8FPr3vxUx33
-	 qlBAE3cjey5WcPjgh3W4IzGu/U6zai62L5drBm1ksFsV6wJKgHOhbrjVLM7oyNQM5q
-	 5fmyCrqvVBVLw==
-Date: Sun, 9 Nov 2025 15:03:57 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Billy Tsai <billy_tsai@aspeedtech.com>, nuno.sa@analog.com,
- andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joel@jms.id.au, andrew@codeconstruct.com.au, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] iio: adc: aspeed: Add AST2700 ADC support
-Message-ID: <20251109150357.513e3a25@jic23-huawei>
-In-Reply-To: <3d2fde56-d82e-40c2-9d0b-2888160a642b@baylibre.com>
-References: <20251103105217.1764355-1-billy_tsai@aspeedtech.com>
-	<20251103105217.1764355-2-billy_tsai@aspeedtech.com>
-	<3d2fde56-d82e-40c2-9d0b-2888160a642b@baylibre.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	Sun, 09 Nov 2025 16:09:12 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0F2AE7A001C;
+	Sun,  9 Nov 2025 11:09:05 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Sun, 09 Nov 2025 11:09:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1762704544;
+	 x=1762790944; bh=JEE330ySaodkvhl3xDjKL/tIDsvMEMAgBil3ykH1mCk=; b=
+	drlx4UjxHBc4BK+/NVJU89mFSbrfOcSM+lHamYWdL3egMM8mGQLm5jNme0hu1Rht
+	17ASKVfJ7qjrdeREn5wXdwvevseHMNdIxD0PLDg/GrY1oY17B5NGgz3QCVs9Pnsz
+	aahHFTPIvSg43oGQ2ldcMf2dKJQHda9YZyk4beeBQMqHa1wOoEsDdp8OH73q/niD
+	tTNdsiAq8d93OLEXExNoNy/umBFvSyfKYpAnKgph7sAtxtYFuv86g7XcY8RAZQgp
+	BmojD/4751TwCgFscyQZhmNeuhm+uTXFZqJY/dgVY/QfR0icOlnF2vwKeEC6o3TE
+	46IziJYcsvKnY8cp5l5B1g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1762704544; x=
+	1762790944; bh=JEE330ySaodkvhl3xDjKL/tIDsvMEMAgBil3ykH1mCk=; b=t
+	ZpxlF53AtCgpy5zaK9XzTSw0xrnZE1DatfrBFVrRSWYxl4bTI1mCGnn4BeoQ6Vkr
+	aSauWlGgVMFTjq2hv7v9iIaAQyMrEsAFY7HaXSKggaScjCukiDUkQWSf3tAAGtw2
+	AmtNmi21+TxMlkCYr+9Y564q0KWWdQn4rlJ5/iE14Hs24g0LqxSziFK37Wtoxgd5
+	NFycR8/vwa/SrwPiiOY2f6yL33vU9cT9pa5eaF0D3zAxC0gN2JGYElrjix4QM/Te
+	we1M6Ll2YjybsX3J6FAVqONqELdi7WGpVpm69bFae9MG4L6YJgHEyUngPIOi1VEv
+	ZUoV7zykJiqiClh9ZBgNg==
+X-ME-Sender: <xms:m7wQactHBjhGmjaME3x7l_Ip111ypE856jTimBmaUzpicZxXSdM4Gg>
+    <xme:m7wQaUTH35MNFb2EDVu2u28sHYMVINxJnL9VcKPxRLHkM-u6vBuuEhaURZtWqYabf
+    fb5Jj6sU20jG9W9VKa9yd0plFCkDu5W1TfCGBQ6md7a_7udFru3QcI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduleehkeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfeuvedugedugfeiffdvtdettdeifeevfffghfefvefhvdehlefhheehjedvfffg
+    necuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecuvehluhhsthgvrhfuihiivgeptd
+    enucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghr
+    tghpthhtohepfeelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtshgsohhgvg
+    hnugesrghlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghpthhtoheptggrthgrlhhinhdr
+    mhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehvihhntggvnhiiohdrfhhrrg
+    hstghinhhosegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhig
+    rdhorhhgrdhukhdprhgtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsgh
+    hrohhuphdrvghupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdp
+    rhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopegrnh
+    gurhgvrghssehgrghishhlvghrrdgtohhmpdhrtghpthhtohepnhhpihhgghhinhesghhm
+    rghilhdrtghomh
+X-ME-Proxy: <xmx:m7wQabmF_YIbNBgdxFoevoHFJQ1eWu4ZnJ4xjCJtw66W2L-ukr0JXw>
+    <xmx:m7wQaRuILS_f_EquuhHZJAzhvti4hsBgThcJkmS8fwUn49V9jbw22Q>
+    <xmx:m7wQaSfVAsPMMG454n8tzXbzRCt1S_kSbiI9XIhUfh8Gag9s5h-lcw>
+    <xmx:m7wQaVahZheDTpO_ctNR7LNi3EgQoe8W4r0T2kpj8H5LbqG5RtGjRw>
+    <xmx:oLwQaSCuGOvbyudIA1SYvS95j7wbQLvk3z0UJxxth9q7U_J_OZSGmf0i>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AB7B8700026; Sun,  9 Nov 2025 11:08:59 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-ThreadId: AisJtzLZ_1Kg
+Date: Sun, 09 Nov 2025 17:08:27 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: "Andy Lutomirski" <luto@kernel.org>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Nick Alcock" <nick.alcock@oracle.com>,
+ "John Stultz" <jstultz@google.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ shuah <shuah@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Shannon Nelson" <sln@onemain.com>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-s390@vger.kernel.org, "Arnd Bergmann" <arnd@kernel.org>
+Message-Id: <7eb1a661-e5bf-45cb-a3cf-7337fb0c4173@app.fastmail.com>
+In-Reply-To: <alpine.DEB.2.21.2511090221080.25436@angie.orcam.me.uk>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+ <b870aa47-5ed4-4dcf-a407-eca83d1733d8@app.fastmail.com>
+ <6452c785-872a-4fe7-90e1-8138d73c6218@app.fastmail.com>
+ <alpine.DEB.2.21.2511090221080.25436@angie.orcam.me.uk>
+Subject: Re: [PATCH v5 00/34] sparc64: vdso: Switch to the generic vDSO library
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_070406_615731_5F0D5174 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20251109_080911_203351_BF20225E 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +146,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Nov 2025 09:20:48 -0600
-David Lechner <dlechner@baylibre.com> wrote:
+On Sun, Nov 9, 2025, at 04:23, Maciej W. Rozycki wrote:
+> On Sat, 8 Nov 2025, Arnd Bergmann wrote:
+>
+>> On other architectures, I see that parisc (always aliasing) has stubbed
+>> out the vdso functions, while mips/loongson has limited the page size
+>> selection to never alias. A few other mips platforms can theoretically
+>> enable both small pages and vdso, but my guess is that in practice
+>> they don't use the vdso (mips32/ath79) or they use 16KB pages
+>> (rm, dec, ip22) based on the defconfig settings.
+>
+>  Umm, I'd have to dive into the details (and I hardly have the resources 
+> at hand), but quite a bunch of MIPS microarchitectures suffer from cache 
+> aliases; some even have VIVT caches.
 
-> On 11/3/25 4:52 AM, Billy Tsai wrote:
-> > This patch adds support for the ADCs found on the Aspeed AST2700 SoC,
-> > which includes two instances: "ast2700-adc0" and "ast2700-adc1". While
-> > they are functionally similar to those on AST2600, the OTP trimming data
-> > is located at the same offset (0x820), but uses different bitfields.
-> > 
-> > Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> > ---  
-> Reviewed-by: David Lechner <dlechner@baylibre.com>
-> 
+I was going with this list:
 
-Series applied.  I'd have preferred a cover letter given more than one patch
-as it both gives a meaningful series name in patchwork and provides a common
-place for replies like this one.
+$ git grep define.cpu_has_dc_aliases arch/mips/
+arch/mips/include/asm/cpu-features.h:#define cpu_has_dc_aliases (cpu_data[0].dcache.flags & MIPS_CACHE_ALIASES)
+arch/mips/include/asm/mach-ath79/cpu-feature-overrides.h:#define cpu_has_dc_aliases     1
+arch/mips/include/asm/mach-au1x00/cpu-feature-overrides.h:#define cpu_has_dc_aliases            0
+arch/mips/include/asm/mach-bcm63xx/cpu-feature-overrides.h:#define cpu_has_dc_aliases           0
+arch/mips/include/asm/mach-cavium-octeon/cpu-feature-overrides.h:#define cpu_has_dc_aliases     0
+arch/mips/include/asm/mach-dec/cpu-feature-overrides.h:#define cpu_has_dc_aliases               0
+arch/mips/include/asm/mach-dec/cpu-feature-overrides.h:#define cpu_has_dc_aliases               (PAGE_SIZE < 0x4000)
+arch/mips/include/asm/mach-ingenic/cpu-feature-overrides.h:#define cpu_has_dc_aliases   0
+arch/mips/include/asm/mach-ip22/cpu-feature-overrides.h:#define cpu_has_dc_aliases      (PAGE_SIZE < 0x4000)
+arch/mips/include/asm/mach-ip27/cpu-feature-overrides.h:#define cpu_has_dc_aliases              0
+arch/mips/include/asm/mach-ip28/cpu-feature-overrides.h:#define cpu_has_dc_aliases      0 /* see probe_pcache() */
+arch/mips/include/asm/mach-ip30/cpu-feature-overrides.h:#define cpu_has_dc_aliases              0
+arch/mips/include/asm/mach-loongson2ef/cpu-feature-overrides.h:#define cpu_has_dc_aliases       (PAGE_SIZE < 0x4000)
+arch/mips/include/asm/mach-loongson64/cpu-feature-overrides.h:#define cpu_has_dc_aliases        (PAGE_SIZE < 0x4000)
+arch/mips/include/asm/mach-malta/cpu-feature-overrides.h:/* #define cpu_has_dc_aliases  ? */
+arch/mips/include/asm/mach-malta/cpu-feature-overrides.h:/* #define cpu_has_dc_aliases  ? */
+arch/mips/include/asm/mach-ralink/mt7621/cpu-feature-overrides.h:#define cpu_has_dc_aliases     0
+arch/mips/include/asm/mach-rm/cpu-feature-overrides.h:#define cpu_has_dc_aliases        (PAGE_SIZE < 0x4000)
+arch/mips/include/asm/mach-sibyte/cpu-feature-overrides.h:#define cpu_has_dc_aliases    0
 
-Thanks,
+which for many platforms seems to come up with a compile-time
+constant value. I hadn't checked the exact conditions for
+the runtime MIPS_CACHE_ALIASES flag, but I see that the kernel
+has a fairly centralized detection function in probe_pcache()
+https://elixir.bootlin.com/linux/v6.17.7/source/arch/mips/mm/c-r4k.c#L1251
 
-Jonathan
+which is used for the 'generic' platform and those that don't set
+a compile-time constant (ath25, bcm47xx, bmips, cobalt, ip32, malta,
+pic32, rc32434 and tx49xx).
+
+> (see the figures at the bottom; uptime quoted for an idea of the rate, 
+> though the system hasn't been heavily loaded).  It is possible with the 
+> aid of S$, which is inclusive and PIPT.
+
+I now found commit 0f02cfbc3d9e ("MIPS: VDSO: Match data page
+cache colouring when D$ aliases"), which probably does everything
+necessary to just make it work reliably on mips, and should
+be portable to sparc as Andy suggested as well.
+
+     Arnd
 
