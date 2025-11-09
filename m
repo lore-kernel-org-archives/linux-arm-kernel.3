@@ -4,111 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C0DCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7591CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ub4HwkWXj0kR29vkzdE7MXJ+PIlZjseX2UvZ7umPC1M=; b=CmYrMHaMnAf+C+kB3GLzIhTgkv
-	PUN1dpXGDdFVDKQ5tvdCsR8T1arVQ9qdNS/Xw4o6HC9JJtwE2JEP36W1KAXTnGTwXiUuKRwqiZ5eC
-	WTEO0HkLhtoCBFSccLhuUn8Ipa8GVtDreMm+ZlGK5DeOoChvaPdkataSwvd6FRpoRcVSB/We8qGEi
-	k37Pu9dTTkcKEMJWtaWBEyeg+rs3YW3xFtqAkHvbLKVPt0s7XwYlAZdTomMnFVV4WyysuN1dVCb0C
-	mdmt+6TIw/OTtp5Bzb2xgQlfUOZspIfJvzkMqLBKPFXELYsJtylFzkvTtjoDDd1HrnwZD5UlYYs+5
-	g5y6hbpQ==;
+	bh=3CU4GWDfqf7B/dHmSi6jT8bWs5J1549k8lMdwIA0fCI=; b=iK6lo9TKdHTSqdSTZuEIDfAHsa
+	as3aUPelD2Afsqmo5upOxMjfYM7EWp85w6S2CX6KRvkp3uqfeXqF5A24AVQw9n4z9y9n88KgudApH
+	r6Vufquy+Ec2UtpQB64kgLckQrqJ0xe1ZnuMHVVzmd9bEYC4qJmRQQ/XbeCereyKH51S24xz7QdyE
+	Cl0KN4qg0JUzoNhwV/H4OVCF3F4JvbWkmlPxtLoJGugGHhcKQHk3um45EYs5LiIHaGJTqsdhFQ7+I
+	TnWOfvYBXYaQ2X/dGJeSxYSTnH9lBAEsGz/UEOcrjNIXfSaIu1+38HqyVTVqHkTPOesujm/k5aivF
+	gc8USP3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIEhl-00000004UUq-2THG;
-	Sun, 09 Nov 2025 23:20:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vIEpI-00000004V1G-20Mp;
+	Sun, 09 Nov 2025 23:28:04 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIEhj-00000004UTv-07R6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 23:20:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762730414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ub4HwkWXj0kR29vkzdE7MXJ+PIlZjseX2UvZ7umPC1M=;
-	b=OAzj/dmepwXVPMUS0Y8e+J0jAZSCotQyoiR9BxnAcJTOP6E6/efFIXZ2F6lrEKlLzRMTyO
-	tkNPtQegL8kvOtOk5n8V92F9KA0AvmxJ+h4hLEVoikiYotsEzYP5hz3cEpbjMzy0v6maQa
-	Y5Y2p6DRyvJaz7mgA5EZO+63l2EcTWI=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-625-QCA-302BNhK1jxE0rQsWtA-1; Sun, 09 Nov 2025 18:20:12 -0500
-X-MC-Unique: QCA-302BNhK1jxE0rQsWtA-1
-X-Mimecast-MFC-AGG-ID: QCA-302BNhK1jxE0rQsWtA_1762730411
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2955f0b8895so30568105ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 15:20:11 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762730411; x=1763335211;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ub4HwkWXj0kR29vkzdE7MXJ+PIlZjseX2UvZ7umPC1M=;
-        b=Tm2VsoA8aIOKLgT2mpJXsMvyJSy5CDr/Ej9SY3ulskWnCDOTojFPlNWevsWEtPhDQ3
-         ZcuCLws8PjL3SJqYL/L+V0KlypppUoKomcxsDfRmDfz6wZ6EXrtaKQ+AoAeLlgAc6X05
-         F33xbHMFoCZOdRMLPpKwe41Gdse1IoxEmKsrbRK6g94xCO4KoaK5GaG8NNCSuQd8Dkif
-         a5DJOvNck3bnDbNRdNbB4FZzMcr2vAApZRYmjyjGNvuJI5OaQlAx7amUqckbMmhtKKv2
-         BEOehERuBS6d4BvbEtAK0gyL+iJc/0VTiRU6IzjYbckgDyCIPan/rFv2VK7LUu+2pgCj
-         d02A==
-X-Forwarded-Encrypted: i=1; AJvYcCVVVIiDm1xwv+GmFfCRn3e+MR3XwBpUvE1zGbU3sHxIQoqPTmRPZUo+v5MTkXopm0uM40x76t1lFXbBS7DuHuvz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw99zxb+heVn24AfRVuaekS3BD+wBgLchViZffLDv8dQ7YMtOIR
-	n4nuLFxQ7FXuGBH4R4A4XQH3QAo8O5WcWMrTwphoDmH0ivxtqAN9LplDfeq5Bv4qTSYeFcw1kPc
-	gxDrojLz+TFesk+32lyGvjSy0t4z1NdHO5M6fdoNY4yU6c2zE4aq2qecoJlAbIr5ZV3girpajO9
-	u1
-X-Gm-Gg: ASbGncuakNVhXr53O5wBp2odxnczyhHp1WqmnQnVtxHp0XsDsSZCcepVSaYHEEE0YKl
-	WBhpDOFyPBf69In/xhb8QYriBjHhU8ePDkaXJbgzMs+4GEG4/CmR6jSQ334vkjde6oO8x7JPfHb
-	1KZ0dnIcOmRB4C0xlGM4ep/eZotJqkXYRhHL8ePKMS7odJLkjI8c+MUFT6K5E31GzuCWeFz9fN3
-	l7hCPCpdiKP7LECJYfguyjl0mc+yo6yXNw3xQFCG7flK7lP/vnIhl8BD0S3PZdwjB/8DyI7TaUC
-	Y57ww4zjJxy/V0BMl5HI0DT2jD+EfcOrbLqJ7GrU+vnJfl+hPHGvhZt6h/qPEjvwWXmD/IOv13b
-	hy/jhnaln2KlQyKDDdtQLqtDw34iA8kYLia0NVoc=
-X-Received: by 2002:a17:902:f707:b0:295:6850:a38d with SMTP id d9443c01a7336-297c95b383emr105100695ad.19.1762730410848;
-        Sun, 09 Nov 2025 15:20:10 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGfT7bPjU7rlLqD1mvfy96eNWnGcGXX4eCviCus1dyeXGa2C8aUiTh1n4HBCdkV+L+6gpZHRA==
-X-Received: by 2002:a17:902:f707:b0:295:6850:a38d with SMTP id d9443c01a7336-297c95b383emr105100275ad.19.1762730410453;
-        Sun, 09 Nov 2025 15:20:10 -0800 (PST)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2965096dbe4sm122937955ad.11.2025.11.09.15.19.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Nov 2025 15:20:09 -0800 (PST)
-Message-ID: <62a6e89b-00da-4901-93b0-255c0b72a16c@redhat.com>
-Date: Mon, 10 Nov 2025 09:19:57 +1000
+	id 1vIEpE-00000004Uzj-3H5x;
+	Sun, 09 Nov 2025 23:28:02 +0000
+X-QQ-mid: zesmtpip3t1762730819tde5730c0
+X-QQ-Originating-IP: /NgVUa1Hm4yKathG8PIGfyt70MVAaoYNOhhfCI6iCDE=
+Received: from [IPV6:240f:10b:7440:1:64e0:6ba: ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 10 Nov 2025 07:26:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12146803779019856956
+Message-ID: <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+Date: Mon, 10 Nov 2025 08:26:56 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-34-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20251107123450.664001-34-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: TOacaZjPbrm9fS4LnC6fjTfic7LL0n0IflmXgTXrUjw_1762730411
-X-Mimecast-Originator: redhat.com
+From: FUKAUMI Naoki <naoki@radxa.com>
+Subject: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Damien Le Moal
+ <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dragan Simic <dsimic@manjaro.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ mani@kernel.org
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
+ <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
 Content-Language: en-US
+In-Reply-To: <aRCI5kG16_1erMME@ryzen>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: Nz/pxMdGViHbyWXcHNbEYZo1XbVmN8eRFvyTYz1ZzkMzNrecsMN3HERM
+	H1V5SRwNVMlPisNI0dYRpIkTMMtEEhcz5RWEhBA+OerTKLvq6i70aUdPK4fjLl71swc90bR
+	MMPqpwscZvYqbCEfPHC5fOZcS6aH2LfKVAK1eUsVz+Y/DSRQy0Oy8MS5B3dSz8D+PHF00Ir
+	mGdOscNAkwJeub18BCxv4hN4ltKbR/JdQ1PeYsOxAQt7xstaK6rgVzbhIjkbC2oRf/iI0bN
+	bs0bz1oDGioEdetsApxTKOEhBKGi7P8jpMpqa+7Rn0SEu1MqloRr9y/f9RSAXNIrFjM+Rhy
+	L32TSTGY+u4NhwLYsZKRtNMrkmEib99MPLUF3UJltcyCh9qrwq0NFYMg/xMsmsSUdIk3O3m
+	9DcFIhFfUvOE5ZdLbr67V2gDDKdpz3HAAklNqpzEc+ohh4IlOicBSZm7kPGFrHy40Am2c71
+	pnQGrtwWoH16rKA8rox0MhFrwHKkXLUvDOTRb+Z9oiagCtIiE2ouqwxMR+d21RhKnxvjBUh
+	Raj1MtJa7ixDFHSreQlo564vijA/6XmR15acCGWGCrhHWgukpK7UN0LUM8bVAhgEpuDxvZN
+	b2LsuHK6RZJXxaf+VFNvtvZvz1aaDKdL7XLuKij5sfFjx3MKdgKjz7lKe91+C0w785tzasV
+	D8HHgu2Iu7OJRYS0pb1IRnApyXC5AdD3yQlcRNBIiqGtF1Y+ygK2mYjbrEDOf4dgsLPa5Oj
+	dmXJ1igIGVmO7urBRhEbIqp/LgzzZBlBG7M+bGT5sA5Iik+NYPwwL7w4aS+ot6Io1cFettp
+	pLc0FcGoED3oM+glELWbf644T9HVgZMljNYSitRmYpIMiRO4t97I/av4yZUAT4ZlEMBFliC
+	pSgUbhk23RlflkxjMOCfWRfBzHKxu9dWMT+52l6gw0e4yxrE65ILq9Qc+g56z9+XBp/1AzN
+	JQ9SDhMq+BFcEcG1t56DUC41wBpKDdurTYuIDfP2Rftt1zWXwYGq7tFuzpDECsed56RCs82
+	H59jX//Un59R4q4b3LiGI09nVjzu/W6hiSvEG0Zk17FLepZc7S
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_152015_151175_DF520ECE 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20251109_152801_383282_01A05876 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,26 +97,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/7/25 10:34 PM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> When features are mismatched between MSC the way features are combined
-> to the class determines whether resctrl can support this SoC.
-> 
-> Add some tests to illustrate the sort of thing that is expected to
-> work, and those that must be removed.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
->   drivers/resctrl/mpam_internal.h     |  14 +-
->   drivers/resctrl/test_mpam_devices.c | 320 ++++++++++++++++++++++++++++
->   2 files changed, 333 insertions(+), 1 deletion(-)
-> 
+(RESEND: fix mani's email address)
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Hi Niklas,
+
+On 11/9/25 21:28, Niklas Cassel wrote:
+> On Sun, Nov 09, 2025 at 01:42:23PM +0900, FUKAUMI Naoki wrote:
+>> Hi Niklas,
+>>
+>> On 11/8/25 22:27, Niklas Cassel wrote:
+>> (snip)> (And btw. please test with the latest 6.18-rc, as, from experience,
+>> the
+>>> ASPM problems in earlier RCs can result in some weird problems that are
+>>> not immediately deduced to be caused by the ASPM enablement.)
+>>
+>> Here is dmesg from v6.18-rc4:
+>>   https://gist.github.com/RadxaNaoki/40e1d049bff4f1d2d4773a5ba0ed9dff
+> 
+> Same problem as before:
+> [    1.732538] pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.732645] pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+> [    1.732651] pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.732661] pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+> [    1.732840] pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.732947] pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+> [    1.732952] pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.732962] pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+> [    1.733134] pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.733246] pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+> [    1.733255] pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.733266] pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+> [    1.733438] pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.733544] pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+> [    1.733550] pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> [    1.733560] pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+> [    1.733571] pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+> [    1.733575] pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+> [    1.733585] pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+> [    1.733596] pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
+> 
+> 
+> Seems like the ASM2806 switch, for some reason, is not ready.
+> 
+> One change that Diederik pointed out is that in the "good" case,
+> the link is always in Gen1 speed.
+> 
+> Perhaps you could build with CONFIG_PCI_QUIRKS=y and try this patch:
+> 
+> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+> index 214ed060ca1b..ac134d95a97f 100644
+> --- a/drivers/pci/quirks.c
+> +++ b/drivers/pci/quirks.c
+> @@ -96,6 +96,7 @@ int pcie_failed_link_retrain(struct pci_dev *dev)
+>   {
+>   	static const struct pci_device_id ids[] = {
+>   		{ PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
+> +		{ PCI_VDEVICE(ASMEDIA, 0x2806) }, /* ASMedia ASM2806 */
+>   		{}
+>   	};
+>   	u16 lnksta, lnkctl2;
+
+It doesn't help with either probing behind the bridge or the link speed.
+
+> If that does not work, perhaps you could try this patch
+> (assuming that all Rock 5C:s have a ASM2806 on pcie2x1l2):
+
+ROCK 5C has a PCIe FPC connector and I'm using Dual 2.5G Router HAT.
+  https://radxa.com/products/rock5/5c#techspec
+  https://radxa.com/products/accessories/dual-2-5g-router-hat
+
+Regarding the link speed, I initially suspected the FPC connector and/or 
+cable might be the issue. However, I tried the Dual 2.5G Router HAT with 
+the ROCK 5A (which uses a different cable), and I got the same result.
+
+BTW, the link speed varies between 2Gb/s and 4Gb/s depending on the 
+reboot. (with or without quirk)
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> index dd7317bab613..26f8539d934a 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+> @@ -452,6 +452,7 @@ &pcie2x1l2 {
+>   	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
+>   	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+>   	vpcie3v3-supply = <&pcie2x1l2_3v3>;
+> +	max-link-speed = <1>;
+>   	status = "okay";
+>   };
+> 
+> 
+> 
+> Kind regards,
+> Niklas
+> 
 
 
