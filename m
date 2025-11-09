@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67BFCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74332CD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDs8kbwCuzv3Qb5BmYXwYP5JldsXD1hYrMKIH0qG1uI=; b=bJyFzTRXrK4yRojQvlHarzR/f/
-	qniC39UT1OvKNgYIwsiEZHmo8H0Ukj6fMEdkEhYxtuLrpLaUXET4uztmvcEY6WPz78E9tIHxkso21
-	QSY/lOoinFAtvdaZ5Yl60TLle9apWrGH5h7eDrkgWCBSOyXGjr2HifAm3+881dX7LK33Z+v6iwLBD
-	p8oPUPlXgHpTsshkkSdeBZqZwW9Z6OmsOjEB19SMI92pRf6dTWXL2dYovKZLz2E7RVmHX1hxfRN3a
-	Kh1Lts/3l16dGgl9BZVWx3xId1mprT+8kwtYac4oNseM3Nbtm8y0x8uSyvS1aJ0NQAT60JhcfY0/q
-	6cW3KdSg==;
+	bh=8+c2slFEzvpnuvBcD3m7Q9rIW5GkW6bzoQAArBwQCS8=; b=ht1K7sKbGD/nk2cEadZPDymHGn
+	LttY3SfH+7lKhp2u8NSlriq1F7xF8wrzkXCRpHAx5U9VHImEmIqw8UXHVV8ETAsVMbDfrE8S9o6zY
+	BshBOgxm4wqrQbsu5UIR2PnCu6UwZsPZryG8cfpYEdMd8qqoRc1lHi+mXZyD5uGxGzn3v7qpCEOR+
+	wQpvS8y86UyG9UxZ1hAvLGEyf5Z5aDwkq0gwMx63vLCiQdT8b+r2ccqKYabw8QFKc8f6xmVamrc7v
+	ru8PbFGMEYlTKiKbRGGEnyv/LXOvyoLvOZjBnWRGTyJ+intCN5GBa0ijlYLsSBuBGRYLd/FvX+aRQ
+	e+KBQNOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8rs-00000004BFl-37R8;
-	Sun, 09 Nov 2025 17:06:20 +0000
-Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
+	id 1vI8rn-00000004BBO-1YUW;
+	Sun, 09 Nov 2025 17:06:15 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8rq-00000004B97-2fVG
+	id 1vI8rh-00000004B9F-1mLi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:06:19 +0000
+	Sun, 09 Nov 2025 17:06:14 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1762707964;
+	s=key1; t=1762707965;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=aDs8kbwCuzv3Qb5BmYXwYP5JldsXD1hYrMKIH0qG1uI=;
-	b=UcpRSje6/RzpyOYo4IZVlmL2TUgeeFWnCvceLyMfVeHIEb4eBlwaR4CcWlVCWGoU5zu5AP
-	lWuWl/4+f8LkTxjsEXbKksxigl1NBB4uwVnjcrkbqn+RTZLiBdOxrk6lrzauFKc4UizPWV
-	FjTkOq0ruslJRee4zAL2oZIqjFYKEN4IKoL0O9GtL6mUvilEMEorHZ7siId2w1rf54CRA2
-	6zlFDjEDDuiNaqi9gaw5YaZRZis4jswAhpo7lK6PnLAw/RYNhPJ+KfkuiIvEMtACcPrGRE
-	ajwH+X7r3SPagdcLBbucKChCCcUjslodsqliwqcqD07DCVAwVF1A3sf0p+wjEQ==
+	bh=8+c2slFEzvpnuvBcD3m7Q9rIW5GkW6bzoQAArBwQCS8=;
+	b=mbp3x7HNQaUSE3tE8uuKBbakcDwLBufkUi3KvKZ96eOfRvOEvr1SMAq/aw+GpWfufFKohC
+	tnBVGD74pj3pgNji84zBhj5FgdFbSS20wUjFA++wdW9Ch/PRG/6YGQa2FLB0OjhDA6T3EF
+	jWDdAIh5076hTOJvyvoUOF8nqiP48m7TgN6jJslczwnSpzaEKynsj0Oegg+tN51CQRnRhV
+	iSrlnA8RrP08AHrq82oLIVjULKBAvykaeJJ+sTgUjyKdd9HfLA1X6sQ1a7riFeLZSyzn9Z
+	fQ/ppQp6PGIZUuBXXeHrckP483ZxmhSd7GYOXExVdF1TVLYpLG3OGEgAuvI2NA==
 From: Diederik de Haas <diederik@cknow-tech.com>
-Date: Sun, 09 Nov 2025 18:05:26 +0100
-Subject: [PATCH 1/2] arm64: dts: rockchip: Simplify usb-c-connector port on
+Date: Sun, 09 Nov 2025 18:05:27 +0100
+Subject: [PATCH 2/2] arm64: dts: rockchip: Move otg-port to controller on
  rk3566-pinenote
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-1-ed38d200cc04@cknow-tech.com>
+Message-Id: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-2-ed38d200cc04@cknow-tech.com>
 References: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
 In-Reply-To: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -56,11 +56,12 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>, 
  Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Diederik de Haas <diederik@cknow-tech.com>
+ linux-kernel@vger.kernel.org, Diederik de Haas <diederik@cknow-tech.com>, 
+ stable@vger.kernel.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_090618_831555_1256FF82 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251109_090609_614654_22086B04 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +76,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The USB-C connector on the PineNote has only 1 port, so there's no need
-for a 'ports' node with address-/size-cells properties as a single
-'port' node suffices.
+The 'rockchip,inno-usb2phy' binding's otg-port node does not have a port
+node, so the current definition causes this DT validation issue:
 
-This fixes the following DT validation issue:
+  usb2phy@fe8a0000 (rockchip,rk3568-usb2phy): otg-port:
+    'port' does not match any of the regexes: '^pinctrl-[0-9]+$'
 
-  Warning (graph_child_address): /i2c@fe5c0000/tcpc@60/connector/ports:
-    graph node has single child node 'port@0',
-    #address-cells/#size-cells are not necessary
+Its purpose was to define the other endpoint for the USB-C connector
+port. The 'snps,dwc3-common.yaml' DT binding does have a port node to
+connect the dwc3 to type C connector with the 'usb-role-switch'
+property. Therefore move the port node to the dwc3 node and add the
+'usb-role-switch' property to it.
+This fixes the above mention DT validation issue.
 
+The incorrect definition also caused these kernel errors:
+
+  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier port0 for /usb2phy@fe8a0000/otg-port
+  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier 3-0060 for /usb2phy@fe8a0000/otg-port
+
+With the changed definition, those errors are now also gone.
+
+While at it, remove the 'dr_mode' property as that's already defined in
+rk356x-base.dtsi and there's no point in redefining it.
+
+Fixes: 87a267b4af09 ("arm64: dts: rockchip: Add USB and TCPC to rk3566-pinenote")
+Cc: stable@vger.kernel.org
 Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
-index 5c6f8cc401c9..7c65fe4900be 100644
+index 7c65fe4900be..be8076a8e30c 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
-@@ -485,16 +485,9 @@ connector {
- 			typec-power-opmode = "default";
- 			pd-disable;
+@@ -694,8 +694,14 @@ &uart2 {
+ };
  
--			ports {
--				#address-cells = <0x1>;
--				#size-cells = <0x0>;
+ &usb_host0_xhci {
+-	dr_mode = "otg";
++	usb-role-switch;
+ 	status = "okay";
++
++	port {
++		usb2phy0_typec_hs: endpoint {
++			remote-endpoint = <&typec_hs_usb2phy0>;
++		};
++	};
+ };
+ 
+ &usb2phy0 {
+@@ -704,10 +710,4 @@ &usb2phy0 {
+ 
+ &usb2phy0_otg {
+ 	status = "okay";
 -
--				port@0 {
--					reg = <0x0>;
--
--					typec_hs_usb2phy0: endpoint {
--						remote-endpoint = <&usb2phy0_typec_hs>;
--					};
-+			port {
-+				typec_hs_usb2phy0: endpoint {
-+					remote-endpoint = <&usb2phy0_typec_hs>;
- 				};
- 			};
- 		};
+-	port {
+-		usb2phy0_typec_hs: endpoint {
+-			remote-endpoint = <&typec_hs_usb2phy0>;
+-		};
+-	};
+ };
 
 -- 
 2.51.0
