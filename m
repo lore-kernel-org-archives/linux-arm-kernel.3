@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74332CD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5F0CD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+c2slFEzvpnuvBcD3m7Q9rIW5GkW6bzoQAArBwQCS8=; b=ht1K7sKbGD/nk2cEadZPDymHGn
-	LttY3SfH+7lKhp2u8NSlriq1F7xF8wrzkXCRpHAx5U9VHImEmIqw8UXHVV8ETAsVMbDfrE8S9o6zY
-	BshBOgxm4wqrQbsu5UIR2PnCu6UwZsPZryG8cfpYEdMd8qqoRc1lHi+mXZyD5uGxGzn3v7qpCEOR+
-	wQpvS8y86UyG9UxZ1hAvLGEyf5Z5aDwkq0gwMx63vLCiQdT8b+r2ccqKYabw8QFKc8f6xmVamrc7v
-	ru8PbFGMEYlTKiKbRGGEnyv/LXOvyoLvOZjBnWRGTyJ+intCN5GBa0ijlYLsSBuBGRYLd/FvX+aRQ
-	e+KBQNOg==;
+	bh=kmX4lyPBoT875wjHWdcqUov5fV8rK+s5knvWif8YRXo=; b=eLslQZnjEaYyFXkzevfq0Teo9i
+	6We+KIg/KyLBWowdlZSn0O2q3Y0d38YiodMCwxRxRFK8dREDbtuiObVA/wn1DyiigQzRoQHK2ZZxP
+	Gh6zhq/qNIj0VC8E/GSr1f8xsbsN/E1hyre3k9E1H95Z5vFQcbx337t8k3HBHnYd8x142uMq0DRT6
+	TTuSXDR350dTgaIGJLcivXjj7Utph/n7XF29bNNHYEfe7jk6ii7dIFnXXOT5H75Wfeot7dMffVCdc
+	0BcdbBjQhEvcocFX/Tm1iaEnzbOm3cVMVa6o8CedN7gHPfEs0dFWvP5taR+8s6CTe5hIoyDPeTC4+
+	zsIHMN1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8rn-00000004BBO-1YUW;
-	Sun, 09 Nov 2025 17:06:15 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1vI91n-00000004CEv-3FKj;
+	Sun, 09 Nov 2025 17:16:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8rh-00000004B9F-1mLi
+	id 1vI91j-00000004C90-2fQs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:06:14 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1762707965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8+c2slFEzvpnuvBcD3m7Q9rIW5GkW6bzoQAArBwQCS8=;
-	b=mbp3x7HNQaUSE3tE8uuKBbakcDwLBufkUi3KvKZ96eOfRvOEvr1SMAq/aw+GpWfufFKohC
-	tnBVGD74pj3pgNji84zBhj5FgdFbSS20wUjFA++wdW9Ch/PRG/6YGQa2FLB0OjhDA6T3EF
-	jWDdAIh5076hTOJvyvoUOF8nqiP48m7TgN6jJslczwnSpzaEKynsj0Oegg+tN51CQRnRhV
-	iSrlnA8RrP08AHrq82oLIVjULKBAvykaeJJ+sTgUjyKdd9HfLA1X6sQ1a7riFeLZSyzn9Z
-	fQ/ppQp6PGIZUuBXXeHrckP483ZxmhSd7GYOXExVdF1TVLYpLG3OGEgAuvI2NA==
-From: Diederik de Haas <diederik@cknow-tech.com>
-Date: Sun, 09 Nov 2025 18:05:27 +0100
-Subject: [PATCH 2/2] arm64: dts: rockchip: Move otg-port to controller on
- rk3566-pinenote
+	Sun, 09 Nov 2025 17:16:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4DDCC417CD;
+	Sun,  9 Nov 2025 17:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291ADC19421;
+	Sun,  9 Nov 2025 17:16:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762708590;
+	bh=/GSt2XVw5TKgrkgRLW7hTqPErYsbM430CGm8iWI4aZ8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dKKwGzh+C2ajzJvllUjpYtaJhqfIjPu5DJ7a5+9rRSVxbOHAWCAeR/yde88eCQQd2
+	 L5qTo/Uu6/Y2Nk1iHGOgjrijMpmW+vnX3/NsZQJqP8JfHuC1YiE+5mUE4oVnw8hBk5
+	 u4Tcg4nQuLaei+qeCC8A8LUJyjqax0Yc7hPLTYtGDT1kcKB4PYPatFbi065zqffjlr
+	 FgfpeOUWPGKtSaP7eFoPwVbzvSqjj3BwNlEpo55zcVnEx66MKVAuxKdSEO6V1eY+so
+	 DIyk/TmYLCaVi5EQJSfLxGVKrzB7QhHSt42r1XqFFDKQnaOMRnaXMEz2sMh52wxpIF
+	 kBIcuNZVuerNg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vI91g-00000003exw-0Ipf;
+	Sun, 09 Nov 2025 17:16:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: [PATCH v2 01/45] irqchip/gic: Add missing GICH_HCR control bits
+Date: Sun,  9 Nov 2025 17:15:35 +0000
+Message-ID: <20251109171619.1507205-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
+References: <20251109171619.1507205-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-2-ed38d200cc04@cknow-tech.com>
-References: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
-In-Reply-To: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Samuel Holland <samuel@sholland.org>
-Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>, 
- Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Diederik de Haas <diederik@cknow-tech.com>, 
- stable@vger.kernel.org
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_090609_614654_22086B04 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20251109_091631_689335_A6E70D50 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +89,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'rockchip,inno-usb2phy' binding's otg-port node does not have a port
-node, so the current definition causes this DT validation issue:
+The GICH_HCR description is missing a bunch of additional control
+bits for the maintenance interrupt. Add them.
 
-  usb2phy@fe8a0000 (rockchip,rk3568-usb2phy): otg-port:
-    'port' does not match any of the regexes: '^pinctrl-[0-9]+$'
-
-Its purpose was to define the other endpoint for the USB-C connector
-port. The 'snps,dwc3-common.yaml' DT binding does have a port node to
-connect the dwc3 to type C connector with the 'usb-role-switch'
-property. Therefore move the port node to the dwc3 node and add the
-'usb-role-switch' property to it.
-This fixes the above mention DT validation issue.
-
-The incorrect definition also caused these kernel errors:
-
-  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier port0 for /usb2phy@fe8a0000/otg-port
-  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier 3-0060 for /usb2phy@fe8a0000/otg-port
-
-With the changed definition, those errors are now also gone.
-
-While at it, remove the 'dr_mode' property as that's already defined in
-rk356x-base.dtsi and there's no point in redefining it.
-
-Fixes: 87a267b4af09 ("arm64: dts: rockchip: Add USB and TCPC to rk3566-pinenote")
-Cc: stable@vger.kernel.org
-Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ include/linux/irqchip/arm-gic.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
-index 7c65fe4900be..be8076a8e30c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
-@@ -694,8 +694,14 @@ &uart2 {
- };
+diff --git a/include/linux/irqchip/arm-gic.h b/include/linux/irqchip/arm-gic.h
+index 2223f95079ce8..d45fa19f9e470 100644
+--- a/include/linux/irqchip/arm-gic.h
++++ b/include/linux/irqchip/arm-gic.h
+@@ -86,7 +86,13 @@
  
- &usb_host0_xhci {
--	dr_mode = "otg";
-+	usb-role-switch;
- 	status = "okay";
-+
-+	port {
-+		usb2phy0_typec_hs: endpoint {
-+			remote-endpoint = <&typec_hs_usb2phy0>;
-+		};
-+	};
- };
+ #define GICH_HCR_EN			(1 << 0)
+ #define GICH_HCR_UIE			(1 << 1)
++#define GICH_HCR_LRENPIE		(1 << 2)
+ #define GICH_HCR_NPIE			(1 << 3)
++#define GICH_HCR_VGrp0EIE		(1 << 4)
++#define GICH_HCR_VGrp0DIE		(1 << 5)
++#define GICH_HCR_VGrp1EIE		(1 << 6)
++#define GICH_HCR_VGrp1DIE		(1 << 7)
++#define GICH_HCR_EOICOUNT		GENMASK(31, 27)
  
- &usb2phy0 {
-@@ -704,10 +710,4 @@ &usb2phy0 {
- 
- &usb2phy0_otg {
- 	status = "okay";
--
--	port {
--		usb2phy0_typec_hs: endpoint {
--			remote-endpoint = <&typec_hs_usb2phy0>;
--		};
--	};
- };
-
+ #define GICH_LR_VIRTUALID		(0x3ff << 0)
+ #define GICH_LR_PHYSID_CPUID_SHIFT	(10)
 -- 
-2.51.0
+2.47.3
 
 
