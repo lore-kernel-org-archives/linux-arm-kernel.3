@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0EFCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61557CD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hh86UeVMueRcWQeldfInXJVdKS+j6kYtfcMzlks01qw=; b=VgDTD+g02qc5Q2LYsWeFIKg1C6
-	fHYVsfIBTIpz2zdvNkIrMzJ6dUiGIBRr9uNhl7UcqRIsP4NuMyBic9Jf91e0obphZaThte6da+A4i
-	eEwyeGvHnc/dLF8ZFda4j8W2pl5SBFOhgGenR2YRkG09jHYT0hFiX3wrEqJfEpsNo7SsYaoOgjBh9
-	zkzJ7w2URp+SPqtIgrsYiCiU0kgMTfAzMkBCJZCx4qfiD67WfR+xGrxISGLGv4o+iLbQsOdf6sxob
-	yMcx+u0/JrlqVi5NgH7HTfAuS8NYxuFONJyR78mtu81angx4HwLdow30T6K6TlvP4ri6E8w+plToc
-	v4tMC83Q==;
+	bh=/d3THQ3jAm9SNZMJDIRW8zIWB4cNCC2yz9o6K3Dp4Bk=; b=BjBWSjwkDxFl4ydZlYTXd1zDLG
+	hgCTWYoiTQsVoYwvVyo5PTaEHTC46c+feY5PJnjhHoQBF6iOkGNz1VvBlW82TRs2atmYeZe3dd7HF
+	YQUvezKLvK/u62yFO58zh92dlOGbewBFQlYsPjpdje1LuMbTjlxbE2HfSjwH1LCa9fM0os2hetoic
+	ufi8MaAQdLGLhnw9abNAemb+O+RBnHnTGJI0lXl5No7ScJJnUDpTVb8gVNE72k13YZgS2sYBJmBXo
+	AHlRvn7+sUg3n0vcSV4iISX9KIYwfSx8eaU6jinHpDOZqjgrUjpwiuMx2t0GazMn+ybIsVD/24Xly
+	cYW3N6Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI92T-00000004D0X-1MXF;
-	Sun, 09 Nov 2025 17:17:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vI92T-00000004D1f-42fD;
+	Sun, 09 Nov 2025 17:17:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91m-00000004CCM-2g5N
+	id 1vI91n-00000004CD2-0OUN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:38 +0000
+	Sun, 09 Nov 2025 17:16:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57B45415F9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 888B043DF0;
 	Sun,  9 Nov 2025 17:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27163C2BCB0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60BD5C19423;
 	Sun,  9 Nov 2025 17:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1762708594;
-	bh=nnN7zXEZgM6iLHEpVyZS7JUZdXH2ZuFwOkTQRHKZExY=;
+	bh=x/Kv22seDjzJRX62LIi+YQtCScX6F4cGrOiY1Bs4FbM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dYVj6gbZq3cxRkjbSLzDKd+GT2InzlXlRGjIrzbDYdyKfiXIxTBJzXlDeyA8WsKom
-	 DWIPIhwDVPpyOKKXcOipc+8Kmwfm1ODpD7FMyRT57M8idFah0SWq5OP26xG3a/QKn1
-	 +t+LKW34TNWJOuMWh5airZ/SDmREZs58mxKTHa3nuDR9yZVekodX05VQO9XdDmVoH5
-	 WDPepeddR/FrDYnWXFGosxG2a1r8TjltFofxuzE5X/8l/QvYaxUDAlesJ2Out+xMHs
-	 bSpAAJ+9WSdyQOtkKzvrOlZRwPw8DbXsecx0Cre2LCwtpPtUcQl8q5e2h3jO1QYsQW
-	 hg8aUNMejncaw==
+	b=RTO0tbLvPv7QaGNIIV9ngn4g371kjdLGS3E57IUDZVeIYqPnWTaamzoGo1K+Cxu8Y
+	 UQCwBdXe5Ae85g3ZVcLsSueLKlmEzq3AJfu/YFCt8LLpjD/oVkD19GP6jx13l+f6+z
+	 pT+Nr+kwghR7EtWOKvAjpKS/mQbjUJhrmozvlAuNfPMjXPqOYfQ/35v8uwTT3sclHU
+	 cYaPFMPKltoFX9lVkr4V9bvSFkbTrfN9Cm2AtQk5H2nwW8eR9Ghl3ORLWlOCwZY/zm
+	 biI34bBGgbgUKXbWdUw1B06tGBANUtPhsDrwNh9BOmydvUG00+osfuiR34czdp7zKY
+	 0uT51lWs9e1Mg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91k-00000003exw-0VJb;
+	id 1vI91k-00000003exw-1XaK;
 	Sun, 09 Nov 2025 17:16:32 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 16/45] KVM: arm64: GICv2: Extract LR folding primitive
-Date: Sun,  9 Nov 2025 17:15:50 +0000
-Message-ID: <20251109171619.1507205-17-maz@kernel.org>
+Subject: [PATCH v2 17/45] KVM: arm64: GICv2: Extract LR computing primitive
+Date: Sun,  9 Nov 2025 17:15:51 +0000
+Message-ID: <20251109171619.1507205-18-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
 References: <20251109171619.1507205-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091634_739574_482AB5DE 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20251109_091635_266094_E24D3AE4 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,108 +88,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we are going to need to handle deactivation for interrupts that
-are not in the LRs, split vgic_v2_fold_lr_state() into a helper
-that deals with a single interrupt, and the function that loops
-over the used LRs.
+Split vgic_v2_populate_lr() into two helpers, so that we have another
+primitive that computes the LR from a vgic_irq, but doesn't update
+anything in the shadow structure.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v2.c | 67 +++++++++++++++++------------------
- 1 file changed, 32 insertions(+), 35 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v2.c | 61 ++++++++++++++++++++++-------------
+ 1 file changed, 39 insertions(+), 22 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index a0d803c5b08ae..fb8efdd4196b1 100644
+index fb8efdd4196b1..5a2165a8d22c0 100644
 --- a/arch/arm64/kvm/vgic/vgic-v2.c
 +++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -39,43 +39,23 @@ static bool lr_signals_eoi_mi(u32 lr_val)
- 	       !(lr_val & GICH_LR_HW);
- }
- 
--/*
-- * transfer the content of the LRs back into the corresponding ap_list:
-- * - active bit is transferred as is
-- * - pending bit is
-- *   - transferred as is in case of edge sensitive IRQs
-- *   - set to the line-level (resample time) for level sensitive IRQs
-- */
--void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
-+static void vgic_v2_fold_lr(struct kvm_vcpu *vcpu, u32 val)
- {
--	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
--	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
--	int lr;
--
--	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
--
--	cpuif->vgic_hcr &= ~GICH_HCR_UIE;
-+	u32 cpuid, intid = val & GICH_LR_VIRTUALID;
-+	struct vgic_irq *irq;
-+	bool deactivated;
- 
--	for (lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++) {
--		u32 val = cpuif->vgic_lr[lr];
--		u32 cpuid, intid = val & GICH_LR_VIRTUALID;
--		struct vgic_irq *irq;
--		bool deactivated;
-+	/* Extract the source vCPU id from the LR */
-+	cpuid = FIELD_GET(GICH_LR_PHYSID_CPUID, val) & 7;
- 
--		/* Extract the source vCPU id from the LR */
--		cpuid = val & GICH_LR_PHYSID_CPUID;
--		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
--		cpuid &= 7;
-+	/* Notify fds when the guest EOI'ed a level-triggered SPI */
-+	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-+		kvm_notify_acked_irq(vcpu->kvm, 0,
-+				     intid - VGIC_NR_PRIVATE_IRQS);
- 
--		/* Notify fds when the guest EOI'ed a level-triggered SPI */
--		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
--			kvm_notify_acked_irq(vcpu->kvm, 0,
--					     intid - VGIC_NR_PRIVATE_IRQS);
--
--		irq = vgic_get_vcpu_irq(vcpu, intid);
--
--		raw_spin_lock(&irq->irq_lock);
-+	irq = vgic_get_vcpu_irq(vcpu, intid);
- 
-+	scoped_guard(raw_spinlock, &irq->irq_lock) {
- 		/* Always preserve the active bit, note deactivation */
- 		deactivated = irq->active && !(val & GICH_LR_ACTIVE_BIT);
- 		irq->active = !!(val & GICH_LR_ACTIVE_BIT);
-@@ -102,11 +82,28 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 		vgic_irq_handle_resampling(irq, deactivated, val & GICH_LR_PENDING_BIT);
- 
- 		irq->on_lr = false;
--
--		raw_spin_unlock(&irq->irq_lock);
--		vgic_put_irq(vcpu->kvm, irq);
- 	}
- 
-+	vgic_put_irq(vcpu->kvm, irq);
-+}
-+
-+/*
-+ * transfer the content of the LRs back into the corresponding ap_list:
-+ * - active bit is transferred as is
-+ * - pending bit is
-+ *   - transferred as is in case of edge sensitive IRQs
-+ *   - set to the line-level (resample time) for level sensitive IRQs
-+ */
-+void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-+	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
-+
-+	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
-+
-+	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
-+		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
-+
+@@ -107,18 +107,7 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
  	cpuif->used_lrs = 0;
  }
  
+-/*
+- * Populates the particular LR with the state of a given IRQ:
+- * - for an edge sensitive IRQ the pending state is cleared in struct vgic_irq
+- * - for a level sensitive IRQ the pending state value is unchanged;
+- *   it is dictated directly by the input level
+- *
+- * If @irq describes an SGI with multiple sources, we choose the
+- * lowest-numbered source VCPU and clear that bit in the source bitmap.
+- *
+- * The irq_lock must be held by the caller.
+- */
+-void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
++static u32 vgic_v2_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
+ {
+ 	u32 val = irq->intid;
+ 	bool allow_pending = true;
+@@ -164,22 +153,52 @@ void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
+ 	if (allow_pending && irq_is_pending(irq)) {
+ 		val |= GICH_LR_PENDING_BIT;
+ 
+-		if (irq->config == VGIC_CONFIG_EDGE)
+-			irq->pending_latch = false;
+-
+ 		if (vgic_irq_is_sgi(irq->intid)) {
+ 			u32 src = ffs(irq->source);
+ 
+ 			if (WARN_RATELIMIT(!src, "No SGI source for INTID %d\n",
+ 					   irq->intid))
+-				return;
++				return 0;
+ 
+ 			val |= (src - 1) << GICH_LR_PHYSID_CPUID_SHIFT;
+-			irq->source &= ~(1 << (src - 1));
+-			if (irq->source) {
+-				irq->pending_latch = true;
++			if (irq->source & ~BIT(src - 1))
+ 				val |= GICH_LR_EOI;
+-			}
++		}
++	}
++
++	/* The GICv2 LR only holds five bits of priority. */
++	val |= (irq->priority >> 3) << GICH_LR_PRIORITY_SHIFT;
++
++	return val;
++}
++
++/*
++ * Populates the particular LR with the state of a given IRQ:
++ * - for an edge sensitive IRQ the pending state is cleared in struct vgic_irq
++ * - for a level sensitive IRQ the pending state value is unchanged;
++ *   it is dictated directly by the input level
++ *
++ * If @irq describes an SGI with multiple sources, we choose the
++ * lowest-numbered source VCPU and clear that bit in the source bitmap.
++ *
++ * The irq_lock must be held by the caller.
++ */
++void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
++{
++	u32 val = vgic_v2_compute_lr(vcpu, irq);
++
++	vcpu->arch.vgic_cpu.vgic_v2.vgic_lr[lr] = val;
++
++	if (val & GICH_LR_PENDING_BIT) {
++		if (irq->config == VGIC_CONFIG_EDGE)
++			irq->pending_latch = false;
++
++		if (vgic_irq_is_sgi(irq->intid)) {
++			u32 src = ffs(irq->source);
++
++			irq->source &= ~BIT(src - 1);
++			if (irq->source)
++				irq->pending_latch = true;
+ 		}
+ 	}
+ 
+@@ -196,8 +215,6 @@ void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
+ 	val |= (irq->priority >> 3) << GICH_LR_PRIORITY_SHIFT;
+ 
+ 	irq->on_lr = true;
+-
+-	vcpu->arch.vgic_cpu.vgic_v2.vgic_lr[lr] = val;
+ }
+ 
+ void vgic_v2_clear_lr(struct kvm_vcpu *vcpu, int lr)
 -- 
 2.47.3
 
