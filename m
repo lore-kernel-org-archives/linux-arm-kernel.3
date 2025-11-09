@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B7BBCD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A348ACCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKbxrb3yOkJ/tGn9RCKR1HhtVX7bJLoeZ2kuONOb2rM=; b=g2AgQkUhxJeQwk8eIB+Jbz6Wyt
-	SEtytfS2wUBRu6Jk66mGU/5znh3dtufFlmYL0KdUw8wGzmlHLZoyYnwkaII6BvB7JqopLUom7vSZ5
-	GvoIgBGjBDzNr1hf2tcjNjGHgr3RwOLmhPcTKvG6M7Iqn1SB5hcDlHIh8OCGlNUw6UDFsX8fIQQNV
-	kzvZ31vssjpFu2r7ot1m/9Z1yGxOZUlHKqWGxWZqCDz5X50xZKrMl3X5pAZ6oBU4DJT8neF/nbNuA
-	Uo12MPMwHJAVZSX6wlUaJG3woKwlzSkxNnnzZTp56SfLnSQNP1hlyAqiydgQzUIy4AJF3/SCo0JB6
-	WZ6uqK5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ge5/bHgLrWdI1igXKXsfuN228hZbyVzznmmpCnqu1bI=; b=YlHiGbc0owIV/KV/A6s42+2Ysp
+	NYsi2nB+iuQpfqhgR9fhu7KQTdl4KCAY8gAtG8VpAliMPNRsB+Hn8HibVOT59ojJLwE+RoqpxgehC
+	FDffDD5AoESpwoH8bnpOXo56qtaMNm7wpf6OqbtQ2hvxzY9lN8jY40rZvbSC7Qhk0RCAW8Q3Otg1g
+	k3EccCfzwEeVgIS8qFjwdIJRTq0ROHqZiylEuexpFc+ItTf8GBenocnoQOffaSrhwVJFA6mMdc3i8
+	S78pwD91ZiyCDMNlhf1h3fDhNmgp27LzYvL1SYoskyqinEaVZMGUrsFQQkSelm+BA89haIbQseyrr
+	7bax6RGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91n-00000004CDT-0G3y;
-	Sun, 09 Nov 2025 17:16:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vI91k-00000004CAI-3UIu;
+	Sun, 09 Nov 2025 17:16:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91k-00000004CAH-3tiZ
+	id 1vI91j-00000004C92-1zN1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:33 +0000
+	Sun, 09 Nov 2025 17:16:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56F01600AA;
-	Sun,  9 Nov 2025 17:16:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 023E0C4CEF8;
-	Sun,  9 Nov 2025 17:16:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8091F60007;
+	Sun,  9 Nov 2025 17:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D55C4CEF7;
+	Sun,  9 Nov 2025 17:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708592;
-	bh=WThSsHFOHDds/2rdWEDCjAsmDGlKwebpZPD2tTNfRzY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SpVDr7esVZ7KQnjJqw5Gbgil3XJVge1Ev1Ra2VfdO339txo7zoXWwxyzMGzkAy2FA
-	 M36h7hRyE/if5VKOiTJiheQg7vpKRZ3hMfRzYsmeFrCMzVELwuAjPkIGc9hIMnmYRz
-	 XI62kZxvZSSc40h3+2/3LzyC3A820gbQqGTCZh2Ht1rD+kkuzMS7R17q4i6ULE/A0t
-	 7RMg3kngARGFfKiEv1ZqPlMf+86hI6OHFPpbcgTeg5w4FgXXw3xAB74XW2LSpxiBH0
-	 TvLdRNuxUBPt5of9f4XvFKoT6KTSCG1+lvJjDAD5dfxflxLIOF3GP/pJeYUSniiZzM
-	 ck4gfykAHKSGQ==
+	s=k20201202; t=1762708590;
+	bh=LU5ZFdx4EUgvb0p/xCvsj9L4R5ggGs+NLiMz5m9HfUc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sFhLtFYG3Z+0+DBLaN0LKpKwk6ur3WVl9zuRVWr+46ey1p8gnSk5u84BNs3sDaDIE
+	 xdxfHpDB6jXpaFnestxrxmSbo2SH6uT0tb39tuZ/bqdinwzFXQezUHtMcnkuIBrsJG
+	 sBRNdRp8+1bfyr/uS5NkAICDk/7HrUhatH/4LUS791pDgy4X5N6+vSELUJOt3xqHLL
+	 ppFpYzfLxGH7bM7u9xwpxv/FENRGsy5LoTRk5f8tVl54DyXNYGZvdWaYdaZapLZnqH
+	 7KY/1aX8n3+lfVefc4tTGgb73zfXyfq+x76oXQoA6LQ1Lt0y6neYjIRroarqRGNKbZ
+	 E7RqSzBrRLYSA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91h-00000003exw-3eeZ;
-	Sun, 09 Nov 2025 17:16:30 +0000
+	id 1vI91f-00000003exw-3VIj;
+	Sun, 09 Nov 2025 17:16:27 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,12 +59,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 08/45] KVM: arm64: Add LR overflow handling documentation
-Date: Sun,  9 Nov 2025 17:15:42 +0000
-Message-ID: <20251109171619.1507205-9-maz@kernel.org>
+Subject: [PATCH v2 00/45] KVM: arm64: Add LR overflow infrastructure
+Date: Sun,  9 Nov 2025 17:15:34 +0000
+Message-ID: <20251109171619.1507205-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
-References: <20251109171619.1507205-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -85,107 +83,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a bit of documentation describing how we are dealing with LR
-overflow. This is mostly a braindump of how things are expected
-to work. For now anyway.
+This is the 2nd version of the series originally posted at [1]. The
+series has significantly evolved with a bunch of bug fixes, some
+additional optimisations, and a number of test cases.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/vgic/vgic.c | 81 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 80 insertions(+), 1 deletion(-)
+This has now been extensively tested on much of what I have access to,
+specially on some of the most broken stuff (Apple, Qualcomm, Cavium,
+ARMv8.0 CPUs without TDIR), but also on some less shitty systems
+(which are the minority, unsurprisingly).
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 6dd5a10081e27..8d7f6803e601b 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -825,7 +825,86 @@ static int compute_ap_list_depth(struct kvm_vcpu *vcpu,
- 	return count;
- }
- 
--/* Requires the VCPU's ap_list_lock to be held. */
-+/*
-+ * Dealing with LR overflow is close to black magic -- dress accordingly.
-+ *
-+ * We have to present an almost infinite number of interrupts through a very
-+ * limited number of registers. Therefore crucial decisions must be made to
-+ * ensure we feed the most relevant interrupts into the LRs, and yet have
-+ * some facilities to let the guest interact with those that are not there.
-+ *
-+ * All considerations below are in the context of interrupts targeting a
-+ * single vcpu with non-idle state (either pending, active, or both),
-+ * colloquially called the ap_list:
-+ *
-+ * - Pending interrupts must have priority over active interrupts. This also
-+ *   excludes pending+active interrupts. This ensures that a guest can
-+ *   perform priority drops on any number of interrupts, and yet be
-+ *   presented the next pending one.
-+ *
-+ * - Deactivation of interrupts outside of the LRs must be tracked by using
-+ *   either the EOIcount-driven maintenance interrupt, and sometimes by
-+ *   trapping the DIR register.
-+ *
-+ * - For EOImode=0, a non-zero EOIcount means walking the ap_list past the
-+ *   point that made it into the LRs, and deactivate interrupts that would
-+ *   have made it onto the LRs if we had the space.
-+ *
-+ * - The MI-generation bits must be used to try and force an exit when the
-+ *   guest has done enough changes to the LRs that we want to reevaluate the
-+ *   situation:
-+ *
-+ *	- if the total number of pending interrupts exceeds the number of
-+ *	  LR, NPIE must be set in order to exit once no pending interrupts
-+ *	  are present in the LRs, allowing us to populate the next batch.
-+ *
-+ *	- if there are active interrupts outside of the LRs, then LRENPIE
-+ *	  must be set so that we exit on deactivation of one of these, and
-+ *	  work out which one is to be deactivated.  Note that this is not
-+ *	  enough to deal with EOImode=1, see below.
-+ *
-+ *	- if the overall number of interrupts exceeds the number of LRs,
-+ *	  then UIE must be set to allow refilling of the LRs once the
-+ *	  majority of them has been processed.
-+ *
-+ *	- as usual, MI triggers are only an optimisation, since we cannot
-+ *        rely on the MI being delivered in timely manner...
-+ *
-+ * - EOImode=1 creates some additional problems:
-+ *
-+ *      - deactivation can happen in any order, and we cannot rely on
-+ *	  EOImode=0's coupling of priority-drop and deactivation which
-+ *	  imposes strict reverse Ack order. This means that DIR must be set
-+ *	  if we have active interrupts outside of the LRs.
-+ *
-+ *      - deactivation of SPIs can occur on any CPU, while the SPI is only
-+ *	  present in the ap_list of the CPU that actually ack-ed it. In that
-+ *	  case, EOIcount doesn't provide enough information, and we must
-+ *	  resort to trapping DIR even if we don't overflow the LRs. Bonus
-+ *	  point for not trapping DIR when no SPIs are pending or active in
-+ *	  the whole VM.
-+ *
-+ *	- LPIs do not suffer the same problem as SPIs on deactivation, as we
-+ *	  have to essentially discard the active state, see below.
-+ *
-+ * - Virtual LPIs have an active state (surprise!), which gets removed on
-+ *   priority drop (EOI). However, EOIcount doesn't get bumped when the LPI
-+ *   is not present in the LR (surprise again!). Special care must therefore
-+ *   be taken to remove the active state from any activated LPI when exiting
-+ *   from the guest. This is in a way no different from what happens on the
-+ *   physical side. We still rely on the running priority to have been
-+ *   removed from the APRs, irrespective of the LPI being present in the LRs
-+ *   or not.
-+ *
-+ * - Virtual SGIs directly injected via GICv4.1 must not affect EOIcount, as
-+ *   they are not managed in SW and don't have a true active state. So only
-+ *   set vSGIEOICount when no SGIs are in the ap_list.
-+ *
-+ * - GICv2 SGIs with multiple sources are injected one source at a time, as
-+ *   if they were made pending sequentially. This may mean that we don't
-+ *   always present the HPPI if other interrupts with lower priority are
-+ *   pending in the LRs. Big deal.
-+ */
- static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
- {
- 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+Given that this is fixing some really ugly vgic bugs, I'm aiming this
+at 6.19, though these bugs being 10 year old, any form of urgency is
+very questionable.
+
+Patches still against -rc4.
+
+* From v1 [1]:
+
+  - Fixed the ICH_HCR_EL2.TDIR detection code to include the Apple
+    stuff, and to deal with GICv5's legacy mode
+
+  - Fixed compilation issue for old toolchains that don't understand
+    the GICv3 sysreg names
+
+  - Allow GICv3 in-LR deactivation even when DIR trapping is enabled
+
+  - Dropped the split overflow list, once I convinced myself it wasn't
+    bringing much to the table
+
+  - Turned kvm_vgic_vcpu_enable() into a vgic reset helper
+
+  - Remove IPI-ing on GICv3 systems without TDIR
+
+  - Fixed the out-of-LR deactivation when dealing with asymmetric SPI
+    deactivation
+
+  - Fixed broken MMIO offset computation
+
+  - Added group enable to the GIC selftest library
+
+  - Added fixes and improvements to the vgic_irq selftest:
+
+    - Fixed definition of spurious interrupt
+
+    - Fixed config/enable ordering
+
+    - Prevent timer interrupts from being injected from userspace
+
+    - Removed limit of 4 interrupts being injected at any given time
+
+    - Added an asymmetric SPI deactivation test case
+
+    - Added a Group-0 enable test case
+
+    - Added a timer interrupt + SPI interrupt test case
+
+  - Fixed a couple of spelling mistakes (and added many more, I'm sure)
+
+  - Reordered the series slightly
+
+[1] https://lore.kernel.org/r/20251103165517.2960148-1-maz@kernel.org
+
+Marc Zyngier (45):
+  irqchip/gic: Add missing GICH_HCR control bits
+  irqchip/gic: Expose CPU interface VA to KVM
+  irqchip/apple-aic: Spit out ICH_MISR_EL2 value on spurious vGIC MI
+  KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
+  KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1
+    trapping
+  KVM: arm64: Repack struct vgic_irq fields
+  KVM: arm64: Add tracking of vgic_irq being present in a LR
+  KVM: arm64: Add LR overflow handling documentation
+  KVM: arm64: GICv3: Drop LPI active state when folding LRs
+  KVM: arm64: GICv3: Preserve EOIcount on exit
+  KVM: arm64: GICv3: Decouple ICH_HCR_EL2 programming from LRs
+  KVM: arm64: GICv3: Extract LR folding primitive
+  KVM: arm64: GICv3: Extract LR computing primitive
+  KVM: arm64: GICv2: Preserve EOIcount on exit
+  KVM: arm64: GICv2: Decouple GICH_HCR programming from LRs being loaded
+  KVM: arm64: GICv2: Extract LR folding primitive
+  KVM: arm64: GICv2: Extract LR computing primitive
+  KVM: arm64: Compute vgic state irrespective of the number of
+    interrupts
+  KVM: arm64: Eagerly save VMCR on exit
+  KVM: arm64: Revamp vgic maintenance interrupt configuration
+  KVM: arm64: Turn kvm_vgic_vcpu_enable() into kvm_vgic_vcpu_reset()
+  KVM: arm64: Make vgic_target_oracle() globally available
+  KVM: arm64: Invert ap_list sorting to push active interrupts out
+  KVM: arm64: Move undeliverable interrupts to the end of ap_list
+  KVM: arm64: Use MI to detect groups being enabled/disabled
+  KVM: arm64: GICv3: Handle LR overflow when EOImode==0
+  KVM: arm64: GICv3: Handle deactivation via ICV_DIR_EL1 traps
+  KVM: arm64: GICv3: Add GICv2 SGI handling to deactivation primitive
+  KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR
+    capacity
+  KVM: arm64: GICv3: Add SPI tracking to handle asymmetric deactivation
+  KVM: arm64: GICv3: Handle in-LR deactivation when possible
+  KVM: arm64: GICv3: Avoid broadcast kick on CPUs lacking TDIR
+  KVM: arm64: GICv2: Handle LR overflow when EOImode==0
+  KVM: arm64: GICv2: Handle deactivation via GICV_DIR traps
+  KVM: arm64: GICv2: Always trap GICV_DIR register
+  KVM: arm64: selftests: gic_v3: Add irq group setting helper
+  KVM: arm64: selftests: gic_v3: Disable Group-0 interrupts by default
+  KVM: arm64: selftests: vgic_irq: Fix GUEST_ASSERT_IAR_EMPTY() helper
+  KVM: arm64: selftests: vgic_irq: Change configuration before enabling
+    interrupt
+  KVM: arm64: selftests: vgic_irq: Exclude timer-controlled interrupts
+  KVM: arm64: selftests: vgic_irq: Remove LR-bound limitation
+  KVM: arm64: selftests: vgic_irq: Perform EOImode==1 deactivation in
+    ack order
+  KVM: arm64: selftests: vgic_irq: Add asymmetric SPI deaectivation test
+  KVM: arm64: selftests: vgic_irq: Add Group-0 enable test
+  KVM: arm64: selftests: vgic_irq: Add timer deactivation test
+
+ arch/arm64/include/asm/kvm_asm.h              |   2 +-
+ arch/arm64/include/asm/kvm_host.h             |   1 +
+ arch/arm64/include/asm/kvm_hyp.h              |   2 +-
+ arch/arm64/include/asm/virt.h                 |   7 +-
+ arch/arm64/kernel/cpufeature.c                |  52 +++
+ arch/arm64/kernel/hyp-stub.S                  |   5 +
+ arch/arm64/kernel/image-vars.h                |   1 +
+ arch/arm64/kvm/arm.c                          |   7 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   7 +-
+ arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c      |   4 +
+ arch/arm64/kvm/hyp/vgic-v3-sr.c               |  87 ++--
+ arch/arm64/kvm/sys_regs.c                     |  19 +-
+ arch/arm64/kvm/vgic/vgic-init.c               |   9 +-
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c            |  24 +
+ arch/arm64/kvm/vgic/vgic-mmio.h               |   1 +
+ arch/arm64/kvm/vgic/vgic-v2.c                 | 291 +++++++++---
+ arch/arm64/kvm/vgic/vgic-v3-nested.c          |  11 +-
+ arch/arm64/kvm/vgic/vgic-v3.c                 | 421 ++++++++++++++----
+ arch/arm64/kvm/vgic/vgic-v4.c                 |   5 +-
+ arch/arm64/kvm/vgic/vgic.c                    | 294 +++++++-----
+ arch/arm64/kvm/vgic/vgic.h                    |  42 +-
+ arch/arm64/tools/cpucaps                      |   1 +
+ drivers/irqchip/irq-apple-aic.c               |   7 +-
+ drivers/irqchip/irq-gic.c                     |   3 +
+ include/kvm/arm_vgic.h                        |  29 +-
+ include/linux/irqchip/arm-gic.h               |   6 +
+ include/linux/irqchip/arm-vgic-info.h         |   2 +
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  | 285 +++++++++++-
+ .../testing/selftests/kvm/include/arm64/gic.h |   1 +
+ tools/testing/selftests/kvm/lib/arm64/gic.c   |   6 +
+ .../selftests/kvm/lib/arm64/gic_private.h     |   1 +
+ .../testing/selftests/kvm/lib/arm64/gic_v3.c  |  17 +
+ 32 files changed, 1276 insertions(+), 374 deletions(-)
+
 -- 
 2.47.3
 
