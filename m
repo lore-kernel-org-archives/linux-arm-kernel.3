@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3992DCD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 12:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34DCCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 13:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lix5OQ2dL+UYyCURX/GsF7O2n8lCZHASkXV3hJRe4MQ=; b=yOXUQCsxEiAu/mFhazfsIl4yli
-	kp/IUN7PZi9mR+883SVVFVcILK14D3+ovyz+y2XOytn1TafmZpJweRJAvuU1VQdwfpeuedFPV53Kb
-	Q/Bc+KOwyAKgM7JA0Zt2eG9hYiUwunLEZtYzLdX3O1P5pkDMujQ895/F9NSyDf3H0hJU9CipJqcep
-	JTUP9JMM/shht/hB3dqiRAlw8BLTo905qudo/LVamo+U7ZearmL62IAW1dGUlmhURgr41S/H1po+O
-	GubMuF+85GoebMScNIThHruieArJ9pFwOHJM/nQy8qge57ugSHFn0QzcF+zJxa7GvTeSWqq5wQua9
-	gH2IIh9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VsAMk0j4bUEAq2Xy6R/woGPhVEp5XLvlsFq2aXBkK7Y=; b=DzkX7L2NS57OxsH8wal/PVW/mp
+	AVm8++BCmQHhnvreoIUgvx1rV6PhNZ+2yavQcsEDsfGvpa7gvQGJjMd+GY20fEf8rHOu+mNGX3YwI
+	PCLaa7te8omEe1Few8JR6JZdR+ZIbvJdHqOFZj9AMFwqG1A8sLYmHkMa6DDRolB6u9J3nFgds6FKR
+	eeBQJMtvtaET5Fw7lBTiJ0ZqKor/0z3mrFagbfQDISwJ6BFfUqixKbdKk50MCNkYMDlR0y+hdcQCO
+	xGQJP57Kdk1xQfEDBG4Lw1Jo7/Sz5C7/puBaVIVawbmI9J5BMshr8w0NF9sQdB2Hpucvg/kPCf+hw
+	6bE/HizQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI4X2-00000003zv9-0gQ4;
-	Sun, 09 Nov 2025 12:28:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vI52y-000000041Aq-3DF0;
+	Sun, 09 Nov 2025 13:01:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI4Wy-00000003zud-38ca;
-	Sun, 09 Nov 2025 12:28:30 +0000
+	id 1vI52v-000000041A2-2C88
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Nov 2025 13:01:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 125C64182B;
-	Sun,  9 Nov 2025 12:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E41ABC4CEF8;
-	Sun,  9 Nov 2025 12:28:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DE9F43B36;
+	Sun,  9 Nov 2025 13:01:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6BF3C4CEF8;
+	Sun,  9 Nov 2025 13:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762691307;
-	bh=9+deIiz/07lRUWttLH1XL6KToavdGNMSxgLPjvkZhJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hurIJbO4oHCGlhmRNAgt+fgtD84571YdTIU65SqQLikCy0YK6bGSG7HxhBNlSk9aS
-	 PALZVZ02wZOtd9kZLJqpdvYHJZ/HSYktjSKv08/JU4tlGx8jIssFmNBzs4yu2IGtJU
-	 0YxNi2u0zPftBTq/zVxWk45vug4/C5PHWgNZJRuErdgmGm9yisSh6mwc0bA40SRXas
-	 FbTqSGCiqroy0yC+wm+BmvTih4g6V/tnUB0rYJShev3QE87VQusnlGoMuV7RlUvqbg
-	 CkslesMC7ljHB7f7iAID75aBnIQP3T9N/4s6Ty0pftu6RB/9GGpUUvhN9L9fBqEL/h
-	 wvgFouCpUPSUg==
-Date: Sun, 9 Nov 2025 13:28:22 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: FUKAUMI Naoki <naoki@radxa.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Dragan Simic <dsimic@manjaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-Message-ID: <aRCI5kG16_1erMME@ryzen>
-References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
- <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
- <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
- <aQ840q5BxNS1eIai@ryzen>
- <aQ9FWEuW47L8YOxC@ryzen>
- <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+	s=k20201202; t=1762693285;
+	bh=zNi9nu3L6TvcyXChQiHADlE5BR7XOd1UsthZfvb4G1U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EiUmTl27nujv51T7if+PVcEwebMCbQCSCq+8xYpaEYI85RENWVNiRhQBbcZizkEcl
+	 BoNN96p+WxmZf8XdtZd2JsH89A3j92nUV/nviNZBdoUa+JlTXZfeI1MheP7j0cuQVS
+	 h92D51+L7hZ918wSo/TloZRFQb8IuVvMFsY/0olkMlPlIk7n0h9fCRAkSB/zrNZYUy
+	 o4R3RMn97X9Qp2F9/enYc19Uabz3of7vben/btpQkQj13pd57/4mn4NtxOfAoZl9rB
+	 nGuOIb3srFqktlT4NZZ/24ryLC2SYkCUPIwvyjQnO0esl0QpJC6RsjhO0psREWxDAE
+	 TbMdryqtL/QNQ==
+Date: Sun, 9 Nov 2025 12:59:56 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, David Miller
+ <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+ <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, Lars-Peter
+ Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun
+ Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, Rasmus
+ Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Johannes Berg <johannes@sipsolutions.net>,
+ Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, David Laight
+ <david.laight.linux@gmail.com>, Vincent Mailhol
+ <mailhol.vincent@wanadoo.fr>, Jason Baron <jbaron@akamai.com>, Borislav
+ Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Kim Seer Paller
+ <kimseer.paller@analog.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Richard Genoud <richard.genoud@bootlin.com>, Cosmin Tanislav
+ <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, Jianping
+ Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org,
+ qat-linux@intel.com, linux-gpio@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next v5 10/23] iio: imu: smi330: #undef
+ field_{get,prep}() before definition
+Message-ID: <20251109125956.106c9a1a@jic23-huawei>
+In-Reply-To: <CAMuHMdUkm2hxSW1yeKn8kZkSrosr8V-QTrHKSMkY2CPJ8UH_BQ@mail.gmail.com>
+References: <cover.1761588465.git.geert+renesas@glider.be>
+	<97549838f28a1bb7861cfb42ee687f832942b13a.1761588465.git.geert+renesas@glider.be>
+	<20251102104326.0f1db96a@jic23-huawei>
+	<CAMuHMdUkm2hxSW1yeKn8kZkSrosr8V-QTrHKSMkY2CPJ8UH_BQ@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_042828_828954_584AA7E5 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20251109_050129_611895_A00B4A63 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +101,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 09, 2025 at 01:42:23PM +0900, FUKAUMI Naoki wrote:
-> Hi Niklas,
+On Mon, 3 Nov 2025 11:09:36 +0100
+Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+
+> Hi Jonathan,
 > 
-> On 11/8/25 22:27, Niklas Cassel wrote:
-> (snip)> (And btw. please test with the latest 6.18-rc, as, from experience,
-> the
-> > ASPM problems in earlier RCs can result in some weird problems that are
-> > not immediately deduced to be caused by the ASPM enablement.)
+> On Sun, 2 Nov 2025 at 11:43, Jonathan Cameron <jic23@kernel.org> wrote:
+> > On Mon, 27 Oct 2025 19:41:44 +0100
+> > Geert Uytterhoeven <geert+renesas@glider.be> wrote:
+> >  
+> > > Prepare for the advent of globally available common field_get() and
+> > > field_prep() macros by undefining the symbols before defining local
+> > > variants.  This prevents redefinition warnings from the C preprocessor
+> > > when introducing the common macros later.
+> > >
+> > > Suggested-by: Yury Norov <yury.norov@gmail.com>
+> > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>  
+> >
+> > So this is going to make a mess of merging your series given this is
+> > queued up for next merge window.
+> >
+> > I can pick this one up perhaps and we loop back to the replacement of
+> > these in a future patch?  Or perhaps go instead with a rename
+> > of these two which is probably nicer in the intermediate state than
+> > undefs.  
 > 
-> Here is dmesg from v6.18-rc4:
->  https://gist.github.com/RadxaNaoki/40e1d049bff4f1d2d4773a5ba0ed9dff
+> Renaming would mean a lot of churn.
+> Just picking up the #undef patch should be simple and safe? The
+> removal of the underf and redef can be done in the next cycle.
+> Thanks!
 
-Same problem as before:
-[    1.732538] pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.732645] pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
-[    1.732651] pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.732661] pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
-[    1.732840] pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.732947] pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
-[    1.732952] pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.732962] pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
-[    1.733134] pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.733246] pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
-[    1.733255] pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.733266] pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
-[    1.733438] pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.733544] pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
-[    1.733550] pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
-[    1.733560] pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
-[    1.733571] pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
-[    1.733575] pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
-[    1.733585] pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
-[    1.733596] pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
+Only 1 call of each of these in the driver, so churn is small either way.
 
+To avoid a bisection problem if your tree merges first I need to modify
+this stuff in the original patch or leave it for Linus to deal with as
+a merge conflict resolution which is mess I'd rather do without.
 
-Seems like the ASM2806 switch, for some reason, is not ready.
+So I'll rebase now and rename these functions to have an smi330_ prefix.
+Better to potentially cause people problems when I have 23 patches
+on top of this (and hopefully no one is based on those yet) than when
+I have many more.
 
-One change that Diederik pointed out is that in the "good" case,
-the link is always in Gen1 speed.
+So tweaked and pushed out a new version where this patch isn't needed.
+We can move to your new code next cycle.
 
-Perhaps you could build with CONFIG_PCI_QUIRKS=y and try this patch:
-
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 214ed060ca1b..ac134d95a97f 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -96,6 +96,7 @@ int pcie_failed_link_retrain(struct pci_dev *dev)
- {
- 	static const struct pci_device_id ids[] = {
- 		{ PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
-+		{ PCI_VDEVICE(ASMEDIA, 0x2806) }, /* ASMedia ASM2806 */
- 		{}
- 	};
- 	u16 lnksta, lnkctl2;
+Jonathan
 
 
 
+> 
+> > > --- a/drivers/iio/imu/smi330/smi330_core.c
+> > > +++ b/drivers/iio/imu/smi330/smi330_core.c
+> > > @@ -68,7 +68,9 @@
+> > >  #define SMI330_SOFT_RESET_DELAY 2000
+> > >
+> > >  /* Non-constant mask variant of FIELD_GET() and FIELD_PREP() */
+> > > +#undef field_get
+> > >  #define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
+> > > +#undef field_prep
+> > >  #define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
+> > >
+> > >  #define SMI330_ACCEL_CHANNEL(_axis) {                                        \  
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
 
-
-If that does not work, perhaps you could try this patch
-(assuming that all Rock 5C:s have a ASM2806 on pcie2x1l2):
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index dd7317bab613..26f8539d934a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -452,6 +452,7 @@ &pcie2x1l2 {
- 	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
- 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
- 	vpcie3v3-supply = <&pcie2x1l2_3v3>;
-+	max-link-speed = <1>;
- 	status = "okay";
- };
-
-
-
-Kind regards,
-Niklas
 
