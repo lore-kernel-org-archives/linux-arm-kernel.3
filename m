@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BA6CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC9BCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QrdXa6QaEm90F4G0qbOOPSMyPGC19cRpviSHrPym6A=; b=D1KZ+cFgh5Y3wn1SSvnFgNv7kJ
-	9ujYGYjqfYayKLRz9Zr7i/huea2gh5a17RcV4h1FFp2wlH8/2NKDwrR8bY84OXK8h3zhmRHuVrq8G
-	1cp7vsnKEKBPX/369sigLs1y9yJSgmmOgdXkSN5iRtpMtiRoKN9mECnKS0Y+iLhk6ecZfMJXZtBFQ
-	ez4CFT7Yvuszv+RtN7NlvrWTTj/5HCDO0TwVjz6gCc2hUULr1Df1pXcWyq0W4aaQBaLrAxk80jiQB
-	rcw9iCtaDu8R766bGdVsfCKwYAHILmb7pOzPt+FqO65YgpRkBPGa01w3ykNaRPmuWn8SK6LiEP2oh
-	hLsEPyYg==;
+	bh=GCxHyKXCAbcjE+o5Z6lV8Jfbb+aVzhA7NAAmg+0wfFE=; b=DgzK1pk59vYtpGVDLszw4Bb7PC
+	rF0bvPwMAaquikqUMyIk/HAQBJiAIIxCoIe4oLMoIcYQtQ7lQ6G+6wjctH2Px/+qA9I3IjW2JZ2+c
+	7F1ZNPwSTeZNNF9zIS9H3jt8wjifRDLeY768NYOpgwGsjT85sQ+p8urTZyX/3ckqNjMA/N81Ql1sB
+	oViF7R9IGNxwZySmGbPUi5GX0oov0++LRH8FrnGRx9p8eeymbkiwa95EPX6BvsBPN17s81TAo01d3
+	U+iGzzisE2vlWAzPGsSIK/URej+DDVYdbX4O3b1N/6207YolU1XuAEejG2HN06dpwTh3+ziWxGmKF
+	pmTwynHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI935-00000004E3I-2Qz1;
-	Sun, 09 Nov 2025 17:17:56 +0000
+	id 1vI93B-00000004EAk-1KCL;
+	Sun, 09 Nov 2025 17:18:01 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91s-00000004CF5-3E5F
+	id 1vI91t-00000004CAQ-1nT3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:44 +0000
+	Sun, 09 Nov 2025 17:16:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2810446DB;
-	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78407C19423;
-	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 512F6446FB;
+	Sun,  9 Nov 2025 17:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EEB6C16AAE;
+	Sun,  9 Nov 2025 17:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708600;
-	bh=yCGc4NjwNDiVZR7+j2n7RKZ3zFae6MLydrXdq+o2Jsw=;
+	s=k20201202; t=1762708601;
+	bh=I5APLz+GD8a1KVLow3b+A72ufSgd/FLpBeo0S8g/E18=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PfDvxsOLie7nQPjsPwt8mfGeoQE7c6FRFDLWuMHLfu/7UHsCWuz2iO2NYWnxEdOBn
-	 PT5RnDPIdubZySmK7FcpQcmzJWDK+fs5qAHR89KsyNvSjv6/bvXDbLDwZBi0oezajG
-	 cI4BWFDxXVKlYDj4xdnj3IRkXdBH4vP8yQyU9IFpqkF05kZ7Pu5Xs9rduGqHqdJkJg
-	 gpLGsJRyvVC2Paigv4zE4ZI8g3xCJ/s2wx4r6HzskdgfTCXFISFiP214gifGAWBZb7
-	 87XFSKPEVhtePvGjxXc493Sjn/I3yXfx9Aod6OM8ZUyavmd/z9OJAunzyQa6b/hCDv
-	 xfpbb9osuLxrA==
+	b=e5E4TOH4WjKmNvTONUKp/Ec1MOy7OqSQ4IdnjTTFEKaYsRQ6FmiqyNMFfPFXSmEhb
+	 jkosMB9W50mruh3QGqzwmKNI63m4emU6t5Qj1jRZkbwsOGXihEJ7kNZlL00gu+qtjp
+	 cuTcHWTwHXZ80DbyxIBhv3xQQ2bxAn/JM1KCZOMnhU3kLGBrrh9+dyzvNns66WZSnC
+	 uC5eXumgCg4km02qB5r7d+VCWGe7NG6gJx7FDZ/WAKqyYylturE1xp9qaYg1wbLhLp
+	 ZAXrHJGLY9B898QiOiSb8QCltIdcRxWbn4LCa461FhMWJm/5zHA7RbmQeLt9eGU43R
+	 3HoaDsaVDcOtw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91q-00000003exw-2Oel;
-	Sun, 09 Nov 2025 17:16:38 +0000
+	id 1vI91r-00000003exw-05Ib;
+	Sun, 09 Nov 2025 17:16:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 42/45] KVM: arm64: selftests: vgic_irq: Perform EOImode==1 deactivation in ack order
-Date: Sun,  9 Nov 2025 17:16:16 +0000
-Message-ID: <20251109171619.1507205-43-maz@kernel.org>
+Subject: [PATCH v2 44/45] KVM: arm64: selftests: vgic_irq: Add Group-0 enable test
+Date: Sun,  9 Nov 2025 17:16:18 +0000
+Message-ID: <20251109171619.1507205-45-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
 References: <20251109171619.1507205-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091640_930014_3AFED7A2 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20251109_091641_510251_FF6450AA 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +88,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When EOImode==1, perform the deactivation in the order of activation,
-just to make things a bit worse for KVM. Yes, I'm nasty.
+Add a new test case that inject a Group-0 interrupt together
+with a bunch of Group-1 interrupts, Ack/EOI the G1 interrupts,
+and only then enable G0, expecting to get the G0 interrupt.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ tools/testing/selftests/kvm/arm64/vgic_irq.c | 49 ++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
 diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index 9d4761f1a3204..72f7bb0d201e5 100644
+index a53ab809fe8ae..ff2c75749f5c5 100644
 --- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
 +++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -400,8 +400,18 @@ static void test_inject_preemption(struct test_args *args,
- 			continue;
+@@ -846,6 +846,54 @@ static void guest_code_asym_dir(struct test_args *args, int cpuid)
+ 	GUEST_DONE();
+ }
  
- 		gic_set_eoi(intid);
--		if (args->eoi_split)
--			gic_set_dir(intid);
++static void guest_code_group_en(struct test_args *args, int cpuid)
++{
++	uint32_t intid;
++
++	gic_init(GIC_V3, 2);
++
++	gic_set_eoi_split(0);
++	gic_set_priority_mask(CPU_PRIO_MASK);
++	/* SGI0 is G0, which is disabled */
++	gic_irq_set_group(0, 0);
++
++	/* Configure all SGIs with decreasing priority */
++	for (intid = 0; intid < MIN_PPI; intid++) {
++		gic_set_priority(intid, (intid + 1) * 8);
++		gic_irq_enable(intid);
++		gic_irq_set_pending(intid);
 +	}
 +
-+	if (args->eoi_split) {
-+		for (i = 0; i < num; i++) {
-+			intid = i + first_intid;
++	/* Ack and EOI all G1 interrupts */
++	for (int i = 1; i < MIN_PPI; i++) {
++		intid = wait_for_and_activate_irq();
 +
-+			if (exclude && test_bit(i, exclude))
-+				continue;
++		GUEST_ASSERT(intid < MIN_PPI);
++		gic_set_eoi(intid);
++		isb();
++	}
 +
-+			if (args->eoi_split)
-+				gic_set_dir(intid);
-+		}
++	/*
++	 * Check that SGI0 is still pending, inactive, and that we cannot
++	 * ack anything.
++	 */
++	GUEST_ASSERT(gic_irq_get_pending(0));
++	GUEST_ASSERT(!gic_irq_get_active(0));
++	GUEST_ASSERT_IAR_EMPTY();
++	GUEST_ASSERT(read_sysreg_s(SYS_ICC_IAR0_EL1) == IAR_SPURIOUS);
++
++	/* Open the G0 gates, and verify we can ack SGI0 */
++	write_sysreg_s(1, SYS_ICC_IGRPEN0_EL1);
++	isb();
++
++	do {
++		intid = read_sysreg_s(SYS_ICC_IAR0_EL1);
++	} while (intid == IAR_SPURIOUS);
++
++	GUEST_ASSERT(intid == 0);
++	GUEST_DONE();
++}
++
+ static void *test_vcpu_run(void *arg)
+ {
+ 	struct kvm_vcpu *vcpu = arg;
+@@ -962,6 +1010,7 @@ int main(int argc, char **argv)
+ 		test_vgic(nr_irqs, true /* level */, false /* eoi_split */);
+ 		test_vgic(nr_irqs, true /* level */, true /* eoi_split */);
+ 		test_vgic_two_cpus(guest_code_asym_dir);
++		test_vgic_two_cpus(guest_code_group_en);
+ 	} else {
+ 		test_vgic(nr_irqs, level_sensitive, eoi_split);
  	}
- 
- 	local_irq_enable();
 -- 
 2.47.3
 
