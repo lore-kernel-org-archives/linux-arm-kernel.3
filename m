@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EA0CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 19:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03C5CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 19:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=; b=WDEu8LLztkHTOFNvhJgFVHiIIB
-	0gsSkA/vxx+beAXA4k3sGKoqQqp8/bNHY2p75i9YrsP/j4D7gZg8oSNZfwJobCU27qhg4KzTmvU4o
-	FRU9SavMvmszFWuhjLib3+v7z5fYe4GfCoyVYtCnkyFFlrR3DlgLo7QAgyemo18ucBAycoWhgoKQo
-	9Zxuxj9F2FlEklxobd0wKhkCpReQHC6b5ZmON9Mk+ozN0sD3XSdyNe7Ik0u4jfee8Ly+D4ce9J4tH
-	EzWhuC9ZgqXy297a2/J2VNlF7xsZ/NGIzYOuhIcv9w2zGodFf2RJEVm9OJhrahmehqTyh56jXZ8VC
-	Q/PPT8lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OTz2w5HL5Ejr50u7/poHpClQJimjVd3Gl5xrFoUqsig=; b=WEGXstfTQbJRkJWDH6O7l1PXTV
+	33C7GUdxKP5zhDPYKpEa0bu1gg6lLeg5DLLxPVmoxn7+BCZRUyzm6mRTjlqbHIY/8WLzRZJiw15OK
+	GUk0LcY6y6YaO9Z1LdHjO5VlftIEAxJZIt7sx9q+FGbe7M8v94+DHraTbP3ZbeVLOgY/W2iUvLah4
+	8TWrxJrPRlLT5KbAlP8GT1IbY96eDUuJ1SiDv5JN33EYYKlbx5skm1kJuVnp8urF5CsvUjlBZTy/W
+	drW1WjpKRs5BstohlGtzchTi2xTjYAdHCrymYuozTT4VKNWdTgntW45IlGxnzkREGakF4NZvkqmee
+	vN9gZc1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIAyt-00000004KS3-2s73;
-	Sun, 09 Nov 2025 19:21:43 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vIBSG-00000004LXj-28W9;
+	Sun, 09 Nov 2025 19:52:04 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIAyp-00000004KRG-3THr
+	id 1vIBSD-00000004LXI-1xh9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 19:21:41 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477632d45c9so15398695e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 11:21:38 -0800 (PST)
+	Sun, 09 Nov 2025 19:52:02 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4edb59dfda5so108891cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 11:52:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762716098; x=1763320898; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=;
-        b=RVWQhc/McxQnJKSlDwDuAPM5YhKY6WK5zcDX7ZYjMZqsRDq9QmdqsvteaVoo6JrwEf
-         d3Dc7IIPeBw0qX8VQR4wu9bo89eEKNJ+mCeV5vcVq526+RXzZ+KXgCYnGmz37m7beuNH
-         ux7RziDbng0Ler6wLl9YRFeubd+Y49LEP9+NJqxQxpsxGqsjmK/AVbgEPkc/5WW8sTRJ
-         F391fPLnaHy6tHDDPk+6r2tGPZqQi1nr2oA3768M1tBsFiwFKseMkCeo8hKmAUTR9UvH
-         TjtAM/IRVKc0vKZ7YV6+TGwC53PhgUoQgQjvrh6YtW5eJbMCBPMFBeLpOS8QEDwTzqCT
-         hazw==
+        d=google.com; s=20230601; t=1762717919; x=1763322719; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OTz2w5HL5Ejr50u7/poHpClQJimjVd3Gl5xrFoUqsig=;
+        b=BVwXUS/Zn3lafy8vQpc2lznQXKqTSFNZQBXMfkOO99k/9EGCpKOw/NZoy+NnhKe3eT
+         l2HAXOeD1WyM3tXLdDclBPzt7B6ZI6YgTN/UkMW/uc/6JfTj22Ki1ij9p9/9+WXK/DTr
+         OVFOA8oRn4fUpuFCPOGR8NkReY5hnKEYynbp785COcwbhL1YZARsFRgUYk+F9IP5oXM7
+         3a9r6088Kzpmh2+fjARqPxUne13tufmGUyAi1RcTFPC1yO/PDkC2V06CedJq5305W3wL
+         HT67XwN9iv+UZBZnvYt9T954YiubC7r7flmZrka8fm3qm28NSlfZ3E1G6fl/WZQ1FKEg
+         zztQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762716098; x=1763320898;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1762717919; x=1763322719;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=;
-        b=e6HIC4LZHGqQxEPVWrC/nRiPtYLbeWxPn5PeVXD1jfKy0SQ3T7Dny76BycKsT3O/jg
-         not+qe8alx9ySwaBYF+jCyCn7ets+jf+9THT+327+WDD6o9AaxVN2E+m3lddqbdYIjpF
-         kqHnIg80mGcByyV0zA1bcGXpxkz2kNmEaP9+QCYQjWu+y5F0fPuBkgk4AZN/eaRJOBZO
-         hHXyP467Lyg49Ku3FV9p+/yXW1pz6hqoekey6l17zTZWU2LlfZVanc8VR7cpTZMlWKju
-         mSlrvN35QYTVTOmMXfbpQlT0yrg2XRfyU/snZK+t0oM6/tVP+rrmGHZ4/CQcI0kJ3/Nq
-         5Juw==
-X-Forwarded-Encrypted: i=1; AJvYcCWLbWX7TIvSDtlHc9EKuvGiTg9lhv6F2ehZed7UkEY6ybHAAftBd6W7PxF1wm8K76nRKBz8gSyTltbkfY1upp32@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+zTfyLBrsIj2VV1eXKUgeljPe2jof8A/Cwa/R1xETS+HVvKzl
-	knNol9B8sZS2Fa1aXiNYZGtJ/heF0Ibe+jGV4EPDmYjdX9Qfu8o9cH4j
-X-Gm-Gg: ASbGncv+dWt7Vce7RU5bNMqe3mT5X2at5xHna5fHRdwrLalbqsLrQDMynh1Rk27DXwI
-	cn2/WSmhhj79LTga6BuQOPaB+ylK1XXQb+8C2sq7XHupLyCnRxfcT6vPnWsVBaYBe4qVmtAF/ZQ
-	dqeISlUcyQYVMRjR7V9uSiXuD/7EIvO56D18tIgXVQN75ReoanGIRZB2Uz0dFgpcG0BYLPeN7k5
-	GUQoaPJHZuypoHKNLutoTNT8K8UT0MZMKL/8OJ+DhV2zVfAqmbcnDqHIGKadlkfwFrfcZ1UPKw8
-	dpHA4Zab1STYme13qmSCyV5/3jAyT/Lq5II7FMzXM7VDxLnz6rO0DR3meiZHFqpzkl1c447qIJk
-	gimyPENww5MRnO49oY/SmPtP/drrUAuCLnP4f+i/m80WEeso0e2/xam1hJWPj8AP86jA7XuM+r7
-	lOlMPD9LJ5G0wO/K0yRNAN3ufTqhBkuF1YKyN1IQegAw==
-X-Google-Smtp-Source: AGHT+IHEGGaPojLqJnQJyx/eRJbJgTm2GWxMz4aHcXLzOtk0tX2JbG/6GFj/8DCLl3D0UN/5mSd4Yw==
-X-Received: by 2002:a05:600c:3554:b0:477:557b:6917 with SMTP id 5b1f17b1804b1-4777323ae5bmr54155475e9.18.1762716097419;
-        Sun, 09 Nov 2025 11:21:37 -0800 (PST)
-Received: from apple.sigmaris.info ([2a02:8010:6606:0:d132:d099:e4e7:cb00])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47763e7a6desm91150875e9.8.2025.11.09.11.21.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Nov 2025 11:21:35 -0800 (PST)
-From: Hugh Cole-Baker <sigmaris@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Alexey Charkov <alchark@gmail.com>,
-	Hugh Cole-Baker <sigmaris@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: rockchip: add pwm-fan for NanoPC-T6
-Date: Sun,  9 Nov 2025 19:20:51 +0000
-Message-ID: <20251109192128.72527-1-sigmaris@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        bh=OTz2w5HL5Ejr50u7/poHpClQJimjVd3Gl5xrFoUqsig=;
+        b=RcPWFXhNZS0TkwL3T4p1Inaf/IrtH28XNGWNGid1XjjYT5WsmPkKu0CZHYFoLL6Zf2
+         /gX8s97TiEqr4ootBrbCy0eUKyfRfOAPA1Qc/wxRDY4MWwDC49N8MZd/ztO1xZqRu+LC
+         oAWjnPjY389YD/oyfoY6MRvOp++GDAZWq3k0ZqUfBvk6HQwIrd0XUFPVokm073kouzEa
+         O9JeaxdldowKqfuOPU9/V9tfl/L9QqHayQmHg4LGHt48Fqf4pTZoTX+rGT5XOG+CJd26
+         3ZV208nZSTrGR+XH8vETxwkZJwr9/nXJMDgX8B7+YBwMzlC2S+OGmby2HhfBm6Hh/fqY
+         Wwlg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdcmO1Bsd4Tqfg39xxGq0uPezrdw94LyjaUIp1ag460TGwB7CcRh1wgSkZ1655epAEiT3tu8reWXgRdZvm5B15@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuNFAvitVK8F53iHEceqsPCbtXpcHQJoL0I7wI57GtsJC2+oHL
+	nGOfGdGbv76Nnnbde3wFcE4ptK9t7jPagRtYHkWq19Uz8T9IFYsJPRA45G6hZZBrBzDdcIn5OL6
+	xChKyFlYVjzuccOR6TGOsJ/sB4O7PwEkRtkLz4NAp
+X-Gm-Gg: ASbGncvy3fsoFUtEVAO51g3l09su53vXSNUwOfvoP6F9j0PHZyse2IbRUDbRaS0s/zM
+	d5ykkYkVWU2l6k0Fvhs/XNuVSx6yEUzcu4NdNjZ0bTgE8KlyH2aGheQT2A+FnyaCZerZRTCwe1G
+	n1rCFO+pXSm5huA4LT3nx2/AbgKVf5weuuGnvR43znFIL0DZdCl+/S1bAbb06CxvpOFbJXKXTkj
+	IMxaP5Y/FURyJB461UAiFf911/wDvxl3YCU5yU/PFrDYsZpQlut6a/ekGqHINBIiTJchnaDiCe0
+	XfGMjg==
+X-Google-Smtp-Source: AGHT+IEzuUR9i/DsGuyvuYeaAupJUFtq6EGjLuIkFDKVIxNAXIx7mqn/rwfeGhZP3dXd1KCbe5d7NKDzoF5DRNUbwMM=
+X-Received: by 2002:a05:622a:647:b0:4b7:9a9e:833f with SMTP id
+ d75a77b69052e-4eda64cfc84mr8262011cf.7.1762717919109; Sun, 09 Nov 2025
+ 11:51:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251106144418.2847443-1-tabba@google.com> <20251106144418.2847443-5-tabba@google.com>
+ <aQ5-9PsBl3z9UxOS@kernel.org>
+In-Reply-To: <aQ5-9PsBl3z9UxOS@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Sun, 9 Nov 2025 19:51:21 +0000
+X-Gm-Features: AWmQ_bk3SE5yKaL2J_2lYDxkTSfrEls5EHxjDwqy6OBdwXsyt8zhDrGNvTnT7Qc
+Message-ID: <CA+EHjTyoi+fnw5o3F+J-qKFygKoXz6SKmBG5bS-d5mA0=ysYKg@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Prevent host from managing timer
+ offsets for protected VMs
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	vladimir.murzin@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_112139_886575_D9F64A56 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20251109_115201_523330_1CD93957 
+X-CRM114-Status: GOOD (  34.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +98,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FriendlyELEC offers an optional heatsink and fan addon for the NanoPC-T6
-and T6 LTS, which plugs in to the fan connector on the board driven by
-pwm1. Add the fan as an active cooling device for the SoC package.
+Hi Oliver,
 
-Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
----
-Changes from v1: https://lore.kernel.org/linux-rockchip/20251026194858.92461-1-sigmaris@gmail.com/
-* add the fan to the base board dtsi instead of overlay (Heiko)
-* just use 2 trip points for warm and hot temperatures (Dragan, Alexey)
+On Fri, 7 Nov 2025 at 23:21, Oliver Upton <oupton@kernel.org> wrote:
+>
+> On Thu, Nov 06, 2025 at 02:44:16PM +0000, Fuad Tabba wrote:
+> > For protected VMs, the guest's timer offset state is private and must
+> > not be controlled by the host. Protected VMs must always run with a
+> > virtual counter offset of 0.
+> >
+> > The existing timer logic allowed the host to set and manage the timer
+> > counter offsets (voffset and poffset) for protected VMs.
+> >
+> > This patch disables all host-side management of timer offsets for
+> > protected VMs by adding checks in the relevant code paths.
+>
+> "This patch ..." is generally discouraged in changelogs, just state what
+> you're doing in an imperative tone.
 
-References:
-FriendlyELEC heatsink with fan addon:
-https://www.friendlyelec.com/index.php?route=product/product&product_id=305
-Vendor DT with trip points and PWM duty cycle values:
-https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aad139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L75-L90
+Ack.
 
- .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/arch_timer.c | 18 +++++++++++++-----
+> >  arch/arm64/kvm/sys_regs.c   |  6 ++++--
+> >  2 files changed, 17 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> > index 3f675875abea..69f5631ebf84 100644
+> > --- a/arch/arm64/kvm/arch_timer.c
+> > +++ b/arch/arm64/kvm/arch_timer.c
+> > @@ -1056,10 +1056,14 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
+> >
+> >       ctxt->timer_id = timerid;
+> >
+> > -     if (timerid == TIMER_VTIMER)
+> > -             ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+> > -     else
+> > -             ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
+> > +     if (!kvm_vm_is_protected(vcpu->kvm)) {
+> > +             if (timerid == TIMER_VTIMER)
+> > +                     ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+> > +             else
+> > +                     ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
+> > +     } else {
+> > +             ctxt->offset.vm_offset = NULL;
+> > +     }
+> >
+> >       hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
+> >
+> > @@ -1083,7 +1087,8 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+> >               timer_context_init(vcpu, i);
+> >
+> >       /* Synchronize offsets across timers of a VM if not already provided */
+> > -     if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
+> > +     if (!vcpu_is_protected(vcpu) &&
+> > +         !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
+> >               timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
+> >               timer_set_offset(vcpu_ptimer(vcpu), 0);
+> >       }
+> > @@ -1687,6 +1692,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
+> >       if (offset->reserved)
+> >               return -EINVAL;
+> >
+> > +     if (kvm_vm_is_protected(kvm))
+> > +             return -EBUSY;
+> > +
+>
+> This should be -EINVAL as pVMs do not even advertise the capability.
+>
+> Since we already have a generic helper for filtering KVM_CAPs, I'd
+> prefer that we have a similar thing for enforcing ioctl limitations too.
+>
+> For example, you could maintain the ioctl => KVM_CAP mapping in a table
+> and use kvm_pvm_ext_allowed() as the source of truth.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-index fafeabe9adf9e..9164a0ee6228e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
-+#include <dt-bindings/thermal/thermal.h>
- #include <dt-bindings/usb/pd.h>
- #include "rk3588.dtsi"
- 
-@@ -89,6 +90,14 @@ usr_led: led-1 {
- 		};
- 	};
- 
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		cooling-levels = <0 35 64 100 150 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm1 0 50000 0>;
-+		#cooling-cells = <2>;
-+	};
-+
- 	sound {
- 		compatible = "simple-audio-card";
- 		pinctrl-names = "default";
-@@ -591,6 +600,36 @@ &i2s6_8ch {
- 	status = "okay";
- };
- 
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	trips {
-+		package_warm: package-warm {
-+			temperature = <50000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_hot: package-hot {
-+			temperature = <60000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_warm>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_hot>;
-+			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
-+
- &pcie2x1l0 {
- 	reset-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
- 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
--- 
-2.50.1 (Apple Git-155)
+Yes, it makes more sense to consolidate these checks. Will do this
+when I respin.
 
+> >       mutex_lock(&kvm->lock);
+> >
+> >       if (!kvm_trylock_all_vcpus(kvm)) {
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index e67eb39ddc11..3329a8f03436 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -1606,11 +1606,13 @@ static int arch_timer_set_user(struct kvm_vcpu *vcpu,
+> >               val &= ~ARCH_TIMER_CTRL_IT_STAT;
+> >               break;
+> >       case SYS_CNTVCT_EL0:
+> > -             if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> > +             if (!vcpu_is_protected(vcpu) &&
+> > +                 !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> >                       timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read() - val);
+> >               return 0;
+> >       case SYS_CNTPCT_EL0:
+> > -             if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> > +             if (!vcpu_is_protected(vcpu) &&
+> > +                 !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> >                       timer_set_offset(vcpu_ptimer(vcpu), kvm_phys_timer_read() - val);
+>
+> Isn't there a general expectation that userspace not have access to the
+> vCPU state of a pVM? That should be the mechanism of enforcement instead
+> of special-casing these registers.
+
+I thought I had a good reason for these checks, but now I cannot
+remember what it was, nor can I see that there is a good reason, since
+like you said, they are not accessible.
+
+I'll remove them,
+
+Cheers,
+/fuad
+
+> Thanks,
+> Oliver
 
