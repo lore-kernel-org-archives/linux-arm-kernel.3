@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9DCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 19:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8479CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 21:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxR6AO2B/jl6sBl+TPdH+gIFub+ESvkBEdXOIWya/Nk=; b=lRZg8PrycCPuu9Ags4nCUhGSct
-	ObhKSd3LFUFv/GVOqVBEe3aNbkpPRBfA/P1+L489+TfNfZzG8QUhjnCWwXNN3g0TRTWQfpJ73Ka16
-	DVsvnQKPZFyv9/ECTYxFWIJEgY7LkG+YFm9KOlKjyVDzf4rDGj8tZWtl9830xPchdCdun03LuWwmF
-	1iKStTGJB5plRfP9uDlkYnT9SjB+Jn+BIJw5xbSKXlGD4JLKFwfb8ez326X1KfQIr9P2IeDEUBu/x
-	FLUvG1QD0SgFs8+f9Ygl7CnYX3ElubBsOwPXwuB5mT7MVsxx5EZq3xuLHSbZHuqfFd7ERn1NJyppM
-	IWqAAnqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2UkvAHMxncU2Y5mr7DiOlJe0jQHZALyUcA7OKmpGVgc=; b=3nd6SOCJbnbV+BTg/1ksaWtAvQ
+	3c2nLZlUhytVt6nP8KxH0spoajbTfOYDz0cWJIucqCdCaOQjSD52KYJg7UHB7s89GJX/AHqdlrDPm
+	Np6WOe5fIYzijo3bs52Yz4yPoJesej75+S854CDJu06cEOFBjFh2EzbRRi1HM7NKII9rcebD1SgwE
+	myiCJPgXw58WN5TA+p/bQjW+Q8lImDqDi1y7weP2lMrHEOVWisscLNMZTOrXAvCpPc6nUDF9I2vB2
+	UgiXTzAsGH7+BdT0sEIwaelZDo1ZXdY2fuuTcNVkNFvjjSyYQ9wXZs4KbMgwD+eSjSUJnUHc9tBW/
+	MblKuCyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIBSg-00000004LaY-3gvO;
-	Sun, 09 Nov 2025 19:52:30 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1vIDE1-00000004Oyh-486f;
+	Sun, 09 Nov 2025 21:45:30 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIBSe-00000004LZZ-2daX
+	id 1vIDDy-00000004OyK-10sv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 19:52:29 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ed6ca52a0bso317621cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 11:52:28 -0800 (PST)
+	Sun, 09 Nov 2025 21:45:27 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4ed75832448so37672481cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 13:45:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762717947; x=1763322747; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xxR6AO2B/jl6sBl+TPdH+gIFub+ESvkBEdXOIWya/Nk=;
-        b=Qa6Xk9MEflEGNtPzqI9EVCFsPJ6a69Kfk2Awm3yjtT0Q8/gG/Qoa8W986oy7T3PjAQ
-         pZ6g0TO8LVsWBb1wJ1ovBQ9Dy/OxqeVtfCn5Ho6wYDp9qYRovHzflvnHC+RFS5A3uiY1
-         mYO4A87rQSCwFw1tz151NFhquKfCl9fMBTdEo9AvGJhYHawvZDMzobX8wJuH+Xs6Dfv3
-         B8f0x4bCrKWiIi8dIzDm/K9sxOjuqiilNcsdtuBIM9nQJbiv2Z7az3ELMTOxFAaawwoe
-         NdC4XwPFzWLNjr23lBf75XU8jIIOxAm5j2Ol+pSeL2zbx0wBBd8gc+LAK3SIhTAxro82
-         jItg==
+        d=gmail.com; s=20230601; t=1762724724; x=1763329524; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2UkvAHMxncU2Y5mr7DiOlJe0jQHZALyUcA7OKmpGVgc=;
+        b=FFg1Wg+2gSGTe4vCsTHwwrk7bG+shACH6GkAFBIjWS7lyCu8oobf4j7hSWUjDZHUsX
+         v2dfPDgkg6aTVQpNBtaAbITRLojWMuz01jDKABPtFBIu+6l1NrzJgYrl2LuYE7DLAfY1
+         MQ9aDjSJTA+9gwYdTa5PsacQjXFiaHWOoklQYN8UpvVmf930akmXDRAum0t5gq6noF+v
+         iiQlZl0M6OsCeNn+Rze3xmEf6bTNhD/VV1fgsABy58sc8ayfWuUeEzDVcOznMkK5Twlo
+         DuH8BoeS6AN7QkJZjIJvhVa48NtDCkeTJur8DOUGUHKv/8xnBI54t50b99hDgsl3NiS8
+         kinA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762717947; x=1763322747;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1762724724; x=1763329524;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xxR6AO2B/jl6sBl+TPdH+gIFub+ESvkBEdXOIWya/Nk=;
-        b=PS8g+IHsQUy0w+VsPTLAhl78aOb/DU1Psp0b3mrwLkPGTTr7Vw/Mgf/YiJpBfEEp/u
-         7cjZxTs8x7Oj7HfUER3Ak4bLaGL02dXdSs26oVm8wf2+SmdvvoqLvabuRGigdhdB6cwm
-         oGXL2UeEIf1JwK3qPMyGcnYlvvKYsG7h1UcA27dbcuW86pW/V8AxRAOFZGlrdmHUtJG9
-         LdxHkNNFSgtnqJEspEHdztZJOf+bWG6GhuY0konUl1eASN9QmZbe2kStRTnoDMdHizw1
-         dN/2iO8UsVJsXjyVrjGOUvlIqXCqNmbn+iSrTxjdaaaxmP9eHeI+BnDNvciQBbK0qnY+
-         +pQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXhyHnHLGOKZifhuDcTHgrMeHLkzCaMuS6o4fT5p+yTXtWy39p+hTx1pZnIFI+xc2gkFaKtVnigv52GZzTZKPLl@lists.infradead.org
-X-Gm-Message-State: AOJu0YywAHbEyhDWmq/UeZyCeYvVp4y6amL8ROelfYv2qQjRDNTVOtma
-	pcCgjCc9zZQz624RXNQupoFMwokMMa3igW1U3cUP9kJW0XWlVJ0BLlDsoZhRXBEUG+FtsW3MMOb
-	06uH0nd+2cDZwOFAtinjP42TW2SWjIsuQ/nAi1sXc
-X-Gm-Gg: ASbGnctKW5ishjun2CnCpCRv1guLxfE8il47z936N7mz2MhRt955J224gL0QesiJMk7
-	2MnHn11bj0wJr4nmiVcIiraJhaRtDEQRlffVBaTwQZbRSYkdHArJC4QgbTru4VAaPxui74DfmtO
-	kTwubJfm5boUZeQoIodxwHC1h/3jA8D8KuWaorClWO8aw1ym+I4I0vkLCHVGhOtI9BS2RgtuYnj
-	ajSAPuib4Pzn+UetBN1GqSl+UWaypGtZ0NvdvhuPJLXTAssEL9Oan6RHCLI
-X-Google-Smtp-Source: AGHT+IHJSNuyAe+Uxnb5byLMLhBxTCB9wY6uFCm/p+xazecRp4xYXv0GsvkhIaq1bmYoMG8A6aq02n8SHCv+pR7YX+Y=
-X-Received: by 2002:a05:622a:2cc:b0:4ed:8103:8c37 with SMTP id
- d75a77b69052e-4eda4e2c1abmr10604291cf.12.1762717947186; Sun, 09 Nov 2025
- 11:52:27 -0800 (PST)
+        bh=2UkvAHMxncU2Y5mr7DiOlJe0jQHZALyUcA7OKmpGVgc=;
+        b=gzBUhgb9CyR4aus4IVSG7e+GstP66tPIGjjAbswlZCHLezcAawUfA1pquDeUiLfX6W
+         26Nc3nnsYcFJes5vOLkgpmG6jpwLAWwewPss3pPyM3kb5IyXDPGiSdfSO3ihx4mBZj5w
+         sXHv4V55vgBB35RvqBTsAig66LAuSecrlpTdiBSUlepNmLLhy8MidYalVWHj/qcN1mSz
+         6NfIOMPYc0TB4KiSYqY/nE/rVRiNoiGZLub3RfEKGNJnAvylRDg9PklVb3iPcXWpiQmT
+         GW/Zut/Gu9rDVhNs1MdzTLGMy+aOrWYJ3pm3FeQdzwnPdU2iJ/10+XMV0eUvmWqclkn+
+         3D8w==
+X-Forwarded-Encrypted: i=1; AJvYcCU1eXSjeieeIiq2eWp4NjNdgEmxxmlmdvsHZm4zAVxdzibGhZamVGramT93pr3s5FoKAJVz9ueZTV+P1LeQf2gG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPY/JmfcQU9B6DpYOUF5Pr6XVG2p9Zg7KL/RicGbMvqupJjV5f
+	6xIzPVYTI+S88FeslkMlyh2Pt58DZmT9TnkUxkRMiAIwz2Y9tYBlyBWD
+X-Gm-Gg: ASbGncsGF7wjI448toHHfAtsfveZlgzf72rL296YSQXT2UZghTCFxjJAboyngWovz2R
+	L30HQzsUojFrclsrsgz38h2T8UlsRgpA0vMEvtoZdGiLEmb6dbQq8cjnNua2Oyi9HZLAySxUkQy
+	iNhAqxJA4E+QQFErRrD0iCGtC6ZOJV12ZJ4FxhVllyAiF8t3U58pctLK9YD2XJZk32sE1wQQb9s
+	BqEMFyEoYsPH8EZDGOzAasEczqNwRp1JgC+1xpah0rRaYlkARDnbb60GpFCcd9ThR2uDFh1S9lz
+	UBqXC11BFbzKMLgvVfUjRf7foYoSxuwhLHIKd5F8WGMp12oPSSO/rZHUzggEWfbAoY6fQKuonr8
+	7n2Evl7mRGAzpPRwfi+CwIVaYrCvQOVD1iWhA2el8QZuShHDPQIBARZ+06Cpt9eDLJXxfHNEsRn
+	4yy3SiITX7HBDLlhgyUw==
+X-Google-Smtp-Source: AGHT+IEO6aQCuJCW62+UaVaTjY+QCSjAHhvbQVmQh7V/364o7l0RIj5zQd8SK9Ou2X+RfANIrJ+c9Q==
+X-Received: by 2002:a05:622a:198f:b0:4ed:bbca:fded with SMTP id d75a77b69052e-4edbbcb0857mr21223051cf.17.1762724724459;
+        Sun, 09 Nov 2025 13:45:24 -0800 (PST)
+Received: from rogerio-laptop.home ([142.188.15.215])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4eda578532csm34422821cf.19.2025.11.09.13.45.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Nov 2025 13:45:24 -0800 (PST)
+From: Rogerio Pimentel <rpimentel.silva@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com,
+	marex@denx.de,
+	Markus.Niebel@tq-group.com,
+	y.moog@phytec.de,
+	joao.goncalves@toradex.com,
+	frieder.schrempf@kontron.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rogerio Pimentel <rpimentel.silva@gmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: fsl: Add i.MX8MP FRDM board
+Date: Sun,  9 Nov 2025 16:45:14 -0500
+Message-Id: <20251109214515.121742-1-rpimentel.silva@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20251106144418.2847443-1-tabba@google.com> <20251106144418.2847443-6-tabba@google.com>
- <aQ580W6SU1lGbd_D@kernel.org>
-In-Reply-To: <aQ580W6SU1lGbd_D@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Sun, 9 Nov 2025 19:51:50 +0000
-X-Gm-Features: AWmQ_bkltSpteSq6mNSrRDyI0IRhsoYujO6S4KSBeDrZfrq3926fOivxRsnvq9c
-Message-ID: <CA+EHjTxwGEb0vPWNT7C8Gg6zhETk1C_dGhJ2+a9E+eJ84hvshA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/5] KVM: arm64: Define FAR_MASK for fault IPA offset
-To: Oliver Upton <oupton@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	vladimir.murzin@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_115228_683169_AEE83762 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20251109_134526_364203_B770F31F 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,102 +116,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 at 23:12, Oliver Upton <oupton@kernel.org> wrote:
->
-> On Thu, Nov 06, 2025 at 02:44:17PM +0000, Fuad Tabba wrote:
-> > This 12-bit FAR mask is hard-coded as 'GENMASK(11, 0)' in several places
-> > to reconstruct the full fault IPA.
-> >
-> > Define FAR_MASK for this value in the shared header and replace all
-> > open-coded instances to improve readability.
-> >
-> > No functional change intended.
-> >
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_arm.h         | 2 ++
-> >  arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 2 +-
-> >  arch/arm64/kvm/inject_fault.c            | 2 +-
-> >  arch/arm64/kvm/mmu.c                     | 4 ++--
-> >  4 files changed, 6 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> > index 1da290aeedce..e995e9b3a0c4 100644
-> > --- a/arch/arm64/include/asm/kvm_arm.h
-> > +++ b/arch/arm64/include/asm/kvm_arm.h
-> > @@ -343,6 +343,8 @@
-> >  #define PAR_TO_HPFAR(par)            \
-> >       (((par) & GENMASK_ULL(52 - 1, 12)) >> 8)
-> >
-> > +#define FAR_MASK GENMASK_ULL(11, 0)
-> > +
->
-> This seems really confusing to me, since FAR_MASK sounds like it
-> represents the meaningful bits of FAR_ELx. Perhaps something like the
-> following would better represent intent:
->
-> #define FAR_TO_FIPA_OFFSET(far) ((far) & GENMASK_ULL(11, 0))
+Add device tree compatible string for the i.MX8MP FRDM board.
 
-Sounds better. I'll change it.
+Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+---
 
-Cheers,
-/fuad
+No changes in v4
 
-> Thanks,
-> Oliver
->
-> >  #define ECN(x) { ESR_ELx_EC_##x, #x }
-> >
-> >  #define kvm_arm_exception_class \
-> > diff --git a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-> > index 78579b31a420..22898ed4dd6f 100644
-> > --- a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-> > +++ b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-> > @@ -44,7 +44,7 @@ int __vgic_v2_perform_cpuif_access(struct kvm_vcpu *vcpu)
-> >
-> >       /* Build the full address */
-> >       fault_ipa  = kvm_vcpu_get_fault_ipa(vcpu);
-> > -     fault_ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> > +     fault_ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
-> >
-> >       /* If not for GICV, move on */
-> >       if (fault_ipa <  vgic->vgic_cpu_base ||
-> > diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> > index dfcd66c65517..8ef3453696a2 100644
-> > --- a/arch/arm64/kvm/inject_fault.c
-> > +++ b/arch/arm64/kvm/inject_fault.c
-> > @@ -258,7 +258,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
-> >       unsigned long addr, esr;
-> >
-> >       addr  = kvm_vcpu_get_fault_ipa(vcpu);
-> > -     addr |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> > +     addr |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
-> >
-> >       __kvm_inject_sea(vcpu, kvm_vcpu_trap_is_iabt(vcpu), addr);
-> >
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 7cc964af8d30..21a9442f9b1e 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1959,7 +1959,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >
-> >               /* Falls between the IPA range and the PARange? */
-> >               if (fault_ipa >= BIT_ULL(VTCR_EL2_IPA(vcpu->arch.hw_mmu->vtcr))) {
-> > -                     fault_ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> > +                     fault_ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
-> >
-> >                       return kvm_inject_sea(vcpu, is_iabt, fault_ipa);
-> >               }
-> > @@ -2059,7 +2059,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >                * faulting VA. This is always 12 bits, irrespective
-> >                * of the page size.
-> >                */
-> > -             ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> > +             ipa |= kvm_vcpu_get_hfar(vcpu) & FAR_MASK;
-> >               ret = io_mem_abort(vcpu, ipa);
-> >               goto out_unlock;
-> >       }
-> > --
-> > 2.51.2.1041.gc1ab5b90ca-goog
-> >
+No changes in v3
+
+No changes in v2
+
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 21b7168d61f5..f46cf6d1f502 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1099,6 +1099,7 @@ properties:
+               - emcraft,imx8mp-navqp      # i.MX8MP Emcraft Systems NavQ+ Kit
+               - fsl,imx8mp-evk            # i.MX8MP EVK Board
+               - fsl,imx8mp-evk-revb4      # i.MX8MP EVK Rev B4 Board
++              - fsl,imx8mp-frdm           # i.MX8MP Freedom Board
+               - gateworks,imx8mp-gw71xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw72xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw73xx-2x # i.MX8MP Gateworks Board
+-- 
+2.25.1
+
 
