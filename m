@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A3BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34063CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MDUv6je7Ohicz+smtRuBl6ZpYqiHtX0g/yyL+aPKMxc=; b=WnvSkdmfEHqu0I5/nRr8c6anop
-	YQ4kF8PDO5m/jBaDx15KZOu/2d+lJn7YIiBTIfMwrF+JOUxgk4cI3lbFSoEGq+uUwFnd9i/BN8aEA
-	c0xuBUlhGEAFjqpB0jEZNRFpvRfLDwfzmvNUZJFllEp75c/yyGhOxncyUfHx2bVUvPOGqYG1F52x3
-	p5ENg/qhdudg1ou1CE8CNQuWea9xFGAc39jY4/XegLWwHGzpoVbyb6VWKt9sH/KVy3iIRqt554LF2
-	5G0xhDOfQEpVYXsyw1CGqNninNRD6GrSw6CU2o1LNe1lskfLr6YyW1BeDolt9XY4YfixbZGgdX6hF
-	ACtYG8Qg==;
+	bh=NIWvhRHintsgUxq7/kw7iMAKxqqXku8h0+Og23yX6Gc=; b=ZhmzHHYncAgRUbXTQzm4IwIZmw
+	0JpcqeLtuZ2Opfj3YRXztJag+hDgLsWjHGEJtrNpjpWeWakNN34R0b+4W/sgsdkN+cEf5+NOtGwTj
+	LhBKDFIs64u8UIF9+0KCdUZ8UeQjL4eFSJQ5BomfdKAnEXGkpXUq7WlHJD6cAdehNwWI6uGi4eJaB
+	PAMXQmL4GFGpyIJdSv5Cv/pTEODo8MsOqxXwlF0u87K8a7SHsakfiMvgElr5jNuZ/XO7NdZA4uyLC
+	9uEoPuOCl7nMScBOwzdXzO0tb8ZjdER7zEkCzncJr4sDkSID71AYcK7jmGIV7of3+X3rDnu6YxCxZ
+	tet5KeUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIEdt-00000004Tjl-2Znj;
-	Sun, 09 Nov 2025 23:16:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vIEe7-00000004TmN-07WG;
+	Sun, 09 Nov 2025 23:16:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIEdn-00000004TjL-1b4u
+	id 1vIEe4-00000004Tli-3CVA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 23:16:15 +0000
+	Sun, 09 Nov 2025 23:16:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762730170;
+	s=mimecast20190719; t=1762730187;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MDUv6je7Ohicz+smtRuBl6ZpYqiHtX0g/yyL+aPKMxc=;
-	b=LbR65z6PKSl6IcCCe3OhDR8ROx9oiqKVw+GU/KIvWgCBclzUE13Xy6PE1tyYL4fc0YvR7w
-	bqatD2ZgbHuTPqgeoZ8SZ51aOOI6ZVhvahruEuySVCXWl4FCihFH3uBAYPNkVAx9EQH31o
-	F2GLFIregmd3oHZgyb8p+++W8eWcfHo=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=NIWvhRHintsgUxq7/kw7iMAKxqqXku8h0+Og23yX6Gc=;
+	b=E12mA6h+H0ovXOgBf/9JR/X/0tt/rCUWeufxydgbt4eCl7oEnZlIalH4e6svIUkGg1gA/B
+	CfJ/OnGiH0bPzfFv6Y1b4daXlW7Rn0TEz9jiGlNqWy4004lJDFDeWCt8ATJT1ioVccmU7C
+	Y6eYxuTr0ed/cuVM4eseLcWTnkUVe74=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-265-DUewp6a7Pnqgou9NC0W6pw-1; Sun, 09 Nov 2025 18:16:08 -0500
-X-MC-Unique: DUewp6a7Pnqgou9NC0W6pw-1
-X-Mimecast-MFC-AGG-ID: DUewp6a7Pnqgou9NC0W6pw_1762730168
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-297df52c960so42883615ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 15:16:08 -0800 (PST)
+ us-mta-114-yjq3Zj06MyqadlZM4G-8ew-1; Sun, 09 Nov 2025 18:16:26 -0500
+X-MC-Unique: yjq3Zj06MyqadlZM4G-8ew-1
+X-Mimecast-MFC-AGG-ID: yjq3Zj06MyqadlZM4G-8ew_1762730185
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-297fbfb4e53so14047855ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 15:16:26 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762730168; x=1763334968;
+        d=1e100.net; s=20230601; t=1762730185; x=1763334985;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MDUv6je7Ohicz+smtRuBl6ZpYqiHtX0g/yyL+aPKMxc=;
-        b=EIpF4G+gXNSLGDjF/87+xoQK0VqK/T/4xgEQKOgXAXGRcBIQf+6Qkk533QDM6XmTF6
-         P90yYdLAA4MFGvlshjA0+gQ4iv6ardyjl9vhKonY2vcH4qMrDjvhhl1SUzIB7iJ0eNJc
-         S/uOID9cssZA0RQCazRJ3FcRrFo/5ohcN0sMlVRZcUOk03E4eMi0x4YmYpxbs9MAcjUD
-         /VSf+hmxnI9THbU0+rVtoHWwmelSqqJoJfZuLNd0mo7u3PDDSeymU+3+B/d/L9kC47Qe
-         EykSYt15sGHtW6te3FGgbm6VasCq2v9A8LyVG6yt/4f/rK53BmVA66IUWWahdiqecjne
-         TMRg==
-X-Forwarded-Encrypted: i=1; AJvYcCXAe9WKtgnaXCJg5Ajvoj+H/cPOWqvVCA2c6pzDchQb4H0+E9jxqJ7o0aKJrxPi2gBb/TetHGfuQDgRUM4xhKnM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtLbSCqS/470Xyj1SJgJ/T8ww1tk7ZKH3obWjlkejsdQE7OLEk
-	zfK4/BPTyVyNktgz99wiA3D2C2bRi1LQbEGdDUww6msjqJWQ2zCKpUd/RdTEUEaFmz7AYrFMU6z
-	cw4C7RZiIcriPQm4fRU5h+6KQklseu5LIX4a/MHdncI9nwTgLGXri4ok6WDdLR3YDNmj045m847
-	cQ
-X-Gm-Gg: ASbGncvsVEhKnpJix2fDgvUJV8isg2ILJP8mnV1+4+L2NB8Xd19EAKqi+8bBgRHzSXt
-	2mH5wPF9a8X3QTweUDaGU11B03l98LqPdG0jvcql7ihGEzKD/skEASJOh5V92mFSNht4GqftYM7
-	Q0nCIy/2Z1uN15YFaYARlquVUvLHHcfYJRlagQd0S338QgCsozhw5nWgof7DyLbUb0c1wlyC6+6
-	dEheoXiveqnesvOtYMqPF57M4SmJWn2zXSvURgOsDN+iqFIM89SbvB9G1CuB62FELDCI+/MseQa
-	QgZk6N6dDLbg0fs6LHkt2RfGXykttjfwY2/S8wSfv6K1MX1r6CZVolh41DnNrjOeKtqFhtdF1DH
-	IHNruVbU44Pf0foPkZxSHMD+0jD4FIKZoABtPC6U=
-X-Received: by 2002:a17:902:c952:b0:295:21ac:352b with SMTP id d9443c01a7336-297e560ec1cmr78399325ad.15.1762730167674;
-        Sun, 09 Nov 2025 15:16:07 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHGKFONVz/PdrHijdKUAMC7ZFvcfTvFflkxdMQ1OwyAkmY8Q3jbTVUYQNkRAQk/zZ/9eJe8Fg==
-X-Received: by 2002:a17:902:c952:b0:295:21ac:352b with SMTP id d9443c01a7336-297e560ec1cmr78399125ad.15.1762730167302;
-        Sun, 09 Nov 2025 15:16:07 -0800 (PST)
+        bh=NIWvhRHintsgUxq7/kw7iMAKxqqXku8h0+Og23yX6Gc=;
+        b=nvPrZUEpFxa21Kqiyp49p3jpjk0r+zteqsCDBh4ErbuDYDtwQMfBqeY1KTDfV2TwHZ
+         eWcv/+9g51PdDhp+fNO1FHdWUyTrz0ip/9UHWeaD4ETZatv9eigYEXc5amLJA3sHgppO
+         VVVdt0tC5qvUr4pkZ22L+dprwBRdRM87DJMFEzX/a/ioGnWMnNaV1bq+eyfj+elGK4z7
+         e+EuW89bdL9akdCzIgjG38opdjQTuzTuYx9kw0ejUpGK3FE2ldwX99weRc1kMQDaUfPB
+         6W9SvvAN0h7rZKANPh6z+rqdWO9HGUCoDlFtS2OH80xJCDiI7x6IASFD2OEs9MPFSlvn
+         Ma1w==
+X-Forwarded-Encrypted: i=1; AJvYcCVEBKqreRWv3ana//jYicJNQwx5+dORJXCUi0Hoc+zoJnDzZvb14it2atVbIpNYcHanIdJAHBOm2nvel0yvWOOc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEbchoLvzKiQYWnR0UFHrv8dPt7BOKKE2b7l4EAvZ1cDTX4rAJ
+	h4arWyfmDrxnzteZwoVxix7W4x5gJa18djEh3FoFgMBgmnqSIu0NLn0gSvNjHSzKjstLfE0aFzk
+	lc9Cw87cI49nW8dJkUUzcKMh9zh9cG/Vyry4llais81a/Za6vhM41I/yJMAfVQfGLdntVQiGQNs
+	J7
+X-Gm-Gg: ASbGncvu7sx/xuExofZ20aGoH8PrQe79vt70eFfE+QW97biQu2uzMl3Q3rIQoCsinbx
+	7hEiOn4CNhc/FdTPs7ICtwwatFvT4NArpaNv51IVzY6Wh7GewniKideqPseqOD5Q/tJZOmW37lZ
+	96SEHOkfHARM3d3b4r5RauBjfXwa4B3VRsCnH4N0/9a7uWl7e1SGbN5iXVYluP3BISyvwfJixlK
+	GMobM2dcnLlTpv6OaUV8tARUGt4/nuFOgtAXo7WHs6Fr4kLcDdEmJWHx2/FK7S04cEwpvqbD9xH
+	GlvrzB107s/p98KapzKx39kBT1ChOEsUG1cwcstcnNuiuCmIHueEx5uNtdwzE/+MkW1Jws3SrzX
+	QuatLdiZY77864utnIDgifcJCM4SWV0n0fhKGgww=
+X-Received: by 2002:a17:903:3ba4:b0:294:fb47:b623 with SMTP id d9443c01a7336-297e5619e35mr66189605ad.11.1762730185131;
+        Sun, 09 Nov 2025 15:16:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEW0fX3tz982fZEVFcVhHyjU6z81+PepIDK0pHZvIUFcQbTO7ihNToj0nHl6Ty3e3/m1+e+yQ==
+X-Received: by 2002:a17:903:3ba4:b0:294:fb47:b623 with SMTP id d9443c01a7336-297e5619e35mr66189235ad.11.1762730184748;
+        Sun, 09 Nov 2025 15:16:24 -0800 (PST)
 Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651ccec04sm123053925ad.102.2025.11.09.15.15.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651ccec04sm123053925ad.102.2025.11.09.15.16.12
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Nov 2025 15:16:06 -0800 (PST)
-Message-ID: <6f36dcda-ec5c-46f2-9e22-7e4334cc554b@redhat.com>
-Date: Mon, 10 Nov 2025 09:15:53 +1000
+        Sun, 09 Nov 2025 15:16:24 -0800 (PST)
+Message-ID: <58d05fba-d678-4564-beba-45f667f9e975@redhat.com>
+Date: Mon, 10 Nov 2025 09:16:12 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 27/33] arm_mpam: Track bandwidth counter state for power
- management
+Subject: Re: [PATCH 28/33] arm_mpam: Consider overflow in bandwidth counter
+ state
 To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
@@ -99,18 +99,18 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
  Zeng Heng <zengheng4@huawei.com>
 References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-28-ben.horgan@arm.com>
+ <20251107123450.664001-29-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20251107123450.664001-28-ben.horgan@arm.com>
+In-Reply-To: <20251107123450.664001-29-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AP2anBjc_yDf1FnieBMFxVYyhbn3CW03o5CVNEzqh5A_1762730168
+X-Mimecast-MFC-PROC-ID: _UROJZBWxA2wo6TIajvfbQvfIc26odESLJU9qXlAc8k_1762730185
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_151611_536339_AC7ECE33 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20251109_151628_880900_9588ADCC 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,28 +126,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/7/25 10:34 PM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+> Use the overflow status bit to track overflow on each bandwidth counter
+> read and add the counter size to the correction when overflow is detected.
 > 
-> Bandwidth counters need to run continuously to correctly reflect the
-> bandwidth.
-> 
-> Save the counter state when the hardware is reset due to CPU hotplug.
-> Add struct mbwu_state to track the bandwidth counter. Support for
-> tracking overflow with the same structure will be added in a
-> subsequent commit.
+> This assumes that only a single overflow has occurred since the last read
+> of the counter. Overflow interrupts, on hardware that supports them could
+> be used to remove this limitation.
 > 
 > Cc: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> Changes since v3:
-> Drop tags
-> Fix correction accounting
-> Split out overflow checking
-> ---
->   drivers/resctrl/mpam_devices.c  | 126 +++++++++++++++++++++++++++++++-
->   drivers/resctrl/mpam_internal.h |  21 +++++-
->   2 files changed, 145 insertions(+), 2 deletions(-)
+>   drivers/resctrl/mpam_devices.c  | 24 ++++++++++++++++++++++--
+>   drivers/resctrl/mpam_internal.h |  3 ++-
+>   2 files changed, 24 insertions(+), 3 deletions(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
