@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F225ACD13D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAABCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xcTNCvkQpPtdc9waetfnqMGE5H22H5hQueSz9187JE=; b=S7YGW8SGZbd1lHgErZkfdokm6u
-	RSep7UnN2G3ym6cj8Ug2OHV/yW8I/kCpJZtRfD0ATeCV9KFBO1UhgRcigJH6qgQkcYFl115yx0Owr
-	bms4b8riby9sL4q6b6B60eDhjwQgNjrGHgS3M2TrKH/9NgNZr4E1YsspTmaP3Y6NZ3lO2QWErYYO/
-	Z9Nn794/bzCSR1GsOJYBSoDZ1xyUkldBAFsnGSqPrsZsre4pDUfX1iEAT01FnHVAOy5WVrwwNkH5q
-	WIkuxpe+fOsTHoaou/NnlL8G2uo0SNjfw2r4fk+1Xu+zvv34LNoeHwlNCH04f+Vi849uaup+eYaKx
-	DE2eLLQw==;
+	bh=oP0KL5Z69XHRNvvo3Cj+rZLcxanTcoYRRwJE7hc6biA=; b=tZxmJ8L3uq9wKhJ9Dz8jcBwNn+
+	POsk8JJHVYjBOyYACPs3+FieV8dcBtN2DICpUHqoyhuXCNfUb2xHZyKUCo0RDOt/9ufk8IJumFfPB
+	KC8XJ4W5S0Kww5jQ5Pq067fxzjCArPK4aAZ3uOI34102aDVCZAUxEJP65YzlMZbjEzWPX/KBP97/P
+	6i8wn+06ScQRiZYd1rt8h9POgMenXNDS+3FK0alGaCGBn0xMaPWF6yJoEa3w/X78y43Lc5zHZQPo8
+	olpxWKqpZ+n53AB1KbClm9w8l+nMEzuuIELjeXFgcv4XwCDpK8Mohcc7V3Vy7sGrIoqUpjN8rgzS8
+	nB1vwWxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAg-00000004Vqp-1Vuj;
-	Sun, 09 Nov 2025 23:50:10 +0000
+	id 1vIFAe-00000004Vp6-3u1g;
+	Sun, 09 Nov 2025 23:50:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAX-00000004Vlg-1BCY
+	id 1vIFAV-00000004Vjb-2gwE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 23:50:03 +0000
+	Sun, 09 Nov 2025 23:50:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10092446BA;
-	Sun,  9 Nov 2025 23:50:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B38CCC4CEF8;
-	Sun,  9 Nov 2025 23:49:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F19184360D;
+	Sun,  9 Nov 2025 23:49:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E695C19421;
+	Sun,  9 Nov 2025 23:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762732199;
-	bh=nqSfESYD3WdUWSz/fBnUEecChZSD29umtZlw2xLsB0o=;
+	s=k20201202; t=1762732198;
+	bh=GOujaf6AeVir3vIRStzcGHH3O67wB6Z4gyjbS/4cdVA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ipyjBVVBmsPbmwitdkyiaqgT4axyARVg2FomhDjAfZkJc1ubHKtY/wftpORy2bCuo
-	 g3pkYu7Msd6Ua1c0v+tsP3fY+RprmxzK9s2+KaN6DKW0tl+eBqfxmfSgSq8W0qNhNM
-	 /Klt2r7KxtbhBX73y8AxEZZ1Hp1f2gK7VbciFBTvjrZuxAVn0g/+SfegyuxVAaOeT+
-	 cqgQL10S3WCaG5efZKJE5T722jmmCEIha+0RjvYOTfKohjIoS0xgNvupDTVy+gdMfE
-	 Ihy86GM1k2fQ+jAF5ZWJYRTlC/5S/GyBuFHdwo9aq7BPf439kTep7b2KvkifiqUUew
-	 YbRlwKqxunQbQ==
+	b=V7da6BLtzTRjctamKJO7nKgshS+quh735NM/0n2RAjRdZA70O9KA4kteQp+yMyh+H
+	 3GmDJU6ndYRnz9XkPXDFC7K5fs4Xf52SVu76FVtgD8uV5ErMTdeTE1ztub7FAIp3Av
+	 7JE89bCftZ74jbeXt1LBFThSdBMgGvjq5hnNaohu4ecN0iIS+ym6yI6ANAE8vZeiWm
+	 PC9dtOQghKFcDUGYRrTUeYJu0xCKp64iovnEFJE8FPKym9iPDbNFljlBIDvnXMjFnp
+	 Zkiks5iuIy6sSj1Pu+DU9lVuHmu3jdslC5FTAF8cgplpiqL0bGXN4XqPMfcWtIHsFj
+	 1PA+JhHWdo+Ig==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,17 +51,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 8/9] crypto: testmgr - Remove polyval tests
-Date: Sun,  9 Nov 2025 15:47:23 -0800
-Message-ID: <20251109234726.638437-9-ebiggers@kernel.org>
+Subject: [PATCH 5/9] lib/crypto: x86/polyval: Migrate optimized code into library
+Date: Sun,  9 Nov 2025 15:47:20 -0800
+Message-ID: <20251109234726.638437-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251109234726.638437-1-ebiggers@kernel.org>
 References: <20251109234726.638437-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_155001_375139_CDE70480 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20251109_154959_781260_9983EC14 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,245 +76,512 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These are no longer used, since polyval support has been removed from
-the crypto_shash API.
+Migrate the x86_64 implementation of POLYVAL into lib/crypto/, wiring it
+up to the POLYVAL library interface.  This makes the POLYVAL library be
+properly optimized on x86_64.
 
-POLYVAL remains supported via lib/crypto/, where it has a KUnit test
-suite instead.
+This drops the x86_64 optimizations of polyval in the crypto_shash API.
+That's fine, since polyval will be removed from crypto_shash entirely
+since it is unneeded there.  But even if it comes back, the crypto_shash
+API could just be implemented on top of the library API, as usual.
+
+Adjust the names and prototypes of the assembly functions to align more
+closely with the rest of the library code.
+
+Also replace a movaps instruction with movups to remove the assumption
+that the key struct is 16-byte aligned.  Users can still align the key
+if they want (and at least in this case, movups is just as fast as
+movaps), but it's inconvenient to require it.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/tcrypt.c  |   4 --
- crypto/testmgr.c |   6 --
- crypto/testmgr.h | 171 -----------------------------------------------
- 3 files changed, 181 deletions(-)
+ arch/x86/crypto/Kconfig                       |  10 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/polyval-clmulni_glue.c        | 180 ------------------
+ include/crypto/polyval.h                      |   3 +
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   1 +
+ .../crypto/x86/polyval-pclmul-avx.S           |  40 ++--
+ lib/crypto/x86/polyval.h                      |  83 ++++++++
+ 8 files changed, 107 insertions(+), 214 deletions(-)
+ delete mode 100644 arch/x86/crypto/polyval-clmulni_glue.c
+ rename arch/x86/crypto/polyval-clmulni_asm.S => lib/crypto/x86/polyval-pclmul-avx.S (91%)
+ create mode 100644 lib/crypto/x86/polyval.h
 
-diff --git a/crypto/tcrypt.c b/crypto/tcrypt.c
-index d1d88debbd71..32d9eaf2c8af 100644
---- a/crypto/tcrypt.c
-+++ b/crypto/tcrypt.c
-@@ -1688,14 +1688,10 @@ static int do_test(const char *alg, u32 type, u32 mask, int m, u32 num_mb)
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index 48d3076b6053..3fd2423d3cf8 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -351,20 +351,10 @@ config CRYPTO_NHPOLY1305_AVX2
+ 	  NHPoly1305 hash function for Adiantum
  
- 	case 56:
- 		ret = min(ret, tcrypt_test("ccm(sm4)"));
- 		break;
+ 	  Architecture: x86_64 using:
+ 	  - AVX2 (Advanced Vector Extensions 2)
  
--	case 57:
--		ret = min(ret, tcrypt_test("polyval"));
--		break;
+-config CRYPTO_POLYVAL_CLMUL_NI
+-	tristate "Hash functions: POLYVAL (CLMUL-NI)"
+-	depends on 64BIT
+-	select CRYPTO_POLYVAL
+-	help
+-	  POLYVAL hash function for HCTR2
 -
- 	case 58:
- 		ret = min(ret, tcrypt_test("gcm(aria)"));
- 		break;
+-	  Architecture: x86_64 using:
+-	  - CLMUL-NI (carry-less multiplication new instructions)
+-
+ config CRYPTO_SM3_AVX_X86_64
+ 	tristate "Hash functions: SM3 (AVX)"
+ 	depends on 64BIT
+ 	select CRYPTO_HASH
+ 	select CRYPTO_LIB_SM3
+diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
+index 6409e3009524..5f2fb4f148fe 100644
+--- a/arch/x86/crypto/Makefile
++++ b/arch/x86/crypto/Makefile
+@@ -51,13 +51,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
+ 			       aes-xts-avx-x86_64.o
  
- 	case 59:
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 499e979a56dc..6fb53978df11 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -5368,16 +5368,10 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.fips_allowed = 1,
- 	}, {
- 		.alg = "pkcs1pad(rsa)",
- 		.test = alg_test_null,
- 		.fips_allowed = 1,
--	}, {
--		.alg = "polyval",
--		.test = alg_test_hash,
--		.suite = {
--			.hash = __VECS(polyval_tv_template)
--		}
- 	}, {
- 		.alg = "rfc3686(ctr(aes))",
- 		.test = alg_test_skcipher,
- 		.fips_allowed = 1,
- 		.suite = {
-diff --git a/crypto/testmgr.h b/crypto/testmgr.h
-index 268231227282..a3e4695945ca 100644
---- a/crypto/testmgr.h
-+++ b/crypto/testmgr.h
-@@ -36233,181 +36233,10 @@ static const struct cipher_testvec aes_xctr_tv_template[] = {
- 		.len	= 512,
- 	},
+ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
+ ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
  
- };
+-obj-$(CONFIG_CRYPTO_POLYVAL_CLMUL_NI) += polyval-clmulni.o
+-polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
+-
+ obj-$(CONFIG_CRYPTO_NHPOLY1305_SSE2) += nhpoly1305-sse2.o
+ nhpoly1305-sse2-y := nh-sse2-x86_64.o nhpoly1305-sse2-glue.o
+ obj-$(CONFIG_CRYPTO_NHPOLY1305_AVX2) += nhpoly1305-avx2.o
+ nhpoly1305-avx2-y := nh-avx2-x86_64.o nhpoly1305-avx2-glue.o
  
+diff --git a/arch/x86/crypto/polyval-clmulni_glue.c b/arch/x86/crypto/polyval-clmulni_glue.c
+deleted file mode 100644
+index 6b466867f91a..000000000000
+--- a/arch/x86/crypto/polyval-clmulni_glue.c
++++ /dev/null
+@@ -1,180 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
 -/*
-- * Test vectors generated using https://github.com/google/hctr2
+- * Glue code for POLYVAL using PCMULQDQ-NI
 - *
-- * To ensure compatibility with RFC 8452, some tests were sourced from
-- * https://datatracker.ietf.org/doc/html/rfc8452
+- * Copyright (c) 2007 Nokia Siemens Networks - Mikko Herranen <mh1@iki.fi>
+- * Copyright (c) 2009 Intel Corp.
+- *   Author: Huang Ying <ying.huang@intel.com>
+- * Copyright 2021 Google LLC
 - */
--static const struct hash_testvec polyval_tv_template[] = {
--	{ // From RFC 8452
--		.key	= "\x31\x07\x28\xd9\x91\x1f\x1f\x38"
--			  "\x37\xb2\x43\x16\xc3\xfa\xb9\xa0",
--		.plaintext	= "\x65\x78\x61\x6d\x70\x6c\x65\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x48\x65\x6c\x6c\x6f\x20\x77\x6f"
--			  "\x72\x6c\x64\x00\x00\x00\x00\x00"
--			  "\x38\x00\x00\x00\x00\x00\x00\x00"
--			  "\x58\x00\x00\x00\x00\x00\x00\x00",
--		.digest	= "\xad\x7f\xcf\x0b\x51\x69\x85\x16"
--			  "\x62\x67\x2f\x3c\x5f\x95\x13\x8f",
--		.psize	= 48,
--		.ksize	= 16,
--	},
--	{ // From RFC 8452
--		.key	= "\xd9\xb3\x60\x27\x96\x94\x94\x1a"
--			  "\xc5\xdb\xc6\x98\x7a\xda\x73\x77",
--		.plaintext	= "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00",
--		.digest	= "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00",
--		.psize	= 16,
--		.ksize	= 16,
--	},
--	{ // From RFC 8452
--		.key	= "\xd9\xb3\x60\x27\x96\x94\x94\x1a"
--			  "\xc5\xdb\xc6\x98\x7a\xda\x73\x77",
--		.plaintext	= "\x01\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x40\x00\x00\x00\x00\x00\x00\x00",
--		.digest	= "\xeb\x93\xb7\x74\x09\x62\xc5\xe4"
--			  "\x9d\x2a\x90\xa7\xdc\x5c\xec\x74",
--		.psize	= 32,
--		.ksize	= 16,
--	},
--	{ // From RFC 8452
--		.key	= "\xd9\xb3\x60\x27\x96\x94\x94\x1a"
--			  "\xc5\xdb\xc6\x98\x7a\xda\x73\x77",
--		.plaintext	= "\x01\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x02\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x03\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x80\x01\x00\x00\x00\x00\x00\x00",
--		.digest	= "\x81\x38\x87\x46\xbc\x22\xd2\x6b"
--			  "\x2a\xbc\x3d\xcb\x15\x75\x42\x22",
--		.psize	= 64,
--		.ksize	= 16,
--	},
--	{ // From RFC 8452
--		.key	= "\xd9\xb3\x60\x27\x96\x94\x94\x1a"
--			  "\xc5\xdb\xc6\x98\x7a\xda\x73\x77",
--		.plaintext	= "\x01\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x02\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x03\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x04\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x02\x00\x00\x00\x00\x00\x00",
--		.digest	= "\x1e\x39\xb6\xd3\x34\x4d\x34\x8f"
--			  "\x60\x44\xf8\x99\x35\xd1\xcf\x78",
--		.psize	= 80,
--		.ksize	= 16,
--	},
--	{ // From RFC 8452
--		.key	= "\xd9\xb3\x60\x27\x96\x94\x94\x1a"
--			  "\xc5\xdb\xc6\x98\x7a\xda\x73\x77",
--		.plaintext	= "\x01\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x02\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x03\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x04\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x05\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x08\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x02\x00\x00\x00\x00\x00\x00",
--		.digest	= "\xff\xcd\x05\xd5\x77\x0f\x34\xad"
--			  "\x92\x67\xf0\xa5\x99\x94\xb1\x5a",
--		.psize	= 96,
--		.ksize	= 16,
--	},
--	{ // Random ( 1)
--		.key	= "\x90\xcc\xac\xee\xba\xd7\xd4\x68"
--			  "\x98\xa6\x79\x70\xdf\x66\x15\x6c",
--		.plaintext	= "",
--		.digest	= "\x00\x00\x00\x00\x00\x00\x00\x00"
--			  "\x00\x00\x00\x00\x00\x00\x00\x00",
--		.psize	= 0,
--		.ksize	= 16,
--	},
--	{ // Random ( 1)
--		.key	= "\xc1\x45\x71\xf0\x30\x07\x94\xe7"
--			  "\x3a\xdd\xe4\xc6\x19\x2d\x02\xa2",
--		.plaintext	= "\xc1\x5d\x47\xc7\x4c\x7c\x5e\x07"
--			  "\x85\x14\x8f\x79\xcc\x73\x83\xf7"
--			  "\x35\xb8\xcb\x73\x61\xf0\x53\x31"
--			  "\xbf\x84\xde\xb6\xde\xaf\xb0\xb8"
--			  "\xb7\xd9\x11\x91\x89\xfd\x1e\x4c"
--			  "\x84\x4a\x1f\x2a\x87\xa4\xaf\x62"
--			  "\x8d\x7d\x58\xf6\x43\x35\xfc\x53"
--			  "\x8f\x1a\xf6\x12\xe1\x13\x3f\x66"
--			  "\x91\x4b\x13\xd6\x45\xfb\xb0\x7a"
--			  "\xe0\x8b\x8e\x99\xf7\x86\x46\x37"
--			  "\xd1\x22\x9e\x52\xf3\x3f\xd9\x75"
--			  "\x2c\x2c\xc6\xbb\x0e\x08\x14\x29"
--			  "\xe8\x50\x2f\xd8\xbe\xf4\xe9\x69"
--			  "\x4a\xee\xf7\xae\x15\x65\x35\x1e",
--		.digest	= "\x00\x4f\x5d\xe9\x3b\xc0\xd6\x50"
--			  "\x3e\x38\x73\x86\xc6\xda\xca\x7f",
--		.psize	= 112,
--		.ksize	= 16,
--	},
--	{ // Random ( 1)
--		.key	= "\x37\xbe\x68\x16\x50\xb9\x4e\xb0"
--			  "\x47\xde\xe2\xbd\xde\xe4\x48\x09",
--		.plaintext	= "\x87\xfc\x68\x9f\xff\xf2\x4a\x1e"
--			  "\x82\x3b\x73\x8f\xc1\xb2\x1b\x7a"
--			  "\x6c\x4f\x81\xbc\x88\x9b\x6c\xa3"
--			  "\x9c\xc2\xa5\xbc\x14\x70\x4c\x9b"
--			  "\x0c\x9f\x59\x92\x16\x4b\x91\x3d"
--			  "\x18\x55\x22\x68\x12\x8c\x63\xb2"
--			  "\x51\xcb\x85\x4b\xd2\xae\x0b\x1c"
--			  "\x5d\x28\x9d\x1d\xb1\xc8\xf0\x77"
--			  "\xe9\xb5\x07\x4e\x06\xc8\xee\xf8"
--			  "\x1b\xed\x72\x2a\x55\x7d\x16\xc9"
--			  "\xf2\x54\xe7\xe9\xe0\x44\x5b\x33"
--			  "\xb1\x49\xee\xff\x43\xfb\x82\xcd"
--			  "\x4a\x70\x78\x81\xa4\x34\x36\xe8"
--			  "\x4c\x28\x54\xa6\x6c\xc3\x6b\x78"
--			  "\xe7\xc0\x5d\xc6\x5d\x81\xab\x70"
--			  "\x08\x86\xa1\xfd\xf4\x77\x55\xfd"
--			  "\xa3\xe9\xe2\x1b\xdf\x99\xb7\x80"
--			  "\xf9\x0a\x4f\x72\x4a\xd3\xaf\xbb"
--			  "\xb3\x3b\xeb\x08\x58\x0f\x79\xce"
--			  "\xa5\x99\x05\x12\x34\xd4\xf4\x86"
--			  "\x37\x23\x1d\xc8\x49\xc0\x92\xae"
--			  "\xa6\xac\x9b\x31\x55\xed\x15\xc6"
--			  "\x05\x17\x37\x8d\x90\x42\xe4\x87"
--			  "\x89\x62\x88\x69\x1c\x6a\xfd\xe3"
--			  "\x00\x2b\x47\x1a\x73\xc1\x51\xc2"
--			  "\xc0\x62\x74\x6a\x9e\xb2\xe5\x21"
--			  "\xbe\x90\xb5\xb0\x50\xca\x88\x68"
--			  "\xe1\x9d\x7a\xdf\x6c\xb7\xb9\x98"
--			  "\xee\x28\x62\x61\x8b\xd1\x47\xf9"
--			  "\x04\x7a\x0b\x5d\xcd\x2b\x65\xf5"
--			  "\x12\xa3\xfe\x1a\xaa\x2c\x78\x42"
--			  "\xb8\xbe\x7d\x74\xeb\x59\xba\xba",
--		.digest	= "\xae\x11\xd4\x60\x2a\x5f\x9e\x42"
--			  "\x89\x04\xc2\x34\x8d\x55\x94\x0a",
--		.psize	= 256,
--		.ksize	= 16,
--	},
 -
+-/*
+- * Glue code based on ghash-clmulni-intel_glue.c.
+- *
+- * This implementation of POLYVAL uses montgomery multiplication
+- * accelerated by PCLMULQDQ-NI to implement the finite field
+- * operations.
+- */
+-
+-#include <asm/cpu_device_id.h>
+-#include <asm/fpu/api.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/polyval.h>
+-#include <crypto/utils.h>
+-#include <linux/errno.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-
+-#define POLYVAL_ALIGN	16
+-#define POLYVAL_ALIGN_ATTR __aligned(POLYVAL_ALIGN)
+-#define POLYVAL_ALIGN_EXTRA ((POLYVAL_ALIGN - 1) & ~(CRYPTO_MINALIGN - 1))
+-#define POLYVAL_CTX_SIZE (sizeof(struct polyval_tfm_ctx) + POLYVAL_ALIGN_EXTRA)
+-#define NUM_KEY_POWERS	8
+-
+-struct polyval_tfm_ctx {
+-	/*
+-	 * These powers must be in the order h^8, ..., h^1.
+-	 */
+-	u8 key_powers[NUM_KEY_POWERS][POLYVAL_BLOCK_SIZE] POLYVAL_ALIGN_ATTR;
 -};
 -
+-struct polyval_desc_ctx {
+-	u8 buffer[POLYVAL_BLOCK_SIZE];
+-};
+-
+-asmlinkage void clmul_polyval_update(const struct polyval_tfm_ctx *keys,
+-	const u8 *in, size_t nblocks, u8 *accumulator);
+-asmlinkage void clmul_polyval_mul(u8 *op1, const u8 *op2);
+-
+-static inline struct polyval_tfm_ctx *polyval_tfm_ctx(struct crypto_shash *tfm)
+-{
+-	return PTR_ALIGN(crypto_shash_ctx(tfm), POLYVAL_ALIGN);
+-}
+-
+-static void internal_polyval_update(const struct polyval_tfm_ctx *keys,
+-	const u8 *in, size_t nblocks, u8 *accumulator)
+-{
+-	kernel_fpu_begin();
+-	clmul_polyval_update(keys, in, nblocks, accumulator);
+-	kernel_fpu_end();
+-}
+-
+-static void internal_polyval_mul(u8 *op1, const u8 *op2)
+-{
+-	kernel_fpu_begin();
+-	clmul_polyval_mul(op1, op2);
+-	kernel_fpu_end();
+-}
+-
+-static int polyval_x86_setkey(struct crypto_shash *tfm,
+-			const u8 *key, unsigned int keylen)
+-{
+-	struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(tfm);
+-	int i;
+-
+-	if (keylen != POLYVAL_BLOCK_SIZE)
+-		return -EINVAL;
+-
+-	memcpy(tctx->key_powers[NUM_KEY_POWERS-1], key, POLYVAL_BLOCK_SIZE);
+-
+-	for (i = NUM_KEY_POWERS-2; i >= 0; i--) {
+-		memcpy(tctx->key_powers[i], key, POLYVAL_BLOCK_SIZE);
+-		internal_polyval_mul(tctx->key_powers[i],
+-				     tctx->key_powers[i+1]);
+-	}
+-
+-	return 0;
+-}
+-
+-static int polyval_x86_init(struct shash_desc *desc)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	memset(dctx, 0, sizeof(*dctx));
+-
+-	return 0;
+-}
+-
+-static int polyval_x86_update(struct shash_desc *desc,
+-			 const u8 *src, unsigned int srclen)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-	const struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(desc->tfm);
+-	unsigned int nblocks;
+-
+-	do {
+-		/* Allow rescheduling every 4K bytes. */
+-		nblocks = min(srclen, 4096U) / POLYVAL_BLOCK_SIZE;
+-		internal_polyval_update(tctx, src, nblocks, dctx->buffer);
+-		srclen -= nblocks * POLYVAL_BLOCK_SIZE;
+-		src += nblocks * POLYVAL_BLOCK_SIZE;
+-	} while (srclen >= POLYVAL_BLOCK_SIZE);
+-
+-	return srclen;
+-}
+-
+-static int polyval_x86_finup(struct shash_desc *desc, const u8 *src,
+-			     unsigned int len, u8 *dst)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-	const struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(desc->tfm);
+-
+-	if (len) {
+-		crypto_xor(dctx->buffer, src, len);
+-		internal_polyval_mul(dctx->buffer,
+-				     tctx->key_powers[NUM_KEY_POWERS-1]);
+-	}
+-
+-	memcpy(dst, dctx->buffer, POLYVAL_BLOCK_SIZE);
+-
+-	return 0;
+-}
+-
+-static struct shash_alg polyval_alg = {
+-	.digestsize	= POLYVAL_DIGEST_SIZE,
+-	.init		= polyval_x86_init,
+-	.update		= polyval_x86_update,
+-	.finup		= polyval_x86_finup,
+-	.setkey		= polyval_x86_setkey,
+-	.descsize	= sizeof(struct polyval_desc_ctx),
+-	.base		= {
+-		.cra_name		= "polyval",
+-		.cra_driver_name	= "polyval-clmulni",
+-		.cra_priority		= 200,
+-		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_blocksize		= POLYVAL_BLOCK_SIZE,
+-		.cra_ctxsize		= POLYVAL_CTX_SIZE,
+-		.cra_module		= THIS_MODULE,
+-	},
+-};
+-
+-__maybe_unused static const struct x86_cpu_id pcmul_cpu_id[] = {
+-	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL),
+-	{}
+-};
+-MODULE_DEVICE_TABLE(x86cpu, pcmul_cpu_id);
+-
+-static int __init polyval_clmulni_mod_init(void)
+-{
+-	if (!x86_match_cpu(pcmul_cpu_id))
+-		return -ENODEV;
+-
+-	if (!boot_cpu_has(X86_FEATURE_AVX))
+-		return -ENODEV;
+-
+-	return crypto_register_shash(&polyval_alg);
+-}
+-
+-static void __exit polyval_clmulni_mod_exit(void)
+-{
+-	crypto_unregister_shash(&polyval_alg);
+-}
+-
+-module_init(polyval_clmulni_mod_init);
+-module_exit(polyval_clmulni_mod_exit);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("POLYVAL hash function accelerated by PCLMULQDQ-NI");
+-MODULE_ALIAS_CRYPTO("polyval");
+-MODULE_ALIAS_CRYPTO("polyval-clmulni");
+diff --git a/include/crypto/polyval.h b/include/crypto/polyval.h
+index f8aaf4275fbd..b28b8ef11353 100644
+--- a/include/crypto/polyval.h
++++ b/include/crypto/polyval.h
+@@ -46,10 +46,13 @@ struct polyval_elem {
+ struct polyval_key {
+ #ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
+ #ifdef CONFIG_ARM64
+ 	/** @h_powers: Powers of the hash key H^8 through H^1 */
+ 	struct polyval_elem h_powers[8];
++#elif defined(CONFIG_X86)
++	/** @h_powers: Powers of the hash key H^8 through H^1 */
++	struct polyval_elem h_powers[8];
+ #else
+ #error "Unhandled arch"
+ #endif
+ #else /* CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
+ 	/** @h: The hash key H */
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 430723994142..9d04b3771ce2 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -143,10 +143,11 @@ config CRYPTO_LIB_POLYVAL
+ 
+ config CRYPTO_LIB_POLYVAL_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_POLYVAL && !UML
+ 	default y if ARM64 && KERNEL_MODE_NEON
++	default y if X86_64
+ 
+ config CRYPTO_LIB_CHACHA20POLY1305
+ 	tristate
+ 	select CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_POLY1305
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 2efa96afcb4b..6580991f8e12 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -201,10 +201,11 @@ clean-files += arm/poly1305-core.S \
+ obj-$(CONFIG_CRYPTO_LIB_POLYVAL) += libpolyval.o
+ libpolyval-y := polyval.o
+ ifeq ($(CONFIG_CRYPTO_LIB_POLYVAL_ARCH),y)
+ CFLAGS_polyval.o += -I$(src)/$(SRCARCH)
+ libpolyval-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
++libpolyval-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
+ endif
+ 
+ ################################################################################
+ 
+ obj-$(CONFIG_CRYPTO_LIB_SHA1) += libsha1.o
+diff --git a/arch/x86/crypto/polyval-clmulni_asm.S b/lib/crypto/x86/polyval-pclmul-avx.S
+similarity index 91%
+rename from arch/x86/crypto/polyval-clmulni_asm.S
+rename to lib/crypto/x86/polyval-pclmul-avx.S
+index a6ebe4e7dd2b..7f739465ad35 100644
+--- a/arch/x86/crypto/polyval-clmulni_asm.S
++++ b/lib/crypto/x86/polyval-pclmul-avx.S
+@@ -34,14 +34,14 @@
+ #define LO %xmm12
+ #define HI %xmm13
+ #define MI %xmm14
+ #define SUM %xmm15
+ 
+-#define KEY_POWERS %rdi
+-#define MSG %rsi
+-#define BLOCKS_LEFT %rdx
+-#define ACCUMULATOR %rcx
++#define ACCUMULATOR %rdi
++#define KEY_POWERS %rsi
++#define MSG %rdx
++#define BLOCKS_LEFT %rcx
+ #define TMP %rax
+ 
+ .section    .rodata.cst16.gstar, "aM", @progbits, 16
+ .align 16
+ 
+@@ -232,11 +232,11 @@
+ 	addq $(16*STRIDE_BLOCKS), KEY_POWERS
+ 	subq TMP, KEY_POWERS
+ 
+ 	movups (MSG), %xmm0
+ 	pxor SUM, %xmm0
+-	movaps (KEY_POWERS), %xmm1
++	movups (KEY_POWERS), %xmm1
+ 	schoolbook1_noload
+ 	dec BLOCKS_LEFT
+ 	addq $16, MSG
+ 	addq $16, KEY_POWERS
+ 
+@@ -259,45 +259,43 @@
+ 	schoolbook2
+ 	montgomery_reduction SUM
+ .endm
+ 
  /*
-  * Test vectors generated using https://github.com/google/hctr2
+- * Perform montgomery multiplication in GF(2^128) and store result in op1.
++ * Computes a = a * b * x^{-128} mod x^128 + x^127 + x^126 + x^121 + 1.
+  *
+- * Computes op1*op2*x^{-128} mod x^128 + x^127 + x^126 + x^121 + 1
+- * If op1, op2 are in montgomery form, this computes the montgomery
+- * form of op1*op2.
+- *
+- * void clmul_polyval_mul(u8 *op1, const u8 *op2);
++ * void polyval_mul_pclmul_avx(struct polyval_elem *a,
++ *			       const struct polyval_elem *b);
   */
- static const struct cipher_testvec aes_hctr2_tv_template[] = {
- 	{
+-SYM_FUNC_START(clmul_polyval_mul)
++SYM_FUNC_START(polyval_mul_pclmul_avx)
+ 	FRAME_BEGIN
+ 	vmovdqa .Lgstar(%rip), GSTAR
+ 	movups (%rdi), %xmm0
+ 	movups (%rsi), %xmm1
+ 	schoolbook1_noload
+ 	schoolbook2
+ 	montgomery_reduction SUM
+ 	movups SUM, (%rdi)
+ 	FRAME_END
+ 	RET
+-SYM_FUNC_END(clmul_polyval_mul)
++SYM_FUNC_END(polyval_mul_pclmul_avx)
+ 
+ /*
+  * Perform polynomial evaluation as specified by POLYVAL.  This computes:
+  *	h^n * accumulator + h^n * m_0 + ... + h^1 * m_{n-1}
+  * where n=nblocks, h is the hash key, and m_i are the message blocks.
+  *
+- * rdi - pointer to precomputed key powers h^8 ... h^1
+- * rsi - pointer to message blocks
+- * rdx - number of blocks to hash
+- * rcx - pointer to the accumulator
++ * rdi - pointer to the accumulator
++ * rsi - pointer to precomputed key powers h^8 ... h^1
++ * rdx - pointer to message blocks
++ * rcx - number of blocks to hash
+  *
+- * void clmul_polyval_update(const struct polyval_tfm_ctx *keys,
+- *	const u8 *in, size_t nblocks, u8 *accumulator);
++ * void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
++ *				  const struct polyval_key *key,
++ *				  const u8 *data, size_t nblocks);
+  */
+-SYM_FUNC_START(clmul_polyval_update)
++SYM_FUNC_START(polyval_blocks_pclmul_avx)
+ 	FRAME_BEGIN
+ 	vmovdqa .Lgstar(%rip), GSTAR
+ 	movups (ACCUMULATOR), SUM
+ 	subq $STRIDE_BLOCKS, BLOCKS_LEFT
+ 	js .LstrideLoopExit
+@@ -316,6 +314,6 @@ SYM_FUNC_START(clmul_polyval_update)
+ 	partial_stride
+ .LskipPartial:
+ 	movups SUM, (ACCUMULATOR)
+ 	FRAME_END
+ 	RET
+-SYM_FUNC_END(clmul_polyval_update)
++SYM_FUNC_END(polyval_blocks_pclmul_avx)
+diff --git a/lib/crypto/x86/polyval.h b/lib/crypto/x86/polyval.h
+new file mode 100644
+index 000000000000..ef8797521420
+--- /dev/null
++++ b/lib/crypto/x86/polyval.h
+@@ -0,0 +1,83 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * POLYVAL library functions, x86_64 optimized
++ *
++ * Copyright 2025 Google LLC
++ */
++#include <asm/fpu/api.h>
++#include <linux/cpufeature.h>
++
++#define NUM_H_POWERS 8
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul_avx);
++
++asmlinkage void polyval_mul_pclmul_avx(struct polyval_elem *a,
++				       const struct polyval_elem *b);
++asmlinkage void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
++					  const struct polyval_key *key,
++					  const u8 *data, size_t nblocks);
++
++static void polyval_preparekey_arch(struct polyval_key *key,
++				    const u8 raw_key[POLYVAL_BLOCK_SIZE])
++{
++	static_assert(ARRAY_SIZE(key->h_powers) == NUM_H_POWERS);
++	memcpy(&key->h_powers[NUM_H_POWERS - 1], raw_key, POLYVAL_BLOCK_SIZE);
++	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
++		kernel_fpu_begin();
++		for (int i = NUM_H_POWERS - 2; i >= 0; i--) {
++			key->h_powers[i] = key->h_powers[i + 1];
++			polyval_mul_pclmul_avx(
++				&key->h_powers[i],
++				&key->h_powers[NUM_H_POWERS - 1]);
++		}
++		kernel_fpu_end();
++	} else {
++		for (int i = NUM_H_POWERS - 2; i >= 0; i--) {
++			key->h_powers[i] = key->h_powers[i + 1];
++			polyval_mul_generic(&key->h_powers[i],
++					    &key->h_powers[NUM_H_POWERS - 1]);
++		}
++	}
++}
++
++static void polyval_mul_arch(struct polyval_elem *acc,
++			     const struct polyval_key *key)
++{
++	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
++		kernel_fpu_begin();
++		polyval_mul_pclmul_avx(acc, &key->h_powers[NUM_H_POWERS - 1]);
++		kernel_fpu_end();
++	} else {
++		polyval_mul_generic(acc, &key->h_powers[NUM_H_POWERS - 1]);
++	}
++}
++
++static void polyval_blocks_arch(struct polyval_elem *acc,
++				const struct polyval_key *key,
++				const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
++		do {
++			/* Allow rescheduling every 4 KiB. */
++			size_t n = min_t(size_t, nblocks,
++					 4096 / POLYVAL_BLOCK_SIZE);
++
++			kernel_fpu_begin();
++			polyval_blocks_pclmul_avx(acc, key, data, n);
++			kernel_fpu_end();
++			data += n * POLYVAL_BLOCK_SIZE;
++			nblocks -= n;
++		} while (nblocks);
++	} else {
++		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
++				       data, nblocks);
++	}
++}
++
++#define polyval_mod_init_arch polyval_mod_init_arch
++static void polyval_mod_init_arch(void)
++{
++	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ) &&
++	    boot_cpu_has(X86_FEATURE_AVX))
++		static_branch_enable(&have_pclmul_avx);
++}
 -- 
 2.51.2
 
