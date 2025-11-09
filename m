@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAABCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77949CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oP0KL5Z69XHRNvvo3Cj+rZLcxanTcoYRRwJE7hc6biA=; b=tZxmJ8L3uq9wKhJ9Dz8jcBwNn+
-	POsk8JJHVYjBOyYACPs3+FieV8dcBtN2DICpUHqoyhuXCNfUb2xHZyKUCo0RDOt/9ufk8IJumFfPB
-	KC8XJ4W5S0Kww5jQ5Pq067fxzjCArPK4aAZ3uOI34102aDVCZAUxEJP65YzlMZbjEzWPX/KBP97/P
-	6i8wn+06ScQRiZYd1rt8h9POgMenXNDS+3FK0alGaCGBn0xMaPWF6yJoEa3w/X78y43Lc5zHZQPo8
-	olpxWKqpZ+n53AB1KbClm9w8l+nMEzuuIELjeXFgcv4XwCDpK8Mohcc7V3Vy7sGrIoqUpjN8rgzS8
-	nB1vwWxg==;
+	bh=WvQwo4jO/5tu667WEp3nWVDotcc6kkg5jImEX9XBju0=; b=JyjBEH/7UKENYxOzH7LMv1uHWA
+	kwbfwdlJ+sj7OqHX+x8YS1iGnihcI3TzY2OudPu0sk7pLS+oRROjYamoCMa+b1EVtesJUugC4MpqR
+	iy3rm5T8jIhdFmWQ0xrgo0VqMmz76RN5822pAxtGdE/WLBwF3qmEMl3Z9Z1rgxz1z9kDKHfG7Wjww
+	99mCt27tcTiRMTWiczd/dW5DLHlq/xhKf1ZqYXac9DXj1010c/BkNzdXkR2wa4UFsFk1yeg6ICkHN
+	HaHnKkax4OB9l94aJBDcaneuzayBq/8LA6sqF1OsfZfT9NeNgXuWuEUsZnagIHuKjvlM4btZ0QPMr
+	jWpZNXsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAe-00000004Vp6-3u1g;
-	Sun, 09 Nov 2025 23:50:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAV-00000004Vjb-2gwE
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vIFAY-00000004Vmu-40Dt;
 	Sun, 09 Nov 2025 23:50:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIFAV-00000004VjX-1i99
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Nov 2025 23:50:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F19184360D;
-	Sun,  9 Nov 2025 23:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E695C19421;
-	Sun,  9 Nov 2025 23:49:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D94C3445BF;
+	Sun,  9 Nov 2025 23:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87E1AC113D0;
+	Sun,  9 Nov 2025 23:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762732198;
-	bh=GOujaf6AeVir3vIRStzcGHH3O67wB6Z4gyjbS/4cdVA=;
+	s=k20201202; t=1762732197;
+	bh=ZoXcGXBGVlSr3Ho0fOCW8R5LkDPylPl0IcgWUO0IZ7Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V7da6BLtzTRjctamKJO7nKgshS+quh735NM/0n2RAjRdZA70O9KA4kteQp+yMyh+H
-	 3GmDJU6ndYRnz9XkPXDFC7K5fs4Xf52SVu76FVtgD8uV5ErMTdeTE1ztub7FAIp3Av
-	 7JE89bCftZ74jbeXt1LBFThSdBMgGvjq5hnNaohu4ecN0iIS+ym6yI6ANAE8vZeiWm
-	 PC9dtOQghKFcDUGYRrTUeYJu0xCKp64iovnEFJE8FPKym9iPDbNFljlBIDvnXMjFnp
-	 Zkiks5iuIy6sSj1Pu+DU9lVuHmu3jdslC5FTAF8cgplpiqL0bGXN4XqPMfcWtIHsFj
-	 1PA+JhHWdo+Ig==
+	b=ltPtQ5D7C46OOur1c0zaKE1wwSXXrQWTzc1bWwcLWUlmUafAEN6NoRIoVLIOTAeGX
+	 6bRgBrTbohN3/p2j05DymcyF1vlGi+3VtDK8whLCWHNMvnQGwXdfu6XLKHz1xNxRhN
+	 pQzlf6XrG4q34VBUUno6eTqcAE8gAn7Hk1qCL6rqn8IfIyVBsADHDwhK042NgD6e5Y
+	 uR8I0M4q/OkfvtsX6gGZZbXoJDYTdxGkmpKZ32Adbn3k8O5ISU8jiyR/YG1RokSwPo
+	 OhTBpsZTNgqjsIKSeDJiEzyC8nxJ4yQ7ME1xCiinSpfwofDt4gUNP5NTgGfb47TsN9
+	 cpVwpeIa/Z4EA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,17 +51,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 5/9] lib/crypto: x86/polyval: Migrate optimized code into library
-Date: Sun,  9 Nov 2025 15:47:20 -0800
-Message-ID: <20251109234726.638437-6-ebiggers@kernel.org>
+Subject: [PATCH 2/9] lib/crypto: polyval: Add POLYVAL library
+Date: Sun,  9 Nov 2025 15:47:17 -0800
+Message-ID: <20251109234726.638437-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251109234726.638437-1-ebiggers@kernel.org>
 References: <20251109234726.638437-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_154959_781260_9983EC14 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20251109_154959_492430_495FF349 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,512 +76,581 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate the x86_64 implementation of POLYVAL into lib/crypto/, wiring it
-up to the POLYVAL library interface.  This makes the POLYVAL library be
-properly optimized on x86_64.
+Add support for POLYVAL to lib/crypto/.
 
-This drops the x86_64 optimizations of polyval in the crypto_shash API.
-That's fine, since polyval will be removed from crypto_shash entirely
-since it is unneeded there.  But even if it comes back, the crypto_shash
-API could just be implemented on top of the library API, as usual.
+This will replace the polyval crypto_shash algorithm and its use in the
+hctr2 template, simplifying the code and reducing overhead.
 
-Adjust the names and prototypes of the assembly functions to align more
-closely with the rest of the library code.
+Specifically, this commit introduces the POLYVAL library API and a
+generic implementation of it.  Later commits will migrate the existing
+architecture-optimized implementations of POLYVAL into lib/crypto/ and
+add a KUnit test suite.
 
-Also replace a movaps instruction with movups to remove the assumption
-that the key struct is 16-byte aligned.  Users can still align the key
-if they want (and at least in this case, movups is just as fast as
-movaps), but it's inconvenient to require it.
+I've also rewritten the generic implementation completely, using a more
+modern approach instead of the traditional table-based approach.  It's
+now constant-time, requires no precomputation or dynamic memory
+allocations, decreases the per-key memory usage from 4096 bytes to 16
+bytes, and is faster than the old polyval-generic even on bulk data
+reusing the same key (at least on x86_64, where I measured 15% faster).
+We should do this for GHASH too, but for now just do it for POLYVAL.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/x86/crypto/Kconfig                       |  10 -
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/polyval-clmulni_glue.c        | 180 ------------------
- include/crypto/polyval.h                      |   3 +
- lib/crypto/Kconfig                            |   1 +
- lib/crypto/Makefile                           |   1 +
- .../crypto/x86/polyval-pclmul-avx.S           |  40 ++--
- lib/crypto/x86/polyval.h                      |  83 ++++++++
- 8 files changed, 107 insertions(+), 214 deletions(-)
- delete mode 100644 arch/x86/crypto/polyval-clmulni_glue.c
- rename arch/x86/crypto/polyval-clmulni_asm.S => lib/crypto/x86/polyval-pclmul-avx.S (91%)
- create mode 100644 lib/crypto/x86/polyval.h
+ include/crypto/polyval.h | 171 +++++++++++++++++++++-
+ lib/crypto/Kconfig       |  10 ++
+ lib/crypto/Makefile      |   8 +
+ lib/crypto/polyval.c     | 307 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 493 insertions(+), 3 deletions(-)
+ create mode 100644 lib/crypto/polyval.c
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 48d3076b6053..3fd2423d3cf8 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -351,20 +351,10 @@ config CRYPTO_NHPOLY1305_AVX2
- 	  NHPoly1305 hash function for Adiantum
- 
- 	  Architecture: x86_64 using:
- 	  - AVX2 (Advanced Vector Extensions 2)
- 
--config CRYPTO_POLYVAL_CLMUL_NI
--	tristate "Hash functions: POLYVAL (CLMUL-NI)"
--	depends on 64BIT
--	select CRYPTO_POLYVAL
--	help
--	  POLYVAL hash function for HCTR2
--
--	  Architecture: x86_64 using:
--	  - CLMUL-NI (carry-less multiplication new instructions)
--
- config CRYPTO_SM3_AVX_X86_64
- 	tristate "Hash functions: SM3 (AVX)"
- 	depends on 64BIT
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index 6409e3009524..5f2fb4f148fe 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -51,13 +51,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
- 			       aes-xts-avx-x86_64.o
- 
- obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
- ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
- 
--obj-$(CONFIG_CRYPTO_POLYVAL_CLMUL_NI) += polyval-clmulni.o
--polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
--
- obj-$(CONFIG_CRYPTO_NHPOLY1305_SSE2) += nhpoly1305-sse2.o
- nhpoly1305-sse2-y := nh-sse2-x86_64.o nhpoly1305-sse2-glue.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_AVX2) += nhpoly1305-avx2.o
- nhpoly1305-avx2-y := nh-avx2-x86_64.o nhpoly1305-avx2-glue.o
- 
-diff --git a/arch/x86/crypto/polyval-clmulni_glue.c b/arch/x86/crypto/polyval-clmulni_glue.c
-deleted file mode 100644
-index 6b466867f91a..000000000000
---- a/arch/x86/crypto/polyval-clmulni_glue.c
-+++ /dev/null
-@@ -1,180 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Glue code for POLYVAL using PCMULQDQ-NI
-- *
-- * Copyright (c) 2007 Nokia Siemens Networks - Mikko Herranen <mh1@iki.fi>
-- * Copyright (c) 2009 Intel Corp.
-- *   Author: Huang Ying <ying.huang@intel.com>
-- * Copyright 2021 Google LLC
-- */
--
--/*
-- * Glue code based on ghash-clmulni-intel_glue.c.
-- *
-- * This implementation of POLYVAL uses montgomery multiplication
-- * accelerated by PCLMULQDQ-NI to implement the finite field
-- * operations.
-- */
--
--#include <asm/cpu_device_id.h>
--#include <asm/fpu/api.h>
--#include <crypto/internal/hash.h>
--#include <crypto/polyval.h>
--#include <crypto/utils.h>
--#include <linux/errno.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--
--#define POLYVAL_ALIGN	16
--#define POLYVAL_ALIGN_ATTR __aligned(POLYVAL_ALIGN)
--#define POLYVAL_ALIGN_EXTRA ((POLYVAL_ALIGN - 1) & ~(CRYPTO_MINALIGN - 1))
--#define POLYVAL_CTX_SIZE (sizeof(struct polyval_tfm_ctx) + POLYVAL_ALIGN_EXTRA)
--#define NUM_KEY_POWERS	8
--
--struct polyval_tfm_ctx {
--	/*
--	 * These powers must be in the order h^8, ..., h^1.
--	 */
--	u8 key_powers[NUM_KEY_POWERS][POLYVAL_BLOCK_SIZE] POLYVAL_ALIGN_ATTR;
--};
--
--struct polyval_desc_ctx {
--	u8 buffer[POLYVAL_BLOCK_SIZE];
--};
--
--asmlinkage void clmul_polyval_update(const struct polyval_tfm_ctx *keys,
--	const u8 *in, size_t nblocks, u8 *accumulator);
--asmlinkage void clmul_polyval_mul(u8 *op1, const u8 *op2);
--
--static inline struct polyval_tfm_ctx *polyval_tfm_ctx(struct crypto_shash *tfm)
--{
--	return PTR_ALIGN(crypto_shash_ctx(tfm), POLYVAL_ALIGN);
--}
--
--static void internal_polyval_update(const struct polyval_tfm_ctx *keys,
--	const u8 *in, size_t nblocks, u8 *accumulator)
--{
--	kernel_fpu_begin();
--	clmul_polyval_update(keys, in, nblocks, accumulator);
--	kernel_fpu_end();
--}
--
--static void internal_polyval_mul(u8 *op1, const u8 *op2)
--{
--	kernel_fpu_begin();
--	clmul_polyval_mul(op1, op2);
--	kernel_fpu_end();
--}
--
--static int polyval_x86_setkey(struct crypto_shash *tfm,
--			const u8 *key, unsigned int keylen)
--{
--	struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(tfm);
--	int i;
--
--	if (keylen != POLYVAL_BLOCK_SIZE)
--		return -EINVAL;
--
--	memcpy(tctx->key_powers[NUM_KEY_POWERS-1], key, POLYVAL_BLOCK_SIZE);
--
--	for (i = NUM_KEY_POWERS-2; i >= 0; i--) {
--		memcpy(tctx->key_powers[i], key, POLYVAL_BLOCK_SIZE);
--		internal_polyval_mul(tctx->key_powers[i],
--				     tctx->key_powers[i+1]);
--	}
--
--	return 0;
--}
--
--static int polyval_x86_init(struct shash_desc *desc)
--{
--	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
--
--	memset(dctx, 0, sizeof(*dctx));
--
--	return 0;
--}
--
--static int polyval_x86_update(struct shash_desc *desc,
--			 const u8 *src, unsigned int srclen)
--{
--	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
--	const struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(desc->tfm);
--	unsigned int nblocks;
--
--	do {
--		/* Allow rescheduling every 4K bytes. */
--		nblocks = min(srclen, 4096U) / POLYVAL_BLOCK_SIZE;
--		internal_polyval_update(tctx, src, nblocks, dctx->buffer);
--		srclen -= nblocks * POLYVAL_BLOCK_SIZE;
--		src += nblocks * POLYVAL_BLOCK_SIZE;
--	} while (srclen >= POLYVAL_BLOCK_SIZE);
--
--	return srclen;
--}
--
--static int polyval_x86_finup(struct shash_desc *desc, const u8 *src,
--			     unsigned int len, u8 *dst)
--{
--	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
--	const struct polyval_tfm_ctx *tctx = polyval_tfm_ctx(desc->tfm);
--
--	if (len) {
--		crypto_xor(dctx->buffer, src, len);
--		internal_polyval_mul(dctx->buffer,
--				     tctx->key_powers[NUM_KEY_POWERS-1]);
--	}
--
--	memcpy(dst, dctx->buffer, POLYVAL_BLOCK_SIZE);
--
--	return 0;
--}
--
--static struct shash_alg polyval_alg = {
--	.digestsize	= POLYVAL_DIGEST_SIZE,
--	.init		= polyval_x86_init,
--	.update		= polyval_x86_update,
--	.finup		= polyval_x86_finup,
--	.setkey		= polyval_x86_setkey,
--	.descsize	= sizeof(struct polyval_desc_ctx),
--	.base		= {
--		.cra_name		= "polyval",
--		.cra_driver_name	= "polyval-clmulni",
--		.cra_priority		= 200,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize		= POLYVAL_BLOCK_SIZE,
--		.cra_ctxsize		= POLYVAL_CTX_SIZE,
--		.cra_module		= THIS_MODULE,
--	},
--};
--
--__maybe_unused static const struct x86_cpu_id pcmul_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, pcmul_cpu_id);
--
--static int __init polyval_clmulni_mod_init(void)
--{
--	if (!x86_match_cpu(pcmul_cpu_id))
--		return -ENODEV;
--
--	if (!boot_cpu_has(X86_FEATURE_AVX))
--		return -ENODEV;
--
--	return crypto_register_shash(&polyval_alg);
--}
--
--static void __exit polyval_clmulni_mod_exit(void)
--{
--	crypto_unregister_shash(&polyval_alg);
--}
--
--module_init(polyval_clmulni_mod_init);
--module_exit(polyval_clmulni_mod_exit);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("POLYVAL hash function accelerated by PCLMULQDQ-NI");
--MODULE_ALIAS_CRYPTO("polyval");
--MODULE_ALIAS_CRYPTO("polyval-clmulni");
 diff --git a/include/crypto/polyval.h b/include/crypto/polyval.h
-index f8aaf4275fbd..b28b8ef11353 100644
+index d2e63743e592..5ba4c248cad1 100644
 --- a/include/crypto/polyval.h
 +++ b/include/crypto/polyval.h
-@@ -46,10 +46,13 @@ struct polyval_elem {
- struct polyval_key {
- #ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
- #ifdef CONFIG_ARM64
- 	/** @h_powers: Powers of the hash key H^8 through H^1 */
- 	struct polyval_elem h_powers[8];
-+#elif defined(CONFIG_X86)
-+	/** @h_powers: Powers of the hash key H^8 through H^1 */
-+	struct polyval_elem h_powers[8];
- #else
- #error "Unhandled arch"
+@@ -1,14 +1,179 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
++/* SPDX-License-Identifier: GPL-2.0-or-later */
+ /*
+- * Common values for the Polyval hash algorithm
++ * POLYVAL library API
+  *
+- * Copyright 2021 Google LLC
++ * Copyright 2025 Google LLC
+  */
+ 
+ #ifndef _CRYPTO_POLYVAL_H
+ #define _CRYPTO_POLYVAL_H
+ 
++#include <linux/string.h>
++#include <linux/types.h>
++
+ #define POLYVAL_BLOCK_SIZE	16
+ #define POLYVAL_DIGEST_SIZE	16
+ 
++/**
++ * struct polyval_elem - An element of the POLYVAL finite field
++ * @bytes: View of the element as a byte array (unioned with @lo and @hi)
++ * @lo: The low 64 terms of the element's polynomial
++ * @hi: The high 64 terms of the element's polynomial
++ *
++ * This represents an element of the finite field GF(2^128), using the POLYVAL
++ * convention: little-endian byte order and natural bit order.
++ */
++struct polyval_elem {
++	union {
++		u8 bytes[POLYVAL_BLOCK_SIZE];
++		struct {
++			__le64 lo;
++			__le64 hi;
++		};
++	};
++};
++
++/**
++ * struct polyval_key - Prepared key for POLYVAL
++ *
++ * This may contain just the raw key H, or it may contain precomputed key
++ * powers, depending on the platform's POLYVAL implementation.  Use
++ * polyval_preparekey() to initialize this.
++ */
++struct polyval_key {
++#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
++#error "Unhandled arch"
++#else /* CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
++	/** @h: The hash key H */
++	struct polyval_elem h;
++#endif /* !CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
++};
++
++/**
++ * struct polyval_ctx - Context for computing a POLYVAL value
++ * @key: Pointer to the prepared POLYVAL key.  The user of the API is
++ *	 responsible for ensuring that the key lives as long as the context.
++ * @acc: The accumulator
++ * @partial: Number of data bytes processed so far modulo POLYVAL_BLOCK_SIZE
++ */
++struct polyval_ctx {
++	const struct polyval_key *key;
++	struct polyval_elem acc;
++	size_t partial;
++};
++
++/**
++ * polyval_preparekey() - Prepare a POLYVAL key
++ * @key: (output) The key structure to initialize
++ * @raw_key: The raw hash key
++ *
++ * Initialize a POLYVAL key structure from a raw key.  This may be a simple
++ * copy, or it may involve precomputing powers of the key, depending on the
++ * platform's POLYVAL implementation.
++ *
++ * Context: Any context.
++ */
++#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
++void polyval_preparekey(struct polyval_key *key,
++			const u8 raw_key[POLYVAL_BLOCK_SIZE]);
++
++#else
++static inline void polyval_preparekey(struct polyval_key *key,
++				      const u8 raw_key[POLYVAL_BLOCK_SIZE])
++{
++	/* Just a simple copy, so inline it. */
++	memcpy(key->h.bytes, raw_key, POLYVAL_BLOCK_SIZE);
++}
  #endif
- #else /* CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
- 	/** @h: The hash key H */
++
++/**
++ * polyval_init() - Initialize a POLYVAL context for a new message
++ * @ctx: The context to initialize
++ * @key: The key to use.  Note that a pointer to the key is saved in the
++ *	 context, so the key must live at least as long as the context.
++ */
++static inline void polyval_init(struct polyval_ctx *ctx,
++				const struct polyval_key *key)
++{
++	*ctx = (struct polyval_ctx){ .key = key };
++}
++
++/**
++ * polyval_import_blkaligned() - Import a POLYVAL accumulator value
++ * @ctx: The context to initialize
++ * @key: The key to import.  Note that a pointer to the key is saved in the
++ *	 context, so the key must live at least as long as the context.
++ * @acc: The accumulator value to import.
++ *
++ * This imports an accumulator that was saved by polyval_export_blkaligned().
++ * The same key must be used.
++ */
++static inline void
++polyval_import_blkaligned(struct polyval_ctx *ctx,
++			  const struct polyval_key *key,
++			  const struct polyval_elem *acc)
++{
++	*ctx = (struct polyval_ctx){ .key = key, .acc = *acc };
++}
++
++/**
++ * polyval_export_blkaligned() - Export a POLYVAL accumulator value
++ * @ctx: The context to export the accumulator value from
++ * @acc: (output) The exported accumulator value
++ *
++ * This exports the accumulator from a POLYVAL context.  The number of data
++ * bytes processed so far must be a multiple of POLYVAL_BLOCK_SIZE.
++ */
++static inline void polyval_export_blkaligned(const struct polyval_ctx *ctx,
++					     struct polyval_elem *acc)
++{
++	*acc = ctx->acc;
++}
++
++/**
++ * polyval_update() - Update a POLYVAL context with message data
++ * @ctx: The context to update; must have been initialized
++ * @data: The message data
++ * @len: The data length in bytes.  Doesn't need to be block-aligned.
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
++void polyval_update(struct polyval_ctx *ctx, const u8 *data, size_t len);
++
++/**
++ * polyval_final() - Finish computing a POLYVAL value
++ * @ctx: The context to finalize
++ * @out: The output value
++ *
++ * If the total data length isn't a multiple of POLYVAL_BLOCK_SIZE, then the
++ * final block is automatically zero-padded.
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
++void polyval_final(struct polyval_ctx *ctx, u8 out[POLYVAL_BLOCK_SIZE]);
++
++/**
++ * polyval() - Compute a POLYVAL value
++ * @key: The prepared key
++ * @data: The message data
++ * @len: The data length in bytes.  Doesn't need to be block-aligned.
++ * @out: The output value
++ *
++ * Context: Any context.
++ */
++static inline void polyval(const struct polyval_key *key,
++			   const u8 *data, size_t len,
++			   u8 out[POLYVAL_BLOCK_SIZE])
++{
++	struct polyval_ctx ctx;
++
++	polyval_init(&ctx, key);
++	polyval_update(&ctx, data, len);
++	polyval_final(&ctx, out);
++}
++
++#endif /* _CRYPTO_POLYVAL_H */
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 430723994142..9d04b3771ce2 100644
+index 7445054fc0ad..6545f0e83b83 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -143,10 +143,11 @@ config CRYPTO_LIB_POLYVAL
+@@ -133,10 +133,20 @@ config CRYPTO_LIB_POLY1305_RSIZE
+ 	default 2 if MIPS || RISCV
+ 	default 11 if X86_64
+ 	default 9 if ARM || ARM64
+ 	default 1
  
- config CRYPTO_LIB_POLYVAL_ARCH
- 	bool
- 	depends on CRYPTO_LIB_POLYVAL && !UML
- 	default y if ARM64 && KERNEL_MODE_NEON
-+	default y if X86_64
- 
++config CRYPTO_LIB_POLYVAL
++	tristate
++	help
++	  The POLYVAL library functions.  Select this if your module uses any of
++	  the functions from <crypto/polyval.h>.
++
++config CRYPTO_LIB_POLYVAL_ARCH
++	bool
++	depends on CRYPTO_LIB_POLYVAL && !UML
++
  config CRYPTO_LIB_CHACHA20POLY1305
  	tristate
  	select CRYPTO_LIB_CHACHA
  	select CRYPTO_LIB_POLY1305
+ 	select CRYPTO_LIB_UTILS
 diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 2efa96afcb4b..6580991f8e12 100644
+index 5515e73bfd5e..055e44008805 100644
 --- a/lib/crypto/Makefile
 +++ b/lib/crypto/Makefile
-@@ -201,10 +201,11 @@ clean-files += arm/poly1305-core.S \
- obj-$(CONFIG_CRYPTO_LIB_POLYVAL) += libpolyval.o
- libpolyval-y := polyval.o
- ifeq ($(CONFIG_CRYPTO_LIB_POLYVAL_ARCH),y)
- CFLAGS_polyval.o += -I$(src)/$(SRCARCH)
- libpolyval-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
-+libpolyval-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
- endif
+@@ -196,10 +196,18 @@ clean-files += arm/poly1305-core.S \
+ 	       riscv/poly1305-core.S \
+ 	       x86/poly1305-x86_64-cryptogams.S
  
  ################################################################################
  
++obj-$(CONFIG_CRYPTO_LIB_POLYVAL) += libpolyval.o
++libpolyval-y := polyval.o
++ifeq ($(CONFIG_CRYPTO_LIB_POLYVAL_ARCH),y)
++CFLAGS_polyval.o += -I$(src)/$(SRCARCH)
++endif
++
++################################################################################
++
  obj-$(CONFIG_CRYPTO_LIB_SHA1) += libsha1.o
-diff --git a/arch/x86/crypto/polyval-clmulni_asm.S b/lib/crypto/x86/polyval-pclmul-avx.S
-similarity index 91%
-rename from arch/x86/crypto/polyval-clmulni_asm.S
-rename to lib/crypto/x86/polyval-pclmul-avx.S
-index a6ebe4e7dd2b..7f739465ad35 100644
---- a/arch/x86/crypto/polyval-clmulni_asm.S
-+++ b/lib/crypto/x86/polyval-pclmul-avx.S
-@@ -34,14 +34,14 @@
- #define LO %xmm12
- #define HI %xmm13
- #define MI %xmm14
- #define SUM %xmm15
- 
--#define KEY_POWERS %rdi
--#define MSG %rsi
--#define BLOCKS_LEFT %rdx
--#define ACCUMULATOR %rcx
-+#define ACCUMULATOR %rdi
-+#define KEY_POWERS %rsi
-+#define MSG %rdx
-+#define BLOCKS_LEFT %rcx
- #define TMP %rax
- 
- .section    .rodata.cst16.gstar, "aM", @progbits, 16
- .align 16
- 
-@@ -232,11 +232,11 @@
- 	addq $(16*STRIDE_BLOCKS), KEY_POWERS
- 	subq TMP, KEY_POWERS
- 
- 	movups (MSG), %xmm0
- 	pxor SUM, %xmm0
--	movaps (KEY_POWERS), %xmm1
-+	movups (KEY_POWERS), %xmm1
- 	schoolbook1_noload
- 	dec BLOCKS_LEFT
- 	addq $16, MSG
- 	addq $16, KEY_POWERS
- 
-@@ -259,45 +259,43 @@
- 	schoolbook2
- 	montgomery_reduction SUM
- .endm
- 
- /*
-- * Perform montgomery multiplication in GF(2^128) and store result in op1.
-+ * Computes a = a * b * x^{-128} mod x^128 + x^127 + x^126 + x^121 + 1.
-  *
-- * Computes op1*op2*x^{-128} mod x^128 + x^127 + x^126 + x^121 + 1
-- * If op1, op2 are in montgomery form, this computes the montgomery
-- * form of op1*op2.
-- *
-- * void clmul_polyval_mul(u8 *op1, const u8 *op2);
-+ * void polyval_mul_pclmul_avx(struct polyval_elem *a,
-+ *			       const struct polyval_elem *b);
-  */
--SYM_FUNC_START(clmul_polyval_mul)
-+SYM_FUNC_START(polyval_mul_pclmul_avx)
- 	FRAME_BEGIN
- 	vmovdqa .Lgstar(%rip), GSTAR
- 	movups (%rdi), %xmm0
- 	movups (%rsi), %xmm1
- 	schoolbook1_noload
- 	schoolbook2
- 	montgomery_reduction SUM
- 	movups SUM, (%rdi)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_polyval_mul)
-+SYM_FUNC_END(polyval_mul_pclmul_avx)
- 
- /*
-  * Perform polynomial evaluation as specified by POLYVAL.  This computes:
-  *	h^n * accumulator + h^n * m_0 + ... + h^1 * m_{n-1}
-  * where n=nblocks, h is the hash key, and m_i are the message blocks.
-  *
-- * rdi - pointer to precomputed key powers h^8 ... h^1
-- * rsi - pointer to message blocks
-- * rdx - number of blocks to hash
-- * rcx - pointer to the accumulator
-+ * rdi - pointer to the accumulator
-+ * rsi - pointer to precomputed key powers h^8 ... h^1
-+ * rdx - pointer to message blocks
-+ * rcx - number of blocks to hash
-  *
-- * void clmul_polyval_update(const struct polyval_tfm_ctx *keys,
-- *	const u8 *in, size_t nblocks, u8 *accumulator);
-+ * void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
-+ *				  const struct polyval_key *key,
-+ *				  const u8 *data, size_t nblocks);
-  */
--SYM_FUNC_START(clmul_polyval_update)
-+SYM_FUNC_START(polyval_blocks_pclmul_avx)
- 	FRAME_BEGIN
- 	vmovdqa .Lgstar(%rip), GSTAR
- 	movups (ACCUMULATOR), SUM
- 	subq $STRIDE_BLOCKS, BLOCKS_LEFT
- 	js .LstrideLoopExit
-@@ -316,6 +314,6 @@ SYM_FUNC_START(clmul_polyval_update)
- 	partial_stride
- .LskipPartial:
- 	movups SUM, (ACCUMULATOR)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_polyval_update)
-+SYM_FUNC_END(polyval_blocks_pclmul_avx)
-diff --git a/lib/crypto/x86/polyval.h b/lib/crypto/x86/polyval.h
+ libsha1-y := sha1.o
+ ifeq ($(CONFIG_CRYPTO_LIB_SHA1_ARCH),y)
+ CFLAGS_sha1.o += -I$(src)/$(SRCARCH)
+ ifeq ($(CONFIG_ARM),y)
+diff --git a/lib/crypto/polyval.c b/lib/crypto/polyval.c
 new file mode 100644
-index 000000000000..ef8797521420
+index 000000000000..5796275f574a
 --- /dev/null
-+++ b/lib/crypto/x86/polyval.h
-@@ -0,0 +1,83 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
++++ b/lib/crypto/polyval.c
+@@ -0,0 +1,307 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * POLYVAL library functions, x86_64 optimized
++ * POLYVAL library functions
 + *
 + * Copyright 2025 Google LLC
 + */
-+#include <asm/fpu/api.h>
-+#include <linux/cpufeature.h>
 +
-+#define NUM_H_POWERS 8
++#include <crypto/polyval.h>
++#include <linux/export.h>
++#include <linux/module.h>
++#include <linux/string.h>
++#include <linux/unaligned.h>
 +
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul_avx);
++/*
++ * POLYVAL is an almost-XOR-universal hash function.  Similar to GHASH, POLYVAL
++ * interprets the message as the coefficients of a polynomial in GF(2^128) and
++ * evaluates that polynomial at a secret point.  POLYVAL has a simple
++ * mathematical relationship with GHASH, but it uses a better field convention
++ * which makes it easier and faster to implement.
++ *
++ * POLYVAL is not a cryptographic hash function, and it should be used only by
++ * algorithms that are specifically designed to use it.
++ *
++ * POLYVAL is specified by "AES-GCM-SIV: Nonce Misuse-Resistant Authenticated
++ * Encryption" (https://datatracker.ietf.org/doc/html/rfc8452)
++ *
++ * POLYVAL is also used by HCTR2.  See "Length-preserving encryption with HCTR2"
++ * (https://eprint.iacr.org/2021/1441.pdf).
++ *
++ * This file provides a library API for POLYVAL.  This API can delegate to
++ * either a generic implementation or an architecture-optimized implementation.
++ *
++ * For the generic implementation, we don't use the traditional table approach
++ * to GF(2^128) multiplication.  That approach is not constant-time and requires
++ * a lot of memory.  Instead, we use a different approach which emulates
++ * carryless multiplication using standard multiplications by spreading the data
++ * bits apart using "holes".  This allows the carries to spill harmlessly.  This
++ * approach is borrowed from BoringSSL, which in turn credits BearSSL's
++ * documentation (https://bearssl.org/constanttime.html#ghash-for-gcm) for the
++ * "holes" trick and a presentation by Shay Gueron
++ * (https://crypto.stanford.edu/RealWorldCrypto/slides/gueron.pdf) for the
++ * 256-bit => 128-bit reduction algorithm.
++ */
 +
-+asmlinkage void polyval_mul_pclmul_avx(struct polyval_elem *a,
-+				       const struct polyval_elem *b);
-+asmlinkage void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
-+					  const struct polyval_key *key,
-+					  const u8 *data, size_t nblocks);
++#ifdef CONFIG_ARCH_SUPPORTS_INT128
 +
-+static void polyval_preparekey_arch(struct polyval_key *key,
-+				    const u8 raw_key[POLYVAL_BLOCK_SIZE])
++/* Do a 64 x 64 => 128 bit carryless multiplication. */
++static void clmul64(u64 a, u64 b, u64 *out_lo, u64 *out_hi)
 +{
-+	static_assert(ARRAY_SIZE(key->h_powers) == NUM_H_POWERS);
-+	memcpy(&key->h_powers[NUM_H_POWERS - 1], raw_key, POLYVAL_BLOCK_SIZE);
-+	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		for (int i = NUM_H_POWERS - 2; i >= 0; i--) {
-+			key->h_powers[i] = key->h_powers[i + 1];
-+			polyval_mul_pclmul_avx(
-+				&key->h_powers[i],
-+				&key->h_powers[NUM_H_POWERS - 1]);
-+		}
-+		kernel_fpu_end();
-+	} else {
-+		for (int i = NUM_H_POWERS - 2; i >= 0; i--) {
-+			key->h_powers[i] = key->h_powers[i + 1];
-+			polyval_mul_generic(&key->h_powers[i],
-+					    &key->h_powers[NUM_H_POWERS - 1]);
-+		}
++	/*
++	 * With 64-bit multiplicands and one term every 4 bits, there would be
++	 * up to 64 / 4 = 16 one bits per column when each multiplication is
++	 * written out as a series of additions in the schoolbook manner.
++	 * Unfortunately, that doesn't work since the value 16 is 1 too large to
++	 * fit in 4 bits.  Carries would sometimes overflow into the next term.
++	 *
++	 * Using one term every 5 bits would work.  However, that would cost
++	 * 5 x 5 = 25 multiplications instead of 4 x 4 = 16.
++	 *
++	 * Instead, mask off 4 bits from one multiplicand, giving a max of 15
++	 * one bits per column.  Then handle those 4 bits separately.
++	 */
++	u64 a0 = a & 0x1111111111111110;
++	u64 a1 = a & 0x2222222222222220;
++	u64 a2 = a & 0x4444444444444440;
++	u64 a3 = a & 0x8888888888888880;
++
++	u64 b0 = b & 0x1111111111111111;
++	u64 b1 = b & 0x2222222222222222;
++	u64 b2 = b & 0x4444444444444444;
++	u64 b3 = b & 0x8888888888888888;
++
++	/* Multiply the high 60 bits of @a by @b. */
++	u128 c0 = (a0 * (u128)b0) ^ (a1 * (u128)b3) ^
++		  (a2 * (u128)b2) ^ (a3 * (u128)b1);
++	u128 c1 = (a0 * (u128)b1) ^ (a1 * (u128)b0) ^
++		  (a2 * (u128)b3) ^ (a3 * (u128)b2);
++	u128 c2 = (a0 * (u128)b2) ^ (a1 * (u128)b1) ^
++		  (a2 * (u128)b0) ^ (a3 * (u128)b3);
++	u128 c3 = (a0 * (u128)b3) ^ (a1 * (u128)b2) ^
++		  (a2 * (u128)b1) ^ (a3 * (u128)b0);
++
++	/* Multiply the low 4 bits of @a by @b. */
++	u64 e0 = -(a & 1) & b;
++	u64 e1 = -((a >> 1) & 1) & b;
++	u64 e2 = -((a >> 2) & 1) & b;
++	u64 e3 = -((a >> 3) & 1) & b;
++	u64 extra_lo = e0 ^ (e1 << 1) ^ (e2 << 2) ^ (e3 << 3);
++	u64 extra_hi = (e1 >> 63) ^ (e2 >> 62) ^ (e3 >> 61);
++
++	/* Add all the intermediate products together. */
++	*out_lo = (((u64)c0) & 0x1111111111111111) ^
++		  (((u64)c1) & 0x2222222222222222) ^
++		  (((u64)c2) & 0x4444444444444444) ^
++		  (((u64)c3) & 0x8888888888888888) ^ extra_lo;
++	*out_hi = (((u64)(c0 >> 64)) & 0x1111111111111111) ^
++		  (((u64)(c1 >> 64)) & 0x2222222222222222) ^
++		  (((u64)(c2 >> 64)) & 0x4444444444444444) ^
++		  (((u64)(c3 >> 64)) & 0x8888888888888888) ^ extra_hi;
++}
++
++#else /* CONFIG_ARCH_SUPPORTS_INT128 */
++
++/* Do a 32 x 32 => 64 bit carryless multiplication. */
++static u64 clmul32(u32 a, u32 b)
++{
++	/*
++	 * With 32-bit multiplicands and one term every 4 bits, there are up to
++	 * 32 / 4 = 8 one bits per column when each multiplication is written
++	 * out as a series of additions in the schoolbook manner.  The value 8
++	 * fits in 4 bits, so the carries don't overflow into the next term.
++	 */
++	u32 a0 = a & 0x11111111;
++	u32 a1 = a & 0x22222222;
++	u32 a2 = a & 0x44444444;
++	u32 a3 = a & 0x88888888;
++
++	u32 b0 = b & 0x11111111;
++	u32 b1 = b & 0x22222222;
++	u32 b2 = b & 0x44444444;
++	u32 b3 = b & 0x88888888;
++
++	u64 c0 = (a0 * (u64)b0) ^ (a1 * (u64)b3) ^
++		 (a2 * (u64)b2) ^ (a3 * (u64)b1);
++	u64 c1 = (a0 * (u64)b1) ^ (a1 * (u64)b0) ^
++		 (a2 * (u64)b3) ^ (a3 * (u64)b2);
++	u64 c2 = (a0 * (u64)b2) ^ (a1 * (u64)b1) ^
++		 (a2 * (u64)b0) ^ (a3 * (u64)b3);
++	u64 c3 = (a0 * (u64)b3) ^ (a1 * (u64)b2) ^
++		 (a2 * (u64)b1) ^ (a3 * (u64)b0);
++
++	/* Add all the intermediate products together. */
++	return (c0 & 0x1111111111111111) ^
++	       (c1 & 0x2222222222222222) ^
++	       (c2 & 0x4444444444444444) ^
++	       (c3 & 0x8888888888888888);
++}
++
++/* Do a 64 x 64 => 128 bit carryless multiplication. */
++static void clmul64(u64 a, u64 b, u64 *out_lo, u64 *out_hi)
++{
++	u32 a_lo = (u32)a;
++	u32 a_hi = a >> 32;
++	u32 b_lo = (u32)b;
++	u32 b_hi = b >> 32;
++
++	/* Karatsuba multiplication */
++	u64 lo = clmul32(a_lo, b_lo);
++	u64 hi = clmul32(a_hi, b_hi);
++	u64 mi = clmul32(a_lo ^ a_hi, b_lo ^ b_hi) ^ lo ^ hi;
++
++	*out_lo = lo ^ (mi << 32);
++	*out_hi = hi ^ (mi >> 32);
++}
++#endif /* !CONFIG_ARCH_SUPPORTS_INT128 */
++
++/* Compute @a = @a * @b * x^-128 in the POLYVAL field. */
++static void __maybe_unused
++polyval_mul_generic(struct polyval_elem *a, const struct polyval_elem *b)
++{
++	u64 c0, c1, c2, c3, mi0, mi1;
++
++	/*
++	 * Carryless-multiply @a by @b using Karatsuba multiplication.  Store
++	 * the 256-bit product in @c0 (low) through @c3 (high).
++	 */
++	clmul64(le64_to_cpu(a->lo), le64_to_cpu(b->lo), &c0, &c1);
++	clmul64(le64_to_cpu(a->hi), le64_to_cpu(b->hi), &c2, &c3);
++	clmul64(le64_to_cpu(a->lo ^ a->hi), le64_to_cpu(b->lo ^ b->hi),
++		&mi0, &mi1);
++	mi0 ^= c0 ^ c2;
++	mi1 ^= c1 ^ c3;
++	c1 ^= mi0;
++	c2 ^= mi1;
++
++	/*
++	 * Cancel out the low 128 bits of the product by adding multiples of
++	 * G(x) = x^128 + x^127 + x^126 + x^121 + 1.  Do this in two steps, each
++	 * of which cancels out 64 bits.  Note that we break G(x) into three
++	 * parts: 1, x^64 * (x^63 + x^62 + x^57), and x^128 * 1.
++	 */
++
++	/*
++	 * First, add G(x) times c0 as follows:
++	 *
++	 * (c0, c1, c2) = (0,
++	 *                 c1 + (c0 * (x^63 + x^62 + x^57) mod x^64),
++	 *		   c2 + c0 + floor((c0 * (x^63 + x^62 + x^57)) / x^64))
++	 */
++	c1 ^= (c0 << 63) ^ (c0 << 62) ^ (c0 << 57);
++	c2 ^= c0 ^ (c0 >> 1) ^ (c0 >> 2) ^ (c0 >> 7);
++
++	/*
++	 * Second, add G(x) times the new c1:
++	 *
++	 * (c1, c2, c3) = (0,
++	 *                 c2 + (c1 * (x^63 + x^62 + x^57) mod x^64),
++	 *		   c3 + c1 + floor((c1 * (x^63 + x^62 + x^57)) / x^64))
++	 */
++	c2 ^= (c1 << 63) ^ (c1 << 62) ^ (c1 << 57);
++	c3 ^= c1 ^ (c1 >> 1) ^ (c1 >> 2) ^ (c1 >> 7);
++
++	/* Return (c2, c3).  This implicitly multiplies by x^-128. */
++	a->lo = cpu_to_le64(c2);
++	a->hi = cpu_to_le64(c3);
++}
++
++static void __maybe_unused
++polyval_blocks_generic(struct polyval_elem *acc, const struct polyval_elem *key,
++		       const u8 *data, size_t nblocks)
++{
++	do {
++		acc->lo ^= get_unaligned((__le64 *)data);
++		acc->hi ^= get_unaligned((__le64 *)(data + 8));
++		polyval_mul_generic(acc, key);
++		data += POLYVAL_BLOCK_SIZE;
++	} while (--nblocks);
++}
++
++/* Include the arch-optimized implementation of POLYVAL, if one is available. */
++#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
++#include "polyval.h" /* $(SRCARCH)/polyval.h */
++void polyval_preparekey(struct polyval_key *key,
++			const u8 raw_key[POLYVAL_BLOCK_SIZE])
++{
++	polyval_preparekey_arch(key, raw_key);
++}
++EXPORT_SYMBOL_GPL(polyval_preparekey);
++#endif /* Else, polyval_preparekey() is an inline function. */
++
++/*
++ * polyval_mul_generic() and polyval_blocks_generic() take the key as a
++ * polyval_elem rather than a polyval_key, so that arch-optimized
++ * implementations with a different key format can use it as a fallback (if they
++ * have H^1 stored somewhere in their struct).  Thus, the following dispatch
++ * code is needed to pass the appropriate key argument.
++ */
++
++static void polyval_mul(struct polyval_ctx *ctx)
++{
++#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
++	polyval_mul_arch(&ctx->acc, ctx->key);
++#else
++	polyval_mul_generic(&ctx->acc, &ctx->key->h);
++#endif
++}
++
++static void polyval_blocks(struct polyval_ctx *ctx,
++			   const u8 *data, size_t nblocks)
++{
++#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
++	polyval_blocks_arch(&ctx->acc, ctx->key, data, nblocks);
++#else
++	polyval_blocks_generic(&ctx->acc, &ctx->key->h, data, nblocks);
++#endif
++}
++
++void polyval_update(struct polyval_ctx *ctx, const u8 *data, size_t len)
++{
++	if (unlikely(ctx->partial)) {
++		size_t n = min(len, POLYVAL_BLOCK_SIZE - ctx->partial);
++
++		len -= n;
++		while (n--)
++			ctx->acc.bytes[ctx->partial++] ^= *data++;
++		if (ctx->partial < POLYVAL_BLOCK_SIZE)
++			return;
++		polyval_mul(ctx);
 +	}
-+}
++	if (len >= POLYVAL_BLOCK_SIZE) {
++		size_t nblocks = len / POLYVAL_BLOCK_SIZE;
 +
-+static void polyval_mul_arch(struct polyval_elem *acc,
-+			     const struct polyval_key *key)
-+{
-+	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		polyval_mul_pclmul_avx(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+		kernel_fpu_end();
-+	} else {
-+		polyval_mul_generic(acc, &key->h_powers[NUM_H_POWERS - 1]);
++		polyval_blocks(ctx, data, nblocks);
++		data += len & ~(POLYVAL_BLOCK_SIZE - 1);
++		len &= POLYVAL_BLOCK_SIZE - 1;
 +	}
++	for (size_t i = 0; i < len; i++)
++		ctx->acc.bytes[i] ^= data[i];
++	ctx->partial = len;
 +}
++EXPORT_SYMBOL_GPL(polyval_update);
 +
-+static void polyval_blocks_arch(struct polyval_elem *acc,
-+				const struct polyval_key *key,
-+				const u8 *data, size_t nblocks)
++void polyval_final(struct polyval_ctx *ctx, u8 out[POLYVAL_BLOCK_SIZE])
 +{
-+	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
-+		do {
-+			/* Allow rescheduling every 4 KiB. */
-+			size_t n = min_t(size_t, nblocks,
-+					 4096 / POLYVAL_BLOCK_SIZE);
-+
-+			kernel_fpu_begin();
-+			polyval_blocks_pclmul_avx(acc, key, data, n);
-+			kernel_fpu_end();
-+			data += n * POLYVAL_BLOCK_SIZE;
-+			nblocks -= n;
-+		} while (nblocks);
-+	} else {
-+		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
-+				       data, nblocks);
-+	}
++	if (unlikely(ctx->partial))
++		polyval_mul(ctx);
++	memcpy(out, &ctx->acc, POLYVAL_BLOCK_SIZE);
++	memzero_explicit(ctx, sizeof(*ctx));
 +}
++EXPORT_SYMBOL_GPL(polyval_final);
 +
-+#define polyval_mod_init_arch polyval_mod_init_arch
-+static void polyval_mod_init_arch(void)
++#ifdef polyval_mod_init_arch
++static int __init polyval_mod_init(void)
 +{
-+	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ) &&
-+	    boot_cpu_has(X86_FEATURE_AVX))
-+		static_branch_enable(&have_pclmul_avx);
++	polyval_mod_init_arch();
++	return 0;
 +}
++subsys_initcall(polyval_mod_init);
++
++static void __exit polyval_mod_exit(void)
++{
++}
++module_exit(polyval_mod_exit);
++#endif
++
++MODULE_DESCRIPTION("POLYVAL almost-XOR-universal hash function");
++MODULE_LICENSE("GPL");
 -- 
 2.51.2
 
