@@ -4,76 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34248CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F3DCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yox7L63o1aAkRDM05QvKW2de39iEsbwTh/h8gTUA+SQ=; b=EFg/k5LCpWJMo/BSeWd6VEzCi6
-	Qce8pviO/I/Iby/+Bb4s/9Sin6EKDoPKKH74vZy+at1ibvqXxVVx+g/IXqa5497jYPRnNAul4pjBH
-	W8h5z5KYU/ZPFjkuhP7uKA8W7hd+mBatVsH8tGC3jlFpjKhSW7XM7QlDL5HkwTioYEasvXxzGRZVZ
-	P79jhr97N2d7AhcXasf7L7PRpKFO2L9hkvKRc3boQGANl+a3zPthLsvk+vNVdA0E6AX4kerQZHUQl
-	C0VXiLCXdlYS8l7zsJzkryK037tOhOhkObOyAPu61mshqD/MvwWJuKFG6SY9bdwmq9h7cpuZw52+d
-	MkxCfSyQ==;
+	bh=roSZP75J9EmbuMCi8CshraecGpmxCXAn12RbPQc3Cfs=; b=uhNjfqzcGJo5zx01YUpaXbSI90
+	xdz+oTIdQlcC2/yhDUiV1pZbxHcwibgbNQOTlxEvENd6OQVBlxU2iqutfsh8AHELtqmlOOxxB0/pa
+	/F+t+8w0oOTeZ6zWc77bRc0ccVqT/ReF4N8rHF3ZOO/DRC0vF7QhydYzHrDoypM5mXVtFM65XmSI6
+	8BfoGVLfktJUUauiZ7fP8LwH18fu86Q9fcKR7AnjWd8c3i2q7NqndKWuu6WIZZLosv2VFfmKH60O5
+	jJg8PAcbpy078v4fhp7YwA9Graox3gq8oEuDhFMszzvWRE4giMI9/uQlqu8u6cXH0WzvwDRf9+aPe
+	o64z0hTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI93G-00000004EIS-377n;
-	Sun, 09 Nov 2025 17:18:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vI9M5-00000004Ghu-2kLI;
+	Sun, 09 Nov 2025 17:37:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91t-00000004CC3-0LGf
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:47 +0000
+	id 1vI9M4-00000004GhY-2hFK;
+	Sun, 09 Nov 2025 17:37:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE24F43F15;
-	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34D3C4CEF7;
-	Sun,  9 Nov 2025 17:16:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CE8EE60010;
+	Sun,  9 Nov 2025 17:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6A6BC4CEFB;
+	Sun,  9 Nov 2025 17:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708600;
-	bh=xc89zgOjmWN37MQ958dqM5lCxQ+sj0EtpjgG+2nlipQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eHUuWBhRzKoaIgzxifPHIyGyVIFmPLWCKBE9D+C865M/hzCNOoh8bQrXfBCwGiNbZ
-	 x9mbZi/J02yUSaumbBWWxdh7mgCmGvnYKBEAU0AhZh8gmMBw92mm0sFGoAZ6TIEZHy
-	 ddt0OVLmd2TNHSpXF0cE+R8tsjRVMrI5dR2JRpKUF9qGR3UEXlbcqTH5RXiGcXGO6f
-	 qmA/3/e+2eSy/FW8CuuyAull9qIrrGN9S+xzxiaWJlCU5wfMHoDpSIo4z6z0VmJqRv
-	 qUEOWPWEIszqtjZ6js6puWNEh7HsGsWcuT5si2cHrs2NwR99dRIFj8HvzdS4Y75Hj8
-	 UtJ3EuC/kWLyw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vI91q-00000003exw-3Kxj;
-	Sun, 09 Nov 2025 17:16:38 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 43/45] KVM: arm64: selftests: vgic_irq: Add asymmetric SPI deaectivation test
-Date: Sun,  9 Nov 2025 17:16:17 +0000
-Message-ID: <20251109171619.1507205-44-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
-References: <20251109171619.1507205-1-maz@kernel.org>
+	s=k20201202; t=1762709851;
+	bh=8yV3YXQ5JJVb+mjOEjRAWmnkAdLyrcHuJUwl6P8OwXc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BaIYqTk1O4JjtjhAx79NcftDc/MMwKS5b820ijYjdQ2FmYeypwPSg4gzKcITP1N0i
+	 wlMD1o5fMpsDmySm2I5BcH7rpAJaekrBy2QMlDckDTE05pDF2Op3IEZhAA8gT4A/vA
+	 2MneAAwQ6714Clm8oTDYig2yDDLU0HodMp74hRL46+nPSe2sCwcpiruk8rq3KQv7j+
+	 grOg2URmL/7sfyynyK9wrrEBIxg4o5xuvrfJU3Y9joY4LG4rtg9PBQMNiiH1QgNc2d
+	 zbJzprr5Ybwe2m8knEnUoLeja6nDRo4ppP4VucnDQKj11gmO7Vnc05JA3hDjTGTzUA
+	 YSDGwB8h8TqZw==
+Message-ID: <a726fac9-afe5-4639-b06a-4bccc256d98f@kernel.org>
+Date: Sun, 9 Nov 2025 18:37:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091641_170403_320C6897 
-X-CRM114-Status: GOOD (  16.62  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Simplify usb-c-connector port
+ on rk3566-pinenote
+To: Diederik de Haas <diederik@cknow-tech.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Samuel Holland <samuel@sholland.org>
+Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>,
+ Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
+ <20251109-rk3566-pinenote-dt-fixes-upstream-v1-1-ed38d200cc04@cknow-tech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-1-ed38d200cc04@cknow-tech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,149 +119,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new test case that makes an interrupt pending on a vcpu,
-activates it, do the priority drop, and then get *another* vcpu
-to do the deactivation.
+On 09/11/2025 18:05, Diederik de Haas wrote:
+> The USB-C connector on the PineNote has only 1 port, so there's no need
+> for a 'ports' node with address-/size-cells properties as a single
+> 'port' node suffices.
+> 
+> This fixes the following DT validation issue:
+> 
+>   Warning (graph_child_address): /i2c@fe5c0000/tcpc@60/connector/ports:
+>     graph node has single child node 'port@0',
+>     #address-cells/#size-cells are not necessary
 
-Special care is taken not to trigger an exit in the process, so
-that we are sure that the active interrupt is in an LR. Joy.
+This is not a DT validation, but DTC warning which we do not really fix.
+Are you sure the 'port' is accepted by bindings?
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 105 +++++++++++++++++++
- 1 file changed, 105 insertions(+)
-
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index 72f7bb0d201e5..a53ab809fe8ae 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -29,6 +29,7 @@ struct test_args {
- 	bool level_sensitive; /* 1 is level, 0 is edge */
- 	int kvm_max_routes; /* output of KVM_CAP_IRQ_ROUTING */
- 	bool kvm_supports_irqfd; /* output of KVM_CAP_IRQFD */
-+	uint32_t shared_data;
- };
- 
- /*
-@@ -801,6 +802,109 @@ static void test_vgic(uint32_t nr_irqs, bool level_sensitive, bool eoi_split)
- 	kvm_vm_free(vm);
- }
- 
-+static void guest_code_asym_dir(struct test_args *args, int cpuid)
-+{
-+	gic_init(GIC_V3, 2);
-+
-+	gic_set_eoi_split(1);
-+	gic_set_priority_mask(CPU_PRIO_MASK);
-+
-+	if (cpuid == 0) {
-+		uint32_t intid;
-+
-+		local_irq_disable();
-+
-+		gic_set_priority(MIN_PPI, IRQ_DEFAULT_PRIO);
-+		gic_irq_enable(MIN_SPI);
-+		gic_irq_set_pending(MIN_SPI);
-+
-+		intid = wait_for_and_activate_irq();
-+		GUEST_ASSERT_EQ(intid, MIN_SPI);
-+
-+		gic_set_eoi(intid);
-+		isb();
-+
-+		WRITE_ONCE(args->shared_data, MIN_SPI);
-+		dsb(ishst);
-+
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) == MIN_SPI);
-+		GUEST_ASSERT(!gic_irq_get_active(MIN_SPI));
-+	} else {
-+		do {
-+			dsb(ishld);
-+		} while (READ_ONCE(args->shared_data) != MIN_SPI);
-+
-+		gic_set_dir(MIN_SPI);
-+		isb();
-+
-+		WRITE_ONCE(args->shared_data, 0);
-+		dsb(ishst);
-+	}
-+
-+	GUEST_DONE();
-+}
-+
-+static void *test_vcpu_run(void *arg)
-+{
-+	struct kvm_vcpu *vcpu = arg;
-+	struct ucall uc;
-+
-+	while (1) {
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_DONE:
-+			return NULL;
-+		default:
-+			TEST_FAIL("Unknown ucall %lu", uc.cmd);
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
-+static void test_vgic_two_cpus(void *gcode)
-+{
-+	pthread_t thr[2];
-+	struct kvm_vcpu *vcpus[2];
-+	struct test_args args = {};
-+	struct kvm_vm *vm;
-+	vm_vaddr_t args_gva;
-+	int gic_fd, ret;
-+
-+	vm = vm_create_with_vcpus(2, gcode, vcpus);
-+
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpus[0]);
-+	vcpu_init_descriptor_tables(vcpus[1]);
-+
-+	/* Setup the guest args page (so it gets the args). */
-+	args_gva = vm_vaddr_alloc_page(vm);
-+	memcpy(addr_gva2hva(vm, args_gva), &args, sizeof(args));
-+	vcpu_args_set(vcpus[0], 2, args_gva, 0);
-+	vcpu_args_set(vcpus[1], 2, args_gva, 1);
-+
-+	gic_fd = vgic_v3_setup(vm, 2, 64);
-+
-+	ret = pthread_create(&thr[0], NULL, test_vcpu_run, vcpus[0]);
-+	if (ret)
-+		TEST_FAIL("Can't create thread for vcpu 0 (%d)\n", ret);
-+	ret = pthread_create(&thr[1], NULL, test_vcpu_run, vcpus[1]);
-+	if (ret)
-+		TEST_FAIL("Can't create thread for vcpu 1 (%d)\n", ret);
-+
-+	pthread_join(thr[0], NULL);
-+	pthread_join(thr[1], NULL);
-+
-+	close(gic_fd);
-+	kvm_vm_free(vm);
-+}
-+
- static void help(const char *name)
- {
- 	printf(
-@@ -857,6 +961,7 @@ int main(int argc, char **argv)
- 		test_vgic(nr_irqs, false /* level */, true /* eoi_split */);
- 		test_vgic(nr_irqs, true /* level */, false /* eoi_split */);
- 		test_vgic(nr_irqs, true /* level */, true /* eoi_split */);
-+		test_vgic_two_cpus(guest_code_asym_dir);
- 	} else {
- 		test_vgic(nr_irqs, level_sensitive, eoi_split);
- 	}
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
