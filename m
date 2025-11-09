@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D674CD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E6FCD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYmT83DvLr0MvZ9Y3hOrPjWhU+egk0dw7fUg2nj5mYo=; b=X8i9trqQi372WVKPNNn9YSZzfS
-	IA8sqzcE8l4ivlUUkOFA7OxbLVlh88lkvPr9LhJ7LvsMHqNVVNCGVIEWwODPZPWBx0yC3u1r5zGEd
-	OhSAOERY9BaoCIaeuE/IBNmeX3B6vW6lon2KpLUEW0vIIuHZSXNCZAF016GjdHZT3HqDGOdtM5P3C
-	mUoThMtcQ2mKM3WoWTXZ24xgohtnnpzG5PtoMHbmGo6T8+KisYRpoaVEu4D4kcx+OAcGa6dofoICg
-	QNpRGK0KlLUBnzSUtrdwQTmbzgmAMAzIndh9wjvnkFd4aUxFEt7WMRXH3Vv+cX8MUYBxdqG9H+qfV
-	jn6kqNlQ==;
+	bh=6yULcSXLfAJ1dTZQZAcEl6l/XpLTW0IgxNsxsh2fguI=; b=o/9bhBmKoh7E9Z10zqhrLLkeqv
+	3Npv1ArhWs+uf/093S2vEi3OcIJYhlLXhHdrsZbmfqRW841+e1t5QCtJfa48avPnG1brCrYs8QGvQ
+	kSbY0oX88lEd1RkKBD5fu7gtnGQ6PD23gIqNEAlPYvJb8Yt6u/xzwXFHpWu9HqY0Y91qcmUrY2PlM
+	0REdEv5X/ZHc/DYshAT7dXvo7DHUMnsJK31LAZItkGLlxKviKMtk+0LlJrabAQ6agKYXIu3RTGyUF
+	USf/q5q7+MU/z/vXmhTUZEzvRRku9UwO/OzZUe+/GfAS8uBUJbl9wq2lUTgZKbNvaUOektrzVh1Od
+	PKuap/hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI92j-00000004DUV-1W62;
-	Sun, 09 Nov 2025 17:17:35 +0000
+	id 1vI92q-00000004DhP-24Jx;
+	Sun, 09 Nov 2025 17:17:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91p-00000004CGu-1Z8W
+	id 1vI91q-00000004CDn-168z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:42 +0000
+	Sun, 09 Nov 2025 17:16:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E8D941B01;
+	by sea.source.kernel.org (Postfix) with ESMTP id 25DF543C3C;
+	Sun,  9 Nov 2025 17:16:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E213AC19422;
 	Sun,  9 Nov 2025 17:16:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6886C116B1;
-	Sun,  9 Nov 2025 17:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708596;
-	bh=KaV8WuYjga/OBqyYenYZWM5x2h8cMy0LZ9LYeamx33E=;
+	s=k20201202; t=1762708598;
+	bh=0HS/4qE6qTgeyCBJPAK5i628M7zUg3PGilYhBnFOIe0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O8P2YQsi0c9XQBj5qKH4Qhf4NgroiU7/cfPDVtI3/KTiJWyinM5l6jquQ+tTMr2Iv
-	 0XuJEAcyjNvfg5To6x2H0wqfx7+LoTrxGEKBxec1QS7x+5xKyVx3IylMHjODnOwjAu
-	 oo46aU/Y/UzyDi6vRBQIdfkH9fvy7alhDaUDvwtwLnvMNmmuvtk40nAXRQDDHINUF2
-	 m7yjWruZWMid68S2NA7MoOQhv6isBdMs54iCdTudYxpml/lKpz4dycsYi4I2zMCKKh
-	 2mrH3t5Do27dlMQIsbbhuhHx2blesKU0DdhAfd1/d3/7ojs3NE7+PRF64KDNhKS+GN
-	 K5qA1W4S5/T+g==
+	b=tiavHW5aQHfrZ534hcNX0458qMjZfxey3WbdPr1F5XaGjzJe1WGVAykBrYYKzIIKh
+	 xOZT5rOYm8hQyY2bvIdN2PE0Xgh7wTofS3rQH3bOG+Y2qAjnVReNszoTEw/gffe+4o
+	 0L4XvHr0HTNi9DrJyST04KCj2mmGJMB7M3N8+eJ60dY9PASuiN12G8h7J3MlhnLXJT
+	 XpofIKweelAOq2igwGtfUPdyisljEY+n2UOM48kQqGqloyVCO3xpYv7o86cIuGQJtb
+	 Kxcv7UuJA3zvVcrf8Lbz2errO7xG9J+9uLXV1KJHf+aHuSaXa92bE02TlMa2OvnagU
+	 a1s5Aty9rM2Gg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91n-00000003exw-0Jr6;
-	Sun, 09 Nov 2025 17:16:35 +0000
+	id 1vI91o-00000003exw-0oGQ;
+	Sun, 09 Nov 2025 17:16:36 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
-Date: Sun,  9 Nov 2025 17:16:03 +0000
-Message-ID: <20251109171619.1507205-30-maz@kernel.org>
+Subject: [PATCH v2 33/45] KVM: arm64: GICv2: Handle LR overflow when EOImode==0
+Date: Sun,  9 Nov 2025 17:16:07 +0000
+Message-ID: <20251109171619.1507205-34-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
 References: <20251109171619.1507205-1-maz@kernel.org>
@@ -72,9 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091637_546843_A3CA9B8D 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251109_091638_396964_AAF768E8 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we are ready to handle deactivation through ICV_DIR_EL1,
-set the trap bit if we have active interrupts outside of the LRs.
+Similarly to the GICv3 version, handle the EOIcount-driven deactivation
+by walking the overflow list.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v2.c | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 1026031f22ff9..26e17ed057f00 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
- 		ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
- 	cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
- 		ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
-+
-+	/*
-+	 * Note that we set the trap irrespective of EOIMode, as that
-+	 * can change behind our back without any warning...
-+	 */
-+	if (irqs_active_outside_lrs(als))
-+		cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 9a2de03f74c30..bbd4d003fde86 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -100,6 +100,8 @@ static void vgic_v2_fold_lr(struct kvm_vcpu *vcpu, u32 val)
+ 	vgic_put_irq(vcpu->kvm, irq);
  }
  
- static bool lr_signals_eoi_mi(u64 lr_val)
++static u32 vgic_v2_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq);
++
+ /*
+  * transfer the content of the LRs back into the corresponding ap_list:
+  * - active bit is transferred as is
+@@ -111,12 +113,37 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+ 	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
++	u32 eoicount = FIELD_GET(GICH_HCR_EOICOUNT, cpuif->vgic_hcr);
++	struct vgic_irq *irq;
+ 
+ 	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+ 
+ 	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
+ 		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
+ 
++	/* See the GICv3 equivalent for the EOIcount handling rationale */
++	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
++		u32 lr;
++
++		if (!eoicount) {
++			break;
++		} else {
++			guard(raw_spinlock)(&irq->irq_lock);
++
++			if (!(likely(vgic_target_oracle(irq) == vcpu) &&
++			      irq->active))
++				continue;
++
++			lr = vgic_v2_compute_lr(vcpu, irq) & ~GICH_LR_ACTIVE_BIT;
++		}
++
++		if (lr & GICH_LR_HW)
++			writel_relaxed(FIELD_GET(GICH_LR_PHYSID_CPUID, lr),
++				       kvm_vgic_global_state.gicc_base + GIC_CPU_DEACTIVATE);
++		vgic_v2_fold_lr(vcpu, lr);
++		eoicount--;
++	}
++
+ 	cpuif->used_lrs = 0;
+ }
+ 
 -- 
 2.47.3
 
