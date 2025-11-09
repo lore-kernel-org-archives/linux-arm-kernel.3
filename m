@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A0ECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 19:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EA0CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 19:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qz9lQGFdKGtpGf5hNxRCycqEsoFiqWsV2nAo7e2G5M8=; b=ovvk31zAwGods/BdPmO1qIg8c8
-	s/WOO9TKLJ87hwHhKGAUhQnfn1UATXRxlxOIsFURSAxz3xKnm2byUhaRlttAHmWVQiSVXXFR/bdqo
-	9DuxbZBGyKhfPBsAqdMiz2gvPVyBbw4BsZgD7bOkpWsa1vzC4SLlPHPpQPZ1tPYDEiZqlA0mW6qpb
-	DdP9ScgwPo8gSOIW3qkB23ZvhojEFHtrc9bUR4DQ2mw6SKAssgt7c/YsyW710qUJF/hxFt/0R3JCm
-	JMsD8BXdndakcwKxEZ2Lgm65eoimujhDf7KxwnDml1E2EWbF3nAxBQKsTiQ+2oiT8sW19Lr/6ujvR
-	JZG0GIUg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=; b=WDEu8LLztkHTOFNvhJgFVHiIIB
+	0gsSkA/vxx+beAXA4k3sGKoqQqp8/bNHY2p75i9YrsP/j4D7gZg8oSNZfwJobCU27qhg4KzTmvU4o
+	FRU9SavMvmszFWuhjLib3+v7z5fYe4GfCoyVYtCnkyFFlrR3DlgLo7QAgyemo18ucBAycoWhgoKQo
+	9Zxuxj9F2FlEklxobd0wKhkCpReQHC6b5ZmON9Mk+ozN0sD3XSdyNe7Ik0u4jfee8Ly+D4ce9J4tH
+	EzWhuC9ZgqXy297a2/J2VNlF7xsZ/NGIzYOuhIcv9w2zGodFf2RJEVm9OJhrahmehqTyh56jXZ8VC
+	Q/PPT8lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIAop-00000004K2G-1C0l;
-	Sun, 09 Nov 2025 19:11:19 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1vIAyt-00000004KS3-2s73;
+	Sun, 09 Nov 2025 19:21:43 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIAom-00000004K1e-1iQM
+	id 1vIAyp-00000004KRG-3THr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 19:11:17 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4d4MpN00fPz9spj;
-	Sun,  9 Nov 2025 20:11:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1762715468;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qz9lQGFdKGtpGf5hNxRCycqEsoFiqWsV2nAo7e2G5M8=;
-	b=pqjUqaiYzH2r+VQqOdcmBRU+enBbdlqmrTYJSzdshiwz0O/zE9LE4Z2VNctOktKqe2Dh7V
-	Oudu+mYseqqa25zOZnjTspizxf+CCYzfo/sMyP2uOkJEPxOQ/4KUK9kyOQnoLZI4cnIlWR
-	T2ajUQD2GcZjMF/K+y/raXnwI8BCGVSpXZSr9+z0J6RrL4O9UqyvWYAYCCWkWbpMqX/rHE
-	fkw4/s0L6KW9IUg5pZfNUYC82zOgD+nBPbykzD4XcUjpZ/fIciOP8Nl7qh3w5UXtFAR/hz
-	bTqmgcRMfhtED/dnvrGveSJ6Sld7u+V139YrngA5cX5J9SdHZrKSJ8MJrXzMEQ==
-Message-ID: <de695268-1241-4658-871c-30dbf068ad92@mailbox.org>
-Date: Sun, 9 Nov 2025 20:11:02 +0100
+	Sun, 09 Nov 2025 19:21:41 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477632d45c9so15398695e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 11:21:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762716098; x=1763320898; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=;
+        b=RVWQhc/McxQnJKSlDwDuAPM5YhKY6WK5zcDX7ZYjMZqsRDq9QmdqsvteaVoo6JrwEf
+         d3Dc7IIPeBw0qX8VQR4wu9bo89eEKNJ+mCeV5vcVq526+RXzZ+KXgCYnGmz37m7beuNH
+         ux7RziDbng0Ler6wLl9YRFeubd+Y49LEP9+NJqxQxpsxGqsjmK/AVbgEPkc/5WW8sTRJ
+         F391fPLnaHy6tHDDPk+6r2tGPZqQi1nr2oA3768M1tBsFiwFKseMkCeo8hKmAUTR9UvH
+         TjtAM/IRVKc0vKZ7YV6+TGwC53PhgUoQgQjvrh6YtW5eJbMCBPMFBeLpOS8QEDwTzqCT
+         hazw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762716098; x=1763320898;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6vH5fXGe4VkkrWElN9kTcP4/mFYhBdwL1V1ZVaN0zdo=;
+        b=e6HIC4LZHGqQxEPVWrC/nRiPtYLbeWxPn5PeVXD1jfKy0SQ3T7Dny76BycKsT3O/jg
+         not+qe8alx9ySwaBYF+jCyCn7ets+jf+9THT+327+WDD6o9AaxVN2E+m3lddqbdYIjpF
+         kqHnIg80mGcByyV0zA1bcGXpxkz2kNmEaP9+QCYQjWu+y5F0fPuBkgk4AZN/eaRJOBZO
+         hHXyP467Lyg49Ku3FV9p+/yXW1pz6hqoekey6l17zTZWU2LlfZVanc8VR7cpTZMlWKju
+         mSlrvN35QYTVTOmMXfbpQlT0yrg2XRfyU/snZK+t0oM6/tVP+rrmGHZ4/CQcI0kJ3/Nq
+         5Juw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLbWX7TIvSDtlHc9EKuvGiTg9lhv6F2ehZed7UkEY6ybHAAftBd6W7PxF1wm8K76nRKBz8gSyTltbkfY1upp32@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+zTfyLBrsIj2VV1eXKUgeljPe2jof8A/Cwa/R1xETS+HVvKzl
+	knNol9B8sZS2Fa1aXiNYZGtJ/heF0Ibe+jGV4EPDmYjdX9Qfu8o9cH4j
+X-Gm-Gg: ASbGncv+dWt7Vce7RU5bNMqe3mT5X2at5xHna5fHRdwrLalbqsLrQDMynh1Rk27DXwI
+	cn2/WSmhhj79LTga6BuQOPaB+ylK1XXQb+8C2sq7XHupLyCnRxfcT6vPnWsVBaYBe4qVmtAF/ZQ
+	dqeISlUcyQYVMRjR7V9uSiXuD/7EIvO56D18tIgXVQN75ReoanGIRZB2Uz0dFgpcG0BYLPeN7k5
+	GUQoaPJHZuypoHKNLutoTNT8K8UT0MZMKL/8OJ+DhV2zVfAqmbcnDqHIGKadlkfwFrfcZ1UPKw8
+	dpHA4Zab1STYme13qmSCyV5/3jAyT/Lq5II7FMzXM7VDxLnz6rO0DR3meiZHFqpzkl1c447qIJk
+	gimyPENww5MRnO49oY/SmPtP/drrUAuCLnP4f+i/m80WEeso0e2/xam1hJWPj8AP86jA7XuM+r7
+	lOlMPD9LJ5G0wO/K0yRNAN3ufTqhBkuF1YKyN1IQegAw==
+X-Google-Smtp-Source: AGHT+IHEGGaPojLqJnQJyx/eRJbJgTm2GWxMz4aHcXLzOtk0tX2JbG/6GFj/8DCLl3D0UN/5mSd4Yw==
+X-Received: by 2002:a05:600c:3554:b0:477:557b:6917 with SMTP id 5b1f17b1804b1-4777323ae5bmr54155475e9.18.1762716097419;
+        Sun, 09 Nov 2025 11:21:37 -0800 (PST)
+Received: from apple.sigmaris.info ([2a02:8010:6606:0:d132:d099:e4e7:cb00])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47763e7a6desm91150875e9.8.2025.11.09.11.21.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Nov 2025 11:21:35 -0800 (PST)
+From: Hugh Cole-Baker <sigmaris@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Alexey Charkov <alchark@gmail.com>,
+	Hugh Cole-Baker <sigmaris@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: rockchip: add pwm-fan for NanoPC-T6
+Date: Sun,  9 Nov 2025 19:20:51 +0000
+Message-ID: <20251109192128.72527-1-sigmaris@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 07/14] drm/imx: dc: Add DPR channel support
-To: Liu Ying <victor.liu@nxp.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-References: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
- <20251016-imx8-dc-prefetch-v4-7-dfda347cb3c5@nxp.com>
- <174bdb5a-b5a8-4856-a0ac-8caaaefde136@mailbox.org>
- <24f99c46-ca5d-43cc-a2eb-a6e5029e9f86@nxp.com>
- <500852c9-2cd5-4897-a139-4e93988f5469@mailbox.org>
- <df8751ba-7215-4635-98b0-ca659ec786cd@nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <df8751ba-7215-4635-98b0-ca659ec786cd@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: sinmtj6ays4tudk4uae5k9qryfi8goyt
-X-MBO-RS-ID: cff78c7cf3058c1fefc
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_111116_604305_B75DA8FD 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20251109_112139_886575_D9F64A56 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +104,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/4/25 8:18 AM, Liu Ying wrote:
+FriendlyELEC offers an optional heatsink and fan addon for the NanoPC-T6
+and T6 LTS, which plugs in to the fan connector on the board driven by
+pwm1. Add the fan as an active cooling device for the SoC package.
 
-Hello Liu,
+Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
+---
+Changes from v1: https://lore.kernel.org/linux-rockchip/20251026194858.92461-1-sigmaris@gmail.com/
+* add the fan to the base board dtsi instead of overlay (Heiko)
+* just use 2 trip points for warm and hot temperatures (Dragan, Alexey)
 
->>>>> +++ b/drivers/gpu/drm/imx/dc/Kconfig
->>>>> @@ -1,6 +1,7 @@
->>>>>     config DRM_IMX8_DC
->>>>>         tristate "Freescale i.MX8 Display Controller Graphics"
->>>>>         depends on DRM && COMMON_CLK && OF && (ARCH_MXC || COMPILE_TEST)
->>>>> +    depends on IMX_SCU
->>>> Can the SCU dependency be made optional,
->>>
->>> I don't think this can be done.  If you grep 'depends on IMX_SCU' in
->>> kernel, you may find a handful of existing dependancies.
->>
->> Sure, I do not dispute this part.
->>
->> But the SCU dependency can be contained in a component of this driver,
->> which is not used by MX95, and used only by MX8Q . Then there will be
->> no problem.
-> 
-> Which component?  You mean PRG and DPRC?
-> 
-> If we add something like CONFIG_DRM_IMX8_DC_PRG and make CONFIG_DRM_IMX8_DC_PRG
-> depend on SCU, then should we make CONFIG_DRM_IMX8_DC depend on
-> CONFIG_DRM_IMX8_DC_PRG?  That's yet another dependency.
+References:
+FriendlyELEC heatsink with fan addon:
+https://www.friendlyelec.com/index.php?route=product/product&product_id=305
+Vendor DT with trip points and PWM duty cycle values:
+https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aad139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev01.dts#L75-L90
 
-I would say, if possible, put the SCU-dependent parts behind 
-CONFIG_DRM_IMX8_DC_PRG symbol, and make that symbol configurable via 
-Kconfig . Users of iMX95-only can turn it off, generic kernel config 
-should keep it on.
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
->>>> or per-module,
->>>
->>> Well, DRM_IMX8_DC(for the imx8_dc_drm module) depends on IMX_SCU just as
->>> this patch does.
->>
->> I assume it shouldn't have to, because the SCU dependency is only relevant
->> for the prefetch engine ?
-> 
-> The SCU dependency is only relevant for the prefetch engine, agreed.
-> But, how to avoid the dependency?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index fafeabe9adf9e..9164a0ee6228e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
++#include <dt-bindings/thermal/thermal.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588.dtsi"
+ 
+@@ -89,6 +90,14 @@ usr_led: led-1 {
+ 		};
+ 	};
+ 
++	fan: pwm-fan {
++		compatible = "pwm-fan";
++		cooling-levels = <0 35 64 100 150 255>;
++		fan-supply = <&vcc5v0_sys>;
++		pwms = <&pwm1 0 50000 0>;
++		#cooling-cells = <2>;
++	};
++
+ 	sound {
+ 		compatible = "simple-audio-card";
+ 		pinctrl-names = "default";
+@@ -591,6 +600,36 @@ &i2s6_8ch {
+ 	status = "okay";
+ };
+ 
++&package_thermal {
++	polling-delay = <1000>;
++
++	trips {
++		package_warm: package-warm {
++			temperature = <50000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++
++		package_hot: package-hot {
++			temperature = <60000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map0 {
++			trip = <&package_warm>;
++			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
++		};
++
++		map1 {
++			trip = <&package_hot>;
++			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
++		};
++	};
++};
++
+ &pcie2x1l0 {
+ 	reset-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
+-- 
+2.50.1 (Apple Git-155)
 
-How about containing the SCU parts in a single file and put it behind a 
-Kconfig symbol ? The common code can call the SCU parts and they would 
-either use SCU (on MX8QXP) or do nothing (on MX95) . It should even be 
-possible to discern this at runtime.
-
->>>> or somehow abstracted out (via regmap?),
->>>
->>> Like I replied to your i.MX95 DC patch series's cover letter, SCU accesses
->>> registers via Cortex-M core instead of Cortex-A core IIUC.  I really don't
->>> know how to abstract IMX_SCU out, especially via regmap.
->>
->> The simplest way would be to use regmap_config .reg_read and .reg_write ,
->> if there is no better way.
-> 
-> Can you shed more light on this?  Any examples?
-
-I'll just reply to this part, because that is probably the most relevant 
-to this whole conversation.
-
-git grep '\.reg_write' drivers -> drivers/hwmon/aspeed-pwm-tacho.c as a 
-simple example.
-
-Then such a reg_write implementation can do:
-
-if (SCU)
-   use SCU accessor
-else
-   use writel() or so
-
->>>> so iMX95 support can be added into the driver easily too ?
->>>
->>> Like I replied to your i.MX95 DC patch series, I think i.MX95 DC support
->>> can be in drivers/gpu/drm/imx/dc, but it should be in a separate module
->>> (something like imx95_dc_drm) plus an additional common module(like
->>> imx_dc_drm_common).
->> This design part is something I do not fully understand. Sure, it can be
->> two modules, but in the end, the result would have to be capable of being
->> compiled into single kernel binary if both modules would be =y in Kconfig
->> anyway.
-> 
-> This is something like imx8qm_ldb, imx8qxp_ldb and imx_ldb_helper modules -
-> DRM_IMX8QM_LDB and DRM_IMX8QXP_LDB select DRM_IMX_LDB_HELPER.
-> 
-> Note you may make CONFIG_DRM_IMX8QM_LDB=y and CONFIG_DRM_IMX8QXP_LDB=m with
-> CONFIG_DRM_IMX_LDB_HELPER=y.
-Do we have to make it this complicated right from the start ? Maybe we 
-can start simple, with one module, and then split it up if it turns out 
-to be unsuitable ?
 
