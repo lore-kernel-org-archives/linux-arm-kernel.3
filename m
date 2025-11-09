@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56828CCFA1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FFECD13CF
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOzAHHwyXplXUdxojbAMC6XA6Gk8Dqym0kV4p4UR0kw=; b=2wjZuLKz373zPG+FdwG2NkWSfN
-	7rPPYfwKucaTBSxXW94ln7hTxuikR4hkUBzMR7MPr/mBflCTb3CNgoxmeA+PLUhA2gwDIW9Evq/bq
-	4Pc28Y1V/DyMVeTntbwNGC5VlFpeOnnBck2FI1OolSeNAWYq2HHK7hb1KWA8jBDuSSMFxsd3WcM2b
-	vu5OTfm8RjINcFvSQ/B8UM7W0fXr+BiY6HrXuOUHc3f4o1NFQmMb0fG4DcXLazAFTU5Cr6FrRHsDz
-	NmCeBLRKMRrTY2KXFuk1L8nmqgPdFNLxvQLj06kEf/aaJ717h3y7AWhlVV28sjHtJM7qTM7GblOsT
-	p5raGGPQ==;
+	bh=usH8xCdwwB955GxwHryy7GPC/ld34+UmMMX8+aZ5+5U=; b=c37VGZ0KUL7nBDMpcNAjbEfsH5
+	Gy5Fa7bhHMq7EwBAwPkdOY7AMzec8YZzWkYiF/W8LgtYXrFF9rFLOp6cKdME4pTTPdR3IcsSK5LVa
+	iAKVutcOgXGZEHsSYdqHZA6YcBBVjb5vuoWvUS8+zV6xJqXkGXxBudIkCXqTl89IEO1uDARzUyEps
+	tNvCEvBrFLLLufcusapW18LATYDGTT8Fq/sb++K4PQP7omLwvVf8qsrZoy84mNl9BXdJR8z/EL7KE
+	sIcChq22wzT2LIOSg6BAbwRL7CbTGJ9iYAFjn4LA4DANGmY50vYpTziD6kJ28hXdRu6q0azRIiHW2
+	zOSN/+tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI92e-00000004DK3-0RMu;
-	Sun, 09 Nov 2025 17:17:28 +0000
+	id 1vI92c-00000004DHe-3Th2;
+	Sun, 09 Nov 2025 17:17:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI91p-00000004CAQ-2DbR
+	id 1vI91p-00000004CC3-0NVr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 17:16:41 +0000
+	Sun, 09 Nov 2025 17:16:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67A9A4418C;
-	Sun,  9 Nov 2025 17:16:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D65C116B1;
-	Sun,  9 Nov 2025 17:16:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CEE6943891;
+	Sun,  9 Nov 2025 17:16:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E9ECC19421;
+	Sun,  9 Nov 2025 17:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762708597;
-	bh=cqtAH1b9qpZi4sn8XeP4mVatePdCI9WKE0NMEYL2+h0=;
+	s=k20201202; t=1762708596;
+	bh=1WooFGAOvLd28Zek3XflMLApQolUs3QRCzmrIRk8vwk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iCBu1Z7LcP259qn2g1fzMuzzZyjoT/mnqmUr8CgvXkhoPtDszvqgr2Tvw7rI90W4/
-	 PX8VLd+6NKkIyNB4ciLl3euEE+O+v/OAr4BwxwaU68COsWmZRbHznVPo5+DltzGn1l
-	 Np8fyxADQfwINm1VscG2KYIilJ0HjqmBifTcOEp3NyIed5SULHbgA6Rze+AehWING1
-	 b4A1GX34ivsIYj3XgI9r5NQ/v/mhxZyNYEPf06uZSW3nzCaxlBE67dmFguaHiC9JDC
-	 yo8QP7b4+dj+xE2ekxVMoktUmWUqfXFMstxyanl1VbG6bRGnD69GT0ZTelMc7ebI6r
-	 9soJ+L2mo6aXQ==
+	b=cyWc157SQpraYOmziB/7hK0ZEnBaM0tvaUUygu5MxtcTLbv3tkfb9X7nqP4Wdwe6K
+	 kRj7hnQtglmT9a+W0wUXv45VOAEMwgjmFgMUFIw0dDnme3beoT/RiwzTxZdfclbKtV
+	 uYhyPXpCsxMJtBKUJodfvwI3Kd4XSVr+p/xbuuU/AKPQA+C3OKuJ6AhKnlJ82FWqXf
+	 qgKo+viU5Aa2AK5kZDHTUAWRls1/P0/eQruYL0WQh5S9/1M4EcPAHkz3M5iPVChDqW
+	 m8bFHglbAkWPbKSeeKKi2UUGFwCG7p23IurtILaYuJqls29B11KkPB4Jj2iDrFSyL4
+	 SCeHYfpT/9mVQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vI91n-00000003exw-1G6w;
-	Sun, 09 Nov 2025 17:16:35 +0000
+	id 1vI91m-00000003exw-2fZO;
+	Sun, 09 Nov 2025 17:16:34 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v2 30/45] KVM: arm64: GICv3: Add SPI tracking to handle asymmetric deactivation
-Date: Sun,  9 Nov 2025 17:16:04 +0000
-Message-ID: <20251109171619.1507205-31-maz@kernel.org>
+Subject: [PATCH v2 27/45] KVM: arm64: GICv3: Handle deactivation via ICV_DIR_EL1 traps
+Date: Sun,  9 Nov 2025 17:16:01 +0000
+Message-ID: <20251109171619.1507205-28-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251109171619.1507205-1-maz@kernel.org>
 References: <20251109171619.1507205-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_091637_650957_1DEAB18A 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20251109_091637_280717_E0D124DC 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,151 +88,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPIs are specially annpying, as they can be activated on a CPU and
-deactivated on another. WHich means that when an SPI is in flight
-anywhere, all CPUs need to have their TDIR trap bit set.
+Deactivation via ICV_DIR_EL1 is both relatively straightforward
+(we have the interrupt that needs deactivation) and really awkward.
 
-This translates into broadcasting an IPI across all CPUs to make sure
-they set their trap bit, The number of in-flight SPIs is kept in
-an atomic variable so that CPUs can turn the trap bit off as soon
-as possible.
+The main issue is that the interrupt may either be in an LR on
+another CPU, or ourside of any LR.
+
+In the former case, we process the deactivation is if ot was
+a write to GICD_CACTIVERn, which is already implemented as a big
+hammer IPI'ing all vcpus. In the latter case, we just perform
+a normal deactivation, similar to what we do for EOImode==0.
+
+Another annoying aspect is that we need to tell the CPU owning
+the interrupt that its ap_list needs laudering. We use a brand new
+vcpu request to that effect.
+
+Note that this doesn't address deactivation via the GICV MMIO view,
+which will be taken care of in a later change.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-init.c |  1 +
- arch/arm64/kvm/vgic/vgic-v3.c   | 21 +++++++++++++++------
- arch/arm64/kvm/vgic/vgic.c      | 25 +++++++++++++++++++++++--
- include/kvm/arm_vgic.h          |  3 +++
- 4 files changed, 42 insertions(+), 8 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/arm.c              |  4 ++
+ arch/arm64/kvm/hyp/vgic-v3-sr.c   |  3 ++
+ arch/arm64/kvm/sys_regs.c         | 19 ++++++-
+ arch/arm64/kvm/vgic/vgic-v3.c     | 85 +++++++++++++++++++++++++++++++
+ arch/arm64/kvm/vgic/vgic.c        | 11 ++++
+ arch/arm64/kvm/vgic/vgic.h        |  1 +
+ include/kvm/arm_vgic.h            |  1 +
+ 8 files changed, 123 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 6d5e5d708f23a..52de99c0f01ce 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -188,6 +188,7 @@ static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
- 	struct kvm_vcpu *vcpu0 = kvm_get_vcpu(kvm, 0);
- 	int i;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 64302c438355c..7501a2ee4dd44 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -54,6 +54,7 @@
+ #define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
+ #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+ #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
++#define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
  
-+	dist->active_spis = (atomic_t)ATOMIC_INIT(0);
- 	dist->spis = kcalloc(nr_spis, sizeof(struct vgic_irq), GFP_KERNEL_ACCOUNT);
- 	if (!dist->spis)
- 		return  -ENOMEM;
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 26e17ed057f00..bf4dde158d516 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -44,10 +44,17 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
- 		ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 733195ef183e1..fe13f9777f9ca 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1041,6 +1041,10 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+ 		 */
+ 		kvm_check_request(KVM_REQ_IRQ_PENDING, vcpu);
  
- 	/*
-+	 * Dealing with EOImode=1 is a massive source of headache. Not
-+	 * only do we need to track that we have active interrupts
-+	 * outside of the LRs and force DIR to be trapped, we also
-+	 * need to deal with SPIs that can be deactivated on another
-+	 * CPU.
-+	 *
- 	 * Note that we set the trap irrespective of EOIMode, as that
- 	 * can change behind our back without any warning...
- 	 */
--	if (irqs_active_outside_lrs(als))
-+	if (irqs_active_outside_lrs(als)		     ||
-+	    atomic_read(&vcpu->kvm->arch.vgic.active_spis))
- 		cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
- }
- 
-@@ -75,11 +82,6 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
- 	if (!irq)	/* An LPI could have been unmapped. */
- 		return;
- 
--	/* Notify fds when the guest EOI'ed a level-triggered IRQ */
--	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
--		kvm_notify_acked_irq(vcpu->kvm, 0,
--				     intid - VGIC_NR_PRIVATE_IRQS);
--
- 	scoped_guard(raw_spinlock, &irq->irq_lock) {
- 		/* Always preserve the active bit for !LPIs, note deactivation */
- 		if (irq->intid >= VGIC_MIN_LPI)
-@@ -114,6 +116,13 @@ static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
- 		irq->on_lr = false;
- 	}
- 
-+	/* Notify fds when the guest EOI'ed a level-triggered SPI, and drop the refcount */
-+	if (deactivated && lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid)) {
-+		kvm_notify_acked_irq(vcpu->kvm, 0,
-+				     intid - VGIC_NR_PRIVATE_IRQS);
-+		atomic_dec_if_positive(&vcpu->kvm->arch.vgic.active_spis);
-+	}
++		/* Process interrupts deactivated through a trap */
++		if (kvm_check_request(KVM_REQ_VGIC_PROCESS_UPDATE, vcpu))
++			kvm_vgic_process_async_update(vcpu);
 +
- 	vgic_put_irq(vcpu->kvm, irq);
- }
+ 		if (kvm_check_request(KVM_REQ_RECORD_STEAL, vcpu))
+ 			kvm_update_stolen_time(vcpu);
  
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 8c502135199f8..60bdddf3472e7 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -367,6 +367,17 @@ static bool vgic_validate_injection(struct vgic_irq *irq, bool level, void *owne
- 	return false;
- }
- 
-+static bool vgic_model_needs_bcst_kick(struct kvm *kvm)
-+{
-+	/*
-+	 * A GICv3 (or GICv3-like) system exposing a GICv3 to the
-+	 * guest needs a broadcast kick to set TDIR globally, even if
-+	 * the bit doesn't really exist (we still need to check for
-+	 * the shadow bit in the DIR emulation fast-path).
-+	 */
-+	return (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3);
-+}
-+
- /*
-  * Check whether an IRQ needs to (and can) be queued to a VCPU's ap list.
-  * Do the queuing if necessary, taking the right locks in the right order.
-@@ -379,6 +390,7 @@ bool vgic_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
- 			   unsigned long flags) __releases(&irq->irq_lock)
- {
- 	struct kvm_vcpu *vcpu;
-+	bool bcast;
- 
- 	lockdep_assert_held(&irq->irq_lock);
- 
-@@ -453,11 +465,20 @@ bool vgic_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
- 	list_add_tail(&irq->ap_list, &vcpu->arch.vgic_cpu.ap_list_head);
- 	irq->vcpu = vcpu;
- 
-+	/* A new SPI may result in deactivation trapping on all vcpus */
-+	bcast = (vgic_model_needs_bcst_kick(vcpu->kvm) &&
-+		 vgic_valid_spi(vcpu->kvm, irq->intid) &&
-+		 atomic_fetch_inc(&vcpu->kvm->arch.vgic.active_spis) == 0);
-+
- 	raw_spin_unlock(&irq->irq_lock);
- 	raw_spin_unlock_irqrestore(&vcpu->arch.vgic_cpu.ap_list_lock, flags);
- 
--	kvm_make_request(KVM_REQ_IRQ_PENDING, vcpu);
--	kvm_vcpu_kick(vcpu);
-+	if (!bcast) {
-+		kvm_make_request(KVM_REQ_IRQ_PENDING, vcpu);
-+		kvm_vcpu_kick(vcpu);
-+	} else {
-+		kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_IRQ_PENDING);
-+	}
- 
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index 1e5c1cf4b9144..8d3f4c069ea63 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -1247,6 +1247,9 @@ int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu)
+ 	case SYS_ICC_DIR_EL1:
+ 		if (unlikely(is_read))
+ 			return 0;
++		/* Full exit if required to handle overflow deactivation... */
++		if (vcpu->arch.vgic_cpu.vgic_v3.vgic_hcr & ICH_HCR_EL2_TDIR)
++			return 0;
+ 		fn = __vgic_v3_write_dir;
+ 		break;
+ 	case SYS_ICC_RPR_EL1:
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index e67eb39ddc118..1b69d6e2d720d 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -666,6 +666,21 @@ static bool access_gic_sre(struct kvm_vcpu *vcpu,
  	return true;
  }
+ 
++static bool access_gic_dir(struct kvm_vcpu *vcpu,
++			   struct sys_reg_params *p,
++			   const struct sys_reg_desc *r)
++{
++	if (!kvm_has_gicv3(vcpu->kvm))
++		return undef_access(vcpu, p, r);
++
++	if (!p->is_write)
++		return undef_access(vcpu, p, r);
++
++	vgic_v3_deactivate(vcpu, p->regval);
++
++	return true;
++}
++
+ static bool trap_raz_wi(struct kvm_vcpu *vcpu,
+ 			struct sys_reg_params *p,
+ 			const struct sys_reg_desc *r)
+@@ -3370,7 +3385,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_ICC_AP1R1_EL1), undef_access },
+ 	{ SYS_DESC(SYS_ICC_AP1R2_EL1), undef_access },
+ 	{ SYS_DESC(SYS_ICC_AP1R3_EL1), undef_access },
+-	{ SYS_DESC(SYS_ICC_DIR_EL1), undef_access },
++	{ SYS_DESC(SYS_ICC_DIR_EL1), access_gic_dir },
+ 	{ SYS_DESC(SYS_ICC_RPR_EL1), undef_access },
+ 	{ SYS_DESC(SYS_ICC_SGI1R_EL1), access_gic_sgi },
+ 	{ SYS_DESC(SYS_ICC_ASGI1R_EL1), access_gic_sgi },
+@@ -4495,7 +4510,7 @@ static const struct sys_reg_desc cp15_regs[] = {
+ 	{ CP15_SYS_DESC(SYS_ICC_AP1R1_EL1), undef_access },
+ 	{ CP15_SYS_DESC(SYS_ICC_AP1R2_EL1), undef_access },
+ 	{ CP15_SYS_DESC(SYS_ICC_AP1R3_EL1), undef_access },
+-	{ CP15_SYS_DESC(SYS_ICC_DIR_EL1), undef_access },
++	{ CP15_SYS_DESC(SYS_ICC_DIR_EL1), access_gic_dir },
+ 	{ CP15_SYS_DESC(SYS_ICC_RPR_EL1), undef_access },
+ 	{ CP15_SYS_DESC(SYS_ICC_IAR1_EL1), undef_access },
+ 	{ CP15_SYS_DESC(SYS_ICC_EOIR1_EL1), undef_access },
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index e17eefc6a2bb6..f2e9b96c6b65c 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -12,6 +12,7 @@
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_asm.h>
+ 
++#include "vgic-mmio.h"
+ #include "vgic.h"
+ 
+ static bool group0_trap;
+@@ -168,6 +169,90 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+ 	cpuif->used_lrs = 0;
+ }
+ 
++void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val)
++{
++	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
++	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
++	struct kvm_vcpu *target_vcpu = NULL;
++	struct vgic_irq *irq;
++	unsigned long flags;
++	bool mmio = false;
++	u64 lr = 0;
++
++	/*
++	 * We only deal with DIR when EOIMode==1, and only for SGI,
++	 * PPI or SPI.
++	 */
++	if (!(cpuif->vgic_vmcr & ICH_VMCR_EOIM_MASK) ||
++	    val >= vcpu->kvm->arch.vgic.nr_spis + VGIC_NR_PRIVATE_IRQS)
++		return;
++
++	/* Make sure we're in the same context as LR handling */
++	local_irq_save(flags);
++
++	irq = vgic_get_vcpu_irq(vcpu, val);
++	if (WARN_ON_ONCE(!irq))
++		goto out;
++
++	/*
++	 * EOIMode=1: we must rely on traps to handle deactivate of
++	 * overflowing interrupts, as there is no ordering guarantee and
++	 * EOIcount isn't being incremented. Priority drop will have taken
++	 * place, as ICV_EOIxR_EL1 only affects the APRs and not the LRs.
++	 *
++	 * Three possibities:
++	 *
++	 * - The irq is not queued on any CPU, and there is nothing to
++	 *   do,
++	 *
++	 * - Or the irq is in an LR, meaning that its state is not
++	 *   directly observable. Treat it bluntly by making it as if
++	 *   this was a write to GICD_ICACTIVER, which will force an
++	 *   exit on all vcpus. If it hurts, don't do that.
++	 *
++	 * - Or the irq is active, but not in an LR, and we can
++	 *   directly deactivate it by building a pseudo-LR, fold it,
++	 *   and queue a request to prune the resulting ap_list,
++	 */
++	scoped_guard(raw_spinlock, &irq->irq_lock) {
++		target_vcpu = irq->vcpu;
++
++		/* Not on any ap_list? */
++		if (!target_vcpu)
++			goto put;
++
++		/*
++		 * Urgh. We're deactivating something that we cannot
++		 * observe yet... Big hammer time.
++		 */
++		if (irq->on_lr) {
++			mmio = true;
++			goto put;
++		}
++
++		/* (with a Dalek voice) DEACTIVATE!!!! */
++		lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
++	}
++
++	if (lr & ICH_LR_HW)
++		vgic_v3_deactivate_phys(FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
++
++	vgic_v3_fold_lr(vcpu, lr);
++
++put:
++	vgic_put_irq(vcpu->kvm, irq);
++
++out:
++	local_irq_restore(flags);
++
++	if (mmio)
++		vgic_mmio_write_cactive(vcpu, (val / 32) * 4, 4, BIT(val % 32));
++
++	/* Force the ap_list to be pruned */
++	if (target_vcpu)
++		kvm_make_request(KVM_REQ_VGIC_PROCESS_UPDATE, target_vcpu);
++}
++
+ /* Requires the irq to be locked already */
+ static u64 vgic_v3_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
+ {
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 5c9204d18b27d..8c502135199f8 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -990,6 +990,17 @@ void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu)
+ 	vgic_prune_ap_list(vcpu);
+ }
+ 
++/* Sync interrupts that were deactivated through a DIR trap */
++void kvm_vgic_process_async_update(struct kvm_vcpu *vcpu)
++{
++	unsigned long flags;
++
++	/* Make sure we're in the same context as LR handling */
++	local_irq_save(flags);
++	vgic_prune_ap_list(vcpu);
++	local_irq_restore(flags);
++}
++
+ static inline void vgic_restore_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 037efb6200823..01ff6d4aa9dad 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -318,6 +318,7 @@ static inline void vgic_get_irq_ref(struct vgic_irq *irq)
+ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu);
+ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr);
+ void vgic_v3_clear_lr(struct kvm_vcpu *vcpu, int lr);
++void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val);
+ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu, struct ap_list_summary *als);
+ void vgic_v3_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+ void vgic_v3_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
 diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index b798546755a34..6a4d3d2055966 100644
+index ec349c5a4a8b6..b798546755a34 100644
 --- a/include/kvm/arm_vgic.h
 +++ b/include/kvm/arm_vgic.h
-@@ -263,6 +263,9 @@ struct vgic_dist {
- 	/* The GIC maintenance IRQ for nested hypervisors. */
- 	u32			mi_intid;
+@@ -421,6 +421,7 @@ bool kvm_vcpu_has_pending_irqs(struct kvm_vcpu *vcpu);
+ void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu);
+ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu);
+ void kvm_vgic_reset_mapped_irq(struct kvm_vcpu *vcpu, u32 vintid);
++void kvm_vgic_process_async_update(struct kvm_vcpu *vcpu);
  
-+	/* Track the number of in-flight active SPIs */
-+	atomic_t		active_spis;
-+
- 	/* base addresses in guest physical address space: */
- 	gpa_t			vgic_dist_base;		/* distributor */
- 	union {
+ void vgic_v3_dispatch_sgi(struct kvm_vcpu *vcpu, u64 reg, bool allow_group1);
+ 
 -- 
 2.47.3
 
