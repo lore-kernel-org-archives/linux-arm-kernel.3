@@ -4,112 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E00CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 00:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B40CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 00:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GjM2gkzQil19AomxuDInwTt2gkWOAouhNdKUHEv8N+w=; b=F89PAhbUSxJ2uJrtA1dijPvIiU
-	PKB6C+3Z1bcoXwu6Ux2deNWgkcHnBGUzMAdZ3ufpFmxJWImehtaNT3norxHOhNuYuRE6l4cdjr2QK
-	SgOXP+kNq+TaAvmU57AO2awpfjtdfXionF1auTGziWmUY9r0w5JOc/Cj2PmiAEDDVjVLPFkGraux5
-	6dD/3EbrLUH48FxMuV9qPVH+pfrRLZpa3lR/OrKVOKRSeHubrKEtwJpO5h10odvjim7bTkpZ154q1
-	mvY/t3fM6fRkupr95RLgTcajEQO8jitmhymOOspnHT2MjBeqavGFulnC5ebJuEXUGS/jg+MOE5zhu
-	az6zQJYw==;
+	bh=C9g28iKd9GEEBKsPMgyqPsMIFKJGryqMtKFGw9hYR8o=; b=cioQByjXC01A7sCAIRlAVU2Jj1
+	huA/fawOaUM+u46DpVgrs55OtuJhCgFPQv/3aACSBbaUhyiqIoBY1scHfNupIIv9Fn+yqquzTqPve
+	/TVDnKwuRKR672TD1SZ6+5vJs7M9XbiPy867SFXpeIHZ+ie1eIZY/p7VzwMDG5ihOL+YhiPVY3ZjM
+	Xg4I7zNv8TjZkj4qSpnwFdDHIXe8mirr65FfR0EcXR0BfROXFe/77So+BaTnLK2VG7ts2gA9iQygE
+	t7TmeDgdx3mGOU/n+fcAyn7JLUMuBDvCqqJzl+4A36biiEEGuDZApp5yqpNMvcDPBV577PmwZZs7U
+	DWT4ecsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHtFL-00000003bV0-3oZH;
-	Sun, 09 Nov 2025 00:25:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vHtPz-00000003br3-04ao;
+	Sun, 09 Nov 2025 00:36:31 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHtFI-00000003bUF-40M6
+	id 1vHtPv-00000003bqg-1lOk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 00:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762647927;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GjM2gkzQil19AomxuDInwTt2gkWOAouhNdKUHEv8N+w=;
-	b=YRztWBRmplmleDdOMdhz6tzW/kmcKqcOJbT4c7NUOZGWpRc/XN520nUITRkJ//6Iz5PdRX
-	yNCbxn8vjRWJxUApx0EPCUv0xgmWRlrFPrig0Dm6BTSJ4QLYQHkrGnSa+tOLH0teSWxhLZ
-	NmUA2REOuzsuvDciKdcwgPb97kZSgm8=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-548-SqhIiUqQO0KDwwXgIlfQ_g-1; Sat, 08 Nov 2025 19:25:25 -0500
-X-MC-Unique: SqhIiUqQO0KDwwXgIlfQ_g-1
-X-Mimecast-MFC-AGG-ID: SqhIiUqQO0KDwwXgIlfQ_g_1762647924
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2958a134514so21372595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 16:25:25 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762647924; x=1763252724;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GjM2gkzQil19AomxuDInwTt2gkWOAouhNdKUHEv8N+w=;
-        b=HjWRemdFnasPpIUd5NAJtMTdfDKuFjEpXWOAz+XYVmUIB3ndsfoz2njuzxP6fvYnp1
-         1ps9ed4vG30+wtwG5nDsmpkYgYtxopEyCI0HkUhTWUe/qhkN91b2CERo8T/JJ0kUVH7F
-         GNFyQBXx3zL5SRxbhxTsXWMlb0rFBLE9kqUZZM22e+sZkxNvsd7qTfbixqg93rontk9u
-         dvEPJYjURWGQHrTSOmiX2d/J3x7qJO1FinBw9zlF2Mq0HQwYvqmt+SLOyfDycI7uICXj
-         eqgfepbNebieuxznE1oA0ohmyL8TubtPnOV4oC0vmAgdBxOVoUDrUYUzH5ZwZC+23+pc
-         ZwcA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtibfE+XT+IO/7dS33hzT5jGVsZItv+t+7vL3WvDKzG0aiPINgD5p6nVzQnAZWbpTXoPCaFG8a6LPM7dgCl1Ia@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5Mebdy9y4/93SOKZ6zO9y6qJ5hGLCwyxaLsPymDb3BpY7ikTA
-	Us5Yc34ShfrmpRfhCAet4fH/qLlhJ8HYB0duEuPn9gyWDsOsppJx8JmcdASDaJoE8NW+O1kg6uQ
-	IWkjXx4n/2JQNayyOtuv2q7VzASuhenEsyibZsQGM5e3+otY3gdq1PLu34jHGnRmftCpmVJ3/AH
-	yF
-X-Gm-Gg: ASbGncs0O77uNBp0pzSwmvvnmxZ51cA2attodr1FU7nkqVdzvyXketQkPDkTv2o2tw9
-	cuiVBNlIn9c7F8LCpwh9xqAGuBXpgk8CWrccNU0juj6zjTjTJgWT1s5pZNzNeI2Cuq9AtmgtF2L
-	rna0mSpM3PB7FleXcUg0cV9KdQIOxBX97jFGSzXD3wNzvQjmnWbaxqqwQbk16sBs0WPvAEApE0p
-	CvNP36UP/FRxfvhZ7mARokNuHV2jRGtx18GBj4OvdavU2tb1jTPzXG5xj9R09wZty5pogu1u884
-	eEPARfyO1ufw/NhRZxHAAiWFavD65viO82BHN9OBzSm22gK6KvFvNdcFjmjGrHoyUljZtqcFBgG
-	rK7fOj6YVQt8V1KYyUlvTYJzfttpzfSb5jJL/Csc=
-X-Received: by 2002:a17:903:3848:b0:295:3ad7:948a with SMTP id d9443c01a7336-297e5623f04mr54414865ad.16.1762647924322;
-        Sat, 08 Nov 2025 16:25:24 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGjT7Owo8XJeJOTrgWjvPtiXgZ1vBfz4lfqIxSQIjV8vhLk1OAJS8nDYaFPSxNIg+nMeJmM4w==
-X-Received: by 2002:a17:903:3848:b0:295:3ad7:948a with SMTP id d9443c01a7336-297e5623f04mr54414545ad.16.1762647923976;
-        Sat, 08 Nov 2025 16:25:23 -0800 (PST)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29650968253sm99440425ad.20.2025.11.08.16.25.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Nov 2025 16:25:23 -0800 (PST)
-Message-ID: <6aae3021-4e0f-44a4-b842-8b8f952031d7@redhat.com>
-Date: Sun, 9 Nov 2025 10:25:10 +1000
+	Sun, 09 Nov 2025 00:36:29 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5A90NKMP032066;
+	Sun, 9 Nov 2025 00:36:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=C9g28iKd9GEEBKsPM
+	gyqPsMIFKJGryqMtKFGw9hYR8o=; b=MTnMu/8ABAXg/m2/jlvr6e4NtbQfOtIgl
+	xsZXD7uz5EFcl9m8ULFODxbC9eWTc5+3iPG+P/uQ8Z34rGDb1886yi1Ls+d8ISGM
+	CsbUmQocRpG9ra8xmkEm/0Mhb2a5YRhAKAXlxJ6EvaXtcNDrIfKbYur+ZvQ8Awoh
+	gqHnQiRQNxtY/KJG5z6hVZrkSYwcxOvIDK4Y3xvs3ZIgm5WvlZMJjtcjXCnOOXZ1
+	Isfg96aCFghgIKl4rSHu9IvIDV9uIkbcpfvk7ANuYWnHHn25gdqjTmNiTogtF8U6
+	jQtRBdnCyRt9wiGUkayMjQUTDk91yrBA6whl/7bYnqNZk8gtfgdzg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a9wc6tyfh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 09 Nov 2025 00:36:17 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5A8J0MGG012891;
+	Sun, 9 Nov 2025 00:36:16 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4a5y82gnv5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 09 Nov 2025 00:36:16 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5A90aEDK51183938
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 9 Nov 2025 00:36:14 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CA15720043;
+	Sun,  9 Nov 2025 00:36:14 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A6FAE20040;
+	Sun,  9 Nov 2025 00:36:14 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Sun,  9 Nov 2025 00:36:14 +0000 (GMT)
+From: Jan Polensky <japo@linux.ibm.com>
+To: catalin.marinas@arm.com
+Cc: akpm@linux-foundation.org, david@redhat.com,
+        linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+        will@kernel.org
+Subject: [PATCH] mm/huge_memory: restrict __GFP_ZEROTAGS to HW tagging architectures
+Date: Sun,  9 Nov 2025 01:36:13 +0100
+Message-ID: <20251109003613.1461433-1-japo@linux.ibm.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251031170133.280742-1-catalin.marinas@arm.com>
+References: <20251031170133.280742-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] arm_mpam: Add MPAM MSC register layout definitions
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-13-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20251107123450.664001-13-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: eReX8qnXSD99s5abHOZqsQRu6P08-9ioDGyGu2N7x1Q_1762647924
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA4MDAxOCBTYWx0ZWRfX4HQTAfYveTrz
+ 1GSXPLohTujNaxU6vabzpGMtuLy257+bS3xVUvxiFfUfDZbotVOwGVAPoiojhEPwzadJXVneGpL
+ c4QWlNCEyPy4IUY6PXlMVi4nkRjjSw+PIS2gCXB1/IG8fAkxkH6D/8aHLR/4aYx7JjFsz9hHNHB
+ d/RW+cn4nYCG+BJbH4E5Wj1yu4a9r+dpPCMNulF8ZUVgD8meTCbX+JbdG6Qafrg6URtPuKr72vC
+ LYpr/L3nOYj01hODmr24m+7Inf+UjX7x9htx/+Sdf/5jyffYbfecGZIy8cF0vok5RnYO1dUZ+OD
+ sf8JDMlrrqcs7+4OcWKEZnzGLgfL1LpsF/pJhzsCSBMRTHH9zMRVywtlbEyrgZg/El9atEqFxge
+ dQ7WLMH4k6iZofdU1PRt82efdoSYDg==
+X-Authority-Analysis: v=2.4 cv=GcEaXAXL c=1 sm=1 tr=0 ts=690fe201 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
+ a=VnNF1IyMAAAA:8 a=u5nbTVsyuFLneL7zQ6YA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-GUID: 5yCytclTpiR2Si3mIT-NROSF3tV4cD0w
+X-Proofpoint-ORIG-GUID: 5yCytclTpiR2Si3mIT-NROSF3tV4cD0w
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-08_07,2025-11-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 bulkscore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 clxscore=1015 spamscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511080018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_162529_076922_648D5511 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20251108_163627_810719_1B375D3A 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +116,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/7/25 10:34 PM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
-> (MSCs) with an identity/configuration page.
-> 
-> Add the definitions for these registers as offset within the page(s).
-> 
-> Link: https://developer.arm.com/documentation/ihi0099/aa/
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
-> Add tags - thanks!
-> Consistent naming of long counter variants (Jonathan)
-> ---
->   drivers/resctrl/mpam_internal.h | 267 ++++++++++++++++++++++++++++++++
->   1 file changed, 267 insertions(+)
-> 
+The previous change added __GFP_ZEROTAGS when allocating the huge zero
+folio to ensure tag initialization for arm64 with MTE enabled. However,
+on s390 this flag is unnecessary and triggers a regression
+(observed as a crash during repeated 'dnf makecache').
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Restrict the use of __GFP_ZEROTAGS to architectures that support
+hardware memory tagging (currently arm64 with MTE or KASAN HW tags).
+This avoids unintended side effects on other platforms.
+
+Fixes: 1579227fe0f0 ("mm/huge_memory: initialise the tags of the huge zero folio")
+Link: https://lore.kernel.org/r/20251031170133.280742-1-catalin.marinas@arm.com
+Signed-off-by: Jan Polensky <japo@linux.ibm.com>
+---
+ mm/huge_memory.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index aae283b00857..0c1794656d7a 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -209,14 +209,15 @@ unsigned long __thp_vma_allowable_orders(struct vm_area_struct *vma,
+
+ static bool get_huge_zero_folio(void)
+ {
++	gfp_t gfp = (GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE;
+ 	struct folio *zero_folio;
+ retry:
+ 	if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
+ 		return true;
+-
+-	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
+-				 ~__GFP_MOVABLE,
+-			HPAGE_PMD_ORDER);
++#if IS_ENABLED(CONFIG_KASAN_HW_TAGS) || IS_ENABLED(CONFIG_ARM64_MTE)
++	gfp |= __GFP_ZEROTAGS;
++#endif
++	zero_folio = folio_alloc(gfp, HPAGE_PMD_ORDER);
+ 	if (!zero_folio) {
+ 		count_vm_event(THP_ZERO_PAGE_ALLOC_FAILED);
+ 		return false;
+--
+2.48.1
 
 
