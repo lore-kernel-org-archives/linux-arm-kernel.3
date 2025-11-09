@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4E5CCFA1E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C453CCF9F8
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XcWaFmPlHZsTM8ViPlKeujxHswCjOGcflPorDRA6epA=; b=03M7z0iamHiq8C6OVniHmMmUUL
-	jtaUSpYo0TgIkCn39VxAvZQKD3W/uDNca2H7XBygRDl3vprEBJ3ntJiRWL+8jLflF8Q30WY8Qu2gI
-	Lear5aLjpQPjHCBShk5M8K15+nBYgsHZ/FOzarSYJd8M4t6wUXe0xoqzrU+gE0v0X9rmK/99uEg8S
-	Ai4VdVrgaI7C6HBRn8d5roWR0eijbkout+CVeGuuoRA9BAaFtFQU7/5MeKbpnMAQyBenx897aggDf
-	qvVEAB0kIq8dKFYs+TcglvLUGAU9y4Gqm74qDsK7fOl6WknW3NIq5tBDJ+ulQTlyJ8NsIIWWw0qca
-	LOWtSakw==;
+	bh=lFROL0VvOPkRmMdmt/KDM+OHMiD4GfDdJWHKglp9Zw0=; b=Rju6GGe/lkdUKhdfrDNziHQTFp
+	sjLJ+fq6RAca9MKAG5gE5owxbJVKMHSJ2MVgGiD2HVnRFQmUn4sUPRorMsqVr3WdUEL6mbllR+RM3
+	vCFJzzOQDjECg5x1wI73x6QYDN+7NgTNiU+D1WTT51DY1rKIAj0n0kBoXO1ViHV91PfFIlmkjqsFD
+	L+AuKNUlXc8ailiFx8UcXljcZ+VrGlG6XCRDZjOOSpV/rsKMZsMLWYt4v4zSaAl093c/ykgGzloYs
+	FAWPRClDowWNerxUwaj0j/mpSS6jiyPqFD6AvuQIZTfmZ/envjRlGWp65yS8rciGpLX8B8Lar5f4/
+	Txnvm/Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAe-00000004VoU-2Vhi;
-	Sun, 09 Nov 2025 23:50:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIFAf-00000004VqP-49NF;
+	Sun, 09 Nov 2025 23:50:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFAV-00000004VjY-2lv4
+	id 1vIFAW-00000004VlG-3oCP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 23:50:02 +0000
+	Sun, 09 Nov 2025 23:50:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F1E6446B9;
-	Sun,  9 Nov 2025 23:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0957C4CEF7;
-	Sun,  9 Nov 2025 23:49:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD0E1446C1;
+	Sun,  9 Nov 2025 23:49:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BCA9C113D0;
+	Sun,  9 Nov 2025 23:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762732198;
-	bh=y919u1v+MtlZR4u2oYCQjGN0x4jfhBz4y3Z9Fztktow=;
+	s=k20201202; t=1762732199;
+	bh=Zodgx2IYoNCP1gQCEOxcXaY8nw/zLva62Cv6WrKrveo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EF8tyt0T+HKt81YJjUihiwiM6YKtli8gmXV3BkzrU77IhacgLXG7TwGwMLxhnwkW3
-	 Vhog3eQCw/TZkuYl5Wi4RgyWpfY7wdTDZkogRmztvtop7hqX0qGhtrK+qHf/2HZn4x
-	 2Rln+4TmNzAXkRwvC7abNe5/fpzXHeMkUih/FqyaXLui90ZjpIcXq/Tl/P7DIQMZpn
-	 cbITds/gh6HfOhiazi0NT1LHYE/z/8dw3blHSQ4Qbc/RhPZyoBoqEOYsAHYLZGnJ+h
-	 DUETTVLFpcWvBJL7Oh3sOd5TxbscxRPLoROCmOc/8m2xHfBfT+sQPKjkcwXy6l7ATW
-	 qyzRnjNQfDSSQ==
+	b=bHY/4O64tE1Hgu0ldpjTDMtmZm6jm5u7rgsO6X7LaBLYf6YGaIKvRImvfPpEkGKvV
+	 vB+Tps9CbLKK5/m/269VfcjRb9jzTi/Q11mSmmLg+1PQeoi3zNypTWcDYZrXODk25N
+	 4rpOMiC0KyNqSd1z9QRPQ8XWw6at6l0ZkTjD7ygoxSVRr8fqYZTJxzyI0M18nt9VN1
+	 Ha9E06n27LxzTrhD4/2tX8e0nL47DQKaJ05hyRxTY8AJbZydqgvnfUqL7twT0x+qFj
+	 RtwcFuRfV/4YbSkuOCj9J6wq5KSYeJZolawOA8q7HEwA1WDXLIE2ctKNFTB+PzyZ4d
+	 cdyTQrF+Rl8Qg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,17 +51,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 3/9] lib/crypto: tests: Add KUnit tests for POLYVAL
-Date: Sun,  9 Nov 2025 15:47:18 -0800
-Message-ID: <20251109234726.638437-4-ebiggers@kernel.org>
+Subject: [PATCH 7/9] crypto: polyval - Remove the polyval crypto_shash
+Date: Sun,  9 Nov 2025 15:47:22 -0800
+Message-ID: <20251109234726.638437-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251109234726.638437-1-ebiggers@kernel.org>
 References: <20251109234726.638437-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_154959_795246_6C413137 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20251109_155001_019657_FF25856C 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,584 +76,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test suite for the POLYVAL library, including:
-
-- All the standard tests and the benchmark from hash-test-template.h
-- Comparison with a test vector from the RFC
-- Test with key and message containing all one bits
-- Additional tests related to the key struct
+Remove polyval support from crypto_shash.  It no longer has any user now
+that the HCTR2 code uses the POLYVAL library instead.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/tests/Kconfig            |   9 ++
- lib/crypto/tests/Makefile           |   1 +
- lib/crypto/tests/polyval-testvecs.h | 186 +++++++++++++++++++++++
- lib/crypto/tests/polyval_kunit.c    | 223 ++++++++++++++++++++++++++++
- scripts/crypto/gen-hash-testvecs.py |  47 +++++-
- 5 files changed, 464 insertions(+), 2 deletions(-)
- create mode 100644 lib/crypto/tests/polyval-testvecs.h
- create mode 100644 lib/crypto/tests/polyval_kunit.c
+ crypto/Kconfig           |  10 --
+ crypto/Makefile          |   1 -
+ crypto/polyval-generic.c | 205 ---------------------------------------
+ 3 files changed, 216 deletions(-)
+ delete mode 100644 crypto/polyval-generic.c
 
-diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
-index 140afd1714ba..61d435c450bb 100644
---- a/lib/crypto/tests/Kconfig
-+++ b/lib/crypto/tests/Kconfig
-@@ -45,10 +45,19 @@ config CRYPTO_LIB_POLY1305_KUNIT_TEST
- 	select CRYPTO_LIB_BENCHMARK_VISIBLE
- 	select CRYPTO_LIB_POLY1305
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 805172f75bf1..bf8b8a60a0c0 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -946,20 +946,10 @@ config CRYPTO_MICHAEL_MIC
+ 	  known as WPA (Wif-Fi Protected Access).
+ 
+ 	  This algorithm is required for TKIP, but it should not be used for
+ 	  other purposes because of the weakness of the algorithm.
+ 
+-config CRYPTO_POLYVAL
+-	tristate
+-	select CRYPTO_HASH
+-	select CRYPTO_LIB_GF128MUL
+-	help
+-	  POLYVAL hash function for HCTR2
+-
+-	  This is used in HCTR2.  It is not a general-purpose
+-	  cryptographic hash function.
+-
+ config CRYPTO_RMD160
+ 	tristate "RIPEMD-160"
+ 	select CRYPTO_HASH
  	help
- 	  KUnit tests for the Poly1305 library functions.
- 
-+config CRYPTO_LIB_POLYVAL_KUNIT_TEST
-+	tristate "KUnit tests for POLYVAL" if !KUNIT_ALL_TESTS
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
-+	select CRYPTO_LIB_BENCHMARK_VISIBLE
-+	select CRYPTO_LIB_POLYVAL
-+	help
-+	  KUnit tests for the POLYVAL library functions.
-+
- config CRYPTO_LIB_SHA1_KUNIT_TEST
- 	tristate "KUnit tests for SHA-1" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
- 	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
- 	select CRYPTO_LIB_BENCHMARK_VISIBLE
-diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
-index f7d1392dc847..5109a0651925 100644
---- a/lib/crypto/tests/Makefile
-+++ b/lib/crypto/tests/Makefile
-@@ -3,9 +3,10 @@
- obj-$(CONFIG_CRYPTO_LIB_BLAKE2B_KUNIT_TEST) += blake2b_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_BLAKE2S_KUNIT_TEST) += blake2s_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_CURVE25519_KUNIT_TEST) += curve25519_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_MD5_KUNIT_TEST) += md5_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST) += poly1305_kunit.o
-+obj-$(CONFIG_CRYPTO_LIB_POLYVAL_KUNIT_TEST) += polyval_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA1_KUNIT_TEST) += sha1_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha224_kunit.o sha256_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha384_kunit.o sha512_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST) += sha3_kunit.o
-diff --git a/lib/crypto/tests/polyval-testvecs.h b/lib/crypto/tests/polyval-testvecs.h
-new file mode 100644
-index 000000000000..3d33f60d58bb
---- /dev/null
-+++ b/lib/crypto/tests/polyval-testvecs.h
-@@ -0,0 +1,186 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py polyval */
-+
-+static const struct {
-+	size_t data_len;
-+	u8 digest[POLYVAL_DIGEST_SIZE];
-+} hash_testvecs[] = {
-+	{
-+		.data_len = 0,
-+		.digest = {
-+			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+		},
-+	},
-+	{
-+		.data_len = 1,
-+		.digest = {
-+			0xb5, 0x51, 0x69, 0x89, 0xd4, 0x3c, 0x59, 0xca,
-+			0x6a, 0x1c, 0x2a, 0xe9, 0xa1, 0x9c, 0x6c, 0x83,
-+		},
-+	},
-+	{
-+		.data_len = 2,
-+		.digest = {
-+			0xf4, 0x50, 0xaf, 0x07, 0xda, 0x42, 0xa7, 0x41,
-+			0x4d, 0x24, 0x88, 0x87, 0xe3, 0x40, 0x73, 0x7c,
-+		},
-+	},
-+	{
-+		.data_len = 3,
-+		.digest = {
-+			0x9e, 0x88, 0x78, 0x71, 0x4c, 0x55, 0x87, 0xe8,
-+			0xb4, 0x96, 0x3d, 0x56, 0xc8, 0xb2, 0xe1, 0x68,
-+		},
-+	},
-+	{
-+		.data_len = 16,
-+		.digest = {
-+			0x9e, 0x81, 0x37, 0x8f, 0x49, 0xf7, 0xa2, 0xe4,
-+			0x04, 0x45, 0x12, 0x78, 0x45, 0x42, 0x27, 0xad,
-+		},
-+	},
-+	{
-+		.data_len = 32,
-+		.digest = {
-+			0x60, 0x19, 0xd0, 0xa4, 0xf0, 0xde, 0x9e, 0xe7,
-+			0x6a, 0x89, 0x1a, 0xea, 0x80, 0x14, 0xa9, 0xa3,
-+		},
-+	},
-+	{
-+		.data_len = 48,
-+		.digest = {
-+			0x0c, 0xa2, 0x70, 0x4d, 0x7c, 0x89, 0xac, 0x41,
-+			0xc2, 0x9e, 0x0d, 0x07, 0x07, 0x6a, 0x7f, 0xd5,
-+		},
-+	},
-+	{
-+		.data_len = 49,
-+		.digest = {
-+			0x91, 0xd3, 0xa9, 0x5c, 0x79, 0x3d, 0x6b, 0x84,
-+			0x99, 0x54, 0xa7, 0xb4, 0x06, 0x66, 0xfd, 0x1c,
-+		},
-+	},
-+	{
-+		.data_len = 63,
-+		.digest = {
-+			0x29, 0x37, 0xb8, 0xe5, 0xd8, 0x27, 0x4d, 0xfb,
-+			0x83, 0x4f, 0x67, 0xf7, 0xf9, 0xc1, 0x0a, 0x9d,
-+		},
-+	},
-+	{
-+		.data_len = 64,
-+		.digest = {
-+			0x17, 0xa9, 0x06, 0x2c, 0xf3, 0xe8, 0x2e, 0xa6,
-+			0x6b, 0xb2, 0x1f, 0x5d, 0x94, 0x3c, 0x02, 0xa2,
-+		},
-+	},
-+	{
-+		.data_len = 65,
-+		.digest = {
-+			0x7c, 0x80, 0x74, 0xd7, 0xa1, 0x37, 0x30, 0x64,
-+			0x3b, 0xa4, 0xa3, 0x98, 0xde, 0x47, 0x10, 0x23,
-+		},
-+	},
-+	{
-+		.data_len = 127,
-+		.digest = {
-+			0x27, 0x3a, 0xcf, 0xf5, 0xaf, 0x9f, 0xd8, 0xd8,
-+			0x2d, 0x6a, 0x91, 0xfb, 0xb8, 0xfa, 0xbe, 0x0c,
-+		},
-+	},
-+	{
-+		.data_len = 128,
-+		.digest = {
-+			0x97, 0x6e, 0xc4, 0xbe, 0x6b, 0x15, 0xa6, 0x7c,
-+			0xc4, 0xa2, 0xb8, 0x0a, 0x0e, 0x9c, 0xc7, 0x3a,
-+		},
-+	},
-+	{
-+		.data_len = 129,
-+		.digest = {
-+			0x2b, 0xc3, 0x98, 0xba, 0x6e, 0x42, 0xf8, 0x18,
-+			0x85, 0x69, 0x15, 0x37, 0x10, 0x60, 0xe6, 0xac,
-+		},
-+	},
-+	{
-+		.data_len = 256,
-+		.digest = {
-+			0x88, 0x21, 0x77, 0x89, 0xd7, 0x93, 0x90, 0xfc,
-+			0xf3, 0xb0, 0xe3, 0xfb, 0x14, 0xe2, 0xcf, 0x74,
-+		},
-+	},
-+	{
-+		.data_len = 511,
-+		.digest = {
-+			0x66, 0x3d, 0x3e, 0x08, 0xa0, 0x49, 0x81, 0x68,
-+			0x3e, 0x3b, 0xc8, 0x80, 0x55, 0xd4, 0x15, 0xe9,
-+		},
-+	},
-+	{
-+		.data_len = 513,
-+		.digest = {
-+			0x05, 0xf5, 0x06, 0x66, 0xe7, 0x11, 0x08, 0x84,
-+			0xff, 0x94, 0x50, 0x85, 0x65, 0x95, 0x2a, 0x20,
-+		},
-+	},
-+	{
-+		.data_len = 1000,
-+		.digest = {
-+			0xd3, 0xa0, 0x51, 0x69, 0xb5, 0x38, 0xae, 0x1b,
-+			0xe1, 0xa2, 0x89, 0xc6, 0x8d, 0x2b, 0x62, 0x37,
-+		},
-+	},
-+	{
-+		.data_len = 3333,
-+		.digest = {
-+			0x37, 0x6d, 0x6a, 0x14, 0xdc, 0xa5, 0x37, 0xfc,
-+			0xfe, 0x67, 0x76, 0xb2, 0x64, 0x68, 0x64, 0x05,
-+		},
-+	},
-+	{
-+		.data_len = 4096,
-+		.digest = {
-+			0xe3, 0x12, 0x0c, 0x58, 0x46, 0x45, 0x27, 0x7a,
-+			0x0e, 0xa2, 0xfa, 0x2c, 0x35, 0x73, 0x6c, 0x94,
-+		},
-+	},
-+	{
-+		.data_len = 4128,
-+		.digest = {
-+			0x63, 0x0d, 0xa1, 0xbc, 0x6e, 0x3e, 0xd3, 0x1d,
-+			0x28, 0x52, 0xd2, 0xf4, 0x30, 0x2d, 0xff, 0xc4,
-+		},
-+	},
-+	{
-+		.data_len = 4160,
-+		.digest = {
-+			0xb2, 0x91, 0x49, 0xe2, 0x02, 0x98, 0x00, 0x79,
-+			0x71, 0xb9, 0xd7, 0xd4, 0xb5, 0x94, 0x6d, 0x7d,
-+		},
-+	},
-+	{
-+		.data_len = 4224,
-+		.digest = {
-+			0x58, 0x96, 0x48, 0x69, 0x05, 0x17, 0xe1, 0x6d,
-+			0xbc, 0xf2, 0x3d, 0x10, 0x96, 0x00, 0x74, 0x58,
-+		},
-+	},
-+	{
-+		.data_len = 16384,
-+		.digest = {
-+			0x99, 0x3c, 0xcb, 0x4d, 0x64, 0xc9, 0xa9, 0x41,
-+			0x52, 0x93, 0xfd, 0x65, 0xc4, 0xcc, 0xa5, 0xe5,
-+		},
-+	},
-+};
-+
-+static const u8 hash_testvec_consolidated[POLYVAL_DIGEST_SIZE] = {
-+	0xdf, 0x68, 0x52, 0x99, 0x92, 0xc3, 0xe8, 0x88,
-+	0x29, 0x13, 0xc8, 0x35, 0x67, 0xa3, 0xd3, 0xad,
-+};
-+
-+static const u8 polyval_allones_hashofhashes[POLYVAL_DIGEST_SIZE] = {
-+	0xd5, 0xf7, 0xfd, 0xb2, 0xa6, 0xef, 0x0b, 0x85,
-+	0x0d, 0x0a, 0x06, 0x10, 0xbc, 0x64, 0x94, 0x73,
-+};
-diff --git a/lib/crypto/tests/polyval_kunit.c b/lib/crypto/tests/polyval_kunit.c
-new file mode 100644
-index 000000000000..e59f598c1572
---- /dev/null
-+++ b/lib/crypto/tests/polyval_kunit.c
-@@ -0,0 +1,223 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2025 Google LLC
-+ */
-+#include <crypto/polyval.h>
-+#include "polyval-testvecs.h"
-+
-+/*
-+ * A fixed key used when presenting POLYVAL as an unkeyed hash function in order
-+ * to reuse hash-test-template.h.  At the beginning of the test suite, this is
-+ * initialized to a key prepared from bytes generated from a fixed seed.
-+ */
-+static struct polyval_key test_key;
-+
-+static void polyval_init_withtestkey(struct polyval_ctx *ctx)
-+{
-+	polyval_init(ctx, &test_key);
-+}
-+
-+static void polyval_withtestkey(const u8 *data, size_t len,
-+				u8 out[POLYVAL_BLOCK_SIZE])
-+{
-+	polyval(&test_key, data, len, out);
-+}
-+
-+/* Generate the HASH_KUNIT_CASES using hash-test-template.h. */
-+#define HASH polyval_withtestkey
-+#define HASH_CTX polyval_ctx
-+#define HASH_SIZE POLYVAL_BLOCK_SIZE
-+#define HASH_INIT polyval_init_withtestkey
-+#define HASH_UPDATE polyval_update
-+#define HASH_FINAL polyval_final
-+#include "hash-test-template.h"
-+
-+/*
-+ * Test an example from RFC8452 ("AES-GCM-SIV: Nonce Misuse-Resistant
-+ * Authenticated Encryption") to ensure compatibility with that.
-+ */
-+static void test_polyval_rfc8452_testvec(struct kunit *test)
-+{
-+	static const u8 raw_key[POLYVAL_BLOCK_SIZE] =
-+		"\x31\x07\x28\xd9\x91\x1f\x1f\x38"
-+		"\x37\xb2\x43\x16\xc3\xfa\xb9\xa0";
-+	static const u8 data[48] =
-+		"\x65\x78\x61\x6d\x70\x6c\x65\x00"
-+		"\x00\x00\x00\x00\x00\x00\x00\x00"
-+		"\x48\x65\x6c\x6c\x6f\x20\x77\x6f"
-+		"\x72\x6c\x64\x00\x00\x00\x00\x00"
-+		"\x38\x00\x00\x00\x00\x00\x00\x00"
-+		"\x58\x00\x00\x00\x00\x00\x00\x00";
-+	static const u8 expected_hash[POLYVAL_BLOCK_SIZE] =
-+		"\xad\x7f\xcf\x0b\x51\x69\x85\x16"
-+		"\x62\x67\x2f\x3c\x5f\x95\x13\x8f";
-+	u8 hash[POLYVAL_BLOCK_SIZE];
-+	struct polyval_key key;
-+
-+	polyval_preparekey(&key, raw_key);
-+	polyval(&key, data, sizeof(data), hash);
-+	KUNIT_ASSERT_MEMEQ(test, hash, expected_hash, sizeof(hash));
-+}
-+
-+/*
-+ * Test a key and messages containing all one bits.  This is useful to detect
-+ * overflow bugs in implementations that emulate carryless multiplication using
-+ * a series of standard multiplications with the bits spread out.
-+ */
-+static void test_polyval_allones_key_and_message(struct kunit *test)
-+{
-+	struct polyval_key key;
-+	struct polyval_ctx hashofhashes_ctx;
-+	u8 hash[POLYVAL_BLOCK_SIZE];
-+
-+	static_assert(TEST_BUF_LEN >= 4096);
-+	memset(test_buf, 0xff, 4096);
-+
-+	polyval_preparekey(&key, test_buf);
-+	polyval_init(&hashofhashes_ctx, &key);
-+	for (size_t len = 0; len <= 4096; len += 16) {
-+		polyval(&key, test_buf, len, hash);
-+		polyval_update(&hashofhashes_ctx, hash, sizeof(hash));
-+	}
-+	polyval_final(&hashofhashes_ctx, hash);
-+	KUNIT_ASSERT_MEMEQ(test, hash, polyval_allones_hashofhashes,
-+			   sizeof(hash));
-+}
-+
-+#define MAX_LEN_FOR_KEY_CHECK 1024
-+
-+/*
-+ * Given two prepared keys which should be identical (but may differ in
-+ * alignment and/or whether they are followed by a guard page or not), verify
-+ * that they produce consistent results on various data lengths.
-+ */
-+static void check_key_consistency(struct kunit *test,
-+				  const struct polyval_key *key1,
-+				  const struct polyval_key *key2)
-+{
-+	u8 *data = test_buf;
-+	u8 hash1[POLYVAL_BLOCK_SIZE];
-+	u8 hash2[POLYVAL_BLOCK_SIZE];
-+
-+	rand_bytes(data, MAX_LEN_FOR_KEY_CHECK);
-+	KUNIT_ASSERT_MEMEQ(test, key1, key2, sizeof(*key1));
-+
-+	for (int i = 0; i < 100; i++) {
-+		size_t len = rand_length(MAX_LEN_FOR_KEY_CHECK);
-+
-+		polyval(key1, data, len, hash1);
-+		polyval(key2, data, len, hash2);
-+		KUNIT_ASSERT_MEMEQ(test, hash1, hash2, sizeof(hash1));
-+	}
-+}
-+
-+/* Test that no buffer overreads occur on either raw_key or polyval_key. */
-+static void test_polyval_with_guarded_key(struct kunit *test)
-+{
-+	u8 raw_key[POLYVAL_BLOCK_SIZE];
-+	u8 *guarded_raw_key = &test_buf[TEST_BUF_LEN - sizeof(raw_key)];
-+	struct polyval_key key1, key2;
-+	struct polyval_key *guarded_key =
-+		(struct polyval_key *)&test_buf[TEST_BUF_LEN - sizeof(key1)];
-+
-+	/* Prepare with regular buffers. */
-+	rand_bytes(raw_key, sizeof(raw_key));
-+	polyval_preparekey(&key1, raw_key);
-+
-+	/* Prepare with guarded raw_key, then check that it works. */
-+	memcpy(guarded_raw_key, raw_key, sizeof(raw_key));
-+	polyval_preparekey(&key2, guarded_raw_key);
-+	check_key_consistency(test, &key1, &key2);
-+
-+	/* Prepare guarded polyval_key, then check that it works. */
-+	polyval_preparekey(guarded_key, raw_key);
-+	check_key_consistency(test, &key1, guarded_key);
-+}
-+
-+/*
-+ * Test that polyval_key only needs to be aligned to
-+ * __alignof__(struct polyval_key), i.e. 8 bytes.  The assembly code may prefer
-+ * 16-byte or higher alignment, but it musn't require it.
-+ */
-+static void test_polyval_with_minimally_aligned_key(struct kunit *test)
-+{
-+	u8 raw_key[POLYVAL_BLOCK_SIZE];
-+	struct polyval_key key;
-+	struct polyval_key *minaligned_key =
-+		(struct polyval_key *)&test_buf[MAX_LEN_FOR_KEY_CHECK +
-+						__alignof__(struct polyval_key)];
-+
-+	KUNIT_ASSERT_TRUE(test, IS_ALIGNED((uintptr_t)minaligned_key,
-+					   __alignof__(struct polyval_key)));
-+	KUNIT_ASSERT_TRUE(test,
-+			  !IS_ALIGNED((uintptr_t)minaligned_key,
-+				      2 * __alignof__(struct polyval_key)));
-+
-+	rand_bytes(raw_key, sizeof(raw_key));
-+	polyval_preparekey(&key, raw_key);
-+	polyval_preparekey(minaligned_key, raw_key);
-+	check_key_consistency(test, &key, minaligned_key);
-+}
-+
-+struct polyval_irq_test_state {
-+	struct polyval_key expected_key;
-+	u8 raw_key[POLYVAL_BLOCK_SIZE];
-+};
-+
-+static bool polyval_irq_test_func(void *state_)
-+{
-+	struct polyval_irq_test_state *state = state_;
-+	struct polyval_key key;
-+
-+	polyval_preparekey(&key, state->raw_key);
-+	return memcmp(&key, &state->expected_key, sizeof(key)) == 0;
-+}
-+
-+/*
-+ * Test that polyval_preparekey() produces the same output regardless of whether
-+ * FPU or vector registers are usable when it is called.
-+ */
-+static void test_polyval_preparekey_in_irqs(struct kunit *test)
-+{
-+	struct polyval_irq_test_state state;
-+
-+	rand_bytes(state.raw_key, sizeof(state.raw_key));
-+	polyval_preparekey(&state.expected_key, state.raw_key);
-+	kunit_run_irq_test(test, polyval_irq_test_func, 20000, &state);
-+}
-+
-+static int polyval_suite_init(struct kunit_suite *suite)
-+{
-+	u8 raw_key[POLYVAL_BLOCK_SIZE];
-+
-+	rand_bytes_seeded_from_len(raw_key, sizeof(raw_key));
-+	polyval_preparekey(&test_key, raw_key);
-+	return hash_suite_init(suite);
-+}
-+
-+static void polyval_suite_exit(struct kunit_suite *suite)
-+{
-+	hash_suite_exit(suite);
-+}
-+
-+static struct kunit_case polyval_test_cases[] = {
-+	HASH_KUNIT_CASES,
-+	KUNIT_CASE(test_polyval_rfc8452_testvec),
-+	KUNIT_CASE(test_polyval_allones_key_and_message),
-+	KUNIT_CASE(test_polyval_with_guarded_key),
-+	KUNIT_CASE(test_polyval_with_minimally_aligned_key),
-+	KUNIT_CASE(test_polyval_preparekey_in_irqs),
-+	KUNIT_CASE(benchmark_hash),
-+	{},
-+};
-+
-+static struct kunit_suite polyval_test_suite = {
-+	.name = "polyval",
-+	.test_cases = polyval_test_cases,
-+	.suite_init = polyval_suite_init,
-+	.suite_exit = polyval_suite_exit,
-+};
-+kunit_test_suite(polyval_test_suite);
-+
-+MODULE_DESCRIPTION("KUnit tests and benchmark for POLYVAL");
-+MODULE_LICENSE("GPL");
-diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
-index ae2682882cd1..c1d0517140bd 100755
---- a/scripts/crypto/gen-hash-testvecs.py
-+++ b/scripts/crypto/gen-hash-testvecs.py
-@@ -1,9 +1,9 @@
- #!/usr/bin/env python3
- # SPDX-License-Identifier: GPL-2.0-or-later
- #
--# Script that generates test vectors for the given cryptographic hash function.
-+# Script that generates test vectors for the given hash function.
- #
- # Copyright 2025 Google LLC
- 
- import hashlib
- import hmac
-@@ -48,15 +48,46 @@ class Poly1305:
-     # nondestructive, i.e. not changing any field of self.
-     def digest(self):
-         m = (self.h + self.s) % 2**128
-         return m.to_bytes(16, byteorder='little')
- 
-+POLYVAL_POLY = sum((1 << i) for i in [128, 127, 126, 121, 0])
-+POLYVAL_BLOCK_SIZE = 16
-+
-+# A straightforward, unoptimized implementation of POLYVAL.
-+# Reference: https://datatracker.ietf.org/doc/html/rfc8452
-+class Polyval:
-+    def __init__(self, key):
-+        assert len(key) == 16
-+        self.h = int.from_bytes(key, byteorder='little')
-+        self.acc = 0
-+
-+    # Note: this supports partial blocks only at the end.
-+    def update(self, data):
-+        for i in range(0, len(data), 16):
-+            # acc += block
-+            self.acc ^= int.from_bytes(data[i:i+16], byteorder='little')
-+            # acc = (acc * h * x^-128) mod POLYVAL_POLY
-+            product = 0
-+            for j in range(128):
-+                if (self.h & (1 << j)) != 0:
-+                    product ^= self.acc << j
-+                if (product & (1 << j)) != 0:
-+                    product ^= POLYVAL_POLY << j
-+            self.acc = product >> 128
-+        return self
-+
-+    def digest(self):
-+        return self.acc.to_bytes(16, byteorder='little')
-+
- def hash_init(alg):
-     if alg == 'poly1305':
-         # Use a fixed random key here, to present Poly1305 as an unkeyed hash.
-         # This allows all the test cases for unkeyed hashes to work on Poly1305.
-         return Poly1305(rand_bytes(POLY1305_KEY_SIZE))
-+    if alg == 'polyval':
-+        return Polyval(rand_bytes(POLYVAL_BLOCK_SIZE))
-     return hashlib.new(alg)
- 
- def hash_update(ctx, data):
-     ctx.update(data)
- 
-@@ -163,13 +194,22 @@ def gen_additional_poly1305_testvecs():
-             data += ctx.digest()
-     print_static_u8_array_definition(
-             'poly1305_allones_macofmacs[POLY1305_DIGEST_SIZE]',
-             Poly1305(key).update(data).digest())
- 
-+def gen_additional_polyval_testvecs():
-+    key = b'\xff' * POLYVAL_BLOCK_SIZE
-+    hashes = b''
-+    for data_len in range(0, 4097, 16):
-+        hashes += Polyval(key).update(b'\xff' * data_len).digest()
-+    print_static_u8_array_definition(
-+            'polyval_allones_hashofhashes[POLYVAL_DIGEST_SIZE]',
-+            Polyval(key).update(hashes).digest())
-+
- if len(sys.argv) != 2:
-     sys.stderr.write('Usage: gen-hash-testvecs.py ALGORITHM\n')
--    sys.stderr.write('ALGORITHM may be any supported by Python hashlib, or poly1305 or sha3.\n')
-+    sys.stderr.write('ALGORITHM may be any supported by Python hashlib; or poly1305, polyval, or sha3.\n')
-     sys.stderr.write('Example: gen-hash-testvecs.py sha512\n')
-     sys.exit(1)
- 
- alg = sys.argv[1]
- print('/* SPDX-License-Identifier: GPL-2.0-or-later */')
-@@ -178,10 +218,13 @@ if alg.startswith('blake2'):
-     gen_unkeyed_testvecs(alg)
-     gen_additional_blake2_testvecs(alg)
- elif alg == 'poly1305':
-     gen_unkeyed_testvecs(alg)
-     gen_additional_poly1305_testvecs()
-+elif alg == 'polyval':
-+    gen_unkeyed_testvecs(alg)
-+    gen_additional_polyval_testvecs()
- elif alg == 'sha3':
-     print()
-     print('/* SHA3-256 test vectors */')
-     gen_unkeyed_testvecs('sha3-256')
-     print()
+ 	  RIPEMD-160 hash function (ISO/IEC 10118-3)
+diff --git a/crypto/Makefile b/crypto/Makefile
+index 0388ff8d219d..093c56a45d3f 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -170,11 +170,10 @@ KASAN_SANITIZE_jitterentropy.o = n
+ UBSAN_SANITIZE_jitterentropy.o = n
+ jitterentropy_rng-y := jitterentropy.o jitterentropy-kcapi.o
+ obj-$(CONFIG_CRYPTO_JITTERENTROPY_TESTINTERFACE) += jitterentropy-testing.o
+ obj-$(CONFIG_CRYPTO_BENCHMARK) += tcrypt.o
+ obj-$(CONFIG_CRYPTO_GHASH) += ghash-generic.o
+-obj-$(CONFIG_CRYPTO_POLYVAL) += polyval-generic.o
+ obj-$(CONFIG_CRYPTO_USER_API) += af_alg.o
+ obj-$(CONFIG_CRYPTO_USER_API_HASH) += algif_hash.o
+ obj-$(CONFIG_CRYPTO_USER_API_SKCIPHER) += algif_skcipher.o
+ obj-$(CONFIG_CRYPTO_USER_API_RNG) += algif_rng.o
+ obj-$(CONFIG_CRYPTO_USER_API_AEAD) += algif_aead.o
+diff --git a/crypto/polyval-generic.c b/crypto/polyval-generic.c
+deleted file mode 100644
+index fe5b01a4000d..000000000000
+--- a/crypto/polyval-generic.c
++++ /dev/null
+@@ -1,205 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * POLYVAL: hash function for HCTR2.
+- *
+- * Copyright (c) 2007 Nokia Siemens Networks - Mikko Herranen <mh1@iki.fi>
+- * Copyright (c) 2009 Intel Corp.
+- *   Author: Huang Ying <ying.huang@intel.com>
+- * Copyright 2021 Google LLC
+- */
+-
+-/*
+- * Code based on crypto/ghash-generic.c
+- *
+- * POLYVAL is a keyed hash function similar to GHASH. POLYVAL uses a different
+- * modulus for finite field multiplication which makes hardware accelerated
+- * implementations on little-endian machines faster. POLYVAL is used in the
+- * kernel to implement HCTR2, but was originally specified for AES-GCM-SIV
+- * (RFC 8452).
+- *
+- * For more information see:
+- * Length-preserving encryption with HCTR2:
+- *   https://eprint.iacr.org/2021/1441.pdf
+- * AES-GCM-SIV: Nonce Misuse-Resistant Authenticated Encryption:
+- *   https://datatracker.ietf.org/doc/html/rfc8452
+- *
+- * Like GHASH, POLYVAL is not a cryptographic hash function and should
+- * not be used outside of crypto modes explicitly designed to use POLYVAL.
+- *
+- * This implementation uses a convenient trick involving the GHASH and POLYVAL
+- * fields. This trick allows multiplication in the POLYVAL field to be
+- * implemented by using multiplication in the GHASH field as a subroutine. An
+- * element of the POLYVAL field can be converted to an element of the GHASH
+- * field by computing x*REVERSE(a), where REVERSE reverses the byte-ordering of
+- * a. Similarly, an element of the GHASH field can be converted back to the
+- * POLYVAL field by computing REVERSE(x^{-1}*a). For more information, see:
+- * https://datatracker.ietf.org/doc/html/rfc8452#appendix-A
+- *
+- * By using this trick, we do not need to implement the POLYVAL field for the
+- * generic implementation.
+- *
+- * Warning: this generic implementation is not intended to be used in practice
+- * and is not constant time. For practical use, a hardware accelerated
+- * implementation of POLYVAL should be used instead.
+- *
+- */
+-
+-#include <crypto/gf128mul.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/polyval.h>
+-#include <crypto/utils.h>
+-#include <linux/errno.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-#include <linux/unaligned.h>
+-
+-struct polyval_tfm_ctx {
+-	struct gf128mul_4k *gf128;
+-};
+-
+-struct polyval_desc_ctx {
+-	union {
+-		u8 buffer[POLYVAL_BLOCK_SIZE];
+-		be128 buffer128;
+-	};
+-};
+-
+-static void copy_and_reverse(u8 dst[POLYVAL_BLOCK_SIZE],
+-			     const u8 src[POLYVAL_BLOCK_SIZE])
+-{
+-	u64 a = get_unaligned((const u64 *)&src[0]);
+-	u64 b = get_unaligned((const u64 *)&src[8]);
+-
+-	put_unaligned(swab64(a), (u64 *)&dst[8]);
+-	put_unaligned(swab64(b), (u64 *)&dst[0]);
+-}
+-
+-static int polyval_setkey(struct crypto_shash *tfm,
+-			  const u8 *key, unsigned int keylen)
+-{
+-	struct polyval_tfm_ctx *ctx = crypto_shash_ctx(tfm);
+-	be128 k;
+-
+-	if (keylen != POLYVAL_BLOCK_SIZE)
+-		return -EINVAL;
+-
+-	gf128mul_free_4k(ctx->gf128);
+-
+-	BUILD_BUG_ON(sizeof(k) != POLYVAL_BLOCK_SIZE);
+-	copy_and_reverse((u8 *)&k, key);
+-	gf128mul_x_lle(&k, &k);
+-
+-	ctx->gf128 = gf128mul_init_4k_lle(&k);
+-	memzero_explicit(&k, POLYVAL_BLOCK_SIZE);
+-
+-	if (!ctx->gf128)
+-		return -ENOMEM;
+-
+-	return 0;
+-}
+-
+-static int polyval_generic_init(struct shash_desc *desc)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	memset(dctx, 0, sizeof(*dctx));
+-
+-	return 0;
+-}
+-
+-static int polyval_generic_update(struct shash_desc *desc,
+-				  const u8 *src, unsigned int srclen)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-	const struct polyval_tfm_ctx *ctx = crypto_shash_ctx(desc->tfm);
+-	u8 tmp[POLYVAL_BLOCK_SIZE];
+-
+-	do {
+-		copy_and_reverse(tmp, src);
+-		crypto_xor(dctx->buffer, tmp, POLYVAL_BLOCK_SIZE);
+-		gf128mul_4k_lle(&dctx->buffer128, ctx->gf128);
+-		src += POLYVAL_BLOCK_SIZE;
+-		srclen -= POLYVAL_BLOCK_SIZE;
+-	} while (srclen >= POLYVAL_BLOCK_SIZE);
+-
+-	return srclen;
+-}
+-
+-static int polyval_finup(struct shash_desc *desc, const u8 *src,
+-			 unsigned int len, u8 *dst)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	if (len) {
+-		u8 tmp[POLYVAL_BLOCK_SIZE] = {};
+-
+-		memcpy(tmp, src, len);
+-		polyval_generic_update(desc, tmp, POLYVAL_BLOCK_SIZE);
+-	}
+-	copy_and_reverse(dst, dctx->buffer);
+-	return 0;
+-}
+-
+-static int polyval_export(struct shash_desc *desc, void *out)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	copy_and_reverse(out, dctx->buffer);
+-	return 0;
+-}
+-
+-static int polyval_import(struct shash_desc *desc, const void *in)
+-{
+-	struct polyval_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	copy_and_reverse(dctx->buffer, in);
+-	return 0;
+-}
+-
+-static void polyval_exit_tfm(struct crypto_shash *tfm)
+-{
+-	struct polyval_tfm_ctx *ctx = crypto_shash_ctx(tfm);
+-
+-	gf128mul_free_4k(ctx->gf128);
+-}
+-
+-static struct shash_alg polyval_alg = {
+-	.digestsize	= POLYVAL_DIGEST_SIZE,
+-	.init		= polyval_generic_init,
+-	.update		= polyval_generic_update,
+-	.finup		= polyval_finup,
+-	.setkey		= polyval_setkey,
+-	.export		= polyval_export,
+-	.import		= polyval_import,
+-	.exit_tfm	= polyval_exit_tfm,
+-	.statesize	= sizeof(struct polyval_desc_ctx),
+-	.descsize	= sizeof(struct polyval_desc_ctx),
+-	.base		= {
+-		.cra_name		= "polyval",
+-		.cra_driver_name	= "polyval-generic",
+-		.cra_priority		= 100,
+-		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_blocksize		= POLYVAL_BLOCK_SIZE,
+-		.cra_ctxsize		= sizeof(struct polyval_tfm_ctx),
+-		.cra_module		= THIS_MODULE,
+-	},
+-};
+-
+-static int __init polyval_mod_init(void)
+-{
+-	return crypto_register_shash(&polyval_alg);
+-}
+-
+-static void __exit polyval_mod_exit(void)
+-{
+-	crypto_unregister_shash(&polyval_alg);
+-}
+-
+-module_init(polyval_mod_init);
+-module_exit(polyval_mod_exit);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("POLYVAL hash function");
+-MODULE_ALIAS_CRYPTO("polyval");
+-MODULE_ALIAS_CRYPTO("polyval-generic");
 -- 
 2.51.2
 
