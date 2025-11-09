@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0EECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 16:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F4BCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 17:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZPRMEMcp2dhUGBHSuTRmxmLz/+slEndBNL5XpFqtZ1U=; b=ke73s77asUyhWd8SR0791wAbRx
-	IIy6ZgNG59oBz3OIm/7xMeIaE1tAl0ON7u4mxWxcW2ESr1agTv26ziuhW3bNW8w8rWUuQCn79lJcf
-	BoVIksVPCr52rhxDdaO3PyP39eg6A6mHM9cHuT2x16qE80OCQX45jahZa5cIYTAfCrcQ83IFtio8M
-	2IGC+3vo6+P2YQkvFVyXscSHtg9IMTCbOWdDAmUFG9CaxQrhN6E603sL5tlQLfITiVkpOYK455ebg
-	sPW9Buh6IpLLhQs1CfmojPVjGVXE35v8JsuhoO92bnr8IC2GBf6ZDhiPVHBhN1i8G/guTPFHg4UUJ
-	RXzq96kQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZGL6vN01C4fpVYtMS2FjDXAheoK7OIOq3/QZwzVz6I0=; b=WQrA6HSCXzxFfQ
+	nOxE31GjQOHu1m1n50faX+YVzMMUGkHKjdX5heDyoEJi+ZJkbBykg5JzPJWQUmOOsljWzWO2LsPUg
+	2ArHesbi2gLHtAxCLmWnw5EoJ4dsi6sIaY5ysqLgiu0lAfyG6Q0RJENWs+p3zq/zvBtIjmGOp6auM
+	kWxt5Be8qgcvYBqZfmLCtt8nI0M333o3WDBiKikcYJtWqEAw6OBvtzHsiDk/xuCNEpKdpe1tSoBR5
+	0HfWU+d8ZUciKNY8dPbo3saRyvI61Y70UMfxy+qvkEiGIl3/GKgdcYLjQnB7jubLg19ZOi86e1z8w
+	UFl2PoWQhhhiXVD0Kgmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8Ra-00000004A05-03x1;
-	Sun, 09 Nov 2025 16:39:10 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vI8rn-00000004BBE-0Kj3;
+	Sun, 09 Nov 2025 17:06:15 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI8RW-000000049z5-1PZ0;
-	Sun, 09 Nov 2025 16:39:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 082504E415EB;
-	Sun,  9 Nov 2025 16:39:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BCD0D606F5;
-	Sun,  9 Nov 2025 16:39:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 66E9011853189;
-	Sun,  9 Nov 2025 17:38:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762706339; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ZPRMEMcp2dhUGBHSuTRmxmLz/+slEndBNL5XpFqtZ1U=;
-	b=aIoKA3TZ8t6K+Vrshq3NfDorKiZuRejrlRcVM0UIqysbh10hoVWL/cFDQhnbe6lSgmOWR0
-	uarz8vGDSht8iVMcwkPYyBxJjPFdP7M6zXkR37d8DrJIdoZygxRdQq+7li1H0hHStZwqWR
-	daNbvdSgrgRc7RjtZdrQcXdI8UR0Aph/BG+sFxJJTMPqR/sWkHAj6VUwTAXQK8OSr8e/Mr
-	KGNYX84FHVQkFyJhxmFq51m5AWO/5263nSruhA8vU2zzrFNPt2eFYtVdJFTHqJkYsTJkpW
-	nyIToGDmgTbgMXEt7bAePomqHPtkWBJ+w4z9jj9+8PmpuLrHiKK2RuV0GMylRw==
-Message-ID: <e309efc0-1b03-416c-8464-af92cc428acf@bootlin.com>
-Date: Sun, 9 Nov 2025 17:38:45 +0100
+	id 1vI8rg-00000004B91-2oMr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Nov 2025 17:06:13 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1762707963;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ZGL6vN01C4fpVYtMS2FjDXAheoK7OIOq3/QZwzVz6I0=;
+	b=PO3jGN4Ozros9j3l2U07INj40Af2D4ml7LcHGzWPa7uIZ8xTXXkGjohxb2akm+VFyvrJKV
+	T9FM5+PSPHXFV2snPZ8DPCTCxbpj55UVzS2v90khbSFokWOK4+ObTg7FeKrcGQeFYmby3p
+	aVxoCpzYuQAZjF0wJZVsvbVlx75VKbbB7ulLGPJZNFuxcWcAJlZ7YDbs2hcmRkoac4nZEC
+	LWLIDcz6YaoPzzWqmjIN2JYid3HIvORz9/GrZmJT7W02h0BCL3QLHLF/PdqR7PO9I3v8G3
+	NvKb6mON2bwIVt/gwqYsERVbsNhLVnbcxB1O7AgglQC/tuv4Vg74yhHOVmXe7A==
+From: Diederik de Haas <diederik@cknow-tech.com>
+Subject: [PATCH 0/2] Fixes for PineNote DT validation issues
+Date: Sun, 09 Nov 2025 18:05:25 +0100
+Message-Id: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 16/16] net: stmmac: visconti: use
- stmmac_get_phy_intf_sel()
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "David S. Miller" <davem@davemloft.net>,
- Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>,
- Keguang Zhang <keguang.zhang@gmail.com>, Kevin Hilman
- <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Minda Chen <minda.chen@starfivetech.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
- Paolo Abeni <pabeni@redhat.com>
-References: <aQ4ByErmsnAPSHIL@shell.armlinux.org.uk>
- <E1vHNSq-0000000DkTN-3RoV@rmk-PC.armlinux.org.uk>
- <14f80863-5766-437a-8e38-8991a1a725f9@bootlin.com>
- <aQ74G_WqoAusC2wd@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aQ74G_WqoAusC2wd@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIANXJEGkC/x3MQQrCMBBG4auUWTvQJG1BryIuov2jg5iGmVSE0
+ rs3uPzg8TYyqMDo0m2k+IrJkhvcqaPHK+YnWOZm8r0fnevPrO8wThMXychLBc+Vk/xgvBarivh
+ hl+7BI6UhIFL7FMW/aJvrbd8PUHkyX3MAAAA=
+X-Change-ID: 20251109-rk3566-pinenote-dt-fixes-upstream-1fb32eff43ea
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>, 
+ Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Diederik de Haas <diederik@cknow-tech.com>, 
+ stable@vger.kernel.org
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_083906_916947_EC70ACC0 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20251109_090609_291786_99C6E313 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,45 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+These patches fix the following DeviceTree validation issues on the
+PineNote dtb files:
 
+    Warning (graph_child_address): /i2c@fe5c0000/tcpc@60/connector/ports:
+      graph node has single child node 'port@0', #address-cells/#size-cells
+      are not necessary
 
-On 08/11/2025 08:58, Russell King (Oracle) wrote:
-> On Fri, Nov 07, 2025 at 07:23:26PM +0100, Maxime Chevallier wrote:
->> Hi Russell,
->>
->> On 07/11/2025 15:29, Russell King (Oracle) wrote:
->>> -	switch (plat_dat->phy_interface) {
->>> -	case PHY_INTERFACE_MODE_RGMII:
->>> -	case PHY_INTERFACE_MODE_RGMII_ID:
->>> -	case PHY_INTERFACE_MODE_RGMII_RXID:
->>> -	case PHY_INTERFACE_MODE_RGMII_TXID:
->>> -		phy_intf_sel = ETHER_CONFIG_INTF_RGMII;
->>> -		break;
->>> -	case PHY_INTERFACE_MODE_MII:
->>> -		phy_intf_sel = ETHER_CONFIG_INTF_MII;
->>> -		break;
->>> -	case PHY_INTERFACE_MODE_RMII:
->>> -		phy_intf_sel = ETHER_CONFIG_INTF_RMII;
->>> -		break;
->>> -	default:
->>> +	int phy_intf_sel;
->>> +
->>> +	phy_intf_sel = stmmac_get_phy_intf_sel(plat_dat->phy_interface);
->>> +	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
->>> +	    phy_intf_sel != PHY_INTF_SEL_RGMII &&
->>> +	    phy_intf_sel != PHY_INTF_SEL_RMII) {
->>>  		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n", plat_dat->phy_interface);
->>>  		return -EOPNOTSUPP;
->>>  	}
->>
->> Probably not too big of a deal, but don't we now incorrectly accept the
->> "gmii" mode ?
-> 
-> We will accept GMII mode, but (a) does that matter, and (b) shouldn't
-> the DT binding be checking the phy-mode (we have some bindings that do.)
+    usb2phy@fe8a0000 (rockchip,rk3568-usb2phy): otg-port: 'port' does not
+      match any of the regexes: '^pinctrl-[0-9]+$'
 
-Thanks for the clarification, that's fine by me then :)
+And with these 2 fixes, there are no more DT validation issues :-)
 
-Maxime
+The fix for the 2nd issue also fix these kernel errors:
+
+  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier port0 for /usb2phy@fe8a0000/otg-port
+  rockchip-usb2phy fe8a0000.usb2phy: Failed to create device link (0x180) with supplier 3-0060 for /usb2phy@fe8a0000/otg-port
+
+Cheers,
+  Diederik
+
+Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
+---
+Diederik de Haas (2):
+      arm64: dts: rockchip: Simplify usb-c-connector port on rk3566-pinenote
+      arm64: dts: rockchip: Move otg-port to controller on rk3566-pinenote
+
+ arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi | 27 +++++++++--------------
+ 1 file changed, 10 insertions(+), 17 deletions(-)
+---
+base-commit: 6146a0f1dfae5d37442a9ddcba012add260bceb0
+change-id: 20251109-rk3566-pinenote-dt-fixes-upstream-1fb32eff43ea
+
+Best regards,
+-- 
+Diederik de Haas <diederik@cknow-tech.com>
 
 
