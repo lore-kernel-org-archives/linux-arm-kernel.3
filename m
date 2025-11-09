@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DD0CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 09:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3992DCD13D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 12:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OM0lo0UPqSNJ5C/ERcMBtm9Wawy1xdZLpiZeuTOsH4I=; b=mpssN4ajcV7vXdq5bmrpMXPeGs
-	ee3uPl3Uyxji2tXZb0+wCn6VC3vhSuaBtLYSnq7tbo32WDcg2Jqql9CqN5LRvnAouzbGgnoevzbcj
-	ifYrL0VsBsZBVYro3qsSGE+WxVBy8/QXvFyOBOkBWTSN67WACwPHE5BBTmJt7w/0PnGU/bR+Na6TN
-	mmDuI1iPzkZx9Z0x6ssRckg5xyzOqW1zySWQpGGY3CRRFVy+qf7QvM8MhAXh2CGMb/kzDTvfp3Dlk
-	VR31T3Fsz4Hjy4GJ9tGd/Epg5Px2od8bTerc2JBGyyZZxx7lOHmiioAAwKFmXGBi7fpfOLkr+DVoO
-	HhZKahYQ==;
+	bh=Lix5OQ2dL+UYyCURX/GsF7O2n8lCZHASkXV3hJRe4MQ=; b=yOXUQCsxEiAu/mFhazfsIl4yli
+	kp/IUN7PZi9mR+883SVVFVcILK14D3+ovyz+y2XOytn1TafmZpJweRJAvuU1VQdwfpeuedFPV53Kb
+	Q/Bc+KOwyAKgM7JA0Zt2eG9hYiUwunLEZtYzLdX3O1P5pkDMujQ895/F9NSyDf3H0hJU9CipJqcep
+	JTUP9JMM/shht/hB3dqiRAlw8BLTo905qudo/LVamo+U7ZearmL62IAW1dGUlmhURgr41S/H1po+O
+	GubMuF+85GoebMScNIThHruieArJ9pFwOHJM/nQy8qge57ugSHFn0QzcF+zJxa7GvTeSWqq5wQua9
+	gH2IIh9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI1JF-00000003tJW-0CYB;
-	Sun, 09 Nov 2025 09:02:05 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vI4X2-00000003zv9-0gQ4;
+	Sun, 09 Nov 2025 12:28:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vI1JC-00000003tJ3-0pbt
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 09:02:03 +0000
-Received: from ideasonboard.com (mob-5-90-142-135.net.vodafone.it [5.90.142.135])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9E83C22E;
-	Sun,  9 Nov 2025 09:59:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762678800;
-	bh=vGyf/vOP5buzlkUbqiHzVnnWuP1efLVlk+uzqz1Lavc=;
+	id 1vI4Wy-00000003zud-38ca;
+	Sun, 09 Nov 2025 12:28:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 125C64182B;
+	Sun,  9 Nov 2025 12:28:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E41ABC4CEF8;
+	Sun,  9 Nov 2025 12:28:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762691307;
+	bh=9+deIiz/07lRUWttLH1XL6KToavdGNMSxgLPjvkZhJg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dgVN/DEaRJgva5oRH7rco2VcKbvV1nwcdi1T/aNZSktNdSlcJPcmHf0zmapYKvFFT
-	 GXPRtuy0s9faHyNLkL2OK54APP9ISYq8Cy3ZTLV/pC1A0SMVdVoILsBTnIn2QyHAK7
-	 Aq3BsUydS0OuVVog35QJoDlnMUB0NW3auQBw7IiY=
-Date: Sun, 9 Nov 2025 10:01:51 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Dan Scally <dan.scally@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, nayden.kanchev@arm.com, 
-	robh+dt@kernel.org, mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
-	laurent.pinchart@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v12 03/15] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <olployk2d6ui4jh5os2ga4zhfee54322vwwhdqrate7f3agg5m@wxeizzoysxbo>
-References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
- <20251002-c55-v12-3-3eda2dba9554@ideasonboard.com>
- <CA+V-a8sg4c697WTS=wXoWvgc_UCFM3+Qjh1br=rMm4F84NVw-Q@mail.gmail.com>
- <8c5a4c68-8299-4d8f-96b2-8db232df70fe@ideasonboard.com>
- <CA+V-a8vey1y0QAxk7vYNHzPHrOrQ4uTpjf4LCb9wSRRCT3v3Qg@mail.gmail.com>
- <pwnwqoghzznwp5faozxhsjzfd6qx3xeqvwcmk4zpkcgmmbtetu@vafr5viwhizp>
- <37015806-bf91-4e31-9550-50d17062b1e4@ideasonboard.com>
+	b=hurIJbO4oHCGlhmRNAgt+fgtD84571YdTIU65SqQLikCy0YK6bGSG7HxhBNlSk9aS
+	 PALZVZ02wZOtd9kZLJqpdvYHJZ/HSYktjSKv08/JU4tlGx8jIssFmNBzs4yu2IGtJU
+	 0YxNi2u0zPftBTq/zVxWk45vug4/C5PHWgNZJRuErdgmGm9yisSh6mwc0bA40SRXas
+	 FbTqSGCiqroy0yC+wm+BmvTih4g6V/tnUB0rYJShev3QE87VQusnlGoMuV7RlUvqbg
+	 CkslesMC7ljHB7f7iAID75aBnIQP3T9N/4s6Ty0pftu6RB/9GGpUUvhN9L9fBqEL/h
+	 wvgFouCpUPSUg==
+Date: Sun, 9 Nov 2025 13:28:22 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+Message-ID: <aRCI5kG16_1erMME@ryzen>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen>
+ <aQ9FWEuW47L8YOxC@ryzen>
+ <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <37015806-bf91-4e31-9550-50d17062b1e4@ideasonboard.com>
+In-Reply-To: <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_010202_392672_B704B065 
-X-CRM114-Status: GOOD (  57.63  )
+X-CRM114-CacheID: sfid-20251109_042828_828954_584AA7E5 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,258 +84,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+On Sun, Nov 09, 2025 at 01:42:23PM +0900, FUKAUMI Naoki wrote:
+> Hi Niklas,
+> 
+> On 11/8/25 22:27, Niklas Cassel wrote:
+> (snip)> (And btw. please test with the latest 6.18-rc, as, from experience,
+> the
+> > ASPM problems in earlier RCs can result in some weird problems that are
+> > not immediately deduced to be caused by the ASPM enablement.)
+> 
+> Here is dmesg from v6.18-rc4:
+>  https://gist.github.com/RadxaNaoki/40e1d049bff4f1d2d4773a5ba0ed9dff
 
-On Sat, Nov 08, 2025 at 03:16:05PM +0000, Dan Scally wrote:
-> Hi Jacopo, Prabhakar
->
-> On 08/11/2025 13:07, Jacopo Mondi wrote:
-> > Hi
-> >
-> > On Wed, Nov 05, 2025 at 01:35:59PM +0000, Lad, Prabhakar wrote:
-> > > Hi Dan,
-> > >
-> > > On Mon, Nov 3, 2025 at 4:17 PM Dan Scally <dan.scally@ideasonboard.com> wrote:
-> > > >
-> > > > Hi Prabhakar
-> > > >
-> > > > On 28/10/2025 18:23, Lad, Prabhakar wrote:
-> > > > > Hi Daniel,
-> > > > >
-> > > > > Thank you for the patch.
-> > > > >
-> > > > > On Thu, Oct 2, 2025 at 11:19 AM Daniel Scally
-> > > > > <dan.scally@ideasonboard.com> wrote:
-> > > > > >
-> > > > > > Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
-> > > > > >
-> > > > > > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > > > > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > > > > > Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> > > > > > Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > > > > > ---
-> > > > > > Changes in v12:
-> > > > > >
-> > > > > >           - _Actually_ dropped the arm,inline property mode, having forgotten to
-> > > > > >             do so in v11.
-> > > > > >
-> > > > > > Changes in v11:
-> > > > > >
-> > > > > >           - Dropped in arm,inline_mode property. This is now identical to the
-> > > > > >             reviewed version 8, so I have kept the tags on there.
-> > > > > >
-> > > > > > Changes in v10:
-> > > > > >
-> > > > > >           - None
-> > > > > >
-> > > > > > Changes in v9:
-> > > > > >
-> > > > > >           - Added the arm,inline_mode property to differentiate between inline and
-> > > > > >             memory input configurations
-> > > > > >
-> > > > > > Changes in v8:
-> > > > > >
-> > > > > >           - Added the video clock back in. Now that we have actual hardware it's
-> > > > > >             clear that it's necessary.
-> > > > > >           - Added reset lines
-> > > > > >           - Dropped R-bs
-> > > > > >
-> > > > > > Changes in v7:
-> > > > > >
-> > > > > >           - None
-> > > > > >
-> > > > > > Changes in v6:
-> > > > > >
-> > > > > >           - None
-> > > > > >
-> > > > > > Changes in v5:
-> > > > > >
-> > > > > >           - None
-> > > > > >
-> > > > > > Changes in v4:
-> > > > > >
-> > > > > >           - Switched to port instead of ports
-> > > > > >
-> > > > > > Changes in v3:
-> > > > > >
-> > > > > >           - Dropped the video clock as suggested by Laurent. I didn't retain it
-> > > > > >           for the purposes of the refcount since this driver will call .s_stream()
-> > > > > >           for the sensor driver which will refcount the clock anyway.
-> > > > > >           - Clarified that the port is a parallel input port rather (Sakari)
-> > > > > >
-> > > > > > Changes in v2:
-> > > > > >
-> > > > > >           - Added clocks information
-> > > > > >           - Fixed the warnings raised by Rob
-> > > > > > ---
-> > > > > >    .../devicetree/bindings/media/arm,mali-c55.yaml    | 82 ++++++++++++++++++++++
-> > > > > >    1 file changed, 82 insertions(+)
-> > > > > >
-> > > > > > diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> > > > > > new file mode 100644
-> > > > > > index 0000000000000000000000000000000000000000..efc88fd2c447e98dd82a1fc1bae234147eb967a8
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> > > > > > @@ -0,0 +1,82 @@
-> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +%YAML 1.2
-> > > > > > +---
-> > > > > > +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > +
-> > > > > > +title: ARM Mali-C55 Image Signal Processor
-> > > > > > +
-> > > > > > +maintainers:
-> > > > > > +  - Daniel Scally <dan.scally@ideasonboard.com>
-> > > > > > +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > > +
-> > > > > > +properties:
-> > > > > > +  compatible:
-> > > > > > +    const: arm,mali-c55
-> > > > > > +
-> > > > > > +  reg:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  interrupts:
-> > > > > > +    maxItems: 1
-> > > > > > +
-> > > > > > +  clocks:
-> > > > > > +    items:
-> > > > > > +      - description: ISP Video Clock
-> > > > > > +      - description: ISP AXI clock
-> > > > > > +      - description: ISP AHB-lite clock
-> > > > > As per RZ/V2H HW manual we have reg clock looking at the driver code
-> > > > > it does have readl. IVC has reg clock if IVC driver fails are you
-> > > > > still able to read/write regs from ISP driver?
-> > > >   >
-> > > >   > I think we do need to pass reg clock too.
-> > > >
-> > > > Yes - but I should clarify that the names are from the arm documentation that we had when we
-> > > > originally developed the ISP driver. The RZ/V2H documentation treats the ISP and IVC as one block
-> > > > that shares 4 clocks and resets, but when we originally developed the ISP driver the platform we
-> > > > used had the ISP implemented as an inline configuration (taking data directly from a csi-2 receiver
-> > > > without an IVC equivalent), and the documentation detailed just the three clocks and resets. The
-> > > > dtsi changes for the RZ/V2H(P) [1] assign clocks 226, 228 and 229 to the ISP which are named
-> > > > reg_aclk, vin_aclk and isp_sclk in the renesas documentation.
-> > > >
-> > > > The IVC gets pclk, vin_aclk and isp_sclk.
-> > > >
-> > > > [1] https://lore.kernel.org/linux-renesas-soc/20251010-kakip_dts-v1-1-64f798ad43c9@ideasonboard.com/
-> > > >
-> > > Thanks for the info.
-> >
-> > I won't question the Mali clock assignment as I don't have the
-> > documentation you mentioned.
-> >
-> > But looking at the patch you shared
-> >
-> > IVC:
-> > +			clocks = <&cpg CPG_MOD 0xe3>,
-> > +				 <&cpg CPG_MOD 0xe4>,
-> > +				 <&cpg CPG_MOD 0xe5>;
-> > +			clock-names = "reg", "axi", "isp";
-> >
-> > Mali:
-> > +			clocks = <&cpg CPG_MOD 0xe2>,
-> > +				 <&cpg CPG_MOD 0xe4>,
-> > +				 <&cpg CPG_MOD 0xe5>;
-> > +			clock-names = "vclk", "aclk", "hclk";
-> >
-> > It seems the IVC-only clock is
-> >
-> >          <cpg CPG_MOD 0xe3> "reg"
-> >
-> > trying to match the clocks here with the V2H documentation and the
-> > above names
-> >
-> >          clk     IVC             Mali    RZ V2H Doc
-> >          0xe2                    vclk    vin_aclk   Video input data AXI bus clock
-> >          0xe3    reg                     pclk       Input Video Control block register access APB clock
-> >          0xe4    axi             aclk    reg_aclk   AXI to AHB bus bridge AXI slave cloc
-> >          0xe5    isp             hclk    isp_sclk   ISP system clock (pixel clock)
->
-> No I think it's:
->
-> clk	IVC	ISP	V2H doc		Desc
-> 0xe2		vclk	reg_aclk	AXI to AHB bus bridge AXI slave clock
-> 0xe3	reg		pclk		Input Video Control Block register access APB clock
-> 0xe4	axi	aclk	vin_aclk	Video input data AXI bus clock
-> 0xe5	isp	hclk	isp_sclk	ISP system clock (pixel clock)
+Same problem as before:
+[    1.732538] pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.732645] pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+[    1.732651] pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.732661] pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+[    1.732840] pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.732947] pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+[    1.732952] pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.732962] pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+[    1.733134] pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.733246] pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+[    1.733255] pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.733266] pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+[    1.733438] pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.733544] pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+[    1.733550] pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+[    1.733560] pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+[    1.733571] pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+[    1.733575] pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+[    1.733585] pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+[    1.733596] pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
 
-I failed to find a proper clock description in the RZ V2H doc (the ISP
-clocks are blank in table 4.4-2 List of Clock Signals (11/16))
 
-Is there another version ? Not that I doubt your version here, just
-for my education..
+Seems like the ASM2806 switch, for some reason, is not ready.
 
->
-> So the IVC needs 227, 228, 229 and the bindings name them reg, axi and isp.
+One change that Diederik pointed out is that in the "good" case,
+the link is always in Gen1 speed.
 
-Makes sense according to the table above
+Perhaps you could build with CONFIG_PCI_QUIRKS=y and try this patch:
 
-> The ISP needs 226, 228 and 229 and the bindings name them vclk, aclk, hclk.
-> If we want to rename the ISP's binding names then 228 and 229 become "axi"
-> and "isp", and we need a sensible name for the "reg_aclk" from the Renesas
-> documentation..."ahb"? or "reg"?
->
->
-> >
-> > I would only question if the IVC shouldn't actually only get its reg
-> > clock as the other 2 are mandatory for the ISP even when integrated
-> > inline without an IVC.
->
-> In my mind, given that we're treating them as separate devices, they ought
-> to be fully (if worthlessly) functional independently. If the IVC gets only
-> its reg clock then it will not stream until you power on the ISP separately,
-> which does not seem right to me.>
-> > I guess the question is if there are other IVC instances not paired
-> > with a Mali ISP in other SoCs ?
->
-> Good question, I too would be interested to know.
->
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index 214ed060ca1b..ac134d95a97f 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -96,6 +96,7 @@ int pcie_failed_link_retrain(struct pci_dev *dev)
+ {
+ 	static const struct pci_device_id ids[] = {
+ 		{ PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
++		{ PCI_VDEVICE(ASMEDIA, 0x2806) }, /* ASMedia ASM2806 */
+ 		{}
+ 	};
+ 	u16 lnksta, lnkctl2;
 
-As we don't know, one more reason to describe the IVC as a stand-alone
-fully-functional device ?
 
->
-> > >
-> > > > > Also for IVC we do have a main clock (which is a system clock).  Can
-> > > > > you please educate me on what is the purpose of it. Just curious as we
-> > > > > pass to IVC and not ISP.
-> > > >
-> > > > The IVC uniquely gets the one called "pclk" in renesas documentation, with the description "Input
-> > > > Video Control block register access APB clock".
-> >
-> > Let alone I find 'reg' better, but if the documentation uses 'pclk'
-> > why has 'reg' been used ?
->
-> I used the documentation names for the ISP, but Krzysztof later convinced me
-> that following the documentation names isn't the best approach given it
-> doesn't really tell us anything. The "reg" was because the docs describe
-> that one as the register access clock.
 
-Ok, I guessed it was about using generic names. Makes sense..
 
-With the last issues from Prabhakar addressed
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
-Thanks
-  j
->
-> Thanks
-> Dan
->
-> >
-> > Thanks
-> >     j
-> >
-> > > >
-> > > Got you.
-> > >
-> > > Cheers,
-> > > Prabhakar
-> > >
->
+If that does not work, perhaps you could try this patch
+(assuming that all Rock 5C:s have a ASM2806 on pcie2x1l2):
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+index dd7317bab613..26f8539d934a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+@@ -452,6 +452,7 @@ &pcie2x1l2 {
+ 	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
+ 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&pcie2x1l2_3v3>;
++	max-link-speed = <1>;
+ 	status = "okay";
+ };
+
+
+
+Kind regards,
+Niklas
 
