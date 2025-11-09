@@ -4,152 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D856DCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 06:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AFCCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 07:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKta1opoLlM6FdH5aApiGo9C5SZlRuIfO4eVSAq01EY=; b=ZmJsTUFqXbdGq1465uI84VPwNI
-	aIjYZqmEBGdUXU6yRsGy+ICuqaYoMOvS8s7z+OuG7imLAwxcpy/tVdr7GBno3grBZR6aWYpmR0h4N
-	iwhu5b5/+/Er6bgyF3d0l18wDFMeJ+/zIeBffeXnGeiWH/eEDhmaQvfcumSOPq6/FmNniEAZa+XQh
-	mzWbVCPV8MFZ7iTw+6SxBJzbXwuVvG3PK3/54qAco9aJZkmuOEhHKIn2Mk75ToiOKnk+8ouXoccFn
-	MtVyvy9qCsyy0IsmEJycr3rDY4Wc9Kf7LzmabGkqlJtPBwwKQykltZb2RUiucTM8T+KaU7y4n4ojl
-	VAFkl8bg==;
+	bh=m82cK3xRCUvbcWhZbxs+7WqSqZtr7xd6qiGXFqz/RDg=; b=FlmWRzWKUKEunAVeEjDTcR8F9P
+	piQElyAFxk9vmkZvonxkhG5mwx87BgxtBuXagD6anpKCO3ZwXkTZjSHrQTeUyqJORfVF8hYJguQHa
+	ajRwofgzo6ThKzjLo8KY65RNS3u3nlkGX6U8JjHDlWSe9a3Mad04xLTFlv3YQa+aDH5Z/fCXqccLw
+	b/wI5AOOsJDhKmPXEPOBBm3y+IHgVdeJLSLJ3bm/tXA9sI1lCN1memHooHt0RuS2VLa495Vwx/cMI
+	vIbwcld7pkKfv4T1RIxhuQc6xwTlYDr+GPkravIhj1to71ToqQrh16pqVtDvPWuNqG3I8oouv8qEf
+	StK6SPvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHyqe-00000003nb2-30pX;
-	Sun, 09 Nov 2025 06:24:24 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1vHzbL-00000003pqu-07Zy;
+	Sun, 09 Nov 2025 07:12:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vHyqb-00000003nZo-1QMI
+	id 1vHzbI-00000003pqW-0XFo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 06:24:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BusOYSWhMuKj1avS3clsEGXl3Dw8F7noSaGrf/vx2qnb7PFuvvQ4WF2sQNMKe0U1UOiLXV82XjnZjTZLUIbQ5YhELGSRUDx2fZlm8tbkdrT7oCDF80AC9kjRURBIl7PNOXSiOtYd8BDNoWmeQPbv0p8nErKWNh3VwL7W5QmBmeH6vT9S464LaHEBKOaveub9u3w7FKFL3sXlyQuv1RFWNv3Hq3f73dlzcza9Hxv+nKiClFWHrmyyimjaKMb5YB396e5c0oSF0q5dNmld3LxFWuSm9K3B5BN/8gq1cD8/QZsZGijebkZF32bRIgQNn3YqsrOdU0rl2HvP8bB/yrfvGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eKta1opoLlM6FdH5aApiGo9C5SZlRuIfO4eVSAq01EY=;
- b=d4sjIP9yxyCLrRwok1R6SKq2MUeAxCoG9SOS1qvIizUGtoVuWskkZCrKY5WQltSAA4VxZebRDTEA5Do4N7NYM77g2zpvniqFuBQ45BaUeqRkl9I89eWzq1/U+Cj057gim9bsV2CKKOI11hh50qPDWaKNZcC2DdaWwpk8WSnHizGWooR4k4vOyzQe+YRC2tLGCS9v++Z4wtG3NG9kM6Z2qruLeJiMlrVLhhWikVS8Q1lA7pNUPaMzYOdjTgDeK3PwdXfUDxolQnsQ9l94cH5R/6Ln8KgsBVtWRx0A+iv8TqTf40DSu4ZwqctNXqTHFgAXoQJnZYKhWeIqKRBtPKqoFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eKta1opoLlM6FdH5aApiGo9C5SZlRuIfO4eVSAq01EY=;
- b=I2j/bw740Bzf2slbvCYSrsD8ApVzvCbevpa2yyro7dLv2J0eRZhZhfot4+fhn2iwD5l4GwPy6v+Avq+mSq0Dg6s766AXKot2tMvTbh7gfPl2vqhziNdlXhIhVePM1i54Sx54hUvXrZyfqX0iWnauu8mYDeJvPAHdaG/fwPBooD8=
-Received: from SJ0PR03CA0210.namprd03.prod.outlook.com (2603:10b6:a03:2ef::35)
- by IA3PR10MB8466.namprd10.prod.outlook.com (2603:10b6:208:57f::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Sun, 9 Nov
- 2025 06:24:15 +0000
-Received: from SJ5PEPF000001CC.namprd05.prod.outlook.com
- (2603:10b6:a03:2ef:cafe::b2) by SJ0PR03CA0210.outlook.office365.com
- (2603:10b6:a03:2ef::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.13 via Frontend Transport; Sun,
- 9 Nov 2025 06:24:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF000001CC.mail.protection.outlook.com (10.167.242.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Sun, 9 Nov 2025 06:24:13 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 9 Nov
- 2025 00:24:10 -0600
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 9 Nov
- 2025 00:24:10 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 9 Nov 2025 00:24:10 -0600
-Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5A96O6Wg1486110;
-	Sun, 9 Nov 2025 00:24:07 -0600
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, Hrushikesh Salunke <h-salunke@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, <s-vadapalli@ti.com>,
-	<danishanwar@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] arm64: dts: ti: Add bootph-all tags for PCIe boot support on J784S4 SoC
-Date: Sun, 9 Nov 2025 11:52:28 +0530
-Message-ID: <176266923841.19596.4147637793586614093.b4-ty@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251017084654.2929945-1-h-salunke@ti.com>
-References: <20251017084654.2929945-1-h-salunke@ti.com>
+	Sun, 09 Nov 2025 07:12:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762672354;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m82cK3xRCUvbcWhZbxs+7WqSqZtr7xd6qiGXFqz/RDg=;
+	b=dQQWJMin8BoFu9Iz8/O4zl1ZszWz+I8apNdzENFNDj7qX5t0VHWqOPQ8pP0HxUa+joPUug
+	vx0Lg8RDN77MNIGfeJZY+iL1duaYfkXlLrJWNftgEOs7Iu4jT1P79gWspBRDMNuLWqulsW
+	4dTC9pSVlen1tERg2zYRJt2907IPrZc=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-382-lBtMYWOgPEG7-iVnOl7pXg-1; Sun, 09 Nov 2025 02:12:32 -0500
+X-MC-Unique: lBtMYWOgPEG7-iVnOl7pXg-1
+X-Mimecast-MFC-AGG-ID: lBtMYWOgPEG7-iVnOl7pXg_1762672352
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-297e66542afso25185935ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Nov 2025 23:12:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762672351; x=1763277151;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=m82cK3xRCUvbcWhZbxs+7WqSqZtr7xd6qiGXFqz/RDg=;
+        b=u3Hv/n9qDeeDrC5cozs+vc8OqoeTwl5hVAfbKGE+cqQ6w2AYlcWDIat+GwRim6IIgg
+         J8IhgyAslGxTJ6qn+0PUTjIUOQF3evVj3mygaB4z+AlVffNUokbZTrtk6b5Un6d5zP6h
+         yYH3QGTInGynUXp+8QCjn3X9dhG7/9cAPDAAZIIZtQzfKtXy2q2QjkGsEA4FWP82cf7H
+         e3mluzQBhaM2UG7zAKn20vahL+awMvdjzcToSHior77cj4oxRn9E518A566bX83+N55s
+         DUk5GzfaXNcMCnkbHtrUyIZtYP/wX2f+b58ntZsSnPxzo71TGcIhwpAGcpnrU2kVpVFV
+         50kw==
+X-Forwarded-Encrypted: i=1; AJvYcCXcXSHIUjCFGXU34XR8yjfv1HoVG3VHMTde9KTYFJO1ZHffQDpIMylFYLB8zVXhiiydzH+ENwWpTN6z5QkpeBtP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj9f3/JqjZJExycpA6iBaeoWF47+iSQ8l7JbtC5IWS99AZqb7P
+	N8kjehwCqdRwtNLrxMzfRsdCC/G4G0UvSerfZj77fGZdyFmSwXCeIknuoweM562EwXKfh6pMAUH
+	qF7YzovlapaUx8z3jY5k0zxMzNwUvwn56T+l8/tl3x7iPAnjxvOAfYA9Uz9/zUPLokM9/RbX78o
+	1vyxeo4lvIcTENYIzvVsGEuK46VV+c9G397g8NvnoT3WUdHLWofNc=
+X-Gm-Gg: ASbGncvWpeqVP1LNWq1iFiQ6+vkabJxCtIT69OnKI+btRK20N8JCRy9jagcPHtSZ3gv
+	ZyclrWffh7CWjWiEEtxJKqQwOUMFS0KC0vVDGuBufKXDQlu3dou3sai3rHfBhnxrTut5RvtCmS6
+	Kd4DwrSxo2oIGq1g8hjpyo+GISORhQniz1bFH7TOseEI3W2V9BC85MH5i5kEYctcSM9tiHoRV51
+	PiSm9Kfno8fMEPmLFtKZTx7EZRCDZNzW3UwkptzXZ/dwMnX5Nl4pDArMBCk
+X-Received: by 2002:a17:902:e78f:b0:295:68df:da34 with SMTP id d9443c01a7336-297e5718086mr51623645ad.53.1762672351606;
+        Sat, 08 Nov 2025 23:12:31 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGmxSGLvw4pgRZ8aTw3qCykYC8xSzISK8rwIn1R2Gkp0ELn8flQDD1U9o+r1UzqIM5FPkf2ioy3/4F0I7hTmD4=
+X-Received: by 2002:a17:902:e78f:b0:295:68df:da34 with SMTP id
+ d9443c01a7336-297e5718086mr51623375ad.53.1762672351274; Sat, 08 Nov 2025
+ 23:12:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CC:EE_|IA3PR10MB8466:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09e8ce6d-a709-4b1f-3b1e-08de1f5899f1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Qy8wNGU0Yjd5TCt3amJHMG9XTzlzT003YktIcVFsUHlrdzJ6WEE5T3FaUmVD?=
- =?utf-8?B?Z2huUHJOK0s3NGRVYTZHRU4yTVBYS1NDeWNFVll6N2NmYlpYR0Rab2xIM1lt?=
- =?utf-8?B?bUFQdFp2eDFzMEhWRFFJM3J5STBJY1ZqM0FxODFKTjZNRE1SMGJPYmJtSzFx?=
- =?utf-8?B?ZjJocS9JMm42UzNYR0lBMDI2cWxaODRYdG5ocDErZHlZdC9ka0J6M0VHSm93?=
- =?utf-8?B?MS9IT3NjSzZROW9hTDB2L3NnNDRMUEFqdUVSY3hEWVZZUEtlTXlPWVlybjZM?=
- =?utf-8?B?bDd2RktFWWRmRUhsUkZDaXAvODJTZEhaWmhHZG1OV010L3VMSjJiNFJwQ1U5?=
- =?utf-8?B?Nkd6dXc1VWV4NnRJeDVuRlpRdVNiMS9FVVdIOU9MUWlRZnlmVXgvUEswVnRS?=
- =?utf-8?B?RG44MzgycUM2Tzl5NjVOQXNwQkkveGt2UFhsK3h2T1ZLdFVZK3RSaWNIR2xO?=
- =?utf-8?B?MHlvWXczTzhKcHZVWEFQVlZwdjYzQURWalRHUnlIL3BDQVAxSyt4QUswRXdE?=
- =?utf-8?B?R2czYXhLT2hzYW1mZGVUNVk1SEVibm9xMUEyaitMK3hlbEFBMkRXMituQ1Jw?=
- =?utf-8?B?NmI3dGlLREZIdklRZ1dpeVZhdXZ3V2pxbUtrZzhsSlhESGJnR2owM2owVWdU?=
- =?utf-8?B?YzFuWWhiU1dSSFlnOHRpR1FFdVZ2b0dOWEkrMVRja3BUZGdsdTR0UDhIL1Az?=
- =?utf-8?B?clJIMjZMdnk1V0hVZHhiSTJuWm9LaDBkaU5TcGhaS1pQOVVVRDc0VlZvMit2?=
- =?utf-8?B?N0NzdGlmQTRiSU51MURjbFBpdEh6aGQwMmlKSjVsT0x0TWJmOHE4Q0NyaUd4?=
- =?utf-8?B?ZU4zUXl0MEplalpxM0NkTVlVRk90SnRteUFFSGVHTU56UWRXdFhTMHM4UENO?=
- =?utf-8?B?dnd4R1VsOS91QmgyQ3lIVGNsL1R5RG5tMlZUT1R0ZmdibGx3SEx2cXAyWGgx?=
- =?utf-8?B?c1J3QUxFOU0rVmxJZWhrNzBKY05IVnpPM0xmbHhDMURZUlBWa0hNVEt2dTRP?=
- =?utf-8?B?RWg4NnhxUzFYSSsyTjc4OXFTTlFRb1NFcyt2S2JnQnhVczVYTGpCTmZGOUY2?=
- =?utf-8?B?elhjZE1ac3JvaUljNnJ4dXcxb1RGcHhJMkttUGZJazZWa1d6MnpnMnA0M0NP?=
- =?utf-8?B?S0NaVStsRjhsemlIRkxXblAzWUFaUDNBYVBXdDVnVHZ3K2d1cy9VWEhvR0Qr?=
- =?utf-8?B?cFFBUEMyN0I3S1N6OXp4ZkdvVXkwMzJFVmV3Q0RxVEtmYVZXc0QvM1Q1QXNn?=
- =?utf-8?B?MTQ3MTB1cXY1U29KSjFIQkxucVd5QzRWRmpXb2M5dHBIcTN5Q3l0aVdQYXpL?=
- =?utf-8?B?bW94YmNVNE5FcnVvMmU0dUZKSk5IbGo1V0JXc2k1ckFrVjZNcy8rUmxybC9C?=
- =?utf-8?B?RWUxaXM0b1h0aWpQdzFPd0ZXKzZhN1lUSEVPSkFRVWZETlVnN1N3bHI5d1Rn?=
- =?utf-8?B?S2czV0xZTlpOdlI0QitRcjVjQy9PbGVNZkNxOXZWb1M3NnNRTk5BTXVRcVUy?=
- =?utf-8?B?eWVOU2dkRGYxL3FQTWtDMXhIekMyQldrRnIwU0hPVHdSVi9iRC94Y3IwQW43?=
- =?utf-8?B?ck9YYU9haWMzSmNnYllpSVpwUzlKQ3pQRHgyaWxpdE0zYUYzQnBCRk8yek9a?=
- =?utf-8?B?SGVEbGVUckRsNENLcVJNWWQ5WE9OcDVoeG5JQ0dLdTErdnd1UUY3Qkl1ZHg2?=
- =?utf-8?B?Qmtyekp3NE1XT2hBQ05SQ1VXZXhGbHpSdGZqektoaFh0RHFjKzZRR0w0VWRu?=
- =?utf-8?B?RmNjY2hONjJOOStlNk9BNW56aEdoR1NuYWxaY3pTMXQxZFBkbmVvaC9GTFQz?=
- =?utf-8?B?THVIazhKRUczOVNnZmNURDlycU9DMGsyT04rSEFQUFo1b2JNZ0ZsOHZiVlFx?=
- =?utf-8?B?dEh5by9MU1I5SVlYMHFzUFlGZjl4dHJaSG9NK3cwV1lyS2FSZkQxK241dWJi?=
- =?utf-8?B?TVpLOURoc0dmUloyYUVvQ2JWZFdLaE1jUTgyWEtOSFZMNmpmcXY2WU9hVlJl?=
- =?utf-8?B?TXc1bzUzWEIrQ3RXU0Rwci9DSzFycHkzQlpSZ3A2Sjc5a204anhzOWdZcC9R?=
- =?utf-8?B?eDVRMWxKaWlScUNtOXFubXgvTTNqOXNvS2ROZEJ4VXIzUjA2V0s0U01Wbjh6?=
- =?utf-8?Q?dbz4=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2025 06:24:13.2691
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09e8ce6d-a709-4b1f-3b1e-08de1f5899f1
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CC.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8466
+References: <20251108120559.1201561-1-maz@kernel.org>
+In-Reply-To: <20251108120559.1201561-1-maz@kernel.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Sun, 9 Nov 2025 08:12:17 +0100
+X-Gm-Features: AWmQ_bkaJ1JaU0aGn42MK0o7nRRGD7HuTETuGXjvrbkmq0cZ5a-Jnj8bQX-Px3w
+Message-ID: <CABgObfa2ShbRn-MctT7-y4joG85AgtjgKXM=OJA9_2FbDZ6XPQ@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.18, take #2
+To: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Maximilian Dittgen <mdittgen@amazon.de>, 
+	Oliver Upton <oupton@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
+	Sascha Bischoff <sascha.bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
+	Sebastian Ott <sebott@redhat.com>, stable@vger.kernel.org, 
+	Vincent Donnefort <vdonnefort@google.com>, Will Deacon <will@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: WgXq3m9-i3oQAZsCBpAgfeSuYLzClnti5JZ-Wc3bYFc_1762672352
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251108_222421_427464_FBBEABA5 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20251108_231236_243528_03DFED31 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,46 +111,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hrushikesh Salunke,
+On Sat, Nov 8, 2025 at 1:06=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> Paolo,
+>
+> Much later than expected, but here's the second set of fixes KVM/arm64
+> for 6.18. The core changes are mostly fixes for a bunch of recent
+> regressions, plus a couple that address the way pKVM deals with
+> untrusted data. The rest address a couple of selftests, and Oliver's
+> new email address.
 
-On Fri, 17 Oct 2025 14:16:51 +0530, Hrushikesh Salunke wrote:
-> J784S4 SoC uses its PCIe1 instance as part of the PCIe boot process. This
-> series adds the necessary "bootph-all" boot phase tags to all the device tree
-> nodes that need to be functional at all stages of the PCIe boot process.
-> 
-> This series is based on commit
-> 13863a59e410 (tag: next-20251014) Add linux-next specific files for 20251014
-> 
-> [...]
+Pulled, thanks.
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+Paolo
 
-[1/3] arm64: dts: ti: k3-j784s4-evm-pcie0-pcie1-ep: Add boot phase tag to "pcie1_ep"
-      commit: 1f03b9e71e49a2f903c914f12ca5068995d916d7
-[2/3] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Add bootph-all tag to SERDES0
-      commit: cadd9234aedc9d4c5b4342f96a1ebe02314adeb2
-[3/3] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Add bootph-all tag to "pcie1_ctrl"
-      commit: 56bf2702cab02d6781c6201fc407be356bb256fd
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
+>
+> Please pull,
+>
+>         M.
+>
+> The following changes since commit ca88ecdce5f51874a7c151809bd2c936ee0d38=
+05:
+>
+>   arm64: Revamp HCR_EL2.E2H RES1 detection (2025-10-14 08:18:40 +0100)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
+marm-fixes-6.18-2
+>
+> for you to fetch changes up to 4af235bf645516481a82227d82d1352b9788903a:
+>
+>   MAINTAINERS: Switch myself to using kernel.org address (2025-11-08 11:2=
+1:20 +0000)
+>
+> ----------------------------------------------------------------
+> KVM/arm654 fixes for 6.18, take #2
+>
+> * Core fixes
+>
+>   - Fix trapping regression when no in-kernel irqchip is present
+>     (20251021094358.1963807-1-sascha.bischoff@arm.com)
+>
+>   - Check host-provided, untrusted ranges and offsets in pKVM
+>     (20251016164541.3771235-1-vdonnefort@google.com)
+>     (20251017075710.2605118-1-sebastianene@google.com)
+>
+>   - Fix regression restoring the ID_PFR1_EL1 register
+>     (20251030122707.2033690-1-maz@kernel.org
+>
+>   - Fix vgic ITS locking issues when LPIs are not directly injected
+>     (20251107184847.1784820-1-oupton@kernel.org)
+>
+> * Test fixes
+>
+>   - Correct target CPU programming in vgic_lpi_stress selftest
+>     (20251020145946.48288-1-mdittgen@amazon.de)
+>
+>   - Fix exposure of SCTLR2_EL2 and ZCR_EL2 in get-reg-list selftest
+>     (20251023-b4-kvm-arm64-get-reg-list-sctlr-el2-v1-1-088f88ff992a@kerne=
+l.org)
+>     (20251024-kvm-arm64-get-reg-list-zcr-el2-v1-1-0cd0ff75e22f@kernel.org=
+)
+>
+> * Misc
+>
+>   - Update Oliver's email address
+>     (20251107012830.1708225-1-oupton@kernel.org)
+>
+> ----------------------------------------------------------------
+> Marc Zyngier (3):
+>       KVM: arm64: Make all 32bit ID registers fully writable
+>       KVM: arm64: Set ID_{AA64PFR0,PFR1}_EL1.GIC when GICv3 is configured
+>       KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspa=
+ce irqchip
+>
+> Mark Brown (2):
+>       KVM: arm64: selftests: Add SCTLR2_EL2 to get-reg-list
+>       KVM: arm64: selftests: Filter ZCR_EL2 in get-reg-list
+>
+> Maximilian Dittgen (1):
+>       KVM: selftests: fix MAPC RDbase target formatting in vgic_lpi_stres=
+s
+>
+> Oliver Upton (3):
+>       KVM: arm64: vgic-v3: Reinstate IRQ lock ordering for LPI xarray
+>       KVM: arm64: vgic-v3: Release reserved slot outside of lpi_xa's lock
+>       MAINTAINERS: Switch myself to using kernel.org address
+>
+> Sascha Bischoff (1):
+>       KVM: arm64: vgic-v3: Trap all if no in-kernel irqchip
+>
+> Sebastian Ene (1):
+>       KVM: arm64: Check the untrusted offset in FF-A memory share
+>
+> Vincent Donnefort (1):
+>       KVM: arm64: Check range args for pKVM mem transitions
+>
+>  .mailmap                                           |  3 +-
+>  MAINTAINERS                                        |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/ffa.c                      |  9 ++-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c              | 28 +++++++++
+>  arch/arm64/kvm/sys_regs.c                          | 71 ++++++++++++----=
+------
+>  arch/arm64/kvm/vgic/vgic-debug.c                   | 16 +++--
+>  arch/arm64/kvm/vgic/vgic-init.c                    | 16 ++++-
+>  arch/arm64/kvm/vgic/vgic-its.c                     | 18 +++---
+>  arch/arm64/kvm/vgic/vgic-v3.c                      |  3 +-
+>  arch/arm64/kvm/vgic/vgic.c                         | 23 ++++---
+>  tools/testing/selftests/kvm/arm64/get-reg-list.c   |  3 +
+>  tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c |  9 ++-
+>  12 files changed, 137 insertions(+), 64 deletions(-)
+>
 
 
