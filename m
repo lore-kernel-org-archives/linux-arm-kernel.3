@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FAACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC6BCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=; b=hCG0+eod6+ekAOkgDR/4mMRfhN
-	msIndq/7eLolA1d/MMo25kDrVFkCTPA4/s4dLm9kg8ACcNSG/hU985vq95XjPiYdGr5Z2pQX5+ScM
-	89hD9J+6YYz1fgLynd1Mx+GE2WjGz8xBYncOYt/v68LM0eDCA/UjDPAnBp3dM15TWNIt/HBYKHK4Y
-	jalf4OUP6AkBsb7scx+xREgjeeuxVG+pEUq4v1i/XjsnR7XH27jySEtBeRNl4sLz+rPbSDIs1mSeQ
-	RkOHkKzmJspnWWzapM6KuF3bfwkL6Y08RsZzan+BM3+FdGMieijKxsLN7l0vySPGMMfoO/K/p6T1v
-	Ld9p7j9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=; b=TQlZSz47f4wolwQP0BhTNuxXJr
+	qoR7U5ND5CUuz5m9Jz7z77Ph252fKGQlRG+uQSBr02ZaIEHcQJJIxRaw8h3SiI7rARNbJx/1ZVFFS
+	2JXgYgp+m9Y/gizhHmpUkHOvw2nrxICBb/+KX1ivva/2w/IsMlZlu8x7O3XVWPbMWJVLMG4ed0k4k
+	nU5CQ3DZ9wNj5auuKIpWo00jvYdq+ldtJHui4QmnhHSk/LjOig5srxMubDwARYoN+jnrLNFlbiiLK
+	RX8zFlm9wu/Fu5NgCqafsMmZ26oIr8B2N4QvzLPJTyrfRzJXOJHwxgRj3NX8Xo2PF0PI52ZK9Amir
+	3IIu+ZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQsW-00000005OiA-423X;
-	Mon, 10 Nov 2025 12:20:12 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vIQvy-00000005Ovk-3o9p;
+	Mon, 10 Nov 2025 12:23:46 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQsU-00000005Ohe-0H4w
+	id 1vIQvw-00000005Ouc-18Y9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:20:11 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso10854165e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:20:09 -0800 (PST)
+	Mon, 10 Nov 2025 12:23:46 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-63b9da57cecso4626476a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:23:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762777208; x=1763382008; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=;
-        b=WEExNMnjjYK8iZ7DajTdpESvSRf8UKLPUYIUckMDI9NlZi7OBo8jccShOgBPQAZS7R
-         PeNHAm2zMWZtLcrHwweYHP+CScOVR1DCKpW15z5fkd0j9axM+jF2zdN1IKBAJuZddhOl
-         /hUQeaossoJZu8mSzm28Ow9Fo5H6KjyNxR0wUkU0YRcrXMHNxV3zVncoWzlZPWhr62lU
-         QIxyagl12pIEHbBclwVsiL2wwK4BTEbjf7kA+nxCGS7s4O7DENAjOM384ALSHLQGJBhZ
-         ZxfUQwZ57VenP8oMtWslNRE3mxDGToL0HdtjhVrRQ9y1BqrfYZg2pyfcRJuq3xym3EWn
-         tQXA==
+        d=linaro.org; s=google; t=1762777422; x=1763382222; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=;
+        b=NHCCTgLdfUEQtPcSu0r6QMmiabBaBPaYEJE+2tYVbf8FQQSHw7iKzfdgnoS/uADUJz
+         hdSPv690Foq4L1AXYAbS8lKDum5uDaWy0RtZ5WA0jerjF7HYjKWR27fq8G+T0tPM3Oue
+         5CMQ1HXZhR1hTj08U+btVZ3vAInJ40MWI3fiW8TXzT8YCYOW1DGZLxyuT2yLnyBthY+0
+         ztF5fJVBF3DqWF4tt5HVPPrReL7XVmnJxqh/xsTk1v7drqY0g8CT9vA5md5VWZulrKo8
+         HZIpCpTUZABZR9KItlifymd9k3tBCoH6b/ni+tWKOX+W3LR4mztR0wZdDOiFplTJC6A5
+         poFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762777208; x=1763382008;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=;
-        b=Fs+1NoyHsB3FOO2/bBS021Gga+jg95KBIQS0XThnVCVoW7WD8ElP+CoHQclwDX/Aw5
-         UrsRXRAahlQV2+/gwCRSs6Qq7Yxm1NQihOuNHtXPatb6dfUuFKUDgvHxl3RpNiRhAsZA
-         6FFRUGnxDsJBrfo3GvfTZefw9eIc8URbE3vNWTDJ5osFkpIxjrk4ms/i7INSksBIbOUS
-         Qxh+/AETM+0+DVVkhGQ42T2TdTosr/FHfV1nLfhsm9cEcJTRONdXZfsTPHcps1wJQBpJ
-         6kIOuQ6KIOlka/UjfzkqePvyaS8Hg1AN37USSo+LrfmINM70lwqmLJ7QXzFTYM0Q4EoY
-         /LxA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLxSOtYEkBpghKcshb4EgAN1ff/Sw1gxMWEQ164KNVjb8SPNPd8q60Zl/YINizZQ5D3HpVr2Hb3Bk4aoYsL1L+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrZP0Ldt6Myzy0il/56SCa0i6Xa+s5zLceqMebU0qXqiLpukpF
-	Jzhw4xPMpGhVHZF/K3NveFwFUJ8xtgEMWCf9W7UAhcLFdOutrvHVr3Qln5P4kj3jIIc=
-X-Gm-Gg: ASbGncvAXzOg2vZCX1Buoew7MjMHYRtxi0h+auR8sOO9A8ViMH73RiG6wUovDr9u5gC
-	eARKmOL6rxhAThrnmxy0wSblG36nqHOVvC5Wq3cQ5yTqdUBswPKQTUh+PqNa2UsXOkCcPpGTtLE
-	Cfm/f/nkd6pmPRKogNciw/BvwZ8WLXJ+/S/YAw5mwtDLr+E4ajJTy2KpBRqmhVeSEYFzvY1M1fU
-	FxVC50PjSLeRDXwbkX3C21j4SN2afJj/9DNvVT7BnWezjhm8uX0xDgCxkJmkXcbTsj3eK96Ok+T
-	0ebSvO11RcnKHPo+SW2msWAmVnAvWtPPdxRgMRSoeQ7tN9RZ2yeKUh2ngEmQW2T7bawVnFh8x9m
-	MKZV8urVm34u+gg3LhScJDy8YxaaIvNFditXqlhfjiSrGc5fxLmqJJMyl3MbB0scK04kHJhm+lV
-	8KBPEu13VyUSnns7mI
-X-Google-Smtp-Source: AGHT+IFJkC8c1JyMZC7WcWJffBv2BeNkOCuG1Cc+BMpDyOz3CdkGvPYLKBqfPtvdmIFnv7NLyQb8fg==
-X-Received: by 2002:a05:600c:5486:b0:477:be4:7a52 with SMTP id 5b1f17b1804b1-477732ab255mr53404455e9.39.1762777207920;
-        Mon, 10 Nov 2025 04:20:07 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b35ad7c16sm9114419f8f.15.2025.11.10.04.20.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 04:20:07 -0800 (PST)
-Message-ID: <f01585fc-919d-4059-81e2-7131dd54553a@linaro.org>
-Date: Mon, 10 Nov 2025 12:20:06 +0000
+        d=1e100.net; s=20230601; t=1762777422; x=1763382222;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=;
+        b=I1LO2gKTli92nQaMLezAJV/Ao5gVon9iEUCn+o8YlaW45x2Zog8bRaUMZsS4oCxOjG
+         H/QMMkaexhwrqyPXOu1DexyEwXhHS+ROJXCDaRccjhuCEQpKsgOHw0drVfmHhPUyOHmm
+         EiDgRArrS1oGbzXymhhiMpHk8fQkP/ioJB1Gr7R6HKMf3oVFr86/Ye+08yGKd6d2O00f
+         aDPJbIUCLaCqx6hC8PNvua7eqXjWDPPXCQ7RmC4rnSOyk5xAvjiZVV+5bz+f05LvA5dZ
+         N8boGGgCPdpLc9XVQq7u3yDHJZI5Z4sfQCvxOotTHcV654C27q1BL5h3jAk54Q/bFocT
+         xiXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzlTrzDGX7vUVpu4L+E/A6qQURW56UlQepTD0iJ2VbF8kxpOeHMiebEWbR6ez0yOTAQHA2XRftHJJRyCpSZUxv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6RRDI9nTpcMgZQljsL9vcDiBczKwB3niVbI3Mg47VjybuiP8d
+	smWDxVE77Kz2X0eLS+rnLiZWZ6ruFXlRp1lH6WaQqVpcm3yvcuvs0c/b5DLZfoiUQlQy6G85ryU
+	4p3gCqJC51JEVvfIchH9hgzki2Tx1iveszJNVzk0hxw==
+X-Gm-Gg: ASbGncs8Np7sKMQrVvEj6WSx3K0sbquHySqp6ZeNup1/3tuU3rtdfPYgVcjT7OykUNL
+	I4gtr7AOj7lX6qEOp55CyFtkdSZfyAxugS8jACgIHYAjS+yA5lM6mSewegt6Y6MBAXbFSrVd6y1
+	0Gg7RfBl2kq5dxSgFBN1oRNILa8y90xlWmpj92EFFIfecbqhhFRxffG4WHIRUCySBcXsiL0KNEL
+	T1HCE65TCGrStunXAgbWna7V6KzvAEGE1BkLdbliQU0tHuTeXwbqiKxKYTzSlfOLaipVE9Aplpg
+	G3xOTis=
+X-Google-Smtp-Source: AGHT+IGm5+Uu79ujlZItIA42GflK7UfV+AyBRUd53fOR/2PdZlplGxgc5r7/bRr9gNtqR7fwtBSp/+VdEs2VA7Pi6Oc=
+X-Received: by 2002:a05:6402:305c:10b0:640:c454:e8 with SMTP id
+ 4fb4d7f45d1cf-6415e7fd2c9mr4878827a12.30.1762777421528; Mon, 10 Nov 2025
+ 04:23:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/15] coresight: Move CPU hotplug callbacks to core
- layer
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
+In-Reply-To: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 10 Nov 2025 13:23:03 +0100
+X-Gm-Features: AWmQ_bnh8tp1oLAuPElgvSFmN8WE23c2ga9LAvFWkFMPaVp1NApY8JmtQI4OamU
+Message-ID: <CAPDyKFoq=dJW_FCVykBwH85+RbeZ-SR6=vF0vKw+237TsgOfDA@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: mediatek: convert from clk round_rate() to determine_rate()
+To: Brian Masney <bmasney@redhat.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Maxime Ripard <mripard@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_042010_176315_FA4D4307 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20251110_042344_329135_2EFDA748 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,169 +98,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 7 Nov 2025 at 00:40, Brian Masney <bmasney@redhat.com> wrote:
+>
+> The round_rate() clk ops is deprecated in the clk framework in favor
+> of the determine_rate() clk ops, so let's convert this driver so that
+> round_rate() can be removed from the clk core.
+>
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+
+Applied for next, thanks!
+
+Kind regards
+Uffe
 
 
-On 04/11/2025 3:21 pm, Leo Yan wrote:
-> This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
-> The motivation is the core layer can control all components on an
-> activated path rather but not only managing tracer in ETMv4 driver.
-> 
-> The perf event layer will disable CoreSight PMU event 'cs_etm' when
-> hotplug off a CPU.  That means a perf mode will be always converted to
-> disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
-> need to handle the Sysfs mode and ignore the perf mode.
-> 
-> The core layer disables a source and the path when hotplug-off a CPU.
-> 
-> When hotplug-in a CPU, it does not re-enable even the trace was enabled
-> before hotplug-off, in this case, users are asked to re-enable the trace
-> via Sysfs interface.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->   drivers/hwtracing/coresight/coresight-core.c       | 41 +++++++++++++++++++++-
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 -------------------
->   2 files changed, 40 insertions(+), 38 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 7095f9befa98c7d638f857466351ef7cd960fde7..9149f028031808dc2b7285f621b97f3631a02b01 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1726,6 +1726,32 @@ static void coresight_pm_restore(struct coresight_device *csdev)
->   	coresight_ops(csdev)->pm_restore_enable(csdev);
->   }
->   
-> +static int coresight_dying_cpu(unsigned int cpu)
-> +{
-> +	struct coresight_device *source = per_cpu(csdev_source, cpu);
-> +	struct coresight_path *path;
-> +
-> +	if (!source || !source->path)
-> +		return 0;
-> +
-> +	/*
-> +	 * The perf event layer will disable PMU events in the CPU hotplug.
-> +	 * CoreSight driver should never handle the CS_MODE_PERF case.
-> +	 */
-> +	if (coresight_get_mode(source) != CS_MODE_SYSFS)
-> +		return 0;
-> +
-> +	/*
-> +	 * Save 'source->path' here, as it will be cleared in
-> +	 * coresight_disable_source().
-> +	 */
-> +	path = source->path;
-> +
-> +	coresight_disable_source(source, NULL);
-> +	coresight_disable_path(path);
-> +	return 0;
-
-If the user is expected to re-enable and this new state is visible, 
-don't you need to use the regular coresight_disable_sysfs() function? It 
-calls coresight_disable_source_sysfs() which updates a refcount.
-
-Maybe you didn't do it because it has a mutex in it? It would be easier 
-to change that to a spinlock or take the mutex in a wrapper function and 
-share the core disabling code with the hotplug path.
-
-> +}
-> +
->   static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
->   				   void *v)
->   {
-> @@ -1757,11 +1783,24 @@ static struct notifier_block coresight_cpu_pm_nb = {
->   
->   static int __init coresight_pm_setup(void)
->   {
-> -	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-> +	int ret;
-> +
-> +	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
-> +					"arm/coresight-core:starting",
-> +					NULL, coresight_dying_cpu);
-> +	if (ret)
-> +		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
-> +
-> +	return ret;
->   }
->   
->   static void coresight_pm_cleanup(void)
->   {
-> +	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
->   	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
->   }
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 7bea3d2c6f49a2169b8e3de1cb07cc22147aae3a..1730cee3c3e1845efb2be815553085aba1246cca 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1802,33 +1802,6 @@ static int etm4_online_cpu(unsigned int cpu)
->   	return 0;
->   }
->   
-> -static int etm4_starting_cpu(unsigned int cpu)
-> -{
-> -	if (!etmdrvdata[cpu])
-> -		return 0;
-> -
-> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
-> -	if (!etmdrvdata[cpu]->os_unlock)
-> -		etm4_os_unlock(etmdrvdata[cpu]);
-> -
-> -	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
-> -		etm4_enable_hw(etmdrvdata[cpu], true);
-> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
-> -	return 0;
-> -}
-> -
-> -static int etm4_dying_cpu(unsigned int cpu)
-> -{
-> -	if (!etmdrvdata[cpu])
-> -		return 0;
-> -
-> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
-> -	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
-> -		etm4_disable_hw(etmdrvdata[cpu]);
-> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
-> -	return 0;
-> -}
-> -
->   static bool etm4_need_save_restore_context(struct coresight_device *csdev)
->   {
->   	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-> @@ -1915,13 +1888,6 @@ static int __init etm4_pm_setup(void)
->   {
->   	int ret;
->   
-> -	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
-> -					"arm/coresight4:starting",
-> -					etm4_starting_cpu, etm4_dying_cpu);
-> -
-> -	if (ret)
-> -		return ret;
-> -
->   	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
->   					"arm/coresight4:online",
->   					etm4_online_cpu, NULL);
-> @@ -1932,14 +1898,11 @@ static int __init etm4_pm_setup(void)
->   		return 0;
->   	}
->   
-> -	/* failed dyn state - remove others */
-> -	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
->   	return ret;
->   }
->   
->   static void etm4_pm_clear(void)
->   {
-> -	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
->   	if (hp_online) {
->   		cpuhp_remove_state_nocalls(hp_online);
->   		hp_online = 0;
-> 
-
+>  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> index af20111067c02a5f9a0d6d751e9e0dc32c1a4d90..9bad577b3ae4bf1b83d4f782bb52f56f779a8974 100644
+> --- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> +++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> @@ -309,11 +309,11 @@ static unsigned long mtk_mfg_recalc_rate_gpu(struct clk_hw *hw,
+>         return readl(mfg->shared_mem + GF_REG_FREQ_OUT_GPU) * HZ_PER_KHZ;
+>  }
+>
+> -static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
+> -                              unsigned long *parent_rate)
+> +static int mtk_mfg_determine_rate(struct clk_hw *hw,
+> +                                 struct clk_rate_request *req)
+>  {
+>         /*
+> -        * The round_rate callback needs to be implemented to avoid returning
+> +        * The determine_rate callback needs to be implemented to avoid returning
+>          * the current clock frequency, rather than something even remotely
+>          * close to the frequency that was asked for.
+>          *
+> @@ -325,7 +325,7 @@ static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
+>          * high current frequency, breaking the powersave governor in the process.
+>          */
+>
+> -       return rate;
+> +       return 0;
+>  }
+>
+>  static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
+> @@ -338,12 +338,12 @@ static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
+>
+>  static const struct clk_ops mtk_mfg_clk_gpu_ops = {
+>         .recalc_rate = mtk_mfg_recalc_rate_gpu,
+> -       .round_rate = mtk_mfg_round_rate,
+> +       .determine_rate = mtk_mfg_determine_rate,
+>  };
+>
+>  static const struct clk_ops mtk_mfg_clk_stack_ops = {
+>         .recalc_rate = mtk_mfg_recalc_rate_stack,
+> -       .round_rate = mtk_mfg_round_rate,
+> +       .determine_rate = mtk_mfg_determine_rate,
+>  };
+>
+>  static const struct clk_init_data mtk_mfg_clk_gpu_init = {
+>
+> ---
+> base-commit: df5d79720b152e7ff058f11ed7e88d5b5c8d2a0c
+> change-id: 20251106-clk-pmdomain-mediatek-round-rate-649a9bf7d30a
+>
+> Best regards,
+> --
+> Brian Masney <bmasney@redhat.com>
+>
 
