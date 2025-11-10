@@ -4,80 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649C8CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3518BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YVriz2KZ1EznNsOH+pegKT/7wMm4efl/7F6W+EQ5xc=; b=ReEE7SuJuhSiGtI24ncg9ckMzD
-	CBnVT3jGV2EvdRyiAkNoaJMW7B2ToZj4rvT+oV21fiffcA3RnCthwBoJMPH+jHOK73nRcXbktnFo/
-	GvzwDlTjITkuu9/JKndwbRT1DrSjhrhZQFcsO6bSukJ9zlGylboIcsQTk4uYVgweTN8nntq3aNKsq
-	SGPgMYKcRZYqXlI2hV/QMypzK/Wanq535pTHqTHFlNUqhZl7QP8Gy69wuzGGxOgXTJZGtBJDEryEq
-	d+8kev8MW1qf2msLJ62jMh3oSPxjj5qBNYp58JSbDFPqjtGsPYK3OxNg8gtRYAFaGH9B0mjifvixT
-	ygPYzMJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KcNVpM3A7bzp+CRjBcrBR89LqzMSVB8YRfjqJz4qBak=; b=lpWQOg7aPdonwRsgnwcLIeUAdX
+	9gjQQp1KKeHU/dBZvg3zJpbENrPeEeXdLgB6KT3avv9cBYUy/4QPDdMgrhZtcOtY8w+qaOlh+sww9
+	ClVVMzXdR6dsCVkJ7sJRmshlSLflgaUDrzrjMV4g7wuH7UAdLYhXaZLcgJEWK+ArkQs0+sJJlDSqi
+	kQElRw8BmthZA9Kcnhklb5oqJF1mXSWAd90cTGxTkgoBQBJSDd+p+QPJXiHrRiMh6BjS7pxxwc61/
+	z/hiUzEYE1ymmsm8URhE0rYU9eUAskAUJ1jujob4uiIVsXo4rRKvfsfsr0CoGATBUjrNP7jtxifKm
+	/4m6MrfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISNf-00000005XZR-0MGH;
-	Mon, 10 Nov 2025 13:56:27 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vISOo-00000005XfD-1pOE;
+	Mon, 10 Nov 2025 13:57:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISNc-00000005XZ2-3JVC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 13:56:26 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6YVriz2KZ1EznNsOH+pegKT/7wMm4efl/7F6W+EQ5xc=;
-	b=rSQSFlpiPkyKaWZyyZNNegmdI6KI6/RmH4/k/slb6qGzeijS5rs7+8oCVFcfSVswpf+2U/16J
-	8LFPr8NksbpswYoQJ//bSP2kqwBndUOFFqy3mmLBwQvvaCu6bM6mAV0T2nsWmVJpXKf0IYhmgxd
-	nY9I0SS+Sl8cQzIL/EXmZsA=
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4d4rkf6qhCzmV6v;
-	Mon, 10 Nov 2025 21:54:34 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 77FFD1402C1;
-	Mon, 10 Nov 2025 21:56:13 +0800 (CST)
-Received: from [10.174.178.24] (10.174.178.24) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 10 Nov 2025 21:56:11 +0800
-Message-ID: <d7b70950-f85c-e072-3a48-ee82eb1a2c43@huawei.com>
-Date: Mon, 10 Nov 2025 21:56:10 +0800
+	id 1vISOk-00000005Xec-2iYs;
+	Mon, 10 Nov 2025 13:57:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1762783051;
+	bh=KKRgKuFzrzMKfhZwoLlMMqh/HMidHruZpOkU87ZuQX8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=h6DFsJ4X6waWfhY3+YKw2XbcsEITbdvCaI7t6SQyO63CqQ2v7RT+/BgjWpLXVWbbJ
+	 jOMSwFyatiq0v5ccn8vslvqnFkhtRZMeGGyLVMyBX2WWLvOFokRpOL1U/wG/Dh+j9P
+	 AnLTP414aOhJLr5WUkC8YgOpP4az7amlae1b5g59Coun08z2ypdVpQXH8o9LooTpxO
+	 1hXBlflRgOWrpHpu+bxCmMTfHrvmBvR6KI+jkul9hmJTGyY06WdGcBvUmDSQktxeO9
+	 GUssCYfEMh4Pp9WeclYedwt0Z6fGNwiNeoYJyu6Lpvgjwu0Sh6AL6dZK+DpdLjt5Pm
+	 9+ooPKi8idFxg==
+Received: from [IPv6:2606:6d00:11:ef24::c41] (unknown [IPv6:2606:6d00:11:ef24::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C9FD17E110D;
+	Mon, 10 Nov 2025 14:57:29 +0100 (CET)
+Message-ID: <f4fee7587d8e3e58bab39f1b3202b67f0f5c3e04.camel@collabora.com>
+Subject: Re: [PATCH v5 0/8] Enable video decoder & encoder for MT8189
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu =?UTF-8?Q?=28=E5=90=B4=E6=99=97=29?= <Kyrie.Wu@mediatek.com>, 
+ "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org"	 <linux-mediatek@lists.infradead.org>,
+ George Sun =?UTF-8?Q?=28=E5=AD=99=E6=9E=97=29?=	 <George.Sun@mediatek.com>,
+ Tiffany Lin =?UTF-8?Q?=28=E6=9E=97=E6=85=A7=E7=8F=8A=29?=	
+ <tiffany.lin@mediatek.com>, "nhebert@chromium.org" <nhebert@chromium.org>, 
+ "linux-media@vger.kernel.org"	 <linux-media@vger.kernel.org>,
+ "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,  "hverkuil@xs4all.nl"	
+ <hverkuil@xs4all.nl>, Yunfei Dong
+ =?UTF-8?Q?=28=E8=91=A3=E4=BA=91=E9=A3=9E=29?=	 <Yunfei.Dong@mediatek.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,  Irui Wang
+ =?UTF-8?Q?=28=E7=8E=8B=E7=91=9E=29?=	 <Irui.Wang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, Yilong Zhou
+ =?UTF-8?Q?=28=E5=91=A8=E6=98=93=E9=BE=99=29?=	 <Yilong.Zhou@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,  "krzk+dt@kernel.org"	
+ <krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>, Andrew-CT Chen
+ =?UTF-8?Q?=28=E9=99=B3=E6=99=BA=E8=BF=AA=29?=	
+ <Andrew-CT.Chen@mediatek.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>
+Cc: "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>, 
+ "neil.armstrong@linaro.org"
+	 <neil.armstrong@linaro.org>
+Date: Mon, 10 Nov 2025 08:57:26 -0500
+In-Reply-To: <09eb315e50aeaf865b093880aaaa5f2c9c0feba9.camel@mediatek.com>
+References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
+		 <c49b979fd911f2587bbfed129b07065f1cd2a2db.camel@collabora.com>
+	 <09eb315e50aeaf865b093880aaaa5f2c9c0feba9.camel@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-QUHvuhjIUwreEvkskggy"
+User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
-Content-Language: en-US
-To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
-	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
-	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
-	<guohanjun@huawei.com>, <jeremy.linton@arm.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <20251107123450.664001-1-ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.24]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_055625_035024_F581EC79 
-X-CRM114-Status: UNSURE (   4.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251110_055734_837153_0544BD2C 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,20 +112,218 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 2025/11/7 20:34, Ben Horgan wrote:
+--=-QUHvuhjIUwreEvkskggy
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> The expectation is this will go via the arm64 tree.
-> 
-> This series is based on v6.18-rc4, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driver/v4
-> 
+Le lundi 10 novembre 2025 =C3=A0 02:32 +0000, Kyrie Wu (=E5=90=B4=E6=99=97)=
+ a =C3=A9crit=C2=A0:
+>=20
+> On Thu, 2025-11-06 at 09:18 -0500, Nicolas Dufresne wrote:
+> > Hi,
+> >=20
+> > Le jeudi 06 novembre 2025 =C3=A0 14:13 +0800, Kyrie Wu a =C3=A9crit :
+> > > This series have the follow changing:
+> > > Firstly add mt8189 video decoder compatible, profile and level to
+> > > support
+> > > MT8189 kernel driver.
+> > > Secondly fix some bugs, including vp 4K profile2 and media device
+> > > node
+> > > number bug.
+> > > Lastly, add mt8189 video encoder compatible.
+> > >=20
+> > > This series has been tested with MT8189 tast test.
+> > > Encoding and decoding worked for this chip.
+> > >=20
+> > > Patches 1-2 Add decoder compatible.
+> > > Patches 3 Add profile and level supporting.
+> > > Patches 4 Add core-only VP9 decoding supporting.
+> > > Patches 5-6 fix some bugs.
+> > > Patches 7-8 Adds encoder compatible.
+> > >=20
+> > > ---
+> > > H264 test results:
+> > > ./fluster.py run -d GStreamer-H.264-V4L2SL-Gst1.0 -j2 -t 90
+> > > =C2=A0=C2=A0=C2=A0=C2=A0JVT-AVC_V1Ran 96/135 tests successfully
+> > >=20
+> > > VP9 test results:
+> > > ./fluster.py run -d GStreamer-VP9-V4L2SL-Gst1.0 -j2 -t 90
+> > > VP9-TEST-VECTORSRan 276/305 tests successfully
+> > >=20
+> > > v4l2-compliance test results:
+> > > Compliance test for mtk-vcodec-enc device /dev/video2:
+> > > Total for mtk-vcodec-enc device /dev/video2: 47, Succeeded: 46,
+> > > Failed: 1, Warnings: 0
+> >=20
+> > There is one fail, can you explain it ?
+> >=20
+> > Nicolas
+>=20
+> Dear Nicolas,
+>=20
+> The failure is caused by subscribed event/dqevent. Our encoder driver
+> didn't register those apis, which caused this failure.
+> Here is the fail log, which is samed as MT8196:
+>=20
+> https://patchwork.linuxtv.org/project/linux-media/cover/20250528063633.14=
+054-1-irui.wang@mediatek.com/
+>=20
+> Control ioctls:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_QUERY_EXT_CTR=
+L/QUERYMENU: OK
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_QUERYCTRL: OK
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_G/S_CTRL: OK
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_G/S/TRY_EXT_C=
+TRLS: OK
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0fail: v4l2-test-controls.cpp(1171): node->codec_mas=
+k &
+> STATEFUL_ENCODER
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_(UN)SUBSCRIBE=
+_EVENT/DQEVENT: FAIL
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0test VIDIOC_G/S_JPEGCOMP:=
+ OK (Not Supported)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Standard Controls: 16 Pri=
+vate Controls: 0
 
-Run booting and kunit test on Huawei's Kunpeng machine. The result looks 
-fine.
 
-Tested-by: Zeng Heng <zengheng4@huawei.com>
+The spec says:
+  =20
+  =20
+   For backwards compatibility, the encoder will signal a V4L2_EVENT_EOS ev=
+ent when
+   the last frame has been encoded and all frames are ready to be dequeued.=
+=20
 
-Best Regards,
-Zeng Heng
+In practice, we test for that on every m2m, see the test code:
+
+
+	if (node->is_m2m) {
+		node_m2m_cap->g_fmt(fmt_q, m2m_q.g_type());
+		if (node_m2m_cap->buftype_pixfmts[m2m_q.g_type()][fmt_q.g_pixelformat()] =
+&
+			V4L2_FMT_FLAG_COMPRESSED)
+			valid_output_flags =3D V4L2_BUF_FLAG_TIMECODE | V4L2_BUF_FLAG_TSTAMP_SRC=
+_MASK;
+
+		struct v4l2_event_subscription sub =3D { 0 };
+
+		sub.type =3D V4L2_EVENT_EOS;
+		if (node->codec_mask & (STATEFUL_ENCODER | STATEFUL_DECODER))
+			doioctl(node, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	}
+
+please fix,
+Nicolas
+
+>=20
+> Thanks.
+>=20
+> Regards,
+> Kyrie.
+>=20
+> >=20
+> > > Compliance test for mtk-vcodec-dec device /dev/video3:
+> > > Total for mtk-vcodec-dec device /dev/video3: 48, Succeeded: 48,
+> > > Failed: 0, Warnings: 0
+> > >=20
+> > > scp upstream link:
+> > >=20
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20250811015922.=
+32680-1-huayu.zong@mediatek.com/
+> > > dtsi upstream link:
+> > >=20
+> https://lore.kernel.org/linux-mediatek/20251030134541.784011-12-jh.hsu@me=
+diatek.com/T/#m847e35de0a5b18fac0ca0624a8559d84964ad5c7
+> > >=20
+> > > Changes compared with v4:
+> > > --update H264 & vp9 fluster test results
+> > > --update vp9 single core decoder prob size setting and commit
+> > > messages
+> > >=20
+> > > Changes compared with v3:
+> > > --add reviewer to commit messages
+> > > --Rebased on top of the latest media tree
+> > >=20
+> > > Changes compared with v2:
+> > > --add H264 fluster test results
+> > > --reorder compatible string for dt-bindings
+> > >=20
+> > > Changes compared with v1:
+> > > --add v4l2-compliance test results
+> > > --add scp upstream link
+> > > --add HW difference discriptions for dt-bindings commit messages
+> > >=20
+> > > This series patches dependent on:
+> > > [1]
+> > >=20
+> https://patchwork.linuxtv.org/project/linux-media/cover/20250510075357.11=
+761-1-yunfei.dong@mediatek.com/
+> > > [2]
+> > >=20
+> https://patchwork.linuxtv.org/project/linux-media/cover/20250814085642.17=
+343-1-kyrie.wu@mediatek.com/
+> > >=20
+> > > Kyrie Wu (8):
+> > > =C2=A0=C2=A0dt-bindings: media: mediatek: decoder: Add MT8189
+> > > =C2=A0=C2=A0=C2=A0=C2=A0mediatek,vcodec-decoder
+> > > =C2=A0=C2=A0media: mediatek: vcodec: add decoder compatible to suppor=
+t MT8189
+> > > =C2=A0=C2=A0media: mediatek: vcodec: add profile and level supporting=
+ for
+> > > MT8189
+> > > =C2=A0=C2=A0media: mediatek: vcodec: Add single core VP9 decoding sup=
+port for
+> > > =C2=A0=C2=A0=C2=A0=C2=A0MT8189
+> > > =C2=A0=C2=A0media: mediatek: vcodec: fix vp9 4096x2176 fail for profi=
+le2
+> > > =C2=A0=C2=A0media: mediatek: vcodec: fix media device node number
+> > > =C2=A0=C2=A0dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
+> > > =C2=A0=C2=A0media: mediatek: encoder: Add MT8189 encoder compatible d=
+ata
+> > >=20
+> > > =C2=A0.../media/mediatek,vcodec-encoder.yaml        |  2 +
+> > > =C2=A0.../media/mediatek,vcodec-subdev-decoder.yaml |  5 +-
+> > > =C2=A0.../vcodec/decoder/mtk_vcodec_dec_drv.c       |  9 +++-
+> > > =C2=A0.../vcodec/decoder/mtk_vcodec_dec_drv.h       |  1 +
+> > > =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateless.c |  4 ++
+> > > =C2=A0.../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 48 ++++++++++++=
+++-
+> > > ----
+> > > =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c       | 14 ++++++
+> > > =C2=A07 files changed, 68 insertions(+), 15 deletions(-)
+>=20
+> ************* MEDIATEK Confidentiality Notice
+> =C2=A0********************
+> The information contained in this e-mail message (including any=20
+> attachments) may be confidential, proprietary, privileged, or otherwise
+> exempt from disclosure under applicable laws. It is intended to be=20
+> conveyed only to the designated recipient(s). Any use, dissemination,=20
+> distribution, printing, retaining or copying of this e-mail (including it=
+s=20
+> attachments) by unintended recipient(s) is strictly prohibited and may=
+=20
+> be unlawful. If you are not an intended recipient of this e-mail, or beli=
+eve
+> =C2=A0
+> that you have received this e-mail in error, please notify the sender=20
+> immediately (by replying to this e-mail), delete any and all copies of=
+=20
+> this e-mail (including any attachments) from your system, and do not
+> disclose the content of this e-mail to any other person. Thank you!
+
+--=-QUHvuhjIUwreEvkskggy
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaRHvRgAKCRDZQZRRKWBy
+9IodAP92sXKXxtzBgiSqcP5IWsLSfYE7FE4ekNtUGbBoWcArxAEAm5t9IiBp57Ej
+BAdduiviuXeRaE4BvqzLvLjiSOUUiAc=
+=JqZh
+-----END PGP SIGNATURE-----
+
+--=-QUHvuhjIUwreEvkskggy--
 
