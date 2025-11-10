@@ -4,86 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E13CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 22:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D170CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 22:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkykz3S1CyycQbNzf0lzIqKhpFUnZB571m9tUf64HTs=; b=iHL+13pdotmxELM5q5ap6iOjvq
-	lsE4NHrx3MNoA7fTgoKQN9IoNUOtEgHZXI46ixLYr85SdCPfNOK3r9R+I2/+me0Td7KO6cVpWnjyD
-	GuXYhFw8GhsdzBmDkonajfcj5akkkJDZRhjOELQjIXLvANLtyevK2EVUE0Pm5iqefxZ6Rl7pBaIX3
-	nAz6Wih9Sqqk3fJDDXzgiUfbhkaR3K21VsKwbkshIb1n/zQhzQ3FdALyYLx/Db5cVpQQTCzc9Tc6l
-	Ij+WvWLNaWRZ9S1yMTEhBjfswIE/Fcj26vkuTk1Ru6VNc0wfesuUEF+yYtJ0ydYzo72fabzx0TZFo
-	y5pyg3Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xLyXGRaLm6sEsE+EXjhF05M8r/IYZLjTnBThGk29/Q8=; b=iH7UWz4qsBLYiveHjobKiQzQxs
+	zCP/Q4BgnCePnKWzhXbbpdkySIuLvuORuIJI4m/kaV2QNLZ4ZBcua8in9R1k8nxdg8fVTj+Snjzy2
+	6ObvVauSm7+rRAMLC0KfoWmneMBJLABKShjLYEVWOgyUdWWKyi3HULIGqSp34HKKk2QppoPMSNkp5
+	anVtc9/WFt+PxmBxrRJnYDq1dnHbGmwOHYss9wApQ1UtronfiBk2+WR4Yp3G0b/za+U/jprS5JA3t
+	k9extfcXT2OYhlOZMl3sOcU6T9r1+ojcGbF8lh52nyhAjbDgm+xtkTPi+rqfktVhoyqramuyvcyS/
+	vx9rx1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIaJw-00000006CYz-1GS1;
-	Mon, 10 Nov 2025 22:25:08 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1vIaLj-00000006CkR-46Pu;
+	Mon, 10 Nov 2025 22:26:59 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIaJu-00000006CYG-0rLs
+	id 1vIaLh-00000006Cjg-28b5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 22:25:07 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-594249d3732so243160e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 14:25:05 -0800 (PST)
+	Mon, 10 Nov 2025 22:26:58 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7aace33b75bso3654623b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 14:26:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762813504; x=1763418304; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tkykz3S1CyycQbNzf0lzIqKhpFUnZB571m9tUf64HTs=;
-        b=ikP5twii5vRIi9wFGkm7BiomMu9yvfvFusJJfQfE+BW8nuuDAPqhGqpLQO46Y9Qw4P
-         V+7/o73dpaWexD6ijxVhYH913Lg1NGviRYiIeEDhkRtEqpgo1u1yPQXmRkknZmRD/dxl
-         tfFOlVr2TouGT0qDrYtYzGi/aNi5USVz8o2ECNkGP/94rmeCPgbteaq6zMLBD2XnfZ4+
-         VYfOATStmtzN+rxsYPDpekqlaqQRxfOPAO6atXBvdXvJvXLNj4RiYaJjkwZRW+ZeCbvG
-         5jjI5DrMQCgQbMIZ4HgXXFw81pORPhVTK9qhnroiIzhrSREhR0VWHA372sZiyyPUHbNI
-         FfIw==
+        d=gmail.com; s=20230601; t=1762813616; x=1763418416; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xLyXGRaLm6sEsE+EXjhF05M8r/IYZLjTnBThGk29/Q8=;
+        b=WgjGS9qmw/gb91wPMPULvMMjn3XntzU4/pO+otUloMBWJuwP6gkGKmUy7AjKcpq+JI
+         GJGu8JgXsgjC2gqL1olOHvPB/PeuMNosEO5QqNHyjYaxlCE8VBHFltFq5jHxTqXQodMm
+         1L/z+itpqLneElQYiTb+6xw95kSZNuDmRGhsYZnochlIou6ex13FMZOOhSaanOgATr5B
+         vvRnZwaQbvcw/13uRdQ89WJCK7zz1ORJgSzo71XUc7ErKCWqNoEqoddBN+eq8dQG9Kft
+         88pYhnNno7xDqvu6v+WcjZMx4t6XgnHJzaOYVvOXMAo1abgVeLNtHuhEII98SR3s64BJ
+         ljGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762813504; x=1763418304;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tkykz3S1CyycQbNzf0lzIqKhpFUnZB571m9tUf64HTs=;
-        b=UEGB4R8s7CVlZsrFHjnpl5dyte+/Gtt9DFpjg67uWUn4K8+tM2LYpkL5iAC7iLLIfx
-         hqyUJ6df+KsanokoIOL7pxgPJSpU4B0konBYCIJqtyYDVm4qiYK4oVOytolqFDc3Ddav
-         6S+uirJwtPT2yGtEMl4gbJKJ6XzMsUDAHfmWxReeuUULUzX+HxJsElRUUDTub8ShYO++
-         xAFemE4sGkiIYrR9pFYJGnjBo1JIKzSPNxMLl2+WxPm0VcPQg7HPU4C7yvaarwTrsBDA
-         PAagpQnttDh6CS+qS/dblTy8lvaQO9ptS+fozE+oywMZllOU71HFrim3HZULruinJE4i
-         MM3w==
-X-Forwarded-Encrypted: i=1; AJvYcCWIvvQSpNWFLTvDmB1Bx/6C2NoZgyA++L2Rn7UPWGmlYOcT3zE4fgKMusPsPS9KJEU3iBMk3NbQntYqXLZ+QGvD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2qTRMCyD4b5QefKEE5cK7zze8tITcd1lEYzPiyx6/oJOzxuZg
-	AideTlD1zKEMIhAkOQG+CjGe5uPMma8AvI5GmfCUIqGRhOAPUVsIHBOvCCtiddFA9v4FyH/X31L
-	mgwn0wUg5r09+FQuw5m4rYUFfyqk+z8vGMuG2fRaIHw==
-X-Gm-Gg: ASbGnctMF87Ul3SeCR/SWLSBX0oyt25Fhr0G+rH0RAjA/KjQFGSk4V7hl/ajFPFQH5T
-	Gn/6W4wDn0rWci+FooKU8xfdIKun6hMCWzArIAmwx3h0jqMEXzjK7TcyqBQnFADYzhT1zL8+6QJ
-	YZKmpsBkqtVUmZd0bGpuYx6k9N3P88/kONvPq1VjVdRn8WpEfAYMMViGEUtaa1SNQA8ybvs7cUo
-	m85eBQsdd+xjBTG6Q3TrA9WpqArlVz56V0gD98W4AxALroe4AgNnNko5DCX
-X-Google-Smtp-Source: AGHT+IH/bobBHFWFdtH9zZZK7pDa53PdeYG6iIiYCN8HDJy4OkCpiUpXjuiD4ZHFmsvNrZImVkrpEn3cIhnyZOsajDU=
-X-Received: by 2002:a05:6512:3408:b0:594:2c42:abd4 with SMTP id
- 2adb3069b0e04-594745a4d40mr256456e87.5.1762813504005; Mon, 10 Nov 2025
- 14:25:04 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762813616; x=1763418416;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xLyXGRaLm6sEsE+EXjhF05M8r/IYZLjTnBThGk29/Q8=;
+        b=SHVVk8QOshl+iB8dSB/sI4ahQwYQLUvJqk9L4ck+gMQ0R2Gx6w6P1C7j6mPN/1mRd2
+         xvdeb8ovBC6I+A/YBvLhs3rz74Zg88ljy9rviH+tprmcBMPMeQDH7Ay4b/1+BZ3FyDi7
+         wDu+7eNoHLyEQIhIGhuAdOPwqw+V0bO0tuCQ3fRt/cFp/kO6nRGpi4irJxY6Vx5gTiOD
+         mgrp2TF0JW9WGB8JO83/ecr5SmB/JNcdnb9BFi+5FfM4WY0ZqRA8MhNWtedqUYaxEwIX
+         3esDk3X5qESwEMclnEp6Msg6KOACn+HAXam3ckFZbhTagX7xcm15/JiFv+N7leOnR+1F
+         RV7g==
+X-Forwarded-Encrypted: i=1; AJvYcCXKyuCyURFBX9MXMFxrB05QDCB9lsa9rK7z8EfvqcSR2y853ZaGxrNCGj5y8AMyQtWUeVZD6x2CoABV5EOR2KrT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz76RYqAs/gqfgXWYuYTIGIV75RAPEncBS24LlcwKSHxyIX7rk
+	ITCUscRFc2vxlnnKDiGUopOJuh9hH5mYfp+1oETdUTiPCWjAItfVvqHj
+X-Gm-Gg: ASbGncvXFfd8JxrjR8lMrpu4sGeGdVYJIDBFlx42V7b8PXHRcTJHpfWrphwj2H80pkt
+	Rz4zoimWVGdxjjzd/cKjOKhVvciSqt2GgmtJrpHq//y3oBRl0YR5noTLI/6Z6kELbC4QNunAfqG
+	yyiug2M1J2xvTYkhCd1C3YQ2jxzu+x1pq9d4yPpwl8CsVHFYitZ5jsbA7VX7TIYJBJyu2q8KRa1
+	LyG5gFe5ze74tyVaVMoeUoIUryBGVUpfyvtMb9Ckxg7HBgKzfbvbxMTXKuORPZMHV+CWHunzHEf
+	JPQk6vaoHUOQEJ41jY5f0LZzjDRtHIA/LCbkCSZEsVI23doiRDLeOflCMHGuawEZAWjCz80mmnA
+	M7x3EX3xv69lk8M3E/Z7eVFTnw4AzIRP4ppiVEWkN9nT0McjP9rqxER6KB9q3Y5hkfWgKvZAjCg
+	Lt/0I3vbrnMg==
+X-Google-Smtp-Source: AGHT+IEk3kYn28lJz/C+AXXcRWMVZ9b5FI05N3tJpVXS4fy3dE0avtehbQZNj/cOBXS8KtnzWEvWzw==
+X-Received: by 2002:a05:6a20:e605:b0:357:be83:d026 with SMTP id adf61e73a8af0-357be83d02fmr681099637.35.1762813616432;
+        Mon, 10 Nov 2025 14:26:56 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba8f8c880c5sm13710401a12.6.2025.11.10.14.26.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Nov 2025 14:26:56 -0800 (PST)
+Date: Tue, 11 Nov 2025 06:26:32 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Simon Horman <horms@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>, 
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v7 3/3] net: stmmac: dwmac-sophgo: Add phy interface
+ filter
+Message-ID: <g2tqvcw7ocewzbqy7txz6sumdxeelhl4jk2s3btnnijyt572di@nrfcac6grpvn>
+References: <20251107111715.3196746-1-inochiama@gmail.com>
+ <20251107111715.3196746-4-inochiama@gmail.com>
+ <aRJGZjgTgcjZgIqe@horms.kernel.org>
 MIME-Version: 1.0
-References: <20251104021223.2375116-1-ye.zhang@rock-chips.com>
-In-Reply-To: <20251104021223.2375116-1-ye.zhang@rock-chips.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 10 Nov 2025 23:24:52 +0100
-X-Gm-Features: AWmQ_bnqL4tp4-XtSfjpF2SJDcbcu-l1tzSoL6TKzmSJf79bXaH7H2zLWLM2NeI
-Message-ID: <CACRpkdaR=_K-hewNne2fPN=RKu7iyOe0gLYhMEBfQVvemJJuoQ@mail.gmail.com>
-Subject: Re: [PATCH v1 0/3] pinctrl: rockchip: Add RK3506 pinctrl support
-To: Ye Zhang <ye.zhang@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	tao.huang@rock-chips.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aRJGZjgTgcjZgIqe@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_142506_261146_427E01D4 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20251110_142657_553400_074BD613 
+X-CRM114-Status: GOOD (  32.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +111,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 4, 2025 at 3:12=E2=80=AFAM Ye Zhang <ye.zhang@rock-chips.com> w=
-rote:
+On Mon, Nov 10, 2025 at 08:09:10PM +0000, Simon Horman wrote:
+> On Fri, Nov 07, 2025 at 07:17:15PM +0800, Inochi Amaoto wrote:
+> > As the SG2042 has an internal rx delay, the delay should be removed
+> > when initializing the mac, otherwise the phy will be misconfigurated.
+> > 
+> > Fixes: 543009e2d4cd ("net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC")
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > Tested-by: Han Gao <rabenda.cn@gmail.com>
+> > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> > ---
+> >  .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 20 ++++++++++++++++++-
+> >  1 file changed, 19 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> 
+> ...
+> 
+> > @@ -50,11 +56,23 @@ static int sophgo_dwmac_probe(struct platform_device *pdev)
+> >  	if (ret)
+> >  		return ret;
+> >  
+> > +	data = device_get_match_data(&pdev->dev);
+> > +	if (data && data->has_internal_rx_delay) {
+> > +		plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
+> > +									  false, true);
+> > +		if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
+> > +			return -EINVAL;
+> 
+> I'm sorry if this is a false positive. Because, more so than Russell [1], I
+> confused about how about the treatment of phy_interface. But it seems that
+> there is a miss match between the use of phy_fix_phy_mode_for_mac_delays()
+> above and the binding.
+> 
+> The call to phy_fix_phy_mode_for_mac_delays() above will return
+> PHY_INTERFACE_MODE_NA unless phy_interface is PHY_INTERFACE_MODE_RGMII_ID
+> or PHY_INTERFACE_MODE_RGMII_RXID.
+> 
+>   phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
+> 						bool mac_txid, bool mac_rxid)
+>   ...
+> 	if (mac_rxid) {
+> 		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
+> 			return PHY_INTERFACE_MODE_RGMII_TXID;
+> 		if (interface == PHY_INTERFACE_MODE_RGMII_RXID)
+> 			return PHY_INTERFACE_MODE_RGMII;
+> 		return PHY_INTERFACE_MODE_NA;
+> 	}
+>   ...
+> 
+> Looking at phy_modes(), unsurprisingly, the following mappings occur:
+> * "rgmii" -> PHY_INTERFACE_MODE_RGMII
+> * "rgmii-id" -> PHY_INTERFACE_MODE_RGMII_ID
+> * "rgmii-rxid" -> PHY_INTERFACE_MODE_RGMII_RXID
+> * "rgmii-txid" -> PHY_INTERFACE_MODE_RGMII_TXID
+> 
+> And in the binding, patch 1/3 of this series, only phy-mode rgmii-txid or
+> rgmii-id is allowed.
+> 
 
-> This series adds pinctrl support for the Rockchip RK3506 SoC.
->
-> The series includes:
-> - RK3506 pinctrl driver implementation
-> - RMIO (Rockchip Matrix I/O) support for RK3506
->
-> Ye Zhang (3):
->   dt-bindings: pinctrl: Add rk3506 pinctrl support
->   pinctrl: rockchip: Add rk3506 pinctrl support
+rgmii-txid is a mistake and should be rgmii-rxid. This is because
+the mac of SG2042 add rx delay, and the phy can only add tx delay or
+no delay. So the phy-mode can only be rgmii-id or rgmii-rxid. I will
+fix it in the next version.
 
-Since we have consensus on these two patches I applied them!
+> But if rgmii-txid is used, PHY_INTERFACE_MODE_RGMII_TXID will be passed to
+> phy_fix_phy_mode_for_mac_delays(), which will return PHY_INTERFACE_MODE_NA.
+> 
+> Again, I'm confused about the mapping in phy_fix_phy_mode_for_mac_delays().
+> But there does seem to be some inconsistency between the binding and
+> the driver implementation here.
+> 
 
->   pinctrl: rockchip: add rk3506 rmio support
+I think this inconsistency begin with the change for ethernet-controller
+binding.
+https://lore.kernel.org/all/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
 
-Now you only need to discuss this with Heiko and iterate it.
+And this function serves as an helper so the driver can only add
+the delay once.
 
-Yours,
-Linus Walleij
+> Flagged by Claude Code with https://github.com/masoncl/review-prompts/ 
+> 
+> [1] https://lore.kernel.org/all/aPSubO4tJjN_ns-t@shell.armlinux.org.uk/
+> 
+> ...
+
+Regards,
+Inochi
 
