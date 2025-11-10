@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF3ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A700CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNA5rK+BwCyPa7v4izOm+aNcFUyT8PKu95FOmdVNe7k=; b=xjS5HFhpoiSwqnXdR4mKmqJbpn
-	i8nnFQnLbfYBx/EcJ1brOOQYL4mKNi9/dU4cbZxJKrH6ZKUgnZwEtCmhAmQtBrA4STiuTynawzSek
-	8rdRb4CYUMRLtdaUXnxuDR0UfnhlTfGSkRQ2aPGht6xcIVC0X+exNzKlLw0kdV4JAVAxd3gp/ZT/j
-	GtvjQo0JvRNzq+GBSkW5zze5+LkzJg/TYZF7dHbK2k6Lha4HQn6FvgICPbEsRq0yJU18MZZDdZIdU
-	mTz5LULXwt458rbCWPGR92V7fs6LYRTYGuAsdsrPvZ0QYpZuG8ZM0CSFO+nVMf8Dv+BG6U7bhz8ii
-	VuvkITXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KY9+KkNir8ulula9jSt2EuOc4CDU22DGXuD6dzxbo5k=; b=EKCTvwCWRNTl3BFEmZ/vP43lfz
+	sv1zCTNV/lbQijdUePre9G3oaF9l61vRPiF1HX4SDk98NZ6t+W92868owLEXx8KJ7Ee4Y1ZSIqoiF
+	gAHqAS5cA2a8VpXU8V9bgxZT8EVJ2T+kz3ScHFWqcqy8id55nw6mTUfYtfFejUBF50G3q4mFOXPVN
+	E9CZUV1S/KUOJN9WXqy86aPd/SHWJcGCkzSOVILq3P3dv+q2cTvcDpz2PjIBjeztUNKcMpwqqnk7f
+	mXz+wsVYc+/nxnx9sfLCnn3oPnbamGNLIFATs0KG4OWF6O1/TdacMUhTQodbKym32f5zXFNJh7FyQ
+	L0HAx0eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVfy-00000005trp-0xAc;
-	Mon, 10 Nov 2025 17:27:34 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vIVi8-00000005u3v-0vF5;
+	Mon, 10 Nov 2025 17:29:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVfv-00000005trL-116J
+	id 1vIVi6-00000005u3W-1QcH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 17:27:33 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4xRz5k1QzHnGjG;
-	Tue, 11 Nov 2025 01:27:11 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 49F8E14033C;
-	Tue, 11 Nov 2025 01:27:27 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
- 2025 17:27:25 +0000
-Date: Mon, 10 Nov 2025 17:27:24 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
-	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
-	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
-	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
-	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
-	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
-	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-Subject: Re: [PATCH 23/33] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-Message-ID: <20251110172724.00005675@huawei.com>
-In-Reply-To: <20251107123450.664001-24-ben.horgan@arm.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-	<20251107123450.664001-24-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 10 Nov 2025 17:29:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4775141AC5;
+	Mon, 10 Nov 2025 17:29:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BEEFC4CEF5;
+	Mon, 10 Nov 2025 17:29:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762795784;
+	bh=irSNmNU33uoNE+xtcXh4F9V8GNWZBQMnuLEnS4K0yYc=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=K4OHUePh1JIsul5wTckByN1KX/imTS4vSvdMW+PZoScGRsl31xGewJCuQm6s4E0KS
+	 z7oXMfRhvjcoC+Zbm98jZBfe/DoOaIA08oq9qGMG5jbZh/+/UZOcV+EGk2M1E6Pt+l
+	 N6SktXEKUtDTREzGJDNVPwrSwOhfB/tMIz/HygZvk2TXZ2wS+WQifhL1PJF+++YNyj
+	 QLEB+vHDw17Lcm8XEHxe9XytipxMSKEU+fdg5egk2S/sBK0+s2tgVbPy6wxclE1Ial
+	 LJh2kNZZQqQVx8Bf8xixbBuKug/ddARm23lNi8DvLONJLIlQW9JsKWfgNFfjIapzDp
+	 gU7fYw5Qdmehg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 3B6DECE0D0D; Mon, 10 Nov 2025 09:29:43 -0800 (PST)
+Date: Mon, 10 Nov 2025 09:29:43 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	frederic@kernel.org
+Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
+Message-ID: <ab6cd1c2-39c5-4b39-9585-6123835a6229@paulmck-laptop>
+References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
+ <20251105203216.2701005-15-paulmck@kernel.org>
+ <aQ9AoauJKLYeYvrn@willie-the-truck>
+ <d53a5852-f84a-4dae-9bf4-312751880452@paulmck-laptop>
+ <aRHLV8lLX0fxQICR@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aRHLV8lLX0fxQICR@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_092731_591415_22EEE752 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20251110_092946_418468_B4521F48 
+X-CRM114-Status: GOOD (  28.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +79,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 12:34:40 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
-
-> From: James Morse <james.morse@arm.com>
+On Mon, Nov 10, 2025 at 11:24:07AM +0000, Will Deacon wrote:
+> On Sat, Nov 08, 2025 at 10:38:32AM -0800, Paul E. McKenney wrote:
+> > On Sat, Nov 08, 2025 at 01:07:45PM +0000, Will Deacon wrote:
+> > > On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
+> > > > Some arm64 platforms have slow per-CPU atomic operations, for example,
+> > > > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+> > > > atomic operations to interrupt-disabled non-read-modify-write-atomic
+> > > > atomic_read()/atomic_set() operations.  This works because
+> > > > SRCU-fast-updown is not invoked from read-side primitives, which
+> > > > means that if srcu_read_unlock_fast() NMI handlers.  This means that
+> > > > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+> > > > exclude themselves and each other
+> > > > 
+> > > > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+> > > > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+> > > > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+> > > > it sure beats 100ns.
+> > > > 
+> > > > This command was used to measure the overhead:
+> > > > 
+> > > > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
+> > > > 
+> > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > Cc: Will Deacon <will@kernel.org>
+> > > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> > > > Cc: Steven Rostedt <rostedt@goodmis.org>
+> > > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > > > Cc: <linux-arm-kernel@lists.infradead.org>
+> > > > Cc: <bpf@vger.kernel.org>
+> > > > ---
+> > > >  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
+> > > >  1 file changed, 48 insertions(+), 3 deletions(-)
+> > > 
+> > > I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
+> > > for 6.18, so please can you drop this SRCU commit from your tree?
+> > 
+> > Very good!  Adding Frederic on CC since he is doing the pull request
+> > for the upcoming merge window.
+> > 
+> > But if this doesn't show up in -rc1, we reserve the right to put it
+> > back in.
+> > 
+> > Sorry, couldn't resist!   ;-)
 > 
-> When CPUs come online the MSC's original configuration should be restored.
-> 
-> Add struct mpam_config to hold the configuration. This has a bitmap of
-> features that were modified. Once the maximum partid is known, allocate
+> I've merged it as a fix, so hopefully it will show up in v6.18-rc6.
 
-I'm not following 'were modified'.  When?  Sometime in the past?
-Perhaps "features that have been modified when XXX happens" or
+Even better, thank you!!!
 
-Having read the code I think this is something like "are modified as configuration
-is read".
-
-> a configuration array for each component, and reprogram each RIS
-> configuration from this.
-> 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Cc: Shaopeng Tan (Fujitsu) tan.shaopeng@fujitsu.com
-> Cc: Peter Newman peternewman@google.com
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
-> Drop tags
-> Fix component reset, otherwise cpbm wrong and controls not set.
-> Add a cfg_lock to guard configuration of an msc
-
-The use of bitmap_set() for things that aren't unsigned long (arrays) is a bad
-idea. Much better to use GENMASK() to fill those.
-
-> ---
->  drivers/resctrl/mpam_devices.c  | 268 ++++++++++++++++++++++++++++++--
->  drivers/resctrl/mpam_internal.h |  27 ++++
->  2 files changed, 280 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 3a0ad8d93fff..8b0944bdaf28 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-
-
-
-> @@ -1125,6 +1225,9 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  	if (err)
->  		return ERR_PTR(err);
->  	err = devm_mutex_init(dev, &msc->error_irq_lock);
-> +	if (err)
-> +		return ERR_PTR(err);
-Trivial: As in earlier patches. I'd put a blank line here for readability.
-> +	err = devm_mutex_init(dev, &msc->cfg_lock);
->  	if (err)
->  		return ERR_PTR(err);
->  	mpam_mon_sel_lock_init(msc);
-> @@ -1585,6 +1688,70 @@ static void mpam_unregister_irqs(void)
->  	}
->  }
->  
-> +static void __destroy_component_cfg(struct mpam_component *comp)
-> +{
-> +	add_to_garbage(comp->cfg);
-> +}
-> +
-> +static void mpam_reset_component_cfg(struct mpam_component *comp)
-> +{
-> +	int i;
-> +	struct mpam_props *cprops = &comp->class->props;
-> +
-> +	mpam_assert_partid_sizes_fixed();
-> +
-> +	if (!comp->cfg)
-> +		return;
-> +
-> +	for (i = 0; i <= mpam_partid_max; i++) {
-> +		comp->cfg[i] = (struct mpam_config) {};
-> +		bitmap_fill(comp->cfg[i].features, MPAM_FEATURE_LAST);
-> +		bitmap_set((unsigned long *)&comp->cfg[i].cpbm, 0, cprops->cpbm_wd);
-
-Why manipulate a u32 with bitmap_set() with a horrible pretend it's an unsigned long cast.
-Instead just do:
-		comp->cfg[i].cpbm = GENMASK(cprops->cpbm_wd, 0);
-Which is indeed what bitmap_set will do internally due to an optimization for small bitmaps
-but lets avoid that making one integer pretend to be another of a different length.
-
-
-> +		bitmap_set((unsigned long *)&comp->cfg[i].mbw_pbm, 0, cprops->mbw_pbm_bits);
-> +		bitmap_set((unsigned long *)&comp->cfg[i].mbw_max, 16 - cprops->bwa_wd, cprops->bwa_wd);
-> +	}
-> +}
-
+							Thanx, Paul
 
