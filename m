@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0265CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 02:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42581CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 02:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=; b=Reza5U0WSixkoK2FGjeIWKiONL
-	n1pPR0u7MXIJfkv53u5ZYsWRoOaxQLmlUcm02ciIHx1/2Eq7PyJal+laicMAM8/rmSKTKOOle8EtJ
-	FaB//JqJKgn3n35JsLEoeBnV31eKFTqfVSr8nuVr0A02IiNFM+NY1Ot0p4NKobFLmhtOMgfyvUIki
-	NLyFqWeo/h/XaR++zdh94qOQVrHkfIPQqY34+sLrK9zPFPYbp9Hgrg8IKRFJ1RCf66pgUduYMvxZj
-	CKPme9n5HydNrnNHADl5SipKzyE+BDLcxRnOa9Jo2vEo1o03oeUn9/+E7bITX4TCB4LfZ9HD+e8+d
-	hYG0bkqw==;
+	bh=ST4GcK2McWrhDhZAl75VtQG+4FHxpdlWOF4ND05GHw4=; b=eEDeCDoCeLBtfY+f5YPww5W3e0
+	UG1NTN6GKyHELFDBA2yyDHtJs1VoGHMNBVqc1+gWlKSe5H+78I3o170zzFvAFizpP+cLgbwgiI/9J
+	TevHFuAod0SWFlWkMj5nB68n91hsja0b+ynFuDLd12v4qQ2VSbB/txpCRrPoB3PbTrio64uwdPonw
+	gSTcymFKKKzszdCD6Wf/ZSd3w0OsqDyQLRqHGl7nUa7Fj2lv5C5Os2oEfUiEy+O5IknwHfT0TY+bz
+	bKYlVqdNL2x5VpTRiCrbAyXcbIQC0pAUa9q5mRUW/BZDY8aqYDaZCFrLkIExv6F1bLYTMz4twyhs4
+	Mgmsk6bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIHab-00000004cC0-1foM;
-	Mon, 10 Nov 2025 02:25:05 +0000
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
+	id 1vIHfz-00000004cUI-0q29;
+	Mon, 10 Nov 2025 02:30:39 +0000
+Received: from mail-m32122.qiye.163.com ([220.197.32.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIHaY-00000004cBd-2u1x
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 02:25:03 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-55965c96fd7so596053e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 18:25:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762741501; x=1763346301; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=;
-        b=i1Zu27Q3fxkPPZiFL3kFDBEdobZ1CFi4aJlLoEpyCA0dX9Qd+Od9Ldu0qghZbNIvwU
-         fb7kkH1VNZTCT630fJAy8AJsqEeERfYqqZnJ/vrtvQOdI5guM28NnIII/+BzrdhYbGT4
-         zIL7j74PV3zfpOwoB9/9z6XdDSgz6hSB7DGzmurISYlFDtf4sIrkgireJqpEq5sQclza
-         b9swPuy64Y16ETJ6pw7dVcViTpbhCQfnNYnVHZjbIpVePVA59s5NFOsm7pcoSTuyE1s/
-         PhO4+gCNtDoTy37uKYszK8GPX5Pq38ncqfvHmOIhfxJyPYW6bbE5AAWIXSFlaLPfwUHR
-         9Jvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762741501; x=1763346301;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=;
-        b=chhpYAKvFXlp4c9IIsthZw1kzLrevZs0gJqjCq2VEaP+pMGOqjCQMtik8RLjac57yN
-         W5Ka3vbZ5dKwZiFtoVUWgB2zY38SNE32zO6oGzVwQAovwm0NqQoqu6CjJB1H8L6Ce6pG
-         18SJxR+Ozv99+sxFelol0H4vl+FG8+twxrvarO0XjGCBiEp5BcwlOCFk4vCnzbbmA+XT
-         5+nz2yI9EqIqeudZVAsitdnkgWOlfWt+1FbDV/bRiiGI5LvKnmHs51sMogFCTQYm2Iz1
-         LDY2NZKItNqpzEMiIFY2duvZtDkS6HVEfljpd3OWpgvrZXaTu7O1V1GL24damxXC8vAN
-         nisA==
-X-Forwarded-Encrypted: i=1; AJvYcCWrNbl6dLHUAiB6MrfG+vuKKMWPR0nIwA7jGIMvPW0YslRfOmY060/ISpY2vwGI4XKN8GvDJ+7bQTBBz9cxDi1y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRKgEsNdmkA++1WOOijQ7D+QkUIXnRP8tSJVqlxaOnKbZOweXS
-	o+ffpB9yiaG0hO2M/21ReGPfMR3uGqNcjcEjYG0xJZYNx7z32uxR3l9giFz33POl5YnH6O1HD0W
-	fK2XCqMla5mYQAIiCXU0hR9zhoOUCOoc=
-X-Gm-Gg: ASbGncslAfLO2nB1zSrcwqWoIadrIwQYf8iz4iztqB+rycLl98nRVk5OXe+9WSRtYNH
-	s/9dmS1i0SgYZUJfQXREHbQDSot4jC5U3TtBS9x70RTWuKiySHKx+LVn97H9CcBcmbFKjLwfM4G
-	63qt4JsVZrK53L1iuoHMCckMfqNzM+NEJFEm8KNdZzYv2m1Yhreto5nJwMMW7oonin9HhOR7nP+
-	ANKHmEiCVbOGhm/lj1LqCGpDBdzlRBOTNep7uz0d4GrhP/UZjnUyRLuaXQc8KKLi9Gt4g==
-X-Google-Smtp-Source: AGHT+IF2EMlurBzuMt0qOjdQBCv2IFE0TWGHtCo4RfIbED7bE2bHbiRvxWtYQJUkcmfpI0qEQHMqGsLRQb6EJAlUMEM=
-X-Received: by 2002:a05:6102:2ac7:b0:5db:fb4c:3a8f with SMTP id
- ada2fe7eead31-5ddc485e4edmr2017252137.39.1762741501079; Sun, 09 Nov 2025
- 18:25:01 -0800 (PST)
+	id 1vIHfv-00000004cTi-2oPO;
+	Mon, 10 Nov 2025 02:30:37 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 28f6e9869;
+	Mon, 10 Nov 2025 10:30:24 +0800 (GMT+08:00)
+Message-ID: <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+Date: Mon, 10 Nov 2025 10:30:20 +0800
 MIME-Version: 1.0
-References: <CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
- <20250929043110.3631025-1-hy_fifty.lee@samsung.com> <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
-In-Reply-To: <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
-From: Inki Dae <daeinki@gmail.com>
-Date: Mon, 10 Nov 2025 11:24:23 +0900
-X-Gm-Features: AWmQ_bnpaBAd4D4AdmA6qBIjSKlXa89V9KyU_fLfaAFw_TI3ApflT_I8g0W-s48
-Message-ID: <CAAQKjZM3qgQO=FaAuc4d1aUT1fCT6Vfo0X7Y7B=NwRNM=B34wA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
- instead of zero-sized update
-To: Hoyoung Lee <hy_fifty.lee@samsung.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
+ Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, mani@kernel.org,
+ Niklas Cassel <cassel@kernel.org>
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: FUKAUMI Naoki <naoki@radxa.com>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
+ <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
+ <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9a6b99abfe09cckunm39d6557412b970a
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh9IHVZIGBhMSh0aGkJJHxpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=GUxFPHmh5MX8wp7RrOmxB7Fy+w6B+Zbl+TkUp3xCyX6leuKuiZCEFDdiKy0akiHYJJ+ykpT8yYLRVhjtplDwDi210e+zX1I9nI8LBPfoA4nn5T50/H5L3/kwWPOBHjGFG2hrGK534NEh9XfEtJtZdcDhKuiJWgTB2uW9Gc7jEx4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=ST4GcK2McWrhDhZAl75VtQG+4FHxpdlWOF4ND05GHw4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_182502_766963_9040011D 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20251109_183036_185287_C7BCB7BE 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,116 +82,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for contribution,
+Hi Fukaumi
 
-2025=EB=85=84 9=EC=9B=94 29=EC=9D=BC (=EC=9B=94) =EC=98=A4=ED=9B=84 1:29, H=
-oyoung Lee <hy_fifty.lee@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> Some configurations require additional actions when all windows are
-> disabled to keep DECON operating correctly. Programming a zero-sized wind=
-ow
-> in ->atomic_update() leaves the plane logically enabled and can bypass
-> those disable semantics.
->
-> Treat a fully off-screen plane as not visible and take the explicit disab=
-le
-> path.
->
-> Implementation details:
-> - exynos_plane_mode_set(): if computed actual_w/actual_h is zero, mark
->   state->visible =3D false and return early.
-> - exynos_plane_atomic_check(): if !visible, skip further checks and
->   return 0.
-> - exynos_plane_atomic_update(): if !visible, call ->disable_plane();
->   otherwise call ->update_plane().
->
-> No functional change for visible planes; off-screen planes are now cleanl=
-y
-> disabled, ensuring the disable hooks run consistently.
->
-> Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/=
-exynos/exynos_drm_plane.c
-> index 7c3aa77186d3..842974154d79 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-> @@ -91,6 +91,11 @@ static void exynos_plane_mode_set(struct exynos_drm_pl=
-ane_state *exynos_state)
->         actual_w =3D exynos_plane_get_size(crtc_x, crtc_w, mode->hdisplay=
-);
->         actual_h =3D exynos_plane_get_size(crtc_y, crtc_h, mode->vdisplay=
-);
->
-> +       if (!actual_w || !actual_h) {
-> +               state->visible =3D false;
+在 2025/11/10 星期一 7:26, FUKAUMI Naoki 写道:
+> (RESEND: fix mani's email address)
+> 
+> Hi Niklas,
+> 
+> On 11/9/25 21:28, Niklas Cassel wrote:
+>> On Sun, Nov 09, 2025 at 01:42:23PM +0900, FUKAUMI Naoki wrote:
+>>> Hi Niklas,
+>>>
+>>> On 11/8/25 22:27, Niklas Cassel wrote:
+>>> (snip)> (And btw. please test with the latest 6.18-rc, as, from 
+>>> experience,
+>>> the
+>>>> ASPM problems in earlier RCs can result in some weird problems that are
+>>>> not immediately deduced to be caused by the ASPM enablement.)
+>>>
+>>> Here is dmesg from v6.18-rc4:
+>>>   https://gist.github.com/RadxaNaoki/40e1d049bff4f1d2d4773a5ba0ed9dff
+>>
+>> Same problem as before:
+>> [    1.732538] pci_bus 0004:43: busn_res: can not insert [bus 43-41] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.732645] pci_bus 0004:43: busn_res: [bus 43-41] end is updated 
+>> to 43
+>> [    1.732651] pci_bus 0004:43: busn_res: can not insert [bus 43] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.732661] pci 0004:42:00.0: devices behind bridge are unusable 
+>> because [bus 43] cannot be assigned for them
+>> [    1.732840] pci_bus 0004:44: busn_res: can not insert [bus 44-41] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.732947] pci_bus 0004:44: busn_res: [bus 44-41] end is updated 
+>> to 44
+>> [    1.732952] pci_bus 0004:44: busn_res: can not insert [bus 44] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.732962] pci 0004:42:02.0: devices behind bridge are unusable 
+>> because [bus 44] cannot be assigned for them
+>> [    1.733134] pci_bus 0004:45: busn_res: can not insert [bus 45-41] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.733246] pci_bus 0004:45: busn_res: [bus 45-41] end is updated 
+>> to 45
+>> [    1.733255] pci_bus 0004:45: busn_res: can not insert [bus 45] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.733266] pci 0004:42:06.0: devices behind bridge are unusable 
+>> because [bus 45] cannot be assigned for them
+>> [    1.733438] pci_bus 0004:46: busn_res: can not insert [bus 46-41] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.733544] pci_bus 0004:46: busn_res: [bus 46-41] end is updated 
+>> to 46
+>> [    1.733550] pci_bus 0004:46: busn_res: can not insert [bus 46] 
+>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>> [    1.733560] pci 0004:42:0e.0: devices behind bridge are unusable 
+>> because [bus 46] cannot be assigned for them
+>> [    1.733571] pci_bus 0004:42: busn_res: [bus 42-41] end is updated 
+>> to 46
+>> [    1.733575] pci_bus 0004:42: busn_res: can not insert [bus 42-46] 
+>> under [bus 41] (conflicts with (null) [bus 41])
+>> [    1.733585] pci 0004:41:00.0: devices behind bridge are unusable 
+>> because [bus 42-46] cannot be assigned for them
+>> [    1.733596] pcieport 0004:40:00.0: bridge has subordinate 41 but 
+>> max busn 46
+>>
+>>
+>> Seems like the ASM2806 switch, for some reason, is not ready.
+>>
+>> One change that Diederik pointed out is that in the "good" case,
+>> the link is always in Gen1 speed.
+>>
+>> Perhaps you could build with CONFIG_PCI_QUIRKS=y and try this patch:
+>>
+>> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+>> index 214ed060ca1b..ac134d95a97f 100644
+>> --- a/drivers/pci/quirks.c
+>> +++ b/drivers/pci/quirks.c
+>> @@ -96,6 +96,7 @@ int pcie_failed_link_retrain(struct pci_dev *dev)
+>>   {
+>>       static const struct pci_device_id ids[] = {
+>>           { PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
+>> +        { PCI_VDEVICE(ASMEDIA, 0x2806) }, /* ASMedia ASM2806 */
+>>           {}
+>>       };
+>>       u16 lnksta, lnkctl2;
+> 
+> It doesn't help with either probing behind the bridge or the link speed.
+> 
+>> If that does not work, perhaps you could try this patch
+>> (assuming that all Rock 5C:s have a ASM2806 on pcie2x1l2):
+> 
+> ROCK 5C has a PCIe FPC connector and I'm using Dual 2.5G Router HAT.
+>   https://radxa.com/products/rock5/5c#techspec
+>   https://radxa.com/products/accessories/dual-2-5g-router-hat
+> 
+> Regarding the link speed, I initially suspected the FPC connector and/or 
+> cable might be the issue. However, I tried the Dual 2.5G Router HAT with 
+> the ROCK 5A (which uses a different cable), and I got the same result.
+> 
+> BTW, the link speed varies between 2Gb/s and 4Gb/s depending on the 
+> reboot. (with or without quirk)
 
-The state->visible field in the DRM atomic framework is set to true
-only when the following conditions are met:
-- Both state->crtc and state->fb are present (having only one of them
-results in an error).
-- src_w/src_h and crtc_w/crtc_h are non-zero.
-- The source rectangle does not exceed the framebuffer bounds (e.g.,
-src_x + src_w <=3D fb->width).
-- Rotation and clipping checks pass successfully.
+Could you please help check this patch?
 
-However, this patch modifies the state->visible value within
-vendor-specific code. Doing so can be problematic because it overrides
-a field that is managed by the DRM atomic framework. Even if it
-currently works, it may lead to unexpected behavior in the future.
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -454,6 +454,8 @@ static irqreturn_t 
+rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+         struct dw_pcie *pci = &rockchip->pci;
+         struct dw_pcie_rp *pp = &pci->pp;
+         struct device *dev = pci->dev;
++       struct pci_bus *child, *root_bus = NULL;
++       struct pci_dev *bridge;
+         u32 reg;
 
-For example, if the DRM atomic framework sets visible =3D true after
-validating the above conditions and begins processing certain logic,
-but the vendor driver later changes it to false, the framework may
-still assume the variable remains true, resulting in inconsistent
-states.
+         reg = rockchip_pcie_readl_apb(rockchip, 
+PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -462,12 +464,21 @@ static irqreturn_t 
+rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+         dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
+         dev_dbg(dev, "LTSSM_STATUS: %#x\n", 
+rockchip_pcie_get_ltssm(rockchip));
 
-Turning off a plane when it doesn=E2=80=99t need to be displayed is a good
-idea I think. You might consider contributing this behavior upstream
-so it can be properly handled within the DRM atomic framework itself.
++       list_for_each_entry(child, &pp->bridge->bus->children, node) {
++               if (child->parent == pp->bridge->bus) {
++                       root_bus = child;
++                       bridge = root_bus->self;
++                       break;
++               }
++        }
++
+         if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+                 if (rockchip_pcie_link_up(pci)) {
+                         msleep(PCIE_RESET_CONFIG_WAIT_MS);
+                         dev_dbg(dev, "Received Link up event. Starting 
+enumeration!\n");
+                         /* Rescan the bus to enumerate endpoint devices */
+                         pci_lock_rescan_remove();
++                       pci_stop_and_remove_bus_device(bridge);
+                         pci_rescan_bus(pp->bridge->bus);
+                         pci_unlock_rescan_remove();
+                 }
 
-Thanks,
-Inki Dae
 
-> +               return;
-> +       }
-> +
->         if (crtc_x < 0) {
->                 if (actual_w)
->                         src_x +=3D ((-crtc_x) * exynos_state->h_ratio) >>=
- 16;
-> @@ -244,6 +249,9 @@ static int exynos_plane_atomic_check(struct drm_plane=
- *plane,
->         /* translate state into exynos_state */
->         exynos_plane_mode_set(exynos_state);
->
-> +       if (!new_plane_state->visible)
-> +               return 0;
-> +
->         ret =3D exynos_drm_plane_check_format(exynos_plane->config, exyno=
-s_state);
->         if (ret)
->                 return ret;
-> @@ -263,8 +271,10 @@ static void exynos_plane_atomic_update(struct drm_pl=
-ane *plane,
->         if (!new_state->crtc)
->                 return;
->
-> -       if (exynos_crtc->ops->update_plane)
-> +       if (new_state->visible && exynos_crtc->ops->update_plane)
->                 exynos_crtc->ops->update_plane(exynos_crtc, exynos_plane)=
-;
-> +       else if (exynos_crtc->ops->disable_plane)
-> +               exynos_crtc->ops->disable_plane(exynos_crtc, exynos_plane=
-);
->  }
->
->  static void exynos_plane_atomic_disable(struct drm_plane *plane,
-> --
-> 2.34.1
->
->
+> 
+> Best regards,
+> 
+> -- 
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/ 
+>> arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>> index dd7317bab613..26f8539d934a 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>> @@ -452,6 +452,7 @@ &pcie2x1l2 {
+>>       pinctrl-0 = <&pcie20x1_2_perstn_m0>;
+>>       reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+>>       vpcie3v3-supply = <&pcie2x1l2_3v3>;
+>> +    max-link-speed = <1>;
+>>       status = "okay";
+>>   };
+>>
+>>
+>>
+>> Kind regards,
+>> Niklas
+>>
+> 
+> 
+
 
