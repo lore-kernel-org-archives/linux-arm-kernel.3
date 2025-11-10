@@ -4,86 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0113CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28117CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cdbKsB+tMJvagrMvYHn0y49jacarMu1zTyH+h0jj2wI=; b=3fjxZJKIt9NzwqcgkMono5yHNL
-	54KZS+1rZDvGoSM2xRONAfBzKzMI1XJB+64Js24cy4p5gDYqZKoUT6MCutbZEiIswVDsKV2/U45EV
-	a5kgoHrGIlJfFjHvQ/kIRy0oqOfsUJAwi10tJfVvgX9nQnndQQfAmTBC7ckgDqVgk8SMiqFty+9S5
-	8LnUNEY5GBXw/mnArxaqfcU21NrW8hxZgsUMMwWiD/Pk5XFW7rfHPvGcjxJUK4MlgRb0ckvgqFCFC
-	UBl0p9LVb+rJo/banSCD/2jCl59oFCl7vPfXt6kn0Yk73+ej6jqcMCYWkhTA3yebpA7muZJ/T6d1B
-	JKXRhE0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2IgPVPyVRRsi/D1MFmgaBqGT72nrHauEpDjvZrgZuI=; b=vQeJP6TjV6GfS18JBzk3/V9TMN
+	cMr9xCBxw+u1dMe06eHRGAoRMcjYHgXoleNFXxKfLEppA3uoPA01XGywoUn62I//m6DLA5yX2RKGo
+	wCqojGrpCS3JVSBcH2i+srGx/PVhx0qKDt3r5QPJ6Age3Raxy3T32XpNPq2v3wvw2H19f6fE4aQTW
+	nS8JEwMY+YY9z9hjB7+FUKx/jVE7NWa8ZBjWzOh/icmpKBPBvRHLrn7xC9yoC2Iwrm77IIP4YVtly
+	kHKlMYTxD62MeOehW2oDdjE/NrQOJ0GBpVD2Ltp+BkTJK9T680Zj5DG3lZx/oP9e7+dlDvwSLSgv3
+	mJaPCyeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIR9C-00000005Q4H-1aeE;
-	Mon, 10 Nov 2025 12:37:26 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1vIRBf-00000005QKr-1M4e;
+	Mon, 10 Nov 2025 12:39:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIR99-00000005Q3e-3m4I
+	id 1vIRBc-00000005QKV-1Nqq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:37:25 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b3c2c748bc8so370810666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:37:22 -0800 (PST)
+	Mon, 10 Nov 2025 12:39:58 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AACGOuT2407319
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 12:39:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=e2IgPVPyVRRsi/D1MFmgaBqG
+	T72nrHauEpDjvZrgZuI=; b=nbrt13bM+lUj0jm5eumHNYlAygG8/VKbbvzM8gw5
+	X+jVwMljLMS3JEpFW3rzvDMlPt1LnyOlutiKVaPRGkxXXOuDsfQn5PjjaZ560nsQ
+	XqycPkbcBvTXTNOsO72XR7YXCwPFRPx8jU9GuHyfWLJAcuojz8cwfi3ZeSv/WP+6
+	4D6X5S8D490C2Q8DbSvrlCK2h79ZO5gA7T9heFeaVCFzQW7GQEoYl9iOrgcxSIag
+	tvMDk48I/v8B5zKOqGOXkNCEaEJBpb5OQSifyVrSB6JhbcpSWYXXkT8nJ2vkLUh6
+	ai/k70HiQIoBqLnIwE8bysAKnsvmL582DUTIjIejPrFeqw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4abatd94av-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 12:39:55 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b55283ff3fcso2210784a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:39:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1762778241; x=1763383041; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cdbKsB+tMJvagrMvYHn0y49jacarMu1zTyH+h0jj2wI=;
-        b=VWZO6h7MZ2C2C4wwuDQEQpj1MvPC1jTuqSurakBDgEYTd+Zi/kjC1Y/AzU4qk8nMJj
-         oyTOIFDjVa8nvKkVm+lSiWYRXsNGC+AjeZ1PvXyMDw3h2yryz/ALL6nFLaXsluVRgYBl
-         3CqsMJgvZ9ulZpxXMVgw94oXREsYrNwVkNHs26FBJ5E6cd2plOFEbiaVb8FwEKfAotU5
-         3CIdddiqnjvUDRrFjNjsizkCRtjhyrNNj0ngEthrjuvzAQq72HRLu6i1EfnxlrON0qJB
-         uwk7Yzu48Wkl3KyrvwPqkqGCUtAcVrcNVfWhCplNHY2ErNd+wiH1qF+cB8YTfDSi7K6d
-         jAFQ==
+        d=oss.qualcomm.com; s=google; t=1762778395; x=1763383195; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=e2IgPVPyVRRsi/D1MFmgaBqGT72nrHauEpDjvZrgZuI=;
+        b=KPQ6wUoiGZ3zEDerArv5vz1euid3TxPVVMx6o3inUDPPnxXu6dDrCHu6cFIHQFHu8a
+         GvQLQXaOG+xlrwAnPSFjBcja98Ti6L545mXqq+HlT1LUPB1qT+JnlS5o7RL+IrZS+d2t
+         fV0jDa+aI9lFxfRfNXeR/g7SNTexqTw6dkMae/Lluq3Uc+qzq9jKFTIFuEEl9PW8rtRV
+         zgPiwSJ8ruZ14tAbch586q+K5mJ0v5krxGKCCeq8W7042oF6F60DMVIFl32heJXoybxt
+         8ZMF1Rxx1rhThU5VtGVCJKQCbDc1C9+RXkDTJKPTVguF+ROOTqOCUXp24pAJNgQca0H8
+         Nlog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762778241; x=1763383041;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=cdbKsB+tMJvagrMvYHn0y49jacarMu1zTyH+h0jj2wI=;
-        b=kFU/YMRThRbP+EAc0mlv/VkWoozsnkrYajqdVJsJVfQvbgJPJLj9QD01arLInck3jT
-         kKR1qEnqZTCvddZuXGQdX/IYCGvqe5T7tyjaWHAfRGqHIvakqI1eEOYQ29Yh9D5WshfC
-         kMAePGt1gTU72D5gPaq9xuG2benpYfylWRuZRFpeLAkSAC60+E1WeHKLLJ+/fKgDoQoS
-         jD9fjdqgKR/cYlCq+AEfSbUvei5m0VqSyHC7ms0rq/fZUd+WTS53pB3cKdZKce/rVmlw
-         r8wW1fZ3kmf48kuoosDmvdcfOJcl+Dk1lkGjYhToknL0ltEYkiePEkeEZpT70cWkNFpA
-         kyCw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8chOXYJKhfJAQnXTRTMvSx/fdMHMatUBoUT/3mcT1+pvz/pv8OkAPeWVKP2a/OM0GqmCm0VUOaMiW8EUNvkKK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/XLfBOg58ZXlxhe8uo7aEvxaSvM7a8wxjvxd6Cd+oMzbY3mjK
-	/qiB/44hwQuhHhqzQZ0SU4YagpJ3EYml1nXJLRGMn54Bm77MtOwF26b1c7fd0t2cyS5Ct0ISRBU
-	eZY5aglO66CLcZ2UevjdZ3c4iy5ZQbxV1of+HL/i+WA==
-X-Gm-Gg: ASbGnct9M+EKtiYNXPsRU/GqeFeXczzPDYl+/poiI9nMWn64rqmLhbQmvGKgGZOZ4ZW
-	O7R2A1oLI0PCIiN2+IvTT+uIxDY+ma/BwuX1x9n7kdv83+9GBR4CMn2WFPeqaro+KGlhb59xoFM
-	65hsS5ITvwRYcBzj52OpDA6uJWjJP/YEtiXbbtVsdsKQJJ780GYCgc8v00vpQuGWZErofiu9KPP
-	NCPgIrkUhNlCT0bxU0fyal44bs+n77t1wt6nCAZmtYgwKROlQG0wWt//Q5hpzw47W9pVzM=
-X-Google-Smtp-Source: AGHT+IE8R0GEPpZSZEercv3oXNopblQ2LRLU4GoX8SS8pCTS+917rMgdDv/cyw05AUmS6nbzIs8krxRmiMby2Y3ip8U=
-X-Received: by 2002:a17:906:eecc:b0:b72:dc33:3d36 with SMTP id
- a640c23a62f3a-b72e056d8e5mr574165066b.49.1762778241054; Mon, 10 Nov 2025
- 04:37:21 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762778395; x=1763383195;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e2IgPVPyVRRsi/D1MFmgaBqGT72nrHauEpDjvZrgZuI=;
+        b=buzmulIKOKAHraN020Cxv4XqvraHAKkDUgTh+a5pemdo0Zy9rPOrzxA8+nS3I7M6+a
+         cjFtS8toMKNX8FEQIAM2bstll9UaYyqU3RbRnz8LNmvlgEZthhOklCpiXRfH6Jdmjtz9
+         nV7zE9PIpnLCtR1JOPyNST9AicE0rlblzSgRFZIy143JTJTymN/mlxGODjw65SpdnG9u
+         7AB37TZrzDgEhYi+VJ1MKql6xIvwtPqaUMlVhhKCGwBzDY7huzjF4ckNJnpvSRIcc9zi
+         K8AIPcBP/aE50uR6fcsyUudYY8mitHJXr4VGs6TnY/Z1//2cRhGbak6VxyLbFtlBseAK
+         XAdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXEYQszB2HZix8CBX3xOR7ddMfHuJEBxyBkjF7ib9qycZ9sn0lnq5ZzvjExE3VOg5kqx60tvArOBbWCkZXofZEV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmKS3MFgIPBNH8ffAjANwdwKmx/pMJZZdia05VVAEOkfAwnekD
+	XS209dWAcuaFrM6z1ofn4NKWebbplg8JbXpaDMmDk+nl4N7cAFxHfc1n3LSq56r7opJV5vr1JnY
+	/K61FTAILnVtxHVBgbz8dWsQYMVLs02skKPYGcRruFpxo/+xQrAFhF0c6mRNfKyHWHdc+BsukrN
+	mqrQ==
+X-Gm-Gg: ASbGnctCvJAu9Ih95I4BuNQPQUjFL/Ag2+jBJl81GWmU5ez9AywSzZkA+zjIGRpIdFW
+	OcHw+Z6p/jVm+C+kFktcl+hC9zGXrweiw1n1cRBqZpUsQ8ixoHgDPjI1wI/LIO/xvRXIpQvcKKE
+	XKxJyzbgqwXhuEFwTb2oneHP6SNikpCImijwAiR/sgdGl5arVyoAI7GkbWMhbS/egY5qwyn7uog
+	FLAmh8fl8tbStEHosNKSk7uleA6gD3eilFX041yjQY+En7Fwicf/nhvCz9xVLwLXgWtzOcmb62R
+	O6z74M0SZZMztGb5H9Q5ezOUat2Zud0ZbC3PrXQe3nntLFY2hCXRAwNJmx5ZDjAhfc1HM7gUD4s
+	+Tw/NqWieI9fJ1I/NwJJa0YQitw==
+X-Received: by 2002:a05:6a20:1590:b0:34e:a801:8168 with SMTP id adf61e73a8af0-353a3761209mr9029361637.47.1762778394809;
+        Mon, 10 Nov 2025 04:39:54 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHvhctT1tSMNG6n13hgt6Z/xjKjFvhH+tqumfj5n8eOBUIH/gDUalEKFufsKHlASPMhRfKS4Q==
+X-Received: by 2002:a05:6a20:1590:b0:34e:a801:8168 with SMTP id adf61e73a8af0-353a3761209mr9029293637.47.1762778394021;
+        Mon, 10 Nov 2025 04:39:54 -0800 (PST)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba902207232sm12378012a12.32.2025.11.10.04.39.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Nov 2025 04:39:53 -0800 (PST)
+Date: Mon, 10 Nov 2025 18:09:41 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Xin Liu <xin.liu@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Song Xue <quic_songxue@quicinc.com>
+Subject: Re: [PATCH v17 12/12] arm64: dts: qcom: talos: Add PSCI
+ SYSTEM_RESET2 types
+Message-ID: <20251110123941.deecglwnwvhl3soe@hu-mojha-hyd.qualcomm.com>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-12-46e085bca4cc@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20251107141936.1085679-1-robert.marko@sartura.hr> <20251110065701.rch4wjflap3vicjq@DEN-DL-M70577>
-In-Reply-To: <20251110065701.rch4wjflap3vicjq@DEN-DL-M70577>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 10 Nov 2025 13:37:08 +0100
-X-Gm-Features: AWmQ_bnmKGMttOuykPTnFw9koAKzfig9Ix0aGoP1qnMvwkAAXQmuYEVNFMiaUPs
-Message-ID: <CA+HBbNESaT7SfgJPE-MTQphDQc+vcZUBn5mV+yFq_iqk+PcakA@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: sparx5/lan969x: populate netdev of_node
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com, 
-	UNGLinuxDriver@microchip.com, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-12-46e085bca4cc@oss.qualcomm.com>
+X-Proofpoint-GUID: 2ktZiURb75uvN8bc3w3eH86TE7GdWoJE
+X-Authority-Analysis: v=2.4 cv=eZowvrEH c=1 sm=1 tr=0 ts=6911dd1b cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
+ a=jMKWaxwz1VYOFM6W6AcA:9 a=CjuIK1q_8ugA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: 2ktZiURb75uvN8bc3w3eH86TE7GdWoJE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDExMCBTYWx0ZWRfX78m8Zq0QnWZI
+ E2NqnwILcbCZaqCvnAt5eyl9JxIIazKTgxua/U/d1Ea8rmniNo8SqmGJRDTX1hqO1Zmv6J+hEWm
+ fwdq2uRJUxjFBizDkIFXA1P035zPN7+rH2eG8xN6caO/RiKVMNIj0kRwJWT6Vgfx2hqYvSFaJnZ
+ Ce0MW2BVfr/49WFYNhErk6gOJC9r1zmf400H53fbS2P6SM/5SV200DU9fH3taN8YmSNPOsW3oHd
+ 5kUJU7XWv7HUGrzbdURSBNMdMEcCCe2rR8jGqRluWQfFDbskPR9xWDs7/2qn+ZTgqv1UdaLJvYv
+ +CItG9Ky7WyqiG0rlbGw+JjCWPWLTFIut+SkyhniRUT6tRhgsUPO8Bf02QXt2OAAv3F9u+jdwAu
+ JdId7oEAPTsGUcSNxN2bigH1atCylw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-10_05,2025-11-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
+ clxscore=1015 malwarescore=0 priorityscore=1501 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511100110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_043723_969781_47B7C8CA 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20251110_043956_382680_88F8D09D 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,77 +169,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 7:57=E2=80=AFAM Daniel Machon
-<daniel.machon@microchip.com> wrote:
->
-> Hi Robert,
->
-> > Populate of_node for the port netdevs, to make the individual ports
-> > of_nodes available in sysfs.
->
-> Sounds reasonable :-)
->
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/dr=
-ivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> > index 1d34af78166a..284596f1da04 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> > @@ -300,7 +300,11 @@ int sparx5_register_netdevs(struct sparx5 *sparx5)
-> >
-> >         for (portno =3D 0; portno < sparx5->data->consts->n_ports; port=
-no++)
-> >                 if (sparx5->ports[portno]) {
-> > -                       err =3D register_netdev(sparx5->ports[portno]->=
-ndev);
-> > +                       struct net_device *port_ndev =3D sparx5->ports[=
-portno]->ndev;
->
-> This line exceeds 80 chars and can easily be wrapped.
->
-> > +
-> > +                       port_ndev->dev.of_node =3D sparx5->ports[portno=
-]->of_node;
-> > +
-> > +                       err =3D register_netdev(port_ndev);
-> >                         if (err) {
-> >                                 dev_err(sparx5->dev,
-> >                                         "port: %02u: netdev registratio=
-n failed\n",
-> > --
-> > 2.51.1
-> >
->
-> It seems wrong to me to stuff this into sparx5_register_netdevs() - there=
- are
-> two better candidates, either: sparx5_create_netdev (where other ndev var=
-iables
-> are assigned) or sparx5_create_port().
+On Sun, Nov 09, 2025 at 08:07:25PM +0530, Shivendra Pratap wrote:
+> Add support for SYSTEM_RESET2 vendor-specific resets as
+> reboot-modes in the psci node.  Describe the resets: "bootloader"
+> will cause device to reboot and stop in the bootloader's fastboot
+> mode.  "edl" will cause device to reboot into "emergency download
+> mode", which permits loading images via the Firehose protocol.
+> 
+> Signed-off-by: Song Xue <quic_songxue@quicinc.com>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/talos.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/talos.dtsi b/arch/arm64/boot/dts/qcom/talos.dtsi
+> index eb6f69be4a82ea47486f5c8e39519d0952b146cb..c946d07c540f5ae40f147ccb06539ecf0de18df5 100644
+> --- a/arch/arm64/boot/dts/qcom/talos.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/talos.dtsi
+> @@ -612,6 +612,11 @@ cluster_pd: power-domain-cluster {
+>  					      &cluster_sleep_1
+>  					      &cluster_sleep_2>;
+>  		};
+> +
+> +		reboot-mode {
+> +			mode-bootloader = <0x10001 0x2>;
+> +			mode-edl = <0 0x1>;
+> +		};
+>  	};
 
+Feel free to add
 
-Yeah, I indeed overcomplicated this compared to setting it directly in
-sparx5_create_port().
-I will update this in v2.
+Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 
-Regards,
-Robert
->
->
-> /Daniel
+for Lemans, Monaco, Talos ..
 
+>  
+>  	reserved-memory {
+> 
+> -- 
+> 2.34.1
+> 
 
-
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+-- 
+-Mukesh Ojha
 
