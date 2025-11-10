@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265CECCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C88CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRMyZfdYsDpRh9FUI3Yc9w8yH9JHyWqK4UFoLOqgVs0=; b=iEUjJqx5l0aAKLCOI0qg0V/QIz
-	GiVEZiIvsqTI7FZo5sBW3c0ZBoeJ5uK0SOpBnTLD6uzghJWrgpM4Rtuog4Nmx1WllA1X87HETzB7e
-	jz21S2NkG1e2/oGy+4w9ok9AWAWvbDRZrkmCARO+7CSmMSfAtN5gX7KJdwQ0vB2P7ijp7HYlEmJb4
-	8Zn0uDFCmP5PXwZkpvKtzwWrZZ24pr+SbOuo5PrvkDJn5Ct8v7oIMUqZhQwSVGUhpBn60ldd6AIbH
-	1trTDAzlmvauLqtFqSrJTRFBO+ouGebURYsUrSMN/a/mJzvzYjnAvlDCCVqov6wZnBCq66q5hJMTo
-	Wrgu+d+g==;
+	bh=A/l5IM2pys/idk62R90arU8t+o7fTnqV+02DKi4nACM=; b=Bjpz7cySJ9BIjAeBQYsEkuQE6Z
+	kneYhy5XzDjJ3IECITNgkt+R2NMbJWCnygP9z7fJYHvJkAXR+MT0wOg1aT9Fi8ob+CJP1RISMDKpP
+	MCsI1KDFqs2Ens7pCvYOiixf+YLuY+13ZBrH1JHE1QmgMydhwENfjEgr72UrU0/6vaVQ6P+vpibIs
+	0GrqxtKFcwzLL7d4fzA6HrjANi9i0Geus++cQwYN3qCkKDfq+tNG+ld7CXpcx7zH5XV2Wc8Fm5FcE
+	/kAwzKWlXDU24ikGVCCUqc5NgjcnAUA/5Pudt2ctmlQ6D54d9pERZeSADxlBHSxNoMZAWFZ6T325+
+	Tlbc4YuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQJd-00000005LI2-2xYr;
-	Mon, 10 Nov 2025 11:44:10 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQJZ-00000005LHe-2Eh6
+	id 1vIQJw-00000005LLV-3XK4;
+	Mon, 10 Nov 2025 11:44:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIQJs-00000005LKQ-21Ge
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:44:08 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47721743fd0so13918725e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:44:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762775043; x=1763379843; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RRMyZfdYsDpRh9FUI3Yc9w8yH9JHyWqK4UFoLOqgVs0=;
-        b=iAUvW3LUumVsVFZYroImMYLqUYLeO1NKJidEVygycKe6Ek0NS/gwfuwnThyG4tbJvw
-         S6Smi5nl1ILnhkQV11Xoh6bA0FV+xu33NSAw2GvGhn/IUp3SP4gosMc8fcIivF4h40Mt
-         HRUTGZgZcuB1JOtOw0Nj1TmLh2UJNTRHJNqNtRZkKHonBDJ6y35EK3ii330I1frRExmK
-         ARhyy6uKoZYy3rCaG5bUovWOuTZTr5v66WByn18N79jU0l8URhu9pY7n6pVdU7D+PjmT
-         eFdaqj1NrtPJKHftbgDCsHItWzRXP7gXdpXEOdZSdA29+BpB722GVDy1jm2COWigkhr2
-         fgZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762775043; x=1763379843;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RRMyZfdYsDpRh9FUI3Yc9w8yH9JHyWqK4UFoLOqgVs0=;
-        b=ru8lfofR8GSBdZ6q3H9YxCPp6UJsw5QEedxtrPxRjUqG0FBFCQUmj6wrhzzS/Wz9Yx
-         TXwv0R3eTJ9W/z0XNzOAMQAfrkEYyCrX0MA7+qywnGYpwExdP8rIN/ngFFr9+PIJV6/1
-         7Yy5bT6/5us9PgQ9Lbhp/ua+dwU6kzyiuHmY+/6gVwO6AGouuU3+lG3PoIS1Y+cuuZi4
-         IVAgVx/MQDpf1UdHjkCY5vdEwhLIryDny71PdqSVu686PUFd/P4s3n6679ewp8aaT2Nt
-         Wo5/i1WAtGBWBFyRLJ8myZT1rH9eOfvnzVSAYE6TuIo+NYu0Se54WdSGFwJ6IiLp6kXU
-         aifw==
-X-Forwarded-Encrypted: i=1; AJvYcCXz+Xrw39kIQG1nYhMcMXLpSwQ7Ihv3npRqKgUC32Fz/Sg3uj4Gy9OOvu1heBg1bwnsAbxhq7YozwMeMEWBgxPM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4mIuKmQBKVB1gWWXVHMPa0MhD664wZZe1wsRLweSE251VRvMq
-	QqjMClIASWAlgPdvyMud10U+VrJQRWd7nviQ7wd0EYTFd9AqUqEOyRKHaIlO8V6R+uI=
-X-Gm-Gg: ASbGncsXDGEaExogV4suZQCwrsHi2z4CryZLEfiexGjWjwVWn5KGfY7wpysCxdS0R44
-	PodutEL/2WimcxSB7kl/mQ+3Ezsw9fdZG5cGTitUQzWe/+42sb/A1hrunuHHrFsM70E6X5EJ/Ab
-	D8+NF4greFxFx8aprBzalrxaPdHHEqgKKIXzm/YlZsbvzs9W66/VroKWgdkZInfjs5T9ygxa9t8
-	p4PADn2AcLKFMEjX0pt5Ycs/kVHzSPAJKHTistXubsezi+lxb0ehT5hR2CSlvwjVtJpUkqTvOyN
-	Sc54HHQlbBG42P1bK63dpZ2DULQxMfElugYdrKeXEhDq1TEERDJPkBa85QwfvR2ar6c+RW5jEOI
-	/O87Cy1n7OFLftSY7Vdvzkxkp354DpKC+/uQaI4v3BnxVMwUOd/ACboSicwsy+uIviVXXf7sE9i
-	NjrdlqVNK37s0zclGECBzu3LyAz38=
-X-Google-Smtp-Source: AGHT+IEYjSyM5kVS9bSnwlaDyOY9Bx4Yg5jomNgYzxM2fhNfrgo0sdrxgcTvNJaim4dcl4FGpXR4Rw==
-X-Received: by 2002:a05:600c:1c8e:b0:477:54cd:202f with SMTP id 5b1f17b1804b1-47773230ae6mr59378805e9.3.1762775043579;
-        Mon, 10 Nov 2025 03:44:03 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679e06csm21513538f8f.47.2025.11.10.03.44.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 03:44:03 -0800 (PST)
-Message-ID: <93e1b195-ef3a-46d0-827b-46e7ec0bbb98@linaro.org>
-Date: Mon, 10 Nov 2025 11:44:02 +0000
+	Mon, 10 Nov 2025 11:44:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE080497;
+	Mon, 10 Nov 2025 03:44:15 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3640D3F63F;
+	Mon, 10 Nov 2025 03:44:22 -0800 (PST)
+Message-ID: <f52a601f-7275-478c-a759-1a87f0550c42@arm.com>
+Date: Mon, 10 Nov 2025 11:44:20 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/15] coresight: Control path during CPU idle
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+Subject: Re: [PATCH v5 11/11] coresight: etm4x: Reuse normal enable and
+ disable logic in CPU idle
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-11-3d4bba674709@arm.com>
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
+ <20251103-arm_coresight_power_management_fix-v5-11-f803c19aa153@arm.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-11-3d4bba674709@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-11-f803c19aa153@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_034405_596904_551139B4 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20251110_034426_506899_62847BC6 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +70,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 04/11/2025 3:21 pm, Leo Yan wrote:
-> Control links and helpers on an activated path during CPU idle. Since
-> coresight_disable_path_from() does not handle a source device's
-> helpers, explicitly disable them alongside the source device.
+On 03/11/2025 16:49, Leo Yan wrote:
+> The etm4_enable_trace_unit() function is almost identical to the restore
+> flow, with a few differences listed below:
 > 
+> 1) TRCQCTLR register
+> 
+>     The TRCQCTLR register is saved and restored during CPU idle, but it
+>     is never touched in the normal flow. Given the Q element is not
+>     enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
+>     restoring this register during idle.
+> 
+> 2) TRCSSCSRn.STATUS bit
+> 
+>     The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
+>     but instead directly loads the saved value. In contrast, the normal
+>     flow clears this bit to 0 when re-enabling single-shot control.
+> 
+>     Therefore, the restore function passes the restart_ss argument as
+>     false to etm4_enable_hw() to avoid re-enabling single-shot mode.
+> 
+> 3) Claim Tag Handling
+> 
+>     The claim tag is acquired and released in normal flow, on the other
+>     hand, the claim protocol is not applied in CPU idle flow - it simply
+>     restores the saved value.
+> 
+>     The claim bits serve two purpose:
+> 
+>     * Exclusive access between the kernel driver and an external
+>       debugger. During CPU idle, the kernel driver locks the OS Lock,
+>       ensuring that the external debugger cannot access the trace unit.
+>       Therefore, it is safe to release the claim tag during idle.
+> 
+>     * Notification to supervisory software to save/restore context for
+>       external debuggers. The kernel driver does not touch the external
+>       debugger's claim bit (ETMCLAIM[0]).
+> 
+>     Based on this, it is safe to acquire and release claim tag in the
+>     idle sequence.
+> 
+> 4) OS Lock Behavior
+> 
+>     The OS Lock should be locked during CPU idle states. This differs
+>     from the normal flow, which unlock it. This special handling remains
+>     in the CPU save path.
+> 
+> This commit reuses the normal enable and disable logic in the CPU idle
+> path. The only addition is locking the OS Lock upon entering idle to
+> ensure exclusive access.
+> 
+> The save context in the driver data is no longer needed and has been
+> removed.
+> 
+> Tested-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
-
-Reviewed-by: James Clark <james.clark@linaro.org>
 > ---
->   drivers/hwtracing/coresight/coresight-core.c | 22 +++++++++++++++++++++-
->   1 file changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 6c12692efb51c63f3aa9da6f65a349eae1926f4d..73be22c8f315525111f2dafd692e61bc6db85c25 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1661,11 +1661,31 @@ static bool coresight_pm_is_needed(struct coresight_device *csdev)
->   
->   static int coresight_pm_save(struct coresight_device *csdev)
->   {
-> -	return coresight_ops(csdev)->pm_save_disable(csdev);
-> +	int ret;
-> +
-> +	if (WARN_ON(!csdev->path))
-> +		return -EINVAL;
-> +
-> +	ret = coresight_ops(csdev)->pm_save_disable(csdev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	coresight_disable_helpers(csdev, NULL);
-> +	coresight_disable_path_from(csdev->path, NULL, true);
-> +	return 0;
->   }
->   
->   static void coresight_pm_restore(struct coresight_device *csdev)
->   {
-> +	if (WARN_ON(!csdev->path))
-> +		return;
-> +
-> +	/*
-> +	 * During CPU idle, the sink device is not accessed, so it is okay to
-> +	 * pass a NULL pointer for the 'sink_data' parameter.
-> +	 */
-> +	coresight_enable_path_internal(csdev->path, coresight_get_mode(csdev),
-> +				       NULL, true);
->   	coresight_ops(csdev)->pm_restore_enable(csdev);
->   }
->   
-> 
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 201 +--------------------
+>   drivers/hwtracing/coresight/coresight-etm4x.h      |  57 ------
+>   2 files changed, 5 insertions(+), 253 deletions(-)
 
+nice diff stat !
+
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 662492ddd296d9974406ddffad14e7ccb92edbae..d7da5f3b97b3b18d5d6eee0c20a3bdca0c4bec1a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1845,8 +1845,7 @@ static int etm4_dying_cpu(unsigned int cpu)
+>   
+>   static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+>   {
+> -	int i, ret = 0;
+> -	struct etmv4_save_state *state;
+> +	int ret = 0;
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct csdev_access *csa;
+>   	struct device *etm_dev;
+> @@ -1876,93 +1875,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+>   		ret = -EBUSY;
+>   		goto out;
+>   	}
+
+
+> +	etm4_cs_lock(drvdata, csa);
+
+> +	etm4_disable_hw(drvdata);
+>   
+> +	etm4_cs_unlock(drvdata, csa);
+This looks a bit hacky. Here are the options :
+
+1. Leave it as above, but clearly explain in a comment why we do this.
+2. The other option is to restructure etm4_disable_hw into
+  etm4_cs_unlock()
+  __etm4_disable_hw()
+  etm4_cs_lock()
+
+And use __etm4_disable_hw() from here.
+
+>   	/* wait for TRCSTATR.IDLE to go up */
+>   	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
+>   		dev_err(etm_dev,
+> @@ -1972,14 +1889,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+>   		goto out;
+
+This goto can be removed too.
+
+Suzuki
 
