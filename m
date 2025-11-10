@@ -4,69 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654BBCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F80CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H28N/nOJOW4OO3ECXUnc0RfLmPnr8dk/J/liMIUmoUs=; b=FbQ//d1/fcE8wWY2TKavoyhC6h
-	TaBOjVtfporHBW5AqbukxjH3DsdNeylwVm9e6faqebBtVNs7Cb7+MCH1ZHBEt/jdMwHP3GfvOCkp/
-	LFpJhy5pFJ69TXrtQJC0ifnX96JMsv6rvfSeser5WPq2aBlS1536k6Uxj6147OD/hULY3B3a1kEmZ
-	Z6zYX3fklNtAEsXGSHeNkoGR2gIa8c+2tBZIHkZBnRr4PBRjpfrbxIXssvoe9O3PJckOINx6eL1XX
-	TA+yKv8FeWrkMO9LqFYH+KA7XyicWOMWgEenzpE637/0/FNizv+2XW7sUzgGw8QTWOEZdgqzoy/7S
-	3rbgDh1g==;
+	bh=RC3lGrqJPe/0O/QOdN48fZmETIJoBwsQwRZlNimQeZU=; b=umzhZ91XC0WW0kQ2URkj5l/OOG
+	WfiB7PScpqMrc6oCz3szMkQpMgbhj86eS33JNJE39NdzO3jgJGeU9aVxywlLRiXoxl4k2mIM3dHza
+	SB+0xJ4w/fyFHJYCuFlWz9rwIK7He2Qqkd0+FZX1RyGeD8k5sg17wHLhjUKzrkepgAkHe6OtswbQ8
+	6zio7hnqBiJXhyifG9qF98gEJEgj9enqtwfe15Kz7Zb82PQ/5dVZCKXcYcYrylbjVQGUm0mvbxgUv
+	Yct2EZKqwVeMzmNq4d8u9XYFPT2/mzjrRV95j2ovT9t+ocJbfHxcp0Emw41NEuBDsKJ3f00nIrx6K
+	M6fNyEJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUCi-00000005jyL-3yW9;
-	Mon, 10 Nov 2025 15:53:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vIUEw-00000005kE8-12pA;
+	Mon, 10 Nov 2025 15:55:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUCh-00000005jy3-32L7;
-	Mon, 10 Nov 2025 15:53:15 +0000
+	id 1vIUEu-00000005kE0-3uqo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 15:55:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A525601E3;
-	Mon, 10 Nov 2025 15:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0843C4CEFB;
-	Mon, 10 Nov 2025 15:53:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762789994;
-	bh=X/dWGimw/LSFDTpuFMyHfdQWDYn1vJWeUhPbI31TuUQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hjy8zyfmOzcWWLBWM69sAJmZb/mjGHCqwcvT59DFPvRBNLZLuD4GFaf3iXFqX0VPR
-	 4iqYEeRq4YCOgOV+zcKc5F517L19UD1x6A+iimLAehaHNCJP9yVUns++rX5stn7y0j
-	 0l1/5hpeecQP9Px8WVA1DvtSb2OnrkYsxocChZ6SJe3TwWacIB7Abb3OoZGoEl7jjO
-	 I/qbeqVKY0AR4ECB6XWwCho0Acg57DjXbBRR9xVQvSy3Gy26XBVlmr4NsvJ82KDIwU
-	 7Bd/BB3lZjQlXQkSQRmNeOwGUrkd55rvzhdWPpvwUGLIcWl01UHqw79myKhhZicnKv
-	 ZmI63oGozEO7A==
-Date: Mon, 10 Nov 2025 21:23:02 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Dragan Simic <dsimic@manjaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-Message-ID: <2n3wamm3txxc6xbmvf3nnrvaqpgsck3w4a6omxnhex3mqeujib@2tb4svn5d3z6>
-References: <aQ9FWEuW47L8YOxC@ryzen>
- <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
- <aRCI5kG16_1erMME@ryzen>
- <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
- <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
- <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
- <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
- <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
- <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
- <aRHb4S40a7ZUDop1@ryzen>
+	by tor.source.kernel.org (Postfix) with ESMTP id 0BE7E601E6;
+	Mon, 10 Nov 2025 15:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65DD4C19422;
+	Mon, 10 Nov 2025 15:55:30 +0000 (UTC)
+Date: Mon, 10 Nov 2025 15:55:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>
+Cc: Jan Polensky <japo@linux.ibm.com>, akpm@linux-foundation.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	will@kernel.org
+Subject: Re: [PATCH] mm/huge_memory: restrict __GFP_ZEROTAGS to HW tagging
+ architectures
+Message-ID: <aRIK79pCWNZS1Yr1@arm.com>
+References: <20251031170133.280742-1-catalin.marinas@arm.com>
+ <20251109003613.1461433-1-japo@linux.ibm.com>
+ <690ce196-58cb-4252-ab72-967e1e1574cf@gmail.com>
+ <aRG05VS-IIxV2y_C@li-276bd24c-2dcc-11b2-a85c-945b6f05615c.ibm.com>
+ <fbca7868-6f68-4b98-a2f2-e39eb46b7f12@gmail.com>
+ <aRIEkLw7BofLjOWs@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRHb4S40a7ZUDop1@ryzen>
+In-Reply-To: <aRIEkLw7BofLjOWs@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,234 +65,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 01:34:41PM +0100, Niklas Cassel wrote:
-> On Mon, Nov 10, 2025 at 06:15:33PM +0800, Shawn Lin wrote:
-> > > 
-> > > Could you try PCIe 2.0 slot on your board?
-> > 
-> > I did, it doesn't work on PCIe 2.0 slot. From the PA, I could see
-> > the link is still in training during pci_host_probe() is called.
-> > Add some delay before pci_rescan_bus() in pcie-dw-rockchip doesn't
-> > help. But the below change should work as we delayed pci_host_probe().
-> > 
-> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > @@ -236,6 +236,8 @@ static int rockchip_pcie_start_link(struct dw_pcie *pci)
-> >         msleep(PCIE_T_PVPERL_MS);
-> >         gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
-> > 
-> > +       msleep(50);
-> > +
-> >         return 0;
-> > 
-> > Otherwise we got:
-> > 
-> > [    0.841518] pci_bus 0003:33: busn_res: can not insert [bus 33-31] under
-> > [bus 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.842596] pci_bus 0003:33: busn_res: [bus 33-31] end is updated to 33
-> > [    0.843184] pci_bus 0003:33: busn_res: can not insert [bus 33] under [bus
-> > 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.844120] pci 0003:32:00.0: devices behind bridge are unusable because
-> > [bus 33] cannot be assigned for them
-> > [    0.845229] pci_bus 0003:34: busn_res: can not insert [bus 34-31] under
-> > [bus 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.846309] pci_bus 0003:34: busn_res: [bus 34-31] end is updated to 34
-> > [    0.846898] pci_bus 0003:34: busn_res: can not insert [bus 34] under [bus
-> > 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.847833] pci 0003:32:06.0: devices behind bridge are unusable because
-> > [bus 34] cannot be assigned for them
-> > [    0.848923] pci_bus 0003:35: busn_res: can not insert [bus 35-31] under
-> > [bus 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.850014] pci_bus 0003:35: busn_res: [bus 35-31] end is updated to 35
-> > [    0.850605] pci_bus 0003:35: busn_res: can not insert [bus 35] under [bus
-> > 32-31] (conflicts with (null) [bus 32-31])
-> > [    0.851540] pci 0003:32:0e.0: devices behind bridge are unusable because
-> > [bus 35] cannot be assigned for them
-> > [    0.852424] pci_bus 0003:32: busn_res: [bus 32-31] end is updated to 35
-> > [    0.853028] pci_bus 0003:32: busn_res: can not insert [bus 32-35] under
-> > [bus 31] (conflicts with (null) [bus 31])
-> > [    0.853184] hub 3-0:1.0: USB hub found
-> > [    0.853931] pci 0003:31:00.0: devices behind bridge are unusable because
-> > [bus 32-35] cannot be assigned for them
-> > [    0.854262] hub 3-0:1.0: 1 port detected
-> > [    0.855144] pcieport 0003:30:00.0: bridge has subordinate 31 but max busn
-> > 35
-> > [    0.855722] hub 4-0:1.0: USB hub found
-> > [    0.856109] pci 0003:32:00.0: PCI bridge to [bus 33]
-> > [    0.856939] pci 0003:32:06.0: PCI bridge to [bus 34]
-> > [    0.857133] hub 4-0:1.0: 1 port detected
-> > [    0.857430] pci 0003:32:0e.0: PCI bridge to [bus 35]
-> > [    0.858236] pci 0003:31:00.0: PCI bridge to [bus 32-35]
-> 
-> Mani,
-> 
-> while I see the idea behind your suggested hack:
+On Mon, Nov 10, 2025 at 03:28:16PM +0000, Catalin Marinas wrote:
+> On Mon, Nov 10, 2025 at 10:53:33AM +0100, David Hildenbrand (Red Hat) wrote:
+> > On 10.11.25 10:48, Jan Polensky wrote:
+> > > On Mon, Nov 10, 2025 at 10:09:31AM +0100, David Hildenbrand (Red Hat) wrote:
+> > > > On 09.11.25 01:36, Jan Polensky wrote:
+> > > > > The previous change added __GFP_ZEROTAGS when allocating the huge zero
+> > > > > folio to ensure tag initialization for arm64 with MTE enabled. However,
+> > > > > on s390 this flag is unnecessary and triggers a regression
+> > > > > (observed as a crash during repeated 'dnf makecache').
+> [...]
+> > > > I think the problem is that post_alloc_hook() does
+> > > > 
+> > > > if (zero_tags) {
+> > > > 	/* Initialize both memory and memory tags. */
+> > > > 	for (i = 0; i != 1 << order; ++i)
+> > > > 		tag_clear_highpage(page + i);
+> > > > 
+> > > > 	/* Take note that memory was initialized by the loop above. */
+> > > > 	init = false;
+> > > > }
+> > > > 
+> > > > And tag_clear_highpage() is a NOP on other architectures.
+[...]
+> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+> index 2312e6ee595f..dcff91533590 100644
+> --- a/arch/arm64/include/asm/page.h
+> +++ b/arch/arm64/include/asm/page.h
+> @@ -33,6 +33,7 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>  						unsigned long vaddr);
+>  #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
 >  
-> +       if (pdev->vendor == 0x1d87 && pdev->device == 0x3588) {
-> +               pdev->is_hotplug_bridge = pdev->is_pciehp = 1;
-> +               return;
-> +       }
-> 
-> 
-> Considering what Shawn says, that the switch gets enumerated properly
-> if we simply add a msleep() in ->start_link(), which will be called
-> by dw_pcie_host_init() before pci_host_probe() is called...
-> 
-
-Yes, that delay probably gives enough time for the link up IRQ to kick in before
-the initial bus scan happens.
-
-> ...we already have a delay in the link up IRQ handler, before calling
-> pci_rescan_bus().
-> 
-
-That delay won't help in this case.
-
-> So, I think that the problem is that we are unconditionally calling
-> pci_host_probe() in dw_pcie_host_init(), even for platforms that have
-> a link-up IRQ.
-> 
-> 
-> I think a better solution would be something like:
-> 
-
-This solution will work as long as the PCIe device is powered ON before
-start_link(). For CEM and M.2 Key M connectors, the host controller can power
-manage the components. But for other specifications/keys requiring custom power
-management, a separate driver would be needed.
-
-That's why I suggested using pwrctrl framework as it can satisfy both usecases.
-However, as I said, it needs a bit of rework and I'm close to submitting it.
-
-But until that gets merged, either we need to revert your link up IRQ change or
-have the below patch. IMO, the revert seems simple.
-
-- Mani
-
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index e92513c5bda5..42d987ddab7d 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -565,6 +565,39 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
->  	return 0;
+> +bool arch_has_tag_clear_highpage(void);
+>  void tag_clear_highpage(struct page *to);
+>  #define __HAVE_ARCH_TAG_CLEAR_HIGHPAGE
+>  
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 125dfa6c613b..318d091db843 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -967,18 +967,13 @@ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+>  	return vma_alloc_folio(flags, 0, vma, vaddr);
 >  }
 >  
-> +static int dw_pcie_host_initial_scan(struct dw_pcie_rp *pp)
+> +bool arch_has_tag_clear_highpage(void)
 > +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct pci_host_bridge *bridge = pp->bridge;
-> +	int ret;
-> +
-> +	ret = pci_host_probe(bridge);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (pp->ops->post_init)
-> +		pp->ops->post_init(pp);
-> +
-> +	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> +
-> +	return 0;
+> +	return system_supports_mte();
 > +}
 > +
-> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> +{
-> +	if (!pp->initial_linkup_irq_done) {
-> +		if (dw_pcie_host_initial_scan(pp)) {
-> +			//TODO: cleanup
-> +		}
-> +		pp->initial_linkup_irq_done = true;
-> +	} else {
-> +		/* Rescan the bus to enumerate endpoint devices */
-> +		pci_lock_rescan_remove();
-> +		pci_rescan_bus(pp->bridge->bus);
-> +		pci_unlock_rescan_remove();
-> +	}
-> +}
-> +
->  int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  void tag_clear_highpage(struct page *page)
 >  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> @@ -672,15 +705,13 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
->  	if (!pp->use_linkup_irq)
->  		/* Ignore errors, the link may come up later */
->  		dw_pcie_wait_for_link(pci);
+> -	/*
+> -	 * Check if MTE is supported and fall back to clear_highpage().
+> -	 * get_huge_zero_folio() unconditionally passes __GFP_ZEROTAGS and
+> -	 * post_alloc_hook() will invoke tag_clear_highpage().
+> -	 */
+> -	if (!system_supports_mte()) {
+> -		clear_highpage(page);
+> -		return;
+> -	}
 > -
-> -	ret = pci_host_probe(bridge);
-> -	if (ret)
-> -		goto err_stop_link;
-> -
-> -	if (pp->ops->post_init)
-> -		pp->ops->post_init(pp);
-> -
-> -	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> +	else
-> +		/*
-> +		 * For platforms with Link Up IRQ, initial scan will be done
-> +		 * on first Link Up IRQ.
-> +		 */
-> +		if (dw_pcie_host_initial_scan(pp))
-> +			goto err_stop_link;
+>  	/* Newly allocated page, shouldn't have been tagged yet */
+>  	WARN_ON_ONCE(!try_page_mte_tagging(page));
+>  	mte_zero_clear_page_tags(page_address(page));
+> diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+> index 105cc4c00cc3..7aa56179ccef 100644
+> --- a/include/linux/highmem.h
+> +++ b/include/linux/highmem.h
+> @@ -251,6 +251,11 @@ static inline void clear_highpage_kasan_tagged(struct page *page)
 >  
->  	return 0;
+>  #ifndef __HAVE_ARCH_TAG_CLEAR_HIGHPAGE
 >  
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index e995f692a1ec..a31bd93490dc 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -427,6 +427,7 @@ struct dw_pcie_rp {
->  	int			msg_atu_index;
->  	struct resource		*msg_res;
->  	bool			use_linkup_irq;
-> +	bool			initial_linkup_irq_done;
->  	struct pci_eq_presets	presets;
->  	struct pci_config_window *cfg;
->  	bool			ecam_enabled;
-> @@ -807,6 +808,7 @@ void dw_pcie_msi_init(struct dw_pcie_rp *pp);
->  int dw_pcie_msi_host_init(struct dw_pcie_rp *pp);
->  void dw_pcie_free_msi(struct dw_pcie_rp *pp);
->  int dw_pcie_setup_rc(struct dw_pcie_rp *pp);
-> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp);
->  int dw_pcie_host_init(struct dw_pcie_rp *pp);
->  void dw_pcie_host_deinit(struct dw_pcie_rp *pp);
->  int dw_pcie_allocate_domains(struct dw_pcie_rp *pp);
-> @@ -844,6 +846,9 @@ static inline int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
->  	return 0;
+> +static inline bool arch_has_tag_clear_highpage(void)
+> +{
+> +	return false;
+> +}
+> +
+>  static inline void tag_clear_highpage(struct page *page)
+>  {
 >  }
->  
-> +static inline void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> +{ }
-> +
->  static inline int dw_pcie_host_init(struct dw_pcie_rp *pp)
+> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> index e4efda1158b2..5ab15431bc06 100644
+> --- a/mm/page_alloc.c
+> +++ b/mm/page_alloc.c
+> @@ -1798,7 +1798,8 @@ inline void post_alloc_hook(struct page *page, unsigned int order,
 >  {
->  	return 0;
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 8a882dcd1e4e..042e5845bdd6 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -468,10 +468,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
->  		if (rockchip_pcie_link_up(pci)) {
->  			msleep(PCIE_RESET_CONFIG_WAIT_MS);
->  			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> -			/* Rescan the bus to enumerate endpoint devices */
-> -			pci_lock_rescan_remove();
-> -			pci_rescan_bus(pp->bridge->bus);
-> -			pci_unlock_rescan_remove();
-> +			dw_pcie_handle_link_up_irq(pp);
->  		}
->  	}
+>  	bool init = !want_init_on_free() && want_init_on_alloc(gfp_flags) &&
+>  			!should_skip_init(gfp_flags);
+> -	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS);
+> +	bool zero_tags = init && (gfp_flags & __GFP_ZEROTAGS) &&
+> +		arch_has_tag_clear_highpage();
+>  	int i;
 >  
+>  	set_page_private(page, 0);
+> --------------------8<--------------------------------
 > 
-> 
-> 
-> 
-> What do you think?
-> 
-> 
-> 
-> Kind regards,
-> Niklas
+> Reasoning: with MTE on arm64, you can't have kasan-tagged pages in the
+> kernel which are also exposed to user because the tags are shared (same
+> physical location). The 'zero_tags' initialisation in post_alloc_hook()
+> makes sense for this behaviour. With virtual tagging (briefly announced
+> in [1], full specs not public yet), both the user and the kernel can
+> have their own tags - more like KASAN_SW_TAGS but without the compiler
+> instrumentation. The kernel won't be able to zero the tags for the user
+> since they are in virtual space. It can, however, continue to use Kasan
+> tags even if the pages are mapped in user space. In this case, I'd
+> rather use the kernel_init_pages() call further down in
+> post_alloc_hook() than replicating it in tag_clear_highpage(). When we
+> get to upstreaming virtual tagging (informally vMTE, sometime next
+> year), I'd like to have a kernel image that supports both, so the
+> decision on whether to call tag_clear_highpage() will need to be
+> dynamic.
+
+Actually, there's not much to kernel_init_pages() other than disabling
+kasan temporarily since the unpoisoning already took place a few lines
+up. The arm64 tag_clear_highpage() calling clear_highpage() directly is
+fine before unpoisoning. So we can cope with this even in the vMTE case.
+
+A simple patch hiding the enum is fine by me.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Catalin
 
