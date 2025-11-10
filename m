@@ -4,87 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000ABCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 06:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3935BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 06:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJ7LYF5rARcfLsBpxePOybR+1y8/o3ZLz4XlyN978+M=; b=I+Z54rlCzNH2sWqOl+Ynuv76GM
-	6ElyjscyOvPBAD5r132GqDOEoyfSFqBQf/w4Gp0sFF/YlKWScWRatw+wjR/iQRqb+1Blcj0h/65hu
-	w0GBSnm5JfhvSxQbI7PzqpEHa1PHsD2FZ79qCFE4kQXaxRWsvz37tiK2ndA43bbYGG9jaU9p0PeWM
-	dq7U3JrtpG3nT00d0+6AVGujKkt7waLHcIBUT9uEjjX1g2pLlu5jGuvm/Zl72RBQm5aOOCWQ/jQ/E
-	3scYTQhWEKrTDQi0UuTOnHpS8xOUQ4cKzXfYE8vkVRrpI+imBzHkrsF5eGKXbXMDxg2XOvXP4BMU5
-	8rnfwacw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/3oZzp3mFtdejMsL/WCpGTVAI/O2H4YG0P4mmnBoqU=; b=qwsfoFe1avC3EW/RgzSlnXB8Fy
+	e5koYEOi42zlLT8Kcu1zaMNeDxu2j/Ey5Xf373H6LTYUxZHyhBYzPgiaKfTBPoSZGTb/Ct+n08bP1
+	/r0WTluqgE/FhNvuFOTzmp5IxQP7CZsWABdmk9r+o4o98c9znE1MLyjGDehFXAodDtzgpOwd+VmHq
+	2iuI/GPgBoCWykBA/5OknzLYtZJljXz3adhml0gP1wl+smYKyowCrRuO6MWH3D0zVCrZ2LZPPTB2n
+	d/L9PlnCOd2X20wKF0rRqkZc9UKQ/CVAMQaAXeZopzyBxmSX40AWlRhZoq2dYS3k28/nBtKJTIitp
+	G0dkbIVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILec-00000004qk8-3B0V;
-	Mon, 10 Nov 2025 06:45:30 +0000
-Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
+	id 1vILk6-00000004r6p-0qhL;
+	Mon, 10 Nov 2025 06:51:10 +0000
+Received: from mail-eastusazon11011000.outbound.protection.outlook.com ([52.101.52.0] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILeW-00000004qjb-3dIh
+	id 1vILk2-00000004r62-1sV4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 06:45:29 +0000
-Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-93722262839so1097451241.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 22:45:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762757123; x=1763361923; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TJ7LYF5rARcfLsBpxePOybR+1y8/o3ZLz4XlyN978+M=;
-        b=GwWwQouo91kwKlymB1ivyESwDUH9OGwgNSbXvsAoKwBYAovG9jt/fS/1xfQyxdYxdG
-         m2W+M94A+EkhOWKcvrrW+O7KUmPn09abwmCZDuTjkmLNKLajDCiITsVnGf593lKkY9Yd
-         8ElvhbfXJ3+tFZ0mmxdZeMJUZTk6VFdhHJ1b5yrolALEHR/9jH12b6zFnSy1RYm0+d70
-         kFmhPFId3Q79abrFkGC5zmfj9QC1KJQDY+0Ghdt8syMRHyU2B2MC879PGpnsw3cf62Mi
-         Lw1E7/Vd1YX4rHELERdJ02TBOGlgj0Dn15E9TBCWrjtTmj2BMEptvLrxy7OBGq16k/A9
-         1qpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762757123; x=1763361923;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TJ7LYF5rARcfLsBpxePOybR+1y8/o3ZLz4XlyN978+M=;
-        b=Kit2W5N4X0oZaBowKXKR98i9cpDLbYpyMRhiJltXVl07jBA/XZSGYaahOS5epoHXL2
-         IhWZsZvf+GnhP3vi72FYYiLfOgGnKvXPqWW5Gjts8O+xiYjTe8VszV2CO6nwtZ1tosPZ
-         vjTUFFnPJ17hBrs9LVE+gHdPFAqz6BERPelNZZS1D3eaT829ZePluWkoeA9D8lK4q0wo
-         0/FX6NiXl1iisL8CBIjBDh1nVckqKQMI2Th1uo1owLzqkSpZTAoH2E4ea1EjmQb1gIWS
-         YSMZmNGWTotM+TryoauxzjnK/8zUdkIXNYTmKxnRBpkSXp6tXTNOCYWfXkiPldGRr1x9
-         xUcg==
-X-Forwarded-Encrypted: i=1; AJvYcCUomdxi6zZ2TD+fX0uMycUorohtIcShE3U6Lmu4RnsrInMzeWhdoZVd+gWE/WnkznaVAWZXROs2UFkF0S1wPuiM@lists.infradead.org
-X-Gm-Message-State: AOJu0YziLHYh34S8O/X+n4giZwCVYB/60YpWM8C9El4Ot/rx99Xkd2BQ
-	2g4R0czslvIoDQKUpoAITr1+ADyefW6CTfnqb19RuXnYuYPJTktiLThsj0ZXoAxC4ur9YAi9r+r
-	fUEyPvLZIzvGpevRTDKWir70571ntu8E=
-X-Gm-Gg: ASbGncvt5mqegROuEtn+xRHD9JPFreoebUsXWmpvgged1HJRXOK7Hx3/G/Y9lrs7UWn
-	e14JExGckIIm/VFjd9Iy7HVZU1Gg+qY+Kxv6Og5np0tGRFBjQ2lAWk/iCvu84XfisyZre5ChpJ6
-	up/y/IXdysMdiL/bqQ0p7+RZW/SV0Z4TUSi7bLw+zPYkPVu+IFa4ioMtZbqmre7XvKEmcPeIXd6
-	lVXn5tM4JzJ1w/KwsSN+2xeL0cmopzSbWdf+UJTD6XOziEEXHsTygrqmM9IkAL8qQNWDQ==
-X-Google-Smtp-Source: AGHT+IF+gs9QIahGISXKJRHjGuXprvZlDgmBa+ZvpM71d+5sssU4cyVVLoFXELWcuPET2oDoTXg/lkyadapsy4GEvcw=
-X-Received: by 2002:a05:6102:c51:b0:5dd:a69a:b935 with SMTP id
- ada2fe7eead31-5ddc468ea63mr2373148137.16.1762757123612; Sun, 09 Nov 2025
- 22:45:23 -0800 (PST)
+	Mon, 10 Nov 2025 06:51:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YZsRwcKRWg13YDwvuWBOah+cx5EaslMxrTz5jWRo8H/KHFTU1t+uQrZT0VTU35nL7/gXugwGjXm9hEjSpulCnnc8W0PJHOBuXuwkuKGRmpX9B/AodOuwm1uvLL42esK3WT4OPY/kqjXiMj1zQkEsOv1dG8cwQN+G+b0iOi5LM1e8jumbWw+7XOy+a/l2RAbfCu8ujzx2sLlgEWqHhzi3dHf5EHcKFOOkyIIs8JVgbbehUfJzPDKo0qUajf7aWZ0kyvlJ86h3Gg6zz8ZFErvL/F4e8ggUzTPKDx/SoN4HspOiYh6d0BoMrB/4BQFWe2OCGLvaUTr8N8mfEN+sdR+R8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F/3oZzp3mFtdejMsL/WCpGTVAI/O2H4YG0P4mmnBoqU=;
+ b=E8eypp2tEYRs+7dA9B3ynwzdeD6NLnQyfc0OrmjWx/Fhtc0jaWlEiZgsPRnfWIgFruvSQfi451s++Pdsy6i1HyNVBwW0ovfI6wyRMZHncMefreEEAiufFSEFJ0r3PVhil8NtnH601jwco5UjJ8GLdfyEjmzR8InJOwx+nAjIUpQzle+NzJUtkkrSazlw25kjZYP6Iny6Nyl5qBT0SWlsnjrbh4mrJx6t+OHmXaPZLTdTxVD9Rqz161gOEEE5vxM3rzAFftOV+b1eoSgz6EqMnLSbilto1YOy8zj/6pH0WqywTTpZUGShWEqeg7uJvmLVgC0jc59BqnTqK62k1+4R4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F/3oZzp3mFtdejMsL/WCpGTVAI/O2H4YG0P4mmnBoqU=;
+ b=Bu+YY75u/rvst9s1Kmdag9wVovJnnwFMTFzta7M14YI+Xpy/2gKe0vcieBBR8MSANw+/gv/Hj8NKRutDxKlDXcqzeF7ikvBSlOkHnPtZlbA0fZrHjkcn6owxysFL6fKW2GDBOD65TYFb9V59ZHRJAC4OKL6KKySlAsivU4gWhBjW+R2loE5KfPGGNvxsmfcYwh58RcnK0tvayeGrT+2K8p6Ej8JGn2TrPF0TIZNwmNkqzFZ7PXdUtKRH4az5kToPVp7W8pizg7CObs3cMlJL38Nilubz8s998ojXsOdy1uiur+EC4w0OBC3ASGDL97hDqT2KBAezTO9RytKPd6iOwA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com (2603:10b6:930:34::5)
+ by CH1PPFF9270C127.namprd12.prod.outlook.com (2603:10b6:61f:fc00::62b) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Mon, 10 Nov
+ 2025 06:50:58 +0000
+Received: from CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6]) by CY5PR12MB9056.namprd12.prod.outlook.com
+ ([fe80::9a15:4da5:cfae:f5c6%4]) with mapi id 15.20.9298.015; Mon, 10 Nov 2025
+ 06:50:58 +0000
+Message-ID: <291ffac3-59a7-4f71-8201-e8477f71d3b6@nvidia.com>
+Date: Mon, 10 Nov 2025 12:20:48 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, thierry.reding@gmail.com
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, jgg@ziepe.ca, nicolinc@nvidia.com,
+ linux-tegra@nvidia.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20251031062959.1521704-1-amhetre@nvidia.com>
+ <20251031062959.1521704-3-amhetre@nvidia.com>
+ <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
+ <4f6496de-d3c8-4701-a9b4-6f695018eb5e@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <4f6496de-d3c8-4701-a9b4-6f695018eb5e@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PNYP287CA0105.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:2bb::7) To CY5PR12MB9056.namprd12.prod.outlook.com
+ (2603:10b6:930:34::5)
 MIME-Version: 1.0
-References: <CGME20250929042917epcas2p43d95408c9c43ff49ff6674136d7c64d3@epcas2p4.samsung.com>
- <20250929043110.3631025-1-hy_fifty.lee@samsung.com> <20250929043110.3631025-4-hy_fifty.lee@samsung.com>
-In-Reply-To: <20250929043110.3631025-4-hy_fifty.lee@samsung.com>
-From: Inki Dae <daeinki@gmail.com>
-Date: Mon, 10 Nov 2025 15:44:46 +0900
-X-Gm-Features: AWmQ_bnm9xQ99kNtPGcygx_UKQxpZ_ctsO76xXZQ0SPcCmu0BnofZ2Xoq2-JZF4
-Message-ID: <CAAQKjZMDe-nXN14qQQTHR9HMwqCcbTospjMg_P98G0e=XAO5NQ@mail.gmail.com>
-Subject: Re: [PATCH 3/3] drm/exynos: Move mode_config setup from fb.c to drv.c
-To: Hoyoung Lee <hy_fifty.lee@samsung.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY5PR12MB9056:EE_|CH1PPFF9270C127:EE_
+X-MS-Office365-Filtering-Correlation-Id: 282653b4-0136-41ed-6883-08de202580cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Um5mcHhUNDNVc2EzSU5Uc3pQV2ZGRzM0QnhYNlBEc2JpVDBNaEFNWUZNSkVv?=
+ =?utf-8?B?Sm9WT0ZUQ1FWVU5GZWxpU0F4TkJGSENLSkhlR3ZnUXhsUllpYjczVThtN2Rm?=
+ =?utf-8?B?TjdtdWhjOTFEVnNxbDZUWDVFaTFWcEZ2VzVoeUlCTVBKZnQzSFFxeXJDSG5F?=
+ =?utf-8?B?bTR2UTRTQzcyejFQeE1iTUY2bnZhL0tKMFQzMUZhR1RuQ29kRkZDQ1pKbVR1?=
+ =?utf-8?B?NE1Rck5RMzY3Sm5LNG5GbWFtcGVGZm1LNkZVd3hBdlBxYldVbGJTbStkRGlp?=
+ =?utf-8?B?VzhzMFRpNXduQ1RrZm9uYkZhaDk3L2VXSEVWQ1VXRUZtVHE4OEFhY0RaRG1I?=
+ =?utf-8?B?SXczZ3dhS0o5SVI3ZkpOcDgzbkdoK2krc3BKTnNLUStZbUlkQ1VlNXFoSXdv?=
+ =?utf-8?B?Y0N5dTYxUWluclVrVzNLbm4vNHI1UVB3UE5sREF0QTR3enNyS0pWV0gwd244?=
+ =?utf-8?B?ZUl1Y2Y5M3dNd2FwM2prUjdBUWgzeVVwNlN4TXRqa1ZIQVVSQWh5eTl2NFc1?=
+ =?utf-8?B?c2poS2pLOFkwRXFuZFZ1bDF2Q0JMUExDUml1LyttWkdZNW9KL3dwaXJ6REF1?=
+ =?utf-8?B?Y25vYUQ2c3BpVmFuWklqdXlWRWFXUkc4RDIzTmYwbEY0by9paU10LzZMcFRY?=
+ =?utf-8?B?MTBDTGRSK2ViUjBRcWIzdHJPSzlKNEk0d09yOW1sckFaVXcxL3VuR2ZlWDMr?=
+ =?utf-8?B?ZDNOOHdTVFNTQVRMKzBGK000SklBb2w1YnZQUzdxN3hyMGlEaG9hb2NnR0RT?=
+ =?utf-8?B?a2d5ZU1jZjQwOWhuYnNBaGIzSi81cXJGdVQwM1M4OG1kb0hVdnNZekJRS2lj?=
+ =?utf-8?B?dWNRa0dJSDRmK1k1UHhzT1hyRTI5RkN3dW95d0YwTTFmRmZaeXl1WndUb2dv?=
+ =?utf-8?B?WS96aU5ZdGVMV1U2RFFmYmVzc09KQ0RISXFLMDRBakxreVg0ejRJdTJhZGpx?=
+ =?utf-8?B?dmNNM0lYTXlrTFBJdnJ6MTJ1RElQVlpxRURoWFAybTBGL1hJWS9iVGNLYXYy?=
+ =?utf-8?B?Um1qNlZIdFBPTFc4dTRkNVdWSEduandpdWdXeDZ2WHVjYjBUZ2ZBWFhjOUNm?=
+ =?utf-8?B?WTBsak9TNmRISGlxTU1xZXBXOXpvVll1cUk2dVcxVjJGWHVYbHVwLzVSMDM4?=
+ =?utf-8?B?OGhPZEpoSzU4OGFYSFRQNlZpaFBGSWRRalcyRTFCL2lKenRSYzl1eFhIREhi?=
+ =?utf-8?B?dWtyRndkSjZmOHFNM3JlYnNOWTBtQzFxOXNSVHVTK3hDY3FrVHdrS0xwdGRC?=
+ =?utf-8?B?eG9YZE1tZDd2dWUyUGJmV2NrTFZmVkF1N0xjY0tBejhISGNtTFYyNWE5aEZy?=
+ =?utf-8?B?bkt1SU5nZkhtb0kyYW9lQVZWSTBOTXRaWHpEZituenh6SS92MWFwa1F1V005?=
+ =?utf-8?B?LzFCODJBNFZOZndDdkxwZHV1Wm1SNzQremZVVGo3K01sOEJuWGUvZ2hSUS9r?=
+ =?utf-8?B?TkxKV2ZFdkZiSDJmVi9WLy9oOC9TR2cyd0JKdkM2Uk5xblZHb1AvNGJBRmhs?=
+ =?utf-8?B?eUgrUmYzRnJqQ1hwMEtFdzlIODcvTVdkQ3FDQmdHeWUvWTh5N05WVWRGdWNo?=
+ =?utf-8?B?MUVUTVQ0V0RqSXJXcWEwWDlVTENwamF0V2pLeVBzY3plRTcrbW80MUVBVnJW?=
+ =?utf-8?B?K24xZXUvMzg2dW5iQS9aRVQ1YXV3VGZyYnc5R1NoR1FHeWxKMWNyOWhTTEM3?=
+ =?utf-8?B?azV0VDEzaHhjRXFBbXUyTVNTOGhFTlhoM3IyTU1UR3FPQ3lMcnJXM1RvVXZK?=
+ =?utf-8?B?T0Y0QUJVQmd5MEhNMFlramkzT3hMTFRCRjYxYWlVb3ZGSEg0L280bTgxeGdz?=
+ =?utf-8?B?S3ZnMHR2OHhQYUJXU3FYK1JqdWlXT1V6eHU2SkFXbjJDZjZjUVp0NXJPSE5q?=
+ =?utf-8?B?TE9QY1drNmJoUU45dG9ubmd3SnYzYnllc3RyU0VxdmVDWG5YSzdxTklodEFL?=
+ =?utf-8?Q?Fi2MQn00KRhYhM9VK4ofD6xrpmwC4C34?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY5PR12MB9056.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2pFTE9TcFpWNVkwNVpBV1hNZm1IUnN3NXRWTCtIR1h6Z3BrNGFhNjloQ1VM?=
+ =?utf-8?B?TFBDZWtrc2tKTmJLcGVab0ZlRHFVcDNLNmZyZ0VVZVJVWGR0L2VTVEhqa0F3?=
+ =?utf-8?B?VE5PR0x0bmhhNVJpZVJneTZucVNZM1pTc3I1MUVhaldubG9Sb3U3R3JEREtL?=
+ =?utf-8?B?bEJ2dG9BVit6aVppUnB5bzlTT0IvdlhRYlVkcDBPS2Y2ZHhmTjRYb1pQb2hJ?=
+ =?utf-8?B?ZmE3b1NSVEhnNHBHYWhnUDQ2SVFGM3l3dEIxT3pMZVB4NkxpZit4ZnJIS0Rl?=
+ =?utf-8?B?cTRxcEd6TnRpOHJlRTVPWjZ6VDcxZ3JWTHZ5bXU2UDJtRWZjemlrbHZKcnNk?=
+ =?utf-8?B?RzFDbi9NK09VZnVtUnphSTJXUFlpdXdsMUNEaXFGSHBnR1AzNG41Zzh6QU5w?=
+ =?utf-8?B?NThnSVpEbGYxRTVycS91dVhZMEs0YklINHhnUEgyL1FkZXZ1Z1VKeWkzNmpR?=
+ =?utf-8?B?L1VULzdLd0lDdktjVEZXYTlaVk9FSVdiVUYxdE5kOFdHZmxZNHJjYkNjTEVX?=
+ =?utf-8?B?ZEhPYmdmbWw4TGtvT2RDSTAzZm84YmNvajgvaDBYQm9BRHp6a1FwSTBkeC9h?=
+ =?utf-8?B?NGt0dkZGZGgvMTIrNHptV1hBckc1MHF2TGdHOHpDeG9zQ3h6RzZrdmhabXI0?=
+ =?utf-8?B?b3QwTE1KRmhhOGVMWmNYNzl6QmRhbWc1S3kzQXZuREp4TkVzYWpCbjFpUk9k?=
+ =?utf-8?B?QTlzNTZBdVdkTG9PM3FZQWRGRUZOak4weTZDZkcrMnZpdkw4dEo4VjlFSGRI?=
+ =?utf-8?B?cGkrN0xOR2UzTmpwdlpkNkM2K1dYUEwyTU1BdmVNQXhjTWdIS3lxcUlIemNO?=
+ =?utf-8?B?a083dENMUUpiSThWdnh4WTVaZWM5VlZ2Tk1hMlplSmRBZW1UbS9IWUxzaEh5?=
+ =?utf-8?B?eWg1NjNJWHVtUStnSXg3a1Y4d1psb2htNHZCTmR2L3pmK3FmNjFGZjYwdU52?=
+ =?utf-8?B?S0NtMDQxNzFIZ3Bta2JuR2FHRDZZL0l6ZUxDY00vdTBKMVNhallPN1dmRkxV?=
+ =?utf-8?B?WURybDdnN28yM3Aybi9GWkI2RGNiQjc4emZEUFRVVzMyQjN2bXFxVUJ0RVZ6?=
+ =?utf-8?B?aHV3WGJyZUhjQ2lCd2pOZkdLTkd6eUk3eG5nNWhycGhKWFl6b1BEY1hjcGlx?=
+ =?utf-8?B?VW9FZ0QxOG5Ya2xXWDlVSXdicXR1bWQ1TUlITjFhdTQyRzBDWXRNU3JCL1Nm?=
+ =?utf-8?B?TWpNVi9ma1lINjh2MStvUmxxaHRWZHNCOERrcHdtekFiVjY4OGRyOFA5YzJh?=
+ =?utf-8?B?NFlQMzZmV3ZSbW0xZXJvMVdFZ3ZQbFVxOCtlOEZidkROdkFyUmk2UFI2bXFh?=
+ =?utf-8?B?USs4aXAzQ1l3MWZvZm9OV0NCRHFPanl4RU5jNyt4elIzSm1vWUNJc3JqM0lz?=
+ =?utf-8?B?TU5jc2JuQnZxUGtBMDNPZ1VDSFZKajhWSnNVUDM2SU9GY1BLNmdTcStpN1Ro?=
+ =?utf-8?B?WFMwRXFGSTlzbkVGRFE0aWUyUVZWVnNyNnQyRlVSWU9QOUNmSmFTS012VHdj?=
+ =?utf-8?B?QkNzZkhVRHBxTHNWZGVQMkJ2N3J3ZERkOFcxZFVBZmtuTFNoRmhUMVVTdzl6?=
+ =?utf-8?B?WjFhSnpvejlVUTNYTFRNck5TdStHSGJPZDJIL3dPdmsrNjVod2ZocnU3Zmpv?=
+ =?utf-8?B?enZDNUQ0aG1Pd2xZbTdQQU8xQkpTMFRzck81Y0p0WFhSd2ZLazdBcTZBL0Nq?=
+ =?utf-8?B?aythMEgzR0NZamFjSklVNjRCR1J3MzQ2aGtDYUdmK1ZXTW4xTFIwK3hnc1FJ?=
+ =?utf-8?B?ZzU0bFRFVWdVQjg1Wi9kWHdzM0xKMXhZQVNqM1owc0EzRGZST0NnUk9RSUtO?=
+ =?utf-8?B?U3p0M0pMV0RvQlZCdnA2L0Y0NmtFTlo4YTcvODhMOUkzcmZCaXVBQy84bFB1?=
+ =?utf-8?B?dGx3WUNwOXpMUS8zRFVSSlp1TWtlTTZ1ck9ibEJCUG1zUjM0UEVaKy9pZ1k5?=
+ =?utf-8?B?elBUMEdlWHpFV1lPMW4vKy8wNmZydXFETldjcDA1RWtDYUFhY0RqYjZKeWxI?=
+ =?utf-8?B?NGlhU3dyOU5rTVFiVU9NWnl3VFM1NjZpSXRNTDN1c0wxTXppOCswYjkvdjlr?=
+ =?utf-8?B?YlhkUUluL1NNZ21CUTFuQ3Vpc0xrOXg1bnNCdVNKamVyYjNleHRtVWs2RFdL?=
+ =?utf-8?Q?pqg4kJ4eoqauG/mu7S+H5ofgA?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 282653b4-0136-41ed-6883-08de202580cc
+X-MS-Exchange-CrossTenant-AuthSource: CY5PR12MB9056.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2025 06:50:58.3785
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kaNnOJCX1MqFn9I7CKl0y/r0qwubph76wwhBap4YzEgGg+FKEkJWpRwRAS3e7MXZ6RonMJdBE5OD2pTai9vnRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFF9270C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_224528_714455_72AE70DF 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20251109_225106_656784_693B22B3 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,205 +182,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025=EB=85=84 9=EC=9B=94 29=EC=9D=BC (=EC=9B=94) =EC=98=A4=ED=9B=84 1:29, H=
-oyoung Lee <hy_fifty.lee@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> Relocate exynos_drm_mode_config_init() and the mode_config funcs/helpers
-> from exynos_drm_fb.c to exynos_drm_drv.c, and invoke
-> drm_mode_config_init() from inside exynos_drm_mode_config_init().
->
-> Rationale: resolve the historical fb.c placement, align with common DRM
-> layering (mode_config is device-wide policy that belongs in the core
-> driver), and make initialization order explicit before creating KMS
-> objects and binding components.
->
-> No functional change intended.
 
-This patch looks fine to me.
-However, since the second patch should be applied first, please repost
-them as v2.
+On 11/3/2025 7:24 PM, Ashish Mhetre wrote:
+>
+> On 10/31/2025 1:44 PM, Krzysztof Kozlowski wrote:
+>> External email: Use caution opening links or attachments
+>>
+>>
+>> On Fri, Oct 31, 2025 at 06:29:58AM +0000, Ashish Mhetre wrote:
+>>> The Command Queue Virtualization (CMDQV) hardware is part of the
+>>> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
+>>> virtualizing the command queue for the SMMU.
+>> If this is specific to Nvidia, then I think you need specific front
+>> compatible and disallow it for other vendors.
+>
+> Yes, CMDQV is specific to Nvidia. There isn't currently a vendor-specific
+> compatible for Nvidia's arm,smmu-v3 implementation. Would it be 
+> acceptable
+> to document this as Nvidia-specific in the description? Or can we add a
+> new Nvidia-specific compatible string like "nvidia,smmu-v3" if that's
+> preferred and use conditional schema to restrict the property?
 
-Thanks,
-Inki Dae
+Hi Krzysztof, Thierry,
+Any suggestions on this?
 
+>>> Add a new device tree binding document for nvidia,tegra264-cmdqv.
+>>>
+>>> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
+>>> property. This property is a phandle to the CMDQV device node, allowing
+>>> the SMMU driver to associate with its corresponding CMDQV instance.
+>>>
+>>> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+>>> ---
+>>>   .../bindings/iommu/arm,smmu-v3.yaml           | 10 ++++
+>>>   .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 46 
+>>> +++++++++++++++++++
+>>>   2 files changed, 56 insertions(+)
+>>>   create mode 100644 
+>>> Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>>>
+>>> diff --git 
+>>> a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml 
+>>> b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>>> index 75fcf4cb52d9..edc0c20a0c80 100644
+>>> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>>> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+>>> @@ -58,6 +58,15 @@ properties:
+>>>
+>>>     msi-parent: true
+>>>
+>>> +  nvidia,cmdqv:
+>>> +    description: |
+>>> +      A phandle to its pairing CMDQV extension for an 
+>>> implementation on NVIDIA
+>>> +      Tegra SoC.
+>>> +
+>>> +      If this property is absent, CMDQ-Virtualization won't be used 
+>>> and SMMU
+>>> +      will only use its own CMDQ.
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +
+>>>     hisilicon,broken-prefetch-cmd:
+>>>       type: boolean
+>>>       description: Avoid sending CMD_PREFETCH_* commands to the SMMU.
+>>> @@ -92,4 +101,5 @@ examples:
+>>>               dma-coherent;
+>>>               #iommu-cells = <1>;
+>>>               msi-parent = <&its 0xff0000>;
+>>> +            nvidia,cmdqv = <&cmdqv>;
+>>>       };
+>>> diff --git 
+>>> a/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml 
+>>> b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>>> new file mode 100644
+>>> index 000000000000..f22c370278a3
+>>> --- /dev/null
+>>> +++ 
+>>> b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+>>> @@ -0,0 +1,46 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: NVIDIA Tegra264 CMDQV
+>> Missing blank line
 >
-> Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
-> ---
->  drivers/gpu/drm/exynos/exynos_drm_drv.c | 47 ++++++++++++++++++++++---
->  drivers/gpu/drm/exynos/exynos_drm_fb.c  | 34 ++----------------
->  drivers/gpu/drm/exynos/exynos_drm_fb.h  |  7 ++--
->  3 files changed, 49 insertions(+), 39 deletions(-)
+> Ack, I will correct this in V2.
+>>> +description: |
+>> Do not need '|' unless you need to preserve formatting.
 >
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/ex=
-ynos/exynos_drm_drv.c
-> index 1aea71778ab1..6362cd417a4e 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-> @@ -233,6 +233,43 @@ static struct component_match *exynos_drm_match_add(=
-struct device *dev)
->         return match ?: ERR_PTR(-ENODEV);
->  }
+> Okay, I'll remove this in next version.
+>>> +  The CMDQ-Virtualization hardware block is part of the SMMUv3 
+>>> implementation
+>>> +  on Tegra264 SoCs. It assists in virtualizing the command queue 
+>>> for the SMMU.
+>>> +
+>>> +maintainers:
+>>> +  - NVIDIA Corporation <linux-tegra@nvidia.com>
+>> No. It should be a person. If entire Nvidia cannot find a person, I
+>> don't think we are interested in having this in the kernel.
 >
-> +static struct drm_mode_config_helper_funcs exynos_drm_mode_config_helper=
-s =3D {
-> +       .atomic_commit_tail =3D drm_atomic_helper_commit_tail_rpm,
-> +};
-> +
-> +static const struct drm_mode_config_funcs exynos_drm_mode_config_funcs =
-=3D {
-> +       .fb_create =3D exynos_user_fb_create,
-> +       .atomic_check =3D drm_atomic_helper_check,
-> +       .atomic_commit =3D drm_atomic_helper_commit,
-> +};
-> +
-> +static int exynos_drm_mode_config_init(struct drm_device *dev)
-> +{
-> +       int ret;
-> +
-> +       ret =3D drmm_mode_config_init(dev);
-> +       if (ret)
-> +               return ret;
-> +
-> +       dev->mode_config.min_width =3D 0;
-> +       dev->mode_config.min_height =3D 0;
-> +
-> +       /*
-> +        * set max width and height as default value(4096x4096).
-> +        * this value would be used to check framebuffer size limitation
-> +        * at drm_mode_addfb().
-> +        */
-> +       dev->mode_config.max_width =3D 4096;
-> +       dev->mode_config.max_height =3D 4096;
-> +
-> +       dev->mode_config.funcs =3D &exynos_drm_mode_config_funcs;
-> +       dev->mode_config.helper_private =3D &exynos_drm_mode_config_helpe=
-rs;
-> +
-> +       dev->mode_config.normalize_zpos =3D true;
-> +
-> +       return 0;
-> +}
-> +
->  static int exynos_drm_bind(struct device *dev)
->  {
->         struct exynos_drm_private *private;
-> @@ -257,9 +294,9 @@ static int exynos_drm_bind(struct device *dev)
->         dev_set_drvdata(dev, drm);
->         drm->dev_private =3D (void *)private;
+> Okay, I'll add Nicolin as maintainer.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: nvidia,tegra264-cmdqv
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  interrupts:
+>>> +    maxItems: 1
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: cmdqv
+>> Drop interript names, obvious.
 >
-> -       drmm_mode_config_init(drm);
-> -
-> -       exynos_drm_mode_config_init(drm);
-> +       ret =3D exynos_drm_mode_config_init(drm);
-> +       if (ret)
-> +               goto err_free_private;
+> Sure, I will update in V2.
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - interrupts
+>>> +  - interrupt-names
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>> +
+>>> +    cmdqv: cmdqv@8105200000 {
+>> Drop unused label
 >
->         /* setup possible_clones. */
->         clone_mask =3D 0;
-> @@ -272,7 +309,7 @@ static int exynos_drm_bind(struct device *dev)
->         /* Try to bind all sub drivers. */
->         ret =3D component_bind_all(drm->dev, drm);
->         if (ret)
-> -               goto err_mode_config_cleanup;
-> +               goto err_free_private;
->
->         ret =3D drm_vblank_init(drm, drm->mode_config.num_crtc);
->         if (ret)
-> @@ -296,7 +333,7 @@ static int exynos_drm_bind(struct device *dev)
->         drm_kms_helper_poll_fini(drm);
->  err_unbind_all:
->         component_unbind_all(drm->dev, drm);
-> -err_mode_config_cleanup:
-> +err_free_private:
->         exynos_drm_cleanup_dma(drm);
->         kfree(private);
->         dev_set_drvdata(dev, NULL);
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_fb.c b/drivers/gpu/drm/exy=
-nos/exynos_drm_fb.c
-> index ddd73e7f26a3..c118a079d308 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_fb.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_fb.c
-> @@ -8,8 +8,7 @@
->   *     Seung-Woo Kim <sw0312.kim@samsung.com>
->   */
->
-> -#include <drm/drm_atomic.h>
-> -#include <drm/drm_atomic_helper.h>
-> +#include <drm/drm_modeset_helper.h>
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_fourcc.h>
-> @@ -93,7 +92,7 @@ exynos_drm_framebuffer_init(struct drm_device *dev,
->         return ERR_PTR(ret);
->  }
->
-> -static struct drm_framebuffer *
-> +struct drm_framebuffer *
->  exynos_user_fb_create(struct drm_device *dev, struct drm_file *file_priv=
-,
->                       const struct drm_format_info *info,
->                       const struct drm_mode_fb_cmd2 *mode_cmd)
-> @@ -150,32 +149,3 @@ dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebu=
-ffer *fb, int index)
->         exynos_gem =3D to_exynos_gem(fb->obj[index]);
->         return exynos_gem->dma_addr + fb->offsets[index];
->  }
-> -
-> -static struct drm_mode_config_helper_funcs exynos_drm_mode_config_helper=
-s =3D {
-> -       .atomic_commit_tail =3D drm_atomic_helper_commit_tail_rpm,
-> -};
-> -
-> -static const struct drm_mode_config_funcs exynos_drm_mode_config_funcs =
-=3D {
-> -       .fb_create =3D exynos_user_fb_create,
-> -       .atomic_check =3D drm_atomic_helper_check,
-> -       .atomic_commit =3D drm_atomic_helper_commit,
-> -};
-> -
-> -void exynos_drm_mode_config_init(struct drm_device *dev)
-> -{
-> -       dev->mode_config.min_width =3D 0;
-> -       dev->mode_config.min_height =3D 0;
-> -
-> -       /*
-> -        * set max width and height as default value(4096x4096).
-> -        * this value would be used to check framebuffer size limitation
-> -        * at drm_mode_addfb().
-> -        */
-> -       dev->mode_config.max_width =3D 4096;
-> -       dev->mode_config.max_height =3D 4096;
-> -
-> -       dev->mode_config.funcs =3D &exynos_drm_mode_config_funcs;
-> -       dev->mode_config.helper_private =3D &exynos_drm_mode_config_helpe=
-rs;
-> -
-> -       dev->mode_config.normalize_zpos =3D true;
-> -}
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_fb.h b/drivers/gpu/drm/exy=
-nos/exynos_drm_fb.h
-> index fdc6cb40cc9c..0c79ce5d4a8d 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_fb.h
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_fb.h
-> @@ -19,8 +19,11 @@ exynos_drm_framebuffer_init(struct drm_device *dev,
->                             struct exynos_drm_gem **exynos_gem,
->                             int count);
->
-> -dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index)=
-;
-> +struct drm_framebuffer *
-> +exynos_user_fb_create(struct drm_device *dev, struct drm_file *file_priv=
-,
-> +                     const struct drm_format_info *info,
-> +                     const struct drm_mode_fb_cmd2 *mode_cmd);
->
-> -void exynos_drm_mode_config_init(struct drm_device *dev);
-> +dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index)=
-;
->
->  #endif
-> --
-> 2.34.1
->
->
+> Okay, I will remove the label.
+>> Best regards,
+>> Krzysztof
+>>
 
