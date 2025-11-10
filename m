@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8262ECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 06:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD494CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sWW1eSQpDKc7jM4m1QbAQ8yAiFI7MLFkR9wVlwBKfxU=; b=rAVcZlTdBBL9WL1Dp4zJJt/kY+
-	LGqj9GtEznKrcWLvV/Z+AN6PoMZfouddI8KbgUJON1qng/FZQiVl/DVqXIam7hxEcdD/a8NTGkDoc
-	Efbh6VBXzlQA4KRNbnIZlIw9aaUDe9TGO+0DVa8uHHgybF4tgC998SsxLLSrUGOxz2vwlHLdsXn2N
-	RjEKVqU366ylIpWduANpEPQc5taquHxwSWBKAhcV2VVg019Kkj7Zg/ZvZgXasNkefaFMPSqsQ+vRW
-	MrpmdEZqHHw5azxGbdN4xYhZ2QLvC/RLrSbVETAooD522ZPVB8pk0dbj0c6iGrE/QEZHM0x+IYh7p
-	CjgPdsUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h20o8C8oi1qOyikUuhxoyz0kq2tCK1DjVNwps6Y/PZY=; b=emDLSpwblF6YuSUqvgqiE7PEkt
+	SvhYzW7B+XVITZn3gXOW0JBuCUuiotQxpvj4knPPAhFa8MhuGRszcOIIwpizk7ahaf1nH/0m1i/6F
+	SSl8l+dH5Jbz74ndSlCNmh3pHWUBN+sL1ySQ4QDzXQjetx7/uNqLjXT9XL2y0Jd/neUngD6kNnLAw
+	ysovuZ7e8saPHMwXdwoUwT+Tj0HJBPJNWUlAuR7t9Z8hDQdWXGCFwaA0ydHht3ToDYNz6IeMZClGO
+	9tiIPH2H1M+0ZivPZPXJKyG4+0La1BmI5KTueNzOPIn1oU+ZKost/5M64s0MXa6PcUbOC9ax6NDlR
+	n4Ez2nsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILqE-00000004reD-26jP;
-	Mon, 10 Nov 2025 06:57:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vILsu-00000004rsO-1neR;
+	Mon, 10 Nov 2025 07:00:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILqB-00000004rdN-2mXc
+	id 1vILsn-00000004rqf-1NUA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 06:57:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1762757847; x=1794293847;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1SqMrYP18FymGyJURtzA5MuI3ISTgbkmBySUQpZDmRQ=;
-  b=WvzsjMS0foWFgDlKKYEFZo6adj0h4w/QIva9NTtaxZkhlCGFj/GByL5I
-   tYL7d5gY1XMfWISG0x3l+6sTQTSbIv3nMa4V8KcIthkOzxnCKSGRSYPzA
-   PY8zMkIEluT3psCy85qwI8V86Q2Ui7+VH/h4wbJa8cUNMgrlf64SDwsKi
-   cHFY68u4vBUukakDBslwOa4fu+iUpeap+CNWDdCF1jRyJIipMqvpJPXYE
-   Jx3Di9MwlBheZJTEuwg2XnASLo2dK3d7dvwTI3Ac6mfxiLgXg2Ax8Jbda
-   fg6xxsi1/vaGhEE+/LmAsJYzJZbLVDGQj0yQ8CC2R1Bti+var8D5ew/eC
-   A==;
-X-CSE-ConnectionGUID: BYri1NdbQKqXZYAxeGkImg==
-X-CSE-MsgGUID: D3jqOOT7QGi+yvk96naJ9Q==
-X-IronPort-AV: E=Sophos;i="6.19,293,1754982000"; 
-   d="scan'208";a="216235639"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2025 23:57:24 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Sun, 9 Nov 2025 23:57:04 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Sun, 9 Nov 2025 23:57:01 -0700
-Date: Mon, 10 Nov 2025 06:57:01 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Robert Marko <robert.marko@sartura.hr>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<luka.perkov@sartura.hr>
-Subject: Re: [PATCH net-next] net: sparx5/lan969x: populate netdev of_node
-Message-ID: <20251110065701.rch4wjflap3vicjq@DEN-DL-M70577>
-References: <20251107141936.1085679-1-robert.marko@sartura.hr>
+	Mon, 10 Nov 2025 07:00:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BE0B4445E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 07:00:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BCF9C19421
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 07:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762758005;
+	bh=JdTdMo+NFiglCdCfKW95/AM4C/gcOP2vda5nUzM0Gcs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fOiYkuEKJeG64GjSkTz0f062EymlHD37s8k68FmgmEKb1QyozA9aH3644MecRv1rk
+	 MSLlU/QP/Vt/gBlJ3JMXb/jrSpZafF8b64XnG21/d2+aOMESrCAudIQeEymVVsc7Az
+	 u1E8J6JpR7C4w6R0ivD078MdWdFEsqExMLydk09mClOb76WxnIdBZ15Zb9VZf0GtbC
+	 CnGwXRkUIN8wtWYTzbK8xdN2DEE8A9YeQvTVi8aKXLDnghnVc2v/Nlj6QpAt4iK/SU
+	 cSdKQXbZzBawYnrauz+xbosh04Pz0PacM2n1UkAbs05FpZ5o8rWz6Bubs4wmTyw0Gu
+	 Wezc5Ezmnbkbw==
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b403bb7843eso479837466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 23:00:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUo53bZJSOI3H5fYIN78rfWY/M1I2bdG4Ylg70Cu2ua2fX+UaX5RrEbnnxqmEjrRN4rgm94xwb2MQWAfHOwH88Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzuXK/bQSAvQekRxKzlNBXmrQpk22YTU98BKVppMsXL3zuTU1/
+	IGOvb2jna6SxpQH4sMoMS2z6tl9j6q19J0gIMKBxr+XVwa/R5Gr2EWtVTxCKAgKHPGbRvnPMOFv
+	dXFIoGJV2+Asjr/MOEjapPteKVAIaJZU=
+X-Google-Smtp-Source: AGHT+IHkpMQjNw20ZABNl3NXRRjTGeTjlilbmH88N08NrWz3UtRyqo7y/Vo93oYm+gCDPeDFcWZjLsRDB5fNntbnReU=
+X-Received: by 2002:a17:907:3fa9:b0:b6d:5262:a615 with SMTP id
+ a640c23a62f3a-b72e045bbe3mr518748666b.41.1762758003839; Sun, 09 Nov 2025
+ 23:00:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251107141936.1085679-1-robert.marko@sartura.hr>
+References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+ <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+ <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+ <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
+ <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
+ <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
+ <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn> <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
+ <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
+ <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+ <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
+ <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com> <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
+In-Reply-To: <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Mon, 10 Nov 2025 15:00:00 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+X-Gm-Features: AWmQ_bmq5wLFGGuKpNEar1lHdOssPyNtLtsWck9HgwZgdpmEeIMHmCh0kt8j7JI
+Message-ID: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_225727_929766_9242945F 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20251109_230009_423214_5C5E45CB 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +97,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robert,
+On Mon, Nov 10, 2025 at 9:19=E2=80=AFAM Tiezhu Yang <yangtiezhu@loongson.cn=
+> wrote:
+>
+> On 2025/10/28 =E4=B8=8B=E5=8D=889:47, Ard Biesheuvel wrote:
+> > On Sun, 26 Oct 2025 at 12:20, Huacai Chen <chenhuacai@kernel.org> wrote=
+:
+> >>
+> >> On Thu, Oct 23, 2025 at 4:07=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
+g> wrote:
+> >>>
+> >>> On Thu, 23 Oct 2025 at 10:01, Huacai Chen <chenhuacai@kernel.org> wro=
+te:
+> >>>>
+> >>>> On Thu, Oct 23, 2025 at 2:55=E2=80=AFPM Tiezhu Yang <yangtiezhu@loon=
+gson.cn> wrote:
+> >>>>>
+> >>>>> Hi Josh and Ard,
+> >>>>>
+> >>>>> On 2025/10/20 =E4=B8=8B=E5=8D=882:55, Huacai Chen wrote:
+> >>>>>> On Mon, Oct 20, 2025 at 9:24=E2=80=AFAM Tiezhu Yang <yangtiezhu@lo=
+ongson.cn> wrote:
+> >>>>>>>
+> >>>>>>> Hi Josh, Ard and Huacai,
+> >>>>>>>
+> >>>>>>> On 2025/10/18 =E4=B8=8A=E5=8D=881:05, Josh Poimboeuf wrote:
+> >>>>>>>
+> >>>>>>> ...
+> >>>>>>>
+> >>>>>>>> But IIUC, the libstub code runs *very* early, and wouldn't show =
+up in a
+> >>>>>>>> stack trace anyway, because there are no traces of it on the sta=
+ck once
+> >>>>>>>> it branches to head.S code (which doesn't save the link register=
+).
+> >>>>>>>
+> >>>>>>> Thanks for your discussions.
+> >>>>>>>
+> >>>>>>> Are you OK with this current patch?
+> >>>>>> For me the current patch is just OK.
+> >>>>>
+> >>>>> We have discussed this a few times but there is almost no consensus
+> >>>>> of what should happen next and nothing changes.
+> >>>>>
+> >>>>> Could you please give me a clear reply? Then I can make progress fo=
+r
+> >>>>> the following series:
+> >>>>>
+> >>>>> https://lore.kernel.org/loongarch/20250917112716.24415-1-yangtiezhu=
+@loongson.cn/
+> >>>> For me, this patch is OK, ignore __efistub_ prefix in objtool is als=
+o
+> >>>> OK [1]. But I cannot accept the way that modifying the efistub part
+> >>>> only for LoongArch.
+> >>>>
+> >>>> Clear enough?
+> >>>>
+> >>>
+> >>> LoongArch is the only architecture which has the problem, so I don't
+> >>> see a reason to modify other architectures.
+> >>  From your reply I think the efistub code is completely right, but
+> >> objtool cannot handle the "noreturn" function pointer. And this patch
+> >> is a workaround rather than a proper fix (so you don't want to touch
+> >> other architectures), right?
+> >>
+> >
+> > That is my reasoning, yes. But Josh is right that it shouldn't make a
+> > difference in practice, I am just reluctant to make changes to the
+> > code running on the target to accommodate a flawed build time tool.
+>
+> If I understand correctly, I should modify this patch to remove the
+> changes of arm and riscv for now, do the changes only when there is
+> a real problem or requirement some day, right? If no more comments,
+> I will send v3 later.
+Now everyone involved agrees that the efistub code is correct, so the
+proper solution is to fix the compiler. Changing efistub code and
+changing objtool (ignore __efistub prefix) are both workarounds, but I
+think changing objtool is a little more reasonable. Maybe Josh has
+different ideas?
 
-> Populate of_node for the port netdevs, to make the individual ports
-> of_nodes available in sysfs.
+Huacai
 
-Sounds reasonable :-)
-
-> 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
->  drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> index 1d34af78166a..284596f1da04 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> @@ -300,7 +300,11 @@ int sparx5_register_netdevs(struct sparx5 *sparx5)
-> 
->         for (portno = 0; portno < sparx5->data->consts->n_ports; portno++)
->                 if (sparx5->ports[portno]) {
-> -                       err = register_netdev(sparx5->ports[portno]->ndev);
-> +                       struct net_device *port_ndev = sparx5->ports[portno]->ndev;
-
-This line exceeds 80 chars and can easily be wrapped.
-
-> +
-> +                       port_ndev->dev.of_node = sparx5->ports[portno]->of_node;
-> +
-> +                       err = register_netdev(port_ndev);
->                         if (err) {
->                                 dev_err(sparx5->dev,
->                                         "port: %02u: netdev registration failed\n",
-> --
-> 2.51.1
-> 
-
-It seems wrong to me to stuff this into sparx5_register_netdevs() - there are
-two better candidates, either: sparx5_create_netdev (where other ndev variables
-are assigned) or sparx5_create_port().
-
-/Daniel
+>
+> Thanks,
+> Tiezhu
+>
+>
 
