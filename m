@@ -4,114 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16722CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 20:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3B2CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 20:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0o/QHKCYcdXoujq6Nq4PKYjiU7e3UDO/R4fKOQf+p8=; b=r7glOPu/fmH4SRMH0V3VF26iB8
-	xMWSxMEeOGVZwVXoaoDshcsysYdKoH00BQiiweGkKVs5t6OTT+Iq6794a3abUAFTJQziDDhzcWjuX
-	wZ5OrsLZ6S/VgEd1HEk8ttIz+pqb/355egOczMPecAlwXaBUa7G9h+2vAn9gh1Li4ycFdg8MX57nN
-	/0oxFKnKIjCvoKR8gmZ54E+JHmU9EVbsWxYuUFt/kZGN7aVk38K5lvEbJXNq2QQIIfrilJx8lKgHb
-	81c8akIRziNThpo6QyQaniHGAmwWxrzCliTfEn1iT+4GLrtVROlR0mI4YlmMuRK7XuTxClw/LEW08
-	Se5PlNww==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dzako6BXGxphQpH0YMWSx7NfqW4oQBRsx5hpxBe4oiA=; b=ZTNU+G0zwCokj84H+wvt3xztQg
+	q1Y44/YasbG1q05h1JqQMHmyKbocz3EngLrXER9x1UjtbkoyiUZLykdQWzuKUsIlAw0AbF0AVLR53
+	FtMlBd+LGzFn6Ws6H7ivKpOz/oa/k5vZd+Cls9+nw0ZVZIVMd6ZCLQbXeQDZNVbIhKKpOJdZaOUc6
+	3LjgIsHwY4tEHugAacbxIPyKbrPRIknslY+tWShN+4fmhJlG2UaY35z9xvrNg4FWn62kqaFwYwzJl
+	I8/kCLmGA0nQcAD3d6crgGO+c79DwUwEjQEuEDbDeSbQ4keTV92nA62Mx62AuEzLZmd90BU7/EQZM
+	SNLAxg6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIYKL-000000064fy-19mk;
-	Mon, 10 Nov 2025 20:17:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIYUY-0000000651S-1Q1x;
+	Mon, 10 Nov 2025 20:27:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIYKI-000000064fb-3xfl
+	id 1vIYUW-0000000651K-2kQy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 20:17:24 +0000
+	Mon, 10 Nov 2025 20:27:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98C92445C5;
-	Mon, 10 Nov 2025 20:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C96A8C116B1;
-	Mon, 10 Nov 2025 20:17:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF2F360195;
+	Mon, 10 Nov 2025 20:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34040C19423;
+	Mon, 10 Nov 2025 20:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762805842;
-	bh=JqEVLdOgxRLejv+3IarHFSQHC/EXmUN4JyQjqZ7nUWM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h1zttPklcqOT9xQoCSVb3QHH6wXMwmGCfOOhvFl9pFz2TY1gh1otbV+yMHNZVY8Bb
-	 32129YPkjozjDKX8rGgQft087/Qb13Cfom9kUfS8FAW4Cx6bsKuCeUDJ+SPHN6sYvD
-	 x2fx7plbIolsjW9brIVXDOMmh0o3rrKYvrcjjFaoSxgM8NmS74riuA92ICzuNdj/69
-	 y0nJUsqGPW8wK1+3mMcdO9Ntz3bxuTWy0EytSv+4S2qpVS1W9DXDx62ZlLuVMHQZB/
-	 poOecWEaM/D60uusLo7RVxbuzd7Dm8yhDggsaLk5QYuEmDCNSNfNW5JzUz/aUk+Ot2
-	 EgyaFg2KTMWxg==
-Message-ID: <e00ba144-c5fc-47eb-8a9c-b6f33fa9704c@kernel.org>
-Date: Mon, 10 Nov 2025 21:17:15 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: freescale: add support for NXP i.MX93
- FRDM
-To: Joseph Guo <qijian.guo@nxp.com>, Fabian Pflug <f.pflug@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Haidong Zheng <haidong.zheng@nxp.com>,
- Danwei Luo <danwei.luo@nxp.com>, Lei Xu <lei.xu@nxp.com>,
- Justin Jiang <justin.jiang@nxp.com>
-References: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
- <20251022-fpg-nxp-imx93-frdm-v3-2-03ec40a1ccc0@pengutronix.de>
- <aRF9xlvWU/27+80K@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+	s=k20201202; t=1762806475;
+	bh=xqht5VPTMHaX/GKxsh9FtHie1CtnNQDDC8CGQ8gGXr4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HCUQg3vLPwQzlucTGF4oM4w6xX3PkWVbCkeeYQ3xDLcMdKXVI+rx1Hqc6906H2/oS
+	 ffkOChOrZQ7EJ/WXuQkCxksbLlIXswN1RxFDub1facaE5Ij1kX2EigYLiecaNHleTD
+	 LP35Joo5tOBsh8Wtn+x4bPap3wxpBb+gbqF/Jkq4EG2Reagb9whF00/ZjP0Bf/UVCt
+	 n29Qky/NBvtjSzAY2TfGPp/dFB2/JOoYeqCiIHVwVB5hb4Nxr1+uet/kIxVAy+391V
+	 lHBSX6jMVP9M4KORxi2nAOT2n5D54npZkX2UN3Q8G5hf4+coDwyVqYTu7X5dlyOpa5
+	 IIzBgTOc8dgTw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aRF9xlvWU/27+80K@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_121723_027712_ED2913B3 
-X-CRM114-Status: GOOD (  13.61  )
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Subject: [GIT PULL] pinctrl: samsung: drivers for v6.19
+Date: Mon, 10 Nov 2025 21:27:48 +0100
+Message-ID: <20251110202748.10090-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1609; i=krzk@kernel.org; h=from:subject; bh=xqht5VPTMHaX/GKxsh9FtHie1CtnNQDDC8CGQ8gGXr4=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEkrEmX3ZkmzBioa40xqUoItANOt8+TThg8hQP SBHRD59ALCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRJKxAAKCRDBN2bmhouD 1z5mD/4lksCWQrylzIsRpv9BV8fo0E2sLlWT/KHglodP+t+Qa9oz7X3LDDvbzEqVhRfhqaM8Uh4 WIU+ARcRyvtOKfFM1N/+cOOS7X9+CP1JFtjKwicjlDu+hvT29NwudnUDoaRDEDhxqAgJpN65m6Y ZpFOeSIFCn5eI4COVsIPTBtpmuwcYFOx7kmT22jKxpZNRWTRu8pQMOCssdf2NcNi5CWjaIORb8k GBTM1op3GNFpK/9v2HpwURHHhXuq/zZMGDFYcSdFqThtCN45vJixBiXpJqUU1iYeE+FK2a9NNyS jnwP11IVEPnyOVVCFFVnRY86eeLMupAKu2hoJi7mAY5gR/pj611EegK0JSx2KDujjkspZQsRtBN 4GZjUHx1FlnQqT0s/oncObxD974VeRo2lv9RzmUHP6MPqgR9tVr/em1KbRi6S7R7RJSepxZXx5O QVCzX+QlK0REKj7CSlEwBTOl3jW/o83JAAHbk0OF6qGbR8XtYiH3knbRIvO7njolWUFWpcOqyts MPEaHzGrcEg2hACDrN9jP6K2jUpRpFxYDrSLE/gDyY4yM5ArboV5wr/2x6KG+ZGbtsfX7nWA9H3 Y9tOdeIiPQEs6J2ACsI9P/fTX3OcqvDFRuzJ3qXL6as7g+69Ja1fy4tWZ9bGwqUJLYWiljs4mSO HJeIm/FzxegdlQw==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,49 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/2025 06:53, Joseph Guo wrote:
-> On Wed, Oct 22, 2025 at 04:05:23PM +0200, Fabian Pflug wrote:
->> The FRDM i.MX 93 development board is a low-cost and compact development
->> board featuring the i.MX93 applications processor.
->>
->> It features:
->> - Dual Cortex-A55
->> - 2 GB LPDDR4X / LPDDR4
->> - 32 GB eMMC5.1
->> - MicroSD slot
->> - GbE RJ45 x 2
->> - USB2.0 1x Type C, 1x Type A
->>
->> This file is based upon the one provided by nxp in their own kernel and
->> yocto meta layer for the device, but adapted for mainline.
->>
->> Signed-off-by: Haidong Zheng <haidong.zheng@nxp.com>
->> Signed-off-by: Danwei Luo <danwei.luo@nxp.com>
->> Signed-off-by: Lei Xu <lei.xu@nxp.com>
->> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
-> Hi Fabian,
-> 
-> I'm maintainer of the NXP mainline for FRDM board.
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-No, you are not.
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-$ git grep 'Joseph Guo'
-$ git grep qijian.guo@nxp.com
+are available in the Git repository at:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tags/samsung-pinctrl-6.19
 
-> Thanks for your contribution for FRDM board upstreaming.
-> imx93 frdm board official name is FRDM-IMX93. Please change
-> the name in commit message from FRDM i.MX 93 development board
-> to FRDM-IMX93 board.
-> 
+for you to fetch changes up to 3cfc60e09bdc95483875f0b63cfdc23aea67135b:
 
-Huh? How does it matter? Why are you pointing such nits? This is not
-helpful and consider that your naming in NXP does not matter.
+  pinctrl: samsung: Add ARTPEC-9 SoC specific configuration (2025-10-13 03:02:21 +0200)
 
-Please kindly trim the replies from unnecessary context. It makes it
-much easier to find new content.
+----------------------------------------------------------------
+Samsung pinctrl drivers changes for v6.19
 
+Add pin controller support for Samsung Exynos8890 and Axis ARTPEC-9
+SoCs.  The latter is a newer design of Artpec SoCs made/designed by
+Samsung, thus it shares most of the core blocks with Samsung Exynos,
+including the pinctrl.
 
-Best regards,
-Krzysztof
+----------------------------------------------------------------
+Ivaylo Ivanov (3):
+      dt-bindings: pinctrl: samsung: add exynos8890 compatible
+      dt-bindings: pinctrl: samsung: add exynos8890-wakeup-eint compatible
+      pinctrl: samsung: add exynos8890 SoC pinctrl configuration
+
+SeonGu Kang (2):
+      dt-bindings: pinctrl: samsung: Add compatible for ARTPEC-9 SoC
+      pinctrl: samsung: Add ARTPEC-9 SoC specific configuration
+
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   1 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   6 +-
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 206 +++++++++++++++++++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   4 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   2 +
+ 5 files changed, 218 insertions(+), 1 deletion(-)
 
