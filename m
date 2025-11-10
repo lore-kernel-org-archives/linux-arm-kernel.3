@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22371CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C727BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4LAZWLbzSC6po+MQTLjsFFRxaZ1h7K5WpCihesgYxw=; b=1gAMZjQG++OsDZDKxibEMECaBX
-	Xiv1i9WUOPw7S610tkZRY9Vh8/IRvc9SzJtIGJoY143D3E5IDhFAZOUlJh4NShjVSyiXeuL26/thF
-	AOo4KJirLCqxzSch/0paRYWnW0YLLAgV9r1JgOK5HwK9bLVIwr3i13lifrfLliz795pPUoefb/a+b
-	7FgjupwP4mwol5yWLoWnWcjGqB4Qt4j4K1fteDDRIlOw0Qa/0n8RCNOO5W2/P/rOoUtY8tkGUeIHx
-	qBE0n9ORnQ8koy99B7oQhC26eCPSMYl2BUXxk9OxF8lwyuCVYq3P30tzo/AMkUIp64+yxsuWW4xgx
-	OH/TaKYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1P5FnXVHJnPLZfXaGUrRwAxb6l0f3HX95u0vVllv/s4=; b=jWIKYD4jB2IgTrGbnx6YYeeY2c
+	Y5QNVpPzTJtwjrVIgJB7BGLJ3naQxiawmxemGbsdxhkIXvnCmf++vIKMfNSYQOB5MXt/3mK8n6u1/
+	1T4eXAKUYbAWTSn/2htJXMCTE52D5w6Bg35LmWhg/HKYfttVhh9R0EsQwfc9T06AXwXix6zkAdkFB
+	eq9OkuUIFHyni2FIU7gA/NtenlWodSjwiaCOBcGkMEXiSleSAVpAZ+atU7K5Je5JhA//kpILcq59A
+	wTXWk9uyjb51zA2MA+DENusRwEhjgzGTe+HHqe3Kmmfex0GaTlTFWCwj0DI11qPNTjngWOuMqfqAm
+	rFvTy6lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUlB-00000005nKm-0pQ8;
-	Mon, 10 Nov 2025 16:28:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUl6-00000005nGo-289O
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 16:28:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 214A32F;
-	Mon, 10 Nov 2025 08:28:37 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B271A3F66E;
-	Mon, 10 Nov 2025 08:28:43 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 10 Nov 2025 16:28:31 +0000
-Subject: [PATCH v2 1/2] perf: arm_spe: Correct setting the PERF_HES_STOPPED
- flag
+	id 1vIUmN-00000005ndB-2Puw;
+	Mon, 10 Nov 2025 16:30:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIUmL-00000005ncY-2gar;
+	Mon, 10 Nov 2025 16:30:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2407601D3;
+	Mon, 10 Nov 2025 16:30:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4D62C116D0;
+	Mon, 10 Nov 2025 16:30:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762792204;
+	bh=BENcJUva/mHHQYIayp0HLjQkCuTaKmej8Tu1JFzK0Is=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YHf0VWs4SipvI5N7AaQ6K/3tRxLQgCT0CnlyFItJoneQ+JNsfdVG0M6Yk/jBN08xo
+	 AyIQ5tytEvx9KerdQJCFnfePes9C9oq8nuJsQJC7groB2UOAvBWt84OFutfFDbmwWv
+	 s7EPisfszp3zTP9OGVVRxvA9gZmfqK4/JSwsYym1bV+MMBXGP0GtkolMIXIe7q6Tk0
+	 OS///SXTGxp1jQSWLjdFbviBAGs2C9koNl9W72FNMm/KGamKe4mX6RyO4NpeJ7hNCd
+	 1VDVMLnQg6FFWLwD2BGYTHT8rforlQ3ozWPBydIkRDCCd2xtHJLKchuIR25tmUkrE5
+	 aESXY2FgTLRFw==
+Date: Mon, 10 Nov 2025 10:34:10 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Vinod Koul <vkoul@kernel.org>, 
+	Thomas Andreatta <thomasandreatta2000@gmail.com>, Caleb Sander Mateos <csander@purestorage.com>, 
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Olivier Dautricourt <olivierdautricourt@gmail.com>, 
+	Stefan Roese <sr@denx.de>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Lars-Peter Clausen <lars@metafoo.de>, 
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>, 
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH v2 01/13] scatterlist: introduce sg_nents_for_dma() helper
+Message-ID: <bnkx654tvfekhgragyuwseg7sxcrgrnb4bvwe5bgxikaf7k2ew@kf7jb76zrf3r>
+References: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
+ <20251110103805.3562136-2-andriy.shevchenko@linux.intel.com>
+ <waid6zxayuxacb6sntlxwgyjia3w25sfz2tzxxzb4tkqgmx63o@ndpztxeh6o32>
+ <jea2owcqtjeomlbwkfopt3ujsnakn4p3xeyqhh7s4kowf7k7dr@deyg5pky5udo>
+ <aRIFyR0maAfZF7MN@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251110-arm_spe_fix_truncated_flag-v2-1-a629740985cc@arm.com>
-References: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
-In-Reply-To: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexandru Elisei <alexandru.elisei@arm.com>, 
- James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762792122; l=1937;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=8UdIi+vekhUmBUYHnTWZHzY9nrwSvSb76pHrnU/+RmE=;
- b=lB5mNzWEC2PrAQOxpWQ1p1l+2TaiTL4ViYONCUsNXp36RWaHBusoUJ5G2rM483wtrZUiI/Rn1
- /7utNQOolWPBqGkGc7FrkZCQILQHDk950A36mpGxfRWLvyRaJtyNv3g
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_082848_587482_7BC68B50 
-X-CRM114-Status: GOOD (  12.44  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aRIFyR0maAfZF7MN@smile.fi.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +82,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In arm_spe_perf_aux_output_begin(), if the calculation of limit fails
-and arm_spe_pmu_next_off() returns zero, the driver misses to set the
-PERF_HES_STOPPED flag for the event.  As a result, hwc->state does not
-reflect the latest state, which can mislead subsequent operations.
+On Mon, Nov 10, 2025 at 05:33:29PM +0200, Andy Shevchenko wrote:
+> On Mon, Nov 10, 2025 at 09:21:18AM -0600, Bjorn Andersson wrote:
+> > On Mon, Nov 10, 2025 at 09:05:26AM -0600, Bjorn Andersson wrote:
+> > > On Mon, Nov 10, 2025 at 11:23:28AM +0100, Andy Shevchenko wrote:
+> 
+> ...
+> 
+> > > >  int sg_nents(struct scatterlist *sg);
+> > > >  int sg_nents_for_len(struct scatterlist *sg, u64 len);
+> > > > +int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len);
+> 
+> 
+> ^^^
+> 
+> > > > +int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len)
+> > 
+> > All but two clients store the value in an unsigned int. Changing the
+> > return type to unsigned int also signals that the function is just
+> > returning a count (no errors).
+> 
+> The type is chosen for the consistency with the existing APIs.
+> So, I prefer consistency in this case, if we need to change type, we need to do
+> that for all above APIs I believe. And this is out of the scope here.
+> 
 
-Validate the limit when exiting the function: if the limit is 0,
-that tracing is disabled, set the PERF_HES_STOPPED flag accordingly.
+That makes sense, after a second look I agree with your decision.
 
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/perf/arm_spe_pmu.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Regards,
+Bjorn
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index fa50645feddadbea5dc1e404f80f62cf5aa96fd4..fc8f908c2c3a270f2d1ae574c2badb1fbcf51484 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -597,7 +597,6 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
- 	/* Start a new aux session */
- 	buf = perf_aux_output_begin(handle, event);
- 	if (!buf) {
--		event->hw.state |= PERF_HES_STOPPED;
- 		/*
- 		 * We still need to clear the limit pointer, since the
- 		 * profiler might only be disabled by virtue of a fault.
-@@ -608,15 +607,19 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
- 
- 	limit = buf->snapshot ? arm_spe_pmu_next_snapshot_off(handle)
- 			      : arm_spe_pmu_next_off(handle);
--	if (limit)
--		limit |= PMBLIMITR_EL1_E;
-+	if (!limit)
-+		goto out_write_limit;
- 
- 	limit += (u64)buf->base;
-+	limit |= PMBLIMITR_EL1_E;
- 	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
- 	write_sysreg_s(base, SYS_PMBPTR_EL1);
- 
- out_write_limit:
- 	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-+
-+	if (!limit)
-+		event->hw.state |= PERF_HES_STOPPED;
- }
- 
- static void arm_spe_perf_aux_output_end(struct perf_output_handle *handle)
-
--- 
-2.34.1
-
+> Personally I was also puzzled of the choice as *nents members are all unsigned
+> int in the scatterlist.h.
+> 
+> ...
+> 
+> > > We need an EXPORT_SYMBOL() here.
+> 
+> Good catch! I'll add it in next version.
+> 
+> > > With that, this looks good to me.
+> > > 
+> > > Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+> 
+> Thanks!
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
