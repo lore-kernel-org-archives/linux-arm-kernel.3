@@ -4,85 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD494CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05596CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h20o8C8oi1qOyikUuhxoyz0kq2tCK1DjVNwps6Y/PZY=; b=emDLSpwblF6YuSUqvgqiE7PEkt
-	SvhYzW7B+XVITZn3gXOW0JBuCUuiotQxpvj4knPPAhFa8MhuGRszcOIIwpizk7ahaf1nH/0m1i/6F
-	SSl8l+dH5Jbz74ndSlCNmh3pHWUBN+sL1ySQ4QDzXQjetx7/uNqLjXT9XL2y0Jd/neUngD6kNnLAw
-	ysovuZ7e8saPHMwXdwoUwT+Tj0HJBPJNWUlAuR7t9Z8hDQdWXGCFwaA0ydHht3ToDYNz6IeMZClGO
-	9tiIPH2H1M+0ZivPZPXJKyG4+0La1BmI5KTueNzOPIn1oU+ZKost/5M64s0MXa6PcUbOC9ax6NDlR
-	n4Ez2nsg==;
+	bh=L5Y96RO9WariXLlU8HPIyULNGxFOP7ZCY4N2QZTzgpg=; b=Uif7jUo5j/zJh1c1BsdV5bZ7Bn
+	qVa1IZIW2ZkOk2hrj2i+Sdrts3qp7nLGSm4BZFUYXTroYpev+5U4FywX+70NbLRyP48Dc79rrW5fa
+	Bz5l4Gy5+nINUpAQT0csru10jLhcivfGjP4IgqfYweAf/SrajcQciCSdENKKj9a+v53esycm0N4UA
+	hajJQJevksZufH1W5IonZIBaMV1o58MbgUfzNiVu+tdI5tWpsL3PjSKhpdRvV2ZaeIq9h89FyaFFH
+	mK0S8/vr9XDBfHHcaIshB+edo80W8zha2iJ9RPMDCTJKJ+eaGr9vOCp87+oZJ2UfpUW84PvzAkbwE
+	LK6SwLCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILsu-00000004rsO-1neR;
-	Mon, 10 Nov 2025 07:00:16 +0000
+	id 1vIM4t-00000004sjF-45Bh;
+	Mon, 10 Nov 2025 07:12:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vILsn-00000004rqf-1NUA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 07:00:14 +0000
+	id 1vIM4s-00000004sia-0A4m;
+	Mon, 10 Nov 2025 07:12:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BE0B4445E
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 07:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BCF9C19421
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 07:00:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D805C41B5C;
+	Mon, 10 Nov 2025 07:12:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61D4C16AAE;
+	Mon, 10 Nov 2025 07:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762758005;
-	bh=JdTdMo+NFiglCdCfKW95/AM4C/gcOP2vda5nUzM0Gcs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fOiYkuEKJeG64GjSkTz0f062EymlHD37s8k68FmgmEKb1QyozA9aH3644MecRv1rk
-	 MSLlU/QP/Vt/gBlJ3JMXb/jrSpZafF8b64XnG21/d2+aOMESrCAudIQeEymVVsc7Az
-	 u1E8J6JpR7C4w6R0ivD078MdWdFEsqExMLydk09mClOb76WxnIdBZ15Zb9VZf0GtbC
-	 CnGwXRkUIN8wtWYTzbK8xdN2DEE8A9YeQvTVi8aKXLDnghnVc2v/Nlj6QpAt4iK/SU
-	 cSdKQXbZzBawYnrauz+xbosh04Pz0PacM2n1UkAbs05FpZ5o8rWz6Bubs4wmTyw0Gu
-	 Wezc5Ezmnbkbw==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b403bb7843eso479837466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 23:00:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUo53bZJSOI3H5fYIN78rfWY/M1I2bdG4Ylg70Cu2ua2fX+UaX5RrEbnnxqmEjrRN4rgm94xwb2MQWAfHOwH88Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzuXK/bQSAvQekRxKzlNBXmrQpk22YTU98BKVppMsXL3zuTU1/
-	IGOvb2jna6SxpQH4sMoMS2z6tl9j6q19J0gIMKBxr+XVwa/R5Gr2EWtVTxCKAgKHPGbRvnPMOFv
-	dXFIoGJV2+Asjr/MOEjapPteKVAIaJZU=
-X-Google-Smtp-Source: AGHT+IHkpMQjNw20ZABNl3NXRRjTGeTjlilbmH88N08NrWz3UtRyqo7y/Vo93oYm+gCDPeDFcWZjLsRDB5fNntbnReU=
-X-Received: by 2002:a17:907:3fa9:b0:b6d:5262:a615 with SMTP id
- a640c23a62f3a-b72e045bbe3mr518748666b.41.1762758003839; Sun, 09 Nov 2025
- 23:00:03 -0800 (PST)
+	s=k20201202; t=1762758756;
+	bh=npf91q97ByS7kwwU6n9XRA4EAmt/gK94VxWAq/bBNt0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dYRWg4vB/FzAf8I+IjRQXfYssgHBIZ2tyxhq3HsPZOHlbGHkqPRTxaAcJdp+6lHlW
+	 7XzRnIUT2Dqqjm83O7zvcE2wm/8F8DEoahSH+OkIJXgg7nVjP18SJbRirxNcouKaHG
+	 uDy/3uHqgQjPqrS9KdV2W0YJtFQGts+O3a7aQSiILbNt4ir6CZl0CGb0z5BIdqIiC7
+	 ve0I2RvQrFqEHOcCXggO5SuQJHruDRQUosy+3NVXpSfXDpLIRbNnyDJ+iyKj/cM3jK
+	 GbtVBKPmGh3th4uKVNABVLQKrCDTc8qfjssCBKE7oKD4eL0o09bE4tzshAdS6/bWD7
+	 CWlPlpE96C1Fg==
+Message-ID: <19169092-78f8-4b86-9f43-ea7a2ea20b9f@kernel.org>
+Date: Mon, 10 Nov 2025 08:12:32 +0100
 MIME-Version: 1.0
-References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
- <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
- <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
- <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
- <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn> <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
- <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
- <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
- <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
- <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com> <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
-In-Reply-To: <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Mon, 10 Nov 2025 15:00:00 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
-X-Gm-Features: AWmQ_bmq5wLFGGuKpNEar1lHdOssPyNtLtsWck9HgwZgdpmEeIMHmCh0kt8j7JI
-Message-ID: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Simplify usb-c-connector port
+ on rk3566-pinenote
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Diederik de Haas <diederik@cknow-tech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>,
+ Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
+ <20251109-rk3566-pinenote-dt-fixes-upstream-v1-1-ed38d200cc04@cknow-tech.com>
+ <a726fac9-afe5-4639-b06a-4bccc256d98f@kernel.org> <5024969.GXAFRqVoOG@diego>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5024969.GXAFRqVoOG@diego>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_230009_423214_5C5E45CB 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20251109_231238_140872_54EBBEB5 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +123,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 9:19=E2=80=AFAM Tiezhu Yang <yangtiezhu@loongson.cn=
-> wrote:
+On 09/11/2025 23:16, Heiko Stübner wrote:
+> Am Sonntag, 9. November 2025, 18:37:26 Mitteleuropäische Normalzeit schrieb Krzysztof Kozlowski:
+>> On 09/11/2025 18:05, Diederik de Haas wrote:
+>>> The USB-C connector on the PineNote has only 1 port, so there's no need
+>>> for a 'ports' node with address-/size-cells properties as a single
+>>> 'port' node suffices.
+>>>
+>>> This fixes the following DT validation issue:
+>>>
+>>>   Warning (graph_child_address): /i2c@fe5c0000/tcpc@60/connector/ports:
+>>>     graph node has single child node 'port@0',
+>>>     #address-cells/#size-cells are not necessary
+>>
+>> This is not a DT validation, but DTC warning which we do not really fix.
+> 
+> That is good to know. Is the same true for other dtc warnings?
 >
-> On 2025/10/28 =E4=B8=8B=E5=8D=889:47, Ard Biesheuvel wrote:
-> > On Sun, 26 Oct 2025 at 12:20, Huacai Chen <chenhuacai@kernel.org> wrote=
-:
-> >>
-> >> On Thu, Oct 23, 2025 at 4:07=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
-g> wrote:
-> >>>
-> >>> On Thu, 23 Oct 2025 at 10:01, Huacai Chen <chenhuacai@kernel.org> wro=
-te:
-> >>>>
-> >>>> On Thu, Oct 23, 2025 at 2:55=E2=80=AFPM Tiezhu Yang <yangtiezhu@loon=
-gson.cn> wrote:
-> >>>>>
-> >>>>> Hi Josh and Ard,
-> >>>>>
-> >>>>> On 2025/10/20 =E4=B8=8B=E5=8D=882:55, Huacai Chen wrote:
-> >>>>>> On Mon, Oct 20, 2025 at 9:24=E2=80=AFAM Tiezhu Yang <yangtiezhu@lo=
-ongson.cn> wrote:
-> >>>>>>>
-> >>>>>>> Hi Josh, Ard and Huacai,
-> >>>>>>>
-> >>>>>>> On 2025/10/18 =E4=B8=8A=E5=8D=881:05, Josh Poimboeuf wrote:
-> >>>>>>>
-> >>>>>>> ...
-> >>>>>>>
-> >>>>>>>> But IIUC, the libstub code runs *very* early, and wouldn't show =
-up in a
-> >>>>>>>> stack trace anyway, because there are no traces of it on the sta=
-ck once
-> >>>>>>>> it branches to head.S code (which doesn't save the link register=
-).
-> >>>>>>>
-> >>>>>>> Thanks for your discussions.
-> >>>>>>>
-> >>>>>>> Are you OK with this current patch?
-> >>>>>> For me the current patch is just OK.
-> >>>>>
-> >>>>> We have discussed this a few times but there is almost no consensus
-> >>>>> of what should happen next and nothing changes.
-> >>>>>
-> >>>>> Could you please give me a clear reply? Then I can make progress fo=
-r
-> >>>>> the following series:
-> >>>>>
-> >>>>> https://lore.kernel.org/loongarch/20250917112716.24415-1-yangtiezhu=
-@loongson.cn/
-> >>>> For me, this patch is OK, ignore __efistub_ prefix in objtool is als=
-o
-> >>>> OK [1]. But I cannot accept the way that modifying the efistub part
-> >>>> only for LoongArch.
-> >>>>
-> >>>> Clear enough?
-> >>>>
-> >>>
-> >>> LoongArch is the only architecture which has the problem, so I don't
-> >>> see a reason to modify other architectures.
-> >>  From your reply I think the efistub code is completely right, but
-> >> objtool cannot handle the "noreturn" function pointer. And this patch
-> >> is a workaround rather than a proper fix (so you don't want to touch
-> >> other architectures), right?
-> >>
-> >
-> > That is my reasoning, yes. But Josh is right that it shouldn't make a
-> > difference in practice, I am just reluctant to make changes to the
-> > code running on the target to accommodate a flawed build time tool.
->
-> If I understand correctly, I should modify this patch to remove the
-> changes of arm and riscv for now, do the changes only when there is
-> a real problem or requirement some day, right? If no more comments,
-> I will send v3 later.
-Now everyone involved agrees that the efistub code is correct, so the
-proper solution is to fix the compiler. Changing efistub code and
-changing objtool (ignore __efistub prefix) are both workarounds, but I
-think changing objtool is a little more reasonable. Maybe Josh has
-different ideas?
 
-Huacai
+No, depends, the same for compiler warnings. That's the only warning I
+remember we considered moving from W=1 to W=2.
 
->
-> Thanks,
-> Tiezhu
->
->
+Best regards,
+Krzysztof
 
