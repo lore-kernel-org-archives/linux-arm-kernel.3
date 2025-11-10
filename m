@@ -4,58 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87ECCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6EDCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJuWEJUlvaCE4nA4kDuytEb63h3ixW4NdLS1291VPf4=; b=JCLMY+0R7CRmJsPStd8BAWp90W
-	uPlN9ki6w5oQKJeDIn5RKftd3Fx5dmeudBK+O3sF/x6Ue8ZccCEZbIq+s1boI2T1ba73s4sSc+xGT
-	ge8EyTFYageQu/jP5IZmhkL/fFHrEZ7TM2ATP4nl+xMSl9eFZm56OZrmyexwDsmHkv/UCmSLi7cE1
-	VfDrZyoHGti8wauUS7IsS9w/GC3t67SH66Soz6WaG1NjZ5hfWq9p3IT2PUjy61hZiy3PCLCeEJhqX
-	b+uQcj3h0XB+clopC6pVmINFvci1MeE3135t4jeHklvIS3I8K5K8VzS+VYbrM1KHOab6SewK6u++C
-	UU8LdI5Q==;
+	bh=IANMv7sMsuJ933QfOBzi7RkPmbnivtVNGpmkVnqW8C0=; b=VFMlEo5Hg9ypzlgl8OOvAB2Zdi
+	lmsQhYO5IpAfZQzhV2xIxtrHJgEecNpXLE+3Mg9x0nOjFco8Nzzg48R9bOEfyV9W1b+MV3hZN0Hlx
+	RWLShLfVegy2MNwC9ok5pr0akU1E5wQfqFKnzNkDaIuWihLylazHOrZM4zNEK42Emuvwstrr89lAB
+	MkVcq+en93pXcn6bfczpulvxWZypdGf7tISQ/rm03UJx0jfMRdtys7ausT4Jya5dBAtgqVQLj74Ak
+	eZ9QVYmvwISVdckacaoWynrJICDi3o6UK00Ysqa08pUouNyB4t0iuBw7vgxDJVkJcpCNaF0PGF2W0
+	DFuUsJhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQDg-00000005Kgu-3J74;
-	Mon, 10 Nov 2025 11:38:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQDd-00000005KgW-1asu
+	id 1vIQEa-00000005Knu-1gop;
+	Mon, 10 Nov 2025 11:38:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIQEY-00000005KnZ-406d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:37:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D40EB497;
-	Mon, 10 Nov 2025 03:37:47 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 248023F63F;
-	Mon, 10 Nov 2025 03:37:54 -0800 (PST)
-Message-ID: <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
-Date: Mon, 10 Nov 2025 11:37:52 +0000
+	Mon, 10 Nov 2025 11:38:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 68AB560008;
+	Mon, 10 Nov 2025 11:38:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01475C116D0;
+	Mon, 10 Nov 2025 11:38:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762774732;
+	bh=AgqRNHlM28QFo1a1gtxVwTp0nGA/pHQtS0abwMu9VOc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EJaSqtLgJoBnUagiGNQVs62D7nvbF1c6hPdzeseRRY0g4NowPmn0yP2ilFRqTGqUW
+	 sPzkkTwJN5cjPQUratvqSN/q4oUc88lzC+xgup0xuMr47TNPr85oYO4t0K8e79SH5D
+	 ruSwgoiq59BcaR0tj0vsS65NNiWAPw1gwHLyExzon9keUMMA8f+r7l7qifUYC2Gi+d
+	 mF3mBDe4tSInlDj1+LN0ADjIht/yti36STMl1jUDDEq6SDnTJNUFZbx59UwbDrMoig
+	 jdDJS0HlpPJS0ysSAD9mfFsm9LvUEmrRe1v7u9afR9zdxlTsvSINT1gbgQewAVAa26
+	 Shp8A7TPwDztQ==
+Message-ID: <6a57032b-3726-4074-9212-f0f16269f11c@kernel.org>
+Date: Mon, 10 Nov 2025 12:38:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
- single-shot restart
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
- <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTog5Zue5aSNOiBbUEFUQ0ggMi8zXSBSZXNldDogY2l4?=
+ =?UTF-8?Q?=3A_add_support_for_cix_sky1_resets?=
+To: Gary Yang <gary.yang@cixtech.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
+References: <20251107033819.587712-1-gary.yang@cixtech.com>
+ <20251107033819.587712-3-gary.yang@cixtech.com>
+ <69efdb9a-c03a-42f4-a78e-18c8a2b29322@kernel.org>
+ <PUZPR06MB58875805D441AF3213189979EFCEA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+ <38e8e068-d06b-41f0-9cae-5dfdf0fcce6f@kernel.org>
+ <PUZPR06MB588726F24E6193ADD6CF224CEFCEA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_033757_558743_E331ADCF 
-X-CRM114-Status: GOOD (  22.32  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <PUZPR06MB588726F24E6193ADD6CF224CEFCEA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,97 +125,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 16:49, Leo Yan wrote:
-> Add a new argument restart_ss to etm4_enable_hw(). When passed as true,
-> it resets the TRCSSCSRn.STATUS bit to 0 to re-enable single-shot
-> control.
+On 10/11/2025 12:32, Gary Yang wrote:
+> Hi krzysztof:
 > 
-> No functional change. This is a preparation for a subsequent change.
+>> -----邮件原件-----
+>> 发件人: Krzysztof Kozlowski <krzk@kernel.org>
+>> 发送时间: 2025年11月10日 19:22
+>> 收件人: Gary Yang <gary.yang@cixtech.com>; p.zabel@pengutronix.de;
+>> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org
+>> 抄送: devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+>> linux-arm-kernel@lists.infradead.org; cix-kernel-upstream
+>> <cix-kernel-upstream@cixtech.com>
+>> 主题: Re: 回复: [PATCH 2/3] Reset: cix: add support for cix sky1 resets
+>>
+>> EXTERNAL EMAIL
+>>
+>> On 10/11/2025 12:18, Gary Yang wrote:
+>>>>
+>>>>> +static struct platform_driver sky1_reset_driver = {
+>>>>> +     .probe  = sky1_reset_probe,
+>>>>> +     .driver = {
+>>>>> +             .name           = KBUILD_MODNAME,
+>>>>> +             .of_match_table = sky1_reset_dt_ids,
+>>>>> +     },
+>>>>> +};
+>>>>> +static int __init reset_sky1_init(void) {
+>>>>> +     return platform_driver_register(&sky1_reset_driver);
+>>>>> +}
+>>>>> +subsys_initcall(reset_sky1_init);
+>>>>
+>>>> This should be rather just module_platform_driver. Does not look like
+>>>> part of subsystem, but looks like regular driver.
+>>>>
+>>>
+>>> Some modules depend reset module. When boot system, these modules
+>> can't probe before register reset.
+>>
+>> Which modules? You statement is so imprecise that my only answer is:
+>> sorry, deferred probe is old thing now and everyone should use it.
+>>
+>>> To make these modules probe earlier, we use subsys_initcall() to
+>>> instead of module_platform_driver(). Do you have better suggestions?
+>>
+>> Look how deferred probe works.
+>>
 > 
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 16 +++++++++-------
->   1 file changed, 9 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 560975b70474c3449aa6799fc1a8e05d5ea93495..5101ac3885c7dec6aed397668a866b7cfe907d10 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -490,7 +490,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
->   	return 0;
->   }
->   
-> -static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> +static int etm4_enable_hw(struct etmv4_drvdata *drvdata, bool restart_ss)
+> Yes, you're right. But deferred probe needs to take more time on booting.
+> To make the boot faster, better experiences, we have to use subsys_initcall()
 
-While this looks to work, I wonder if we could manage this all in the 
-config ? i.e.,
+Again, imprecise statement. How faster? With such arguments - twice
+(first list of unspecified modules and now of unspecified boot faster)
+the answer is the same. And I will not wait for third imprecise
+argument, because this is not a ping pong game.
 
-Use an extra field, say config->retain_single_shot_status, which 
-defaults to 0 and is always cleared once we pass through enable_hw.
+Anyway, manual core ordering is not the solution.
 
-
->   {
->   	int i, rc;
->   	struct etmv4_config *config = &drvdata->config;
-> @@ -565,9 +565,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->   
->   	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> -		/* always clear status bit on restart if using single-shot */
-> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> +		if (restart_ss) {
-
-		if (!config->retain_single_shot_status) {> +			/* always clear status 
-bit on restart if using single-shot */
-> +			if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> +				config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> +		}
-		} else {
-			config->retain_single_shot_status = 0;
-		}
-
-So, the default behavior is "clear" the status and can be explicitly
-requested by the CPU PM code to leave it alone. We could do this as
-a separate cleanup.
-
-Suzuki
-
-
-		}>   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
->   		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
->   		if (etm4x_sspcicrn_present(drvdata, i))
-> @@ -624,7 +626,7 @@ static void etm4_enable_sysfs_smp_call(void *info)
->   		return;
->   	}
->   
-> -	arg->rc = etm4_enable_hw(arg->drvdata);
-> +	arg->rc = etm4_enable_hw(arg->drvdata, true);
->   
->   	/* The tracer didn't start */
->   	if (arg->rc)
-> @@ -861,7 +863,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->   	drvdata->paused = !!READ_ONCE(event->hw.aux_paused);
->   
->   	/* And enable it */
-> -	ret = etm4_enable_hw(drvdata);
-> +	ret = etm4_enable_hw(drvdata, true);
->   
->   out:
->   	/* Failed to start tracer; roll back to DISABLED mode */
-> @@ -1820,7 +1822,7 @@ static int etm4_starting_cpu(unsigned int cpu)
->   		etm4_os_unlock(etmdrvdata[cpu]);
->   
->   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
-> -		etm4_enable_hw(etmdrvdata[cpu]);
-> +		etm4_enable_hw(etmdrvdata[cpu], true);
->   	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
->   	return 0;
->   }
-> 
-
+Best regards,
+Krzysztof
 
