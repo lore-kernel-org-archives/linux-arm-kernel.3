@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E42CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A032CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXFnmmWcp+T86M4X7Xk/v6jPWKY4nv9UjyUBijcqLEQ=; b=PdqU5T+xGRaFaPWCernpizPABm
-	lE/gnpSU+gFL5+3iwAxbnsU+W60q9VGP/A1UoluvAwoYTNLRgD1CZAdJn8C1mFkvwNs4liT6EUYIi
-	WLborR186udWu+/QaObU47qxDgPkSGClkrY+BpITlGFM0ixtIvgWhs+NM+wNQNXsSkFLWdcTSAKr8
-	nM1u4amb/+XJ0k+aabppCp5kX6AWU2ZbciLqMuNDRGNyubh8X8zKJosFl2lzwi5hR+neamRTps0YA
-	++FMY9X5hItUwr0VRC9ACq42PqpcZWe9MxGAJjuFBtU8DZl73Z0NMXv0AR9DTH0czDHL7XZzw+eNF
-	GLemHkOA==;
+	bh=fiXuWWmWjojk9SKcuAQx+dNy0VW9X8RvBWE21Zmn7VM=; b=Cbp8xaBrzyjajh5tuivuoH2/mu
+	q1Ascq2I+jSyFtw3iQnXfKYFfAflTDOQBghxtES9qd+DxsNEJB+HACjskl62O2gIaNzDqY+fYaXNW
+	FIM0ZlREMIC/MFAoGP4fep4Af7okTwe/JyDSGPDKJSxN0FDTV8aFqIw2RMJ9i3TxB01r3EBNCgo2S
+	0EmjWB3IEQOosR7AJMrU/PLzd2mS/gCmSm72LAoaBKmL1sAYKWG9cBktdEgsIzd3yTxhMG3Q5Fdwj
+	qKGHGgxXyTUPN3rW/59Si1lUvEC4Frx4Cr4lUEnisyVsfChGHOwVrRuX7fmihRbE0tnAot8OHEg3Y
+	IppvdTJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINzN-000000054O3-4523;
-	Mon, 10 Nov 2025 09:15:06 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vIO30-000000054ci-3H2e;
+	Mon, 10 Nov 2025 09:18:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINzK-000000054Ml-1tLw
+	id 1vIO2z-000000054cc-2XDB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:15:04 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-640a503fbe8so5004773a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:15:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762766100; x=1763370900; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NXFnmmWcp+T86M4X7Xk/v6jPWKY4nv9UjyUBijcqLEQ=;
-        b=d+Ad8cy9YlPZF2JyyPxDUqKEwpUrSIRta857d1X+qz1gs3tcXDQCFw0CBhJUpmSs/H
-         tmssijk4dWc9S0l8hVOKTX2f+VO2J2xmx5yj95RmyaRlXwYjDrcSt0zSxUnjmmd5StvK
-         SrYu904TgvzmBujrvlfkJiHN8hb3GoA0q3dSmzbG11PM3syyMlyZyAip/pb3v0qHpMjl
-         z8hyE4yymsOqxR7Cc/CFzSnOYrq87HPuQv5ZQ+Iaussi40llSWBQF2ZTQBCedh/O5PAm
-         BdMgsbbBHhx2Dxhw5zyYUKwyLN4midaqWlomlDb42nxuKJQU2j+5XdtLp5aPIsb6ckIQ
-         0e1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762766100; x=1763370900;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NXFnmmWcp+T86M4X7Xk/v6jPWKY4nv9UjyUBijcqLEQ=;
-        b=AyiluQbjMln05MaQr/uODiVkjhQEVUDpAPmdPtZfqTSaK4Z/qhYmcd8mdMrk3rrYmI
-         q/H3vTpm2rksj9FLWDgqXAWjaARIRnmKLVlnoN+7YXgUkyDI6fZb2Kfa0d2J2tKqkhja
-         PryG1MdnPz6RTffC3NYQ9kHrmNTK1iql59qzrzgo3WmYFTWjxszT/XiVJbj270bEFTG4
-         nPrGMgsivZiIDnwubZRswLjv8uZ7S2vDpFv6Qf2wTjqtZ7UsxOQtG73UfJBLmYqM2RwZ
-         fFYN8dl5DoUjPNf3A4uXWtayjbegF4z/V4MRim+HAzct+7NeTHBS5mYPwc1K6WkhqAaT
-         nrNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWDZPFDsYpw3WhnWSlFCsa50P6qtNFYLbYIWarrZ0aSjLcwBSx68puqkBmFz+68izafoHE4iXsvOEi93KmKn91e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1NYfnZzcwS7KCIv5NxpdT02BBCeo5r0yLKg+sM7GzzhBsVF95
-	ddVWycbF4lNA+q62iecNRbLacsrDj6PjNExG2tUpS8/CY4lwceyvuOUkcwolUZ8FQCzy0+ofj6B
-	nIamNwkvrUBCbiKhw/UHfdHGEWdiuPMnLgiPL/ASskw==
-X-Gm-Gg: ASbGnct7JvUFHU2+Lz2graTTGXo182JdMhAFHRsGzO/jbjwlW+4jtQVAxMLZvg3cog7
-	cj/IJDLJV11TajhrF14LZuVc+/ihtTaBxFZxoaliPogKXFtybub8gfzocPQ9xL/MTmSRD6/o+LW
-	fm/MdeF8XAiILJjnoRpYbP3KZ13VfJdGZIdoW5hm4//nLOBc8UCWAfMZQwGNn5135sHePJToJwb
-	ui5I0Y1MtcuGpUE5De1ez6YPpTuim38oq1qgzZi+d8psUIRGLodAuoFs4RzNGuR1ggSWyplnle1
-	D3sAWzwfP9nbdB1Wbi7wOLW+fp9FLBQmXQo=
-X-Google-Smtp-Source: AGHT+IG5jsntiKbL9XDoTScxbX6sK0/o8ty8iuXm+qmOqxUowPC2iS+ovEiKsBoSdXQkOeKy6r5NlaZELkfmqB0OJxc=
-X-Received: by 2002:a05:6402:26d0:b0:640:cd2a:3cc1 with SMTP id
- 4fb4d7f45d1cf-6415db564bbmr5934589a12.0.1762766100006; Mon, 10 Nov 2025
- 01:15:00 -0800 (PST)
-MIME-Version: 1.0
-References: <CAKfTPtC87w7RVSDAXWXRX1sjgo4s=_Z_k62+mfTXrMZwmkEpFg@mail.gmail.com>
- <20251106173853.GA1959661@bhelgaas>
-In-Reply-To: <20251106173853.GA1959661@bhelgaas>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Mon, 10 Nov 2025 10:14:48 +0100
-X-Gm-Features: AWmQ_bmdJnu871GRec3avwkB2KMRGJUSatF4zpeqoF6tG3-YU67MrrGvp-or-eI
-Message-ID: <CAKfTPtD3UUXq=PwBJKx2q5VEBbAie-M1XgTbx3hmxZV1yQGBww@mail.gmail.com>
-Subject: Re: [PATCH 1/4 v3] dt-bindings: PCI: s32g: Add NXP PCIe controller
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, chester62515@gmail.com, mbrugger@suse.com, 
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, 
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org, Senchuan Zhang <zhangsenchuan@eswincomputing.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_011502_538189_1FB89E50 
-X-CRM114-Status: GOOD (  29.14  )
+	Mon, 10 Nov 2025 09:18:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71E7E601A9;
+	Mon, 10 Nov 2025 09:18:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13815C16AAE;
+	Mon, 10 Nov 2025 09:18:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762766328;
+	bh=uquc9KPzJLqmrUGTtW/WL79DTxEiUuvrMXU31YBoEgg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=prmW4Q/xtwy2U5A6XdV9MSU5SGHVbHRrvnGWIZ4Wvk+xk9VUnAj/WgdjB2BXMeoKQ
+	 g7py08T3FWOAYMO6srNNHyJG88jTnnn6QDfAPEKquhu6jQxZgNWGJ6FvU46LlybaZh
+	 W1rMqEFKcQ2y35yYheggf10/1U4tQKMyvYK+SdsgwgOD2Xdm6FNhrAi8VEYvvZ1/AI
+	 X6vA5eKJplGbNSM7OmNOma6PbGxfybGNHRMlN2di/pJ/B8KsqwqleSRUSYBWeicgth
+	 1OZ2gVSR9cZF8qLpRAbeoTbpjsoA7MInJlN1F5Bq0QvrgxSJH5wXPP/NBj5V6qUsLG
+	 c8HK2bD4r4rIQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vIO2v-00000003nJj-2qRt;
+	Mon, 10 Nov 2025 09:18:45 +0000
+Date: Mon, 10 Nov 2025 09:18:45 +0000
+Message-ID: <868qgeutxm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Subject: Re: [PATCH v2 12/45] KVM: arm64: GICv3: Extract LR folding primitive
+In-Reply-To: <3tb7ekdzl5f4rs24bla63vw22awejhbn7ngvttid7v7bzaer2m@62bxshf7uj34>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-13-maz@kernel.org>
+	<3tb7ekdzl5f4rs24bla63vw22awejhbn7ngvttid7v7bzaer2m@62bxshf7uj34>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yaoyuan@linux.alibaba.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +89,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Nov 2025 at 18:38, Bjorn Helgaas <helgaas@kernel.org> wrote:
->
-> [+cc Senchuan]
->
-> On Thu, Nov 06, 2025 at 09:09:01AM +0100, Vincent Guittot wrote:
-> > On Thu, 6 Nov 2025 at 08:12, Manivannan Sadhasivam <mani@kernel.org> wrote:
-> > > On Wed, Oct 22, 2025 at 07:43:06PM +0200, Vincent Guittot wrote:
-> > > > Describe the PCIe host controller available on the S32G platforms.
->
-> > > > +            phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > >
-> > > PHY is a Root Port specific resource, not Root Complex. So it
-> > > should be moved to the Root Port node and the controller driver
-> > > should parse the Root Port node and control PHY. Most of the
-> > > existing platforms still specify PHY and other Root Port
-> > > properties in controller node, but they are wrong.
+On Mon, 10 Nov 2025 09:01:21 +0000,
+Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
+> 
+> On Sun, Nov 09, 2025 at 05:15:46PM +0800, Marc Zyngier wrote:
+> > As we are going to need to handle deactivation for interrupts that
+> > are not in the LRs, split vgic_v3_fold_lr_state() into a helper
+> > that deals with a single interrupt, and the function that loops
+> > over the used LRs.
 > >
-> > Yeah, we had similar discussion on v1 and as designware core code
-> > doesn't support it, the goal was to follow other implementations
-> > until designware core is able to parse root port nodes.  I can add a
-> > root port node for the phy and parse it in s32 probe function but
-> > then If I need to restrict the number of lane to 1 instead of the
-> > default 2 with num-lanes then I have to put it the controller node
-> > otherwise designware core node will not get it.
->
-> I think it's better to put the PHY info, including num-lanes, in Root
-> Port DT nodes now even thought the DWC core doesn't explicitly support
-> that yet because it's much easier to change the DWC core and the
-> driver code than it is to change the DT structure.
->
-> That will mean a little extra code in the s32g driver now, but we will
-> be able to remove that eventually.  If we leave the PHY in the DT
-> controller node, we may eventually end up having to support two s32g
-> DT structures: the single RP style with PHY in the controller, and a
-> multiple RP style with PHY in the RP.
->
-> We'll likely have both structures for many existing drivers, but I
-> think it will be simpler if new drivers can avoid the old one.
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/vgic/vgic-v3.c | 88 +++++++++++++++++------------------
+> >  1 file changed, 43 insertions(+), 45 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > index 3ede79e381513..0fccfe9e3e8dd 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > @@ -33,78 +33,76 @@ static bool lr_signals_eoi_mi(u64 lr_val)
+> >  	       !(lr_val & ICH_LR_HW);
+> >  }
+> >
+> > -void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+> > +static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
+> >  {
+> > -	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+> > -	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
+> > -	u32 model = vcpu->kvm->arch.vgic.vgic_model;
+> > -	int lr;
+> > -
+> > -	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+> > -
+> > -	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
+> > -
+> > -	for (lr = 0; lr < cpuif->used_lrs; lr++) {
+> > -		u64 val = cpuif->vgic_lr[lr];
+> > -		u32 intid, cpuid;
+> > -		struct vgic_irq *irq;
+> > -		bool is_v2_sgi = false;
+> > -		bool deactivated;
+> > -
+> > -		cpuid = val & GICH_LR_PHYSID_CPUID;
+> > -		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
+> > -
+> > -		if (model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+> > -			intid = val & ICH_LR_VIRTUAL_ID_MASK;
+> > -		} else {
+> > -			intid = val & GICH_LR_VIRTUALID;
+> > -			is_v2_sgi = vgic_irq_is_sgi(intid);
+> > -		}
+> > +	struct vgic_irq *irq;
+> > +	bool is_v2_sgi = false;
+> > +	bool deactivated;
+> > +	u32 intid;
+> >
+> > -		/* Notify fds when the guest EOI'ed a level-triggered IRQ */
+> > -		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
+> > -			kvm_notify_acked_irq(vcpu->kvm, 0,
+> > -					     intid - VGIC_NR_PRIVATE_IRQS);
+> > +	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+> > +		intid = val & ICH_LR_VIRTUAL_ID_MASK;
+> > +	} else {
+> > +		intid = val & GICH_LR_VIRTUALID;
+> > +		is_v2_sgi = vgic_irq_is_sgi(intid);
+> > +	}
+> >
+> > -		irq = vgic_get_vcpu_irq(vcpu, intid);
+> > -		if (!irq)	/* An LPI could have been unmapped. */
+> > -			continue;
+> > +	irq = vgic_get_vcpu_irq(vcpu, intid);
+> > +	if (!irq)	/* An LPI could have been unmapped. */
+> > +		return;
+> >
+> > -		raw_spin_lock(&irq->irq_lock);
+> > +	/* Notify fds when the guest EOI'ed a level-triggered IRQ */
+> > +	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
+> > +		kvm_notify_acked_irq(vcpu->kvm, 0,
+> > +				     intid - VGIC_NR_PRIVATE_IRQS);
+> 
+> The fds notifiy happens before checking irq's mapping before
+> this patch, and now in reversal order w/ above change. It's
+> fine for vLPI, and for vSPI no necessary call
+> kvm_notify_acked_irq() if the it has been remapped, no
+> gsi<->pin mapping there. Is above understanding correct ?
 
-Okay, i will add a RP node
+We can only notify an irqfd for an SPI, never for an LPI. Given that
+only looking up an LPI can result in a NULL pointer (if it has been
+concurrently removed), this change is immaterial
 
->
-> The eic7700 driver is an example of num-lanes support in the driver:
-> https://lore.kernel.org/linux-pci/20251030083143.1341-1-zhangsenchuan@eswincomputing.com/
->
-> Bjorn
+This results in something that is easier to understand, as I find it
+more logical to weed out the error cases first before taking any
+significant action.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
