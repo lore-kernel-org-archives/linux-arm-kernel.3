@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA559CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D112FCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSl8Akbc8ju7bSuG6a54qKU5axag+OpUNIo5wk28PYw=; b=JmJTbH87YuLgxK226MzJNrM0uD
-	NuIFrxP7UCyYLOl4mDBZFnBVpmauaCtIMjeWeY/qy0bNKHaMMx1iQbOxpG5sA5GY7f1hvuf63OxFc
-	G63UBxqevSvau/Axvlf9S3I4hjlxEYLb3vMJGYxbqA9OywXBxcAtCPYSn8XPX0ufsXeeoEcBgGOn+
-	Bv9JvExxts8aaPjJbtRe60GFasyGaB8hEA7SrPzKv+9IASln/otuclqWSDPlwZHkf3CWmAyMS91ii
-	qn31/XYQj8R6HGBH81Z9HXfoDuXOFu7JAPXHCmTLCNDuryvZtFm8juYY1PIEEo2hRF9a07KeuGg39
-	/+makArQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mNOOJCB8albSnOy2PW8ozy7g2ecjY5FgeI9tcxPt244=; b=VsfVbQcAnHnR8EM2KlpQ2ZccBo
+	6ukIw/zohaRwxeBvaexRPZfeBvd99rTgjLBSY9ah7J0Yl+WigULdfDCHpXx+jbKN4OrM3E56wkxKr
+	TV8q6mr/nOc8xYxAMBGOg871i6a4FJ/aLNwWdUY4RWzauZlktftjfuJgnzCLoxNVjxQLZgOWb4hKw
+	YohH3JDLKMIDCatd6yIDLf8Oyb0crm7zTfFtQzEzihFWpCXFJ26d1Xu6zvcMJiuoSwz+h7kFtQEnt
+	1LWd+p9pnXaAFR993dgpUJUbFOuzSZOCSXtBb5AKyrYh/8GzD3JK4GN/+5Wx+rThuEa5Nk88ASX45
+	ixdNUA/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIR1W-00000005PMC-0PVZ;
-	Mon, 10 Nov 2025 12:29:30 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vIR1q-00000005PPf-21BK;
+	Mon, 10 Nov 2025 12:29:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIR1T-00000005PLk-3FEW
+	id 1vIR1n-00000005POs-45OR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:29:28 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42b3c965df5so371241f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:29:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762777766; x=1763382566; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XSl8Akbc8ju7bSuG6a54qKU5axag+OpUNIo5wk28PYw=;
-        b=rHivdJiHTO8fn8i6dXvBfZEqrgbgP9hB5qs0HeyT+3Pt+emJb+/x+C07Ez4XpN1GFX
-         G7FtB5cG36bGpi2/6DLwQKLAjlHkK9QXWSTf1CxlpQIppzQN/oncVrCC3HuFJtSfE1Jm
-         EtK5jZz0CLiMDNIrj8XR1uOlknptGlxWPZDd1Lh9TZ6fsIhV71N12sF0F9jIKEDqZHj2
-         lOX5v0NpWR4awAg5uhrK9bBOzflxaLWDR5ZhFXMWllU99mVYtR0zcg+TpPlD8QBLHOwv
-         CJcSVCL8ovxNw1PeUy48FfGSD+HUKuA6OCU83HsN8tbelCHUtiH4ZExi1Vvn6gnuT60r
-         2bfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762777766; x=1763382566;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XSl8Akbc8ju7bSuG6a54qKU5axag+OpUNIo5wk28PYw=;
-        b=M5rkvMiTAfdSKfHOKgjamEzNPkQ4JouTUgN5refSs5RtVSLTDuylBPK1WvUmo973sO
-         mwqp1TUPp1AKdHkpyqvdZBrWF5Jd3pYB2apspE6Tzh8/QTFwEKv9Pis0NNFLmFg+mqPy
-         r/czyXTlkdG/3thyr+xsW7B6JaeCYMEfwtp7ef8qxB/i1lgtxQZc31p4bH1RKAotixo1
-         /Nsw/sk84s/ObL8ASbXyYB16sK18UMKCEcNkN26hodNb3k7AuWZIM+PCAqW5ZXBm0+yl
-         b18isbSrKEnWg6Yr97mVe4urPUiR9Ji6DWajCk/UF/KTNq6RzRh68zQN1cpGSl+ob7c1
-         siJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUajzFNt+Jp15IER7j7eZ5Qx7EdMrK9U1Z5FbEHUKt8W6XpJiRkH3E6nnwUBM6hHl/4v2DrGtfoMzk9eRNZUmTs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoRBrovdlJdm2sIOv7HNIzQ8vd35GuOpNjjqTqLtoZwiVs9fOc
-	UCrGK8Rph7rE9mEC6d0QPlFUgChme7ei2h391UIzGStr99mpImm7fHZcjgV3LurROFg=
-X-Gm-Gg: ASbGncvhoFEJMekUwWdpDedhf3FUNqjbPntGwe1N2Q17wGUxI2mj818T8lTNFSq46WQ
-	03TONxQqth6LA14a8Y1DAsApJm/+YNTsJoC1NrJRguWAeSw6uq+fKq0KuevAP+GW9apHcXfv+bc
-	RLL238zRTH8oSzm7yYx2H7pGEgY2Fr6/Y0wPBOhKHdjV9jt4ullcKjaVt5Kmj5Oc1R0ees6zuc2
-	rpR20w4wqGuOqGNX5ntMIwqQeTm4HKYs79dPkwfesJvmmeDxkxFl0GpEovDpNZR+v/Bv7OOWtzQ
-	CxdAJ57Ks2UvwFtbwboysOs9063+zHSHM+3w45LZaqvWX9gWB5BZyw/Hj2MLuzIYLFixUY+3n1l
-	DM3P2n5jgaBzGTLM8KzuwLRsZeGZ+WKHkmYVlhhUrtZGg6YvQmyWs2sPNsZJLN9vtFAxqw6Tzfs
-	LzY4Pupw==
-X-Google-Smtp-Source: AGHT+IHq7I9yv194bdI2sCzej+O60FYqAUuRdl4pRaNBPVTMI4xQviRVl/5KIpcmHW3GNuxNUFTcJQ==
-X-Received: by 2002:a05:6000:2085:b0:42b:4177:7136 with SMTP id ffacd0b85a97d-42b4177740cmr627853f8f.32.1762777765698;
-        Mon, 10 Nov 2025 04:29:25 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b30dd4d86sm13392954f8f.26.2025.11.10.04.29.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 04:29:25 -0800 (PST)
-Message-ID: <2ee36396-d399-4aa7-b045-2ccc34be87b2@linaro.org>
-Date: Mon, 10 Nov 2025 12:29:24 +0000
+	Mon, 10 Nov 2025 12:29:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AAC4F443AA;
+	Mon, 10 Nov 2025 12:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384CFC16AAE;
+	Mon, 10 Nov 2025 12:29:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762777785;
+	bh=CHqHQvKuqRvxJRHlw0G9YM2cvk8+dDccmko+WcI99KA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Vojs3Ny7+r1bvs7xTzB+Em17tnHg4ejqwiAsKUBRNYBKq2ESJ8HM7869IXkyne2Ic
+	 kQYYlyBmu1zFWRa+XAKfg+syhhn8K7Ke/Aot2v11KTSHp0E+iUNBkh4cD9IDovyqLm
+	 I3qy+942BJ+DIqcDZ5xo75PyknQcArDRNJRFGjwoGZrHJkkyzGqNWYn6yS5v1Sfu+F
+	 T3edgQ6vZ1QXPQogA+ippFN1frbOwGnby77b3KjRDBEAT/mjKLLSmsiCAn4JPUwmez
+	 yfrUUnoHWOXIgAiE4QYBaHHoDbQ7usE/VbAQ4+F+cBaKnNnNbymnEDKXE29apneaw/
+	 xxSWFOH6NdReg==
+Date: Mon, 10 Nov 2025 06:29:43 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/15] coresight: Save activated path into source
- device
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, netdev@vger.kernel.org, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ taoren@meta.com, Po-Yu Chuang <ratbert@faraday-tech.com>, 
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-aspeed@lists.ozlabs.org
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+In-Reply-To: <20251110-rgmii_delay_2600-v4-1-5cad32c766f7@aspeedtech.com>
+References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
+ <20251110-rgmii_delay_2600-v4-1-5cad32c766f7@aspeedtech.com>
+Message-Id: <176277778351.3693581.6347765163045847296.robh@kernel.org>
+Subject: Re: [PATCH net-next v4 1/4] dt-bindings: net: ftgmac100: Add delay
+ properties for AST2600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_042927_856298_B70469FA 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20251110_042948_055426_4A70AC7D 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,112 +80,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 04/11/2025 3:21 pm, Leo Yan wrote:
-> Save activated path into the source device's coresight_device structure.
-> The path pointer will be used by later changes for controlling the path
-> during CPU idle.
+On Mon, 10 Nov 2025 19:09:25 +0800, Jacky Chou wrote:
+> The AST2600 contains two dies, each with its own MAC, and these MACs
+> require different delay configurations.
+> Previously, these delay values were configured during the bootloader
+> stage rather than in the driver. This change introduces the use of the
+> standard properties defined in ethernet-controller.yaml to configure
+> the delay values directly in the driver.
 > 
-> The path pointer is assigned before setting the source device mode to
-> active, and it is cleared after the device is changed to an inactive
-> mode. So safe access to path pointers is guaranteed when the device is
-> in an active mode.
+> Add the new property, "aspeed,rgmii-delay-ps", to specify per step of
+> RGMII delay in different MACs. And for Aspeed platform, the total steps
+> of RGMII delay configuraion is 32 steps, so the total delay is
+> "apseed,rgmii-delay-ps' * 32.
+> Default delay values are declared so that tx-internal-delay-ps and
+> rx-internal-delay-ps become optional. If these properties are not present,
+> the driver will use the default values instead.
+> Add conditional schema constraints for Aspeed AST2600 MAC controllers:
+> - For MAC0/1, aspeed,rgmii-delay-ps property is 45 ps
+> - For MAC2/3, aspeed,rgmii-delay-ps property is 250 ps
+> - Both require the "aspeed,scu" and "aspeed,rgmii-delay-ps" properties.
+> Other compatible values remain unrestricted.
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
->   drivers/hwtracing/coresight/coresight-core.c | 39 +++++++++++++++++++++++++++-
->   include/linux/coresight.h                    |  2 ++
->   2 files changed, 40 insertions(+), 1 deletion(-)
+>  .../devicetree/bindings/net/faraday,ftgmac100.yaml | 35 ++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index c28f3d255b0e19b3d982de95b8e34d0fc2954b95..3ea31ed121f7b59d7822fba4df4c43efb1c76fe7 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -399,13 +399,50 @@ int coresight_enable_source(struct coresight_device *csdev,
->   			    struct perf_event *event, enum cs_mode mode,
->   			    struct coresight_path *path)
->   {
-> -	return source_ops(csdev)->enable(csdev, event, mode, path);
-> +	int ret;
-> +
-> +	/*
-> +	 * Record the path in the source device. The path pointer is first
-> +	 * assigned, followed by transitioning from DISABLED mode to an enabled
-> +	 * state on the target CPU. Conversely, during the disable flow, the
-> +	 * device mode is set to DISABLED before the path pointer is cleared.
-> +	 *
-> +	 * This ordering ensures the path pointer to be safely access under the
-> +	 * following race condition:
-> +	 *
-> +	 *  CPU(a)                          CPU(b)
-> +	 *
-> +	 *  coresight_enable_source()
-> +	 *    STORE source->path;
-> +	 *    smp_mb();
-> +	 *    source_ops(csdev)->enable();
-> +	 *                              `-> etm4_enable_sysfs_smp_call()
-> +	 *                                    STORE source->mode;
-> +	 *
-> +	 * This sequence ensures that accessing the path pointer is safe when
-> +	 * the device is in enabled mode.
-> +	 */
-> +	csdev->path = path;
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +
-> +	ret = source_ops(csdev)->enable(csdev, event, mode, path);
-> +	if (ret)
-> +		csdev->path = NULL;
-> +
-> +	return ret;
->   }
->   EXPORT_SYMBOL_GPL(coresight_enable_source);
->   
->   void coresight_disable_source(struct coresight_device *csdev, void *data)
->   {
->   	source_ops(csdev)->disable(csdev, data);
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +	csdev->path = NULL;
-> +
->   	coresight_disable_helpers(csdev, NULL);
->   }
->   EXPORT_SYMBOL_GPL(coresight_disable_source);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 3d59be214dd25dfa7ad9148a6688628e0d1a98dd..58484c225e58a68dd74739a48c08a409ce9ddd73 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -264,6 +264,7 @@ struct coresight_trace_id_map {
->    *		spinlock.
->    * @orphan:	true if the component has connections that haven't been linked.
->    * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-> + * @path:	Activated path pointer (only used for source device).
 
-Isn't it only needed for per-cpu sources specifically? Rather than all 
-sources?
+My bot found errors running 'make dt_binding_check' on your patch:
 
-That's why I still think it should be a new global per-cpu variable in 
-coresight-core.c, rather than a generic thing that needs to be used very 
-carefully. Sysfs mode also already has a global map and per-cpu store of 
-its paths to sources. This makes it a bit confusing because it 
-duplicates some of that functionality.
+yamllint warnings/errors:
 
-Do we even need that storage in sysfs mode anymore if the path is here? 
-We should pick one way and stick with it.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml: properties:aspeed,rgmii-delay-ps: 'anyOf' conditional failed, one must be fixed:
+	'maxItems' is a required property
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'type' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	Additional properties are not allowed ('type' was unexpected)
+		hint: Arrays must be described with a combination of minItems/maxItems/items
+	'type' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/cell.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml: properties:aspeed,rgmii-delay-ps:type: 'integer' is not one of ['boolean', 'object']
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml
 
->    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
->    *		by writing a 1 to the 'enable_sink' file.  A sink can be
->    *		activated but not yet enabled.  Enabling for a _sink_ happens
-> @@ -291,6 +292,7 @@ struct coresight_device {
->   	int refcnt;
->   	bool orphan;
->   	int cpu;
-> +	struct coresight_path *path;
->   	/* sink specific fields */
->   	bool sysfs_sink_activated;
->   	struct dev_ext_attribute *ea;
-> 
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251110-rgmii_delay_2600-v4-1-5cad32c766f7@aspeedtech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
