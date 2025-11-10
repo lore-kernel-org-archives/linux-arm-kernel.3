@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A95BCD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FAACCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=; b=ON5qYV+/rISE9Hxirgj5dZHXYi
-	6LaI9BbBBL3Sogx8D/zp6ozajRbRw8Gcq92Zqk8nLwP9ZChJ99ClgzjvMqPK9bYTMbV3JokH5LK+O
-	GTufHumlm21xmOjpQrM9RMEvD49LqBqhcLkmKVcOgq/C3Uv1yI8LNpxbJjka7Y5qRtEnwhM8PdyOy
-	jU0s/fvwyabjtE7GAE63vmBbAc3ZuPN86ItWW1L4XnULB/D/zdqZEbELb0i39qow1mQOQT3NJvChu
-	h+XGhx283GrtX045fXWztGKLfYbmVZbA7WwmKr331Qnx5CEn6CAs9jE8JVosbJDnbTeX1EdVO/hds
-	/1vzagkw==;
+	bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=; b=hCG0+eod6+ekAOkgDR/4mMRfhN
+	msIndq/7eLolA1d/MMo25kDrVFkCTPA4/s4dLm9kg8ACcNSG/hU985vq95XjPiYdGr5Z2pQX5+ScM
+	89hD9J+6YYz1fgLynd1Mx+GE2WjGz8xBYncOYt/v68LM0eDCA/UjDPAnBp3dM15TWNIt/HBYKHK4Y
+	jalf4OUP6AkBsb7scx+xREgjeeuxVG+pEUq4v1i/XjsnR7XH27jySEtBeRNl4sLz+rPbSDIs1mSeQ
+	RkOHkKzmJspnWWzapM6KuF3bfwkL6Y08RsZzan+BM3+FdGMieijKxsLN7l0vySPGMMfoO/K/p6T1v
+	Ld9p7j9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmZ-00000005O6C-0ExF;
-	Mon, 10 Nov 2025 12:14:03 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vIQsW-00000005OiA-423X;
+	Mon, 10 Nov 2025 12:20:12 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmW-00000005O4f-20r3
+	id 1vIQsU-00000005Ohe-0H4w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:14:01 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-429ebf2eb83so337406f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:14:00 -0800 (PST)
+	Mon, 10 Nov 2025 12:20:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso10854165e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:20:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762776839; x=1763381639; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=;
-        b=b7JfQnLMBcxxuBkO07Wf+HKFSZ0T2QmUKdUlbrNCBEByCK1U5eytwRqXWoywKIyeAd
-         6f1g+2i1x5gkFov2nEBftppj9Gl2IV86jjCBzXdSjiHhG8XxYNY01blvTLw5DXQbM6hS
-         k9Ncx7/sppDYAYr6Va48+qDd5q81xIAX8OBthxWxPtJoW4x/8VSZazs+gbRYQKoWQXCs
-         8vq1OP9tQEw/r+5WoVdgGe8cZoI+T6503vGCdlvkyHUVx88dYbLEe08N+Lc05EnugHGv
-         Eev2QSONUircNx/NYzBNCJusADNDQCm2CS28Jd97N6SAJ+CqUvE75MHXXxGEbjsss6Nh
-         XU3A==
+        d=linaro.org; s=google; t=1762777208; x=1763382008; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=;
+        b=WEExNMnjjYK8iZ7DajTdpESvSRf8UKLPUYIUckMDI9NlZi7OBo8jccShOgBPQAZS7R
+         PeNHAm2zMWZtLcrHwweYHP+CScOVR1DCKpW15z5fkd0j9axM+jF2zdN1IKBAJuZddhOl
+         /hUQeaossoJZu8mSzm28Ow9Fo5H6KjyNxR0wUkU0YRcrXMHNxV3zVncoWzlZPWhr62lU
+         QIxyagl12pIEHbBclwVsiL2wwK4BTEbjf7kA+nxCGS7s4O7DENAjOM384ALSHLQGJBhZ
+         ZxfUQwZ57VenP8oMtWslNRE3mxDGToL0HdtjhVrRQ9y1BqrfYZg2pyfcRJuq3xym3EWn
+         tQXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762776839; x=1763381639;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=;
-        b=Y+GGNSAHJ8z8MAJpINFRHBUOG8fMWaAsO7uQtkIh2gM5NajrDiSyKAeQGTkShZNpp7
-         hjNKz502ClK057Hxh1UTtVZW/zP/EJnYhIS48L+vTUQPHl5vFYGYR7vo6m60z9xNSNHd
-         4K4skv+0Y9khWBL0k8/Io5nTU9BdBerF7SpCnrVz3sYXu1h5NJy83Jve8btCdnej3Y5/
-         HCF1/wd//a5qHt6zrUCGB5YRN/1EwEruf2ntssLpbneXzybkji7I2XJYimCxnSbDTUmr
-         JlhCQ7hpMfzlzw7uaNnFnIzfgtLAF4qf54tqHjNl7BLFIpUV0eO/hUrUHbp+lvOEzFJk
-         eQdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWL4w55s33qn26gQ41GcZ25cZPnpOGuhRdj9ExymrOUZtqhn5AwZNFqZjEUGQV2jXUmQTD5gveR4HnYu2LicomP@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfq5gUe8XCWOmJRrx1hhUcLTY4JE869XEe5yyH7mX+zqRN0fWs
-	OV+70nNYfkPYK638gF4Hi3LAcVrRRWCGRqPNuFcfJ1fQSkbk8GdjCx1jZHKBoyRawbWGxHmSqe9
-	O6/KB
-X-Gm-Gg: ASbGnctVdnUk4WZhwRw7WOpQbeclunhwF5vTLT6sI6pATAwsh0Csksc8s6KuJUGRre5
-	AH06cz3kdFrEBXap6GCmFYGsQdq7KbmOPADZrJRp1iETte0t5FxQK7WOlZZIqDMJtruv5oaEOEC
-	tXVz/GkZ3qHIYIuRxzhBFoLuLbfVD5Ou7RDNv4oolr72Abvdy2zBn6aDqdjFAFPfeeL8pqW9PfO
-	DI7/SjP5R893m2fMigWiAU1XWWSl/aw5cCaRnNcV/8vm83fc4jar7CecJ6soco8cc95Dztw0Jnb
-	kibEXKxwlKXmPSrGfy+QeKAHXa0PPcQXD+BfdT204tZoqBFOEIkUs8N0FhlmoA0THv6noEd2wEo
-	d1sHZrHc0h0W3+lAvZwWAmLqHkow4shJrEw25Fwtn/ZDX8JmxnH4Ej9M15Z9SSehVbW0vAq5Zf0
-	L5Qrsmqb/D1IY=
-X-Google-Smtp-Source: AGHT+IFtCJoEa3fPjznfspradex1PtTFo+De784I9+Mj7ZLYALTxzZRy9e27nwxt5XfS02ZIFIavUQ==
-X-Received: by 2002:a05:6000:26c8:b0:429:c711:22b5 with SMTP id ffacd0b85a97d-42b2dc13946mr3574288f8f.1.1762776838835;
-        Mon, 10 Nov 2025 04:13:58 -0800 (PST)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac6794f6esm24922667f8f.41.2025.11.10.04.13.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 04:13:57 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-clk@vger.kernel.org,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 3/4] samsung: drivers for v6.19
-Date: Mon, 10 Nov 2025 13:13:41 +0100
-Message-ID: <20251110121344.120785-7-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
-References: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1762777208; x=1763382008;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z+LpIs0ABGKOiV60eydwO/d145Y9hqipWZrPRu3HOBc=;
+        b=Fs+1NoyHsB3FOO2/bBS021Gga+jg95KBIQS0XThnVCVoW7WD8ElP+CoHQclwDX/Aw5
+         UrsRXRAahlQV2+/gwCRSs6Qq7Yxm1NQihOuNHtXPatb6dfUuFKUDgvHxl3RpNiRhAsZA
+         6FFRUGnxDsJBrfo3GvfTZefw9eIc8URbE3vNWTDJ5osFkpIxjrk4ms/i7INSksBIbOUS
+         Qxh+/AETM+0+DVVkhGQ42T2TdTosr/FHfV1nLfhsm9cEcJTRONdXZfsTPHcps1wJQBpJ
+         6kIOuQ6KIOlka/UjfzkqePvyaS8Hg1AN37USSo+LrfmINM70lwqmLJ7QXzFTYM0Q4EoY
+         /LxA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLxSOtYEkBpghKcshb4EgAN1ff/Sw1gxMWEQ164KNVjb8SPNPd8q60Zl/YINizZQ5D3HpVr2Hb3Bk4aoYsL1L+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrZP0Ldt6Myzy0il/56SCa0i6Xa+s5zLceqMebU0qXqiLpukpF
+	Jzhw4xPMpGhVHZF/K3NveFwFUJ8xtgEMWCf9W7UAhcLFdOutrvHVr3Qln5P4kj3jIIc=
+X-Gm-Gg: ASbGncvAXzOg2vZCX1Buoew7MjMHYRtxi0h+auR8sOO9A8ViMH73RiG6wUovDr9u5gC
+	eARKmOL6rxhAThrnmxy0wSblG36nqHOVvC5Wq3cQ5yTqdUBswPKQTUh+PqNa2UsXOkCcPpGTtLE
+	Cfm/f/nkd6pmPRKogNciw/BvwZ8WLXJ+/S/YAw5mwtDLr+E4ajJTy2KpBRqmhVeSEYFzvY1M1fU
+	FxVC50PjSLeRDXwbkX3C21j4SN2afJj/9DNvVT7BnWezjhm8uX0xDgCxkJmkXcbTsj3eK96Ok+T
+	0ebSvO11RcnKHPo+SW2msWAmVnAvWtPPdxRgMRSoeQ7tN9RZ2yeKUh2ngEmQW2T7bawVnFh8x9m
+	MKZV8urVm34u+gg3LhScJDy8YxaaIvNFditXqlhfjiSrGc5fxLmqJJMyl3MbB0scK04kHJhm+lV
+	8KBPEu13VyUSnns7mI
+X-Google-Smtp-Source: AGHT+IFJkC8c1JyMZC7WcWJffBv2BeNkOCuG1Cc+BMpDyOz3CdkGvPYLKBqfPtvdmIFnv7NLyQb8fg==
+X-Received: by 2002:a05:600c:5486:b0:477:be4:7a52 with SMTP id 5b1f17b1804b1-477732ab255mr53404455e9.39.1762777207920;
+        Mon, 10 Nov 2025 04:20:07 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b35ad7c16sm9114419f8f.15.2025.11.10.04.20.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Nov 2025 04:20:07 -0800 (PST)
+Message-ID: <f01585fc-919d-4059-81e2-7131dd54553a@linaro.org>
+Date: Mon, 10 Nov 2025 12:20:06 +0000
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2406; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=7eCwQzIdJ0n4Jk8cIEMb6dznrr42scKRI9w59K+VWtk=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEdb6Lys/nhK6FyF7WpIVe24IhpaXO7tRMwX2q
- ee8mfep2SqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRHW+gAKCRDBN2bmhouD
- 13kvD/0ZXTLuTwJf0e2y11S5cpAeAyPebJadjrmUuAPIXoOOz5cBL6EcopBvNIIW6WqyzuabIOG
- iF28TE+A3Ks1JNt3Ow1Oq9H1nLb3/xdqkVBBjh28w0gtxEgoD/qJyE9zhEclB7uom4Lo7YcDutu
- vM3VjnnBJcdQyIVVZVwyUBPjrYgdc8fhiIgAlwjfXvG/TYDmnvTv1V68gN/seAfwOEQvzJgVouK
- Oj0oFbUz9gloMokC8iEI09F2mItSf0456QaxpE19cybMEg0kFnLYOB838bAKW9RwrCiuAw7peZF
- gGpkMyejtk52dYmkQVhYaZ1QrYfRwoqINBK9DUjR+f6q2G80mEnTXjOqqX5p3sOkv47ngp+JnGj
- J/u3KQ1px1sgyI3VoRFIhLRU2mHYXYIuQkHa9bVB7epZMabMoOt2V8u8gmI0jax9xvCD2BPfR+H
- ljdfF5YBzysI0zoVREXr3KIb8oyF39TVyxBHZh7isjgWDuU3ab4ahHO8RuOTp7uklh5j8cZ3qNs
- m3BJ8H1jU5pY76dszctetAiza/z6fgw7waI+siH/Kc+lvAawwQKYyCKhc/wk+9qIShklQBsPe0s
- P6DprrLIC13CTefnYCptD+EnAh5VTIgB4J0ib8UjCgpepPRUD7Yd+3mvYgmfk3ENWbFCHXPghtb J7qrPJTJjcUQSDA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 15/15] coresight: Move CPU hotplug callbacks to core
+ layer
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
+References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
+ <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_041400_551242_3CA5B020 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20251110_042010_176315_FA4D4307 
+X-CRM114-Status: GOOD (  30.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,59 +108,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Topic branch for Samsung firmware and clock drivers.
-
-Best regards,
-Krzysztof
 
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+On 04/11/2025 3:21 pm, Leo Yan wrote:
+> This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
+> The motivation is the core layer can control all components on an
+> activated path rather but not only managing tracer in ETMv4 driver.
+> 
+> The perf event layer will disable CoreSight PMU event 'cs_etm' when
+> hotplug off a CPU.  That means a perf mode will be always converted to
+> disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
+> need to handle the Sysfs mode and ignore the perf mode.
+> 
+> The core layer disables a source and the path when hotplug-off a CPU.
+> 
+> When hotplug-in a CPU, it does not re-enable even the trace was enabled
+> before hotplug-off, in this case, users are asked to re-enable the trace
+> via Sysfs interface.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c       | 41 +++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 -------------------
+>   2 files changed, 40 insertions(+), 38 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 7095f9befa98c7d638f857466351ef7cd960fde7..9149f028031808dc2b7285f621b97f3631a02b01 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -1726,6 +1726,32 @@ static void coresight_pm_restore(struct coresight_device *csdev)
+>   	coresight_ops(csdev)->pm_restore_enable(csdev);
+>   }
+>   
+> +static int coresight_dying_cpu(unsigned int cpu)
+> +{
+> +	struct coresight_device *source = per_cpu(csdev_source, cpu);
+> +	struct coresight_path *path;
+> +
+> +	if (!source || !source->path)
+> +		return 0;
+> +
+> +	/*
+> +	 * The perf event layer will disable PMU events in the CPU hotplug.
+> +	 * CoreSight driver should never handle the CS_MODE_PERF case.
+> +	 */
+> +	if (coresight_get_mode(source) != CS_MODE_SYSFS)
+> +		return 0;
+> +
+> +	/*
+> +	 * Save 'source->path' here, as it will be cleared in
+> +	 * coresight_disable_source().
+> +	 */
+> +	path = source->path;
+> +
+> +	coresight_disable_source(source, NULL);
+> +	coresight_disable_path(path);
+> +	return 0;
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+If the user is expected to re-enable and this new state is visible, 
+don't you need to use the regular coresight_disable_sysfs() function? It 
+calls coresight_disable_source_sysfs() which updates a refcount.
 
-are available in the Git repository at:
+Maybe you didn't do it because it has a mutex in it? It would be easier 
+to change that to a spinlock or take the mutex in a wrapper function and 
+share the core disabling code with the hotplug path.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-firmware-clk-6.19
+> +}
+> +
+>   static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+>   				   void *v)
+>   {
+> @@ -1757,11 +1783,24 @@ static struct notifier_block coresight_cpu_pm_nb = {
+>   
+>   static int __init coresight_pm_setup(void)
+>   {
+> -	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
+> +	int ret;
+> +
+> +	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+> +					"arm/coresight-core:starting",
+> +					NULL, coresight_dying_cpu);
+> +	if (ret)
+> +		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
+> +
+> +	return ret;
+>   }
+>   
+>   static void coresight_pm_cleanup(void)
+>   {
+> +	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+>   	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
+>   }
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 7bea3d2c6f49a2169b8e3de1cb07cc22147aae3a..1730cee3c3e1845efb2be815553085aba1246cca 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1802,33 +1802,6 @@ static int etm4_online_cpu(unsigned int cpu)
+>   	return 0;
+>   }
+>   
+> -static int etm4_starting_cpu(unsigned int cpu)
+> -{
+> -	if (!etmdrvdata[cpu])
+> -		return 0;
+> -
+> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+> -	if (!etmdrvdata[cpu]->os_unlock)
+> -		etm4_os_unlock(etmdrvdata[cpu]);
+> -
+> -	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+> -		etm4_enable_hw(etmdrvdata[cpu], true);
+> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+> -	return 0;
+> -}
+> -
+> -static int etm4_dying_cpu(unsigned int cpu)
+> -{
+> -	if (!etmdrvdata[cpu])
+> -		return 0;
+> -
+> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+> -	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+> -		etm4_disable_hw(etmdrvdata[cpu]);
+> -	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+> -	return 0;
+> -}
+> -
+>   static bool etm4_need_save_restore_context(struct coresight_device *csdev)
+>   {
+>   	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+> @@ -1915,13 +1888,6 @@ static int __init etm4_pm_setup(void)
+>   {
+>   	int ret;
+>   
+> -	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+> -					"arm/coresight4:starting",
+> -					etm4_starting_cpu, etm4_dying_cpu);
+> -
+> -	if (ret)
+> -		return ret;
+> -
+>   	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+>   					"arm/coresight4:online",
+>   					etm4_online_cpu, NULL);
+> @@ -1932,14 +1898,11 @@ static int __init etm4_pm_setup(void)
+>   		return 0;
+>   	}
+>   
+> -	/* failed dyn state - remove others */
+> -	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+>   	return ret;
+>   }
+>   
+>   static void etm4_pm_clear(void)
+>   {
+> -	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+>   	if (hp_online) {
+>   		cpuhp_remove_state_nocalls(hp_online);
+>   		hp_online = 0;
+> 
 
-for you to fetch changes up to 6837c006d4e72d6add451411bcf407e0dea4ad25:
-
-  firmware: exynos-acpm: add empty method to allow compile test (2025-10-22 07:49:38 +0200)
-
-----------------------------------------------------------------
-Samsung SoC firmware/clock drivers for v6.19
-
-Extend Samsung ACPM (Alive Clock and Power Manager) firmware drivers:
-1. Add support for passing DVFS (Dynamic Voltage and Frequency) messages
-   to configure the clocks in ACPM device.
-
-2. Add Exynos ACPM clock driver, which exposes to Linux several clocks
-   handled by the ACPM (firmware).
-
-----------------------------------------------------------------
-Tudor Ambarus (6):
-      dt-bindings: firmware: google,gs101-acpm-ipc: add ACPM clocks
-      firmware: exynos-acpm: add DVFS protocol
-      firmware: exynos-acpm: register ACPM clocks pdev
-      clk: samsung: add Exynos ACPM clock driver
-      MAINTAINERS: add ACPM clock bindings and driver
-      firmware: exynos-acpm: add empty method to allow compile test
-
- .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  11 ++
- MAINTAINERS                                        |   3 +-
- drivers/clk/samsung/Kconfig                        |  10 ++
- drivers/clk/samsung/Makefile                       |   1 +
- drivers/clk/samsung/clk-acpm.c                     | 185 +++++++++++++++++++++
- drivers/firmware/samsung/Makefile                  |   4 +-
- drivers/firmware/samsung/exynos-acpm-dvfs.c        |  80 +++++++++
- drivers/firmware/samsung/exynos-acpm-dvfs.h        |  21 +++
- drivers/firmware/samsung/exynos-acpm.c             |  26 +++
- include/dt-bindings/clock/google,gs101-acpm.h      |  26 +++
- .../linux/firmware/samsung/exynos-acpm-protocol.h  |  19 +++
- 11 files changed, 384 insertions(+), 2 deletions(-)
- create mode 100644 drivers/clk/samsung/clk-acpm.c
- create mode 100644 drivers/firmware/samsung/exynos-acpm-dvfs.c
- create mode 100644 drivers/firmware/samsung/exynos-acpm-dvfs.h
- create mode 100644 include/dt-bindings/clock/google,gs101-acpm.h
 
