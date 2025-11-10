@@ -4,180 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630F7CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7B4CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59QjWHfgIxZm5zFNOoyFKRIRlaldWiYYqYPanGxjZRA=; b=CNF6uvmBqJK9yg9ZZLU/DEyUcj
-	ybZBgdLIlZj1rgClzdkVBkBYo+nuihFDeUrk4Z0fF0re7t8k3oXC93SvhUR07iz9MHVge2tXD2zJN
-	9AINP+JWcw9hk/l87chJtR/MO4HSZlQ4vPCQBGeA0HFt49wPfUoFDGjustfARA0zkFTvJe2hkjuq2
-	e3aC6xtS5FMC1H+O6M2N9Ou+c7hVxMcqq2EUUoPCrIP7rJex4/t5PfcGFoUF9N0QfXlRbhMz87jva
-	L6yic1Bu5kDXt4IpiZG78vfN6wavQYfkSTdeLJg98Jt7Ew9U7CLMEj7JhrgXz9Xojdr0kzjvjUSFu
-	dK4o4Vog==;
+	bh=x9BmbIA/+sHJ8iI+3v9x5VDORTf0Od/t7SFqNp049bY=; b=UqQwRfYOd6S02P4V/fs7w3QxB9
+	noJ0glyylM+C7clyHJ3jCaa2Jj/NFhrSkD1VABp0Q0+qrki9s4wuQ7NIkwFZBpQ0OhNviT9XLdgHw
+	lm3ADF4SERjMuKeWE7EqP5tPNID4e5gwH+uTMMP8CwqfI9sr15/hGXX0AFBltBHkRor23qJd4qB30
+	MigxpM3SRgOEBkPvLk9pTG/iBOXFAhRbNixAi9O1fBzIvOqxe/nCAsLqRxrBiWWMh6whofUmXAXj4
+	+iqzSOpHatVgL5X+Fg03Rx6SCefZwL16nDRnLz4FRwb5qD+zbN5V6qMTZDCvfzwTyHtrp0o9arZFR
+	MmlUC3IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINY9-000000051Gu-2p5m;
-	Mon, 10 Nov 2025 08:46:57 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1vINb0-000000051WY-3Vbz;
+	Mon, 10 Nov 2025 08:49:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINY6-000000051Fi-07S1
+	id 1vINay-000000051WJ-42gK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 08:46:55 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AA8gHNp2321066;
-	Mon, 10 Nov 2025 09:46:40 +0100
-Received: from db3pr0202cu003.outbound.protection.outlook.com (mail-northeuropeazon11010040.outbound.protection.outlook.com [52.101.84.40])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4a9xv65rs6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 10 Nov 2025 09:46:40 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u4DGpGk75nzJXSDOphGjKXR73MHc0FckstkCQ7dhkvb3E3LC3gu/C8OtNlXUv2ZLVPCpKJxfuxKLJR7dCrY5gLMLAuQdpui+EGfjB7LPKDITaUb3ge3rRTtVgBxaJzf7x7x+iwnOBBU075Cm0OBWVuBh5vqIQbwBXQG+TQFx7CXnfPeSS/9bhHiSrJPVJPUx8ge/rKQh7nMEM+MJZHEkQcffU3WxKdcDQyEh46YJDQNFwJE0ia5s2divFeTGfWFkJ6CHcVdt6k/MxDU8QwGg1miMAIU6y5KoY0HthGZLVIbIf/4+S4EPjTY0ft6Ns5+T+lecuYK6PkbQETZBELsvZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=59QjWHfgIxZm5zFNOoyFKRIRlaldWiYYqYPanGxjZRA=;
- b=kt/nMLyXJ0jp1aBPUVASWfZAvPmzo2K6ZBbQlv2hbVxn4lwj9I+Qz1jQsFUEhYlX7tU6lChEUijA8Q+DWraiztnqwe4fSr3URbphlJ685XO4A5rrz5pZy/KxxmmX1bhtyzj9TM6xV5O+V0rMd+eeFR/2unlwSRoAAbX6olLcG/ezThXwmeq9lJuI2WBJj5RApJTBZjRyOqH0c6Pz4d6fEf9msqNUqzZIivvflcQptfQ5YFk7oNCl5raFBPfzckz+NLUFuJ9V1qkJH07LGg4WE7A6iJc+b54qAPNuxalJuzCNBcPG3y8BHqiuwUIF9UwjcBFV0ttRnMggJQ2OeaCMjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=59QjWHfgIxZm5zFNOoyFKRIRlaldWiYYqYPanGxjZRA=;
- b=BDtCGnSPfdpD0eI4kp/yX8WLTpUgKY8REQxOn8WasBm00rnMey62NOjNzokM+BSD/UJ7YxoxbD+AIC+l4TckMl71XczFKhkKX8z+4RoWPchDoozCU+NyDpFHBj8ml7dtEl0I+6F9p9LpqOHybbCkNSLbVdweo6DejJZyzeRjJFRj1CQeng9J4whNbAuX0twcEAYiEtebLdPQdLk+/h6yfJCVXpk6CDnlV17xh6Yc2ibWWqClD423JlM1KwMp4V9/mMqpgkGbqdh57VmXnnAr7A1Jyv4o7wNrOfFgalCc2Lq+N1hsp7I6ZLNay7Xpml7kZMih/Wp464xI3K5XxWpt8w==
-Received: from DU2P250CA0026.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:231::31)
- by DUZPR10MB8192.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:4d9::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Mon, 10 Nov
- 2025 08:46:35 +0000
-Received: from DU2PEPF00028D11.eurprd03.prod.outlook.com
- (2603:10a6:10:231:cafe::7c) by DU2P250CA0026.outlook.office365.com
- (2603:10a6:10:231::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Mon,
- 10 Nov 2025 08:46:24 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF00028D11.mail.protection.outlook.com (10.167.242.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Mon, 10 Nov 2025 08:46:35 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 10 Nov
- 2025 09:46:41 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Mon, 10 Nov
- 2025 09:46:33 +0100
-Message-ID: <2f987d78-6494-45d7-86cf-466785e2124f@foss.st.com>
-Date: Mon, 10 Nov 2025 09:46:32 +0100
+	Mon, 10 Nov 2025 08:49:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EEB960008;
+	Mon, 10 Nov 2025 08:49:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A397EC116D0;
+	Mon, 10 Nov 2025 08:49:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762764591;
+	bh=L8WwRtc/KVhcwVxx2iw6AWXl76LzJPVUQX89gEvL+zg=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=J769OGb7KshC5EGg3bpiJMvSav3sFXhFww5eKdD9rO+6S+MFA/po/bP2bDDzj16I+
+	 pvr3d1tCPbD5S8VpW3iOECSeIPqVmdDu+S1ZY6qTTbCHLnnbn/k42Aeqbsq3O1o0aP
+	 DYM5wJlMi8l3/IrJEDAv7tzs/B2O7Vj+d1lHEzyMpyRdtG72+lUzZfIoNXE61p3LGJ
+	 nG1ADhmy4jP7veqcP8uRKG79G4SriQ12z8XIG054oThmxnRaOvB0jPt9LbR99GI9Y1
+	 MWpbm5ItcxEx5agO/oSv/V9OGVmjTPjbdokukGsmTasTSRQtj5tqjl7zOHa4HK2+ln
+	 0h+OqSF3jOWYg==
+Message-ID: <51c19bc4-35cb-43ea-a4d6-4496142baa9e@kernel.org>
+Date: Mon, 10 Nov 2025 09:49:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: stm32: stm32mp157c-phycore: Fix STMPE811
- touchscreen node properties
-To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>, <mcoquelin.stm32@gmail.com>
-CC: <robh@kernel.org>, <s.trumtrar@pengutronix.de>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250915224611.169980-1-jihed.chaibi.dev@gmail.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250915224611.169980-1-jihed.chaibi.dev@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH 17/18] media: videodev2.h, v4l2-ioctl: Add microchip
+ statistics format
+To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
+ <3chas3@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Balakrishnan Sambath <balakrishnan.s@microchip.com>,
+ Hans Verkuil <hverkuil@kernel.org>, Ricardo Ribalda <ribalda@chromium.org>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Daniel Scally <dan.scally+renesas@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
+ <20251009155251.102472-18-balamanikandan.gunasundar@microchip.com>
+Content-Language: en-US, nl
+In-Reply-To: <20251009155251.102472-18-balamanikandan.gunasundar@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D11:EE_|DUZPR10MB8192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05894918-f43d-4892-ba50-08de2035a7ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHoxalJRM1pwRm1QaEUza0RMOXlPSE51N2J1OGw5eW52SVFjVGFYSW45dGRj?=
- =?utf-8?B?bFFHVTF4RXRiV1NEZ1J2WnFJU2NYUDgxc3B1TnliUHQ3NUNtZ015c2UxSUZh?=
- =?utf-8?B?NUtHSVB5NHRMeW5vdFVwMEJmUnYvdTRIcjRManphNWtyWmhub0N6MFdud2Vu?=
- =?utf-8?B?ZURrQXdNOFRnUmdBWGhHclpLd3VLV1JlU2tzNEh5Y1VFeldRTHkyMVZ3UHRT?=
- =?utf-8?B?OEZHbmNEdjcyc3lEdWlMdGF0bTZLdXlxdmRPblhYZnF6SkZmdmt4a1dqZmQ5?=
- =?utf-8?B?bE84ZXBIcHlnTVdCY1VlS2plbWRuRVpqc1o0OU82a0ZTb3E0K3lQK0M0QTRE?=
- =?utf-8?B?L1dtcDBsU0Y5SWJzNS9wSVlyVnFVWmcrTWE4dFFTVC83RHorcUVyVXpHNktP?=
- =?utf-8?B?bDA5RHV1ZjMxZE84TlVSZWt2aElRZW5SbXNuMDRVME9Zem5jMzIxenJhNmlF?=
- =?utf-8?B?S1ZDRk5JTmdaV3VHSmVtMlc1RVlyYXhtYlg3K1AyR2xna2p2QzU2aFhVK0ky?=
- =?utf-8?B?OU1XMVFjVVNDSWdwQ3Jya25hRGNOaEtYRkU4TmkxbEFiMEMxRUZzdmd3QzZq?=
- =?utf-8?B?ekpFeDZsYncvd1EwbDN0dkFJaGEySklIeE96cjZiWnJiMnF6dVBpRVd2STR6?=
- =?utf-8?B?RkpNdUJlc0REaTVNMkp2SjJhVWF3dEZEbW5EcWdxdDdpMjMrcEVGQSttdFh5?=
- =?utf-8?B?Mm8xOFMxWnEzSWd6UVdrREp2MGpMRkVDREZpbkZLUDFaUHcyenhMd2NJVjU5?=
- =?utf-8?B?Sno1TE5BbTZZQWxqeWdCV292K0t4REtpUm5SMHNPV1VQM1YxYzBJY0JmSmJE?=
- =?utf-8?B?WHlJVHFmbXFGZlRJeWNIK2RyUDJyVmtGaGVkek80UXFqR3M4b2hld2dsS2xx?=
- =?utf-8?B?VlNqRUhzNDVLTG1kVTBHREd2UktSbllGVGFuem5oSmV1Smdvek40OUhTMkJP?=
- =?utf-8?B?OEhqSElKNWVhTjZWeDhzQk4waVE4VEMvU0ZrR1JldlErYUQ4bWRHSkQ1cG4r?=
- =?utf-8?B?dVpXeUFaU054OWxKZEsrdm12VlhDTXVCK1dtcGpRMzZDTUlUWnJkdVVMMERx?=
- =?utf-8?B?NlY4ZElaQ0FReStFY2x1SG1XQmhCcE05T25ybVpWUmtwYTYvb09oV1MrOXRj?=
- =?utf-8?B?TkFueUhHU2FVQTNjN2Vjd1BvalNnWlZpSlZCdDJncWhTQ3l1TjhJMldVMldq?=
- =?utf-8?B?dy9jNkw2VmpmdkJscC9oUTl2ZDNRamtwZ3J5L0VKcUd4OEtLcVVMMWwrTlp6?=
- =?utf-8?B?T2hCZ3hlVy9PNmFoV2ZyQWduZlBQbUdVTmJMdkJTNzR4ekVKNENXZWtxNG0v?=
- =?utf-8?B?UDZXVzl4QlhIRHIwZmZFV0RrYktzdmVja0lKbDZuQTZVQUVjNE91U1NUUDNR?=
- =?utf-8?B?WWhVTkt3VDZzMUNkdndEK1QxYkkycDhWTkhpV1U5V204bUt3YkczOUZaNU1h?=
- =?utf-8?B?a3Zad3ErVTVuSGRZQkxnUksvL0tFNDNTWnBRc3dtWTZuS3puZEhtNU1PbFZS?=
- =?utf-8?B?ci9RWUNFNzh5V0tXVVJReXkwMkJJN0Y3K25oK3B5NTdYRnpwYW1QK3U4UEh6?=
- =?utf-8?B?eTgvMjdjNTRjRG51U3RJQkdDM3lET085VzRIMzJERGgzYkNoOFFRcHg1blpi?=
- =?utf-8?B?V2pqbGYzdmMvcFJnSlRwWFY0c0NzSjRpUWxLMU1yRU5CMVoyK1psT2ZNVXZQ?=
- =?utf-8?B?Zm1SWkwzbEdnZzFiN3NtZndneDJrbDN4NHU3RjdFeTVoL25OQzN1MGo5T2c5?=
- =?utf-8?B?N0lYZS80TW40dURXdVRDZXZUZXNHZitKRXNVOU5PYVR6VXhrN3hTTGxYakVB?=
- =?utf-8?B?anFic05yWHQwOXc5S3Z5ekJoeG5scWlwa2p5enRCd05kbjZPbVM5anRiUHgv?=
- =?utf-8?B?YzVOSGtaRWt0Z0xySitwUU1Yc0pEVm5wejhnUk5UYjY5QS96MDdjYmtJSEZh?=
- =?utf-8?B?SlZya1lvUEpkZmFUaE5Dc0pYLzl6dnVTV2xqQVpXTGV3dmtuOEU5bkhidjhq?=
- =?utf-8?B?U3R3YlhLeGdtNi9xVCtZSnF6Ykt3V2NSMW53TnBDRkcySU4rc1VZaW9TM1M2?=
- =?utf-8?B?MzFpV0FCMGlGM0pkd0xCVzZkVDJqTGVjZ2FsSjRscmhSU0UyaHdLNEdGbDlD?=
- =?utf-8?Q?hzHA=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2025 08:46:35.0715
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05894918-f43d-4892-ba50-08de2035a7ae
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D11.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR10MB8192
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDA3NiBTYWx0ZWRfX2b37+MJr4+N2
- NYs+0/+iMB8F/fOnJ1EiCl/4bOL7aQSGUd7d9h9jXw5OuDkVDAM+ihT1OOUtLzhI+FYtU6qtsuL
- 8aGibSQZ2MMCgw14SCrIozvARh3E/YFNrd6rt6tciUi1ck0G4+513YjqiBfCnU7GY1mHHkFzz3B
- RGSrwS7O4EB+Qk1yn1JIzfDqxjL5xVgnoTuUMkUjhpS/Jq31NL+8cgs/ioYtEVJ/CYygoyqz4nd
- /R0+tS2vLy0305N8a52tIrw149POW6Eeny8rxxe1IQj5bXQnJPfBYjle+W7iipMpAPav6BRZLEo
- BTQZrj/ysG7RhRgxTmPKogVROztSMwPfRZ7EP4b6b2lVEqY000TTWK9u0PjWGWwtjhBFGA9AyBy
- XygbVjvJNWAz6iYZ24qxcUbS8eSpdQ==
-X-Authority-Analysis: v=2.4 cv=OuZCCi/t c=1 sm=1 tr=0 ts=6911a670 cx=c_pps
- a=2DzPM8fQPN4EfAmge14Bmw==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=pGLkceISAAAA:8 a=PYVhz2m5A5KxUzFyFHcA:9
- a=QEXdDO2ut3YA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-GUID: vEtP1TnqV2Pu2tE4nc8N017w4zZqnGR2
-X-Proofpoint-ORIG-GUID: vEtP1TnqV2Pu2tE4nc8N017w4zZqnGR2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-10_03,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
- bulkscore=0 spamscore=0 suspectscore=0 clxscore=1011 phishscore=0
- adultscore=0 impostorscore=0 priorityscore=1501 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511100076
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_004654_672698_868B164C 
-X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,46 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jihed
-
-On 9/16/25 00:46, Jihed Chaibi wrote:
-> Move st,adc-freq, st,mod-12b, st,ref-sel, and st,sample-time properties
-> from the touchscreen subnode to the parent touch@44 node. These properties
-> are defined in the st,stmpe.yaml schema for the parent node, not the
-> touchscreen subnode, resolving the validation error about unevaluated
-> properties.
+On 09/10/2025 17:52, Balamanikandan Gunasundar wrote:
+> Add microchip ISC specific statistics meta data format. This data consists
+> of raw histogram statistics that is exported to userspace for further
+> processing. This fixes the kernel warning "Unknown pixelformat"
 > 
-> Fixes: 27538a18a4fcc ("ARM: dts: stm32: add STM32MP1-based Phytec SoM")
-> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 > ---
->   .../boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi    | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
+>  drivers/media/v4l2-core/v4l2-ioctl.c | 1 +
+>  include/uapi/linux/videodev2.h       | 3 +++
+>  2 files changed, 4 insertions(+)
 > 
-> diff --git a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi b/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-> index bf0c32027ba..370b2afbf15 100644
-> --- a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-> @@ -185,13 +185,13 @@ touch@44 {
->   		interrupt-parent = <&gpioi>;
->   		vio-supply = <&v3v3>;
->   		vcc-supply = <&v3v3>;
-> +		st,sample-time = <4>;
-> +		st,mod-12b = <1>;
-> +		st,ref-sel = <0>;
-> +		st,adc-freq = <1>;
->   
->   		touchscreen {
->   			compatible = "st,stmpe-ts";
-> -			st,sample-time = <4>;
-> -			st,mod-12b = <1>;
-> -			st,ref-sel = <0>;
-> -			st,adc-freq = <1>;
->   			st,ave-ctrl = <1>;
->   			st,touch-det-delay = <2>;
->   			st,settling = <2>;
+> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+> index 01cf52c3ea33..a03e8f3ab610 100644
+> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> @@ -1467,6 +1467,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+>  	case V4L2_META_FMT_RK_ISP1_PARAMS:	descr = "Rockchip ISP1 3A Parameters"; break;
+>  	case V4L2_META_FMT_RK_ISP1_STAT_3A:	descr = "Rockchip ISP1 3A Statistics"; break;
+>  	case V4L2_META_FMT_RK_ISP1_EXT_PARAMS:	descr = "Rockchip ISP1 Ext 3A Params"; break;
+> +	case V4L2_META_FMT_ISC_STAT_3A: descr = "Microchip ISP statistics"; break;
 
-Applied on stm32-next.
+statistics -> Statistics
 
-Thanks
-Alex
+>  	case V4L2_META_FMT_C3ISP_PARAMS:	descr = "Amlogic C3 ISP Parameters"; break;
+>  	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
+>  	case V4L2_PIX_FMT_NV12_8L128:	descr = "NV12 (8x128 Linear)"; break;
+> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+> index becd08fdbddb..ba628f9bb89f 100644
+> --- a/include/uapi/linux/videodev2.h
+> +++ b/include/uapi/linux/videodev2.h
+> @@ -875,6 +875,9 @@ struct v4l2_pix_format {
+>  #define V4L2_META_FMT_RK_ISP1_STAT_3A	v4l2_fourcc('R', 'K', '1', 'S') /* Rockchip ISP1 3A Statistics */
+>  #define V4L2_META_FMT_RK_ISP1_EXT_PARAMS	v4l2_fourcc('R', 'K', '1', 'E') /* Rockchip ISP1 3a Extensible Parameters */
+>  
+> +/* Vendor specific - used for Microchip camera sub-system */
+> +#define V4L2_META_FMT_ISC_STAT_3A      v4l2_fourcc('I', 'S', 'C', 'S')
+> +
+>  /* Vendor specific - used for C3_ISP */
+>  #define V4L2_META_FMT_C3ISP_PARAMS	v4l2_fourcc('C', '3', 'P', 'M') /* Amlogic C3 ISP Parameters */
+>  #define V4L2_META_FMT_C3ISP_STATS	v4l2_fourcc('C', '3', 'S', 'T') /* Amlogic C3 ISP Statistics */
+
+This meta format must be documented just like e.g. V4L2_META_FMT_C3ISP_STATS.
+
+Regards,
+
+	Hans
 
