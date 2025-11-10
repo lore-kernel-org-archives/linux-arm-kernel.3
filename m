@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD22CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B9CCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5WWXAjdY6BMcCGSBDzoSTydR63r4/SDUM2HBs1PBvc=; b=S+c+mfryHvxlWY0/A4FU6ouvSq
-	4PUD2WALqECenflndL1n9SL6eccZ2DEo8yr/OTRDPg1oeZKor3RrdllksxHNKcKTc7GksuPJnQr+x
-	YeSSka/MrdocZMpkkXtyOsZmKfXUD3FnFUCcqp2zfyY5l2alPdzpLxYPn6PD74v32gwxGnUGezxs7
-	6/roC2INdIMGPj+qUjVMmjT2yun5U3zOjg+MFW0Jrg+ibeqZXJhtFeqPSKbIUpfYNMAZ1l2jpJhw2
-	LmzHXCNFdIsihunQaT6y7EBxAQ8rCbBusCIkoAGg1ffF2PNXTvkI20Loa8uEun1T3urUfkxsMEoQq
-	ttttS9fQ==;
+	bh=yy2Y3SJbuc6h3iInMfmhynFq9n8Y39FAnrKgiWA6qd4=; b=msOPZu00i4NUivzrIyptbx1rYl
+	JC6cr6o+B/fWoQKdhOqR4MPhd39C68KBbNVAWPqFYV5IxI0hRJ5c35GqNAOhOLf0wDMslNeYQIZid
+	HxuqRC/+w5CNA1WAWUmO4xB+BMAc5QfOshpFYpq1PMCzPVYIyeJ/oVVG9K4w7WjGdTSgolAHDu1ZU
+	X6GjxpUTRtmjzyZNV7huIfYtr/ePea2EfhOvsLarWEFPJnZGZe1cicOsdoyMS0SIcK8TEeswUzUbd
+	WvW0tg9QLucWYX4TvsKM0RmK5lHcM4oFmaHA+S+IyZ4hPxtcmov0btJwlhQncYWfr2oJPUvDI/dcR
+	lW9fU9CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOAj-000000055fS-1bcg;
-	Mon, 10 Nov 2025 09:26:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vIOCv-000000055qO-3rP9;
+	Mon, 10 Nov 2025 09:29:05 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOAg-000000055f1-2sQG
+	id 1vIOCt-000000055px-2B9g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:26:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBF7441A9B;
-	Mon, 10 Nov 2025 09:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F06EC116B1;
-	Mon, 10 Nov 2025 09:26:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762766805;
-	bh=b0IFXuV/9PpQKpNg/c6/i5YuNUFwarm8QI9JGvletFs=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=XDMsKLsK+bVR9DeEuIXtyzRVuyhrICIVTSQIMVL07RtxAGM2Y8MnHEoMVJAQ8piaC
-	 ZgoHaLn52+YX/eIS4IDhqSxZJ0jcoiNuujVU08+zY9L3oG0mwVvRIF/h/oAeLIcXa7
-	 Oy5eQzv2EzYDCUYESJO4t0Fo8tJyNDMFfBnEl5wjYQZd+uo4uM5KSEAZbGWkECnCvR
-	 RQ7Q/5StUrhU7qDDazxIa/MV03yTX9WupBtWECFn+BpV09QaaBNXL6mB6W5jyTkQhM
-	 azn9iNXFi4uJbYEVeLrU+e34VFMFcGwS0rBF5LG9LyMg9JFTD/ft899JzkgQqKVqvp
-	 Zc47RZDbgZ2tg==
-Message-ID: <55a8a7f1-013e-4528-b4dd-b26ee24dbb6b@kernel.org>
-Date: Mon, 10 Nov 2025 10:26:40 +0100
+	Mon, 10 Nov 2025 09:29:04 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-477442b1de0so18308825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:29:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762766941; x=1763371741; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yy2Y3SJbuc6h3iInMfmhynFq9n8Y39FAnrKgiWA6qd4=;
+        b=NcQMtvf/WUiMkrWSfQvA6Pz+uEYYPYbL9tsdGXBes+NGcYn+V/m+1UfPR7ntIT7OUc
+         QFT0CiLbl/DVZ5s9c2zxVUxLDO1ePdActe0PR6WE+/2kQeaBuNYj3OmZ6m7n68KesnYZ
+         nHYWdGRtOXrrd+8Qwrzw4YcOqQVJoRNfDee4Dy7v2vxZRM4QzzNT0S6r9mzLvPklJWYC
+         EeDC3WAsTy1j2PGHQAoPwAF47qTXOrbJXISi+pbn49NNyuoSY99O+3Gb5nnhc+TVDMXX
+         hM32kOBSG5uxQ2hnZTboNAYR9oOm2RF5yY/oh3huDil/kY/u5qh4wK1t8XfzXe6InYHI
+         k0rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762766941; x=1763371741;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yy2Y3SJbuc6h3iInMfmhynFq9n8Y39FAnrKgiWA6qd4=;
+        b=BFD+x/VcM7zJg47waA9JmFDUqRjIxwxwfdqsJqXscJMJGjJs5i8lVcqqL99upXjOoQ
+         Qh1HW6qff/EB6NMBDbHW1oDr3Mpa6Nw+4I9zdUdjReu9m2Urdhl7HpXBbCP+qFuH0q54
+         2s8pc+C6U8OZTDMeLkM0ptB4qYoq83kBSxfjBx6aBOZE4wpLsT7G83S8KSjoo89Yaenv
+         5Yjy9KgQv27NK/eKAFVJpNPNNvRv2jHOQrVmNb1tL+gZ+Bw/46PrSAB2z7dAsuXkqsrT
+         0WJ72TcguI3vFRimkm7qywdmtI05qlx+y31mRL6X6aBfnaFDhRWuy3oQFiPkVJxkIjfz
+         yNug==
+X-Forwarded-Encrypted: i=1; AJvYcCWj1gRzbSuJT2IcJX8EHO50gqGVbH8uC+rD7DlTz5po7y03SAbNyBkU/DDh5w62xkQLFBkcIkoaasWQGMvVXkJo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJ8NuFsBR1w5O7fRlWOQLqxoZpvE5gMxxoqypxr5M/VsMNJ7R+
+	nmzo3ctETxqkps3nUxACU02u+CCvzbCfoYIr+dAi1Zat6TWdJkPJ9GD911cbpfKrN44=
+X-Gm-Gg: ASbGncvOD/jYYXX5/67UAU+Vo5gTnOGz26s61rhsQ7XtJAg54AnsgXX5gw6yIwVEuoY
+	WbH2MOMLtnQgm+Yr2asoYdB/8xu9yyOHJ4GuLnaF6hX0WILz8dx2llyDUtQXh1aL9/1kWuWs+cq
+	II6j6s0PlEyHLqGEy7WWyyEHbSlL8XZhFIAwD5nU1xESSDS5j3Rdsh2J8h3gCextZM5GjMW2xja
+	RKQdvJ628cwc2FFpqZeiz2ciRsoTK4D/xMemWBJ2cwT1ryIkS0vCkwKAZ6HmQc06I2qYekNs+H7
+	syZNvJm5PomKcDqxXWaofwTNDbMbvTA7CpsVdcUotWW/2z2sDhBuRkHdPJqG2Ky8BqHg1saB+op
+	6rtpCqb9fNILToDY+QI8RQ77oMK8yYlwJVwqrVKDuhf28jxgg5USyRzXsRpL/QPI2Gqv1EP006i
+	3iUZrnW93VMDMQ+bPs
+X-Google-Smtp-Source: AGHT+IGRrEV2Y5FWsA2ScUyXO8LRGfeCzTu8A6LXyew1cnLNeQXucI/waFNT0uIfIF1Jhc8bs3HOiw==
+X-Received: by 2002:a05:600c:4453:b0:471:13dd:bae7 with SMTP id 5b1f17b1804b1-47773277296mr66813835e9.30.1762766941281;
+        Mon, 10 Nov 2025 01:29:01 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac675cd25sm21324511f8f.22.2025.11.10.01.28.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Nov 2025 01:29:00 -0800 (PST)
+Message-ID: <3a2f9b58-bbdf-4977-b06b-9f43a4555274@linaro.org>
+Date: Mon, 10 Nov 2025 11:28:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH 00/18] media: microchip-isc: Color correction and
- histogram stats
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
- <3chas3@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Balakrishnan Sambath <balakrishnan.s@microchip.com>,
- Hans Verkuil <hverkuil@kernel.org>, Ricardo Ribalda <ribalda@chromium.org>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Daniel Scally <dan.scally+renesas@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
-Content-Language: en-US, nl
-In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
+Subject: Re: [PATCH 10/11] arm64: dts: exynos: gs101: add the chipid node
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ semen.protsenko@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org>
+ <20251031-gs101-chipid-v1-10-d78d1076b210@linaro.org>
+ <20251103-pompous-lean-jerboa-c7b8ee@kuoka>
+ <b82af744-ebbd-4dc8-8ccb-c7e4f2a6b04d@linaro.org>
+ <b9b10943-0ece-495f-a6a8-403fc1ab9213@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <b9b10943-0ece-495f-a6a8-403fc1ab9213@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_012646_799825_48EF10F7 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20251110_012903_591524_8C5E4609 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,67 +112,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2025 17:52, Balamanikandan Gunasundar wrote:
-> Hi,
-> 
-> This patch series has a set of enhancements to the Microchip Image Sensor
-> Controller driver. The objective is to expand its image processing
-> capabilities and to improve the colors.
-> 
-> This series also introduces a new stats driver that exposes the histogram
-> data to userspace via v4l2 controls. This allows applications such as
-> libcamera to access real time image statistics for advanced image
-> processing like automatic exposure, white balance adjustments etc.
 
-Note that bisect of this series failed: some patches seem to have dependencies
-on later patches, which is obviously wrong. Make sure you double check that
-for v2.
 
-The documentation also fails to build since there is no documentation for the
-new meta format, but I already commented on that.
+On 11/4/25 9:14 AM, Krzysztof Kozlowski wrote:
+> On 03/11/2025 11:50, Tudor Ambarus wrote:
+>>
+>>
+>> On 11/3/25 12:18 PM, Krzysztof Kozlowski wrote:
+>>> On Fri, Oct 31, 2025 at 12:56:09PM +0000, Tudor Ambarus wrote:
+>>>> Add the chipid node.
+>>>>
+>>>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>>> ---
+>>>>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 6 ++++++
+>>>>  1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> index d06d1d05f36408137a8acd98e43d48ea7d4f4292..11622da2d46ff257b447a3dfdc98abdf29a45b9a 100644
+>>>> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>>> @@ -467,6 +467,12 @@ opp-2802000000 {
+>>>>  		};
+>>>>  	};
+>>>>  
+>>>> +	chipid {
+>>>> +		compatible = "google,gs101-chipid";
+>>>
+>>> That's not a real device, sorry.
+>>>
+>>> I had some doubts when reading the bindings, then more when reading
+>>> driver - like chipid probe() was basically empty, no single device
+>>> access, except calling other kernel subsystem - and now here no single
+>>> actual hardware resource, except reference to other node.
+>>>
+>>> Are you REALLY REALLY sure you have in your datasheet such device as
+>>> chipid?
+>>>
+>>> It is damn basic question, which you should start with.
+>>
+>> Documentation says that  GS101 "includes a CHIPID block for the software
+>> that sends and receives APB interface signals to and from the bus system.
+>> The first address of the SFR region (0x1000_0000) contains the product ID."
+> 
+> So chipid@1000_0000
+> 
+>>
+>> 0x1000_0000 is the base address of the OTP controller (OTP_CON_TOP).
+> 
+> 
+> and efuse@1000_0000 from your other patchset and your sentence above.
+> 
+> Please add them to DTS and check for warnings.
 
-Regards,
-
-	Hans
+One would get an unique_unit_address warning, yes.
 
 > 
-> Balakrishnan Sambath (11):
->   media: microchip-isc: Enable GDC and CBC module flags for RGB formats
->   media: microchip-isc: Improve histogram calculation with outlier
->     rejection
->   media: microchip-isc: Use channel averages for Grey World AWB
->   media: microchip-isc: Add range based black level correction
->   media: platform: microchip: Extend gamma table and control range
->   media: platform: microchip: Add new histogram submodule
->   media: microchip-isc: Register and unregister statistics device
->   media: microchip-isc: Always enable histogram for all RAW formats
->   media: microchip-isc: fix histogram state initialization order
->   media: microchip-isc: decouple histogram cycling from AWB mode
->   media: microchip-isc: enable userspace histogram statistics export
+>>
+>> "CHIPID block" tells it's a device, no? But now I think it was just an
+>> unfortunate datasheet description. Do you have an advice on how I shall
+>> treat this next please? Maybe register to the soc interface directly from
+>> the OTP controller driver?
+> I think in the SoC it is impossible or at least never happening that you
+> create two devices for the same address, therefore either chipid is a
+> device or efuse is a device.
 > 
-> Balamanikandan Gunasundar (7):
->   media: platform: microchip: set maximum resolution for sam9x7
->   media: platform: microchip: Include DPC modules flags in pipeline
->   media: microchip-isc: expose hue and saturation as v4l2 controls
->   media: microchip-isc: Rename CBC to CBHS
->   media: microchip-isc: Store histogram data of all channels
->   media: videodev2.h, v4l2-ioctl: Add microchip statistics format
->   media: microchip-isc: expose color correction registers as v4l2
->     controls
-> 
->  drivers/media/platform/microchip/Kconfig      |   2 +
->  drivers/media/platform/microchip/Makefile     |   2 +-
->  .../platform/microchip/microchip-isc-base.c   | 373 ++++++++++--
->  .../platform/microchip/microchip-isc-regs.h   |   3 +
->  .../platform/microchip/microchip-isc-stats.c  | 549 ++++++++++++++++++
->  .../media/platform/microchip/microchip-isc.h  |  44 +-
->  .../microchip/microchip-sama5d2-isc.c         |   2 +-
->  .../microchip/microchip-sama7g5-isc.c         |  73 ++-
->  drivers/media/v4l2-core/v4l2-ioctl.c          |   1 +
->  include/linux/atmel-isc-media.h               |  13 +
->  include/uapi/linux/videodev2.h                |   3 +
->  11 files changed, 1001 insertions(+), 64 deletions(-)
->  create mode 100644 drivers/media/platform/microchip/microchip-isc-stats.c
-> 
+Right. The ChipID "block" does not have its own registers. It references
+the OTP registers. I'll describe just the efuse device in the DT and
+register to the soc interface directly from the efuse driver. Please let
+me know if you think there's a better way to handle this.
 
+Thanks,
+ta
 
