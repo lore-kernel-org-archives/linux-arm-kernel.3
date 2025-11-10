@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1A3CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F3CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMXv6zHy/5lpN/W3jflZ7Ubivn2WlDK18umb46ltG9A=; b=2vXb83pvGiUjs3J47AajG3zGq/
-	z+bhJ3jSaMIaaW105s9kJsCnEaLWsWitpBM+HEa4lHPtePqyER7mM3BADkrDgQD1g+Fj6uhz38jnl
-	WoL7fRjfRxP96hKvXU84S7FtFqywRyNUWvWkY0U6H4652b+iax4uxYYBgcTWKOMYqNpQ/iG96Rjou
-	DWEuzOr462xIFioFOcLwNQ5nRKgWV2phuxdXgfNXFyRab8Q2azf5hb/U69mInKTS9ZZrP4MOv1MzH
-	vzBU4d28IfYVxpfGvQ6Vs1bXzybK2/UEH0VAFFuaHW0ARenMdl/jvmDeGkDnc0Gp2bSu9YgOAURZv
-	TdUzRquA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sfppLHgcqSP3sqfySoPbHjJLNh6NtD4GO4mZ3W2vaVg=; b=43YfhLpP1Z3mUNs/CSkpfaUEYI
+	0BjKkqwjmPsXT6BZLBvOJ4D29gNLMvqPH4QxFBHTI4+RtZHc/88engneqna8CVjTB21JsJPk/CZoh
+	nDJX+88Re7oML/LGaO7uQ6f3ki9PUDr6NI+o0dhl9E0+yGWK74ajOXCYe0dHiuHboVPZ/pQ5+lozS
+	37XBwbXsFT9LXZV78ONyKRlzI/tWhEWWkKNhOWb0n5zBQm2uZohOYYs7IErCEFCMM6IILotwdHRR8
+	eShd/kf7GEH+ariB//41+LTpYMAh/rytpqUcra9ZdNP0uxW9qxe3rBf9Ih6VJ/XXNj+bZF5Z+fm7i
+	7KTJQFlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUU0-00000005lqx-1e5x;
-	Mon, 10 Nov 2025 16:11:08 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vIUUL-00000005ltX-2vKD;
+	Mon, 10 Nov 2025 16:11:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUTy-00000005lqY-0cCN
+	id 1vIUUK-00000005lt9-1CpB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 16:11:07 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4vlY4rJ8zJ46Bd;
-	Tue, 11 Nov 2025 00:10:33 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 27CB114033C;
-	Tue, 11 Nov 2025 00:11:03 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
- 2025 16:11:01 +0000
-Date: Mon, 10 Nov 2025 16:11:00 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
-	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
-	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
-	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
-	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
-	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
-	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-Subject: Re: [PATCH 08/33] ACPI: Define acpi_put_table cleanup handler and
- acpi_get_table_ret() helper
-Message-ID: <20251110161100.000039f3@huawei.com>
-In-Reply-To: <20251107123450.664001-9-ben.horgan@arm.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-	<20251107123450.664001-9-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 10 Nov 2025 16:11:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 50243601D5;
+	Mon, 10 Nov 2025 16:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C8AC113D0;
+	Mon, 10 Nov 2025 16:11:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762791087;
+	bh=KmpOICxoGbog03HrT+73C14r5/ttDHWLADzMXpIzHEI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nI2bQjqYTL36NWtatW8+wvLmtWv8gRbVpOP0oQOrTDXss61hhWO/148mMGpx1u3Po
+	 O0jIy3mEqPFqgXEz7e+w+qRmcUL6vFzgjke+FLKv7HGEPKVLUIazZbou2/8Rf4WIqw
+	 BicYEJ+Aa6LO06fejAkSRt3B2DsZAhyXdIRtK5YkRrdxGPL9cRoq291ROyqJU4wsYv
+	 9BCDaxN15BkuRoG2AmJPEPd7wB7uPx+S7+fMLe9THw7dvWuhafHytwxYQ2nYd9fv0n
+	 31UJ1gVjfbzVu37QJc+cxQkT5hiOmUhJIrF0Xba2EedDNsaVe1tB/cgIkyRxiZMF2P
+	 VF7e62Eqljnig==
+Date: Mon, 10 Nov 2025 10:15:32 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
+	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, John Stultz <john.stultz@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+	Stephen Boyd <swboyd@chromium.org>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Elliot Berman <quic_eberman@quicinc.com>, 
+	Xin Liu <xin.liu@oss.qualcomm.com>, Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v17 05/12] power: reset: reboot-mode: Expose sysfs for
+ registered reboot_modes
+Message-ID: <qhlxxfsyc42xemerhi36myvil3bf45isgmpugkuqzsvgcc3ifn@njrtwuooij2q>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-5-46e085bca4cc@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_081106_353911_18446006 
-X-CRM114-Status: GOOD (  14.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-5-46e085bca4cc@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +85,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 12:34:25 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
-
-> Define a cleanup helper for use with __free to release the acpi table when
-> the pointer goes out of scope. Also, introduce the helper
-> acpi_get_table_ret() to simplify a commonly used pattern involving
-> acpi_get_table().
+On Sun, Nov 09, 2025 at 08:07:18PM +0530, Shivendra Pratap wrote:
+> Currently, there is no standardized mechanism for userspace to
+> discover which reboot-modes are supported on a given platform.
+> This limitation forces tools and scripts to rely on hardcoded
+> assumptions about the supported reboot-modes.
 > 
-> These are first used in a subsequent commit.
+> Create a class 'reboot-mode' and a device under it to expose a
+> sysfs interface to show the available reboot mode arguments to
+> userspace. Use the driver_name field of the struct
+> reboot_mode_driver to create the device. For device-based
+> drivers, configure the device driver name as driver_name.
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> This results in the creation of:
+>   /sys/class/reboot-mode/<driver>/reboot_modes
+> 
+> This read-only sysfs file will exposes the list of supported
+> reboot modes arguments provided by the driver, enabling userspace
+> to query the list of arguments.
+> 
 
-Seems useful enough to be to be worth having. Needs input from
-Rafael.
+I like this addition, and your commit message reasoning about this
+addition. But, while touching upon the same subject, you've made this
+series add two separate things.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+So now this part can't be merged unless there's agreement on the PSCI
+SYSTEM_RESET2, and the PSCI SYSTEM_RESET2 can't be merged unless this
+sysfs interface is agreed upon.
 
+Unless I'm missing some clear dependency here, it would have been better
+to keep these two topics in separate series, and drive them to
+conclusion independently.
+
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 > ---
->  include/linux/acpi.h | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>  drivers/power/reset/reboot-mode.c | 62 ++++++++++++++++++++++++++++++++++++++-
+>  include/linux/reboot-mode.h       |  2 ++
+>  2 files changed, 63 insertions(+), 1 deletion(-)
 > 
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index a9dbacabdf89..1124b7dc79fd 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -8,6 +8,7 @@
->  #ifndef _LINUX_ACPI_H
->  #define _LINUX_ACPI_H
+> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
+> index 873ac45cd7659b214b7c21958f580ca381e0a63d..582aa7f8ed7fa485c5a67877558c9b15d3600ef4 100644
+> --- a/drivers/power/reset/reboot-mode.c
+> +++ b/drivers/power/reset/reboot-mode.c
+> @@ -6,6 +6,7 @@
+>  #define pr_fmt(fmt)	"reboot-mode: " fmt
 >  
-> +#include <linux/cleanup.h>
->  #include <linux/errno.h>
->  #include <linux/ioport.h>	/* for struct resource */
->  #include <linux/resource_ext.h>
-> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
->  void acpi_table_init_complete (void);
->  int acpi_table_init (void);
+>  #include <linux/device.h>
+> +#include <linux/err.h>
+>  #include <linux/init.h>
+>  #include <linux/kernel.h>
+>  #include <linux/list.h>
+> @@ -23,6 +24,8 @@ struct mode_info {
+>  	struct list_head list;
+>  };
 >  
-> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
-> +{
-> +	struct acpi_table_header *table;
-> +	int status = acpi_get_table(signature, instance, &table);
-> +
-> +	if (ACPI_FAILURE(status))
-> +		return ERR_PTR(-ENOENT);
-> +	return table;
-> +}
-> +DEFINE_FREE(acpi_put_table, struct acpi_table_header *, if (!IS_ERR_OR_NULL(_T)) acpi_put_table(_T))
-> +
->  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
->  int __init_or_acpilib acpi_table_parse_entries(char *id,
->  		unsigned long table_size, int entry_id,
+> +static struct class *rb_class;
 
+Why not "static const struct class reboot_mode_class" and then a
+class_register() call? Why do you need the class dynamically allocated
+on the heap?
+
+> +
+>  static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, const char *cmd)
+>  {
+>  	const char *normal = "normal";
+> @@ -65,6 +68,51 @@ static int reboot_mode_notify(struct notifier_block *this,
+>  	return NOTIFY_DONE;
+>  }
+>  
+> +static ssize_t reboot_modes_show(struct device *dev, struct device_attribute *attr, char *buf)
+> +{
+> +	struct reboot_mode_driver *reboot;
+> +	struct mode_info *info;
+> +	ssize_t size = 0;
+> +
+> +	reboot = (struct reboot_mode_driver *)dev_get_drvdata(dev);
+> +	if (!reboot)
+> +		return -ENODATA;
+> +
+> +	list_for_each_entry(info, &reboot->head, list)
+> +		size += sysfs_emit_at(buf, size, "%s ", info->mode);
+> +
+> +	if (size) {
+> +		size += sysfs_emit_at(buf, size - 1, "\n");
+> +		return size;
+> +	}
+> +
+> +	return -ENODATA;
+> +}
+> +static DEVICE_ATTR_RO(reboot_modes);
+> +
+> +static int create_reboot_mode_device(struct reboot_mode_driver *reboot)
+
+Note how (almost) all other function names in this file start with
+a "reboot_mode_" prefix.
+
+> +{
+> +	int ret = 0;
+
+First use is an assignment, no need for you to zero-initialize it here.
+
+> +
+> +	if (!rb_class) {
+> +		rb_class = class_create("reboot-mode");
+> +		if (IS_ERR(rb_class))
+> +			return PTR_ERR(rb_class);
+> +	}
+> +
+> +	reboot->reboot_dev = device_create(rb_class, NULL, 0, (void *)reboot, reboot->driver_name);
+
+Every struct reboot_mode_driver is going to end up having one of these,
+so why not incorporate it into the reboot_mode_driver in the first
+place. It avoids the extra heap allocation, and you can use
+container_of() instead of drv_data to find your reboot_mode_driver in
+the reboot_modes_show() above.
+
+
+Just:
+  reboot->reboot_dev.class = &reboot_mode_class;
+  dev_set_name(&reboot->reboot_dev, reboot->driver_name);
+  ret = device_register(&reboot->reboot_dev);
+
+> +	if (IS_ERR(reboot->reboot_dev))
+> +		return PTR_ERR(reboot->reboot_dev);
+> +
+> +	ret = device_create_file(reboot->reboot_dev, &dev_attr_reboot_modes);
+
+Manually creating sysfs attributes is both error prone and racy, so if
+you can you should avoid it.
+
+Here you have the opportunity to just statically assign
+reboot_mode_class->dev_groups to an ATTRIBUTE_GROUP() with your
+attribute and it will all be handled for you.
+
+> +	if (ret) {
+> +		device_unregister(reboot->reboot_dev);
+> +		return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>  /**
+>   * reboot_mode_register - register a reboot mode driver
+>   * @reboot: reboot mode driver
+> @@ -83,13 +131,17 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
+>  	u32 magic_arg2;
+>  	int ret;
+>  
+> -	if (!fwnode)
+> +	if (!fwnode || !reboot->driver_name)
+>  		return -EINVAL;
+>  
+>  	np = to_of_node(fwnode);
+>  	if (!np)
+>  		return -EINVAL;
+>  
+> +	ret = create_reboot_mode_device(reboot);
+> +	if (ret)
+> +		return ret;
+> +
+>  	INIT_LIST_HEAD(&reboot->head);
+>  
+>  	for_each_property_of_node(np, prop) {
+> @@ -142,6 +194,8 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
+>  		kfree(info);
+>  	}
+>  
+> +	device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
+> +	device_unregister(reboot->reboot_dev);
+>  	return ret;
+>  }
+>  EXPORT_SYMBOL_GPL(reboot_mode_register);
+> @@ -155,6 +209,9 @@ int reboot_mode_unregister(struct reboot_mode_driver *reboot)
+>  	struct mode_info *info;
+>  	struct mode_info *next;
+>  
+> +	if (!reboot->reboot_dev)
+> +		return -EINVAL;
+> +
+>  	unregister_reboot_notifier(&reboot->reboot_notifier);
+>  
+>  	list_for_each_entry_safe(info, next, &reboot->head, list) {
+> @@ -163,6 +220,8 @@ int reboot_mode_unregister(struct reboot_mode_driver *reboot)
+>  		kfree(info);
+>  	}
+>  
+> +	device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
+> +	device_unregister(reboot->reboot_dev);
+>  	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(reboot_mode_unregister);
+> @@ -192,6 +251,7 @@ int devm_reboot_mode_register(struct device *dev,
+>  	if (!dr)
+>  		return -ENOMEM;
+>  
+> +	reboot->driver_name = reboot->dev->driver->name;
+
+It seems unlikely that we will have multiple instances of the same
+driver influencing the actual reboot mode, but we could very well have
+multiple instances of the same driver calling
+devm_reboot_mode_register(). E.g. on a board two PMICs, both with PON
+blocks (but only one considered as the source for boot mode).
+
+In that case you will end up trying to create multiple devices with the
+name "qcom-pon", presumably that will fail and per your error handling
+you have now disabled the reboot-mechanism for all but the first pon
+instance that was registered.
+
+It also creates some asymmetry between devm_reboot_mode_register() and
+reboot_mode_register(), in that the one API the client driver decides
+the name, in other it's hard coded to the driver name (and if the client
+did specify a name - which they should if they use the non-devm one- it
+will be overwritten).
+
+
+
+On that note, I would argue that aborting the registration of
+reboot-modes, just because we failed to create the convenient "debug"
+interface, doesn't make sense. I think it would be better to just
+continue even when create_reboot_mode_device() returns an error.
+
+>  	rc = reboot_mode_register(reboot, of_fwnode_handle(reboot->dev->of_node));
+>  	if (rc) {
+>  		devres_free(dr);
+> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
+> index e0d3e8a54050a76f26846f456120b4c7e371d284..81c149edf40fbcf0d3427c2e12eb415199cb153b 100644
+> --- a/include/linux/reboot-mode.h
+> +++ b/include/linux/reboot-mode.h
+> @@ -7,6 +7,8 @@
+>  
+>  struct reboot_mode_driver {
+>  	struct device *dev;
+> +	struct device *reboot_dev;
+
+As suggested above:
+
+struct device reboot_dev;
+
+Regards,
+Bjorn
+
+> +	const char *driver_name;
+>  	struct list_head head;
+>  	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
+>  	struct notifier_block reboot_notifier;
+> 
+> -- 
+> 2.34.1
+> 
 
