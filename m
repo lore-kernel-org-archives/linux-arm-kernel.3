@@ -4,99 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647ADCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Nov 2025 23:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C093BCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 00:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ciGXNa1z8OLW1upm7VDcuKg7m+mkewvk1om1QMnHPzA=; b=tClSxIQHI9utw7T1seTAXbUMe8
-	Oais8ojMAlGPc4zdNGReI6kGj4moAq7ZRRoyc5gaCdLICXC4Ru9DUFp/8HXJRc3W9GDYrn6+CBWJH
-	YYKpUY/zqk2PgfEOFD5sthuizzesm2L0mNi5poKHJ8Dhn/5mIomDOvV0y/V2g64P4sTuzyJHZnh39
-	9iWoCnZvH1rzfv8RoVenWen6e3X3yCMkOozRNarGSNjuWFUmOeZV+l7+A9B6l4rbUpN+wueDnLvaM
-	is/lSQTXfWBsA+/XKV2YKeUxzJI7KWwfL9bkAdrtkSAHvMMq7nyGFwhxGKAHSAFBTj3MpTrtyBXJh
-	1r8vbHyA==;
+	bh=7BPbQiZQ1p/FzedWzhYAj/T5KEbE0aQW4yaYgMm8nyA=; b=Dv2qEqtft8VatKmvoXd8bVYKxp
+	kwJzM1oUpcg+ZMadVQtYf5LF3MzxTKanBRphHDfFyZzQBgqIVxvdsz/3F46/stCDbwkQLNAkxLmJE
+	9n/+PJt4WYx2XPGFPhK/EtQi90HvArDXX44drvuMTatQrWegdt/wNAf3/sRppJGnxg2ff/k+9vp3A
+	ok1SEW+9s7SXSk4nzIDZL53Kj8isDGBk7GYHnHkVpv4PTmw8Olbp3y9yjdAiBX7aPkYRGyXr6T16X
+	38L9+LMepnif9R9pj2u4KZkdGlT9+tqIcSfCSo5WNxSkZJLLXKV5hLt84hsy/RCpAacYf47wnlgrc
+	mko5Sqkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFIN-00000004Wxr-106G;
-	Sun, 09 Nov 2025 23:58:07 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1vIFgi-00000004Xhr-1LWy;
+	Mon, 10 Nov 2025 00:23:16 +0000
+Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFIK-00000004Wx3-1vfG
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Nov 2025 23:58:06 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-5ce093debf6so1767228137.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 15:58:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762732682; x=1763337482; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ciGXNa1z8OLW1upm7VDcuKg7m+mkewvk1om1QMnHPzA=;
-        b=iqaiPT/cQSeiUSU/dHCoHKistj07Hg3iPBvg1nrJwlLFPeAmxV3F6Y7of5Rc5uOjRZ
-         iIebhizJhmgrmGpIrAULkXYjiGRBCzroW/+r6sopATG2IbwhnDKS1vpnXik9lYHcSwzx
-         +7ppqiSWg4ThGMY9FdVuc+j3HNUEcPn08n8mFKFoimI4S4GuHRs9V1Cz5AyH01WIZi2+
-         o/7NC+xeQQRVXM/bNL2qPRkhxW/aRywrTYsyNqB9TwcnOWwfJ8zHd9FbneD20wKBWm3V
-         TBR73YcTWR3pRfBkDHQMGw8cdN8ejjzOBq6DsXuHWqidkJ+noMQBMSfFW8ZN7cBpJEyk
-         YYgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762732682; x=1763337482;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ciGXNa1z8OLW1upm7VDcuKg7m+mkewvk1om1QMnHPzA=;
-        b=U/BBgx+LQwZCJHYpg3WOCCu9IRyRMI8gCjhWJVuurWejtvbv6joyJFH4/uFYHUZnFf
-         kqSQyRyjvp+FV6LVs3cmqnwR/9SyYXBTYkWiR/hMjU0+BDzi83sGUv23zxTWHMKNWCvh
-         hTUvCTy0fI4jEUlvBTAklCHskBc5UvJKg80qjBaxnZeQulw6GoZijlg6OZEWNcV8maHo
-         TlPHfnYw6ZChKpO7p85S/MFk3Pos4dQxDCCEz7CuTcYjFJfyJW3BO7tV072VjIPFp5MN
-         6WbMu7TeomDpRJVv14hds9TvXQJXw7ufQIe4krAFn2bUOvFBYoYNTzw5nWIR6m3YJC1I
-         SSoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJLK7OlVvs5McqZu3XxHmFNo3eHcR1ug4cqFgh6JIIa//K/qrOf2TUnCAyLkT2EVfTOHJYhA7a2JIg6gvQPsmd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw++V6ADUlxthJ9Su0zybrzAJIWiBOMF4Wx5GLDDBbtKPBY4qgt
-	7C7kB3gDRzTOnuh+tO16huXh1hYcOCbfLT21uFnM8rlKFiDQ3oGV7u1G
-X-Gm-Gg: ASbGncsErggF+8obIJs8rt/Cm5k+kxh8R4/X+xWkXGMDLh+ojgZFZjsL1icFYE5wmm8
-	af8Lo0U5GR1WXC+AJ7dtUo+aFVgmmdiJYdKhE7KVHZN3EzvTIwl/IfM7RSanb/pcQ097Tw92MGx
-	lY86M1IOSlnYg2xqNdfrMuqkDME6cQwjTo9IzkVwb2HBlsx8xb7vpScIFGO5+a+qxNotYVA1s/M
-	jjfR72SBIKwbz++nanoHHDLJYKmTGyDKXX2AkvxGAZ0c+EbhPakrqlD7DoHfc6snKhU0INHXMXQ
-	iRephwUmfoeikF2lDvlaVW2OEFdmDMKCLDnpzxaRB+U6j5IJUV/mstZV/8bPyizOvgIMZo97JW9
-	HDSUl+MYxiYQY5c+KsaMlqE4Zy4ByeSZ91fYLU9CnEjy9HXhPHm17ZdU8yerhtaI/r3kfBu4hcb
-	dO4DlWVUXy
-X-Google-Smtp-Source: AGHT+IHkEshzMykihoxZN8xwmOnrJz2pDDGH7SWMAzmcaEUtc/A4N6Xa3uJOm+m//4yVDMfdlbkPlw==
-X-Received: by 2002:a05:6102:3049:b0:5db:f031:84c4 with SMTP id ada2fe7eead31-5ddc475a644mr2405338137.28.1762732682621;
-        Sun, 09 Nov 2025 15:58:02 -0800 (PST)
-Received: from geday ([2804:7f2:800b:6140::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-559958320aasm6388204e0c.20.2025.11.09.15.57.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Nov 2025 15:58:00 -0800 (PST)
-Date: Sun, 9 Nov 2025 20:57:52 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Johan Jonker <jbx6244@gmail.com>
-Subject: Re: [RFC PATCH 2/2] PCI: rockchip-host: drop wait on PERST# toggle
-Message-ID: <aREqgL8JVYUcKO7R@geday>
-References: <d3d0c3a387ff461e62bbd66a0bde654a9a17761e.1762150971.git.geraldogabriel@gmail.com>
- <20251103181038.GA1814635@bhelgaas>
- <aQrKtFT0ldc70gKj@geday>
- <17220ae9-9e0e-cb0b-63bd-eaf9a6ed6411@manjaro.org>
+	id 1vIFge-00000004XhO-3BW6;
+	Mon, 10 Nov 2025 00:23:14 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 7C55140E66;
+	Mon, 10 Nov 2025 01:23:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1762734188; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7BPbQiZQ1p/FzedWzhYAj/T5KEbE0aQW4yaYgMm8nyA=;
+	b=TTCVHgKQL/8h1giAPMPv8LMSy5nUj5vJw409qzY4QYO+lHfiPHboDema3EVL2F5YHOPN7S
+	Iz00hJxdT3YlpED5ftFuVuOZ1fKcAVs+0pTmvZBz2nvr6dpckB2XI8yMDhby71hBclJjpK
+	LlOqvCqPw+N8Gw5NcQluVM9fHbanbwYe9VIXLgCg8pI2OPIvvRbvAmGqxfdA4jChX8N+Sq
+	i4kAfJqpCHY7APfLUJp3zSBsp5bjUm+FG0baQx89kemZBM2Vgsn/UBCJs02c/aBBCFXdt8
+	7QJYmgZJngtkeMT3/E5HGJEOfdIPXpFm+YPjYs+OziZQmc9F4b6ZWfmSr6rbtA==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <20251109192128.72527-1-sigmaris@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+References: <20251109192128.72527-1-sigmaris@gmail.com>
+Date: Mon, 10 Nov 2025 01:23:06 +0100
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Alexey Charkov" <alchark@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+To: "Hugh Cole-Baker" <sigmaris@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <17220ae9-9e0e-cb0b-63bd-eaf9a6ed6411@manjaro.org>
+Message-ID: <da6721a3-8f59-9c0c-762c-bc02b39ac472@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v2] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= add pwm-fan for NanoPC-T6
+User-Agent: SOGoMail 5.12.3
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_155804_519373_41BAE722 
-X-CRM114-Status: GOOD (  28.20  )
+X-CRM114-CacheID: sfid-20251109_162313_040893_79663FE5 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +68,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 12:51:49AM +0100, Dragan Simic wrote:
-> Hello Geraldo,
-> 
-> On Wednesday, November 05, 2025 04:55 CET, Geraldo Nascimento <geraldogabriel@gmail.com> wrote:
-> > I did some more testing, intrigued by why would a delay of more than
-> > 5 ms after the enablement of the power rails trigger failure in
-> > initial link-training.
-> > 
-> > Something in my intuition kept telling me this was PERST# related,
-> > and so I followed that rabbit-hole.
-> > 
-> > It seems the following change will allow the SSD to work with the
-> > Rockchip-IP PCIe core without any other changes. So it is purely
-> > a DT change and we are able to keep the mandatory 100ms delay
-> > after driving PERST# low, as well as the always-on/boot-on
-> > properties of the 3v3 power regulator.
-> > 
-> > This time everything is within the PCIe spec AFAICT, PERST# indeed
-> > is an Open Drain signal, and indeed it does requires pull-up resistor
-> > to maintain the drive after driving it high.
-> > 
-> > I'm still testing the overall stability of this, let's hope for the
-> > best!
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> > index aa70776e898a..1c5afc0413bc 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-> > @@ -383,13 +383,14 @@ &pcie_phy {
-> >  };
-> >  
-> >  &pcie0 {
-> > -	ep-gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-> > +	ep-gpios = <&gpio0 RK_PB4 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> >  	num-lanes = <4>;
-> > -	pinctrl-0 = <&pcie_clkreqnb_cpm>;
-> > +	pinctrl-0 = <&pcie_clkreqnb_cpm>, <&pcie_perst>;
-> >  	pinctrl-names = "default";
-> >  	vpcie0v9-supply = <&vcca_0v9>;	/* VCC_0V9_S0 */
-> >  	vpcie1v8-supply = <&vcca_1v8>;	/* VCC_1V8_S0 */
-> >  	vpcie3v3-supply = <&vcc3v3_pcie>;
-> > +	max-link-speed = <2>;
-> 
-> FWIW, we shouldn't be enabling PCIe Gen2 here, because it's been
-> already disabled for the RK3399 due to unknown errata in the commit
-> 712fa1777207 ("arm64: dts: rockchip: add max-link-speed for rk3399",
-> 2016-12-16).  It's perfectly reasonable to assume the same for the
-> RK3399Pro, which is basically RK3399 packaged together with RK1808,
-> AFAIK with no on-package interconnects.
+Hello Hugh,
 
-Hi Dragan!
+Thanks for the v2!  Please, see a couple of nitpicks below.
 
-Thanks for the catch, you are correct. But in this case it was just
-for my tests and it crept in in the git diff. I wasn't really proposing
-to make that change.
+On Sunday, November 09, 2025 20:20 CET, Hugh Cole-Baker <sigmaris@gmail=
+.com> wrote:
+> FriendlyELEC offers an optional heatsink and fan addon for the NanoPC=
+-T6
+> and T6 LTS, which plugs in to the fan connector on the board driven b=
+y
+> pwm1. Add the fan as an active cooling device for the SoC package.
+>=20
+> Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
+> ---
+> Changes from v1: https://lore.kernel.org/linux-rockchip/2025102619485=
+8.92461-1-sigmaris@gmail.com/
+> * add the fan to the base board dtsi instead of overlay (Heiko)
+> * just use 2 trip points for warm and hot temperatures (Dragan, Alexe=
+y)
+>=20
+> References:
+> FriendlyELEC heatsink with fan addon:
+> https://www.friendlyelec.com/index.php?route=3Dproduct/product&produc=
+t=5Fid=3D305
+> Vendor DT with trip points and PWM duty cycle values:
+> https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aa=
+d139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev=
+01.dts#L75-L90
 
-Thanks,
-Geraldo Nascimento
+I think it would be better to move these references to the patch
+description, so they become directly available in the repository.
+It might be the best to use the "... [n]" form for the references,
+which puts them as close to the backed contents as possible.
+
+Oh, and I think that "arm64: dts: rockchip: Enable active cooling
+on NanoPC-T6" as the patch subject would read nicer. :)
+
+>  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 39 +++++++++++++++++=
+++
+>  1 file changed, 39 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arc=
+h/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> index fafeabe9adf9e..9164a0ee6228e 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+> @@ -11,6 +11,7 @@
+>  #include <dt-bindings/input/input.h>
+>  #include <dt-bindings/pinctrl/rockchip.h>
+>  #include <dt-bindings/soc/rockchip,vop2.h>
+> +#include <dt-bindings/thermal/thermal.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "rk3588.dtsi"
+> =20
+> @@ -89,6 +90,14 @@ usr=5Fled: led-1 {
+>  		};
+>  	};
+> =20
+> +	fan: pwm-fan {
+> +		compatible =3D "pwm-fan";
+> +		cooling-levels =3D <0 35 64 100 150 255>;
+> +		fan-supply =3D <&vcc5v0=5Fsys>;
+> +		pwms =3D <&pwm1 0 50000 0>;
+> +		#cooling-cells =3D <2>;
+> +	};
+> +
+>  	sound {
+>  		compatible =3D "simple-audio-card";
+>  		pinctrl-names =3D "default";
+> @@ -591,6 +600,36 @@ &i2s6=5F8ch {
+>  	status =3D "okay";
+>  };
+> =20
+> +&package=5Fthermal {
+> +	polling-delay =3D <1000>;
+> +
+> +	trips {
+> +		package=5Fwarm: package-warm {
+> +			temperature =3D <50000>;
+> +			hysteresis =3D <2000>;
+> +			type =3D "active";
+> +		};
+> +
+> +		package=5Fhot: package-hot {
+> +			temperature =3D <60000>;
+> +			hysteresis =3D <2000>;
+> +			type =3D "active";
+> +		};
+> +	};
+
+It should be better to use 55 and 65 oC as the trip thresholds,
+because people often report around 50 oC as the observed idle-state
+temperature of their RK3588 SoCs, so increasing the first threshold
+to 55 oC should be beneficial by preventing the fan from spinning
+when the SoC is actually idle.  The second threshold is usually set
+to be 10 oC higher, so it should end up at 65 oC.
+
+> +	cooling-maps {
+> +		map0 {
+> +			trip =3D <&package=5Fwarm>;
+> +			cooling-device =3D <&fan THERMAL=5FNO=5FLIMIT 1>;
+> +		};
+> +
+> +		map1 {
+> +			trip =3D <&package=5Fhot>;
+> +			cooling-device =3D <&fan 2 THERMAL=5FNO=5FLIMIT>;
+> +		};
+> +	};
+> +};
+> +
+>  &pcie2x1l0 {
+>  	reset-gpios =3D <&gpio4 RK=5FPB3 GPIO=5FACTIVE=5FHIGH>;
+>  	vpcie3v3-supply =3D <&vcc=5F3v3=5Fpcie20>;
 
 
