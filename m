@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCB0CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF3ACCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3c4sR4353DjBzDMx8m0ul/gY08rkAG038+aE+8dUNU=; b=ty1QOMfdzERHmh0S2/Xzh1IhJ9
-	YB5mxf+u/hi9cPtuWPblYGnoogKjQQNYvXtvVvnTWo31YNF/usMeTQJofC+pFUGcYli/i4rCitX4v
-	8fErV97yfRBz171N18EmRzSN+6DBf51GSEc0z8YAox5xECKAJ/ZB8DrZ/8H6enfCJmWuYy7pZ0FCy
-	w+jhGOk6Vz7tvteWcmFdooyRN5iU8y24/5s5srcGNbizy9pgSZNy5o4vUiFcqcz7P7sxiQ45APmnw
-	Z5MymQjlhSj/1pEYjJ+HYunoOtTSrzmCza+1NJN+RK38VYPIwU0g3vwgPhf3teljvtTilcRXfaqV6
-	i/8uH69Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nNA5rK+BwCyPa7v4izOm+aNcFUyT8PKu95FOmdVNe7k=; b=xjS5HFhpoiSwqnXdR4mKmqJbpn
+	i8nnFQnLbfYBx/EcJ1brOOQYL4mKNi9/dU4cbZxJKrH6ZKUgnZwEtCmhAmQtBrA4STiuTynawzSek
+	8rdRb4CYUMRLtdaUXnxuDR0UfnhlTfGSkRQ2aPGht6xcIVC0X+exNzKlLw0kdV4JAVAxd3gp/ZT/j
+	GtvjQo0JvRNzq+GBSkW5zze5+LkzJg/TYZF7dHbK2k6Lha4HQn6FvgICPbEsRq0yJU18MZZDdZIdU
+	mTz5LULXwt458rbCWPGR92V7fs6LYRTYGuAsdsrPvZ0QYpZuG8ZM0CSFO+nVMf8Dv+BG6U7bhz8ii
+	VuvkITXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVbo-00000005tZz-3OZw;
-	Mon, 10 Nov 2025 17:23:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIVfy-00000005trp-0xAc;
+	Mon, 10 Nov 2025 17:27:34 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVbn-00000005tZt-1sho
+	id 1vIVfv-00000005trL-116J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 17:23:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84E62601B5;
-	Mon, 10 Nov 2025 17:23:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F51BC116B1;
-	Mon, 10 Nov 2025 17:23:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762795394;
-	bh=WYTcByahqL1XJ5FT3lBhy0MI/HDkJwgwIwz+0jeqOm0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DQfdSfc0cfZHtzUJ9FIF2TJPMrgiis+AW5bqE72iUAr1kJTRaaPZbUtpwRp9k3Fg7
-	 kaDy+FJn/cM1RWvxz80jjg/KfwXU4WVPC7cyBKmTISUBRh5fMuslJq2kDzqgp3s/1/
-	 ZL0GbW3pDL2bXsP+aocNuYRsgHgV4GNIN4A4zduz9RMakhewq0lXbWn2KGyT3KCHoM
-	 W2vqrLu1S2H0Zz4lIJqrVVANUtH9jRz2N0TIscjfYZk29tRsZM3j9SmEDlpEdxRwEv
-	 ee73ebFLg9QXRkGag3O1kxh/sVnZ5dHp2DUn/ZDsisMa/2lA/xybzW4CeaY3SsB3V9
-	 Uuwb4FSO7OR1g==
-Date: Mon, 10 Nov 2025 18:22:59 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	John Stultz <john.stultz@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	Xin Liu <xin.liu@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Umang Chheda <umang.chheda@oss.qualcomm.com>,
-	Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-Subject: Re: [PATCH v17 07/12] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <aRIfc9iuC2b9DqI+@lpieralisi>
-References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
- <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
+	Mon, 10 Nov 2025 17:27:33 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4xRz5k1QzHnGjG;
+	Tue, 11 Nov 2025 01:27:11 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 49F8E14033C;
+	Tue, 11 Nov 2025 01:27:27 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
+ 2025 17:27:25 +0000
+Date: Mon, 10 Nov 2025 17:27:24 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
+Subject: Re: [PATCH 23/33] arm_mpam: Allow configuration to be applied and
+ restored during cpu online
+Message-ID: <20251110172724.00005675@huawei.com>
+In-Reply-To: <20251107123450.664001-24-ben.horgan@arm.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+	<20251107123450.664001-24-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251110_092731_591415_22EEE752 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,252 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 09, 2025 at 08:07:20PM +0530, Shivendra Pratap wrote:
-> SoC vendors have different types of resets which are controlled
-> through various hardware registers. For instance, Qualcomm SoC
-> may have a requirement that reboot with “bootloader” command
-> should reboot the device to bootloader flashing mode and reboot
-> with “edl” should reboot the device into Emergency flashing mode.
-> Setting up such reboots on Qualcomm devices can be inconsistent
-> across SoC platforms and may require setting different HW
-> registers, where some of these registers may not be accessible to
-> HLOS. These knobs evolve over product generations and require
-> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
-> reset which can help align this requirement. Add support for PSCI
-> SYSTEM_RESET2, vendor-specific resets and align the implementation
-> to allow user-space initiated reboots to trigger these resets.
+On Fri, 7 Nov 2025 12:34:40 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
+
+> From: James Morse <james.morse@arm.com>
 > 
-> Implement the PSCI vendor-specific resets by registering to the
-> reboot-mode framework.
+> When CPUs come online the MSC's original configuration should be restored.
+> 
+> Add struct mpam_config to hold the configuration. This has a bitmap of
+> features that were modified. Once the maximum partid is known, allocate
 
-I think that we should expose to user space _all_ PSCI reset types,
-cold, warm + vendor specific - as a departure from using the reboot_mode
-variable (and possibly deprecate it - or at least stop using it).
+I'm not following 'were modified'.  When?  Sometime in the past?
+Perhaps "features that have been modified when XXX happens" or
 
-> As psci init is done at early kernel init, reboot-mode registration cannot
-> be done at the time of psci init.  This is because reboot-mode creates a
-> “reboot-mode” class for exposing sysfs, which can fail at early kernel init.
-> To overcome this, introduce a late_initcall to register PSCI vendor-specific
-> resets as reboot modes. Implement a reboot-mode write function that sets
-> reset_type and cookie values during the reboot notifier callback.  Introduce
-> a firmware-based call for SYSTEM_RESET2 vendor-specific reset in the
-> psci_sys_reset path, using reset_type and cookie if supported by secure
-> firmware. Register a panic notifier and clear vendor_reset valid status
-> during panic.  This is needed for any kernel panic that occurs post
-> reboot_notifiers.
+Having read the code I think this is something like "are modified as configuration
+is read".
 
-Is it because panic uses reboot_mode to determine the reset to issue ?
-
-> By using the above implementation, userspace will be able to issue
-> such resets using the reboot() system call with the "*arg"
-> parameter as a string based command. The commands can be defined
-> in PSCI device tree node under “reboot-mode” and are based on the
-> reboot-mode based commands.
-
-IMHO - it would be nice if could add mode-cold (or mode-normal in reboot mode
-speak) and mode-warm by default (if PSCI supports them) so that userspace
-could issue those resets too without having to set the reboot_mode variable.
-
-Reason is, since we are doing this it is worth going the whole nine
-yards and try to decouple the reboot_mode variable from the RESTART2
-syscall argument.
-
-Reworded: just use the new userspace interface you are adding for
-all PSCI reset types.
-
-Thoughts very much welcome - I understand this is controversial.
-
-> Reviewed-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
-> Reviewed-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-> Reviewed-by: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> a configuration array for each component, and reprogram each RIS
+> configuration from this.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Cc: Shaopeng Tan (Fujitsu) tan.shaopeng@fujitsu.com
+> Cc: Peter Newman peternewman@google.com
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  drivers/firmware/psci/Kconfig |  2 +
->  drivers/firmware/psci/psci.c  | 92 ++++++++++++++++++++++++++++++++++++++++++-
->  2 files changed, 93 insertions(+), 1 deletion(-)
+> Changes since v3:
+> Drop tags
+> Fix component reset, otherwise cpbm wrong and controls not set.
+> Add a cfg_lock to guard configuration of an msc
+
+The use of bitmap_set() for things that aren't unsigned long (arrays) is a bad
+idea. Much better to use GENMASK() to fill those.
+
+> ---
+>  drivers/resctrl/mpam_devices.c  | 268 ++++++++++++++++++++++++++++++--
+>  drivers/resctrl/mpam_internal.h |  27 ++++
+>  2 files changed, 280 insertions(+), 15 deletions(-)
 > 
-> diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/psci/Kconfig
-> index 97944168b5e66aea1e38a7eb2d4ced8348fce64b..93ff7b071a0c364a376699733e6bc5654d56a17f 100644
-> --- a/drivers/firmware/psci/Kconfig
-> +++ b/drivers/firmware/psci/Kconfig
-> @@ -1,6 +1,8 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  config ARM_PSCI_FW
->  	bool
-> +	select POWER_RESET
-> +	select REBOOT_MODE
->  
->  config ARM_PSCI_CHECKER
->  	bool "ARM PSCI checker"
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..ff82e7f4c27d1609a75cedc3a9790affaf839801 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -8,15 +8,18 @@
->  
->  #include <linux/acpi.h>
->  #include <linux/arm-smccc.h>
-> +#include <linux/bitops.h>
->  #include <linux/cpuidle.h>
->  #include <linux/debugfs.h>
->  #include <linux/errno.h>
->  #include <linux/linkage.h>
->  #include <linux/of.h>
-> +#include <linux/panic_notifier.h>
->  #include <linux/pm.h>
->  #include <linux/printk.h>
->  #include <linux/psci.h>
->  #include <linux/reboot.h>
-> +#include <linux/reboot-mode.h>
->  #include <linux/slab.h>
->  #include <linux/suspend.h>
->  
-> @@ -51,6 +54,24 @@ static int resident_cpu = -1;
->  struct psci_operations psci_ops;
->  static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
->  
-> +struct psci_vendor_sysreset2 {
-> +	u32 reset_type;
-> +	u32 cookie;
-> +	bool valid;
-> +};
-> +
-> +static struct psci_vendor_sysreset2 vendor_reset;
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 3a0ad8d93fff..8b0944bdaf28 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
 
-I think this should represent all possible PSCI reset types, not vendor only
-and its value is set by the reboot mode framework.
 
-> +
-> +static int psci_panic_event(struct notifier_block *nb, unsigned long v, void *p)
+
+> @@ -1125,6 +1225,9 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>  	if (err)
+>  		return ERR_PTR(err);
+>  	err = devm_mutex_init(dev, &msc->error_irq_lock);
+> +	if (err)
+> +		return ERR_PTR(err);
+Trivial: As in earlier patches. I'd put a blank line here for readability.
+> +	err = devm_mutex_init(dev, &msc->cfg_lock);
+>  	if (err)
+>  		return ERR_PTR(err);
+>  	mpam_mon_sel_lock_init(msc);
+> @@ -1585,6 +1688,70 @@ static void mpam_unregister_irqs(void)
+>  	}
+>  }
+>  
+> +static void __destroy_component_cfg(struct mpam_component *comp)
 > +{
-> +	vendor_reset.valid = false;
-
-I don't like this. Basically all you want this for is to make sure that
-we don't override the reboot_mode variable.
-
-One (hack) would consist in checking the reboot_mode variable here and
-set the struct I mentioned above to the value represented in reboot_mode.
-
-Good luck if reboot_mode == REBOOT_GPIO :-)
-
-> +	return NOTIFY_DONE;
+> +	add_to_garbage(comp->cfg);
 > +}
 > +
-> +static struct notifier_block psci_panic_block = {
-> +	.notifier_call = psci_panic_event
-> +};
-> +
->  bool psci_tos_resident_on(int cpu)
->  {
->  	return cpu == resident_cpu;
-> @@ -309,7 +330,10 @@ static int get_set_conduit_method(const struct device_node *np)
->  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->  			  void *data)
->  {
-> -	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
-> +	if (vendor_reset.valid && psci_system_reset2_supported) {
-> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor_reset.reset_type,
-> +			       vendor_reset.cookie, 0);
-
-See above. Two calls here: one for resets issued using the new userspace
-interface you are adding and legacy below - no vendor vs reboot_mode, this
-is a mess.
-
-> +	} else if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->  	    psci_system_reset2_supported) {
->  		/*
->  		 * reset_type[31] = 0 (architectural)
-> @@ -547,6 +571,72 @@ static const struct platform_suspend_ops psci_suspend_ops = {
->  	.enter          = psci_system_suspend_enter,
->  };
->  
-> +static int psci_set_vendor_sys_reset2(struct reboot_mode_driver *reboot, u64 magic)
+> +static void mpam_reset_component_cfg(struct mpam_component *comp)
 > +{
-> +	u32 magic_32;
+> +	int i;
+> +	struct mpam_props *cprops = &comp->class->props;
 > +
-> +	if (psci_system_reset2_supported) {
-> +		magic_32 = magic & GENMASK(31, 0);
-> +		vendor_reset.reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic_32;
-> +		vendor_reset.cookie = (magic >> 32) & GENMASK(31, 0);
+> +	mpam_assert_partid_sizes_fixed();
+> +
+> +	if (!comp->cfg)
+> +		return;
+> +
+> +	for (i = 0; i <= mpam_partid_max; i++) {
+> +		comp->cfg[i] = (struct mpam_config) {};
+> +		bitmap_fill(comp->cfg[i].features, MPAM_FEATURE_LAST);
+> +		bitmap_set((unsigned long *)&comp->cfg[i].cpbm, 0, cprops->cpbm_wd);
 
-Use FIELD_PREP/GET() please (but as mentioned above the vendor reset type
-bit[31] should be part of the reboot mode magic value, see above).
+Why manipulate a u32 with bitmap_set() with a horrible pretend it's an unsigned long cast.
+Instead just do:
+		comp->cfg[i].cpbm = GENMASK(cprops->cpbm_wd, 0);
+Which is indeed what bitmap_set will do internally due to an optimization for small bitmaps
+but lets avoid that making one integer pretend to be another of a different length.
 
-> +		vendor_reset.valid = true;
+
+> +		bitmap_set((unsigned long *)&comp->cfg[i].mbw_pbm, 0, cprops->mbw_pbm_bits);
+> +		bitmap_set((unsigned long *)&comp->cfg[i].mbw_max, 16 - cprops->bwa_wd, cprops->bwa_wd);
 > +	}
-> +
-> +	return NOTIFY_DONE;
 > +}
-> +
-> +static int __init psci_init_vendor_reset(void)
-> +{
-> +	struct reboot_mode_driver *reboot;
-> +	struct device_node *psci_np;
-> +	struct device_node *np;
-> +	int ret;
-> +
-> +	if (!psci_system_reset2_supported)
-> +		return -EINVAL;
-> +
-> +	psci_np = of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
-> +	if (!psci_np)
-> +		return -ENODEV;
-> +
-> +	np = of_find_node_by_name(psci_np, "reboot-mode");
-> +	if (!np) {
-> +		of_node_put(psci_np);
-> +		return -ENODEV;
-> +	}
-> +
-> +	ret = atomic_notifier_chain_register(&panic_notifier_list, &psci_panic_block);
-> +	if (ret)
-> +		goto err_notifier;
-> +
-> +	reboot = kzalloc(sizeof(*reboot), GFP_KERNEL);
-> +	if (!reboot) {
-> +		ret = -ENOMEM;
-> +		goto err_kzalloc;
-> +	}
-> +
-> +	reboot->write = psci_set_vendor_sys_reset2;
-> +	reboot->driver_name = "psci";
-> +
-> +	ret = reboot_mode_register(reboot, of_fwnode_handle(np));
-> +	if (ret)
-> +		goto err_register;
-> +
-> +	of_node_put(psci_np);
-> +	of_node_put(np);
-> +	return 0;
-> +
-> +err_register:
-> +	kfree(reboot);
-> +err_kzalloc:
-> +	atomic_notifier_chain_unregister(&panic_notifier_list, &psci_panic_block);
-> +err_notifier:
-> +	of_node_put(psci_np);
-> +	of_node_put(np);
-> +	return ret;
-> +}
-> +late_initcall(psci_init_vendor_reset)
 
-I don't like adding another initcall here.
-
-I wonder whether this code belongs in a PSCI reboot mode driver, possibly a
-faux device in a way similar to what we did for cpuidle-psci (that after all
-is a consumer of PSCI_CPU_SUSPEND in a similar way as this code is a
-PSCI_SYSTEM_RESET{2} consumer), that communicates with
-drivers/firmware/psci/psci.c with the struct mentioned above.
-
-Thanks,
-Lorenzo
-
-> +
->  static void __init psci_init_system_reset2(void)
->  {
->  	int ret;
-> 
-> -- 
-> 2.34.1
-> 
 
