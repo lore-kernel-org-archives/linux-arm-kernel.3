@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C88CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9321CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/l5IM2pys/idk62R90arU8t+o7fTnqV+02DKi4nACM=; b=Bjpz7cySJ9BIjAeBQYsEkuQE6Z
-	kneYhy5XzDjJ3IECITNgkt+R2NMbJWCnygP9z7fJYHvJkAXR+MT0wOg1aT9Fi8ob+CJP1RISMDKpP
-	MCsI1KDFqs2Ens7pCvYOiixf+YLuY+13ZBrH1JHE1QmgMydhwENfjEgr72UrU0/6vaVQ6P+vpibIs
-	0GrqxtKFcwzLL7d4fzA6HrjANi9i0Geus++cQwYN3qCkKDfq+tNG+ld7CXpcx7zH5XV2Wc8Fm5FcE
-	/kAwzKWlXDU24ikGVCCUqc5NgjcnAUA/5Pudt2ctmlQ6D54d9pERZeSADxlBHSxNoMZAWFZ6T325+
-	Tlbc4YuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FFadn1rzK82qOBkllu8eEKyDMt1yMQyQdxImm7k4Xv0=; b=4XdRNbcabgyVuXrfwMJtse1fuQ
+	1a/42SG80IjdS/VB9TKE6fKLo/kRIXDHesaBhFPkv2zzny8Hjz/70iADGmoyBF0YYyG4lU+EIfNX1
+	ZryOU6guQ4vmvLUZkJd4w07Y9LaRXpIqVD4KwxsEEQsqvnYNr2nP64U1ZSswMhLZWcoMJcpAFam+7
+	l7RN73wcT+p8Q13FL9Oi26qi9xrfAGbnbAct81xh8eDiw8xNcgNoZai9dcT807K9eutQfTcLBoY5V
+	/vYPq1EvgoQYtP0Jt5RaLwSbUo848xSEo2vs6VWmjDeeLdKGcVpUiuQ1GNu5ipks3Su/uZLp+XiMb
+	FdU1iG2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQJw-00000005LLV-3XK4;
-	Mon, 10 Nov 2025 11:44:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQJs-00000005LKQ-21Ge
+	id 1vIQN8-00000005Lbk-1YkH;
+	Mon, 10 Nov 2025 11:47:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIQN7-00000005LbY-0N4l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:44:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE080497;
-	Mon, 10 Nov 2025 03:44:15 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3640D3F63F;
-	Mon, 10 Nov 2025 03:44:22 -0800 (PST)
-Message-ID: <f52a601f-7275-478c-a759-1a87f0550c42@arm.com>
-Date: Mon, 10 Nov 2025 11:44:20 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 11/11] coresight: etm4x: Reuse normal enable and
- disable logic in CPU idle
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
- <20251103-arm_coresight_power_management_fix-v5-11-f803c19aa153@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-11-f803c19aa153@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_034426_506899_62847BC6 
-X-CRM114-Status: GOOD (  28.08  )
+	Mon, 10 Nov 2025 11:47:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 22CB3601A7;
+	Mon, 10 Nov 2025 11:47:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1FEDC19422;
+	Mon, 10 Nov 2025 11:47:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762775263;
+	bh=99WN30ryzWzH5hzRtlGC+kQjBRsdpDks1HmAmYRDMKA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rcCMBG+VU5HREdfNJgNish0MFJIZMNJB0GFmidQV69QhAQqOZ4lqKFwAPDLb9mAiY
+	 Ew6Wn4RUdcGoM6WtLDUdtGNBZVwQJ4fy9PQaj7U3bL6z5JKWqComWBXRmt9533il7O
+	 NlfPBLPdzDkucsF6uUXYm50ZpOp80hJdn2Z6RE5CfVob9Ghq5Cb2G6jTDxgI90eV+9
+	 cJdhJa2nmvpOC6BDo1EX75IUo5j+fq1FVuFW71MCaEsNEg508A98DhglHfhOVBq95h
+	 sQg5vNRU1fHyAWybkezEUX5uZtVUlYsRjH1m+wrU7eYrk6r4duvg1ZhKvbgERHVzga
+	 H4qvzB+ZK9BEw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vIQN3-00000003qIk-1Cd1;
+	Mon, 10 Nov 2025 11:47:41 +0000
+Date: Mon, 10 Nov 2025 11:47:40 +0000
+Message-ID: <867bvyun1f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
+In-Reply-To: <a914297b-753b-4fa0-8ffc-3a64b006316c@arm.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-5-maz@kernel.org>
+	<a914297b-753b-4fa0-8ffc-3a64b006316c@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,112 +89,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2025 16:49, Leo Yan wrote:
-> The etm4_enable_trace_unit() function is almost identical to the restore
-> flow, with a few differences listed below:
+On Mon, 10 Nov 2025 10:40:21 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> 1) TRCQCTLR register
+> Hi Marc,
 > 
->     The TRCQCTLR register is saved and restored during CPU idle, but it
->     is never touched in the normal flow. Given the Q element is not
->     enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
->     restoring this register during idle.
+> On 09/11/2025 17:15, Marc Zyngier wrote:
+> > The trap bits are currently only set to manage CPU errata. However,
+> > we are about to make use of them for purposes beyond beating broken
+> > CPUs into submission.
+> > 
+> > For this purpose, turn these errata-driven bits into a patched-in
+> > constant that is merged with the KVM-driven value at the point of
+> > programming the ICH_HCR_EL2 register, rather than being directly
+> > stored with with the shadow value..
+> > 
+> > This allows the KVM code to distinguish between a trap being handled
+> > for the purpose of an erratum workaround, or for KVM's own need.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
 > 
-> 2) TRCSSCSRn.STATUS bit
+> ...
 > 
->     The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
->     but instead directly loads the saved value. In contrast, the normal
->     flow clears this bit to 0 when re-enabling single-shot control.
+> > diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> > index ac5f9c5d2b980..0ecadfa00397d 100644
+> > --- a/arch/arm64/kvm/vgic/vgic.h
+> > +++ b/arch/arm64/kvm/vgic/vgic.h
+> > @@ -164,6 +164,22 @@ static inline int vgic_write_guest_lock(struct kvm *kvm, gpa_t gpa,
+> >   	return ret;
+> >   }
+> >   +void kvm_compute_ich_hcr_trap_bits(struct alt_instr *alt,
+> > +				   __le32 *origptr, __le32 *updptr, int nr_inst);
+> > +
+> > +static inline u64 vgic_ich_hcr_trap_bits(void)
+> > +{
+> > +	u64 hcr;
 > 
->     Therefore, the restore function passes the restart_ss argument as
->     false to etm4_enable_hw() to avoid re-enabling single-shot mode.
+> minor nit: Do we need a guard to make sure this isn't called before
+> the capabilities are finalized (given we may use it outside VM
+> context, e.g. VGIC probe). perhaps :
 > 
-> 3) Claim Tag Handling
-> 
->     The claim tag is acquired and released in normal flow, on the other
->     hand, the claim protocol is not applied in CPU idle flow - it simply
->     restores the saved value.
-> 
->     The claim bits serve two purpose:
-> 
->     * Exclusive access between the kernel driver and an external
->       debugger. During CPU idle, the kernel driver locks the OS Lock,
->       ensuring that the external debugger cannot access the trace unit.
->       Therefore, it is safe to release the claim tag during idle.
-> 
->     * Notification to supervisory software to save/restore context for
->       external debuggers. The kernel driver does not touch the external
->       debugger's claim bit (ETMCLAIM[0]).
-> 
->     Based on this, it is safe to acquire and release claim tag in the
->     idle sequence.
-> 
-> 4) OS Lock Behavior
-> 
->     The OS Lock should be locked during CPU idle states. This differs
->     from the normal flow, which unlock it. This special handling remains
->     in the CPU save path.
-> 
-> This commit reuses the normal enable and disable logic in the CPU idle
-> path. The only addition is locking the OS Lock upon entering idle to
-> ensure exclusive access.
-> 
-> The save context in the driver data is no longer needed and has been
-> removed.
-> 
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 201 +--------------------
->   drivers/hwtracing/coresight/coresight-etm4x.h      |  57 ------
->   2 files changed, 5 insertions(+), 253 deletions(-)
+> WARN_ON(!system_capabilities_finalized());
 
-nice diff stat !
+We already have a BUG_ON() for that at the point of setting up the
+vectors for pKVM. It wouldn't hurt to move this up as a general check
+for KVM, but I don't think placing these checks in random leaf
+functions is very appealing.
 
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 662492ddd296d9974406ddffad14e7ccb92edbae..d7da5f3b97b3b18d5d6eee0c20a3bdca0c4bec1a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1845,8 +1845,7 @@ static int etm4_dying_cpu(unsigned int cpu)
->   
->   static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->   {
-> -	int i, ret = 0;
-> -	struct etmv4_save_state *state;
-> +	int ret = 0;
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct csdev_access *csa;
->   	struct device *etm_dev;
-> @@ -1876,93 +1875,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->   		ret = -EBUSY;
->   		goto out;
->   	}
+And if we do, it should be gated to not emit code in the hot path,
+with something like this (which I find awful):
 
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index ec3a61e8e6b30..43f202cb83b48 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -171,6 +171,9 @@ static inline u64 vgic_ich_hcr_trap_bits(void)
+ {
+ 	u64 hcr;
+ 
++#if !defined(__KVM_VHE_HYPERVISOR__) && !defined(__KVM_NVHE_HYPERVISOR__)
++	WARN_ON(!system_capabilities_finalized());
++#endif
+ 	/* All the traps are in the bottom 16bits */
+ 	asm volatile(ALTERNATIVE_CB("movz %0, #0\n",
+ 				    ARM64_ALWAYS_SYSTEM,
 
-> +	etm4_cs_lock(drvdata, csa);
+Thanks,
 
-> +	etm4_disable_hw(drvdata);
->   
-> +	etm4_cs_unlock(drvdata, csa);
-This looks a bit hacky. Here are the options :
+	M.
 
-1. Leave it as above, but clearly explain in a comment why we do this.
-2. The other option is to restructure etm4_disable_hw into
-  etm4_cs_unlock()
-  __etm4_disable_hw()
-  etm4_cs_lock()
-
-And use __etm4_disable_hw() from here.
-
->   	/* wait for TRCSTATR.IDLE to go up */
->   	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
->   		dev_err(etm_dev,
-> @@ -1972,14 +1889,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->   		goto out;
-
-This goto can be removed too.
-
-Suzuki
+-- 
+Without deviation from the norm, progress is not possible.
 
