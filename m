@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FE2CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47842CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eg4D8s6bvAvIpb0FTrgxl6rJlPKXxDHjPqSSHyF+Oyo=; b=p/QpcquqYV+hEZqlszEabzLc/2
-	3E7HAcl3tA06ViugPCB+5vU03SsST0WP69xgYa0YxkwL8omPIODshEqrhcRBThcV0kQMHqT5mUAfk
-	O+EZPHY/r5W6Ma1pPXVPdDTg9WJTZ29omd+v4ktaHtLz6GWqA6922micmTgxi56kX/I9dzjIkdelb
-	DHgPW019bHUJYExRdVb0yb85cWN+Teon0rFmSwn/j7Q7oIUwsKueNG5Q1I0cQe+sG46czNmV0v6W5
-	lOQdqti1EhDrbMK7aPtoyCwPqtMSLEKV5KypdVhTxaDcOuJTGP4p2sTTTUD/9UFtYCZNZKBmSjNnq
-	ZAmTrA6Q==;
+	bh=yDzFhESh+0dXWEnSaoeWGWe64AWCa9rzJCFrSN8/64c=; b=QesDvrzvcf6xADPJU5ySkvMVhw
+	FOvmWoGN0N2STG4p49wUVgwrLXdzc0VxYmZfQa/EZsXySrnrJYco8QL4wxvbRAH0lUkKrgrvKwoe9
+	aNxqGT+FsxiRA8R8iqPXA5VbvAyXyGmf5YD2oWjwhYRiX9DxMOgQm3CdiqMOfo7QinkNsk0KPljYC
+	RynGsbnTk2Yv99Iq5UDkgbhAy3Gb9VoddOQlr73n2TosTjGZXSlRnisgQz/WuDsaP7agTHi06nMvH
+	3b3CQA9D7bKAReGh4O1nWLu5d1V6Ds7o7OYprJEEcpP6uaidWgKcva1WE9WPQyT0OnKZ15yzK56wg
+	gbr+0luQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITdq-00000005fd4-3RZp;
-	Mon, 10 Nov 2025 15:17:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vITed-00000005fj3-3SAO;
+	Mon, 10 Nov 2025 15:18:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITdp-00000005fce-1CC8;
-	Mon, 10 Nov 2025 15:17:14 +0000
+	id 1vITec-00000005fif-0i7Q;
+	Mon, 10 Nov 2025 15:18:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2D194054F;
-	Mon, 10 Nov 2025 15:17:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD586C4CEF5;
-	Mon, 10 Nov 2025 15:17:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 42913601B4;
+	Mon, 10 Nov 2025 15:18:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43FDBC4CEF5;
+	Mon, 10 Nov 2025 15:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762787832;
-	bh=4/NiTzMh9keqtirYL2aI8f4//oEtuSlc6IsakhE2XcQ=;
+	s=k20201202; t=1762787880;
+	bh=bXd9TtF3dk2wRq/oyzyztTa7C2oi3PkIcAOa05k8Tlc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NQwMYm6ZOfzM7bhvnvuyx+ZuRz17RKu2Y5151m9WX8YpLI6OYbRivm3JuCCbUqMP9
-	 2uRQXLpW20r7q8l0s+CJMeZxHoiQ766yKIWy5iMBCRx4EOCExgAOkT7lyk5eCDZlf3
-	 RXMhvH9OecPP8ofLFS/uAsWLYddglgxG0HOXC5anSxRxRrqxHOngzz3D/diMhyp/Zx
-	 4ZwNuj20U6w2ZoBFcKpIssKFkuM3DfeGUowdsydLOkrWz+USB0VlhkHttIGBcjkjCW
-	 m/gi7K4dmkgPmAvjCw/rUMLy+liIoKMR+CHey5/FqeoHI8BL6/LqtgnPNucQp1hb83
-	 7U7sgAj4OiJLA==
-Date: Mon, 10 Nov 2025 09:21:18 -0600
+	b=TMbris1lF1zUOR+rGlAjOMgRPn2kNYoJHRbnvYFQWaaIX14n+LHehqDy0FcnNZa5v
+	 hwc5SOnQDIhKdThiA/NIwcIbGGcIsksIDSVbZBNxyQr8VaaYKF9Zi9BFzHgKNlB67E
+	 vRNE7hp+l1PUBjxVkQ2B1Xg2oeOiaxcjHNl7XgxwZJhl3FoA0A5XJYNFareLSD+B13
+	 IZI+uziLiPWuqSoo8y0FZXBO6Ec2by7B5cDqiXUUrxYxRUV24bABkd1QnqWrO+6vwx
+	 Uosw+h6nEz+AAWMEzPQnBCCXb3zJGZU0GpcfGkIWB1DtbBARyGyE8Qz8vlENswZHZn
+	 ozHwZ7m8HVdUg==
+Date: Mon, 10 Nov 2025 09:22:06 -0600
 From: Bjorn Andersson <andersson@kernel.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Stefan Wahren <wahrenst@gmx.net>, Vinod Koul <vkoul@kernel.org>, 
@@ -57,18 +57,14 @@ Cc: Stefan Wahren <wahrenst@gmx.net>, Vinod Koul <vkoul@kernel.org>,
 	Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>, 
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, Michal Simek <michal.simek@amd.com>, 
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH v2 01/13] scatterlist: introduce sg_nents_for_dma() helper
-Message-ID: <jea2owcqtjeomlbwkfopt3ujsnakn4p3xeyqhh7s4kowf7k7dr@deyg5pky5udo>
+Subject: Re: [PATCH v2 00/13] dmaengine: introduce sg_nents_for_dma() and
+ convert users
+Message-ID: <h4twbib3pxrcmohckzg7d64moo5v5gjtdu3pz5wtroegdylcuh@7po5qbe3h2au>
 References: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
- <20251110103805.3562136-2-andriy.shevchenko@linux.intel.com>
- <waid6zxayuxacb6sntlxwgyjia3w25sfz2tzxxzb4tkqgmx63o@ndpztxeh6o32>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <waid6zxayuxacb6sntlxwgyjia3w25sfz2tzxxzb4tkqgmx63o@ndpztxeh6o32>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_071713_366144_0157A064 
-X-CRM114-Status: GOOD (  25.19  )
+In-Reply-To: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +79,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 09:05:26AM -0600, Bjorn Andersson wrote:
-> On Mon, Nov 10, 2025 at 11:23:28AM +0100, Andy Shevchenko wrote:
-> > Sometimes the user needs to split each entry on the mapped scatter list
-> > due to DMA length constrains. This helper returns a number of entities
-> > assuming that each of them is not bigger than supplied maximum length.
-> > 
-> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > ---
-> >  include/linux/scatterlist.h |  2 ++
-> >  lib/scatterlist.c           | 25 +++++++++++++++++++++++++
-> >  2 files changed, 27 insertions(+)
-> > 
-> > diff --git a/include/linux/scatterlist.h b/include/linux/scatterlist.h
-> > index 29f6ceb98d74..6de1a2434299 100644
-> > --- a/include/linux/scatterlist.h
-> > +++ b/include/linux/scatterlist.h
-> > @@ -441,6 +441,8 @@ static inline void sg_init_marker(struct scatterlist *sgl,
-> >  
-> >  int sg_nents(struct scatterlist *sg);
-> >  int sg_nents_for_len(struct scatterlist *sg, u64 len);
-> > +int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len);
-> > +
-> >  struct scatterlist *sg_last(struct scatterlist *s, unsigned int);
-> >  void sg_init_table(struct scatterlist *, unsigned int);
-> >  void sg_init_one(struct scatterlist *, const void *, unsigned int);
-> > diff --git a/lib/scatterlist.c b/lib/scatterlist.c
-> > index 4af1c8b0775a..4d1a010f863c 100644
-> > --- a/lib/scatterlist.c
-> > +++ b/lib/scatterlist.c
-> > @@ -64,6 +64,31 @@ int sg_nents_for_len(struct scatterlist *sg, u64 len)
-> >  }
-> >  EXPORT_SYMBOL(sg_nents_for_len);
-> >  
-> > +/**
-> > + * sg_nents_for_dma - return the count of DMA-capable entries in scatterlist
-> > + * @sgl:	The scatterlist
-> > + * @sglen:	The current number of entries
-> > + * @len:	The maximum length of DMA-capable block
-> > + *
-> > + * Description:
-> > + * Determines the number of entries in @sgl which would be permitted in
-> > + * DMA-capable transfer if list had been split accordingly, taking into
-> > + * account chaining as well.
-> > + *
-> > + * Returns:
-> > + *   the number of sgl entries needed
-> > + *
-> > + **/
-> > +int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len)
+On Mon, Nov 10, 2025 at 11:23:27AM +0100, Andy Shevchenko wrote:
+> A handful of the DMAengine drivers use same routine to calculate the number of
+> SG entries needed for the given DMA transfer. Provide a common helper for them
+> and convert.
+> 
+> I left the new helper on SG level of API because brief grepping shows potential
+> candidates outside of DMA engine, e.g.:
+> 
+>   drivers/crypto/chelsio/chcr_algo.c:154:  nents += DIV_ROUND_UP(less, entlen);
+>   drivers/spi/spi-stm32.c:1495:  /* Count the number of entries needed */
+> 
 
-All but two clients store the value in an unsigned int. Changing the
-return type to unsigned int also signals that the function is just
-returning a count (no errors).
+Comment in patch 1, but for the rest.
+
+Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 
 Regards,
 Bjorn
 
-> > +{
-> > +	struct scatterlist *sg;
-> > +	int i, nents = 0;
-> > +
-> > +	for_each_sg(sgl, sg, sglen, i)
-> > +		nents += DIV_ROUND_UP(sg_dma_len(sg), len);
-> > +	return nents;
-> > +}
+> Changelog v2:
+> - dropped outdated patches (only 9 years passed :-)
+> - rebased on top of the current kernel
+> - left API SG wide It might
 > 
-> We need an EXPORT_SYMBOL() here.
+> v1: https://patchwork.kernel.org/project/linux-dmaengine/patch/20161021173535.100245-1-andriy.shevchenko@linux.intel.com/
 > 
-> With that, this looks good to me.
+> Andy Shevchenko (13):
+>   scatterlist: introduce sg_nents_for_dma() helper
+>   dmaengine: altera-msgdma: use sg_nents_for_dma() helper
+>   dmaengine: axi-dmac: use sg_nents_for_dma() helper
+>   dmaengine: bcm2835-dma: use sg_nents_for_dma() helper
+>   dmaengine: dw-axi-dmac: use sg_nents_for_dma() helper
+>   dmaengine: k3dma: use sg_nents_for_dma() helper
+>   dmaengine: lgm: use sg_nents_for_dma() helper
+>   dmaengine: pxa-dma: use sg_nents_for_dma() helper
+>   dmaengine: qcom: adm: use sg_nents_for_dma() helper
+>   dmaengine: qcom: bam_dma: use sg_nents_for_dma() helper
+>   dmaengine: sa11x0: use sg_nents_for_dma() helper
+>   dmaengine: sh: use sg_nents_for_dma() helper
+>   dmaengine: xilinx: xdma: use sg_nents_for_dma() helper
 > 
-> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+>  drivers/dma/altera-msgdma.c                   |  5 ++--
+>  drivers/dma/bcm2835-dma.c                     | 19 +-------------
+>  drivers/dma/dma-axi-dmac.c                    |  5 +---
+>  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    |  6 ++---
+>  drivers/dma/k3dma.c                           |  9 ++-----
+>  drivers/dma/lgm/lgm-dma.c                     |  9 ++-----
+>  drivers/dma/pxa_dma.c                         |  5 ++--
+>  drivers/dma/qcom/bam_dma.c                    |  9 ++-----
+>  drivers/dma/qcom/qcom_adm.c                   |  9 +++----
+>  drivers/dma/sa11x0-dma.c                      |  6 ++---
+>  drivers/dma/sh/shdma-base.c                   |  5 ++--
+>  drivers/dma/xilinx/xdma.c                     |  6 ++---
+>  include/linux/scatterlist.h                   |  2 ++
+>  lib/scatterlist.c                             | 25 +++++++++++++++++++
+>  14 files changed, 51 insertions(+), 69 deletions(-)
 > 
-> Regards,
-> Bjorn
+> -- 
+> 2.50.1
 > 
-> > +
-> >  /**
-> >   * sg_last - return the last scatterlist entry in a list
-> >   * @sgl:	First entry in the scatterlist
-> > -- 
-> > 2.50.1
-> > 
-> > 
 > 
 
