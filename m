@@ -4,155 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCDACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87DECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hdAqq6gqBND8Fs3HbuhQPOwr0iZNfL+XllM8w7ygkFY=; b=EEWjA7BoJX291jVjYmj+C6HKOC
-	fQLnb/UzIPoncQQID3Uc7RGHKXzI5kFO7sUeaF0CBdKdCX2Xoc/ARtsZDl5/2iUvEfpNsQi7yJjoN
-	Rm/7fT9iYqFHjmahcqp3vPhL7gdwGiYC6ZPLGCfpUhyOZi8AXkqNOLxdqV9RYRPhIE/Tq9fcJGg9O
-	h5yiru7VHWOuRoj+5mPsO+vPYlsl3Y/oeoI8VKCfCPGwvJXzSVzqitw0mEgqALX7ADUGj/FcSQ2ib
-	rBvU53JR8HBSJzqcjfDstcJN19QAdJcAKXTk40imt6f97UJbQZeqYZWztW1ih2KxKH+8hTzxPveCh
-	Eg3y0/qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFcBbXPwvkiMGC/UX+vL3kGptND9Aa39FQ9X5eJiJ0I=; b=eeI8AnyMnfwnqer8xLIOFK49xH
+	Z1UUD5sQgE+viR1d+VWPDeKLbqR1rgAlkhqm/eatUTMmQXsV40n+IEyis1O77LL2Ges3kyD6MAEU0
+	TIx+c4R/De6hyTJQuwAJUeWSxVks+USx70FS33oVc+HMhj/6Il8lUoRlKg5L8H5jpqqhMdVOfEDZb
+	8UEDYpAyzS77edjFzEPkxBQn9IIAJ4Wm/laDk6je2Cwe5KzLCWZIo/zE/j22J3apyANZ0nJ/Z0Ce6
+	GyqHHUL32uSNFiZpfoliT/GybWLh3EBOKd0kFJA5eOMsEuVEGkXjEybdYi2mUpnp5Rvem0TlzkFeZ
+	+fLaK1Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRXN-00000005SCW-3R4L;
-	Mon, 10 Nov 2025 13:02:25 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vIRb3-00000005SRz-3qMH;
+	Mon, 10 Nov 2025 13:06:13 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRXL-00000005SBk-00KN
+	id 1vIRb1-00000005SR7-1xUH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 13:02:24 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AA8BFfp1144629
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:02:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=hdAqq6gqBND8Fs3HbuhQPOwr
-	0iZNfL+XllM8w7ygkFY=; b=d+q2Ky/tFSl9HXhSKh09BtEuMStPhV34WMVQm4Sl
-	FVNfpC5SRisHInQYah49vUOz+IFeW7d+oC4fzAlffHNosnx2fMYvjpTujpYa27qb
-	hs2SUdA0SEkpgyBi5pvwixA7Ko1lTkwPVS4ArnB5mZi6eVuESyKqCwfc/Ce5v6+Y
-	bxNQW/nKjvhMggEU6mYVWMNr5pBv0kjOs9vwtxQjKhg4j3a6eAFvG7BolKBSmIX7
-	fgIYAV8Hbno/6ibkj25R6YcSGWDcGrZr9qHhhXoz2YHcAC0PMpid/VbJFwFNhSa1
-	P1Wwj5ywSJAgQXH1VlSUS+Bl9Dwxhc8FnmwdHIX5/8oQDQ==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a9xvjcsm3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:02:21 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7aa9f595688so5912003b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:02:21 -0800 (PST)
+	Mon, 10 Nov 2025 13:06:13 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47755a7652eso19945105e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:06:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762779741; x=1763384541; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hdAqq6gqBND8Fs3HbuhQPOwr0iZNfL+XllM8w7ygkFY=;
-        b=Mx49pJtzt929Lztv5TtLgrN2fz5HKuuTXb6b7UePsyb8dIVgOnnQho4OEdiSdS7I5V
-         Hvt0HTsQj4A43ACp7I7cFVUvh3bmucRqII7eyH4Nh1IdMjkuXn4dgzZpuB0RvUhu8lTF
-         gg3UoZ9e1Z2lwEF3B2G4zKdxj1+ukx5avPKoaB6+DFWy7Bsv2X97rcfAsNnKlHznIs/4
-         NEONL3bFx9aJ5fsJ/EeDghO9A2kEB9NB7nvZ+y+sR91lcJyymVKg2dNDbgP7X8XrKww2
-         ejfa4rL7sYSsyk0oBqR2v712VSfZsVLAnd32+8qkOrsYAEJuIAjogv/pGUh312xpUWS2
-         fk4Q==
+        d=linaro.org; s=google; t=1762779969; x=1763384769; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IFcBbXPwvkiMGC/UX+vL3kGptND9Aa39FQ9X5eJiJ0I=;
+        b=YtGdcGNc+zK+LVeEimyfktnRP7zj/wZu5o2duz+9ykD7o9Kl3e27Ejsvhlsd6SO3QZ
+         Igv+mbohT22zNq3q02/3967qjT4egIzazKnqPJU5GBdLbQQGVMxIpQcrVumL/O7n49oK
+         MR0tVakIXr3rTGst7IYmH2LUh22kJSnlcqUY4QyN5ea2epvjk5LBDNzFEZHXDH6c0SbF
+         LbW6uf/EeS2cRlNUD+l6+MjHcFBhUVah+9VtL50u3DOtg5/15jvv3BcPSZXG13e8OHLi
+         Knfv46I37hylR0Y3MFIXd4OrDEk84HqH1ZH2xRcuhdpmJeBN365ky00VIVJ0SMb5kQ9w
+         BWFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762779741; x=1763384541;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hdAqq6gqBND8Fs3HbuhQPOwr0iZNfL+XllM8w7ygkFY=;
-        b=v4ZJkVmJ3/ulgN/TAH/5M/5jyriwIXJ2lFFeNrMYteI6aVWFQioWRyc9sedr9yFVcU
-         fiw51WeINE2QFvBQkWOYvgrULT6rZh6K5qdQQHUfoItuvXmeKiLw6GF/w2jAs2USVIOd
-         /3vuTrJmuav91Um6U9JbUNmC96/CiyqujrCpUg3nIzA4IsmDB7oRkmA4UEGch5//uIeV
-         cyIb+P6L8A3ojlPfkNa1HBQ2FOX+rgWRpbp5Mj3mnN9rHUcWlVbMBDvBaIuxuZTW+EQT
-         iYRzHB5IiB3E7dfQ18j0GQqMc9P5U8Z1hWlumwTC86e2O5TxZa95NwyyC58DPm084IKS
-         rmgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGsaMCrj0txRy2kpOx/0S0k8NUPIFYVcc+DmITMJ7migMuS3bm1+h4Y7MPYg5gJznaowpNGo92lBcy/CjkqgNb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2qv9RxEugh+EkD3vHJZODJYmDjewC81VWSXZX+YREtAiyZ4Kb
-	Pbg6NgP0bFzKBUokNpseiar8l3p18KUfxiU2PcpXzqj/cIXyF1ZW+eq8Ii63RnlvnNDTQ+RnVvW
-	B2J3+tJnK2vkvtXuhcCS9F/ellbYCRbhULGRgaO9fTjLAPrvNvzkhWxE5KqcFGULLSUQO4tjtjR
-	s2Pg==
-X-Gm-Gg: ASbGnctUP6lvkqxp+13R+B9jmLTx/mgE8GfDrQ6LyEkbzQsMarugVg7ekQ9moXgCYzl
-	3qmbZhdN9QJSljJUc49NOz9mLzujIVzOF70ffTrGP1QHqESwmH34+3nsiYD9/gfk//3UiCSL1GE
-	DW4iQjkkebiZF9AxtO93S4tliUo0nS0A1RKAZxNXuZijWxNEghMAxvbNjmxNynstTlhIOauA+uA
-	D74nYDa5PJHtzk6+wiqTOpYx7sXVE7sT+wrFNkmZ2qEwDKCCo5sYo9p7Ri+IrkV7i7B5Qk3vSbc
-	TcIO37hxdAv1jZA8cXrW1b1oqKkjfGIZ7nGegEKB0IvYH/NtXG59l3CXueixxY9OYLs9YgBlD5Q
-	se/e2NKxsPlcDmWnR6l2SNrKi0Q==
-X-Received: by 2002:a05:6a00:4b07:b0:771:fdd9:efa0 with SMTP id d2e1a72fcca58-7b22669dee0mr11189854b3a.15.1762779740430;
-        Mon, 10 Nov 2025 05:02:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEhpkm261mrE/5oxpuaFgBIprvalMVyj0gtY+UxkD+iayB45fXNN6yALoTWNcWUZ4aTaxY9NA==
-X-Received: by 2002:a05:6a00:4b07:b0:771:fdd9:efa0 with SMTP id d2e1a72fcca58-7b22669dee0mr11189754b3a.15.1762779739516;
-        Mon, 10 Nov 2025 05:02:19 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0c9ff8538sm11894371b3a.28.2025.11.10.05.02.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 05:02:11 -0800 (PST)
-Date: Mon, 10 Nov 2025 18:31:59 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Xin Liu <xin.liu@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v17 01/12] power: reset: reboot-mode: Remove devres based
- allocations
-Message-ID: <20251110130159.pzfmh7mr3p7xz5o7@hu-mojha-hyd.qualcomm.com>
-References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
- <20251109-arm-psci-system_reset2-vendor-reboots-v17-1-46e085bca4cc@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1762779969; x=1763384769;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IFcBbXPwvkiMGC/UX+vL3kGptND9Aa39FQ9X5eJiJ0I=;
+        b=VDbAkQa3q5TGtXwtuAgMNdLkI16ds9u/cfd7s0s8fFeBF7B5l6e3zSWBFy7MpqByih
+         N+ZZ0Gu/tBLuqrTIGEi5PWeGreIjyHJeyZAtLyvc+6V/02xhwRFlR8lLbeR/xh95htyv
+         h4j6wIKD6PAeGvRyXNfrUH+t0k5ZvVApt8pMhKKZHSWmZIeawdU26Rfhdn9LLgKTprtX
+         8te7cwSCBC1wrdDlQDr6BeKDzfIXjVwDcuyaF/Oj2nSYID14Ceauulu7aPM0uFjBQK8s
+         x4cD+PsiWBADyMAf+DyXQSJfFmEBImhypuRZeNo2EqBQSO05cGaJsL7jmpvUFQNMwUmI
+         lRRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUi9zbfXHLS0eH8QakADqS2XexQGCgLdwpWwB21RZ8uR0/Y/vBHenBovVlLFkjgAHtVMlKVVAssENWoV1ZCNLk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRCUI7VZGuqzq9r6YS3wdw22i6/mCCAQZhzRhV2+lo18oGgOg0
+	YDTly3DIZ2Es2sOZl/sNa/a4ulKCvnF5kbU+4cvZaz5KtSSwO6HkibJ6OjNBxAizMuM=
+X-Gm-Gg: ASbGncsZ46aNpUVa5qZMyIzdB6iQu/BnNK8ipP2cHTkqHilt9vmZl7UG+FQ00JCeK6v
+	aFeakzTACm6m1cdv6JMpaQsu6GTjksFPpDfgOrq0E6l+bTcaQhTWvnbvlX3gezb48Kmd2AJ/fur
+	lumSxyl6M/yhhz63XCcyoimx4ZQL5dGaT8AhkMrcsL+sVNTDgR0kLFp15hLIUit41aRbpWETPRh
+	F//Dz6N8V2pRouyq9ei+A3t/B5YZGIYFqINlY40Knad6oFjYyO3mtQtPel2JTVhTfD9T+iyZZ1V
+	52ef6qBhdkOY8Thf9Cs62WmRRap+4udx1rOi7HgL8gP8wN4FYZAGsQQ8kWydYLoVpuEDLxE+Vb7
+	2U/q2Hq42zUOgAmcJNo6RLoewfeRFbKG/ujPnvOdfPd1CyWAnQqjm7UDo4548/paVePDeEALV2w
+	z0AHIig5lZbeB2T1ijhjAWiPIXaGWy90iPwMq4fAGKHpktJXahuCiVrGc=
+X-Google-Smtp-Source: AGHT+IFtXNJpzD2gW9iSn0NztWrLxTZvcOLBaFBOCFqkmNRmqw71Iuc2gfKNjESDEOfAEahNU8T56w==
+X-Received: by 2002:a05:600c:4f8b:b0:477:569c:34e9 with SMTP id 5b1f17b1804b1-47773271a62mr83156425e9.23.1762779969396;
+        Mon, 10 Nov 2025 05:06:09 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:2b20:d700:6e9c:533c? ([2a05:6e02:1041:c10:2b20:d700:6e9c:533c])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4776bcfcfc7sm240169015e9.12.2025.11.10.05.06.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Nov 2025 05:06:08 -0800 (PST)
+Message-ID: <1e0545da-5d24-4ca4-863d-0d5671902d0b@linaro.org>
+Date: Mon, 10 Nov 2025 14:06:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-1-46e085bca4cc@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=QuxTHFyd c=1 sm=1 tr=0 ts=6911e25d cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=zIWh1NZzt5suZCnL7JMA:9
- a=CjuIK1q_8ugA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-ORIG-GUID: M9Cuq6upyQgBZk8y0CXtWEEINu3QOpzw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDExNCBTYWx0ZWRfX2ICs+z3yFZy9
- 1tvTHvewIDmhXxSL0Wv/E1FcPNwOp+IT/AKZm1r25lZz+BkR4clrmKkpJvIOHhdDpruTIjVnzv3
- 9qI8DSqKEfBJfMBjx7C3Cl5NTqYY0Q30XoU3p36vYtLF4qQ2reg70uzsPrYeEg3rweauGcGEScl
- QCUMOVcM/G3pp8XyXZTFC1OKPgNL6wEcehNDruCBJ0BoMzr20YMgXLE2mJYCBf0hNuC0+gNT7M8
- RLFABhGdeeAZQCTlEYlcdnkLRDaHyz5Q37G9XgSwMX+XHtGpnUbGUjydwY5Rd8NSBSA78sVB98h
- G+fIlJVSm5NRyyjLdDcdRb+Pujf5XaVnyAjLR/idotcNOp6h+SCoMd4uPX+IEjjcWObAWC+ZJXl
- Ynt8TNtT9dp0Gee5cOlKjKMF0wcMEg==
-X-Proofpoint-GUID: M9Cuq6upyQgBZk8y0CXtWEEINu3QOpzw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-10_05,2025-11-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 priorityscore=1501 adultscore=0 phishscore=0
- spamscore=0 impostorscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511100114
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v3 4/9] thermal: mediatek: lvts: Add platform ops
+ to support alternative conversion logic
+To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
+ rui.zhang@intel.com, lukasz.luba@arm.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com
+Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
+ u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
+ lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com,
+ Fei Shao <fshao@chromium.org>
+References: <20251016142158.740242-1-laura.nao@collabora.com>
+ <20251016142158.740242-5-laura.nao@collabora.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20251016142158.740242-5-laura.nao@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_050223_164703_B6678889 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20251110_050611_578242_CF516CF2 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,123 +112,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 09, 2025 at 08:07:14PM +0530, Shivendra Pratap wrote:
-> Devres APIs are intended for use in drivers, and they should be
-> avoided in shared subsystem code which is being used by multiple
-> drivers. Avoid using devres based allocations in the reboot-mode
-> subsystem and manually free the resources.
+On 10/16/25 16:21, Laura Nao wrote:
+> Introduce lvts_platform_ops struct to support SoC-specific versions of
+> lvts_raw_to_temp() and lvts_temp_to_raw() conversion functions.
 > 
-> Replace devm_kzalloc with kzalloc and handle memory cleanup
-> explicitly.
+> This is in preparation for supporting SoCs like MT8196/MT6991, which
+> require a different lvts_temp_to_raw() implementation.
 > 
-> Fixes: 4fcd504edbf7 ("power: reset: add reboot mode driver")
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> Reviewed-by: Fei Shao <fshao@chromium.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 > ---
->  drivers/power/reset/reboot-mode.c | 30 ++++++++++++++++++++----------
->  1 file changed, 20 insertions(+), 10 deletions(-)
+>   drivers/thermal/mediatek/lvts_thermal.c | 27 ++++++++++++++++++++++---
+>   1 file changed, 24 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-> index fba53f638da04655e756b5f8b7d2d666d1379535..ac4223794083f36960b2bd37a601b7e1f1872de5 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -3,6 +3,8 @@
->   * Copyright (c) 2016, Fuzhou Rockchip Electronics Co., Ltd
->   */
->  
-> +#define pr_fmt(fmt)	"reboot-mode: " fmt
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+> index 4ef549386add..df1c0f059ad0 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -125,8 +125,14 @@ struct lvts_ctrl_data {
+>   			continue; \
+>   		else
+>   
+> +struct lvts_platform_ops {
+> +	int (*lvts_raw_to_temp)(u32 raw_temp, int temp_factor);
+> +	u32 (*lvts_temp_to_raw)(int temperature, int temp_factor);
+> +};
 > +
->  #include <linux/device.h>
->  #include <linux/init.h>
->  #include <linux/kernel.h>
-> @@ -71,6 +73,7 @@ static int reboot_mode_notify(struct notifier_block *this,
->  int reboot_mode_register(struct reboot_mode_driver *reboot)
->  {
->  	struct mode_info *info;
-> +	struct mode_info *next;
->  	struct property *prop;
->  	struct device_node *np = reboot->dev->of_node;
->  	size_t len = strlen(PREFIX);
-> @@ -82,29 +85,27 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
->  		if (strncmp(prop->name, PREFIX, len))
->  			continue;
->  
-> -		info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
-> +		info = kzalloc(sizeof(*info), GFP_KERNEL);
->  		if (!info) {
->  			ret = -ENOMEM;
->  			goto error;
->  		}
->  
->  		if (of_property_read_u32(np, prop->name, &info->magic)) {
-> -			dev_err(reboot->dev, "reboot mode %s without magic number\n",
-> -				info->mode);
-> -			devm_kfree(reboot->dev, info);
-> +			pr_err("reboot mode %s without magic number\n", info->mode);
-> +			kfree(info);
+>   struct lvts_data {
+>   	const struct lvts_ctrl_data *lvts_ctrl;
+> +	const struct lvts_platform_ops *ops;
+>   	const u32 *conn_cmd;
+>   	const u32 *init_cmd;
+>   	int num_cal_offsets;
+> @@ -300,6 +306,7 @@ static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
+>   	struct lvts_ctrl *lvts_ctrl = container_of(lvts_sensor, struct lvts_ctrl,
+>   						   sensors[lvts_sensor->id]);
+>   	const struct lvts_data *lvts_data = lvts_ctrl->lvts_data;
+> +	const struct lvts_platform_ops *ops = lvts_data->ops;
+>   	void __iomem *msr = lvts_sensor->msr;
+>   	u32 value;
+>   	int rc;
+> @@ -332,7 +339,7 @@ static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
+>   	if (rc)
+>   		return -EAGAIN;
+>   
+> -	*temp = lvts_raw_to_temp(value & 0xFFFF, lvts_data->temp_factor);
+> +	*temp = ops->lvts_raw_to_temp(value & 0xFFFF, lvts_data->temp_factor);
 
-This as well could be avoided if we move the above memory allocation
-after of_property_read_u32()
+Don't do this in each functions. It does not help for the readability.
 
->  			continue;
->  		}
->  
->  		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
->  		if (!info->mode) {
->  			ret =  -ENOMEM;
-> -			goto error;
-> +			goto err_info;
->  		} else if (info->mode[0] == '\0') {
->  			kfree_const(info->mode);
->  			ret = -EINVAL;
-> -			dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
-> -				prop->name);
-> -			goto error;
-> +			pr_err("invalid mode name(%s): too short!\n", prop->name);
-> +			goto err_info;
->  		}
->  
->  		list_add_tail(&info->list, &reboot->head);
-> @@ -115,9 +116,14 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
->  
->  	return 0;
->  
-> +err_info:
+May be something like:
 
-free_info ?
+int lvts_raw_to_temp(u32 raw_temp, const struct lvts_ctrl_data)
+{
+	return data->ops->lvts_temp_to_raw(raw_temp, data->temp_factor);
+}
 
-> +	kfree(info);
->  error:
-> -	list_for_each_entry(info, &reboot->head, list)
-> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
-> +		list_del(&info->list);
->  		kfree_const(info->mode);
-> +		kfree(info);
-> +	}
->  
->  	return ret;
->  }
-> @@ -130,11 +136,15 @@ EXPORT_SYMBOL_GPL(reboot_mode_register);
->  int reboot_mode_unregister(struct reboot_mode_driver *reboot)
->  {
->  	struct mode_info *info;
-> +	struct mode_info *next;
->  
->  	unregister_reboot_notifier(&reboot->reboot_notifier);
->  
-> -	list_for_each_entry(info, &reboot->head, list)
-> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
-> +		list_del(&info->list);
->  		kfree_const(info->mode);
-> +		kfree(info);
-> +	}
->  
->  	return 0;
->  }
-> 
-> -- 
-> 2.34.1
-> 
+or
+
+int lvts_raw_to_temp(u32 raw_temp, const struct lvts_ctrl_data)
+{
+	int temperature;
+
+	if (data->ops->lvts_temp_to_raw)
+		return data->ops->lvts_temp_to_raw(raw_temp, data->temp_factor);
+
+	temperature = ((s64)(raw_temp & 0xFFFF) * temp_factor) >> 14;
+         temperature += golden_temp_offset;
+
+         return temperature;
+}
+
+... and get rid of all the lvts_platform_ops_v1
+
+(btw _v1 is confusing, it suggests there multiple versions of the same SoC)
+
+[ ... ]
 
 -- 
--Mukesh Ojha
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
