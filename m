@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C81CD13D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECF0CD13D2
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AGEd2ctvwFIV9lZCkqIgoelHcMqfqI31DvTGYMHpmGU=; b=Jd4pf2l6PG/SY+OiwjHNEcsyvY
-	PkGt4+qnWO66E0cbuny7Wx4NFFffWv7rxs+Ci6ZuawjO10USefvZgsDTVP5IH83aS3yHZ7bdqdi/s
-	QmCI52a0RAfvj2i+gezvg+q4E7HeJhKItBOJ3jLj+h9n9Eh+4LO4qdcjKUHHbBkmGVe4e8tTL2Y+N
-	D0YCbTAc++Aov8iA7Tzk/PnrxaR7VOjTX88FiQMFTaYY1Z8n8Jbl7YYO2S5wrXLm6qhWmls0/HIfU
-	EQ1W3AbVpHF9W4VOdx0zrD0mF+Rjul6LYKs8o7q+bcV1v6x/ShzmrDfTXJ9dOVjFbIoKNT+83ZE1b
-	Lb3WuT3g==;
+	bh=5PJymOvZBuj9Xya76U38SF3/ORWqJCuOIk9n/b6JWvU=; b=rgOv7Fj+y189W2OphwNvFzNkV8
+	rgNZyqUwjupuwls3YKWDzLYQDwAjTyNM3qdwhPiZbijnwS2NvRjZaT7btThgOnoA2IJoLB+xmebqg
+	iO3Jfr2z2PliJO8+LLKbvl2AxIhaWEqE6BLxX5nwCwyf4STA2+fUam/PWCUvTduMtceaIf/JJYF2h
+	evq1rn0TJLBQICN/1RXZERFGpsn7YUKFvjkRpcVKD5YKR6sJJCPuLPsk0Bz6gMlqXPRz+rsC32yqH
+	vQJqqgMvLh+6MaeGLkbASI45qr6c3OqrYwRviqIxRAdXvYQxboAsw5+n/+jCTc84xBhEtKUc05rNx
+	dPfU9Qcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITJo-00000005dN2-2JZ8;
-	Mon, 10 Nov 2025 14:56:32 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vITJp-00000005dNu-1haL;
+	Mon, 10 Nov 2025 14:56:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITJh-00000005dK1-0CkU
+	id 1vITJj-00000005dLS-31eI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:56:27 +0000
+	Mon, 10 Nov 2025 14:56:28 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1762786581;
@@ -34,21 +34,21 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=AGEd2ctvwFIV9lZCkqIgoelHcMqfqI31DvTGYMHpmGU=;
-	b=Z6RXScNgKW7qDh/q7fA53B9NytUe3pY3M7uWoTHpC/cl9yMpyTBr0x8SRnNwRoEvcXtr1X
-	RS1wLsk9JtQjXDwdK2O3TfyPXFv8jUUuTmvyML17O8GAe3SvKInkCoDxcjCq/HSYvVGXOh
-	hm8OOkaY7zTn1Z57zJv/sL/Q2ftDPFbxCXqzamXRNDhXgARh77sqE3dWYwbeMBPkuJYN6d
-	G8sBTxmtYD5nvrUSbaInmwrYls8qM37aLd0mvf1jzjjO/rwdoRB7VRhd1Oqwp8m8PSle6x
-	dqkjrSXCSMIdKB69+fE381QlCD+55FjmiVkyamYvUvHfTSrbAOAXyKWrhLnqpg==
+	bh=5PJymOvZBuj9Xya76U38SF3/ORWqJCuOIk9n/b6JWvU=;
+	b=1tVwv80QQi6EuIjS6GrOFcp0ICq5yEvoHW5iS/HGmdgHUIBBXTKyw+k71dxHbyFpvjBsnQ
+	j6iMNgmS5vaVgLO5CScppZMNU3Wm9sOO6BJriOZAowGOS3niPHfwoEC+SrOEUo1RY8R+Wj
+	aaX33Bn/vobuXq9PVIctKKUwyUuYQ9MAhqSY5MD/jAON8ZZPIK+cjaDeSBBzik3DOj4zk+
+	Z2dcwWhoFBoFKnww8U5gVqtzFshuwlr0/iUJ7+VsVud+/heAGP11VlUvfRORa+yHaNbLMB
+	iIOJncgs/Ru+RtNzIS26PwAyMwGzmJpipiTHJjkdM9dWrTMPAVz/bPH1tJr3hg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1762786581;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=AGEd2ctvwFIV9lZCkqIgoelHcMqfqI31DvTGYMHpmGU=;
-	b=lmKEleJ94p+r6QN17FFVuwB7rcYnd8vM2XNPvFelfsuBp2BvoOx2z86kvGOZWoRMj1ShhE
-	fcXMd6jXYS3HIPCQ==
+	bh=5PJymOvZBuj9Xya76U38SF3/ORWqJCuOIk9n/b6JWvU=;
+	b=5WVnCrtprX20wbzTV+Dl6NI9gtHrTqP3EKMfMjLVOt9e6OMuVQha0kHlVY2b4Xh4mpryQ+
+	T/Q/KpTPn1nV1fBA==
 To: linux-arm-kernel@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
 Cc: Russell King <linux@armlinux.org.uk>,
@@ -56,16 +56,17 @@ Cc: Russell King <linux@armlinux.org.uk>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v3 4/5] ARM: Disable HIGHPTE on PREEMPT_RT kernels
-Date: Mon, 10 Nov 2025 15:55:54 +0100
-Message-ID: <20251110145555.2555055-5-bigeasy@linutronix.de>
+Subject: [PATCH v3 5/5] ARM: Allow to enable RT
+Date: Mon, 10 Nov 2025 15:55:55 +0100
+Message-ID: <20251110145555.2555055-6-bigeasy@linutronix.de>
 In-Reply-To: <20251110145555.2555055-1-bigeasy@linutronix.de>
 References: <20251110145555.2555055-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_065626_254091_17667505 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20251110_065627_909188_6B6D5653 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gup_pgd_range() is invoked with disabled interrupts and invokes
-__kmap_local_page_prot() via pte_offset_map(), gup_p4d_range().
-With HIGHPTE enabled, __kmap_local_page_prot() invokes kmap_high_get()
-which uses a spinlock_t via lock_kmap_any(). This leads to an
-sleeping-while-atomic error on PREEMPT_RT because spinlock_t becomes a
-sleeping lock and must not be acquired in atomic context.
+All known issues have been adressed.
+Allow to select RT.
 
-The loop in map_new_virtual() uses wait_queue_head_t for wake up which
-also is using a spinlock_t.
-
-Since HIGHPTE is rarely needed at all, turn it off for PREEMPT_RT
-to allow the use of get_user_pages_fast().
-
-[arnd: rework patch to turn off HIGHPTE instead of HAVE_PAST_GUP]
-
-Co-developed-by: Arnd Bergmann <arnd@arndb.de>
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- arch/arm/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 5941566df3ed0..822d378f81ec8 100644
+index 822d378f81ec8..b32f85f14c28a 100644
 --- a/arch/arm/Kconfig
 +++ b/arch/arm/Kconfig
-@@ -1215,7 +1215,7 @@ config HIGHMEM
-=20
- config HIGHPTE
- 	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
--	depends on HIGHMEM
-+	depends on HIGHMEM && !PREEMPT_RT
- 	default y
- 	help
- 	  The VM uses one page of physical memory for each page table.
+@@ -41,6 +41,7 @@ config ARM
+ 	select ARCH_SUPPORTS_CFI
+ 	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK
++	select ARCH_SUPPORTS_RT
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF
+ 	select ARCH_USE_MEMTEST
 --=20
 2.51.0
 
