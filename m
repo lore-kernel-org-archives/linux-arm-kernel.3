@@ -4,161 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DF8CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62CDCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=; b=KwM9DRY7gH8iHL7JPvxir161c2
-	C/Msp7+VZEPcCRoCbovAbOC4hgyf2k8AxCYx0PHgPiikTrc1cH1In3StR9XuGDHRhBmvsAnLXFpY2
-	N6SQeBQWYf/q8HpOmE8VFmteeSysE4K9J7gtypnu0gCF+jhosk30AWadkaYcg1YwJPLIpYt4GYD2b
-	Q+KQyAEWKug+bHlIX0RCkFRsDpR5nkzb+xQj/DYb3RlhOSMwwGniI7KkHFeUPQtAoQ9NsZEFIXp8n
-	Qy5A4kLcTQSUBeIWaKi1tGY1DTeViHbr1vWFpU80aaLB93+2i8l+RB9VPDqUQ5t5ZC5GflbchmRL9
-	Z9pBBGbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JTcllefIDFbLHCSJNKSkBkO445PdDjgPicwZz27z1iQ=; b=0e3J5sVVexxwmqHg0fh6B0bkD0
+	GrAF9vwg0Mq1DVUPwEr812JSEn7NNXULOPsGMPTv2ubtj7h1OSrlbT3Kwpyit3OmU01ZTx/3ia4Uc
+	DM04PFzEkwi08dlespYXDLuj5z+TbqhhvA7Wlsp/ow4TVuyfuHYFWR8Manx09E9PGPEwE9ORJa4AB
+	6pcOiHJwvdvYlhzuzwhWYVMaYYbSnGb0zBzJjBheU1IT0zS/OJdioovDmNya87Zd78AenCwyvhcFG
+	/MFBcYy6/rcpZE+cL08w85AkQb9+dbbEQrL5HbTUoPm2i1PvqE+8BXxiFD3VAPVh8E/s4qMrFnMtl
+	ZapQYpfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISDN-00000005W61-3KHx;
-	Mon, 10 Nov 2025 13:45:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vISHr-00000005X9k-0IJ4;
+	Mon, 10 Nov 2025 13:50:27 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISDJ-00000005W12-1GuU
+	id 1vISHm-00000005X8V-2ws5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 13:45:46 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AA9CgaR3146225
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:45:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=; b=buUwUdVbzeXlAURk
-	SuCksaVMl2U9A06IGjD1MZyq7quSX0tdtw0yK59FVwlgzihRMeQkLPt5dMCv44Fy
-	rNW0FMTerkbARkiqPei3t+v0lOV7UavpmtwoGH5inJqA5mw6Vt7VbZpLeh9dxWJX
-	Da5KOBgcZTqcxoeK9lVd/iyrjqXVfVpTXx465aOD/JZLR0jAUf+iGLYrtIlJxjb1
-	TrKZfsH1SlZ2PVsL+tUKcfb9vzlei81Mta6YX/bbPPNNCebCp/TkGxfS0uAEx7wJ
-	5F3Yn9M7C+FzGfZgkX6YzfVLEMEfq5yu9EDiomZkXIkAvAu94teyTEsnjVlnvz8u
-	F/efUQ==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4abd7hrsfu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:45:44 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7aee84f1defso5587409b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:45:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762782343; x=1763387143; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=;
-        b=Nq+AvOU7Mtq6wlJYHyr5qZnb4Z/DcYHi3nd/fq6+s6eOuytAbyKMxkzhx6Nww143vR
-         GABTKnPcW3Qok5JLEdv6Sw8haFrgIefSUzkF1a5YZrOwY3yrZse+LtcNUDRvWke0jzsx
-         JZwR70zlgR76hEEKMeeHL2xXJ62E84p+HZXxMPMyM8l412NsHjKDeIwomlgZ4wo2P0ec
-         J11hnKopOw+zCs/yUivVMFn6PRmnLO+0RThMawaKNA/wd9t+ayAPtVSn+VEIUPLW/e7p
-         QvNzmsg61ikUU0Zal5jVX/dfiCFUzO00fHSL7anzw2B91u8WcVfduAJdLnZsPo1L2cK9
-         pqMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762782343; x=1763387143;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=;
-        b=EDaxE7ejoFzD/MfvkE0AmdDsgbiossjdyvH5bVN1tmIq/+7On2doyIABfYpWGl2enT
-         hIqGvMCk5202G0VxOrNbS7cgH3Sf37LafXESSVQbpphzjfPwmNSUDIznUqhmkrBjG2si
-         izXMza8qmxdQKcF1+Plz6kDy19wxaFCxRmKMu2PzGyLlyb1S+DN64ueSbZWE3SKwZ/yS
-         L/SMCS9vorDh5D+cWzBTKPOiSrno4KqvdbBWTOxtq6Q4a4BFsQ+01bDRLd0Gew3tKcsk
-         Csw82+skoqeyp7uGeWhWRAZRHD5Ib+QPlXIV8Y9j/UUkdxek4ndZLZSe+f8we3CCl4xS
-         ctqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPNkrWh9hXoFUsQ7IPh80t0PBrH/sTFkLCTwPBStXgd6nJI4ttLRdgSFxmHCzBYkcwIY7hrgcumkH94qznNB7z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6Ii4iD/NL0tW1EuOVRvjHUslrZ+xoAC6rpDl6jVBxZ0R79ynv
-	+JEBosurOOVy/JFiFk21DjnMT5Uw/VVRiTr2Z+tJfzdX0NM7hKUY8x91CO3S675g10TanSFaS9o
-	oG1er8anp3KLYR6sXNZe5/eWvUmJQ7KRV0qvlZylIDKeSgjzQZMTldr2hWnAlGOxmW+1SNHEwS+
-	AcsA==
-X-Gm-Gg: ASbGncuraTGA/c1FTAtSe3XTEwBCjLzbz1IW3NSPkmt1Hvq3fS5IHtt7ztCDgCATMby
-	4jYbFQN8RKiS9VFhPHYELrtG3nJr5uAfEfm/GJpCpNOEIw+Um7cEnr7FHN7S1TpPq+bEYlOPGUG
-	TgR1UyAKkNjsyMyh35tUgH62PXMuR2OMFJWGuqCijKiH5a/zhOQrGRSb01A5nzjw8TWQHTWCBJq
-	VoerHEafL9zxO38oSQWFiETm/HuOihKro+X4ZdpYTLHRQePBBofSNXp/BTeMbzz8JY84e2lqr85
-	md9Hyt6QuObZtd0bPXgrgi3JWX7+Q1Q4fVgfPKhI2Eu0DU8hK61xQtNeT1haLJ5JL5fAQ06cnZg
-	1aGzrxA+G5oOI/HKnAAyRX9pkwg==
-X-Received: by 2002:a05:6a00:23c1:b0:781:1b5a:95b2 with SMTP id d2e1a72fcca58-7b22717bb94mr12240171b3a.28.1762782342791;
-        Mon, 10 Nov 2025 05:45:42 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGwTkVKCC8Im0eYgJqpdGEW0O85HjOMi5fKaAZ3Jnn0Gmv9OubICv0N6ZVNCMiI6Qbx9GYJBw==
-X-Received: by 2002:a05:6a00:23c1:b0:781:1b5a:95b2 with SMTP id d2e1a72fcca58-7b22717bb94mr12240084b3a.28.1762782341965;
-        Mon, 10 Nov 2025 05:45:41 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0ca1e7595sm11836585b3a.33.2025.11.10.05.45.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 05:45:41 -0800 (PST)
-Date: Mon, 10 Nov 2025 19:15:29 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Xin Liu <xin.liu@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Umang Chheda <umang.chheda@oss.qualcomm.com>,
-        Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-Subject: Re: [PATCH v17 03/12] power: reset: reboot-mode: Add support for 64
- bit magic
-Message-ID: <20251110134529.uljjqzb3vhda3vya@hu-mojha-hyd.qualcomm.com>
-References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
- <20251109-arm-psci-system_reset2-vendor-reboots-v17-3-46e085bca4cc@oss.qualcomm.com>
+	Mon, 10 Nov 2025 13:50:25 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=JTcllefIDFbLHCSJNKSkBkO445PdDjgPicwZz27z1iQ=;
+	b=Vt7rxr9yOpYt9SpAUvhOrcwZ75y5/B3/F1X/ujAadSjXaVvVUNJ1SXo5FpEnYDnrVLFcDAtJR
+	NvohO846M89UdKiu9boC0JYpEARv2130NHTnXlkec9FNQR0iGIi0gAD0MKXCal26wWkbksRKYd8
+	pgM4yoPzBGrWdARMN8VK+KU=
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4d4rbS59HFzRhRK;
+	Mon, 10 Nov 2025 21:48:20 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 96DBE140146;
+	Mon, 10 Nov 2025 21:49:58 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 10 Nov 2025 21:49:56 +0800
+Message-ID: <b6046b29-580e-a75b-1fe7-4d76127d7829@huawei.com>
+Date: Mon, 10 Nov 2025 21:49:56 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-3-46e085bca4cc@oss.qualcomm.com>
-X-Proofpoint-GUID: PyQQwkAC1QaWlZyKsLr5ZcWZIXb6Bvca
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDEyMCBTYWx0ZWRfX//c8R2JNgMZe
- y6M7mG+iRLcaeVEumSXrFfLJkLVMxTSCHREEjjCD8yzORE8hxx7R9mOLQg70rz2yBALtS3BCfX0
- a2yBUP99bk268v96Kr2COSQF8tFAy1PXA+7ZsXOG+Gn84Gd/pvUb8Musweng3lejejXnu+gWiqN
- HWBw5NQixZji2ZOtU/SV94Ob8mGf0hXAzJplh7T4jp/gjIupLG7iNsZRFBp4Dyz9PXRhVOKvfj9
- eILAAzDeax8/kFBUtfINonsUXvHzsCDGqE9CRyPIdllCFf+HNGkIZy8zreGvj4eBnfxL/ZETG5r
- +s4Nl2OmrsKkfwh4O3mK10hCz8Y7MzISbH+460zsMxI+o1z4CfxeLcfC9R4BwaWEe9LJe+oYcEK
- HVqaCUf9ZVfGA5T31C2kOGEKqlhTjw==
-X-Proofpoint-ORIG-GUID: PyQQwkAC1QaWlZyKsLr5ZcWZIXb6Bvca
-X-Authority-Analysis: v=2.4 cv=Yt4ChoYX c=1 sm=1 tr=0 ts=6911ec88 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=fKl0S-9-5daLM7QqcyEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-10_05,2025-11-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 spamscore=0 phishscore=0 malwarescore=0
- impostorscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511100120
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 27/33] arm_mpam: Track bandwidth counter state for power
+ management
+Content-Language: en-US
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<guohanjun@huawei.com>, <jeremy.linton@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-28-ben.horgan@arm.com>
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <20251107123450.664001-28-ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_054545_502406_11E819F4 
-X-CRM114-Status: GOOD (  34.81  )
+X-CRM114-CacheID: sfid-20251110_055023_542030_E37FD9DE 
+X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,221 +93,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 09, 2025 at 08:07:16PM +0530, Shivendra Pratap wrote:
-> Current reboot-mode supports a single 32-bit argument for any
-> supported mode. Some reboot-mode based drivers may require
-> passing two independent 32-bit arguments during a reboot
-> sequence, for uses-cases, where a mode requires an additional
-> argument. Such drivers may not be able to use the reboot-mode
-> driver. For example, ARM PSCI vendor-specific resets, need two
-> arguments for its operation – reset_type and cookie, to complete
-> the reset operation. If a driver wants to implement this
-> firmware-based reset, it cannot use reboot-mode framework.
+
+
+On 2025/11/7 20:34, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> Introduce 64-bit magic values in reboot-mode driver to
-> accommodate dual 32-bit arguments when specified via device tree.
-> In cases, where no second argument is passed from device tree,
-> keep the upper 32-bit of magic un-changed(0) to maintain backward
-> compatibility.
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
 > 
-> Update the current drivers using reboot-mode for a 64-bit magic
-> value.
+> Save the counter state when the hardware is reset due to CPU hotplug.
+> Add struct mbwu_state to track the bandwidth counter. Support for
+> tracking overflow with the same structure will be added in a
+> subsequent commit.
 > 
-> Reviewed-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
-> Reviewed-by: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> Cc: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  drivers/power/reset/nvmem-reboot-mode.c  | 13 +++++++++----
->  drivers/power/reset/qcom-pon.c           | 11 ++++++++---
->  drivers/power/reset/reboot-mode.c        | 19 +++++++++++++------
->  drivers/power/reset/syscon-reboot-mode.c | 11 ++++++++---
->  include/linux/reboot-mode.h              |  3 ++-
->  5 files changed, 40 insertions(+), 17 deletions(-)
+> Changes since v3:
+> Drop tags
+> Fix correction accounting
+> Split out overflow checking
+> ---
+>   drivers/resctrl/mpam_devices.c  | 126 +++++++++++++++++++++++++++++++-
+>   drivers/resctrl/mpam_internal.h |  21 +++++-
+>   2 files changed, 145 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/reset/nvmem-reboot-mode.c
-> index 41530b70cfc48c2a83fbbd96f523d5816960a0d1..5d73dde585b1fd438b1847f884feb37cd9e4dd5c 100644
-> --- a/drivers/power/reset/nvmem-reboot-mode.c
-> +++ b/drivers/power/reset/nvmem-reboot-mode.c
-> @@ -16,15 +16,20 @@ struct nvmem_reboot_mode {
->  	struct nvmem_cell *cell;
->  };
->  
-> -static int nvmem_reboot_mode_write(struct reboot_mode_driver *reboot,
-> -				    unsigned int magic)
-> +static int nvmem_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
->  {
-> -	int ret;
->  	struct nvmem_reboot_mode *nvmem_rbm;
-> +	u32 magic_32;
-> +	int ret;
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 86abbac5e1ad..2d1cef824b8e 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -994,6 +994,7 @@ static void __ris_msmon_read(void *arg)
+>   	struct mon_read *m = arg;
+>   	struct mon_cfg *ctx = m->ctx;
+>   	struct mpam_msc_ris *ris = m->ris;
+> +	struct msmon_mbwu_state *mbwu_state;
+>   	struct mpam_props *rprops = &ris->props;
+>   	struct mpam_msc *msc = m->ris->vmsc->msc;
+>   	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
+> @@ -1024,11 +1025,21 @@ static void __ris_msmon_read(void *arg)
+>   		now = mpam_read_monsel_reg(msc, CSU);
+>   		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+>   			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
+>   		break;
+>   	case mpam_feat_msmon_mbwu:
+>   		now = mpam_read_monsel_reg(msc, MBWU);
+>   		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+>   			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
 > +
-> +	if (magic > U32_MAX)
-> +		return -EINVAL;
-
-
-I believe, we need a comment in all the client driver.. 
-
+> +		if (nrdy)
+> +			break;
 > +
-> +	magic_32 = magic;
->  
->  	nvmem_rbm = container_of(reboot, struct nvmem_reboot_mode, reboot);
->  
-> -	ret = nvmem_cell_write(nvmem_rbm->cell, &magic, sizeof(magic));
-> +	ret = nvmem_cell_write(nvmem_rbm->cell, &magic_32, sizeof(magic_32));
->  	if (ret < 0)
->  		dev_err(reboot->dev, "update reboot mode bits failed\n");
->  
-> diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-pon.c
-> index 7e108982a582e8243c5c806bd4a793646b87189f..d0ed9431a02313a7bbaa93743c16fa1ae713ddfe 100644
-> --- a/drivers/power/reset/qcom-pon.c
-> +++ b/drivers/power/reset/qcom-pon.c
-> @@ -27,17 +27,22 @@ struct qcom_pon {
->  	long reason_shift;
->  };
->  
-> -static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot,
-> -				    unsigned int magic)
-> +static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
->  {
->  	struct qcom_pon *pon = container_of
->  			(reboot, struct qcom_pon, reboot_mode);
-> +	u32 magic_32;
->  	int ret;
-> 
-
-Since we are doing this change in reboot framework, client driver should know about
-it too about this new check because of framework.
-
-> +	if (magic > U32_MAX || (magic << pon->reason_shift) > U32_MAX)
-
-
-is this (magic << pon->reason_shift) > U32_MAX really needed ..?
-
-> +		return -EINVAL;
+> +		mbwu_state = &ris->mbwu_state[ctx->mon];
 > +
-> +	magic_32 = magic << pon->reason_shift;
+> +		/* Include bandwidth consumed before the last hardware reset */
+> +		now += mbwu_state->correction;
+>   		break;
+>   	default:
+>   		m->err = -EINVAL;
+> @@ -1041,7 +1052,6 @@ static void __ris_msmon_read(void *arg)
+>   		return;
+>   	}
+>   
+> -	now = FIELD_GET(MSMON___VALUE, now);
+>   	*m->val += now;
+>   }
+>   
+> @@ -1239,6 +1249,67 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+>   	mutex_unlock(&msc->part_sel_lock);
+>   }
+>   
+> +/* Call with msc cfg_lock held */
+> +static int mpam_restore_mbwu_state(void *_ris)
+> +{
+> +	int i;
+> +	struct mon_read mwbu_arg;
+> +	struct mpam_msc_ris *ris = _ris;
 > +
->  	ret = regmap_update_bits(pon->regmap,
->  				 pon->baseaddr + PON_SOFT_RB_SPARE,
->  				 GENMASK(7, pon->reason_shift),
-> -				 magic << pon->reason_shift);
-> +				 magic_32);
->  	if (ret < 0)
->  		dev_err(pon->dev, "update reboot mode bits failed\n");
->  
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-> index eff60d6e04df2cb84ba59d38512654336f272f8a..873ac45cd7659b214b7c21958f580ca381e0a63d 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -19,12 +19,11 @@
->  
->  struct mode_info {
->  	const char *mode;
-> -	u32 magic;
-> +	u64 magic;
->  	struct list_head list;
->  };
->  
-> -static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
-> -					  const char *cmd)
-> +static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, const char *cmd)
->  {
->  	const char *normal = "normal";
->  	struct mode_info *info;
-> @@ -56,7 +55,7 @@ static int reboot_mode_notify(struct notifier_block *this,
->  			      unsigned long mode, void *cmd)
->  {
->  	struct reboot_mode_driver *reboot;
-> -	unsigned int magic;
-> +	u64 magic;
->  
->  	reboot = container_of(this, struct reboot_mode_driver, reboot_notifier);
->  	magic = get_reboot_mode_magic(reboot, cmd);
-> @@ -80,6 +79,8 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
->  	struct device_node *np;
->  	struct property *prop;
->  	size_t len = strlen(PREFIX);
-> +	u32 magic_arg1;
-> +	u32 magic_arg2;
->  	int ret;
->  
->  	if (!fwnode)
-> @@ -101,12 +102,18 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
->  			goto error;
->  		}
->  
-> -		if (of_property_read_u32(np, prop->name, &info->magic)) {
-> -			pr_err("reboot mode %s without magic number\n", info->mode);
-> +		if (of_property_read_u32(np, prop->name, &magic_arg1)) {
-> +			pr_err("reboot mode without magic number\n");
->  			kfree(info);
->  			continue;
->  		}
->  
-> +		if (of_property_read_u32_index(np, prop->name, 1, &magic_arg2))
-> +			magic_arg2 = 0;
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		if (ris->mbwu_state[i].enabled) {
+> +			mwbu_arg.ris = ris;
+> +			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+> +			mwbu_arg.type = mpam_feat_msmon_mbwu;
 > +
-> +		info->magic = magic_arg2;
-> +		info->magic = (info->magic << 32) | magic_arg1;
+> +			__ris_msmon_read(&mwbu_arg);
+> +		}
+> +	}
 > +
->  		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
->  		if (!info->mode) {
->  			ret =  -ENOMEM;
-> diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/reset/syscon-reboot-mode.c
-> index e0772c9f70f7a19cd8ec8a0b7fdbbaa7ba44afd0..3cbd000c512239b12ec51987e900d260540a9dea 100644
-> --- a/drivers/power/reset/syscon-reboot-mode.c
-> +++ b/drivers/power/reset/syscon-reboot-mode.c
-> @@ -20,16 +20,21 @@ struct syscon_reboot_mode {
->  	u32 mask;
->  };
->  
-> -static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot,
-> -				    unsigned int magic)
-> +static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
->  {
->  	struct syscon_reboot_mode *syscon_rbm;
-> +	u32 magic_32;
->  	int ret;
->
+> +	return 0;
+> +}
+> +
+> +/* Call with MSC cfg_lock held */
+> +static int mpam_save_mbwu_state(void *arg)
+> +{
+> +	int i;
+> +	u64 val;
+> +	struct mon_cfg *cfg;
+> +	u32 cur_flt, cur_ctl, mon_sel;
+> +	struct mpam_msc_ris *ris = arg;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		mbwu_state = &ris->mbwu_state[i];
+> +		cfg = &mbwu_state->cfg;
+> +
+> +		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+> +			return -EIO;
+> +
+> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> +
+> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> +
+> +		val = mpam_read_monsel_reg(msc, MBWU);
+> +		mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+> +		cfg->mon = i;
+> +		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> +		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+> +		mbwu_state->correction += val;
+> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		mpam_mon_sel_unlock(msc);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
+>   {
+>   	*reset_cfg = (struct mpam_config) {
+> @@ -1310,6 +1381,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>   		 * for non-zero partid may be lost while the CPUs are offline.
+>   		 */
+>   		ris->in_reset_state = online;
+> +
+> +		if (mpam_is_enabled() && !online)
+> +			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+>   	}
+>   	mutex_unlock(&msc->cfg_lock);
+>   }
+> @@ -1364,6 +1438,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
+>   			mpam_touch_msc(msc, __write_config, &arg);
+>   		}
+>   		ris->in_reset_state = reset;
+> +
+> +		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
+> +			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
+>   	}
+>   	mutex_unlock(&msc->cfg_lock);
+>   }
+> @@ -2117,7 +2194,22 @@ static void mpam_unregister_irqs(void)
+>   
+>   static void __destroy_component_cfg(struct mpam_component *comp)
+>   {
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+>   	add_to_garbage(comp->cfg);
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+> +
+> +		if (mpam_mon_sel_lock(msc)) {
+> +			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
+> +				add_to_garbage(ris->mbwu_state);
+> +			mpam_mon_sel_unlock(msc);
+> +		}
+> +	}
+>   }
+>   
+>   static void mpam_reset_component_cfg(struct mpam_component *comp)
+> @@ -2141,6 +2233,8 @@ static void mpam_reset_component_cfg(struct mpam_component *comp)
+>   
+>   static int __allocate_component_cfg(struct mpam_component *comp)
+>   {
+> +	struct mpam_vmsc *vmsc;
+> +
+>   	mpam_assert_partid_sizes_fixed();
+>   
+>   	if (comp->cfg)
+> @@ -2158,6 +2252,36 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+>   
+>   	mpam_reset_component_cfg(comp);
+>   
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		struct mpam_msc *msc;
+> +		struct mpam_msc_ris *ris;
+> +		struct msmon_mbwu_state *mbwu_state;
+> +
+> +		if (!vmsc->props.num_mbwu_mon)
+> +			continue;
+> +
+> +		msc = vmsc->msc;
+> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
+> +			if (!ris->props.num_mbwu_mon)
+> +				continue;
+> +
+> +			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
+> +					     sizeof(*ris->mbwu_state),
+> +					     GFP_KERNEL);
+> +			if (!mbwu_state) {
+> +				__destroy_component_cfg(comp);
+> +				return -ENOMEM;
+> +			}
+> +
+> +			init_garbage(&mbwu_state[0].garbage);
+> +
+> +			if (mpam_mon_sel_lock(msc)) {
+> +				ris->mbwu_state = mbwu_state;
+> +				mpam_mon_sel_unlock(msc);
+> +			}
+> +		}
+> +	}
+> +
+>   	return 0;
+>   }
+>   
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index d8f8e29987e0..1f2b04b7703e 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -91,7 +91,10 @@ struct mpam_msc {
+>   	 */
+>   	struct mutex		part_sel_lock;
+>   
+> -	/* cfg_lock protects the msc configuration. */
+> +	/*
+> +	 * cfg_lock protects the msc configuration and guards against mbwu_state
+> +	 * and save and restore racing.
+> +	 */
+>   	struct mutex		cfg_lock;
+>   
+>   	/*
+> @@ -200,6 +203,19 @@ struct mon_cfg {
+>   	enum mon_filter_options opts;
+>   };
+>   
+> +/* Changes to msmon_mbwu_state are protected by the msc's mon_sel_lock. */
+> +struct msmon_mbwu_state {
+> +	bool		enabled;
+> +	struct mon_cfg	cfg;
+> +
+> +	/*
+> +	 * The value to add to the new reading to account for power management.
+> +	 */
+> +	u64		correction;
+> +
+> +	struct mpam_garbage	garbage;
+> +};
+> +
+>   struct mpam_class {
+>   	/* mpam_components in this class */
+>   	struct list_head	components;
+> @@ -293,6 +309,9 @@ struct mpam_msc_ris {
+>   	/* parent: */
+>   	struct mpam_vmsc	*vmsc;
+>   
+> +	/* msmon mbwu configuration is preserved over reset */
+> +	struct msmon_mbwu_state	*mbwu_state;
+> +
+>   	struct mpam_garbage	garbage;
+>   };
+>   
 
-same here
-
-> +	if (magic > U32_MAX)
-> +		return -EINVAL;
-> +
-> +	magic_32 = magic;
-> +
->  	syscon_rbm = container_of(reboot, struct syscon_reboot_mode, reboot);
->  
->  	ret = regmap_update_bits(syscon_rbm->map, syscon_rbm->offset,
-> -				 syscon_rbm->mask, magic);
-> +				 syscon_rbm->mask, magic_32);
->  	if (ret < 0)
->  		dev_err(reboot->dev, "update reboot mode bits failed\n");
->  
-> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-> index 22f707ade4ba93592823ea8718d467dbfc5ffd7c..e0d3e8a54050a76f26846f456120b4c7e371d284 100644
-> --- a/include/linux/reboot-mode.h
-> +++ b/include/linux/reboot-mode.h
-> @@ -3,11 +3,12 @@
->  #define __REBOOT_MODE_H__
->  
->  #include <linux/fwnode.h>
-> +#include <linux/types.h>
->  
->  struct reboot_mode_driver {
->  	struct device *dev;
->  	struct list_head head;
-> -	int (*write)(struct reboot_mode_driver *reboot, unsigned int magic);
-> +	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
->  	struct notifier_block reboot_notifier;
->  };
->  
-> 
-> -- 
-> 2.34.1
-> 
-
--- 
--Mukesh Ojha
+Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 
