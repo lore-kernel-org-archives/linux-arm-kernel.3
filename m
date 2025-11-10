@@ -4,108 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DA1CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A95BCD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZYqRjVaj12Rwfz+YvwhOeiNPIo0M3pzZ+YRjVz31v4=; b=cHQ1pwj0NZ0ebbei6kp0sHlipX
-	j0qUiUuwgzEmUgs2NMteJiJmBlrUxdIVUdQ+r/0HZqG0AbcKFBlZIAO+WwOqtDKYcRvghE7x409RY
-	x5cB8m0QoTuU6fSxi+MMj/Irp4uN+sAUETmVjMs8+6dKj1nfCY3hIPHRrPJ1ngYpAWfnG8F3qResA
-	6Cx8zoavOmUiiWpR2UzCUKlv32yOZsCsA9dsFiweQvTmHotoz4RBxlHfFDLJuuiT2AJsuSiY3n+/q
-	MW9pPRi+/vdRmYehIJ4Kmi0FfY91lMA343H/EkHnpZBpbxU1Np2DPPB46UFDislga3WZJxAiA8lQY
-	eQ28NjhA==;
+	bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=; b=ON5qYV+/rISE9Hxirgj5dZHXYi
+	6LaI9BbBBL3Sogx8D/zp6ozajRbRw8Gcq92Zqk8nLwP9ZChJ99ClgzjvMqPK9bYTMbV3JokH5LK+O
+	GTufHumlm21xmOjpQrM9RMEvD49LqBqhcLkmKVcOgq/C3Uv1yI8LNpxbJjka7Y5qRtEnwhM8PdyOy
+	jU0s/fvwyabjtE7GAE63vmBbAc3ZuPN86ItWW1L4XnULB/D/zdqZEbELb0i39qow1mQOQT3NJvChu
+	h+XGhx283GrtX045fXWztGKLfYbmVZbA7WwmKr331Qnx5CEn6CAs9jE8JVosbJDnbTeX1EdVO/hds
+	/1vzagkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmc-00000005O7g-1cSq;
-	Mon, 10 Nov 2025 12:14:06 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmY-00000005O5G-080e
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vIQmZ-00000005O6C-0ExF;
 	Mon, 10 Nov 2025 12:14:03 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b305881a1so177133f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:14:01 -0800 (PST)
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIQmW-00000005O4f-20r3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 12:14:01 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-429ebf2eb83so337406f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:14:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762776840; x=1763381640; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762776839; x=1763381639; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gZYqRjVaj12Rwfz+YvwhOeiNPIo0M3pzZ+YRjVz31v4=;
-        b=N8FBY3eLN807uR7siE6ZKKZ/4J1OtQSZC0zmfLsWYNnWLpWhs2+MbVbWHianc3b+I2
-         W966lvrhwkg7hLOo9wDp3TkRzPJZUR/TZxCeIwwoafPJOhDXliQ7IzBdtf2rdbubEJhC
-         9D2zEtamMI2qP8c3HNx6VOE/px2c/hwF4AaxvG7stCzqsq1JkYzMnkuSGtbYdEjfwh5n
-         PKeZYOtE9aaGc6Dlj1Cr8HId+vgMjCD+ckvJ4EFGJ0KhljAeWgj0gxS9dNn3TFPB12S0
-         dMoWECyf4jopzr7qCDucTLOoQJOaLaOCFmaT+iNZi6ESFX6lTRM++ovUhBLd5BNa2OMO
-         wUXg==
+        bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=;
+        b=b7JfQnLMBcxxuBkO07Wf+HKFSZ0T2QmUKdUlbrNCBEByCK1U5eytwRqXWoywKIyeAd
+         6f1g+2i1x5gkFov2nEBftppj9Gl2IV86jjCBzXdSjiHhG8XxYNY01blvTLw5DXQbM6hS
+         k9Ncx7/sppDYAYr6Va48+qDd5q81xIAX8OBthxWxPtJoW4x/8VSZazs+gbRYQKoWQXCs
+         8vq1OP9tQEw/r+5WoVdgGe8cZoI+T6503vGCdlvkyHUVx88dYbLEe08N+Lc05EnugHGv
+         Eev2QSONUircNx/NYzBNCJusADNDQCm2CS28Jd97N6SAJ+CqUvE75MHXXxGEbjsss6Nh
+         XU3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762776840; x=1763381640;
+        d=1e100.net; s=20230601; t=1762776839; x=1763381639;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=gZYqRjVaj12Rwfz+YvwhOeiNPIo0M3pzZ+YRjVz31v4=;
-        b=XXsotnYFD5H2mNyxjMudrGlxbik3DledaSg1fNbQbbjD4t9lfvXxHtqnYccVoM5ZNE
-         5zzL46CiHvf+K98wcT5OAxKc+6tQF3az+x4JD1rSMWvcFOX409+vn48BIs92DtVX80RE
-         WBKIdbEizZd5P8EA2mSvB3I95oHEj65qqyOU8al26zp0l2SME6AudQGwY672iaNquMxL
-         c3wDuQsRX/0L2vNH80fKSnSW9e/MaQMjd4YTQhK7fC3xMgvyCYIKXAqK/K5largYYYVm
-         YjfpdJcUHAO/PhMH2GW7/yBLyqzZHQ/Wv4/0MaUpQAzp/wtAKN3ASQlwtwB5v3yEnbdU
-         Mt9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCURO/MlIpjR/q5/5ahVKOx8hAC26Wz6z1Hdsj5fHYzFivZ/jGqBntL9C1RxZgZbKpEygD1kdKE7WiUdpFNkRFf/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2vsAyd8nn7T+2V+hlNSSngktJCmHmRGHvbFdQBCS1+AjWwtyU
-	sKbJozxHvi+VZsX0wt7lYKc1WEWDRPwRElBwsJsNdgGajwVJWp6NtpN17U2n+Hq+I+s=
-X-Gm-Gg: ASbGncvM/pdNxOFCtGdhN2vBEd4HwTmTAu0VYq2rAj/nbh3umNq06cREq0Jx3mr1anW
-	UKtA+ilXJKDgD7qg9h6R52taE6+cKJbhSG2iISaji04TIdO8mvA2lp8yCa+bKj+Wht3vV5S+fVH
-	qJ+1Gf0QVw6TTTHtiLqq6/xJvMoe9aaFBe/hCgHcknhpwE5GTqUvmieseMRV96y19rP9GKwJLyc
-	axGf4kK1NF9PB3p0V7xNQho0H/QnvukY8qGNq78I58j4YvTp2vQigEhO4KxeMaaqwxnnob/t0/l
-	dWqORkK4nIVql7Ck6zDq94neh86Qizaw32Y4IiuuEiJ3qbzhGUCIwJjxsEAD4w4FBU55iFPGuqJ
-	qUbtf2jzRM7zfYp3ryvkMyKKUN9bg7JuBxrDR8HrBq4TSXkayq09ngtR69WKuVRXP9P1hsURkvm
-	Skcqa+LqIHi34GNGX0Qb1+Qg==
-X-Google-Smtp-Source: AGHT+IHEd8nZjNA0zksARbjw0PrTkWPT8L56szVOaWlhb9dBQElJR9u7Z9rtolUN4RnI8j0Kd7HVsQ==
-X-Received: by 2002:a5d:6408:0:b0:42b:3ad7:fdbb with SMTP id ffacd0b85a97d-42b3ad800efmr1071471f8f.3.1762776840218;
-        Mon, 10 Nov 2025 04:14:00 -0800 (PST)
+        bh=C6MHSwghP2d14X8DV+0bLl36z/FEFxYOy9Zl9P0JXo8=;
+        b=Y+GGNSAHJ8z8MAJpINFRHBUOG8fMWaAsO7uQtkIh2gM5NajrDiSyKAeQGTkShZNpp7
+         hjNKz502ClK057Hxh1UTtVZW/zP/EJnYhIS48L+vTUQPHl5vFYGYR7vo6m60z9xNSNHd
+         4K4skv+0Y9khWBL0k8/Io5nTU9BdBerF7SpCnrVz3sYXu1h5NJy83Jve8btCdnej3Y5/
+         HCF1/wd//a5qHt6zrUCGB5YRN/1EwEruf2ntssLpbneXzybkji7I2XJYimCxnSbDTUmr
+         JlhCQ7hpMfzlzw7uaNnFnIzfgtLAF4qf54tqHjNl7BLFIpUV0eO/hUrUHbp+lvOEzFJk
+         eQdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWL4w55s33qn26gQ41GcZ25cZPnpOGuhRdj9ExymrOUZtqhn5AwZNFqZjEUGQV2jXUmQTD5gveR4HnYu2LicomP@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywfq5gUe8XCWOmJRrx1hhUcLTY4JE869XEe5yyH7mX+zqRN0fWs
+	OV+70nNYfkPYK638gF4Hi3LAcVrRRWCGRqPNuFcfJ1fQSkbk8GdjCx1jZHKBoyRawbWGxHmSqe9
+	O6/KB
+X-Gm-Gg: ASbGnctVdnUk4WZhwRw7WOpQbeclunhwF5vTLT6sI6pATAwsh0Csksc8s6KuJUGRre5
+	AH06cz3kdFrEBXap6GCmFYGsQdq7KbmOPADZrJRp1iETte0t5FxQK7WOlZZIqDMJtruv5oaEOEC
+	tXVz/GkZ3qHIYIuRxzhBFoLuLbfVD5Ou7RDNv4oolr72Abvdy2zBn6aDqdjFAFPfeeL8pqW9PfO
+	DI7/SjP5R893m2fMigWiAU1XWWSl/aw5cCaRnNcV/8vm83fc4jar7CecJ6soco8cc95Dztw0Jnb
+	kibEXKxwlKXmPSrGfy+QeKAHXa0PPcQXD+BfdT204tZoqBFOEIkUs8N0FhlmoA0THv6noEd2wEo
+	d1sHZrHc0h0W3+lAvZwWAmLqHkow4shJrEw25Fwtn/ZDX8JmxnH4Ej9M15Z9SSehVbW0vAq5Zf0
+	L5Qrsmqb/D1IY=
+X-Google-Smtp-Source: AGHT+IFtCJoEa3fPjznfspradex1PtTFo+De784I9+Mj7ZLYALTxzZRy9e27nwxt5XfS02ZIFIavUQ==
+X-Received: by 2002:a05:6000:26c8:b0:429:c711:22b5 with SMTP id ffacd0b85a97d-42b2dc13946mr3574288f8f.1.1762776838835;
+        Mon, 10 Nov 2025 04:13:58 -0800 (PST)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac6794f6esm24922667f8f.41.2025.11.10.04.13.58
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac6794f6esm24922667f8f.41.2025.11.10.04.13.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 04:13:59 -0800 (PST)
+        Mon, 10 Nov 2025 04:13:57 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	linux-clk@vger.kernel.org,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
 	Peter Griffin <peter.griffin@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 4/4] arm64: dts: samsung: DT for v6.19
-Date: Mon, 10 Nov 2025 13:13:42 +0100
-Message-ID: <20251110121344.120785-8-krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL 3/4] samsung: drivers for v6.19
+Date: Mon, 10 Nov 2025 13:13:41 +0100
+Message-ID: <20251110121344.120785-7-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
 References: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3279; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=qREVua0utpq+YZvmhL+Ya7K6Nf0fn3TdphYcl7/IDE4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEdb7uVM/PXGAmzuyeG8EiCnmVpLqyqKSsroUj
- d4lkN24alyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRHW+wAKCRDBN2bmhouD
- 1xEwD/4wN4mbAz3TmG8Uj2sBGcutI7Unb9l7WLt0y4YvC1DQ46/hGZBDpUg9FYM5ikoyYyk40Lx
- bWpMPS6r2UoFbvdbB8unHQ4mFOrNmaIXe6ae7qXotQg4zx2Cshidw6xwiWfmxb7+qnx4dpK90ib
- 51vCNOH5TcTk4FEHfhDa4dzWTEYWjWGudP7ph4OmCUq7syBkI0M7LCv22zeobctueoBS9orqH73
- N8hAXpuzcCaxkaTTNk7tyehHN9cK7CNUmOexoYlbnBnWSRAElltaR57uw6dJF/JzyDc99cvu+3O
- C8qwOgswZklHgy24jZ7c6Z76k0Px+LrxcHuYruhkl668A5JrlkXHqWAOx9U+PsPImWraLTC8Fm+
- pkaLsRZUH3cEjzCMfJLCOudP64x7wkz5F5ZTW6WmvlDJJqdK6Xj46UH6BFDZ6EkMXJ7Tsk0uzja
- 1vNGW3T8SWzkptfY3oTNnS8rOsHbdjKT3cLqaJmULk5WkCecU9RBJquVnwCyfyN0Y/KEYcUSTK5
- J1BUDCtobDWXoKLqQHIiFekal9FQ6HiioyzYRf97UrLVUCZI0m+3AIP+sSFzEVULNrojKu3JWVk
- cizhMB+tB9UiTP3cNr+j09PlXRFOfxayyEmlxr1UyeTTACxlSn2X/4mqgYcXjrgNrgtK+b/mycD 3yWl7WfKySy1INQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2406; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=7eCwQzIdJ0n4Jk8cIEMb6dznrr42scKRI9w59K+VWtk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEdb6Lys/nhK6FyF7WpIVe24IhpaXO7tRMwX2q
+ ee8mfep2SqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRHW+gAKCRDBN2bmhouD
+ 13kvD/0ZXTLuTwJf0e2y11S5cpAeAyPebJadjrmUuAPIXoOOz5cBL6EcopBvNIIW6WqyzuabIOG
+ iF28TE+A3Ks1JNt3Ow1Oq9H1nLb3/xdqkVBBjh28w0gtxEgoD/qJyE9zhEclB7uom4Lo7YcDutu
+ vM3VjnnBJcdQyIVVZVwyUBPjrYgdc8fhiIgAlwjfXvG/TYDmnvTv1V68gN/seAfwOEQvzJgVouK
+ Oj0oFbUz9gloMokC8iEI09F2mItSf0456QaxpE19cybMEg0kFnLYOB838bAKW9RwrCiuAw7peZF
+ gGpkMyejtk52dYmkQVhYaZ1QrYfRwoqINBK9DUjR+f6q2G80mEnTXjOqqX5p3sOkv47ngp+JnGj
+ J/u3KQ1px1sgyI3VoRFIhLRU2mHYXYIuQkHa9bVB7epZMabMoOt2V8u8gmI0jax9xvCD2BPfR+H
+ ljdfF5YBzysI0zoVREXr3KIb8oyF39TVyxBHZh7isjgWDuU3ab4ahHO8RuOTp7uklh5j8cZ3qNs
+ m3BJ8H1jU5pY76dszctetAiza/z6fgw7waI+siH/Kc+lvAawwQKYyCKhc/wk+9qIShklQBsPe0s
+ P6DprrLIC13CTefnYCptD+EnAh5VTIgB4J0ib8UjCgpepPRUD7Yd+3mvYgmfk3ENWbFCHXPghtb J7qrPJTJjcUQSDA==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_041402_093014_5C853919 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20251110_041400_551242_3CA5B020 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,81 +123,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+Topic branch for Samsung firmware and clock drivers.
+
+Best regards,
+Krzysztof
+
+
 The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
   Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.19
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-firmware-clk-6.19
 
-for you to fetch changes up to cad767a9af055c921e29b7b268f99e83c82baab3:
+for you to fetch changes up to 6837c006d4e72d6add451411bcf407e0dea4ad25:
 
-  arm64: dts: exynos7870-j6lte: enable display panel support (2025-11-05 08:23:56 +0100)
-
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v6.19
-
-1. ExynosAutov920:
- - Add more clock controller nodes.
-
-2. Google GS101:
- - PMIC clock
- - Mark ACPM (Alive Clock and Power Manager) firmware node as clock
-   provider and use its clocks.  Add also Devicetree binding headers
-   with clock its clock indices used in DTS (kept as separate branch).
- - Add more SYSREG (syscon) regions.
- - Correct several blocks address space sizes and APM SYSREG's starting
-   address.
-
-3. Exynos7870:
- - Enable display over DSI and several display planels.
- - Few cleanups.
+  firmware: exynos-acpm: add empty method to allow compile test (2025-10-22 07:49:38 +0200)
 
 ----------------------------------------------------------------
-André Draszik (1):
-      arm64: dts: exynos: gs101-pixel-common: add node for s2mpg10 / clock
+Samsung SoC firmware/clock drivers for v6.19
 
-Denzeel Oliva (1):
-      arm64: dts: exynos990: Add sysreg nodes for PERIC0 and PERIC1
+Extend Samsung ACPM (Alive Clock and Power Manager) firmware drivers:
+1. Add support for passing DVFS (Dynamic Voltage and Frequency) messages
+   to configure the clocks in ACPM device.
 
-Kaustabh Chakraborty (7):
-      arm64: dts: exynos7870-a2corelte: add bus-width to mmc0 node
-      arm64: dts: exynos7870-j6lte: add bus-width to mmc0 node
-      arm64: dts: exynos7870-on7xelte: add bus-width to mmc0 node
-      arm64: dts: exynos7870: add DSI support
-      arm64: dts: exynos7870-on7xelte: enable display panel support
-      arm64: dts: exynos7870-a2corelte: enable display panel support
-      arm64: dts: exynos7870-j6lte: enable display panel support
+2. Add Exynos ACPM clock driver, which exposes to Linux several clocks
+   handled by the ACPM (firmware).
 
-Krzysztof Kozlowski (1):
-      Merge branch 'for-v6.19/clk-dt-bindings' into next/dt64
-
-Peter Griffin (3):
-      arm64: dts: exynos: gs101: add sysreg_misc and sysreg_hsi0 nodes
-      arm64: dts: exynos: gs101: fix clock module unit reg sizes
-      arm64: dts: exynos: gs101: fix sysreg_apm reg property
-
-Raghav Sharma (2):
-      arm64: dts: exynosautov920: add CMU_M2M clock DT nodes
-      arm64: dts: exynosautov920: add CMU_MFC clock DT nodes
-
-Tudor Ambarus (4):
+----------------------------------------------------------------
+Tudor Ambarus (6):
       dt-bindings: firmware: google,gs101-acpm-ipc: add ACPM clocks
-      arm64: dts: exynos: gs101: add #clock-cells to the ACPM protocol node
-      arm64: dts: exynos: gs101: add CPU clocks
-      arm64: dts: exynos: gs101: add OPPs
+      firmware: exynos-acpm: add DVFS protocol
+      firmware: exynos-acpm: register ACPM clocks pdev
+      clk: samsung: add Exynos ACPM clock driver
+      MAINTAINERS: add ACPM clock bindings and driver
+      firmware: exynos-acpm: add empty method to allow compile test
 
- .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  11 +
- .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  58 +++-
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  39 ++-
- arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  58 +++-
- arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  84 ++++++
- arch/arm64/boot/dts/exynos/exynos990.dtsi          |  12 +
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |  26 ++
- .../boot/dts/exynos/google/gs101-pixel-common.dtsi |   7 +
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       | 315 ++++++++++++++++++++-
- include/dt-bindings/clock/google,gs101-acpm.h      |  26 ++
- 10 files changed, 585 insertions(+), 51 deletions(-)
+ .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  11 ++
+ MAINTAINERS                                        |   3 +-
+ drivers/clk/samsung/Kconfig                        |  10 ++
+ drivers/clk/samsung/Makefile                       |   1 +
+ drivers/clk/samsung/clk-acpm.c                     | 185 +++++++++++++++++++++
+ drivers/firmware/samsung/Makefile                  |   4 +-
+ drivers/firmware/samsung/exynos-acpm-dvfs.c        |  80 +++++++++
+ drivers/firmware/samsung/exynos-acpm-dvfs.h        |  21 +++
+ drivers/firmware/samsung/exynos-acpm.c             |  26 +++
+ include/dt-bindings/clock/google,gs101-acpm.h      |  26 +++
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  19 +++
+ 11 files changed, 384 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/clk/samsung/clk-acpm.c
+ create mode 100644 drivers/firmware/samsung/exynos-acpm-dvfs.c
+ create mode 100644 drivers/firmware/samsung/exynos-acpm-dvfs.h
  create mode 100644 include/dt-bindings/clock/google,gs101-acpm.h
 
