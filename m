@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ECBCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCDCCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sqx7setAMOuFaeqAgdUfg2Qky7oz90j/56nEXIsM+OM=; b=rJkXiXByzSAzb9iapm8ArGWtqo
-	MgcjUSbQ7uOtaXa8tocLwkpQ4/+ZVqvTw/uksPy3aypc8Mxdb2e3FulMLwYWXUUK/HfvZX5HkrL1P
-	T2L5OFFsdOvtGlw40WUJxEnAp6Xh5a22OjRGWHKmudlqrfapa1D2g1CGBChn5srEiaBs/ZHFZ191M
-	mQhfBc99+8b69gPkXxe82lPEZEl8DLAb3hKuRh7mzMsPTxFrNM9g7ZZjSZoYsCboSxCdatDLWHMXW
-	qHDa6l8RVBKz+rc40YjivtbSurcpazcJn5IWL5kCLO3XRcmjCpgHIo5tawoP1X008mezLs8WdxoVh
-	qyO8JaxQ==;
+	bh=AH9aLYZMmMNSPDznwqaMZKfB31ogwjVJstDoX/hlzHU=; b=AAhqlvNKFEOZ5B68be0UxbnRbI
+	5b1kd+eJmsoOXWzsax/AkEaZhNx2JTgo3YzXSzHH/ckx3mkk4VLs6mKq3yA3MSzkXNbILPub3a2y4
+	LLAkD+vCC+wAdtUmteS7dPrgUgAEosEvLhRNuKbiJQZ4wbfUOMPpuKCaB0cVaK8J/RIPgZQfPUhtu
+	6gLHuSOZzlASd3qb2vr+GkMk8gubQ0q3yjWUfBhlxnH0grE0n2MrdWrQcqI0u/1WGhJyUFK77kJQO
+	6JfT2LQtMkogcJ4evGLYuES5C1KpiJHpCKg/Q/dpPPUpEMItpZwRMQeb41VZXkVRwo/YH6SqyZyb0
+	f0r8xvEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVUS-00000005t8Z-2Yym;
-	Mon, 10 Nov 2025 17:15:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVUQ-00000005t8E-0NN2
+	id 1vIVZK-00000005tOa-1Qro;
+	Mon, 10 Nov 2025 17:20:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIVZJ-00000005tOU-2CBz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 17:15:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1783B2B;
-	Mon, 10 Nov 2025 09:15:29 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03A023F66E;
-	Mon, 10 Nov 2025 09:15:31 -0800 (PST)
-Date: Mon, 10 Nov 2025 18:15:34 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Bowen Yu <yubowen8@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, ptsm@linux.microsoft.com,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	zhanjie9@hisilicon.com, prime.zeng@hisilicon.com,
-	wanghuiqiang@huawei.com, xuwei5@huawei.com, zhenglifeng1@huawei.com,
-	zhangpengjie2@huawei.com
-Subject: Re: [PATCH 3/3] arm64: topology: Remove redundant housekeeping_cpu()
- checks in arch_freq_get_on_cpu
-Message-ID: <aRIdtuWAIen__yZU@arm.com>
-References: <20251104075544.3243606-1-yubowen8@huawei.com>
- <20251104075544.3243606-4-yubowen8@huawei.com>
+	Mon, 10 Nov 2025 17:20:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 21F11601D2;
+	Mon, 10 Nov 2025 17:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77769C19425;
+	Mon, 10 Nov 2025 17:20:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762795239;
+	bh=me6n6FjNH5PUu5+Jq5h9LLQT7A7eQf9qsR5sK2e3W/U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hbris9J72y9lCN1y6TBrpBKmdp9WH5v1/hEHp9Fwx0jmdj0+RmLyv8+JVG8O1iSYV
+	 JveYr9YC5UcNBOsp6CGHsFduHNYpmMQKftwDQFNUlbs7JvCvVyTfmp0xDOEQ7VNouP
+	 PwIZNxFux3oUui+zAcCG/tID5r4+fm24GEtPY6cXocjaEplFg0e9+nCxQaZuSxCVRH
+	 O+2b5ehZnZzk4A1ddBjX0KS7nzDbGRNVHzICQzirQLjuYut46qJiSrkITi4zE/bdgi
+	 rG6ad9iRL/ZLO1SCYaSTcvMdBj4DkkJuYZMfrIVajSAxRBBN82IokKQNJ6FfQYqXyN
+	 a5nUpedO1mhrA==
+Date: Mon, 10 Nov 2025 17:20:36 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v2 3/3] KVM: arm64: Limit clearing of
+ ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+Message-ID: <aRIe5I5TCnvHt9oM@finisterre.sirena.org.uk>
+References: <20251030122707.2033690-1-maz@kernel.org>
+ <20251030122707.2033690-4-maz@kernel.org>
+ <aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
+ <865xbiuj6e.wl-maz@kernel.org>
+ <aRHzf5wgJg5vSoKo@finisterre.sirena.org.uk>
+ <864ir2ufke.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HOGTRvsQdiipdvmF"
 Content-Disposition: inline
-In-Reply-To: <20251104075544.3243606-4-yubowen8@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_091538_189031_101F69DD 
-X-CRM114-Status: GOOD (  17.68  )
+In-Reply-To: <864ir2ufke.wl-maz@kernel.org>
+X-Cookie: You dialed 5483.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,48 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 03:55:44PM +0800, Bowen Yu wrote:
-> This patch removes redundant !housekeeping_cpu() check since it is
-> inherently done when checking jiffies.
-> 
-> Signed-off-by: Bowen Yu <yubowen8@huawei.com>
-> ---
->  arch/arm64/kernel/topology.c | 9 +--------
->  1 file changed, 1 insertion(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index f1370a4a4df9..6981ef3019d3 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -310,20 +310,13 @@ int arch_freq_get_on_cpu(int cpu)
->  		 * (and thus freq scale), if available, for given policy: this boils
->  		 * down to identifying an active cpu within the same freq domain, if any.
->  		 */
-> -		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
-> -		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
-> +		if (time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
->  			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
->  			int ref_cpu;
->  
->  			if (!policy)
->  				return -EINVAL;
->  
-> -			if (!cpumask_intersects(policy->related_cpus,
-> -						housekeeping_cpumask(HK_TYPE_TICK))) {
-> -				cpufreq_cpu_put(policy);
-> -				return -EOPNOTSUPP;
-> -			}
-Removing this means you will iterate over potentially dynamic-tick CPUs and
-running the checks instead of skipping it here (plus other implications).
-Is that intentional ?
----
-BR
-Beata
-> -
->  			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
->  				if (ref_cpu == start_cpu) {
->  					/* Prevent verifying same CPU twice */
-> -- 
-> 2.33.0
-> 
+
+--HOGTRvsQdiipdvmF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Nov 10, 2025 at 02:29:05PM +0000, Marc Zyngier wrote:
+
+> Yeah, I just found out by exhuming the dusty dregs. As it turns out,
+> this catches a pre-existing bug that wasn't noticed until we moved
+> over to the standard accessors rather than bypassing them.
+
+> The hack below fixes it for me on XGene.
+
+Yes, that seems to work for me too on the boards I tried.  Thanks!
+
+--HOGTRvsQdiipdvmF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkSHt8ACgkQJNaLcl1U
+h9CiAgf9FSF7G/oQEtNSUVbFMyHeGGb3mZUjyQIQ7gpouZT33sKNzEmd7S91E5vQ
+k8wsplgA3HTBwkoT9AzCuWZJ8+Vgt4aja2ZMLXwsIcNJewmOQnhDr7BUMKxx57q7
+gew2x/GbJJkFpO6r41FyR4rGrSnr0gxD+gTOa80KjRBBAcmbRYgyfofzpHGFARkF
+AO2VsTyjQfpfOLwdREYBg5G2uMv/iRBl3RBIwHwaz2c9KpB/uy1j/ym4l6HJvOT0
+Fsg9utR2voNS/oNwbZpOva2YpTrns5L4TLM+lScsT88+YfKj0ZGr0dSw4+e3+ikT
+k35PPosh5/Q456zHpAKncMSkgLouMw==
+=+I2+
+-----END PGP SIGNATURE-----
+
+--HOGTRvsQdiipdvmF--
 
