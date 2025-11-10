@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE385CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1045ECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0doKKxK8ZJ7GEGSXAup3U2eV11MUcV/0VGSn2ua5xc=; b=JmXLCPJNvs14XrJfWzf+pgAuF3
-	w3DxFUj5fCA1ZRgHCgsriHX+TvHCF3aVRqqvHyhuAQjTezum31da7WFkdGadGRlkwXLWPXp8ccc5r
-	yesBKJQFS0oQvn3z3dQQE58TnP6tnzKx+DU7rYuzv1c4vIW2Q0B8Y3e09n621s+2CX0ihpxuw8PeY
-	LUpdnoERS3VVhBaxuOo0y4CLcdcIxjVKtD6/f8lP3i9fBmR1XQ7vZFiuebh3dIRQLvTT+almY0Cwt
-	ybw3frJ2f081n2d/OU2At3Fei7BP1yXkWx/cbUL/Vi7PRytarmjg63YI+aoWaS/3wya6CEghQILVn
-	XJUekLxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=; b=pCaghLScPNID0Obau1kd1L493v
+	dduBLVqMXIG3rc78eLSmeduH7tWSeA2KVghzbHkGRKneYc8SfcJxvqnrKfY+O5mtRr/bkm8tpi0Bk
+	/0+INoCbtuKKs58/A6LJJWo1ojFZmSDEK2vjq/PEq3685Cz6cWQTROTIu25stuqReiJ3IqtxZz+uO
+	99ARZMNo481ZczH36yeKG+JRNCFMWuFDOY4y2UjRrFlQKbGp+vptpVZYxAm/6SwWNo1wFwuW1sZiM
+	g81A6jOiCXf3Tp7W59xlCMv59fH7oVCuXmvaft8s4ADFZNifjBc5uefI4uVaemRpd6vd4KO9bZ6PA
+	5b8nY6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITGQ-00000005d2C-2riY;
-	Mon, 10 Nov 2025 14:53:02 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vITJj-00000005dLY-155p;
+	Mon, 10 Nov 2025 14:56:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITGO-00000005d1f-0bh5
+	id 1vITJg-00000005dJy-2hFE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:53:01 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vITGK-0007xP-N1; Mon, 10 Nov 2025 15:52:56 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vITGK-0082sA-1f;
-	Mon, 10 Nov 2025 15:52:56 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vITGK-00CacO-1E;
-	Mon, 10 Nov 2025 15:52:56 +0100
-Date: Mon, 10 Nov 2025 15:52:56 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH 0/2] Add support for Skov Rev.C HDMI variant
-Message-ID: <20251110145256.pxgfw3zu7wocguqs@pengutronix.de>
-References: <20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de>
- <176278493286.154609.17548604407386943510.robh@kernel.org>
+	Mon, 10 Nov 2025 14:56:26 +0000
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1762786579;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=;
+	b=cDtieN82wpdjhzWTPsUOfwZG/p/1+oKraQcT/cbsAlj31MJty6qZD95TIDMDW7dOH+uBqf
+	QjmF6NYLuOPR7x+HTyN1n1qc+Zv28p/cyeEDO25RSDhgdMMcNsHsOtKa5l9HM7QRJPZnK2
+	eE0z8zPm9lrFYpaMAqxHjPc9Ojh9m4BUM/tr0hxLbk7e39GZo/r2kFWnGBkGmBJOeZReJD
+	BDTe+MKaZgnQAIX+nLsxhxCVjk7mP2d2p4EoaNO3mqee1AHG9rc50wygEMIzANos4tgZfb
+	0cL04Al0XP9huXLxT42fq3qvgnUnAZ6psvmFX5rbThnVNGxiXl5z5OskZySELg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1762786579;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=;
+	b=d/53tPbkWQciAgJehnDhruamFYelbOrDDuj+CR34h0Hy9PlvA4ShfTJj5Z2kiVth0f+rrT
+	nbTQICMv6dJrJfBA==
+To: linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Cc: Russell King <linux@armlinux.org.uk>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v3 0/5] ARM: Remaining PREEMPT_RT bits 
+Date: Mon, 10 Nov 2025 15:55:50 +0100
+Message-ID: <20251110145555.2555055-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <176278493286.154609.17548604407386943510.robh@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_065300_183928_418B9898 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20251110_065624_819152_E9B36544 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-11-10, Rob Herring (Arm) wrote:
-> 
-> On Fri, 07 Nov 2025 15:49:50 +0100, Marco Felsch wrote:
-> > Hi,
-> > 
-> > this small patchset adds the support for the Rev.C HDMI board variant.
-> > 
-> > Regards,
-> >   Marco
-> > 
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> > Marco Felsch (2):
-> >       dt-bindings: arm: fsl: add Skov Rev.C HDMI support
-> >       arm64: dts: imx8mp-skov: add Rev.C HDMI support
-> > 
-> >  Documentation/devicetree/bindings/arm/fsl.yaml          | 1 +
-> >  arch/arm64/boot/dts/freescale/Makefile                  | 1 +
-> >  arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts | 8 ++++++++
-> >  3 files changed, 10 insertions(+)
-> > ---
-> > base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-> > change-id: 20251107-v6-18-skov-revc-hdmi-1e8d4bbac26a
-> > 
-> > Best regards,
-> > --
-> > Marco Felsch <m.felsch@pengutronix.de>
-> > 
-> > 
-> > 
-> 
-> 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-> 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
-> 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
-> 
->   pip3 install dtschema --upgrade
-> 
-> 
-> This patch series was applied (using b4) to base:
->  Base: 3a8660878839faadb4f1a6dd72c3179c1df56787 (use --merge-base to override)
-> 
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
-> 
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de:
-> 
-> arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dtb: switch@5f (microchip,ksz9893): pinctrl-names: ['default'] is too short
-> 	from schema $id: http://devicetree.org/schemas/net/dsa/microchip,ksz.yaml
+this is the last batch I have to enable PREEMPT_RT on the ARM
+architecture.
+Last time I posted them there was some discussion about making the
+branch predictor hardening worse. I redid it hoping it improved now and
+does not make it worse.
 
-This may be a valid issue, but it's rather an additional patch worth it
-since this patchset doesn't touch the imx8mp-skov-reva.dtsi include at
-all.
+Is this okay now?
 
-Regards,
-  Marco
+v2=E2=80=A6v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@=
+linutronix.de
+  - Collected tags.
 
-> 
-> 
-> 
-> 
-> 
-> 
+v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@=
+linutronix.de
+  - Allow to enable jump-labels on UP. The UP build does not involve
+    stop_machine(). Reworked by Arnd.
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
+  - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
+    disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
+    needed.
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+  - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
+    which in turn depends on !KVM. Since KVM has been removed from ARM
+    it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
+    by Arnd.
+
+Sebastian Andrzej Siewior (3):
+  ARM: mm: fault: Move harden_branch_predictor() before interrupts are
+    enabled
+  ARM: Disable HIGHPTE on PREEMPT_RT kernels
+  ARM: Allow to enable RT
+
+Thomas Gleixner (1):
+  ARM: Disable jump-label on PREEMPT_RT
+
+Yadi.hu (1):
+  ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
+
+ arch/arm/Kconfig    |  5 +++--
+ arch/arm/mm/fault.c | 16 ++++++++++------
+ 2 files changed, 13 insertions(+), 8 deletions(-)
+
+--=20
+2.51.0
+
 
