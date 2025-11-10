@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0096CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BA0CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rhp4YgfhsRZMzX8NUUCQPo90BZ3bChzDwUAKuvs0tfk=; b=0AmAhOwauREo/FhX4jTPqbs1kM
-	xXPHxODk1PbiZGi65nwzXdmYtXiFKFeFSfSBRlI1OZp2dr3xQ75r8SNiVKNkh8saDhlXZUOnsQRaP
-	62J6PaCMoyoNl/B8GwoxGUs/P7xGyz84fZFOBlRgmEa/Uq1Y8/Th+l8QSXeU6Aqrv2jQqZO9OlAxv
-	ix6ycZE1qA7LOiINSpl1E5fE4ginRess+vOH7uv+EOVWOha8Hr8oQnRrsEabEVtF23XpLQLJ9Vc6S
-	nVVAI92++TxHdP5oZ/rn1RST8si+EbUxUj3HD6Qfqemujvw6PHrYn6FYGmptQ7Gm5HJSz8PBdHQS1
-	h3ivkhwg==;
+	bh=FdVTKsm8GAbvPx2SpTGUo+BQ4+zMzWzy9tfx/LEXR4E=; b=bo+mrpMxeKc0xa+8uWU2BbWql8
+	8HHNWAUkNoR51nLLmHJu81tXnYvqI5xiM2Yp39Jf+eSTqeMTyV+5+cytWVkn8t1uGDyLpm1Ushra/
+	cpIXpv5t1x20LOsqs/aNEmcvy1TlBecWydRtolzfc+P9VVa9rIrY2PxaFjIWs6ZBmgtXT2fMEvXci
+	Jzd1C4w2hSmTqZ7OK5xLW5uqAyrX0ZaW/lhYopbFHh3KeGTrOgq7wn2OhVie0/EBq1tNtLJB9WNP+
+	WDtaP/cTVTaD3+ar+mfQ/HyqGbtgaFGEgdI/FtBzbTov1nN4gwLu6wvN4zW/AGs+8fc4neBYi1aZC
+	12Apurig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOZn-0000000586l-2xkZ;
-	Mon, 10 Nov 2025 09:52:43 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vIOah-000000058Du-0F41;
+	Mon, 10 Nov 2025 09:53:39 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOZk-0000000586F-3Gl0
+	id 1vIOae-000000058DE-34qR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:52:42 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so17382125e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:52:39 -0800 (PST)
+	Mon, 10 Nov 2025 09:53:38 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b312a08a2so1162577f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:53:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762768359; x=1763373159; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=gmail.com; s=20230601; t=1762768415; x=1763373215; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=rhp4YgfhsRZMzX8NUUCQPo90BZ3bChzDwUAKuvs0tfk=;
-        b=In79emh4WaFhso/KFVD5taorQ9V2fUApNKyCnrn/AHjRB0ADnuZ0aPDxHOtkJvLUE2
-         Z8nEaN8AmucvRHQ6qCr9uEVC03zOD3VnzUZ2dEUc+DZlUNIVbqTfrw2rLFlORaIgkCRd
-         bP1vD0NngLhclKbJWEoeNG2gFQhrQWoXO9i0QEIQIwv/+7e+m/HEB27hCa/Y26F1WW4X
-         YgZhvWpkXQiQfl3/aYtKEYTa6xRmLm6JzQdQ6p4LqxbO2DLs+/Doq5gb8YlJ+sqjnXt0
-         tRQwBu01V8VdfUJOg/DuiOgLZD+GdwWOzjKhckbpbV+Immpu2PSyLLPaQpfwdCJwlnUv
-         fS+w==
+        bh=FdVTKsm8GAbvPx2SpTGUo+BQ4+zMzWzy9tfx/LEXR4E=;
+        b=DeZuglkGf4qyMOP8+sOMxm1EKjChinNe+5zjYMDRowWfZnEjBv3MxSihDXT6tbO10F
+         exmBYv05KhTbbj27eb8QVAamxBH9HfcdrfafZgppfX9vSwkCK0luEP3wJNHxfg6mw8AC
+         filrk08ihafQIDllcJQuETk7QY/YZ4YsO/Bn39MiQnIFRguOak5YxSiq7qeT1sJiddHD
+         bU0d6mFMjsxGWx42lAJR9O5vH0UHwGoFijXPWslzTIj1+6tk90nTt6eL5K5Lk8CZTifU
+         A1e0D3nh04JQEbGsAcox0CdajpmRUjusXiLGp0JM56xWr2poOKrLcfdE5ayR23WWDCi1
+         2xjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762768359; x=1763373159;
-        h=content-transfer-encoding:in-reply-to:from:content-language
+        d=1e100.net; s=20230601; t=1762768415; x=1763373215;
+        h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rhp4YgfhsRZMzX8NUUCQPo90BZ3bChzDwUAKuvs0tfk=;
-        b=w9Krj/k0jISmNTCkoqC1D8peA8JfxjZOpkI9n/6t97HU1t/A6iL6JGX+/ONE0IpQbA
-         7KLnP+pAGhPJVJ/Uh2Q1mpzIzmnu/xr35fOua8G34r6KiWlS/cEwPmp/IvKOvHjmThzX
-         bR/eJKvwr5xPbhJB4ZQnzrRa9VhKmYiCo9zQDXGQuGO4g8DfJfzxi6TJroLWe3vBHXM9
-         TPvOpPvRSOUfOG4QB0qhavM8zs+BukFe8WCi+AInw3/yRDUX+RgFRP+B1QCHKw+TdVyf
-         +Bl1ijjA7akeGu8P/hoe8l3VqMK8p60BVKceT+Z+ZsHyPyejUCe6vrgzqmEE5KBkVv1w
-         7LvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXsQLR8u0VS4/k6m6xeUO9u+gjZECtXoQbgFUH7Tr+oBPUpckNqaimE2zXkGdUkCyDDQ/+Bf2LAynmDKxrEkRTc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yydc2lC2e7hFw166egp50r+tsa/zeILn1JJEatWTLWRJMfN9YF4
-	pj8JdUMqNt3MIeKK49HxUEoQ4qRtF+TdpSGrO984QQKGTUK4TutOSeLA5RjrLX+eQ8E=
-X-Gm-Gg: ASbGnct+kHdtTukccRLexVn8r8V875CwAdO/cC2Wo+tJ8PC01lhzB2idzh9ix4YLajH
-	RB8S8cn5t/OqLT4mMc98j44r2Cz8fyQxikNqaJFtXaw4S4fNmGrgTTS1Vwt8YYRCI6m78ijPpVH
-	0ry/1n5p5SQFI4lRBy2SAvKLuY+0ymBs12rZGhP/pymdE2RfEBFlH+Fv2SIyKpIiyJi0xavZNS+
-	KIVfPqURRzP0dGqun3k1FWutSSz1McKIuTy1Nv/HW+4cGF8kWZbHRfqVFlaEhpXb2OyuxQos3ou
-	AvfpkELaRzH+50sKMFnTvtduBH5RM224ZszoYJHZ+UyvJeQi2kWigzr9CoYkFlrfDAbHTSGAG/b
-	6UC0u8r1F9zIAHv/jDyPRBqowsIb7cLqlGup1empwSWCc04E9hd7q3nSCGSUdycXLmmSoXCEktg
-	lSFFfJxA==
-X-Google-Smtp-Source: AGHT+IHCMEptRrO3Xd4sJVJqG0K81DdTzjfPzWE+SEpDSUp7i+llvbmd/DfdXqcN55ZcAaess9TJ5w==
-X-Received: by 2002:a05:600c:3011:b0:477:7975:30ea with SMTP id 5b1f17b1804b1-477797535a8mr26023715e9.29.1762768358611;
-        Mon, 10 Nov 2025 01:52:38 -0800 (PST)
-Received: from [10.11.12.107] ([5.12.85.52])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47774df2d80sm121261635e9.14.2025.11.10.01.52.35
+        bh=FdVTKsm8GAbvPx2SpTGUo+BQ4+zMzWzy9tfx/LEXR4E=;
+        b=tFODd4TYiBCrc4dcvzs0N0lhycXDhQd8pjs0tFrGJ0MattfTTTsUoOTVZUhu+LazB4
+         hbBthnvHwOO9OXVkufDsP9zdQFCEwy1KTDa1VP25ugzjyn0byoWFvUON2FI6UuqM3EoI
+         aoK5NkqWXK3XkkknmK5pLCszHLGc612Cw0QqC5twREO8HXoBOs0bAZdFaPlVo457NlDC
+         1bti0xn1S+FEKQMu8NQM8uKHtgXNaLR/fE6KkNO5eLAmJ9fyNzTofc5BmRA2HlFK7miP
+         Tt0CzdldKiObV/FBpyVlJfD+oZMQtearEWvdXcTEoC8298acwPAbYmM6pvEkL7+Z6RQh
+         IU6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWmxIS1JVO76Cvby8wD1H4CR24wKmapKkYQaHMJ0uxgcphs49Bl7D0RDFhh7I6wGun96E9TmP8rIxM7oYn5gMEf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZzGA19/kdepPF5RtFXV25V9HX/ZJHUD1vtxh/F9c/KjnmIs/a
+	qqirBurTTVfM/KfmRS70p4+2GSSzFgr3RNtNhw8tcefKsz2wn6js1aMj
+X-Gm-Gg: ASbGncujQGIFsMrVEvpUGMd3FWZ0uL82gs81MiCs0PO9JrAz7fPMWluNqR3/4z99F2p
+	UxKjPrwWpGlc/o8twrlvL+6hNxAOjkCaHhndWilKWvcJM/0ICqpnPq1oc36EIAZvS2ZH9ns6UbK
+	lAiUWzFEOloWSBVSiNtZILJxvPpbK66Jaa2kAcE4NVzbx4ioJbNX5ureD6pC6PWDTJ4QE6MlQAg
+	PLknQ80v0FxK6R3jZmO2xUOpEJf8nf37fyZkVFedSjlWiRX0C2F00ieIFkPMvbqYgCoR8n5Q0SK
+	W9h3rKtwp7GVEfItSsr0OhQ/DuOOFnx7Og0ss0EQ3FcYn2AvwiFbNOOOqCDs4wEOJba1osfIN91
+	wL/drKlh+Y1zF/kXASsUDFoSmdzdq9cceTcgMDXoUKZfS16y8Ko++TPZWM0SlhNDqRI7nzsWzsv
+	ash+rdbxVBr9X5/HoZgBMjHnXHL6QSwr0ultl9K+EBOyJIE8LtSOiVISjg7mc9qZ9B5V8KAHMXJ
+	0RsNSlLwBB0YyiqzAvy0VjOVDid1sMnSqACd7vwCR4AkkhWi8aMMV3xxhQH
+X-Google-Smtp-Source: AGHT+IGsooEmMcpiBszEC0S29az4N9pDXGOvaoT4Fy0Z8fKUBHepw/QGQNXOLUsDa6Q40qnzLaxOfw==
+X-Received: by 2002:a05:6000:26d3:b0:429:d084:d226 with SMTP id ffacd0b85a97d-42b2dc2091fmr5677341f8f.24.1762768414585;
+        Mon, 10 Nov 2025 01:53:34 -0800 (PST)
+Received: from ?IPV6:2003:d8:2f30:b00:cea9:dee:d607:41d? (p200300d82f300b00cea90deed607041d.dip0.t-ipconnect.de. [2003:d8:2f30:b00:cea9:dee:d607:41d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b303386f1sm12732923f8f.3.2025.11.10.01.53.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 01:52:38 -0800 (PST)
-Message-ID: <513678ee-b93d-40a4-a565-ca6ae41bdde7@linaro.org>
-Date: Mon, 10 Nov 2025 11:52:34 +0200
+        Mon, 10 Nov 2025 01:53:34 -0800 (PST)
+Message-ID: <fbca7868-6f68-4b98-a2f2-e39eb46b7f12@gmail.com>
+Date: Mon, 10 Nov 2025 10:53:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] nvmem: add Samsung Exynos OTP support
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: semen.protsenko@linaro.org, willmcvicker@google.com,
- kernel-team@android.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251031-gs101-otp-v1-0-2a54f6c4e7b6@linaro.org>
- <20251031-gs101-otp-v1-2-2a54f6c4e7b6@linaro.org>
- <93d5636b-a515-4976-b68c-9606924eab8f@kernel.org>
+Subject: Re: [PATCH] mm/huge_memory: restrict __GFP_ZEROTAGS to HW tagging
+ architectures
+To: Jan Polensky <japo@linux.ibm.com>, catalin.marinas@arm.com
+Cc: akpm@linux-foundation.org, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, will@kernel.org
+References: <20251031170133.280742-1-catalin.marinas@arm.com>
+ <20251109003613.1461433-1-japo@linux.ibm.com>
+ <690ce196-58cb-4252-ab72-967e1e1574cf@gmail.com>
+ <aRG05VS-IIxV2y_C@li-276bd24c-2dcc-11b2-a85c-945b6f05615c.ibm.com>
+From: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <93d5636b-a515-4976-b68c-9606924eab8f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <aRG05VS-IIxV2y_C@li-276bd24c-2dcc-11b2-a85c-945b6f05615c.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_015240_860033_41B1D9FC 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20251110_015337_265409_795C577A 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,126 +107,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/4/25 9:19 AM, Krzysztof Kozlowski wrote:
-> On 31/10/2025 13:45, Tudor Ambarus wrote:
->> Add support for the Samsung Exynos OTP controller. On the Google GS101
->> SoC, this controller provides 32 Kbit of OTP memory space that can be
->> read/program/lock using a specific sequence of register accesses.
+On 10.11.25 10:48, Jan Polensky wrote:
+> On Mon, Nov 10, 2025 at 10:09:31AM +0100, David Hildenbrand (Red Hat) wrote:
+>> On 09.11.25 01:36, Jan Polensky wrote:
+>>> The previous change added __GFP_ZEROTAGS when allocating the huge zero
+>>> folio to ensure tag initialization for arm64 with MTE enabled. However,
+>>> on s390 this flag is unnecessary and triggers a regression
+>>> (observed as a crash during repeated 'dnf makecache').
+>>>
+>>> Restrict the use of __GFP_ZEROTAGS to architectures that support
+>>> hardware memory tagging (currently arm64 with MTE or KASAN HW tags).
+>>> This avoids unintended side effects on other platforms.
+>>>
+>>> Fixes: 1579227fe0f0 ("mm/huge_memory: initialise the tags of the huge zero folio")
+>>> Link: https://lore.kernel.org/r/20251031170133.280742-1-catalin.marinas@arm.com
+>>> Signed-off-by: Jan Polensky <japo@linux.ibm.com>
+>>> ---
+>>>    mm/huge_memory.c | 9 +++++----
+>>>    1 file changed, 5 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>>> index aae283b00857..0c1794656d7a 100644
+>>> --- a/mm/huge_memory.c
+>>> +++ b/mm/huge_memory.c
+>>> @@ -209,14 +209,15 @@ unsigned long __thp_vma_allowable_orders(struct vm_area_struct *vma,
+>>>
+>>>    static bool get_huge_zero_folio(void)
+>>>    {
+>>> +	gfp_t gfp = (GFP_TRANSHUGE | __GFP_ZERO) & ~__GFP_MOVABLE;
+>>>    	struct folio *zero_folio;
+>>>    retry:
+>>>    	if (likely(atomic_inc_not_zero(&huge_zero_refcount)))
+>>>    		return true;
+>>> -
+>>> -	zero_folio = folio_alloc((GFP_TRANSHUGE | __GFP_ZERO | __GFP_ZEROTAGS) &
+>>> -				 ~__GFP_MOVABLE,
+>>> -			HPAGE_PMD_ORDER);
+>>> +#if IS_ENABLED(CONFIG_KASAN_HW_TAGS) || IS_ENABLED(CONFIG_ARM64_MTE)
+>>> +	gfp |= __GFP_ZEROTAGS;
+>>> +#endif
 >>
->> The OTP controller register space is of interest as well because it
->> contains dedicated registers for the Product ID and the Chip ID (apart
->> other things like TMU or ASV info). Register the OTP controller
->> register space as a nvmem device so that other drivers can access its
->> contents using nvmem cells.
+>> That looks like the wrong approach. If an architecture does not support
+>> __GFP_ZEROTAGS it should not trigger anything. __GFP_ZEROTAGS should be ignored.
 >>
->> Support for the OTP memory space can follow and be modeled as a
->> dedicated nvmem device.
+>> I think the problem is that post_alloc_hook() does
 >>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> ---
->>  drivers/nvmem/Kconfig      | 10 +++++
->>  drivers/nvmem/Makefile     |  2 +
->>  drivers/nvmem/exynos-otp.c | 98 ++++++++++++++++++++++++++++++++++++++++++++++
->>  3 files changed, 110 insertions(+)
+>> if (zero_tags) {
+>> 	/* Initialize both memory and memory tags. */
+>> 	for (i = 0; i != 1 << order; ++i)
+>> 		tag_clear_highpage(page + i);
 >>
->> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
->> index e0d88d3199c11a3b71cc274b2114e9554ac486fc..f973e009737f2fbdc8511e50f1aa9e6003286065 100644
->> --- a/drivers/nvmem/Kconfig
->> +++ b/drivers/nvmem/Kconfig
->> @@ -84,6 +84,16 @@ config NVMEM_BRCM_NVRAM
->>  	  This driver provides support for Broadcom's NVRAM that can be accessed
->>  	  using I/O mapping.
->>  
->> +config NVMEM_EXYNOS_OTP
->> +	tristate "Samsung Exynos OTP support"
->> +	depends on ARCH_EXYNOS || COMPILE_TEST
->> +	help
->> +	  This driver provides support for the OTP controller found on some
->> +	  Samsung Exynos SoCs.
->> +
->> +	  This driver can also be built as a module. If so, the module
->> +	  will be called exynos-otp.
->> +
->>  config NVMEM_IMX_IIM
->>  	tristate "i.MX IC Identification Module support"
->>  	depends on ARCH_MXC || COMPILE_TEST
->> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
->> index 70a4464dcb1e25cf9116280a32f4a0f4f9941a75..920a536fc359a5a7d8f3aabba6a712e85c277ee7 100644
->> --- a/drivers/nvmem/Makefile
->> +++ b/drivers/nvmem/Makefile
->> @@ -20,6 +20,8 @@ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
->>  nvmem-bcm-ocotp-y			:= bcm-ocotp.o
->>  obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
->>  nvmem_brcm_nvram-y			:= brcm_nvram.o
->> +obj-$(CONFIG_NVMEM_EXYNOS_OTP)		+= nvmem-exynos-otp.o
->> +nvmem-exynos-otp-y			:= exynos-otp.o
->>  obj-$(CONFIG_NVMEM_IMX_IIM)		+= nvmem-imx-iim.o
->>  nvmem-imx-iim-y				:= imx-iim.o
->>  obj-$(CONFIG_NVMEM_IMX_OCOTP)		+= nvmem-imx-ocotp.o
->> diff --git a/drivers/nvmem/exynos-otp.c b/drivers/nvmem/exynos-otp.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..3bff9421e6f2b80a8f20533b490a289687d117e8
->> --- /dev/null
->> +++ b/drivers/nvmem/exynos-otp.c
->> @@ -0,0 +1,98 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright 2025 Linaro Ltd.
->> + *
->> + * Samsung Exynos OTP driver.
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/device.h>
->> +#include <linux/err.h>
->> +#include <linux/ioport.h>
->> +#include <linux/module.h>
->> +#include <linux/nvmem-provider.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/regmap.h>
->> +#include <linux/mod_devicetable.h>
->> +
->> +struct exynos_otp {
->> +	struct clk *pclk;
->> +	struct regmap *regmap;
->> +};
->> +
->> +static int exynos_otp_read(void *context, unsigned int offset, void *val,
->> +			   size_t bytes)
->> +{
->> +	struct exynos_otp *eotp = context;
->> +
->> +	return regmap_bulk_read(eotp->regmap, offset, val, bytes / 4);
+>> 	/* Take note that memory was initialized by the loop above. */
+>> 	init = false;
+>> }
+>>
+>> And tag_clear_highpage() is a NOP on other architectures.
+>>
+>> Gah.
+>>
+>> I wonder if the following would work:
+>>
+>>
+>> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+>> index 65db9349f9053..56b82e116cb79 100644
+>> --- a/include/linux/gfp_types.h
+>> +++ b/include/linux/gfp_types.h
+>> @@ -47,7 +47,9 @@ enum {
+>>          ___GFP_HARDWALL_BIT,
+>>          ___GFP_THISNODE_BIT,
+>>          ___GFP_ACCOUNT_BIT,
+>> +#ifdef __HAVE_ARCH_TAG_CLEAR_HIGHPAGE
+>>          ___GFP_ZEROTAGS_BIT,
+>> +#endif
+>>   #ifdef CONFIG_KASAN_HW_TAGS
+>>          ___GFP_SKIP_ZERO_BIT,
+>>          ___GFP_SKIP_KASAN_BIT,
+>> @@ -85,7 +87,11 @@ enum {
+>>   #define ___GFP_HARDWALL                BIT(___GFP_HARDWALL_BIT)
+>>   #define ___GFP_THISNODE                BIT(___GFP_THISNODE_BIT)
+>>   #define ___GFP_ACCOUNT         BIT(___GFP_ACCOUNT_BIT)
+>> +#ifdef __HAVE_ARCH_TAG_CLEAR_HIGHPAGE
+>>   #define ___GFP_ZEROTAGS                BIT(___GFP_ZEROTAGS_BIT)
+>> +#else
+>> +#define ___GFP_ZEROTAGS                0
+>> +#endif
+>>   #ifdef CONFIG_KASAN_HW_TAGS
+>>   #define ___GFP_SKIP_ZERO       BIT(___GFP_SKIP_ZERO_BIT)
+>>   #define ___GFP_SKIP_KASAN      BIT(___GFP_SKIP_KASAN_BIT)
+>>
+>>
+>> Likely we'd have to make __HAVE_ARCH_TAG_CLEAR_HIGHPAGE a proper
+>> kconfig option.
+>>
+>>
+>> Then we could turn the default implementation of
+>> tag_clear_highpage() into a BUILD_BUG.
+>>
+> I'd like to suggest to keep the enum untouched and only use the second
+> part of your suggestion.
+
+Why? We also do that for CONFIG_KASAN_HW_TAGS, CONFIG_LOCKDEP and 
+CONFIG_SLAB_OBJ_EXT.
+
+> Which works by the way for our arch (s390).
 > 
+>   include/linux/gfp_types.h | 4 ++++
+>   1 file changed, 4 insertions(+)
 > 
-> So you are just reading MMIO and pretending this is NVMEM?
-
-Right. I thought of registering the OTP register space as a nvmem
-device, so that consumers can read it. The OTP memory space (32Kbit,
-the one accessed via OTP commands) can then be registered as another
-nvmem device.
-
+> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+> index 65db9349f905..c12d8a601bb3 100644
+> --- a/include/linux/gfp_types.h
+> +++ b/include/linux/gfp_types.h
+> @@ -85,7 +85,11 @@ enum {
+>   #define ___GFP_HARDWALL        BIT(___GFP_HARDWALL_BIT)
+>   #define ___GFP_THISNODE        BIT(___GFP_THISNODE_BIT)
+>   #define ___GFP_ACCOUNT     BIT(___GFP_ACCOUNT_BIT)
+> +#ifdef __HAVE_ARCH_TAG_CLEAR_HIGHPAGE
+>   #define ___GFP_ZEROTAGS        BIT(___GFP_ZEROTAGS_BIT)
+> +#else
+> +#define ___GFP_ZEROTAGS        0
+> +#endif
+>   #ifdef CONFIG_KASAN_HW_TAGS
+>   #define ___GFP_SKIP_ZERO   BIT(___GFP_SKIP_ZERO_BIT)
+>   #define ___GFP_SKIP_KASAN  BIT(___GFP_SKIP_KASAN_BIT)
 > 
-> Is it possible to actually do the other actions from your commit msg
-> "read/program/lock"? If not, then you just created NVMEM abstraction
+> This solution would be sufficient from my side, and I would appreciate a
+> quick application if there are no objections.
 
-It is possible to add support for the OTP memory space (32Kbit) and model
-it as a nvmem device, but I don't really care about it because downstream
-does not use the OTP memory space in the kernel.
+As raised, to be sure that __HAVE_ARCH_TAG_CLEAR_HIGHPAGE is always seen 
+early in that file, it should likely become a CONFIG_ thing.
 
-I now think that the correct way to handle the chipid for gs101 is to
-register to the SoC interface directly from the efuse driver. Support
-for the OTP memory space can come later on if needed, I don't really need
-to register any nvmem space for now.
-
-Thanks,
-ta
-
-> over existing chipid completely duplicating the driver (with more
-> translation layers).
-> 
-> Best regards,
-> Krzysztof
 
