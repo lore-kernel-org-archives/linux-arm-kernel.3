@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1045ECCF9E3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE747CCFA13
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=; b=pCaghLScPNID0Obau1kd1L493v
-	dduBLVqMXIG3rc78eLSmeduH7tWSeA2KVghzbHkGRKneYc8SfcJxvqnrKfY+O5mtRr/bkm8tpi0Bk
-	/0+INoCbtuKKs58/A6LJJWo1ojFZmSDEK2vjq/PEq3685Cz6cWQTROTIu25stuqReiJ3IqtxZz+uO
-	99ARZMNo481ZczH36yeKG+JRNCFMWuFDOY4y2UjRrFlQKbGp+vptpVZYxAm/6SwWNo1wFwuW1sZiM
-	g81A6jOiCXf3Tp7W59xlCMv59fH7oVCuXmvaft8s4ADFZNifjBc5uefI4uVaemRpd6vd4KO9bZ6PA
-	5b8nY6jw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5c9ooz8wSRU2u6BlT2LPhS1jlGu4ehqNMANigrfTTlE=; b=BOjn5x5gyD37bdDfKagZtpeAc+
+	XgIZVeOfXOZ4dRPTKGWxg+kVue8Bnw2TKDjSxO4EC0rVxQ21CFKzdHKba03k+zsERIvJ99KWGx3Vb
+	yicZ+EfF7sk2qdVqu4VqAYRxE2TO+Rddh+nyPWDhFY1omvN/hElmV3mchlB0rQdxmjuW+2BNWIHcv
+	G0s+hnIxTqkCVmOl03jYGFB/ChB9XKK2Qtppmdw/SCgBHZWQpm0uTBkJQxj96+TggewajM8R1ZGs1
+	2qnV4/aNsbva1jJ60BE7ApgN7oN2RLyoYmcKNVg9dAJa3d7s7Pz+JMqCqtv6AKBh/U9O2zQhpePUM
+	VJr/R6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITJj-00000005dLY-155p;
-	Mon, 10 Nov 2025 14:56:27 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vITJo-00000005dNJ-3WRr;
+	Mon, 10 Nov 2025 14:56:32 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITJg-00000005dJy-2hFE
+	id 1vITJh-00000005dJz-11Zs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:56:26 +0000
+	Mon, 10 Nov 2025 14:56:27 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762786579;
+	s=2020; t=1762786580;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=;
-	b=cDtieN82wpdjhzWTPsUOfwZG/p/1+oKraQcT/cbsAlj31MJty6qZD95TIDMDW7dOH+uBqf
-	QjmF6NYLuOPR7x+HTyN1n1qc+Zv28p/cyeEDO25RSDhgdMMcNsHsOtKa5l9HM7QRJPZnK2
-	eE0z8zPm9lrFYpaMAqxHjPc9Ojh9m4BUM/tr0hxLbk7e39GZo/r2kFWnGBkGmBJOeZReJD
-	BDTe+MKaZgnQAIX+nLsxhxCVjk7mP2d2p4EoaNO3mqee1AHG9rc50wygEMIzANos4tgZfb
-	0cL04Al0XP9huXLxT42fq3qvgnUnAZ6psvmFX5rbThnVNGxiXl5z5OskZySELg==
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5c9ooz8wSRU2u6BlT2LPhS1jlGu4ehqNMANigrfTTlE=;
+	b=sPz8UBELIsmxkqtdMx/Qr3z0hMIn8xEcphfEOKUl0phKipK53nWRZ05fm05ino7wM6Byhc
+	SxV5CLFS34UVo90wZj4yurkecDUJ2a2aQTw2Omw4qtaqbEPWuZB5LeP7t6g264qNsXQkw7
+	RO24JyJo88e5QnlIwVcooDJ1nY4J/ZlAr2n7kCsSMnXRYvz3dj/a27fgM6BBg5cONa4PjS
+	bu8ngPMg9eE9CuQo8ifcKNnCaH63oCljAHJj9Fga1QFhcbEoKu9D5jAva/saucX4graKxw
+	H9fXjK8oY5LV6kF3xWP9m4Za9K4VJ7NQ4oRabAnjn0Sx5DIH165rlJ7v8esD+A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762786579;
+	s=2020e; t=1762786580;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vd/3FqZBEmb3t88zXyTeUc/Fqx5bvAc+Cgy+ABhvCx4=;
-	b=d/53tPbkWQciAgJehnDhruamFYelbOrDDuj+CR34h0Hy9PlvA4ShfTJj5Z2kiVth0f+rrT
-	nbTQICMv6dJrJfBA==
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5c9ooz8wSRU2u6BlT2LPhS1jlGu4ehqNMANigrfTTlE=;
+	b=6q7RV/lvnibF77A9aLEfv5p4DKW5Y/jXq4K5BoqANlSwDMT00hJAv8/L8HCgyseZH8HNp+
+	lyZkZyMLO27nWdAA==
 To: linux-arm-kernel@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
 Cc: Russell King <linux@armlinux.org.uk>,
 	Xie Yuanbin <xieyuanbin1@huawei.com>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Linus Walleij <linus.walleij@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v3 0/5] ARM: Remaining PREEMPT_RT bits 
-Date: Mon, 10 Nov 2025 15:55:50 +0100
-Message-ID: <20251110145555.2555055-1-bigeasy@linutronix.de>
+Subject: [PATCH v3 3/5] ARM: Disable jump-label on PREEMPT_RT
+Date: Mon, 10 Nov 2025 15:55:53 +0100
+Message-ID: <20251110145555.2555055-4-bigeasy@linutronix.de>
+In-Reply-To: <20251110145555.2555055-1-bigeasy@linutronix.de>
+References: <20251110145555.2555055-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_065624_819152_E9B36544 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20251110_065626_255176_3132AE32 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-this is the last batch I have to enable PREEMPT_RT on the ARM
-architecture.
-Last time I posted them there was some discussion about making the
-branch predictor hardening worse. I redid it hoping it improved now and
-does not make it worse.
+From: Thomas Gleixner <tglx@linutronix.de>
 
-Is this okay now?
+jump-labels are used to efficiently switch between two possible code
+paths. To achieve this, stop_machine() is used to keep the CPU in a
+known state while the opcode is modified. The usage of stop_machine()
+here leads to large latency spikes which can be observed on PREEMPT_RT.
 
-v2=E2=80=A6v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@=
-linutronix.de
-  - Collected tags.
+Jump labels may change the target during runtime and are not restricted
+to debug or "configuration/ setup" part of a PREEMPT_RT system where
+high latencies could be defined as acceptable.
 
-v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@=
-linutronix.de
-  - Allow to enable jump-labels on UP. The UP build does not involve
-    stop_machine(). Reworked by Arnd.
+On 64-bit Arm, it is possible to use jump labels without the
+stop_machine() call, which architecturally provides a way to atomically
+change one 32-bit instruction word while keeping maintaining consistency,
+but this is not generally the case on 32-bit, in particular in thumb2
+mode.
 
-  - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
-    disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
-    needed.
+Disable jump-label support on a PREEMPT_RT system when SMP is enabled.
 
-  - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
-    which in turn depends on !KVM. Since KVM has been removed from ARM
-    it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
-    by Arnd.
+[bigeasy: Patch description.]
+[arnd: add !SMP case, extend changelog]
 
-Sebastian Andrzej Siewior (3):
-  ARM: mm: fault: Move harden_branch_predictor() before interrupts are
-    enabled
-  ARM: Disable HIGHPTE on PREEMPT_RT kernels
-  ARM: Allow to enable RT
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ arch/arm/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thomas Gleixner (1):
-  ARM: Disable jump-label on PREEMPT_RT
-
-Yadi.hu (1):
-  ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
-
- arch/arm/Kconfig    |  5 +++--
- arch/arm/mm/fault.c | 16 ++++++++++------
- 2 files changed, 13 insertions(+), 8 deletions(-)
-
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 4fb985b76e97f..5941566df3ed0 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -82,7 +82,7 @@ config ARM
+ 	select HAS_IOPORT
+ 	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
+ 	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
+-	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
++	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU && =
+(!PREEMPT_RT || !SMP)
+ 	select HAVE_ARCH_KFENCE if MMU && !XIP_KERNEL
+ 	select HAVE_ARCH_KGDB if !CPU_ENDIAN_BE32 && MMU
+ 	select HAVE_ARCH_KASAN if MMU && !XIP_KERNEL
 --=20
 2.51.0
 
