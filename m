@@ -4,131 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FC4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F96ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z1sh5TmGoz6Jgc/8yxa7Z0cN9cWHOtB+XEJ7MN02YQ0=; b=YUpLymncHb8Df8HAp29XfJw9MH
-	n+0Ap1XcFoVqWtkbwiXnMyovhPk/tq+ThPByXbPSTK4rfJIZR/YFIFckFvx10jTVJcQ655kCdRQ4k
-	oz6cw+sriUnFDSbuSzZgLdy1p1FhhAigYfSpGwmDS0lr9pya252dotVlhVFAHu29a0+S/iFTNaojn
-	e97awvHIIAk2CmFZskg/pkAj8gmMYwT2cpWuL8gDT0mwFkG06kBdg75XXIhmCTfd93HbxBai8crHh
-	Rv62wAhSPu6iuf/dUy4L9mO9VpXQl+CilcKJS2XohEJ5B5Tkfx/ZXPbY5FzY85mQFyMKjZLP3Idug
-	G6HYGgaw==;
+	bh=oLRDHES8x7hy2Cq6bFhMakeR+ZtfEVkHELo4BsFny2w=; b=NTIEk15WOY9LSeRPDZ9mA6MIAZ
+	RLpB8kl8ilCAbCjwbKQNfM9PFpDIRWboH64BAgziZPg5wZXAxeONu26ZAJkhaXbEfYjTP2NaV/oSK
+	YCstiXi16zBRMae4/GfOMdQi/g6mXiwIyLAHsXVCqVeuTxpcLHBQ8A7ATnsz7SQVq7MNStlSo0b7U
+	73rYSc1WZfe1MGPKzCK37yn0RpWLyKq2g/lCquchpeulRT4lUE4w4L1MzENyfHkRsUdxtJwoRss6y
+	/KsAlHoYqj4JE3W71ZiBHdPU0f18k96Ge3qtMeZ7+oIMqrhC+kP1hEcNChG/yI3B4Pz7Lev1+bzci
+	NyNbOULA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIN2Z-00000004xWE-45cy;
-	Mon, 10 Nov 2025 08:14:20 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vIN3g-00000004xhG-3cFQ;
+	Mon, 10 Nov 2025 08:15:28 +0000
+Received: from mail-vs1-f45.google.com ([209.85.217.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIN2X-00000004xVZ-3hHa
+	id 1vIN3d-00000004xgL-1gfR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 08:14:19 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 621771F399;
-	Mon, 10 Nov 2025 08:14:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762762454; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z1sh5TmGoz6Jgc/8yxa7Z0cN9cWHOtB+XEJ7MN02YQ0=;
-	b=X+CraUtYEnj5d2o57jTQqWsqtuF5/mSgSlPRZhtlw/M2NkgxLG7qIgQbGkntn9Df2yrWXV
-	PtoO8tRzyjvIaC+G5bp26jlfKC+MK5mXG4o9doRUeC12HA8gvkC0G1SrbB+dK3Ja7eFWNf
-	osy0j/zS7S1DGUx+qmd9pBLMgMOH/ZY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762762454;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z1sh5TmGoz6Jgc/8yxa7Z0cN9cWHOtB+XEJ7MN02YQ0=;
-	b=w4ytOpwLHgPAeMgalPau+4o4NKbcJYxSmA7kqR3ji8t9s0VUYMniEi4x313XRWBoW7JmZL
-	qobSq8dDqo/ozDAQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=yVVsWHy4;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=QUue0kzI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1762762453; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z1sh5TmGoz6Jgc/8yxa7Z0cN9cWHOtB+XEJ7MN02YQ0=;
-	b=yVVsWHy4USkZSr8H6dbCqxMmzZ2ORvSyqHdmZPMVGQEiedy7H+5ckHlVNOZFp+xovassFJ
-	BNY6u1dJj/fcE0q1xKnRyPy52/ltj0NmNP3JkJBvnuXihlBNZ0GRAUBtVdWCktiNnGmZuY
-	//T+sYF0+V1SUzXZnXX1t99YwLHzfGk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1762762453;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z1sh5TmGoz6Jgc/8yxa7Z0cN9cWHOtB+XEJ7MN02YQ0=;
-	b=QUue0kzIYLwecTRF8IFmE5sw9X6lHIcl2wzAdiyxNPbVD2+4xycZd+xiEZ7nloIn7Bt9Fe
-	xSsCeAbBQKA5cPCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1109413BA4;
-	Mon, 10 Nov 2025 08:14:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id uVGTAtWeEWk7HwAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 10 Nov 2025 08:14:13 +0000
-Date: Mon, 10 Nov 2025 09:14:12 +0100
-Message-ID: <87pl9qxq23.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: wangdich9700@163.com
-Cc: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	cezary.rojewski@intel.com,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: Re: [PATCH] ALSA: hda/realtek: Fix resource cleanup in alc_alloc_spec error path
-In-Reply-To: <20251110072349.102169-1-wangdich9700@163.com>
-References: <20251110072349.102169-1-wangdich9700@163.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: 621771F399
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[163.com];
-	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,intel.com,vger.kernel.org,lists.infradead.org,kylinos.cn];
-	RCPT_COUNT_SEVEN(0.00)[10];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.de:+]
+	Mon, 10 Nov 2025 08:15:27 +0000
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5dbde7f4341so2398598137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:15:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762762523; x=1763367323;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oLRDHES8x7hy2Cq6bFhMakeR+ZtfEVkHELo4BsFny2w=;
+        b=OVVElSz0UJ82O3TOJWZ0IuUoT3s82uIa5N4K7I+SMwHap8wR0DCwB585+EsllEu2aI
+         raczoaDpwwuuAmXHt55QF0QrXZizNUOjbM1ScntNEqB6ebRzypuQzS2wIELMULWYd7Xv
+         QoJDIgExOFSR2KZzPR/m9Yd/VXxCLLrjA7WizY9dvT4KpXv8uijf9M/7NaF5Raju+Ydk
+         u+UZS9c/XAhinSqDOjZrXNYdBN1umIa3k9bIbPrePxRDotGeYhlRy0pfwVsg5pViHJM2
+         Xk3eZnJt/pQhY0ZnIwDMsP0qY02aKXzT3NpmF6hmKtS1Kmd0oiUcXUla9wRS1UdWYQ8v
+         JYpA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrK4Suy4eZ59Rj7s3JeqXT/mBZZ78+3WbWKo2rnxLalqAYnQFFhH7jVvnYM8yBwpse8bFciQ4tVLCvkNk70L2N@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPawvn1GDijcGtbTHDCGbpJM4GR/TyoorjSnmM/Iveeg6m+HVZ
+	lR8bgDox/CZdEBTO76qVi8FmHLGeld4Sa0LabKhbkbCcV5w62wslp+K+sX389Lew
+X-Gm-Gg: ASbGncuWmg4ouvFovGX5LQC3ApKtDdrzpOKqeOcJdlA9awonLKpP8KFbfbNsHiOyvvZ
+	uYbWlE3VjlorEoyQ1AposUG63YZ3yRHZTGxVWaRd6LKxvESTM21UNLB6tYgi5AYHpPhzNbXq6iY
+	OQo6yS6pePtOsIM+WGFPcK1nWtEr8ecfu3bEs9C59H+aK7NDWUrGKrcZFT40oMLE1gd+qds+fbM
+	8+jxDiflclBx6S1tXA2y1VwgStwru/Pl8QA7KQNdybrAgNEfwkF/kKh+i1NtmvWBTcaqAbLSWgi
+	1unTMbAVVlFHy8rfcRFGBFneZe0PjF9h7jMMh01IJ98SfmIDQwuaNEoDuLAfk+Oj5gmCI5KkT2T
+	TTNJVZWm69vnBAUT81pEkoY30F2VtU0wJFcOCWT6+mHGbQ8GhMree4Uy0ug/RML3kebD1IIY8/v
+	rJ1aHzczFMJwuhyCHGkHLN4WPrcb4JxayXLFSic1EcAA==
+X-Google-Smtp-Source: AGHT+IEr6FX+5yZOpARSZfUki/Ghvlj0vufoHJR+IqCnoFWLyhXFc5CAnwYwvpfBhNj6Peh7g3EOAg==
+X-Received: by 2002:a05:6102:611c:20b0:5dd:c484:957a with SMTP id ada2fe7eead31-5ddc48498b8mr1614062137.21.1762762523412;
+        Mon, 10 Nov 2025 00:15:23 -0800 (PST)
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-93727691ea7sm2480448241.8.2025.11.10.00.15.22
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Nov 2025 00:15:22 -0800 (PST)
+Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-9372164d768so1221049241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:15:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWaCciewQ8OV85imLm3XCMi9daNXimcIPzjSKyiZB09oD4OlXUiu38mb3I0urad/JVdsMOVO6VKM2mex/zY4G2P@lists.infradead.org
+X-Received: by 2002:a05:6102:c8e:b0:5db:e179:1c2f with SMTP id
+ ada2fe7eead31-5ddb9e00ddbmr3016566137.18.1762762522544; Mon, 10 Nov 2025
+ 00:15:22 -0800 (PST)
+MIME-Version: 1.0
+References: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org> <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
+In-Reply-To: <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 10 Nov 2025 09:15:11 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWL76hY-Pv30ooSM1J6XkVWbRXSLTDCjfpPOvhFN4tKyA@mail.gmail.com>
+X-Gm-Features: AWmQ_bkP3DEy9lbUQUJXmebZYXL_ADR8ol219vUzw9saT-bIiR6N27eoovxyIr8
+Message-ID: <CAMuHMdWL76hY-Pv30ooSM1J6XkVWbRXSLTDCjfpPOvhFN4tKyA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] m68k: coldfire: Add RNG support for MCF54418
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Greg Ungerer <gerg@linux-m68k.org>, Olivia Mackall <olivia@selenic.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_001418_070970_636B54BF 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20251110_001525_449700_F208EAF2 
+X-CRM114-Status: GOOD (  34.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,75 +99,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 08:23:49 +0100,
-wangdich9700@163.com wrote:
-> 
-> From: wangdicheng <wangdicheng@kylinos.cn>
-> 
-> Ensure proper resource cleanup when alc_codec_rename_from_preset() fails
-> in alc_alloc_spec(). Currently, the error path only calls kfree(spec) but
-> does not:
-> 
-> 1. Destroy the initialized coef_mutex mutex
+Hi Jean-Michel,
 
-It's rather an optional operation.  As of the probing phase, there is
-really no much race, after all.
-(And, it's not handled properly in your patch, either...)
+On Fri, 7 Nov 2025 at 11:29, Jean-Michel Hautbois
+<jeanmichel.hautbois@yoseli.org> wrote:
+> Add platform device support for the MCF54418 RNGB hardware with clock
+> enabled at platform initialization.
+>
+> The imx-rngc driver now uses devm_clk_get_optional() to support both
+> Coldfire (always-on clock) and i.MX platforms (managed clock).
+>
+> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
 
-> 2. Reset codec->spec to NULL, potentially leaving a dangling pointer
+Thanks for your patch!
 
-This is done in snd_hda_codec_cleanup_for_unbind() called in the error
-handling of hda_codec_driver_probe().
+> --- a/drivers/char/hw_random/Kconfig
+> +++ b/drivers/char/hw_random/Kconfig
+> @@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
+>  config HW_RANDOM_IMX_RNGC
+>         tristate "Freescale i.MX RNGC Random Number Generator"
+>         depends on HAS_IOMEM
+> -       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COMPILE_TEST
+> +       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || M5441x || COMPILE_TEST
 
+Is the same RNG present in other Coldfire SoCs?
 
-thanks,
+>         default HW_RANDOM
+>         help
+>           This driver provides kernel-side support for the Random Number
+>           Generator Version C hardware found on some Freescale i.MX
+>           processors. Version B is also supported by this driver.
+> +         Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
+>
+>           To compile this driver as a module, choose M here: the
+>           module will be called imx-rngc.
+> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+> index 241664a9b5d9ac7244f15cbe5d5302ca3787ebea..44f20a05de0a425cb6ff7b2a347b111750ac3702 100644
+> --- a/drivers/char/hw_random/imx-rngc.c
+> +++ b/drivers/char/hw_random/imx-rngc.c
+> @@ -353,12 +353,19 @@ static const struct of_device_id imx_rngc_dt_ids[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
+>
+> +static const struct platform_device_id imx_rngc_devtype[] = {
+> +       { .name = "imx-rngc" },
 
-Takashi
+I believe this is identical to KBUILD_MODNAME, so the .name below
+should be sufficient for binding?
 
-> 
-> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
-> ---
->  sound/hda/codecs/realtek/realtek.c | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
-> 
-> diff --git a/sound/hda/codecs/realtek/realtek.c b/sound/hda/codecs/realtek/realtek.c
-> index ca377a5adadb..9a358c072e50 100644
-> --- a/sound/hda/codecs/realtek/realtek.c
-> +++ b/sound/hda/codecs/realtek/realtek.c
-> @@ -1029,6 +1029,7 @@ int alc_alloc_spec(struct hda_codec *codec, hda_nid_t mixer_nid)
->  {
->  	struct alc_spec *spec = kzalloc(sizeof(*spec), GFP_KERNEL);
->  	int err;
-> +	bool mutex_initialized = false;
->  
->  	if (!spec)
->  		return -ENOMEM;
-> @@ -1040,14 +1041,22 @@ int alc_alloc_spec(struct hda_codec *codec, hda_nid_t mixer_nid)
->  	/* FIXME: do we need this for all Realtek codec models? */
->  	codec->spdif_status_reset = 1;
->  	codec->forced_resume = 1;
+> +       { /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
+
+Or do you need this mainly for the addition of MODULE_DEVICE_TABLE(),
+i.e. the module is not auto-loaded based on just KBUILD_MODNAME?
+
 > +
->  	mutex_init(&spec->coef_mutex);
->  
->  	err = alc_codec_rename_from_preset(codec);
->  	if (err < 0) {
-> -		kfree(spec);
-> -		return err;
-> +		codec_err(codec, "Failed to rename codec: %d\n", err);
-> +		goto error;
->  	}
->  	return 0;
-> +
-> +error:
-> +	if (mutex_initialized)
-> +		mutex_destroy(&spec->coef_mutex);
-> +	codec->spec = NULL;
-> +	kfree(spec);
-> +	return err;
->  }
->  EXPORT_SYMBOL_NS_GPL(alc_alloc_spec, "SND_HDA_CODEC_REALTEK");
->  
-> -- 
-> 2.25.1
-> 
+>  static struct platform_driver imx_rngc_driver = {
+>         .driver = {
+>                 .name = KBUILD_MODNAME,
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+
+>                 .pm = pm_ptr(&imx_rngc_pm_ops),
+>                 .of_match_table = imx_rngc_dt_ids,
+>         },
+> +       .id_table = imx_rngc_devtype,
+>  };
+>
+>  module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
