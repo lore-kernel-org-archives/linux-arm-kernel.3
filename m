@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A81ECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6F6CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1wGfyaVdsxk2Z9k/75oWbkAnuDI8szZ8sPaIPGsbg4=; b=BzmuVXYOx8CVw48zjJHNLwVlGM
-	uP9cmZgMlbX7YwFucEJ7BfdOZdap9ntY5nGkjQXck2MeRY0r/kzFRdbxVgmox/lHdOEW0WSn2ez2S
-	JRJO5atsNWihyiPIderCMuq6mGhO44ueufKupuKsb/53AyH+2gPbiLo3v6/n+1LVtlR6ZpjFrqcO5
-	EEpcmxA5bJ5MruiyiwGBRR6lyjUNWqaDiyhY8lhc8toue/LviSYPZTeTvUzUcZbwf99+K3EIcRG10
-	60RBMFTY9H2Ahe/5dXRiMy/CssUS7I3Eerjn1AzkJ6zbwAkGJandTakDaN6fhPYJHwU1JM8lVTrvN
-	jtyfNHBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KQl61L9I9u2xQQF1X/UfEPM0pFoUMJSuuR9eAoGyqZU=; b=iXUaInhTySSJgA8c7JWRJc/0jH
+	xIcVk2QEOncYZ8RxqmYxViNnG63bIgO+eL2kUw5bZkwyITKh9adJdHxJvcTCF9nPDgJC+3i3z0JZf
+	NoD7in5fWR0QW24aVpk8/fYL7FvDCiEZjVDWFkmowmQrynPVUan+2EdULr4mhsymxFXIajM0kk5RR
+	AvPgcmBtWOPYTBXLmRQhi1sOgCaJQ1+gTeXhMh9yoR28WMVFsooD4aLUeasQdMNUJ/ZXYvNIE00H3
+	AGrUUWsItk5QyKNImLme2ktWWWKPtIRomseFc6YwYejlXRnBr1xyqwiaa4K1lLG89aHRR3+Xdekx5
+	CCx5mc+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOTS-000000057MX-1cBc;
-	Mon, 10 Nov 2025 09:46:10 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1vIOUk-000000057aH-3CHN;
+	Mon, 10 Nov 2025 09:47:30 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOTP-000000057LQ-08v3
+	id 1vIOUg-000000057Yc-3O5r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:46:09 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5942bac322dso2376739e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:46:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1762767964; x=1763372764; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S1wGfyaVdsxk2Z9k/75oWbkAnuDI8szZ8sPaIPGsbg4=;
-        b=rHI2rLXs06LZE5to/2YXXOSh2ZPBHdjjagR3uo5JR5kQHYCWGE6ttgc1GdWlX25+EH
-         ggG9/K3Xj5VcjEUYPzcCe2TDzRmtMkO4Iy4aRBG9hxhbiWk50FOmYRVJOUASUw9Z+a2z
-         oXzDvLQ/zFxtS6LM2LaLLSt9lyQLrN7fMsPFvPZBia7ulP8L0lXejJwcFwaUwQ/SznSs
-         jnn5i9Y9tutKPivxLtjwgamvHpylX1czeDrpJDE9HnrWudRdSQqay8hf4rHnuSJAdXg9
-         3G8d0hlpDbAdNG2KL4lOQhkZStWA3q1Bziu7DWq87TzqVPSfEtyZBf4S1FtWX1nM0YOQ
-         PKpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762767964; x=1763372764;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=S1wGfyaVdsxk2Z9k/75oWbkAnuDI8szZ8sPaIPGsbg4=;
-        b=u7L61NY3vXzNINCR+Tur3VcvpXl6RSM5nnkTgN5DA9lsisPc8ZWgczG36Vut3/61By
-         knbGV3+Vin1eSI9TnkOp4+0UQ9wgQxxqeokzSo9ptdtrdTEqLmCR9WulDpG5IONMkgs4
-         BlshCa0nSm6+sfiDLawM/ZIaueb4PR3SBEH3OBnAUFrlAW5WonV6AuCpzxb4u0Kofq7n
-         JdxKy22/oCoo4tHgU2O0mWhohO+Av8vTaLCMNlLRyHbEc/ICWBNvZxqI9mIS6k98xVBs
-         NsJkVSHE0P3l94Um3F6EaBtINEkJ0l/wy++fNfuZUu3vWbk6zgnLVgPHaGvHk5zLFdby
-         4kHw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVZ95Ji548njQQAXV5P1aGrm4S0+zgml0TD90ydrTqpZ8A/xMamLZOSfPSbngxVmFUztCPaSwUu0h32wQsZL8v@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCuYQBOafk5QhUcvFoIGzgdKUoSViWB47nvmr+fisbsWFCLws3
-	HZKXhgNHxgR2tHWMKUcMC5uXsWYsiW7zn95d/RTQnRxOWA3gU/y7RTRX4wptfdXZMIIcERHM0Ud
-	mz0R6I7LC94F734Gohb6lUmSpWQGyF/DM/CjW2ILecw==
-X-Gm-Gg: ASbGncuCoUvP75EE0R0y0yNKUhujDOIzUDxb24GlD15M2EtK3S/4iY5f1Nbw+y9eYeM
-	mtdP8/PKohaS/G4x3uQfSnlYtz5Y4NU+Uimx6PhPEWxiwGFgBD4S8qwxrdWm3EZCuM9J6oLb9BE
-	/B9QJJ5L9JRmOhodQ+vCCxpFmQdfcr6SaTX9j+y80i9W++4Gy5+VJp6UKui1WKjYkl1TRy2w0M0
-	oIPN9irpjAnAW0fkkFSBsuFl2bbaM1VIparLgbsg1RQ13UK7ztmZ1cWm/fAwvii61VJ5R1M5H5m
-	PX7ZU6CLluPfBZF3iBkSQz3ancg=
-X-Google-Smtp-Source: AGHT+IEapDIVTd3K1bAU32YeDgJ+hfEUFZ75bdtJQQ2tm2wsLYYaIB9HdEFBH57etQ4VQO2ruXk7jNm7rMa1KIXieBs=
-X-Received: by 2002:a05:6512:108a:b0:594:4b3e:2815 with SMTP id
- 2adb3069b0e04-5945f1867a2mr1922781e87.2.1762767964507; Mon, 10 Nov 2025
- 01:46:04 -0800 (PST)
+	Mon, 10 Nov 2025 09:47:29 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 998811F83E;
+	Mon, 10 Nov 2025 10:47:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1762768040;
+	bh=KQl61L9I9u2xQQF1X/UfEPM0pFoUMJSuuR9eAoGyqZU=; h=From:To:Subject;
+	b=Kc/FraVr8ImWie5WC1jnKVxUUKZybUzTIr+lzPA9SNd+LOWtP8X4l7o9cIbp8+bE9
+	 X7LRhRkAuMGkcvqGne9Inav3v9pAP1H3J8MWs8Z1CSFACj55DSesFQEOc/2Ur+Ko+W
+	 WHDSHDbY7ftYB9eXrwj60NNdKXU6MQjine3zfmej8XYClIUJn2dywB6/4F/zDEu/Up
+	 hJV1RNG2/stKN+IszKMJKbcXntU92f+dPCW66xCMC8Eu5odPidFQaO9XFn3bgN0hF4
+	 6KSFmZeCpbHUDXsyMEw/sCSUL7Jf0Wh/m7QoWoXwMmbHUWjV4EnOrpNhmM47Ny9krY
+	 VGTL7LA9c+6/w==
+Date: Mon, 10 Nov 2025 10:47:16 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Andrew Davis <afd@ti.com>,
+	Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add Aquila AM69 Support
+Message-ID: <20251110094716.GA7356@francesco-nb>
+References: <20251104144915.60445-1-francesco@dolcini.it>
+ <20251104145240.61219-1-francesco@dolcini.it>
+ <20251104145240.61219-2-francesco@dolcini.it>
+ <d77bf3dd-4501-4f17-a776-3353f96f4fb1@ti.com>
+ <20251105115335.GA14157@francesco-nb>
+ <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
+ <20251106101932.GA5975@francesco-nb>
+ <e1b2a13d-fab0-47f1-aae3-f2661c94d54a@ti.com>
 MIME-Version: 1.0
-References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
-In-Reply-To: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 10 Nov 2025 10:45:53 +0100
-X-Gm-Features: AWmQ_bmNaGfRXrBGj05YeySBEfqaBzH8jnH775-U4Qey4HBlXtV5VLim7kMBPJg
-Message-ID: <CAMRc=Md4X-GWpeRgun6zv6dddKFqqrjUSveq3fNOe5AboLAcXg@mail.gmail.com>
-Subject: Re: [PATCH v3 00/10] gpio: improve support for shared GPIOs
-To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e1b2a13d-fab0-47f1-aae3-f2661c94d54a@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_014607_331626_F2CD9A3A 
-X-CRM114-Status: GOOD (  31.04  )
+X-CRM114-CacheID: sfid-20251110_014727_888495_DB2DA217 
+X-CRM114-Status: GOOD (  35.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 12:20=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl=
-> wrote:
->
-> Problem statement: GPIOs are implemented as a strictly exclusive
-> resource in the kernel but there are lots of platforms on which single
-> pin is shared by multiple devices which don't communicate so need some
-> way of properly sharing access to a GPIO. What we have now is the
-> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
-> doesn't do any locking or arbitration of access - it literally just hand
-> the same GPIO descriptor to all interested users.
->
-> The proposed solution is composed of three major parts: the high-level,
-> shared GPIO proxy driver that arbitrates access to the shared pin and
-> exposes a regular GPIO chip interface to consumers, a low-level shared
-> GPIOLIB module that scans firmware nodes and creates auxiliary devices
-> that attach to the proxy driver and finally a set of core GPIOLIB
-> changes that plug the former into the GPIO lookup path.
->
-> The changes are implemented in a way that allows to seamlessly compile
-> out any code related to sharing GPIOs for systems that don't need it.
->
-> The practical use-case for this are the powerdown GPIOs shared by
-> speakers on Qualcomm db845c platform, however I have also extensively
-> tested it using gpio-virtuser on arm64 qemu with various DT
-> configurations.
->
-> I'm Cc'ing some people that may help with reviewing/be interested in
-> this: OF maintainers (because the main target are OF systems initially),
-> Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
-> in audio or regulator drivers and one of the goals of this series is
-> dropping the hand-crafted GPIO enable counting via struct
-> regulator_enable_gpio in regulator core), Andy and Mika because I'd like
-> to also cover ACPI (even though I don't know about any ACPI platform that
-> would need this at the moment, I think it makes sense to make the
-> solution complete), Dmitry (same thing but for software nodes), Mani
-> (because you have a somewhat related use-case for the PERST# signal and
-> I'd like to hear your input on whether this is something you can use or
-> maybe it needs a separate, implicit gpio-perst driver similar to what
-> Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
-> last week in person and I also use the auxiliary bus for the proxy
-> devices).
->
-> Merging strategy: patches 1-6 should go through the GPIO tree and then
-> ARM-SoC, ASoC and regulator trees can pull these changes from an
-> immutable branch and apply the remaining patches.
->
+Hi Vignesh,
 
-Can I get some Reviewed-bys under the GPIO patches if there are no
-other open issues? I would like for this to start making its way
-upstream if there are no strong objections to the concept. After a
-release or two, I'd like to start enabling it on more platforms.
+On Mon, Nov 10, 2025 at 10:06:58AM +0530, Vignesh Raghavendra wrote:
+> On 06/11/25 15:49, Francesco Dolcini wrote:
+> >>> Yes, known. Is this an issue?
+> >>>
+> >>> This node must be disabled, no matter what is present in any included
+> >>> dtsi file, it's a deliberate decision.
+> >>>
+> >>> This dtsi file describes a SoM, the used pins/functions are defined on
+> >>> the pinout, but this node cannot be enabled unless the SoM is mated with
+> >>> a carrier board that is exposing it.
+> >> Same as my point above, you shouldn't enable nodes that are not used
+> >> or have anything attached. The SoM only has some edge connectors so
+> >> it should not be enabled at the SoM level, that we seem to agree, but
+> >> the carrier board doesn't connect those lines to anything either. They
+> >> just run to a pin header with nothing attached, how is that header
+> >> any different than the pins on the edge of the SoM?
+> > You are commenting something unrelated here, or I am not understanding
+> > you.
+> > 
+> > You commented that the status = "disabled" is redundant. We both agree
+> > that this node needs to be disabled in the SoM dtsi, and it is already
+> > like that.
+> > 
+> > I would prefer to keep the redundant "disabled", because I see value on
+> > not having to rely on what is done on any included dtsi, where the
+> > original node is defined. 
+> 
+> 
+> One can always reverse compile the DTB to see if a node is enabled or not.
 
-Bart
+Sure. My reason for having it explicitly disabled here is not to have to
+depend on anything that is happening on the included dtsi on this
+regard, given that we really want those disabled in the SoM.
+
+See for example https://lore.kernel.org/all/20251015111344.3639415-1-s-vadapalli@ti.com/
+where you can see that our verdin am62 was not impacted by this change
+at all. 
+
+To me this is just a benefit, without any drawback.
+
+> > I see this as a common pattern in multiple
+> > dts/dtsi file and is what I would prefer to have (and I do not see any
+> > kind of maintenance  overhead on having it nor this being in conflict
+> > with dts-coding-style.rst).
+> 
+> I cannot seem to find any precedence to such a pattern (adding status =
+> "disabled" for nodes that are already disabled at SoC level dtsi.) Could
+> you point me to some?
+
+Just a couple of examples, you can easily find more if needed
+
+  k3-am62-verdin.dtsi:&main_spi1
+  nxp/imx/imx6qdl-phytec-phycore-som.dtsi:&fec
+
+
+> > Vignesh, Nishanth, what is your expectation on this redundant
+> > `status = "disabled"` property?
+> > 	
+> 
+> Assuming such pattern exists, please add a note in the commit message in
+> the next version.
+
+With that said, it's a small thing, if you prefer me to change it just
+let me know and I'll send a v2 with this changed.
+
+Vignesh: do you prefer a v2 with a mention in the commit message on the
+`disabled` node, or that I just get rid of those? Anything else that you
+spotted on this patch and that should be changed?
+
+Francesco
+
 
