@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21B2CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DA2CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PL4r8T5HCBfVnepkKGXuLZlKoUKMS8/UJfDhOW1jXE8=; b=tbH43kwUJqmml6tAPLPAe1mrX9
-	HME3ujZe/Gq59rRI2zQuxv93CLLwX/FtmpLhPE8qmgmoJjKefIrQ3yQxs4LrLlSaAznjGzu4a9cDx
-	hYhumKG+5RQz64jmMtpaoG27xyTDf242dytDBQt9O1Fkx616e/O3wDIVRfgE129MFAZriEsUs6wTF
-	NHtx+3xEOR+7ffSNICCMxRDiHEu0o+91udj+8DbZVb3zih53zEvDneGOky4VanwzobDX96NwqURJ3
-	nlnUv614o2+NKQwNXg27yUkSwkq7P+Qcr4A1FkcNRjyaDc6OnUOv6pq0IzghjAEIZ0dKRURDTMg/D
-	yqQNJxmQ==;
+	bh=b6nqL2pmL14wnGK+viK/sxZI1IOcFxqNHP3eMXSmelY=; b=LHZrpbxRViU1bnVsw4ApXilCXb
+	cwriwtzqO2tnCr4GaskL4QUGDavMRu2sgP5UymmxzArVpW0jTTt6qEYa5fo5I6Vz2ib+c0gm6x5zF
+	zjMT7ZRXKZZPuzamEhin3GsMgWMaPcrmBoe5/T4UEN1rFMr6Mx9vW86KxiBqmF0Uwru+Fxfcl3mYW
+	MAHjr2Xw9nvQbrZk8jx6tKKA0Qf+kVRUloca7GCjEYWJnqTnjVS9Azfh4yyNks+vxZxWpsrci1uQ0
+	WpIZVKGPAYK/oZSJRo7toBTxA1UZ9cye3kUI9UPw2mBo1woAx7NNJg4LuW4BpVSnVNewEigLiclIv
+	vgyjHfWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPJ3-00000005DOs-2Ep3;
-	Mon, 10 Nov 2025 10:39:29 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPHv-00000005CVL-3ygI;
-	Mon, 10 Nov 2025 10:38:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762771100; x=1794307100;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=tuiVzboSHyjf31tCwY25FNJV98tPuA8LcsvcOQFyAoE=;
-  b=HUWA0ql/oQd2AHoyWl4oIZnwuIodwPQ3VeBdZSYwEw1NWLcOmCcB7sSf
-   essk2QsMH0IgzKweV1VZ2WP6Vgt6YqWwBEvca086wDVkevVRWQjUn8qU3
-   ct2rpvapi+o5GQXdxf1v7EsfcQlxtCyEKl54eajerKZ0maL7Olp9erxld
-   mSFBA7ow3E4M2AgREmwt4cYPWyID85EpmZtgSMLDO0vwdgqyTFC4Mj3mj
-   oj8W9dXRistPStgmGbjmTJnNOxLlGTRI39P8qQWRrIs/YKujbTM/d+dIu
-   UbD2/QSI6IUi2WJcohttS5Nu77aXwqV42JmlnpUjZZ1eBnLbpJ2Es3hLb
-   w==;
-X-CSE-ConnectionGUID: CRGcSsrRT3KFX/6ZHJuqcQ==
-X-CSE-MsgGUID: uyLZEKnGQmmN3ImvkQ14Dw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11608"; a="87449161"
-X-IronPort-AV: E=Sophos;i="6.19,293,1754982000"; 
-   d="scan'208";a="87449161"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2025 02:38:20 -0800
-X-CSE-ConnectionGUID: W76lnCWyRCGiLpSa+rABMw==
-X-CSE-MsgGUID: LhFTpzGVRvW8XVjiIB9cww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,293,1754982000"; 
-   d="scan'208";a="188479809"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa006.fm.intel.com with ESMTP; 10 Nov 2025 02:38:14 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 9FCA4A1; Mon, 10 Nov 2025 11:38:07 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Vinod Koul <vkoul@kernel.org>,
-	Thomas Andreatta <thomasandreatta2000@gmail.com>,
-	Caleb Sander Mateos <csander@purestorage.com>,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
-	Stefan Roese <sr@denx.de>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Lizhi Hou <lizhi.hou@amd.com>,
-	Brian Xu <brian.xu@amd.com>,
-	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 12/13] dmaengine: sh: use sg_nents_for_dma() helper
-Date: Mon, 10 Nov 2025 11:23:39 +0100
-Message-ID: <20251110103805.3562136-13-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
-References: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
+	id 1vIPK5-00000005E0N-05WF;
+	Mon, 10 Nov 2025 10:40:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIPJw-00000005Dxo-3LW8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 10:40:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78DC8497;
+	Mon, 10 Nov 2025 02:40:16 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03D223F66E;
+	Mon, 10 Nov 2025 02:40:22 -0800 (PST)
+Message-ID: <a914297b-753b-4fa0-8ffc-3a64b006316c@arm.com>
+Date: Mon, 10 Nov 2025 10:40:21 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a
+ patched-in constant
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Christoffer Dall <christoffer.dall@arm.com>,
+ Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+ Yao Yuan <yaoyuan@linux.alibaba.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+ <20251109171619.1507205-5-maz@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251109171619.1507205-5-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_023820_055424_0FC17154 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20251110_024028_742641_E0C8F9C2 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of open coded variant let's use recently introduced helper.
+Hi Marc,
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/dma/sh/shdma-base.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+On 09/11/2025 17:15, Marc Zyngier wrote:
+> The trap bits are currently only set to manage CPU errata. However,
+> we are about to make use of them for purposes beyond beating broken
+> CPUs into submission.
+> 
+> For this purpose, turn these errata-driven bits into a patched-in
+> constant that is merged with the KVM-driven value at the point of
+> programming the ICH_HCR_EL2 register, rather than being directly
+> stored with with the shadow value..
+> 
+> This allows the KVM code to distinguish between a trap being handled
+> for the purpose of an erratum workaround, or for KVM's own need.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
 
-diff --git a/drivers/dma/sh/shdma-base.c b/drivers/dma/sh/shdma-base.c
-index 834741adadaa..1e1b65e46668 100644
---- a/drivers/dma/sh/shdma-base.c
-+++ b/drivers/dma/sh/shdma-base.c
-@@ -577,12 +577,11 @@ static struct dma_async_tx_descriptor *shdma_prep_sg(struct shdma_chan *schan,
- 	struct scatterlist *sg;
- 	struct shdma_desc *first = NULL, *new = NULL /* compiler... */;
- 	LIST_HEAD(tx_list);
--	int chunks = 0;
-+	int chunks;
- 	unsigned long irq_flags;
- 	int i;
- 
--	for_each_sg(sgl, sg, sg_len, i)
--		chunks += DIV_ROUND_UP(sg_dma_len(sg), schan->max_xfer_len);
-+	chunks = sg_nents_for_dma(sgl, sg_len, schan->max_xfer_len);
- 
- 	/* Have to lock the whole loop to protect against concurrent release */
- 	spin_lock_irqsave(&schan->chan_lock, irq_flags);
--- 
-2.50.1
+...
 
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index ac5f9c5d2b980..0ecadfa00397d 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -164,6 +164,22 @@ static inline int vgic_write_guest_lock(struct kvm *kvm, gpa_t gpa,
+>   	return ret;
+>   }
+>   
+> +void kvm_compute_ich_hcr_trap_bits(struct alt_instr *alt,
+> +				   __le32 *origptr, __le32 *updptr, int nr_inst);
+> +
+> +static inline u64 vgic_ich_hcr_trap_bits(void)
+> +{
+> +	u64 hcr;
+
+minor nit: Do we need a guard to make sure this isn't called before the 
+capabilities are finalized (given we may use it outside VM context, e.g. 
+VGIC probe). perhaps :
+
+WARN_ON(!system_capabilities_finalized());
+
+
+> +
+> +	/* All the traps are in the bottom 16bits */
+> +	asm volatile(ALTERNATIVE_CB("movz %0, #0\n",
+> +				    ARM64_ALWAYS_SYSTEM,
+> +				    kvm_compute_ich_hcr_trap_bits)
+> +		     : "=r" (hcr));
+
+
+Suzuki
 
