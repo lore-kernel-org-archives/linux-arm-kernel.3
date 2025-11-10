@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2742CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F140ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0eOas0Kv8rKCGibuIOwbESdq+sjn5rQpyCiSwqawk4o=; b=RS0w4Dmd61vqUCjZNJIcSFAyaz
-	phSlvQCOyZnejg56hLNAQNujQiqOTAGe6SFAg7eGGmKJDRSjJs2EJW4lpa/LBMseBnR1INmvK3zgk
-	FdFR51p91CxN9rtZ+SYSUDNs8ADgE2q2b8grOWagr+1nv8V5MWUjFYKPBQgQD7eOakgGBZ1SgE6Xq
-	T4YPB35oB+7RCUM3GQlcrUnXLNsAOyTNnaMtBWH+mCBQ6neqhSf1tMYbSYkfr1zcCHo4jGrvC7oC5
-	VVA0jGYQpdIgInSemaLHq9NqRtkYfdeX6V6mvmUc7Xzc9VlcADPwuRHYdp8EIPOanw+zsSZn6n1UW
-	U70nq6ZA==;
+	bh=AxS0gIyuyxO+g5+2ur2ApFnqBb6SI1efcsFEaVq6+Pk=; b=p9VRSLnTipvAq8Nn8C2HX6hlX6
+	Y/hMSFsD/YM9O7UFgyZ7A09shVr9OOv53DX0IqNiYrbpIatbhdw/r/Xw4+mYzruYjZm02mNerYsrZ
+	0I/hDZPufhChjMDj+TkZGroyE8m7tA0XbtXbMc2sVPK+OMSa7+Bexo93aloUFYmr2ojPqb81jCL47
+	4jqo36Os3dh2JSmfMOk6IDT5eOWPFn0LsPorPnEMDyKb1A1rJctO/WPvi1u3jJlwRql8zRh/qE2+9
+	VdNWeDmsf+fkWRMIayjuKbd3rvt4gNWa0PTb3EdKLgARn4/ht+HyuC4ilR74Cggy80H6dQVNcp7sT
+	yAYiqyAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPIP-00000005Cxk-2Rz7;
-	Mon, 10 Nov 2025 10:38:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vIPIR-00000005Czs-2TTQ;
+	Mon, 10 Nov 2025 10:38:51 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPI2-00000005CZv-2VHP;
-	Mon, 10 Nov 2025 10:38:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=0eOas0Kv8rKCGibuIOwbESdq+sjn5rQpyCiSwqawk4o=; b=DkDVtH1X7dINdEJuooy9qGXO1T
-	u6ntcmCb+k2/gQ72tt0nJ6syPEsUwvCcmAqh+N5/jwJyLCiiZhEZTjxuSa7N+W2zrIleOmaAkbPz2
-	YzRBE7JfKsclGLecBRu+hEjIQJZ6DMV0pyBM3KDd51FAzOTIEj1Z0MQ+JIMCJ01x7LcX5t99/otb+
-	DrTLgYQIh493l3kRQIlGc6fgO0Br5Ct/nqwt3YSfZnCkceck0FMcuwJHQ1+X5pCadIiQrq/ygjuMV
-	CpoypTX16Z3A3Euq0aIyr4dCKyscr8Y1DWNThDz3W2h5OdGUWDb8UbobNz3DBifKi5eBhrmkAaYMi
-	MIcSf09Q==;
-Received: from mgamail.intel.com ([192.198.163.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOQI-0000000AP76-2Jfa;
-	Mon, 10 Nov 2025 09:42:57 +0000
+	id 1vIPHv-00000005CUB-0mhS;
+	Mon, 10 Nov 2025 10:38:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762771102; x=1794307102;
+  t=1762771099; x=1794307099;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=8yAlrs00JSl0ed7bQ0uLXdi6Ey9t5OjHKtlhl1VgOJk=;
-  b=LrD9w6kAIXI3itwhZ62Al6aXaYzjzh/SmSoHwj0u+mpk3TlRPW86g2ID
-   RkbFvkY09TAJceSxFjcIyNAcPe+2IVjKeEhQdChXu+zFxak07dm0jHGVE
-   zhIgeAD+G0gsXeDozo0/OW/B2twu8Gfh32Mn9pk/Ast25rz5VVEo8zmLS
-   B70OBcOyqid889Nu6rkX4+qwr96YAl1mBPqBVNttdAuOWrQXNakMt+Aoh
-   dlp96E6N6TPXBxYeDG1wOm67wholMeXzNqn2y256Aazrv6dBbMwVha4WZ
-   DqYS3Js+wKXez4EWGGIPcf6BgNStgELzsCzwVBHjLeyxTCBbYGljq1Zqb
-   g==;
-X-CSE-ConnectionGUID: byIu4z1PTsWDI0faQuH2uA==
-X-CSE-MsgGUID: AQ3tkojBQSKfjKMJVFyAyw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11608"; a="68677988"
+  bh=XsqlCtPiLy+XmIRbck4ylskBkeyrZIVThqfjAn1sq0o=;
+  b=BaqJU7wxPYmjJfDG6zN4f1Fmg5B7QZxmv8GY8EEwKRhx5T4CKOb83X2M
+   m0rCNWgla+Hguworxj2EXjyysq1ekuRfUaclIIW1gTaF3mlAIzqzkhVgn
+   i7Xl8zoL2i/QYeuF4JDNFUtJMGdino1aOwt3ITrzgEYZHzzaD4OGiyuWc
+   8+OnrACPqrHMXcw/eiVovJaYdZEiclgnR83SdpmAo2OqqF6G9TGw+YxFF
+   zDVO/xbmN5zZ2Huahx8/duVFwZLXp3sAUDEi/H5wB8gVtjevbE0TGgrhp
+   75Xn2En9Bg1jxeHzr5veqoaBIih6ee0JGaZOuyHilR/VPApzPNG8iCp3S
+   A==;
+X-CSE-ConnectionGUID: qn9Ikk0wS4uzDZiECT9QYg==
+X-CSE-MsgGUID: 3vE2JovpSoKHk7eB0c4X6Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11608"; a="82445592"
 X-IronPort-AV: E=Sophos;i="6.19,293,1754982000"; 
-   d="scan'208";a="68677988"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2025 02:38:19 -0800
-X-CSE-ConnectionGUID: iB+mA8BnRL6lJ5u2cXHMGg==
-X-CSE-MsgGUID: lGPahJxqSQaaqozs/u17Ng==
+   d="scan'208";a="82445592"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2025 02:38:19 -0800
+X-CSE-ConnectionGUID: YB99gmtmQfaV/LSvfgaycg==
+X-CSE-MsgGUID: TRm5i9mLQvehQQMNp9VGpQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,293,1754982000"; 
-   d="scan'208";a="188384808"
+   d="scan'208";a="192750714"
 Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa009.jf.intel.com with ESMTP; 10 Nov 2025 02:38:13 -0800
+  by orviesa003.jf.intel.com with ESMTP; 10 Nov 2025 02:38:14 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 7E02F9A; Mon, 10 Nov 2025 11:38:07 +0100 (CET)
+	id 835C19B; Mon, 10 Nov 2025 11:38:07 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Stefan Wahren <wahrenst@gmx.net>,
@@ -96,17 +82,17 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 05/13] dmaengine: dw-axi-dmac: use sg_nents_for_dma() helper
-Date: Mon, 10 Nov 2025 11:23:32 +0100
-Message-ID: <20251110103805.3562136-6-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v2 06/13] dmaengine: k3dma: use sg_nents_for_dma() helper
+Date: Mon, 10 Nov 2025 11:23:33 +0100
+Message-ID: <20251110103805.3562136-7-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
 References: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_094254_978675_61E495FB 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20251110_023819_277904_8A61448B 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +111,35 @@ Instead of open coded variant let's use recently introduced helper.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/dma/k3dma.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-index b23536645ff7..493c2a32b0fe 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-@@ -850,7 +850,7 @@ dw_axi_dma_chan_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
- 	unsigned int loop = 0;
+diff --git a/drivers/dma/k3dma.c b/drivers/dma/k3dma.c
+index acc2983e28e0..88f9a2952edc 100644
+--- a/drivers/dma/k3dma.c
++++ b/drivers/dma/k3dma.c
+@@ -536,19 +536,14 @@ static struct dma_async_tx_descriptor *k3_dma_prep_slave_sg(
+ 	size_t len, avail, total = 0;
  	struct scatterlist *sg;
- 	size_t axi_block_len;
--	u32 len, num_sgs = 0;
-+	u32 len, num_sgs;
- 	unsigned int i;
- 	dma_addr_t mem;
- 	int status;
-@@ -867,9 +867,7 @@ dw_axi_dma_chan_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
- 	if (axi_block_len == 0)
+ 	dma_addr_t addr, src = 0, dst = 0;
+-	int num = sglen, i;
++	int num, i;
+ 
+ 	if (sgl == NULL)
  		return NULL;
  
--	for_each_sg(sgl, sg, sg_len, i)
--		num_sgs += DIV_ROUND_UP(sg_dma_len(sg), axi_block_len);
+ 	c->cyclic = 0;
+ 
+-	for_each_sg(sgl, sg, sglen, i) {
+-		avail = sg_dma_len(sg);
+-		if (avail > DMA_MAX_SIZE)
+-			num += DIV_ROUND_UP(avail, DMA_MAX_SIZE) - 1;
+-	}
 -
-+	num_sgs = sg_nents_for_dma(sgl, sg_len, axi_block_len);
- 	desc = axi_desc_alloc(num_sgs);
- 	if (unlikely(!desc))
- 		goto err_desc_get;
++	num = sg_nents_for_dma(sgl, sglen, DMA_MAX_SIZE);
+ 	ds = k3_dma_alloc_desc_resource(num, chan);
+ 	if (!ds)
+ 		return NULL;
 -- 
 2.50.1
 
