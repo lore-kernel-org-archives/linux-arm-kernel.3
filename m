@@ -4,79 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D17CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DF8CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=try8WC1fF3BAE79rr/w67fgQlh2kGwhAnWrTJpFDLF4=; b=O/qlY5OZwr+82zVv6ObZQHEjy7
-	XAQqqDu1P9uQSX0OjmgtD2guG4eMGur4XR0j1Ktu9jswFgxbIIVh8xqFffgXAO8jVGMsQWFvBgLWO
-	qoKdhItqSSDsnmKQtlBVs2q2kcVXYXvitzU8eezrLhAYKh28YwL9xGoIN9aL8USVOBYtOW0AlkdyF
-	TNyny8l+vQ8xyBFaRhFuuNkVVAEFnflaScRyG7mgNqrH1V+yc82wtpyyt3QqJPRZpoE8g+qFAfo4t
-	gTqNt5XcevbHB3GHSLd7MavZn7Jk0tbcM2VPqeTuTuucHaTSG5wQ7EBLqPlUR+l8T0Hg85jAdLXcf
-	CvU4LsnA==;
+	bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=; b=KwM9DRY7gH8iHL7JPvxir161c2
+	C/Msp7+VZEPcCRoCbovAbOC4hgyf2k8AxCYx0PHgPiikTrc1cH1In3StR9XuGDHRhBmvsAnLXFpY2
+	N6SQeBQWYf/q8HpOmE8VFmteeSysE4K9J7gtypnu0gCF+jhosk30AWadkaYcg1YwJPLIpYt4GYD2b
+	Q+KQyAEWKug+bHlIX0RCkFRsDpR5nkzb+xQj/DYb3RlhOSMwwGniI7KkHFeUPQtAoQ9NsZEFIXp8n
+	Qy5A4kLcTQSUBeIWaKi1tGY1DTeViHbr1vWFpU80aaLB93+2i8l+RB9VPDqUQ5t5ZC5GflbchmRL9
+	Z9pBBGbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISDE-00000005Vvs-23OU;
-	Mon, 10 Nov 2025 13:45:40 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vISDN-00000005W61-3KHx;
+	Mon, 10 Nov 2025 13:45:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISD7-00000005Vpx-2i2s
+	id 1vISDJ-00000005W12-1GuU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 13:45:34 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477212937eeso15263645e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:45:32 -0800 (PST)
+	Mon, 10 Nov 2025 13:45:46 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AA9CgaR3146225
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:45:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=; b=buUwUdVbzeXlAURk
+	SuCksaVMl2U9A06IGjD1MZyq7quSX0tdtw0yK59FVwlgzihRMeQkLPt5dMCv44Fy
+	rNW0FMTerkbARkiqPei3t+v0lOV7UavpmtwoGH5inJqA5mw6Vt7VbZpLeh9dxWJX
+	Da5KOBgcZTqcxoeK9lVd/iyrjqXVfVpTXx465aOD/JZLR0jAUf+iGLYrtIlJxjb1
+	TrKZfsH1SlZ2PVsL+tUKcfb9vzlei81Mta6YX/bbPPNNCebCp/TkGxfS0uAEx7wJ
+	5F3Yn9M7C+FzGfZgkX6YzfVLEMEfq5yu9EDiomZkXIkAvAu94teyTEsnjVlnvz8u
+	F/efUQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4abd7hrsfu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 13:45:44 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7aee84f1defso5587409b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:45:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762782331; x=1763387131; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=try8WC1fF3BAE79rr/w67fgQlh2kGwhAnWrTJpFDLF4=;
-        b=jAUjVN1t1pXLRSuRVn1DpD/u7lO6X2qFGnslwpoQ1UoEDNjp9KgNxVW90EU3P4FF6o
-         x6ETZMkVfQsbxKNtWqn23RdcZ0nISUrUjRr3dx9R2g2yTT1CLZEUm2bZeiHQTKfaM+7L
-         XDbaZ1P5zy2p/u6PEOBLSR8JD7mb7L0xUe8SHKTcAjbWkMGbXse5fHzTHEGr9FJBiP8r
-         J2jS8GAM0LYwIVNBkWeO7nYZO2jSFxqUPnoWzzK0SZQQ3sxiHlKf14Vl1a7li2HxliQh
-         N1pReqzg2XLwR4rf36DPR4mxIhKJ6ZzBWTfiXvZwBX7KKQgvv8y0GX3+ks0DdOcBHTqK
-         REgg==
+        d=oss.qualcomm.com; s=google; t=1762782343; x=1763387143; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=;
+        b=Nq+AvOU7Mtq6wlJYHyr5qZnb4Z/DcYHi3nd/fq6+s6eOuytAbyKMxkzhx6Nww143vR
+         GABTKnPcW3Qok5JLEdv6Sw8haFrgIefSUzkF1a5YZrOwY3yrZse+LtcNUDRvWke0jzsx
+         JZwR70zlgR76hEEKMeeHL2xXJ62E84p+HZXxMPMyM8l412NsHjKDeIwomlgZ4wo2P0ec
+         J11hnKopOw+zCs/yUivVMFn6PRmnLO+0RThMawaKNA/wd9t+ayAPtVSn+VEIUPLW/e7p
+         QvNzmsg61ikUU0Zal5jVX/dfiCFUzO00fHSL7anzw2B91u8WcVfduAJdLnZsPo1L2cK9
+         pqMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762782331; x=1763387131;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=try8WC1fF3BAE79rr/w67fgQlh2kGwhAnWrTJpFDLF4=;
-        b=xDPXvLXSbj6Rd0zYN3ZKxzl3UVJrYCStgihs3AnCCGXUkltDR+OtsLn686fck0piS0
-         87o4TowjwMlrGBrojjN7Glg8dlt4FShksJQ0B1wryGuKlArNlE8mLChUkG7c7sPuge0t
-         /BRvNQvR71Z1OEqYUUMBXb2u1h7E1tVGNX8t+Xw2/RlWxuqAuu+GfaNF7KCzd/AaxWBA
-         pclQ+dTsnKgi9tkwOVklJG94CNHPy1up/QdhgHU1D7flPdoKKWuxB0/DLK4cWNUVERuD
-         EXzHqWG9f6Tst9pmc6SCakNYzf3XnYTpRaeqzH+vaIYocl/pWS+7saxvEMGiRBDhvpCH
-         9MRg==
-X-Forwarded-Encrypted: i=1; AJvYcCWFFzb9FTracX7AtIizGS2rpiRe+aj1bw6vRxp++hv4sUCgM3GZv/CaTUNLcrQ5+2wgz/RgPEntGJ8V0sfByAbs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXTJFL+jxEA7Vps7yuuVbxNZ6tmz1mUhf9AJs7eEc5ysVfzfyq
-	1FdHRuKR/I2WzTE+caLTkBZ3H/X8N2y3RlNI+wB9n91b0fdkl2pdWBn/s9VbiFKWClzGoPWgUbK
-	JwQ==
-X-Google-Smtp-Source: AGHT+IF/YlnQrYhy/rtnE5rg4ZuxaDgVfodztUXFrMxQxA2Qx6YAdDGeqcGNEKNfr+Q2rDleE2o41q/Iag==
-X-Received: from wmby11-n2.prod.google.com ([2002:a05:600c:c04b:20b0:475:df4b:95a9])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4e93:b0:471:7a:791a
- with SMTP id 5b1f17b1804b1-47773236f02mr76725015e9.7.1762782331578; Mon, 10
- Nov 2025 05:45:31 -0800 (PST)
-Date: Mon, 10 Nov 2025 13:45:22 +0000
-In-Reply-To: <20251110134525.3768197-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20251110134525.3768197-1-tabba@google.com>
-X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251110134525.3768197-6-tabba@google.com>
-Subject: [PATCH v3 5/8] KVM: arm64: Include VM type when checking VM
- capabilities in pKVM
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1762782343; x=1763387143;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O8mCZ2i/SwfCz8Y6dHfv1Z03BRuaemPsHfu8tHyYWV4=;
+        b=EDaxE7ejoFzD/MfvkE0AmdDsgbiossjdyvH5bVN1tmIq/+7On2doyIABfYpWGl2enT
+         hIqGvMCk5202G0VxOrNbS7cgH3Sf37LafXESSVQbpphzjfPwmNSUDIznUqhmkrBjG2si
+         izXMza8qmxdQKcF1+Plz6kDy19wxaFCxRmKMu2PzGyLlyb1S+DN64ueSbZWE3SKwZ/yS
+         L/SMCS9vorDh5D+cWzBTKPOiSrno4KqvdbBWTOxtq6Q4a4BFsQ+01bDRLd0Gew3tKcsk
+         Csw82+skoqeyp7uGeWhWRAZRHD5Ib+QPlXIV8Y9j/UUkdxek4ndZLZSe+f8we3CCl4xS
+         ctqg==
+X-Forwarded-Encrypted: i=1; AJvYcCVPNkrWh9hXoFUsQ7IPh80t0PBrH/sTFkLCTwPBStXgd6nJI4ttLRdgSFxmHCzBYkcwIY7hrgcumkH94qznNB7z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6Ii4iD/NL0tW1EuOVRvjHUslrZ+xoAC6rpDl6jVBxZ0R79ynv
+	+JEBosurOOVy/JFiFk21DjnMT5Uw/VVRiTr2Z+tJfzdX0NM7hKUY8x91CO3S675g10TanSFaS9o
+	oG1er8anp3KLYR6sXNZe5/eWvUmJQ7KRV0qvlZylIDKeSgjzQZMTldr2hWnAlGOxmW+1SNHEwS+
+	AcsA==
+X-Gm-Gg: ASbGncuraTGA/c1FTAtSe3XTEwBCjLzbz1IW3NSPkmt1Hvq3fS5IHtt7ztCDgCATMby
+	4jYbFQN8RKiS9VFhPHYELrtG3nJr5uAfEfm/GJpCpNOEIw+Um7cEnr7FHN7S1TpPq+bEYlOPGUG
+	TgR1UyAKkNjsyMyh35tUgH62PXMuR2OMFJWGuqCijKiH5a/zhOQrGRSb01A5nzjw8TWQHTWCBJq
+	VoerHEafL9zxO38oSQWFiETm/HuOihKro+X4ZdpYTLHRQePBBofSNXp/BTeMbzz8JY84e2lqr85
+	md9Hyt6QuObZtd0bPXgrgi3JWX7+Q1Q4fVgfPKhI2Eu0DU8hK61xQtNeT1haLJ5JL5fAQ06cnZg
+	1aGzrxA+G5oOI/HKnAAyRX9pkwg==
+X-Received: by 2002:a05:6a00:23c1:b0:781:1b5a:95b2 with SMTP id d2e1a72fcca58-7b22717bb94mr12240171b3a.28.1762782342791;
+        Mon, 10 Nov 2025 05:45:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGwTkVKCC8Im0eYgJqpdGEW0O85HjOMi5fKaAZ3Jnn0Gmv9OubICv0N6ZVNCMiI6Qbx9GYJBw==
+X-Received: by 2002:a05:6a00:23c1:b0:781:1b5a:95b2 with SMTP id d2e1a72fcca58-7b22717bb94mr12240084b3a.28.1762782341965;
+        Mon, 10 Nov 2025 05:45:41 -0800 (PST)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0ca1e7595sm11836585b3a.33.2025.11.10.05.45.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Nov 2025 05:45:41 -0800 (PST)
+Date: Mon, 10 Nov 2025 19:15:29 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Xin Liu <xin.liu@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Umang Chheda <umang.chheda@oss.qualcomm.com>,
+        Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+Subject: Re: [PATCH v17 03/12] power: reset: reboot-mode: Add support for 64
+ bit magic
+Message-ID: <20251110134529.uljjqzb3vhda3vya@hu-mojha-hyd.qualcomm.com>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-3-46e085bca4cc@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251109-arm-psci-system_reset2-vendor-reboots-v17-3-46e085bca4cc@oss.qualcomm.com>
+X-Proofpoint-GUID: PyQQwkAC1QaWlZyKsLr5ZcWZIXb6Bvca
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDEyMCBTYWx0ZWRfX//c8R2JNgMZe
+ y6M7mG+iRLcaeVEumSXrFfLJkLVMxTSCHREEjjCD8yzORE8hxx7R9mOLQg70rz2yBALtS3BCfX0
+ a2yBUP99bk268v96Kr2COSQF8tFAy1PXA+7ZsXOG+Gn84Gd/pvUb8Musweng3lejejXnu+gWiqN
+ HWBw5NQixZji2ZOtU/SV94Ob8mGf0hXAzJplh7T4jp/gjIupLG7iNsZRFBp4Dyz9PXRhVOKvfj9
+ eILAAzDeax8/kFBUtfINonsUXvHzsCDGqE9CRyPIdllCFf+HNGkIZy8zreGvj4eBnfxL/ZETG5r
+ +s4Nl2OmrsKkfwh4O3mK10hCz8Y7MzISbH+460zsMxI+o1z4CfxeLcfC9R4BwaWEe9LJe+oYcEK
+ HVqaCUf9ZVfGA5T31C2kOGEKqlhTjw==
+X-Proofpoint-ORIG-GUID: PyQQwkAC1QaWlZyKsLr5ZcWZIXb6Bvca
+X-Authority-Analysis: v=2.4 cv=Yt4ChoYX c=1 sm=1 tr=0 ts=6911ec88 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=fKl0S-9-5daLM7QqcyEA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-10_05,2025-11-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 spamscore=0 phishscore=0 malwarescore=0
+ impostorscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511100120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_054533_700302_B525947F 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20251110_054545_502406_11E819F4 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,104 +173,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Certian features and capabilities are restricted in protected mode. Most
-of these features are restricted only for protected VMs, but some
-are restricted for ALL VMs in protected mode.
+On Sun, Nov 09, 2025 at 08:07:16PM +0530, Shivendra Pratap wrote:
+> Current reboot-mode supports a single 32-bit argument for any
+> supported mode. Some reboot-mode based drivers may require
+> passing two independent 32-bit arguments during a reboot
+> sequence, for uses-cases, where a mode requires an additional
+> argument. Such drivers may not be able to use the reboot-mode
+> driver. For example, ARM PSCI vendor-specific resets, need two
+> arguments for its operation – reset_type and cookie, to complete
+> the reset operation. If a driver wants to implement this
+> firmware-based reset, it cannot use reboot-mode framework.
+> 
+> Introduce 64-bit magic values in reboot-mode driver to
+> accommodate dual 32-bit arguments when specified via device tree.
+> In cases, where no second argument is passed from device tree,
+> keep the upper 32-bit of magic un-changed(0) to maintain backward
+> compatibility.
+> 
+> Update the current drivers using reboot-mode for a 64-bit magic
+> value.
+> 
+> Reviewed-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+> Reviewed-by: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/power/reset/nvmem-reboot-mode.c  | 13 +++++++++----
+>  drivers/power/reset/qcom-pon.c           | 11 ++++++++---
+>  drivers/power/reset/reboot-mode.c        | 19 +++++++++++++------
+>  drivers/power/reset/syscon-reboot-mode.c | 11 ++++++++---
+>  include/linux/reboot-mode.h              |  3 ++-
+>  5 files changed, 40 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/reset/nvmem-reboot-mode.c
+> index 41530b70cfc48c2a83fbbd96f523d5816960a0d1..5d73dde585b1fd438b1847f884feb37cd9e4dd5c 100644
+> --- a/drivers/power/reset/nvmem-reboot-mode.c
+> +++ b/drivers/power/reset/nvmem-reboot-mode.c
+> @@ -16,15 +16,20 @@ struct nvmem_reboot_mode {
+>  	struct nvmem_cell *cell;
+>  };
+>  
+> -static int nvmem_reboot_mode_write(struct reboot_mode_driver *reboot,
+> -				    unsigned int magic)
+> +static int nvmem_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+>  {
+> -	int ret;
+>  	struct nvmem_reboot_mode *nvmem_rbm;
+> +	u32 magic_32;
+> +	int ret;
+> +
+> +	if (magic > U32_MAX)
+> +		return -EINVAL;
 
-Extend the pKVM capability check to pass the VM (kvm), and use that when
-determining supported features. Moreover, extend the check to disallow
-MTE for all VM types in protected mode.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/include/asm/kvm_pkvm.h | 10 ++++++----
- arch/arm64/kvm/arm.c              |  4 ++--
- arch/arm64/kvm/hyp/nvhe/pkvm.c    | 10 +++++-----
- 3 files changed, 13 insertions(+), 11 deletions(-)
+I believe, we need a comment in all the client driver.. 
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 08be89c95466..7195be508d99 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -23,10 +23,12 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm);
- int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu);
- 
- /*
-- * This functions as an allow-list of protected VM capabilities.
-- * Features not explicitly allowed by this function are denied.
-+ * Check whether the specific capability is allowed in pKVM.
-+ *
-+ * Certain features are allowed only for non-protected VMs in pKVM, which is why
-+ * this takes the VM (kvm) as a parameter.
-  */
--static inline bool kvm_pvm_ext_allowed(long ext)
-+static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- {
- 	switch (ext) {
- 	case KVM_CAP_IRQCHIP:
-@@ -43,7 +45,7 @@ static inline bool kvm_pvm_ext_allowed(long ext)
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
- 		return true;
- 	default:
--		return false;
-+		return !kvm || !kvm_vm_is_protected(kvm);
- 	}
- }
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 870953b4a8a7..10d853f2722e 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -87,7 +87,7 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 	if (cap->flags)
- 		return -EINVAL;
- 
--	if (kvm_vm_is_protected(kvm) && !kvm_pvm_ext_allowed(cap->cap))
-+	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, cap->cap))
- 		return -EINVAL;
- 
- 	switch (cap->cap) {
-@@ -299,7 +299,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- {
- 	int r;
- 
--	if (kvm && kvm_vm_is_protected(kvm) && !kvm_pvm_ext_allowed(ext))
-+	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, ext))
- 		return 0;
- 
- 	switch (ext) {
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 7e370e31260d..290e4b46cd32 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -355,21 +355,21 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
- 
- 	set_bit(KVM_ARM_VCPU_PSCI_0_2, allowed_features);
- 
--	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PMU_V3))
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PMU_V3))
- 		set_bit(KVM_ARM_VCPU_PMU_V3, allowed_features);
- 
--	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PTRAUTH_ADDRESS))
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_ADDRESS))
- 		set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed_features);
- 
--	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PTRAUTH_GENERIC))
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_GENERIC))
- 		set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed_features);
- 
--	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_SVE)) {
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SVE)) {
- 		set_bit(KVM_ARM_VCPU_SVE, allowed_features);
- 		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_GUEST_HAS_SVE);
- 	}
- 
--	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_MTE)) {
-+	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_MTE)) {
- 		set_bit(KVM_CAP_ARM_MTE, allowed_features);
- 		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_MTE_ENABLED);
- 	}
+> +
+> +	magic_32 = magic;
+>  
+>  	nvmem_rbm = container_of(reboot, struct nvmem_reboot_mode, reboot);
+>  
+> -	ret = nvmem_cell_write(nvmem_rbm->cell, &magic, sizeof(magic));
+> +	ret = nvmem_cell_write(nvmem_rbm->cell, &magic_32, sizeof(magic_32));
+>  	if (ret < 0)
+>  		dev_err(reboot->dev, "update reboot mode bits failed\n");
+>  
+> diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-pon.c
+> index 7e108982a582e8243c5c806bd4a793646b87189f..d0ed9431a02313a7bbaa93743c16fa1ae713ddfe 100644
+> --- a/drivers/power/reset/qcom-pon.c
+> +++ b/drivers/power/reset/qcom-pon.c
+> @@ -27,17 +27,22 @@ struct qcom_pon {
+>  	long reason_shift;
+>  };
+>  
+> -static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot,
+> -				    unsigned int magic)
+> +static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+>  {
+>  	struct qcom_pon *pon = container_of
+>  			(reboot, struct qcom_pon, reboot_mode);
+> +	u32 magic_32;
+>  	int ret;
+> 
+
+Since we are doing this change in reboot framework, client driver should know about
+it too about this new check because of framework.
+
+> +	if (magic > U32_MAX || (magic << pon->reason_shift) > U32_MAX)
+
+
+is this (magic << pon->reason_shift) > U32_MAX really needed ..?
+
+> +		return -EINVAL;
+> +
+> +	magic_32 = magic << pon->reason_shift;
+> +
+>  	ret = regmap_update_bits(pon->regmap,
+>  				 pon->baseaddr + PON_SOFT_RB_SPARE,
+>  				 GENMASK(7, pon->reason_shift),
+> -				 magic << pon->reason_shift);
+> +				 magic_32);
+>  	if (ret < 0)
+>  		dev_err(pon->dev, "update reboot mode bits failed\n");
+>  
+> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
+> index eff60d6e04df2cb84ba59d38512654336f272f8a..873ac45cd7659b214b7c21958f580ca381e0a63d 100644
+> --- a/drivers/power/reset/reboot-mode.c
+> +++ b/drivers/power/reset/reboot-mode.c
+> @@ -19,12 +19,11 @@
+>  
+>  struct mode_info {
+>  	const char *mode;
+> -	u32 magic;
+> +	u64 magic;
+>  	struct list_head list;
+>  };
+>  
+> -static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
+> -					  const char *cmd)
+> +static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, const char *cmd)
+>  {
+>  	const char *normal = "normal";
+>  	struct mode_info *info;
+> @@ -56,7 +55,7 @@ static int reboot_mode_notify(struct notifier_block *this,
+>  			      unsigned long mode, void *cmd)
+>  {
+>  	struct reboot_mode_driver *reboot;
+> -	unsigned int magic;
+> +	u64 magic;
+>  
+>  	reboot = container_of(this, struct reboot_mode_driver, reboot_notifier);
+>  	magic = get_reboot_mode_magic(reboot, cmd);
+> @@ -80,6 +79,8 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
+>  	struct device_node *np;
+>  	struct property *prop;
+>  	size_t len = strlen(PREFIX);
+> +	u32 magic_arg1;
+> +	u32 magic_arg2;
+>  	int ret;
+>  
+>  	if (!fwnode)
+> @@ -101,12 +102,18 @@ int reboot_mode_register(struct reboot_mode_driver *reboot, struct fwnode_handle
+>  			goto error;
+>  		}
+>  
+> -		if (of_property_read_u32(np, prop->name, &info->magic)) {
+> -			pr_err("reboot mode %s without magic number\n", info->mode);
+> +		if (of_property_read_u32(np, prop->name, &magic_arg1)) {
+> +			pr_err("reboot mode without magic number\n");
+>  			kfree(info);
+>  			continue;
+>  		}
+>  
+> +		if (of_property_read_u32_index(np, prop->name, 1, &magic_arg2))
+> +			magic_arg2 = 0;
+> +
+> +		info->magic = magic_arg2;
+> +		info->magic = (info->magic << 32) | magic_arg1;
+> +
+>  		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+>  		if (!info->mode) {
+>  			ret =  -ENOMEM;
+> diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/reset/syscon-reboot-mode.c
+> index e0772c9f70f7a19cd8ec8a0b7fdbbaa7ba44afd0..3cbd000c512239b12ec51987e900d260540a9dea 100644
+> --- a/drivers/power/reset/syscon-reboot-mode.c
+> +++ b/drivers/power/reset/syscon-reboot-mode.c
+> @@ -20,16 +20,21 @@ struct syscon_reboot_mode {
+>  	u32 mask;
+>  };
+>  
+> -static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot,
+> -				    unsigned int magic)
+> +static int syscon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+>  {
+>  	struct syscon_reboot_mode *syscon_rbm;
+> +	u32 magic_32;
+>  	int ret;
+>
+
+same here
+
+> +	if (magic > U32_MAX)
+> +		return -EINVAL;
+> +
+> +	magic_32 = magic;
+> +
+>  	syscon_rbm = container_of(reboot, struct syscon_reboot_mode, reboot);
+>  
+>  	ret = regmap_update_bits(syscon_rbm->map, syscon_rbm->offset,
+> -				 syscon_rbm->mask, magic);
+> +				 syscon_rbm->mask, magic_32);
+>  	if (ret < 0)
+>  		dev_err(reboot->dev, "update reboot mode bits failed\n");
+>  
+> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
+> index 22f707ade4ba93592823ea8718d467dbfc5ffd7c..e0d3e8a54050a76f26846f456120b4c7e371d284 100644
+> --- a/include/linux/reboot-mode.h
+> +++ b/include/linux/reboot-mode.h
+> @@ -3,11 +3,12 @@
+>  #define __REBOOT_MODE_H__
+>  
+>  #include <linux/fwnode.h>
+> +#include <linux/types.h>
+>  
+>  struct reboot_mode_driver {
+>  	struct device *dev;
+>  	struct list_head head;
+> -	int (*write)(struct reboot_mode_driver *reboot, unsigned int magic);
+> +	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
+>  	struct notifier_block reboot_notifier;
+>  };
+>  
+> 
+> -- 
+> 2.34.1
+> 
+
 -- 
-2.51.2.1041.gc1ab5b90ca-goog
-
+-Mukesh Ojha
 
