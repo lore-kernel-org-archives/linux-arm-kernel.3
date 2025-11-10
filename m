@@ -4,100 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0975CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A4DCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4cJaSvdyQCbEMb76mhwbw00KVaPl98c0awaqdZ3M8o=; b=VCV6knkVeONV+kQUMo8LJ2XVgb
-	nrzZceDU2g7iEORLs4XLHSCf9sm3f2pboEqZOVE5F0i7xg+tzxmQ7Q6I/K8F3+PBzzCMDuJMdRzvk
-	OAIw9IO9D/6nSMvmCK98erZU2gvVjdMv/rMsydM6lr0nG5nKsPh/BR6JngUPZ1iU4390987tkH+zJ
-	j9TM/UiUQuK33cTwk3vSmENjuRS2LQXR5QFVLlwkhSolT7Mkg4bud1QepzXXiBY5jwamLIrS6/x54
-	tPJVd6/I3ANQOMnB0pMOi5XXTHb52mEj9UG5RCUgfZPJRrIaN1R7WWs2hRUJB1+htf3J0tYahBhK+
-	JJVc64fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jy/GhVy0Q/lmw53g9vdYrwNru+kb/3Q+eB8bSh7etgc=; b=Qhdqo1cwXesHRa7CuCs57Hqq7w
+	3iKP9Q480uxoifmVyKAwceopXN8RQwNSnfjCqhrXKH49dEurkUw7xoEuVB+T3LEV7DJm5YlEzU9gj
+	0Sxn8hc6Ylz+Ka+rEQBnsgLqhS94erljvjjU6gHqfzlYWh6EUcGVePN2uPGIitJYLJXIn7LbJfwl5
+	1TrFAZn8YuiI2neuP6Kr+RTbN4wVWRlTKYEJFs0yh5LdAjnuC684C1AqzQLFbXcPeV7ahgWMEA7jU
+	ETwZ3OklcBrtJ4vFTphCJzP1MhwPCIE4yBLWomZt+QvWZztejgl++Hf3fOF2KHWV6KrOrUJx+s5gw
+	s3baQ4Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRcL-00000005ScF-35H7;
-	Mon, 10 Nov 2025 13:07:33 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vIRfs-00000005Sw6-3b0w;
+	Mon, 10 Nov 2025 13:11:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRcI-00000005Sb4-0MLG
+	id 1vIRfp-00000005Suw-1NpD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 13:07:31 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47118259fd8so20998845e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:07:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762780048; x=1763384848; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=B4cJaSvdyQCbEMb76mhwbw00KVaPl98c0awaqdZ3M8o=;
-        b=CS7QtDNWdvhvhoviMg6B7FAhFaJ/X9h2azyobTjN+9s/uwOftv6yA5LIl6XiMKFenQ
-         R6DCQI1+Vh69Uf+c3YSgHHJJRaoJMCTUk0mS/41RedskBL2/3YshwFyJDBPcXqb6Qu9/
-         6d/AECof0XFA900qCjW8j6V/epkJpViP4K6xPvpTih9uWq+GqRIy5SS/ZRNISFkAqlTr
-         jNTcPB9oTqFkHRYHDHw+IlkxLH8X1DtgCqmA5yGN9c8MtSRyTKWcc1Mku0UUHa9cqt0R
-         Hox6600GieHKjn7DK8THj8j+xQl/x5wrgDCzjQ58tjDUnDKke321Mqw6sMWvkiteQPH4
-         U1Sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762780048; x=1763384848;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B4cJaSvdyQCbEMb76mhwbw00KVaPl98c0awaqdZ3M8o=;
-        b=orE8Je5wPORoq4xwpL4U0U75nFz0lKqT9013z+LzlejhcmI/RnEjGf+zOSxaFEf67n
-         ye4SXH73C9KkAFoYyOXterlj97IGz88cZJXJYSNRYqVPCiuRVBKI9fqCACOXk/MgrhFQ
-         ww/SufeLXGA9gZmWXIsHGEZIqiRQtukjPuPjoyF0l2bVwHswqAGSKfTahbkyXeB8IIRR
-         HK6YPfmv0x4sLOSvxqrJFWY8JxSS8imuY4gB1x4YvFomgQ7d6OcB6qzXBpwFcvdMNarl
-         mNCP5p3rurxXVbl5BEVWEzGGFrkufHWfcxlKA7WLgEfaZH4YMJ+vaMS7QTwDPxRsh0el
-         bVag==
-X-Forwarded-Encrypted: i=1; AJvYcCUAhaZOzLUP5ggP4JC/OKr7vdbZe2iA6ijJZ8Av2mDsn/ChHT3D5dUXNd/vCnhxw//NbZHf0rbokXqe3kfwzBSG@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxg+5WTmvva9S3POVtxXTc9Ok3qUCslMOx+KBUxzcqc/Hp7csV
-	Ixu5VCa986HokM/JH3xek4cuFRahpF4/88e2M47LjOpE2Lm7ye3Sb1baRFZidbx7vSg=
-X-Gm-Gg: ASbGncsoU1kf8sYyPD1cnc81Zfj75+QizB8l6rUKFy0O2Yx0oCwodZD1w+qNmk44SCk
-	sTyq3WbH971WQv64JmH9nN+zhdOurri6GR6dN9EA/crMBnnwdyGsyLjUuUgtFCubjdijwLOuQVm
-	UmftOvxRi/a4HpSinv+EwTn1SHHjQFkccmT7v6S9MXIkbn/KCmO/H9ZsF5tBKEVfE0bs+3S6mTS
-	tmnwj1csz87bWFCIbxRb36UqI5/2iVMhlr8kxqrNaMn37xZMGy77rPDtYGMc1+c9SW4Y3YiEnO8
-	x9BU4WVkLu6YlOEilEKk5yP01xNSmLswhozaPzHnsbqSmcxd5Pz7XVqoJp5EUkDl58+w9XVGJdJ
-	QYIEV8nz4Mjti6vH6mKFmNsgfU8ia5SS6Mu0jUvdd13XfqRKCF7g0HE/wKAezI0zZ7wtCC5OzF1
-	RTVZk96O0T3AWqV5D4aDZRFp/M711E740DCczyrHGEdCJzb6p5SoRd1X8=
-X-Google-Smtp-Source: AGHT+IHcCOONTIlqmfkXgQ46x6qRMAz8cIzqeP6tpBIy8/x9/ya7VMOfAxTxh9tydHHTLgqTp1lvxg==
-X-Received: by 2002:a05:600c:3b8d:b0:477:641a:1402 with SMTP id 5b1f17b1804b1-477732308acmr85105745e9.4.1762780047939;
-        Mon, 10 Nov 2025 05:07:27 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:2b20:d700:6e9c:533c? ([2a05:6e02:1041:c10:2b20:d700:6e9c:533c])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4776bd084d4sm252075645e9.14.2025.11.10.05.07.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 05:07:27 -0800 (PST)
-Message-ID: <adceca49-acbc-4ae6-984c-5a8916aba8be@linaro.org>
-Date: Mon, 10 Nov 2025 14:07:26 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 5/9] thermal/drivers/mediatek/lvts: Add
- lvts_temp_to_raw variant
-To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- rui.zhang@intel.com, lukasz.luba@arm.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
- u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
- lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com,
- Chen-Yu Tsai <wenst@chromium.org>, Fei Shao <fshao@chromium.org>
-References: <20251016142158.740242-1-laura.nao@collabora.com>
- <20251016142158.740242-6-laura.nao@collabora.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20251016142158.740242-6-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_050730_188409_A6379C6C 
-X-CRM114-Status: GOOD (  13.98  )
+	Mon, 10 Nov 2025 13:11:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 65C1C601B2;
+	Mon, 10 Nov 2025 13:11:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B286C4CEFB;
+	Mon, 10 Nov 2025 13:11:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762780268;
+	bh=qw9MX581WnhmMom2rBbLrZv+6wBNDSv1qI3/Z5yj/+o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HA45JRSKa4wThdCDie0yZqfLA4s9jpUixk6E3qNfr6PA7T/x+/8MEFdfr2lnZ68jX
+	 qK6HK62GmjvooK8R+So9EvafCE0HvNOH4FdMN1OQDWrRhMU/MJj7lzJTfogOvpoeZw
+	 gPiCe6UAjKV610ugCm0jJBxFJNsfSFeFHTjkyU+6b79i3G4UTF02Jg5arwj5o39rLs
+	 k9fDx3OnljxROzv/NVGNaNVM/Y/3uTDFhMtEVGDbFIua1EyS4KpcD1ChSqtQazJRPh
+	 XBisFHRw+2UDVEuz80lEHQ2QI5F3zDKJkPwaaM8iuNEGO8k43g04Nyx0aRPR0U/NhU
+	 qCVrGtNelWGaQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vIRfl-00000003rvi-2p3d;
+	Mon, 10 Nov 2025 13:11:05 +0000
+Date: Mon, 10 Nov 2025 13:11:05 +0000
+Message-ID: <865xbiuj6e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v2 3/3] KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+In-Reply-To: <aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
+References: <20251030122707.2033690-1-maz@kernel.org>
+	<20251030122707.2033690-4-maz@kernel.org>
+	<aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, peter.maydell@linaro.org, pbonzini@redhat.com, Aishwarya.TCV@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +90,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/16/25 16:21, Laura Nao wrote:
-> MT8196/MT6991 require a different version of lvts_temp_to_raw(),
-> specifically the multiplicative inverse of the existing implementation.
-> Introduce a variant of the function with inverted calculation logic to
-> match this requirement.
+On Mon, 10 Nov 2025 12:51:55 +0000,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> This ensures accurate raw value generation for temperature
-> thresholds, avoiding spurious thermal interrupts or unintended hardware
-> resets on MT8196/MT6991.
+> On Thu, Oct 30, 2025 at 12:27:07PM +0000, Marc Zyngier wrote:
+> > Now that the idreg's GIC field is in sync with the irqchip, limit
+> > the runtime clearing of these fields to the pathological case where
+> > we do not have an in-kernel GIC.
+> > 
+> > While we're at it, use the existing API instead of open-coded
+> > accessors to access the ID regs.
 > 
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Reviewed-by: Fei Shao <fshao@chromium.org>
-> Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->   drivers/thermal/mediatek/lvts_thermal.c | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
+> Today's next/pending-fixes is showing regressions on a range of physical
+> arm64 platforms (including at least a bunch of A53 systems, an A55 one
+> and an A72 one) in the steal_time selftest which bisect to this patch.
+> We get asserts in the kernel on ID register sets:
 > 
-> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-> index df1c0f059ad0..31796a5b8858 100644
-> --- a/drivers/thermal/mediatek/lvts_thermal.c
-> +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> @@ -300,6 +300,18 @@ static u32 lvts_temp_to_raw(int temperature, int temp_factor)
->   	return div_s64(raw_temp, -temp_factor);
->   }
->   
-> +static u32 lvts_temp_to_raw_v2(int temperature, int temp_factor)
+> [  150.872407] WARNING: CPU: 0 PID: 2865 at arch/arm64/kvm/sys_regs.c:2353 kvm_set_vm_id_reg+0x9c/0xf4
+> 
+> ...
+> 
+> [  151.045312] Call trace:
+> [  151.047780]  kvm_set_vm_id_reg+0x9c/0xf4 (P)
+> [  151.052098]  kvm_finalize_sys_regs+0x88/0x240
+> [  151.056504]  kvm_arch_vcpu_run_pid_change+0xb4/0x438
+> [  151.061527]  kvm_vcpu_ioctl+0x92c/0x9d0
 
-Same comment as the previous patch ... _v2 ...
+Please name the platforms this fails on. Here, on a sample of one A72
+box, I don't see the issue:
 
+	maz@sy-borg:~$ ./steal_time
+	Random seed: 0x6b8b4567
+	TAP version 13
+	1..4
+	ok 1 vcpu0
+	ok 2 vcpu1
+	ok 3 vcpu2
+	ok 4 vcpu3
+	# Totals: pass:4 fail:0 xfail:0 xpass:0 skip:0 error:0
 
+Thanks,
 
+	M.
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Without deviation from the norm, progress is not possible.
 
