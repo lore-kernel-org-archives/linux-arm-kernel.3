@@ -4,106 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DE6CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21288CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WjmbME1436pSDYkp3aIgIG33gCEKBJTvr+5GarnqYuM=; b=ZS/pvKp6kRhuWFoWegOuti0633
-	t1qNHA76mxVvGNeQJqsxju/OVDgnglPcbha6xPBpiOq1RFMPZUtdXjkw6JnFrrfFfAzhhTjdKnI5d
-	AfuJsl7djveG6zy4s+oqL2ljsXY7XrpZZcfgnJIweHTFIuI4KeA18w+bzyTw8BvNUj68Z+OaSiEi3
-	L5r5XUJYE5a6GP4mnS4GxfiL69MB13pXsEdtX3nMF8b3pye4O3mZwMIZPQhgZBa20Ei5y1zc3N9zL
-	w/3jkzouJKY/iQS4C8napC70WqEAzxRZMfPKOaK7KlI/NatgfH+AZlHfy7jpQl6lQhP8Nc7MoaxPf
-	EHt8JzGw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o+J9DK7umCkB0lH75JtGcDU05puxofKEqqEJe5YRpEM=; b=hQ3TcYHnCb4Ky4Vg8tWH8u3Cd/
+	RfUJ4Yx2o0Wufjn+VD9p/tJ41GNN/Ota8fJrrE9HrHFW4pKe4QF6VwEi3CR0WMHJksPgPsXwN3o7L
+	sDUtDEIP9yTJWxcUPnY26FblX/n2SCwc7S5nrhAiQsRDpHcL3KxvdjxjfGJly+WMfZmbXKGzpYMB9
+	9l4VtM3ZA3Hxe4TZ3MNJVoO+ElhkgTcUBMJUq1Hof9AyjFWVAZdRoytb7/jlySQU5OUQEOxRW54yu
+	Etc3MnrIum6tgfgsz8IAs24jXErxfzyWduf5tHVd193lUduqoeF3OB+7J1GIztBZste+cc75yds90
+	+QCAsBrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmW-00000005O4m-20FB;
-	Mon, 10 Nov 2025 12:14:00 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vIQmY-00000005O5l-3Dfz;
+	Mon, 10 Nov 2025 12:14:02 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQmT-00000005O3w-1KMk
+	id 1vIQmU-00000005O4B-3Plm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:13:58 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-470ff9b5820so1802715e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:13:56 -0800 (PST)
+	Mon, 10 Nov 2025 12:14:00 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-429c844066fso336050f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:13:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762776835; x=1763381635; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WjmbME1436pSDYkp3aIgIG33gCEKBJTvr+5GarnqYuM=;
-        b=BGkJ0SV+DYjzvjqY5U1cQGmuSu+DWnd8dyzUu5vJ0QkdUBzQ9jhyI2az7DNUzOsWwy
-         w/Or3+6lbj4o1GxpSMhKFTx1/xVgF8YH2iJi1p3bXrPASH50AV6Blj87KcyULbI5RtMs
-         VTRUIvXppal0sTG/If6iFaifaxV/yGoCVVFjjn314MyTHpjZFXVB0W7Z1QFb4Gmo7OFE
-         IHIFCJPCIK5cIchbfFqVP6AidLtBd8DMvfg/Vmq2f16nrG090CJUJuc3yKbCd0LaLLfk
-         0XbtL2vZDjU2EPfaIrjVpprGglaOCJzVx6R0HM+2CY0hw3skbFggpv1kMIb61jGIG/9X
-         wk2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762776835; x=1763381635;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1762776837; x=1763381637; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WjmbME1436pSDYkp3aIgIG33gCEKBJTvr+5GarnqYuM=;
-        b=jmBck+a3FRhHivtqLebr+vO8r5ntabEyyRAAe2ecN9AlMLMy57Hl95IhQK+GbLXUjr
-         BVfMH5RtUWfOaLfa0C71hx7k4EO6cIFP3c4p3JwN2on8PfGmx1/ydlwmKm8xjzS6moN9
-         EVyjv6lm9LiyuJ44pWdJpPZWLQObzdS5B8uJEHA+J8JTGwgPxbzW/jut1yefBzOP8Fli
-         26c3caxjtMriEBwnK6vyw2tSsDbmiFxejP4UUR6wXxkL7620JawMdkmDfzREXGvbM5mg
-         aRsBFdaUl8iGsNfM5x1MlJj324JJzByjSIh+XzBuZgmvcJFR0CWHOMcxMHXcyb6c1vES
-         hxGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMlmTmKXL3shEpdOeddTZQ7qnxQzScYZz7rUa1n34Sv/tg1nUsknZ7dK7u0WyaWcHzdRgTYeR2MqMYoDLA1khL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw99gJFSTY5B8XfleIIaxNoT3VuRFLCJA70hAIjgk3vDrQPAjAB
-	tsHomq5jT/VmNQhLU/D51iDiD5ksIwrOzhIoycsniKSM4LQwB/cNbSVEzWA5Kh43Ce0=
-X-Gm-Gg: ASbGncvZiaRksUrfQWmF4UOpgKvwpEJyqBSc7ja94BFPmS/A2R5Ljwn7d57F+pq7H/s
-	asWXGfr1GffHPJ7JeAymmwM9U6qld4EEWz/+F8ftraEpzVQcgAVcWR/bmyvyFkQ3aXXCSwxgzEC
-	yxL6k4LLTrn8rk51oWwk8notoo0E8vSWMHnGLHY1EAHfmLnCMyBYVQswk/yBiN94lHnyroE7pp1
-	Z3peDLwDDP2wmm0ifjyACl5yX+zkaZl5Trq5WGbiZrqCFg+L0YulQ8XktNYep/ogDxFl8jjJUvE
-	Et24sVgZIISjO/I0/eD7QtXxa1vcWcOWTecjdb9D2hJ8PazJrRPIXqyRqWr+ARkqS/v6/ch91DS
-	PClxGjZU63VAUY0zvmm9uZEIQU6qf8/GHDGfMUX7MsSwZ/dJEyMRaLm9BtTdKGViKO1BA9H4Csp
-	JBT8lFfjfBSl/fCJJhEkbIQA==
-X-Google-Smtp-Source: AGHT+IHbNuArn8C9DWSTKYZ7LhUSvorI++lgVify2RunMzFZSAkl92QQgyKvse2NSni9jyc11HIbCw==
-X-Received: by 2002:a05:600c:4f89:b0:477:563a:fc9c with SMTP id 5b1f17b1804b1-47773236215mr36141105e9.1.1762776835461;
-        Mon, 10 Nov 2025 04:13:55 -0800 (PST)
+        bh=o+J9DK7umCkB0lH75JtGcDU05puxofKEqqEJe5YRpEM=;
+        b=Ecz70GBmNZH79tRLztBHz5PqzVHmMQyHd9g0RbzszC3qThu9Ww4S+1mEM66quWvzWE
+         Zf0WfZwjezL43xFr1bL5EK3x258leF0Q8Ied5zZJSS/k3SHhIkr2Ls2f2bFHC9dOrq3W
+         o5hIfLrd0xoNbW8xg5fHzBh3E5+hqwr3/j/ZQuX8GtCkOQ/rmOeSgLLZZtGOUO604YvT
+         4AhCZi8bWOkyiloZa8pgQIjalx4SyUMQBZ3pV8wh8qHGtrSG7a3TH/dZpofE9I9Dd0br
+         QvalK4eJrPWEpFMm4mIIo/xPwiS2V6c4ePl6Omlwl13xtEQMdrR2LHeC1Jg0kTzZ95b6
+         PZ8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762776837; x=1763381637;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=o+J9DK7umCkB0lH75JtGcDU05puxofKEqqEJe5YRpEM=;
+        b=KL8PrVXzLB2np7jBLNZF8UBx8RkVWSDSjQDzGGXk/z9wn9jGlo0X/TdE3uVKQdoEFa
+         Wv2smyPOO97QBmaxKtqJkeB/HDlSXtEie+wDF8FtalF8Iy6pMIuhdYeWNTh2/8PyhkJW
+         RVIk3LlFuctuD9OW6BHIboLWNl4QVWE15WbwxUZBgRDK+bxvja69NOQEHd8KdLMzjcT6
+         wXJJdZEpRvkcm9RmsyIowbUdUeFtzMZED6ifrwbF0qHhcMhzSkR0oIgzS3rMPNbZkH0F
+         23u8w8V0/SAo7kvHDnjGNGCey0WUiOFHWLb64ab1RzIKWaDC2wtRjgW4gzqoIYADBKtz
+         y81A==
+X-Forwarded-Encrypted: i=1; AJvYcCUW1pAzHTo3JbhTJKHiriwYhkiJ2dZs7/UBqUJ39dMVhg0EXovzzlKTdjNjdZz1UoplYDa2uuZinLG2JVRXFGoQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIGKZtk01IPIKcdfWA7HMLIRn/EUnJq5tmFfjBR8OKck2kdGDw
+	E+mWMzvxxtUXaD1C2RMCyxrCYXkbdD/XC8NSwmT9QP6CeF93uU60MoVHWWtMguHZWL4=
+X-Gm-Gg: ASbGncuXmBfMaykfenFZtaUxTS3AOY8HU5mKqyzZUROnLX6ibPjh/gn+kzzuvC20wOE
+	xUb9SsOXBk1inv66Cm5WRRBwSgVcqvbfxuPWmVw7NoeK+EPU21qq+/esA4VG8zZYDkuSNr/244q
+	XCUbkQvwxkuVfVZrtcpiHdRM6UR6Ic5rQmfpaJhJjbfvKE8m4NgB4ZTODiUJgwoD7EXbR4a6zbp
+	HqR/AUS7dYvsSR5izGqxkaYvoJLTbCVkGRH9jQFydW5rB2f7PPrXyXn0Qe075627ETCdlQBQMk8
+	+Idyg24RjPcZzzzyiHuRM6LBcoOTY1Q4QyLCZJ6ATx98rEDy4iFkjJzOznaYt8wc2sznHmjULfR
+	HIHX5csgX0XYqJMxpcnCJa+3ThnZ5swF2L1lKVUZwlZpgFPqeSJ8rB/FfQ3bahUtqBi4VNGq7aY
+	k9/Jpcn8lWvG8=
+X-Google-Smtp-Source: AGHT+IHXmMAMgHGLYPHdNXeuo+MZBbEjpXPzE5xhKoqUU5naZQ2bnEDU9zb8O6kz0C5VmdKT1m/FAQ==
+X-Received: by 2002:a5d:584b:0:b0:429:b4ce:c333 with SMTP id ffacd0b85a97d-42b2dc20b7amr3337629f8f.3.1762776836988;
+        Mon, 10 Nov 2025 04:13:56 -0800 (PST)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac6794f6esm24922667f8f.41.2025.11.10.04.13.54
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac6794f6esm24922667f8f.41.2025.11.10.04.13.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 04:13:54 -0800 (PST)
+        Mon, 10 Nov 2025 04:13:56 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Arnd Bergmann <arnd@arndb.de>,
 	soc@lists.linux.dev
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
 	Peter Griffin <peter.griffin@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/4] arm64: defconfig: enable Exynos ACPM clocks
-Date: Mon, 10 Nov 2025 13:13:39 +0100
-Message-ID: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL 2/4] samsung: drivers for v6.19
+Date: Mon, 10 Nov 2025 13:13:40 +0100
+Message-ID: <20251110121344.120785-6-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
+References: <20251110121344.120785-5-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1015; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=1RuGJhko7Tg/2IZzsHP76G8AT+Tj/AWNxpQIu6+goLI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEdb46cR755V6vYrD6XaAJ+OSnAKc6fvm/6jTB
- xiiJhbvE0OJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRHW+AAKCRDBN2bmhouD
- 10KaEACDLPQR0FrZpAjYo5Og1ep/uckTjcjFC+xCzOXqOEdkrzcpDl037REM1q5jViFkjhTPpXN
- SrcT8a/d5hhSfjHToiBEaoYwnPfJ9jRk8xdAeQotkzc3dCqUznEibLkng8olbmhebHJFB8Ry+Vk
- BPdygN/QaIjOVtyQ8CzlIFatPlF5AFkr/3lOUvqukBIXmWG0Iis/flbwcTR2/cRSBh1KCrx//WT
- 8vaBkth4y9WjLiYCCqbheWjzD7HbUAkfV5t6ysaq9OBpOhHzjluW1fqFWr98jJXzda6FiDRWlD1
- TdhDDLfTWyrRTPwum+lUHGJrHjPNbcO+1npr5MfE5tOntgnu4hCeKrxRnoipk1eRrB1/MBWU1zP
- GFQjaz1w8dVPenwryczUMq3vNTVpAFmbPzGkvJWSuW3X9fh+7Al8vvsiURFB2ZuYf8pvS/IUZjx
- TDH9rq9EH5rf6nzBP7+wdNxIQ4rHsVY183B82SmCHrknOBF4KA043+Klx4m6FSgj2cogLngqZl0
- K1Hb8lOSiJ+jphwHeHFiIr8qeSzpJWmITsaO3uA+pN+Cx5y0fBUJy3kKtOd7BnAoxK9QG+bIGkU
- Yyt+4Kddltq1mXkDymUIjL7HnCxfeqMKLnxxQ5XJWeWHpRTrRg9qPy8G3QQ4als6oTKvOzSW72H AYWsXO6gNunbeBQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3147; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=prTJ8Oc+m1RLqjNAKESRe03pqfxl99t8fUIb/LcjQWk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEdb54uvgcIsvJkyeUuAsVPO83CjVSmDVgud5l
+ 2LOf1gbAw+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRHW+QAKCRDBN2bmhouD
+ 1xCwD/9fQop5LN4wvcGWsg5PtGyKeubevwoDlObwaQN/15SYy87W6CxtCNV9dU/3SM3XPUCmLxy
+ uawL7DFzPR6UBCAz7+k115KcJsrWJ58J8ZN/sq6svzOwBU2eYXkGWaO4eAGEyfYWgX/of3DDa0n
+ Z0M0AifAC5lkYD2gnppGvNQUa+xIUelZD3jB3ObaZ265L76q8gtLdwImZ1ab5ceJ96tn+eypUgi
+ qDiOaWZUFR2ymvuY69ivf21U5/MkM5X3862NhjhQH98JHywbcdB6XT98a+OZRXo0z88cD54OPKU
+ uqHXlZEEF4OzDd6/qys4ESBxMzYUEwvDc7k+tZ1phMgORBgkQPl6D1jOjVrO+ZWgdhLwMMrk2WL
+ cuEqbXgxdL8MhDOMfrtFoKTsMklYtQUXyBqCH/3OB2hyAFdjeeZt4xsL0j+fWLC1bQ5rD7M4zbP
+ rw8+XEqZOLWKVa3wjMDlmg1PsLpsfZrcwjI+Yzf/lIVprnKmBkCtLxSaMCBoNvUhIyj0gkQcc8i
+ 7G3LQKWCYj7DM+f4RvdbrixjruolAA+rJHNQ0jEa2OVlRB8czyUHKOqT42Itll2JM32X0VcEzxe
+ PgJc3iP3M1JZ96vJkm6qgZyuIy3IceO8y474AgSC6FERBGdNoEEoOvR+BpCltuZ5eV7S8ANZldx moJ9/Njf6RuKBSg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_041357_408344_D3D9017F 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251110_041358_876495_30DEC26E 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,35 +120,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-Enable the Exynos ACPM clocks driver. Samsung Exynos platforms
-implement ACPM to provide support for clock configuration, PMIC
-and temperature sensors.
+are available in the Git repository at:
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
-Link: https://patch.msgid.link/20251010-acpm-clk-v6-5-321ee8826fd4@linaro.org
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-6.19
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e3a2d37bd104..646097e94efe 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1458,6 +1458,7 @@ CONFIG_CLK_GFM_LPASS_SM8250=m
- CONFIG_SM_VIDEOCC_8450=m
- CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
-+CONFIG_EXYNOS_ACPM_CLK=m
- CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_OMAP=m
--- 
-2.48.1
+for you to fetch changes up to 81280d39a2f9e7dc12056db889da52cce067b1b6:
 
+  dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode for Exynos7870 PMU (2025-11-05 08:20:21 +0100)
+
+----------------------------------------------------------------
+Samsung SoC drivers for v6.19
+
+1. ChipID driver: Add support for identifying Exynos8890 and Exynos9610.
+
+2. PMU driver: Allow specifying list of valid registers for the custom
+   regmap used on Google GS101 SoC.  The PMU (Power Management Unit) on
+   that SoC uses more complex access to registers than simple MMIO and
+   invalid registers trigger aborts halting the system.
+
+3. Few minor cleanups.
+
+4. Several new bindings for compatible devices.
+
+----------------------------------------------------------------
+Alexandru Chimac (2):
+      dt-bindings: hwinfo: samsung,exynos-chipid: add exynos9610 compatible
+      soc: samsung: exynos-chipid: Add exynos9610 SoC support
+
+André Draszik (4):
+      soc: samsung: exynos-pmu: allow specifying read & write access tables for secure regmap
+      soc: samsung: exynos-pmu: move some gs101 related code into new file
+      soc: samsung: gs101-pmu: implement access tables for read and write
+      dt-bindings: soc: samsung: exynos-sysreg: add power-domains
+
+Denzeel Oliva (1):
+      dt-bindings: soc: samsung: exynos-sysreg: Add Exynos990 PERIC0/1 compatibles
+
+Ivaylo Ivanov (3):
+      dt-bindings: soc: samsung: exynos-pmu: add exynos8890 compatible
+      dt-bindings: hwinfo: samsung,exynos-chipid: add exynos8890-chipid compatible
+      soc: samsung: exynos-chipid: add exynos8890 SoC support
+
+Kaustabh Chakraborty (2):
+      dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
+      dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode for Exynos7870 PMU
+
+Krzysztof Kozlowski (1):
+      soc: samsung: exynos-pmu: Annotate online/offline functions with __must_hold
+
+Peter Griffin (1):
+      dt-bindings: soc: samsung: exynos-sysreg: add gs101 hsi0 and misc compatibles
+
+Tudor Ambarus (1):
+      soc: samsung: exynos-chipid: use a local dev variable
+
+ .../bindings/hwinfo/samsung,exynos-chipid.yaml     |   2 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |   2 +
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |  23 ++
+ MAINTAINERS                                        |   1 +
+ drivers/soc/samsung/Makefile                       |   3 +-
+ drivers/soc/samsung/exynos-chipid.c                |  18 +-
+ drivers/soc/samsung/exynos-pmu.c                   | 138 +------
+ drivers/soc/samsung/exynos-pmu.h                   |  37 ++
+ drivers/soc/samsung/gs101-pmu.c                    | 446 +++++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h        | 343 +++++++++++++++-
+ 10 files changed, 863 insertions(+), 150 deletions(-)
+ create mode 100644 drivers/soc/samsung/gs101-pmu.c
 
