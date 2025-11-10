@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1342DCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818DACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqKwn7avAyAqO57xEfolRbYYAw/Crj5IZFNMzWOyLFE=; b=fINNyGE+YzufL7wb04Ojj5xJb3
-	FOTbH5PlAV+cRBUtYFCDhU8TvYfwKou97kfUZyZHp3SmdIONsOqYiKtsrnRo31V+iECqSaGvxj0Hf
-	s8pLyPSGEi58JQmMmi0qRjM2RzD3/szrNowDj/OHvNUzvI9IS9h+LC0kFw2WLRo5dW5GXfG0Nqq5W
-	zpuNMJP6TMKE95m4ZN8Q4YyNpFHPV3T55aOyzrl4byWZrn94mtZqfxpxYRAZcIJ4C9m3vvcNLHsRo
-	gVleqU3w2apXW9jb86DcVeFP2AlsPQZ/2d280a1PO6GCAfgj291JhxX07K+XJjA6QFOP7gTii4/Kf
-	CP6kwQAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1WrguxH4pokigxxkQ8JIMem650725yeeLwdoGz6ziPQ=; b=WntIrIhCfdnAK0aTHg4MNFstA9
+	QU1lve2PYYDb2O1GDYuT+MnpMD5S0PtBMEyM54Q9UD77yocqu3W+9RS1ixJAUs1Q/Bqrusxu3AsMa
+	N41sHIQ+2yrFhbqpQoRescfxNPDOhLE9OYlLjRtpDrzWcKwHa65FeotfVXl7apS1xiQ/fZEfxU8JZ
+	UbsVg0+I15+fEKF8IlJ69FhzFRt/Y5Xlp9/Rnn317M3GiCxW/pM3q6cBNBlELHtlnQs8CiSS6OgSG
+	RJ9uyA0b/xWINIUR2LKRS8KRMPHCgg5gdcEY9+ew2JVxDRS13XzxbdDdLN8k6b7G5hLYpWiqdFAFe
+	i5mTQ5bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIP9x-00000005BRK-3bne;
-	Mon, 10 Nov 2025 10:30:05 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vIPH1-00000005Boh-02ho;
+	Mon, 10 Nov 2025 10:37:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIP9u-00000005BQr-3TJK;
-	Mon, 10 Nov 2025 10:30:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762770599;
-	bh=LKcjUvamtaRp5VMo3tOXWpvnOYnMuYx9dZBPJdrUs+s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PRf6dxUcq0UEdSiLe1Onb+Yo+VTS6NVXgiv+vXd5KGFs3q/hoxY2VWb2yKh6CgtYV
-	 CDoyGNBBd1VsYgh4H49Vjydts0Ohh73OLYdXRRDcGXrb2Rpm+HGoAIVT5EsVLWsz0L
-	 wylVlsZDaV7eC29uWUEj9VRLVKiJsBGshU7PNM5RzX6BlqfkAuUZR2OENrKU6HAgIB
-	 c1X2R62jqJQah5MWwxKE3/5mJDYLea91xeuzAAm8fxuNl2DvcDZnS9YhhHRbA0MyMw
-	 YLf50y3rEOwrJ7hhFngeOqlToQZYUy8jXhMdDAmM7BSKw+p8boA4VSpFsD5jpb3Cxq
-	 7yn8NEXgetc6g==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C2EA917E12E5;
-	Mon, 10 Nov 2025 11:29:57 +0100 (CET)
-Message-ID: <b89746e1-4574-4b65-af69-c533576ed185@collabora.com>
-Date: Mon, 10 Nov 2025 11:29:57 +0100
+	id 1vIPGx-00000005Bno-09AX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 10:37:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10DD5601A5;
+	Mon, 10 Nov 2025 10:37:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22E76C4CEF5;
+	Mon, 10 Nov 2025 10:37:14 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="WTAHFhLQ"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1762771032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1WrguxH4pokigxxkQ8JIMem650725yeeLwdoGz6ziPQ=;
+	b=WTAHFhLQBM9L4uVZANImYYYEpEwrJCJmpUsPeVS7opyWT3kewXLiJpB+S7cWvpyOqmRlk0
+	jOvTCsms0UYDa7uYKl2FQdhRurOUoi+bCEX1pnKZador3BykkqFb6xAp1lo4cuCgYvgUtd
+	mk8NOd2uY8oXx8TZ6HnEj3LlqXVn94g=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 190dbf96 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Mon, 10 Nov 2025 10:37:11 +0000 (UTC)
+Date: Mon, 10 Nov 2025 11:37:07 +0100
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Nick Alcock <nick.alcock@oracle.com>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Russell King <linux@armlinux.org.uk>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH v5 19/34] random: vDSO: only access vDSO datapage after
+ random_init()
+Message-ID: <aRHAU7bVAIyaOrpA@zx2c4.com>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+ <20251106-vdso-sparc64-generic-2-v5-19-97ff2b6542f7@linutronix.de>
+ <aQ6EvdukQytvqK-u@zx2c4.com>
+ <20251110094555-353883a9-1950-4cc6-a774-bb0ef5db11c5@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 00/18] media: rockchip: add a driver for the rockchip
- camera interface
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Markus Elfring <Markus.Elfring@web.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Mehdi Djait <mehdi.djait@bootlin.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Bryan O'Donoghue <bod@kernel.org>, Chen-Yu Tsai <wens@csie.org>
-References: <20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com>
- <aQ4tJg8r_j4NyKhv@kekkonen.localdomain>
- <074cd08e-0412-49f9-8dd9-b1f96eb11717@collabora.com>
- <20251107185441.GG5558@pendragon.ideasonboard.com>
- <13c43edb-9592-4779-a39a-7856bb0f964d@collabora.com>
- <aRGlvQRVoQs0WjyA@kekkonen.localdomain>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <aRGlvQRVoQs0WjyA@kekkonen.localdomain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_023003_191603_416D38A5 
-X-CRM114-Status: GOOD (  38.46  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251110094555-353883a9-1950-4cc6-a774-bb0ef5db11c5@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,152 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
-
-On 11/10/25 09:43, Sakari Ailus wrote:
-> Hi Michael, Laurent,
+On Mon, Nov 10, 2025 at 10:04:17AM +0100, Thomas Weißschuh wrote:
+> On Sat, Nov 08, 2025 at 12:46:05AM +0100, Jason A. Donenfeld wrote:
+> > I'm not a huge fan of this change:
+> > 
+> > On Thu, Nov 06, 2025 at 11:02:12AM +0100, Thomas Weißschuh wrote:
+> > > +static DEFINE_STATIC_KEY_FALSE(random_vdso_is_ready);
+> > >  
+> > >  /* Control how we warn userspace. */
+> > >  static struct ratelimit_state urandom_warning =
+> > > @@ -252,6 +253,9 @@ static void random_vdso_update_generation(unsigned long next_gen)
+> > >  	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> > >  		return;
+> > >  
+> > > +	if (!static_branch_likely(&random_vdso_is_ready))
+> > > +		return;
+> > > +
+> > >  	/* base_crng.generation's invalid value is ULONG_MAX, while
+> > >  	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
+> > >  	 * former to arrive at the latter. Use smp_store_release so that this
+> > > @@ -274,6 +278,9 @@ static void random_vdso_set_ready(void)
+> > >  	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> > >  		return;
+> > >  
+> > > +	if (!static_branch_likely(&random_vdso_is_ready))
+> > > +		return;
+> > > +
+> > >  	WRITE_ONCE(vdso_k_rng_data->is_ready, true);
+> > >  }
+> > >  
+> > > @@ -925,6 +932,9 @@ void __init random_init(void)
+> > >  	_mix_pool_bytes(&entropy, sizeof(entropy));
+> > >  	add_latent_entropy();
+> > >  
+> > > +	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> > > +		static_branch_enable(&random_vdso_is_ready);
+> > > +
+> > >  	/*
+> > >  	 * If we were initialized by the cpu or bootloader before jump labels
+> > >  	 * or workqueues are initialized, then we should enable the static
+> > > @@ -934,8 +944,10 @@ void __init random_init(void)
+> > >  		crng_set_ready(NULL);
+> > >  
+> > >  	/* Reseed if already seeded by earlier phases. */
+> > > -	if (crng_ready())
+> > > +	if (crng_ready()) {
+> > >  		crng_reseed(NULL);
+> > > +		random_vdso_set_ready();
+> > > +	}
+> > 
+> > The fact that the vdso datapage is set up by the time random_init() is
+> > called seems incredibly contingent on init details. Why not, instead,
+> > make this a necessary part of the structure of vdso setup code, which
+> > can actually know about what happens when?
 > 
-> On Fri, Nov 07, 2025 at 09:51:37PM +0100, Michael Riesch wrote:
->> Hi Laurent,
->>
->> On 11/7/25 19:54, Laurent Pinchart wrote:
->>> On Fri, Nov 07, 2025 at 07:41:59PM +0100, Michael Riesch wrote:
->>>> On 11/7/25 18:32, Sakari Ailus wrote:
->>>>> On Fri, Oct 24, 2025 at 02:51:29PM +0200, Michael Riesch via B4 Relay wrote:
->>>>>> Habidere,
->>>>>>
->>>>>> This series introduces support for the Rockchip Camera Interface (CIF),
->>>>>> which is featured in many Rockchip SoCs in different variations.
->>>>>> For example, the PX30 Video Input Processor (VIP) is able to receive
->>>>>> video data via the Digital Video Port (DVP, a parallel data interface)
->>>>>> and transfer it into system memory using a double-buffering mechanism
->>>>>> called ping-pong mode.
->>>>>> The RK3568 Video Capture (VICAP) unit, on the other hand, features a
->>>>>> DVP and a MIPI CSI-2 receiver that can receive video data independently
->>>>>> (both using the ping-pong scheme).
->>>>>> The different variants may have additional features, such as scaling
->>>>>> and/or cropping.
->>>>>> Finally, the RK3588 VICAP unit constitutes an essential piece of the
->>>>>> camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
->>>>>> units, and a data path multiplexer (to scaler units, to ISP, ...).
->>>>>
->>>>> I understand both RK3568 and RK3588 include an ISP. Do you have insight on
->>>>> how would this work, should the support for the ISP be added later on?
->>>>
->>>> Short answer: Yes and yes.
->>>>
->>>> Long answer:
->>>>
->>>> The patch series at hand adds support for the PX30 VIP and the RK3568
->>>> VICAP. I cannot really say something about the PX30, but on the RK3568
->>>> VICAP and ISP are orthogonal (the ISP features its own MIPI CSI-2
->>>> receiver, different from that introduced in this series). Thus, ISP
->>>> support can be introduced anytime (whenever someone is motivated ;-)).
->>>
->>> Won't they both be connected to the same sensor though, and probably the
->>> same D-PHY in the SoC ? They don't seem entirely separate to me.
->>
->> The MIPI CSI-2 DPHY is shared, indeed. Thus, they *maybe technically
->> could be* connected to the same sensor, but I don't know whether that
->> works and fail to see why anyone would to such a thing (if it is about
->> raw capture, the MIPI CSI-2 receiver in the ISP can do that on its own).
->>
->> The DPHY can be operated in split mode, with two lanes for VICAP and two
->> lanes for ISP. This is not implemented yet, but can be done at a later
->> stage on PHY level (not media related). In this case, ISP and VICAP can
->> receive data from different subdevices via CSI-2.
+> The whole early init is "carefully" ordered in any case. I would have been
+> happy to allocate the data pages before the random initialization, but the
+> allocator is not yet usable by then.
+> We could also make the ordering more visible by having the vDSO datastore call
+> into a dedicated function to allow the random core to touch the data pages:
+> random_vdso_enable_datapages().
 > 
-> The two would be part of the same media graph in that case and as there are
-> two CSI-2 receivers and a single PHY, the PHY would probably need to have a
-> sub-device as well, to allow link configuration to be used to select where
-> the PHY is connected.
+> > For example, one clean way of
+> > doing that would be to make vdso_k_rng_data always valid by having it
+> > initially point to __initdata memory, and then when it's time to
+> > initialize the real datapage, memcpy() the __initdata memory to the new
+> > specially allocated memory. Then we don't need the complex state
+> > tracking that this commit and the prior one introduce.
 > 
-> I don't think we have such a setup elsewhere, and supporting this would
-> require changes in the MC framework.
+> Wouldn't that require synchronization between the update path and the memcpy()
+> path? Also if the pointer is going to change at some point we'll probably need
+> to use READ_ONCE()/WRITE_ONCE(). In general I would be happy about a cleaner
+> solution for this but didn't find a great one.
 
-What follows is a response that also addresses issues raised during our
-off-list discussion.
+This is still before userspace has started, and interrupts are disabled,
+so I don't think so? Also, you only care about being after
+mm_core_init(), right? So move your thing before sched_init() and then
+you'll really have nothing to worry about.
 
-First of all, I agree with you that the RK3568 HW is "a bit special" (to
-say the least) in that regard. Let's have an outlook to newer SoCs, such
-as the RK3588: Here, the MIPI CSI-2 DPHYs (there are two of them) with
-their split mode are present as well, but the assignment is fixed. For
-example, the RK3588 VICAP has six MIPI CSI-2 receiver units and six MIPI
-CSI-2 capture units. Units 1 and 2 handle a different MIPI PHY, units 3
-and 5 handle the DPHYs (without split mode), units 4 and/or 6 are active
-whenever DPHY 1 and/or 2 is in split mode.
+But I think globally I agree with Andy/Arnd -- this is kind of ugly and
+not worth it. Disable vDSO for these old CPUs with cache aliasing
+issues.
 
-I would model this by adding support for more than one (logical) PHYs
-(phy-cells = <1>;) and assigning the logical PHYs to the MIPI CSI-2
-receivers. There is not really a possibility to route anything at this
-point (routing is done in a MUX unit that takes the different MIPI CSI-2
-receivers as inputs).
-
-Now back to the peculiar RK3568 situation: By default the split mode of
-the DPHY is off and both VICAP and ISP are able to receive the same data
-(from up to four lanes) with their MIPI CSI-2 receivers (not sure
-whether both can be active at the same time, though). There are two bits
-in the GRF that define the lanes that ISP and VICAP receive in split
-mode (lane 0/1 or lane 2/3). Not sure whether these bits are supposed to
-be changed during runtime.
-
-I would suggest modelling this on PHY level in DT, e.g., by passing
-reasonable properties to the dphy node, such as
-    rockchip,dphy-split-mode;
-    rockchip,dphy-split-invert;
-where the former activates the split mode and assigns lanes 0/1 to the
-ISP and lanes 2/3 to the VICAP, and the latter inverts this assignment
-(lanes 2/3 to the ISP and lanes 0/1 to the VICAP). This would facilitate
-the reasonable use cases with reasonable effort.
-
-Otherwise, to keep it perfectly general and most flexible and
-everything, we would have to introduce another subdevice indeed, which
-would be active on the RK3568 exclusively. Therefore, I don't see that
-the PHY driver introduces this subdevice, but a specialized (syscon?)
-MUX driver that deals with the RK3568 GRF bits. Something like this
-
-                           |----------------------|     |-------------|
- Sensor A --- /2 lanes --- | lane 0/1      to ISP | --- | ISP MIPI RX |
-                           |                      |     |-------------|
-                           |                      |
-                           |                      |     |-------------|
- Sensor B --- /2 lanes --- | lane 2/3    to VICAP | --- |VICAP MIPI RX|
-                           |----------------------|     |-------------|
-
-But IMHO this will be too much effort for corner use case that I doubt
-anyone will actually use.
-
-What do you think:
- - Let's keep the PHYs out of V4L2/MC, ok?
- - Let's model the reasonable use cases with device tree properties in
-   the dphy DT node, ok?
-
-> How does the media graph look like for the device at the moment?
-
-Please take a look at the media graph in the documentation patch (PATCH
-v14 01/18). This is without the ISP, but gives an overview of what the
-RK3568 VICAP is capable of.
-
-Best regards,
-Michael
-
-> 
->>
->> BTW the ISP is able to process the data captured by VICAP, but
->> apparently this includes a RAM round trip (VICAP captures to memory, ISP
->> operates in mem2mem mode).
->>
->>> A block diagram that shows connections between the CSI-2 pins, D-PHY,
->>> CSI-2 receivers, VICAP and ISP could help.
->>>
->>>> Once this patch series is merged, I'll push out changes that introduce
->>>> support for the RK3588 VICAP. We can discuss the integration of any
->>>> RK3588 ISP in this scope then -- and there may be some things to discuss
->>>> as there the VICAP and the ISP(s) are directly connected by means of a
->>>> MUX unit in the VICAP.
->>>>
->>>> Alright?
->>>
-> 
-
+Jason
 
