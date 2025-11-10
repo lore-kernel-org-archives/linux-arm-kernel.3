@@ -4,111 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05596CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CF4CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5Y96RO9WariXLlU8HPIyULNGxFOP7ZCY4N2QZTzgpg=; b=Uif7jUo5j/zJh1c1BsdV5bZ7Bn
-	qVa1IZIW2ZkOk2hrj2i+Sdrts3qp7nLGSm4BZFUYXTroYpev+5U4FywX+70NbLRyP48Dc79rrW5fa
-	Bz5l4Gy5+nINUpAQT0csru10jLhcivfGjP4IgqfYweAf/SrajcQciCSdENKKj9a+v53esycm0N4UA
-	hajJQJevksZufH1W5IonZIBaMV1o58MbgUfzNiVu+tdI5tWpsL3PjSKhpdRvV2ZaeIq9h89FyaFFH
-	mK0S8/vr9XDBfHHcaIshB+edo80W8zha2iJ9RPMDCTJKJ+eaGr9vOCp87+oZJ2UfpUW84PvzAkbwE
-	LK6SwLCA==;
+	bh=kiWH2lU44C6WEirVPugpjbIQoCqUutdsCudYr3+j3M4=; b=FZi//6JcX1XofV6miVJN4FG3iV
+	sD/niOwhLy09txIjF9i3QCl6Hn0st6FvMwJlW3mUdlVOAFiDTWbNru6rbrHkP6msnLquYYxaEw2A6
+	XaRyx1vZm/cUXn51EgdlVRWlzh5RXV0aLVlQiO4r/npDbiYX7nCuvBLdVUp/jqledRxfsyHoKiufS
+	mzkE2ktjg/0bsTaeM86rIsAw2iiEmDS4GwzqpQYI1MXxGDGmph0bvDrqe6CPz1tm6oHzKQQ6sZmur
+	GW7JnJudUrsSibbpM6KIpwh+CF66P0Lhz1ypqxSGTLtyrrFBKeXfEi76fmy/seISc9AD4aCSE1ZY4
+	F/auMb4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIM4t-00000004sjF-45Bh;
-	Mon, 10 Nov 2025 07:12:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIM5G-00000004spx-1oOg;
+	Mon, 10 Nov 2025 07:13:02 +0000
+Received: from mail-m49206.qiye.163.com ([45.254.49.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIM4s-00000004sia-0A4m;
-	Mon, 10 Nov 2025 07:12:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D805C41B5C;
-	Mon, 10 Nov 2025 07:12:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61D4C16AAE;
-	Mon, 10 Nov 2025 07:12:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762758756;
-	bh=npf91q97ByS7kwwU6n9XRA4EAmt/gK94VxWAq/bBNt0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dYRWg4vB/FzAf8I+IjRQXfYssgHBIZ2tyxhq3HsPZOHlbGHkqPRTxaAcJdp+6lHlW
-	 7XzRnIUT2Dqqjm83O7zvcE2wm/8F8DEoahSH+OkIJXgg7nVjP18SJbRirxNcouKaHG
-	 uDy/3uHqgQjPqrS9KdV2W0YJtFQGts+O3a7aQSiILbNt4ir6CZl0CGb0z5BIdqIiC7
-	 ve0I2RvQrFqEHOcCXggO5SuQJHruDRQUosy+3NVXpSfXDpLIRbNnyDJ+iyKj/cM3jK
-	 GbtVBKPmGh3th4uKVNABVLQKrCDTc8qfjssCBKE7oKD4eL0o09bE4tzshAdS6/bWD7
-	 CWlPlpE96C1Fg==
-Message-ID: <19169092-78f8-4b86-9f43-ea7a2ea20b9f@kernel.org>
-Date: Mon, 10 Nov 2025 08:12:32 +0100
+	id 1vIM5C-00000004so9-3dur;
+	Mon, 10 Nov 2025 07:13:01 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2901d3153;
+	Mon, 10 Nov 2025 15:12:53 +0800 (GMT+08:00)
+Message-ID: <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
+Date: Mon, 10 Nov 2025 15:12:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Simplify usb-c-connector port
- on rk3566-pinenote
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Diederik de Haas <diederik@cknow-tech.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>
-Cc: hrdl <git@hrdl.eu>, phantomas <phantomas@phantomas.xyz>,
- Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org,
+Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
+ Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251109-rk3566-pinenote-dt-fixes-upstream-v1-0-ed38d200cc04@cknow-tech.com>
- <20251109-rk3566-pinenote-dt-fixes-upstream-v1-1-ed38d200cc04@cknow-tech.com>
- <a726fac9-afe5-4639-b06a-4bccc256d98f@kernel.org> <5024969.GXAFRqVoOG@diego>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <5024969.GXAFRqVoOG@diego>
-Content-Type: text/plain; charset=UTF-8
+ linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, mani@kernel.org
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: FUKAUMI Naoki <naoki@radxa.com>, Niklas Cassel <cassel@kernel.org>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
+ <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
+ <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+ <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+ <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9a6c9c4a2409cckunm5c79c74c133238b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhDSlZMHh1LSRkYShoeHh5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0
+	pVSktLVUtZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=if9DZ/p3++Jr6yRTb07dgvDbHKki7GHVkPo/5ZcOaASDOTdTph3sVCQW3FUDOEBHv9Ul8Abn/G52m+9/M25Csywt0zhofeaJXGhlTlFf29EIoGJyg2RpEarVPzeDGIttT+OylN+00Mqa39RVJ5/zGuwEkBmOl7EKIyIhq2HCWW4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=kiWH2lU44C6WEirVPugpjbIQoCqUutdsCudYr3+j3M4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_231238_140872_54EBBEB5 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20251109_231259_449758_FF118B27 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,27 +83,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/11/2025 23:16, Heiko Stübner wrote:
-> Am Sonntag, 9. November 2025, 18:37:26 Mitteleuropäische Normalzeit schrieb Krzysztof Kozlowski:
->> On 09/11/2025 18:05, Diederik de Haas wrote:
->>> The USB-C connector on the PineNote has only 1 port, so there's no need
->>> for a 'ports' node with address-/size-cells properties as a single
->>> 'port' node suffices.
->>>
->>> This fixes the following DT validation issue:
->>>
->>>   Warning (graph_child_address): /i2c@fe5c0000/tcpc@60/connector/ports:
->>>     graph node has single child node 'port@0',
->>>     #address-cells/#size-cells are not necessary
->>
->> This is not a DT validation, but DTC warning which we do not really fix.
+
+在 2025/11/10 星期一 12:56, FUKAUMI Naoki 写道:
+> Hi Shawn,
 > 
-> That is good to know. Is the same true for other dtc warnings?
->
+> On 11/10/25 11:30, Shawn Lin wrote:
+>> Hi Fukaumi
+>>
+>> 在 2025/11/10 星期一 7:26, FUKAUMI Naoki 写道:
+>>> (RESEND: fix mani's email address)
+>>>
+>>> Hi Niklas,
+>>>
+>>> On 11/9/25 21:28, Niklas Cassel wrote:
+>>>> On Sun, Nov 09, 2025 at 01:42:23PM +0900, FUKAUMI Naoki wrote:
+>>>>> Hi Niklas,
+>>>>>
+>>>>> On 11/8/25 22:27, Niklas Cassel wrote:
+>>>>> (snip)> (And btw. please test with the latest 6.18-rc, as, from 
+>>>>> experience,
+>>>>> the
+>>>>>> ASPM problems in earlier RCs can result in some weird problems 
+>>>>>> that are
+>>>>>> not immediately deduced to be caused by the ASPM enablement.)
+>>>>>
+>>>>> Here is dmesg from v6.18-rc4:
+>>>>>   https://gist.github.com/RadxaNaoki/40e1d049bff4f1d2d4773a5ba0ed9dff
+>>>>
+>>>> Same problem as before:
+>>>> [    1.732538] pci_bus 0004:43: busn_res: can not insert [bus 43-41] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.732645] pci_bus 0004:43: busn_res: [bus 43-41] end is updated 
+>>>> to 43
+>>>> [    1.732651] pci_bus 0004:43: busn_res: can not insert [bus 43] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.732661] pci 0004:42:00.0: devices behind bridge are unusable 
+>>>> because [bus 43] cannot be assigned for them
+>>>> [    1.732840] pci_bus 0004:44: busn_res: can not insert [bus 44-41] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.732947] pci_bus 0004:44: busn_res: [bus 44-41] end is updated 
+>>>> to 44
+>>>> [    1.732952] pci_bus 0004:44: busn_res: can not insert [bus 44] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.732962] pci 0004:42:02.0: devices behind bridge are unusable 
+>>>> because [bus 44] cannot be assigned for them
+>>>> [    1.733134] pci_bus 0004:45: busn_res: can not insert [bus 45-41] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.733246] pci_bus 0004:45: busn_res: [bus 45-41] end is updated 
+>>>> to 45
+>>>> [    1.733255] pci_bus 0004:45: busn_res: can not insert [bus 45] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.733266] pci 0004:42:06.0: devices behind bridge are unusable 
+>>>> because [bus 45] cannot be assigned for them
+>>>> [    1.733438] pci_bus 0004:46: busn_res: can not insert [bus 46-41] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.733544] pci_bus 0004:46: busn_res: [bus 46-41] end is updated 
+>>>> to 46
+>>>> [    1.733550] pci_bus 0004:46: busn_res: can not insert [bus 46] 
+>>>> under [bus 42-41] (conflicts with (null) [bus 42-41])
+>>>> [    1.733560] pci 0004:42:0e.0: devices behind bridge are unusable 
+>>>> because [bus 46] cannot be assigned for them
+>>>> [    1.733571] pci_bus 0004:42: busn_res: [bus 42-41] end is updated 
+>>>> to 46
+>>>> [    1.733575] pci_bus 0004:42: busn_res: can not insert [bus 42-46] 
+>>>> under [bus 41] (conflicts with (null) [bus 41])
+>>>> [    1.733585] pci 0004:41:00.0: devices behind bridge are unusable 
+>>>> because [bus 42-46] cannot be assigned for them
+>>>> [    1.733596] pcieport 0004:40:00.0: bridge has subordinate 41 but 
+>>>> max busn 46
+>>>>
+>>>>
+>>>> Seems like the ASM2806 switch, for some reason, is not ready.
+>>>>
+>>>> One change that Diederik pointed out is that in the "good" case,
+>>>> the link is always in Gen1 speed.
+>>>>
+>>>> Perhaps you could build with CONFIG_PCI_QUIRKS=y and try this patch:
+>>>>
+>>>> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+>>>> index 214ed060ca1b..ac134d95a97f 100644
+>>>> --- a/drivers/pci/quirks.c
+>>>> +++ b/drivers/pci/quirks.c
+>>>> @@ -96,6 +96,7 @@ int pcie_failed_link_retrain(struct pci_dev *dev)
+>>>>   {
+>>>>       static const struct pci_device_id ids[] = {
+>>>>           { PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
+>>>> +        { PCI_VDEVICE(ASMEDIA, 0x2806) }, /* ASMedia ASM2806 */
+>>>>           {}
+>>>>       };
+>>>>       u16 lnksta, lnkctl2;
+>>>
+>>> It doesn't help with either probing behind the bridge or the link speed.
+>>>
+>>>> If that does not work, perhaps you could try this patch
+>>>> (assuming that all Rock 5C:s have a ASM2806 on pcie2x1l2):
+>>>
+>>> ROCK 5C has a PCIe FPC connector and I'm using Dual 2.5G Router HAT.
+>>>   https://radxa.com/products/rock5/5c#techspec
+>>>   https://radxa.com/products/accessories/dual-2-5g-router-hat
+>>>
+>>> Regarding the link speed, I initially suspected the FPC connector 
+>>> and/ or cable might be the issue. However, I tried the Dual 2.5G 
+>>> Router HAT with the ROCK 5A (which uses a different cable), and I got 
+>>> the same result.
+>>>
+>>> BTW, the link speed varies between 2Gb/s and 4Gb/s depending on the 
+>>> reboot. (with or without quirk)
+>>
+>> Could you please help check this patch?
+> 
+> I tried your patch on top of vanilla v6.18-rc5.
+>   https://gist.github.com/RadxaNaoki/b42252ce3209d9f6bc2d4c90c71956ae
+> 
+> I got 2 oops,
+> 
+> - its_msi_teardown+0x120/0x140
+>    New with this patch.
+> 
+> - of_pci_add_properties+0x284/0x4c4
+>    It sometimes happen with vanilla v6.18-rcX.
+> 
+> Nothing behind the bridge is probed.
 
-No, depends, the same for compiler warnings. That's the only warning I
-remember we considered moving from W=1 to W=2.
+Hi Fukaumi,
 
-Best regards,
-Krzysztof
+Thanks for testing. I just got a ASM2806 switch as yours and verified it
+on vanilla v6.18-rc5. After 30 times of cold boot, two NVMes behind
+ASM2806 work as expected. Nothing special happened when I checked
+with PA as well. You could help check the log and lspci dump there[1].
+
+[1]https://pastebin.com/sAF1fT0g
+
+> 
+> Best regards,
+> 
+> -- 
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+>> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+>> @@ -454,6 +454,8 @@ static irqreturn_t 
+>> rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>>          struct dw_pcie *pci = &rockchip->pci;
+>>          struct dw_pcie_rp *pp = &pci->pp;
+>>          struct device *dev = pci->dev;
+>> +       struct pci_bus *child, *root_bus = NULL;
+>> +       struct pci_dev *bridge;
+>>          u32 reg;
+>>
+>>          reg = rockchip_pcie_readl_apb(rockchip, 
+>> PCIE_CLIENT_INTR_STATUS_MISC);
+>> @@ -462,12 +464,21 @@ static irqreturn_t 
+>> rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>>          dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
+>>          dev_dbg(dev, "LTSSM_STATUS: %#x\n", 
+>> rockchip_pcie_get_ltssm(rockchip));
+>>
+>> +       list_for_each_entry(child, &pp->bridge->bus->children, node) {
+>> +               if (child->parent == pp->bridge->bus) {
+>> +                       root_bus = child;
+>> +                       bridge = root_bus->self;
+>> +                       break;
+>> +               }
+>> +        }
+>> +
+>>          if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+>>                  if (rockchip_pcie_link_up(pci)) {
+>>                          msleep(PCIE_RESET_CONFIG_WAIT_MS);
+>>                          dev_dbg(dev, "Received Link up event. 
+>> Starting enumeration!\n");
+>>                          /* Rescan the bus to enumerate endpoint 
+>> devices */
+>>                          pci_lock_rescan_remove();
+>> +                       pci_stop_and_remove_bus_device(bridge);
+>>                          pci_rescan_bus(pp->bridge->bus);
+>>                          pci_unlock_rescan_remove();
+>>                  }
+>>
+>>
+>>>
+>>> Best regards,
+>>>
+>>> -- 
+>>> FUKAUMI Naoki
+>>> Radxa Computer (Shenzhen) Co., Ltd.
+>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/ 
+>>>> arch/ arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>>>> index dd7317bab613..26f8539d934a 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+>>>> @@ -452,6 +452,7 @@ &pcie2x1l2 {
+>>>>       pinctrl-0 = <&pcie20x1_2_perstn_m0>;
+>>>>       reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+>>>>       vpcie3v3-supply = <&pcie2x1l2_3v3>;
+>>>> +    max-link-speed = <1>;
+>>>>       status = "okay";
+>>>>   };
+>>>>
+>>>>
+>>>>
+>>>> Kind regards,
+>>>> Niklas
+>>>>
+>>>
+>>>
+>>
+>>
+> 
+> 
+
 
