@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D03DCCFA1E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5D4CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRtPdzI1Yw78zykFlB0XCziKqeVOXzigJtW+jsiVzcI=; b=Ff5bueEB/01/aox0uOyzzTqhRz
-	aLGOrUQlKalK28V6J0sMMFlinNJg68pDLSMbkaoLSfEYyV7l06Swn/GIQkpQ/8YLw0w1xR4vOnMGJ
-	as/1onnIf4H7CJLqOD3FIaIwzkDx41pkS5QsuS3Hgw7lSojWYOHrKgtqskMaECz2zXfk2TfMWpfYl
-	zQrmaqxhFW8R5yTtFC2gAaSh0BPuosIzKoOGKfe8qNEIF0dbcVJ92ccAqp4gdzIMVLgHp3RPH2kZ6
-	VJ8Ep6flIkeLEQOA7WIdToP3jjAE1XWQZa7M04AxZFyb+ISMXry6lMq1PSfetwH1rJWeCcSJyyPdm
-	oImxiSZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nqpj+uo11Rm1HYYL5ztqdJwKIU7oUJ9VEIdxvf4qDNI=; b=Q6ePOFEqc6y6khNwc+f0y3H2+E
+	KrLfRs8a5kh49zJl6twNWg/3zYScAq5sjVwgHzfzHo2y/N/VWKGLKBlKwQpjsWNiUJbziJoYRksiL
+	d2u/JjvHqROfh4qktr/hAHpd7jibQ3kLj1oqkbgzeM/BREsz4oR5mdqxrxr/0eFiWnS6URY8s7/tm
+	3dcnzHvtuNP2eUuwCyzsyNdr2SSa2t6hnIN8XUoTH3cSZbNR0stAq6NW/1KDQm9dzAlL4eLV7i882
+	kbGdodhkdHTk89qHi/8L8fN8kOiEZChm1oPdTA+mpNmt71nOCj5pWm7iRGYikBNUaZNwNVrYOhoai
+	yj5xdY8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOFg-0000000564K-0T8r;
-	Mon, 10 Nov 2025 09:31:56 +0000
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	id 1vIOOw-000000056es-0ZVA;
+	Mon, 10 Nov 2025 09:41:30 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOFd-0000000563v-3TIW
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:31:54 +0000
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-93518a78d0aso1553295241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:31:53 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762767112; x=1763371912;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hRtPdzI1Yw78zykFlB0XCziKqeVOXzigJtW+jsiVzcI=;
-        b=V84CfHnm4uNzGa9a9oDTlgm2z+ZfeydK9GK9V4WsKCZlcwAEubNexg8ESZ+bklfFrO
-         HgjLShfll8PWWTyD87TIdyC1mfW6K2OFBGK0gB0WETpjel/9I8dWE2Z5JRbdzV1cZF8r
-         6D+hRc04+GPIsJXTf2zOTw8ohx2qIOWVjB3xbYNpTvGGY4+UsMjHjamkXfReGmuQavMo
-         HCCXHgnx5kNvPrjYj/VXOoHgEi/8YQR78DWCbGw09nxyFingSPjILaUpCMyw7o8lvMBG
-         18sHcPZLqYiv3TJD/WVLZJtl19P5SiqF+sF1rsICmLK2bRbCUO5qCACzYcNS4O2fqGv+
-         qGQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWIXjF2NmYcQfTRs1WCuh+bZtN561C7mBX9JTII0fNJNaSqruinEqApOdcWCCUhk5ff6Rl2tNGDOD4Zg/eQ9t8m@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiKSi7j8Jb2YcDb4dhornYbwKukfcosVlW7PGOeil2RcaL6dao
-	Q9TSnBmoWY63UjX0x+y3ZUtajL0XS41g1eflz0HXK+ppgK+uzqhDLeEM+RjbaVnS
-X-Gm-Gg: ASbGncunWWuiW/8E6r5YN6aXAUbh8sPDAMuLR9AOZbaL+JjI++rGBU8RoQQdqONmwYA
-	gxz1aaiJ7C3exvjNdOZS39WJiSR1OQIdDzL4/VTyszYy0DYE09k9iTK0n3+DWer/y5wCaXz8Rx7
-	MAPu7h+1Haf2qzZqY2awRBRDCpXd77KKlHE/aUpB2dFxm9UABMkCpgM5P1EKzl/Vz/deSYSCbS6
-	ER6ecnpHDi+pKHXDrGW1Ye+AORF2t59vuWxBGsRr9lC/E9lvHYBHX4QRQ+ScOLrDP82fM5J22m+
-	cctDCUQaGXMEm9wsFAPo1uDuFRbqt1opfmaqKlaf8K39DLVtSiH8FmvusobgLsC3e4a0Xypma7a
-	t2vlxo69fzgbel7Kb/dUTzyYGKQgGvdgUIqHzv2Cb+dNGKYZt8GV7kgmsVEp0FD2mR21nYngm2I
-	Ami5q9949mKDTGn6WtDY8CuLpCHm/9zxZBAZ16er4P9456BPMeWKU2
-X-Google-Smtp-Source: AGHT+IFkkJswJX/oVCk19IyTLdiijuF26N3ubhykX45Fnvec5WioXlDlt8BoyOH+eKYgAlHegqH/uw==
-X-Received: by 2002:a05:6102:d8c:b0:5db:1e80:7813 with SMTP id ada2fe7eead31-5ddc47ee37cmr2341789137.43.1762767112089;
-        Mon, 10 Nov 2025 01:31:52 -0800 (PST)
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5dda1a6915fsm5788832137.0.2025.11.10.01.31.50
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 01:31:50 -0800 (PST)
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5ddaff87c82so2233270137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:31:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWTV4LLhaSaXevC+ZaGhL+Q2EvXUFEanipSqkJerUGjVMe8hocFw4hNF+TmV1S8FrrjMyA1KLrwOSfckfTEZT14@lists.infradead.org
-X-Received: by 2002:a05:6102:c04:b0:520:dbc0:6ac4 with SMTP id
- ada2fe7eead31-5ddc46497a0mr2779273137.2.1762767109934; Mon, 10 Nov 2025
- 01:31:49 -0800 (PST)
+	id 1vIOOu-000000056eS-0zGW;
+	Mon, 10 Nov 2025 09:41:29 +0000
+X-UUID: 6a62ee5cbe1911f09f706fa2197c6ceb-20251110
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=nqpj+uo11Rm1HYYL5ztqdJwKIU7oUJ9VEIdxvf4qDNI=;
+	b=Ixp4jR4RNq5pA7HmFF7vxpJKLklxTCCxFiY20e8pftp4fvvTIxysj1bL4QSvMm6HEnGf4TyHe8yTMlGpX3O9vd6eyzL/3qnfXY/kY1bGFLAMobOKv/9U2153Da1foemuytq4ZN68eKVC7ijoPK7S671Qem3EJUHys7bGxtYhVjA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:a7732798-bbdf-4719-bd46-0b01148a06e5,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:3996ba57-17e4-43d2-bf73-55337eed999a,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6a62ee5cbe1911f09f706fa2197c6ceb-20251110
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <hanchien.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 620133461; Mon, 10 Nov 2025 02:41:21 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 10 Nov 2025 17:41:18 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 10 Nov 2025 17:41:18 +0800
+From: Hanchien Lin <hanchien.lin@mediatek.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Balsam
+ CHIHI <bchihi@baylibre.com>
+CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <hanchien.lin@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<raymond.sun@mediatek.com>, <Irving-CH.lin@mediatek.com>
+Subject: [PATCH 0/2] arm64: dts/thermal: Add MT8189 thermal controller and driver support
+Date: Mon, 10 Nov 2025 17:40:37 +0800
+Message-ID: <20251110094113.3965182-1-hanchien.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org>
- <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
- <CAMuHMdWL76hY-Pv30ooSM1J6XkVWbRXSLTDCjfpPOvhFN4tKyA@mail.gmail.com> <12779401.O9o76ZdvQC@jeanmichel-ms7b89>
-In-Reply-To: <12779401.O9o76ZdvQC@jeanmichel-ms7b89>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Nov 2025 10:31:37 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW26uKBUnYB5c3XAzKPKFVGNoOOwra_u_NOjPCV20Y-AA@mail.gmail.com>
-X-Gm-Features: AWmQ_blSVM0mC21k2j7-_pQqo1T8ZhoFgD5EPrlyILfYI73Lumvke_itdhGi4eY
-Message-ID: <CAMuHMdW26uKBUnYB5c3XAzKPKFVGNoOOwra_u_NOjPCV20Y-AA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] m68k: coldfire: Add RNG support for MCF54418
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Greg Ungerer <gerg@linux-m68k.org>, Olivia Mackall <olivia@selenic.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_013153_892874_F06EAE5A 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20251110_014128_296113_6A500083 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jean-Michel,
+This patch series adds support for the thermal controller on MediaTek MT8189 SoC.
 
-On Mon, 10 Nov 2025 at 09:34, Jean-Michel Hautbois
-<jeanmichel.hautbois@yoseli.org> wrote:
-> Le lundi 10 novembre 2025, 09:15:11 heure normale d=E2=80=99Europe centra=
-le Geert
-> Uytterhoeven a =C3=A9crit :
-> > On Fri, 7 Nov 2025 at 11:29, Jean-Michel Hautbois
-> > <jeanmichel.hautbois@yoseli.org> wrote:
-> > > Add platform device support for the MCF54418 RNGB hardware with clock
-> > > enabled at platform initialization.
-> > >
-> > > The imx-rngc driver now uses devm_clk_get_optional() to support both
-> > > Coldfire (always-on clock) and i.MX platforms (managed clock).
-> > >
-> > > Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> >
-> > Thanks for your patch!
-> >
-> > > --- a/drivers/char/hw_random/Kconfig
-> > > +++ b/drivers/char/hw_random/Kconfig
-> > > @@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
-> > >
-> > >  config HW_RANDOM_IMX_RNGC
-> > >
-> > >         tristate "Freescale i.MX RNGC Random Number Generator"
-> > >         depends on HAS_IOMEM
-> > >
-> > > -       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6=
-UL ||
-> > > COMPILE_TEST +       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SL=
-L ||
-> > > SOC_IMX6UL || M5441x || COMPILE_TEST
-> > Is the same RNG present in other Coldfire SoCs?
->
-> According to the RM, it is only present in MCF54416 and MCF54418.
+Patch 1 adds the device tree node for the MT8189 thermal controller.
+Patch 2 adds MT8189 support to the LVTS thermal driver.
 
-I guess that is sufficient to make it depend on COLDFIRE?
+Hanchien Lin (2):
+  arm64: dts: mediatek: mt8189: Add thermal controller node
+  thermal/drivers/mediatek/lvts_thermal: Add MT8189 support
 
-Gr{oetje,eeting}s,
+ .../thermal/mediatek,lvts-thermal.yaml        |  27 ++-
+ drivers/thermal/mediatek/lvts_thermal.c       | 155 ++++++++++++++++--
+ .../thermal/mediatek,lvts-thermal.h           |  20 +++
+ 3 files changed, 189 insertions(+), 13 deletions(-)
 
-                        Geert
+-- 
+2.45.2
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
