@@ -4,156 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AA5CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B44CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKz5Fgcl8FFI+imxbIKOoJpuYhVpSnaRPpvrLUXLF5M=; b=OKq/xEZBzCsoprsDbiTOsWIA/t
-	oaV45UjQlavoVVTr4gDLWKSDmpdcLSfpVhK8q/ytPLrtZ77WCESIUs21E3+g1iDiUpY2NQVA+RT7F
-	hKjxyRkrhyE8lN14cu1rizUR4FEN9/rE/vb9yNbVW6FFuFdvb5gwg0yUak1fs150rHeVVn3Ty0rQE
-	PBb+cEIRlbdHWlvS+dXIJb0JMAf1n/iLjK/gzOXuDEi4lLaXEoNVNOmKbLu7tqepNozC+rsmdBcpZ
-	6/+K9n4M+gYDX/WcYuXrSdiDEgHboKvdGnIxtgBvf8HrHNQvzrxxDIH1/IN09gBj+EE50NHHfzE65
-	2GjmuDzA==;
+	bh=VGDWb/iFzZSZfcy7xrOlDJQ0Oquj7mM2lRCum+Lta6I=; b=K+YVFqCHSL33BCBIN1wCcSzpBI
+	tM6msIpWjRJso2bpCprgtbUYXjz8dF7Hqd4vIgLI30b39pc9ypES2lxK1RTFPQ9Vsxk9hZ9YiG3DU
+	RZWCAuxxJAUmdGX17vHGO4D1x825GDLhRo7vuJ2qSKCWC6ABpNPBSofwT5jUSB3J/3TurKfYjsvhH
+	Cd/uSmsHGy/Qbk2zoR+voSP2DOwyLgsgVsflalXq6y4pM0NE6RWOhhZXVSbHYAynzu407SGgBypKs
+	NMtuweT0U4a5DKD8o4ma4fxTMuuIZU11zC1JJqDN7IQo4DefTgNhtogRHyBEUFJ2YR4V1vD+me3SF
+	URx9NH0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUx3-00000005q8M-2L12;
-	Mon, 10 Nov 2025 16:41:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vIV0K-00000005qlX-3F4Q;
+	Mon, 10 Nov 2025 16:44:32 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUwt-00000005q2X-46mK
+	id 1vIV0F-00000005qkF-0TDp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 16:41:07 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AAG8FUl2867914
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 16:40:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	EKz5Fgcl8FFI+imxbIKOoJpuYhVpSnaRPpvrLUXLF5M=; b=FgXgnG+VzrNfD9Uu
-	xxzWXTo+ysFP0KjKvm6Xc6apvKNGStrOzzMefelUuFcVtLxfr9PvT2dWIMPgxqaQ
-	U4WcLBlhpmt68iEvng1m3nv7vfD4oz5HDLg9+cpyQATHFvM0ajH2IO8+pwYiBU8x
-	shlQcv95904PwuvG5m441HI0euahNHLueZfwxhCgqrQF419Z4gS44D+GqEJ/kTNQ
-	5ytx/8zFy3+4p+u/DseLySE5IHJuWqivxKA5QZFSEAD1WzDwBCshHpkd635YbuV1
-	XW0a8phzd6Qtmims2BEq0F08BhNRXIY4f1kznhbGaHXewKtIcl32Rcm7sD6cASrW
-	+qu/4Q==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4abd761bhj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 16:40:59 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3439fe6229aso1555473a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 08:40:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762792859; x=1763397659; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EKz5Fgcl8FFI+imxbIKOoJpuYhVpSnaRPpvrLUXLF5M=;
-        b=IgV4Vn+MinT13jq6YfiTEEZobwNG719B4P7sSPi2SajBgYF9xnRMTPbC3TSoemORkE
-         vtaihquWeXwY92QwgPzPt4gdZglHsylPc2S9j3LHLURD+37jEVSitFWgfBYxYzt1/Gwx
-         tutHIKprm2mNcO8cXRR2sAtydV9MWGe+2dj81mKV6VNwKdy1htUkVqJKZCV1/fh/OR9G
-         0EDiWjB1oIg/F+vIMFv1EpEPAnEvI1N0GAy95SUUexZR99k3ZUT0sq99xqLIkh7Cd3OS
-         vSt8cKxj/j0iS6YxKYKc7+opxeGPIBAmGDGpzmwlyLIBbzVD7Ebcx1zCuqfVK7cF+2CQ
-         fGjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762792859; x=1763397659;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=EKz5Fgcl8FFI+imxbIKOoJpuYhVpSnaRPpvrLUXLF5M=;
-        b=OMC5yJA/a+QsZzyOo6RCY8y0MHNid5dIr3ITNUv4h9hkqEfdF4GP/qJriy6fQd0+6K
-         BXwmd+j9ATRJ0s5ucRi0ZZAWfPRa1Lbv+dbrtvgqmeyqyAtgfVAWUajOi+CtP3niP2ZO
-         /RqCForFLglcizLslXqtz5W1+Xw4BukxEFt1qMmPGfUQBnUiUG5Y4asG95dufZxWamtc
-         JGM5DzMzNFS/b4E4Me9y3zG1TS/UT5kT3KjWwolLwkPh168br/zN9ZXTfdU0VX7A6W6j
-         h1R6lRRD7CJapHJkuEE62rCQLt3vbBnn2uznI47YaFOdr8i5EsSEDz6DA/0U2BJza1HW
-         pNJg==
-X-Forwarded-Encrypted: i=1; AJvYcCVUcYKM+tXG7ygaI9Kyakn05kgUQePaULVYoShj/+YXxUlgtVcFjRnVwHudXnlzJ500UiLIrqcHJhItfbeQFyZD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy16EVhDX6P4pZ7Q1nt52cTlWWyrjUJjrTP1YcqrY8V0uBmCT0y
-	9x0f7wQobD7qxXhmX1dQsEhwVRosyIRSGVKIu69KagKHbCR2PzJpGwTrgvb3W52VCY/Tn1xeRar
-	bozAbQ1rBKr+hgs25Dgf8YnInGbjCGOpaW3MvnFTNml9sX1rz6pq0L2hOK8AZxdehe8X9aD0UE/
-	4soQ==
-X-Gm-Gg: ASbGnctEyvYflYEnU3HDop9Bh/cgvQxWvuYOlNXMkaujQcL413GrofOLLXKBMVoMxe2
-	FwM6FNnktoAeI13ySWp5xaWK2Vv7ezix4rLIsHojac6JKlP40PMs50syKCle/zh0uprhbT89wiJ
-	bSC3+BAy1aI9bRkR/h7O5EClsYWYPO0ICdEZMHiegnjFKmWT558DYK9YiRMmePrFF0Y5dshk5gC
-	kHKUgZrX+xpbuu2vDUUVC0wNo7hp8EfxKixk5U3YIV9aLMMT0GlG9WyWIQ/e5Pu4SY//NzXIqpg
-	WE9IwPeDk8F12KsnM5XBeAcSnBI3SJaPBTaCDHnqz/cy3q9hdkjzbtPkaWrU4DrGhJnhpXkK3Xp
-	moR2mpZ1CZy/OsaTTYroK9MY=
-X-Received: by 2002:a17:90b:584f:b0:32e:23c9:6f41 with SMTP id 98e67ed59e1d1-343bf0dd563mr21178a91.5.1762792858797;
-        Mon, 10 Nov 2025 08:40:58 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHsAhzrL6dTTOmOA8ktM0ipxOyHiZ+nRx48w6MNOFL+Ma4SpEDRNwXEivWpIkv/T67KRQIZmQ==
-X-Received: by 2002:a17:90b:584f:b0:32e:23c9:6f41 with SMTP id 98e67ed59e1d1-343bf0dd563mr21137a91.5.1762792858269;
-        Mon, 10 Nov 2025 08:40:58 -0800 (PST)
-Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3434c337b20sm11468922a91.13.2025.11.10.08.40.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 08:40:57 -0800 (PST)
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Date: Mon, 10 Nov 2025 22:07:27 +0530
-Subject: [PATCH v2 21/21] dt-bindings: arm-smmu: Add Glymur GPU SMMU
+	Mon, 10 Nov 2025 16:44:31 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4wTy6ZkgzJ46BR;
+	Tue, 11 Nov 2025 00:43:50 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D33C140372;
+	Tue, 11 Nov 2025 00:44:20 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
+ 2025 16:44:18 +0000
+Date: Mon, 10 Nov 2025 16:44:17 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Gavin Shan <gshan@redhat.com>
+CC: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
+	<amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, "Shaopeng Tan" <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+Message-ID: <20251110164417.000042aa@huawei.com>
+In-Reply-To: <5b9136d6-b6c0-4f24-a8d2-05d7700140a8@redhat.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+	<20251107123450.664001-11-ben.horgan@arm.com>
+	<5b9136d6-b6c0-4f24-a8d2-05d7700140a8@redhat.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251110-kaana-gpu-support-v2-21-bef18acd5e94@oss.qualcomm.com>
-References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
-In-Reply-To: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, Akhil P Oommen <akhilpo@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762792679; l=866;
- i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=NgXP4H+ytjNcrx+o8ALLRhAZOLvOHraz88+cU8xEoFc=;
- b=P3JYEELDaQNqYHCNPT773ZPurLRY8irSH7D1ka8EbWy70v55a6s41XQrylNdFsIAiMGUQAHcM
- 5oLMZZUY5xHBkdCRkIlYhXjOp0JiK+QgZQn+OMA4B0khnaxj4bei+c3
-X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
- pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Proofpoint-ORIG-GUID: 8syVGkWyj8AM8wMfJz8gTKzpzlFgjZgg
-X-Authority-Analysis: v=2.4 cv=OK4qHCaB c=1 sm=1 tr=0 ts=6912159b cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=-Mh53b5kj-Vf1dIxLVYA:9
- a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDE0MCBTYWx0ZWRfX7JJJb+gIsIfe
- QaQ11jF5JecQVthHPYNPE7z+tWodq643ZEtmOh3heoUrdKvlLMJDsChrBJ8Slfu29X2qLDGxp0I
- 64H/8IpMH8fJVKi1eO1d1OPGffGCl5/iDS09hMZw92oL8dGozDemZsRsSJlXKM0bgCXEvjkRbhK
- Hr8S4UhkX1oui70HV8CmbqZkWHhxHq6FHsBit5IUkxJEBldJ4eTUL0meQg8fcWEe+Etg7azKK7H
- a+e+hhBy2mW/VMLwUYPwb6ON5UI5O0jVwdNsJoEODRhlFBYvnbX6B9VgrjCHRxT9/sr381xSqHQ
- 4nUX+wC7Z79AEQO70Hr6AG442AGygSY89lszmAGF58oWatRBNSsO9oTNS1V9UM8bdOH+z4et6wU
- e2DZFO5sRmpHb5IVhS74BKJxXOYq2g==
-X-Proofpoint-GUID: 8syVGkWyj8AM8wMfJz8gTKzpzlFgjZgg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-10_06,2025-11-10_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 suspectscore=0 bulkscore=0 impostorscore=0
- adultscore=0 priorityscore=1501 spamscore=0 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511100140
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_084105_944250_D7FF7215 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20251110_084427_439151_AF2BB3CC 
+X-CRM114-Status: GOOD (  36.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,28 +85,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the devicetree bindings to support the gpu smmu present in
-the Glymur chipset.
+On Sat, 8 Nov 2025 19:28:43 +1000
+Gavin Shan <gshan@redhat.com> wrote:
 
-Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
----
- Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
- 1 file changed, 1 insertion(+)
+> Hi Ben,
+> 
+> On 11/7/25 10:34 PM, Ben Horgan wrote:
+> > From: James Morse <james.morse@arm.com>
+> > 
+> > Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> > only be accessible from those CPUs, and they may not be online.
+> > Touching the hardware early is pointless as MPAM can't be used until
+> > the system-wide common values for num_partid and num_pmg have been
+> > discovered.
+> >   
+> 
+> I'm not sure if below commit log is more clearer as I'm not a English
+> native speaker:
 
-diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-index 14a9624e3819..cdbd23b5c08c 100644
---- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-@@ -91,6 +91,7 @@ properties:
-       - description: Qcom Adreno GPUs implementing "qcom,smmu-500" and "arm,mmu-500"
-         items:
-           - enum:
-+              - qcom,glymur-smmu-500
-               - qcom,kaanapali-smmu-500
-               - qcom,milos-smmu-500
-               - qcom,qcm2290-smmu-500
+I'm normally very flexible on English usage as long as meaning is
+conveyed but I'm not keen on changing authors Engish in a fashion that
+doesn't necessarily improve it. So a few thoughts from me as a native
+speaker. Note don't mind changing text for clarity if the English usage
+is too obscure.
 
--- 
-2.51.0
+> 
+> MPAM probing is convoluted. MSCs that are integrated to a set of CPUs
+> may only be accessible from those CPUs, ...
+
+To me both are equally valid.
+
+Probing MPAM -> implies MPAM is a thing which is probed (MPAM as noun)
+MPAM probing -> implies that MPAM is a special form of probing (MPAM as kind
+of adjective giving the flavor of probing that is happening)
+
+So slight preference from me for current text.
+
+> 
+> > Start with driver probe/remove and mapping the MSC.
+> > 
+> > CC: Carl Worth <carl@os.amperecomputing.com>
+> > Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> > Tested-by: Peter Newman <peternewman@google.com>
+> > Signed-off-by: James Morse <james.morse@arm.com>
+> > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+
+> > diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> > new file mode 100644
+> > index 000000000000..ef2f3adf64a9
+> > --- /dev/null
+> > +++ b/drivers/resctrl/Kconfig
+> > @@ -0,0 +1,15 @@
+> > +menuconfig ARM64_MPAM_DRIVER
+> > +	bool "MPAM driver"
+> > +	depends on ARM64 && ARM64_MPAM && EXPERT
+> > +	help
+> > +	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
+> > +	  System IP, e,g. caches and memory controllers.
+> > +
+> > +if ARM64_MPAM_DRIVER
+> > +
+> > +config ARM64_MPAM_DRIVER_DEBUG
+> > +	bool "Enable debug messages from the MPAM driver"
+> > +	help
+> > +	  Say yes here to enable debug messages from the MPAM driver.
+> > +
+> > +endif  
+> 
+> I am asking myself why "depends on ARM64_MPAM_DRIVER" can't be used here? :-)
+
+Fairly sure that came up in an earlier review. IIRC other stuff going to be added
+later in this if/endif block.
+
+> 
+> > diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+> > new file mode 100644
+> > index 000000000000..898199dcf80d
+> > --- /dev/null
+> > +++ b/drivers/resctrl/Makefile
+> > @@ -0,0 +1,4 @@
+> > +obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
+> > +mpam-y						+= mpam_devices.o
+> > +
+> > +ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+> > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> > new file mode 100644
+> > index 000000000000..6c6be133d73a
+> > --- /dev/null
+> > +++ b/drivers/resctrl/mpam_devices.c
+> > @@ -0,0 +1,194 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +// Copyright (C) 2025 Arm Ltd.
+> > +
+> > +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+> > +
+> > +#include <linux/acpi.h>
+> > +#include <linux/arm_mpam.h>
+> > +#include <linux/cacheinfo.h>
+> > +#include <linux/cpumask.h>
+> > +#include <linux/device.h>
+> > +#include <linux/errno.h>
+> > +#include <linux/gfp.h>
+> > +#include <linux/list.h>
+> > +#include <linux/lockdep.h>
+> > +#include <linux/mutex.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/printk.h>
+> > +#include <linux/srcu.h>
+> > +#include <linux/types.h>
+> > +
+> > +#include "mpam_internal.h"
+> > +
+> > +/*
+> > + * mpam_list_lock protects the SRCU lists when writing. Once the
+> > + * mpam_enabled key is enabled these lists are read-only,
+> > + * unless the error interrupt disables the driver.
+> > + */  
+> 
+> s/when writing/for writing
+To me not a clear improvement.  The when writing is a bit passive in that
+it is talking about something that 'is the case' rather than something 'we
+make' the case. 
+
+> s/are read-only/become read-only
+Nope to this one.  Become implies it happens at a later stage, are
+implies that it happens before mpam_enabled_key is enabled which is more
+correct (subtle though!)
+
+> 
+> > +static DEFINE_MUTEX(mpam_list_lock);
+> > +static LIST_HEAD(mpam_all_msc);
+> > +
+> > +struct srcu_struct mpam_srcu;
+> > +
+> > +/*
+> > + * Number of MSCs that have been probed. Once all MSC have been probed MPAM
+> > + * can be enabled.
+> > + */  
+> 
+> s/all MSC/all MSCs  (?)
+yes.
+> 
+> > +static atomic_t mpam_num_msc;
+> > +
+> > +/*
+> > + * An MSC can control traffic from a set of CPUs, but may only be accessible
+> > + * from a (hopefully wider) set of CPUs. The common reason for this is power
+> > + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+> > + * corresponding cache may also be powered off. By making accesses from
+> > + * one of those CPUs, we ensure this isn't the case.
+> > + */  
+> 
+> s/An MSC/A MSC (?)
+
+No on this one.  I would pronounce MSC and Em-ess-sea
+so rules are you therefore use An.  This is a truely weird quirk of
+English!
+
+
+> s/from a/from the
+Another subtle case.  "the" implies that we all know exactly which wider
+set of CPUs.  "a" implies that there is at least one that can use. So
+in my mind, a is slightly more correct, but others may disagree.
+
+> s/isn't the case/is the case (?)
+
+I think original is correct.  The thing that isn't the case is the
+".. may also be powered off." and that's what we want to avoid.
+I'm not 100% sure on intention of that comment though - so good
+one to query!
+
+Thanks,
+
+Jonathan
 
 
