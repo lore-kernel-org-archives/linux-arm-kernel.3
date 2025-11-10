@@ -4,70 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC2DCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7569CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q53OMHO+WIYnQj1DffOtaPJn6m96o73Utk6BWgdKFIw=; b=HZRV7ZjkaLUp1Ked6y0fzqhTJ9
-	7xszLJ0CNivzRmcdeELOweMHBzpgBYTEfoXvMXIDg+Ug4KVk0LYse0HX7SHTBQT0GsIRwqSx5FQBn
-	X9yzl9Hk+WgSp4J5CMsJ6Qq+VTixgmJjKqiD8PzMmgB5qGYuHgxtmHAxKLnDs+9fw1SV/hLPedaEQ
-	sxlif7baFhbfA44DDVlGryJ1UH0mbLTno6Kuum1q8/U62lAlpXcD6oe06EQ3KWMEw0AFk9k5kldTs
-	85OmpERqchSsFB4/0+0qG3pLTLZisVeY0FrsJE28naHSV6knrhCZcWS3erUx5QKU+kGSoUy99Cfyi
-	cy3tMwpg==;
+	bh=fzkM6wmvWMVhmJtqe/0A14bzFJ+fST6vzms7KVx6r5Y=; b=HA0qRSDbtVvyCLW4JSxd06AkQD
+	rkyr+zpnUa0wjqJ2AJsoZJYE6+WIhs5rQ5m54hLkuI2QhC/iq1MKyv6DuttRn1Wv/1dut0t0qQrEZ
+	l796BkIi6EGP7kgNnozHtS5BaePDWvo7qGlTKRalWEn9Km/Hyrvt4YAJc3xCITBzbGVr+HZjFA3HG
+	ZzejJHZkE/5WvRVJjCPubott6PfP1OlEH1DN8wCkcv9F8zwvpy1wBnO4YKRguf/ZZlMAMs+IEcl3v
+	Rv7K3Mw3dgTWDYe3ZGXBQz2WLFZ/AJKtknZtdF6WVZ3/0WnXxhEyX9WbZyqChawwLkOdNpVtlxDcq
+	qEFjZy5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITyD-00000005hxB-1mo0;
-	Mon, 10 Nov 2025 15:38:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vITzL-00000005i6Q-2nIU;
+	Mon, 10 Nov 2025 15:39:27 +0000
+Received: from mail-swedencentralazon11013028.outbound.protection.outlook.com ([52.101.83.28] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITyC-00000005hwy-1hHF;
-	Mon, 10 Nov 2025 15:38:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6DF85601BD;
-	Mon, 10 Nov 2025 15:38:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E688FC116B1;
-	Mon, 10 Nov 2025 15:38:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762789093;
-	bh=CpwSvvgbCGqW3S46CMlFEao+/kI0Gr5YmT9SXvKYbfg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eXVfW0hLR++XliqC40OLy5LSAKANL6GcdwkMlevN/PfAubYGaXpeAZQj7OW0oWH8j
-	 x3INcEpT+E1RnEkx0s/CY24H8pWlwSakqQE+tfTGpOWJwefnNTibW4ajfxyrpZTJ70
-	 oYm0ZGdaYbCXXecWPSoF2Evt9AVzR2Dfyrv5/UG2SsOdHIwoFbZQvOuIcyjuJ5EreM
-	 GrmXyHMTZbhWnIS/OwdoGm78P1lEYFvRzch9mYqOiqdNiGuMdfJYMmHvFftCxmLvQE
-	 ZlzGPyHYWvYnvwrE1sGZ2qng2q3ALctfB7w9ZbLg86rmDlMyCKcLqsbECi8AE+kuw0
-	 076scsYmZfBEw==
-Date: Mon, 10 Nov 2025 21:07:58 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: FUKAUMI Naoki <naoki@radxa.com>
-Cc: Niklas Cassel <cassel@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>, 
-	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-Message-ID: <wnrtofgggs5d7y42ps4ujp3h54nuiszfkmoor6hdz2vlpbvkys@d4nre55j6nam>
-References: <aRCI5kG16_1erMME@ryzen>
- <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
- <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
- <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
- <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
- <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
- <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
- <aRHb4S40a7ZUDop1@ryzen>
- <aRHdeVCY3rRmxe80@ryzen>
- <7A613E8E5A3767C6+84d31db2-074e-49aa-8e82-bfb78632d2fa@radxa.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	id 1vITzI-00000005i5s-2RdQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 15:39:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AhIq/kmCZwzJG7H+8caFhzYrGviZzoncq9+baWsn3a1pOlFEPFI1UhEJ/QVtYF11+CXgaA3dv80w4ObYbKNjva+MG7cNJbyvNC1TIc/dhdKdYcH0JKMFl0JNPQUgMAk4k+zwmJMoOYTI2H+oGhSfNK44G+owUySaewFW4vYHtWwPFigz6SELKobwSJc4MmQyHvVepzMNk1r2Fx7GZfCsRJscAK+ZC52JW7B82wB4MVquS6CPThpbiyt56YoghTZ3jz4bQHPWAGNuTJj4bH9XXbDoYTgdm8WYhq4k5GUJ7WaSjjBknJyMwE8hgDhlVGffTK1IweTSrMAslfWo26fjOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fzkM6wmvWMVhmJtqe/0A14bzFJ+fST6vzms7KVx6r5Y=;
+ b=pJNUFB26mBW2QRGvx32vulUvo2/rkx/OKpj1fhtaYHurpUsINRMLmLZUGVgl0bat5M2pePfZCRRl5M0dbGxig00H3sRlPK/D++SbgDmxvD3GazF0rk1ePlx8uBu+L2l8bHgSclY2THYyOqDj42kKc9MYgcpGG3xdAF2qQZTQiD4jOqxSbsbKfFyuY+VtcHlFrWgRFwjohd5wGm+TFtGoKpBKKo9o9GPBWvyVBIhDXdvOopwr8nySzmZI0K8xBR6Mrlm5Em5qw/VsFh8qbq2TcsbVguTOWbivtDUp4Xi13gNEoS+fPrL5RPvoIvNe3Dj4/sLIo0mPCWm7uTbZH2mB1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fzkM6wmvWMVhmJtqe/0A14bzFJ+fST6vzms7KVx6r5Y=;
+ b=F9tKZ9RP8D/QicoUO+ckPLjoL27XnVIxypvivdoJYxqQVoWYuHQUe0djP2qPMAxD41PuHjRAqhnkoIMwgEsjICMrJTAxtoGkyaRYR/TTXQDpk0oK1TT/cE1rqOP+wgSVQ+TMw7TAgOUaerINrBmEyXg/avQ1xo+0ENz+A9mk2uLeGtL/kEUoJSZNDDDL/sGc08bZ9ff4FXmvxmO7JrOXp5w4vxEgku1Ogpxbr8T/RRaMH45nD7QVcSpwbu3HIiXpZRvKc6R7GJXR3S6rUcIm5ydrAYpenJE65bHYgODSFhQIRkIFe+3EGVEAXcJj6d9+BrOLMW4SrSPtHyHeGrGZkg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PA2PR04MB10121.eurprd04.prod.outlook.com (2603:10a6:102:408::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Mon, 10 Nov
+ 2025 15:39:19 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9298.015; Mon, 10 Nov 2025
+ 15:39:19 +0000
+Date: Mon, 10 Nov 2025 10:39:11 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Steve Longerbeam <slongerbeam@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] media: staging: media: imx6-mipi-csi2: use
+ devm_add_action_or_reset() to simplify code
+Message-ID: <aRIHH4czX7dm+ZAo@lizhi-Precision-Tower-5810>
+References: <20251107-stage-csi2-cleanup-v1-0-5d42535243ac@nxp.com>
+ <20251107-stage-csi2-cleanup-v1-2-5d42535243ac@nxp.com>
+ <6ec725f916737f2f25bf3ce4df412b4c07f6449e.camel@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7A613E8E5A3767C6+84d31db2-074e-49aa-8e82-bfb78632d2fa@radxa.com>
+In-Reply-To: <6ec725f916737f2f25bf3ce4df412b4c07f6449e.camel@pengutronix.de>
+X-ClientProxiedBy: PH8PR21CA0004.namprd21.prod.outlook.com
+ (2603:10b6:510:2ce::11) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA2PR04MB10121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4267279e-f93a-4912-d2eb-08de206f504d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TFhIxHjj4eT+7n1KOEgVGwslcY2mA7lqBTOC0sr4JTVroGX6t90X3EOxUPde?=
+ =?us-ascii?Q?7ZeJDsuRIdAwd7LBDEqX+QxGiF7CQz6XjbghqFgOv0C/bj12a9Z2Mr8dPIAN?=
+ =?us-ascii?Q?mh5B+He6Uzuov748J0Y813uEYPsWE4QNIQTnM6Aqx8j/VQUpfJmmkX89/uuG?=
+ =?us-ascii?Q?I+ILYQ+jr32Df+O9wBL5ck6vBm3T/pj4AUXHtfiRwIIY0AZ+Mw98GirMeykD?=
+ =?us-ascii?Q?udjWT7k2w/BmbJnwIBxOPjuKNPx9Bgb+B2zUqErSy7wTjgNA/vnaWsyNO96y?=
+ =?us-ascii?Q?IqgASFxzlnWhVkiWo43dhxpuhM+N/DXeCwJ/rXY03AU7YGNC/uQMbW0A6b6x?=
+ =?us-ascii?Q?0YXBl7ubPJyx7jQYIXoGqQnp4mOQKIt667nFYwqH5IMozWWjzUK2bG1jWfX4?=
+ =?us-ascii?Q?NibR/L7UvctKb7rutS2amJKMRAqUq8jLvNUCmAvo4mkrmH9lc40Sr1xDZjyI?=
+ =?us-ascii?Q?L7WcS981Pyvk+zjkLoj8z5tTsaK7+epp0TRtXbhKrKFK+PitQZK0RYIHNVbv?=
+ =?us-ascii?Q?8OEt0ouM5381nLPHAcyX4Aq35lOQKonU3VQD/KFZJHFc0WDqxmZFhpOZWUTz?=
+ =?us-ascii?Q?XMtRAfZS9IkLNbLBha+z8RNEMH/Gw/dnOOszqemygp0mw9Hz/MjRU2Sgmqgk?=
+ =?us-ascii?Q?wRcoZy08pm6lTHNclAYsn40y4/PShASA0cTnNBJPJ4BpKZh3R0y+c/OW6r3K?=
+ =?us-ascii?Q?C72EQ8mDwMu6WDB/31Jg7oZhf/WB2VDjPgj4sgU0LpB3cAkrdIKX2TkNDLbp?=
+ =?us-ascii?Q?JnMQAi23LNjzWOJqlJ49a7V44goosHGDI/gtrOf/K76nvwdkSIBFLtRwPrDK?=
+ =?us-ascii?Q?gmLGyQpZFIZsoRIp3jrHot5v5xZOrzmNF1ZKJAAdpJ9w+zvyLNwm+txTF7KV?=
+ =?us-ascii?Q?DZW1ap3DvHRZtPqEZw7O4JfTuKLhDPDXbafA0KYlBdtmp4ckmi1SwaNtzr1U?=
+ =?us-ascii?Q?0q5Vlb/WiR+5s5/wtWG5lPaY46b3c5TLkDOuzz7J1iovGdjQ1mdRsQt5Br9p?=
+ =?us-ascii?Q?ZI/jRQ5QHonyRqVinHuckQmEh6DUWDOQvVPLtwirjCciuW+SmGsXhek0kQZb?=
+ =?us-ascii?Q?gfc1zZHtyOOSPRtKPoMNtB5hkMjIrwv6zZe+e65L41mR6iI8+VVbVrFBfQKl?=
+ =?us-ascii?Q?ec8vY0CsvBB4pkj7/oFUNIdzevzjn/UK0gFZzsFQmCYEXQLqNRb2qe7t7gC6?=
+ =?us-ascii?Q?iNqLbH5gl92fOle4ggcJ2FaL/B1efq3MQv03XECy+jYGo+ssyxngfai6yyLs?=
+ =?us-ascii?Q?FO+TFOJEmgKLOFgSGXd2W+uWFmzhN8rZmnlX1C0X3HGSX+/yYVVw63pM7QlW?=
+ =?us-ascii?Q?5xWnkAKI2V/+OjiLDtNCQjWdrfxpeWbKB10Q1IVcB4KQhwx0yWrXAw8ICw2I?=
+ =?us-ascii?Q?PPQWc2TQUWi5coSD+k55csBvONmq3kaOkBF4+70k5irBY4H8JJ20wz/hm4tf?=
+ =?us-ascii?Q?8C8SoR7OI7UfIN8ZZgJeuaa4oymoIDK9mSrEan0gxNIs8rWKO4FxbKKTYXgN?=
+ =?us-ascii?Q?1OZ2J8yGNrh/m52eAdCfbaWRg0tnnIYiUMoU?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7jehfK/eYMiaWXKmtBgfCtaZRVJSNnEJu2U3qj1X3hAKALemhd1uQP81QqkC?=
+ =?us-ascii?Q?vDriYQjGtU8YsZ/sk0MxABytE2Fmp20o+JezlcbFa9ocUGQzmz6Vzp8do/6G?=
+ =?us-ascii?Q?+jP2a/FVMRknJ2pajC5GAOKrbx8joRIqusyNlm6mqPohXJZc74po9McL420B?=
+ =?us-ascii?Q?CRwQkNKRfVggpl+J7kSdEbPXXJzhuagLbYEnEJXUizbopuYltAOfJm3BwWuj?=
+ =?us-ascii?Q?nNvYM4gO53XHbOF/5mNjbWmCdN3eP6teM2mtFkFWSeg7exN1vVpbRSAhOZ5p?=
+ =?us-ascii?Q?fCXQv19F/ikd2PL3JnPAX1WBJNhHFIjcxOZVIUvcZbKfBXaokJFwBnXfstTS?=
+ =?us-ascii?Q?eDXi9NyI415zQ2RsLSuP3ZZofCQ6LisR//81xEaL2TeEbUl8MakbZL24/gq8?=
+ =?us-ascii?Q?4gkmybwT402tNuwryJsQGQsnBe8NR17fOfXDnRx61MA6kI8Pfm7AMOkZvcP1?=
+ =?us-ascii?Q?n4VJxZfp0Bkf0Gm3UW37TkWWZUN0efzHsdyLMe3q+atNCtg/QKNjW+aHW5QJ?=
+ =?us-ascii?Q?PGAuzTTf437fJ0cAJas/vYB6OV5CF2/NWxUFBEkH1dinrm+5v6aNqNG2wYUD?=
+ =?us-ascii?Q?ahHhXkPstD9BCoihJci6fOP66/eWkic82UKItBZGzoRMTJPA84KFXUTZzUmG?=
+ =?us-ascii?Q?rDMXh2ynGeB+Spc8AL1IpRwhrjHSK3SB/P/1mtAt7ztSj9vPCfGP2NhC5c7F?=
+ =?us-ascii?Q?bVgC1BAbxS8Kx4E0ua5gimQD2ROG29s8hnDsAJoXUVf+8M9pI9lNoXF5rG8e?=
+ =?us-ascii?Q?gT6vJGAf5mL7NTwQ1LeyzFML+4GwGpAXZYANC7m8KOeejSsQdeBGkfHQ5rfL?=
+ =?us-ascii?Q?U9DyEQEFgLtc+VZrY053imY9Xnl/PhmXG7VIqj5r8XdTymPmOn6lZqkaPIYd?=
+ =?us-ascii?Q?/ALhPn8w2BLY04evd6qPcQKSL+nC36CxDjRV2lRCo/2wDGPfzZh4ej8n5xCc?=
+ =?us-ascii?Q?1kFM2EPOsjHTITBYTTYUJu+elkKYz5rYOodTem2OVhKDmksEpyaxuJPuECsa?=
+ =?us-ascii?Q?KyBSvUEXFP48bDFYY5eIOHR1OGHgwB/HRmL1VchDT5OwnMVOAM905dsVlrIp?=
+ =?us-ascii?Q?akouJobyllpJydQu98pBrKQjC0XprErbTu5Qyp/v3zTUTpwLUkYz1JZy5ikA?=
+ =?us-ascii?Q?VzmsQjr1zYKgOUCD2KZKDqGwhI+exs+dh8iLtfNpGS8P0k3YIRMreDF1+Adb?=
+ =?us-ascii?Q?BxHLR2gddT/flvBdyhEOuoJ9fZQHddrkvs7dABxlSvRKnA5/dtjFj8AIw5HO?=
+ =?us-ascii?Q?2qQrmYPS7N9Qy+7m/+KdLp6caZj/jwvLM79G0R2zIJRr+kpLZd7iWYbhWODK?=
+ =?us-ascii?Q?oeAI3tcxhH4PVgkEczM9qAmycyU2xVX6rCYr0LOoqlWs5wDwNlXKmFuXeO9f?=
+ =?us-ascii?Q?LIDeNoIX0CeBrm3GbCnAgywvRFi4HGdvaJkujhaCjkpDx1aCr8U7WCaNtNPa?=
+ =?us-ascii?Q?3yzbZc/9Hz5qeph1Gcam6eHIsKJZa4Xa3pLMhMLLvMHZOYhImYVPEYJksH5C?=
+ =?us-ascii?Q?rXVvLe6if3UfHXngwFcbP5JOfCtU3PxP4KJ6Tthb9FU6KldF+EEkyBFXr+wJ?=
+ =?us-ascii?Q?fclujaKZ4CcxIy9014o=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4267279e-f93a-4912-d2eb-08de206f504d
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2025 15:39:19.5362
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D9ci+y1jwVLIUFgu/4MpzvT/s5mRtxXbKWr0VdUc76aZZ3DsRXgN6Guy+52GIPbXzs/d887IbcGfpTl/gUJ7sA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10121
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251110_073924_644446_1B621821 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,230 +166,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 12:21:20AM +0900, FUKAUMI Naoki wrote:
-> Hi Shawn, Mani, Niklas,
-> 
-> I'm testing your patches on ROCK 5A/5C, but the behavior is inconsistent.
-> Sometimes it works, sometimes it doesn't, and sometimes I get an oops. I'm a
-> bit confused, so I'll try again tomorrow.
-> 
-> BTW, do you have any idea about this oops?
-> 
-
-I don't know why this is happening, but looks like it is coming from
-CONFIG_PCI_DYNAMIC_OF_NODES. You can unset it and give it a try.
-
-- Mani
-
-> [    1.680251] Unable to handle kernel NULL pointer dereference at virtual
-> address 0000000000000080
-> [    1.681039] Mem abort info:
-> [    1.681294]   ESR = 0x0000000096000004
-> [    1.681627]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    1.682101]   SET = 0, FnV = 0
-> [    1.682382]   EA = 0, S1PTW = 0
-> [    1.682662]   FSC = 0x04: level 0 translation fault
-> [    1.683119] Data abort info:
-> [    1.683381]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> [    1.683869]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> [    1.684324]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [    1.684798] user pgtable: 4k pages, 48-bit VAs, pgdp=000000005630d000
-> [    1.685374] [0000000000000080] pgd=0000000000000000, p4d=0000000000000000
-> [    1.685983] Internal error: Oops: 0000000096000004 [#1]  SMP
-> [    1.686483] Modules linked in: phy_rockchip_usbdp typec
-> phy_rockchip_naneng_combphy phy_rockchip_samsung_hdptx dwmac_rk
-> stmmac_platform stmmac pcs_xpcs rockchipdrm dw_hdmi_qp analogix_dp dw_hdmi
-> dw_mipi_dsi drm_dp_aux_bus drm_display_helper cec drm_client_lib
-> drm_dma_helper drm_kms_helper drm backlight
-> [    1.688881] CPU: 0 UID: 0 PID: 171 Comm: irq/87-pcie-sys Tainted: G
-> W           6.18.0-rc5-dirty #2 PREEMPT
-> [    1.689801] Tainted: [W]=WARN
-> [    1.690066] Hardware name: radxa Radxa ROCK 5C/Radxa ROCK 5C, BIOS
-> 2025.10-00012-g0c3aff620204-dirty 10/01/2025
-> [    1.690952] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS
-> BTYPE=--)
-> [    1.691567] pc : of_pci_add_properties+0x284/0x4c4
-> [    1.692000] lr : of_pci_add_properties+0x264/0x4c4
-> [    1.692426] sp : ffff8000813fbbf0
-> [    1.692722] x29: ffff8000813fbc40 x28: ffffcfffe906b3b8 x27:
-> ffffcfffeb95b1d0
-> [    1.693358] x26: ffff000001236980 x25: ffff00007452ceac x24:
-> ffff000008844600
-> [    1.693993] x23: ffff00007452ce00 x22: ffff0000073b3a00 x21:
-> ffff00000045db10
-> [    1.694628] x20: ffff00000057c000 x19: 0000000000000000 x18:
-> 00000000ffffffff
-> [    1.695264] x17: 0000000000000000 x16: 0000000000000000 x15:
-> ffff8000813fba70
-> [    1.695898] x14: ffff000000c355b8 x13: ffff000000c355b6 x12:
-> 0000000000000000
-> [    1.696533] x11: 00333634353d4d55 x10: 000000000000002c x9 :
-> 0000000000000000
-> [    1.697168] x8 : ffff00007479c800 x7 : 0000000000000000 x6 :
-> 0000000000696370
-> [    1.697803] x5 : 0000000000000000 x4 : 0000000000000002 x3 :
-> ffff8000813fbc20
-> [    1.698439] x2 : ffffcfffeabc6ef0 x1 : ffff0000073b3a00 x0 :
-> 0000000000000000
-> [    1.699074] Call trace:
-> [    1.699293]  of_pci_add_properties+0x284/0x4c4 (P)
-> [    1.699723]  of_pci_make_dev_node+0xd8/0x150
-> [    1.700109]  pci_bus_add_device+0x138/0x168
-> [    1.700485]  pci_bus_add_devices+0x3c/0x88
-> [    1.700853]  pci_bus_add_devices+0x68/0x88
-> [    1.701220]  pci_rescan_bus+0x30/0x44
-> [    1.701551]  rockchip_pcie_rc_sys_irq_thread+0xb8/0xd0
-> [    1.702010]  irq_thread_fn+0x2c/0xa8
-> [    1.702333]  irq_thread+0x168/0x320
-> [    1.702648]  kthread+0x12c/0x204
-> [    1.702941]  ret_from_fork+0x10/0x20
-> [    1.703267] Code: aa1603e1 f000abc2 d2800044 913bc042 (f94040a0)
-> 
-> Best regards,
-> 
-> --
-> FUKAUMI Naoki
-> Radxa Computer (Shenzhen) Co., Ltd.
-> 
-> On 11/10/25 21:41, Niklas Cassel wrote:
-> > On Mon, Nov 10, 2025 at 01:34:41PM +0100, Niklas Cassel wrote:
-> > > @@ -672,15 +705,13 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
-> > >   	if (!pp->use_linkup_irq)
-> > >   		/* Ignore errors, the link may come up later */
-> > >   		dw_pcie_wait_for_link(pci);
-> > > -
-> > > -	ret = pci_host_probe(bridge);
-> > > -	if (ret)
-> > > -		goto err_stop_link;
-> > > -
-> > > -	if (pp->ops->post_init)
-> > > -		pp->ops->post_init(pp);
-> > > -
-> > > -	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> > > +	else
-> > > +		/*
-> > > +		 * For platforms with Link Up IRQ, initial scan will be done
-> > > +		 * on first Link Up IRQ.
-> > > +		 */
-> > > +		if (dw_pcie_host_initial_scan(pp))
-> > > +			goto err_stop_link;
-> > 
-> > Oops.. this condition was inverted, what I meant was:
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > index e92513c5bda5..0e04c1d6d260 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > @@ -565,6 +565,39 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
-> >   	return 0;
-> >   }
-> > +static int dw_pcie_host_initial_scan(struct dw_pcie_rp *pp)
+On Mon, Nov 10, 2025 at 09:28:24AM +0100, Philipp Zabel wrote:
+> On Fr, 2025-11-07 at 15:44 -0500, Frank Li wrote:
+> > Use devm_add_action_or_reset() to simplify the code. No functional change.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  drivers/staging/media/imx/imx6-mipi-csi2.c | 16 ++++++++++++----
+> >  1 file changed, 12 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> > index 42256441b881d9f132ad7ff899d6f1e35643b4ac..eba9a650030f5e380aa900b94728ad375171c6a5 100644
+> > --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
+> > +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> > @@ -716,6 +716,14 @@ static int csi2_async_register(struct csi2_dev *csi2)
+> >  	return ret;
+> >  }
+> >
+> > +static void csi2_nf_cleanup(void *data)
 > > +{
-> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > +	struct pci_host_bridge *bridge = pp->bridge;
-> > +	int ret;
+> > +	struct csi2_dev *csi2 = data;
 > > +
-> > +	ret = pci_host_probe(bridge);
+> > +	v4l2_async_nf_unregister(&csi2->notifier);
+> > +	v4l2_async_nf_cleanup(&csi2->notifier);
+> > +}
+> > +
+> >  static int csi2_probe(struct platform_device *pdev)
+> >  {
+> >  	struct csi2_dev *csi2;
+> > @@ -749,6 +757,10 @@ static int csi2_probe(struct platform_device *pdev)
+> >  	if (ret)
+> >  		return ret;
+> >
+> > +	ret = devm_add_action_or_reset(&pdev->dev, csi2_nf_cleanup, csi2);
 > > +	if (ret)
 > > +		return ret;
 > > +
-> > +	if (pp->ops->post_init)
-> > +		pp->ops->post_init(pp);
-> > +
-> > +	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> > +{
-> > +	if (!pp->initial_linkup_irq_done) {
-> > +		if (dw_pcie_host_initial_scan(pp)) {
-> > +			//TODO: cleanup
-> > +		}
-> > +		pp->initial_linkup_irq_done = true;
-> > +	} else {
-> > +		/* Rescan the bus to enumerate endpoint devices */
-> > +		pci_lock_rescan_remove();
-> > +		pci_rescan_bus(pp->bridge->bus);
-> > +		pci_unlock_rescan_remove();
-> > +	}
-> > +}
-> > +
-> >   int dw_pcie_host_init(struct dw_pcie_rp *pp)
-> >   {
-> >   	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > @@ -669,18 +702,17 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
-> >   	 * If there is no Link Up IRQ, we should not bypass the delay
-> >   	 * because that would require users to manually rescan for devices.
-> >   	 */
-> > -	if (!pp->use_linkup_irq)
-> > +	if (!pp->use_linkup_irq) {
-> >   		/* Ignore errors, the link may come up later */
-> >   		dw_pcie_wait_for_link(pci);
-> > -	ret = pci_host_probe(bridge);
-> > -	if (ret)
-> > -		goto err_stop_link;
-> > -
-> > -	if (pp->ops->post_init)
-> > -		pp->ops->post_init(pp);
-> > -
-> > -	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> > +		/*
-> > +		 * For platforms with Link Up IRQ, initial scan will be done
-> > +		 * on first Link Up IRQ.
-> > +		 */
-> > +		if (dw_pcie_host_initial_scan(pp))
-> > +			goto err_stop_link;
-> > +	}
-> >   	return 0;
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> > index e995f692a1ec..a31bd93490dc 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware.h
-> > +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> > @@ -427,6 +427,7 @@ struct dw_pcie_rp {
-> >   	int			msg_atu_index;
-> >   	struct resource		*msg_res;
-> >   	bool			use_linkup_irq;
-> > +	bool			initial_linkup_irq_done;
-> >   	struct pci_eq_presets	presets;
-> >   	struct pci_config_window *cfg;
-> >   	bool			ecam_enabled;
-> > @@ -807,6 +808,7 @@ void dw_pcie_msi_init(struct dw_pcie_rp *pp);
-> >   int dw_pcie_msi_host_init(struct dw_pcie_rp *pp);
-> >   void dw_pcie_free_msi(struct dw_pcie_rp *pp);
-> >   int dw_pcie_setup_rc(struct dw_pcie_rp *pp);
-> > +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp);
-> >   int dw_pcie_host_init(struct dw_pcie_rp *pp);
-> >   void dw_pcie_host_deinit(struct dw_pcie_rp *pp);
-> >   int dw_pcie_allocate_domains(struct dw_pcie_rp *pp);
-> > @@ -844,6 +846,9 @@ static inline int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
-> >   	return 0;
-> >   }
-> > +static inline void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> > +{ }
-> > +
-> >   static inline int dw_pcie_host_init(struct dw_pcie_rp *pp)
-> >   {
-> >   	return 0;
-> > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > index 8a882dcd1e4e..042e5845bdd6 100644
-> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > @@ -468,10 +468,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
-> >   		if (rockchip_pcie_link_up(pci)) {
-> >   			msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> >   			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> > -			/* Rescan the bus to enumerate endpoint devices */
-> > -			pci_lock_rescan_remove();
-> > -			pci_rescan_bus(pp->bridge->bus);
-> > -			pci_unlock_rescan_remove();
-> > +			dw_pcie_handle_link_up_irq(pp);
-> >   		}
-> >   	}
-> > 
-> 
+> >  	csi2->pllref_clk = devm_clk_get(&pdev->dev, "ref");
+> >  	if (IS_ERR(csi2->pllref_clk)) {
+> >  		v4l2_err(&csi2->sd, "failed to get pll reference clock\n");
+> > @@ -800,8 +812,6 @@ static int csi2_probe(struct platform_device *pdev)
+> >  	return 0;
+> >
+> >  clean_notifier:
+> > -	v4l2_async_nf_unregister(&csi2->notifier);
+> > -	v4l2_async_nf_cleanup(&csi2->notifier);
+> >  	clk_disable_unprepare(csi2->dphy_clk);
+> >  pllref_off:
+> >  	clk_disable_unprepare(csi2->pllref_clk);
+> > @@ -815,8 +825,6 @@ static void csi2_remove(struct platform_device *pdev)
+> >  	struct v4l2_subdev *sd = platform_get_drvdata(pdev);
+> >  	struct csi2_dev *csi2 = sd_to_dev(sd);
+> >
+> > -	v4l2_async_nf_unregister(&csi2->notifier);
+> > -	v4l2_async_nf_cleanup(&csi2->notifier);
+> >  	v4l2_async_unregister_subdev(sd);
+>
+> This effectively moves the notifier unregister after the subdev
+> unregister. Is that safe to do?
 
--- 
-மணிவண்ணன் சதாசிவம்
+Good question:
+
+I think, it'd better to provide devm_v4l2_*() helper functions for these.
+I am not sure why there are not devm_v4l2*() helper functions now.
+
+Frank
+>
+>
+> regards
+> Philipp
 
