@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A032CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B511CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fiXuWWmWjojk9SKcuAQx+dNy0VW9X8RvBWE21Zmn7VM=; b=Cbp8xaBrzyjajh5tuivuoH2/mu
-	q1Ascq2I+jSyFtw3iQnXfKYFfAflTDOQBghxtES9qd+DxsNEJB+HACjskl62O2gIaNzDqY+fYaXNW
-	FIM0ZlREMIC/MFAoGP4fep4Af7okTwe/JyDSGPDKJSxN0FDTV8aFqIw2RMJ9i3TxB01r3EBNCgo2S
-	0EmjWB3IEQOosR7AJMrU/PLzd2mS/gCmSm72LAoaBKmL1sAYKWG9cBktdEgsIzd3yTxhMG3Q5Fdwj
-	qKGHGgxXyTUPN3rW/59Si1lUvEC4Frx4Cr4lUEnisyVsfChGHOwVrRuX7fmihRbE0tnAot8OHEg3Y
-	IppvdTJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BE9g58aO+50xrZTAkMSZ+nucJ9JIlqY0y6onurX6UkE=; b=zcRMTL1QbL3cqLLbx1qZbWnjqb
+	fcBV/TRyOakPpNOMC8Nuc/aUlqrMz3RtcfADHGCo6zKWhbVxlNZ9iL2uN2HiC2dYcmWKpoWiNvPCw
+	+UaObj35pF/kzuArGm20J0AjGhgVF74PHOY+NVBih5Ts+4aRYCxy8TeG5ayb5X1uoDKq8DEZBvrql
+	6aVQsNuL2NtlYs+/YPPezCJOboFxW4cTgnA7EbB8Xv0rF/MT0zxGuXnOH0IC6oMdLfapynbU4uhvz
+	51SJ//Nkbc9L8oLEdC/bsrB2yn0M1zPLkA2wTOmWzU3KSBGU+3gZExnTt2XvBa4iZmxlvjPYUDvND
+	7LaGSzcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIO30-000000054ci-3H2e;
-	Mon, 10 Nov 2025 09:18:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIO2z-000000054cc-2XDB
+	id 1vIO44-000000054lY-04op;
+	Mon, 10 Nov 2025 09:19:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIO40-000000054jl-4AcT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:18:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71E7E601A9;
-	Mon, 10 Nov 2025 09:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13815C16AAE;
-	Mon, 10 Nov 2025 09:18:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762766328;
-	bh=uquc9KPzJLqmrUGTtW/WL79DTxEiUuvrMXU31YBoEgg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=prmW4Q/xtwy2U5A6XdV9MSU5SGHVbHRrvnGWIZ4Wvk+xk9VUnAj/WgdjB2BXMeoKQ
-	 g7py08T3FWOAYMO6srNNHyJG88jTnnn6QDfAPEKquhu6jQxZgNWGJ6FvU46LlybaZh
-	 W1rMqEFKcQ2y35yYheggf10/1U4tQKMyvYK+SdsgwgOD2Xdm6FNhrAi8VEYvvZ1/AI
-	 X6vA5eKJplGbNSM7OmNOma6PbGxfybGNHRMlN2di/pJ/B8KsqwqleSRUSYBWeicgth
-	 1OZ2gVSR9cZF8qLpRAbeoTbpjsoA7MInJlN1F5Bq0QvrgxSJH5wXPP/NBj5V6qUsLG
-	 c8HK2bD4r4rIQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vIO2v-00000003nJj-2qRt;
-	Mon, 10 Nov 2025 09:18:45 +0000
-Date: Mon, 10 Nov 2025 09:18:45 +0000
-Message-ID: <868qgeutxm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: Re: [PATCH v2 12/45] KVM: arm64: GICv3: Extract LR folding primitive
-In-Reply-To: <3tb7ekdzl5f4rs24bla63vw22awejhbn7ngvttid7v7bzaer2m@62bxshf7uj34>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-13-maz@kernel.org>
-	<3tb7ekdzl5f4rs24bla63vw22awejhbn7ngvttid7v7bzaer2m@62bxshf7uj34>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yaoyuan@linux.alibaba.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 10 Nov 2025 09:19:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91A6F2B;
+	Mon, 10 Nov 2025 01:19:41 -0800 (PST)
+Received: from [10.57.85.123] (unknown [10.57.85.123])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CED693F63F;
+	Mon, 10 Nov 2025 01:19:42 -0800 (PST)
+Message-ID: <e428b1d5-65a8-49bc-92dc-ec4a4d933dec@arm.com>
+Date: Mon, 10 Nov 2025 09:19:40 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
+Content-Language: en-GB
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-7-kevin.brodsky@arm.com>
+ <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
+ <c764489e-0626-4a50-87b5-39e15d9db733@gmail.com>
+ <645178fd-df4e-42fe-b55e-97d9506499be@arm.com>
+ <413b2c49-f124-4cda-8fea-a6cc165f6326-agordeev@linux.ibm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <413b2c49-f124-4cda-8fea-a6cc165f6326-agordeev@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251110_011953_109278_F24D2165 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,103 +89,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 09:01:21 +0000,
-Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
+On 10/11/2025 08:11, Alexander Gordeev wrote:
+> On Fri, Nov 07, 2025 at 03:22:54PM +0000, Ryan Roberts wrote:
 > 
-> On Sun, Nov 09, 2025 at 05:15:46PM +0800, Marc Zyngier wrote:
-> > As we are going to need to handle deactivation for interrupts that
-> > are not in the LRs, split vgic_v3_fold_lr_state() into a helper
-> > that deals with a single interrupt, and the function that loops
-> > over the used LRs.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/vgic/vgic-v3.c | 88 +++++++++++++++++------------------
-> >  1 file changed, 43 insertions(+), 45 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> > index 3ede79e381513..0fccfe9e3e8dd 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> > @@ -33,78 +33,76 @@ static bool lr_signals_eoi_mi(u64 lr_val)
-> >  	       !(lr_val & ICH_LR_HW);
-> >  }
-> >
-> > -void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
-> > +static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
-> >  {
-> > -	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-> > -	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
-> > -	u32 model = vcpu->kvm->arch.vgic.vgic_model;
-> > -	int lr;
-> > -
-> > -	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
-> > -
-> > -	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
-> > -
-> > -	for (lr = 0; lr < cpuif->used_lrs; lr++) {
-> > -		u64 val = cpuif->vgic_lr[lr];
-> > -		u32 intid, cpuid;
-> > -		struct vgic_irq *irq;
-> > -		bool is_v2_sgi = false;
-> > -		bool deactivated;
-> > -
-> > -		cpuid = val & GICH_LR_PHYSID_CPUID;
-> > -		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
-> > -
-> > -		if (model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> > -			intid = val & ICH_LR_VIRTUAL_ID_MASK;
-> > -		} else {
-> > -			intid = val & GICH_LR_VIRTUALID;
-> > -			is_v2_sgi = vgic_irq_is_sgi(intid);
-> > -		}
-> > +	struct vgic_irq *irq;
-> > +	bool is_v2_sgi = false;
-> > +	bool deactivated;
-> > +	u32 intid;
-> >
-> > -		/* Notify fds when the guest EOI'ed a level-triggered IRQ */
-> > -		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-> > -			kvm_notify_acked_irq(vcpu->kvm, 0,
-> > -					     intid - VGIC_NR_PRIVATE_IRQS);
-> > +	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> > +		intid = val & ICH_LR_VIRTUAL_ID_MASK;
-> > +	} else {
-> > +		intid = val & GICH_LR_VIRTUALID;
-> > +		is_v2_sgi = vgic_irq_is_sgi(intid);
-> > +	}
-> >
-> > -		irq = vgic_get_vcpu_irq(vcpu, intid);
-> > -		if (!irq)	/* An LPI could have been unmapped. */
-> > -			continue;
-> > +	irq = vgic_get_vcpu_irq(vcpu, intid);
-> > +	if (!irq)	/* An LPI could have been unmapped. */
-> > +		return;
-> >
-> > -		raw_spin_lock(&irq->irq_lock);
-> > +	/* Notify fds when the guest EOI'ed a level-triggered IRQ */
-> > +	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-> > +		kvm_notify_acked_irq(vcpu->kvm, 0,
-> > +				     intid - VGIC_NR_PRIVATE_IRQS);
+> Hi Ryan,
 > 
-> The fds notifiy happens before checking irq's mapping before
-> this patch, and now in reversal order w/ above change. It's
-> fine for vLPI, and for vSPI no necessary call
-> kvm_notify_acked_irq() if the it has been remapped, no
-> gsi<->pin mapping there. Is above understanding correct ?
+>> On 07/11/2025 14:34, David Hildenbrand (Red Hat) wrote:
+>>>>>   #ifndef pte_batch_hint
+>>>>> diff --git a/mm/kasan/shadow.c b/mm/kasan/shadow.c
+>>>>> index 5d2a876035d6..c49b029d3593 100644
+>>>>> --- a/mm/kasan/shadow.c
+>>>>> +++ b/mm/kasan/shadow.c
+>>>>> @@ -305,7 +305,7 @@ static int kasan_populate_vmalloc_pte(pte_t *ptep,
+>>>>> unsigned long addr,
+>>>>>       pte_t pte;
+>>>>>       int index;
+>>>>>   -    arch_leave_lazy_mmu_mode();
+>>>>> +    lazy_mmu_mode_pause();
+>>>>
+>>>> I wonder if there really are use cases that *require* pause/resume? I think
+>>>> these kasan cases could be correctly implemented using a new nest level instead?
+>>>> Are there cases where the effects really need to be immediate or do the effects
+>>>> just need to be visible when you get to where the resume is?
+>>>>
+>>>> If the latter, that could just be turned into a nested disable (e.g. a flush).
+>>>> In this case, there is only 1 PTE write so no benefit, but I wonder if other
+>>>> cases may have more PTE writes that could then still be batched. It would be
+>>>> nice to simplify the API by removing pause/resume if we can?
+>>>
+>>> It has clear semantics, clearer than some nest-disable IMHO.
+>>>
+>>> Maybe you can elaborate how you would change ("simplify") the API in that
+>>> regard? What would the API look like?
+>>
+>> By simplify, I just meant can we remove lazy_mmu_mode_pause() and
+>> lazy_mmu_mode_resume() ?
+>>
+>>
+>> We currently have:
+>>
+>> apply_to_page_range
+>>   lazy_mmu_mode_enable()
+>>     kasan_populate_vmalloc_pte()
+>>       lazy_mmu_mode_pause()
+>>       <code>
+>>       lazy_mmu_mode_resume()
+>>   lazy_mmu_mode_disable()
+>>
+>> Where <code> is setting ptes. But if <code> doesn't need the effects to be
+>> visible until lazy_mmu_mode_resume(), then you could replace the block with:
+>>
+>> apply_to_page_range
+>>   lazy_mmu_mode_enable()
+>>     kasan_populate_vmalloc_pte()
+>>       lazy_mmu_mode_enable()
+>>       <code>
+>>       lazy_mmu_mode_disable()
+>>   lazy_mmu_mode_disable()
+>>
+>> However, looking at this more closely, I'm not really clear on why we need *any*
+>> special attention to lazy mmu inside of kasan_populate_vmalloc_pte() and
+>> kasan_depopulate_vmalloc_pte().
+>>
+>> I *think* that the original concern was that we were doing ptep_get(ptep) inside
+>> of a lazy_mmu block? So we need to flush so that the getter returns the most
+>> recent value? But given we have never written to that particular ptep while in
+>> the lazy mmu block, there is surely no hazard in the first place?
+> 
+> There is, please see:
+> https://lore.kernel.org/linux-mm/cover.1755528662.git.agordeev@linux.ibm.com/
 
-We can only notify an irqfd for an SPI, never for an LPI. Given that
-only looking up an LPI can result in a NULL pointer (if it has been
-concurrently removed), this change is immaterial
+I've stared at this for a while, but I'm afraid I still don't see the problem.
+This all looks safe to me. Could you explain exactly what this issue is?
 
-This results in something that is easier to understand, as I find it
-more logical to weed out the error cases first before taking any
-significant action.
+If I've understood correctly, kasan_populate_vmalloc() is called during virtual
+range allocation by vmalloc. This is not in a nested lazy mmu block (but it
+wouldn't matter if it was once we have Kevin's nested changes to ensure flush
+when exiting the nested scope). kasan_populate_vmalloc() calls
+apply_to_page_range(), which will walk the set of ptes, calling
+kasan_populate_vmalloc_pte() for each one. kasan_populate_vmalloc_pte() does a
+ptep_get() then, if none, calls set_pte_at().
+
+That's not a hazard since you're calling get before the set and you only visit
+each pte once for the apply_to_page_range() lazy mmu block.
+
+> 
+>> apply_to_existing_page_range() will only call kasan_depopulate_vmalloc_pte()
+>> once per pte, right? So given we read the ptep before writing it, there should
+>> be no hazard? If so we can remove pause/resume.
+> 
+> Unfortunately, we rather not, please see:
+> https://lore.kernel.org/linux-mm/d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com/
+
+Sorry but I don't see anything relavent to my point in this mail. Perhaps there
+is some s390-specific detail that I'm failing to understand?
 
 Thanks,
+Ryan
 
-	M.
+> 
+> The problem is kasan code invokes apply_to_page_range(), which enters lazy_mmu
+> mode unconditionally. I would claim that is rather an obstacle for the kasan
+> code, not a benefit. But it needs to be tackled.
+> > Should apply_to_page_range() had an option not to enter the lazy_mmu mode
+> (e.g. an extra "bool skip_lazy" parameter) - the pause/resume could have
+> been avoided.
+> 
+>> Thanks,
+>> Ryan
+> 
+> Thanks!
 
--- 
-Without deviation from the norm, progress is not possible.
 
