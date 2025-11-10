@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8011ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A35DCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1rfVf8CR6nXwtwA2s4abFfmksXss6f4ONY3gj9LEKk=; b=TMI1HM2l+y4b1KSx6rUF+ISpsE
-	IynXEEWsnz/drK27UHBSshOtHDyb8MRC8PI4+uIAGMGeDSXxcHT/D98cYHg3gsXKkByvWUEIo5PL2
-	oLg8BocKFaPZjP2eyyjxcNLwstdyS07qZyMpZsWhILrPbWpMRytkXQ6wEpFc1d6TWArTVJQL9Ya8f
-	DzrmD81sxiqG7GRkST30ttYe3qsh1vdLnBagVAiuFnaCPBgGqM4QHLhZEjX04a2sVAPK5I3CAIygB
-	hcQhY69k8rImINrIetmqziulq2E8ns0l1etrMtxbSpVo3pWSYnnK26abSSGyaOIL7ZO7daRzhw3XF
-	YuTTHcmQ==;
+	bh=1teV5v5SqS6pFrvXlRn/4yX/VJMz/VkOekGlZHXTNkk=; b=lnIaZXBBkSnkMSRXlnebvMnqdy
+	QfJ0zdOxmGtEHxD+P0IiPU/EZyYzX5WqtAjCLDZL8ssd/wF42k/8ZP/5WCCkcTIoSignw01mDQP61
+	OXR1FpFzLyCFcfLeHQaW5uDsjzYrZAW9tjiUw/1XjR8C3dul2r0HNVDzpQQ6ERg8Vw5U50gk5keRI
+	mHpN0WHoJqcKXBAiniLggYJZzFMfri/DYpKGodEMRlLgA59BTeHEP1gxuChYRoId/vQGIttKCme9r
+	Dm+FChKCzKyT5Hfvarzbi43gdJOvJUbu5cMZ9UMSfjwGVt/+GHt09s2TB4mpobX1Zk+lhbQXY2p6p
+	7WzUproA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPkB-00000005GPE-3gOY;
-	Mon, 10 Nov 2025 11:07:31 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vIPkg-00000005GaN-0b4d;
+	Mon, 10 Nov 2025 11:08:02 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPk9-00000005GNw-1Cp2
+	id 1vIPkc-00000005GY3-1Rv5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:07:30 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7afc154e411so1642347b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:07:28 -0800 (PST)
+	Mon, 10 Nov 2025 11:08:00 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7aca3e4f575so2296332b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:07:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762772848; x=1763377648; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762772877; x=1763377677; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=l1rfVf8CR6nXwtwA2s4abFfmksXss6f4ONY3gj9LEKk=;
-        b=mFcsEQNGaLNFD6AVPADkmXqXXDFl1Sn136+owGpMOxly+kSWs49TN4HcM/KwWFD4FG
-         QJbpkoUmqofLn7EjIy5ytVRe9+6MzxZ+ZPCrTGAEjJ+T8E/JVD9OqQyeKT/0H9n+YAq2
-         T4oYrOARnMqDDF1MnoWPzBaoC1vRJFGGAyx6YN1hfeJF+i7cMDxyyYDxdzrwpU4WLC1m
-         3Vtu/crHGwAxL0TsfCjqfsdNcW2wuBlF7Ek9yvRUn8R0HmqowpjHWj68Zotdi4f/+k2N
-         YGNtiPQDA788XrhfK3z61Vb/FDHLIgRb3zLCJptH9/6lrbXWLti85h8G4FWUV/ry9nyA
-         usDg==
+        bh=1teV5v5SqS6pFrvXlRn/4yX/VJMz/VkOekGlZHXTNkk=;
+        b=SH/3n36O27tBeQ7b+Y6wNUrbXqHuX+VCbf5qXGTMdBCt9j1P5OOLU5e9MLW3apLOk5
+         S+Cd2bBYqNYCUBpP8wi6Y6hGSYNyH/W1QbXZWNK+mDKihLxbE2+0CntbYGaX8znIMyv9
+         TcUVx9OV3uRdEltvX+Eh9NCma8kWyf25Q2evEnNJ0To4c4FRbwl3776L8w1Vy2NmW1sT
+         EQ9FfV0Z9WAych8uMRbxkrD3IBFUAhAKWfzIvz8VGJZDy9a2qbClVWBv3xfxsiCDlZuz
+         yZXz0AmqvoroEJcBaxnL3xA3cd0PehlCuSdSHjAQrVynYEo8Uqprhxj5HXAh95+4QIqd
+         HX6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762772848; x=1763377648;
+        d=1e100.net; s=20230601; t=1762772877; x=1763377677;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l1rfVf8CR6nXwtwA2s4abFfmksXss6f4ONY3gj9LEKk=;
-        b=NYeOlOCnxjPPoZxFLKf2pscoCroQZ5tKRGWLSrIbAEadDh6BMyoRASy4VDlywbsTsA
-         ub7Scj1DxMMkfIu+bImwCZhCz/HY99gdez1kDCIHSr5ZEOhwSLIVCJvfKhEf2Q+D9GlM
-         gUS0qimC7Uj6q8LZqkCtSpveMXWPgk1GLDYnqPgKpLZmNCcsbuaj7AXX3af+RXjUxDls
-         lESzFQLu6UBA4wUeGGYejarFHp8lS9I8FJojvUAn7DZuccPjphlArp3+4kx9rbaKquD9
-         hb+jOIg7CSNjnUetWCqbTCgtbRhLYprH9JjhI4k/PvT6BexkWRwvjb+EWDYwr5eiDoGj
-         a8Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7ducUXZhzCVufQV7ao8yCn2+/LgICoFJCdpQstq+hN98VUSXjpjUi/ZjlF5hF+t6AhXfD4tcES5kRQLixcpzk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2tBDJerifzbPwovCHDEDdJt6iKT+FfUS8daXbTbdkYibs3Jsl
-	UbH1ZgZUO9tkLz9fID7IgD9CpDDD8LyRdhXM8TKIpOllYkaOEp7/YhYyvuyAqCy0b/4=
-X-Gm-Gg: ASbGncupglSAAkswpXzIXyT0t4Xy+cTFbxFj8EKb5u4MvBcPmd2KduHh9457JRDgQec
-	GEB92BEBZDwqMzBBgnwtifqxBBAcSJo5PaChpENzX8YfvaHNqlcYV7baW5dLM4marCu6iEF5g0A
-	9cqiEcSQfChE/1N6HeEBIeypQ5jjonRIPSTnww43aFsrsaD/CVU3ENVnnHHWiLooxDx4hJ0rGZl
-	+D4qfbRv7M3LrOjOjbuhNhowiEZTbvniSAdd2q2L4hmG+B/mH0XAaPkp/9P+yNt1yXYcJ7GIyD8
-	DFG4oQkrsL2joi4TLGs7tWQQEE4HYP9z2D32JINdEaWP5K2juqboN9SOEyfYBV09rYuDSK3A/iT
-	2jrj1BAJD8DZ1b2KXlKNEB1zFd56w/c2dsT8XbGw4Mv+IS3WX37NPwRy2/doLi76BdLHLPLfPGJ
-	P6
-X-Google-Smtp-Source: AGHT+IFLmvoREqyCOsxdVYWioPfB8QTyekqamyvK/6SevugbTh8+Sr7Hzt8HMarNXUtUBmALUpoibA==
-X-Received: by 2002:a17:903:46c5:b0:295:fbc7:d282 with SMTP id d9443c01a7336-297e566886emr96785235ad.27.1762772847847;
-        Mon, 10 Nov 2025 03:07:27 -0800 (PST)
+        bh=1teV5v5SqS6pFrvXlRn/4yX/VJMz/VkOekGlZHXTNkk=;
+        b=Wkskc+Auobx1CO1L1VvqR7ZgLq6V7HWDaYQTKu+XmZWbWWlgIYXQRHfzM7Goqlpobh
+         gHpCSeDbEDayAloZT84ufbEtvH4B4k6Hy1Tcr2uVBJW96AIFu6ME+MHiUNvQF3GcONTF
+         ZocIa4ud5dDEjD2HJr8nnksWsG7ZjxvsQCKtuhXl/9POfVSoh4QbFoWPJiQwNHitEPBn
+         ibQsMjwjGEhIwg+J9lwhv4e9QojZcc10cxzeLH/uJZiykUBaBfie4sva+s50Qy/zYaP9
+         QZHS4obStNew+fTzdssKW1IYVA/2hD8djjMqasca8t0tp5irumh4Hndyi62Y43TL8Gcx
+         2AnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUc/FzaR37wXB5Azxp76DNmfcdy3zSbNEZyjjCpaksNHz8SgqmG/RjGZFLCsOxVt4s/LbFyfOgdjdRw51uFbsMV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCzf8ZUOEzlXoqgwlGnOYYn0KJ3CmKsomVL6OaBC9xfSFajoOj
+	k8aH2jBI039FP61fvdzabiGuG/Gtg3DEELh1utaRA6ZLEIRFK+2+8lNL2OIFTGtE6S4=
+X-Gm-Gg: ASbGncuMC/KigmuewQDmMdFU6urE7qvJP0Yv6Vqy3KhL0n1RVeBRsl8Rh6ruVHSGXXZ
+	E2uB3xsdCD1x0Tv9c2EvwVA3FMzAFF3O3eTf4xNsECwdsfHKgDcrXpf+hxgP5iGjd2VyIoNnfeB
+	hOk0pXIeb9aOOysDuVKBhiQi7Up5S8ajfG2slFitSNE/4GDADsMqi+CLPxHzUvPyG7jie7GmNm1
+	FBiPywjToKU7DWCYCmPGsxipksMAoedQVQwoJeqVXpbdtHI7FZiFu2HGw0J3Co9vIyQ1vjax85j
+	Xyn4r3mXk0Jo2EYIGbnG4+vfzXimKAnHRCNJCOC6SEE7FaY6FNNueXqC3MhLA3D/q3b7FyNt5Yh
+	PzFDNnglbrKbux8xEw4aqqfLiWkd9qOuEjT+/u60vNdlKNQVEQ/GJIhSm8LfNVtCNozqu2V4j5o
+	nV6qCDrlCNTqI=
+X-Google-Smtp-Source: AGHT+IEI5dvtjpf7UreD77ujcsma8Qc91uG0xXgrZUKvQ1Ri3S/fmPHsBQ3EzHdR5mFgTf1mYnto9Q==
+X-Received: by 2002:a05:6a00:1990:b0:7aa:2d04:ccf6 with SMTP id d2e1a72fcca58-7b2232f8c80mr9070041b3a.0.1762772877004;
+        Mon, 10 Nov 2025 03:07:57 -0800 (PST)
 Received: from localhost ([122.172.86.94])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29651c8ef47sm143941675ad.74.2025.11.10.03.07.26
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0c9c09cd6sm11397368b3a.23.2025.11.10.03.07.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 03:07:27 -0800 (PST)
-Date: Mon, 10 Nov 2025 16:37:25 +0530
+        Mon, 10 Nov 2025 03:07:56 -0800 (PST)
+Date: Mon, 10 Nov 2025 16:37:54 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
@@ -87,18 +87,18 @@ Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
 	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
 	platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 03/13] cpufreq: mediatek: Simplify with
- of_machine_get_match_data()
-Message-ID: <elghyjazfcsbwh4tmyfgfrbstfgpijgmlfu5kytbg7yvjtx2rf@v3riwtqr4itv>
+Subject: Re: [PATCH 04/13] cpufreq: sun50i: Simplify with
+ of_machine_device_match()
+Message-ID: <awphoxojc3benzdam47mcx7pqty26ohrwpgv46kimg7nl53rqc@szq3aqjqsbrc>
 References: <20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org>
- <20251106-b4-of-match-matchine-data-v1-3-d780ea1780c2@linaro.org>
+ <20251106-b4-of-match-matchine-data-v1-4-d780ea1780c2@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251106-b4-of-match-matchine-data-v1-3-d780ea1780c2@linaro.org>
+In-Reply-To: <20251106-b4-of-match-matchine-data-v1-4-d780ea1780c2@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_030729_331898_E2851604 
-X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-CacheID: sfid-20251110_030758_395521_C390512C 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,8 +115,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 06-11-25, 20:07, Krzysztof Kozlowski wrote:
-> Replace open-coded getting root OF node, matching against it and getting
-> the match data with new of_machine_get_match_data() helper.
+> Replace open-coded getting root OF node and matching against it with
+> new of_machine_device_match() helper.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
