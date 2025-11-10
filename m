@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E580CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F7FCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPQNKWJ2Mx8ERBndKaljqVakvhU/rb5MYp/iVlMsEeE=; b=gQLynqnSE+teI6geRv877EEgh4
-	XkCl/X11sM/LI0ANY1vNG5f/dcaBNHO/qHom7HPyqFUlTOuBeO84BawnYyEcRLbqRc9FiDLhLLQMK
-	ToXN/Tihq6NdZPe59fCP4MDTuDxq7jAP6mGOgYbaEMuR41aXodNRjGz0VFdRg7PeGI4VIJifzO6Nx
-	ufw2ZwCYB1jZzyZMUuSlflNfW1uKFsiHmI93Xbr5PgMvex8WabCvy9atnoWCMWxAZFJPyAdDPUt7U
-	FJO6eBuJ68BOOx1DZIqUlBJ15QauAgjjENQSjjLwp+H0hTcoHRaESuGSV2ylew1JktZI3v0/oYrGq
-	ievM7osg==;
+	bh=z80pbkP/TYorjbm1oWzO0yeXlK/iKwPApxaIQQlIuuE=; b=dWjMk8dFCkQHIWALE5z1eLQSWM
+	G+3nB0pjheK76KGjinNKxBntyFPPbB75t9CsxWssfGYdTFWqce1TojF3DqK+LVeVC/W5SwjskD3pQ
+	imiDs+AH5c0QQ361i+SLJ7pN69eUIvHYDgTtXsFsHJ5QfEnhxqSNM04YKT4k1dt6nzzyYUboIETDT
+	B8GW4oi9NdmamdqEPaWc+5MG9kH+rKZrAJhtLjou30wyk3Vol6139jiuOcEKJ4VlCkdoL2cZx20Pz
+	H6kW4NS2lJ3cLsRpvrj3WGn3m8Flr2jXA9vd/7d9P6CT2Z/cF2gRm5nMuAgJYkCUtZpbO0T6F9uqw
+	BsHaQpYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUk7-00000005n6s-1f3R;
-	Mon, 10 Nov 2025 16:27:47 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUk3-00000005n6O-2vcd
+	id 1vIUkc-00000005nBM-2zsu;
+	Mon, 10 Nov 2025 16:28:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIUka-00000005nAu-3dx1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 16:27:46 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4w6h674BzJ467T;
-	Tue, 11 Nov 2025 00:27:08 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 58300140446;
-	Tue, 11 Nov 2025 00:27:38 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
- 2025 16:27:36 +0000
-Date: Mon, 10 Nov 2025 16:27:35 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Gavin Shan <gshan@redhat.com>
-CC: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
-	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
-	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <guohanjun@huawei.com>,
-	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>, "Shaopeng Tan" <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH 09/33] ACPI / MPAM: Parse the MPAM table
-Message-ID: <20251110162735.00001be9@huawei.com>
-In-Reply-To: <835b49a3-cbe2-41b0-a442-f7cabaa644fd@redhat.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-	<20251107123450.664001-10-ben.horgan@arm.com>
-	<835b49a3-cbe2-41b0-a442-f7cabaa644fd@redhat.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 10 Nov 2025 16:28:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AEA82B;
+	Mon, 10 Nov 2025 08:28:08 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C5463F66E;
+	Mon, 10 Nov 2025 08:28:11 -0800 (PST)
+Message-ID: <17caf75c-a00f-41d8-bacc-af5ba6c485d9@arm.com>
+Date: Mon, 10 Nov 2025 16:28:10 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/33] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use
+ pptt cache as one structure
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: james.morse@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-4-ben.horgan@arm.com>
+ <20251110154610.00002247@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251110154610.00002247@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_082744_027844_D876D17E 
-X-CRM114-Status: GOOD (  30.04  )
+X-CRM114-CacheID: sfid-20251110_082817_000791_BAEEF855 
+X-CRM114-Status: GOOD (  30.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,113 +77,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 8 Nov 2025 18:54:05 +1000
-Gavin Shan <gshan@redhat.com> wrote:
+Hi Jonathan,
 
-> Hi Ben,
+On 11/10/25 15:46, Jonathan Cameron wrote:
+> On Fri, 7 Nov 2025 12:34:20 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> On 11/7/25 10:34 PM, Ben Horgan wrote:
-> > From: James Morse <james.morse@arm.com>
-> > 
-> > Add code to parse the arm64 specific MPAM table, looking up the cache
-> > level from the PPTT and feeding the end result into the MPAM driver.
-> > 
-> > This happens in two stages. Platform devices are created first for the
-> > MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
-> > to discover the RIS entries the MSC contains.
-> > 
-> > For now the MPAM hook mpam_ris_create() is stubbed out, but will update
-> > the MPAM driver with optional discovered data about the RIS entries.
-> > 
-> > CC: Carl Worth <carl@os.amperecomputing.com>
-> > Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
-> > Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> > Tested-by: Peter Newman <peternewman@google.com>
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> > ---
-> > Changes since v3:
-> > return irq from acpi_mpam_register_irq (Jonathan)
-> > err -> len rename (Jonathan)
-> > Move table initialisation after checking (Jonathan)
-> > Add sanity checking in acpi_mpam_count_msc() (Jonathan)
-> > ---
-> >   arch/arm64/Kconfig          |   1 +
-> >   drivers/acpi/arm64/Kconfig  |   3 +
-> >   drivers/acpi/arm64/Makefile |   1 +
-> >   drivers/acpi/arm64/mpam.c   | 403 ++++++++++++++++++++++++++++++++++++
-> >   drivers/acpi/tables.c       |   2 +-
-> >   include/linux/arm_mpam.h    |  47 +++++
-> >   6 files changed, 456 insertions(+), 1 deletion(-)
-> >   create mode 100644 drivers/acpi/arm64/mpam.c
-> >   create mode 100644 include/linux/arm_mpam.h
-> >   
+>> In actbl2.h, struct acpi_pptt_cache describes the fields in the original
+>> cache type structure. In PPTT table version 3 a new field was added at the
+>> end, cache_id. This is described in struct acpi_pptt_cache_v1. Introduce
+>> the new, acpi_pptt_cache_v1_full to contain both these structures. Update
+>> the existing code to use this new struct. This simplifies the code, removes
+>> a non-standard use of ACPI_ADD_PTR and allows using the length in the
+>> header to check if the cache_id is valid.
+>>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > 
-> With the following minor comments addressed:
+> Whilst I wish the ACPICA stuff did structures like this, I'm not sure
+> if the ACPI maintainers will feel it is appropriate to work around it
+> with generic sounding structures like this one.
 > 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-Just picking out one comment where I think your suggestion
-isn't quite the right one.
+> I'd also say that we should only cast it to your _full structure
+> if we know we have rev 3 of PPTT.  Otherwise we should continue manipulating
+> it as a struct acpi_pptt_cache
 
-Jonathan
+Fair enough. My thinking was that you had to check the valid flag anyway
+to use cache_id but it's less robust. I'll delay the casting to later
+which IIUC is what Jeremy Linton suggested offline.
 
-> > diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> > new file mode 100644
-> > index 000000000000..c199944862ed
-> > --- /dev/null
-> > +++ b/drivers/acpi/arm64/mpam.c
-
-> > +static int __init acpi_mpam_parse(void)
-> > +{
-> > +	char *table_end, *table_offset;
-> > +	struct acpi_mpam_msc_node *tbl_msc;
-> > +	struct platform_device *pdev;
-> > +
-> > +	if (acpi_disabled || !system_supports_mpam())
-> > +		return 0;
-> > +
-> > +	struct acpi_table_header *table __free(acpi_put_table) =
-> > +		acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> > +
-> > +	if (IS_ERR(table))
-> > +		return 0;
-> > +
-> > +	if (table->revision < 1)
-> > +		return 0;
-> > +  
 > 
-> It's correct to return zero on IS_ERR(table) with an error message, but
-> a message printed by pr_debug() may be worthywhile on "if (table->revison < 1)".
+>> ---
+>> Changes since v3:
+>> New patch
+>> ---
+>>  drivers/acpi/pptt.c | 104 ++++++++++++++++++++++++--------------------
+>>  1 file changed, 58 insertions(+), 46 deletions(-)
+>>
+>> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+>> index 1027ca3566b1..1ed2099c0d1a 100644
+>> --- a/drivers/acpi/pptt.c
+>> +++ b/drivers/acpi/pptt.c
+>> @@ -21,6 +21,11 @@
+>>  #include <linux/cacheinfo.h>
+>>  #include <acpi/processor.h>
+>>  
+>> +struct acpi_pptt_cache_v1_full {
+>> +	struct acpi_pptt_cache		f;
+>> +	struct acpi_pptt_cache_v1	extra;
+>> +} __packed;
 > 
-> > +	table_offset = (char *)(table + 1);
-> > +	table_end = (char *)table + table->length;
-> > +
-> > +	while (table_offset < table_end) {
-> > +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> > +		table_offset += tbl_msc->length;
-> > +
-> > +		if (table_offset > table_end) {
-> > +			pr_err("MSC entry overlaps end of ACPI table\n");
-> > +			return -EINVAL;
-> > +		}
-> > +  
+>> +#define ACPI_PPTT_CACHE_V1_LEN sizeof(struct acpi_pptt_cache_v1_full)
+>> +
+>> +/*
+>> + * From PPTT table version 3, a new field cache_id was added at the end of
+>> + * the cache type structure.  We now use struct acpi_pptt_cache_v1_full,
+>> + * containing the cache_id, everywhere but must check validity before accessing
+>> + * the cache_id.
+>> + */
+>> +static bool acpi_pptt_cache_id_is_valid(struct acpi_pptt_cache_v1_full *cache)
+>> +{
+>> +	return (cache->f.header.length >= ACPI_PPTT_CACHE_V1_LEN &&
 > 
-> Would be:
+> Although I later say I don't think you should pass a v1_full structure in here (as
+> we don't know it is at least that large until after this check) if you do keep this
+> why not use sizeof(*cache) and get rid of the V1_LEN definition as providing no obvious
+> value here?
+
+Yes, the define was never needed.
+
 > 
-> 		if (table_offset + sizeof(*tbl_msc) > table_end)
+>> +		cache->f.flags & ACPI_PPTT_CACHE_ID_VALID);
+>>  }
+> 
+>> @@ -355,7 +374,6 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+>>   * @this_leaf: Kernel cache info structure being updated
+>>   * @found_cache: The PPTT node describing this cache instance
+>>   * @cpu_node: A unique reference to describe this cache instance
+>> - * @revision: The revision of the PPTT table
+>>   *
+>>   * The ACPI spec implies that the fields in the cache structures are used to
+>>   * extend and correct the information probed from the hardware. Lets only
+>> @@ -364,23 +382,20 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+>>   * Return: nothing. Side effect of updating the global cacheinfo
+>>   */
+>>  static void update_cache_properties(struct cacheinfo *this_leaf,
+>> -				    struct acpi_pptt_cache *found_cache,
+>> -				    struct acpi_pptt_processor *cpu_node,
+>> -				    u8 revision)
+>> +				    struct acpi_pptt_cache_v1_full *found_cache,
+>> +				    struct acpi_pptt_processor *cpu_node)
+>>  {
+>> -	struct acpi_pptt_cache_v1* found_cache_v1;
+>> -
+>>  	this_leaf->fw_token = cpu_node;
+>> -	if (found_cache->flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
+>> -		this_leaf->size = found_cache->size;
+>> -	if (found_cache->flags & ACPI_PPTT_LINE_SIZE_VALID)
+>> -		this_leaf->coherency_line_size = found_cache->line_size;
+>> -	if (found_cache->flags & ACPI_PPTT_NUMBER_OF_SETS_VALID)
+>> -		this_leaf->number_of_sets = found_cache->number_of_sets;
+>> -	if (found_cache->flags & ACPI_PPTT_ASSOCIATIVITY_VALID)
+>> -		this_leaf->ways_of_associativity = found_cache->associativity;
+>> -	if (found_cache->flags & ACPI_PPTT_WRITE_POLICY_VALID) {
+>> -		switch (found_cache->attributes & ACPI_PPTT_MASK_WRITE_POLICY) {
+>> +	if (found_cache->f.flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
+>> +		this_leaf->size = found_cache->f.size;
+>> +	if (found_cache->f.flags & ACPI_PPTT_LINE_SIZE_VALID)
+>> +		this_leaf->coherency_line_size = found_cache->f.line_size;
+>> +	if (found_cache->f.flags & ACPI_PPTT_NUMBER_OF_SETS_VALID)
+>> +		this_leaf->number_of_sets = found_cache->f.number_of_sets;
+>> +	if (found_cache->f.flags & ACPI_PPTT_ASSOCIATIVITY_VALID)
+>> +		this_leaf->ways_of_associativity = found_cache->f.associativity;
+>> +	if (found_cache->f.flags & ACPI_PPTT_WRITE_POLICY_VALID) {
+>> +		switch (found_cache->f.attributes & ACPI_PPTT_MASK_WRITE_POLICY) {
+>>  		case ACPI_PPTT_CACHE_POLICY_WT:
+>>  			this_leaf->attributes = CACHE_WRITE_THROUGH;
+>>  			break;
+>> @@ -389,8 +404,8 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
+>>  			break;
+>>  		}
+>>  	}
+>> -	if (found_cache->flags & ACPI_PPTT_ALLOCATION_TYPE_VALID) {
+>> -		switch (found_cache->attributes & ACPI_PPTT_MASK_ALLOCATION_TYPE) {
+>> +	if (found_cache->f.flags & ACPI_PPTT_ALLOCATION_TYPE_VALID) {
+>> +		switch (found_cache->f.attributes & ACPI_PPTT_MASK_ALLOCATION_TYPE) {
+>>  		case ACPI_PPTT_CACHE_READ_ALLOCATE:
+>>  			this_leaf->attributes |= CACHE_READ_ALLOCATE;
+>>  			break;
+>> @@ -415,13 +430,11 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
+>>  	 * specified in PPTT.
+>>  	 */
+>>  	if (this_leaf->type == CACHE_TYPE_NOCACHE &&
+>> -	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)
+>> +	    found_cache->f.flags & ACPI_PPTT_CACHE_TYPE_VALID)
+>>  		this_leaf->type = CACHE_TYPE_UNIFIED;
+>>  
+>> -	if (revision >= 3 && (found_cache->flags & ACPI_PPTT_CACHE_ID_VALID)) {
+>> -		found_cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+>> -	                                      found_cache, sizeof(struct acpi_pptt_cache));
+>> -		this_leaf->id = found_cache_v1->cache_id;
+>> +	if (acpi_pptt_cache_id_is_valid(found_cache)) {
+> 
+> Only here do we know that found_cache is the _full type. 
+> 
+>> +		this_leaf->id = found_cache->extra.cache_id;
+>>  		this_leaf->attributes |= CACHE_ID;
+>>  	}
+>>  }
+>> @@ -429,7 +442,7 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
+>>  static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+>>  				 unsigned int cpu)
+>>  {
+>> -	struct acpi_pptt_cache *found_cache;
+>> +	struct acpi_pptt_cache_v1_full *found_cache;
+> 
+> This isn't necessarily valid. Until deep in update_cache_properties() we don't care about the ID
+> so this structure may be smaller than this implies.
+> 
+>>  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>>  	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+>>  	struct cacheinfo *this_leaf;
+>> @@ -445,8 +458,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+>>  		pr_debug("found = %p %p\n", found_cache, cpu_node);
+>>  		if (found_cache)
+>>  			update_cache_properties(this_leaf, found_cache,
+>> -						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)),
+>> -						table->revision);
+>> +						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)));
+>>  
+>>  		index++;
+>>  	}
+> 
 
-I'm not seeing this one.  table_offset has already been moved on by
-tbl_msc->length which should be bigger than sizeof(*tbl_msc).
+Thanks,
 
-Could add a check before reading tbl_msc->length that there is enough
-there to do so. That to me would make sense (like the other case you point
-at later).
-
-Jonathan
-
-
-
+Ben
 
 
