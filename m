@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7019CCFA1E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CDCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VAr21MtQeeygUzAg/O3leSHmqCylhYlryIgLa6wjxJs=; b=dIEen8AHw8Go4gskO3A+63nT6M
-	H8KSSULc32tulNES3c55h/C4kj1r7pnXz8mw7zSQqivnsFYxLBsvi0F75jo9dVDzfZIhvpvphMf0D
-	fW6DsdQqn49UiMRu9lW7XQpFjdMPpr3M7RdOkY6oiMqYlNvJfgwIVTmGVwbJMnahoaMaXg1ufrXcj
-	OlAC5nJgopoRtf+83FCWNfIxiTOa/lawTxS5xmIM88KHrsY76gcr9ec1eO2wgkPLxBZojoG2RMBlv
-	56N4jCDaX5TaCcMahmM+MZezIRFW8DzXzbdhw27rlOoxF/k4QlveTv4KsS/QHCEsr0J+MHkXWJeh7
-	rpr3ADUA==;
+	bh=9Ia5jXSv500YuYMFtwKqSO8PMeenzvtfjJOnj24NwTQ=; b=Q0mY5AuhMxnX1BLTOZs4NSO02x
+	6t5MmLhnQ2BfxVOp9mo1G8bFw3MJb+2zq2nC8HMHq1Ciada07IA5pm6A4AaoORItKLL/EhwDxL8ei
+	nXgOiyfWmiHv/XMY83qimw63FYwSext4+Ye63VHNBxhWJJw8zYvn8NGvGOK7Exkk8pZa4E88OPMAv
+	xc4YdjJQ92RCJEGIQgUUybOUPtqHiYXUhrhMrOZ124d8uC9d2ptGhifwgyYB+q+cEmN6LEd9PdIIg
+	Fs9wnX0hNPMZHRjrDC1oD8YL/pjTCNQuopwmdq1f+805dZ/gBeajYpuC5V6AzPMTbmFb+WxavksLn
+	AZyDXTBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOw7-00000005ANe-0YXs;
-	Mon, 10 Nov 2025 10:15:47 +0000
-Received: from mail-m32111.qiye.163.com ([220.197.32.111])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOw1-00000005AMB-08hE;
-	Mon, 10 Nov 2025 10:15:43 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2909a128f;
-	Mon, 10 Nov 2025 18:15:35 +0800 (GMT+08:00)
-Message-ID: <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
-Date: Mon, 10 Nov 2025 18:15:33 +0800
+	id 1vIOxS-00000005AdG-1mAE;
+	Mon, 10 Nov 2025 10:17:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIOxQ-00000005Acm-0tZf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 10:17:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 870C72B;
+	Mon, 10 Nov 2025 02:16:57 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D100E3F66E;
+	Mon, 10 Nov 2025 02:17:03 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Carl Worth <carl@os.amperecomputing.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v2 0/3] coresight: replace the void pointer with coresight_path pointer
+Date: Mon, 10 Nov 2025 10:16:55 +0000
+Message-ID: <176276979719.511921.7702735480657824829.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250925-fix_helper_data-v2-0-edd8a07c1646@oss.qualcomm.com>
+References: <20250925-fix_helper_data-v2-0-edd8a07c1646@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
- Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, mani@kernel.org
-Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-To: FUKAUMI Naoki <naoki@radxa.com>, Niklas Cassel <cassel@kernel.org>
-References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
- <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
- <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
- <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
- <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
- <aRCI5kG16_1erMME@ryzen>
- <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
- <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
- <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
- <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
- <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a6d438d5d09cckunm2a41cfe81382c3e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhgaSFYaGkgaSkNJGU9PHx9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZS1VLVUtVS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=GaomGJcZFoXy9dmKjLqxt7SSQwarCMv4UTRUnrqYXArfcRVHwNXTJEHw2s9PSPE9iGfN8S0vj7/5FE4SI677ltHzqcx8kqhuDDOr/4Cvmv4GuwiC1PderlOoae7sw3AVJSuz5uBBzLbtDsdOy6roqwSdbIwwONzCSx8H2PtfC1g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=VAr21MtQeeygUzAg/O3leSHmqCylhYlryIgLa6wjxJs=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_021541_809329_5D8C9C18 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20251110_021708_293677_2A06FACE 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/10 星期一 15:52, FUKAUMI Naoki 写道:
-> Hi Shawn,
-> 
-> On 11/10/25 16:12, Shawn Lin wrote:
-> (snip)> Thanks for testing. I just got a ASM2806 switch as yours and 
-> verified it
->> on vanilla v6.18-rc5. After 30 times of cold boot, two NVMes behind
->> ASM2806 work as expected. Nothing special happened when I checked
->> with PA as well. You could help check the log and lspci dump there[1].
->>
->> [1]https://pastebin.com/sAF1fT0g
-> 
-> Thanks for the info!
-> 
-> I tried ASM2806 on Radxa ROCK 5B (RK3588).
->   https://gist.github.com/RadxaNaoki/640e47d377add9fe38301de164d4058e
-> 
-> It doesn't work on PCIe 2.0 (M.2 E Key), but it does work on PCIe 3.0 
-> (M.2 M Key).
-> 
-> Could you try PCIe 2.0 slot on your board?
 
-I did, it doesn't work on PCIe 2.0 slot. From the PA, I could see
-the link is still in training during pci_host_probe() is called.
-Add some delay before pci_rescan_bus() in pcie-dw-rockchip doesn't
-help. But the below change should work as we delayed pci_host_probe().
-
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -236,6 +236,8 @@ static int rockchip_pcie_start_link(struct dw_pcie *pci)
-         msleep(PCIE_T_PVPERL_MS);
-         gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
-
-+       msleep(50);
-+
-         return 0;
-
-Otherwise we got:
-
-[    0.841518] pci_bus 0003:33: busn_res: can not insert [bus 33-31] 
-under [bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.842596] pci_bus 0003:33: busn_res: [bus 33-31] end is updated to 33
-[    0.843184] pci_bus 0003:33: busn_res: can not insert [bus 33] under 
-[bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.844120] pci 0003:32:00.0: devices behind bridge are unusable 
-because [bus 33] cannot be assigned for them
-[    0.845229] pci_bus 0003:34: busn_res: can not insert [bus 34-31] 
-under [bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.846309] pci_bus 0003:34: busn_res: [bus 34-31] end is updated to 34
-[    0.846898] pci_bus 0003:34: busn_res: can not insert [bus 34] under 
-[bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.847833] pci 0003:32:06.0: devices behind bridge are unusable 
-because [bus 34] cannot be assigned for them
-[    0.848923] pci_bus 0003:35: busn_res: can not insert [bus 35-31] 
-under [bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.850014] pci_bus 0003:35: busn_res: [bus 35-31] end is updated to 35
-[    0.850605] pci_bus 0003:35: busn_res: can not insert [bus 35] under 
-[bus 32-31] (conflicts with (null) [bus 32-31])
-[    0.851540] pci 0003:32:0e.0: devices behind bridge are unusable 
-because [bus 35] cannot be assigned for them
-[    0.852424] pci_bus 0003:32: busn_res: [bus 32-31] end is updated to 35
-[    0.853028] pci_bus 0003:32: busn_res: can not insert [bus 32-35] 
-under [bus 31] (conflicts with (null) [bus 31])
-[    0.853184] hub 3-0:1.0: USB hub found
-[    0.853931] pci 0003:31:00.0: devices behind bridge are unusable 
-because [bus 32-35] cannot be assigned for them
-[    0.854262] hub 3-0:1.0: 1 port detected
-[    0.855144] pcieport 0003:30:00.0: bridge has subordinate 31 but max 
-busn 35
-[    0.855722] hub 4-0:1.0: USB hub found
-[    0.856109] pci 0003:32:00.0: PCI bridge to [bus 33]
-[    0.856939] pci 0003:32:06.0: PCI bridge to [bus 34]
-[    0.857133] hub 4-0:1.0: 1 port detected
-[    0.857430] pci 0003:32:0e.0: PCI bridge to [bus 35]
-[    0.858236] pci 0003:31:00.0: PCI bridge to [bus 32-35]
-
+On Thu, 25 Sep 2025 18:42:30 +0800, Jie Gan wrote:
+> Patch 1:
+> Fix the issue that the catu cannot correctly read the handle of the AUX
+> event which is caused by the commit[1].
 > 
-> Best regards,
+> [1] 080ee83cc361 ("Coresight: Change functions to accept the coresight_path")
 > 
-> -- 
-> FUKAUMI Naoki
-> Radxa Computer (Shenzhen) Co., Ltd.
+> Exeception call trace:
+>      tmc_etr_get_buffer+0x30/0x80 [coresight_tmc] (P)
+>      catu_enable_hw+0xbc/0x3d0 [coresight_catu]
+>      catu_enable+0x70/0xe0 [coresight_catu]
+>      coresight_enable_path+0xb0/0x258 [coresight]
 > 
-> 
+> [...]
 
+Applied, thanks!
+
+[1/3] coresight: tmc: add the handle of the event to the path
+      https://git.kernel.org/coresight/c/aaa5abcc9d44
+[2/3] coresight: change helper_ops to accept coresight_path
+      https://git.kernel.org/coresight/c/94baedb51dea
+[3/3] coresight: change the sink_ops to accept coresight_path
+      https://git.kernel.org/coresight/c/b139702a8896
+
+Best regards,
+-- 
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
