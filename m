@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CF6CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6877FCD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=; b=Pu4gjYZZjMS9H5f4atzyEYAGDx
-	tL0ws53gmViZxINkOwuDypgS0fCd3+CayUx+aSo+IRt6idxCGTZB7Jf+H/H7NYn/rciO3wmKvnvSb
-	+7uPMwd7ORnFAxLmd7c+1ABKzEnD5qlMsGqn3AGX4vE9qlxB5gweLQq23ywi4G5LT1CbxZkE3H8RF
-	hSltJnYfI6JmddfnEUElHVWeeOswrUkI+EwB4MDOvXLAbK91T66VM22e0tAj4E58JPx4kr7a2w/yJ
-	o8sIXIxCJrno2k8/XO+fNprlv0UKZhj38/X6PWhba3RKDyVLy2yIAX/Rm1BE03rZcfo7t/oZCgs8N
-	/yerqT5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZgTYM7TUnJxppVv/poJEWBus2ihz08ACoFaLOlNWMI8=; b=k66CKe9euyUSzG
+	EW+iAbZcbQqGKm5mMc3KOr8i7q64Ma90SvPikY6n2VQm4+l5kQKUVi2fISJTOXdMqtAo/7q1miTss
+	NiHUk6ETln8GNZpWQxeF8wy7euOb4TEc8DnmkIsTQ3qEoxREJy/sJ2okJUzvE+0Ur7drq2UO3LNSs
+	HhPywAhnQbrMfHDDO7OStmhAhTo0fKnbr9Q5kfz6zTwyl0Om57zaN8Du39lxIarpn79kSPGB72HYW
+	dOefOn1eZD5/1mvp/Lem5KQ5Z4W7rVzoXqa9F7LT2d5aDh1uYLfXS9QPuJus3cb9zydE2Tk7kPf1m
+	Bcs/p89i49hqbyu4N+eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPmi-00000005Guf-2zQI;
-	Mon, 10 Nov 2025 11:10:09 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vIPmq-00000005Gwr-01VD;
+	Mon, 10 Nov 2025 11:10:16 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPmb-00000005GtF-0ERD
+	id 1vIPmj-00000005Gu8-2BMa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:10:07 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477632d9326so21985645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:10:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762772999; x=1763377799; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=;
-        b=EJ7OsLP1EFygldb9apF6cVDslRzbuuTScDdd8YCYJ0d45n0dOobGpq+ZaHU726Xvqh
-         haPLOGDfqSgVRaBk4g5Ro4hKacukpoEli9bOonHUJLwFehMrSS1fag+ojlieDEp453tt
-         SPkJQFZ3E5jbT317re/QCIdYmx6GD9lWqgTAwaz9To0JrpcvmcaXcdKSW7P0RGRszZMQ
-         ASsfvwsyWp3KAWSgGUJGILeuz7SkpdAmBbXQOGnMSYmSUSq+WnxwSTqDCIoI58oEgEoj
-         IkmKNr1JBMKFSdS/TfHSzN+L8K5XMMQG/80GWnkbWENqFLP/Im/7a/TL2H2aJ7a3n0Lo
-         rFlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762772999; x=1763377799;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=;
-        b=ANx0szbJCTNUyUmxZ0LDbFRYlEdMSLqGuJ6Z7ZjQhYLbLthYQBR/M2etAuayTCFeSC
-         I4FoN7i8eivfMtGBCyia1fvkxCmPCB9m630X2YmTAWZCnWWkaWyyU+/bFZnfQcmNx9aC
-         Y/2+/Kgk+TbDmNfrtT7HQ2gk9aLb65fxvxZhY8/TIHFXYDMzPIPOC5IlW0bSOeB+iOIp
-         +aGJM8C6iNaiH6ORL6buSmXnpaF8dNamdN1+8X+gYMWaSh/J5mOPiP26Cw8hS9tQkxq/
-         Ywnk+CZwGlJv47WQC4miQdYieg6RBEUqndqEKllwzfK5CY71LPpqbwoC8glJ6PEIrojt
-         AAlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHyd8z+KYHmZho3oTwvFURRzIrgTDlk3e+VowKFxnvqg2MFXhEX6oJR9HLmnKdQnJtyijLlOXVm0laaVXycGMK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBkNJW4pbsO0TF0nEjDhXTHKs9JOy/b1ieAR75tPn1nRAHwX96
-	vE0hM90mPkxCDTgjAMIHQJKfiOWEdChPRUyeNVeBvoDxxqULRlojP+3VjgVdzQhTcVc=
-X-Gm-Gg: ASbGncsekJnn5QA02xZLpvLh8Y8RGNVLujv3QvwOGebuk4Dw4WHKDqPWVeuuBK4zUbq
-	5cGpPwRcjSSAoAEJTuy4xQriW7T/i00mBLBpOFH1namTawp9iLrE4s+ANV9iHbSrMj55PSYEr5W
-	AA60J1D/46/qYHQSH0dDRLTtYgRejfoAF6V5sW1PWPBxWJIXk54G4/L5DSS7gDeNTL7lf0uLHJO
-	vlfSoLb2mrTlbZpJGPesPC7i33+kvIdbjWWS53eBhZMUhNWlxa0kqyaPFFgICkdIXyPPN2X+d7U
-	Pjrvs+Wm/Ys0lIYCsRp9WASiqX5N2lV1dpg7NEK8wiX4OkNJiE4kkvDdMsQ/lcEfHX3lAXMUUN+
-	ZpzhQC89QiX4aftnCIB2H8OljZMrtNh1XE7wFaOctGbbCaRHj4fM2VLx9UowV1HEegePBWZR3kC
-	IX5iDlzJNOzw4UcLzP
-X-Google-Smtp-Source: AGHT+IHBAO4NRwVKBNWJkeYNSNN1HJQ5iaTeJZbvUTX+qm5bYiIy7iR5W/3hPDRyh5PkLDTWG6LoLQ==
-X-Received: by 2002:a05:600c:4f4c:b0:477:7a87:48d1 with SMTP id 5b1f17b1804b1-4777a874db1mr43256235e9.30.1762772999079;
-        Mon, 10 Nov 2025 03:09:59 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776bcd51dfsm198106405e9.5.2025.11.10.03.09.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 03:09:58 -0800 (PST)
-Message-ID: <4b9c2dc0-20f5-4384-b106-0def0891493f@linaro.org>
-Date: Mon, 10 Nov 2025 11:09:57 +0000
+	Mon, 10 Nov 2025 11:10:15 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 10 Nov
+ 2025 19:09:56 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 10 Nov 2025 19:09:56 +0800
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+Subject: [PATCH net-next v4 0/4] Add AST2600 RGMII delay into ftgmac100
+Date: Mon, 10 Nov 2025 19:09:24 +0800
+Message-ID: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/15] coresight: Introduce coresight_enable_source()
- helper
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOTHEWkC/32Q0WrDMAxFf6X4eQ6y1NjpnvYfowTXURpvbdLZb
+ mgo+fcaF7aHjT2Jy+UcId1F5OA5itfNXQSeffTTmMP2ZSPcYMcjS9/lLBCwVkBKhuPZ+7bjk11
+ a1ADSAhwAt40zrEXGLoF7fyvKdzFykiPfktjnZvAxTWEpu2YqfdFm72/tTBIko+1R17o3nXmz8
+ cLcJXZD5aZzMc74bYFGEWgiUBVR09RKKvlh3efSumG6/gmrH5iUyWOHWKka9Y7M//T6vDPw1zV
+ /LD2P3a/rA4EO8HpPAQAA
+X-Change-ID: 20251031-rgmii_delay_2600-a00b0248c7e6
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <taoren@meta.com>, Jacky Chou
+	<jacky_chou@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762772996; l=3865;
+ i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
+ bh=mSZ7gmoan1EeU4GVjsq0MXdF6q2IRPBWHzVnBREFK+s=;
+ b=JVJatIp03PtH1be/zgyXFjCLbEZ6UugDbJ2mlEjc9L64B6RVVc4X2jTenUy6r0JzK1NSYWVcJ
+ IOdDKo1zV8jDzZ5RwMbbHMmwydpv/KiWg9M0TEjzQ70L0Y1AMMjfoWl
+X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
+ pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_031001_128648_C93BCBA6 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20251110_031009_715304_CCF6FCD3 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,96 +82,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds support for configuring RGMII internal delays for the
+Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to
+distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration
+units differ.
+The device tree bindings are updated to restrict the allowed phy-mode and delay
+properties for each MAC type. Corresponding changes are made to the device tree
+source files and the FTGMAC100 driver to support the new delay configuration.
 
+Summary of changes:
+- dt-bindings: net: ftgmac100: Add conditional schema for AST2600 MAC0/1 and
+  MAC2/3.
+- ARM: dts: aspeed-g6: Add aspeed,rgmii-delay-ps and aspeed,scu
+  properties.
+- ARM: dts: aspeed-ast2600-evb: Add rx/tx-internal-delay-ps properties and 
+  update phy-mode for MACs.
+- net: ftgmac100: Add driver support for configuring RGMII delay for AST2600
+  MACs via SCU.
 
-On 04/11/2025 3:21 pm, Leo Yan wrote:
-> Introduce the coresight_enable_source() helper for enabling source
-> device, refine the comment for the imbalance between enable and disable
-> pair functions.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+This enables precise RGMII timing configuration for AST2600-based platforms,
+improving interoperability with various PHYs
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Po-Yu Chuang <ratbert@faraday-tech.com>
+To: Joel Stanley <joel@jms.id.au>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: taoren@meta.com
 
-> ---
->   drivers/hwtracing/coresight/coresight-core.c     | 15 ++++++++++++---
->   drivers/hwtracing/coresight/coresight-etm-perf.c |  2 +-
->   drivers/hwtracing/coresight/coresight-priv.h     |  3 +++
->   drivers/hwtracing/coresight/coresight-sysfs.c    |  2 +-
->   4 files changed, 17 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 0d4e935094297023b8a7786ff4b1b3783164016b..c28f3d255b0e19b3d982de95b8e34d0fc2954b95 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -385,15 +385,24 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
->   }
->   
->   /*
-> - * Helper function to call source_ops(csdev)->disable and also disable the
-> - * helpers.
-> + * coresight_enable_source() only enables the source but does nothing for the
-> + * associated helpers. In contrast, coresight_disable_source() calls
-> + * source_ops(csdev)->disable() and also disables the helpers.
->    *
->    * There is an imbalance between coresight_enable_path() and
->    * coresight_disable_path(). Enabling also enables the source's helpers as part
->    * of the path, but disabling always skips the first item in the path (which is
->    * the source), so sources and their helpers don't get disabled as part of that
-> - * function and we need the extra step here.
-> + * function and we need the extra step in coresight_disable_source().
->    */
-> +int coresight_enable_source(struct coresight_device *csdev,
-> +			    struct perf_event *event, enum cs_mode mode,
-> +			    struct coresight_path *path)
-> +{
-> +	return source_ops(csdev)->enable(csdev, event, mode, path);
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_enable_source);
-> +
->   void coresight_disable_source(struct coresight_device *csdev, void *data)
->   {
->   	source_ops(csdev)->disable(csdev, data);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index f677c08233ba1a28b277674662c6e6db904873dd..dd1968dd173d608fb72835343cd647818c0bad1a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -530,7 +530,7 @@ static void etm_event_start(struct perf_event *event, int flags)
->   		goto fail_end_stop;
->   
->   	/* Finally enable the tracer */
-> -	if (source_ops(csdev)->enable(csdev, event, CS_MODE_PERF, path))
-> +	if (coresight_enable_source(csdev, event, CS_MODE_PERF, path))
->   		goto fail_disable_path;
->   
->   	/*
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index 33e22b1ba043264ad50acac69ece1ea6de25893b..8b978528cb49af43ef56d034f7ecc520f80f60df 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -250,6 +250,9 @@ void coresight_add_helper(struct coresight_device *csdev,
->   
->   void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
->   struct coresight_device *coresight_get_percpu_sink(int cpu);
-> +int coresight_enable_source(struct coresight_device *csdev,
-> +			    struct perf_event *event, enum cs_mode mode,
-> +			    struct coresight_path *path);
->   void coresight_disable_source(struct coresight_device *csdev, void *data);
->   void coresight_pause_source(struct coresight_device *csdev);
->   int coresight_resume_source(struct coresight_device *csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-> index cb02f1bfaf068ec3f50f997bcb94f7d5215ccea8..72e9607fc6aea4663abf7d1f7f03f247ea060b83 100644
-> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-> @@ -66,7 +66,7 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
->   	 */
->   	lockdep_assert_held(&coresight_mutex);
->   	if (coresight_get_mode(csdev) != CS_MODE_SYSFS) {
-> -		ret = source_ops(csdev)->enable(csdev, NULL, mode, path);
-> +		ret = coresight_enable_source(csdev, NULL, mode, path);
->   		if (ret)
->   			return ret;
->   	}
-> 
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+---
+Changes in v4:
+- Remove the compatible "aspeed,ast2600-mac01" and
+  "aspeed,ast2600-mac23"
+- Add new property to specify the RGMII delay step for each MACs
+- Add default value of rx/tx-internal-delay-ps
+- For legacy dts, a warning message reminds users to update phy-mode
+- If lack rx/tx-internal-delay-ps, driver will use default value to
+  configure the RGMII delay
+- Link to v3: https://lore.kernel.org/r/20251103-rgmii_delay_2600-v3-0-e2af2656f7d7@aspeedtech.com
+
+Changes in v3:
+- Add new item on compatible property for new compatible strings
+- Remove the new compatible and scu handle of MAC from aspeed-g6.dtsi
+- Add new compatible and scu handle to MAC node in
+  aspeed-ast2600-evb.dts
+- Change all phy-mode of MACs to "rgmii-id"
+- Keep "aspeed,ast2600-mac" compatible in ftgmac100.c and configure the
+  rgmii delay with "aspeed,ast2600-mac01" and "aspeed,ast2600-mac23"
+- Link to v2: https://lore.kernel.org/r/20250813063301.338851-1-jacky_chou@aspeedtech.com
+
+Changes in v2:
+- added new compatible strings for MAC0/1 and MAC2/3
+- updated device tree bindings to restrict phy-mode and delay properties
+- refactored driver code to handle rgmii delay configuration
+- Link to v1: https://lore.kernel.org/r/20250317025922.1526937-1-jacky_chou@aspeedtech.com
+
+---
+Jacky Chou (4):
+      dt-bindings: net: ftgmac100: Add delay properties for AST2600
+      ARM: dts: aspeed-g6: Add scu and rgmii delay value per step for MAC
+      ARM: dts: aspeed: ast2600-evb: Configure RGMII delay for MAC
+      net: ftgmac100: Add RGMII delay support for AST2600
+
+ .../devicetree/bindings/net/faraday,ftgmac100.yaml |  35 +++++
+ arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts    |  20 ++-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |   8 ++
+ drivers/net/ethernet/faraday/ftgmac100.c           | 148 +++++++++++++++++++++
+ drivers/net/ethernet/faraday/ftgmac100.h           |  20 +++
+ 5 files changed, 227 insertions(+), 4 deletions(-)
+---
+base-commit: a0c3aefb08cd81864b17c23c25b388dba90b9dad
+change-id: 20251031-rgmii_delay_2600-a00b0248c7e6
+
+Best regards,
+-- 
+Jacky Chou <jacky_chou@aspeedtech.com>
 
 
