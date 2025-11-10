@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF4FCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87ECCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeJszXnPjHuc48zl24ceFndownoREwpnAPNDGqGwW/Y=; b=dEkJ9YprfZMb1p+NCZy8Yp8NqT
-	zne5qCX0I3OtLFfViCz33ZTy3Is/PPHJrueUh2rw2yCf/6fLDdm1Rw3Z2gkKoKl1UTxyO77gXIcIU
-	gfBjY2iROtbyLGz/m0jFhNTNnlyV1uTQlzuYQGd8hYAex8JHmvaix2ygWMHfL4iYN4T33sMzV2hZu
-	egmZywwDadWPksld/8kkcjpasMOJKV6lFj0Ppp2wafnWUxxMyY1eR8i2Bm7942kz1LWH7iqF0HmkD
-	Bbo5OMQhBuE5/JzEmwakr7wvpJISjukahg2XLwJvPbEDgXdNfOeG5HB28zyqr4UrownASSpy5hapO
-	cE1+fHWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJuWEJUlvaCE4nA4kDuytEb63h3ixW4NdLS1291VPf4=; b=JCLMY+0R7CRmJsPStd8BAWp90W
+	uPlN9ki6w5oQKJeDIn5RKftd3Fx5dmeudBK+O3sF/x6Ue8ZccCEZbIq+s1boI2T1ba73s4sSc+xGT
+	ge8EyTFYageQu/jP5IZmhkL/fFHrEZ7TM2ATP4nl+xMSl9eFZm56OZrmyexwDsmHkv/UCmSLi7cE1
+	VfDrZyoHGti8wauUS7IsS9w/GC3t67SH66Soz6WaG1NjZ5hfWq9p3IT2PUjy61hZiy3PCLCeEJhqX
+	b+uQcj3h0XB+clopC6pVmINFvci1MeE3135t4jeHklvIS3I8K5K8VzS+VYbrM1KHOab6SewK6u++C
+	UU8LdI5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQ9w-00000005KJl-1788;
-	Mon, 10 Nov 2025 11:34:08 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQ9t-00000005KIq-1AqC
+	id 1vIQDg-00000005Kgu-3J74;
+	Mon, 10 Nov 2025 11:38:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIQDd-00000005KgW-1asu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:34:07 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vIQ9g-00022r-64; Mon, 10 Nov 2025 12:33:52 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vIQ9f-0080xM-2I;
-	Mon, 10 Nov 2025 12:33:51 +0100
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vIQ9f-00CYGP-1u;
-	Mon, 10 Nov 2025 12:33:51 +0100
-Date: Mon, 10 Nov 2025 12:33:51 +0100
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: yassine.ouaissa@allegrodvt.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 2/4] dt-bindings: media: allegro: Add al300 decoder IPs
-Message-ID: <aRHNn6fv8jiGXccq@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	yassine.ouaissa@allegrodvt.com,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-References: <20250813-allegro_dvt_al300_dec_driver-v5-0-a312ddebc4d8@allegrodvt.com>
- <20250813-allegro_dvt_al300_dec_driver-v5-2-a312ddebc4d8@allegrodvt.com>
+	Mon, 10 Nov 2025 11:37:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D40EB497;
+	Mon, 10 Nov 2025 03:37:47 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 248023F63F;
+	Mon, 10 Nov 2025 03:37:54 -0800 (PST)
+Message-ID: <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
+Date: Mon, 10 Nov 2025 11:37:52 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250813-allegro_dvt_al300_dec_driver-v5-2-a312ddebc4d8@allegrodvt.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
+ single-shot restart
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
+ <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_033405_323010_A4F13BF2 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20251110_033757_558743_E331ADCF 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,139 +70,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025 09:54:54 +0000, Yassine Ouaissa via B4 Relay wrote:
-> From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+On 03/11/2025 16:49, Leo Yan wrote:
+> Add a new argument restart_ss to etm4_enable_hw(). When passed as true,
+> it resets the TRCSSCSRn.STATUS bit to 0 to re-enable single-shot
+> control.
 > 
-> Add a schema for the allegro gen3 video decoder.
+> No functional change. This is a preparation for a subsequent change.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  .../bindings/media/allegro,al300-vdec.yaml         | 76 ++++++++++++++++++++++
->  MAINTAINERS                                        |  2 +
->  2 files changed, 78 insertions(+)
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 16 +++++++++-------
+>   1 file changed, 9 insertions(+), 7 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..12e86c306d5578d298ad03a6d59593dd1ddcff9e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/allegro,al300-vdec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allegro DVT Video IP Decoder Gen 3
-> +
-> +maintainers:
-> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
-> +
-> +description:
-> +  The al300-vdec represents the gen 3 of Allegro DVT IP video
-> +  decoding technology, offering significant advancements over its
-> +  predecessors. This new decoder features enhanced processing capabilities
-> +  with improved throughput and reduced latency.
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 560975b70474c3449aa6799fc1a8e05d5ea93495..5101ac3885c7dec6aed397668a866b7cfe907d10 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -490,7 +490,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+>   	return 0;
+>   }
+>   
+> -static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> +static int etm4_enable_hw(struct etmv4_drvdata *drvdata, bool restart_ss)
 
-This reads more like marketing than a technical description. Maybe just
-stick to the first sentence:
+While this looks to work, I wonder if we could manage this all in the 
+config ? i.e.,
 
-	The al300-vdec represents the gen 3 of Allegro DVT IP video decoding
-	technology.
+Use an extra field, say config->retain_single_shot_status, which 
+defaults to 0 and is always cleared once we pass through enable_hw.
 
-> +
-> +  Communication between the host driver software and the MCU is implemented
-> +  through a specialized mailbox interface mechanism. This mailbox system
-> +  provides a structured channel for exchanging commands, parameters, and
-> +  status information between the host CPU and the MCU controlling the codec
-> +  engines.
 
-I'd focus the description on the hardware/MCP and drop anything
-referring to the host driver software.
+>   {
+>   	int i, rc;
+>   	struct etmv4_config *config = &drvdata->config;
+> @@ -565,9 +565,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+>   
+>   	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+> -		/* always clear status bit on restart if using single-shot */
+> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> +		if (restart_ss) {
 
-> +
-> +properties:
-> +  compatible:
-> +    const: allegro,al300-vdec
-> +
-> +  reg:
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: top
-> +      - const: apb
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description: MCU core clock
-> +    maxItems: 1
-> +
-> +  memory-region:
-> +    maxItems: 1
+		if (!config->retain_single_shot_status) {> +			/* always clear status 
+bit on restart if using single-shot */
+> +			if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> +				config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> +		}
+		} else {
+			config->retain_single_shot_status = 0;
+		}
 
-Please add a description explaining the purpose of the memory-region.
+So, the default behavior is "clear" the status and can be explicitly
+requested by the CPU PM code to leave it alone. We could do this as
+a separate cleanup.
 
-> +
-> +  firmware-name:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - clocks
-> +
-> +additionalProperties: False
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    axi {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        video-decoder@a0120000 {
-> +            compatible = "allegro,al300-vdec";
-> +            reg = <0x00 0xa0120000 0x00 0x10000>, /*VDEC_TOP*/
-> +                  <0x01 0x80000000 0x00 0x8000>;  /*MCU_APB*/
+Suzuki
 
-Drop these comments. If the register maps need documentation, these
-should be a description in the binding above.
 
-> +            reg-names = "top", "apb";
-> +            interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-> +            clocks = <&mcu_core_clk>;
-> +            memory-region = <&vdec_mem>;
-> +            firmware-name = "al300_vdec.fw";
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 88a76452956eb3b91e7813cbdc16c361f26216a5..532d8a51df9f500767f468935d960b1634139c65 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -819,7 +819,9 @@ M:	Michael Tretter <m.tretter@pengutronix.de>
->  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
->  L:	linux-media@vger.kernel.org
->  S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
->  F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
-> +F:	drivers/media/platform/allegro-dvt/al300
->  F:	drivers/media/platform/allegro-dvt/zynqmp
+		}>   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+>   		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+>   		if (etm4x_sspcicrn_present(drvdata, i))
+> @@ -624,7 +626,7 @@ static void etm4_enable_sysfs_smp_call(void *info)
+>   		return;
+>   	}
+>   
+> -	arg->rc = etm4_enable_hw(arg->drvdata);
+> +	arg->rc = etm4_enable_hw(arg->drvdata, true);
+>   
+>   	/* The tracer didn't start */
+>   	if (arg->rc)
+> @@ -861,7 +863,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>   	drvdata->paused = !!READ_ONCE(event->hw.aux_paused);
+>   
+>   	/* And enable it */
+> -	ret = etm4_enable_hw(drvdata);
+> +	ret = etm4_enable_hw(drvdata, true);
+>   
+>   out:
+>   	/* Failed to start tracer; roll back to DISABLED mode */
+> @@ -1820,7 +1822,7 @@ static int etm4_starting_cpu(unsigned int cpu)
+>   		etm4_os_unlock(etmdrvdata[cpu]);
+>   
+>   	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+> -		etm4_enable_hw(etmdrvdata[cpu]);
+> +		etm4_enable_hw(etmdrvdata[cpu], true);
+>   	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+>   	return 0;
+>   }
+> 
 
-This feels a bit weird. You first change the maintenance to the
-zynqmp subdirectory and then add the al300 to the same maintainers
-entry.
-
-Either add yourself as maintainer for the al300 directory or just leave
-the maintainership on the top directory.
-
-Also, the al300 directory should be added with the actual driver.
-
-Michael
 
