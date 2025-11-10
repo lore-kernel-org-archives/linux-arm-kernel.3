@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741FCCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA52BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8B5CcBdi3zMQvooVQTKC9PmSvgkK3V4GqVxUfDMGnk=; b=m6kfpoO8P0T9ZbI0UCPoqOI/gD
-	WBV6p+RuJni/55XE/opVidqeS5OkXFkY8KSup9WYPGhxrMVRDfEr9mDqCjdBXJNcWeE7kdzsI5eZp
-	xelHDmZto1xFs4vQZr34f8yZh1qmU0eq2JL/2D3lTsZZX7C7zYHEmjDnqVT+toZ93gUDXL6Vo3Fyk
-	XtmIWwqujyxkaC4p5AeeFfnq4KGI2uMaRmjUojdC06DXA6637bPY8raa79IokcZnGEhC+6rZiYWrO
-	e4+rW0i0JhUMHU9L+RiWeftiDRkv2JP+mDX3NTrzL9K2MIpxa29QrKxkCy9y3OV1KaHO+V66Ug9qO
-	4aRtAZ/A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r2C8iSh/mmguYKh31or4+/W4HMRgNBJ50++4n75uDfg=; b=SUxdYbOZc1LtM7
+	7/zEHZbkZJCpj25NoQQxnBIp7fCfVf7XxyvifMQL/W/7O5rYCImceQ8tAYpzJk8TsYbqa4Kmd8du7
+	HqwwK7VK/+9OFJVOPfRPdvU2v8uNaeJ/imvHAVLLSQTUulEtPVQWop7lFHseQ9EUldlKeNbdP+Zb0
+	Q0B3rTvdYp/X573GgJQD6AerITnwE5E2Wfbq+54c1vI6o4RpKRdbVXmzmnkF4UzToo6wPYvD7DCKk
+	UmTy7Q9M5coVsxgEQ8mi7C6bBFhmZYUVLhlhdhU80ryQ+kjriJutewLctcnlqLDiVV/s7xdrxfgUS
+	PO3hlLqvLqv0ddqTajdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUl7-00000005nIW-1ewU;
+	id 1vIUl7-00000005nI6-0UBa;
 	Mon, 10 Nov 2025 16:28:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUl4-00000005nH7-2ZyC
+	id 1vIUl3-00000005nGh-3aKI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 16:28:48 +0000
+	Mon, 10 Nov 2025 16:28:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 824C916A3;
-	Mon, 10 Nov 2025 08:28:38 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B49402B;
+	Mon, 10 Nov 2025 08:28:35 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F4523F66E;
-	Mon, 10 Nov 2025 08:28:45 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 510CF3F66E;
+	Mon, 10 Nov 2025 08:28:42 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 10 Nov 2025 16:28:32 +0000
-Subject: [PATCH v2 2/2] perf: arm_spe: Ensure profiling buffer is properly
- disabled
+Subject: [PATCH v2 0/2] perf: arm_spe: Fix trace disabling for invalid
+ limits
+Date: Mon, 10 Nov 2025 16:28:30 +0000
+Message-Id: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251110-arm_spe_fix_truncated_flag-v2-2-a629740985cc@arm.com>
-References: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
-In-Reply-To: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK4SEmkC/42NWwrCMBBFt1Lm20iSMiJ+uQ8pYZpO2wH7IIlBK
+ d27sSvw81wO524QOQhHuFUbBM4SZZkL2FMFfqR5YCVdYbDaotEGFYXJxZVdL2+Xwmv2lLhz/ZM
+ GZQjb+mI11dRCCayBi3XEH03hUWJawuf4yua3/pXNRhmFiFzbq29J473IZ79M0Oz7/gVHBGY6w
+ gAAAA==
+X-Change-ID: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Alexandru Elisei <alexandru.elisei@arm.com>, 
  James Clark <james.clark@linaro.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762792122; l=1864;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762792122; l=1249;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=l/aU0HZFwL9DexYyDyDNj/KW5vxEQESB+dU0Cog8fmY=;
- b=MFjvNr8klWeo7hLRbQ8b/v89thS4UmvzMhR8j8p+QGdvZ1ckEAuOLFlQn9yaHuEVzICSJEDs6
- ZeCAgwsGsq+DNw3B/BilBY0qtHm5KdabmEEFH9VkRxdRYTsRXTbrQr4
+ bh=9qj+/Tmhl7LZo6Iri04G9/1be9SzjZcpr/NFCxaSF8s=;
+ b=QPnGaJt6VTtGLNALrrNz4ryCFP7P25/YrHn2ARSpS71fbBCYa14eb9t0KAoX5HNJCF185nL/F
+ rCj04qrE/0ZA350MgTnck4i4/8EmBl2+CkZVhfJKMuOov2IbYmMDXB1
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_082846_691798_3467324E 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20251110_082845_933819_7E02E1F9 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During interrupt handling, if arm_spe_perf_aux_output_begin() fails to
-calculate a valid limit, it queues the disable callback in the IRQ work
-and sets the PERF_HES_STOPPED flag.
+This series fixes trace disabling issues that occur when failed to
+calculate a valid limit (E.g., due to buffer overflow or insufficient
+space during padding).
 
-Afterwards, the disable callback arm_spe_pmu_stop() is invoked, but
-since the PERF_HES_STOPPED flag has already been set, arm_spe_pmu_stop()
-exits immediately. As a result, the profiling buffer is not properly
-stopped — profiling on exception levels is not disabled, and buffered
-data is not drained.
+The first patch improves arm_spe_perf_aux_output_begin() for failure
+handling, ensuring that all failure cases set the PERF_HES_STOPPED
+flag.
 
-To fix this, explicitly disable the profiling buffer for stopped events
-in the interrupt handler.
+The second patch applies the profiling buffer disable flow in the
+interrupt handler when the PERF_HES_STOPPED flag has been set.
 
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+This series has been verified on Orion6 board.
+
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/perf/arm_spe_pmu.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Changes in v2:
+- Added the patch 01.
+- Did not rely on irq work for disabling as the disable callback will
+  skip operations after PERF_HES_STOPPED flag has been set.
+- Link to v1: https://lore.kernel.org/r/20251015-arm_spe_fix_truncated_flag-v1-1-555e328cba05@arm.com
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index fc8f908c2c3a270f2d1ae574c2badb1fbcf51484..4f51510d5f8a660c12e3934eae8a66f1a1416617 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -761,6 +761,20 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
- 			arm_spe_perf_aux_output_begin(handle, event);
- 			isb();
-+
-+			/*
-+			 * A non-zero state indicates that an error occurred in
-+			 * arm_spe_perf_aux_output_begin(), for example, if the
-+			 * buffer overflowed and failed to get a valid limit.
-+			 *
-+			 * Since the PERF_HES_STOPPED flag has been set, the
-+			 * afterwards disable callback exits immediately and
-+			 * the buffer disable flow is skipped (see
-+			 * arm_spe_pmu_stop()). Explicitly disable the profiling
-+			 * buffer here.
-+			 */
-+			if (event->hw.state)
-+				arm_spe_pmu_disable_and_drain_local();
- 		}
- 		break;
- 	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
+---
+Leo Yan (2):
+      perf: arm_spe: Correct setting the PERF_HES_STOPPED flag
+      perf: arm_spe: Ensure profiling buffer is properly disabled
 
+ drivers/perf/arm_spe_pmu.c | 23 ++++++++++++++++++++---
+ 1 file changed, 20 insertions(+), 3 deletions(-)
+---
+base-commit: e9a6fb0bcdd7609be6969112f3fbfcce3b1d4a7c
+change-id: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
+
+Best regards,
 -- 
-2.34.1
+Leo Yan <leo.yan@arm.com>
 
 
