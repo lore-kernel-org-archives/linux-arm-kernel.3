@@ -4,86 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC6BCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5F1CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=; b=TQlZSz47f4wolwQP0BhTNuxXJr
-	qoR7U5ND5CUuz5m9Jz7z77Ph252fKGQlRG+uQSBr02ZaIEHcQJJIxRaw8h3SiI7rARNbJx/1ZVFFS
-	2JXgYgp+m9Y/gizhHmpUkHOvw2nrxICBb/+KX1ivva/2w/IsMlZlu8x7O3XVWPbMWJVLMG4ed0k4k
-	nU5CQ3DZ9wNj5auuKIpWo00jvYdq+ldtJHui4QmnhHSk/LjOig5srxMubDwARYoN+jnrLNFlbiiLK
-	RX8zFlm9wu/Fu5NgCqafsMmZ26oIr8B2N4QvzLPJTyrfRzJXOJHwxgRj3NX8Xo2PF0PI52ZK9Amir
-	3IIu+ZGQ==;
+	bh=6/alG1gJ7XqPqUDi2aSQqrMS7c/8JTAjaO7cxtC5v0Y=; b=Z6gFtWo0u5FX21X8YuqRxAz2rF
+	OE+HuKPlwxbuTXomS1X534LnChc/ORbCwgaChsdHfTBnmeh7EpZYs9B7VpYNRk8DAkobD2evB8Zd8
+	sYoRDLYtKx/dcg0/a/Wj2FyOBkt+ZlpYj9B/sLlgR6LjiOZE7pHyOUwAb2OnsWo87FbiKhQ/MZ6iC
+	qDAfoiunxfOgZnT/LQEe5vkxDLlyKnDT6yqtA1OcdvWtsTgTD/jolVZgyI4cOXUKWDIkDBXuT5Ji0
+	/zp1i1rO8QAmUZGPLzJcXdZdnHPjAPUsaeLT9PI0TCDOIs1ym/dWeQEfMWpm5WeO7Gsb5pOIuxcAG
+	464ZKt7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQvy-00000005Ovk-3o9p;
-	Mon, 10 Nov 2025 12:23:46 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1vIQzG-00000005P8m-3Mjv;
+	Mon, 10 Nov 2025 12:27:10 +0000
+Received: from mail-westus2azon11012044.outbound.protection.outlook.com ([52.101.48.44] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIQvw-00000005Ouc-18Y9
+	id 1vIQzE-00000005P8Q-26hK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:23:46 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-63b9da57cecso4626476a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:23:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762777422; x=1763382222; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=;
-        b=NHCCTgLdfUEQtPcSu0r6QMmiabBaBPaYEJE+2tYVbf8FQQSHw7iKzfdgnoS/uADUJz
-         hdSPv690Foq4L1AXYAbS8lKDum5uDaWy0RtZ5WA0jerjF7HYjKWR27fq8G+T0tPM3Oue
-         5CMQ1HXZhR1hTj08U+btVZ3vAInJ40MWI3fiW8TXzT8YCYOW1DGZLxyuT2yLnyBthY+0
-         ztF5fJVBF3DqWF4tt5HVPPrReL7XVmnJxqh/xsTk1v7drqY0g8CT9vA5md5VWZulrKo8
-         HZIpCpTUZABZR9KItlifymd9k3tBCoH6b/ni+tWKOX+W3LR4mztR0wZdDOiFplTJC6A5
-         poFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762777422; x=1763382222;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DzW1Nmfxb6NiioFQyuj9BtUlANBvsFTwFmbLEk2yLZU=;
-        b=I1LO2gKTli92nQaMLezAJV/Ao5gVon9iEUCn+o8YlaW45x2Zog8bRaUMZsS4oCxOjG
-         H/QMMkaexhwrqyPXOu1DexyEwXhHS+ROJXCDaRccjhuCEQpKsgOHw0drVfmHhPUyOHmm
-         EiDgRArrS1oGbzXymhhiMpHk8fQkP/ioJB1Gr7R6HKMf3oVFr86/Ye+08yGKd6d2O00f
-         aDPJbIUCLaCqx6hC8PNvua7eqXjWDPPXCQ7RmC4rnSOyk5xAvjiZVV+5bz+f05LvA5dZ
-         N8boGGgCPdpLc9XVQq7u3yDHJZI5Z4sfQCvxOotTHcV654C27q1BL5h3jAk54Q/bFocT
-         xiXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzlTrzDGX7vUVpu4L+E/A6qQURW56UlQepTD0iJ2VbF8kxpOeHMiebEWbR6ez0yOTAQHA2XRftHJJRyCpSZUxv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6RRDI9nTpcMgZQljsL9vcDiBczKwB3niVbI3Mg47VjybuiP8d
-	smWDxVE77Kz2X0eLS+rnLiZWZ6ruFXlRp1lH6WaQqVpcm3yvcuvs0c/b5DLZfoiUQlQy6G85ryU
-	4p3gCqJC51JEVvfIchH9hgzki2Tx1iveszJNVzk0hxw==
-X-Gm-Gg: ASbGncs8Np7sKMQrVvEj6WSx3K0sbquHySqp6ZeNup1/3tuU3rtdfPYgVcjT7OykUNL
-	I4gtr7AOj7lX6qEOp55CyFtkdSZfyAxugS8jACgIHYAjS+yA5lM6mSewegt6Y6MBAXbFSrVd6y1
-	0Gg7RfBl2kq5dxSgFBN1oRNILa8y90xlWmpj92EFFIfecbqhhFRxffG4WHIRUCySBcXsiL0KNEL
-	T1HCE65TCGrStunXAgbWna7V6KzvAEGE1BkLdbliQU0tHuTeXwbqiKxKYTzSlfOLaipVE9Aplpg
-	G3xOTis=
-X-Google-Smtp-Source: AGHT+IGm5+Uu79ujlZItIA42GflK7UfV+AyBRUd53fOR/2PdZlplGxgc5r7/bRr9gNtqR7fwtBSp/+VdEs2VA7Pi6Oc=
-X-Received: by 2002:a05:6402:305c:10b0:640:c454:e8 with SMTP id
- 4fb4d7f45d1cf-6415e7fd2c9mr4878827a12.30.1762777421528; Mon, 10 Nov 2025
- 04:23:41 -0800 (PST)
+	Mon, 10 Nov 2025 12:27:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jhVWm45Lb0DbwlNC9qTpH0QT5M5OBzGvLnXGF28s5iypR69YaMZNmAGphw1WIqIVoGjbHiXiUbf9KypqXOOj9DbEKd4BZFm8O/8EZc/5bXZlWZmfRDMba70I0AnFFdOiwX1a78bRq/PS6Ec3SGZyxakcIq34fjSURnXqbjj3MKecY9dOl63J6pqK1KjClMNm/j+m/vX7Cp27mOlrq/F2zGhJEOXGlUQw2len+HOGLSqx83d1baoDX9Xs8ArA8HET93QkViJutY+AxNxvIGuSRE3ej8f3yH1BBQVkW/0aUbHIFr0QxUyptXXF1gXX2UfI6pc46vGVo+hPBnRjUe2M0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6/alG1gJ7XqPqUDi2aSQqrMS7c/8JTAjaO7cxtC5v0Y=;
+ b=dhDNV5kyc4dxnnee/6IulYfyhEKuKdG13k/GBcH53n10VZ9Zoa3NG2vBChIpN115mG9D8H7WBdbcdkZsqfwIySQHYfW73zuY31io/m9kH5pLqEEhrWQZfe7kvtnNhGRVAhdTnTywVlCJZzb4rgXNZ6n8Rvk+rOXEoI5uUWKwsotV9mgotL8DgVjlM17RFULSRRsiqmRmxmiiehA3i27owisoys3Hm893gXwPlzUt9B1dfiQOrQWkSUOeUUYHQ8isz3BTT77CX0m2y34U66F+bPFDadRgTHXiXNHop9GraJdIFea/aLyT/IJjc9zUEOC1x/1BrlHj2nm+8CqkQNhwIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6/alG1gJ7XqPqUDi2aSQqrMS7c/8JTAjaO7cxtC5v0Y=;
+ b=T9bcXDfH0d286PFFRPgfMIym+zEi/8eoGUfbuUynIzdb2inO9aRFaW+f+gyhiI9gJRz7A8lXFJs7YgmsJvPgVNhzn1/zgAqx8VEWjyjRLrRzQvxecjHSW82gPMnpAAmJ1OepWoFS3IiN1o52G8QCBjXh44Gwh/UgQe/cC/lYsGM=
+Received: from BN9PR03CA0555.namprd03.prod.outlook.com (2603:10b6:408:138::20)
+ by DS0PR10MB6272.namprd10.prod.outlook.com (2603:10b6:8:d0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Mon, 10 Nov
+ 2025 12:27:02 +0000
+Received: from BN2PEPF000044A2.namprd02.prod.outlook.com
+ (2603:10b6:408:138:cafe::bd) by BN9PR03CA0555.outlook.office365.com
+ (2603:10b6:408:138::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Mon,
+ 10 Nov 2025 12:26:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN2PEPF000044A2.mail.protection.outlook.com (10.167.243.153) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Mon, 10 Nov 2025 12:27:00 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 10 Nov
+ 2025 06:26:57 -0600
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 10 Nov
+ 2025 06:26:57 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 10 Nov 2025 06:26:57 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AACQvx93356586;
+	Mon, 10 Nov 2025 06:26:57 -0600
+Date: Mon, 10 Nov 2025 06:26:57 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Md Shofiqul Islam <shofiqtest@gmail.com>
+CC: <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] soc: ti: knav_qmss_queue: free resources in remove
+ callback
+Message-ID: <20251110122657.jzda24kcperpqp2t@amigo>
+References: <20251105013049.45646-1-shofiqtest@gmail.com>
+ <20251108221741.48610-1-shofiqtest@gmail.com>
 MIME-Version: 1.0
-References: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
-In-Reply-To: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 10 Nov 2025 13:23:03 +0100
-X-Gm-Features: AWmQ_bnh8tp1oLAuPElgvSFmN8WE23c2ga9LAvFWkFMPaVp1NApY8JmtQI4OamU
-Message-ID: <CAPDyKFoq=dJW_FCVykBwH85+RbeZ-SR6=vF0vKw+237TsgOfDA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: mediatek: convert from clk round_rate() to determine_rate()
-To: Brian Masney <bmasney@redhat.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Maxime Ripard <mripard@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251108221741.48610-1-shofiqtest@gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A2:EE_|DS0PR10MB6272:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7fc6069c-67e2-4b1b-f63b-08de20547268
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oS7ZSlarCAIzMkqBnA2tdR4dXPp1qaYL0QDu8qudZe0PnSlSYSNbhOBkK3gb?=
+ =?us-ascii?Q?NSy0q9CSnjUwI58m3vX9Rfj8ULTdCUjzF6PeBVOHUXu+Yj3HpYOOa01sflZL?=
+ =?us-ascii?Q?GSQ5MzKeXMuHAlkd0crF9k82KMmdC95PXQDbd65gP62vw0GLw0EiX97lwAfL?=
+ =?us-ascii?Q?KUUziBl2MBo4iFiZHIOclx1zLKg1V0fzEDvvHGBV0zkml4yIiUIrh2XS79hG?=
+ =?us-ascii?Q?LNphW3x58EL/eB3gS9+eeDrA27AJVCxnEshOSAKclBtjd1FrrfBsyEuM66TR?=
+ =?us-ascii?Q?TA4huEzI0Exo9wqS1+BszNUYe3DC/wjMYxAXvPchwQmwuhsurwlQqSxzAj3Y?=
+ =?us-ascii?Q?yxG5f2lV6KokJ4zvxYH8DQztV6VIk9/W7a77SFK3xiyY+LR/HPXLspQriJOD?=
+ =?us-ascii?Q?EAIkN/Hol10GxOpQ9yyV5e9fsNuSd4IBRbMrJDiBQXPgJAOO9FH5tNSFbumA?=
+ =?us-ascii?Q?4TNG4Qy1O3xOyLnDINY4JY03O9aOudXyoH62ADtoME6d5uNqUv8fh3nxz0oi?=
+ =?us-ascii?Q?CiMEhUvDiTp8/D6ToHQV9eIUibHW1Iof5WUJWsYoFVWWMCn7wytovp0AXsL0?=
+ =?us-ascii?Q?C25aqUXl1D5uaSi2XNjuXEGxqAcnJY6gnmH4Tsx4tKnqoB7nv3io8pXrm6FY?=
+ =?us-ascii?Q?+yJi53GAQadu+Ef6OShYafRV6CobEs5Zsfq86qwbrhMTgaL2dQ1jHhLRhFHs?=
+ =?us-ascii?Q?AC8TWhZfv9Ml77MpO1j/9gpoZJE7DsfLgXJ54/suByNHPF6xTrBB96LlSKO/?=
+ =?us-ascii?Q?ya55lSCBVODKa+vnwLa4glsuHwZBijKVAsqgt/Ccu+UUUOWf9MjjqHbfWdGy?=
+ =?us-ascii?Q?ibhnvLv6rTHVYrpjbw/uSwYsaQGD8Lbrf+diU4ZpXgwjVOzj4IOAyaSo09dU?=
+ =?us-ascii?Q?owCKEaE+ThxHUxdddopu+GPbycpFsm6BxWW1mQfawEr39F0q9wopMMz6BKXL?=
+ =?us-ascii?Q?q+/ocu1t2nHRpK1BcI6yZxuwhVtB5FXTDzinTxmEzsI9FrzaI8hMDHFacMUG?=
+ =?us-ascii?Q?ztA30jn3VXn1a7tzDp2MBHeFu/1nDccelzBdCxa2+TJbFRNQ2JdffYeZa/pD?=
+ =?us-ascii?Q?qMoZxX/oP5wUwEvO/Bfb0isQAiBudrSGTOxW9wMiTbkJOtdXJW33Ry6TFJrN?=
+ =?us-ascii?Q?JAQAW9nccYoxBPTFTFiTDXFIYnwcoiHpfGLgaBXsmw+jKNDQzsNS1Yw8CWzB?=
+ =?us-ascii?Q?mqkEaseVWcSrsfQPbOPw4goLvO7M1yQOviWzDyJ3NBVnCHqJCaQshAmLW+4J?=
+ =?us-ascii?Q?DFuueHh7fNxHdrfxNvV2h5KJkatyx+HaRpMJIg5L0TMLAtP32sxePcl7nGqe?=
+ =?us-ascii?Q?XycqHknyK5WyyaAmrn21OrS89XDI/EYWGp1Sn6ppHWYg5U1Wqu0Up7XsS2Cx?=
+ =?us-ascii?Q?M/VNqixl91Vittwdp4vVMFJUC7vh+VpSCTfcaYZmI8vyKDeKMT7lJYeIVj8f?=
+ =?us-ascii?Q?3SUSoM6PwHO7NbYMQp2FYmU26gS5HjnIyQYoAIYwwQ1xovitLqSXAe5QPG5D?=
+ =?us-ascii?Q?mnCpOYPnt9C6rKIt3cjcU6EZ5Qi8hU4PUIJWpADRXYvBnUJMu+NVaeEj0K8z?=
+ =?us-ascii?Q?TgC7iFGC8e7MVZmmElA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2025 12:27:00.0845
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7fc6069c-67e2-4b1b-f63b-08de20547268
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A2.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_042344_329135_2EFDA748 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20251110_042708_562505_DC2E533E 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +154,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 at 00:40, Brian Masney <bmasney@redhat.com> wrote:
->
-> The round_rate() clk ops is deprecated in the clk framework in favor
-> of the determine_rate() clk ops, so let's convert this driver so that
-> round_rate() can be removed from the clk core.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-
-Applied for next, thanks!
-
-Kind regards
-Uffe
-
-
+On 00:17-20251109, Md Shofiqul Islam wrote:
+> Implement the TODO in knav_queue_remove() by stopping PDSPs and
+> freeing queue regions and queue ranges before disabling runtime PM,
+> mirroring the allocations performed in the probe path.
+> 
+> This ensures resources are released on driver unbind and avoids
+> leaking queue/region state.
+> 
+> Signed-off-by: Md Shofiqul Islam <shofiqtest@gmail.com>
 > ---
->  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> index af20111067c02a5f9a0d6d751e9e0dc32c1a4d90..9bad577b3ae4bf1b83d4f782bb52f56f779a8974 100644
-> --- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> +++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> @@ -309,11 +309,11 @@ static unsigned long mtk_mfg_recalc_rate_gpu(struct clk_hw *hw,
->         return readl(mfg->shared_mem + GF_REG_FREQ_OUT_GPU) * HZ_PER_KHZ;
->  }
->
-> -static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
-> -                              unsigned long *parent_rate)
-> +static int mtk_mfg_determine_rate(struct clk_hw *hw,
-> +                                 struct clk_rate_request *req)
+>  drivers/soc/ti/knav_qmss_queue.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+> index 6e56e7609ccd..1e5f3e9faa99 100644
+> --- a/drivers/soc/ti/knav_qmss_queue.c
+> +++ b/drivers/soc/ti/knav_qmss_queue.c
+> @@ -1884,9 +1884,14 @@ static int knav_queue_probe(struct platform_device *pdev)
+>  
+>  static void knav_queue_remove(struct platform_device *pdev)
 >  {
->         /*
-> -        * The round_rate callback needs to be implemented to avoid returning
-> +        * The determine_rate callback needs to be implemented to avoid returning
->          * the current clock frequency, rather than something even remotely
->          * close to the frequency that was asked for.
->          *
-> @@ -325,7 +325,7 @@ static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
->          * high current frequency, breaking the powersave governor in the process.
->          */
->
-> -       return rate;
-> +       return 0;
+> -	/* TODO: Free resources */
+> -	pm_runtime_put_sync(&pdev->dev);
+> -	pm_runtime_disable(&pdev->dev);
+> +    struct knav_device *kdev = platform_get_drvdata(pdev);
+> +
+> +    knav_queue_stop_pdsps(kdev);
+> +    knav_queue_free_regions(kdev);
+> +    knav_free_queue_ranges(kdev);
+> +
+> +    pm_runtime_put_sync(&pdev->dev);
+> +    pm_runtime_disable(&pdev->dev);
 >  }
->
->  static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
-> @@ -338,12 +338,12 @@ static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
->
->  static const struct clk_ops mtk_mfg_clk_gpu_ops = {
->         .recalc_rate = mtk_mfg_recalc_rate_gpu,
-> -       .round_rate = mtk_mfg_round_rate,
-> +       .determine_rate = mtk_mfg_determine_rate,
->  };
->
->  static const struct clk_ops mtk_mfg_clk_stack_ops = {
->         .recalc_rate = mtk_mfg_recalc_rate_stack,
-> -       .round_rate = mtk_mfg_round_rate,
-> +       .determine_rate = mtk_mfg_determine_rate,
->  };
->
->  static const struct clk_init_data mtk_mfg_clk_gpu_init = {
->
-> ---
-> base-commit: df5d79720b152e7ff058f11ed7e88d5b5c8d2a0c
-> change-id: 20251106-clk-pmdomain-mediatek-round-rate-649a9bf7d30a
->
-> Best regards,
-> --
-> Brian Masney <bmasney@redhat.com>
->
+>  
+>  static struct platform_driver keystone_qmss_driver = {
+> -- 
+> 2.51.1
+> 
+
+Did you happen to send the same patch as previous? it has the exact same
+formatting issues that i flagged.
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
