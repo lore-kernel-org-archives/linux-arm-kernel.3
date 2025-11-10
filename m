@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDE0CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE385CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rehLc87S0/3bTgONnTH9nSQ1Q/RH5/ZGY178l2UxrsM=; b=mvF5BVnpzzTKed8grvIgKm8baZ
-	n0nyNFyvyLStGBEEaePimharbKVQ1empkqMOigjldhP6MgIREfnRP9AFtPB7ijUkoOTIxxNdPvjqd
-	XvTi3fi3j3HcBwxtCTRbVG/OofmQxYmVvOa/pIEAl0BU+bzeUt6ndbSMExvH3CyjBQ4jj/f+Pc5zp
-	Dh+Ky8QhW7wfQJRzxqm0o1uaoz3yEIWP2tInB//pAAacYPPY35IuMuoWZsMYzGKswNOpuW5sN/n8z
-	KUTsvYd9b7SAMxXIewFSVgPXcNYfjafuj4Ji+pTEjPglPv8z2n/A5uH4yp4DW+6BdBawleDoPHCGn
-	k3O0dC9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D0doKKxK8ZJ7GEGSXAup3U2eV11MUcV/0VGSn2ua5xc=; b=JmXLCPJNvs14XrJfWzf+pgAuF3
+	w3DxFUj5fCA1ZRgHCgsriHX+TvHCF3aVRqqvHyhuAQjTezum31da7WFkdGadGRlkwXLWPXp8ccc5r
+	yesBKJQFS0oQvn3z3dQQE58TnP6tnzKx+DU7rYuzv1c4vIW2Q0B8Y3e09n621s+2CX0ihpxuw8PeY
+	LUpdnoERS3VVhBaxuOo0y4CLcdcIxjVKtD6/f8lP3i9fBmR1XQ7vZFiuebh3dIRQLvTT+almY0Cwt
+	ybw3frJ2f081n2d/OU2At3Fei7BP1yXkWx/cbUL/Vi7PRytarmjg63YI+aoWaS/3wya6CEghQILVn
+	XJUekLxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITFN-00000005cxD-1HpQ;
-	Mon, 10 Nov 2025 14:51:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITFK-00000005cwL-0QWz
+	id 1vITGQ-00000005d2C-2riY;
+	Mon, 10 Nov 2025 14:53:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vITGO-00000005d1f-0bh5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:51:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 208FB2F;
-	Mon, 10 Nov 2025 06:51:43 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50B833F63F;
-	Mon, 10 Nov 2025 06:51:49 -0800 (PST)
-Message-ID: <bc25a11a-d5b7-45de-bb99-c78100e5055d@arm.com>
-Date: Mon, 10 Nov 2025 14:51:47 +0000
+	Mon, 10 Nov 2025 14:53:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vITGK-0007xP-N1; Mon, 10 Nov 2025 15:52:56 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vITGK-0082sA-1f;
+	Mon, 10 Nov 2025 15:52:56 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vITGK-00CacO-1E;
+	Mon, 10 Nov 2025 15:52:56 +0100
+Date: Mon, 10 Nov 2025 15:52:56 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH 0/2] Add support for Skov Rev.C HDMI variant
+Message-ID: <20251110145256.pxgfw3zu7wocguqs@pengutronix.de>
+References: <20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de>
+ <176278493286.154609.17548604407386943510.robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] KVM: arm64: Fix MTE flag initialization for
- protected VMs
-To: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- catalin.marinas@arm.com, vladimir.murzin@arm.com
-References: <20251110134525.3768197-1-tabba@google.com>
- <20251110134525.3768197-4-tabba@google.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251110134525.3768197-4-tabba@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <176278493286.154609.17548604407386943510.robh@kernel.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_065154_213705_8BDC6329 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20251110_065300_183928_418B9898 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,70 +81,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
-
-On 11/10/25 13:45, Fuad Tabba wrote:
-> The function pkvm_init_features_from_host() initializes guest
-> features, propagating them from the host. The logic to propagate
-> KVM_ARCH_FLAG_MTE_ENABLED (Memory Tagging Extension)
-> has a couple of issues.
+On 25-11-10, Rob Herring (Arm) wrote:
 > 
-> First, the check was in the common path, before the divergence for
-> protected and non-protected VMs. For non-protected VMs, this was
-> unnecessary, as 'kvm->arch.flags' is completely overwritten by
-> host_arch_flags immediately after, which already contains the MTE flag.
-> For protected VMs, this was setting the flag even if the feature is not
-> allowed.
+> On Fri, 07 Nov 2025 15:49:50 +0100, Marco Felsch wrote:
+> > Hi,
+> > 
+> > this small patchset adds the support for the Rev.C HDMI board variant.
+> > 
+> > Regards,
+> >   Marco
+> > 
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > ---
+> > Marco Felsch (2):
+> >       dt-bindings: arm: fsl: add Skov Rev.C HDMI support
+> >       arm64: dts: imx8mp-skov: add Rev.C HDMI support
+> > 
+> >  Documentation/devicetree/bindings/arm/fsl.yaml          | 1 +
+> >  arch/arm64/boot/dts/freescale/Makefile                  | 1 +
+> >  arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dts | 8 ++++++++
+> >  3 files changed, 10 insertions(+)
+> > ---
+> > base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> > change-id: 20251107-v6-18-skov-revc-hdmi-1e8d4bbac26a
+> > 
+> > Best regards,
+> > --
+> > Marco Felsch <m.felsch@pengutronix.de>
+> > 
+> > 
+> > 
 > 
-> Second, the check was reading 'host_kvm->arch.flags' instead of using
-> the local 'host_arch_flags', which is read once from the host flags.
 > 
-> Fix these by moving the MTE flag check inside the protected-VM-only
-> path, checking if the feature is allowed, and changing it to use the
-> correct host_arch_flags local variable. This ensures non-protected VMs
-> get the flag via the bulk copy, and protected VMs get it via an explicit
-> check.
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
 > 
-> Fixes: b7f345fbc32a ("KVM: arm64: Fix FEAT_MTE in pKVM")
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index f6f8996c4f97..7e370e31260d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -337,9 +337,6 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
->  	/* CTR_EL0 is always under host control, even for protected VMs. */
->  	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
->  
-> -	if (test_bit(KVM_ARCH_FLAG_MTE_ENABLED, &host_kvm->arch.flags))
-> -		set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
-> -
->  	/* No restrictions for non-protected VMs. */
->  	if (!kvm_vm_is_protected(kvm)) {
->  		hyp_vm->kvm.arch.flags = host_arch_flags;
-> @@ -372,6 +369,11 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
->  		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_GUEST_HAS_SVE);
->  	}
->  
-> +	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_MTE)) {
-> +		set_bit(KVM_CAP_ARM_MTE, allowed_features);
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> This patch series was applied (using b4) to base:
+>  Base: 3a8660878839faadb4f1a6dd72c3179c1df56787 (use --merge-base to override)
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20251107-v6-18-skov-revc-hdmi-v1-0-595549e5b496@pengutronix.de:
+> 
+> arch/arm64/boot/dts/freescale/imx8mp-skov-revc-hdmi.dtb: switch@5f (microchip,ksz9893): pinctrl-names: ['default'] is too short
+> 	from schema $id: http://devicetree.org/schemas/net/dsa/microchip,ksz.yaml
 
-Isn't allowed_features a bitmap for the KVM_ARCH_VCPU_ defines? I think
-MTE is treated as a property of the VM.
+This may be a valid issue, but it's rather an additional patch worth it
+since this patchset doesn't touch the imx8mp-skov-reva.dtsi include at
+all.
 
-> +		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_MTE_ENABLED);
-> +	}
-> +
->  	bitmap_and(kvm->arch.vcpu_features, host_kvm->arch.vcpu_features,
->  		   allowed_features, KVM_VCPU_MAX_FEATURES);
->  }
+Regards,
+  Marco
 
+> 
+> 
+> 
+> 
+> 
+> 
 
-Thanks,
+-- 
+#gernperDu 
+#CallMeByMyFirstName
 
-Ben
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
