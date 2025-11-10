@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DF9CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CF6CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExEG6kaP1rEO2aruYE4rUQ9JOoP4nrt4oMyMC9fmdWY=; b=HqA3Wx4CYoQ68B77LkjK5dKQ3S
-	ydUZClq/dIO8FTiQXnzCL8a7LA/xMljd1396p7AZ+MiWWUMdLOEFTiwaozw/WMvR7wrxvcffl/6w3
-	kBYLfr94slBP2h2GiqCOPcxouF4G+dmtMb+/CX3Mo7zNYLLPs9XyqWKKuOw/RwFsMcBgtO4ltmL+8
-	PCo022Ka/Vu8bZDOuRt1sEEvasMQH9RtyhIGX5oYodcp9bIfoK30qO6cFFI/ubJ/Tij6pQf4Oo35T
-	Ks7mH35CI2t+ZNccVZPuqLY9KL4FgbJ032343Se5RWUaexgZk9uFWkEbgHS4bYC7fY70m9A48V/bz
-	Ww1e7E8w==;
+	bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=; b=Pu4gjYZZjMS9H5f4atzyEYAGDx
+	tL0ws53gmViZxINkOwuDypgS0fCd3+CayUx+aSo+IRt6idxCGTZB7Jf+H/H7NYn/rciO3wmKvnvSb
+	+7uPMwd7ORnFAxLmd7c+1ABKzEnD5qlMsGqn3AGX4vE9qlxB5gweLQq23ywi4G5LT1CbxZkE3H8RF
+	hSltJnYfI6JmddfnEUElHVWeeOswrUkI+EwB4MDOvXLAbK91T66VM22e0tAj4E58JPx4kr7a2w/yJ
+	o8sIXIxCJrno2k8/XO+fNprlv0UKZhj38/X6PWhba3RKDyVLy2yIAX/Rm1BE03rZcfo7t/oZCgs8N
+	/yerqT5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPm0-00000005GoR-0ySw;
-	Mon, 10 Nov 2025 11:09:24 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vIPmi-00000005Guf-2zQI;
+	Mon, 10 Nov 2025 11:10:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPlx-00000005Gnk-0jcc
+	id 1vIPmb-00000005GtF-0ERD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:09:22 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-429c48e05aeso1505050f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:09:20 -0800 (PST)
+	Mon, 10 Nov 2025 11:10:07 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477632d9326so21985645e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:10:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762772959; x=1763377759; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762772999; x=1763377799; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ExEG6kaP1rEO2aruYE4rUQ9JOoP4nrt4oMyMC9fmdWY=;
-        b=eivWk9hvMJXJIqYST2p4gRCzeg5zEyvWxoNCddru3NVDvixe8dFmsl9Im29R4Ums9h
-         XXXtHz3YdfAkYHijprZZ0SrmnqoKfcMEN9QfNhOjcjtNYSBnUsfsWIbI+9qWDWzU2iAQ
-         0phxHntW7lTYQkT1+GCDFPa0lO3A1/iPhzQzXxiX/ftDAYGer6KW4dJEQQzzeLdVNAIO
-         DIK5bGXG2mwVkV68DpIUq4oWKltnZAiVejlk4/Je5IGN3RJ+awCCdA0u1tzowfUp1z60
-         VNsy3HsfTLQPCOIP9HJjG/CbhV4x0FA8dgz7RXcKW6jPNw1NLoEkNOdO65wovpLeR9Wa
-         FgjQ==
+        bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=;
+        b=EJ7OsLP1EFygldb9apF6cVDslRzbuuTScDdd8YCYJ0d45n0dOobGpq+ZaHU726Xvqh
+         haPLOGDfqSgVRaBk4g5Ro4hKacukpoEli9bOonHUJLwFehMrSS1fag+ojlieDEp453tt
+         SPkJQFZ3E5jbT317re/QCIdYmx6GD9lWqgTAwaz9To0JrpcvmcaXcdKSW7P0RGRszZMQ
+         ASsfvwsyWp3KAWSgGUJGILeuz7SkpdAmBbXQOGnMSYmSUSq+WnxwSTqDCIoI58oEgEoj
+         IkmKNr1JBMKFSdS/TfHSzN+L8K5XMMQG/80GWnkbWENqFLP/Im/7a/TL2H2aJ7a3n0Lo
+         rFlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762772959; x=1763377759;
+        d=1e100.net; s=20230601; t=1762772999; x=1763377799;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ExEG6kaP1rEO2aruYE4rUQ9JOoP4nrt4oMyMC9fmdWY=;
-        b=P0vVNQHq/mvYEAb2bQFGk7rqVd9PpguwLIYBMWU8YP1SWdhdnXJlYtGjnDUt2jKRvF
-         qSP4vV94/IkL4fKZ/EAwFeQ1I+gRRKqhucmhNvZeP5jnC7XlYXmtVOgVPhKFGfG3W2Nz
-         c3zzffUmzNR9Q6V6oyRdT4G1mbPNfxXOpyIC5wuKodethpyJOo3FPO4OEEd5RznfeN9G
-         BGv6XHA7nVpvk+O7AfJJ8xUkoOTmcUulda4YXC4RjTwzsseLzBVUwuW1dNPUShbDGSfB
-         VPZzurCykIXdzqk05H2EYLq2jxGBsT6YKYq/kepK1f2ZmDeoxRIgu9tM2iSBn1+uYqSf
-         yM7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVHnqOtXYlaV4i6LLEfapY5sEyw5tLYHjkb5OeuCH0GhzZmuVR67+GDsAqhZzqzZslHXLcG4ua0r0Hxp0d6MGIr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyphdlV0jwBTmeIsHl9FYDnTNaRx2ZPTHSiDinhnwIgaYlKdH7A
-	T+NI0mqK00LQAxtyXCIBhNCPr6bhoiUP+qJYBDR2RKWNFR8r7Lrc3CdlyoOOsXeBP78=
-X-Gm-Gg: ASbGnctFi7DUxOeV5mD4JF+g6rymbHpUL3nwNbW67gVSlE0QwODNZd2MzoD+WD0SLFj
-	m2rkqhdBaXFlI72+Ar6RkX/k/YbiBczffXs7WiZo2WDuXEWar/RBAs5uCfkV3LnJrloafpoWKbP
-	5/RnlndQUwsGVsss1Au+B41w2mg2aWgAoTJiEY/IcBg6Coy7+DoSbIZ6KDfJ4wnJ3KnPKKUn6WF
-	ivuSxzCNWKw/pMHvAWM0eV/Vm91i2g7evmDp+jzuJWeFirY6fU1fbzfuZhkMAyZgHvnpPUh4zhO
-	XYKhh/XnVHFtNic9S4i75n1WbL3X20DvZvPY3ND31K5BgI8TdvaVvQenATVpvwkcu6mhYb+kG7f
-	BVkozsz82uow69KjyUf1FLPQGN0iBsmJctnuZ7Y7s5Lp2VpF+xj+U/ZrzP41U34PoJ/dkQoOA8K
-	RlcReQHkAZShRMuR4p
-X-Google-Smtp-Source: AGHT+IEiWosqOoml/053h3/0pbVDM6uHslIrEjePgzq0Ut+/JvMBEtJgZLmQRjK8wllKL3FcU5WLmQ==
-X-Received: by 2002:a5d:5d81:0:b0:429:c555:a53f with SMTP id ffacd0b85a97d-42b2c6a16bemr6598563f8f.30.1762772959072;
-        Mon, 10 Nov 2025 03:09:19 -0800 (PST)
+        bh=04QchQpzuRx7IFA0zjXS5iJy5lGlY6/pxSqsHjb1jj8=;
+        b=ANx0szbJCTNUyUmxZ0LDbFRYlEdMSLqGuJ6Z7ZjQhYLbLthYQBR/M2etAuayTCFeSC
+         I4FoN7i8eivfMtGBCyia1fvkxCmPCB9m630X2YmTAWZCnWWkaWyyU+/bFZnfQcmNx9aC
+         Y/2+/Kgk+TbDmNfrtT7HQ2gk9aLb65fxvxZhY8/TIHFXYDMzPIPOC5IlW0bSOeB+iOIp
+         +aGJM8C6iNaiH6ORL6buSmXnpaF8dNamdN1+8X+gYMWaSh/J5mOPiP26Cw8hS9tQkxq/
+         Ywnk+CZwGlJv47WQC4miQdYieg6RBEUqndqEKllwzfK5CY71LPpqbwoC8glJ6PEIrojt
+         AAlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXHyd8z+KYHmZho3oTwvFURRzIrgTDlk3e+VowKFxnvqg2MFXhEX6oJR9HLmnKdQnJtyijLlOXVm0laaVXycGMK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBkNJW4pbsO0TF0nEjDhXTHKs9JOy/b1ieAR75tPn1nRAHwX96
+	vE0hM90mPkxCDTgjAMIHQJKfiOWEdChPRUyeNVeBvoDxxqULRlojP+3VjgVdzQhTcVc=
+X-Gm-Gg: ASbGncsekJnn5QA02xZLpvLh8Y8RGNVLujv3QvwOGebuk4Dw4WHKDqPWVeuuBK4zUbq
+	5cGpPwRcjSSAoAEJTuy4xQriW7T/i00mBLBpOFH1namTawp9iLrE4s+ANV9iHbSrMj55PSYEr5W
+	AA60J1D/46/qYHQSH0dDRLTtYgRejfoAF6V5sW1PWPBxWJIXk54G4/L5DSS7gDeNTL7lf0uLHJO
+	vlfSoLb2mrTlbZpJGPesPC7i33+kvIdbjWWS53eBhZMUhNWlxa0kqyaPFFgICkdIXyPPN2X+d7U
+	Pjrvs+Wm/Ys0lIYCsRp9WASiqX5N2lV1dpg7NEK8wiX4OkNJiE4kkvDdMsQ/lcEfHX3lAXMUUN+
+	ZpzhQC89QiX4aftnCIB2H8OljZMrtNh1XE7wFaOctGbbCaRHj4fM2VLx9UowV1HEegePBWZR3kC
+	IX5iDlzJNOzw4UcLzP
+X-Google-Smtp-Source: AGHT+IHBAO4NRwVKBNWJkeYNSNN1HJQ5iaTeJZbvUTX+qm5bYiIy7iR5W/3hPDRyh5PkLDTWG6LoLQ==
+X-Received: by 2002:a05:600c:4f4c:b0:477:7a87:48d1 with SMTP id 5b1f17b1804b1-4777a874db1mr43256235e9.30.1762772999079;
+        Mon, 10 Nov 2025 03:09:59 -0800 (PST)
 Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42abe62bf35sm21578747f8f.7.2025.11.10.03.09.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776bcd51dfsm198106405e9.5.2025.11.10.03.09.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 03:09:18 -0800 (PST)
-Message-ID: <56344438-5730-4dfe-86ca-738aa94ef483@linaro.org>
-Date: Mon, 10 Nov 2025 11:09:17 +0000
+        Mon, 10 Nov 2025 03:09:58 -0800 (PST)
+Message-ID: <4b9c2dc0-20f5-4384-b106-0def0891493f@linaro.org>
+Date: Mon, 10 Nov 2025 11:09:57 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/15] coresight: syscfg: Use spinlock to protect
- active variables
+Subject: Re: [PATCH v4 08/15] coresight: Introduce coresight_enable_source()
+ helper
 To: Leo Yan <leo.yan@arm.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
@@ -85,15 +85,15 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
 References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-7-3d4bba674709@arm.com>
+ <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-7-3d4bba674709@arm.com>
+In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-8-3d4bba674709@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_030921_244359_CE938376 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20251110_031001_128648_C93BCBA6 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,114 +111,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 04/11/2025 3:21 pm, Leo Yan wrote:
-> To support dynamically enabling and disabling the CoreSight path during
-> CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
-> driver in an atomic context. However, the function currently acquires a
-> mutex, which is a sleepable lock, and this is not allowed in atomic
-> context.
-> 
-> To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
-> replace the mutex with a raw spinlock to protect the active
-> variables.
+> Introduce the coresight_enable_source() helper for enabling source
+> device, refine the comment for the imbalance between enable and disable
+> pair functions.
 > 
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 
 > ---
->   drivers/hwtracing/coresight/coresight-syscfg.c | 22 +++++++++++++---------
->   drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
->   2 files changed, 15 insertions(+), 9 deletions(-)
+>   drivers/hwtracing/coresight/coresight-core.c     | 15 ++++++++++++---
+>   drivers/hwtracing/coresight/coresight-etm-perf.c |  2 +-
+>   drivers/hwtracing/coresight/coresight-priv.h     |  3 +++
+>   drivers/hwtracing/coresight/coresight-sysfs.c    |  2 +-
+>   4 files changed, 17 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-> index 6836b05986e8091b4f8ad7d082d6a016f8cf7d74..53aa1a44f9ac8f65b4e3cce06a33255abfc17351 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-> @@ -957,15 +957,19 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   
->   	cfg_hash = (unsigned long)config_desc->event_ea->var;
->   
-> +	raw_spin_lock(&cscfg_mgr->spinlock);
-> +
->   	if (activate) {
-> +
->   		/* cannot be a current active value to activate this */
->   		if (cscfg_mgr->sysfs_active_config) {
->   			err = -EBUSY;
-> -			goto exit_unlock;
-> +		} else {
-> +			err = _cscfg_activate_config(cfg_hash);
-> +			if (!err)
-> +				cscfg_mgr->sysfs_active_config = cfg_hash;
->   		}
-> -		err = _cscfg_activate_config(cfg_hash);
-> -		if (!err)
-> -			cscfg_mgr->sysfs_active_config = cfg_hash;
-> +
->   	} else {
->   		/* disable if matching current value */
->   		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
-> @@ -975,7 +979,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   			err = -EINVAL;
->   	}
->   
-> -exit_unlock:
-> +	raw_spin_unlock(&cscfg_mgr->spinlock);
-> +
->   	mutex_unlock(&cscfg_mutex);
->   	return err;
->   }
-> @@ -983,9 +988,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   /* set the sysfs preset value */
->   void cscfg_config_sysfs_set_preset(int preset)
->   {
-> -	mutex_lock(&cscfg_mutex);
-> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
->   	cscfg_mgr->sysfs_active_preset = preset;
-> -	mutex_unlock(&cscfg_mutex);
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 0d4e935094297023b8a7786ff4b1b3783164016b..c28f3d255b0e19b3d982de95b8e34d0fc2954b95 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -385,15 +385,24 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
 >   }
 >   
 >   /*
-> @@ -994,10 +998,9 @@ void cscfg_config_sysfs_set_preset(int preset)
+> - * Helper function to call source_ops(csdev)->disable and also disable the
+> - * helpers.
+> + * coresight_enable_source() only enables the source but does nothing for the
+> + * associated helpers. In contrast, coresight_disable_source() calls
+> + * source_ops(csdev)->disable() and also disables the helpers.
+>    *
+>    * There is an imbalance between coresight_enable_path() and
+>    * coresight_disable_path(). Enabling also enables the source's helpers as part
+>    * of the path, but disabling always skips the first item in the path (which is
+>    * the source), so sources and their helpers don't get disabled as part of that
+> - * function and we need the extra step here.
+> + * function and we need the extra step in coresight_disable_source().
 >    */
->   void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
+> +int coresight_enable_source(struct coresight_device *csdev,
+> +			    struct perf_event *event, enum cs_mode mode,
+> +			    struct coresight_path *path)
+> +{
+> +	return source_ops(csdev)->enable(csdev, event, mode, path);
+> +}
+> +EXPORT_SYMBOL_GPL(coresight_enable_source);
+> +
+>   void coresight_disable_source(struct coresight_device *csdev, void *data)
 >   {
-> -	mutex_lock(&cscfg_mutex);
-> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
->   	*preset = cscfg_mgr->sysfs_active_preset;
->   	*cfg_hash = cscfg_mgr->sysfs_active_config;
-> -	mutex_unlock(&cscfg_mutex);
->   }
->   EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
+>   	source_ops(csdev)->disable(csdev, data);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index f677c08233ba1a28b277674662c6e6db904873dd..dd1968dd173d608fb72835343cd647818c0bad1a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -530,7 +530,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+>   		goto fail_end_stop;
 >   
-> @@ -1201,6 +1204,7 @@ static int cscfg_create_device(void)
->   	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
->   	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
->   	cscfg_mgr->load_state = CSCFG_NONE;
-> +	raw_spin_lock_init(&cscfg_mgr->spinlock);
+>   	/* Finally enable the tracer */
+> -	if (source_ops(csdev)->enable(csdev, event, CS_MODE_PERF, path))
+> +	if (coresight_enable_source(csdev, event, CS_MODE_PERF, path))
+>   		goto fail_disable_path;
 >   
->   	/* setup the device */
->   	dev = cscfg_device();
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
-> index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.h
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.h
-> @@ -42,6 +42,7 @@ enum cscfg_load_ops {
->    * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
->    * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
->    * @load_state:		A multi-stage load/unload operation is in progress.
-> + * @spinlock:		Exclusive access sysfs_active_* variables.
->    */
->   struct cscfg_manager {
->   	struct device dev;
-> @@ -54,6 +55,7 @@ struct cscfg_manager {
->   	u32 sysfs_active_config;
->   	int sysfs_active_preset;
->   	enum cscfg_load_ops load_state;
-> +	raw_spinlock_t spinlock;
->   };
+>   	/*
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index 33e22b1ba043264ad50acac69ece1ea6de25893b..8b978528cb49af43ef56d034f7ecc520f80f60df 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -250,6 +250,9 @@ void coresight_add_helper(struct coresight_device *csdev,
 >   
->   /* get reference to dev in cscfg_manager */
+>   void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+>   struct coresight_device *coresight_get_percpu_sink(int cpu);
+> +int coresight_enable_source(struct coresight_device *csdev,
+> +			    struct perf_event *event, enum cs_mode mode,
+> +			    struct coresight_path *path);
+>   void coresight_disable_source(struct coresight_device *csdev, void *data);
+>   void coresight_pause_source(struct coresight_device *csdev);
+>   int coresight_resume_source(struct coresight_device *csdev);
+> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+> index cb02f1bfaf068ec3f50f997bcb94f7d5215ccea8..72e9607fc6aea4663abf7d1f7f03f247ea060b83 100644
+> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+> @@ -66,7 +66,7 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
+>   	 */
+>   	lockdep_assert_held(&coresight_mutex);
+>   	if (coresight_get_mode(csdev) != CS_MODE_SYSFS) {
+> -		ret = source_ops(csdev)->enable(csdev, NULL, mode, path);
+> +		ret = coresight_enable_source(csdev, NULL, mode, path);
+>   		if (ret)
+>   			return ret;
+>   	}
 > 
 
 
