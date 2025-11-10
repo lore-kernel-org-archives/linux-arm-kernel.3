@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F96ACCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B29DCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 08:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oLRDHES8x7hy2Cq6bFhMakeR+ZtfEVkHELo4BsFny2w=; b=NTIEk15WOY9LSeRPDZ9mA6MIAZ
-	RLpB8kl8ilCAbCjwbKQNfM9PFpDIRWboH64BAgziZPg5wZXAxeONu26ZAJkhaXbEfYjTP2NaV/oSK
-	YCstiXi16zBRMae4/GfOMdQi/g6mXiwIyLAHsXVCqVeuTxpcLHBQ8A7ATnsz7SQVq7MNStlSo0b7U
-	73rYSc1WZfe1MGPKzCK37yn0RpWLyKq2g/lCquchpeulRT4lUE4w4L1MzENyfHkRsUdxtJwoRss6y
-	/KsAlHoYqj4JE3W71ZiBHdPU0f18k96Ge3qtMeZ7+oIMqrhC+kP1hEcNChG/yI3B4Pz7Lev1+bzci
-	NyNbOULA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Ow0jXvjkh77pOXWIP6I5DYsF4xpz6igLz3RhPzX2Hc=; b=Ajt912JsytqGqB7m/ioAuHyEtJ
+	Xc07Keb8ZZub/nkArUsCVamxG5sEBOZP63GM4MzUCZT3ldAdbTPo7ZZaOc0bT9QVyuOtG8UCKWnWB
+	fSCNC7vIalNKWIxaUtS2R7cU+cDu5UpaaiAxf3MtIMnUjQhwbmlx2iIN/m5PJPp3J19/vBFIET7Qh
+	KQqQUHDEQVW+8nrsdSSkl5SXhXHEOjCxkXl/EFmbuHtpUlNvWqEDSEZnCUcaOqPtzkX/sZO9W4pbL
+	PEqM2Ox1PlwRZ+XKuCW72XooLT6BrFK/CrNCzIn5VkJGUckGPcCcNZnQvUOuNjavy77D9EkLAYZEn
+	aZOnddzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIN3g-00000004xhG-3cFQ;
-	Mon, 10 Nov 2025 08:15:28 +0000
-Received: from mail-vs1-f45.google.com ([209.85.217.45])
+	id 1vIN73-00000004y1U-3AfJ;
+	Mon, 10 Nov 2025 08:18:57 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIN3d-00000004xgL-1gfR
+	id 1vIN71-00000004y0g-1JzW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 08:15:27 +0000
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5dbde7f4341so2398598137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:15:24 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762762523; x=1763367323;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Mon, 10 Nov 2025 08:18:56 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-477632cc932so10054565e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:18:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762762733; x=1763367533; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oLRDHES8x7hy2Cq6bFhMakeR+ZtfEVkHELo4BsFny2w=;
-        b=OVVElSz0UJ82O3TOJWZ0IuUoT3s82uIa5N4K7I+SMwHap8wR0DCwB585+EsllEu2aI
-         raczoaDpwwuuAmXHt55QF0QrXZizNUOjbM1ScntNEqB6ebRzypuQzS2wIELMULWYd7Xv
-         QoJDIgExOFSR2KZzPR/m9Yd/VXxCLLrjA7WizY9dvT4KpXv8uijf9M/7NaF5Raju+Ydk
-         u+UZS9c/XAhinSqDOjZrXNYdBN1umIa3k9bIbPrePxRDotGeYhlRy0pfwVsg5pViHJM2
-         Xk3eZnJt/pQhY0ZnIwDMsP0qY02aKXzT3NpmF6hmKtS1Kmd0oiUcXUla9wRS1UdWYQ8v
-         JYpA==
-X-Forwarded-Encrypted: i=1; AJvYcCVrK4Suy4eZ59Rj7s3JeqXT/mBZZ78+3WbWKo2rnxLalqAYnQFFhH7jVvnYM8yBwpse8bFciQ4tVLCvkNk70L2N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPawvn1GDijcGtbTHDCGbpJM4GR/TyoorjSnmM/Iveeg6m+HVZ
-	lR8bgDox/CZdEBTO76qVi8FmHLGeld4Sa0LabKhbkbCcV5w62wslp+K+sX389Lew
-X-Gm-Gg: ASbGncuWmg4ouvFovGX5LQC3ApKtDdrzpOKqeOcJdlA9awonLKpP8KFbfbNsHiOyvvZ
-	uYbWlE3VjlorEoyQ1AposUG63YZ3yRHZTGxVWaRd6LKxvESTM21UNLB6tYgi5AYHpPhzNbXq6iY
-	OQo6yS6pePtOsIM+WGFPcK1nWtEr8ecfu3bEs9C59H+aK7NDWUrGKrcZFT40oMLE1gd+qds+fbM
-	8+jxDiflclBx6S1tXA2y1VwgStwru/Pl8QA7KQNdybrAgNEfwkF/kKh+i1NtmvWBTcaqAbLSWgi
-	1unTMbAVVlFHy8rfcRFGBFneZe0PjF9h7jMMh01IJ98SfmIDQwuaNEoDuLAfk+Oj5gmCI5KkT2T
-	TTNJVZWm69vnBAUT81pEkoY30F2VtU0wJFcOCWT6+mHGbQ8GhMree4Uy0ug/RML3kebD1IIY8/v
-	rJ1aHzczFMJwuhyCHGkHLN4WPrcb4JxayXLFSic1EcAA==
-X-Google-Smtp-Source: AGHT+IEr6FX+5yZOpARSZfUki/Ghvlj0vufoHJR+IqCnoFWLyhXFc5CAnwYwvpfBhNj6Peh7g3EOAg==
-X-Received: by 2002:a05:6102:611c:20b0:5dd:c484:957a with SMTP id ada2fe7eead31-5ddc48498b8mr1614062137.21.1762762523412;
-        Mon, 10 Nov 2025 00:15:23 -0800 (PST)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-93727691ea7sm2480448241.8.2025.11.10.00.15.22
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 00:15:22 -0800 (PST)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-9372164d768so1221049241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:15:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWaCciewQ8OV85imLm3XCMi9daNXimcIPzjSKyiZB09oD4OlXUiu38mb3I0urad/JVdsMOVO6VKM2mex/zY4G2P@lists.infradead.org
-X-Received: by 2002:a05:6102:c8e:b0:5db:e179:1c2f with SMTP id
- ada2fe7eead31-5ddb9e00ddbmr3016566137.18.1762762522544; Mon, 10 Nov 2025
- 00:15:22 -0800 (PST)
+        bh=+Ow0jXvjkh77pOXWIP6I5DYsF4xpz6igLz3RhPzX2Hc=;
+        b=cVtERCXGVSYvsdxIWSxBizOKYPj8a1/IhhgYbsmwAa8dp5pbxQLzGTQ4er7M6GE0T5
+         FbWo4a9zl4F3UokSKFCYNcDjTgQeMWEBSni7b3XwU2zIKmoUXIUW/m+bfapsN7g1p0Eo
+         UOsxnUwmIMPUzj1Pt3iqN05ho4DM3QyZGCcMEdz1cRaOmW4yXlbQiBMd4+EZKI0isYRk
+         StQ2kb+JoBZmFGdJ2Q5wCz24TxDkGXG3h986ldY9UzUhk3JrajZjEyDDhGQijzHU7RKU
+         cggOpEhHOJUTLPsgRMoEs+K04sNTHMcVOQT7p57A+RvBdy+p1ElINlgP1eQeZ7WZU8Ti
+         Y/Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762762733; x=1763367533;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+Ow0jXvjkh77pOXWIP6I5DYsF4xpz6igLz3RhPzX2Hc=;
+        b=nmtBa/ibJA3QBdlbPkvIv2ndl92rTzKK9+vJQRzugtrRVUcGrvFjZRdWoRky+PYDq2
+         7rwKpZg9BAcLgMVTU31OVuyqmsxPsKpngIQ3VE6KHXc7cGIgq6OUQwWTEy/98kSPxq7D
+         xQwECdXnrPPbbD29R39RRk5RcrsBZppE/DNq7rRL5gc3/7iJAtiH+5Lw2Nfv1f2MHL6m
+         J1As1s3dM2MEW0WzkKuu6d5wAj13C17hmGyiW2vkQ+taqe4M6WTQAKrTpb3Z0iK8m37G
+         VPLvhv9C9j4JQ1SmlDgDu08ys7g+TR3fCPzZvwX/eK2R4Pvzts6aESvMi2FTcJpLffEy
+         GaNA==
+X-Forwarded-Encrypted: i=1; AJvYcCXvda77w/VycZFFSWWeAl8MFwngNuYgsMbJH3ExgGBHOhHM/qpypnqyJFOgkzlfoNJtr/c9RHmOqFPgwiT/tVR0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVyt6sa4B9QJmiri8e2upLT9Q6sFPD30PiPZqzfDzGSL93L0TN
+	x8mqnU6iHd4Iz+Q38gjgZl4Y0DUkszDhE1U3fVVakNMGdXIzZ5KjYIrxe8VzTSEsAqY=
+X-Gm-Gg: ASbGncvjCrZGFY7IBzaDoz1PreL+5gfDRwX5j+BSXZBE+/CiFXKvNXyGPqMjaRahXVl
+	yJqTILLpt4pVO2QkHJOeV+E7NLg+9ggiyO6vlo+xDEftmHIHj+v/aS/sH6MahQBNbVlkSgFFAdO
+	OuHY1OcvUqotUobnBXOAqWESueZEEblwBtI8s79rNqGgW/fQMkFiDw/93Vmw3OP7OtAAI+etSp2
+	hs6ygmc4GyCmbc8jXmRrTxGToIpW2PYy97HnOFnGTcxQO5mUhUdu5L0pJv3VRAMIFCskld6ZvbE
+	kkIRN0+eXtke3RZjl/6aDKYo/D+FNSrwO2E7XzbKe00/mnFe0NTJtFDmFcv9PancKxaaKrLnF7y
+	mY4amjVCSXXc80ayY32+CPuWFHLwQFQlHVO6z0irgqmgx9CqT5iMR9zwz+RIjeBVGd3pNtgISya
+	2/2EJfHX1GO5XjvQWA93AB
+X-Google-Smtp-Source: AGHT+IFNAJ6Bn4FpyZtFF1NnxwYE2SjgYr7mpYVD4++XybQIbWpInXbD7iemC8JYoesp/8+j6x9DXg==
+X-Received: by 2002:a05:600c:4fc7:b0:477:6d96:b3dd with SMTP id 5b1f17b1804b1-47773236f6cmr51381675e9.1.1762762733314;
+        Mon, 10 Nov 2025 00:18:53 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776bd08834sm192070105e9.15.2025.11.10.00.18.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Nov 2025 00:18:53 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hanjie Lin <hanjie.lin@amlogic.com>, 
+ Yue Wang <yue.wang@amlogic.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Andrew Murray <amurray@thegoodpenguin.co.uk>, 
+ Jingoo Han <jingoohan1@gmail.com>, 
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, stable+noautosel@kernel.org, 
+ stable@vger.kernel.org, Linnaea Lavia <linnaea-von-lavia@live.com>
+In-Reply-To: <20251101-pci-meson-fix-v1-0-c50dcc56ed6a@oss.qualcomm.com>
+References: <20251101-pci-meson-fix-v1-0-c50dcc56ed6a@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH RESEND 0/3] PCI: meson: Fix the parsing of DBI
+ region
+Message-Id: <176276273239.834148.1225755186046227156.b4-ty@linaro.org>
+Date: Mon, 10 Nov 2025 09:18:52 +0100
 MIME-Version: 1.0
-References: <20251107-b4-m5441x-add-rng-support-v2-0-f91d685832b9@yoseli.org> <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
-In-Reply-To: <20251107-b4-m5441x-add-rng-support-v2-2-f91d685832b9@yoseli.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Nov 2025 09:15:11 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWL76hY-Pv30ooSM1J6XkVWbRXSLTDCjfpPOvhFN4tKyA@mail.gmail.com>
-X-Gm-Features: AWmQ_bkP3DEy9lbUQUJXmebZYXL_ADR8ol219vUzw9saT-bIiR6N27eoovxyIr8
-Message-ID: <CAMuHMdWL76hY-Pv30ooSM1J6XkVWbRXSLTDCjfpPOvhFN4tKyA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] m68k: coldfire: Add RNG support for MCF54418
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Greg Ungerer <gerg@linux-m68k.org>, Olivia Mackall <olivia@selenic.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_001525_449700_F208EAF2 
-X-CRM114-Status: GOOD (  34.00  )
+X-CRM114-CacheID: sfid-20251110_001855_462671_BCD20362 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,83 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jean-Michel,
+Hi,
 
-On Fri, 7 Nov 2025 at 11:29, Jean-Michel Hautbois
-<jeanmichel.hautbois@yoseli.org> wrote:
-> Add platform device support for the MCF54418 RNGB hardware with clock
-> enabled at platform initialization.
->
-> The imx-rngc driver now uses devm_clk_get_optional() to support both
-> Coldfire (always-on clock) and i.MX platforms (managed clock).
->
-> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+On Sat, 01 Nov 2025 09:59:39 +0530, Manivannan Sadhasivam wrote:
+> This compile tested only series aims to fix the DBI parsing issue repored in
+> [1]. The issue stems from the fact that the DT and binding described 'dbi'
+> region as 'elbi' from the start.
+> 
+> Now, both binding and DTs are fixed and the driver is reworked to work with both
+> old and new DTs.
+> 
+> [...]
 
-Thanks for your patch!
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.19/arm64-dt)
 
-> --- a/drivers/char/hw_random/Kconfig
-> +++ b/drivers/char/hw_random/Kconfig
-> @@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
->  config HW_RANDOM_IMX_RNGC
->         tristate "Freescale i.MX RNGC Random Number Generator"
->         depends on HAS_IOMEM
-> -       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COMPILE_TEST
-> +       depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || M5441x || COMPILE_TEST
+[2/3] arm64: dts: amlogic: Fix the register name of the 'DBI' region
+      https://git.kernel.org/amlogic/c/8b983ae355aab50942c72096beba30254c5078bd
 
-Is the same RNG present in other Coldfire SoCs?
+These changes has been applied on the intermediate git tree [1].
 
->         default HW_RANDOM
->         help
->           This driver provides kernel-side support for the Random Number
->           Generator Version C hardware found on some Freescale i.MX
->           processors. Version B is also supported by this driver.
-> +         Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
->
->           To compile this driver as a module, choose M here: the
->           module will be called imx-rngc.
-> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
-> index 241664a9b5d9ac7244f15cbe5d5302ca3787ebea..44f20a05de0a425cb6ff7b2a347b111750ac3702 100644
-> --- a/drivers/char/hw_random/imx-rngc.c
-> +++ b/drivers/char/hw_random/imx-rngc.c
-> @@ -353,12 +353,19 @@ static const struct of_device_id imx_rngc_dt_ids[] = {
->  };
->  MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
->
-> +static const struct platform_device_id imx_rngc_devtype[] = {
-> +       { .name = "imx-rngc" },
+The v6.19/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
-I believe this is identical to KBUILD_MODNAME, so the .name below
-should be sufficient for binding?
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
-> +       { /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
-Or do you need this mainly for the addition of MODULE_DEVICE_TABLE(),
-i.e. the module is not auto-loaded based on just KBUILD_MODNAME?
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
 
-> +
->  static struct platform_driver imx_rngc_driver = {
->         .driver = {
->                 .name = KBUILD_MODNAME,
-                  ^^^^^^^^^^^^^^^^^^^^^^^
-
->                 .pm = pm_ptr(&imx_rngc_pm_ops),
->                 .of_match_table = imx_rngc_dt_ids,
->         },
-> +       .id_table = imx_rngc_devtype,
->  };
->
->  module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
-
-Gr{oetje,eeting}s,
-
-                        Geert
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Neil
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
