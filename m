@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A700CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A194BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KY9+KkNir8ulula9jSt2EuOc4CDU22DGXuD6dzxbo5k=; b=EKCTvwCWRNTl3BFEmZ/vP43lfz
-	sv1zCTNV/lbQijdUePre9G3oaF9l61vRPiF1HX4SDk98NZ6t+W92868owLEXx8KJ7Ee4Y1ZSIqoiF
-	gAHqAS5cA2a8VpXU8V9bgxZT8EVJ2T+kz3ScHFWqcqy8id55nw6mTUfYtfFejUBF50G3q4mFOXPVN
-	E9CZUV1S/KUOJN9WXqy86aPd/SHWJcGCkzSOVILq3P3dv+q2cTvcDpz2PjIBjeztUNKcMpwqqnk7f
-	mXz+wsVYc+/nxnx9sfLCnn3oPnbamGNLIFATs0KG4OWF6O1/TdacMUhTQodbKym32f5zXFNJh7FyQ
-	L0HAx0eA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CHQt4V4R0sEws0sxSIt05t6olkTlAE2lbHxNrSnph2U=; b=of5LCiu5XuEbtBbNU8ZuJeG7bg
+	FmNLlyK3Js0FOF5hR4jnsz7uhyuggiAYU7tX4GEvPwI6DW4dK0wZfQeghGctnsMKdAd4iO5B/la+M
+	YVdPSVwp2a+W9xNJ1pNbeAYCh0OFbdeTE/OkWFYaDLLijHna6VJ0vgnjrCEuy8ySvbisa7YPmtlv1
+	in4v7OVD8bA1p5zqn4/2rc0Y5bEdmUvnGGFX7/Rk+57/jv+PKqo4sshqziMqLujvOfIyBAJiZnIyY
+	7yeOMmwqdY8QPCAhm2r7gRX3n31kkRRkTW1m/tzDOp830jLDUqljg4SwRTg4fNdMcSrCYtVUS/syB
+	5mtIEarg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVi8-00000005u3v-0vF5;
-	Mon, 10 Nov 2025 17:29:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vIViz-00000005u9Z-2KSw;
+	Mon, 10 Nov 2025 17:30:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVi6-00000005u3W-1QcH
+	id 1vIViw-00000005u9G-12qI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 17:29:47 +0000
+	Mon, 10 Nov 2025 17:30:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4775141AC5;
-	Mon, 10 Nov 2025 17:29:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BEEFC4CEF5;
-	Mon, 10 Nov 2025 17:29:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 581EA601BD;
+	Mon, 10 Nov 2025 17:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED17BC116D0;
+	Mon, 10 Nov 2025 17:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762795784;
-	bh=irSNmNU33uoNE+xtcXh4F9V8GNWZBQMnuLEnS4K0yYc=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=K4OHUePh1JIsul5wTckByN1KX/imTS4vSvdMW+PZoScGRsl31xGewJCuQm6s4E0KS
-	 z7oXMfRhvjcoC+Zbm98jZBfe/DoOaIA08oq9qGMG5jbZh/+/UZOcV+EGk2M1E6Pt+l
-	 N6SktXEKUtDTREzGJDNVPwrSwOhfB/tMIz/HygZvk2TXZ2wS+WQifhL1PJF+++YNyj
-	 QLEB+vHDw17Lcm8XEHxe9XytipxMSKEU+fdg5egk2S/sBK0+s2tgVbPy6wxclE1Ial
-	 LJh2kNZZQqQVx8Bf8xixbBuKug/ddARm23lNi8DvLONJLIlQW9JsKWfgNFfjIapzDp
-	 gU7fYw5Qdmehg==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 3B6DECE0D0D; Mon, 10 Nov 2025 09:29:43 -0800 (PST)
-Date: Mon, 10 Nov 2025 09:29:43 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	frederic@kernel.org
-Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <ab6cd1c2-39c5-4b39-9585-6123835a6229@paulmck-laptop>
-References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
- <20251105203216.2701005-15-paulmck@kernel.org>
- <aQ9AoauJKLYeYvrn@willie-the-truck>
- <d53a5852-f84a-4dae-9bf4-312751880452@paulmck-laptop>
- <aRHLV8lLX0fxQICR@willie-the-truck>
+	s=k20201202; t=1762795837;
+	bh=Oj/DqEQrV3Z259MuriU+WvexyYI+Pm4QRY0TAayDktc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=p7ZvE2yOSxPMxI9k96VnPKPody/hqdXDOjY4pOxW9QPZv0XhGbpvv4KbOK1eUbOkK
+	 Ha4GUAsyRsnA2/us3FNs2OpzXg5CoEi1/IKlpitwQ3rQOyKgso3qmENI3+L2SLywkD
+	 B823d/1BQy5cb6ndVOW7sUMK8/V8IKZbqQu+51QvCrGOcxFRCHQMELROYB4mD3iBPb
+	 itRF6bLq4dmVIQJ2VGiPkpA1Rj15+ExgXjwAV3NiwYbIZKahslYR5peo05FHWLpNyl
+	 qOcVyDNRnvVIqryUi1QyHB0XF3IIhSW+ihHBi0YPA98fmXI9KrY7QlqYjoXTtghHi4
+	 EAQopUty1q+tg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vIVis-00000003xP9-2G1B;
+	Mon, 10 Nov 2025 17:30:34 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: [PATCH] KVM: arm64: Finalize ID registers only once per VM
+Date: Mon, 10 Nov 2025 17:30:10 +0000
+Message-ID: <20251110173010.1918424-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aRHLV8lLX0fxQICR@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_092946_418468_B4521F48 
-X-CRM114-Status: GOOD (  28.46  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +78,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 11:24:07AM +0000, Will Deacon wrote:
-> On Sat, Nov 08, 2025 at 10:38:32AM -0800, Paul E. McKenney wrote:
-> > On Sat, Nov 08, 2025 at 01:07:45PM +0000, Will Deacon wrote:
-> > > On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
-> > > > Some arm64 platforms have slow per-CPU atomic operations, for example,
-> > > > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> > > > atomic operations to interrupt-disabled non-read-modify-write-atomic
-> > > > atomic_read()/atomic_set() operations.  This works because
-> > > > SRCU-fast-updown is not invoked from read-side primitives, which
-> > > > means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> > > > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> > > > exclude themselves and each other
-> > > > 
-> > > > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> > > > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> > > > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> > > > it sure beats 100ns.
-> > > > 
-> > > > This command was used to measure the overhead:
-> > > > 
-> > > > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> > > > 
-> > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > > Cc: Will Deacon <will@kernel.org>
-> > > > Cc: Mark Rutland <mark.rutland@arm.com>
-> > > > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> > > > Cc: Steven Rostedt <rostedt@goodmis.org>
-> > > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > > > Cc: <linux-arm-kernel@lists.infradead.org>
-> > > > Cc: <bpf@vger.kernel.org>
-> > > > ---
-> > > >  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
-> > > >  1 file changed, 48 insertions(+), 3 deletions(-)
-> > > 
-> > > I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
-> > > for 6.18, so please can you drop this SRCU commit from your tree?
-> > 
-> > Very good!  Adding Frederic on CC since he is doing the pull request
-> > for the upcoming merge window.
-> > 
-> > But if this doesn't show up in -rc1, we reserve the right to put it
-> > back in.
-> > 
-> > Sorry, couldn't resist!   ;-)
-> 
-> I've merged it as a fix, so hopefully it will show up in v6.18-rc6.
+Owing to the ID registers being global to the VM, there is no point
+in computing them more than once.  However, recent changes making
+use of kvm_set_vm_id_reg() outlined that we repeatedly hammer
+the ID registers when we shouldn't.
 
-Even better, thank you!!!
+Gate the ID reg update on the VM having never run.
 
-							Thanx, Paul
+Fixes: 50e7cce81b9b2 ("KVM: arm64: Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip")
+Fixes: 5cb57a1aff755 ("KVM: arm64: Zero ID_AA64PFR0_EL1.GIC when no GICv3 is presented to the guest")
+Closes: https://lore.kernel.org/r/aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk
+Reported-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 3bf7005258f07..19afcd833d6fa 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5624,7 +5624,11 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
+ 
+ 	guard(mutex)(&kvm->arch.config_lock);
+ 
+-	if (!irqchip_in_kernel(kvm)) {
++	/*
++	 * This hacks into the ID registers, so only perform it when the
++	 * first vcpu runs, or the kvm_set_vm_id_reg() helper will scream.
++	 */
++	if (!irqchip_in_kernel(kvm) && !kvm_vm_has_ran_once(kvm)) {
+ 		u64 val;
+ 
+ 		val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1) & ~ID_AA64PFR0_EL1_GIC;
+-- 
+2.47.3
+
 
