@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB5BCD13D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED89CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwdS1VB3vgYSOM1P254K506c5LfSj/vi1RAI9w6ktio=; b=bPXkEaDEX5ZjUOtkIH3GA8mtEL
-	60aZlT44UzYxtDY+fYQ8FiKAUei/wcP+G+aRUHSqnuNBA7EmEL5sjRYQv6WYDdu52mYxWdzDv2xQM
-	07AB06sxhH3/PFYEnzUn//FdmbbekA8GLtmIhZRKyUaoT4jaBUzQU2xo4IaSfL17z3lYVUnP5LTVJ
-	/Ah3N7hiitH9ca+acfPX0ld0OwHRSEULlPEceWARWo5fxFiaim+lBms6grO0MXnd23S7qTEN65sX4
-	cgaYZBA6urbFHU7sOxAviFHBNefZ5Q7J/nvbsCha9LTMRatFAvkbppTHItb8d1Stse6tnMGKZJv/c
-	ba/J4CLw==;
+	bh=hPCgPoE70BetgCqXoAumCGOuKiFkJIVELItuY0uabRE=; b=njeESbetC5NX2lTvCOMwcRKAQ3
+	qFITa8zXpq8XZLilld5wHUPSJjqWhI1FgoXaWOvK9Urt9BYw9Fu0lgpGcVvRagua47FLv20uENLgf
+	Pe3RC6DXCGgBN+q/lqNc+TD7k7U7bayYSXJyQqpKHymT6fmQtNCnLetygCXus7d2FbvJToVuxKKBg
+	6ESYO/+DQGdJiLPxZLAD2uaa7FKMsseIChiFVjUaHdi4RiuY0X2GW37MNjwc3V7JEcTUaL0DIuH1J
+	CKM0vf/lUF/3gBNaJc0KsF3vy77eL61JBT9vPMkM5dwiwsGUDX6HAYiKigwydNnZW3LJKiJYOMdvI
+	EPnCoU0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPHE-00000005C0r-0XEA;
-	Mon, 10 Nov 2025 10:37:36 +0000
+	id 1vIPHe-00000005CHx-0rkI;
+	Mon, 10 Nov 2025 10:38:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIPHY-00000005CFP-19Nv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Nov 2025 10:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hPCgPoE70BetgCqXoAumCGOuKiFkJIVELItuY0uabRE=; b=T068XUEG9UoCeUU6wJivU9u95M
+	OChfQHHJxFzsb/y95bIIeu7GhQaaJdSMs4gKgUuAyWhkrenXMHwXTNGqdpmEJbqj8otkDAAqVXPbM
+	SuTlXimn8nmgOVnF2UEgCGJ+ocmjvSbSZbbGOalBWJR58K7My6O/2FKCQ3/hotf+JTI3VhmYvb7kd
+	rEh+XJtpcAO131+kX9vSoM7IkOp6lnbBmBGyNIi2WxzOG9TcBxFKXHpTH4nn5OKcGykMHWANwNy8Y
+	uMZupnzXUn/NQF5b+s1hEVLqCnrjBJV7xvMmPFLMRPax42vm8KcLT6mw+CDQxcR0P6kLxab+Az3fa
+	bBH24Bfw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPH2-00000005BoK-0LY0
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIOPo-0000000AOyt-1xWg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 10:37:30 +0000
+	Mon, 10 Nov 2025 09:42:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CEEFE497;
-	Mon, 10 Nov 2025 02:37:12 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4A3CFEC;
+	Mon, 10 Nov 2025 02:37:43 -0800 (PST)
 Received: from [10.57.39.147] (unknown [10.57.39.147])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E4913F66E;
-	Mon, 10 Nov 2025 02:37:12 -0800 (PST)
-Message-ID: <b21fb5b9-2e7f-4cbc-ae62-015b1317a9bd@arm.com>
-Date: Mon, 10 Nov 2025 11:36:52 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EB953F66E;
+	Mon, 10 Nov 2025 02:37:43 -0800 (PST)
+Message-ID: <0d00dd6e-9e39-4ac6-8ea4-9407e75947eb@arm.com>
+Date: Mon, 10 Nov 2025 11:37:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
+Subject: Re: [PATCH v4 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
 To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -62,16 +77,17 @@ Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
  xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-3-kevin.brodsky@arm.com>
- <b165098a-8164-4664-aaaf-1e8c4391d797@arm.com>
+ <20251029100909.3381140-6-kevin.brodsky@arm.com>
+ <6a9c846f-22b6-4d5f-81dc-6cdcd4905952@arm.com>
 Content-Language: en-GB
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <b165098a-8164-4664-aaaf-1e8c4391d797@arm.com>
+In-Reply-To: <6a9c846f-22b6-4d5f-81dc-6cdcd4905952@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_023725_938459_B7739FF9 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20251110_094224_787649_1FE7A6D3 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 12:31, Ryan Roberts wrote:
-> On 29/10/2025 10:08, Kevin Brodsky wrote:
->> arch_flush_lazy_mmu_mode() is called when outstanding batched
->> pgtable operations must be completed immediately. There should
->> however be no need to leave and re-enter lazy MMU completely. The
->> only part of that sequence that we really need is xen_mc_flush();
->> call it directly.
->>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> This looks functionally equivalent to me, so:
->
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->
-> But I don't think this tidy up is strictly necessary for your series to work?
-> (perhaps I'll change my mind on that as I go through it).
+On 07/11/2025 13:56, Ryan Roberts wrote:
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 6663ffd23f25..e6bf5c7311b5 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -122,6 +122,7 @@ config ARM64
+>>  	select ARCH_WANTS_NO_INSTR
+>>  	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
+>>  	select ARCH_HAS_UBSAN
+>> +	select ARCH_HAS_LAZY_MMU_MODE
+> nit: This list is mostly in alphabetical order. Further up the list there are a
+> lot of ARCH_HAS_* entries. Perhaps move it to the correct position in that lot?
+> Then ARCH_HAS_UBSAN stays out of order on its own.
 
-I initially thought it might be, but in the end I think you're right -
-it should still work fine without this patch.
-
-Still, I'd rather avoid unnecessary calls to arch_enter() and
-arch_leave() as it makes it harder to reason about what is called where.
-Namely, keeping them here means that a nested call to
-lazy_mmu_mode_disable() would cause arch_leave() then arch_enter() to be
-called - rather unexpected.
-
-The only calls to arch_enter() and arch_leave() that are left after this
-series are the ones in <linux/pgtable.h> and the Xen context-switching
-logic (the one case where calling arch hooks directly is justified, see
-discussion on v3 [1]).
+That's fair, it does look like it's mostly in order apart from
+ARCH_HAS_UBSAN. Will move it further up.
 
 - Kevin
-
-[1]
-https://lore.kernel.org/all/390e41ae-4b66-40c1-935f-7a1794ba0b71@arm.com/
 
