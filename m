@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CB4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A72CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0RTs0mLiJP0YQJOpjwgxtc67UqnKyOdkCbLOvFlNsA=; b=uZpofKte1J+rwXq2gwTnr1cPGf
-	0pqI28jPDZN2YQ8ZM/sL0OOT1mfFwoup1/2ufQ+8ga+ApCNpdaMd23BSNlZhHTtdvD11d/MdYH8x2
-	apBN6ZpowPbpmU9xtWJVee6VilGd6Cg5EMlbWEnr17+SYn+DMFF9znKIF93ia8NVLuOKRNtqZqv8w
-	XGtb2zUmt03hmzzO00I1KLw+nd9nm/ynZI+O0I9kpHhRZg0Cec8snGV2hR8Ct+suSaNoyWLRKBaVj
-	KP+lX8kf0aHQ36ZY6j8WOUjQGz19WV0lCt3eqsBI+TH5VBb4cVf6dDbDbgFzLUtHUcWv0wyvI6At4
-	qCrUXcAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yRboUnYjJ3UtYnWmXwhNRQ5iDRKMIY8Ejv+CAbpIwoQ=; b=aoC7/p6dzOrOg5CZ8Au1yBKe3v
+	bBvpeOVkmNGISQx3hr3KwLsMWjpXZvlUh+oBRgIq8NTZgdYpkLRpeLxywDvJ7YRIa7KG3cl8nrUh2
+	lMwiThDGmAccaRSsrWMe3vMTR5Co+LN4xXw54/vgBaJwTXs5Sm7zLbD2PefJBpXIkb71J0DMRNhod
+	S4uUUzDqvVztDa1XMwEqMQX8/pYb8uzj/mdVJe1wGQfXWWe0oxaJtAiS6ZrnBq392YU6hbpDuTBi2
+	RNJbrhyhMt6m6Pa+LcrLicHe3P92JCxd6hD2c14flJFroR5THV/0bpz71mql2fXUUafVh3jW5ZzV1
+	0LPWbccg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISfr-00000005Ynb-0zX3;
-	Mon, 10 Nov 2025 14:15:15 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vISgA-00000005YqS-2MyH;
+	Mon, 10 Nov 2025 14:15:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISfo-00000005Ymr-1dmw
+	id 1vISg7-00000005Ypr-0e1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:15:14 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D45A4C108F1;
-	Mon, 10 Nov 2025 14:14:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3CF98606F5;
-	Mon, 10 Nov 2025 14:15:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AE0C7103718E3;
-	Mon, 10 Nov 2025 15:15:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762784106; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=r0RTs0mLiJP0YQJOpjwgxtc67UqnKyOdkCbLOvFlNsA=;
-	b=12U+tPHJOwgSLsSFcsdUd0sMClp8mXzd6YcFS4JdNX3QesCpTtjGA03ZAvPtDPQOgo3sFK
-	3MUKa5P/j8g0WG4cuGamytrO40gDSMlT3at4Hhof7kMgd5LvPTTBh1foHQiTOa0pCh+M7P
-	z0qfUHul3B9v/7LoaxFn1p+iSs8tDqPJU5xAY5qa1DApfp82VAPmLSlLRDS6SRkazF53T4
-	1zCKsRdr7ttupzVzAPJdSX4qqvHqnvpg3YqSNAqG9O+oAkl3BVWInxJwlwoV0KG8Yf4otZ
-	V8Q9LODADlr0VPYpYRkOY18K+zc9KDXUPAKIyoQjgJv15otqp/AS/F9HRLp92A==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/arm: dts: marvell: Rename "nand-rb" pinctrl node
- names
-In-Reply-To: <20251029153927.1065446-1-robh@kernel.org>
-References: <20251029153927.1065446-1-robh@kernel.org>
-Date: Mon, 10 Nov 2025 15:15:04 +0100
-Message-ID: <87seemrn2v.fsf@BLaptop.bootlin.com>
+	Mon, 10 Nov 2025 14:15:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 823DF4060F;
+	Mon, 10 Nov 2025 14:15:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6A5AC16AAE;
+	Mon, 10 Nov 2025 14:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762784130;
+	bh=Zjtpe0PcMapcWqqZkDdW+4o/kiPNnUphphvNHXelxIQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GA42ph7s2s7+Yl7kwe6WfC59VTGLEboLESGwJyU1V1aigA81vgr0GaSEHqSq7Vzou
+	 aOjGL/skU+9gr0wuCZMkj+dYY/k99CGv8IbvjRMfgDJMAQcpafQ4rwxR0DskeKbd3c
+	 k/bly5tjvA0+25B5Klj3vQzAF4hK2DyU+2f8gFGIOiQSJa4fbeNo8UKuG4+32R8DA5
+	 iSkb4zzDc1K0xysjIYCXJNR1NgLDu7br3jUdOPz2AKgTblQFRc9GFLk5pVh9C81U4K
+	 6AgVr8+MQWs+dUxApCQXJAdol1IPGOCqnjX1DZb1UwVGbi1l6ib1pncC4w5c1ntAiz
+	 4kwn8cI0TPScQ==
+Date: Mon, 10 Nov 2025 14:15:27 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v2 3/3] KVM: arm64: Limit clearing of
+ ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+Message-ID: <aRHzf5wgJg5vSoKo@finisterre.sirena.org.uk>
+References: <20251030122707.2033690-1-maz@kernel.org>
+ <20251030122707.2033690-4-maz@kernel.org>
+ <aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
+ <865xbiuj6e.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nmuVcHVoFc1KSfwu"
+Content-Disposition: inline
+In-Reply-To: <865xbiuj6e.wl-maz@kernel.org>
+X-Cookie: You dialed 5483.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_061512_582570_F6EE1816 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20251110_061531_209262_B5FCA13A 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,105 +82,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Rob Herring (Arm)" <robh@kernel.org> writes:
 
-> Update the "nand-rb" pinctrl child node names to use the defined "-pins"
-> suffix fixing DT schema warnings.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+--nmuVcHVoFc1KSfwu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Mon, Nov 10, 2025 at 01:11:05PM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-Applied on mvebu/dt64
+> > Today's next/pending-fixes is showing regressions on a range of physical
+> > arm64 platforms (including at least a bunch of A53 systems, an A55 one
+> > and an A72 one) in the steal_time selftest which bisect to this patch.
+> > We get asserts in the kernel on ID register sets:
 
-Thanks,
+> Please name the platforms this fails on. Here, on a sample of one A72
+> box, I don't see the issue:
 
-Gregory
+It looks like it's GICv2 that's affected - I'm seeing this on at least
+Raspberry Pi 3B+ and 4, Pine 64 Plus and Libretech Potato, Solitude and
+Tritum.  The platforms with GICv3 that I have results for (eg, the
+Toradex Verdin i.MX8MP and Mallow AM625) all seem fine.
 
+--nmuVcHVoFc1KSfwu
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> ---
->  arch/arm/boot/dts/marvell/armada-38x.dtsi         | 2 +-
->  arch/arm/boot/dts/marvell/armada-xp-98dx3236.dtsi | 2 +-
->  arch/arm64/boot/dts/marvell/armada-70x0.dtsi      | 2 +-
->  arch/arm64/boot/dts/marvell/armada-80x0.dtsi      | 2 +-
->  arch/arm64/boot/dts/marvell/cn9130-db.dtsi        | 2 +-
->  5 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/armada-38x.dtsi b/arch/arm/boot/dt=
-s/marvell/armada-38x.dtsi
-> index 1181b13deabc..1d616edda322 100644
-> --- a/arch/arm/boot/dts/marvell/armada-38x.dtsi
-> +++ b/arch/arm/boot/dts/marvell/armada-38x.dtsi
-> @@ -247,7 +247,7 @@ nand_pins: nand-pins {
->  					marvell,function =3D "dev";
->  				};
->=20=20
-> -				nand_rb: nand-rb {
-> +				nand_rb: nand-rb-pins {
->  					marvell,pins =3D "mpp41";
->  					marvell,function =3D "nand";
->  				};
-> diff --git a/arch/arm/boot/dts/marvell/armada-xp-98dx3236.dtsi b/arch/arm=
-/boot/dts/marvell/armada-xp-98dx3236.dtsi
-> index 7a7e2066c498..a9a71326aafc 100644
-> --- a/arch/arm/boot/dts/marvell/armada-xp-98dx3236.dtsi
-> +++ b/arch/arm/boot/dts/marvell/armada-xp-98dx3236.dtsi
-> @@ -322,7 +322,7 @@ nand_pins: nand-pins {
->  		marvell,function =3D "dev";
->  	};
->=20=20
-> -	nand_rb: nand-rb {
-> +	nand_rb: nand-rb-pins {
->  		marvell,pins =3D "mpp19";
->  		marvell,function =3D "nand";
->  	};
-> diff --git a/arch/arm64/boot/dts/marvell/armada-70x0.dtsi b/arch/arm64/bo=
-ot/dts/marvell/armada-70x0.dtsi
-> index 293403a1a333..df939426d258 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-70x0.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-70x0.dtsi
-> @@ -56,7 +56,7 @@ nand_pins: nand-pins {
->  			marvell,function =3D "dev";
->  		};
->=20=20
-> -		nand_rb: nand-rb {
-> +		nand_rb: nand-rb-pins {
->  			marvell,pins =3D "mpp13";
->  			marvell,function =3D "nf";
->  		};
-> diff --git a/arch/arm64/boot/dts/marvell/armada-80x0.dtsi b/arch/arm64/bo=
-ot/dts/marvell/armada-80x0.dtsi
-> index ee67c70bf02e..fb361d657a77 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-80x0.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-80x0.dtsi
-> @@ -89,7 +89,7 @@ nand_pins: nand-pins {
->  			marvell,function =3D "dev";
->  		};
->=20=20
-> -		nand_rb: nand-rb {
-> +		nand_rb: nand-rb-pins {
->  			marvell,pins =3D "mpp13", "mpp12";
->  			marvell,function =3D "nf";
->  		};
-> diff --git a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi b/arch/arm64/boot=
-/dts/marvell/cn9130-db.dtsi
-> index 50e9e0724828..3cc320f569ad 100644
-> --- a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
-> @@ -379,7 +379,7 @@ nand_pins: nand-pins {
->  				       "mpp27";
->  			marvell,function =3D "dev";
->  		};
-> -		nand_rb: nand-rb {
-> +		nand_rb: nand-rb-pins {
->  			marvell,pins =3D "mpp13";
->  			marvell,function =3D "nf";
->  		};
-> --=20
-> 2.51.0
->
+-----BEGIN PGP SIGNATURE-----
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkR834ACgkQJNaLcl1U
+h9BOeQf9F0JppM6Dk5c7+DhSmGwO4/k/K/NN2DSDzXyrzdW9KWlMWhKIfk0uvhLD
+7Ne8pxY4YiamvsR/BgueeBbMum8BTfEZdT8nIkMdksIEDXrTTNz59bsDyqSw836z
+vvrIGpN1rtR8w61ptev/8jF9EDH3QQF+GkoRF6RFOW0rMMNMIN7EHciTVHcE2xBW
+T0Cf2fVgdYQAGNIs4j1dO3mmttXmQwNPeUAbasMw2qo8mw4kSqCGBhKO4mqvLBy4
+UQcK5zFxuf4S4gQCHTkBUHbiBReMvtgJJOV9wOA9+mK3KOwKC2+cuhVUfNl1s3zd
+Fs1H3D7kNPzDwNJl47kxXxHRqeQjHA==
+=/URp
+-----END PGP SIGNATURE-----
+
+--nmuVcHVoFc1KSfwu--
 
