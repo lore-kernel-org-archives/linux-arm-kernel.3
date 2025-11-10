@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67857CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EEACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 12:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mokE1STeYnllduXZ+33QLu6bZS1LJLoqGu+1OJ9vbsE=; b=MozE2wtqVJnGjmOpSiNH4hPLd7
-	BQe5EUz5EncPUtmgHQG5+qpp7ml7LIax3GF5UJ0UmuGeY7IOSlx89YTWb7/3ZOfH5iLvjyC3jxZ6v
-	cNarHa2LA9Cj0u7tJxsQS/U2WND/9suTI8+e8TWKhc4nEMwHghpaK9BHSNVr1b2hWtVcqNVpfYXMA
-	OzEgmQuHQcZZ86RV8o6t7SRasFK5MlOiZz/ODtidgxBzPRNeB+hXO2jqzpQB00cCTH5iFf1CbFrwA
-	sglAQugB5xGSeR0qZ8aj82j5Tzz5hJ7chiQ4FrayhfwoVXgRAJWOaSQTSbVhQc/k+/eEw/fRBncpI
-	gHQlUWUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gs+iW2hJxT5J8A7L0Y8dnqhmu8Gx2Jm0uz0vGTeuNJk=; b=hB/VgU+2/7UMo/MCNwzEA1scZ6
+	ZXhcZ7lncGNlux0GKpgCgcDU7w0pSQsj6hyDvyUEa69c9DJM5MxJQl8YJyw/nI/u9/Z37jnInOVPE
+	YLrRjm7COG4gjEEO1Yb2yROcLy/yiKY073CST5fAwSmPispnC2kT4R98DSYyfKSlAC9ykuPsv9mPG
+	hKXR3wq7b/rUcmh6QtdPICUIEpVMciNpnLQUqdGABtkBlw/YwNOMahwGdyvA/cKmRt1gF+jT9Ok+u
+	0mL9mGLunKdP/pzD3hAzntiScVfhjHcEMaat8e/l2O487c6oJgMIFNLNMQInfT1WpayazHSElQJ+g
+	sZKFoAAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRFV-00000005QoW-2U3k;
-	Mon, 10 Nov 2025 12:43:57 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1vIRNK-00000005RAD-1BBn;
+	Mon, 10 Nov 2025 12:52:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIRFT-00000005QoB-2jLK
+	id 1vIRNH-00000005R9e-3Fkv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 12:43:56 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8b1b8264c86so297273385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 04:43:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1762778634; x=1763383434; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mokE1STeYnllduXZ+33QLu6bZS1LJLoqGu+1OJ9vbsE=;
-        b=p84bBoZD97ymD3xRPjgsWVk9+wG3qhtKZ3uyEfchho+gdwNIWXg5AVEWhmzxEAEYVF
-         4H+jLZusmWQ47VXB6ccjglGjfVvJw+eogrLDiY4tibxunRy+oppdmFbmZnI/lMMiNiFW
-         B2unpu3LFaro+K4nUeNsTmeK1tqJ0PBFrkru/eROG5kP6u23iLXLRKlCzXh6qM/leOCd
-         9pEsuqt2CIMFu3tLT/N0ke3tssBCgT/Zr9WPvc+fnUeoDMYFc8cnKgROOtFzetI8vFrA
-         kPeZwlKHLkZfM/9WV7YiK/XHTMNtgxcL6GdmPpx9kPtnoB0BROH/Cf5no62v0lt4xcfR
-         VDGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762778634; x=1763383434;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mokE1STeYnllduXZ+33QLu6bZS1LJLoqGu+1OJ9vbsE=;
-        b=lTbI5KuVDi34oarlhe6T/EEebVrMsbzM4Pu5mRa4kxGWN7N8nTkkymNuAn9tZyi9PB
-         xH3NCSIsG/jxOEyLLAxNeSLN9ArHPO65hKUHfG+TrILE+jSf1UC9sa7t1QBMukGotNzU
-         0n05NKD+f0d8VZWu8CFppx0HmC9rj9tjbrwHHgmoa/G2wEY6KOwkJrp0/y2iRMrUG+VA
-         Uzctu+EGAh2LGOcNf6gkEElm5xUXUM5itay96UKSrqj0dGg1JfRxF+SgERoFMQusyQ5B
-         BJtdJ9x4kj00DRmc02zkYBKoA3n046um2Ve2Lxpl0mX07UqSkTHAo0ul8Xk/NHueToWE
-         aSYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXAWkFKM2QSFFLPP3N1OvdAVxjnUBtZKrZ7w096uTxyKbhKxP5GExNE6FUEHcmC2bVgbVX32Jk69+JK6ZhavBtD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnDJfHv6UN4/BBD/ubtt//N99TYx4lmb4vts3R48KVwFgzHBKi
-	SzJh0r3GqF8qDhK/5Vumw4yuoh1lXFSirmo0p1hhfbc5cGpJIUAUrErHUyQ5NzjGG9s=
-X-Gm-Gg: ASbGncu1TsN6NVDvCKAGwEpHc2g6ZOlsQtbZAhKNn5E26HVAbOOh+uapcdv7iAMMsiB
-	L43paALcMIUUowQk0c89Blqk8E7GM+h2KTKju3mgrrYvIBsFtmt5fvL16HjnZwB9Ee6tBYpz6zX
-	fmc6BfD9wIPxWYtPjdmpGxGpxKygdlzci1oeHmQw596wwlKHipTV8AMsRsWT7jOShw8kyfwIqLP
-	i50AZ9eFKYpIiOYLfs8OJpGsdu8/r9OtCFnkzz//J7rcWv+1KEPtj90Mxuj9+0fqu8KYdLxaCGc
-	AjCCBM6ghiwl1et+jaK2CndliMb4qkf86DToxC10rtKrhrjCyJA6uq6oh0t2ue7kbnu3eP8Jnl1
-	qoEGY/16bAzQB6y10PaPyMH0Y32E/vDAFtrrnzcFHMZhS6Are9kh6Dmk/P+ke3r6TsaaZSSiuvB
-	nfiURCYwo1g96HSQD9ZTBLg3Yr0e+yqQk=
-X-Google-Smtp-Source: AGHT+IHzD9vQiWPhgW/CmDZ0Sh3mVAM0JnEabgV9DyCHXVHZqLCr17WfmN9Rv8GMnK6YWCsW15692w==
-X-Received: by 2002:a05:620a:2982:b0:8b0:f2bd:474d with SMTP id af79cd13be357-8b257f6bb13mr863976085a.64.1762778634203;
-        Mon, 10 Nov 2025 04:43:54 -0800 (PST)
-Received: from fedora (cpezg-94-253-146-68-cbl.xnet.hr. [94.253.146.68])
-        by smtp.googlemail.com with ESMTPSA id af79cd13be357-8b2355c24f6sm1002765885a.6.2025.11.10.04.43.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Nov 2025 04:43:52 -0800 (PST)
-From: Robert Marko <robert.marko@sartura.hr>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com,
-	UNGLinuxDriver@microchip.com,
-	horatiu.vultur@microchip.com,
-	rmk+kernel@armlinux.org.uk,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: luka.perkov@sartura.hr,
-	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH net-next v2] net: sparx5/lan969x: populate netdev of_node
-Date: Mon, 10 Nov 2025 13:42:53 +0100
-Message-ID: <20251110124342.199216-1-robert.marko@sartura.hr>
-X-Mailer: git-send-email 2.51.1
+	Mon, 10 Nov 2025 12:52:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C0FC44398;
+	Mon, 10 Nov 2025 12:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D469AC19425;
+	Mon, 10 Nov 2025 12:51:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762779118;
+	bh=UqW2OohnniAD+Yd1sr8oqOdX5uTV9aKQiK82zm9RGbE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kItflAEG4RnvNZ1douPLoBIBdZf0SSz4ldNv5BGnaIYNub7DVpytctSLEEF+b2aLb
+	 2RNojiiK3OnS/Xu84kwFx3HYTZC/h9KecDieE+a0+5HVsP9ZU9G9egmXic1hC0bum+
+	 5TtoVPTOdQnp4z2DjbnlB/RKIWJKMPGVMTlF1z5ipfT1oS0ct0yfcPf2vGjBiLMPcM
+	 f4ejV4Hv1NOoJ6wOMUFfq0miKVGToFTQh2vv5VqR54r2ZIusgXqgJWORRWOp4zxX+t
+	 35PDbEp+SXjjpLMGl59EwzKVqVsj5IgQDis7wwwp8SAx3/GhJ2Km6AR0ClYp/4Dnkg
+	 QNuK67ymQI48w==
+Date: Mon, 10 Nov 2025 12:51:55 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v2 3/3] KVM: arm64: Limit clearing of
+ ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+Message-ID: <aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
+References: <20251030122707.2033690-1-maz@kernel.org>
+ <20251030122707.2033690-4-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nRXSjGhbC5T2SNGb"
+Content-Disposition: inline
+In-Reply-To: <20251030122707.2033690-4-maz@kernel.org>
+X-Cookie: You are lost in the Swamps of Despair.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_044355_725082_BA2D3004 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20251110_045159_869453_919CC8B5 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +80,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Populate of_node for the port netdevs, to make the individual ports
-of_nodes available in sysfs.
 
-Signed-off-by: Robert Marko <robert.marko@sartura.hr>
----
-Changes in v2:
-* Per Daniels suggestion, set it directly in sparx5_create_port()
-instead of doing it in the dedicated netdev registration function.
+--nRXSjGhbC5T2SNGb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+On Thu, Oct 30, 2025 at 12:27:07PM +0000, Marc Zyngier wrote:
+> Now that the idreg's GIC field is in sync with the irqchip, limit
+> the runtime clearing of these fields to the pathological case where
+> we do not have an in-kernel GIC.
+>=20
+> While we're at it, use the existing API instead of open-coded
+> accessors to access the ID regs.
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 40b1bfc600a7..582145713cfd 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -395,6 +395,8 @@ static int sparx5_create_port(struct sparx5 *sparx5,
- 
- 	spx5_port->phylink = phylink;
- 
-+	spx5_port->ndev->dev.of_node = spx5_port->of_node;
-+
- 	return 0;
- }
- 
--- 
-2.51.1
+Today's next/pending-fixes is showing regressions on a range of physical
+arm64 platforms (including at least a bunch of A53 systems, an A55 one
+and an A72 one) in the steal_time selftest which bisect to this patch.
+We get asserts in the kernel on ID register sets:
 
+[  150.872407] WARNING: CPU: 0 PID: 2865 at arch/arm64/kvm/sys_regs.c:2353 =
+kvm_set_vm_id_reg+0x9c/0xf4
+
+=2E..
+
+[  151.045312] Call trace:
+[  151.047780]  kvm_set_vm_id_reg+0x9c/0xf4 (P)
+[  151.052098]  kvm_finalize_sys_regs+0x88/0x240
+[  151.056504]  kvm_arch_vcpu_run_pid_change+0xb4/0x438
+[  151.061527]  kvm_vcpu_ioctl+0x92c/0x9d0
+
+which generate errors to userspace, causing the test to fail.  Full log
+=66rom one of the failing runs:
+
+   https://lava.sirena.org.uk/scheduler/job/2065669#L2863
+
+Bisect log:
+
+# bad: [55f97faf872612ac604ae72eb1968e6619cc41be] Merge branch 'for-linux-n=
+ext-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
+# good: [f850568efe3a7a9ec4df357cfad1f997f0058924] Merge tag 'i2c-for-6.18-=
+rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux
+# good: [636f4618b1cd96f6b5a2b8c7c4f665c8533ecf13] regulator: fixed: fix GP=
+IO descriptor leak on register failure
+# good: [86d57d9c07d54e8cb385ffe800930816ccdba0c1] spi: imx: keep dma reque=
+st disabled before dma transfer setup
+# good: [939edfaa10f1d22e6af6a84bf4bd96dc49c67302] spi: xilinx: increase nu=
+mber of retries before declaring stall
+# good: [3cd2018e15b3d66d2187d92867e265f45ad79e6f] spi: Try to get ACPI GPI=
+O IRQ earlier
+# good: [29528c8e643bb0c54da01237a35010c6438423d2] ASoC: tas2781: fix getti=
+ng the wrong device number
+# good: [3dc8c73365d3ca25c99e7e1a0f493039d7291df5] ASoC: codecs: va-macro: =
+fix resource leak in probe error path
+# good: [84f5526e4dce0a44d050ceb1b1bf21d43016d91b] ASoC: tas2783A: Fix issu=
+es in firmware parsing
+# good: [8da0efc3da9312b65f5cbf06e57d284f69222b2e] ASoC: doc: cs35l56: Upda=
+te firmware filename description for B0 silicon
+# good: [249d96b492efb7a773296ab2c62179918301c146] ASoC: da7213: Use compon=
+ent driver suspend/resume
+git bisect start '55f97faf872612ac604ae72eb1968e6619cc41be' 'f850568efe3a7a=
+9ec4df357cfad1f997f0058924' '636f4618b1cd96f6b5a2b8c7c4f665c8533ecf13' '86d=
+57d9c07d54e8cb385ffe800930816ccdba0c1' '939edfaa10f1d22e6af6a84bf4bd96dc49c=
+67302' '3cd2018e15b3d66d2187d92867e265f45ad79e6f' '29528c8e643bb0c54da01237=
+a35010c6438423d2' '3dc8c73365d3ca25c99e7e1a0f493039d7291df5' '84f5526e4dce0=
+a44d050ceb1b1bf21d43016d91b' '8da0efc3da9312b65f5cbf06e57d284f69222b2e' '24=
+9d96b492efb7a773296ab2c62179918301c146'
+# test job: [636f4618b1cd96f6b5a2b8c7c4f665c8533ecf13] https://lava.sirena.=
+org.uk/scheduler/job/2048731
+# test job: [86d57d9c07d54e8cb385ffe800930816ccdba0c1] https://lava.sirena.=
+org.uk/scheduler/job/2053555
+# test job: [939edfaa10f1d22e6af6a84bf4bd96dc49c67302] https://lava.sirena.=
+org.uk/scheduler/job/2057909
+# test job: [3cd2018e15b3d66d2187d92867e265f45ad79e6f] https://lava.sirena.=
+org.uk/scheduler/job/2049140
+# test job: [29528c8e643bb0c54da01237a35010c6438423d2] https://lava.sirena.=
+org.uk/scheduler/job/2057927
+# test job: [3dc8c73365d3ca25c99e7e1a0f493039d7291df5] https://lava.sirena.=
+org.uk/scheduler/job/2054782
+# test job: [84f5526e4dce0a44d050ceb1b1bf21d43016d91b] https://lava.sirena.=
+org.uk/scheduler/job/2053642
+# test job: [8da0efc3da9312b65f5cbf06e57d284f69222b2e] https://lava.sirena.=
+org.uk/scheduler/job/2038272
+# test job: [249d96b492efb7a773296ab2c62179918301c146] https://lava.sirena.=
+org.uk/scheduler/job/2043898
+# test job: [55f97faf872612ac604ae72eb1968e6619cc41be] https://lava.sirena.=
+org.uk/scheduler/job/2065669
+# bad: [55f97faf872612ac604ae72eb1968e6619cc41be] Merge branch 'for-linux-n=
+ext-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
+git bisect bad 55f97faf872612ac604ae72eb1968e6619cc41be
+# test job: [1f007059d445f5a1904328b3d34ad462329ba314] https://lava.sirena.=
+org.uk/scheduler/job/2065857
+# good: [1f007059d445f5a1904328b3d34ad462329ba314] Merge branch 'usb-linus'=
+ of https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git
+git bisect good 1f007059d445f5a1904328b3d34ad462329ba314
+# test job: [0319e334a50bdc96486bca1f44828c55ea9d3008] https://lava.sirena.=
+org.uk/scheduler/job/2066320
+# good: [0319e334a50bdc96486bca1f44828c55ea9d3008] Merge branch 'reset/fixe=
+s' of https://git.pengutronix.de/git/pza/linux
+git bisect good 0319e334a50bdc96486bca1f44828c55ea9d3008
+# test job: [4fc9ec35871028dc4db558d1bb74f18075544a61] https://lava.sirena.=
+org.uk/scheduler/job/2066361
+# bad: [4fc9ec35871028dc4db558d1bb74f18075544a61] Merge branch 'dma-mapping=
+-fixes' of https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linu=
+x.git
+git bisect bad 4fc9ec35871028dc4db558d1bb74f18075544a61
+# test job: [0e5ba55750c1f7fb194a0022b8c887e6413da9b1] https://lava.sirena.=
+org.uk/scheduler/job/2066403
+# good: [0e5ba55750c1f7fb194a0022b8c887e6413da9b1] Merge tag 'kvm-x86-fixes=
+-6.18-rc5' of https://github.com/kvm-x86/linux into HEAD
+git bisect good 0e5ba55750c1f7fb194a0022b8c887e6413da9b1
+# test job: [ca00c3af8ede65d16097d322be330146d9231bd2] https://lava.sirena.=
+org.uk/scheduler/job/2066412
+# bad: [ca00c3af8ede65d16097d322be330146d9231bd2] Merge tag 'kvmarm-fixes-6=
+=2E18-2' of git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm int=
+o HEAD
+git bisect bad ca00c3af8ede65d16097d322be330146d9231bd2
+# test job: [103e17aac09cdd358133f9e00998b75d6c1f1518] https://lava.sirena.=
+org.uk/scheduler/job/2066443
+# good: [103e17aac09cdd358133f9e00998b75d6c1f1518] KVM: arm64: Check the un=
+trusted offset in FF-A memory share
+git bisect good 103e17aac09cdd358133f9e00998b75d6c1f1518
+# test job: [50e7cce81b9b2fbd6f0104c1698959d45ce3cf58] https://lava.sirena.=
+org.uk/scheduler/job/2066695
+# bad: [50e7cce81b9b2fbd6f0104c1698959d45ce3cf58] KVM: arm64: Limit clearin=
+g of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+git bisect bad 50e7cce81b9b2fbd6f0104c1698959d45ce3cf58
+# test job: [8a9866ff860052efc5f9766f3f87fae30c983156] https://lava.sirena.=
+org.uk/scheduler/job/2067273
+# good: [8a9866ff860052efc5f9766f3f87fae30c983156] KVM: arm64: Set ID_{AA64=
+PFR0,PFR1}_EL1.GIC when GICv3 is configured
+git bisect good 8a9866ff860052efc5f9766f3f87fae30c983156
+# first bad commit: [50e7cce81b9b2fbd6f0104c1698959d45ce3cf58] KVM: arm64: =
+Limit clearing of ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+
+--nRXSjGhbC5T2SNGb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkR3+cACgkQJNaLcl1U
+h9C6NQf/QpXxlBL+dOCgyvN7uHqPNfyP+iIy22iJJo96x+lyS1mqROYi/Hm7HQIz
+oCjo3Cr+evfFmVqaIChBKwl8+uZIhxw8afASOxYydgrq9+vjFJ6XlEQ5HIbskd4h
+d7nJpW2RjJrpcPEGg9qnWWuvqkNfWo/BZKwvwu/7DlkWKMOklYaXqLianYM5vZyg
+MVjIB8ot3dN5oQ7pRbT9I1ayFxUbFAMr/lZjwiDU9UAbUV3H9tVJCc7ZUrcP+Pw/
+6oKDpbE2F8yauT4e3nzeTt5/Dw6xDjDao6MjAxSR+V8VDNbMjYf6xCbn0OKF6ui6
+ZxQuN+pbxUOm7TVwAtirRPCCX7ruZQ==
+=yEKR
+-----END PGP SIGNATURE-----
+
+--nRXSjGhbC5T2SNGb--
 
