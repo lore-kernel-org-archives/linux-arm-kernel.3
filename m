@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BCACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F147ECCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DZfPFalJwrVX1q1/mnMxDVIiG9XTqxEgcvGDiWKnJZM=; b=tf0buP/CvtP23GtovmxeiTXdY5
-	ljGQhr2amvu/+9N7u4KzBZIARqxOw30WKMIjpj1EYXyjvXLHomHwtxBHe0aBkfLE++HfmiM6UuFLB
-	AyHGfMJ4GVqe9J3kCdzyenkCVlQO+vy/ML2lrtvLNB6TM2pzXWhxqU3QppVYP1tOnTkznN8JO2URq
-	HVBra1tlVtWyB92ZVKnctE1X+hSAN9tTFksTp0z8pVrqoG3iHrqZXPZ84iOpSTbYLQsrhMsALW/NZ
-	OmOMsF67HiSHq4m8fWNAnECencGcitdPeEg1DJTFGutcCygJqa+bX6rITqldWyxlqVKUD0CphnRCP
-	1/G5JOxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C67O4LVeg8WMDJ8KU9F1/iW0QK6epKrLMnUjULyR+wE=; b=5Goh5Q+yuejyT+7rXznNp09g1J
+	WQkAYKTJiJdczoIvPluB8g2q1+yssKOI01CvTSgCRCUA/UgSg8rzU5SUfujL1YHGVCn4a0bG+Tmvh
+	7C1DgHEHd1OzJWe6QhvyqnVs50qiQgnJcvmiB6xThJUbQxy1PAtMEXWKpM6Q7ggCYs1qQg3ajk+rP
+	rQhM7r6Bq9bodh75nj1nuoGyOFS9+/MWYw5qEeC/haW5IiUgz0HnWVGYs3SEPNaFnnAM/Mvw/CcSh
+	zlf0SQt4avjUFwEekfmx84t+6BUw0yrJIVPo62t4t9QMhYJok5HtOy78A+wNtGt8jjSMJLpszfBhW
+	3SOzI0Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIU6B-00000005izC-0OK7;
-	Mon, 10 Nov 2025 15:46:31 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vIU8C-00000005jGM-00lh;
+	Mon, 10 Nov 2025 15:48:36 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIU67-00000005iwa-3B6D
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 15:46:29 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4vC96lp4zHnGck;
-	Mon, 10 Nov 2025 23:45:57 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5082514038F;
-	Mon, 10 Nov 2025 23:46:13 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
- 2025 15:46:11 +0000
-Date: Mon, 10 Nov 2025 15:46:10 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
-	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
-	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
-	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
-	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
-	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
-	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-Subject: Re: [PATCH 03/33] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use
- pptt cache as one structure
-Message-ID: <20251110154610.00002247@huawei.com>
-In-Reply-To: <20251107123450.664001-4-ben.horgan@arm.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-	<20251107123450.664001-4-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vIU8A-00000005jGC-3aZM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Nov 2025 15:48:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=C67O4LVeg8WMDJ8KU9F1/iW0QK6epKrLMnUjULyR+wE=; b=wJ0M+0LacOP1OLv0g4ScRMqglS
+	LJK9h7xh6K4qf0modj5inMpydmTdGbcMa7u9oY50NBpmiUWjjm5opruYL1W72Y/GSXDF7DHO25qvl
+	586Dr6AONOKccWRf436bm2xB571dWjwNdOivv0ZI/CfrO4M/nk0JrLuNmgUUCwJIjsx7OGodPSPQe
+	phSKMDJo6WAUVBX4EMKgDFu58GhCxYg0ZomDpAcyLYAzI8slSTAwij3VIviu89UTMFO0YE+gtPFnF
+	WqwJJegK0lW/mea8+L2aG91IiywF2Z/9h726ZmklZ5XudGqzHMoitlRUo7gWB+t5NQNkaMGgzzgTU
+	eyvGuy2Q==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIU85-000000016gd-0EKo;
+	Mon, 10 Nov 2025 15:48:29 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DE6E330029E; Mon, 10 Nov 2025 16:48:27 +0100 (CET)
+Date: Mon, 10 Nov 2025 16:48:27 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v9 2/5] perf: arm_spe: Add support for filtering on data
+ source
+Message-ID: <20251110154827.GA278048@noisy.programming.kicks-ass.net>
+References: <20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org>
+ <20251029-james-perf-feat_spe_eft-v9-2-d22536b9cf94@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_074628_089658_229E0608 
-X-CRM114-Status: GOOD (  30.94  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029-james-perf-feat_spe_eft-v9-2-d22536b9cf94@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,164 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Nov 2025 12:34:20 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
-
-> In actbl2.h, struct acpi_pptt_cache describes the fields in the original
-> cache type structure. In PPTT table version 3 a new field was added at the
-> end, cache_id. This is described in struct acpi_pptt_cache_v1. Introduce
-> the new, acpi_pptt_cache_v1_full to contain both these structures. Update
-> the existing code to use this new struct. This simplifies the code, removes
-> a non-standard use of ACPI_ADD_PTR and allows using the length in the
-> header to check if the cache_id is valid.
+On Wed, Oct 29, 2025 at 03:46:02PM +0000, James Clark wrote:
+> SPE_FEAT_FDS adds the ability to filter on the data source of packets.
+> Like the other existing filters, enable filtering with PMSFCR_EL1.FDS
+> when any of the filter bits are set.
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-
-Whilst I wish the ACPICA stuff did structures like this, I'm not sure
-if the ACPI maintainers will feel it is appropriate to work around it
-with generic sounding structures like this one.
-
-I'd also say that we should only cast it to your _full structure
-if we know we have rev 3 of PPTT.  Otherwise we should continue manipulating
-it as a struct acpi_pptt_cache
-
-> ---
-> Changes since v3:
-> New patch
-> ---
->  drivers/acpi/pptt.c | 104 ++++++++++++++++++++++++--------------------
->  1 file changed, 58 insertions(+), 46 deletions(-)
+> Each bit maps to data sources 0-63 described by bits[0:5] in the data
+> source packet (although the full range of data source is 16 bits so
+> higher value data sources can't be filtered on). The filter is an OR of
+> all the bits, so for example clearing bits 0 and 3 only includes packets
+> from data sources 0 OR 3.
 > 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index 1027ca3566b1..1ed2099c0d1a 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -21,6 +21,11 @@
->  #include <linux/cacheinfo.h>
->  #include <acpi/processor.h>
->  
-> +struct acpi_pptt_cache_v1_full {
-> +	struct acpi_pptt_cache		f;
-> +	struct acpi_pptt_cache_v1	extra;
-> +} __packed;
+> Invert the filter given by userspace so that the default value of 0 is
+> equivalent to including all values (no filtering). This allows us to
+> skip adding a new format bit to enable filtering and still support
+> excluding all data sources which would have been a filter value of 0 if
+> not for the inversion.
 
-> +#define ACPI_PPTT_CACHE_V1_LEN sizeof(struct acpi_pptt_cache_v1_full)
-> +
-> +/*
-> + * From PPTT table version 3, a new field cache_id was added at the end of
-> + * the cache type structure.  We now use struct acpi_pptt_cache_v1_full,
-> + * containing the cache_id, everywhere but must check validity before accessing
-> + * the cache_id.
-> + */
-> +static bool acpi_pptt_cache_id_is_valid(struct acpi_pptt_cache_v1_full *cache)
-> +{
-> +	return (cache->f.header.length >= ACPI_PPTT_CACHE_V1_LEN &&
+So from that I'm reading the config4 field will only have like 16 bits,
+but here:
 
-Although I later say I don't think you should pass a v1_full structure in here (as
-we don't know it is at least that large until after this check) if you do keep this
-why not use sizeof(*cache) and get rid of the V1_LEN definition as providing no obvious
-value here?
+> +#define ATTR_CFG_FLD_inv_data_src_filter_CFG	config4	/* inverse of PMSDSFR_EL1 */
+> +#define ATTR_CFG_FLD_inv_data_src_filter_LO	0
+> +#define ATTR_CFG_FLD_inv_data_src_filter_HI	63
 
-> +		cache->f.flags & ACPI_PPTT_CACHE_ID_VALID);
->  }
+you claim all 64 bits.
 
-> @@ -355,7 +374,6 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
->   * @this_leaf: Kernel cache info structure being updated
->   * @found_cache: The PPTT node describing this cache instance
->   * @cpu_node: A unique reference to describe this cache instance
-> - * @revision: The revision of the PPTT table
->   *
->   * The ACPI spec implies that the fields in the cache structures are used to
->   * extend and correct the information probed from the hardware. Lets only
-> @@ -364,23 +382,20 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
->   * Return: nothing. Side effect of updating the global cacheinfo
->   */
->  static void update_cache_properties(struct cacheinfo *this_leaf,
-> -				    struct acpi_pptt_cache *found_cache,
-> -				    struct acpi_pptt_processor *cpu_node,
-> -				    u8 revision)
-> +				    struct acpi_pptt_cache_v1_full *found_cache,
-> +				    struct acpi_pptt_processor *cpu_node)
->  {
-> -	struct acpi_pptt_cache_v1* found_cache_v1;
-> -
->  	this_leaf->fw_token = cpu_node;
-> -	if (found_cache->flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
-> -		this_leaf->size = found_cache->size;
-> -	if (found_cache->flags & ACPI_PPTT_LINE_SIZE_VALID)
-> -		this_leaf->coherency_line_size = found_cache->line_size;
-> -	if (found_cache->flags & ACPI_PPTT_NUMBER_OF_SETS_VALID)
-> -		this_leaf->number_of_sets = found_cache->number_of_sets;
-> -	if (found_cache->flags & ACPI_PPTT_ASSOCIATIVITY_VALID)
-> -		this_leaf->ways_of_associativity = found_cache->associativity;
-> -	if (found_cache->flags & ACPI_PPTT_WRITE_POLICY_VALID) {
-> -		switch (found_cache->attributes & ACPI_PPTT_MASK_WRITE_POLICY) {
-> +	if (found_cache->f.flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
-> +		this_leaf->size = found_cache->f.size;
-> +	if (found_cache->f.flags & ACPI_PPTT_LINE_SIZE_VALID)
-> +		this_leaf->coherency_line_size = found_cache->f.line_size;
-> +	if (found_cache->f.flags & ACPI_PPTT_NUMBER_OF_SETS_VALID)
-> +		this_leaf->number_of_sets = found_cache->f.number_of_sets;
-> +	if (found_cache->f.flags & ACPI_PPTT_ASSOCIATIVITY_VALID)
-> +		this_leaf->ways_of_associativity = found_cache->f.associativity;
-> +	if (found_cache->f.flags & ACPI_PPTT_WRITE_POLICY_VALID) {
-> +		switch (found_cache->f.attributes & ACPI_PPTT_MASK_WRITE_POLICY) {
->  		case ACPI_PPTT_CACHE_POLICY_WT:
->  			this_leaf->attributes = CACHE_WRITE_THROUGH;
->  			break;
-> @@ -389,8 +404,8 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
->  			break;
->  		}
->  	}
-> -	if (found_cache->flags & ACPI_PPTT_ALLOCATION_TYPE_VALID) {
-> -		switch (found_cache->attributes & ACPI_PPTT_MASK_ALLOCATION_TYPE) {
-> +	if (found_cache->f.flags & ACPI_PPTT_ALLOCATION_TYPE_VALID) {
-> +		switch (found_cache->f.attributes & ACPI_PPTT_MASK_ALLOCATION_TYPE) {
->  		case ACPI_PPTT_CACHE_READ_ALLOCATE:
->  			this_leaf->attributes |= CACHE_READ_ALLOCATE;
->  			break;
-> @@ -415,13 +430,11 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
->  	 * specified in PPTT.
->  	 */
->  	if (this_leaf->type == CACHE_TYPE_NOCACHE &&
-> -	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)
-> +	    found_cache->f.flags & ACPI_PPTT_CACHE_TYPE_VALID)
->  		this_leaf->type = CACHE_TYPE_UNIFIED;
->  
-> -	if (revision >= 3 && (found_cache->flags & ACPI_PPTT_CACHE_ID_VALID)) {
-> -		found_cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> -	                                      found_cache, sizeof(struct acpi_pptt_cache));
-> -		this_leaf->id = found_cache_v1->cache_id;
-> +	if (acpi_pptt_cache_id_is_valid(found_cache)) {
+Also, afaict:
 
-Only here do we know that found_cache is the _full type. 
+  #define ATTR_CFG_FLD_min_latency_CFG            config2 /* PMSLATFR_EL1.MINLAT */
+  #define ATTR_CFG_FLD_min_latency_LO             0
+  #define ATTR_CFG_FLD_min_latency_HI             11
 
-> +		this_leaf->id = found_cache->extra.cache_id;
->  		this_leaf->attributes |= CACHE_ID;
->  	}
->  }
-> @@ -429,7 +442,7 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
->  static void cache_setup_acpi_cpu(struct acpi_table_header *table,
->  				 unsigned int cpu)
->  {
-> -	struct acpi_pptt_cache *found_cache;
-> +	struct acpi_pptt_cache_v1_full *found_cache;
+Still has more than 16 bits left.
 
-This isn't necessarily valid. Until deep in update_cache_properties() we don't care about the ID
-so this structure may be smaller than this implies.
 
->  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
->  	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->  	struct cacheinfo *this_leaf;
-> @@ -445,8 +458,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
->  		pr_debug("found = %p %p\n", found_cache, cpu_node);
->  		if (found_cache)
->  			update_cache_properties(this_leaf, found_cache,
-> -						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)),
-> -						table->revision);
-> +						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)));
->  
->  		index++;
->  	}
-
+So why exactly are we needing config4? Can we please get a more solid
+argument?
 
