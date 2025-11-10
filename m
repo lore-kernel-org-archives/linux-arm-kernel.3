@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A72CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2165ACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 14:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRboUnYjJ3UtYnWmXwhNRQ5iDRKMIY8Ejv+CAbpIwoQ=; b=aoC7/p6dzOrOg5CZ8Au1yBKe3v
-	bBvpeOVkmNGISQx3hr3KwLsMWjpXZvlUh+oBRgIq8NTZgdYpkLRpeLxywDvJ7YRIa7KG3cl8nrUh2
-	lMwiThDGmAccaRSsrWMe3vMTR5Co+LN4xXw54/vgBaJwTXs5Sm7zLbD2PefJBpXIkb71J0DMRNhod
-	S4uUUzDqvVztDa1XMwEqMQX8/pYb8uzj/mdVJe1wGQfXWWe0oxaJtAiS6ZrnBq392YU6hbpDuTBi2
-	RNJbrhyhMt6m6Pa+LcrLicHe3P92JCxd6hD2c14flJFroR5THV/0bpz71mql2fXUUafVh3jW5ZzV1
-	0LPWbccg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AixT7Oh+5FxWWMEZrxu1kDjvQPH8JSRwqc8kK2kvJaU=; b=QzgfSQyCVu0/7Qg7umm9EH3AYM
+	tKb6jwqJAJv9/MfN+itV003SChay2JeGPfOFJEfef/9UxY9GFtko34cERlpEpJIr5IQx6xTcWUsw3
+	wFNRSpXy+ej3lwVe0XoK4Jjf2CHo1OsMbyjHz4sjlQMSI6xoJk2CfsIFvrkUfzVceXaX7fRZb9wkF
+	JiDjQ4H6OSSqqKUHw8LtuuGtRbJ5t/sOYWtJlOqEeuAUWd8y7aW2K/spYs8G7OZQ4TSLCxaQTsKz7
+	osmmBC89F13Kmc6i4+bwl9+gYN1PeUeRhgx5gcq6NEMtd1TdpnindvTeEuYuLtZLkfL/bJL/b1uv6
+	fO5sx4Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISgA-00000005YqS-2MyH;
-	Mon, 10 Nov 2025 14:15:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vISjz-00000005Z6n-0GxY;
+	Mon, 10 Nov 2025 14:19:31 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISg7-00000005Ypr-0e1Q
+	id 1vISjx-00000005Z6N-0ddb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 14:15:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 823DF4060F;
-	Mon, 10 Nov 2025 14:15:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6A5AC16AAE;
-	Mon, 10 Nov 2025 14:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762784130;
-	bh=Zjtpe0PcMapcWqqZkDdW+4o/kiPNnUphphvNHXelxIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GA42ph7s2s7+Yl7kwe6WfC59VTGLEboLESGwJyU1V1aigA81vgr0GaSEHqSq7Vzou
-	 aOjGL/skU+9gr0wuCZMkj+dYY/k99CGv8IbvjRMfgDJMAQcpafQ4rwxR0DskeKbd3c
-	 k/bly5tjvA0+25B5Klj3vQzAF4hK2DyU+2f8gFGIOiQSJa4fbeNo8UKuG4+32R8DA5
-	 iSkb4zzDc1K0xysjIYCXJNR1NgLDu7br3jUdOPz2AKgTblQFRc9GFLk5pVh9C81U4K
-	 6AgVr8+MQWs+dUxApCQXJAdol1IPGOCqnjX1DZb1UwVGbi1l6ib1pncC4w5c1ntAiz
-	 4kwn8cI0TPScQ==
-Date: Mon, 10 Nov 2025 14:15:27 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v2 3/3] KVM: arm64: Limit clearing of
- ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
-Message-ID: <aRHzf5wgJg5vSoKo@finisterre.sirena.org.uk>
-References: <20251030122707.2033690-1-maz@kernel.org>
- <20251030122707.2033690-4-maz@kernel.org>
- <aRHf6x5umkTYhYJ3@finisterre.sirena.org.uk>
- <865xbiuj6e.wl-maz@kernel.org>
+	Mon, 10 Nov 2025 14:19:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 29A7C1A19AE;
+	Mon, 10 Nov 2025 14:19:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E8E9E606F5;
+	Mon, 10 Nov 2025 14:19:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B459D1037176A;
+	Mon, 10 Nov 2025 15:19:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762784365; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=AixT7Oh+5FxWWMEZrxu1kDjvQPH8JSRwqc8kK2kvJaU=;
+	b=tGk9KTsQI2Q65bzJrFFGVZMBlqJL0S5t7NCc7oHdD3VkJ7+4DvdWCQ1H+fAUPwNSCCkKTo
+	mb4cak229bqD5R2nYdIofNZNfCwEYFNwjrDP2XMzY4gRkKtvgxHNNDrEpzrh+F7s+3tohi
+	IF88La9EBzOBGWNmzeDbgNfVvwUMISSod2H02ulMO04OGgjoqPISyStUXuj5kb6RpzzPfx
+	u3G2MpuRo2y5hlF0j1NqsgamhemSCsrxPqK4Z/TgsRHzg6He2ENBbGaz16F4XH62zhf7nz
+	ypVF6xKKeHJphkB1yWfga+Le2zF3iBCyw2R7QXAhmJKB/9bIEv/riz+QGqXDXQ==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Josua Mayer <josua@solid-run.com>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Rabeeh Khoury <rabeeh@solid-run.com>, Yazan Shhady
+ <yazan.shhady@solid-run.com>, Mikhail Anikin
+ <mikhail.anikin@solid-run.com>, Jon Nettleton <jon@solid-run.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Josua Mayer
+ <josua@solid-run.com>
+Subject: Re: [PATCH 1/2] Revert "arm64: dts: marvell: cn9132-clearfog: fix
+ multi-lane pci x2 and x4 ports"
+In-Reply-To: <20251030-cn913x-pci-clk-v1-1-e034d5903df1@solid-run.com>
+References: <20251030-cn913x-pci-clk-v1-0-e034d5903df1@solid-run.com>
+ <20251030-cn913x-pci-clk-v1-1-e034d5903df1@solid-run.com>
+Date: Mon, 10 Nov 2025 15:19:23 +0100
+Message-ID: <87pl9qrmvo.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nmuVcHVoFc1KSfwu"
-Content-Disposition: inline
-In-Reply-To: <865xbiuj6e.wl-maz@kernel.org>
-X-Cookie: You dialed 5483.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_061531_209262_B5FCA13A 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20251110_061929_345521_57527972 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +84,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Josua Mayer <josua@solid-run.com> writes:
 
---nmuVcHVoFc1KSfwu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> This reverts commit 794a066688038df46c01e177cc6faebded0acba4 because it
+> misunderstood interworking between arm trusted firmware and the common
+> phy driver, and does not consistently resolve the issue it was intended
+> to address.
+>
+> Further diagnostics have revealed the root cause for the reported system
+> lock-up in a race condition between pci driver probe and clock core
+> disabling unused clocks.
+>
+> Revert the wrong change restoring driver control over all pci lanes.
+> As a temporary workaround for the original issue, users can boot with
+> "clk_ignore_unused".
+>
+> Signed-off-by: Josua Mayer <josua@solid-run.com>
 
-On Mon, Nov 10, 2025 at 01:11:05PM +0000, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
 
-> > Today's next/pending-fixes is showing regressions on a range of physical
-> > arm64 platforms (including at least a bunch of A53 systems, an A55 one
-> > and an A72 one) in the steal_time selftest which bisect to this patch.
-> > We get asserts in the kernel on ID register sets:
+Applied on mvebu/dt64
 
-> Please name the platforms this fails on. Here, on a sample of one A72
-> box, I don't see the issue:
+Thanks,
 
-It looks like it's GICv2 that's affected - I'm seeing this on at least
-Raspberry Pi 3B+ and 4, Pine 64 Plus and Libretech Potato, Solitude and
-Tritum.  The platforms with GICv3 that I have results for (eg, the
-Toradex Verdin i.MX8MP and Mallow AM625) all seem fine.
+Gregory
 
---nmuVcHVoFc1KSfwu
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+> ---
+>  arch/arm64/boot/dts/marvell/cn9132-clearfog.dts | 16 ++--------------
+>  1 file changed, 2 insertions(+), 14 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts b/arch/arm64=
+/boot/dts/marvell/cn9132-clearfog.dts
+> index 5cf83d8ca1f59..2507896d58f9b 100644
+> --- a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+> +++ b/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+> @@ -413,13 +413,7 @@ fixed-link {
+>  /* SRDS #0,#1,#2,#3 - PCIe */
+>  &cp0_pcie0 {
+>  	num-lanes =3D <4>;
+> -	/*
+> -	 * The mvebu-comphy driver does not currently know how to pass correct
+> -	 * lane-count to ATF while configuring the serdes lanes.
+> -	 * Rely on bootloader configuration only.
+> -	 *
+> -	 * phys =3D <&cp0_comphy0 0>, <&cp0_comphy1 0>, <&cp0_comphy2 0>, <&cp0=
+_comphy3 0>;
+> -	 */
+> +	phys =3D <&cp0_comphy0 0>, <&cp0_comphy1 0>, <&cp0_comphy2 0>, <&cp0_co=
+mphy3 0>;
+>  	status =3D "okay";
+>  };
+>=20=20
+> @@ -481,13 +475,7 @@ &cp1_eth0 {
+>  /* SRDS #0,#1 - PCIe */
+>  &cp1_pcie0 {
+>  	num-lanes =3D <2>;
+> -	/*
+> -	 * The mvebu-comphy driver does not currently know how to pass correct
+> -	 * lane-count to ATF while configuring the serdes lanes.
+> -	 * Rely on bootloader configuration only.
+> -	 *
+> -	 * phys =3D <&cp1_comphy0 0>, <&cp1_comphy1 0>;
+> -	 */
+> +	phys =3D <&cp1_comphy0 0>, <&cp1_comphy1 0>;
+>  	status =3D "okay";
+>  };
+>=20=20
+>
+> --=20
+> 2.51.0
+>
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkR834ACgkQJNaLcl1U
-h9BOeQf9F0JppM6Dk5c7+DhSmGwO4/k/K/NN2DSDzXyrzdW9KWlMWhKIfk0uvhLD
-7Ne8pxY4YiamvsR/BgueeBbMum8BTfEZdT8nIkMdksIEDXrTTNz59bsDyqSw836z
-vvrIGpN1rtR8w61ptev/8jF9EDH3QQF+GkoRF6RFOW0rMMNMIN7EHciTVHcE2xBW
-T0Cf2fVgdYQAGNIs4j1dO3mmttXmQwNPeUAbasMw2qo8mw4kSqCGBhKO4mqvLBy4
-UQcK5zFxuf4S4gQCHTkBUHbiBReMvtgJJOV9wOA9+mK3KOwKC2+cuhVUfNl1s3zd
-Fs1H3D7kNPzDwNJl47kxXxHRqeQjHA==
-=/URp
------END PGP SIGNATURE-----
-
---nmuVcHVoFc1KSfwu--
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
