@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25557CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49DBCCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 17:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UrlnYr2OGNH8FyWe+gS7yC2hjzo4JeU2FJJhE5PNXkY=; b=Tss8zvR/upEQZFUVLs91rtatTB
-	mKm8qkzGG6WCaZQgFuRU7vjMaHvjEVYDD632WDi7BXC8CaGBPfaRpvWl4UogL5iwBven60SEJ9k2k
-	npE7/jeI6sid70aMS/7Hmw/67qSGXrHkhnOSEjV/byuweMRz9jKsQ/aSh9AKLfdE3VzaKkSISOcV+
-	axyeh03RaVHjr6i2KzCECNprbw00/Ss9bco5/ZPN1IS6wxzfHmVwITTUmOdD3Q+NoFgqNAy9tvGnE
-	EH5WCptXWZvxaPpmapSLXndf3U2qmg31ac5D3FFnb09iDqki5pBzGNaZLCnx8UMprPJU+X0X96CAB
-	rqrKgkmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4FEOe3G/ejZfOH+70a6BDycUtOyUa90Mh2k1eZdq6Ao=; b=nMnnYide/8mWNc30V1dwDtI64i
+	4kgr0eri+4PFLHmdmfAnMzHifWCm3knO5CRFh8Lkuce1qxU0mn9wF8SKFjbneJTrxSd4gIKcUK6mX
+	cuYMCbyRdl7z6OhSzYh6d/mv9xdaCACcvGmX90l0IuezmuE7yU/yL4wyNKPP4wujlK8yfTJCwbukW
+	TOtMVWwNKhZZdGmiSwaUWvAcopt581Nv0Rs5+Yl/lc+NoLD173Q9IKRddx6dnsTzw4jkhhOz9QmVl
+	cGV1KOJcL5ydru6hcvrftwDg9hf7EmguxXfsvvCFBas2NT1NCQl72qaWr2YveD/ZAub4waCU7ss10
+	HGuBs/vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVJK-00000005sRf-1Irk;
-	Mon, 10 Nov 2025 17:04:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIVJH-00000005sRA-2NkJ
+	id 1vIVPs-00000005sly-0lEF;
+	Mon, 10 Nov 2025 17:10:56 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIVPo-00000005slR-0S54
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 17:04:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BF422B;
-	Mon, 10 Nov 2025 09:03:58 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8ADF43F66E;
-	Mon, 10 Nov 2025 09:04:01 -0800 (PST)
-Date: Mon, 10 Nov 2025 18:04:04 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Bowen Yu <yubowen8@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, ptsm@linux.microsoft.com,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	zhanjie9@hisilicon.com, prime.zeng@hisilicon.com,
-	wanghuiqiang@huawei.com, xuwei5@huawei.com, zhenglifeng1@huawei.com,
-	zhangpengjie2@huawei.com
-Subject: Re: [PATCH 1/3] arm64: topology: Improve AMU-based frequency
- calculation
-Message-ID: <aRIbBBBl8mxd2rtC@arm.com>
-References: <20251104075544.3243606-1-yubowen8@huawei.com>
- <20251104075544.3243606-2-yubowen8@huawei.com>
+	Mon, 10 Nov 2025 17:10:54 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4x4h1wTRzHnGfG;
+	Tue, 11 Nov 2025 01:10:28 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id BA68B14033C;
+	Tue, 11 Nov 2025 01:10:43 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
+ 2025 17:10:42 +0000
+Date: Mon, 10 Nov 2025 17:10:41 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, "Shaopeng Tan" <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH 11/33] arm_mpam: Add the class and component structures
+ for firmware described ris
+Message-ID: <20251110171041.00000a0d@huawei.com>
+In-Reply-To: <20251107123450.664001-12-ben.horgan@arm.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+	<20251107123450.664001-12-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251104075544.3243606-2-yubowen8@huawei.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_090408_106250_ED900DDE 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20251110_091052_443510_D232E8DA 
+X-CRM114-Status: GOOD (  35.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,146 +84,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 04, 2025 at 03:55:42PM +0800, Bowen Yu wrote:
-> The current approach of reverse-calculating CPU frequency from capacity
-> values introduces quantization errors due to intermediate scaling of
-> arch_scale_freq_capacity, which results in the calculated frequency having
-> only 1/1024 resolution.
-> 
-> This patch:
-> 1. Directly computes frequency using AMU counters in amu_scale_freq_tick():
-> freq = (core_cycles_delta * timer_freq) / (const_cycles_delta * 1000)
->  - core_cycles_delta: Measured CPU cycles
->  - timer_freq: Architectural timer frequency
->  - const_cycles_delta: Reference cycles from fixed-frequency timer
-> 2. Returns pre-computed avgfreq in arch_freq_get_on_cpu()
-> 
-> examples:
-> Before change
-> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
-> 2297851
-> 2297851
-> 2295312
-> 2297851
-> 2297851
-> 2295312
-> 2297851
-> 2295312
-> 2297851
-> 2297851
-> 2297851
-> 2295312
-> 2295312
-> 2297851
-> 2297851
-> 2297851
-> 2297851
-> 2300390
-> 2297851
-> 2297851
-> 2297851
-> 
-> After change
-> [root@localhost ~]# cat /sys/devices/system/cpu/cpufreq/policy*/cpuinfo_avg_freq
-> 2299177
-> 2298117
-> 2299188
-> 2297330
-> 2296530
-> 2298817
-> 2298434
-> 2298986
-> 2298596
-> 2299395
-> 2299560
-> 2298446
-> 2299108
-> 2299294
-> 2298707
-> 2298453
-> 2298632
-> 2299218
-> 2297962
-Based on your numbers the shift is on average ~0.055–0.057%.
-I'm not entirely convinced it is worth it, especially that this is an average
-frequency. What is the use case here if < 0,2% makes a difference ?
+On Fri,  7 Nov 2025 12:34:28 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
----
-BR
-Beata
+> From: James Morse <james.morse@arm.com>
 > 
-> Signed-off-by: Bowen Yu <yubowen8@huawei.com>
+> An MSC is a container of resources, each identified by their RIS index.
+> Some RIS are described by firmware to provide their position in the system.
+> Others are discovered when the driver probes the hardware.
+> 
+> To configure a resource it needs to be found by its class, e.g. 'L2'.
+> There are two kinds of grouping, a class is a set of components, which
+> are visible to user-space as there are likely to be multiple instances
+> of the L2 cache. (e.g. one per cluster or package)
+> 
+> Add support for creating and destroying structures to allow a hierarchy
+> of resources to be created.
+> 
+> CC: Ben Horgan <ben.horgan@arm.com>
+Hi Ben,
+
+Remember to clear out CC'ing yourself.
+
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  arch/arm64/kernel/topology.c | 20 +++++++++++---------
->  1 file changed, 11 insertions(+), 9 deletions(-)
+> Changes since v3:
+> Jonathan:
+> Code reordering.
+
+I'm guessing I may have sent things in a slightly less than ideal directly.
+
+Why can't we have ordering as follows (with no forwards declarations)
+
+mpam_class_alloc()
+mpam_class_destroy()
+//maybe other mpam_class stuff here
+mpam_component_alloc()
+mpam_component_destroy() - needs mpam_class_destroy()
+//maybe other mpam_component stuff here
+mpam_vmsc_alloc()
+mpam_vmsc_destroy() - needs mpam_component_destroy()
+//other mpam_vmsc here
+mpam_ris_create_locked() - needs all the destroys.
+mpam_ris_destroy() - needs mpam vmsc_destroy()
+
+I may well have missed a more complex dependency chain.
+
+Other than that, LGTM. Given any change in ordering can be trivially verified
+by building it and Gavin's comments seem simple to resolve.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+
+> Comments.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 393 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  94 ++++++++
+>  include/linux/arm_mpam.h        |   5 +
+>  3 files changed, 491 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 5d07ee85bdae..c0dbc27289ea 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -20,6 +20,7 @@
->  #include <linux/percpu.h>
->  #include <linux/sched/isolation.h>
->  #include <linux/xarray.h>
-> +#include <linux/units.h>
->  
->  #include <asm/cpu.h>
->  #include <asm/cputype.h>
-> @@ -144,6 +145,8 @@ int __init parse_acpi_topology(void)
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 6c6be133d73a..48a344d5cb43 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -36,6 +36,384 @@ struct srcu_struct mpam_srcu;
 >   */
->  static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
->  static cpumask_var_t amu_fie_cpus;
-> +static DEFINE_PER_CPU(unsigned long, core_delta);
-> +static DEFINE_PER_CPU(unsigned long, const_delta);
+>  static atomic_t mpam_num_msc;
 >  
->  struct amu_cntr_sample {
->  	u64		arch_const_cycles_prev;
-> @@ -246,6 +249,7 @@ static void amu_scale_freq_tick(void)
->  	 * arch_max_freq_scale and the use of SCHED_CAPACITY_SHIFT.
->  	 */
->  	scale = core_cnt - prev_core_cnt;
-> +	this_cpu_write(core_delta, scale);
->  	scale *= this_cpu_read(arch_max_freq_scale);
->  	scale = div64_u64(scale >> SCHED_CAPACITY_SHIFT,
->  			  const_cnt - prev_const_cnt);
-> @@ -253,6 +257,7 @@ static void amu_scale_freq_tick(void)
->  	scale = min_t(unsigned long, scale, SCHED_CAPACITY_SCALE);
->  	this_cpu_write(arch_freq_scale, (unsigned long)scale);
->  
-> +	this_cpu_write(const_delta, const_cnt - prev_const_cnt);
->  	amu_sample->last_scale_update = jiffies;
->  }
->  
-> @@ -288,7 +293,7 @@ int arch_freq_get_on_cpu(int cpu)
->  	unsigned int start_cpu = cpu;
->  	unsigned long last_update;
->  	unsigned int freq = 0;
-> -	u64 scale;
-> +	u64 delta_core_kHz;
->  
->  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
->  		return -EOPNOTSUPP;
-> @@ -340,14 +345,11 @@ int arch_freq_get_on_cpu(int cpu)
->  			break;
->  		}
->  	}
-> -	/*
-> -	 * Reversed computation to the one used to determine
-> -	 * the arch_freq_scale value
-> -	 * (see amu_scale_freq_tick for details)
-> -	 */
-> -	scale = arch_scale_freq_capacity(cpu);
-> -	freq = scale * arch_scale_freq_ref(cpu);
-> -	freq >>= SCHED_CAPACITY_SHIFT;
+> +/*
+> + * An MSC is a physical container for controls and monitors, each identified by
+> + * their RIS index. These share a base-address, interrupts and some MMIO
+> + * registers. A vMSC is a virtual container for RIS in an MSC that control or
+> + * monitor the same thing. Members of a vMSC are all RIS in the same MSC, but
+> + * not all RIS in an MSC share a vMSC.
+> + * Components are a group of vMSC that control or monitor the same thing but
+> + * are from different MSC, so have different base-address, interrupts etc.
+> + * Classes are the set components of the same type.
+> + *
+> + * The features of a vMSC is the union of the RIS it contains.
+> + * The features of a Class and Component are the common subset of the vMSC
+> + * they contain.
+> + *
+> + * e.g. The system cache may have bandwidth controls on multiple interfaces,
+> + * for regulating traffic from devices independently of traffic from CPUs.
+> + * If these are two RIS in one MSC, they will be treated as controlling
+> + * different things, and will not share a vMSC/component/class.
+> + *
+> + * e.g. The L2 may have one MSC and two RIS, one for cache-controls another
+> + * for bandwidth. These two RIS are members of the same vMSC.
+> + *
+> + * e.g. The set of RIS that make up the L2 are grouped as a component. These
+> + * are sometimes termed slices. They should be configured the same, as if there
+> + * were only one.
+> + *
+> + * e.g. The SoC probably has more than one L2, each attached to a distinct set
+> + * of CPUs. All the L2 components are grouped as a class.
+> + *
+> + * When creating an MSC, struct mpam_msc is added to the all mpam_all_msc list,
+> + * then linked via struct mpam_ris to a vmsc, component and class.
+> + * The same MSC may exist under different class->component->vmsc paths, but the
+> + * RIS index will be unique.
+> + */
+> +LIST_HEAD(mpam_classes);
 > +
-> +	if (check_mul_overflow(per_cpu(core_delta, cpu), arch_timer_get_cntfrq(), &delta_core_kHz))
-> +		return -EINVAL;
+> +/* List of all objects that can be free()d after synchronise_srcu() */
+> +static LLIST_HEAD(mpam_garbage);
 > +
-> +	freq = div_u64(delta_core_kHz, per_cpu(const_delta, cpu) * HZ_PER_KHZ);
->  	return freq;
->  }
->  
-> -- 
-> 2.33.0
-> 
+> +static inline void init_garbage(struct mpam_garbage *garbage)
+> +{
+> +	init_llist_node(&garbage->llist);
+> +}
+> +
+> +#define add_to_garbage(x)				\
+> +do {							\
+> +	__typeof__(x) _x = (x);				\
+> +	_x->garbage.to_free = _x;			\
+> +	llist_add(&_x->garbage.llist, &mpam_garbage);	\
+> +} while (0)
+> +
+> +static void mpam_free_garbage(void)
+> +{
+> +	struct mpam_garbage *iter, *tmp;
+> +	struct llist_node *to_free = llist_del_all(&mpam_garbage);
+> +
+> +	if (!to_free)
+> +		return;
+> +
+> +	synchronize_srcu(&mpam_srcu);
+> +
+> +	llist_for_each_entry_safe(iter, tmp, to_free, llist) {
+> +		if (iter->pdev)
+> +			devm_kfree(&iter->pdev->dev, iter->to_free);
+> +		else
+> +			kfree(iter->to_free);
+> +	}
+> +}
+> +
+> +static struct mpam_vmsc *
+> +mpam_vmsc_alloc(struct mpam_component *comp, struct mpam_msc *msc)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	vmsc = kzalloc(sizeof(*vmsc), GFP_KERNEL);
+> +	if (!vmsc)
+> +		return ERR_PTR(-ENOMEM);
+> +	init_garbage(&vmsc->garbage);
+> +
+> +	INIT_LIST_HEAD_RCU(&vmsc->ris);
+> +	INIT_LIST_HEAD_RCU(&vmsc->comp_list);
+> +	vmsc->comp = comp;
+> +	vmsc->msc = msc;
+> +
+> +	list_add_rcu(&vmsc->comp_list, &comp->vmsc);
+> +
+> +	return vmsc;
+> +}
+> +
+> +static void mpam_component_destroy(struct mpam_component *comp);
+> +
+> +static void mpam_vmsc_destroy(struct mpam_vmsc *vmsc)
+> +{
+> +	struct mpam_component *comp = vmsc->comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_del_rcu(&vmsc->comp_list);
+> +	add_to_garbage(vmsc);
+> +
+> +	if (list_empty(&comp->vmsc))
+> +		mpam_component_destroy(comp);
+> +}
+> +
+> +static struct mpam_vmsc *
+> +mpam_vmsc_find(struct mpam_component *comp, struct mpam_msc *msc)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		if (vmsc->msc->id == msc->id)
+> +			return vmsc;
+> +	}
+> +
+> +	return mpam_vmsc_alloc(comp, msc);
+> +}
+> +
+> +static struct mpam_component *
+> +mpam_component_alloc(struct mpam_class *class, int id)
+> +{
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	comp = kzalloc(sizeof(*comp), GFP_KERNEL);
+> +	if (!comp)
+> +		return ERR_PTR(-ENOMEM);
+> +	init_garbage(&comp->garbage);
+> +
+> +	comp->comp_id = id;
+> +	INIT_LIST_HEAD_RCU(&comp->vmsc);
+> +	/* affinity is updated when ris are added */
+> +	INIT_LIST_HEAD_RCU(&comp->class_list);
+> +	comp->class = class;
+> +
+> +	list_add_rcu(&comp->class_list, &class->components);
+> +
+> +	return comp;
+> +}
+
+
+
 
