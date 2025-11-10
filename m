@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BB4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D00CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 16:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6EdUrtGOgPUXIy8ofOhog5nFCSibC5nE5AJRWXwH2A=; b=LKQkwIz183Vde45CZ7VISKg8v3
-	Y0bC9aoyxsquFMiEfNne7oLKRy5hVbyhzS7DcB7RaoqATHVfGMtt8JlP4QucZIg9kbJCCzssYJc07
-	NpkiSdn4Q99I34Rcx/IwyVE1F48//W0ZNSs78szXKlpTmnBPA/IkyKb5hXQi64aZdgCkwQnYcOdND
-	/j6995nVdcKI8WJOsA7F7RY468M6K2I+EjTmx7R2imHBDr+0J2C4hYOhqfRQLu8G3ggRjvKjAM7eU
-	ecltIdOnUYt7iRPOKuvyLKuprS4JM+j5ElJhDSJIE7cXoSt+aAahnmkK4NGNdn58Cv9YTy3PUBJUt
-	uC0zXThw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oaEmd1C0qTUrROe6aqZ7ZbmHO/TmwlIL1i9F68uPH/4=; b=whh9fy9yYR3LEW8er/z/MwWioB
+	iMVSNV+2FPsU/iLxu7xh5i/wI2wPrAkEOFCD96AFurBf99nfhywmC1OJJJkKM7Q4FSQTlOraHwKv/
+	E9LxLGLO0/EKdxRPN1b31MOzZAJDT4ncOnTSjaAFm1mwX9uu61ylbuf0vRUlW2Ga4P1FM006zyMyE
+	c+Ov8YVNKp2zczwCU3K7Zplpi0Knrgzd6Z5TwzPk3txc0rgL3wTpKInNusp/V4LUJ63FthDwFg7JA
+	34crPoqDuAh5JsJ/64YloarZtVWmxpdh2DY9xQGuJzuXCh7DixzeLL2KiufWtwSlByDopbshGcL7t
+	bhrCF7XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUIs-00000005kXa-3gLl;
-	Mon, 10 Nov 2025 15:59:38 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vIULg-00000005l1s-2ZHY;
+	Mon, 10 Nov 2025 16:02:32 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIUIq-00000005kXA-1Kbq
+	id 1vIULd-00000005l18-0mID
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 15:59:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=u6EdUrtGOgPUXIy8ofOhog5nFCSibC5nE5AJRWXwH2A=; b=Ox6XwAOdURwqkScwgJ8DNjCjRY
-	uWzTHKNjxNlzagA73QE5DzDgE+I3YQNw8jLQXx8sVaoeAcu6ArCpjXL4xvTysJSHI2/p8mNzXXdsW
-	SKEl0LDR4mbTNZ1yaiDeTWJHVEv3JIRxKO2422IJC/vGyvhb8wT6G7K5J0YYMNcHRa88=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vIUIh-00DXM5-90; Mon, 10 Nov 2025 16:59:27 +0100
-Date: Mon, 10 Nov 2025 16:59:27 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
-Message-ID: <638dac3d-ddcb-4d53-b06d-e0bd3d9077c3@lunn.ch>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-4-shenwei.wang@nxp.com>
- <9fd8ccd9-560a-43b4-a48d-f7a3eaa07eb1@lunn.ch>
- <PAXPR04MB9185C4A4B91F863CFD49718E89C2A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <0be8c911-3c31-40da-b431-e5a24339c0f9@lunn.ch>
- <PAXPR04MB9185D9EBE8F46715FD114A2989C2A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <cadcbbc7-2024-413a-8e9b-bde5fa233df5@lunn.ch>
- <PAXPR04MB9185E2C3E50D365F64F10E3A89C3A@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <0980eb35-b3fd-4383-af86-433769a4fd97@lunn.ch>
- <PAXPR04MB9185156672C7B334E717F11789CEA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Mon, 10 Nov 2025 16:02:31 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d4vYW71dQzJ46YC;
+	Tue, 11 Nov 2025 00:01:51 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 704A31402FF;
+	Tue, 11 Nov 2025 00:02:21 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 10 Nov
+ 2025 16:02:20 +0000
+Date: Mon, 10 Nov 2025 16:02:18 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
+Subject: Re: [PATCH 04/33] ACPI / PPTT: Find cache level by cache-id
+Message-ID: <20251110160218.00001d65@huawei.com>
+In-Reply-To: <20251107123450.664001-5-ben.horgan@arm.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+	<20251107123450.664001-5-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB9185156672C7B334E717F11789CEA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_075936_377983_AE15E1D2 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20251110_080229_513120_3C749A8E 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,20 +83,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The remote firmware does not need to know whether Linux is asleep. The GPIO is not used 
-> to wake Linux directly; instead, it serves as a wake-up source for the remote firmware if configured 
-> accordingly. Once the remote firmware is awake, it sends a notification message to Linux. This 
-> notification is the actual event that wakes Linux.
+On Fri, 7 Nov 2025 12:34:21 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
+
+> From: James Morse <james.morse@arm.com>
 > 
-> This works because there is always a physical interface connecting Linux and the remote firmware. 
-> On i.MX platforms, this interface is the MU block. When the remoteproc driver is running, the MU 
-> block is automatically configured as a wake-up source for Linux by default. As a result, the notification 
-> message can wake the Linux system if it is asleep.
+> The MPAM table identifies caches by id. The MPAM driver also wants to know
+> the cache level to determine if the platform is of the shape that can be
+> managed via resctrl. Cacheinfo has this information, but only for CPUs that
+> are online.
+> 
+> Waiting for all CPUs to come online is a problem for platforms where
+> CPUs are brought online late by user-space.
+> 
+> Add a helper that walks every possible cache, until it finds the one
+> identified by cache-id, then return the level.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-You need to add a lot more documentation to the specification to make
-this clear. As you said, the firmware and Linux have different
-sleep/wake life cycles. How does the firmware know it is safe to go to
-sleep, if it has no idea Linux is running or suspended?
+A few things inline.
 
-	Andrew
+> ---
+> Changes since v3:
+> Tags dropped due to rework
+> Fallout/simplification from adding acpi_pptt_cache_v1_full
+> Look for each cache type before incrementing level
+> ---
+>  drivers/acpi/pptt.c  | 63 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi.h |  5 ++++
+>  2 files changed, 68 insertions(+)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 1ed2099c0d1a..71841c106020 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -918,3 +918,66 @@ void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+>  				     entry->length);
+>  	}
+>  }
+> +
+> +/**
+> + * find_acpi_cache_level_from_id() - Get the level of the specified cache
+> + * @cache_id: The id field of the cache
+> + *
+> + * Determine the level relative to any CPU for the cache identified by
+> + * cache_id. This allows the property to be found even if the CPUs are offline.
+> + *
+> + * The returned level can be used to group caches that are peers.
+> + *
+> + * The PPTT table must be rev 3 or later.
+> + *
+> + * If one CPU's L2 is shared with another CPU as L3, this function will return
+> + * an unpredictable value.
+> + *
+> + * Return: -ENOENT if the PPTT doesn't exist, the revision isn't supported or
+> + * the cache cannot be found.
+> + * Otherwise returns a value which represents the level of the specified cache.
+> + */
+> +int find_acpi_cache_level_from_id(u32 cache_id)
+> +{
+> +	int cpu;
+> +	struct acpi_table_header *table;
+> +
+> +	table = acpi_get_pptt();
+> +	if (!table)
+> +		return -ENOENT;
+> +
+> +	if (table->revision < 3)
+> +		return -ENOENT;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		bool not_empty = true;
+> +		u32 acpi_cpu_id;
+> +		struct acpi_pptt_cache_v1_full *cache;
+> +		struct acpi_pptt_processor *cpu_node;
+> +
+> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+
+Might as well combine this one with declaration.
+
+> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+> +		if (!cpu_node)
+> +			continue;
+> +
+> +		for (int level = 1; not_empty; level++) {
+
+This smells very much like a while loop rather than a for loop. Make
+it a do/while and you can avoid the somewhat nasty setting not_empty = true
+just to get in for first iteration.
+
+		int level = 1;
+		do {
+			int cache_type[] = { CACHE_TYPE_INST, CACHE_TYPE_DATA, CACHE_TYPE_UNIFIED };
+
+			not_empty = false;
+			for (int i = 0; i < ARRAY_SIZE(cache_type); i++) {
+				cache = acpi_find_cache_node(table, acpi_cpu_id, cache_type[i],
+							     level, &cpu_node);
+				if (!cache)
+					continue;
+
+				not_empty = true;
+
+				if (acpi_pptt_cache_id_is_valid(cache) &&
+				    cache->extra.cache_id == cache_id)
+					return level;
+			}
+		} while (not_empty);
+
+Maybe flip sense of that bool to be empty and !empty for the test.
+
+
+> +			int cache_type[] = {CACHE_TYPE_INST, CACHE_TYPE_DATA, CACHE_TYPE_UNIFIED};
+> +
+> +			not_empty = false;
+> +			for (int i = 0; i < ARRAY_SIZE(cache_type); i++) {
+> +				cache = acpi_find_cache_node(table, acpi_cpu_id, cache_type[i],
+> +							     level, &cpu_node);
+> +				if (!cache)
+> +					continue;
+> +
+> +				not_empty = true;
+> +
+> +				if (acpi_pptt_cache_id_is_valid(cache) &&
+> +				    cache->extra.cache_id == cache_id)
+> +					return level;
+> +			}
+> +		}
+> +	}
+> +
+> +	return -ENOENT;
+> +}
+
+
 
