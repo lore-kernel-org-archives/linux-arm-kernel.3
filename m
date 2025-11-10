@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE06CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7019CCFA1E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F+LAoo9QUHiN7emChFIulad0jwV90T0Vbi/l6sOzzf8=; b=ECSrRizDxEoklgiiMRVNNAbz02
-	lJjEixrv8d671duCgnDFx3lUmTYT1pwO/ZLIed1GgeTrhxndMUO/KbXzs8hWBKs599tQALW+XhBzR
-	wi2w5/xcAlB+PGYxJHnvZo8iu9uOWyjBY4DJDP9poERzcOAlyTpIxjNrQIBEPlPPfll7vDp92xRTO
-	xXxMFFzY/zOkOV+Qbs3g1efIPracOQVnGfa898gpRQ3kGhjSr+ad7m/fn09/Gd6fe77BanPREThIi
-	PSSp9V/RjZdkDYqTQQoHcPB/lXTByC/tOW4SfeARuzguN8HR4bYWFbU2QL8ZoPASGqyPNjE2w/l17
-	Y08u5sKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VAr21MtQeeygUzAg/O3leSHmqCylhYlryIgLa6wjxJs=; b=dIEen8AHw8Go4gskO3A+63nT6M
+	H8KSSULc32tulNES3c55h/C4kj1r7pnXz8mw7zSQqivnsFYxLBsvi0F75jo9dVDzfZIhvpvphMf0D
+	fW6DsdQqn49UiMRu9lW7XQpFjdMPpr3M7RdOkY6oiMqYlNvJfgwIVTmGVwbJMnahoaMaXg1ufrXcj
+	OlAC5nJgopoRtf+83FCWNfIxiTOa/lawTxS5xmIM88KHrsY76gcr9ec1eO2wgkPLxBZojoG2RMBlv
+	56N4jCDaX5TaCcMahmM+MZezIRFW8DzXzbdhw27rlOoxF/k4QlveTv4KsS/QHCEsr0J+MHkXWJeh7
+	rpr3ADUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOuX-000000059yy-0Sbe;
-	Mon, 10 Nov 2025 10:14:09 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vIOw7-00000005ANe-0YXs;
+	Mon, 10 Nov 2025 10:15:47 +0000
+Received: from mail-m32111.qiye.163.com ([220.197.32.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIOuL-000000059th-1vby;
-	Mon, 10 Nov 2025 10:13:59 +0000
-X-UUID: f3e88d54be1d11f09f706fa2197c6ceb-20251110
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=F+LAoo9QUHiN7emChFIulad0jwV90T0Vbi/l6sOzzf8=;
-	b=BY3FFz72saYqQu1xl7dVp6ZFNQ3iN861wTp1GeR82EHuEcxlbxWrpOBJHp60q1dp4ZrOv+pIahSxpKZpxDgqPPPws7j+q/2gOeVlJIYONrfbGutOPNrRHk50nPCyVv6RKAu5wvBBWKMukPposDLoawjQW+UGALRjqbWNt9rOly8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:e2b1fe01-18ed-4491-a560-8a8c756925f8,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:9a1fef63-6377-47fe-8022-3226f0b92c45,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f3e88d54be1d11f09f706fa2197c6ceb-20251110
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <huayu.zong@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1813473222; Mon, 10 Nov 2025 03:13:50 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 10 Nov 2025 18:13:47 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Mon, 10 Nov 2025 18:13:46 +0800
-From: Huayu Zong <huayu.zong@mediatek.com>
-To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Huayu Zong
-	<huayu.zong@mediatek.com>
-Subject: [PATCH v3 1/3] remoteproc: mediatek: Support platform reg offsets in mtk_scp_of_data
-Date: Mon, 10 Nov 2025 18:13:29 +0800
-Message-ID: <20251110101342.24261-2-huayu.zong@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251110101342.24261-1-huayu.zong@mediatek.com>
-References: <20251110101342.24261-1-huayu.zong@mediatek.com>
+	id 1vIOw1-00000005AMB-08hE;
+	Mon, 10 Nov 2025 10:15:43 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2909a128f;
+	Mon, 10 Nov 2025 18:15:35 +0800 (GMT+08:00)
+Message-ID: <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
+Date: Mon, 10 Nov 2025 18:15:33 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
+ Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, mani@kernel.org
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: FUKAUMI Naoki <naoki@radxa.com>, Niklas Cassel <cassel@kernel.org>
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
+ <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+ <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
+ <aQ840q5BxNS1eIai@ryzen> <aQ9FWEuW47L8YOxC@ryzen>
+ <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
+ <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+ <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+ <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+ <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
+ <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-HM-Tid: 0a9a6d438d5d09cckunm2a41cfe81382c3e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhgaSFYaGkgaSkNJGU9PHx9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZS1VLVUtVS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=GaomGJcZFoXy9dmKjLqxt7SSQwarCMv4UTRUnrqYXArfcRVHwNXTJEHw2s9PSPE9iGfN8S0vj7/5FE4SI677ltHzqcx8kqhuDDOr/4Cvmv4GuwiC1PderlOoae7sw3AVJSuz5uBBzLbtDsdOy6roqwSdbIwwONzCSx8H2PtfC1g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=VAr21MtQeeygUzAg/O3leSHmqCylhYlryIgLa6wjxJs=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_021357_498561_BA6D6121 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20251110_021541_809329_5D8C9C18 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +84,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some platforms only differ in HW register offsets, but can share
-the same API. Refine struct mtk_scp_of_data to allow setting HW
-register offsets via platform data, enabling better code reuse
-and easier support for new platforms.
+在 2025/11/10 星期一 15:52, FUKAUMI Naoki 写道:
+> Hi Shawn,
+> 
+> On 11/10/25 16:12, Shawn Lin wrote:
+> (snip)> Thanks for testing. I just got a ASM2806 switch as yours and 
+> verified it
+>> on vanilla v6.18-rc5. After 30 times of cold boot, two NVMes behind
+>> ASM2806 work as expected. Nothing special happened when I checked
+>> with PA as well. You could help check the log and lspci dump there[1].
+>>
+>> [1]https://pastebin.com/sAF1fT0g
+> 
+> Thanks for the info!
+> 
+> I tried ASM2806 on Radxa ROCK 5B (RK3588).
+>   https://gist.github.com/RadxaNaoki/640e47d377add9fe38301de164d4058e
+> 
+> It doesn't work on PCIe 2.0 (M.2 E Key), but it does work on PCIe 3.0 
+> (M.2 M Key).
+> 
+> Could you try PCIe 2.0 slot on your board?
 
-Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
----
- drivers/remoteproc/mtk_common.h |  5 +++++
- drivers/remoteproc/mtk_scp.c    | 18 ++++++++++++++++--
- 2 files changed, 21 insertions(+), 2 deletions(-)
+I did, it doesn't work on PCIe 2.0 slot. From the PA, I could see
+the link is still in training during pci_host_probe() is called.
+Add some delay before pci_rescan_bus() in pcie-dw-rockchip doesn't
+help. But the below change should work as we delayed pci_host_probe().
 
-diff --git a/drivers/remoteproc/mtk_common.h b/drivers/remoteproc/mtk_common.h
-index fd5c539ab2ac..d45480ad332e 100644
---- a/drivers/remoteproc/mtk_common.h
-+++ b/drivers/remoteproc/mtk_common.h
-@@ -112,6 +112,11 @@ struct mtk_scp_of_data {
- 
- 	u32 host_to_scp_reg;
- 	u32 host_to_scp_int_bit;
-+	u32 scp_to_host_ipc_clr_reg;
-+	u32 scp_to_spm_ipc_clr_reg;
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -236,6 +236,8 @@ static int rockchip_pcie_start_link(struct dw_pcie *pci)
+         msleep(PCIE_T_PVPERL_MS);
+         gpiod_set_value_cansleep(rockchip->rst_gpio, 1);
+
++       msleep(50);
 +
-+	u32 scp_secure_domain_reg;
-+	u32 scp_domain_value;
- 
- 	size_t ipi_buf_offset;
- 	const struct mtk_scp_sizes_data *scp_sizes;
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 10e3f9eb8cd2..c3c37cae933a 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -236,7 +236,7 @@ static void mt8192_scp_irq_handler(struct mtk_scp *scp)
- 		 * MT8192_SCP2APMCU_IPC.
- 		 */
- 		writel(MT8192_SCP_IPC_INT_BIT,
--		       scp->cluster->reg_base + MT8192_SCP2APMCU_IPC_CLR);
-+		       scp->cluster->reg_base + scp->data->scp_to_host_ipc_clr_reg);
- 	} else {
- 		scp_wdt_handler(scp, scp_to_host);
- 		writel(1, scp->cluster->reg_base + MT8192_CORE0_WDT_IRQ);
-@@ -561,7 +561,7 @@ static int mt8188_scp_c1_before_load(struct mtk_scp *scp)
- static int mt8192_scp_before_load(struct mtk_scp *scp)
- {
- 	/* clear SPM interrupt, SCP2SPM_IPC_CLR */
--	writel(0xff, scp->cluster->reg_base + MT8192_SCP2SPM_IPC_CLR);
-+	writel(0xff, scp->cluster->reg_base + scp->data->scp_to_spm_ipc_clr_reg);
- 
- 	writel(1, scp->cluster->reg_base + MT8192_CORE0_SW_RSTN_SET);
- 
-@@ -575,6 +575,18 @@ static int mt8192_scp_before_load(struct mtk_scp *scp)
- 	/* enable MPU for all memory regions */
- 	writel(0xff, scp->cluster->reg_base + MT8192_CORE0_MEM_ATT_PREDEF);
- 
-+	/* Set the domain of master in SCP.
-+	 *
-+	 * In the SCP, cores, DMA, and SPI are masters. When these masters
-+	 * access memory or devices, they need to carry a domain ID. This
-+	 * domain ID is used to determine whether they have permission to
-+	 * access the target device or memory.
-+	 */
-+
-+	if (scp->data->scp_secure_domain_reg)
-+		writel(scp->data->scp_domain_value,
-+		       scp->cluster->reg_base + scp->data->scp_secure_domain_reg);
-+
- 	return 0;
- }
- 
-@@ -1527,6 +1539,8 @@ static const struct mtk_scp_of_data mt8192_of_data = {
- 	.scp_da_to_va = mt8192_scp_da_to_va,
- 	.host_to_scp_reg = MT8192_GIPC_IN_SET,
- 	.host_to_scp_int_bit = MT8192_HOST_IPC_INT_BIT,
-+	.scp_to_host_ipc_clr_reg = MT8192_SCP2APMCU_IPC_CLR,
-+	.scp_to_spm_ipc_clr_reg = MT8192_SCP2SPM_IPC_CLR,
- 	.scp_sizes = &default_scp_sizes,
- };
- 
--- 
-2.45.2
+         return 0;
+
+Otherwise we got:
+
+[    0.841518] pci_bus 0003:33: busn_res: can not insert [bus 33-31] 
+under [bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.842596] pci_bus 0003:33: busn_res: [bus 33-31] end is updated to 33
+[    0.843184] pci_bus 0003:33: busn_res: can not insert [bus 33] under 
+[bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.844120] pci 0003:32:00.0: devices behind bridge are unusable 
+because [bus 33] cannot be assigned for them
+[    0.845229] pci_bus 0003:34: busn_res: can not insert [bus 34-31] 
+under [bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.846309] pci_bus 0003:34: busn_res: [bus 34-31] end is updated to 34
+[    0.846898] pci_bus 0003:34: busn_res: can not insert [bus 34] under 
+[bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.847833] pci 0003:32:06.0: devices behind bridge are unusable 
+because [bus 34] cannot be assigned for them
+[    0.848923] pci_bus 0003:35: busn_res: can not insert [bus 35-31] 
+under [bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.850014] pci_bus 0003:35: busn_res: [bus 35-31] end is updated to 35
+[    0.850605] pci_bus 0003:35: busn_res: can not insert [bus 35] under 
+[bus 32-31] (conflicts with (null) [bus 32-31])
+[    0.851540] pci 0003:32:0e.0: devices behind bridge are unusable 
+because [bus 35] cannot be assigned for them
+[    0.852424] pci_bus 0003:32: busn_res: [bus 32-31] end is updated to 35
+[    0.853028] pci_bus 0003:32: busn_res: can not insert [bus 32-35] 
+under [bus 31] (conflicts with (null) [bus 31])
+[    0.853184] hub 3-0:1.0: USB hub found
+[    0.853931] pci 0003:31:00.0: devices behind bridge are unusable 
+because [bus 32-35] cannot be assigned for them
+[    0.854262] hub 3-0:1.0: 1 port detected
+[    0.855144] pcieport 0003:30:00.0: bridge has subordinate 31 but max 
+busn 35
+[    0.855722] hub 4-0:1.0: USB hub found
+[    0.856109] pci 0003:32:00.0: PCI bridge to [bus 33]
+[    0.856939] pci 0003:32:06.0: PCI bridge to [bus 34]
+[    0.857133] hub 4-0:1.0: 1 port detected
+[    0.857430] pci 0003:32:0e.0: PCI bridge to [bus 35]
+[    0.858236] pci 0003:31:00.0: PCI bridge to [bus 32-35]
+
+> 
+> Best regards,
+> 
+> -- 
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+> 
 
 
