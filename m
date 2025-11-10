@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FFDCCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E0CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 15:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJUr/0EUzjfCaK+KSuA5yM/imTi7pw3eemoaLfp6LKk=; b=14M5YocMhapzDA9mKLGjFFXTXM
-	RngMoArxc8E9tcvrr65mlKaXfsyUpn94ab3M8Jp+c8mh9lu5ONzxO0LBcoPkWzcpEhvGzLf/y8/L5
-	cq0Bhiuf1etHAIR6oloGDhUdjCIwR8sI+mDrj6zXBDwy/EjVl03g8pdjQlQUwasw83tEtfYkNw72t
-	ZCjvwaZCvOSiEYZlIYUXnjOvHiwbdKz2rTxnpKEqqlTZUXPSQBVQ3WzNMDAU5LXuPBkXI7NopkV5l
-	u5Zsn2SJdM0FhSWqsyWrVgRgO8tN1kJcaMuPwIjvbyy/hPzAnA/bp2FHDdZ7oZnp7RIoFni9yG5pK
-	7BZRlHPg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dRX2sm4MDVXRTJlbRBX2N2s7POdpJhVxc/NfgviDk2c=; b=2T2QqGupyZ7UjrrnLqVuQgwLd5
+	cUlGwtro9RbtblVDqXUEgnRRh2DOCWKq+elT9JDLGJ2hsStfKFWim4EsbqkBSQqDZPbZlHTTwG6DL
+	dRREr9Fg28QpDHwROufT15V8E2SUsioDlB7zcFQ39FvbuKBdLKM8z9F/HTtS9BdkMVwNA6lijuABW
+	br+F5qo0vO8VgRqHpJ5kHkm8AbjSdNzvo2fiE0vLLPTN3m0reSkzXpENQf6rVQ/pAjTvcbUBGBxBh
+	LBxq1fziDMMAq8iUHe3L/HCvbcIw8IJpIQq3AKzAgiAV9HcqVInTVeAe9kPlwiEyQRWeMOgpVzMg9
+	Ww0rCTdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITYD-00000005f2k-04Z9;
-	Mon, 10 Nov 2025 15:11:25 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vITaG-00000005fGN-02B4;
+	Mon, 10 Nov 2025 15:13:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vITY8-00000005f1x-3UuN
+	id 1vITaE-00000005fG6-16Ef
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 15:11:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 8C5561A199A;
-	Mon, 10 Nov 2025 15:11:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 61D74606F5;
-	Mon, 10 Nov 2025 15:11:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 12B06103718D6;
-	Mon, 10 Nov 2025 16:11:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762787476; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=wJUr/0EUzjfCaK+KSuA5yM/imTi7pw3eemoaLfp6LKk=;
-	b=QfqhNo2/G3HQxs/W7N3+/hwen5dY46GEKIU3Wnc8Iksx6Avkh9be9p7gLH9zzDmSM7tH/a
-	AaYhmj/U0WQC/e2VYQkRUX49MQAZYzFbJS85OeTIkwSzXSRRJmHL5b6XaOORgjJfBZKdXQ
-	UuHG0qnKFnyDT9chCkvfSd5i1hod3ks1hDygZy1RSkHSsdJuqSNCIR94z+tG5X0MaAA8nw
-	GzI5FvThdAjWFBBpJis8C23MPtRd+I+3VdcGWmVmGulP5QGJu/qSyydRhvqiPbNb94VhbU
-	dJQmLalY5exmCVEcdro31ZxgAr643zB/oYCOuFIzYMJKMyR3DA6BPIZt5KI9OA==
-Message-ID: <5ea31c61-7bf5-441c-a7c1-e346039d03d2@bootlin.com>
-Date: Mon, 10 Nov 2025 16:11:15 +0100
+	Mon, 10 Nov 2025 15:13:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 650BD601AE;
+	Mon, 10 Nov 2025 15:13:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81911C113D0;
+	Mon, 10 Nov 2025 15:13:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762787609;
+	bh=v+WhwaNQxNmGiOc1Ncd79H143hIDikEV7iSCtMGSUSs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LiUDi3t4vRd8VWatHnlVRBRwc+wUM+x+VJ129NqHQliqbXiDbnYtKkQM0rO2nbXO3
+	 MTtKngRvz5i00KeGbOUn8supigGQx1UZaLJ2dzMIJILD31SeI9/E33zBvsPrfrAziY
+	 p+370/fG3Erg/1e4VAGDbJ1oJy3Je+W+HbC1rsvp0n+zl9XEZ7uR691FXpNps36cE5
+	 RwGVaw1UjdPZZLhFceUF//lYWuRXeVhdp2U9Wnr+UpyP7zbrB80gDQYXaipqQ33Om2
+	 MDr1Hy/5xJ4oO2N2cfFQkS6nfbaVDCeXrdn3JD5RaRPp/mmkqptj+lc+wDUqRi1coR
+	 4t2BPB1xiOckw==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	linux-clk@vger.kernel.org,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL] clk: samsung: drivers for v6.19
+Date: Mon, 10 Nov 2025 16:12:42 +0100
+Message-ID: <20251110151242.136508-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/2] firmware: ti_sci: handle IRQ restore in
- BOARDCFG_MANAGED mode during resume
-To: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Gregory CLEMENT <gregory.clement@bootlin.com>, richard.genoud@bootlin.com,
- Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena <p-mantena@ti.com>,
- Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com>
- <20251017-ti-sci-jacinto-s2r-restore-irq-v1-2-34d4339d247a@bootlin.com>
- <20251107115457.i6tkt466bp62mwp2@whiff>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20251107115457.i6tkt466bp62mwp2@whiff>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1558; i=krzk@kernel.org; h=from:subject; bh=NMFi2ddzD9bgrisS/6TQO0TkyBRAyNYFx94+jZwEbr0=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpEgDqC/UaGCPFd7MoHs5A4cH0wd5gAMIivlI5p hrkjXr4tYmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRIA6gAKCRDBN2bmhouD 13YWD/oD6VZLjGViUOEIYqWSweEQOKX6GoKvMVmCpjo8GyspDLo1rHZl7tc8s/RE2Cyud0u91dv 9vY+pxlKCr8TVLhLI1aK/0xtWcoXXPwYyjcsOrhl/QbWctQm6Yu8GHj0Yvkdf6ZYSEeKshxwiNK NR0mcDrRqoXXVOAahvPETM+ppkJBT8mDB5oDU+GL/m8FCaCJxdLa0kZbMgPyKIvHWtlMKGj3dIg faN0D0bGx1txnOy1QPS5XErhQFCz4yHc1yb2wq8ag1YFAUIvtUsuxt73/OcYrPMMnHulGnrdyQ7 5y12NM5sDfIDFHBMpAbm0KOzQkoOL8a5F3rIHIpnBqnA/w4/2ykZ0bfwdaIx9kfEc9/u/tgLz63 Nqi1I/GoPkkdP1On0jtnKgZ2D4qg8mD/rLIz95xAWf0IFer2I9OQcG+oS/ZPsDBcbVeVsTLT+Nu RAQTTaFaVZK3G06XiDWJfhlKtivbF+6SFlpvSENaYx+akM6i/6tCWmvkMspKQsgI4Sx+uOf0Syy EYjMMl8rgnEaTT1lf0HRDKz4AUzg7FGQ72QpYAcFNEcszVCGh42omri6ECDIJZVwrhN6ErdxPhV x9ApiYlrbRbEECA4ugdPBQ9aUtMNGlLm2jhcOndSDcPkFz6IIeiHSSMdj0BsyLFGvSccVEHAUPA Vf2PkaUDVLGtbRg==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_071122_457025_13A44A55 
-X-CRM114-Status: GOOD (  19.41  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nishanth,
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-On 11/7/25 12:54 PM, Nishanth Menon wrote:
-> On 16:44-20251017, Thomas Richard (TI.com) wrote:
->> In BOARDCFG_MANAGED mode, the firmware cannot restore IRQs during
->> resume. This responsibility is delegated to the ti_sci driver,
->> which maintains an internal list of all requested IRQs. This list
->> is updated on each set/free operation, and all IRQs are restored
->> during the resume_noirq() phase.
-> 
-> Couple of drive by comments:
-> 
-> clarify why is this not handled by ia / ir driver?
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-A patch was sent to handle this in intr driver [1], but the feedback
-was: this shall be done in ti_sci driver [2].
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-And now I have an other argument:
+are available in the Git repository at:
 
-I'm actually working on having functional PCIe after a suspend-resume on
-J784s4. And I noticed that set_parent (sci-clk driver) shall be restored
-during resume. Restoring irqs and set_parent clk config is only needed
-on Jacinto platforms. The sci-clk and inta/intr driver don't know if we
-are running on a Jacinto platform or not. The ti_sci have the
-information so it can take the decision to restore irqs and set_parent
-configs.
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-6.19
 
-[1] https://lore.kernel.org/all/20220607061912.12222-1-a-govindraju@ti.com/
-[2] https://lore.kernel.org/all/87r0l96f0e.wl-maz@kernel.org/
+for you to fetch changes up to d669ec6be0b1965c67248407d87c848b1b7c12ae:
 
-> 
->>
->> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
->> ---
->>  drivers/firmware/ti_sci.c | 143 +++++++++++++++++++++++++++++++++++++++++++---
->>  1 file changed, 135 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index f9f1a67e8e66b0a4048fae04ce31be54ca5cba7a..a211f8805dd21c7675b8cefd61929ecfda8e0f7f 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -87,6 +87,16 @@ struct ti_sci_desc {
->>  	int max_msg_size;
-> [...]
->> +
->> +	irq_desc.valid_params = valid_params;
->> +	irq_desc.src_id = src_id;
->> +	irq_desc.src_index = src_index;
->> +	irq_desc.dst_id = dst_id;
->> +	irq_desc.dst_host_irq = dst_host_irq;
->> +	irq_desc.ia_id = ia_id;
->> +	irq_desc.vint = vint;
->> +	irq_desc.global_event = global_event;
->> +	irq_desc.vint_status_bit = vint_status_bit;
->> +	irq_desc.secondary_host = s_host;
->> +
->> +	list_for_each(this, &info->irqs.list) {
-> 
-> list_for_each_entry_safe ?
-> 
-> How big is this list on a j784s4 class device? is it worth creating a
-> irq_desc_hash and using a hlist a better option?
+  clk: samsung: clk-pll: simplify samsung_pll_lock_wait() (2025-10-18 18:12:41 +0200)
 
-I did the test with arm64 defconfig on j784s4 and the list has 43 elements.
-I'll look at the hlist.
+----------------------------------------------------------------
+Samsung SoC clock drivers changes for 6.19
 
-Best Regards,
-Thomas
+1. ExynosAutov920: add support for additional clock controllers (M2M and
+   MFC).
+
+2. Few more cleanups and new bindings.
+
+----------------------------------------------------------------
+André Draszik (2):
+      dt-bindings: clock: google,gs101-clock: add power-domains
+      clk: samsung: clk-pll: simplify samsung_pll_lock_wait()
+
+Raghav Sharma (4):
+      dt-bindings: clock: exynosautov920: add m2m clock definitions
+      dt-bindings: clock: exynosautov920: add mfc clock definitions
+      clk: samsung: exynosautov920: add clock support
+      clk: samsung: exynosautov920: add block mfc clock support
+
+ .../bindings/clock/google,gs101-clock.yaml         |  3 +
+ .../clock/samsung,exynosautov920-clock.yaml        | 42 ++++++++++
+ drivers/clk/samsung/clk-exynosautov920.c           | 90 ++++++++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                      | 41 +++-------
+ include/dt-bindings/clock/samsung,exynosautov920.h | 10 +++
+ 5 files changed, 155 insertions(+), 31 deletions(-)
 
