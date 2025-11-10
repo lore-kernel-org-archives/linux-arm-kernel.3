@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 286E3CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A7BCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 07:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gbTl8SVcFIrhh7H7q4afRNJrfLQj4XvQ6GtKsnG8hHA=; b=xHJP0e2XIfUjGix/buwdacINNL
-	zO4BVhGZ656MvwNu4GFqRBxFuArKM2CbTZcD9HCmcoYhm3d51Po0e05/MXSoKO5S7TPRPv9pZi09h
-	0noH6WfwdyT0OB30rCSjSpfhQX0smYtzZaClDYXQ5ZmMG23mgZ10/3LCheRxrThXTACqoTaLdWuaG
-	5Je1ZRJSmJpNTQCMLv5fs01PCro6NAw5OQRjVC6U9ZNFjSki7EcLSurnSDrrewVIjnT1dwsNFpqQV
-	Wt5kBt3ZsYT8Me/G6l/D9rGFpk7e+ssbRF0qkVOzha+hluUMKntHYDuEGriGyHOEByIMt7Brh+SYU
-	3YDnf2mw==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=faCo/cP1fbB/YubBAIQplrenmSol9sfrVtsV4ftsiIY=; b=XI5Xjr6OaysrQGbyBdzKT8k2wn
+	CU+bbgqBDu6UpCy50VaFNlGkawFjyuNsjmwsOEa1vzAu4TCiK/z7nGPZfu5vegSRm5jZjWPjXhzrn
+	KZvZR7miaz4ID15mPJfxM40Bo47z8ihV8hjGUK32a/LJvUIh5cgmUIVKFvMHSO5IePzsMNVc6nFMp
+	oiut98jAoaOI1KG5IQN5uz8NRWnGMuF5nY85UDz6AUacEcXQeXFwvR71DGi7HJh4xUCAogC5NykZD
+	6PXJxVG/P8Plj+tWzmFT1aOCwC3jBGLW93jZrRZqppEf7XCKrUqoQhy5bkk/izLGeavSSy3SbSPfz
+	6b953ZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIMG8-00000004tRK-1V70;
-	Mon, 10 Nov 2025 07:24:16 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1vIMRr-00000004tvc-2vOg;
+	Mon, 10 Nov 2025 07:36:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIMG5-00000004tQq-0xgr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 07:24:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=gb
-	Tl8SVcFIrhh7H7q4afRNJrfLQj4XvQ6GtKsnG8hHA=; b=U0oF0TZyztsSN/u7W+
-	vYxistieOrd8omEbHfJM6OEIsdAyGpFL0zQ1LjhWoCl2e2YnrivDA50DWjxZqAhX
-	/MxQV00uQVFdUGFvklOtSjv8eatCGWmMAnP8/tSWZMNXpdqWZj6Sc85UFlFVbb73
-	UGyeMsg9eTHE2YssVSMns8i30=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wAXEGwGkxFpvtzsCQ--.243S2;
-	Mon, 10 Nov 2025 15:23:53 +0800 (CST)
-From: wangdich9700@163.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	cezary.rojewski@intel.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: [PATCH] ALSA: hda/realtek: Fix resource cleanup in alc_alloc_spec error path
-Date: Mon, 10 Nov 2025 15:23:49 +0800
-Message-Id: <20251110072349.102169-1-wangdich9700@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1vIMRq-00000004tvR-1bSR;
+	Mon, 10 Nov 2025 07:36:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40EDE6014D;
+	Mon, 10 Nov 2025 07:36:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44809C16AAE;
+	Mon, 10 Nov 2025 07:36:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762760180;
+	bh=y+wG/rw2tXAG5zLwj0mDQigKy7jfvT4bcUlh+zg3SdY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=H2FVL5kaQjTDPPrF4gGMzntCN89sGQfM3jiiro+diCD7zESTrd099Q1dZ2QXjI/a5
+	 +KMPhtSX+i6EagnhL1F/DBKdSVoXl47j8TA1NKkd7oOdzrAjRTdL6zWKmwBtSs0iNa
+	 OG+cYCyWjbpsW12P/R0oZosv+/7EUiy9+iX6CA5F5zjCPVpF/QuPFaR3dNvROKnl4f
+	 dBLn2mDm9kZek6h4Nu+nmW69rnzNh2lfyOv4FcfCRrdI+t0dLSBoZc2jhlYQ2MNM1b
+	 6f/fauO7bThPmSbxskrrnpnA2YxCjksTSuFbwsX6Bpg+t8Nykdq29+gesqmBZ2gXU6
+	 vfSjXyc2DbDHw==
+From: Srinivas Kandagatla <srini@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Lala Lin <lala.lin@mediatek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20251030-mt8189-dt-bindings-efuse-v1-1-1148e474a9f5@collabora.com>
+References: <20251030-mt8189-dt-bindings-efuse-v1-1-1148e474a9f5@collabora.com>
+Subject: Re: [PATCH] dt-bindings: nvmem: mediatek: efuse: Add compatible
+ for MT8189 SoC
+Message-Id: <176276017278.17598.8750030991108782000.b4-ty@kernel.org>
+Date: Mon, 10 Nov 2025 07:36:12 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAXEGwGkxFpvtzsCQ--.243S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr1fCw1kCw4Utw4ktr48tFb_yoW8WrWrpr
-	4Sg34rGasxGFy0yw1fJ3W7Za4rGa48WF4UWw1Yy3WfArnYqr4kJF1UuryjgF1xCrZ09ayY
-	qr1Sq3y0k3y5Jr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0LvtUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1tbiRwkAT2kO8407RgABsk
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_232413_646734_E8C5B885 
-X-CRM114-Status: GOOD (  11.47  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +76,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: wangdicheng <wangdicheng@kylinos.cn>
 
-Ensure proper resource cleanup when alc_codec_rename_from_preset() fails
-in alc_alloc_spec(). Currently, the error path only calls kfree(spec) but
-does not:
+On Thu, 30 Oct 2025 11:26:10 +0100, Louis-Alexis Eyraud wrote:
+> Add compatible string for the eFuse layout on MT8189 SoC, that is
+> compatible with MT8186.
+> 
+> 
 
-1. Destroy the initialized coef_mutex mutex
-2. Reset codec->spec to NULL, potentially leaving a dangling pointer
+Applied, thanks!
 
-Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
----
- sound/hda/codecs/realtek/realtek.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+[1/1] dt-bindings: nvmem: mediatek: efuse: Add compatible for MT8189 SoC
+      commit: 11a4220f789fb8a75b5941a5205d866da4fe39c2
 
-diff --git a/sound/hda/codecs/realtek/realtek.c b/sound/hda/codecs/realtek/realtek.c
-index ca377a5adadb..9a358c072e50 100644
---- a/sound/hda/codecs/realtek/realtek.c
-+++ b/sound/hda/codecs/realtek/realtek.c
-@@ -1029,6 +1029,7 @@ int alc_alloc_spec(struct hda_codec *codec, hda_nid_t mixer_nid)
- {
- 	struct alc_spec *spec = kzalloc(sizeof(*spec), GFP_KERNEL);
- 	int err;
-+	bool mutex_initialized = false;
- 
- 	if (!spec)
- 		return -ENOMEM;
-@@ -1040,14 +1041,22 @@ int alc_alloc_spec(struct hda_codec *codec, hda_nid_t mixer_nid)
- 	/* FIXME: do we need this for all Realtek codec models? */
- 	codec->spdif_status_reset = 1;
- 	codec->forced_resume = 1;
-+
- 	mutex_init(&spec->coef_mutex);
- 
- 	err = alc_codec_rename_from_preset(codec);
- 	if (err < 0) {
--		kfree(spec);
--		return err;
-+		codec_err(codec, "Failed to rename codec: %d\n", err);
-+		goto error;
- 	}
- 	return 0;
-+
-+error:
-+	if (mutex_initialized)
-+		mutex_destroy(&spec->coef_mutex);
-+	codec->spec = NULL;
-+	kfree(spec);
-+	return err;
- }
- EXPORT_SYMBOL_NS_GPL(alc_alloc_spec, "SND_HDA_CODEC_REALTEK");
- 
+Best regards,
 -- 
-2.25.1
+Srinivas Kandagatla <srini@kernel.org>
 
 
