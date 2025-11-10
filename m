@@ -4,166 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 137F3CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 23:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A5CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 23:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddxOGaP0mzqWGvixmT0SQSsnyuG4hEj2GapP6bY9neU=; b=0Y40rEWiZkpcSevlHdbhimWvGC
-	dIaX2Fy/pzhvksOqQIQlp/cETSoDRm6n3U09pBaALMRzPzzvY9+4IdnJM2pQBLXrPlLoj3gnKPRHW
-	MIT8LD+uOiCvIFeoZP27fxibkxi0CZW7v0rUTbY0XVWMfpmK/XZrjNKfOnmCH6vAsG1QNQeu27T8r
-	yiRZ2O+eu+rjkJM34IgLvjc6jX4yQvIVyh5QJyzyQdVfVsTGjaV+Lq5xncNxLzf7LIh8o2J3jr0Q4
-	9OIDnLoeu7qdTK1L1en0mNG5gr+ieJOEQ1UVugmwNTHp6Oj18leH5s+13ZtSLqXLL9HoldFMGl0fo
-	mX70dAfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bpLpAuSScfpCpLk9/tKb4sUEHRL2syy6l9sHy6Oz5tI=; b=cBrwa6Ah+YKYNkjhm+/g7jubpg
+	loJ862cGRp0vkc2BZFLafpFzcGs0x6h8ynVjPEL0rHnklGXJFZcm/+U2HGCGi2VUqYg+rhbCBqhHn
+	JgdIynTnVuAYabe805ozjQBChzeQ9KUzUVuTgSuMuLIeaH7/YRGdHacarz3I49hH1AK4zjB0xfs9k
+	gbYPufzHFb5xWifFg7l4bQXcCidMeuxJpk0hQM7kFEvu0WLZ4hcbWdeyZfR9778+Z2OEw4dECt+G2
+	rX1excTbJI5XC5stdydQftzcM1Njo/jfIvRdIpI8Q/PosSfWXeh9WjkLms7eXu58SdEsxMqrPtB/D
+	Yg5XZ+gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIb0F-00000006Exm-4AzL;
-	Mon, 10 Nov 2025 23:08:52 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vIbHb-00000006FsP-14CM;
+	Mon, 10 Nov 2025 23:26:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIb0D-00000006ExO-0vZP
+	id 1vIbHW-00000006Frt-1ply
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 23:08:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tVei4v8LXvkEfR9YdGDFhJBgggXSOQ8wpdVJQop9A7UXmdrm5dfK+WrGd/TAQjojna6DJPJG+XxLGBdo2s+ILT5ipRXjMmg65wU26OQ/JkM8IwJnZdl4iqZQsFY2GD7/yjjJfTyfWVG91qgN2Y26Pm3fll+UrdYU5QEbMCAhbQwAqEmA+OyCALKFQCFRvEdNUVL23rnTgKBWu2P1191fy0Ve/vB7l7EpgP5j7zGCzlNGb9/IqVWyfLnC/5pUonPTtlW1cB6jxe43vpDZdRPfqI5bjAffkwoqgKBQxg9WN3stw9h/fsr0qLe6htCMGU0URqVBHp7CMJCnX+pytUi34Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ddxOGaP0mzqWGvixmT0SQSsnyuG4hEj2GapP6bY9neU=;
- b=cVwDhxSVVoMwal2WwMPEPwu2yvpDn6xvZsX/z/vDnWtSaOv03RyoZClxgyJXgHcK5/Pg8m1XBoiXxwGZK1YiUDwBc0taPLA8lYYWg9ui4p/YgblxLqlPc6mKUvULpJTsBNluxKPgKE6r+6zmvUUf1Bhn3Y3KVeHaQcOkYRs0UwIwh91RMdcmL+E2OPxYhwp2qD5XFLOfqjrNOlpmNl9BAt/K1Yy1ESGJiuEkWNk6koNtiNVPVjd6whov2kkwu1F+ELq6DJ9ibwH7YL0PGmYL/9zLumxhvqWP2+xlth1PGPwaS8Bc2wtV+ozMs+RMHBIzasz2F58SbHUTGqAyo/7GFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ddxOGaP0mzqWGvixmT0SQSsnyuG4hEj2GapP6bY9neU=;
- b=S/iemYyu6PPV7740EpxNeOFhdqDWsqM7nVPxyBRcd0ENJ7gcMAONqwf1AJOyWgYI6Nrp115wVmKrQ7bTF1hjX9X+kiqV8qmoLoPC7pB2Lnjfjydgxk7kKMoYvkfkjbtaTl8bHWJ2RPJDS8+Mb6iA+hGvqUQNCVbld39OMwRC6E4=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH0PR01MB6293.prod.exchangelabs.com (2603:10b6:510:13::6) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.16; Mon, 10 Nov 2025 23:08:43 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9298.015; Mon, 10 Nov 2025
- 23:08:43 +0000
-Message-ID: <a6d3d2d3-32b5-4784-98d9-1b42a0ef4616@os.amperecomputing.com>
-Date: Mon, 10 Nov 2025 15:08:37 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH] arm64: mm: make linear mapping permission update more
- robust for patial range
-To: ryan.roberts@arm.com, dev.jain@arm.com, cl@gentwo.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251023204428.477531-1-yang@os.amperecomputing.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20251023204428.477531-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY5PR22CA0074.namprd22.prod.outlook.com
- (2603:10b6:930:80::22) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Mon, 10 Nov 2025 23:26:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762817199;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bpLpAuSScfpCpLk9/tKb4sUEHRL2syy6l9sHy6Oz5tI=;
+	b=fS6uJZVIpWC+uasBEIKQGT/8prl7+H9xHyCF6ice11TbAU1fsqmqiQwPhp0p6xen68I3Hl
+	VVYuUVMit+74c7G140NQGbWu6ycoltBB/PkDCoTESQNWvzkxZjEPjhRwG4n+z62GQlgyI/
+	zkdhIBEeZlul54mML0QAiBopPVvs6SI=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-661-g0oRCc2_MOGAmtpc121Q6w-1; Mon, 10 Nov 2025 18:26:38 -0500
+X-MC-Unique: g0oRCc2_MOGAmtpc121Q6w-1
+X-Mimecast-MFC-AGG-ID: g0oRCc2_MOGAmtpc121Q6w_1762817197
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b969f3f5bb1so7782682a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 15:26:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762817197; x=1763421997;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bpLpAuSScfpCpLk9/tKb4sUEHRL2syy6l9sHy6Oz5tI=;
+        b=OffTnkAQVLV4f0kjZaouQ8jbJG1pIMIL6KIJUPYXP8D2XaiIdP8aFbCWQGBVgeUZ/f
+         4uHsEtlv3wMvqdMgUSjj80mKBAn7d+u5KvgdRbi3TGWLYIJDVfVxGVfwB/1pHo7YO9Px
+         HPmuxyCJq4YyTPe0iQqBVZbMNReJiPhR+O0EueGx/S/iiil+O7z3lYiVvYMEulV+jaj0
+         Dh2AcbZBnrUojs56iCOzMLhkVKvJayK+EQhHxGo5RVPwDea91WIceYghaetEvMm3QQl0
+         q1O6l8YFGGXeZBCGqLe+nL9eNF3+e6SOgmot1iPKj+p5rRsmU5zeNYuFDThkgOLm0SXC
+         rIKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtdCgYtSR5EBPsbqsqeDa2qJTg+QQrT4LGZMwK3/Zvot5zEm19lpSadsts/Fatnk5BDcO1v9fvtpXhxn8yxEi3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMQt9Z/GayMTCcPyk7Fpf/brlr0DqaeuoFb5t82Qiwey87DM8D
+	r0kwnRDVmYM3XXLcMmz2PWif7I3F1on9MKhDFN/Pe1iOsiEvyeOJu82JP9bnV1BkEJwe8SGwn6p
+	jRnPhqaMkwUqKrMEuYdR2XWj8waKPpPFMcZwDHmvrV0ExMIFoW5ESD1c7+9pQjcbBi3ZvcRCLts
+	SW
+X-Gm-Gg: ASbGnctg+9YzRX7dayjn21K475C3psjQ7bh8ta42TM3ODhPAuXqpGorQ/32IQmeJ241
+	NBMBreN7IItBCIpguP2dpg+2mqpVlX2MBkM410lQg7vJR9qJ7QVV+nVf0frQdZMj1JIN3zr3iuB
+	AaJ+u5kjUWg+1RA9xMctjMZN50MzW8WE03KRqnwGnCvZw3zNtzEvnH/4U3gQ1CNOfETrmieWOpz
+	gSG6AAIZ2UiUTAHDV2XyyUiJLQmaHbx+Ryyu5c3T9EuCHiiKIYQLNR/IasOJexyaXnCScxGjINK
+	SsKszaJemkPc0mqYtKAL7TPkGE60MLW6TXSVHsQk9T5UzcVvQmHLlyLZww9FE3HaHUQ8oxpzDGr
+	dA7ZGZgwmR1HoTM4Gpcjb07NIzA0eR5W7sIDfd1A=
+X-Received: by 2002:a05:6a20:9190:b0:34e:8c68:35f with SMTP id adf61e73a8af0-353a11a5098mr13356881637.12.1762817197067;
+        Mon, 10 Nov 2025 15:26:37 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFevV2VCej3Ahq2iba40TX2lDlyCIbyd5ei9Wr8DC+sIXOAZcR2/kiux1he7iYtDDGagU6bRg==
+X-Received: by 2002:a05:6a20:9190:b0:34e:8c68:35f with SMTP id adf61e73a8af0-353a11a5098mr13356842637.12.1762817196603;
+        Mon, 10 Nov 2025 15:26:36 -0800 (PST)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba8f8e750c1sm13773441a12.1.2025.11.10.15.26.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Nov 2025 15:26:35 -0800 (PST)
+Message-ID: <33f9822a-fbb5-47e1-ab5c-97b30511a97f@redhat.com>
+Date: Tue, 11 Nov 2025 09:26:22 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB6293:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37efae60-bf55-48b4-fbbb-08de20ae1825
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NW0vbS81RVp1dVdwYnIza01JSVBSUWFoM1N5c1BWWVczdGd6d2FTYis3bnlX?=
- =?utf-8?B?TlJ5ZC9lQXRrTkt3eEw3Yjk5aEpaMlNraFN2SzRPOFBzMG5Cc2xYYVVjOWx4?=
- =?utf-8?B?T25nYmdwdUhrSFczbTJid3V0dEFsTElIQkdTeTBRT0Q3VTlmT2l6ZG9lMTlF?=
- =?utf-8?B?bzU2Sjl2Vlo5ODllWUhCOXZENHNxRXQ2QWZ5MmNiQlNMVUFUbE82UTRGaVhJ?=
- =?utf-8?B?eVlhQU9pb0xydXBxYmpoT1prUjdkajNadWRJV1JIQnloOTVJVWcraXV0aC9C?=
- =?utf-8?B?SVZJMWNDL2k3dmd4MFJWWFBnV1RTSXEzbW4xV3k1N1BiTVM1NmVrWnRTK3NC?=
- =?utf-8?B?KzhvZTVrUmZ5Nmw4TmQvWUZzLzlOVTVUbk9COHcyMUFXRnhPTm02TWZkZjlh?=
- =?utf-8?B?aDdTeC9ZQzZQUUk5bzZDQllUUVlnN0YrT3RnbFNqdU4yM3Z1L1d5UDVRWi9k?=
- =?utf-8?B?c21KQmNhbm9xd0hza3l2eGFWdlhESXBhRjdCYmd1UDJldkdOWW5zZmZMMUZP?=
- =?utf-8?B?VXlHcnpFbk0zaitpMU01UE11eXRsd1Y1bGU3bEM3OUFrNE9OM0h1WDN4cXgx?=
- =?utf-8?B?UVBNeitubmMwSmtyRGtPcmk1MWMzakxyWFg3OWxFU2pUdEc3WFR3dytMNUVX?=
- =?utf-8?B?d3J4YlFPQmxmOXFjV0lFMG5lMkNqSUxpM1d6WnJEMk0wWlVsaUpUL3Awdzlo?=
- =?utf-8?B?MHRXc0QweGJCbTgvMmxFSEJRaHBtcno4VnVDc1k1SVRYWktIaStCTTBWd3Vh?=
- =?utf-8?B?ZzdHZkU1Yi9mT1g1TTV1R0FvUnJ6ckY5UUhRTWsvRDNtMTNwK3Qva090YXdS?=
- =?utf-8?B?blpZR2IvTE9tNHlQSjFEOG0xYUJrZWpBVFZyWnUxUjFJTlgwV0poWVVJR09U?=
- =?utf-8?B?dlIxTEpRUTdJRVU2QzBFL3lzMkpiaXAzWjdNZG83Q0JPdjl5VkJtQXpza1g4?=
- =?utf-8?B?dGE1RHg1YnNTZDdDZjZHZFdPek1hTFdqdE5mLzB4UGlpNVk0b29wRGQxeDI4?=
- =?utf-8?B?bWZjZW4wMXNWcW5jZmlQRGtyc0lTa1hTN1VRaGxKbEFHVE1LajJHNFlHT2ls?=
- =?utf-8?B?Z0pSK2ZWaGFzbm9FeTZmYkd6QW1OT3NmbmdWVDhTOG03U1h3aGxRaUtvT09H?=
- =?utf-8?B?UjE4WDRRN0NtKzNHejdzSWlFamhhQ0pMUTNGVTYzRzQ3QlBrSlVuVjQxRHVN?=
- =?utf-8?B?SHdSTEN0RzhjMHJsbXRaRG40U3ZIWVZ4Z0NIYytSRkZCNGpRenVYUytRY05F?=
- =?utf-8?B?QWRpa1p3WUVZZ1FpNXVlZWtJMTM4bllCTnBkcFJaOENoZUErbXJGWkJ2RW9M?=
- =?utf-8?B?NzZIdnplNEJzdHc4MnpidFFiZEZFTnBzTzZ1RnFqdUdoNWlwZjFtR1hwZU9I?=
- =?utf-8?B?aUdtUmpsMy9VM0JsOHlaeVZZZXNRR05QVEUxZkQ5aUNoQUR0aTNqRnZxR280?=
- =?utf-8?B?SzA4ZnBxeXUzNkdTeUQyRnd6eTk0VlF2WlRxYWx4bFExZi83MHBSeUplc3px?=
- =?utf-8?B?ZmZ1dFp3c2pQaDZwY0xSVzFzdi9yZUpxZ2twVTNnYzExdnFFNEw1TDN5UDRx?=
- =?utf-8?B?N3FEUkZOek94NGgyMERPYWFHQ1BTT0lpY2EydHpna0l3VEZkRFVGWUt2cVc1?=
- =?utf-8?B?dDZNdW9ybm1PbjVQL3BRUzlrdnBZNTBuUGVIQ0llTnJibm1yRkJTeURXKzlM?=
- =?utf-8?B?YlU1UVJVN0JPOGZmVmJsc1d1anNWNldZWUsrdUhuOUh4aWxmNUtaU01rQWlL?=
- =?utf-8?B?dk40bTY3M3c0UGlYekNDV1VMYXAvVngyd0dLeTc3NW1pOEdYMTg5QTVJUjUy?=
- =?utf-8?B?ZWppSjl3ZWdpZERHbXF3cHNRWXJPNW94TEcwRU1GcW5vUzZwMUhTNzEwZkNx?=
- =?utf-8?B?Q0IzUjBVR0hHOE15RmpVVHNZYncydjd5MnNETHRPRUp3UnR4eGQyNmZXbng4?=
- =?utf-8?Q?e03dCEYZTWBOfEeWJvTJhAsRdkzRCz8z?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlZjcEYzd3NDcC9XTytZQmhCMEhVUms5bzZSWWVUQm9ONGgzWXFmSjVoaWZa?=
- =?utf-8?B?MEFnUDY3ZXFUZDA2S1FqQ1BpY2Z2d2xCZ0Nyc1p0T1BIa0tYVG5UR1MrOTFX?=
- =?utf-8?B?U2MzUUV4bG80bDJEU2NmT01PU3p6Qktva3JrS1JScXlUWVEvTnozdlVMU3dT?=
- =?utf-8?B?RXBDMUFGM2lqOUdEenAza1RyNnZNaUtHZlJlQnE4SlRNbGlGb05aTlFOR3lv?=
- =?utf-8?B?aG12cmtOSXQxSVFjNVJ4ZzREL1VYRDY0VjhEZzlZd1QvbFFCdlpmc0JSOVc3?=
- =?utf-8?B?em9CRlphbndmNndWSHJsUGJmYXo0bUtleTU1NWgydWFkUEV4U3hFQjlZMlY0?=
- =?utf-8?B?ZXRRSHNoODAvTUp3T1ZEU1ovcStGemk1eHAzb3BndXhBcFo3NFBVYnh0d2FL?=
- =?utf-8?B?RHRtZ1AvekpGcjFhQlVXTE1CZUhScXY5RHZ0R2RONmRXRjQ4WlpKR2FyYWFW?=
- =?utf-8?B?T2dDYWhoWkNKYm5jVmd5b1k0dlVTNGU3cmZ1VGFjK252K2FRbzVENkxXL2ZT?=
- =?utf-8?B?eWFNbUdWQWRaOWJlc3Y5N1VCejFXd3p1VHM4eUd5cXZaZ0Y4OFYyLzhFRUZj?=
- =?utf-8?B?S0R5VVdySElVNnlhN0M3T3hLTENQOXBmd05wNjJhbUU3am4xRVZTUGprQU4w?=
- =?utf-8?B?TTZidGR6V3FsckJsSE5qZXFRdGxERkV6bzB5Kzd6Ylh3SFR3eER5djFrZU1z?=
- =?utf-8?B?SXJDNmxtY2pqRFNXK3hoaTZZT29oYTF4U3g4Vm0wclVPU0Q2VzYzNGZCRERJ?=
- =?utf-8?B?dzh3cmpVQ1o0WjJVd3RuZ1B4MFhXREtMeXE0Tkp4dXEySDV5TFhUVTdPeFlI?=
- =?utf-8?B?OTFjb3R5QU10eENaTkVpZWxWRWNacDNTL2hoZ2Q2MkJlMjdxZDc2WWNGUDFC?=
- =?utf-8?B?WWtOb1F2SXNobEVzZ25qbTVsZlU0YnNpdkN0M0FVMUE5cmo0aXp1VHN6VGtF?=
- =?utf-8?B?T1AvQnYwS2xKa1hkT0FNZG1VR3c5czh6NU1CZzh2NURWVllJL1FZTG95UURj?=
- =?utf-8?B?bDljc0dWY1NwZ2NscHpqcytnS2QvUGJjNnBqSWJqSXFNdHhCYUh0YVQzRnFF?=
- =?utf-8?B?eXdWZ09JT0E5ZnpzdU9rTmVjNkp3R0hzQThub1o4SkRKVG9xUlFkbC9Qd0VO?=
- =?utf-8?B?MW9IUU5ja09KMnhFOVNCM2dGU0kzOUtJWjdSYituaUpHM2luMUk3ZTduc3NG?=
- =?utf-8?B?K1lIYU11c2Q3dGV4WXhJWnk0cFVDZUxRZkhpNlUwTVptU0xvMEtDWTlmUWZS?=
- =?utf-8?B?cmM5YmV6eTc1VHBuUEIvcGdQMlBmeWY3WE52S0VPVXU3NjR0a2hycC9NaGFn?=
- =?utf-8?B?T3hGajMrSjUySUlVUnRTeWNoZlhkdG8wdFAwNFdTMnBlTzAyejQ5Wis3Y2hY?=
- =?utf-8?B?RWRvcDdMbzBPU2NqcmxtdjdvMXo2TkI4OHFXMGJRSk5ZeHpQcmFwMnorQTdt?=
- =?utf-8?B?ZlJpdDE4aWFVaVFOckJkL3pKVUoyS2dPeFloSzZpUXl5a1JGamdkRGdERzd1?=
- =?utf-8?B?d2JFdFhoT2VTOGhjUGRCQjBxc0c3Ykhxak1OTFlzMklSdGJMaVZ4aSswUURR?=
- =?utf-8?B?UE04QzM5NVQ5S0EvZ2drTU1TdHBib3R3TnlsZ0NKcUV3UHZjNm9UMDl0M3Rk?=
- =?utf-8?B?cjc0YTBGTWZlM1RwSHNZRU40dmtLMnRsSDZVRVJ2QWw5dDQ4dXQ4MmlsZFBo?=
- =?utf-8?B?K3JOc3lYdlFzWXcvVWprNDBYVnJza0VIUmw2YjBqRkx3a0p2bnR4TFhrT1RB?=
- =?utf-8?B?Wmp6L1ZMRVVpL1Z6SXZGVEtKalEvNjVoLzZralZKVXVwQ0t5Q2NLc01kc3gr?=
- =?utf-8?B?MEVLUFhFL0VwaTJEV0lqbDgrVFdPNUlYRDJlaFl6KzN6dEtlS2xkVldFakdp?=
- =?utf-8?B?dDFjUzNkT0YrWVUxSWJabnRJQXgyU2VRSkV3bDVndUcrWnJiRG9vMzNVaDVj?=
- =?utf-8?B?R3hld2NLck9EOXZyMHFvS01YQ0d4UHJDV016dU5ob0sxTGFueHZaeVJBWVMy?=
- =?utf-8?B?Ri8wV2tybVJGU2NJdUQ2UXkrOGVLSDFkVDJyQXV0RVFhSUNHRWRSaUZ5eGl0?=
- =?utf-8?B?VEFJUnM1aUp3Q0RRVXZPaG1Xanptc3d3U1hLV2dBQUFRZmo0UVRORnRTVVpw?=
- =?utf-8?B?MDBlVUZkYmdtblF2U0tZZFY0V1p6SVF1aC9XRDMzMmJEdmhCeVU2anZIVHVh?=
- =?utf-8?Q?IdLw1LTyK+glyWSHEDsa0+A=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37efae60-bf55-48b4-fbbb-08de20ae1825
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2025 23:08:43.6239
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wGptYHARJVwT6X4s0k66glr4HL+NIf7Z5QBler2f8pqk1RXKAX5JOSc9pJv/rEI5iSTXS6R+g3quDG0btQZIUFiK1pj4xvoZbCS4Lsdbl/o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6293
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/33] arm_mpam: Probe hardware to find the supported
+ partid/pmg values
+From: Gavin Shan <gshan@redhat.com>
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-15-ben.horgan@arm.com>
+ <7d0c73d3-1943-469f-813a-eba1dac38d4a@redhat.com>
+In-Reply-To: <7d0c73d3-1943-469f-813a-eba1dac38d4a@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: pcAqgO0OMaHyq0V2DT2VZMEGdq5qO6h4V5Zd9YRNkhE_1762817197
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_150849_270530_2E543284 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20251110_152642_975179_4E453FBD 
+X-CRM114-Status: GOOD (  32.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,60 +125,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+Hi Ben,
 
-Gently ping...
+On 11/9/25 10:43 AM, Gavin Shan wrote:
+> On 11/7/25 10:34 PM, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> CPUs can generate traffic with a range of PARTID and PMG values,
+>> but each MSC may also have its own maximum size for these fields.
+>> Before MPAM can be used, the driver needs to probe each RIS on
+>> each MSC, to find the system-wide smallest value that can be used.
+>> The limits from requestors (e.g. CPUs) also need taking into account.
+>>
+>> While doing this, RIS entries that firmware didn't describe are created
+>> under MPAM_CLASS_UNKNOWN.
+>>
+>> This adds the low level MSC write accessors.
+>>
+>> While we're here, implement the mpam_register_requestor() call
+>> for the arch code to register the CPU limits. Future callers of this
+>> will tell us about the SMMU and ITS.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since v3:
+>>  From Jonathan:
+>> Stray comma in printk
+>> Unnecessary braces
+>> ---
+>>   drivers/resctrl/mpam_devices.c  | 148 +++++++++++++++++++++++++++++++-
+>>   drivers/resctrl/mpam_internal.h |   6 ++
+>>   include/linux/arm_mpam.h        |  14 +++
+>>   3 files changed, 167 insertions(+), 1 deletion(-)
+>>
+> 
+> One comment related to 'partid_max_init', but this looks good to me in
+> either way:
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 4162a7a57626..e1e26cb350f7 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -6,6 +6,7 @@
+>>   #include <linux/acpi.h>
+>>   #include <linux/atomic.h>
+>>   #include <linux/arm_mpam.h>
+>> +#include <linux/bitfield.h>
+>>   #include <linux/cacheinfo.h>
+>>   #include <linux/cpu.h>
+>>   #include <linux/cpumask.h>
+>> @@ -42,6 +43,15 @@ static atomic_t mpam_num_msc;
+>>   static int mpam_cpuhp_state;
+>>   static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+>> +/*
+>> + * The smallest common values for any CPU or MSC in the system.
+>> + * Generating traffic outside this range will result in screaming interrupts.
+>> + */
+>> +u16 mpam_partid_max;
+>> +u8 mpam_pmg_max;
+>> +static bool partid_max_init, partid_max_published;
+>> +static DEFINE_SPINLOCK(partid_max_lock);
+>> +
+> 
+> If mpam_partid_max and mpam_pmg_max are initialized to USHRT_MAX and 255 here,
+> the state related to partid_max_init can be removed...
+> 
+>>   /*
+>>    * mpam is enabled once all devices have been probed from CPU online callbacks,
+>>    * scheduled via this work_struct. If access to an MSC depends on a CPU that
+>> @@ -142,6 +152,70 @@ static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
+>>   #define mpam_read_partsel_reg(msc, reg) _mpam_read_partsel_reg(msc, MPAMF_##reg)
+>> +static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
+>> +{
+>> +    WARN_ON_ONCE(reg + sizeof(u32) >= msc->mapped_hwpage_sz);
+>> +    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>> +
+>> +    writel_relaxed(val, msc->mapped_hwpage + reg);
+>> +}
+>> +
+>> +static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+>> +{
+>> +    lockdep_assert_held_once(&msc->part_sel_lock);
+>> +    __mpam_write_reg(msc, reg, val);
+>> +}
+>> +
+>> +#define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
+>> +
+>> +static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>> +{
+>> +    u64 idr_high = 0, idr_low;
+>> +
+>> +    lockdep_assert_held(&msc->part_sel_lock);
+>> +
+>> +    idr_low = mpam_read_partsel_reg(msc, IDR);
+>> +    if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+>> +        idr_high = mpam_read_partsel_reg(msc, IDR + 4);
+>> +
+>> +    return (idr_high << 32) | idr_low;
+>> +}
+>> +
+>> +static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+>> +{
+>> +    lockdep_assert_held(&msc->part_sel_lock);
+>> +
+>> +    mpam_write_partsel_reg(msc, PART_SEL, partsel);
+>> +}
+>> +
+>> +static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
+>> +{
+>> +    u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
+>> +              FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+>> +
+>> +    __mpam_part_sel_raw(partsel, msc);
+>> +}
+>> +
+>> +int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+>> +{
+>> +    guard(spinlock)(&partid_max_lock);
+>> +    if (!partid_max_init) {
+>> +        mpam_partid_max = partid_max;
+>> +        mpam_pmg_max = pmg_max;
+>> +        partid_max_init = true;
+>> +    } else if (!partid_max_published) {
+>> +        mpam_partid_max = min(mpam_partid_max, partid_max);
+>> +        mpam_pmg_max = min(mpam_pmg_max, pmg_max);
+>> +    } else {
+>> +        /* New requestors can't lower the values */
+>> +        if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
+>> +            return -EBUSY;
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +EXPORT_SYMBOL(mpam_register_requestor);
+>> +
+> 
+> With mpam_partid_max and mpam_pmg_max initialized to USHRT_MAX and 255, this
+> can be:
+> 
+>      if (!partid_max_published) {
+>              ...
+>          } else {
+>              ...
+>          }
+> 
+>>   static struct mpam_vmsc *
+>>   mpam_vmsc_alloc(struct mpam_component *comp, struct mpam_msc *msc)
+>>   {
+>> @@ -451,9 +525,35 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>>       return err;
+>>   }
+>> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+>> +                           u8 ris_idx)
+>> +{
+>> +    int err;
+>> +    struct mpam_msc_ris *ris;
+>> +
+>> +    lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +    if (!test_bit(ris_idx, &msc->ris_idxs)) {
+>> +        err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
+>> +                         0, 0);
+>> +        if (err)
+>> +            return ERR_PTR(err);
+>> +    }
+>> +
+>> +    list_for_each_entry(ris, &msc->ris, msc_list) {
+>> +        if (ris->ris_idx == ris_idx)
+>> +            return ris;
+>> +    }
+>> +
+>> +    return ERR_PTR(-ENOENT);
+>> +}
+>> +
+>>   static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   {
+>>       u64 idr;
+>> +    u16 partid_max;
+>> +    u8 ris_idx, pmg_max;
+>> +    struct mpam_msc_ris *ris;
+>>       struct device *dev = &msc->pdev->dev;
+>>       lockdep_assert_held(&msc->probe_lock);
+>> @@ -464,6 +564,40 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>           return -EIO;
+>>       }
+>> +    /* Grab an IDR value to find out how many RIS there are */
+>> +    mutex_lock(&msc->part_sel_lock);
+>> +    idr = mpam_msc_read_idr(msc);
+>> +    mutex_unlock(&msc->part_sel_lock);
+>> +
+>> +    msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+>> +
+>> +    /* Use these values so partid/pmg always starts with a valid value */
+>> +    msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>> +    msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>> +
+>> +    for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+>> +        mutex_lock(&msc->part_sel_lock);
+>> +        __mpam_part_sel(ris_idx, 0, msc);
+>> +        idr = mpam_msc_read_idr(msc);
+>> +        mutex_unlock(&msc->part_sel_lock);
+>> +
+>> +        partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>> +        pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>> +        msc->partid_max = min(msc->partid_max, partid_max);
+>> +        msc->pmg_max = min(msc->pmg_max, pmg_max);
+>> +
+>> +        mutex_lock(&mpam_list_lock);
+>> +        ris = mpam_get_or_create_ris(msc, ris_idx);
+>> +        mutex_unlock(&mpam_list_lock);
+>> +        if (IS_ERR(ris))
+>> +            return PTR_ERR(ris);
+>> +    }
+>> +
+>> +    spin_lock(&partid_max_lock);
+>> +    mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+>> +    mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+>> +    spin_unlock(&partid_max_lock);
+>> +
 
-It is not an urgent fix, either 6.18 or 6.19 is fine.
+mpam_register_requestor() could be used here to avoid the capacities
+(maximal PARTIDs and PMGs) are unexpectedly lowered.
+
+
+>>       msc->probed = true;
+>>       return 0;
+>> @@ -686,10 +820,20 @@ static struct platform_driver mpam_msc_driver = {
+>>   static void mpam_enable_once(void)
+>>   {
+>> +    /*
+>> +     * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+>> +     * longer change.
+>> +     */
+>> +    spin_lock(&partid_max_lock);
+>> +    partid_max_published = true;
+>> +    spin_unlock(&partid_max_lock);
+>> +
+>>       mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
+>>                         "mpam:online");
+>> -    pr_info("MPAM enabled\n");
+>> +    /* Use printk() to avoid the pr_fmt adding the function name. */
+>> +    printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
+>> +           mpam_partid_max + 1, mpam_pmg_max + 1);
+>>   }
+>>   void mpam_disable(struct work_struct *ignored)
+>> @@ -756,4 +900,6 @@ static int __init mpam_msc_driver_init(void)
+>>       return platform_driver_register(&mpam_msc_driver);
+>>   }
+>> +
+>> +/* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+>>   subsys_initcall(mpam_msc_driver_init);
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 4e1538d29783..768a58a3ab27 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -49,6 +49,8 @@ struct mpam_msc {
+>>        */
+>>       struct mutex        probe_lock;
+>>       bool            probed;
+>> +    u16            partid_max;
+>> +    u8            pmg_max;
+>>       unsigned long        ris_idxs;
+>>       u32            ris_max;
+>> @@ -138,6 +140,10 @@ struct mpam_msc_ris {
+>>   extern struct srcu_struct mpam_srcu;
+>>   extern struct list_head mpam_classes;
+>> +/* System wide partid/pmg values */
+>> +extern u16 mpam_partid_max;
+>> +extern u8 mpam_pmg_max;
+>> +
+>>   /* Scheduled work callback to enable mpam once all MSC have been probed */
+>>   void mpam_enable(struct work_struct *work);
+>>   void mpam_disable(struct work_struct *work);
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> index 5a3aab6bb1d4..c7246cfeb091 100644
+>> --- a/include/linux/arm_mpam.h
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -49,4 +49,18 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>>   }
+>>   #endif
+>> +/**
+>> + * mpam_register_requestor() - Register a requestor with the MPAM driver
+>> + * @partid_max:        The maximum PARTID value the requestor can generate.
+>> + * @pmg_max:        The maximum PMG value the requestor can generate.
+>> + *
+>> + * Registers a requestor with the MPAM driver to ensure the chosen system-wide
+>> + * minimum PARTID and PMG values will allow the requestors features to be used.
+>> + *
+>> + * Returns an error if the registration is too late, and a larger PARTID/PMG
+>> + * value has been advertised to user-space. In this case the requestor should
+>> + * not use its MPAM features. Returns 0 on success.
+>> + */
+>> +int mpam_register_requestor(u16 partid_max, u8 pmg_max);
+>> +
+>>   #endif /* __LINUX_ARM_MPAM_H */
 
 Thanks,
-Yang
-
-
-On 10/23/25 1:44 PM, Yang Shi wrote:
-> The commit fcf8dda8cc48 ("arm64: pageattr: Explicitly bail out when changing
-> permissions for vmalloc_huge mappings") made permission update for
-> partial range more robust. But the linear mapping permission update
-> still assumes update the whole range by iterating from the first page
-> all the way to the last page of the area.
->
-> Make it more robust by updating the linear mapping permission from the
-> page mapped by start address, and update the number of numpages.
->
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
-> v2: * Dropped the fixes tag per Ryan and Dev
->      * Simplified the loop per Dev
->      * Collected R-bs
->
->   arch/arm64/mm/pageattr.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 5135f2d66958..08ac96b9f846 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -148,7 +148,6 @@ static int change_memory_common(unsigned long addr, int numpages,
->   	unsigned long size = PAGE_SIZE * numpages;
->   	unsigned long end = start + size;
->   	struct vm_struct *area;
-> -	int i;
->   
->   	if (!PAGE_ALIGNED(addr)) {
->   		start &= PAGE_MASK;
-> @@ -184,8 +183,9 @@ static int change_memory_common(unsigned long addr, int numpages,
->   	 */
->   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
-> -		for (i = 0; i < area->nr_pages; i++) {
-> -			__change_memory_common((u64)page_address(area->pages[i]),
-> +		unsigned long idx = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
-> +		for (; numpages; idx++, numpages--) {
-> +			__change_memory_common((u64)page_address(area->pages[idx]),
->   					       PAGE_SIZE, set_mask, clear_mask);
->   		}
->   	}
+Gavin
 
 
