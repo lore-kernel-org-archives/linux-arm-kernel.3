@@ -4,145 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B68CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 01:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0265CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 02:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvQPOUskdjWPrB4UtpqZJVcpnC9hm6QOIT/T8aJTbnM=; b=AdKxsAj6S1qaFfvhWjj2EQz64w
-	AVYWLabkS0faEpMKPgIOFGIn5etftMsqJYhreCpuSHiFziiytPj34xbip/YsFXWOeG+Tlmp3iGYBZ
-	WNg79PSGrFiCnOnU8/36j2KiHZuo5E9TKethrrCIfY3RJLMzKjl5cxj9/hVXo/4dbG/UU1kT8hXDw
-	zOQyCUMkBLX1+9JvfkUSDn0vDqou1qh13Tls19CxYHzPQ0w9otCdx3ST99cerRi++rVdz78HNgq3p
-	d45uvRKrYLb64iLKUQZTc+XIusrzjzlkDBXvCbc1G4nhwITTafMmFd4IdQM8lZ3Cax1JpzsdoesJO
-	nvqV6VSQ==;
+	bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=; b=Reza5U0WSixkoK2FGjeIWKiONL
+	n1pPR0u7MXIJfkv53u5ZYsWRoOaxQLmlUcm02ciIHx1/2Eq7PyJal+laicMAM8/rmSKTKOOle8EtJ
+	FaB//JqJKgn3n35JsLEoeBnV31eKFTqfVSr8nuVr0A02IiNFM+NY1Ot0p4NKobFLmhtOMgfyvUIki
+	NLyFqWeo/h/XaR++zdh94qOQVrHkfIPQqY34+sLrK9zPFPYbp9Hgrg8IKRFJ1RCf66pgUduYMvxZj
+	CKPme9n5HydNrnNHADl5SipKzyE+BDLcxRnOa9Jo2vEo1o03oeUn9/+E7bITX4TCB4LfZ9HD+e8+d
+	hYG0bkqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIGj9-00000004aSq-1djN;
-	Mon, 10 Nov 2025 01:29:51 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vIHab-00000004cC0-1foM;
+	Mon, 10 Nov 2025 02:25:05 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIGj7-00000004aSM-3NPL
+	id 1vIHaY-00000004cBd-2u1x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 01:29:50 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A9IYh44963115
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:29:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mvQPOUskdjWPrB4UtpqZJVcpnC9hm6QOIT/T8aJTbnM=; b=bM0mKyU6Z/3L9xQy
-	vBJM0QCch4B1nhqDc5Sm+teT0SV5j0X54eda9BFhrlQFjdVzyoY7E7TEX1CzFo0E
-	rKVwFtLjAC7ta6Gi62J2m8unBIw89FWqEbM2MZv+XORblBHW+CeOjlykiKL8kS6n
-	xpxdukS0KQXdeXmE7b8a3bm3IM8hS2wg6ipoi3v1XC4UZnmU6UB1mayTww24u6jz
-	0P3PDht63XhXWyy2kcczsNbQ581u5Jhfclz85OuN3pU1Ob1Yv+/rgmiAfq6LHL2Y
-	8PJF4B+iZuxCfY1eV/dHV0t/dfJ81PgIk1w8g5JgeYdtpab9hFVS4kCs6s+RdJxE
-	wR1w3A==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a9y1h2y4x-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 01:29:49 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3407734d98bso3163752a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 17:29:49 -0800 (PST)
+	Mon, 10 Nov 2025 02:25:03 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-55965c96fd7so596053e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 18:25:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762738188; x=1763342988; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mvQPOUskdjWPrB4UtpqZJVcpnC9hm6QOIT/T8aJTbnM=;
-        b=QU7MdMz3QumPxBEuJfIUgXSTV+3hNTJNWqSEWB/8nPuM5Yr1cTtgnP/+j+P2fY/Fmq
-         xcdtTZ+s6e1FItuu8zIfc0GbnPLyEQh++e8Z4oo8hx3kGGjPNNtoLT0APxlGrx8GK7yp
-         EWSG3gC4+F3MHKToYItWvseMYSX6yBChx1GS6F2B5ddg5aQnHBE1WeW9FEUMxlNGi1Hk
-         vvJnGTAHYze0xYnUgfV1OHWrwNMys9VQ6xpAFpu7DqnpDOkU9V4oSblCso+3KyYyaglD
-         Lo2R2KdxU++T2CX26olsITCZ2sc0ZPIC90eTOq7Wjr4I+KIv2YRcjJjrZeKmCWwSzJVc
-         UDnA==
+        d=gmail.com; s=20230601; t=1762741501; x=1763346301; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=;
+        b=i1Zu27Q3fxkPPZiFL3kFDBEdobZ1CFi4aJlLoEpyCA0dX9Qd+Od9Ldu0qghZbNIvwU
+         fb7kkH1VNZTCT630fJAy8AJsqEeERfYqqZnJ/vrtvQOdI5guM28NnIII/+BzrdhYbGT4
+         zIL7j74PV3zfpOwoB9/9z6XdDSgz6hSB7DGzmurISYlFDtf4sIrkgireJqpEq5sQclza
+         b9swPuy64Y16ETJ6pw7dVcViTpbhCQfnNYnVHZjbIpVePVA59s5NFOsm7pcoSTuyE1s/
+         PhO4+gCNtDoTy37uKYszK8GPX5Pq38ncqfvHmOIhfxJyPYW6bbE5AAWIXSFlaLPfwUHR
+         9Jvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762738188; x=1763342988;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mvQPOUskdjWPrB4UtpqZJVcpnC9hm6QOIT/T8aJTbnM=;
-        b=fB9aodv/ihF1LxySeX3m8+iwwV4aiSQyN+//XJfpIPGgEuY8o4qhDDKfdn+MIFNbs3
-         jxewYHjGFwbZSWhNTYyxjw8sbmtgELUsi20MSw54SPPQ7vnVFT2zAcEu8h9Un8s3GE7j
-         c4pBKPBkQuy8UXQcEScRdFa7f2H28/7BXYpPGvE6J4a6BBv3b4NlyTFjDJjspUGpk/aY
-         HfeR67uBGZUQeMedj+Dyrst/8Xzg/JUI0qG+3U6u+nplDb6pgrmYCyUPBvfwJJB34gqw
-         VNSf5pMHwkTqf4D0OA2bcyt8UNt8IICaTdpHAWi1+C3e2XZudFvZ35v0aMEcEMz7mquw
-         eIJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVX2q6fXlagL2OzDkKKRmsuInMGGLNV7foYxbVMrrRgWelgDJTLbZboHbr8XK3vnca2rSbJu63hT2Ha1Xhb2Dp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9a14d76DrfnikNzRxMplnpLMispjwDcELXeoH7GtT3BLiuQX0
-	efILcQi5pbo5cGtdbwkOPwEfzUZonrszHsl2WRy3BOVfKtvG1exy1jpGQ8AzhrLyw4cRLolGUN1
-	+jhNEB/IW7I/tbc4+dOVQGkZs7+ropFMPddojshMzP4rC3Yr5/SrgcOqijDroQnvpE1X9yfYJPn
-	aDkQ==
-X-Gm-Gg: ASbGncuuu2e2gBwu1lPafHEJeDaNmufHxAFxV8O07w6XYcTyOBbV+ZkjK6qwJPfg1NP
-	W+vFT+y63z0lB0RBt/wT33lSsef5bx17bq1jh5XouI/21B/7e1rIJSp7EfkaHk4HilHgy9U2XPT
-	T4rg+ZTcipehX+g+hydT5RkUtTN9A57zR9fft0cwekPRMXQgIhm6ARcCxXfV0z8+c2AJgqyNKoW
-	RXY4zWVec5MW2xAldsvFOxjsrrtE8rPvU/Coo0uZwG2EQ+sO1nTdeQyxBw147W7/8GcBYR7351e
-	/FjyTR9zPpKBuYKv7RA6Wvl6hARNXWwRdvnnor6MYuNrPfLx7fYxIeROCj8HbRM95RL89/AlZr8
-	2O1cEpw1lPeNMC/BAj3VuzpC0aiX3irCpxFlcu08h/iKggdTQdgW997BTH4Nldpl4
-X-Received: by 2002:a17:90a:e7ca:b0:33d:a0fd:257b with SMTP id 98e67ed59e1d1-3436cd0bd68mr8856906a91.36.1762738188461;
-        Sun, 09 Nov 2025 17:29:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF/zpXBoEI0qZfIbWB/NFb7Wa9KJd0FMTt/M01D8g42vf/KLbZfvlDMgxiy/2OU7k021aGKxw==
-X-Received: by 2002:a17:90a:e7ca:b0:33d:a0fd:257b with SMTP id 98e67ed59e1d1-3436cd0bd68mr8856887a91.36.1762738187957;
-        Sun, 09 Nov 2025 17:29:47 -0800 (PST)
-Received: from [10.133.33.229] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3436c3d7dddsm5695497a91.7.2025.11.09.17.29.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Nov 2025 17:29:47 -0800 (PST)
-Message-ID: <b80a5bda-e0fd-4471-9aea-bf3b39ec64e6@oss.qualcomm.com>
-Date: Mon, 10 Nov 2025 09:29:40 +0800
+        d=1e100.net; s=20230601; t=1762741501; x=1763346301;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RQYjb15LQkUsCJVby49O7R+AcuVLuxsTRLE2IcB39qA=;
+        b=chhpYAKvFXlp4c9IIsthZw1kzLrevZs0gJqjCq2VEaP+pMGOqjCQMtik8RLjac57yN
+         W5Ka3vbZ5dKwZiFtoVUWgB2zY38SNE32zO6oGzVwQAovwm0NqQoqu6CjJB1H8L6Ce6pG
+         18SJxR+Ozv99+sxFelol0H4vl+FG8+twxrvarO0XjGCBiEp5BcwlOCFk4vCnzbbmA+XT
+         5+nz2yI9EqIqeudZVAsitdnkgWOlfWt+1FbDV/bRiiGI5LvKnmHs51sMogFCTQYm2Iz1
+         LDY2NZKItNqpzEMiIFY2duvZtDkS6HVEfljpd3OWpgvrZXaTu7O1V1GL24damxXC8vAN
+         nisA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrNbl6dLHUAiB6MrfG+vuKKMWPR0nIwA7jGIMvPW0YslRfOmY060/ISpY2vwGI4XKN8GvDJ+7bQTBBz9cxDi1y@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRKgEsNdmkA++1WOOijQ7D+QkUIXnRP8tSJVqlxaOnKbZOweXS
+	o+ffpB9yiaG0hO2M/21ReGPfMR3uGqNcjcEjYG0xJZYNx7z32uxR3l9giFz33POl5YnH6O1HD0W
+	fK2XCqMla5mYQAIiCXU0hR9zhoOUCOoc=
+X-Gm-Gg: ASbGncslAfLO2nB1zSrcwqWoIadrIwQYf8iz4iztqB+rycLl98nRVk5OXe+9WSRtYNH
+	s/9dmS1i0SgYZUJfQXREHbQDSot4jC5U3TtBS9x70RTWuKiySHKx+LVn97H9CcBcmbFKjLwfM4G
+	63qt4JsVZrK53L1iuoHMCckMfqNzM+NEJFEm8KNdZzYv2m1Yhreto5nJwMMW7oonin9HhOR7nP+
+	ANKHmEiCVbOGhm/lj1LqCGpDBdzlRBOTNep7uz0d4GrhP/UZjnUyRLuaXQc8KKLi9Gt4g==
+X-Google-Smtp-Source: AGHT+IF2EMlurBzuMt0qOjdQBCv2IFE0TWGHtCo4RfIbED7bE2bHbiRvxWtYQJUkcmfpI0qEQHMqGsLRQb6EJAlUMEM=
+X-Received: by 2002:a05:6102:2ac7:b0:5db:fb4c:3a8f with SMTP id
+ ada2fe7eead31-5ddc485e4edmr2017252137.39.1762741501079; Sun, 09 Nov 2025
+ 18:25:01 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: add CTCU device for monaco
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
-References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
- <20251103-enable-ctcu-for-monaco-v4-1-92ff83201584@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-1-92ff83201584@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: ptKr0kwr8XOOUsVZJ94lVmc8EyTgzu9p
-X-Proofpoint-GUID: ptKr0kwr8XOOUsVZJ94lVmc8EyTgzu9p
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDAxMSBTYWx0ZWRfX+QSJ9sL/aEfZ
- rbpjgZZ9OOqRHPKkRFgnJliVbq6+s0azo7lx9pon9no384rZLzZUkj8/76TQt0EGOWBrYKCBOEu
- YPxD8IenocILv7fA0DwCr8NrozaxGL/tCVuB8zZOUzsCIm8TgYN2Dbp/exfPTE0J95NTEWAqYyP
- urwFWhZJgY4FTi+LTBakBOyUpnjYeAHDacGOeHN3LvMFJIeDuWEMhcWO8BwNT0HoiB5yNmf6JI3
- oQ1HfFOWbnykQjj+uUXBiOoWrcO3GJ3Rhm8gdf8uXXMTWq125p6QhaXdyLAfSJxsY1Rqv9triGJ
- wnE5YYTZ5i8Dq2wijVocO/laEtWIFwQ0GS1iTUuzkNsBFkJEB06iApDCQjmTgd6QqWYMCaIQP6B
- 011AWzPHzNLAxuoevG5AlskcvpFFAw==
-X-Authority-Analysis: v=2.4 cv=Xuj3+FF9 c=1 sm=1 tr=0 ts=6911400d cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=KKAkSRfTAAAA:8 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=51A4gIhVuH9znBGuUk4A:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22 a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-09_10,2025-11-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 suspectscore=0 spamscore=0 phishscore=0
- malwarescore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511100011
+References: <CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
+ <20250929043110.3631025-1-hy_fifty.lee@samsung.com> <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
+In-Reply-To: <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
+From: Inki Dae <daeinki@gmail.com>
+Date: Mon, 10 Nov 2025 11:24:23 +0900
+X-Gm-Features: AWmQ_bnpaBAd4D4AdmA6qBIjSKlXa89V9KyU_fLfaAFw_TI3ApflT_I8g0W-s48
+Message-ID: <CAAQKjZM3qgQO=FaAuc4d1aUT1fCT6Vfo0X7Y7B=NwRNM=B34wA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
+ instead of zero-sized update
+To: Hoyoung Lee <hy_fifty.lee@samsung.com>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_172949_859873_EDC89987 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20251109_182502_766963_9040011D 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,48 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thanks for contribution,
 
+2025=EB=85=84 9=EC=9B=94 29=EC=9D=BC (=EC=9B=94) =EC=98=A4=ED=9B=84 1:29, H=
+oyoung Lee <hy_fifty.lee@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> Some configurations require additional actions when all windows are
+> disabled to keep DECON operating correctly. Programming a zero-sized wind=
+ow
+> in ->atomic_update() leaves the plane logically enabled and can bypass
+> those disable semantics.
+>
+> Treat a fully off-screen plane as not visible and take the explicit disab=
+le
+> path.
+>
+> Implementation details:
+> - exynos_plane_mode_set(): if computed actual_w/actual_h is zero, mark
+>   state->visible =3D false and return early.
+> - exynos_plane_atomic_check(): if !visible, skip further checks and
+>   return 0.
+> - exynos_plane_atomic_update(): if !visible, call ->disable_plane();
+>   otherwise call ->update_plane().
+>
+> No functional change for visible planes; off-screen planes are now cleanl=
+y
+> disabled, ensuring the disable hooks run consistently.
+>
+> Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
+> ---
+>  drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/=
+exynos/exynos_drm_plane.c
+> index 7c3aa77186d3..842974154d79 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> @@ -91,6 +91,11 @@ static void exynos_plane_mode_set(struct exynos_drm_pl=
+ane_state *exynos_state)
+>         actual_w =3D exynos_plane_get_size(crtc_x, crtc_w, mode->hdisplay=
+);
+>         actual_h =3D exynos_plane_get_size(crtc_y, crtc_h, mode->vdisplay=
+);
+>
+> +       if (!actual_w || !actual_h) {
+> +               state->visible =3D false;
 
-On 11/3/2025 3:06 PM, Jie Gan wrote:
-> The CTCU device for monaco shares the same configurations as SA8775p. Add
-> a fallback to enable the CTCU for monaco to utilize the compitable of the
-> SA8775p.
-> 
+The state->visible field in the DRM atomic framework is set to true
+only when the following conditions are met:
+- Both state->crtc and state->fb are present (having only one of them
+results in an error).
+- src_w/src_h and crtc_w/crtc_h are non-zero.
+- The source rectangle does not exceed the framebuffer bounds (e.g.,
+src_x + src_w <=3D fb->width).
+- Rotation and clipping checks pass successfully.
 
-Gentle reminder. Not sure do we have a change to apply this patch?
+However, this patch modifies the state->visible value within
+vendor-specific code. Doing so can be problematic because it overrides
+a field that is managed by the DRM atomic framework. Even if it
+currently works, it may lead to unexpected behavior in the future.
+
+For example, if the DRM atomic framework sets visible =3D true after
+validating the above conditions and begins processing certain logic,
+but the vendor driver later changes it to false, the framework may
+still assume the variable remains true, resulting in inconsistent
+states.
+
+Turning off a plane when it doesn=E2=80=99t need to be displayed is a good
+idea I think. You might consider contributing this behavior upstream
+so it can be properly handled within the DRM atomic framework itself.
 
 Thanks,
-Jie
+Inki Dae
 
-
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 9 +++++++--
->   1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> index c969c16c21ef..460f38ddbd73 100644
-> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> @@ -26,8 +26,13 @@ description: |
->   
->   properties:
->     compatible:
-> -    enum:
-> -      - qcom,sa8775p-ctcu
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - qcom,qcs8300-ctcu
-> +          - const: qcom,sa8775p-ctcu
-> +      - enum:
-> +          - qcom,sa8775p-ctcu
->   
->     reg:
->       maxItems: 1
-> 
-
+> +               return;
+> +       }
+> +
+>         if (crtc_x < 0) {
+>                 if (actual_w)
+>                         src_x +=3D ((-crtc_x) * exynos_state->h_ratio) >>=
+ 16;
+> @@ -244,6 +249,9 @@ static int exynos_plane_atomic_check(struct drm_plane=
+ *plane,
+>         /* translate state into exynos_state */
+>         exynos_plane_mode_set(exynos_state);
+>
+> +       if (!new_plane_state->visible)
+> +               return 0;
+> +
+>         ret =3D exynos_drm_plane_check_format(exynos_plane->config, exyno=
+s_state);
+>         if (ret)
+>                 return ret;
+> @@ -263,8 +271,10 @@ static void exynos_plane_atomic_update(struct drm_pl=
+ane *plane,
+>         if (!new_state->crtc)
+>                 return;
+>
+> -       if (exynos_crtc->ops->update_plane)
+> +       if (new_state->visible && exynos_crtc->ops->update_plane)
+>                 exynos_crtc->ops->update_plane(exynos_crtc, exynos_plane)=
+;
+> +       else if (exynos_crtc->ops->disable_plane)
+> +               exynos_crtc->ops->disable_plane(exynos_crtc, exynos_plane=
+);
+>  }
+>
+>  static void exynos_plane_atomic_disable(struct drm_plane *plane,
+> --
+> 2.34.1
+>
+>
 
