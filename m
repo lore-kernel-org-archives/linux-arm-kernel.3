@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA47ACCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 20:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16722CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 20:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjJCQXC5F8Te2FO5rviJLLsE8sAby9XPR6jqCGwUwqo=; b=5CRIYwE61WtY7+23K1k5dV4Axo
-	X/oNXI/ZHR3CbD8VWZOk+0DovKqj6s+ZjjuGttfJDLGuRpPmauF2CCHna0h8l9C5gyBmwFcKowor0
-	64bzXaylp6WW8uwYLhePv5JuJrL169RF1BxHE7Nm9liTh45zar4lcAUBS3KnmxYs/N/yGaLzaNJ40
-	FvyMpJlxtpRlDbEByiK/NGFIB9hB8Ep6mdi/R+0VyAKip0sojOl9pfmsmAhmdMrm9rgtSoSZxQt+K
-	8NDdREj3K+3D1nRL6+cwTRuPWJ4PkszSr40X6dNrczVyOdMk1yADIcF8RLKzRVgIROarmVvH3SWft
-	zNVLRbWA==;
+	bh=m0o/QHKCYcdXoujq6Nq4PKYjiU7e3UDO/R4fKOQf+p8=; b=r7glOPu/fmH4SRMH0V3VF26iB8
+	xMWSxMEeOGVZwVXoaoDshcsysYdKoH00BQiiweGkKVs5t6OTT+Iq6794a3abUAFTJQziDDhzcWjuX
+	wZ5OrsLZ6S/VgEd1HEk8ttIz+pqb/355egOczMPecAlwXaBUa7G9h+2vAn9gh1Li4ycFdg8MX57nN
+	/0oxFKnKIjCvoKR8gmZ54E+JHmU9EVbsWxYuUFt/kZGN7aVk38K5lvEbJXNq2QQIIfrilJx8lKgHb
+	81c8akIRziNThpo6QyQaniHGAmwWxrzCliTfEn1iT+4GLrtVROlR0mI4YlmMuRK7XuTxClw/LEW08
+	Se5PlNww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIYHn-000000064WZ-3OkC;
-	Mon, 10 Nov 2025 20:14:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIYKL-000000064fy-19mk;
+	Mon, 10 Nov 2025 20:17:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIYHl-000000064WT-3dyM
+	id 1vIYKI-000000064fb-3xfl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 20:14:45 +0000
+	Mon, 10 Nov 2025 20:17:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFC6E60145;
-	Mon, 10 Nov 2025 20:14:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033F1C4CEFB;
-	Mon, 10 Nov 2025 20:14:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 98C92445C5;
+	Mon, 10 Nov 2025 20:17:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C96A8C116B1;
+	Mon, 10 Nov 2025 20:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762805684;
-	bh=Lupy7O4W+k+uh9+zTvU4xkbcskLPQ1XA14roUqmkzek=;
+	s=k20201202; t=1762805842;
+	bh=JqEVLdOgxRLejv+3IarHFSQHC/EXmUN4JyQjqZ7nUWM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QaSjMTdVh9UzbpKfTMK3IPYlI8Ih9ctPdQp92V12KlfaB8NA7/rW3Z1N4GV/xqyzA
-	 pYUKo6pcU3d/bnyAWZ+288VtshS7EZ7hVM1pajquWEN3nYZvbMrFy/QqgN3myBMKFq
-	 lRQ2EV6hw/eqVtRwCWhpaSsbwpp8gr3ppklOWiciHtLM1oz1Y2R8xmPgGiNZcY0w+y
-	 W3YqlMI+FKDZVdksNvlvgguml3S3e5cjPG0sMIZ8/3lKkzriwz5heynfKzjuvFZlQM
-	 BQr1VfwcNTfK4AtbKtgt/rWlJQsYHkCcwQ0uxpfbNTxNKMq6dssJGUocldiLAWx6I1
-	 Xr6Ip87mvXaYw==
-Message-ID: <8d02ef66-54d4-415f-86d6-96b9c5b75bfa@kernel.org>
-Date: Mon, 10 Nov 2025 21:14:37 +0100
+	b=h1zttPklcqOT9xQoCSVb3QHH6wXMwmGCfOOhvFl9pFz2TY1gh1otbV+yMHNZVY8Bb
+	 32129YPkjozjDKX8rGgQft087/Qb13Cfom9kUfS8FAW4Cx6bsKuCeUDJ+SPHN6sYvD
+	 x2fx7plbIolsjW9brIVXDOMmh0o3rrKYvrcjjFaoSxgM8NmS74riuA92ICzuNdj/69
+	 y0nJUsqGPW8wK1+3mMcdO9Ntz3bxuTWy0EytSv+4S2qpVS1W9DXDx62ZlLuVMHQZB/
+	 poOecWEaM/D60uusLo7RVxbuzd7Dm8yhDggsaLk5QYuEmDCNSNfNW5JzUz/aUk+Ot2
+	 EgyaFg2KTMWxg==
+Message-ID: <e00ba144-c5fc-47eb-8a9c-b6f33fa9704c@kernel.org>
+Date: Mon, 10 Nov 2025 21:17:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-To: Joseph Guo <qijian.guo@nxp.com>,
- Rogerio Pimentel <rpimentel.silva@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, alexander.stein@ew.tq-group.com,
- dario.binacchi@amarulasolutions.com, marex@denx.de,
- Markus.Niebel@tq-group.com, y.moog@phytec.de, joao.goncalves@toradex.com,
- frieder.schrempf@kontron.de, josua@solid-run.com,
- francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>,
+Subject: Re: [PATCH v3 2/2] arm64: dts: freescale: add support for NXP i.MX93
+ FRDM
+To: Joseph Guo <qijian.guo@nxp.com>, Fabian Pflug <f.pflug@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Haidong Zheng <haidong.zheng@nxp.com>,
+ Danwei Luo <danwei.luo@nxp.com>, Lei Xu <lei.xu@nxp.com>,
  Justin Jiang <justin.jiang@nxp.com>
-References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
- <20251109214515.121742-2-rpimentel.silva@gmail.com>
- <aRF0++cUigbETuPs@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+References: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+ <20251022-fpg-nxp-imx93-frdm-v3-2-03ec40a1ccc0@pengutronix.de>
+ <aRF9xlvWU/27+80K@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aRF0++cUigbETuPs@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+In-Reply-To: <aRF9xlvWU/27+80K@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251110_121723_027712_ED2913B3 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +126,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/2025 06:15, Joseph Guo wrote:
-> On Sun, Nov 09, 2025 at 04:45:15PM -0500, Rogerio Pimentel wrote:
->> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
->> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
->> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
->> display interfaces, camera connectors, and standard expansion headers.
+On 10/11/2025 06:53, Joseph Guo wrote:
+> On Wed, Oct 22, 2025 at 04:05:23PM +0200, Fabian Pflug wrote:
+>> The FRDM i.MX 93 development board is a low-cost and compact development
+>> board featuring the i.MX93 applications processor.
 >>
->> Based on the device tree found in the NXP repository at github
->> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
->> board kernel mainline device tree.
+>> It features:
+>> - Dual Cortex-A55
+>> - 2 GB LPDDR4X / LPDDR4
+>> - 32 GB eMMC5.1
+>> - MicroSD slot
+>> - GbE RJ45 x 2
+>> - USB2.0 1x Type C, 1x Type A
+>>
+>> This file is based upon the one provided by nxp in their own kernel and
+>> yocto meta layer for the device, but adapted for mainline.
+>>
+>> Signed-off-by: Haidong Zheng <haidong.zheng@nxp.com>
+>> Signed-off-by: Danwei Luo <danwei.luo@nxp.com>
+>> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+>> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
+> Hi Fabian,
 > 
-> Hi Rogerio,
-> 
-> I'm maintainer of NXP mainline code for FRDM boards now.
-> Thanks for your contribution for FRDM boards upstreaming.
-> The imx8mp frdm board official name is FRDM-IMX8MP,
-> so please change the name from FRDM-i.MX8MP to FRDM-IMX8MP
-> in commit message.
-> 
-> The code you refer in meta-imx-frdm is based on 6.6.36 kernel which
-> is pretty old. Our new code based on 6.12 you can refer this link:
-> https://github.com/nxp-imx/linux-imx/blob/lf-6.12.y/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
+> I'm maintainer of the NXP mainline for FRDM board.
+
+No, you are not.
+
+$ git grep 'Joseph Guo'
+$ git grep qijian.guo@nxp.com
 
 
-It is still downstream, unfortunately we do not care about it. Don't use
-it as arguments, please, it really does not matter what is happening in
-the downstream in NXP.
+> Thanks for your contribution for FRDM board upstreaming.
+> imx93 frdm board official name is FRDM-IMX93. Please change
+> the name in commit message from FRDM i.MX 93 development board
+> to FRDM-IMX93 board.
+> 
+
+Huh? How does it matter? Why are you pointing such nits? This is not
+helpful and consider that your naming in NXP does not matter.
+
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
+
 
 Best regards,
 Krzysztof
