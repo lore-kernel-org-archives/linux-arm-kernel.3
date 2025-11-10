@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE6BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BA3CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 09:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxV0Bv9e0M/3aXxevVPMy47RYEU13Dm8RyI5inKduGU=; b=QYiRpEKekWRgB3XybHjLcYSlMM
-	L2oTbHH4+00pn5wWsfQ5dhF9m7lh1aClFBvnjouAlMyWiSNS1nMSEe6kslDAg/YcU0s57DmHLH+e2
-	84GSEaJNmDK+yaujfhxJcI87WKVTvaYb/bDuhg3n7cxXDPaO7X8d2rNAcbKNPuzWs2i68h0kJPR4Q
-	6dpqLcvK1arL1gLTl092/ordU51Eptf6iZgGxDLoyEKb5QOw1t6bLAex1NB2zk/XP0e0/C8geE3L8
-	e7mmbBe9vRzupyCsA/FJsXqhBRrbtUPtJdvxXIzpHCJNuxXwRhSIoyVJZTr4P9+6omJlmPyXeyL8H
-	egDVQIpg==;
+	bh=t7Guwo0wpxf95Dj+W5UROJyXFGtl7LdcWRhhh/Qf98U=; b=oY+xxYTaiXIeXiP8GR3Cztaw62
+	Lhv8lpf5TUmztAnH7O3ZqTMHaOl+BvtlUglJiOx3yF/zsy9zOiPHZ08rVWYMDS/14/Earui2ML61n
+	zsf6luHkf7knShHwzR491pXXkxh1tjiSGHFsUSMoqxgHFIZ8uN/+PS0nmmZ/S/eI4wo1Ro8qMLdV0
+	QCZAsIsjNTTaaNqojVJt1K7cN3+7LhyRlFV7ybNyKMRDrgxQlFMik7BTpgOcpFRELPBsg2GgREoMv
+	S080bpMQgyh+G2p5EiDqKzVWyjldBhIM9ORPY6RUd/2usuGTN9LDUVS0WNiimuardyufvx3kHC8cm
+	nHFBuj4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINmP-000000052WV-0HPT;
-	Mon, 10 Nov 2025 09:01:41 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1vINp2-0000000531L-2RQE;
+	Mon, 10 Nov 2025 09:04:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vINmH-000000052Sq-2eWc
+	id 1vINoy-0000000530X-0qu0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 09:01:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1762765288; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=vxV0Bv9e0M/3aXxevVPMy47RYEU13Dm8RyI5inKduGU=;
-	b=ciiF6eL9leDqeewxY0xCdFJTQV8iW2VtAUMN3qceW/0kLS9OBw/1/lO3gGG3YrFqpffPfIQDzr1r6MFiLtgnJDLWJz7oelGlMxukbhbc27bPGfbjGcUf1r80QCXpo0bIlPsmjGHBiXpN9V/TyMzn6A3i7WnxWKChnFdCL8dT+Wo=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0Ws1SfV-_1762765281 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 10 Nov 2025 17:01:21 +0800
-Date: Mon, 10 Nov 2025 17:01:21 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
-Subject: Re: [PATCH v2 12/45] KVM: arm64: GICv3: Extract LR folding primitive
-Message-ID: <3tb7ekdzl5f4rs24bla63vw22awejhbn7ngvttid7v7bzaer2m@62bxshf7uj34>
-References: <20251109171619.1507205-1-maz@kernel.org>
- <20251109171619.1507205-13-maz@kernel.org>
+	Mon, 10 Nov 2025 09:04:23 +0000
+Date: Mon, 10 Nov 2025 10:04:17 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1762765458;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t7Guwo0wpxf95Dj+W5UROJyXFGtl7LdcWRhhh/Qf98U=;
+	b=THzC1+ohs7W95eY6RMSRaFJ23VdVBGm5I563I8YASdM00wmofpB9awW1xssuqstq1G4GN9
+	sOp/H73rX5A8lDzddsuk8aEuXZEoY8VatUS8uqdA4P1QwSycvK5U5xYCvCQW9Q155hvtp3
+	7ckU266rRRDn0XAp4JFw8QggWtZsAdOzRHV27wCZCUOuJXVoY4kNpRUGWB5Gkn9W3A+Nid
+	ZNdYJVGJc5HIjFvYZ80gZ8VPKbKpROUhWLEJnGJX/MlPmmtBKOsGsmRMNFy48oFYgIc0zU
+	W+Yiule8nXEF4YfdxOus7DWnvJkK4zQXI2Nc/NhrrTfeic27du8bXWM6BV1vSQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1762765458;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t7Guwo0wpxf95Dj+W5UROJyXFGtl7LdcWRhhh/Qf98U=;
+	b=+Nqx/ogPinQ4vfSfKxwtwM9MURpLI4OvfJJe18bf22Qbmt21zd133O7NoOhjUAYH62UQVr
+	zbqasc8HiwXrEsDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
+	Russell King <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v5 19/34] random: vDSO: only access vDSO datapage after
+ random_init()
+Message-ID: <20251110094555-353883a9-1950-4cc6-a774-bb0ef5db11c5@linutronix.de>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+ <20251106-vdso-sparc64-generic-2-v5-19-97ff2b6542f7@linutronix.de>
+ <aQ6EvdukQytvqK-u@zx2c4.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20251109171619.1507205-13-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aQ6EvdukQytvqK-u@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_010134_258954_252FD253 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20251110_010420_385970_37376970 
+X-CRM114-Status: GOOD (  30.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,150 +96,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 09, 2025 at 05:15:46PM +0800, Marc Zyngier wrote:
-> As we are going to need to handle deactivation for interrupts that
-> are not in the LRs, split vgic_v3_fold_lr_state() into a helper
-> that deals with a single interrupt, and the function that loops
-> over the used LRs.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/vgic/vgic-v3.c | 88 +++++++++++++++++------------------
->  1 file changed, 43 insertions(+), 45 deletions(-)
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index 3ede79e381513..0fccfe9e3e8dd 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -33,78 +33,76 @@ static bool lr_signals_eoi_mi(u64 lr_val)
->  	       !(lr_val & ICH_LR_HW);
->  }
->
-> -void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
-> +static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
->  {
-> -	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-> -	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
-> -	u32 model = vcpu->kvm->arch.vgic.vgic_model;
-> -	int lr;
-> -
-> -	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
-> -
-> -	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
-> -
-> -	for (lr = 0; lr < cpuif->used_lrs; lr++) {
-> -		u64 val = cpuif->vgic_lr[lr];
-> -		u32 intid, cpuid;
-> -		struct vgic_irq *irq;
-> -		bool is_v2_sgi = false;
-> -		bool deactivated;
-> -
-> -		cpuid = val & GICH_LR_PHYSID_CPUID;
-> -		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
-> -
-> -		if (model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> -			intid = val & ICH_LR_VIRTUAL_ID_MASK;
-> -		} else {
-> -			intid = val & GICH_LR_VIRTUALID;
-> -			is_v2_sgi = vgic_irq_is_sgi(intid);
-> -		}
-> +	struct vgic_irq *irq;
-> +	bool is_v2_sgi = false;
-> +	bool deactivated;
-> +	u32 intid;
->
-> -		/* Notify fds when the guest EOI'ed a level-triggered IRQ */
-> -		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-> -			kvm_notify_acked_irq(vcpu->kvm, 0,
-> -					     intid - VGIC_NR_PRIVATE_IRQS);
-> +	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> +		intid = val & ICH_LR_VIRTUAL_ID_MASK;
-> +	} else {
-> +		intid = val & GICH_LR_VIRTUALID;
-> +		is_v2_sgi = vgic_irq_is_sgi(intid);
-> +	}
->
-> -		irq = vgic_get_vcpu_irq(vcpu, intid);
-> -		if (!irq)	/* An LPI could have been unmapped. */
-> -			continue;
-> +	irq = vgic_get_vcpu_irq(vcpu, intid);
-> +	if (!irq)	/* An LPI could have been unmapped. */
-> +		return;
->
-> -		raw_spin_lock(&irq->irq_lock);
-> +	/* Notify fds when the guest EOI'ed a level-triggered IRQ */
-> +	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-> +		kvm_notify_acked_irq(vcpu->kvm, 0,
-> +				     intid - VGIC_NR_PRIVATE_IRQS);
+On Sat, Nov 08, 2025 at 12:46:05AM +0100, Jason A. Donenfeld wrote:
+> I'm not a huge fan of this change:
+> 
+> On Thu, Nov 06, 2025 at 11:02:12AM +0100, Thomas Weißschuh wrote:
+> > +static DEFINE_STATIC_KEY_FALSE(random_vdso_is_ready);
+> >  
+> >  /* Control how we warn userspace. */
+> >  static struct ratelimit_state urandom_warning =
+> > @@ -252,6 +253,9 @@ static void random_vdso_update_generation(unsigned long next_gen)
+> >  	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> >  		return;
+> >  
+> > +	if (!static_branch_likely(&random_vdso_is_ready))
+> > +		return;
+> > +
+> >  	/* base_crng.generation's invalid value is ULONG_MAX, while
+> >  	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
+> >  	 * former to arrive at the latter. Use smp_store_release so that this
+> > @@ -274,6 +278,9 @@ static void random_vdso_set_ready(void)
+> >  	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> >  		return;
+> >  
+> > +	if (!static_branch_likely(&random_vdso_is_ready))
+> > +		return;
+> > +
+> >  	WRITE_ONCE(vdso_k_rng_data->is_ready, true);
+> >  }
+> >  
+> > @@ -925,6 +932,9 @@ void __init random_init(void)
+> >  	_mix_pool_bytes(&entropy, sizeof(entropy));
+> >  	add_latent_entropy();
+> >  
+> > +	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+> > +		static_branch_enable(&random_vdso_is_ready);
+> > +
+> >  	/*
+> >  	 * If we were initialized by the cpu or bootloader before jump labels
+> >  	 * or workqueues are initialized, then we should enable the static
+> > @@ -934,8 +944,10 @@ void __init random_init(void)
+> >  		crng_set_ready(NULL);
+> >  
+> >  	/* Reseed if already seeded by earlier phases. */
+> > -	if (crng_ready())
+> > +	if (crng_ready()) {
+> >  		crng_reseed(NULL);
+> > +		random_vdso_set_ready();
+> > +	}
+> 
+> The fact that the vdso datapage is set up by the time random_init() is
+> called seems incredibly contingent on init details. Why not, instead,
+> make this a necessary part of the structure of vdso setup code, which
+> can actually know about what happens when?
 
-The fds notifiy happens before checking irq's mapping before
-this patch, and now in reversal order w/ above change. It's
-fine for vLPI, and for vSPI no necessary call
-kvm_notify_acked_irq() if the it has been remapped, no
-gsi<->pin mapping there. Is above understanding correct ?
+The whole early init is "carefully" ordered in any case. I would have been
+happy to allocate the data pages before the random initialization, but the
+allocator is not yet usable by then.
+We could also make the ordering more visible by having the vDSO datastore call
+into a dedicated function to allow the random core to touch the data pages:
+random_vdso_enable_datapages().
 
->
-> +	scoped_guard(raw_spinlock, &irq->irq_lock) {
->  		/* Always preserve the active bit for !LPIs, note deactivation */
->  		if (irq->intid >= VGIC_MIN_LPI)
->  			val &= ~ICH_LR_ACTIVE_BIT;
->  		deactivated = irq->active && !(val & ICH_LR_ACTIVE_BIT);
->  		irq->active = !!(val & ICH_LR_ACTIVE_BIT);
->
-> -		if (irq->active && is_v2_sgi)
-> -			irq->active_source = cpuid;
-> -
->  		/* Edge is the only case where we preserve the pending bit */
->  		if (irq->config == VGIC_CONFIG_EDGE &&
-> -		    (val & ICH_LR_PENDING_BIT)) {
-> +		    (val & ICH_LR_PENDING_BIT))
->  			irq->pending_latch = true;
->
-> -			if (is_v2_sgi)
-> -				irq->source |= (1 << cpuid);
-> -		}
-> -
->  		/*
->  		 * Clear soft pending state when level irqs have been acked.
->  		 */
->  		if (irq->config == VGIC_CONFIG_LEVEL && !(val & ICH_LR_STATE))
->  			irq->pending_latch = false;
->
-> +		if (is_v2_sgi) {
-> +			u8 cpuid = FIELD_GET(GICH_LR_PHYSID_CPUID, val);
-> +
-> +			if (irq->active)
-> +				irq->active_source = cpuid;
-> +
-> +			if (val & ICH_LR_PENDING_BIT)
-> +				irq->source |= BIT(cpuid);
-> +		}
-> +
->  		/* Handle resampling for mapped interrupts if required */
->  		vgic_irq_handle_resampling(irq, deactivated, val & ICH_LR_PENDING_BIT);
->
->  		irq->on_lr = false;
-> -
-> -		raw_spin_unlock(&irq->irq_lock);
-> -		vgic_put_irq(vcpu->kvm, irq);
->  	}
->
-> +	vgic_put_irq(vcpu->kvm, irq);
-> +}
-> +
-> +void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
-> +{
-> +	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-> +	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
-> +
-> +	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
-> +
-> +	for (int lr = 0; lr < cpuif->used_lrs; lr++)
-> +		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
-> +
->  	cpuif->used_lrs = 0;
->  }
->
-> --
-> 2.47.3
+> For example, one clean way of
+> doing that would be to make vdso_k_rng_data always valid by having it
+> initially point to __initdata memory, and then when it's time to
+> initialize the real datapage, memcpy() the __initdata memory to the new
+> specially allocated memory. Then we don't need the complex state
+> tracking that this commit and the prior one introduce.
+
+Wouldn't that require synchronization between the update path and the memcpy()
+path? Also if the pointer is going to change at some point we'll probably need
+to use READ_ONCE()/WRITE_ONCE(). In general I would be happy about a cleaner
+solution for this but didn't find a great one.
+
+
+Thomas
 
