@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD9CCCF9E3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D944ECD1297
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 13:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qzpqv5ajxbqxabD1jydfXotwMWgcKwPTq7CgnH0DZ4Q=; b=1H+jhEddUB45nH2QUC9rZXQaBB
-	O5AWJQWK+10pQILj8XMxAvY2ILTCuzIjoCGlgExZURyb3qtJZ9hBu0s9zSHrGWtBdlZmBLqTtJ1pd
-	TbD+lTc3h5l5rodzXb0XX7y2NXXDXB7zz4tQYGk1GZrIoRTRu0b4MJIdI9EkB6noIDEqvfuIpLdU1
-	I/cmReVTh6HiPrLZ0LS5vpVCtUOAN8PRp7CWm+ckkMuSDVzKknbxlFCLlP0AqRxe8LUqlJnW9V/0O
-	U7KzZVU4Szco3s6vHqVPim0nOc9KL2S+kmtr/9wiq8dIy/J72G3/h8xo/0kIxA0d6vJTLTCbWy8ws
-	xHy9aGFQ==;
+	bh=Ie7kpsh7J/uc1PtC1eN/9i9Vh9NVRgm/2OIk7X5wYpo=; b=JwXHsHrAN022PlZlhIMkGuAUS7
+	mxQKGYMLc4O2fNTlOjDsMyp/sA32i5V/J6fYA/O2GQMgcfAfakbzm+yzRiShrIHsPOF+aKbI9UlqE
+	Km26ZFGhvbteJjSNZLYTIdozv8NGubkllqzoz4llXkykeGjO46GwGQrN+cvK8GsWaQuPTiznVVfD2
+	LPecwofF/VWEyE9sMX/8Sba2ec4SAUnd1frNTfAZ0L2QVEkl/rYE3Fh2eeKrrWTSI6nsg/vrIWUHh
+	3rHuDXN9/IJXBQLf4Ll986qqZxU0s0X5ARIX1OROwl/RZhz4DqpU6ZN2dFfCKSRSG3gwYJA6YKfl9
+	zW3cjSig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISDF-00000005VxX-1oJT;
+	id 1vISDF-00000005Vwy-0WiP;
 	Mon, 10 Nov 2025 13:45:41 +0000
 Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vISD9-00000005Vre-2AFU
+	id 1vISD9-00000005Vr3-0TJq
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Nov 2025 13:45:36 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-429cd1d0d98so1844558f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:45:35 -0800 (PST)
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-42b30184be7so578569f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 05:45:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762782334; x=1763387134; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1762782333; x=1763387133; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qzpqv5ajxbqxabD1jydfXotwMWgcKwPTq7CgnH0DZ4Q=;
-        b=enKmBnvbjnjEVm/HfI2FP+pJnNwmLxOIzeIGWItXz56zUpyoekOmi5mhzJEd6Yf3/n
-         GCRl6O235spGNhidMMVI/6mNxzAWStUtv0O3upMQXfB2tJidSkbtUuhln0pOc6Fxi7+B
-         2G2+6miAlFLMS9BGijzQ2ZR3ew0zg7hUIi7ZpNF+t4DsGtuSCmygu4rY+jwWGgmouWmh
-         uHXfQ16U4SEEp52KP0viHsxFI2gnk7DxopQXfel3voapS2gDOn3NF+ArVpa73Nea+3K/
-         A4xF+zzMxnRmifrUY6GtK47fWckxyvlpEWAaaLz7FTLMhR94skejaww7fK/Lse96wGKC
-         UJWA==
+        bh=Ie7kpsh7J/uc1PtC1eN/9i9Vh9NVRgm/2OIk7X5wYpo=;
+        b=tUBjScVMj68gOnZZtROJ2QXyLPVklpmM4ATvssA9dwJ208pUnrTCAU1NRZZ/meN3M4
+         1xhZOp8RsTq6AfJOFuA/xPlo/414m4XFq8eij+6OX2BCg8SsmSqBK/PIz0RAr5rj52UK
+         pu0lWDS6GzG4YzSR64b8qoHzzlUK0G6fpMIvOE8t+hjr6j6yspsvMlzb+dU/HeiPEQFV
+         Y1LXyJ9iOi/TXk0MbKc6c5obi/A1AhJdNXP27IZWzjekqzKR+DTXjA6vrifQ+GGcZRgA
+         IcnVpLmx6DBNJRjL84S1hIP+suhvW8ei00YPS0yRXkTC+cHkOXpuoHjhlPknw7OuKqQ4
+         feJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762782334; x=1763387134;
+        d=1e100.net; s=20230601; t=1762782333; x=1763387133;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qzpqv5ajxbqxabD1jydfXotwMWgcKwPTq7CgnH0DZ4Q=;
-        b=i234k5DxjG9tk0qxJq7fhRu3Qh7l9uICyPoLwacK5esxHebpf4aC+0W5di8szoAfES
-         xM7zgUqQeOu4JMNZvyKkxmAKCWOVACGxnphYjhGjpWkYlEwyqwItAdsn1LVerbQe8H1Z
-         jiuPaM/tDoWyCbneIZ6pFzmq8jGoJyxZmwd1l2R+gWWduryN5Ss13CUrozE+UFwhm0ru
-         0Bj9o04Mnej9EMdQ2KcIZfMmLlKp1Unz+axaRzPPSMNBSFjk00UlIxAmxJMrC6NMar7X
-         FHNApZl6FPCJNmkV0zIWIfo2KPTtQOzAXHrfarKynz/aR9uW4WiXhE4wI1KgFs9GVxsO
-         I2mA==
-X-Forwarded-Encrypted: i=1; AJvYcCVA2HY6YBVyRJG7b6UWhKlR49zoUJ6aTZ1PX9DoMPZdAQWFnfX1yRw6S25wlyI/9C+xs2im8u2jiszJ6K5yQwcv@lists.infradead.org
-X-Gm-Message-State: AOJu0YytHxyhau2XzdVwdIMg61DRuLz7ISi1y9iExi1INRvBOMKQj+00
-	LtIQJaOxD3OH07Xe8wZ7nvdBO5vU7YjcbokHaybDwDflT+Lihg4A3t+f+wpDV/gqaYIEHBBx+57
-	d8g==
-X-Google-Smtp-Source: AGHT+IFXypgY1V9bfoxm4HDW9/b5rxBK9APolSwH/TBkmLsNgB/D1VFW8wsaUqSkXIyZxf2Xvb+MQ1m1cg==
-X-Received: from wrnu4.prod.google.com ([2002:adf:eb44:0:b0:429:cab7:2300])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2910:b0:429:dde3:6576
- with SMTP id ffacd0b85a97d-42b2dc2fca4mr6437305f8f.16.1762782333846; Mon, 10
+        bh=Ie7kpsh7J/uc1PtC1eN/9i9Vh9NVRgm/2OIk7X5wYpo=;
+        b=m32a2KrvP8DF68D6xkt3VKS/2ml2BGXKZTP6qu2itNZbSvZfQD14vYwS0vYLC69adR
+         JaR9kPqZIkrbp046Cy47Zcr8NN6LqmUiY1sI05iHcdcb7ahISSL9vMXopBJ0Hk1xreVP
+         Y3btpxisI1AfBD4y952RuTJw4C1FLzWM/5MQw5gq+rUtqjXaoh8seIaJHpCUggvvoYYY
+         s3eIg5MmBdIqIuystunDTeJMwf6AkQ4bLWKDeCgX8UIPTizlXv+Z+sH59ugBBhcQECjR
+         75Nyyj1L05HiRbWDaeIIvBDiHGssNd4APq1Y/Oz0DdVAcAZ0y2yOmTuDD6+Cn/2SsrK8
+         kAYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXz0TC1WWYA6lUEx8rQRS6F/dYHC8F2OaACYLLp3T0MKzG0TZntDyPpWOsJguvpl6Dg7rogGzhVRSGSnLS3w7sH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeDPNc90f3Nft3TdKgENCb2dP6PBweJitU09FSXv8VIBq6HfoL
+	XtKXhvbv3/yzbQqF2CJ7Y7SjEmLenVV2BvIxXU7stZKnZ2cf2x7CQTvupztP+XgeefYBjKmi9rs
+	snw==
+X-Google-Smtp-Source: AGHT+IG9ilEUoq2nh7FpIF6KZkR90/4mFzDa0JiXH3DjnqLpk38X37fcPxRyknshTYR2PdDE64CreGe4Bg==
+X-Received: from wmbh5.prod.google.com ([2002:a05:600c:a105:b0:475:decb:4c4d])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:6384:b0:477:5aaa:57a6
+ with SMTP id 5b1f17b1804b1-477732372aemr59615955e9.10.1762782333174; Mon, 10
  Nov 2025 05:45:33 -0800 (PST)
-Date: Mon, 10 Nov 2025 13:45:25 +0000
+Date: Mon, 10 Nov 2025 13:45:24 +0000
 In-Reply-To: <20251110134525.3768197-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251110134525.3768197-1-tabba@google.com>
 X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251110134525.3768197-9-tabba@google.com>
-Subject: [PATCH v3 8/8] KVM: arm64: Prevent host from managing timer offsets
- for protected VMs
+Message-ID: <20251110134525.3768197-8-tabba@google.com>
+Subject: [PATCH v3 7/8] KVM: arm64: Check whether a VM IOCTL is allowed in pKVM
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -75,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_054535_639704_9C17369F 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20251110_054535_186310_C8DAA497 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,62 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For protected VMs, the guest's timer offset state must not be controlled
-by the host and must always run with a virtual counter offset of 0. The
-existing timer logic allowed the host to set and manage the timer
-counter offsets for protected VMs in certain cases.
+Certain VM IOCTLs are tied to specific VM features. Since pKVM does not
+support all features, restrict which IOCTLs are allowed depending on
+whether the associated feature is supported.
 
-Disable all host-side management of timer offsets for protected VMs by
-adding checks in the relevant code paths.
+Use the existing VM capability check as the source of truth to whether
+an IOCTL is allowed for a particular VM by mapping the IOCTLs with their
+associated capabilities.
 
+Suggested-by: Oliver Upton <oupton@kernel.org>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/arch_timer.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_pkvm.h | 20 ++++++++++++++++++++
+ arch/arm64/kvm/arm.c              |  3 +++
+ 2 files changed, 23 insertions(+)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 3f675875abea..f5407301c8f9 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1056,10 +1056,14 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
- 
- 	ctxt->timer_id = timerid;
- 
--	if (timerid == TIMER_VTIMER)
--		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
--	else
--		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-+	if (!kvm_vm_is_protected(vcpu->kvm)) {
-+		if (timerid == TIMER_VTIMER)
-+			ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
-+		else
-+			ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
-+	} else {
-+		ctxt->offset.vm_offset = NULL;
-+	}
- 
- 	hrtimer_setup(&ctxt->hrtimer, kvm_hrtimer_expire, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_HARD);
- 
-@@ -1083,7 +1087,8 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
- 		timer_context_init(vcpu, i);
- 
- 	/* Synchronize offsets across timers of a VM if not already provided */
--	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
-+	if (!vcpu_is_protected(vcpu) &&
-+	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
- 		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
- 		timer_set_offset(vcpu_ptimer(vcpu), 0);
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index ea5d2275d16d..a2b51590bed0 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -52,6 +52,26 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
  	}
-@@ -1687,6 +1692,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
- 	if (offset->reserved)
- 		return -EINVAL;
+ }
  
-+	if (kvm_vm_is_protected(kvm))
++/*
++ * Check whether the KVM IOCTL is allowed in pKVM.
++ *
++ * Certain features are allowed only for non-protected VMs in pKVM, which is why
++ * this takes the VM (kvm) as a parameter.
++ */
++static inline bool kvm_pkvm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
++{
++	switch (ioctl) {
++	case KVM_CREATE_IRQCHIP:
++		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_IRQCHIP);
++	case KVM_ARM_MTE_COPY_TAGS:
++		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_MTE);
++	case KVM_ARM_SET_COUNTER_OFFSET:
++		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_COUNTER_OFFSET);
++	default:
++		return true;
++	}
++}
++
+ extern struct memblock_region kvm_nvhe_sym(hyp_memory)[];
+ extern unsigned int kvm_nvhe_sym(hyp_memblock_nr);
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 10d853f2722e..020cadd811a3 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1879,6 +1879,9 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 	void __user *argp = (void __user *)arg;
+ 	struct kvm_device_attr attr;
+ 
++	if (is_protected_kvm_enabled() && !kvm_pkvm_ioctl_allowed(kvm, ioctl))
 +		return -EINVAL;
 +
- 	mutex_lock(&kvm->lock);
- 
- 	if (!kvm_trylock_all_vcpus(kvm)) {
+ 	switch (ioctl) {
+ 	case KVM_CREATE_IRQCHIP: {
+ 		int ret;
 -- 
 2.51.2.1041.gc1ab5b90ca-goog
 
