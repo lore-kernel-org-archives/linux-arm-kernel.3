@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA24ECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A76CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 10:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJe9RrZUlICJVKVCCId7WIyPyCMLhCd5HXbbl2Kr8tY=; b=bOh+1Zu04ySFrl0EK/tNPi9Dz9
-	UMLWdrSReSFjaPJ/ZhAPkD8H4c7lG8J8uEvGYGdvAM6780JM4vi9JKG5IZKpRn3n/d6zlhpBdf7AH
-	Ku8ddLaNCOde6Atl90v4KxtISC10TtQeMpn8yw/aylaMqU0CO4KKaGdcXBAVQ2hwH6DJ+E5LUvovR
-	qJLktHNTAPIJoIs0pfiiHahVaX//pBx/1zr+t7zoy168Kfc+ceijjVgOq6dWAMl5ZAh5STdI5lB0S
-	X/2gug6HZtmDHkL49m6f3y2J9pwO+R0r3lg9uSKlqVibTBJEDEO3ToSoytDxNIa2qX30z7v+kSPbh
-	hHg9pG9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3hjjQw506YKhgHdFR2a57hcN/smdx/JNOkEsmfHHZk=; b=LpxUVjZC5QSx4N7VphV5UHpaop
+	1fOfVQzyGqABROqXuUUU0Vlrxy6N98XCGIDIxlWNFaAAyGSwluDyfPGBypJj5R6uxQtyjuxOmcSoX
+	vuEBQ2H5g9WXFMz1lhLsof7yyBKa+xYWrdcOLNKviDqrVoqDlEjAunCZyXtXH1wts87cXG0OAofCi
+	n0fOjlN8sDIePCy76TdgQsgGt10ar7lEIEjfpNC1GJ30PDQnupWNXI4Yi2+X1XpGWy1XK+/B9KC7R
+	BFCxL/N36fTPhHn/vSq1z7q8tTLPY5ivKPKHXniNASl5VaDx2s11nB6ul3NlxdJDIAs9L0LC5DhIi
+	ykfVUPZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPRy-00000005Er2-1iob;
-	Mon, 10 Nov 2025 10:48:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPRs-00000005EqJ-3LnC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 10:48:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BB20497;
-	Mon, 10 Nov 2025 02:48:27 -0800 (PST)
-Received: from [10.57.39.147] (unknown [10.57.39.147])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51E03F66E;
-	Mon, 10 Nov 2025 02:48:27 -0800 (PST)
-Message-ID: <f7ed51e6-c3f6-402c-b328-8af5f970006d@arm.com>
-Date: Mon, 10 Nov 2025 11:48:24 +0100
+	id 1vIPSs-00000005F2n-2H4H;
+	Mon, 10 Nov 2025 10:49:38 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIPSp-00000005F1y-3X8n;
+	Mon, 10 Nov 2025 10:49:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1762771764; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NxkxrJemZezmKrnWKU50oEyuQ0oCj/UUy1xO5JA0Gxn9hFcL8TKfLyZ9KjZK0Oj0JuaQfXVLrz/fLTRYpOpa1ehrccY4PZYSvu95xVpyoEGqHKNJIZKqZ7noyjFhJlISRGOCeVfVMTkvYNqRmBdvc90If/92GDVfoy+n2dsECTE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1762771764; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=M3hjjQw506YKhgHdFR2a57hcN/smdx/JNOkEsmfHHZk=; 
+	b=aCxRLagrCIk8Z4COBk6g3josoNmO+MGUHDltmbPTzTdDmTTOuLRTxMiCLvRy08HwLsFgO/iVdI8mbNOub7r8jKGDGkaiAXxIMppwWE+6LP5tU/US9jl2dpE1vhWqavByHylZXFprTtLYSFIOsvHnZ0zslYFLvQvBllhzpcZcTJw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1762771764;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=M3hjjQw506YKhgHdFR2a57hcN/smdx/JNOkEsmfHHZk=;
+	b=VBd3EL5UPfRGd3kOCmotU8adSTTmnNAgPJhL85RfMUAYwnFFqt1sQGScQeXfHtnq
+	5MtVhSlfd1As0In11QZQr2rKRZoGz7fe2XwrKIIJHeGcFyT8+8fXOywCIdVrBqO0CSh
+	qjJGAlCu1mMEDhsVV8VXSqvTB6HnfBOAwkRMWe/A=
+Received: by mx.zohomail.com with SMTPS id 1762771762436795.5055126772169;
+	Mon, 10 Nov 2025 02:49:22 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney@redhat.com>, Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] pmdomain: mediatek: convert from clk round_rate() to
+ determine_rate()
+Date: Mon, 10 Nov 2025 11:49:17 +0100
+Message-ID: <9531607.CDJkKcVGEf@workhorse>
+In-Reply-To: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
+References: <20251106-clk-pmdomain-mediatek-round-rate-v1-1-49441ea27f84@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/12] mm: bail out of lazy_mmu_mode_* in interrupt
- context
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-13-kevin.brodsky@arm.com>
- <8a38db66-4d1a-4296-a2dc-e0276c6cdde8@arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <8a38db66-4d1a-4296-a2dc-e0276c6cdde8@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_024836_966443_7A2A54E8 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20251110_024935_951838_292BCA43 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,86 +81,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2025 15:42, Ryan Roberts wrote:
-> On 29/10/2025 10:09, Kevin Brodsky wrote:
->> The lazy MMU mode cannot be used in interrupt context. This is
->> documented in <linux/pgtable.h>, but isn't consistently handled
->> across architectures.
->>
->> arm64 ensures that calls to lazy_mmu_mode_* have no effect in
->> interrupt context, because such calls do occur in certain
->> configurations - see commit b81c688426a9 ("arm64/mm: Disable barrier
->> batching in interrupt contexts"). Other architectures do not check
->> this situation, most likely because it hasn't occurred so far.
->>
->> Both arm64 and x86/Xen also ensure that any lazy MMU optimisation is
->> disabled while in interrupt mode (see queue_pte_barriers() and
->> xen_get_lazy_mode() respectively).
->>
->> Let's handle this in the new generic lazy_mmu layer, in the same
->> fashion as arm64: bail out of lazy_mmu_mode_* if in_interrupt(), and
->> have in_lazy_mmu_mode() return false to disable any optimisation.
->> Also remove the arm64 handling that is now redundant; x86/Xen has
->> its own internal tracking so it is left unchanged.
->>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 17 +----------------
->>  include/linux/pgtable.h          | 16 ++++++++++++++--
->>  include/linux/sched.h            |  3 +++
->>  3 files changed, 18 insertions(+), 18 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 61ca88f94551..96987a49e83b 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -62,37 +62,22 @@ static inline void emit_pte_barriers(void)
->>  
->>  static inline void queue_pte_barriers(void)
->>  {
->> -	if (in_interrupt()) {
->> -		emit_pte_barriers();
->> -		return;
->> -	}
->> -
->>  	if (in_lazy_mmu_mode())
->>  		test_and_set_thread_flag(TIF_LAZY_MMU_PENDING);
->>  	else
->>  		emit_pte_barriers();
->>  }
->>  
->> -static inline void arch_enter_lazy_mmu_mode(void)
->> -{
->> -	if (in_interrupt())
->> -		return;
->> -}
->> +static inline void arch_enter_lazy_mmu_mode(void) {}
->>  
->>  static inline void arch_flush_lazy_mmu_mode(void)
->>  {
->> -	if (in_interrupt())
->> -		return;
->> -
->>  	if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
->>  		emit_pte_barriers();
->>  }
->>  
->>  static inline void arch_leave_lazy_mmu_mode(void)
->>  {
->> -	if (in_interrupt())
->> -		return;
->> -
->>  	arch_flush_lazy_mmu_mode();
->>  }
-> Ahh ok, by the time you get to the final state, I think a most of my
-> comments/concerns are solved. Certainly this now looks safe for the interrupt
-> case, whereas I think the intermediate state when you initially introduce
-> nesting is broken. So perhaps you want to look at how to rework it to prevent that.
+On Friday, 7 November 2025 00:40:43 Central European Standard Time Brian Masney wrote:
+> The round_rate() clk ops is deprecated in the clk framework in favor
+> of the determine_rate() clk ops, so let's convert this driver so that
+> round_rate() can be removed from the clk core.
+> 
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> ---
+>  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> index af20111067c02a5f9a0d6d751e9e0dc32c1a4d90..9bad577b3ae4bf1b83d4f782bb52f56f779a8974 100644
+> --- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> +++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+> @@ -309,11 +309,11 @@ static unsigned long mtk_mfg_recalc_rate_gpu(struct clk_hw *hw,
+>  	return readl(mfg->shared_mem + GF_REG_FREQ_OUT_GPU) * HZ_PER_KHZ;
+>  }
+>  
+> -static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
+> -			       unsigned long *parent_rate)
+> +static int mtk_mfg_determine_rate(struct clk_hw *hw,
+> +				  struct clk_rate_request *req)
+>  {
+>  	/*
+> -	 * The round_rate callback needs to be implemented to avoid returning
+> +	 * The determine_rate callback needs to be implemented to avoid returning
+>  	 * the current clock frequency, rather than something even remotely
+>  	 * close to the frequency that was asked for.
+>  	 *
+> @@ -325,7 +325,7 @@ static long mtk_mfg_round_rate(struct clk_hw *hw, unsigned long rate,
+>  	 * high current frequency, breaking the powersave governor in the process.
+>  	 */
+>  
+> -	return rate;
+> +	return 0;
+>  }
+>  
+>  static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
+> @@ -338,12 +338,12 @@ static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
+>  
+>  static const struct clk_ops mtk_mfg_clk_gpu_ops = {
+>  	.recalc_rate = mtk_mfg_recalc_rate_gpu,
+> -	.round_rate = mtk_mfg_round_rate,
+> +	.determine_rate = mtk_mfg_determine_rate,
+>  };
+>  
+>  static const struct clk_ops mtk_mfg_clk_stack_ops = {
+>  	.recalc_rate = mtk_mfg_recalc_rate_stack,
+> -	.round_rate = mtk_mfg_round_rate,
+> +	.determine_rate = mtk_mfg_determine_rate,
+>  };
+>  
+>  static const struct clk_init_data mtk_mfg_clk_gpu_init = {
+> 
+> ---
+> base-commit: df5d79720b152e7ff058f11ed7e88d5b5c8d2a0c
+> change-id: 20251106-clk-pmdomain-mediatek-round-rate-649a9bf7d30a
+> 
+> Best regards,
+> 
+
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+I didn't test boot this, but it should be fine, as I've checked
+and all the places where the clk core checks for round_rate, it
+also checks for determine_rate. So this is likely correct.
+
+I've also made sure the adjusted op implementation is correct,
+in that simply returning 0 leaves the requested rate as-is and
+preserves the existing behaviour.
+
+Kind regards,
+Nicolas Frattaroli
 
 
-Agreed, as discussed on patch 7. I might split this patch - first add
-the in_interrupt() checks before patch 7, and then remove the
-now-redundant checks on arm64.
-
-- Kevin
 
