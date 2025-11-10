@@ -4,56 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C093BCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 00:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE51CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 00:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BPbQiZQ1p/FzedWzhYAj/T5KEbE0aQW4yaYgMm8nyA=; b=Dv2qEqtft8VatKmvoXd8bVYKxp
-	kwJzM1oUpcg+ZMadVQtYf5LF3MzxTKanBRphHDfFyZzQBgqIVxvdsz/3F46/stCDbwkQLNAkxLmJE
-	9n/+PJt4WYx2XPGFPhK/EtQi90HvArDXX44drvuMTatQrWegdt/wNAf3/sRppJGnxg2ff/k+9vp3A
-	ok1SEW+9s7SXSk4nzIDZL53Kj8isDGBk7GYHnHkVpv4PTmw8Olbp3y9yjdAiBX7aPkYRGyXr6T16X
-	38L9+LMepnif9R9pj2u4KZkdGlT9+tqIcSfCSo5WNxSkZJLLXKV5hLt84hsy/RCpAacYf47wnlgrc
-	mko5Sqkw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bgtvgusnj8UUTeQJ6anDano2DXvOPmsvcBv42wqV/0U=; b=TV0Sx/kZ62c0Ex/cqqRHoiHPJe
+	DWQmjxzlgWcqeZ8GTTJ+vb8XgQeVqCCz2RJYBjK6o7UkCj2F50MSX+QLEyqY6cNUi3kkGFav1oqZn
+	qhQGfWbWVrjJ6LQbJEXxUDOssgllo3SAAEaAGmhmhfCKTrEdB8fhYdIQuTv6V2DyrwkBdQ2gIbNHW
+	bpXBnBaSFIDUXpEHqU3jJCWiV7VAovs+b3+S9j+MiHN8s/OLghrwjqgdL3w8uWa4E0BhbBNKaqhRT
+	6KQGyZ4XjdjB8Lolhn8WV37eZNo5ULUMShKBLmBIOLPvRtsEVjTGhY0dkRSEz5/ifzNVUWOkOAFek
+	r0Yzgrpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFgi-00000004Xhr-1LWy;
-	Mon, 10 Nov 2025 00:23:16 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vIGF6-00000004Ytc-1gHJ;
+	Mon, 10 Nov 2025 00:58:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIFge-00000004XhO-3BW6;
-	Mon, 10 Nov 2025 00:23:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 7C55140E66;
-	Mon, 10 Nov 2025 01:23:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1762734188; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=7BPbQiZQ1p/FzedWzhYAj/T5KEbE0aQW4yaYgMm8nyA=;
-	b=TTCVHgKQL/8h1giAPMPv8LMSy5nUj5vJw409qzY4QYO+lHfiPHboDema3EVL2F5YHOPN7S
-	Iz00hJxdT3YlpED5ftFuVuOZ1fKcAVs+0pTmvZBz2nvr6dpckB2XI8yMDhby71hBclJjpK
-	LlOqvCqPw+N8Gw5NcQluVM9fHbanbwYe9VIXLgCg8pI2OPIvvRbvAmGqxfdA4jChX8N+Sq
-	i4kAfJqpCHY7APfLUJp3zSBsp5bjUm+FG0baQx89kemZBM2Vgsn/UBCJs02c/aBBCFXdt8
-	7QJYmgZJngtkeMT3/E5HGJEOfdIPXpFm+YPjYs+OziZQmc9F4b6ZWfmSr6rbtA==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20251109192128.72527-1-sigmaris@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20251109192128.72527-1-sigmaris@gmail.com>
-Date: Mon, 10 Nov 2025 01:23:06 +0100
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Alexey Charkov" <alchark@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Hugh Cole-Baker" <sigmaris@gmail.com>
+	id 1vIGF3-00000004YtF-0kVS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Nov 2025 00:58:46 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5A9NmSr02076380
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:58:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Bgtvgusnj8UUTeQJ6anDano2DXvOPmsvcBv42wqV/0U=; b=lWIZe86XoE9+ttao
+	8OL5xlLofNJbOsk89bMtkqYSurqb6gsvnGghMEpOJUqwfG/sCnoTrCLdLEKuK/4j
+	SeB8EkMkW5ed55kD+phE/+UtH2OgnUtelmkCZS6C0L5wJFee70paJ9/N5PuKXPg3
+	q0L8j6HCkKyu7X+W/sS2UPro0S76y1lr8cmpCyNN00umcyr9MA6hNp11H0jsGStM
+	c3nqVzeskoHq3K5PO4MGoSeAjel7Z5doj5/wwMmCtnyKtAIsiVKidsqTx471b/Hj
+	G1gIjDDJmRy5G0/jNnUoGNFmdb2c7yuAHVXN9XM8syRDrlgFkrYQoxHnzzXJXVt3
+	7JHl4A==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4a9xwfjwsu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 00:58:42 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b8f8e1f1044so4212430a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Nov 2025 16:58:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1762736322; x=1763341122; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Bgtvgusnj8UUTeQJ6anDano2DXvOPmsvcBv42wqV/0U=;
+        b=WfSRm3eLkciY8LV2q1hTi9lBii56FBzK6UCbHjBx4WBNXiMaSm01m3q7u2mIhgf3Kj
+         UU9SaABhlW/jf+1qxz12tYvJxcRKNQ4KmW7WG3ywsu1vFp7p6uvXqt/MzkAkud+pavA5
+         4PI9PjbADVgMFr3VtGjZa+ILwP0hDhBb+Dnh5Kp1aGrJcACqAlEfuuL5Xd4sa/IP6BKf
+         S7zZ4aQR4MY9pujVv2djHOnXwCmPpwRelKIxeDGDpkqj2JzbB1ykLoj/Kmv0HDhYuK31
+         LdJ/fxA4oM8mQh3cOT11shAtC9E0IjZ4Gx6srHGwP/C0UcFhpUjbA/LfD1jRnIPLspBp
+         X+GQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762736322; x=1763341122;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Bgtvgusnj8UUTeQJ6anDano2DXvOPmsvcBv42wqV/0U=;
+        b=tuGOeeCwNQUqkpL1OATI8xbhMlIAOTneZPHkTrUcFVl4SjpihozvncOw5IAiBktUPy
+         kleIWp/o3yI6KJJmESWfHXQ1jU9bx1C4bSyY1im3oJWM1Rn0GnYoKqa4uyAVca9m13RK
+         LUod33CIvvPUg9COhnqjk77hSICjqJdR/Nyt71DIY85k/AsWylq4l9BE7gCmZOXs0LIr
+         r1Rys5hrOjttpx0l145grClsI+ywbLfufyJw8KQavRO8l7fG/aYx+DRPZlIGsH/P2jGY
+         dbAKWHnXKEYyVr4Y6+rENS+C1EXy7hjszOvyE087/GbpdgJhoA1EN4cmMyMm8gaak+bg
+         5O9w==
+X-Forwarded-Encrypted: i=1; AJvYcCXVTnZUdvKUCuLThojuh/ZD2cHXk5NfdGYFYe099Nz7qQvKHlKz+SKdYS6O14adIi77+GWUmFl1WsOXNUjQIDQY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUDRZXw0sdG07ObLOBkV+fMVRLQAbH90H5Ue3eOdzXiF47h/sX
+	+vl4BEZtnEbXbVx6COu6w7GpN8dNlszX+bxHHIffyTkW8XhY9weaQP5djgTSyBYSVtTqT2j9LJX
+	SQ4w6i2x5hX/GgM5S/Ywg2HzHKDqF4EzhJmcAcixAIIhRSWVq8jDVoCPugJXnjxsqCrwbVi3Q1+
+	fM8Q==
+X-Gm-Gg: ASbGnctzx68UOP5dL4RaWkquABZz3gjpZrZMrTS8ixFLgUt/bczLY9L2MnZg6nmlhTn
+	fuJjrIdH4DPCnzCbhkBVCDQNwsKKwXqdQUbzm68uyBRHjH4yG2dDOhPksZrKwPGhzrrKibtPJZK
+	FCUxv17DlP8kz83ujHKMsSIb646tmVg1SwdtSMBdCXR5lhPFztGgbHSCfzKd1BbG4UtcNSvHW0f
+	OZt5Nn9rASv0/rhRNgaiE1dSMAw0GzoYoqVghYzsoNs6YRUZ5Bpx4vlRGLXOd1OxCOoy2Ouda/m
+	QcH+LlEdStqY5qin92qNkgrLMwau/3cGbqv/dy4N74scz3MxIyRNCz02tDAsWBb71xiukOkVFbD
+	CZVJJQr0o7XOxrvZS8+FyALETwwLPIezesgK2rJsUEuE3gcCZvB5uNrnAc8mDSY64
+X-Received: by 2002:a05:6a20:94ca:b0:350:ee00:3c9f with SMTP id adf61e73a8af0-353a24f7cbcmr8603881637.48.1762736321966;
+        Sun, 09 Nov 2025 16:58:41 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH7AydeZT0JrhGShBhEOyz5MmnUHTKAZe9+iQAWVuH/FVpxNFi/omwHJ7lFM405ObY1Y85Fiw==
+X-Received: by 2002:a05:6a20:94ca:b0:350:ee00:3c9f with SMTP id adf61e73a8af0-353a24f7cbcmr8603858637.48.1762736321467;
+        Sun, 09 Nov 2025 16:58:41 -0800 (PST)
+Received: from [10.133.33.229] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ba902207232sm10576120a12.32.2025.11.09.16.58.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 09 Nov 2025 16:58:40 -0800 (PST)
+Message-ID: <22de0bad-4947-4446-b610-b4d8d0320858@oss.qualcomm.com>
+Date: Mon, 10 Nov 2025 08:58:35 +0800
 MIME-Version: 1.0
-Message-ID: <da6721a3-8f59-9c0c-762c-bc02b39ac472@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v2] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= add pwm-fan for NanoPC-T6
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] coresight: replace the void pointer with
+ coresight_path pointer
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Carl Worth <carl@os.amperecomputing.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+References: <20250925-fix_helper_data-v2-0-edd8a07c1646@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250925-fix_helper_data-v2-0-edd8a07c1646@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: JOSRTDc1EoCa6uAfQyPUEFHvheMkMHyp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEwMDAwNSBTYWx0ZWRfX8q5qaS39TdTW
+ AmYI74yPmNkDg0rbc1QyfVP0FDNw0J06SmBputl40N+IywvjUuTI8ncoe41qx7i5KkEl5m1IhFu
+ S4AXhdxBYmoi69eX4g0kJGExy4HjPExFJBt16zXLjbtVgWB0SzGKADpSVaxPW44bLY7GAqIR7bP
+ VuMdtZ54IRRMQ+sLiCr0s0GBVYL3BFltbKkpElIBEEkvN8qvKQInmDpM9+4w/wWj+uzvATbecVq
+ QOt9/A7OsHvpCns15KOr3se/5upqovZgLKEGW0E4w3LPzdz4ZC0qcxZsiam52dEiOTpITRLVWCm
+ iYVLq9RKFPWUM+xAf09BhpmJS33FfZb4kyG0L8Q6xdRUnMtdLfFdqb+XPCH1XBT7ZvfXZ8Qz2Hw
+ MSEJdVworbX9IlcveSw2pjvIkGn2tg==
+X-Authority-Analysis: v=2.4 cv=LaoxKzfi c=1 sm=1 tr=0 ts=691138c3 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=vzhER2c_AAAA:8
+ a=rsf6x_vkuY_n4m1xo70A:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+ a=0YTRHmU2iG2pZC6F1fw2:22
+X-Proofpoint-ORIG-GUID: JOSRTDc1EoCa6uAfQyPUEFHvheMkMHyp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-09_10,2025-11-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 lowpriorityscore=0 malwarescore=0
+ impostorscore=0 spamscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511100005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251109_162313_040893_79663FE5 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20251109_165845_410629_0CF5EAD3 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,118 +152,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hugh,
 
-Thanks for the v2!  Please, see a couple of nitpicks below.
 
-On Sunday, November 09, 2025 20:20 CET, Hugh Cole-Baker <sigmaris@gmail=
-.com> wrote:
-> FriendlyELEC offers an optional heatsink and fan addon for the NanoPC=
--T6
-> and T6 LTS, which plugs in to the fan connector on the board driven b=
-y
-> pwm1. Add the fan as an active cooling device for the SoC package.
->=20
-> Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
+On 9/25/2025 6:42 PM, Jie Gan wrote:
+> Patch 1:
+> Fix the issue that the catu cannot correctly read the handle of the AUX
+> event which is caused by the commit[1].
+> 
+> [1] 080ee83cc361 ("Coresight: Change functions to accept the coresight_path")
+> 
+
+
+Gentle reminder.
+
+
+> Exeception call trace:
+>       tmc_etr_get_buffer+0x30/0x80 [coresight_tmc] (P)
+>       catu_enable_hw+0xbc/0x3d0 [coresight_catu]
+>       catu_enable+0x70/0xe0 [coresight_catu]
+>       coresight_enable_path+0xb0/0x258 [coresight]
+> 
+> Patch 2 - 3:
+> Change the sink_enable and help_enable/disable to accept coresight_path.
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
-> Changes from v1: https://lore.kernel.org/linux-rockchip/2025102619485=
-8.92461-1-sigmaris@gmail.com/
-> * add the fan to the base board dtsi instead of overlay (Heiko)
-> * just use 2 trip points for warm and hot temperatures (Dragan, Alexe=
-y)
->=20
-> References:
-> FriendlyELEC heatsink with fan addon:
-> https://www.friendlyelec.com/index.php?route=3Dproduct/product&produc=
-t=5Fid=3D305
-> Vendor DT with trip points and PWM duty cycle values:
-> https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b62f5aa=
-d139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev=
-01.dts#L75-L90
-
-I think it would be better to move these references to the patch
-description, so they become directly available in the repository.
-It might be the best to use the "... [n]" form for the references,
-which puts them as close to the backed contents as possible.
-
-Oh, and I think that "arm64: dts: rockchip: Enable active cooling
-on NanoPC-T6" as the patch subject would read nicer. :)
-
->  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 39 +++++++++++++++++=
-++
->  1 file changed, 39 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arc=
-h/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> index fafeabe9adf9e..9164a0ee6228e 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> @@ -11,6 +11,7 @@
->  #include <dt-bindings/input/input.h>
->  #include <dt-bindings/pinctrl/rockchip.h>
->  #include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/thermal/thermal.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "rk3588.dtsi"
-> =20
-> @@ -89,6 +90,14 @@ usr=5Fled: led-1 {
->  		};
->  	};
-> =20
-> +	fan: pwm-fan {
-> +		compatible =3D "pwm-fan";
-> +		cooling-levels =3D <0 35 64 100 150 255>;
-> +		fan-supply =3D <&vcc5v0=5Fsys>;
-> +		pwms =3D <&pwm1 0 50000 0>;
-> +		#cooling-cells =3D <2>;
-> +	};
-> +
->  	sound {
->  		compatible =3D "simple-audio-card";
->  		pinctrl-names =3D "default";
-> @@ -591,6 +600,36 @@ &i2s6=5F8ch {
->  	status =3D "okay";
->  };
-> =20
-> +&package=5Fthermal {
-> +	polling-delay =3D <1000>;
-> +
-> +	trips {
-> +		package=5Fwarm: package-warm {
-> +			temperature =3D <50000>;
-> +			hysteresis =3D <2000>;
-> +			type =3D "active";
-> +		};
-> +
-> +		package=5Fhot: package-hot {
-> +			temperature =3D <60000>;
-> +			hysteresis =3D <2000>;
-> +			type =3D "active";
-> +		};
-> +	};
-
-It should be better to use 55 and 65 oC as the trip thresholds,
-because people often report around 50 oC as the observed idle-state
-temperature of their RK3588 SoCs, so increasing the first threshold
-to 55 oC should be beneficial by preventing the fan from spinning
-when the SoC is actually idle.  The second threshold is usually set
-to be 10 oC higher, so it should end up at 65 oC.
-
-> +	cooling-maps {
-> +		map0 {
-> +			trip =3D <&package=5Fwarm>;
-> +			cooling-device =3D <&fan THERMAL=5FNO=5FLIMIT 1>;
-> +		};
-> +
-> +		map1 {
-> +			trip =3D <&package=5Fhot>;
-> +			cooling-device =3D <&fan 2 THERMAL=5FNO=5FLIMIT>;
-> +		};
-> +	};
-> +};
-> +
->  &pcie2x1l0 {
->  	reset-gpios =3D <&gpio4 RK=5FPB3 GPIO=5FACTIVE=5FHIGH>;
->  	vpcie3v3-supply =3D <&vcc=5F3v3=5Fpcie20>;
+> Changes in v2:
+> - Fix error comment in coresight_path
+> - Collect tags
+> - Link to RFC: https://lore.kernel.org/r/20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com
+> 
+> Versions have submitted by Carl Worth:
+> V2 - https://lore.kernel.org/all/20250919174932.3490404-1-carl@os.amperecomputing.com/
+> V1 - https://lore.kernel.org/all/20250916224441.3008824-1-carl@os.amperecomputing.com/
+> 
+> ---
+> Carl Worth (1):
+>        coresight: tmc: add the handle of the event to the path
+> 
+> Jie Gan (2):
+>        coresight: change helper_ops to accept coresight_path
+>        coresight: change the sink_ops to accept coresight_path
+> 
+>   drivers/hwtracing/coresight/coresight-catu.c      | 10 ++++----
+>   drivers/hwtracing/coresight/coresight-core.c      | 30 +++++++++++++----------
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c |  9 +++----
+>   drivers/hwtracing/coresight/coresight-cti-core.c  |  5 ++--
+>   drivers/hwtracing/coresight/coresight-cti.h       |  5 ++--
+>   drivers/hwtracing/coresight/coresight-dummy.c     |  2 +-
+>   drivers/hwtracing/coresight/coresight-etb10.c     |  8 +++---
+>   drivers/hwtracing/coresight/coresight-etm-perf.c  |  3 ++-
+>   drivers/hwtracing/coresight/coresight-priv.h      |  3 +--
+>   drivers/hwtracing/coresight/coresight-sysfs.c     |  2 +-
+>   drivers/hwtracing/coresight/coresight-tmc-etf.c   | 10 +++++---
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c   | 15 +++++++-----
+>   drivers/hwtracing/coresight/coresight-tmc.h       |  3 ++-
+>   drivers/hwtracing/coresight/coresight-tpiu.c      |  2 +-
+>   drivers/hwtracing/coresight/coresight-trbe.c      |  4 +--
+>   drivers/hwtracing/coresight/ultrasoc-smb.c        |  9 ++++---
+>   include/linux/coresight.h                         | 17 +++++++------
+>   17 files changed, 75 insertions(+), 62 deletions(-)
+> ---
+> base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
+> change-id: 20250922-fix_helper_data-f56018fc966f
+> 
+> Best regards,
 
 
