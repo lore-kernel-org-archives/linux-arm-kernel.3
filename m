@@ -4,97 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDD3CCFA13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9076CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Nov 2025 11:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WZzr8k4DWgvdPplU6PE+YGB+t0YnS/j5Rj03egNiGg0=; b=a3Dg1H0VF2Xnv2QLDUkBUa+gQK
-	1V//sI2EuYMj1dLWFswMP0m/6Cx3St/PZ5jz+zTZu7jZ2WPtCKmq0nYUW4Q2OxLdRqLpi86ktuSWR
-	0qZfG/Oz/7ngA/ssDSQjBf/8nB9Qn+xeuhvbKw7M+HBwnr/s3zosEPssmkRemvdN8bt386NkwOJSU
-	xr9RsQIbhjbLDriFDL2BUEIF7hwLShRhdRvhII3llNQkb6cY+kbfsFRucOilb0coJFZ49gEOjGLwb
-	poFP63ESjI4vNcjkiqeLYtn4h4Jw05omCb5Nn19uKWTj4MSg1OvByl2i46sRkM+H16IYP8hAjGFpI
-	Mt89Llyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K4puhpyNWy4/TeTB7g5vrNX9KVCpeTxhhmb7ZPeMoOg=; b=iaEqGhrT53G2gUoAxI8NL/6odC
+	CIlNmzm4nnfkjUzhuEfPWjy9LG0lWorJmzfssVDYxI4EoDSfajYd+1Qmo8JbHYd4eg5bi3S3PgOYv
+	1o+TU/ECR2Z0SkbgCjC2VcDlodV1rm0c++ukBO0JzPQhF/4MSLl7+6/FU4wyUHPZdmFC8dqzwW0rT
+	flg3g3QvUSYkjMPaIC1ke+t0apdVpL3hYHyRC47tLeyzkEoJeLfjfk7Yp2q9ybLcvtNbpQH4iC57x
+	hViGK99AkyX6QxXck2xUwhqHweF3I0Yium/UqCfxQ25aAtygU0AnK2psKsfnrbNbn7TwdC2ddm6H5
+	OAcIFHAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPuU-00000005I5n-2293;
-	Mon, 10 Nov 2025 11:18:10 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vIPvL-00000005IBo-1hhX;
+	Mon, 10 Nov 2025 11:19:03 +0000
+Received: from mail-japaneastazon11023082.outbound.protection.outlook.com ([52.101.127.82] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIPuQ-00000005I4g-0Uyy
+	id 1vIPvH-00000005IAv-3swd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Nov 2025 11:18:08 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47117f92e32so25219885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 03:18:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762773484; x=1763378284; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WZzr8k4DWgvdPplU6PE+YGB+t0YnS/j5Rj03egNiGg0=;
-        b=oPvwMU89NmDzbTdvGwUZSaQbukYAbQWUuEme3USGr/rr6b/tqsS70YlSOmbbMBZr2Q
-         ncqF4k9lpgd5Sz9WpLm3eX6O+6JjTEvLwbqXe4guEohTusbBcBFttp12lxK2qC3qyvNl
-         zS+oUIxW5f8/Vk36KuOb/kaTXgk1BoOMmSC4bZSF2MMBVaOKCAo6L9eAEdtSbaO2J0pV
-         aM9EboNfLF1+LgjvPqWeEc+7lTBBfLO7a2Q0U7DYSzbhT8kTT2BOjmaSTMRDT9YA3qku
-         le8JpxP/7/a82BUmzpTFtKtxgFHOP/lEWEX/KyOXLFB9wFE3eplPK+4e+7y+EVGaevg4
-         lR9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762773484; x=1763378284;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WZzr8k4DWgvdPplU6PE+YGB+t0YnS/j5Rj03egNiGg0=;
-        b=CFUtpKZKZl5BfI7S1paA+j+0CgJX9RtFssY41WgOp0J3EFRPMJlhkBhi5yoKeZrZMl
-         pXpTd0pPIF+m1T9HKd6wpZhjj/e6Ge/AWBwitmiE3+ukMrDszOVUmLKSfLWTCuppig7a
-         FgxQM6XKHizh83zZ7F9kD+WG3bX3d6OBnjWBEHF3JVMNfZ2HANj+lb6DeB+kjWzpkF2D
-         KduqKBTufJiIaMhI+vTu5VVAtiYkL6iQb93dwQb24zJhQKJp3Szj8czoGDnZwn6gknX9
-         2vp783v4Aik+uDMXFjJ0KMciy/xDTqhGQZ/9lJOcRucgaLtkvZT+jx7zQzd8ABfev5ht
-         mZtA==
-X-Forwarded-Encrypted: i=1; AJvYcCUoih0KoIwYm0nVSICjSr0SrVLim69GhrcehVvOszLrpLE6/YjVqWctrNZHZvPoJ3G+ZJf6LhutcyUjXdyvHHJB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF86ySLLojZB37HNzUN/dYSf8A0IvH5Tj7euxtqpuBcGFLRLf7
-	aLx5vKsrbI3YQI48tZVYxl0aL9wOj6ES9Y/2QH3mvKGtJhAgWbZhoJ+LZTfkcYm3xw0=
-X-Gm-Gg: ASbGncu+mAgS/j+y7TNF+TZX8atfGKoC/vamhF2cnLJrs09u02hooNHAwHZSq1VgVf3
-	186HhWsoZ2Rk+v6qrzX8PPUNXPNd5FmYl7tJQ8GFb+M7SHxDwcDYb5PvZteIfPrm/u1Tkf2kziO
-	t2mn9MeTtxSC6Ueqnah9aVylWXhXuMFvQ4H95Wq1L7JGFQWAgTTlpz9V7Ud70Z1fV8WurXJuF1n
-	WBbtl7qbJVGzqtrRhHEbDy/obnP00hwNpez6AsRlNUww60a8Ql//QWP8SyfQgIDHHXkZONpXcUv
-	o/EpiQtiJAu4e+vvZ8LoYb9oowCyhpb/ug13BSo+o/EOfp1fuqves79L8+HNXLAg/ouWQZQ85zb
-	PCGRQpyebhOdsHvsBeplKVeSlpvITxVTI3ySJWSenNuyasJLzpXqrgG3c2nl9zi2wMhQ/gshHMx
-	fSqvrmtaCYBspJ22AC
-X-Google-Smtp-Source: AGHT+IF7kZ5xVQLiCniXssb13ZBQXAr4/niBhQ5nctvE1hMmXrE/pMUrlMmbM+k97/M6+JP0zfVbFQ==
-X-Received: by 2002:a05:600c:35c6:b0:477:7b16:5f77 with SMTP id 5b1f17b1804b1-4777b16632emr31537555e9.3.1762773484002;
-        Mon, 10 Nov 2025 03:18:04 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4775ce20ee3sm313769435e9.9.2025.11.10.03.18.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Nov 2025 03:18:03 -0800 (PST)
-Message-ID: <7bc3f703-aeca-4e51-a171-c8870f1a14dc@linaro.org>
-Date: Mon, 10 Nov 2025 11:18:02 +0000
+	Mon, 10 Nov 2025 11:19:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vpue+/XqERCPn3SadswsZOip8r+wvNK25AZfVlmeZMn9jvJrdYlKxgsijQwKebPLGL0Ag8TQ3U/v5hJn0nWj4o9weUONWrFdfSzhav42KU+aP5xic2LpEYZRL60lAZ3NroFrbSt+d0GBZ6uiMbVylDOU0FQV/k7Fi0qpGYZdHxgRFNOBvakA1K0X6vC0Aejc8POK066SazXBJN923mzOzIvn8iAhTb3x7DldhYYbGkdbUkUUOg2Cn9qaPutYQNXRYYr2vsEj+wiD9Bore8xPfDa9K7+NBoMBFLGSFpzHdHIaqrgiLQJ6+O9r5+fa8ssZeQ4ZV6QfTKGT6QZdfWETAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K4puhpyNWy4/TeTB7g5vrNX9KVCpeTxhhmb7ZPeMoOg=;
+ b=JRm5o11XSjcLUl8s3r/bSirGTeYaI2Hx2BYKfERh1SaxzMLc3KqlENlBMHo8Bhm2vLVr4Au1f73bnWo4tWEq8pDeWyl6ZC+I6i2TzoGhwphe4xNt9cxr3PDltgZq0MCbFyAdPvx8xJtqhHXWFUVF5pu9lCaZ4XL48K78XmBjKPqstqQoYF12AOSQsd4aRL5mFZ26tscQBjj52qlnPMqgn/q/N2ZsFNkihnbNA7le3r2s7hezB3PtiMrEW6PGjp2iHuQhshLQlizhyvgL6b9gLQYFXy82N64iAaN6fvk+UDxrLyNbl1Xa9cSS2Mn8uLUTD9bBSalKazS9Lhdxmjv2sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from PUZPR06MB5887.apcprd06.prod.outlook.com (2603:1096:301:117::13)
+ by TYZPR06MB6990.apcprd06.prod.outlook.com (2603:1096:405:3b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Mon, 10 Nov
+ 2025 11:18:46 +0000
+Received: from PUZPR06MB5887.apcprd06.prod.outlook.com
+ ([fe80::611c:7f38:af2e:22d]) by PUZPR06MB5887.apcprd06.prod.outlook.com
+ ([fe80::611c:7f38:af2e:22d%3]) with mapi id 15.20.9298.015; Mon, 10 Nov 2025
+ 11:18:46 +0000
+From: Gary Yang <gary.yang@cixtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, cix-kernel-upstream
+	<cix-kernel-upstream@cixtech.com>
+Subject: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggMi8zXSBSZXNldDogY2l4OiBhZGQgc3VwcG9ydCBm?=
+ =?utf-8?Q?or_cix_sky1_resets?=
+Thread-Topic: [PATCH 2/3] Reset: cix: add support for cix sky1 resets
+Thread-Index: AQHcT5f6k32l2FqOtEO23efN98Wr37TmznKAgAS3HTA=
+Date: Mon, 10 Nov 2025 11:18:46 +0000
+Message-ID: <PUZPR06MB58875805D441AF3213189979EFCEA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+References: <20251107033819.587712-1-gary.yang@cixtech.com>
+ <20251107033819.587712-3-gary.yang@cixtech.com>
+ <69efdb9a-c03a-42f4-a78e-18c8a2b29322@kernel.org>
+In-Reply-To: <69efdb9a-c03a-42f4-a78e-18c8a2b29322@kernel.org>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PUZPR06MB5887:EE_|TYZPR06MB6990:EE_
+x-ms-office365-filtering-correlation-id: 59aefb23-59ff-43d5-8846-08de204aea38
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?UkgrSnRsTUhXbWtGR2d4Yk14aWU5Q2VScjdhcXVUbmozN3lLVTR3U01CZENW?=
+ =?utf-8?B?d205QTVPY21NUTAzdURQRVhFTnZLa3B2c1dtL2gvWXJsanppZzNaU0tEdE9Z?=
+ =?utf-8?B?QjczaFUvMXRqL3o5bWNTMUVJUW5DVG5nUCtmRjE0WWxzRWpKMTFQclZTdENx?=
+ =?utf-8?B?UlFWYUExSTVkbWJlcnppZ3RDenIwU2g5amNjK29zcjFyWjJUcEg1alg1Y1p0?=
+ =?utf-8?B?bUw3NFFoMlNla2U2a013b2FwUEdxUWFyc21ZWWt5YVpoYVJzWFpQVEJxYzVk?=
+ =?utf-8?B?RnlVVDN1MmxUcHhSSkxKYWtnUkZDenpSU0xhZDJxYlA5dEtRQ3k0N0V6WUNj?=
+ =?utf-8?B?c29TTURMN2owdzNvby9EUVhRK29XVjJJK3EvempraUxwOXlCVWlXUmJXMlBB?=
+ =?utf-8?B?b0xkWjBhQzRRU3BNNGhpV3IybDF4blVEdjhONXhUaC9JWitSdlV3eHY1bndH?=
+ =?utf-8?B?bVJBaVZ5RFVIMUw4bkN3bGdXOFpRb2EzRXoxdGVkUm52SzNuZlJ2L2NnKzRY?=
+ =?utf-8?B?TU1wVFJFRXBqd3lzek1JaFJTMFZwQlYzZ0l3QnJ5K0ZVdEU0eVZOb1ljK0Fj?=
+ =?utf-8?B?OEpDYmdVOEJZbi9lWkJyc3lKTDV3UE1tSXJPejVIQlAzVEJvUDlvS2NDNG5u?=
+ =?utf-8?B?dlJiczRXdVJVeHZmdk85czJiV1Nrek12anNISHlpTXp0RmZCcVBmODNxY1RU?=
+ =?utf-8?B?NmZSSEhtT1FzVlAzd29KcVdkb1BNdjZXTlUrL2pERjI2MitlZ1RvMmlTd3J6?=
+ =?utf-8?B?WVBIWWlQejNMNEdDWmxYWDBPMzdwOForMHh0UWJKK2p6Qld5MHUrYWpmdDBV?=
+ =?utf-8?B?cG1sK0FzTFBtVUh1L0szQXBUOUY2L3V2U2kzbjBVb2k0Y1hjMExkdnBoVlZv?=
+ =?utf-8?B?Q1BaZTd0dnoySnQrUjZVcnkrR2x3d2lkNUpzd1VaeEswMlhKeHk4eFdyNDFq?=
+ =?utf-8?B?ZDBCQmsvRUhPNXhaemQ2Y3NQQktMLzhZYXlPYmhDdGRzT0txcWdZL1FzL0xF?=
+ =?utf-8?B?U2Fuc0Vrc1NOQWhaTVdPanJoWEJ4OFBIU2VOMnZRNVEwZnk0cnBlWm1ZOTVq?=
+ =?utf-8?B?WGlyNCtURVpJMG85U0txT3lmK085SU5mQ3lqMkxadkRhMmIzZlNSYlJ0QjUy?=
+ =?utf-8?B?OUF6cUNwY0hzQ3hudUNjdkpHWTVDTkt4THBWTFpHRkRLWDVpV2kraE9BTWpu?=
+ =?utf-8?B?R1F0eitnZ2YvRkc4ZFdPMjlzbzJQSXJWaXozUkR6eTVKM09kTDJ3YlRPZWFD?=
+ =?utf-8?B?ZTVpcEVYVWlVK1VKcFlYMCs5S1NSTURqNGM1K1pvcEN2WUpwNG1Ta3UxNmRk?=
+ =?utf-8?B?U1dYdnBSZmNQZFh4SUk4MTVGdFQ2TzIrRU1RNWdINGp6aXhpdjlTazZJYlFv?=
+ =?utf-8?B?MktidW90d3lJOTNQQ3BSZFgzc2NqMDZmZzNPd0Vidm5pMjFxTmtreXgzakMy?=
+ =?utf-8?B?RERqekxkWHppS3hjZVFSK3RZRnBPbDdhUVJzMUNWa2FvRGxpb2laWm9zMHZI?=
+ =?utf-8?B?NkpNcjdGS3FkeFNUYkhPbE5LR0QyM0RLYzZlRUtPQ1hFeEFSN0x3ZGx6MzRL?=
+ =?utf-8?B?K0IxcFAxSHlRK1JuZjJEaElhYzZGYm1NM29LT2Z1NlUzRjltYjRTVmRMYjZY?=
+ =?utf-8?B?b20ycFZoS2JvdnlXMHc3UnNHM1gyQjUxOVhRdC9KMWcyNWY4cjNVb0FxRk1v?=
+ =?utf-8?B?cGJpZnFOek9rVm5vcHpGYngyeFV2eE9pcTUrdnE4QzBNSUIzcGFxODQ2VHcr?=
+ =?utf-8?B?OFNma21PNFlldTgwcHR1aFNYam91YjRxcUJwSlBRZ0pRUk4vdkd6YVE0bUps?=
+ =?utf-8?B?bmo3MHRVNFF1RXFUZEg3aVdMazhJYVR5akx1c2F3Sy91WEpLUlNGVWZSY1NQ?=
+ =?utf-8?B?clVhVkl1MWNLUVZDeDJaRnJUYktJeXpjSk9yWERZODArT2NXcGtKajZ6bXpy?=
+ =?utf-8?B?YnVvMFdHcmErQllXa0VEbWk1N1o5R2NMazRGR1o3Y1RFSnVaeGpjdnpWL2o5?=
+ =?utf-8?B?VzRseXhHWlYyRittTUg2OExDaEFxdkNaVEtFN1JqbTd3b0IxRXN1SDlJUzRt?=
+ =?utf-8?Q?Y+8g9I?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR06MB5887.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MkJ0ZE16Nm42aXhQTkNBbklOUS93STRnQ3NBZ0FmYU81NGRta1BjazB1Y3FJ?=
+ =?utf-8?B?M0lSOTVWM3BUM3IyVzJkS3hqK1IzbmZSYkV4cFM3REFYTFgrRTRQamlPckxi?=
+ =?utf-8?B?bkVkcmxrbW1VTm1sUVJsMll6QU5LN2w0bHczRStTV3BTcjYxQ3k3ZnZQUUZN?=
+ =?utf-8?B?b3JFdVNJYzJKbXhiL2RmNHdWUzk1VE9JOU5lY3AvUWNWdk1Ha1VWWVlkWU1q?=
+ =?utf-8?B?a2t2dEhuMEFHdTNqWis1eW9EckY1c09SVU5XWHFQMkFyZTVsb2NxQmtVQncr?=
+ =?utf-8?B?cDNZemNIQjJCTWEyeXc1SDd0L0o3aVJrNVB5VWY5Y01lWmJiUnppZnVBcHpz?=
+ =?utf-8?B?NCtlVzkvTWlVaEorbmxuSVN4cm1DWDlUVmdIbW5iMnFxY1ZLOXBvZkpEWTRW?=
+ =?utf-8?B?SjFXeWNIQjVQK3lwS0N4S0NucjhETVB5K2NVWW9MT08yVnBlelA4UUJFL1ZV?=
+ =?utf-8?B?WUNvVFFmS3BwTDNEcktxeDhvR2dwL1FsMkFOTE9IR2ZsT1dHVXd0MGtiQkxL?=
+ =?utf-8?B?blZ1MTdJQTVtQ2VyM0ZPdzkxSnlsOUMzK3E3MUZzd1dqclNMMG0vajdEaUZw?=
+ =?utf-8?B?em5kZ2xTYWlwK3dzNkJNNkpVM3BoSGorU2RDRStwZ2tWNGYzdVhUbUhKM0xq?=
+ =?utf-8?B?eDhXdG95Z24wczdUYzRucExPdHYyamxTNVRJL0J3c25sQzdicExjMnJzenl0?=
+ =?utf-8?B?bC9zY3QvbFh3cTJsRkxkQkE4cms0cmcvOEVMQjk2UmVUM0tNekdYbVlTdTJT?=
+ =?utf-8?B?ZGZTZWhaMXNaTDcycGNGUVo0T1ZiYThlaG8zamF4RnlGcngvWWhtSjVYVFVK?=
+ =?utf-8?B?UVFBWlY2MWh5ZEVhTWRjV3Jray95cFNRdk5WQ2xkTU5qQzVuLzNzTytRRzVr?=
+ =?utf-8?B?akdQdHJNY0lIaGdLUURSNktrSTBnUVB3Y0lpQ3RCNnI5NTBpTkNmOVFIK2RF?=
+ =?utf-8?B?ZGFOVXhieHI4QXJ6c091ZmRyMjZTYUdpbytqL0M0WEkyU1gzZkE0dDFUSlV2?=
+ =?utf-8?B?R0FSZzFMRTlzcnkrUGRKa2dRVEFUMHh4ekkyKzJ5cFVYUVhvMGg3ZEdjc3Rl?=
+ =?utf-8?B?ZG9vZ1h5aUpsK3RJMityOTl0azUzajROZzExbVFsY0IzbTZCcGNSOXdXTzJn?=
+ =?utf-8?B?Y2Nya3YrQlYrTGx5TFZQTW81S2RRb1ZCcVhWTndiNGwydHhCYTU3K3M4ZWtt?=
+ =?utf-8?B?SDdMMmYraVFnbGV3ZWZCay9uUENRL3htSjRWSzZxV1NaU1A0eVNBSitjZ2NG?=
+ =?utf-8?B?VktTSzZtNG4vNEphNEc3SjJhVkc3dFpnNHJxL3hTUlFqZXROWlhMT0NNM0Er?=
+ =?utf-8?B?RXZXb1FqVjFvWGh6SFFvZkRaZEVDd0VPTWhFenpXVVJZV0xUWUVNQnF1cEN6?=
+ =?utf-8?B?OHZsbFVnajJmMGZSNVdLb1ZsNHRKTUk5cTY2M0VZbmdLSENOM1Y3VGZsai9V?=
+ =?utf-8?B?VEovYW9aWGtiSENnZytwdFI4NHhpUWgwekNwZmtyK0ZrczJqakxEMDltamgw?=
+ =?utf-8?B?QWVpSE9kbnRRRkZWeFJQOG1oOWhCb3pWZ1JKK2FyMmJVbGhNREhpUnUvQVFK?=
+ =?utf-8?B?ek5yLytZK1M4NkVhYVlZUTM3YlVJbHpxY3BtNmFwQzZENHBkTVZwMFlsQnM0?=
+ =?utf-8?B?eHR4OVRDQTFwWkJrNUxUdlBJTDNJdm80VHVwM0JqbzJqTzhmaVkwN2kvV0Zv?=
+ =?utf-8?B?b09TQ3U4RlZoN1k4RnpTakVOTmFOb00zZmZ2cHFLVHhPTVNpQ0o4S29ueEpD?=
+ =?utf-8?B?dFphSnZCdXFsZ1ZzL2s3ckpNOUhTdmR3UHdUVVI1endoQktuSXpyU1JnOUVU?=
+ =?utf-8?B?a0ZSWTBleGUzay9pT2NYNVg3UUp4U25icVN0aEluRWM3NkFyV0podUk5dkFv?=
+ =?utf-8?B?eERNNUNkbFFSRjdIRmdwT0JRWnRpSmVwVWM5a3NaTzlaclRkYkdBQkhsSU5H?=
+ =?utf-8?B?RGc2L0tmajJmd3JXQ0N3ME1DVzBoemhHbkMwdjdSMlZHTlRlUG0wakVFbGVi?=
+ =?utf-8?B?RXkyclp0ZlJqODQzMGQxT0ZBU1dZSnlwVDQ1cTR3TGUzVXplV3I0N1hjMjhk?=
+ =?utf-8?B?UTVJaEhLYnZ5WW11RVpOdHZxM0x3TEpXc01Ibkh1dmhKUzhUOG9QS2xWRlo5?=
+ =?utf-8?Q?XVJD7K23Fl5RbYKP06rto/gA/?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/15] coresight: Save activated path into source
- device
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR06MB5887.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59aefb23-59ff-43d5-8846-08de204aea38
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Nov 2025 11:18:46.1878
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3BdNfN89cLCkHpJvbfR6RYx3APFRAKZhzSaOV1NQQMEnxxm0AjA5BfiA4JdSrkSJWv80HKA1n8w4tMUuDejOJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6990
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_031806_219781_16049517 
-X-CRM114-Status: GOOD (  30.28  )
+X-CRM114-CacheID: sfid-20251110_031859_972009_023CCCC9 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,109 +182,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 04/11/2025 3:21 pm, Leo Yan wrote:
-> Save activated path into the source device's coresight_device structure.
-> The path pointer will be used by later changes for controlling the path
-> during CPU idle.
-> 
-> The path pointer is assigned before setting the source device mode to
-> active, and it is cleared after the device is changed to an inactive
-> mode. So safe access to path pointers is guaranteed when the device is
-> in an active mode.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 39 +++++++++++++++++++++++++++-
->   include/linux/coresight.h                    |  2 ++
->   2 files changed, 40 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index c28f3d255b0e19b3d982de95b8e34d0fc2954b95..3ea31ed121f7b59d7822fba4df4c43efb1c76fe7 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -399,13 +399,50 @@ int coresight_enable_source(struct coresight_device *csdev,
->   			    struct perf_event *event, enum cs_mode mode,
->   			    struct coresight_path *path)
->   {
-> -	return source_ops(csdev)->enable(csdev, event, mode, path);
-> +	int ret;
-> +
-> +	/*
-> +	 * Record the path in the source device. The path pointer is first
-> +	 * assigned, followed by transitioning from DISABLED mode to an enabled
-> +	 * state on the target CPU. Conversely, during the disable flow, the
-> +	 * device mode is set to DISABLED before the path pointer is cleared.
-> +	 *
-> +	 * This ordering ensures the path pointer to be safely access under the
-> +	 * following race condition:
-> +	 *
-> +	 *  CPU(a)                          CPU(b)
-> +	 *
-> +	 *  coresight_enable_source()
-> +	 *    STORE source->path;
-> +	 *    smp_mb();
-> +	 *    source_ops(csdev)->enable();
-> +	 *                              `-> etm4_enable_sysfs_smp_call()
-> +	 *                                    STORE source->mode;
-> +	 *
-> +	 * This sequence ensures that accessing the path pointer is safe when
-> +	 * the device is in enabled mode.
-
-Doesn't that only work if you meticulously use READ_ONCE() for accessing 
-path on the read side? Which doesn't look like it has been done.
-
-I'm not sure why path is special though, there are plenty of variables 
-in csdev that are accessed while the device is active. Shouldn't path be 
-covered by the existing locks in the same way? It would be much safer 
-and easier to understand if it was.
-
-> +	 */
-> +	csdev->path = path;
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +
-> +	ret = source_ops(csdev)->enable(csdev, event, mode, path);
-> +	if (ret)
-> +		csdev->path = NULL;
-> +
-> +	return ret;
->   }
->   EXPORT_SYMBOL_GPL(coresight_enable_source);
->   
->   void coresight_disable_source(struct coresight_device *csdev, void *data)
->   {
->   	source_ops(csdev)->disable(csdev, data);
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +	csdev->path = NULL;
-> +
->   	coresight_disable_helpers(csdev, NULL);
->   }
->   EXPORT_SYMBOL_GPL(coresight_disable_source);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 3d59be214dd25dfa7ad9148a6688628e0d1a98dd..58484c225e58a68dd74739a48c08a409ce9ddd73 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -264,6 +264,7 @@ struct coresight_trace_id_map {
->    *		spinlock.
->    * @orphan:	true if the component has connections that haven't been linked.
->    * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-> + * @path:	Activated path pointer (only used for source device).
->    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
->    *		by writing a 1 to the 'enable_sink' file.  A sink can be
->    *		activated but not yet enabled.  Enabling for a _sink_ happens
-> @@ -291,6 +292,7 @@ struct coresight_device {
->   	int refcnt;
->   	bool orphan;
->   	int cpu;
-> +	struct coresight_path *path;
->   	/* sink specific fields */
->   	bool sysfs_sink_activated;
->   	struct dev_ext_attribute *ea;
-> 
-
+SGkgS3J6eXN6dG9mOg0KDQo+IC0tLS0t6YKu5Lu25Y6f5Lu2LS0tLS0NCj4g5Y+R5Lu25Lq6OiBL
+cnp5c3p0b2YgS296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+DQo+IOWPkemAgeaXtumXtDogMjAy
+NeW5tDEx5pyIN+aXpSAxNToxOQ0KPiDmlLbku7bkuro6IEdhcnkgWWFuZyA8Z2FyeS55YW5nQGNp
+eHRlY2guY29tPjsgcC56YWJlbEBwZW5ndXRyb25peC5kZTsNCj4gcm9iaEBrZXJuZWwub3JnOyBr
+cnprK2R0QGtlcm5lbC5vcmc7IGNvbm9yK2R0QGtlcm5lbC5vcmcNCj4g5oqE6YCBOiBkZXZpY2V0
+cmVlQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4gbGlu
+dXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBjaXgta2VybmVsLXVwc3RyZWFtDQo+
+IDxjaXgta2VybmVsLXVwc3RyZWFtQGNpeHRlY2guY29tPg0KPiDkuLvpopg6IFJlOiBbUEFUQ0gg
+Mi8zXSBSZXNldDogY2l4OiBhZGQgc3VwcG9ydCBmb3IgY2l4IHNreTEgcmVzZXRzDQo+IA0KPiBF
+WFRFUk5BTCBFTUFJTA0KPiANCj4gT24gMDcvMTEvMjAyNSAwNDozOCwgR2FyeSBZYW5nIHdyb3Rl
+Og0KPiA+IFRoZXJlIGFyZSB0d28gcmVzZXQgY29udHJvbGxlcnMgb24gQ2l4IFNreTEgU29jLg0K
+PiA+IE9uZSBpcyBsb2NhdGVkIGluIFMwIGRvbWFpbiwgYW5kIHRoZSBvdGhlciBpcyBsb2NhdGVk
+IGluIFM1IGRvbWFpbi4NCj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IEdhcnkgWWFuZyA8Z2FyeS55
+YW5nQGNpeHRlY2guY29tPg0KPiANCj4gUGxlYXNlIHVzZSBzdWJqZWN0IHByZWZpeGVzIG1hdGNo
+aW5nIHRoZSBzdWJzeXN0ZW0uIFlvdSBjYW4gZ2V0IHRoZW0gZm9yDQo+IGV4YW1wbGUgd2l0aCBg
+Z2l0IGxvZyAtLW9uZWxpbmUgLS0gRElSRUNUT1JZX09SX0ZJTEVgIG9uIHRoZSBkaXJlY3Rvcnkg
+eW91cg0KPiBwYXRjaCBpcyB0b3VjaGluZy4gRm9yIGJpbmRpbmdzLCB0aGUgcHJlZmVycmVkIHN1
+YmplY3RzIGFyZSBleHBsYWluZWQgaGVyZToNCj4gaHR0cHM6Ly93d3cua2VybmVsLm9yZy9kb2Mv
+aHRtbC9sYXRlc3QvZGV2aWNldHJlZS9iaW5kaW5ncy9zdWJtaXR0aW5nLXBhdGNoDQo+IGVzLmh0
+bWwjaS1mb3ItcGF0Y2gtc3VibWl0dGVycw0KPiANCj4gSXQgaXMgbm90ICJSZXNldDoiLiBNYXJr
+IGNhcGl0YWxzLg0KPiANCg0KT0ssIFdlIHdpbGwgdXNlICJyZXNldDoiIGluc3RlYWQgb2YgaXQN
+Cg0KPiA+IC0tLQ0KPiANCj4gDQo+IC4uLg0KPiANCj4gPiArc3RhdGljIHN0cnVjdCBwbGF0Zm9y
+bV9kcml2ZXIgc2t5MV9yZXNldF9kcml2ZXIgPSB7DQo+ID4gKyAgICAgLnByb2JlICA9IHNreTFf
+cmVzZXRfcHJvYmUsDQo+ID4gKyAgICAgLmRyaXZlciA9IHsNCj4gPiArICAgICAgICAgICAgIC5u
+YW1lICAgICAgICAgICA9IEtCVUlMRF9NT0ROQU1FLA0KPiA+ICsgICAgICAgICAgICAgLm9mX21h
+dGNoX3RhYmxlID0gc2t5MV9yZXNldF9kdF9pZHMsDQo+ID4gKyAgICAgfSwNCj4gPiArfTsNCj4g
+PiArc3RhdGljIGludCBfX2luaXQgcmVzZXRfc2t5MV9pbml0KHZvaWQpIHsNCj4gPiArICAgICBy
+ZXR1cm4gcGxhdGZvcm1fZHJpdmVyX3JlZ2lzdGVyKCZza3kxX3Jlc2V0X2RyaXZlcik7DQo+ID4g
+K30NCj4gPiArc3Vic3lzX2luaXRjYWxsKHJlc2V0X3NreTFfaW5pdCk7DQo+IA0KPiBUaGlzIHNo
+b3VsZCBiZSByYXRoZXIganVzdCBtb2R1bGVfcGxhdGZvcm1fZHJpdmVyLiBEb2VzIG5vdCBsb29r
+IGxpa2UgcGFydCBvZg0KPiBzdWJzeXN0ZW0sIGJ1dCBsb29rcyBsaWtlIHJlZ3VsYXIgZHJpdmVy
+Lg0KPiANCg0KU29tZSBtb2R1bGVzIGRlcGVuZCByZXNldCBtb2R1bGUuIFdoZW4gYm9vdCBzeXN0
+ZW0sIHRoZXNlIG1vZHVsZXMgY2FuJ3QgcHJvYmUgYmVmb3JlIHJlZ2lzdGVyIHJlc2V0Lg0KVG8g
+bWFrZSB0aGVzZSBtb2R1bGVzIHByb2JlIGVhcmxpZXIsIHdlIHVzZSBzdWJzeXNfaW5pdGNhbGwo
+KSB0byBpbnN0ZWFkIG9mIG1vZHVsZV9wbGF0Zm9ybV9kcml2ZXIoKS4gRG8geW91DQpoYXZlIGJl
+dHRlciBzdWdnZXN0aW9ucz8NCg0KQmVzdCB3aXNoZXMNCkdhcnkNCg0KPiA+ICsNCj4gPiArc3Rh
+dGljIHZvaWQgX19leGl0IHJlc2V0X3NreTFfZXhpdCh2b2lkKSB7DQo+ID4gKyAgICAgcGxhdGZv
+cm1fZHJpdmVyX3VucmVnaXN0ZXIoJnNreTFfcmVzZXRfZHJpdmVyKTsNCj4gPiArfQ0KPiA+ICtt
+b2R1bGVfZXhpdChyZXNldF9za3kxX2V4aXQpOw0KPiANCj4gDQo+IA0KPiA+ICsNCj4gPiArTU9E
+VUxFX0FVVEhPUigiSmVycnkgWmh1IDxqZXJyeS56aHVAY2l4dGVjaC5jb20+Iik7DQo+ID4gK01P
+RFVMRV9ERVNDUklQVElPTigiQ2l4IFNreTEgcmVzZXQgZHJpdmVyIik7IE1PRFVMRV9MSUNFTlNF
+KCJHUEwiKTsNCj4gDQo+IA0KPiANCj4gQmVzdCByZWdhcmRzLA0KPiBLcnp5c3p0b2YNCg==
 
