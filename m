@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58380CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4013CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fy9u6CGUKA1B0A0ytc8N5Z1pEjcxdc/kfCrt3vAslWc=; b=1REpZ/wQMVJ56R419jsgWJfxMw
-	+NNy+NWtRa+OoGymfanSKehvaPCZl+4Z4mSh0RXm8V0uyGaGQLXH1oPJdnRyj2p2Wy5mXKeERB+GD
-	AVTdV0jYsJQR4S9E5OhflsjpD7hj8KBO+Znphui52r/Ax7M8OfTxAV8EKCARXvUoZ6MRA8BySJDrs
-	oo2zN2JGC5ST5RqhjkquABvJANweigGdpSTyVzEITuGcQHkMrH1ntv4TAxBO75DpSJSRYNZRVhkl0
-	YeNqB4Uvat3ElVdlWfLxJdFT5Yqx+aeN874/IKManHLH80w/HhnJlW5h2iBaVFiqXwKHgeOm3XZYY
-	13f2JGUg==;
+	bh=dGEQow7YFgM7RnSNHkQoWCu36w2/CtERfuDLommx1Ro=; b=jCzngy6/x/vLC7/n9QxVu2UDjd
+	oIYG9Z1+Td6reorIh3JRZ3Sk/tTFITK1qKfHC6eiJ01kJLn+X4ZxBkT44Gy2Z5Npg+NR9kQJoqD6Q
+	Uc+fgWhZPFIGcZSx6eKPMJ/0mitrO3Yu0JBqsMuNbUFEG3IgQDiKIq966RPJq4J0TqNqaR+ywoNEO
+	Q0ayQjos726imkFLG7u7bN3RsyHvADd6Uplb0YlTdPBHPYpxhXA+xAOjZZk8FuCqOn0dg8ZDd2Qfb
+	ZPiDSCQ224zPhg90dsV5cnff0RmDBynft50IVYtzwykRHspwGFNjsU4kZcNec8xyol+bHKtaU7UlU
+	RN1Qp22w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItb0-00000007eu9-3Umf;
-	Tue, 11 Nov 2025 19:00:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vItlQ-00000007faQ-3r8c;
+	Tue, 11 Nov 2025 19:10:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItay-00000007erL-0oOQ
+	id 1vItlP-00000007fZt-2pXW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 19:00:01 +0000
+	Tue, 11 Nov 2025 19:10:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F990446EE;
-	Tue, 11 Nov 2025 18:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2A8BC19422;
-	Tue, 11 Nov 2025 18:59:55 +0000 (UTC)
-Date: Tue, 11 Nov 2025 18:59:53 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Brown <broonie@kernel.org>,
-	Pierre Gondois <Pierre.Gondois@arm.com>,
-	Sami Mujawar <Sami.Mujawar@arm.com>
-Subject: Re: [PATCH v4 resend 0/7] arm64: Make EFI calls preemptible
-Message-ID: <aROHqYH_apXByNn0@arm.com>
-References: <20251015205634.3820870-9-ardb+git@google.com>
- <aROEXadFWdJoQEzx@arm.com>
- <CAMj1kXGYGSrhUbJ8jboSbch6tp00zfpnGdfJEQcbq=RmLFy5CA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXGYGSrhUbJ8jboSbch6tp00zfpnGdfJEQcbq=RmLFy5CA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_110000_246869_26386C30 
-X-CRM114-Status: GOOD (  17.11  )
+	by tor.source.kernel.org (Postfix) with ESMTP id C3DA160208;
+	Tue, 11 Nov 2025 19:10:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71497C113D0;
+	Tue, 11 Nov 2025 19:10:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762888246;
+	bh=z30sYZuweToMSRbZmmjtT/wBIWBGjpziU0vz9SNB8tQ=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=cL/0H+7d+gmHkzQbb+2Z6u/gROBjBU1g0hebfv79C0zz0RuLsC9YX8zKJDc83Rtv3
+	 mSqb5fscTv86vbXFQOc03c7tSobXXyO4qORvcFutmRHDEbPl7efD2WxGikxTOYg8F7
+	 +f306dTsDg7at3J8/EXCqXeh5gHSOb+BRV9cFgG0SwvckKKro4QC8F73c1o6azTZB9
+	 UyEEgjX2JHcrJfNqWRL0lxXxYBo7IUUncq83skTmw6iwZP3u1cHIO3qC5mV1DacjyB
+	 qVD5Cvsyv9XV8vumnc4GE1Hwa0Eix50QdATv7Sh6I/MOOuV5oVl/+SKkKJLF6sLDI/
+	 tfbtx0GfuzrtA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B1B78380CFEF;
+	Tue, 11 Nov 2025 19:10:17 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc6
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <aRN7fm_q2B5UzQTK@willie-the-truck>
+References: <aRN7fm_q2B5UzQTK@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <aRN7fm_q2B5UzQTK@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 8e8ae788964aa2573b4335026db4068540fa6a86
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 24172e0d79900908cf5ebf366600616d29c9b417
+Message-Id: <176288821699.3548512.978499096605838935.pr-tracker-bot@kernel.org>
+Date: Tue, 11 Nov 2025 19:10:16 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,33 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 07:50:49PM +0100, Ard Biesheuvel wrote:
-> On Tue, 11 Nov 2025 at 19:45, Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >
-> > On Wed, Oct 15, 2025 at 10:56:35PM +0200, Ard Biesheuvel wrote:
-> > > Ard Biesheuvel (7):
-> > >   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
-> > >   efi/runtime-wrappers: Keep track of the efi_runtime_lock owner
-> > >   arm64/fpsimd: Don't warn when EFI execution context is preemptible
-> > >   arm64/fpsimd: Permit kernel mode NEON with IRQs off
-> > >   arm64/efi: Drop efi_rt_lock spinlock from EFI arch wrapper
-> > >   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
-> > >   arm64/efi: Call EFI runtime services without disabling preemption
-> >
-> > The series looks fine to me:
-> >
-> > Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-> >
-> > What do you plan to do with this, merge via the EFI tree? Are there any
-> > dependencies?
-> 
-> As you prefer - I can take it via the EFI tree, or you can take it.
-> There are no conflicts with the other kernel mode FP/SIMD related
-> changes that we are taking via libcrypto, and there are no other
-> dependencies that I am aware of.
+The pull request you sent on Tue, 11 Nov 2025 18:07:58 +0000:
 
-OK, I'll queue them via arm64 shortly.
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/24172e0d79900908cf5ebf366600616d29c9b417
+
+Thank you!
 
 -- 
-Catalin
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
