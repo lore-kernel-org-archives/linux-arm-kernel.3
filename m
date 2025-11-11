@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82219CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 22:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D80CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 22:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a80VaGAr/6U4Nhrn8Gt+tgnl4GQ4nOVqFBvaq/YvadA=; b=T8yJomKW58xx/FKUE/B2gcHZ9y
-	EpOZwHAgzA2MDrODS01Run8zXAdsQr54IN1pMBOlmzKRTJCiXkCF4Zh6oQIoMSXWBEqsqBhIGEjLZ
-	oybpAobRJpajXQbEy8CWgNdhgfOuy31SPQytKqkRS4o9b6g8osERBk3yrK4dhO9WcmSSr5ygh6OQm
-	3XvIuE8Ao5iSOjIVSdnw7TUwBTKG8g82TuMpGJzgFwifqqHOjnL8FOxPSZuQc43XIj75WgFm8tYBX
-	4DuayjYQbmRD4j+s0MQlijdFwN2OGtWLFQLi9rWmUKzspLWTqgKiC0C1vnWpNpAVfyWn26jXlegu9
-	5h9dmHyQ==;
+	bh=1mRhbTVuOlH7uDSTF6bsqC13s12GeKnB9UUeuJamfBo=; b=oNnuK6oe/KJXFGBO46AwzajnZ6
+	nAaBBdi6QcAYkTRjH4vgOwGK/JeW5nB1GNv6VgVztxHdtXk/ASaTCt5zZUdts7PHAy1H4QJrxUyVi
+	M5vSM+YUGrBuh3QjIC1wdP36WpwryvyGGDh1fDVM2tfca4U6GOWNS9DBCM4xH4zpVwtJuz436gKuC
+	15haSshImUNhSF09OuFBuzUFpgca8KWQEnKEq3+MKRb7SCRiVb5AMFEqlHQlLjeEcvCzIHF3/0CZ8
+	Hx/wZHtX/UYzE4kbrT4cdfJvGkwXd773CWKjDm8CBQYJzXi69D+ac6HyQ/7i5g/GSiBiZWm/pq/mg
+	+PrGDPLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIwfI-00000007ppM-24G2;
-	Tue, 11 Nov 2025 22:16:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIwfJ-00000007pqI-0CMG;
+	Tue, 11 Nov 2025 22:16:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIwfE-00000007pme-2mBN;
-	Tue, 11 Nov 2025 22:16:37 +0000
+	id 1vIwfG-00000007pnM-2JSB;
+	Tue, 11 Nov 2025 22:16:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EABD943998;
-	Tue, 11 Nov 2025 22:16:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 862D8C16AAE;
-	Tue, 11 Nov 2025 22:16:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 86C1B60202;
+	Tue, 11 Nov 2025 22:16:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CC8EC116D0;
+	Tue, 11 Nov 2025 22:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762899395;
-	bh=tWgtFDVczwJGDGIoy+OuLVGscnJT3/fUkwwYZbHhyNk=;
+	s=k20201202; t=1762899397;
+	bh=Y9HstsJyK11t68W7S89ulTb5JNMb6NXx+cmGs8N8ZM8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lihuqsIQ6lvYr+A5OEmUsIVIOt1oRZ57SAYptaA2Tyn8sLN2VpGGeo7KV7CZW3eFZ
-	 Q9F+diyamYV2ozlV5h4/z8+h8tLs526kYd0pqEkNW828INbciF1ROW9sqczxTkfz9u
-	 U6OA67BwczHfvaBKmK7Tl/t/mwuQQJkT3D1OvoyQDZoBND06UAp1i/eEi0Z4DE84NO
-	 uZn3nAfFEfAQsPy0SRMqu2M4Wy9g8Myb0CV/P+NDF5EJUds9oKs6yZHFkY2b2xL4z2
-	 4S96Nt2rxGsFJxmqo3aAWjVjBPYOFOfZ8f0DHbCOouzKLobgPhe5eAZeV3SuMCQwbL
-	 e+/pyjb+tlywQ==
+	b=KS4hKPhL8dbdNVUKUlSIJwO/8j0ikxwqVr1nlFhdN3IqN8m4RCmXdZEzJXm/eLjr8
+	 udyeLw3D6m8/B9ASnLkyckxmUkbGmEOo9O+55vfLwO8MSW89xRxN1UfkersbQaQM+C
+	 HBmXuBo2vdKp7xczcqQVrP55ZCFaMKwXiXgf+dVSkTGz87eY8bImIQYBJtgt5RZPvL
+	 yFlIFBx3THHS4OcSp8M+lpZbL1N7Jdix45tDUo5UT81MybKn6QJHK6okNGBcZadnIS
+	 QCwPoad/3/kqMGwiS0Vv5dc6vgfWFU22hxytL5Z9izqaB4mOaw4qxoWfYnSXiTIouc
+	 XtVhIG5mQlv5A==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Niklas Cassel <cassel@kernel.org>,
 	Shawn Lin <shawn.lin@rock-chips.com>
@@ -72,17 +72,14 @@ Cc: Manivannan Sadhasivam <mani@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	kernel@pengutronix.de,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH 2/4] PCI: tegra194: Remove unnecessary L1SS disable code
-Date: Tue, 11 Nov 2025 16:16:09 -0600
-Message-ID: <20251111221621.2208606-3-helgaas@kernel.org>
+Subject: [PATCH 3/4] PCI: dw-rockchip: Configure L1sub support
+Date: Tue, 11 Nov 2025 16:16:10 -0600
+Message-ID: <20251111221621.2208606-4-helgaas@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251111221621.2208606-1-helgaas@kernel.org>
 References: <20251111221621.2208606-1-helgaas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_141636_745082_236B265C 
-X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,88 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bjorn Helgaas <bhelgaas@google.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
 
-The DWC core clears the L1 Substates Supported bits unless the driver sets
-the "dw_pcie.l1ss_support" flag.
+L1 PM Substates for RC mode require support in the dw-rockchip driver
+including proper handling of the CLKREQ# sideband signal. It is mostly
+handled by hardware, but software still needs to set the clkreq fields
+in the PCIE_CLIENT_POWER_CON register to match the hardware implementation.
 
-The tegra194 init_host_aspm() sets "dw_pcie.l1ss_support" if the platform
-has the "supports-clkreq" DT property.  If "supports-clkreq" is absent,
-"dw_pcie.l1ss_support" is not set, and the DWC core will clear the L1
-Substates Supported bits.
+For more details, see section '18.6.6.4 L1 Substate' in the RK3658 TRM 1.1
+Part 2, or section '11.6.6.4 L1 Substate' in the RK3588 TRM 1.0 Part2.
 
-The tegra194 code to clear the L1 Substates Supported bits is unnecessary,
-so remove it.
+Meanwhile, for the EP mode, we haven't prepared enough to actually support
+L1 PM Substates yet. So disable it now until proper support is added later.
 
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+[bhelgaas: set pci->l1ss_support so DWC core preserves L1SS Capability bits;
+drop corresponding code here]
 Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://patch.msgid.link/1761187883-150120-1-git-send-email-shawn.lin@rock-chips.com
 ---
- drivers/pci/controller/dwc/pcie-tegra194.c | 32 ----------------------
- 1 file changed, 32 deletions(-)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
-index 3934757baa30..d5545bf37f81 100644
---- a/drivers/pci/controller/dwc/pcie-tegra194.c
-+++ b/drivers/pci/controller/dwc/pcie-tegra194.c
-@@ -608,24 +608,6 @@ static struct pci_ops tegra_pci_ops = {
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 3e2752c7dd09..62a095752833 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -62,6 +62,12 @@
+ /* Interrupt Mask Register Related to Miscellaneous Operation */
+ #define PCIE_CLIENT_INTR_MASK_MISC	0x24
+ 
++/* Power Management Control Register */
++#define PCIE_CLIENT_POWER_CON		0x2c
++#define  PCIE_CLKREQ_READY		FIELD_PREP_WM16(BIT(0), 1)
++#define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
++#define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
++
+ /* Hot Reset Control Register */
+ #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
+ #define  PCIE_LTSSM_APP_DLY2_EN		BIT(1)
+@@ -85,6 +91,7 @@ struct rockchip_pcie {
+ 	struct regulator *vpcie3v3;
+ 	struct irq_domain *irq_domain;
+ 	const struct rockchip_pcie_of_data *data;
++	bool supports_clkreq;
  };
  
- #if defined(CONFIG_PCIEASPM)
--static void disable_aspm_l11(struct tegra_pcie_dw *pcie)
--{
--	u32 val;
--
--	val = dw_pcie_readl_dbi(&pcie->pci, pcie->cfg_link_cap_l1sub);
--	val &= ~PCI_L1SS_CAP_ASPM_L1_1;
--	dw_pcie_writel_dbi(&pcie->pci, pcie->cfg_link_cap_l1sub, val);
--}
--
--static void disable_aspm_l12(struct tegra_pcie_dw *pcie)
--{
--	u32 val;
--
--	val = dw_pcie_readl_dbi(&pcie->pci, pcie->cfg_link_cap_l1sub);
--	val &= ~PCI_L1SS_CAP_ASPM_L1_2;
--	dw_pcie_writel_dbi(&pcie->pci, pcie->cfg_link_cap_l1sub, val);
--}
--
- static inline u32 event_counter_prog(struct tegra_pcie_dw *pcie, u32 event)
- {
- 	u32 val;
-@@ -729,8 +711,6 @@ static void init_debugfs(struct tegra_pcie_dw *pcie)
- 				    aspm_state_cnt);
+ struct rockchip_pcie_of_data {
+@@ -200,6 +207,32 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
+ 	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
  }
- #else
--static inline void disable_aspm_l12(struct tegra_pcie_dw *pcie) { return; }
--static inline void disable_aspm_l11(struct tegra_pcie_dw *pcie) { return; }
- static inline void init_host_aspm(struct tegra_pcie_dw *pcie) { return; }
- static inline void init_debugfs(struct tegra_pcie_dw *pcie) { return; }
- #endif
-@@ -934,12 +914,6 @@ static int tegra_pcie_dw_host_init(struct dw_pcie_rp *pp)
  
- 	init_host_aspm(pcie);
++/*
++ * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
++ * needed to support L1 substates. Currently, just enable L1 substates for RC
++ * mode if CLKREQ# is properly connected and supports-clkreq is present in DT.
++ * For EP mode, there are more things should be done to actually save power in
++ * L1 substates, so disable L1 substates until there is proper support.
++ */
++static void rockchip_pcie_configure_l1sub(struct dw_pcie *pci)
++{
++	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
++
++	/* Enable L1 substates if CLKREQ# is properly connected */
++	if (rockchip->supports_clkreq &&
++	    rockchip->data->mode == DW_PCIE_RC_TYPE ) {
++		rockchip_pcie_writel_apb(rockchip, PCIE_CLKREQ_READY,
++					 PCIE_CLIENT_POWER_CON);
++		pci->l1ss_support = true;
++		return;
++	}
++
++	/* Otherwise, pull down CLKREQ# */
++	rockchip_pcie_writel_apb(rockchip,
++				 PCIE_CLKREQ_PULL_DOWN | PCIE_CLKREQ_NOT_READY,
++				 PCIE_CLIENT_POWER_CON);
++}
++
+ static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+ {
+ 	u32 cap, lnkcap;
+@@ -264,6 +297,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+ 	irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
+ 					 rockchip);
  
--	/* Disable ASPM-L1SS advertisement if there is no CLKREQ routing */
--	if (!pcie->supports_clkreq) {
--		disable_aspm_l11(pcie);
--		disable_aspm_l12(pcie);
--	}
--
- 	if (!pcie->of_data->has_l1ss_exit_fix) {
- 		val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
- 		val &= ~GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL;
-@@ -1874,12 +1848,6 @@ static void pex_ep_event_pex_rst_deassert(struct tegra_pcie_dw *pcie)
++	rockchip_pcie_configure_l1sub(pci);
+ 	rockchip_pcie_enable_l0s(pci);
  
- 	init_host_aspm(pcie);
+ 	return 0;
+@@ -301,6 +335,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+ 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+ 	enum pci_barno bar;
  
--	/* Disable ASPM-L1SS advertisement if there is no CLKREQ routing */
--	if (!pcie->supports_clkreq) {
--		disable_aspm_l11(pcie);
--		disable_aspm_l12(pcie);
--	}
--
- 	if (!pcie->of_data->has_l1ss_exit_fix) {
- 		val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
- 		val &= ~GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL;
++	rockchip_pcie_configure_l1sub(pci);
+ 	rockchip_pcie_enable_l0s(pci);
+ 	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
+ 
+@@ -412,6 +447,9 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(rockchip->rst),
+ 				     "failed to get reset lines\n");
+ 
++	rockchip->supports_clkreq = of_property_read_bool(pdev->dev.of_node,
++							  "supports-clkreq");
++
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
