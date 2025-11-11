@@ -4,58 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBACCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B88CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VhCwkWqs7qRmBitEcrF0VtlHe8n9xxU+b39QH1QQj8=; b=4+3uUwI4ESkkSWF586odFdliNS
-	6odFr8ylXPg8d12TOqwRNKhjJPC2XZnD2wIk8t01T3uIFyW1HYrNjtdG/EtXWy+5HHtDP4rAwwfBq
-	GjuIdE4UEBftY2vsLlWFv3YigzhILKJZxGKvFUjQDJyMjQ52p7Rzgpy7D+CeYYyp7+4BG7U+vjpHn
-	n1cyiJCHOMo1RTAxJLK15/1laOiswR4EHVbqvnDRLf/BsfTEJg6xqru8McBQL2eJ51oaVrRHahUUn
-	h/7NScMzZJUEWZQKN+QllSw1mzxif8vk2bvAUKPMcmFUsBful9V6Vp5EhsnOb5XoAJnIdF/oMfqGh
-	xkKbOR6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I77upVn73xtl2hhKLa4OtVaXf553s+NjSyLwVjwUjJw=; b=ENnY7RdPrGP7WSDaReEZyZYZLR
+	LaGOlTlm1gdJYEiJLEbwkSfOXKnfxC1kdxfTM0pEjCMDylJrZJRTxb8ubo3zBtmJl49Ihkc4Tytar
+	ghdrV8YIyT+XRmnvNRHroik22ZXFSBB2rdiEMb67EB397sxzSTR8Q6yGhP//jLhAIyvdoXA+9K4Dy
+	o5QHGDsg5L3FD36hAtURyg0GoZ2u6tKhtUQqN/pIBLr0ysGAjze4Uu5lppsHbvJpVyKmYnXGmUoTu
+	5Jh4xFbL9ZPgODiWA4N0FkbVC+8GV6lSBudJRPUS+ZG5docjkZ3i8Y6pgfkXYLetSClfp37DstRMP
+	NrPoa/DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIp4b-00000007IEJ-4BmM;
-	Tue, 11 Nov 2025 14:10:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIp4Z-00000007IDS-0DT9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 14:10:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 339842F;
-	Tue, 11 Nov 2025 06:10:06 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DA653F63F;
-	Tue, 11 Nov 2025 06:10:12 -0800 (PST)
-Message-ID: <24baf1ba-f3a1-4cbe-a942-c5dae7318047@arm.com>
-Date: Tue, 11 Nov 2025 14:10:10 +0000
+	id 1vIp58-00000007IIc-1inJ;
+	Tue, 11 Nov 2025 14:10:50 +0000
+Received: from mx12.kaspersky-labs.com ([91.103.66.155])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIp54-00000007IGl-11eq;
+	Tue, 11 Nov 2025 14:10:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaspersky.com;
+	s=mail202505; t=1762870234;
+	bh=I77upVn73xtl2hhKLa4OtVaXf553s+NjSyLwVjwUjJw=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	b=M0BU84RWOCpgmJ590tapWIk5F9Bod6FsxhQlFSC0tnOCBTmji4/iL0LtUZN2fZ3aS
+	 h/SmCjYz+uNXmuI3xABp55QEgmPP2BEV2lX2bD29mvlvHcaRSzYiFuKzSur2yFgv1P
+	 lhjjyTDop2XHWvwmA+7v0VRc0YSior4k6Ph5Cptf8HOg1AfFiXYXk7AYFIGlPgaVeD
+	 aDsE6lH20rJJQ0rq/Y6hT6lHyJhsF94cfMIMs1l0puQm07mY+PJ5cG0Bc2vI5fCsFb
+	 OfZVGlFE3PlP4hoVXWT9WSuoUjMSvQhHHdOsnqyHdlHun4jZg5JYsMhIbHjz8yxISZ
+	 GGcvuD3ctD/Pw==
+Received: from relay12.kaspersky-labs.com (localhost [127.0.0.1])
+	by relay12.kaspersky-labs.com (Postfix) with ESMTP id 7FEA75A4A7A;
+	Tue, 11 Nov 2025 17:10:34 +0300 (MSK)
+Received: from mail-hq2.kaspersky.com (unknown [91.103.66.200])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail-hq2.kaspersky.com", Issuer "Kaspersky MailRelays CA G3" (verified OK))
+	by mailhub12.kaspersky-labs.com (Postfix) with ESMTPS id 4EA0D5A15AB;
+	Tue, 11 Nov 2025 17:10:33 +0300 (MSK)
+Received: from zhigulin-p.avp.ru (10.16.104.190) by HQMAILSRV2.avp.ru
+ (10.64.57.52) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 11 Nov
+ 2025 17:09:58 +0300
+From: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+CC: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>, <linux-usb@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>,
+	<stable@vger.kernel.org>
+Subject: [PATCH v2] usb: mtu3: fix possible NULL pointer dereference in ep0_rx_state()
+Date: Tue, 11 Nov 2025 17:09:53 +0300
+Message-ID: <20251111140956.3285945-1-Pavel.Zhigulin@kaspersky.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/15] coresight: Save activated path into source
- device
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.16.104.190]
+X-ClientProxiedBy: HQMAILSRV2.avp.ru (10.64.57.52) To HQMAILSRV2.avp.ru
+ (10.64.57.52)
+X-KSE-ServerInfo: HQMAILSRV2.avp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/11/2025 13:58:40
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 197969 [Nov 11 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: Pavel.Zhigulin@kaspersky.com
+X-KSE-AntiSpam-Info: LuaCore: 75 0.3.75
+ aab2175a55dcbd410b25b8694e49bbee3c09cdde
+X-KSE-AntiSpam-Info: {Tracking_cluster_exceptions}
+X-KSE-AntiSpam-Info: {Tracking_real_kaspersky_domains}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: zhigulin-p.avp.ru:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;kaspersky.com:7.1.1,5.0.1;lore.kernel.org:7.1.1
+X-KSE-AntiSpam-Info: {Tracking_white_helo}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Deterministic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 11/11/2025 14:00:00
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 11/11/2025 1:40:00 PM
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSMG-AntiPhishing: NotDetected, bases: 2025/11/11 13:30:00
+X-KSMG-AntiSpam-Interceptor-Info: not scanned
+X-KSMG-AntiSpam-Status: not scanned, disabled by settings
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/11/11 12:29:00 #27910883
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected, bases: 2025/11/11 13:29:00
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 52
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_061015_212479_5CDD8DFD 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20251111_061046_838030_0F78CFC8 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,109 +123,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/11/2025 15:21, Leo Yan wrote:
-> Save activated path into the source device's coresight_device structure.
-> The path pointer will be used by later changes for controlling the path
-> during CPU idle.
-> 
-> The path pointer is assigned before setting the source device mode to
-> active, and it is cleared after the device is changed to an inactive
-> mode. So safe access to path pointers is guaranteed when the device is
-> in an active mode.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 39 +++++++++++++++++++++++++++-
->   include/linux/coresight.h                    |  2 ++
->   2 files changed, 40 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index c28f3d255b0e19b3d982de95b8e34d0fc2954b95..3ea31ed121f7b59d7822fba4df4c43efb1c76fe7 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -399,13 +399,50 @@ int coresight_enable_source(struct coresight_device *csdev,
->   			    struct perf_event *event, enum cs_mode mode,
->   			    struct coresight_path *path)
->   {
-> -	return source_ops(csdev)->enable(csdev, event, mode, path);
-> +	int ret;
-> +
-> +	/*
-> +	 * Record the path in the source device. The path pointer is first
-> +	 * assigned, followed by transitioning from DISABLED mode to an enabled
-> +	 * state on the target CPU. Conversely, during the disable flow, the
-> +	 * device mode is set to DISABLED before the path pointer is cleared.
-> +	 *
-> +	 * This ordering ensures the path pointer to be safely access under the
-> +	 * following race condition:
-> +	 *
-> +	 *  CPU(a)                          CPU(b)
-> +	 *
-> +	 *  coresight_enable_source()
-> +	 *    STORE source->path;
-> +	 *    smp_mb();
-> +	 *    source_ops(csdev)->enable();
-> +	 *                              `-> etm4_enable_sysfs_smp_call()
-> +	 *                                    STORE source->mode;
-> +	 *
-> +	 * This sequence ensures that accessing the path pointer is safe when
-> +	 * the device is in enabled mode.
-> +	 */
-> +	csdev->path = path;
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +
-> +	ret = source_ops(csdev)->enable(csdev, event, mode, path);
+The function 'ep0_rx_state()' accessed 'mreq->request' before verifying
+that mreq was valid. If 'next_ep0_request()' returned NULL, this could
+lead to a NULL pointer dereference. The return value of
+'next_ep0_request()' is checked in every other code path except
+here. It appears that the intended 'if (mreq)' check was mistakenly
+written as 'if (req)', since the req pointer cannot be NULL when mreq
+is not NULL.
 
-What happens if the csdev is already enabled ? We corrupt the 
-csdev->path ? Can we not move this into the source devices and let them
-handle it gracefully, as they do for the "mode" ?
+Initialize 'mreq' and 'req' to NULL by default, and switch 'req'
+NULL-checking to 'mreq' non-NULL check to prevent invalid memory access.
 
-To address James' comment on reusing the sysfs path, I think we could
-make this a global thing for all types of source/mode.
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Suzuki
+Fixes: df2069acb005 ("usb: Add MediaTek USB3 DRD driver")
+Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+---
+v2: Add <stable@vger.kernel.org> to CC list
+v1: https://lore.kernel.org/all/20251027193152.3906497-1-Pavel.Zhigulin@kaspersky.com
 
+ drivers/usb/mtu3/mtu3_gadget_ep0.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-> +	if (ret)
-> +		csdev->path = NULL;
-> +
-> +	return ret;
->   }
->   EXPORT_SYMBOL_GPL(coresight_enable_source);
->   
->   void coresight_disable_source(struct coresight_device *csdev, void *data)
->   {
->   	source_ops(csdev)->disable(csdev, data);
-> +
-> +	/* Synchronization between csdev->path and csdev->mode */
-> +	smp_mb();
-> +	csdev->path = NULL;
-> +
->   	coresight_disable_helpers(csdev, NULL);
->   }
->   EXPORT_SYMBOL_GPL(coresight_disable_source);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 3d59be214dd25dfa7ad9148a6688628e0d1a98dd..58484c225e58a68dd74739a48c08a409ce9ddd73 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -264,6 +264,7 @@ struct coresight_trace_id_map {
->    *		spinlock.
->    * @orphan:	true if the component has connections that haven't been linked.
->    * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-> + * @path:	Activated path pointer (only used for source device).
->    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
->    *		by writing a 1 to the 'enable_sink' file.  A sink can be
->    *		activated but not yet enabled.  Enabling for a _sink_ happens
-> @@ -291,6 +292,7 @@ struct coresight_device {
->   	int refcnt;
->   	bool orphan;
->   	int cpu;
-> +	struct coresight_path *path;
->   	/* sink specific fields */
->   	bool sysfs_sink_activated;
->   	struct dev_ext_attribute *ea;
-> 
+diff --git a/drivers/usb/mtu3/mtu3_gadget_ep0.c b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+index e4fd1bb14a55..ee7466ca4d99 100644
+--- a/drivers/usb/mtu3/mtu3_gadget_ep0.c
++++ b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+@@ -508,8 +508,8 @@ static int handle_standard_request(struct mtu3 *mtu,
+ /* receive an data packet (OUT) */
+ static void ep0_rx_state(struct mtu3 *mtu)
+ {
+-	struct mtu3_request *mreq;
+-	struct usb_request *req;
++	struct mtu3_request *mreq = NULL;
++	struct usb_request *req = NULL;
+ 	void __iomem *mbase = mtu->mac_base;
+ 	u32 maxp;
+ 	u32 csr;
+@@ -519,10 +519,11 @@ static void ep0_rx_state(struct mtu3 *mtu)
+
+ 	csr = mtu3_readl(mbase, U3D_EP0CSR) & EP0_W1C_BITS;
+ 	mreq = next_ep0_request(mtu);
+-	req = &mreq->request;
+
+ 	/* read packet and ack; or stall because of gadget driver bug */
+-	if (req) {
++	if (mreq) {
++		req = &mreq->request;
++
+ 		void *buf = req->buf + req->actual;
+ 		unsigned int len = req->length - req->actual;
+
+--
+2.43.0
 
 
