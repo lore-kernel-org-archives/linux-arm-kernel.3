@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297DFCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43540CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaPx+RbuOdfUl5IPAPZCJEKCGDHkAnifisqySPX8VXY=; b=l70UibRA1HFCKjJQogVaToiIuP
-	5PtxQIEVcHEUe477x0oqQ2XvDx03LWhDjnrOnas4/YQL3Q+AJAwsKKE6+4lQ8RNEfiycYvU+19+ID
-	BA8L0BKisTViVzT8r4GB2h26jOxjgaUTxDehejJ35CNYHqIX7PR2pXcxm++soGb/sZA4gQaHL0765
-	5wKd5ZDE1RtcHtXk8S2aTGYCAwMKEMDJXud3QYTTIhNDJJbwSpnh9o9Z/SYHdOxAwTgYq+4F7sUMf
-	0l+9jIBePw4FGDpmJv2yvYWbH8Zl/QZofYBNxRqPKhCCsv2Sc7TyPSpZFX/Va5OPYGHTmnaOQ/JFA
-	jOj+Ceug==;
+	bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=; b=uGXmAlfLk6dSwiCHIm9BRFLhf+
+	EKbkWJMHd8hpfGcl1BVN7kJpDS1KlK6aFqsYt7qH3BVRs4/rVS1+TWBRIXGka8ygpRMWpYKDq9p2M
+	4epzJNLmldJLH9GKhM9TtFp9R4XJgDl826fY7wsGkTREi8WOu7exuFY/5InoMzWwMxw8JH4aBOn4V
+	DfseRzmEZ+w5l/+pr5GtUSoDqofpbkxvkZj9jK3K4xAunYXOpIrujUZzN8q9tb11XEFdBFLzPgxXE
+	qpYuS7S2VEJ13TgLqzth4r6eeNJdMvANxoiB+f+zefob0ETfrgOlociGHlrG/GadVKS1g/eOFkNHN
+	f0qnacKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItSQ-00000007dcO-1ebg;
-	Tue, 11 Nov 2025 18:51:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vItVv-00000007du6-0ARN;
+	Tue, 11 Nov 2025 18:54:48 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItSJ-00000007dbK-1J1p
+	id 1vItVt-00000007dtd-0QYo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 18:51:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 977E44437E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 18:51:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70CF7C2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 18:51:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762887062;
-	bh=XJ4g0f0gVuYpinuWbbR3hceAqP09MK82bKYB3vvGeVY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=u1NhlQxAxeJdhO7bkL3wBsXuhIl5LSvdmcwbJWTX1gG+spiewS/p3BdLBcLpC74v5
-	 AVZq0VFLoGGjLqAcXDviZORf2ZWxB3mE14YMn6+pXVeNkCzbDEh31UAIVC7u+v5h3k
-	 CqGjEoSfFbPgxTZjaUERNg0Eh4HDqsWTMDzJOrJI/xDSRDIEzWv/up9Lof71GUDTY9
-	 0qeAqL73WRJjxKUaqQR2UIO1wB+KjLjPL9NKe8sDMe7nSGMw3DWUEELcQ8YO0Z6yzV
-	 RipWUECuEnIn/UxhYMnFXkQom8aWB4FwvNMUTwaCJxblrD5d44GX4+w+4xOzfTvkPy
-	 /iZ8Hn4BTCOcw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-59431f57bf6so9139e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 10:51:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXt1nbWlBXxN+SEd/odI6ZTDwSEqUGrhoRCOP6FvvSYEi3V974hKFObRBVC/7lG8ZQUuDullXRuphZ8Q4jttyfL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUidhoNsb0CZ8pmfqKJ6OCWXj+FKf6ZRMCc71mz1F6HHmkwIn4
-	jTFol1ca85SQoA0miEom6c3alF8paVf4hlJPl9ctR3exo4tDacKfAQYt/CkCXfvOSz/CEvqz7xh
-	WR7HbpYSpuV9DprDZYZYbULYfy+8DK20=
-X-Google-Smtp-Source: AGHT+IH+f6meLkHSJnvqK/GI+08sHMkWRWmZmzjoXE5pVS4YB6CNivhW0spMcyvs1k9S/4LXS4QimEbZb50C4gOFpNY=
-X-Received: by 2002:a05:6512:3d21:b0:594:27fb:e80f with SMTP id
- 2adb3069b0e04-59576e22001mr74109e87.37.1762887060676; Tue, 11 Nov 2025
- 10:51:00 -0800 (PST)
+	Tue, 11 Nov 2025 18:54:46 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b32ff5d10so732529f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 10:54:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762887283; x=1763492083; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=;
+        b=Wh0ZH3lBIrhP2NEBguVzzMjMxXoiyfhw9py0lHqd66ls1PcZzJblqlQjbGk0NrreK+
+         yTBHhc0i4I8wPj5Cz90/fmajkscelhKdr7yg23HbKWweLGja1nP+StuGejX02e+0O4Jd
+         KGbOzV6uhiaSy15aGuLhXpPZBDQgjIbSkwbdw+aQRa9RL2I+joG7v4KUdS+RuCUMroDN
+         8PcywQosGeq1CiCV5Olnb3CInpHCqBZkSPJ9duZkYMhizkXeEGfKTyPIeN420NJxs7IY
+         4U5iICAbzJCeVg6NQGQAK+/+PhTRw8yjngOiysfIbDMqp6cNoFdJfTu+Vbay2XVafugU
+         f0tA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762887283; x=1763492083;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=;
+        b=V2vmQa0kGAVz8aINIc47CP8i6DURyLthBaPLT2fetUCzX4tKfFz3LrfeC6jA2+UWAJ
+         sOOWj2sXy975LaaZmAnuzyHrISwN5ADbnPh8E2OqewO0n+wqcTuN4GFZ1hMwKynleITg
+         ggYpwBov0lHTmiFLLTys4OEekGathDLiR/FnSp/FlVpqCviS/0i357FwUvENoBjYhQXU
+         MJ1DSMWYzyytoop78F9jkIeuSCBt8aNfsnn8SNOGcEYBE0U6sVZgMUBREo+BMw94xUFG
+         MhbTC9A4BlkBDR9TUaz7zfL/UkPfQ7S6Bhy8J3huFerAhcPBHPljo9DqvVVEk0imhJ0K
+         aVHg==
+X-Forwarded-Encrypted: i=1; AJvYcCWGJ0WS1INeTTZxk8MuTfI1hG72bgKSmeL3PMh/uXJ1bb4qMvFVrgYL6UK6bX6XQbzrqhgSV17kfHhjLFWQrBWH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/VahLdP03dGlrKHMhAOv1bbr/qkUINuC3fr8ic/e+Y5cndlT/
+	v0xxNTGZYXnTZOv+0TiEpFK5EnHCGByoGDHEamdxFYrlT8yIBjof8/5d
+X-Gm-Gg: ASbGncs2b0SW0kuvxw4+V2NhYJm0Bbnm1hyRXq3rtqLNW9TmRNaQSNfO9V+UVMnVwUe
+	2LbIijXKIFOl1lME7WRAzNuZy66ib50ziem28Y/n1HfwML5S9S8IEgpU4wRQvvI0UjIKNTgr0NQ
+	NBEL3qmzxRv0PmSZEWlWVkM79WpuJl2Etf6FeCDqIeIUNLPhjLrSposmoBUq7nwAtsV7Z3weh0Y
+	hBajIgh45v0exIgwsG7E07InYuW4KP9JamUXPf/Es3cyhz57wq9iUOIS4h0AzdvS4IvjU2Rd0xh
+	QT0a6jlQov39yYRCacdt7Q4ihDLb434aKBL0p86vugO9sy80zH1djm5cxe4lcY/0CZCfvKwgES+
+	sUOfQ9138ZlkCHU081zy0+0qspQCwxNpDS1wS9IWyYywu/M4ARVU6UByxYh/vIXqRS4ZnkayWoh
+	3AxCikhWccRw==
+X-Google-Smtp-Source: AGHT+IGd0fmmG6z7kuRrMZdV6g6rc2EMUpgF61dCExt4OzGkFObjrnlzVeQMOCeTSTsuKBksjsQQTg==
+X-Received: by 2002:adf:a41b:0:b0:42b:47ef:1d59 with SMTP id ffacd0b85a97d-42b47ef221bmr2063764f8f.4.1762887282987;
+        Tue, 11 Nov 2025 10:54:42 -0800 (PST)
+Received: from osama ([197.46.148.47])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776bcd51dfsm271008845e9.5.2025.11.11.10.54.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 10:54:42 -0800 (PST)
+Date: Tue, 11 Nov 2025 20:54:39 +0200
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: add missing newline to sysreg init log
+Message-ID: <aROGOivTetFI01S_@osama>
+References: <20251110211051.814728-1-osama.abdelkader@gmail.com>
+ <86346kvr00.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251015205634.3820870-9-ardb+git@google.com> <aROEXadFWdJoQEzx@arm.com>
-In-Reply-To: <aROEXadFWdJoQEzx@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 11 Nov 2025 19:50:49 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGYGSrhUbJ8jboSbch6tp00zfpnGdfJEQcbq=RmLFy5CA@mail.gmail.com>
-X-Gm-Features: AWmQ_bmn0XfBWIxhlEWjmu5ftCNZ6fTZUngXH8l15WK1fdsKV0lT36GtFrubF_s
-Message-ID: <CAMj1kXGYGSrhUbJ8jboSbch6tp00zfpnGdfJEQcbq=RmLFy5CA@mail.gmail.com>
-Subject: Re: [PATCH v4 resend 0/7] arm64: Make EFI calls preemptible
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>, 
-	Mark Brown <broonie@kernel.org>, Pierre Gondois <Pierre.Gondois@arm.com>, 
-	Sami Mujawar <Sami.Mujawar@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86346kvr00.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_105103_368486_C02A4C4D 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20251111_105445_175466_19048A86 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +100,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Nov 2025 at 19:45, Catalin Marinas <catalin.marinas@arm.com> wrote:
->
-> On Wed, Oct 15, 2025 at 10:56:35PM +0200, Ard Biesheuvel wrote:
-> > Ard Biesheuvel (7):
-> >   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
-> >   efi/runtime-wrappers: Keep track of the efi_runtime_lock owner
-> >   arm64/fpsimd: Don't warn when EFI execution context is preemptible
-> >   arm64/fpsimd: Permit kernel mode NEON with IRQs off
-> >   arm64/efi: Drop efi_rt_lock spinlock from EFI arch wrapper
-> >   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
-> >   arm64/efi: Call EFI runtime services without disabling preemption
->
-> The series looks fine to me:
->
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
->
-> What do you plan to do with this, merge via the EFI tree? Are there any
-> dependencies?
->
+On Tue, Nov 11, 2025 at 09:49:03AM +0000, Marc Zyngier wrote:
+> On Mon, 10 Nov 2025 21:10:51 +0000,
+> Osama Abdelkader <osama.abdelkader@gmail.com> wrote:
+> > 
+> > missing newline so the  message is merged with follow-on logs
+> > the change only affects console output formatting, no behavioral impact.
+> > 
+> > Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> > ---
+> >  arch/arm64/kvm/arm.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 870953b4a8a7..156cd1a6106e 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -2845,7 +2845,7 @@ static __init int kvm_arm_init(void)
+> >  
+> >  	err = kvm_sys_reg_table_init();
+> >  	if (err) {
+> > -		kvm_info("Error initializing system register tables");
+> > +		kvm_info("Error initializing system register tables\n");
+> >  		return err;
+> >  	}
+> >  
+> 
+> Given that everything in kvm_sys_reg_table_init() already screams
+> badly when it fails, I don't see the point of an additional message,
+> and I'd rather remove it.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-As you prefer - I can take it via the EFI tree, or you can take it.
-There are no conflicts with the other kernel mode FP/SIMD related
-changes that we are taking via libcrypto, and there are no other
-dependencies that I am aware of.
+Thanks Marc. I just sent the patch to drop that message.
+
+Thank you,
+Osama
 
