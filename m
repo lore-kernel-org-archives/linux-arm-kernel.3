@@ -4,130 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335A6CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC22CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76gIX5LfzY8Olk07/BSEDGO2QMXHSs1CwLTor0BEQK4=; b=jZLAHQFvAm5B3UNyD9V95U5pcJ
-	xiXc4EN7ySY8mtBAf/hobeeBWfDXhl01t7iPvLYO7XMYo0O+jdFwCES6hnE2gRmGoA4D/KnkUHfKo
-	qpIQgQ4Yyf23V/rovKjsHbekbm+ClqjSkgbLqGYPv7+c/9t31WST/EuhCEdr0vgDBOEwwHmIJFch5
-	LqXzdVTpxWzI7r7HeI681ibKSiN+ihRJuCxewXztPwaVLlXFK50oh2jzdOC3QGwtul3OdR2+AkCya
-	7MAo1sDfME22a+ICHj7l9V7FUaL8tiCxJ/VDCPyLIA9+Ho/r7eQ+W8rqpcbZGVGaqyrBmPE51hUs0
-	HNklh/7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SP48i1qet+yu4MBWQqcw53g9gnIDVB4G9ACNB6RUHLM=; b=hAYaUxxOp1JACzJ3fPMpjGsJSO
+	qsKxdX/lIiYJyKNiuH/xTJyLry3jlfmf0Ts+QKGzUnOTECeHPf6TASAo5Z4gX290Igsc3DZWJdImQ
+	X/DA65MajcVsFjwsctCRE53KNUAtXN9gh5TmvfX7UD0rsoTM35P2lCr6pUBArhBMKrWSThRmr1Mq3
+	EHQrApT5+tBpsYyCt4Ctr2tnjGe4CFNscAEnYsLcL1+xACpVF8hof+dqdnlnttmQCt1bM/Vh/AiqQ
+	ULBLrU1gYmY9hIhI+4M8xrjLe/mTt8AE12GHC+S/JJOV/iEQ4E6Ja4L2DYfJazkpcUPDDKfvbmoUE
+	1kIVPTtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImFS-000000072p6-45YD;
-	Tue, 11 Nov 2025 11:09:18 +0000
+	id 1vImLT-000000073Ma-2VGD;
+	Tue, 11 Nov 2025 11:15:31 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImFQ-000000072oO-0qZG;
-	Tue, 11 Nov 2025 11:09:17 +0000
+	id 1vImLR-000000073Ld-2ULW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Nov 2025 11:15:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8508343476;
-	Tue, 11 Nov 2025 11:09:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B371EC4CEFB;
-	Tue, 11 Nov 2025 11:09:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C77543234;
+	Tue, 11 Nov 2025 11:15:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EF58C116D0;
+	Tue, 11 Nov 2025 11:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762859355;
-	bh=TR/fkQ0p2p14fGBt9Nac2pxvzRzI97bXfo2/pH+IohY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o0N9Q+rVN2t77ZW6ERu4GlKcgvjMcrJX+GcEe+CPr5SFZJQaP2XXH8u6e070tfLzy
-	 XCxN8Dmi+dhC19GYYH8RZpw/LtrgxdnkQBgTMdVhmsR08jgIE24XBD/rZwGEecUyHt
-	 Rqwb7wkgyC3dmpa90E+VLxE3MJcsRmgd+t7z4MjgGBfRZDUkcot3LX9Tik7R1uTYxU
-	 kwucZbiS9uYsSxahqbcmE1TxON/rn2M/i6J2ERQvgszuIxTZpo7MAJNuGLcXU2wpVm
-	 f0EHUOM5/CrmDXPRHNp/qUglMAvK0coSbkALs1jsOsQWqKVmnb7NIJKlQcXyk64yHa
-	 +xykadXOEfMIw==
-Message-ID: <868f09fd-8fe8-4c01-952f-6317604c43a3@kernel.org>
-Date: Tue, 11 Nov 2025 12:09:05 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 04/10] dt-bindings: phy: rockchip: rk3399-typec-phy:
- Support mode-switch
-To: Chaoyi Chen <kernel@airkyi.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org
-References: <20251111105040.94-1-kernel@airkyi.com>
- <20251111105040.94-5-kernel@airkyi.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251111105040.94-5-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1762859728;
+	bh=8esgnEfQShwsJTYAUF/LnkC8u1MGVSAO4Wul/tnrTjo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fZk1GJON3mQsh+um17ntocleBKoQ3IdtzBGfVDLLhdu7YLT3uTgScins5LnEpT2Uj
+	 GrN5A6yaPXgfQCTjWn55fozDxEu8RhyLLkrw3glfQMPBV8k2vnuk8PkdNHayLTwrX8
+	 ldTl9pqSuhr8y2S2wsbBktiw7kbUsoE97WIKAS/jcUMDkxiQMHxsbO4wMXYTpV+vWc
+	 W12p+IKFTsLTCfZZ8ndpmWK5DLWdgraq5wIt/yP1GkCxsgjO1lG1rqidWvwRBPZx0Q
+	 rYBJMLRjD+ryE1gEHHyc1i81m0jQK3MSGhjjJGsPMBesCVZFllP4bVc8P9Z2ghp1XS
+	 3g44LUqHaY7EA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vImLN-00000004Csl-3zca;
+	Tue, 11 Nov 2025 11:15:26 +0000
+Date: Tue, 11 Nov 2025 11:15:25 +0000
+Message-ID: <861pm4vn02.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: <catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<arnd@arndb.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<yangyccccc@gmail.com>,
+	<prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+In-Reply-To: <20251107072127.448953-6-wangzhou1@hisilicon.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+	<20251107072127.448953-6-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, yangyccccc@gmail.com, prime.zeng@hisilicon.com, xuwei5@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_030916_292579_074602A5 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_031529_678580_52708FE0 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,24 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 11:50, Chaoyi Chen wrote:
-> While an external Type-C controller is still required to detect cable
-> attachment and report USB PD events, the actual mode and orientation
-> switching is performed internally by the PHY through software
-> configuration. This allows the PHY to act as a Type-C multiplexer for
-> both data role and DP altmode configuration.
+On Fri, 07 Nov 2025 07:21:25 +0000,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
 > 
-> To reflect this hardware design, this patch introduces a new
-> "mode-switch" property for the dp-port node in the device tree bindings.
-> This property indicates that the connected PHY is capable of handling
-> Type-C mode switching itself.
+> From: Yicong Yang <yangyicong@hisilicon.com>
 > 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Armv8.7 introduces single-copy atomic 64-byte loads and stores
+> instructions and its variants named under FEAT_{LS64, LS64_V}.
+> These features are identified by ID_AA64ISAR1_EL1.LS64 and the
+> use of such instructions in userspace (EL0) can be trapped. In
+> order to support the use of corresponding instructions in userspace:
+> - Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
+> - Add identifying and enabling in the cpufeature list
+> - Expose these support of these features to userspace through HWCAP3
+>   and cpuinfo
 > 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ld64b/st64b (FEAT_LS64) and st64bv (FEAT_LS64_V) is intended for
+> special memory (device memory) so requires support by the CPU, system
+> and target memory location (device that support these instructions).
+> The HWCAP3_{LS64, LS64_V} implies the support of CPU and system (since
+> no identification method from system, so SoC vendors should advertise
+> support in the CPU if system also support them).
 
-There are never blank lines between tags.
+But this doesn't mean that the system actually supports this. It is
+also trivial for EL0 to spoof a PASID using ST64BV, by populating the
+bottom 32bit with whatever it wants (hiding ST64BV0 doesn't prevent
+this).
 
-Best regards,
-Krzysztof
+In all honestly, I'm starting to think that we cannot safely expose
+this to userspace, at least not without strong guarantees coming from
+the system itself.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
