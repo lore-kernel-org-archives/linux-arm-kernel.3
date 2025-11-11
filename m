@@ -4,162 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6E4CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90AECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eB+fhLcfB1i0mBadf1iV4l+D+XZbe35Q4EopZkorEw8=; b=zlhfQHvueZwQRDyVwEvdgv0MxT
-	t1fJjg28NS5w0pPPrH+3yIiXOZqlxbvgRpCW6N6jKPgGoylJ1QSC1hZkmwo/vyi34M6YzHd/ekfn1
-	JJyFi7LkONdBXnAT3cMOcuf4EDcYCsOTlA7IdlnuqB5hjNbT0j+PteHckkEeQGItu1Qathk+eVD22
-	4rE1uZtVuTtlTbZeaA8YPgdK3CFB1cR40ad4ZGI6XwN1CeIsLyT0ZQrWMsBN6MTTW7TLJGq4j7iL8
-	TcdteBJET8Wi8shqJkuNNrrfKUu0FdsceF6YZFfky4CxFD9Bb+iO3rcJqFsYj3h+tq7LOuPfXJ/mm
-	Av/Ar05A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=; b=Jj3wjD3Pv27YctYdeqoeqQ94Nx
+	U4MaMXwM5n6Ryk0wVp2dC2symRuOEPOxzDDZbEORvECbhnUCp76fq542UiHiCDJy/NFPIYKlz+4ZP
+	BXANmBiSYPx9J9d69klGYXv3gavJVgVu5phtGfHwisG0lWSdbWJo8wLafisnc130ZxMdYe+O82Lva
+	q0WJtlmBN3vRBmTpIGstGZPvrJoLJKwrNoMYIDers1AxphXhytua9HfX3uKDOXNu7gaaDAUwMUV34
+	j9N41qCBv81G2LK9asX3LuUOKLBLk+qo2MHCOeTeC17/trpA0jYcsBkUu8eYYUvRNkv3wRd2RJLnR
+	9/7DJZqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIllC-00000006y3V-0YIC;
-	Tue, 11 Nov 2025 10:38:02 +0000
-Received: from mail-centralusazon11011034.outbound.protection.outlook.com ([52.101.62.34] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vIlmx-00000006yFW-3MAL;
+	Tue, 11 Nov 2025 10:39:51 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIllA-00000006y2I-0AvA
+	id 1vIlmu-00000006yEv-3inV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:38:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZChkAM3zfRq3HiA/3ZUOUKatpN6y4O+4AJwwZr75df1hPA9WdjxhCJBrEksdwMjcrDqYERkdpLPkrTfqagY+Rv9UysYYNLz3f1TXJaglB871PKWYLQQIyaa7AbuLBNfeYkkxhcysGe1GMyRXNDEUrUvke6YZW0NTyuxC6C3iDAQv6hnFkhDBKGkRQ7jyMeqsHhUTDvPgFENcgFwQa9FQkPA6c7QEUum+f6FPlJ4AUwpZ/DIt4pnBOerGfx7rgXQEV62VCOT41fLPpzL0p1udmem25Jn34FozbT7KyXlbrVEb+/a+SsM2YmaEPLuvyuuDq48rx3W3Cn3BiW2FCGRSKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eB+fhLcfB1i0mBadf1iV4l+D+XZbe35Q4EopZkorEw8=;
- b=rF2HTKQgqknbbNUpwpAubwxk+WUbvxpPCLnWCY+VcUlMjWQi9lZtREWASWIr6VChOeZVCI7w1aomiU2QqgN2032hcfSd1wkv8WY2rhKSQejbYXl6o7I8/HUtja18BBT22iAwkHiNYWl8GlaVn0PTR9fkaJwDvXNgFVrs5eYDYMIZa56cwx7CshehjZ+BljFAv+1CjjEQjizocl1wapV0V7q7Lbw3ydoSWhyts5YaFY6ocsWfwT8KTfjsSCPOwOf4A3KKcPehKvu2ttTt6pYv5BsRTOmpHIblkH7u5xCBGSfXxn6DTThRPML7F9bCx8soVyTAdaZsGGvZ98chgMhilg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eB+fhLcfB1i0mBadf1iV4l+D+XZbe35Q4EopZkorEw8=;
- b=hxwI973JBMl9RMGwyiLlY8vjWlqFrWxEMyuxkkGA8GoQ9QTrfUXHHY8R0nfH5EVDxpVTOP9uq2V9299F8FD9eEZgmuij5sB+ppdSBEDF1Y0kA93+8DccKPyZjYTTTPk/F0oZTIc4CDIy9etexgU/AXNeoco65JY27vrhx68eDLs=
-Received: from MW4PR03CA0225.namprd03.prod.outlook.com (2603:10b6:303:b9::20)
- by BY5PR10MB4164.namprd10.prod.outlook.com (2603:10b6:a03:210::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
- 2025 10:37:53 +0000
-Received: from CO1PEPF000066E8.namprd05.prod.outlook.com
- (2603:10b6:303:b9:cafe::b6) by MW4PR03CA0225.outlook.office365.com
- (2603:10b6:303:b9::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Tue,
- 11 Nov 2025 10:37:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CO1PEPF000066E8.mail.protection.outlook.com (10.167.249.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 10:37:52 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 04:37:47 -0600
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 04:37:47 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 04:37:47 -0600
-Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ABAbkhm778082;
-	Tue, 11 Nov 2025 04:37:47 -0600
-From: Anshul Dalal <anshuld@ti.com>
-Date: Tue, 11 Nov 2025 16:07:32 +0530
-Subject: [PATCH RFC] dt-bindings: arm: keystone: add boot_* mailboxes
+	Tue, 11 Nov 2025 10:39:50 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-787da30c50fso26762357b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:39:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762857588; x=1763462388; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=;
+        b=uEtjdJ1SqhKpTOFO2jJ6lc8iAWqrnZU1NdtphIrLg24Si9aH09obwI/QuEs+QGXqti
+         /kbPyI9bjAIIrK44FK64yUW9D1LHE4ztCyYYbmXU8Oxc4Td1m7FKnSCfnH5+FOQxBYZN
+         YbwNUtDrQ02PCTI6SSeq2aHHwffyAFNa/J3QJlDgAqnsJXbXkUaKcBz9bMxWGc6xk1jT
+         4qzecmnqhTMjdoMBsnEiEw1iKzloo9ub5/Ggk3fkawGS0SHqjpxVe1+Xdu9PNagwf6JC
+         OceDYaqpeCcBv933UmPlltRsKmbbp/txKG5CVGF3kRKlnmCh+TFB/YqtHgMAmLjB59gm
+         sUsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762857588; x=1763462388;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=;
+        b=HUT3IaFTqJDXpMwc/om6gv8hHHW3adjLiVQoxK+lCoiSFSPzS86gc689uCM84jp48o
+         nwki+jzaMd+5YF2+ep8zpDYpd6wtTEtpWpW1U0RVuLSZMsqbHn8HZu43dSrIyq/MuErG
+         PLapWvujeFIpP5vY4TDKGUYIN/LDbzs1YQ3C/R+KU6uCV8D7XEKLiESlbeIEOdDwtTgn
+         kD2vb2oYw/kdk/ISwouhZ4VOQp/nDOjcuJ91Q/D03/L/7qIf4iehed9JZ8tqBGdpR255
+         J4haA2QSdxzYqWd/q826JS3/6jshR71rWgZxPvk+BnkuqnD3++kLSeMCVSG2ieXzJrzo
+         EMMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQOs7x4hCPIfi9OqwQP8MXvF7vpD57ynQXQBSL1+/G1IG1rM2xRWo+qr+goC91ST1pp6D1wZdYVWe0lcy+8VSy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUTfbawn7+LiiIpiruXEPmOTn+8JtS9GAjBE5/iAGOfTMRxdDq
+	Xv001GJJ1Ed0i+Dnma4jMJeSVW/3o81bIGOkRCf3aJ+hCvUQ50bUcztbRpIZHjIAEP52huNpkmb
+	X2d7XFH7gb327YiZbkpe8Z1qk/1KhB/vpWgAEkK2g+g==
+X-Gm-Gg: ASbGncvukRc4jjm897xk6bzjTrTIhFFvuEK6DeljWEdyD9tSaTWcwCQFwE2POEMdXvl
+	lk2mewlePb8mktckZ2bxFGhRqs0PwEUZEVb+9VSJz3+mmgKLxU1eTWMUpjYOQku9c7g+Khjosdi
+	UdXqcleLkBiXxHT2Syt+rq6LusHkXj7cb8y67uZtlAWXuVSVdhLBeS8NLL+QV/HQu+flG4CNrf3
+	kNYh0zDlYXDeHY7pxBZ3+eAPnBy9DCIjdozBfvAcRst0ZhvctAR9C0+2En1psnT4AITHdr8giEJ
+	Vb+uWg==
+X-Google-Smtp-Source: AGHT+IGdKr3biW2aMZhYy7DvL1RF+7Uz2kpvCtGXfJ2OgvOVwI6zfxqRAu2DSnJi2xHuqa0EQrFVKg9nUpOsh5XjgKI=
+X-Received: by 2002:a05:690c:55c2:10b0:787:deea:1ba8 with SMTP id
+ 00721157ae682-787deea2334mr150764527b3.50.1762857587612; Tue, 11 Nov 2025
+ 02:39:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com>
-X-B4-Tracking: v=1; b=H4sIAOsRE2kC/x3MwQrCMAwA0F8ZOVtYOyubV8EP8DqktEvUoDbSi
- EzG/t3i8V3eAkqFSWHfLFDow8qSK+ymgekW85UMYzW41nlrW2/uXdCvTpJDRAxJ5B2ekR9JZlL
- Tb71LiEM/7BzU4lXowvO/H+F0PMB5XX9gKwCHcwAAAA==
-X-Change-ID: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
- Shilimkar" <ssantosh@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-	"Anshul Dalal" <anshuld@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762857465; l=1731;
- i=anshuld@ti.com; s=20251022; h=from:subject:message-id;
- bh=mj0q0SnTkW02eP9ExxyFhZNUJ90oEVn+DZtgzBwS78s=;
- b=N395AF1oLLoFjT9c5dLzWgWB4HxJltMuVOdbZgTCSykhGvd83ZsrXP4pW1p1iDLwzatfkYKMo
- wSFWhMCQqtUATD727SQlxHzwDC7+hjON9SRFxuPNC4rXzOnXJNAz7JY
-X-Developer-Key: i=anshuld@ti.com; a=ed25519;
- pk=Kv8FlQElcrR6efyEHmjtE83y8e0HKvqPyvVY+PJ4UFw=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E8:EE_|BY5PR10MB4164:EE_
-X-MS-Office365-Filtering-Correlation-Id: c55d4f23-c200-4c10-d7d9-08de210e5dda
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dVhIVjIydFNJdDd0a1VZajdOWGRJZ3ZlYVhmUmc4U1dNY01vTFVoQ2RWWWd3?=
- =?utf-8?B?eGZzTC9hay9Jb25ZWWF1TDhqQ0N5TEdSM3I0bXI5dmtUWE5uUTBvc3d4WEw4?=
- =?utf-8?B?VkMzdC8vWjRNbDFpMFJ2aG11STBmVzdMTG92RXJiWnB1L09aeWw2RDNnenZO?=
- =?utf-8?B?d3QwYUNtQVVVTE0yU0Y5b3NiSUlsOEh2aDNTMUxMdWFpOTlpQlpHUFowWmpV?=
- =?utf-8?B?SWg0Y3VzUDhOOGs3bVE5WjVNVk5wdjgwRnRkTDIxVjBucnN0cEpZYnJjbngy?=
- =?utf-8?B?VHZKQzc4RTFOaGtYTGI0RFd5dTYxclNSYTR3d1cycTExZVZjRDM5ZjlMQW9k?=
- =?utf-8?B?d2EyczEzQ0xzQ0JZZWdMSklLVGlZWkhWWFRYOE1pTzhMUTBLTzZQQ1hBRnlE?=
- =?utf-8?B?dE5xcHVhU3k0ZWttQW9MTFlPSUZNOVdkT3lNSStZY1dJbCt0eUhma0VzSUli?=
- =?utf-8?B?d3l2Y1ErU2FwNkErQnhEMzJ1MWdrakcrYVNWL0VZc0JXblJqQmg5Q081bllu?=
- =?utf-8?B?cFFwSHlOaW04SlJKVHNraUVKbnJRMk5ZOUxwZUxOM3IzZU85alFBMlFBWnpt?=
- =?utf-8?B?dDV4SXlaR2luM1RXSHhZOUhsYVdZN2YybWFEWm81cml6c1BQMFduMmwrdU5r?=
- =?utf-8?B?bGYwNkZyQi9GKy9OMnM0Q29yVWh6S2hUa0tkZTZ1TzVRYW9EdVBEc0I5UU5F?=
- =?utf-8?B?WWU4dE1xSjR6MzNJYXZLVDRVeC9kWEk4TFFaZVk0OFA4SXJPMytIR0VuVU9s?=
- =?utf-8?B?R3ZFTGpUL282UTFxQVdRNHFHbnNZMlBqemNRUmxUY1ZIbTgwT0Fob0crWENT?=
- =?utf-8?B?eUpiN3JqaUVIN0N3clkwZGUrbnl4eVNRdlpQdVNpd3lReWgwWHdDbms0Z2FN?=
- =?utf-8?B?TFZ5b2l2dHk2YjNYWENReVhmVzh0aVh0RFNyOVJ3U3dDQjZSWTZPMVJWemFV?=
- =?utf-8?B?MjlYTEpNdnZMV3p0M3hQa2g0ck4rUFg5Y2w4UzZXVUVjMThWTCsrVmNpcDk0?=
- =?utf-8?B?M0MvSjJHemF0dXErZmhLUHNUckdwZDYveVJ0N2FlVW8ycGV1RHRCOE85Y2M4?=
- =?utf-8?B?bEpaRzlLd2VCK0FsVUJVS3lxZVEvem1MdGpjejc5OUZXNElXcG9DUVlWVUc4?=
- =?utf-8?B?OTRJdGNyeHZXODFYYjQ1c0hoUm9UcDdmOHlEaS9RYUp6c1l5R0hLdllYdGdw?=
- =?utf-8?B?QUlSVytTdExnbW9Rb2IyNldwUjNQSHpqRVdJYk9hRCtmcnBWaGUxMVVZbzRj?=
- =?utf-8?B?T1Rqd3dOVkhRMTVKeDJCcWRFRzRuMUZtSDFxa1ZmY29iWGFvd3RNR3g1TVJp?=
- =?utf-8?B?MnplT3JMaUlRUWZ6ZXhXMnZCZGVLb0ZzeEF0MU5JNHlVWHF1M2VydmVWUVgw?=
- =?utf-8?B?TU01SjhtRzZuYWJLbXltZ2xyNVhyOStzYmNBV0ptL0FZc1lYaE5iaFNXRXh2?=
- =?utf-8?B?aDdjcDVxVFF0RmxoV3hrMWIycXA0ZE1zZDFXSW1YeklxQ240d2xQU1ZpV1Vu?=
- =?utf-8?B?dHRWRzFNU3owTklTSGtjb3dJMFhsbjFvN0hOczJyRnFDdVg3K0pHRDZSYWpv?=
- =?utf-8?B?UUtKNlY1cVJuRTNoZnlZMjh5aThRUXNHU0pDcTc0REV3eWJnTi9kdHZGRzZl?=
- =?utf-8?B?MDlNUGVpVUNwZ0RMOWNlUHVoaHFSQkxmOGdFeGk4Z1lRNXNWT1hzRml4bTQ4?=
- =?utf-8?B?VHVRMDlrb0RIek16RFpGY3dVYWRuZVFQTFlCelNOUlBZTlZhR1ZuWlNDdDdU?=
- =?utf-8?B?aVhxeE5HeWFZRzIrWGFBcHg0WGJkRUViTnlZK1oyL3RKVFB1MGdYY0dQRWZh?=
- =?utf-8?B?UmdtNFB4WTdsaXEwQTcvazJrMHFhOVFEZWNnbjAxSjN0TFpFaUpySGdBOGw1?=
- =?utf-8?B?OXl6Q1VseUhGc2c1TkFDa05yZkdzcVVTbHFFTDI4SU81dmZBU21RNGxkc2ow?=
- =?utf-8?B?eGgveGhnSkZ4czJFRUo3cTlnVmxiSGJTMHVTMTJKYnU2WElFNGkzNFp4ZW85?=
- =?utf-8?B?RDh1VWxlWWIyTUdOVFg1QUdVdXBHdWYyZkhTLytTZWxFbjEzNjFOREluSDhM?=
- =?utf-8?B?VVNqYWN5cFZYK0Z6WnM0SGFFTllXWkpkak94TUx2T2pyMGZrKzhmR3dxM0p6?=
- =?utf-8?Q?vOt8=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 10:37:52.0362
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c55d4f23-c200-4c10-d7d9-08de210e5dda
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4164
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org> <20251029-gpio-shared-v3-2-71c568acf47c@linaro.org>
+In-Reply-To: <20251029-gpio-shared-v3-2-71c568acf47c@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 11 Nov 2025 11:39:30 +0100
+X-Gm-Features: AWmQ_bk198TBC3PdqVd9Oowwqb_fFWVruyMz7Lubn4P_lvSkb0elFliKm8IlGq8
+Message-ID: <CACRpkdYRzuumaCv=a5UL_G8StQj10kBiRfkfrpWCk05zVfGYsA@mail.gmail.com>
+Subject: Re: [PATCH v3 02/10] gpiolib: define GPIOD_FLAG_SHARED
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_023800_112979_EFEBDC90 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20251111_023948_931586_EDC9F69B 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,55 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootloader on K3 devices makes use of mailboxes as per the ROM spec
-which might be different than one's available to the kernel (firmware
-spec).
+On Wed, Oct 29, 2025 at 12:21=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl=
+> wrote:
 
-Therefore, this patch adds the missing mailbox entries to the DT binding
-to represent the mailboxes exposed by the hardware during boot for the
-purpose of loading the firmware.
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> Define a new GPIO descriptor flag for marking pins that are shared by
+> multiple consumer. This flag will be used in several places so we need
+> to do it in advance and separately from other changes.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Signed-off-by: Anshul Dalal <anshuld@ti.com>
----
- Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-index 25a2b42105e541cb3c8ad12a0dfec1af038fa907..b5f48647a0f09bb930f052ea0f84a78525c925eb 100644
---- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-+++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-@@ -51,15 +51,23 @@ properties:
-     minItems: 1
- 
-   mbox-names:
-+    minItems: 2
-+    maxItems: 6
-     description: |
-       Specifies the mailboxes used to communicate with TI-SCI Controller
--      made available from TI-SCI controller.
-+      made available from TI-SCI controller. All boot_* mailboxes are used by
-+      the first stage bootloader to load firmware for the device.
-     items:
-       - const: rx
-       - const: tx
-+      - const: notify
-+      - const: boot_rx
-+      - const: boot_tx
-+      - const: boot_notify
- 
-   mboxes:
-     minItems: 2
-+    maxItems: 6
- 
-   ti,host-id:
-     $ref: /schemas/types.yaml#/definitions/uint32
-
----
-base-commit: 1c353dc8d962de652bc7ad2ba2e63f553331391c
-change-id: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
-
-Best regards,
--- 
-Anshul Dalal <anshuld@ti.com>
-
+Yours,
+Linus Walleij
 
