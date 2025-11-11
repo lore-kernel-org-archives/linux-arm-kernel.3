@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3002CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 12:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B44CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 12:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIeHXQSY2T5hj/W75ZttXiirEAAL/14DBvTtO4y3ecc=; b=3ZPbucCfqqK/YbiQc8B8dO3+ZN
-	zUGxJVyQpFNOoT8ScsMCFTIzm3v5PIMJDVKEhPZxarzZjUweyD4U6gb+gRRRtSGCSY2B65ukQHmJr
-	NZMj1hHT87p+LutkrlehP5XqNipikeIN/kbiKlFItv3EUb+z1rmhTGuy+sMEX8qCtG9mf4pBxRMmh
-	PcYWhN3BiDb2s5krMWTzanO601DTDWwsTFy+U+b7/d0p4/8LAtP5X/v97y1CYu4Lk+J9QAmtig15B
-	gBle0nXHbvLoLWEPyuawMekg3weyfdAtnJz0u5bCmGXHNI4M2Nxtz18LBT4sGWk7gefg57o/RA2bi
-	O8SBknQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dTCgwwGpCsX1eoq9BlzwM04EmE962CsxPEITUwNKSpY=; b=XDVp8Heymk7la6oRHnJ4ZMpffG
+	rXGAAKNcTEUXd1uRE1IkiPXdc37GG2/yfvyBR3kdgwNkQo944X9ZAZEBr+yOiWXgbcDs5Ak9iepv1
+	ldEm1zPmcvjDUJwC02qwjh7IN9Xlc+UJEau7QCcOiIXQsjZxIB6VUB2ivAWF7MS9vb5ZRD4EpccfK
+	JH85Qc4UHsgYnfdUqRQvNvQxRMSaTtcUsR7+qyLR4RpnBUos/0ZgIpHVm0NBD9xUFsuc/bSyAG50p
+	KWfaGep79/hWPo8ka8gwqm3jIRI5eO4LtmMRY2sMXlR6bfmj/Mf6V5eSKkrSurkHF3BWuMfMDB10e
+	jDfB6XbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vInIC-000000079T4-3K6p;
-	Tue, 11 Nov 2025 12:16:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vInIA-000000079Sd-1cp3
+	id 1vInNx-000000079qj-2QAE;
+	Tue, 11 Nov 2025 12:22:09 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vInNu-000000079pE-1fK8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 12:16:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4FDA2F;
-	Tue, 11 Nov 2025 04:16:01 -0800 (PST)
-Received: from [10.1.31.216] (XHFQ2J9959.cambridge.arm.com [10.1.31.216])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 976253F63F;
-	Tue, 11 Nov 2025 04:16:04 -0800 (PST)
-Message-ID: <b7581d35-29a1-44d4-bf81-395949bd4da1@arm.com>
-Date: Tue, 11 Nov 2025 12:16:03 +0000
+	Tue, 11 Nov 2025 12:22:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=dTCgwwGpCsX1eoq9BlzwM04EmE962CsxPEITUwNKSpY=;
+	b=J6YgRveNzqFh1OijyD9n24NyS5wX3sYcoofYldF+MsuOpCqDuNjonPgnfHkVRfK5TZbnnEkM9
+	luBjahgjKnuU+fNk1mUfrLtYCCDjTBnYArIYgW9qgI3TsRUGRAGu2OwM21qGEImeE2wR8gDk+L8
+	FRf+MNohA4c10IIkxUgvzXc=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4d5QbL4XC5z1prlV;
+	Tue, 11 Nov 2025 20:20:14 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3553E180B5A;
+	Tue, 11 Nov 2025 20:21:54 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Nov 2025 20:21:51 +0800
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Nov 2025 20:21:51 +0800
+From: Junhao He <hejunhao3@h-partners.com>
+To: <suzuki.poulose@arm.com>, <james.clark@linaro.org>,
+	<anshuman.khandual@arm.com>, <yeoreum.yun@arm.com>, <mike.leach@linaro.org>,
+	<leo.yan@arm.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <hejunhao3@h-partners.com>
+Subject: [PATCH v4 0/3] Coresight TMC-ETR: refactor the tmc-etr mode and some cleanups
+Date: Tue, 11 Nov 2025 20:21:46 +0800
+Message-ID: <20251111122149.1981162-1-hejunhao3@h-partners.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
-Content-Language: en-GB
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-7-kevin.brodsky@arm.com>
- <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
- <c764489e-0626-4a50-87b5-39e15d9db733@gmail.com>
- <645178fd-df4e-42fe-b55e-97d9506499be@arm.com>
- <413b2c49-f124-4cda-8fea-a6cc165f6326-agordeev@linux.ibm.com>
- <e428b1d5-65a8-49bc-92dc-ec4a4d933dec@arm.com>
- <92eca53f-eb5d-4bd0-ad6c-56c65fdcea86-agordeev@linux.ibm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <92eca53f-eb5d-4bd0-ad6c-56c65fdcea86-agordeev@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_041610_519881_E89D827E 
-X-CRM114-Status: GOOD (  44.15  )
+X-CRM114-CacheID: sfid-20251111_042206_896022_430C5F24 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,199 +82,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 08:01, Alexander Gordeev wrote:
-> On Mon, Nov 10, 2025 at 09:19:40AM +0000, Ryan Roberts wrote:
->> On 10/11/2025 08:11, Alexander Gordeev wrote:
->>> On Fri, Nov 07, 2025 at 03:22:54PM +0000, Ryan Roberts wrote:
->>>
->>> Hi Ryan,
->>>
->>>> On 07/11/2025 14:34, David Hildenbrand (Red Hat) wrote:
->>>>>>>   #ifndef pte_batch_hint
->>>>>>> diff --git a/mm/kasan/shadow.c b/mm/kasan/shadow.c
->>>>>>> index 5d2a876035d6..c49b029d3593 100644
->>>>>>> --- a/mm/kasan/shadow.c
->>>>>>> +++ b/mm/kasan/shadow.c
->>>>>>> @@ -305,7 +305,7 @@ static int kasan_populate_vmalloc_pte(pte_t *ptep,
->>>>>>> unsigned long addr,
->>>>>>>       pte_t pte;
->>>>>>>       int index;
->>>>>>>   -    arch_leave_lazy_mmu_mode();
->>>>>>> +    lazy_mmu_mode_pause();
->>>>>>
->>>>>> I wonder if there really are use cases that *require* pause/resume? I think
->>>>>> these kasan cases could be correctly implemented using a new nest level instead?
->>>>>> Are there cases where the effects really need to be immediate or do the effects
->>>>>> just need to be visible when you get to where the resume is?
->>>>>>
->>>>>> If the latter, that could just be turned into a nested disable (e.g. a flush).
->>>>>> In this case, there is only 1 PTE write so no benefit, but I wonder if other
->>>>>> cases may have more PTE writes that could then still be batched. It would be
->>>>>> nice to simplify the API by removing pause/resume if we can?
->>>>>
->>>>> It has clear semantics, clearer than some nest-disable IMHO.
->>>>>
->>>>> Maybe you can elaborate how you would change ("simplify") the API in that
->>>>> regard? What would the API look like?
->>>>
->>>> By simplify, I just meant can we remove lazy_mmu_mode_pause() and
->>>> lazy_mmu_mode_resume() ?
->>>>
->>>>
->>>> We currently have:
->>>>
->>>> apply_to_page_range
->>>>   lazy_mmu_mode_enable()
->>>>     kasan_populate_vmalloc_pte()
->>>>       lazy_mmu_mode_pause()
->>>>       <code>
->>>>       lazy_mmu_mode_resume()
->>>>   lazy_mmu_mode_disable()
->>>>
->>>> Where <code> is setting ptes. But if <code> doesn't need the effects to be
->>>> visible until lazy_mmu_mode_resume(), then you could replace the block with:
->>>>
->>>> apply_to_page_range
->>>>   lazy_mmu_mode_enable()
->>>>     kasan_populate_vmalloc_pte()
->>>>       lazy_mmu_mode_enable()
->>>>       <code>
->>>>       lazy_mmu_mode_disable()
->>>>   lazy_mmu_mode_disable()
->>>>
->>>> However, looking at this more closely, I'm not really clear on why we need *any*
->>>> special attention to lazy mmu inside of kasan_populate_vmalloc_pte() and
->>>> kasan_depopulate_vmalloc_pte().
->>>>
->>>> I *think* that the original concern was that we were doing ptep_get(ptep) inside
->>>> of a lazy_mmu block? So we need to flush so that the getter returns the most
->>>> recent value? But given we have never written to that particular ptep while in
->>>> the lazy mmu block, there is surely no hazard in the first place?
->>>
->>> There is, please see:
->>> https://lore.kernel.org/linux-mm/cover.1755528662.git.agordeev@linux.ibm.com/
->>
->> I've stared at this for a while, but I'm afraid I still don't see the problem.
->> This all looks safe to me. Could you explain exactly what this issue is?
->>
->> If I've understood correctly, kasan_populate_vmalloc() is called during virtual
->> range allocation by vmalloc. This is not in a nested lazy mmu block (but it
->> wouldn't matter if it was once we have Kevin's nested changes to ensure flush
->> when exiting the nested scope). kasan_populate_vmalloc() calls
->> apply_to_page_range(), which will walk the set of ptes, calling
->> kasan_populate_vmalloc_pte() for each one. kasan_populate_vmalloc_pte() does a
->> ptep_get() then, if none, calls set_pte_at().
->>
->> That's not a hazard since you're calling get before the set and you only visit
->> each pte once for the apply_to_page_range() lazy mmu block.
-> 
-> I have to admit I do not remember every detail and would have to recreate
-> the issue - which is specific to s390 lazy_mmu implementation I think.
-> Both kasan_populate_vmalloc_pte() and kasan_depopulate_vmalloc_pte() do:
-> 
-> apply_to_page_range()
-> {
->     arch_enter_lazy_mmu_mode();
-> 
->     kasan_de|populate_vmalloc_pte()
->     {
->         arch_leave_lazy_mmu_mode();             <--- remove?
-> 
->         spin_lock(&init_mm.page_table_lock);
->         <PTE update>
->         spin_unlock(&init_mm.page_table_lock);	<--- PTE store should be done
-> 
->         arch_enter_lazy_mmu_mode();             <--- remove?
->     }
-> 
->     arch_leave_lazy_mmu_mode();
-> }
-> 
-> Upon return from spin_unlock() both kasan callbacks expect the PTE contains
-> an updated value to be stored to pgtable. That is true unless we remove
-> arch_leave|enter_lazy_mmu_mode() brackets. If we do the value is continued
-> to be cached and only stored when the outer arch_leave_lazy_mmu_mode() is
-> called. That results in a race between concurrent PTE updaters.
+This patchset builds upon Yicong's previous patches [1].
 
-OK, I've been staring at the code and KASAN docs and believe I understand the
-problem now. Thanks for your patience!
+Patch 2 introducing fix race issues found by using TMC-ETR.
+Patch 1 & 3 introducing two cleanups found when debugging the issues.
 
-The core of the problem is that the shadow memory which is being allocated here
-is 1/8th the size of the virtual range it covers, and so a single page of shadow
-memory can be shared by multiple vmalloc areas. The implication here is that
-multiple concurrent vmalloc() calls can allocate adjacent areas and both will
-race to allocate the same shadow page. That's why we have the spin lock and the
-check for pte_none(); the winner is the one that sees pte_none() == true and
-will perform the mapping.
+[1] https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-1-yangyicong@huawei.com/
 
-And so yes, this does indeed create a read hazzard; there are 2 racing threads,
-both reading and writing the pte.
+---
+Changes in v4:
+ - a) Add comment at the context of set etr to sysfs mode.
+ - b) Move the check on drvdata->read to the start of enable etr.
+ - c) Add checks to prevent multiple sysfs processes from simultaneously
+ competing to enable ETR.
+ - d) Fix the issue with the guard used.
+Link: https://lore.kernel.org/linux-arm-kernel/20250818080600.418425-1-hejunhao3@huawei.com/
 
-One alternative solution would be to grab the spin lock around the whole
-apply_to_page_range(), but for the populate call, that would imply holding the
-lock during __memset(). And for depopulate, it would imply holding it during
-__free_page(). Neither of these are desirable.
+---
+Changes in v3:
+ - Patches 1: Additional comment for tmc_drvdata::etr_mode. Update
+ comment for tmc_drvdata::reading with Jonathan's Tag.
+ - Patches 2: Replace scoped_guard with guard with Jonathan's Tag.
+ - Patches 2: Fix spinlock to raw_spinlock, and refactor this code based
+ on Leo's suggested solution.
+ - Patches 3: change the size's type to ssize_t and use max_t to simplify
+ the code with Leo's Tag.
+Link: https://lore.kernel.org/linux-arm-kernel/20250620075412.952934-1-hejunhao3@huawei.com/
 
-So I agree pause/resume are required here. Sorry for the noise!
+Changes in v2:
+- Updated the commit of patch2.
+- Rebase to v6.16-rc1
 
-Thanks,
-Ryan
+Junhao He (1):
+  coresight: tmc: refactor the tmc-etr mode setting to avoid race
+    conditions
 
+Yicong Yang (2):
+  coresight: tmc: Add missing doc including reading and etr_mode of
+    struct tmc_drvdata
+  coresight: tmc: Decouple the perf buffer allocation from sysfs mode
 
-> 
->>>> apply_to_existing_page_range() will only call kasan_depopulate_vmalloc_pte()
->>>> once per pte, right? So given we read the ptep before writing it, there should
->>>> be no hazard? If so we can remove pause/resume.
->>>
->>> Unfortunately, we rather not, please see:
->>> https://lore.kernel.org/linux-mm/d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com/
->>
->> Sorry but I don't see anything relavent to my point in this mail. Perhaps there
->> is some s390-specific detail that I'm failing to understand?
-> 
-> Sorry, with this message I meant the branch where it was discussed,
-> I will try to C&P some excerpts and summarize it here.
-> 
-> * lazy_mmu_mode_enable()
-> 
-> This helper is parameter-free, assuming the MMU unit does not need any
-> configuration other than turning it on/off. That is currently true, but
-> (as I noted in my other mail) I am going to introduce a friend enable
-> function that accepts parameters, creates an arch-specific state and
-> uses it while the lazy mmu mode is active:
-> 
-> static inline void arch_enter_lazy_mmu_mode_pte(struct mm_struct *mm,
-> 						unsigned long addr,
-> 						unsigned long end,
-> 						pte_t *ptep)
-> {
-> 	...
-> }
-> 
-> * lazy_mmu_mode_resume() -> arch_enter_lazy_mmu_mode()
-> 
-> Conversely, this needs to be -> arch_resume_lazy_mmu_mode(). And it can not
-> be arch_enter_lazy_mmu_mode(), since a lazy_mmu_mode_resume() caller does
-> not know the parameters passed to the original lazy_mmu_mode_enable(...)-
-> friend.
-> 
->>
->> Thanks,
->> Ryan
-> 
-> Thanks!
-> 
->>>
->>> The problem is kasan code invokes apply_to_page_range(), which enters lazy_mmu
->>> mode unconditionally. I would claim that is rather an obstacle for the kasan
->>> code, not a benefit. But it needs to be tackled.
->>>> Should apply_to_page_range() had an option not to enter the lazy_mmu mode
->>> (e.g. an extra "bool skip_lazy" parameter) - the pause/resume could have
->>> been avoided.
->>>
->>>> Thanks,
->>>> Ryan
->>>
->>> Thanks!
+ .../hwtracing/coresight/coresight-tmc-etr.c   | 136 +++++++++---------
+ drivers/hwtracing/coresight/coresight-tmc.h   |   2 +
+ 2 files changed, 66 insertions(+), 72 deletions(-)
+
+-- 
+2.33.0
 
 
