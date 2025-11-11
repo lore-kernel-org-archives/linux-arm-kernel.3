@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999CECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 04:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310A4CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 04:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPTJMM+PSo0lDHeC42epqFpm/9pg5nmOOFlsuIAxzRU=; b=oV+W1svRMjLz+gfJ2Dl9YTa8yf
-	CAdKgQqZPqDWSEj9ROThXF6QaDdSSUXJEW7BYrFfLXPK9EmnFswAihD0kwRhfnYeQx6KZLEZxIBBc
-	+rEjlHFzCpT6tgR13DW14vOYTjkeyzSQ0iYX0SZLnHEDGRNl7cyO/0PbzvO8u55PEGirb8tzCKD1g
-	F3wi4eLpiBiLu7BuHTaBPjiHdCIEi5T4M8EK2ivQoWoLim3MXJr5o4VndOJgRBFmg+5cHrmjjuRHB
-	FE1o1XFLsw8HOc5qDoIFhFMk2A1Uald42JUcofHAjB7V2Q9YbXlsECP30m0m1rZIse3mQofTwQyZR
-	LOLI2tjw==;
+	bh=WamB7IrVQXbNC1AWUtZflj8xdjdIjLDhhoTJ27g6W6Q=; b=ekTjLfb6mgcxDvRJiTf64mY6IH
+	6ty6AXdSRWMWBCQTDkZgwEgFBO8nz8JeqLX9H03RS+s0OG0q/VeO7Zr+UCrmWlaOtCfUWHEY1EEff
+	mc5jR9fvpribBff/o65ujkT96lrlNdDFIYUieMRlG8ZoNfRzJntL8tTFlUB9VxbgpXxF6SbE0KuUf
+	7yBYzezpXDo5bGHhXLEXh8WNG7qzKil/GEOIyyf5G5VxjkPirc4kmc/32nWWFIRtFzA7+uM0vBKlJ
+	ejQT50lJDIMyASxYR3ZIdAj8udwWV+GhOlBMHOiJ+vBHP9Be+ySA3nP0aie2c94YczRYAHFPSZ2L+
+	IvBmbLCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIfZW-00000006Tjk-2yKq;
-	Tue, 11 Nov 2025 04:01:34 +0000
+	id 1vIfbS-00000006Tsy-0Wx4;
+	Tue, 11 Nov 2025 04:03:34 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIfZT-00000006TjB-40sM
+	id 1vIfbP-00000006TsX-0hkW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 04:01:33 +0000
+	Tue, 11 Nov 2025 04:03:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hPTJMM+PSo0lDHeC42epqFpm/9pg5nmOOFlsuIAxzRU=; b=lm5Eas2Qy5ZU6HFN5dnkqqKIbL
-	Zecr9us5YTnemCG9U5OVhsMaLrxCIRhAIB3bWN6AwKnTTxu21aVNRuRnYSkkEnlyUpkv6X8bRDlDp
-	nPpeP6BtGZOnZQrdq3i7JlBdaOMhd97FjzlUSOb8HYY8FZ8eiwxnU6Ryg4FTNekwDk24=;
+	bh=WamB7IrVQXbNC1AWUtZflj8xdjdIjLDhhoTJ27g6W6Q=; b=LwmDUyONmHSmFUPTYR0jq+8zYn
+	Jz6/D/dxempI/NaRiCTkcC14KGwzk7kEVpGdcjNCAQoCntAsi+wFMJo2NKK2VulHnYkGOwkYSSXVW
+	AB6dXr0NyNsSp8SmWyid3ng7BTrSVZT/YgOjwjO9jnwcdCibWzpF6CVGdwYME96vQYTQ=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vIfZO-00DaZA-9t; Tue, 11 Nov 2025 05:01:26 +0100
-Date: Tue, 11 Nov 2025 05:01:26 +0100
+	id 1vIfbJ-00DaaN-Js; Tue, 11 Nov 2025 05:03:25 +0100
+Date: Tue, 11 Nov 2025 05:03:25 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
@@ -64,18 +64,18 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v15 09/15] net: phy: marvell: Support SFP
- through phy_port interface
-Message-ID: <7201dc4c-fad7-406e-a998-5c109c8540a0@lunn.ch>
+Subject: Re: [PATCH net-next v15 10/15] net: phy: marvell10g: Support SFP
+ through phy_port
+Message-ID: <5c41cea9-e268-43bc-af3a-13eb1ba5d4c9@lunn.ch>
 References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
- <20251106094742.2104099-10-maxime.chevallier@bootlin.com>
+ <20251106094742.2104099-11-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251106094742.2104099-10-maxime.chevallier@bootlin.com>
+In-Reply-To: <20251106094742.2104099-11-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_200131_994744_B3B94CAC 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20251110_200331_210433_C5B6B182 
+X-CRM114-Status: UNSURE (   9.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,13 +91,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 10:47:34AM +0100, Maxime Chevallier wrote:
-> Convert the Marvell driver (especially the 88e1512 driver) to use the
-> phy_port interface to handle SFPs. This means registering a
-> .attach_port() handler to detect when a serdes line interface is used
-> (most likely, and SFP module).
+On Thu, Nov 06, 2025 at 10:47:35AM +0100, Maxime Chevallier wrote:
+> Convert the Marvell10G driver to use the generic SFP handling, through a
+> dedicated .attach_port() handler to populate the port's supported
+> interfaces.
 > 
-> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> As the 88x3310 supports multiple MDI, the .attach_port() logic handles
+> both SFP attach with 10GBaseR support, and support for the "regular"
+> port that usually is a BaseT port.
+> 
 > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
