@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4013CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51323CD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGEQow7YFgM7RnSNHkQoWCu36w2/CtERfuDLommx1Ro=; b=jCzngy6/x/vLC7/n9QxVu2UDjd
-	oIYG9Z1+Td6reorIh3JRZ3Sk/tTFITK1qKfHC6eiJ01kJLn+X4ZxBkT44Gy2Z5Npg+NR9kQJoqD6Q
-	Uc+fgWhZPFIGcZSx6eKPMJ/0mitrO3Yu0JBqsMuNbUFEG3IgQDiKIq966RPJq4J0TqNqaR+ywoNEO
-	Q0ayQjos726imkFLG7u7bN3RsyHvADd6Uplb0YlTdPBHPYpxhXA+xAOjZZk8FuCqOn0dg8ZDd2Qfb
-	ZPiDSCQ224zPhg90dsV5cnff0RmDBynft50IVYtzwykRHspwGFNjsU4kZcNec8xyol+bHKtaU7UlU
-	RN1Qp22w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gq4OYm6IJVW0ysZKlScrQA08mwLQ6YFMo97/reDWBt4=; b=I97DlsGhif1YYtev+eVeqOqWQ2
+	QZ0AjQtyzslIhO5WqPMDozUi3bpWRw86UF2hoTRtqgsgaBAV367erZLSOXMQdmIEyqoRVnGE5tjyG
+	nRMeNVILYn3nfjP1lulxEfU1u8fQdsOEQpKu6Uh4VdkV2hxVKeYAZlrMzp/syVsQc6iXluRD7mz1Y
+	jNMSNPovsWULDXX+dneeNPjV2rx2343teGgT88y9WCyD+vtU/UaOvlu1R9Yo+QqNviIIltFywYcn2
+	87wuoHUTO2epvy5vjRr3jW5a2j2o0Hj/pcaED9MMewATxDsfHlNo3QQ7FVRVD0eyU44AyCL06jd5d
+	FjDDZwkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItlQ-00000007faQ-3r8c;
-	Tue, 11 Nov 2025 19:10:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vItsM-00000007fy3-3JKn;
+	Tue, 11 Nov 2025 19:17:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItlP-00000007fZt-2pXW
+	id 1vItsF-00000007fxU-2NZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 19:10:47 +0000
+	Tue, 11 Nov 2025 19:17:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3DA160208;
-	Tue, 11 Nov 2025 19:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71497C113D0;
-	Tue, 11 Nov 2025 19:10:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 63312438C0;
+	Tue, 11 Nov 2025 19:17:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D8EDC4CEFB;
+	Tue, 11 Nov 2025 19:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762888246;
-	bh=z30sYZuweToMSRbZmmjtT/wBIWBGjpziU0vz9SNB8tQ=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=cL/0H+7d+gmHkzQbb+2Z6u/gROBjBU1g0hebfv79C0zz0RuLsC9YX8zKJDc83Rtv3
-	 mSqb5fscTv86vbXFQOc03c7tSobXXyO4qORvcFutmRHDEbPl7efD2WxGikxTOYg8F7
-	 +f306dTsDg7at3J8/EXCqXeh5gHSOb+BRV9cFgG0SwvckKKro4QC8F73c1o6azTZB9
-	 UyEEgjX2JHcrJfNqWRL0lxXxYBo7IUUncq83skTmw6iwZP3u1cHIO3qC5mV1DacjyB
-	 qVD5Cvsyv9XV8vumnc4GE1Hwa0Eix50QdATv7Sh6I/MOOuV5oVl/+SKkKJLF6sLDI/
-	 tfbtx0GfuzrtA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B1B78380CFEF;
-	Tue, 11 Nov 2025 19:10:17 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for -rc6
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <aRN7fm_q2B5UzQTK@willie-the-truck>
-References: <aRN7fm_q2B5UzQTK@willie-the-truck>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <aRN7fm_q2B5UzQTK@willie-the-truck>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-X-PR-Tracked-Commit-Id: 8e8ae788964aa2573b4335026db4068540fa6a86
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 24172e0d79900908cf5ebf366600616d29c9b417
-Message-Id: <176288821699.3548512.978499096605838935.pr-tracker-bot@kernel.org>
-Date: Tue, 11 Nov 2025 19:10:16 +0000
-To: Will Deacon <will@kernel.org>
-Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
+	s=k20201202; t=1762888668;
+	bh=41RLRtaKbXKVyhTCyKGvYapSSOb8728iYPhMLtH1kSQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WAB3TiStxkM1FNwO8Op8NHHDZWFMtIxWcQcyMeysB/zEXMu7NC5jN7X7oCAZuO/uB
+	 kcb7FtT/bygYU7KdFv5BXUDnSmTnFkOZ8nnrMugK3rc8YAb9Myqj0+j/30pn8eY8Mi
+	 FkINs55JVB5sRHCnTlFQ5BMCeVelWSh/mOsZSAa3tc2o2UVRqLAHzjnGrk3XfMFmKE
+	 yUZtkwYIljsWxIjRlVV5OUJuG4eBUG7Ex4ojuJLvn0I0Ye5hWgfKtnWEOSOBCHSp4c
+	 JDb7nCKhP6NvnxojBfFa0FUjKp21Eg/jL89c2RHwG69wReDvu3Q1lYYDIxR5d/e8TK
+	 8F/IQbicLA9ig==
+Date: Tue, 11 Nov 2025 19:17:33 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, David Miller
+ <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+ <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, Lars-Peter
+ Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun
+ Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, Rasmus
+ Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Johannes Berg <johannes@sipsolutions.net>,
+ Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, David Laight
+ <david.laight.linux@gmail.com>, Vincent Mailhol
+ <mailhol.vincent@wanadoo.fr>, Jason Baron <jbaron@akamai.com>, Borislav
+ Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Kim Seer Paller
+ <kimseer.paller@analog.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Richard Genoud <richard.genoud@bootlin.com>, Cosmin Tanislav
+ <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, Jianping
+ Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org,
+ qat-linux@intel.com, linux-gpio@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next v5 10/23] iio: imu: smi330: #undef
+ field_{get,prep}() before definition
+Message-ID: <20251111191351.06c0e660@jic23-huawei>
+In-Reply-To: <CAMuHMdX8c1VkBuPDpJ5mpCcRH+zEX4F1bQKFf_V8N9ZZtCYqxA@mail.gmail.com>
+References: <cover.1761588465.git.geert+renesas@glider.be>
+	<97549838f28a1bb7861cfb42ee687f832942b13a.1761588465.git.geert+renesas@glider.be>
+	<20251102104326.0f1db96a@jic23-huawei>
+	<CAMuHMdUkm2hxSW1yeKn8kZkSrosr8V-QTrHKSMkY2CPJ8UH_BQ@mail.gmail.com>
+	<20251109125956.106c9a1a@jic23-huawei>
+	<CAMuHMdX8c1VkBuPDpJ5mpCcRH+zEX4F1bQKFf_V8N9ZZtCYqxA@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_111751_658167_E853F35C 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +103,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Tue, 11 Nov 2025 18:07:58 +0000:
+On Mon, 10 Nov 2025 09:59:34 +0100
+Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+> Hi Jonathan,
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/24172e0d79900908cf5ebf366600616d29c9b417
+Hi Geert,
 
-Thank you!
+> 
+> On Sun, 9 Nov 2025 at 14:01, Jonathan Cameron <jic23@kernel.org> wrote:
+> > On Mon, 3 Nov 2025 11:09:36 +0100
+> > Geert Uytterhoeven <geert@linux-m68k.org> wrote:  
+> > > On Sun, 2 Nov 2025 at 11:43, Jonathan Cameron <jic23@kernel.org> wrote:  
+> > > > On Mon, 27 Oct 2025 19:41:44 +0100
+> > > > Geert Uytterhoeven <geert+renesas@glider.be> wrote:
+> > > >  
+> > > > > Prepare for the advent of globally available common field_get() and
+> > > > > field_prep() macros by undefining the symbols before defining local
+> > > > > variants.  This prevents redefinition warnings from the C preprocessor
+> > > > > when introducing the common macros later.
+> > > > >
+> > > > > Suggested-by: Yury Norov <yury.norov@gmail.com>
+> > > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>  
+> > > >
+> > > > So this is going to make a mess of merging your series given this is
+> > > > queued up for next merge window.
+> > > >
+> > > > I can pick this one up perhaps and we loop back to the replacement of
+> > > > these in a future patch?  Or perhaps go instead with a rename
+> > > > of these two which is probably nicer in the intermediate state than
+> > > > undefs.  
+> > >
+> > > Renaming would mean a lot of churn.
+> > > Just picking up the #undef patch should be simple and safe? The
+> > > removal of the underf and redef can be done in the next cycle.
+> > > Thanks!  
+> >
+> > Only 1 call of each of these in the driver, so churn is small either way.
+> >
+> > To avoid a bisection problem if your tree merges first I need to modify
+> > this stuff in the original patch or leave it for Linus to deal with as
+> > a merge conflict resolution which is mess I'd rather do without.  
+> 
+> If you add the #undef, there won't be any bisection problem?
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Two different things.  The bisection comment was about squashing into the
+original driver patch - not what was squashed.  Your tree may well merge
+before mine does and a bisection could therefore land in between the 
+driver introduction and a patch I merge today.
+
+The rename is a preference only because I don't want an undef that smells
+like a hack / bug work around kicking around in the tree for significant time
+(probably a whole kernel cycle). In this case the churn is very similar
+with that or a rename of the macros - so rename it is.
+
+Jonathan
+
+ 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+
 
