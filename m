@@ -4,179 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED817CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18CCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjslwg003PkoKKkIUwUamLh3KyWSt/2/L9cLvvKYRXo=; b=MtV9SQkZ3isFm6ZHEsvgCDttes
-	zj+3RdZ517jlcVCpn28nbv81f8/mnQG40NYiezTtgSVmC7Isx+MOS10NA8zpMdGQAvVy7Aff062cM
-	fwEvvYew5RFOM1gf9Emh4C0RPguzrZierbv1XldRs/8jfhj7GYGX0QS/vV6k8wJso2SCHPqtna1Qc
-	ZmFH4G1XTkXYY/NHTJs+Y70QkgC56Qa11ailaG86wbuDlBlUWI9Ef+cUBozciDXv7FOCgvfCPW1kT
-	WFblCmZnwu8DA47FO2JSVLNxfzB+ArLcEOmUiUrSel19+MTotdrtJhZiOoGo7vc51mXOQ7uguvXSW
-	gYqyYpcg==;
+	bh=a9W0L6CfK0bWdTLm9fJi4xkSwBtlng03J+x1NVveACU=; b=JNrmLvze5vjIMNdoQ/ATsQNnhW
+	vWqHhhoE1J/vQkItI0pzXJB9TlYLVLnpKGHwx+lQdU1duIwGTu2o+d4pD6KqjL0JwErstHEIb4Q8/
+	vVBOdWUnoaQAHJzI/spuI0HwqwTLBVhk+8GgRVXXg4KnwzcTn+mLVYAAEgoTNnDt/FfOC9lGGw20B
+	NlhoJSKl9/7LSdErdWXerIgIg2BWJeLBncoKk0MOTTnts380P1p9PKybco6AgpjwNXw5XVlHbht0F
+	QT5lHAWqVhPG/dZNpd4nnyKCWFK3RozHhP2opXU5R+UxH2PD3tEKOgdF7ElzSMv8KHaX7CDSouzGZ
+	2aAnjiMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIjKt-00000006jco-2wNo;
-	Tue, 11 Nov 2025 08:02:43 +0000
-Received: from mail-swedencentralazon11013044.outbound.protection.outlook.com ([52.101.83.44] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vIjKw-00000006jeX-273d;
+	Tue, 11 Nov 2025 08:02:46 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIjKr-00000006jc6-2EPE
+	id 1vIjKu-00000006jcd-0Ahv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 08:02:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y0IGtQI3VKMbrBEqMfjone+xwbp3vajFaKMMqqACQ92c2a1TrlWyDubVLo5dlR34bED8BzCIehf7oDf+CFsZgDTBQd3hJfw6wvLd+9cntNYZHRFfEGrmHG5qo8xKXpE+qrp3MDvTDrAknzBHptIj1nH+7cH0Q3f65f3KvQum95R0BDD5n+JG0c41kOTdgPJ9ESolzbCAEKYvBkmBFo8sfU/JxZ0A8sRY4O79pcu6TWxy2iuPo2Ge9Se5VeaKu1scOApT77QIJU2KsZzRc+SFMKVFjbG5MEy3vx/bcSLIMOI1Zb5/DYK4IP5QGEfL0c6nHLqmpu+Kku4JEOhHB6xBEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hjslwg003PkoKKkIUwUamLh3KyWSt/2/L9cLvvKYRXo=;
- b=qIPeIZ+lUbVj3YdWiBsuawieRA/VZFJSaWZU3wys/XrIGdlhpsM292giqqXQ7t5lOBgS6/bxNX8EW3e8IlqVcjbzstPEA5gPqJPhTD4Q/sX6Gzw9/kceE+kSWLfrNKFRzRM1AV0YC+8k/khzEXrHruKQfc2/XjUncxdTVguBqZ7kfYMZb2yKE5guNAanOCfuIn0tr80kVTtzNMsSYD57Stg/DR0bqwXGNX3WJXM0QpzdtT3Gcshon7LGF8j98Chdz0HBw7CHwN6Ixl9VREfvwKumzpkRv+/x5WL5NW1kPxlXbOdXVmXc2DfZnIUx6xek9Gw0XUgKFd40w1vGTKzgnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hjslwg003PkoKKkIUwUamLh3KyWSt/2/L9cLvvKYRXo=;
- b=JFwDVDurVPWITyWewmNHRw6o4IUryTkzJS4A03oMGh2dbHVnPddUfiAoFJMwwg001qZnKMZqRRuY00RhbqRjmwGLbGwz3dKKxl393c65T12INemilHPYvzMoS3wyJJlvVsZdeciIVWKOzevO6wW1P+kmXHXtcc/arZ+D4mI9DworIWgUk0MqcmERCrg52QTuPr7kDQ1pn4bC7MDGdYFj2usQ8lmtd6JqiyShnNV4q0Cfw8vVWIp4XOtk+v8VSwzGyUwqi7m6id82gsAmDt0QhZXuFIkWUWa5kOdqT0L33IX/l1Z3lrDuzQ5JTV0iC+dCT1wgpSO2pXidlIScmvjjNw==
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by VI0PR04MB10878.eurprd04.prod.outlook.com (2603:10a6:800:259::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
- 2025 08:02:36 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9298.015; Tue, 11 Nov 2025
- 08:02:35 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Shawn Guo <shawnguo2@yeah.net>
-CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
-	<mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add supports-clkreq
- property to PCIe M.2 port
-Thread-Topic: [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add
- supports-clkreq property to PCIe M.2 port
-Thread-Index: AQHcPYCDOxKc0FmqzkeInGCgNa7B4LTtOboAgAAKf8A=
-Date: Tue, 11 Nov 2025 08:02:35 +0000
-Message-ID: <AS8PR04MB8833D099959C62A97AC8CB868CCFA@AS8PR04MB8833.eurprd04.prod.outlook.com>
-References: <20251015030428.2980427-1-hongxing.zhu@nxp.com>
- <20251015030428.2980427-2-hongxing.zhu@nxp.com> <aRLhko0h1OZgvo2o@dragon>
-In-Reply-To: <aRLhko0h1OZgvo2o@dragon>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|VI0PR04MB10878:EE_
-x-ms-office365-filtering-correlation-id: e61c52ef-0de4-4c20-3f87-08de20f8acd1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|38070700021;
-x-microsoft-antispam-message-info: =?gb2312?B?aVhoRGlGc0RVaGRXS0pjblZ2c080QXJLSWszRDBKRFhQZ3ZFY295N2p2dmxi?=
- =?gb2312?B?ZWVWOEdQK0FtQ2NCR015SmtBWjEzYnVlSzFYR0RlRWp4cFkrbXo2MmJWdWNH?=
- =?gb2312?B?QndLU2s1WFpOOXYzYUozQkJBUVdPMThXZGtkS0k5eFlBK05LZkxCbnZhZWRr?=
- =?gb2312?B?M08vSDBTSFhyNWM2Y0FYSW5ZY0FHcW5yY3UzWE1rTUZvOUJMZHpvdERBVW55?=
- =?gb2312?B?aUc0dW5hdkp6WFRFNjdlT3d6eVNuMVVJenR4cXNOWEk2Y0RlWHg3cjJvVjVU?=
- =?gb2312?B?MFZMTjN6V3BCbXlYcitlSDZHZHpMMGpDMm5qbjAzT1F3eVNoZzFzOUpkWWU0?=
- =?gb2312?B?Ykh0ODFXQllEOHVMd3dxWEViRkUrdVYwaDNMYnlqYXlxU0dONXBScGphMm9W?=
- =?gb2312?B?OTJJaHFSSXVKYTZRV0V6RUhVbVlpZEVUMVRSTnhoQ2FleWVDRlBUN3ltbDVp?=
- =?gb2312?B?c3ZpRldRZE14K0tuNDZxNXJwTGR2RGtEQnI1OFhkVHNDSWlJUTFlblJ0Zkts?=
- =?gb2312?B?Y1hXTXFLTnp5VE40UWpjVmVsR0YyYlkzYVg2QVBDWU9tdURDVlVheVVWL3JB?=
- =?gb2312?B?aVdFTklUZWRkTGl3UmNLY1NqeWVOUDN1VkJCMkMwR2pYa0JrMlI5bUNuU2V6?=
- =?gb2312?B?NlViSGdKS0VQNTJudVRqSHBlK3pqL3Z6R294R0JDU2UzZnM0VzlFK25xN3dk?=
- =?gb2312?B?UTU0ajA0cWZwdlBhWmZCRjM5bjdRNi8vYWhwZHlvVVVWZFM5ZEFpRHNrZ25W?=
- =?gb2312?B?YnMvUmttNnNXejNkdlQ1b1daYXR6RHJ5V2JZMjFYcXJzRWZCSEtZNjZGcUJL?=
- =?gb2312?B?dDhCdXVDOTJxMStjelFxdWxQZldrYnl5SHgzZllYOUh4NUxhS3dNSDNLamYr?=
- =?gb2312?B?MTJETThHMzUyMHNhdWUwRC84ZE9vYWxyeFFIcDltT0ZHbkRlZWZVbVg0V3cz?=
- =?gb2312?B?UUYrSHU1ZFBCdG9lS25QdXRUTnMyVUtPQmx1Y1plc2hqaFFjRUYxc0IwR3Zk?=
- =?gb2312?B?eXZEOXRqSE9LVmU2cGIxdDNzYUxRdElYaUY3cmpyQjJaZFFaaDY0NVBFWHA4?=
- =?gb2312?B?b1pZQzVKUEttNVZFYkx5MXFVTVR6NWxTT2E4NHhrbnFjRHZBb3lpcG1uM1F5?=
- =?gb2312?B?RlpEdTVYWnJEcWI0UVBoLzJmNHM2UnlyYTBYN0FteHVTUHlOSm9pTTAzelc2?=
- =?gb2312?B?K0RMMS8rc0pnVXQrSlNKRndULytINkNVek1Zam4wbUFFNkRZNm5kK1FyZjE5?=
- =?gb2312?B?blNBQ3g4clMreGNFNy9iaVg3ckFYQW9icEtRV1hMcVQ3T3RBK1plRmpMQk95?=
- =?gb2312?B?UjZyeUlTN1FaRkQyYUpYajdoS2RvMGh1ZHdlVXlSUTdDaHpIaGQzeEJhTXNs?=
- =?gb2312?B?SnhjZG1OTkNEQWdaNGl5RFNBSzY1RFZzZEE0aGJRVkdTMVYzZ2tteTkzSm9s?=
- =?gb2312?B?OVYwTHF2L2lVNzZxRUxJNER0Tjdzb3R6MGhhd0phU0J6dzFiZFZlalo2eE95?=
- =?gb2312?B?dHlMeWRXUS9rVm9VTDZTd1BLVmxWS0hWUmZMVzJaSUtVT2Fjald4TERQZmRl?=
- =?gb2312?B?RU9uQmRlT0FKUDN5WHBBbzVneVVtY3Y3aUkrNUZnbmNGLzFwN01vZGk3bVZu?=
- =?gb2312?B?OVZlM0ZHdE11L1lOQWl5LzRyekJ4azhsdUNNdW9zajhpWWN4Mmd5NWxtbWly?=
- =?gb2312?B?Sm1WQ0xsbjF5NVVoV3VESStjVEJBR3RwZ1ZqcjZnSU9mL3J0V1NDVWRvWG0v?=
- =?gb2312?B?cnRobkdacVF3OWFlVldRMC9hRWwvMUUyTEs0bWtqSWtUcVdjeFhkaTBhQ0cr?=
- =?gb2312?B?VEk4VE80TEprY2p5KzRIK293cmxQWkNTVzFFaHBGU1ROZFZaVVp5T0VTUzZk?=
- =?gb2312?B?RFRRdmgvNnJqemZmQ2dSOFdaSmNyd1FYNzRtM3V5UVhWdFpENGNFN1ZWNWlS?=
- =?gb2312?B?bVNka0Zzd2ZPY0dhUUJpQmtoRFN6eGZEZTFHSW9ZajJvdXdIdDFZSmU1TWx6?=
- =?gb2312?B?Wk9mVmhpWEt5cUZFQWY3MFc5NXd0RG1PYlR2UkpPaStjOHFneFlqWE80QWVo?=
- =?gb2312?Q?5vFTuT?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?K3hobTlmUFdzN3B2Uy94N1VUbGMzQmhJZmpvY3FZZzRkOTJ2ZTBjTzZFR0FC?=
- =?gb2312?B?bTA5VmdJRGFFdWl2elZTQnVpSGlGckRjeVpGbG05WjNTcC9zdjdma0lxOTE2?=
- =?gb2312?B?Z0orTFRqRUlxV1FOMjQxaFpScUluN1cwc2NxZ0NsWkR3MzBuOGtwNWFqeHVI?=
- =?gb2312?B?SFdtbmQyMi9PUjA3VHdoL2tFTzk2N2JYWTJWalRoWTNoRkNMS1FmM0tQVGN4?=
- =?gb2312?B?NlBJK003dkFMTStpN3JaMG5aeW5ZV0VJVTJuMHJzRlBmanluT3pHdlBTN0Y3?=
- =?gb2312?B?MmVyMUc3QUUxUjFBSmx0Z01jcDZ1S1FIMmFKYmlNdXAvNy9BV0VHNE1ZTTR3?=
- =?gb2312?B?cFhEbzJRM2ZENWs5dW5wYUJwMzlRWU5tZXBuU1dKTWU4SXJxWWJ4VVRaMUQ0?=
- =?gb2312?B?dFpMYytYbUx0R3hWOURzSHZOWmZreG5QTkdKQlo5QkhLRVZDNnhiTDFwUkpi?=
- =?gb2312?B?RlRBakRvT0dtUkRrMEtWZDNUYi9YeVFaM0I5YTI2SjJObVg0dnlzNHluTXV2?=
- =?gb2312?B?ZzFuUUJYcmVFaGhvTUhtMytDd1g5K1N0M1ZFamlubXAwRkNROEU1N3RQWGdz?=
- =?gb2312?B?bUpHUkVhSGlhU3hPakUwaHF5bUFYdHdWblRZN1l3am9vcXU2a2VmaXh3UnpR?=
- =?gb2312?B?aU1BdkJaMlhiUWhZMEtmRkFXRzlxS3lMU1ZVSDVKUTRwVlVvVkJDOGdyQUN4?=
- =?gb2312?B?QXhVRGUzcnBTcXl6SWtaLy9SdnJHTXZQY3NtQUhEcnBkSC9Rd3lkQ1FFUzl6?=
- =?gb2312?B?aldOSy9UejdrZjF5Q0ZXZmtPemIwWWVVZEI2dVZycHpqMG9xNHFLSXU2V0Z0?=
- =?gb2312?B?MFBySXZXOXpmUkZrbmVycUVBN2lOYm1YQng3K2NMVThDWUxiRjFGSXFhNWd6?=
- =?gb2312?B?Rk5iYjkwQWVYaFhTamFpNUdyYUc5UytjK21mS2l1c2RYVTFHTlNzZEF5aVgz?=
- =?gb2312?B?dVUzZWNoWFUrWnEzNVh6R3B1T1ppMVorQTIyUEFHZDBCdUlicDZucEQvcjIr?=
- =?gb2312?B?dnMySGhHWmYvVGozZ0ErREYxK3hCVzVGM2tCdlV3SGYxY1RYNUZoSjhsc1lu?=
- =?gb2312?B?SUxISnliUUxmNW1HeXJ6SUhCbGhjZkJEcS9Bb1BKTjZia09qNFR2T1ZlUzlV?=
- =?gb2312?B?Nm5HNTZVd2lXaDU3M0x2OTRlK0JBWkxWNWdDSGxaY1BqQzZCVFdFaUxMbDhx?=
- =?gb2312?B?RG05Q0g2V1dWc25xOWJRZXl3TWVkcWxwOUJ1S2ZZaVliR2xuMzVMUm9scmta?=
- =?gb2312?B?bUo3ajdMRmFscGhvcmFyMWRDK3dsNjF1MCtUeXBoTUIxTjc4d25aZzRBMkFu?=
- =?gb2312?B?d1NBeUw0OXBXSXVabDlxWVd3ZnFtVjY5dzQ4d3h1VkRLazJTOFR2cTF3RW53?=
- =?gb2312?B?WklUT3RiWFFBREI4aGNPSGd6SGxoSTA4RWVNM0pBT09FdldOSk1GOGtmQkR4?=
- =?gb2312?B?YjhQd2daSFVRcXZ1MUovK3R4RkVGanJGN3V2V1Jxa3lPdmJUWlhicVo0RGRw?=
- =?gb2312?B?TmdCUnBvQTNCajdUMkU0VGxxcldEMElBYm9UZVQ4VUttaGhNNzJJcG51aTdW?=
- =?gb2312?B?eXJIQ0paUEw3WjJ1dElMVG8xRmlzK05SUlhWa2Zmb3k3QStQOWNPcFdyVWhu?=
- =?gb2312?B?SkQrL1VwcUNBMnREUzM5TnpTV3lmUGNyWklIdnRzNXFLMk5HczNnWFd3Nk80?=
- =?gb2312?B?VDFacm9qWlpzTGlIOFNkNWZnbHRrcE03S3Q0cFVmTnNlRFp0VEVDOXBrV3RQ?=
- =?gb2312?B?RmZqUGE3aGFNb0EyNm84aW43NkZPcy9TRmkyQVdhbFpqS1hFNGpmT2ZhSU9U?=
- =?gb2312?B?OWJ4NkpoVjBoenZGcTdiM2dtTlB5a3JsR3ZDZWZpUnhFbW5ZSEZ0Mk0vNCtq?=
- =?gb2312?B?M2FIZ3ZBaGltYk52a3NheWIwbXJrNGFoM04yRjV5RjkrVTJSQU9IdFlEeU5a?=
- =?gb2312?B?M0pNVWQ2bThtZW5rM29yNm5yS25kNEFvaTgwQjJnRGx3N2piNWJxTzNTa050?=
- =?gb2312?B?TzV5NkNDVG5KYXJiY0R5MkRYL1dqdFZqemhWRFVxUjlGWTgrUVh6RURobVBS?=
- =?gb2312?B?S1AzV2l0YjY4dW14SS9RYTVnZTZ6NjdXZ09obU9vb0ZGUnFHTUxDZ1JNT2ND?=
- =?gb2312?Q?3cEnz/jxZCy0MA/pKBabtwT0Y?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	Tue, 11 Nov 2025 08:02:46 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5AALY1xc017402;
+	Tue, 11 Nov 2025 08:02:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=a9W0L6
+	CfK0bWdTLm9fJi4xkSwBtlng03J+x1NVveACU=; b=qdo1txQgzgOvIHTmCzU7HB
+	Gn+DrVuskN48MqA/40OYsz0tP49ocEYlsaI4/lyOl87fxVMg8ZYDJ6WfohfxUa2H
+	sCIXGOdWkVT7byFFSSNba85ql3Jovzbu3vHW6s+6oA+dceJ5xhYy0xmHLma5lXwH
+	lco3Z991ZRYlMBrC8ph0/LJ1Vvt/e3RGPvY6qNS+2DRsPg2MSEcRVFMIwTtKS8WI
+	KYdt+tIQ5ETwHVz86a6K28vbtfyBvCD2F1E+28XuqeV3bN6vX0T9xvwyMQDiSz6P
+	IcBBYG90bfN/z8xaZDRdprnl55ftC0Cnz9ls8W5PCCk0f7PgPqbw7DMxKYlyocBw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a9wgwtumd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Nov 2025 08:02:00 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5AB7kG37026652;
+	Tue, 11 Nov 2025 08:01:59 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4a9wgwtumb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Nov 2025 08:01:59 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5AB5Gbhj014853;
+	Tue, 11 Nov 2025 08:01:58 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4aahpk1q0u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Nov 2025 08:01:58 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5AB81uo343188530
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Nov 2025 08:01:56 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 80F072004B;
+	Tue, 11 Nov 2025 08:01:56 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2ADFB20040;
+	Tue, 11 Nov 2025 08:01:54 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.64.50])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 11 Nov 2025 08:01:54 +0000 (GMT)
+Date: Tue, 11 Nov 2025 09:01:52 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: "David Hildenbrand (Red Hat)" <davidhildenbrandkernel@gmail.com>,
+        Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        David Woodhouse <dwmw2@infradead.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        x86@kernel.org
+Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
+Message-ID: <92eca53f-eb5d-4bd0-ad6c-56c65fdcea86-agordeev@linux.ibm.com>
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-7-kevin.brodsky@arm.com>
+ <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
+ <c764489e-0626-4a50-87b5-39e15d9db733@gmail.com>
+ <645178fd-df4e-42fe-b55e-97d9506499be@arm.com>
+ <413b2c49-f124-4cda-8fea-a6cc165f6326-agordeev@linux.ibm.com>
+ <e428b1d5-65a8-49bc-92dc-ec4a4d933dec@arm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e61c52ef-0de4-4c20-3f87-08de20f8acd1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2025 08:02:35.6529
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wYwOkMJsxL4VAdIez54gYlGRIRwt4SeM+/wchIniFx3idAE3Aily4/iTCz9DRLOym0D0qNZD8X/4qCnfKz5dlA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10878
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e428b1d5-65a8-49bc-92dc-ec4a4d933dec@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 6zTX9ZOrNUJdIPkZTpOF6inwbKLmfWMW
+X-Proofpoint-ORIG-GUID: LChZoM8zrhHNbPBL-El76cxb9g1AeKQe
+X-Authority-Analysis: v=2.4 cv=VMPQXtPX c=1 sm=1 tr=0 ts=6912ed78 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=8nJEP1OIZ-IA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8 a=RmnHjvQuIkE0_jnVAnoA:9
+ a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTA4MDAyMiBTYWx0ZWRfXyGhka9ktVQcp
+ NtumBxw6X433jOZ6hxU7cflzh+FFuYKWWKnULzVPcUOjZXQmkTAqOCdXlHIsHv1lpUX47VickOd
+ +ymisGDp/K22Lqycx3j2XXMo0XpqaRXvqkKxvBKvJKxPXuUfuzt3AXkbSqNOdA4ImI9C+Xq1kxt
+ TEOnl7KKGrGzBnDhvUHkdpLWQe2Lh5ecd2l9m9sQhLcN/N7oBhjXJoRqt609HdHHCQ8kIUpq28s
+ Sh00eZmpM+PD2+npNB09KeaWuLe3d4wgMIavWSzMSuvE62y1vEOzjS8GZEWtbBR0nfeizZ8kPEd
+ goqFEPPBTD0yzYfjqEub6US2xXlbVyhasXpHCLWJWgCsNJJetNjX1OgXN6mLcI9N0yKOs9EGAVS
+ 77b7qIhDEPM4ZI6Q7fzDt9a5okKZvQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-11_01,2025-11-11_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ clxscore=1015 phishscore=0 spamscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510240000
+ definitions=main-2511080022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_000241_578566_612C61D1 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20251111_000244_557708_23DDD35F 
+X-CRM114-Status: GOOD (  53.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,49 +155,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBTaGF3biBHdW8gPHNoYXduZ3Vv
-MkB5ZWFoLm5ldD4NCj4gU2VudDogMjAyNcTqMTHUwjExyNUgMTU6MTENCj4gVG86IEhvbmd4aW5n
-IFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+IENjOiBGcmFuayBMaSA8ZnJhbmsubGlAbnhw
-LmNvbT47IGwuc3RhY2hAcGVuZ3V0cm9uaXguZGU7DQo+IGxwaWVyYWxpc2lAa2VybmVsLm9yZzsg
-a3dpbGN6eW5za2lAa2VybmVsLm9yZzsgbWFuaUBrZXJuZWwub3JnOw0KPiByb2JoQGtlcm5lbC5v
-cmc7IGtyemsrZHRAa2VybmVsLm9yZzsgY29ub3IrZHRAa2VybmVsLm9yZzsNCj4gYmhlbGdhYXNA
-Z29vZ2xlLmNvbTsgc2hhd25ndW9Aa2VybmVsLm9yZzsgcy5oYXVlckBwZW5ndXRyb25peC5kZTsN
-Cj4ga2VybmVsQHBlbmd1dHJvbml4LmRlOyBmZXN0ZXZhbUBnbWFpbC5jb207IGxpbnV4LXBjaUB2
-Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsg
-ZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4
-LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2NiAwMS8xMV0g
-YXJtNjQ6IGR0czogaW14OTUtMTV4MTUtZXZrOiBBZGQNCj4gc3VwcG9ydHMtY2xrcmVxIHByb3Bl
-cnR5IHRvIFBDSWUgTS4yIHBvcnQNCj4gDQo+IE9uIFdlZCwgT2N0IDE1LCAyMDI1IGF0IDExOjA0
-OjE4QU0gKzA4MDAsIFJpY2hhcmQgWmh1IHdyb3RlOg0KPiA+IEFjY29yZGluZyB0byBQQ0llIHI2
-LjEsIHNlYyA1LjUuMS4NCj4gPg0KPiA+IFRoZSBmb2xsb3dpbmcgcnVsZXMgZGVmaW5lIGhvdyB0
-aGUgTDEuMSBhbmQgTDEuMiBzdWJzdGF0ZXMgYXJlIGVudGVyZWQ6DQo+ID4gQm90aCB0aGUgVXBz
-dHJlYW0gYW5kIERvd25zdHJlYW0gUG9ydHMgbXVzdCBtb25pdG9yIHRoZSBsb2dpY2FsIHN0YXRl
-DQo+ID4gb2YgdGhlIENMS1JFUSMgc2lnbmFsLg0KPiA+DQo+ID4gVHlwaWNhbCBpbXBsZW1lbnQg
-aXMgdXNpbmcgb3BlbiBkcmFpbiwgd2hpY2ggY29ubmVjdCBSQydzIGNsa3JlcSMgdG8NCj4gPiBF
-UCdzIGNsa3JlcSMgdG9nZXRoZXIgYW5kIHB1bGwgdXAgY2xrcmVxIy4NCj4gPg0KPiA+IGlteDk1
-LTE1eDE1LWV2ayBtYXRjaGVzIHRoaXMgcmVxdWlyZW1lbnQsIHNvIGFkZCBzdXBwb3J0cy1jbGty
-ZXEgdG8NCj4gPiBhbGxvdyBQQ0llIGRldmljZSBlbnRlciBBU1BNIEwxIFN1Yi1TdGF0ZS4NCj4g
-Pg0KPiA+IFNpZ25lZC1vZmYtYnk6IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4N
-Cj4gPiAtLS0NCj4gPiAgYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTUtMTV4MTUt
-ZXZrLmR0cyB8IDEgKw0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykNCj4gPg0K
-PiA+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg5NS0xNXgx
-NS1ldmsuZHRzDQo+ID4gYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg5NS0xNXgx
-NS1ldmsuZHRzDQo+ID4gaW5kZXggMTQ4MjQzNDcwZGQ0YS4uM2VlMDMyYzE1NGZhMyAxMDA2NDQN
-Cj4gPiAtLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg5NS0xNXgxNS1ldmsu
-ZHRzDQo+ID4gKysrIGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTUtMTV4MTUt
-ZXZrLmR0cw0KPiA+IEBAIC01NTYsNiArNTU2LDcgQEAgJnBjaWUwIHsNCj4gPiAgCXBpbmN0cmwt
-bmFtZXMgPSAiZGVmYXVsdCI7DQo+ID4gIAlyZXNldC1ncGlvID0gPCZncGlvNSAxMyBHUElPX0FD
-VElWRV9MT1c+Ow0KPiA+ICAJdnBjaWUtc3VwcGx5ID0gPCZyZWdfbTJfcHdyPjsNCj4gPiArCXN1
-cHBvcnRzLWNsa3JlcTsNCj4gDQo+IElzIGJpbmRpbmcgdXBkYXRlZCBmb3IgdGhpcyBwcm9wZXJ0
-eT8NCj4gDQo+IFNoYXduDQo+IA0KSGkgU2hhd246DQpBcyBJIGtub3cgdGhhdCBJdCdzIGEgZG9j
-dW1lbnRlZCBiaW5kaW5nIHByb3BlcnR5IGFzIGJlbG93Lg0KLSBzdXBwb3J0cy1jbGtyZXE6DQog
-ICBJZiBwcmVzZW50IHRoaXMgcHJvcGVydHkgc3BlY2lmaWVzIHRoYXQgQ0xLUkVRIHNpZ25hbCBy
-b3V0aW5nIGV4aXN0cyBmcm9tDQogICByb290IHBvcnQgdG8gZG93bnN0cmVhbSBkZXZpY2UgYW5k
-IGhvc3QgYnJpZGdlIGRyaXZlcnMgY2FuIGRvIHByb2dyYW1taW5nDQogICB3aGljaCBkZXBlbmRz
-IG9uIENMS1JFUSBzaWduYWwgZXhpc3RlbmNlLiBGb3IgZXhhbXBsZSwgcHJvZ3JhbW1pbmcgcm9v
-dCBwb3J0DQogICBub3QgdG8gYWR2ZXJ0aXNlIEFTUE0gTDEgU3ViLVN0YXRlcyBzdXBwb3J0IGlm
-IHRoZXJlIGlzIG5vIENMS1JFUSBzaWduYWwuDQouL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
-aW5kaW5ncy9wY2kvcGNpLnR4dA0KDQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQoNCj4gPiAg
-CXN0YXR1cyA9ICJva2F5IjsNCj4gPiAgfTsNCj4gPg0KPiA+IC0tDQo+ID4gMi4zNy4xDQo+ID4N
-Cg0K
+On Mon, Nov 10, 2025 at 09:19:40AM +0000, Ryan Roberts wrote:
+> On 10/11/2025 08:11, Alexander Gordeev wrote:
+> > On Fri, Nov 07, 2025 at 03:22:54PM +0000, Ryan Roberts wrote:
+> > 
+> > Hi Ryan,
+> > 
+> >> On 07/11/2025 14:34, David Hildenbrand (Red Hat) wrote:
+> >>>>>   #ifndef pte_batch_hint
+> >>>>> diff --git a/mm/kasan/shadow.c b/mm/kasan/shadow.c
+> >>>>> index 5d2a876035d6..c49b029d3593 100644
+> >>>>> --- a/mm/kasan/shadow.c
+> >>>>> +++ b/mm/kasan/shadow.c
+> >>>>> @@ -305,7 +305,7 @@ static int kasan_populate_vmalloc_pte(pte_t *ptep,
+> >>>>> unsigned long addr,
+> >>>>>       pte_t pte;
+> >>>>>       int index;
+> >>>>>   -    arch_leave_lazy_mmu_mode();
+> >>>>> +    lazy_mmu_mode_pause();
+> >>>>
+> >>>> I wonder if there really are use cases that *require* pause/resume? I think
+> >>>> these kasan cases could be correctly implemented using a new nest level instead?
+> >>>> Are there cases where the effects really need to be immediate or do the effects
+> >>>> just need to be visible when you get to where the resume is?
+> >>>>
+> >>>> If the latter, that could just be turned into a nested disable (e.g. a flush).
+> >>>> In this case, there is only 1 PTE write so no benefit, but I wonder if other
+> >>>> cases may have more PTE writes that could then still be batched. It would be
+> >>>> nice to simplify the API by removing pause/resume if we can?
+> >>>
+> >>> It has clear semantics, clearer than some nest-disable IMHO.
+> >>>
+> >>> Maybe you can elaborate how you would change ("simplify") the API in that
+> >>> regard? What would the API look like?
+> >>
+> >> By simplify, I just meant can we remove lazy_mmu_mode_pause() and
+> >> lazy_mmu_mode_resume() ?
+> >>
+> >>
+> >> We currently have:
+> >>
+> >> apply_to_page_range
+> >>   lazy_mmu_mode_enable()
+> >>     kasan_populate_vmalloc_pte()
+> >>       lazy_mmu_mode_pause()
+> >>       <code>
+> >>       lazy_mmu_mode_resume()
+> >>   lazy_mmu_mode_disable()
+> >>
+> >> Where <code> is setting ptes. But if <code> doesn't need the effects to be
+> >> visible until lazy_mmu_mode_resume(), then you could replace the block with:
+> >>
+> >> apply_to_page_range
+> >>   lazy_mmu_mode_enable()
+> >>     kasan_populate_vmalloc_pte()
+> >>       lazy_mmu_mode_enable()
+> >>       <code>
+> >>       lazy_mmu_mode_disable()
+> >>   lazy_mmu_mode_disable()
+> >>
+> >> However, looking at this more closely, I'm not really clear on why we need *any*
+> >> special attention to lazy mmu inside of kasan_populate_vmalloc_pte() and
+> >> kasan_depopulate_vmalloc_pte().
+> >>
+> >> I *think* that the original concern was that we were doing ptep_get(ptep) inside
+> >> of a lazy_mmu block? So we need to flush so that the getter returns the most
+> >> recent value? But given we have never written to that particular ptep while in
+> >> the lazy mmu block, there is surely no hazard in the first place?
+> > 
+> > There is, please see:
+> > https://lore.kernel.org/linux-mm/cover.1755528662.git.agordeev@linux.ibm.com/
+> 
+> I've stared at this for a while, but I'm afraid I still don't see the problem.
+> This all looks safe to me. Could you explain exactly what this issue is?
+> 
+> If I've understood correctly, kasan_populate_vmalloc() is called during virtual
+> range allocation by vmalloc. This is not in a nested lazy mmu block (but it
+> wouldn't matter if it was once we have Kevin's nested changes to ensure flush
+> when exiting the nested scope). kasan_populate_vmalloc() calls
+> apply_to_page_range(), which will walk the set of ptes, calling
+> kasan_populate_vmalloc_pte() for each one. kasan_populate_vmalloc_pte() does a
+> ptep_get() then, if none, calls set_pte_at().
+> 
+> That's not a hazard since you're calling get before the set and you only visit
+> each pte once for the apply_to_page_range() lazy mmu block.
+
+I have to admit I do not remember every detail and would have to recreate
+the issue - which is specific to s390 lazy_mmu implementation I think.
+Both kasan_populate_vmalloc_pte() and kasan_depopulate_vmalloc_pte() do:
+
+apply_to_page_range()
+{
+    arch_enter_lazy_mmu_mode();
+
+    kasan_de|populate_vmalloc_pte()
+    {
+        arch_leave_lazy_mmu_mode();             <--- remove?
+
+        spin_lock(&init_mm.page_table_lock);
+        <PTE update>
+        spin_unlock(&init_mm.page_table_lock);	<--- PTE store should be done
+
+        arch_enter_lazy_mmu_mode();             <--- remove?
+    }
+
+    arch_leave_lazy_mmu_mode();
+}
+
+Upon return from spin_unlock() both kasan callbacks expect the PTE contains
+an updated value to be stored to pgtable. That is true unless we remove
+arch_leave|enter_lazy_mmu_mode() brackets. If we do the value is continued
+to be cached and only stored when the outer arch_leave_lazy_mmu_mode() is
+called. That results in a race between concurrent PTE updaters.
+
+> >> apply_to_existing_page_range() will only call kasan_depopulate_vmalloc_pte()
+> >> once per pte, right? So given we read the ptep before writing it, there should
+> >> be no hazard? If so we can remove pause/resume.
+> > 
+> > Unfortunately, we rather not, please see:
+> > https://lore.kernel.org/linux-mm/d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com/
+> 
+> Sorry but I don't see anything relavent to my point in this mail. Perhaps there
+> is some s390-specific detail that I'm failing to understand?
+
+Sorry, with this message I meant the branch where it was discussed,
+I will try to C&P some excerpts and summarize it here.
+
+* lazy_mmu_mode_enable()
+
+This helper is parameter-free, assuming the MMU unit does not need any
+configuration other than turning it on/off. That is currently true, but
+(as I noted in my other mail) I am going to introduce a friend enable
+function that accepts parameters, creates an arch-specific state and
+uses it while the lazy mmu mode is active:
+
+static inline void arch_enter_lazy_mmu_mode_pte(struct mm_struct *mm,
+						unsigned long addr,
+						unsigned long end,
+						pte_t *ptep)
+{
+	...
+}
+
+* lazy_mmu_mode_resume() -> arch_enter_lazy_mmu_mode()
+
+Conversely, this needs to be -> arch_resume_lazy_mmu_mode(). And it can not
+be arch_enter_lazy_mmu_mode(), since a lazy_mmu_mode_resume() caller does
+not know the parameters passed to the original lazy_mmu_mode_enable(...)-
+friend.
+
+> 
+> Thanks,
+> Ryan
+
+Thanks!
+
+> > 
+> > The problem is kasan code invokes apply_to_page_range(), which enters lazy_mmu
+> > mode unconditionally. I would claim that is rather an obstacle for the kasan
+> > code, not a benefit. But it needs to be tackled.
+> > > Should apply_to_page_range() had an option not to enter the lazy_mmu mode
+> > (e.g. an extra "bool skip_lazy" parameter) - the pause/resume could have
+> > been avoided.
+> > 
+> >> Thanks,
+> >> Ryan
+> > 
+> > Thanks!
 
