@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFAECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6F6CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9gSXWkG2eJiZD5Gs5pGvzQTfP6WJfl6iWjgOM30YYWk=; b=deZ6xfhLhmVcvGw1Jarve9POSO
-	0dhGqmC2eY0ObjF3EKGflH72z8XpqxMylatYqinRovTpQOBgfBWEvM7y4ZL1asxDXwNV+V+WDPYnC
-	QwWBWAMc7SbZWiqvwqbFRTts1B4NQDPo5CR9qJ3Ws8/yF4nwd4dJLGXBJ2/gr6lOHGpEL6o8xdvFB
-	XCLNwlpVqWrLufXYQZ0srqWUiyGiYQGymGk5zgYczqn1zd9BdcI8/txdMHlcBNR3Z4cif4aRfQ+hO
-	UM0PmUOoaGjZ0K6zJYqbAfo3xkxSk75jNCiMsCrMawDFn9mDImqY4Br0EEauAUGvL6wpmivvQ9quu
-	h2igxV7w==;
+	bh=dGMbS3VEvjhgNpVe1MttoJ7jTkjbM/PBhlD1Dx+012U=; b=rHXGFEh5529xW7ub1hhf+NTQDZ
+	J3qwLlS6Q3lZAgsBfJgUis+dW6BNK9H22VX9d8FKunbPC97aFd4w+Xpg3PFXe18U70Xzr/ho4wl5T
+	nGQ1ws9dG2Pgpoyp7PEnRYuNbUuz85NTZZ7d5W1/FNnyoObzl/1E0IM8Lgxi8Juap8Bm7tbktUaQV
+	4K5BW4ttBXD+oinmx/15RUUlo2z42CWZ8nVLF5JwVT+498QCsiGPROjMCyAnwNObz1LTP9CxHmtRm
+	NAV9Unnr6DMTNrDrb+OQAlts13XIPF/jddU+TR2U8GLUotTxIFp7hCGC9sX1qO13h5VrXP+sDRjCH
+	K1H78Wrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIiXp-00000006fB7-2Y45;
-	Tue, 11 Nov 2025 07:12:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIibN-00000006faU-0GIN;
+	Tue, 11 Nov 2025 07:15:41 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIiXo-00000006fAe-21m8
+	id 1vIibK-00000006fYb-20S4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 07:12:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D9AF61909;
-	Tue, 11 Nov 2025 07:11:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A836C4CEF7;
-	Tue, 11 Nov 2025 07:11:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762845119;
-	bh=k+PurIlLRbzMG5NXYczPW4nl/o7m6LjDaYwzjL/sFwQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VrsOps3t+Aw7Z18FrYnUkWf6RRgvKRTvxje5UnS2oCWKFYwi3EtU1txR0NNe5pp7e
-	 iYnT4MRT3f4VUaNfueXb6fvAil0KQ2yKb1KRri7DN63q/CBkil3SgIcQVDGxBDQwlC
-	 R2pYMtkwEW1rGH1vdY29K0348h+6NnYciWYov/0bVpkIC0gZVPCBCbOzuz8MlT1TXI
-	 ldIGCizCaljSMiZi33P1FErmqagC+v1xsbNjvuT3xNrEV9f9FJKq3wwk3OVfSl1ebR
-	 qUD+JyTQzgRNthkq+vI1vSjUA+VhzF56nrjeEhULtO6MDIwA+0mZmZtgeU/xp8bic8
-	 Kr3XVC2zFpL2w==
-Message-ID: <213345c6-23d3-43d7-9bff-4c6f4d0faf6d@kernel.org>
-Date: Tue, 11 Nov 2025 08:11:53 +0100
+	Tue, 11 Nov 2025 07:15:40 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-44f9815f385so721073b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Nov 2025 23:15:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1762845333; x=1763450133; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dGMbS3VEvjhgNpVe1MttoJ7jTkjbM/PBhlD1Dx+012U=;
+        b=LXlciulrI3V7A19/4wSpt9nQ/6XmznBSTMH/IKD2Q81Pj2txnVBbSM60yxzqwDP5HD
+         fGHmhH3u85MUlXKLoraYWJrPqmIEFmaSipJDGeA73vbnxyDXnHXeoGEMQoGGXomx6BJr
+         wOTMbbFb4YeqRmsNVbqRWSjndiw66kJjfIjwm0ve6b8OCyZFjhRU4+zEALBB0djDgSb0
+         O0jz3WnOO4Ectf/kJBJopDcl1U4smvOJa2n7HKKe6I87RUbhlEezsZg9UlHrG4+JVX4K
+         OAF9NVFk/gNyGo8sCI9doognf4fnO7AhPcpsB0CSi+ZBiiG0SdhCxa/tcKXgCSrr314R
+         goJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762845333; x=1763450133;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=dGMbS3VEvjhgNpVe1MttoJ7jTkjbM/PBhlD1Dx+012U=;
+        b=ZpboQvJCtPWxkwmvBaICZWtYAZJmuMmhMfsDsLeejnCruZLFHIkKIcWkOIoyk/xIkL
+         vYx6aDMSOBJUOhgGU4r1VKaC1eSqLtCaDaR/aVtt3+bO8hAGL/Xq2lDbtkjg+qvBQWR5
+         EonhPFND6kN7PMv6cFoh+MknSdh23RT/jVD9Sw9TT4fqnhAFr1dh206qUZIv8jTMAavk
+         VDZcP5iTlUQ5QVZsPVlR0julpQCpiYL3Ixpvt6K9usyrIlhmPqNOk/GhEJcT7nrEJpGg
+         gAWWBoGxXYP9PTH7nYNL8X8jE8cS7mq20vSObgHpan4+pHRtvdpVYv6BnbuPnOI1c5WK
+         eu+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXT79pVbxMj9HjwF21h4qopVoGpEzMME/+tqstcA3Q/oTvhvZEgr8Ize7LQI+KP0rt0D7MH/sX33dfxR0WDZxeY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFF7f9ALRglZvqktehG6RyEeYZGE5Fv4OUDhrVfEgOKVFYJmmd
+	2OjriIvYtbjp7TQzHPfAIGBRVX0WY9FujM6VV4rzUlRhpuhUTAOs35m644XzzrfffiiIuyx8Lhd
+	A/+7iTZewVgF74NPdtMpbAvIHxE4ODX1Yr11jk5b71g==
+X-Gm-Gg: ASbGncvtX2i7UGDvMdTGTzoZzcF8d52Yh3+VIhfxiuTe/tqvA0KQYz/W+l7g8CQFdDy
+	x9EdJLtMZTLwXok+GfLezQng7C9k1LkCIR1IJ6e1H/jKC7XlUYkquvdmQi+j0IG1y7cDuCXbGKB
+	IAzqksdznqoZOf09aCjzHfE3jSeOIUnr3l3fWg0+Mbtb3ETzY/BZma3o0Bqi2W5P7PGpRcrOsmX
+	jDqOKpndEUrAGTu/dHSeJkYfABTZJo0prMkW3XR9wIeN8SzobseQOWa3yZ5k1iwJa2Dc58ibw==
+X-Google-Smtp-Source: AGHT+IHWbJ4Yp3gQoh0gR8ti6hW2JnDfbC3dn3VOEzDDEL8ykj+19tubGTkAQQf4eOHdb+UN2vP0PrZVV2xFeQuhHI4=
+X-Received: by 2002:a05:6808:15a6:b0:44d:badf:f41a with SMTP id
+ 5614622812f47-4502a2df5d2mr5427044b6e.32.1762845333082; Mon, 10 Nov 2025
+ 23:15:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
- <176282517011.11952.1566372681481575091@lazor>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <176282517011.11952.1566372681481575091@lazor>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+ <20251014031425.93284-2-cuiyunhui@bytedance.com> <aQixsIQXTjYyhRVj@willie-the-truck>
+ <CAEEQ3wk5Ru4-=4Ecnc6kQAAbR57806xxYTz0o1z4KfgZE6Cg6w@mail.gmail.com> <aQ3v15yrm9JaWgrm@willie-the-truck>
+In-Reply-To: <aQ3v15yrm9JaWgrm@willie-the-truck>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Tue, 11 Nov 2025 15:15:21 +0800
+X-Gm-Features: AWmQ_bnoZJigBSCLU3lJje6heEEH-Frt6iL4puU2iLrcXPWUx0zHPoaDlQHxw1Y
+Message-ID: <CAEEQ3wnC-xGZ_m4+vJ42KzU4DdQb1CGfZh_=Nz5wkFuXKS7Y3w@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v4 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: Will Deacon <will@kernel.org>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	dianders@chromium.org, johannes@sipsolutions.net, lihuafei1@huawei.com, 
+	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251110_231538_867722_A9BEB4E7 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,48 +105,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 02:39, Stephen Boyd wrote:
-> Quoting Tudor Ambarus (2025-10-20 00:45:58)
->>
->>
->> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>>> --- a/drivers/clk/samsung/Kconfig
->>>> +++ b/drivers/clk/samsung/Kconfig
->>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>>        status of the certains clocks from SoC, but it could also be tied to
->>>>        other devices as an input clock.
->>>>  
->>>> +config EXYNOS_ACPM_CLK
->>>> +    tristate "Clock driver controlled via ACPM interface"
->>>> +    depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>>
->>> I merged the patches but I don't get why we are not enabling it by
->>> default, just like every other clock driver. What is so special here?
->>
->> Thanks! Are you referring to the depends on line? I needed it otherwise
->> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
->>
->> ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
->>
-> 
-> I don't understand that part. The depends on statement "COMPILE_TEST &&
-> !EXYNOS_ACPM_PROTOCOL" is equivalent to COMPILE_TEST=y and
-> EXYNOS_ACPM_PROTOCOL=n, so are you trying to avoid
-> EXYNOS_ACPM_PROTOCOL=y when COMPILE_TEST=y?
+Hi Will,
 
-This is the standard kconfig module dependency to avoid having built-in
-when other is module:
-EXYNOS_ACPM_PROTOCOL || !EXYNOS_ACPM_PROTOCOL
-It is used everywhere and already documented.
+On Fri, Nov 7, 2025 at 9:11=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
+>
+> On Fri, Nov 07, 2025 at 10:42:25AM +0800, yunhui cui wrote:
+> > On Mon, Nov 3, 2025 at 9:44=E2=80=AFPM Will Deacon <will@kernel.org> wr=
+ote:
+> > >
+> > > On Tue, Oct 14, 2025 at 11:14:24AM +0800, Yunhui Cui wrote:
+> > > > @@ -306,3 +307,85 @@ void __init hardlockup_config_perf_event(const=
+ char *str)
+> > > >       wd_hw_attr.type =3D PERF_TYPE_RAW;
+> > > >       wd_hw_attr.config =3D config;
+> > > >  }
+> > > > +
+> > > > +#ifdef CONFIG_WATCHDOG_PERF_ADJUST_PERIOD
+> > > > +/*
+> > > > + * Safe maximum CPU frequency in case a particular platform doesn'=
+t implement
+> > > > + * cpufreq driver. Although, architecture doesn't put any restrict=
+ions on
+> > > > + * maximum frequency but 5 GHz seems to be safe maximum given the =
+available
+> > > > + * CPUs in the market which are clocked much less than 5 GHz. On t=
+he other
+> > > > + * hand, we can't make it much higher as it would lead to a large =
+hard-lockup
+> > > > + * detection timeout on parts which are running slower (eg. 1GHz o=
+n
+> > > > + * Developerbox) and doesn't possess a cpufreq driver.
+> > > > + */
+> > > > +#define SAFE_MAX_CPU_FREQ    5000000000UL // 5 GHz
+> > > > +__weak u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> > > > +{
+> > > > +     unsigned int cpu =3D smp_processor_id();
+> > > > +     unsigned long max_cpu_freq;
+> > > > +
+> > > > +     max_cpu_freq =3D cpufreq_get_hw_max_freq(cpu) * 1000UL;
+> > > > +     if (!max_cpu_freq)
+> > > > +             max_cpu_freq =3D SAFE_MAX_CPU_FREQ;
+> > > > +
+> > > > +     return (u64)max_cpu_freq * watchdog_thresh;
+> > > > +}
+> > >
+> > > Why does this function become __weak? Neither arm64 nor riscv overrid=
+e
+> > > it afaict.
+> >
+> > Would you say there=E2=80=99s any particular issue here? If some archit=
+ectures
+> > might need to override the hw_nmi_get_sample_period() function later
+> > on, wouldn=E2=80=99t __weak be a more reasonable choice?
+>
+> __weak is pretty brittle (it can depend on link order if you have multipl=
+e
+> targets) and I suspect it prevents inlining when LTO isn't enabled. It's
+> cleaner and more robust for architectures to provide their hooks by
+> #defining the symbol, as is done commonly in other parts of the kernel.
+>
+> But in this particular case, it's completely unnecessary because there
+> isn't an architectural override and so this function should simply be
+> static.
 
-Now, the only difference here is that !EXYNOS_ACPM_PROTOCOL is actually
-not meaningful for the driver, because it is not an optional dependency,
-thus we allow this only for compile testing, therefore:
-|| COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL.
+Since the function is declared as u64 hw_nmi_get_sample_period(int
+watchdog_thresh) in nmi.h, it cannot be static.
+I will remove the __weak modifier in the next version.
 
+>
+> Will
 
-Best regards,
-Krzysztof
+Thanks,
+Yunhui
 
