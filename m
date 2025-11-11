@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222B8CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04887CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wobJU44FbdXVx/EG8UhsBKErOOVsOY4d7OoppyD2Ck=; b=CaqkLb1j37gNo8oFB68piteJF7
-	qlVJk0ZoSDLYuDO60YrBMZlnLD9tbmda+qpb6FWbmj/WIcT4m2GPjcXq7XYgukJLGbcHdB2bCeyvZ
-	81GvpUuW6AW69gYL5gpFLUybb988s+P9NSz82QVUSNldMFCsLvJsf5Bavak3jnf8pxzarRs17JCME
-	GJVc8CONsK8esmiLeZXikKHtQmc/J2v/6njsjcV7tJtJaCMv/UsA1EsMy5i2FlNFgrBuANdEVH/s/
-	tcvbV9yZ0XERTrJG+1zYlYtJAdIUFmA6uVNZFUFs6OWPgEaPmKawnsAkxtYHX/RHD5nZBXL8OXmsk
-	PswBT0YA==;
+	bh=DXSbtNa/8HGcN26NDfFmNPbrsVA0ceNG7FgLoJ6Ziys=; b=KYmJAigQRHeUUWpG29/ag9vq+3
+	uTQ0c669PCnXNYbPADUC2e1OLkZIoLrghPY5lVmMhchoelXMS5OIIhw8yr9FzYHP9TBv7LFq5dG1X
+	KeL4+JG7zTxQlOsVi5xFzY+2ls4mHhhaGAnAftoN1UwmQB3RYfcI0z3Qx5xjzwxPzEI6N3GcYYtC8
+	3lV0BEid+la7+saaGDdaZgge9b1jWmewxfZMkBP2PWD5Bl9EyMfiXjMDhbzY6BwpffmkEvQ7oCtNo
+	EFJlmZ4+B3cU03y6xpw6gVVsC7DPvl1iw+6MGLKvTu765KJxazuCz7v5/X6zn3oPrJIqZWI4YNbpM
+	xmYmDdmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIihe-00000006gF9-3y29;
-	Tue, 11 Nov 2025 07:22:10 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1vIil5-00000006gR6-01K2;
+	Tue, 11 Nov 2025 07:25:43 +0000
+Received: from mail-m16.yeah.net ([1.95.21.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIihb-00000006gEj-02Uz
+	id 1vIil1-00000006gQn-3CHg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 07:22:09 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id D4EB91F8F8;
-	Tue, 11 Nov 2025 08:22:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1762845722;
-	bh=1wobJU44FbdXVx/EG8UhsBKErOOVsOY4d7OoppyD2Ck=; h=From:To:Subject;
-	b=TG9lRsm8pjrZqpoqUUVuiGyTRhqidSf//xB2/+myPNdtsedGGCFUQnOf6MkUJ5Ld1
-	 QoV+sZT//uxynxEgVpBQcRqc7HTwR06BZ+uXuUtfiBgbjn+h7/EPIQ7GCujyKqv0S8
-	 7RL8r3FPG9y1xllJre/Z010UGeKL4fzptRm8avlFDsGx7wVbkif4TP5EJhlMpTZ5Co
-	 5It5ydVvmtjpjALWUgE2RZ2+gIrcZ/UfOXz3lMn3fYaStjk4ms8s6QIPLMZDGjS488
-	 mIK7DCq+Bmqs0J7321dm8/a72EjkrUv04gXMmqjmrBOXl7WolvYJhmXCI6c6zDLSxI
-	 AcNqW3bW8QREg==
-Date: Tue, 11 Nov 2025 08:21:58 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Tue, 11 Nov 2025 07:25:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=DXSbtNa/8HGcN26NDfFmNPbrsVA0ceNG7FgLoJ6Ziys=;
+	b=kuZ/33BO1A5NZNYEaLRHjhouKPLdrH7xX6pZHYgBgZKhpT/Q5SoGP8/CZTh+SM
+	R81shMTV6w0+O/8jxL4woap2+7cqN9vGzsuIal3uN0f9yT8voCbd+dX7O+mHUhZs
+	eUon3+QD+qriOHSny9y3lZ2pD8SGBR6HLIFbjaAp3h1VM=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgAHhmfi5BJp+fTBAQ--.5059S3;
+	Tue, 11 Nov 2025 15:25:24 +0800 (CST)
+Date: Tue, 11 Nov 2025 15:25:22 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] ARM: dts: imx: move nand related property under
- nand@0
-Message-ID: <20251111072158.GA8423@francesco-nb>
-References: <20251104-gpmi_dts-v1-0-886865393d0f@nxp.com>
- <20251104-gpmi_dts-v1-3-886865393d0f@nxp.com>
- <20251105115538.GA17091@francesco-nb>
- <aQttQb5GesjUtBw6@lizhi-Precision-Tower-5810>
- <20251107155201.GA119737@francesco-nb>
- <aRIPAagk2tzqnoSB@lizhi-Precision-Tower-5810>
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 0/8] arm64: dts: imx8dxl related fix and minor update
+Message-ID: <aRLk4uAnXFyMAzEf@dragon>
+References: <20251022-dxl_dts-v1-0-8159dfdef8c5@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aRIPAagk2tzqnoSB@lizhi-Precision-Tower-5810>
+In-Reply-To: <20251022-dxl_dts-v1-0-8159dfdef8c5@nxp.com>
+X-CM-TRANSID: M88vCgAHhmfi5BJp+fTBAQ--.5059S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Jw1rJF45trWfAF15XFWrXwb_yoWxKFg_u3
+	90gF1ku3yUtr4fJw42van5u34UKw48Ar1DWryFg397X343XF15ua4vv395W3yxXFW3Zr1D
+	CFyUJw1xXa15WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbzVbPUUUUU==
+X-Originating-IP: [117.80.155.87]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiOQVRtmkS5OUapgAA3d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_232207_956759_3A6B7B82 
-X-CRM114-Status: GOOD (  32.42  )
+X-CRM114-CacheID: sfid-20251110_232540_119072_EACD96DC 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,72 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 11:12:49AM -0500, Frank Li wrote:
-> On Fri, Nov 07, 2025 at 04:52:01PM +0100, Francesco Dolcini wrote:
-> > Hello Frank,
-> >
-> > On Wed, Nov 05, 2025 at 10:29:05AM -0500, Frank Li wrote:
-> > > On Wed, Nov 05, 2025 at 12:55:38PM +0100, Francesco Dolcini wrote:
-> > > > On Tue, Nov 04, 2025 at 05:27:14PM -0500, Frank Li wrote:
-> > > > > Add child node nand@0 and move NAND related property under it to align
-> > > > > modern nand-controller.yaml.
-> > > > >
-> > > > > Fix below CHECK_DTBS warnings:
-> > > > >   arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtb: nand-controller@1806000 (fsl,imx6q-gpmi-nand): Unevaluated properties are not allowed ('nand-ecc-mode', 'nand-ecc-step-size', 'nand-ecc-strength', 'nand-on-flash-bbt' were unexpected)
-> > > > >         from schema $id: http://devicetree.org/schemas/mtd/gpmi-nand.yaml#
-> > > > >
-> > > > > Since 2019 year, commit
-> > > > > (212e496935929 dt-bindings: mtd: Add YAML schemas for the generic NAND options)
-> > > > > NAND related property is preferred located under nand@<n> even though only
-> > > > > one NAND chip supported.
-> > > > >
-> > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > ---
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi           |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi              |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi      |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi           |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi                |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts                 |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi               |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi  |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi               |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi            | 12 ++++++++----
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi   | 12 ++++++++----
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi      |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts          |  6 +++++-
-> > > > >  arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi               |  8 ++++++--
-> > > > >  15 files changed, 82 insertions(+), 22 deletions(-)
-> > > > >
-> > > >
-> > > > Was any of these changes tested? Is the driver able to cope with the
-> > > > binding change?
-> > >
-> > > I have not board to do direct test. This format is used at imx8 platform,
-> > > which use the same gpmi driver.
-> > >
-> > > This properties are parsed at mtd common part
-> > > drivers/mtd/nand/raw/nand_base.c
-> > >
-> > > If you have one of above board to test it, it will be appericated.
-> >
-> > I did a minimal boot test, on colibri-imx6ull, and the board was booting
-> > fine, with Linux 6.18.0-rc4 and this patch applied.
-> >
-> > I am wondering if there is any impact with the bootloader, this DT is
-> > used as it is also in U-Boot, and there the NAND driver is for sure
-> > different. Any comment on this? I was not able to test this combination.
+On Wed, Oct 22, 2025 at 12:50:20PM -0400, Frank Li wrote:
+> imx8dxl dts some fixes and minor update.
 > 
-> Uboot should have theirself tree, which copy dts and not direct use it.
-> I worry uboot parser kernel's dtb to do some hot fix for specific boards.
-> But most likely not related these proptetry, maybe just add partitions.
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Frank Li (7):
+>       arm64: dts: imx8dxl: Correct pcie-ep interrupt number
+>       arm64: dts: imx8dxl-ss-conn: swap interrupts number of eqos
+>       arm64: dts: imx8dxl-evk: add bt information for lpuart1
+>       arm64: dts: imx8dxl-evk: add state_100mhz and state_200mhz for usdhc
+>       arm64: dts: imx8-ss-conn: add fsl,tuning-step for usdhc1 and usdhc2
+>       arm64: dts: imx8-ss-conn: add missed clock enet_2x_txclk for fec[1,2]
+>       arm64: dts: imx8dxl-ss-conn: delete usb3_lpcg node
+> 
+> Shenwei Wang (1):
+>       arm64: dts: imx8: add default clock rate for usdhc
 
-U-Boot just sync the device tree from Linux, copying those, for some
-boards (depending on the usage of the so called OF_UPSTREAM).
-
-You cannot think at this change affecting only Linux.
-
-Francesco
+Applied all, thanks!
 
 
