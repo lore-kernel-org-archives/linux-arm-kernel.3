@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43540CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FA0CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=; b=uGXmAlfLk6dSwiCHIm9BRFLhf+
-	EKbkWJMHd8hpfGcl1BVN7kJpDS1KlK6aFqsYt7qH3BVRs4/rVS1+TWBRIXGka8ygpRMWpYKDq9p2M
-	4epzJNLmldJLH9GKhM9TtFp9R4XJgDl826fY7wsGkTREi8WOu7exuFY/5InoMzWwMxw8JH4aBOn4V
-	DfseRzmEZ+w5l/+pr5GtUSoDqofpbkxvkZj9jK3K4xAunYXOpIrujUZzN8q9tb11XEFdBFLzPgxXE
-	qpYuS7S2VEJ13TgLqzth4r6eeNJdMvANxoiB+f+zefob0ETfrgOlociGHlrG/GadVKS1g/eOFkNHN
-	f0qnacKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0CPqhqkeH98Jehar5zRbbVvK5ZUTsPuofvVgneKo834=; b=cWC7EGgOukKhN+
+	zZzkAAyqUQJuccr/yBzfXl+94XEjgi4FG8Toxt9PRpmYuFVJ9DDBSAToBdFfT5+WDZMIcDAWIpPbz
+	H1SOZP+z+1lZpqaynnpMrtfu4qSiOY6mf9u4HSj+pCnLnkJpgGkNqTw3RplRZDwD0vSyj47pm9d8R
+	CgFFbU2UgSOZn5+H/TSQOjrQHYp946gM+prqnMCCqe2i6FbSAR8TLU9x379mmw/JC+F5HldhBYEdA
+	bS31knXHTgH6pXq/ZJFRrXtWVJ0nozbwTykkxQ7xLoC5tidBOLU87cN/hHhk2763RhJjrAub/dSLb
+	TLgn9La3EdEX/VjINEeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItVv-00000007du6-0ARN;
-	Tue, 11 Nov 2025 18:54:48 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItVt-00000007dtd-0QYo
+	id 1vItaE-00000007eDh-1Mv6;
+	Tue, 11 Nov 2025 18:59:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vItaC-00000007eCw-015k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 18:54:46 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b32ff5d10so732529f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 10:54:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762887283; x=1763492083; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=;
-        b=Wh0ZH3lBIrhP2NEBguVzzMjMxXoiyfhw9py0lHqd66ls1PcZzJblqlQjbGk0NrreK+
-         yTBHhc0i4I8wPj5Cz90/fmajkscelhKdr7yg23HbKWweLGja1nP+StuGejX02e+0O4Jd
-         KGbOzV6uhiaSy15aGuLhXpPZBDQgjIbSkwbdw+aQRa9RL2I+joG7v4KUdS+RuCUMroDN
-         8PcywQosGeq1CiCV5Olnb3CInpHCqBZkSPJ9duZkYMhizkXeEGfKTyPIeN420NJxs7IY
-         4U5iICAbzJCeVg6NQGQAK+/+PhTRw8yjngOiysfIbDMqp6cNoFdJfTu+Vbay2XVafugU
-         f0tA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762887283; x=1763492083;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PdRUynOgPlBXPJo6ql5MWyX9Riir7hsBESxiC86Kk1c=;
-        b=V2vmQa0kGAVz8aINIc47CP8i6DURyLthBaPLT2fetUCzX4tKfFz3LrfeC6jA2+UWAJ
-         sOOWj2sXy975LaaZmAnuzyHrISwN5ADbnPh8E2OqewO0n+wqcTuN4GFZ1hMwKynleITg
-         ggYpwBov0lHTmiFLLTys4OEekGathDLiR/FnSp/FlVpqCviS/0i357FwUvENoBjYhQXU
-         MJ1DSMWYzyytoop78F9jkIeuSCBt8aNfsnn8SNOGcEYBE0U6sVZgMUBREo+BMw94xUFG
-         MhbTC9A4BlkBDR9TUaz7zfL/UkPfQ7S6Bhy8J3huFerAhcPBHPljo9DqvVVEk0imhJ0K
-         aVHg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGJ0WS1INeTTZxk8MuTfI1hG72bgKSmeL3PMh/uXJ1bb4qMvFVrgYL6UK6bX6XQbzrqhgSV17kfHhjLFWQrBWH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/VahLdP03dGlrKHMhAOv1bbr/qkUINuC3fr8ic/e+Y5cndlT/
-	v0xxNTGZYXnTZOv+0TiEpFK5EnHCGByoGDHEamdxFYrlT8yIBjof8/5d
-X-Gm-Gg: ASbGncs2b0SW0kuvxw4+V2NhYJm0Bbnm1hyRXq3rtqLNW9TmRNaQSNfO9V+UVMnVwUe
-	2LbIijXKIFOl1lME7WRAzNuZy66ib50ziem28Y/n1HfwML5S9S8IEgpU4wRQvvI0UjIKNTgr0NQ
-	NBEL3qmzxRv0PmSZEWlWVkM79WpuJl2Etf6FeCDqIeIUNLPhjLrSposmoBUq7nwAtsV7Z3weh0Y
-	hBajIgh45v0exIgwsG7E07InYuW4KP9JamUXPf/Es3cyhz57wq9iUOIS4h0AzdvS4IvjU2Rd0xh
-	QT0a6jlQov39yYRCacdt7Q4ihDLb434aKBL0p86vugO9sy80zH1djm5cxe4lcY/0CZCfvKwgES+
-	sUOfQ9138ZlkCHU081zy0+0qspQCwxNpDS1wS9IWyYywu/M4ARVU6UByxYh/vIXqRS4ZnkayWoh
-	3AxCikhWccRw==
-X-Google-Smtp-Source: AGHT+IGd0fmmG6z7kuRrMZdV6g6rc2EMUpgF61dCExt4OzGkFObjrnlzVeQMOCeTSTsuKBksjsQQTg==
-X-Received: by 2002:adf:a41b:0:b0:42b:47ef:1d59 with SMTP id ffacd0b85a97d-42b47ef221bmr2063764f8f.4.1762887282987;
-        Tue, 11 Nov 2025 10:54:42 -0800 (PST)
-Received: from osama ([197.46.148.47])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4776bcd51dfsm271008845e9.5.2025.11.11.10.54.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Nov 2025 10:54:42 -0800 (PST)
-Date: Tue, 11 Nov 2025 20:54:39 +0200
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: add missing newline to sysreg init log
-Message-ID: <aROGOivTetFI01S_@osama>
-References: <20251110211051.814728-1-osama.abdelkader@gmail.com>
- <86346kvr00.wl-maz@kernel.org>
+	Tue, 11 Nov 2025 18:59:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA133497;
+	Tue, 11 Nov 2025 10:59:00 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8B0A3F63F;
+	Tue, 11 Nov 2025 10:59:06 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v6 00/11] CoreSight: Refactor power management for ETMv3/4
+Date: Tue, 11 Nov 2025 18:58:34 +0000
+Message-Id: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86346kvr00.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFqHE2kC/43NTQrCMBAF4KtI1kby23ZceQ+REuK0zaKNJKUq0
+ rs7LaK462IW78F878UypoCZHXcvlnAKOcSBQrHfMd+5oUUerpSZEsoKEMBd6msfE+bQdmN9i3d
+ Mde8G12KPw1g34cGlhqrUDRiFFSPolpDqdeR8odyFPMb0XDcnvbQfXtot/KS54OgMIEipDPoTP
+ R187NmCT+YLSqHMJtAQWIDAAhxdWf6D9gdKoTeBlsCmEtpLcE5a/QPneX4D+N/VHHQBAAA=
+X-Change-ID: 20250909-arm_coresight_power_management_fix-139873f942e8
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762887546; l=3431;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=AUa+cLtfupPZJoe9CMwSusOUgRHSghEhl0mCfbu4mbg=;
+ b=2huf4Jjn09c/N699ywsS4CS/Kx0hr1+PTlERuJNM30uNmTjcOq3sN3rt6GaKWqGw5zLD/HSAB
+ 7AbvTv9n0TABT7m4HrFjS7S7s0QBixNggwDDu7JNvABE1A3U5pL7ZXC
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_105445_175466_19048A86 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20251111_105912_169978_51F6986A 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 09:49:03AM +0000, Marc Zyngier wrote:
-> On Mon, 10 Nov 2025 21:10:51 +0000,
-> Osama Abdelkader <osama.abdelkader@gmail.com> wrote:
-> > 
-> > missing newline so the  message is merged with follow-on logs
-> > the change only affects console output formatting, no behavioral impact.
-> > 
-> > Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-> > ---
-> >  arch/arm64/kvm/arm.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 870953b4a8a7..156cd1a6106e 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -2845,7 +2845,7 @@ static __init int kvm_arm_init(void)
-> >  
-> >  	err = kvm_sys_reg_table_init();
-> >  	if (err) {
-> > -		kvm_info("Error initializing system register tables");
-> > +		kvm_info("Error initializing system register tables\n");
-> >  		return err;
-> >  	}
-> >  
-> 
-> Given that everything in kvm_sys_reg_table_init() already screams
-> badly when it fails, I don't see the point of an additional message,
-> and I'd rather remove it.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+This series is extracted from the CoreSight power management fixes and
+refactoring [1], focusing on ETMv3/4 power management.
 
-Thanks Marc. I just sent the patch to drop that message.
+This series has been verified on Juno-r2 platform.
 
-Thank you,
-Osama
+[1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
+
+---
+Changes in v6:
+- Added a 'retain_ss_status' flag to indicate if need to restain
+  single-shot status (Suzuki).
+- Introduced __etm4_disable_hw() without calling
+  etm4_cs_{unlock|lock}() pairs, which is convenient for the save
+  callback (Suzuki).
+- Link to v5: https://lore.kernel.org/r/20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com
+
+Changes in v5:
+- Added more info for removing redundant DSB in
+  etm4_{enable|disable}_trace_unit() (Suzuki/Levi).
+- Dropped moving isb() out from etm4_{enable|disable}_trace_unit()
+  (Suzuki).
+- Reordered patches to move fixes earlier.
+- Link to v4: https://lore.kernel.org/r/20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com
+
+Changes in v4:
+- Added patch 10 for retaining sequencer state in ETMv4 driver (Mike).
+- Added Mike's review tags.
+- Added James' test tags.
+- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
+
+Changes in v3:
+- Fixed building failure in ETMv3 driver (kernel test robot).
+- Refactoring ETMv3 change for checking CPU ID (Levi).
+- Fixed NULL pointer issue during CPU idle (James).
+- Fixed lockdep complaint for HARDIRQ-safe and HARDIRA-unsafe (James).
+- Fixed acquiring mutex in atomic context (James).
+- Rebased on the latest coresight-next branch.
+- Link to v2: https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com
+
+Changes in v2:
+- Refactored ETMv4 suspend and resume for reusing the normal enabling
+  and disabling flows (James).
+- Used a per-CPU structure to maintain path pointers (James).
+- Supported helpers in CPU PM flows (James).
+- Fixed the SMP-safe access to device mode.
+- Fixed the context synchronization in ETMv4x driver.
+- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250516160742.1200904-1-leo.yan@arm.com/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+
+---
+Leo Yan (11):
+      coresight: Change device mode to atomic type
+      coresight: etm4x: Always set tracer's device mode on target CPU
+      coresight: etm3x: Always set tracer's device mode on target CPU
+      coresight: etm4x: Correct polling IDLE bit
+      coresight: etm4x: Add context synchronization before enabling trace
+      coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
+      coresight: etm4x: Remove the redundant DSB
+      coresight: etm4x: Remove the state_needs_restore flag
+      coresight: etm4x: Add flag to retain single-shot status
+      coresight: etm4x: Retain sequencer state
+      coresight: etm4x: Reuse normal enable and disable logic in CPU idle
+
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  59 ++--
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 358 +++++++--------------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  64 +---
+ include/linux/coresight.h                          |  25 +-
+ 4 files changed, 172 insertions(+), 334 deletions(-)
+---
+base-commit: b139702a889692ec30702534ebb1ae2b11ed1cbf
+change-id: 20250909-arm_coresight_power_management_fix-139873f942e8
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
