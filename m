@@ -4,125 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE99CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E391DCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFI7M+6j2JewnD4BwkGRc0QPG+RPFm6rGXiCORxPrVE=; b=deDbjwEXFuTSO6ZFJ6ZX/yx/VN
-	7ZVXi1rUkfH+IXb+AowdssNxt6gu/RDJ7R7pa4Ecpawe0HL9bk50JgEEFC70WFXFb3lA4/Op3XfUL
-	1tbzPPO0vkYnyl/ucFCTfSBB4Bw3Pz5IkKj8TBe9xpApmC1HjwVEvNsS/k/LivzlCEwDjhgC8S+Yp
-	/bAMg3DG13fTNcNXemGW0pjMf023d4ejr1t6Fo4xS5uvs+BydgGf28CgqyUc3zGZLZZVZg3KsDGed
-	m6gRJ6woZN0ZSjsmT6gTCusQzQDPUSHZH1bejrFOw+S8fgbwziB7S511Z6Z+BXKXQq2aw3TWAL6K0
-	XJg4eZPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fVHpCHvQ47f5iWcrX4oQeHG5YgwNSa7p4h0+Wppk76k=; b=EUaE29VwI0YBf1fc1x/O/0lfoy
+	dFEodEI2RAwC7bQPONdn1TG8JQd1lnS2mG8Zrui6hyiJkN8s6ECs2m+cgR6YVW5NsF/J3sGXxeWoy
+	vYOGkZ4HZ/zDsr72rRXnNDdm/1798QoqKjs7F/27hFGiP4SFgF9XbX9p5ziQFd/FG4IqdAF8RoyBq
+	WBwiSt2t2Kp+1ncOCNiygE6w17TzL5KVmcAyat4LRdwq6Gg2rq55DrOFh7z9QiRtGiy/1s76GBvL1
+	ihqa5St2tW8EqQmDLrpujhhR17pr+hFUN3eu2BW+EvLaLEAFP9MyMHF+GvXY0BN7KtvQk1kpgEXai
+	H+3T1EBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlzL-0000000710X-1KIV;
-	Tue, 11 Nov 2025 10:52:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vIlzR-0000000715U-0mSZ;
+	Tue, 11 Nov 2025 10:52:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlzK-000000070zC-0bCu;
-	Tue, 11 Nov 2025 10:52:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pFI7M+6j2JewnD4BwkGRc0QPG+RPFm6rGXiCORxPrVE=; b=N5f4kfhBItzFLs9w3KkYfvxi9O
-	aA/wpQ9mtSgIsPnjsoJwrpw4Ns4rHOirNFNZklEAXgdipjPQaEbtaS2fNHG5dgoTD8P6J+pH/Ozkk
-	GgO0Kyn2wrzsWoJU4bu/uIzJq2ycXVmKaPxClm+FhjlhnlOL3gDagwrIX9s55DY9TW+GsUYed/Kho
-	DEEaZgotbdQBXl+OiXGSxXvLz+/HVfg6g+GaseS3irg49rUfIYhCLNiDg7uA13XgJujQ3N0D9GM/r
-	kG+nTjmFG7ALfVudQ9rqklD44Aa64BJnkDunU6znXC579XKqeSJtdYpmsF8ujmP7EsXYHjQO8SMe6
-	FFc0U+Sg==;
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIl7a-0000000CxjE-1QBx;
-	Tue, 11 Nov 2025 09:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1762858294;
-	bh=pFI7M+6j2JewnD4BwkGRc0QPG+RPFm6rGXiCORxPrVE=;
-	h=From:To:Subject:Date:Message-Id;
-	b=GuOEd/RzZKVauL9RE22Jun37P32CADUx8LslqLk68IcSmkIbcIKProj9OxzLUbfDV
-	 kWfwbRlOdU2EyMtP3GRd8mH2yRptWPuSn3OKzv4PaswoEfvzX36OGeRaic7ac4xOTa
-	 q/T864jm6PVFuZBpH5nUSkRfmqUIOdfB/IrobVWs=
-X-QQ-mid: zesmtpsz9t1762858287t5941ed20
-X-QQ-Originating-IP: oggRwoMydKBDH0LmcR8KzliYg47YhSd7rMeyclg9ztc=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 11 Nov 2025 18:51:24 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15062605320672791780
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v9 09/10] arm64: dts: rockchip: Add missing dp_out port for RK3399 CDN-DP
-Date: Tue, 11 Nov 2025 18:50:39 +0800
-Message-Id: <20251111105040.94-10-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20251111105040.94-1-kernel@airkyi.com>
-References: <20251111105040.94-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NJ8AO1QhldfJoDDr/XkLuMY1LVIRQJMBVyeMyuYgLts/HGgoS2B9NTnn
-	piM5XnUclVMh5nhEnK8Tb09cQ6ZyqrEHBH9aOrqV/aEb+rVBs0F9MtcsbeJtWuWfgSvnc8I
-	zyGlydbvwnQKn+01M1lYvAMB6cmocuIZG3oWp84rhMUB0Rvo8VCh2U1pFzt1nZ0KUntyGaD
-	XMxWwSx2sRvjWgT+wA9n4TbbV6bxeIaVr/rxcNoN5/h01nxWcKb3jy1hTXVmjx6uUaoUfXA
-	1GhCPd/BedyaozTr8D9QIpTt+rapaVGbr7eSK+bsORIAPPFDwPWMhLM4l8sRh0AnSG+3FH3
-	m/IT4njcE51xd1ScnL8/ZvGr4PPeecqh1GN+JIjoZ1Qp6iockS95vnY2fiYAcTSXRPq7xQO
-	AN0s+8WjNpl3aUD6+lamGmyjdilN2/Y+DgfFmKSQyjUOOqi+lXB03DZA7xyuzX1Bx4H2Q0b
-	GYkWmvA6wVRf0mFcSYlx7PvZBBq9HU9ngBmHv02mTEkoekL2+1tbGdLPSp50fzkFJtd2q0G
-	Pkg7rqKDv3h7lfDp6xkAP8YZH22WHh8tgcWXIBLFtX3xIyzrCVeRBt5YeM0se+0gI2dqroQ
-	hf1ODcoWPxs2cIjH4aXD2o7e0dH6UL6grfgCjDUk5CUhc3yrA0wLxtmIpEzOBZXU4A8SbS0
-	ED78B+yXgk6tKR0U7CT427A+4O/59pPeelGDYcOlKeXth27CrDkA572HESLHt23kvMwNTi4
-	G9xpIqrLxe/HKBYqwU0DGIOOtu2jnbAz1LDf2pMm6az016tWdvlBaRi7QhL6ovqxnLJ99LP
-	QYNwxrmflOpV8KyKqCMy3KnqbUv+pew0ajS/jdpgIrGM5C9tFl8SoD2fgGsSqaRP4CKPztZ
-	2ZbGcRXI8ytCMKOj5e1MxdFLoUJkraCqrKjLS4gmK6RmFjoHy41V/I0b6rj+RZVqr7PvJ3x
-	3iN16yJTpRk9ZRsldLZyYkf7dpendSO5RAl9qdogID2PG9bRInaeqjxMoZqHKMFgffQoYaa
-	qfl/YwhQ==
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_095707_043887_E5B3A6C9 
-X-CRM114-Status: GOOD (  10.48  )
+	id 1vIlzP-0000000714Y-3Z41
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Nov 2025 10:52:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DE3261903;
+	Tue, 11 Nov 2025 10:52:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC98C4CEF7;
+	Tue, 11 Nov 2025 10:52:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762858362;
+	bh=cCTD0QyA+uggkV48vUm1Ubz+S0RgdiJM+7/WyAymWdc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UiunqGTeK7ax2HSruGmUA2ckMrYezgj5CGhYF+Z+s/iiYi36SDWlRpBaVYjWrxlZS
+	 GpPdAsRvF0BglDIkxrFbCJuKmhQU6Ygj/NY0EFYH8DHlGZJBmmdjDKxUGAYPDPupjR
+	 /2bys/99YcNICpdjQwVITk6rPtHpBHe2J8frUZHn5BaBKzWXAcTID5KJwIwWAnD/Jd
+	 7Cb4TBUQ3Ceqg2ovdikN1d5VO+S5VQtUgGJTB7NhgAGNCzLebZw6AsvEfJrkuOjtve
+	 LE5l5VnFFcZfobF9oA8rRZ0rp8bB76eUildr3C2+L0M+SQFMAxBWUB0AzlCJUlBH1y
+	 +gRpYZED1x9Kw==
+Message-ID: <f372ea12-b8ed-4372-8657-96f09a6d4fec@kernel.org>
+Date: Tue, 11 Nov 2025 11:52:38 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] dt-bindings: arm: keystone: add boot_* mailboxes
+To: Anshul Dalal <anshuld@ti.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,53 +116,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On 11/11/2025 11:37, Anshul Dalal wrote:
+> The bootloader on K3 devices makes use of mailboxes as per the ROM spec
+> which might be different than one's available to the kernel (firmware
+> spec).
 
-Let's make the ports nodes of cdn_dp in the same style as the other
-display interface, and match the style of ports's yaml.
+Why is this RFC? You don't expect review?
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
+> 
+> Therefore, this patch adds the missing mailbox entries to the DT binding
+> to represent the mailboxes exposed by the hardware during boot for the
+> purpose of loading the firmware.
+> 
+> Signed-off-by: Anshul Dalal <anshuld@ti.com>
+> ---
+>  Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml | 10 +++++++++-
+>  1 file changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+> index 25a2b42105e541cb3c8ad12a0dfec1af038fa907..b5f48647a0f09bb930f052ea0f84a78525c925eb 100644
+> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+> @@ -51,15 +51,23 @@ properties:
+>      minItems: 1
+>  
+>    mbox-names:
+> +    minItems: 2
+> +    maxItems: 6
+>      description: |
+>        Specifies the mailboxes used to communicate with TI-SCI Controller
+> -      made available from TI-SCI controller.
+> +      made available from TI-SCI controller. All boot_* mailboxes are used by
+> +      the first stage bootloader to load firmware for the device.
 
-(no changes since v5)
+Description does not go to mbox-names, but to mboxes.
 
-Changes in v4:
-- Remove unnecessary #address/#size-cells
+>      items:
+>        - const: rx
+>        - const: tx
+> +      - const: notify
+> +      - const: boot_rx
+> +      - const: boot_tx
+> +      - const: boot_notify
+>  
+>    mboxes:
+>      minItems: 2
+> +    maxItems: 6
 
-(no changes since v1)
+You need to list the items instead.
 
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+>  
+>    ti,host-id:
+>      $ref: /schemas/types.yaml#/definitions/uint32
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-index 4dcceb9136b7..93b42820998f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-@@ -618,7 +618,11 @@ cdn_dp: dp@fec00000 {
- 		status = "disabled";
- 
- 		ports {
--			dp_in: port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dp_in: port@0 {
-+				reg = <0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -632,6 +636,10 @@ dp_in_vopl: endpoint@1 {
- 					remote-endpoint = <&vopl_out_dp>;
- 				};
- 			};
-+
-+			dp_out: port@1 {
-+				reg = <1>;
-+			};
- 		};
- 	};
- 
--- 
-2.51.1
+You should update the example so it will be complete.
 
+Best regards,
+Krzysztof
 
