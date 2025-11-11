@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B160CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 20:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB454CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 20:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4uJ2KWoH7hRkbuzlty8vRN8S3jibYNZfKfT0tHIn+eQ=; b=sUzVyLZmGowI5d6pFP4CdaTJqD
-	kwQShbaZa0l+e5HHK+2h17fZ7eGCTXlfOpZn3LCX2lyiGfCIxi6LvBbzj5TTyuukXDUHBKIXmSOL5
-	thqaJhnJki3ekNg/7onfRras7rbr2EdIFEngrnoMb6mUpZm0Wv9UOcmrS4OLu9KS0ixoe2YoV0IHP
-	VVWfLS8kaYQK6nvYFEx9LAy1FfcQSAsPLBDHX7+OSzlTyK0RKPNHQr9qqhLy1yxB3hsKYOQeYfiWh
-	3dp8qshYf5ORwH3DzEEPL1IanhYMQH4KTVtwcOkh41izY6B/8f6gVcZG4rgyHliXtk19+tHu9uORL
-	HREKwpiA==;
+	bh=TPVkaNl9EMV6ccXR/g+FfiJlVyHBk2JtZsqqU4GjliI=; b=NOfhvoPMIgchD8aRhkhmAbBPid
+	SkAjC7k7Ox8+U3uessBSRkBWEawpJGmlAYMoJdRpx8Zh7D7H0URVP3eaHT75cUGaAkHZ+VR90lPIO
+	FZ2+qVj9bljwwsbEBQdULbd1jJoIOWU5onsoP7I4FvJZX7jSmc2ctSEli/AUAqEfQkSInW5HmVnYR
+	0vO8/e//YR3jb78AMfLJBP5vrPbX5KPQx7YXMuQEizm5sPZLC/mMcCjS1xYV2nHU2XrhJTrluIu7r
+	w4qVa1d0vPQ4P9Xq3EoXe3pOKnSwh21fqzpuqj+rDuj56jbpfJInKw59hUsHzUTiycxTF2aK9ZIAe
+	6l2FoWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIv1U-00000007kDB-35Rg;
-	Tue, 11 Nov 2025 20:31:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIv1Y-00000007kEL-05pe;
+	Tue, 11 Nov 2025 20:31:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIv1S-00000007kCO-2KP2
+	id 1vIv1P-00000007kBm-2nKC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 20:31:26 +0000
+	Tue, 11 Nov 2025 20:31:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A64E560208;
-	Tue, 11 Nov 2025 20:31:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B71FC19423;
-	Tue, 11 Nov 2025 20:31:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C58A43E86;
+	Tue, 11 Nov 2025 20:31:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8654CC113D0;
+	Tue, 11 Nov 2025 20:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762893085;
-	bh=bly4iXqvvGSqP2zva08xAO/t5sO1S1gbYfphuK+S/ec=;
+	s=k20201202; t=1762893082;
+	bh=rT77b2HCYaDvTU3abPqxbFu9KwVZ7Glvk+EqZXcz3ro=;
 	h=From:To:Cc:Subject:Date:From;
-	b=ei7Q/qk0R0mmpdaOxiO3omdVfpWKYUMSjz5LUacfFhMM4mJi7kpe4amn5MQNPXTYn
-	 xDaWtx+TZ7FTiEbS5s28IyebSi0KIqcjcCEhn6D9UalV2ZDeKuJqeZpyek7LZrAdso
-	 H8ZeX5f7x1Lxtkq6B03W0ujoGflYSLIoKGzmcwHAsGXz9gnFCQFgIoKoh64ynFI6H5
-	 fnSv0FRuXlyqjjUraqoVYsOQrnafWbkzomlznPpv19I9LWJ6Hv0a+ycAee6z4T+/tC
-	 upqyryOTt1yQThRueHua0AVcrCJugln5ZKjZrBt1GbnqlopRmNOvAsGpDynWyYO4IA
-	 W1KtPPbosVFug==
+	b=hVejOsfGKcsbAuuyruGaXzWGTgnsPKfc64CZ0NEY05AuorQjA6RtkgLgId0BgSFzG
+	 wmzA0fQgl6tpGVqrY+o8G3hrrvoIMQBkxc+DnDri7udraOWKAoarvRMCJWw7m3/pvf
+	 gCwX2VRiVhpf6ihpKNbja7h0t4ZrfILmdh55t7ruEre+7MT0y9tJyNPPcrctSJj8l1
+	 XtHjBbsHHvFjZvk/eSIk4ShyuaqKUeg4hsC1kZMvXFYeacgAdh4NO8qLQIsFismXul
+	 K/j/sy2UIXu+x0UBixIiAkCOCbkQ18/zVhfXu8xTr+eui7vcmfrY3ajKxTbVSH7R9J
+	 Uyn9ZwPS38f+w==
 From: Eric Biggers <ebiggers@kernel.org>
 To: stable@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -50,12 +50,15 @@ Cc: linux-crypto@vger.kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 6.1] lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
-Date: Tue, 11 Nov 2025 12:29:44 -0800
-Message-ID: <20251111202944.242946-1-ebiggers@kernel.org>
+Subject: [PATCH 6.6] lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
+Date: Tue, 11 Nov 2025 12:29:41 -0800
+Message-ID: <20251111202941.242920-1-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_123123_723792_699D8B44 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,7 +97,7 @@ Signed-off-by: Eric Biggers <ebiggers@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index 3858c4d4cb98..f6323b84631f 100644
+index 847b7a003356..1f684e29cff2 100644
 --- a/arch/arm/crypto/Kconfig
 +++ b/arch/arm/crypto/Kconfig
 @@ -2,11 +2,11 @@
@@ -111,7 +114,7 @@ index 3858c4d4cb98..f6323b84631f 100644
  	  Curve25519 algorithm
  
 
-base-commit: f6e38ae624cf7eb96fb444a8ca2d07caa8d9c8fe
+base-commit: 0a805b6ea8cda0caa268b396a2e5117f3772d849
 -- 
 2.51.2
 
