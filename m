@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05646CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA74CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cqaxmihx5h27rQX77mbu6NSjP7ywzG6yw9rZQkPh/lY=; b=DoAqOQFtSqdZd0n5YnmmJupL8N
-	Kz0OGOydFBkNei5FD0itAfAAZNXpUOc8E5nNJYMs9CnsP6OhIZJWIXPC+YAPUxQnyfvU4ZUQ7Hpz2
-	8XJMhiXO0pgLJz3L0SPttXMEUjeY2xvs8xQ1PF0bY6EOKnxO4Ft2shvPen/9SUv+viHZ1MNGRCfeh
-	De6c2WwRnqWoTzgVRScEMP8FDwJpOnPnIr2K7usdL0FKQknY0EIUAGTmB0/hGJAT/FwhFdsMzosBN
-	Oy9vto8/hyMgx9Cg7Je4jTv3Pw/tnZn+DYjCPEz2HjAABqFgvuhUlyQAMhN/KzyWn+C2fqYrIMFDR
-	pB0Skk4Q==;
+	bh=3vHk8yv00/JQMYrmI8CKdJho/+2xxViBt86X+AiwkXs=; b=0uQOhwtGuNzkU5SSTsxeM5prz8
+	eIeYogfBlKOwJ43xdoaTTI7LvQvu6F2yMdrqZO5VGrEkLSdPcKfOSUJhLS4AoXdlg7+Mc76CKBeG0
+	NP5u4W475Swi5vGUNvGFFom+aXM2lw1md0V32UlxbwZRcWF3FCEXrQqDDe0MGlh/KxVaQqEnOXeXR
+	CmD5jisiTKX9hj0vRYf8C2DCPOa/cgIsxZ0Z+xpVK0LZ8j2JQO64aAcKU8aJ0MW4S63wgpYJIH8Nh
+	InLBzymVRxDmxCFT5quHhAl9JzFD2qdCyPnb8waBaNtiw8lWPKQQpb8MxGHz0RS06+mR6vpu+Fm7H
+	3HkmQS9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkzs-00000006sGy-41Ng;
-	Tue, 11 Nov 2025 09:49:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIkzy-00000006sIJ-16L0;
+	Tue, 11 Nov 2025 09:49:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkzr-00000006sGf-1Brm
+	id 1vIkzv-00000006sHF-2ZQL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 09:49:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5C44661915;
-	Tue, 11 Nov 2025 09:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB372C19421;
-	Tue, 11 Nov 2025 09:49:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762854546;
-	bh=n/kM1AzkAh+XotAdnnKzHeaD66yI0/no2z219kdImyI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HOeJ3RVZZB/4oSIYEvD8eHEipzvZOFaJqnkE42dmMFp+tB9OuzjLWz04+YM3z7R4U
-	 lcaEalhowL1o71cerk5eX47EHL+ajre+fi2UEyJi1xInplcb7+DTXcolqUX2R5nGjK
-	 6MBMS9grqKVToRjoS/YeVP7uQixVgsoLfttes1N01Nh3coRsXQHPgvQXU4w4kWOnxq
-	 iTV9Sv5znQ/WVyipDX6Eh5zMTxj++G97cXGP2KglHW5b3TIN+Akg5PHoftE2jnkGiu
-	 Nq4Ktn6Go9uKbNUmiwWIpZYgET9XI++vRz/VbZK/uBooblkYrgAlMYga9XRb72DXVa
-	 aZdMFVmKrv7Fg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Tue, 11 Nov 2025 09:49:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3vHk8yv00/JQMYrmI8CKdJho/+2xxViBt86X+AiwkXs=; b=lpAMrkJkFiawgDhsUd7cK2vYGW
+	HHuZnAakrmemk6S3lWl3WIxalRsV0Fxr6TsaMz743ajjVlUUk8WVJAXlPVJ4cjEayDYBDB8DFO2k+
+	/t83snfNII/EsKt1zpPpqhB/UFTr86lPP433nbohp8PheXFfoQl1QMn3iLbIrURUN5rocusBJH1A+
+	C+ab8nwdr5Z4uc1LqBrHaDwvLLGqT+flXKWN+gz9/A7udKvpVzW8CPyhMcxtUbETtgDIRnBzM0A0+
+	E4sH7O377i+vT70DtUZvs6qJcZ2e7vHFUNY0l4ir1hy3qP+eKy5+rp/RbEZjUVLbfU21f0q3LsfEV
+	d4kkO1rA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43662)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vIkzn-00000004Alt-2bIR;
-	Tue, 11 Nov 2025 09:49:03 +0000
-Date: Tue, 11 Nov 2025 09:49:03 +0000
-Message-ID: <86346kvr00.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Osama Abdelkader <osama.abdelkader@gmail.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: add missing newline to sysreg init log
-In-Reply-To: <20251110211051.814728-1-osama.abdelkader@gmail.com>
-References: <20251110211051.814728-1-osama.abdelkader@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: osama.abdelkader@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vIkzh-000000002It-12u1;
+	Tue, 11 Nov 2025 09:48:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vIkzd-000000002qb-21yZ;
+	Tue, 11 Nov 2025 09:48:53 +0000
+Date: Tue, 11 Nov 2025 09:48:53 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, maxime.chevallier@bootlin.com,
+	boon.khai.ng@altera.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: stmmac: Disable EEE RX clock stop when
+ VLAN is enabled
+Message-ID: <aRMGhXohIK5swFSM@shell.armlinux.org.uk>
+References: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
+ <20251111093000.58094-3-ovidiu.panait.rb@renesas.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251111093000.58094-3-ovidiu.panait.rb@renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_014911_657815_6A60114C 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 21:10:51 +0000,
-Osama Abdelkader <osama.abdelkader@gmail.com> wrote:
+On Tue, Nov 11, 2025 at 09:30:00AM +0000, Ovidiu Panait wrote:
+> On the Renesas RZ/V2H EVK platform, where the stmmac MAC is connected to a
+> Microchip KSZ9131RNXI PHY, creating or deleting VLAN interfaces may fail
+> with timeouts:
 > 
-> missing newline so the  message is merged with follow-on logs
-> the change only affects console output formatting, no behavioral impact.
+>     # ip link add link end1 name end1.5 type vlan id 5
+>     15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
+>     RTNETLINK answers: Device or resource busy
 > 
-> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-> ---
->  arch/arm64/kvm/arm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Disabling EEE at runtime avoids the problem:
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 870953b4a8a7..156cd1a6106e 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2845,7 +2845,7 @@ static __init int kvm_arm_init(void)
->  
->  	err = kvm_sys_reg_table_init();
->  	if (err) {
-> -		kvm_info("Error initializing system register tables");
-> +		kvm_info("Error initializing system register tables\n");
->  		return err;
->  	}
->  
+>     # ethtool --set-eee end1 eee off
+>     # ip link add link end1 name end1.5 type vlan id 5
+>     # ip link del end1.5
+> 
+> The stmmac hardware requires the receive clock to be running when writing
+> certain registers, such as those used for MAC address configuration or
+> VLAN filtering. However, by default the driver enables Energy Efficient
+> Ethernet (EEE) and allows the PHY to stop the receive clock when the link
+> is idle. As a result, the RX clock might be stopped when attempting to
+> access these registers, leading to timeouts and other issues.
+> 
+> Commit dd557266cf5fb ("net: stmmac: block PHY RXC clock-stop")
+> addressed this issue for most register accesses by wrapping them in
+> phylink_rx_clk_stop_block()/phylink_rx_clk_stop_unblock() calls.
+> However, VLAN add/delete operations may be invoked with bottom halves
+> disabled, where sleeping is not allowed, so using these helpers is not
+> possible.
+> 
+> Therefore, to fix this, disable the RX clock stop feature in the phylink
+> configuration if VLAN features are set. This ensures the RX clock remains
+> active and register accesses succeed during VLAN operations.
+> 
+> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 
-Given that everything in kvm_sys_reg_table_init() already screams
-badly when it fails, I don't see the point of an additional message,
-and I'd rather remove it.
+Thanks for the patch. I guess there is no other way around this, since
+as I've previously noted (and as you say above) we can't sleep in the
+VLAN ops to access the PHY.
 
-Thanks,
+I would like a comment in the code above this if() to state that EEE
+RX clock stop is disabled to allow access to VLAN registers to work.
+With that added, please add:
 
-	M.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks!
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
