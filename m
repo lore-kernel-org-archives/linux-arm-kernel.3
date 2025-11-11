@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04887CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4372DCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXSbtNa/8HGcN26NDfFmNPbrsVA0ceNG7FgLoJ6Ziys=; b=KYmJAigQRHeUUWpG29/ag9vq+3
-	uTQ0c669PCnXNYbPADUC2e1OLkZIoLrghPY5lVmMhchoelXMS5OIIhw8yr9FzYHP9TBv7LFq5dG1X
-	KeL4+JG7zTxQlOsVi5xFzY+2ls4mHhhaGAnAftoN1UwmQB3RYfcI0z3Qx5xjzwxPzEI6N3GcYYtC8
-	3lV0BEid+la7+saaGDdaZgge9b1jWmewxfZMkBP2PWD5Bl9EyMfiXjMDhbzY6BwpffmkEvQ7oCtNo
-	EFJlmZ4+B3cU03y6xpw6gVVsC7DPvl1iw+6MGLKvTu765KJxazuCz7v5/X6zn3oPrJIqZWI4YNbpM
-	xmYmDdmg==;
+	bh=A6MYlnhD622vn+jskvtP2u3P8TmkgrkKitICNkrmhfs=; b=grS2oW8eheEtenWliPNBuMHa4l
+	mVRzsg9DzEFv4gldqdBSdfZfFeqKR4oylzLapdm2+e7d3N5dZFLLyjkj0MddUUD/NrUiH0VcCTl4V
+	Uinh8coE8NVV7bKfEbsykveDsM+e1s1/Sbk/i38ObGyCXM8rtR5IKVol5e+YLWefBt77kl8SHxaDv
+	Vxb+PMYzOxJfONyUXm6JAhjWxaX+WgKIznnuDp2VnBE6gHy8JsDsSfn5/qiRTopwNG6X5A21tmW+e
+	w4JvSK7IjeNuKq8NPJcnSdrIwb+TQshsSmY1h6uVzI/yc+6paUpP81QtaMmFQDsS2cAEeXiTe/5nT
+	3rc8WydA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIil5-00000006gR6-01K2;
-	Tue, 11 Nov 2025 07:25:43 +0000
-Received: from mail-m16.yeah.net ([1.95.21.15])
+	id 1vIisC-00000006go3-3hxh;
+	Tue, 11 Nov 2025 07:33:04 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIil1-00000006gQn-3CHg
+	id 1vIis9-00000006gnO-1KnQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 07:25:41 +0000
+	Tue, 11 Nov 2025 07:33:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=DXSbtNa/8HGcN26NDfFmNPbrsVA0ceNG7FgLoJ6Ziys=;
-	b=kuZ/33BO1A5NZNYEaLRHjhouKPLdrH7xX6pZHYgBgZKhpT/Q5SoGP8/CZTh+SM
-	R81shMTV6w0+O/8jxL4woap2+7cqN9vGzsuIal3uN0f9yT8voCbd+dX7O+mHUhZs
-	eUon3+QD+qriOHSny9y3lZ2pD8SGBR6HLIFbjaAp3h1VM=
+	Content-Type; bh=A6MYlnhD622vn+jskvtP2u3P8TmkgrkKitICNkrmhfs=;
+	b=pCGrPFo8uuYBh8CwNEyIz8LkgTxF1S38/tKl8mkLe/rQnC/7CQYUhVlPCthal5
+	Y444dprs5ZCeKf2knL9EpU9B1bjhxloPOCCCvCnPUPKOux+XPpaSs/8Ug/mhfPnu
+	/UzJ+eSFO7gcOQoad+30bFkU4r/XwELH+eVZBtB5lQ+iE=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgAHhmfi5BJp+fTBAQ--.5059S3;
-	Tue, 11 Nov 2025 15:25:24 +0800 (CST)
-Date: Tue, 11 Nov 2025 15:25:22 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDHDpuV5hJp_hnNAQ--.5255S3;
+	Tue, 11 Nov 2025 15:32:39 +0800 (CST)
+Date: Tue, 11 Nov 2025 15:32:37 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 0/8] arm64: dts: imx8dxl related fix and minor update
-Message-ID: <aRLk4uAnXFyMAzEf@dragon>
-References: <20251022-dxl_dts-v1-0-8159dfdef8c5@nxp.com>
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>
+Subject: Re: [PATCH 0/2] dts: imx: cleanup warning cause by fsl,mpl3115
+Message-ID: <aRLmlQHs5tF2lBb7@dragon>
+References: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251022-dxl_dts-v1-0-8159dfdef8c5@nxp.com>
-X-CM-TRANSID: M88vCgAHhmfi5BJp+fTBAQ--.5059S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Jw1rJF45trWfAF15XFWrXwb_yoWxKFg_u3
-	90gF1ku3yUtr4fJw42van5u34UKw48Ar1DWryFg397X343XF15ua4vv395W3yxXFW3Zr1D
-	CFyUJw1xXa15WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbzVbPUUUUU==
+In-Reply-To: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
+X-CM-TRANSID: Ms8vCgDHDpuV5hJp_hnNAQ--.5255S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrGF17CF4xGFyrJF43uFWDXFb_yoWxWFcEk3
+	y8GFWkZ348Cw47K342kr1FvFWkG34UAw4qgryYg3y2vayI9rWxWrsrKFy3W34DGFW0vr4v
+	v348Kr4DXrW3KjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU86wZ3UUUUU==
 X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiOQVRtmkS5OUapgAA3d
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNhe9I2kS5peamgAA31
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_232540_119072_EACD96DC 
-X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-CacheID: sfid-20251110_233301_697904_9D663966 
+X-CRM114-Status: UNSURE (   8.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,23 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 12:50:20PM -0400, Frank Li wrote:
-> imx8dxl dts some fixes and minor update.
+On Wed, Oct 22, 2025 at 04:43:20PM -0400, Frank Li wrote:
+> After commit f11e4374b(dt-bindings: iio: pressure: add binding for mpl3115 )
+> vdd-supply and vddio-supply is required properties.
+> 
+> thread:
+> https://lore.kernel.org/imx/0e00bb14-19c7-493a-9629-354bac3a273e@baylibre.com/T/#t
+> not prefer change both to optional. So update dts to fix CHECK_DTB
+> warnings for both ARM and ARM64 platform.
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Frank Li (7):
->       arm64: dts: imx8dxl: Correct pcie-ep interrupt number
->       arm64: dts: imx8dxl-ss-conn: swap interrupts number of eqos
->       arm64: dts: imx8dxl-evk: add bt information for lpuart1
->       arm64: dts: imx8dxl-evk: add state_100mhz and state_200mhz for usdhc
->       arm64: dts: imx8-ss-conn: add fsl,tuning-step for usdhc1 and usdhc2
->       arm64: dts: imx8-ss-conn: add missed clock enet_2x_txclk for fec[1,2]
->       arm64: dts: imx8dxl-ss-conn: delete usb3_lpcg node
-> 
-> Shenwei Wang (1):
->       arm64: dts: imx8: add default clock rate for usdhc
+> Frank Li (2):
+>       arm64: dts: imx8: add vdd-supply and vddio-supply for fsl,mpl3115
+>       ARM: dts: imx: add vdd-supply and vddio-supply for fsl,mpl3115
 
-Applied all, thanks!
+Applied both, thanks!
 
 
