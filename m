@@ -4,100 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCE7CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BB2CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsdfipFsFns1Tmckw09AUwDEgIdOCFDQ+z1m4F+xxyo=; b=TNblKvKc5hlyN1ni/TqUIlD+jZ
-	F/hHetExxwTgh0Hmdw+w3cj3FoHC01IqURE9usOZ2H8uKLMUVFNtb+nCRLeGbutijIDItm8m+vVu2
-	6tWVRAuRusKH98veoeq3P3TRGvQo5FjHsxo5NG7PbBC0SHpNeEaANbBnn/GCcOwVU8NQ8dSEDWMtX
-	RKqoY8V7+R6yXjpBaqYaZv3YKsH0SS3YKVfjDn7O01alu44RxYW648xb5YWqSoEb+TcPQzR61e96f
-	PHcpYgRXpB7Z3qZFMAZswTdTIPJKMEAcOXSl++bksrkx8QBmdRXD+kiT31dZXwozztz7bLznV9YKY
-	mAislXvQ==;
+	bh=+G1mA83oRtPxsWoBjbXMdXDwXrKlDCvZBvapMFc3FjU=; b=V5h1db1J2If/S6K0k3jKO8WtR8
+	KaO0A+uLM6/Up+WyafuB+lE68d+V7OhVmYwrFSOJVAYu3687fVePIYWxCJwVSrCsQkyKGpwx9xMaR
+	oUrCMnknaxTndjfstjwWGKGY87B93yyJJcnyG7YnzpgQSKlO07Uo2jg+bIhrulXNq2GP5cnHWBQwa
+	hVzc3SHc3owhCwALcEAhpiR6ir641hEHVlc33ncwm0L+XSLu/tUC8Ik4ejxRPNkTgzb1ZaOoV0i9k
+	kqWziCdFkhbRU8wLZElT09b+Qzf0ogyOipf9ueobEOqEtUVFd2iw0Mdxe+ZO5VKmc7YChGHX/ArSn
+	MvsaxFyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsJo-00000007Y0W-1QSN;
-	Tue, 11 Nov 2025 17:38:12 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1vIsPH-00000007YKx-3t7n;
+	Tue, 11 Nov 2025 17:43:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsJl-00000007Xzo-2y96
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 17:38:11 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3410c86070dso2944488a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 09:38:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762882689; x=1763487489; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zsdfipFsFns1Tmckw09AUwDEgIdOCFDQ+z1m4F+xxyo=;
-        b=B2HvrvQ6ErEiUYByqjdFS7+6CfLiJB/0n1WGA14PlAtYAHHqeO4eP4i4cR+xJmrLv6
-         tSNqMv5JO3IOEOuD+qpp1YuUwSnA1biXOcSMtwrpZSwqigjm0NzmVAw/K7ymInBvuDBM
-         3TXMydyI84ddhORDAQSZVrZWN/Ky2f9EmTIMo+7oL2F8+zXV5nc94EqIrAuVjzLzwYPG
-         mZ2EkWRRuwnvkEzmaT8rw71UyfWFxshla/3Jj2xJrpIrju9/PuQXnz30tMbhhZMWtrX0
-         LxVEmfcEFusbJFTv/hFK+GaTBjQc10bpOIbNnq9SuZ0IrwG5x4LEIIKNWExgIvXvBSPM
-         Z5SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762882689; x=1763487489;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zsdfipFsFns1Tmckw09AUwDEgIdOCFDQ+z1m4F+xxyo=;
-        b=ot74y7pKGVnn8/P0YdZ4/9CemT6V3BW+zNW3g3J8smMCTT3O7g/iBt9i6675TWY3Qk
-         PDo/xBIiLCJKMQn3Epnq2WBq3VxIcu7WWRt83NVZqRnVffweFi0dE3E16h66J6+8/uRG
-         saZqDmrKsUdkFmBVND9TzDIMvc8K2VxwlLkfE2zSX5svWNtbhXFAIwvOCVUniqTNpPQf
-         F3UbYnJ93UYp3iJvN32abBcpBkvTmOeNHyMwStB7TbEXLlD/8K+TDiH8NVc4+9dFs6kt
-         p4ysYgih9hF4UVlTjTE2AxCg9v/2OV4zPp9UcDmvNs6rkDywFzHYfhd63h1W8480+FqZ
-         jz4g==
-X-Forwarded-Encrypted: i=1; AJvYcCX5vwQASsR3kYnJ2/PbxpztEqUIg0hdb/gHwbfBkF/7HUdWzR1iS4AhRvqWZRClRinl7sa3oGLflATEamR+fEhe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLRQOp0xMttAx4myoE+67Vitud/FsOwWsmkrfhcExD9pPhXN3u
-	egEBS9UYJ7oMwnyF24MKQ+kA4rUoKUfKsDxbeZZC5T7UTkRRFDafL5+wgsWvuIy+iD0=
-X-Gm-Gg: ASbGnctgH2CBhwh4JlExDFVUg2lMwLgIGQ3v/3aWq5RK5y6ZVyo6C43r7IOARJ3iw99
-	EQNMYW0XZjbnS6GcvCO12l/U4JOL2B2R26aG0VLxItWB1zeig+Ottan6+OqOxJjud6XHiHDLCHz
-	1YwMosAgxjcCYajpYusrjKQbAue/2qi/fNPlM6z46/3i+1D3nfd78+jkDoTGsOQcK5lxxv/xo8D
-	0z3OcL+vIIl3jVt6NntHpR5GPJj0efrfyTyioXvhppHT3ktJKGyV+oDtNIq+KWJ9bOvAS/CS5ZS
-	fEOQb+6mpJnb1F6O1RCXa3L4ABvjYhvawEKyuoW3wi8KDOPVynaQZnzo1vHE16GKx4JF8IkaN9U
-	H5hvTFuYZO7zeic75xO5VteVghjoYhysdxZjZsQwoMMTykyv2WGL5Rx6A8AMk8nHKyntdu8G5CU
-	AUn9EyELBA1LW+Cw==
-X-Google-Smtp-Source: AGHT+IGIqthF7qJW9d0h/N1/953Ajf38+pL3t+0pDgzmYD4+Vcg491b/OrD08YTWO0iaC+VaYiXy+Q==
-X-Received: by 2002:a17:90b:554d:b0:32e:528c:60ee with SMTP id 98e67ed59e1d1-343ddeaf22dmr146802a91.24.1762882688705;
-        Tue, 11 Nov 2025 09:38:08 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9bac:aef4:ae3b:80be])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b0ccd56de8sm16085941b3a.68.2025.11.11.09.38.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Nov 2025 09:38:08 -0800 (PST)
-Date: Tue, 11 Nov 2025 10:38:05 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v6] remoteproc: Use of_reserved_mem_region_* functions
- for "memory-region"
-Message-ID: <aRN0fdOAV0B728qo@p14s>
-References: <20251031175926.1465360-1-robh@kernel.org>
+	id 1vIsPE-00000007YKX-3HjA;
+	Tue, 11 Nov 2025 17:43:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB42C43E98;
+	Tue, 11 Nov 2025 17:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CEDC116D0;
+	Tue, 11 Nov 2025 17:43:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762883027;
+	bh=sFHzxFpS4SjWzN6UvxTOk/Y2if/2ZIY6McTPUo5y3O8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G2IzeFHXVQNjsniPOnSQhm249IM+KcQsVbxwaB/vxrlSeb3fqNqso7Ll6krf56PcL
+	 +BCHEXOsdNJsoWn0lfeVdQ7RWY6Be6CALBbB15uxwBPd3j5G/CJX/1FlAeSnvWacei
+	 yLzrnloaYGRdGnNQPpv+nO39vpTUBusivMqNG3BZkMoQajXDewRX669P/tFtkURvB+
+	 lZqJCPTkCFiiqii9DYsRatls3ZskohlAq23mpLInXScN0N76LFL+IuRnOIqjYUJgcD
+	 mQI/gvZTw5zga0UpS3Iqw9WvO+RH3Qij8DrgKSuJP9/RWBMZ+BrwwLYI+oAaKJ8ws1
+	 1S6s6tCEa01Fg==
+Date: Tue, 11 Nov 2025 17:43:42 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, heiko@sntech.de,
+	robh@kernel.org, p.zabel@pengutronix.de, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	finley.xiao@rock-chips.com, sugar.zhang@rock-chips.com
+Subject: Re: [PATCH v7 4/5] dt-bindings: clock: rockchip: Add RK3506 clock
+ and reset unit
+Message-ID: <20251111-pond-flashcard-b14f99011c0a@spud>
+References: <20251111025738.869847-1-zhangqing@rock-chips.com>
+ <20251111025738.869847-5-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zGcQ5ULag5B/Kwbf"
 Content-Disposition: inline
-In-Reply-To: <20251031175926.1465360-1-robh@kernel.org>
+In-Reply-To: <20251111025738.869847-5-zhangqing@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_093809_798672_B8C72F80 
-X-CRM114-Status: GOOD (  35.57  )
+X-CRM114-CacheID: sfid-20251111_094348_897743_0E227D83 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,1000 +77,628 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
 
-Please see may comment for st_remoteproc.c
+--zGcQ5ULag5B/Kwbf
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Oct 31, 2025 at 12:59:22PM -0500, Rob Herring (Arm) wrote:
-> Use the newly added of_reserved_mem_region_to_resource() and
-> of_reserved_mem_region_count() functions to handle "memory-region"
-> properties.
-> 
-> The error handling is a bit different in some cases. Often
-> "memory-region" is optional, so failed lookup is not an error. But then
-> an error in of_reserved_mem_lookup() is treated as an error. However,
-> that distinction is not really important. Either the region is available
-> and usable or it is not. So now, it is just
-> of_reserved_mem_region_to_resource() which is checked for an error.
-> 
-> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-> Tested-by: Peng Fan <peng.fan@nxp.com> # i.MX93-11x11-EVK for imx_rproc.c
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Tue, Nov 11, 2025 at 10:57:37AM +0800, Elaine Zhang wrote:
+> From: Finley Xiao <finley.xiao@rock-chips.com>
+>=20
+> Add device tree bindings for clock and reset unit on RK3506 SoC.
+> Add clock and reset IDs for RK3506 SoC.
+>=20
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 > ---
-> v6:
->  - Rebase on v6.18-rc1
->  - The error in v5 was fixed in v6.17 commit aea70964b5a7
->    ("of: reserved_mem: Add missing IORESOURCE_MEM flag on resources")
-> 
-> v5:
->  - Drop some inadvertent whitespace changes in qcom_q6v5_pas.c and ti_k3.
->  - Fix error handling in adsp_alloc_memory_region()
->  - Drop unreachable returns after 'while (1)' loops
-> 
-> v4:
->  - Rebase on v6.17-rc1. qcom_q6v5_pas.c conflicted needing s/adsp/pas/
-> 
-> v3:
->  - Rebase on v6.16-rc1. Move TI K3 changes to new common file.
->  - Fix double increment of "i" in xlnx_r5
-> 
-> v2:
->  - Use strstarts instead of strcmp for resource names as they include
->    the unit-address.
->  - Drop the unit-address from resource name for imx and st drivers
-> ---
->  drivers/remoteproc/imx_dsp_rproc.c      | 47 +++++++----------
->  drivers/remoteproc/imx_rproc.c          | 70 ++++++++++---------------
->  drivers/remoteproc/qcom_q6v5_adsp.c     | 24 ++++-----
->  drivers/remoteproc/qcom_q6v5_mss.c      | 60 +++++++--------------
->  drivers/remoteproc/qcom_q6v5_pas.c      | 69 +++++++++---------------
->  drivers/remoteproc/qcom_q6v5_wcss.c     | 25 ++++-----
->  drivers/remoteproc/qcom_wcnss.c         | 23 ++++----
->  drivers/remoteproc/rcar_rproc.c         | 38 +++++---------
->  drivers/remoteproc/st_remoteproc.c      | 41 +++++++--------
->  drivers/remoteproc/stm32_rproc.c        | 46 +++++++---------
->  drivers/remoteproc/ti_k3_common.c       | 28 ++++------
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 53 +++++++------------
->  12 files changed, 199 insertions(+), 325 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index 6e78a01755c7..477e4245a426 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -689,11 +689,9 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
->  	struct rproc *rproc = priv->rproc;
->  	struct device *dev = rproc->dev.parent;
->  	struct device_node *np = dev->of_node;
-> -	struct of_phandle_iterator it;
->  	struct rproc_mem_entry *mem;
-> -	struct reserved_mem *rmem;
->  	void __iomem *cpu_addr;
-> -	int a;
-> +	int a, i = 0;
->  	u64 da;
->  
->  	/* Remap required addresses */
-> @@ -724,49 +722,40 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
->  		rproc_add_carveout(rproc, mem);
->  	}
->  
-> -	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> +	while (1) {
-> +		int err;
-> +		struct resource res;
+>  .../bindings/clock/rockchip,rk3506-cru.yaml   |  51 ++++
+>  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
+>  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
+>  3 files changed, 547 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk35=
+06-cru.yaml
+>  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
+>  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.=
+yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> new file mode 100644
+> index 000000000000..34bb45f2f227
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/rockchip,rk3506-cru.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +		err = of_reserved_mem_region_to_resource(np, i++, &res);
-> +		if (err)
-> +			return 0;
+> +title: Rockchip RK3506 Clock and Reset Unit (CRU)
 > +
->  		/*
->  		 * Ignore the first memory region which will be used vdev buffer.
->  		 * No need to do extra handlings, rproc_add_virtio_dev will handle it.
->  		 */
-> -		if (!strcmp(it.node->name, "vdev0buffer"))
-> +		if (strstarts(res.name, "vdev0buffer"))
->  			continue;
->  
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(dev, "unable to acquire memory-region\n");
-> +		if (imx_dsp_rproc_sys_to_da(priv, res.start, resource_size(&res), &da))
->  			return -EINVAL;
-> -		}
->  
-> -		if (imx_dsp_rproc_sys_to_da(priv, rmem->base, rmem->size, &da)) {
-> -			of_node_put(it.node);
-> -			return -EINVAL;
-> -		}
-> -
-> -		cpu_addr = devm_ioremap_wc(dev, rmem->base, rmem->size);
-> +		cpu_addr = devm_ioremap_resource_wc(dev, &res);
->  		if (!cpu_addr) {
-> -			of_node_put(it.node);
-> -			dev_err(dev, "failed to map memory %p\n", &rmem->base);
-> +			dev_err(dev, "failed to map memory %pR\n", &res);
->  			return -ENOMEM;
->  		}
->  
->  		/* Register memory region */
-> -		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)rmem->base,
-> -					   rmem->size, da, NULL, NULL, it.node->name);
-> -
-> -		if (mem) {
-> -			rproc_coredump_add_segment(rproc, da, rmem->size);
-> -		} else {
-> -			of_node_put(it.node);
-> +		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)res.start,
-> +					   resource_size(&res), da, NULL, NULL,
-> +					   "%.*s", strchrnul(res.name, '@') - res.name, res.name);
-> +		if (!mem)
->  			return -ENOMEM;
-> -		}
->  
-> +		rproc_coredump_add_segment(rproc, da, resource_size(&res));
->  		rproc_add_carveout(rproc, mem);
->  	}
-> -
-> -	return 0;
->  }
->  
->  /* Prepare function for rproc_ops */
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index bb25221a4a89..eb133a6622bc 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -490,50 +490,44 @@ static int imx_rproc_prepare(struct rproc *rproc)
->  {
->  	struct imx_rproc *priv = rproc->priv;
->  	struct device_node *np = priv->dev->of_node;
-> -	struct of_phandle_iterator it;
->  	struct rproc_mem_entry *mem;
-> -	struct reserved_mem *rmem;
-> +	int i = 0;
->  	u32 da;
->  
->  	/* Register associated reserved memory regions */
-> -	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> +	while (1) {
-> +		int err;
-> +		struct resource res;
+> +maintainers:
+> +  - Finley Xiao <finley.xiao@rock-chips.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
 > +
-> +		err = of_reserved_mem_region_to_resource(np, i++, &res);
-> +		if (err)
-> +			return 0;
+> +description:
+> +  The RK3506 CRU generates the clock and also implements reset for SoC
+> +  peripherals.
 > +
->  		/*
->  		 * Ignore the first memory region which will be used vdev buffer.
->  		 * No need to do extra handlings, rproc_add_virtio_dev will handle it.
->  		 */
-> -		if (!strcmp(it.node->name, "vdev0buffer"))
-> +		if (strstarts(res.name, "vdev0buffer"))
->  			continue;
->  
-> -		if (!strcmp(it.node->name, "rsc-table"))
-> +		if (strstarts(res.name, "rsc-table"))
->  			continue;
->  
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(priv->dev, "unable to acquire memory-region\n");
-> -			return -EINVAL;
-> -		}
-> -
->  		/* No need to translate pa to da, i.MX use same map */
-> -		da = rmem->base;
-> +		da = res.start;
->  
->  		/* Register memory region */
-> -		mem = rproc_mem_entry_init(priv->dev, NULL, (dma_addr_t)rmem->base, rmem->size, da,
-> +		mem = rproc_mem_entry_init(priv->dev, NULL, (dma_addr_t)res.start,
-> +					   resource_size(&res), da,
->  					   imx_rproc_mem_alloc, imx_rproc_mem_release,
-> -					   it.node->name);
-> -
-> -		if (mem) {
-> -			rproc_coredump_add_segment(rproc, da, rmem->size);
-> -		} else {
-> -			of_node_put(it.node);
-> +					   "%.*s", strchrnul(res.name, '@') - res.name,
-> +					   res.name);
-> +		if (!mem)
->  			return -ENOMEM;
-> -		}
->  
-> +		rproc_coredump_add_segment(rproc, da, resource_size(&res));
->  		rproc_add_carveout(rproc, mem);
->  	}
-> -
-> -	return  0;
->  }
->  
->  static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> @@ -664,47 +658,37 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
->  	}
->  
->  	/* memory-region is optional property */
-> -	nph = of_count_phandle_with_args(np, "memory-region", NULL);
-> +	nph = of_reserved_mem_region_count(np);
->  	if (nph <= 0)
->  		return 0;
->  
->  	/* remap optional addresses */
->  	for (a = 0; a < nph; a++) {
-> -		struct device_node *node;
->  		struct resource res;
->  
-> -		node = of_parse_phandle(np, "memory-region", a);
-> -		if (!node)
-> -			continue;
-> -		/* Not map vdevbuffer, vdevring region */
-> -		if (!strncmp(node->name, "vdev", strlen("vdev"))) {
-> -			of_node_put(node);
-> -			continue;
-> -		}
-> -		err = of_address_to_resource(node, 0, &res);
-> +		err = of_reserved_mem_region_to_resource(np, a, &res);
->  		if (err) {
->  			dev_err(dev, "unable to resolve memory region\n");
-> -			of_node_put(node);
->  			return err;
->  		}
->  
-> -		if (b >= IMX_RPROC_MEM_MAX) {
-> -			of_node_put(node);
-> +		/* Not map vdevbuffer, vdevring region */
-> +		if (strstarts(res.name, "vdev"))
-> +			continue;
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3506-cru
 > +
-> +		if (b >= IMX_RPROC_MEM_MAX)
->  			break;
-> -		}
->  
->  		/* Not use resource version, because we might share region */
-> -		priv->mem[b].cpu_addr = devm_ioremap_wc(&pdev->dev, res.start, resource_size(&res));
-> +		priv->mem[b].cpu_addr = devm_ioremap_resource_wc(&pdev->dev, &res);
->  		if (!priv->mem[b].cpu_addr) {
->  			dev_err(dev, "failed to remap %pr\n", &res);
-> -			of_node_put(node);
->  			return -ENOMEM;
->  		}
->  		priv->mem[b].sys_addr = res.start;
->  		priv->mem[b].size = resource_size(&res);
-> -		if (!strcmp(node->name, "rsc-table"))
-> +		if (!strcmp(res.name, "rsc-table"))
->  			priv->rsc_table = priv->mem[b].cpu_addr;
-> -		of_node_put(node);
->  		b++;
->  	}
->  
-> diff --git a/drivers/remoteproc/qcom_q6v5_adsp.c b/drivers/remoteproc/qcom_q6v5_adsp.c
-> index e98b7e03162c..d3933a66ed3d 100644
-> --- a/drivers/remoteproc/qcom_q6v5_adsp.c
-> +++ b/drivers/remoteproc/qcom_q6v5_adsp.c
-> @@ -625,26 +625,20 @@ static int adsp_init_mmio(struct qcom_adsp *adsp,
->  
->  static int adsp_alloc_memory_region(struct qcom_adsp *adsp)
->  {
-> -	struct reserved_mem *rmem = NULL;
-> -	struct device_node *node;
-> -
-> -	node = of_parse_phandle(adsp->dev->of_node, "memory-region", 0);
-> -	if (node)
-> -		rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> +	int ret;
-> +	struct resource res;
->  
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(adsp->dev->of_node, 0, &res);
-> +	if (ret) {
->  		dev_err(adsp->dev, "unable to resolve memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	adsp->mem_phys = adsp->mem_reloc = rmem->base;
-> -	adsp->mem_size = rmem->size;
-> -	adsp->mem_region = devm_ioremap_wc(adsp->dev,
-> -				adsp->mem_phys, adsp->mem_size);
-> +	adsp->mem_phys = adsp->mem_reloc = res.start;
-> +	adsp->mem_size = resource_size(&res);
-> +	adsp->mem_region = devm_ioremap_resource_wc(adsp->dev, &res);
->  	if (!adsp->mem_region) {
-> -		dev_err(adsp->dev, "unable to map memory region: %pa+%zx\n",
-> -			&rmem->base, adsp->mem_size);
-> +		dev_err(adsp->dev, "unable to map memory region: %pR\n", &res);
->  		return -EBUSY;
->  	}
->  
-> diff --git a/drivers/remoteproc/qcom_q6v5_mss.c b/drivers/remoteproc/qcom_q6v5_mss.c
-> index 3087d895b87f..91940977ca89 100644
-> --- a/drivers/remoteproc/qcom_q6v5_mss.c
-> +++ b/drivers/remoteproc/qcom_q6v5_mss.c
-> @@ -1970,8 +1970,8 @@ static int q6v5_init_reset(struct q6v5 *qproc)
->  static int q6v5_alloc_memory_region(struct q6v5 *qproc)
->  {
->  	struct device_node *child;
-> -	struct reserved_mem *rmem;
-> -	struct device_node *node;
-> +	struct resource res;
-> +	int ret;
->  
->  	/*
->  	 * In the absence of mba/mpss sub-child, extract the mba and mpss
-> @@ -1979,71 +1979,49 @@ static int q6v5_alloc_memory_region(struct q6v5 *qproc)
->  	 */
->  	child = of_get_child_by_name(qproc->dev->of_node, "mba");
->  	if (!child) {
-> -		node = of_parse_phandle(qproc->dev->of_node,
-> -					"memory-region", 0);
-> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 0, &res);
->  	} else {
-> -		node = of_parse_phandle(child, "memory-region", 0);
-> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
->  		of_node_put(child);
->  	}
->  
-> -	if (!node) {
-> -		dev_err(qproc->dev, "no mba memory-region specified\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> -	if (!rmem) {
-> +	if (ret) {
->  		dev_err(qproc->dev, "unable to resolve mba region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	qproc->mba_phys = rmem->base;
-> -	qproc->mba_size = rmem->size;
-> +	qproc->mba_phys = res.start;
-> +	qproc->mba_size = resource_size(&res);
->  
->  	if (!child) {
-> -		node = of_parse_phandle(qproc->dev->of_node,
-> -					"memory-region", 1);
-> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 1, &res);
->  	} else {
->  		child = of_get_child_by_name(qproc->dev->of_node, "mpss");
-> -		node = of_parse_phandle(child, "memory-region", 0);
-> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
->  		of_node_put(child);
->  	}
->  
-> -	if (!node) {
-> -		dev_err(qproc->dev, "no mpss memory-region specified\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> -	if (!rmem) {
-> +	if (ret) {
->  		dev_err(qproc->dev, "unable to resolve mpss region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	qproc->mpss_phys = qproc->mpss_reloc = rmem->base;
-> -	qproc->mpss_size = rmem->size;
-> +	qproc->mpss_phys = qproc->mpss_reloc = res.start;
-> +	qproc->mpss_size = resource_size(&res);
->  
->  	if (!child) {
-> -		node = of_parse_phandle(qproc->dev->of_node, "memory-region", 2);
-> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 2, &res);
->  	} else {
->  		child = of_get_child_by_name(qproc->dev->of_node, "metadata");
-> -		node = of_parse_phandle(child, "memory-region", 0);
-> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
->  		of_node_put(child);
->  	}
->  
-> -	if (!node)
-> +	if (ret)
->  		return 0;
->  
-> -	rmem = of_reserved_mem_lookup(node);
-> -	if (!rmem) {
-> -		dev_err(qproc->dev, "unable to resolve metadata region\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	qproc->mdata_phys = rmem->base;
-> -	qproc->mdata_size = rmem->size;
-> +	qproc->mdata_phys = res.start;
-> +	qproc->mdata_size = resource_size(&res);
->  
->  	return 0;
->  }
-> diff --git a/drivers/remoteproc/qcom_q6v5_pas.c b/drivers/remoteproc/qcom_q6v5_pas.c
-> index 158bcd6cc85c..7bac843ce406 100644
-> --- a/drivers/remoteproc/qcom_q6v5_pas.c
-> +++ b/drivers/remoteproc/qcom_q6v5_pas.c
-> @@ -547,53 +547,37 @@ static void qcom_pas_pds_detach(struct qcom_pas *pas, struct device **pds, size_
->  
->  static int qcom_pas_alloc_memory_region(struct qcom_pas *pas)
->  {
-> -	struct reserved_mem *rmem;
-> -	struct device_node *node;
-> -
-> -	node = of_parse_phandle(pas->dev->of_node, "memory-region", 0);
-> -	if (!node) {
-> -		dev_err(pas->dev, "no memory-region specified\n");
-> -		return -EINVAL;
-> -	}
-> +	struct resource res;
-> +	int ret;
->  
-> -	rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(pas->dev->of_node, 0, &res);
-> +	if (ret) {
->  		dev_err(pas->dev, "unable to resolve memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	pas->mem_phys = pas->mem_reloc = rmem->base;
-> -	pas->mem_size = rmem->size;
-> -	pas->mem_region = devm_ioremap_wc(pas->dev, pas->mem_phys, pas->mem_size);
-> +	pas->mem_phys = pas->mem_reloc = res.start;
-> +	pas->mem_size = resource_size(&res);
-> +	pas->mem_region = devm_ioremap_resource_wc(pas->dev, &res);
->  	if (!pas->mem_region) {
-> -		dev_err(pas->dev, "unable to map memory region: %pa+%zx\n",
-> -			&rmem->base, pas->mem_size);
-> +		dev_err(pas->dev, "unable to map memory region: %pR\n", &res);
->  		return -EBUSY;
->  	}
->  
->  	if (!pas->dtb_pas_id)
->  		return 0;
->  
-> -	node = of_parse_phandle(pas->dev->of_node, "memory-region", 1);
-> -	if (!node) {
-> -		dev_err(pas->dev, "no dtb memory-region specified\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(pas->dev->of_node, 1, &res);
-> +	if (ret) {
->  		dev_err(pas->dev, "unable to resolve dtb memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	pas->dtb_mem_phys = pas->dtb_mem_reloc = rmem->base;
-> -	pas->dtb_mem_size = rmem->size;
-> -	pas->dtb_mem_region = devm_ioremap_wc(pas->dev, pas->dtb_mem_phys, pas->dtb_mem_size);
-> +	pas->dtb_mem_phys = pas->dtb_mem_reloc = res.start;
-> +	pas->dtb_mem_size = resource_size(&res);
-> +	pas->dtb_mem_region = devm_ioremap_resource_wc(pas->dev, &res);
->  	if (!pas->dtb_mem_region) {
-> -		dev_err(pas->dev, "unable to map dtb memory region: %pa+%zx\n",
-> -			&rmem->base, pas->dtb_mem_size);
-> +		dev_err(pas->dev, "unable to map dtb memory region: %pR\n", &res);
->  		return -EBUSY;
->  	}
->  
-> @@ -603,7 +587,6 @@ static int qcom_pas_alloc_memory_region(struct qcom_pas *pas)
->  static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
->  {
->  	struct qcom_scm_vmperm perm[MAX_ASSIGN_COUNT];
-> -	struct device_node *node;
->  	unsigned int perm_size;
->  	int offset;
->  	int ret;
-> @@ -612,17 +595,15 @@ static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
->  		return 0;
->  
->  	for (offset = 0; offset < pas->region_assign_count; ++offset) {
-> -		struct reserved_mem *rmem = NULL;
-> -
-> -		node = of_parse_phandle(pas->dev->of_node, "memory-region",
-> -					pas->region_assign_idx + offset);
-> -		if (node)
-> -			rmem = of_reserved_mem_lookup(node);
-> -		of_node_put(node);
-> -		if (!rmem) {
-> +		struct resource res;
+> +  reg:
+> +    maxItems: 1
 > +
-> +		ret = of_reserved_mem_region_to_resource(pas->dev->of_node,
-> +							 pas->region_assign_idx + offset,
-> +							 &res);
-> +		if (ret) {
->  			dev_err(pas->dev, "unable to resolve shareable memory-region index %d\n",
->  				offset);
-> -			return -EINVAL;
-> +			return ret;
->  		}
->  
->  		if (pas->region_assign_shared)  {
-> @@ -637,8 +618,8 @@ static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
->  			perm_size = 1;
->  		}
->  
-> -		pas->region_assign_phys[offset] = rmem->base;
-> -		pas->region_assign_size[offset] = rmem->size;
-> +		pas->region_assign_phys[offset] = res.start;
-> +		pas->region_assign_size[offset] = resource_size(&res);
->  		pas->region_assign_owners[offset] = BIT(QCOM_SCM_VMID_HLOS);
->  
->  		ret = qcom_scm_assign_mem(pas->region_assign_phys[offset],
-> diff --git a/drivers/remoteproc/qcom_q6v5_wcss.c b/drivers/remoteproc/qcom_q6v5_wcss.c
-> index 07c88623f597..ca748e3bcc7f 100644
-> --- a/drivers/remoteproc/qcom_q6v5_wcss.c
-> +++ b/drivers/remoteproc/qcom_q6v5_wcss.c
-> @@ -873,27 +873,22 @@ static int q6v5_wcss_init_mmio(struct q6v5_wcss *wcss,
->  
->  static int q6v5_alloc_memory_region(struct q6v5_wcss *wcss)
->  {
-> -	struct reserved_mem *rmem = NULL;
-> -	struct device_node *node;
->  	struct device *dev = wcss->dev;
-> +	struct resource res;
-> +	int ret;
->  
-> -	node = of_parse_phandle(dev->of_node, "memory-region", 0);
-> -	if (node)
-> -		rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> -
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(dev->of_node, 0, &res);
-> +	if (ret) {
->  		dev_err(dev, "unable to acquire memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	wcss->mem_phys = rmem->base;
-> -	wcss->mem_reloc = rmem->base;
-> -	wcss->mem_size = rmem->size;
-> -	wcss->mem_region = devm_ioremap_wc(dev, wcss->mem_phys, wcss->mem_size);
-> +	wcss->mem_phys = res.start;
-> +	wcss->mem_reloc = res.start;
-> +	wcss->mem_size = resource_size(&res);
-> +	wcss->mem_region = devm_ioremap_resource_wc(dev, &res);
->  	if (!wcss->mem_region) {
-> -		dev_err(dev, "unable to map memory region: %pa+%pa\n",
-> -			&rmem->base, &rmem->size);
-> +		dev_err(dev, "unable to map memory region: %pR\n", &res);
->  		return -EBUSY;
->  	}
->  
-> diff --git a/drivers/remoteproc/qcom_wcnss.c b/drivers/remoteproc/qcom_wcnss.c
-> index 2c7e519a2254..14005fb049a2 100644
-> --- a/drivers/remoteproc/qcom_wcnss.c
-> +++ b/drivers/remoteproc/qcom_wcnss.c
-> @@ -526,25 +526,20 @@ static int wcnss_request_irq(struct qcom_wcnss *wcnss,
->  
->  static int wcnss_alloc_memory_region(struct qcom_wcnss *wcnss)
->  {
-> -	struct reserved_mem *rmem = NULL;
-> -	struct device_node *node;
-> -
-> -	node = of_parse_phandle(wcnss->dev->of_node, "memory-region", 0);
-> -	if (node)
-> -		rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> +	struct resource res;
-> +	int ret;
->  
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(wcnss->dev->of_node, 0, &res);
-> +	if (ret) {
->  		dev_err(wcnss->dev, "unable to resolve memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->  	}
->  
-> -	wcnss->mem_phys = wcnss->mem_reloc = rmem->base;
-> -	wcnss->mem_size = rmem->size;
-> -	wcnss->mem_region = devm_ioremap_wc(wcnss->dev, wcnss->mem_phys, wcnss->mem_size);
-> +	wcnss->mem_phys = wcnss->mem_reloc = res.start;
-> +	wcnss->mem_size = resource_size(&res);
-> +	wcnss->mem_region = devm_ioremap_resource_wc(wcnss->dev, &res);
->  	if (!wcnss->mem_region) {
-> -		dev_err(wcnss->dev, "unable to map memory region: %pa+%zx\n",
-> -			&rmem->base, wcnss->mem_size);
-> +		dev_err(wcnss->dev, "unable to map memory region: %pR\n", &res);
->  		return -EBUSY;
->  	}
->  
-> diff --git a/drivers/remoteproc/rcar_rproc.c b/drivers/remoteproc/rcar_rproc.c
-> index 921d853594f4..3c25625f966d 100644
-> --- a/drivers/remoteproc/rcar_rproc.c
-> +++ b/drivers/remoteproc/rcar_rproc.c
-> @@ -52,46 +52,36 @@ static int rcar_rproc_prepare(struct rproc *rproc)
->  {
->  	struct device *dev = rproc->dev.parent;
->  	struct device_node *np = dev->of_node;
-> -	struct of_phandle_iterator it;
->  	struct rproc_mem_entry *mem;
-> -	struct reserved_mem *rmem;
-> +	int i = 0;
->  	u32 da;
->  
->  	/* Register associated reserved memory regions */
-> -	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> -
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(&rproc->dev,
-> -				"unable to acquire memory-region\n");
-> -			return -EINVAL;
-> -		}
-> +	while (1) {
-> +		struct resource res;
-> +		int ret;
+> +  "#clock-cells":
+> +    const: 1
 > +
-> +		ret = of_reserved_mem_region_to_resource(np, i++, &res);
-> +		if (ret)
-> +			return 0;
->  
-> -		if (rmem->base > U32_MAX) {
-> -			of_node_put(it.node);
-> +		if (res.start > U32_MAX)
->  			return -EINVAL;
-> -		}
->  
->  		/* No need to translate pa to da, R-Car use same map */
-> -		da = rmem->base;
-> +		da = res.start;
->  		mem = rproc_mem_entry_init(dev, NULL,
-> -					   rmem->base,
-> -					   rmem->size, da,
-> +					   res.start,
-> +					   resource_size(&res), da,
->  					   rcar_rproc_mem_alloc,
->  					   rcar_rproc_mem_release,
-> -					   it.node->name);
-> +					   res.name);
->  
-> -		if (!mem) {
-> -			of_node_put(it.node);
-> +		if (!mem)
->  			return -ENOMEM;
-> -		}
->  
->  		rproc_add_carveout(rproc, mem);
->  	}
-> -
-> -	return 0;
->  }
->  
->  static int rcar_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-> index e6566a9839dc..043348366926 100644
-> --- a/drivers/remoteproc/st_remoteproc.c
-> +++ b/drivers/remoteproc/st_remoteproc.c
-> @@ -120,40 +120,37 @@ static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
->  	struct device *dev = rproc->dev.parent;
->  	struct device_node *np = dev->of_node;
->  	struct rproc_mem_entry *mem;
-> -	struct reserved_mem *rmem;
-> -	struct of_phandle_iterator it;
-> -	int index = 0;
-> -
-> -	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(dev, "unable to acquire memory-region\n");
-> -			return -EINVAL;
-> -		}
-> +	int index = 0, mr = 0;
+> +  "#reset-cells":
+> +    const: 1
 > +
-> +	while (1) {
-> +		struct resource res;
-> +		int ret;
-> +
-> +		ret = of_reserved_mem_region_to_resource(np, mr++, &res);
-> +		if (ret)
-> +			return 0;
+> +  clocks:
+> +    maxItems: 1
 
-The original code calls rproc_elf_load_rsc_table() [1] after iterating through
-the memory region, something that won't happen with the above.
+https://lore.kernel.org/all/20251104-nutty-lunchroom-36a5879db0b9@spud/
 
-Otherwise changes for files other than qcom_* look good.  Bjorn will handle the
-qcom changes.  I can pick up stm32_rproc.c, imx_*, rcar_rproc.c, ti_k3_common.c
-and xlnx_r5_remoteproc.c.  No need to resend them.
+I still don't see my feedback about the input clock being required
+addressed. I gave that review 2 versions ago.
 
-Thanks,
-Mathieu 
+> +  clock-names:
+> +    const: xin24m
 
-[1]. https://elixir.bootlin.com/linux/v6.18-rc5/source/drivers/remoteproc/st_remoteproc.c#L162
+Also, why does this clock name have a frequency in it, when you have
+stated that:
+| Our default hardware input clock is 24M.
+| Some Socs and hardware input clocks support 24M=E3=80=8124.576M=E3=80=812=
+6M. For
 
->  
->  		/*  No need to map vdev buffer */
-> -		if (strcmp(it.node->name, "vdev0buffer")) {
-> +		if (!strstarts(res.name, "vdev0buffer")) {
->  			/* Register memory region */
->  			mem = rproc_mem_entry_init(dev, NULL,
-> -						   (dma_addr_t)rmem->base,
-> -						   rmem->size, rmem->base,
-> +						   (dma_addr_t)res.start,
-> +						   resource_size(&res), res.start,
->  						   st_rproc_mem_alloc,
->  						   st_rproc_mem_release,
-> -						   it.node->name);
-> +						   "%.*s",
-> +						   strchrnul(res.name, '@') - res.name,
-> +						   res.name);
->  		} else {
->  			/* Register reserved memory for vdev buffer allocation */
->  			mem = rproc_of_resm_mem_entry_init(dev, index,
-> -							   rmem->size,
-> -							   rmem->base,
-> -							   it.node->name);
-> +							   resource_size(&res),
-> +							   res.start,
-> +							   "vdev0buffer");
->  		}
->  
-> -		if (!mem) {
-> -			of_node_put(it.node);
-> +		if (!mem)
->  			return -ENOMEM;
-> -		}
->  
->  		rproc_add_carveout(rproc, mem);
->  		index++;
-> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-> index 431648607d53..c28679d3b43c 100644
-> --- a/drivers/remoteproc/stm32_rproc.c
-> +++ b/drivers/remoteproc/stm32_rproc.c
-> @@ -213,60 +213,52 @@ static int stm32_rproc_prepare(struct rproc *rproc)
->  {
->  	struct device *dev = rproc->dev.parent;
->  	struct device_node *np = dev->of_node;
-> -	struct of_phandle_iterator it;
->  	struct rproc_mem_entry *mem;
-> -	struct reserved_mem *rmem;
->  	u64 da;
-> -	int index = 0;
-> +	int index = 0, mr = 0;
->  
->  	/* Register associated reserved memory regions */
-> -	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(dev, "unable to acquire memory-region\n");
-> -			return -EINVAL;
-> -		}
-> +	while (1) {
-> +		struct resource res;
-> +		int ret;
+Default doesn't mean "only", so having the name contain it is weird.
+pw-bot: changes-requested
+
+
 > +
-> +		ret = of_reserved_mem_region_to_resource(np, mr++, &res);
-> +		if (ret)
-> +			return 0;
->  
-> -		if (stm32_rproc_pa_to_da(rproc, rmem->base, &da) < 0) {
-> -			of_node_put(it.node);
-> -			dev_err(dev, "memory region not valid %pa\n",
-> -				&rmem->base);
-> +		if (stm32_rproc_pa_to_da(rproc, res.start, &da) < 0) {
-> +			dev_err(dev, "memory region not valid %pR\n", &res);
->  			return -EINVAL;
->  		}
->  
->  		/*  No need to map vdev buffer */
-> -		if (strcmp(it.node->name, "vdev0buffer")) {
-> +		if (!strstarts(res.name, "vdev0buffer")) {
->  			/* Register memory region */
->  			mem = rproc_mem_entry_init(dev, NULL,
-> -						   (dma_addr_t)rmem->base,
-> -						   rmem->size, da,
-> +						   (dma_addr_t)res.start,
-> +						   resource_size(&res), da,
->  						   stm32_rproc_mem_alloc,
->  						   stm32_rproc_mem_release,
-> -						   it.node->name);
-> -
-> +						   "%.*s", strchrnul(res.name, '@') - res.name,
-> +						   res.name);
->  			if (mem)
->  				rproc_coredump_add_segment(rproc, da,
-> -							   rmem->size);
-> +							   resource_size(&res));
->  		} else {
->  			/* Register reserved memory for vdev buffer alloc */
->  			mem = rproc_of_resm_mem_entry_init(dev, index,
-> -							   rmem->size,
-> -							   rmem->base,
-> -							   it.node->name);
-> +							   resource_size(&res),
-> +							   res.start,
-> +							   "vdev0buffer");
->  		}
->  
->  		if (!mem) {
-> -			of_node_put(it.node);
->  			return -ENOMEM;
->  		}
->  
->  		rproc_add_carveout(rproc, mem);
->  		index++;
->  	}
-> -
-> -	return 0;
->  }
->  
->  static int stm32_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> diff --git a/drivers/remoteproc/ti_k3_common.c b/drivers/remoteproc/ti_k3_common.c
-> index 56b71652e449..32aa954dc5be 100644
-> --- a/drivers/remoteproc/ti_k3_common.c
-> +++ b/drivers/remoteproc/ti_k3_common.c
-> @@ -470,13 +470,10 @@ int k3_reserved_mem_init(struct k3_rproc *kproc)
->  {
->  	struct device *dev = kproc->dev;
->  	struct device_node *np = dev->of_node;
-> -	struct device_node *rmem_np;
-> -	struct reserved_mem *rmem;
->  	int num_rmems;
->  	int ret, i;
->  
-> -	num_rmems = of_property_count_elems_of_size(np, "memory-region",
-> -						    sizeof(phandle));
-> +	num_rmems = of_reserved_mem_region_count(np);
->  	if (num_rmems < 0) {
->  		dev_err(dev, "device does not reserved memory regions (%d)\n",
->  			num_rmems);
-> @@ -505,23 +502,20 @@ int k3_reserved_mem_init(struct k3_rproc *kproc)
->  
->  	/* use remaining reserved memory regions for static carveouts */
->  	for (i = 0; i < num_rmems; i++) {
-> -		rmem_np = of_parse_phandle(np, "memory-region", i + 1);
-> -		if (!rmem_np)
-> -			return -EINVAL;
-> +		struct resource res;
->  
-> -		rmem = of_reserved_mem_lookup(rmem_np);
-> -		of_node_put(rmem_np);
-> -		if (!rmem)
-> -			return -EINVAL;
-> +		ret = of_reserved_mem_region_to_resource(np, i + 1, &res);
-> +		if (ret)
-> +			return ret;
->  
-> -		kproc->rmem[i].bus_addr = rmem->base;
-> +		kproc->rmem[i].bus_addr = res.start;
->  		/* 64-bit address regions currently not supported */
-> -		kproc->rmem[i].dev_addr = (u32)rmem->base;
-> -		kproc->rmem[i].size = rmem->size;
-> -		kproc->rmem[i].cpu_addr = devm_ioremap_wc(dev, rmem->base, rmem->size);
-> +		kproc->rmem[i].dev_addr = (u32)res.start;
-> +		kproc->rmem[i].size = resource_size(&res);
-> +		kproc->rmem[i].cpu_addr = devm_ioremap_resource_wc(dev, &res);
->  		if (!kproc->rmem[i].cpu_addr) {
-> -			dev_err(dev, "failed to map reserved memory#%d at %pa of size %pa\n",
-> -				i + 1, &rmem->base, &rmem->size);
-> +			dev_err(dev, "failed to map reserved memory#%d at %pR\n",
-> +				i + 1, &res);
->  			return -ENOMEM;
->  		}
->  
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index 0b7b173d0d26..a7b75235f53e 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -492,53 +492,46 @@ static int add_mem_regions_carveout(struct rproc *rproc)
->  {
->  	struct rproc_mem_entry *rproc_mem;
->  	struct zynqmp_r5_core *r5_core;
-> -	struct of_phandle_iterator it;
-> -	struct reserved_mem *rmem;
->  	int i = 0;
->  
->  	r5_core = rproc->priv;
->  
->  	/* Register associated reserved memory regions */
-> -	of_phandle_iterator_init(&it, r5_core->np, "memory-region", NULL, 0);
-> +	while (1) {
-> +		int err;
-> +		struct resource res;
->  
-> -	while (of_phandle_iterator_next(&it) == 0) {
-> -		rmem = of_reserved_mem_lookup(it.node);
-> -		if (!rmem) {
-> -			of_node_put(it.node);
-> -			dev_err(&rproc->dev, "unable to acquire memory-region\n");
-> -			return -EINVAL;
-> -		}
-> +		err = of_reserved_mem_region_to_resource(r5_core->np, i, &res);
-> +		if (err)
-> +			return 0;
->  
-> -		if (!strcmp(it.node->name, "vdev0buffer")) {
-> +		if (strstarts(res.name, "vdev0buffer")) {
->  			/* Init reserved memory for vdev buffer */
->  			rproc_mem = rproc_of_resm_mem_entry_init(&rproc->dev, i,
-> -								 rmem->size,
-> -								 rmem->base,
-> -								 it.node->name);
-> +								 resource_size(&res),
-> +								 res.start,
-> +								 "vdev0buffer");
->  		} else {
->  			/* Register associated reserved memory regions */
->  			rproc_mem = rproc_mem_entry_init(&rproc->dev, NULL,
-> -							 (dma_addr_t)rmem->base,
-> -							 rmem->size, rmem->base,
-> +							 (dma_addr_t)res.start,
-> +							 resource_size(&res), res.start,
->  							 zynqmp_r5_mem_region_map,
->  							 zynqmp_r5_mem_region_unmap,
-> -							 it.node->name);
-> +							 "%.*s",
-> +							 strchrnul(res.name, '@') - res.name,
-> +							 res.name);
->  		}
->  
-> -		if (!rproc_mem) {
-> -			of_node_put(it.node);
-> +		if (!rproc_mem)
->  			return -ENOMEM;
-> -		}
->  
->  		rproc_add_carveout(rproc, rproc_mem);
-> -		rproc_coredump_add_segment(rproc, rmem->base, rmem->size);
-> +		rproc_coredump_add_segment(rproc, res.start, resource_size(&res));
->  
-> -		dev_dbg(&rproc->dev, "reserved mem carveout %s addr=%llx, size=0x%llx",
-> -			it.node->name, rmem->base, rmem->size);
-> +		dev_dbg(&rproc->dev, "reserved mem carveout %pR\n", &res);
->  		i++;
->  	}
-> -
-> -	return 0;
->  }
->  
->  static int add_sram_carveouts(struct rproc *rproc)
-> @@ -808,7 +801,6 @@ static int zynqmp_r5_get_rsc_table_va(struct zynqmp_r5_core *r5_core)
->  	struct device *dev = r5_core->dev;
->  	struct rsc_tbl_data *rsc_data_va;
->  	struct resource res_mem;
-> -	struct device_node *np;
->  	int ret;
->  
->  	/*
-> @@ -818,14 +810,7 @@ static int zynqmp_r5_get_rsc_table_va(struct zynqmp_r5_core *r5_core)
->  	 * contains that data structure which holds resource table address, size
->  	 * and some magic number to validate correct resource table entry.
->  	 */
-> -	np = of_parse_phandle(r5_core->np, "memory-region", 0);
-> -	if (!np) {
-> -		dev_err(dev, "failed to get memory region dev node\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	ret = of_address_to_resource(np, 0, &res_mem);
-> -	of_node_put(np);
-> +	ret = of_reserved_mem_region_to_resource(r5_core->np, 0, &res_mem);
->  	if (ret) {
->  		dev_err(dev, "failed to get memory-region resource addr\n");
->  		return -EINVAL;
-> -- 
-> 2.51.0
-> 
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@ff9a0000 {
+> +      compatible =3D "rockchip,rk3506-cru";
+> +      reg =3D <0xff9a0000 0x20000>;
+> +      #clock-cells =3D <1>;
+> +      #reset-cells =3D <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/rockchip,rk3506-cru.h b/include/dt=
+-bindings/clock/rockchip,rk3506-cru.h
+> new file mode 100644
+> index 000000000000..71d7dda23cc9
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/rockchip,rk3506-cru.h
+> @@ -0,0 +1,285 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
+> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_CLK_ROCKCHIP_RK3506_H
+> +
+> +/* cru plls */
+> +#define PLL_GPLL			0
+> +#define PLL_V0PLL			1
+> +#define PLL_V1PLL			2
+> +
+> +/* cru-clocks indices */
+> +#define ARMCLK				3
+> +#define CLK_DDR				4
+> +#define XIN24M_GATE			5
+> +#define CLK_GPLL_GATE			6
+> +#define CLK_V0PLL_GATE			7
+> +#define CLK_V1PLL_GATE			8
+> +#define CLK_GPLL_DIV			9
+> +#define CLK_GPLL_DIV_100M		10
+> +#define CLK_V0PLL_DIV			11
+> +#define CLK_V1PLL_DIV			12
+> +#define CLK_INT_VOICE_MATRIX0		13
+> +#define CLK_INT_VOICE_MATRIX1		14
+> +#define CLK_INT_VOICE_MATRIX2		15
+> +#define CLK_FRAC_UART_MATRIX0_MUX	16
+> +#define CLK_FRAC_UART_MATRIX1_MUX	17
+> +#define CLK_FRAC_VOICE_MATRIX0_MUX	18
+> +#define CLK_FRAC_VOICE_MATRIX1_MUX	19
+> +#define CLK_FRAC_COMMON_MATRIX0_MUX	20
+> +#define CLK_FRAC_COMMON_MATRIX1_MUX	21
+> +#define CLK_FRAC_COMMON_MATRIX2_MUX	22
+> +#define CLK_FRAC_UART_MATRIX0		23
+> +#define CLK_FRAC_UART_MATRIX1		24
+> +#define CLK_FRAC_VOICE_MATRIX0		25
+> +#define CLK_FRAC_VOICE_MATRIX1		26
+> +#define CLK_FRAC_COMMON_MATRIX0		27
+> +#define CLK_FRAC_COMMON_MATRIX1		28
+> +#define CLK_FRAC_COMMON_MATRIX2		29
+> +#define CLK_REF_USBPHY_TOP		30
+> +#define CLK_REF_DPHY_TOP		31
+> +#define ACLK_CORE_ROOT			32
+> +#define PCLK_CORE_ROOT			33
+> +#define PCLK_DBG			34
+> +#define PCLK_CORE_GRF			35
+> +#define PCLK_CORE_CRU			36
+> +#define CLK_CORE_EMA_DETECT		37
+> +#define CLK_REF_PVTPLL_CORE		38
+> +#define PCLK_GPIO1			39
+> +#define DBCLK_GPIO1			40
+> +#define ACLK_CORE_PERI_ROOT		41
+> +#define HCLK_CORE_PERI_ROOT		42
+> +#define PCLK_CORE_PERI_ROOT		43
+> +#define CLK_DSMC			44
+> +#define ACLK_DSMC			45
+> +#define PCLK_DSMC			46
+> +#define CLK_FLEXBUS_TX			47
+> +#define CLK_FLEXBUS_RX			48
+> +#define ACLK_FLEXBUS			49
+> +#define HCLK_FLEXBUS			50
+> +#define ACLK_DSMC_SLV			51
+> +#define HCLK_DSMC_SLV			52
+> +#define ACLK_BUS_ROOT			53
+> +#define HCLK_BUS_ROOT			54
+> +#define PCLK_BUS_ROOT			55
+> +#define ACLK_SYSRAM			56
+> +#define HCLK_SYSRAM			57
+> +#define ACLK_DMAC0			58
+> +#define ACLK_DMAC1			59
+> +#define HCLK_M0				60
+> +#define PCLK_BUS_GRF			61
+> +#define PCLK_TIMER			62
+> +#define CLK_TIMER0_CH0			63
+> +#define CLK_TIMER0_CH1			64
+> +#define CLK_TIMER0_CH2			65
+> +#define CLK_TIMER0_CH3			66
+> +#define CLK_TIMER0_CH4			67
+> +#define CLK_TIMER0_CH5			68
+> +#define PCLK_WDT0			69
+> +#define TCLK_WDT0			70
+> +#define PCLK_WDT1			71
+> +#define TCLK_WDT1			72
+> +#define PCLK_MAILBOX			73
+> +#define PCLK_INTMUX			74
+> +#define PCLK_SPINLOCK			75
+> +#define PCLK_DDRC			76
+> +#define HCLK_DDRPHY			77
+> +#define PCLK_DDRMON			78
+> +#define CLK_DDRMON_OSC			79
+> +#define PCLK_STDBY			80
+> +#define HCLK_USBOTG0			81
+> +#define HCLK_USBOTG0_PMU		82
+> +#define CLK_USBOTG0_ADP			83
+> +#define HCLK_USBOTG1			84
+> +#define HCLK_USBOTG1_PMU		85
+> +#define CLK_USBOTG1_ADP			86
+> +#define PCLK_USBPHY			87
+> +#define ACLK_DMA2DDR			88
+> +#define PCLK_DMA2DDR			89
+> +#define STCLK_M0			90
+> +#define CLK_DDRPHY			91
+> +#define CLK_DDRC_SRC			92
+> +#define ACLK_DDRC_0			93
+> +#define ACLK_DDRC_1			94
+> +#define CLK_DDRC			95
+> +#define CLK_DDRMON			96
+> +#define HCLK_LSPERI_ROOT		97
+> +#define PCLK_LSPERI_ROOT		98
+> +#define PCLK_UART0			99
+> +#define PCLK_UART1			100
+> +#define PCLK_UART2			101
+> +#define PCLK_UART3			102
+> +#define PCLK_UART4			103
+> +#define SCLK_UART0			104
+> +#define SCLK_UART1			105
+> +#define SCLK_UART2			106
+> +#define SCLK_UART3			107
+> +#define SCLK_UART4			108
+> +#define PCLK_I2C0			109
+> +#define CLK_I2C0			110
+> +#define PCLK_I2C1			111
+> +#define CLK_I2C1			112
+> +#define PCLK_I2C2			113
+> +#define CLK_I2C2			114
+> +#define PCLK_PWM1			115
+> +#define CLK_PWM1			116
+> +#define CLK_OSC_PWM1			117
+> +#define CLK_RC_PWM1			118
+> +#define CLK_FREQ_PWM1			119
+> +#define CLK_COUNTER_PWM1		120
+> +#define PCLK_SPI0			121
+> +#define CLK_SPI0			122
+> +#define PCLK_SPI1			123
+> +#define CLK_SPI1			124
+> +#define PCLK_GPIO2			125
+> +#define DBCLK_GPIO2			126
+> +#define PCLK_GPIO3			127
+> +#define DBCLK_GPIO3			128
+> +#define PCLK_GPIO4			129
+> +#define DBCLK_GPIO4			130
+> +#define HCLK_CAN0			131
+> +#define CLK_CAN0			132
+> +#define HCLK_CAN1			133
+> +#define CLK_CAN1			134
+> +#define HCLK_PDM			135
+> +#define MCLK_PDM			136
+> +#define CLKOUT_PDM			137
+> +#define MCLK_SPDIFTX			138
+> +#define HCLK_SPDIFTX			139
+> +#define HCLK_SPDIFRX			140
+> +#define MCLK_SPDIFRX			141
+> +#define MCLK_SAI0			142
+> +#define HCLK_SAI0			143
+> +#define MCLK_OUT_SAI0			144
+> +#define MCLK_SAI1			145
+> +#define HCLK_SAI1			146
+> +#define MCLK_OUT_SAI1			147
+> +#define HCLK_ASRC0			148
+> +#define CLK_ASRC0			149
+> +#define HCLK_ASRC1			150
+> +#define CLK_ASRC1			151
+> +#define PCLK_CRU			152
+> +#define PCLK_PMU_ROOT			153
+> +#define MCLK_ASRC0			154
+> +#define MCLK_ASRC1			155
+> +#define MCLK_ASRC2			156
+> +#define MCLK_ASRC3			157
+> +#define LRCK_ASRC0_SRC			158
+> +#define LRCK_ASRC0_DST			159
+> +#define LRCK_ASRC1_SRC			160
+> +#define LRCK_ASRC1_DST			161
+> +#define ACLK_HSPERI_ROOT		162
+> +#define HCLK_HSPERI_ROOT		163
+> +#define PCLK_HSPERI_ROOT		164
+> +#define CCLK_SRC_SDMMC			165
+> +#define HCLK_SDMMC			166
+> +#define HCLK_FSPI			167
+> +#define SCLK_FSPI			168
+> +#define PCLK_SPI2			169
+> +#define ACLK_MAC0			170
+> +#define ACLK_MAC1			171
+> +#define PCLK_MAC0			172
+> +#define PCLK_MAC1			173
+> +#define CLK_MAC_ROOT			174
+> +#define CLK_MAC0			175
+> +#define CLK_MAC1			176
+> +#define MCLK_SAI2			177
+> +#define HCLK_SAI2			178
+> +#define MCLK_OUT_SAI2			179
+> +#define MCLK_SAI3_SRC			180
+> +#define HCLK_SAI3			181
+> +#define MCLK_SAI3			182
+> +#define MCLK_OUT_SAI3			183
+> +#define MCLK_SAI4_SRC			184
+> +#define HCLK_SAI4			185
+> +#define MCLK_SAI4			186
+> +#define HCLK_DSM			187
+> +#define MCLK_DSM			188
+> +#define PCLK_AUDIO_ADC			189
+> +#define MCLK_AUDIO_ADC			190
+> +#define MCLK_AUDIO_ADC_DIV4		191
+> +#define PCLK_SARADC			192
+> +#define CLK_SARADC			193
+> +#define PCLK_OTPC_NS			194
+> +#define CLK_SBPI_OTPC_NS		195
+> +#define CLK_USER_OTPC_NS		196
+> +#define PCLK_UART5			197
+> +#define SCLK_UART5			198
+> +#define PCLK_GPIO234_IOC		199
+> +#define CLK_MAC_PTP_ROOT		200
+> +#define CLK_MAC0_PTP			201
+> +#define CLK_MAC1_PTP			202
+> +#define CLK_SPI2			203
+> +#define ACLK_VIO_ROOT			204
+> +#define HCLK_VIO_ROOT			205
+> +#define PCLK_VIO_ROOT			206
+> +#define HCLK_RGA			207
+> +#define ACLK_RGA			208
+> +#define CLK_CORE_RGA			209
+> +#define ACLK_VOP			210
+> +#define HCLK_VOP			211
+> +#define DCLK_VOP			212
+> +#define PCLK_DPHY			213
+> +#define PCLK_DSI_HOST			214
+> +#define PCLK_TSADC			215
+> +#define CLK_TSADC			216
+> +#define CLK_TSADC_TSEN			217
+> +#define PCLK_GPIO1_IOC			218
+> +#define PCLK_OTPC_S			219
+> +#define CLK_SBPI_OTPC_S			220
+> +#define CLK_USER_OTPC_S			221
+> +#define PCLK_OTP_MASK			222
+> +#define PCLK_KEYREADER			223
+> +#define HCLK_BOOTROM			224
+> +#define PCLK_DDR_SERVICE		225
+> +#define HCLK_CRYPTO_S			226
+> +#define HCLK_KEYLAD			227
+> +#define CLK_CORE_CRYPTO			228
+> +#define CLK_PKA_CRYPTO			229
+> +#define CLK_CORE_CRYPTO_S		230
+> +#define CLK_PKA_CRYPTO_S		231
+> +#define ACLK_CRYPTO_S			232
+> +#define HCLK_RNG_S			233
+> +#define CLK_CORE_CRYPTO_NS		234
+> +#define CLK_PKA_CRYPTO_NS		235
+> +#define ACLK_CRYPTO_NS			236
+> +#define HCLK_CRYPTO_NS			237
+> +#define HCLK_RNG			238
+> +#define CLK_PMU				239
+> +#define PCLK_PMU			240
+> +#define CLK_PMU_32K			241
+> +#define PCLK_PMU_CRU			242
+> +#define PCLK_PMU_GRF			243
+> +#define PCLK_GPIO0_IOC			244
+> +#define PCLK_GPIO0			245
+> +#define DBCLK_GPIO0			246
+> +#define PCLK_GPIO1_SHADOW		247
+> +#define DBCLK_GPIO1_SHADOW		248
+> +#define PCLK_PMU_HP_TIMER		249
+> +#define CLK_PMU_HP_TIMER		250
+> +#define CLK_PMU_HP_TIMER_32K		251
+> +#define PCLK_PWM0			252
+> +#define CLK_PWM0			253
+> +#define CLK_OSC_PWM0			254
+> +#define CLK_RC_PWM0			255
+> +#define CLK_MAC_OUT			256
+> +#define CLK_REF_OUT0			257
+> +#define CLK_REF_OUT1			258
+> +#define CLK_32K_FRAC			259
+> +#define CLK_32K_RC			260
+> +#define CLK_32K				261
+> +#define CLK_32K_PMU			262
+> +#define PCLK_TOUCH_KEY			263
+> +#define CLK_TOUCH_KEY			264
+> +#define CLK_REF_PHY_PLL			265
+> +#define CLK_REF_PHY_PMU_MUX		266
+> +#define CLK_WIFI_OUT			267
+> +#define CLK_V0PLL_REF			268
+> +#define CLK_V1PLL_REF			269
+> +#define CLK_32K_FRAC_MUX		270
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/rockchip,rk3506-cru.h b/include/dt=
+-bindings/reset/rockchip,rk3506-cru.h
+> new file mode 100644
+> index 000000000000..31c0d4aa410f
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/rockchip,rk3506-cru.h
+> @@ -0,0 +1,211 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
+> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +
+> +/* CRU-->SOFTRST_CON00 */
+> +#define SRST_NCOREPORESET0_AC	0
+> +#define SRST_NCOREPORESET1_AC	1
+> +#define SRST_NCOREPORESET2_AC	2
+> +#define SRST_NCORESET0_AC	3
+> +#define SRST_NCORESET1_AC	4
+> +#define SRST_NCORESET2_AC	5
+> +#define SRST_NL2RESET_AC	6
+> +#define SRST_A_CORE_BIU_AC	7
+> +#define SRST_H_M0_AC		8
+> +
+> +/* CRU-->SOFTRST_CON02 */
+> +#define SRST_NDBGRESET		9
+> +#define SRST_P_CORE_BIU		10
+> +#define SRST_PMU		11
+> +
+> +/* CRU-->SOFTRST_CON03 */
+> +#define SRST_P_DBG		12
+> +#define SRST_POT_DBG		13
+> +#define SRST_P_CORE_GRF		14
+> +#define SRST_CORE_EMA_DETECT	15
+> +#define SRST_REF_PVTPLL_CORE	16
+> +#define SRST_P_GPIO1		17
+> +#define SRST_DB_GPIO1		18
+> +
+> +/* CRU-->SOFTRST_CON04 */
+> +#define SRST_A_CORE_PERI_BIU	19
+> +#define SRST_A_DSMC		20
+> +#define SRST_P_DSMC		21
+> +#define SRST_FLEXBUS		22
+> +#define SRST_A_FLEXBUS		23
+> +#define SRST_H_FLEXBUS		24
+> +#define SRST_A_DSMC_SLV		25
+> +#define SRST_H_DSMC_SLV		26
+> +#define SRST_DSMC_SLV		27
+> +
+> +/* CRU-->SOFTRST_CON05 */
+> +#define SRST_A_BUS_BIU		28
+> +#define SRST_H_BUS_BIU		29
+> +#define SRST_P_BUS_BIU		30
+> +#define SRST_A_SYSRAM		31
+> +#define SRST_H_SYSRAM		32
+> +#define SRST_A_DMAC0		33
+> +#define SRST_A_DMAC1		34
+> +#define SRST_H_M0		35
+> +#define SRST_M0_JTAG		36
+> +#define SRST_H_CRYPTO		37
+> +
+> +/* CRU-->SOFTRST_CON06 */
+> +#define SRST_H_RNG		38
+> +#define SRST_P_BUS_GRF		39
+> +#define SRST_P_TIMER0		40
+> +#define SRST_TIMER0_CH0		41
+> +#define SRST_TIMER0_CH1		42
+> +#define SRST_TIMER0_CH2		43
+> +#define SRST_TIMER0_CH3		44
+> +#define SRST_TIMER0_CH4		45
+> +#define SRST_TIMER0_CH5		46
+> +#define SRST_P_WDT0		47
+> +#define SRST_T_WDT0		48
+> +#define SRST_P_WDT1		49
+> +#define SRST_T_WDT1		50
+> +#define SRST_P_MAILBOX		51
+> +#define SRST_P_INTMUX		52
+> +#define SRST_P_SPINLOCK		53
+> +
+> +/* CRU-->SOFTRST_CON07 */
+> +#define SRST_P_DDRC		54
+> +#define SRST_H_DDRPHY		55
+> +#define SRST_P_DDRMON		56
+> +#define SRST_DDRMON_OSC		57
+> +#define SRST_P_DDR_LPC		58
+> +#define SRST_H_USBOTG0		59
+> +#define SRST_USBOTG0_ADP	60
+> +#define SRST_H_USBOTG1		61
+> +#define SRST_USBOTG1_ADP	62
+> +#define SRST_P_USBPHY		63
+> +#define SRST_USBPHY_POR		64
+> +#define SRST_USBPHY_OTG0	65
+> +#define SRST_USBPHY_OTG1	66
+> +
+> +/* CRU-->SOFTRST_CON08 */
+> +#define SRST_A_DMA2DDR		67
+> +#define SRST_P_DMA2DDR		68
+> +
+> +/* CRU-->SOFTRST_CON09 */
+> +#define SRST_USBOTG0_UTMI	69
+> +#define SRST_USBOTG1_UTMI	70
+> +
+> +/* CRU-->SOFTRST_CON10 */
+> +#define SRST_A_DDRC_0		71
+> +#define SRST_A_DDRC_1		72
+> +#define SRST_A_DDR_BIU		73
+> +#define SRST_DDRC		74
+> +#define SRST_DDRMON		75
+> +
+> +/* CRU-->SOFTRST_CON11 */
+> +#define SRST_H_LSPERI_BIU	76
+> +#define SRST_P_UART0		77
+> +#define SRST_P_UART1		78
+> +#define SRST_P_UART2		79
+> +#define SRST_P_UART3		80
+> +#define SRST_P_UART4		81
+> +#define SRST_UART0		82
+> +#define SRST_UART1		83
+> +#define SRST_UART2		84
+> +#define SRST_UART3		85
+> +#define SRST_UART4		86
+> +#define SRST_P_I2C0		87
+> +#define SRST_I2C0		88
+> +
+> +/* CRU-->SOFTRST_CON12 */
+> +#define SRST_P_I2C1		89
+> +#define SRST_I2C1		90
+> +#define SRST_P_I2C2		91
+> +#define SRST_I2C2		92
+> +#define SRST_P_PWM1		93
+> +#define SRST_PWM1		94
+> +#define SRST_P_SPI0		95
+> +#define SRST_SPI0		96
+> +#define SRST_P_SPI1		97
+> +#define SRST_SPI1		98
+> +#define SRST_P_GPIO2		99
+> +#define SRST_DB_GPIO2		100
+> +
+> +/* CRU-->SOFTRST_CON13 */
+> +#define SRST_P_GPIO3		101
+> +#define SRST_DB_GPIO3		102
+> +#define SRST_P_GPIO4		103
+> +#define SRST_DB_GPIO4		104
+> +#define SRST_H_CAN0		105
+> +#define SRST_CAN0		106
+> +#define SRST_H_CAN1		107
+> +#define SRST_CAN1		108
+> +#define SRST_H_PDM		109
+> +#define SRST_M_PDM		110
+> +#define SRST_PDM		111
+> +#define SRST_SPDIFTX		112
+> +#define SRST_H_SPDIFTX		113
+> +#define SRST_H_SPDIFRX		114
+> +#define SRST_SPDIFRX		115
+> +#define SRST_M_SAI0		116
+> +
+> +/* CRU-->SOFTRST_CON14 */
+> +#define SRST_H_SAI0		117
+> +#define SRST_M_SAI1		118
+> +#define SRST_H_SAI1		119
+> +#define SRST_H_ASRC0		120
+> +#define SRST_ASRC0		121
+> +#define SRST_H_ASRC1		122
+> +#define SRST_ASRC1		123
+> +
+> +/* CRU-->SOFTRST_CON17 */
+> +#define SRST_H_HSPERI_BIU	124
+> +#define SRST_H_SDMMC		125
+> +#define SRST_H_FSPI		126
+> +#define SRST_S_FSPI		127
+> +#define SRST_P_SPI2		128
+> +#define SRST_A_MAC0		129
+> +#define SRST_A_MAC1		130
+> +
+> +/* CRU-->SOFTRST_CON18 */
+> +#define SRST_M_SAI2		131
+> +#define SRST_H_SAI2		132
+> +#define SRST_H_SAI3		133
+> +#define SRST_M_SAI3		134
+> +#define SRST_H_SAI4		135
+> +#define SRST_M_SAI4		136
+> +#define SRST_H_DSM		137
+> +#define SRST_M_DSM		138
+> +#define SRST_P_AUDIO_ADC	139
+> +#define SRST_M_AUDIO_ADC	140
+> +
+> +/* CRU-->SOFTRST_CON19 */
+> +#define SRST_P_SARADC		141
+> +#define SRST_SARADC		142
+> +#define SRST_SARADC_PHY		143
+> +#define SRST_P_OTPC_NS		144
+> +#define SRST_SBPI_OTPC_NS	145
+> +#define SRST_USER_OTPC_NS	146
+> +#define SRST_P_UART5		147
+> +#define SRST_UART5		148
+> +#define SRST_P_GPIO234_IOC	149
+> +
+> +/* CRU-->SOFTRST_CON21 */
+> +#define SRST_A_VIO_BIU		150
+> +#define SRST_H_VIO_BIU		151
+> +#define SRST_H_RGA		152
+> +#define SRST_A_RGA		153
+> +#define SRST_CORE_RGA		154
+> +#define SRST_A_VOP		155
+> +#define SRST_H_VOP		156
+> +#define SRST_VOP		157
+> +#define SRST_P_DPHY		158
+> +#define SRST_P_DSI_HOST		159
+> +#define SRST_P_TSADC		160
+> +#define SRST_TSADC		161
+> +
+> +/* CRU-->SOFTRST_CON22 */
+> +#define SRST_P_GPIO1_IOC	162
+> +
+> +#endif
+> --=20
+> 2.34.1
+>=20
+
+--zGcQ5ULag5B/Kwbf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRN1zgAKCRB4tDGHoIJi
+0rKkAQCvn9XUiLnGKuFMWbtGfTcdj6y5RMZtcFTF76bNvogYbgEAkTW/epnzYc65
+yXyf2/G9aqNXixOCxpN1CQejo+LqZAY=
+=peVc
+-----END PGP SIGNATURE-----
+
+--zGcQ5ULag5B/Kwbf--
 
