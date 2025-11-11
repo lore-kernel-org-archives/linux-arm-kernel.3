@@ -4,103 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC832CD1297
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C9BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=; b=E+y9VonLLdKa3TAMOY60lEG0Hv
-	qaE9/p+mIOR68b0MNyO75h+a9DPaQmxzjP26ydYv4xjt7S3bZig7wdxPz35DXf+03xPYJHHR0UG6K
-	WXB3VkUPQnePYz69Sfhl3vEIz744iEU/HXzJwCcy5cVUaJcfrA/rkqlf1DZFAmvNDHJjEqkubnJr/
-	6TGjahXMCfPDE7ezQ7Rd8zGk7Ok+gQcRZycofJV9kPJsIsAFJhmh2JjKAyz9WxbWZzyFYjaYLNrUL
-	Z+yelhs+9RYGlBSU8YkgwB/n7lNHw9WbO8ZvUwhHZFJDX50DZF5KpBAdL+QF5MemEgdQLDNt+nws9
-	0cYyjh8w==;
+	bh=b5cTARWnCH0O+wzlNreNZEZCG3YtR/z+aB364cLgDRc=; b=ZQZCm5gIBJ/9B5mpVQ8EJxE/Hw
+	y7qiMPLq9Ms87S3RHUW7gfidzX/XMulST1cna4ASRXeEP7/Mp+KUUgDzJvQttFnFavYhP16+xo/Hv
+	OFjVx0gPJretO8o4O8Py0if50IUL8NLltTaAZNAFZUrSZOteoYr4cxy3nQfU9Q7zBkJyozUgAqQY7
+	4WkBoe70g1iU9HpNIMnpRaEw/IHr7U7r6p1lIZyRwuA3sh1UD0VW9sEp1dyjURdDPpBt4kkBdOFtg
+	LtCkbqQ/Aqn1z5f1xQt+UVUCSBJUC9C3/qCkdObWIpq+S3HdRElAm3/bwIPoL1UHVH09d9/FCau5I
+	mk68OsbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIldL-00000006x3U-1khJ;
-	Tue, 11 Nov 2025 10:29:55 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vIlj8-00000006xpK-1xLt;
+	Tue, 11 Nov 2025 10:35:54 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIldI-00000006x34-1Dnw
+	id 1vIlj5-00000006xob-11Ts
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:29:54 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so19092815e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:29:51 -0800 (PST)
+	Tue, 11 Nov 2025 10:35:52 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-37a33b06028so35208961fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:35:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762856990; x=1763461790; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=;
-        b=L3V5Gymd3eP/OFHMz94+fjcLdDOnstK+GByjvC6Cbj9A5ws5QLr6U34YmLS97cBgTW
-         MNySDVvdW7GE2UQ6stOBlxnUjoTGbQkNzT9/zXCmSWRlFQKlH1aIdyJsa6Oub0CgFhYh
-         /LULaUSTmf3V2DnYg3JBLPhgXOR00uGjZNXxGKgCAOdMON7eoAA6gH7KGqcSszrTQqNY
-         EtSkRHkl1J7UiVTP6dY8qARSKk9el+g7MdqaUVLqi8t5JFvWbt4gietkBCJoRnLmHHfS
-         SFwffYKHQjEUTLLg4h/E6sDB0Du5uSLe65yaVaZhajSgNj/LJMv5GYyE0IKTnut9FzGx
-         TBmg==
+        d=linaro.org; s=google; t=1762857349; x=1763462149; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b5cTARWnCH0O+wzlNreNZEZCG3YtR/z+aB364cLgDRc=;
+        b=h5H8Sc3DzQ0dYNLpWgQJfv3x8/uPZ2wDNDlNrlx1kdk+QW5fgEoKuRQg9nqHWOsw+E
+         Fwxcwg1TOMBnwXkCzH+BZnYaseJcC7NjavYWR5WoTpuJ8fr3xOOc0pXWq1s/55Y3qZZy
+         Z/0+4fyT+UyBUVGHvVtXbfi6uUPndK5cX2lPa7XPFI0zEFpN0K0Un0Tn8SXFT3M1Usws
+         EDpkV9hitDuGrfuy5VJdbT8nlfKWp7tEqJzwPJo2DaeQw9Z0nFk6GmnlpPREh8piXgnP
+         0NX26XU9ol3/G11bKtJmmx0XV0FI4DeHob8Lvh2bhkliNEbtRP+OmvFNArD3Q32s0/Ny
+         mHhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762856990; x=1763461790;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=;
-        b=jwZB35JRQQOkcPOhfT6hSxZSTGa4DG1Cfw6z+2SxZLbv5hlNbQ6SWKw6HfOsVMF/M7
-         Dyrffp+kffxnmq7zHe0W/C7+edMMuqHb/8fs4eXEHRo+T166iJDtq8D6SB+A+mOCu9ol
-         5p6P+8AMCVP+h9C3Ev7CuZODiVzJD7yoJs5kISVDW3Asid1EpaylIzp1Var3uxFt8TmK
-         5rZ28JXmJydAD4IL6Xq1u7AByXwFsT8lf2gtS+TP8ZZ6wz1R9DuFnSdhv/p94CYxmfoq
-         S+64MZFzc9PluWk9UBXYO6CAcI3K5ifbxrDGLWStcxtDBhLSyQkTQLKSU56hYCvQui/8
-         DdAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXnJOVXZxflIscMRX7zo2U1YO624U5HjVlDOSWNti6fiFtEGnPgmSb8JBvssG51r39YiyQEU1cOTRqMHE1Um6S/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9ZRKHBsFgnrO9pO7+90x2TvjRpODQFkunGLi7k0EKK2U2tX/m
-	c0CAi8Ecz7MAQnW7c9VLJGPLGUyH2o0mcpcG9Cyt1WVlEjIgqwFfdfLv/PAMbLXdCaU=
-X-Gm-Gg: ASbGncsMZ56nwvcJMZ8s9YeBsK9wALU4I4K0M5DeJMaif7hi6wRoZ4jsSHrE4GuK7LR
-	ozlBUSzUXwTxaboaL8yihbrUUibs6pQxO4YueI7VkCBi38XAKnq80CkzYUuXaMV3NDGwFrhRJZi
-	oFHtRCf0QPgfqCcUIFc4lK6hAwbpPhK5YbMeyC276S2+O6jeZGUCORBn4Y3cCSYEIHaEEC/7cve
-	jgIZ5JhL6Z2rrBh3sDWC1LIRgtvzApfGs9bITQfXz+YgVi6A7Dp8sfhfGwSl4cItLzJmuFhMn2m
-	gOIlL6CiVpJcHToa9lXTfW/HLExPjYCDcJA0A5NeO12gclgv0OcGPCHOqlsc3TTMQ7/PdtfIQhv
-	OkH3aeuPt16FZ/gQWdG9bHkT3htDNGDY0baldZAPbW0iH1g0BCnqvQRHixmnDEtS7liuSx/vZAN
-	DkUZVlUkWiWX0L9Ix2+GYfmUNKvS0=
-X-Google-Smtp-Source: AGHT+IEvLEjIZw4+8whQM79OrY00R9vJVyO1rxoxD4fhQm/KifAlq8r0yaMnGCz1oNKbvCj2h/xcDg==
-X-Received: by 2002:a05:600c:c4a3:b0:471:1774:3003 with SMTP id 5b1f17b1804b1-47773290e9dmr106627935e9.29.1762856990270;
-        Tue, 11 Nov 2025 02:29:50 -0800 (PST)
-Received: from [10.11.12.107] ([5.12.85.52])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac675caecsm27313955f8f.30.2025.11.11.02.29.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Nov 2025 02:29:49 -0800 (PST)
-Message-ID: <5eaaf3cf-a271-467f-b015-9cb9b49590f0@linaro.org>
-Date: Tue, 11 Nov 2025 12:29:44 +0200
+        d=1e100.net; s=20230601; t=1762857349; x=1763462149;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=b5cTARWnCH0O+wzlNreNZEZCG3YtR/z+aB364cLgDRc=;
+        b=SZdJmEtWa2HlC+dRUollWQ4efSQfyT89SLB9gPrclX/oIZZbfk9SLp7XpT9uLZ59Zj
+         oBmVuZnswivnlycR0FgkJpLL4amGJm04qNw2tC47f4Ig38kdypPRF6VFODKKcJwhjJe/
+         8QBtpgm9tMUWx3Fvv5jRZBWKL5ABubsimtehBzuYFBq3Q94msu/D66HqcDrjQ9Q3p7cI
+         RH4qGRMRVN85nfLWGrzJRep636Yn2tTqTYlZHq9+koHXk+HS96x0UkBQWfAMVxWD3Sa5
+         IkjKIBPSwt/8Vd3cB7NXa0knvqRLa06yYEPUyt6YcxXwVjAa4EX43MAq1KuHdV5hptqj
+         kO3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUwe1f8QMa6OwjSaZOAM1B7QYm1j21dlutYL2fq1TKsWUF5uQk7gZL/aLhHgUlqrAqE++zreJbNoddHe8PWk8jt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzJYwMAluewnVqwLVvzPfDPVXp3DRA1wF9IWV6xR/kdA27t/9g
+	40SO+373U1R7zgMb7Nj2gDLukKyGQO4nui3i3+d/0RJYTBDYUOD7yQSW6unqgsstpud4vuU9hvv
+	FW+ZVdlkzn7u2CV4PxYyW0SQsvStIg9wL2EzCFrr2KQ==
+X-Gm-Gg: ASbGncvwTo+1RKtPQl4sUXQB1FUDFJ0dd9ICTdr8jZ1hSKEc7/igNxesrZ/2lvYBKHW
+	o7A9lS3MrD6zuo4U0A9bSI/J9frcg1k96+RS+je/rcbPDNLP8eQGOeV1KWvAWhc+tXLGCmxSEUT
+	k8sEmt6hOq69fwm+tu3i+M3tZBAP4EeAsMYwPj9p9q5Adm1yAdL0bLe25y3Qx6/F3UbB3+fjDhC
+	MgAaDTyTnxdwxQccVNIW7uz1bAkvvGGSniBCetaF0HnGc0FyOV02nBVNWj/Saokwt/N+Gc=
+X-Google-Smtp-Source: AGHT+IHiG+EjsNieo0IH9vKGvPYVnnnJhmFUXHoDPqz54BHP96ylxBdjlT/JInKjKxLz/khK4ncylVpRxXU4D16MeYo=
+X-Received: by 2002:a2e:95d2:0:b0:37a:2f0b:ef24 with SMTP id
+ 38308e7fff4ca-37a7b1995e0mr22288641fa.16.1762857349004; Tue, 11 Nov 2025
+ 02:35:49 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
- <176282517011.11952.1566372681481575091@lazor>
- <c5db97fa-8789-447f-909a-edbdb55383f8@linaro.org>
-Content-Language: en-US
-In-Reply-To: <c5db97fa-8789-447f-909a-edbdb55383f8@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251104203315.85706-1-shenwei.wang@nxp.com> <20251104203315.85706-4-shenwei.wang@nxp.com>
+In-Reply-To: <20251104203315.85706-4-shenwei.wang@nxp.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 11 Nov 2025 11:35:37 +0100
+X-Gm-Features: AWmQ_bnM-SUasW3cn2Gm4EW3aePYZpGnjIZZVnW89VcDCfJSgNXVTHUcuXdKqUo
+Message-ID: <CACRpkdZR2C=+ssYOKnF=hyOqTakGjVxzp5_qz=3-uYRpzaZgNQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+To: Shenwei Wang <shenwei.wang@nxp.com>, Bjorn Andersson <andersson@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Jonathan Corbet <corbet@lwn.net>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-imx@nxp.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_022952_394344_1C3C791E 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20251111_023551_299632_380559F4 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,91 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Shenwei,
 
+thanks for your patch!
 
-On 11/11/25 8:24 AM, Tudor Ambarus wrote:
-> 
-> 
-> On 11/11/25 3:39 AM, Stephen Boyd wrote:
-> 
-> Hi, Stephen!
-> 
->> Quoting Tudor Ambarus (2025-10-20 00:45:58)
->>>
->>>
->>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>>>> --- a/drivers/clk/samsung/Kconfig
->>>>> +++ b/drivers/clk/samsung/Kconfig
->>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>>>        status of the certains clocks from SoC, but it could also be tied to
->>>>>        other devices as an input clock.
->>>>>  
->>>>> +config EXYNOS_ACPM_CLK
->>>>> +    tristate "Clock driver controlled via ACPM interface"
->>>>> +    depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>>>
->>>> I merged the patches but I don't get why we are not enabling it by
->>>> default, just like every other clock driver. What is so special here?
->>>
->>> Thanks! Are you referring to the depends on line? I needed it otherwise
->>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
->>>
->>> ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
->>>
->>
->> I don't understand that part. The depends on statement "COMPILE_TEST &&
->> !EXYNOS_ACPM_PROTOCOL" is equivalent to COMPILE_TEST=y and
->> EXYNOS_ACPM_PROTOCOL=n, so are you trying to avoid
->> EXYNOS_ACPM_PROTOCOL=y when COMPILE_TEST=y?
-> 
-> My previous comment was misleading.
-> The depends on line allows CONFIG_EXYNOS_ACPM_CLK to be selected in two
-> main scenarios:
-> 1/ if EXYNOS_ACPM_PROTOCOL is enabled the clock driver that uses it can
->    be enabled (the normal case).
-> 2/ COMPILE_TEST is enabled AND EXYNOS_ACPM_PROTOCOL is NOT enabled. This
->    is the special scenario for build testing. I want to build test the
->    clock driver even if EXYNOS_ACPM_PROTOCOL is NOT enabled. For that I
->    also needed the following patch:
-> 
-> https://lore.kernel.org/linux-samsung-soc/20251021-fix-acpm-clk-build-test-v1-1-236a3d6db7f5@linaro.org/
-> 
+Also, a big thanks for working on improving the standardization of rpmsg
+so we can get some order here. This is very important work.
 
-What I described in 2/ EXYNOS_ACPM_PROTOCOL [=n] && EXYNOS_ACPM_CLK [=y] 
-can be achieved with a more relaxed:
-depends on EXYNOS_ACPM_PROTOCOL || COMPILE_TEST
-because of the stub (dummy method) that I referenced in the link above.
+On Tue, Nov 4, 2025 at 9:34=E2=80=AFPM Shenwei Wang <shenwei.wang@nxp.com> =
+wrote:
 
-It's really what Krzysztof explained in his reply, I wanted to avoid
-the link failure for COMPILE_TEST [=y] when
-EXYNOS_ACPM_PROTOCOL [=m] && EXYNOS_ACPM_CLK [=y].
+> +- **Major**: Major version number.
+> +
+> +- **Minor**: Minor version number.
 
-We have the following possibilities with:
-depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
-1/ CONMPILE_TEST=n
-EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n
-EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
-EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
+I'm not contesting these if they come from similar fields in other rpmsg
+devices.
 
-2/COMPILE_TEST=y
-EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n,m,y
-EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
-EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
+What I'm thinking is that the driver will eventually have to quirk around
+bugs in the responding rpmsg CPU, and there will be bugs. This can end
+up with this situation:
 
-We have the following possibilities with:
-depends on EXYNOS_ACPM_PROTOCOL || COMPILE_TEST
-1/ CONMPILE_TEST=n
-EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n
-EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
-EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
+major,minor =3D (1,2) NXP implementation, no bug
+major,minor =3D (1,2) Sharp implementation, no bug
+major,minor =3D (1,2) Sony implementation, ooops this has a bug
 
-2/COMPILE_TEST=y
-EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n,m,y
-EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m,y <- link failure when y
-EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
+What is the driver going to do here to work around that bug?
 
-Thanks,
-ta
+The scheme kind of suppose that all vendors use the same codebase
+and they don't.
+
+I would rather have:
+
+**Vendor**: Vendor ID number (such as the PCI or USB ID)
+
+**Version**: Vendor-specific version number (such as SW release)
+
+This will make it possible to identify buggy firmware and apply
+quirks.
+
+My apologies if the rpmsg community has already thought about
+this.
+
+Bjorns input would be appreciated!
+
+Yours,
+Linus Walleij
 
