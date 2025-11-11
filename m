@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F9CCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 13:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD32CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 13:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vkKMxf17e38diTrd8d7LZ5FzwArRfBMVD8++NmkNFY=; b=T9PvKHKdSuqJTmlEfWBpjGJMtA
-	s4KfEQzqq74kgIA8rOWJdnORI234U1q/kSonr22/5l6KupUzpaQ6RtUVNRcwMh5UKM2+G0Iwcp5se
-	JXBNODWPv2FUPjUDWjMMCIbvVWLULv5oP6Fesewca1jgU2aEVXNRZp8JU3KvAXHDLPjmMKdg30hRD
-	26O5YrOlfaUh3+jGqCoy96UOcmJUoARjrV4OXhs0HsBybpil87ErC45BqFqgXRcwv1dldIT7gwNYB
-	QdEsoX4vukaNubH/GJQYdMPgw3rNkAM3kqQ5QDuXansefnoBccbzBxKvRFZXVHs5Jx3zysghubheh
-	brXlfRLQ==;
+	bh=Pi9m9Hukz+FG/TrZBYZ2/m9zaKUXaHgRFDh6LAJmxBA=; b=PY5/O6ddFJ3p+qOQFC/4WB+hXb
+	2jQAMIkJMFIEep9c5rIaYHOasZGIwkIWjcU76AblST0EFM4ck5E8CcOvgQr83Zu/MWuhkwSU4Cz5/
+	7EpowUfY2tNdddhTgoe8H3jAK9/NCyez3UxnlOvgmr3y2Wh32ha8p6gUdCdnr4/K8T1vuhyoAmm5c
+	DdvM7JAaV5ERxhTFujhhf3Aumkl23ysBh6xoFOiNNm+7NlYswx7L1nkBw/gcIrUcWro8fnFKFc1/Y
+	CxrCGuZA/MxFbotMaMutj1sg0wIHQnTR2+SxATxLj7PpRaF9fAM6s6Jaj73sh5PSunkQjsOdRjCcE
+	IU+SoCyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIoky-00000007GMH-0H8B;
-	Tue, 11 Nov 2025 13:50:00 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIokv-00000007GLN-0JEx
+	id 1vIonS-00000007GUg-2L3a;
+	Tue, 11 Nov 2025 13:52:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIonP-00000007GUK-1YN4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 13:49:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=2vkKMxf17e38diTrd8d7LZ5FzwArRfBMVD8++NmkNFY=;
-	b=eWREf8iXLuLd9plb6jnp4QaIo7pbi+FuTcQL/YI0+h1TazDRMOCjwfyHburar7
-	wOvk+GmqVGKEFqr90TwEpAJVOX3NixI1qYQUhMrKV8Gv96nlvA7A+xCJmPuZxMx0
-	zGk4qSFKoX0B2fl6Jhrj/tVYrkMl9lf7TYciVLi2qQTqE=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgAHhmfpPhNpH63GAQ--.5223S3;
-	Tue, 11 Nov 2025 21:49:31 +0800 (CST)
-Date: Tue, 11 Nov 2025 21:49:29 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Fix ethernet PHY
- address
-Message-ID: <aRM-6aREP-hrnio0@dragon>
-References: <20251026121730.13197-1-laurent.pinchart@ideasonboard.com>
+	Tue, 11 Nov 2025 13:52:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 090412F;
+	Tue, 11 Nov 2025 05:52:21 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 532263F63F;
+	Tue, 11 Nov 2025 05:52:28 -0800 (PST)
+Date: Tue, 11 Nov 2025 13:52:26 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
+ single-shot restart
+Message-ID: <20251111135226.GF281971@e132581.arm.com>
+References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
+ <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+ <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
+ <20251111092403.GB281971@e132581.arm.com>
+ <a5ca5a65-8d5c-48b3-83f2-82d13c0b930d@arm.com>
+ <20251111101805.GD281971@e132581.arm.com>
+ <d17fc264-7f3d-4257-abec-078e665d7ecb@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251026121730.13197-1-laurent.pinchart@ideasonboard.com>
-X-CM-TRANSID: M88vCgAHhmfpPhNpH63GAQ--.5223S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUza9aUUUUU
-X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNAvoTmkTPutIKAAA3W
+In-Reply-To: <d17fc264-7f3d-4257-abec-078e665d7ecb@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_054957_417271_951630EE 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_055231_454365_360D43F5 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,13 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 26, 2025 at 02:17:29PM +0200, Laurent Pinchart wrote:
-> The RTL8211E ethernet PHY on the Debix Model A board it located at
-> address 1. Replace the broadcast address with the correct unicast
-> address.
+On Tue, Nov 11, 2025 at 11:37:08AM +0000, Suzuki Kuruppassery Poulose wrote:
+> On 11/11/2025 10:18, Leo Yan wrote:
+> > On Tue, Nov 11, 2025 at 09:43:13AM +0000, Suzuki Kuruppassery Poulose wrote:
+> > 
+> > [...]
+> > 
+> > > >     if (!is_idle_task(current)) {
+> > > >         if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> > > >             config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> > > >     }
+> > > 
+> > > What happens when we do a system wide session and a CPU is running an
+> > > idle task ?
+> > 
+> > For a system wide trace, the ETM device is enabled and disabled by
+> > the perf when the session start and finish.
+> > 
+> > During the session:
+> > 
+> > - If CPU off states are not enabled, nothing will happen in idle
+> >    threads, as no CPU PM notifier will be invoked.
 > 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> What is a CPU is running the idle task, when the system wide session
+> is activated ?
 
-Applied, thanks!
+Just makes clear: if a CPU running in idle task, and it controls ETM,
+it must be a CPU PM operation.  Otherwise, it is no reason for idle
+thread to enable/disable ETM, no matter what the session mode is.
 
+An edge case is in per-thread mode when switch between the profiled
+process and the idle thread, the ETM operations always occur in
+profiled process rather than idle threads.
+
+> Basing our decision to tune the ETM control on the
+> "active task being idle" feels fragile to me. This is purely a
+> decision under ETM driver, specific to the session you are dealing
+> with. Thus having it in the "config" is preferred and is cleaner.
+
+It is fine for me to use "config" method.  Will spin in this way.
+
+Thanks,
+Leo
 
