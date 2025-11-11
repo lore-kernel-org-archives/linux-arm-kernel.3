@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9482BCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 21:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B2ACCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 21:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PWZSjPeTHOwQQ/fMrt+3ARQrsSB/sn9y1Zax5yNuBX4=; b=P5Fm6E9bTLdhAwlvpUAaob6KBr
-	GOVNIv6FMhj7wwy1UX1r2p5OYtxEu9gPR5AIRkS1vKk2W7E9pJXypGxq2Q1goU3dvR7+LhZ+u1A7+
-	7tfKPj+ViKZOmSGTmN6smo/2mxdgS0Rv2+DGNfixY4XEair1oiBJCMmghawmt3wTD2aCe24ym5tc0
-	qIk0MpL0R7iJLKoyUJoXbU/+BLC9bt3p9hxGp6WJUNQ2Hd8JosNpbZdke0VdPYCz+vKzbBQRm3glY
-	MD1aADuf1E+G8F1LWBk0u/ruQ+DmxywqeYH05sX0dDXw+55jdNAOlwZ1qh1mPiCuH7afDNdu7d1cN
-	7ThPdOLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hKsh+xdtqgACQx3aI5SiLzVdDmIkgooFzAV/6sq2834=; b=kxbQHZBvjiXDAbbAJ3JlWLve9c
+	LtJG4g2rhizQf6jkmeuC07fI1EcdSjV6PFZtdCoo4YhbhDz2knoOk+X/ur8swhDIdy3vxzYsYL3MX
+	3ea7dnkobGujl1qC8i3p+FuYJR3nspmTAoKY5yGeFFQV6O0R+BD4H556RquiZKwSAdCGkDsm8BZ4I
+	LluMhI5hOXAgryRj16ZtfUOAsrI5/r4CNK+M4ish9RLqX+uZM7cF581Q9Xfs8Og8DhReJqMn7f58V
+	wgQjuNl4olqx1weMfYH71sdlW4zNwBxvmByMbgj3kxwAVyIdynrY2ujf+uLYxGiNGMYjqqBjcFmFt
+	EMN43ReA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIvcW-00000007mcl-0kkO;
-	Tue, 11 Nov 2025 21:09:44 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1vIvdM-00000007mhb-2Hlh;
+	Tue, 11 Nov 2025 21:10:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIvcT-00000007mbY-1ydy
+	id 1vIvdK-00000007mh9-1vVm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 21:09:42 +0000
-Message-ID: <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1762895371;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PWZSjPeTHOwQQ/fMrt+3ARQrsSB/sn9y1Zax5yNuBX4=;
-	b=ApCSoVk/a826CZMkyfwKzQ17VO4isZTG0H6VWc/GDizbMn7q8twT5poc+r2k3fIMGrkoZ2
-	Z65SBZKzL1IkVSGYJyzEvMo/hWHyJVeqz8kwRn34epuz3GSZyjoUXy4IVBOk56te2c2DTW
-	lyhHBoNPeuzbqaAXC/F8BoiH8X/uHg0=
-Date: Tue, 11 Nov 2025 16:09:13 -0500
+	Tue, 11 Nov 2025 21:10:35 +0000
+Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id BFCC822B;
+	Tue, 11 Nov 2025 22:08:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762895313;
+	bh=ZJnPqy6rt4JkyACEYLFsrsiMs+h4L3/AcaMs5XAVPDk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jT76vbs53VCjgG63S5D9R7y0iPpHgrzLVxTtqaB4Zt46N0L5cOd7Zzh8pXJbchYoo
+	 9yk1uLktXbinrkbaHuDan8Nv7IDnemA6Htso7ey4RS3mjH4kI1ubZXcKNmYpxfQQaG
+	 VKOaUFMWQmFjGiRmqv1n/JaSGZAXN+M0nowVwKuU=
+Date: Tue, 11 Nov 2025 23:10:25 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 1/5] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <20251111211025.GA26805@pendragon.ideasonboard.com>
+References: <20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com>
+ <20251023-csi2_imx8ulp-v7-1-5ecb081ce79b@nxp.com>
+ <20251027000537.GM13023@pendragon.ideasonboard.com>
+ <aROg99ryy6RTZZIx@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org
-Cc: David Airlie <airlied@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
- <20250627145058.6880-1-mike.looijmans@topic.nl>
- <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
-Content-Language: en-US
-In-Reply-To: <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aROg99ryy6RTZZIx@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_130941_952214_AE1E8CBF 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20251111_131034_636840_BB45A104 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +84,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/4/25 16:53, Sean Anderson wrote:
-> On 6/27/25 10:50, Mike Looijmans wrote:
->> XRGB8888 is the default mode that Xorg will want to use. Add support
->> for this to the Zynqmp DisplayPort driver, so that applications can use
->> 32-bit framebuffers. This solves that the X server would fail to start
->> unless one provided an xorg.conf that sets DefaultDepth to 16.
->> 
->> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
->> ---
->> 
->>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
->>  1 file changed, 5 insertions(+)
->> 
->> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> index 80d1e499a18d..501428437000 100644
->> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
->>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->>  		.swap		= true,
->>  		.sf		= scaling_factors_888,
->> +	}, {
->> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
->> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->> +		.swap		= true,
->> +		.sf		= scaling_factors_888,
->>  	}, {
->>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
->>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
+On Tue, Nov 11, 2025 at 03:47:51PM -0500, Frank Li wrote:
+> On Mon, Oct 27, 2025 at 02:05:37AM +0200, Laurent Pinchart wrote:
+> > On Thu, Oct 23, 2025 at 05:19:42PM +0800, Guoniu Zhou wrote:
+> > > From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > >
+> > > The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> > > present in the i.MX8QXP/QM, but i.MX8ULP CSI-2 controller needs pclk
+> > > clock as the input clock for its APB interface of Control and Status
+> > > register(CSR). So add compatible string fsl,imx8ulp-mipi-csi2 and
+> > > increase maxItems of Clocks (clock-names) to 4 from 3.  And keep the
+> > > same restriction for existing compatible.
+> > >
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > > ---
+> > >  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 41 ++++++++++++++++++++--
+> > >  1 file changed, 39 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > index 3389bab266a9adbda313c8ad795b998641df12f3..da3978da1cab75292ada3f24837443f7f4ab6418 100644
+> > > --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > @@ -20,6 +20,7 @@ properties:
+> > >        - enum:
+> > >            - fsl,imx8mq-mipi-csi2
+> > >            - fsl,imx8qxp-mipi-csi2
+> > > +          - fsl,imx8ulp-mipi-csi2
+> > >        - items:
+> > >            - const: fsl,imx8qm-mipi-csi2
+> > >            - const: fsl,imx8qxp-mipi-csi2
+> > > @@ -39,12 +40,16 @@ properties:
+> > >                       clock that the RX DPHY receives.
+> > >        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+> > >                       See the reference manual for details.
+> > > +      - description: pclk is clock for csr APB interface.
+> > > +    minItems: 3
+> > >
+> > >    clock-names:
+> > >      items:
+> > >        - const: core
+> > >        - const: esc
+> > >        - const: ui
+> > > +      - const: pclk
+> > > +    minItems: 3
+> > >
+> > >    power-domains:
+> > >      maxItems: 1
+> > > @@ -130,19 +135,51 @@ allOf:
+> > >          compatible:
+> > >            contains:
+> > >              enum:
+> > > -              - fsl,imx8qxp-mipi-csi2
+> > > +              - fsl,imx8ulp-mipi-csi2
+> > > +    then:
+> > > +      properties:
+> > > +        reg:
+> > > +          minItems: 2
+> > > +        resets:
+> > > +          minItems: 2
+> > > +          maxItems: 2
+> > > +        clocks:
+> > > +          minItems: 4
+> > > +        clock-names:
+> > > +          minItems: 4
+> >
+> > Do we need the clock-names constraint ? The DT schemas will enforce that
+> > clocks and clock-names always have the same number of elements.
 > 
-> Tested-by: Sean Anderson <sean.anderson@linux.dev>
+> clock-names list already restrict at top section
 > 
-> I can confirm that this provides a nice performance boost :)
+> clock-names:
+>   items:
+>     - const: core
+>     - const: esc
+>     - const: ui
+>     - const: pclk
+>   minItems: 3
+> 
+> Here just restrict need 4 clocks, instead 3 clock for fsl,imx8ulp-mipi-csi2
 
-Actually, I think a better fix would be to make the "video" plane the
-primary one. That plane supports XRGB8888 natively, and then the
-graphics plane can be used as an overlay for e.g. windows or cursors.
+I understand that. My point was that the dt-schema will always verify
+that the number of clocks items is equal to the number of clock-names
+items. That's a constraint enforced by the core schemas. As
+clocks: minItems is set to 4, the clock-names: minItems constraint is
+redundant.
 
---Sean
+> > > +
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            const: fsl,imx8qxp-mipi-csi2
+> > >      then:
+> > >        properties:
+> > >          reg:
+> > >            minItems: 2
+> > >          resets:
+> > >            maxItems: 1
+> > > -    else:
+> > > +        clocks:
+> > > +          maxItems: 3
+> > > +        clock-names:
+> > > +          maxItems: 3
+> > > +
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - fsl,imx8mq-mipi-csi2
+> > > +    then:
+> > >        properties:
+> > >          reg:
+> > >            maxItems: 1
+> > >          resets:
+> > >            minItems: 3
+> > > +        clocks:
+> > > +          maxItems: 3
+> > > +        clock-names:
+> > > +          maxItems: 3
+> > >        required:
+> > >          - fsl,mipi-phy-gpr
+> > >
+> >
+> > Could you please sort those conditional blocks by alphabetical order of
+> > the compatible strings ?
+
+-- 
+Regards,
+
+Laurent Pinchart
 
