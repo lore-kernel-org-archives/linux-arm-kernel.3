@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC22CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00501CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SP48i1qet+yu4MBWQqcw53g9gnIDVB4G9ACNB6RUHLM=; b=hAYaUxxOp1JACzJ3fPMpjGsJSO
-	qsKxdX/lIiYJyKNiuH/xTJyLry3jlfmf0Ts+QKGzUnOTECeHPf6TASAo5Z4gX290Igsc3DZWJdImQ
-	X/DA65MajcVsFjwsctCRE53KNUAtXN9gh5TmvfX7UD0rsoTM35P2lCr6pUBArhBMKrWSThRmr1Mq3
-	EHQrApT5+tBpsYyCt4Ctr2tnjGe4CFNscAEnYsLcL1+xACpVF8hof+dqdnlnttmQCt1bM/Vh/AiqQ
-	ULBLrU1gYmY9hIhI+4M8xrjLe/mTt8AE12GHC+S/JJOV/iEQ4E6Ja4L2DYfJazkpcUPDDKfvbmoUE
-	1kIVPTtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qgAfxK2MHik3nNugmeifO/rBJyY1F9RlKzlJQysCZZE=; b=zeTzS/PGyqf+iDzvZvY9JqMT0u
+	iU38aDS9OmtM1u+rzA4vpTtcg3Q/rlrNTA74rhBOeADXUEELGOM7ODUV78R5Bv2DtVk52mBkK67lD
+	2DPXuMj1yzX0VTXRgN9VNXWwEKcMgSfPutUMi3La5tSWoHGLHw+JvKabOxfLuabgoHlBpsuf5EFqz
+	JiASGyKOl1W6WJHmrI5pMFZde90P4jycKOV1pmXVdBh3U1pYWPF7JlYnhm6b6JaK1/P6YJUDoRL6F
+	twCXe6MAvl8V5Neez+Ay2w9QY1ly7F2Frka7vd9hE4Ph83Kxh8fexYumEsROvugrMriYdx/yTYrYT
+	dhGKszYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImLT-000000073Ma-2VGD;
-	Tue, 11 Nov 2025 11:15:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vImWJ-00000007481-2vGZ;
+	Tue, 11 Nov 2025 11:26:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImLR-000000073Ld-2ULW
+	id 1vImWH-0000000747e-1tRs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 11:15:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C77543234;
-	Tue, 11 Nov 2025 11:15:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EF58C116D0;
-	Tue, 11 Nov 2025 11:15:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762859728;
-	bh=8esgnEfQShwsJTYAUF/LnkC8u1MGVSAO4Wul/tnrTjo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=fZk1GJON3mQsh+um17ntocleBKoQ3IdtzBGfVDLLhdu7YLT3uTgScins5LnEpT2Uj
-	 GrN5A6yaPXgfQCTjWn55fozDxEu8RhyLLkrw3glfQMPBV8k2vnuk8PkdNHayLTwrX8
-	 ldTl9pqSuhr8y2S2wsbBktiw7kbUsoE97WIKAS/jcUMDkxiQMHxsbO4wMXYTpV+vWc
-	 W12p+IKFTsLTCfZZ8ndpmWK5DLWdgraq5wIt/yP1GkCxsgjO1lG1rqidWvwRBPZx0Q
-	 rYBJMLRjD+ryE1gEHHyc1i81m0jQK3MSGhjjJGsPMBesCVZFllP4bVc8P9Z2ghp1XS
-	 3g44LUqHaY7EA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Tue, 11 Nov 2025 11:26:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qgAfxK2MHik3nNugmeifO/rBJyY1F9RlKzlJQysCZZE=; b=teHh3k49Ca2cV+YDu4ciIA/DvO
+	kg6hvuAZ3bGw6zDo8ruejkZPLdHbqB1KpfgFl/2sX8GQHmNPh6WVxBWmozfxxmnVPRG8+9fiLJuto
+	GcKmwMyV7pp+va4OgEptejkSSPvoGzTgGnxNOO1Mzm6S+rGHqqGJj8L/06NGF/cmDokJ+skKhAKHt
+	JoDdXS2OeSxW6IQyteH/HrM3Q0tJyTv5csqOvR1Epc4VF8adpaOexLrt/0Egp4i7qv1i9niGvWFhc
+	m4xGWNaix2TM6YdM0wh029QthFNzEfIf94HIjXBg9ehdCSi18kym85CH86CVfeKLVGs3EpQR103SP
+	Rj7YP5YQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55950 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vImLN-00000004Csl-3zca;
-	Tue, 11 Nov 2025 11:15:26 +0000
-Date: Tue, 11 Nov 2025 11:15:25 +0000
-Message-ID: <861pm4vn02.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zhou Wang <wangzhou1@hisilicon.com>
-Cc: <catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<oliver.upton@linux.dev>,
-	<joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>,
-	<arnd@arndb.de>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>,
-	<yangyccccc@gmail.com>,
-	<prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>
-Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-In-Reply-To: <20251107072127.448953-6-wangzhou1@hisilicon.com>
-References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
-	<20251107072127.448953-6-wangzhou1@hisilicon.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, yangyccccc@gmail.com, prime.zeng@hisilicon.com, xuwei5@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vImWB-000000002Tq-09lg;
+	Tue, 11 Nov 2025 11:26:35 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vImWA-0000000DrIl-1HZY;
+	Tue, 11 Nov 2025 11:26:34 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: improve ndev->max_mtu setup readability
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vImWA-0000000DrIl-1HZY@rmk-PC.armlinux.org.uk>
+Date: Tue, 11 Nov 2025 11:26:34 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_031529_678580_52708FE0 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20251111_032641_510433_9C49CF50 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Nov 2025 07:21:25 +0000,
-Zhou Wang <wangzhou1@hisilicon.com> wrote:
-> 
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Armv8.7 introduces single-copy atomic 64-byte loads and stores
-> instructions and its variants named under FEAT_{LS64, LS64_V}.
-> These features are identified by ID_AA64ISAR1_EL1.LS64 and the
-> use of such instructions in userspace (EL0) can be trapped. In
-> order to support the use of corresponding instructions in userspace:
-> - Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
-> - Add identifying and enabling in the cpufeature list
-> - Expose these support of these features to userspace through HWCAP3
->   and cpuinfo
-> 
-> ld64b/st64b (FEAT_LS64) and st64bv (FEAT_LS64_V) is intended for
-> special memory (device memory) so requires support by the CPU, system
-> and target memory location (device that support these instructions).
-> The HWCAP3_{LS64, LS64_V} implies the support of CPU and system (since
-> no identification method from system, so SoC vendors should advertise
-> support in the CPU if system also support them).
+Improve the readibility of the code setting ndev->max_mtu. This depends
+on the hardware specific maximum defined by the MAC core, and also a
+platform provided maximum.
 
-But this doesn't mean that the system actually supports this. It is
-also trivial for EL0 to spoof a PASID using ST64BV, by populating the
-bottom 32bit with whatever it wants (hiding ST64BV0 doesn't prevent
-this).
+The code was originally checking that the platform specific maximum was
+between ndev->min_mtu..MAC core maximum before reducing ndev->max_mtu,
+otherwise if the platform specific maximum was less than ndev->min_mtu,
+issuing a warning.
 
-In all honestly, I'm starting to think that we cannot safely expose
-this to userspace, at least not without strong guarantees coming from
-the system itself.
+Re-order the code to handle the case where the platform specific max is
+below ndev->min_mtu, which then means that the subsequent test is
+simply reducing ndev->max_mtu.
 
-Thanks,
+Update the comment, and add a few blank lines to separate the blocks of
+code.
 
-	M.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 ++++++++++---------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index ccf383b355e7..eb4350193996 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1392,9 +1392,9 @@ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+ 	return NET_SKB_PAD;
+ }
+ 
+-static int stmmac_set_bfsize(int mtu, int bufsize)
++static int stmmac_set_bfsize(int mtu)
+ {
+-	int ret = bufsize;
++	int ret;
+ 
+ 	if (mtu >= BUF_SIZE_8KiB)
+ 		ret = BUF_SIZE_16KiB;
+@@ -3958,12 +3958,13 @@ stmmac_setup_dma_desc(struct stmmac_priv *priv, unsigned int mtu)
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+ 
++	/* Returns 0 or BUF_SIZE_16KiB if mtu > 8KiB and dwmac4 or ring mode */
+ 	bfsize = stmmac_set_16kib_bfsize(priv, mtu);
+ 	if (bfsize < 0)
+ 		bfsize = 0;
+ 
+ 	if (bfsize < BUF_SIZE_16KiB)
+-		bfsize = stmmac_set_bfsize(mtu, 0);
++		bfsize = stmmac_set_bfsize(mtu);
+ 
+ 	dma_conf->dma_buf_sz = bfsize;
+ 	/* Chose the tx/rx size from the already defined one in the
+@@ -7773,22 +7774,23 @@ int stmmac_dvr_probe(struct device *device,
+ 
+ 	/* MTU range: 46 - hw-specific max */
+ 	ndev->min_mtu = ETH_ZLEN - ETH_HLEN;
++
+ 	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		ndev->max_mtu = XGMAC_JUMBO_LEN;
+-	else if ((priv->plat->enh_desc) || (priv->synopsys_id >= DWMAC_CORE_4_00))
++	else if (priv->plat->enh_desc || priv->synopsys_id >= DWMAC_CORE_4_00)
+ 		ndev->max_mtu = JUMBO_LEN;
+ 	else
+ 		ndev->max_mtu = SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN);
+-	/* Will not overwrite ndev->max_mtu if plat->maxmtu > ndev->max_mtu
+-	 * as well as plat->maxmtu < ndev->min_mtu which is a invalid range.
++
++	/* Warn if the platform's maxmtu is smaller than the minimum MTU,
++	 * otherwise clamp the maximum MTU above to the platform's maxmtu.
+ 	 */
+-	if ((priv->plat->maxmtu < ndev->max_mtu) &&
+-	    (priv->plat->maxmtu >= ndev->min_mtu))
+-		ndev->max_mtu = priv->plat->maxmtu;
+-	else if (priv->plat->maxmtu < ndev->min_mtu)
++	if (priv->plat->maxmtu < ndev->min_mtu)
+ 		dev_warn(priv->device,
+ 			 "%s: warning: maxmtu having invalid value (%d)\n",
+ 			 __func__, priv->plat->maxmtu);
++	else if (priv->plat->maxmtu < ndev->max_mtu)
++		ndev->max_mtu = priv->plat->maxmtu;
+ 
+ 	ndev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
