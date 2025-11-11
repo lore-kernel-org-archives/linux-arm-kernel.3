@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD32CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 13:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79F6CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pi9m9Hukz+FG/TrZBYZ2/m9zaKUXaHgRFDh6LAJmxBA=; b=PY5/O6ddFJ3p+qOQFC/4WB+hXb
-	2jQAMIkJMFIEep9c5rIaYHOasZGIwkIWjcU76AblST0EFM4ck5E8CcOvgQr83Zu/MWuhkwSU4Cz5/
-	7EpowUfY2tNdddhTgoe8H3jAK9/NCyez3UxnlOvgmr3y2Wh32ha8p6gUdCdnr4/K8T1vuhyoAmm5c
-	DdvM7JAaV5ERxhTFujhhf3Aumkl23ysBh6xoFOiNNm+7NlYswx7L1nkBw/gcIrUcWro8fnFKFc1/Y
-	CxrCGuZA/MxFbotMaMutj1sg0wIHQnTR2+SxATxLj7PpRaF9fAM6s6Jaj73sh5PSunkQjsOdRjCcE
-	IU+SoCyA==;
+	bh=QbxjKRDyIK7i3YBkKCYlqvdlEJ4rgkDKW+LDMud6sYk=; b=LJtvK1vAN/p/VZR9zzX3eb/3Gy
+	h0Xrs692QXKb0qACcwCm8iKg4VXzGyQKKdSeth0ErwM7iMBeY60KSuo4/dxcMnLXGG2lRkBaro3g6
+	8it+8q3JMqa6L0PGl/uMpJQ/J5zaviGb+7qAUKm5mDMCAKw18jEkNE0IllQCkEMmDbjYLunIEo+Vz
+	BjU9kXixvelC7SGYpaS1Rf3VFJ7JgZyXJfu/VNPBVLxCFtFMV3tHLLcsz0vL2go/qsp4t3+U/XnHE
+	QtgpJ34xppaFSKdSULOmYh7qeqSzDE+bwRO/sfT6t5RiZG+t0hVO967m9FXiMWnxUltG88UVK8RxQ
+	RLp+u3Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIonS-00000007GUg-2L3a;
-	Tue, 11 Nov 2025 13:52:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIonP-00000007GUK-1YN4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 13:52:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 090412F;
-	Tue, 11 Nov 2025 05:52:21 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 532263F63F;
-	Tue, 11 Nov 2025 05:52:28 -0800 (PST)
-Date: Tue, 11 Nov 2025 13:52:26 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
- single-shot restart
-Message-ID: <20251111135226.GF281971@e132581.arm.com>
-References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
- <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
- <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
- <20251111092403.GB281971@e132581.arm.com>
- <a5ca5a65-8d5c-48b3-83f2-82d13c0b930d@arm.com>
- <20251111101805.GD281971@e132581.arm.com>
- <d17fc264-7f3d-4257-abec-078e665d7ecb@arm.com>
+	id 1vIouo-00000007HCw-02y3;
+	Tue, 11 Nov 2025 14:00:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIoum-00000007HCj-1eaP;
+	Tue, 11 Nov 2025 14:00:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8201A6020B;
+	Tue, 11 Nov 2025 14:00:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2B6CC113D0;
+	Tue, 11 Nov 2025 14:00:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762869607;
+	bh=D1S3OL4p0+J4mWcZ2dm1aw9L5R0M+rOLhxjglXPSaEc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BK6yS3ikNQGdeSm87kJZrIJJ2XY6POhOH7MZmL27V0Z5S3dw3nYncaxgaHcY1Lu+F
+	 JfFL1HyiOjKsoFotilBRDoOwnVtfEN+Am17dFZfdhl0iJzjCla5OqcEAQDJEoJm/UW
+	 zQl/cTwTmOjKHw9ttl9MFYwgAmc2524Srxq/IfABJDKxLrba4bc4JT3yXrBsZMKi5H
+	 Da2hh7/+bYFZH+VSJUbPQjShpd8y+P5ZonC8DCmnRcV2ZQTaP9oh5X/y2e05XA9pX1
+	 V2vT6CqyqJnODCdbHc0Dsnc313OsQ0rZJdxY80KZzyZZThukX8LeGbI/ySB71OPEQO
+	 kUp8PlC3G+pJQ==
+Date: Tue, 11 Nov 2025 15:00:01 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: FUKAUMI Naoki <naoki@radxa.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+Message-ID: <aRNBYX8MbR7PtssY@ryzen>
+References: <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+ <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+ <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
+ <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
+ <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
+ <aRHb4S40a7ZUDop1@ryzen>
+ <2n3wamm3txxc6xbmvf3nnrvaqpgsck3w4a6omxnhex3mqeujib@2tb4svn5d3z6>
+ <aRJEDEEJr9Ic-RKN@fedora>
+ <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
+ <05bd0efe-9a84-40e9-af07-51c0b0d865bf@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d17fc264-7f3d-4257-abec-078e665d7ecb@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_055231_454365_360D43F5 
-X-CRM114-Status: GOOD (  19.86  )
+In-Reply-To: <05bd0efe-9a84-40e9-af07-51c0b0d865bf@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 11:37:08AM +0000, Suzuki Kuruppassery Poulose wrote:
-> On 11/11/2025 10:18, Leo Yan wrote:
-> > On Tue, Nov 11, 2025 at 09:43:13AM +0000, Suzuki Kuruppassery Poulose wrote:
+On Tue, Nov 11, 2025 at 11:17:23AM +0800, Shawn Lin wrote:
 > > 
-> > [...]
+> > It works stably on the ROCK 5A. The link speed is 2Gb/s.
 > > 
-> > > >     if (!is_idle_task(current)) {
-> > > >         if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> > > >             config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> > > >     }
-> > > 
-> > > What happens when we do a system wide session and a CPU is running an
-> > > idle task ?
-> > 
-> > For a system wide trace, the ETM device is enabled and disabled by
-> > the perf when the session start and finish.
-> > 
-> > During the session:
-> > 
-> > - If CPU off states are not enabled, nothing will happen in idle
-> >    threads, as no CPU PM notifier will be invoked.
+> > The ROCK 5C is unstable. It initially worked with a link speed of 4Gb/s,
+> > but eventually started showing kernel oops. The dts files for the 5A and
+> > 5C are compatible and interchangeable, but even using the 5A's dts on
+> > the 5C, the operation remains unstable.
 > 
-> What is a CPU is running the idle task, when the system wide session
-> is activated ?
+> The link speed on ROCK 5A is 2Gb/s also means it's downgraded now. Did
+> ROCK 5A work under the link speed of 4Gb/s before?
+> 
+> In case it's signal integrity relevant, you could enable PCIE_DW_DEBUGFS
+> and refer to Documentation/ABI/testing/debugfs-dwc-pcie to collect
+> RASDES info from there.
 
-Just makes clear: if a CPU running in idle task, and it controls ETM,
-it must be a CPU PM operation.  Otherwise, it is no reason for idle
-thread to enable/disable ETM, no matter what the session mode is.
+Just a quick note:
+I've noticed that you cannot blindly look at the link speed in dmesg.
 
-An edge case is in per-thread mode when switch between the profiled
-process and the idle thread, the ETM operations always occur in
-profiled process rather than idle threads.
+E.g. on my ROCK 5B boards, I can occasionally see something like:
+[    1.417181] pci 0000:01:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5.0 GT/s PCIe x1 link
 
-> Basing our decision to tune the ETM control on the
-> "active task being idle" feels fragile to me. This is purely a
-> decision under ETM driver, specific to the session you are dealing
-> with. Thus having it in the "config" is preferred and is cleaner.
+However, if I check the actual link speed with lspci after boot:
 
-It is fine for me to use "config" method.  Will spin in this way.
+# lspci -vvv  -s 0000:01:00.0 | grep LnkSta:
+                LnkSta: Speed 8GT/s, Width x4
 
-Thanks,
-Leo
+I can see that the link is actually using the correct speed + number of lanes.
+
+
+Kind regards,
+Niklas
 
