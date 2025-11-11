@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07724CCFA1E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98357CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awz8JyVgwCWWIHu3ZS5zJIjBoq5ipV22WVrbdn9LsCE=; b=zIvDG7dBixcIAajLiCTr4CRQz6
-	vqAKxmP/MNWiQWBMbGcPc1/gtK+XtqZndGJmPiuKVltEPY+VGIcqkqsRyoHl+xiV0sv2Z3HvEqjVM
-	fYkTf7G+FNuF0fhQ5hnlztZ4pOZk2f9eildcgxxr/rmz9L5EhkFu5qiWPtKb6lXy+uizoHPrXQ+4j
-	2ZDKutowuNqdw9mKufLieymRAqwX/7ntdEu2vMDdWmI17fTERTBRdda14TFF5BfPD4z1Kx0EEMg2I
-	tD8Z5MyjBLt6QqO2ZAw+66Y+qE7MqlzF9PWwQJACHBjn0ksGaQ7K1CgR5CTkazJwZWjBawWf/MEFx
-	hG780DLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jssUAR+oI4f//OvgjLmPefSBuN3XioPGOFVi6oZytQE=; b=OiAbVD/EBcnZHsiLoOguihl0EZ
+	Qsp0VJ32tZgbLCFb8q9nxCh3ewT/IjlnHwWUM+2nFqlFJlEzqDvm/isTDBjKgXR7zgLz+PdyoivkA
+	w3flxOCeKOgH+svz9Wc0sr1EtoeMX4xjEcOdAWXTJBRmw/iOlWZHdefu0BYv8wgphaYi45d6sZOMG
+	otVl0TMchym2TQMjEInP9GDfUEkHqXAhoR0NIQygxL4y8/I6MZ/8eqm8/UILwbrrBTIduPi7ZG6V/
+	R66BZT2k1F2UyJ+fWXDpXkrcgVLxUAKYK+XFXVZYQEgNkXG5CtRtWK2SsLDFLCPL+8d2m8ZZGJYUB
+	yKHUebzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIpS9-00000007KIG-447P;
-	Tue, 11 Nov 2025 14:34:37 +0000
-Received: from mail-northeuropeazon11020122.outbound.protection.outlook.com ([52.101.84.122] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vIpZg-00000007KvN-0REa;
+	Tue, 11 Nov 2025 14:42:24 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIpS4-00000007KGk-1B1j
+	id 1vIpZc-00000007Kuk-2aZD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 14:34:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dOwCowaduIftag0b6Mcou7UnpABMuAUTrmYpYo/UK6vAHiZNrfvS0uZIvJvnYKNCo2333UhPv/TE7R6JP72eYNCSZdMhGh5gd7EwVoGjCoyT4VK9xmPZbqArj2Ihfms0XUjl8QhcYXCIEceGvdYjmDJ7P5qfbv45U2xj/YwsNqjQPPuyQbExP+1TJOtSKQGMNndKGPKtRdJjImG6JEPpJQQX+O2iAdzdf9cmltDjXLMwbZJayc7JtntwXvQP15IlYPjZ1ptAIQle+Q5PrRX9KANmF+SltZg+Em2vIhn6YK+HSaUp5Uv1JoHtkez84qYk/QwyocwJsH94+TR5WfinBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=awz8JyVgwCWWIHu3ZS5zJIjBoq5ipV22WVrbdn9LsCE=;
- b=DUp4arllXz7VuU8Iq6MeT8a4L/QKDb8m9GPbZwIpuai3gOv+46vWdvQmbpVrbFxfzW0WRQrMlI9sSJkPMCE2BBrcBEyzYMfXAfx92XZhW57XnO/2YZY69AnfFbuLURdcXH29k2rVIS6qjuSJ+1VZ8M6lnoY3cBfMYmGLoRj6tYrbyv1zwQsc33asYZwauKZSRkWHQKtvn5fpaT+ZdVC356rTblkc6myO08K1R5knTF6f0kLSrIxAnqi188CJsCHPVB6mYvNDMVoAKyTJ1DldWuXJNkuTdh6Lzs0u39uLvwkjsrgbOf99lMJOcYoLOrQ11yBK+O0kBTzZMzA9hd4dbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=awz8JyVgwCWWIHu3ZS5zJIjBoq5ipV22WVrbdn9LsCE=;
- b=QBRdb4PIoLyYgaRs+ecDrnMEgY5UvCcbwCCOu+7qS5UVngZ2HjirMx+lZ88UFdDgDsoR+adanlBRYfozllgg/uj1gITb/gB7weoqbuR+TGMUEs3S3wZdkKziOfYWUYzG9pzvJyiwVq3oZe2h/CprsoCrLaBwTUlx1us2VKYdYCC5PBYD/JikDhr8Qm+/abs7VNFCAnJjq7X/I0liutC6LuUlZGhko16XVkZm9O2NMi7KdswcnxQcoJWSFE1QbwehG1tclhfft/cJ4tWZWr3NmLiOWRGa+cWWKpNStUpNozVeApraUdTlM9mfbEklo7x9d9BGMjgbNNg9jfC8fBxamg==
-Received: from AM0PR02CA0160.eurprd02.prod.outlook.com (2603:10a6:20b:28d::27)
- by VI2P195MB2519.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:21d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
- 2025 14:34:23 +0000
-Received: from AMS0EPF000001B7.eurprd05.prod.outlook.com
- (2603:10a6:20b:28d:cafe::ce) by AM0PR02CA0160.outlook.office365.com
- (2603:10a6:20b:28d::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Tue,
- 11 Nov 2025 14:34:23 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AMS0EPF000001B7.mail.protection.outlook.com (10.167.16.171) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 14:34:23 +0000
-Received: from llp-varakala.phytec.de (172.25.32.223) by Postix.phytec.de
- (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 11 Nov
- 2025 15:34:22 +0100
-From: Yashwanth Varakala <y.varakala@phytec.de>
-To: <shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
-	<festevam@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<upstream@lists.phytec.de>, <peng.fan@nxp.com>, <y.varakala@phytec.de>
-Subject: [PATCH 1/2] arm64: dts: imx8mp libra: add and update display overlays
-Date: Tue, 11 Nov 2025 15:34:06 +0100
-Message-ID: <20251111143407.24657-2-y.varakala@phytec.de>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251111143407.24657-1-y.varakala@phytec.de>
-References: <20251111143407.24657-1-y.varakala@phytec.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.32.223]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001B7:EE_|VI2P195MB2519:EE_
-X-MS-Office365-Filtering-Correlation-Id: 121884f5-48df-42d8-0f67-08de212f689c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JUgcv1Qbw2BZH0FfeLiUEtR2n/rx15zgHYhLx2u0tCpOI1WN9K1Jb9H9+Zp1?=
- =?us-ascii?Q?ecs/Tie/i5h0D0re1WjGYje5Vqa6jlI3Twujy+anZCr74qX8acy6orWN5HV0?=
- =?us-ascii?Q?o7HwEK3Al7/dsEjHctHQqXRdU7SRoCHNGLo9yY6lK+FQrByIaIhaVAsyosV0?=
- =?us-ascii?Q?KCLi2YDK8ZfuGr3QclkyaNug+VXCD3+lV12/3U4UPxcL5u+t+OtCPu/LXYy2?=
- =?us-ascii?Q?umZcU5ZxxLC9y8IE8p1RXTSWblrnSPvlhTXiqkdi5vfqEkHXShZQN++C7PZq?=
- =?us-ascii?Q?SSxz3Y3jvbJgRKWCjyrRtlqcNJUwSWtgT3RdPW39COlP+qhGMJVDtug78wnV?=
- =?us-ascii?Q?AtZ4jiMAuTeXNW++KHPEuJE7an07YLN+ZV8JBDXFLmdIKv1o4N4/v+ZOnOxV?=
- =?us-ascii?Q?TjcajBAxlVvx7ZUadXcRzvE2QVXB9ExA+xhTFTAI74ef6Cmpjj7vxVTlRJIC?=
- =?us-ascii?Q?+pfoopuZYnXhh8J0ki4aNYcuAtE5qas59jXt8dOoI64Z//bP6zGRENAUgZPG?=
- =?us-ascii?Q?CqTKa+JHTVtGQXYHR7+XCHGMvnU4uDNSo007TBUntulncyE061l4t4Hfzf6A?=
- =?us-ascii?Q?FBLBLMd+AI42TffGpXysEH0Gna1de+rrVbzECTFctYGpeSwrakABHeJ/Gv1C?=
- =?us-ascii?Q?RN3pFwD1L4bgJf/1zp0wKNbqxQwsNJpcvDEpcBO6FEgjdOu7YolhiSoSxTIc?=
- =?us-ascii?Q?7SwehlK3Kz8wUroAOQDHY7Zd14vdmMD54IxWY1YtHVqBQMdMe0mqOS974jTt?=
- =?us-ascii?Q?JyvdimP4GB38K1UNuPFKTYt7yEngbN0rfq2ztJHIPWGkJnfrfJuuAYgICxXf?=
- =?us-ascii?Q?/R6wEgBmj3GXiuwG+qmoc7DN0xyA1HP4iTsZhGAqOWLAGwfQIsPEJir1aWbY?=
- =?us-ascii?Q?2hVOy+50K+p32UG64mqMvmi+AwvV6zCoZjTRSwGepfo88Ky8z6/rZz6Wd6Ej?=
- =?us-ascii?Q?3inNcDX/kf0xHOJ5KHtfWfLh6iVM1YfJvQ79ds7h/7X6+RV3103cWD2pWg/q?=
- =?us-ascii?Q?YG9wo0jVOaswkDu8DNEXkf71a7oWplBaF0KyROpDmRBWr42W7RDNGsNCmYAg?=
- =?us-ascii?Q?SdmU72zOjStVoQ1bwowXInN9UKEhTnPG4a1Hz8UtzukBQU/faID6holZrFvJ?=
- =?us-ascii?Q?a93pURiBaRGI8ORfTBotQaKwvBaTq1elbydC21+NfC+kI+xE4A0vrCzhxaCd?=
- =?us-ascii?Q?ojILzjiBHxbCcZExv/dhFFsgPgI2zp7OSHpc57xUvP5vGG2Vvt4iJYymDbrP?=
- =?us-ascii?Q?+DQo9TmyzACJXkZtjaFTP/d3u4QVkw6F7mmWEXotx7SPsBTRm26lgORHfAVv?=
- =?us-ascii?Q?eVIz/mOiX3UTjaV8J6ui/685CaoL7S5uNW71FecPdbMTTw9sFIh+l0h54U0Y?=
- =?us-ascii?Q?v9oCKI063xPzXwsQjHdckljJHwgnsSgkeG2n6K3ncZ64MDLop17LwRYSJT9I?=
- =?us-ascii?Q?ELBH4zvb4QqcsmhnUMG3pfUCZjMC64z0wUEF+SiwR5YJcNQsHp8qJEWez8g2?=
- =?us-ascii?Q?YkeuTsgr6+LQ94vddbdOm0ZZysQQ3JUjixx5M9hh3SokpAwkyWi7Wyk0og?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 14:34:23.5003
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 121884f5-48df-42d8-0f67-08de212f689c
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B7.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2P195MB2519
+	Tue, 11 Nov 2025 14:42:23 +0000
+Received: from localhost.localdomain (unknown [202.112.113.212])
+	by APP-03 (Coremail) with SMTP id rQCowADHV9o9SxNpezheAA--.18275S2;
+	Tue, 11 Nov 2025 22:42:12 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	Ma Ke <make24@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] coresight: etm-perf: Fix reference count leak in etm_setup_aux
+Date: Tue, 11 Nov 2025 22:42:03 +0800
+Message-Id: <20251111144203.16498-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.17.1
+X-CM-TRANSID: rQCowADHV9o9SxNpezheAA--.18275S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7XryfuFW3XryfKFy5JF1DJrb_yoW8Jr4DpF
+	4qk3yayr98Gr4vv3y7Jr1DZFW5WwsayanIgFy3Kws5uF4jqF9FvF1YgFyFyrs7CF48JF97
+	Kws7tF4jvFyUXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
+	W5XwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUBOJnUUUUU
+	=
+X-Originating-IP: [202.112.113.212]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_063432_573859_E219C0E7 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20251111_064221_038195_E64C6E1A 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,128 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso
-devicetree display overlay for the i.MX8MP Libra RDK platform.
-The overlay enable LVDS display configuration.
+In etm_setup_aux(), when a user sink is obtained via
+coresight_get_sink_by_id(), it increments the reference count of the
+sink device. However, if the sink is used in path building, the path
+holds a reference, but the initial reference from
+coresight_get_sink_by_id() is not released, causing a reference count
+leak. We should release the initial reference after the path is built.
 
-To keep the consistent style of panel and backlight nodes and labels.
-They are updated in imx8mp-libra base board devicetree and
-etml1010g3dra display overlay.
+Found by code review.
 
-Signed-off-by: Yashwanth Varakala <y.varakala@phytec.de>
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
 ---
- arch/arm64/boot/dts/freescale/Makefile        |  8 +++-
- ...8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso |  2 +-
- ...ibra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso | 44 +++++++++++++++++++
- .../dts/freescale/imx8mp-libra-rdk-fpsc.dts   |  4 +-
- 4 files changed, 53 insertions(+), 5 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 525ef180481d..eb38dcc76b84 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -219,8 +219,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-dl.dtb
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f677c08233ba..6584f6aa87bf 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -453,6 +453,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 	if (!event_data->snk_config)
+ 		goto err;
  
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-smarc-eval-carrier.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc.dtb
--imx8mp-libra-rdk-fpsc-lvds-dtbs += imx8mp-libra-rdk-fpsc.dtb imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
--dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc-lvds.dtb
-+imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra-dtbs += imx8mp-libra-rdk-fpsc.dtb \
-+	imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
-+imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01-dtbs += imx8mp-libra-rdk-fpsc.dtb \
-+	imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-msc-sm2s-ep1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-navqp.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-enc-carrier-board.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso
-index 1dcf249ca90d..02889d691c01 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso
-@@ -34,7 +34,7 @@ &lvds_bridge {
- 	status = "okay";
- };
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ out:
+ 	return event_data;
  
--&panel0_lvds {
-+&panel_lvds0 {
- 	compatible = "edt,etml1010g3dra";
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso
-new file mode 100644
-index 000000000000..418c8536e791
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-ph128800t006-zhc01.dtso
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds0 {
-+	brightness-levels = <0 8 16 32 64 128 255>;
-+	default-brightness-level = <8>;
-+	enable-gpios = <&gpio5 23 GPIO_ACTIVE_LOW>;
-+	num-interpolated-steps = <2>;
-+	pwms = <&pwm1 0 66667 0>;
-+	status = "okay";
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>, <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/*
-+	 * The LVDS panel uses 66.5 MHz pixel clock, set IMX8MP_VIDEO_PLL1 to
-+	 * 66.5 * 7 = 465.5 MHz so the LDB serializer and LCDIFv3 scanout
-+	 * engine can reach accurate pixel clock of exactly 66.5 MHz.
-+	 */
-+	assigned-clock-rates = <0>, <465500000>;
-+	status = "okay";
-+};
-+
-+&panel_lvds0 {
-+	compatible = "powertip,ph128800t006-zhc01";
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts
-index 7a20284b0a29..4ffc950711d8 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts
-@@ -15,7 +15,7 @@ / {
- 		     "phytec,imx8mp-phycore-fpsc", "fsl,imx8mp";
- 	model = "PHYTEC i.MX8MP Libra RDK FPSC";
- 
--	backlight_lvds0: backlight0 {
-+	backlight_lvds0: backlight-lvds0 {
- 		compatible = "pwm-backlight";
- 		pinctrl-0 = <&pinctrl_lvds0>;
- 		pinctrl-names = "default";
-@@ -27,7 +27,7 @@ chosen {
- 		stdout-path = &uart4;
- 	};
- 
--	panel0_lvds: panel-lvds {
-+	panel_lvds0: panel-lvds0 {
- 		/* compatible panel in overlay */
- 		backlight = <&backlight_lvds0>;
- 		power-supply = <&reg_vdd_3v3>;
 -- 
-2.34.1
+2.17.1
 
 
