@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0793CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F302CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YryyOJ/aglDSVTomdJhCpAZguZ3uEPYX8kAoKetOlZo=; b=cxT5YYnLMRIzGPAyifDY529jsu
-	PzuVg2PSjTWh5DiAv/uAGPE3wgL372U2mJ/d/ZSr4zih8PyLuFBRnbnVroKxacvGpxQ6SdgTym3Gz
-	KoEsaVZN2nyj8H8wYZiAVMv3/RFZ7Vd9NkqNvltr+bqmuP3HVKpyIgSXV0nrZ8kZBAdiqCyuvYa+8
-	9E7GHHmZdsyHM+BCzsS0Ft/tRSX6x0HOE1UEfQr7jNyu9LH9p5XdBnfOxan8/Rm6qDfKUZbRaKS3L
-	u7BWbVyXxqCVUfmWI1PcVmFqR+3eEgRUn1lKnGBmDKi40UUkIEhXdqgNOm6DLCbwY3CSvHDwS8CCS
-	3AkPsyEg==;
+	bh=5ui5TMnYOVOvWRbaK5ZQq5BRT+yh6rrNReDDZ55MO/g=; b=KXzkd74CxrUeXZ/yItu3tZyQdM
+	IiwMRStiLnuVRsqUJZ4gI8kkopunihhxqj4Dcf33WJU1U8qLYbkWqhFb3TSFvqINszWLgtBMRUOX2
+	hIHnScQ/EAm+FMTJS0Ok6OQoCQn9L7wRcUNwkjICbwbryEuzfPgivGbLsI/HPBOvFbaLcj2Yd1hLd
+	C97Is9a8HQh5Dxn20jS94Ai/jgy2s3/KX0jOLWYNGyjpqpcn2OQmc51WShz96KFS07FUdZ3kfO6nJ
+	//0rI0e2SEu7/+81wji2oA8/fTLOUv/waVFNWmD7BSTMqrb/x1e8E9UWd7jripsi6dQk0HDFO7k4d
+	2d9StOXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlpF-00000006yWx-0qf5;
-	Tue, 11 Nov 2025 10:42:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vIlqR-00000006yib-3cM2;
+	Tue, 11 Nov 2025 10:43:27 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlpC-00000006yWL-32p9;
-	Tue, 11 Nov 2025 10:42:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1762857726;
-	bh=jJElLLmlTNOPMaQl1bcR+ybZDJWxkHdbChsUP8hGruA=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=l/94beWZkmZO79b/fiDDAu8zy1EAXp6k8Xlal0v33hcc3m4OYDM22+BhGtdRp4WAd
-	 lqrahqPCKy7CyekfNOjl/F3NLWhBHpe8mS7ljPJg3OoaLQwveWtCwNVhJ9ITLNroA0
-	 iWZioi10ZMhGFwCdpPSGx8PVfxn8bRQFCVdAKw4OxvRFFFKaJ+1b8z9LTDdjob7oVv
-	 Yf1q1t4MI8eHQ+3o7TtpvsjyWINctonT96daqcCoayLpvpHnQypXzNNILhCeLjSUQx
-	 46bwaWnMUIjyFEKttF0C/rNNmT4ApgcX6Uqn3KVC0XxXxzf7ggltmx/oScJnr9B1Fk
-	 TH/p7/lQRvjWQ==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9090017E1299;
-	Tue, 11 Nov 2025 11:42:05 +0100 (CET)
-Message-ID: <ea541696-40db-409e-955f-983723d42b79@collabora.com>
-Date: Tue, 11 Nov 2025 11:42:04 +0100
+	id 1vIlqP-00000006yi1-0jTm
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Nov 2025 10:43:26 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7866375e943so34194937b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:43:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762857804; x=1763462604; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5ui5TMnYOVOvWRbaK5ZQq5BRT+yh6rrNReDDZ55MO/g=;
+        b=q/4uj2z8K1lAKh1mrDk5iPRkj3BeyFM2UksgEC9r/3znmK5j4mW9IE+qIsxZVu/a+h
+         nQmkKnT0N6h8eBJ3O9OIG79Npn2+Agqu4Wu+s40Tv1jlOEjIveD5MwUdi9gAMHnxWlcY
+         fkXSGIkUUFFGrfDJHJWhalInwsk2LuCplxcS5HwqSw0dL7NVffPjZwKuncWOiWVEjaKK
+         /tLUHlJie/rOa7xw6AcpaRAR8oskUomm8y7SI/XyeBR9Z3a/2d+9eweOcpi6zM5sRVj+
+         Jz2xdVRCT0501fVRzjMz2YDmPiCFvSKEligCHLeQVyO1YfBfrqORo1Nn2hL8JogM0IDy
+         muVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762857804; x=1763462604;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5ui5TMnYOVOvWRbaK5ZQq5BRT+yh6rrNReDDZ55MO/g=;
+        b=erTdeKIdJtngBbUQjGDYXmzql2RAmAZhJXmwvH8bgMVvaA8pdbjdgrfWSesezlzHZu
+         ql2l3Kb+vcezqDxAoIxXuykcbAkpIYTxwLu0Ee11uHlHlL9iP1JU9LEQN3xIc4FEJPVZ
+         XFgHnFCj9pxg6aKIIejJCsuib7BAF4N9nVKb+Sbd99CDN7b87MUE2Pa7MklX4EzUB9C+
+         2M0E3SMbCIhRW+FjdeBUAOq/oVM7mkk3+QoHMSSA5iPZkvmdGjVafvQw12NoN2VCUxoC
+         HSTJhA418hGyJ7yGUCA2BMCV4u33D0iCDgOK2E0550MFJ3R4tcilDNdYckrdfcoGLseW
+         A6Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCX+9cDHIb+OpAXhIEbWy+FOsnGXwRw25+FpGANVmKbPaFgdJhC7nb1ugxyUhve5meFAzZWaZAUu+hqTbFD/j3E0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCVyCQpRumt+Na9w5Rr78nupa9J3KejRVrby1LyjGjqeq0gJFM
+	RC9iXLQToMjaoZ0xNqK+CSnT/Uk67TBCQ0696JCRFNMY1GHrvOZlkSsqq2D3Z8hQGzGb3v3N+k4
+	uh81ShcHrddN2EUUcoemJHyq8S4zgvuwTLLLTwQL32g==
+X-Gm-Gg: ASbGncszg++5gYz+7u6yKmscJVxvMCXoB/oPPNnqB/rKg5ns+qYAZ/FLdllJd93os6f
+	MvwtiXVmHI70MezREqlcrk9f7vun2E/bIgW7Z7E/+jXBIUY2KLqlcez5yQQLWJFckRPeijWGgPL
+	EzBStuCwRdfO378Z8NiuRRRsAKbyIq0q0a4GlPIbeqYrmTVw3P3oMrgJpZzA6Bg76qNnFJE7ncG
+	d1CPKycK49GT66gyxpAUCPHbttcfotnndji6FaHVqE7ZPmv/rtoalqahYGDTmRYt1wQVNM=
+X-Google-Smtp-Source: AGHT+IEzf7RfCe+CUiwe51rQWA4HYxWkXb8u+xLvSy8sgIDasS0jY0uVlkjQd1JySagC9Zi6HIYv6L+HM/XcKpRnSaA=
+X-Received: by 2002:a05:690c:3341:b0:785:c08c:d39d with SMTP id
+ 00721157ae682-787d54504b5mr104136687b3.57.1762857803858; Tue, 11 Nov 2025
+ 02:43:23 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 00/18] media: rockchip: add a driver for the rockchip
- camera interface
-From: Michael Riesch <michael.riesch@collabora.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Markus Elfring <Markus.Elfring@web.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Mehdi Djait <mehdi.djait@bootlin.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Bryan O'Donoghue <bod@kernel.org>, Chen-Yu Tsai <wens@csie.org>
-References: <20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com>
- <aQ4tJg8r_j4NyKhv@kekkonen.localdomain>
- <074cd08e-0412-49f9-8dd9-b1f96eb11717@collabora.com>
- <20251107185441.GG5558@pendragon.ideasonboard.com>
- <13c43edb-9592-4779-a39a-7856bb0f964d@collabora.com>
- <aRGlvQRVoQs0WjyA@kekkonen.localdomain>
- <b89746e1-4574-4b65-af69-c533576ed185@collabora.com>
- <20251111000627.GA30837@pendragon.ideasonboard.com>
- <7266245d-46b8-4355-a966-654e816ec93c@collabora.com>
-Content-Language: en-US
-In-Reply-To: <7266245d-46b8-4355-a966-654e816ec93c@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org> <20251029-gpio-shared-v3-4-71c568acf47c@linaro.org>
+In-Reply-To: <20251029-gpio-shared-v3-4-71c568acf47c@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 11 Nov 2025 11:43:07 +0100
+X-Gm-Features: AWmQ_blT5oSFL37n1q5J1-YrABo5OT0VdTa69W3o0jcai3WIlfGp5Mqx5NECKoo
+Message-ID: <CACRpkdYH01pOnXs-jH5mzfT+THtHcQDoCKB02hkGaxf02nm96g@mail.gmail.com>
+Subject: Re: [PATCH v3 04/10] gpio: shared-proxy: implement the shared GPIO
+ proxy driver
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_024210_954697_9FB3C0C3 
-X-CRM114-Status: GOOD (  52.81  )
+X-CRM114-CacheID: sfid-20251111_024325_222287_AAA7F66E 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,228 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On Wed, Oct 29, 2025 at 12:21=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl=
+> wrote:
 
-On 11/11/25 09:37, Michael Riesch wrote:
-> Hi Laurent,
-> 
-> On 11/11/25 01:06, Laurent Pinchart wrote:
->> On Mon, Nov 10, 2025 at 11:29:57AM +0100, Michael Riesch wrote:
->>> On 11/10/25 09:43, Sakari Ailus wrote:
->>>> On Fri, Nov 07, 2025 at 09:51:37PM +0100, Michael Riesch wrote:
->>>>> On 11/7/25 19:54, Laurent Pinchart wrote:
->>>>>> On Fri, Nov 07, 2025 at 07:41:59PM +0100, Michael Riesch wrote:
->>>>>>> On 11/7/25 18:32, Sakari Ailus wrote:
->>>>>>>> On Fri, Oct 24, 2025 at 02:51:29PM +0200, Michael Riesch via B4 Relay wrote:
->>>>>>>>> Habidere,
->>>>>>>>>
->>>>>>>>> This series introduces support for the Rockchip Camera Interface (CIF),
->>>>>>>>> which is featured in many Rockchip SoCs in different variations.
->>>>>>>>> For example, the PX30 Video Input Processor (VIP) is able to receive
->>>>>>>>> video data via the Digital Video Port (DVP, a parallel data interface)
->>>>>>>>> and transfer it into system memory using a double-buffering mechanism
->>>>>>>>> called ping-pong mode.
->>>>>>>>> The RK3568 Video Capture (VICAP) unit, on the other hand, features a
->>>>>>>>> DVP and a MIPI CSI-2 receiver that can receive video data independently
->>>>>>>>> (both using the ping-pong scheme).
->>>>>>>>> The different variants may have additional features, such as scaling
->>>>>>>>> and/or cropping.
->>>>>>>>> Finally, the RK3588 VICAP unit constitutes an essential piece of the
->>>>>>>>> camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
->>>>>>>>> units, and a data path multiplexer (to scaler units, to ISP, ...).
->>>>>>>>
->>>>>>>> I understand both RK3568 and RK3588 include an ISP. Do you have insight on
->>>>>>>> how would this work, should the support for the ISP be added later on?
->>>>>>>
->>>>>>> Short answer: Yes and yes.
->>>>>>>
->>>>>>> Long answer:
->>>>>>>
->>>>>>> The patch series at hand adds support for the PX30 VIP and the RK3568
->>>>>>> VICAP. I cannot really say something about the PX30, but on the RK3568
->>>>>>> VICAP and ISP are orthogonal (the ISP features its own MIPI CSI-2
->>>>>>> receiver, different from that introduced in this series). Thus, ISP
->>>>>>> support can be introduced anytime (whenever someone is motivated ;-)).
->>>>>>
->>>>>> Won't they both be connected to the same sensor though, and probably the
->>>>>> same D-PHY in the SoC ? They don't seem entirely separate to me.
->>>>>
->>>>> The MIPI CSI-2 DPHY is shared, indeed. Thus, they *maybe technically
->>>>> could be* connected to the same sensor, but I don't know whether that
->>>>> works and fail to see why anyone would to such a thing (if it is about
->>>>> raw capture, the MIPI CSI-2 receiver in the ISP can do that on its own).
->>>>>
->>>>> The DPHY can be operated in split mode, with two lanes for VICAP and two
->>>>> lanes for ISP. This is not implemented yet, but can be done at a later
->>>>> stage on PHY level (not media related). In this case, ISP and VICAP can
->>>>> receive data from different subdevices via CSI-2.
->>>>
->>>> The two would be part of the same media graph in that case and as there are
->>>> two CSI-2 receivers and a single PHY, the PHY would probably need to have a
->>>> sub-device as well, to allow link configuration to be used to select where
->>>> the PHY is connected.
->>>>
->>>> I don't think we have such a setup elsewhere, and supporting this would
->>>> require changes in the MC framework.
->>>
->>> What follows is a response that also addresses issues raised during our
->>> off-list discussion.
->>>
->>> First of all, I agree with you that the RK3568 HW is "a bit special" (to
->>> say the least) in that regard. Let's have an outlook to newer SoCs, such
->>> as the RK3588: Here, the MIPI CSI-2 DPHYs (there are two of them) with
->>> their split mode are present as well, but the assignment is fixed. For
->>> example, the RK3588 VICAP has six MIPI CSI-2 receiver units and six MIPI
->>> CSI-2 capture units. Units 1 and 2 handle a different MIPI PHY, units 3
->>> and 5 handle the DPHYs (without split mode), units 4 and/or 6 are active
->>> whenever DPHY 1 and/or 2 is in split mode.
->>>
->>> I would model this by adding support for more than one (logical) PHYs
->>> (phy-cells = <1>;) and assigning the logical PHYs to the MIPI CSI-2
->>> receivers. There is not really a possibility to route anything at this
->>> point (routing is done in a MUX unit that takes the different MIPI CSI-2
->>> receivers as inputs).
->>>
->>> Now back to the peculiar RK3568 situation: By default the split mode of
->>> the DPHY is off and both VICAP and ISP are able to receive the same data
->>> (from up to four lanes) with their MIPI CSI-2 receivers (not sure
->>> whether both can be active at the same time, though).
->>
->> A common use case for capturing data from the same sensor through both
->> ISP and VICAP would be routing image data to the ISP and embedded data
->> to VICAP. Assuming the hardware is able to do this, there will be users
->> interested in this feature.
-> 
-> VICAP and ISP would capture different CSI-2 links. AFAIK the embedded
-> data is usually transmitted on the same CSI-2 link but on a different
-> virtual channel. The MIPI CSI receiver in the ISP is capable of
-> capturing (up to three, I think) virtual channels and passing e.g. one
-> VC to the ISP and capturing another VC to memory.
-> 
->>> There are two bits
->>> in the GRF that define the lanes that ISP and VICAP receive in split
->>> mode (lane 0/1 or lane 2/3). Not sure whether these bits are supposed to
->>> be changed during runtime.
->>>
->>> I would suggest modelling this on PHY level in DT, e.g., by passing
->>> reasonable properties to the dphy node, such as
->>>     rockchip,dphy-split-mode;
->>
->> Split mode should indeed be conveyed through DT, as it's a property of
->> the hardware.
-> 
-> Ack!
-> 
->>
->>>     rockchip,dphy-split-invert;
->>> where the former activates the split mode and assigns lanes 0/1 to the
->>> ISP and lanes 2/3 to the VICAP, and the latter inverts this assignment
->>> (lanes 2/3 to the ISP and lanes 0/1 to the VICAP). This would facilitate
->>> the reasonable use cases with reasonable effort.
->>
->> This I'm less convinced about. The routing should be dynamic.
-> 
-> Ack.
-> 
->> How do you envision the connections to the CSI-2 sources to be modelled
->> in DT ? We need ports and endpoints, and data-lanes properties. Where
->> would those reside on the RK3568 side ?
-> 
-> Goto ASCII sketch below for that...
-> 
->>> Otherwise, to keep it perfectly general and most flexible and
->>> everything, we would have to introduce another subdevice indeed, which
->>> would be active on the RK3568 exclusively. Therefore, I don't see that
->>> the PHY driver introduces this subdevice, but a specialized (syscon?)
->>> MUX driver that deals with the RK3568 GRF bits. Something like this
->>>
->>>                            |----------------------|     |-------------|
->>>  Sensor A --- /2 lanes --- | lane 0/1      to ISP | --- | ISP MIPI RX |
->>>                            |                      |     |-------------|
->>>                            |                      |
->>>                            |                      |     |-------------|
->>>  Sensor B --- /2 lanes --- | lane 2/3    to VICAP | --- |VICAP MIPI RX|
->>>                            |----------------------|     |-------------|
->>>
->>> But IMHO this will be too much effort for corner use case that I doubt
->>> anyone will actually use.
->>>
->>> What do you think:
->>>  - Let's keep the PHYs out of V4L2/MC, ok?
->>>  - Let's model the reasonable use cases with device tree properties in
->>>    the dphy DT node, ok?
->>
->> I think the routing should be dynamic.
-> 
-> In this case, my suggestion would be the following:
-> 
->  - An additional MUX subdevice on the RK3568 only, see sketch above
->  - One or two input ports (depending on split mode being activated)
->  - Two output ports (to ISP MIPI RX, to VICAP MIPI RX)
->  - Routing possible 1:N (both input ports can be connected to one or two
->    output ports)
->  - The subdevice will have ports, endpoints, data-lanes properties on
->    both sides.
-> 
-> The nice thing about it is that the current state can be extended once
-> split mode is implemented, IOW patches 01/18 - 17/18 can be readily applied.
-> 
-> Patch 18/18 must not be applied at this time, as this would be the first
-> actual usage of the MIPI CSI-2 pipeline. I guess we need to implement
-> and insert the new subdevice first for the sake of uAPI compatibility.
-> 
-> So pretty-please-with-sugar-on-top can we merge 01-17 so that I don't
-> have to drag these patches along anymore?
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> Add a virtual GPIO proxy driver which arbitrates access to a single
+> shared GPIO by multiple users. It works together with the core shared
+> GPIO support from GPIOLIB and functions by acquiring a reference to a
+> shared GPIO descriptor exposed by gpiolib-shared and making sure that
+> the state of the GPIO stays consistent.
+>
+> In general: if there's only one user at the moment: allow it to do
+> anything as if this was a normal GPIO (in essence: just propagate calls
+> to the underlying real hardware driver). If there are more users: don't
+> allow to change the direction set by the initial user, allow to change
+> configuration options but warn about possible conflicts and finally:
+> treat the output-high value as a reference counted, logical "GPIO
+> enabled" setting, meaning: the GPIO value is set to high when the first
+> user requests it to be high and back to low once the last user stops
+> "voting" for high.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-In an off-list chat with Sakari we found that it would make sense to
-leave patches 01 and 12 away as well, in order to avoid uAPI
-compatibility issues for good. The MIPI CSI-2 receiver bindings and
-driver can be merged, as the only difference in the new setup will be
-that on the RK3568 the receiver is connected to the new MUX subdevice,
-rather than to a sensor (as will be the case on e.g. the RK3588).
+With same reasoning as for 3/10:
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Can we agree on the following plan:
- 1) You shall merge patches 02/18 - 11/18 + 13/18 - 17/18.
- 2) I shall add the MUX subdev and send a revised version of patches 01,
-    12, 18 along with it.
- 3) We shall have a solid basis to implement split mode in the DPHY
-    driver, RK3568 ISP support (if anyone has time for that), and RK3588
-    VICAP support.
-
-OK for everyone? @Laurent: can we get an Ack from you?
-
-Best regards,
-Michael
-
-> 
-> Best regards,
-> Michael
-> 
->>
->>>> How does the media graph look like for the device at the moment?
->>>
->>> Please take a look at the media graph in the documentation patch (PATCH
->>> v14 01/18). This is without the ISP, but gives an overview of what the
->>> RK3568 VICAP is capable of.
->>>
->>> Best regards,
->>> Michael
->>>
->>>>> BTW the ISP is able to process the data captured by VICAP, but
->>>>> apparently this includes a RAM round trip (VICAP captures to memory, ISP
->>>>> operates in mem2mem mode).
->>>>>
->>>>>> A block diagram that shows connections between the CSI-2 pins, D-PHY,
->>>>>> CSI-2 receivers, VICAP and ISP could help.
->>>>>>
->>>>>>> Once this patch series is merged, I'll push out changes that introduce
->>>>>>> support for the RK3588 VICAP. We can discuss the integration of any
->>>>>>> RK3588 ISP in this scope then -- and there may be some things to discuss
->>>>>>> as there the VICAP and the ISP(s) are directly connected by means of a
->>>>>>> MUX unit in the VICAP.
->>>>>>>
->>>>>>> Alright?
->>
-> 
-
+Yours,
+Linus Walleij
 
