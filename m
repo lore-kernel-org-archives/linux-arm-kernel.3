@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA766CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB382CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZNoYO2KmFfwFwuTUFR8c8puoFPJACFPh0RfsqqUzSw=; b=0IuZTXWrHx/UDgp2gVHCb4Ucu2
-	SkzZyliy2+0oRXZN2trwGQKpyjPNPNt/tgF4crR8WcSkzFekTcTV054Bb7IjRZBxbLG07bKar9ejD
-	f/1rzR5foGiP69lb/eaFkhoPyaBVlZ4TpAUYcuApNxwwaZa7lrIKd/MdkzLYAGP/Dc/iBwf1k1/+6
-	pRuneza2kv5E4BvY9TjmOSH2XSsF/YHnVHKkknbrgKM9IypZVHZwxeerSnLtgRhCQMiDceICD1LSS
-	rVqkGf6PsepDP0dUdHyqbCxFj1wbWq2ecvqAPSrq1d3GCReHB/DXLXz+0wkl7A/6H74WarJoXow7+
-	q1p55uww==;
+	bh=1HMARtZJuraEYMooYga7m65rMsGPE/c/b4abR0gmXnI=; b=f4cgF5RqVLm+ZV8CniCWu6Qwr6
+	rFTen9HB1z6U4ZirV71mPYTNBS3kW855FOeIOkxVgogG4ZvYZSSjPQnimjXOEMA0yzGXY2YUH5DGd
+	WABkeV4mW+vzLYIU2GFWsF17yzfzRapUIjJv6g9oiApYr9BNz9u8epBW7L/gdhNPAffC/9Ronh9DY
+	C438PcbWUaPxe9nTkVYwyvpwDCyRWXVXdMdpF9tBU6y6c7y+T0aLpKTaDZ3Jn3GHST/ZFdlUlOeMM
+	NXOXKu0K9i96i6m5bGZWuUXb3Tb55dsCbg2OJua1YWBK2SC0GJNF35QWIfREjMpM6nSeRpaViccir
+	e3UteyWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIqOR-00000007OAw-47WM;
-	Tue, 11 Nov 2025 15:34:51 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vIqa8-00000007Ozd-0cp3;
+	Tue, 11 Nov 2025 15:46:56 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIqOP-00000007OA6-3cNn
+	id 1vIqZl-00000007OyW-1qlY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 15:34:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 37B541A19D5;
-	Tue, 11 Nov 2025 15:34:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F1AE3606FB;
-	Tue, 11 Nov 2025 15:34:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 617AD102F24BC;
-	Tue, 11 Nov 2025 16:34:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762875285; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=AZNoYO2KmFfwFwuTUFR8c8puoFPJACFPh0RfsqqUzSw=;
-	b=dcWoxlhbghOguWX14zZ4+4NalkiXI6Xkf/Mk6ulAA4ZHs3HbWJsrpQdbJtjmvOWVGIWXW9
-	5qeBCfSRcI768hrd+wydfZgANmSkqGRc/5K6cUXxTqkRiCT25hskAQ5IpV6QhJm+yPM2zg
-	mJhotskErvWENo8gnEqwDQ+aWtZ/xDo8mH+GN0QzgZaPR8W9BXLPLase34n0e3kuOdLJu0
-	GS56OuHkXYFmdLmIVbCkLH6d7R9yLdKRDgs2TEO6HukJGjh2T47e09LcWusCF8C3+f4DW8
-	X4xW3f8D8FnmWPkabEcTkJiosazMyinaaVu0PG0xviD6Tswp8ifk+kVj2ucs/g==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 11 Nov 2025 16:34:39 +0100
-Message-Id: <DE5Z4R8JBA2F.1SKUAS1R6BCGY@bootlin.com>
-Cc: <dri-devel@lists.freedesktop.org>, "Sandor Yu" <sandor.yu@nxp.com>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-To: "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, <imx@lists.linux.dev>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 5/9] drm/imx: Add support for i.MX94 DCIF
-X-Mailer: aerc 0.20.1
-References: <20251103-dcif-upstreaming-v6-0-76fcecfda919@oss.nxp.com>
- <20251103-dcif-upstreaming-v6-5-76fcecfda919@oss.nxp.com>
-In-Reply-To: <20251103-dcif-upstreaming-v6-5-76fcecfda919@oss.nxp.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 11 Nov 2025 15:46:54 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so34040015e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 07:46:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762875991; x=1763480791; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1HMARtZJuraEYMooYga7m65rMsGPE/c/b4abR0gmXnI=;
+        b=iAxtp6MDVYhN4cW7VMxkifH4C9MYicZA55n8HLeMlGIKxwv6LhCVUOfaECYiMk19yG
+         hethbMqJY2h2sPq9MhtyjBGdvMs9vCdKG9CI/VSOX3+o12zHhxOALor9/jDhRhFMkRSJ
+         D7Ir7ppGDdx4InMbs8Jl9prbuVUjM3XcSP0XYvoMdX8P1Yiz0z8BhlTJy/am2atZpGaW
+         mS9CWk46iPSVuSz5Dv4lTKtWCAg8VnLF9QkXmjTvMLx26ja8jAD59twnXIm3qnTixXg4
+         EnVJ7BsNB1bMegH6bo3gZcVeWWrITDJDhf21/UMy4aGSS6K8F0HG49rkC2Sp2lQjzcxo
+         LJ2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762875991; x=1763480791;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1HMARtZJuraEYMooYga7m65rMsGPE/c/b4abR0gmXnI=;
+        b=KESP5aW4VDOHrOuijBJ1Ykybnkgrf9IS854o59vvaZoX5OWbRai0sdTWukkVmq2dgQ
+         5TKyIAFPu+XlT2WkkQgfXTiIVM8vhiaxr77vqZTyLNHElnouJW4CDun3HarFU/5ZU3bA
+         12rbNcXD8Dmaf8ahGx6vcrLJSsljVDoZmUeiXO9X8wgLgKUEmsE5SH5TM5PJO5jzwi0h
+         JNmo5UK+ocOSwn95fTVsoK2NBNRk0fHhoAhSitqbw/ATwDvDjzjyl0z72oWwvzFkMxfP
+         wbLI0nv/0DNzT8X7zYsRpcg057SMTzepbJfiejshvpZDu/C/VOpSlQapfiIbZkVAcOD/
+         2aLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJtDETxKcnfTw5lWTvLSdEtwQkSshvOKYstZyCx7ryZHgZ3fnGYMw6A5nUV7kDKhZ+hjiFpJYrsKYLQLI7HNPo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwemDu3v2T4uEETcmMu7Pp+zAE82K9epjaFwgV7xjuS/Gvj3jAP
+	zcRn9w5udgxWDB7LZl3peTRxL9p89geVxn4g+LDhtLbNXJHM+rHaTi8bUGQWNsbzW44=
+X-Gm-Gg: ASbGncsTYLS+0GMSPH95JnyhzHTirwvYJeveSH04spnpSSFsvnKthrwHO2juPbiZSMe
+	iTwr8ne7aWrBGrmoSCyiD+BWGtAOVUGrfQxmLPEU9yH6i/pJ0stSN9evcOENezlkKesvFI96RHO
+	9RDuGZT1elJiukkeCusj0vWpeUSgYoJ0dUT/O8I5MuB5QXE4ELnItOsZ6ANVt2Ci+4Y//cjYKBX
+	WRMMEn/kvN4c7cYm8Y6q2non+5GbyKwnj3eXpSxjbjWCpo61gtFSN1AEXCo66suYtrqUH0uZIja
+	ZZw1Uzirwiq3owQrL2arOOb6h5kPHXPCCPzyAWxFYBWroi6YfAeoBJO0JAaPHHOhzjGz+ln57HC
+	vb6slBjdwX2bQD3heEowjHypFwcQIaJqsLRl5D8EJDNJB46c6xxqhHdBCGSzmZ1OLdhaALtL4KU
+	5nC4pX2cQN
+X-Google-Smtp-Source: AGHT+IG/mjf20bwbB9ulOVh4z563amE05UyfIyNIY5aYHGSZyB1LNnu3YZ77PJ1u1Qd3j2JGeLOsNg==
+X-Received: by 2002:a05:600c:a41:b0:477:6374:6347 with SMTP id 5b1f17b1804b1-47773271aa5mr102937745e9.22.1762875991319;
+        Tue, 11 Nov 2025 07:46:31 -0800 (PST)
+Received: from hackbox.lan ([86.121.7.169])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4775cdc33bdsm377541625e9.1.2025.11.11.07.46.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 07:46:30 -0800 (PST)
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Abel Vesa <abelvesa@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>
+Cc: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, 
+ linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
+References: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
+Subject: Re: [PATCH v2] clk: imx: imx8mp-audiomix: use
+ devm_auxiliary_device_create() to simple code
+Message-Id: <176287598917.23558.10560877169801867963.b4-ty@linaro.org>
+Date: Tue, 11 Nov 2025 17:46:29 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-dedf8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_073450_033186_5312CF05 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20251111_074633_515303_335636D8 
+X-CRM114-Status: UNSURE (   6.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +110,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Nov 3, 2025 at 4:30 PM CET, Laurentiu Palcu wrote:
-> From: Sandor Yu <sandor.yu@nxp.com>
->
-> The i.MX94 Display Control Interface features:
->  * Up to maximum 3 layers of alpha blending:
->     - 1 background layer(Layer 0);
->     - 1 foreground layer(Layer 1);
->     - A programmable constant color behind the background layer;
->  * Each layer supports:
->     - programmable plane size;
->     - programmable background color;
->     - embedded alpha and global alpha;
->  * Data output with CRC checksum for 4 programmable regions;
->
-> Signed-off-by: Sandor Yu <sandor.yu@nxp.com>
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-[...]
+On Fri, 24 Oct 2025 09:45:51 +0800, Peng Fan wrote:
+> Use helper function devm_auxiliary_device_create() to remove some
+> boilerplate code.
+> 
+> 
 
-> +static struct drm_bridge *dcif_crtc_get_bridge(struct drm_crtc *crtc,
-> +					       struct drm_crtc_state *crtc_state)
-> +{
-> +	struct drm_connector_state *conn_state;
-> +	struct drm_encoder *encoder;
-> +	struct drm_connector *conn;
-> +	struct drm_bridge *bridge;
-> +	int i;
-> +
-> +	for_each_new_connector_in_state(crtc_state->state, conn, conn_state, i)=
- {
-> +		if (crtc !=3D conn_state->crtc)
-> +			continue;
-> +
-> +		encoder =3D conn_state->best_encoder;
-> +
-> +		bridge =3D drm_bridge_chain_get_first_bridge(encoder);
-> +		if (bridge)
-> +			return bridge;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static void dcif_crtc_query_output_bus_format(struct drm_crtc *crtc,
-> +					      struct drm_crtc_state *crtc_state)
-> +{
-> +	struct dcif_crtc_state *dcif_state =3D to_dcif_crtc_state(crtc_state);
-> +	struct drm_bridge *bridge __free(drm_bridge_put) =3D NULL;
-> +	struct drm_bridge_state *bridge_state;
-> +
-> +	dcif_state->bus_format =3D MEDIA_BUS_FMT_RGB888_1X24;
-> +	dcif_state->bus_flags =3D 0;
-> +
-> +	bridge =3D dcif_crtc_get_bridge(crtc, crtc_state);
-> +	if (!bridge)
-> +		return;
-> +
-> +	bridge_state =3D drm_atomic_get_new_bridge_state(crtc_state->state, bri=
-dge);
-> +	if (!bridge_state)
-> +		return;
-> +
-> +	dcif_state->bus_format =3D bridge_state->input_bus_cfg.format;
-> +	dcif_state->bus_flags =3D bridge_state->input_bus_cfg.flags;
-> +}
+Applied, thanks!
 
-I haven't reviewed the entire patch in detail, but the refcounting is
-correct now:
+[1/1] clk: imx: imx8mp-audiomix: use devm_auxiliary_device_create() to simple code
+      commit: 9d97a2fe48ae77976baff441edd5b30ea4e179c0
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com> # bridge refcounting
+Best regards,
+-- 
+Abel Vesa <abel.vesa@linaro.org>
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
