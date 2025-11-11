@@ -4,93 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3616CCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF4CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mv5b/xw8gYFcuSk4kaCj42BkeJNohwR9re6S4f8Ipq0=; b=B/z+Yd6oain4pL8L+O7xIA8ag1
-	LdEH3s8YIrqpL7WKI2Un9lIOYd/fhTdQoM3Ql5FBqjN0s+K2irjibQ7Rk//xlrYx+dumfBnVreI77
-	UBAHlNoZhZle7xRiAT//izoEKEmbqHHoOxrKtNDo9JPoek5n/U/90XKsyFJl9Q55wMgo+GnfedCLf
-	ZHAHwWiYD+7wDYwNuFfm9BB0kRnFnVl4sHBifVs8rJhPMewi3ga5YlIO3p/DDe02A1AJzzb4SSNoA
-	G1btj+gVdmZsPT+UKLh8054H9wVpHknkQFdGb6C8lDy8op6ej4pAgTkZC+ym3SUdkvPJeeBa5YHNI
-	A7wEOh5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n/+DpLeTqUhzHXwi6k7Py2elVbJHKKOt0rAE1jaDZVo=; b=B2/zIidj6o9FUogxg0+oCgjQjb
+	HWvnn46TZU7XW+OYEgeRYb4NcY9Q99rbz7JhsjoAkSbu1UZavO5rRn3XS+fM1bUqjROqXybinG4V/
+	1Dcm8tcmDzVm3DFw8ORCHiPUsQSmPczfxpdRttLnnZdtMw+JZrTzrzKfN2EfKISG770vwCf89VMD/
+	lv1B+NjsGKVESv63t+mukMWuZi0L+r+TuqjOKXicOpn+9E+nMvDqWK/w6oVHUPSzW1xrc/ftzw30Q
+	XnTHpSBy8E4FKSauDX7m79Ji8KJNQq4lXL79d43TXYzfSqjoq1KfP0nPPYMybri2vDPWqUHnwo98/
+	TsSeI3rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImtl-000000077DA-0tbi;
-	Tue, 11 Nov 2025 11:50:57 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1vIn0O-000000077hW-1QMS;
+	Tue, 11 Nov 2025 11:57:48 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImth-000000077Bs-300p
+	id 1vIn0L-000000077gw-180N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 11:50:55 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5943b62c47dso3685144e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 03:50:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762861851; x=1763466651; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mv5b/xw8gYFcuSk4kaCj42BkeJNohwR9re6S4f8Ipq0=;
-        b=Fd01eox5Qp7aJ70UyVW/s3mBP49RONBkUgYioCjD+ub44mkm2OXFocENgvbHGdGsOl
-         SAkF/vHDjwaTDg8eprJU4gHec4+pMaxoYA0e+152DU+s8c4iPXwKes4Gj0spIKPLJOQ2
-         pV+yZ/JYw9MF1BvI74jwzbfC+HwC9KfYJB+k00LCugB6RUGhfWe1Q/N+jPLcQiw/6aFY
-         6K809PQKiWnmSRoIoGZ/jE/Eh92CoC+IiiVVnYEAjzo53nteiPyvtvvv0eVYCWktB/1P
-         t3vNXXOBo3K1p4j2tg6eId4z7AiCu8Q8cbqcVsJyyzy2jZayVNEUPTHCMFuLN2lRrmYJ
-         X8dQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762861851; x=1763466651;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mv5b/xw8gYFcuSk4kaCj42BkeJNohwR9re6S4f8Ipq0=;
-        b=bN4HOUcNqwneUNsUuVCyZrH+X+PD38/t3eDQLtRqYpNrwj6p4LWZhwD7OiGswN10q0
-         /aEmHnUGDfS9EytDzc1z+WX/S3bu4lmu/FTmpD11M/OkwX2sNwXRX7YfwdiVYAf885+b
-         NSTrUjC+1p6q9311u0RvehZCfX+1oKr88kVzhnY52k2gO3kxdPIkyJbVY83gTbacxslg
-         Adnj0RkHcklxN+kdd7g3fzMtlV3iuaNvtZcuK8ydESmMiP71VmSg9bmWqBtlit4Q3xGm
-         +ZZfFLsWz1ZTHewVX5Y4RPLCrr5EnbjnDWJEPcyXbpFCTZUSt7UbDbzjc321qhKvGC42
-         Ynew==
-X-Forwarded-Encrypted: i=1; AJvYcCUDuffkyXpJuOlwvOK4rOlDUaZj1I39pzVWw5Hj4X+Uh7fRXxRVn1oeYYqi1SDj/J+3JYOuglbQSbsLB21Nq4yJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc6DtlE9IET0MY+64sScNvck5aTyv3GCx6x79KBQwlCEUB4DJK
-	X6EYUxz4pk9BMTH83liJLYjQ6XvRvJLGjEvzvQWh0aKIpH6s3Er97hSvlKTz/dkXoAzepXtBTff
-	qXYdv3fjka7S8AbFJs64766lhufI082k=
-X-Gm-Gg: ASbGncsMUOZehiy2tpsSFL/HeIkzEayoXQltI+QUghLb7onwzjw4yov0BHpTrtrGuQQ
-	NUYvZhdl1wqzC3YpCfcdqIugyVnxocaGzAUsY7UBVIrhRC5F6f8n5CnjRaK7RohmdU7hdKjPFUV
-	rPzE46G4YWpR/uP0o3wcTpJCCn4yNuq6ZD+TbHo4y7EO5kq8ECxRXRz35tZA/BVwV7N6DR3EU/E
-	IajZy6COy5BYLyEQtHGjdvvFJ6AuR0kMTXBUR1A4LOB7E1lMdZPebloJiqgX6I8h4/tB84+DiHG
-	EG72hqfqq3ykdMlC
-X-Google-Smtp-Source: AGHT+IF88z5at8UsnN1rJmg2IhGaaNFuSng3Rlf9evtFG8rtfKiEGAp8AmRAUYBfUbuGiUayIKhWFzPcbtLj8c4U6/A=
-X-Received: by 2002:a05:6512:3b06:b0:594:4e03:2be2 with SMTP id
- 2adb3069b0e04-5945f19c023mr3782490e87.14.1762861851172; Tue, 11 Nov 2025
- 03:50:51 -0800 (PST)
-MIME-Version: 1.0
-References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
- <20251109214515.121742-2-rpimentel.silva@gmail.com> <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
- <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
-In-Reply-To: <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 11 Nov 2025 08:50:39 -0300
-X-Gm-Features: AWmQ_blgZMv3waf3DojzBGgJUKYe7alAx5RXa_SxBDQp7LxHHOXCa8N82h9a1G8
-Message-ID: <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com, 
-	marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de, 
-	joao.goncalves@toradex.com, frieder.schrempf@kontron.de, josua@solid-run.com, 
-	francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 11 Nov 2025 11:57:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e6Sb27Nr7nE3HVJbPlgtjzEPG2ioxHvYM87fZk/y7imNNgnpAOJwVyqN1hRZ7G55R9IwINNr6q9QV4Sx/OIJhsQkbeIwxax4WNAkAX7BAjEvUJAA9LDRjnpGpqhr7Roolh1CV7URHQ0At4YcCVC43/hAQ4vNwvfOiwf39UhLkFIoOSVk+BFlPw7vyRtk2/gWPNyNOewB8EzxGK1ZG3+LFzp8o95sf05utzXq5tY+7OIWxH+5tQN/uWAZA8Xn4ifln6pL/Bkd04wIsJslgrGjKAVtLmYWXmlYEydj+BZ5ufjFw37i8aITFmnHjzeL2/HC8kmZ3jwdvHiTH/3Cf+ypvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n/+DpLeTqUhzHXwi6k7Py2elVbJHKKOt0rAE1jaDZVo=;
+ b=DTBbixIyb256GxYq5pamEhD56AxEcnTkMZF/MrZCiwicZ3yKQZGrwEOs1Eox9FTqomairkXhDIZ8fsYOYvzI1yWIeSn7bD/0ljEbRUiqIPHaYMZLJ/efkV2Pr8AbC5prHHazowkjUi2aOdXHk2lPTCssangjCljuG2x1qUIf18qPtof+5+98M5NS2qFyAlO+i1y2mZifwWGlFCHjc/eA9k7c19wAMlXWUIx312Q/jpKGqRCVOyfb9zll7fOuosbTaXSgM13Mie9UiCZbTMK1q5qjTxE1HBLBq1eNq+4hscjTjVoqSO21UN33sgHV5Fv0C1D0BeqyqVTUSanoOg0RoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n/+DpLeTqUhzHXwi6k7Py2elVbJHKKOt0rAE1jaDZVo=;
+ b=b3CDMYOh+SDg+TCUYgdhftpxCpo2See48D4KzbhoJpfRWBPczlKLWEb/77Ut3EnNagLlH5ROVl/WzEOgSP1b3i/wxf1OeVnnvU8mw+l5cMqQSubpwCUfxntt0Fl4XdOVRQEap6jbgFN4SmiO0Dr4rZYGxP0LTrCnliDIh2cPQjw=
+Received: from DS0PR12MB9345.namprd12.prod.outlook.com (2603:10b6:8:1a9::10)
+ by PH7PR12MB6858.namprd12.prod.outlook.com (2603:10b6:510:1b4::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
+ 2025 11:57:33 +0000
+Received: from DS0PR12MB9345.namprd12.prod.outlook.com
+ ([fe80::65ab:d63c:7341:edbb]) by DS0PR12MB9345.namprd12.prod.outlook.com
+ ([fe80::65ab:d63c:7341:edbb%2]) with mapi id 15.20.9320.013; Tue, 11 Nov 2025
+ 11:57:33 +0000
+From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: "davem@davemloft.net" <davem@davemloft.net>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "Botcha, Mounika"
+	<Mounika.Botcha@amd.com>, "Savitala, Sarat Chand"
+	<sarat.chand.savitala@amd.com>, "Simek, Michal" <michal.simek@amd.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Buddhabhatti, Jay"
+	<jay.buddhabhatti@amd.com>
+Subject: RE: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation to
+ select HW keys
+Thread-Topic: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation to
+ select HW keys
+Thread-Index: AQHcSL4fwl9HB3A2vEaDmA0sI135SrTlG3sAgAhWX/A=
+Date: Tue, 11 Nov 2025 11:57:33 +0000
+Message-ID: <DS0PR12MB934525C9192C679D5AE681DD97CFA@DS0PR12MB9345.namprd12.prod.outlook.com>
+References: <20251029102158.3190743-1-h.jain@amd.com>
+ <20251029102158.3190743-10-h.jain@amd.com>
+ <aQwlEgMlYr8EPrTo@gondor.apana.org.au>
+In-Reply-To: <aQwlEgMlYr8EPrTo@gondor.apana.org.au>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-11-11T11:52:35.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR12MB9345:EE_|PH7PR12MB6858:EE_
+x-ms-office365-filtering-correlation-id: 0d405bea-009b-4e26-86d4-08de21197fcd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?0nso2AWOkKKY5z2+Iq/56q3DSkWGmqHWCBITLfFKuhasvoCqEjexoqVcbTbz?=
+ =?us-ascii?Q?0FdNXBLlY6kj+Uht1yszNzYAHxeGMVsy+JvzGZq6p5TA/n31sad+DQkQBivd?=
+ =?us-ascii?Q?yZrNnsDAJ2/eZJ70jY8JzQUP0BMa1ZG31pw8XFXYwcXn9D4aN/eP5xJ4iGsH?=
+ =?us-ascii?Q?OBPEEKWYxh/MVrU8A55xFi3B1lgXsoiP3RjHzXiq6J8IM41ioH0QS37c3/JM?=
+ =?us-ascii?Q?rSri8OwHB4wgYKE2Nr1yO/PNyIXK+9bZMG7CBWHIPTHCWc95oeNyHdWat/2M?=
+ =?us-ascii?Q?+1fpeVJiV5Oq+EoB8vFKiS2UldSHHGWPHmlpyVHL9fMgrCft1qjxAtRDVsEo?=
+ =?us-ascii?Q?nBvryGv/hg2KYF6aEd6TXITSlLy/RNT+3GG4RsEdRU/rLeu4rv5m4aAlEthS?=
+ =?us-ascii?Q?u+BWmj+HbNbB55nRF2ulQrcveoD/ghwl6BrXilv76KZoX3scvP4t1LcYGXQh?=
+ =?us-ascii?Q?NBe8EVkh9GTvMQh1lH19t7L/0Ge5j8X9X5ptZ2VhzsTBIjS0d6TrwlYjhWkp?=
+ =?us-ascii?Q?3sj6TkiJvL3HyvOG4lyNwjKic4cc/fZIJkcHlEzYLgyimn8ttv1Vjk6KCC/E?=
+ =?us-ascii?Q?8wbc+JlVG0Pl5Wg2Do4WWI5MBhDFjJ2v2tU954kJQckHZCgG8HuGQA9OeABd?=
+ =?us-ascii?Q?GXCNuOD3OIiOvyRtt4oDWY8vol2cS3z5Wzk7SS1pT/kdF/J3wy4IUAg5UYoJ?=
+ =?us-ascii?Q?cpjvKmm1InryoY+GJYo4uL9Lm1KqS/uRY+k9i1RiY6K/zy4SkIX7qAo7rHt8?=
+ =?us-ascii?Q?lHCVuoVUUX9HRGp7lHN9Z9GGBOI8ufT/K2FO3hSeOMg0MC7AQr7R5AsaECZ+?=
+ =?us-ascii?Q?1NBwY1xhohrgI3iliC6akMc+nDyrP56wdV6PB9GBAn5le/vCyepId5Q/VpEZ?=
+ =?us-ascii?Q?4hOWQnt7oEBBant3s0einaEFu/D376YLSxpSoT458YzN3sIoPAJNc+NW+pB7?=
+ =?us-ascii?Q?wSSUr/WTEXuhp95elrKji8J6m3344Gv4i6hcsyakZq+hRXav8NBBdfm9i4ef?=
+ =?us-ascii?Q?yjvcv56yZDIRG9g3iZEE5VutTyeKdg0sDzQ7aEtBXVvvqq5Pk/+cL+ZrIBJE?=
+ =?us-ascii?Q?86laPt3Z5bJFS8Wjgx9ZTxkofMrDh89xQ9O0S+fGwSwkjoV/qM1bMPF0Lumt?=
+ =?us-ascii?Q?YgIy8gAcvff/tnXV7stmJiLfdtA3U/4FemSoUKrnDfpWZlsI87lS8pWHdE2y?=
+ =?us-ascii?Q?8zr/AgJD+8yRVb4eIgBNv/NHJYN3sdGe/Bm8VUQvuh+XOYJWOYsgtLEYPjqH?=
+ =?us-ascii?Q?32PCx0ZKjpP6WxekfB//K6OxX3pFTYGSeQd9mAb/VNpeq8qXy1PtO/Baek8m?=
+ =?us-ascii?Q?RMa9Lh0wr/volp/Fw/ywJVsIC4z8pcse/qM49Wri4nUnKDzjJm7HF5JV4pye?=
+ =?us-ascii?Q?c+sBkphez6nyBFAgJg2ZYXnE98RCduV7WgTyYJNLsGbkDUo6PelAwAlqbTB8?=
+ =?us-ascii?Q?OehO/TsBxgGynmHliDvVCSggilvHq/miHUm97/JkqLjK5iyjO7dNbQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9345.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qoDcF9NqUbBF4unBTy4oOD5jFm7/gv9KKBYrqRNtIvyNEgVeLtpJqyiqsnrH?=
+ =?us-ascii?Q?nRk9K0RA8uyXNQ3GKle7FhsopTTEgMgQaahq0MHSTOOntEgd4IsKx3mkQVFU?=
+ =?us-ascii?Q?utrGEtc2zvMONKMZfYWRTcUTS2UkP3VCvKT+L1HNeD8YEuyh2KyyUgp6L+QW?=
+ =?us-ascii?Q?C3UwSPY5TdDK4g74byFdeTVDHH76NWovL5itV83hRHBMryaHbDD/IHgDQehn?=
+ =?us-ascii?Q?LnWcQ5oG7wjJzsN2fnV1V5MfQf5J3tAQl3yAGnQ2WAAqHf1Qe/W+rh2ORt1w?=
+ =?us-ascii?Q?t+uVHy5f0/TxxiYZmvKuj5bylHCkxDQJyqEs7Tsu6qw1kbRCdAbdJKyoT9Mb?=
+ =?us-ascii?Q?/iV9NxcIY6DnVqmVANWovWaAmjXwIXBL9qt4mbvjplFpE/hBoZ5/qpaobxCu?=
+ =?us-ascii?Q?l2gTZ1fpTP4GoINBJI7AtAngmg6stvSI0TuJjx943j9zjMEjOIoNWUcQAGyf?=
+ =?us-ascii?Q?Xnv132g1wNn8V1PBcAU97uFZAXS5PvQIXEY7JsLKrp/yH/RG/JFuniCFYS8X?=
+ =?us-ascii?Q?FvokwR514UW3tCkZJQHq/HnEYK1m2Hxfoomd4i81D2srwh9ivNCI5L4bRlJJ?=
+ =?us-ascii?Q?sNlZE/VbF/VTl+1JcTU/E6ttzLmus2gCKH72QGN111W5BWgXGT8+tkNrgT0g?=
+ =?us-ascii?Q?qM4t0+DhqPg16/JRIL8IXnHeyE0ToJnHvX6umydod2zQwa68x6ibKW1UudKW?=
+ =?us-ascii?Q?Kz2h48lew2cAzW71wP0RKCFm9svO1qU4np2z/bpb23sK2uwkHBbzA2W6pp8R?=
+ =?us-ascii?Q?0hEm1EXQ1rf6/GXR3KvNnv4+onU4t2iaHE/2vC43+S+uquSoLebFNuE9362+?=
+ =?us-ascii?Q?/u0lVLws6JSBP6TlUPt/BEbmsrydKQ+L0NgsrQUF9d93R6Xvgk/wiOVXA4jU?=
+ =?us-ascii?Q?qZt/XcP7IRq6rAehqVyu8Zz89tNwkZ2JfOFG33DYyO73YsuOQhZr0yj6lnGq?=
+ =?us-ascii?Q?+ZPaiZHPR59z5UoT7iiSPttHnnUxwPyVftcsvPU9Q8KlmChQcpX6uFrM7I2L?=
+ =?us-ascii?Q?d5onfFJFchswkIHfVyU4zoDbr9KN8DjD/gO8Ys8kXVuoWVT9/HqNiST/U8W+?=
+ =?us-ascii?Q?0tL1bJxMsPDhObW5oC5PA1ESbwFYQUw4rWEq/o32x/0MQ3lp3wTe98Ic5Jbh?=
+ =?us-ascii?Q?VdfmHVZUcAo00IdM/Ruf7edX46Rn4N2xERpyfruXnLLMQRIq5BCImH0fj+r+?=
+ =?us-ascii?Q?dSiy7wqU5jIeceJGJiGM39ol3aLOjseHwHcP37TaHyBKX8FBcADkiT5EZBkN?=
+ =?us-ascii?Q?HFnthBWOepWKRoZ4HA/DE6a7aRgU1s3ndnG23oer8I2QbOTnRGfL2wDI4d4g?=
+ =?us-ascii?Q?Nio488g1zzi2LqaiKFapPSiM9HclUEnOPJllByfRr+XqS6BwucS1CtIcXch5?=
+ =?us-ascii?Q?ax7KzKajE6dd0+EK0t25d/TFmVW4jLGZiOiF/fnMVcb5+iJcBrXajd37uvIV?=
+ =?us-ascii?Q?L7YwVeOTUHtPZ6SpdC/MyAT/h4TFKFslDKcGZa+7koGH5u4lQGa3yVxQe2M1?=
+ =?us-ascii?Q?bTMOdH3WKFvhzMnXwF9ZmW+nQlO8Iacdj3uzo8Cz+OcDLmapxm8QA66Ugfif?=
+ =?us-ascii?Q?F9FzWNIPDdpD/a6WuZI=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9345.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d405bea-009b-4e26-86d4-08de21197fcd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2025 11:57:33.4676
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WEKrFCK1wuuDjMa9ku++pXCqzb/CvYcrLEge6zTzo8B3023CCCLdLM1j1OUHV944
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6858
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_035054_726986_6DEFF68C 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20251111_035745_368990_C8D2A738 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +173,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-On Tue, Nov 11, 2025 at 5:45=E2=80=AFAM Daniel Baluta <daniel.baluta@gmail.=
-com> wrote:
-
-> In addition to that, Rogerio please read:
+> -----Original Message-----
+> From: Herbert Xu <herbert@gondor.apana.org.au>
+> Sent: Thursday, November 6, 2025 10:03 AM
+> To: Jain, Harsh (AECG-SSW) <h.jain@amd.com>
+> Cc: davem@davemloft.net; linux-crypto@vger.kernel.org;
+> devicetree@vger.kernel.org; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; Botcha, Mounika <Mounika.Botcha@amd.com>; Savitala,
+> Sarat Chand <sarat.chand.savitala@amd.com>; Simek, Michal
+> <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; Buddhabhatt=
+i, Jay
+> <jay.buddhabhatti@amd.com>
+> Subject: Re: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation t=
+o select
+> HW keys
 >
-> https://docs.kernel.org/process/submitting-patches.html
 >
-> At this moment I think you should keep the original author of the
-> patch.
-
-Right, but NXP makes a total mess with authorship.
-
-Please see this version from February that states the original author
-as Xiaofeng Wei <xiaofeng.wei@nxp.com>:
-
-https://github.com/nxp-imx-support/meta-imx-frdm/blob/lf-6.6.36-2.1.0/meta-=
-imx-bsp/recipes-kernel/linux/linux-imx/0023-arm64-dts-Add-i.MX8MP-FRDM-boar=
-d-support.patch
-
-Then this one from July states the original author as Joseph Guo
-<qijian.guo@nxp.com> and it also has:
-
-Signed-off-by: Steven Yang <steven.yang@nxp.com>
-Signed-off-by: Lei Xu <lei.xu@nxp.com>
-
-https://github.com/nxp-imx/linux-imx/commit/fd8010b46bb00344fa519c73b643fad=
-71da5887b
-
-How are we supposed to know the correct authorship tags from the NXP
-commit, then?
-
-> Then mark your contribution as follows. If you just picked the patches
-> tested them and made minor modifictions only add your S-o-b
 >
-> e.g
+> On Wed, Oct 29, 2025 at 03:51:52PM +0530, Harsh Jain wrote:
+> > Currently keylen 1 is used to select hw key. There are -ve self test
+> > which can fail for setkey length 1. Update driver to use 4 bytes
+> > with magic number to select H/W key type.
+> >
+> > Signed-off-by: Harsh Jain <h.jain@amd.com>
+> > ---
+> >  drivers/crypto/xilinx/zynqmp-aes-gcm.c | 94 ++++++++++++++++----------
+> >  1 file changed, 60 insertions(+), 34 deletions(-)
 >
-> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+> The hardware key support should be registered under the name paes
+> instead of aes.  Grep for paes in drivers/crypto for examples.
+
+Sure, Will check and update the driver accordingly.
+
 >
-> If you made significant changes add your C-d-b like this:
+> > @@ -218,32 +220,42 @@ static int zynqmp_aes_aead_setkey(struct
+> crypto_aead *aead, const u8 *key,
+> >                                 unsigned int keylen)
+> >  {
+> >       struct crypto_tfm *tfm =3D crypto_aead_tfm(aead);
+> > -     struct zynqmp_aead_tfm_ctx *tfm_ctx =3D
+> > -                     (struct zynqmp_aead_tfm_ctx *)crypto_tfm_ctx(tfm)=
+;
+> > +     struct zynqmp_aead_tfm_ctx *tfm_ctx =3D crypto_tfm_ctx(tfm);
+> > +     struct xilinx_hwkey_info hwkey;
+> >       unsigned char keysrc;
+> > +     int err;
+> >
+> > -     if (keylen =3D=3D ZYNQMP_KEY_SRC_SEL_KEY_LEN) {
+> > -             keysrc =3D *key;
+> > +     if (keylen =3D=3D sizeof(struct xilinx_hwkey_info)) {
+> > +             memcpy(&hwkey, key, sizeof(struct xilinx_hwkey_info));
+> > +             if (hwkey.magic !=3D XILINX_KEY_MAGIC)
+> > +                     return -EINVAL;
+> > +             keysrc =3D hwkey.type;
+> >               if (keysrc =3D=3D ZYNQMP_AES_KUP_KEY ||
+> >                   keysrc =3D=3D ZYNQMP_AES_DEV_KEY ||
+> >                   keysrc =3D=3D ZYNQMP_AES_PUF_KEY) {
+> > -                     tfm_ctx->keysrc =3D (enum zynqmp_aead_keysrc)keys=
+rc;
+> > -             } else {
+> > -                     tfm_ctx->keylen =3D keylen;
+> > +                     tfm_ctx->keysrc =3D keysrc;
+> > +                     tfm_ctx->keylen =3D sizeof(struct xilinx_hwkey_in=
+fo);
+> > +                     return 0;
+> >               }
+> > -     } else {
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     if (keylen =3D=3D ZYNQMP_AES_KEY_SIZE && tfm_ctx->keysrc =3D=3D
+> ZYNQMP_AES_KUP_KEY) {
+> >               tfm_ctx->keylen =3D keylen;
+> > -             if (keylen =3D=3D ZYNQMP_AES_KEY_SIZE) {
+> > -                     tfm_ctx->keysrc =3D ZYNQMP_AES_KUP_KEY;
+> > -                     memcpy(tfm_ctx->key, key, keylen);
+> > -             }
+> > +             memcpy(tfm_ctx->key, key, keylen);
+> > +     } else if (tfm_ctx->keysrc !=3D ZYNQMP_AES_KUP_KEY) {
+> > +             return -EINVAL;
+> >       }
+> >
+> >       tfm_ctx->fbk_cipher->base.crt_flags &=3D ~CRYPTO_TFM_REQ_MASK;
+> >       tfm_ctx->fbk_cipher->base.crt_flags |=3D (aead->base.crt_flags &
+> >                                       CRYPTO_TFM_REQ_MASK);
+> >
+> > -     return crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
+> > +     err =3D crypto_aead_setkey(tfm_ctx->fbk_cipher, key, keylen);
+> > +     if (!err)
+> > +             tfm_ctx->keylen =3D keylen;
 >
-> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+> You can't have a fallback when there is a hardware key.  How did
+> the fallback not return an error here?
 
-Rogerio's changes are significant as the dt-schema passes now.
+We have two types of key registers
+1) Registers to save user supplied keys like ZYNQMP_AES_KUP_KEY
+2) Register Where H/W internally generates the keys like ZYNQMP_AES_DEV_KEY=
+ and ZYNQMP_AES_PUF_KEY
 
-The NXP commit has all the dt-schema warnings found in downstream BSPs.
+Fallback is for 1), because driver has saved key in private ctx and can be =
+fallback to S/W.
 
-For example, it makes the old mistake of describing:
+>
+> Cheers,
+> --
+> Email: Herbert Xu <herbert@gondor.apana.org.au>
+> Home Page: http://gondor.apana.org.au/~herbert/
+> PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
- spidev1: spi@0 {
-   reg =3D <0>;
-    compatible =3D "lwn,bk4";
-    spi-max-frequency =3D <1000000>;
- };
-
-Which is totally wrong.
 
