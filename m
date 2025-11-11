@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A05CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21675CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIPVTkR2pbZBkmPWapN1AZOJSBeQpLh6MMgTnPaEnDU=; b=xg5r312O5EzfyZzoZAWkd7aG0a
-	nMoc95cjLyZon5TCoGbugb4Seo1AZOHxVlYBkbYqJYPpuIITsaTdbOGWyGLnRkQ8HlYCvb193H02j
-	PRbwwRmhXwBnS6eL42+tBwYinRSrTWvET1WaDEb7hWEy0pIA+GgmaNjKPKsuA3SYXkDb9L9lFYG/Y
-	9gUDNXRFGis7V1SZhB/Nm7D71849cArilnm13NBQbOgttrf4CtkdToOYsd7wTLBED7vlYoZoX3Qqs
-	AM2TD4zEdrqN/j/CiU+9gMOQRCwakM8ikjTJB6o5Y2Ch/jhySOlrplL7FEOa+UXiSTc8Z5F6cD3OU
-	uKe+FciA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KCe9tknaZmet+jwIrBFGWjoViJ8DMiXQMeenotXh6ok=; b=v6Uif4+Z1dPzwj3zFuALjkAtmo
+	SpQJCyRTuram9oVP77s38VRtf3Wpkq4g+8loaQrNsG6fImLuViZx2MRqXUzKXkPvfZeVrx0majBB/
+	pb47jVApfmSfn20e5lYCpL76RcFw5p38CgXWtgSgkxqaJ/52C1YuOadrbfdasB1hbr9AiXdE3VvtK
+	NxvyhABdgpV7d101mlu/S55Z1ISkOZVPRrILxLuZDPwcp5ouf2Qn2DmZULRlWGaVjKOIWdGjupAMW
+	UJRoBtzmh+6YJ8rtn/dXzSg4fW9736TnGGKBLfJ9llC2CVkmN0Zg89zoJ+XyM9pnyhM8Jbm6fAdse
+	H1BiAK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsVS-00000007YhW-4BNn;
-	Tue, 11 Nov 2025 17:50:15 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsVR-00000007YhB-1pfS
+	id 1vIsXu-00000007YrJ-03av;
+	Tue, 11 Nov 2025 17:52:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIsXs-00000007Yqv-2Dsh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 17:50:14 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-780fc3b181aso3869827b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 09:50:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762883412; x=1763488212; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hIPVTkR2pbZBkmPWapN1AZOJSBeQpLh6MMgTnPaEnDU=;
-        b=XDqH8Wz83iOjyqIZhPSMt9yijAPwhVaxm0H+xmljp6PAmS7l9f4XX5QcTUKBe9tWoW
-         G4Qje0+bQvBrAaI2Rj9zNzKuwvAG8eW+0Vzs/fuQ36Wr9B/OwMuGZu2eqZygardALHxG
-         mpjpGMMedW7uVNBsp6FOsmKpXl0gB4aDRUj1y1VBDcvzBDcxf8+mFIGJAOBotVNVw3nY
-         fRyfwqaVxl6r6qd7nmEY0TrCLr//RQ1AsllJgIsxMLGCOOUdlj2vrsf45/oIS4q8dg8b
-         FIJFUGVLe7w0fygtoeF6JeoWZL9+5trhUwR4/Wq8brwOBHsbmk4lBaKBXBAXW4Bhw3WL
-         DDgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762883412; x=1763488212;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hIPVTkR2pbZBkmPWapN1AZOJSBeQpLh6MMgTnPaEnDU=;
-        b=v4w7aiX0iziee8JdKd5MNFOw5mZwtFm+c1lJtm7AGYf1J8p2E7ILue7VeORYRMPwzS
-         AMz+A28ZGnOvoItnISCsNrTCsGxTbNoHSR+xUKqS+XqtcwVpOGTjSzGAhQu4KZq+gKM2
-         jpzMTM9NxMc9dq3XgFxhfqY3QPfE+RYf18sFxwZxz8lcj4Ax1qAw+reewi1OrB85Mlem
-         dVtvEjdNeWsyETmveJOXuCibipRf1FsYhW70eZ2Jk6xCqyan2QyH6qW7iB5NOujINFeo
-         16IrXr21G0U9eVyto4msEhZHLobw7KdnHqy0TC/gc8xFIUPnxblgrfbSKjq2fATvhtuq
-         H2kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVMtxm1teEtsB2QUFo3Il3Noiovg5nikOKFPCAnAD/7cn5iDTHgQjlBVWWN4SbiKUfcQQXtJnTRPic8sxImaGeq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDj3M2PXZe8BI1lzetfV0RzkFxMZX8X+KgRpYa1IGBRUzqx6AX
-	XRTYiDQdPeQk8kaD+BAEroJaBK6Fi6UFNAUPl8DXy3TY0/zoIieOObdW
-X-Gm-Gg: ASbGncuMVZvr6V7X/X4OZ+gsytodR/gEht2KtpD8YVaTnyjE4Gv49oHcFlXkstZDQ6w
-	QeTr/+muv7tjtgqbNJYCgPJfnq/t6x9VEyq0Hv0lTyHM0GkIuqvVk9fRl/Mxo8rIg/TI7Rbbdv7
-	3km0RrE+Oksk9lhbboPRvn+PKjrm5WuNSwoYyVQMj/P1DANaaaTbgAriznBew1BcoQYwvLXLd76
-	PbJXumE+his456tfyxFDzIoAZf92TRtjolfmZzXYlPfZNY2gesq1iEIDVeSyu0mQ7xi7dVyz9cT
-	WYveKKEL63II1mYNvOKznVkHYKQ56u91ZLr39SZL/mQx5lwW4gAWw49aNhrUaKh3QHFPwI9ZBjc
-	4pQmoRI8zLSXV2026Yb91vUhi2nN3yfyz0hF9Z18KgvVZl84bxOsnfRnhlfHiuPtrrJf/5HU5Bk
-	eH3kn3ccdJf0hSTVnCIwCV0CPC6r1oq/2R
-X-Google-Smtp-Source: AGHT+IG2wLRt+FHVuVKrFyDk6D87jUa6ulKsRTc4ElvGIUi+Ps48OV5Tavonxqr9dChaqkEyGsQG4w==
-X-Received: by 2002:a05:6a20:e210:b0:34e:b034:a5e5 with SMTP id adf61e73a8af0-353a385ab2cmr18505176637.51.1762883412297;
-        Tue, 11 Nov 2025 09:50:12 -0800 (PST)
-Received: from joaog-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-bbf165f99f1sm230491a12.23.2025.11.11.09.50.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Nov 2025 09:50:11 -0800 (PST)
-Date: Tue, 11 Nov 2025 14:50:06 -0300
-From: =?utf-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Kishon Vijay Abraham I <kishon@ti.com>, Swapnil Jakhade <sjakhade@cadence.com>, 
-	Andrew Davis <afd@ti.com>, Francesco Dolcini <francesco@dolcini.it>, 
-	=?utf-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: TI K3 AM69 Kernel Panic when PCIe Controller is Enabled
-Message-ID: <lky7ocqazucnh3xhwswvs4idjtljt5ixp3ibwwa45524pvxzrs@kmkml6td7vju>
-References: <pod3anzbqdwl3l2zldz4sd47rtbruep72ehaf7kwcuh2bgflb2@y4ox65e66mkj>
- <cf751cf7-53a5-438b-9903-903bd8c39b23@ti.com>
- <oawjd2mscz2untz6zc5mqn6ak2oxdul6pnaexiohe6ae3bow2r@afkvpu4izrvt>
- <ddc4e2df0a5593d4a6051057c6406db338f4c0ba.camel@ti.com>
+	Tue, 11 Nov 2025 17:52:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B491B497;
+	Tue, 11 Nov 2025 09:52:35 -0800 (PST)
+Received: from [10.1.31.216] (XHFQ2J9959.cambridge.arm.com [10.1.31.216])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1EFB03F63F;
+	Tue, 11 Nov 2025 09:52:41 -0800 (PST)
+Message-ID: <5d04c2e3-7662-4402-86d0-9dba3a93fce7@arm.com>
+Date: Tue, 11 Nov 2025 17:52:40 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
+ __change_memory_common
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20251103061306.82034-1-dev.jain@arm.com>
+ <aQjHQt2rYL6av4qw@willie-the-truck>
+ <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
+ <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
+ <aQn4EwKar66UZ7rz@willie-the-truck>
+ <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
+ <17eed751-e1c5-4ea5-af1d-e96da16d5e26@arm.com>
+ <c1701ce9-c8b7-4ac8-8dd4-930af3dad7d2@os.amperecomputing.com>
+ <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
+ <94c91f8f-cd8f-4f51-961f-eb2904420ee4@os.amperecomputing.com>
+ <47f0fe70-5359-4b98-8a23-c09ab20bd6d9@arm.com>
+ <ca628d43-502a-42f1-be57-bcb37103ddf8@os.amperecomputing.com>
+ <19def538-3fb6-48a1-ae8b-a82139b8bbb9@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <19def538-3fb6-48a1-ae8b-a82139b8bbb9@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ddc4e2df0a5593d4a6051057c6406db338f4c0ba.camel@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_095013_481066_8CB07C79 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20251111_095244_657757_EB96545F 
+X-CRM114-Status: GOOD (  39.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,35 +79,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth,
+On 11/11/2025 05:12, Dev Jain wrote:
+> 
+> On 11/11/25 10:38 am, Yang Shi wrote:
+>>
+>>
+>> On 11/10/25 8:55 PM, Dev Jain wrote:
+>>>
+>>> On 11/11/25 10:14 am, Yang Shi wrote:
+>>>>
+>>>>
+>>>> On 11/10/25 8:37 PM, Dev Jain wrote:
+>>>>>
+>>>>> On 11/11/25 9:47 am, Yang Shi wrote:
+>>>>>>
+>>>>>>
+>>>>>> On 11/10/25 7:39 PM, Dev Jain wrote:
+>>>>>>>
+>>>>>>> On 05/11/25 9:27 am, Dev Jain wrote:
+>>>>>>>>
+>>>>>>>> On 04/11/25 6:26 pm, Will Deacon wrote:
+>>>>>>>>> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
+>>>>>>>>>> On 04/11/25 12:15 am, Yang Shi wrote:
+>>>>>>>>>>> On 11/3/25 7:16 AM, Will Deacon wrote:
+>>>>>>>>>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
+>>>>>>>>>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
+>>>>>>>>>>>>> rodata=full"),
+>>>>>>>>>>>>> __change_memory_common has a real chance of failing due to split
+>>>>>>>>>>>>> failure.
+>>>>>>>>>>>>> Before that commit, this line was introduced in c55191e96caa,
+>>>>>>>>>>>>> still having
+>>>>>>>>>>>>> a chance of failing if it needs to allocate pagetable memory in
+>>>>>>>>>>>>> apply_to_page_range, although that has never been observed to be true.
+>>>>>>>>>>>>> In general, we should always propagate the return value to the caller.
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Cc: stable@vger.kernel.org
+>>>>>>>>>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
+>>>>>>>>>>>>> areas to its linear alias as well")
+>>>>>>>>>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>>>>>>>>>> ---
+>>>>>>>>>>>>> Based on Linux 6.18-rc4.
+>>>>>>>>>>>>>
+>>>>>>>>>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
+>>>>>>>>>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>> index 5135f2d66958..b4ea86cd3a71 100644
+>>>>>>>>>>>>> --- a/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>> +++ b/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
+>>>>>>>>>>>>> long addr, int numpages,
+>>>>>>>>>>>>>        unsigned long size = PAGE_SIZE * numpages;
+>>>>>>>>>>>>>        unsigned long end = start + size;
+>>>>>>>>>>>>>        struct vm_struct *area;
+>>>>>>>>>>>>> +    int ret;
+>>>>>>>>>>>>>        int i;
+>>>>>>>>>>>>>          if (!PAGE_ALIGNED(addr)) {
+>>>>>>>>>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
+>>>>>>>>>>>>> long addr, int numpages,
+>>>>>>>>>>>>>        if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>>>>>>>>>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>>>>>>>>>>>>            for (i = 0; i < area->nr_pages; i++) {
+>>>>>>>>>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>>>>>>>>> +            ret =
+>>>>>>>>>>>>> __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>>>>>>>>>                               PAGE_SIZE, set_mask, clear_mask);
+>>>>>>>>>>>>> +            if (ret)
+>>>>>>>>>>>>> +                return ret;
+>>>>>>>>>>>> Hmm, this means we can return failure half-way through the
+>>>>>>>>>>>> operation. Is
+>>>>>>>>>>>> that something callers are expecting to handle? If so, how can they
+>>>>>>>>>>>> tell
+>>>>>>>>>>>> how far we got?
+>>>>>>>>>>> IIUC the callers don't have to know whether it is half-way or not
+>>>>>>>>>>> because the callers will change the permission back (e.g. to RW) for the
+>>>>>>>>>>> whole range when freeing memory.
+>>>>>>>>>> Yes, it is the caller's responsibility to set VM_FLUSH_RESET_PERMS flag.
+>>>>>>>>>> Upon vfree(), it will change the direct map permissions back to RW.
+>>>>>>>>> Ok, but vfree() ends up using update_range_prot() to do that and if we
+>>>>>>>>> need to worry about that failing (as per your commit message), then
+>>>>>>>>> we're in trouble because the calls to set_area_direct_map() are unchecked.
+>>>>>>>>>
+>>>>>>>>> In other words, this patch is either not necessary or it is incomplete.
+>>>>>>>>
+>>>>>>>> Here is the relevant email, in the discussion between Ryan and Yang:
+>>>>>>>>
+>>>>>>>> https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-
+>>>>>>>> c3f9caf64119@os.amperecomputing.com/
+>>>>>>>>
+>>>>>>>> We had concluded that all callers of set_memory_ro() or set_memory_rox()
+>>>>>>>> (which require the
+>>>>>>>> linear map perm change back to default, upon vfree() ) will call it for
+>>>>>>>> the entire region (vm_struct).
+>>>>>>>> So, when we do the set_direct_map_invalid_noflush, it is guaranteed that
+>>>>>>>> the region has already
+>>>>>>>> been split. So this call cannot fail.
+>>>>>>>>
+>>>>>>>> https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-
+>>>>>>>> b60bcf67658c@os.amperecomputing.com/
+>>>>>>>>
+>>>>>>>> This email notes that there is some code doing set_memory_rw() and
+>>>>>>>> unnecessarily setting the VM_FLUSH_RESET_PERMS
+>>>>>>>> flag, but in that case we don't care about the
+>>>>>>>> set_direct_map_invalid_noflush call failing because the protections
+>>>>>>>> are already RW.
+>>>>>>>>
+>>>>>>>> Although we had also observed that all of this is fragile and depends on
+>>>>>>>> the caller doing the
+>>>>>>>> correct thing. The real solution should be somehow getting rid of the
+>>>>>>>> BBM style invalidation.
+>>>>>>>> Ryan had proposed some methods in that email thread.
+>>>>>>>>
+>>>>>>>> One solution which I had thought of, is that, observe that we are doing
+>>>>>>>> an overkill by
+>>>>>>>> setting the linear map to invalid and then default, for the *entire*
+>>>>>>>> region. What we
+>>>>>>>> can do is iterate over the linear map alias of the vm_struct *area and
+>>>>>>>> only change permission
+>>>>>>>> back to RW for the pages which are *not* RW. And, those relevant
+>>>>>>>> mappings are guaranteed to
+>>>>>>>> be split because they were changed from RW to not RW.
+>>>>>>>
+>>>>>>> @Yang and Ryan,
+>>>>>>>
+>>>>>>> I saw Yang's patch here:
+>>>>>>> https://lore.kernel.org/all/20251023204428.477531-1-
+>>>>>>> yang@os.amperecomputing.com/
+>>>>>>> and realized that currently we are splitting away the linear map alias of
+>>>>>>> the *entire* region.
+>>>>>>>
+>>>>>>> Shouldn't this then imply that set_direct_map_invalid_noflush will never
+>>>>>>> fail, since even
+>>>>>>>
+>>>>>>> a set_memory_rox() call on a single page will split the linear map for
+>>>>>>> the entire region,
+>>>>>>>
+>>>>>>> and thus there is no fragility here which we were discussing about? I may
+>>>>>>> be forgetting
+>>>>>>>
+>>>>>>> something, this linear map stuff is confusing enough already.
+>>>>>>
+>>>>>> It still may fail due to page table allocation failure when doing split.
+>>>>>> But it is still fine. We may run into 3 cases:
+>>>>>>
+>>>>>> 1. set_memory_rox succeed to split the whole range, then
+>>>>>> set_direct_map_invalid_noflush() will succeed too
+>>>>>> 2. set_memory_rox fails to split, for example, just change partial range
+>>>>>> permission due to page table allocation failure, then
+>>>>>> set_direct_map_invalid_noflush() may
+>>>>>>    a. successfully change the permission back to default till where
+>>>>>> set_memory_rox fails at since that range has been successfully split. It
+>>>>>> is ok since the remaining range is actually not changed to ro by
+>>>>>> set_memory_rox at all
+>>>>>>    b. successfully change the permission back to default for the whole
+>>>>>> range (for example, memory pressure is mitigated when
+>>>>>> set_direct_map_invalid_noflush() is called). It is definitely fine as well
+>>>>>
+>>>>> Correct, what I mean to imply here is that, your patch will break this? If
+>>>>> set_memory_* is applied on x till y, your patch changes the linear map alias
+>>>>>
+>>>>> only from x till y - set_direct_map_invalid_noflush instead operates on 0
+>>>>> till size - 1, where 0 <=x <=y <= size - 1. So, it may encounter a -ENOMEM
+>>>>>
+>>>>> on [0, x) range while invalidating, and that is *not* okay because we must
+>>>>> reset back [0, x) to default?
+>>>>
+>>>> I see your point now. But I think the callers need to guarantee they call
+>>>> set_memory_rox and set_direct_map_invalid_noflush on the same range, right?
+>>>> Currently kernel just calls them on the whole area.
+>>>
+>>> Nope. The fact that the kernel changes protections, and undoes the changed
+>>> protections, on the *entire* alias of the vm_struct region, protects us from
+>>> the fragility we were talking about earlier.
+>>
+>> This is what I meant "kernel just calls them on the whole area".
+>>
+>>>
+>>> Suppose you have a range from 0 till size - 1, and you call set_memory_* on a
+>>> random point (page) p. The argument we discussed above is independent of p,
+>>> which lets us drop our
+>>>
+>>> previous erroneous conclusion that all of this works because no caller does a
+>>> partial set_memory_*.
+>>
+>> Sorry I don't follow you. What "erroneous conclusion" do you mean? You can
+>> call set_memory_* on a random point, but set_direct_map_invalid_noflush()
+>> should be called on the random point too. The current code of
+>> set_area_direct_map() doesn't consider this case because there is no such
+>> call. Is this what you meant?
+> 
+> 
+> I was referring to the discussion in the linear map work - I think we had
+> concluded that we don't need to worry about the BBM style invalidation failing,
+> *because* no one does a partial set_memory_*.
+> 
+> What I am saying - we don't care whether caller does a partial or a full
+> set_memory_*, we are still safe, because the linear map alias change on both
+> sides (set_memory_* -> __change_memory_common, and vm_reset_perms ->
+> set_area_direct_map() )
+> 
+> operate on the entire region.
 
-> I have two suggestions:
-> 1. Disable ASPM using the Linux commandline option:
-> pcie_aspm=off
-> If the bootloader that you are using is U-Boot, you could run:
-> setenv optargs pcie_aspm=off
-> at U-Boot prompt before booting Linux.
-> 2. I had seen an ASPM issue long back in 2022 and had narrowed it down to
-> the Data Link Layer being inactive when the PCIe Core in Linux accesses the
-> Configuration Space of the PCIe Endpoint:
-> https://lore.kernel.org/r/faa13ac2-27b6-94f3-ecde-60256bbbda1b@ti.com/
-> The fix for it is the patch to which I have replied above. Direct link to
-> the patch is:
-> https://lore.kernel.org/r/20220602065544.2552771-1-nathan@nathanrossi.com/
-> and it modifies the ASPM driver to wait for sufficient time if the PCIe
-> Controller doesn't have the
-> ability to report the Data Link Layer state (this is the case for the PCIe
-> Controller on the AM69 and other K3 SoCs from TI).
->
+I'm thoughoughly confused again. I thought we had concluded this was all safe
+when discussing in the context of the "block mapping the linear map" series. But
+now I'm a bit unclear on whether we have a bug. I think I'm hearing that we
+don't need this patch and Dev will submit an alternative which just adds some
+comments to explain why this is safe?
 
-Thanks for the suggestions.
+Thanks,
+Ryan
 
-I tested both of them and still have the same issue.
 
-One thing I noticed is that if I keep resetting the board, sometimes the
-issue doesn't happen, and I can access the SSD (this is independent of
-having any of the fixes you suggested).
+> 
+> 
+>>
+>>>
+>>>
+>>> I would like to send a patch clearly documenting this behaviour, assuming no
+>>> one else finds a hole in this reasoning.
+>>
+>> Proper comment to explain the subtle behavior is definitely welcome.
+>>
+>> Thanks,
+>> Yang
+>>
+>>>
+>>>
+>>>>
+>>>> Thanks,
+>>>> Yang
+>>>>
+>>>>>
+>>>>>
+>>>>>>
+>>>>>> Hopefully I don't miss anything.
+>>>>>>
+>>>>>> Thanks,
+>>>>>> Yang
+>>>>>>
+>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Will
+>>>>>>>>
+>>>>>>
+>>>>
+>>
 
-Best Regards,
-João Paulo Gonçalves
 
