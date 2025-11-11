@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D33FCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 03:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E528BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 03:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5ABXh2/uhWraYUqJ9BUk7p0Ge5LHjETStkwwcjp/eo=; b=qETd++YoMHvTIlnp0URhM/v4xL
-	jztiYCPcMcRfBHvV3HKcqD2ItALaBLAuMI2Eqye4SMZRTcI1fsvNkENUbo1P/n6WG2EVasf49n43Y
-	/44jOirjlGB3YrGfjtHjlxfm7yFp3Jy69ByYRvfqFHDV31nU8+m3U++O4RbWuKNcCIJ1qmMuCzRTZ
-	nQBpY64Q78gQWuk5bYuw7En3uhroJI+xjhfnlz8CRERvZGYPRexTKvTqP+PIpJXamzMFdBJ7faD+l
-	+nXKOD2GIpueNAuFQVBCyM+5t5zOgWqeugrEH8ttVVzJGES1CfbyLBHLBUVjqAUKjrcw1Hsbq79C5
-	m63eGoJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpcXH5yszQ3e8gyXiQRNSwQwQ9wARDcWwzXFsNwDh2g=; b=xu0ojaUsRTzVBwEzk4toaWFLmd
+	D4WP6Q2Seh1CxW4yCl82ijNSl9eXLA4bwViKKpyLo7UBvCMMbUu9y0R1B3NeKl/rahVOQAtB4uoGM
+	623nmcFgdy+WDwWN8DYznmqJlqInytIQPOis7U1g4tc4ZTj0VGjh3rwFVbqqemH1P+PkxOL7mCmHV
+	NKelIYCUFbsZ8TuMzzPev4jC/OIgCX4V8ZazbaLMB7yDIDKxNiSISlurAeJyESqcC8vjFUUqOrkQI
+	P543eR8/OdxIJGQ2tFSBimUbqxir9V5t0IzRkpPGn9Dkl3gzvZDX016S3NfvPG70uIoW5s2VbxKUp
+	Q40BEC8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIesy-00000006QpD-2Vp7;
-	Tue, 11 Nov 2025 03:17:36 +0000
-Received: from mail-m83148.xmail.ntesmail.com ([156.224.83.148])
+	id 1vIf99-00000006ReX-1K6i;
+	Tue, 11 Nov 2025 03:34:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIesv-00000006QoP-2AxR;
-	Tue, 11 Nov 2025 03:17:35 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2920392a1;
-	Tue, 11 Nov 2025 11:17:24 +0800 (GMT+08:00)
-Message-ID: <05bd0efe-9a84-40e9-af07-51c0b0d865bf@rock-chips.com>
-Date: Tue, 11 Nov 2025 11:17:23 +0800
+	id 1vIf96-00000006Re4-36S1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Nov 2025 03:34:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=MpcXH5yszQ3e8gyXiQRNSwQwQ9wARDcWwzXFsNwDh2g=; b=hufOi6ywhigtXj8q+a8/OU55N+
+	GAMZ/G4U9nAoXpnIdsvTk+js4o8xAW+gu1elpq9T+SxBd+iBua/O1WSi+tNwcvRcOKlaBRTnMLAk0
+	5Oi30dLoKHhdhqkRRCUvT7bKJr6QiYNIstYa3eMCsImtfTlAl+uls6psrCPoAFyb5tZU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vIf8x-00DaO3-99; Tue, 11 Nov 2025 04:34:07 +0100
+Date: Tue, 11 Nov 2025 04:34:07 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v15 01/15] dt-bindings: net: Introduce the
+ ethernet-connector description
+Message-ID: <56410c74-3d0e-4cdc-87a0-230cad8f691a@lunn.ch>
+References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
+ <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
- Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>
-Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-To: FUKAUMI Naoki <naoki@radxa.com>
-References: <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
- <aRCI5kG16_1erMME@ryzen>
- <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
- <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
- <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
- <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
- <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
- <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
- <aRHb4S40a7ZUDop1@ryzen>
- <2n3wamm3txxc6xbmvf3nnrvaqpgsck3w4a6omxnhex3mqeujib@2tb4svn5d3z6>
- <aRJEDEEJr9Ic-RKN@fedora>
- <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a70eb0e3b09cckunm01a7eea81458b7c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk5OTVZNQ05KSU5CSUMZQk9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=FKlailV5rqm923DDW0DU9rfU+TO/zidhTTeZUIGI9pQ9ppnHtt7efud90vTJpVC6/FOYjoiplSbH0R5EtAFYbldT2IzwOtsLUmRBFmpcAHH3p3yhIV3A3EpZ73wWPJHaJ3clVb2y/VshDuvK/8/n7XtUj8IMcVAW8xV6rbpOawI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=K5ABXh2/uhWraYUqJ9BUk7p0Ge5LHjETStkwwcjp/eo=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_191734_174543_231C60F4 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20251110_193416_787056_C0CE3BA7 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +90,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/11 星期二 10:09, FUKAUMI Naoki 写道:
-> On 11/11/25 04:59, Niklas Cassel wrote:
+On Thu, Nov 06, 2025 at 10:47:26AM +0100, Maxime Chevallier wrote:
+> The ability to describe the physical ports of Ethernet devices is useful
+> to describe multi-port devices, as well as to remove any ambiguity with
+> regard to the nature of the port.
+> 
+> Moreover, describing ports allows for a better description of features
+> that are tied to connectors, such as PoE through the PSE-PD devices.
+> 
+> Introduce a binding to allow describing the ports, for now with 2
+> attributes :
+> 
+>  - The number of lanes, which is a quite generic property that allows
+>    differentating between multiple similar technologies such as BaseT1
+>    and "regular" BaseT (which usually means BaseT4).
 
-...
+You still use lanes here, but the implementation has moved on to
+pairs.
 
-> 
-> Leaving the commit message aside, I'm currently testing with a revert of 
-> the two patches.
-> 
-> Vanilla v6.18-rc5, CONFIG_PCI_DYNAMIC_OF_NODES=y, revert ec9fd499b9c6, 
-> revert 0e0b45ab5d77.
-> 
-> It works stably on the ROCK 5A. The link speed is 2Gb/s.
-> 
-> The ROCK 5C is unstable. It initially worked with a link speed of 4Gb/s, 
-> but eventually started showing kernel oops. The dts files for the 5A and 
-> 5C are compatible and interchangeable, but even using the 5A's dts on 
-> the 5C, the operation remains unstable.
+Please add my Reviewed-by when you fix this.
 
-The link speed on ROCK 5A is 2Gb/s also means it's downgraded now. Did
-ROCK 5A work under the link speed of 4Gb/s before?
-
-In case it's signal integrity relevant, you could enable PCIE_DW_DEBUGFS
-and refer to Documentation/ABI/testing/debugfs-dwc-pcie to collect
-RASDES info from there.
-
-> 
-> I plan to thoroughly investigate the ROCK 5C's behavior on v6.13, but 
-> for now, I believe reverting the two patches is the correct action.
-> 
-> Best regards,
-> 
-> -- 
-> FUKAUMI Naoki
-> Radxa Computer (Shenzhen) Co., Ltd.
-> 
->> Kind regards,
->> Niklas
->>
-> 
-> 
-> 
-
+	Andrew
 
