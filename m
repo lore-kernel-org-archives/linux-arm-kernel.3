@@ -4,75 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62597CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B8CCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+WmW7yNqD2aweWk296ozfzQ200USyv416afCxbmVnk=; b=FZHRZJ0UAVfiXOGT/PzlrOrfvY
-	CgmYis261g7Ygp1w+Hj8mGuhMUfr2aopoUbBBnw/wT5IBMGv/Lm/VwW4bDxF0wWum9z6iXMt+xAaJ
-	CAAkflYpXFgmRzIpmMeLgwB98huW7lDvme47yRTYIv34YJ6x/Be5FKxTqw+TxcJYl3dOGk7AOb/C6
-	SoJJmncI7elWhyqGxICPWWSGVpI8QWNsW94KIN4rzes/rlKKS2bhBGInCaL31Q9okkNPyyvTxvqca
-	UGxDmdNsEKjCxDAOV10qEgcxAaQHqIY1fL16XxMF2kPjS0IfE42pIiFG5YKKVGaEge3epKLR1VU7k
-	XWvvcnKg==;
+	bh=RSG2+MQ3hzv0WgGFUzqXC7TuxexPFVC31DQb//LpITc=; b=E6mUxW1TTPRjNG0Nrif6eebG/X
+	IMR8fRWO5XTZRHF0+EYA7wXykFDz6HR0rTW/wYTKbd4KTCOjg7XqPSZgZU7d9eTQkyxnximfRh11S
+	Qat4fO69QPk2gztuhU5fVVlccFCY7evWmiE9pRolo0P8+Y4yogCOwuvow9fpU8qN/3rVjHhOhf5n1
+	/qOy1rVzjDxZwRWY2xA2XzeRVh/+ASiYX9bt5Twzh449iUwC29XoRmNHEc2YBwxhb9SKXZ6zWCCxQ
+	E2B3n8pHFl9G2Xq4eWEwWmP4vhpv7cyj9q30Fyyo+ocQt6mTfSfwL9DzmnxXumvYsvv7xBBenotqN
+	wq5cuSUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlIX-00000006uE0-3Sde;
-	Tue, 11 Nov 2025 10:08:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlIV-00000006uDQ-1gmJ
+	id 1vIlJh-00000006uNf-0qlV;
+	Tue, 11 Nov 2025 10:09:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIlJe-00000006uN1-3G1t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:08:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACCFF2F;
-	Tue, 11 Nov 2025 02:08:11 -0800 (PST)
-Received: from [10.57.88.30] (unknown [10.57.88.30])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9E443F63F;
-	Tue, 11 Nov 2025 02:08:13 -0800 (PST)
-Message-ID: <e2497863-8cbf-42b2-8f83-2c7b46fd1f47@arm.com>
-Date: Tue, 11 Nov 2025 10:08:12 +0000
+	Tue, 11 Nov 2025 10:09:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E505440DF;
+	Tue, 11 Nov 2025 10:09:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD5ACC16AAE;
+	Tue, 11 Nov 2025 10:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762855774;
+	bh=CFXh4Xm8/rRJnmZTeq6l2iyIhLTVvDEHDL2vkwX6aOM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hsHXTiPIuxl3XEZab9DppifhvX9IhmmCHPnamXurp6kxrMphi3tcLQJ1NUtS58OZz
+	 f+JSJF7smo3VtgE543Pie9v4YYGPWuG2NvhT3H0W08uhmvl3lr1h/xt8eVorJNbm5y
+	 b0mnKp98+vXxKIzOXTXVZ4d3QgLONfPzeCEPIHrgAsC9XUNKklJCFx7zOeDoWHAS8x
+	 qjBoJ6CzeX5FQ5T5ksXV4Yf3p2ZWxINy6SqNqYVVRTmJuy8iPYJ1iKfbp9cHW94o67
+	 9iGz386btTCWoWF5/8aO9CipEAy3auir12Jf/UOhCwfDq/n6jec9gqmyZqyWdAIvCZ
+	 b11Cy1I6MqbUA==
+Message-ID: <f7eb9c16-b93f-401d-aa69-d45baa5c9432@kernel.org>
+Date: Tue, 11 Nov 2025 11:09:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/12] x86/xen: simplify flush_lazy_mmu()
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-3-kevin.brodsky@arm.com>
- <b165098a-8164-4664-aaaf-1e8c4391d797@arm.com>
- <b21fb5b9-2e7f-4cbc-ae62-015b1317a9bd@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <b21fb5b9-2e7f-4cbc-ae62-015b1317a9bd@arm.com>
+Subject: Re: [PATCH 3/3] ARM: dts: imx: move nand related property under
+ nand@0
+To: Frank Li <Frank.li@nxp.com>, Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251104-gpmi_dts-v1-0-886865393d0f@nxp.com>
+ <20251104-gpmi_dts-v1-3-886865393d0f@nxp.com>
+ <20251105115538.GA17091@francesco-nb>
+ <aQttQb5GesjUtBw6@lizhi-Precision-Tower-5810>
+ <20251107155201.GA119737@francesco-nb>
+ <aRIPAagk2tzqnoSB@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aRIPAagk2tzqnoSB@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_020823_486518_F60E4319 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20251111_020934_859035_0612A1C0 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +127,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/2025 10:36, Kevin Brodsky wrote:
-> On 07/11/2025 12:31, Ryan Roberts wrote:
->> On 29/10/2025 10:08, Kevin Brodsky wrote:
->>> arch_flush_lazy_mmu_mode() is called when outstanding batched
->>> pgtable operations must be completed immediately. There should
->>> however be no need to leave and re-enter lazy MMU completely. The
->>> only part of that sequence that we really need is xen_mc_flush();
->>> call it directly.
+On 10/11/2025 17:12, Frank Li wrote:
+> On Fri, Nov 07, 2025 at 04:52:01PM +0100, Francesco Dolcini wrote:
+>> Hello Frank,
+>>
+>> On Wed, Nov 05, 2025 at 10:29:05AM -0500, Frank Li wrote:
+>>> On Wed, Nov 05, 2025 at 12:55:38PM +0100, Francesco Dolcini wrote:
+>>>> On Tue, Nov 04, 2025 at 05:27:14PM -0500, Frank Li wrote:
+>>>>> Add child node nand@0 and move NAND related property under it to align
+>>>>> modern nand-controller.yaml.
+>>>>>
+>>>>> Fix below CHECK_DTBS warnings:
+>>>>>   arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtb: nand-controller@1806000 (fsl,imx6q-gpmi-nand): Unevaluated properties are not allowed ('nand-ecc-mode', 'nand-ecc-step-size', 'nand-ecc-strength', 'nand-on-flash-bbt' were unexpected)
+>>>>>         from schema $id: http://devicetree.org/schemas/mtd/gpmi-nand.yaml#
+>>>>>
+>>>>> Since 2019 year, commit
+>>>>> (212e496935929 dt-bindings: mtd: Add YAML schemas for the generic NAND options)
+>>>>> NAND related property is preferred located under nand@<n> even though only
+>>>>> one NAND chip supported.
+>>>>>
+>>>>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>>>>> ---
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6-logicpd-som.dtsi           |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6qdl-icore.dtsi              |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-pfla02.dtsi      |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi           |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi                |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ul-geam.dts                 |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ul-isiot.dtsi               |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ul-phytec-phycore-som.dtsi  |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi               |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi            | 12 ++++++++----
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi   | 12 ++++++++----
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ull-myir-mys-6ulx.dtsi      |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts          |  6 +++++-
+>>>>>  arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi               |  8 ++++++--
+>>>>>  15 files changed, 82 insertions(+), 22 deletions(-)
+>>>>>
+>>>>
+>>>> Was any of these changes tested? Is the driver able to cope with the
+>>>> binding change?
 >>>
->>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> This looks functionally equivalent to me, so:
+>>> I have not board to do direct test. This format is used at imx8 platform,
+>>> which use the same gpmi driver.
+>>>
+>>> This properties are parsed at mtd common part
+>>> drivers/mtd/nand/raw/nand_base.c
+>>>
+>>> If you have one of above board to test it, it will be appericated.
 >>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> I did a minimal boot test, on colibri-imx6ull, and the board was booting
+>> fine, with Linux 6.18.0-rc4 and this patch applied.
 >>
->> But I don't think this tidy up is strictly necessary for your series to work?
->> (perhaps I'll change my mind on that as I go through it).
+>> I am wondering if there is any impact with the bootloader, this DT is
+>> used as it is also in U-Boot, and there the NAND driver is for sure
+>> different. Any comment on this? I was not able to test this combination.
 > 
-> I initially thought it might be, but in the end I think you're right -
-> it should still work fine without this patch.
-> 
-> Still, I'd rather avoid unnecessary calls to arch_enter() and
-> arch_leave() as it makes it harder to reason about what is called where.
-> Namely, keeping them here means that a nested call to
-> lazy_mmu_mode_disable() would cause arch_leave() then arch_enter() to be
-> called - rather unexpected.
-> 
-> The only calls to arch_enter() and arch_leave() that are left after this
-> series are the ones in <linux/pgtable.h> and the Xen context-switching
-> logic (the one case where calling arch hooks directly is justified, see
-> discussion on v3 [1]).
+> Uboot should have theirself tree, which copy dts and not direct use it.
 
-OK yeah, sounds reasonable.
+Sorry, but what? No they shall not.
 
-> 
-> - Kevin
-> 
-> [1]
-> https://lore.kernel.org/all/390e41ae-4b66-40c1-935f-7a1794ba0b71@arm.com/
+There is only one DTS. For all upstream users following kernel style,
+which includes BSD and U-boot and probably many more.
 
+
+Best regards,
+Krzysztof
 
