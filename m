@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40901CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8FACCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8B6SrbtxXe8etjyyZ3mSqXzIGycPwFHczVWgyHU3OJ0=; b=jKU4U7E6IUXmiuaH2vqR6qRdEM
-	KkE0sy8m6Ky6fJ1QhV7mLgy2CguM6HysINm7czWra4OffGDSqcgln1xaFB2vVTziwbixlhhxGGaZk
-	LwA/nV2RLYX7EaIxfi4OPOWZwaoSQK2k44oZ0Uz1UCXzVuHFVS9i5iDHvGpKmMeHL70V5EapWO81H
-	3IflK3f12qWej2oYZddAe0XlPObIN3vA6AF5fzkkYZ+8U1YV2wJOtAgfIusrCCls1iSvW35I00szO
-	afJp8j8yJ+vTY95cQ5ep1/IikwiHzwKdLb3CasKbpoIQ/nSZ32C3Q3xgyrFzXZYvHLDfc3okxY7oX
-	emMfJOSA==;
+	bh=aJRX3BEKekw18RS1cbyaVAktVW1RFoXN5NDG/YonWwE=; b=Qeeztbc5dajf6n8oH5ONirByM8
+	k8Ch3ldip1JQKEx4uUVqlb8uf1g3VxCDYAxfT76CDl9oit4s6v8X6Zp4VxOp/XMcp0G7CC73tWVBC
+	nXboCegCNuSHMLsb1765ZftAUwtD4l/E3WB9MvYIe4uyuiOjnBQJu3amSLTDq8BIZD0E5z5tv7JrO
+	nzOIvP2mAwhcI0Q5E2Wlp8PDLcVM2anA0AkHlSTIpXO1iGxliWghkX0po3QNvHFFKg+sHwHT/UOFF
+	1MVYtfGg4gFDMc6GZEMCHfQBbegoAUw73+Kougp8XoGTpGNcmV14OFaR06GaffvZRkl53NjcpIbC8
+	7BJUcKTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIj8c-00000006ieQ-0cvt;
-	Tue, 11 Nov 2025 07:50:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vIj9B-00000006ihy-212P;
+	Tue, 11 Nov 2025 07:50:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIj8Z-00000006idm-1AVo
+	id 1vIj99-00000006ihk-1pLr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 07:50:00 +0000
+	Tue, 11 Nov 2025 07:50:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDCBD43B0D;
-	Tue, 11 Nov 2025 07:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7B81C19423;
-	Tue, 11 Nov 2025 07:49:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9246361915;
+	Tue, 11 Nov 2025 07:50:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9736C4CEFB;
+	Tue, 11 Nov 2025 07:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762847398;
-	bh=LtD7jh1jiHyiFX3iVP+B4S4da4HrLV4LEooD4oBo27c=;
+	s=k20201202; t=1762847434;
+	bh=oUpC387GOG+scMgq73fcTcbxVzxmSK2/5OLQR2Y2jNM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JoFTKMV5c9VBms5D1QoGJ/1cmQlq6ndI44MgJvLg+2cKTvNT7VCTKai7D8BJaSmsL
-	 1lXEZ/4I8pKMhvjzVyTP07+o9t+mBRZzL7jx/AfC5SqyiBA3CYQw1j4mwskoWdsesY
-	 FAX1tlQ6elMo6Z2UKve1n3Sb9XIhxk4Vnhok3b1nXsSbEa77ohIzvPU4cbbLgQcx59
-	 lmRb1KLQhdPI9nVBwQGBqkglY+ZtLQkcvzl/PyC+3aqowHCzu+pUffziPJsf/4fmSY
-	 Hq0aErDgQz7DV6zwmH3X/2iNtV8uUVM0K5DHDOwwZiAbMEA5uOGHP57205mbfEVYFZ
-	 iiW/zl9nKuv8A==
-Date: Tue, 11 Nov 2025 08:49:55 +0100
+	b=IMob0ZfD44J4BlJiPK4v9d+USC8LaYmuTo2h/N6KUYluazUj4oBym09P3HqQ2GtCb
+	 5V2eQ1GAWULEai3y83riVrBFGwdcKzmP2I/aGFo6PyMXWW3YAW/VgOnbaU0I3Ws6RN
+	 RF+7xiRK51aGPwh8jBdMYG4O1etN4Mx1kxNbJTBvZEz/+hPfCUKu334GduKC50ytmT
+	 2fWvzPwg8OuWussEFBkC0sxM/YqxmVWkvjHB/Bv1uqgFjRYdIAkPp1l3Cg60Ay2RXU
+	 5p5AySOeJKt+Aogwv0H8+1aE/pZ83D58JP5ITHvLzbAKzOsZlmbfWJ/BOIGbz/RyzG
+	 0ePqZF4epfbrg==
+Date: Tue, 11 Nov 2025 08:50:31 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 Cc: Rob Clark <robin.clark@oss.qualcomm.com>, 
@@ -59,18 +59,14 @@ Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
 	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
 	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 20/21] dt-bindings: display/msm/gmu: Add Adreno X2-85
- GMU
-Message-ID: <20251111-magnetic-jasper-slug-3abc3e@kuoka>
+Subject: Re: [PATCH v2 21/21] dt-bindings: arm-smmu: Add Glymur GPU SMMU
+Message-ID: <20251111-mighty-aromatic-urchin-f80cd9@kuoka>
 References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
- <20251110-kaana-gpu-support-v2-20-bef18acd5e94@oss.qualcomm.com>
+ <20251110-kaana-gpu-support-v2-21-bef18acd5e94@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251110-kaana-gpu-support-v2-20-bef18acd5e94@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_234959_341175_F111A0D6 
-X-CRM114-Status: GOOD (  12.65  )
+In-Reply-To: <20251110-kaana-gpu-support-v2-21-bef18acd5e94@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +81,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 10:07:26PM +0530, Akhil P Oommen wrote:
-> Document Adreno X2-85 GMU found in Glymur chipsets in the
-> dt-binding specification. It is very similar to Adreno 840
-> GMU with the additional requirement of RSCC HUB clock.
+On Mon, Nov 10, 2025 at 10:07:27PM +0530, Akhil P Oommen wrote:
+> Update the devicetree bindings to support the gpu smmu present in
+> the Glymur chipset.
 > 
 > Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
 
-<form letter>
-This is a friendly reminder during the review process.
-
-It looks like you received a tag and forgot to add it.
-
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here. However, there's no
-need to repost patches *only* to add the tags. The upstream maintainer
-will do that for tags received on the version they apply.
-
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state why and what changed.
-</form letter>
+So you ignored entire review? I drop the patcshet from DT patchwork.
 
 Best regards,
 Krzysztof
