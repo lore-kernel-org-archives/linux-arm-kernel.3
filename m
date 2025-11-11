@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5198CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 12:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B453CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 12:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2nMRTEYBnX0JEevXqRH9dgEagWBl68PRNtodA0SJ4g=; b=UuJZuVG+7gx95MjM0IfTWXHRET
-	klkh1nfrWCP7h3LLwOuccJxu8frv+x9jKYZ980KtbbDLM7UyUe1TM1NmTAd3O+fI10n91Vx0rcBy0
-	p6sWt88aYlgIuMmB18+O96JIUCtAyGldNkJIJ8oclE1/YqWS5LI2GQTS9P/fL035ppRI9nLaSTXnK
-	NUPz9irIDpv9ij55ZFsb3XMThgqLP1kFRtVDLmlaKF4ksQ4JQddD3XXdNnZ9Fx3Vq339PnnKh1yvO
-	GzLnBpfSe1LSq8OnWOtG7cg4cpROq7hsAFKFMlWOOyQTr8lJU2pX8Ht6Sgwka0O5ZxcBLFrGq22J0
-	MN5vRiwA==;
+	bh=y9kL7sLOaubIomrxMG9EMGJEPQDeUh/zlxyCoHi0rRk=; b=bC26gbwwgY/lgcmvHAhaSIOhCO
+	ZfrCPJnF+nbIU/4ZqcC/2YntMqfe4Kyf5wSoNXElNP4jWW2hXV2AK80A3OLA2Mf74XZ2WJGPww/ka
+	GQw78tyaiJLUBMvnxLAPBl84gJ4Amv+17ER13nWpAuV5IVHNL5HuwL/JbINpIKaWybMk49PUiA6dZ
+	oe4VPS33OsKKjO/rdTVXq+a0Q4y4tgYRlUKUJcgFsJ7yLO8nOywtnWiipzhCdR5QMo6j6vnkZWlhx
+	pwNYbTQtRkAaFvDSPWILFipOvcn1iITqUPXsxs0r1O7cSRwKvdEP/9H5ycyJ0m50ee9/rZR9j3FYg
+	M0Y41Akg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIn3h-0000000783C-0RCU;
-	Tue, 11 Nov 2025 12:01:13 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1vIn3l-0000000784l-1cwE;
+	Tue, 11 Nov 2025 12:01:17 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIn3Z-0000000780R-2Oz7
+	id 1vIn3d-0000000781Y-1wkN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 12:01:09 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b72134a5125so599890966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 04:01:05 -0800 (PST)
+	Tue, 11 Nov 2025 12:01:16 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-641677916b5so4586459a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 04:01:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762862464; x=1763467264; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1762862468; x=1763467268; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=j2nMRTEYBnX0JEevXqRH9dgEagWBl68PRNtodA0SJ4g=;
-        b=Rj6vZzReTZZI+REPu5wZplJwAn5MZqO2siPfGt25jNyY2WOfOD2BCJ8L1yEWzHmcwM
-         o0/R7IPVDjIQ6nanYHXoCfxZ1OKeoqVjLzlBGPb17Ic8VNKOpY5aEmuGMBqJ/yqBgmJ8
-         5N7BMb4DjxYsfuErW9t+FHFDNL01OFIUOVzm6wT1OF2OZFfKDGnEF0hKgVGk2ouDswOR
-         LCQQrmu2Huv4AydKMUzJTh7WfmqLwJB17rDAlFCo7Vijt87vbJmxhwyo0IYKU3vniktz
-         W5o4umglHSwn+vNVOztiTtdyPnE6zjeOdASRH+jW/oeLR1539CKisQOxg1Ri2WFNqyya
-         QCXw==
+        bh=y9kL7sLOaubIomrxMG9EMGJEPQDeUh/zlxyCoHi0rRk=;
+        b=A1e3HGg8ODIa3dvS9jHSlTFpeVoYtEPJPOaoKGPdc1CEvZrlOU7vTvNMQyUDn4I2mY
+         eCKBVHgs2P4KF9TBNs7eH5K0JZ4sOFuAd4vQzp+EM9og12/vWhzH5MvYxmHxtgJtWste
+         Kfi1PhDK+HdKzVnMxSYNgE7s07FlbqZ/rvrFAZwittgZFjMvc9IzK8ypVbmJFCPI6Hzn
+         9vMlKtZX4gmg54SX7E9jWy421Aq6JPNKGKnPo+XLyfza5y4hmaM6FNKd/6eouSyp+6k8
+         7Z/athgN1B2u3pa8Zzgt6C83XVub6tLu9As1i9/Fz3CCZ6uTAaapzZfm7v7M+cZUGQDm
+         4xdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762862464; x=1763467264;
+        d=1e100.net; s=20230601; t=1762862468; x=1763467268;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=j2nMRTEYBnX0JEevXqRH9dgEagWBl68PRNtodA0SJ4g=;
-        b=NRmU/Uu31TziXM8+Odz4ZzltiYdndlL9FF+IOfg5qZspG8jvsmMzotjISLfphbky9r
-         lgxpgi1dxNPd7Uuk29siGW7yqwpOqSAe0LA2ly8kGwhhozZegtACph92dAX1VWGw+LbR
-         w3q7sck6aCICsTLdYcJ8MpC1ESHSRTfSjMaYJ49agKEIZdJyfEeZiRm8wJpWYaFMNZt3
-         dz4nU11XZImCXDWF21/LamKddLBF677AFqDRcbTLJ4hm3+DGoKv+lKVXKHWb3s4XFsSn
-         P0TEbqySZPTj4Xeh0r6RSYa/03PG1MygR1i5WtJfUYQ1RPaGLULRZ6VoJJWqlnFBGgGA
-         QVaw==
-X-Forwarded-Encrypted: i=1; AJvYcCXjCnKCnUjBvxKppLUwgoqMXh9fM2EBDjTVot4AyCkfOcYMUDtQ27uAq3wNV623DJFLapQmeXEpBYB31HKyrwqr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpGbKwpxHmA1hA7meHUzN4W3OZysAqL+2Cm+X6dBn+lx0V+LnX
-	cXBeWx5EibrYjC+4IZ7Jh08f9ewpPhqrWEjTUBhK59/ksBLRxsuFDkxj
-X-Gm-Gg: ASbGncvPddN523xQA6dFhpzmzUvRY4hPn9jidGtLIomoknmTU1wBSkQxqW34bqAJjq1
-	QVa4BmCOob+4vWqLliuwUKKn+s4qHCEG52vuBWeQavyqw1vwnq0zy8UdSTZiufwnTsmrBLNgL9i
-	jqSxkZTxnlQL/iRpdI6lwMZDciv6mqKkD0h14DkP8NPNhVMyL4vUPOm9YciUNg3ztCQNmraXJhm
-	sw9pM39aT/vEYSJN9bBoGRMDs/X73izxg7t0E93H9+/ik0Nw599y5TNs3W77Z3Mc4dR0YE2YF8w
-	fBlD2d6VnCQn42LlSSVwedp88RfINFm/OXqAu1NuxuC59LsYeHTzObIrgplJ5cSg/c7XfK4IVZ/
-	q//X1n31FatwoO2ZvUJGgHrRXEi0X5ayWNjlzOJCTN6P/C84cTtLCZIPeuueXZQjjovx4k7E/8T
-	4Ph2DoY4SZdFVACXr7oKbrCUkUHA==
-X-Google-Smtp-Source: AGHT+IEMFjppQxmpKPUPuwI5Eh8CB/xzwrQb4iSasl8juRp6TAOQ7ALPukt/vhacoC4tWko/18/7Eg==
-X-Received: by 2002:a17:906:ee8e:b0:b71:1164:6a7e with SMTP id a640c23a62f3a-b72e003924bmr1291166766b.0.1762862463417;
-        Tue, 11 Nov 2025 04:01:03 -0800 (PST)
+        bh=y9kL7sLOaubIomrxMG9EMGJEPQDeUh/zlxyCoHi0rRk=;
+        b=XROHw7QfE+hjmEgkxX0F9B8AzwaeX241NLqXAKVyMooi5troX4Gzv/9utlQbugcu1O
+         F+LZ2ldoKCGOq7Bl2tgYV5aYXao/Na7/2p5taS25E0L71c31lM4Sqiwd54YzcMpx9/pb
+         97FSwjU0ZmcCNhyK4KCZ1HatoWdyzddmEPff1XdkncXhM90S+yB40GP/jfEggFb1OndI
+         8G7zAQjL+lPfGRfaqUmVkrfHaAcLq/cUtXTUNXBXQ3LyVQLh83aUPdw0YjvsFrZSC0nb
+         BdaFRDNAzc2IDxh0/k0DGY7DS2V1YfN0FTY1W7RbXousxFTtq4zni9lmjiLuu+AUhctj
+         D9rw==
+X-Forwarded-Encrypted: i=1; AJvYcCUp6bgSWKSI4Q13WKSl+KXnkO+rgm8il99RWggnQUKoeJr0KOiB3a/a9xVNQw29aThA84hs44wxVaZQrj0t7XiK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWxQU7nXFg+19BZTlJla0WTCFu/MqyZQSR9AaZBIrqkn177XQe
+	4yb8S43MSLPq9Knx/URjQaZ+RJCDSYix8I3EU7DXfns2r3Anstqyfy+q
+X-Gm-Gg: ASbGncshuIs7+y5Nt1I5IGRT2aaibd8z7ba6nkakfRkW7z66uE6ceMpEAp6/wKexms7
+	KRrzR7+C/mhNBO+0cNRmqXIwptt9XsI1TzJnOD2pt6fZc4TVWkBoFZrypYWMVxCv7WEUkoPO/zx
+	2x50BaERYvBL2hyc5nxl7HR8OE6IuY83xkKGEQZnztiDFxox3/zpqRJhV+mACeJFHUfY0V8oAEV
+	XS/UR0/p5hhLyM10maybXrH/pSRgn2VtsABEFH0bAhsZG1kCzbnJS0E7Cy70pWlozG+YjYRbHUN
+	kgtpWnNRGZWHPy0m3HiUPOCGKJhNT+VlDG7pUaYlheQXyQdY9JRmH7GPTlO/iebXEoAQdEXvSZH
+	tyQFPdLAN1VzOod8ZoOu/hMuqgn1YeftLWdki7CiFAKhtdTJfNuUhIT6cfvP1Lb7Sdduteq3iGw
+	veQUrvaIk6HAhB8wFG+Y50CL/KJnDNdd9lHGzn
+X-Google-Smtp-Source: AGHT+IGQs7jakKZkFO/dMmI5qT5oEtzxJPB2RdXOKmXDqglsY8VX/AxfcjPsqoxWzM27nSsqJCFqIA==
+X-Received: by 2002:a17:907:7f21:b0:b72:5a54:1713 with SMTP id a640c23a62f3a-b72e04efb37mr1121724566b.58.1762862467536;
+        Tue, 11 Nov 2025 04:01:07 -0800 (PST)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bf407a01sm1340707466b.22.2025.11.11.04.01.02
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bf407a01sm1340707466b.22.2025.11.11.04.01.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Nov 2025 04:01:03 -0800 (PST)
+        Tue, 11 Nov 2025 04:01:07 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,17 +82,17 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/3] arm64: defconfig: enable i.MX AIPSTZ driver
-Date: Tue, 11 Nov 2025 04:00:20 -0800
-Message-ID: <20251111120022.696-2-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v3 3/3] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
+Date: Tue, 11 Nov 2025 04:00:22 -0800
+Message-ID: <20251111120022.696-4-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251111120022.696-1-laurentiumihalcea111@gmail.com>
 References: <20251111120022.696-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_040105_615915_FD56ACD5 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20251111_040109_521030_F7024ABB 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,26 +109,83 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Enable the i.MX AIPSTZ driver, which is used for i.MX8MP-based boards such
-as NXP's IMX8MP-EVK.
+The DSP needs to access peripherals on AIPSTZ5 (to communicate with
+the AP using AUDIOMIX MU, for instance). To do so, the security-related
+registers of the bridge have to be configured before the DSP is started.
+Enforce a dependency on AIPSTZ5 by adding the 'access-controllers'
+property to the 'dsp' node.
 
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/imx8mp-aipstz.h | 33 +++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  6 ++++
+ 2 files changed, 39 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 8d6a1bb1e03e..2db7d000aca7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -271,6 +271,7 @@ CONFIG_GOOGLE_FIRMWARE=y
- CONFIG_GOOGLE_CBMEM=m
- CONFIG_GOOGLE_COREBOOT_TABLE=m
- CONFIG_EFI_CAPSULE_LOADER=y
-+CONFIG_IMX_AIPSTZ=m
- CONFIG_IMX_SCU=y
- CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
- CONFIG_QCOM_QSEECOM=y
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h b/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+new file mode 100644
+index 000000000000..6481c484ca37
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+@@ -0,0 +1,33 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright 2025 NXP
++ */
++
++#ifndef __IMX8MP_AIPSTZ_H
++#define __IMX8MP_AIPSTZ_H
++
++/* consumer type - master or peripheral */
++#define IMX8MP_AIPSTZ_MASTER		0x0
++#define IMX8MP_AIPSTZ_PERIPH		0x1
++
++/* master configuration options */
++#define IMX8MP_AIPSTZ_MPL		(1 << 0)
++#define IMX8MP_AIPSTZ_MTW		(1 << 1)
++#define IMX8MP_AIPSTZ_MTR		(1 << 2)
++#define IMX8MP_AIPSTZ_MBW		(1 << 3)
++
++/* peripheral configuration options */
++#define IMX8MP_AIPSTZ_TP		(1 << 0)
++#define IMX8MP_AIPSTZ_WP		(1 << 1)
++#define IMX8MP_AIPSTZ_SP		(1 << 2)
++#define IMX8MP_AIPSTZ_BW		(1 << 3)
++
++/* master ID definitions */
++#define IMX8MP_AIPSTZ_EDMA		0 /* AUDIOMIX EDMA */
++#define IMX8MP_AIPSTZ_CA53		1 /* Cortex-A53 cluster */
++#define IMX8MP_AIPSTZ_SDMA2		3 /* AUDIOMIX SDMA2 */
++#define IMX8MP_AIPSTZ_SDMA3		3 /* AUDIOMIX SDMA3 */
++#define IMX8MP_AIPSTZ_HIFI4		5 /* HIFI4 DSP */
++#define IMX8MP_AIPSTZ_CM7		6 /* Cortex-M7 */
++
++#endif /* __IMX8MP_AIPSTZ_H */
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 426c11853d84..2173b539dfb5 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -13,6 +13,7 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/thermal/thermal.h>
+ 
++#include "imx8mp-aipstz.h"
+ #include "imx8mp-pinfunc.h"
+ 
+ / {
+@@ -2479,6 +2480,11 @@ dsp: dsp@3b6e8000 {
+ 			firmware-name = "imx/dsp/hifi4.bin";
+ 			resets = <&audio_blk_ctrl IMX8MP_AUDIOMIX_DSP_RUNSTALL>;
+ 			reset-names = "runstall";
++			access-controllers = <&aips5
++				IMX8MP_AIPSTZ_HIFI4
++				IMX8MP_AIPSTZ_MASTER
++				(IMX8MP_AIPSTZ_MPL | IMX8MP_AIPSTZ_MTW | IMX8MP_AIPSTZ_MTR)
++			>;
+ 			status = "disabled";
+ 		};
+ 	};
 -- 
 2.43.0
 
