@@ -4,67 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA294CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46195CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3INdUtdRw0IeETFT6pHSmtIyxGGiiYQrcHeBCarwNWw=; b=DVUdt6CBKFm5U0hI+1V00DsEP8
-	Ekcr2sPYUrIs51qxVDhqGxCeZl4JCc2NNksCItP14/CjXVlyDFbEkkOegyRfjH0P6AinPxMy39jqi
-	TE8eU7RyWLSkjeNcnJFNFthRIBILkxchtqD/5K1fuuEFYdHfq2+a4CyQxY1UFQpU2HzssI55xog9s
-	ArtsPxXwbgoG4vb+CnRPGbslh+E57k0QUn1v3I1dwf034W+zvI3501eJEcwuV27yUXzAOpee1CVYr
-	Fk5lstIisKhRj5mva6Cu9W62+VYRE2YAAzmbczyqcKtKDK2ch96om7AkDXn5IyiD3oNkbTGdnOx56
-	S4uzFlZg==;
+	bh=juEdnXgxukjP9ZDJM/F2G+Y1pTg5tm7ZX7Y0m15vG88=; b=U4LqoqPW7l0xkP8xiXaU67x7dK
+	Fv+w8jRxXE3WeqjudfkCf5PVIoLB5yL8qUjSch41dWooQqt2oCM4rCII8o+WXr3P3QbRbRUxB7i53
+	TBaoPtIzTtwIKzk5ar2r3N05PB641WOqgsw4dKtxTgsLH6GM4+wsJGEAQ4mxxn5jlS7mmkfY4WJnN
+	FYx45lIF5JOAp59CfwLPThGqKUu/t2MTUFqqj0jN0SnmKZCz03r0mSjCHdE7kSgJt/t6Z/UTkTie8
+	XNUR40txZQqEZF7xVc2cpJbGWxKKW/UajP91FNFJ6qWGArid9BJgOUdHyChcpr6LiIgdRy77Z6UIV
+	IunKWuYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIl3i-00000006sgX-3OPl;
-	Tue, 11 Nov 2025 09:53:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIl5P-00000006sqq-18fA;
+	Tue, 11 Nov 2025 09:54:51 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIl3h-00000006sgP-37Ud
+	id 1vIl5N-00000006sqM-1jqp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 09:53:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F20E61907;
-	Tue, 11 Nov 2025 09:53:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6957AC4CEFB;
-	Tue, 11 Nov 2025 09:53:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762854784;
-	bh=iDhbZOal2wnEXBNqtnf0/uj4kQN5h/UJan7jrM1zSwo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cvyuqpQtk0Q6hYQ6gNSeFX8b9Es2msAbN8+gQ0SFGS0il5537frS9ZBNWiJHoWhMo
-	 /juDrre53fD9dTCmBTGtcYvSzvKRIm99a8p2VAPszdWXqvkl5TnKQwoPoKNpt3EWTh
-	 /LmT97aljg7pGdrpVEb9qkGCbbHMdJGTmadUknN3ZCxt1a/Zb5TP8aAh17YKpJ0mQI
-	 XEwcfP2+y/eXt+yWGeugUUAaSizGdaknSm4e+sXB18HNskbOMNygLmjK22XzaM/VVC
-	 ZvOhvZOmFvE8mkD2w5qTq+xrEBUw3xIXs3IWLU+4k3ycBvgnFZnhx3dqELNGQIt0Wx
-	 W95UyabgI+svg==
-Date: Tue, 11 Nov 2025 01:53:01 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: Jose Marinho <jose.marinho@arm.com>, maz@kernel.org,
-	oliver.upton@linux.dev, duenwen@google.com, rananta@google.com,
-	jthoughton@google.com, vsethi@nvidia.com, jgg@nvidia.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com,
-	corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] KVM: arm64: VM exit to userspace to handle SEA
-Message-ID: <aRMHfS1-K4E4UCbc@kernel.org>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <20251013185903.1372553-2-jiaqiyan@google.com>
- <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
- <CACw3F51_0A8CuCgzcvoA3Db=Wxo8mm5XZw5in+nTKrst+NCcqw@mail.gmail.com>
+	Tue, 11 Nov 2025 09:54:50 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b312a089fso1514975f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 01:54:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762854887; x=1763459687; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=juEdnXgxukjP9ZDJM/F2G+Y1pTg5tm7ZX7Y0m15vG88=;
+        b=blaBFYie/1IeDXAKdoIhGPSh/4cl8BseIMWPL+iyBPhPyo/EL/wntHE70e8BgLUhRI
+         VZaOeVXH2sIW6awK+97oFPEt0fAxN98AI791uFP253KncrbedgYz3DOwTHGmt5EZb1en
+         nPUdOYFK2GBdxH2vilOORi5WGbLRt0G3dn0lgrEoGPH2MVrFI+EtVJ7PyJfGStfBFn5p
+         iq6herX7pXmLJp+NG98/ahASidcQKE1HmvavTodS4vIWCJ5924lm8iA+I6ct9jKRNRYC
+         LKboktwKQCSA/uv5CfoFgbW/BjIkMUvWCKeP02iPqnTQztGTkutvI0S6PMsjt015T5xU
+         XSXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762854887; x=1763459687;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=juEdnXgxukjP9ZDJM/F2G+Y1pTg5tm7ZX7Y0m15vG88=;
+        b=Z7MjM2nzlKHO22RM2pN/f4J1vwF9I9t9ZvuLl0xZsP5xbzwVfx2krDgGvD+ICVriQQ
+         h05a/5L8bPQGNgVqdyvMznSxKDcJBTqSVl4rafJyke8u5yU2MZQ08QcaqU13FGn72+/z
+         BGRiwYSAtCyjv+hI9vymy2LI1DATn2fTYj3TpwdrnUt3CeVwMf19Cp3oyY+Ilq/zux3W
+         zv5mw0rRWLRDI7qvUeGk/Np68yRg8lbm0pth8owilCZClxd/e5odIsmkzcVQsvGr8y/G
+         dBFA/dBpj8BXUljpkwmtGz7QEHx3JsJ0EKb2zr7eKDeOlaD8txq2UBzSpEb8wcQWFgNU
+         8zHw==
+X-Forwarded-Encrypted: i=1; AJvYcCUU5m7nyUNeDh2S576gyPSaeCaNjY5xDWHq5rm+Pk7QZJy/MMpPcao4rEqiB6YuUV9Kfo2zn1cZ7u04XL+b/w0U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0y8u4p146CdEuYX1sA0ehTRw/aspEUme1Gw2d1kk+puaYTceT
+	uF+2eI5futquXePXOmWAH2T5rt0PdDVwE3F9qEvISUFh3kh3BshyiS1grRCR5NX0sIM=
+X-Gm-Gg: ASbGncsNjOrvyBDkrTTwqWfDUwhS8uYqcc+/P2CE8fp9Aq+ubU8y43G25DJ39QTQujV
+	SKSiYFNv/FiSJFU7hWVrILzWDW8xVE3S6cSJyBV28JOzt2/561h+SzoL4IWH5/OR81p6uYburbw
+	l+HJzZPlJNqCWfUPbu0vB/VO3ip26VsM89cemZwpNW22AE8I24dO6t2oOZjJFNSlKLNQMnATuF9
+	5tyVUQzyKAQGQMVzkC/YfOgluPInGluIx/FzFdkqJ+2ZDtQgk8lso/CLiPi2Br5eg1WPW99FLRJ
+	hCKPidJGmOrRN05PCDYMlLCiebwTIoiozZVonDX5TB5DeF2OxYVjEALhHg6uZHV9w/Q40Fjcbyp
+	Jew5ET7d4gEZ7zJLrteLvUbQX1x6pK45R89vcoQyFaTNEpxTUEDCuSOA5jEe20AD8/P9u/ZusTG
+	zsjzYh9XajjnFPInrsHSkgHVOoSjQ=
+X-Google-Smtp-Source: AGHT+IHvLNA4fOeh9HdXCHeE6agVf5WRmWl1BvXGsAPsjjhtMFCdo+PVgS0jTmWpuz3ipwTVliR8Gw==
+X-Received: by 2002:a05:6000:2211:b0:42b:4081:ccea with SMTP id ffacd0b85a97d-42b4081cff2mr3938949f8f.35.1762854887062;
+        Tue, 11 Nov 2025 01:54:47 -0800 (PST)
+Received: from draszik.lan ([212.129.83.89])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac679d544sm28207462f8f.46.2025.11.11.01.54.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 01:54:46 -0800 (PST)
+Message-ID: <3bb47929b08370d9114ff1dd6b0d0f16d354d63b.camel@linaro.org>
+Subject: Re: [PATCH v4 1/4] dt-bindings: clock: google,gs101-clock: add
+ samsung,sysreg property as required
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar	 <alim.akhtar@samsung.com>, Tudor
+ Ambarus <tudor.ambarus@linaro.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Sam Protsenko	
+ <semen.protsenko@linaro.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, Krzysztof Kozlowski	
+ <krzk@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ kernel-team@android.com
+Date: Tue, 11 Nov 2025 09:54:42 +0000
+In-Reply-To: <20251110-automatic-clocks-v4-1-8f46929f50b7@linaro.org>
+References: <20251110-automatic-clocks-v4-0-8f46929f50b7@linaro.org>
+	 <20251110-automatic-clocks-v4-1-8f46929f50b7@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACw3F51_0A8CuCgzcvoA3Db=Wxo8mm5XZw5in+nTKrst+NCcqw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_015449_490433_BEACC0FE 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,135 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaqi,
+SGkgUGV0ZXIsCgpPbiBNb24sIDIwMjUtMTEtMTAgYXQgMTQ6MjEgKzAwMDAsIFBldGVyIEdyaWZm
+aW4gd3JvdGU6Cj4gWy4uLl0KPiAKPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL2Nsb2NrL2dvb2dsZSxnczEwMS1jbG9jay55YW1sIGIvRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Nsb2NrL2dvb2dsZSxnczEwMS0KPiBjbG9jay55YW1sCj4g
+aW5kZXggMzFlMTA2ZWY5MTNkZWFkOWEwMzhiM2I2ZDhiNDNiOTUwNTg3ZjZhYS4uNWNlNWJhNTIz
+MTEwYWYzYTJhNzc0MGI4YmEyOGUyMjcxYzc2YmRkYiAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svZ29vZ2xlLGdzMTAxLWNsb2NrLnlhbWwKPiAr
+KysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svZ29vZ2xlLGdzMTAx
+LWNsb2NrLnlhbWwKPiBAQCAtNTIsNiArNTIsMTEgQEAgcHJvcGVydGllczoKPiDCoMKgIHJlZzoK
+PiDCoMKgwqDCoCBtYXhJdGVtczogMQo+IMKgCj4gK8KgIHNhbXN1bmcsc3lzcmVnOgo+ICvCoMKg
+wqAgJHJlZjogL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVmaW5pdGlvbnMvcGhhbmRsZQo+ICvCoMKg
+wqAgZGVzY3JpcHRpb246Cj4gK8KgwqDCoMKgwqAgUGhhbmRsZSB0byBzeXN0ZW0gcmVnaXN0ZXJz
+IGludGVyZmFjZS4KPiArCj4gwqByZXF1aXJlZDoKPiDCoMKgIC0gY29tcGF0aWJsZQo+IMKgwqAg
+LSAiI2Nsb2NrLWNlbGxzIgo+IEBAIC0xNjYsNiArMTcxLDIyIEBAIGFsbE9mOgo+IMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBidXMKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+LSBjb25zdDogaXAKPiDCoAo+ICvCoCAtIGlmOgo+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6Cj4g
+K8KgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGU6Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoCBjb250YWlu
+czoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBlbnVtOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCAtIGdvb2dsZSxnczEwMS1jbXUtYXBtCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIC0gZ29vZ2xlLGdzMTAxLWNtdS1taXNjCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IC0gZ29vZ2xlLGdzMTAxLWhzaTAKClNob3VsZG4ndCB0aGlzIGJlIGdvb2dsZSxnczEwMS1jbXUt
+aHNpMD8KCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZ29vZ2xlLGdzMTAxLWNtdS1o
+c2kyCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZ29vZ2xlLGdzMTAxLWNtdS1wZXJp
+YzAKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBnb29nbGUsZ3MxMDEtY211LXBlcmlj
+MQo+ICsKPiArwqDCoMKgIHRoZW46Cj4gK8KgwqDCoMKgwqAgcmVxdWlyZWQ6Cj4gK8KgwqDCoMKg
+wqDCoMKgIC0gc2Ftc3VuZyxzeXNyZWcKClRoZSBhYm92ZSBzdGlsbCBhbGxvd3MgKGJ1dCBkb2Vz
+bid0IGVuZm9yY2UpIHNhbXN1bmcsc3lzcmVnIG9uIGNtdS10b3AuCgpNYXliZSBpdCdkIGJlIGJl
+dHRlciB0byBpbnZlcnQgdGhlIHRlc3QsIGFzIGNtdS10b3AgaXMgdGhlIG9ubHkKb3V0bGllciwg
+YW5kIHRoZW4gdGhlIGJpbmRpbmcgZG9lc24ndCBuZWVkIHRvIGJlIHVwZGF0ZWQgd2hlbiBtb3Jl
+CkNNVXMgYXJlIGFkZGVkICh1bnRlc3RlZCk6CgogIC0gaWY6CiAgICAgIHByb3BlcnRpZXM6CiAg
+ICAgICAgY29tcGF0aWJsZToKICAgICAgICAgIGNvbnRhaW5zOgogICAgICAgICAgICBjb25zdDog
+Z29vZ2xlLGdzMTAxLWNtdS10b3AKCiAgICB0aGVuOgogICAgICByZXF1aXJlZDoKICAgICAgICAt
+IHNhbXN1bmcsc3lzcmVnCgogICAgZWxzZToKICAgICAgcHJvcGVydGllczoKICAgICAgICBzYW1z
+dW5nLHN5c3JlZzogZmFsc2UKCgpDaGVlcnMsCkFuZHJlJwo=
 
-On Mon, Nov 03, 2025 at 12:45:50PM -0800, Jiaqi Yan wrote:
-> On Mon, Nov 3, 2025 at 10:17 AM Jose Marinho <jose.marinho@arm.com> wrote:
-> >
-> > Thank you for these patches.
-> 
-> Thanks for your comments, Jose!
-> 
-> >
-> > On 10/13/2025 7:59 PM, Jiaqi Yan wrote:
-> > > When APEI fails to handle a stage-2 synchronous external abort (SEA),
-> > > today KVM injects an asynchronous SError to the VCPU then resumes it,
-> > > which usually results in unpleasant guest kernel panic.
-> > >
-> > > One major situation of guest SEA is when vCPU consumes recoverable
-> > > uncorrected memory error (UER). Although SError and guest kernel panic
-> > > effectively stops the propagation of corrupted memory, guest may
-> > > re-use the corrupted memory if auto-rebooted; in worse case, guest
-> > > boot may run into poisoned memory. So there is room to recover from
-> > > an UER in a more graceful manner.
-> > >
-> > > Alternatively KVM can redirect the synchronous SEA event to VMM to
-> > > - Reduce blast radius if possible. VMM can inject a SEA to VCPU via
-> > >    KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
-> > >    consumption or fault is not from guest kernel, blast radius can be
-> > >    limited to the triggering thread in guest userspace, so VM can
-> > >    keep running.
-> > > - Allow VMM to protect from future memory poison consumption by
-> > >    unmapping the page from stage-2, or to interrupt guest of the
-> > >    poisoned page so guest kernel can unmap it from stage-1 page table.
-> > > - Allow VMM to track SEA events that VM customers care about, to restart
-> > >    VM when certain number of distinct poison events have happened,
-> > >    to provide observability to customers in log management UI.
-> > >
-> > > Introduce an userspace-visible feature to enable VMM handle SEA:
-> > > - KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
-> > >    when host APEI fails to claim a SEA, userspace can opt in this new
-> > >    capability to let KVM exit to userspace during SEA if it is not
-> > >    owned by host.
-> > > - KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
-> > >    KVM fills kvm_run.arm_sea with as much as possible information about
-> > >    the SEA, enabling VMM to emulate SEA to guest by itself.
-> > >    - Sanitized ESR_EL2. The general rule is to keep only the bits
-> > >      useful for userspace and relevant to guest memory.
-> > >    - Flags indicating if faulting guest physical address is valid.
-> > >    - Faulting guest physical and virtual addresses if valid.
-> > >
-> > > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
-> > > Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
-> > > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> > > ---
-> > >   arch/arm64/include/asm/kvm_host.h |  2 +
-> > >   arch/arm64/kvm/arm.c              |  5 +++
-> > >   arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++-
-> > >   include/uapi/linux/kvm.h          | 10 +++++
-> > >   4 files changed, 84 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index b763293281c88..e2c65b14e60c4 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -350,6 +350,8 @@ struct kvm_arch {
-> > >   #define KVM_ARCH_FLAG_GUEST_HAS_SVE                 9
-> > >       /* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-> > >   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS          10
-> > > +     /* Unhandled SEAs are taken to userspace */
-> > > +#define KVM_ARCH_FLAG_EXIT_SEA                               11
-> > >       unsigned long flags;
-> > >
-> > >       /* VM-wide vCPU feature set */
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > index f21d1b7f20f8e..888600df79c40 100644
-> > > --- a/arch/arm64/kvm/arm.c
-> > > +++ b/arch/arm64/kvm/arm.c
-> > > @@ -132,6 +132,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
-> > >               }
-> > >               mutex_unlock(&kvm->lock);
-> > >               break;
-> > > +     case KVM_CAP_ARM_SEA_TO_USER:
-> > > +             r = 0;
-> > > +             set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
-> > > +             break;
-> > >       default:
-> > >               break;
-> > >       }
-> > > @@ -327,6 +331,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> > >       case KVM_CAP_IRQFD_RESAMPLE:
-> > >       case KVM_CAP_COUNTER_OFFSET:
-> > >       case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
-> > > +     case KVM_CAP_ARM_SEA_TO_USER:
-> > >               r = 1;
-> > >               break;
-> > >       case KVM_CAP_SET_GUEST_DEBUG2:
-> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > > index 7cc964af8d305..09210b6ab3907 100644
-> > > --- a/arch/arm64/kvm/mmu.c
-> > > +++ b/arch/arm64/kvm/mmu.c
-> > > @@ -1899,8 +1899,48 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
-> > >       read_unlock(&vcpu->kvm->mmu_lock);
-> > >   }
-> > >
-> > > +/*
-> > > + * Returns true if the SEA should be handled locally within KVM if the abort
-> > > + * is caused by a kernel memory allocation (e.g. stage-2 table memory).
-> > > + */
-> > > +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
-> > > +{
-> > > +     /*
-> > > +      * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
-> > > +      * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
-> > > +      * stage-2 PTW).
-> > > +      */
-> > > +     if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
-> > > +             return true;
-> > > +
-> > > +     /* KVM owns the VNCR when the vCPU isn't in a nested context. */
-> > > +     if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
-> > Is this check valid only for a "Data Abort"?
-> 
-> Yes, the VNCR bit is specific to a Data Abort (provided we can only
-> reach host_owns_sea if kvm_vcpu_abt_issea).
-> I don't think we need to explicitly exclude the check here for
-> Instruction Abort.
-
-You can take an external abort on an instruction fetch, in which case
-bit 13 of the ISS (VNCR bit for data abort) is RES0. So this does need
-to check for a data abort.
-
-Thanks,
-Oliver
 
