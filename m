@@ -4,53 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606BDCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC832CD1297
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=se9+XFWvJRMf+im71/JM9TILIfiygsPhAaFbNEpkdgE=; b=gzfRCghxMvUCz7o3h+PrTOhNQM
-	Ojcxl7MX2SqO2TbIOSTpO53Lq0yiOfV6/1bAdx84rRNGlIuI0NW7u/16penRb0anl4Ol3a3q7aNwt
-	SW3e/tgywyD4GWGsOF87N19ZllSfl+G0PlmJdu9lzxe5FQdgv57gOhuc9ogCIf+oAvOWq1cuSrjy+
-	+4Hm8F+bBWllGbBh5CObQsGqc9gLL0GcAw2dtKSBqlTCcxIj5xakJafm1cMLZxHHr69KWjkLYQXSB
-	8EwWwdrGrzkFjMnvcsEvnW8LfUTHW+spv7sWe5l5S8fcalfy6M5jdNVtHY+pCB96QPWJGRRtJm+65
-	YPqJxvXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=; b=E+y9VonLLdKa3TAMOY60lEG0Hv
+	qaE9/p+mIOR68b0MNyO75h+a9DPaQmxzjP26ydYv4xjt7S3bZig7wdxPz35DXf+03xPYJHHR0UG6K
+	WXB3VkUPQnePYz69Sfhl3vEIz744iEU/HXzJwCcy5cVUaJcfrA/rkqlf1DZFAmvNDHJjEqkubnJr/
+	6TGjahXMCfPDE7ezQ7Rd8zGk7Ok+gQcRZycofJV9kPJsIsAFJhmh2JjKAyz9WxbWZzyFYjaYLNrUL
+	Z+yelhs+9RYGlBSU8YkgwB/n7lNHw9WbO8ZvUwhHZFJDX50DZF5KpBAdL+QF5MemEgdQLDNt+nws9
+	0cYyjh8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlaT-00000006wpc-1weJ;
-	Tue, 11 Nov 2025 10:26:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlaP-00000006wp5-3pxt
+	id 1vIldL-00000006x3U-1khJ;
+	Tue, 11 Nov 2025 10:29:55 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIldI-00000006x34-1Dnw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:26:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECDF02F;
-	Tue, 11 Nov 2025 02:26:42 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 923D63F63F;
-	Tue, 11 Nov 2025 02:26:49 -0800 (PST)
-Date: Tue, 11 Nov 2025 10:26:44 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kprobes@vger.kernel.org,
-	linux-kernel@vger.kernel.org, will@kernel.org,
-	catalin.marinas@arm.com, masami.hiramatsu@linaro.org
-Subject: Re: [PATCH] arm64: insn: Route BTI to simulate_nop to avoid XOL/SS
- at function entry
-Message-ID: <aRMPZB6W04_l7iSB@J2N7QTR9R3>
-References: <20251106104955.2089268-1-khaja.khaji@oss.qualcomm.com>
+	Tue, 11 Nov 2025 10:29:54 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so19092815e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:29:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762856990; x=1763461790; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=;
+        b=L3V5Gymd3eP/OFHMz94+fjcLdDOnstK+GByjvC6Cbj9A5ws5QLr6U34YmLS97cBgTW
+         MNySDVvdW7GE2UQ6stOBlxnUjoTGbQkNzT9/zXCmSWRlFQKlH1aIdyJsa6Oub0CgFhYh
+         /LULaUSTmf3V2DnYg3JBLPhgXOR00uGjZNXxGKgCAOdMON7eoAA6gH7KGqcSszrTQqNY
+         EtSkRHkl1J7UiVTP6dY8qARSKk9el+g7MdqaUVLqi8t5JFvWbt4gietkBCJoRnLmHHfS
+         SFwffYKHQjEUTLLg4h/E6sDB0Du5uSLe65yaVaZhajSgNj/LJMv5GYyE0IKTnut9FzGx
+         TBmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762856990; x=1763461790;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mA4OYGuehEdlKuRHHZkCIxOoAid/iNBTle5X4sDzSO8=;
+        b=jwZB35JRQQOkcPOhfT6hSxZSTGa4DG1Cfw6z+2SxZLbv5hlNbQ6SWKw6HfOsVMF/M7
+         Dyrffp+kffxnmq7zHe0W/C7+edMMuqHb/8fs4eXEHRo+T166iJDtq8D6SB+A+mOCu9ol
+         5p6P+8AMCVP+h9C3Ev7CuZODiVzJD7yoJs5kISVDW3Asid1EpaylIzp1Var3uxFt8TmK
+         5rZ28JXmJydAD4IL6Xq1u7AByXwFsT8lf2gtS+TP8ZZ6wz1R9DuFnSdhv/p94CYxmfoq
+         S+64MZFzc9PluWk9UBXYO6CAcI3K5ifbxrDGLWStcxtDBhLSyQkTQLKSU56hYCvQui/8
+         DdAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXnJOVXZxflIscMRX7zo2U1YO624U5HjVlDOSWNti6fiFtEGnPgmSb8JBvssG51r39YiyQEU1cOTRqMHE1Um6S/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9ZRKHBsFgnrO9pO7+90x2TvjRpODQFkunGLi7k0EKK2U2tX/m
+	c0CAi8Ecz7MAQnW7c9VLJGPLGUyH2o0mcpcG9Cyt1WVlEjIgqwFfdfLv/PAMbLXdCaU=
+X-Gm-Gg: ASbGncsMZ56nwvcJMZ8s9YeBsK9wALU4I4K0M5DeJMaif7hi6wRoZ4jsSHrE4GuK7LR
+	ozlBUSzUXwTxaboaL8yihbrUUibs6pQxO4YueI7VkCBi38XAKnq80CkzYUuXaMV3NDGwFrhRJZi
+	oFHtRCf0QPgfqCcUIFc4lK6hAwbpPhK5YbMeyC276S2+O6jeZGUCORBn4Y3cCSYEIHaEEC/7cve
+	jgIZ5JhL6Z2rrBh3sDWC1LIRgtvzApfGs9bITQfXz+YgVi6A7Dp8sfhfGwSl4cItLzJmuFhMn2m
+	gOIlL6CiVpJcHToa9lXTfW/HLExPjYCDcJA0A5NeO12gclgv0OcGPCHOqlsc3TTMQ7/PdtfIQhv
+	OkH3aeuPt16FZ/gQWdG9bHkT3htDNGDY0baldZAPbW0iH1g0BCnqvQRHixmnDEtS7liuSx/vZAN
+	DkUZVlUkWiWX0L9Ix2+GYfmUNKvS0=
+X-Google-Smtp-Source: AGHT+IEvLEjIZw4+8whQM79OrY00R9vJVyO1rxoxD4fhQm/KifAlq8r0yaMnGCz1oNKbvCj2h/xcDg==
+X-Received: by 2002:a05:600c:c4a3:b0:471:1774:3003 with SMTP id 5b1f17b1804b1-47773290e9dmr106627935e9.29.1762856990270;
+        Tue, 11 Nov 2025 02:29:50 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac675caecsm27313955f8f.30.2025.11.11.02.29.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Nov 2025 02:29:49 -0800 (PST)
+Message-ID: <5eaaf3cf-a271-467f-b015-9cb9b49590f0@linaro.org>
+Date: Tue, 11 Nov 2025 12:29:44 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251106104955.2089268-1-khaja.khaji@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+ <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+ <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+ <176282517011.11952.1566372681481575091@lazor>
+ <c5db97fa-8789-447f-909a-edbdb55383f8@linaro.org>
+Content-Language: en-US
+In-Reply-To: <c5db97fa-8789-447f-909a-edbdb55383f8@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_022654_064588_0E6BBD36 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20251111_022952_394344_1C3C791E 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,101 +115,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 04:19:55PM +0530, Khaja Hussain Shaik Khaji wrote:
-> On arm64 with branch protection, functions typically begin with a BTI
-> (Branch Target Identification) landing pad. Today the decoder treats BTI
-> as requiring out-of-line single-step (XOL), allocating a slot and placing
-> an SS-BRK. Under SMP this leaves a small window before DAIF is masked
-> where an asynchronous exception or nested probe can interleave and clear
-> current_kprobe, resulting in an SS-BRK panic.
 
-If you can take an exception here, and current_kprobe gets cleared, then
-XOL stepping is broken in general, but just for BTI.
 
-> Handle BTI like NOP in the decoder and simulate it (advance PC by one
-> instruction). This avoids XOL/SS-BRK at these sites and removes the
-> single-step window, while preserving correctness for kprobes since BTI’s
-> branch-target enforcement has no program-visible effect in this EL1
-> exception context.
-
-One of the reasons for doing this out-of-line is that we should be able
-to mark the XOL slot as a guarded page, and get the correct BTI
-behaviour. It looks like we don't currently do that, which is a bug.
-
-Just skipping the BTI isn't right; that throws away the BTI target
-check.
-
-> In practice BTI is most commonly observed at function entry, so the main
-> effect of this change is to eliminate entry-site single-stepping. Other
-> instructions and non-entry sites are unaffected.
+On 11/11/25 8:24 AM, Tudor Ambarus wrote:
 > 
-> Signed-off-by: Khaja Hussain Shaik Khaji <khaja.khaji@oss.qualcomm.com>
-> ---
->  arch/arm64/include/asm/insn.h            | 5 -----
->  arch/arm64/kernel/probes/decode-insn.c   | 9 ++++++---
->  arch/arm64/kernel/probes/simulate-insn.c | 1 +
->  3 files changed, 7 insertions(+), 8 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 18c7811774d3..7e80cc1f0c3d 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -452,11 +452,6 @@ static __always_inline bool aarch64_insn_is_steppable_hint(u32 insn)
->  	case AARCH64_INSN_HINT_PACIASP:
->  	case AARCH64_INSN_HINT_PACIBZ:
->  	case AARCH64_INSN_HINT_PACIBSP:
-> -	case AARCH64_INSN_HINT_BTI:
-> -	case AARCH64_INSN_HINT_BTIC:
-> -	case AARCH64_INSN_HINT_BTIJ:
-> -	case AARCH64_INSN_HINT_BTIJC:
-> -	case AARCH64_INSN_HINT_NOP:
->  		return true;
->  	default:
->  		return false;
-> diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
-> index 6438bf62e753..7ce2cf5e21d3 100644
-> --- a/arch/arm64/kernel/probes/decode-insn.c
-> +++ b/arch/arm64/kernel/probes/decode-insn.c
-> @@ -79,10 +79,13 @@ enum probe_insn __kprobes
->  arm_probe_decode_insn(u32 insn, struct arch_probe_insn *api)
->  {
->  	/*
-> -	 * While 'nop' instruction can execute in the out-of-line slot,
-> -	 * simulating them in breakpoint handling offers better performance.
-> +	 * NOP and BTI (Branch Target Identification) have no program‑visible side
-> +	 * effects for kprobes purposes. Simulate them to avoid XOL/SS‑BRK and the
-> +	 * small single‑step window. BTI’s branch‑target enforcement semantics are
-> +	 * irrelevant in this EL1 kprobe context, so advancing PC by one insn is
-> +	 * sufficient here.
->  	 */
-> -	if (aarch64_insn_is_nop(insn)) {
-> +	if (aarch64_insn_is_nop(insn) || aarch64_insn_is_bti(insn)) {
->  		api->handler = simulate_nop;
->  		return INSN_GOOD_NO_SLOT;
->  	}
+> On 11/11/25 3:39 AM, Stephen Boyd wrote:
+> 
+> Hi, Stephen!
+> 
+>> Quoting Tudor Ambarus (2025-10-20 00:45:58)
+>>>
+>>>
+>>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
+>>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+>>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+>>>>> --- a/drivers/clk/samsung/Kconfig
+>>>>> +++ b/drivers/clk/samsung/Kconfig
+>>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>>>>>        status of the certains clocks from SoC, but it could also be tied to
+>>>>>        other devices as an input clock.
+>>>>>  
+>>>>> +config EXYNOS_ACPM_CLK
+>>>>> +    tristate "Clock driver controlled via ACPM interface"
+>>>>> +    depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+>>>>
+>>>> I merged the patches but I don't get why we are not enabling it by
+>>>> default, just like every other clock driver. What is so special here?
+>>>
+>>> Thanks! Are you referring to the depends on line? I needed it otherwise
+>>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
+>>>
+>>> ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
+>>>
+>>
+>> I don't understand that part. The depends on statement "COMPILE_TEST &&
+>> !EXYNOS_ACPM_PROTOCOL" is equivalent to COMPILE_TEST=y and
+>> EXYNOS_ACPM_PROTOCOL=n, so are you trying to avoid
+>> EXYNOS_ACPM_PROTOCOL=y when COMPILE_TEST=y?
+> 
+> My previous comment was misleading.
+> The depends on line allows CONFIG_EXYNOS_ACPM_CLK to be selected in two
+> main scenarios:
+> 1/ if EXYNOS_ACPM_PROTOCOL is enabled the clock driver that uses it can
+>    be enabled (the normal case).
+> 2/ COMPILE_TEST is enabled AND EXYNOS_ACPM_PROTOCOL is NOT enabled. This
+>    is the special scenario for build testing. I want to build test the
+>    clock driver even if EXYNOS_ACPM_PROTOCOL is NOT enabled. For that I
+>    also needed the following patch:
+> 
+> https://lore.kernel.org/linux-samsung-soc/20251021-fix-acpm-clk-build-test-v1-1-236a3d6db7f5@linaro.org/
+> 
 
-I'm not necessarily opposed to emulating the BTI, but:
+What I described in 2/ EXYNOS_ACPM_PROTOCOL [=n] && EXYNOS_ACPM_CLK [=y] 
+can be achieved with a more relaxed:
+depends on EXYNOS_ACPM_PROTOCOL || COMPILE_TEST
+because of the stub (dummy method) that I referenced in the link above.
 
-(a) The BTI should not be emulated as a NOP. I am not keen on simulating
-    the BTI exception in software, and would strongly prefer that's
-    handled by HW (e.g. in the XOL slot).
+It's really what Krzysztof explained in his reply, I wanted to avoid
+the link failure for COMPILE_TEST [=y] when
+EXYNOS_ACPM_PROTOCOL [=m] && EXYNOS_ACPM_CLK [=y].
 
-(b) As above, it sounds like this is bodging around a more general
-    problem. We must solve that more general problem.
+We have the following possibilities with:
+depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+1/ CONMPILE_TEST=n
+EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n
+EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
+EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
 
-> diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-> index 4c6d2d712fbd..b83312cb70ba 100644
-> --- a/arch/arm64/kernel/probes/simulate-insn.c
-> +++ b/arch/arm64/kernel/probes/simulate-insn.c
-> @@ -200,5 +200,6 @@ simulate_ldrsw_literal(u32 opcode, long addr, struct pt_regs *regs)
->  void __kprobes
->  simulate_nop(u32 opcode, long addr, struct pt_regs *regs)
->  {
-> +	/* Also used as BTI simulator: both just advance PC by one insn. */
->  	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
->  }
+2/COMPILE_TEST=y
+EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n,m,y
+EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
+EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
 
-This comment should go.
+We have the following possibilities with:
+depends on EXYNOS_ACPM_PROTOCOL || COMPILE_TEST
+1/ CONMPILE_TEST=n
+EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n
+EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m
+EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
 
-Mark.
+2/COMPILE_TEST=y
+EXYNOS_ACPM_PROTOCOL=n EXYNOS_ACPM_CLK=n,m,y
+EXYNOS_ACPM_PROTOCOL=m EXYNOS_ACPM_CLK=n,m,y <- link failure when y
+EXYNOS_ACPM_PROTOCOL=y EXYNOS_ACPM_CLK=n,m,y
+
+Thanks,
+ta
 
