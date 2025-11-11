@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF090CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849BDCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKTM993Ma21ZOkCemY+4BJTuWewmn2tKdsb5lj2abpk=; b=sq2jlPZtxwVf+TKILYCWC6ZcpY
-	K33rMCuv/wDK6dJFHHTkNSdvDD8PUlpfuMs9aRu+mhnuXO/wA7Oc47btYozvNfIuIdPeRuocyKN+r
-	qGdKUU/wXz6ysyly8gASlGColNu011fRprvFhTewyLLkULv3mmqd+hppk2kLAgzgsdyqMB0JzqrxW
-	GwHWnoJIgRfjlB8kgCUF9ZA3QOoAH2wMM3sZcSCH8LbPWhCM6b2Ux9VAQG7ZMpM8SRXvH8JBv8ViN
-	cm9U4gOvwKvEn3LjSAVsjGDSn10s+XhCJjx/fWvfdXCltmpzcugC4gdDpWkDQsRqhVDrgaqS7xMMA
-	gVOVdV1g==;
+	bh=le//jhK4+QXBmD4gkrvuMY/Lm8SBKXunru4kfAfr/7k=; b=dSUY/Xs/6eI4CpVvcAP+e7Q2xw
+	FR7yNMXvpXWwVOC4E/wnDdo4jdSHOKD2a7Gzr8YX/C9JRliEO5zLatdX1ZtMTVjtOn7axhrghpSnF
+	6qd7IOn885qshfFx3vuOdIW2UIMeOlr7hhDIBLZk4NAoDCeySnQm045BoOsGg3MKw89nJlUVCqINA
+	4TyoPeiYKm7T5/uqJOJEa3gzdznujlxZ3Id5GO27JsZtilSD7NNfKOcrh6EMWqk+xS09sWfgGI8cV
+	Y2WzQdqLlSWUojg8cfbpwVBXJ5V5Atb+G7O9qtzore6zPOoyNkwI8E6BwjSWrqjic+1fZSxA57sAp
+	dI8KbbKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkAT-00000006oRa-39tj;
-	Tue, 11 Nov 2025 08:56:01 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkAN-00000006oR6-3BPs
+	id 1vIkbi-00000006pvD-1AJD;
+	Tue, 11 Nov 2025 09:24:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIkbf-00000006pup-3bZV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 08:55:59 +0000
-Date: Tue, 11 Nov 2025 09:55:50 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1762851350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RKTM993Ma21ZOkCemY+4BJTuWewmn2tKdsb5lj2abpk=;
-	b=ymWd3LnkEfwtX1k261UdYE5R5/7IpCIN6oMUmih0narZm6Bp8Tw+ikKxAJ98mC+Ki8kPMJ
-	dBJpjhxGTVeH7mhIVwraawl+x4rKUcLrgjqLQQNzsEMcCgMEHvECAIV2HVQCLFCkTVlVl8
-	O+nqZiC7VSJQgOJQPi13SRfHbDZLHZEY3z1VK0oryukZg4fmRz3ltZctohv5sJoBejwjBp
-	LiENYCvrtOf0BCLFlrBMSBeAaFEbp7NDLImGC6soMNidgoVLHUkoF1FvWUavi7dVQADk5V
-	c9bVZlXcLAPlv0tkMAeLyrfguAvzyipXRg9zcPQHmJYXL0Pd+CRKopm3fmhPVQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1762851350;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RKTM993Ma21ZOkCemY+4BJTuWewmn2tKdsb5lj2abpk=;
-	b=PDy55JQ8GnIS/Y2nfebPHMOFIXaZwBf3oeKj/acsXinCUUcGzezaxkS3vc3c9VSFc5YRUL
-	LWQUVLlkyb70aeBw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	Russell King <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v5 19/34] random: vDSO: only access vDSO datapage after
- random_init()
-Message-ID: <20251110124547-66c465dc-5214-46bf-937f-c8fa381b86f3@linutronix.de>
-References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
- <20251106-vdso-sparc64-generic-2-v5-19-97ff2b6542f7@linutronix.de>
- <aQ6EvdukQytvqK-u@zx2c4.com>
- <20251110094555-353883a9-1950-4cc6-a774-bb0ef5db11c5@linutronix.de>
- <aRHAU7bVAIyaOrpA@zx2c4.com>
- <20251110114550-a3f2afa8-4f86-4048-be5b-2dc4f4ef340d@linutronix.de>
- <aRHPIXATFJAEv-CF@zx2c4.com>
+	Tue, 11 Nov 2025 09:24:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C36C2F;
+	Tue, 11 Nov 2025 01:23:58 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5FD03F66E;
+	Tue, 11 Nov 2025 01:24:05 -0800 (PST)
+Date: Tue, 11 Nov 2025 09:24:03 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
+ single-shot restart
+Message-ID: <20251111092403.GB281971@e132581.arm.com>
+References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
+ <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+ <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRHPIXATFJAEv-CF@zx2c4.com>
+In-Reply-To: <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_005558_466385_5480A55F 
-X-CRM114-Status: GOOD (  31.80  )
+X-CRM114-CacheID: sfid-20251111_012407_945829_342DA0F9 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 12:40:17PM +0100, Jason A. Donenfeld wrote:
-> On Mon, Nov 10, 2025 at 12:24:13PM +0100, Thomas Weißschuh wrote:
-> > > > > For example, one clean way of
-> > > > > doing that would be to make vdso_k_rng_data always valid by having it
-> > > > > initially point to __initdata memory, and then when it's time to
-> > > > > initialize the real datapage, memcpy() the __initdata memory to the new
-> > > > > specially allocated memory. Then we don't need the complex state
-> > > > > tracking that this commit and the prior one introduce.
-> > > > 
-> > > > Wouldn't that require synchronization between the update path and the memcpy()
-> > > > path? Also if the pointer is going to change at some point we'll probably need
-> > > > to use READ_ONCE()/WRITE_ONCE(). In general I would be happy about a cleaner
-> > > > solution for this but didn't find a great one.
-> > > 
-> > > This is still before userspace has started, and interrupts are disabled,
-> > > so I don't think so?
-> > 
-> > Interrupts being disabled is a good point. But we are still leaking
-> > implementation details from the random code into the vdso datastore.
+On Mon, Nov 10, 2025 at 11:37:52AM +0000, Suzuki Kuruppassery Poulose wrote:
+
+[...]
+
+> > -static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> > +static int etm4_enable_hw(struct etmv4_drvdata *drvdata, bool restart_ss)
 > 
-> It wouldn't. You do this generically with memcpy().
-
-With "implementation details" I meant the fact that it is fine to swap out the
-datapage behind its back. And the fact that the memcpy() can not introduce any
-races.
-
-> > > Also, you only care about being after
-> > > mm_core_init(), right? So move your thing before sched_init() and then
-> > > you'll really have nothing to worry about.
-> > 
-> > The callchains random_init_early() -> crng_reseed()/_credit_init_bits() could
-> > still touch the datapage before it is allocated.
-> > Adding conditionals to prevent those is essentially what my patch does.
+> While this looks to work, I wonder if we could manage this all in the config
+> ? i.e.,
 > 
-> I think I wasn't very clear in my proposal, because this isn't an issue
-> in it.
+> Use an extra field, say config->retain_single_shot_status, which defaults to
+> 0 and is always cleared once we pass through enable_hw.
 
-I interpreted your previous mail as two different proposals:
-1) do the memcpy() thing
-2) move the page allocation after mm_core_init()
+This is fine for me in general.  I agree that adding an argument in
+etm4_enable_hw() is not scalable, though we can take a bit advantage
+of stack push and pop so no need cleanup.
 
-Now it makes more sense.
+Before proceed, I would check another idea.  Can we do this with
+is_idle_task()?
 
-> Global scope:
-> 
-> static struct vdso_rng_data placeholder_vdso_k_rng_data __initdata;
-> struct vdso_rng_data *vdso_k_rng_data = &placeholder_vdso_k_rng_data;
-> 
-> Then,
-> 
-> void __init vdso_setup_data_pages(void)
-> {
->     ...
->     vdso_k_rng_data = blabla();
->     ...
->     memcpy(vdso_k_rng_data, &placeholder_vdso_k_rng_data, sizeof(*vdso_k_rng_data);
->     ...
-> }
-> 
-> If vdso_setup_data_pages() is called early enough in init, this is safe
-> to do, and then you don't need to muck up the random code with awful
-> state machine ordering stuff.
+  if (!is_idle_task(current)) {
+      if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+          config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+  }
 
-Yes it is safe, but this safety is not obvious in my opinion.
-However I'll use your proposal for the next revision.
+As a result, we can avoid new flag and extra operatoins (set/clear) for
+the added flag.
 
+Note, this does not only impact CPU idle flow, this also applies on CPU
+hotplug flow (as CPU hotplug callback also runs in idle thread).  I
+think this would be fine, no matter CPU idle or hotplug, we keep the
+single-shot state after the CPU resume back.
 
-Thomas
+Thoughts?
+
+Thanks,
+Leo
 
