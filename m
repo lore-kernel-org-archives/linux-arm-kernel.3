@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43EACCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C249CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9cdWyWvVx1HiMmqJtLkBOepfaD6aK6+e9z5z1DN0zTM=; b=qSeKDH3OiyqgFsARzu3m+uRNGB
-	PMzwK8BsqYEVODFlEUNX/n+OTzhKdqoX3zGyKjEN16Xaf1zTpz89ZcQNa+myJI3FC1NdMjTANg+GP
-	OCP7gnhSsHRNrma/iQA3T2DfmcDOnjRpQL85VqGutr+s1+6kp8LIyOobAEBFAmHBw7twwltmaz72f
-	+DqStni/A0MuEiJpWRYHvpmUBzQJpR/V9h7X/bN2XaEg7nYVTDnKWwAct4wv44GOcG7FohxN9v+HH
-	+gqDDdjthNvSwstjUS9Mn5OV7jquucA+LUOYHkizsSfBmNDNATNiFDjvS4s6aFQqH3lngbeZXfnrO
-	7qZHSQNw==;
+	bh=Vzxu8qssjIhFl+4HzQqYw3E2J9WYZzlt8qmmQpR/9RM=; b=h0HqmT+FmthDmjxtQLvbCm6KG0
+	QLRXpUtuwJF3CcgLb1gksL9q3SXnTuJT3II8lNHzlzuvxJmLgbpzkImQRSWdZx10BBvdYxFCi1L/l
+	5f+BCl541oGwCXmkB945shB1GeDge3U5e+Tu8yInqPtpK0Ya/4n+s/M6r59vGGWzwm8BgJJL+kGOE
+	g5Kni9ytRMmLNPXOmHPBM7bca5cS5VW5xKPKdAmz+c/evj5F80vFhVWxyMYO8f3WxCTrvYpard8ZX
+	FO7ubSufOR/n8WqSnv598kIMAipTjt/78yXqB/RpDjKyauz4zp5q3JuFE+vRIjvguVIhn2rEYvj1x
+	MojqFP7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlrX-00000006zBR-2T7G;
-	Tue, 11 Nov 2025 10:44:35 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1vIltl-00000006zQh-0aKD;
+	Tue, 11 Nov 2025 10:46:53 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlrS-00000006z95-4829
+	id 1vIlti-00000006zQK-0efw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:44:34 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-63fc8c337f2so3172100d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:44:30 -0800 (PST)
+	Tue, 11 Nov 2025 10:46:51 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-59435d82c1fso4121114e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:46:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762857870; x=1763462670; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762858008; x=1763462808; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9cdWyWvVx1HiMmqJtLkBOepfaD6aK6+e9z5z1DN0zTM=;
-        b=maPxnaeLCGUeicscRdo/CuRjVdIA4DKTNSit47f39uIZfQ2IvkJZ9e+XKATEnULjqV
-         yL1hp7RwtKsZZyEPyiXzqbgu8cNpev9GljyvHWmljtIULMnzLuPCw3wowvSwkzuvrxoD
-         AQxkZq+a1thkJLvbVPpC3WacvhWo1nTOjgHmMxNo/Fz/HDv0iO0QjhafDP3rcSK0fsSO
-         8wsXTfeQODjTDk0+SznLjwg5ENlmMsH5yMm/RVMjnWKe8EBVlujpa1g/6yBbC5ZP9TMC
-         4GTKV+BwF2b189/jaihgfzIUIZl0thxJVwOPhUu4MfqxJD31qewU8KP2GIaBNS5hIwXL
-         9xtg==
+        bh=Vzxu8qssjIhFl+4HzQqYw3E2J9WYZzlt8qmmQpR/9RM=;
+        b=Tr37SCff7TwwRLPvmlDE/qzKqu7HQLL3E42oMieTUpM0lwxXXM7EBOUyuyTSRGZyCz
+         ALLlsRdzYvDe4HxCGFqoC8J7dCV1jAArxXPuQE9KJRfYwf26lFuOfccErelf0kRCzcne
+         z9eVbDh7lBla/Nv5cftcnt5p1DuvDfVJV85JardcSNYDv8br7slbwlc3NLZvKLClEORm
+         TMhViSZXL1YPSpNEbjRiJJf4uhcgWcNkSXgJfijeMhsqVU7qbMZpO89D8DzXsWXzOrJP
+         K5gtjhE2KZ+P2lDqsj1pF/UDkYk/jcLYqS+/YKQQCgR5Tg2tGKEf05KABCldYtVuXiuC
+         ywzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762857870; x=1763462670;
+        d=1e100.net; s=20230601; t=1762858008; x=1763462808;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=9cdWyWvVx1HiMmqJtLkBOepfaD6aK6+e9z5z1DN0zTM=;
-        b=EJio6YCouvoFwzrSXC1QkAlgVPlR3RXfCgMP9MiZ9YDHCHl8VOvAGBn1SoiI1mimZK
-         GLUhXAdXDVg6iLD6EXWh3W2nX9+MlW7Dqw18hT5MQKFdNREHuOdY+mPtK/4KCgHQozP+
-         5TKp7eqquJ76nSkun3PV9TlwCjgIv9OpsdEN0wCk4EWlNcaz5B4+zRzDFOhJ25TukeL8
-         iWYTaRV71Qv3Kqsor+GAHgNyEJD+gqlnK4RmCRtCCvoEfDg/St0XmPfWmtSCOd/5JFpn
-         503Xyu2+p1Y/iWYE7CNwNK5wcpVunEebDa6SxewZaXYJFPJuEE1fB7/BgcGMJsMlGAny
-         nhfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVqcRKr/5QCYCI6h32QoSIPj3qLCADHT+IF/wITJ4TEDNqBy8QfFNaJhjwW66HCt5xbNzUi33JFOLh68EaTyE3h@lists.infradead.org
-X-Gm-Message-State: AOJu0YynxmRmcWSuyhV2ZbzqmPAUUc/HiktJsgRJAsGYgv5kxEovYc3K
-	BK44t1Nxg3CgNr4dKoAhrv7YV3oMRuS7T630+MrHxEvRxLbb9Ybj5wReHaqRqXtQFssRu6+rbk2
-	CtrVs5eFV5bC7JO35XtHiTAkC4ZWA3oBC8i8Ni1xOuw==
-X-Gm-Gg: ASbGnctCTmYay4Z1hQxCJD6uxqzfXkZvSr2qMZesx76/FlmWAVrNlw7HuxvLDCgx7Ix
-	IjfbxOGRZ5TLiANyygocN4oFDNXqKVjYzjgzcwbo1XQOEZMBNwPHR/KqpIh31RMc0QtionIkVl0
-	FFxFg0rF6CEQ21Zce8mretAeTqmIQqt1lc3KcO0xYqgST5Dp7Grhae0+4jY2EJvDvGOmolSEJQ0
-	M/hGjansk2vVZxnphj0vHn6cjICe8Dys1o9sy+Dq0nRo0IGPGbad66gqe+5
-X-Google-Smtp-Source: AGHT+IGM3E/e9Scx4gWocd3epZsySeg+GiSnUa6Lqk3ZWYP/cx+DuGwZohc+rkcKQ1+QYm8c7Jg9lh/z3+tSIbO/Q/8=
-X-Received: by 2002:a05:690c:a719:b0:781:32c:b359 with SMTP id
- 00721157ae682-787d541c211mr161593377b3.36.1762857869718; Tue, 11 Nov 2025
- 02:44:29 -0800 (PST)
+        bh=Vzxu8qssjIhFl+4HzQqYw3E2J9WYZzlt8qmmQpR/9RM=;
+        b=aW3sfywiWVRsxXlVld58TgIs94Tccr/l5ZPkNoM6IohCt4aGrjar0l5Or7ifeOG5xN
+         ua6ukyCGW1U4qTs/v0Qr/8wW/lA8rpckf9FApsKswmV532119aB1ETntn9v/AIvgqQ4p
+         yZLIDMHontHQcbEiC6BAh3doiOdbf4r9uX3BqRrH8nQYLZ2D4LxAC/Laws/EK42FPPZw
+         YcxmGuxTIjymg31qOyZx9E3YV330LOUEB5Y4n/Dl6PbR58FgqdbVm3GSjHYWEhZVIIYb
+         KI+vqL8ZFnl9KcG5nIJBTojYqj63iy2gOkGGemXsxLFv9OG3ecH/UL44rdr0jxhnSF03
+         iwbA==
+X-Forwarded-Encrypted: i=1; AJvYcCVpsmyXhLzpA52+6yYQIbnVPjqzg5oJRseCmbVUQVB0xAueRo95HJU+gj9ScNwW7+PY7xlCumjqSN/nQSHkcwzr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYwHE9yCXjG2DedeJv9RY+t4jee/IQvxkkbP6wZoNiXJU2E8aU
+	0J7shI6fw4xijHAAQwHTSxsmGuPLJpp4gZw8FlrGnlTNs6lDz2vBMdbDhVgtY8vqcxJWXeVLNTN
+	BgUEQYXfceuGqDyrwX3B3F1dxmlLBsXXlC2r7t2PkFQ==
+X-Gm-Gg: ASbGncvRhSpGQjAKtQgldvX3+RU6PAVaQAzweMWBO38GDZEKnyTAgRwBSdHqDjW+eVi
+	0klFI0Ii2OL/EzWjKc5Y+kCO1NS5itbhJVj9dQ3ot17yKg9tnbcg70m1FCZQ8695CUVf7YMIy60
+	EqbIlQchIJqYbcimFGRTi9cGqdRZqSgwMHD1FIaorTKFDq2+2vvv2B8pkJuMqCiTX6m6rM4tl86
+	Ax479MK5lOmMO88G3z13twxwe8PC7qCDEIhCtBXVplxi6jyri3EEPbdZJQE
+X-Google-Smtp-Source: AGHT+IE/zC5OMsYl03Nj0mPJmaD1a2IXwBvVIbEcz3pKu9CsBoN95WeMpa65Ti7xOQGESKhkoy/5byt8ZxIuQV5LRlc=
+X-Received: by 2002:a05:6512:3ba6:b0:57b:5794:ccd9 with SMTP id
+ 2adb3069b0e04-5945f1465b9mr3570547e87.9.1762858007876; Tue, 11 Nov 2025
+ 02:46:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org> <20251022-gpio-shared-v2-6-d34aa1fbdf06@linaro.org>
-In-Reply-To: <20251022-gpio-shared-v2-6-d34aa1fbdf06@linaro.org>
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org> <CAMRc=Md4X-GWpeRgun6zv6dddKFqqrjUSveq3fNOe5AboLAcXg@mail.gmail.com>
+In-Reply-To: <CAMRc=Md4X-GWpeRgun6zv6dddKFqqrjUSveq3fNOe5AboLAcXg@mail.gmail.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 11 Nov 2025 11:44:06 +0100
-X-Gm-Features: AWmQ_bkCgjjs_tm6yJMft7dkXQVENEnuhOT2qvpn5ldswgUFUo9RrRQtDQDlZKU
-Message-ID: <CACRpkdbqLyeaZx37yrKjDFWb=C5c=vK6aPgnW8cMQvwi_6Jiug@mail.gmail.com>
-Subject: Re: [PATCH v2 06/10] gpio: provide gpiod_is_shared()
+Date: Tue, 11 Nov 2025 11:46:33 +0100
+X-Gm-Features: AWmQ_bmu8Uv97qyqiqkPQLTOzsrjTmZVCm9AYfJGSsxfxSYvRIGYvQTliDsDKgo
+Message-ID: <CACRpkdYBZQJsptXhxOHvFdNwU5_-_QDfaLN6tiDqgL=bBWoXmQ@mail.gmail.com>
+Subject: Re: [PATCH v3 00/10] gpio: improve support for shared GPIOs
 To: Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
@@ -81,7 +81,8 @@ Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
 	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
 	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, linux-hardening@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
 	linux-arm-msm@vger.kernel.org, 
@@ -89,7 +90,7 @@ Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_024432_894955_A740C614 
+X-CRM114-CacheID: sfid-20251111_024650_230128_2BEFE879 
 X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,24 +106,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 3:11=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+On Mon, Nov 10, 2025 at 10:46=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl=
+> wrote:
 
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> Provide an interface allowing consumers to check if a GPIO descriptor
-> represents a GPIO that can potentially be shared by multiple consumers
-> at the same time. This is exposed to allow subsystems that already
-> work around the limitations of the current non-exclusive GPIO handling
-> in some ways, to gradually convert to relying on the new shared GPIO
-> feature of GPIOLIB.
->
-> Extend the gpiolib-shared module to mark the GPIO shared proxy
-> descriptors with a flag checked by the new interface.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Can I get some Reviewed-bys under the GPIO patches if there are no
+> other open issues? I would like for this to start making its way
+> upstream if there are no strong objections to the concept. After a
+> release or two, I'd like to start enabling it on more platforms.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+I'm convinced of the soundness of the general approach so I have
+added R-B on the gpiolib patches, FWIW, for the rest:
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
+
+You clearly have an idea and a plan here, and it looks solid to me.
 
 Yours,
 Linus Walleij
