@@ -4,65 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A7CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 05:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FBCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 05:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=36N0FKRSZrk/dAYFrgJZA5KmUK9d2/ZUwEIxvvC77Ec=; b=Bf1vsI9BvJLuBjpUj+Q5Q0uXOr
-	rMisAwxQIcCha7yz0e90/O6CCapiwSUpc81GWFqwPaTXOHggitITw0b01+qWIhx5UJXAkXkND5nl/
-	d0g6NyPClL5ktgI9U+vpVXCpthdp1vPCGlfE2GY0+k/A1lHW6FJIsL8OqR5p+YW6pqrO2HWIgjG6T
-	cTIAjTZmECMBGWnpPBSJl1BKHpPvqjRb3W3lVg0a55azDDsm4Aol0wc3Rxor5IYTPlNt66xUtxh9u
-	wujJeZLIGpelOhrWs9IdlGMs5Rmcms1Srinr2jLU5FBos+PdCuSCxPySfpkG9OEBYrprpPIZs3CHj
-	w/pXGd1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SfLY+StWgd89RasNXxXggmjoiUuGiW941YAAIzfupLw=; b=Z7FDCjEN571X02YqTVskJX1XeU
+	BQm359oSdWNdjh3GzakAszqoPxpFwhcrNhFQwYu+fnLR3ki+pWjUFQze/sOfuFVcnlTGR7MbisuLD
+	b9b0kBtLWJAiWpZvCFMQDDIvEUFRBhzpNCoPibOSudcH9t5wNO1Zf3GpsaQZEtpW6c+f7DrMDkh9W
+	+pSvSSExAoi2lhvKF+wldlZSOIalJ4jJRHEvjNIQL2it4rqoL5+xxnPGinXpgxeUOVyBR4kOi8BWP
+	yofJ7hFIq27MstQGhhcgtBd18Wk2M3pzIn0v9V2DjF2yQjTj4nj+U3bNl0cbqqXRwX2r8LcJwRcZv
+	oOaD6mXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIggW-00000006Xnf-1tYG;
-	Tue, 11 Nov 2025 05:12:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIggT-00000006Xn5-1I4Q
+	id 1vIghA-00000006Xtm-3Jkj;
+	Tue, 11 Nov 2025 05:13:32 +0000
+Received: from mail-westus3azon11011067.outbound.protection.outlook.com ([40.107.208.67] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIgh7-00000006Xsk-2T0F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 05:12:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2668B2B;
-	Mon, 10 Nov 2025 21:12:40 -0800 (PST)
-Received: from [10.164.136.36] (unknown [10.164.136.36])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBE473F66E;
-	Mon, 10 Nov 2025 21:12:44 -0800 (PST)
-Message-ID: <19def538-3fb6-48a1-ae8b-a82139b8bbb9@arm.com>
-Date: Tue, 11 Nov 2025 10:42:41 +0530
+	Tue, 11 Nov 2025 05:13:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YdPiRvOJNQzQSO6Pe/S59Of92lcHAq28uyKcsUDA9LmBngxYrO7yLKmZ3okGtS73f8Aq7l56waQcc2NbquvTY6lTNbtok4HgJjDNFu0FNvi9slSuFrMip8lPazDFiqOW2eoOJn83wiPc+l4VtS3Fh0Vcznjk0ZFSmlsaIIALo7sKEUpT3tCD5XnqAt0zB3WH07+5UQ/AwEWqMQ2iDOVvJeWv3CcxvMjLfK2Pf99wmjVcp/jhiJKnJa8kYgtDResBkCGqFRrS788rkednP/LZPzlH3xYg5bmVMHoSy3fx3y9W0/K23rMRAbf7+uqpCktkESOIT+T5RqHctCMjTul8Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SfLY+StWgd89RasNXxXggmjoiUuGiW941YAAIzfupLw=;
+ b=N4TTtaXpxFnNtF64ks3dhwCCedodIZM8xLfcs2KO2FsON/tZHpqOFo6cTComH+CJtY2Ld88AGaStifv4CJJwKr2nT+wj+rw6nzzcsb2Nv1FwztZWAPaHcy+2bOh72o7cw8nJEI2aCl4mtDXDTH2zfZ4m5DLOiCVyFkUStA1Kc7yxIKPYYw5MG2fADw10eTrZn54pA8lmxpwJ9PMyjKwzovl0Sj7RbCM8AyMSIlLoUt9Dfj5o91kAreupOpNUKhF+HT1y4csqfaQcAqmAVm2lOXh2r5ihiTJFG4wP2duBHqcorYEq1AImLidn6w2BECFdM5mzC0Gv7onraAC2eiKzyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SfLY+StWgd89RasNXxXggmjoiUuGiW941YAAIzfupLw=;
+ b=VDjrkfcT1TP7Vn0JP6yXLUIosUDwA73f4LZeEgUniXEGsfJ4aFJKWjmq0NvYMSI0JccoDDvPaO4I9LOu6qRnYMiZWE3+hSbt+qebV+CC46vSEEA54Nzf31nK8GmqWyzvfWasFtmbTRMUGYVMuwuYDtdKciOtCF4kBOyeipmURSqRFZ0sxtPOmVkR0rE+oqulZ16M+YU21uWAQHimUTojxx7ei5wbE3/zeMvLjl7nQPG3GelFnExykDjlyAR+XLHRjtmmglk8TLgIGi+kZUYGacCv5EZkdpBORcJChxkMIeUjCdCs6Y+OFGSkbhhjMkuwLOCgfrUsr7I+NrphqPOkFA==
+Received: from DS7PR03CA0027.namprd03.prod.outlook.com (2603:10b6:5:3b8::32)
+ by SN7PR12MB7883.namprd12.prod.outlook.com (2603:10b6:806:32b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
+ 2025 05:13:23 +0000
+Received: from DS3PEPF0000C381.namprd04.prod.outlook.com
+ (2603:10b6:5:3b8:cafe::3d) by DS7PR03CA0027.outlook.office365.com
+ (2603:10b6:5:3b8::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Tue,
+ 11 Nov 2025 05:13:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF0000C381.mail.protection.outlook.com (10.167.23.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 05:13:23 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 10 Nov
+ 2025 21:13:14 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 10 Nov
+ 2025 21:13:14 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Mon, 10 Nov 2025 21:13:13 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <joro@8bytes.org>, <afael@kernel.org>, <bhelgaas@google.com>,
+	<alex@shazbot.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <lenb@kernel.org>,
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <patches@lists.linux.dev>, <pjaroszynski@nvidia.com>,
+	<vsethi@nvidia.com>, <helgaas@kernel.org>, <etzhao1900@gmail.com>
+Subject: [PATCH v5 1/5] iommu: Lock group->mutex in iommu_deferred_attach()
+Date: Mon, 10 Nov 2025 21:12:51 -0800
+Message-ID: <11b3ab833d717feb41ce23ae6ebdc3af13ea55a7.1762835355.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1762835355.git.nicolinc@nvidia.com>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Yang Shi <yang@os.amperecomputing.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, rppt@kernel.org,
- shijie@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20251103061306.82034-1-dev.jain@arm.com>
- <aQjHQt2rYL6av4qw@willie-the-truck>
- <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
- <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
- <aQn4EwKar66UZ7rz@willie-the-truck>
- <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
- <17eed751-e1c5-4ea5-af1d-e96da16d5e26@arm.com>
- <c1701ce9-c8b7-4ac8-8dd4-930af3dad7d2@os.amperecomputing.com>
- <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
- <94c91f8f-cd8f-4f51-961f-eb2904420ee4@os.amperecomputing.com>
- <47f0fe70-5359-4b98-8a23-c09ab20bd6d9@arm.com>
- <ca628d43-502a-42f1-be57-bcb37103ddf8@os.amperecomputing.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <ca628d43-502a-42f1-be57-bcb37103ddf8@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C381:EE_|SN7PR12MB7883:EE_
+X-MS-Office365-Filtering-Correlation-Id: 967611e0-4ea0-45f8-0447-08de20e1097d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nrTeELvhBSRe2R2/trtVaVvZUgapDmtJzP6dI+2c4UGJEOkdzm9OY/tV974R?=
+ =?us-ascii?Q?TT7Mhm9/qhrXJbGCMzTpKcjbshVpz2fZELH+G5tjlCcsCPXOg1zNJ6nTXtUI?=
+ =?us-ascii?Q?nj2I/7g2fbcKCXwqCD4YxsC9clfoVjC3yXsr7naF0gQ2qK1UkYozeih25bwm?=
+ =?us-ascii?Q?Oi59moPx5xpTGX2aFNBHF27e5V8MtWQumwIrOzfAq9wk/qX3YBPTs07aD4fO?=
+ =?us-ascii?Q?YD2FKDsV0Zl5qVXLlXOuS2QmeWLmzJmdNelAYTs2UUxPl8ppTat/fu1mvNFr?=
+ =?us-ascii?Q?orQS3zXoMW6KCJ28L/++oqUDn7lbTmHIfU8GR996zZApLIB61G/7asw1PPJl?=
+ =?us-ascii?Q?IKLX4gHDwJKFfjIglybr/T02yo7RUeH3uUowJh0ziAweDUMKEhtwtOje7iPn?=
+ =?us-ascii?Q?NJ3xjHNYdEw4m79dgDuPhhoArBuhCMCyFQCZtwNOXw1GXe5DxBJeA/rxKtpM?=
+ =?us-ascii?Q?bjInTvo93lx+qIy1VODFwfv5SA9SK00BQZ2A7Zp0Ys2Ry4lC05rg7a59m1ju?=
+ =?us-ascii?Q?/jwAyQWAfyQGtng093XH+MkCO7a83nv7nECzKZjqi1/yKh1BdVTurmkDfy+o?=
+ =?us-ascii?Q?nQQiNdeSPMLlBx970vCGV/CQOvYqgxjt523PR+5yunSIzu09ZT8DJLz+vDPx?=
+ =?us-ascii?Q?8mhIy1BoPpIzgMrYbzJVzwGI8UsFbGgC+NXz/VVmJHpYW8FtEOhe1BI2Wqha?=
+ =?us-ascii?Q?YrPmdi6J5i9oNL9KJsizkfkVl79GpxT+1A4kp1CivXx0W/rEAkwnrUXJqyOt?=
+ =?us-ascii?Q?XcuqwWKKcsUDuxzNzXJlYkNFblYJH8sFYkP+bCIVol9ety68UnCxpSu3abDy?=
+ =?us-ascii?Q?oR95UGdFoJgtPLcR8TORoi0/A7SYo1b15ztAQn1Hx7R0oJPQsw8pFCUiS2LY?=
+ =?us-ascii?Q?D4NAkUwkvnp5BDhPpUtyn79YMSBNVY5XfihIpk9YAf4l/YOpB6Mh9dDcuT+d?=
+ =?us-ascii?Q?cPtOKE2oFXp2dbuy+p2RqwORIh42mVxlMesL0gDP4feWb83B0P37P53Xd8QJ?=
+ =?us-ascii?Q?s2hfC91ON6QtqGpnv8H8mtyBkJm7FIyhNgzXrafmE0gKTYBWU+jxaTCOZrpM?=
+ =?us-ascii?Q?X/KP11LD1IBiR/u5XlQx+iNXUVFfnHK/VjLPTTeItEeSoEKzxeezPTXrmjuU?=
+ =?us-ascii?Q?LJlhuZQGyfwrJFJHk4nOXtLmVX33PLaF0iGqPbzQ+MDvXamhRGzOfvjU2w6a?=
+ =?us-ascii?Q?DqwBE5hiwuxhYeH6JUQS9E6V0aX1Jmq7S8VJQBUdBjNdwLlehp234hxuwwSF?=
+ =?us-ascii?Q?lsYD0lzWbqSSkqoB+Tu1LxgpkgQF1Bc+wNF93zFAuydPxKfc1UetRzB3KlwT?=
+ =?us-ascii?Q?ubvpl1h0QWB+VZukB9Zik0Fa2Axz6UTAHWPueycBPc/wS5GTfxULhn4vsWWj?=
+ =?us-ascii?Q?hM7A3rHoIqLYw+d/bu4xjb/qG33cnTGUCRrBiLBpPr7w03l3+6lW0HpdCzjW?=
+ =?us-ascii?Q?LRydRILzaIq0L5vUbkS+80KJeEXanTTskJEY2bcpTS2yHJBES/PntFVSZ+hj?=
+ =?us-ascii?Q?NOKyiHBzJZGs8NtpcPnHbbwp2udymVSiX0M8HSsOG7NJRewCvhSQzjYRewL+?=
+ =?us-ascii?Q?TEJ76WClS1nv9svvnCg=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 05:13:23.0674
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 967611e0-4ea0-45f8-0447-08de20e1097d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7883
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_211249_436563_99C456A5 
-X-CRM114-Status: GOOD (  37.52  )
+X-CRM114-CacheID: sfid-20251110_211329_806366_C906DE20 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,260 +155,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The iommu_deferred_attach() function invokes __iommu_attach_device(), but
+doesn't hold the group->mutex like other __iommu_attach_device() callers.
 
-On 11/11/25 10:38 am, Yang Shi wrote:
->
->
-> On 11/10/25 8:55 PM, Dev Jain wrote:
->>
->> On 11/11/25 10:14 am, Yang Shi wrote:
->>>
->>>
->>> On 11/10/25 8:37 PM, Dev Jain wrote:
->>>>
->>>> On 11/11/25 9:47 am, Yang Shi wrote:
->>>>>
->>>>>
->>>>> On 11/10/25 7:39 PM, Dev Jain wrote:
->>>>>>
->>>>>> On 05/11/25 9:27 am, Dev Jain wrote:
->>>>>>>
->>>>>>> On 04/11/25 6:26 pm, Will Deacon wrote:
->>>>>>>> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
->>>>>>>>> On 04/11/25 12:15 am, Yang Shi wrote:
->>>>>>>>>> On 11/3/25 7:16 AM, Will Deacon wrote:
->>>>>>>>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
->>>>>>>>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping 
->>>>>>>>>>>> when
->>>>>>>>>>>> rodata=full"),
->>>>>>>>>>>> __change_memory_common has a real chance of failing due to 
->>>>>>>>>>>> split
->>>>>>>>>>>> failure.
->>>>>>>>>>>> Before that commit, this line was introduced in c55191e96caa,
->>>>>>>>>>>> still having
->>>>>>>>>>>> a chance of failing if it needs to allocate pagetable 
->>>>>>>>>>>> memory in
->>>>>>>>>>>> apply_to_page_range, although that has never been observed 
->>>>>>>>>>>> to be true.
->>>>>>>>>>>> In general, we should always propagate the return value to 
->>>>>>>>>>>> the caller.
->>>>>>>>>>>>
->>>>>>>>>>>> Cc: stable@vger.kernel.org
->>>>>>>>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
->>>>>>>>>>>> areas to its linear alias as well")
->>>>>>>>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>>>>>>>>>> ---
->>>>>>>>>>>> Based on Linux 6.18-rc4.
->>>>>>>>>>>>
->>>>>>>>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
->>>>>>>>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
->>>>>>>>>>>>
->>>>>>>>>>>> diff --git a/arch/arm64/mm/pageattr.c 
->>>>>>>>>>>> b/arch/arm64/mm/pageattr.c
->>>>>>>>>>>> index 5135f2d66958..b4ea86cd3a71 100644
->>>>>>>>>>>> --- a/arch/arm64/mm/pageattr.c
->>>>>>>>>>>> +++ b/arch/arm64/mm/pageattr.c
->>>>>>>>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
->>>>>>>>>>>> long addr, int numpages,
->>>>>>>>>>>>        unsigned long size = PAGE_SIZE * numpages;
->>>>>>>>>>>>        unsigned long end = start + size;
->>>>>>>>>>>>        struct vm_struct *area;
->>>>>>>>>>>> +    int ret;
->>>>>>>>>>>>        int i;
->>>>>>>>>>>>          if (!PAGE_ALIGNED(addr)) {
->>>>>>>>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
->>>>>>>>>>>> long addr, int numpages,
->>>>>>>>>>>>        if (rodata_full && (pgprot_val(set_mask) == 
->>>>>>>>>>>> PTE_RDONLY ||
->>>>>>>>>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
->>>>>>>>>>>>            for (i = 0; i < area->nr_pages; i++) {
->>>>>>>>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>>>>> +            ret =
->>>>>>>>>>>> __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>>>>>                               PAGE_SIZE, set_mask, 
->>>>>>>>>>>> clear_mask);
->>>>>>>>>>>> +            if (ret)
->>>>>>>>>>>> +                return ret;
->>>>>>>>>>> Hmm, this means we can return failure half-way through the 
->>>>>>>>>>> operation. Is
->>>>>>>>>>> that something callers are expecting to handle? If so, how 
->>>>>>>>>>> can they tell
->>>>>>>>>>> how far we got?
->>>>>>>>>> IIUC the callers don't have to know whether it is half-way or 
->>>>>>>>>> not
->>>>>>>>>> because the callers will change the permission back (e.g. to 
->>>>>>>>>> RW) for the
->>>>>>>>>> whole range when freeing memory.
->>>>>>>>> Yes, it is the caller's responsibility to set 
->>>>>>>>> VM_FLUSH_RESET_PERMS flag.
->>>>>>>>> Upon vfree(), it will change the direct map permissions back 
->>>>>>>>> to RW.
->>>>>>>> Ok, but vfree() ends up using update_range_prot() to do that 
->>>>>>>> and if we
->>>>>>>> need to worry about that failing (as per your commit message), 
->>>>>>>> then
->>>>>>>> we're in trouble because the calls to set_area_direct_map() are 
->>>>>>>> unchecked.
->>>>>>>>
->>>>>>>> In other words, this patch is either not necessary or it is 
->>>>>>>> incomplete.
->>>>>>>
->>>>>>> Here is the relevant email, in the discussion between Ryan and 
->>>>>>> Yang:
->>>>>>>
->>>>>>> https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com/ 
->>>>>>>
->>>>>>>
->>>>>>> We had concluded that all callers of set_memory_ro() or 
->>>>>>> set_memory_rox() (which require the
->>>>>>> linear map perm change back to default, upon vfree() ) will call 
->>>>>>> it for the entire region (vm_struct).
->>>>>>> So, when we do the set_direct_map_invalid_noflush, it is 
->>>>>>> guaranteed that the region has already
->>>>>>> been split. So this call cannot fail.
->>>>>>>
->>>>>>> https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com/ 
->>>>>>>
->>>>>>>
->>>>>>> This email notes that there is some code doing set_memory_rw() 
->>>>>>> and unnecessarily setting the VM_FLUSH_RESET_PERMS
->>>>>>> flag, but in that case we don't care about the 
->>>>>>> set_direct_map_invalid_noflush call failing because the protections
->>>>>>> are already RW.
->>>>>>>
->>>>>>> Although we had also observed that all of this is fragile and 
->>>>>>> depends on the caller doing the
->>>>>>> correct thing. The real solution should be somehow getting rid 
->>>>>>> of the BBM style invalidation.
->>>>>>> Ryan had proposed some methods in that email thread.
->>>>>>>
->>>>>>> One solution which I had thought of, is that, observe that we 
->>>>>>> are doing an overkill by
->>>>>>> setting the linear map to invalid and then default, for the 
->>>>>>> *entire* region. What we
->>>>>>> can do is iterate over the linear map alias of the vm_struct 
->>>>>>> *area and only change permission
->>>>>>> back to RW for the pages which are *not* RW. And, those relevant 
->>>>>>> mappings are guaranteed to
->>>>>>> be split because they were changed from RW to not RW.
->>>>>>
->>>>>> @Yang and Ryan,
->>>>>>
->>>>>> I saw Yang's patch here:
->>>>>> https://lore.kernel.org/all/20251023204428.477531-1-yang@os.amperecomputing.com/ 
->>>>>>
->>>>>> and realized that currently we are splitting away the linear map 
->>>>>> alias of the *entire* region.
->>>>>>
->>>>>> Shouldn't this then imply that set_direct_map_invalid_noflush 
->>>>>> will never fail, since even
->>>>>>
->>>>>> a set_memory_rox() call on a single page will split the linear 
->>>>>> map for the entire region,
->>>>>>
->>>>>> and thus there is no fragility here which we were discussing 
->>>>>> about? I may be forgetting
->>>>>>
->>>>>> something, this linear map stuff is confusing enough already.
->>>>>
->>>>> It still may fail due to page table allocation failure when doing 
->>>>> split. But it is still fine. We may run into 3 cases:
->>>>>
->>>>> 1. set_memory_rox succeed to split the whole range, then 
->>>>> set_direct_map_invalid_noflush() will succeed too
->>>>> 2. set_memory_rox fails to split, for example, just change partial 
->>>>> range permission due to page table allocation failure, then 
->>>>> set_direct_map_invalid_noflush() may
->>>>>    a. successfully change the permission back to default till 
->>>>> where set_memory_rox fails at since that range has been 
->>>>> successfully split. It is ok since the remaining range is actually 
->>>>> not changed to ro by set_memory_rox at all
->>>>>    b. successfully change the permission back to default for the 
->>>>> whole range (for example, memory pressure is mitigated when 
->>>>> set_direct_map_invalid_noflush() is called). It is definitely fine 
->>>>> as well
->>>>
->>>> Correct, what I mean to imply here is that, your patch will break 
->>>> this? If set_memory_* is applied on x till y, your patch changes 
->>>> the linear map alias
->>>>
->>>> only from x till y - set_direct_map_invalid_noflush instead 
->>>> operates on 0 till size - 1, where 0 <=x <=y <= size - 1. So, it 
->>>> may encounter a -ENOMEM
->>>>
->>>> on [0, x) range while invalidating, and that is *not* okay because 
->>>> we must reset back [0, x) to default?
->>>
->>> I see your point now. But I think the callers need to guarantee they 
->>> call set_memory_rox and set_direct_map_invalid_noflush on the same 
->>> range, right? Currently kernel just calls them on the whole area.
->>
->> Nope. The fact that the kernel changes protections, and undoes the 
->> changed protections, on the *entire* alias of the vm_struct region, 
->> protects us from the fragility we were talking about earlier.
->
-> This is what I meant "kernel just calls them on the whole area".
->
->>
->> Suppose you have a range from 0 till size - 1, and you call 
->> set_memory_* on a random point (page) p. The argument we discussed 
->> above is independent of p, which lets us drop our
->>
->> previous erroneous conclusion that all of this works because no 
->> caller does a partial set_memory_*.
->
-> Sorry I don't follow you. What "erroneous conclusion" do you mean? You 
-> can call set_memory_* on a random point, but 
-> set_direct_map_invalid_noflush() should be called on the random point 
-> too. The current code of set_area_direct_map() doesn't consider this 
-> case because there is no such call. Is this what you meant?
+Though there is no pratical bug being triggered so far, it would be better
+to apply the same locking to this __iommu_attach_device(), since the IOMMU
+drivers nowaday are more aware of the group->mutex -- some of them use the
+iommu_group_mutex_assert() function that could be potentially in the path
+of an attach_dev callback function invoked by the __iommu_attach_device().
 
+Worth mentioning that the iommu_deferred_attach() will soon need to check
+group->resetting_domain that must be locked also.
 
-I was referring to the discussion in the linear map work - I think we 
-had concluded that we don't need to worry about the BBM style 
-invalidation failing, *because* no one does a partial set_memory_*.
+Thus, grab the mutex to guard __iommu_attach_device() like other callers.
 
-What I am saying - we don't care whether caller does a partial or a full 
-set_memory_*, we are still safe, because the linear map alias change on 
-both sides (set_memory_* -> __change_memory_common, and vm_reset_perms 
--> set_area_direct_map() )
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/iommu.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
-operate on the entire region.
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 2ca990dfbb884..170e522b5bda4 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -2185,10 +2185,17 @@ EXPORT_SYMBOL_GPL(iommu_attach_device);
+ 
+ int iommu_deferred_attach(struct device *dev, struct iommu_domain *domain)
+ {
+-	if (dev->iommu && dev->iommu->attach_deferred)
+-		return __iommu_attach_device(domain, dev, NULL);
++	/*
++	 * This is called on the dma mapping fast path so avoid locking. This is
++	 * racy, but we have an expectation that the driver will setup its DMAs
++	 * inside probe while being single threaded to avoid racing.
++	 */
++	if (!dev->iommu || !dev->iommu->attach_deferred)
++		return 0;
+ 
+-	return 0;
++	guard(mutex)(&dev->iommu_group->mutex);
++
++	return __iommu_attach_device(domain, dev, NULL);
+ }
+ 
+ void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
+-- 
+2.43.0
 
-
->
->>
->>
->> I would like to send a patch clearly documenting this behaviour, 
->> assuming no one else finds a hole in this reasoning.
->
-> Proper comment to explain the subtle behavior is definitely welcome.
->
-> Thanks,
-> Yang
->
->>
->>
->>>
->>> Thanks,
->>> Yang
->>>
->>>>
->>>>
->>>>>
->>>>> Hopefully I don't miss anything.
->>>>>
->>>>> Thanks,
->>>>> Yang
->>>>>
->>>>>
->>>>>>
->>>>>>
->>>>>>>
->>>>>>>>
->>>>>>>> Will
->>>>>>>
->>>>>
->>>
->
 
