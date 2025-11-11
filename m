@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 901E8CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAF3CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GeOtfZ/2jEXI4JZJbkmlwASajVLEWsFaSswuR8dEivA=; b=hNLl8dMqnXwukhgIdSS23oV/MX
-	jrlyUFkqXl0rErjLbw4SHezrvgunKya6u+3xvvKvxRcwmXDtWMM5dwmLtux8Ogtr0RQ9MaSgsJlAB
-	wtBfVLGM7jAriwihRc76UF8t6vYrIjxWmWqDcUFm8KfhK8VLBItoQtzKbM6CrKcBI76LQCjn5MFuE
-	9GDKC/xAvNvHGoVAnaTxMdtLgO3hu7ctT8gPPPA90LswZobHP3Ty4t17uQ1JmiyZBPMAepFu/rAti
-	7746icv3in6R1qW7YdXu8b6zmJppM+aIFL+c9drgUbo2MoyoHl0giiShjyHhi/TULZkp/fxncAz/K
-	7RA7EeTw==;
+	bh=qsITilBXp19OSMLNyHWtGaOi0EfIBO4czotRu+0gH3o=; b=Cu76T5rSpAy+AEM1b/IQMKlhE8
+	B6FQsFmtazVZt7vF8PmPEgxXrHijfLBbLFpClu3gPepL2l1VOcJZ33HfkEQiwBX3E/FoGcXGtQbVh
+	w3vAl0n7yBj1aKPVzoqv46IIpIuvzXBKCSP28mhvlZs9CJeUcCytauOPE5/BWEtM23XANOUVmAVf5
+	y3bRx6LBkuKu1Pg2uEsB90R2hJFTNPsuasPYQ5iXukyVe66oCWJ5z/lnN4YXhp9v01W1s4w4t+fix
+	BNJwicS7wEzS7W2K7NvykGO/FuDYKAtT/8Sa9pb7mOq0OJEwaRi9HkCf30oEvKJFGxPhbBQ0WFGsi
+	GCs8evLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsgC-00000007Ziw-3ldA;
-	Tue, 11 Nov 2025 18:01:20 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1vIsig-00000007Zyj-1tk5;
+	Tue, 11 Nov 2025 18:03:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsg9-00000007ZgU-3oja
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 18:01:18 +0000
-Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id EAB1B1FBD9;
-	Tue, 11 Nov 2025 19:01:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1762884076;
-	bh=GeOtfZ/2jEXI4JZJbkmlwASajVLEWsFaSswuR8dEivA=;
-	h=Received:From:To:Subject;
-	b=aI8bGIWAI2vpUM0Q1gPxC2D2j9khL0+ZtZzVyH/TwXYIPPPmZbyTTLZfONdwF9m16
-	 k12Sml81K6lHHHhQTB0FRpKbInzV7b56G/tXHR6RXMoq8/b0bp6bi0T4aR+jSoMq5/
-	 zf2WPxwIJCmqbSD8cIg9hUcldH0gZTEX0KGb+Z8zUfuweGEZuoq/UyDtaH1bEUolv9
-	 qzgS7Kgla9vdvLDhzbhwFsyZW7TUxq09EpZ5iHFDf4FaNxV5DV/R6RBz+yzNr7BM8Q
-	 dbndxxKuojLcQ0kkU2Udhl3n4cnXZ4ZttnHDho3njVX/eahgVLYioaId67rQgsEfMx
-	 s816fstyTSeww==
-Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
-	id 92C177F982; Tue, 11 Nov 2025 19:01:15 +0100 (CET)
-Date: Tue, 11 Nov 2025 19:01:15 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Kirill A. Shutemov" <kas@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Max Krummenacher <max.krummenacher@toradex.com>,
+	id 1vIsif-00000007ZyZ-2d0M;
+	Tue, 11 Nov 2025 18:03:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84E73601F9;
+	Tue, 11 Nov 2025 18:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21B8BC4CEF5;
+	Tue, 11 Nov 2025 18:03:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762884232;
+	bh=mirE0FVC1aFCsQq2eMehFBIBONouR+WUmeEdSPLLXaU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UoxZ2qITmDCIv3Aw71Gtor6BXmxZ1wnoHiUP/IBntzbdAFxQ9XxovK8QSj2aDPfZf
+	 8IqPCAlCuq0F29Cbyszl60cwbOySqlX8Rj5fwBoLkDonymsRi7FtTTer6S+8EI4kqM
+	 /ut0BcYpYH4KdK4sZNYt0ARyTafsLbJsT2J1vKYwJE48dIlDpf49nt492SCsRajbeb
+	 N7w7bHAXlZp2gWqVuLabvi9TMqJAmHGuMrDDhb1WkFwSw2R9+XPQRX4y7EiAn/1Y0P
+	 pkrI36WZ83pDlW7P7nW0wY6+KaIUsVMglj8ztkQuZyvx7fRB8f45cARtGA3HLG7lmq
+	 XpVhTSucBjALg==
+Date: Tue, 11 Nov 2025 18:03:43 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jack Hsu <jh.hsu@mediatek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, srini@kernel.org,
+	ukleinek@kernel.org, gregkh@linuxfoundation.org,
+	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
+	chunfeng.yun@mediatek.com, wim@linux-watchdog.org,
+	linux@roeck-us.net, sean.wang@mediatek.com,
+	zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com,
+	lala.lin@mediatek.com, jitao.shi@mediatek.com,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
-	Vitor Soares <vitor.soares@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add Toradex SMARC iMX95
-Message-ID: <aRN562k3NXCMghEl@gaggiata.pivistrello.it>
-References: <20251111151618.70132-1-francesco@dolcini.it>
- <20251111151618.70132-3-francesco@dolcini.it>
- <aRNeMJWsCTRO3j6X@lizhi-Precision-Tower-5810>
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v7 8/9] arm64: dts: mediatek: update rtc properties for
+ MT6359
+Message-ID: <20251111-heroism-greasily-fb01345ae609@spud>
+References: <20251111070031.305281-1-jh.hsu@mediatek.com>
+ <20251111070031.305281-9-jh.hsu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wFCZWHo1MJf80ONG"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRNeMJWsCTRO3j6X@lizhi-Precision-Tower-5810>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_100118_130208_55EB94E5 
-X-CRM114-Status: GOOD (  20.91  )
+In-Reply-To: <20251111070031.305281-9-jh.hsu@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,68 +84,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
 
-On Tue, Nov 11, 2025 at 11:02:56AM -0500, Frank Li wrote:
-> On Tue, Nov 11, 2025 at 04:16:14PM +0100, Francesco Dolcini wrote:
-> > From: Max Krummenacher <max.krummenacher@toradex.com>
-> >
-> > Add DT support for Toradex SMARC iMX95 SoM and Development carrier
-> > board.
-> >
-> > The module consists of an NXP i.MX95 family SoC, up to 16GB of LPDDR5
-> > RAM and up to 128GB of storage, a USB 3.0 Host Hub and 2.0 OTG, two
-> > Gigabit Ethernet PHYs, a 10 Gigabit Ethernet interface, an I2C EEPROM
-> > and Temperature Sensor, an RX8130 RTC, a Quad/Dual lane CSI interface,
-> > and some optional addons: TPM 2.0, DSI, LVDS, DisplayPort (through a
-> > DSI-DP bridge), and Wi-Fi/BT module.
-> >
-> > Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-imx95
-> > Link: https://www.toradex.com/products/carrier-board/smarc-development-board-kit
-> > Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
-> > Co-developed-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > Co-developed-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
-> > Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
-> > Co-developed-by: Vitor Soares <vitor.soares@toradex.com>
-> > Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
-> > Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > ---
-> > v2:
-> >  - move enable-active-high after gpio
-> >  - add newline between properties and child node in som_dsi2dp_bridge
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile        |    1 +
-> >  .../dts/freescale/imx95-toradex-smarc-dev.dts |  277 ++++
-> >  .../dts/freescale/imx95-toradex-smarc.dtsi    | 1155 +++++++++++++++++
-> >  3 files changed, 1433 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> > index 75676b908299..28f8eaf18471 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -390,6 +390,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
-> >
-> ...
-> > +
-> > +/* SMARC PCIE_A / M2 Key B */
-> > +&pcie0 {
-> > +	status = "okay";
-> 
-> Nit: if there are next version, please consider add supports-clkreq.
+--wFCZWHo1MJf80ONG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-What do you expect exactly?
-Maybe what you are looking for is in imx95-toradex-smarc.dtsi?
+On Tue, Nov 11, 2025 at 02:59:22PM +0800, Jack Hsu wrote:
+> Update properties of rtc for mt6359 PMIC
+>=20
+> Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
+>=20
+> ---
+> Changs in v7:
+>  - remove mt635x-auadc.h
+>  - remove fg nodes
+>=20
+> ---
+>  arch/arm64/boot/dts/mediatek/mt6359.dtsi | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt6359.dtsi
+> index 467d8a4c2aa7..fe737254c091 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+> @@ -302,6 +302,9 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshub=
+ {
+> =20
+>  		mt6359rtc: rtc {
+>  			compatible =3D "mediatek,mt6358-rtc";
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <1>;
+> +			status =3D "disabled";
 
-Francesco
+Okay, this looks a lot better now. Still missing an explanation of why
+it has been moved to disabled though, especially since you just go and
+re-enable it (without adding child devices that use the address/size
+cells).
+pw-bot: changes-requested
+
+>  		};
+>  	};
+>  };
+> --=20
+> 2.45.2
+>=20
+
+--wFCZWHo1MJf80ONG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRN6fwAKCRB4tDGHoIJi
+0uoFAQDNm4ule8p2MhE3JjSHzEvgFm4U+PmD7w7D5a6po+6lFQD+MjosiBlNJq1z
+mhXOc0fMS+qD6LGsDwugFT6pPQ4lzwA=
+=+aBt
+-----END PGP SIGNATURE-----
+
+--wFCZWHo1MJf80ONG--
 
