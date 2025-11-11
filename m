@@ -4,113 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF719CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 21:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9D6CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 22:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FySy0LCStPtORY6VK+463tcchOxR2p6Krr0cw/eyN50=; b=POS/y/9WOu4KXYBSKv2IwNL5BF
-	zKFvHUpWcWVLDODT/d7ReRgQzLMs2b1IvNWfYoVQ7wzREGyn76i9R/ma4N8/JP2suc8CSukIFC+Vs
-	VrKw4G9rg+0NqPB5C+sdY3iNO2MNe6drdjHbgRRLjf9f/4coXrjEKL1Mo3fBGYPz48uSgEI0YGLq5
-	2p7+eU0jAKgXJzhYaX7cdmqlGC/i0lMLQKBHzZkqmuMSwJL1/xDlcGDTEQ5R70/LUvo8TP8SYQlgZ
-	KxTm5z5BTeRv4VUZ5bQEM7YlAdpfxjP+7hj+U2L2NElH1Idkb1xnFCFEHoBk4b3/UcGo5PFiovr0y
-	C8amVcZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EJ2TTVuI+l3ft2C3eRA9OGyBPbsBmnZVvxUvjFt2OMg=; b=X6/iozBp3jT3p8mz+GzOo6ltnD
+	DeFoPO3GKcbw0IDCHGwiXEm01jeIZmRsgRqgFgbyLdt3ge9/5pygKpNMHpI6hFU1hQn7+ysubldTc
+	kDjjNmxZw6ztFLpD5FZvrUIqA1SqwZ0UmL+AHGzzSRYTtp0YZWuGpUHkK7zPpT6ozn3/SEUcQGCZO
+	0KklJIsNYNnV1sBzNi9ruCB5yckkKwtiHmFZKCj3PUlhuQEnn70sqqYT4NYRzA59iWp1FQ2Cx3wcl
+	RuNIGQtKMhjvABVIJNiT+SUjT2qG3C0hExz2pgqDfQusGtscI4xtVaxbSVBAbAaxJdJU02R6tnt8V
+	qUH9ef7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIwMN-00000007ozf-3HPd;
-	Tue, 11 Nov 2025 21:57:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vIwVH-00000007pOv-3Iak;
+	Tue, 11 Nov 2025 22:06:19 +0000
+Received: from mail-francesouthazon11011071.outbound.protection.outlook.com ([40.107.130.71] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIwMJ-00000007oxa-09mS
+	id 1vIwVF-00000007pOY-1IcN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 21:57:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1762898222;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FySy0LCStPtORY6VK+463tcchOxR2p6Krr0cw/eyN50=;
-	b=DS40U8+gpd7rMpoipfauE9ao+xwLxikx56up98NVmVOXf+l68A4vz3W8xl50PPNkM/FSTQ
-	e/RDTDKuPKDIg7KhbONN7AXMs8Qs4O28QjtLBdQUBnr7jQu5zNtACJLJrTnBeQqW8oSI4T
-	rg6sEWgTf4c5Kis+IMXQiKwEoemUF4U=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-252-hUaYYfXcMjOsweQgizW2hw-1; Tue, 11 Nov 2025 16:55:11 -0500
-X-MC-Unique: hUaYYfXcMjOsweQgizW2hw-1
-X-Mimecast-MFC-AGG-ID: hUaYYfXcMjOsweQgizW2hw_1762898111
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b2657cfcdaso27588285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 13:55:11 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762898111; x=1763502911;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FySy0LCStPtORY6VK+463tcchOxR2p6Krr0cw/eyN50=;
-        b=jc+4mM+IigTGqInIMocgip9JkAcljtaF4B48a4XH9uTc8M5J9gNbEAFsQEgK+NGmjw
-         pgzEyrAH8+qY5WxwUCXzGz8PnkI3/jS59BMQGUjjx5Bu5Gx7k36iukN+bA/AIp5krK2v
-         AuG60Fk+4zG/GfHi5QM1kZ2urcPSgjQUL7IkOHAL+N9B+8et+bS+FMBpm9jkL2HWwPYO
-         29MhvvJH3ojlmOXTgeJZF9JEhsvxTT5e7yE4LWdzdPlUiKT6O0MGqZgpWcFXYbFi/pku
-         Q+unZpMpQr1uIRkahfx0eFhCCDf8zXPWIDb2VUvcyx8tpI9uz3eHv41lVnyNAuiK1bjR
-         DN4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXcUu3qoeAhgFm+idHt/YfvLcPL5LqyXl5m/YUYe2hjNNe5ulT8fnA1H01+iOcvL8Yk8ltJIB5NrUkBk9YQPwai@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqYWJEtEG9UlJX9scwL3HmxmVs75HxPydUmREppoOFtW/On1Ng
-	BMsbT92XyVYuOvbNBxL0v19FocdFY+IbpnevzY4Q7+e9dUZTK+HMKAYQ87AOZynHjYNGBHbn6+K
-	REmwTqIBsKQ2fkl0MdRdKdhwueGwS6xKdXaoUyCtNzBHPBo9riM8Mf+Pqzk+4bSCUCoawX88oJ9
-	5Z
-X-Gm-Gg: ASbGncs/yFuWdNe8acPDkwI9YrvQqBfT0suAC6UBOZFVjPk6YJhSeNqDnLmxI5PkgUD
-	Psy326HM1oWF2lufz/FWST4rgeh2k4VMfzppJGjeh9J4wKLdZWwQicE7jvoX6jSCzQi0ZrGTHO7
-	3iFWLwDfpn5NOeGwwdUhcx6qkgYJAShrKYIIZ/D8HTjEznksxoqT+3I4r4ldZdP7sL5GBKZBynT
-	q+kbgU8M/pumEPuNl6fJMvmShDxWY3kG1Tuz+RnuxSoiZ6KzpSgPUxcEnvxeFhJFXEFQN9hmcDI
-	WvKQu7sAQfnpmD8qMVi+UAPIpJOG19tumMj3aJWdvgcLDNwkLzLVsjST+EYZ4ydQQQRfyAfwF9o
-	rdX0D8PRc1H09cTyKK9sPyY7Yw/zo4u4=
-X-Received: by 2002:a05:620a:170c:b0:8b2:271e:a560 with SMTP id af79cd13be357-8b29b815efbmr102326385a.72.1762898110773;
-        Tue, 11 Nov 2025 13:55:10 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFVx5pK69Ag3154vIr3OiRkF4L8ppHUN7DwLvrxWK4PbbHtrMDcLkZR/pYDsWLScGfqh5YaAg==
-X-Received: by 2002:a05:620a:170c:b0:8b2:271e:a560 with SMTP id af79cd13be357-8b29b815efbmr102324085a.72.1762898110299;
-        Tue, 11 Nov 2025 13:55:10 -0800 (PST)
-Received: from jkangas-thinkpadp1gen3.rmtuswa.csb ([2601:1c2:4403:8750:d964:d6a9:f204:ed2b])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b29aa032fcsm61335085a.49.2025.11.11.13.55.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Nov 2025 13:55:10 -0800 (PST)
-From: Jared Kangas <jkangas@redhat.com>
-Date: Tue, 11 Nov 2025 13:54:11 -0800
-Subject: [PATCH 1/2] pinctrl: s32cc: fix uninitialized memory in
- s32_pinctrl_desc
+	Tue, 11 Nov 2025 22:06:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vr3OtqKQVjzHKjBw1WQb+gKnGypco36o4MpjA5O3vywEE6Rm2YRF44z1SzfvDhKd6S3C7NfeaT/m7ef/cEZkUuKPHdskfkf0YIpNoPKbFfWA5a2xb/oB5nOgq+4x3J2/JX1n+LeoYqmv7VSY12ygt8jk6uJA6TwW89xHg6g7mkFu+8IPPVX8AuiUKUWyLT75FuZxD1As0CKzYmy8avabtY3I1YQ1+5lO1VITUkaR+Jyd/Dvc5Gferlfj91peUl3Kbz8J5dgdtLiVRyWD56ixaHc6uNghT65QImwt1XXZWz5rGtXV5HnPu/d095dO6NrRD+hDZBK5WGCanvEUJkXbZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EJ2TTVuI+l3ft2C3eRA9OGyBPbsBmnZVvxUvjFt2OMg=;
+ b=zDMZpCl7Z4vw0BuMJg6MeHySPch7F1nI4VmlAgsOBJLLttfU437vI94dV0VaT59uybO6PR2zZVxrx5omaH2gR6hSHOnCkglHHPmH/Cf1WG0QkSubayd7m+T+Mc8C22eB779+vkeGCNnKJ76gMVCrsXyoh51QL/dlfLf2eWXV9htOb/scRTV4RX5njBHSuMGjPQPKsZnUEn9IOHMhW/HHCh5XXQHTFmkSjnU1SEFJt0sk+ebMausdF4K5+DYyII4z39cBdVU3xOqJ0xGwuO/cvCU5aGWS/nK6LimOOpUNuF1JUKbxYmWp/D6n3drYbTF4H1uiyAx9ghYmhE83714ziA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EJ2TTVuI+l3ft2C3eRA9OGyBPbsBmnZVvxUvjFt2OMg=;
+ b=H9VZ+FxercSKpkGY6x0IsUP4XQgWuwir2bKle+NKrTnujJQklBOq4ouDYGwv6O8myVEHIuBsCXo2vNDRNHpgp9bjj2IkDCR9qYA+9jUnlCIRZ2OWngk4AU18iBuSEH00FxvlgreXbQ5rcVRqNRDv6iJDw8qdjUuY/N0m51HyUxcdx9aOpEtW3VG9blFy6uQb0ZTWNATIcJNc7fF79xyS+Qu3kWobllJht7CFmBBO8Id21kTLL7hOCNRvUL/DYIPKt5a+jE2g+CpzRgYz95DlLqY2ynY6smx+Ahov091ZqREIT/VGqUib3LTyEi/5ARuIsuijUc/9HSBhIjhrb4nLJA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DUZPR04MB9982.eurprd04.prod.outlook.com (2603:10a6:10:4db::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
+ 2025 22:06:11 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9298.015; Tue, 11 Nov 2025
+ 22:06:11 +0000
+Date: Tue, 11 Nov 2025 17:06:02 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 1/5] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <aROzSqKEOXQgkWLz@lizhi-Precision-Tower-5810>
+References: <20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com>
+ <20251023-csi2_imx8ulp-v7-1-5ecb081ce79b@nxp.com>
+ <20251027000537.GM13023@pendragon.ideasonboard.com>
+ <aROg99ryy6RTZZIx@lizhi-Precision-Tower-5810>
+ <20251111211025.GA26805@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251111211025.GA26805@pendragon.ideasonboard.com>
+X-ClientProxiedBy: PH7P221CA0034.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::11) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Message-Id: <20251111-pinctrl-s32cc-alloc-init-v1-1-071b3485b776@redhat.com>
-References: <20251111-pinctrl-s32cc-alloc-init-v1-0-071b3485b776@redhat.com>
-In-Reply-To: <20251111-pinctrl-s32cc-alloc-init-v1-0-071b3485b776@redhat.com>
-To: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- NXP S32 Linux Team <s32@nxp.com>, Chester Lin <chester62515@gmail.com>, 
- Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jared Kangas <jkangas@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762898106; l=3179;
- i=jkangas@redhat.com; s=20251111; h=from:subject:message-id;
- bh=r3R6gOHgJpsH0Ckzs+8Ovo1IxuCFFu4tCtcoUxTJujA=;
- b=/a2DmQFQikGB8tMbS1LUwfOT0vMnQIkNOhWStWMNd+63yndO7bdcP3v8AKVc3H81zPQRXNv07
- e1klwEJpmB3DVdhiEREEVNIyvIhIsr774lihmh7uHYh8ICoCmIKxvsw
-X-Developer-Key: i=jkangas@redhat.com; a=ed25519;
- pk=eFM2Mqcfarb4qox390655bUATO0fG9gwgaw7kGmOEZQ=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1yXlF6RScKf6zghabXTpvw-xkwPD2hGJGJueJXcDKQY_1762898111
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DUZPR04MB9982:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8d2ab3a-664d-4552-e028-08de216e85d6
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|52116014|376014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?b6BZd8MRJviH/JX63zjxyvFOTn1NpCbs4p56srvhlnACcw0jFzVRNhmIzWqw?=
+ =?us-ascii?Q?xDRq0GgtGrJlYwZlY4vuIqDDVE8OiliH5x6Jf814S1Xfx61HMXG4M5vp1rzR?=
+ =?us-ascii?Q?jERbp8Snx55V57jA33T/11IcRqwYvLrAsysIYJoXaoDbPUIpbPOfTRF0zMTL?=
+ =?us-ascii?Q?o4j4IxPeb3xgS/Eb3k6J6UeLWEHfp+agwHXbC14FOb2bjMXvIbNvgV5ZTx9x?=
+ =?us-ascii?Q?M/zcFA6+9FlS8sAVsHRybk2QeLvqydMJyFNbyOrjcGv8s9Cs+LybowyQWnkn?=
+ =?us-ascii?Q?M2G5K3h+AaKbxBFhX5ZXnMwu63sXIlcuoWHp04uzGxDc6OEUp5SizmBOPcfC?=
+ =?us-ascii?Q?tQ1IDs0mhu75cbjYETdFtDRKhqpqxMh+/a7gLhFdjc8pIw5SstSJItkckP38?=
+ =?us-ascii?Q?OZUBp4mQHh1MQA3pU4hcQKx9k1M6CFllLjl6VR1tounSxjrGCzvYCUad5Hlf?=
+ =?us-ascii?Q?11BJxw2QfoPK61Fhx1P8bk/DCmLa7IGdJlzK4hWE2jronkeJ+Pn/rAPAnhXv?=
+ =?us-ascii?Q?j5wgfhcB/P5UiKfq0jGDCtBQVEkC71FfqoZZ/Y46RU8PpkBBalpKfy1Al9qX?=
+ =?us-ascii?Q?0MIjehXEqiQP+y/ugPQvyrDYtYgxV3jpn+3S8HP6DgPt2amO8S9R/z75qRnU?=
+ =?us-ascii?Q?QZfdH5BZA/9VA7Io4ifxDw598SWX5azvLcZumwRNmZXXOY43auHeT8tM8m5g?=
+ =?us-ascii?Q?WZatINS2DM68Atn1rceH/9IAnkvYxIDNtTpPZgX0P66qGx37+6N0u8Vx3A2L?=
+ =?us-ascii?Q?XKtyVG3kXb3PrImPTeAaq5lyK5laoJfn4dEYkXTJNDn27Mzey+xTaULNJCoz?=
+ =?us-ascii?Q?9gUAGY+puDqjIksaXj1usg51alQ1sZTOl/94q9HAws3Txn04uhlRBjEiO+DB?=
+ =?us-ascii?Q?akxJF98rMIP/AqRBd7oUcWjHeyL7sww1rhPT/ctmKlvQ6pxC01kTQhr85G2E?=
+ =?us-ascii?Q?c/Sha6/yPskCeqUnyIY+xJ/gwhLtvIEK52Aj81c9e7XLjrCFWyry1RE74Y7r?=
+ =?us-ascii?Q?TaXlAQBu1BeF0CUM/QkFM0d9IHr4bE41N+GI2MQs0yGCVpqBaRzgHTIP1pM6?=
+ =?us-ascii?Q?pH7NJdITVaq+9sJp6xV9rQy8IsKJZ1M0WfToBftTsjRCpECcU0Y95uUuWsl/?=
+ =?us-ascii?Q?RTwvXFQD8VK31hwKNzXGZBS47vPRQRrLtDbpQCknZmgTOUiqcXJPWibfEcfJ?=
+ =?us-ascii?Q?X3/1LOmRFkiKLLkoWNZv5Km9bpWcgYbNYGsiSf16cCvnHSYRgyLYXXhir5mY?=
+ =?us-ascii?Q?WccCgS+JVBLy0LjFe5FukvdCRiEFwoW+g8fz2LUa1oqrHsvE97HA1f+iQ+Tt?=
+ =?us-ascii?Q?fXcfbrrqxtYpOtbohE2Gvll0Qo14MrVc2/T1ZjvATNWUWU3Vgt/A80maYEMv?=
+ =?us-ascii?Q?uH94/TJvzdc/QB5Sus8ZK6gsXldUzSUAEm1pWylnbVmrXCM9SI7NSZ8vTvXC?=
+ =?us-ascii?Q?tkqCHPPOxURA7QQsy9PXmOgHQYocQjnypea7nsQW7/hyvbkO6JmUPZ7bDj1N?=
+ =?us-ascii?Q?oZ2OxmJxHsKV/maXt/l+CJnoq8BgNe/r1RL0?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9nCArzaXnf1B5KPWCKz6CYChSEdQWCyrg5Rsd2xrdgwoLXHLCJNWHzPcE6UY?=
+ =?us-ascii?Q?NlSyFrGdffeqtA73p3UhWlOCOi4Pi8hra2LWP9aesqC29c2fsQcWzojcY3cr?=
+ =?us-ascii?Q?L1OrDaU13MLzod4TJk27XYeua9tkT1F7sE7hQ4YGf3SzE48pTw+DtOAMKQBI?=
+ =?us-ascii?Q?nGYU/cwE7kNcSGkBSXkbsWy7VFG8Vm/FOj2ZwtMurA/VQ5LEe5lpTZdZkcsX?=
+ =?us-ascii?Q?i0UWh01isqFBDCDH2mrmy2FsHnyFk0EHUpoMxHstKSSMFU0tMGr0DHOmt4Qb?=
+ =?us-ascii?Q?tdd22k4Fh3T1W2bRS9nmjTIK8S/oev6PfnPdvC8nj3EKTBJC+EsxZog2cqlM?=
+ =?us-ascii?Q?1s1Nm5iS5rl+pkD5PaNGbG/6Vof8qdtpR5jcc2uM5Fo1wXwE3Vw/BSLNs4h9?=
+ =?us-ascii?Q?aiq1IX2NUqC8rjDkXk0n+Tc2tmr2WUEPQMOg2WZOEt8MWzfixWZDYetl2jUy?=
+ =?us-ascii?Q?8UD1zqWLVR3vCoG1XOid2nW+KH1RBAoIq0I9ib0ioUFEmGzR0VwPkSIoKR+C?=
+ =?us-ascii?Q?xOqUHOx+UspBIGTv3tposnsdm8POhdYZTs/3L/hZseio7iCTx+6AZdE3LAkN?=
+ =?us-ascii?Q?6OHaZrvVuiz9dqU2NDjOKzAw0IdqzVhXK9zwH+6CdL5cGQZPp3LK3NpquvRK?=
+ =?us-ascii?Q?qkXnNnE0L1d7pDfd1iah0trphQkMeSYcGKNDU/llHkhag1/rchwyIht5eZKD?=
+ =?us-ascii?Q?EZWAK8X3t/2/vDcxYVIo4Zvg1OBQT5dV4CKzdGWrIZP75zCVS3T6ah2Ow+LS?=
+ =?us-ascii?Q?/rafMK5Q2jQ/E7VJKouNARlrcsBC/2tJGbk4eRRjzBzRJglQfD1Yc5LZ2GvX?=
+ =?us-ascii?Q?R4IChPLTqoY7iCQT0pdWPip/Y1yv6f2kVPRMY0TyQEp2IRn+FicdWcRJzDB4?=
+ =?us-ascii?Q?xFjdH6vJrDYPecQ2ybAVQRTk50UUoHORyNoWmm2EFV4Z/qXfkMn0Yw46uCEW?=
+ =?us-ascii?Q?7kKsBvSGDzn5BIR9d5lKWCWkhJap6saHKWu+kPqyN749NSUqcjLUxInD6c4N?=
+ =?us-ascii?Q?GYaNIvpgboNgOW8L8HR3xCdPc25hX/8aY7hk8qAE47wpcdQiBFogZUup3A78?=
+ =?us-ascii?Q?aTCUnt1xSwqlvVdu4Vcj7tSXWkKE2d9T5rI7ruansVYD5CwGSjmisZfNK+sg?=
+ =?us-ascii?Q?l52H3dOZSkxRISrw7Yw0Y6oZJml5iEEv/KL7n+s7yCu0a1x4tDplapfMDCli?=
+ =?us-ascii?Q?PgtmQ/32nRV69lUh4wcM9uIKAq3ZM74uWOpyunK568rgRiB0o5EowPEhrsQ1?=
+ =?us-ascii?Q?ryiymv7W1NE194aLwP3ZF1zSi7zrNRmlTqA/GEn9j5aVof4DaTFXCLzveAYf?=
+ =?us-ascii?Q?yU5Qy7g9VoezA7gxL5Hc9osFn3xDv3JpUtt9cdfcq6e0yiNZ3pxqNlt9XL8G?=
+ =?us-ascii?Q?XFy3pwTeM/Qj3hzQQLmGpi0QSKjUh2RruZURakgTQiVEF9UOjXJGUWlCX96y?=
+ =?us-ascii?Q?EQq/VcAhnopSjQn/LdHtrs/RtjhOlIJMg16WncYl/Ldy1TQi2t7jgrMAyO2c?=
+ =?us-ascii?Q?VsGndcitln868MAh0r+DCHzJ0ffzToMoFDLDdWWlt/MbO0dbKkPl7f7wwXEO?=
+ =?us-ascii?Q?qYrQHgD7PIlFsQCv750=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8d2ab3a-664d-4552-e028-08de216e85d6
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 22:06:11.0440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ugl7PZnZ5fi5JH5jbzcYsltyQVG8oXu9melcWZ2QLo19EDOuSsNZu3HEyYSGnoqI+pF/yCSA7kGzf1Fwod/VHA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_135703_153241_841DB255 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20251111_140617_579629_4BA16814 
+X-CRM114-Status: GOOD (  32.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,74 +176,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-s32_pinctrl_desc is allocated with devm_kmalloc(), but not all of its
-fields are initialized. Notably, num_custom_params is used in
-pinconf_generic_parse_dt_config(), resulting in intermittent allocation
-errors, such as the following splat when probing i2c-imx:
+On Tue, Nov 11, 2025 at 11:10:25PM +0200, Laurent Pinchart wrote:
+> On Tue, Nov 11, 2025 at 03:47:51PM -0500, Frank Li wrote:
+> > On Mon, Oct 27, 2025 at 02:05:37AM +0200, Laurent Pinchart wrote:
+> > > On Thu, Oct 23, 2025 at 05:19:42PM +0800, Guoniu Zhou wrote:
+> > > > From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > > >
+> > > > The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> > > > present in the i.MX8QXP/QM, but i.MX8ULP CSI-2 controller needs pclk
+> > > > clock as the input clock for its APB interface of Control and Status
+> > > > register(CSR). So add compatible string fsl,imx8ulp-mipi-csi2 and
+> > > > increase maxItems of Clocks (clock-names) to 4 from 3.  And keep the
+> > > > same restriction for existing compatible.
+> > > >
+> > > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > > > ---
+> > > >  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 41 ++++++++++++++++++++--
+> > > >  1 file changed, 39 insertions(+), 2 deletions(-)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > > index 3389bab266a9adbda313c8ad795b998641df12f3..da3978da1cab75292ada3f24837443f7f4ab6418 100644
+> > > > --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > > +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > > > @@ -20,6 +20,7 @@ properties:
+> > > >        - enum:
+> > > >            - fsl,imx8mq-mipi-csi2
+> > > >            - fsl,imx8qxp-mipi-csi2
+> > > > +          - fsl,imx8ulp-mipi-csi2
+> > > >        - items:
+> > > >            - const: fsl,imx8qm-mipi-csi2
+> > > >            - const: fsl,imx8qxp-mipi-csi2
+> > > > @@ -39,12 +40,16 @@ properties:
+> > > >                       clock that the RX DPHY receives.
+> > > >        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+> > > >                       See the reference manual for details.
+> > > > +      - description: pclk is clock for csr APB interface.
+> > > > +    minItems: 3
+> > > >
+> > > >    clock-names:
+> > > >      items:
+> > > >        - const: core
+> > > >        - const: esc
+> > > >        - const: ui
+> > > > +      - const: pclk
+> > > > +    minItems: 3
+> > > >
+> > > >    power-domains:
+> > > >      maxItems: 1
+> > > > @@ -130,19 +135,51 @@ allOf:
+> > > >          compatible:
+> > > >            contains:
+> > > >              enum:
+> > > > -              - fsl,imx8qxp-mipi-csi2
+> > > > +              - fsl,imx8ulp-mipi-csi2
+> > > > +    then:
+> > > > +      properties:
+> > > > +        reg:
+> > > > +          minItems: 2
+> > > > +        resets:
+> > > > +          minItems: 2
+> > > > +          maxItems: 2
+> > > > +        clocks:
+> > > > +          minItems: 4
+> > > > +        clock-names:
+> > > > +          minItems: 4
+> > >
+> > > Do we need the clock-names constraint ? The DT schemas will enforce that
+> > > clocks and clock-names always have the same number of elements.
+> >
+> > clock-names list already restrict at top section
+> >
+> > clock-names:
+> >   items:
+> >     - const: core
+> >     - const: esc
+> >     - const: ui
+> >     - const: pclk
+> >   minItems: 3
+> >
+> > Here just restrict need 4 clocks, instead 3 clock for fsl,imx8ulp-mipi-csi2
+>
+> I understand that. My point was that the dt-schema will always verify
+> that the number of clocks items is equal to the number of clock-names
+> items. That's a constraint enforced by the core schemas. As
+> clocks: minItems is set to 4, the clock-names: minItems constraint is
+> redundant.
 
-        WARNING: CPU: 0 PID: 176 at mm/page_alloc.c:4795 __alloc_pages_noprof+0x290/0x300
-        [...]
-        Hardware name: NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3) (DT)
-        [...]
-        Call trace:
-         __alloc_pages_noprof+0x290/0x300 (P)
-         ___kmalloc_large_node+0x84/0x168
-         __kmalloc_large_node_noprof+0x34/0x120
-         __kmalloc_noprof+0x2ac/0x378
-         pinconf_generic_parse_dt_config+0x68/0x1a0
-         s32_dt_node_to_map+0x104/0x248
-         dt_to_map_one_config+0x154/0x1d8
-         pinctrl_dt_to_map+0x12c/0x280
-         create_pinctrl+0x6c/0x270
-         pinctrl_get+0xc0/0x170
-         devm_pinctrl_get+0x50/0xa0
-         pinctrl_bind_pins+0x60/0x2a0
-         really_probe+0x60/0x3a0
-        [...]
-         __platform_driver_register+0x2c/0x40
-         i2c_adap_imx_init+0x28/0xff8 [i2c_imx]
-        [...]
+I am not sure when have such features. Previous comments from Rob require
+clocks and clock-names keep the same at binding yaml.
 
-This results in later parse failures that can cause issues in dependent
-drivers:
+https://lore.kernel.org/linux-devicetree/20251031000012.GA466250-robh@kernel.org/
 
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c0-pins/i2c0-grp0: could not parse node property
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c0-pins/i2c0-grp0: could not parse node property
-        [...]
-        pca953x 0-0022: failed writing register: -6
-        i2c i2c-0: IMX I2C adapter registered
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c2-pins/i2c2-grp0: could not parse node property
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c2-pins/i2c2-grp0: could not parse node property
-        i2c i2c-1: IMX I2C adapter registered
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c4-pins/i2c4-grp0: could not parse node property
-        s32g-siul2-pinctrl 4009c240.pinctrl: /soc@0/pinctrl@4009c240/i2c4-pins/i2c4-grp0: could not parse node property
-        i2c i2c-2: IMX I2C adapter registered
+Rob have not said that clock-names can be removed.
 
-Fix this by initializing s32_pinctrl_desc with devm_kzalloc() instead of
-devm_kmalloc() in s32_pinctrl_probe(), which sets the previously
-uninitialized fields to zero.
+Do you have any thread, which inidicate we only need limit clocks at
+if-else branch?
 
-Fixes: fd84aaa8173d ("pinctrl: add NXP S32 SoC family support")
-Signed-off-by: Jared Kangas <jkangas@redhat.com>
----
- drivers/pinctrl/nxp/pinctrl-s32cc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I also have not found related commit at
+https://github.com/devicetree-org/dt-schema.git
 
-diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-index 501eb296c76050aa05386c51ef6ae0f97d4c76c3..51ecb8d0fb7e8a203e10cbe965dfec308eaa5f30 100644
---- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
-+++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-@@ -951,7 +951,7 @@ int s32_pinctrl_probe(struct platform_device *pdev,
- 	spin_lock_init(&ipctl->gpio_configs_lock);
- 
- 	s32_pinctrl_desc =
--		devm_kmalloc(&pdev->dev, sizeof(*s32_pinctrl_desc), GFP_KERNEL);
-+		devm_kzalloc(&pdev->dev, sizeof(*s32_pinctrl_desc), GFP_KERNEL);
- 	if (!s32_pinctrl_desc)
- 		return -ENOMEM;
- 
+Frank
 
--- 
-2.51.1
-
+>
+> > > > +
+> > > > +  - if:
+> > > > +      properties:
+> > > > +        compatible:
+> > > > +          contains:
+> > > > +            const: fsl,imx8qxp-mipi-csi2
+> > > >      then:
+> > > >        properties:
+> > > >          reg:
+> > > >            minItems: 2
+> > > >          resets:
+> > > >            maxItems: 1
+> > > > -    else:
+> > > > +        clocks:
+> > > > +          maxItems: 3
+> > > > +        clock-names:
+> > > > +          maxItems: 3
+> > > > +
+> > > > +  - if:
+> > > > +      properties:
+> > > > +        compatible:
+> > > > +          contains:
+> > > > +            enum:
+> > > > +              - fsl,imx8mq-mipi-csi2
+> > > > +    then:
+> > > >        properties:
+> > > >          reg:
+> > > >            maxItems: 1
+> > > >          resets:
+> > > >            minItems: 3
+> > > > +        clocks:
+> > > > +          maxItems: 3
+> > > > +        clock-names:
+> > > > +          maxItems: 3
+> > > >        required:
+> > > >          - fsl,mipi-phy-gpr
+> > > >
+> > >
+> > > Could you please sort those conditional blocks by alphabetical order of
+> > > the compatible strings ?
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
