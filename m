@@ -4,166 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D20ACCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBACCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 14:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3SX89cgTyop9Hper2/LdMewSbOEIih4+JzUOYBUj98Y=; b=aYERKnbSF/jbSovVi4ZAvBbtbE
-	kwfecyvrFDN3zUvIr3OjJuyr/f8LIJ9RaHonWARLng7qSow8vSxSHC1b4at6qC/ArY+EQB7l4K175
-	S9vMu8Xn82oCRO+/6e3Sfe1E9hkHnblKqQmJ7+bkeoSe57OzlcFT3/Zo2Y1b+w5SW1/EISjq/tXsq
-	1+EbMdJtXhomldk4FyQFFxGXa9RDX5Vqc5QaZ0ht8HwSW8FGqkh+dsca21KfMrY3A2e0/MZXhCAl4
-	IsPClO2mPby4EKvH4QTZ8/q4Bn1ZEjsGa9mQgm9gKgzHkCMFQQ2/Z4/f6jbcxWX6q+eu/Ttwn1oTr
-	ZSP9IE4A==;
+	bh=5VhCwkWqs7qRmBitEcrF0VtlHe8n9xxU+b39QH1QQj8=; b=4+3uUwI4ESkkSWF586odFdliNS
+	6odFr8ylXPg8d12TOqwRNKhjJPC2XZnD2wIk8t01T3uIFyW1HYrNjtdG/EtXWy+5HHtDP4rAwwfBq
+	GjuIdE4UEBftY2vsLlWFv3YigzhILKJZxGKvFUjQDJyMjQ52p7Rzgpy7D+CeYYyp7+4BG7U+vjpHn
+	n1cyiJCHOMo1RTAxJLK15/1laOiswR4EHVbqvnDRLf/BsfTEJg6xqru8McBQL2eJ51oaVrRHahUUn
+	h/7NScMzZJUEWZQKN+QllSw1mzxif8vk2bvAUKPMcmFUsBful9V6Vp5EhsnOb5XoAJnIdF/oMfqGh
+	xkKbOR6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIozo-00000007HsZ-3jjL;
-	Tue, 11 Nov 2025 14:05:20 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIozh-00000007HrR-1ZI9
+	id 1vIp4b-00000007IEJ-4BmM;
+	Tue, 11 Nov 2025 14:10:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIp4Z-00000007IDS-0DT9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 14:05:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ilBmPaQ499S6bzhJ5JvtNYfNVTu9B90S/SvKmMQjz3jJXVk6Zj+tmYxvTpEsvpJ2PryWcpVn2IQuxtUoZhuxwL+18J9UVLLibz2RKV6KAu7ua2YQSksyRhljxFGY2dXH0WbYiRmXZy2+rb/2uXrUz+O+RHTA+JhjdJ1BEhzuZ3+abplUesTcWXQFuNx4evpZlz5qO4RdKDYw/ieESf/jMyT+jd5GhUSKBR1PZguaggQ5HtCvP7bQE4EAdI7cdgVmx2lyLbM/XQOyjJokFGKEB52c8yAMbOVN7BXKf4EtvT8MlY1hY4nhm0F0iQX7v4yuNckbpT4K8hAuPduGuJTecw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3SX89cgTyop9Hper2/LdMewSbOEIih4+JzUOYBUj98Y=;
- b=dsMvgO8b/56nR6x+sKNcHLnpha58cM3DlxmyCNJR2CSSnGMe/j2xTfqz8UEszUeaYCLqeklV9uWLBzdjMv2iYiWQq6t8SBQCWNHMsHk3MUWJNPMYzopn6OwObHIbTQJ6VasNXaqD6OoIC2w1Qstt5fvk9b8HZD077xzfUi0ZVuV100xwGuBUg5P3svHt6fLrcptVGeHbOVAKWue3uSg4VsUoMGOgoRrQD349tnIk+ZclvfS3U7bkp+cSItCiIBEfAKp0NWQkLDqBqMyfD2Rn84KWVE+Gp40zwme7RyCFJTqMNPrgEwf/9zkYpgJ0uno6uh0oN72TXXtGs52wlhobaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=toradex.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3SX89cgTyop9Hper2/LdMewSbOEIih4+JzUOYBUj98Y=;
- b=RGJgSrwUkTojTf5fj/CDbiCqRYZsp85Fs3ExCXOUPQpigtVsgSD1om2HQS9K6z4LRgWEtEhBZsacSfnDIRLapG6HFWlZnXk9n/GKVvUePgBVXU0da72gJFUwIhmgkKQ63IphKnb+T3p1EKSJbayIyL7xU/9rR4MfpZE0iACnDwk=
-Received: from SJ0PR13CA0227.namprd13.prod.outlook.com (2603:10b6:a03:2c1::22)
- by DM6PR10MB4332.namprd10.prod.outlook.com (2603:10b6:5:220::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Tue, 11 Nov
- 2025 14:05:05 +0000
-Received: from SJ1PEPF000023CF.namprd02.prod.outlook.com
- (2603:10b6:a03:2c1:cafe::cf) by SJ0PR13CA0227.outlook.office365.com
- (2603:10b6:a03:2c1::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Tue,
- 11 Nov 2025 14:05:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ1PEPF000023CF.mail.protection.outlook.com (10.167.244.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 14:05:03 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 08:05:00 -0600
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 08:04:59 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 08:04:59 -0600
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ABE4t2s1015636;
-	Tue, 11 Nov 2025 08:04:56 -0600
-Message-ID: <173b8b67-b077-4ec6-8bd6-1683ad28e2dc@ti.com>
-Date: Tue, 11 Nov 2025 19:33:21 +0530
+	Tue, 11 Nov 2025 14:10:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 339842F;
+	Tue, 11 Nov 2025 06:10:06 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DA653F63F;
+	Tue, 11 Nov 2025 06:10:12 -0800 (PST)
+Message-ID: <24baf1ba-f3a1-4cbe-a942-c5dae7318047@arm.com>
+Date: Tue, 11 Nov 2025 14:10:10 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] arm64: dts: ti: Add Aquila AM69 Support
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>, Tero Kristo
-	<kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Parth Pancholi
-	<parth.pancholi@toradex.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Emanuele
- Ghidoli" <emanuele.ghidoli@toradex.com>, Ernest Van Hoecke
-	<ernest.vanhoecke@toradex.com>, =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
-	<joao.goncalves@toradex.com>, Francesco Dolcini
-	<francesco.dolcini@toradex.com>
-References: <20251104144915.60445-1-francesco@dolcini.it>
- <20251104145240.61219-1-francesco@dolcini.it>
- <20251104145240.61219-2-francesco@dolcini.it>
- <d77bf3dd-4501-4f17-a776-3353f96f4fb1@ti.com>
- <20251105115335.GA14157@francesco-nb>
- <7024f4b3-00a0-4618-8bf9-53e305fcc982@ti.com>
- <20251106101932.GA5975@francesco-nb>
- <e1b2a13d-fab0-47f1-aae3-f2661c94d54a@ti.com>
- <20251110094716.GA7356@francesco-nb>
-From: Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH v4 09/15] coresight: Save activated path into source
+ device
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
+ <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
 Content-Language: en-US
-In-Reply-To: <20251110094716.GA7356@francesco-nb>
-Content-Type: text/plain; charset="UTF-8"
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251104-arm_coresight_path_power_management_improvement-v4-9-3d4bba674709@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CF:EE_|DM6PR10MB4332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74a94032-a0ba-43be-89ed-08de212b4f92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QVlER2JFdDFXMnoybSt2Z3VtUy9XTFd3NlE4b2hOb1c5eE9KdFpkMmZiK0NB?=
- =?utf-8?B?SlhlQ0dKVVRtcE1RRGJKMEJuSnIzMFUzVXA1eTZjOXhJYS9yYmlRNEc3L3k0?=
- =?utf-8?B?Uk0wQlV6amRwVCs5RFZ1b1A4ZUViUWlCMjVwY2lrTlR3OXd1eWxIVXVKSmFH?=
- =?utf-8?B?NitCUjJnYnh5TGxwR0VGVWxocFFaSUlsdEhEb0RXVzNYbjNicmltSXVqUndS?=
- =?utf-8?B?V3N0M0paMG4xK0dNMWh4bGZwSnhXS2hicS95bkhkbmVvSFA2cUNWOWJMdENu?=
- =?utf-8?B?TFB2YjlOZ0RPMjRCWVJ1N3Z3ZE93Wlhmbm43bDc1VXhXbytnZzk3OEdQT2FK?=
- =?utf-8?B?M1ZLNDh2RlVxVmkxNnJuK3MwNmNnMXgrNlQ3WGlidGRJamx5eEpNYlg3Q0FG?=
- =?utf-8?B?VzRRYkVOMWhzYUxWbDJrWmluNi80c2twRmJzalN3bjdyNVFDd2x2KzMyME1Q?=
- =?utf-8?B?bDdIeGxtTlBjV2QvbkVwVzFVZTRMVXUrbVBHRklBV2JndjZqUmhQRWl2WjFq?=
- =?utf-8?B?RlBZckliWEpiamJ5WElPZU5ISDRDQ2VuU09YSkFjdFd2UG1FYzdQY2ZDc2Ur?=
- =?utf-8?B?b2tGUG5lZ3lRc3hLZE8zOXNBcWY5SEpvYjRoOXBTc0ZzYmIxU1ZiUm1iQkly?=
- =?utf-8?B?eFVVMTQwSDN4UGo0MHltbXFBek5mYnI3SHkxVGJSVE1hUitmY3NvOUZtYXZH?=
- =?utf-8?B?UjRKc1dMMG9laGMyb2YxZUt4M2p1eGtuenFIMmhGdFRCR0tHY0xHT3ZuZ2R3?=
- =?utf-8?B?bk9Hb0FFekl6V0g1Zm01WkdVVklybGdQNTd1ajc4RzN1N0haT1hqTE13YjRH?=
- =?utf-8?B?N1haMDRKUGhVU0Z1cDBnY2sxdllWS01abEhCb00vOTZac1BlczlqWGdCUDJj?=
- =?utf-8?B?cjVnSTdJNGJnV2J5TTR4SVJ3Y0d3RFJvK3U1eGIvSis1a05Gc1VZWURKM2ZS?=
- =?utf-8?B?Z2oxcnlpN3pwMXlwc28wMHF6MXJIbXd1b0t3bnhIWlF0TXJ0ekl0aDhidHRt?=
- =?utf-8?B?VWl3R3htdE1QVWpCUDBwalYwWFFlQUd1bzJSMVJLSkttdldleU5JT3psOXhQ?=
- =?utf-8?B?NTA5YnVVenJBVDRWb0I2eUVYM1pHVzJjdnlkRjFrUlk3N2s1MkxnUUl3WXVS?=
- =?utf-8?B?NENHaE1ISkFWUytlSU9iRzNXZkdSRzFIYjk1UlFWa1lpTlMrSGpTMDRWUnhr?=
- =?utf-8?B?WldtaUcxN1pQSDNFa2ZPOU9jdDFMWFoxUExrZVA0WnhFd2pkWVFnMkswUUxq?=
- =?utf-8?B?QnVoalZUVllqM3hIS1VZbVNTOUpQS1Z1MGhwL2pmL1VRczB6VWFIc2VKZVZ1?=
- =?utf-8?B?b1JPN1ZaSzNtRWNySEZ5Ly9KR0VMZ3locFQ2VFJtTFlKbFF0ZTl1ZEpTcW90?=
- =?utf-8?B?ZjJZc0VaWlRrc21qVXlNS0dsRXZBbjRLSVYzSDRPUWYxNVNyUVFWTmQ3UkhI?=
- =?utf-8?B?b1llMHMzNmlaRU04K2NXZERaS3ZiQVgyS3BEdFZNUFRYMXlXTXRqdFlDL3dv?=
- =?utf-8?B?cjdWejRuMHFyaXg2V1RieFpRelV6K2poek51TVcwVVJmU2M2UTdjU3RhMm5Q?=
- =?utf-8?B?SUkrb1RsQUVIcEU0SHpyUFdvTGxpSkJGUTU0TzBpenNyRWhoMzFvbmdBRGNr?=
- =?utf-8?B?NnJIaHZ0M0VSUzVWNkFpckQrTU1pNzNrNkJtYlhOcDBMNE5nUmphZzdBcWlH?=
- =?utf-8?B?NTZlTE91YVd5WGJBRmY1ZWNFbnVJTFQxUDlPS2ppQ05xbGw0bjdvaFY1bGNh?=
- =?utf-8?B?THRpRFY0cmNGaUZaRzBhZ0JxSDdsZWZrdktOUTdXb2NQOXkreUdFS1lhajhD?=
- =?utf-8?B?NW82bko2T3lvVG5LQnNabVl4TzZTNEFKODlMeVJnSG5mWGtBTlhGK09ubnJs?=
- =?utf-8?B?UFNVY1FoQXptMTRXUU5nMjNsanlPOTZ6bnd6UnVhcnR3ZHd6VmVUMkxoL2pR?=
- =?utf-8?B?b28wZkdJa3hBaklWZWdjWEpBVFFJQmNBb0RrNWZVdDNjVnlSVytTS21kaVNi?=
- =?utf-8?B?eWZNcExOVUhRQS91c1VPWXdZckt5UnN6Tm9aV0pTaUZmS0Y2cmYyR3dDNlBD?=
- =?utf-8?B?eC9qZ2ZRZDZTMHM2WHZCVGVpdk1pN0hLc21leWZhZ1kyR3pMWGhsbHNYS2JF?=
- =?utf-8?Q?Pjok=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 14:05:03.4709
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74a94032-a0ba-43be-89ed-08de212b4f92
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CF.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_060513_554741_A99FD6A9 
-X-CRM114-Status: GOOD (  32.60  )
+X-CRM114-CacheID: sfid-20251111_061015_212479_5CDD8DFD 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,93 +70,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 04/11/2025 15:21, Leo Yan wrote:
+> Save activated path into the source device's coresight_device structure.
+> The path pointer will be used by later changes for controlling the path
+> during CPU idle.
+> 
+> The path pointer is assigned before setting the source device mode to
+> active, and it is cleared after the device is changed to an inactive
+> mode. So safe access to path pointers is guaranteed when the device is
+> in an active mode.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c | 39 +++++++++++++++++++++++++++-
+>   include/linux/coresight.h                    |  2 ++
+>   2 files changed, 40 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index c28f3d255b0e19b3d982de95b8e34d0fc2954b95..3ea31ed121f7b59d7822fba4df4c43efb1c76fe7 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -399,13 +399,50 @@ int coresight_enable_source(struct coresight_device *csdev,
+>   			    struct perf_event *event, enum cs_mode mode,
+>   			    struct coresight_path *path)
+>   {
+> -	return source_ops(csdev)->enable(csdev, event, mode, path);
+> +	int ret;
+> +
+> +	/*
+> +	 * Record the path in the source device. The path pointer is first
+> +	 * assigned, followed by transitioning from DISABLED mode to an enabled
+> +	 * state on the target CPU. Conversely, during the disable flow, the
+> +	 * device mode is set to DISABLED before the path pointer is cleared.
+> +	 *
+> +	 * This ordering ensures the path pointer to be safely access under the
+> +	 * following race condition:
+> +	 *
+> +	 *  CPU(a)                          CPU(b)
+> +	 *
+> +	 *  coresight_enable_source()
+> +	 *    STORE source->path;
+> +	 *    smp_mb();
+> +	 *    source_ops(csdev)->enable();
+> +	 *                              `-> etm4_enable_sysfs_smp_call()
+> +	 *                                    STORE source->mode;
+> +	 *
+> +	 * This sequence ensures that accessing the path pointer is safe when
+> +	 * the device is in enabled mode.
+> +	 */
+> +	csdev->path = path;
+> +
+> +	/* Synchronization between csdev->path and csdev->mode */
+> +	smp_mb();
+> +
+> +	ret = source_ops(csdev)->enable(csdev, event, mode, path);
+
+What happens if the csdev is already enabled ? We corrupt the 
+csdev->path ? Can we not move this into the source devices and let them
+handle it gracefully, as they do for the "mode" ?
+
+To address James' comment on reusing the sysfs path, I think we could
+make this a global thing for all types of source/mode.
+
+Suzuki
 
 
-On 10/11/25 15:17, Francesco Dolcini wrote:
-> Hi Vignesh,
+> +	if (ret)
+> +		csdev->path = NULL;
+> +
+> +	return ret;
+>   }
+>   EXPORT_SYMBOL_GPL(coresight_enable_source);
+>   
+>   void coresight_disable_source(struct coresight_device *csdev, void *data)
+>   {
+>   	source_ops(csdev)->disable(csdev, data);
+> +
+> +	/* Synchronization between csdev->path and csdev->mode */
+> +	smp_mb();
+> +	csdev->path = NULL;
+> +
+>   	coresight_disable_helpers(csdev, NULL);
+>   }
+>   EXPORT_SYMBOL_GPL(coresight_disable_source);
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 3d59be214dd25dfa7ad9148a6688628e0d1a98dd..58484c225e58a68dd74739a48c08a409ce9ddd73 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -264,6 +264,7 @@ struct coresight_trace_id_map {
+>    *		spinlock.
+>    * @orphan:	true if the component has connections that haven't been linked.
+>    * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
+> + * @path:	Activated path pointer (only used for source device).
+>    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
+>    *		by writing a 1 to the 'enable_sink' file.  A sink can be
+>    *		activated but not yet enabled.  Enabling for a _sink_ happens
+> @@ -291,6 +292,7 @@ struct coresight_device {
+>   	int refcnt;
+>   	bool orphan;
+>   	int cpu;
+> +	struct coresight_path *path;
+>   	/* sink specific fields */
+>   	bool sysfs_sink_activated;
+>   	struct dev_ext_attribute *ea;
 > 
-> On Mon, Nov 10, 2025 at 10:06:58AM +0530, Vignesh Raghavendra wrote:
->> On 06/11/25 15:49, Francesco Dolcini wrote:
->>>>> Yes, known. Is this an issue?
->>>>>
->>>>> This node must be disabled, no matter what is present in any included
->>>>> dtsi file, it's a deliberate decision.
->>>>>
->>>>> This dtsi file describes a SoM, the used pins/functions are defined on
->>>>> the pinout, but this node cannot be enabled unless the SoM is mated with
->>>>> a carrier board that is exposing it.
->>>> Same as my point above, you shouldn't enable nodes that are not used
->>>> or have anything attached. The SoM only has some edge connectors so
->>>> it should not be enabled at the SoM level, that we seem to agree, but
->>>> the carrier board doesn't connect those lines to anything either. They
->>>> just run to a pin header with nothing attached, how is that header
->>>> any different than the pins on the edge of the SoM?
->>> You are commenting something unrelated here, or I am not understanding
->>> you.
->>>
->>> You commented that the status = "disabled" is redundant. We both agree
->>> that this node needs to be disabled in the SoM dtsi, and it is already
->>> like that.
->>>
->>> I would prefer to keep the redundant "disabled", because I see value on
->>> not having to rely on what is done on any included dtsi, where the
->>> original node is defined. 
->>
->>
->> One can always reverse compile the DTB to see if a node is enabled or not.
-> 
-> Sure. My reason for having it explicitly disabled here is not to have to
-> depend on anything that is happening on the included dtsi on this
-> regard, given that we really want those disabled in the SoM.
-> 
-> See for example https://lore.kernel.org/all/20251015111344.3639415-1-s-vadapalli@ti.com/
-> where you can see that our verdin am62 was not impacted by this change
-> at all. 
-> 
-> To me this is just a benefit, without any drawback.
-> 
->>> I see this as a common pattern in multiple
->>> dts/dtsi file and is what I would prefer to have (and I do not see any
->>> kind of maintenance  overhead on having it nor this being in conflict
->>> with dts-coding-style.rst).
->>
->> I cannot seem to find any precedence to such a pattern (adding status =
->> "disabled" for nodes that are already disabled at SoC level dtsi.) Could
->> you point me to some?
-> 
-> Just a couple of examples, you can easily find more if needed
-> 
->   k3-am62-verdin.dtsi:&main_spi1
->   nxp/imx/imx6qdl-phytec-phycore-som.dtsi:&fec
-> 
-> 
->>> Vignesh, Nishanth, what is your expectation on this redundant
->>> `status = "disabled"` property?
->>> 	
->>
->> Assuming such pattern exists, please add a note in the commit message in
->> the next version.
-> 
-> With that said, it's a small thing, if you prefer me to change it just
-> let me know and I'll send a v2 with this changed.
-> 
-> Vignesh: do you prefer a v2 with a mention in the commit message on the
-> `disabled` node, or that I just get rid of those? Anything else that you
-> spotted on this patch and that should be changed?
-> 
-
-Please send v2 with line added in commit message.
-
-PS: I fully except someone to send a patch cleaning up all the double
-disables without knowing the background :)
-
-
-> Francesco
-> 
-
--- 
-Regards
-Vignesh
-https://ti.com/opensource
 
 
