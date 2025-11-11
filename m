@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67C6CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3B5CD13D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xEimgvO9FbydGKYDZAi+OA9bdxdc/t9KnNEuVRqer4Q=; b=GGHR4Jyngx9HiK
-	rPQ3FMosiqwGCa1t0qdGfYi3UY8LV2InuWEa/wWQLcv/5TKFHbW+WPsRrPDx3GkxHI1a63iHzFcfJ
-	qpZgtehYud9rEPrDcF755Fhsua3j5+VH/hQWT+KFwqFwnnwfCNsRtuRlS3HkfN8Yqozg4uX+0YIbD
-	vCHLKJ/qnYlYwASx951/hZOvB/x34CI0bxSqD7ORmmvLADji8HPg9wYrRDnU/hPX29nOIVMaNkRv4
-	Or6XCJudUZnjcPRe75ErEn9J/1AJddaWh/NXv+Ee8tAshq4CZv4rPIf5wN6Uw9y9CRtDJQQ6fvfvJ
-	ljKNJLrdc1jD0+f6qF0g==;
+	List-Owner; bh=iYfCBJxgQMj+VhBJDRiGrOo8VjM1cxFnBM7Ks63dkWw=; b=iB9DRxQWuHJcJ0
+	M78uoGx5EQTWl0VDa5B53vDtHuQNsYjmDeHU4/GS0ZaWSmkB0Jrn8Z2iRAns2tMu8wSnutMcDwjeu
+	NGiL0OVAP0Bj/yuny5MoZdbB+kAeeDwt4j6lSZ5KePy+AUezEaMsC1zVkDcPxDmTvAvtBeqSY7QHi
+	JUhivwbmw0zGytOQ+qPktdzS9KGMxg+KdY1D2iDF+qdSqoUvaEbyK/JznPGAt+zWY9PSyAEbP3OYU
+	s+oXQr0zSEsRCDB1uNDQiw42LOoIDjHaUNu8BnvEHLonJ35yS3iX+TpsuzkxDLpUQlJS+oVwl64lp
+	Inlb/vN52XELWPuSRDRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIs2f-00000007WZO-3McP;
-	Tue, 11 Nov 2025 17:20:29 +0000
-Received: from skyblue.cherry.relay.mailchannels.net ([23.83.223.167])
+	id 1vIs2i-00000007Wae-3sim;
+	Tue, 11 Nov 2025 17:20:32 +0000
+Received: from silver.cherry.relay.mailchannels.net ([23.83.223.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIs2d-00000007WYY-3G2H;
-	Tue, 11 Nov 2025 17:20:28 +0000
+	id 1vIs2e-00000007WYb-1KaE;
+	Tue, 11 Nov 2025 17:20:29 +0000
 X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 81CD47E18E9;
-	Tue, 11 Nov 2025 17:20:26 +0000 (UTC)
-Received: from fr-int-smtpout26.hostinger.io (100-124-9-98.trex-nlb.outbound.svc.cluster.local [100.124.9.98])
+	by relay.mailchannels.net (Postfix) with ESMTP id ACF088A0DFB;
+	Tue, 11 Nov 2025 17:20:27 +0000 (UTC)
+Received: from fr-int-smtpout26.hostinger.io (trex-green-6.trex.outbound.svc.cluster.local [100.124.9.98])
 	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 4F03C7E1A7E;
-	Tue, 11 Nov 2025 17:20:24 +0000 (UTC)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 73B958A2E16;
+	Tue, 11 Nov 2025 17:20:25 +0000 (UTC)
 ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1762881626; a=rsa-sha256;
 	cv=none;
-	b=VvTwKOUpRnJWgxs/U7fNXgU+EhqywGHzwF5L2ad1/FXS6ip8RkpPn2lJeuB78dhs3eMDId
-	eltSOR+ZY8TE89kudLuKEgKmBCgqKEGbZ9oZGP0ZPTCU8JTZS2CqN9NB4/BjV/meU45+Nm
-	OMCh6PKa6D06KwxSd6EYSMPNIdZDJkVWrntpCykPva2nEyZKnzsLmRY2t4Okbfq2saj4HE
-	afmXePTiu8RLkazujXF/ocmD/KZ/2Q1Mfn/bXb/7+m9p+pKimR61zBYY0OxagVrz76sEjQ
-	+AvfN1U/FGuhhNgP+gSKxXSKDfgDVY/5r/W2uB9sLLigkUDjrvKsphxyFRR0hA==
+	b=MmW2O320Cg1W4C08+oDpjXH60KRkARJYnkpDNwHxl8/wqhVmUtn5782LfFV6TihYXC7wPv
+	dZiFZh/eowKa+VsyO3Sk4hlWthx0VTkZ5ViW4XUMFd5+qS+iLcRjczbT0THP53YXbgqfmh
+	pSyaDX9XLX5vVskw7tpk4nXzpwr/WVRjqiQBN8s+3dVNSdyLF0JqvvCn+4atq5PAOcg22s
+	nFMJsHNyicMhgumxNYJ6KQ53ZWPcsmJuG0gUotFbJ651tcVI3D3irZQGd0AFjx89FHKShx
+	5coOcpVpHi5yB8LAgrbuYbHTQwSft+hJcBEsr19k4UawoBKHNn/qmrlbRNWmdA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mailchannels.net;
 	s=arc-2022; t=1762881626;
@@ -48,12 +48,12 @@ ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=xEimgvO9FbydGKYDZAi+OA9bdxdc/t9KnNEuVRqer4Q=;
-	b=bHtT05ZrEazOxh0b7s6novbb9FPtrrcNDZWP1lIvBlViKiuZDTs3K1uBon2LPuTHVnQ4pq
-	q+1+YHyKt3I0HF/N0EggSdEq6SoCWGF2jkMHyvHIlrYJ/QhDHekSXZZId6kd1PbWlVi53Z
-	duCcPB6eSWFgdHtAxoE/nPN31OTO3eJD8aiL3xU6w3EGUuR/sBX5XXHF22kZSg04E2dUas
-	331ctt+mvAwuBtcvy1mD4RFVJIi1qaqZUEmxcmC1keGF21XdEYBG/gGAjWAgOqYzhaEDQ0
-	fwKMlBlgYjB5SqK2gz4JAhkFGG+43WFmAkc/ETRQ36BcLndG5SagGeieiZElUw==
+	bh=iYfCBJxgQMj+VhBJDRiGrOo8VjM1cxFnBM7Ks63dkWw=;
+	b=eiFLm4XPbOzcj5eM2/O5ahyUaef9tHYX4dpef2IfYpqBa5Sj7+hwWSEwMIoCoqh8PlC8DS
+	OK0+d6sKCYJ2JqdxbZEPWOOodyOCopNTA7/izeWbbG09JmqFO2Ogy/UnKTn0vF02zy1cy1
+	owrGY0gJrQV+Z2xWPUC0FPsBLmtEC/xlAfVkhz7kDilCZzKqwhELTYGjwXFlf8H3kUknYs
+	Uyrfv/LQOuWVXNdZhjjycYWESWoHpA8lMLjmpGDbDUIuc0LDRV0ZhG5MXDqk3qc1oPPSiq
+	ckYNK9QibIEBeBrjknUc1hD68EUKPnA+zv2kLRLHpATujlmJwa2aYoTKzwZD1A==
 ARC-Authentication-Results: i=1;
 	rspamd-768b565cdb-f69nt;
 	auth=pass smtp.auth=hostingeremail
@@ -62,30 +62,30 @@ X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 X-MC-Relay: Neutral
 X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
 X-MailChannels-Auth-Id: hostingeremail
-X-Towering-Shade: 5182774c58ba6c7a_1762881626347_4281697641
-X-MC-Loop-Signature: 1762881626347:335366262
-X-MC-Ingress-Time: 1762881626347
+X-Descriptive-Relation: 2f3df20b433747df_1762881627268_242208729
+X-MC-Loop-Signature: 1762881627268:2668246351
+X-MC-Ingress-Time: 1762881627268
 Received: from fr-int-smtpout26.hostinger.io (fr-int-smtpout26.hostinger.io
  [148.222.54.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
 	by 100.124.9.98 (trex/7.1.3);
-	Tue, 11 Nov 2025 17:20:26 +0000
+	Tue, 11 Nov 2025 17:20:27 +0000
 Received: from localhost.localdomain (unknown [IPv6:2001:861:4450:d360:c518:3c38:613e:ee54])
 	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d5YFf1BZlz1yRY;
-	Tue, 11 Nov 2025 17:20:22 +0000 (UTC)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d5YFg3VZTz1xnM;
+	Tue, 11 Nov 2025 17:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1762881622;
+	s=hostingermail-a; t=1762881623;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xEimgvO9FbydGKYDZAi+OA9bdxdc/t9KnNEuVRqer4Q=;
-	b=Ys+p6vvtJdRhTJ0LHR7/bsmMe4zlofuZv7LIrFQV2HnPclLxl5UALRvA/9DNANgq9nbXt0
-	A/6ywtZ5y8bYHbcmURnLIArEvJ4JqxEEa/6LkVycB/1ONETJsrQT4xa23N3vIpGyfTtFv9
-	J45NDYbDitO0l5vv6F4S0L6OUd/pTP2CHPeGDL+t9zgwCHXFI3jsKnB7vSGNvcE++RULR+
-	5lM+GgTxAW9UGkeap62ULV3ltG6Ijz6O6H+qa0EdCWSkGlh7u385432YdJF8RdeXMPwZR9
-	Fi/nAfBYwMAlWHNuHyWe5l18jMkp1SvOy/rZDANhGxwriORQg9PdyixpQ2sc2A==
+	bh=iYfCBJxgQMj+VhBJDRiGrOo8VjM1cxFnBM7Ks63dkWw=;
+	b=NyMwhXq+GI6ib8Tdp614RCw41hitFGCA6PIjcw9VP0wGkh5Ku2fS5R1Q2RRODcbvqrh0+w
+	lCn7Pdvo8d6PTVDkyt6PWfd/wKl7TWe48dGhEEOpX1L7YGS+XLrmDElkg5fSEbDOhBYDtz
+	OrZbT2+3kIfk0o9iXhXfq5XZmJtTHHcTByGnD1D1q6NfYJwQe3Gr/gI2mW9ehg4pgEIQm/
+	csDZPXpNrk0irB3NzmmrEid5E3PLcE/5KQl9cIzCabRb7mLaEIQvZcm6SFbrXyipEl19kd
+	MVy1onssi3i6fclYaQtc8Qhj9F3+aUePzWmNwXE0W/C3Ib9G1ill5IAY8w1ImA==
 From: michael.opdenacker@rootcommit.com
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -96,21 +96,20 @@ Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: arm: rockchip: Asus Tinkerboard 3 and 3S
-Message-ID: <20251111172003.2324525-2-michael.opdenacker@rootcommit.com>
+Subject: [PATCH 2/2] arm64: dts: rockchip: add Tinkerboard 3 and 3S device tree
+Message-ID: <20251111172003.2324525-3-michael.opdenacker@rootcommit.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251111172003.2324525-1-michael.opdenacker@rootcommit.com>
 References: <20251111172003.2324525-1-michael.opdenacker@rootcommit.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Date: Tue, 11 Nov 2025 17:20:22 +0000 (UTC)
-X-CM-Envelope: MS4xfME+LT8k9sz13NZY7Bg6fHQMkoZ8d6CueaNPZycRIzXB+DFOXJdDTtotaA8kDfh74NoOJFTDrCXUoZJOwAuqxHq8+v9qr6gPOhdtZWpe6lscL7mSQfCt YIw6cILIbeLmKT0iaVdFwsVvOzXyUBj3mASis1fIjV0jtIFhcZ3Es3XumT1rF1nnL6y7aYZCLG4MiXc+ABpMDH8A59sgQeDFkESGWNyBATfq5DarvPNLHiMl 74mRBxiDO5u5X7R9H7KCAVR1vGVW3rZroeRI6n0t9gRVjoJ+l+2Z7n0x5cxxMWjtHTL1l4HcI/p9UZ9hbZEpl/j/t0KOsz4hliwU1qaTUn4Y2+vMAmScCVne 3LLdZ5OJuJQjeEcpVPbqSgFIUkc+D5+BCSFu7fTVshWIj6ntpJNVlPsKgtK4eAl+236cVZP7D7NVvTXbl84XIQDTtfHweiqjjWpNeddh4Q5OFS1wa8f6fJox XtZBF+M3BYVKCwuZfa1JM9HH4LkEslKFNdB35vhu1wOivyR9yBqUGt3C97aggMftbiaIGbYMXN+rIW49ybhrfK29dnq129hhJGCRsHb2XfBNRE7qadQNxxuJ uzo=
-X-CM-Analysis: v=2.4 cv=Lflu6Sfi c=1 sm=1 tr=0 ts=69137056 a=4Ac7OKPmaT9y8oRpUfBUJQ==:617 a=xqWC_Br6kY4A:10 a=-Yt9tNsTAAAA:8 a=d70CFdQeAAAA:8 a=k1XjlL_sdP34A_Td12AA:9 a=qPQde0g9OtMA:10 a=HTceBwxjnJgA:10 a=NcxpMcIZDGm-g932nG_k:22
+Date: Tue, 11 Nov 2025 17:20:23 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=NuiDcNdJ c=1 sm=1 tr=0 ts=69137057 a=4Ac7OKPmaT9y8oRpUfBUJQ==:617 a=xqWC_Br6kY4A:10 a=-Yt9tNsTAAAA:8 a=d70CFdQeAAAA:8 a=c5J05wBQCKpdwD8Cx1EA:9 a=qPQde0g9OtMA:10 a=HTceBwxjnJgA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfGM/J1hHt5ZYMkqoyesU57Z4T+VLHl/lCfD5/gzH8XsyupHibNPluJjb3iftLxJUwAh9Fmq+FmxwdOY1jUu/Xwk4gT3yu4EkfuPPvI+ioxWCj0mFiYic L7yzyAUHeZdAWM5AAPRwS3Kl8tCnqFrxC7W48pxM2bFjQ5cn4CRluRx/tzLJU2KKXK6q/rHx73o8oUg7vduy9Cp1TYk9ct0+CIpiCOr2nWW385ToPf49wfP1 IJ6t4xVxU4v+qaAHAdiWrlmsGUfyBhKq35Q71fo72zwSW2bzt/AH8SKwejUoONwkD6OqA8rfX3bZyv1n/phguE9syHXuiNrgIkh8sCTPnhsNGhiAvZa8eAFm 51zeut4dQ99Paob2I2+jZ96BaZyKATBDQYLTFlw6X6UHE/UhBkWWfmuglLL54FG6zpUhI0YS7JSv1aRtn/0R2Noe3lJlLQDnkk+fAt0FfLAhOcEcpybDxbXv b9mROOS1RszuJxk0lsbkRJs62cXJ8X62UkojXlxUUDk2OMir0zioU54Idfs0fePWpWWeniEjoULmgZz9nv3kcBT8AwAXWuv68k1UT4FqFLDxw5C7nnPY/DwK a4Y=
 X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_092028_031296_B92BB363 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_092028_465928_23684AD9 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,39 +126,373 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 
-Document the compatible strings for Asus Tinkerboard 3 [1] and 3S [2],
+Add initial device tree support for Asus Tinkerboard 3 [1] and 3S [2],
 which are SBCs based on the Rockchip 3566 SoC.
 
 The "3S" version ("S" for "storage") just adds a 16 GB eMMC
-and a "mask ROM" DIP switch to the "3" version.
+and a "mask ROM" DIP switch (to mask the eMMC and enter "Mask ROM"
+mode for recovery) to the "3" version.
+
+This adds support for:
+- Debug UART (/dev/ttyS2)
+- SD card (/dev/mmcblk1)
+- eMMC (/dev/mmcblk0, only on Tinkerboard 3S)
+- I2C:
+  - i2c0 (internal bus with a PMIC and regulators)
+  - i2c2 (internal bus with an at24 eeprom and an RTC device)
+- USB 2.0 ports
+- 2 GPIO LEDS
 
 Link: https://tinker-board.asus.com/series/tinker-board-3.html [1]
 Link: https://tinker-board.asus.com/series/tinker-board-3s.html [2]
 Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 ---
- Documentation/devicetree/bindings/arm/rockchip.yaml | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+ .../boot/dts/rockchip/rk3566-tinker-3.dts     |  14 +
+ .../boot/dts/rockchip/rk3566-tinker-3.dtsi    | 264 ++++++++++++++++++
+ .../boot/dts/rockchip/rk3566-tinker-3s.dts    |  30 ++
+ 4 files changed, 310 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-tinker-3s.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 6aceaa8acbb2..451597a6cffb 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -86,6 +86,17 @@ properties:
-           - const: asus,rk3288-tinker-s
-           - const: rockchip,rk3288
- 
-+      - description: Asus Tinker board 3
-+        items:
-+          - const: asus,rk3566-tinker-3
-+          - const: rockchip,rk3566
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index ad684e3831bc..381831cab20c 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -130,6 +130,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-lubancat-1.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-nanopi-r3s.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-cb2-manta.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-pi2.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-tinker-3.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-tinker-3s.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-bpi-r2-pro.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dts b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dts
+new file mode 100644
+index 000000000000..938af35b9004
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dts
+@@ -0,0 +1,14 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
++ */
 +
-+      - description: Asus Tinker board 3S
-+        items:
-+          - const: asus,rk3566-tinker-3s
-+          - const: asus,rk3566-tinker-3
-+          - const: rockchip,rk3566
++/dts-v1/;
 +
-       - description: Beelink A1
-         items:
-           - const: azw,beelink-a1
++#include "rk3566-tinker-3.dtsi"
++
++/ {
++	model = "Rockchip RK3566 Asus Tinker Board 3";
++	compatible = "asus,rk3566-tinker-3", "rockchip,rk3566";
++};
++
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dtsi
+new file mode 100644
+index 000000000000..45269d33b0cb
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3.dtsi
+@@ -0,0 +1,264 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pinctrl/rockchip.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
++#include "rk3566.dtsi"
++
++/ {
++	aliases {
++		serial2 = &uart2;
++		mmc1 = &sdmmc0;
++		i2c0 = &i2c0;
++		i2c2 = &i2c2;
++	};
++
++	chosen {
++		stdout-path = "serial2:1500000n8";
++	};
++
++	vcc3v3_sys: regulator-3v3-vcc-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc3v3_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_sys: regulator-5v0-vcc-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vcc5v0_usb_host: regulator-5v0-vcc-usb-host {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio0 RK_PA6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb_host_pwren_h>;
++		regulator-name = "vcc5v0_usb_host";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	gpio_leds: gpio-leds {
++		compatible = "gpio-leds";
++
++		act-led {
++			gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger="mmc1";
++};
++
++		rsv-led {
++			gpios = <&gpio0 RK_PD6 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger="none";
++		};
++	};
++};
++
++&uart2 {
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
++
++	rk809: pmic@20 {
++		compatible = "rockchip,rk809";
++		reg = <0x20>;
++		assigned-clocks = <&cru I2S1_MCLKOUT_TX>;
++		assigned-clock-parents = <&cru CLK_I2S1_8CH_TX>;
++		#clock-cells = <1>;
++		clocks = <&cru I2S1_MCLKOUT_TX>;
++		clock-names = "mclk";
++		clock-output-names = "rk809-clkout1", "rk809-clkout2";
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pmic_int_l>, <&i2s1m0_mclk>;
++		#sound-dai-cells = <0>;
++		system-power-controller;
++		wakeup-source;
++
++		vcc1-supply = <&vcc3v3_sys>;
++		vcc2-supply = <&vcc3v3_sys>;
++		vcc3-supply = <&vcc3v3_sys>;
++		vcc4-supply = <&vcc3v3_sys>;
++		vcc5-supply = <&vcc3v3_sys>;
++		vcc6-supply = <&vcc3v3_sys>;
++		vcc7-supply = <&vcc3v3_sys>;
++		vcc8-supply = <&vcc3v3_sys>;
++		vcc9-supply = <&vcc3v3_sys>;
++
++		regulators {
++			vcc_1v8: DCDC_REG5 {
++				regulator-name = "vcc_1v8";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc3v3_sd: SWITCH_REG2 {
++				regulator-name = "vcc3v3_sd";
++				regulator-always-on;
++				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vccio_sd: LDO_REG5 {
++				regulator-name = "vccio_sd";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc_3v3: SWITCH_REG1 {
++				regulator-name = "vcc_3v3";
++				regulator-always-on;
++				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++		};
++	};
++
++	vdd_cpu: regulator@40 {
++		compatible = "silergy,syr827";
++		reg = <0x40>;
++		fcs,suspend-voltage-selector = <1>;
++		regulator-name = "vdd_cpu";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <830000>;
++		regulator-max-microvolt = <1200000>;
++		regulator-ramp-delay = <2300>;
++		vin-supply = <&vcc3v3_sys>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
++	};
++};
++
++&i2c2 {
++	status = "okay";
++
++	m24c08@50 {
++		compatible = "atmel,24c08";
++		reg = <0x50>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&tb3_eeprom>;
++		status = "okay";
++	};
++
++	rtc_isl1208: rtc@6f {
++		compatible = "isil,isl1208";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_externalrtc_reg>;
++		interrupt-names = "irq";
++		interrupts-extended = <&gpio0 RK_PD3 IRQ_TYPE_EDGE_FALLING>;
++		reg = <0x6f>;
++		status = "okay";
++	};
++};
++
++&sdmmc0 {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	disable-wp;
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
++	vmmc-supply = <&vcc3v3_sd>;
++	vqmmc-supply = <&vccio_sd>;
++	status = "okay";
++};
++
++&usb_host0_ehci {
++	status = "okay";
++};
++
++&usb_host0_ohci {
++	status = "okay";
++};
++
++&usb_host1_ehci {
++	status = "okay";
++};
++
++&usb_host1_ohci {
++	status = "okay";
++};
++
++&usb2phy0 {
++	status = "okay";
++};
++
++&usb2phy0_host {
++	phy-supply = <&vcc5v0_usb_host>;
++	status = "okay";
++};
++
++&usb2phy1 {
++	status = "okay";
++};
++
++&usb2phy1_host {
++	phy-supply = <&vcc5v0_usb_host>;
++	status = "okay";
++};
++
++&pinctrl {
++	pmic {
++		pmic_int_l: pmic-int-l {
++			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	usb {
++		usb_host_pwren_h: usb-host-pwren-h {
++			rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		usb_otg_pwren_h: usb-otg-pwren-h {
++			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	rtc {
++		pinctrl_externalrtc_reg: externalrtcreggrp {
++			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	eeprom {
++		tb3_eeprom: tb3-eeprom {
++			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-tinker-3s.dts b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3s.dts
+new file mode 100644
+index 000000000000..ba7efd702050
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3566-tinker-3s.dts
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Michael Opdenacker <michael.opdenacker@rootcommit.com>
++ */
++
++/dts-v1/;
++
++#include "rk3566-tinker-3.dtsi"
++
++/ {
++	model = "Rockchip RK3566 Asus Tinker Board 3S";
++	compatible = "asus,rk3566-tinker-3s", "asus,rk3566-tinker-3", "rockchip,rk3566";
++
++	aliases {
++		mmc0 = &sdhci;
++	};
++};
++
++&sdhci {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	max-frequency = <200000000>;
++	mmc-hs200-1_8v;
++	non-removable;
++	pinctrl-names = "default";
++	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
++	status = "okay";
++};
 
