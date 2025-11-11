@@ -4,162 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39C3CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 03:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D33FCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 03:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDnSn6RKX6gM8MpiiaJZCDWzga63WWTqUpe2z26PdAM=; b=eTUWdRxRENInLPAGX8MnQ9VtKs
-	JL5GCxYVLhj4I9UgyI0Z+mjZ6dg7dYCYbMyYTFvuhbT3VWBxetHoXnlmmU5nmoGlbRgzF42YHtxRQ
-	SBpzoxFXyCNafbwAsb0AV0cjMBY5cjIIgD4FgqNKMcxe10/t8gzqPOb+VDWaZURWk+XEpzF5iVNiV
-	8z+MlbrYedyQQ6GJcvz+SAL4wfWc88cKR2AZcE+WqSUTBDWXhsnwtAw0RSzFReVbV/ERBw9WFILdv
-	2VGsV2b6rRbzA37DzN849TCOVmGm9LasVZ5jwiSrL9DHO1IXlZ2l34x7OzU0Dg7yPWFJp1PeCpdsR
-	cDlfqKAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K5ABXh2/uhWraYUqJ9BUk7p0Ge5LHjETStkwwcjp/eo=; b=qETd++YoMHvTIlnp0URhM/v4xL
+	jztiYCPcMcRfBHvV3HKcqD2ItALaBLAuMI2Eqye4SMZRTcI1fsvNkENUbo1P/n6WG2EVasf49n43Y
+	/44jOirjlGB3YrGfjtHjlxfm7yFp3Jy69ByYRvfqFHDV31nU8+m3U++O4RbWuKNcCIJ1qmMuCzRTZ
+	nQBpY64Q78gQWuk5bYuw7En3uhroJI+xjhfnlz8CRERvZGYPRexTKvTqP+PIpJXamzMFdBJ7faD+l
+	+nXKOD2GIpueNAuFQVBCyM+5t5zOgWqeugrEH8ttVVzJGES1CfbyLBHLBUVjqAUKjrcw1Hsbq79C5
+	m63eGoJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIeli-00000006QQv-14Q8;
-	Tue, 11 Nov 2025 03:10:06 +0000
-Received: from mail-japanwestazon11022113.outbound.protection.outlook.com ([40.107.75.113] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vIesy-00000006QpD-2Vp7;
+	Tue, 11 Nov 2025 03:17:36 +0000
+Received: from mail-m83148.xmail.ntesmail.com ([156.224.83.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIelg-00000006QQY-0s38
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 03:10:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KLCtPshXEozoc9mCXuCqKsQVy8UgRYrtyAbvuoDu5yIiUHHeinF0BycJ45hsafi4u67u0ladgbfFIWSSsbiuie5z1c7SuWZkFKD0wFSfsWRf4IIULd7/dc2m3Lg+biQKF5kqDSFMjX8me91HGCdPW9gEFVHQvgco+woK4uQIDOB5u6eOfAtAF6CKz0GLgZpnCuYDRkdxYtwKfnCA/9lbMpyi1wc39vr1ANpPd9ZPrvgTeWanP7soicun7VfY2S0S2sRHZ5VqoG9+ApDyuTfbUrP/ZTFPfP4Sucxbwv0otx3yABgJ8OFd97GEYPj2juiZ0O/MFPgY5hMqcWuzaHpA9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NDnSn6RKX6gM8MpiiaJZCDWzga63WWTqUpe2z26PdAM=;
- b=vhDx367gGQafIdQ76E7Z/ROq6+gAqgEIOZZEaOIv+QAp05OrqzDiTOVZobcxbWlraM04FF/JyS9volemskXCgZ/TgfhKaWyd4aa0chYevgErhGZU9pJ+eLC6fffGknqRBZYrVx5/d/Q/rh8q2qJp7MjsxhNxGok3jDeApMDeIfCRPwIQ2OXIefuX8PXVJaarZ/vASO7qFefzCGxn4JsehqMxMPtAPLUunfhbGlqhWa3d43NlnxJqjQ+pQelm4M/KMg8Yup9vYFOX4tmkPhgc5es5cgwQs1ImlXoAEetpr1XVGJnPhu/kGXnrRa1bYKz2cniJtkuEFOGuqyh2u9QYBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NDnSn6RKX6gM8MpiiaJZCDWzga63WWTqUpe2z26PdAM=;
- b=J7Gd3KRpwWT1f1bCxLcK0LOzfmrJmLcUj9j5P4/wdF1wp7DugR8mv880UIkk4zC9vh/kazVEDuZzkY/MztDeVxeG3R9qaokXXeBhTSOjZDIdPDN5ZfRdB500O+VdKSadtvU+FRRz8K1u+GXi6SEj67u4F1mBG2e4B4Onv09M48CIcmTxPUaUAYMJ3qG4XRydzlyL3uTh9sSqMBXfo4rxOh7tff7+UpIXFIGkgtdGRwxTUBREtagbft48b4Yi3+oPTamlX7yt361+uiDJ+0PCW4qCIwUPWQ+cdaRmMQXt2hnxu8AejrrJfyV0ZBaY1xR+/u6jcNiapPY0Wa5/60T1Mg==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by SEZPR06MB6332.apcprd06.prod.outlook.com (2603:1096:101:123::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.15; Tue, 11 Nov
- 2025 03:09:56 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9298.015; Tue, 11 Nov 2025
- 03:09:55 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
-Subject: [PATCH net-next v4 1/4] dt-bindings: net: ftgmac100: Add delay
- properties for AST2600
-Thread-Topic: [PATCH net-next v4 1/4] dt-bindings: net: ftgmac100: Add delay
- properties for AST2600
-Thread-Index: AQHcUjKPFpI7MoYOzkqsJfCmSLBAwbTsBwaAgADCIuA=
-Date: Tue, 11 Nov 2025 03:09:55 +0000
-Message-ID: <SEYPR06MB5134CA04A18DC9783CEB40999DCFA@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
- <20251110-rgmii_delay_2600-v4-1-5cad32c766f7@aspeedtech.com>
- <aeb5d294-d8c7-4dbb-a159-863963d38059@lunn.ch>
-In-Reply-To: <aeb5d294-d8c7-4dbb-a159-863963d38059@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEZPR06MB6332:EE_
-x-ms-office365-filtering-correlation-id: 22684813-ab55-4e0e-6193-08de20cfca59
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?o8DSMxIEffKF9gPBmv1fFQ88AgohNAuN+XfMe6rrl7V0qrboHd68E0B4boB5?=
- =?us-ascii?Q?jA/t1afO+hlnCcMrjR6uL+iEdQSOg/c7mTpkc4hwLFRzLIYq/gt5mmr9sVB1?=
- =?us-ascii?Q?f13MoTC4GMW09+vxPjKp9N4JGHz+0cgoUiVwP0abSbV3w/asgxex3vTZzEZ8?=
- =?us-ascii?Q?43TWSOJLQEVwujvGlafPwObvkwAkQCOJ5bITX5AmF5bQjYJdO70DHlFN0/Tn?=
- =?us-ascii?Q?NL22AgQ8Dj8ImtQZ5toNYP/eCkXVvHyTcvaur5NsHQgMzSNb07HxvoPmRrCN?=
- =?us-ascii?Q?dgEE7EZw4/3iNRywDvt1bDNw/S6lTLhd6nNP7x2UsxowcBdMHxDJNs90NtWr?=
- =?us-ascii?Q?pAX1LmWArwIj0fP60RPc2LygYq97E7fZwTNJVbRPOLk/kDqJV5VIWZVv156p?=
- =?us-ascii?Q?A2TiQwKQ/KywKnptY6eLod56Rl10ofKkjW4VHyLjoCOwALBH+xhjHB3m/edm?=
- =?us-ascii?Q?tw4SOJSjbWiB6ODqA0V2mGNFYahJwIXglaH8ddDZNB7RH9dzfVUpM/WQZPwM?=
- =?us-ascii?Q?0UW7WUUkq0Gfs1y0SkAXfrC8LAQ20f20oozVUc+wX5Swq1Xahc2jE1TiqUDw?=
- =?us-ascii?Q?psorkTC+x17Ktl9rurFh5IbX3ozyMAAqGIW8giDfb/dPF/GadrsLITWPfEQ+?=
- =?us-ascii?Q?oc6KX1xilEeo3iveVoVrpYBBNhMk8lnNadCL+ZR0J794CbfgEJaRrc/MiZm1?=
- =?us-ascii?Q?PuseuFKhwQYDxmBGM7dpuQkH3XUcnk7cxWRtKTi0+0cEEmOpP9Odzc/bYgfO?=
- =?us-ascii?Q?kydFSM0rjdyr4PmCaOOHExdoJOcl9tsSPO4y033MaYXc/yoHyCRl16ouhcab?=
- =?us-ascii?Q?YPfsYwvESczYaEZObXEjHmypPeOB2T/IzW/z/zT1sZWRp9+B0NTB37haYPDB?=
- =?us-ascii?Q?0x7houpGfdrK6aMJ/4jyn+xHghvE+N5asdtQt8blfVL/RmXWYMjFG0DsAGFx?=
- =?us-ascii?Q?1t1p7qJBKOcAs11f4Y/hYvn5h/vtzkg1rbasyp9/y0zffg1p6vnXAu2zGvn8?=
- =?us-ascii?Q?iwnm1cSDSHfCiSJ/omGsUlxwfBPe5qFO6u1NwoHEwKW/lH605OrHr1hEGkpb?=
- =?us-ascii?Q?F9p3MumuYcc9oveTp8g8dWoDrTeFNkYrIctqOYbjW1LPVztl5At/ej5R56u8?=
- =?us-ascii?Q?8A3i4GGLxQ0c4LZz6S4/pKtrUG3OupSlAZkGAQ1+AWNPmyHymv0PrWRoAdIq?=
- =?us-ascii?Q?A6PlG6jdOd/Qqees8R/Eq3CMaL4+BQVpC/+vu+zkcGo+t/aEBWmteT75o3/1?=
- =?us-ascii?Q?sYPVa8Gy5BtDZgVE9vZTsDJfYTUSH8IxGhjEflDb8MZvkP3nDcJEmAMln0fk?=
- =?us-ascii?Q?M84o7RX1iIF1Ik+k+5+oxEi3Q2yDDELIMUzzFu3+tPd+ZkgveFkR6nlJBENu?=
- =?us-ascii?Q?S5sa/WS+uvAMyOcA0gSTC3Xf/lbirSLWVlp1EJTqtFGxWKwvA33voc9AvXKZ?=
- =?us-ascii?Q?k9Bx20pICcEyCerGUOi6x5oA5usL7WvRayVuAAIBdQtzHL/wKNlP9uFvUmQl?=
- =?us-ascii?Q?Moh99qXqsppobXOwmpUQMeIcGj0Ayl80YmER?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FVo0eDphrJNcb6duB3m8iGvuX+b9lYpzzzJ8Gpu2DuS4VZASrnJGCwUMjLXV?=
- =?us-ascii?Q?9W9X9TPPVPG/ZSDWKGA+qtqquiAHBFW/+robJVl1cuMZm0WGYjy6irhfQsLh?=
- =?us-ascii?Q?7zFvRXvgU7V+1E6j/bBXvaqMPCX6X9ZUovZGdm9jhwd9HmEyBrnfT4NVVfKa?=
- =?us-ascii?Q?/qVDHS3xNBHNfpPAFYsoQSLQT7iCQnGPRnXbDKExnHI0e4dG46tnR9vhuYXa?=
- =?us-ascii?Q?NZDvv2Vgi+ffP3/5ybdooKTSh6kHpAl0EB1TEKcWWQLAHrU61Mg+8KH5d/ZT?=
- =?us-ascii?Q?Q8MRggBqiZoljpw4We7LjE4y2LSVlhc0q1twNDjHo6FLGNX8GADPGEcIGfv1?=
- =?us-ascii?Q?2pAcpiIIHJWStSld+hZExWjjn67VsByYgdOlAlMBxy/6V0AT3CYSUIK8kRZv?=
- =?us-ascii?Q?jO2h+lPjt6P+wl3utscjH2yVP+J5otw0V/FeY6izEtNv6Y9t6S6qv8CsUb0r?=
- =?us-ascii?Q?7wfaWOnPF2+4mRNWVTkPjrUBS4uTNWLXzsy6RsBfad1zT/qvnrdrf271J8+8?=
- =?us-ascii?Q?l5RAuRxQ7N0NsXh2uYB53YddCr/5T4+H0BDzHRS6wvwmNYY8PzHgQWsDKhQB?=
- =?us-ascii?Q?/JF3i/MbecPOrpAEv1bN4Qebcv1AglLdTDn5RcsKycDpJuz/M3oo72ih5dsi?=
- =?us-ascii?Q?jr0xRrfKFFL3qELA3GEaW7+pt6cP4oB4tkQEJI4sY5SeGEr7Wle6sajo9c9a?=
- =?us-ascii?Q?B1+lM79Ddd4c7UpFgSAMIzzIDkkdGf2+Hd9OpsrNOueWquhhF/kV6XsVOtYm?=
- =?us-ascii?Q?cnVKNsxj8yHo55//mjzcI/OjvyDqkDxnd2YVeek6GZu9825aVtIa1evSNx4L?=
- =?us-ascii?Q?b3RMSqj/iNCXEvX511d/I1E0a3krWnQ09KlaadfybF0qm9frVIkoJTKmJjCh?=
- =?us-ascii?Q?rBTzhfSfebvnejWHwzvXLdu+GUfF761Ot2FBm1p0pkgLDL8djksd77AnjVv/?=
- =?us-ascii?Q?pQzU0DOx5cBTgPe3ZJgyHSUXImrS0sXNTMA/hBbZ681a7NZnxNjUXKlLBSuL?=
- =?us-ascii?Q?CZFCexl1Mxv8GnIfm5mlOqOhF8p/CGFpEzhYsjL84Ok0+G129RGADHcJlozq?=
- =?us-ascii?Q?0Reb+a57+he5E+AHn8qSzkMxB9z810ANjZ1bb5tgpIrcc8H0/fzzjxLKw4dk?=
- =?us-ascii?Q?DVtXIXG5kcwsezTFL9nR4ZRDk87FQuc6pTuYkVuBj4CGSh6rRzNCMfyDjBTi?=
- =?us-ascii?Q?EiwJQpxitAobSLGLtYTGfIa00/kGNear3Zo3MZncdfb8+8MSULQ/ilTFuLm0?=
- =?us-ascii?Q?TktqdJVgsMz3MnDKi4faAk5bNLAjwqP2byS2fpngnFx7HvCIua1UO3MsLlSp?=
- =?us-ascii?Q?f4k+TaQT36OM0xgzkf2mhG3UvReHJzTlzwx9uoyY6SFEQH/iiDI49uBWYdpx?=
- =?us-ascii?Q?NHOgi2Hy0BRcs9oA9vlCrW3Ah2rLDmeeee+VBW21zkLvAF6YlY3TEAwgPEio?=
- =?us-ascii?Q?+1LoJ5c8UryYdgsYmqmJSZdNOsft9ec6rjzUGvaYY5zLrq7asxmvOUT/vPsM?=
- =?us-ascii?Q?DDg3sp0cuPluL8cfEy+3OcXwk2ptNNKYSdsZPB/ef5ooFzrapeIhvhORc7CW?=
- =?us-ascii?Q?bxENv5ncELfvT+/iR7rvNaKejodIXzymNZu6VHkz?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vIesv-00000006QoP-2AxR;
+	Tue, 11 Nov 2025 03:17:35 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2920392a1;
+	Tue, 11 Nov 2025 11:17:24 +0800 (GMT+08:00)
+Message-ID: <05bd0efe-9a84-40e9-af07-51c0b0d865bf@rock-chips.com>
+Date: Tue, 11 Nov 2025 11:17:23 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22684813-ab55-4e0e-6193-08de20cfca59
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2025 03:09:55.8298
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dTOKYXZX5oTvm+X7Y+xKa8fg/EjFH0cAKB2HZ9m5rA601OuVi9PCqjU2K7MQ2S98lIccQ8FAJ6UFL1Jhat6WR4hsONKYBSAqfLQNshbkj7M=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6332
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
+ Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: FUKAUMI Naoki <naoki@radxa.com>
+References: <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
+ <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+ <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+ <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+ <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
+ <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
+ <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
+ <aRHb4S40a7ZUDop1@ryzen>
+ <2n3wamm3txxc6xbmvf3nnrvaqpgsck3w4a6omxnhex3mqeujib@2tb4svn5d3z6>
+ <aRJEDEEJr9Ic-RKN@fedora>
+ <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9a70eb0e3b09cckunm01a7eea81458b7c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk5OTVZNQ05KSU5CSUMZQk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=FKlailV5rqm923DDW0DU9rfU+TO/zidhTTeZUIGI9pQ9ppnHtt7efud90vTJpVC6/FOYjoiplSbH0R5EtAFYbldT2IzwOtsLUmRBFmpcAHH3p3yhIV3A3EpZ73wWPJHaJ3clVb2y/VshDuvK/8/n7XtUj8IMcVAW8xV6rbpOawI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=K5ABXh2/uhWraYUqJ9BUk7p0Ge5LHjETStkwwcjp/eo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_191004_250669_1FB13C31 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20251110_191734_174543_231C60F4 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,27 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+在 2025/11/11 星期二 10:09, FUKAUMI Naoki 写道:
+> On 11/11/25 04:59, Niklas Cassel wrote:
 
-Thank you for your reply.
+...
 
-> > Add the new property, "aspeed,rgmii-delay-ps", to specify per step of
-> > RGMII delay in different MACs. And for Aspeed platform, the total
-> > steps of RGMII delay configuraion is 32 steps, so the total delay is
-> > "apseed,rgmii-delay-ps' * 32.
->=20
-> You already have hard coded base addresses to identify the MAC instances.=
- So i
-> don't see the need for this in DT. Just extend the switch statement with =
-the
-> delay step.
->=20
+> 
+> Leaving the commit message aside, I'm currently testing with a revert of 
+> the two patches.
+> 
+> Vanilla v6.18-rc5, CONFIG_PCI_DYNAMIC_OF_NODES=y, revert ec9fd499b9c6, 
+> revert 0e0b45ab5d77.
+> 
+> It works stably on the ROCK 5A. The link speed is 2Gb/s.
+> 
+> The ROCK 5C is unstable. It initially worked with a link speed of 4Gb/s, 
+> but eventually started showing kernel oops. The dts files for the 5A and 
+> 5C are compatible and interchangeable, but even using the 5A's dts on 
+> the 5C, the operation remains unstable.
 
-Agreed.
-Indeed, no additional property is needed to specify this.
-I will remove this property in next version.
+The link speed on ROCK 5A is 2Gb/s also means it's downgraded now. Did
+ROCK 5A work under the link speed of 4Gb/s before?
 
-Thanks,
-Jacky
+In case it's signal integrity relevant, you could enable PCIE_DW_DEBUGFS
+and refer to Documentation/ABI/testing/debugfs-dwc-pcie to collect
+RASDES info from there.
+
+> 
+> I plan to thoroughly investigate the ROCK 5C's behavior on v6.13, but 
+> for now, I believe reverting the two patches is the correct action.
+> 
+> Best regards,
+> 
+> -- 
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+>> Kind regards,
+>> Niklas
+>>
+> 
+> 
+> 
 
 
