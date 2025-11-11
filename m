@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04CCCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8597CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 17:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lc4prR/NRmqGKWAu+uVdSjtexRWIrS4oe1SpF5Crh2Q=; b=O2xFlZ3aI0YXIkG3ss2Nhylj4I
-	U5c4KrLNedGyldeL85cjNAk6qniaQUk0jVvbmlyH8LYmYKU4DaC+2r2zT4uYchAa0pvA3zBJGHRjr
-	rVVe5KoLjkFQOgGP7CSBDnt6F7XlfY8Frbhla80WVWJQu0JKs4fQM9eJQGHOBbtQ9sUqRi+yM2CsC
-	IA0IGJYyJloukkLc4ni5ia7UnSXOGFH5KnHOxkisI1AIoz5B7WZ2eCGsL2iHcdvjH87M1Z3kNlzgH
-	IGLwnZI2R1vtkSnC09qNN6r1RR8vRtSJugvG4ZZAEhpeiG04Y4mmjbdFdGx4k9M+5dzp+8lGwGAkX
-	I2SxjCRQ==;
+	bh=Eaip8AdhOCbRHgTWtwEuZ3MgJilgQehobKZmsLCH+jk=; b=KS1SvjY/S1rZRLVK1Q1ZkoP8Aa
+	Mg/9YRP6/01F4Vf0X5LREX7Wtwn9NrBzsQWNWPQCgKR+hmh1rIyu6ho52WUIYm4G//34zxHoWdnE8
+	9kDEdBcbotX3bUeJrq9/LzZdkoKHHbwTT1GXAs6sbdnxeMRd3qRjexuTj5J3XjDVL9nqhiv+MUnqL
+	XA8VRaDUUR7XuR1h+8QeI5NlxU07eIGnvpwk0ma5knrL16OWAy2W9ys9pIDACor8s5eer/VG9kKyZ
+	u1TO+0m14YUdvyTHLLRonBJ7zuhiw6pgjfLUi22rYEgXIwj3xRYFM0m3gVbf3zsm+kAFroTiNqM/Z
+	8cgLMG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsaS-00000007Z1z-3dBE;
-	Tue, 11 Nov 2025 17:55:24 +0000
+	id 1vIsaX-00000007Z3Q-0hxc;
+	Tue, 11 Nov 2025 17:55:29 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsaR-00000007Z0q-0zci
+	id 1vIsaT-00000007Z1Q-0BSG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 17:55:23 +0000
+	Tue, 11 Nov 2025 17:55:26 +0000
 Received: from localhost.localdomain (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id EFAE41FE49;
-	Tue, 11 Nov 2025 18:55:20 +0100 (CET)
+	by mail11.truemail.it (Postfix) with ESMTPA id C9B032066A;
+	Tue, 11 Nov 2025 18:55:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1762883721;
-	bh=Lc4prR/NRmqGKWAu+uVdSjtexRWIrS4oe1SpF5Crh2Q=; h=From:To:Subject;
-	b=kp1Ewgr9MmL+UCnCFdMl3c6gW86+uQrCbK/AM7Henkbe/haZMpGJBHaqsXiETkqKY
-	 mbKzfaigcq4/iSqH6oinnGtzCq+Bki/Tv7jtajtvgzqmOzvLWmQn7DoSx7GuzYx86i
-	 h+HCl4Mb4hDLSIXyJN3ecbds76iI/IsV3/r7N49gcTrF9tXu1VdCBuJNmYZaSerDRD
-	 PC62EVPnmsM1hZhwOnUWay4bdJ36xUaihoJFz3gMg70qma+x3M/bQmDDu/XCOH3bQq
-	 suZU0vsphlXt8WDcdu9Zc6Oq17jqwIqtu6BFgy5aBljQ3sGl/0hH24XtHgYRsAGTGx
-	 69jDxLyAOzITw==
+	s=default; t=1762883723;
+	bh=Eaip8AdhOCbRHgTWtwEuZ3MgJilgQehobKZmsLCH+jk=; h=From:To:Subject;
+	b=T+fuFweACLg2cZyxBZkq1GWczh31MR+AqTLj1QNnPm7wDaa/DEyiKwThSXr/q6tOp
+	 dIhibU2EB2fSggrcMmDL0YBFzXq0jbG7HizJizpZyxzAgFU4TtYyqbcrRqsx4IGL4R
+	 kfWw/Sru8deUAVHOfnpMYLfz214K5BuxlRG9xSr6SiRTVMqnQ0aq/1J5QCMspAtEcv
+	 d40cYKnpm2vK5q2wO6Sj2XQ/Kls8g5ABrxFkLvtMtuXkedXHJA6yMebEAVShcpfCxL
+	 zNAvE+z/B2Fr9S4MVoD0mRt4FwyKyf2aAuPZpFIkQUSZSUUmcfxWX8v8G2hhWlP2dD
+	 8k9rnOe8RrWQg==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -50,11 +50,10 @@ Cc: =?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 1/3] dt-bindings: arm: ti: add Toradex Aquila AM69
-Date: Tue, 11 Nov 2025 18:54:57 +0100
-Message-ID: <20251111175502.8847-2-francesco@dolcini.it>
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: [PATCH v2 3/3] arm64: dts: ti: am69-aquila: Add Clover
+Date: Tue, 11 Nov 2025 18:54:59 +0100
+Message-ID: <20251111175502.8847-4-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251111175502.8847-1-francesco@dolcini.it>
 References: <20251111175502.8847-1-francesco@dolcini.it>
@@ -62,9 +61,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_095523_430952_3FD77A91 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_095525_419558_82CF5F9B 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +79,489 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: João Paulo Gonçalves <joao.goncalves@toradex.com>
 
-Add DT compatible strings for the Toradex Aquila AM69 SoM and its
-supported carrier boards: the Aquila Development Board and the Clover
-carrier board.
+Add support for Aquila AM69 mated with Clover carrier board.
 
 Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
-Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
 Link: https://www.toradex.com/products/carrier-board/clover
 Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v2: add conor acked-by
+v2: no changes
 ---
- Documentation/devicetree/bindings/arm/ti/k3.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/boot/dts/ti/Makefile               |   1 +
+ .../boot/dts/ti/k3-am69-aquila-clover.dts     | 451 ++++++++++++++++++
+ 2 files changed, 452 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-index 2e15029dbc67..c6eb72462bef 100644
---- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-@@ -158,6 +158,14 @@ properties:
-               - ti,am654-evm
-           - const: ti,am654
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 6ce652fe98fa..38a93b689fe7 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
  
-+      - description: K3 AM69 SoC Toradex Aquila Modules and Carrier Boards
-+        items:
-+          - enum:
-+              - toradex,aquila-am69-clover   # Aquila AM69 Module on Clover Board
-+              - toradex,aquila-am69-dev      # Aquila AM69 Module on Aquila Development Board
-+          - const: toradex,aquila-am69       # Aquila AM69 Module
-+          - const: ti,j784s4
+ # Boards with J784s4 SoC
++dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-clover.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am69-aquila-dev.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am69-sk-pcie0-ep.dtbo
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+new file mode 100644
+index 000000000000..55fd214a82e4
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+@@ -0,0 +1,451 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (C) 2025 Toradex
++ *
++ * https://www.toradex.com/computer-on-modules/aquila-arm-family/ti-am69
++ * https://www.toradex.com/products/carrier-board/clover
++ */
 +
-       - description: K3 J7200 SoC
-         oneOf:
-           - const: ti,j7200
++/dts-v1/;
++
++#include <dt-bindings/pwm/pwm.h>
++#include "k3-am69-aquila.dtsi"
++
++/ {
++	model = "Toradex Aquila AM69 on Clover Board";
++	compatible = "toradex,aquila-am69-clover",
++		     "toradex,aquila-am69",
++		     "ti,j784s4";
++
++	aliases {
++		eeprom1 = &carrier_eeprom;
++	};
++
++	reg_3v3_dp: regulator-3v3-dp {
++		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_21_dp>;
++		/* Aquila GPIO_21_DP (AQUILA B57) */
++		gpio = <&main_gpio0 37 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "DP_3V3";
++		startup-delay-us = <10000>;
++	};
++
++	/* Aquila DP_1 */
++	dp-connector {
++		compatible = "dp-connector";
++		dp-pwr-supply = <&reg_3v3_dp>;
++		label = "Display Port";
++		type = "full-size";
++
++		port {
++			dp_connector_in: endpoint {
++				remote-endpoint = <&dp0_out>;
++			};
++		};
++	};
++};
++
++/* On-module ETH_1 MDIO */
++&davinci_mdio {
++	status = "okay";
++};
++
++&dp0_ports {
++	port@4 {
++		reg = <4>;
++		dp0_out: endpoint {
++			remote-endpoint = <&dp_connector_in>;
++		};
++	};
++};
++
++&dss {
++	status = "okay";
++};
++
++&main0_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&main0_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&main0_alert1>;
++		};
++	};
++};
++
++&main1_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&main1_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&main1_alert1>;
++		};
++	};
++};
++
++&main2_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&main2_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&main2_alert1>;
++		};
++	};
++};
++
++&main3_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&main3_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&main3_alert1>;
++		};
++	};
++};
++
++&main4_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&main4_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&main4_alert1>;
++		};
++	};
++};
++
++/* Aquila ETH_2 */
++&main_cpsw0 {
++	status = "okay";
++};
++
++/* Aquila ETH_2 SGMII PHY */
++&main_cpsw0_port8  {
++	phy-handle = <&cpsw0_port8_phy4>;
++	status = "okay";
++};
++
++/* Aquila ETH_2_XGMII_MDIO */
++&main_cpsw0_mdio {
++	status = "okay";
++
++	cpsw0_port8_phy4: ethernet-phy@4 {
++		reg = <4>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_eth2_int>;
++		interrupt-parent = <&main_gpio0>;
++		interrupts = <44 IRQ_TYPE_EDGE_FALLING>;
++	};
++};
++
++/* Aquila PWM_1 */
++&main_ehrpwm0 {
++	status = "okay";
++};
++
++/* Aquila PWM_2 */
++&main_ehrpwm1 {
++	status = "okay";
++};
++
++&main_gpio0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio_01>, /* Aquila GPIO_01 */
++		    <&pinctrl_gpio_02>, /* Aquila GPIO_02 */
++		    <&pinctrl_gpio_03>; /* Aquila GPIO_03 */
++};
++
++/* Aquila I2C_6 */
++&main_i2c5 {
++	status = "okay";
++};
++
++/* Aquila CAN_1 */
++&main_mcan10 {
++	status = "okay";
++};
++
++/* Aquila CAN_3 */
++&main_mcan13 {
++	status = "okay";
++};
++
++/* Aquila SD_1 */
++&main_sdhci1 {
++	status = "okay";
++};
++
++/* Aquila SPI_2 */
++&main_spi0 {
++	status = "okay";
++};
++
++/* Aquila SPI_1 */
++&main_spi2 {
++	pinctrl-0 = <&pinctrl_main_spi2>,
++		    <&pinctrl_main_spi2_cs0>,
++		    <&pinctrl_gpio_05>;
++	cs-gpios = <0>, <&wkup_gpio0 29 GPIO_ACTIVE_LOW>;
++	status = "okay";
++
++	tpm@1 {
++		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_06>;
++		interrupt-parent = <&wkup_gpio0>;
++		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
++		spi-max-frequency = <18500000>;
++	};
++};
++
++/* Aquila UART_1 */
++&main_uart4 {
++	status = "okay";
++};
++
++/* Aquila UART_3, used as the Linux console */
++&main_uart8 {
++	status = "okay";
++};
++
++&mcu_cpsw {
++	status = "okay";
++};
++
++/* On-module ETH_1 RGMII */
++&mcu_cpsw_port1 {
++	status = "okay";
++};
++
++/* Aquila I2C_1 */
++&mcu_i2c0 {
++	clock-frequency = <100000>;
++	status = "okay";
++
++	fan_controller: fan@18 {
++		compatible = "ti,amc6821";
++		reg = <0x18>;
++		#pwm-cells = <2>;
++
++		fan: fan {
++			cooling-levels = <102 179 255>;
++			#cooling-cells = <2>;
++			pwms = <&fan_controller 40000 PWM_POLARITY_INVERTED>;
++		};
++	};
++
++	temperature-sensor@4f {
++		compatible = "ti,tmp1075";
++		reg = <0x4f>;
++	};
++
++	/* USB-C OTG (TCPC USB PD PHY) */
++	tcpc@52 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x52>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_usb1_int>;
++		interrupt-parent = <&main_gpio0>;
++		interrupts = <28 IRQ_TYPE_EDGE_FALLING>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			label = "USB-C OTG";
++			power-role = "dual";
++			try-power-role = "sink";
++			self-powered;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++			op-sink-microwatt = <1000000>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usb_1_con_hs: endpoint {
++						remote-endpoint = <&usb0_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usb_1_con_ss: endpoint {
++						remote-endpoint = <&usb0_ss_mux>;
++					};
++				};
++			};
++		};
++	};
++
++	carrier_eeprom: eeprom@57 {
++		compatible = "st,24c02", "atmel,24c02";
++		reg = <0x57>;
++		pagesize = <16>;
++	};
++};
++
++/* Aquila I2C_2 */
++&mcu_i2c1 {
++	status = "okay";
++};
++
++/* Aquila CAN_2 */
++&mcu_mcan0 {
++	status = "okay";
++};
++
++/* Aquila CAN_4 */
++&mcu_mcan1 {
++	status = "okay";
++};
++
++/* Aquila UART_4 */
++&mcu_uart0 {
++	status = "okay";
++};
++
++&mhdp {
++	status = "okay";
++};
++
++/* Aquila QSPI_1 */
++&ospi0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mcu_ospi0_4bit>, <&pinctrl_mcu_ospi0_cs0>;
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <66000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++		cdns,read-delay = <0>;
++		cdns,tchsh-ns = <3>;
++		cdns,tsd2d-ns = <10>;
++		cdns,tshsl-ns = <30>;
++		cdns,tslch-ns = <8>;
++	};
++};
++
++/* Aquila PCIE_1 */
++&pcie0_rc {
++	status = "okay";
++};
++
++/* Aquila PCIE_2 */
++&pcie1_rc {
++	status = "okay";
++};
++
++&serdes2 {
++	status = "okay";
++};
++
++&serdes4 {
++	status = "okay";
++};
++
++&serdes_wiz2 {
++	status = "okay";
++};
++
++&serdes_wiz4 {
++	status = "okay";
++};
++
++/* Aquila ADC_[1-4] */
++&tscadc0 {
++	status = "okay";
++};
++
++&usbss0 {
++	status = "okay";
++};
++
++&usb0ss_mux {
++	status = "okay";
++
++	port {
++		usb0_ss_mux: endpoint {
++			remote-endpoint = <&usb_1_con_ss>;
++		};
++	};
++};
++
++&usb0 {
++	status = "okay";
++
++	port {
++		usb0_hs: endpoint {
++			remote-endpoint = <&usb_1_con_hs>;
++		};
++	};
++};
++
++&wkup0_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&wkup0_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&wkup0_alert1>;
++		};
++	};
++};
++
++&wkup1_thermal {
++	cooling-maps {
++		map0 {
++			cooling-device = <&fan 1 1>;
++			trip = <&wkup1_alert0>;
++		};
++
++		map1 {
++			cooling-device = <&fan 2 2>;
++			trip = <&wkup1_alert1>;
++		};
++	};
++};
++
++&wkup_gpio0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio_04>; /* Aquila GPIO_04 */
++};
++
++/* Aquila UART_2 */
++&wkup_uart0 {
++	status = "okay";
++};
 -- 
 2.47.3
 
