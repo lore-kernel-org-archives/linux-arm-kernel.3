@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2DACCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA3ACD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hk1dp8NPTmaGkXE1nl/HOFJ0NlZUtMFoYOrkZcVKmoE=; b=gwyaaVG569QwAQJjYRciadopoc
-	15YIy54JpagOjHH1tmxMtOq5Fwd8YGRY5Ua7nHxVBHXJye0l5soPtDWqJKHFjz39vXgV0LBzC+L5O
-	ydb5HcxaZa7X7kMF37uF10OJMeGUJ1/4niLuf4y9AQ4vZol8/pPAD+XqBn0Vdms3nNUTGuGgoG11N
-	NXDfNmU5YpHzWqcZg4rfr7yF5i8ghXR0L7x4BcF4tqISOwhBttq9/s+y0LGcG2YOefnXVUY+1keEx
-	uL7qQ1aLM/+zQb3jiP2LJ+Gg8QY8PyEIBLSbOA+A8ZjSRHA/ZrvAFcEt4N5f+imUGusucmBoYeI2U
-	lPCZCoig==;
+	bh=lDrPk/j2cjEuIoBm+xk+5sCMUSDGXUZKWizL+qN3lAg=; b=SDiSNoJ6SVigreU5Rkpc/uI+uB
+	aOzDBX55Avrr9hi6COoKI9AEoviaSXzVjsXdOD0YYf8SPqgqZHZlBGeUvLm/2aQ/uYBp8xDAoMLSZ
+	6SR+1ymVk848Vxk/Rhv++uCjfEuPgXx6TiECB9SRritoWX2oMWH7RedE4rPXT1jwkc+uxjgwufeYG
+	NcJZnqP3jWmY/cl78sezNE4pZMJNrCYzBPMTrN67cyfGjrHSl//6IZvsxIyB+YjmQzteHehVEDttQ
+	cWaTYlmvqauNm2bZUlRvLZQU4NdpuiCOjN7uTgxinojDeo5xXHh4yG7Z4VMQ804nZwMJQPlKeJ9k+
+	G/fUYKcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItaU-00000007eMx-1dFx;
+	id 1vItaU-00000007eMb-0RdE;
 	Tue, 11 Nov 2025 18:59:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItaR-00000007eK7-1b5V
+	id 1vItaP-00000007eJL-2cPf
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Nov 2025 18:59:27 +0000
+	Tue, 11 Nov 2025 18:59:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=hk1dp8NPTmaGkXE1nl/HOFJ0NlZUtMFoYOrkZcVKmoE=; b=ilUfzDMsuxAUzrH9/p/gqRgL5q
-	gye1AeNXe6jd5QpV83ibcEcgDcPxES+Vf4dCZah2Dt99ZG2acgt8Ftz3rJwIZl1aQjveaFxdYNpDJ
-	Ry7zUcEryczoKEFcvmbaeJHNSPcE05BS/lgwNk0FWgvrFxTS/stf2rA1TMfHWt5aYFZ6+yz/8zt9Y
-	cU9ODqik8EneDEyul8ZtJJY39YyYoRJLJ8A2kJJPp+kiJDjUlLOqFCkrEJzlc313lawpHMSGkYucy
-	P14hnd9pVVxXFcpu7TfFo8O6d+j82i9scJ3UWB/jh5zKM66dY9K/tmiEDkkgoY3Yz7KooZmC9D7Bg
-	Z8h4fjsg==;
+	bh=lDrPk/j2cjEuIoBm+xk+5sCMUSDGXUZKWizL+qN3lAg=; b=cHDSCyul1hacu4KRaqIYKZKWIR
+	ArT2tG4X00IpEfKmnMySPAJdQCOZHWOCkOFAkamEr1bsPH3S9gGVdLU2qsgulhTFLlzwdl40lAyQs
+	NbRAK0a59Z996035RViom4yFzd6FdrkDwqT4WBEKDn5p09KZpGgaepNF2sPnyesz9qJK+5ee7HGcA
+	9lKbfgRCsks8UNYL4MQNU1vULmqOwreW3sFVfHvs4FBTnoqNpWDGqTSEvglVhAcpxCGX4PCPPISrN
+	YEckGS5VQBHPeX3IT1b0TfjCsOjtLXLfqHCpgpEgU1x0E8OHhzdvWszsgZfKSDgF7Lhq/PZD4oQVv
+	ej6vL94w==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsii-0000000E0oA-3SNM
+	id 1vIsih-0000000E0pc-16P6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 18:03:58 +0000
+	Tue, 11 Nov 2025 18:03:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 255411515;
-	Tue, 11 Nov 2025 10:59:16 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E243497;
+	Tue, 11 Nov 2025 10:59:14 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36A583F63F;
-	Tue, 11 Nov 2025 10:59:22 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C6E73F63F;
+	Tue, 11 Nov 2025 10:59:20 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 11 Nov 2025 18:58:42 +0000
-Subject: [PATCH v6 08/11] coresight: etm4x: Remove the state_needs_restore
- flag
+Date: Tue, 11 Nov 2025 18:58:41 +0000
+Subject: [PATCH v6 07/11] coresight: etm4x: Remove the redundant DSB
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251111-arm_coresight_power_management_fix-v6-8-f55553b6c8b3@arm.com>
+Message-Id: <20251111-arm_coresight_power_management_fix-v6-7-f55553b6c8b3@arm.com>
 References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
 In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -68,16 +67,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762887546; l=3586;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762887546; l=3054;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=JBAwnNTjouwEiWl1NoewFcoUa/X0+OB3vOypd50Ojy8=;
- b=mRaDWbYqzwyr/t7gyGzovJW7TSo+HU0x0wm5rEFSNlN2LvX0XGo62z4aJDC6IEmW9P+tRgiJi
- fTiV7kVUk21B5+2KrXybVNd+6snTLW1dIZCL+xvtucpHXOadt//golj
+ bh=TswMo4s/6KtbMqi32UHSDaWDvbeXaMrPjrKDXO0zwLE=;
+ b=Ctd4zVAwS2GDBz2m1pfbPPX0hvRoRbbJpC/lNfR7wIcF1+4eR6LqG7aeULzOvKXdCRiRuLM6f
+ nNuoLzhjQWjCZ1fXEEg2j+okPvfYiJx6+86xbHGDLIu6Q4FpElQ6vlK
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_180357_303615_EE95799F 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20251111_180355_666837_BCB01F39 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,95 +91,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the restore flow is invoked, it means no error occurred during the
-save phase. Otherwise, if any errors happened while saving the context,
-the function would return an error and abort the suspend sequence.
+As recommended in section 4.3.7 "Synchronization when using the
+memory-mapped interface" of ARM IHI0064H.b:
 
-Therefore, the state_needs_restore flag is unnecessary. The save and
-restore functions are changed to check two conditions:
+  When using the memory-mapped interface to program the trace unit, the
+  trace analyzer must ensure that writes have completed, to ensure that
+  the trace unit is fully programmed and either enabled or disabled.
 
-1) The global flag pm_save_enable is SELF_HOSTED mode;
-2) The device is in active mode (non DISABLED).
+  To ensure writes have completed, the trace analyzer can do ...
+
+  If the memory marked is as Device-nGnRE or stronger, read back the
+  value of any register in the trace unit. This relies on peripheral
+  coherence order defined in the Arm architecture.
+
+Polling TRCSTATR ensures the previous write has completed. Therefore,
+removes the redundant DSB barrier in the enabling flow.
+
+Update the comment in the disable flow for consistency.
 
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 14 ++++++++------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  2 --
- 2 files changed, 8 insertions(+), 8 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 23 +++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index bdf5ab85b2213dfd601391fdcf50960667fa7cea..560975b70474c3449aa6799fc1a8e05d5ea93495 100644
+index fdda924a2c7117a6828e5325d78586b09e75febd..bdf5ab85b2213dfd601391fdcf50960667fa7cea 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1966,8 +1966,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		goto out;
+@@ -475,10 +475,16 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
  	}
  
--	drvdata->state_needs_restore = true;
--
  	/*
- 	 * Power can be removed from the trace unit now. We do this to
- 	 * potentially save power on systems that respect the TRCPDCR_PU
-@@ -1985,11 +1983,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
- {
- 	int ret = 0;
- 
-+	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-+		return 0;
-+
- 	/*
- 	 * Save and restore the ETM Trace registers only if
- 	 * the ETM is active.
+-	 * As recommended by section 4.3.7 ("Synchronization when using the
+-	 * memory-mapped interface") of ARM IHI 0064D
++	 * As recommended in section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 *
++	 * For the memory-mapped interface, the registers are mapped as Device
++	 * type (Device-nGnRE). Reading back the value of any register in the
++	 * trace unit ensures that all writes have completed. Therefore, polling
++	 * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
++	 * no explicit dsb() is required at here.
  	 */
--	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
-+	if (coresight_get_mode(drvdata->csdev))
- 		ret = __etm4_cpu_save(drvdata);
- 	return ret;
- }
-@@ -2079,8 +2080,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 	if (!drvdata->skip_power_up)
- 		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
+-	dsb(sy);
+ 	isb();
  
--	drvdata->state_needs_restore = false;
--
+ 	return 0;
+@@ -974,8 +980,15 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+ 		dev_err(etm_dev,
+ 			"timeout while waiting for PM stable Trace Status\n");
  	/*
- 	 * As recommended by section 4.3.7 ("Synchronization when using the
- 	 * memory-mapped interface") of ARM IHI 0064D
-@@ -2099,7 +2098,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 
- static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- {
--	if (drvdata->state_needs_restore)
-+	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-+		return;
-+
-+	if (coresight_get_mode(drvdata->csdev))
- 		__etm4_cpu_restore(drvdata);
+-	 * As recommended by section 4.3.7 (Synchronization of register updates)
+-	 * of ARM IHI 0064H.b.
++	 * As recommended in section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 *
++	 * For the memory-mapped interface, the registers are mapped as Device
++	 * type (Device-nGnRE). Reading back the value of any register in the
++	 * trace unit ensures that all writes have completed. Therefore, polling
++	 * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
++	 * no explicit dsb() is required at here.
+ 	 */
+ 	isb();
  }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index b8796b4271025f6aba79fe3cd6e4d17d0b56952d..012c52fd19338133129752d35523dc102df24604 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -980,7 +980,6 @@ struct etmv4_save_state {
-  *		in EL2. Otherwise, 0.
-  * @config:	structure holding configuration parameters.
-  * @save_state:	State to be preserved across power loss
-- * @state_needs_restore: True when there is context to restore after PM exit
-  * @skip_power_up: Indicates if an implementation can skip powering up
-  *		   the trace unit.
-  * @paused:	Indicates if the trace unit is paused.
-@@ -1036,7 +1035,6 @@ struct etmv4_drvdata {
- 	u64				trfcr;
- 	struct etmv4_config		config;
- 	struct etmv4_save_state		*save_state;
--	bool				state_needs_restore;
- 	bool				skip_power_up;
- 	bool				paused;
- 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
 
 -- 
 2.34.1
