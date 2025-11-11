@@ -4,103 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54B7CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA766CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fbu3o1viLABP5wwcyk1daQb3Sd8DU0YDTxiJGgrhldU=; b=PodUmNaRbaA7CY3+2ZP13MJZuZ
-	dpLGWlez/Jy8ehKndMRiOw2RM0ZBsnLepScz4CHG6SKPGuQ/qhjeHYI8zTzdhsStvLdSnBpqWZtzv
-	1OL5+2bjZnpK//j9N2GazNjFH3bColaJlooiLXjXKkVavp3fVhYOmxkqo6QkORqN+bR55R+tpE4sA
-	M5fNaoHUKMYFJlvGGjQCl9Q0jpAKH940k7Vd6ErWtbULPV6Q++qw/tWE6GMUCDyO5uSDwwtbIztHp
-	c5mofvOlqyvMSYnD0qGNlmywUeUZNnfOSmK3UaOp+tfuwIRvXpfQmRGs4yJcFjdC3on+CBKuz0ghx
-	aYpYzfNw==;
+	bh=AZNoYO2KmFfwFwuTUFR8c8puoFPJACFPh0RfsqqUzSw=; b=0IuZTXWrHx/UDgp2gVHCb4Ucu2
+	SkzZyliy2+0oRXZN2trwGQKpyjPNPNt/tgF4crR8WcSkzFekTcTV054Bb7IjRZBxbLG07bKar9ejD
+	f/1rzR5foGiP69lb/eaFkhoPyaBVlZ4TpAUYcuApNxwwaZa7lrIKd/MdkzLYAGP/Dc/iBwf1k1/+6
+	pRuneza2kv5E4BvY9TjmOSH2XSsF/YHnVHKkknbrgKM9IypZVHZwxeerSnLtgRhCQMiDceICD1LSS
+	rVqkGf6PsepDP0dUdHyqbCxFj1wbWq2ecvqAPSrq1d3GCReHB/DXLXz+0wkl7A/6H74WarJoXow7+
+	q1p55uww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIq7p-00000007NDe-1Z8y;
-	Tue, 11 Nov 2025 15:17:41 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1vIqOR-00000007OAw-47WM;
+	Tue, 11 Nov 2025 15:34:51 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIq7m-00000007NCW-1TJT
+	id 1vIqOP-00000007OA6-3cNn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 15:17:39 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 9D07A140008F;
-	Tue, 11 Nov 2025 10:17:34 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 11 Nov 2025 10:17:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1762874254;
-	 x=1762960654; bh=Fbu3o1viLABP5wwcyk1daQb3Sd8DU0YDTxiJGgrhldU=; b=
-	VUti9/T3aO3GOccYKmBXHz3ZdrMX+USsxgD0amkzVk56cWDvANDlSlFQnHoL7Kx0
-	gqEWgqKdmekAvqSegPZhBB/5VzCy0IM4F7lPqffkCugMHgGDkyp3I6eZh7ddCGvV
-	hA0cxUAa+uI3ad1XJVOLENV7i+WiczHGeZQjWbnmHYNjPqLoqK7NcKziXqoliPoc
-	IUV0jQAO17DR9PYC76X53DNKjYZD/3+eZFq/wFwsOLc6VMQWnQTGJsMteX9rOhzs
-	bVZOd1XOAmlfy4F+hT2XaPCA4Pc7ftIQjgA3tKXdUFDNJ7WTY3qtmOBV1dbjgDeD
-	EBZB0Z8Il4CbhJDK4hPowQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1762874254; x=
-	1762960654; bh=Fbu3o1viLABP5wwcyk1daQb3Sd8DU0YDTxiJGgrhldU=; b=a
-	MeGcHzISOSoh5+tCaefsiGr+j19DZT0+mU0YUmRIjtJpgZTg2e26E2A4PEW9HOH3
-	Jb9tZVhL/KiLA+NRSd80EC7s9lLyDvQcjvT/C/zuhh7chKjARrBKdMV3G6lQ5zsR
-	Tj8CapfRm4uP8G6a44DNsWRQkV6K0pLAQhRPLGnMPzn3kLx5qR2BIroXs2xLv0Yx
-	oWjK2iFzulajNzAYY6d6SMihuTQDMeToY6lZ/QaXlC6S0pOsS8p3FxvOuKbNrFAG
-	6D6I0ArYxUqJwPaUbZjK2BEZK+802ZtUF3YtDDJveUnofKoOhnA89uhsz1otvjGI
-	pGX50DBKVNdh//PkUdiVA==
-X-ME-Sender: <xms:jlMTaQQxtKQ-WgNTjxRcDDZ6uukGQ2s03XDaITI1-xtpUfxA7dUNyA>
-    <xme:jlMTaYlKAYhESnDvbZ3pVH0MWYlUE7qq6crNRXpVZmLmk2xXjoW_dwvPODCMmF070
-    uKYWslmioMtNCV-of0BfjPHvf_xnJj6e3ceW9-eL_GBoL1GGRY4H_Y>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdduheefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepgfegkeelgeeuteejkeevjeekjeeijeehiedvteeghfdvvdetveeiuedugfehhefg
-    necuffhomhgrihhnpehlihhnuhigrdhorhhgrdhukhenucevlhhushhtvghrufhiiigvpe
-    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggp
-    rhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigse
-    grrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepgihivgihuhgrnhgsihhnudes
-    hhhurgifvghirdgtohhmpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinh
-    grrhhordhorhhgpdhrtghpthhtohepsghighgvrghshieslhhinhhuthhrohhnihigrdgu
-    vgdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfh
-    hrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhrthdquggvvhgvlheslhhi
-    shhtshdrlhhinhhugidruggvvh
-X-ME-Proxy: <xmx:jlMTaU2k2-P6zMJQgGny2FLIzH1cIO1K-TAnCaWgBbTNQXTCy2ZtBg>
-    <xmx:jlMTaRUn7JWQaNE-MOQNT06EcmtP5qagvghBQRpUNVOqZ4syBuAbzw>
-    <xmx:jlMTafJdSSnYdOd4HB7dpcblw4vGBoyTCA_VuShPAuRJoRHuk3g2KA>
-    <xmx:jlMTaT3aa4RdA5wnMtHX-cCWmEp73qXsAS9dWpGWn_oeyQDvTng9PQ>
-    <xmx:jlMTaQCwAqvl9XRUFEp7s6TE3RBJJhlJh4sHdsi4-i9T6ar8kUGG1nPn>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0D718700054; Tue, 11 Nov 2025 10:17:34 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: A3J-1TSmcyGB
-Date: Tue, 11 Nov 2025 16:16:52 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Xie Yuanbin" <xieyuanbin1@huawei.com>,
- "Linus Walleij" <linus.walleij@linaro.org>
-Message-Id: <8d7c55f0-ba20-411c-93c7-bb354614c0df@app.fastmail.com>
-In-Reply-To: <20251110145555.2555055-1-bigeasy@linutronix.de>
-References: <20251110145555.2555055-1-bigeasy@linutronix.de>
-Subject: Re: [PATCH v3 0/5] ARM: Remaining PREEMPT_RT bits 
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	Tue, 11 Nov 2025 15:34:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 37B541A19D5;
+	Tue, 11 Nov 2025 15:34:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F1AE3606FB;
+	Tue, 11 Nov 2025 15:34:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 617AD102F24BC;
+	Tue, 11 Nov 2025 16:34:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762875285; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=AZNoYO2KmFfwFwuTUFR8c8puoFPJACFPh0RfsqqUzSw=;
+	b=dcWoxlhbghOguWX14zZ4+4NalkiXI6Xkf/Mk6ulAA4ZHs3HbWJsrpQdbJtjmvOWVGIWXW9
+	5qeBCfSRcI768hrd+wydfZgANmSkqGRc/5K6cUXxTqkRiCT25hskAQ5IpV6QhJm+yPM2zg
+	mJhotskErvWENo8gnEqwDQ+aWtZ/xDo8mH+GN0QzgZaPR8W9BXLPLase34n0e3kuOdLJu0
+	GS56OuHkXYFmdLmIVbCkLH6d7R9yLdKRDgs2TEO6HukJGjh2T47e09LcWusCF8C3+f4DW8
+	X4xW3f8D8FnmWPkabEcTkJiosazMyinaaVu0PG0xviD6Tswp8ifk+kVj2ucs/g==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 11 Nov 2025 16:34:39 +0100
+Message-Id: <DE5Z4R8JBA2F.1SKUAS1R6BCGY@bootlin.com>
+Cc: <dri-devel@lists.freedesktop.org>, "Sandor Yu" <sandor.yu@nxp.com>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+To: "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, <imx@lists.linux.dev>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v6 5/9] drm/imx: Add support for i.MX94 DCIF
+X-Mailer: aerc 0.20.1
+References: <20251103-dcif-upstreaming-v6-0-76fcecfda919@oss.nxp.com>
+ <20251103-dcif-upstreaming-v6-5-76fcecfda919@oss.nxp.com>
+In-Reply-To: <20251103-dcif-upstreaming-v6-5-76fcecfda919@oss.nxp.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_071738_461212_C94829CE 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20251111_073450_033186_5312CF05 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025, at 15:55, Sebastian Andrzej Siewior wrote:
-> this is the last batch I have to enable PREEMPT_RT on the ARM
-> architecture.
-> Last time I posted them there was some discussion about making the
-> branch predictor hardening worse. I redid it hoping it improved now and
-> does not make it worse.
+On Mon Nov 3, 2025 at 4:30 PM CET, Laurentiu Palcu wrote:
+> From: Sandor Yu <sandor.yu@nxp.com>
 >
-> Is this okay now?
+> The i.MX94 Display Control Interface features:
+>  * Up to maximum 3 layers of alpha blending:
+>     - 1 background layer(Layer 0);
+>     - 1 foreground layer(Layer 1);
+>     - A programmable constant color behind the background layer;
+>  * Each layer supports:
+>     - programmable plane size;
+>     - programmable background color;
+>     - embedded alpha and global alpha;
+>  * Data output with CRC checksum for 4 programmable regions;
+>
+> Signed-off-by: Sandor Yu <sandor.yu@nxp.com>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Looks all good to me.
+[...]
 
-Please send the series to patches@armlinux.org.uk according to the
-description at https://www.arm.linux.org.uk/developer/patches/info.php
+> +static struct drm_bridge *dcif_crtc_get_bridge(struct drm_crtc *crtc,
+> +					       struct drm_crtc_state *crtc_state)
+> +{
+> +	struct drm_connector_state *conn_state;
+> +	struct drm_encoder *encoder;
+> +	struct drm_connector *conn;
+> +	struct drm_bridge *bridge;
+> +	int i;
+> +
+> +	for_each_new_connector_in_state(crtc_state->state, conn, conn_state, i)=
+ {
+> +		if (crtc !=3D conn_state->crtc)
+> +			continue;
+> +
+> +		encoder =3D conn_state->best_encoder;
+> +
+> +		bridge =3D drm_bridge_chain_get_first_bridge(encoder);
+> +		if (bridge)
+> +			return bridge;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static void dcif_crtc_query_output_bus_format(struct drm_crtc *crtc,
+> +					      struct drm_crtc_state *crtc_state)
+> +{
+> +	struct dcif_crtc_state *dcif_state =3D to_dcif_crtc_state(crtc_state);
+> +	struct drm_bridge *bridge __free(drm_bridge_put) =3D NULL;
+> +	struct drm_bridge_state *bridge_state;
+> +
+> +	dcif_state->bus_format =3D MEDIA_BUS_FMT_RGB888_1X24;
+> +	dcif_state->bus_flags =3D 0;
+> +
+> +	bridge =3D dcif_crtc_get_bridge(crtc, crtc_state);
+> +	if (!bridge)
+> +		return;
+> +
+> +	bridge_state =3D drm_atomic_get_new_bridge_state(crtc_state->state, bri=
+dge);
+> +	if (!bridge_state)
+> +		return;
+> +
+> +	dcif_state->bus_format =3D bridge_state->input_bus_cfg.format;
+> +	dcif_state->bus_flags =3D bridge_state->input_bus_cfg.flags;
+> +}
 
-You can use
+I haven't reviewed the entire patch in detail, but the refcounting is
+correct now:
 
-$ git send-email --add-header=\"KernelVersion: $(git describe --abbrev=0)\" --to="patches@arm.linux.org.uk" --suppress-cc=all
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com> # bridge refcounting
 
-
-     Arnd
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
