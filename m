@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE6BCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47610CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jzhovyCdDMlzw591/uRWQjYXHaudQMt+y2lzzYkfik=; b=0AjVRVs/wqmTXg5JD+600nwYFB
-	Bz/GCVQGMkF1VbThQoQ+YJsUGIKMFiyz0Ltg4PDOHX2a0hMfGDWKWNaHgNE20yTvvS/ileGiXVg9u
-	iCSdOoFhL2jueWkO9euDqEK02A8EYh+KuyUm2gNZy8FV8VWPJ9QM2vT/8Or1Sc1HEe8s2sqIAtYzE
-	sSQULc5fHfoyaojNoCjukwBslBv2TgOMW76jCUIEUTgyc+1h6NWowOtJsqZr7AoUCjgZ3Jx1MkxF5
-	LOwnopKTVuHJ2Su0/q/YbIHb0xI8Y1WH3X/bPQzRKfMEXL0H7lAu3XLbvCzE34pStnk6Khk+eNDTj
-	kKYPCoIg==;
+	bh=kQDHr+Dbwm60xg7XVBtKI6psmCuFrI2CKOXY7de7Z0g=; b=Di16EhWxFEEbnF8Nl8WTJOXRjt
+	LDHM4cxtzf/K8D34WB5/tSdOtyWoohWijOX+5Kb+SW93dGcuhAdnr38SRLNeeYWabru8Qx9WfQiCS
+	pxF36gjlZfWog9qdFHu6ssxtEGAV2v6cBdaZ5c3hpg6/YNqJivzniNfa2uf39f0JsXlOtbxDSCNk+
+	NrWeV45A4ht7//7rSnl5BS4EyaBQwA/QHkaCqziSWAZsaBBSqjHC3cMCgMkVuqWoJ33M7vFjCGV5z
+	6F2aL5pZBKCjjgE+AzE67cE7Wb+WZqrVoysV6Vj35moXvpN7NrE2qNmwHFgeu4dNhPKvqCifME+Pp
+	jMy9hfaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIu4t-00000007h6L-20nK;
-	Tue, 11 Nov 2025 19:30:55 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1vIuLI-00000007htS-30dH;
+	Tue, 11 Nov 2025 19:47:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIu4m-00000007h5f-2ST6
+	id 1vIuLC-00000007ht0-04VG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 19:30:53 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-88054872394so874506d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 11:30:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762889447; x=1763494247; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0jzhovyCdDMlzw591/uRWQjYXHaudQMt+y2lzzYkfik=;
-        b=p2BiH16+mmRViwJBNKZNMm4PsSOib8L802P6LZVqIpWswRxf3xwCOBytgayY3hz4sw
-         dCyCUTKAi93qeTSiiUI+i33xhz3P8bCzBTtL3BQHmFm0WmStm+brUHIaBn5TZYKalSt+
-         viW8WlErEfDkbr1/RosNOkeOB5/cjY+eOSa6vrV007hl9aMa9whmhlrdeUxFe7GD8n9K
-         XTj1nLGl45vCLGl2CNH5JsuFNgzXt+/5slJZq1efZ9++n9x7E5Ohjr4gQVmHW4hsJz/S
-         vBQSVZkcRa2kzVLaxX8peq/dOLrrdGbnHXpyCb6+PeJLtX0BekDpZnweT/0Ch9g8mc3b
-         x/Qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762889447; x=1763494247;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0jzhovyCdDMlzw591/uRWQjYXHaudQMt+y2lzzYkfik=;
-        b=ok+HW70Xp7O+5u2eo+oIlTLMyXbfd2Fd1zxQzKp7yOVk1eU/9dk23WCPPmtRU8XxDB
-         Y50ZggR+ppA8/YBz7OEzQZfptWnjKtL6L+AkovB0QgwQr3RyHsioSnZlrXO29vAXe8Wm
-         ndMAx2VoK4AN+tiztx8oHG+JwRPyz0M2rxFcui5Nh01J6nIQn9nKbcGdTn0sbH4Cw7iT
-         7CNvhtJfneYBujdtWO3FkySvRmsJjBnKjE8Oy8iglgiI+7TfwE/R6ulRIjmI1WhI+EM+
-         ZTa9YwWyxlN0UzkK2waTNGdTujcukpbTS/+i4BG+QvkFusxoX3K5Qit5Yh/Nti64YP0q
-         YnOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVW6h34kjEPSEbfdBa0JPZYvmI8Z/yR5f6v93oP/BRl0MJ7iZQhcNPVwkUcLOlZuSDEuAXvt1Bcb+e4TGsND3G9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKFUaoT/FuTsDce62Y/3ZbqyQ9uj4fbTk7bRwiFLzaIL1fk0mG
-	ySPFkoEXWAZwHpLj37SqfiuCVxQMLBtg5K0epYC5U45La1YmbgFNLPRpPBjd4ts8E2d2/iLw3SB
-	EGsnoHyDmVvOugNU+R+3JTCQ1y4B1vQRroleEbCSJ2w==
-X-Gm-Gg: ASbGncvxpkzSRNIlB29WSefz6qB7+G9BfUraaPgiR69HlurmhRjGTsnC4smwlEsoOfU
-	CSax7NYkcSvWun0kD5XjP+1GDPeYvCXN3+G0+tkfkgkgk7gOSITRe+uUEuM6XJK1rlf3DKWRldc
-	y/avFqK+YTxIXNMyKNPtpSWEK/EgJvn6cIeX1byC7vdZDwo9AI4JjbmIQwsxh2Nlv94RkgG0M2e
-	Ic5uDBFtk9/zxiW1i1m+vej8gcnkCVx3cO8brRm5pS/qNnBz71+XoHWwrscIPfHC9mzpKmDG6TN
-	3xyC2qFtbwPYZOXYBUHb65R6XkZj6T1JlCb5IpRnDWntq09hJIi7QHTF8s8H
-X-Google-Smtp-Source: AGHT+IGThWKE77hsPoXqWgnkV7dySmx95GCAux2QX51fNtZJUGhMymurQtLnvR49RwGbhitCyFOn7Ens77igYTz1EQI=
-X-Received: by 2002:a05:6214:d61:b0:87c:208b:9539 with SMTP id
- 6a1803df08f44-88271974c91mr9002396d6.28.1762889447036; Tue, 11 Nov 2025
- 11:30:47 -0800 (PST)
+	Tue, 11 Nov 2025 19:47:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D507840A3A;
+	Tue, 11 Nov 2025 19:47:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DC2AC4CEFB;
+	Tue, 11 Nov 2025 19:47:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762890464;
+	bh=mCWzpThDjN5TvH7+u9w2bjcbob9OsN/ZO/i3S0cLekY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ulGRTYcFEuZimkoAP/r0AD2cIzkKuHt5KfougKS4nXxolAjtb8zU7bfDKFn9SE6Fo
+	 QTic7e2gPOvOCbSbnNNfKp3dL+cply1xTky+wOuDfmjYvHLLljjv1IfmpLcLgKnQyx
+	 qDSO8KCIsYuBMIAXixeXc5fiDPLLlU4pmj1Ia4509y7R9l6mDU8LAPKzSHW0e0KwuF
+	 wBaj0VQX9OS3mkh0Bw8zjgOehw/syCPaWdebgfe+0zf22BZmIBHebPgia+GlSxLvz6
+	 HKIJhAXdMiipdJGZtEJwma4lVQ160SL1bn0BPcbL4xk5JwAU7A9jZyw/P1ELXt0DLE
+	 Ug3MrRju2GOjQ==
+Date: Tue, 11 Nov 2025 11:46:03 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH 2/9] lib/crypto: polyval: Add POLYVAL library
+Message-ID: <20251111194603.GB1748@sol>
+References: <20251109234726.638437-1-ebiggers@kernel.org>
+ <20251109234726.638437-3-ebiggers@kernel.org>
+ <CAMj1kXE1mhu7u5RwhCBA_RUGV6JSDV-GQPpq+thE-0-oVxrmfw@mail.gmail.com>
+ <CAMj1kXHoH2K0dpqyrgFJ-OBmP2QrUWZD3aCfaA_eoPzGsLbPMw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
- <20251111-arm_coresight_power_management_fix-v6-7-f55553b6c8b3@arm.com>
-In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-7-f55553b6c8b3@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 11 Nov 2025 19:30:35 +0000
-X-Gm-Features: AWmQ_bln1T3k3hjGWWraYQQ2PzN-9xXByJEWmZBfrUj2dkKidxrkpTlsMf9lCGw
-Message-ID: <CAJ9a7VhOxystZgx4n083UvHJL_95cXKdGyLkdu-dS9zPqPCfzA@mail.gmail.com>
-Subject: Re: [PATCH v6 07/11] coresight: etm4x: Remove the redundant DSB
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXHoH2K0dpqyrgFJ-OBmP2QrUWZD3aCfaA_eoPzGsLbPMw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_113048_644210_F3182FA3 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20251111_114746_100563_F443B874 
+X-CRM114-Status: GOOD (  36.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,82 +76,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
->
-> As recommended in section 4.3.7 "Synchronization when using the
-> memory-mapped interface" of ARM IHI0064H.b:
->
->   When using the memory-mapped interface to program the trace unit, the
->   trace analyzer must ensure that writes have completed, to ensure that
->   the trace unit is fully programmed and either enabled or disabled.
->
->   To ensure writes have completed, the trace analyzer can do ...
->
->   If the memory marked is as Device-nGnRE or stronger, read back the
->   value of any register in the trace unit. This relies on peripheral
->   coherence order defined in the Arm architecture.
->
-> Polling TRCSTATR ensures the previous write has completed. Therefore,
-> removes the redundant DSB barrier in the enabling flow.
->
-> Update the comment in the disable flow for consistency.
->
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 23 +++++++++++++++++-----
->  1 file changed, 18 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index fdda924a2c7117a6828e5325d78586b09e75febd..bdf5ab85b2213dfd601391fdcf50960667fa7cea 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -475,10 +475,16 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
->         }
->
->         /*
-> -        * As recommended by section 4.3.7 ("Synchronization when using the
-> -        * memory-mapped interface") of ARM IHI 0064D
-> +        * As recommended in section 4.3.7 (Synchronization of register updates)
-> +        * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
-> +        * ISB instruction after programming the trace unit registers.
-> +        *
-> +        * For the memory-mapped interface, the registers are mapped as Device
-> +        * type (Device-nGnRE). Reading back the value of any register in the
-> +        * trace unit ensures that all writes have completed. Therefore, polling
-> +        * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
-> +        * no explicit dsb() is required at here.
->          */
-> -       dsb(sy);
->         isb();
->
->         return 0;
-> @@ -974,8 +980,15 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
->                 dev_err(etm_dev,
->                         "timeout while waiting for PM stable Trace Status\n");
->         /*
-> -        * As recommended by section 4.3.7 (Synchronization of register updates)
-> -        * of ARM IHI 0064H.b.
-> +        * As recommended in section 4.3.7 (Synchronization of register updates)
-> +        * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
-> +        * ISB instruction after programming the trace unit registers.
-> +        *
-> +        * For the memory-mapped interface, the registers are mapped as Device
-> +        * type (Device-nGnRE). Reading back the value of any register in the
-> +        * trace unit ensures that all writes have completed. Therefore, polling
-> +        * on TRCSTATR guarantees that the writing TRCPRGCTLR is complete, and
-> +        * no explicit dsb() is required at here.
->          */
->         isb();
->  }
->
-> --
-> 2.34.1
->
+On Tue, Nov 11, 2025 at 08:42:29AM +0100, Ard Biesheuvel wrote:
+> On Mon, 10 Nov 2025 at 16:21, Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > Hi,
+> >
+> > On Mon, 10 Nov 2025 at 00:49, Eric Biggers <ebiggers@kernel.org> wrote:
+> > >
+> > > Add support for POLYVAL to lib/crypto/.
+> > >
+> > > This will replace the polyval crypto_shash algorithm and its use in the
+> > > hctr2 template, simplifying the code and reducing overhead.
+> > >
+> > > Specifically, this commit introduces the POLYVAL library API and a
+> > > generic implementation of it.  Later commits will migrate the existing
+> > > architecture-optimized implementations of POLYVAL into lib/crypto/ and
+> > > add a KUnit test suite.
+> > >
+> > > I've also rewritten the generic implementation completely, using a more
+> > > modern approach instead of the traditional table-based approach.  It's
+> > > now constant-time, requires no precomputation or dynamic memory
+> > > allocations, decreases the per-key memory usage from 4096 bytes to 16
+> > > bytes, and is faster than the old polyval-generic even on bulk data
+> > > reusing the same key (at least on x86_64, where I measured 15% faster).
+> > > We should do this for GHASH too, but for now just do it for POLYVAL.
+> > >
+> >
+> > Very nice.
+> >
+> > GHASH might suffer on 32-bit, I suppose, but taking this approach at
+> > least on 64-bit also for GHASH would be a huge improvement.
+> >
+> > I had a stab at replacing the int128 arithmetic with
+> > __builtin_bitreverse64(), but it seems to make little difference (and
+> > GCC does not support it [yet]). I've tried both arm64 and x86, and the
+> > perf delta (using your kunit benchmark) is negligible in either case.
+> 
+> Sigh. I intended to only apply the generic patch and the kunit test,
+> but applied the whole series in the end, which explains perfectly why
+> x86_64 and arm64 performance are identical, given that the generic
+> code isn't even used.
+> 
+> So trying this again, on a Cortex-A72 without Crypto Extensions, I do
+> get a ~30% performance improvement doing the below. I haven't
+> re-tested x86, but given that it does not appear to have a native
+> scalar bit reverse instruction (or __builtin_bitreverse64() is broken
+> for it), there is probably no point in finding out.
+> 
+> Not saying we should do this for POLYVAL, but something to keep in
+> mind for gf128mul.c perhaps.
+> 
+> 
+> --- a/lib/crypto/polyval.c
+> +++ b/lib/crypto/polyval.c
+> @@ -42,11 +42,48 @@
+>   * 256-bit => 128-bit reduction algorithm.
+>   */
+> 
+> -#ifdef CONFIG_ARCH_SUPPORTS_INT128
+> +#if defined(CONFIG_ARCH_SUPPORTS_INT128) ||
+> __has_builtin(__builtin_bitreverse64)
+> 
+>  /* Do a 64 x 64 => 128 bit carryless multiplication. */
+>  static void clmul64(u64 a, u64 b, u64 *out_lo, u64 *out_hi)
+>  {
+> +       u64 a0 = a & 0x1111111111111111;
+> +       u64 a1 = a & 0x2222222222222222;
+> +       u64 a2 = a & 0x4444444444444444;
+> +       u64 a3 = a & 0x8888888888888888;
+> +
+> +       u64 b0 = b & 0x1111111111111111;
+> +       u64 b1 = b & 0x2222222222222222;
+> +       u64 b2 = b & 0x4444444444444444;
+> +       u64 b3 = b & 0x8888888888888888;
+> +
+> +#if __has_builtin(__builtin_bitreverse64)
+> +#define brev64 __builtin_bitreverse64
+> +       u64 c0 = (a0 * b0) ^ (a1 * b3) ^ (a2 * b2) ^ (a3 * b1);
+> +       u64 c1 = (a0 * b1) ^ (a1 * b0) ^ (a2 * b3) ^ (a3 * b2);
+> +       u64 c2 = (a0 * b2) ^ (a1 * b1) ^ (a2 * b0) ^ (a3 * b3);
+> +       u64 c3 = (a0 * b3) ^ (a1 * b2) ^ (a2 * b1) ^ (a3 * b0);
+> +
+> +       a0 = brev64(a0);
+> +       a1 = brev64(a1);
+> +       a2 = brev64(a2);
+> +       a3 = brev64(a3);
+> +
+> +       b0 = brev64(b0);
+> +       b1 = brev64(b1);
+> +       b2 = brev64(b2);
+> +       b3 = brev64(b3);
+> +
+> +       u64 d0 = (a0 * b0) ^ (a1 * b3) ^ (a2 * b2) ^ (a3 * b1);
+> +       u64 d1 = (a0 * b1) ^ (a1 * b0) ^ (a2 * b3) ^ (a3 * b2);
+> +       u64 d2 = (a0 * b2) ^ (a1 * b1) ^ (a2 * b0) ^ (a3 * b3);
+> +       u64 d3 = (a0 * b3) ^ (a1 * b2) ^ (a2 * b1) ^ (a3 * b0);
+> +
+> +       *out_hi = ((brev64(d0) >> 1) & 0x1111111111111111) ^
+> +                 ((brev64(d1) >> 1) & 0x2222222222222222) ^
+> +                 ((brev64(d2) >> 1) & 0x4444444444444444) ^
+> +                 ((brev64(d3) >> 1) & 0x8888888888888888);
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Yeah, that's an interesting idea!  So if we bit-reflect the inputs, do
+an n x n => n multiplication, and bit-reflect the output and right-shift
+it by 1, we get the high half of the desired n x n => 2n multiplication.
+(This relies on the fact that carries are being discarded.)  Then we
+don't need an instruction that does an n x n => 2n multiplication or
+produces the high half of it.
+
+The availability of hardware bit-reversal is limited, though.  arm32,
+arm64, and mips32r6 have it.  But all of those also have a "multiply
+high" instruction.  So the 30% performance improvement you saw on arm64
+seems surprising to me, as umulh should have been used.  (I verified
+that it's indeed used in the generated asm with both gcc and clang.)
+
+The available bit-reversal abstractions aren't too great either, with
+__builtin_bitreverse64() being clang-specific and <linux/bitrev.h>
+having a table-based, i.e. non-constant-time, fallback.  So presumably
+we'd need to add our own which is guaranteed to use the actual
+instructions and not some slow and/or table-based fallback.
+
+I'll definitely look into this more later when bringing this improvement
+to GHASH too.  But for now I think we should go with the version I have
+in my patch.
+
+- Eric
 
