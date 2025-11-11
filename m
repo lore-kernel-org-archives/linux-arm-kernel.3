@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67762CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4A9CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azUidkZnPCh9Mafb2lBwoV+zJ7JDUMj3PRcpXOZ0GqQ=; b=02naxz2aLfzu+FqO/RE2tfRxZS
-	BDbibBIy4hO/2/uaqT0hZqp4e8SRMs14ioShVw5Nol/XY6L/B0ClgdVJUaZeqI+fBab3flJOwflAa
-	DFx+aWaIEsNOglMyLP0ni9hlF0votODjn10QKZHZEPDNt7qwIblUqyzwzck2D/dZWr8qlbd6I0BnF
-	NbS/axdvF8svmHrWJpe79Si6Jidd8jtJouw/nSEvotu+7TLDpGtG8Eq6d7c1bTJtk1/mB4/5ijxgn
-	TLXVOoR5kUJBN+PCqPsLkKGCTwKetp2Ye3AsuDPh+8skwfXHO0/TMwSZsIdlz9wl5ME2vRJpmqkze
-	Z9sb2Iug==;
+	bh=UNUNVWueIqfGuC4q5BrFUll2X9rFfz6vDMrrsI3WK28=; b=fVCKJp57n+N5fqSGzv55lVkuw6
+	C1JYNUeC0q+oSYb4neWPeoceucKl2Cv+fggqqwr/ik96IwY/vT1uenDN5nez624Qkc4O45O8i4bNW
+	9Jo6CkIGNYkg1HN4UZrmmNagitnclMmviuqvTWWeB2FGfLstDxOoNZ/wYTCOtRi1ftfRClWuynm7v
+	WUYXxmnvY39tCQZzlSY1NfUbBAg+NpzF8HTqHH7ErehuMh+2tjtuUsMo/Vv6Raf87eXzxbxkOKzwR
+	xROK4qhdzp0ylaCXXK9OAHTUJxLtBmyoc4Cz+WfwO/5mj1UH88X3j4+CwhfjuGB/Kn7oLhRLVkgw1
+	7cSTa0ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIjUV-00000006l4P-0Jqg;
-	Tue, 11 Nov 2025 08:12:39 +0000
+	id 1vIjUc-00000006lBa-1cxp;
+	Tue, 11 Nov 2025 08:12:46 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIjUS-00000006kzV-1O0S;
-	Tue, 11 Nov 2025 08:12:37 +0000
+	id 1vIjUa-00000006l7J-0YHY;
+	Tue, 11 Nov 2025 08:12:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=azUidkZnPCh9Mafb2lBwoV+zJ7JDUMj3PRcpXOZ0GqQ=; b=GpTBojM3bk8m3Wsj/lsgOXV5nm
-	tyO/7KGNbs0fZaKrXFGSmWEjB+eycVFDJA3fVqtZM+11xXwgQeRGEpP+Dhcv6jQG+jFewql4JM/0l
-	jNP6YhfsvUt6bTgxNXJhUcceC1TYwCFlL/rONv6ap+PedlYTDo0Hjgy2B6iY28ChWdZLtgUBm0ac8
-	3ZB8EGP057qPA4gdpshfz8jt08xDbZUQkEi1rXZgXqPi7XD5XwqgqisakG5IL6n2QwUzm67sGpfTg
-	oq54wA/9BRuUoDjkSNMdZDnPbANYcPhJPLRQ5dIpyhEVJuSS9hevZBXhgGdJ+uQws+GmcevCvZNzo
-	nmLYRaew==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53550 helo=rmk-PC.armlinux.org.uk)
+	bh=UNUNVWueIqfGuC4q5BrFUll2X9rFfz6vDMrrsI3WK28=; b=D2ueYuFF5SKkwVVuG1ga4EosQ1
+	6EOOO3u+JYrBZqJ7CvGeGaTUBB5g4UlR0JvzmxucLjeHI8LIU6+2Og/w+v9bC76/q5d2ES5c5i9xO
+	9py7DA4ddKkST+/xe9peRiNsjmMb/31CQF5Usn++QmOaY5NWfd2B07BiqrDjKdsQrKmvVbpsU62cz
+	5PTUSfaf9+Y+Je+OuT+hIdwZEIjXo4QEUENAzHyIh5FGemyV9FOSWRhAaC+quhtMzKmuXNw1RiMHl
+	K2V7dlm7fW/LX+EAczA7xyu+129AKm5zUtH74d8LmVvDyfcUTvC9PBtrdd4YJCJXJl72oBAKpwwsw
+	XMfggluA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50410 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vIjUG-000000002Bi-3khQ;
-	Tue, 11 Nov 2025 08:12:25 +0000
+	id 1vIjUM-000000002CB-3Vmz;
+	Tue, 11 Nov 2025 08:12:31 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vIjUF-0000000Dqth-0gwD;
-	Tue, 11 Nov 2025 08:12:23 +0000
+	id 1vIjUK-0000000Dqtn-1AyK;
+	Tue, 11 Nov 2025 08:12:28 +0000
 In-Reply-To: <aRLvrfx6tOa-RhrY@shell.armlinux.org.uk>
 References: <aRLvrfx6tOa-RhrY@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -71,17 +71,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 08/13] net: stmmac: starfive: use
- stmmac_get_phy_intf_sel()
+Subject: [PATCH net-next v2 09/13] net: stmmac: stm32: use PHY_INTF_SEL_x to
+ select PHY interface
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vIjUF-0000000Dqth-0gwD@rmk-PC.armlinux.org.uk>
-Date: Tue, 11 Nov 2025 08:12:23 +0000
+Message-Id: <E1vIjUK-0000000Dqtn-1AyK@rmk-PC.armlinux.org.uk>
+Date: Tue, 11 Nov 2025 08:12:28 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_001236_371499_2128CD70 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20251111_001244_166999_9910105B 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +96,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use stmmac_get_phy_intf_sel() to decode the PHY interface mode to the
-phy_intf_sel value, validate the result and use that to set the
-control register to select the operating mode for the DWMAC core.
+Convert dwmac-stm32 to use the PHY_INTF_SEL_x definitions.
+
+For stm32mp1, the original definitions used constant 0 (GMII, 0 << 21),
+BIT(21) (RGMII, 1 << 21) and BIT(23) (RMII, 4 << 21) to define these,
+but from the values it can be clearly seen that these are the
+PHY_INTF_SEL_x inputs to the dwmac.
+
+For stm32mp2, the original definitions cover a bitfield 6:4 in the
+SYSCFG Ethernet1 control register (according to documentation) and use
+the PHY_INTF_SEL_x values.
+
+Use the common dwmac definitions for the PHY interface selection field
+by adding the bitfield mask, and using FIELD_PREP() for the bitfield
+values.
+
+This removes this incorrect use of BIT().
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 24 +++++--------------
- 1 file changed, 6 insertions(+), 18 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-stm32.c | 20 +++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 1ef72576c6f1..16b955a6d77b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -15,8 +15,6 @@
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+index 6c179911ef3f..1545772419d5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+@@ -47,9 +47,13 @@
+  *------------------------------------------
+  */
+ #define SYSCFG_PMCR_ETH_SEL_MII		BIT(20)
+-#define SYSCFG_PMCR_ETH_SEL_RGMII	BIT(21)
+-#define SYSCFG_PMCR_ETH_SEL_RMII	BIT(23)
+-#define SYSCFG_PMCR_ETH_SEL_GMII	0
++#define SYSCFG_PMCR_PHY_INTF_SEL_MASK	GENMASK(23, 21)
++#define SYSCFG_PMCR_ETH_SEL_RGMII	\
++	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_RGMII)
++#define SYSCFG_PMCR_ETH_SEL_RMII	\
++	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_RMII)
++#define SYSCFG_PMCR_ETH_SEL_GMII	\
++	FIELD_PREP(SYSCFG_PMCR_PHY_INTF_SEL_MASK, PHY_INTF_SEL_GMII_MII)
+ #define SYSCFG_MCU_ETH_SEL_MII		0
+ #define SYSCFG_MCU_ETH_SEL_RMII		1
  
- #include "stmmac_platform.h"
+@@ -60,9 +64,13 @@
+ #define SYSCFG_ETHCR_ETH_CLK_SEL	BIT(1)
+ #define SYSCFG_ETHCR_ETH_REF_CLK_SEL	BIT(0)
  
--#define STARFIVE_DWMAC_PHY_INFT_RGMII		PHY_INTF_SEL_RGMII
--#define STARFIVE_DWMAC_PHY_INFT_RMII		PHY_INTF_SEL_RMII
- #define STARFIVE_DWMAC_PHY_INFT_FIELD		0x7U
+-#define SYSCFG_ETHCR_ETH_SEL_MII	0
+-#define SYSCFG_ETHCR_ETH_SEL_RGMII	BIT(4)
+-#define SYSCFG_ETHCR_ETH_SEL_RMII	BIT(6)
++#define SYSCFG_ETHCR_ETH_SEL_MASK	GENMASK(6, 4)
++#define SYSCFG_ETHCR_ETH_SEL_MII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
++						   PHY_INTF_SEL_GMII_MII)
++#define SYSCFG_ETHCR_ETH_SEL_RGMII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
++						   PHY_INTF_SEL_RGMII)
++#define SYSCFG_ETHCR_ETH_SEL_RMII	FIELD_PREP(SYSCFG_ETHCR_ETH_SEL_MASK, \
++						   PHY_INTF_SEL_RMII)
  
- #define JH7100_SYSMAIN_REGISTER49_DLYCHAIN	0xc8
-@@ -35,25 +33,15 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
- 	struct regmap *regmap;
- 	unsigned int args[2];
--	unsigned int mode;
-+	int phy_intf_sel;
- 	int err;
- 
--	switch (plat_dat->phy_interface) {
--	case PHY_INTERFACE_MODE_RMII:
--		mode = STARFIVE_DWMAC_PHY_INFT_RMII;
--		break;
--
--	case PHY_INTERFACE_MODE_RGMII:
--	case PHY_INTERFACE_MODE_RGMII_ID:
--	case PHY_INTERFACE_MODE_RGMII_RXID:
--	case PHY_INTERFACE_MODE_RGMII_TXID:
--		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
--		break;
--
--	default:
-+	phy_intf_sel = stmmac_get_phy_intf_sel(plat_dat->phy_interface);
-+	if (phy_intf_sel != PHY_INTF_SEL_RGMII &&
-+	    phy_intf_sel != PHY_INTF_SEL_RMII) {
- 		dev_err(dwmac->dev, "unsupported interface %s\n",
- 			phy_modes(plat_dat->phy_interface));
--		return -EINVAL;
-+		return phy_intf_sel < 0 ? phy_intf_sel : -EINVAL;
- 	}
- 
- 	regmap = syscon_regmap_lookup_by_phandle_args(dwmac->dev->of_node,
-@@ -65,7 +53,7 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	/* args[0]:offset  args[1]: shift */
- 	err = regmap_update_bits(regmap, args[0],
- 				 STARFIVE_DWMAC_PHY_INFT_FIELD << args[1],
--				 mode << args[1]);
-+				 phy_intf_sel << args[1]);
- 	if (err)
- 		return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
- 
+ /* STM32MPx register definitions
+  *
 -- 
 2.47.3
 
