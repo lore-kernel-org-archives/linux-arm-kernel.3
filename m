@@ -4,67 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403FCCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFAECCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 07:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nhDPWcHQwhbMDsBD0V/t6hKlH/MXgCs801GiP87Z/q0=; b=DykkymbvZuCe6x/x26hcipGe15
-	l66fSYdS26d7bGpO4/6tqmEdQgoAwLAgpKzovpvQueHX20QnXXmj30b6rFMC7ULS1/e0kjDcueqLZ
-	qKVtVfXRfa+vL1gaZDbact9g+IX+geCM381WSvW4NW0p0PDu6/XuKys5yb8zVzpUMxWO7Yx1Q/vFj
-	+J4+j4vy/lfVOJfZWNmYn6tANGlKIJ0CEQW6gtzGeD3b4HuZzKtbyXVDW0CznEzhJnYeIYdFENbVS
-	iNDTR8Pn7wvPeC00rATKI+L5H5R97teEA2JdNj19VVQ+MYzFdr3gawzDLiO/vNSeDb3er2w1kcuZs
-	NuDmBQ9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9gSXWkG2eJiZD5Gs5pGvzQTfP6WJfl6iWjgOM30YYWk=; b=deZ6xfhLhmVcvGw1Jarve9POSO
+	0dhGqmC2eY0ObjF3EKGflH72z8XpqxMylatYqinRovTpQOBgfBWEvM7y4ZL1asxDXwNV+V+WDPYnC
+	QwWBWAMc7SbZWiqvwqbFRTts1B4NQDPo5CR9qJ3Ws8/yF4nwd4dJLGXBJ2/gr6lOHGpEL6o8xdvFB
+	XCLNwlpVqWrLufXYQZ0srqWUiyGiYQGymGk5zgYczqn1zd9BdcI8/txdMHlcBNR3Z4cif4aRfQ+hO
+	UM0PmUOoaGjZ0K6zJYqbAfo3xkxSk75jNCiMsCrMawDFn9mDImqY4Br0EEauAUGvL6wpmivvQ9quu
+	h2igxV7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIiXS-00000006f6V-16wh;
-	Tue, 11 Nov 2025 07:11:38 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1vIiXp-00000006fB7-2Y45;
+	Tue, 11 Nov 2025 07:12:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIiXP-00000006f63-11PS
+	id 1vIiXo-00000006fAe-21m8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 07:11:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=nhDPWcHQwhbMDsBD0V/t6hKlH/MXgCs801GiP87Z/q0=;
-	b=ODO/kGMqFbRqTC0v8r+qERLvSla7r6KNWJ77O80rPbP6codeYkA5nzwEg4h+O4
-	gh5LhHWzo8deItXNDdhj4Nqr62RI+0yVSQEb/y1Hm34fRiLb0kURqkYZZC+BKkYR
-	FcWKgs7vfgrFpVkC2XwQHSgRdbNtUezUJ3sSaFHwsJHxg=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgBXvWOT4RJpfZLkAA--.5262S3;
-	Tue, 11 Nov 2025 15:11:17 +0800 (CST)
-Date: Tue, 11 Nov 2025 15:11:14 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add
- supports-clkreq property to PCIe M.2 port
-Message-ID: <aRLhko0h1OZgvo2o@dragon>
-References: <20251015030428.2980427-1-hongxing.zhu@nxp.com>
- <20251015030428.2980427-2-hongxing.zhu@nxp.com>
+	Tue, 11 Nov 2025 07:12:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D9AF61909;
+	Tue, 11 Nov 2025 07:11:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A836C4CEF7;
+	Tue, 11 Nov 2025 07:11:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762845119;
+	bh=k+PurIlLRbzMG5NXYczPW4nl/o7m6LjDaYwzjL/sFwQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VrsOps3t+Aw7Z18FrYnUkWf6RRgvKRTvxje5UnS2oCWKFYwi3EtU1txR0NNe5pp7e
+	 iYnT4MRT3f4VUaNfueXb6fvAil0KQ2yKb1KRri7DN63q/CBkil3SgIcQVDGxBDQwlC
+	 R2pYMtkwEW1rGH1vdY29K0348h+6NnYciWYov/0bVpkIC0gZVPCBCbOzuz8MlT1TXI
+	 ldIGCizCaljSMiZi33P1FErmqagC+v1xsbNjvuT3xNrEV9f9FJKq3wwk3OVfSl1ebR
+	 qUD+JyTQzgRNthkq+vI1vSjUA+VhzF56nrjeEhULtO6MDIwA+0mZmZtgeU/xp8bic8
+	 Kr3XVC2zFpL2w==
+Message-ID: <213345c6-23d3-43d7-9bff-4c6f4d0faf6d@kernel.org>
+Date: Tue, 11 Nov 2025 08:11:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015030428.2980427-2-hongxing.zhu@nxp.com>
-X-CM-TRANSID: Mc8vCgBXvWOT4RJpfZLkAA--.5262S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Wr1kCFy3ur1DXFy8Cr4kWFg_yoW8Jr4rpa
-	y8CFZ7Jr1xGF4fGanFqFyrKr98ta93JF4Uur1jgryUKrW5CF97tr48Crs3Wr4Y9w4fCw4f
-	ZF10vwnaqrWYvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U3EfrUUUUU=
-X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiOBV84WkS4ZUOIwAA3S
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_231135_676171_BCEDBA35 
-X-CRM114-Status: GOOD (  14.89  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+ <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+ <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+ <176282517011.11952.1566372681481575091@lazor>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <176282517011.11952.1566372681481575091@lazor>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +126,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 11:04:18AM +0800, Richard Zhu wrote:
-> According to PCIe r6.1, sec 5.5.1.
+On 11/11/2025 02:39, Stephen Boyd wrote:
+> Quoting Tudor Ambarus (2025-10-20 00:45:58)
+>>
+>>
+>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
+>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+>>>> --- a/drivers/clk/samsung/Kconfig
+>>>> +++ b/drivers/clk/samsung/Kconfig
+>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>>>>        status of the certains clocks from SoC, but it could also be tied to
+>>>>        other devices as an input clock.
+>>>>  
+>>>> +config EXYNOS_ACPM_CLK
+>>>> +    tristate "Clock driver controlled via ACPM interface"
+>>>> +    depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+>>>
+>>> I merged the patches but I don't get why we are not enabling it by
+>>> default, just like every other clock driver. What is so special here?
+>>
+>> Thanks! Are you referring to the depends on line? I needed it otherwise
+>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
+>>
+>> ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
+>>
 > 
-> The following rules define how the L1.1 and L1.2 substates are entered:
-> Both the Upstream and Downstream Ports must monitor the logical state of
-> the CLKREQ# signal.
-> 
-> Typical implement is using open drain, which connect RC's clkreq# to
-> EP's clkreq# together and pull up clkreq#.
-> 
-> imx95-15x15-evk matches this requirement, so add supports-clkreq to
-> allow PCIe device enter ASPM L1 Sub-State.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> index 148243470dd4a..3ee032c154fa3 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> @@ -556,6 +556,7 @@ &pcie0 {
->  	pinctrl-names = "default";
->  	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
->  	vpcie-supply = <&reg_m2_pwr>;
-> +	supports-clkreq;
+> I don't understand that part. The depends on statement "COMPILE_TEST &&
+> !EXYNOS_ACPM_PROTOCOL" is equivalent to COMPILE_TEST=y and
+> EXYNOS_ACPM_PROTOCOL=n, so are you trying to avoid
+> EXYNOS_ACPM_PROTOCOL=y when COMPILE_TEST=y?
 
-Is binding updated for this property?
+This is the standard kconfig module dependency to avoid having built-in
+when other is module:
+EXYNOS_ACPM_PROTOCOL || !EXYNOS_ACPM_PROTOCOL
+It is used everywhere and already documented.
 
-Shawn
+Now, the only difference here is that !EXYNOS_ACPM_PROTOCOL is actually
+not meaningful for the driver, because it is not an optional dependency,
+thus we allow this only for compile testing, therefore:
+|| COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL.
 
->  	status = "okay";
->  };
->  
-> -- 
-> 2.37.1
-> 
 
+Best regards,
+Krzysztof
 
