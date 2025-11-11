@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55359CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C1ECCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 15:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=whK2dyd/4v9cobWAdSAO0OwC5a8fVmzniIpeD+bw1aM=; b=hmg2V7htY1k2mipZ77lcz3+Mxz
-	D3Ig3FjbsxoTmHwsojOKF30K9mEWDWrD1zEMCslXs/Rx0/ATGZz20TC8W4kUJrrB9y9/s3J5KRR/u
-	NZxXkatb6purt06ssw02MuYqWa8kKx5T7vK85GIfCh+Mmn58r5rVETZuzcRDJzmQLOuDYkDPIqoxS
-	NJ2nnIv8xGQOx+NJEAVNdWUfQNwGbsaA6p4+3upGk3anOxGy75HPcM2SBYlpt6zKiOxWnleQeN2Iq
-	SVgkM5SDHZ5bGjL2g7kOELwPFwcHZx230vkqkSyhQid/jm827xgMc4shbn8VB4n4iPkwDJCxoKS7N
-	42IvPdJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7R5SuVHot9CpoTkFcfHq9Yksdnr2wM0VbRyDn5Qi10s=; b=NaGOqyGmM9U2MPZYnNakdl0S03
+	b3OVE/nbfgjFvpCVRd6CYwsIqMOH5QFwtCvFxQyZUVLdBmEB54SD6xyU7OeHPsVQb4rbwabkvdAqd
+	plEH8gmtXUezteUf6TMfP5sBvKI54rNWQdpL7jUfhCLcJdTmo8CEHhSlCOcpV2Ss2lsrwB32lXhXq
+	Zbki2125KdsAm21mXU7wlzsK0u65/SDUCcsfX1UF9Cmd/mfw9mo8r/+Xv+qiYwNiS1Qw/OCsXIb8e
+	Qwv1wFIMcg2u0vdakVzxsFzQgwTmD1c1oZTl6+fTwxCP1TaHpA/AxAtOZv2dlFPfM1d8VxGVi777U
+	7BEeyHBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIpxc-00000007MK9-0Hsa;
-	Tue, 11 Nov 2025 15:07:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vIq4t-00000007Mij-3sBw;
+	Tue, 11 Nov 2025 15:14:39 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIpxZ-00000007MJS-3yQ1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 15:07:07 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8BA281D29;
-	Tue, 11 Nov 2025 16:05:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762873502;
-	bh=8ab0z0efd7h/t9/jZI966Tl0kwb7kTcwZtcQTAG26U8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=SY9ZyJo/oCpZk1StEFEsbzrZICx+SgG+8W04Zk33YiJa+U6B223euzr/ALTt/iyU3
-	 qESkUdMVVnUHR6DtkRul3YjFf8mwUgNHl4CIA1fstjcOfK8aO21GGnQAjOmANRs6GF
-	 4/aRNtOskk60OtE7sN6vsy1A3Ud8kk1Lfp6psDhI=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 11 Nov 2025 17:06:41 +0200
-Subject: [PATCH] dmaengine: xilinx_dma: Enable IRQs for AXIDMA in
- start_transfer
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251111-xilinx-dma-fix-v1-1-066c158bc18e@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAABRE2kC/x2MUQqAIBAFrxL73UIKCnWV6MN0q4WyUAhBvHtL8
- zcD71XIlJgyTF2FRC9nvqOI6jvwh4s7IQdx0IM2SsDCJ8eC4XK4ccHVa+ssjSsZBzJ6Ekn+D+e
- ltQ8ibdONYAAAAA==
-X-Change-ID: 20251111-xilinx-dma-fix-bc26a6e9be5a
-To: Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Vishal Sagar <vishal.sagar@amd.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4158;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=8ab0z0efd7h/t9/jZI966Tl0kwb7kTcwZtcQTAG26U8=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpE1EQD3Na3TcGQCyk+gNyK1DTZlQgsvZeDWMo3
- qIWsGhhp0CJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaRNREAAKCRD6PaqMvJYe
- 9dh8EACUAQP2hyhea7187lj/rvm8d1q44qxnmz2N76+XM/6vf5gBBY7+VH8jxEnizjHJfDDCoDR
- Q0/m7vdvRedFd0OCU7opESRUKiVgjWlTQZandFVgncmxWXoH/kPyGKRVrl/RiL7eKGg1CldIhoW
- +1WsZP3Y3SqT+rW/f0mpijlycjblGSOQzOWz85hFVK/soMsPNOBlODIvQheuKhtvuAojKg9MAlQ
- S/ga6Y/shFQuMgEHrqrlS+zrUcPir7swzyU+2MJaHtb14baZGKlof3bX+prrgfoIK/4DYPE8QZn
- qvZbI7VyruS1MlZ/T7Fz/PoVbO1Y+SSSexOMFT0/GvOaQ2HR4K7m7a7OAI02XhHOdCeouil2+bz
- 9vXC7K0DQIhhYxUOvtakrXc9Sr+UbBEFfk/j8hWE3IW/x5yUQOA1HgwEgIj/ZhY2N520/XUVP4J
- iTPdpWMaaghnX9LGwR9dR62DKtPAgRtFFgZCwc/OQZ3r/jwMRQWeWXQ4prIoW/NwWN+Q/P007MF
- r3vuV1B1obpbzg1+Rh5fbQylvcM2E927ZguBYJ5704bOcJRR0fo4rniVoDYISBPNDf2d9hxs4lA
- KIjdkIE5eDgwT+IwbIIrZGOF14Taj3RUBDE2hh3RZL51mg5MLICs8IpiFcZbF81jq1NtP1vDQnK
- eOk0ZWeM1BFsW4g==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+	id 1vIq4p-00000007Mhm-2A4m;
+	Tue, 11 Nov 2025 15:14:38 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 00994C0F54B;
+	Tue, 11 Nov 2025 15:14:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6E0F9606FB;
+	Tue, 11 Nov 2025 15:14:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 92F4F102F24BC;
+	Tue, 11 Nov 2025 16:14:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762874064; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7R5SuVHot9CpoTkFcfHq9Yksdnr2wM0VbRyDn5Qi10s=;
+	b=dKOrlzauhoCSJVUKuaP9oTCZn7a/MbZ2YlAMNvicAOTuUkcvvFhCxjLV+bx9T1URMFX9KD
+	Xv0onrlrf4j+WXvPuJI65WpdzhDi9F7tNHHVCXx0I93YgctmEO807WWW6869g4FZ+Ptvtw
+	KPo8GugnqzYO6yONmOELShTim5/a0xN+uAVWe82MhZ185fsCPlzyX3yaECJWYx+O5v1WJe
+	zBiYw+Ry4+/Um2fMV7bWNqIO4F9pMfjJkICfM1An54gPdE9T6KJNLMtgiJJa+RPW1F5ZDo
+	llG8ee1T2LOVJ9ZudBWCv3C/RK73b1m+u+qdGUOusNITg3cZ1M7nnnM6LYvWRg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 11 Nov 2025 16:14:11 +0100
+Message-Id: <DE5YP3AVGOG3.OHP68Z0F6KBU@bootlin.com>
+Subject: Re: [PATCH v9 08/10] drm/rockchip: cdn-dp: Add multiple bridges to
+ support PHY port selection
+Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <dri-devel@lists.freedesktop.org>
+To: "Chaoyi Chen" <kernel@airkyi.com>, "Heikki Krogerus"
+ <heikki.krogerus@linux.intel.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Dmitry Baryshkov"
+ <dmitry.baryshkov@oss.qualcomm.com>, "Peter Chen" <hzpeterchen@gmail.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Vinod Koul"
+ <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Sandy Huang" <hjc@rock-chips.com>, "Andy Yan"
+ <andy.yan@rock-chips.com>, "Yubing Zhang" <yubing.zhang@rock-chips.com>,
+ "Frank Wang" <frank.wang@rock-chips.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Amit Sunil Dhamne"
+ <amitsd@google.com>, "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, "Dragan
+ Simic" <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>, "Diederik
+ de Haas" <didi.debian@cknow.org>, "Peter Robinson" <pbrobinson@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20251111105040.94-1-kernel@airkyi.com>
+ <20251111105040.94-9-kernel@airkyi.com>
+In-Reply-To: <20251111105040.94-9-kernel@airkyi.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_070706_137830_D890A1AF 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20251111_071436_310884_91486A00 
+X-CRM114-Status: GOOD (  44.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +97,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A single AXIDMA controller can have one or two channels. When it has two
-channels, the reset for both are tied together: resetting one channel
-resets the other as well. This creates a problem where resetting one
-channel will reset the registers for both channels, including clearing
-interrupt enable bits for the other channel, which can then lead  to
-timeouts as the driver is waiting for an interrupt which never comes.
+Hello Chaoyi,
 
-The driver currently has a probe-time work around for this: when a
-channel is created, the driver also resets and enables the
-interrupts. With two channels the reset for the second channel will
-clear the interrupt enables for the first one. The work around in the
-driver is just to manually enable the interrupts again in
-xilinx_dma_alloc_chan_resources().
+On Tue Nov 11, 2025 at 11:50 AM CET, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>
+> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
+> the CDN-DP can be switched to output to one of the PHYs. If both ports
+> are plugged into DP, DP will select the first port for output.
+>
+> This patch adds support for multiple bridges, enabling users to flexibly
+> select the output port. For each PHY port, a separate encoder and bridge
+> are registered.
+>
+> The change is based on the DRM AUX HPD bridge, rather than the
+> extcon approach. This requires the DT to correctly describe the
+> connections between the first bridge in bridge chain and DP
+> controller. For example, the bridge chain may be like this:
+>
+> PHY aux birdge -> fsa4480 analog audio switch bridge ->
+> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
+>
+> In this case, the connection relationships among the PHY aux bridge
+> and the DP contorller need to be described in DT.
+>
+> In addition, the cdn_dp_parse_next_bridge_dt() will parses it and
+> determines whether to register one or two bridges.
+>
+> Since there is only one DP controller, only one of the PHY ports can
+> output at a time. The key is how to switch between different PHYs,
+> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
+>
+> There are two cases:
+>
+> 1. Neither bridge is enabled. In this case, both bridges can
+> independently read the EDID, and the PHY port may switch before
+> reading the EDID.
+>
+> 2. One bridge is already enabled. In this case, other bridges are not
+> allowed to read the EDID. So we will try to return the cached EDID.
+>
+> Since the scenario of two ports plug in at the same time is rare,
+> I don't have a board which support two TypeC connector to test this.
+> Therefore, I tested forced switching on a single PHY port, as well as
+> output using a fake PHY port alongside a real PHY port.
+>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-This workaround only addresses the probe-time issue. When channels are
-reset at runtime (e.g., in xilinx_dma_terminate_all() or during error
-recovery), there's no corresponding mechanism to restore the other
-channel's interrupt enables. This leads to one channel having its
-interrupts disabled while the driver expects them to work, causing
-timeouts and DMA failures.
+[...]
 
-A proper fix is a complicated matter, as we should not reset the other
-channel when it's operating normally. So, perhaps, there should be some
-kind of synchronization for a common reset, which is not trivial to
-implement. To add to the complexity, the driver also supports other DMA
-types, like VDMA, CDMA and MCDMA, which don't have a shared reset.
+> @@ -966,28 +1084,16 @@ static int cdn_dp_pd_event(struct notifier_block *=
+nb,
+>  	return NOTIFY_DONE;
+>  }
+>
+> -static int cdn_dp_bind(struct device *dev, struct device *master, void *=
+data)
+> +static int cdn_bridge_add(struct device *dev,
+> +			  struct drm_bridge *bridge,
+> +			  struct drm_bridge *next_bridge,
+> +			  struct drm_encoder *encoder)
+>  {
+>  	struct cdn_dp_device *dp =3D dev_get_drvdata(dev);
+> -	struct drm_encoder *encoder;
+> +	struct drm_device *drm_dev =3D dp->drm_dev;
+> +	struct drm_bridge *last_bridge =3D NULL;
+>  	struct drm_connector *connector;
+> -	struct cdn_dp_port *port;
+> -	struct drm_device *drm_dev =3D data;
+> -	int ret, i;
 
-However, when the two-channel AXIDMA is used in the (assumably) normal
-use case, providing DMA for a single memory-to-memory device, the common
-reset is a bit smaller issue: when something bad happens on one channel,
-or when one channel is terminated, the assumption is that we also want
-to terminate the other channel. And thus resetting both at the same time
-is "ok".
+[...]
 
-With that line of thinking we can implement a bit better work around
-than just the current probe time work around: let's enable the
-AXIDMA interrupts at xilinx_dma_start_transfer() instead.
-This ensures interrupts are enabled whenever a transfer starts,
-regardless of any prior resets that may have cleared them.
+> +	if (next_bridge) {
+> +		ret =3D drm_bridge_attach(encoder, next_bridge, bridge,
+> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> +		if (ret)
+> +			return ret;
+> +
+> +		last_bridge =3D next_bridge;
+> +		while (drm_bridge_get_next_bridge(last_bridge))
+> +			last_bridge =3D drm_bridge_get_next_bridge(last_bridge);
 
-This approach is also more logical: enable interrupts only when needed
-for a transfer, rather than at resource allocation time, and, I think,
-all the other DMA types should also use this model, but I'm reluctant to
-do such changes as I cannot test them.
+DRM bridges are now refcounted, and you are not calling drm_bridge_get()
+and drm_bridge_put() here. But here you can use
+drm_bridge_chain_get_last_bridge() which will simplify your job.
 
-The reset function still enables interrupts even though it's not needed
-for AXIDMA anymore, but it's common code for all DMA types (VDMA, CDMA,
-MCDMA), so leave it unchanged to avoid affecting other variants.
+Don't forget to call drm_bridge_put() on the returned bridge when the
+bridge is not referenced anymore. This should be as easy as adding a
+cleanup action on the variable declaration above:
 
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- drivers/dma/xilinx/xilinx_dma.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+-	struct drm_bridge *last_bridge =3D NULL;
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =3D NULL;
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index a34d8f0ceed8..50dd93ce6741 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -1216,14 +1216,6 @@ static int xilinx_dma_alloc_chan_resources(struct dma_chan *dchan)
- 
- 	dma_cookie_init(dchan);
- 
--	if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
--		/* For AXI DMA resetting once channel will reset the
--		 * other channel as well so enable the interrupts here.
--		 */
--		dma_ctrl_set(chan, XILINX_DMA_REG_DMACR,
--			      XILINX_DMA_DMAXR_ALL_IRQ_MASK);
--	}
--
- 	if ((chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) && chan->has_sg)
- 		dma_ctrl_set(chan, XILINX_DMA_REG_DMACR,
- 			     XILINX_CDMA_CR_SGMODE);
-@@ -1572,6 +1564,7 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
- 			     head_desc->async_tx.phys);
- 	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
- 	reg  |= chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
-+	reg |= XILINX_DMA_DMAXR_ALL_IRQ_MASK;
- 	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
- 
- 	xilinx_dma_start(chan);
+> @@ -1029,8 +1147,102 @@ static int cdn_dp_bind(struct device *dev, struct=
+ device *master, void *data)
+>  		return ret;
+>  	}
+>
+> +	if (last_bridge)
+> +		connector->fwnode =3D fwnode_handle_get(of_fwnode_handle(last_bridge->=
+of_node));
+> +
+>  	drm_connector_attach_encoder(connector, encoder);
+>
+> +	return 0;
+> +}
+> +
+> +static int cdn_dp_parse_next_bridge_dt(struct cdn_dp_device *dp)
+> +{
+> +	struct device_node *np =3D dp->dev->of_node;
+> +	struct device_node *port __free(device_node) =3D of_graph_get_port_by_i=
+d(np, 1);
+> +	struct drm_bridge *bridge;
+> +	int count =3D 0;
+> +	int ret =3D 0;
+> +	int i;
+> +
+> +	/* If device use extcon, do not use hpd bridge */
+> +	for (i =3D 0; i < dp->ports; i++) {
+> +		if (dp->port[i]->extcon) {
+> +			dp->bridge_count =3D 1;
+> +			return 0;
+> +		}
+> +	}
+> +
+> +
+> +	/* One endpoint may correspond to one next bridge. */
+> +	for_each_of_graph_port_endpoint(port, dp_ep) {
+> +		struct device_node *next_bridge_node __free(device_node) =3D
+> +			of_graph_get_remote_port_parent(dp_ep);
+> +
+> +		bridge =3D of_drm_find_bridge(next_bridge_node);
+> +		if (!bridge) {
+> +			ret =3D -EPROBE_DEFER;
+> +			goto out;
+> +		}
+> +
+> +		dp->next_bridge_valid =3D true;
+> +		dp->next_bridge_list[count].bridge =3D bridge;
 
----
-base-commit: e5f0a698b34ed76002dc5cff3804a61c80233a7a
-change-id: 20251111-xilinx-dma-fix-bc26a6e9be5a
+You are storing a reference to a drm_bridge, so have to increment the
+refcount:
+
+		dp->next_bridge_list[count].bridge =3D drm_bridge_get(bridge);
+		                                     ^^^^^^^^^^^^^^
+
+FYI there is a plan to replace of_drm_find_bridge() with a function that
+increases the bridge refcount before returning the bridge, but it's not
+there yet. When that will happen, the explicit drm_bridge_get() won't be
+needed anymore and this code can be updated accordingly.
+
+Also you have to call drm_bridge_put() to release that reference when the
+pointer goes away. I guess that should happen in cdn_dp_unbind().
+
+> +static int cdn_dp_bind(struct device *dev, struct device *master, void *=
+data)
+> +{
+
+In this function you do:
+...(see below)...
+
+> +	struct cdn_dp_device *dp =3D dev_get_drvdata(dev);
+> +	struct drm_bridge *bridge, *next_bridge;
+> +	struct drm_encoder *encoder;
+> +	struct cdn_dp_port *port;
+> +	struct drm_device *drm_dev =3D data;
+> +	struct cdn_dp_bridge *dp_bridge;
+> +	int ret, i;
+> +
+> +	ret =3D cdn_dp_parse_dt(dp);
+> +	if (ret < 0)
+.> +		return ret;
+> +
+> +	ret =3D cdn_dp_parse_next_bridge_dt(dp);
+
+1. compute the next bridges and store them in dp->next_bridge_list[]
+...
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	dp->drm_dev =3D drm_dev;
+> +	dp->connected =3D false;
+> +	dp->active =3D false;
+> +	dp->active_port =3D -1;
+> +	dp->fw_loaded =3D false;
+> +
+> +	for (i =3D 0; i < dp->bridge_count; i++) {
+> +		dp_bridge =3D devm_drm_bridge_alloc(dev, struct cdn_dp_bridge, bridge,
+> +						    &cdn_dp_bridge_funcs);
+> +		if (IS_ERR(dp_bridge))
+> +			return PTR_ERR(dp_bridge);
+> +		dp_bridge->id =3D i;
+> +		dp_bridge->parent =3D dp;
+> +		if (!dp->next_bridge_valid)
+> +			dp_bridge->connected =3D true;
+> +		dp->bridge_list[i] =3D dp_bridge;
+> +	}
+> +
+> +	for (i =3D 0; i < dp->bridge_count; i++) {
+> +		encoder =3D &dp->bridge_list[i]->encoder.encoder;
+> +		bridge =3D &dp->bridge_list[i]->bridge;
+> +		next_bridge =3D dp->next_bridge_list[i].bridge;
+> +		ret =3D cdn_bridge_add(dev, bridge, next_bridge, encoder);
+
+...
+2. pass the dp->next_bridge_list[i].bridge to cdn_bridge_add
+3. not use  dp->next_bridge_list[i] elsewhere
+
+So you may want to change this function to parse into a local array, with
+function scope. If you do this, the drm_bridge_get/put() I mentioned above
+should still exist, but would be localized to this function, thus even
+easier to handle.
+
+Even better, you can parse the DT one bridge at a time inside the for loop,
+so you don't need to store any next_bridge pointer array. This will need a
+bit of rework of cdn_dp_parse_next_bridge_dt() though, and I haven't
+checked in detail so it might be not worth.
+
+[...]
+
+> +struct cdn_dp_bridge {
+> +	struct cdn_dp_device *parent;
+> +	struct drm_bridge bridge;
+> +	struct rockchip_encoder encoder;
+> +	bool connected;
+> +	bool enabled;
+> +	int id;
+> +};
+> +
+> +struct cdn_dp_next_bridge {
+> +	struct cdn_dp_device *parent;
+> +	struct drm_bridge *bridge;
+> +	int id;
+
+The @parent and @id fields are unused if I'm not mistaken.
+
+If it is the case then you can... (see below)
+
+>  struct cdn_dp_device {
+>  	struct device *dev;
+>  	struct drm_device *drm_dev;
+> -	struct drm_bridge bridge;
+> -	struct rockchip_encoder encoder;
+> +	int bridge_count;
+> +	struct cdn_dp_bridge *bridge_list[MAX_PHY];
+> +	struct cdn_dp_next_bridge next_bridge_list[MAX_PHY];
+
+...replace this line with:
+	struct drm_bridge *next_bridge[MAX_PHY];
+
+Unless of course you just don't store the next_bridge at all, as I
+suggested above, and which looks way easier and more efficient.
 
 Best regards,
--- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Luca
 
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
