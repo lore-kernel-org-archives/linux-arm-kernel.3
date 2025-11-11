@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51BCCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 20:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E81CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 20:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HjdlGAdaYWkBb/6nFSLN04jc6cM78S9Jz7sxlTA87yk=; b=tr8+xJ93/J0eCQ/8BdpZbDzemU
-	Cle6iiyKj21sCmNf1spvHCi/BuUCZMoZtiw3H5HHDrtESwQDxIR3+CYoA/8IcR0PLoeHyp3IfIK3t
-	hS9RbPNAYsHjMbvHYYUtmbtfCgRGR8ljL8rgDUGwrX3zLfXBSWWgJVlTQEgcgZyDKPRGqcxgH+J+q
-	ri+zdE6g3kCJ6YaOHnunSV8mlF54SVRjFzBUYxAWpGwehkO4PspBT+Gqjh4x9DlERBtlts4vU2TI3
-	zWKF0hQ786H9Erb3E83hTe5NkKh8To46EaWN0Uw4O6kt14ASCOmNxClJe88gx6mQEDBv0aOVxSoHA
-	gzVhcn+Q==;
+	bh=hXy2E+QaVntRJX+vTifDXFSou+p3SdEJVKqGd+ydShQ=; b=LeG4MROadJYWCVlbniiJv39dQw
+	ljpyI7ke3m48j+rlNMVDBOOi1zlpFj9aKas3Fr6Jy9sFH5BKI1waIjFzq0SUjHeXESFUN6CpxPDdv
+	fhxQFSEWpCEY0WaDrl/SDFiB9A4JU2TDRpAg1ZCQE9LrrbatOXILRBf+Y7qA8X+ZsMzlwiCavR7Vi
+	IPQIo06FJxj24xQTJRz2kL4ivSgq1/OfW/k7awjjG5H/NfNcAjMtToEAJYEIgrDHf8+Cx3y5q3N6K
+	5Or1Fw/0PEVQIvwxiqChj5HXYd/iyqCX/MknH94s9XfOSUHO9Us/NsW4+AxwRzdunuLCtN0c5C+OS
+	XCOJ5+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIvRL-00000007lmq-35DJ;
-	Tue, 11 Nov 2025 20:58:11 +0000
-Received: from mail-westusazon11012025.outbound.protection.outlook.com ([52.101.43.25] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vIvSF-00000007lsp-0KAM;
+	Tue, 11 Nov 2025 20:59:07 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIvRE-00000007lmA-3C64
+	id 1vIvS8-00000007ls9-0kDA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 20:58:10 +0000
+	Tue, 11 Nov 2025 20:59:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wDdrdCk6aQLW1i9PJEK88jXFScUcC70JPFogEtfp4ap29r5gZDkzMGcQ6jLUgYjG2A7BmUlL2WvjdtLbFcTJsUGE2FKBzH682t0mWl9ki31fzHLKidrYNsR2zuVZ6e0vWjNXmCIwea+gW/LB/Cr42EZCmuD0gksPgarKl03CY6/PPgNtuQ6WFJg/JCnj4EbFx414Bf9eYRg+5FKkMJ9dXvanS2jSUMqTNKVgzBk0S2OrHVb3Otlh9QJbknHfFeq0wz+WZVW2nmFACEs/cJmK/XMRVDQ/SKlMwu+AbbAj7nxJNtfx/5mAoJ5tB9MmiNqMvBu5gFYY5yxJ1zIZGSZn5g==
+ b=Uvibsm/3sy9ieaEg2prwLSa1xnBXqbFNHGNZETISx79mQ77rAWeD+HPqo4SAydifyby3tdsHovg77Rpcv7svJ+aYAjXuojU/Zv9vOSMUalEjnAhAKM+zZ3tg19MZfNteBCNuvZ9/2lUwa199jEtTCe+qHIBIwglGOJqCV8mqAUPUaHq3yJAq/MC6YaRCbw1NJ8krQO2ZzDPk+Z0NRM4DlSbKqwL0ATxbTJESw9JkSFG9BG8kjqRqWU2Pr8qK7WSBWl/eTFK/xQlSblUsutrpGW8NYs4GnbAGuCyVmQDOBOb8aejURi66xwd8PbaetImxb4fqRYL+pRzHIqhvbGUOOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HjdlGAdaYWkBb/6nFSLN04jc6cM78S9Jz7sxlTA87yk=;
- b=TgyHfagUWqHDp6xGhcNC4Zn4TRxwF6pqRSELUqoVUmHTvHxTL8AB2FbWO8VINuk9XrsUnCzbMBwKo7Tfp/wmCU+xiOcwP32rHsuV6y1grtatU1KcOwCxS1ElM4YUpitcCarWOAlOQkyAGjMA93XfG/r/cKtsep9Wuh8b7/x93OBEDmPmUzcnXuKc57jhXU7kKnALb7+muuWRT7TcbtHx0eM4/1zBNvQo4hEZMTJ8rw/ptbYBxMsPrFdfxtyPeG+Kd6zYKnyklDGj6EZoW4RGLuMhtBGtpFGhP7oaESx+6mLOeuhTED1rfeVOUdJdrlte8fAcdgZKRKJHb1CFSDaLHg==
+ bh=hXy2E+QaVntRJX+vTifDXFSou+p3SdEJVKqGd+ydShQ=;
+ b=RyDdNcx7J+x+OD5zu010pn3aHtSaZ6NzXfJtd/IEGq1DBl6zj+HIG8OXl4X4zOlrEl/igY19pilS5mxuAHqjCKwDSmmnBaSQf+ZtILMRFTpqYSM4QIfrPkmAEOANH7hTgUMoVXNlHUaQWDifFm0H5RrtnuXv+xHMwC50BibHTUGfrnPRCPkxKSIaGTBcLz9wpI7bs9sKcIclMpQ5r+/8izXMXt1gA5tYtBxNRp+FBBZewL7IAKeVyxNPyYF9PerOzUOnLO/GTsEwJPvDDQmDMZ/OP2r9Id93s+k8o1OjqZ1XHWqDgKUvyjxobo6UVDrM9In5vx6lFGefHO3ljuIDXQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=baylibre.com smtp.mailfrom=ti.com;
+ 198.47.23.194) smtp.rcpttodomain=baylibre.com smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HjdlGAdaYWkBb/6nFSLN04jc6cM78S9Jz7sxlTA87yk=;
- b=Rc/MsYI8mV3mkyOBFvLD6Hvj/7bZCc0hcSjU2D/7w/eE7AVzu8WC0DCktKmDZBOc2RQp3EfTKXV+hSKyCcuYOlcfU77NJCIoBknEB7FKKYgE49L2lALt+KvZqIKci92tXZvCF6bvlaMAXpaoX0cmKYf17GqW2qSB9GdIEnL41uE=
-Received: from BL1PR13CA0104.namprd13.prod.outlook.com (2603:10b6:208:2b9::19)
- by BN0PR10MB5125.namprd10.prod.outlook.com (2603:10b6:408:12e::11) with
+ bh=hXy2E+QaVntRJX+vTifDXFSou+p3SdEJVKqGd+ydShQ=;
+ b=Kro/PmRB66EgzA5ujwxzIXzPKYkDiTnW4eJdJPOcLO4d9yiug14bbJDmsnu+vZrbmV50Pbx/7ReweaG/T8TTJnrnGK90iX90efkmucz8zMONJfVNzno7R4I63GB8NAOzgX1UWPCNIvWwzQfJNSBiUFin8OCxTf27VY1h9VD8i/M=
+Received: from CH0PR03CA0293.namprd03.prod.outlook.com (2603:10b6:610:e6::28)
+ by IA3PR10MB8417.namprd10.prod.outlook.com (2603:10b6:208:573::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.15; Tue, 11 Nov
- 2025 20:57:59 +0000
-Received: from BL02EPF00021F6B.namprd02.prod.outlook.com
- (2603:10b6:208:2b9:cafe::7b) by BL1PR13CA0104.outlook.office365.com
- (2603:10b6:208:2b9::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Tue,
- 11 Nov 2025 20:57:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
+ 2025 20:58:54 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:e6:cafe::d) by CH0PR03CA0293.outlook.office365.com
+ (2603:10b6:610:e6::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Tue,
+ 11 Nov 2025 20:58:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BL02EPF00021F6B.mail.protection.outlook.com (10.167.249.7) with Microsoft
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 20:57:58 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 20:58:53 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 14:57:52 -0600
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 14:58:51 -0600
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 14:57:52 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 14:58:50 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 14:57:52 -0600
+ Transport; Tue, 11 Nov 2025 14:58:50 -0600
 Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ABKvpSJ1517626;
-	Tue, 11 Nov 2025 14:57:52 -0600
-Message-ID: <fafe395e-b8d2-4a46-9884-7241b24d3b06@ti.com>
-Date: Tue, 11 Nov 2025 14:57:51 -0600
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ABKwowW1551128;
+	Tue, 11 Nov 2025 14:58:50 -0600
+Message-ID: <cf5d745d-4d98-4ce8-931b-d496fbfb980b@ti.com>
+Date: Tue, 11 Nov 2025 14:58:50 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/6] arm64: dts: ti: k3-am62a7-sk: Set wakeup-source
- system-states
+Subject: Re: [PATCH v5 1/6] arm64: dts: ti: k3-am62: Define possible system
+ states
 To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>, Nishanth Menon
 	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
 	<kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -92,70 +92,70 @@ CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
  Hilman" <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, Sebin Francis
 	<sebin.francis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>
 References: <20251103-topic-am62-dt-partialio-v6-15-v5-0-b8d9ff5f2742@baylibre.com>
- <20251103-topic-am62-dt-partialio-v6-15-v5-5-b8d9ff5f2742@baylibre.com>
+ <20251103-topic-am62-dt-partialio-v6-15-v5-1-b8d9ff5f2742@baylibre.com>
 Content-Language: en-US
 From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20251103-topic-am62-dt-partialio-v6-15-v5-5-b8d9ff5f2742@baylibre.com>
+In-Reply-To: <20251103-topic-am62-dt-partialio-v6-15-v5-1-b8d9ff5f2742@baylibre.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6B:EE_|BN0PR10MB5125:EE_
-X-MS-Office365-Filtering-Correlation-Id: e87210c3-ce26-4031-336d-08de2164fe83
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|IA3PR10MB8417:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11f4742d-0394-4196-1231-08de21651fb6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1ZHaUVObElxUUFPM3F4YUIwSUk5SC9UNlJuLzVXdHFVclJWQ3NTeHVNeThM?=
- =?utf-8?B?UUhUSDV3M0xZOG96d3Z2bTBCSnYxRVA2NTVucW5DZ3VGeGVwZjQ3YTF0VFNr?=
- =?utf-8?B?bTd4SGs2TWRzRXF5d3JkRTFuMTZ4OWhsY21FQlBqMFFBRElPRVIrczJkYVFj?=
- =?utf-8?B?S015b3kwOS81QmZxL203TmRqcE1jY1VzODZsUnFrSzJLV0k3OGp4MGNmU0Ny?=
- =?utf-8?B?UUJ5U01HNE0wVDB6cEd1ZS9zdnM0UElveDlQWGJTWHZhUVdjMFhPbkNpd0hz?=
- =?utf-8?B?VmtFbDR5RDIwSXZtc1hLTzdxeXJOL2tFRXRRbktzOEZQZm1lZ3ZDZy93cENn?=
- =?utf-8?B?K29BemhtcGpldXM5NjE1c21JSGpXRm9VZUMybnlzNlUxeWg4VjBpbGRJbEdI?=
- =?utf-8?B?U3kzTnRCWDZFRTVQZThLTVNGaFZ1S1FrZ1dPaHZ3MzJ4UzhVT01pbnBIOHd0?=
- =?utf-8?B?VWVtV0dUcFdWQWg3enVieHpXalRVL0xYN3NCNVJNbTROOTFEZWtZOWdlM1BZ?=
- =?utf-8?B?MElNN281dEJSTE84anNnZVoxd2dMSUlhOHRtSW1XUGxLSkh2KzdvMXAxWHBn?=
- =?utf-8?B?alpjOWpjRmx4UkFYeFhJYzVTTjRpZk1XR2RBazZ3SUlscnQyQkMyVU5penZS?=
- =?utf-8?B?cG5xVVpLdko2YVV5c0k1UDVsQzIrbWZHZUJSWFZyVVR6am1EbnN0M054eU5Y?=
- =?utf-8?B?Z3loM1ZTQyt2M2ZTZHlSYSt3K3ZBSGRSa3lxZlNjcXBiaXBmSnczdUx1dlBK?=
- =?utf-8?B?WXNZT2FMQWNPcWlJYnFIeG9mMkRjT2V5aDUra3laeldLUzJQb09Tc0F5aGJX?=
- =?utf-8?B?Q2lmMmczS3BVUWxIejZvUlZ0Tk51eXdZSllCSU1XZ1JGYnd1a1kwVEVIeUpF?=
- =?utf-8?B?WnFBeSt1VFBaaWdraWpoZ1VFbVFiQWpUQ2wySnpjeno2NWhma1hBeXE0OXdq?=
- =?utf-8?B?Vk13Q1dYNzZKVGNIWnV3a2RjTHF4V0VaUTR1T0lNSVYxa2tZUSs5SlltUjFN?=
- =?utf-8?B?L0VZaEhSdmpiek01NVpDK05IMVRiNjZQRGsrOHRzTFpaTEZDYndDVlFZQzVF?=
- =?utf-8?B?enE2THhDbURHcWtSbkZFY3pjVEg0UldZbjgwbWZTek1TVy9rWENnYlJ4UUNU?=
- =?utf-8?B?NnJpRGZXRTN5U2dlQzZBRFF5WDF5NFBYY0h0cmdqYXlyL3FsVURmc3Z0NEcr?=
- =?utf-8?B?eWl5RUc0aUJQeFY4a3pPYlROMzlOS2YzQ2lONDRNQ1VXNTE2Q0NLbE80Q2Nh?=
- =?utf-8?B?NVk4N250MWJYQWp1V0V5cW4xdnlhV1YxYkxCMDRoNk9YU0QxT2tJV3JMTVRi?=
- =?utf-8?B?NlQ2OGFXUkhLMm1oUkN0TG9UZU5lekF1QTBTeHlpajJ5RmdESWlpUjE5em5u?=
- =?utf-8?B?ZGZiWUhZR3ZsVUd5MFpLM2tNbXVMQ3lUb1JxR29vQW5nbDZ2ZTdQZjVNckNw?=
- =?utf-8?B?bFp4UlNuNmkrRmk3Y3JEM0cvMjNVbXNTRXZWV2hZVmwrNVlzWlcrN243SFNS?=
- =?utf-8?B?M3Z6dWk5clczZXhwcmhYalNKcDFWWnNQN1lhekV2RGVld0JYTFY2d1U4M0xZ?=
- =?utf-8?B?N2VxVERwb0dUa2JyTFpIRHZCREVZK3JTWWt3aVlrL0plZHdldG5randZWGpW?=
- =?utf-8?B?WW1FOUJrU3U3TUJUQ2xNZzVJVWlqUEtCTHZNOVh6bCt0ZGtWUnJlcnhRazR6?=
- =?utf-8?B?ZGtrNnhQTGo3WDdjT2VONG5PSEg2bVlMc3B0Q3piSTFRaFh2OTUrQWlaWlVN?=
- =?utf-8?B?Y0hpVmFqdWIzNFZ5aTFac1IwalJudzVHSnp4YTBienRQSmlpbyt6MlZKSGta?=
- =?utf-8?B?b2xaK2ZINGltOE51bmZadHZqUnlGVkRqWDF6L3FnS3VVdU83NmlKSGhPelBO?=
- =?utf-8?B?ZHc3VU5RQ29hcDNBNngvdE8wYjMxOHo3Z1FDTjlVUlhCSE1qK0dXNEcvSVNz?=
- =?utf-8?B?MmhwYmVZSERZK2VHRmR6ZklET2gybng4MVMrSzU3dWc0OXFac0l2YjRweHpV?=
- =?utf-8?B?TUx3MVA0L2ZuZFY4Vng0VkJnVEo5ckcxbXJmT0V4SkFnN25STDJMZTUwbFBL?=
- =?utf-8?B?YlJPNVgvbmJLbElmT1VDeWJ2UC9lNC9naU1oZWpVbHk5WXVwTmNMMVpROHNQ?=
- =?utf-8?Q?5qJ8=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SmVhOWVaZ3N2bGMzVzRoeUpTV3NGck5OVnVFclUyN2x3blA2bnNNWGowbG9y?=
+ =?utf-8?B?cEFNR3h1SGt5dG9JTy9uTWNtOXR6NzJicnZzRXdzdVhSWnhjRVZ3em16a1pz?=
+ =?utf-8?B?aHNFZWFEd0d3amFMbHFDMnlPeUlDVXM3NWhwa3pvNUtlVGlLSWNldm1GbGFs?=
+ =?utf-8?B?dnNtbm15UFBPVXhsVjkvNnZzSnJXdFBiZktRQ3VFUndsTk9vZ3E2V0RzUXlQ?=
+ =?utf-8?B?bUo5byt4ZTZoTkowdFB4cHlvNERLcER5TVRUcWJ5akpqWm5aOEZBeUtOQ3Jt?=
+ =?utf-8?B?K3RhcjdES0gwcUQ2c2xwWnRYa2NWMkZQdG81a0d1eDBUdkVGUzdTTTVPWGFi?=
+ =?utf-8?B?ZjhkUkFrNFUrZWw3NlAxcDJaT3d5NGlOR0ZQTjdwcGYxNHcxT09UeHFHV3Fh?=
+ =?utf-8?B?aHd1MGpvZzNYZ2xRS0cvODBBMXpERmwvTllVd0VmN2MyLysxWE0zbjlRZnAw?=
+ =?utf-8?B?T1BhUGRBMGQ5bVV1WWQxUFIycno5QXBzT002ME1zb2l3UFJPbEF6QVIxMk5u?=
+ =?utf-8?B?OUJURzNBZXBLbzFsT3I2ait0VjlCS0xBclAzRlA0OXJWVjk1Wm9UWXFiU3pF?=
+ =?utf-8?B?SGd5QUVIOVVzcHAvc1BWOG12Zk5xZzcvZG9ONVJxU0JNeEhuN21SZlVDM05G?=
+ =?utf-8?B?YTBvL2VSVENLRCtWUWpYMnZxWkVBSXNGdmp1VUJSamFQQ21XZGQ2M3hBLzZm?=
+ =?utf-8?B?SWRuOUVSVEFjOXVyTFBNY2JJN2hsbzEwa0o1VVQ0L1NnMUJlY0U1eFVORWpp?=
+ =?utf-8?B?WmxaTFJkWXZ0dCtkeVNxNm8wam1TcFJPalFTU0d4cjU1TkxKSW55MUdWY09a?=
+ =?utf-8?B?NUR1aXhVWktJdzhncnZvMldkRXFuS3R3R1IrM0lLc2JVS1M0Y1B3TmNTVTJV?=
+ =?utf-8?B?SFNtMmxBWFFKYnJJSVlXaWVHUHpLQitFNlM2V2g0am1WTlVKRTJCOHFDUnky?=
+ =?utf-8?B?WnVpMVJYU2g4R0FMa0kxbEhEYStOUnc1MVpkZnAvS3JxRDcrRjBuOVdnZ1pk?=
+ =?utf-8?B?Wm5qVm9TSlBvOTJZMTVONkk4dFFPekg5TlpqTTFoYk1FODV3RGN3V2gxN3VU?=
+ =?utf-8?B?TjhiZlE3Wk92cjJTSU1MQ3ZRQk5ub3JaTk9TbVVhWGUxVGhJN040cXlITndN?=
+ =?utf-8?B?ZmdJSkNFbVZ5NE1jTXAwdUdraUs3a3pYbzExOXdSR21rUmVRQXh3d0tEZUFF?=
+ =?utf-8?B?UXdkUi93MENXRktEVUlKdEhaQlFBdGtHMDN3Q2l4K0k0LzlVT2NnMHNwNHU3?=
+ =?utf-8?B?R0d6UE4yMFV6SFVCSnlmS2FjZDdJRzNoK2QvLy9IdkRMbGt0Y2tVOFpYU29P?=
+ =?utf-8?B?ajRSMWwwVlVFenVuaTRuY1B4dnJaNVV3VUVsZlFaUitEbENjSHRrd3o1NGlB?=
+ =?utf-8?B?d1hyMUhaeTFEaEgwcnQ0QjVLTnp1S2Fqam9xZnE5RTYxaVFLNXgzUFN3NU9j?=
+ =?utf-8?B?M3IvZ2NhSDdaTnBnMDRwVGU2REdKQ2gwTXpRbnRpVXhMVlNhVnlkWE1Bd3pE?=
+ =?utf-8?B?Q3djRzNuU1kzYXZSZi9Cc01hQ3lNcDhSZ3ZHK3FpSDdjWnVyZWdEYmpIOEs3?=
+ =?utf-8?B?UVVDd2lEQkRuck1TNysrdHY5VVcvVlB2UVN6WldsVlNiWTV4N3VibXFiNWlm?=
+ =?utf-8?B?TjZjNnJWb1RKV0NtNnRMR3JBL2cvRnBpbTNIRnJYQnNlUFhDdGxTa2V4aWxu?=
+ =?utf-8?B?cjkxdkRjK2JNQ3ArOUVuQ2pRYThscE41S1h3UWVON2trc0ZFZFJ6d212Nll0?=
+ =?utf-8?B?MzE2NkV1Z2lRdkNxN1VKSURobDZobFB5c1E5NTZOR2ltSUd4Qy9DNkltWlpS?=
+ =?utf-8?B?R1htU3J0WE5Od1B6bEtpY3N5RWM4bjgwRkpOcUtNa3dvQ0FWNUlwMGZZamFj?=
+ =?utf-8?B?Ynh6UzNIYUs3alJ6VnRTaFVGZkc4bVN5Y0ZFU0hWV0ZCa1Y2TjNuOVo4Q2xp?=
+ =?utf-8?B?dno0bEoyVVowd1VrY2t6aEpkaVVVTi93Y0NtTm1mOGMxWUEvUFpxcHhuLzJP?=
+ =?utf-8?B?YzNGOXNGb2xyQUwySjhZQ2RPb01ldkwvUkEvbTZXK2JGQXlZQThlcXFZM0xK?=
+ =?utf-8?B?emF5Yjh0Z2JqRktOMVlUcGFXQWRDTVdoY0hGQ2FHRWF3ODRja2FuNTMxMWN0?=
+ =?utf-8?Q?vtpY=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 20:57:58.3087
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 20:58:53.9951
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e87210c3-ce26-4031-336d-08de2164fe83
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11f4742d-0394-4196-1231-08de21651fb6
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5125
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8417
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_125804_811970_503A3DF8 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20251111_125900_221493_48A6B7AB 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,120 +171,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/3/25 06:39, Markus Schneider-Pargmann (TI.com) wrote:
-> The CANUART pins of mcu_mcan0, mcu_mcan1, mcu_uart0 and wkup_uart0 are
-> powered during Partial-IO and I/O Only + DDR and are capable of waking
-> up the system in these states. Specify the states in which these units
-> can do a wakeup on this board.
-> 
-> Note that the UARTs are not capable of wakeup in Partial-IO because of
-> of a UART mux on the board not being powered during Partial-IO.
-> 
-> Add pincontrol definitions for mcu_mcan0 and mcu_mcan1 for wakeup from
-> Partial-IO. Add these as wakeup pinctrl entries for both devices.
+> Add the system states that are available on TI AM62 SoCs.
 > 
 > Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 > ---
->   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 69 +++++++++++++++++++++++++++++++++
->   1 file changed, 69 insertions(+)
+>   arch/arm64/boot/dts/ti/k3-am62.dtsi | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index af591fe6ae4f0a91991d2904a9a61905a0eeb614..b61370db6986308ec97983f796b993a26debcabc 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -233,6 +233,10 @@ AM62AX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
->   &wkup_uart0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&wkup_uart0_pins_default>;
-> +	wakeup-source = <&system_io_ddr>,
-> +			<&system_deep_sleep>,
-> +			<&system_mcu_only>,
-> +			<&system_standby>;
->   	status = "reserved";
->   };
->   
-> @@ -426,6 +430,42 @@ pmic_irq_pins_default: pmic-irq-default-pins {
->   			AM62AX_MCU_IOPAD(0x000, PIN_INPUT, 7) /* (E11) MCU_GPIO0_0 */
->   		>;
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62.dtsi b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> index 59f6dff552ed40e4ac0f9c7077aa25d68d3b5283..b08b7062060ca12ecae83917a831ee779f1a288f 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62.dtsi
+> @@ -46,6 +46,28 @@ pmu: pmu {
+>   		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
 >   	};
-> +
-> +	mcu_mcan0_tx_pins_default: mcu-mcan0-tx-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x034, PIN_OUTPUT, 0) /* (D6) MCU_MCAN0_TX */
-> +		>;
-> +	};
-> +
-> +	mcu_mcan0_rx_pins_default: mcu-mcan0-rx-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x038, PIN_INPUT, 0) /* (B3) MCU_MCAN0_RX */
-> +		>;
-> +	};
-> +
-> +	mcu_mcan0_rx_pins_wakeup: mcu-mcan0-rx-wakeup-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x038, PIN_INPUT | PIN_WKUP_EN, 0) /* (B3) MCU_MCAN0_RX */
-> +		>;
-> +	};
-> +
-> +	mcu_mcan1_tx_pins_default: mcu-mcan1-tx-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x03c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX */
-> +		>;
-> +	};
-> +
-> +	mcu_mcan1_rx_pins_default: mcu-mcan1-rx-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x040, PIN_INPUT, 0) /* (D4) MCU_MCAN1_RX */
-> +		>;
-> +	};
-> +
-> +	mcu_mcan1_rx_pins_wakeup: mcu-mcan1-rx-wakeup-pins {
-> +		pinctrl-single,pins = <
-> +			AM62AX_MCU_IOPAD(0x040, PIN_INPUT | PIN_WKUP_EN, 0) /* (D4) MCU_MCAN1_RX */
-> +		>;
-> +	};
->   };
 >   
->   &mcu_gpio0 {
-> @@ -852,4 +892,33 @@ AM62AX_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
->   	};
->   };
->   
-> +&mcu_mcan0 {
-> +	pinctrl-names = "default", "wakeup";
-> +	pinctrl-0 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_default>;
-> +	pinctrl-1 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup>;
-> +	wakeup-source = <&system_partial_io>,
-> +			<&system_io_ddr>,
-> +			<&system_deep_sleep>,
-> +			<&system_mcu_only>,
-> +			<&system_standby>;
-> +};
+> +	system-idle-states {
+> +		system_partial_io: system-partial-io {
+> +			compatible = "system-idle-state";
+> +			idle-state-name = "off-wake";
+> +		};
 > +
-> +&mcu_mcan1 {
-> +	pinctrl-names = "default", "wakeup";
-> +	pinctrl-0 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_default>;
-> +	pinctrl-1 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup>;
-> +	wakeup-source = <&system_partial_io>,
-> +			<&system_io_ddr>,
-> +			<&system_deep_sleep>,
-> +			<&system_mcu_only>,
-> +			<&system_standby>;
-> +};
-
-Did you mean to set the status = "okay" for mcu_mcan0 and mcu_mcan1? The 
-nodes would still be disabled without it since in k3-am62a-mcu.dtsi the 
-status is set to "disabled". Same goes for the patch you sent for AM62P.
-
+> +		system_deep_sleep: system-deep-sleep {
+> +			compatible = "system-idle-state";
+> +			idle-state-name = "mem";
+> +		};
 > +
-> +&mcu_uart0 {
-> +	wakeup-source = <&system_io_ddr>,
-> +			<&system_deep_sleep>,
-> +			<&system_mcu_only>,
-> +			<&system_standby>;
-> +};
+> +		system_mcu_only: system-mcu-only {
+> +			compatible = "system-idle-state";
+> +			idle-state-name = "mem-mcu-active";
+> +		};
 > +
->   #include "k3-am62a-ti-ipc-firmware.dtsi"
+> +		system_standby: system-standby {
+> +			compatible = "system-idle-state";
+> +			idle-state-name = "standby";
+> +		};
+> +	};
+> +
+>   	cbass_main: bus@f0000 {
+>   		bootph-all;
+>   		compatible = "simple-bus";
 > 
+
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 
 Best,
 Kendall Willis
