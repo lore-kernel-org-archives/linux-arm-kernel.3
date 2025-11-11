@@ -4,91 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51323CD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B32FCCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 19:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gq4OYm6IJVW0ysZKlScrQA08mwLQ6YFMo97/reDWBt4=; b=I97DlsGhif1YYtev+eVeqOqWQ2
-	QZ0AjQtyzslIhO5WqPMDozUi3bpWRw86UF2hoTRtqgsgaBAV367erZLSOXMQdmIEyqoRVnGE5tjyG
-	nRMeNVILYn3nfjP1lulxEfU1u8fQdsOEQpKu6Uh4VdkV2hxVKeYAZlrMzp/syVsQc6iXluRD7mz1Y
-	jNMSNPovsWULDXX+dneeNPjV2rx2343teGgT88y9WCyD+vtU/UaOvlu1R9Yo+QqNviIIltFywYcn2
-	87wuoHUTO2epvy5vjRr3jW5a2j2o0Hj/pcaED9MMewATxDsfHlNo3QQ7FVRVD0eyU44AyCL06jd5d
-	FjDDZwkA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R3hXO0kohcojDK5N1gDQnbb7SNR3dS5AVJdqaUadyUo=; b=Ld6NCqtGGH2pnUJdNcr4iqDEAF
+	28yHlqZWXkKUsAe42E1hg3B2Sful7aa5V5rMcOSNu2/21zsxjnBCmv/9EpKElSxMsg7HU2YZfgYoh
+	UPabgM+h9mQrjzC+mUvcIua9Dhssm5KziqJ2bo/gi8NzbPayaCowh/AAlPVb12sU1H3Mjnd+MFhdX
+	cnyjTHnjAHEBgZi79XmWKfWGGyb4rHUTzxC/lEozIGKVLNP8Fd6B3W5TNWouJfIJCumqgF4UK04g5
+	rKZxWDJ+d0FkcSpXuK7V/+SUFIKqWceY8fR+ofoeiMz0eHJlje7GWHsTsrjOJTbb6vam5//nWvVqP
+	J+R0FqQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItsM-00000007fy3-3JKn;
-	Tue, 11 Nov 2025 19:17:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vIu0s-00000007gQO-17iY;
+	Tue, 11 Nov 2025 19:26:46 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vItsF-00000007fxU-2NZ2
+	id 1vIu0l-00000007gPP-1qSG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 19:17:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63312438C0;
-	Tue, 11 Nov 2025 19:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D8EDC4CEFB;
-	Tue, 11 Nov 2025 19:17:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762888668;
-	bh=41RLRtaKbXKVyhTCyKGvYapSSOb8728iYPhMLtH1kSQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WAB3TiStxkM1FNwO8Op8NHHDZWFMtIxWcQcyMeysB/zEXMu7NC5jN7X7oCAZuO/uB
-	 kcb7FtT/bygYU7KdFv5BXUDnSmTnFkOZ8nnrMugK3rc8YAb9Myqj0+j/30pn8eY8Mi
-	 FkINs55JVB5sRHCnTlFQ5BMCeVelWSh/mOsZSAa3tc2o2UVRqLAHzjnGrk3XfMFmKE
-	 yUZtkwYIljsWxIjRlVV5OUJuG4eBUG7Ex4ojuJLvn0I0Ye5hWgfKtnWEOSOBCHSp4c
-	 JDb7nCKhP6NvnxojBfFa0FUjKp21Eg/jL89c2RHwG69wReDvu3Q1lYYDIxR5d/e8TK
-	 8F/IQbicLA9ig==
-Date: Tue, 11 Nov 2025 19:17:33 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, David Miller
- <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
- Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, Lars-Peter
- Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun
- Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, Rasmus
- Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Johannes Berg <johannes@sipsolutions.net>,
- Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, David Laight
- <david.laight.linux@gmail.com>, Vincent Mailhol
- <mailhol.vincent@wanadoo.fr>, Jason Baron <jbaron@akamai.com>, Borislav
- Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Kim Seer Paller
- <kimseer.paller@analog.com>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Richard Genoud <richard.genoud@bootlin.com>, Cosmin Tanislav
- <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, Jianping
- Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org,
- qat-linux@intel.com, linux-gpio@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org,
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -next v5 10/23] iio: imu: smi330: #undef
- field_{get,prep}() before definition
-Message-ID: <20251111191351.06c0e660@jic23-huawei>
-In-Reply-To: <CAMuHMdX8c1VkBuPDpJ5mpCcRH+zEX4F1bQKFf_V8N9ZZtCYqxA@mail.gmail.com>
-References: <cover.1761588465.git.geert+renesas@glider.be>
-	<97549838f28a1bb7861cfb42ee687f832942b13a.1761588465.git.geert+renesas@glider.be>
-	<20251102104326.0f1db96a@jic23-huawei>
-	<CAMuHMdUkm2hxSW1yeKn8kZkSrosr8V-QTrHKSMkY2CPJ8UH_BQ@mail.gmail.com>
-	<20251109125956.106c9a1a@jic23-huawei>
-	<CAMuHMdX8c1VkBuPDpJ5mpCcRH+zEX4F1bQKFf_V8N9ZZtCYqxA@mail.gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	Tue, 11 Nov 2025 19:26:44 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2984dfae0acso796215ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 11:26:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1762889198; x=1763493998; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=R3hXO0kohcojDK5N1gDQnbb7SNR3dS5AVJdqaUadyUo=;
+        b=H9HvR/JqguEh9ZOBOwuHGWD2bB4rWI5EpMJYq9RjIt4nGrr7R0C4eWyWPXOaKCPOSQ
+         wSVp2DdDaGV5nu0edic6elaZxCU3YBBCnn4n3nORC48cblGL9wrSAOnxRdev441hs+gQ
+         Oy35D8h1ik+wlsDZlkn1Ktivwx2GW23m64E4Y=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762889198; x=1763493998;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R3hXO0kohcojDK5N1gDQnbb7SNR3dS5AVJdqaUadyUo=;
+        b=v0oAveswgzi46PWBib/S1chcfX41zBa5wL55spkxMX7ZQ7CM9u4LK0uPQY4W1wLJxL
+         gi/jpH86VMQhCMXYwQqb3NoS5VmeHirjkM/uu3h4w/pd4s9h3KHWtlkN7AA1lvp0oV1O
+         j4dDowXb5bA3wXh2jnNrqpefoKe3MQItCVgAGByYXf/Rck7YH5XqKGvSlXEycXLtIlef
+         7OdXYE3zHI/QgunRHlGVxXB2VTufHeOurEBypw7l+dubgapwPDuuXrBBo4//jIeVg967
+         iNtYZMe5MYB79K4NtRjk4aOxzFHQbW4n3mHh6lbjwp4RFytY2H7/s8xnb8bsIXLxpAm1
+         q3VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTmJ04cOVumIiBn37dCd3TdaLh2xczdodOs5qzxa5JNB/FKiaB7jDKHAkAL7RjWHDCYvJOw44qkVFm/GdrmuaN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE41ll6haL59NasvetRiTOSDWk/z1vA5ZPb6vltEifM1LJR0dQ
+	+RtcnzHHk8GrWt+uR4V78ER2i4ZLnWzs45E5EpELuGKciCYY2bo1XPQ6JnBztWiUtA==
+X-Gm-Gg: ASbGnctyE5X6gl+kN7OAqsjeEsYhRmUnZ1mwAcASlrOtCq2OLxVsEKTC+tdp6hQ2z30
+	Q7S59Kb19jpAob+zf0y3Dh05aS3QxmPCzfX4VZniBBMnyjmYc5BdZHLIM2vqGbil+z2tRBrd4xi
+	WH88+aVguoZqZufGk2b+v9v8Tr9JOuY2u+3hEcLHkVOrkkZZPRPIbPHiXD24M7UfTZiK8mdOxeC
+	ppgXbvDhuAEIH5zEmdx0NZuOQQL4jhPJfl4OUTNY9a90+Cqndb2LY2wRwjj9VaH96tuk68lI6BD
+	EbbVK8utvF+UNkNdduMIPoJOFsYdY/NpUYPypw01kH3AVl+3RQwGMA2bG6cecCE/kEYOIk3K6on
+	ezVRgU5M75sdfSgb/z0VW6ZOgCBqlMUsK4xNuSlWJ2PBZSNDMt/fpWQNluL5vDYzyejqyAqwxQ3
+	9JHuGc8QTYfKQ5w6bX/2HfpEPAZysnADhAt/WFHc47jGmSe1sx9yFwtJEc5pU=
+X-Google-Smtp-Source: AGHT+IGzawljQPfuMSEdjKEu2O+TbUwNMNOGAm74gscUESQKCa416kMewGM3RhTWM1GA5ootFgKOLg==
+X-Received: by 2002:a17:902:f684:b0:26a:8171:dafa with SMTP id d9443c01a7336-2984ed49524mr5944105ad.21.1762889198163;
+        Tue, 11 Nov 2025 11:26:38 -0800 (PST)
+Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:ba9f:d4c6:9323:4864])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dcd0974sm4861075ad.90.2025.11.11.11.26.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 11:26:36 -0800 (PST)
+From: Douglas Anderson <dianders@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	Roy Luo <royluo@google.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Julius Werner <jwerner@chromium.org>,
+	William McVicker <willmcvicker@google.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	soc@lists.linux.dev
+Subject: [PATCH 0/4] arm64: google: Introduce frankel, blazer, and mustang boards
+Date: Tue, 11 Nov 2025 11:22:03 -0800
+Message-ID: <20251111192422.4180216-1-dianders@chromium.org>
+X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_111751_658167_E853F35C 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20251111_112639_531464_68C779AC 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +117,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 09:59:34 +0100
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 
-> Hi Jonathan,
+This series adds barebones device trees for Pixel 10 (frankel), Pixel
+10 Pro (blazer), and Pixel 10 Pro XL (mustang). With a yet-unreleased
+bootloader these can boot to a UART command prompt from an initramfs.
 
-Hi Geert,
+The end result of the device trees introduced in this series is really
+pretty simple, so it's expected that most of the discussion in the
+series will be about compatible strings, file organization, dts/dtso
+organization, etc.
 
-> 
-> On Sun, 9 Nov 2025 at 14:01, Jonathan Cameron <jic23@kernel.org> wrote:
-> > On Mon, 3 Nov 2025 11:09:36 +0100
-> > Geert Uytterhoeven <geert@linux-m68k.org> wrote:  
-> > > On Sun, 2 Nov 2025 at 11:43, Jonathan Cameron <jic23@kernel.org> wrote:  
-> > > > On Mon, 27 Oct 2025 19:41:44 +0100
-> > > > Geert Uytterhoeven <geert+renesas@glider.be> wrote:
-> > > >  
-> > > > > Prepare for the advent of globally available common field_get() and
-> > > > > field_prep() macros by undefining the symbols before defining local
-> > > > > variants.  This prevents redefinition warnings from the C preprocessor
-> > > > > when introducing the common macros later.
-> > > > >
-> > > > > Suggested-by: Yury Norov <yury.norov@gmail.com>
-> > > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>  
-> > > >
-> > > > So this is going to make a mess of merging your series given this is
-> > > > queued up for next merge window.
-> > > >
-> > > > I can pick this one up perhaps and we loop back to the replacement of
-> > > > these in a future patch?  Or perhaps go instead with a rename
-> > > > of these two which is probably nicer in the intermediate state than
-> > > > undefs.  
-> > >
-> > > Renaming would mean a lot of churn.
-> > > Just picking up the #undef patch should be simple and safe? The
-> > > removal of the underf and redef can be done in the next cycle.
-> > > Thanks!  
-> >
-> > Only 1 call of each of these in the driver, so churn is small either way.
-> >
-> > To avoid a bisection problem if your tree merges first I need to modify
-> > this stuff in the original patch or leave it for Linus to deal with as
-> > a merge conflict resolution which is mess I'd rather do without.  
-> 
-> If you add the #undef, there won't be any bisection problem?
 
-Two different things.  The bisection comment was about squashing into the
-original driver patch - not what was squashed.  Your tree may well merge
-before mine does and a bisection could therefore land in between the 
-driver introduction and a patch I merge today.
+Douglas Anderson (4):
+  dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
+  dt-bindings: serial: snps-dw-apb-uart: Add "google,lga-uart"
+  arm64: dts: google: Add dts directory for Google-designed silicon
+  arm64: dts: google: Add initial dts for frankel, blazer, and mustang
 
-The rename is a preference only because I don't want an undef that smells
-like a hack / bug work around kicking around in the tree for significant time
-(probably a whole kernel cycle). In this case the churn is very similar
-with that or a rename of the macros - so rename it is.
+ .../devicetree/bindings/arm/google.yaml       |  87 +++-
+ .../bindings/serial/snps-dw-apb-uart.yaml     |   1 +
+ MAINTAINERS                                   |   1 +
+ arch/arm64/Kconfig.platforms                  |   6 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/google/Makefile           |  10 +
+ arch/arm64/boot/dts/google/lga-b0.dts         | 391 ++++++++++++++++++
+ .../arm64/boot/dts/google/lga-blazer-mp1.dtso |  22 +
+ .../boot/dts/google/lga-frankel-mp1.dtso      |  22 +
+ .../boot/dts/google/lga-mustang-mp1.dtso      |  22 +
+ .../boot/dts/google/lga-muzel-common.dtsi     |  17 +
+ 11 files changed, 561 insertions(+), 19 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/google/Makefile
+ create mode 100644 arch/arm64/boot/dts/google/lga-b0.dts
+ create mode 100644 arch/arm64/boot/dts/google/lga-blazer-mp1.dtso
+ create mode 100644 arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
+ create mode 100644 arch/arm64/boot/dts/google/lga-mustang-mp1.dtso
+ create mode 100644 arch/arm64/boot/dts/google/lga-muzel-common.dtsi
 
-Jonathan
-
- 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
+-- 
+2.51.2.1041.gc1ab5b90ca-goog
 
 
