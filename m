@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74078CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 16:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BDBCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 16:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOoBzAtTnyZNm4d/go09WPNMVc0F3TKoQFXwPzGxIek=; b=u+xUg5QnHE/PneZmFT+GquZ2DS
-	gZJ3Vu6yLbBNCR71dEVX6y3b6IwfKmqoqVxFb1ieOv0WqVvbt5UQn59wS16fYh7EFcOuuz9YYOuKq
-	eKjDdsae1Wo6q7jWS0jdkI37/4ImGvgguHdSoZzRXKcAJEuKwTifKSCvcwq2Phnz2XN7FsRN+r1m8
-	DbWFTkh0I9Jk7cxEqNXSGeOtbXT3W2C3uRu0u2r/9H0uQmeiGAw4UvGJvHGVAHQ7GAxLOr2Q2OdoZ
-	AxfQ/kYKfCo6wUxCfOTt2KsNx1JqAwnRo06D2X77KUZWDiD/TS0bdq7opLiawTHcQkqIzb2fzE/46
-	SqGoZCOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+SZjlpNM6wMx/9LAvmBia8EeGWAQhwYMSyyM0PM5zU=; b=F0CWYAMQ6BRfSZsbm06aUWBVK/
+	bIzXnvErhENFMC2XGnHDDIP1D6Ux/nYShgqgU8iFZPANfhEA0ZztLbEdGQ76+2ph8/xHK2W7cKnny
+	d/IItFnsO7lt19zD8v0Ao4R152kR8k9/GWXZySlETBRN6oMnZyFOHXqJTTnyJQOXHAkFxGODZuxPX
+	Wm8MnWS8rMt8yaKSHUTyIRkQbpO34Fwk1v/eDEQtEQ9KuDVTWMPV8I57wdy1cAR9zI4N16qqR04aU
+	ScJp6DSRn6b0dnQXuyMepekVbN6qy6BT3syNCWgillttL5hlsl/G1t16gh2RJY6gksWvvwbrTPxXW
+	+HixOGNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIr2m-00000007RkU-2ZBa;
-	Tue, 11 Nov 2025 16:16:32 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vIr7F-00000007Su4-3SIw;
+	Tue, 11 Nov 2025 16:21:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIr2Z-00000007RSl-1uPf
+	id 1vIr7A-00000007Ste-1E8Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 16:16:22 +0000
-Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D65001E4E;
-	Tue, 11 Nov 2025 17:14:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762877659;
-	bh=PWjtYmieR4EyjgiTgqd0PUf4+QF/ycnQ2qozXZrDqGE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=E8BTyaL/HK0K1e1DttEHwF0anpqgHRJJ3jaR9rQC17FL0Ukme9jeNJAN+O50yIK/m
-	 c+4mv4QRMGcu5S/pQl/iiollG0fBLfZWqfv5H4AAgH1/DDKXZt4DwPGcYf4At91ObN
-	 h7mqe6SNN/TyEwNdxm5OiZM6hrrTfPlHjjrxknLw=
-From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 11 Nov 2025 16:15:58 +0000
-Subject: [PATCH v13 14/15] media: platform: Add mali-c55 parameters video
- node
+	Tue, 11 Nov 2025 16:21:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 544AC441E4;
+	Tue, 11 Nov 2025 16:21:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D63CBC4CEF5;
+	Tue, 11 Nov 2025 16:21:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762878063;
+	bh=iovQHCOTUN55wUvNH0b2ic0AbO7TgNyy9k87I1v/EvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mUjvpjMb5nWSH3Ej5Z6ekUtxyctHK1iWozXPaNNnLbgkyXsh7sIh6/wpN3U2Kqtaz
+	 pgz1NYRD0Ge54tnICRqeTqxB/U709bSsmp4nAMLBENSYcuJi8j88LicRiTH55yp1R4
+	 4cmPMfvFaaN+92h00ZpxOjncZfiqBh79fYETDtMIf0zKtsslp11kNiiwXUmSO8ZRue
+	 xt4sold8J7PsWbk5uoXkPaG23sxeWhlUHlK75vxwyGliH7XfqyVMKLNFo626dsivUn
+	 1v2iVu4b1OzKgn8BBC9Zl4bWdMRk0OiLJiwUxAAB8dhZmQtzERxkkTVdLvrn8ElOpu
+	 BdA50TiZ+15XQ==
+Date: Tue, 11 Nov 2025 10:25:13 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Sebastian Reichel <sre@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>, 
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Stephen Boyd <swboyd@chromium.org>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Elliot Berman <quic_eberman@quicinc.com>, 
+	Xin Liu <xin.liu@oss.qualcomm.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	Umang Chheda <umang.chheda@oss.qualcomm.com>, Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+Subject: Re: [PATCH v17 03/12] power: reset: reboot-mode: Add support for 64
+ bit magic
+Message-ID: <axle2c3i3vfyxpql43dqb4zwzjj65xhsjuhojyf5x26wqo352v@z3nwctubwanx>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-3-46e085bca4cc@oss.qualcomm.com>
+ <20251110134529.uljjqzb3vhda3vya@hu-mojha-hyd.qualcomm.com>
+ <gzj4r4elqewjt2gjzhuamslvobz5fgyvt672brwknoozlsplaq@wsebzmi2l6pc>
+ <681a72ba-d8fb-bfc2-d2bb-d80ac667bc5c@oss.qualcomm.com>
+ <zejaqakbtufwzlzs7xc7xzxezcylqjkmu4nne2mro4riuhgbkc@hlgu3u2w36bb>
+ <5c83c9a1-e123-95bb-1434-588ee8c52b25@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251111-c55-v13-14-3dc581355e3a@ideasonboard.com>
-References: <20251111-c55-v13-0-3dc581355e3a@ideasonboard.com>
-In-Reply-To: <20251111-c55-v13-0-3dc581355e3a@ideasonboard.com>
-To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
- nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
- jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
- laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=49962;
- i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=PWjtYmieR4EyjgiTgqd0PUf4+QF/ycnQ2qozXZrDqGE=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBpE2FFSql7MQxKXWCRHInouYL5tyFmjrUzpA8st
- h8Ss44IZj+JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaRNhRQAKCRDISVd6bEV1
- Mp/XD/9VbpYHDNvIlAf1y2fHJzmL9uc+M3K5HGrooJx3oQ1DxgvLEY9Lf91n6r/QQUJg6rMzMEy
- p1PAW5MkdKBPSYndJHQnXYTFVs7HqdRTidq+mMzqAVbUg2677MQI0YeQSvjywkq/p0SrRVesvBV
- L4XkNc4fp1u/Rxf8/oNtP9FuWQbUVFNaNcdVR8Bpi8N/ZEqVq5tD4BJeySpWTQEL6HygSf5Khzh
- v3L3lre7YROopiC/CPrcpWK5YLyH4CnctlBdqdNS4JsvPEk1PmoDfrUMW51kJeinxOagRptN2hT
- aTmjkGTktU09UCsv7AQaDbmbjZhGYcuxrp11iQ87meZbGVbXQNDv5tCJF8AaUzB1Dlgm+bucnYA
- TleOmXYAbFnRXM/AIX/4dFuleZj+73aXLaj0f2VWQ1dr7LrNtZeLwGhFzSqg85fparMH7nbDQWy
- k8mITaJNC6+mdkjyHGsToWF3Jn67ZdLeaAoC5yosN9Nebs2hwCGhvBj/T615bmZUt7iBI0xChdd
- /nURWvcK5AJncBkjaCfcRDAJ4wKQZpZbSlDL2NZ9C4oqcP8fqQVcCXQLLd3eM7GBYIQngm+XfV6
- hFC5eGnbRd9dlpJjpe06Ktno8PZrVgKFUUrNhgDKYvmkWgejZmZr0xSr80YgYfMw4FhoO6ckXM2
- ysLJ6slj3u7K/KA==
-X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
- fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5c83c9a1-e123-95bb-1434-588ee8c52b25@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_081619_960886_46CCBDB9 
-X-CRM114-Status: GOOD (  34.64  )
+X-CRM114-CacheID: sfid-20251111_082104_401180_545CCBEF 
+X-CRM114-Status: GOOD (  39.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,1323 +95,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new code file to the mali-c55 driver that registers an output
-video node for userspace to queue buffers of parameters to. Handlers
-are included to program the statistics generation plus the white
-balance, black level correction and mesh shading correction blocks.
+On Tue, Nov 11, 2025 at 08:20:43PM +0530, Shivendra Pratap wrote:
+> 
+> 
+> On 11/11/2025 12:03 AM, Bjorn Andersson wrote:
+> > On Mon, Nov 10, 2025 at 11:22:40PM +0530, Shivendra Pratap wrote:
+> >>
+> >>
+> >> On 11/10/2025 10:00 PM, Bjorn Andersson wrote:
+> >>> On Mon, Nov 10, 2025 at 07:15:29PM +0530, Mukesh Ojha wrote:
+> >>>> On Sun, Nov 09, 2025 at 08:07:16PM +0530, Shivendra Pratap wrote:
+> >>>>> Current reboot-mode supports a single 32-bit argument for any
+> >>>>> supported mode. Some reboot-mode based drivers may require
+> >>>>> passing two independent 32-bit arguments during a reboot
+> >>>>> sequence, for uses-cases, where a mode requires an additional
+> >>>>> argument. Such drivers may not be able to use the reboot-mode
+> >>>>> driver. For example, ARM PSCI vendor-specific resets, need two
+> >>>>> arguments for its operation – reset_type and cookie, to complete
+> >>>>> the reset operation. If a driver wants to implement this
+> >>>>> firmware-based reset, it cannot use reboot-mode framework.
+> >>>>>
+> >>>>> Introduce 64-bit magic values in reboot-mode driver to
+> >>>>> accommodate dual 32-bit arguments when specified via device tree.
+> >>>>> In cases, where no second argument is passed from device tree,
+> >>>>> keep the upper 32-bit of magic un-changed(0) to maintain backward
+> >>>>> compatibility.
+> >>>>>
+> >>>>> Update the current drivers using reboot-mode for a 64-bit magic
+> >>>>> value.
+> >>
+> >> [SNIP..]
+> >>
+> >>>>> +	if (magic > U32_MAX)
+> >>>>> +		return -EINVAL;
+> >>>>> +
+> >>>>> +	magic_32 = magic;
+> >>>>> +
+> >>>>>  	syscon_rbm = container_of(reboot, struct syscon_reboot_mode, reboot);
+> >>>>>  
+> >>>>>  	ret = regmap_update_bits(syscon_rbm->map, syscon_rbm->offset,
+> >>>>> -				 syscon_rbm->mask, magic);
+> >>>>> +				 syscon_rbm->mask, magic_32);
+> >>>
+> >>> As above, if we're no longer silently discarding bits, I think we should
+> >>> compare the magic against syscon_rbm->mask.
+> >>>
+> >>> No need for a local variable, just type cast after checking the validity.
+> >>
+> >> Trying to summarize below why we added these check-
+> >>
+> >> the patch in v11 used typecasting and did not have any of these checks(link below):
+> >> https://lore.kernel.org/all/20250717-arm-psci-system_reset2-vendor-reboots-v11-2-df3e2b2183c3@oss.qualcomm.com/
+> >>
+> >> As per below upstream review, type cast was removed and bound checks were added all-over patchset:
+> >> "As a general rule of thumb, code with casts is poor quality code. Try
+> >> to write the code without casts." - 
+> >> https://lore.kernel.org/all/8d4a42b6-657f-4c30-8e25-4213d8d53a89@lunn.ch/
+> >>
+> >> We can revert to the typecast way. Please suggest.
+> >>
+> > 
+> > Okay, I'm okay with Andrew's original request, stick to that for the
+> > nvmem case. Although I don't fancy the name "magic_32", and would prefer
+> > that you just call it "value" or something.
+> 
+> sure will make it proper wherever applicable. 
+> 
+> > 
+> > 
+> > For pon and syscon however, I'm wondering why you have ignored Andrew's
+> > other request from that same email:
+> > 
+> > """
+> > You might be able to go further, and validate that magic actually fits
+> > into the field when you consider the << pon->reason_shift.
+> > """
+> > 
+> > Writing "if (magic > U32_MAX)" in a snippet of code where magic isn't
+> > allowed to be more than either 32 or 64 is misleading.
+> > 
+> > For syscon, it's true that the parameter is an unsigned long, but the
+> > actual limit better be based on syscon_rbm->mask.
+> 
+> May be i was not able to interpret it correctly. Basically tried to
+> make sure that magic that now coming in a "u64 magic" should be passed
+> ahead only it its a 32 bit value.
+> 
 
-Update the rest of the driver to register and link the new video node
+That is the correct interpretation of the original ask. But what I'm
+saying is that if you write:
 
-Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Acked-by: Nayden Kanchev  <nayden.kanchev@arm.com>
-Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
----
-Changes in v13:
+if (magic > U32_MAX)
 
-	- Updates to account for changes to v4l2-params framework
+then that means "check that magic isn't larger than 32 bits". So the
+reader will see that and understand that magic can only be 32 bits.
 
-Changes in v12:
+But the actual PON magic value is 5 or 6 bits, not 32 - so you should
+check that the value fits in 5 or 6 bits.
 
-	- Fix the parameter parsing to remove a hang where the data field
-	  was empty
-        - Dropped the use of the new media entity .pipeline_started() and
-          .pipeline_stopped() operations and the V4L2 / MC helpers for them.
+> So should i get rid of the checks done here for syscon and pon?
+> 
 
-Changes in v11:
+Continuing to silently ignoring other bits would be one option, but
+you've been asked to sanity check the values, so please do that. You
+have the code, just compare with the correct value.
 
-	- Remove the media jobs / scheduler functionality. We'll add
-	  it in a separate series.
-	- Update copyright year
-	- Use the new v4l2-params functions and objects
-	- Use new video_device_pipeline_started() helper
+Regards,
+Bjorn
 
-Changes in v10:
-
-	- Account for v2 of media jobs framework
-
-Changes in v9:
-
-	- Support memory input mode through the media jobs framework
-	- Include this video device in the synchronised start/stop across the
-	  pipeline
-
-Changes in v8:
-
-	- None
-
-Changes in v7:
-
-	- Swapped to use a distinct struct as the buffer for vb2 so that we
-	  didn't have lots of unused fields.
-	- Defined a union for easy handling of the different block types
-	- Handled the new @flags field instead of the @enabled field in each
-	  handler.
-	- Copied the userspace buffer to a scratch buffer in the driver for each
-	  buffer to protect against userspace modifying it whilst the driver is
-	  processing it
-	- Validated the buffer from userspace when the buffer is queued rather
-	  than processed.
-	- Helper function to return all buffers to userspace
-	- Stopped the ISP when stream stop is called.
-
-Changes in v6:
-
-	- Used a union to generalise the block pointer rather than resorting to
-	  casting everywhere - fantastic idea Sakari, this made it much cleaner.
-	- Reworked the loop in mali_c55_params_write_config() so that we can be
-	  sure there's remaining space for the next block header.
-
-Changes in v5:
-
-	- New patch
----
- drivers/media/platform/arm/mali-c55/Kconfig        |   1 +
- drivers/media/platform/arm/mali-c55/Makefile       |   1 +
- .../media/platform/arm/mali-c55/mali-c55-common.h  |  28 +
- .../media/platform/arm/mali-c55/mali-c55-core.c    |  26 +
- drivers/media/platform/arm/mali-c55/mali-c55-isp.c |  23 +-
- .../media/platform/arm/mali-c55/mali-c55-params.c  | 818 +++++++++++++++++++++
- .../platform/arm/mali-c55/mali-c55-registers.h     | 128 ++++
- 7 files changed, 1024 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/arm/mali-c55/Kconfig b/drivers/media/platform/arm/mali-c55/Kconfig
-index 9928039fa522b93396eaed010df14bf1f8723a24..5b084b3c3340779275ce20c62a719ce5b13b78fa 100644
---- a/drivers/media/platform/arm/mali-c55/Kconfig
-+++ b/drivers/media/platform/arm/mali-c55/Kconfig
-@@ -7,6 +7,7 @@ config VIDEO_MALI_C55
- 	select GENERIC_PHY_MIPI_DPHY
- 	select MEDIA_CONTROLLER
- 	select V4L2_FWNODE
-+	select V4L2_ISP
- 	select VIDEO_V4L2_SUBDEV_API
- 	select VIDEOBUF2_DMA_CONTIG
- 	select VIDEOBUF2_VMALLOC
-diff --git a/drivers/media/platform/arm/mali-c55/Makefile b/drivers/media/platform/arm/mali-c55/Makefile
-index b5a22d414479dd1eb6435f474cb95aaa14879aa8..d5718b0b23e0ec1ced76837cb7be08df71fc91a7 100644
---- a/drivers/media/platform/arm/mali-c55/Makefile
-+++ b/drivers/media/platform/arm/mali-c55/Makefile
-@@ -3,6 +3,7 @@
- mali-c55-y := mali-c55-capture.o \
- 	      mali-c55-core.o \
- 	      mali-c55-isp.o \
-+	      mali-c55-params.o \
- 	      mali-c55-resizer.o \
- 	      mali-c55-stats.o \
- 	      mali-c55-tpg.o
-diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-common.h b/drivers/media/platform/arm/mali-c55/mali-c55-common.h
-index 262fb33bc5ff56195c52e3d9f62435e442937492..31c1deaca146619870888c31e4f97ca79abe7e04 100644
---- a/drivers/media/platform/arm/mali-c55/mali-c55-common.h
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-common.h
-@@ -21,6 +21,7 @@
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-dev.h>
- #include <media/v4l2-device.h>
-+#include <media/v4l2-isp.h>
- #include <media/v4l2-subdev.h>
- #include <media/videobuf2-core.h>
- #include <media/videobuf2-v4l2.h>
-@@ -44,6 +45,7 @@ struct device;
- struct mali_c55;
- struct mali_c55_cap_dev;
- struct media_pipeline;
-+struct mali_c55_params_buffer;
- struct platform_device;
- struct resource;
- 
-@@ -52,6 +54,7 @@ enum mali_c55_isp_pads {
- 	MALI_C55_ISP_PAD_SOURCE_VIDEO,
- 	MALI_C55_ISP_PAD_SOURCE_BYPASS,
- 	MALI_C55_ISP_PAD_SOURCE_STATS,
-+	MALI_C55_ISP_PAD_SINK_PARAMS,
- 	MALI_C55_ISP_NUM_PADS,
- };
- 
-@@ -170,6 +173,12 @@ struct mali_c55_stats_buf {
- 	bool failed;
- };
- 
-+struct mali_c55_params_buf {
-+	struct vb2_v4l2_buffer vb;
-+	struct list_head queue;
-+	struct v4l2_isp_params_buffer *config;
-+};
-+
- struct mali_c55_stats {
- 	struct mali_c55 *mali_c55;
- 	struct video_device vdev;
-@@ -185,6 +194,21 @@ struct mali_c55_stats {
- 	} buffers;
- };
- 
-+struct mali_c55_params {
-+	struct mali_c55 *mali_c55;
-+	struct video_device vdev;
-+	struct vb2_queue queue;
-+	struct media_pad pad;
-+	/* Mutex to provide to vb2 */
-+	struct mutex lock;
-+
-+	struct {
-+		/* Spinlock to guard buffer queue */
-+		spinlock_t lock;
-+		struct list_head queue;
-+	} buffers;
-+};
-+
- enum mali_c55_config_spaces {
- 	MALI_C55_CONFIG_PONG,
- 	MALI_C55_CONFIG_PING,
-@@ -228,6 +252,7 @@ struct mali_c55 {
- 	struct mali_c55_isp isp;
- 	struct mali_c55_resizer resizers[MALI_C55_NUM_RSZS];
- 	struct mali_c55_cap_dev cap_devs[MALI_C55_NUM_CAP_DEVS];
-+	struct mali_c55_params params;
- 	struct mali_c55_stats stats;
- 
- 	struct mali_c55_context context;
-@@ -259,6 +284,8 @@ int mali_c55_register_capture_devs(struct mali_c55 *mali_c55);
- void mali_c55_unregister_capture_devs(struct mali_c55 *mali_c55);
- int mali_c55_register_stats(struct mali_c55 *mali_c55);
- void mali_c55_unregister_stats(struct mali_c55 *mali_c55);
-+int mali_c55_register_params(struct mali_c55 *mali_c55);
-+void mali_c55_unregister_params(struct mali_c55 *mali_c55);
- struct mali_c55_context *mali_c55_get_active_context(struct mali_c55 *mali_c55);
- void mali_c55_set_plane_done(struct mali_c55_cap_dev *cap_dev,
- 			     enum mali_c55_planes plane);
-@@ -278,5 +305,6 @@ mali_c55_isp_get_mbus_config_by_index(u32 index);
- bool mali_c55_pipeline_ready(struct mali_c55 *mali_c55);
- void mali_c55_stats_fill_buffer(struct mali_c55 *mali_c55,
- 				enum mali_c55_config_spaces cfg_space);
-+void mali_c55_params_write_config(struct mali_c55 *mali_c55);
- 
- #endif /* _MALI_C55_COMMON_H */
-diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-core.c b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-index a9c0653162faaffec7336754a1bf985f4fd4dd89..2eb6b03c22284c2daec5003863f30c29ef13d414 100644
---- a/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-@@ -294,6 +294,16 @@ static int mali_c55_create_links(struct mali_c55 *mali_c55)
- 		goto err_remove_links;
- 	}
- 
-+	ret = media_create_pad_link(&mali_c55->params.vdev.entity, 0,
-+				    &mali_c55->isp.sd.entity,
-+				    MALI_C55_ISP_PAD_SINK_PARAMS,
-+				    MEDIA_LNK_FL_ENABLED);
-+	if (ret) {
-+		dev_err(mali_c55->dev,
-+			"failed to link ISP and parameters video node\n");
-+		goto err_remove_links;
-+	}
-+
- 	return 0;
- 
- err_remove_links:
-@@ -308,6 +318,7 @@ static void mali_c55_unregister_entities(struct mali_c55 *mali_c55)
- 	mali_c55_unregister_isp(mali_c55);
- 	mali_c55_unregister_resizers(mali_c55);
- 	mali_c55_unregister_capture_devs(mali_c55);
-+	mali_c55_unregister_params(mali_c55);
- 	mali_c55_unregister_stats(mali_c55);
- }
- 
-@@ -344,6 +355,10 @@ static int mali_c55_register_entities(struct mali_c55 *mali_c55)
- 	if (ret)
- 		goto err_unregister_entities;
- 
-+	ret = mali_c55_register_params(mali_c55);
-+	if (ret)
-+		goto err_unregister_entities;
-+
- 	ret = mali_c55_register_stats(mali_c55);
- 	if (ret)
- 		goto err_unregister_entities;
-@@ -433,6 +448,7 @@ static int mali_c55_media_frameworks_init(struct mali_c55 *mali_c55)
- 		sizeof(mali_c55->media_dev.model));
- 
- 	media_device_init(&mali_c55->media_dev);
-+
- 	ret = media_device_register(&mali_c55->media_dev);
- 	if (ret)
- 		goto err_cleanup_media_device;
-@@ -492,11 +508,13 @@ bool mali_c55_pipeline_ready(struct mali_c55 *mali_c55)
- {
- 	struct mali_c55_cap_dev *fr = &mali_c55->cap_devs[MALI_C55_CAP_DEV_FR];
- 	struct mali_c55_cap_dev *ds = &mali_c55->cap_devs[MALI_C55_CAP_DEV_DS];
-+	struct mali_c55_params *params = &mali_c55->params;
- 	struct mali_c55_stats *stats = &mali_c55->stats;
- 
- 	return vb2_start_streaming_called(&fr->queue) &&
- 	       (!(mali_c55->capabilities & MALI_C55_GPS_DS_PIPE_FITTED) ||
- 		vb2_start_streaming_called(&ds->queue)) &&
-+	       vb2_start_streaming_called(&params->queue) &&
- 	       vb2_start_streaming_called(&stats->queue);
- }
- 
-@@ -574,6 +592,14 @@ static irqreturn_t mali_c55_isr(int irq, void *context)
- 			curr_config >>= ffs(MALI_C55_REG_PING_PONG_READ_MASK) - 1;
- 			mali_c55->next_config = curr_config ^ 1;
- 
-+			/*
-+			 * Write the configuration parameters received from
-+			 * userspace into the configuration buffer, which will
-+			 * be transferred to the 'next' active config space at
-+			 * by mali_c55_swap_next_config().
-+			 */
-+			mali_c55_params_write_config(mali_c55);
-+
- 			mali_c55_stats_fill_buffer(mali_c55,
- 				mali_c55->next_config ^ 1);
- 
-diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
-index c5183d7092a908b343ac7fd5eb1e0e557e291a6f..497f25fbdd13b0eb0e3e1b3da924dbbcd291176c 100644
---- a/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-isp.c
-@@ -151,6 +151,7 @@ static int mali_c55_isp_start(struct mali_c55 *mali_c55,
- 				 cfg->bypass ? MALI_C55_ISP_RAW_BYPASS_BYPASS_MASK :
- 					     0x00);
- 
-+	mali_c55_params_write_config(mali_c55);
- 	ret = mali_c55_config_write(ctx, MALI_C55_CONFIG_PING, true);
- 	if (ret) {
- 		dev_err(mali_c55->dev, "failed to write ISP config\n");
-@@ -494,12 +495,19 @@ static int mali_c55_isp_init_state(struct v4l2_subdev *sd,
- 
- 	src_fmt = v4l2_subdev_state_get_format(state,
- 					       MALI_C55_ISP_PAD_SOURCE_STATS);
-+	sink_fmt = v4l2_subdev_state_get_format(state,
-+						MALI_C55_ISP_PAD_SINK_PARAMS);
- 
- 	src_fmt->width = 0;
- 	src_fmt->height = 0;
- 	src_fmt->field = V4L2_FIELD_NONE;
- 	src_fmt->code = MEDIA_BUS_FMT_METADATA_FIXED;
- 
-+	sink_fmt->width = 0;
-+	sink_fmt->height = 0;
-+	sink_fmt->field = V4L2_FIELD_NONE;
-+	sink_fmt->code = MEDIA_BUS_FMT_METADATA_FIXED;
-+
- 	return 0;
- }
- 
-@@ -507,8 +515,20 @@ static const struct v4l2_subdev_internal_ops mali_c55_isp_internal_ops = {
- 	.init_state = mali_c55_isp_init_state,
- };
- 
-+static int mali_c55_subdev_link_validate(struct media_link *link)
-+{
-+	/*
-+	 * Skip validation for the parameters sink pad, as the source is not
-+	 * a subdevice.
-+	 */
-+	if (link->sink->index == MALI_C55_ISP_PAD_SINK_PARAMS)
-+		return 0;
-+
-+	return v4l2_subdev_link_validate(link);
-+}
-+
- static const struct media_entity_operations mali_c55_isp_media_ops = {
--	.link_validate		= v4l2_subdev_link_validate,
-+	.link_validate		= mali_c55_subdev_link_validate,
- };
- 
- static int mali_c55_isp_s_ctrl(struct v4l2_ctrl *ctrl)
-@@ -597,6 +617,7 @@ int mali_c55_register_isp(struct mali_c55 *mali_c55)
- 	isp->pads[MALI_C55_ISP_PAD_SOURCE_VIDEO].flags = MEDIA_PAD_FL_SOURCE;
- 	isp->pads[MALI_C55_ISP_PAD_SOURCE_BYPASS].flags = MEDIA_PAD_FL_SOURCE;
- 	isp->pads[MALI_C55_ISP_PAD_SOURCE_STATS].flags = MEDIA_PAD_FL_SOURCE;
-+	isp->pads[MALI_C55_ISP_PAD_SINK_PARAMS].flags = MEDIA_PAD_FL_SINK;
- 
- 	ret = media_entity_pads_init(&sd->entity, MALI_C55_ISP_NUM_PADS,
- 				     isp->pads);
-diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-params.c b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..e9096db8f8a2ed38210174d8fea0bbdb3d682e55
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-@@ -0,0 +1,818 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM Mali-C55 ISP Driver - Configuration parameters output device
-+ *
-+ * Copyright (C) 2025 Ideas on Board Oy
-+ */
-+#include <linux/media/arm/mali-c55-config.h>
-+#include <linux/pm_runtime.h>
-+
-+#include <media/media-entity.h>
-+#include <media/v4l2-dev.h>
-+#include <media/v4l2-event.h>
-+#include <media/v4l2-fh.h>
-+#include <media/v4l2-ioctl.h>
-+#include <media/v4l2-isp.h>
-+#include <media/videobuf2-core.h>
-+#include <media/videobuf2-dma-contig.h>
-+
-+#include "mali-c55-common.h"
-+#include "mali-c55-registers.h"
-+
-+/**
-+ * union mali_c55_params_block - Generalisation of a parameter block
-+ *
-+ * This union allows the driver to treat a block as a generic pointer to this
-+ * union and safely access the header and block-specific struct without having
-+ * to resort to casting. The header member is accessed first, and the type field
-+ * checked which allows the driver to determine which of the other members
-+ * should be used. The data member at the end allows a pointer to an address
-+ * within the data member of :c:type:`mali_c55_params_buffer` to initialise a
-+ * union variable.
-+ *
-+ * @header:		Pointer to the shared header struct embedded as the
-+ *			first member of all the possible other members (except
-+ *			@data). This member would be accessed first and the type
-+ *			field checked to determine which of the other members
-+ *			should be accessed.
-+ * @sensor_offs:	For header->type == MALI_C55_PARAM_BLOCK_SENSOR_OFFS
-+ * @aexp_hist:		For header->type == MALI_C55_PARAM_BLOCK_AEXP_HIST and
-+ *			header->type == MALI_C55_PARAM_BLOCK_AEXP_IHIST
-+ * @aexp_weights:	For header->type == MALI_C55_PARAM_BLOCK_AEXP_HIST_WEIGHTS
-+ *			and header->type =  MALI_C55_PARAM_BLOCK_AEXP_IHIST_WEIGHTS
-+ * @digital_gain:	For header->type == MALI_C55_PARAM_BLOCK_DIGITAL_GAIN
-+ * @awb_gains:		For header->type == MALI_C55_PARAM_BLOCK_AWB_GAINS and
-+ *			header->type = MALI_C55_PARAM_BLOCK_AWB_GAINS_AEXP
-+ * @awb_config:		For header->type == MALI_C55_PARAM_MESH_SHADING_CONFIG
-+ * @shading_config:	For header->type == MALI_C55_PARAM_MESH_SHADING_SELECTION
-+ * @shading_selection:	For header->type == MALI_C55_PARAM_BLOCK_SENSOR_OFFS
-+ * @data:		Allows easy initialisation of a union variable with a
-+ *			pointer into a __u8 array.
-+ */
-+union mali_c55_params_block {
-+	const struct v4l2_isp_params_block_header *header;
-+	const struct mali_c55_params_sensor_off_preshading *sensor_offs;
-+	const struct mali_c55_params_aexp_hist *aexp_hist;
-+	const struct mali_c55_params_aexp_weights *aexp_weights;
-+	const struct mali_c55_params_digital_gain *digital_gain;
-+	const struct mali_c55_params_awb_gains *awb_gains;
-+	const struct mali_c55_params_awb_config *awb_config;
-+	const struct mali_c55_params_mesh_shading_config *shading_config;
-+	const struct mali_c55_params_mesh_shading_selection *shading_selection;
-+	const __u8 *data;
-+};
-+
-+typedef void (*mali_c55_params_handler)(struct mali_c55 *mali_c55,
-+					union mali_c55_params_block block);
-+
-+#define to_mali_c55_params_buf(vbuf) \
-+	container_of(vbuf, struct mali_c55_params_buf, vb)
-+
-+static void mali_c55_params_sensor_offs(struct mali_c55 *mali_c55,
-+					union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_sensor_off_preshading *p;
-+	__u32 global_offset;
-+
-+	p = block.sensor_offs;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_BYPASS_3,
-+			MALI_C55_REG_BYPASS_3_SENSOR_OFFSET_PRE_SH,
-+			MALI_C55_REG_BYPASS_3_SENSOR_OFFSET_PRE_SH);
-+		return;
-+	}
-+
-+	if (!(p->chan00 || p->chan01 || p->chan10 || p->chan11))
-+		return;
-+
-+	mali_c55_ctx_write(mali_c55, MALI_C55_REG_SENSOR_OFF_PRE_SHA_00,
-+			   p->chan00 & MALI_C55_SENSOR_OFF_PRE_SHA_MASK);
-+	mali_c55_ctx_write(mali_c55, MALI_C55_REG_SENSOR_OFF_PRE_SHA_01,
-+			   p->chan01 & MALI_C55_SENSOR_OFF_PRE_SHA_MASK);
-+	mali_c55_ctx_write(mali_c55, MALI_C55_REG_SENSOR_OFF_PRE_SHA_10,
-+			   p->chan10 & MALI_C55_SENSOR_OFF_PRE_SHA_MASK);
-+	mali_c55_ctx_write(mali_c55, MALI_C55_REG_SENSOR_OFF_PRE_SHA_11,
-+			   p->chan11 & MALI_C55_SENSOR_OFF_PRE_SHA_MASK);
-+
-+	/*
-+	 * The average offset is applied as a global offset for the digital
-+	 * gain block
-+	 */
-+	global_offset = (p->chan00 + p->chan01 + p->chan10 + p->chan11) >> 2;
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_DIGITAL_GAIN_OFFSET,
-+				 MALI_C55_DIGITAL_GAIN_OFFSET_MASK,
-+				 global_offset);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_BYPASS_3,
-+				 MALI_C55_REG_BYPASS_3_SENSOR_OFFSET_PRE_SH,
-+				 0x00);
-+}
-+
-+static void mali_c55_params_aexp_hist(struct mali_c55 *mali_c55,
-+				      union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_aexp_hist *params;
-+	u32 disable_mask;
-+	u32 disable_val;
-+	u32 base;
-+
-+	if (block.header->type == MALI_C55_PARAM_BLOCK_AEXP_HIST) {
-+		disable_mask = MALI_C55_AEXP_HIST_DISABLE_MASK;
-+		disable_val = MALI_C55_AEXP_HIST_DISABLE;
-+		base = MALI_C55_REG_AEXP_HIST_BASE;
-+	} else {
-+		disable_mask = MALI_C55_AEXP_IHIST_DISABLE_MASK;
-+		disable_val = MALI_C55_AEXP_IHIST_DISABLE;
-+		base = MALI_C55_REG_AEXP_IHIST_BASE;
-+	}
-+
-+	params = block.aexp_hist;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+					 disable_mask, disable_val);
-+		return;
-+	}
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+				 disable_mask, false);
-+
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SKIP_OFFSET,
-+				 MALI_C55_AEXP_HIST_SKIP_X_MASK, params->skip_x);
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SKIP_OFFSET,
-+				 MALI_C55_AEXP_HIST_OFFSET_X_MASK,
-+				 MALI_C55_AEXP_HIST_OFFSET_X(params->offset_x));
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SKIP_OFFSET,
-+				 MALI_C55_AEXP_HIST_SKIP_Y_MASK,
-+				 MALI_C55_AEXP_HIST_SKIP_Y(params->skip_y));
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SKIP_OFFSET,
-+				 MALI_C55_AEXP_HIST_OFFSET_Y_MASK,
-+				 MALI_C55_AEXP_HIST_OFFSET_Y(params->offset_y));
-+
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SCALE_OFFSET,
-+				 MALI_C55_AEXP_HIST_SCALE_BOTTOM_MASK,
-+				 params->scale_bottom);
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_SCALE_OFFSET,
-+				 MALI_C55_AEXP_HIST_SCALE_TOP_MASK,
-+				 MALI_C55_AEXP_HIST_SCALE_TOP(params->scale_top));
-+
-+	mali_c55_ctx_update_bits(mali_c55, base + MALI_C55_AEXP_HIST_PLANE_MODE_OFFSET,
-+				 MALI_C55_AEXP_HIST_PLANE_MODE_MASK,
-+				 params->plane_mode);
-+
-+	if (block.header->type == MALI_C55_PARAM_BLOCK_AEXP_HIST)
-+		mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+					 MALI_C55_AEXP_HIST_SWITCH_MASK,
-+					 MALI_C55_AEXP_HIST_SWITCH(params->tap_point));
-+}
-+
-+static void
-+mali_c55_params_aexp_hist_weights(struct mali_c55 *mali_c55,
-+				  union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_aexp_weights *params;
-+	u32 base, val, addr;
-+
-+	params = block.aexp_weights;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)
-+		return;
-+
-+	base = block.header->type == MALI_C55_PARAM_BLOCK_AEXP_HIST_WEIGHTS ?
-+				      MALI_C55_REG_AEXP_HIST_BASE :
-+				      MALI_C55_REG_AEXP_IHIST_BASE;
-+
-+	mali_c55_ctx_update_bits(mali_c55,
-+				 base + MALI_C55_AEXP_HIST_NODES_USED_OFFSET,
-+				 MALI_C55_AEXP_HIST_NODES_USED_HORIZ_MASK,
-+				 params->nodes_used_horiz);
-+	mali_c55_ctx_update_bits(mali_c55,
-+				 base + MALI_C55_AEXP_HIST_NODES_USED_OFFSET,
-+				 MALI_C55_AEXP_HIST_NODES_USED_VERT_MASK,
-+				 MALI_C55_AEXP_HIST_NODES_USED_VERT(params->nodes_used_vert));
-+
-+	/*
-+	 * The zone weights array is a 225-element array of u8 values, but that
-+	 * is a bit annoying to handle given the ISP expects 32-bit writes. We
-+	 * just reinterpret it as 56-element array of 32-bit values for the
-+	 * purposes of this transaction. The last register is handled separately
-+	 * to stop static analysers worrying about buffer overflow. The 3 bytes
-+	 * of additional space at the end of the write is just padding for the
-+	 * array of weights in the ISP memory space anyway, so there's no risk
-+	 * of overwriting other registers.
-+	 */
-+	for (unsigned int i = 0; i < 56; i++) {
-+		val = ((u32 *)params->zone_weights)[i]
-+			    & MALI_C55_AEXP_HIST_ZONE_WEIGHT_MASK;
-+		addr = base + MALI_C55_AEXP_HIST_ZONE_WEIGHTS_OFFSET + (4 * i);
-+
-+		mali_c55_ctx_write(mali_c55, addr, val);
-+	}
-+
-+	val = params->zone_weights[MALI_C55_MAX_ZONES - 1];
-+	addr = base + MALI_C55_AEXP_HIST_ZONE_WEIGHTS_OFFSET + (4 * 56);
-+}
-+
-+static void mali_c55_params_digital_gain(struct mali_c55 *mali_c55,
-+					 union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_digital_gain *dgain;
-+	u32 gain;
-+
-+	dgain = block.digital_gain;
-+
-+	/*
-+	 * If the block is flagged as disabled we write a gain of 1.0, which in
-+	 * Q5.8 format is 256.
-+	 */
-+	gain = block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE ?
-+	       256 : dgain->gain;
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_DIGITAL_GAIN,
-+				 MALI_C55_DIGITAL_GAIN_MASK,
-+				 gain);
-+}
-+
-+static void mali_c55_params_awb_gains(struct mali_c55 *mali_c55,
-+				      union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_awb_gains *gains;
-+	u32 gain00, gain01, gain10, gain11;
-+
-+	gains = block.awb_gains;
-+
-+	/*
-+	 * There are two places AWB gains can be set in the ISP; one affects the
-+	 * image output data and the other affects the statistics for the
-+	 * AEXP-0 tap point.
-+	 */
-+	u32 addr1 = block.header->type == MALI_C55_PARAM_BLOCK_AWB_GAINS ?
-+					   MALI_C55_REG_AWB_GAINS1 :
-+					   MALI_C55_REG_AWB_GAINS1_AEXP;
-+	u32 addr2 = block.header->type == MALI_C55_PARAM_BLOCK_AWB_GAINS ?
-+					   MALI_C55_REG_AWB_GAINS2 :
-+					   MALI_C55_REG_AWB_GAINS2_AEXP;
-+
-+	/* If the block is flagged disabled, set all of the gains to 1.0 */
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		gain00 = 256;
-+		gain01 = 256;
-+		gain10 = 256;
-+		gain11 = 256;
-+	} else {
-+		gain00 = gains->gain00;
-+		gain01 = gains->gain01;
-+		gain10 = gains->gain10;
-+		gain11 = gains->gain11;
-+	}
-+
-+	mali_c55_ctx_update_bits(mali_c55, addr1, MALI_C55_AWB_GAIN00_MASK,
-+				 gain00);
-+	mali_c55_ctx_update_bits(mali_c55, addr1, MALI_C55_AWB_GAIN01_MASK,
-+				 MALI_C55_AWB_GAIN01(gain01));
-+	mali_c55_ctx_update_bits(mali_c55, addr2, MALI_C55_AWB_GAIN10_MASK,
-+				 gain10);
-+	mali_c55_ctx_update_bits(mali_c55, addr2, MALI_C55_AWB_GAIN11_MASK,
-+				 MALI_C55_AWB_GAIN11(gain11));
-+}
-+
-+static void mali_c55_params_awb_config(struct mali_c55 *mali_c55,
-+				       union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_awb_config *params;
-+
-+	params = block.awb_config;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+					 MALI_C55_AWB_DISABLE_MASK,
-+					 MALI_C55_AWB_DISABLE_MASK);
-+		return;
-+	}
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+				 MALI_C55_AWB_DISABLE_MASK, false);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_STATS_MODE,
-+				 MALI_C55_AWB_STATS_MODE_MASK, params->stats_mode);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_WHITE_LEVEL,
-+				 MALI_C55_AWB_WHITE_LEVEL_MASK, params->white_level);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_BLACK_LEVEL,
-+				 MALI_C55_AWB_BLACK_LEVEL_MASK, params->black_level);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CR_MAX,
-+				 MALI_C55_AWB_CR_MAX_MASK, params->cr_max);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CR_MIN,
-+				 MALI_C55_AWB_CR_MIN_MASK, params->cr_min);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CB_MAX,
-+				 MALI_C55_AWB_CB_MAX_MASK, params->cb_max);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CB_MIN,
-+				 MALI_C55_AWB_CB_MIN_MASK, params->cb_min);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_NODES_USED,
-+				 MALI_C55_AWB_NODES_USED_HORIZ_MASK,
-+				 params->nodes_used_horiz);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_NODES_USED,
-+				 MALI_C55_AWB_NODES_USED_VERT_MASK,
-+				 MALI_C55_AWB_NODES_USED_VERT(params->nodes_used_vert));
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CR_HIGH,
-+				 MALI_C55_AWB_CR_HIGH_MASK, params->cr_high);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CR_LOW,
-+				 MALI_C55_AWB_CR_LOW_MASK, params->cr_low);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CB_HIGH,
-+				 MALI_C55_AWB_CB_HIGH_MASK, params->cb_high);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_AWB_CB_LOW,
-+				 MALI_C55_AWB_CB_LOW_MASK, params->cb_low);
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_METERING_CONFIG,
-+				 MALI_C55_AWB_SWITCH_MASK,
-+				 MALI_C55_AWB_SWITCH(params->tap_point));
-+}
-+
-+static void mali_c55_params_lsc_config(struct mali_c55 *mali_c55,
-+				       union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_mesh_shading_config *params;
-+	unsigned int i;
-+	u32 addr;
-+
-+	params = block.shading_config;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) {
-+		mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+					 MALI_C55_MESH_SHADING_ENABLE_MASK,
-+					 false);
-+		return;
-+	}
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_ENABLE_MASK, true);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_MESH_SHOW_MASK,
-+				 MALI_C55_MESH_SHADING_MESH_SHOW(params->mesh_show));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_SCALE_MASK,
-+				 MALI_C55_MESH_SHADING_SCALE(params->mesh_scale));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_PAGE_R_MASK,
-+				 MALI_C55_MESH_SHADING_PAGE_R(params->mesh_page_r));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_PAGE_G_MASK,
-+				 MALI_C55_MESH_SHADING_PAGE_G(params->mesh_page_g));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_PAGE_B_MASK,
-+				 MALI_C55_MESH_SHADING_PAGE_B(params->mesh_page_b));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_MESH_WIDTH_MASK,
-+				 MALI_C55_MESH_SHADING_MESH_WIDTH(params->mesh_width));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_CONFIG,
-+				 MALI_C55_MESH_SHADING_MESH_HEIGHT_MASK,
-+				 MALI_C55_MESH_SHADING_MESH_HEIGHT(params->mesh_height));
-+
-+	for (i = 0; i < MALI_C55_NUM_MESH_SHADING_ELEMENTS; i++) {
-+		addr = MALI_C55_REG_MESH_SHADING_TABLES + (i * 4);
-+		mali_c55_ctx_write(mali_c55, addr, params->mesh[i]);
-+	}
-+}
-+
-+static void mali_c55_params_lsc_selection(struct mali_c55 *mali_c55,
-+					  union mali_c55_params_block block)
-+{
-+	const struct mali_c55_params_mesh_shading_selection *params;
-+
-+	params = block.shading_selection;
-+
-+	if (block.header->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)
-+		return;
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA_BANK,
-+				 MALI_C55_MESH_SHADING_ALPHA_BANK_R_MASK,
-+				 params->mesh_alpha_bank_r);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA_BANK,
-+				 MALI_C55_MESH_SHADING_ALPHA_BANK_G_MASK,
-+				 MALI_C55_MESH_SHADING_ALPHA_BANK_G(params->mesh_alpha_bank_g));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA_BANK,
-+				 MALI_C55_MESH_SHADING_ALPHA_BANK_B_MASK,
-+				 MALI_C55_MESH_SHADING_ALPHA_BANK_B(params->mesh_alpha_bank_b));
-+
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA,
-+				 MALI_C55_MESH_SHADING_ALPHA_R_MASK,
-+				 params->mesh_alpha_r);
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA,
-+				 MALI_C55_MESH_SHADING_ALPHA_G_MASK,
-+				 MALI_C55_MESH_SHADING_ALPHA_G(params->mesh_alpha_g));
-+	mali_c55_ctx_update_bits(mali_c55, MALI_C55_REG_MESH_SHADING_ALPHA,
-+				 MALI_C55_MESH_SHADING_ALPHA_B_MASK,
-+				 MALI_C55_MESH_SHADING_ALPHA_B(params->mesh_alpha_b));
-+
-+	mali_c55_ctx_update_bits(mali_c55,
-+				 MALI_C55_REG_MESH_SHADING_MESH_STRENGTH,
-+				 MALI_c55_MESH_STRENGTH_MASK,
-+				 params->mesh_strength);
-+}
-+
-+static const mali_c55_params_handler mali_c55_params_handlers[] = {
-+	[MALI_C55_PARAM_BLOCK_SENSOR_OFFS] = &mali_c55_params_sensor_offs,
-+	[MALI_C55_PARAM_BLOCK_AEXP_HIST] = &mali_c55_params_aexp_hist,
-+	[MALI_C55_PARAM_BLOCK_AEXP_IHIST] = &mali_c55_params_aexp_hist,
-+	[MALI_C55_PARAM_BLOCK_AEXP_HIST_WEIGHTS] = &mali_c55_params_aexp_hist_weights,
-+	[MALI_C55_PARAM_BLOCK_AEXP_IHIST_WEIGHTS] = &mali_c55_params_aexp_hist_weights,
-+	[MALI_C55_PARAM_BLOCK_DIGITAL_GAIN] = &mali_c55_params_digital_gain,
-+	[MALI_C55_PARAM_BLOCK_AWB_GAINS] = &mali_c55_params_awb_gains,
-+	[MALI_C55_PARAM_BLOCK_AWB_CONFIG] = &mali_c55_params_awb_config,
-+	[MALI_C55_PARAM_BLOCK_AWB_GAINS_AEXP] = &mali_c55_params_awb_gains,
-+	[MALI_C55_PARAM_MESH_SHADING_CONFIG] = &mali_c55_params_lsc_config,
-+	[MALI_C55_PARAM_MESH_SHADING_SELECTION] = &mali_c55_params_lsc_selection,
-+};
-+
-+static const struct v4l2_isp_params_block_info mali_c55_params_blocks_info[] = {
-+	[MALI_C55_PARAM_BLOCK_SENSOR_OFFS] = {
-+		.size = sizeof(struct mali_c55_params_sensor_off_preshading),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AEXP_HIST] = {
-+		.size = sizeof(struct mali_c55_params_aexp_hist),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AEXP_IHIST] = {
-+		.size = sizeof(struct mali_c55_params_aexp_hist),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AEXP_HIST_WEIGHTS] = {
-+		.size = sizeof(struct mali_c55_params_aexp_weights),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AEXP_IHIST_WEIGHTS] = {
-+		.size = sizeof(struct mali_c55_params_aexp_weights),
-+	},
-+	[MALI_C55_PARAM_BLOCK_DIGITAL_GAIN] = {
-+		.size = sizeof(struct mali_c55_params_digital_gain),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AWB_GAINS] = {
-+		.size = sizeof(struct mali_c55_params_awb_gains),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AWB_CONFIG] = {
-+		.size = sizeof(struct mali_c55_params_awb_config),
-+	},
-+	[MALI_C55_PARAM_BLOCK_AWB_GAINS_AEXP] = {
-+		.size = sizeof(struct mali_c55_params_awb_gains),
-+	},
-+	[MALI_C55_PARAM_MESH_SHADING_CONFIG] = {
-+		.size = sizeof(struct mali_c55_params_mesh_shading_config),
-+	},
-+	[MALI_C55_PARAM_MESH_SHADING_SELECTION] = {
-+		.size = sizeof(struct mali_c55_params_mesh_shading_selection),
-+	},
-+};
-+
-+static int mali_c55_params_enum_fmt_meta_out(struct file *file, void *fh,
-+					     struct v4l2_fmtdesc *f)
-+{
-+	if (f->index)
-+		return -EINVAL;
-+
-+	if (f->mbus_code && f->mbus_code != MEDIA_BUS_FMT_METADATA_FIXED)
-+		return -EINVAL;
-+
-+	f->pixelformat = V4L2_META_FMT_MALI_C55_PARAMS;
-+
-+	return 0;
-+}
-+
-+static int mali_c55_params_g_fmt_meta_out(struct file *file, void *fh,
-+					  struct v4l2_format *f)
-+{
-+	static const struct v4l2_meta_format mfmt = {
-+		.dataformat = V4L2_META_FMT_MALI_C55_PARAMS,
-+		.buffersize = v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
-+	};
-+
-+	f->fmt.meta = mfmt;
-+
-+	return 0;
-+}
-+
-+static int mali_c55_params_querycap(struct file *file,
-+				    void *priv, struct v4l2_capability *cap)
-+{
-+	strscpy(cap->driver, MALI_C55_DRIVER_NAME, sizeof(cap->driver));
-+	strscpy(cap->card, "ARM Mali-C55 ISP", sizeof(cap->card));
-+
-+	return 0;
-+}
-+
-+static const struct v4l2_ioctl_ops mali_c55_params_v4l2_ioctl_ops = {
-+	.vidioc_reqbufs = vb2_ioctl_reqbufs,
-+	.vidioc_querybuf = vb2_ioctl_querybuf,
-+	.vidioc_create_bufs = vb2_ioctl_create_bufs,
-+	.vidioc_qbuf = vb2_ioctl_qbuf,
-+	.vidioc_expbuf = vb2_ioctl_expbuf,
-+	.vidioc_dqbuf = vb2_ioctl_dqbuf,
-+	.vidioc_prepare_buf = vb2_ioctl_prepare_buf,
-+	.vidioc_streamon = vb2_ioctl_streamon,
-+	.vidioc_streamoff = vb2_ioctl_streamoff,
-+	.vidioc_enum_fmt_meta_out = mali_c55_params_enum_fmt_meta_out,
-+	.vidioc_g_fmt_meta_out = mali_c55_params_g_fmt_meta_out,
-+	.vidioc_s_fmt_meta_out = mali_c55_params_g_fmt_meta_out,
-+	.vidioc_try_fmt_meta_out = mali_c55_params_g_fmt_meta_out,
-+	.vidioc_querycap = mali_c55_params_querycap,
-+	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
-+	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
-+};
-+
-+static const struct v4l2_file_operations mali_c55_params_v4l2_fops = {
-+	.owner = THIS_MODULE,
-+	.unlocked_ioctl = video_ioctl2,
-+	.open = v4l2_fh_open,
-+	.release = vb2_fop_release,
-+	.poll = vb2_fop_poll,
-+	.mmap = vb2_fop_mmap,
-+};
-+
-+static int
-+mali_c55_params_queue_setup(struct vb2_queue *q, unsigned int *num_buffers,
-+			    unsigned int *num_planes, unsigned int sizes[],
-+			    struct device *alloc_devs[])
-+{
-+	if (*num_planes && *num_planes > 1)
-+		return -EINVAL;
-+
-+	if (sizes[0] && sizes[0] < v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE))
-+		return -EINVAL;
-+
-+	*num_planes = 1;
-+
-+	if (!sizes[0])
-+		sizes[0] = v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE);
-+
-+	return 0;
-+}
-+
-+static int mali_c55_params_buf_init(struct vb2_buffer *vb)
-+{
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-+
-+	buf->config = kvmalloc(v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
-+			       GFP_KERNEL);
-+	if (!buf->config)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static void mali_c55_params_buf_cleanup(struct vb2_buffer *vb)
-+{
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-+
-+	kvfree(buf->config);
-+	buf->config = NULL;
-+}
-+
-+static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
-+{
-+	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-+	struct v4l2_isp_params_buffer *config = vb2_plane_vaddr(vb, 0);
-+	struct mali_c55 *mali_c55 = params->mali_c55;
-+	int ret;
-+
-+	if (config->version != MALI_C55_PARAM_BUFFER_V1) {
-+		dev_dbg(mali_c55->dev,
-+			"Unsupported extensible format version: %u\n",
-+			config->version);
-+		return -EINVAL;
-+	}
-+
-+	ret = v4l2_isp_params_validate_buffer_size(mali_c55->dev, vb,
-+			v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Copy the parameters buffer provided by userspace to the internal
-+	 * scratch buffer. This protects against the chance of userspace making
-+	 * changed to the buffer content whilst the driver processes it.
-+	 */
-+
-+	memcpy(buf->config, config, v4l2_isp_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
-+
-+	return v4l2_isp_params_validate_buffer(mali_c55->dev, vb, buf->config,
-+					       mali_c55_params_blocks_info,
-+					       ARRAY_SIZE(mali_c55_params_blocks_info));
-+}
-+
-+static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
-+{
-+	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-+
-+	spin_lock(&params->buffers.lock);
-+	list_add_tail(&buf->queue, &params->buffers.queue);
-+	spin_unlock(&params->buffers.lock);
-+}
-+
-+static void mali_c55_params_return_buffers(struct mali_c55_params *params,
-+					   enum vb2_buffer_state state)
-+{
-+	struct mali_c55_params_buf *buf, *tmp;
-+
-+	guard(spinlock)(&params->buffers.lock);
-+
-+	list_for_each_entry_safe(buf, tmp, &params->buffers.queue, queue) {
-+		list_del(&buf->queue);
-+		vb2_buffer_done(&buf->vb.vb2_buf, state);
-+	}
-+}
-+
-+static int mali_c55_params_start_streaming(struct vb2_queue *q,
-+					   unsigned int count)
-+{
-+	struct mali_c55_params *params = vb2_get_drv_priv(q);
-+	struct mali_c55 *mali_c55 = params->mali_c55;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(mali_c55->dev);
-+	if (ret)
-+		goto err_return_buffers;
-+
-+	ret = video_device_pipeline_alloc_start(&params->vdev);
-+	if (ret)
-+		goto err_pm_put;
-+
-+	if (mali_c55_pipeline_ready(mali_c55)) {
-+		ret = v4l2_subdev_enable_streams(&mali_c55->isp.sd,
-+						 MALI_C55_ISP_PAD_SOURCE_VIDEO,
-+						 BIT(0));
-+		if (ret < 0)
-+			goto err_stop_pipeline;
-+	}
-+
-+	return 0;
-+
-+err_stop_pipeline:
-+	video_device_pipeline_stop(&params->vdev);
-+err_pm_put:
-+	pm_runtime_put_autosuspend(mali_c55->dev);
-+err_return_buffers:
-+	mali_c55_params_return_buffers(params, VB2_BUF_STATE_QUEUED);
-+
-+	return ret;
-+}
-+
-+static void mali_c55_params_stop_streaming(struct vb2_queue *q)
-+{
-+	struct mali_c55_params *params = vb2_get_drv_priv(q);
-+	struct mali_c55 *mali_c55 = params->mali_c55;
-+	struct mali_c55_isp *isp = &mali_c55->isp;
-+
-+	if (mali_c55_pipeline_ready(mali_c55)) {
-+		if (v4l2_subdev_is_streaming(&isp->sd))
-+			v4l2_subdev_disable_streams(
-+				&isp->sd, MALI_C55_ISP_PAD_SOURCE_VIDEO,
-+				BIT(0));
-+	}
-+
-+
-+	video_device_pipeline_stop(&params->vdev);
-+	mali_c55_params_return_buffers(params, VB2_BUF_STATE_ERROR);
-+	pm_runtime_put_autosuspend(params->mali_c55->dev);
-+}
-+
-+static const struct vb2_ops mali_c55_params_vb2_ops = {
-+	.queue_setup = mali_c55_params_queue_setup,
-+	.buf_init = mali_c55_params_buf_init,
-+	.buf_cleanup = mali_c55_params_buf_cleanup,
-+	.buf_queue = mali_c55_params_buf_queue,
-+	.buf_prepare = mali_c55_params_buf_prepare,
-+	.wait_prepare = vb2_ops_wait_prepare,
-+	.wait_finish = vb2_ops_wait_finish,
-+	.start_streaming = mali_c55_params_start_streaming,
-+	.stop_streaming = mali_c55_params_stop_streaming,
-+};
-+
-+void mali_c55_params_write_config(struct mali_c55 *mali_c55)
-+{
-+	struct mali_c55_params *params = &mali_c55->params;
-+	struct v4l2_isp_params_buffer *config;
-+	struct mali_c55_params_buf *buf;
-+	size_t block_offset = 0;
-+	size_t max_offset;
-+
-+	spin_lock(&params->buffers.lock);
-+
-+	buf = list_first_entry_or_null(&params->buffers.queue,
-+				       struct mali_c55_params_buf, queue);
-+	if (buf)
-+		list_del(&buf->queue);
-+	spin_unlock(&params->buffers.lock);
-+
-+	if (!buf)
-+		return;
-+
-+	buf->vb.sequence = mali_c55->isp.frame_sequence;
-+	config = buf->config;
-+
-+	max_offset = config->data_size;
-+
-+	/*
-+	 * Walk the list of parameter blocks and process them. No validation is
-+	 * done here, as the contents of the config buffer are already checked
-+	 * when the buffer is queued.
-+	 */
-+	while (max_offset && block_offset < max_offset) {
-+		union mali_c55_params_block block;
-+		mali_c55_params_handler handler;
-+
-+		block.data = &config->data[block_offset];
-+
-+		/* We checked the array index already in .buf_queue() */
-+		handler = mali_c55_params_handlers[block.header->type];
-+		handler(mali_c55, block);
-+
-+		block_offset += block.header->size;
-+	}
-+
-+	vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
-+}
-+
-+void mali_c55_unregister_params(struct mali_c55 *mali_c55)
-+{
-+	struct mali_c55_params *params = &mali_c55->params;
-+
-+	if (!video_is_registered(&params->vdev))
-+		return;
-+
-+	vb2_video_unregister_device(&params->vdev);
-+	media_entity_cleanup(&params->vdev.entity);
-+	mutex_destroy(&params->lock);
-+}
-+
-+int mali_c55_register_params(struct mali_c55 *mali_c55)
-+{
-+	struct mali_c55_params *params = &mali_c55->params;
-+	struct video_device *vdev = &params->vdev;
-+	struct vb2_queue *vb2q = &params->queue;
-+	int ret;
-+
-+	mutex_init(&params->lock);
-+	INIT_LIST_HEAD(&params->buffers.queue);
-+	spin_lock_init(&params->buffers.lock);
-+
-+	params->pad.flags = MEDIA_PAD_FL_SOURCE;
-+	ret = media_entity_pads_init(&params->vdev.entity, 1, &params->pad);
-+	if (ret)
-+		goto err_destroy_mutex;
-+
-+	vb2q->type = V4L2_BUF_TYPE_META_OUTPUT;
-+	vb2q->io_modes = VB2_MMAP | VB2_DMABUF;
-+	vb2q->drv_priv = params;
-+	vb2q->mem_ops = &vb2_dma_contig_memops;
-+	vb2q->ops = &mali_c55_params_vb2_ops;
-+	vb2q->buf_struct_size = sizeof(struct mali_c55_params_buf);
-+	vb2q->min_queued_buffers = 1;
-+	vb2q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
-+	vb2q->lock = &params->lock;
-+	vb2q->dev = mali_c55->dev;
-+
-+	ret = vb2_queue_init(vb2q);
-+	if (ret) {
-+		dev_err(mali_c55->dev, "params vb2 queue init failed\n");
-+		goto err_cleanup_entity;
-+	}
-+
-+	strscpy(params->vdev.name, "mali-c55 3a params",
-+		sizeof(params->vdev.name));
-+	vdev->release = video_device_release_empty;
-+	vdev->fops = &mali_c55_params_v4l2_fops;
-+	vdev->ioctl_ops = &mali_c55_params_v4l2_ioctl_ops;
-+	vdev->lock = &params->lock;
-+	vdev->v4l2_dev = &mali_c55->v4l2_dev;
-+	vdev->queue = &params->queue;
-+	vdev->device_caps = V4L2_CAP_META_OUTPUT | V4L2_CAP_STREAMING |
-+			    V4L2_CAP_IO_MC;
-+	vdev->vfl_dir = VFL_DIR_TX;
-+	video_set_drvdata(vdev, params);
-+
-+	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-+	if (ret) {
-+		dev_err(mali_c55->dev,
-+			"failed to register params video device\n");
-+		goto err_release_vb2q;
-+	}
-+
-+	params->mali_c55 = mali_c55;
-+
-+	return 0;
-+
-+err_release_vb2q:
-+	vb2_queue_release(vb2q);
-+err_cleanup_entity:
-+	media_entity_cleanup(&params->vdev.entity);
-+err_destroy_mutex:
-+	mutex_destroy(&params->lock);
-+
-+	return ret;
-+}
-diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
-index 8b04aff1990a962ddb7671d2f66f70c0638737a7..f5a148add1c811f8dc49170db67d151bd54a4307 100644
---- a/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-registers.h
-@@ -159,6 +159,23 @@ enum mali_c55_interrupts {
- #define MALI_C55_BAYER_ORDER_GBRG			2
- #define MALI_C55_BAYER_ORDER_BGGR			3
- 
-+#define MALI_C55_REG_METERING_CONFIG			0x18ed0
-+#define MALI_C55_5BIN_HIST_DISABLE_MASK			BIT(0)
-+#define MALI_C55_5BIN_HIST_SWITCH_MASK			GENMASK(2, 1)
-+#define MALI_C55_5BIN_HIST_SWITCH(x)			((x) << 1)
-+#define MALI_C55_AF_DISABLE_MASK			BIT(4)
-+#define MALI_C55_AF_SWITCH_MASK				BIT(5)
-+#define MALI_C55_AWB_DISABLE_MASK			BIT(8)
-+#define MALI_C55_AWB_SWITCH_MASK			BIT(9)
-+#define MALI_C55_AWB_SWITCH(x)				((x) << 9)
-+#define MALI_C55_AEXP_HIST_DISABLE_MASK			BIT(12)
-+#define MALI_C55_AEXP_HIST_DISABLE			(0x01 << 12)
-+#define MALI_C55_AEXP_HIST_SWITCH_MASK			GENMASK(14, 13)
-+#define MALI_C55_AEXP_HIST_SWITCH(x)			((x) << 13)
-+#define MALI_C55_AEXP_IHIST_DISABLE_MASK		BIT(16)
-+#define MALI_C55_AEXP_IHIST_DISABLE			(0x01 << 12)
-+#define MALI_C55_AEXP_SRC_MASK				BIT(24)
-+
- #define MALI_C55_REG_TPG_CH0				0x18ed8
- #define MALI_C55_TEST_PATTERN_ON_OFF			BIT(0)
- #define MALI_C55_TEST_PATTERN_RGB_MASK			BIT(1)
-@@ -179,6 +196,11 @@ enum mali_c55_interrupts {
- #define MALI_C55_REG_CONFIG_SPACES_OFFSET		0x0ab6c
- #define MALI_C55_CONFIG_SPACE_SIZE			0x1231c
- 
-+#define MALI_C55_REG_DIGITAL_GAIN			0x1926c
-+#define MALI_C55_DIGITAL_GAIN_MASK			GENMASK(12, 0)
-+#define MALI_C55_REG_DIGITAL_GAIN_OFFSET		0x19270
-+#define MALI_C55_DIGITAL_GAIN_OFFSET_MASK		GENMASK(19, 0)
-+
- #define MALI_C55_REG_SINTER_CONFIG			0x19348
- #define MALI_C55_SINTER_VIEW_FILTER_MASK		GENMASK(1, 0)
- #define MALI_C55_SINTER_SCALE_MODE_MASK			GENMASK(3, 2)
-@@ -192,6 +214,59 @@ enum mali_c55_interrupts {
- #define MALI_C55_TEMPER_DMA_WRITE_ON			BIT(0)
- #define MALI_C55_TEMPER_DMA_READ_ON			BIT(1)
- 
-+/* Black Level Correction Configuration */
-+#define MALI_C55_REG_SENSOR_OFF_PRE_SHA_00		0x1abcc
-+#define MALI_C55_REG_SENSOR_OFF_PRE_SHA_01		0x1abd0
-+#define MALI_C55_REG_SENSOR_OFF_PRE_SHA_10		0x1abd4
-+#define MALI_C55_REG_SENSOR_OFF_PRE_SHA_11		0x1abd8
-+#define MALI_C55_SENSOR_OFF_PRE_SHA_MASK		0xfffff
-+
-+/* Lens Mesh Shading Configuration */
-+#define MALI_C55_REG_MESH_SHADING_TABLES		0x13074
-+#define MALI_C55_REG_MESH_SHADING_CONFIG		0x1abfc
-+#define MALI_C55_MESH_SHADING_ENABLE_MASK		BIT(0)
-+#define MALI_C55_MESH_SHADING_MESH_SHOW_MASK		BIT(1)
-+#define MALI_C55_MESH_SHADING_MESH_SHOW(x)		((x) << 1)
-+#define MALI_C55_MESH_SHADING_SCALE_MASK		GENMASK(4, 2)
-+#define MALI_C55_MESH_SHADING_SCALE(x)			((x) << 2)
-+#define MALI_C55_MESH_SHADING_PAGE_R_MASK		GENMASK(9, 8)
-+#define MALI_C55_MESH_SHADING_PAGE_R(x)			((x) << 8)
-+#define MALI_C55_MESH_SHADING_PAGE_G_MASK		GENMASK(11, 10)
-+#define MALI_C55_MESH_SHADING_PAGE_G(x)			((x) << 10)
-+#define MALI_C55_MESH_SHADING_PAGE_B_MASK		GENMASK(13, 12)
-+#define MALI_C55_MESH_SHADING_PAGE_B(x)			((x) << 12)
-+#define MALI_C55_MESH_SHADING_MESH_WIDTH_MASK		GENMASK(21, 16)
-+#define MALI_C55_MESH_SHADING_MESH_WIDTH(x)		((x) << 16)
-+#define MALI_C55_MESH_SHADING_MESH_HEIGHT_MASK		GENMASK(29, 24)
-+#define MALI_C55_MESH_SHADING_MESH_HEIGHT(x)		((x) << 24)
-+
-+#define MALI_C55_REG_MESH_SHADING_ALPHA_BANK		0x1ac04
-+#define MALI_C55_MESH_SHADING_ALPHA_BANK_R_MASK		GENMASK(2, 0)
-+#define MALI_C55_MESH_SHADING_ALPHA_BANK_G_MASK		GENMASK(5, 3)
-+#define MALI_C55_MESH_SHADING_ALPHA_BANK_G(x)		((x) << 3)
-+#define MALI_C55_MESH_SHADING_ALPHA_BANK_B_MASK		GENMASK(8, 6)
-+#define MALI_C55_MESH_SHADING_ALPHA_BANK_B(x)		((x) << 6)
-+#define MALI_C55_REG_MESH_SHADING_ALPHA			0x1ac08
-+#define MALI_C55_MESH_SHADING_ALPHA_R_MASK		GENMASK(7, 0)
-+#define MALI_C55_MESH_SHADING_ALPHA_G_MASK		GENMASK(15, 8)
-+#define MALI_C55_MESH_SHADING_ALPHA_G(x)		((x) << 8)
-+#define MALI_C55_MESH_SHADING_ALPHA_B_MASK		GENMASK(23, 16)
-+#define MALI_C55_MESH_SHADING_ALPHA_B(x)		((x) << 16)
-+#define MALI_C55_REG_MESH_SHADING_MESH_STRENGTH		0x1ac0c
-+#define MALI_c55_MESH_STRENGTH_MASK			GENMASK(15, 0)
-+
-+/* AWB Gains Configuration */
-+#define MALI_C55_REG_AWB_GAINS1				0x1ac10
-+#define MALI_C55_AWB_GAIN00_MASK			GENMASK(11, 0)
-+#define MALI_C55_AWB_GAIN01_MASK			GENMASK(27, 16)
-+#define MALI_C55_AWB_GAIN01(x)				((x) << 16)
-+#define MALI_C55_REG_AWB_GAINS2				0x1ac14
-+#define MALI_C55_AWB_GAIN10_MASK			GENMASK(11, 0)
-+#define MALI_C55_AWB_GAIN11_MASK			GENMASK(27, 16)
-+#define MALI_C55_AWB_GAIN11(x)				((x) << 16)
-+#define MALI_C55_REG_AWB_GAINS1_AEXP			0x1ac18
-+#define MALI_C55_REG_AWB_GAINS2_AEXP			0x1ac1c
-+
- /* Colour Correction Matrix Configuration */
- #define MALI_C55_REG_CCM_ENABLE				0x1b07c
- #define MALI_C55_CCM_ENABLE_MASK			BIT(0)
-@@ -214,6 +289,59 @@ enum mali_c55_interrupts {
- #define MALI_C55_REG_CCM_ANTIFOG_OFFSET_B		0x1b0c8
- #define MALI_C55_CCM_ANTIFOG_OFFSET_MASK		GENMASK(11, 0)
- 
-+/* AWB Statistics Configuration */
-+#define MALI_C55_REG_AWB_STATS_MODE			0x1b29c
-+#define MALI_C55_AWB_STATS_MODE_MASK			BIT(0)
-+#define MALI_C55_REG_AWB_WHITE_LEVEL			0x1b2a0
-+#define MALI_C55_AWB_WHITE_LEVEL_MASK			GENMASK(9, 0)
-+#define MALI_C55_REG_AWB_BLACK_LEVEL			0x1b2a4
-+#define MALI_C55_AWB_BLACK_LEVEL_MASK			GENMASK(9, 0)
-+#define MALI_C55_REG_AWB_CR_MAX				0x1b2a8
-+#define MALI_C55_AWB_CR_MAX_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CR_MIN				0x1b2ac
-+#define MALI_C55_AWB_CR_MIN_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CB_MAX				0x1b2b0
-+#define MALI_C55_AWB_CB_MAX_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CB_MIN				0x1b2b4
-+#define MALI_C55_AWB_CB_MIN_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_NODES_USED			0x1b2c4
-+#define MALI_C55_AWB_NODES_USED_HORIZ_MASK		GENMASK(7, 0)
-+#define MALI_C55_AWB_NODES_USED_VERT_MASK		GENMASK(15, 8)
-+#define MALI_C55_AWB_NODES_USED_VERT(x)			((x) << 8)
-+#define MALI_C55_REG_AWB_CR_HIGH			0x1b2c8
-+#define MALI_C55_AWB_CR_HIGH_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CR_LOW				0x1b2cc
-+#define MALI_C55_AWB_CR_LOW_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CB_HIGH			0x1b2d0
-+#define MALI_C55_AWB_CB_HIGH_MASK			GENMASK(11, 0)
-+#define MALI_C55_REG_AWB_CB_LOW				0x1b2d4
-+#define MALI_C55_AWB_CB_LOW_MASK			GENMASK(11, 0)
-+
-+/* AEXP Metering Histogram Configuration */
-+#define MALI_C55_REG_AEXP_HIST_BASE			0x1b730
-+#define MALI_C55_REG_AEXP_IHIST_BASE			0x1bbac
-+#define MALI_C55_AEXP_HIST_SKIP_OFFSET			0
-+#define MALI_C55_AEXP_HIST_SKIP_X_MASK			GENMASK(2, 0)
-+#define MALI_C55_AEXP_HIST_SKIP_X(x)			((x) << 0)
-+#define MALI_C55_AEXP_HIST_OFFSET_X_MASK		BIT(3)
-+#define MALI_C55_AEXP_HIST_OFFSET_X(x)			((x) << 3)
-+#define MALI_C55_AEXP_HIST_SKIP_Y_MASK			GENMASK(6, 4)
-+#define MALI_C55_AEXP_HIST_SKIP_Y(x)			((x) << 4)
-+#define MALI_C55_AEXP_HIST_OFFSET_Y_MASK		BIT(7)
-+#define MALI_C55_AEXP_HIST_OFFSET_Y(x)			((x) << 7)
-+#define MALI_C55_AEXP_HIST_SCALE_OFFSET			4
-+#define MALI_C55_AEXP_HIST_SCALE_BOTTOM_MASK		GENMASK(3, 0)
-+#define MALI_C55_AEXP_HIST_SCALE_TOP_MASK		GENMASK(7, 4)
-+#define MALI_C55_AEXP_HIST_SCALE_TOP(x)			((x) << 4)
-+#define MALI_C55_AEXP_HIST_PLANE_MODE_OFFSET		16
-+#define MALI_C55_AEXP_HIST_PLANE_MODE_MASK		GENMASK(2, 0)
-+#define MALI_C55_AEXP_HIST_NODES_USED_OFFSET		52
-+#define MALI_C55_AEXP_HIST_NODES_USED_HORIZ_MASK	GENMASK(7, 0)
-+#define MALI_C55_AEXP_HIST_NODES_USED_VERT_MASK		GENMASK(15, 8)
-+#define MALI_C55_AEXP_HIST_NODES_USED_VERT(x)		((x) << 8)
-+#define MALI_C55_AEXP_HIST_ZONE_WEIGHTS_OFFSET		56
-+#define MALI_C55_AEXP_HIST_ZONE_WEIGHT_MASK		0x0f0f0f0f
-+
- /*
-  * The Mali-C55 ISP has up to two output pipes; known as full resolution and
-  * down scaled. The register space for these is laid out identically, but offset
-
--- 
-2.43.0
-
+> thanks,
+> Shivendra
 
