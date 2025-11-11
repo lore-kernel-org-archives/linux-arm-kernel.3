@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AE4CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C7C1CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 18:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/rF31IYZ/B9gwsOv2PIcyvYPU3h2imvQVFrrK+wh8UQ=; b=Ngr7OMJFB8g7I6S/hPpJMZPLVV
-	68TcrhiaYRIiR1KXf6I0OAMTw9NIeZzTxW3vp+HLYyK2DjRODBldiw9iBFAZ7Xqw/Fpe6+UekZJSt
-	7gVDaI0XXpAS8PdO2wUU1UZu2CX99qRmsVXwiKSYr9yeX+yCbT1NJ1EqOCriWWlwscIjCZEtwojXD
-	fl5MauPo8FCQ5qqmon/tgirZPvxjsJSpF1Wbxw0um3LiRYrtlZc4QopN5nEWj3EujG/H9tVWZEoqG
-	5MMLGhzicOxn6Il+AtYfF9GBri9/vLxMh2VYq95p2xdnFqPbkpo6yXSSl59d8jKU2FSxgUtAFbt0o
-	6F5T3MHg==;
+	bh=f1tQc9fKxPXjOAXomvZMDR+OXXQMQ2u54M9yxOwFvaQ=; b=qtGCyY9tDuWe8bId4xHgccir1h
+	SjJhQX3CcGKWFLZabip0bC/fFhMD+x02A1t+5X8lUGQQgypT76F4o+tWctKkcD88YT4ywNcuHSGvU
+	FZegvHuuAupAQAjRvXGPmAKghEMs3j4HmugM64PnJDaEAuu2deUDNNGfKUvG90c/DrhZTIlcDdD4e
+	CljXcEGh3vAmH7uggqnnH69IojEqbE5QdCjb8CjtUQtPTA6j2pRa0bUa+ch14ExsC5D7KnOtCnwLa
+	u8OoI71wQlTC3CuZYkxQ8gp3PEAPhtYuQb7Hm0thZhGnpb7cEqsmakkakevrido4NDihwYqa5531L
+	HOPHnbsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsfA-00000007ZVG-1E8H;
-	Tue, 11 Nov 2025 18:00:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vIsgA-00000007Zgv-0AFu;
+	Tue, 11 Nov 2025 18:01:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIsf9-00000007ZUu-0KCj;
-	Tue, 11 Nov 2025 18:00:15 +0000
+	id 1vIsg9-00000007ZgV-0xVK;
+	Tue, 11 Nov 2025 18:01:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 076F1601FF;
-	Tue, 11 Nov 2025 18:00:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C089CC4CEF5;
-	Tue, 11 Nov 2025 18:00:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 82A554012E;
+	Tue, 11 Nov 2025 18:01:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 609F8C113D0;
+	Tue, 11 Nov 2025 18:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762884012;
-	bh=YbvVeIxBxMZpmXdjYhUx8nwj49MbsEoFDBh2JqYePf0=;
+	s=k20201202; t=1762884076;
+	bh=f1tQc9fKxPXjOAXomvZMDR+OXXQMQ2u54M9yxOwFvaQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qfOChaSGhMAFuWs2UzChw+LX7w9ddO0Lu3yodA88bbRsfPPZyivrIHB59q36dSaUY
-	 IkZFm9AYnKMAgKui34Is98oeSzGTsaXWWlAp4ixzbQ3Lj9HPqHrijnaeJ8lghQ+kH8
-	 Xpu8+ZMcIQHYSlqXF+0ef+2js6EBFfdtbZcHBXnXpfSpjMcKgNH56pX/fGq4tLAz6Y
-	 tqQsWQzV/e9sCE7nn8JDr0tapUnCcAyaQTRZTTyl66tKX5xaJDFyL4J0njMQE/6eVz
-	 q5GEwq1DSFSMfMwFi0A8w8kJd14LTQE2FYBnLfGCSuJrstkzbNLSGEuTzKO6DCNIuT
-	 uzmjpi67z64QQ==
-Date: Tue, 11 Nov 2025 10:00:10 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Message-ID: <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii>
-References: <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
- <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn>
- <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
- <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn>
- <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
- <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
- <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
- <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com>
- <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
- <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+	b=fMnkboKgujlmFzn+1F12YPG0LrNsL91vnvn/TUaHmyNFFWL5O9ua8Vt0+9og4W4SD
+	 BBCkFndVJY/FAdIdXHQXE6w8eGcsHc2LUrZ4bFj3ascztlgJN7KftPO0B3TxD/R0mJ
+	 IYimW6mPvZwjTg+oxfVYA9OERnqCnrI6nVwyu8IibLiP6fX9/el1eW4d6S5qXDwDzK
+	 b7vto81dT3Fu1sK1LpH9Rdpxm91E2mhmKIbXEwmrhIgLPSmwkM2pxG9JMtrEql9Q11
+	 IdfxuLPKBWCFZiovJcrbeDfko2anZvHPKTe9vsZFm1ZF/YCTBHL+CZmEL55qjbdTei
+	 FY+9eoDAR1lZQ==
+Date: Tue, 11 Nov 2025 18:01:08 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jack Hsu <jh.hsu@mediatek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, srini@kernel.org,
+	ukleinek@kernel.org, gregkh@linuxfoundation.org,
+	jirislaby@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
+	chunfeng.yun@mediatek.com, wim@linux-watchdog.org,
+	linux@roeck-us.net, sean.wang@mediatek.com,
+	zhiyong.tao@mediatek.com, andrew-ct.chen@mediatek.com,
+	lala.lin@mediatek.com, jitao.shi@mediatek.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v7 5/9] dt-bindings: usb: Support MediaTek MT8189 xhci
+Message-ID: <20251111-ocelot-ipod-4d5f902b640b@spud>
+References: <20251111070031.305281-1-jh.hsu@mediatek.com>
+ <20251111070031.305281-6-jh.hsu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mkp7Vm+0xTxl2wgI"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+In-Reply-To: <20251111070031.305281-6-jh.hsu@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251111_100117_290486_AC5E875E 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
-> On Mon, Nov 10, 2025 at 9:19 AM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
-> > If I understand correctly, I should modify this patch to remove the
-> > changes of arm and riscv for now, do the changes only when there is
-> > a real problem or requirement some day, right? If no more comments,
-> > I will send v3 later.
->
-> Now everyone involved agrees that the efistub code is correct, so the
-> proper solution is to fix the compiler.
 
-Hm?  I don't see how it's a compiler bug.  It's really just an objtool
-limitation.
+--mkp7Vm+0xTxl2wgI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Changing efistub code and changing objtool (ignore __efistub prefix)
-> are both workarounds, but I think changing objtool is a little more
-> reasonable. Maybe Josh has different ideas?
+On Tue, Nov 11, 2025 at 02:59:19PM +0800, Jack Hsu wrote:
+> modify dt-binding for support mt8189 dts node of xhci
+>=20
+> Signed-off-by: Jack Hsu <jh.hsu@mediatek.com>
 
-I thought the conversation had converged on what Tiezhu mentioned above,
-which is to skip objtool on libstub for loongarch, but leave the other
-arches alone.  That way objtool behavior is consistent between loongarch
-and x86, and objtool doesn't need to ignore any prefixes.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-So basically, the v2 patch minus the arm64/riscv changes.
+--mkp7Vm+0xTxl2wgI
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-Josh
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRN55AAKCRB4tDGHoIJi
+0nZ6AP46To/9lZ7sJV4I2ivoFKzECzpBwHjBzWlqIKPxNe0XpwEAoe7F6s2tr9ca
+hGvlAGOJEUCvxWDv5C09Q2U7m+8MuwI=
+=k5Lj
+-----END PGP SIGNATURE-----
+
+--mkp7Vm+0xTxl2wgI--
 
