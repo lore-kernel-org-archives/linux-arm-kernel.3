@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5038BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370BECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 08:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+hmxQBj7IsYd1S8pXVYnG/VuhGQ2SVQVtQG6+CGoaw=; b=Kdx5KMckS9zJU6GgK16uW/6t9n
-	RhgsPWoryHj1DPYu7XyvISNnZnSZRA7oKi/SqhuyMuEgA/eF8RvBDu2ZjDNDCvNPbiUm9mj77xRT1
-	JfY8Aqe+JEpf8O6wE1BlsADsriu28ztInxomkuKWlAvRniHjHqkYNWSRh9vXTZAwYk5/hm7X/caXb
-	JSFG7gtgGCg+8rs8Qy2ip5uo6eeQna3tzAYHm5QJoTudGjF9U9iFuJ39JmPAMCkEXj748Fk5z9h40
-	GY1j+ZuzncZWP9Uh8kczTDRGjssPuv3wEKvzL4SLv61LtH6mEdJt1uc00aqRmaQfTzFjas16iXPR1
-	3PgDeyUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y46zxO1C4o8WUqtj07jqBENmFGWJWEsozuquXurmpj0=; b=s1V/5Snuw2tyfblIs8KDN4d9B5
+	eB+lA6DcNVu2+UTRRyi+rgZ+U0iwC+Y7K7qxCRsNmF7hsuy2mQPJNURxTZolrB7i7ydnyGqO+2IWg
+	8CSL27vACSxBLHHZAnbNSOKcXvn78zIu1DOi3vNMrGZJ4SNEQDbLVQjyaARRcimothvsrV01yc+5v
+	mFWPcIdmu4ZNCKTjgVeaHB6tiNxaC9dY/GFuozd3PH/lDeGABGW8WPpHDLERpkRRiRdl7pAdfhkAH
+	IeacNEWfhuVeC79niarDQgn5++gs7uWR4EO6ouTk2BEgEPzO7TGC5ORX8jXIMt8MYNyj3AgelJutS
+	T7L/M5gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIk0O-00000006nev-29rx;
-	Tue, 11 Nov 2025 08:45:36 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1vIk5R-00000006o0v-2yCa;
+	Tue, 11 Nov 2025 08:50:49 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIk0L-00000006neX-41er
+	id 1vIk5P-00000006o0W-1usb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 08:45:35 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b98983baeacso1571555a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 00:45:33 -0800 (PST)
+	Tue, 11 Nov 2025 08:50:48 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-786572c14e3so38104177b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 00:50:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762850733; x=1763455533; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5+hmxQBj7IsYd1S8pXVYnG/VuhGQ2SVQVtQG6+CGoaw=;
-        b=mdgvwfb0FuTsK5nI1kxcEAFtHWR2s3lGHlPz/+EKw+E5teJg2StupquuwcULhvs+0E
-         SNzdomOm7Wbz9GWvGVYuqI6bkKQy6arTzXRgjS4NNDYIMJShM+rQGo/37pKtHEbd2b91
-         7CII5Dyoj9bRtIsIRqUiP+Hpmt2XFb6AiLybqs5mfYFppxbmxfstU6j4C8aUJg3htmrO
-         49PnscoOOgIBQ8/Od19XHN539DNVYV+1Z920RtbUxWjqxZHiHD75Ku9GBXNwddGy4Hpe
-         4tjNF9qaLpemfa2OhDHGe/AidF2BFqXzd15IAQeGGbWkdHm19xI0ybAcIjszZe6sxHHe
-         rNiA==
+        d=linaro.org; s=google; t=1762851046; x=1763455846; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y46zxO1C4o8WUqtj07jqBENmFGWJWEsozuquXurmpj0=;
+        b=eyzI4IBQs4wj1HythoPgxjfXWiYy8+Lge9h029qmf/1HVy8BoHRwILTrqKiGHus8G9
+         klTnS26EaTMSibGRf9DKecV5hBhVDfLgawzWplwaFXXtCVQdXm1dwqMRMaeXyyGdpVi5
+         HWUWtGe6eXU/uytYxkCJqgtnakAc4+dTJQ4t+3IiIYnr+uoENGIdqAOEFOzOrTeMHqhz
+         6oCV4i/kSIySRFm7vFXRHoZgMsct3f3Zk7ZE39t7BL+GqtfReQxpjkI8jUWdBYlNcqgY
+         S5vbNgnhos6kSD+9MXy+gUyhJyU/0d7+3hwGsfByy6R5dvCEGSIwDT0ckLI7jN2pxJ7N
+         Xt8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762850733; x=1763455533;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=5+hmxQBj7IsYd1S8pXVYnG/VuhGQ2SVQVtQG6+CGoaw=;
-        b=gzICs16B6KfyoT7N8D/hzMf9CF8SB8wgJpqxJxSWJVUPpxSeTf6kyGa8Fizx1v5PGJ
-         fXU5oXQaoELP6ucJ9kCrha6s15ZKe66sPrKoBC4J2T7QimBkWXrfBrusNyPre7CjxOlc
-         jIOJndBMaVk21yuWksyRe0z6yvKp7N1pCtBrIDCTBY6ARU73M/LXZmaJpJG4BgvMi2yp
-         pSUxufxS7xJq7+6cbkJ6IFTaKk5C7UyVlwOYAAo1JaPCyRMBdRiLtbQHANr4y/gJXoT4
-         +iSNsiyujAlyXq7SEWQjcG1g/NgZr79g3OyeyC1bC4eLNQLb1tpWM1pSQI8rjgJkN3wd
-         0YHg==
-X-Forwarded-Encrypted: i=1; AJvYcCWJKC9Ft7iLsx019nymYBRntCFu+pkuTaodpajgTsyIqLoFwZxdDsQkWzNeHHN0hUjlk8iicY9r/A3StnmdvPtJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+xUWeKbYUn5gy6LpDpBYYQyukc69KhH9gtIyT5dnrV0NQvkE9
-	sQ0QI5mDfteJMmso05OE/vkK6H2rmT9pemuOhWBWMCoIahTFOqy0ivY52NxN6CbGgxWXX/eimHq
-	GyJexVjjLfkVPXtAFq9UTC4QNXoBMrb0=
-X-Gm-Gg: ASbGnctDeBH8QdVw6wZBb5zZOY+bSSPb6fNhgDvZ7ZNR/6L6lu7LMHWdZ43EsB691VU
-	rMcfW7luUdx0Mq8cbySS90ZkQCknanQoHlM9/KNZlLUOFmbHF5k9A/X/zYtLoB0LBzAePv2kscb
-	3HZTPGx/bVcS4k62xKikGrnzUDSuc8swFMeRYaKSvA5EEhObudFXGK/betLajvC5O0MgeuvKFYh
-	VWq/2FgRBXvZZrTuJBpEmXI4CWp65qAekR2+eOhe9lRKCn/y58MM6SLvIVVl0bhwd6U
-X-Google-Smtp-Source: AGHT+IEbIBPvg62Y1Iztl106EfvgBmmryD6TUmDM5qu02qmAT6MmSP20+OStlbhgquJhSpSV9FwS3gQC37Rdo9EXvMw=
-X-Received: by 2002:a17:902:e80b:b0:295:7453:b580 with SMTP id
- d9443c01a7336-297e5715410mr146810455ad.58.1762850732603; Tue, 11 Nov 2025
- 00:45:32 -0800 (PST)
+        d=1e100.net; s=20230601; t=1762851046; x=1763455846;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Y46zxO1C4o8WUqtj07jqBENmFGWJWEsozuquXurmpj0=;
+        b=kmj7xBQCuVpsnEiejLEdumNkaC6p1eM579nyx8uYhXzjxJY69PGmWSMBOlm5tc7hoF
+         gFiX/ltZuygBc+AjrAKwuoFSWTLWCbpLcTFL0CZfU3Hx/jyK2Qgg5jUBzaT53d+If2e9
+         /BcBecplBcoYuu70fE+dv8GvAmA1TTqJZs7ozWz84PipM0ORrCvWfv9cCaRPfcq2uOKV
+         gIEN/br/czO1JydyW3KQFzsBq03Yw/BMCQMi6JeJjdzm0t2SOVoe04ECJ1P9RJVArS2q
+         Fx3tg78gUe+qsUq7f/Gl4zbgX0/7P2B+akbABN+SI9mKxW6avsiSe7h7iCX4jWShTc0W
+         hzYw==
+X-Forwarded-Encrypted: i=1; AJvYcCX0CG5wUXQaLdhcCtBXFXDVywztkx89Q70zmsz55O6Dm6bebaj6GjNo4suio252lJFtl14aExjAZODj6GZicff3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHCMOQDX0W0CsDpMLGjDk01DOxQi0GG+O/ixFtMPCXsCOMVwI+
+	0TeMrXIXBiIIuxPXsY3l2JBQl15SGtj/j0Yz2Qpq0nFuyUUJKs6h3w+awwF1W1NdHCPN3YMXGlq
+	6MUGtc4+tnouoADTERliUEAIvx3Hbk68QYodKfd6LKA==
+X-Gm-Gg: ASbGncuWfb//tvrYI4i66y8VmzEOJaSuFeOuGWc2dzQ2CZyHMBYIAJdjFhfSA+mFhUS
+	gNZctT9evyMYO7rqmhaF5vZXG3YSITt+5FMdY/XiagBLL28zioYoMqABC4kFgUhTxKsDFzgLyyL
+	KcEKOfqKZAb5DCYFmsQvB0beli+4ezSCOrrvtlmfIW+dnebnwFqNA88d/UyrLyHYPOJh5rbFc+l
+	W866a5bdawicg5h4YdBLNIy3d0iV8BgS930hZ/YfPc78DeTq2k5Ym8uVsFmEJK8LqJw+0Cw5wRY
+	VME2O+Ft2QqJokZAa2VWv1QFMEg1q//jEm9WxSc2
+X-Google-Smtp-Source: AGHT+IFW04NMmm/DmGXKuNoocNXOW1P5E9RSrXkBfL6e/iKOHrJptvsyGLLUH1wJ5OdOEoN0Uvp2X+BW0+RpDBRk76Y=
+X-Received: by 2002:a05:690c:688b:b0:788:c74:d038 with SMTP id
+ 00721157ae682-7880c74da71mr3427737b3.39.1762851045790; Tue, 11 Nov 2025
+ 00:50:45 -0800 (PST)
 MIME-Version: 1.0
-References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
- <20251109214515.121742-2-rpimentel.silva@gmail.com> <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
-In-Reply-To: <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 11 Nov 2025 10:47:56 +0200
-X-Gm-Features: AWmQ_bkje38QBVH41X3V5QeZd3T9fbYsWDLt3kUsgCWuUpLG1ylXQ7gyr6WQwdA
-Message-ID: <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, alexander.stein@ew.tq-group.com, 
-	dario.binacchi@amarulasolutions.com, marex@denx.de, 
-	Markus.Niebel@tq-group.com, y.moog@phytec.de, joao.goncalves@toradex.com, 
-	frieder.schrempf@kontron.de, josua@solid-run.com, 
-	francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>
+References: <20251111060212.1963608-1-rdunlap@infradead.org>
+In-Reply-To: <20251111060212.1963608-1-rdunlap@infradead.org>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Tue, 11 Nov 2025 10:50:09 +0200
+X-Gm-Features: AWmQ_bl9LggH2BnIOi8b_6HMwtRDi2PxmqidNChtL-tYmJN-Isc3DYSw2FH9LTs
+Message-ID: <CAC_iWjKYBgjG=C7NgAFwn6uBSMS0t_WepazvcTQb-gPewL9ckw@mail.gmail.com>
+Subject: Re: [PATCH] efi: stmm: fix kernel-doc "bad line" warnings
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_004534_002699_0EFAC181 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20251111_005047_511608_3D2BF377 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,57 +95,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 10:12=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+Hi Randy
+
+On Tue, 11 Nov 2025 at 08:02, Randy Dunlap <rdunlap@infradead.org> wrote:
 >
-> On 09/11/2025 22:45, Rogerio Pimentel wrote:
-> > The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plu=
-s
-> > SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
-> > 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIP=
-I
-> > display interfaces, camera connectors, and standard expansion headers.
-> >
-> > Based on the device tree found in the NXP repository at github
-> > https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
-> > board kernel mainline device tree.
-> >
-> > This is a basic device tree supporting:
-> >
-> >  - Quad Cortex-A53
-> >  - 4GB LPDDR4 DRAM
-> >  - PCA9450C PMIC with regulators
-> >  - Two NXP PCAL6416 GPIO expanders
-> >  - RGB LEDs via GPIO expander
-> >  - I2C1, I2C2, I2C3 controllers
-> >  - UART2 (console) and UART3 (with RTS/CTS)
-> >  - USDHC3 (8-bit eMMC)
-> >  - SNVS power key (onboard power button)
-> >
-> > Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> > Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> Add a beginning " *" to each line to avoid kernel-doc warnings:
 >
-> Incorrect DCO chain. Please look at submitting patches which explain
-> what is DCO and how it should be organized.
+> Warning: drivers/firmware/efi/stmm/mm_communication.h:34 bad line:
+> Warning: drivers/firmware/efi/stmm/mm_communication.h:113 bad line:
+> Warning: drivers/firmware/efi/stmm/mm_communication.h:130 bad line:
+>
+> Fixes: c44b6be62e8d ("efi: Add tee-based EFI variable driver")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 
-In addition to that, Rogerio please read:
+Is the fixes tag necessary here?
+Acked-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
 
-https://docs.kernel.org/process/submitting-patches.html
-
-At this moment I think you should keep the original author of the
-patch.
-
-Then mark your contribution as follows. If you just picked the patches
-tested them and made minor modifictions only add your S-o-b
-
-e.g
-
-Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-
-If you made significant changes add your C-d-b like this:
-
-Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+Thanks
+/Ilias
+> ---
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: linux-efi@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> ---
+>  drivers/firmware/efi/stmm/mm_communication.h |    6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> --- linux-next-20251107.orig/drivers/firmware/efi/stmm/mm_communication.h
+> +++ linux-next-20251107/drivers/firmware/efi/stmm/mm_communication.h
+> @@ -32,7 +32,7 @@
+>
+>  /**
+>   * struct efi_mm_communicate_header - Header used for SMM variable communication
+> -
+> + *
+>   * @header_guid:  header use for disambiguation of content
+>   * @message_len:  length of the message. Does not include the size of the
+>   *                header
+> @@ -111,7 +111,7 @@ struct efi_mm_communicate_header {
+>
+>  /**
+>   * struct smm_variable_communicate_header - Used for SMM variable communication
+> -
+> + *
+>   * @function:     function to call in Smm.
+>   * @ret_status:   return status
+>   * @data:         payload
+> @@ -128,7 +128,7 @@ struct smm_variable_communicate_header {
+>  /**
+>   * struct smm_variable_access - Used to communicate with StMM by
+>   *                              SetVariable and GetVariable.
+> -
+> + *
+>   * @guid:         vendor GUID
+>   * @data_size:    size of EFI variable data
+>   * @name_size:    size of EFI name
+>
 
