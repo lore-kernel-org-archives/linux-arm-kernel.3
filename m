@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90AECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16437CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 10:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=; b=Jj3wjD3Pv27YctYdeqoeqQ94Nx
-	U4MaMXwM5n6Ryk0wVp2dC2symRuOEPOxzDDZbEORvECbhnUCp76fq542UiHiCDJy/NFPIYKlz+4ZP
-	BXANmBiSYPx9J9d69klGYXv3gavJVgVu5phtGfHwisG0lWSdbWJo8wLafisnc130ZxMdYe+O82Lva
-	q0WJtlmBN3vRBmTpIGstGZPvrJoLJKwrNoMYIDers1AxphXhytua9HfX3uKDOXNu7gaaDAUwMUV34
-	j9N41qCBv81G2LK9asX3LuUOKLBLk+qo2MHCOeTeC17/trpA0jYcsBkUu8eYYUvRNkv3wRd2RJLnR
-	9/7DJZqQ==;
+	bh=0cCxQ4zVWtY3CYLsY1wEHVW86S85uWrXzNYWN3lThqE=; b=PYa7uw4GEgZaOiY50QWkw1nd86
+	+8LbP+lxNVe8lBFBThtZyvPA+B8+h7hNqT+RCwyfydG0p+Q8zWw/w/KB85McRdsqC/g20ht5T0lpm
+	Cjm4l1ciDa6bovmvsQ85hlw0aYLN9dZySzFqGURZ1MpLhsEkOflgmNgEV9c9RSW6q1qLSFXyDQDwT
+	YvDc5FNQg3WvEmTA51bLD7UCFSLe/zyt8+nqRjKu80UnxGb2If3qeJ079xohKAqgEj5OD5a1Lo8Ax
+	YbcpwfRVdaUQXmAwQtrG9nc50FepF1PXoQNT5LD1Emp2lLfJA1Eb6mcwgUnTNsBuizlo5QBpR9DpC
+	8oP8+4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlmx-00000006yFW-3MAL;
-	Tue, 11 Nov 2025 10:39:51 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1vIlog-00000006ySJ-3Zkq;
+	Tue, 11 Nov 2025 10:41:38 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIlmu-00000006yEv-3inV
+	id 1vIloe-00000006yRs-22Bj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 10:39:50 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-787da30c50fso26762357b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:39:48 -0800 (PST)
+	Tue, 11 Nov 2025 10:41:37 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-786a822e73aso43785937b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 02:41:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762857588; x=1763462388; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762857695; x=1763462495; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=;
-        b=uEtjdJ1SqhKpTOFO2jJ6lc8iAWqrnZU1NdtphIrLg24Si9aH09obwI/QuEs+QGXqti
-         /kbPyI9bjAIIrK44FK64yUW9D1LHE4ztCyYYbmXU8Oxc4Td1m7FKnSCfnH5+FOQxBYZN
-         YbwNUtDrQ02PCTI6SSeq2aHHwffyAFNa/J3QJlDgAqnsJXbXkUaKcBz9bMxWGc6xk1jT
-         4qzecmnqhTMjdoMBsnEiEw1iKzloo9ub5/Ggk3fkawGS0SHqjpxVe1+Xdu9PNagwf6JC
-         OceDYaqpeCcBv933UmPlltRsKmbbp/txKG5CVGF3kRKlnmCh+TFB/YqtHgMAmLjB59gm
-         sUsg==
+        bh=0cCxQ4zVWtY3CYLsY1wEHVW86S85uWrXzNYWN3lThqE=;
+        b=cnGmGWC3cb75Gg4dmd+84EkTpm8tIPcUUwJkFEQIY+a2pum25bMvR83Xhl2W0u93Sf
+         VEbNiUlCb8l/C9ByPk5Z6vnm+umu4d5KC4Cg0qZUst0Uu06yggSnGJlCzpMaPE0Hu0Gz
+         8shi3xVSpapuYjhDW2FBo2GmdnrFEU8HUAARAl8tAmaHRAz7SoEOj481rWBXV8vbWFnt
+         r22hF5avHe1b0AZfLdRINJjTCi3Ddj+98cDYKmNtomz80MP5yYmi/mNlaDZvtWi1F7kF
+         McH2lhJT6SHhjmH/+7mSifK9FZcCoYQerY7OEB5CdTq3IdB7+yb2otueYMvmKs09u6rK
+         VD4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762857588; x=1763462388;
+        d=1e100.net; s=20230601; t=1762857695; x=1763462495;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=uQN8C80XsI1DNcTbyZlxKBoQDlYbpinBS57HXqp89to=;
-        b=HUT3IaFTqJDXpMwc/om6gv8hHHW3adjLiVQoxK+lCoiSFSPzS86gc689uCM84jp48o
-         nwki+jzaMd+5YF2+ep8zpDYpd6wtTEtpWpW1U0RVuLSZMsqbHn8HZu43dSrIyq/MuErG
-         PLapWvujeFIpP5vY4TDKGUYIN/LDbzs1YQ3C/R+KU6uCV8D7XEKLiESlbeIEOdDwtTgn
-         kD2vb2oYw/kdk/ISwouhZ4VOQp/nDOjcuJ91Q/D03/L/7qIf4iehed9JZ8tqBGdpR255
-         J4haA2QSdxzYqWd/q826JS3/6jshR71rWgZxPvk+BnkuqnD3++kLSeMCVSG2ieXzJrzo
-         EMMA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQOs7x4hCPIfi9OqwQP8MXvF7vpD57ynQXQBSL1+/G1IG1rM2xRWo+qr+goC91ST1pp6D1wZdYVWe0lcy+8VSy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUTfbawn7+LiiIpiruXEPmOTn+8JtS9GAjBE5/iAGOfTMRxdDq
-	Xv001GJJ1Ed0i+Dnma4jMJeSVW/3o81bIGOkRCf3aJ+hCvUQ50bUcztbRpIZHjIAEP52huNpkmb
-	X2d7XFH7gb327YiZbkpe8Z1qk/1KhB/vpWgAEkK2g+g==
-X-Gm-Gg: ASbGncvukRc4jjm897xk6bzjTrTIhFFvuEK6DeljWEdyD9tSaTWcwCQFwE2POEMdXvl
-	lk2mewlePb8mktckZ2bxFGhRqs0PwEUZEVb+9VSJz3+mmgKLxU1eTWMUpjYOQku9c7g+Khjosdi
-	UdXqcleLkBiXxHT2Syt+rq6LusHkXj7cb8y67uZtlAWXuVSVdhLBeS8NLL+QV/HQu+flG4CNrf3
-	kNYh0zDlYXDeHY7pxBZ3+eAPnBy9DCIjdozBfvAcRst0ZhvctAR9C0+2En1psnT4AITHdr8giEJ
-	Vb+uWg==
-X-Google-Smtp-Source: AGHT+IGdKr3biW2aMZhYy7DvL1RF+7Uz2kpvCtGXfJ2OgvOVwI6zfxqRAu2DSnJi2xHuqa0EQrFVKg9nUpOsh5XjgKI=
-X-Received: by 2002:a05:690c:55c2:10b0:787:deea:1ba8 with SMTP id
- 00721157ae682-787deea2334mr150764527b3.50.1762857587612; Tue, 11 Nov 2025
- 02:39:47 -0800 (PST)
+        bh=0cCxQ4zVWtY3CYLsY1wEHVW86S85uWrXzNYWN3lThqE=;
+        b=Dzw+7wM43mbe2spTWhcThbG5HdzxRx+ke9Op8e12t2h6HMJacrKFADscVmMunrcj95
+         YuoESfWL/1wxi2lsVuSLOoTTZ89EDQSywbOrKQtkwoGukkzqvxogklG7SN9cp2iNk1kN
+         48XnZVOFelkJfCNfQQ9utBP/zmulHSR4YLq6UA+upQaq9jFtMCMUxTOgK2fIK8VYsQAq
+         nG7a8Ge/b8vVredYvpovJj0Z1whFfe4jzDFMMWW6Kxszi5SVkYgdkLlYqHroyydUKnp9
+         W/ERBzVrQGhf+BTM3DgcAZtJGjzqw3upTid9fJLhp/7CV7sj+y1sOTO6rZbJPlUwlDcz
+         DGtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVAIspkAMi0BgHdQy1En3EkPkDmCzrjBif0kVimZ3s/TZHg3twIWXNjDmNmG2tzZJvNl5YBQcQScmUk6dpRhdQP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKC5tvKogF5ZaKOEnr3vmneqvA/d9oF4pbSnX/Q7MIr7Q1swpt
+	Lh69sG8h9MQl/wXY7Sx+rNW2Ju0FQtRan9yoxzfdSKxn0ZLI3IDUfWt37kUWKt3iw2r+qV8Vx9L
+	8SSOxe80S4adlLwH3ZOEsfi9iEMAovgHKywbEVK+zLw==
+X-Gm-Gg: ASbGnctw6jU0bN2ZfEK5vlAb6nGvTJGM2Rhe+mp5TRAoOmjWE+TbLg87neomicUCezA
+	F0iTcHN0p17sILAhaJ5+zdYklcT7AfNwV4Z36o9nHDDUthJtJPq683o+WPbfr6uapKPMl169+U6
+	II8pYjEjUVQbRJPbroDw0o3m3qIK0AbLWwBMoJkcdaFjK2+a+5x0gwGK8HpM6tESyyTM1ScPf2X
+	acQKEODji4abZLbmN0odRDgce94M7FQ4hYFYujg4Ku1soabOszMx55Qrl7D
+X-Google-Smtp-Source: AGHT+IHoTEqTIMeK7JCIYihCqYCVhAe4gzTa4C+3j+k47suT30AzzIQmG9wEWL0FkhepDKD6CvXqSafZZ1SR1+atEmQ=
+X-Received: by 2002:a05:690c:8687:10b0:787:cab5:79a1 with SMTP id
+ 00721157ae682-787d543ce2dmr101353817b3.32.1762857694963; Tue, 11 Nov 2025
+ 02:41:34 -0800 (PST)
 MIME-Version: 1.0
-References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org> <20251029-gpio-shared-v3-2-71c568acf47c@linaro.org>
-In-Reply-To: <20251029-gpio-shared-v3-2-71c568acf47c@linaro.org>
+References: <20251029-gpio-shared-v3-0-71c568acf47c@linaro.org> <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
+In-Reply-To: <20251029-gpio-shared-v3-3-71c568acf47c@linaro.org>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 11 Nov 2025 11:39:30 +0100
-X-Gm-Features: AWmQ_bk198TBC3PdqVd9Oowwqb_fFWVruyMz7Lubn4P_lvSkb0elFliKm8IlGq8
-Message-ID: <CACRpkdYRzuumaCv=a5UL_G8StQj10kBiRfkfrpWCk05zVfGYsA@mail.gmail.com>
-Subject: Re: [PATCH v3 02/10] gpiolib: define GPIOD_FLAG_SHARED
+Date: Tue, 11 Nov 2025 11:41:17 +0100
+X-Gm-Features: AWmQ_bn0WFQEeQmuj7iPjvAHMQKL1gkynLIxqjiJlR4NSYtZ2qnuSvoaANZDav4
+Message-ID: <CACRpkdZwO8mXvjwS7xgVvHmcpF+_pgKYsj3c3QRUcYWPdCt5ng@mail.gmail.com>
+Subject: Re: [PATCH v3 03/10] gpiolib: implement low-level, shared GPIO support
 To: Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
@@ -91,8 +90,8 @@ Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_023948_931586_EDC9F69B 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20251111_024136_554245_1A2C76BA 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,11 +111,24 @@ On Wed, Oct 29, 2025 at 12:21=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl=
 
 > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 >
-> Define a new GPIO descriptor flag for marking pins that are shared by
-> multiple consumer. This flag will be used in several places so we need
-> to do it in advance and separately from other changes.
+> This module scans the device tree (for now only OF nodes are supported
+> but care is taken to make other fwnode implementations easy to
+> integrate) and determines which GPIO lines are shared by multiple users.
+> It stores that information in memory. When the GPIO chip exposing shared
+> lines is registered, the shared GPIO descriptors it exposes are marked
+> as shared and virtual "proxy" devices that mediate access to the shared
+> lines are created. When a consumer of a shared GPIO looks it up, its
+> fwnode lookup is redirected to a just-in-time machine lookup that points
+> to this proxy device.
+>
+> This code can be compiled out on platforms which don't use shared GPIOs.
 >
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+The concept is sound and we have to begin somewhere, optimizations
+for code reuse and cleanups can be done in-tree.
+
+So:
 
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
