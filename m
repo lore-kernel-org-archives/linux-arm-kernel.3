@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF66CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C8ECCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ihwC17eYaPJHGFsKbfVpAYzo20kOPk3kfjOaMikY0/o=; b=yekNfTeqvtki981UCA6zV+RN6d
-	LsEoecodCwuIdAdQNVE8KXErpRuv/lYnyxLNd5sARfMMXolu6qCQ9F2hc7S1NmSy/GjfCPpg6FNjn
-	/U70ZDIADWrzU3h0edxsTu3BO/ec5JDlQlabALazvTy/ofOovaF3I1UYe1ldsRYxoZ2OYur4C0gk6
-	kTZqt0aOZdTOZViJ81ubyI+klkv3kYVirRay5JD7emfavCMvwPDXrxHzVjzsQsUW0+yorHaUAi1Gn
-	eAH4nKbnUHFiTTJiH89OSee9K2223t2HK6fm9iysQg+fk2vWScr4mz5ZQnZOdORRK9u5C6VmxxZ8g
-	o4iXrsCQ==;
+	bh=xLp8t+mlIcUHsTkDrUMPS/0VTfEVeAs1Db+TVve49B8=; b=RzPSslnUaXEY20UzcdoG8dLgfH
+	GZX5jm3pPsnpm0qRrObkBL7XYQTG2LoqhbU5FoTWcYKH+7Tgsj16ZltxmqiEMMmyU7LFnS68Wogkn
+	SfzD6w3sv38Qv2dPppJdtPS18ogEmXjaZ7glbgHDuWbC+/nhA281/mVRN3RPM1SaBwsWZ4chMdXEm
+	Cb8agP6oNIBWl3zXagCdQvyCABqMY8Il/nLoWYqF+5/nzrVhh9FPXThFCXFzTCIyvbUjGStabGsPJ
+	AiezHGfR/Al0uOypn4cd/NSkBcVjQodi9jYKy+lo4sIR3LE0yLvlgMemsywfFEdt3H6kH5pnAXyfx
+	VnJ43FLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkhi-00000006qYI-0N96;
-	Tue, 11 Nov 2025 09:30:22 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	id 1vIkhz-00000006qdL-1xx7;
+	Tue, 11 Nov 2025 09:30:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkhd-00000006qWR-2DLy
+	id 1vIkhx-00000006qcV-0RZH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 09:30:19 +0000
-X-CSE-ConnectionGUID: OETbkBCET62IWAHyJDXNTQ==
-X-CSE-MsgGUID: 1hBZippCQvOjSV9Th6mHnw==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie5.idc.renesas.com with ESMTP; 11 Nov 2025 18:30:15 +0900
-Received: from vm01.adwin.renesas.com (unknown [10.226.93.46])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 87F104173001;
-	Tue, 11 Nov 2025 18:30:11 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	boon.khai.ng@altera.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 2/2] net: stmmac: Disable EEE RX clock stop when VLAN is enabled
-Date: Tue, 11 Nov 2025 09:30:00 +0000
-Message-ID: <20251111093000.58094-3-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
-References: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
+	Tue, 11 Nov 2025 09:30:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DD9F2F;
+	Tue, 11 Nov 2025 01:30:28 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48B9D3F66E;
+	Tue, 11 Nov 2025 01:30:31 -0800 (PST)
+Message-ID: <58e6a323-5c14-4c64-acb5-84bb8679404a@arm.com>
+Date: Tue, 11 Nov 2025 09:30:29 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/33] arm_mpam: Probe hardware to find the supported
+ partid/pmg values
+To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-15-ben.horgan@arm.com>
+ <7d0c73d3-1943-469f-813a-eba1dac38d4a@redhat.com>
+ <33f9822a-fbb5-47e1-ab5c-97b30511a97f@redhat.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <33f9822a-fbb5-47e1-ab5c-97b30511a97f@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_013017_675774_68612AEE 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20251111_013037_519797_60043C7D 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +79,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the Renesas RZ/V2H EVK platform, where the stmmac MAC is connected to a
-Microchip KSZ9131RNXI PHY, creating or deleting VLAN interfaces may fail
-with timeouts:
+Hi Gavin,
 
-    # ip link add link end1 name end1.5 type vlan id 5
-    15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    RTNETLINK answers: Device or resource busy
+On 11/10/25 23:26, Gavin Shan wrote:
+> Hi Ben,
+> 
+> On 11/9/25 10:43 AM, Gavin Shan wrote:
+>> On 11/7/25 10:34 PM, Ben Horgan wrote:
+>>> From: James Morse <james.morse@arm.com>
+>>>
+>>> CPUs can generate traffic with a range of PARTID and PMG values,
+>>> but each MSC may also have its own maximum size for these fields.
+>>> Before MPAM can be used, the driver needs to probe each RIS on
+>>> each MSC, to find the system-wide smallest value that can be used.
+>>> The limits from requestors (e.g. CPUs) also need taking into account.
+>>>
+>>> While doing this, RIS entries that firmware didn't describe are created
+>>> under MPAM_CLASS_UNKNOWN.
+>>>
+>>> This adds the low level MSC write accessors.
+>>>
+>>> While we're here, implement the mpam_register_requestor() call
+>>> for the arch code to register the CPU limits. Future callers of this
+>>> will tell us about the SMMU and ITS.
+>>>
+>>> Signed-off-by: James Morse <james.morse@arm.com>
+>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>>> Tested-by: Peter Newman <peternewman@google.com>
+>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>>> ---
+>>> Changes since v3:
+>>>  From Jonathan:
+>>> Stray comma in printk
+>>> Unnecessary braces
+>>> ---
+>>>   drivers/resctrl/mpam_devices.c  | 148 +++++++++++++++++++++++++++++++-
+>>>   drivers/resctrl/mpam_internal.h |   6 ++
+>>>   include/linux/arm_mpam.h        |  14 +++
+>>>   3 files changed, 167 insertions(+), 1 deletion(-)
+[...]
+>>>   static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>>   {
+>>>       u64 idr;
+>>> +    u16 partid_max;
+>>> +    u8 ris_idx, pmg_max;
+>>> +    struct mpam_msc_ris *ris;
+>>>       struct device *dev = &msc->pdev->dev;
+>>>       lockdep_assert_held(&msc->probe_lock);
+>>> @@ -464,6 +564,40 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>>           return -EIO;
+>>>       }
+>>> +    /* Grab an IDR value to find out how many RIS there are */
+>>> +    mutex_lock(&msc->part_sel_lock);
+>>> +    idr = mpam_msc_read_idr(msc);
+>>> +    mutex_unlock(&msc->part_sel_lock);
+>>> +
+>>> +    msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+>>> +
+>>> +    /* Use these values so partid/pmg always starts with a valid
+>>> value */
+>>> +    msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>>> +    msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>>> +
+>>> +    for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+>>> +        mutex_lock(&msc->part_sel_lock);
+>>> +        __mpam_part_sel(ris_idx, 0, msc);
+>>> +        idr = mpam_msc_read_idr(msc);
+>>> +        mutex_unlock(&msc->part_sel_lock);
+>>> +
+>>> +        partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>>> +        pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>>> +        msc->partid_max = min(msc->partid_max, partid_max);
+>>> +        msc->pmg_max = min(msc->pmg_max, pmg_max);
+>>> +
+>>> +        mutex_lock(&mpam_list_lock);
+>>> +        ris = mpam_get_or_create_ris(msc, ris_idx);
+>>> +        mutex_unlock(&mpam_list_lock);
+>>> +        if (IS_ERR(ris))
+>>> +            return PTR_ERR(ris);
+>>> +    }
+>>> +
+>>> +    spin_lock(&partid_max_lock);
+>>> +    mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+>>> +    mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+>>> +    spin_unlock(&partid_max_lock);
+>>> +
+> 
+> mpam_register_requestor() could be used here to avoid the capacities
+> (maximal PARTIDs and PMGs) are unexpectedly lowered.
+> 
 
-Disabling EEE at runtime avoids the problem:
+I agree that this is somewhat surprising that without a requestor the
+driver supports 1 PARTID and 1 PMG, but it is intentional behaviour. The
+driver is only intended to be fully functional when a requestor
+(external to this base driver) registers itself and I don't want to add
+a dual meaning to this registration. This will be more obvious once the
+rest of the mpam support is added.
 
-    # ethtool --set-eee end1 eee off
-    # ip link add link end1 name end1.5 type vlan id 5
-    # ip link del end1.5
+Thanks,
 
-The stmmac hardware requires the receive clock to be running when writing
-certain registers, such as those used for MAC address configuration or
-VLAN filtering. However, by default the driver enables Energy Efficient
-Ethernet (EEE) and allows the PHY to stop the receive clock when the link
-is idle. As a result, the RX clock might be stopped when attempting to
-access these registers, leading to timeouts and other issues.
-
-Commit dd557266cf5fb ("net: stmmac: block PHY RXC clock-stop")
-addressed this issue for most register accesses by wrapping them in
-phylink_rx_clk_stop_block()/phylink_rx_clk_stop_unblock() calls.
-However, VLAN add/delete operations may be invoked with bottom halves
-disabled, where sleeping is not allowed, so using these helpers is not
-possible.
-
-Therefore, to fix this, disable the RX clock stop feature in the phylink
-configuration if VLAN features are set. This ensures the RX clock remains
-active and register accesses succeed during VLAN operations.
-
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ba4eeba14baa..0d3fb4fa5e12 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1245,7 +1245,8 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 	/* Stmmac always requires an RX clock for hardware initialization */
- 	config->mac_requires_rxc = true;
- 
--	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
-+	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI) &&
-+	    !(priv->dev->features & NETIF_F_VLAN_FEATURES))
- 		config->eee_rx_clk_stop_enable = true;
- 
- 	/* Set the default transmit clock stop bit based on the platform glue */
--- 
-2.51.0
+Ben
 
 
