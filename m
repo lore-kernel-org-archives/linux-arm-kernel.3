@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257AECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C622CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNHue9JkLg8RrgkiWvkOy25w3Kg8W5wnMsmMVUyswec=; b=aKbXAQTuqHiuCBeGofUbfPPhvY
-	ORzKJ0+q0Mov059sNb1aq5BhZWbm1vIKJLelcRwCH2DANyRxAPKBR+UwPjY0A5wnD/KKSHIhL1CaV
-	ODl4lPJpXUAnCb+nLjwnzB4xoFMBbcbAHTczAP7v9ofE4sNtg+H+EUE8Cod80tK7AsLjTfkCMDu+Z
-	IvOPMbx+x6vf4cTVbw74Q0dOkGW9Fc90BxxnwvdAwUpzXbtJcPvFfzWIVeqU5lrcQc2q14kOjtnyD
-	k+iFd7jf+olb8VcYKWvxlMzHBzIGbWb+65jiaY8UJnk6hBCUGQI02UIwHn/bz/OT15inFMaRpc2qO
-	8EgBAccQ==;
+	bh=WQfA07jrY1yw4S5F8kxwzxEJt28ArdLXUX9ylTyMaFI=; b=Rf7D20rT13JAxoK0PDDB56Vlls
+	kft2AUvRjSRpRg0k1OrIo8aPUmsUPJ++p0o2XKjsLdGhrffNXHRw5CSuVMNDyG4CiD0X66wrcXKED
+	EOR9+InfM4KJrKiSKR6dLmOI68/uRHkX8Zw9EJ0z4XKDMy/oH0Or4C+tEwXeAN7FaYbkCNGpZdSc9
+	+qtf8YVLJdJRsND5hseHYGMKbDsX1TQO5hrHy9OkBXlt9klbS8KNM0hC/EAoMBIwPDJDS+91GElKm
+	2OJQ/AALrxdwEHE+GAZUIhG3ql+KDSRvchZERBfpAh9lvTGehlm4laLNX63YITUpYOYjBUrQa4mQV
+	+SWZJ47A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIma3-000000074Xb-1wtE;
-	Tue, 11 Nov 2025 11:30:35 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImZw-000000074Wt-06fa
+	id 1vImgX-000000074wl-2YDB;
+	Tue, 11 Nov 2025 11:37:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vImgV-000000074wJ-1FuY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 11:30:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4d5PRY3JTXzcZyM;
-	Tue, 11 Nov 2025 19:28:25 +0800 (CST)
-Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4457D14027A;
-	Tue, 11 Nov 2025 19:30:13 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemr500004.china.huawei.com
- (7.202.195.141) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 11 Nov
- 2025 19:30:11 +0800
-Message-ID: <e439d370-48a3-40c3-ae54-67d2f844bae5@hisilicon.com>
-Date: Tue, 11 Nov 2025 19:30:09 +0800
+	Tue, 11 Nov 2025 11:37:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B6942F;
+	Tue, 11 Nov 2025 03:37:04 -0800 (PST)
+Received: from [10.57.72.204] (unknown [10.57.72.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 460F73F66E;
+	Tue, 11 Nov 2025 03:37:10 -0800 (PST)
+Message-ID: <d17fc264-7f3d-4257-abec-078e665d7ecb@arm.com>
+Date: Tue, 11 Nov 2025 11:37:08 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] cpufreq: CPPC: Update FIE arch_freq_scale in ticks for
- non-PCC regs
-To: Beata Michalska <beata.michalska@arm.com>
-CC: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
-	<linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>,
-	<zhenglifeng1@huawei.com>, <prime.zeng@hisilicon.com>,
-	<jonathan.cameron@huawei.com>
-References: <20251104065039.1675549-1-zhanjie9@hisilicon.com>
- <aRIXlSOPzAy1nXUQ@arm.com>
-From: Jie Zhan <zhanjie9@hisilicon.com>
-Content-Language: en-US
-In-Reply-To: <aRIXlSOPzAy1nXUQ@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr500004.china.huawei.com (7.202.195.141)
+Subject: Re: [PATCH v5 09/11] coresight: etm4x: Add flag to control
+ single-shot restart
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com>
+ <20251103-arm_coresight_power_management_fix-v5-9-f803c19aa153@arm.com>
+ <ac108275-0b12-4cc1-b8db-d864175f9059@arm.com>
+ <20251111092403.GB281971@e132581.arm.com>
+ <a5ca5a65-8d5c-48b3-83f2-82d13c0b930d@arm.com>
+ <20251111101805.GD281971@e132581.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251111101805.GD281971@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_033028_376156_9542E618 
-X-CRM114-Status: GOOD (  46.57  )
+X-CRM114-CacheID: sfid-20251111_033715_408434_B69F5B06 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,283 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/11/2025 10:18, Leo Yan wrote:
+> On Tue, Nov 11, 2025 at 09:43:13AM +0000, Suzuki Kuruppassery Poulose wrote:
+> 
+> [...]
+> 
+>>>     if (!is_idle_task(current)) {
+>>>         if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+>>>             config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+>>>     }
+>>
+>> What happens when we do a system wide session and a CPU is running an
+>> idle task ?
+> 
+> For a system wide trace, the ETM device is enabled and disabled by
+> the perf when the session start and finish.
+> 
+> During the session:
+> 
+> - If CPU off states are not enabled, nothing will happen in idle
+>    threads, as no CPU PM notifier will be invoked.
+
+What is a CPU is running the idle task, when the system wide session
+is activated ? Basing our decision to tune the ETM control on the
+"active task being idle" feels fragile to me. This is purely a
+decision under ETM driver, specific to the session you are dealing
+with. Thus having it in the "config" is preferred and is cleaner.
+
+Suzuki
 
 
-On 11/11/2025 12:49 AM, Beata Michalska wrote:
-> Hi Jie,
-> On Tue, Nov 04, 2025 at 02:50:39PM +0800, Jie Zhan wrote:
->> Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
->> scheduler tick but defers the update of arch_freq_scale to a separate
->> thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
->>
->> However, this deferred update mechanism is unnecessary and introduces extra
->> overhead for non-PCC register spaces (e.g. System Memory or FFH), where
->> accessing the regs won't sleep and can be safely performed from the tick
->> context.
->>
->> Furthermore, with the CPPC FIE registered, it throws repeated warnings of
->> "cppc_scale_freq_workfn: failed to read perf counters" on our platform with
->> the CPC regs in System Memory and a power-down idle state enabled.  That's
->> because the remote CPU can be in a power-down idle state, and reading its
->> perf counters returns 0.  Moving the FIE handling back to the scheduler
->> tick process makes the CPU handle its own perf counters, so it won't be
->> idle and the issue would be inherently solved.
->>
->> To address the above issues, update arch_freq_scale directly in ticks for
->> non-PCC regs and keep the deferred update mechanism for PCC regs.
-> Something about it just didn’t sit right with me, and apparently, it needed some
-> time to settle down - thus the delay.
 > 
-> It all looks sensible though it might be worth to considered applying
-> the change on a per-CPU basis, as, in theory at least, different address
-> spaces are allowed for different registers (at least according to the ACPI
-> spec, if I read it right).
-> So I was thinking about smth along the lines of:
-Beata,
+> - If CPU off states have been enabled, CPU PM notifier will save and
+>    restore ETM device context, and keep single-shot status.  This is
+>    same with current save/restore flow.
+> 
+> I don't see any issue for this.
+> 
+> Thanks,
+> Leo
 
-Right, I see what you want to do.
-Some comments inline.
-
-Would you like to make it a full patch so I can include it in the next
-version? or some other way?
-
-Jie
-> 
-> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
-> index 6c684e54fe01..07f4e59f2f0a 100644
-> --- a/drivers/acpi/cppc_acpi.c
-> +++ b/drivers/acpi/cppc_acpi.c
-> @@ -1431,38 +1431,47 @@ EXPORT_SYMBOL_GPL(cppc_get_perf_caps);
->   *
->   * Return: true if any of the counters are in PCC regions, false otherwise
->   */
-> -bool cppc_perf_ctrs_in_pcc(void)
-> +bool cppc_perf_ctrs_in_pcc(unsigned int cpu)
->  {
-> -	int cpu;
-> +	struct cpc_register_resource *ref_perf_reg;
-> +	struct cpc_desc *cpc_desc;
->  
-> -	for_each_present_cpu(cpu) {
-> -		struct cpc_register_resource *ref_perf_reg;
-> -		struct cpc_desc *cpc_desc;
-> +	cpc_desc = per_cpu(cpc_desc_ptr, cpu);
->  
-> -		cpc_desc = per_cpu(cpc_desc_ptr, cpu);
-> +	if (CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
-> +	    CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
-> +	    CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]))
-> +		return true;
->  
-> -		if (CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
-> -		    CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
-> -		    CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]))
-> -			return true;
->  
-> +	ref_perf_reg = &cpc_desc->cpc_regs[REFERENCE_PERF];
->  
-> -		ref_perf_reg = &cpc_desc->cpc_regs[REFERENCE_PERF];
-> +	/*
-> +	 * If reference perf register is not supported then we should
-> +	 * use the nominal perf value
-> +	 */
-> +	if (!CPC_SUPPORTED(ref_perf_reg))
-> +		ref_perf_reg = &cpc_desc->cpc_regs[NOMINAL_PERF];
-Though not related to this issue, I'm confused that this sort of workaround
-appears here - it should be in some init function.
->  
-> -		/*
-> -		 * If reference perf register is not supported then we should
-> -		 * use the nominal perf value
-> -		 */
-> -		if (!CPC_SUPPORTED(ref_perf_reg))
-> -			ref_perf_reg = &cpc_desc->cpc_regs[NOMINAL_PERF];
-> +	if (CPC_IN_PCC(ref_perf_reg))
-> +		return true;
-> +
-> +	return false;
-> +}
-> +EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc);
->  
-> -		if (CPC_IN_PCC(ref_perf_reg))
-> +bool cppc_any_perf_ctrs_in_pcc(void)
-> +{
-> +	int cpu;
-> +
-> +	for_each_present_cpu(cpu) {
-> +		if (cppc_perf_ctrs_in_pcc(cpu))
->  			return true;
->  	}
->  
->  	return false;
->  }
-> -EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc);
-> +EXPORT_SYMBOL_GPL(cppc_any_perf_ctrs_in_pcc);
->  
->  /**
->   * cppc_get_perf_ctrs - Read a CPU's performance feedback counters.
-> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
-> index 4fcaec7e2034..fdf5a49c04ed 100644
-> --- a/drivers/cpufreq/cppc_cpufreq.c
-> +++ b/drivers/cpufreq/cppc_cpufreq.c
-> @@ -48,7 +48,6 @@ struct cppc_freq_invariance {
->  };
->  
->  static DEFINE_PER_CPU(struct cppc_freq_invariance, cppc_freq_inv);
-> -static bool perf_ctrs_in_pcc;
->  static struct kthread_worker *kworker_fie;
->  
->  static int cppc_perf_from_fbctrs(struct cppc_perf_fb_ctrs *fb_ctrs_t0,
-> @@ -132,7 +131,12 @@ static void cppc_scale_freq_tick_pcc(void)
->  
->  static void cppc_scale_freq_tick(void)
->  {
-> -	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
-> +	unsigned int cpu = smp_processor_id();
-> +
-> +	cppc_perf_ctrs_in_pcc(cpu) ? cppc_scale_freq_tick_pcc()
-Calling cppc_perf_ctrs_in_pcc() could be expensive here.
-I'd prefer something like a static branch or a determined callback for each
-cpu.
-> +				   : __cppc_scale_freq_tick(
-> +				   			&per_cpu(cppc_freq_inv,
-> +				   				 cpu));
->  }
->  
->  static struct scale_freq_data cppc_sftd = {
-> @@ -152,7 +156,7 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
->  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
->  		cppc_fi->cpu = cpu;
->  		cppc_fi->cpu_data = policy->driver_data;
-> -		if (perf_ctrs_in_pcc) {
-> +		if (cppc_perf_ctrs_in_pcc(cpu)) {
->  			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
->  			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
->  		}
-> @@ -193,10 +197,9 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
->  	/* policy->cpus will be empty here, use related_cpus instead */
->  	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
->  
-> -	if (!perf_ctrs_in_pcc)
-> -		return;
-> -
->  	for_each_cpu(cpu, policy->related_cpus) {
-> +		if (!cppc_perf_ctrs_in_pcc(cpu))
-> +			continue;
->  		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
->  		irq_work_sync(&cppc_fi->irq_work);
->  		kthread_cancel_work_sync(&cppc_fi->work);
-> @@ -218,14 +221,11 @@ static void __init cppc_freq_invariance_init(void)
->  		.sched_deadline = 10 * NSEC_PER_MSEC,
->  		.sched_period	= 10 * NSEC_PER_MSEC,
->  	};
-> +	bool perf_ctrs_in_pcc = cppc_any_perf_ctrs_in_pcc();
->  	int ret;
->  
-> -	perf_ctrs_in_pcc = cppc_perf_ctrs_in_pcc();
-> -
->  	if (fie_disabled != FIE_ENABLED && fie_disabled != FIE_DISABLED) {
-> -		if (!perf_ctrs_in_pcc) {
-> -			fie_disabled = FIE_ENABLED;
-> -		} else {
-> +		if (perf_ctrs_in_pcc) {
->  			pr_info("FIE not enabled on systems with registers in PCC\n");
->  			fie_disabled = FIE_DISABLED;
->  		}
-> @@ -234,12 +234,12 @@ static void __init cppc_freq_invariance_init(void)
->  	if (fie_disabled || !perf_ctrs_in_pcc)
->  		return;
->  
-> -	cppc_sftd.set_freq_scale = cppc_scale_freq_tick_pcc;
->  
->  	kworker_fie = kthread_run_worker(0, "cppc_fie");
->  	if (IS_ERR(kworker_fie)) {
->  		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
->  			PTR_ERR(kworker_fie));
-> +		kworker_fie = NULL;
->  		fie_disabled = FIE_DISABLED;
->  		return;
->  	}
-> @@ -255,10 +255,8 @@ static void __init cppc_freq_invariance_init(void)
->  
->  static void cppc_freq_invariance_exit(void)
->  {
-> -	if (fie_disabled || !perf_ctrs_in_pcc)
-> -		return;
-> -
-> -	kthread_destroy_worker(kworker_fie);
-> +	if (kworker_fie)
-> +		kthread_destroy_worker(kworker_fie);
->  }
->  
->  #else
-> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
-> index 13fa81504844..3af503b12f60 100644
-> --- a/include/acpi/cppc_acpi.h
-> +++ b/include/acpi/cppc_acpi.h
-> @@ -154,7 +154,8 @@ extern int cppc_get_perf_ctrs(int cpu, struct cppc_perf_fb_ctrs *perf_fb_ctrs);
->  extern int cppc_set_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls);
->  extern int cppc_set_enable(int cpu, bool enable);
->  extern int cppc_get_perf_caps(int cpu, struct cppc_perf_caps *caps);
-> -extern bool cppc_perf_ctrs_in_pcc(void);
-> +extern bool cppc_perf_ctrs_in_pcc(unsigned int cpu);
-> +extern bool cppc_any_perf_ctrs_in_pcc(void);
-would be slightly better to keep cppc_perf_ctrs_in_pcc(void) and add a new
-function, e.g. cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu), such that the
-old ABI is unchanged.
->  extern unsigned int cppc_perf_to_khz(struct cppc_perf_caps *caps, unsigned int perf);
->  extern unsigned int cppc_khz_to_perf(struct cppc_perf_caps *caps, unsigned int freq);
->  extern bool acpi_cpc_valid(void);
-> @@ -204,7 +205,11 @@ static inline int cppc_get_perf_caps(int cpu, struct cppc_perf_caps *caps)
->  {
->  	return -EOPNOTSUPP;
->  }
-> -static inline bool cppc_perf_ctrs_in_pcc(void)
-> +static inline bool cppc_perf_ctrs_in_pcc(unsigned int cpu)
-> +{
-> +	return false;
-> +}
-> +static inline bool cppc_any_perf_ctrs_in_pcc(void)
->  {
->  	return false;
->  }
-> 
-> 
-> Additionally, it might be worth to get rid of (at least) some messages printed
-> on the path of reading the counters in case it is being done in tick context.
-Cool, will have a look.
-> 
-> Also , I do not have access to any machine using PCC, and it would be good to
-> double check that as well.
-> 
-> ---
-> BR
-> Beata
-
->>
->> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
->> ---
->> We have tested this on Kunpeng SoCs with the CPC regs both in System Memory
->> and FFH.  More tests on other platforms are welcome.
->>
->> Changelog:
->>
->> v3:
->> - Stash the state of 'cppc_perf_ctrs_in_pcc' so it won't have to check the CPC
->>   regs of all CPUs everywhere (Thanks to the suggestion from Beata Michalska).
->> - Update the commit log, explaining more on the warning issue caused by
->>   accessing perf counters on remote CPUs.
->> - Drop Patch 1 that has been accepted, and rebase Patch 2 on that.
->>
->> v2:
->> https://lore.kernel.org/linux-pm/20250828110212.2108653-1-zhanjie9@hisilicon.com/
->> - Update the cover letter and the commit log based on v1 discussion
->> - Update FIE arch_freq_scale in ticks for non-PCC regs
->>
->> v1:
->> https://lore.kernel.org/linux-pm/20250730032312.167062-1-yubowen8@huawei.com/
->> ---
->>  drivers/cpufreq/cppc_cpufreq.c | 60 ++++++++++++++++++++++++----------
->>  1 file changed, 42 insertions(+), 18 deletions(-)
-...
 
