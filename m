@@ -4,107 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD1FCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2BBCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRQ3tvbkVBEvE55o8x/Q5hdsl+0C2BMYiF9DQcYBkjo=; b=jFAlgXvK1+vAajsXQSKBMEDA0s
-	qw7cG6zfOxxk1PyMhI9LeqpucdTtyiY4Y+adDmisbaknZRhyQighPCNyxWFMAGY/KqHMn267ZnlqE
-	lomUwFI4PXh7CPGIiC4ESJVp2T4W3JfPn+yPnojOOx5e/KaTyHqh+2OoQQ0Wy21oco3PAA4cXP0td
-	E7mY1GgL5DZQASweY2eTRcQKBia4CiodqC2/ksAjhJ/zyqyxItnJsXm2mgOcYDLWp2EcwW90PVZXi
-	75aHbSW4tQeUPXo6KaYR/kB5CJTOHBVptU0INf2p3CDYsOFR8s04CCxSHfeUZlWDGMjHSUBELGWyS
-	D1SGiJQg==;
+	bh=BwVpYc+GP7PiHbU3GYENQ1A6OaOM5SDxZdhQ5lGV8aY=; b=w0YMOJs25cXzhtvV5IhMC3HUuh
+	Vhg2nKXQkRIXeIa3VRrbFvd/+H29IdO4TVORnUoKr9+ZttKBDo1K0q+QCv0Bg1h0lRnAW/1oMH5w7
+	EXK2xR1gkLIwBRiqHBVmDd1KtDLPlCMm/KDHYyVkL59g9Pgx2TpMcFq0vRI7kk3wMH9QrqwMYMt+W
+	YEJn6wvcIPMrhbKPIJweuenlG8/Xf/0QFWxlsrJIYuHCHCTyJqt11LAZ4gSWuEBCZt7UKxYnqTv98
+	7Bvov2HCLYJqiPCI/KG7dAD67sx4sPsRbYlDDeyFJo8UByQhX+9r9npBG7eHhUN1/GO8pgy1Z1GCj
+	53amjr7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkdp-00000006qB0-0Kwa;
-	Tue, 11 Nov 2025 09:26:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkdn-00000006qA5-0Z4P;
-	Tue, 11 Nov 2025 09:26:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C31942A93;
-	Tue, 11 Nov 2025 09:26:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F55DC19423;
-	Tue, 11 Nov 2025 09:26:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762853178;
-	bh=dxJl6J2CtbaTteGybNjKa4QQeR/lRzB/xgCS77moFk0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G7AWKwMx+XHNG2jtALJxzbBvu8Iw+J5g+YdRdNQJWMH2/gICiKw0G9GUPhrZ9pXny
-	 FygxxivVJd10zpR+gi/DpqTMvC0viB1T7s91ruKpNtlGhAC9wkxiUBNu3H/SyZWbc6
-	 Q0jxU8sQnD8yK90KitrN9fJmWpBHtp3JUmxZWGkGbyi3nf10zKD0N5tOS+vc7R94UV
-	 fw1vUg+FdTuk0rAxqE9bXfyHhNMudbOJVwnbe+b1PBEfdqvluXrIzBnTbeoHkhurCd
-	 J5YVAx8MZdZn9xi1E7wBOLpzQzcNeSrJnRHnHY+ZYQ7fNsWN2V0t5uqn9Plc43hmZh
-	 JrZTtXu6WOA3A==
-Message-ID: <7d663aee-d77f-4553-a173-af9c2d75da50@kernel.org>
-Date: Tue, 11 Nov 2025 10:26:13 +0100
+	id 1vIkhc-00000006qWS-20Wg;
+	Tue, 11 Nov 2025 09:30:16 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vIkhY-00000006qV3-45Da
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Nov 2025 09:30:15 +0000
+X-CSE-ConnectionGUID: 94xcbtfmSputrr59VV2WVg==
+X-CSE-MsgGUID: aLGN8iKTRYK9uWYWeZ+Hfw==
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie6.idc.renesas.com with ESMTP; 11 Nov 2025 18:30:10 +0900
+Received: from vm01.adwin.renesas.com (unknown [10.226.93.46])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 85CBC4173001;
+	Tue, 11 Nov 2025 18:30:06 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	boon.khai.ng@altera.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 1/2] net: stmmac: Fix VLAN 0 deletion in vlan_del_hw_rx_fltr()
+Date: Tue, 11 Nov 2025 09:29:59 +0000
+Message-ID: <20251111093000.58094-2-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
+References: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v8 1/4] dt-bindings: can: rockchip_canfd: add
- rk3576 CAN controller
-To: Elaine Zhang <zhangqing@rock-chips.com>, mkl@pengutronix.de,
- kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com
-Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20251111080511.2923069-1-zhangqing@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251111080511.2923069-1-zhangqing@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_012619_226828_CECE4871 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20251111_013013_128665_0A6C9C7E 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,93 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 09:05, Elaine Zhang wrote:
-> Add documentation for the rockchip rk3576 CAN controller.
-> 
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  .../net/can/rockchip,rk3568v2-canfd.yaml      | 52 +++++++++++++++++--
->  1 file changed, 48 insertions(+), 4 deletions(-)
+When the "rx-vlan-filter" feature is enabled on a network device, the 8021q
+module automatically adds a VLAN 0 hardware filter when the device is
+brought administratively up.
 
-Your threading is completely broken. I don't see any other patches here.
+For stmmac, this causes vlan_add_hw_rx_fltr() to create a new entry for
+VID 0 in the mac_device_info->vlan_filter array, in the following format:
 
-That's v8, resend and still not correct :(
+    VLAN_TAG_DATA_ETV | VLAN_TAG_DATA_VEN | vid
 
-> 
-> diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-> index a077c0330013..30782218728e 100644
-> --- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-> +++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-> @@ -10,13 +10,12 @@ title:
->  maintainers:
->    - Marc Kleine-Budde <mkl@pengutronix.de>
->  
-> -allOf:
-> -  - $ref: can-controller.yaml#
-> -
->  properties:
->    compatible:
->      oneOf:
-> -      - const: rockchip,rk3568v2-canfd
-> +      - enum:
-> +          - rockchip,rk3568v2-canfd
-> +          - rockchip,rk3576-can
->        - items:
->            - const: rockchip,rk3568v3-canfd
->            - const: rockchip,rk3568v2-canfd
-> @@ -43,6 +42,33 @@ properties:
->        - const: core
->        - const: apb
->  
-> +  dmas:
-> +    maxItems: 1
-> +
-> +  dma-names:
-> +    items:
-> +      - const: rx
-> +
-> +allOf:
-> +  - $ref: can-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: rockchip,rk3576-can
-> +    then:
-> +      properties:
-> +        dmas:
-> +          minItems: 1
-> +          maxItems: 1
-> +        dma-names:
-> +          minItems: 1
-> +          maxItems: 1
+Here, VLAN_TAG_DATA_VEN indicates that the hardware filter is enabled for
+that VID.
 
-Drop both, no need to duplicate what is in top level.
+However, on the delete path, vlan_del_hw_rx_fltr() searches the vlan_filter
+array by VID only, without verifying whether a VLAN entry is enabled. As a
+result, when the 8021q module attempts to remove VLAN 0, the function may
+mistakenly match a zero-initialized slot rather than the actual VLAN 0
+entry, causing incorrect deletions and leaving stale entries in the
+hardware table.
 
+Fix this by verifying that the VLAN entry's enable bit (VLAN_TAG_DATA_VEN)
+is set before matching and deleting by VID. This ensures only active VLAN
+entries are removed and avoids leaving stale entries in the VLAN filter
+table, particularly for VLAN ID 0.
 
-> +    else:
-> +      properties:
-> +        dmas: false
-> +        dma-names: false
-> +
->  required:
->    - compatible
->    - reg
-> @@ -72,3 +98,21 @@ examples:
->              reset-names = "core", "apb";
->          };
->      };
-> +
-> +  - |
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        can@2ac00000 {
+Fixes: ed64639bc1e08 ("net: stmmac: Add support for VLAN Rx filtering")
+Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Difference in one property usually does not justify new example.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index 0b6f6228ae35..fd97879a8740 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -122,7 +122,8 @@ static int vlan_del_hw_rx_fltr(struct net_device *dev,
+ 
+ 	/* Extended Rx VLAN Filter Enable */
+ 	for (i = 0; i < hw->num_vlan; i++) {
+-		if ((hw->vlan_filter[i] & VLAN_TAG_DATA_VID) == vid) {
++		if ((hw->vlan_filter[i] & VLAN_TAG_DATA_VEN) &&
++		    ((hw->vlan_filter[i] & VLAN_TAG_DATA_VID) == vid)) {
+ 			ret = vlan_write_filter(dev, hw, i, 0);
+ 
+ 			if (!ret)
+-- 
+2.51.0
 
-
-Best regards,
-Krzysztof
 
