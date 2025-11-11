@@ -4,175 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DB8CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 01:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3B5CCFA13
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 02:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=92460uPc1JawV3CNDNiLhEb4beTKipnm7MbBh8C+gJo=; b=tF1hnYE9WBvaxhnHHV8NUm6tLS
-	VTXduBq8GNsv5dwg/2+gdgc/G6EbYqKyMchWBiDorTWhRWKGg935UUIpxrxtj4gx9djrMJI7WHm6u
-	Q0NJgb/7Si/8k6II5vhiu3IdobZUt8BwJSa1z7BCt49zzS8L+Jjfuz6esVDgBogTgP7XE9HBodlLl
-	eMJEIZ0snQe3bMfQEus1++/1Muj2O2qhy0n10Scb3qUqaMGT1qmlklfXVIF7TprYEQ7Pce4a/Ay09
-	oxTA5AwQYPUgSSzWido7xr2EsmCT8+DGnKaEw0RTCdRQ/NiJLJqKymner7ww5O/ckKQ+shh+x2cKw
-	SRlVA7uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OZZBiUvY/5c9jBV/LBTUZW0mo2dx1qt89FE4BeeGdtA=; b=rv92jbNUcDO6CPDFiZHa7CotKP
+	1iwog98+KEphAq5a2jKMkNxWAJduJFEb70lb8tRsgc3pMWmIGnPLW8c0iHS7Kbk1gF3VcoNzUfu6n
+	lqnF4JK8CSGiUGPzEthxGXsW0KI219G2byhKJ9Vd2ySnbQazhYesi8nH5H99ysX+Zd0jG8Kwdfe3i
+	Pin5ytCto3VVxcSR8YRhNRQk1pcch5VmTf+yJd5JDm++ZEjylackdApC6PqRCRbgKAtKW98UM4kHM
+	vKUYN6HwJw1W+/mVS0daH+P33zpWTGZKPU349YhTZ5J5MHehEZnX2pbqXqAGiihPpkaSpQ6GipwN0
+	C7/BAndg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIdOs-00000006M3B-2Bd5;
-	Tue, 11 Nov 2025 01:42:26 +0000
-Received: from mail-northeuropeazon11012053.outbound.protection.outlook.com ([52.101.66.53] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vIdqZ-00000006NQt-2yR6;
+	Tue, 11 Nov 2025 02:11:03 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIdOo-00000006Ly9-2UW9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 01:42:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BLf/aELASiHlZJ1MYyzK2nWZbbzZ6RdFl+CuIkP2aLgD1qTeIB6QXriwTmeQZfjX7giwiwPL1uiH9315Hum7cLmYqytiMmjDDOIOtCeZi74fw0mTSPcRpl3x1ol10SVfuigZT70VldQQ58vGZQsGApfyAtvdm7/RoXH0W2zo+YbEDaffe4UFZf0E7Ut3OMzpsb3FMiFiPWITb2809Md+4eYiR+p5CLgiE1Vcbuviku28GKTXWzgd9/SmGv9Tj/E/vWnbfTQPcNNz7q1gQiHKFJcN+TRGqDLVrQ4BeOya2fE/TWf02o8dAJX8pD8/efBfrulHx2dXTOA862/N1ymwdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=92460uPc1JawV3CNDNiLhEb4beTKipnm7MbBh8C+gJo=;
- b=zRWk0wpE1qPiBWAa4IT8oHEMeQhpV6Fefj85yXH6esapAQlWRMOzVPFWO2/BDrH/HcWfIEO7NPZ4NmkEKz4FH61u63ZD8krlfyHzUOcI84qmIEkVaxAoeU136V8RL2kX/EPKwBbwREy/+xslNZftIpQBolMPOHaMjICzvTvLKoOSyUV1oMOx9d/Kc+9IcsDuc+uRuuZ94Zg0d6XsjXLUJLxH7dP7jxbJWrryPeyA2ro0insVkI9IjCYlJtJW88vHhWNdZCTK9J5HOUSN40b5lH2nJuh5uBaHECquI/e2xKyraDWfLjOrLyao33ST5vvE2Dj9MqbnrxsHeDMicEyQFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=92460uPc1JawV3CNDNiLhEb4beTKipnm7MbBh8C+gJo=;
- b=VOdbKBXyL9cRdbW7sqQczYTd22W/7tI8WlmDbOEqjrELH4x1nixtQ9WytCJYCCTFZsybBQxBdoPSd0S0/Ylmsco76DpVvH8/9YktJtp9RJNNjqwWxJvjxUr4DyqUTl14lCSzIdq4XLoU2bov5APEQv5fxA1OuZ+krWc7KT9kcfFFMJW8opDdkLMOzyWpQdT8M4xxiYxdADZGnLe3aBunEkiTy+sei7DCZ2gMNxOuSS5WLHEfC9cVo7GIqoWb8lVvFu6S/ouh59nEejjbY5CAG0Ejy+yNs/uM50mqcyGE+sJ2b7U0uVMN3ytqedWvb+ofAslAr7HAWdg42gAVPyoHDQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8039.eurprd04.prod.outlook.com (2603:10a6:20b:2a2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Tue, 11 Nov
- 2025 01:42:17 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9298.015; Tue, 11 Nov 2025
- 01:42:17 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Tue, 11 Nov 2025 09:41:22 +0800
-Subject: [PATCH v3 11/11] remoteproc: imx_rproc: Remove enum
- imx_rproc_method
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251111-imx-dsp-2025-11-11-v3-11-d05dcba737fa@nxp.com>
-References: <20251111-imx-dsp-2025-11-11-v3-0-d05dcba737fa@nxp.com>
-In-Reply-To: <20251111-imx-dsp-2025-11-11-v3-0-d05dcba737fa@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Shengjiu Wang <shengjiu.wang@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SI2P153CA0017.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1vIdqT-00000006NNY-0h9h;
+	Tue, 11 Nov 2025 02:11:02 +0000
+X-QQ-mid: zesmtpip3t1762826986t355f97ce
+X-QQ-Originating-IP: Hiq+d1HFsdfBnF0CzHzpOopV81Jpt/t8pVjS27nsYIM=
+Received: from [IPV6:240f:10b:7440:1:62e3:2c99 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 11 Nov 2025 10:09:42 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12658501094839713575
+Message-ID: <B721C8A516FDB604+a04b38d3-64ec-423f-9e4c-040c8d2aec76@radxa.com>
+Date: Tue, 11 Nov 2025 11:09:42 +0900
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8039:EE_
-X-MS-Office365-Filtering-Correlation-Id: 573b59a6-7e08-44af-8c8c-08de20c38c2f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UXpmUlpUNHdGTDlMQi93UEpyR2RHRlM3QUtsU09mMXpvQ1RMa3BVb2cyWjUz?=
- =?utf-8?B?dzloN29ZdzhWUTBERVJrOUFjMjZCSHhRNVkvcFd2Vy9oSGlzRkUrSTBpTTk5?=
- =?utf-8?B?MXEyK0x6Vi9IaDR1eUxmeFJXMjVsMVB0am1jNUdVdTRXQW5FQ2tNc09yRFlU?=
- =?utf-8?B?VTM1UWtDemJ2VG1GNWR2eVdYRDVJbzA2bnRadng3U2NMQkozcnJLOWUwWTd4?=
- =?utf-8?B?QkdHMVlZU2UzUWpIbGJESnlMa1dHRnVEdTJWZ3JsUytuSEpnWlJ5QW54dEFE?=
- =?utf-8?B?UFI0ZDJTNTc4Ti9ZbXFjWGlGdlNFUWpjZ0wwekhZTkF6M010K1h5T2YxMGVE?=
- =?utf-8?B?NjBSQ0hWaXNuSTJST2MzeWZlMnB2R2Q2Q3FSTUtpY1FOYjhuVEZZTVVsSUx4?=
- =?utf-8?B?T1RLVkNnOE92aFFlbE9yOVRFL0JXTXV3Mm5SUlNIdWpxT0NLMzZ5RHRkOUxB?=
- =?utf-8?B?RE11aU9PMSsxMWZweHp1dGkwUkhuaGlOOHlZSkEvUisxRllBSDExMDdRRmc4?=
- =?utf-8?B?UXN0N1RacUtCek1qek5aOTZyWmRXTWJSdXpvS21YNTZGWUdYYTJLZUNzWDhH?=
- =?utf-8?B?bXlhUlp5RHpZK0dkcDhLOEpLR2ZXK1Z5LzhSaWt2OVVaQjFsR2tYWFlZcFB1?=
- =?utf-8?B?TTJpOFRNcmw2cklGS0ZCL1lXWk5OOWRMMU84MUNtenIvSnZ0NHRFNXNjbkpV?=
- =?utf-8?B?eUNwOWtDMVp6VmxvZW16VWFjUWJXc2gxdkc0RTVwemg4N29FcGpuV2liekY5?=
- =?utf-8?B?ZEF1THF2VnNVQzNtU3dRdStxM1FCbFIvbC9SUVVob0lISGZHV1FjcTlQOEU5?=
- =?utf-8?B?T0RzUTFTS2w1TE5GMDVFT29DWnpmMUw4eU1VUlJvdVFaNzdjWmNBcFRuVVJy?=
- =?utf-8?B?byszemJqMjFwRUtBWm9tVEw5RmJGcWNIV08yZElveDU5V2FVbDM3TWtHYXVW?=
- =?utf-8?B?OG1OcTcvT0xwcm1QRmEreCsyeXNqYWhPNHhVZHBaTldEbjVqTi9jbjFaeDVZ?=
- =?utf-8?B?Y1VlK3NoeGtTQTQ2QVZZZXdaQ3lRMlBhbi9FUWdmNGhxWmE1Tk9WR1h2M0VW?=
- =?utf-8?B?SHpPQXRnUndwZ3VPblo0TDRJSEN6TkNZOFJEQzA3OVlCb2gvWituMXI4NGVa?=
- =?utf-8?B?L0FXM0tTMEtYMTJEVlVNN3VaZmYxRHFYUUNYdklxbkxpRnBRYnFQSmkxWDMy?=
- =?utf-8?B?MkJOSG5tK3ZFSFV5R1FQUDB1NUtESEhtYndXK01FcE1TYTcrSjZHcmRYazI0?=
- =?utf-8?B?N2ZFTkpwZFZ5UXQzQTZQOUx5Nk5iUU10RmtWMEl3K0NKNm45YlVWdGJPUjh0?=
- =?utf-8?B?L2NsM2orSFYxd0dBWFlBRzRzWTErN3JkQ2JLOFFsckNHUmhtUkQyMmYrenVu?=
- =?utf-8?B?YysvOExTN2ZmaW43RE1zYS9rQmI5bkJjNjExM05ONG12OGxwVm8zSG5tWEhz?=
- =?utf-8?B?Mmt6UzdvSWNlMkhhbXJsS2VESW1jd25FYm1iVDR3T0E2RHIvOGlXNmtkUXIv?=
- =?utf-8?B?VzYyRHErckEzN1hNaHRqTFl0Mmd1SDA2QnBRdjdqVG5RY3o4OUQ3V0Niblg4?=
- =?utf-8?B?cTUzK09FUUhPTHpOOWJldFJ4TmgxSlMrdkpwb2NQVUcvYkFab2wvRzBOc2k3?=
- =?utf-8?B?K29xMmZ2WlNlYjBsRG5jOEU0cEs4RTJtcVFqaUc3Tm1lWVpDaytvTHY1U2dj?=
- =?utf-8?B?bUlCb05maHU0UXRjWGl6NmlkQzFibHRxOGpzaGRRTnRxam51bmZ2dFRRZnF2?=
- =?utf-8?B?d0kzNlFCWW0rb2dQNXdYQjFSRlhqOVZKRmJLK0hSVTlacXNjZHlOV1lQQWpG?=
- =?utf-8?B?Tm0zSjVMN1JnbzVLKzRZZExmQjlWTGkvZGRRTUVxcFlpbTBGZnkzNzVMOEtS?=
- =?utf-8?B?Uld5cVIyUXRKTFdqSmpuY2dENjB3SHFDK05Hb0x2UGdOK3E1VzcrdGZvNlUv?=
- =?utf-8?B?Y0xEcllqa3AvZG4zMERzbW1WMkdweHhLVnlYa25iVEgxc3E4dWNOV0lmQ0Vn?=
- =?utf-8?B?ZGlCcTlWS01DRTdBSkU3RlVhTFJUREk1TnZUWFlmaEJ1R0JvZEprVlhyeUpY?=
- =?utf-8?Q?a74zln?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXRTOFRJVmVNRm94ckNpUStZajRsYWgvQUJJbHBXTHZsSll1ZUF4UHNGa3FW?=
- =?utf-8?B?UTd1ZG1KS3dtRVI5bEcxNEZ6ZHVYYlZQUG5CU1J6eXhxWm5TZ1BJbXFUOFli?=
- =?utf-8?B?N3NTWnBCYjV2V09oSnpwWDluOWpQTkVFNnc2YWdsRmhoNW5aK2tEQmlXL0Zv?=
- =?utf-8?B?emhvTGZwL3VuWWV2QTh1TTB2eDFDOG13UFBvTTNMTFlYa1JkZjBZeFJSR3I5?=
- =?utf-8?B?YW1ZYlFXOWF0WVJlcGxZSmVQamRIWGIxR1VwOExLaUxPalJxTm5iU1ljZ0V2?=
- =?utf-8?B?ZXNDMDYyUnN1MkxnNTVNTEMxYURmeitZdjJOSVB4S0FJekx4VG9KRUtZaU0z?=
- =?utf-8?B?czAxQlNRaTk5SVNtQVVBNXBkalY4ZnE2UDFlWTJIYnpOSVdlUmc4NXhOenEr?=
- =?utf-8?B?UzZlNzB2U1puV2cwVkNjelY1YjlOOGhoZGJEUEMvYjllaW82M1A0dU1JRnBo?=
- =?utf-8?B?MmN0SCswenpicnBXNEk4VktCd1NhSmdXYzM2K1pwTXVDQVJXWHdMTlNXS2hX?=
- =?utf-8?B?bS9jL0U0M212Z0s3MjFnVkVJcWErNmR4aS9GS2F4K2ZkUldkK2ZTZVhXQVlR?=
- =?utf-8?B?RjVBZ0FvRSs2OHZrTTJjNFBwU2hlaVZESE9HVHJFSmMvQmpYcSsvTnBscENZ?=
- =?utf-8?B?cGFhWFBWd1JML0lra2FYUG01MFlnRmlnRWc0Vk9NU1p1VFRyVzF0RDU5UHlN?=
- =?utf-8?B?TTdjcGZTSWZrRFBsTFRkRVRFbCtkRHN1eUJkNHpXNlhFRFdDbEtSbVd5VFJo?=
- =?utf-8?B?TVhXaUlJQjlkSTNFTjJpbDB0WUZURVBVMTdKOTF4QnB0ODBTeklZdlJiNUR0?=
- =?utf-8?B?dnowckhsbWF6Mm1CZ3UyN3h3bWtOUm5oMFFPUXkzd1BYRTBEZjVtS0VjZ08r?=
- =?utf-8?B?bCtBVHk0RmNlbVBJd3dCOExRcmptMWd5aGd3Q3JCNGdtbFRkdkt5aW5wNTdx?=
- =?utf-8?B?Z2dnckt1ZGpxVzAyRGkwMUVyaVZTdjZwVWs2UFlhUkgxWjhJMFhQdlpha0k3?=
- =?utf-8?B?UXBmZzMwNWhTNldIaGlJNUFjajdIbXUwUVNOYUJoMkFYQk93bmUxZHUwMTN2?=
- =?utf-8?B?Zkgvd0lrUTFtUGZLOHpCRHBybkRpTHRIa3Y1WHk4R1dITW5KOWd5aDlNWGhR?=
- =?utf-8?B?WUtvdHlqZ2hjd0xwSDlwUHd6SzhsL1RWSzVPMTgyeEEweDlUUGZtNng5U1Nx?=
- =?utf-8?B?WnhBNlZidFJ3S0NiVzYvMEJtVEp0Y29ialJDTWVtSm9RZ0NqaUJSaVlyVHNC?=
- =?utf-8?B?bTkvRUpLNFI2eXRiQVFmL0FrOGE0NHRGaWRhVlVKSm5xRGc2bHdzNk42YlpV?=
- =?utf-8?B?aWdBckM2bHZTWHFDUGVCU1pDQUJ5Z3RSN0xFb2QrY1J2Y29ISS9GQkM0RURG?=
- =?utf-8?B?VEd2dUZ2Z3BxRHdTQU8wN0Q1emxIcmZXdXA1Y2IvM2ZRZXhmTGdFd0tKbGFT?=
- =?utf-8?B?L2ptMysrN1pJeE04MEVCc2pwa1hGWUlJMEhTL1NYSmppNWZ1d3JUcXdJNTlk?=
- =?utf-8?B?SkUvOEgwUFJpOHZ1d2R4OHloTHhMdFVXUVNOSDJRbEhHR0o1dkNQTVJTM1Iz?=
- =?utf-8?B?YzEwNm1hRW01RHJnUHZwd0dSenRYTkJjTDYzZzJrbGRNUkpkTVVnNEpTZjBR?=
- =?utf-8?B?Unl5ajZURFdjVjJxY1BUWWdRK05tOHNkd0p6TFhKV0M2c3hMVTNITzFvbGFS?=
- =?utf-8?B?WXkwc3VEalBISnRGN1U0bll0SVZmMWFTWWRsTjdBd2Znc0Z2cVFRMlNnZzJx?=
- =?utf-8?B?Y2t2T0pmRHZpdEliU203UUpQa3lhUFJCYXd1NzIvcDMzSU44NWNHYjZsRitm?=
- =?utf-8?B?ZUxVMDZ5UUhmMFFhSmQrdmZjYlhyS0F6ZWdJeHhyQUNiM01RTFFhNUZVZnds?=
- =?utf-8?B?eXFIbjhIc0k0aE9sN0RDYVRIUnZFa2hYd1BCNmV1VjY4MVYwM3ROd0RGb2VJ?=
- =?utf-8?B?RjlpanZkQzA1N2IxQmZGcktDK2I0aGduL1ZPRjB3SUlINEVBSjMvbGZyeDdw?=
- =?utf-8?B?MEdHUHZUNWhRTlc1cWIxUFE2TXRkRGtPRFpRWW9zVEVhZGlMQjlJYUd5Y2lw?=
- =?utf-8?B?L1Y5TW42WUZDclZndVU1Rmw3ZUFTZzBjMk14MUlYTWdTUVcrTURpM2N0SEpP?=
- =?utf-8?Q?VMad9xkSAAEgp1YnLjq/BVvTm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 573b59a6-7e08-44af-8c8c-08de20c38c2f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 01:42:17.7065
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zu4yt/GI4mRfObnTGYMJw3g6Q4hqnWxU/P8Z8Us51ZLsPzMQtsfOIiAynQAuSLg5HUvN6/xt5OUzWJbJjVOOiA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8039
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND] Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: Niklas Cassel <cassel@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Damien Le Moal
+ <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dragan Simic <dsimic@manjaro.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>
+References: <55EB0E5F655F3AFC+136b89fd-98d4-42af-a99d-a0bb05cc93f3@radxa.com>
+ <aRCI5kG16_1erMME@ryzen>
+ <F8B2B6FA2884D69A+b7da13f2-0ffb-4308-b1ba-0549bc461be8@radxa.com>
+ <780a4209-f89f-43a9-9364-331d3b77e61e@rock-chips.com>
+ <4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com>
+ <363d6b4d-c999-43d4-866e-880ef7d0dec3@rock-chips.com>
+ <0C31787C387488ED+fd39bfe6-0844-4a87-bf48-675dd6d6a2df@radxa.com>
+ <dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com>
+ <aRHb4S40a7ZUDop1@ryzen>
+ <2n3wamm3txxc6xbmvf3nnrvaqpgsck3w4a6omxnhex3mqeujib@2tb4svn5d3z6>
+ <aRJEDEEJr9Ic-RKN@fedora>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <aRJEDEEJr9Ic-RKN@fedora>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: MX0ofXk2LYQCUdF/iD0ozdGip6CcWL19rTDxs1qdeA7+87oXmSdNaGQm
+	vT4YRv3rH4jp9/3aD+eYo4bvX9r87EFI7f2axjA10Zv04GbrpKtgOXqWsdXSAAoiboNryTj
+	MWHvWlFIFCHwKWgQdVWGJeOFQeFBJuVVSJSv4t4sv/24+bGEe8CLJtjA5wH2Bdk3DK844CS
+	eYd4QHpS3hqkIs7tYd40HY/WV8cywiOYUm6YGy3HN7abm8bk9OrVvpN432BPLcL0JopfUUp
+	ntYEgfoU9M0bTYazDoam35nKyyNd3x+UnXSt99fXF0vgm6Pl1eh3cDI36h2NfiKdp743qC6
+	pQ8wq9d0mw51vat8L/GaOSO9SNDMbuUaDmC/Th5uck/4bfPptoYoAsxqdWLD9FDfgiqcAqE
+	xZzyPriZYwGnt6hu4P+08iKKi+Yw8DOdpdc+lQkcm2ObPZ84pzXJ8u6O2fSxaoZtRmsMmXJ
+	ReVrBE90xs8OKE59+Yv86I3rDK68UpE7W7DN2jhGUEWHXpv/8k2PHkG7RlRk+lS+15EIPYx
+	lvo7ZXeedL62uwe6YYjxojnj1mi6FmqulOOEjDS9HA9YhDwPGafFioMIDa2+WVh/4XosmMX
+	wzZmpgJ9D9BMVLfklOBvQA+gmooXma0utnjhI3f501dK6hHop9mQlwzwmzwOd0Km79raECi
+	z49pv3UQ/9u03x7JnGLXYbjrl/cJr7IozjfRrd4Q9u1djaCVXwFwYPGuAr9ErS9cPQr+1uE
+	mIAbhbe4KP0ItfoQLb3AchEaoR7ozWWHqt3I/sPGsrxINC7r9rLIT8BvlUDRWzACqXqVoG7
+	PmiCBt0WqOzKuoa0UnFvm84gejT8l36Dp6brXQ3wJZAX5rTvSnt8JoEziMS5BsViA6hBcTH
+	3PSiTl4CUUkdTwzKH0omFmRWI+UKsbQ3i7IqCcTlwWW/rTxnaaxx9CmKfVQLPTBNPP8Rhtt
+	VFtkH7TUpG1X4wIvuh7Mwypw23erMsGeEMGvKZqdvvvyN+dHLfEDxYAYHlUFYpEcINqhVU3
+	5DqdaD71JxdwXYw6ke
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251110_174222_663100_E2ADAD65 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251110_181057_723285_E521B16F 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,47 +101,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 11/11/25 04:59, Niklas Cassel wrote:
+> On Mon, Nov 10, 2025 at 09:23:02PM +0530, Manivannan Sadhasivam wrote:
+>>>
+>>> Considering what Shawn says, that the switch gets enumerated properly
+>>> if we simply add a msleep() in ->start_link(), which will be called
+>>> by dw_pcie_host_init() before pci_host_probe() is called...
+>>>
+>>
+>> Yes, that delay probably gives enough time for the link up IRQ to kick in before
+>> the initial bus scan happens.
+> 
+> I think that the problem is that even for platforms with link up IRQ,
+> we will always do:
+> 1) dw_pcie_start_link() (if (!dw_pcie_link_up()))
+> 2) pci_host_probe() from dw_pcie_host_init(), this will enumerate the bus
+> 3) pci_rescan_bus() from the Link Up IRQ handler
+> 
+> Thus, in 2, when enumerating the bus, without performing any of the delays
+> mandated by the PCIe spec, it still seems possible to detect a device (it
+> must have been really quick to initialize), and to communicate with that
+> device, however since we have not performed the delays mandated by the spec,
+> it appears that the device might not yet behave properly.
+> 
+> Hence my suggestion to never call pci_host_probe() in dw_pcie_host_init()
+> for platforms with Link Up IRQ.
+> 
+> At least for pcie-dw-rockchip.c, we only unmask the Link Up IRQ after
+> dw_pcie_host_init() has returned, so I think that your theory: that Shawn's
+> suggested delay causes the Link Up IRQ to kick in before the initial bus
+> scan, is incorrect. (Since the IRQ should not be able to trigger until
+> dw_pcie_host_init() has returned.)
+> 
+> 
+>>
+>>> ...we already have a delay in the link up IRQ handler, before calling
+>>> pci_rescan_bus().
+>>>
+>>
+>> That delay won't help in this case.
+> 
+> Sure, I was just saying that even though Shawn's patch made things work,
+> it seems incorrect, as we do not want to add "the same delay" that we
+> already have in the Link Up IRQ. (The delay in the Link Up IRQ should be
+> the only one.)
+> 
+> 
+>>> I think a better solution would be something like:
+> 
+> (snip)
+> 
+>> This solution will work as long as the PCIe device is powered ON before
+>> start_link(). For CEM and M.2 Key M connectors, the host controller can power
+>> manage the components. But for other specifications/keys requiring custom power
+>> management, a separate driver would be needed.
+>>
+>> That's why I suggested using pwrctrl framework as it can satisfy both usecases.
+>> However, as I said, it needs a bit of rework and I'm close to submitting it.
+>>
+>> But until that gets merged, either we need to revert your link up IRQ change or
+>> have the below patch. IMO, the revert seems simple.
+> 
+> Using pwrctrl framework once it can handle this use case sounds good to me.
+> 
+> FUKAUMI, could you please send a revert of the two patches?
 
-There is no user of enum imx_rproc_method after moved to ops based
-method. Remove it.
+Leaving the commit message aside, I'm currently testing with a revert of 
+the two patches.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/remoteproc/imx_rproc.h | 8 --------
- 1 file changed, 8 deletions(-)
+Vanilla v6.18-rc5, CONFIG_PCI_DYNAMIC_OF_NODES=y, revert ec9fd499b9c6, 
+revert 0e0b45ab5d77.
 
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 6a7359f05178a937d02b027fe4166319068bd65c..1b2d9f4d6d19dcdc215be97f7e2ab3488281916a 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -15,13 +15,6 @@ struct imx_rproc_att {
- 	int flags;
- };
- 
--/* Remote core start/stop method */
--enum imx_rproc_method {
--	IMX_RPROC_NONE,
--	/* Through ARM SMCCC */
--	IMX_RPROC_SMC,
--};
--
- /* dcfg flags */
- #define IMX_RPROC_NEED_SYSTEM_OFF	BIT(0)
- #define IMX_RPROC_NEED_CLKS		BIT(1)
-@@ -42,7 +35,6 @@ struct imx_rproc_dcfg {
- 	u32				gpr_wait;
- 	const struct imx_rproc_att	*att;
- 	size_t				att_size;
--	enum imx_rproc_method		method;
- 	u32				flags;
- 	const struct imx_rproc_plat_ops	*ops;
- };
+It works stably on the ROCK 5A. The link speed is 2Gb/s.
 
--- 
-2.37.1
+The ROCK 5C is unstable. It initially worked with a link speed of 4Gb/s, 
+but eventually started showing kernel oops. The dts files for the 5A and 
+5C are compatible and interchangeable, but even using the 5A's dts on 
+the 5C, the operation remains unstable.
+
+I plan to thoroughly investigate the ROCK 5C's behavior on v6.13, but 
+for now, I believe reverting the two patches is the correct action.
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> Kind regards,
+> Niklas
+> 
+
 
 
