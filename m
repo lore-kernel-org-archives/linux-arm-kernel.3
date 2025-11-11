@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA74CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA294CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 09:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vHk8yv00/JQMYrmI8CKdJho/+2xxViBt86X+AiwkXs=; b=0uQOhwtGuNzkU5SSTsxeM5prz8
-	eIeYogfBlKOwJ43xdoaTTI7LvQvu6F2yMdrqZO5VGrEkLSdPcKfOSUJhLS4AoXdlg7+Mc76CKBeG0
-	NP5u4W475Swi5vGUNvGFFom+aXM2lw1md0V32UlxbwZRcWF3FCEXrQqDDe0MGlh/KxVaQqEnOXeXR
-	CmD5jisiTKX9hj0vRYf8C2DCPOa/cgIsxZ0Z+xpVK0LZ8j2JQO64aAcKU8aJ0MW4S63wgpYJIH8Nh
-	InLBzymVRxDmxCFT5quHhAl9JzFD2qdCyPnb8waBaNtiw8lWPKQQpb8MxGHz0RS06+mR6vpu+Fm7H
-	3HkmQS9Q==;
+	bh=3INdUtdRw0IeETFT6pHSmtIyxGGiiYQrcHeBCarwNWw=; b=DVUdt6CBKFm5U0hI+1V00DsEP8
+	Ekcr2sPYUrIs51qxVDhqGxCeZl4JCc2NNksCItP14/CjXVlyDFbEkkOegyRfjH0P6AinPxMy39jqi
+	TE8eU7RyWLSkjeNcnJFNFthRIBILkxchtqD/5K1fuuEFYdHfq2+a4CyQxY1UFQpU2HzssI55xog9s
+	ArtsPxXwbgoG4vb+CnRPGbslh+E57k0QUn1v3I1dwf034W+zvI3501eJEcwuV27yUXzAOpee1CVYr
+	Fk5lstIisKhRj5mva6Cu9W62+VYRE2YAAzmbczyqcKtKDK2ch96om7AkDXn5IyiD3oNkbTGdnOx56
+	S4uzFlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkzy-00000006sIJ-16L0;
-	Tue, 11 Nov 2025 09:49:14 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vIl3i-00000006sgX-3OPl;
+	Tue, 11 Nov 2025 09:53:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vIkzv-00000006sHF-2ZQL
+	id 1vIl3h-00000006sgP-37Ud
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 09:49:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=3vHk8yv00/JQMYrmI8CKdJho/+2xxViBt86X+AiwkXs=; b=lpAMrkJkFiawgDhsUd7cK2vYGW
-	HHuZnAakrmemk6S3lWl3WIxalRsV0Fxr6TsaMz743ajjVlUUk8WVJAXlPVJ4cjEayDYBDB8DFO2k+
-	/t83snfNII/EsKt1zpPpqhB/UFTr86lPP433nbohp8PheXFfoQl1QMn3iLbIrURUN5rocusBJH1A+
-	C+ab8nwdr5Z4uc1LqBrHaDwvLLGqT+flXKWN+gz9/A7udKvpVzW8CPyhMcxtUbETtgDIRnBzM0A0+
-	E4sH7O377i+vT70DtUZvs6qJcZ2e7vHFUNY0l4ir1hy3qP+eKy5+rp/RbEZjUVLbfU21f0q3LsfEV
-	d4kkO1rA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43662)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vIkzh-000000002It-12u1;
-	Tue, 11 Nov 2025 09:48:57 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vIkzd-000000002qb-21yZ;
-	Tue, 11 Nov 2025 09:48:53 +0000
-Date: Tue, 11 Nov 2025 09:48:53 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, maxime.chevallier@bootlin.com,
-	boon.khai.ng@altera.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: Disable EEE RX clock stop when
- VLAN is enabled
-Message-ID: <aRMGhXohIK5swFSM@shell.armlinux.org.uk>
-References: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
- <20251111093000.58094-3-ovidiu.panait.rb@renesas.com>
+	Tue, 11 Nov 2025 09:53:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F20E61907;
+	Tue, 11 Nov 2025 09:53:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6957AC4CEFB;
+	Tue, 11 Nov 2025 09:53:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762854784;
+	bh=iDhbZOal2wnEXBNqtnf0/uj4kQN5h/UJan7jrM1zSwo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cvyuqpQtk0Q6hYQ6gNSeFX8b9Es2msAbN8+gQ0SFGS0il5537frS9ZBNWiJHoWhMo
+	 /juDrre53fD9dTCmBTGtcYvSzvKRIm99a8p2VAPszdWXqvkl5TnKQwoPoKNpt3EWTh
+	 /LmT97aljg7pGdrpVEb9qkGCbbHMdJGTmadUknN3ZCxt1a/Zb5TP8aAh17YKpJ0mQI
+	 XEwcfP2+y/eXt+yWGeugUUAaSizGdaknSm4e+sXB18HNskbOMNygLmjK22XzaM/VVC
+	 ZvOhvZOmFvE8mkD2w5qTq+xrEBUw3xIXs3IWLU+4k3ycBvgnFZnhx3dqELNGQIt0Wx
+	 W95UyabgI+svg==
+Date: Tue, 11 Nov 2025 01:53:01 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: Jose Marinho <jose.marinho@arm.com>, maz@kernel.org,
+	oliver.upton@linux.dev, duenwen@google.com, rananta@google.com,
+	jthoughton@google.com, vsethi@nvidia.com, jgg@nvidia.com,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com,
+	corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] KVM: arm64: VM exit to userspace to handle SEA
+Message-ID: <aRMHfS1-K4E4UCbc@kernel.org>
+References: <20251013185903.1372553-1-jiaqiyan@google.com>
+ <20251013185903.1372553-2-jiaqiyan@google.com>
+ <7a61bcf9-a57d-a8e9-a9b8-4eacef80acd3@arm.com>
+ <CACw3F51_0A8CuCgzcvoA3Db=Wxo8mm5XZw5in+nTKrst+NCcqw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251111093000.58094-3-ovidiu.panait.rb@renesas.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_014911_657815_6A60114C 
-X-CRM114-Status: GOOD (  19.17  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACw3F51_0A8CuCgzcvoA3Db=Wxo8mm5XZw5in+nTKrst+NCcqw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +79,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 09:30:00AM +0000, Ovidiu Panait wrote:
-> On the Renesas RZ/V2H EVK platform, where the stmmac MAC is connected to a
-> Microchip KSZ9131RNXI PHY, creating or deleting VLAN interfaces may fail
-> with timeouts:
-> 
->     # ip link add link end1 name end1.5 type vlan id 5
->     15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
->     RTNETLINK answers: Device or resource busy
-> 
-> Disabling EEE at runtime avoids the problem:
-> 
->     # ethtool --set-eee end1 eee off
->     # ip link add link end1 name end1.5 type vlan id 5
->     # ip link del end1.5
-> 
-> The stmmac hardware requires the receive clock to be running when writing
-> certain registers, such as those used for MAC address configuration or
-> VLAN filtering. However, by default the driver enables Energy Efficient
-> Ethernet (EEE) and allows the PHY to stop the receive clock when the link
-> is idle. As a result, the RX clock might be stopped when attempting to
-> access these registers, leading to timeouts and other issues.
-> 
-> Commit dd557266cf5fb ("net: stmmac: block PHY RXC clock-stop")
-> addressed this issue for most register accesses by wrapping them in
-> phylink_rx_clk_stop_block()/phylink_rx_clk_stop_unblock() calls.
-> However, VLAN add/delete operations may be invoked with bottom halves
-> disabled, where sleeping is not allowed, so using these helpers is not
-> possible.
-> 
-> Therefore, to fix this, disable the RX clock stop feature in the phylink
-> configuration if VLAN features are set. This ensures the RX clock remains
-> active and register accesses succeed during VLAN operations.
-> 
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Hi Jiaqi,
 
-Thanks for the patch. I guess there is no other way around this, since
-as I've previously noted (and as you say above) we can't sleep in the
-VLAN ops to access the PHY.
+On Mon, Nov 03, 2025 at 12:45:50PM -0800, Jiaqi Yan wrote:
+> On Mon, Nov 3, 2025 at 10:17 AM Jose Marinho <jose.marinho@arm.com> wrote:
+> >
+> > Thank you for these patches.
+> 
+> Thanks for your comments, Jose!
+> 
+> >
+> > On 10/13/2025 7:59 PM, Jiaqi Yan wrote:
+> > > When APEI fails to handle a stage-2 synchronous external abort (SEA),
+> > > today KVM injects an asynchronous SError to the VCPU then resumes it,
+> > > which usually results in unpleasant guest kernel panic.
+> > >
+> > > One major situation of guest SEA is when vCPU consumes recoverable
+> > > uncorrected memory error (UER). Although SError and guest kernel panic
+> > > effectively stops the propagation of corrupted memory, guest may
+> > > re-use the corrupted memory if auto-rebooted; in worse case, guest
+> > > boot may run into poisoned memory. So there is room to recover from
+> > > an UER in a more graceful manner.
+> > >
+> > > Alternatively KVM can redirect the synchronous SEA event to VMM to
+> > > - Reduce blast radius if possible. VMM can inject a SEA to VCPU via
+> > >    KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
+> > >    consumption or fault is not from guest kernel, blast radius can be
+> > >    limited to the triggering thread in guest userspace, so VM can
+> > >    keep running.
+> > > - Allow VMM to protect from future memory poison consumption by
+> > >    unmapping the page from stage-2, or to interrupt guest of the
+> > >    poisoned page so guest kernel can unmap it from stage-1 page table.
+> > > - Allow VMM to track SEA events that VM customers care about, to restart
+> > >    VM when certain number of distinct poison events have happened,
+> > >    to provide observability to customers in log management UI.
+> > >
+> > > Introduce an userspace-visible feature to enable VMM handle SEA:
+> > > - KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
+> > >    when host APEI fails to claim a SEA, userspace can opt in this new
+> > >    capability to let KVM exit to userspace during SEA if it is not
+> > >    owned by host.
+> > > - KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
+> > >    KVM fills kvm_run.arm_sea with as much as possible information about
+> > >    the SEA, enabling VMM to emulate SEA to guest by itself.
+> > >    - Sanitized ESR_EL2. The general rule is to keep only the bits
+> > >      useful for userspace and relevant to guest memory.
+> > >    - Flags indicating if faulting guest physical address is valid.
+> > >    - Faulting guest physical and virtual addresses if valid.
+> > >
+> > > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> > > Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
+> > > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> > > ---
+> > >   arch/arm64/include/asm/kvm_host.h |  2 +
+> > >   arch/arm64/kvm/arm.c              |  5 +++
+> > >   arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++-
+> > >   include/uapi/linux/kvm.h          | 10 +++++
+> > >   4 files changed, 84 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > index b763293281c88..e2c65b14e60c4 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -350,6 +350,8 @@ struct kvm_arch {
+> > >   #define KVM_ARCH_FLAG_GUEST_HAS_SVE                 9
+> > >       /* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+> > >   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS          10
+> > > +     /* Unhandled SEAs are taken to userspace */
+> > > +#define KVM_ARCH_FLAG_EXIT_SEA                               11
+> > >       unsigned long flags;
+> > >
+> > >       /* VM-wide vCPU feature set */
+> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > > index f21d1b7f20f8e..888600df79c40 100644
+> > > --- a/arch/arm64/kvm/arm.c
+> > > +++ b/arch/arm64/kvm/arm.c
+> > > @@ -132,6 +132,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+> > >               }
+> > >               mutex_unlock(&kvm->lock);
+> > >               break;
+> > > +     case KVM_CAP_ARM_SEA_TO_USER:
+> > > +             r = 0;
+> > > +             set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
+> > > +             break;
+> > >       default:
+> > >               break;
+> > >       }
+> > > @@ -327,6 +331,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+> > >       case KVM_CAP_IRQFD_RESAMPLE:
+> > >       case KVM_CAP_COUNTER_OFFSET:
+> > >       case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
+> > > +     case KVM_CAP_ARM_SEA_TO_USER:
+> > >               r = 1;
+> > >               break;
+> > >       case KVM_CAP_SET_GUEST_DEBUG2:
+> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > > index 7cc964af8d305..09210b6ab3907 100644
+> > > --- a/arch/arm64/kvm/mmu.c
+> > > +++ b/arch/arm64/kvm/mmu.c
+> > > @@ -1899,8 +1899,48 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+> > >       read_unlock(&vcpu->kvm->mmu_lock);
+> > >   }
+> > >
+> > > +/*
+> > > + * Returns true if the SEA should be handled locally within KVM if the abort
+> > > + * is caused by a kernel memory allocation (e.g. stage-2 table memory).
+> > > + */
+> > > +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
+> > > +{
+> > > +     /*
+> > > +      * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
+> > > +      * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
+> > > +      * stage-2 PTW).
+> > > +      */
+> > > +     if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
+> > > +             return true;
+> > > +
+> > > +     /* KVM owns the VNCR when the vCPU isn't in a nested context. */
+> > > +     if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
+> > Is this check valid only for a "Data Abort"?
+> 
+> Yes, the VNCR bit is specific to a Data Abort (provided we can only
+> reach host_owns_sea if kvm_vcpu_abt_issea).
+> I don't think we need to explicitly exclude the check here for
+> Instruction Abort.
 
-I would like a comment in the code above this if() to state that EEE
-RX clock stop is disabled to allow access to VLAN registers to work.
-With that added, please add:
+You can take an external abort on an instruction fetch, in which case
+bit 13 of the ISS (VNCR bit for data abort) is RES0. So this does need
+to check for a data abort.
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Thanks!
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+Oliver
 
