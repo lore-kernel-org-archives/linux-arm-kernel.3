@@ -4,164 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAA9CD13CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2C7CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Nov 2025 11:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJc5foOp/lTZXnQ8N2XKAbUbYt31/IoC3cYtneLc420=; b=E1+B8e+x8Rhw7jgr9H/BQwWC9A
-	9ZglNL8Zw2JhDE3bN8uwmtXJilDBE7OtFbeV/WhbZL78Up1gPsWMz5tNxSm/mHMJjahYbTdZKZKMg
-	ccH7KfX5R0J5acbHBkEKg+XWXBglJaYe5oRorXRQshIcLVXpgDh1z/rc5woSqwWJ/F+DsiVZIvnHK
-	zNk0SZVnYeOAlTVlSGhzj++SbKtPffCPoi0N4icY/HgmOemyQWSDWN8mxgstUpYgpJJk5dAVcQ6+X
-	VxPZZICeCt1hYITjaDqvM8UWDIwri6MJREEWPJXKV5tlgZS72S7mvO59mDl7ctHS/h+rH2vMBtKEz
-	pzUx/78A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ApNFjpZHiOUYvgtaOudntt1C1VCpeRhzgKLy7o9FKa0=; b=qVirWiUqTL+sbf
+	q4GnUYcFtnBG03xS8yXt5i0S9CpQ7n77XI9aKRchF9lpDvcg/vbj+C8OVTyKzBHe94fOb+2g89jIJ
+	Mm1WXCSNdSkpMXNg9zZne0Hhkqn0HWHO+imLucJm47i8KWwBHT0XZN56Mden3K8oPztoXeE3C9b3t
+	SPCdAuknzFF2R61hVGnr5rQGBq7rG/El1IDd3U+DyiUC5+csdaSWO76D4YSly3tpT5XAAdr0cT3G+
+	U8W+3ltL23aoaIYISd5ux66NU+TarA8TXj4II5THhJ5ooxfnV+nvLqZnlZyqOh9rGJ/JfphsrJMI7
+	eLg9UfHXq90eVH2a/0tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImhM-00000007542-47og;
-	Tue, 11 Nov 2025 11:38:08 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vImhl-000000075DC-2sgT;
+	Tue, 11 Nov 2025 11:38:33 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vImhI-0000000752S-3bC7
+	id 1vImhi-000000075BG-3VJA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Nov 2025 11:38:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WSVKsKzUPxTeVIc3L6GKKaB2m/jVyzZbQInWnWWw3OWoc4sOS3x2gqa3bt0At5jFpLIrw3oCQLnuo+Uu4Ush3rlKUFoSZl4QPPqWGHGvzPHz30EYcpKhNUSvtV1UGGbcdtDIOGVgDm+GNSUav0fFzCTYi+xOknbee64LoLRXDu78Od8y23nDlKnUzmetZ3jszCboKyJcYY0HePqOYb/s7rTW3LJXhFbeoNkPt/fckW5/kNCNuX1xyR5nBpSyVEeizoe+vCsgY/HV9HOmLOC4TWV1MVj9wUkIYOVxxc6eUXBpDT4r2djhxNtvukdSRNyfIXhUu9jfMhQwmKHuRijMUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eJc5foOp/lTZXnQ8N2XKAbUbYt31/IoC3cYtneLc420=;
- b=FoKOzusXmk8tUp+VXJq/CHDVT/z6TVIWrePlUz8cjaNs9yOW15Ix833xXF3sC9ajznaHr1fVsQorTg94dpeg+WTeoNVvCzY2APlByNE38EZHrD6oiD/Pkjn1HRwxKGkLqPhyFQQnPZN/ikJThb4/po1Ar8u9VNHQI92Z2MGX/oZ3lsdJsfWImP6NmB98igekf2a7AIkwqFOs0akHuhrhvyAp9jYBx22cVG04c814brl/3VxLq1K4RKoaKpNKQyA2S+y3GROnvJHaB3TO+uWy1hwzuHWl8q5QedrnMzhhv2d8/a7eXi+97LJAwBjMuUPdLCDld0bAAEwDNR9BlOD0ug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eJc5foOp/lTZXnQ8N2XKAbUbYt31/IoC3cYtneLc420=;
- b=ska1y8MZXjd18q/Zv+jlYTJsfUuV7fZcdXv0l1Dh1UXi+C7h9GVNoEe0q4lJFT1KMJR2Hvcf7QO6EMUDK61nsdBZ6vJ3lJqZQYPVZ1QGU1/sQF7JgoA4uUenrxuL9f1nom359LlA3yo75NPzUxL742B3qVDzh2+umCiBj8z38II=
-Received: from BLAPR03CA0128.namprd03.prod.outlook.com (2603:10b6:208:32e::13)
- by BN0PR10MB5190.namprd10.prod.outlook.com (2603:10b6:408:12b::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Tue, 11 Nov
- 2025 11:38:00 +0000
-Received: from BL02EPF00029929.namprd02.prod.outlook.com
- (2603:10b6:208:32e:cafe::25) by BLAPR03CA0128.outlook.office365.com
- (2603:10b6:208:32e::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Tue,
- 11 Nov 2025 11:37:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL02EPF00029929.mail.protection.outlook.com (10.167.249.54) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Tue, 11 Nov 2025 11:37:59 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 05:37:51 -0600
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 05:37:51 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 05:37:51 -0600
-Received: from [172.24.233.14] (shark.dhcp.ti.com [172.24.233.14])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ABBbkXR845289;
-	Tue, 11 Nov 2025 05:37:47 -0600
-Message-ID: <f82f263c-fac2-492b-8981-d62fcb0f700d@ti.com>
-Date: Tue, 11 Nov 2025 17:07:46 +0530
+	Tue, 11 Nov 2025 11:38:32 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4777707a7c2so5277085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 03:38:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762861109; x=1763465909; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ApNFjpZHiOUYvgtaOudntt1C1VCpeRhzgKLy7o9FKa0=;
+        b=YIOYmIh6kOSbK2EpE/O8Pvvy37ffR7Er5Zca4X+sNovSHTjwVib17chENTTiPYNzJc
+         KYFtcuxbnxEgVfrX0gUatF1TPUogeqQADWDENa8fuqxI+y5+yia8BecLsCkeMytmMgz5
+         hdIR8qKa2xGcbbuBGxe4C3hyoLQq7RzK6ZCbQD52KoHRIqZj2zPbaUvderT4feFF+RHc
+         yRlVw+bHfNyPFfI2+Q8CEe14H10rWYvbi0Ggo/Ys2+lwEIP2y1Nhmm/zNVpzrJQQGjm7
+         qoQpXlcSOrO4I+Ir4FjFutNgmtQwwG/hE/9ziqKDevUaHEu2sQTeAraJRWNb2jtq9XWc
+         cgyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762861109; x=1763465909;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ApNFjpZHiOUYvgtaOudntt1C1VCpeRhzgKLy7o9FKa0=;
+        b=P7tnynTH1GKHJHzGyaTYCBTPXS7IGW09ODbUzDACtP3u/Xc1vhfOFNRsak9jshEM8I
+         V0PVZ3UfvBZcNtVnFq0xE064K04uh8AdYJwxqSOj9o7hSzpl8r/QwfrZQ5v5Vb5TSU47
+         FEmF0aqNQqcnAOCgNS7+0eMcpHm9BkZHNkTHoyMR5v1fayAIthXbRKX0JFmIH3cSvkJi
+         8v309dP/gBGUwUuqAoMqii6NdxGmG6cV1NXEy6+Kp5Iu+In88YnA72CdnoH0Gkq41gx+
+         hPi8078sKQx2rxX8nv0CLOMUVl5PlH/nftL6bTGIVCf5FcijydO/KMCKUYMetBqAUo+h
+         DbKA==
+X-Gm-Message-State: AOJu0YwBHw3RQASngpdoB0brv4wT3ZMgBY9qgGoAVjWcAEzjie94kKT6
+	oFPY5BmBlBwriRGDruSo8Pn0QsW8hSUtyG5xMYEAijHoMYWZKgM5a3jcAaDG0Booe3I=
+X-Gm-Gg: ASbGnctaFUJgYo+6kTzn36gmDqdD4Fp2reWuwJLa1HzzTuslxh4Ru2qLWH+734hLsQl
+	tlGckwcFm1HdrlymXCai1EUv2rSBouJJtWt1h/XEX1GdUwtNc8p3oZU8hjx+Bu5PyfcEZhFeS5n
+	4K++EEIKWliTz48EzwHzlR2xDj+GhyLSSpSxAOuWrBg0XpCI84idbC1EboAaueRqAvasjVEilW/
+	OSu4ococjyTcueAdPHj29rHVgZx86ev6BAbD0edIfieLg9YfM3VWvu9YEnvBM4XXKEUYByUeQga
+	3HClCYxohpO/kSz3nlcpvNI1DGjeZDHWPBV/zlQMIDqI/CLvJJmTxBmIZKJblOTKkz+4RGQqCjT
+	42VAEMLR3Zf6rl1izbjoQtu1URL8/7/zvgX0TP0Cfue6bbNetJJH/Ze37RQU3cOpLTvFhoBdFvi
+	i7DyMiuHVpe+9j6LZ8LK8u
+X-Google-Smtp-Source: AGHT+IHEHlUutl0pFeJ6Y+KwuVxOVrcZ87z0GEdb/YT/7CGKNgzL11KQ5qkLQpD/1daWqDjU8+9Wsg==
+X-Received: by 2002:a05:600c:820e:b0:45d:e775:d8b8 with SMTP id 5b1f17b1804b1-47781418886mr28948915e9.1.1762861109025;
+        Tue, 11 Nov 2025 03:38:29 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac675cd25sm28133486f8f.22.2025.11.11.03.38.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Nov 2025 03:38:28 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
+Date: Tue, 11 Nov 2025 11:37:54 +0000
+Message-Id: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
- SCMI clock driver
-To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Sudeep
- Holla" <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>,
-	Brian Masney <bmasney@redhat.com>, Vignesh R <vigneshr@ti.com>
-CC: Dan Carpenter <dan.carpenter@linaro.org>, Geert Uytterhoeven
-	<geert@linux-m68k.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-References: <20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com>
- <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
- <6de227bc-af06-491a-97f2-800b7523ea42@ti.com>
- <PAXPR04MB8459AE5010282F9A6DB4456988C5A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Sebin Francis <sebin.francis@ti.com>
-In-Reply-To: <PAXPR04MB8459AE5010282F9A6DB4456988C5A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00029929:EE_|BN0PR10MB5190:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5aaeb8c8-dd48-49ab-586a-08de2116c446
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|7416014|376014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmdLSHN6MFV5ZTVVblFpTzdDTkE4dnN0MXhPSy9kbVc2N3d1UGtYVFFTMG1s?=
- =?utf-8?B?SURlcFppc0l0T2VzYVhCWUIyTzlEV0t1TXFXYkhBaFNDMkVWbTBpK2lTYkcz?=
- =?utf-8?B?RUQ0UHZWbHZva3p5ZFVRbklNa3Z4citYZjZDNEIrYnBLNTI5UndXbUJkblY5?=
- =?utf-8?B?ZkFDWktKKzNIWVBRYWxWays5L1VDdDNDT1Z0VkJCbXY1S0h5RjJ5NnJEUmRU?=
- =?utf-8?B?bnl5eG9QVW9YcFBoLzZyWm5sMjFJdU16bHEzQXBHbXR3YTh6ZHBwUGFsUW5X?=
- =?utf-8?B?RHpIeHZqbjlGWi9QcUk3MWNtUS9RY2hpSWROazVkSnp4YmZ5Q0M5S09Oa01q?=
- =?utf-8?B?bVgvL2owTk1jb21JN2YxU3FBbUZvalJyS1EvbnMzeHBIbTg5UVdua1o1UnNP?=
- =?utf-8?B?OTlOTiswRGduM3p6UzhwZWhpa1hjbVZ5dGlIWVM0bFdsbWNtK2lwbFlmSGdo?=
- =?utf-8?B?QlI0MkNkcDBpdEtTbWpEL1lOeEhYcG9QNFZHQlNnR2l4TW9QTE5pTXI5Y2lH?=
- =?utf-8?B?bXo0K2NFVE5sOStXOFlSMTJMdWIzaFRwS2s0UXBNc2YvcklhdXJoQzB2WlJL?=
- =?utf-8?B?eEw2bm9FOTVxVGdHNGNmN1JmMk1YY01vZ3N3R2VtVzZGUWRYdUhjd2JkSUVG?=
- =?utf-8?B?ZnBMMWluYW9SbEc4TVFuZzdiSjFiQzZ6K3dxWHBmbUJCK0RHazE0MkFHdkRl?=
- =?utf-8?B?TEVLSE1VelVHMVIyR05BUEE4b0pId0NNQ3JvMFRKVnZkVDNOU3djbHI0c21p?=
- =?utf-8?B?b2QzRWR2Qjl2ejQvNlQ3Q1VYU3YveTJRbnBudlBzZVMwS29XaTA5QXNTSk5x?=
- =?utf-8?B?ZHE2Q0RONFhsc2gwcm5FcVJiSWNwZUVwaEdRb3lwK24rdC9OZnFudmpKWFFy?=
- =?utf-8?B?SkpoU3hNdmhuVWZqRUJSM1dQU1BRN0U3OWVZWGtZRmVBUVJhUVA5ZE1qQldN?=
- =?utf-8?B?N0tlMWh4SzBqMnhJVHJWOHFpcUtzb0R3U3pxeE1zUXdiWndqTTBoSXVlcERT?=
- =?utf-8?B?SUdza3pPclIyMXZnZ2JCaG9YQ3g2VlR4VDN0VmI2cTl5VUJGTlh0US95ZkNz?=
- =?utf-8?B?b0JZRXY1VGlUcFhCbXA5REgremdJNWcwTFIrR1NYdVJVaENENzlsYytkVmxq?=
- =?utf-8?B?b3JiTW9veG9ORk5xR3dvTnJHdFVkcDgvWU1OY3FoY255NTc5VnRRbzhiTXR6?=
- =?utf-8?B?MTFNemFlVUpKSnJiVXpDeVZwbis1M0NMaGduTXFmU25QSDc4b3lFUTczOHF5?=
- =?utf-8?B?OEs3T1VyZkF4eFBFdTcyb25waTJqN24rcjNFa3JRdHcydmVMZ1R6QnRUbjlM?=
- =?utf-8?B?cUZzUkkvZHlMdGlFTno1a3k5ODBmSURsSXpDWVQyU3cyYzBkMm1HcFVBRHdH?=
- =?utf-8?B?U3RxQlpmZDR5ekJ4Zm9vMlNwR3JhbGVYZEx2NmdadS95QVRZckpxVm1pS2h5?=
- =?utf-8?B?R3lyNmFLRmNCaVVZd0JabXVXNWZkaEdtWmZ4REc3N3lkZG5TelRLSHVyRkZC?=
- =?utf-8?B?M0xaMHNqMUFZbUxKOVFyUzI1amhUYTg0bHdROFFBSGYyVEUzTUxTL2RucTRG?=
- =?utf-8?B?OTRtZnQzUDY3akpvejJSeDBueTYraCtSTFhaOG9iMGsrdzZyRDZmbkw0M2VQ?=
- =?utf-8?B?dkRZaktzSUVta0RSYUFMMHhrajNyM0VNa0llYjdJVGY1VEZEODlXeStVbHcw?=
- =?utf-8?B?ZXhWQWJOVEhnazU2TVdJS096d3kySjJoRVNBU25qWXZ2bDVjb0FBblRpODZU?=
- =?utf-8?B?Z09vL1RzdTVSelZRaE4xRlZ0MnBkOTl5QWNkZExWMmdNVDhKSzJCMytCbHh1?=
- =?utf-8?B?SHNZUVpvcDJ1M3N2VUFTU2dqQ0xqdDl4Y0pVakJ5Y0RsRGZPaDRhT3VKNjBU?=
- =?utf-8?B?citQVkxYYStkdUM2UFpxeVYvcGRrMTExc1g5MEJ4N0t6bEoxcVZNM1lmcXM5?=
- =?utf-8?B?UWhjaG9JSUlFa1ZVTDJiMjFEWFRXbXVXeXhhWVFIR01OY0F3TW5hKzN5YWxJ?=
- =?utf-8?B?bkFMVSsyTzB6bVVVVUcxKzZScFhMaENOQ3V5elgwN21UbElDc2lQS2ZvdGMx?=
- =?utf-8?B?QjFoOU5JRC9FTm9kSndBZGtXOWdUamxSZkRKWDZqc2hmVHRGWVdWM0FNN2Qw?=
- =?utf-8?Q?m68PXAG89QYniQ/iIjSb90C+n?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(7416014)(376014)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2025 11:37:59.7958
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5aaeb8c8-dd48-49ab-586a-08de2116c446
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00029929.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5190
+X-B4-Tracking: v=1; b=H4sIABIgE2kC/43S20rDQBAA0F8peXZldvbuk/8hUiZ7aVe0KUkJS
+ um/uxvQtMQUH2dgz9z23Ayxz3Fonjbnpo9jHnJ3KAGHh03j93TYRZZDSTQIqEBwZG/0EQd2jH1
+ iKdJpOxzjNqYT09qHJINN0bmmvD72MeXPiX55LfE+D6eu/5oqjbxmf0yxao6cAUPyCEGC8d4+v
+ +cD9d1j1+9qjQlQoO8DIUgL0UZpFb8Galcjzp0odOsQFoiAk2uJAmhaQGKGNKh1SBTI8Ba8S86
+ CEwtIzpBBvg7JAgEpNJJDsiksIPVPSNXRTOuVEGVFtNyRniELdh3SBdKBknRWGXt7rQkyVxCX6
+ 5CpEBkpkkmEyi0gO0MO7oxm6/+JaIRNKNUfkPuFONw7v6v/CFEJ3TqfnLyBLpfLNz3FEttJAwA
+ A
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_033804_902869_3F1AF82D 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20251111_033830_923315_11C8D64D 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,99 +115,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+Support SPE_FEAT_FDS data source filtering.
 
-On 05/11/25 21:18, Peng Fan wrote:
-> Hi Sebin,
-> 
->> Subject: Re: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension
->> support for SCMI clock driver
->>
->> Hi Peng,
->>
->> On 09/10/25 09:18, Peng Fan wrote:
->>>    - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM
->> extensions
->>>      for the SCMI clock driver, allows clean integration of vendor-
->> specific
->>>      features without impacting the core SCMI clock driver logic.
->>>    - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related
->> declarations.
->>>    - Initialize OEM extensions via 'scmi_clk_oem_init()'.
->>>    - Support querying OEM-specific features and setting spread
->> spectrum.
->>>    - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
->>>
->>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->>
->> Thanks for the patch. I only have a minor comment, otherwise the
->> patch looks good.
->>
->> [...]
->>
->>> +
->>> +int scmi_clk_oem_init(struct scmi_device *sdev) {
->>> +	const struct scmi_handle *handle = sdev->handle;
->>> +	int i, size = ARRAY_SIZE(info);
->>> +
->>> +	for (i = 0; i < size; i++) {
->>> +		if (strcmp(handle->version->vendor_id,
->> SCMI_IMX_VENDOR) ||
->>> +		    strcmp(handle->version->sub_vendor_id,
->> SCMI_IMX_SUBVENDOR))
->>> +			continue;
->>> +		if (info[i].compatible &&
->>> +		    !of_machine_is_compatible(info[i].compatible))
->>> +			continue;
->>> +
->>> +		break;
->>> +	}
->>> +
->>> +	if (i < size)
->>> +		dev_set_drvdata(&sdev->dev, (void *)info[i].data);
->>> +
->>> +	return 0;
->>> +}
->>
->> This above logic is tailor made for IMX is it possible to make it generic?
-> 
-> Yeah. I will update it. It should compare with each entry in
-> const struct scmi_clk_oem_info info[] = {
-> 	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
-> };
-> 
-> To TI, I think it could be extended to
-> +const struct scmi_clk_oem_info info[] = {
-> +	{ SCMI_IMX_VENDOR, SCMI_IMX_SUBVENDOR, NULL, &scmi_clk_oem_imx },
-> +	{ SCMI_TI_VENDOR, SCMI_TI_SUBVENDOR, NULL, &scmi_clk_oem_ti },
-> +};
-> 
+---
+Changes in v10:
+- Pick up Peter's ack
+- Slightly clarify commit message regarding the difference between the
+  data source filter and the data source
+- Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
 
-Thanks for updating it. Yes, for TI as you mentioned we will add one entry.
+Changes in v9:
+- Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
+- Drop already applied patches for other features. Only the data source
+  filtering patches remain.
+- Rebase on latest perf-tools-next
+- Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
 
-Thanks
-Sebin.
+Changes in v8:
+- Define __spe_vers_imp before it's used
+- "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
+- Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
 
-> Regards
-> Peng.
-> 
->>
->>> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c index
->>>
->> bf85924d61985eb9e596419349eb883e3817de73..1ed2091e3d4a951
->> c8662db4c94de
->>> e4b9c98b8326 100644
->>> --- a/drivers/clk/clk-scmi.c
->>> +++ b/drivers/clk/clk-scmi.c
->>> @@ -14,6 +14,8 @@
->>>    #include <linux/scmi_protocol.h>
->>>    #include <asm/div64.h>
->>>
->>> +#include "clk-scmi.h"
->>
->> [...]
->>
->>
->> Thanks
->> Sebin
+Changes in v7:
+- Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
+- Pickup trailers
+- Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
+
+Changes in v6:
+- Rebase to resolve conflict with BRBE changes in el2_setup.h
+- Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
+
+Changes in v5:
+- Forgot to pickup tags from v4
+- Forgot to drop test and review tags on v4 patches that were
+  significantly modified
+- Update commit message for data source filtering to mention inversion
+- Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
+
+Changes in v4:
+- Rewrite "const u64 feat_spe_eft_bits" inline
+- Invert data source filter so that it's possible to exclude all data
+  sources without adding an additional 'enable filter' flag
+- Add a macro in el2_setup.h to check for an SPE version
+- Probe valid filter bits instead of hardcoding them
+- Take in Leo's commit to expose the filter bits as it depends on the
+  new filter probing
+- Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
+
+Changes in v3:
+- Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
+- Add VNCR offsets
+- Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
+
+Changes in v2:
+- Fix detection of FEAT_SPE_FDS in el2_setup.h
+- Pickup Marc Z's sysreg change instead which matches the json
+- Restructure and expand docs changes
+- Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
+
+---
+James Clark (5):
+      perf: Add perf_event_attr::config4
+      perf: arm_spe: Add support for filtering on data source
+      tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+      perf tools: Add support for perf_event_attr::config4
+      perf docs: arm-spe: Document new SPE filtering features
+
+ drivers/perf/arm_spe_pmu.c                |  37 +++++++++++
+ include/uapi/linux/perf_event.h           |   2 +
+ tools/include/uapi/linux/perf_event.h     |   2 +
+ tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
+ tools/perf/tests/parse-events.c           |  13 +++-
+ tools/perf/util/parse-events.c            |  11 ++++
+ tools/perf/util/parse-events.h            |   1 +
+ tools/perf/util/parse-events.l            |   1 +
+ tools/perf/util/pmu.c                     |   8 +++
+ tools/perf/util/pmu.h                     |   1 +
+ 10 files changed, 170 insertions(+), 10 deletions(-)
+---
+base-commit: 081006b7c8e19406dc6674c6b6d086764d415b5c
+change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
