@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB49CCFA1E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FE7CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OGxhH0/G+u5Kjmvv4b6RaL1XAEj1LbX0MWFOUj3yHVM=; b=KGMDDucKZehKwa6nivplgjOVmH
-	FNDgUeF31ZFkCrpn6+HA/Dvl5GAI+V+2kV0l4GCfttL7t29yEVOd29JNWLXtl1UCYi/Kjm1zk4PMH
-	RHf9uYYnT7UMDJ99WcsloekAgx3CoyQxCUZkKOCbJKjdgw4F8wUShgn3788RfBcR6isZ8nDZ7XvVm
-	MfSy3mFU3n8V4pR7klAyrNP73YPr38AG3Z8/O7Zr8q9zrTQVcBcRidO/ckDUUXOwwKlK+DBR/+g2R
-	rU7oGfGlcBkv1373n2IdysvPJnmgGyvvvqGQchOS2L4w82Q5//fk7NE8CDUsn+xaVqGNgLTozJT8h
-	YzlpepeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xpbx5W0PcqfzSNqmRpp+5MuSuvq/F9AotGUbrmHEXu4=; b=PwZPhIrtxaWtjkowCyPfbFXklp
+	L2N3lgFoXhCSUM7EbIhVB2JFV3EIyWPrv3m6CrqqdT7ijTpkkuGaWbNiVl5yiEzT7V5KPFq6b4nwF
+	l5bFQcVqoiXAvEZB1K8JXI4/c6UjSqs8VfFhhLuDb1O2c21HfawMmwt6LqjEQF5UBZIEecz2rl3QF
+	AWYNrqxIasSckCBZEML9ovsJfuYI/e1phd2lhjBBlgpYLiB7i/JvEgTiY9SrZZIIkUezaRJONg9/C
+	wg2YWsCqh7mtSUrfSkVHUYTQS8kkhvOJGNr+z5FiuYgQTc9Dv813URMj2CKBXmIO/LjIZduzMWcme
+	QIyFOqkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7pl-00000008XEh-1eUP;
-	Wed, 12 Nov 2025 10:12:13 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7pg-00000008X9r-1vNp
+	id 1vJ7ri-00000008XeR-3zIF;
+	Wed, 12 Nov 2025 10:14:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ7rg-00000008Xe7-0Yum
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:12:09 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 12 Nov
- 2025 18:11:57 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 12 Nov 2025 18:11:57 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, <jk@codeconstruct.com.au>, Lee Jones
-	<lee@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
-	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
-	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
-	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v8 3/4] arm64: dts: aspeed: Add initial AST27xx SoC device tree
-Date: Wed, 12 Nov 2025 18:11:56 +0800
-Message-ID: <20251112101157.2149169-4-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251112101157.2149169-1-ryan_chen@aspeedtech.com>
-References: <20251112101157.2149169-1-ryan_chen@aspeedtech.com>
+	Wed, 12 Nov 2025 10:14:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10E9C1515;
+	Wed, 12 Nov 2025 02:14:03 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C5DC3F5A1;
+	Wed, 12 Nov 2025 02:14:05 -0800 (PST)
+Message-ID: <ba2d4852-dd38-4d98-96fe-2716875ff199@arm.com>
+Date: Wed, 12 Nov 2025 10:14:04 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/33] ACPI / PPTT: Add a helper to fill a cpumask from a
+ processor container
+To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-2-ben.horgan@arm.com>
+ <11f80800-2e0b-4f41-a022-a88ad9792da8@redhat.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <11f80800-2e0b-4f41-a022-a88ad9792da8@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_021208_504087_80308B97 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20251112_021412_249466_0755ED90 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,617 +78,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree support for the ASPEED AST27xx family, the
-8th-generation Baseboard Management Controller (BMC) SoCs.
+Hi Gavin,
 
-AST27xx SOC Family
- - https://www.aspeedtech.com/server_ast2700/
- - https://www.aspeedtech.com/server_ast2720/
- - https://www.aspeedtech.com/server_ast2750/
+On 11/8/25 04:31, Gavin Shan wrote:
+> Hi Ben,
+> 
+> On 11/7/25 10:34 PM, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> The ACPI MPAM table uses the UID of a processor container specified in
+>> the PPTT to indicate the subset of CPUs and cache topology that can
+>> access each MPAM System Component (MSC).
+>>
+>> This information is not directly useful to the kernel. The equivalent
+>> cpumask is needed instead.
+>>
+>> Add a helper to find the processor container by its id, then walk
+>> the possible CPUs to fill a cpumask with the CPUs that have this
+>> processor container as a parent.
+>>
+>> CC: Dave Martin <dave.martin@arm.com>
+>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since v3:
+>> Refer to processor hierarchy in comments (Jonathan)
+>> Fix indent (Jonathan)
+>> ---
+>>   drivers/acpi/pptt.c  | 85 ++++++++++++++++++++++++++++++++++++++++++++
+>>   include/linux/acpi.h |  3 ++
+>>   2 files changed, 88 insertions(+)
+>>
+> 
+> Two nitpicks below...
+> 
+>> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+>> index 54676e3d82dd..69917cc6bd2f 100644
+>> --- a/drivers/acpi/pptt.c
+>> +++ b/drivers/acpi/pptt.c
+>> @@ -817,3 +817,88 @@ int find_acpi_cpu_topology_hetero_id(unsigned int
+>> cpu)
+>>       return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>>                         ACPI_PPTT_ACPI_IDENTICAL);
+>>   }
+>> +
+>> +/**
+>> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
+>> + * processor hierarchy node
+>> + *
+>> + * @table_hdr:        A reference to the PPTT table
+>> + * @parent_node:    A pointer to the processor hierarchy node in the
+>> + *            table_hdr
+>> + * @cpus:        A cpumask to fill with the CPUs below @parent_node
+>> + *
+>> + * Walks up the PPTT from every possible CPU to find if the provided
+>> + * @parent_node is a parent of this CPU.
+>> + */
+>> +static void acpi_pptt_get_child_cpus(struct acpi_table_header
+>> *table_hdr,
+>> +                     struct acpi_pptt_processor *parent_node,
+>> +                     cpumask_t *cpus)
+>> +{
+>> +    struct acpi_pptt_processor *cpu_node;
+>> +    u32 acpi_id;
+>> +    int cpu;
+>> +
+>> +    cpumask_clear(cpus);
+>> +
+>> +    for_each_possible_cpu(cpu) {
+>> +        acpi_id = get_acpi_id_for_cpu(cpu);
+>> +        cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+>> +
+>> +        while (cpu_node) {
+>> +            if (cpu_node == parent_node) {
+>> +                cpumask_set_cpu(cpu, cpus);
+>> +                break;
+>> +            }
+>> +            cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+>> +        }
+>> +    }
+>> +}
+>> +
+>> +/**
+>> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all
+>> CPUs in a
+>> + *                                       processor container
+>> + * @acpi_cpu_id:    The UID of the processor container
+>> + * @cpus:        The resulting CPU mask
+>> + *
+>> + * Find the specified Processor Container, and fill @cpus with all
+>> the cpus
+>> + * below it.
+>> + *
+>> + * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
+>> + * or a Processor Container, they may exist purely to describe a
+>> + * Private resource. CPUs have to be leaves, so a Processor Container
+>> + * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
+>> + */
+>> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+>> +{
+>> +    struct acpi_table_header *table_hdr;
+>> +    struct acpi_subtable_header *entry;
+>> +    unsigned long table_end;
+>> +    u32 proc_sz;
+>> +
+>> +    cpumask_clear(cpus);
+>> +
+>> +    table_hdr = acpi_get_pptt();
+>> +    if (!table_hdr)
+>> +        return;
+>> +
+>> +    table_end = (unsigned long)table_hdr + table_hdr->length;
+>> +    entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+>> +                 sizeof(struct acpi_table_pptt));
+>> +    proc_sz = sizeof(struct acpi_pptt_processor);
+>> +    while ((unsigned long)entry + proc_sz <= table_end) {
+>> +
+> 
+> Unnecessary blank line here.
 
-The AST27xx features a dual-SoC architecture consisting of two ties,
-referred to as SoC0 and SoC1 - interconnected through an internal
-property bus. Both SoCs share the same address decoding scheme,
-while each maintains independent clock and reset domains.
+Ack
 
-- SoC0 (CPU die): contains a dual-core Cortex-A35 cluster and two
-  Cortex-M4 cores, along with high-speed peripherals.
-- SoC1 (I/O die): includes the BootMCU (responsible for system
-  boot) and its own clock/reset domains low-speed peripherals.
+> 
+>> +        if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
+>> +            struct acpi_pptt_processor *cpu_node;
+>> +
+>> +            cpu_node = (struct acpi_pptt_processor *)entry;
+>> +            if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+>> +                !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+>> +                cpu_node->acpi_processor_id == acpi_cpu_id) {
+>> +                acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+>> +                break;
+>> +            }
+>> +        }
+>> +        entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+>> +                     entry->length);
+> 
+> Need we to check if @cpu_node does crosses the boundary (@table_end), as
+> what's
+> doing in acpi_find_processor_node()? Actually, the similar hunk of code
+> from
+> the function can be reused here.
 
-The device tree describes the SoC0 and SoC1 domains and their peripheral
-layouts.
+As acpi_find_processor_node() is called from acpi_pptt_get_child_cpus()
+I don't think we need to duplicate the checking here.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/aspeed/Makefile           |   4 +
- arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi | 154 ++++++++
- .../boot/dts/aspeed/aspeed-g7-common.dtsi     | 351 ++++++++++++++++++
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  31 ++
- 5 files changed, 541 insertions(+)
- create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
- create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
- create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi
- create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> 
+> static struct acpi_pptt_processor *acpi_find_processor_node(struct
+> acpi_table_header *table_hdr,
+>                                                             u32
+> acpi_cpu_id)
+> {
+>         :
+>     while ((unsigned long)entry + proc_sz <= table_end) {
+>                 cpu_node = (struct acpi_pptt_processor *)entry;
+> 
+>                 if (entry->length == 0) {
+>                         pr_warn("Invalid zero length subtable\n");
+>                         break;
+>                 }
+> 
+>                 /* entry->length may not equal proc_sz, revalidate the
+> processor structure length */
+>                 if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
+>                     acpi_cpu_id == cpu_node->acpi_processor_id &&
+>                     (unsigned long)entry + entry->length <= table_end &&
+>                     entry->length == proc_sz + cpu_node-
+>>number_of_priv_resources * sizeof(u32) &&
+>                      acpi_pptt_leaf_node(table_hdr, cpu_node)) {
+>                         return (struct acpi_pptt_processor *)entry;
+>                 }
+> 
+>                 entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+>                                      entry->length);
+>     }
+> 
+>         :
+> }
+> 
+> 
+>> +    }
+>> +}
+>> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+>> index 5ff5d99f6ead..4752ebd48132 100644
+>> --- a/include/linux/acpi.h
+>> +++ b/include/linux/acpi.h
+>> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int
+>> level);
+>>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>>   int find_acpi_cpu_topology_package(unsigned int cpu);
+>>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+>> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t
+>> *cpus);
+>>   #else
+>>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>>   {
+>> @@ -1562,6 +1563,8 @@ static inline int
+>> find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>>   {
+>>       return -EINVAL;
+>>   }
+>> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+>> +                             cpumask_t *cpus) { }
+>>   #endif
+>>     void acpi_arch_init(void);
+> 
+> Thanks,
+> Gavin
+> 
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index b0844404eda1..5b8fbf5b1061 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -9,6 +9,7 @@ subdir-y += amlogic
- subdir-y += apm
- subdir-y += apple
- subdir-y += arm
-+subdir-y += aspeed
- subdir-y += axiado
- subdir-y += bitmain
- subdir-y += blaize
-diff --git a/arch/arm64/boot/dts/aspeed/Makefile b/arch/arm64/boot/dts/aspeed/Makefile
-new file mode 100644
-index 000000000000..ffe7e15017cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_ASPEED) += \
-+	ast2700-evb.dtb
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-new file mode 100644
-index 000000000000..da8869a74b35
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
-@@ -0,0 +1,154 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Device Tree Source for AST27xx SoC Family
-+ *
-+ * Copyright (C) ASPEED Technology Inc.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	compatible = "aspeed,ast2700";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0x0 0x0>;
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0x0 0x1>;
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu2: cpu@2 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0x0 0x2>;
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu3: cpu@3 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0x0 0x3>;
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		l2: l2-cache0 {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-unified;
-+			cache-size = <0x80000>;
-+			cache-line-size = <64>;
-+			cache-sets = <1024>;
-+		};
-+	};
-+
-+	firmware {
-+		optee: optee {
-+			compatible = "linaro,optee-tz";
-+			method = "smc";
-+		};
-+
-+		psci {
-+			compatible = "arm,psci-1.0";
-+			method = "smc";
-+		};
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		atf: trusted-firmware-a@430000000 {
-+			reg = <0x4 0x30000000 0x0 0x80000>;
-+			no-map;
-+		};
-+
-+		optee_core: optee-core@430080000 {
-+			reg = <0x4 0x30080000 0x0 0x1000000>;
-+			no-map;
-+		};
-+	};
-+
-+	arm-pmu {
-+		compatible = "arm,cortex-a35-pmu";
-+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+		arm,cpu-registers-not-fw-configured;
-+		always-on;
-+	};
-+
-+	gic: interrupt-controller@12200000 {
-+		compatible = "arm,gic-v3";
-+		reg = <0 0x12200000 0 0x10000>, /* GICD */
-+		      <0 0x12280000 0 0x80000>, /* GICR */
-+		      <0 0x40440000 0 0x1000>;  /* GICC */
-+		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+		#interrupt-cells = <3>;
-+		interrupt-controller;
-+	};
-+
-+	soc0: bus@10000000 {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges = <0x0 0x10000000 0x0 0x10000000 0x0 0x4000000>;
-+	};
-+
-+	soc1: bus@14000000 {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges = <0x0 0x14000000 0x0 0x14000000 0x0 0xD00000>;
-+	};
-+};
-+
-+#include "aspeed-g7-common.dtsi"
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi
-new file mode 100644
-index 000000000000..95c548465d0a
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi
-@@ -0,0 +1,351 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Device Tree Source for AST27xx SoC Family Main Domain peripherals
-+ *
-+ * Copyright (C) ASPEED Technology Inc.
-+ */
-+
-+#include <dt-bindings/clock/aspeed,ast2700-scu.h>
-+#include <dt-bindings/reset/aspeed,ast2700-scu.h>
-+#include <dt-bindings/interrupt-controller/aspeed-scu-ic.h>
-+
-+&soc0 {
-+	sram0: sram@10000000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0x10000000 0x0 0x20000>;
-+		ranges = <0x0 0x0 0x10000000 0x20000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		soc0-sram@0 {
-+			reg = <0x0 0x20000>;
-+			export;
-+		};
-+	};
-+
-+	intc0_11: interrupt-controller@12101b00 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x12101b00 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
-+				<GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	syscon0: syscon@12c02000 {
-+		compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
-+		reg = <0x0 0x12c02000 0x0 0x1000>;
-+		ranges = <0x0 0x0 0x12c02000 0x1000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		#clock-cells = <1>;
-+		#reset-cells = <1>;
-+
-+		silicon-id@0 {
-+			compatible = "aspeed,ast2700-silicon-id", "aspeed,silicon-id";
-+			reg = <0x0 0x4>;
-+		};
-+
-+		scu_ic0: interrupt-controller@1d0 {
-+			compatible = "aspeed,ast2700-scu-ic0";
-+			reg = <0x1d0 0xc>;
-+			#interrupt-cells = <1>;
-+			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+		};
-+
-+		scu_ic1: interrupt-controller@1e0 {
-+			compatible = "aspeed,ast2700-scu-ic1";
-+			reg = <0x1e0 0xc>;
-+			#interrupt-cells = <1>;
-+			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+		};
-+	};
-+
-+	gpio0: gpio@12c11000 {
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		compatible = "aspeed,ast2700-gpio";
-+		reg = <0x0 0x12c11000 0x0 0x1000>;
-+		interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
-+		ngpios = <12>;
-+		clocks = <&syscon0 SCU0_CLK_APB>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+	};
-+
-+	uart4: serial@12c1a000 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x12c1a000 0x0 0x1000>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon0 SCU0_CLK_GATE_UART4CLK>;
-+		interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+};
-+
-+&soc1 {
-+	sram1: sram@14b80000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0x14b80000 0x0 0x40000>;
-+		ranges = <0x0 0x0 0x14b80000 0x40000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		soc1-sram@0 {
-+			reg = <0x0 0x40000>;
-+			export;
-+		};
-+	};
-+
-+	syscon1: syscon@14c02000 {
-+		compatible = "aspeed,ast2700-scu1", "syscon", "simple-mfd";
-+		reg = <0x0 0x14c02000 0x0 0x1000>;
-+		ranges = <0x0 0x0 0x14c02000 0x1000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		#clock-cells = <1>;
-+		#reset-cells = <1>;
-+
-+		scu_ic2: interrupt-controller@100 {
-+			compatible = "aspeed,ast2700-scu-ic2";
-+			reg = <0x100 0x8>;
-+			#interrupt-cells = <1>;
-+			interrupts-extended = <&intc1_5 0>;
-+			interrupt-controller;
-+		};
-+
-+		scu_ic3: interrupt-controller@108 {
-+			compatible = "aspeed,ast2700-scu-ic3";
-+			reg = <0x108 0x8>;
-+			#interrupt-cells = <1>;
-+			interrupts-extended = <&intc1_5 26>;
-+			interrupt-controller;
-+		};
-+	};
-+
-+	gpio1: gpio@14c0b000 {
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		compatible = "aspeed,ast2700-gpio";
-+		reg = <0x0 0x14c0b000 0x0 0x1000>;
-+		interrupts-extended = <&intc1_2 18>;
-+		ngpios = <216>;
-+		clocks = <&syscon1 SCU1_CLK_AHB>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+	};
-+
-+	intc1_0: interrupt-controller@14c18100 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18100 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 0>;
-+	};
-+
-+	intc1_1: interrupt-controller@14c18110 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18110 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 1>;
-+	};
-+
-+	intc1_2: interrupt-controller@14c18120 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18120 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 2>;
-+	};
-+
-+	intc1_3: interrupt-controller@14c18130 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18130 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 3>;
-+	};
-+
-+	intc1_4: interrupt-controller@14c18140 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18140 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 4>;
-+	};
-+
-+	intc1_5: interrupt-controller@14c18150 {
-+		compatible = "aspeed,ast2700-intc-ic";
-+		reg = <0x0 0x14c18150 0x0 0x10>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupts-extended = <&intc0_11 5>;
-+	};
-+
-+	uart0: serial@14c33000 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33000 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART0CLK>;
-+		interrupts-extended = <&intc1_4 7>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart1: serial@14c33100 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33100 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART1CLK>;
-+		interrupts-extended = <&intc1_4 8>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart2: serial@14c33200 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33200 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART2CLK>;
-+		interrupts-extended = <&intc1_4 9>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart3: serial@14c33300 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33300 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART3CLK>;
-+		interrupts-extended = <&intc1_4 10>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart5: serial@14c33400 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33400 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART5CLK>;
-+		interrupts-extended = <&intc1_4 11>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart6: serial@14c33500 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33500 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART6CLK>;
-+		interrupts-extended = <&intc1_4 12>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart7: serial@14c33600 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33600 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART7CLK>;
-+		interrupts-extended = <&intc1_4 13>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart8: serial@14c33700 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33700 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART8CLK>;
-+		interrupts-extended = <&intc1_4 14>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart9: serial@14c33800 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33800 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART9CLK>;
-+		interrupts-extended = <&intc1_4 15>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart10: serial@14c33900 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33900 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART10CLK>;
-+		interrupts-extended = <&intc1_4 16>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart11: serial@14c33a00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33a00 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART11CLK>;
-+		interrupts-extended = <&intc1_4 17>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart12: serial@14c33b00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33b00 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
-+		interrupts-extended = <&intc1_4 18>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart13: serial@14c33c00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33c00 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_UART13>;
-+		interrupts-extended = <&intc1_0 23>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+
-+	uart14: serial@14c33d00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33d00 0x0 0x100>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+		clocks = <&syscon1 SCU1_CLK_UART14>;
-+		interrupts-extended = <&intc1_1 23>;
-+		no-loopback-test;
-+		status = "disabled";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-new file mode 100644
-index 000000000000..0ecedf11a5e6
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Device Tree Source AST2700 EVB
-+ *
-+ * Copyright (C) ASPEED Technology Inc.
-+ */
-+
-+/dts-v1/;
-+#include "aspeed-g7-a35.dtsi"
-+
-+/ {
-+	model = "AST2700 EVB";
-+	compatible = "aspeed,ast2700-evb", "aspeed,ast2700";
-+
-+	aliases {
-+	    serial0 = &uart12;  /* console port */
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@400000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x00000000 0x0 0x40000000>;
-+	};
-+};
-+
-+&uart12 {
-+	status = "okay";
-+};
--- 
-2.34.1
+Thanks,
+
+Ben
 
 
