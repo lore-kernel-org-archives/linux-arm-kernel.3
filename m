@@ -4,152 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8905CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24E1CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=; b=jzWsMzd8PDu8Vetm9/ksN0ye0l
-	FYh0YyxrEhTxxMf40yep43VZpsCAGNEN0ak+ek9YTWUvQuQ0iJVcjPFYluKmpi3TNtj4/nEQoiR1y
-	zyqa0DQQ8TWGyrtVw90RiPTODVVigLlxF0hcio/5jiFenh2520sqG8IAWDLQJB+ss3KlKkxV6bYfL
-	3dQcQ5vHcvVaHBYd6DvC30eAQYbEc+d7df2/T8aI0oZY9ag6NU0q209nff/FF0UmWVIJLVRnO/zOs
-	EcK5o9mJCTPRgy7zKvzKnpRTrcIOeSf+AHe3J/JeWFT/EBOZr1Ui8KWnEdlyAfJpKegPvcdNQIOEH
-	BfRkmapw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wZWws+fIBp+8PUP6tmrutIa0sWhFQjnrwwm6369ndT4=; b=wlZwzmzij1s8lPkxuTrdtBJMH5
+	LMmwzxdRpbwMjrcovTl8reMFkEOXBNKkroSVqn/hwiBTA2aTBEn7q7wdgGWuQWaqZeiEcTISNJl74
+	FpLe9jOwFw8iBriV7oor1fRysqkvxql57J2ylDOl+9wD+ok2HiPHbC+xwPOOcF6AnbVN7pvQ9nBiZ
+	WkO6+Y41K8W8MIvLy2K+24ohaZTt5O8kNihR9MqlbWBpVbaLDqbxBE4Mf6ZsZEs/ZuQxxJmkMP7AA
+	//x1UultwD3FT4/BxakOFojll2DcSxNZI93cQxseBuJc8k4xB5LZvCNm/gwvx//K8zb7fu67N3omX
+	3xVpNO0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0zP-000000082qb-2b8i;
-	Wed, 12 Nov 2025 02:53:43 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vJ18r-000000083Cq-06Oi;
+	Wed, 12 Nov 2025 03:03:29 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0zM-000000082qG-0l7W
+	id 1vJ18l-000000083C7-11nV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 02:53:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AEFg3dbs8Vfh0QMAB0rB+RFaBRq20+WunPb5PVAGTd+seI+YjeX73h4lO/XCxKY6XZEkQj5JYPMVgfPns6XKc2r9aNmIWnP2ZJx8AlJvFaNZjmxMFZ9ZNduHZweqo+QpHSy8zzWuWJVqCtaeUecIraOq+dcDLvoUY/7ee6K02yv8iaHq20GJEICIVdHZnds4/pHKSp4KpXQTxZo9khMvRnsxAjWdgYEazmgKzTGwCYmPzcOTGlo+MNTPbCVLkwiO/VlojsMM2qVup+GqAxQcxYsTQ/tNrKovDCuta+RkYvYXYv2PVt9oUYeQJfTfevyfVEpCCyRLmTRwtsFgWHfOlw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=;
- b=PqkUg6qTcrFnrgFGerUYRjF3oWr+ZAWd6bfACtxigFYoOiO5Ujg4/mTwsOl1doG9qNj/v/xpvIXsZv1QGnZocCrJJ+UHnZspIqtA/SovIFotT44jZNU1pYYraAn1OyoEQ2s9i6BHT8IzLoztATMPwYhITSAGEoW+LcD8s+ecms5E/TDPPZv9RE3bHAHyK1AYKnBrw3a+VwyZSWhqGG3BQuOi/UjZjVRHFbPAyGaTP6D1OIXXGAGekpUwoaWEd+x+ds3/7dYoPg0BSaVCnlCoTEoOW48JENvcpVtJRjJtWbTwVFgbTY3GkhndfGP0m3fVPy49hutg9p7cX81eau5Q4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=;
- b=uQIB8lFG3s6mUZ98AJzCNiGju3K+I765xWuDz4lyoU3eYNcytwzJY5MhHXgbMS7R1dvEW7rKXbckB6kfMyynfw+maKvPbHJkK0Ld2yqi0FXXe0E/9wpB+JJY61Tye9fC7kY7doutmnm5jKI+mLQ2pciI9vAh4DeGRA+hGVYaYgQ=
-Received: from CH5PR05CA0017.namprd05.prod.outlook.com (2603:10b6:610:1f0::7)
- by CO1PR10MB4722.namprd10.prod.outlook.com (2603:10b6:303:9e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
- 2025 02:53:28 +0000
-Received: from DS3PEPF000099D5.namprd04.prod.outlook.com
- (2603:10b6:610:1f0:cafe::8) by CH5PR05CA0017.outlook.office365.com
- (2603:10b6:610:1f0::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.5 via Frontend Transport; Wed,
- 12 Nov 2025 02:53:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS3PEPF000099D5.mail.protection.outlook.com (10.167.17.6) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 02:53:28 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 20:53:26 -0600
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 20:53:26 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 20:53:26 -0600
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AC2rQmj1963711;
-	Tue, 11 Nov 2025 20:53:26 -0600
-Date: Tue, 11 Nov 2025 20:53:26 -0600
-From: Bryan Brattlof <bb@ti.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>,
-	Russell King <linux@armlinux.org.uk>, Xie Yuanbin <xieyuanbin1@huawei.com>,
-	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v3 0/5] ARM: Remaining PREEMPT_RT bits
-Message-ID: <20251112025326.d6dyoqcw5r3irpeo@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20251110145555.2555055-1-bigeasy@linutronix.de>
+	Wed, 12 Nov 2025 03:03:27 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251112030316epoutp039dc56bbe93ac92b7ebaf0f2c844626b1~3I03TaEoB0558405584epoutp03H
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:03:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251112030316epoutp039dc56bbe93ac92b7ebaf0f2c844626b1~3I03TaEoB0558405584epoutp03H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1762916596;
+	bh=wZWws+fIBp+8PUP6tmrutIa0sWhFQjnrwwm6369ndT4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=f4vbFE/fEybqSTzTEG/CwpBGc8s78tHf/tyiCXT8RV932R+byWDmew2gIFUJmPuFV
+	 s+7FkhnZSRewt/qK15fjDgaWZEN2Ox5It922ujCiDwmAhOCFUBKlxoNQXNnkLs8U8t
+	 IdrwAaLTxOLNmU8tKsEED8ynMv3IFn/hGhzFCZjE=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
+	20251112030315epcas2p1982cfce34da8bf2aca9203fdfbe5dbbc~3I02yJO4E2083120831epcas2p1Q;
+	Wed, 12 Nov 2025 03:03:15 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.203]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4d5pBC2vPKz3hhTC; Wed, 12 Nov
+	2025 03:03:15 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251112030314epcas2p1310eb02cf25788eafc5165541ed77063~3I017jHwb2083120831epcas2p1J;
+	Wed, 12 Nov 2025 03:03:14 +0000 (GMT)
+Received: from KORCO180968 (unknown [12.80.207.170]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251112030314epsmtip2252084f69954c4044b7444d64956a445~3I011vSbr0649406494epsmtip2E;
+	Wed, 12 Nov 2025 03:03:14 +0000 (GMT)
+From: <hy_fifty.lee@samsung.com>
+To: "'Inki Dae'" <daeinki@gmail.com>
+Cc: "'Seung-Woo Kim'" <sw0312.kim@samsung.com>, "'Kyungmin Park'"
+	<kyungmin.park@samsung.com>, "'David Airlie'" <airlied@gmail.com>, "'Simona
+ Vetter'" <simona@ffwll.ch>, "'Krzysztof Kozlowski'" <krzk@kernel.org>,
+	"'Alim	Akhtar'" <alim.akhtar@samsung.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <CAAQKjZNCpK4rq6DFUtiQ2rxCeb_34Mp54quVto+9LRJMH3=ZhQ@mail.gmail.com>
+Subject: RE: [PATCH 2/3] drm/exynos: Convert to drmm_mode_config_init() and
+ drop manual cleanup
+Date: Wed, 12 Nov 2025 12:03:14 +0900
+Message-ID: <000101dc5380$e33e1c10$a9ba5430$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQISjSe4EPKM2z52xGofwApISJwl9QDk05gtAfIIk1QBrzY+fbRa/MNw
+Content-Language: ko
+X-CMS-MailID: 20251112030314epcas2p1310eb02cf25788eafc5165541ed77063
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251110145555.2555055-1-bigeasy@linutronix.de>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099D5:EE_|CO1PR10MB4722:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6fc98556-4871-4aa3-210c-08de2196a840
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bndXb1dUZFExWUdXZEVEUFBmTGtha2NkbTNkemEyenJlaGxqQW45bnBpNEp1?=
- =?utf-8?B?dGVJU2sreG1OZHFYa2NxVVp3MVlQT2FLdnRyTDVMdUxFYWpqcys4MDhHTG9N?=
- =?utf-8?B?Z2JlOGdpbDFBeW9vTFpXS1E4WHBMVFJuY1dFbVBobm5vQ2paeWtHdExOeWxa?=
- =?utf-8?B?UzlrZC9sMzYvbzZscC9UOUdQaFdtRUdTNk90NjlwL2lIQmtOYXpuSHlaSkxx?=
- =?utf-8?B?NTI3b01PZUtFa1RON2k0V3NrT3ZXRkZQYW1LU2MycytqOXpRN2xVRTV6anpp?=
- =?utf-8?B?TWVHUjBBbGYrQTV0WmxPYlhYREVJSjB1NHFPVEE5dGVpczVzSnArekVQaSs2?=
- =?utf-8?B?V0NXYTVaS0JLWkZ5U0V4Z0Z0YlZlNVQ3V3hKNXU0dld0NDNyYVVwakx0c0Yy?=
- =?utf-8?B?UldCKythbVJ3dE5RNXFsVU9zR3ZoY1JhZDVoMHF2Y0htbFIyaWxrUEpzSm5n?=
- =?utf-8?B?YWV1SUxOTzNjd0I5V0d6cFZMWml6OGFCM1BDS1NjMk1DQUFQMUFHc3pzbmJP?=
- =?utf-8?B?TUFoUXJTbHd0Z3RBdVlLY3RWaWlDeU5MZ3NRN0RKWWIydkFIUFJEa2g2R05H?=
- =?utf-8?B?RVJudVYwSUh2N2RYMzh2eEZEbk5WSWo4T3BLdkRialZYSDhnSmV0VkxGeVIz?=
- =?utf-8?B?ZDR5eHVTRWxzcHdaTlpmQ2lsRzl5NWd5Titha0pQM0pRekYveU9EVGF0L3JU?=
- =?utf-8?B?cFVpamhuc1YrRjVlYmZwcWpFTXZHbDlpTW5PazFhbzRHRDQ2R0t3ZjNWRit0?=
- =?utf-8?B?bjNjaWdsNFl0bm41ZDJhdUhGY0xJTEFwMXNYcGgrMnhZRFhBTUFvL1NlZTNk?=
- =?utf-8?B?QU1yNFJOR01KcjBjTThEQTI3YXdqWlczWDQ5Q2w4bm9RbVdJYzFTVFBoUEVO?=
- =?utf-8?B?bFRuY1R3SmxVN0lqZlI1Qy9razB1K0RyRmNIeWl5WjYzaEpobXV5ZVBlZlNj?=
- =?utf-8?B?Q20xeEg0dEVvVFd6OHJVYk5BdDFLMjArbVdRblVvaUJQZGtsMk5DSWZncjk2?=
- =?utf-8?B?ZVI5ZjhYeTZBcDV1bTRVaFI2TXU1SkY1WG9uYzdYbDErWTRXbGhFb1NpclJ4?=
- =?utf-8?B?N0ZkNzBrQnJRYk00am1WZEQ2NkZDMi9XaEY2VHQwYmNwKzlvdTFHK2tIVFEx?=
- =?utf-8?B?TS80b2Evbkc2NndGbUIxVTZVNDR4dlhVdDkxcjJ6OEtuc0h6dlJMdEZLQnhG?=
- =?utf-8?B?UkRacUxaTEhWQ2g0enJVaFJIbU9IM1lMQjRxRlBxbmNQTEVwd0xCNDRRMXNG?=
- =?utf-8?B?czlTZDFhbFhsL2hlVlJjTGYwcHFKS2MxZFAwSjJoS2QzSUM1bnF3bHM5UXlk?=
- =?utf-8?B?Qmd0YjF3emx0ZnFycmtKb0xFZEF5VjM1Q3ByM0hGeTVhVFRiM2EyYlI5bzdL?=
- =?utf-8?B?YUpZbWpaNUNSVzVuaGZtQ0thUmZkRS9yZkxOb2ZTd1B2aDJwMlFzVy95aDVJ?=
- =?utf-8?B?Tk1tZVVmWTFWMXJLRHhMK1JZbUNSQzJGTitlVEltVzNhM1orZ0QwSndkY3V0?=
- =?utf-8?B?aTdpbmVMVHBZNFdyYUZuQTY0eDB4dnMvTzBxajFFbVVxbnFpekRBSm9zYmd1?=
- =?utf-8?B?bUpHU3VxenlPRWdLYUoxNkVUT3pYMUNRZjdJakJYNHdJUWFpNURwUm5zbytM?=
- =?utf-8?B?d1ZqWktnTElyaTEzZ1hGSUNIaVlYd0VVMU80d1NRVkxSUGxVLys3TkpJV0hu?=
- =?utf-8?B?bzB2RDh0a3ByTndSUTNjczRoN1pzc2xaSzJxYlYxU1pDbE45NWlLTUk4Ulpo?=
- =?utf-8?B?NTdYTEdoZkY5anFhUHlHeEl6NjZQb1ZEOEx1RTNFZFluRlp6UFdnWWNEUWFQ?=
- =?utf-8?B?ZlRpMVJtWHFpMFJITnhDTU1hVFdFT2pzUDJsRHpwNkFBYW92MStETUNvbCs2?=
- =?utf-8?B?T0NtVDlYaGlKV21hZjRhZmxZOHN4clNSdU1NOFZBM043c1o2eW1hczNBUUxl?=
- =?utf-8?B?MkFoQ3RrdW03bmdXc1QzRUVtMXk3VGlVUkhsanA2NlNrYTVvZHZoWUhmSzZy?=
- =?utf-8?B?VnQ3ZFdCa2ZaTi9VdjdQWkFVelFkYTcwTDc5R1VpNUs1SDRzcG5rM1QwK1VB?=
- =?utf-8?B?UjViZTc1SHp4OWh3aGg3OGRWSWtVb1VWS3ZBaFdoR1ZLY2NZV2RFRmU2eW1Z?=
- =?utf-8?Q?HcLk=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 02:53:28.4007
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6fc98556-4871-4aa3-210c-08de2196a840
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D5.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4722
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7
+References: <CGME20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7@epcas2p2.samsung.com>
+	<20250929043110.3631025-1-hy_fifty.lee@samsung.com>
+	<20250929043110.3631025-3-hy_fifty.lee@samsung.com>
+	<CAAQKjZNCpK4rq6DFUtiQ2rxCeb_34Mp54quVto+9LRJMH3=ZhQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_185340_343428_8AD0161C 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20251111_190325_534986_95FADF29 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,53 +101,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On November 10, 2025 thus sayeth Sebastian Andrzej Siewior:
-> this is the last batch I have to enable PREEMPT_RT on the ARM
-> architecture.
-> Last time I posted them there was some discussion about making the
-> branch predictor hardening worse. I redid it hoping it improved now and
-> does not make it worse.
-> 
-> Is this okay now?
-> 
-> v2…v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@linutronix.de
->   - Collected tags.
-> 
-> v1…v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@linutronix.de
->   - Allow to enable jump-labels on UP. The UP build does not involve
->     stop_machine(). Reworked by Arnd.
-> 
->   - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
->     disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
->     needed.
-> 
->   - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
->     which in turn depends on !KVM. Since KVM has been removed from ARM
->     it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
->     by Arnd.
-> 
-> Sebastian Andrzej Siewior (3):
->   ARM: mm: fault: Move harden_branch_predictor() before interrupts are
->     enabled
->   ARM: Disable HIGHPTE on PREEMPT_RT kernels
->   ARM: Allow to enable RT
-> 
-> Thomas Gleixner (1):
->   ARM: Disable jump-label on PREEMPT_RT
-> 
-> Yadi.hu (1):
->   ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
-> 
->  arch/arm/Kconfig    |  5 +++--
->  arch/arm/mm/fault.c | 16 ++++++++++------
->  2 files changed, 13 insertions(+), 8 deletions(-)
-
-Thank you Sebastian!
-
-There are quite a few systems which use 32b processors and need 
-PREEMPT_RT. Thank you for doing this. 
-
-Acked-by: Bryan Brattlof <bb@ti.com>
-
-~Bryan
+> -----Original Message-----
+> From: Inki Dae <daeinki=40gmail.com>
+> Sent: Monday, November 10, 2025 2:22 PM
+> To: Hoyoung Lee <hy_fifty.lee=40samsung.com>
+> Cc: Seung-Woo Kim <sw0312.kim=40samsung.com>; Kyungmin Park
+> <kyungmin.park=40samsung.com>; David Airlie <airlied=40gmail.com>; Simona
+> Vetter <simona=40ffwll.ch>; Krzysztof Kozlowski <krzk=40kernel.org>; Alim
+> Akhtar <alim.akhtar=40samsung.com>; dri-devel=40lists.freedesktop.org; li=
+nux-
+> arm-kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org; li=
+nux-
+> kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH 2/3=5D drm/exynos: Convert to drmm_mode_config_init=
+()
+> and drop manual cleanup
+>=20
+> 2025=EB=85=84=209=EC=9B=94=2029=EC=9D=BC=20(=EC=9B=94)=20=EC=98=A4=ED=9B=
+=84=201:54,=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=EB=8B=98=EC=9D=
+=B4=20=EC=9E=91=0D=0A>=20=EC=84=B1:=0D=0A>=20>=0D=0A>=20>=20Switch=20mode-c=
+onfig=20initialization=20to=20drmm_mode_config_init()=20so=20that=0D=0A>=20=
+>=20the=20lifetime=20is=20tied=20to=20drm_device.=20Remove=20explicit=0D=0A=
+>=20>=20drm_mode_config_cleanup()=20from=20error=20and=20unbind=20paths=20s=
+ince=20cleanup=20is=0D=0A>=20now=20managed=20by=20DRM.=0D=0A>=20>=0D=0A>=20=
+>=20No=20functional=20change=20intended.=0D=0A>=20>=0D=0A>=20>=20Signed-off=
+-by:=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=0D=0A>=20>=20---=0D=0A>=
+=20>=20=20drivers/gpu/drm/exynos/exynos_drm_drv.c=20=7C=204=20+---=0D=0A>=
+=20>=20=201=20file=20changed,=201=20insertion(+),=203=20deletions(-)=0D=0A>=
+=20>=0D=0A>=20>=20diff=20--git=20a/drivers/gpu/drm/exynos/exynos_drm_drv.c=
+=0D=0A>=20>=20b/drivers/gpu/drm/exynos/exynos_drm_drv.c=0D=0A>=20>=20index=
+=206cc7bf77bcac..1aea71778ab1=20100644=0D=0A>=20>=20---=20a/drivers/gpu/drm=
+/exynos/exynos_drm_drv.c=0D=0A>=20>=20+++=20b/drivers/gpu/drm/exynos/exynos=
+_drm_drv.c=0D=0A>=20>=20=40=40=20-257,7=20+257,7=20=40=40=20static=20int=20=
+exynos_drm_bind(struct=20device=20*dev)=0D=0A>=20>=20=20=20=20=20=20=20=20=
+=20dev_set_drvdata(dev,=20drm);=0D=0A>=20>=20=20=20=20=20=20=20=20=20drm->d=
+ev_private=20=3D=20(void=20*)private;=0D=0A>=20>=0D=0A>=20>=20-=20=20=20=20=
+=20=20=20drm_mode_config_init(drm);=0D=0A>=20>=20+=20=20=20=20=20=20=20drmm=
+_mode_config_init(drm);=0D=0A>=20>=0D=0A>=20>=20=20=20=20=20=20=20=20=20exy=
+nos_drm_mode_config_init(drm);=0D=0A>=20>=0D=0A>=20>=20=40=40=20-297,7=20+2=
+97,6=20=40=40=20static=20int=20exynos_drm_bind(struct=20device=20*dev)=0D=
+=0A>=20>=20=20err_unbind_all:=0D=0A>=20>=20=20=20=20=20=20=20=20=20componen=
+t_unbind_all(drm->dev,=20drm);=0D=0A>=20>=20=20err_mode_config_cleanup:=0D=
+=0A>=20>=20-=20=20=20=20=20=20=20drm_mode_config_cleanup(drm);=0D=0A>=20=0D=
+=0A>=20In=20the=20current=20implementation,=20there=20is=20a=20potential=20=
+dereference=20issue=0D=0A>=20because=20the=20private=20object=20may=20be=20=
+freed=20before=20to_dma_dev(dev)=20is=20called.=0D=0A>=20When=20drmm_mode_c=
+onfig_init()=20is=20invoked,=20it=20registers=0D=0A>=20drm_mode_config_clea=
+nup()=20as=20a=20managed=20action.=20This=20means=20that=20the=20cleanup=0D=
+=0A>=20function=20will=20be=20automatically=20executed=20later=20when=0D=0A=
+>=20drm_dev_put()=20is=20called.=0D=0A>=20=0D=0A>=20The=20problem=20arises=
+=20when=20drm_dev_put()=20is=20called=20without=20explicitly=0D=0A>=20invok=
+ing=20drm_mode_config_cleanup()=20first,=20as=20in=20the=20original=20code.=
+=20In=20that=0D=0A>=20case,=20the=20managed=20cleanup=20is=20performed=20la=
+ter,=20which=20allows=0D=0A>=20to_dma_dev(dev)=20to=20be=20called=20after=
+=20the=20private=20object=20has=20already=20been=0D=0A>=20released.=0D=0A>=
+=20=0D=0A>=20For=20reference,=20the=20following=20sequence=20may=20occur=20=
+internally=20when=0D=0A>=20drm_mode_config_cleanup()=20is=20executed:=0D=0A=
+>=201.=20drm_mode_config_cleanup()=20is=20called.=0D=0A>=202.=20During=20th=
+e=20cleanup=20of=20FBs,=20planes,=20CRTCs,=20encoders,=20and=20connectors,=
+=0D=0A>=20framebuffers=20or=20GEM=20objects=20may=20be=20released.=0D=0A>=
+=203.=20At=20this=20point,=20Exynos-specific=20code=20could=20invoke=20to_d=
+ma_dev(dev).=0D=0A>=20=0D=0A>=20Therefore,=20the=20private=20object=20must=
+=20remain=20valid=20until=0D=0A>=20drm_mode_config_cleanup()=20completes.=
+=0D=0A>=20It=20would=20be=20safer=20to=20adjust=20the=20code=20so=20that=20=
+kfree(private)=20is=20performed=0D=0A>=20after=20drm_dev_put(drm)=20to=20en=
+sure=20the=20private=20data=20remains=20available=20during=0D=0A>=20cleanup=
+.=0D=0A>=20=0D=0A>=20Thanks,=0D=0A>=20Inki=20Dae=0D=0A>=20=0D=0A>=20>=20=20=
+=20=20=20=20=20=20=20exynos_drm_cleanup_dma(drm);=0D=0A>=20>=20=20=20=20=20=
+=20=20=20=20kfree(private);=0D=0A>=20>=20=20=20=20=20=20=20=20=20dev_set_dr=
+vdata(dev,=20NULL);=0D=0A>=20>=20=40=40=20-317,7=20+316,6=20=40=40=20static=
+=20void=20exynos_drm_unbind(struct=20device=20*dev)=0D=0A>=20>=20=20=20=20=
+=20=20=20=20=20drm_atomic_helper_shutdown(drm);=0D=0A>=20>=0D=0A>=20>=20=20=
+=20=20=20=20=20=20=20component_unbind_all(drm->dev,=20drm);=0D=0A>=20>=20-=
+=20=20=20=20=20=20=20drm_mode_config_cleanup(drm);=0D=0A>=20=0D=0A>=20Ditto=
+.=0D=0A>=20=0D=0A>=20>=20=20=20=20=20=20=20=20=20exynos_drm_cleanup_dma(drm=
+);=0D=0A>=20>=0D=0A>=20>=20=20=20=20=20=20=20=20=20kfree(drm->dev_private);=
+=0D=0A>=20>=20--=0D=0A>=20>=202.34.1=0D=0A>=20>=0D=0A>=20>=0D=0A=0D=0AHi,=
+=20Inki=0D=0AThanks=20for=20the=20review=20and=20for=20pointing=20out=20the=
+=20to_dma_dev()=20path=0D=0A=0D=0AIf=20I=20understand=20you=20correctly,=20=
+fine=20with=20using=20DRMM,=20but=20kfree(priv)=20should=20occur=20after=20=
+drm_dev_put(drm)=0D=0AThat=20would=20mean=20releasing=20the=20drm_device=20=
+first=20and=20freeing=20dev_private=20afterwards.=0D=0AOf=20course,=20we=20=
+will=20also=20need=20to=20adjust=20the=20probe()=20error-unwind=20(err_free=
+)=20order=20accordingly.=0D=0ADo=20you=20anticipate=20any=20side=20effects=
+=20from=20this=20ordering=20change?=20I=E2=80=99d=20appreciate=20your=20tho=
+ughts.=0D=0A=0D=0ABRs,=0D=0AHoyoung=20Lee=0D=0A=0D=0A
 
