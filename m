@@ -4,54 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFC0CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFE7CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLQDTLZhEwI383p4au9J4JBzW8WMvm+21axEr2g03UE=; b=FLAPat6t7k8Wc+a2y3Ccj5Uq4F
-	Ok8sf1GkNRlqazs1ijhkEFy9miI+Wp92Hs2Oetql0NplacSNtgy0kXuQeZ+GtvXlG7FwMrLe6PXij
-	XuvyvV5AQW/CoH6fFOSi2uYkWIb3IQu2Z5a3oPgDeueNOL5dxCZloc3lWZ7Juu6UH9HwWOUol36Mx
-	zPOLeel1Luq2xNY3s2X7RUAGM6FjPd0qAlGwSzFv8IRkprXtwZoC9ziDTo96aXuKYd41TA7ndJy68
-	iQh70RPWobPWBBCl53Kx66I1Wn9caCp+mO3cunpDiRym+ma2ENu9mHjzNA0xq/7ErMJ4/wurVNX1V
-	bE5dXt0w==;
+	bh=3nCLGdNg0B7kK9ihswq7fVace/Pjn+bodu3kR1lh3t8=; b=mmoFOOEkc4I8YHM3xVDLU5eg7G
+	FYSNV4zbyjUzxGfaBHZKPsce69mYa31Djfv04XDs2EcXIS8MPWDaXyaKXh79kohID1E0hQNL/K1O6
+	3h1YZqIhl43nfkaBYz5nnaU6kNSR1PZ3ftSphO1w7GLPYldGqSOyalBmFzIXGskdkSMY+kgn0UU5x
+	42m+XGXIDZaPguglF97J0dMxrDI1dTQuvqczYsNFM8xIWgwdnOdOT7SqCOXX603OBJnLe0q3BgyX5
+	Pi8kwQQPVUGoNvLff5Wvi81eBK92qaBUxPkfZWICHNXorZbkQoS7mU+BZJciMW+4+cCTGWEXqhhls
+	o/cNKjYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAAh-00000008n2c-2dn5;
-	Wed, 12 Nov 2025 12:41:59 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vJAC8-00000008nBz-2HQq;
+	Wed, 12 Nov 2025 12:43:28 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAAe-00000008n2G-1G0l
+	id 1vJAC5-00000008nBc-3t4t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 12:41:58 +0000
-Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AF75CE77;
-	Wed, 12 Nov 2025 13:39:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762951193;
-	bh=LLQDTLZhEwI383p4au9J4JBzW8WMvm+21axEr2g03UE=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=rleANA/UnZt2L8Q2lRInyqmF+bbyFtlm+o2pO4RCNJJ1SF8U5/+i1RPGtuyFSq8M2
-	 aFthXDSlJec4F1EAfuMfti3DJGll/kTTj/VkNaRg5Qa9ETOuATx2Ji8mM0uJWtaNSG
-	 Qzt6fvd5pP2QQnt3iLmjmY59GRgf75vrUnPlqdgU=
-Content-Type: text/plain; charset="utf-8"
+	Wed, 12 Nov 2025 12:43:27 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-65677b3aa4bso338190eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 04:43:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762951404; x=1763556204; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3nCLGdNg0B7kK9ihswq7fVace/Pjn+bodu3kR1lh3t8=;
+        b=bumcXbdURZ5NDmESq1aqoqubtaQCqctcfND8Sp6STwKM5qWdMJ1j26cDpuZzUVNPaN
+         Shna2fhIFvAht+dA92I8Q/wKmpNIr0oRI6zwgvsnG6HzQFykILQhTLTUfPfLkgs7KSAa
+         pBBW4zZ1Cj4YQjvy2732s8+A4x9Sj0pdKS+DYe7tGPQq7LhuTMV44pz9DqR91o6qiksQ
+         eXt7mMaboyyMj73dKZra/f54gI7AgObRy3QB+6TC3hW9q5wqIbZ6uppP4MxWkJpW3wfZ
+         6k5fmtFujRldT4spPbVWh5rF7KqNKTUOVsDGHz5QwVadCJiVllKe0vE174PDtQQobwm4
+         ahmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762951404; x=1763556204;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3nCLGdNg0B7kK9ihswq7fVace/Pjn+bodu3kR1lh3t8=;
+        b=L+Eu3TQmOh/pVo5tvkwYkXlQoK+ED+iwtUy1cNwZQLxctcmUGdN94yxQUbpZSfVyJK
+         X5jgmG2fnS5piiKBEvALHoTUSU27rvXzY6u8LtUIQDFQwFWelBkfMijttrI69/g8OpnC
+         HtmvJrS9wZiCiwbiUMLSVnm01V5y980rudsRZLJtYJwASxkN4p9wIeiTRIXBmVhtKgEr
+         O/+YGDk6u94Edo9/CNxDhGYRaAxC/o9YsVucp4SI+q4ZEh5eoNdyi9yYY4u2fQHCm4Eb
+         Lo3S8xrV2jl5fuZjIfAaX9IXSparLee71b+2m2W//GcZVmqbPb2OhfIp+IGBv+s/Jth2
+         lqDw==
+X-Forwarded-Encrypted: i=1; AJvYcCUtMFAW4fSw0Tj0nxjPTq9uFGCWDJ2yd9YaMziJms/fmK/iObGd8MWPyZtG/CVBErXPehBRbCVhTaI/zdBDOHeW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyhdq/lT3m1eE6DLvHzoz3H0qyIhrF4gaKzVhMCMi4zgeli8buE
+	BFIJmF+V7gAU40T/tqC5V3oI/gD7bcrDpo8At4aU7SECsU+JhKNOG5A/uKcgyctL9LBMtqNM9vN
+	OSMjXTQ4o9PZP9z/b/FWtq6OsUNb/u3y4KHwASq6qrA==
+X-Gm-Gg: ASbGncuUz8W3Op84G9kpzFpAKZhyOjqsS0nAa8D9pouc4UchEZzxNcV+l0eUKhQw0l5
+	b5/wvgvPDDSAmjWGQhzayBgvbVuoZHX6aTqigwm0Y2xTuVN3AFKVdfYE5C62q2ewrDs0MJNyPev
+	oMFcBj2NCrEIkYWhXeCbGlHlYZUlDtgr1pNGOO6lzv7h6jejJA7s4ySBZy5NZ4/kFcYVTh01y3I
+	BGwidY4f6786fmAhP0celGuVmdMzQWqm3muigNIUlf4qugk8T/JiV8zimeZWQ==
+X-Google-Smtp-Source: AGHT+IF56OFOYiIqZ0djA3ZvTwB3pXvmWTE2Y/2e47Acadn9UwrR6l4mgUbLbvMhjjLW0TKRt/QCjKhcWzj8fAK4e1A=
+X-Received: by 2002:a05:6870:b14a:b0:3d2:ed44:67b9 with SMTP id
+ 586e51a60fabf-3e83416c4e5mr1230844fac.23.1762951404616; Wed, 12 Nov 2025
+ 04:43:24 -0800 (PST)
 MIME-Version: 1.0
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a1f1395814@changeid>
+ <b55d94f2-6b79-407f-af58-b9847db3c9a2@kernel.org> <CADrjBPpCKfd_0PY=DULnmqfb8veqH-SQ-kr5gC6Y28uBVo8iRA@mail.gmail.com>
+ <CACRpkdYN=FN92cuS3U-XBVoyD3DcKkfzEXYVNnQNK07rxJJZ=A@mail.gmail.com>
+In-Reply-To: <CACRpkdYN=FN92cuS3U-XBVoyD3DcKkfzEXYVNnQNK07rxJJZ=A@mail.gmail.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 12 Nov 2025 12:43:12 +0000
+X-Gm-Features: AWmQ_bmPb1_M5A-rGtzHjXMiQBLBGQHTdvPma_dayyNctbSOvz5HTwmZK5JuVGs
+Message-ID: <CADrjBPo+EhJ5iLCm=HpzLCWjv+QCX3ft4e4eC1CPzeCk+trpKQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4] arm64: dts: google: Add dts directory for
+ Google-designed silicon
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Drew Fustini <fustini@kernel.org>, 
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, soc@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aRR-6Nl3ELB2v8gV@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com> <e87ff7f2-d16f-41f2-b781-b175cfb84b21@lunn.ch> <aP83bMDWCre7-Sjw@pengutronix.de> <aRR-6Nl3ELB2v8gV@shell.armlinux.org.uk>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Daniel Scally <dan.scally@ideasonboard.com>, Stefan Klug <stefan.klug@ideasonboard.com>, Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
-To: Oleksij Rempel <o.rempel@pengutronix.de>, Russell King (Oracle) <linux@armlinux.org.uk>
-Date: Wed, 12 Nov 2025 12:41:50 +0000
-Message-ID: <176295131007.567526.3395425614344577792@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_044156_481890_FFACAB0C 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20251112_044325_972322_76009840 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,76 +107,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Russell King (Oracle) (2025-11-12 12:34:48)
-> On Mon, Oct 27, 2025 at 10:12:12AM +0100, Oleksij Rempel wrote:
-> > Please note, RTL8211E PHY do use undocumented SmartEEE mode by default.
->=20
-> Same as RTL8211F I believe (as used on the Jetson Xavier NX platform I
-> have.) I submitted commit bfc17c165835 ("net: phy: realtek: disable
-> PHY-mode EEE") to get EEE working on this platform.
->=20
-> > It ignores RGMII LPI opcodes and doing own thing. It can be confirmed by
-> > monitoring RGMII TX and MDI lines with oscilloscope and changing
-> > tx-timer configurations. I also confirmed this information from other
-> > source. To disable SmartEEE and use plain MAC based mode, NDA documenta=
-tion
-> > is needed.
->=20
-> What I saw there was similar to what you describe (although I have no
-> way to monitor these signals.) No interrupt storms, but while the
-> stmmac TX path would enter LPI mode (whether that provoked anything
-> in the PHY, I do not know), the RX path never entered LPI mode because
-> the PHY never forwarded that status.
->=20
-> So, I don't think having SmartEEE enabled on the RTL8211E would cause
-> this interrupt storm that Laurent is reporting.
+Hi Linus,
 
-Perhaps further complicating matters.
+On Wed, 12 Nov 2025 at 12:36, Linus Walleij <linus.walleij@linaro.org> wrot=
+e:
+>
+> On Wed, Nov 12, 2025 at 1:26=E2=80=AFPM Peter Griffin <peter.griffin@lina=
+ro.org> wrote:
+>
+> > There will be some Laguna SoC
+> > drivers for pinctrl, clocks etc,
+>
+> Oh new pin control, interesting!
+>
+> Will you be doing the upstreaming of that?
 
-I have a Debix Model A as well ... I'm in a different office to Laurent
-- and I believe EEE is enabled on my board/network switch.
+It will most likely be Doug, not sure if he's started looking at that
+yet though.
 
-I do not get an interrupt storm.
-
-I'm not sure how this helps yet, - I don't know what to debug as I can't
-reproduce the issue!
-
-I can provide remote access to the board with ssh if that helps anyone
-who wants to look at something specific about my setup or run anything
-if anyone has ideas of what to check my side.
-
-Perhaps we can find some subtle difference between a working case and a
-non-working case...
-
---
-Kieran
-
-
-
-
-> In Emanuele's case, things are different. The TI PHY reports that EEE
-> is supported, implements the autoneg registers for EEE, but *doesn't*
-> implement the necessary hardware for detecting/entering/exiting LPI
-> mode. So, if EEE is negotiated, the remote end thinks it can enter
-> LPI mode... which likely causes the link to drop as the TI PHY can't
-> cope with that, and I suspect that's the cause of Emanuele's problem.
->=20
-> I'm wondering why "arm64: dts: imx8mp: add cpuidle state "cpu-pd-wait""
-> impacts this - could it be that entering the idle state does more than
-> just affecting the CPU domain, but interferes with the EQOS domain in
-> some way. Given that the entry/exit to this state is all buried in
-> PSCI stuff, without digging through the ATF implementation for this
-> platform and then cross-referencing the iMX8M documentation, I don't
-> know what effect this has on the system. Is it possible that PSCI is
-> messing with the EQOS?
->=20
-> What about the clock tree? Is it possible that the stmmac and/or RGMII
-> clocks could be lost when cpu-pd-wait state is entered on all CPUs?
->=20
-> Has anyone checked whether there's anything in the errata
-> documentation?
->=20
-> --=20
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Peter
 
