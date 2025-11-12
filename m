@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0EBCD1297
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50F9CD1297
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF0rJjJI4tWYdSogXLc0tqn+luRhJBK7q0bCFBP3A48=; b=NsW7ntlPPsboklfWUfYXi7+mRd
-	Rl8lEYzJInVBeUGlWTlATTB3QxIW+CiVkRIwvpXDCNfEI7GdvFfU40chISPMj6zDjqIKFfR7v4k0q
-	KT2I1rXbsqyb07ESZCWm21QFLEHRzik5uX8PDHhsba+amK0SdCMMj5L6FyWlmC6VV3eSMZLBHrn+H
-	rgZcsNmhE+XdHOht3U0SpZIq2LUwMtKVe4wPLqaZ9koUPmyJlYQ3dyf7Eq3aICG4iKk59bcY4CGQn
-	Xucjkh7ZaxHfnOC+Mx8p8sxZFyzH7iNJUg84ErhmHJEI5zkU/qE8bB7/ZKe8UczzmzWli7vMxRHGS
-	jKI41F7g==;
+	bh=VhJK/nv+0ASiIHxO+Y11CbUntTVgMQKT69rk/ES1NxI=; b=FADam4QX0A1kheAIqI/kvI1wSj
+	XVfQp350jAKg6Bhy8cVUHBkSseQt5tlPV4J3171q40CZgFJ37C/mzTeL6GNPnQ7JRESDeL7fvY/ov
+	gbCZ+E1rdSMmXAhW/JCvDbWlCDhvGEbuy439ooS/i5IqQjLAU4Dj3bmkIcLZ54w+GZrqhB7AWirBU
+	CfoTzArz1HVxGNz5EFcuVs618H/Q3BRI7mEdSj/WO/5LSIBdXDjD9HtQ2L3rmW7/nvVVDo25w/FY5
+	1iQWg5W4tH89rzZXnnXjCXXjJfvNjaOGmUDedw1Xvw5maSTcG5+ZTmo4gaAbzgCksF/pn1B6Yeuj1
+	siYJkzvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJD3W-000000095X6-3euO;
-	Wed, 12 Nov 2025 15:46:46 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vJD4W-000000095gq-3x0V;
+	Wed, 12 Nov 2025 15:47:48 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJD3T-000000095WF-2JLn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:46:45 +0000
+	id 1vJD4I-000000095eF-3RYS;
+	Wed, 12 Nov 2025 15:47:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EFCA34E4167B;
-	Wed, 12 Nov 2025 15:46:39 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 35151C0F56F;
+	Wed, 12 Nov 2025 15:47:09 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C0E456070B;
-	Wed, 12 Nov 2025 15:46:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1946C102F1C26;
-	Wed, 12 Nov 2025 16:46:26 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CC4FD6070B;
+	Wed, 12 Nov 2025 15:47:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A6690102F192F;
+	Wed, 12 Nov 2025 16:47:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762962398; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1762962449; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=cF0rJjJI4tWYdSogXLc0tqn+luRhJBK7q0bCFBP3A48=;
-	b=eySDEjQmTYwi4hV/GI8oe0oOfuB4w3piugQQhn9HLSJu/iIGECK1sH2BE9C3rJNffTJTkS
-	IyslYBrFKrZ80g7jNfIIaJO0QAMy7wZbxcN17QPI0An42QRnJQ39wT+DjOUqxGia03tNbh
-	VK97KbTslzXausYPB12MP7d3Z9n7UiY73Stixcd9TQrcJ0Jw/L8cNY12+gBXxNROw4hsjU
-	mZ5hkD+8XkOtqTb5FdZc0tFFxfqBR/T14zMRm5qBcMzoBNVnfuBtaxRjt/7L75gWB1nsV6
-	TZIImkkN9DcrJeV9TivVQcashNB7Foo33z33h4aShVHWH59Ef01FB8F3pLDfTg==
-Message-ID: <7243ff3e-839f-4ea4-9470-1a16f506b4bc@bootlin.com>
-Date: Wed, 12 Nov 2025 16:46:26 +0100
+	bh=VhJK/nv+0ASiIHxO+Y11CbUntTVgMQKT69rk/ES1NxI=;
+	b=VPNbNVWd/yU7bWsjlIzkW2w0EhFc/4gP4SYgqNN3fnjEQhk4Y3ArPU1hKZ9Uq4/z50CEYc
+	IYtLbtP2csSaEN2yWQoWXFRrO/lnICI045SU4ETVnzYqK+g38R2Dijoo9xrCK55VYPTqJI
+	sOjYXOdnanpEpY9uMu8zOENWzXrX91lnr48zJAHFEtDEqaw1tEraWOVoxNlawKwmD0xIjA
+	y3DdwNG+xrrXceNfju/SKobXyCVYums5BCJDe+KyG8Z8ozXqssCvpFaf/BhMMbBL5CpxDK
+	RqjOPD/uUBkVMe5SSiG4mEwV2CEHln8G34NxaHxPG8jPeYtZ7eZ4/KklYf8y1g==
+Message-ID: <8ee62480-88bc-4b1c-a7d4-fd86819d0441@bootlin.com>
+Date: Wed, 12 Nov 2025 16:47:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 01/13] net: stmmac: loongson1: use
- PHY_INTF_SEL_x
+Subject: Re: [PATCH net-next v2 02/13] net: stmmac: loongson1: use
+ PHY_INTF_SEL_x directly
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -66,17 +65,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
  Paolo Abeni <pabeni@redhat.com>
 References: <aRLvrfx6tOa-RhrY@shell.armlinux.org.uk>
- <E1vIjTf-0000000Dqt0-1CZg@rmk-PC.armlinux.org.uk>
+ <E1vIjTk-0000000Dqt6-1gN9@rmk-PC.armlinux.org.uk>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <E1vIjTf-0000000Dqt0-1CZg@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vIjTk-0000000Dqt6-1gN9@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_074643_715023_6566F345 
-X-CRM114-Status: UNSURE (   5.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_074735_021116_1DC685DD 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,11 +92,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 11/11/2025 09:11, Russell King (Oracle) wrote:
-> Use PHY_INTF_SEL_x definitions for phy_intf_sel bitfield.
+> Use the PHY_INTF_SEL_xx values directly in ls1c_dwmac_syscon_init(),
+> converting them to the PHY_INTF_SELI bitfield when calling
+> regmap_update_bits().
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c | 11 +++++------
+>  1 file changed, 5 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> index 09e2af1d778a..5f9f66fbc191 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> @@ -38,8 +38,6 @@
+>  #define GMAC_SHUT		BIT(6)
+>  
+>  #define PHY_INTF_SELI		GENMASK(30, 28)
+> -#define PHY_INTF_MII		FIELD_PREP(PHY_INTF_SELI, PHY_INTF_SEL_GMII_MII)
+> -#define PHY_INTF_RMII		FIELD_PREP(PHY_INTF_SELI, PHY_INTF_SEL_RMII)
+>  
+>  struct ls1x_dwmac {
+>  	struct plat_stmmacenet_data *plat_dat;
+> @@ -140,15 +138,14 @@ static int ls1c_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  	struct ls1x_dwmac *dwmac = priv;
+>  	struct plat_stmmacenet_data *plat = dwmac->plat_dat;
+>  	struct regmap *regmap = dwmac->regmap;
+> +	int phy_intf_sel;
+>  
+>  	switch (plat->phy_interface) {
+>  	case PHY_INTERFACE_MODE_MII:
+> -		regmap_update_bits(regmap, LS1X_SYSCON1, PHY_INTF_SELI,
+> -				   PHY_INTF_MII);
+> +		phy_intf_sel = PHY_INTF_SEL_GMII_MII;
+>  		break;
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		regmap_update_bits(regmap, LS1X_SYSCON1, PHY_INTF_SELI,
+> -				   PHY_INTF_RMII);
+> +		phy_intf_sel = PHY_INTF_SEL_RMII;
+>  		break;
+>  	default:
+>  		dev_err(&pdev->dev, "Unsupported PHY-mode %u\n",
+> @@ -156,6 +153,8 @@ static int ls1c_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  		return -EOPNOTSUPP;
+>  	}
+>  
+> +	regmap_update_bits(regmap, LS1X_SYSCON1, PHY_INTF_SELI,
+> +			   FIELD_PREP(PHY_INTF_SELI, phy_intf_sel));
+>  	regmap_update_bits(regmap, LS1X_SYSCON0, GMAC0_SHUT, 0);
+>  
+>  	return 0;
+
 
