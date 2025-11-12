@@ -4,156 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0715CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818B5CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rwAyU0aPBERjod7wgKA1iXuGw5l4SeREMu619RQNrI=; b=zkKVnHdfzPKAMwGfNW2+2hOPjH
-	+VQaTgIKal6r0AW8riv1+CymJMs9nO/AoQ/jkVkffN/c1O56Qj9kzbscRS75nIOL9SeLAi5EeTUxF
-	v1aymRD0acl35AxWNnOLlcYODE5z2n1rwyHMbEMQwjuBzi+DLRWKiDJF4PHNF/mXneHGGmvySYT/P
-	LZ53sb2MGnPGqPXhnx3wrshmPqEB2hdW7IfPF8dHWmZPX1ABHCIWIEtY7cr8uQ3t91bpJL9d8TMc4
-	+Keh8lAeVmFd35YoQG43tIYJRWVcweXY9x/y9mDaLcZZlTLB53iUlpNATChDZyYbanNqnhMDUcUt5
-	7XuL+lXw==;
+	bh=q3fo5t1DnyRe10Cj1NfAtwM+rXXQu6x4TfMgOqlfNyw=; b=NPipPK8T0ZDmvS2X1+HQ9CBx1v
+	zaM/0tRbpBtsvsQoQs8KHszNMCcTWrW9jr6zl4z+6cHq8td4q5AmCyM/FtvWT26L2rVE4WonsShSy
+	K/VFyKKeVhe8dcW9bp0YbWfVBsNabMGTyZkQSdUxoIoPF+I9yP8/++ptBxzEovxpafIf4kBfC9SzC
+	I+8oPJX5sp2hXB9swdHHT74HjXlbuIGPiPrZPczUPog/lvVUjsvNRk8N6hTNi09q6VvF1suTpu3wl
+	taEoRyONEFQLcPca4tMOBvPSry7LzpP/1tLaJaQ/kyYCgZ1f1Vj8tqMO12BxMunuEgf/ZcbY75QvK
+	1wZeXjfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ806-00000008YKG-2tq9;
-	Wed, 12 Nov 2025 10:22:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vJ814-00000008YTd-2LmW;
+	Wed, 12 Nov 2025 10:23:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ803-00000008YJm-2hhe
+	id 1vJ813-00000008YTS-1HeQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:22:52 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AC9T1UE4076895
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 10:22:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5rwAyU0aPBERjod7wgKA1iXuGw5l4SeREMu619RQNrI=; b=A3D2P2ImD5qeuGzo
-	jpBbHoHhTWoTnBAVC6dE7Q74dffCYK3d80Avh5EWOL9OPMibphll25jw/a+c2fLK
-	C5Xv6OpsbOgjUViRvORZ+CEajalz9Rufz8i3y5mJ2xlMsqWP4CYR0jS6FfxV65Z5
-	d867ln9H65q5ZU2XS8q/+NvwyDNLhI9aTeuQXWh7xnlDZOaHMasR3hzUsIAjzWVE
-	evSA5abf0Rm28Ey5jE+QIs1WuH5Y0eqCeH35kW5hDrm/kkpjf/WzOU/kUnT+0InI
-	kNXy1SsstRtaRY8vrTCrNCkHCRaxLqzO05nSOfn6qD8vBhrVoyDKg2u63Tt/Z4Th
-	9sFYBQ==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4acguahfkb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 10:22:50 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4edaa289e0dso2531891cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 02:22:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762942970; x=1763547770; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5rwAyU0aPBERjod7wgKA1iXuGw5l4SeREMu619RQNrI=;
-        b=K8RHdN6HL6E1b3ab7Vwr2G6Htd3hHNjpbgNW/ido+20bM35x+kbvndW/zmWT5yRPrp
-         d4/PMg7vY1vqIUdd4WP4ZBu9MMyfPG4ntw2l786nVWjmSpg66qIRoNuE+QuNFzDs6unH
-         b1EXh2dWuRtbYLZ49BXfvF7YkGZm0TVE8O1g1krT8h/c3tup0KYuJ8PzZwkmCcsn92vK
-         dvnizIocgzUD+GnaZRjuMpNigE/86r8m0Cer/ojeS+NYyt7x7NCcjfDTMgxuhg1gUKvh
-         CC/NniGR2EbdrskSH/i2pBoveJFiZZXV2N4k8T7Jp2l+h9Jn5XeyU/P9Efo5zfkfjJVi
-         97QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762942970; x=1763547770;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5rwAyU0aPBERjod7wgKA1iXuGw5l4SeREMu619RQNrI=;
-        b=hH5FS9wxBrxWgjXFjgpRxUCqaDGdcAkT5C9OncfZkQVzR3dhDcnqpgA4Iq3j8wCYTi
-         O273JIyVDQ7saMHvU3YLh4HRSwP1lLbQ4+hxpHmjw1K01hhaDJH/V1t9fqsrt5TuipnQ
-         RWsN5cFM+oEEZz9r9aKkubgR/C77ypxBeKZY4lLy2YblyAyinSvAN7KwNUprbJo5PAPs
-         pMFnWMpr/KOip+kgXv1KOPy9ceO+db9j14g3Ss0hLz1wcC5fYNw/tNDSwVDkDEWFbRlS
-         3TLTFvv5YZIOF2A5j1oCaYSoSaJ5wm6gu1zcOze4UbSRK8rTtpx5AU1C0Kh3d99BaqQa
-         oKIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWo3kHHLeit0GBo8HUM1u6nnpLAhZfcvU8ltmBIbBrIOOn08FOmYGEVPuzSCFcqjerIC7rzcI3ciDCcfreqhmDZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFZcM0ZE3HzZmaAl4TQQvgFUJ6Ha5vGXTU+xZztsIMedPoeMv1
-	R0RvXps1O859n94EuUqNZMIDyhxU1aEmYdA4Z5zBHdKpASAzEugJGkoV25V+JBy5WeGCw5BBcMj
-	kZl6/WldUbsT51I48c7SDS2t65pNzpRoAvUw7QE+xp5C2SxLy3+gZlsTFkuj9xURh4C8gCPfHjj
-	bH7Q==
-X-Gm-Gg: ASbGnctS2rNrM1/UVjZrO8RfvRtrDqjC4rc94rdat9YOiIRUaCqw70bI4F1HS+5UJXy
-	xoBR+MxascFcPXjZEgtoKAys0iSqtyj/A6Ky7Dx37lNKloMZRWFeMrcVe/z8l2GUUACRvZxh9ul
-	oROhXNuZanaQoyT1qESo1uwSOK4TKYy2M1PSl0950X/hDLs/GgoaztcReBq9q/g/hys/cfPa0vZ
-	Y3V7f/dqIXAQZMTmP9gyUjVRVeUg91p2iztoAhhja7UrPOGtDa5hz4coCbgIbQOtDOly3hJMpBP
-	2ZR3TY07M115CZ+HV5iXbhaF669jZxtVw9f3aQ90chA6CXgfAn02KSB6hCOzq4EP1i+pl1w0x2J
-	jjRkBLCi3/fKmezOFrY1pGumBq6E8T3XovARdwyNxTB7nfA97yctk6Ode
-X-Received: by 2002:a05:622a:d0:b0:4ec:f53b:418e with SMTP id d75a77b69052e-4eddbc6bc3dmr20363011cf.2.1762942969366;
-        Wed, 12 Nov 2025 02:22:49 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGebY4K7Namd6glwHLtMAZE0lf4hL9guGKfOfliFjM5eEuz55Nipc9SN3o1JFfip8JTUrox/Q==
-X-Received: by 2002:a05:622a:d0:b0:4ec:f53b:418e with SMTP id d75a77b69052e-4eddbc6bc3dmr20362721cf.2.1762942968808;
-        Wed, 12 Nov 2025 02:22:48 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f862bd0sm15744925a12.26.2025.11.12.02.22.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Nov 2025 02:22:48 -0800 (PST)
-Message-ID: <28d62905-c191-4c3a-995e-a4146ffce619@oss.qualcomm.com>
-Date: Wed, 12 Nov 2025 11:22:44 +0100
+	Wed, 12 Nov 2025 10:23:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B36E26020F;
+	Wed, 12 Nov 2025 10:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F12C4CEF7;
+	Wed, 12 Nov 2025 10:23:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762943032;
+	bh=KOJ0ISCnxoZGIBb9BERjq0F1E/gA0GfhIhpp772nckE=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ejfzW4y0R+DqqfayLuHNMAk1SuBIMD+R/8ZUCZrDP2BJXoIX/wBB2B4yLp9j31MUU
+	 O75pQXT0a28kXxa+diOOSLoes/sl9Z1+3dIadPmB8oRGfrgbthr1rePNSD/p1xyMlw
+	 lNVoJselOxE/4pys2b3tTKU/Jig0H/8PZDmS0wU7jO4nxkdmQScGBa3P3gWBht3eIq
+	 aJsMlxjkX+mWdEl4SgC1/MQRd7IZG6c0ZEGRBZxorYdzXLkts8YL3I5vlCJrNxKDSl
+	 QkZq3+Bw62aX2czzg+GtiR5lDPY5Gks9vB0LyX6gYELTpM5ztG892b3sBuDUikPpmG
+	 9ODoke8y6XXow==
+Message-ID: <065678f2-3fbe-448e-83ae-e8b3e7ba96b3@kernel.org>
+Date: Wed, 12 Nov 2025 11:23:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/21] drm/msm/adreno: Move adreno_gpu_func to
- catalogue
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org
-References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
- <20251110-kaana-gpu-support-v2-5-bef18acd5e94@oss.qualcomm.com>
+Subject: Re: [PATCH 1/2] dt-bindings: soc: samsung: exynos-pmu: remove syscon
+ for google,gs101-pmu
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dan.carpenter@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ arnd@arndb.de
+References: <20251103-remove-pmu-syscon-compat-v1-0-f2cb7f9ade6f@linaro.org>
+ <20251103-remove-pmu-syscon-compat-v1-1-f2cb7f9ade6f@linaro.org>
+ <20251112-naughty-romantic-hamster-e213eb@kuoka>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20251110-kaana-gpu-support-v2-5-bef18acd5e94@oss.qualcomm.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251112-naughty-romantic-hamster-e213eb@kuoka>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: woeUgZ4euykHKdpnqdQNW3F8IEiznicW
-X-Authority-Analysis: v=2.4 cv=ao2/yCZV c=1 sm=1 tr=0 ts=69145ffa cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=p7PcLuspDTVbkQel-sEA:9
- a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-ORIG-GUID: woeUgZ4euykHKdpnqdQNW3F8IEiznicW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDA4MyBTYWx0ZWRfXwrxwtHKO1n+R
- fk+JwEWhm7IBvZTuXq87giQ9hMI5UcA656S38tbtRS3RPAPpTL5QhLZRf00yWZ0/WakFd8GDg5G
- hviQpfUx7/vxVWF1rT2cbyd4LbOaHImxgglWT6u09RW6J3kOYi9uHzci8jrlNsoeIHoGBm0mrup
- OtVBvBER92+RWNbVqJDrXfACtR8xR6tDx3T3bVRXEb9vtV0VCxyYNwA4Wr1N0kDpIkwpReM457w
- qwwcvHOAMUo7vCtcZiJNzB186AEy7VVE3nRi1pkkXDZ2rh2Pq9jM1QpYpQhTEqyKtmvc4ImacWq
- kc+ZPtwkz8AVSZ/V4YZYyM2Zrf+9Wkn5o1ohG3Sp/CdrZEImKkitZIUEsCfQelX5/4ixPPnWMiM
- AfllaqZUtspu09yJTa22jePdRJVMHA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-12_03,2025-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 spamscore=0 phishscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 malwarescore=0 suspectscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511120083
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_022251_801981_81F8C20F 
-X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,26 +122,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/10/25 5:37 PM, Akhil P Oommen wrote:
-> In A6x family (which is a pretty big one), there are separate
-> adreno_func definitions for each sub-generations. To streamline the
-> identification of the correct struct for a gpu, move it to the
-> catalogue and move the gpu_init routine to struct adreno_gpu_funcs.
+On 12/11/2025 11:22, Krzysztof Kozlowski wrote:
+>>      oneOf:
+>> +      - items:
 > 
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+> I expect new version (see other comment), so also please change items
+> into enum and drop const from below. items is redundant for one entry in
+> compatible (by convention) and having it as enum already makes it ready
+> for growing the enumeration for future devices.
+> 
+>> +          - const: google,gs101-pmu
+> 
 
-[...]
 
+Ah, and there is also checkpatch warning about length of commit msg.
 
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> index 44df6410bce1..9007a0e82a59 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
-> @@ -683,7 +683,7 @@ static const struct adreno_info a6xx_gpus[] = {
-
-Somewhere among this diff, a619_holi needs to have gmu_wrapper funcs
-instead
-
-Konrad
+Best regards,
+Krzysztof
 
