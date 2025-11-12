@@ -4,157 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB58FCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F9CCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hqn/wzlgzq5DjCmF6Pn+Pve79dJxLs3SuesVVNvdNOE=; b=xKmVTe9igMADdi64DNvlEJrvCH
-	BSNzGRISNsHfeu+39mozgK0SnOssFagfkbmkTvLqoXzPon0HVWRh97yiEkr+qil5rJ8SqwGhrSgew
-	vOvbU351DCjhgH8SD0oBnljH4XL6BmgZ/8BxGCxA8dVu2qV/LqAdHqDrR/XitHj4TIY+bFmWTs+v1
-	8mJeTeklG5HbY+KNXEhlsJCUuAA1EI4IWuhuUX448RyA75wBtnTyOGbtkubn71JRkYoVHIPeuZyae
-	WyW4bBoBEJHSJgpoHNQgzdBn96NTykwJS2pJ8UuJmfbllyzyBfwN62g/Pd19IgEVKuW1ZYWmf6uZf
-	hfr9DUtQ==;
+	bh=sHep8hwOonU+moLFzbnYAqyDt+uxIQXqAahl4ol8Q50=; b=tAwCgCaB4lFpyrLqNAaPwDneb5
+	j3JVHuCRLL87JBYQs+KtGvtCKH7FVCQ2OezofwdxYiLCTAoAQv0R+I0jwKWeRP9OxYBCnyR3dkzuX
+	4MWY7cqIHy6/ysZ1r7Oi6P5Vk5I2oF86pvGn0/41sJp8KSYtrNhNxoLLQOXrTZvbEoenrsfXJwNIa
+	XPdRP6Z72mcHSR4OIqZC+yfH7D5JSMubYFws3JpWNWffjk1RbMyCOos7eUyZpEx7BSnnF0tMHGvwd
+	zfLy4eW/qk/Ts4PUJUqnTOGe295wo3dLsr1Pznvsn6RElogtCuESDNDRvKHYHdPAEIdwrsNXxWNkm
+	jvogENeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ1pK-000000084mJ-1LXw;
-	Wed, 12 Nov 2025 03:47:22 +0000
-Received: from mail-southcentralusazon11013062.outbound.protection.outlook.com ([40.93.196.62] helo=SA9PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ1pH-000000084lq-0kQI
+	id 1vJ1pl-000000084qY-2jhm;
+	Wed, 12 Nov 2025 03:47:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ1pi-000000084p0-3lqq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 03:47:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jhhcbcx61IkVJEl1t6b61TrrgHaCSyggmIr4Elqnti5UYZIIGHq+l7iVN29NRlriX06IVTMi6skIj6o1MdHllPZJ4RYOiR27GWwW54BJLWz/BRC27COw6HhfFO660cDBRmAYKvsIb3pEaqYaRmeOJzuTLsVLVN1zG0PKCKQXjTyyFgHjh50Wi7kxEuKnYKXCxIAFMxyMHFlel7jAhpRtjXdmQE9JVGugN8uwo6WdlltreDa6Ohj61eTxHESJ2QmXNySUOQmsXilnhHJCzX0RmAP17+nA7DqTDYOiccpljvouTgNHbcLmmHszR1zdrunhbEp68VplQvjmjH7nM5j8sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hqn/wzlgzq5DjCmF6Pn+Pve79dJxLs3SuesVVNvdNOE=;
- b=L/vVRayPYoxB4UJzz7pvG7E1epo/awD19XRpYCIrX6vswtY2fQ4zOdS6wK628LJCItGbnWvPr6OkUbz90ZZVVJIfo3KZtM4HzDdAMD2bTQgblob31lGgVxi0nWUFnC8g3A3O83x8O56KZiRBO5MCuVtkNFiEFJIPGcnay+KUpEOPcGZ0Ep7nnD7mxchobfIdeU5n42rLIRmhbs4wbGEo+TBVIAP9XIsSgA0E4SSPYP+HFVELD3b0/aSR3Y43jSizqSyjObniOKKRmXqydqIfgR4Wa5QuClK1Kh7lij53pbKUyYAaAIfYf7eIxMMwNZmNG4IE6hsOP0JU/7EM5XRNMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=baylibre.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hqn/wzlgzq5DjCmF6Pn+Pve79dJxLs3SuesVVNvdNOE=;
- b=tw0RIQiviW6tz6y3zKWeQZf6Txv/xbTeGon9c7pY2zGnW369riEzhNKJRjefpKaaiLatuniIuZ+tl/JZUCt6uVC5SIQLFtD3LMF6hOIKinCG9/T9cODTvffpQMLyrjOMgTBETqLEuWXBjVcHYwvcoC5W2snjLynBKBO3+bLYY+E=
-Received: from BY5PR13CA0036.namprd13.prod.outlook.com (2603:10b6:a03:180::49)
- by CO1PR10MB4436.namprd10.prod.outlook.com (2603:10b6:303:95::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
- 2025 03:47:14 +0000
-Received: from SJ5PEPF000001F1.namprd05.prod.outlook.com
- (2603:10b6:a03:180:cafe::9b) by BY5PR13CA0036.outlook.office365.com
- (2603:10b6:a03:180::49) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Wed,
- 12 Nov 2025 03:47:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ5PEPF000001F1.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 03:47:14 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 21:47:10 -0600
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
- 2025 21:47:09 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 11 Nov 2025 21:47:09 -0600
-Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AC3l5ee1994232;
-	Tue, 11 Nov 2025 21:47:05 -0600
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, "Markus Schneider-Pargmann (TI.com)"
-	<msp@baylibre.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vishal Mahaveer <vishalm@ti.com>, "Kevin
- Hilman" <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, Sebin Francis
-	<sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, Akashdeep Kaur
-	<a-kaur@ti.com>
-Subject: Re: [PATCH v5 0/6] arm64: dts: ti: k3-am62: Add wakeup-sources for low power modes
-Date: Wed, 12 Nov 2025 09:15:28 +0530
-Message-ID: <176266923845.19596.12294261339595431753.b4-ty@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251103-topic-am62-dt-partialio-v6-15-v5-0-b8d9ff5f2742@baylibre.com>
-References: <20251103-topic-am62-dt-partialio-v6-15-v5-0-b8d9ff5f2742@baylibre.com>
+	Wed, 12 Nov 2025 03:47:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D65901515;
+	Tue, 11 Nov 2025 19:47:34 -0800 (PST)
+Received: from [10.164.136.35] (unknown [10.164.136.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1CCD3F66E;
+	Tue, 11 Nov 2025 19:47:39 -0800 (PST)
+Message-ID: <55be2604-e70e-4529-ab2c-7df26dc32e4a@arm.com>
+Date: Wed, 12 Nov 2025 09:17:36 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Yang Shi <yang@os.amperecomputing.com>, Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, rppt@kernel.org,
+ shijie@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20251103061306.82034-1-dev.jain@arm.com>
+ <aQjHQt2rYL6av4qw@willie-the-truck>
+ <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
+ <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
+ <aQn4EwKar66UZ7rz@willie-the-truck>
+ <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
+ <17eed751-e1c5-4ea5-af1d-e96da16d5e26@arm.com>
+ <c1701ce9-c8b7-4ac8-8dd4-930af3dad7d2@os.amperecomputing.com>
+ <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
+ <94c91f8f-cd8f-4f51-961f-eb2904420ee4@os.amperecomputing.com>
+ <47f0fe70-5359-4b98-8a23-c09ab20bd6d9@arm.com>
+ <ca628d43-502a-42f1-be57-bcb37103ddf8@os.amperecomputing.com>
+ <19def538-3fb6-48a1-ae8b-a82139b8bbb9@arm.com>
+ <5cd5fe49-42e9-41b4-8bf1-6b5136c88693@os.amperecomputing.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <5cd5fe49-42e9-41b4-8bf1-6b5136c88693@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F1:EE_|CO1PR10MB4436:EE_
-X-MS-Office365-Filtering-Correlation-Id: a466dbcd-639b-4679-46c7-08de219e2b09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SXdCRENOaUpldEt4OHJiUDZSS0xuZDlGRkVlVldyY3hTemkzUTVoc0JxaEpq?=
- =?utf-8?B?MUlPQ1FNR1cwR0NseWZxQndEUEZRQ2ZDRElKNXo4SVBETFFGRUhkUFBkY2Jv?=
- =?utf-8?B?V1dLMm9ucjdFQ0xqQ2tCLzNjZ1RpMC9GNCtJMVJVMlpEYWtlV1ZranIxYWJ0?=
- =?utf-8?B?RnZrcG5rSkhHbGkwMFBSMy9icnlYZGNXZzlTMjNmQS8wRWp4emdXWU00d0tT?=
- =?utf-8?B?VVE1QUN6TU5tSWdUY2Z2OHovMnhDOFZ4RFAvdzNwdFkrV0ZDdG9IbE5sVjFK?=
- =?utf-8?B?ajJ3djFQYzF1Sm0rbFd5ZjdRTUd4VldFdnQrRnJ4bEtvV0ZJaXVoeUFobEZv?=
- =?utf-8?B?Z0N3QmtHVXVpTFV3MFBZVlZraHc0R2hVWU93bGx3dVdQU3FDRnFCakVUYVN4?=
- =?utf-8?B?RDIxckl1VThIR0poVlRUaUV0bllBRXZkbDVxekV4WThIL0RIMTRuQ0dUbW5K?=
- =?utf-8?B?SDFkOGQ3YUpweUZ5T3ZwQittbFJhSzljTEFXWHlVbGp4aktiOENvYTlKV0JS?=
- =?utf-8?B?SFE3WkQ2Nkk0UU14MHRGRTlqeTNjajUxanJEd1BWNnFNcTRTS3JrbkdqVDAw?=
- =?utf-8?B?VHJCczVrTitVaFlmdVZkV2UzUDBlbVJtWnAxam5SVlpBK3ZKcWFvbUdyR01p?=
- =?utf-8?B?SVlNa0cxOVpLdmR6V0RKdmR6V3lySERDcGl0UWlJdjIwNHZLRlRZeDZBaXdM?=
- =?utf-8?B?UWpMd2IyeVRJclgvVnNueWgwRWdvNlh3UFJEN1ZTakQ2TGRjZHBpamMwUGJJ?=
- =?utf-8?B?SEJWclVEZkFrcmU3VXlIMzJEamJQcjhGRUNJR3hRd3dTNnY3SHpYUGFqd1FV?=
- =?utf-8?B?WVg1OWdwdExpMXlFK24xdlFYNFpSK1E2SkFwazZRbkhlZnFiSW9sekM0OGtH?=
- =?utf-8?B?OUxKYUNQRVZ0UXI0V2diSmgxejhDcFpHWkYrcm5YNzhrRkxhbm1EK3BrZG8z?=
- =?utf-8?B?UWJkN3RsL3pKaG1tUkRTUnVRazlOK1hsNVlMSWlMV1lQUU9PQ25vUE80WFVn?=
- =?utf-8?B?cXRMdFpJU0RRZ1dtLzlrTTNKMzdnWTR0bzJxTXYzaG1TN3ZBa0FZYjZaTzAr?=
- =?utf-8?B?V1hZUWdyUnJ4RWw0eHU1aFlxNm8rT1ovN29MY2pELzNnYktMUjJQQjVpK0o1?=
- =?utf-8?B?VXFVR29ta0l3Z1RKdk9tdHRid3A5VklPUis3bFVjYjh5bmUxeVA0emF6NTdk?=
- =?utf-8?B?YmI4ZnkwaG5COGVRakNUbW5yWVV6elBVcUUwZHJtdzUwNk9KNjlNTmNBejJ1?=
- =?utf-8?B?bDZCWG01d3gwamNRM3BQTnhVZ2ZHcGVUVFlEQjZuMDRya2VsemUzR3lDOXhv?=
- =?utf-8?B?Y0lnOUNQc3JMdlNyS2VJNTRvTXZHMktXeUVSZTdXeHFaaE1kVEppYkFvK0Ji?=
- =?utf-8?B?SUFEM3JjTEV4dWhVTzJDTEw0S0dQbFV1b2Jhb1djOXhIdjROaWdhUkdzSmw0?=
- =?utf-8?B?YnpzK00vM1RRQjdOcTlCaU9sditUL2FwcHJPdG1KQmYyWkEvWkhNN1JoenYy?=
- =?utf-8?B?aTRkS0EyNXFVS3lwaCt6ZVoydWhLS2pmeHZXZGc5Z3NBKzQydjlXdmZOOVZO?=
- =?utf-8?B?SHYzOExWUGNVSFBLcU5NazRVMWJ5RG93czNXUzJQTlFpRGgvNWdBc0JpY2Rm?=
- =?utf-8?B?MXFVOUt2cVdXYmVwUUtBcG5QT2g3NWdrTXVKUW9oQ3hFK1MvMUlmV1E2L0hr?=
- =?utf-8?B?S3dmUnloNEZ4VmgzUFM1ZHpEUGdoeFEvclY2YzJZc2dKWDlvYkVoeGloYzQ5?=
- =?utf-8?B?amNvVHVNOEVUMXo5aGtaTlpzbGVpU2tETmloWm1xR3BKMzYzMDdFdytMejhx?=
- =?utf-8?B?R24zaVNYTThNTUJITmVWSEhuem1tVEMxRHpBcVREYStoVUNmZ3lSZkhXRXYy?=
- =?utf-8?B?L1ZSaWFHWlFKWVF0ZmRwTVlNR25XNFRuTW9hbUNjL1hjeFd2RlNiaWp3SUdN?=
- =?utf-8?B?WWFRTUFES0dFcHh5ckVlTzlEdzVYV3FHRU0vbUtkMjRzdlhqQml4bVdteVhn?=
- =?utf-8?B?RXJla3pHSHdZK0U1V3hBTHkxS2lZZHRteHIvcUh0VkszRXc4UVNqN3AzbHps?=
- =?utf-8?B?QXVQaElzK0dyUHhKNlp1NklpN2IxOWdqRjNKVlpRZnIvSnd6TlZEV0lFUEdx?=
- =?utf-8?Q?avsQ=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 03:47:14.3095
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a466dbcd-639b-4679-46c7-08de219e2b09
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F1.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4436
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_194719_219885_848CD992 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20251111_194747_018862_ACB6C3D2 
+X-CRM114-Status: GOOD (  41.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,53 +79,296 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus Schneider-Pargmann (TI.com),
 
-On Mon, 03 Nov 2025 13:39:27 +0100, Markus Schneider-Pargmann (TI.com) wrote:
-> This series adds devicetree changes needed for Partial-IO support on TI
-> am62, am62a, and am62p SoCs. It defines system states for various low
-> power modes and configures the wakeup-sources for devices in the CANUART
-> group. Depending on the SoC and board details, some low power modes may
-> not be available, so the wakeup-sources are described in the board
-> files. The series also adds the necessary pinctrl settings required for
-> proper wakeup functionality.
-> 
-> [...]
+On 12/11/25 5:15 am, Yang Shi wrote:
+>
+>
+> On 11/10/25 9:12 PM, Dev Jain wrote:
+>>
+>> On 11/11/25 10:38 am, Yang Shi wrote:
+>>>
+>>>
+>>> On 11/10/25 8:55 PM, Dev Jain wrote:
+>>>>
+>>>> On 11/11/25 10:14 am, Yang Shi wrote:
+>>>>>
+>>>>>
+>>>>> On 11/10/25 8:37 PM, Dev Jain wrote:
+>>>>>>
+>>>>>> On 11/11/25 9:47 am, Yang Shi wrote:
+>>>>>>>
+>>>>>>>
+>>>>>>> On 11/10/25 7:39 PM, Dev Jain wrote:
+>>>>>>>>
+>>>>>>>> On 05/11/25 9:27 am, Dev Jain wrote:
+>>>>>>>>>
+>>>>>>>>> On 04/11/25 6:26 pm, Will Deacon wrote:
+>>>>>>>>>> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
+>>>>>>>>>>> On 04/11/25 12:15 am, Yang Shi wrote:
+>>>>>>>>>>>> On 11/3/25 7:16 AM, Will Deacon wrote:
+>>>>>>>>>>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
+>>>>>>>>>>>>>> Post a166563e7ec3 ("arm64: mm: support large block 
+>>>>>>>>>>>>>> mapping when
+>>>>>>>>>>>>>> rodata=full"),
+>>>>>>>>>>>>>> __change_memory_common has a real chance of failing due 
+>>>>>>>>>>>>>> to split
+>>>>>>>>>>>>>> failure.
+>>>>>>>>>>>>>> Before that commit, this line was introduced in 
+>>>>>>>>>>>>>> c55191e96caa,
+>>>>>>>>>>>>>> still having
+>>>>>>>>>>>>>> a chance of failing if it needs to allocate pagetable 
+>>>>>>>>>>>>>> memory in
+>>>>>>>>>>>>>> apply_to_page_range, although that has never been 
+>>>>>>>>>>>>>> observed to be true.
+>>>>>>>>>>>>>> In general, we should always propagate the return value 
+>>>>>>>>>>>>>> to the caller.
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> Cc: stable@vger.kernel.org
+>>>>>>>>>>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
+>>>>>>>>>>>>>> areas to its linear alias as well")
+>>>>>>>>>>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>>>>>>>>>>> ---
+>>>>>>>>>>>>>> Based on Linux 6.18-rc4.
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
+>>>>>>>>>>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> diff --git a/arch/arm64/mm/pageattr.c 
+>>>>>>>>>>>>>> b/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>>> index 5135f2d66958..b4ea86cd3a71 100644
+>>>>>>>>>>>>>> --- a/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>>> +++ b/arch/arm64/mm/pageattr.c
+>>>>>>>>>>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
+>>>>>>>>>>>>>> long addr, int numpages,
+>>>>>>>>>>>>>>        unsigned long size = PAGE_SIZE * numpages;
+>>>>>>>>>>>>>>        unsigned long end = start + size;
+>>>>>>>>>>>>>>        struct vm_struct *area;
+>>>>>>>>>>>>>> +    int ret;
+>>>>>>>>>>>>>>        int i;
+>>>>>>>>>>>>>>          if (!PAGE_ALIGNED(addr)) {
+>>>>>>>>>>>>>> @@ -185,8 +186,10 @@ static int 
+>>>>>>>>>>>>>> change_memory_common(unsigned
+>>>>>>>>>>>>>> long addr, int numpages,
+>>>>>>>>>>>>>>        if (rodata_full && (pgprot_val(set_mask) == 
+>>>>>>>>>>>>>> PTE_RDONLY ||
+>>>>>>>>>>>>>> pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>>>>>>>>>>>>>            for (i = 0; i < area->nr_pages; i++) {
+>>>>>>>>>>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>>>>>>>>>> +            ret =
+>>>>>>>>>>>>>> __change_memory_common((u64)page_address(area->pages[i]),
+>>>>>>>>>>>>>>                               PAGE_SIZE, set_mask, 
+>>>>>>>>>>>>>> clear_mask);
+>>>>>>>>>>>>>> +            if (ret)
+>>>>>>>>>>>>>> +                return ret;
+>>>>>>>>>>>>> Hmm, this means we can return failure half-way through the 
+>>>>>>>>>>>>> operation. Is
+>>>>>>>>>>>>> that something callers are expecting to handle? If so, how 
+>>>>>>>>>>>>> can they tell
+>>>>>>>>>>>>> how far we got?
+>>>>>>>>>>>> IIUC the callers don't have to know whether it is half-way 
+>>>>>>>>>>>> or not
+>>>>>>>>>>>> because the callers will change the permission back (e.g. 
+>>>>>>>>>>>> to RW) for the
+>>>>>>>>>>>> whole range when freeing memory.
+>>>>>>>>>>> Yes, it is the caller's responsibility to set 
+>>>>>>>>>>> VM_FLUSH_RESET_PERMS flag.
+>>>>>>>>>>> Upon vfree(), it will change the direct map permissions back 
+>>>>>>>>>>> to RW.
+>>>>>>>>>> Ok, but vfree() ends up using update_range_prot() to do that 
+>>>>>>>>>> and if we
+>>>>>>>>>> need to worry about that failing (as per your commit 
+>>>>>>>>>> message), then
+>>>>>>>>>> we're in trouble because the calls to set_area_direct_map() 
+>>>>>>>>>> are unchecked.
+>>>>>>>>>>
+>>>>>>>>>> In other words, this patch is either not necessary or it is 
+>>>>>>>>>> incomplete.
+>>>>>>>>>
+>>>>>>>>> Here is the relevant email, in the discussion between Ryan and 
+>>>>>>>>> Yang:
+>>>>>>>>>
+>>>>>>>>> https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com/ 
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> We had concluded that all callers of set_memory_ro() or 
+>>>>>>>>> set_memory_rox() (which require the
+>>>>>>>>> linear map perm change back to default, upon vfree() ) will 
+>>>>>>>>> call it for the entire region (vm_struct).
+>>>>>>>>> So, when we do the set_direct_map_invalid_noflush, it is 
+>>>>>>>>> guaranteed that the region has already
+>>>>>>>>> been split. So this call cannot fail.
+>>>>>>>>>
+>>>>>>>>> https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com/ 
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> This email notes that there is some code doing set_memory_rw() 
+>>>>>>>>> and unnecessarily setting the VM_FLUSH_RESET_PERMS
+>>>>>>>>> flag, but in that case we don't care about the 
+>>>>>>>>> set_direct_map_invalid_noflush call failing because the 
+>>>>>>>>> protections
+>>>>>>>>> are already RW.
+>>>>>>>>>
+>>>>>>>>> Although we had also observed that all of this is fragile and 
+>>>>>>>>> depends on the caller doing the
+>>>>>>>>> correct thing. The real solution should be somehow getting rid 
+>>>>>>>>> of the BBM style invalidation.
+>>>>>>>>> Ryan had proposed some methods in that email thread.
+>>>>>>>>>
+>>>>>>>>> One solution which I had thought of, is that, observe that we 
+>>>>>>>>> are doing an overkill by
+>>>>>>>>> setting the linear map to invalid and then default, for the 
+>>>>>>>>> *entire* region. What we
+>>>>>>>>> can do is iterate over the linear map alias of the vm_struct 
+>>>>>>>>> *area and only change permission
+>>>>>>>>> back to RW for the pages which are *not* RW. And, those 
+>>>>>>>>> relevant mappings are guaranteed to
+>>>>>>>>> be split because they were changed from RW to not RW.
+>>>>>>>>
+>>>>>>>> @Yang and Ryan,
+>>>>>>>>
+>>>>>>>> I saw Yang's patch here:
+>>>>>>>> https://lore.kernel.org/all/20251023204428.477531-1-yang@os.amperecomputing.com/ 
+>>>>>>>>
+>>>>>>>> and realized that currently we are splitting away the linear 
+>>>>>>>> map alias of the *entire* region.
+>>>>>>>>
+>>>>>>>> Shouldn't this then imply that set_direct_map_invalid_noflush 
+>>>>>>>> will never fail, since even
+>>>>>>>>
+>>>>>>>> a set_memory_rox() call on a single page will split the linear 
+>>>>>>>> map for the entire region,
+>>>>>>>>
+>>>>>>>> and thus there is no fragility here which we were discussing 
+>>>>>>>> about? I may be forgetting
+>>>>>>>>
+>>>>>>>> something, this linear map stuff is confusing enough already.
+>>>>>>>
+>>>>>>> It still may fail due to page table allocation failure when 
+>>>>>>> doing split. But it is still fine. We may run into 3 cases:
+>>>>>>>
+>>>>>>> 1. set_memory_rox succeed to split the whole range, then 
+>>>>>>> set_direct_map_invalid_noflush() will succeed too
+>>>>>>> 2. set_memory_rox fails to split, for example, just change 
+>>>>>>> partial range permission due to page table allocation failure, 
+>>>>>>> then set_direct_map_invalid_noflush() may
+>>>>>>>    a. successfully change the permission back to default till 
+>>>>>>> where set_memory_rox fails at since that range has been 
+>>>>>>> successfully split. It is ok since the remaining range is 
+>>>>>>> actually not changed to ro by set_memory_rox at all
+>>>>>>>    b. successfully change the permission back to default for the 
+>>>>>>> whole range (for example, memory pressure is mitigated when 
+>>>>>>> set_direct_map_invalid_noflush() is called). It is definitely 
+>>>>>>> fine as well
+>>>>>>
+>>>>>> Correct, what I mean to imply here is that, your patch will break 
+>>>>>> this? If set_memory_* is applied on x till y, your patch changes 
+>>>>>> the linear map alias
+>>>>>>
+>>>>>> only from x till y - set_direct_map_invalid_noflush instead 
+>>>>>> operates on 0 till size - 1, where 0 <=x <=y <= size - 1. So, it 
+>>>>>> may encounter a -ENOMEM
+>>>>>>
+>>>>>> on [0, x) range while invalidating, and that is *not* okay 
+>>>>>> because we must reset back [0, x) to default?
+>>>>>
+>>>>> I see your point now. But I think the callers need to guarantee 
+>>>>> they call set_memory_rox and set_direct_map_invalid_noflush on the 
+>>>>> same range, right? Currently kernel just calls them on the whole 
+>>>>> area.
+>>>>
+>>>> Nope. The fact that the kernel changes protections, and undoes the 
+>>>> changed protections, on the *entire* alias of the vm_struct region, 
+>>>> protects us from the fragility we were talking about earlier.
+>>>
+>>> This is what I meant "kernel just calls them on the whole area".
+>>>
+>>>>
+>>>> Suppose you have a range from 0 till size - 1, and you call 
+>>>> set_memory_* on a random point (page) p. The argument we discussed 
+>>>> above is independent of p, which lets us drop our
+>>>>
+>>>> previous erroneous conclusion that all of this works because no 
+>>>> caller does a partial set_memory_*.
+>>>
+>>> Sorry I don't follow you. What "erroneous conclusion" do you mean? 
+>>> You can call set_memory_* on a random point, but 
+>>> set_direct_map_invalid_noflush() should be called on the random 
+>>> point too. The current code of set_area_direct_map() doesn't 
+>>> consider this case because there is no such call. Is this what you 
+>>> meant?
+>>
+>>
+>> I was referring to the discussion in the linear map work - I think we 
+>> had concluded that we don't need to worry about the BBM style 
+>> invalidation failing, *because* no one does a partial set_memory_*.
+>
+> Yes, we don't have to worry about it.
+>
+>>
+>> What I am saying - we don't care whether caller does a partial or a 
+>> full set_memory_*, we are still safe, because the linear map alias 
+>> change on both sides (set_memory_* -> __change_memory_common, and 
+>> vm_reset_perms -> set_area_direct_map() )
+>>
+>> operate on the entire region.
+>
+> Yes, this is the current behavior. My patch changes 
+> change_memory_common() to just do permission update for the requested 
+> range from the callers instead of assuming change the entire region, 
+> although there is no one calls set_memory_* on a partial range. Shall 
+> set_area_direct_map() be aware of potential partial range change from 
+> set_memory_*()? Maybe. But it is just called from vfree() which just 
+> free the entire region.
+>
+> What happened if someone does something crazy, for example, call 
+> set_memory_* on a partial range, then call vfree? IIUC, it is fine as 
+> well. It is still covered by the 3 cases that I mentioned in the 
+> previous email if I don't miss anything, right?
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+Assuming the caller also does set_vm_flush_reset_perms(), the 3 cases 
+will work out.
 
-[1/6] arm64: dts: ti: k3-am62: Define possible system states
-      commit: 1b45cec18f89d8f55284bdd4ab124b3cbd0ee1eb
-[2/6] arm64: dts: ti: k3-am62a: Define possible system states
-      commit: 6992c72c3aa03c1c578c950979b11101a3fc51c4
-[3/6] arm64: dts: ti: k3-am62p: Define possible system states
-      commit: 4060cf6015e20d7647e9e242a5ba21762741e11f
-[4/6] arm64: dts: ti: k3-am62-lp-sk: Set wakeup-source system-states
-      commit: 1f2f34b619ad9f3934bcf7486a61ff70d18bf420
-[5/6] arm64: dts: ti: k3-am62a7-sk: Set wakeup-source system-states
-      commit: afb919a6b36bf86e9000060634740fb4ab987d45
-[6/6] arm64: dts: ti: k3-am62p5-sk: Set wakeup-source system-states
-      commit: 1581a732f1688cf8a676bea11566045e33beca35
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
-
+>
+> Thanks,
+> Yang
+>
+>>
+>>
+>>>
+>>>>
+>>>>
+>>>> I would like to send a patch clearly documenting this behaviour, 
+>>>> assuming no one else finds a hole in this reasoning.
+>>>
+>>> Proper comment to explain the subtle behavior is definitely welcome.
+>>>
+>>> Thanks,
+>>> Yang
+>>>
+>>>>
+>>>>
+>>>>>
+>>>>> Thanks,
+>>>>> Yang
+>>>>>
+>>>>>>
+>>>>>>
+>>>>>>>
+>>>>>>> Hopefully I don't miss anything.
+>>>>>>>
+>>>>>>> Thanks,
+>>>>>>> Yang
+>>>>>>>
+>>>>>>>
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> Will
+>>>>>>>>>
+>>>>>>>
+>>>>>
+>>>
+>
 
