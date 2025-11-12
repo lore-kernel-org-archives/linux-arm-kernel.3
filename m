@@ -4,114 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77E6CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2727CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+GhC3Bci1xtsbEg2vkYp7kMzTRCQEdTtiwvIPvO9jrc=; b=G9ZzNEWTdODfUaKV6T/wqJ51kT
-	JnXtfU7JuM4w1LBAKd80JWrw7VnIy338KcSSBOZU+0zO5Q3Vftq3ufbKEmN49RNdGDcu1hnhmaWO2
-	MLgaHEnKnxjEnm6dChkGQgPG3d3KIl4JQEjemXUugZSgHL+/8J9od2343PYOVw3l001l2ToheZY+W
-	JsZlqHCIj9XGMRSBBoDWygGMSt+mVtdH0tRbHA1mU+z1xMPatC/fHKCTaSzaT+xkX9KMgPubp7J6L
-	JQVSkxu9di6pcvnQF6vZ8w55S0+SiHF17XVzXK4l0qEdpnQAHkPx+C/9B93oLQuiiZFyfzpZ31kiF
-	5VrbYVmQ==;
+	bh=qLBafia/PKtEtA26Adnrbq1J4wPUztP9+12xCkx0pVM=; b=SGQwTAPM+KqyGN0vs5Bv7LJKg0
+	XqEshZOPMjYGQOWra8arUlVLSldEVW67j4w6/iMjiSBqmkI5J5PNTZ+URqALPad3/KrCizK+H+eYI
+	KPmwdb3i+mZY/b5+DXryhH1UBla21urANhDxoo9knwLri/zrpkOisH5Kzb6eynNhhprC1UmdWGDjK
+	XraZ4TqF6rAlLZ1UP72FDGJ3vQ2qwIMm/Hp41Mr0C4ZX4sqvA6EGXEJ3OAwRhWguuAgePCLwTVTKT
+	jp/V+N5QL3DzRogfIGn5c6BpOAzoO6xadL3NST1Gt7Vy87Vz/ePMowvvKIOPswzaeM/nLIECYtEwr
+	o165rZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5vj-00000008Jfn-2SCU;
-	Wed, 12 Nov 2025 08:10:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJ5yv-00000008Jpl-2QHm;
+	Wed, 12 Nov 2025 08:13:33 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5vi-00000008Jff-3wTu
+	id 1vJ5ys-00000008Jou-2A6A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:10:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FB766020F;
-	Wed, 12 Nov 2025 08:10:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A9FAC16AAE;
-	Wed, 12 Nov 2025 08:10:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762935013;
-	bh=iv/OPEfQvs2X2gEq4hDNQaM+Mdv+7H4qcOkVCuUzYvc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t+16XDEn2tz88QHz1qof4GA7lGaNoQ8SBVlOT4YHqqiRtEU/n0xdDxY70KEIN1Wlq
-	 5yj91quFLQHofrnrYAoI4AB88x5AcfpbI1KTRthlrRcclbAJQ99ykS9p/sHTVlrJtb
-	 6BZZd9MFBCGPVX/PJYmQKKAmcueOQYjbJnf7ZEGlQ6056yRXBN7WJcqQdlbKtT0/vg
-	 adASYXnaVFyHVDYqsVK70Z0ZRoomJTkoYMaOckyP3P9hGmyV/41wbjyjRoyv5Btf5P
-	 fLVoU+X8FkLDZJHnmemrY7QhmJHtdjqHxzURQGY2dedz6DD6J6HrCY6Kp9PsRKCDCJ
-	 jUfZALiZyMLvg==
-Message-ID: <b55d94f2-6b79-407f-af58-b9847db3c9a2@kernel.org>
-Date: Wed, 12 Nov 2025 09:10:07 +0100
+	Wed, 12 Nov 2025 08:13:32 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-bbac8ed0614so439601a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 00:13:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762935210; x=1763540010; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qLBafia/PKtEtA26Adnrbq1J4wPUztP9+12xCkx0pVM=;
+        b=BwFdNgbjLSOR1IucrJyDwHM8LY4aR/B3PpEBjJNPVKzhx0ArjMXstkWPoCTFBbjAhU
+         QU7tMMH15zCXQK+5lO/1Lxua3XFNcSFVoCqHIU6k8bZH3kGohfPbxBASt0itF1Q+bc7l
+         ankUtn7CSZPD37jVthQ353aQPac/pMfvD1Vn8eBdmx1HiPZU73fhL8myKJCXdpaAc2YF
+         MS5IGWZRQSzk7oIMCy7Kc2s37ugqjbIlxiPSQYz+UDom7g6kSAnz8rgtTWMSfSv1lZFW
+         Ow9qkfyWAayW5xzUlFg7hOhOGwxAik/J1obpIAOvq2sK7/+eVxaw0gqsvqNe2TZLfigT
+         DUdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762935210; x=1763540010;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qLBafia/PKtEtA26Adnrbq1J4wPUztP9+12xCkx0pVM=;
+        b=hEBDSduqKw0+m6otkP3pOUStdzPtbfs8hRNV6+yM0atRhibQAQ2JxFhw3rEwA1eu86
+         H90EoqyDG5T9v8ZUM81itPgsV9c792MrPCI9MCvIect8ysaMdDh3rcd+kZN7XPx8fv9y
+         0HIr2qaUUXMj0lapkxG96T25+ZGcbrVJIAWKotgcTZ80G/J4AMR3DWRr2k0x+Sdmm8Qn
+         n55NgjIf7CwCIC33AyRirBVkTRdZ4rwrA6TczHjMrAOm5q5EkIm3sIPE74Ys5IsfJkPy
+         ODWFI+ek2axkIhHDHa40x90ewf8+gWfRZd2UfD7oirbbryR0SUv81GuGb+4EUvVdYyxU
+         QgPA==
+X-Forwarded-Encrypted: i=1; AJvYcCW269kl5RJLW1I4Ef7pMga1jausYJ7YFTsP4IV4OkjUfJRun6OyhWoLg+90FOChYh6y34wU/EkuiJ7CcYQMpcEZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkzoO6lUGl2kswUQjQSS2e1p3p/Iefph9eWuzfMdaRvs/I7f9o
+	l2OEvLiVex8wadi1z72hm25OhVlD2GruFIxaSRC7HoMhA2JZMYRhoVO7ZtLMIJ20uV4uh5aOnai
+	SiGVaW+ruBKQ9SCW3sxR/PlaOhBwphZM=
+X-Gm-Gg: ASbGncu8oAWWT10UJv+tWBmmPuXysAI/49vMctyIKQ9YRivmLWPWZFw0H6E6ZYVa6iQ
+	/d19w1IZqj7dBchmOVTlooOM9UjxRuehiym/1BR9tEJxbdRSljdr2w/JN6gBXlLpWrV2KG0sxq/
+	dxUValgFHX5AV1yJsaWLJtgIy86c2nQC6DacGVOJEUm4Zu34VI7eLs548nwO+VnW9+DjAG0spQc
+	GFBWed4lSI3y/zW5wSAQ0bArt3QjsMu/fxSvLIwAfW7F0lSBHIFu89FUw==
+X-Google-Smtp-Source: AGHT+IFnRin4gbmaFXUeI1BQiFdRCsNStgXxem0kbVw96MxrNLtIH0I6wkHre4CD95K+KCuFYtCNaztTRJvt/f8NODg=
+X-Received: by 2002:a17:902:ef48:b0:295:6d30:e263 with SMTP id
+ d9443c01a7336-2984ee02133mr29024415ad.40.1762935209636; Wed, 12 Nov 2025
+ 00:13:29 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: google: Add dts directory for
- Google-designed silicon
-To: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: linux-samsung-soc@vger.kernel.org, Roy Luo <royluo@google.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Chen-Yu Tsai <wenst@chromium.org>, Julius Werner <jwerner@chromium.org>,
- William McVicker <willmcvicker@google.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Drew Fustini <fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
- soc@lists.linux.dev
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a1f1395814@changeid>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a1f1395814@changeid>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
+ <20251109214515.121742-2-rpimentel.silva@gmail.com> <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
+ <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
+ <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com> <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
+In-Reply-To: <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 12 Nov 2025 10:15:53 +0200
+X-Gm-Features: AWmQ_blLufo9e8_weYIhkdYf5Y61ajIvynO_fKPgAnclvKt8xEjxER44mrl124g
+Message-ID: <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com, 
+	marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de, 
+	joao.goncalves@toradex.com, frieder.schrempf@kontron.de, josua@solid-run.com, 
+	francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Joseph Guo <qijian.guo@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_001330_560588_B896E0EE 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,82 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 20:22, Douglas Anderson wrote:
-> The first four Google Tensor SoCs were offshoots of Samsung Exynos
-> SoCs and their device trees were organized under the "exynos/google"
-> directory. Starting with the Google Tensor G5 SoC in Pixel 10 phones,
-> Google Tensor SoCs are now of Google's own design. Add a location in
-> the tree to store these device tree files.
-> 
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
-> 
->  MAINTAINERS                         | 1 +
->  arch/arm64/Kconfig.platforms        | 6 ++++++
->  arch/arm64/boot/dts/Makefile        | 1 +
->  arch/arm64/boot/dts/google/Makefile | 1 +
->  4 files changed, 9 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/google/Makefile
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ddecf1ef3bed..f73a247ec61c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10606,6 +10606,7 @@ C:	irc://irc.oftc.net/pixel6-kernel-dev
->  F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
->  F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
->  F:	arch/arm64/boot/dts/exynos/google/
-> +F:	arch/arm64/boot/dts/google/
->  F:	drivers/clk/samsung/clk-gs101.c
->  F:	drivers/phy/samsung/phy-gs101-ufs.c
->  F:	include/dt-bindings/clock/google,gs101.h
+On Tue, Nov 11, 2025 at 2:49=E2=80=AFPM Daniel Baluta <daniel.baluta@gmail.=
+com> wrote:
+>
+> On Tue, Nov 11, 2025 at 1:50=E2=80=AFPM Fabio Estevam <festevam@gmail.com=
+> wrote:
+> >
+> > Hi Daniel,
+> >
+> > On Tue, Nov 11, 2025 at 5:45=E2=80=AFAM Daniel Baluta <daniel.baluta@gm=
+ail.com> wrote:
+> >
+> > > In addition to that, Rogerio please read:
+> > >
+> > > https://docs.kernel.org/process/submitting-patches.html
+> > >
+> > > At this moment I think you should keep the original author of the
+> > > patch.
+> >
+> > Right, but NXP makes a total mess with authorship.
+>
+> I cannot disagree with you on this, let me clarify it internally with
+> NXP colleagues
+> and sort everything out.
 
+Hi Fabio & Rogerio,
 
-I am fine with this but also please consider having separate maintainers
-entry, because, as you said, this is a completely different SoC.
+Checked internally and to track the correct authorship and development work
+here is how NXP would prefer to get credit.
 
-In any case, up to you folks.
+#Use git commit --amend --author=3D"Xiaofeng Wei <xiaofeng.wei@nxp.com>"
+Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
 
+Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 13173795c43d..044af9a3b45f 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -138,6 +138,12 @@ config ARCH_EXYNOS
->  	help
->  	  This enables support for ARMv8 based Samsung Exynos SoC family.
->  
-> +config ARCH_GOOGLE
-> +	bool "Google-Designed SoC family"
-> +	help
-> +	  This enables support for Google Tensor chips starting at the
-> +	  Google Tensor G5.
-> +
->  config ARCH_K3
->  	bool "Texas Instruments Inc. K3 multicore SoC architecture"
->  	select SOC_TI
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index b0844404eda1..b4b5023d61d2 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -17,6 +17,7 @@ subdir-y += cavium
->  subdir-y += cix
->  subdir-y += exynos
->  subdir-y += freescale
-> +subdir-y += google
->  subdir-y += hisilicon
->  subdir-y += intel
->  subdir-y += lg
-> diff --git a/arch/arm64/boot/dts/google/Makefile b/arch/arm64/boot/dts/google/Makefile
-> new file mode 100644
-> index 000000000000..a6b187e2d631
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/google/Makefile
-> @@ -0,0 +1 @@
-> +# SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-Drop the '+' in GPL license.
+Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
+Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
 
+Co-developed-by: Steven Yang <steven.yang@nxp.com>
+Signed-off-by: Steven Yang <steven.yang@nxp.com>
 
-Best regards,
-Krzysztof
+Co-developed-by: Lei Xu <lei.xu@nxp.com>
+Signed-off-by: Lei Xu <lei.xu@nxp.com>
+
+Then you can add your own C-d-b and S-o-b.
+
+Thanks,
+Daniel.
 
