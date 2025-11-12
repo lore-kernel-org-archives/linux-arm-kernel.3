@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C16CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C90CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYDL5J9A/ANXEyJbiUkEOJ1Yc/rz7DY32MTlHJbF/eQ=; b=YPnfGwGSZIr+o0VjTdWfy0sEjD
-	PuIizHSpQQDP4SW8UCniosVo4fbutBsmyWnnceX91iP5mbnpLt6FMdJaShJcXtPu89ux3vjA/Jlin
-	fFw9XqdwqBckxJEamCiGIiOfv74BDQ8XKLMcFvZt64sU3Fl7XMSs3eS4mqr4nFOlvjhTK3CxICaI2
-	Oo4VxnuZYqQuhjHut/ahoIZU9euUdIADhP/4Bdj0Ln+IgoTNCxitiSx+4wpLOqnMHvWc3wRBnJJKu
-	9IIFuRzrLLgPPMAPmWYjSc/jestVDImcy3ZhppljPuc88bjjrVaan2DFTs1frQwhLSHN644JR/k0p
-	JF+p7vKg==;
+	bh=amSVTcuKvBxYftFyT10PRkqoppALHFxOG6zbkFYMSx8=; b=iRmHK8YMwMtzpSKR+Zj0URPSOh
+	WYgFmUg4xdvDcjCqTglffMPv9LRzecGYmO6bNL2Dgw8hD96kT2jG7jrN8TwCFKh6lznFgdquATzjQ
+	oDlgAp0YSnMuM+Il68vndDs586snKZWE43a1LZFDQ/M7zuurlyaWRJfJrwroS9nWDtwDrpBH8XOrF
+	350ynPzECk/BjM/G8opwp+iM3PdELmqQWjFPITZOM8EyTKOHbk0M2H6EcgDbsuW5dfMy9hNGYZnQ9
+	bOhKzZQZ7LsQs5P4vfT6aUXW8YYWRQWbbr0ftz/wiT+IIpTmf8Q79wdxW7sS9f+pPMhKoC2CufQvk
+	Z9C1QQlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9V9-00000008jJx-0zOe;
-	Wed, 12 Nov 2025 11:59:03 +0000
+	id 1vJ9VF-00000008jNo-1l9p;
+	Wed, 12 Nov 2025 11:59:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9V6-00000008jIi-3GIx
+	id 1vJ9VA-00000008jKc-2I29
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:59:02 +0000
+	Wed, 12 Nov 2025 11:59:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CFF61596;
-	Wed, 12 Nov 2025 03:58:52 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A08F1595;
+	Wed, 12 Nov 2025 03:58:56 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A72F63F5A1;
-	Wed, 12 Nov 2025 03:58:58 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F1F33F5A1;
+	Wed, 12 Nov 2025 03:59:02 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 12 Nov 2025 11:58:37 +0000
-Subject: [PATCH v7 01/11] coresight: Change device mode to atomic type
+Date: Wed, 12 Nov 2025 11:58:39 +0000
+Subject: [PATCH v7 03/11] coresight: etm3x: Always set tracer's device mode
+ on target CPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-arm_coresight_power_management_fix-v7-1-33e0b6f995f7@arm.com>
+Message-Id: <20251112-arm_coresight_power_management_fix-v7-3-33e0b6f995f7@arm.com>
 References: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 In-Reply-To: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=3449;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=5170;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=pLxqWuydwPklQj1aZsabheY40cGu5r1flojLbUo+NGQ=;
- b=NYIDt/RnAAQjiOK5Uv0HgveFLmNduhhuADZm0JXH3vuJoi+63h2bRnJuEdJTkQPNzBYbYW66o
- 5IrKVlbeBZUBesnbYnlvSHbZAuu1Llva+5NdF0TMtDWKsLIJCPiU/OO
+ bh=SLQaIK/WUNjYJ/8n3rR6DZAGlYVgiEyVg5l9DwbtjfI=;
+ b=gqYY0dgyT8/OeG3L2u/G/SMnoE6NxFsxOY+wTQTh+n+T0ohGcQK+SwPcyE6DQubytdUCyXGpX
+ aul3H6CCWnmAOO81t408CoUXqKmhyOboROfKHEoxs8DpR823fcs35kz
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_035900_955250_8E8680B1 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20251112_035904_694945_FFB4B19F 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +77,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device mode is defined as local type. This type cannot promise
-SMP-safe access.
+The ETMv3 driver shares the same issue as ETMv4 regarding race
+conditions when accessing the device mode.
 
-Change to atomic type and impose relax ordering, which ensures the
-SMP-safe synchronisation and the ordering between the mode setting and
-relevant operations.
+This commit applies the same fix: ensuring that the device mode is
+modified only by the target CPU to eliminate race conditions across
+CPUs.
 
 Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- include/linux/coresight.h | 25 +++++++++++--------------
- 1 file changed, 11 insertions(+), 14 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 59 +++++++++++++++-------
+ 1 file changed, 40 insertions(+), 19 deletions(-)
 
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 56d0108658db34b8f2d184cd3214ca172a3ce808..2b48be97fcd0d7ea2692206692bd33f35ba4ec79 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -251,15 +251,11 @@ struct coresight_trace_id_map {
-  *		by @coresight_ops.
-  * @access:	Device i/o access abstraction for this device.
-  * @dev:	The device entity associated to this component.
-- * @mode:	This tracer's mode, i.e sysFS, Perf or disabled. This is
-- *		actually an 'enum cs_mode', but is stored in an atomic type.
-- *		This is always accessed through local_read() and local_set(),
-- *		but wherever it's done from within the Coresight device's lock,
-- *		a non-atomic read would also work. This is the main point of
-- *		synchronisation between code happening inside the sysfs mode's
-- *		coresight_mutex and outside when running in Perf mode. A compare
-- *		and exchange swap is done to atomically claim one mode or the
-- *		other.
-+ * @mode:	The device mode, i.e sysFS, Perf or disabled. This is actually
-+ *		an 'enum cs_mode' but stored in an atomic type. Access is always
-+ *		through atomic APIs, ensuring SMP-safe synchronisation between
-+ *		racing from sysFS and Perf mode. A compare-and-exchange
-+ *		operation is done to atomically claim one mode or the other.
-  * @refcnt:	keep track of what is in use. Only access this outside of the
-  *		device's spinlock when the coresight_mutex held and mode ==
-  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
-@@ -288,7 +284,7 @@ struct coresight_device {
- 	const struct coresight_ops *ops;
- 	struct csdev_access access;
- 	struct device dev;
--	local_t	mode;
-+	atomic_t mode;
- 	int refcnt;
- 	bool orphan;
- 	/* sink specific fields */
-@@ -624,13 +620,14 @@ static inline bool coresight_is_percpu_sink(struct coresight_device *csdev)
- static inline bool coresight_take_mode(struct coresight_device *csdev,
- 				       enum cs_mode new_mode)
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+index 45630a1cd32fbd05ec8b2a6979f0174cacce365e..a5e809589d3e382acde24ee457e94e5dcb18ea35 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+@@ -439,13 +439,26 @@ struct etm_enable_arg {
+ 	int rc;
+ };
+ 
+-static void etm_enable_hw_smp_call(void *info)
++static void etm_enable_sysfs_smp_call(void *info)
  {
--	return local_cmpxchg(&csdev->mode, CS_MODE_DISABLED, new_mode) ==
--	       CS_MODE_DISABLED;
-+	int curr = CS_MODE_DISABLED;
+ 	struct etm_enable_arg *arg = info;
++	struct coresight_device *csdev;
+ 
+ 	if (WARN_ON(!arg))
+ 		return;
 +
-+	return atomic_try_cmpxchg_acquire(&csdev->mode, &curr, new_mode);
++	csdev = arg->drvdata->csdev;
++	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
++		/* Someone is already using the tracer */
++		arg->rc = -EBUSY;
++		return;
++	}
++
+ 	arg->rc = etm_enable_hw(arg->drvdata);
++
++	/* The tracer didn't start */
++	if (arg->rc)
++		coresight_set_mode(csdev, CS_MODE_DISABLED);
  }
  
- static inline enum cs_mode coresight_get_mode(struct coresight_device *csdev)
+ static int etm_cpu_id(struct coresight_device *csdev)
+@@ -465,16 +478,26 @@ static int etm_enable_perf(struct coresight_device *csdev,
+ 			   struct coresight_path *path)
  {
--	return local_read(&csdev->mode);
-+	return atomic_read_acquire(&csdev->mode);
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++	int ret;
+ 
+ 	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
+ 		return -EINVAL;
+ 
++	if (!coresight_take_mode(csdev, CS_MODE_PERF))
++		return -EBUSY;
++
+ 	/* Configure the tracer based on the session's specifics */
+ 	etm_parse_event_config(drvdata, event);
+ 	drvdata->traceid = path->trace_id;
+ 
+ 	/* And enable it */
+-	return etm_enable_hw(drvdata);
++	ret = etm_enable_hw(drvdata);
++
++	/* Failed to start tracer; roll back to DISABLED mode */
++	if (ret)
++		coresight_set_mode(csdev, CS_MODE_DISABLED);
++
++	return ret;
  }
  
- static inline void coresight_set_mode(struct coresight_device *csdev,
-@@ -646,7 +643,7 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
- 	WARN(new_mode != CS_MODE_DISABLED && current_mode != CS_MODE_DISABLED &&
- 	     current_mode != new_mode, "Device already in use\n");
+ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+@@ -494,7 +517,7 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
+ 	if (cpu_online(drvdata->cpu)) {
+ 		arg.drvdata = drvdata;
+ 		ret = smp_call_function_single(drvdata->cpu,
+-					       etm_enable_hw_smp_call, &arg, 1);
++					       etm_enable_sysfs_smp_call, &arg, 1);
+ 		if (!ret)
+ 			ret = arg.rc;
+ 		if (!ret)
+@@ -517,12 +540,6 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
+ 		      enum cs_mode mode, struct coresight_path *path)
+ {
+ 	int ret;
+-	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	if (!coresight_take_mode(csdev, mode)) {
+-		/* Someone is already using the tracer */
+-		return -EBUSY;
+-	}
  
--	local_set(&csdev->mode, new_mode);
-+	atomic_set_release(&csdev->mode, new_mode);
+ 	switch (mode) {
+ 	case CS_MODE_SYSFS:
+@@ -535,17 +552,12 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
+ 		ret = -EINVAL;
+ 	}
+ 
+-	/* The tracer didn't start */
+-	if (ret)
+-		coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+-
+ 	return ret;
  }
  
- struct coresight_device *coresight_register(struct coresight_desc *desc);
+-static void etm_disable_hw(void *info)
++static void etm_disable_hw(struct etm_drvdata *drvdata)
+ {
+ 	int i;
+-	struct etm_drvdata *drvdata = info;
+ 	struct etm_config *config = &drvdata->config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 
+@@ -567,6 +579,15 @@ static void etm_disable_hw(void *info)
+ 		"cpu: %d disable smp call done\n", drvdata->cpu);
+ }
+ 
++static void etm_disable_sysfs_smp_call(void *info)
++{
++	struct etm_drvdata *drvdata = info;
++
++	etm_disable_hw(drvdata);
++
++	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
++}
++
+ static void etm_disable_perf(struct coresight_device *csdev)
+ {
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+@@ -588,6 +609,8 @@ static void etm_disable_perf(struct coresight_device *csdev)
+ 
+ 	CS_LOCK(drvdata->csa.base);
+ 
++	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
++
+ 	/*
+ 	 * perf will release trace ids when _free_aux()
+ 	 * is called at the end of the session
+@@ -612,7 +635,8 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
+ 	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
+ 	 * ensures that register writes occur when cpu is powered.
+ 	 */
+-	smp_call_function_single(drvdata->cpu, etm_disable_hw, drvdata, 1);
++	smp_call_function_single(drvdata->cpu, etm_disable_sysfs_smp_call,
++				 drvdata, 1);
+ 
+ 	spin_unlock(&drvdata->spinlock);
+ 	cpus_read_unlock();
+@@ -652,9 +676,6 @@ static void etm_disable(struct coresight_device *csdev,
+ 		WARN_ON_ONCE(mode);
+ 		return;
+ 	}
+-
+-	if (mode)
+-		coresight_set_mode(csdev, CS_MODE_DISABLED);
+ }
+ 
+ static const struct coresight_ops_source etm_source_ops = {
 
 -- 
 2.34.1
