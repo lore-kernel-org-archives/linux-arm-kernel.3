@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EC0CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4622CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9n0Y+NoH+kvwHdRXyYxizd4Ni80WNG4fVyyRdV90H6M=; b=3Ep9lDOWWpF3V0dcIP0gn0OHTd
-	eimc8S5YO/zA8W+ZgC2Svxg8YcEybC/isjsrIxvC8bSEFNJGJC6IfLmsQuItMY/XSeAyP3jxN61u7
-	SsBZSBNWqCogc69EjIZpegjd0Qwb+dCyGv6kqAZRoCAFnI5FHxmgNEsX9NlU5r10nG4mz1A1AHu6d
-	Qfrh4S33yOkbvU8+XbTKeO6HP3NSsUTdHrVusPZosKsrlcxRThSoKn9stbf5TXPGJ9pChauhZvY5e
-	m0RfLJ6WY3Srs05SD4m1+Mx5TrjbB8SZxXyl8jLvIgde4B84VaITNst3FWF8f1voDaPSW/P09nOV2
-	cFY0ORyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZQ4CmyX/NTRmW777x76hyUCG7eg8AycsdVo784S1xxY=; b=YL4ne0lN2kOsm7qferRmrFRBca
+	MdZNNzPwV/wnl3LR3PgHz5C7pkoWyPFfUpo7RyqI62dqs5XKVP14c2RmYSZO8dLx7JtILZxiXFgS9
+	C61XcYGRfLTuZfhM26C7fYqp5hZdqno9DWxsiupWl3orw2OO2KNeDNcjIB0zj41fWD/jOFIoczFZ1
+	YIfYlTuZLqh5RP03m06fcUI044SKchqx3iI4Ld6b/T+CXOWaWoVJZa0Vj/5fe7Ifbzn8ICx8mGiKw
+	uKJu4HsGPs6Rht6sZ+i26QTAKYjdnxTJs8f2mZWdTTRec3YLEtx39E+018vPA6kK1yh3ThQ5H1o5f
+	ffEM7iLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7kJ-00000008Wfi-3bDm;
-	Wed, 12 Nov 2025 10:06:35 +0000
-Received: from mail-m49200.qiye.163.com ([45.254.49.200])
+	id 1vJ7lG-00000008Wmf-31x7;
+	Wed, 12 Nov 2025 10:07:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7kG-00000008WfH-470q;
-	Wed, 12 Nov 2025 10:06:34 +0000
-Received: from [172.16.12.30] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 295429862;
-	Wed, 12 Nov 2025 18:06:27 +0800 (GMT+08:00)
-Message-ID: <65ff0185-e471-40ba-8991-43b1a42b1d30@rock-chips.com>
-Date: Wed, 12 Nov 2025 18:06:26 +0800
+	id 1vJ7lE-00000008WmF-1lcp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 10:07:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C499541E4D;
+	Wed, 12 Nov 2025 10:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FA2C19423;
+	Wed, 12 Nov 2025 10:07:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762942051;
+	bh=qv0rkaW2D6V9ujLxu5wOdIydA/9+KagOl+U71EexFE0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j1rY93bGfF6KQBMEuguUMHxXmPbykSVli0bFRJZXzqDxNf56tK/QJW7OZvEny9K9A
+	 mECJ/EsU11mobGrrYDAUQB7lP26PGcqvA3saTFaf/tvpR58N2wXlhJT1xvtJFCFM8G
+	 rui532D3tvKMHRlpXlROMTmhwrY+wNQe7jIy+zJjRcztZgEnqfMWBK4fVbXwLNzblO
+	 Ynb1yH13ENfWZM6fGRUUXwvlQ1vjv6YpDumnH5jOPeZwwy7YjBzY4KpPj7zgDu/Hqf
+	 PSLCieSmJ1JGgDZXDvXig3+E/sVH6X5DPUV+bd9nSpDk6bdbPDfH87qdqiWDrmuV5i
+	 1U1sRp+r6luTw==
+Date: Wed, 12 Nov 2025 02:07:30 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, vladimir.murzin@arm.com
+Subject: Re: [PATCH v4 7/8] KVM: arm64: Check whether a VM IOCTL is allowed
+ in pKVM
+Message-ID: <aRRcYltFUrBlcbfX@kernel.org>
+References: <20251112092051.1376245-1-tabba@google.com>
+ <20251112092051.1376245-8-tabba@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v8 1/4] dt-bindings: can: rockchip_canfd: add
- rk3576 CAN controller
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com,
- linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20251112015940.3695638-1-zhangqing@rock-chips.com>
- <20251112015940.3695638-2-zhangqing@rock-chips.com>
- <20251112-faithful-olive-orangutan-0dd207-mkl@pengutronix.de>
-From: zhangqing <zhangqing@rock-chips.com>
-In-Reply-To: <20251112-faithful-olive-orangutan-0dd207-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a7787ea7c03a3kunmc052c1ea2aa6e8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkMYTVZPSRhDT0IeSU0eQktWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=CUikGddO+ZN7whhA7uNkqz4Av3a3h3ecRTM839aDoNwjuOT1rwIvlBvuulvGqith6x6wghvs//J4PEegTy0+yeZjxi8SwbDF5kIi21lFqzQibcnJjjIhx3cu0PbBFOG9OjhGdhUCKwYl/KKZQSOJBth+Om6cVQWjzRsmv01d2KI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=9n0Y+NoH+kvwHdRXyYxizd4Ni80WNG4fVyyRdV90H6M=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112092051.1376245-8-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_020633_539513_8DC8B9FC 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_020732_480217_1FA6B106 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,72 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Fuad,
 
-在 2025/11/12 16:53, Marc Kleine-Budde 写道:
-> On 12.11.2025 09:59:37, Elaine Zhang wrote:
->> Add documentation for the rockchip rk3576 CAN controller.
->>
->> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
->> ---
->>   .../bindings/net/can/rockchip,rk3568v2-canfd.yaml  | 14 ++++++++++----
->>   1 file changed, 10 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
->> index a077c0330013..22e10494e7d1 100644
->> --- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
->> +++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
->> @@ -10,13 +10,12 @@ title:
->>   maintainers:
->>     - Marc Kleine-Budde <mkl@pengutronix.de>
->>
->> -allOf:
->> -  - $ref: can-controller.yaml#
->> -
-> What happened to the allOf?
-This is a misoperation and will be corrected in version V9.
-To speed up the review of the current version, V9 will also remove dma.
->
->>   properties:
->>     compatible:
->>       oneOf:
->> -      - const: rockchip,rk3568v2-canfd
->> +      - enum:
->> +          - rockchip,rk3568v2-canfd
->> +          - rockchip,rk3576-can
->>         - items:
->>             - const: rockchip,rk3568v3-canfd
->>             - const: rockchip,rk3568v2-canfd
->> @@ -43,6 +42,13 @@ properties:
->>         - const: core
->>         - const: apb
->>
->> +  dmas:
->> +    maxItems: 1
->> +
->> +  dma-names:
->> +    items:
->> +      - const: rx
->> +
->>   required:
->>     - compatible
->>     - reg
-> regards,
-> Marc
->
--- 
-张晴
-瑞芯微电子股份有限公司
-Rockchip Electronics Co.,Ltd
-地址：福建省福州市铜盘路软件大道89号软件园A区21号楼
-Add:No.21 Building, A District, No.89 Software Boulevard Fuzhou, Fujian 350003, P.R.China
-Tel:+86-0591-83991906-8601
-邮编：350003
-E-mail:elaine.zhang@rock-chips.com
-****************************************************************************
-保密提示：本邮件及其附件含有机密信息，仅发送给本邮件所指特定收件人。若非该特定收件人，请勿复制、使用或披露本邮件的任何内容。若误收本邮件，请从系统中永久性删除本邮件及所有附件，并以回复邮件或其他方式即刻告知发件人。福州瑞芯微电子有限公司拥有本邮件信息的著作权及解释权，禁止任何未经授权许可的侵权行为。
+On Wed, Nov 12, 2025 at 09:20:50AM +0000, Fuad Tabba wrote:
+> +/*
+> + * Check whether the KVM VM IOCTL is allowed in pKVM.
+> + *
+> + * Certain features are allowed only for non-protected VMs in pKVM, which is why
+> + * this takes the VM (kvm) as a parameter.
+> + */
+> +static inline bool kvm_pkvm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
+> +{
+> +	switch (ioctl) {
+> +	case KVM_CREATE_IRQCHIP:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_IRQCHIP);
+> +	case KVM_ARM_SET_DEVICE_ADDR:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SET_DEVICE_ADDR);
+> +	case KVM_ARM_MTE_COPY_TAGS:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_MTE);
+> +	case KVM_ARM_SET_COUNTER_OFFSET:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_COUNTER_OFFSET);
+> +	case KVM_HAS_DEVICE_ATTR:
+> +	case KVM_SET_DEVICE_ATTR:
+> +	case KVM_GET_DEVICE_ATTR:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_DEVICE_CTRL) ||
+> +		       kvm_pkvm_ext_allowed(kvm, KVM_CAP_VM_ATTRIBUTES);
+> +	case KVM_ARM_GET_REG_WRITABLE_MASKS:
+> +		return kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES);
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
 
-IMPORTANT NOTICE: This email is from Fuzhou Rockchip Electronics Co., Ltd .The contents of this email and any attachments may contain information that is privileged, confidential and/or exempt from disclosure under applicable law and relevant NDA. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information is STRICTLY PROHIBITED. Please immediately contact the sender as soon as possible and destroy the material in its entirety in any format. Thank you.
+I was thinking of something a bit more tabular since CCA will impose its
+own restrictions + pKVM could share the ioctl <=> KVM_CAP association.
 
-****************************************************************************
+Anyway, ioctl filtering should be an allowlist (default to false) just
+like kvm_pkvm_ext_allowed(). The default assumption is that new UAPI is not
+supported for pVMs unless explicitly stated otherwise.
 
+Thanks,
+Oliver
 
