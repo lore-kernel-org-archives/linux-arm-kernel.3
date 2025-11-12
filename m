@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478DCCCFA1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BA8CCFA1E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qN+9Nh7UEIyQdcOnN3rR32056vw2TRuOg5ceKeN42QM=; b=fLSuxrSRmZYVjxqfT/VY0mayuV
-	TXwh1ED1SG8kYVuPCVAbFlJLWQU+uE/sYFU2aLWJCAe61RhjyedQbz0tVLcFq9Z46K/lNCdfkafNo
-	2QLgU+d2thM7WPSgwoX0NSun4+VIvs6TNNBCONwIDWvyDdVjKnABFVsSCLza4ZenHtQzleGXhA5sx
-	uvAwhC2g7qWsm04wKVROxcDZJeQi+6mCbHz3mBIWrEQCUtOe8iqDOmWL3pz1BquQxan1wNItogydR
-	E/5+Z/bwdEMUrsdNuBvxjzOiIWaQ0LZhpBzw4z4iPsp9n7JalQ1MH70HbQnoiL6SZD9nmus8MXpwK
-	jhfcTSMg==;
+	bh=U6j1Zr2nqSljgnBt8lg1GB0+pNJF6HsLCg+rohPfLc0=; b=nQSFXKNKpvgIsxpxTAHfd7We4W
+	DiarKwAxBFQ8SQ8FFN3iEhOgbq05ichpJAXKlfOjHW31y4drrkhG8qddxCtC+jVSNWZL3AnGf61N3
+	YhM0gyx1k6V3WNCEDCjyGiELtNfiaOVPxg2lZ6gkfnu3Nl043jqnclSjbDrNxOHdOHHxsmW+iUcZd
+	axu56jtCjpoPnl62rxNRuwOnHR8cuZjijPRr/2PcpBJBHpWRtcQkBa8rRV+68oL6am7hY52GDuFiA
+	XaMa/RwuigLK9p2isxLq0yeMUqU2xXdcJYwJ+G2adEn6YED9d2U5sd/9D3TgGJzfd3ac9N4Q6hzVY
+	0vXni2jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6X1-00000008NzH-03nz;
+	id 1vJ6X1-00000008Nzd-1kGc;
 	Wed, 12 Nov 2025 08:48:47 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6Ww-00000008Nwk-23Uu
+	id 1vJ6Wx-00000008Nwm-0j2k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:48:43 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4775ae77516so5756735e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 00:48:41 -0800 (PST)
+	Wed, 12 Nov 2025 08:48:44 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4777a9aeedaso5008285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 00:48:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google; t=1762937321; x=1763542121; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qN+9Nh7UEIyQdcOnN3rR32056vw2TRuOg5ceKeN42QM=;
-        b=XFIcAZtDw/Hac+ZUbefoki9g2EffI89YYPKCjfyL94/gx9A+l1FeVdWjOuD5eLuCX0
-         qAtoTfY5KGZpVYiGBPd78WgnYJsVb9lEZSBvNrplWUft1HFdcYATWp1bqclGV0+2P3K+
-         ZY6KPIbktvcN6fjoi5iBBFiYCheUx8UbecQKERwYS/phFYOOBhJTrB+tdAAnRX6jyUH9
-         3ugGUqviR7rFFEpumQwVl+az8s2GNrwdmQilPfobBhUuXT+Fi7BErmV7XzkoBvZx4F9M
-         IZrXOI9UX5q4RGZL/+QpfSH1CMlreIkRT44wH+6LMUHcPN+gJt08rar0jjMkHYH3Ugo3
-         4CZw==
+        bh=U6j1Zr2nqSljgnBt8lg1GB0+pNJF6HsLCg+rohPfLc0=;
+        b=WNGZB85Ikz0BNb0pG7qakRNPzV0g9kdEkhYWESfkddq2xsMt++jYI1jYIQ9c2mdlRl
+         wYuL5G8MgSNpiJclJsLVUZQAaIh6tZM3K6CqwTexYBkb+DavfYylID8G+LxOHH7doScd
+         z9o6uuW8Gp1fnDZCewrfIU0ov11aI6izHAG9HBDdk5yHH8zTImTAjfcUbKNaJ3QulZig
+         Yy7k9E+LIX8nr+rgPZw8kFul/LsmlVXDuqmG8JmqfOHKhC8c44BJtH+Iio7xI/Qn8gmc
+         FCq+9J10rfPPkUmxbkY9uZ5mE4aCofAcK0+jniiK1IOmpjn2spWLwLaLrJoBHAbQ5qKb
+         tNUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1762937321; x=1763542121;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=qN+9Nh7UEIyQdcOnN3rR32056vw2TRuOg5ceKeN42QM=;
-        b=HMDYkYrnuTU4Xi2AeofrdKRbwgZrLsVH6sTtA6Y3Gj6/sRHyeaUfC+bA0cPgNx1PAA
-         PP3ZphgmIXxvpbAX/D0NN/qCmkLabqvdqNxWi+NRElglufGcgmQFFwbES3grgtreRkuI
-         f3BoqDMOxFTX97ns3j+s9OyduYjRiFqIa6us1SWntTWx15M0cQxzOcOJfOKjzqmszI8N
-         ciJ4wzGKMiR7cD7gFHeEWLC/5Cz4+5L7bjwgDPPtRKH+iLQ5WKLxl+DHcg1e4944+Vnc
-         OLI+qdWEs2f/GqoRKI4XQKbTkt0sG3nXBsKQ1UyD7g32iluV7T0gTXH3Uvf9TEZNlRgi
-         bcZw==
-X-Gm-Message-State: AOJu0YwV5g5kdmcvKziKCGP6ZeYbRyIYG7L6fEDQI57tlSngYLOFXyw5
-	tzMpNYzMaGDlvRdTzJTxOgZl8YU89LFytAIQrpXdSJzqant7D9qzrNbFGScishXNEFM=
-X-Gm-Gg: ASbGncsXN7YLy/i/NtZ5PQ2uvpYZ42iiK2kTUb0KS0Focg6ooZUZPIIcaZA9a9AjNO0
-	gefwy2Tvb1otEsnZ8BNRnCl04gf6KnbVtTMv2x33hMNi6RXMTleX/HwnFKvIsxBe7LWB2MzSzH+
-	+32i94OAa4A+7GhkqtawVXYrI9NUvrsF3QbNcSC6CAm8LTQTfvO2PgHuAODzDygzWZKEZEE+okV
-	sGxMPwlHjNXzYUcAE8cCJwnWUbuuOBWW5jQ1Qy9QwseEYZ2ESrjgjqHty7/FKh/d2CYXfGexbyd
-	LX//F/fmJrrQ8/GPd7h2j86K552rmYNQkapxgtqouXj50AUrNEoNDBPHILyYwDeWSrRSiVa5K+h
-	hxqLMvC9F+J09wVp0jQqGYtrgBYJsR/2DJ+Ik/M8GAdVKl21tUf61nPErMFnFneDAdbxHBveAfM
-	GyKnqf3ggEaApYyCzuafOUDoc96C6FZnXBbFNC0VaYezh+nLn60KU2euXu
-X-Google-Smtp-Source: AGHT+IHnN70HcY6VqId76V2Fium0LoTjsjCOhICOnZah512u7vpBHuld1VklT35Nc8Jl0M9VCj6zfw==
-X-Received: by 2002:a05:600c:5488:b0:475:dc5c:3a89 with SMTP id 5b1f17b1804b1-477870bdf2amr21149885e9.34.1762937320671;
-        Wed, 12 Nov 2025 00:48:40 -0800 (PST)
+        bh=U6j1Zr2nqSljgnBt8lg1GB0+pNJF6HsLCg+rohPfLc0=;
+        b=QxYvXOTdvQyjnXj9su9Uqcxe85HcsYiFQaPQqmTTcf4rMjg/JLXElLUvpNrqZNkHtT
+         L650IDJ3k/mLSKCW9Yx4Urag/sHobl/uae2yzDi9ObpKaxeLdbtQgr+Qp/Ly9UxLOikW
+         /bjEOMvlOZKYbewn0bDLJSKEEZqdQmYMqVk0JLWt+CEUgMMJt7THK4iym0WVPl93nXBl
+         rM0ixGDPedNYa/6+xBx91LpLxHRqlV02zQJfmLY5dzLkM6fod9T5Uc+b2NqomDNDFazV
+         qGS7tnWnkIepJcxTUHMtYPG8uhhpoHk0ZV0CocrZTY8aLzw4u+l+UheM0TJhx8qwxDwc
+         8+ag==
+X-Gm-Message-State: AOJu0YyektyC2KoTEf9xTNYf1XUwAr+cPpjv7MUw97Ckdp4Xd7xzE4tU
+	eyuGziXgozU+xRj+fRhaGKv1B5jXvq6bJ4rpRQOmBy1pQndh3G/vhmwfEUXFMWmgdJI=
+X-Gm-Gg: ASbGncu/rGx8h2G2MW5tLUovwmbYaIEM54/8JMH4wZQgP2sJDd6SI3GHwuJscYOVYiM
+	zo+AtTsKwYIj6LDpswSCk5CvFxBw2ZUAGFzzY/EoFH0IlfVh7sPEXuJ+Vf3+N8CtNA6/HOPuk8m
+	YtehevoerGbPbgTn/wAnCY2s3/kJWXM303J+1lteEArJrvL/wkiTPWHYHEa2R6IEdC1kGQeHsGn
+	3VTW736QLO8dvwtPQBJpwUeHQjNEdECAtXhMXkXcerd68haEfcuOilmcLD27UQbe+ZyS1R7beiO
+	eE6sZtdry26q7KHDfuscNAGXhTpTISkjqmBMSWiz+xm5fs5aPp5ojZMeOX++g/qOg8C6+Dhy0Zf
+	EZz9ech2VhiDmt+GNk9MDuBUb44w+th75ro8n3HKP6J69lu+3u8nrbtlaeRNgAZrg/0CHfzpI9A
+	VVu0DCJFJ5ROdvermZcLZVEEIpIiTRwYK4vsvK4XhvFCsduNturx4l5xw6VFxqjDO0Jkg=
+X-Google-Smtp-Source: AGHT+IHRlvqObTp3cztt6xzj5JbmMm8qTfj4NgJhVxdpVjTif65CUEVPFygwa1pmkHguCLJvzFL+7g==
+X-Received: by 2002:a05:600c:1d0f:b0:475:d8b3:a9d5 with SMTP id 5b1f17b1804b1-4778704cc7amr17363625e9.10.1762937321328;
+        Wed, 12 Nov 2025 00:48:41 -0800 (PST)
 Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47789ffea1esm3732645e9.13.2025.11.12.00.48.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47789ffea1esm3732645e9.13.2025.11.12.00.48.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 00:48:39 -0800 (PST)
+        Wed, 12 Nov 2025 00:48:40 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Wed, 12 Nov 2025 08:48:20 +0000
-Subject: [PATCH 1/4] soc: samsung: exynos-chipid: prepend exynos_ to a
- method's name
+Date: Wed, 12 Nov 2025 08:48:21 +0000
+Subject: [PATCH 2/4] soc: samsung: exynos-chipid: downgrade dev_info to
+ dev_dbg for soc info
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-chipid-trivial-v1-1-ec2dea03bd83@linaro.org>
+Message-Id: <20251112-chipid-trivial-v1-2-ec2dea03bd83@linaro.org>
 References: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
 In-Reply-To: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -86,16 +86,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  andre.draszik@linaro.org, willmcvicker@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762937318; l=1239;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762937318; l=1028;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=7druEga/Beb9/UD0KVweY5n8TbkTPFBJtmEG9o1IjOw=;
- b=N1mZw0ORtHrf96WaYt+Xj7F23BBnNpcHrGV8KfTAnUSHyfJr92KB7oKg0NxAi49zaCk5kHrph
- 0efls+TZc5WA/It36WYBngiDFYhBUehpqOeChlNefq4Hizd3mAQWTWO
+ bh=EhORVg5AyonyLqgYmZ/jq75ZA9P5rTDSsH8wOv8oehM=;
+ b=KQx82sEfBGkvY2sSWUcfokNVQxltnCs2thIob42A5Z2BsHO52ZwpBzxC187lGiaoZUytR/WBf
+ vin0DwG0RlxB7zwM/KikyLCfd60l8+F0Z4xUdL3ME26YySbIxkUe3LB
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_004842_551225_A6F34377 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20251112_004843_232378_E001AFA0 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +110,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid name space pollution and prepend exynos_ to
-product_id_to_soc_id(). Add a blank line to make things readable.
+The SoC information is exposed to userspace using the standard soc
+interface. Downgrade to dev_dbg to stop polluting the console log.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- drivers/soc/samsung/exynos-chipid.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/soc/samsung/exynos-chipid.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-index d3b4b5508e0c808ee9f7b0039073ef57915d60fc..cdab1d4326b9de5df477a0545839b7b8b402d55d 100644
+index cdab1d4326b9de5df477a0545839b7b8b402d55d..3671ed718b933a2dbb9e154202bd3235e3efd758 100644
 --- a/drivers/soc/samsung/exynos-chipid.c
 +++ b/drivers/soc/samsung/exynos-chipid.c
-@@ -70,7 +70,7 @@ static const struct exynos_soc_id {
- 	{ "EXYNOSAUTOV920", 0x0A920000 },
- };
+@@ -159,8 +159,8 @@ static int exynos_chipid_probe(struct platform_device *pdev)
  
--static const char *product_id_to_soc_id(unsigned int product_id)
-+static const char *exynos_product_id_to_soc_id(unsigned int product_id)
- {
- 	int i;
+ 	platform_set_drvdata(pdev, soc_dev);
  
-@@ -141,7 +141,8 @@ static int exynos_chipid_probe(struct platform_device *pdev)
- 						soc_info.revision);
- 	if (!soc_dev_attr->revision)
- 		return -ENOMEM;
--	soc_dev_attr->soc_id = product_id_to_soc_id(soc_info.product_id);
-+
-+	soc_dev_attr->soc_id = exynos_product_id_to_soc_id(soc_info.product_id);
- 	if (!soc_dev_attr->soc_id) {
- 		pr_err("Unknown SoC\n");
- 		return -ENODEV;
+-	dev_info(dev, "Exynos: CPU[%s] PRO_ID[0x%x] REV[0x%x] Detected\n",
+-		 soc_dev_attr->soc_id, soc_info.product_id, soc_info.revision);
++	dev_dbg(dev, "Exynos: CPU[%s] PRO_ID[0x%x] REV[0x%x] Detected\n",
++		soc_dev_attr->soc_id, soc_info.product_id, soc_info.revision);
+ 
+ 	return 0;
+ 
 
 -- 
 2.51.2.1041.gc1ab5b90ca-goog
