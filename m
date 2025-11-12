@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11CECCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 06:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB238CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 06:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEphsFMoLxEaXp20sgXpoy6xwUKOoBTr3B+r0TLElO0=; b=2hvG6YRA6NmOSR+cq2z7eUkdbt
-	QQEGMqDwxrnD2MUqgJgvJxlVPkJNRTJbNg2t7sxA1LT2+6GfjV/lc7HkqzzJt+MNr+pSNJh2TE8Za
-	HFBtsw5h6J/QHgMvjJNgBQ83EUkxEyXaMUdqAZSlP0Oj5Ixr2EHHXaJFjLqnvckcvLmo5PQZ7zoij
-	syIxe2ayu/PJxyGC0LppWprTySfzcdNW/RbjCFMYWGg84tDtJ6AV1NZTRsscvyfcrb7gbR1JB7RsC
-	FsU/ovKfDIgZChbu9QAw0y9g/62U4Iytv5LuFNYYrFDKvq08ZetBUbV7lVXKu7NT8k7q9/OIm1J/F
-	yKC/QTYg==;
+	bh=YuWLVONgyPu1bzDb4MHL7iucPCpv2D1xLsRhnghR5qc=; b=sacgFp7qhPk3i6H1SIan6exH9O
+	zn+YdBfyhd8g/BCKNrjUS9q1GyWcyXL1Tn+EqPWPu4F20iaRnoHG+UjKk8fHKtaci2nqrPHxaBe1S
+	cdsLyBms/2/kZfNZO5aK0rFivq4GTP6Jy9a0bIF+J/PxbnRkq+WQ3z9pFXKBOvzo7v0HYaC42o4YI
+	P1nS+fQk17gDsKBXWh9LnEOKvfi8Ifn5HIF4PitGrb3kqDWpr/JWj08jpk/ykgANZvS36plp/1IZM
+	bfF7gol65IzIbOSoPljtqImXPecA9H0TYpThSVzKthdRcwu9/f9Egl65RDR4TG6lLuyUDAksNl7vN
+	Y+WeLpqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ3tg-00000008AxP-2dDK;
-	Wed, 12 Nov 2025 06:00:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ3td-00000008Aww-1UH4
+	id 1vJ3wd-00000008B9K-0hTj;
+	Wed, 12 Nov 2025 06:03:03 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ3wa-00000008B8y-2V5T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 05:59:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43AEB1515;
-	Tue, 11 Nov 2025 21:59:47 -0800 (PST)
-Received: from [10.164.18.56] (unknown [10.164.18.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FE343F5A1;
-	Tue, 11 Nov 2025 21:59:51 -0800 (PST)
-Message-ID: <0d660898-241b-450f-a3f0-3d09a1c97ae0@arm.com>
-Date: Wed, 12 Nov 2025 11:29:48 +0530
+	Wed, 12 Nov 2025 06:03:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1762927380; x=1794463380;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=5P785U/6nIR5hmheHhi3SEIcKPyZPlJEhzUt1w6Lq7I=;
+  b=ejKl62PZKtrULgsUCTkeIqkXOzXn66zJSEtWj0qInmtP93l2kafd7oqE
+   +gA7YnjNhDe23H9Zdsqjz3pZJ1WpHccX0/plG0r46uDurRKgqQZkYQLSe
+   L+ihT9PUDR4lNQOYfMwXjcB6OK+4ukaekJZ5v/+/vdVzd/DNuPedAkCGO
+   AfHA+QH4keejhDVnFhrLMA0xRyBx1MG6JMyVwTt9kRESVOOA3m8ZWgM7d
+   aoEcOaSaa7Ww6NDCYoq2aZ/L5lGwtP0l//ZPGW5o70irMv6iOHyWiclsZ
+   DZSaQnTJTudqe8N9Jqx3qf3qdVqlAmaKxep8lIxYn45+HWajDquXO1f20
+   A==;
+X-CSE-ConnectionGUID: TXs5cYv7S3q+I7pE4s1EzQ==
+X-CSE-MsgGUID: n94rCRuPRa248XRGak169Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="64920248"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="64920248"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 22:02:59 -0800
+X-CSE-ConnectionGUID: h2IRcZemTGuOgw+Cz+mqmA==
+X-CSE-MsgGUID: SUtSziV9Qu6Uwss2XMdTJQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,298,1754982000"; 
+   d="scan'208";a="189864807"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 22:02:55 -0800
+Message-ID: <d5445875-76bd-453d-b959-25989f5d3060@linux.intel.com>
+Date: Wed, 12 Nov 2025 13:58:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
- __change_memory_common
-From: Dev Jain <dev.jain@arm.com>
-To: Yang Shi <yang@os.amperecomputing.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, rppt@kernel.org,
- shijie@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20251103061306.82034-1-dev.jain@arm.com>
- <aQjHQt2rYL6av4qw@willie-the-truck>
- <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
- <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
- <aQn4EwKar66UZ7rz@willie-the-truck>
- <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
- <17eed751-e1c5-4ea5-af1d-e96da16d5e26@arm.com>
- <c1701ce9-c8b7-4ac8-8dd4-930af3dad7d2@os.amperecomputing.com>
- <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
+Subject: Re: [PATCH v5 3/5] iommu: Add iommu_driver_get_domain_for_dev()
+ helper
+To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, afael@kernel.org,
+ bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com, kevin.tian@intel.com
+Cc: will@kernel.org, robin.murphy@arm.com, lenb@kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-pci@vger.kernel.org, kvm@vger.kernel.org, patches@lists.linux.dev,
+ pjaroszynski@nvidia.com, vsethi@nvidia.com, helgaas@kernel.org,
+ etzhao1900@gmail.com
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
 Content-Language: en-US
-In-Reply-To: <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_215957_512251_FDF7DEC3 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20251111_220300_708249_59C85D65 
+X-CRM114-Status: GOOD (  31.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,197 +92,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/11/25 13:12, Nicolin Chen wrote:
+> There is a need to stage a resetting PCI device to temporally the blocked
+> domain and then attach back to its previously attached domain after reset.
+> 
+> This can be simply done by keeping the "previously attached domain" in the
+> iommu_group->domain pointer while adding an iommu_group->resetting_domain,
+> which gives troubles to IOMMU drivers using the iommu_get_domain_for_dev()
+> for a device's physical domain in order to program IOMMU hardware.
+> 
+> And in such for-driver use cases, the iommu_group->mutex must be held, so
+> it doesn't fit in external callers that don't hold the iommu_group->mutex.
+> 
+> Introduce a new iommu_driver_get_domain_for_dev() helper, exclusively for
+> driver use cases that hold the iommu_group->mutex, to separate from those
+> external use cases.
+> 
+> Add a lockdep_assert_not_held to the existing iommu_get_domain_for_dev()
+> and highlight that in a kdoc.
+> 
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   include/linux/iommu.h                       |  1 +
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  5 ++--
+>   drivers/iommu/iommu.c                       | 28 +++++++++++++++++++++
+>   3 files changed, 32 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 801b2bd9e8d49..a42a2d1d7a0b7 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -910,6 +910,7 @@ extern int iommu_attach_device(struct iommu_domain *domain,
+>   extern void iommu_detach_device(struct iommu_domain *domain,
+>   				struct device *dev);
+>   extern struct iommu_domain *iommu_get_domain_for_dev(struct device *dev);
+> +struct iommu_domain *iommu_driver_get_domain_for_dev(struct device *dev);
+>   extern struct iommu_domain *iommu_get_dma_domain(struct device *dev);
+>   extern int iommu_map(struct iommu_domain *domain, unsigned long iova,
+>   		     phys_addr_t paddr, size_t size, int prot, gfp_t gfp);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index a33fbd12a0dd9..412d1a9b31275 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3125,7 +3125,8 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
+>   		       struct arm_smmu_domain *smmu_domain, ioasid_t pasid,
+>   		       struct arm_smmu_cd *cd, struct iommu_domain *old)
+>   {
+> -	struct iommu_domain *sid_domain = iommu_get_domain_for_dev(master->dev);
+> +	struct iommu_domain *sid_domain =
+> +		iommu_driver_get_domain_for_dev(master->dev);
+>   	struct arm_smmu_attach_state state = {
+>   		.master = master,
+>   		.ssid = pasid,
+> @@ -3191,7 +3192,7 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
+>   	 */
+>   	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
+>   		struct iommu_domain *sid_domain =
+> -			iommu_get_domain_for_dev(master->dev);
+> +			iommu_driver_get_domain_for_dev(master->dev);
+>   
+>   		if (sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
+>   		    sid_domain->type == IOMMU_DOMAIN_BLOCKED)
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 1e322f87b1710..1f4d6ca0937bc 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -2217,6 +2217,15 @@ void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
+>   }
+>   EXPORT_SYMBOL_GPL(iommu_detach_device);
+>   
+> +/**
+> + * iommu_get_domain_for_dev() - Return the DMA API domain pointer
+> + * @dev - Device to query
+> + *
+> + * This function can be called within a driver bound to dev. The returned
+> + * pointer is valid for the lifetime of the bound driver.
+> + *
+> + * It should not be called by drivers with driver_managed_dma = true.
 
-On 11/11/25 10:07 am, Dev Jain wrote:
->
-> On 11/11/25 9:47 am, Yang Shi wrote:
->>
->>
->> On 11/10/25 7:39 PM, Dev Jain wrote:
->>>
->>> On 05/11/25 9:27 am, Dev Jain wrote:
->>>>
->>>> On 04/11/25 6:26 pm, Will Deacon wrote:
->>>>> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
->>>>>> On 04/11/25 12:15 am, Yang Shi wrote:
->>>>>>> On 11/3/25 7:16 AM, Will Deacon wrote:
->>>>>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
->>>>>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
->>>>>>>>> rodata=full"),
->>>>>>>>> __change_memory_common has a real chance of failing due to split
->>>>>>>>> failure.
->>>>>>>>> Before that commit, this line was introduced in c55191e96caa,
->>>>>>>>> still having
->>>>>>>>> a chance of failing if it needs to allocate pagetable memory in
->>>>>>>>> apply_to_page_range, although that has never been observed to 
->>>>>>>>> be true.
->>>>>>>>> In general, we should always propagate the return value to the 
->>>>>>>>> caller.
->>>>>>>>>
->>>>>>>>> Cc: stable@vger.kernel.org
->>>>>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
->>>>>>>>> areas to its linear alias as well")
->>>>>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>>>>>>> ---
->>>>>>>>> Based on Linux 6.18-rc4.
->>>>>>>>>
->>>>>>>>>    arch/arm64/mm/pageattr.c | 5 ++++-
->>>>>>>>>    1 file changed, 4 insertions(+), 1 deletion(-)
->>>>>>>>>
->>>>>>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->>>>>>>>> index 5135f2d66958..b4ea86cd3a71 100644
->>>>>>>>> --- a/arch/arm64/mm/pageattr.c
->>>>>>>>> +++ b/arch/arm64/mm/pageattr.c
->>>>>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
->>>>>>>>> long addr, int numpages,
->>>>>>>>>        unsigned long size = PAGE_SIZE * numpages;
->>>>>>>>>        unsigned long end = start + size;
->>>>>>>>>        struct vm_struct *area;
->>>>>>>>> +    int ret;
->>>>>>>>>        int i;
->>>>>>>>>          if (!PAGE_ALIGNED(addr)) {
->>>>>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
->>>>>>>>> long addr, int numpages,
->>>>>>>>>        if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>>>>>>>>                    pgprot_val(clear_mask) == PTE_RDONLY)) {
->>>>>>>>>            for (i = 0; i < area->nr_pages; i++) {
->>>>>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>> +            ret =
->>>>>>>>> __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>>                               PAGE_SIZE, set_mask, clear_mask);
->>>>>>>>> +            if (ret)
->>>>>>>>> +                return ret;
->>>>>>>> Hmm, this means we can return failure half-way through the 
->>>>>>>> operation. Is
->>>>>>>> that something callers are expecting to handle? If so, how can 
->>>>>>>> they tell
->>>>>>>> how far we got?
->>>>>>> IIUC the callers don't have to know whether it is half-way or not
->>>>>>> because the callers will change the permission back (e.g. to RW) 
->>>>>>> for the
->>>>>>> whole range when freeing memory.
->>>>>> Yes, it is the caller's responsibility to set 
->>>>>> VM_FLUSH_RESET_PERMS flag.
->>>>>> Upon vfree(), it will change the direct map permissions back to RW.
->>>>> Ok, but vfree() ends up using update_range_prot() to do that and 
->>>>> if we
->>>>> need to worry about that failing (as per your commit message), then
->>>>> we're in trouble because the calls to set_area_direct_map() are 
->>>>> unchecked.
->>>>>
->>>>> In other words, this patch is either not necessary or it is 
->>>>> incomplete.
->>>>
->>>> Here is the relevant email, in the discussion between Ryan and Yang:
->>>>
->>>> https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com/ 
->>>>
->>>>
->>>> We had concluded that all callers of set_memory_ro() or 
->>>> set_memory_rox() (which require the
->>>> linear map perm change back to default, upon vfree() ) will call it 
->>>> for the entire region (vm_struct).
->>>> So, when we do the set_direct_map_invalid_noflush, it is guaranteed 
->>>> that the region has already
->>>> been split. So this call cannot fail.
->>>>
->>>> https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com/ 
->>>>
->>>>
->>>> This email notes that there is some code doing set_memory_rw() and 
->>>> unnecessarily setting the VM_FLUSH_RESET_PERMS
->>>> flag, but in that case we don't care about the 
->>>> set_direct_map_invalid_noflush call failing because the protections
->>>> are already RW.
->>>>
->>>> Although we had also observed that all of this is fragile and 
->>>> depends on the caller doing the
->>>> correct thing. The real solution should be somehow getting rid of 
->>>> the BBM style invalidation.
->>>> Ryan had proposed some methods in that email thread.
->>>>
->>>> One solution which I had thought of, is that, observe that we are 
->>>> doing an overkill by
->>>> setting the linear map to invalid and then default, for the 
->>>> *entire* region. What we
->>>> can do is iterate over the linear map alias of the vm_struct *area 
->>>> and only change permission
->>>> back to RW for the pages which are *not* RW. And, those relevant 
->>>> mappings are guaranteed to
->>>> be split because they were changed from RW to not RW.
->>>
->>> @Yang and Ryan,
->>>
->>> I saw Yang's patch here:
->>> https://lore.kernel.org/all/20251023204428.477531-1-yang@os.amperecomputing.com/ 
->>>
->>> and realized that currently we are splitting away the linear map 
->>> alias of the *entire* region.
->>>
->>> Shouldn't this then imply that set_direct_map_invalid_noflush will 
->>> never fail, since even
->>>
->>> a set_memory_rox() call on a single page will split the linear map 
->>> for the entire region,
->>>
->>> and thus there is no fragility here which we were discussing about? 
->>> I may be forgetting
->>>
->>> something, this linear map stuff is confusing enough already.
->>
->> It still may fail due to page table allocation failure when doing 
->> split. But it is still fine. We may run into 3 cases:
->>
->> 1. set_memory_rox succeed to split the whole range, then 
->> set_direct_map_invalid_noflush() will succeed too
->> 2. set_memory_rox fails to split, for example, just change partial 
->> range permission due to page table allocation failure, then 
->> set_direct_map_invalid_noflush() may
->>    a. successfully change the permission back to default till where 
->> set_memory_rox fails at since that range has been successfully split. 
->> It is ok since the remaining range is actually not changed to ro by 
->> set_memory_rox at all
->>    b. successfully change the permission back to default for the 
->> whole range (for example, memory pressure is mitigated when 
->> set_direct_map_invalid_noflush() is called). It is definitely fine as 
->> well
->
-> Correct, what I mean to imply here is that, your patch will break 
-> this? If set_memory_* is applied on x till y, your patch changes the 
-> linear map alias
->
-> only from x till y - set_direct_map_invalid_noflush instead operates 
-> on 0 till size - 1, where 0 <=x <=y <= size - 1. So, it may encounter 
-> a -ENOMEM
->
-> on [0, x) range while invalidating, and that is *not* okay because we 
-> must reset back [0, x) to default?
+"driver_managed_dma != true" means the driver will use the default
+domain allocated by the iommu core during iommu probe. The iommu core
+ensures that this domain stored at group->domain will not be changed
+during the driver's whole lifecycle. That's reasonable.
 
-Okay I realize this is wrong, please read the last bit as "and this is 
-okay because [0, x) is default already", and therefore
+How about making some code to enforce this requirement? Something like
+below ...
 
-your patch is correct.
+> + */
+>   struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
+>   {
+>   	/* Caller must be a probed driver on dev */
+> @@ -2225,10 +2234,29 @@ struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
+>   	if (!group)
+>   		return NULL;
+>   
+> +	lockdep_assert_not_held(&group->mutex);
 
+...
+	if (WARN_ON(!dev->driver || !group->owner_cnt || group->owner))
+		return NULL;
 
-Let me send a patch documenting this so we don't get confused in the 
-future, it is easy to forget all of this.
+> +
+>   	return group->domain;
+>   }
+>   EXPORT_SYMBOL_GPL(iommu_get_domain_for_dev);
+>   
+> +/**
+> + * iommu_driver_get_domain_for_dev() - Return the driver-level domain pointer
+> + * @dev - Device to query
+> + *
+> + * This function can be called by an iommu driver that wants to get the physical
+> + * domain within an iommu callback function where group->mutex is held.
+> + */
+> +struct iommu_domain *iommu_driver_get_domain_for_dev(struct device *dev)
+> +{
+> +	struct iommu_group *group = dev->iommu_group;
+> +
+> +	lockdep_assert_held(&group->mutex);
+> +
+> +	return group->domain;
+> +}
+> +EXPORT_SYMBOL_GPL(iommu_driver_get_domain_for_dev);
+> +
+>   /*
+>    * For IOMMU_DOMAIN_DMA implementations which already provide their own
+>    * guarantees that the group and its default domain are valid and correct.
 
+Others look good to me.
 
->
->
->>
->> Hopefully I don't miss anything.
->>
->> Thanks,
->> Yang
->>
->>
->>>
->>>
->>>>
->>>>>
->>>>> Will
->>>>
->>
->
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
