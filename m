@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06074CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 01:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8741ACCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 01:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCc5dWx94uDsgm2vFWLxYZQ8XDvd2PR/3FJli510E/M=; b=eoFQqCPUEeGtZuAIT3wLb+Z1Cj
-	lev+1fvB5A0FCQwbekXKqqJogTgVEy3Ye4nQKzOkQTJVHCA68QEV1iS1Mlt9CiXb5vEJJZFMYCOQ4
-	MobFKAbBz3fUOWNSH8kI6MZCnzadWJq5uKmpfDSlYeBVH4NFufnlrpUDF6dPTOUFx4tdKXoz5oY2s
-	LvKmyLhX0BqxtNt0nAUnveGMObL148D2jTcmSY4SThdnOoCn/YaacRHjzdRYitoTkx8Z8gQZlorPM
-	Qw5dgl+2ah5KiS1In6gJZbHf7Efoy8uWxo15UFXDiCZtG64UanHROQZF9axvbV37XVIqMcEnVRVzL
-	9gIZb4CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=au2n4rrZx8SO4PVuqq8XAKDLJGp5zKXJpUNLmozR0c8=; b=xJEfvp6qttC2dvRcCV0M54MkyW
+	og8kVTQJ226kO2OqpicOPiV97RKXGoqFKFoKhUUURZx2blq7z96fxfKT3kWjFoP7SeeEr2RWN4MyV
+	cOjh2dpri9fyGYxZ4Zm4golQk4BbJfaGZPqJ8lePlozDXUR68AwcwxFMlf6RCm0vLT3N0SF4nwujp
+	dVyQGcYvO71utd0Z9UI9hUCHg+TsMZdiiIg1pyHk8/+kODcEaYR96jGfBSygWWFeAD6thJMbAqNdB
+	xFcEEZ934u5lZNkqKlyzMCMDUJr6NKmhBCvXPq5k4MAcsgAsDiFo8JlzXPDUAILVMlby8vDLqQUET
+	OY/pjPGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ08X-00000007zEC-3Bkd;
-	Wed, 12 Nov 2025 01:59:05 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1vJ09F-00000007zZy-06mN;
+	Wed, 12 Nov 2025 01:59:49 +0000
+Received: from mail-m49217.qiye.163.com ([45.254.49.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ08R-00000007z9q-0zsW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 01:59:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=tCc5dWx94uDsgm2vFWLxYZQ8XDvd2PR/3FJli510E/M=;
-	b=PnwF6rmirMI1fh3F7p/wUuUWStGvuLFd6zVfK8nN4P6HcA+7SBSNB0jxrIrnv+j11ssIUBAYF
-	JCK1Dhonicifdg+BDsxdryvRM/CyJ8E1/v8GIHpyghBKi8g0oODdduDplwZSm5805dwgpH9nYsi
-	qkBEg6cJAba5qna0I83UhFA=
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4d5mk675b4znTXd;
-	Wed, 12 Nov 2025 09:57:18 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9890B1A0188;
-	Wed, 12 Nov 2025 09:58:50 +0800 (CST)
-Received: from kwepemq200001.china.huawei.com (7.202.195.16) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 12 Nov 2025 09:58:50 +0800
-Received: from localhost.huawei.com (10.90.31.46) by
- kwepemq200001.china.huawei.com (7.202.195.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 12 Nov 2025 09:58:49 +0800
-From: Chenghai Huang <huangchenghai2@huawei.com>
-To: <arnd@arndb.de>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<akpm@linux-foundation.org>, <anshuman.khandual@arm.com>,
-	<ryan.roberts@arm.com>, <andriy.shevchenko@linux.intel.com>,
-	<herbert@gondor.apana.org.au>, <linux-kernel@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-crypto@vger.kernel.org>, <linux-api@vger.kernel.org>
-CC: <fanghao11@huawei.com>, <shenyang39@huawei.com>, <liulongfang@huawei.com>,
-	<qianweili@huawei.com>
-Subject: [PATCH RFC 3/4] io-128-nonatomic: introduce io{read|write}128_{lo_hi|hi_lo}
-Date: Wed, 12 Nov 2025 09:58:45 +0800
-Message-ID: <20251112015846.1842207-4-huangchenghai2@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20251112015846.1842207-1-huangchenghai2@huawei.com>
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
+	id 1vJ09B-00000007zXN-0lDi;
+	Wed, 12 Nov 2025 01:59:46 +0000
+Received: from rockchip.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2941ca600;
+	Wed, 12 Nov 2025 09:59:41 +0800 (GMT+08:00)
+From: Elaine Zhang <zhangqing@rock-chips.com>
+To: zhangqing@rock-chips.com,
+	mkl@pengutronix.de,
+	kernel@pengutronix.de,
+	mailhol.vincent@wanadoo.fr,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	cl@rock-chips.com
+Cc: linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [RESEND PATCH v8 0/4] rockchip: add can for RK3576 Soc
+Date: Wed, 12 Nov 2025 09:59:36 +0800
+Message-Id: <20251112015940.3695638-1-zhangqing@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq200001.china.huawei.com (7.202.195.16)
+X-HM-Tid: 0a9a75ca43d503a3kunm5e00f3261f06da
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0xCTlYeQk1MSU5DGU5JTktWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=aLIRsccXD6OHTYMdNKhB6kfs1DxMOUvutw9+ms35cehDXC065xL9yF/088jZrkgBlm4B6eWysIV5bnzspS5kcdZ4KF2qx1a2Tr/HJdvZqfDFJSYAFl/5Tdutm0G62qCfG8j56DFT8K1/yQYUYV9zu1H1oDaiqWsjw/16TpAbbY4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=au2n4rrZx8SO4PVuqq8XAKDLJGp5zKXJpUNLmozR0c8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_175859_792317_F52D6D6B 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20251111_175945_682436_3E10C56D 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,107 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Weili Qian <qianweili@huawei.com>
+rk3576 can is a new controller,new register layout and Bit position
+definition:
+Support CAN protocol.
+Support Dma.
 
-In order to provide non-atomic functions for io{read|write}128.
-We define a number of variants of these functions in the generic
-iomap that will do non-atomic operations.
+There are major differences from the previous rk3568.
+All errata on the rk3568 have been fixed and redesigned.
 
-These functions are only defined if io{read|write}128 are defined.
-If they are not, then the wrappers that always use non-atomic operations
-from include/linux/io-128-nonatomic*.h will be used.
+RK3576 CANFD requires authorization and permission. The software
+code is not open by default and needs to be authorized separately.
 
-Signed-off-by: Weili Qian <qianweili@huawei.com>
-Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
----
- include/linux/io-128-nonatomic-hi-lo.h | 35 ++++++++++++++++++++++++++
- include/linux/io-128-nonatomic-lo-hi.h | 34 +++++++++++++++++++++++++
- 2 files changed, 69 insertions(+)
- create mode 100644 include/linux/io-128-nonatomic-hi-lo.h
- create mode 100644 include/linux/io-128-nonatomic-lo-hi.h
+Change in V8:
+[PATCH v8 1/4]: Drop CANFD, correction format warning.
+[PATCH v8 2/4]: Drop fifo_setup of rkcanfd_devtype_data.
+[PATCH v8 3/4]: Drop CANFD.
+[PATCH v8 4/4]: Drop CANFD.
 
-diff --git a/include/linux/io-128-nonatomic-hi-lo.h b/include/linux/io-128-nonatomic-hi-lo.h
-new file mode 100644
-index 000000000000..b5b083a9e81b
---- /dev/null
-+++ b/include/linux/io-128-nonatomic-hi-lo.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_IO_128_NONATOMIC_HI_LO_H_
-+#define _LINUX_IO_128_NONATOMIC_HI_LO_H_
-+
-+#include <linux/io.h>
-+#include <asm-generic/int-ll64.h>
-+
-+static inline u128 ioread128_hi_lo(const void __iomem *addr)
-+{
-+	u32 low, high;
-+
-+	high = ioread64(addr + sizeof(u64));
-+	low = ioread64(addr);
-+
-+	return low + ((u128)high << 64);
-+}
-+
-+static inline void iowrite128_hi_lo(u128 val, void __iomem *addr)
-+{
-+	iowrite64(val >> 64, addr + sizeof(u64));
-+	iowrite64(val, addr);
-+}
-+
-+#ifndef ioread128
-+#define ioread128_is_nonatomic
-+#define ioread128 ioread128_hi_lo
-+#endif
-+
-+#ifndef iowrite128
-+#define iowrite128_is_nonatomic
-+#define iowrite128 iowrite128_hi_lo
-+#endif
-+
-+#endif	/* _LINUX_IO_128_NONATOMIC_HI_LO_H_ */
-+
-diff --git a/include/linux/io-128-nonatomic-lo-hi.h b/include/linux/io-128-nonatomic-lo-hi.h
-new file mode 100644
-index 000000000000..0448ee5a13de
---- /dev/null
-+++ b/include/linux/io-128-nonatomic-lo-hi.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_IO_128_NONATOMIC_LO_HI_H_
-+#define _LINUX_IO_128_NONATOMIC_LO_HI_H_
-+
-+#include <linux/io.h>
-+#include <asm-generic/int-ll64.h>
-+
-+static inline u128 ioread128_lo_hi(const void __iomem *addr)
-+{
-+	u64 low, high;
-+
-+	low = ioread64(addr);
-+	high = ioread64(addr + sizeof(u64));
-+
-+	return low + ((u128)high << 64);
-+}
-+
-+static inline void iowrite128_lo_hi(u128 val, void __iomem *addr)
-+{
-+	iowrite64(val, addr);
-+	iowrite64(val >> 64, addr + sizeof(u64));
-+}
-+
-+#ifndef ioread128
-+#define ioread128_is_nonatomic
-+#define ioread128 ioread128_lo_hi
-+#endif
-+
-+#ifndef iowrite128
-+#define iowrite128_is_nonatomic
-+#define iowrite128 iowrite128_lo_hi
-+#endif
-+
-+#endif	/* _LINUX_IO_128_NONATOMIC_LO_HI_H_ */
+Change in V7:
+[PATCH v7 1/4]: Correction format warning.
+[PATCH v7 2/4]: No change.
+[PATCH v7 3/4]: Correct the writing of some registers and
+                correct the annotations.
+[PATCH v7 4/4]: Optimize the structure parameters and
+                ensure error handling.
+
+Change in V6:
+[PATCH v6 1/4]: Fix dma is support only for rk3576.
+[PATCH v6 2/4]: Fix the compilation warning.
+[PATCH v6 3/4]: Fix the compilation warning.
+[PATCH v6 4/4]: Fix the compilation warning.
+
+Change in V5:
+[PATCH v5 1/4]: Add rk3576 canfd to rockchip,rk3568v2-canfd.yaml, remove
+                rockchip,rk3576-canfd.yaml
+[PATCH v5 2/4]: Encapsulate some hardware operation functions into
+                rkcanfd_devtype_data to provide differentiated
+                implementations for different models
+                (such as RK3568v2/v3)..
+[PATCH v5 3/4]: Add rk3576 canfd,fix the register naming rule,
+                Delete the variables used by rockchip itself.
+[PATCH v5 4/4]: Fix .h sorting.
+
+
+Change in V4:
+[PATCH v4 1/3]: Correct the format and add explanations.
+[PATCH v4 2/3]: No change.
+[PATCH v4 3/3]: No change.
+
+Change in V3:
+[PATCH v3 1/3]: Add documentation for the rk3576 CAN-FD.
+[PATCH v3 2/3]: Adjust the differentiated code section and
+                add dma function.
+[PATCH v3 3/3]: Remove dma, no use dma by default.
+
+Change in V2:
+[PATCH v2 1/2]: remove rk3576_canfd.c, use the rockchip_canfd driver
+[PATCH v2 2/2]: code style.
+
+Elaine Zhang (4):
+  dt-bindings: can: rockchip_canfd: add rk3576 CAN controller
+  net: can: rockchip: Refactor the rkcanfd_devtype_data structure
+  net: can: rockchip: add can for RK3576 Soc
+  net: can: rockchip: support dma for rk3576 rx
+
+ .../net/can/rockchip,rk3568v2-canfd.yaml      |  52 +-
+ .../net/can/rockchip/rockchip_canfd-core.c    | 581 ++++++++++++++++--
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  | 212 +++++++
+ drivers/net/can/rockchip/rockchip_canfd-tx.c  |  20 +
+ drivers/net/can/rockchip/rockchip_canfd.h     | 277 +++++++++
+ 5 files changed, 1094 insertions(+), 48 deletions(-)
+
 -- 
-2.33.0
+2.34.1
 
 
