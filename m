@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DD0CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1F5CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvXAmuIKh3ZE/hEgZbAoJwjFcHWXesj8ZWKiV8VC5WM=; b=DwmLfVD5jZpTZFvWXhXXAtn8pM
-	YbnNkjLXtaunfSHgP/a9d3xs/fAKu62deOte9La957pm8xPKQPV0dZb1ohFskDJnY/1g2mf35eINC
-	/H1V/O3oYP6uENycdnHRteKgCACn2tdnXfQPqmLXBPll46xXooEdkg9K9shaO7amZhcGYW80ku9Nk
-	ARrFnvTbnLpv+VbCD5gurSezIz1B6yvdMan4qBbNyXsa2gwG35AkNXHTEWvDKTItgtu/MW4Flf/Ow
-	jznPIWFk97LF7wAB5Toq1lMVydam/Bgo5QInhvNsBBMnatOnOYqfW3RtEfj+9s85F3YI8+RkxMhdx
-	EQuAj0uQ==;
+	bh=K9eu56qr3t2Ms4T4UXDPTQheQQ0JA6etRS3h0iSUvNg=; b=duEGMJIwwQbmorvQG1sSfxlWVt
+	Cya+AsuDu4fdnjye93HP9prR5BlZiIDFAHEHhC3FxNakSjGkpZ9RNY1UT68szg3fFzFWgWHSyqNON
+	L2dG8yCy1iHJRKiCk6zHFE++JN4aLUxdUXRnxGk8Mp4Ur1yFPGm/W6mPK9yWJvY47G+Mb/Vqfh2h+
+	UGfv6SsLYpNgi3VQGbmevQc1yM/+cmRcGU/ag+1lCtRYYuhrEJYMTSxm7bVmBzZi5g33Gbanvx2rF
+	cHQSgRvezqjNNdqKeaZMx8bDr21m23lXc8FfLsI+LLyUnRAmCQbv10cKAVaBIVdbmbkH951TvpBRI
+	MyYTI4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6jG-00000008Q4s-2TWb;
-	Wed, 12 Nov 2025 09:01:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJ6l8-00000008QI4-1XCZ;
+	Wed, 12 Nov 2025 09:03:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6jF-00000008Q4a-1odO
+	id 1vJ6l6-00000008QHf-0r6c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:01:25 +0000
+	Wed, 12 Nov 2025 09:03:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9027160211;
-	Wed, 12 Nov 2025 09:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D83C4CEF5;
-	Wed, 12 Nov 2025 09:01:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 863E043BD9;
+	Wed, 12 Nov 2025 09:03:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F38BFC4CEF7;
+	Wed, 12 Nov 2025 09:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762938084;
-	bh=SYKAUEMpWmFnGT4gIQZx0ei3ZRWX61yUgs/quaWsVwA=;
+	s=k20201202; t=1762938199;
+	bh=Z1rlKCk1Nhe5K59waoJFbh/idsdRsU7TIzVadeX5qdU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sA+Do/CId3iKaUPBJqjbGQJVxRtDvozxF6MRb37goRwrmhHPkZmTX+w1BD/vh6u0l
-	 8wdBEwpJ8maGkFgP1webv7QG9uphCf6fVBFn9MENxMYj1t/cqt4GRWeHN3+a5ULjJC
-	 iSXcxJnEdgctJh1kWfG+ys9OTUTISIp5bNIsuL06F1jEzVLHQUD7Z4w13NVFkV9OpD
-	 7n/N3lnk3MbejNOibCgu8Rn4NYo93yQTzn6cJirbPkm4BJ+PbZwifesZK5UIGiU4VI
-	 ozeiNZlsgXXHZp98Zdi4Y050KFXdwBn9+f62tXOzXdVj7tBL7SyHaJRsiUfLngFolT
-	 4UdZR3xTBfI1w==
-Message-ID: <deb416cf-30e1-4080-9e40-cf1808b95d7f@kernel.org>
-Date: Wed, 12 Nov 2025 10:01:19 +0100
+	b=cafYFwJzYP5/1Fu5Hx/SsZUQCu2JEhXDblxOClIhiZu7RiOotzbgpvcPVgvQ7I0GK
+	 JNxaPJAng8kO+nfWF3wuJyGAtgH/lzG0S6/cV6vughryDF4O+8io6cWtmS3okNnOlN
+	 PlocZLGs/NlqqidcLcDxi1bKli8gRSRa3LBY+T0jQnZe67BerUr/W7Rby4xCACPfZ/
+	 zj3WN1leOW4sRk3BxfOrmgVNzCw2T27OPv6xq/9+EdUt317zYr++DmbCNFuBdp8pvs
+	 SajREaQLjT/XW/EpN1IDuQwf+04HIakOplP5Dj45oziIcx5dFsDd12uczSaMZNe3HN
+	 Yu+kUUrhmMorA==
+Message-ID: <6ec14b05-4427-4bf0-9a19-1e22c4ae7176@kernel.org>
+Date: Wed, 12 Nov 2025 10:03:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: keystone: add missing items to
- mboxes
+Subject: Re: [PATCH v2 2/2] dt-bindings: arm: keystone: add boot_* mboxes to
+ ti,sci
 To: Anshul Dalal <anshuld@ti.com>, Nishanth Menon <nm@ti.com>,
  Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -55,7 +55,7 @@ To: Anshul Dalal <anshuld@ti.com>, Nishanth Menon <nm@ti.com>,
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>
 References: <20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com>
- <20251112-k3_syscon_add_boot_mailboxes-v2-1-aebc1e47b391@ti.com>
+ <20251112-k3_syscon_add_boot_mailboxes-v2-2-aebc1e47b391@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,9 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251112-k3_syscon_add_boot_mailboxes-v2-1-aebc1e47b391@ti.com>
+In-Reply-To: <20251112-k3_syscon_add_boot_mailboxes-v2-2-aebc1e47b391@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_010320_285265_B3BF7D42 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +123,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/11/2025 09:30, Anshul Dalal wrote:
-> The mailboxes for the ti,sci node were not documented, this patch adds
-> the description for the two channel entries as per TI-SCI spec[1].
-> 
-> [1]:
-> https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/am65x/sec_proxy.html
-> 
-> Signed-off-by: Anshul Dalal <anshuld@ti.com>
-> ---
->  Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> index 25a2b42105e541cb3c8ad12a0dfec1af038fa907..182915c34fc1429fb627ac44c99c0c76fdf28e0f 100644
-> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> @@ -60,6 +60,12 @@ properties:
->  
->    mboxes:
->      minItems: 2
+>    ti,host-id:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+> @@ -128,3 +137,14 @@ examples:
+>          #reset-cells = <2>;
+>        };
+>      };
+> +
+> +  - |
+> +    sms: system-controller@44083000 {
+> +      compatible = "ti,am654-sci";
 
-That's wrong now.
+I asked to update the example. THE example, existing example, not adding
+new example or examples.
 
-> +    description: |
-> +      List of phandles to mailbox channels used for receiving and transmitting
-
-Drop, completely redundant. I don't understand why you added it.
-
-> +      data from and to the TI-SCI Controller.
+You claim in this patch that EVERY device has 6 mailboxes, so I do not
+understand why you need new example.
 
 Best regards,
 Krzysztof
