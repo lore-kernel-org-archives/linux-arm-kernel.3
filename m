@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803A1CD3440
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 19:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B9DCD3443
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 19:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gn5+v+YRqPOYKMI70V7Ug9OJMW8jYzYaM1zPOOBe5vE=; b=TLgCg6QhBkc9BCs7fty1wTgewQ
-	KE75RuRlbK5b52ncb08QeZgSHEKqGyC14PEZx7VhHsWm+R5UpPx64KHI5t+OTBbFWCRN3ZA0Uu26V
-	Is1jzKz9aEzUlaG3sHsVa3SEmt4UuXHKq8FRAV40rokth8UGGAzEJIepOwvIoqbDDSpryqdRuIUXO
-	GpxDKRYZr03hWW0sV1o+zprQ4EJ0qebh3TtpftalG9C2/rb4zsiMc+22w/WJAfpwhHtkHyPYMHJfQ
-	PBi81L5n3zYlRQWuG0okC86/UkbQnYqqa0ft8Sh70MQnvgN8n3x2SnW5pnneRvhc48viO9vyonHgy
-	UeplPgWg==;
+	bh=P6/tMmYTq6DtnatvcoDchlsCVFmwM4BWTs/6gz+uuGI=; b=uX0ZPpJWsg/Fx3B/sqDal5bRPR
+	gjzeCgVTvhFUXou5MayjseTSzfzW+bMCuuBj70ixGA9LXdtwGRcIstQ4DakJWQjWcjKeRf0w7bsqN
+	FyAefj/aLG/6qjogWSp0uMlD1nRCMYy7HV8mCt+jFjL9vVnf+qZdQUBM3CrTjdWyOYcSBkIaaBewb
+	Ml5OQhz9LdseU0EIjrtC3l82e+goibaie44dvkQSghNjpLzobzPSFr783aGnnDRFogTgxVw+s3/v2
+	jh3RwmIxMHqvvGBpcWzIQJALNHb6Fds+ZzT+C5uh2Nen6OJlTIosvdJDSdeSeL1TlgHB/X62NLyeH
+	/Fh8yZMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJG8v-00000009Ony-1pgR;
-	Wed, 12 Nov 2025 19:04:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJGCE-00000009P1P-2wRR;
+	Wed, 12 Nov 2025 19:07:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJG8u-00000009Ono-1Jrx;
-	Wed, 12 Nov 2025 19:04:32 +0000
+	id 1vJGCC-00000009P0z-2GCk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 19:07:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67FE3601A5;
-	Wed, 12 Nov 2025 19:04:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BDD9C4CEF5;
-	Wed, 12 Nov 2025 19:04:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B193D4444F;
+	Wed, 12 Nov 2025 19:07:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 580F6C4CEF8;
+	Wed, 12 Nov 2025 19:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762974271;
-	bh=OsZBDvzHWBseg3Knx1k9apRw+CVUYMUDRIxIjk6M13w=;
+	s=k20201202; t=1762974475;
+	bh=4X5km6tMQI+rmQ+2RA+kgRbD/MaASgUWl21z9NvFxCc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EN1ilMGgWW8T6uXzRy1PpJ6wHDNYjkIgRF8C2S09QM6Pp9dTc64ppdgUJytGHFD9f
-	 c18leiGKUMZKJ6nA+8vHY5Ux8zQ45jfQRox2kXQo9HqKLBBfqVLTYI26r3GR6a4sFV
-	 rYtq0SqLkeF9ihQdQJycAlh16u09SIbV7B9cRgo4HINTUnsnUNzm2oe2ftrT+mJ3TH
-	 xaia2aPceqtEnq/hZryp5jnqH+9Gcr4IWlACvomiq48jDKc1xGXkkqHvv/PAgJI5kR
-	 Ys4Hk0KGfofvnbp9rP5+1Qqq+UfsNw8M4ABS7k6okOZPJduSN3NEyJp1qmnpPj0qr5
-	 cn7FxoPbcD0og==
-Date: Wed, 12 Nov 2025 19:04:26 +0000
+	b=WEVCNybnc6t6289XVBYkcWqOoxpXqCnrLBLYLoiHlIbKyjkbGJommYxYZ4GvUKdzk
+	 RvCaaYP4cH5e7LLxqfEh/U5J3NbcNb9zsGx7irU6L2ggZu686KokOvrxociihCrdz5
+	 dJwld8Pz0SSqtx5kTdGzsQdfnbx8hipENl9Wi6lNZNvCXnCb9b5gngZtmYSqEKO6wj
+	 5nkefY3+3deZoLjCDjmW1duP1O9r17D6AOg4pER2uFLTODAnUbspPTpahmODQvVy32
+	 cdL9DSF+KFzEqfM/EGASoFTjqu4im0ljDP7j6qlpVZV6ov6xCd8GSzIZLOvBJkNhd/
+	 +2SZ5Fb6iN0MQ==
+Date: Wed, 12 Nov 2025 19:07:51 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: mkl@pengutronix.de, kernel@pengutronix.de, mailhol.vincent@wanadoo.fr,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, cl@rock-chips.com, linux-can@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [RESEND PATCH v8 1/4] dt-bindings: can: rockchip_canfd: add
- rk3576 CAN controller
-Message-ID: <20251112-surely-enroll-02a3a3646084@spud>
-References: <20251112015940.3695638-1-zhangqing@rock-chips.com>
- <20251112015940.3695638-2-zhangqing@rock-chips.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, michal.simek@amd.com,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	git@amd.com
+Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset
+ constraint for the versal platform
+Message-ID: <20251112-bagging-diameter-4ebab1f9ed45@spud>
+References: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EQbl/SQeCGRxcKF0"
+	protocol="application/pgp-signature"; boundary="92AFPMtx3g8andt7"
 Content-Disposition: inline
-In-Reply-To: <20251112015940.3695638-2-zhangqing@rock-chips.com>
+In-Reply-To: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_110756_620560_2BEB9D2B 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +77,105 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---EQbl/SQeCGRxcKF0
+--92AFPMtx3g8andt7
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 12, 2025 at 09:59:37AM +0800, Elaine Zhang wrote:
-> Add documentation for the rockchip rk3576 CAN controller.
+On Wed, Nov 12, 2025 at 09:24:30PM +0530, Radhey Shyam Pandey wrote:
+> AMD Versal platform USB 2.0 IP controller receives one reset input from
+> the SoC controlled by the CRL.RST_USB [RESET] register so accordingly
+> describe reset constraints.
 >=20
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 > ---
->  .../bindings/net/can/rockchip,rk3568v2-canfd.yaml  | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
+>  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 43 +++++++++++++++----
+>  1 file changed, 34 insertions(+), 9 deletions(-)
 >=20
-> diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-=
-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-ca=
-nfd.yaml
-> index a077c0330013..22e10494e7d1 100644
-> --- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.y=
-aml
-> +++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.y=
-aml
-> @@ -10,13 +10,12 @@ title:
->  maintainers:
->    - Marc Kleine-Budde <mkl@pengutronix.de>
+> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Doc=
+umentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> index 36f5c644d959..cd0cc9da242f 100644
+> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> @@ -50,17 +50,22 @@ properties:
+>      description:
+>        A list of phandles for resets listed in reset-names.
 > =20
-> -allOf:
-> -  - $ref: can-controller.yaml#
+> -    items:
+> -      - description: USB core reset
+> -      - description: USB hibernation reset
+> -      - description: USB APB reset
+> +    oneOf:
+> +      - items:
+> +          - description: USB controller reset
+> +      - items:
+> +          - description: USB core reset
+> +          - description: USB hibernation reset
+> +          - description: USB APB reset
+> =20
+>    reset-names:
+> -    items:
+> -      - const: usb_crst
+> -      - const: usb_hibrst
+> -      - const: usb_apbrst
+> -
+> +    oneOf:
+> +      - items:
+> +          - const: usb_crst
 
-Since in the other mail it was stated that this was removed in error
-pw-bot: changes-requested
+Why do we need all this oneOf stuff if both have the same first reset?
+Can't you just set minItems: 1?
 
---EQbl/SQeCGRxcKF0
+> +      - items:
+> +          - const: usb_crst
+> +          - const: usb_hibrst
+> +          - const: usb_apbrst
+>    phys:
+>      minItems: 1
+>      maxItems: 2
+> @@ -95,6 +100,26 @@ required:
+>    - resets
+>    - reset-names
+> =20
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - xlnx,versal-dwc3
+> +    then:
+> +      properties:
+> +        resets:
+> +          maxItems: 1
+> +        reset-names:
+> +          maxItems: 1
+> +    else:
+> +      properties:
+> +        resets:
+> +          minItems: 3
+> +        reset-names:
+> +          minItems: 3
+> +
+>  additionalProperties: false
+> =20
+>  examples:
+>=20
+> base-commit: b179ce312bafcb8c68dc718e015aee79b7939ff0
+> --=20
+> 2.34.1
+>=20
+
+--92AFPMtx3g8andt7
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRTaOgAKCRB4tDGHoIJi
-0qoVAP4ySdGjjDkARJ7pR6fmuWavLo9sUrf8lfFCP/JEOD1eUgEApqQ3+nwlh4ab
-e8WwfeqUajB1sRAcrjGqY5QGC287OQY=
-=K1Vm
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRTbBwAKCRB4tDGHoIJi
+0jX7AQCAHa54UizRxsLeHp9VJzAq+vFdLs6YxvkaigFx6sowxAEA+An2kZel0I/A
+Ftl+wdLtzBFFGVzZh6cSv2qGpvIuVAU=
+=Er4U
 -----END PGP SIGNATURE-----
 
---EQbl/SQeCGRxcKF0--
+--92AFPMtx3g8andt7--
 
