@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E905BCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AF7CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQZnGNvWN78XQLeZqhMeiBYmu7A63pDZVjJ+28yfldE=; b=rjV0yZCaSZ9jAEBLRUYQDPIjoB
-	aAcczAxgBakzLZl3PuQjSYWRH0Sedmus1ZQT0QgL4DgjrbKY0XzKWLIps759Rp3LPcxxfqzNoiKwt
-	ebz5k/WaJtw3hYXa7Ru5FXGOT4B1rSbMhQ2QoUi7+PigoJwX81gyANzR8TPlmTLsFNhlpmFQ0hQHz
-	BvL5NlfQvFxgaqf0TAYrfdO7sMUYfR3mcfs6onqraGsK6Ab/ZZjvYW6CiOTbswGClAG/dBVlNXlwZ
-	8nBOgxAUtaCkPXTBY0fo8qlTHE1+mF2MMyTJlvSdalZHGPwhJbgNGC40IQSMIk9f0eVHAqp3C+24l
-	uXND9k2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ovXYBvf9BeaM5Jrvkdgwh1YmZinox/U6c6KG8zcWhac=; b=pUH5FRCpp7oSmLItCi/BD4uqtX
+	eRWbmnJKxbbINUGqnGq5zpAWkCDPI41S2NkVOxbYttFWV8IDC5f2X7kjaF47BKSf7QgNdTREklgrE
+	md3M1wduZd8KyZqWoc1xAoIcY01SyS3KGis1ZSmC7L0dBBPoofN1/RxHakWpkodIMU0myaIRDmga2
+	T9GFQRfDpEGneMKn3+LQNl54apREOusfKmYBvjxM5sTkdsQZwnuPp1ANbNlOON+GQjG1H4l4WxPcP
+	TpGN35fmIyQ3AjCC+eT8D3yxi7s24tt1CA6PHxdakicCbbnfK79EYIInTQxXZHpPBg+jxGdBD7PqF
+	kzQ+OMkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJACd-00000008nFA-3lOf;
-	Wed, 12 Nov 2025 12:43:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJADg-00000008nOg-2gQ0;
+	Wed, 12 Nov 2025 12:45:04 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJACc-00000008nEp-2lLI
+	id 1vJADd-00000008nNP-3ODO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 12:43:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 989D46021B;
-	Wed, 12 Nov 2025 12:43:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B5BC4CEF5;
-	Wed, 12 Nov 2025 12:43:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762951437;
-	bh=ANqlcL/lxDVL3cKzBO7YnssgrqZZpZVjE42b8mFuB0g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LUk0566xFHhr4vWog7/q9K565lO4dgAtycAOW/TPTuxa4vfk7esk/hfDvvMnjNLrG
-	 gzN41cH1oicqcMZFv7VoJrXBGlyjzcUUfELbqaosAAvcE5BIg6zQf6y3zNKVxYBpeg
-	 g+xyw21Ts0EywcFMRD+iE7v0qUfHhE9nPb4k4xyOnjBvUeuT65iVgNBAP/AW+cxvoU
-	 WlSDZhdziKymIrWxJjSRXJZMDaYLmstmFrOy7GBnnU2ggUFUta0ahJ16zzyn7gbUDq
-	 uVmU0QKT9RgADeXY+Q/593T9sCj2aALNW0byALOBauNSqctTEqSfQonsMi2tmRefm/
-	 Wb8/3ViXZLxZQ==
-Date: Wed, 12 Nov 2025 06:43:55 -0600
-From: Rob Herring <robh@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v15 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-Message-ID: <20251112124355.GA1269790-robh@kernel.org>
-References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
- <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
+	Wed, 12 Nov 2025 12:45:03 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-59431f57bf6so713872e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 04:45:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762951500; x=1763556300; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ovXYBvf9BeaM5Jrvkdgwh1YmZinox/U6c6KG8zcWhac=;
+        b=FjDPJxrXsZBqRrA1vUvg3vTIsB0jCe9d9Km2hCY5VDGw5IOWl8SA8PJDOla8VzOFHG
+         s7KbD+lDNn8nFu2MO4hMC4qvoIckOsCu87lUvBLyvFJYM8OcS95wBk+SakvPi6Sr68VL
+         49tonjMadCIHfnDpU28DEDpjVrILK/II9CQIekvgW8Gq4d+QvuhFfhR083y191VRLB+k
+         LRNzN7wKKePV4cp3E85rU4UATiJBwZfpEyFBzRnF5WPMlb3zWFt2yaUV2suPkMJoLkUd
+         ENYLxEiyrrXDULopJDCfHl0i1kGdIYeEJ/ydRiE4+0hOdbhSEWNWYIQR6j9ftYiHVKvK
+         kauA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762951500; x=1763556300;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ovXYBvf9BeaM5Jrvkdgwh1YmZinox/U6c6KG8zcWhac=;
+        b=DUAhF62IaskaoNeEpfoHLlHeU3PANGaSOzakulTGv2Q1wgSyzCjltChgaiGeLaJF4Q
+         m8qDE9QqusP3rH0dJEZSas/48bhPBBBzco8dmlw6PYZ5m3pl/ZRKj0irvEn6w69nLVKV
+         gbhRYiUknKys8ro1klHlh0N053TnBf9bhVKh3sJLMGpnfv4CUNJV4gt9sMush6OOMtg4
+         q2ssL9IxF0u9bFh9hj7Nz3q6MXcwxwta+vmj3KGe2SFYe/KSsWoY8Q5YUdEyw8g4FB57
+         G/YMrAmP3RmvpRUVzfp++8MHybDnU+LLh456ZXDwUJPX6lthCngYJAWqXiH14U3KbjOE
+         zQag==
+X-Forwarded-Encrypted: i=1; AJvYcCX+MIrUzgl8WC1XdUUslHOJWQRzfzKLhfuG9mbihTQbQTpp7T1LRTqiT0B/Qq2GcgaEORAGth9k60pCtvX5hy1j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdV+AO38clpbv9Mgzc0k5opzJXyU3OxbnTKhUMVN0GJTJv4W83
+	4N58IKoGxHoqfMRx+l/2HguE74RqSiXbbyrdud6te9XRDKwCN0zA24rqL597YEcYnHvF5SlHrGW
+	D1R9uLSDItM1TA8z6zZRZ9MFKQd3hwfcmCFyOThUVGy6VksKuX+BS
+X-Gm-Gg: ASbGncvNyfbZTlHfhBYMu5bdXc7xQLdpMJ/oVmiTPiur/9MFUIFBQeJHokYGq/fPqun
+	pg/gNihu5zI19K5vhVtXbcJXmROxwFEzliQqheFlz7VCdVB0iluam02IMv7p+/gDHj6Etcu/M1U
+	6ZmLtcqauQgmmdibauPf4Kz4vUFl8wqrwyvLXjcsehy6M6Vo1g7cGOD8s4TNGFth0e57qbp6HkG
+	ZPPLmg19n9bbhydAHxid2DYeXeC/1KhoXQ6oC66Hnhp+GoFqwe6bkPpzi8a9Vpyzg9z7fI=
+X-Google-Smtp-Source: AGHT+IHQakyME6xEnHQQsmuUyerv0hf25mEyF8+JOVxqljHOGLgY+yIGdrozQm01lfyzvPwPJ0stQCUI+cbhPCgYAws=
+X-Received: by 2002:a05:6512:12c9:b0:587:7f2d:2580 with SMTP id
+ 2adb3069b0e04-59576e19ba8mr982952e87.32.1762951499660; Wed, 12 Nov 2025
+ 04:44:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
+References: <20251111062944.3820079-1-nichen@iscas.ac.cn>
+In-Reply-To: <20251111062944.3820079-1-nichen@iscas.ac.cn>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 12 Nov 2025 13:44:48 +0100
+X-Gm-Features: AWmQ_bkCSMuaz30HpFGccbxR73HuAGmsgiOeKgCmrcMpEXvyI_fFR265lSkc_Yg
+Message-ID: <CACRpkdbdXBKq5x1weqB339M6y0HBq_NyBTkJ_7BQMaveTHF7ig@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: airoha: convert comma to semicolon
+To: Chen Ni <nichen@iscas.ac.cn>
+Cc: lorenzo@kernel.org, sean.wang@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_044501_859584_8A637AD8 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,165 +98,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 10:47:26AM +0100, Maxime Chevallier wrote:
-> The ability to describe the physical ports of Ethernet devices is useful
-> to describe multi-port devices, as well as to remove any ambiguity with
-> regard to the nature of the port.
-> 
-> Moreover, describing ports allows for a better description of features
-> that are tied to connectors, such as PoE through the PSE-PD devices.
-> 
-> Introduce a binding to allow describing the ports, for now with 2
-> attributes :
-> 
->  - The number of lanes, which is a quite generic property that allows
->    differentating between multiple similar technologies such as BaseT1
->    and "regular" BaseT (which usually means BaseT4).
-> 
->  - The media that can be used on that port, such as BaseT for Twisted
->    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
->    ethernet, etc. This allows defining the nature of the port, and
->    therefore avoids the need for vendor-specific properties such as
->    "micrel,fiber-mode" or "ti,fiber-mode".
-> 
-> The port description lives in its own file, as it is intended in the
-> future to allow describing the ports for phy-less devices.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  .../bindings/net/ethernet-connector.yaml      | 53 +++++++++++++++++++
->  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
->  MAINTAINERS                                   |  1 +
->  3 files changed, 72 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> new file mode 100644
-> index 000000000000..2b67907582c7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> @@ -0,0 +1,53 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic Ethernet Connector
-> +
-> +maintainers:
-> +  - Maxime Chevallier <maxime.chevallier@bootlin.com>
-> +
-> +description:
-> +  An Ethernet Connector represents the output of a network component such as
-> +  a PHY, an Ethernet controller with no PHY, or an SFP module.
-> +
-> +properties:
-> +
-> +  pairs:
-> +    description:
-> +      Defines the number of BaseT pairs that are used on the connector.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
+On Tue, Nov 11, 2025 at 7:40=E2=80=AFAM Chen Ni <nichen@iscas.ac.cn> wrote:
 
-Constraints? Wouldn't 4 pairs be the max?
+> Replace comma between expressions with semicolons.
+>
+> Using a ',' in place of a ';' can have unintended side effects.
+> Although that is not the case here, it is seems best to use ';'
+> unless ',' is intended.
+>
+> Found by inspection.
+> No functional change intended.
+> Compile tested only.
+>
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 
-Is it possible you need to know which pairs are wired?
+Patch applied.
 
-> +
-> +  media:
-
-Both of these names are a bit generic though I don't have a better 
-suggestion.
-
-> +    description:
-> +      The mediums, as defined in 802.3, that can be used on the port.
-> +    enum:
-> +      - BaseT
-> +      - BaseK
-> +      - BaseS
-> +      - BaseC
-> +      - BaseL
-> +      - BaseD
-> +      - BaseE
-> +      - BaseF
-> +      - BaseV
-> +      - BaseMLD
-> +
-> +required:
-> +  - media
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        media:
-> +          contains:
-> +            const: BaseT
-> +    then:
-> +      required:
-> +        - pairs
-
-else:
-  properties:
-    pairs: false
-
-??
-
-> +
-> +additionalProperties: true
-> +
-> +...
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> index 2ec2d9fda7e3..f434768d6bae 100644
-> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> @@ -277,6 +277,17 @@ properties:
->  
->      additionalProperties: false
->  
-> +  mdi:
-> +    type: object
-> +
-> +    patternProperties:
-> +      '^connector-[a-f0-9]+$':
-
-Unit addresses are hex, index suffixes are decimal: connector-[0-9]+
-
-
-> +        $ref: /schemas/net/ethernet-connector.yaml#
-> +
-> +        unevaluatedProperties: false
-> +
-> +    additionalProperties: false
-> +
->  required:
->    - reg
->  
-> @@ -313,5 +324,12 @@ examples:
->                      default-state = "keep";
->                  };
->              };
-> +            /* Fast Ethernet port, with only 2 pairs wired */
-> +            mdi {
-> +                connector-0 {
-> +                    pairs = <2>;
-> +                    media = "BaseT";
-> +                };
-> +            };
->          };
->      };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 1ab7e8746299..19ba82b98616 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -9276,6 +9276,7 @@ R:	Russell King <linux@armlinux.org.uk>
->  L:	netdev@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/ABI/testing/sysfs-class-net-phydev
-> +F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
->  F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
->  F:	Documentation/devicetree/bindings/net/mdio*
->  F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-> -- 
-> 2.49.0
-> 
+Yours,
+Linus Walleij
 
