@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FE7CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA28CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xpbx5W0PcqfzSNqmRpp+5MuSuvq/F9AotGUbrmHEXu4=; b=PwZPhIrtxaWtjkowCyPfbFXklp
-	L2N3lgFoXhCSUM7EbIhVB2JFV3EIyWPrv3m6CrqqdT7ijTpkkuGaWbNiVl5yiEzT7V5KPFq6b4nwF
-	l5bFQcVqoiXAvEZB1K8JXI4/c6UjSqs8VfFhhLuDb1O2c21HfawMmwt6LqjEQF5UBZIEecz2rl3QF
-	AWYNrqxIasSckCBZEML9ovsJfuYI/e1phd2lhjBBlgpYLiB7i/JvEgTiY9SrZZIIkUezaRJONg9/C
-	wg2YWsCqh7mtSUrfSkVHUYTQS8kkhvOJGNr+z5FiuYgQTc9Dv813URMj2CKBXmIO/LjIZduzMWcme
-	QIyFOqkg==;
+	bh=TolPlLSwtwTY5yhPfwqI+nCPG48wHrF+6bWyO7HsCp8=; b=BUETM2KP70FXs6aJPfFhMbfger
+	1mWhPP8+WuAnekYnYGqlW/g0OJAhYDacjnxKby0n7sfaFBZPgmmgmQlvOzgI3vl9HJS7fwvH455dJ
+	jdJlFxMoWaPblsnDLtHJq7ufIbd6fLhqnf95O0JLHbH03IBSGARAXCfubT5vIpU2LXtPGcoZxS1xk
+	RIyvqN7jTHdto6KotqMwes67tLBH/TDkjIUDxd+PMgnZEfpwHpKJj6qFnvdTWYgb4BuIx/reRZNZJ
+	C9ZdoaApTDf74HzLjokqMoOC6bmqNYTe3oc6k4qAGoJ4v1WGr6989uTcsWtN7obkXCamC5glHaJCb
+	n07QoSkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7ri-00000008XeR-3zIF;
-	Wed, 12 Nov 2025 10:14:14 +0000
+	id 1vJ7tf-00000008Xmy-1wx6;
+	Wed, 12 Nov 2025 10:16:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7rg-00000008Xe7-0Yum
+	id 1vJ7tb-00000008XmX-36rH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:14:13 +0000
+	Wed, 12 Nov 2025 10:16:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10E9C1515;
-	Wed, 12 Nov 2025 02:14:03 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C5DC3F5A1;
-	Wed, 12 Nov 2025 02:14:05 -0800 (PST)
-Message-ID: <ba2d4852-dd38-4d98-96fe-2716875ff199@arm.com>
-Date: Wed, 12 Nov 2025 10:14:04 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5403F1515;
+	Wed, 12 Nov 2025 02:16:01 -0800 (PST)
+Received: from [10.1.34.178] (XHFQ2J9959.cambridge.arm.com [10.1.34.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 220DF3F5A1;
+	Wed, 12 Nov 2025 02:16:07 -0800 (PST)
+Message-ID: <3af5d651-5363-47f7-b828-702d9a0c881c@arm.com>
+Date: Wed, 12 Nov 2025 10:16:06 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/33] ACPI / PPTT: Add a helper to fill a cpumask from a
- processor container
-To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-2-ben.horgan@arm.com>
- <11f80800-2e0b-4f41-a022-a88ad9792da8@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <11f80800-2e0b-4f41-a022-a88ad9792da8@redhat.com>
+Subject: Re: [v2 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251023215210.501168-1-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20251023215210.501168-1-yang@os.amperecomputing.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_021412_249466_0755ED90 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20251112_021611_879690_14A38870 
+X-CRM114-Status: GOOD (  39.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,224 +64,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+Hi Yang,
 
-On 11/8/25 04:31, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 11/7/25 10:34 PM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> The ACPI MPAM table uses the UID of a processor container specified in
->> the PPTT to indicate the subset of CPUs and cache topology that can
->> access each MPAM System Component (MSC).
->>
->> This information is not directly useful to the kernel. The equivalent
->> cpumask is needed instead.
->>
->> Add a helper to find the processor container by its id, then walk
->> the possible CPUs to fill a cpumask with the CPUs that have this
->> processor container as a parent.
->>
->> CC: Dave Martin <dave.martin@arm.com>
->> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v3:
->> Refer to processor hierarchy in comments (Jonathan)
->> Fix indent (Jonathan)
->> ---
->>   drivers/acpi/pptt.c  | 85 ++++++++++++++++++++++++++++++++++++++++++++
->>   include/linux/acpi.h |  3 ++
->>   2 files changed, 88 insertions(+)
->>
-> 
-> Two nitpicks below...
-> 
->> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
->> index 54676e3d82dd..69917cc6bd2f 100644
->> --- a/drivers/acpi/pptt.c
->> +++ b/drivers/acpi/pptt.c
->> @@ -817,3 +817,88 @@ int find_acpi_cpu_topology_hetero_id(unsigned int
->> cpu)
->>       return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
->>                         ACPI_PPTT_ACPI_IDENTICAL);
->>   }
->> +
->> +/**
->> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
->> + * processor hierarchy node
->> + *
->> + * @table_hdr:        A reference to the PPTT table
->> + * @parent_node:    A pointer to the processor hierarchy node in the
->> + *            table_hdr
->> + * @cpus:        A cpumask to fill with the CPUs below @parent_node
->> + *
->> + * Walks up the PPTT from every possible CPU to find if the provided
->> + * @parent_node is a parent of this CPU.
->> + */
->> +static void acpi_pptt_get_child_cpus(struct acpi_table_header
->> *table_hdr,
->> +                     struct acpi_pptt_processor *parent_node,
->> +                     cpumask_t *cpus)
->> +{
->> +    struct acpi_pptt_processor *cpu_node;
->> +    u32 acpi_id;
->> +    int cpu;
->> +
->> +    cpumask_clear(cpus);
->> +
->> +    for_each_possible_cpu(cpu) {
->> +        acpi_id = get_acpi_id_for_cpu(cpu);
->> +        cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
->> +
->> +        while (cpu_node) {
->> +            if (cpu_node == parent_node) {
->> +                cpumask_set_cpu(cpu, cpus);
->> +                break;
->> +            }
->> +            cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
->> +        }
->> +    }
->> +}
->> +
->> +/**
->> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all
->> CPUs in a
->> + *                                       processor container
->> + * @acpi_cpu_id:    The UID of the processor container
->> + * @cpus:        The resulting CPU mask
->> + *
->> + * Find the specified Processor Container, and fill @cpus with all
->> the cpus
->> + * below it.
->> + *
->> + * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
->> + * or a Processor Container, they may exist purely to describe a
->> + * Private resource. CPUs have to be leaves, so a Processor Container
->> + * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
->> + */
->> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
->> +{
->> +    struct acpi_table_header *table_hdr;
->> +    struct acpi_subtable_header *entry;
->> +    unsigned long table_end;
->> +    u32 proc_sz;
->> +
->> +    cpumask_clear(cpus);
->> +
->> +    table_hdr = acpi_get_pptt();
->> +    if (!table_hdr)
->> +        return;
->> +
->> +    table_end = (unsigned long)table_hdr + table_hdr->length;
->> +    entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
->> +                 sizeof(struct acpi_table_pptt));
->> +    proc_sz = sizeof(struct acpi_pptt_processor);
->> +    while ((unsigned long)entry + proc_sz <= table_end) {
->> +
-> 
-> Unnecessary blank line here.
 
-Ack
+On 23/10/2025 22:52, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), the direct mapping may be split on some machines instead
+> keeping static since boot. It makes more sense to show the direct mapping
+> use in /proc/meminfo than before.
+> This patch will make /proc/meminfo show the direct mapping use like the
+> below (4K base page size):
+> DirectMap4K:	   94792 kB
+> DirectMap64K:	  134208 kB
+> DirectMap2M:	 1173504 kB
+> DirectMap32M:	 5636096 kB
+> DirectMap1G:	529530880 kB
+
+I have a long-term aspiration to enable "per-process page size", where each user
+space process can use a different page size. The first step is to be able to
+emulate a page size to the process which is larger than the kernel's. For that
+reason, I really dislike introducing new ABI that exposes the geometry of the
+kernel page tables to user space. I'd really like to be clear on what use case
+benefits from this sort of information before we add it.
+
+nit: arm64 tends to use the term "linear map" not "direct map". I'm not sure why
+or what the history is. Given this is arch-specific should we be aligning on the
+architecture's terminology here? I don't know...
 
 > 
->> +        if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
->> +            struct acpi_pptt_processor *cpu_node;
->> +
->> +            cpu_node = (struct acpi_pptt_processor *)entry;
->> +            if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
->> +                !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
->> +                cpu_node->acpi_processor_id == acpi_cpu_id) {
->> +                acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
->> +                break;
->> +            }
->> +        }
->> +        entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
->> +                     entry->length);
+> Although just the machines which support BBML2_NOABORT can split the
+> direct mapping, show it on all machines regardless of BBML2_NOABORT so
+> that the users have consistent view in order to avoid confusion.
 > 
-> Need we to check if @cpu_node does crosses the boundary (@table_end), as
-> what's
-> doing in acpi_find_processor_node()? Actually, the similar hunk of code
-> from
-> the function can be reused here.
+> Although ptdump also can tell the direct map use, but it needs to dump
+> the whole kernel page table. It is costly and overkilling. It is also
+> in debugfs which may not be enabled by all distros. So showing direct
+> map use in /proc/meminfo seems more convenient and has less overhead.
+> 
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/mm/mmu.c | 86 +++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 86 insertions(+)
+> 
+> v2: * Counted in size instead of the number of entries per Ryan
+>     * Removed shift array per Ryan
+>     * Use lower case "k" per Ryan
+>     * Fixed a couple of build warnings reported by kernel test robot
+>     * Fixed a couple of poential miscounts 
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b8d37eb037fc..7207b55d0046 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/mm_inline.h>
+>  #include <linux/pagewalk.h>
+>  #include <linux/stop_machine.h>
+> +#include <linux/proc_fs.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -51,6 +52,17 @@
+>  
+>  DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
+>  
+> +enum direct_map_type {
+> +	PTE,
+> +	CONT_PTE,
+> +	PMD,
+> +	CONT_PMD,
+> +	PUD,
+> +	NR_DIRECT_MAP_TYPE,
+> +};
+> +
+> +static unsigned long direct_map_size[NR_DIRECT_MAP_TYPE];
 
-As acpi_find_processor_node() is called from acpi_pptt_get_child_cpus()
-I don't think we need to duplicate the checking here.
+I wonder if you should wrap all the adds and subtracts into a helper function,
+which can then be defined as a nop when !CONFIG_PROC_FS. It means we only need
+direct_map_size[] when PROC_FS is enabled too.
 
-> 
-> static struct acpi_pptt_processor *acpi_find_processor_node(struct
-> acpi_table_header *table_hdr,
->                                                             u32
-> acpi_cpu_id)
-> {
->         :
->     while ((unsigned long)entry + proc_sz <= table_end) {
->                 cpu_node = (struct acpi_pptt_processor *)entry;
-> 
->                 if (entry->length == 0) {
->                         pr_warn("Invalid zero length subtable\n");
->                         break;
->                 }
-> 
->                 /* entry->length may not equal proc_sz, revalidate the
-> processor structure length */
->                 if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
->                     acpi_cpu_id == cpu_node->acpi_processor_id &&
->                     (unsigned long)entry + entry->length <= table_end &&
->                     entry->length == proc_sz + cpu_node-
->>number_of_priv_resources * sizeof(u32) &&
->                      acpi_pptt_leaf_node(table_hdr, cpu_node)) {
->                         return (struct acpi_pptt_processor *)entry;
->                 }
-> 
->                 entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
->                                      entry->length);
->     }
-> 
->         :
-> }
-> 
-> 
->> +    }
->> +}
->> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
->> index 5ff5d99f6ead..4752ebd48132 100644
->> --- a/include/linux/acpi.h
->> +++ b/include/linux/acpi.h
->> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int
->> level);
->>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
->>   int find_acpi_cpu_topology_package(unsigned int cpu);
->>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
->> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t
->> *cpus);
->>   #else
->>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
->>   {
->> @@ -1562,6 +1563,8 @@ static inline int
->> find_acpi_cpu_topology_hetero_id(unsigned int cpu)
->>   {
->>       return -EINVAL;
->>   }
->> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
->> +                             cpumask_t *cpus) { }
->>   #endif
->>     void acpi_arch_init(void);
-> 
-> Thanks,
-> Gavin
-> 
+e.g.
+
+#ifdef CONFIG_PROC_FS
+static unsigned long direct_map_size[NR_DIRECT_MAP_TYPE];
+
+static inline void direct_map_meminfo_add(unsigned long size,
+					  enum direct_map_type type)
+{
+	direct_map_size[type] += size;
+}
+
+static inline void direct_map_meminfo_sub(unsigned long size,
+					  enum direct_map_type type)
+{
+	direct_map_size[type] -= size;
+}
+#else
+static inline void direct_map_meminfo_add(unsigned long size,
+					  enum direct_map_type type) {}
+static inline void direct_map_meminfo_sub(unsigned long size,
+					  enum direct_map_type type) {}
+#endif
+
+Then use it like this:
+direct_map_meminfo_sub(next - addr, PMD);
+direct_map_meminfo_add(next - addr, to_cont ? CONT_PTE : PTE);
+
+> +
+>  u64 kimage_voffset __ro_after_init;
+>  EXPORT_SYMBOL(kimage_voffset);
+>  
+> @@ -171,6 +183,45 @@ static void init_clear_pgtable(void *table)
+>  	dsb(ishst);
+>  }
+>  
+> +#ifdef CONFIG_PROC_FS
+> +void arch_report_meminfo(struct seq_file *m)
+> +{
+> +	char *size[NR_DIRECT_MAP_TYPE];
+> +
+> +#if defined(CONFIG_ARM64_4K_PAGES)
+> +	size[PTE] = "4k";
+> +	size[CONT_PTE] = "64k";
+> +	size[PMD] = "2M";
+> +	size[CONT_PMD] = "32M";
+> +	size[PUD] = "1G";
+> +#elif defined(CONFIG_ARM64_16K_PAGES)
+> +	size[PTE] = "16k";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "32M";
+> +	size[CONT_PMD] = "1G";
+> +#elif defined(CONFIG_ARM64_64K_PAGES)
+> +	size[PTE] = "64k";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "512M";
+> +	size[CONT_PMD] = "16G";
+> +#endif
+> +
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PTE], direct_map_size[PTE] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PTE],
+> +			direct_map_size[CONT_PTE] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PMD], direct_map_size[PMD] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PMD],
+> +			direct_map_size[CONT_PMD] >> 10);
+> +	if (pud_sect_supported())
+> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PUD], direct_map_size[PUD] >> 10);
+> +}
+> +#endif
+> +
+>  static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>  		     phys_addr_t phys, pgprot_t prot)
+>  {
+> @@ -234,6 +285,11 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  
+>  		init_pte(ptep, addr, next, phys, __prot);
+>  
+> +		if (pgprot_val(__prot) & PTE_CONT)
+> +			direct_map_size[CONT_PTE] += next - addr;
+> +		else
+> +			direct_map_size[PTE] += next - addr;
+> +
+>  		ptep += pte_index(next) - pte_index(addr);
+>  		phys += next - addr;
+>  	} while (addr = next, addr != end);
+> @@ -262,6 +318,17 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>  			pmd_set_huge(pmdp, phys, prot);
+>  
+> +			/*
+> +			 * It is possible to have mappings allow cont mapping
+> +			 * but disallow block mapping. For example,
+> +			 * map_entry_trampoline().
+> +			 * So we have to increase CONT_PMD and PMD size here
+> +			 * to avoid double counting.
+> +			 */
+> +			if (pgprot_val(prot) & PTE_CONT)
+> +				direct_map_size[CONT_PMD] += next - addr;
+> +			else
+> +				direct_map_size[PMD] += next - addr;
+>  			/*
+>  			 * After the PMD entry has been populated once, we
+>  			 * only allow updates to the permission attributes.
+> @@ -368,6 +435,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>  			pud_set_huge(pudp, phys, prot);
+>  
+> +			direct_map_size[PUD] += next - addr;
+
+I think this (and all the lower levels) are likely over-accounting. For example,
+__kpti_install_ng_mappings() and map_entry_trampoline() reuse the infra to
+create separate pgtables. Then you have fixmap, which uses
+create_mapping_noalloc(), efi which uses create_pgd_mapping() and
+update_mapping_prot() used to change permissions for various parts of the kernel
+image. They all reuse the infra too.
+
+>  			/*
+>  			 * After the PUD entry has been populated once, we
+>  			 * only allow updates to the permission attributes.
+> @@ -532,9 +600,13 @@ static void split_contpte(pte_t *ptep)
+>  {
+>  	int i;
+>  
+> +	direct_map_size[CONT_PTE] -= CONT_PTE_SIZE;
+> +
+>  	ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+>  	for (i = 0; i < CONT_PTES; i++, ptep++)
+>  		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
+> +
+> +	direct_map_size[PTE] += CONT_PTE_SIZE;
+
+Similar issue: we aspire to reuse this split_* infra for regions other than the
+linear map - e.g. vmalloc. So I don't like the idea of baking in an assumption
+that any split is definitely targetting the linear map.
+
+I guess if you pass the start and end VA to the add/subtract function, it could
+fitler based on whether the region is within the linear map region?
+
+Overall, I'm personally not a huge fan of adding this capability. I'd need to
+understand the use case to change my mind. But I'm not the maintainer so perhaps
+my opinion isn't all that important ;-)
 
 Thanks,
+Ryan
 
-Ben
+>  }
+>  
+>  static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+> @@ -559,8 +631,13 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+>  	if (to_cont)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> +	direct_map_size[PMD] -= PMD_SIZE;
+>  	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
+>  		__set_pte(ptep, pfn_pte(pfn, prot));
+> +	if (to_cont)
+> +		direct_map_size[CONT_PTE] += PMD_SIZE;
+> +	else
+> +		direct_map_size[PTE] += PMD_SIZE;
+>  
+>  	/*
+>  	 * Ensure the pte entries are visible to the table walker by the time
+> @@ -576,9 +653,13 @@ static void split_contpmd(pmd_t *pmdp)
+>  {
+>  	int i;
+>  
+> +	direct_map_size[CONT_PMD] -= CONT_PMD_SIZE;
+> +
+>  	pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
+>  	for (i = 0; i < CONT_PMDS; i++, pmdp++)
+>  		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
+> +
+> +	direct_map_size[PMD] += CONT_PMD_SIZE;
+>  }
+>  
+>  static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+> @@ -604,8 +685,13 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+>  	if (to_cont)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> +	direct_map_size[PUD] -= PUD_SIZE;
+>  	for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
+>  		set_pmd(pmdp, pfn_pmd(pfn, prot));
+> +	if (to_cont)
+> +		direct_map_size[CONT_PMD] += PUD_SIZE;
+> +	else
+> +		direct_map_size[PMD] += PUD_SIZE;
+>  
+>  	/*
+>  	 * Ensure the pmd entries are visible to the table walker by the time
 
 
