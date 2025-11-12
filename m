@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD55CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3E5CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 04:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLg9o6/SunTJG2EuTOi5zovap5s/Rfseu4R4O3ay1D0=; b=SDQLHJSQQ4Ca2IAUdrhOaVgnZz
-	cGhpPdpojmWAqqK+h0CbzwWD38UZMRyfSPiPBzVqQNTM3Vx9dO9gvK9xX4Oz/Ch9pp8qonh6KHlfE
-	sNh3X599JqbU1sdQOafU69hkrqezovyBtsWpMua3VXcnsS31TEyY5CaAW9q1j/B/Q8YrJh7y76vgI
-	nwWMxkz7bTysxGCc7DqTer/Negf+YITf6QyndG2lpQFoE0fbD+RFWVKu+6cnohw8w9g5OrQsZCWlu
-	mMzl3vfOxDrwvw+otijOcy+G57V8C+yV8foi+m6eEzfVdi1alXqOeUARNno1uEDoNpoy7rDBgssUA
-	fYIRFsew==;
+	bh=k7wfzbMX9zppyyEMbKM6+79VccQHudzEP6zJVdKYqxo=; b=x9RZ23jLd7g3Ji2S8nryLBDKqS
+	vcdbktynhDe9XkhhlllYlQDhqdn45RIHfsX2y75LrBJxksO/HMXa35+OLndMf6p5uID4n3WL65p9s
+	LzHE41TfM43lHu8RA33sBbNum+U3oFUfwVufjrhJBWCllXAuKPdXlJQKDVsRmlGG7KELTXXVkq4pr
+	YqzG7ylBqaqOilIqzvUJiDbB24sAASyF3RH+RHytB0DWeXqjaS2qqtfcH2zhqn5mnakUPpsOa/QLc
+	U/Wob++B6USmiAkl9y69Z54CpXl32fJRT+eJ7Bu5ZU8u8N0f7PfLMEbthUDVg0aRmwKRYMBiTFwaz
+	HC7k1S+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ1sh-0000000854w-39AN;
-	Wed, 12 Nov 2025 03:50:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ1se-0000000854W-2k4d
+	id 1vJ2hC-000000087zW-1sy3;
+	Wed, 12 Nov 2025 04:43:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ2h8-000000087z0-3g1w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 03:50:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24ECB1515;
-	Tue, 11 Nov 2025 19:50:39 -0800 (PST)
-Received: from [10.164.136.35] (unknown [10.164.136.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 080A23F66E;
-	Tue, 11 Nov 2025 19:50:43 -0800 (PST)
-Message-ID: <4ad29a03-2166-4963-ba4f-6b0350c255c5@arm.com>
-Date: Wed, 12 Nov 2025 09:20:41 +0530
+	Wed, 12 Nov 2025 04:43:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762922575;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k7wfzbMX9zppyyEMbKM6+79VccQHudzEP6zJVdKYqxo=;
+	b=EW1iaQngIYJooD0QDpp0cnMmTxJA90GdZAj874faE+XdvymNHt77WlQlTsU12EZvqwHRyg
+	zRjugD9m8z1a4hLedKtYHEeCUxyKrDMBWBKA1C/sAJpOTmVlH9BHvIVAA9zBcMMgc9aOfi
+	hD0G9umf5ZpZGCKzcFfH+KMk3SV37g4=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-453-szULz0khMiy_j8U_Wp5yjw-1; Tue,
+ 11 Nov 2025 23:42:50 -0500
+X-MC-Unique: szULz0khMiy_j8U_Wp5yjw-1
+X-Mimecast-MFC-AGG-ID: szULz0khMiy_j8U_Wp5yjw_1762922569
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 773831956089;
+	Wed, 12 Nov 2025 04:42:47 +0000 (UTC)
+Received: from cmirabil.redhat.com (unknown [10.22.65.154])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D57271955F1A;
+	Wed, 12 Nov 2025 04:42:43 +0000 (UTC)
+From: Charles Mirabile <cmirabil@redhat.com>
+To: fj1078ii@fujitsu.com
+Cc: catalin.marinas@arm.com,
+	fj2767dz@fujitsu.com,
+	guohanjun@huawei.com,
+	ilkka@os.amperecomputing.com,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	rafael@kernel.org,
+	sudeep.holla@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
+Date: Tue, 11 Nov 2025 23:42:37 -0500
+Message-ID: <20251112044239.4049011-1-cmirabil@redhat.com>
+In-Reply-To: <OSAPR01MB7669F9B9E145A50B38819E13D5CEA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
+References: <OSAPR01MB7669F9B9E145A50B38819E13D5CEA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20251103061306.82034-1-dev.jain@arm.com>
- <aQjHQt2rYL6av4qw@willie-the-truck>
- <f594696b-ba33-4c04-9cf5-e88767221ae0@os.amperecomputing.com>
- <f8b899cf-d377-4dc7-a57c-82826ea5e1ea@arm.com>
- <aQn4EwKar66UZ7rz@willie-the-truck>
- <586b8d19-a5d2-4248-869b-98f39b792acb@arm.com>
- <17eed751-e1c5-4ea5-af1d-e96da16d5e26@arm.com>
- <c1701ce9-c8b7-4ac8-8dd4-930af3dad7d2@os.amperecomputing.com>
- <938fc839-b27a-484f-a49c-6dc05b3e9983@arm.com>
- <94c91f8f-cd8f-4f51-961f-eb2904420ee4@os.amperecomputing.com>
- <47f0fe70-5359-4b98-8a23-c09ab20bd6d9@arm.com>
- <ca628d43-502a-42f1-be57-bcb37103ddf8@os.amperecomputing.com>
- <19def538-3fb6-48a1-ae8b-a82139b8bbb9@arm.com>
- <5d04c2e3-7662-4402-86d0-9dba3a93fce7@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <5d04c2e3-7662-4402-86d0-9dba3a93fce7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_195048_803974_C954C01E 
-X-CRM114-Status: GOOD (  39.57  )
+X-CRM114-CacheID: sfid-20251111_204258_995110_6D049194 
+X-CRM114-Status: GOOD (  34.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,228 +93,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All—
 
-On 11/11/25 11:22 pm, Ryan Roberts wrote:
-> On 11/11/2025 05:12, Dev Jain wrote:
->> On 11/11/25 10:38 am, Yang Shi wrote:
->>>
->>> On 11/10/25 8:55 PM, Dev Jain wrote:
->>>> On 11/11/25 10:14 am, Yang Shi wrote:
->>>>>
->>>>> On 11/10/25 8:37 PM, Dev Jain wrote:
->>>>>> On 11/11/25 9:47 am, Yang Shi wrote:
->>>>>>>
->>>>>>> On 11/10/25 7:39 PM, Dev Jain wrote:
->>>>>>>> On 05/11/25 9:27 am, Dev Jain wrote:
->>>>>>>>> On 04/11/25 6:26 pm, Will Deacon wrote:
->>>>>>>>>> On Tue, Nov 04, 2025 at 09:06:12AM +0530, Dev Jain wrote:
->>>>>>>>>>> On 04/11/25 12:15 am, Yang Shi wrote:
->>>>>>>>>>>> On 11/3/25 7:16 AM, Will Deacon wrote:
->>>>>>>>>>>>> On Mon, Nov 03, 2025 at 11:43:06AM +0530, Dev Jain wrote:
->>>>>>>>>>>>>> Post a166563e7ec3 ("arm64: mm: support large block mapping when
->>>>>>>>>>>>>> rodata=full"),
->>>>>>>>>>>>>> __change_memory_common has a real chance of failing due to split
->>>>>>>>>>>>>> failure.
->>>>>>>>>>>>>> Before that commit, this line was introduced in c55191e96caa,
->>>>>>>>>>>>>> still having
->>>>>>>>>>>>>> a chance of failing if it needs to allocate pagetable memory in
->>>>>>>>>>>>>> apply_to_page_range, although that has never been observed to be true.
->>>>>>>>>>>>>> In general, we should always propagate the return value to the caller.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>> Cc: stable@vger.kernel.org
->>>>>>>>>>>>>> Fixes: c55191e96caa ("arm64: mm: apply r/o permissions of VM
->>>>>>>>>>>>>> areas to its linear alias as well")
->>>>>>>>>>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>>>>>>>>>>>> ---
->>>>>>>>>>>>>> Based on Linux 6.18-rc4.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     arch/arm64/mm/pageattr.c | 5 ++++-
->>>>>>>>>>>>>>     1 file changed, 4 insertions(+), 1 deletion(-)
->>>>>>>>>>>>>>
->>>>>>>>>>>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->>>>>>>>>>>>>> index 5135f2d66958..b4ea86cd3a71 100644
->>>>>>>>>>>>>> --- a/arch/arm64/mm/pageattr.c
->>>>>>>>>>>>>> +++ b/arch/arm64/mm/pageattr.c
->>>>>>>>>>>>>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned
->>>>>>>>>>>>>> long addr, int numpages,
->>>>>>>>>>>>>>         unsigned long size = PAGE_SIZE * numpages;
->>>>>>>>>>>>>>         unsigned long end = start + size;
->>>>>>>>>>>>>>         struct vm_struct *area;
->>>>>>>>>>>>>> +    int ret;
->>>>>>>>>>>>>>         int i;
->>>>>>>>>>>>>>           if (!PAGE_ALIGNED(addr)) {
->>>>>>>>>>>>>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned
->>>>>>>>>>>>>> long addr, int numpages,
->>>>>>>>>>>>>>         if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>>>>>>>>>>>>>                     pgprot_val(clear_mask) == PTE_RDONLY)) {
->>>>>>>>>>>>>>             for (i = 0; i < area->nr_pages; i++) {
->>>>>>>>>>>>>> - __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>>>>>>> +            ret =
->>>>>>>>>>>>>> __change_memory_common((u64)page_address(area->pages[i]),
->>>>>>>>>>>>>>                                PAGE_SIZE, set_mask, clear_mask);
->>>>>>>>>>>>>> +            if (ret)
->>>>>>>>>>>>>> +                return ret;
->>>>>>>>>>>>> Hmm, this means we can return failure half-way through the
->>>>>>>>>>>>> operation. Is
->>>>>>>>>>>>> that something callers are expecting to handle? If so, how can they
->>>>>>>>>>>>> tell
->>>>>>>>>>>>> how far we got?
->>>>>>>>>>>> IIUC the callers don't have to know whether it is half-way or not
->>>>>>>>>>>> because the callers will change the permission back (e.g. to RW) for the
->>>>>>>>>>>> whole range when freeing memory.
->>>>>>>>>>> Yes, it is the caller's responsibility to set VM_FLUSH_RESET_PERMS flag.
->>>>>>>>>>> Upon vfree(), it will change the direct map permissions back to RW.
->>>>>>>>>> Ok, but vfree() ends up using update_range_prot() to do that and if we
->>>>>>>>>> need to worry about that failing (as per your commit message), then
->>>>>>>>>> we're in trouble because the calls to set_area_direct_map() are unchecked.
->>>>>>>>>>
->>>>>>>>>> In other words, this patch is either not necessary or it is incomplete.
->>>>>>>>> Here is the relevant email, in the discussion between Ryan and Yang:
->>>>>>>>>
->>>>>>>>> https://lore.kernel.org/all/fe52a1d8-5211-4962-afc8-
->>>>>>>>> c3f9caf64119@os.amperecomputing.com/
->>>>>>>>>
->>>>>>>>> We had concluded that all callers of set_memory_ro() or set_memory_rox()
->>>>>>>>> (which require the
->>>>>>>>> linear map perm change back to default, upon vfree() ) will call it for
->>>>>>>>> the entire region (vm_struct).
->>>>>>>>> So, when we do the set_direct_map_invalid_noflush, it is guaranteed that
->>>>>>>>> the region has already
->>>>>>>>> been split. So this call cannot fail.
->>>>>>>>>
->>>>>>>>> https://lore.kernel.org/all/f8898c87-8f49-4ef2-86ae-
->>>>>>>>> b60bcf67658c@os.amperecomputing.com/
->>>>>>>>>
->>>>>>>>> This email notes that there is some code doing set_memory_rw() and
->>>>>>>>> unnecessarily setting the VM_FLUSH_RESET_PERMS
->>>>>>>>> flag, but in that case we don't care about the
->>>>>>>>> set_direct_map_invalid_noflush call failing because the protections
->>>>>>>>> are already RW.
->>>>>>>>>
->>>>>>>>> Although we had also observed that all of this is fragile and depends on
->>>>>>>>> the caller doing the
->>>>>>>>> correct thing. The real solution should be somehow getting rid of the
->>>>>>>>> BBM style invalidation.
->>>>>>>>> Ryan had proposed some methods in that email thread.
->>>>>>>>>
->>>>>>>>> One solution which I had thought of, is that, observe that we are doing
->>>>>>>>> an overkill by
->>>>>>>>> setting the linear map to invalid and then default, for the *entire*
->>>>>>>>> region. What we
->>>>>>>>> can do is iterate over the linear map alias of the vm_struct *area and
->>>>>>>>> only change permission
->>>>>>>>> back to RW for the pages which are *not* RW. And, those relevant
->>>>>>>>> mappings are guaranteed to
->>>>>>>>> be split because they were changed from RW to not RW.
->>>>>>>> @Yang and Ryan,
->>>>>>>>
->>>>>>>> I saw Yang's patch here:
->>>>>>>> https://lore.kernel.org/all/20251023204428.477531-1-
->>>>>>>> yang@os.amperecomputing.com/
->>>>>>>> and realized that currently we are splitting away the linear map alias of
->>>>>>>> the *entire* region.
->>>>>>>>
->>>>>>>> Shouldn't this then imply that set_direct_map_invalid_noflush will never
->>>>>>>> fail, since even
->>>>>>>>
->>>>>>>> a set_memory_rox() call on a single page will split the linear map for
->>>>>>>> the entire region,
->>>>>>>>
->>>>>>>> and thus there is no fragility here which we were discussing about? I may
->>>>>>>> be forgetting
->>>>>>>>
->>>>>>>> something, this linear map stuff is confusing enough already.
->>>>>>> It still may fail due to page table allocation failure when doing split.
->>>>>>> But it is still fine. We may run into 3 cases:
->>>>>>>
->>>>>>> 1. set_memory_rox succeed to split the whole range, then
->>>>>>> set_direct_map_invalid_noflush() will succeed too
->>>>>>> 2. set_memory_rox fails to split, for example, just change partial range
->>>>>>> permission due to page table allocation failure, then
->>>>>>> set_direct_map_invalid_noflush() may
->>>>>>>     a. successfully change the permission back to default till where
->>>>>>> set_memory_rox fails at since that range has been successfully split. It
->>>>>>> is ok since the remaining range is actually not changed to ro by
->>>>>>> set_memory_rox at all
->>>>>>>     b. successfully change the permission back to default for the whole
->>>>>>> range (for example, memory pressure is mitigated when
->>>>>>> set_direct_map_invalid_noflush() is called). It is definitely fine as well
->>>>>> Correct, what I mean to imply here is that, your patch will break this? If
->>>>>> set_memory_* is applied on x till y, your patch changes the linear map alias
->>>>>>
->>>>>> only from x till y - set_direct_map_invalid_noflush instead operates on 0
->>>>>> till size - 1, where 0 <=x <=y <= size - 1. So, it may encounter a -ENOMEM
->>>>>>
->>>>>> on [0, x) range while invalidating, and that is *not* okay because we must
->>>>>> reset back [0, x) to default?
->>>>> I see your point now. But I think the callers need to guarantee they call
->>>>> set_memory_rox and set_direct_map_invalid_noflush on the same range, right?
->>>>> Currently kernel just calls them on the whole area.
->>>> Nope. The fact that the kernel changes protections, and undoes the changed
->>>> protections, on the *entire* alias of the vm_struct region, protects us from
->>>> the fragility we were talking about earlier.
->>> This is what I meant "kernel just calls them on the whole area".
->>>
->>>> Suppose you have a range from 0 till size - 1, and you call set_memory_* on a
->>>> random point (page) p. The argument we discussed above is independent of p,
->>>> which lets us drop our
->>>>
->>>> previous erroneous conclusion that all of this works because no caller does a
->>>> partial set_memory_*.
->>> Sorry I don't follow you. What "erroneous conclusion" do you mean? You can
->>> call set_memory_* on a random point, but set_direct_map_invalid_noflush()
->>> should be called on the random point too. The current code of
->>> set_area_direct_map() doesn't consider this case because there is no such
->>> call. Is this what you meant?
->>
->> I was referring to the discussion in the linear map work - I think we had
->> concluded that we don't need to worry about the BBM style invalidation failing,
->> *because* no one does a partial set_memory_*.
->>
->> What I am saying - we don't care whether caller does a partial or a full
->> set_memory_*, we are still safe, because the linear map alias change on both
->> sides (set_memory_* -> __change_memory_common, and vm_reset_perms ->
->> set_area_direct_map() )
->>
->> operate on the entire region.
-> I'm thoughoughly confused again. I thought we had concluded this was all safe
-> when discussing in the context of the "block mapping the linear map" series. But
-> now I'm a bit unclear on whether we have a bug. I think I'm hearing that we
-> don't need this patch and Dev will submit an alternative which just adds some
-> comments to explain why this is safe?
+On Mon, Nov 10, 2025 at 07:38:17AM +0000, Kazuhiro Abe (Fujitsu) wrote:
+> Hi Will,
+> 
+> > Hi Will,
+> > 
+> > > [You don't often get email from will@kernel.org. Learn why this is
+> > > important at https://aka.ms/LearnAboutSenderIdentification ]
+> > >
+> > > On Mon, Oct 20, 2025 at 09:23:05PM +0800, Hanjun Guo wrote:
+> > > > On 2025/10/17 15:39, Kazuhiro Abe wrote:
+> > > > > AGDI has two types of signaling modes: SDEI and interrupt.
+> > > > > Currently, the AGDI driver only supports SDEI.
+> > > > > Therefore, add support for interrupt signaling mode The interrupt
+> > > > > vector is retrieved from the AGDI table, and call panic function
+> > > > > when an interrupt occurs.
+> > > > >
+> > > > > Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> > > > > Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+> > > > > ---
+> > > > > Hanjun, I have addressed all your comments.
+> > > > > Please review them.
+> > > > >
+> > > > > v3->v4
+> > > > >   - Add a comment to the flags member.
+> > > > >   - Fix agdi_interrupt_probe.
+> > > > >   - Fix agdi_interrupt_remove.
+> > > > >   - Add space in struct initializsation.
+> > > > >   - Delete curly braces.
+> > > >
+> > > > Looks good to me,
+> > > >
+> > > > Acked-by: Hanjun Guo <guohanjun@huawei.com>
+> > >
+> > > I wasn't cc'd on the original patch but I couldn't figure out why it
+> > > uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
+> > > it does is enable it.
+> > 
+> > I misunderstood the usage of request_irq and enable_irq.
+> > Since there's no need to separate them, I will remove IRQF_NO_AUTOEN and the
+> > enable_irq call, and send v5.
+> 
+> I found out when calling request_nmi, removing IRQF_NO_AUTOEN results in an error (-EINVAL).
+> Therefore, I would like to keep IRQF_NO_AUTOEN specified.
+> If you have any comments on this version, please let me know.
 
-We need this patch because currently we will suppress a linear map alias change -ENOMEM,
-and the caller will see that set_memory_* succeeded. So basically now we have done
-set_memory_* without having the corresponding security measure succeed.
+Could it be that this is just a bug in `request_nmi`? I see the following:
 
-The comment refers to the linear map series - we should document why we don't care about
--ENOMEM failure of set_direct_map_invalid_noflush().
+if (!desc || (irq_settings_can_autoenable(desc) &&
+    !(irqflags & IRQF_NO_AUTOEN)) ||
+    !irq_settings_can_request(desc) ||
+    WARN_ON(irq_settings_is_per_cpu_devid(desc)) ||
+    !irq_supports_nmi(desc))
+	return -EINVAL;
 
->
-> Thanks,
-> Ryan
->
->
->>
->>>>
->>>> I would like to send a patch clearly documenting this behaviour, assuming no
->>>> one else finds a hole in this reasoning.
->>> Proper comment to explain the subtle behavior is definitely welcome.
->>>
->>> Thanks,
->>> Yang
->>>
->>>>
->>>>> Thanks,
->>>>> Yang
->>>>>
->>>>>>
->>>>>>> Hopefully I don't miss anything.
->>>>>>>
->>>>>>> Thanks,
->>>>>>> Yang
->>>>>>>
->>>>>>>
->>>>>>>>
->>>>>>>>>> Will
+Perhaps there is just a missing `!` before `irq_settings_can_autoenable`.
+
+As far as I can tell it has always been wrong - git blame points me to the
+original commit where that code was introduced:
+
+b525903c254da ("genirq: Provide basic NMI management for interrupt lines")
+
+I looked and the only two callers are using `IRQF_NO_AUTOEN` so I guess it
+just hasn't been noticed yet.
+
+Happy to send a patch to fix it.
+
+> 
+> Best Regards,
+> Kazuhiro Abe
+> 
+> > 
+> > Best Regards,
+> > Kazuhiro Abe
+> > 
+> > >
+> > > Will
+
+Best—Charlie
+
 
