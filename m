@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8248ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD6CCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFAKkFyXyl3xzCijB0MqhcWNwMFSjCzGgD6ecJ/NvoM=; b=RbcbV+DqZyoSRmeDxqSZtjgstH
-	eMdOzzpXVG4n7b0/RD+SxNOX21zSL7REYeCCK5vAlkQLrRKVG15QI3R8n3cP9Cs0ayDJLrFG0me7b
-	pk976m0BP6Yy+XUIdwa4Kc6+TFnKtRe862YWXC/QoP6aNL7j5rkqRSH+CD+HJwUNKX1Erp38rLm0i
-	FN4RNA4rUoIbUAOX96bwxamfc97HW0SCzF+NWlQkeMdFeiSgSsKQWCs1RvZYz1bdlXAsJ1yx/yDkP
-	PIoXEDPio8po78r2NZifAL2W6gtF3gwrlwc0yBlsEkfIiqzVt9hnIN9JSEg+ysYGINntfyxl4CH++
-	CgNSdHdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fra4QsSYjDMwyZi3lLxbiw6DVPjIesBWQaWVxigd5Uw=; b=RvV49+lxikHhTWQTp2/JY0tSIq
+	s1/CZiA+Nrso+w1Ghzz9fSH2icv8QhJEQFI7k8+XcO8L/SFxj1vemQ1c0ObuwsDiSfhOhiNU2oxcr
+	AxdpXWYW5eKdWWiNfI2FUe3ZFOJrNbDQZUCkqqJVhw3ev/fmFztPJ+kiWb0rQ4TBdDcfiWp6Vumfl
+	qzyB+31fdNc34GjE9IeC5G9g0L/bKtYWYSKHWc7dcEj48nStr5X7h/dk2hm9QFKAhKVa7Oepk198P
+	mapbpMSKthv2WbCR6NFvuS4GXdXZ0f/9WTYFTY+WLyW7BsaTtil3dx4BgBZe/gQsfKOmgKeTAbAzs
+	y/mmPQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8sN-00000008fmn-3QMn;
-	Wed, 12 Nov 2025 11:18:59 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8sM-00000008fkr-0Uv9
+	id 1vJ8sr-00000008g42-0oqt;
+	Wed, 12 Nov 2025 11:19:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ8so-00000008g25-1EqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:18:59 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-bc17d39ccd2so125504a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:18:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762946337; x=1763551137; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cFAKkFyXyl3xzCijB0MqhcWNwMFSjCzGgD6ecJ/NvoM=;
-        b=F1eIp6YgZ/zFoHYiDTQ3l9I9r9VeLtxWrPcrz4V1ajHnDtOYJovelZYRdAeX7BeAVl
-         0i55+y6ZR8j7LX7YKBUipnwV1Nhj+iESiC4SmqnzDFNT9At+wFyrfDBWj6S9PSgf1WRa
-         l4KMl6oHSXn4Y39c4cncIMpOm0boLV9pjxVprHux/mGLWQteIPeJnF7P5D8wyja5EKkz
-         rj2lWfSmP35pQrqFdHLDTcABDE2qWkXu+EMdbI4HB8qnbCkwaYw8qWgxKze9wgIwx8pU
-         NukaZCza1jICCwvgAVnqzH1h7CNxLeyo1YA6RpA2kwc8HdYnxAihYS4iD+jPQYbDK8mP
-         5Iag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762946337; x=1763551137;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cFAKkFyXyl3xzCijB0MqhcWNwMFSjCzGgD6ecJ/NvoM=;
-        b=e0rk+x8HsVkjaOXOwZGeqRmPV41dQdK3Yw9ezqs9zFidyvIZGMl5sGJQli/pLaVvMc
-         ovs1Om9BDvMbq5y44562qHAdws1I0S6N+ESlUi5jBUx4ADpStO7mxBbboBmkR5ygeG2E
-         WiXlMVVRakYiiPM/PmaRi+XwgaPBTSkt8inQZJgunNmT5nOvoE41ffXDf3Cfh13vJ4MF
-         KrDpY8FYJUnvzjfh4JhmR2KjauHOd4jAfVuRyhDWBie49vs6nE/FSYjaAio/v6TFgyqd
-         WUSDcPzCbvXDNyKH8BF1+kRWBT6hzfTnqIRhovulTTzGj/Ai+dV4S2TxPMp77fksmnj4
-         afZw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGrV+Ag1WMu9XY+RiYA3O6j3pJPDtBFJFmjf/M7lLAfc448O+ItzTrYQncDqpRzWy88gf1nxs4CTKn77GDTLJq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi/eo4i2kuYD7P2FCEDfOxl5RaMOw01/fUfip4j8RI5xsSRfGZ
-	1+HfD7IUMrI14EoYQ3wzoQh2U4cxo5VoLRyhGG1jw+lhAAG45YygJJqg
-X-Gm-Gg: ASbGncvwaihoyioSasmLTMzC+OmVULrCpNPwnRpv5DkfocetSYCPM6Ld9A/nW0SipZk
-	y6JrqKLGnJkl7qdnUD+P3xTv36gTzDUG88hdZPSKqAygZ97nXV2t7trlJfi8ckZHhMAXn3gbP87
-	yiRkxxC5NMFaWtL58EzAVZEsNLAm7icXTqiL5VIkmQA6OX5F4jOhe9dIMEVQnd5f2b4PCu0m/iS
-	qhOSCzvR5tQ3oo677+jfsJypEZwuH2F3XgEAEiAO/5bxECM8XVOh/tzh9UYn9zcTwZMFeLBtLJV
-	lCr1ZxGXwIPD8aD/oq+iUWC2jm0AOTdRokUNwl1cQBHG6jAJ6YKKZPlYIdJVqAniFNUHZu0jXjk
-	VKf9wP9EGPLqS4Iq1qr7OnfaIfeyoSWERULL1WfWEtev3oFx3XHMWNTl58qibMK9sEvPw8a5Nu6
-	a3xYw68UQbzBNv9iE1Ft8+QQtkpp4M2Ges8EExR7yyDJqz46qZDOZqWvgDvmEZNil7iirvI/0IJ
-	kr0NeANV1eZUDtLX6arBE+6+ozgZAqtvmQIg8MV4yxHKVCSBTba1TE=
-X-Google-Smtp-Source: AGHT+IGt0RRVbVR/yZsLZrSMrAd0R3g3Iv447XVFWHi+oqmuFnDXiY3rJ/p45tT2A4ZH4cWSR5tTMA==
-X-Received: by 2002:a17:903:2406:b0:298:4f73:d872 with SMTP id d9443c01a7336-2984f73d8d1mr34941415ad.21.1762946337209;
-        Wed, 12 Nov 2025 03:18:57 -0800 (PST)
-Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dca0f28sm27386695ad.60.2025.11.12.03.18.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 03:18:56 -0800 (PST)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Wed, 12 Nov 2025 21:16:57 +1000
-Subject: [PATCH v5 11/11] arm64: dts: apple: t8103, t8112, t60xx: Add hwmon
- SMC subdevice
+	Wed, 12 Nov 2025 11:19:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D112D1515;
+	Wed, 12 Nov 2025 03:19:17 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 233943F66E;
+	Wed, 12 Nov 2025 03:19:25 -0800 (PST)
+Date: Wed, 12 Nov 2025 11:19:23 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 11/11] coresight: etm4x: Reuse normal enable and
+ disable logic in CPU idle
+Message-ID: <20251112111923.GG281971@e132581.arm.com>
+References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
+ <20251111-arm_coresight_power_management_fix-v6-11-f55553b6c8b3@arm.com>
+ <CAJ9a7VjpmWdethzwpKuo8mvGxU69HjZieGh+6iqTN6aSEow5gA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-macsmc-subdevs-v5-11-728e4b91fe81@gmail.com>
-References: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
-In-Reply-To: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Jonathan Corbet <corbet@lwn.net>, 
- James Calligeros <jcalligeros99@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
- linux-input@vger.kernel.org, linux-doc@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12033;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=DvoNn8piBq3/RMBpQvEHO8ZeX9vzUS0LqSVLvVC6flk=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDJkiOcdKW0OuRJzxTNLXypSeaKSjarLpuSGXpk26pWvhp
- e8M76I6JrAwiHExWIopsmxoEvKYbcR2s1+kci/MHFYmkCHSIg0MQMDCwJebmFdqpGOkZ6ptqGdo
- qGOsY8TAxSkAU+2sz/A/IldnXZEPx5S0Y8VyJUHfLa8YaNi5vCp7u/b9hZMzvLOzGb6KtH+fsYp
- xcrbTMe7NMQ1G7Auunq4xT23bt8rq6McFhnwA
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJ9a7VjpmWdethzwpKuo8mvGxU69HjZieGh+6iqTN6aSEow5gA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_031858_183231_18B3355B 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20251112_031926_410670_EBC9A543 
+X-CRM114-Status: GOOD (  39.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,384 +71,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple's System Management Controller integrates numerous sensors
-that can be exposed via hwmon. Add the subdevice, compatible,
-and some common sensors that are exposed on every currently
-supported device as a starting point.
+Hi Mike,
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
----
- .../boot/dts/apple/hwmon-common.dtsi     | 33 +++++++++++++++++++++++++
- .../boot/dts/apple/hwmon-fan-dual.dtsi   | 22 +++++++++++++++++
- arch/arm64/boot/dts/apple/hwmon-fan.dtsi | 17 +++++++++++++
- .../boot/dts/apple/hwmon-laptop.dtsi     | 33 +++++++++++++++++++++++++
- .../boot/dts/apple/hwmon-mac-mini.dtsi   | 15 +++++++++++
- .../arm64/boot/dts/apple/t6001-j375c.dts |  2 ++
- arch/arm64/boot/dts/apple/t6001.dtsi     |  2 ++
- .../arm64/boot/dts/apple/t6002-j375d.dts |  2 ++
- .../arm64/boot/dts/apple/t600x-die0.dtsi |  4 +++
- .../boot/dts/apple/t600x-j314-j316.dtsi  |  3 +++
- .../arm64/boot/dts/apple/t602x-die0.dtsi |  4 +++
- arch/arm64/boot/dts/apple/t8103-j274.dts |  2 ++
- arch/arm64/boot/dts/apple/t8103-j293.dts |  3 +++
- arch/arm64/boot/dts/apple/t8103-j313.dts |  2 ++
- arch/arm64/boot/dts/apple/t8103-j456.dts |  2 ++
- arch/arm64/boot/dts/apple/t8103-j457.dts |  2 ++
- arch/arm64/boot/dts/apple/t8103.dtsi     |  5 ++++
- arch/arm64/boot/dts/apple/t8112-j413.dts |  2 ++
- arch/arm64/boot/dts/apple/t8112-j473.dts |  2 ++
- arch/arm64/boot/dts/apple/t8112-j493.dts |  3 +++
- arch/arm64/boot/dts/apple/t8112.dtsi     |  5 ++++
- 21 files changed, 165 insertions(+)
+On Wed, Nov 12, 2025 at 09:16:46AM +0000, Mike Leach wrote:
+> Hi Leo,
+> 
+> The save/restore sequence is only used if the ETM is active at the
+> time of power down.
+> 
+> However, by removing the specific save/restore structure, and using
+> the existing drvdata->config structure, the actual state can be
+> changed by sysfs from another PE, as the sysfs accesses only write to
+> the drvdata->config structure and not the actual hardware.  Thus this
+> change permits the corruption of the saved state, which will result in
+> restore != saved..
+> 
+>  While using the same code is a good idea avoiding lots of
+> duplication, it may be necessary to have a copy of the drvdata->config
+> passed in to the relevant functions.
+> 
+> We have considered in the past if it might be worthwhile isolating the
+> sysfs and perf config settings in the etm - it may be worth
+> re-visiting this again with a save restore copy in mind to.
 
-diff --git a/arch/arm64/boot/dts/apple/hwmon-common.dtsi b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
-new file mode 100644
-index 000000000000..b87021855fdf
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Hardware monitoring sensors expected to be found on all Apple Silicon devices
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+&smc_hwmon {
-+	current-ID0R {
-+		apple,key-id = "ID0R";
-+		label = "AC Input Current";
-+	};
-+	power-PSTR {
-+		apple,key-id = "PSTR";
-+		label = "Total System Power";
-+	};
-+	power-PDTR {
-+		apple,key-id = "PDTR";
-+		label = "AC Input Power";
-+	};
-+	power-PMVR {
-+		apple,key-id = "PMVR";
-+		label = "3.8 V Rail Power";
-+	};
-+	temperature-TH0x {
-+		apple,key-id = "TH0x";
-+		label = "NAND Flash Temperature";
-+	};
-+	voltage-VD0R {
-+		apple,key-id = "VD0R";
-+		label = "AC Input Voltage";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi b/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi
-new file mode 100644
-index 000000000000..3eef0721bcca
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * SMC hwmon fan keys for Apple Silicon desktops/laptops with two fans
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+#include "hwmon-fan.dtsi"
-+
-+&smc_hwmon {
-+	fan-F0Ac {
-+		label = "Fan 1";
-+	};
-+	fan-F1Ac {
-+		apple,key-id = "F1Ac";
-+		label = "Fan 2";
-+		apple,fan-minimum = "F1Mn";
-+		apple,fan-maximum = "F1Mx";
-+		apple,fan-target = "F1Tg";
-+		apple,fan-mode = "F1Md";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/hwmon-fan.dtsi b/arch/arm64/boot/dts/apple/hwmon-fan.dtsi
-new file mode 100644
-index 000000000000..fba9faf38f4b
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/hwmon-fan.dtsi
-@@ -0,0 +1,17 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * hwmon fan keys for Apple Silicon desktops/laptops with a single fan.
-+ *
-+ *  Copyright The Asahi Linux Contributors
-+ */
-+
-+&smc_hwmon {
-+	fan-F0Ac {
-+		apple,key-id = "F0Ac";
-+		label = "Fan";
-+		apple,fan-minimum = "F0Mn";
-+		apple,fan-maximum = "F0Mx";
-+		apple,fan-target = "F0Tg";
-+		apple,fan-mode = "F0Md";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi b/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi
-new file mode 100644
-index 000000000000..0c4666282a5c
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Hardware monitoring sensors expected on all Apple Silicon laptops
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+&smc_hwmon {
-+	power-PHPC {
-+		apple,key-id = "PHPC";
-+		label = "Heatpipe Power";
-+	};
-+	temperature-TB0T {
-+		apple,key-id = "TB0T";
-+		label = "Battery Hotspot Temperature";
-+	};
-+	temperature-TCHP {
-+		apple,key-id = "TCHP";
-+		label = "Charge Regulator Temperature";
-+	};
-+	temperature-TW0P {
-+		apple,key-id = "TW0P";
-+		label = "WiFi/BT Module Temperature";
-+	};
-+	voltage-SBAV {
-+		apple,key-id = "SBAV";
-+		label = "Battery Voltage";
-+	};
-+	voltage-VD0R {
-+		apple,key-id = "VD0R";
-+		label = "Charger Input Voltage";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/hwmon-mac-mini.dtsi b/arch/arm64/boot/dts/apple/hwmon-mac-mini.dtsi
-new file mode 100644
-index 000000000000..f32627336ae7
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/hwmon-mac-mini.dtsi
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * hwmon sensors expected on all Mac mini models
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+#include "hwmon-fan.dtsi"
-+
-+&smc_hwmon {
-+	temperature-TW0P {
-+		apple,key-id = "TW0P";
-+		label = "WiFi/BT Module Temperature";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-index 2e7c23714d4d..08276114c1d8 100644
---- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
-+++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-@@ -24,3 +24,5 @@ &wifi0 {
- &bluetooth0 {
- 	brcm,board-type = "apple,okinawa";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6001.dtsi b/arch/arm64/boot/dts/apple/t6001.dtsi
-index ffbe823b71bc..264df90f07d8 100644
---- a/arch/arm64/boot/dts/apple/t6001.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6001.dtsi
-@@ -66,3 +66,5 @@ p-core-pmu-affinity {
- &gpu {
- 	compatible = "apple,agx-g13c", "apple,agx-g13s";
- };
-+
-+#include "hwmon-common.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-index 2b7f80119618..d12c0ae418f7 100644
---- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
-+++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-@@ -56,3 +56,5 @@ &bluetooth0 {
- 
- /delete-node/ &ps_disp0_cpu0_die1;
- /delete-node/ &ps_disp0_fe_die1;
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index f715b19efd16..e6647c1a9173 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -37,6 +37,10 @@ smc_gpio: gpio {
- 			#gpio-cells = <2>;
- 		};
- 
-+		smc_hwmon: hwmon {
-+			compatible = "apple,smc-hwmon";
-+		};
-+
- 		smc_reboot: reboot {
- 			compatible = "apple,smc-reboot";
- 			nvmem-cells = <&shutdown_flag>, <&boot_stage>,
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index c0aac59a6fae..127814a9dfa4 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -131,3 +131,6 @@ &fpwm0 {
- };
- 
- #include "spi1-nvram.dtsi"
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index 8622ddea7b44..680c103c1c0f 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -114,6 +114,10 @@ smc_gpio: gpio {
- 			#gpio-cells = <2>;
- 		};
- 
-+		smc_hwmon: hwmon {
-+			compatible = "apple,smc-hwmon";
-+		};
-+
- 		smc_reboot: reboot {
- 			compatible = "apple,smc-reboot";
- 			nvmem-cells = <&shutdown_flag>, <&boot_stage>,
-diff --git a/arch/arm64/boot/dts/apple/t8103-j274.dts b/arch/arm64/boot/dts/apple/t8103-j274.dts
-index 1c3e37f86d46..f5b8cc087882 100644
---- a/arch/arm64/boot/dts/apple/t8103-j274.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j274.dts
-@@ -61,3 +61,5 @@ &pcie0_dart_2 {
- &i2c2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-mac-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index 5b3c42e9f0e6..abb88391635f 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -119,3 +119,6 @@ dfr_panel_in: endpoint {
- &displaydfr_dart {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j313.dts b/arch/arm64/boot/dts/apple/t8103-j313.dts
-index 97a4344d8dca..491ead016b21 100644
---- a/arch/arm64/boot/dts/apple/t8103-j313.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j313.dts
-@@ -41,3 +41,5 @@ &wifi0 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j456.dts b/arch/arm64/boot/dts/apple/t8103-j456.dts
-index 58c8e43789b4..c2ec6fbb633c 100644
---- a/arch/arm64/boot/dts/apple/t8103-j456.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j456.dts
-@@ -75,3 +75,5 @@ &pcie0_dart_1 {
- &pcie0_dart_2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j457.dts b/arch/arm64/boot/dts/apple/t8103-j457.dts
-index 7089ccf3ce55..aeaab2482d54 100644
---- a/arch/arm64/boot/dts/apple/t8103-j457.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j457.dts
-@@ -56,3 +56,5 @@ ethernet0: ethernet@0,0 {
- &pcie0_dart_2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 59f2678639cf..f1820bdc0910 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -909,6 +909,10 @@ smc_gpio: gpio {
- 				#gpio-cells = <2>;
- 			};
- 
-+			smc_hwmon: hwmon {
-+				compatible = "apple,smc-hwmon";
-+			};
-+
- 			smc_reboot: reboot {
- 				compatible = "apple,smc-reboot";
- 				nvmem-cells = <&shutdown_flag>, <&boot_stage>,
-@@ -1141,3 +1145,4 @@ port02: pci@2,0 {
- };
- 
- #include "t8103-pmgr.dtsi"
-+#include "hwmon-common.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j413.dts b/arch/arm64/boot/dts/apple/t8112-j413.dts
-index 6f69658623bf..500dcdf2d4b5 100644
---- a/arch/arm64/boot/dts/apple/t8112-j413.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j413.dts
-@@ -78,3 +78,5 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j473.dts b/arch/arm64/boot/dts/apple/t8112-j473.dts
-index 06fe257f08be..11db6a92493f 100644
---- a/arch/arm64/boot/dts/apple/t8112-j473.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j473.dts
-@@ -52,3 +52,5 @@ &pcie1_dart {
- &pcie2_dart {
- 	status = "okay";
- };
-+
-+#include "hwmon-mac-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index fb8ad7d4c65a..a0da02c00f15 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -133,3 +133,6 @@ touchbar0: touchbar@0 {
- 		touchscreen-inverted-y;
- 	};
- };
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 6bc3f58b06f7..c4d1e5ffaee9 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -912,6 +912,10 @@ smc_gpio: gpio {
- 				#gpio-cells = <2>;
- 			};
- 
-+			smc_hwmon: hwmon {
-+				compatible = "apple,smc-hwmon";
-+			};
-+
- 			smc_reboot: reboot {
- 				compatible = "apple,smc-reboot";
- 				nvmem-cells = <&shutdown_flag>, <&boot_stage>,
-@@ -1180,3 +1184,4 @@ port03: pci@3,0 {
- };
- 
- #include "t8112-pmgr.dtsi"
-+#include "hwmon-common.dtsi"
+Yes, Levi reminded me he already has some patches [1] to address the
+issue.  Basically, the series returns -EBUSY if trying to write sysfs
+knobs but the device has been enabled.
 
--- 
-2.51.2
+Actually, we have another solution (credits to Levi who has worked on
+it with some internal discussion).  Let me elaberate at here:
 
+Similiar to you suggested "isolating sysfs and perf config setting",
+but isolate in a different way:
+
+  User's config: it is a set parameters stored for setting from user
+  space. It can come from sysfs knobs or from cscfs parameters.
+
+  Hardware's config: it is a set parameters for setting hardware
+  registers (we can simply use drvdata->config for this purpose).
+
+As a result, every time when a session is enabled (it can be a sysfs
+session or perf session), we apply user's config for updating
+hardware's config (e.g., in etm4_enable_sysfs() / etm4_enable_perf()),
+afterwards, when invoke etm4_disable_hw() / etm4_enable_hw(), we
+only use hardware's config for register setting.
+
+This can naturally resolve the mismatched issue you mentioned in CPU
+PM save and restore, and this can benefit us for later consolidating
+cscfg parameters.
+
+I prefer we can use a separate patch series to address this issue (I
+should review Levi's patch series so can make things proceed). At the
+meantime, I would say this patch is still valid.
+
+As a side topic, actually we have found issues for the config is
+reset when start a session so the user's config does not take affect at
+all (see etm4_set_default_config()).
+
+[1] https://lore.kernel.org/linux-arm-kernel/20241221165934.1161856-2-yeoreum.yun@arm.com/
+
+> On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
+> >
+> > The etm4_enable_trace_unit() function is almost identical to the restore
+> > flow, with a few differences listed below:
+> >
+> > 1) TRCQCTLR register
+> >
+> >    The TRCQCTLR register is saved and restored during CPU idle, but it
+> >    is never touched in the normal flow. Given the Q element is not
+> >    enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
+> >    restoring this register during idle.
+> >
+> > 2) TRCSSCSRn.STATUS bit
+> >
+> >    The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
+> >    but instead directly loads the saved value. In contrast, the normal
+> >    flow clears this bit to 0 when re-enabling single-shot control.
+> >
+> >    Therefore, the restore function passes the restart_ss argument as
+> >    false to etm4_enable_hw() to avoid re-enabling single-shot mode.
+> >
+> > 3) Claim Tag Handling
+> >
+> >    The claim tag is acquired and released in normal flow, on the other
+> >    hand, the claim protocol is not applied in CPU idle flow - it simply
+> >    restores the saved value.
+> >
+> >    The claim bits serve two purpose:
+> >
+> >    * Exclusive access between the kernel driver and an external
+> >      debugger. During CPU idle, the kernel driver locks the OS Lock,
+> >      ensuring that the external debugger cannot access the trace unit.
+> >      Therefore, it is safe to release the claim tag during idle.
+> >
+> >    * Notification to supervisory software to save/restore context for
+> >      external debuggers. The kernel driver does not touch the external
+> >      debugger's claim bit (ETMCLAIM[0]).
+> >
+> >    Based on this, it is safe to acquire and release claim tag in the
+> >    idle sequence.
+> >
+> > 4) OS Lock Behavior
+> >
+> >    The OS Lock should be locked during CPU idle states. This differs
+> >    from the normal flow, which unlock it. This special handling remains
+> >    in the CPU save path.
+> >
+> > This commit reuses the normal enable and disable logic in the CPU idle
+> > path. The common disable logic is moved into a new function
+> > __etm4_disable_hw(), which omits the etm4_cs_{unlock|lock}() pairs and
+> > is convenient to call from the save callback.
+> >
+> 
+> Why omit cs lock/unlock? Not unlocking the software lock prevents the
+> claim tag registers from being written, which contradicts 3) above,
+> and prevents other writes during the disable sequence.
+
+Sorry for confusion.
+ 
+I will update the commit log:
+
+  Split the hardware disable sequence into a new function
+  __etm4_disable_hw(), which performs the common disable
+  logic without the CoreSight lock.
+
+  __etm4_cpu_save() has its own CoreSight lock handling, it
+  calls __etm4_disable_hw() so without duplicate lock issues.
+
+Thanks,
+Leo
 
