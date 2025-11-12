@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1095DCCFA1E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F5ECD1297
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eae8eKVkCwvICsxnP9U+9O41DT348z5sds+Y5X/4gRk=; b=qmXuxDp2Cynuy1ZjDXpn+Wzv/m
-	aDe8JnvYR3+hQwvfiP0zYI3oPcXwNmgQs8DEM5hAmSheh5xoRDWxnkLOg4xjrOf4dRpnhNGazpjm6
-	iExoGQSlAPMkEFpITXupsVPWm0Y4ZtXSUazccNGSIPgz5ruopukd+gujCwGxMxZk+MwaArm372/Kx
-	YE+dz/JwIU1Axd6VZErbYZTVxhdrJAFngcYmRSvzZG0aFsARin2X0dvEh8w2JYgks85WE+4NTBU5I
-	9a4od/bPWVrIFyFFRrAva9ZpGztqOe381Ux70wMN+nOIalxNmQ0PzfjQ8laT8lLeZEJWvjdnp2Rg5
-	Ih/3BYFA==;
+	bh=hk1dp8NPTmaGkXE1nl/HOFJ0NlZUtMFoYOrkZcVKmoE=; b=2uvV5JvituXP9h4xAY9CWoEF0c
+	3lQV3GokfwM3v77ZQo96Skfp2VxzyIITdxXw8jCNIrzJ3Yw6rTuVCaUbCLEF/lVWUSvAAiN4mlQqj
+	v1PopqyslyXiAobzHKvzGjnfyYsaCQEG8Gs6tukazsA5qBMRjr1OBD1RHw0/bXpb+FxMzynO3mHAD
+	2HlGHN6tccKzlv6NAYdoLz6ZxAg1l/aPOsQGPcAiGPMuSdpU8rHE2XT8pk90tx3bckXpywkXNd+FH
+	HpQY7T0HnW+qCFg1NEtYjbH7iwP0FF27MR1iwHMbv5TE7FBM31EcIRW8+1M0obWEbWVavMw4FIOzb
+	8IzajRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9VO-00000008jVT-0Be8;
-	Wed, 12 Nov 2025 11:59:18 +0000
+	id 1vJ9VQ-00000008jXw-17SF;
+	Wed, 12 Nov 2025 11:59:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9VG-00000008jOf-1POT
+	id 1vJ9VK-00000008jRr-1A6n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:59:11 +0000
+	Wed, 12 Nov 2025 11:59:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FF7C1595;
-	Wed, 12 Nov 2025 03:59:02 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14EAC1595;
+	Wed, 12 Nov 2025 03:59:06 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4BB7D3F5A1;
-	Wed, 12 Nov 2025 03:59:08 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2121E3F5A1;
+	Wed, 12 Nov 2025 03:59:12 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 12 Nov 2025 11:58:42 +0000
-Subject: [PATCH v7 06/11] coresight: etm4x: Properly control filter in CPU
- idle with FEAT_TRF
+Date: Wed, 12 Nov 2025 11:58:44 +0000
+Subject: [PATCH v7 08/11] coresight: etm4x: Remove the state_needs_restore
+ flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-arm_coresight_power_management_fix-v7-6-33e0b6f995f7@arm.com>
+Message-Id: <20251112-arm_coresight_power_management_fix-v7-8-33e0b6f995f7@arm.com>
 References: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 In-Reply-To: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=4485;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=3586;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=URjVc4nJXKlJKyg3LmfH1UoWeo7utbddavnWP6EgaRQ=;
- b=56kGH8ug5IE7ZQGzn/SMniJ80wFhl7QbESFMn5EUpA9MJK1AJR5WU/v5rLZ0VZNd5oiZOJ07n
- UT262k7jnUGBPKq5cyr2oqw5osZf6zbWhfLByzE3sM0q+UviL8ohCia
+ bh=JBAwnNTjouwEiWl1NoewFcoUa/X0+OB3vOypd50Ojy8=;
+ b=nE9DRM3xSNSUGFkw5GiC5TWjZoGCLIlG8lLDovS5OcxYqOX0CYLhGNnNrMx6S2VJY9ty3Fg60
+ uuixIMzR+mMCPEv/tVoHHSOY3HrO49ob7M4lPHDqaGbREg4/PHd93te
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_035910_476024_6F2FF6AD 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20251112_035914_516904_22930F2B 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,116 +77,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a CPU supports FEAT_TRF, as described in the section K5.5 "Context
-switching", Arm ARM (ARM DDI 0487 L.a), it defines a flow to prohibit
-program-flow trace, execute a TSB CSYNC instruction for flushing,
-followed by clearing TRCPRGCTLR.EN bit.
+When the restore flow is invoked, it means no error occurred during the
+save phase. Otherwise, if any errors happened while saving the context,
+the function would return an error and abort the suspend sequence.
 
-To restore the state, the reverse sequence is required.
+Therefore, the state_needs_restore flag is unnecessary. The save and
+restore functions are changed to check two conditions:
 
-This differs from the procedure described in the section 3.4.1 "The
-procedure when powering down the PE" of ARM IHI0064H.b, which involves
-the OS Lock to prevent external debugger accesses and implicitly
-disables trace.
+1) The global flag pm_save_enable is SELF_HOSTED mode;
+2) The device is in active mode (non DISABLED).
 
-To be compatible with different ETM versions, explicitly control trace
-unit using etm4_disable_trace_unit() and etm4_enable_trace_unit()
-during CPU idle to comply with FEAT_TRF.
-
-As a result, the save states for TRFCR_ELx and trcprgctlr are redundant,
-remove them.
-
-Fixes: f188b5e76aae ("coresight: etm4x: Save/restore state across CPU low power states")
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 14 +++++++-------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  3 ---
- 2 files changed, 7 insertions(+), 10 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 14 ++++++++------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  2 --
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 5e707d082537a405e86fc30e28957ef8beec250f..fdda924a2c7117a6828e5325d78586b09e75febd 100644
+index bdf5ab85b2213dfd601391fdcf50960667fa7cea..560975b70474c3449aa6799fc1a8e05d5ea93495 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1858,9 +1858,11 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+@@ -1966,8 +1966,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
  		goto out;
  	}
  
-+	if (!drvdata->paused)
-+		etm4_disable_trace_unit(drvdata);
-+
- 	state = drvdata->save_state;
- 
--	state->trcprgctlr = etm4x_read32(csa, TRCPRGCTLR);
- 	if (drvdata->nr_pe)
- 		state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
- 	state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
-@@ -1970,9 +1972,6 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
+-	drvdata->state_needs_restore = true;
+-
+ 	/*
+ 	 * Power can be removed from the trace unit now. We do this to
+ 	 * potentially save power on systems that respect the TRCPDCR_PU
+@@ -1985,11 +1983,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
  {
  	int ret = 0;
  
--	/* Save the TRFCR irrespective of whether the ETM is ON */
--	if (drvdata->trfcr)
--		drvdata->save_trfcr = read_trfcr();
++	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
++		return 0;
++
  	/*
  	 * Save and restore the ETM Trace registers only if
  	 * the ETM is active.
-@@ -1994,7 +1993,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 	etm4_cs_unlock(drvdata, csa);
- 	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
- 
--	etm4x_relaxed_write32(csa, state->trcprgctlr, TRCPRGCTLR);
- 	if (drvdata->nr_pe)
- 		etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
- 	etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
-@@ -2079,13 +2077,15 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 
- 	/* Unlock the OS lock to re-enable trace and external debug access */
- 	etm4_os_unlock(drvdata);
-+
-+	if (!drvdata->paused)
-+		etm4_enable_trace_unit(drvdata);
-+
- 	etm4_cs_lock(drvdata, csa);
+ 	 */
+-	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
++	if (coresight_get_mode(drvdata->csdev))
+ 		ret = __etm4_cpu_save(drvdata);
+ 	return ret;
  }
+@@ -2079,8 +2080,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 	if (!drvdata->skip_power_up)
+ 		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
+ 
+-	drvdata->state_needs_restore = false;
+-
+ 	/*
+ 	 * As recommended by section 4.3.7 ("Synchronization when using the
+ 	 * memory-mapped interface") of ARM IHI 0064D
+@@ -2099,7 +2098,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
  
  static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
  {
--	if (drvdata->trfcr)
--		write_trfcr(drvdata->save_trfcr);
- 	if (drvdata->state_needs_restore)
+-	if (drvdata->state_needs_restore)
++	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
++		return;
++
++	if (coresight_get_mode(drvdata->csdev))
  		__etm4_cpu_restore(drvdata);
  }
+ 
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 13ec9ecef46f5b60a38c464e8ebde3ef72e7d50b..b8796b4271025f6aba79fe3cd6e4d17d0b56952d 100644
+index b8796b4271025f6aba79fe3cd6e4d17d0b56952d..012c52fd19338133129752d35523dc102df24604 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x.h
 +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -866,7 +866,6 @@ struct etmv4_config {
-  * struct etm4_save_state - state to be preserved when ETM is without power
-  */
- struct etmv4_save_state {
--	u32	trcprgctlr;
- 	u32	trcprocselr;
- 	u32	trcconfigr;
- 	u32	trcauxctlr;
-@@ -980,7 +979,6 @@ struct etmv4_save_state {
-  *		at runtime, due to the additional setting of TRFCR_CX when
+@@ -980,7 +980,6 @@ struct etmv4_save_state {
   *		in EL2. Otherwise, 0.
   * @config:	structure holding configuration parameters.
-- * @save_trfcr:	Saved TRFCR_EL1 register during a CPU PM event.
   * @save_state:	State to be preserved across power loss
-  * @state_needs_restore: True when there is context to restore after PM exit
+- * @state_needs_restore: True when there is context to restore after PM exit
   * @skip_power_up: Indicates if an implementation can skip powering up
-@@ -1037,7 +1035,6 @@ struct etmv4_drvdata {
- 	bool				lpoverride;
+  *		   the trace unit.
+  * @paused:	Indicates if the trace unit is paused.
+@@ -1036,7 +1035,6 @@ struct etmv4_drvdata {
  	u64				trfcr;
  	struct etmv4_config		config;
--	u64				save_trfcr;
  	struct etmv4_save_state		*save_state;
- 	bool				state_needs_restore;
+-	bool				state_needs_restore;
  	bool				skip_power_up;
+ 	bool				paused;
+ 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
 
 -- 
 2.34.1
