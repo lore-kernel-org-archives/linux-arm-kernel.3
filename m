@@ -4,101 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0A0CD3438
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 19:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819BFCD4842
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QS8gokQgq3E8I5XU2wjPkqCo67fzHyQgZ5U/H0JQjw=; b=0Zoat0rlo8iTGUYdyBdaBDdtcs
-	nhov7tk19OFNooB64ynUgn6szbuH+Td69olOw7jcwd9D7fDqrBrFPXhkPdp6cMK6WsQD9qezlwfwe
-	DTnHEGbWJAkaP6/JswR9AtlQghxdFNz1iJFNyicE5JEReTV6csXFh8q6GqItfEsd1aPUDNHaZTkCq
-	BaO/ydzU5MZca6MI5OIHUE0isCC17TRCMckOo4wt8tFcTiL2A8bWb2F/KQJtSykBK5hyKrLS5W7vW
-	V37ZlGY/9cnPoaMyTE/S96+hj7AakmSLYkzcbQOjD6Zht7HU+d2qo9WPA9VVFGTZN5vBj2T0kXaGz
-	RUr7kqmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zyNeouXkZHZrJZYabzmpO+sSNRTvehS06fKUh0vWrGo=; b=3Z3Hob0fVzdqyLH/RjU+LfTYkk
+	d9Vrd6g9vpOx+floVTfoU8FLFi4CltpgAgHzVw7pFhrDQktTuAic22UH5j7Aj1CbsCkBVd6meCtvQ
+	hewUR9M07h5TMApyGn/7Frqp1EILMy8aJIHWOt+z82rn/jm3yetk/8PZFKNATDXF1sJd2MWO180WH
+	rbOpbM/eEqUt082mtkUT2GY9uR2xCFpeEpP58FOFlQVRIMBWnDmDSNZ6upcsWgUdnmROtIFciiPbM
+	Emvo65rH2mseci8MPeJvYz0G1bXTpI2mxlXZQpVVcO8Jgf0ySNKx//fi3AsSYPhlkSq9rQbzPPvW8
+	f9pDrg5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJGNk-00000009PSH-3apF;
-	Wed, 12 Nov 2025 19:19:52 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vJHMY-00000009TYs-3Ww2;
+	Wed, 12 Nov 2025 20:22:42 +0000
+Received: from mail-westcentralusazon11013053.outbound.protection.outlook.com ([40.93.201.53] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJGNh-00000009PRq-1Apx
+	id 1vJHMV-00000009TYS-1EHF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 19:19:50 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b72bf7e703fso223401866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 11:19:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1762975183; x=1763579983; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4QS8gokQgq3E8I5XU2wjPkqCo67fzHyQgZ5U/H0JQjw=;
-        b=ktKPBIUpvj9IuqUEtVyqwyg5NXofAkcPPMX57vjUvECeHdpOtsaIWxrpw61EwAnNzy
-         KDeHa7N6ro+ED6Fruy7dzhzBPfp+RTwaFlpf/1PBbmF26f0EcmtV9RCgeFp221+GZ745
-         NMshOheGkFY4Sf15+JdQO4OiB62B/VvGukxiw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762975183; x=1763579983;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4QS8gokQgq3E8I5XU2wjPkqCo67fzHyQgZ5U/H0JQjw=;
-        b=tvaU78NHycXqvcWipralkUe6bPyg/QZ1v+j/Nput6G1TkjUYUwU2pwRRrEuKNxYSdj
-         FDnmLrrzBYO33E47zgZ9Sj13g7PC2Nvuf3StP9CSn6c+ulQBpZIXdSt9khe+FPiaL5cv
-         y/44hrzY6rK1Rvixy2BIvEM7ANJMVVJkFdJS+RvkvWqRVbQ84rG01DSIGLtsPaJm0f3J
-         O/NyFM+OQwSeUmZ1diqS0Bwe6V3FF51yHTmqfnP5MlNDcLh5bfoJxa1emi6ujnUK3oeO
-         bUAnYWy+V0wP7m31dgHiRo8HXZ+xusPTGI3iYSc9uNJdBwsAbKM+VUjRD4aO522xVDA4
-         tq1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWqS+2jJCh3oMHLfnH+BfUnuJq8FXsFrnbLPHoVOjVgGow9hXGS0op92T0OGq+qqMpcAP5MMwtRnrKv9NdJ9UBx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvrUJt0zWgijOABgjGvGA0MfCI497I2fo5T7kW8ABrIeKPl2P0
-	Hw5/7l6Y8HTxZyFLIbQlYOxBIaOK0c8B5lkdFj6q73IZo7ib8ivsHZ1eSMjsi4SrCi269vDArGm
-	tZREooQ==
-X-Gm-Gg: ASbGnct+sgL0bS1s20uyHtF9A4rfjTgINl9E8DUm3rNPp+vxFR3W2iVD4GsIT04/dmf
-	/hHthdVOam9XU25llwuM6rPLfCzmWm4KRsxNFrwe4dXXvbbOAbVN9fV6T8diraIgYqHJNHJOi5l
-	xMzzPLQuvk+tU7x2kMfx0LNkaNbqnjXpuifuq1zvrNS9J7NHMr6dlQifr21lU36E/H6dx2tWL+Z
-	JtWS+ghbPXymE8VZa30uY4ds/BKAam3iHbsglWEiZSfusS/mQMg2+1E+dMZwlGeDesiWna6R80G
-	ZHP5RHE3Dp9Lr6kgq5Sn67AFe9Otrc0gB0ytZni2rb9vHy2nbcQBXQM7N1MQFiA3+l4xFQ8Gqvm
-	sKnYgH1v2mddS+qiF9ulgBTtE6/rC5BLRi1jVBjc6JTycVHFed1kdPuycthm4w950Xs+dvBEcIi
-	ET7DRmR34zpQ0rb8K0bRYDYojgQB8hnv6R9jTO5G0=
-X-Google-Smtp-Source: AGHT+IHMpjRYC2mqISHWYIZz5IBhSnoiBsDMNhoJvzOrKv5sOybmV+dbojgT3IoYMKGgTz70flLNTA==
-X-Received: by 2002:a17:906:6a19:b0:b70:b7f8:868f with SMTP id a640c23a62f3a-b7331997c33mr461641266b.27.1762975182839;
-        Wed, 12 Nov 2025 11:19:42 -0800 (PST)
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com. [209.85.128.46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b72bf9bd72bsm1678677266b.49.2025.11.12.11.19.41
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Nov 2025 11:19:42 -0800 (PST)
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-47778b23f64so455155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 11:19:41 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWO7Wqnegv85M2os+y7VvX7TX2jhTvTk6Y3rdnUjAbTzWrhlSut4TZwpGkWXDmXw/yAKOqMrNsIs9tVAU94Z/ZK@lists.infradead.org
-X-Received: by 2002:a05:600c:4f91:b0:46e:4704:b01e with SMTP id
- 5b1f17b1804b1-477870708e1mr37015705e9.8.1762975180559; Wed, 12 Nov 2025
- 11:19:40 -0800 (PST)
+	Wed, 12 Nov 2025 20:22:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yvB3DR0oJX2/Z9UQc1vwhPPKHibWZESx/YJWZhGT+852kFCeTL/yC9hyO7CcTgZbQCV1Tiy1hjHXb27P2ZmOB17yHLbbHeeKnkJLq4ezXErHLJXgOSmUHktuCBwYbWxkq7aQoC93nrWpQZ2ZbEG63sdNlZQcN8kOqA+SGRGgddjlHQQ2eCK25Wcpk8DOWQajksHQWCuNsJ4Zy+ZAdFgxNTTSPmtLgoypNi9SfveXkpWOpFpu+z/UOFtrwWew5Cx4qujELzaTWQ7cmC6zMBjPJHvkOvWz6bAW8HcLYyvmUuoBP2drDfq3a0kebaZtu6g/Fek4roXTuXsCgQA9bYO4pA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zyNeouXkZHZrJZYabzmpO+sSNRTvehS06fKUh0vWrGo=;
+ b=hqbf6+bj3MstLYuRVkiyd23aTOlvcib0fnDJ/bso67G1CYOPAkyamlI7khWIdWkeKfcNT7o5gHAJHyNnNLVLnJWpOz3TgE6KfS5rCJeg5XO4q1ULxEAD8kRyw1IaDl1F8MRiWWHQQVbzADSumt/yGUQ972dyuSaGqfwSNNH0nOaldHoWctTL8C4gVAyxBhC0matFYGe5/0Ykn3knkzyau967wux0eF1tjHCG0eYYWS8RaIm+O2k+nkO5k29zb80QDfk3kA1WtKton1dOZdr5xwKOtE3d1BLkC4GG70SddPFNjnPXEfS6E0hd8mi1+Z2GLzAAyHFgum1jFV/RGH8Nfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zyNeouXkZHZrJZYabzmpO+sSNRTvehS06fKUh0vWrGo=;
+ b=LYWZVIzThal5LV6VkH3i6s0IwkfY/38YjOxGLJLwmayR7761XSWqjux/38wwkWRf8Rih/OewAQCYgPF+kGZp4tJRkaI2EYCyb4BzfHjApTlupYBUlmHbhAmNPHAnb07AygdwQyENkmPIDmgMS6BTXib81/quaZiioEPa+2kp5s3a8fi5WxR8Ydeex8Ls0pGJrPXuOQ+fLUzBgpLKyfHqRUgvY2X93kab7ijtrEily8sSgEo0qb6EuJ7tkS4Mp1RqSmxkB5L6zVB7Y24l0+fLT7C7kbq/McS9ExIqfZlgSl9OQNJ6iiF8g++TsF1IGhWvhjX31ckw3nh0hpSDZbnQ3Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ PH7PR12MB5620.namprd12.prod.outlook.com (2603:10b6:510:137::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9298.16; Wed, 12 Nov 2025 20:22:22 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 12 Nov 2025
+ 20:22:22 +0000
+Message-ID: <df461f78-2dd4-4c94-9c66-e587c229d148@nvidia.com>
+Date: Wed, 12 Nov 2025 12:22:19 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/33] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use
+ pptt cache as one structure
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-4-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251107123450.664001-4-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BYAPR07CA0075.namprd07.prod.outlook.com
+ (2603:10b6:a03:12b::16) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid> <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org>
-In-Reply-To: <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 12 Nov 2025 11:19:29 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
-X-Gm-Features: AWmQ_bllj73opmZSJK51jDVz1VEpznvY8KvYwWyOvKxQfGVzwkj1oSJIf8eIOYQ
-Message-ID: <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
-	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|PH7PR12MB5620:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78c31150-12a9-4956-5e9f-08de22292f85
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TEkrcENCQ2oxWHVoS1o4SFlBdVNHdzJ1dExGUVNmSS9zTDhUSmRiYWFQMU42?=
+ =?utf-8?B?M0xJU3RSRTBQZXBzaVpKS3JuaVh2MENvcGZ1VzFpQjR2RFByWk1ybU9tdGF6?=
+ =?utf-8?B?S0RHUzFHZG51bHZFWHJjM0RTNHNJOFNXeXJUemdWOXVWMlRWWkhmVjZ5Ynhv?=
+ =?utf-8?B?Mk42SW9mRVJCUHordGtKTGtWQWhWdjc5eVI3RWVOOERpcEFLWTlvM0dTSGEv?=
+ =?utf-8?B?SHBKMEdNd1paeUZyY1g4MXhVby9QMGNjWEswc2dlWElIOG56Vitacnlic1Bx?=
+ =?utf-8?B?NnhQMFhIN2wrenk2M3lsa2dsVGsyeUFpL1E3dnJsd2pJSjQvTW1FeDl6bUtH?=
+ =?utf-8?B?ZmlicTBNZERQUTNBUXZadTlwZSs1VjZUSFBCT3Z2V3FkVmhFRG44Nko5NHo3?=
+ =?utf-8?B?dFhGTm1uMUV0WUNodmRGeDRYWWFtMDNVaWhtTGlqb2pRNmpwaGMxTnc1M0th?=
+ =?utf-8?B?YWZMKy9WSCtjUnVRSFRHQnhIT05xRkpNYitvbzBWYnBmWkgvVjRLRmVDT0FC?=
+ =?utf-8?B?byt1T1pUQmIzbTVFNlpRa2Zrb2sxOHR6Q0F3OE9Yc3RxYjB4R2dZY1kvYkxw?=
+ =?utf-8?B?TW03dEhQVjEwaTE5c2hQU1FxdVpJU2cxTmFwUjBOT2hpemxFdkYrdHFBSXBx?=
+ =?utf-8?B?d1NUTHFFMkRPZUtaK2orN21zTFlQc1B0OFdidzFtYkJVaWpZT215cmVXSEVZ?=
+ =?utf-8?B?Ym9xcTI1TDdpMGFTREU0K0FXbHFDQitrdlRkUkJpOEZZRFB4NU56V2pVaUJ4?=
+ =?utf-8?B?dHpyRHlrRHViQkhWUnVEKzkrQWhKUVdDU01iUkowcTZkZjdDS3pWOU9GNUdC?=
+ =?utf-8?B?a0ZaTjB0NWZsbHFGR0ZGYnI1aHBWVnBBajMyTFIwZTFuZmN2QThhUE8yek5v?=
+ =?utf-8?B?M2pxTFlsZDJycUJQc2VxMG1ETnprSFFiTW5Zd0RFQnIrblhtSXVUVFdmUjhX?=
+ =?utf-8?B?elFFSVZBQkJ3UlUwb0JsUWUxVHlRY0ZZRjBoNldSTW5tTUNic2dtMVlyakJE?=
+ =?utf-8?B?by8yUVBER1Bxd2ExMDNOcXArSzFHRkpHbjBSN0xmVnBsNTBNT0VBYkg3ajZ6?=
+ =?utf-8?B?bzJRKzU4Q3BrdDBQckwyUDFmbTIvRStMd216WCtvYTZjN1BKMzgwZmJnYU1S?=
+ =?utf-8?B?YXByZGYrNmxjK2o2UU5ubGQ0QjFCbDNCaFlGczBKUEFzemVFcWQ3bm1idnZW?=
+ =?utf-8?B?WkZmZ1RwVlZ2QjhseTlFSUw0K2d1K3BrZkVJRG52b2lrdEpVdSt6UGNwQTF1?=
+ =?utf-8?B?cks1TTBzQVJrN21RZWdPT1BnTy9lc0Q0T2xYZExaVThrSUlPSFZGRTdKbzBV?=
+ =?utf-8?B?dGJwRGpFaWFHemZUVEZzTzFGQ0U1elRVcytpYXdlc3Z5TDU0Z0VTNjdoUTd6?=
+ =?utf-8?B?OW52UzFlb3JkQmNiWmZHMUw5MDg3Uld4aFlHM1lFSUduTzFxa2ducVFqNEhW?=
+ =?utf-8?B?WmJ5YXBWZ041eW90ZSt6c1l2WjdPVnRHVmtFWS8zTDFMZ3cxdFh5T0NDSUIr?=
+ =?utf-8?B?ZytNakpYVk1SSHdsR3dzVCs0YnB1U2Vjcy9IemR6dE9YVjVjQWdXNHlxQWty?=
+ =?utf-8?B?a0FhNXQzYVRERStZckNNandZbmE0M3BldTdyWUhFajhldW1mdnNnLzlmR3hi?=
+ =?utf-8?B?Tkx2cGxKaTBGS04reGp2bWpvaERsN2JVMFduMUxsNXJKaDhSWXhyL1RBNnFP?=
+ =?utf-8?B?OUR5N1lROHVGT3ZBTUE4NlNmeDZtYjJUenhScmlWUkFCOEJDa2hBSUd5WDkr?=
+ =?utf-8?B?d0MwbVgwbm1QYWhZZ3UvYXhoa0VEcmkyZHpkRHlpNU4zdTJNOTNHN29vT3li?=
+ =?utf-8?B?RFhKbkJma0RXYnJFb3NPa1BmdTNnWGNwV2FmeEpKbUMwQW4rajVBR2x0dHFP?=
+ =?utf-8?B?YWIzSUNuaWJVbXpaT3RyODZ3TzJZOWpBWllPd25SYmxOUFh4RjRFeXloVlV0?=
+ =?utf-8?Q?NSqmR5vBQKWlloKZRdSk+tT+tFkOQIsf?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVJLNFF2RHh4YzRqQitrekUxalIyM0QyNE42ODRaRVl0M3AwbU1FRFVlK1o0?=
+ =?utf-8?B?dnA5MFBPSTVreHF1NWwyR0FLWmc4L3hsS3FTckkrcE8yN3d6dnhjQWlxTWFD?=
+ =?utf-8?B?UDNhaEZUYThYWlh6OGYrMWEzSnFWODZqZkJIWW0zb0FZYzVTWldrOUVNWXQv?=
+ =?utf-8?B?TjlvTHk1QkN5QnBzeGI0dHRMMEJsUi9ReXFBZzZsME5YV2VrMGtUa1hkZFQ3?=
+ =?utf-8?B?RTZRSkVvY3pydUt3ZjBMbm9JUU1yejNoVjdHdUtSSEZFeDlEU2V1SFNCV2g5?=
+ =?utf-8?B?YzY2MlBRK3RucEpUejJIdmtmU0pmekhmTDJiRlROcXZUSmsweXZyK3N1dnpT?=
+ =?utf-8?B?WVMvQVNJSWFuQWRGYzZ6amJyOXgyZWw4ZE9qUVFPbllKTkUvbVNrMHV2aUdM?=
+ =?utf-8?B?QlNFUzhWaVluQWJQRVhUaUFBQVE5REJHZTRnTEdLaTBDeC9WcTdBTXk3TEVk?=
+ =?utf-8?B?ME1hU2UwTXpLbktXdFkralBrYkF2SDQ3clpFTzRtRzcyRXA5TThndlliaDRC?=
+ =?utf-8?B?M3hpMmNQSlV0MVNybWk0NVBHQ1pkMkw2eFJUanAwNXpHQlJPdEp5ODlmQ3Z1?=
+ =?utf-8?B?NW9jYjVQblhSbHRVRUNJVlNheG1FNFVTb0syR1pvNUdDM0ZVOXY4cVdGS1d0?=
+ =?utf-8?B?MlVvc3Nmb29jUU9XNW9DUlc1VGVUWDJGNzdHbU1TeUdsK3FWcm9BY0FrWXNL?=
+ =?utf-8?B?RndRTm9SZ0VKVzgvL1B4WDRCKzVqYytMVytjRURzYVRnTmx4RmdxSVBEQnpm?=
+ =?utf-8?B?V3RVVVJPWXcyMVlmWitIV2ZEbHVsVW5DOWxmNlI3ZUhNem80VGRCVVBSUi9o?=
+ =?utf-8?B?Rmw5V2gzOXp1dlhNd2tYd2pSTk5Dcmd5WGM5ZEY0dEtleHc2RE9jMkNvUUdo?=
+ =?utf-8?B?N3Z4L0pldGJpekhuUkFzbEhOOWFwSFlxQ200OU5WdDJMZHZmUEd5VnZWNkVX?=
+ =?utf-8?B?RGFEVHcxelVZenpKalpVNmRJVHN5OExLZlNSeVgvNHptVFNmai9kaVF3dlUz?=
+ =?utf-8?B?YVhaNEMzQVJiL0Z5anlMUkZpUnBsbDlPYzlmUU5ZTldPZjdqekNhb3MxQjBm?=
+ =?utf-8?B?OFZYclZscnlGM2RvSjZiTXd5anpyZ3BXVmZiTUpoRlhLeFZUYkpDekk0TWNj?=
+ =?utf-8?B?QUJXdUx3SE16TEJJRWYxQTJiekJCVklQZzUzd0Z4eGcreVJ4WWRBSkZ6NGM0?=
+ =?utf-8?B?WVg3dzFCV2hKQU1Rc2kwbHNGKzBJZVBVU1NIaUs5VkVnZFgrTzM2VlpZU3E4?=
+ =?utf-8?B?d1N1NXh2bzdOc3lvQ0tHcXVNYXVsWG5JcldrWW5wanhYbUFvN1BzOERBM1RP?=
+ =?utf-8?B?WE9SZ1dLZDVpSGxoRUFhZDNWR0hLWndVNFZsamZRK1d4WTh2aXNDd0g4elAy?=
+ =?utf-8?B?S3pHM3lJdThObUUzbjFocUdDZDlhcnJBenIrYkJZZzg5Qk83cDhGV2tOVS91?=
+ =?utf-8?B?USs3Y3hBZjJJeG8vUGg4T2FOZStNWEZKaEV6YWZrclV6ektpRHNzS2d3NEF1?=
+ =?utf-8?B?RmlYb1Z5RTBpWlVlREpyMWZlVEQ4TVZNdm9oMG04bTd0TTQ2WnZwYjRnUlpE?=
+ =?utf-8?B?Z1VsQ0xJTFhNbUFuei9rNjE1ZS9zTWJUamtEdFZqWUE4MVRVMlZ3Ky8xbitq?=
+ =?utf-8?B?VUtyRis0M1ZPU0swVzcxeTNnWElIUnRKQ2dER0ZwVlA2Nkw2dUg2NXpVNVdM?=
+ =?utf-8?B?N0NiOSt4ckNhZDJFcllKSDZGcTNCdGVmYWZ6akNrekEwVDMyQ1VEUlhXK3ov?=
+ =?utf-8?B?NmVJT04zSWVHTlFmOXI3QmpaSE15a0JxczMyRTJmOHZVVk5yMytvL2NOZjQy?=
+ =?utf-8?B?Qjh4Tjg4cHRGb1lDblJJTkYyNklUdzV0UlZsUnM4NkpKSU5nS0tXdmpzVDJI?=
+ =?utf-8?B?KzJPU1BaUlpUNVlLTkJSbzk1YVJNWU1RaEtlTjV5VExpSHJwSUxlQnBZTy9k?=
+ =?utf-8?B?bmNIZllyeEtHS1hqZmMrdy9uVzBQdE1sb0NXSVhpdVlHWWJSYWlLVHI1VHNw?=
+ =?utf-8?B?eTg3WUl5RitRdDc3VzZ5c1B1cHpacWJsWnUyemhxQ1dsa1FKc1FpU3B5Vm9V?=
+ =?utf-8?B?Z0tUTGlxWm1vRGF1OHllYnhUdmYrWmlCa2J0K0M4cTAwZ2dZOHV0QUFxazZV?=
+ =?utf-8?Q?Z4kwkdi59PfLfhTME6FhjQOV5?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78c31150-12a9-4956-5e9f-08de22292f85
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 20:22:22.1860
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PKAQStrgqwKYWMO7OKzFaWklWzrAv9+mJeK/uyv6tH570VhNzCoSZ/xh5nfPGqaY1i7hqOMOu2fHvInAmdHKqQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5620
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_111949_520026_DC0FD26B 
-X-CRM114-Status: GOOD (  71.36  )
+X-CRM114-CacheID: sfid-20251112_122239_367422_D7AB085B 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,394 +187,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Nov 11, 2025 at 11:58=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 11/11/2025 20:22, Douglas Anderson wrote:
-> > Add top-level DT bindings useful for Pixel 10 (frankel), Pixel 10 Pro
-> > (blazer), and Pixel 10 Pro XL (mustang).
-> >
-> > Since overlays are fairly well-supported these days and the downstream
-> > Pixel bootloader assumes that the SoC is the base overlay and specific
-> > board revisions are overlays, reflect the SoC / board split in the
-> > bindings.
-> >
-> > The SoC in the Pixel 10 series has the marketing name of "Tensor
-> > G5". Despite the fact that it sounds very similar to the "Tensor G4",
-> > it's a very different chip. Tensor G4 was, for all intents and
-> > purposes, a Samsung Exynos offshoot whereas Tensor G5 is entirely its
-> > own SoC. This SoC is known internally as "laguna" and canonically
-> > referred to in code as "lga". There are two known revisions of the
-> > SoC: an A0 pre-production variant (ID 0x000500) and a B0 variant (ID
-> > 0x000510) used in production. The ID is canonicaly broken up into a
-> > 16-bit SoC product ID, a 4-bit major rev, and a 4-bit minor rev.
-> >
-> > The dtb for all supported SoC revisions is appended to one of the boot
-> > partitions and the bootloader will look at the device trees and pick
-> > the correct one. The current bootloader uses a downstream
-> > `soc_compatible` node to help it pick the correct device tree. It
-> > looks like this:
-> >   soc_compatible {
-> >     B0 {
-> >       description =3D "LGA B0";
-> >       product_id =3D <0x5>;
-> >       major =3D <0x1>;
-> >       minor =3D <0x0>;
-> >       pkg_mode =3D <0x0>;
-> >     };
-> >   };
-> > Note that `pkg_mode` isn't currently part of the ID on the SoC and the
-> > bootloader always assumes 0 for it.
-> >
-> > In this patch, put the SoC IDs straight into the compatible. Though
-> > the bootloader doesn't look at the compatible at the moment, this
-> > should be easy to teach the bootloader about.
-> >
-> > Boards all know their own platform_id / product_id / stage / major /
-> > minor / variant. For instance, Google Pixel 10 Pro XL MP1 is:
-> > * platform_id (8-bits): 0x07 - frankel/blazer/mustang
-> > * product_id (8-bits):  0x05 - mustang
-> > * stage (4-bits):       0x06 - MP
-> > * major (8-bits):       0x01 - MP 1
-> > * minor (8-bits):       0x00 - MP 1.0
-> > * variant (8-bits):     0x00 - No special variant
-> >
-> > When board overlays are packed into the "dtbo" partition, a tool
-> > (`mkdtimg`) extracts a board ID and board rev from the overlay and
-> > stores that as metadata with the overlay. Downstream, the dtso
-> > intended for the Pixel 10 Pro XL MP1 has the following properties at
-> > its top-level:
-> >   board_id =3D <0x70506>;
-> >   board_rev =3D <0x010000>;
-> >
-> > The use of top-level IDs can probably be used for overlays upstream as
-> > well, but also add the IDs to the compatible string in case it's
-> > useful.
-> >
-> > Compatible strings are added for all board revisions known to be
-> > produced based on downstream sources.
-> >
-> > A few notes:
-> > * If you look at `/proc/device-tree/compatible` and
-> >   `/proc/device-tree/model` on a running device, that won't
-> >   necessarily be an exact description of the hardware you're running
-> >   on. If the bootloader can't find a device tree that's an exact match
-> >   then it will pick the best match (within reason--it will never pick
-> >   a device tree for a different product--just for different revs of
-> >   the same product).
-> > * There is no merging of the top-level compatible from the SoC and
-> >   board. The compatible string containing IDs for the SoC will not be
-> >   found in the device-tree passed to the OS.
-> >
-> > Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> > ---
-> > In the past, attempts to have the SoC as a base device tree and boards
-> > supported as overlays has been NAKed. From a previous discussion [1]
-> > "Nope, boards are not overlays. Boards are DTB." I believe this needs
-> > to be relitigated.
-> >
-> > In the previous NAK, I didn't see any links to documentation
-> > explicitly stating that DTBs have to represent boards. It's also
-> > unclear, at least to me, _why_ a DTB would be limited to represent a
-> > "board" nor what the definition of a "board" is.
-> >
-> > As at least one stab at why someone might not want an overlay scheme
-> > like this, one could point out that the top-level compatible can be a
-> > bit of a mess. Specifically in this scheme the board "compatible" from
-> > the overlay will fully replace/hide the SoC "compatible" from the base
-> > SoC. If this is truly the main concern, it wouldn't be terribly hard
-> > to add a new semantic (maybe selectable via a new additional
-> > property?) that caused the compatible strings to be merged in a
-> > reasonable way.
-> >
-> > Aside from dealing with the compatible string, let's think about what
-> > a "board" is. I will make the argument here that the SoC qualifies as
-> > a "board" and that the main PCB of a phone can be looked at as a
-> > "cape" for this SoC "board". While this may sound like a stretch, I
-> > would invite a reader to propose a definition of "board" that excludes
-> > this. Specifically, it can be noted:
-> > * I have a development board at my desk that is "socketed". That is, I
-> >   can pull the SoC out and put a different one in. I can swap in a
-> >   "rev A0" or a "rev B0" SoC into this socket. Conceivably, I could
-> >   even put a "Tensor G6", G7, G8, or G999 in the socket if it was
-> >   compatible. In this sense, the "SoC" is a standalone thing that can
-> >   be attached to the devboard "cape". The SoC being a standalone thing
-> >   is in the name. It's a "system" on a chip.
-> > * In case the definition of a board somehow needs a PCB involved, I
-> >   can note that on my dev board the CPU socket is soldered onto to a
-> >   CPU daughtercard (a PCB!) that then has a board-to-board connector
-> >   to the main PCB.
-> > * Perhaps one could argue that a dev board like I have describe would
-> >   qualify for this SoC/board overlay scheme but that a normal cell
-> >   phone wouldn't because the SoC isn't removable. Perhaps removability
-> >   is a requirement here? If so, imagine if some company took a
-> >   Raspberry Pi, soldered some components directly onto the "expansion"
-> >   pins, and resold that to consumers. Does this mean they can't use
-> >   overlays?
-> >
-> > To me, the above arguments justify why SoC DTBs + "board" overlays
-> > should be accepted. As far as I can tell, there is no downside and
-> > many people who would be made happy with this.
-> >
-> > [1] https://lore.kernel.org/all/dbeb28be-1aac-400b-87c1-9764aca3a799@ke=
-rnel.org/
-> >
-> >  .../devicetree/bindings/arm/google.yaml       | 87 +++++++++++++++----
-> >  1 file changed, 68 insertions(+), 19 deletions(-)
-
-> > @@ -41,13 +32,71 @@ properties:
-> >                - google,gs101-raven
-> >            - const: google,gs101
-> >
-> > +      # Google Tensor G5 AKA lga (laguna) SoC and boards
-> > +      - description: Tensor G5 SoC (laguna)
-> > +        items:
-> > +          - enum:
-> > +              - google,soc-id-0005-rev-00  # A0
-> > +              - google,soc-id-0005-rev-10  # B0
->
-> SoCs cannot be final compatibles.
-
-Right. I talked about this at length "after the cut" in my patch. See
-above. I wish to relitigate this policy and wish to know more details
-about where it is documented, the reasons for decision, and where the
-boundary exactly lies between something that's allowed to be a final
-compatible and something that's not. I made several arguments above
-for why I think the SoC should be allowed as a final compatible, so it
-would be great if you could respond to them and tell me where I got it
-wrong.
 
 
-> Your commit msg does not explain what
-> is 'soc-id' or 'soc_id' in this context.
+On 11/7/25 04:34, Ben Horgan wrote:
+> In actbl2.h, struct acpi_pptt_cache describes the fields in the original
+> cache type structure. In PPTT table version 3 a new field was added at the
+> end, cache_id. This is described in struct acpi_pptt_cache_v1. Introduce
+> the new, acpi_pptt_cache_v1_full to contain both these structures. Update
+> the existing code to use this new struct. This simplifies the code, removes
+> a non-standard use of ACPI_ADD_PTR and allows using the length in the
+> header to check if the cache_id is valid.
+> 
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-In the commit message I do say: "SoC: an A0 pre-production variant (ID
-0x000500) and a B0 variant (ID 0x000510) used in production. The ID is
-canonicaly broken up into a 16-bit SoC product ID, a 4-bit major rev,
-and a 4-bit minor rev."
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-...then, I further say "In this patch, put the SoC IDs straight into
-the compatible. Though the bootloader doesn't look at the compatible
-at the moment, this should be easy to teach the bootloader about."
+Thanks.
 
-The idea here is for the bootloader, which can read the ID of the
-current SoC, to be able to pick the right device tree from among
-multiple. I am certainly not married to putting the SoC ID in the
-compatible like this. As I mentioned above, in downstream device trees
-the SoC is stored in a custom node and I thought upstream would hate
-that. I also considered giving the `soc@0` node a custom compatible
-string and adding properties about the SoC ID underneath that and
-teaching the bootloader how to find this, and I can switch to this if
-you prefer.
-
-If you have an alternate technique for which the bootloader could pick
-a device tree based on the current SoC ID or you have specific wording
-that you think I should add to the commit message to explain my
-current scheme, I'm happy to adjust things.
-
-
-> > +          - const: google,lga
-> > +      - description: Google Pixel 10 Board (Frankel)
-> > +        items:
-> > +          - enum:
-> > +              - google,pixel-id-070302-rev-000000  # Proto 0
-> > +              - google,pixel-id-070302-rev-010000  # Proto 1
-> > +              - google,pixel-id-070302-rev-010100  # Proto 1.1
-> > +              - google,pixel-id-070303-rev-010000  # EVT 1
-> > +              - google,pixel-id-070303-rev-010100  # EVT 1.1
-> > +              - google,pixel-id-070303-rev-010101  # EVT 1.1 Wingboard
-> > +              - google,pixel-id-070304-rev-010000  # DVT 1
-> > +              - google,pixel-id-070305-rev-010000  # PVT 1
-> > +              - google,pixel-id-070306-rev-010000  # MP 1
-> > +          - const: google,lga-frankel
-> > +          - const: google,lga
->
-> So what is the lga?
-
-"google,lga" is the name of the processor. I was under the impression
-that the last entry in the top-level compatible string was supposed to
-be the SoC compatible string. Certainly this was true in every board
-I've worked with and I seem to even recall it being requested by DT
-folks. It also seems to match what I see in examples in the kernel
-docs [1].
-
-At the moment, the fact that the SoC name is part of the top-level
-compatible is used in the Linux driver
-"drivers/cpufreq/cpufreq-dt-platdev.c" to implement its blocklist. The
-extensive list of compatible strings there shows how prevalent this
-concept is.
-
-I seem to recall a previous discussion where Stephen Boyd proposed
-that a better place for the SoC compatible string was under the
-"soc@0" node. Ah yes, I found at least one [2]  post about it, though
-I think there was some earlier discussion too. Do you want me to try
-jumping that way?
-
-
-> What is lga-frankel?
-
-This was an attempt to add a slightly more generic name for the board
-in case it was later found to be needed for some reason. I know that,
-occasionally, code finds it useful to test a top-level compatible
-string to apply a workaround to a specific class of boards. In this
-case, if someone needed to detect that they were on a "frankel" board
-but didn't care about the specific revision, they could test for this
-string.
-
-Alternatively, I could add something like "google,pixel-id-0703xx", or
-"google,pixel-id-0703", or something similar which "means"
-google,lga-frankel. If you'd prefer this, I'm happy to change it.
-
-I also have no specific need to add the "lga-frankel" compatible
-string here other than the fact that it shouldn't really hurt to have
-it here, it seems to match the example I pointed to earlier in the
-docs [1], and that it could be useful in the future. If you think I
-should simply remove it, I can do that. If we later find some need for
-it we can add some rules to deal with it then.
-
-
-> > +allOf:
-> >    # Bootloader requires empty ect node to be present
-> > -  ect:
-> > -    type: object
-> > -    additionalProperties: false
->
-> Please keep it here
-
-"it" being "additionalProperties", I think? I'm not sure I understand,
-but let's discuss below in the context of full examples and not diffs.
-
-
-> > +  - if:
-> > +      properties:
-> > +        compatible:
->
-> not:
->
-> > +          contains:
-> > +            const: google,gs101
->
-> > +    then:
-> > +      properties:
-> > +        ect:
->
-> ect: false, instead
-
-Trying to understand the above is making my brain hurt. Perhaps I
-didn't get enough sleep last night. ...or maybe my brain isn't meant
-to directly parse diffs. It's probably easier to just look at
-full-blown examples.
-
-Before, we had this:
-
---
-
-properties:
-  ...
-  ...
-  # Bootloader requires empty ect node to be present
-  ect:
-    type: object
-    additionalProperties: false
-
-required:
-  - ect
-
-additionalProperties: true
-
---
-
-In other words we were _required_ to have an "ect" node with no
-properties under it. However, additional properties are allowed in the
-root node.
-
-After my patch:
-
---
-
-properties:
-  ..
-  ..
-
-allOf:
-  # Bootloader requires empty ect node to be present
-  - if:
-      properties:
-        compatible:
-          contains:
-            const: google,gs101
-    then:
-      properties:
-        ect:
-          type: object
-          additionalProperties: false
-
-      required:
-        - ect
-
-additionalProperties: true
-
---
-
-In other words, on gs101 we're _required_ to have an "ect" node with
-no properties under it. However, additional properties are allowed in
-the root node. This seems correct.
-
-The best my brain can parse your request, I think you're asking for this:
-
---
-
-properties:
-  ...
-  ...
-  ect:
-    type: object
-    additionalProperties: false
-
-allOf:
-  # Bootloader requires empty ect node to be present
-  - if:
-      properties:
-        compatible:
-          not:
-            contains:
-              const: google,gs101
-    then:
-      properties:
-        ect: false
-    else:
-      required:
-      - ect
-
-additionalProperties: true
-
---
-
-In other words, we still define the "ect" node in the main section and
-say that it can't have any extra properties, but we enforce whether
-it's required under the "if" statement.
-
-The above has the "downside" compared to my syntax that it bans a node
-named "ect" on non-gs101 devices. While this doesn't really hurt, it
-also doesn't help. In my mind there's no reason to even think about
-(let alone ban) the node "ect" on devices that don't have the gs101
-bootloader requirement. Similarly, even though a node named "quack"
-would also not really be allowed, we don't have any rule like "quack:
-false". :-P
-
-I could also leave the "ect" in the main section and just add the
-"required" for "gs101" down below, but then I can't find a use for
-your "not:" or "ect: false" lines.
-
-In any case, I'm more than happy to use whatever syntax you prefer for
-this, but I'd love it if you could just paste in what you'd like the
-syntax to be so I don't need to kill 45 minutes trying to figure it
-out, test various hypothesis of what you could mean, and respond. ;-)
-
-
-[1] https://www.kernel.org/doc/html/v6.17/devicetree/usage-model.html#platf=
-orm-identification
-[2] https://lwn.net/ml/all/20250108012846.3275443-3-swboyd@chromium.org/
+-Fenghua
 
