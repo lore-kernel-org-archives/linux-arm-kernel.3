@@ -4,60 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A89ACD4842
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62E6CD4845
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 21:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeZSq8cTRPNkCJBMRm08kt9ICnIHjlA+S0LO9P37S5U=; b=FKa7bvE6snK+tK3ZlSxQfELpKs
-	FWgSjVHfjkPl7KMceRTJcCP0hB6Rg2nszAdQZVB6iC/99RXRC+Adf/tzelhxcnosf6SFJ4f3pbzTh
-	VUm7/rCllxXKKvicmdrV3D2mhN7izNn9JETtjdWbScPHjn/STf2ov8lZBorfd45X5djs2ZBxG0/r3
-	4L2WklfckMq57Zz2c4WZHZlgguv+p0FddkcnX58s0rp/JxYK5+wS29Q5sZ6/thZVbej7l/AFobjRq
-	1ynljlsF8pU7TjUktJkPLjKcm219a5CjKl0v6ZuLKHUqxO3GklnqI/69GJDbaZD4wth84xPl9A1sN
-	HHAaT8fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2uIncMys0gzBr3R1k/SsZNnB5Fy2d3cOf2SnN1h7VDg=; b=Q5NwwmpIlR9KOTzszXW0RkSXCG
+	bULp4LCAtQPuTirtZ/9cSxlBXozpWxWfwfO7sxdnSjiLYU81e9xfcfIpOO+PEK/Xli4ImDielqHkt
+	gvuv/jSaVPYpx2LESqEG8oq1x4ZcXadvcQGQA0xWdVi7kV7KupNmzu5vXi99ikC/NL35EI+8wtABC
+	g3NH4RT8YtTjejWdIsSfbEycPhvqHx5UKOVhbmemKSf9Q2S+xFf0OFGRuconYSetEnPkQdVzyLjBj
+	gq8w+kXXJehPJY7yZyItlQSrI1X4KdoEL2TmNb0+cUiWnpCiMU3Ay4PPv6zQ9IsCp/VAvt4OjZEMi
+	3aewMJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHrb-00000009VLQ-2zyS;
-	Wed, 12 Nov 2025 20:54:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJHwa-00000009Vjf-0QKK;
+	Wed, 12 Nov 2025 20:59:56 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHrZ-00000009VL3-1ajs
+	id 1vJHwW-00000009VjE-2XZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 20:54:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 691A14070A;
-	Wed, 12 Nov 2025 20:54:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C22C4CEF7;
-	Wed, 12 Nov 2025 20:54:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762980883;
-	bh=shLPokjsUpILOo1X8P8C8cncHvHe+SlOKxjkENPFbPQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C6oYEDCZaLs1q97C73mboQdwy54DSbOAzBgJt0e5c6NbKPH7F3vCJaSqEE6YxEeen
-	 xNUFsLpNEFyeCyJGUXJHfd+n39G0W0A+9Wcs4qUcJn1eXEMOMA71Fq8mqWFQ+gi1Nh
-	 ZjHRhCa0QcIfJ6k0MsNk11NKNnyB0UtJsmsYa/ptE/2fntLbnE9GxxXTg3ipvu9fle
-	 EiufeUp/I/1hMMfGK9l48NlqRsHpDjDdHWdLFV9bRoKEFKNDQZifQTvmATwu6QfNDk
-	 BNBfubcFe2UmRU7fxIaRyziQQWfp8du5Owu47JCA8UNAbcyZFWOjas5XtpbMon4Tb7
-	 Hwj5S8XGdJuZQ==
-Date: Wed, 12 Nov 2025 12:53:02 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [GIT PULL] libcrypto/arm64: Move kernel mode FP/SIMD buffer to
- the stack
-Message-ID: <20251112205302.GB1760@sol>
-References: <20251112093212.2392848-2-ardb+git@google.com>
+	Wed, 12 Nov 2025 20:59:54 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b7321b03aecso7676366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 12:59:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1762981189; x=1763585989; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2uIncMys0gzBr3R1k/SsZNnB5Fy2d3cOf2SnN1h7VDg=;
+        b=BVbPEMFUThLqDWn5dunZQR2DyWUc5h7wXhJyN8/wflo6bxzjK4dXOSKjj/+aSq8ZCV
+         a3qYA1I2ggkuaPBkx3NPeayJtVTy0kmo2kYMQ04yLxXbCmNGSVFJZwC0m1LEajU6vjaG
+         dCjt4qRh6IBkU3j261E+FeUq8pz4fNAm9ZRfs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762981189; x=1763585989;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2uIncMys0gzBr3R1k/SsZNnB5Fy2d3cOf2SnN1h7VDg=;
+        b=XqNkp3DcO2rj9ybVI0zN8M5VDVuWKcePSRKqHK0IXNj4RIAZZe8HmBuIF+XMCZ5Pp1
+         7d73YSo2lUQASctDrTj68TqDryvq98EBrgdPsgrI4w480ac6HEhQwBDHxMw1AwzEdi/b
+         OetfOX9/0PJFp8NOpIFw4tXTthfO/Q8/Dot1aKow9Y6ZTSfW52RqA22E7zvx3HJu5kbz
+         vkFaejzg4VYtSeWBjYkxCvvehbPk3Mv+JdAO9DI4+8mUs8GCaEXiCy/lTwcAaCiku54k
+         a2bIddtXbSTcx5nKcsbZDFO68mgQb89ofSZErxSASse1IGVjXrfvkK3BmJ1lOICHpf/1
+         oxuw==
+X-Forwarded-Encrypted: i=1; AJvYcCXfmSValygHZhiCmqwRYeAXJX+QSziCyMUNvAziJKubMWgt+5OaNWv9GqV87IWB4kZj+7va0H5inaPun7fiXpIs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIIGkCtFXIyzGoEZb35qRh/pSyubGAh9YFgrJiK4GeDlO8DkNc
+	J5QgDNA6SXoWFZMmi0poYo4cz5YgKGB3XW0ejTfrtuYK6D3v0FaFFby3KgSI1xX1ma70IQI+DrV
+	gJD9mJNzk
+X-Gm-Gg: ASbGncs7xmfBBgF7V6UfhiQWd0ZSL4jYWknS8o1V+EkiotO6fQLyTMQ/wuO+IHRKiLB
+	THlOMCwMisHZhRLCVX36SpWO12guXgqaqU+UctdnmIfP2X+7amO+ZNKoZYGVXwSgmEswHlc35w+
+	3ZFa9fD9c2u1rM2UVFEU+wc92DViJKCyEulWmycbu5GEkZvQQX6oFK6Yx1H0ogLZ/JuiWI8qGXK
+	yeNTep88WwTxK2yN06NdUzi6AJ8thNuNQQavh5nZEUGfTiOPOQqw+z+ML3WW+Qnlhh6e8XJCZJU
+	eFKSEg8uJYjoZFmick70qwQSmibQYn5bMUhpH3OQOUiIZvWM0p/sRgKQHJ3N28EB4p18Ut/sCcR
+	bXzijTiZb25BGFFFSALvVHBaxGtEumC09hAvxZsWTDtmQQ5e4KmPqvTeO7VXiF5yrCsegBU1T4c
+	nYycv3O242b5qSzmTL1jrKnb50alNny27n7NyfThJ5R6waneoZCQ==
+X-Google-Smtp-Source: AGHT+IGvTQOATuRHCYSnxnvpytuLoFtGbMMu3GUzJFVSK/hvXlkqa5eiuntSe/K1k2+ZNrRjQIns2g==
+X-Received: by 2002:a17:907:7fa6:b0:b3c:193:820e with SMTP id a640c23a62f3a-b7331972b4bmr467169466b.13.1762981189411;
+        Wed, 12 Nov 2025 12:59:49 -0800 (PST)
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com. [209.85.221.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fad45afsm1900166b.24.2025.11.12.12.59.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Nov 2025 12:59:47 -0800 (PST)
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-42b38de7940so54279f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 12:59:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUcfD9ySO73MnyQEXqHVqHXnFqJjP0XwwsUTLB9bSOqeEu5/mY2W5d/CAVsKh5pCS1lY6eCzltGhyUC9TXq1gX8@lists.infradead.org
+X-Received: by 2002:a05:6000:25c1:b0:42b:41dc:1b5e with SMTP id
+ ffacd0b85a97d-42b4bdaac86mr4128064f8f.30.1762981187099; Wed, 12 Nov 2025
+ 12:59:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112093212.2392848-2-ardb+git@google.com>
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.4.I5032910018cdd7d6be7aea78870d04c0dc381d6e@changeid>
+ <40e67c6d-2430-483b-b4b1-0220ffbd6418@kernel.org> <CAGXv+5Gx+skrUR3PXt=RSL8YyKZYeQCkJ-3qW9wtrHrr9aqWAg@mail.gmail.com>
+ <312ca473-77a6-4b95-b558-bb121294fbc9@kernel.org>
+In-Reply-To: <312ca473-77a6-4b95-b558-bb121294fbc9@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 12 Nov 2025 12:59:35 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=W3CTMkWPMN5GqGg_L_bUT2Q9vLpc43p5kWAf+j5HBEGA@mail.gmail.com>
+X-Gm-Features: AWmQ_bksI8oQbHqO0tKCB6fGhils4SI8u_vpu8lWPsuVYWGsi5YvtKpP0DRmdHE
+Message-ID: <CAD=FV=W3CTMkWPMN5GqGg_L_bUT2Q9vLpc43p5kWAf+j5HBEGA@mail.gmail.com>
+Subject: Re: [PATCH 4/4] arm64: dts: google: Add initial dts for frankel,
+ blazer, and mustang
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Julius Werner <jwerner@chromium.org>, 
+	William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_125445_464262_3CC5FF9A 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20251112_125952_717619_12C03DC8 
+X-CRM114-Status: GOOD (  56.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +115,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 10:32:13AM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Hi Eric,
-> 
-> (cc Catalin)
-> 
-> I have prepared a branch for libcrypto-next containing all the arm64 FP/SIMD
-> changes that are needed to move the kernel mode FP/SIMD buffers to the stack.
-> 
-> I have created two stable tags [a] and [b] in my tree at [0], containing the
-> changes as sent to and reviewed on the list, reordered to accommodate the task
-> of merging this into libcrypto-next in a bisectable manner.
-> 
->   [a] scoped-ksimd-for-arm-arm64
->   [b] arm64-fpsimd-on-stack-for-v6.19
->   
-> On top of [a], two additional lib/crypto patches have been applied to update
-> code that has already been queued up in libcrypto-next, moving it to the new
-> scoped ksimd API as well. This is better than hiding the changes in a merge
-> commit. The merge still resulted in a conflict on the old versions of the files
-> that were moved, but this is resolved by simply deleting them.
-> 
-> Please pull. Or alternatively, if you prefer, recreate the following sequence
-> directly on top of libcrypto-next (and resolve the conflict)
-> 
->       Merge tag 'ardb/scoped-ksimd-for-arm-arm64'
->       lib/crypto: arm/blake2b: Move to scoped ksimd API
->       lib/crypto: arm64: Move remaining algorithms to scoped ksimd API
->       Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto
-> 
-> The following changes since commit f101371e1972df3d897bf2326eda3c28aca2e58c:
-> 
->   Merge remote-tracking branch 'ebiggers/libcrypto-aes-gcm' into libcrypto-next (2025-11-11 11:08:57 -0800)
-> 
-> are available in the Git repository at:
-> 
->   [0] git://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git arm64-fpsimd-on-stack-for-libcrypto
-> 
-> for you to fetch changes up to 82ef0a6ac77cc0eaca1b5c2fc3436b18cda6ef83:
-> 
->   Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto (2025-11-12 10:08:20 +0100)
+Hi,
 
-I pulled these into a libcrypto-fpsimd-on-stack branch based on
-2dbb6f4a25d38fcf (which is currently the last commit that I'm planning
-for the "main" libcrypto pull request).
+On Wed, Nov 12, 2025 at 1:49=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> >>> To avoid fragmenting the discussion, IMO:
+> >>> * Let's have the discussion about using the "dts" for SoC and the
+> >>>   "dtso" for the boards in response to the bindings (patch #1).
+> >>
+> >> That's discussion here, bindings are irrelevant to this.
 
-Then I updated the head of libcrypto-next to be the merge of
-libcrypto-tests, libcrypto-aes-gcm, and libcrypto-fpsimd-on-stack.  I'll
-send these as separate pull requests after the main libcrypto one.
+Ummm, OK. In any case, I'm going to wait until our discussion in the
+bindings patch about whether SoCs can be final compatibles, then if I
+still think extra discussion is needed I'll respond more on this
+thread.
 
-In theory this should all work out.
 
-Note: I changed "lib/crypto: arm64: Move remaining algorithms to scoped
-ksimd API" to remove <asm/neon.h> from lib/crypto/arm64/polyval.h for
-consistency with the other files, and to add braces around the for loop.
+> >>> * If we want to have a discussion about putting "board-id" and
+> >>>   "model-id" at the root of the board overlays, we can have it
+> >>>   here. I'll preemptively note that the "board-id" and "model-id"
+> >>>   won't show up in the final combined device tree and they are just
+> >>>   used by the tool (mkdtimg). We could change mkdtimg to parse the
+> >>>   "compatible" strings of the overlays files (since I've put the IDs
+> >>>   there too), but official the docs [1] seem to indicate that
+> >>>   top-level properties like this are OK.
+> >>>
+> >>> In order for these device trees to pass validation without warnings,
+> >>> it's assumed you have my dtc patches:
+> >>> * https://lore.kernel.org/r/20251110204529.2838248-1-dianders@chromiu=
+m.org
+> >>> * https://lore.kernel.org/r/20251110204529.2838248-2-dianders@chromiu=
+m.org
+> >>>
+> >>> [1] https://git.kernel.org/pub/scm/utils/dtc/dtc.git/tree/Documentati=
+on/dt-object-internal.txt?h=3Dmain
 
-Thanks!
+> >>> +     board-id =3D <0x070306>;
+> >>> +     board-rev =3D <0x010000>;
+> >>
+> >> Undocumented ABI, which you cannot document because these properties a=
+re
+> >> not allowed. You cannot have them.
+> >
+> > This is part of the discussion I want to have at Plumbers. But I suppos=
+e
+> > we can start here.
+>
+> Then the patch should be called RFC as not yet ready for merging. :)
+>
+> >
+> > The Android DTB partition format uses six 32-bit integers for matching,
+> > as opposed to a compatible string used in FIT images. Two of the intege=
+rs
+> > are the "id" and "rev" numbers in the example above. The remaining four
+> > are custom and left up to the (vendor) bootloader implementation.
+> >
+> > The values for these fields need to be stored somewhere with the .dts.
+> > The compiled DTB is useless if the user cannot build a proper image for
+> > the bootloader to consume, and that involves putting in the right numbe=
+rs
+> > in these fields. The android "mkdtimg" tool can either take the values
+> > from some known properties within the DTB, or have them fed to it
+> > externally.
+> >
+> > So if we don't want these numbers in the dts itself, then we should com=
+e
+> > up with some format to store them beside the dts files.
+>
+> Re-iterating comment from Rob long time ago: adding such new properties
+> is fine, but they must come for more than one user and be universal
+> across these users.
+>
+> And of course the ABI needs to be documented which did not happen here.
+>
+> I indeed said incorrectly that "properties are not allowed". The
+> properties could be allowed if we document them according to above Rob's
+> comment, but that did not happen.
+>
+> Adding these properties per one SoC vendor is not really allowed, like
+> qcom,board-id and qcom,msm-id, but maybe you intend to make it generic.
 
-- Eric
+Perhaps you have a link to Rob's comment from a long time ago?
+
+As per my comment "after the cut" in the original patch (see above),
+for my use case, I'm OK with removing the "board-id" and "board-rev"
+here. It wouldn't be terribly hard to teach my tool to parse the
+top-level compatible. That being said, it would be nice to allow them
+at a top-level like this. As Chen-Yu says, there are other interested
+parties.
+
+The official documentation that I referred to in my comment "after the
+cut" says this about properties directly in the overlays:
+
+```
+/dts-v1/;
+/plugin/; /* allow undefined references and record them */
+/ {
+    .... /* various properties for loader use; i.e. part id etc. */
+    fragment@0 {
+```
+
+So properties are clearly documented to be allowed here. When I read
+the above, I interpret it as the properties are "whatever the expected
+loader of this overlay would find convenient".
+
+I am more than happy to document which properties my "loader"
+(mkdtimg) needs if you have some proposed place or way for me to
+document them. I'm happy to do it in freeform text (or markup) for now
+if that's what people would accept. Maybe that lets us get started yet
+still document things while we figure out what the needs are?
+
+
+> > On a similar note, we would have a similar problem with FIT images and
+> > overlays. The FIT image format maps a (series of) compatible string(s)
+> > to one DTB and any number of overlays. If overlays are involved, then
+> > the compatible string cannot come from the DTB itself, and the mapping
+> > must be stored somewhere.
+>
+> I recall, although cannot find now references to, a email talk on the
+> list saying that such overlays should have their own compatible, thus
+> solving this mapping problem.
+
+If you have more details or if Rob wants to re-iterate his thoughts,
+I'm happy to discuss.
+
+In my mind, I'd rather this not be a "compatible" but I'm also not
+dead set on that. IMO, though it can be made to work, having a
+"compatible" here is sorta backwards from what we want. We faced this
+issue in ChromeOS when we used the top-level "compatible" to pick the
+device tree. Specifically, the normal usage of "compatible" is to
+start with the device tree which has a list of compatible strings.
+From there, we pick a driver that matches. AKA: we start with some
+"compatible" strings and find a matching "thing" (a driver). When
+using a "compatible" to pick an overlay / device tree, we start with a
+"thing" (a known board) and then pick a list of "compatible" strings
+that matches it. Hopefully it's clear how that's a bit different.
+
+As I said, the problems are mostly subtle, but this is how we ended up
+with the weirdness on Chromebooks where we had a pile of all equal
+"compatible" strings at the top level and that made all the DT folks
+grumpy. See, for instance, the sc7180-trogdor-lazor-r1.dts file where
+"google,lazor-rev1" and "google,lazor-rev2" are both there. We'll pick
+this same DTS for both revisions.
+
+It can be made to work, but IMO it's not a perfect fit.
+
+I'd rather us just pick some standard property that documents the
+information that the expected loader should need. Maybe you could even
+handle more than one loader type?
+
+/ {
+  loaders {
+    mkdtimg {
+      board-id =3D <0x1234>;
+      board-rev =3D <0x5678>;
+    };
+    other-loader {
+      something-else  <0xaaaa>;
+    };
+  };
+
+Then under the "loaders" node we have node names that need to match
+exactly for various loaders and then properties that they need.
+
+I haven't tested this, but I believe that since the "loaders" isn't
+under any "fragment" that it will just be ignored when the overlay is
+applied, so it will just be for the consumption of the loader.
+
+
+-Doug
 
