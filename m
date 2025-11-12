@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E158ACCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98675CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xoz7YPL/y6lIQdCJL39HKVWLjaRqC5V0hYZHrB4eFLI=; b=atmN+IQ9+imp2gqR0bI0miaQ+5
-	ZJoHo/v//mn+5lWZ972s3uZQ2Ua/SMu6uHMikZG3crRKbOWCYcpVypgSHY6z+4ksu5fln9jl6PQDh
-	5jWqQgeUl9TnL+C+xhIIuB329e/gEfOKabxg8FYfPdC4o81ZXoRWEUWY/U+qtnMTQaKNbg9knnQWe
-	Z/nRl/FwmXWa5S/D6VGBp6VNDoV4oPYORzlyVVE7G3+l63ctO/oLeujTpxoVNggrrqE2/sfIPvZ9c
-	hDusK2sYuRp3sCoxw7tSdVe7pXweQpJ+RpDRdov3qo6fRSjnV+HgGZQnumEUdEkZwCS666kf1gkIv
-	+fQ+DT0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YEazmcdbzLcLcJ60AM9hrB88wM2bFR9sZr69NzsNQqQ=; b=YQf0dkZij4uU5vRctA7itdQ/Sq
+	+cbpj6NAH/1Pt3LuVk5w5fA4xgGt5eYv2qsZD8iG3EpYZJqZzsCJOHb2uiNGlzEq+q/NYNa7VSIzG
+	8FIW7Pltr9Rz3dvzqQLNUxzVxPu0Sm3BmpGB0Ir10HhcJzcrtKCINjVd7oEvWaOA6VUgI6nTMSEyQ
+	/LSqppio5tSxfxtcEY9Tubua8660d1O90kuftm5ljG4ejo5Wq2U/4pok7chE3q7diEoqNciLDvpPs
+	K8IXxuKFrROTBmeOTsXXnVrpt1AHs5FFIH4VekOQdN7ZmA4fpzbKr27zPprvaTrwyKWhjl81amY4U
+	hE4JAN1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9ZN-00000008kZW-0Kut;
-	Wed, 12 Nov 2025 12:03:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9ZK-00000008kYs-3G6t
+	id 1vJ9gX-00000008kw2-3D3u;
+	Wed, 12 Nov 2025 12:10:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ9gV-00000008kvA-0LFz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 12:03:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Xoz7YPL/y6lIQdCJL39HKVWLjaRqC5V0hYZHrB4eFLI=; b=N/WrlRce8BD9pwqOiWiGcSC5Ud
-	ngXCivkY/u7oM63Lt0K79/8+MQ+4O3mtOorWXfrj1ihNnJ5Hf4dl8aikp5F12LKKM0BKiCqo7VILF
-	7aCmlV2Gru5W99VItBAa8Rjbu7SMM8OFaodm664dwEWjytKQdksJJb0uOI+01t5pw2/aK+4WO/vAV
-	WHjdVNJ6Uz5BMmRMsMY/MSp+L1Ole5a2CR3IcW0PH87vXdTXvgJvXxsNq3Q//xSjibazIBMZOChCL
-	K/ZxVTsds16rvUuUaFugEfYPFpaUMek9ytaJ/zDUWHtlXbGNyX5+1G8nYuEc0bB7K08bnZBcGWYFH
-	F+Gje5Jw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43456)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vJ9ZE-000000003r2-1MGx;
-	Wed, 12 Nov 2025 12:03:16 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vJ9ZC-000000003rC-0AOi;
-	Wed, 12 Nov 2025 12:03:14 +0000
-Date: Wed, 12 Nov 2025 12:03:13 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
- <20251027234648.GC24987@pendragon.ideasonboard.com>
- <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
- <20251028071817.GX13023@pendragon.ideasonboard.com>
- <20251111235434.GA25874@pendragon.ideasonboard.com>
+	Wed, 12 Nov 2025 12:10:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 175801515;
+	Wed, 12 Nov 2025 04:10:36 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 43C3B3F5A1;
+	Wed, 12 Nov 2025 04:10:42 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>,
+	Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 00/11] CoreSight: Refactor power management for ETMv3/4
+Date: Wed, 12 Nov 2025 12:10:31 +0000
+Message-ID: <176294942171.582484.7200845964334648364.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
+References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251111235434.GA25874@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_040322_847870_988C78D6 
-X-CRM114-Status: GOOD (  38.62  )
+X-CRM114-CacheID: sfid-20251112_041047_169692_7A4DB1DB 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,104 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 01:54:34AM +0200, Laurent Pinchart wrote:
-> On Tue, Oct 28, 2025 at 09:18:17AM +0200, Laurent Pinchart wrote:
-> > I didn't notice it at the time because my board was connected to a
-> > switch that didn't support EEE.
+
+On Tue, 11 Nov 2025 18:58:34 +0000, Leo Yan wrote:
+> This series is extracted from the CoreSight power management fixes and
+> refactoring [1], focusing on ETMv3/4 power management.
 > 
-> I can confirm that reverting that commit makes the issue disappear. So
-> we're dealing with an interrupt storm that occurs when all three of the
-> following conditions are true:
+> This series has been verified on Juno-r2 platform.
 > 
-> - cpu-pd-wait is enabled
-> - EEE is enabled
-> - the peer also supports EEE
-
-Thanks - overall, please take the statistics and interrupt status bits
-with a pinch of salt - I suspect there are cases where the interrupt
-is not actually enabled, and the code doesn't take action to clear
-down a set status bit, but _does_ count it - so every interrupt that
-happens increments the counter.
-
+> [1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
 > 
-> Furthermore, I tried counting bits from all the interrupt status
-> registers I could find. The count of MTL_INTERRUPT_STATUS Q0IS to Q4IS
-> bits is very high, and so are the DMA_CH0_STATUS TBU and ETI bits.
+> [...]
 
-TBU means that the transmitter found that the next buffer was owned by
-the "application" rather than the hardware, which would be normal after
-getting to the end of the queued packets.
+Applied, thanks!
 
-ETI means that a packet has been transferred into MTL memory, and thus
-would occur for every transmitted packet.
+[01/11] coresight: Change device mode to atomic type
+        https://git.kernel.org/coresight/c/693d1eaca940
+[02/11] coresight: etm4x: Always set tracer's device mode on target CPU
+        https://git.kernel.org/coresight/c/28eee2158575
+[03/11] coresight: etm3x: Always set tracer's device mode on target CPU
+        https://git.kernel.org/coresight/c/ab3fde32afe6
+[04/11] coresight: etm4x: Correct polling IDLE bit
+        https://git.kernel.org/coresight/c/4dc4e22f9536
+[05/11] coresight: etm4x: Add context synchronization before enabling trace
+        https://git.kernel.org/coresight/c/64eb04ae5452
+[06/11] coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
+        https://git.kernel.org/coresight/c/1fdc2cd347a7
+[07/11] coresight: etm4x: Remove the redundant DSB
+        https://git.kernel.org/coresight/c/a5e6f584dab0
+[08/11] coresight: etm4x: Remove the state_needs_restore flag
+        https://git.kernel.org/coresight/c/d2c051f7a5ed
+[09/11] coresight: etm4x: Add flag to retain single-shot status
+        https://git.kernel.org/coresight/c/c3d84848bd70
+[10/11] coresight: etm4x: Retain sequencer state
+        https://git.kernel.org/coresight/c/1b4e911af51c
+[11/11] coresight: etm4x: Reuse normal enable and disable logic in CPU idle
+        https://git.kernel.org/coresight/c/efdccf6a5118
 
-Having dug into the imx8m documentation and the driver this morning,
-I don't think TBU and ETI are the source of the interrupt storm. Their
-corresponding interrupt enable bits are DMA_CHAN_INTR_ENA_TBUE and
-DMA_CHAN_INTR_ENA_ETE (driver names). Both of these only appear in a
-header file - the code never enables these interrupts. So, TBU and ETI
-should not be causing an interrupt storm.
-
-As for QxIS, stmmac_common_interrupt() will iterate over the queues
-in use, calling stmmac_host_mtl_irq_status() aka dwmac4_irq_mtl_status()
-for each. Only if this happens will MTL_CHAN_INT_CTRL() be read which
-clears the status bit. In other words, if e.g. Q1IS is set, but only
-one queue is being used. dwmac4_irq_mtl_status() won't be called for
-queue 1, and thus MTL_CHAN_INT_CTRL() won't be read to clear Q1IS.
-
-> The debix board's DT doesn't specify a multi-queue setup, so only
-> channel 0 gets processed in stmmac_dma_interrupt(). I thought that could
-> explain why Q1IS to Q4IS stay set (but not why Q0IS also has a high
-> count, or why Q1IS to Q4IS are set in the first place), and enabled
-> multi-queue support in DT by copying the imx8mp-evk configuration. I
-> then see lots of non-zero DMA_CH1_STATUS, DMA_CH2_STATUS and
-> DMA_CH4_STATUS values (but DMA_CH3_STATUS stays 0 all the time), but
-> sadly this doesn't fix the interrupt storm.
-
-Now, a queue will only be enabled if stmmac_dma_rx_mode() /
-stmmac_dma_tx_mode() is called, which only happens for queues that are
-going ot be used. So, I think QxIS where x >= 1 is set is a red
-herring.
-
-Given that the driver does a software reset which clears out all the
-registers, any stale configuration for queues e.g. from a boot loader
-can't be preserved.
-
-> I don't think I can debug this further and figure out the root cause
-> unassisted in a reasonable amount of time, so I'd like to merge
-> disabling EEE as a workaround for the time being, unless someone has any
-> idea of what I could test next. I'll submit a v2 of this patch with an
-> updated commit message.
-
-I'm also not fully conversant with dwmac hardware, especially not the
-v5.10 hardware that is in imx8m. All the above is stuff I've pieced
-together this morning from reading the driver code and the imx8m
-manual. I'm putting in effort here to try and get to the bottom of
-your problem without hardware... it would be helpful if others could
-do the same rather than throwing their hands up.
-
-The driver is really crappy, and part of the reason its crappy is
-because of this kind of "patch in a workaround because we can't be
-bothered to do the research and fix problems properly" attitude.
-
-I'm saying enough is enough. I'm saying no, not going to merge a
-workaround for this problem. I want to see stmmac improve. I've
-put in considerable effort over the last year or so sorting out
-fundamental issues that others just can't be bothered to solve
-properly (like the DMA reset failures on resume that has plagued
-this driver which no one seems _capable_ of fixing, yet I, with no
-experience of stmmac, was able to analyse the issue, read the
-availble documentation, and fix the problem properly once and for
-all.) Either I'm bloody good at what I do and everyone else is
-useless, or it's laziness by others. It pisses me off that I seem
-to be one of the few who is willing to put the effort in to stuff
-in the kernel to see _improvement_. I don't _have_ to work on stmmac,
-but me working on stmmac benefits a lot of people.
-
-What I'm saying is, we need more people willing to put effort in
-and less bodging.
-
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
