@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0624ECCFA1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19482CCF9E3
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDsBSlb7WeG4t+Zz0qQoWGyQAvxf7H4neeIGYfC2zjY=; b=jlw4SiHkRa/Bb+CvjaPoKVS1YV
-	77uM9pLOUDJOHojWq7VSS/0lIixzNflUH/DfPGomnyM0CftIk5ec4ZljpAHKi9AyH30ZqYJiQM6Dp
-	V6a+QU6g3Us2WFa/NI7OgVYeq7W+3kjGzUmHB2GwXwUs8ebVWRQKGseu9cKrvA057NehcbI1RPysq
-	W8eGBOjnOpCjCbx7aSqe53zCAHfhmWpW/R5/3ULvgdhFeHDPWpVT3fBmTDSRZpybHmWYOtQNTktOt
-	n96rPrHZ6xdnjIx8ZIlEJ02g3T5QSn1QEd8+g6+1net9vPKgzA++j85REGvHWy1WzmuWd71d3/6SQ
-	PWGQ/ibA==;
+	bh=ILLjcNFKCShCpCjFdgdkPREBFmKKVtEX1F/DK1p7azU=; b=G3AvvuNDG0MotFuDpD8LLUvllo
+	U84OsJcNyMq1cQ9RFI5AFZQn40H0BVpDBff5lBuhDAfdBOYGgrkDxNWqeweL3KLCacMGol8yEi3uU
+	bm01hdje/SO+fb7yg4VvrCz4ov5hihvpooVhacKeNoPeRzzSiWl6b3FQHwQYXKJSvbxyloBlSsQcn
+	eQoD3SjEfTf0UQkosU3WduEAD8Zt+Y1gsrM9VuIRxnwbLvQ/9LoS+JYPAqxNB1QRpXsHTEoz5Q3Si
+	Iwoxmx06g4DpOGMppnnrwJUT10ZUal6S+cIk0T5fvCEb8pvDUlvevCCSkW7Xp0KTaVPZihmf1dgzP
+	vyekb4SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCgK-000000092VD-3Kiv;
-	Wed, 12 Nov 2025 15:22:49 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vJCgJ-000000092Rw-13AR;
+	Wed, 12 Nov 2025 15:22:47 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCgE-000000092Mm-21HO
+	id 1vJCgB-000000092Kp-2SqO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:22:43 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47774d3536dso7195315e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 07:22:41 -0800 (PST)
+	Wed, 12 Nov 2025 15:22:40 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42b2a0c18caso795070f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 07:22:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762960961; x=1763565761; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1762960958; x=1763565758; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RDsBSlb7WeG4t+Zz0qQoWGyQAvxf7H4neeIGYfC2zjY=;
-        b=tx6oMk2hktP1X1qz6hIBHqY/998Dy6931e9FrPMUzwW/kX5p45vzSsExL0FGsptn03
-         kxKK+2glvfUwRmtCrR2PEYGaT9ELSYG7GQBeB4kHSD6Q+VVz937IpWrShi0U9KYcy0br
-         r7clvcvKOF+m63oUOfluTEzybltVqBnYJzeLhZjLs21jWUWf5zij6+3PPMayzE3Doba/
-         RTBKhzLtYGH2ZX+RLGtClH+Xtdlb6ghDzOzGd6nV4hI7hGNhPqO0bsJ6yvOjUkV/swI5
-         qLMflCzAEsa5/8hnuTmVTOS3FBYV7QcCkmOaJ/sFBnWRcS7pY9+nIMkNAPQ7GECLQnkf
-         2WMA==
+        bh=ILLjcNFKCShCpCjFdgdkPREBFmKKVtEX1F/DK1p7azU=;
+        b=RA9uCG93cENU1dDr4f7S8wh7txM4kWemrEwiuXw/IzAJjb7B/4Y9p9i0AWdgZqxK6i
+         Xk0dC8Uf5bRzpaat90h6LUQs4CRwnWL2+dVAGl0u/Z4J1lY0w6WmFWJ4b3dRTmZQf4gU
+         /q7/pQ7m1PAbBNDKbil5exogGpc5yQy7GMNTqAlYI9Qh9he8qUokMXxH73ZVofVPz8LB
+         QPhuVnqaJN6NKcvaBUoxZ5AKjBIlEDQ+esZp6RRP3TDNnpeiYEFYeF9AeRqkBeJLQoJE
+         gOoNlZbMXCFIDeMok9WactNgVu/41OcUMkqi+pMQoxxAM8UvV6GTxY+ILvliLWkqU6+a
+         wsnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762960961; x=1763565761;
+        d=1e100.net; s=20230601; t=1762960958; x=1763565758;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=RDsBSlb7WeG4t+Zz0qQoWGyQAvxf7H4neeIGYfC2zjY=;
-        b=WuHgBpSF2UpzyTwRF6+MB7YLfqybWXnl2dB+GPgbxp9e4nHHpc57V/Ka3XM9JeFXkA
-         3XdrpCgDL5LWw2JFcUdwQaOlYmgy8xtIDi71ll0EBbKqmQdo17JrJYtf6VxxtWY+BI6c
-         l2UV6+sX5jxShukJsyJ9qhw0s0V+DwW6ukLMxmXS6TcubOIR2J319sHNiPxpdyg+4ezX
-         cV7wmOcbMLsbI6jhC7Is3BzAS4/G7X3ZiJBgzJL5Ghgt69tlkxs6QxKGhmWk+6bvt8+v
-         9idQMusg8V5r6Y6w7NGZJ07IsLYbUzeypHQwgmHCPeDiQr9sNGeOufjhmqiX55wI+rXx
-         nxsA==
-X-Forwarded-Encrypted: i=1; AJvYcCWSzSzmjNTtO4R7iJkByZoJy5PKuysxmBLDGxTbMmsPVaWHjCZM1iCiRQWyiWBJ+46VK4KfPerxb213Sz8zFOTc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfg0ZKvGEXbv8RFh3SRXnej4Bokh4y9WzJCqQ7ufsK98YSyapf
-	Fnfv71E1bXLk6Gn+ZHFC9eTTqrQdqdoSFcaj3TbHVRLFEAxWpOgFuygFyC94Xb5g9RE=
-X-Gm-Gg: ASbGncsp6tUkIr3vRfUVSxLbBRhOcZWA+vXqRUqGlrF28VYJ9fmO7hSttCXJTgT8z2X
-	dJ2+sevNCZ7FvbEVxwv9UnjJsOQsCaVXEsNsT4rqLbdYiCLBYG+eULVdwRcuqjIGLKAl/8sgLPK
-	16D6JIE5Z9YM/uWLyZlKzt1/0Fz1hu7CMPXKYXFQimD3lpWRUWVMlLXWCFaWi0sr3K9Q8u5Lomz
-	+AuMmoItL2HX62N6o131DQSsbhMeNiEDU4f3t5thAREIoVBvuhvBwReJFotk6WHVf3XlDOl30Q5
-	hQADlvlGgKPFh9KSXeeBtGF7BJTouudcMc7QIHFKVVs4870hk9Bz50kAMtCEsEboXzBMu1XU10o
-	n6x/FsLMz1Tc+AegT2+PkCdFIW//g2wglmSG+p4WgngA3thALbGSFFK9j5m/FbaaJdWvsv9zYk/
-	j6c+5Fuvz4hA==
-X-Google-Smtp-Source: AGHT+IEuc3bgQChegQeV43CchL7U+HtACup7lJPgzLmedOPZfHtTOSw9g16bfGt0TS1oBLr+C/CdKQ==
-X-Received: by 2002:a05:600c:80c5:b0:477:7588:c8cc with SMTP id 5b1f17b1804b1-4778142013amr40810085e9.7.1762960960555;
-        Wed, 12 Nov 2025 07:22:40 -0800 (PST)
+        bh=ILLjcNFKCShCpCjFdgdkPREBFmKKVtEX1F/DK1p7azU=;
+        b=fsJZpdJFW9gB4nFgBMSqoAvI9K65X+9j+JnzvCe5xvgBoAyzrEdbKj2s1Iv3/JvLJq
+         v2uySMHkTHZZ5kWsAG/yez8jzwt2K5nkK5jc8V/aOOsNfhFGM6JtAeT6W+4+GpPPJndw
+         IVr+1KxRpxSmz0p6JNMnxUwUHaNQwlnvEXyrMWDdkrQhjhlZWzdz+RezHcdzTWIDE9to
+         o/gX6i4uCekjsN2zHY+cdBt7sEtGJ6BG45UQpYAZlWUYigUH6JGUlRLWTcQqHF2f5Blr
+         Qy7qDu5mgaV4jDnpFZkfYc1v9CNf3Mu/kpQKKY/fqvVthG44VmxfyUPDmdtL2wpzbyCK
+         EziQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0C73VYhEpEiC3PBxiBjUwdq3qa+EJFXNrPHfKVuLkoMIQKIHFUpPAR6K2719M0VE6ULxiV67eW9UCm0zkeFiy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoRyfkZMj3CV7cpW+eecliHJZGaHLqtt0Gvh8o55nXl6yUKf2N
+	xxyou5rt7Di+tO1ACsK0ViwW/CjOu3erves65RBSzmUL0MRd3sdMrV6xdD88Fj2PBdo=
+X-Gm-Gg: ASbGncvwy4VpsAjQMby3zjaRUL/PHIdAZ5z4UpDpbsFQ2zsh1I5uNgYoVc8aE7aHRsp
+	iQDtumf+7rYgxDhia872smbFB2mvAv5UJyRLSQA5gb0i8aiYWk9/sU+bzgjQ17nsj1ll/YmROSF
+	MUq/lfko8uy6ilL3CHY6O98zGQsyCPFDBUXiETfJaugmoDfP5Q7U+H0Er7tuxwnF8r4EQpLm2Sv
+	kR7G4rRibOP4E+yLjqyiP5d8fxGe58Nu/RnxNqAzVWUhD3OEs59FEV9mi6ABx6IZUANjtlY6m02
+	peT9bELWxpXphY37sKA0TH+M6Pgs3eDTt9fPQqIWTgg/7bzC96+GN4lThAI64wXC8QDgQjuHBix
+	o4miFfWiZ+r4+pGORZ9bcvT4VjnByNVQicWztHPkJC5xsuvoXvQELusTXthdEL9AajfB/ST6gAB
+	E9B5qSz3V14g==
+X-Google-Smtp-Source: AGHT+IGjdUCcCG92Q/jqFroCRNOfWwVifVOKjjlFDKz+QCM71f6L1+0atNpuSmvuBiDEBaoYhQJwCQ==
+X-Received: by 2002:a05:6000:420e:b0:42b:43cc:982f with SMTP id ffacd0b85a97d-42b4bdb0267mr3253494f8f.39.1762960957948;
+        Wed, 12 Nov 2025 07:22:37 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm33573485f8f.35.2025.11.12.07.22.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm33573485f8f.35.2025.11.12.07.22.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 07:22:40 -0800 (PST)
+        Wed, 12 Nov 2025 07:22:37 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 12 Nov 2025 15:22:19 +0000
-Subject: [PATCH v4 13/13] coresight: docs: Document etm4x timestamp
- interval option
+Date: Wed, 12 Nov 2025 15:22:16 +0000
+Subject: [PATCH v4 10/13] coresight: Remove misleading definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
+Message-Id: <20251112-james-cs-syncfreq-v4-10-165ba21401dc@linaro.org>
 References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
 In-Reply-To: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -89,8 +88,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_072242_542189_A3C61434 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20251112_072239_651705_608485B8 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +104,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document how the new field is used, maximum value and the interaction
-with SYNC timestamps.
+ETM_OPT_* definitions duplicate the PMU format attributes that have
+always been published in sysfs. Hardcoding them here makes it misleading
+as to what the 'real' PMU API is and prevents attributes from being
+rearranged in the future.
+
+ETM4_CFG_BIT_* definitions just define what the Arm Architecture is
+which is not the responsibility of the kernel to do and doesn't scale to
+other registers or versions of ETM. It's not an actual software ABI/API
+and these definitions here mislead that it is.
+
+Any tools using the first ones would be broken anyway as they won't work
+when attributes are moved, so removing them is the right thing to do and
+will prompt a fix. Tools using the second ones can trivially redefine
+them locally.
+
+Perf also has its own copy of the headers so both of these things can be
+fixed up at a later date.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- Documentation/trace/coresight/coresight.rst | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+ include/linux/coresight-pmu.h | 24 ------------------------
+ 1 file changed, 24 deletions(-)
 
-diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
-index 806699871b80..80b5ed09d69b 100644
---- a/Documentation/trace/coresight/coresight.rst
-+++ b/Documentation/trace/coresight/coresight.rst
-@@ -613,8 +613,19 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
-      - Session local version of the system wide setting: :ref:`ETM_MODE_RETURNSTACK
-        <coresight-return-stack>`
-    * - timestamp
--     - Session local version of the system wide setting: :ref:`ETMv4_MODE_TIMESTAMP
--       <coresight-timestamp>`
-+     - Controls generation and interval of timestamps.
-+
-+       0 = off, 1 = maximum interval .. 15 = minimum interval.
-+
-+       Values 1 - 14 use a counter that decrements every cycle to generate a
-+       timestamp on underflow. The reload value for the counter is 2 raised to
-+       the power of timestamp interval - 1. If the value is 1 then the reload
-+       value is 1, if the value is 11 then the reload value is 1024 etc.
-+
-+       Setting the minimum interval (15) will disable the counter generated
-+       timestamps, freeing the counter resource, leaving only ones emitted when
-+       a SYNC packet is generated for every 4096 bytes of trace.
-+
-    * - cc_threshold
-      - Cycle count threshold value. If nothing is provided here or the provided value is 0, then the
-        default value i.e 0x100 will be used. If provided value is less than minimum cycles threshold
+diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
+index 89b0ac0014b0..2e179abe472a 100644
+--- a/include/linux/coresight-pmu.h
++++ b/include/linux/coresight-pmu.h
+@@ -21,30 +21,6 @@
+  */
+ #define CORESIGHT_LEGACY_CPU_TRACE_ID(cpu)  (0x10 + (cpu * 2))
+ 
+-/*
+- * Below are the definition of bit offsets for perf option, and works as
+- * arbitrary values for all ETM versions.
+- *
+- * Most of them are orignally from ETMv3.5/PTM's ETMCR config, therefore,
+- * ETMv3.5/PTM doesn't define ETMCR config bits with prefix "ETM3_" and
+- * directly use below macros as config bits.
+- */
+-#define ETM_OPT_BRANCH_BROADCAST 8
+-#define ETM_OPT_CYCACC		12
+-#define ETM_OPT_CTXTID		14
+-#define ETM_OPT_CTXTID2		15
+-#define ETM_OPT_TS		28
+-#define ETM_OPT_RETSTK		29
+-
+-/* ETMv4 CONFIGR programming bits for the ETM OPTs */
+-#define ETM4_CFG_BIT_BB         3
+-#define ETM4_CFG_BIT_CYCACC	4
+-#define ETM4_CFG_BIT_CTXTID	6
+-#define ETM4_CFG_BIT_VMID	7
+-#define ETM4_CFG_BIT_TS		11
+-#define ETM4_CFG_BIT_RETSTK	12
+-#define ETM4_CFG_BIT_VMID_OPT	15
+-
+ /*
+  * Interpretation of the PERF_RECORD_AUX_OUTPUT_HW_ID payload.
+  * Used to associate a CPU with the CoreSight Trace ID.
 
 -- 
 2.34.1
