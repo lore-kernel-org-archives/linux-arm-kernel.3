@@ -4,204 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720A5CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5C2CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auGOFysnoyBGphE5Av33H7xC/+jQursG/QXF1hMfeDo=; b=baDj/vG3Cf62a79htSi7r3p3pi
-	v2ZP8ljA5xFSrvg1S2tXBaqYK8kxQz1WK2Q6xzgX8nbvBd/n/AzmRUoxNYLNjXZZyjBdEZZELf9yQ
-	g9myI8MLH6II6m/q94FMztdWOw6M7fz8F3S5Q8YFShUhsUapQxiWwi1XZcCAhakHLhT3epm665VT6
-	naMPZajXCQ5xlnJJZdyE1Tb12v98rSiBzg6RbTWZegRARVliYReM5oahqF/Ly9OKpsoSLXq4fTSjz
-	1mnQnN45rB1CvcIZaB11RhyxvB0W7kfWzzJAtl6jWIiayosR21y15PR2GuuqwUCBtp53ukVAXOLQ1
-	5pCfd59w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JtogQFcSHlN8gkfKXvyp9GsEsbrpcQ/U+ViAyh1NORc=; b=pETzbIDhRe/pGFPHnakJG54K4d
+	kcnL5qnfsvfGGUZ/OaV8lByL1jpOiy22XuzUNTwhlbYuHYvh5rFGjr/zRczNNJ8jQEl2+vuQvwN5k
+	opwsNcJbLzDuT9SIlGbynKehRcigWynkYXs055aiL0zsnNzhOAxYkFVQ2pu+qOA74J34/p/cdHmIx
+	eO9U/x7f6WAhuo8FmIfHwRkiQRaQgFXl9CyrTZUDDCnj97SuW/d4CJJ1XppAK0YzVHH5PZK8fhAEe
+	axSlle9iQzqh55HyWxaZ6frLlXbS8LqzVjkofTLDMa8V9SwwJHPHdhAwjN7ClXMsP/baOZ8yUS/9I
+	1JbzA5nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6A7-00000008Kva-2Ram;
-	Wed, 12 Nov 2025 08:25:07 +0000
-Received: from mail-japaneastazon11010048.outbound.protection.outlook.com ([52.101.229.48] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1vJ6EB-00000008LHg-0Wnb;
+	Wed, 12 Nov 2025 08:29:19 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6A5-00000008Ku9-00Lu
+	id 1vJ6E8-00000008LGC-3qcp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:25:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZnDP2j01Avl5LvoNSO/fvfOlv60Sih7CBGoR5nRi+WZZcNL5IZbU4fBNCx7uXt0l8Ush6e6ky6IoDnnOIVT7gr3mJLIBlHdyByZ7b2Fi5dokc4oNNXxf6DLRw9bF+/QiBdk/J68Mu/o+j+4jKsX2EI+WNSsbNlfzJ8/VsY1uafyxUKoWeKTsyJksG3Zt0e41N3QoSTFCfkdjlHMnfiwE4N/zJWFNs5x1A/J2m3tZR1jlcgzoVe897+w3/GyqGqMur5PY+st2uUFFZ7vLz4TlAdyvgGkn0yJSUTCQJsedUG+4mh8bmaxvJpks8AJAkCquMQ8veWFgc1hGWY5dprlsVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=auGOFysnoyBGphE5Av33H7xC/+jQursG/QXF1hMfeDo=;
- b=xu/uSpp7vy+PjStNSJLwwnUVBiZUPL6G+p9X2VaXRAoCPzo+u2HdaZSdsRZRn7PHetwUTRqWRW+KeeocmKBtrxslSyo+ketfdCJLwxUIQ48Wz0zBf6OoD1FDyPaLGgEFjPNeqxxUAPoPSfWqvJ9Cs9oZ/HczRcqdufnxOf2oeJ8lx/kC2K4dVZzXXwwavcFycaIKXlowdahx3K+Yq7am7wd4gJ6q4Hjyg8dYJ3LMNAC61ZzfJVQbqM7btL9mBh1OuBN+DWIDhx21P+W8PH6kNke/8t447hvonRPG/FoGJm3vKWcoVg6VY2e5szc3d1t5xgL0YHaxZBYWjtvPQxdgUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=auGOFysnoyBGphE5Av33H7xC/+jQursG/QXF1hMfeDo=;
- b=tMnnatqlqyWhZjn8a6U0J5PUyUzGtG9IBC4j/k2tXTcrFG6ZsLFHeG6qb5KIYpNJ0SsZPpVgX3tE2GX10X8K6r8J9o/HDZqCXjR6a0FSasXbkKzkR/Hbec72KVXMKiP9ylL78NuHQuD0oVGpCQFAz7OuIVokuSTBHXr7RFXK/CXlWci7S1M+3Ed4mcdNoFpAVXzbHqWY9I++UoRk6zZ1PF7+D6bGRRwMwRBPaALAO76FwUQz75xAfxncrhM0gkSo8sihgUBJUvG7GcFsRJKy1kLqiUAuINmyNRQzeLUA+tQxTlpqlKBVTV9jqo5rjqJYG/qEGIMQRpgUBe+l32JCtQ==
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by OSCPR01MB16417.jpnprd01.prod.outlook.com (2603:1096:604:344::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
- 2025 08:25:00 +0000
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
- 08:24:59 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: 'Ben Horgan' <ben.horgan@arm.com>, "james.morse@arm.com"
-	<james.morse@arm.com>
-CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "dakr@kernel.org"
-	<dakr@kernel.org>, "dave.martin@arm.com" <dave.martin@arm.com>,
-	"david@redhat.com" <david@redhat.com>, "dfustini@baylibre.com"
-	<dfustini@baylibre.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "gshan@redhat.com"
-	<gshan@redhat.com>, "guohanjun@huawei.com" <guohanjun@huawei.com>,
-	"jeremy.linton@arm.com" <jeremy.linton@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
-	<lcherian@marvell.com>, "lenb@kernel.org" <lenb@kernel.org>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "peternewman@google.com" <peternewman@google.com>,
-	"quic_jiles@quicinc.com" <quic_jiles@quicinc.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"rohit.mathew@arm.com" <rohit.mathew@arm.com>, "scott@os.amperecomputing.com"
-	<scott@os.amperecomputing.com>, "sdonthineni@nvidia.com"
-	<sdonthineni@nvidia.com>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "xhao@linux.alibaba.com"
-	<xhao@linux.alibaba.com>
-Subject: RE: [PATCH 17/33] arm_mpam: Merge supported features during
- mpam_enable() into mpam_class
-Thread-Topic: [PATCH 17/33] arm_mpam: Merge supported features during
- mpam_enable() into mpam_class
-Thread-Index: AQHcT+M5jBR1M7H8qUyVEgY3oSyj3rTuu8Mw
-Date: Wed, 12 Nov 2025 08:24:59 +0000
-Message-ID: <OSZPR01MB8798DBF1866E09D70F6DBB018BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-18-ben.horgan@arm.com>
-In-Reply-To: <20251107123450.664001-18-ben.horgan@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=4cf86675-4b75-4c8d-b86d-395612615710;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-11-12T08:24:30Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|OSCPR01MB16417:EE_
-x-ms-office365-filtering-correlation-id: 14922da4-0635-4d78-3ef2-08de21c4f875
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?K3AzaEVhRlRjaU9QTElZTnV3bXdNMVBSUGEzM2xSWDBMVXl6L2JVb1VZ?=
- =?iso-2022-jp?B?eWRrRld5VmIvdEp5UmhTN0VvdjZqNkRhNllGdUJ1a1JneW1uK2xPZ1dF?=
- =?iso-2022-jp?B?Y2FNOXhtUTk2Rm51UXNpaTE0VlljcnRaQklyQmQ3emZSeWJ0OVpXZGlq?=
- =?iso-2022-jp?B?ZmVFUHRzNkxvUnlmLzRKdTVIMHNKemRjVmh1WDZ2VHc2bkNVblh1WHBx?=
- =?iso-2022-jp?B?ajg5OXdSWTQvUElBdlZiZ1d5Yjg0cWlqNnRXVEk3RUMwRi9ZcTd0WDBK?=
- =?iso-2022-jp?B?YzgyRW9sQXd5T0E1anpmTCtZcEMwUExoMFV6NS9HVnRLWEF0M0wwcDI0?=
- =?iso-2022-jp?B?WHdPSTMxTDdIVFI5TGVxTjNxZHNtQ1cvZ0pzUWdzZyszeGZRclE4MWdO?=
- =?iso-2022-jp?B?MS9TQ2xkSmx6TG5zQmcwbWl1Skk1VkttR1RweTRsWk9aZlBjUTMvOTRG?=
- =?iso-2022-jp?B?dDNjOGtIenhHYllzZDM4blB0ZndGTWI3Ui90VHEwK2JxeDdQbkxDcVk1?=
- =?iso-2022-jp?B?UmlRczAyVjdTTU1FZnU4WStYWDFSelBZQW1SZCtoVkJCaWNSaDMwbjE5?=
- =?iso-2022-jp?B?QndsUThobDExaXp4T0hNWE1EZzdtY3JyZFZuWDVkR0NUSGJxVWIybEMr?=
- =?iso-2022-jp?B?VnVFVjdSMkplTUs1MVlpRUw4UFhKVU9mSGpHblFrZFJOSHh5Rm9RaXJW?=
- =?iso-2022-jp?B?SGV6YmI4d2J5SFAxS09pRWxuYjNVUmRtRDRxdnFxOHZyUnZkTjhBa3l2?=
- =?iso-2022-jp?B?Nml6UGhSN3dneWIzdVJQQm9Gci83dy95d0h4dVRPMDk3ZzJOWkRmc2V6?=
- =?iso-2022-jp?B?aFVibnI5ZkZEc05jSmJFcDVZSGpRcllNSlpuMXI4WmllaWU4MHFIUStV?=
- =?iso-2022-jp?B?eDlsUTBXNGFjY0l4SXNDdm5Cd2hHNlBoRWJ5OThLUVo3d09SSDVyY215?=
- =?iso-2022-jp?B?b1QrcE5FLzh1eFlVd3JRSU02eWhabnpiTWhKbVVhZXF5K2thTERQWGRV?=
- =?iso-2022-jp?B?T0l5U2RmcGlQQVFWU0dlbHJBZmY3U21scVV0bzFJUktpZzJCZklTREJW?=
- =?iso-2022-jp?B?d3IrVFdNc3A1R05yY3ZQNGs2OUpJc25xOVJFVDlWOWNUcDMxcTRkTndE?=
- =?iso-2022-jp?B?OFNtWTBCMlFidDA0bE82UjVBTGNOb2FUemZoUFNFVWJPWS9IUUI4M0Z0?=
- =?iso-2022-jp?B?VjdnL2ZOd1RNalRXVHdoL3hYQkQ2RVBYaFVJVnhibytaakdUTEpqSDZ5?=
- =?iso-2022-jp?B?TWxZcGdmS2hNRDRqZG81bzJCQzZjbU43Y3NLV1dSMmFzYnM0bGkzVHZu?=
- =?iso-2022-jp?B?dmluSDY5UGxtQXFjb1BpNWtUU2NKaGNYMDZqUTQwc2NZam9XTXhxVHBN?=
- =?iso-2022-jp?B?cUVYY2haTlUrbXJVeGJQMGduMk0vRlJsaXNpekowa1FJeG5MN3gvbXpT?=
- =?iso-2022-jp?B?Z1g1Y1lUZlBsSndpemp6cmdEV0N0OVBJSWROZkpwQmUra1M0R0YzTXdq?=
- =?iso-2022-jp?B?a0xTZlFTeENhRW00RHFhRldTYVExVDR5emJ6dWpndXJqc3JiMXF2SnB3?=
- =?iso-2022-jp?B?anRKdHNRNkNNeWhnVml4YWV6aUU2S2NWckxpeXhvWFovS2x2NjZnYnRM?=
- =?iso-2022-jp?B?MWE5N3N2QVIvK0IrREdxUXFobGI1TVFNVWZXeTBqMU5hOE8rcGxOTjBs?=
- =?iso-2022-jp?B?UnpzWDhja0lHb0tBSkN4NkdKSzNaTG9ORXlsTUVLcVZpMTZkT0NTS2Zp?=
- =?iso-2022-jp?B?YkFJaVkzQW4wM2s5YUVVM0YyNm5KRWNoby9GQ2RKUVRGNWJpN0JaVkJ0?=
- =?iso-2022-jp?B?ZCtMbTNlampBMkVUc0N2YWIxa1J5OWtubTlzSnc5NjV1TllyZ1FBMXVz?=
- =?iso-2022-jp?B?dC9DSW0wYVNud1E1S3JhT2FscEk3QUtwc0VVZmVkblo5d3Z5UjhVRGM0?=
- =?iso-2022-jp?B?ZDFSaFB6dktjT0Z6bTVvTnNPMDQxaExDc3oyWmdOemZ1Q1JmelB3RFlM?=
- =?iso-2022-jp?B?VVRFUnJpV1MrekFtRjFBMzNiUG5jYnVRMGZ5U2ovTnFrYTlkMEp2Um9I?=
- =?iso-2022-jp?B?V1E0a2pyd0ErY0lpVkx5a0d0dDIrK2JaU1hVQkVUUkRscVFrZmNBaGZO?=
- =?iso-2022-jp?B?NmlZWGJvVWZISFF6bHhFQi9VdU9CMzVydEk3cThRT3o4M1VPZllaZXds?=
- =?iso-2022-jp?B?UWlENStCcmZ1RUZnL3pEQ2tyaFNYK1ZncUo5V0ptSDhlK1VSOWZXUzBi?=
- =?iso-2022-jp?B?WUswUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?TVNHY0FnWnN5Y2pSSUhQTW1XT3JrWVhzRVJCd2ozeTBVU2lKdFZjY21k?=
- =?iso-2022-jp?B?MG96TFlnKzRVaEZsTWtSZ1AzdlppWFJJNWcweTVBRDA1ZUtxQlBMemQ5?=
- =?iso-2022-jp?B?YUVmMHZXdVIwZ2QzTkk4S2tpbzBva2FKazJMN3dVRFFUUWo2endWYTlj?=
- =?iso-2022-jp?B?U3lKRTVDV3k2SWNvT0pCT1V5a3Y5Qi9vajRjOG9zMWpyN21ZWUp5bDZI?=
- =?iso-2022-jp?B?YStwOEhkUDJPRkJYdmdySzhBL09qSU9vZ3ByN3hmSDJpME11WVZqZVlL?=
- =?iso-2022-jp?B?NXVFL1lJb2pIc09TcWhZWHhkU3Z3R3lMQjJpdkpINlJISSt1NlkyeFlC?=
- =?iso-2022-jp?B?eGJyVkFYVTJnN1Q5RmxIdjJBRzVMUDlFeVk2bU5na3IzeTc2bzZQcnhk?=
- =?iso-2022-jp?B?eTBQSDIxaHc5TmdwWjNlc3dhZVFwUjZHaFdWVWFabUVVcjRlNk5ib05t?=
- =?iso-2022-jp?B?N2hSTzhucTF0NFJWMytjVjJteHlCQVhmL2JaK2tmamVWMWplTlRXOG0y?=
- =?iso-2022-jp?B?a21OelNzM0lvdUhrbk5iY1lGY1M4QWpyZVdKbDFaU1Y4RGhOWWdCNm1q?=
- =?iso-2022-jp?B?L29nTXB3TTZ1Wi92Z3ZKaUN0MW5EeTZmUVdhdHUyY2Y4ekoyQ2o3QVlq?=
- =?iso-2022-jp?B?L0VQU3hvWjBwb2IxcHJXSVkzSEt6cHl2Vzc5RDFpbU1LTU0zQ0FtUTdR?=
- =?iso-2022-jp?B?anh5a1UrVHF2NVM3eDVpTWxURm1YeU12dk5uQytIV3RHT2JvVkNHaUdL?=
- =?iso-2022-jp?B?NnBFQlUyNFJHdk1oNlZDQ0hoNmFiUTZiWW0xOHE1SnlHR0lJSXFtSnRJ?=
- =?iso-2022-jp?B?N3pISVFJUEdNZEhDZmJTM002UFFFeEJCUjhMTHZUTXhQQ0daeUxXYVk0?=
- =?iso-2022-jp?B?QVdzMjczY0J0bEoyVzA2ZVBINVcxaEtOd2tXSFJkYWpLU1RpOTdPUkw1?=
- =?iso-2022-jp?B?azlDTlJ2SXZJNGZ2VTdZZzNldm15S09HNUlqK0FkakVjS0NZNVBoQnJR?=
- =?iso-2022-jp?B?UzQ4TWtSUHcvVkxQaU5CZlhVRTJhMWZIMERSbmY0bU9BdHBvQ0dzNDZu?=
- =?iso-2022-jp?B?aWplRktxTHJEWEQ3K2ZId29NYXYrSFlyNW1tZkdqNkZxTnNzajNEQ2V2?=
- =?iso-2022-jp?B?SnRtZnpkMXo1ZUFkL2swN3lqWmg1NnJiSU85ZkFmcnU4NDJmb1QrUy9W?=
- =?iso-2022-jp?B?MHBISmErQURJSGFWbkliWkdJclN0NjJ1YkJEQVBwbGFUdFRwdWNCaVN5?=
- =?iso-2022-jp?B?Z0dRZnFsWitHdm5hTEVYMjlPL2JQdFlWWitMVmE3Yk5ldVJMM3pjMWlH?=
- =?iso-2022-jp?B?TkJLZmo1aHJ4QkNKQmsyS2dMNkhKL1ZzZGlNSVNsOHdBOHJYTVlyUW5a?=
- =?iso-2022-jp?B?c1IyYzhtc2FLZUVNOWJRSWNyczkrV2R6bkRwM2NMZVJBU3FGZCtKckVz?=
- =?iso-2022-jp?B?TEtzaG5KUXdSNzdja1pyejZPZmJhVWsvc20rQzlSb3RFZ0VwRHFtVDBi?=
- =?iso-2022-jp?B?aXRRK3dEL0h1dHpRS3JJTDB6S0FNRGhoU3hTNy9xcGhwMy9pZzFYQkxi?=
- =?iso-2022-jp?B?bit0VTRkT2Y4ZTN2aUJLeUVoUFFSYy9EeG1Hb3dQd28rcktVazBWSU9a?=
- =?iso-2022-jp?B?V2RBZW0vUHlnWEVlVW5wa3FwNWh4WGNMRHVFNjM3a2ovSU1XTmh1dVN2?=
- =?iso-2022-jp?B?UmtzRThsS2ovajN1bVpYbndwSkV4Z2xnd2dLLzZBRmhIWHpvRmlGZFRI?=
- =?iso-2022-jp?B?TmQ2Yzl4RnU3RFBwbHU4NzY5ZkY2clNiM3hWMklsR251RFp3eExkTm1x?=
- =?iso-2022-jp?B?b1VTdjU1d1FCaXlDUHFpWXd2K3JEVExmOXBhMTBhSldPT0g3MkN2WUpi?=
- =?iso-2022-jp?B?MWxEM3dKU1RnTEZLenhlSlBEcVh2L3ZTOXUwTW1oYk5kem5oazVFNk1T?=
- =?iso-2022-jp?B?ZS8yVmJTbVo5SUxCeVJ2RmlMaXlvY0dZRk02MHhYdm5KYnZkUTUvYUxt?=
- =?iso-2022-jp?B?TUhneGEwLzFXdzhkN1R6S3NIdmdRYUc0M1Y4c1g3aUVId1d4U1J4U1Vo?=
- =?iso-2022-jp?B?UGJ1RUROVTRHaC9UNEdLUnFGMWlISnUrS1NGZW4yRnRqbFE2eDNWd2ZJ?=
- =?iso-2022-jp?B?OW90VDZ5Wlhsb3l5ckY1SEpoRUxQSlJWeWNJWVhmUXdPbHNyeHI3d1lh?=
- =?iso-2022-jp?B?bE1iOERPR2R0dEVmNFpOVlQ2bFlVeGtkME1vTkF3Z3pTNFhmakFzWE9s?=
- =?iso-2022-jp?B?dU45dUg0UEFpYndMY1RhTFhhSUJZYm1nN0x1dUhnaVZnM2VSejNVUC9P?=
- =?iso-2022-jp?B?N1pKU0VMbzNiQTRzc0ZUQjNxZGFGcy9wUUE9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 12 Nov 2025 08:29:18 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42b38693c4dso218637f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 00:29:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762936155; x=1763540955; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JtogQFcSHlN8gkfKXvyp9GsEsbrpcQ/U+ViAyh1NORc=;
+        b=FWBy1WQNT6EopKLzmyjKh+G1sJkAIuND1cBAdRbm1XyN1GVEasDOCVBlIyBCCT5Ta5
+         pweLP3ahw4UdZGlBAFYo6sQe9Ik8NK1Mqwcl4gjYsmi6Qv32pzSi0Ut1tjyfFaL4jmiw
+         amg0beHGLXyale5fzJMrAD+snSgk4PD31tGi0B4TSnewiOPUlAA6ay28rGMxXRvpc+Xw
+         sEBBOuQCCqWyBPkKmTLbp01EDqc4xjNPBHFOlMjbT1ztn2l78fhkWGfggNbKmxqPFyxm
+         3OcLr9/6YKGr0IXeE5OFWKpnexMeHyabSXsnmTsR/vyZ920NOf74AY25P2hu0PiUkYGw
+         EfJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762936155; x=1763540955;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JtogQFcSHlN8gkfKXvyp9GsEsbrpcQ/U+ViAyh1NORc=;
+        b=jBjfgf+gxhL7b4Ahp38oQ+yDCp6eK7WBCCPjzveuj+F2KoJC2B4/SiVYJIhg+P6vt5
+         tJ/idhTVuXToqs0W1/xWiwLDhf2B7kTcFDsdqUaapiN+A2wXFt4v0I5hJ+PdkMHRXV31
+         xXTUU0KfJka6x7SbU1tAIz+DL6hVc241ZazV7TTgsKpRaqAGDBcwrrQ62E3kUeyJ/iOH
+         serTmBrSsyPrlRFJN9iSBznoUuanCPqZjo3Ie+95b33xfCHY56uIcL9H5jtfkvtbamxf
+         XjidHU1jVPPM4doM2yS73lSd1LbFFRVzTr+xy/FHaQIhsI+Wt1g8W5DFjVUBddKGfmul
+         RM0w==
+X-Forwarded-Encrypted: i=1; AJvYcCXYrFzV6JjtQvZPVPqiDRoSTB35+mZh8zGYPG2JqXQzyWms0L4b7+vlRAP4EpOqsVKTimqR45N7poyOy9p0piRc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvf6xpMlmcQ7qrbA/6vxO0IrV+oxpGLVJCfcqAanJNR21LCaVM
+	H+tZyNEmggTObVAtJFAsazKM7Lj8awYrqjI2UDTKh5caDgEsXHJLJ9dWwnLRW6tygSA=
+X-Gm-Gg: ASbGncv7CH2rkFOYZ4wtDvnRwIE9kmacMYSBwVOjHKVlZbyuJS8SO5gIQzBw+4PdbK/
+	dJHG6I2Lhkp0F5znbWpJagQjsQLtQ138YeFVLgziXjVw5+pGp2Lrw1Y2jNQAuKVyAPZ7/nrVh/E
+	R5ZUuSaxVB2dqwvT4CodF2P4FKKtVB2WXLzsB5dv35k2hJmC/ZWM5/C7fizAzAYPi2z5HnBNL5J
+	Z5WRQ7uhdN9TbxaZa4AD+uLlBf4uiLTAjOZWFAkzeZvNDfoME75QeVrQ1/oOSbe1+kmgF4Yz+Y8
+	zUImue7b2HvoFoOcwA0sRmiacE/jCfaXP+/KY9+eRAf/nTen2fhFfM96PdA5+z3bpcLdbwcFaZr
+	/UuWaxJx/8mhia4kNhb65rAPE8x2Ik2EEENrkFWt+u5SRUAGT+Pjow8h3/rMcnQlUH726s2gUeH
+	32eL+beQfdS7MByL13HHopMCGivGdqV99d77TusKXCcD/RIEJ6kE4elall
+X-Google-Smtp-Source: AGHT+IEU4FFylzRDbDiqTl5SDdc681V6U/fIzfBAB7L0TgSU5N2M6VMTglal8026StadrPU/haIBUA==
+X-Received: by 2002:a05:6000:2888:b0:429:cc1c:c2e with SMTP id ffacd0b85a97d-42b4bb90b6bmr1430374f8f.1.1762936154894;
+        Wed, 12 Nov 2025 00:29:14 -0800 (PST)
+Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm31571428f8f.35.2025.11.12.00.29.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 00:29:14 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Wed, 12 Nov 2025 08:29:05 +0000
+Subject: [PATCH v2 1/5] dt-bindings: nvmem: add google,gs101-otp
 MIME-Version: 1.0
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14922da4-0635-4d78-3ef2-08de21c4f875
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 08:24:59.8284
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MaCtx4SUBnUukIo6GX5Kf+dpcOp5no7P9gWWoADKySmGhhW6yOQRFDTFvCBruf7LBIz38ANFL0ykWwljTP+UAEYuBKDb7uuyU/tsMQ7i++o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB16417
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251112-gs101-otp-v2-1-bff2eb020c95@linaro.org>
+References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
+In-Reply-To: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: semen.protsenko@linaro.org, willmcvicker@google.com, 
+ kernel-team@android.com, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762936153; l=1979;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=dEcSRRQtvE4xP0095DiinVR5fFEjss1bE4Kb607L5bU=;
+ b=OOX0r/TY8rkVTDOz28jm+bgdNooRzs/EvPWQacDtL9RIRn5yJEOAYEXSxltqVpFD4s7fZonIU
+ jteQzbYy5l0BJ5yhYs/b58SW4kymeDF8K5hTUQLkv3HwXTDar9OlFds
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_002505_562763_698A99AA 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_002916_978566_D1CA1188 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,29 +115,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: James Morse <james.morse@arm.com>
->=20
-> To make a decision about whether to expose an mpam class as a resctrl
-> resource we need to know its overall supported features and properties.
->=20
-> Once we've probed all the resources, we can walk the tree and produce ove=
-rall
-> values by merging the bitmaps. This eliminates features that are only
-> supported by some MSC that make up a component or class.
->=20
-> If bitmap properties are mismatched within a component we cannot support
-> the mismatched feature.
->=20
-> Care has to be taken as vMSC may hold mismatched RIS.
->=20
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Add binding for the OTP controller found on Google GS101.
 
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+ .../bindings/nvmem/google,gs101-otp.yaml           | 56 ++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..ea87216761dbab9a7a5cecd87a553a6a2a1783f7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/google,gs101-otp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Google GS101 OTP Controller
++
++maintainers:
++  - Tudor Ambarus <tudor.ambarus@linaro.org>
++
++description: |
++  OTP controller drives a NVMEM memory where system or user specific data
++  can be stored. The OTP controller register space if of interest as well
++  because it contains dedicated registers where it stores the Product ID
++  and the Chip ID (apart other things like TMU or ASV info).
++
++allOf:
++  - $ref: nvmem.yaml#
++
++properties:
++  compatible:
++    items:
++      - const: google,gs101-otp
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  reg:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/google,gs101.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    efuse@10000000 {
++        compatible = "google,gs101-otp";
++        reg = <0x10000000 0xf084>;
++        clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
++        interrupts = <GIC_SPI 752 IRQ_TYPE_LEVEL_HIGH>;
++    };
+
+-- 
+2.51.2.1041.gc1ab5b90ca-goog
+
 
