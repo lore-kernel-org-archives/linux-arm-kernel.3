@@ -4,80 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A06ECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8905CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWZ0E8O3raAG4GU9ztL7P+0ZZdmXPcbV3t4IPw/i5ow=; b=y03TIcb6jXn0Lc6btn9kWGvvGT
-	fyjj9eKMnJJsIzJoludF1gai2vTtfbEDhn2TUMV0UOnG3tm6lo6yauLfArcgtiFMi0libiWBCNPVo
-	+TNwEvbjsnnlj9WmnYUzIDbZnt6S0g20kd2BtrxZNvdSX/I5gYhjSCk+hYh2Z8nDjbhGHIn6xXG00
-	z19O5n3T6k5MaTcny9NwEDg4Oel4hpE+xlLk5FoumZVgmEQUQEo96IsGf8XnUr5Evq9lCmfvzvwif
-	mMeUe3Gtb1Dk2iRt9YJp3Z1wRCJ4xnrx756frGyUgMWTeprsfkNybKyo+He19Ttd1E/v+jAw1kcSJ
-	5/ojMg+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=; b=jzWsMzd8PDu8Vetm9/ksN0ye0l
+	FYh0YyxrEhTxxMf40yep43VZpsCAGNEN0ak+ek9YTWUvQuQ0iJVcjPFYluKmpi3TNtj4/nEQoiR1y
+	zyqa0DQQ8TWGyrtVw90RiPTODVVigLlxF0hcio/5jiFenh2520sqG8IAWDLQJB+ss3KlKkxV6bYfL
+	3dQcQ5vHcvVaHBYd6DvC30eAQYbEc+d7df2/T8aI0oZY9ag6NU0q209nff/FF0UmWVIJLVRnO/zOs
+	EcK5o9mJCTPRgy7zKvzKnpRTrcIOeSf+AHe3J/JeWFT/EBOZr1Ui8KWnEdlyAfJpKegPvcdNQIOEH
+	BfRkmapw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0xb-000000082hX-0i73;
-	Wed, 12 Nov 2025 02:51:51 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vJ0zP-000000082qb-2b8i;
+	Wed, 12 Nov 2025 02:53:43 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0xZ-000000082h3-1sb2
+	id 1vJ0zM-000000082qG-0l7W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 02:51:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762915910; x=1794451910;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=FnjXGdhmi9cjf/H5GCn36qDisNiZcHAbPNAmtaAypr4=;
-  b=iA6XY+l9TlZD5zh8ODWzFK2y3hAaomlA5ufP3pbMEp1WZfbE7BkR+SGV
-   AwD+UWCF7qbJJ/or7ppxE1jqvCYzr5PDHxAjiCAUGZF+zNFYaZ1hbq7SB
-   4SZvZtO8aD3zGRmtRzu4mpKk3xZaFAvyVxy+5WVs98O8VB57yBLQlbJMU
-   TBmv0Se9hpoeNPVY/HXuU6Vxhfk8XfsfYF2Sl9KTnv152sGLJlOlRjP0i
-   MP3WHGoVyy288AmtKnS7t0Z0Kja7/fICuR4xmPyYZEEX7R/Kd/YO/gVUC
-   KhcON1ZZnYQoQP73nIM/GsGIyYJj50lKWTINsnnKCOlS2rERtMP4M717q
-   Q==;
-X-CSE-ConnectionGUID: h+hAri1OTZKMVQMQsOrWGw==
-X-CSE-MsgGUID: EJtVeMR+TXqfb0h/aJUacA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11610"; a="87605764"
-X-IronPort-AV: E=Sophos;i="6.19,298,1754982000"; 
-   d="scan'208";a="87605764"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 18:51:46 -0800
-X-CSE-ConnectionGUID: Z7I0266wRPKqUZSzlavn7g==
-X-CSE-MsgGUID: ezqtxvUdTBKU2eF/psZZfA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,298,1754982000"; 
-   d="scan'208";a="189830912"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 18:51:41 -0800
-Message-ID: <b556b673-300f-486e-8891-809519b98797@linux.intel.com>
-Date: Wed, 12 Nov 2025 10:47:38 +0800
+	Wed, 12 Nov 2025 02:53:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AEFg3dbs8Vfh0QMAB0rB+RFaBRq20+WunPb5PVAGTd+seI+YjeX73h4lO/XCxKY6XZEkQj5JYPMVgfPns6XKc2r9aNmIWnP2ZJx8AlJvFaNZjmxMFZ9ZNduHZweqo+QpHSy8zzWuWJVqCtaeUecIraOq+dcDLvoUY/7ee6K02yv8iaHq20GJEICIVdHZnds4/pHKSp4KpXQTxZo9khMvRnsxAjWdgYEazmgKzTGwCYmPzcOTGlo+MNTPbCVLkwiO/VlojsMM2qVup+GqAxQcxYsTQ/tNrKovDCuta+RkYvYXYv2PVt9oUYeQJfTfevyfVEpCCyRLmTRwtsFgWHfOlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=;
+ b=PqkUg6qTcrFnrgFGerUYRjF3oWr+ZAWd6bfACtxigFYoOiO5Ujg4/mTwsOl1doG9qNj/v/xpvIXsZv1QGnZocCrJJ+UHnZspIqtA/SovIFotT44jZNU1pYYraAn1OyoEQ2s9i6BHT8IzLoztATMPwYhITSAGEoW+LcD8s+ecms5E/TDPPZv9RE3bHAHyK1AYKnBrw3a+VwyZSWhqGG3BQuOi/UjZjVRHFbPAyGaTP6D1OIXXGAGekpUwoaWEd+x+ds3/7dYoPg0BSaVCnlCoTEoOW48JENvcpVtJRjJtWbTwVFgbTY3GkhndfGP0m3fVPy49hutg9p7cX81eau5Q4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0U0KjDKden6CEfpTMOE0jW6qtYKcDN33d0O8J8TXPOg=;
+ b=uQIB8lFG3s6mUZ98AJzCNiGju3K+I765xWuDz4lyoU3eYNcytwzJY5MhHXgbMS7R1dvEW7rKXbckB6kfMyynfw+maKvPbHJkK0Ld2yqi0FXXe0E/9wpB+JJY61Tye9fC7kY7doutmnm5jKI+mLQ2pciI9vAh4DeGRA+hGVYaYgQ=
+Received: from CH5PR05CA0017.namprd05.prod.outlook.com (2603:10b6:610:1f0::7)
+ by CO1PR10MB4722.namprd10.prod.outlook.com (2603:10b6:303:9e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
+ 2025 02:53:28 +0000
+Received: from DS3PEPF000099D5.namprd04.prod.outlook.com
+ (2603:10b6:610:1f0:cafe::8) by CH5PR05CA0017.outlook.office365.com
+ (2603:10b6:610:1f0::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.5 via Frontend Transport; Wed,
+ 12 Nov 2025 02:53:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DS3PEPF000099D5.mail.protection.outlook.com (10.167.17.6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 02:53:28 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
+ 2025 20:53:26 -0600
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 11 Nov
+ 2025 20:53:26 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 11 Nov 2025 20:53:26 -0600
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AC2rQmj1963711;
+	Tue, 11 Nov 2025 20:53:26 -0600
+Date: Tue, 11 Nov 2025 20:53:26 -0600
+From: Bryan Brattlof <bb@ti.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>,
+	Russell King <linux@armlinux.org.uk>, Xie Yuanbin <xieyuanbin1@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v3 0/5] ARM: Remaining PREEMPT_RT bits
+Message-ID: <20251112025326.d6dyoqcw5r3irpeo@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20251110145555.2555055-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/5] iommu: Lock group->mutex in
- iommu_deferred_attach()
-To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, afael@kernel.org,
- bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com, kevin.tian@intel.com
-Cc: will@kernel.org, robin.murphy@arm.com, lenb@kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, kvm@vger.kernel.org, patches@lists.linux.dev,
- pjaroszynski@nvidia.com, vsethi@nvidia.com, helgaas@kernel.org,
- etzhao1900@gmail.com
-References: <cover.1762835355.git.nicolinc@nvidia.com>
- <11b3ab833d717feb41ce23ae6ebdc3af13ea55a7.1762835355.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <11b3ab833d717feb41ce23ae6ebdc3af13ea55a7.1762835355.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251110145555.2555055-1-bigeasy@linutronix.de>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099D5:EE_|CO1PR10MB4722:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6fc98556-4871-4aa3-210c-08de2196a840
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bndXb1dUZFExWUdXZEVEUFBmTGtha2NkbTNkemEyenJlaGxqQW45bnBpNEp1?=
+ =?utf-8?B?dGVJU2sreG1OZHFYa2NxVVp3MVlQT2FLdnRyTDVMdUxFYWpqcys4MDhHTG9N?=
+ =?utf-8?B?Z2JlOGdpbDFBeW9vTFpXS1E4WHBMVFJuY1dFbVBobm5vQ2paeWtHdExOeWxa?=
+ =?utf-8?B?UzlrZC9sMzYvbzZscC9UOUdQaFdtRUdTNk90NjlwL2lIQmtOYXpuSHlaSkxx?=
+ =?utf-8?B?NTI3b01PZUtFa1RON2k0V3NrT3ZXRkZQYW1LU2MycytqOXpRN2xVRTV6anpp?=
+ =?utf-8?B?TWVHUjBBbGYrQTV0WmxPYlhYREVJSjB1NHFPVEE5dGVpczVzSnArekVQaSs2?=
+ =?utf-8?B?V0NXYTVaS0JLWkZ5U0V4Z0Z0YlZlNVQ3V3hKNXU0dld0NDNyYVVwakx0c0Yy?=
+ =?utf-8?B?UldCKythbVJ3dE5RNXFsVU9zR3ZoY1JhZDVoMHF2Y0htbFIyaWxrUEpzSm5n?=
+ =?utf-8?B?YWV1SUxOTzNjd0I5V0d6cFZMWml6OGFCM1BDS1NjMk1DQUFQMUFHc3pzbmJP?=
+ =?utf-8?B?TUFoUXJTbHd0Z3RBdVlLY3RWaWlDeU5MZ3NRN0RKWWIydkFIUFJEa2g2R05H?=
+ =?utf-8?B?RVJudVYwSUh2N2RYMzh2eEZEbk5WSWo4T3BLdkRialZYSDhnSmV0VkxGeVIz?=
+ =?utf-8?B?ZDR5eHVTRWxzcHdaTlpmQ2lsRzl5NWd5Titha0pQM0pRekYveU9EVGF0L3JU?=
+ =?utf-8?B?cFVpamhuc1YrRjVlYmZwcWpFTXZHbDlpTW5PazFhbzRHRDQ2R0t3ZjNWRit0?=
+ =?utf-8?B?bjNjaWdsNFl0bm41ZDJhdUhGY0xJTEFwMXNYcGgrMnhZRFhBTUFvL1NlZTNk?=
+ =?utf-8?B?QU1yNFJOR01KcjBjTThEQTI3YXdqWlczWDQ5Q2w4bm9RbVdJYzFTVFBoUEVO?=
+ =?utf-8?B?bFRuY1R3SmxVN0lqZlI1Qy9razB1K0RyRmNIeWl5WjYzaEpobXV5ZVBlZlNj?=
+ =?utf-8?B?Q20xeEg0dEVvVFd6OHJVYk5BdDFLMjArbVdRblVvaUJQZGtsMk5DSWZncjk2?=
+ =?utf-8?B?ZVI5ZjhYeTZBcDV1bTRVaFI2TXU1SkY1WG9uYzdYbDErWTRXbGhFb1NpclJ4?=
+ =?utf-8?B?N0ZkNzBrQnJRYk00am1WZEQ2NkZDMi9XaEY2VHQwYmNwKzlvdTFHK2tIVFEx?=
+ =?utf-8?B?TS80b2Evbkc2NndGbUIxVTZVNDR4dlhVdDkxcjJ6OEtuc0h6dlJMdEZLQnhG?=
+ =?utf-8?B?UkRacUxaTEhWQ2g0enJVaFJIbU9IM1lMQjRxRlBxbmNQTEVwd0xCNDRRMXNG?=
+ =?utf-8?B?czlTZDFhbFhsL2hlVlJjTGYwcHFKS2MxZFAwSjJoS2QzSUM1bnF3bHM5UXlk?=
+ =?utf-8?B?Qmd0YjF3emx0ZnFycmtKb0xFZEF5VjM1Q3ByM0hGeTVhVFRiM2EyYlI5bzdL?=
+ =?utf-8?B?YUpZbWpaNUNSVzVuaGZtQ0thUmZkRS9yZkxOb2ZTd1B2aDJwMlFzVy95aDVJ?=
+ =?utf-8?B?Tk1tZVVmWTFWMXJLRHhMK1JZbUNSQzJGTitlVEltVzNhM1orZ0QwSndkY3V0?=
+ =?utf-8?B?aTdpbmVMVHBZNFdyYUZuQTY0eDB4dnMvTzBxajFFbVVxbnFpekRBSm9zYmd1?=
+ =?utf-8?B?bUpHU3VxenlPRWdLYUoxNkVUT3pYMUNRZjdJakJYNHdJUWFpNURwUm5zbytM?=
+ =?utf-8?B?d1ZqWktnTElyaTEzZ1hGSUNIaVlYd0VVMU80d1NRVkxSUGxVLys3TkpJV0hu?=
+ =?utf-8?B?bzB2RDh0a3ByTndSUTNjczRoN1pzc2xaSzJxYlYxU1pDbE45NWlLTUk4Ulpo?=
+ =?utf-8?B?NTdYTEdoZkY5anFhUHlHeEl6NjZQb1ZEOEx1RTNFZFluRlp6UFdnWWNEUWFQ?=
+ =?utf-8?B?ZlRpMVJtWHFpMFJITnhDTU1hVFdFT2pzUDJsRHpwNkFBYW92MStETUNvbCs2?=
+ =?utf-8?B?T0NtVDlYaGlKV21hZjRhZmxZOHN4clNSdU1NOFZBM043c1o2eW1hczNBUUxl?=
+ =?utf-8?B?MkFoQ3RrdW03bmdXc1QzRUVtMXk3VGlVUkhsanA2NlNrYTVvZHZoWUhmSzZy?=
+ =?utf-8?B?VnQ3ZFdCa2ZaTi9VdjdQWkFVelFkYTcwTDc5R1VpNUs1SDRzcG5rM1QwK1VB?=
+ =?utf-8?B?UjViZTc1SHp4OWh3aGg3OGRWSWtVb1VWS3ZBaFdoR1ZLY2NZV2RFRmU2eW1Z?=
+ =?utf-8?Q?HcLk=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 02:53:28.4007
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6fc98556-4871-4aa3-210c-08de2196a840
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4722
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_185149_565638_514EC764 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20251111_185340_343428_8AD0161C 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +164,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/25 13:12, Nicolin Chen wrote:
-> The iommu_deferred_attach() function invokes __iommu_attach_device(), but
-> doesn't hold the group->mutex like other __iommu_attach_device() callers.
+On November 10, 2025 thus sayeth Sebastian Andrzej Siewior:
+> this is the last batch I have to enable PREEMPT_RT on the ARM
+> architecture.
+> Last time I posted them there was some discussion about making the
+> branch predictor hardening worse. I redid it hoping it improved now and
+> does not make it worse.
 > 
-> Though there is no pratical bug being triggered so far, it would be better
-> to apply the same locking to this __iommu_attach_device(), since the IOMMU
-> drivers nowaday are more aware of the group->mutex -- some of them use the
-> iommu_group_mutex_assert() function that could be potentially in the path
-> of an attach_dev callback function invoked by the __iommu_attach_device().
+> Is this okay now?
 > 
-> Worth mentioning that the iommu_deferred_attach() will soon need to check
-> group->resetting_domain that must be locked also.
+> v2…v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@linutronix.de
+>   - Collected tags.
 > 
-> Thus, grab the mutex to guard __iommu_attach_device() like other callers.
+> v1…v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@linutronix.de
+>   - Allow to enable jump-labels on UP. The UP build does not involve
+>     stop_machine(). Reworked by Arnd.
 > 
-> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
-> Reviewed-by: Kevin Tian<kevin.tian@intel.com>
-> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
-> ---
->   drivers/iommu/iommu.c | 13 ++++++++++---
->   1 file changed, 10 insertions(+), 3 deletions(-)
+>   - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
+>     disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
+>     needed.
+> 
+>   - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
+>     which in turn depends on !KVM. Since KVM has been removed from ARM
+>     it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
+>     by Arnd.
+> 
+> Sebastian Andrzej Siewior (3):
+>   ARM: mm: fault: Move harden_branch_predictor() before interrupts are
+>     enabled
+>   ARM: Disable HIGHPTE on PREEMPT_RT kernels
+>   ARM: Allow to enable RT
+> 
+> Thomas Gleixner (1):
+>   ARM: Disable jump-label on PREEMPT_RT
+> 
+> Yadi.hu (1):
+>   ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
+> 
+>  arch/arm/Kconfig    |  5 +++--
+>  arch/arm/mm/fault.c | 16 ++++++++++------
+>  2 files changed, 13 insertions(+), 8 deletions(-)
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Thank you Sebastian!
+
+There are quite a few systems which use 32b processors and need 
+PREEMPT_RT. Thank you for doing this. 
+
+Acked-by: Bryan Brattlof <bb@ti.com>
+
+~Bryan
 
