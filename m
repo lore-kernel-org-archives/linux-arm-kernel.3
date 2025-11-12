@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB55CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DE4CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4/fJLZENDtvS5J98U1xQRkgCGJbnGa0twDW00i6rIE=; b=GIN+NCnviyG3NBZBZLyfcrMAWU
-	8MyBkQBuubLq8/kCupKQbr4JY0Ypp9wsBT8nP8CqTL7lbL5iXk8KqRFaFwV1GvEfRSzhvQsZDzRcD
-	QDG54nFADkcroZFWYHHgSZDT8aNUq5evX6x1do63B4MGfWOm4Z3snD0cDXXWxovYqs8v6z1zNXbfQ
-	00pE2m4ILBEWE/7pxDpX/dRS+8i/jmGFn+fZzXjXOoahyLmR0WcZz/SjZy6O8BgA5JRt9nkTQ3lk0
-	S+auuzEQRxUkqwX4KEvnTzv9bOJgVV8emQL6vamwG8JIOBoCfap1of/uBbFqg9jt60Hf9rcUzJ2+5
-	VLXLozVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3F5n6NFWgIjyhykP/aIOScBP8vbBTtAduUH+cabaA2A=; b=W+FWDuBFOCz4R5
+	iZkG8eOA4vhuOLOCHDMP4jvRJtCPTP9u0aeas22BCFeeqpb57DXcnoi+Stda1R0Em5gqFhrKay0Ca
+	VwYZodGhschkgtNWMILkkjtQ0IUNFXr7NUl0gkbJyRv1sawxmR6c4K4eVC0v3ABf47ZhSsFGMqtTw
+	t/iidXMowYcXRei99Vd6YBdnpyPLA9gepiXoX8/uuIKlWqeP0TxEcAoyCxuPB3vdvqkDRFJyZ4iIm
+	HU8NLHrp4qfvMwIMdOIlQ1r9K9axwdY4lz4FCnIBk37aoy5EHOnjyhEe6NPh2esy5u2o/w5wQyD4F
+	ipeciK2n49NVzIMXktFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9Up-00000008jF9-09jM;
-	Wed, 12 Nov 2025 11:58:43 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9Ul-00000008jEn-2hOd
+	id 1vJ9V8-00000008jJS-3bqL;
+	Wed, 12 Nov 2025 11:59:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ9V5-00000008jI9-2wE0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:58:41 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8b21fa7b91bso79040785a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:58:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762948718; x=1763553518; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q4/fJLZENDtvS5J98U1xQRkgCGJbnGa0twDW00i6rIE=;
-        b=c530rLGtl5cC0chBQ7nk0DmiE9aP8DcGtsWHokxg+pAcenQOSMske/02dz9z4PVa+X
-         kjrvItyZx/3oEuIUzw3JkTAtA4/pBtWmbGq6N8sTxu/zGDNv5SZo+Nlp4vlWrv34ZuWJ
-         RhAdJww0eKUIXy5+YPAgxibbJJ33xVfQbQfomWGIcrLe0ydqv49AbXtgHO5Hz4o4j2d/
-         uNrl4TbDyFI/m8IcHnVB8ReKGxw8qggr3fVjzP4w4I8n60XgCzHBZYTb2okpzyQVKFwr
-         PKCpHy/NEKhuGrF0xGm7clskQ3G3Ds2BYNUggKiifruQLweTjTMBk5ZeE0cZTMdJtSOX
-         ksXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762948718; x=1763553518;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q4/fJLZENDtvS5J98U1xQRkgCGJbnGa0twDW00i6rIE=;
-        b=b35WhYMZF0aToQRS30ZFnriVyegr1M0jV/5X3x8YJcUH7dZ10U1CwGXuh0w+INaY59
-         E0W8yW6eshVO58oAvFjVyh8/YoXg9iI3RmSDVIwcPVeDak5VWY2b2BxHPE7hdrmwGvMa
-         B6hS1HBtXlbPccYTopX+/JxGKZHnr9EJYs3SW89O6cB8exUJSWISQa+dLBOzv/bOxa76
-         uCUiCgj+9OQT2nqXVO5gMLgpfBzZbf06dD97X52OHym0jmDqVlgXnql6w/ajItHDPMdG
-         TNmEx0nWgBFVenkZV+Vtsak8IHdJ4icVbFUZGWemZ5YLGbBVhyopi+AcmOPy5KfuA30G
-         0uxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3/mkzI/KzCpamOhdRdDX7S/yDv4op2iDyMv1WwZcg8dnz0cDuDM8jedCyJPR3d7RZf9kEoRdVYOSmUtleakjU@lists.infradead.org
-X-Gm-Message-State: AOJu0YydupRxj+q/8U8Fi+c/Eu7eWsjV0lsz10CV27ivti612zADi6w4
-	NZZIMjIgw4IUy/uhZ9dGLFVDPcAxpLSFrd5d7Z1nMBgP8L2zohCbOBf3QH91RUEDUmrE0xKe83x
-	pvHAGARpWQotT9l9dOwagl5TVREqzj0lMVOBJLNXn+g==
-X-Gm-Gg: ASbGncs3fmGMhfVTk33MVTcUKL3serXXWKrp+4fpnFKTJmhkNIqIetbkEZGNoF2w2lj
-	jH6miLFtAyQb95jS4NLj9Qw+p8NG3XXAmG/w0OiZc5a8/GtN9UN6IpREBkKAIEqTv1gluvKwhIQ
-	wC97//aWXh47ebSqMaj5ojcJ9Gy2WOTK0jh3/7qM4jRb5Nm3asmLc8gQeUOL5kLq3drKAXezUyZ
-	poPl8LNA78GJwCst9KKgksBACV1dhwVt3C8HnggN7nCg+pIkzUTOTXK3CaOYSh50906BEALlcOd
-	A0FwQEiL9NU3Tt8jFQ==
-X-Google-Smtp-Source: AGHT+IETIp8W4pYxCmoKGbnmNOx2PtUmKSkUiZhwZvG6VokOSDI54INQTv4wAyukhcSWp2FphLvXTzu6ti6fFFTE9eQ=
-X-Received: by 2002:a05:620a:2a11:b0:8b1:2fab:30c9 with SMTP id
- af79cd13be357-8b29b76607amr296337985a.2.1762948718128; Wed, 12 Nov 2025
- 03:58:38 -0800 (PST)
+	Wed, 12 Nov 2025 11:59:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AED891515;
+	Wed, 12 Nov 2025 03:58:50 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B94383F5A1;
+	Wed, 12 Nov 2025 03:58:56 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v7 00/11] CoreSight: Refactor power management for ETMv3/4
+Date: Wed, 12 Nov 2025 11:58:36 +0000
+Message-Id: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 MIME-Version: 1.0
-References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
- <20251111-arm_coresight_power_management_fix-v6-11-f55553b6c8b3@arm.com>
- <CAJ9a7VjpmWdethzwpKuo8mvGxU69HjZieGh+6iqTN6aSEow5gA@mail.gmail.com> <20251112111923.GG281971@e132581.arm.com>
-In-Reply-To: <20251112111923.GG281971@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 12 Nov 2025 11:58:26 +0000
-X-Gm-Features: AWmQ_bllvW6tc9--v9PPqeo6mvAU06uhRKKZA8XxUfe1qYJ2VOyyDn6srs8YIr0
-Message-ID: <CAJ9a7Vjj_KXA0aSvDPatg3eN-PJ3Q878n2RF53aKJK1r53d8SA@mail.gmail.com>
-Subject: Re: [PATCH v6 11/11] coresight: etm4x: Reuse normal enable and
- disable logic in CPU idle
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG12FGkC/43NTWrEMAwF4KsMXtfF8l+irnqPUoLHVRIvEg92S
+ FuG3L3KUNqZXQRavAf6dBWVSqIqXk5XUWhNNeWZQ/N0EnEM80AyfXAWWmmnUKEMZepiLlTTMC7
+ dJX9S6aYwh4EmmpeuT18SDLaN6dFqagVDl0Jc3568vXMeU11y+b79XM3e/vLgjvCrkUpSsEgIo
+ C3FVz56jnkSO77aPxCUtodAy6BHRR4Db9M8gu4fBGUOgY7BvlUmAoYAzjyC/g4EOAT6HXQ85ux
+ je74Dt237AShiYLrFAQAA
+X-Change-ID: 20250909-arm_coresight_power_management_fix-139873f942e8
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=3606;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=+F5GwE87+I+3944Z1W90YiXMmgeVggPIXJVMuJO9kQo=;
+ b=y4WotaeCpC8ZGVCB+4Ihi9S8FxelEPIDRYWQLHtcXt4oaO7tkZYJuWiDnUsbe8pr9afB2n10V
+ jtDEVz/9l4BARnPIx6UMV6EA0MHrxUkUv4bRCi0sNuD+j41TEh+rge8
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_035839_729766_CDE164BF 
-X-CRM114-Status: GOOD (  57.23  )
+X-CRM114-CacheID: sfid-20251112_035859_829761_3CA92193 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,183 +81,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+This series is extracted from the CoreSight power management fixes and
+refactoring [1], focusing on ETMv3/4 power management.
 
-On Wed, 12 Nov 2025 at 11:19, Leo Yan <leo.yan@arm.com> wrote:
->
-> Hi Mike,
->
-> On Wed, Nov 12, 2025 at 09:16:46AM +0000, Mike Leach wrote:
-> > Hi Leo,
-> >
-> > The save/restore sequence is only used if the ETM is active at the
-> > time of power down.
-> >
-> > However, by removing the specific save/restore structure, and using
-> > the existing drvdata->config structure, the actual state can be
-> > changed by sysfs from another PE, as the sysfs accesses only write to
-> > the drvdata->config structure and not the actual hardware.  Thus this
-> > change permits the corruption of the saved state, which will result in
-> > restore != saved..
-> >
-> >  While using the same code is a good idea avoiding lots of
-> > duplication, it may be necessary to have a copy of the drvdata->config
-> > passed in to the relevant functions.
-> >
-> > We have considered in the past if it might be worthwhile isolating the
-> > sysfs and perf config settings in the etm - it may be worth
-> > re-visiting this again with a save restore copy in mind to.
->
-> Yes, Levi reminded me he already has some patches [1] to address the
-> issue.  Basically, the series returns -EBUSY if trying to write sysfs
-> knobs but the device has been enabled.
->
+This series has been verified on Juno-r2 platform.
 
-This does solve the problem and as such should become part of this set
-rather than have it as a separate set, or must precede this set so no
-potential issue is created using this set.
+[1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
 
-> Actually, we have another solution (credits to Levi who has worked on
-> it with some internal discussion).  Let me elaberate at here:
->
-> Similiar to you suggested "isolating sysfs and perf config setting",
-> but isolate in a different way:
->
->   User's config: it is a set parameters stored for setting from user
->   space. It can come from sysfs knobs or from cscfs parameters.
->
->   Hardware's config: it is a set parameters for setting hardware
->   registers (we can simply use drvdata->config for this purpose).
->
-> As a result, every time when a session is enabled (it can be a sysfs
-> session or perf session), we apply user's config for updating
-> hardware's config (e.g., in etm4_enable_sysfs() / etm4_enable_perf()),
-> afterwards, when invoke etm4_disable_hw() / etm4_enable_hw(), we
-> only use hardware's config for register setting.
->
+---
+Changes in v7:
+- Updated the commit log in patch 11 (Mike).
+- Link to v6: https://lore.kernel.org/r/20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com
 
-Has this set been sent to the coresight mailing list - I do not
-believe I have seen it?
+Changes in v6:
+- Added a 'retain_ss_status' flag to indicate if need to restain
+  single-shot status (Suzuki).
+- Introduced __etm4_disable_hw() without calling
+  etm4_cs_{unlock|lock}() pairs, which is convenient for the save
+  callback (Suzuki).
+- Link to v5: https://lore.kernel.org/r/20251103-arm_coresight_power_management_fix-v5-0-f803c19aa153@arm.com
 
-> This can naturally resolve the mismatched issue you mentioned in CPU
-> PM save and restore, and this can benefit us for later consolidating
-> cscfg parameters.
->
+Changes in v5:
+- Added more info for removing redundant DSB in
+  etm4_{enable|disable}_trace_unit() (Suzuki/Levi).
+- Dropped moving isb() out from etm4_{enable|disable}_trace_unit()
+  (Suzuki).
+- Reordered patches to move fixes earlier.
+- Link to v4: https://lore.kernel.org/r/20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com
 
-What consolidation of cscfg parameters? Not seen anything on this either?
+Changes in v4:
+- Added patch 10 for retaining sequencer state in ETMv4 driver (Mike).
+- Added Mike's review tags.
+- Added James' test tags.
+- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
 
-> I prefer we can use a separate patch series to address this issue (I
-> should review Levi's patch series so can make things proceed). At the
-> meantime, I would say this patch is still valid.
->
-> As a side topic, actually we have found issues for the config is
-> reset when start a session so the user's config does not take affect at
-> all (see etm4_set_default_config()).
->
+Changes in v3:
+- Fixed building failure in ETMv3 driver (kernel test robot).
+- Refactoring ETMv3 change for checking CPU ID (Levi).
+- Fixed NULL pointer issue during CPU idle (James).
+- Fixed lockdep complaint for HARDIRQ-safe and HARDIRA-unsafe (James).
+- Fixed acquiring mutex in atomic context (James).
+- Rebased on the latest coresight-next branch.
+- Link to v2: https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com
 
-This code is used by the perf session - not the sysfs session. This is
-deliberate to start from a stable state and add any configuration from
-the perf command line.
-The perf session deliberately ignores parameters set by sysfs - in
-fact the first act in parsing the perf event structure in
-etm4_parse_event_config(), is to completely zero out the entire config
-structure. Then the default config is set - which guarantees trace is
-captured, then any perf command line options are set in the registers
-(e.g. timestamps, address filtering etc). After this if we have s
-cscfg configuration active, this too is added in.
+Changes in v2:
+- Refactored ETMv4 suspend and resume for reusing the normal enabling
+  and disabling flows (James).
+- Used a per-CPU structure to maintain path pointers (James).
+- Supported helpers in CPU PM flows (James).
+- Fixed the SMP-safe access to device mode.
+- Fixed the context synchronization in ETMv4x driver.
+- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250516160742.1200904-1-leo.yan@arm.com/
 
-This ensures that the configuration run on all the ETMs used during
-the perf session is identical - which cannot be guaranteed if we used
-sysfs set parameters as part of the perf session, as each ETM might
-have different parameters set by sysfs.This gives us predictable,
-stable and repeatable perf configurations.
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-For sysfs sessions the config for a given etm is whatever has been set
-using sysfs + any active cscfg config settings.Here it is adbantageous
-to use a cscfg as this is applied to all etms being enabled by sysfs -
-without the need to use the syfs files for each individual etm.
+---
+Leo Yan (11):
+      coresight: Change device mode to atomic type
+      coresight: etm4x: Always set tracer's device mode on target CPU
+      coresight: etm3x: Always set tracer's device mode on target CPU
+      coresight: etm4x: Correct polling IDLE bit
+      coresight: etm4x: Add context synchronization before enabling trace
+      coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
+      coresight: etm4x: Remove the redundant DSB
+      coresight: etm4x: Remove the state_needs_restore flag
+      coresight: etm4x: Add flag to retain single-shot status
+      coresight: etm4x: Retain sequencer state
+      coresight: etm4x: Reuse normal enable and disable logic in CPU idle
 
-Regards
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  59 ++--
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 358 +++++++--------------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  64 +---
+ include/linux/coresight.h                          |  25 +-
+ 4 files changed, 172 insertions(+), 334 deletions(-)
+---
+base-commit: b139702a889692ec30702534ebb1ae2b11ed1cbf
+change-id: 20250909-arm_coresight_power_management_fix-139873f942e8
 
-Mike.
-
-> [1] https://lore.kernel.org/linux-arm-kernel/20241221165934.1161856-2-yeoreum.yun@arm.com/
->
-> > On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
-> > >
-> > > The etm4_enable_trace_unit() function is almost identical to the restore
-> > > flow, with a few differences listed below:
-> > >
-> > > 1) TRCQCTLR register
-> > >
-> > >    The TRCQCTLR register is saved and restored during CPU idle, but it
-> > >    is never touched in the normal flow. Given the Q element is not
-> > >    enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
-> > >    restoring this register during idle.
-> > >
-> > > 2) TRCSSCSRn.STATUS bit
-> > >
-> > >    The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
-> > >    but instead directly loads the saved value. In contrast, the normal
-> > >    flow clears this bit to 0 when re-enabling single-shot control.
-> > >
-> > >    Therefore, the restore function passes the restart_ss argument as
-> > >    false to etm4_enable_hw() to avoid re-enabling single-shot mode.
-> > >
-> > > 3) Claim Tag Handling
-> > >
-> > >    The claim tag is acquired and released in normal flow, on the other
-> > >    hand, the claim protocol is not applied in CPU idle flow - it simply
-> > >    restores the saved value.
-> > >
-> > >    The claim bits serve two purpose:
-> > >
-> > >    * Exclusive access between the kernel driver and an external
-> > >      debugger. During CPU idle, the kernel driver locks the OS Lock,
-> > >      ensuring that the external debugger cannot access the trace unit.
-> > >      Therefore, it is safe to release the claim tag during idle.
-> > >
-> > >    * Notification to supervisory software to save/restore context for
-> > >      external debuggers. The kernel driver does not touch the external
-> > >      debugger's claim bit (ETMCLAIM[0]).
-> > >
-> > >    Based on this, it is safe to acquire and release claim tag in the
-> > >    idle sequence.
-> > >
-> > > 4) OS Lock Behavior
-> > >
-> > >    The OS Lock should be locked during CPU idle states. This differs
-> > >    from the normal flow, which unlock it. This special handling remains
-> > >    in the CPU save path.
-> > >
-> > > This commit reuses the normal enable and disable logic in the CPU idle
-> > > path. The common disable logic is moved into a new function
-> > > __etm4_disable_hw(), which omits the etm4_cs_{unlock|lock}() pairs and
-> > > is convenient to call from the save callback.
-> > >
-> >
-> > Why omit cs lock/unlock? Not unlocking the software lock prevents the
-> > claim tag registers from being written, which contradicts 3) above,
-> > and prevents other writes during the disable sequence.
->
-> Sorry for confusion.
->
-> I will update the commit log:
->
->   Split the hardware disable sequence into a new function
->   __etm4_disable_hw(), which performs the common disable
->   logic without the CoreSight lock.
->
->   __etm4_cpu_save() has its own CoreSight lock handling, it
->   calls __etm4_disable_hw() so without duplicate lock issues.
->
-> Thanks,
-> Leo
-
-
-
+Best regards,
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Leo Yan <leo.yan@arm.com>
+
 
