@@ -4,137 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98230CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37305CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTbuJi3FxUPkkWHKpmQ79xCiSdbgLHZBGK2oKYcauJw=; b=GblZD6VgaOZ5jUW+BdGdW/W4Us
-	Ku3paTXYQ9VISBrwTRUVVRxUmBxfG1H3iljVPIwzFv6pCdxCkGnAxZmhq7LPVcVRh7HvM/KSSvBVK
-	WkdEoP6HuLnUqg7UwlOq8T+2qUz+f2lMlUMLx59ehi/pgmfKH+Rh/nHZU9hJD1TqujgucVwObZPLs
-	nC+1Bw5c69yfZAQIF+V78dMaHFltborbaQwobyf9q+tlI0tlecr+cafllVeUvueq2upoNYGsoIMt9
-	GZF0b/KfFQQB/k+xGlkoq0IZC3Jwp5Wi5zck2owRjnUIj5W4NHtWuZsicYHmUgI8KfpAhrzwnf1RY
-	gCt5nNoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFpG+YXKofa49FeP7jAoUUT9+RlY8OI+4nxbVsD7De0=; b=jb1yEY2Hm312azfT3UJAkGuOwZ
+	MCdSpYhWwfyqoRCuSo206QOWGnKBnriSSoj7aMqrzzuhtWziCo5jQUSjaEpjZp5zMSEiHAQaZGacG
+	uRBw1k5oFJ+6XBGslG0nI18V4VbaUJy38KSjYAmPtvzV+ermInxGCBkH7zIDAEU0eMSmWTi0Hunwe
+	41x/xpXR8h8zzUtaQ6tie92R0G46/gicQZ/Km54omZh6mRiJWhpUPR6uUr/IqwBCxHh0yUgV6cLz6
+	qibZYLmdj40C2imHfgD44RHD5wlLXjrOX44RPr+QLa31GXPh/YaRNum0+bsMNK9Hm/PVyPi/M4dMD
+	mV1pYEpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBcy-00000008uil-0VXR;
-	Wed, 12 Nov 2025 14:15:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBcv-00000008uiN-3MhD
+	id 1vJBfc-00000008uuT-31xX;
+	Wed, 12 Nov 2025 14:18:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJBfZ-00000008uu8-1oF2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 14:15:15 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ACB9I0L3060096
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 14:15:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aTbuJi3FxUPkkWHKpmQ79xCiSdbgLHZBGK2oKYcauJw=; b=hlG5U3TohjmX4ClM
-	fRmUhB+jeUucmH3r8qCOseKTaySRZtmTOBvAGRJ4JW6aHkxhslDqAh1XYSiSVsFJ
-	po5HZYh5AADDR6Z4WO7Axr5BsWoJ2VyhTuSAHY/9YiM+SdG/rmVza0f8IFvAG+bh
-	3l0iqhR8p1IxpWG2ZXDKCMp0KvZlpQOzvbUdyg5h0TcKoIF746oQCeM7MPK7aVuh
-	+UJdwm2fheTdiC/BuI8kT5Na7lwwmJ0fEVvoZq3XER3k65xnr6iIyjFWuT3peoJr
-	CNgR/jZ2qMG/34Ij/Zk0TVSaKhq1legtEY2LqbVeV6oJfFKz4OzDIkfy1zz6R1ET
-	6nMgFQ==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ac988kbej-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 14:15:12 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3409a379571so339273a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 06:15:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762956911; x=1763561711; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aTbuJi3FxUPkkWHKpmQ79xCiSdbgLHZBGK2oKYcauJw=;
-        b=ECBwIC4dPGvWBOMDQTmlVHNTf6q4RDbao4cRQp9lBsgB97v2cuEDRYYyx2xh7G4w4b
-         iXxES1m+h43vl+bszOSWs4xeOpU95mVT+fwYn9zv/VeDBVrgVVKAm/sxlbQbJkNQ9yfH
-         mfH+phmOWD6/tCjemwUtBgXGh03iUH5xPtcL0reUSovAzDRpGJa1pfU8zNCRal0Y+DYf
-         WOTQAbPlsq9phzPy3tDbqoxF81k7tk4ox9QOnN32kt9ZLvokmSc0eWobedg5FpBWCHhj
-         panqkONQ99LWTCtfjqxY8AAT5CvCogbC6lzd/a5ZH7yf8yB1WWfOkFAxg8FEpc2mwGft
-         nwcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762956911; x=1763561711;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aTbuJi3FxUPkkWHKpmQ79xCiSdbgLHZBGK2oKYcauJw=;
-        b=F5ciE8kiIwdBxWkhPJ7QABDgzMyQbFy83nr7cEFQzYVIyTTN/oflSqwEHMShtcStiZ
-         kxNUUXJWhekawYmz8kBvN6lBCa2FPJG/1rPF6oS8K2kUyXYJLFQMcZv8HCUJ9iLys1dR
-         EGsImy0Zsia0NiXDL8F62LKBOW1C4ngaue4uIfl664sVvqm3NIFJxB7eu/eQqE5Pn3DN
-         Qrv3zD7Jvl6Aeohp84YL3fvEccfNnaZ1/tF9QJSUmyKhd4fJwOC8Hku/IrKrK5AJUXQk
-         qL65RhFVdnQiNQ9f7FPXBMHQdbfdgrdZbY6F55SfXo2emmQFOHPGXqnMx+UycAfedQd8
-         2L+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUVvD83bUoSAsrY6O5BOt5f0Acf5o6wtEL5RUUQk/aqFseKuhSTvMnGuAwd5+qHyezSWSJTS8Qv5HS9TBzOPzCP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcPTuQgRbh3ObxS5Cp27fa6J1KF0Y1NWpdRKH8eLd2E2WPNQ/J
-	C+AleWNPa++i+TAAJA1cL/2LBtTrPXle5rmS0hYgdwVEDMg7ukQfhpw78k8rm3P09k9BofcmE0c
-	edWdKLTXmRy6eZqVpNHe6xz/trxKNt6aBeOxwqSZXQx0MCyEe2wuiMmRTPeYKaUuSXUdAoq07aW
-	S+mA==
-X-Gm-Gg: ASbGncvIgI6MxWCzC6POECPA+ya3B/+ezRVGNXFyIT2cVrdzVrnXKzPq3xHM4roX/qT
-	TAfKpbCOT3YoABYhE4Z2u9f+3HoGUFzB6l4gdrZXT1H7tqTjJsdjTD+dAYNys4Xeph/PycugY0x
-	95G1QH8L9I9Fbjj6vInd+dUv958WuC2c0bUC9WIDbLZjebsV83dcmKHcpjoEVwG+pxYmx9pIkqz
-	Qf6mvU3S4OQ0Pzb91Myggs7dBLmsxO8JR1xRdAtzPs8wZXOl1tzvToAJK9fHYpGXkPCN+FcuLer
-	mEvzpb2lMzzqoND7S9atBM7ArwOaIyeuzP0hnSxP+3X/qzf4df65kz/s2f1ZEtbbMcCuMqN7X0B
-	KIVGnLnQb59fnTjSC2cQX4xqVms+cHAcZ0UD0nDmoOBkqYVe1mnGEhsdu
-X-Received: by 2002:a05:6122:3714:b0:559:ef6d:b3fa with SMTP id 71dfb90a1353d-559ef6dceeemr260926e0c.3.1762956177647;
-        Wed, 12 Nov 2025 06:02:57 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFDhrwzbfO9vyPZvREpumsSUOwwsoGszLlpvZhnJmg8bsJRAFxwMnbB6qzgmnQ6CjNSL43L9Q==
-X-Received: by 2002:a05:6122:3714:b0:559:ef6d:b3fa with SMTP id 71dfb90a1353d-559ef6dceeemr260791e0c.3.1762956175682;
-        Wed, 12 Nov 2025 06:02:55 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6411f86e9d7sm15873200a12.36.2025.11.12.06.02.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Nov 2025 06:02:54 -0800 (PST)
-Message-ID: <02d7c0a9-0d24-4fd8-980a-da9d7307588a@oss.qualcomm.com>
-Date: Wed, 12 Nov 2025 15:02:52 +0100
+	Wed, 12 Nov 2025 14:17:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38B4D1515;
+	Wed, 12 Nov 2025 06:17:48 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9D563F5A1;
+	Wed, 12 Nov 2025 06:17:52 -0800 (PST)
+Date: Wed, 12 Nov 2025 14:17:49 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Chenghai Huang <huangchenghai2@huawei.com>, arnd@arndb.de,
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	anshuman.khandual@arm.com, ryan.roberts@arm.com,
+	andriy.shevchenko@linux.intel.com, herbert@gondor.apana.org.au,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-api@vger.kernel.org, fanghao11@huawei.com,
+	shenyang39@huawei.com, liulongfang@huawei.com, qianweili@huawei.com
+Subject: Re: [PATCH RFC 4/4] arm64/io: Add {__raw_read|__raw_write}128 support
+Message-ID: <aRSXDTT44_3iutEg@J2N7QTR9R3>
+References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
+ <20251112015846.1842207-5-huangchenghai2@huawei.com>
+ <aRR9UesvUCFLdVoW@J2N7QTR9R3>
+ <20251112140157.24ff4f2e@pumpkin>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu: add actlr settings for mdss and fastrpc
-To: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>,
-        robin.clark@oss.qualcomm.com, will@kernel.org, robin.murphy@arm.com,
-        joro@8bytes.org, dmitry.baryshkov@oss.qualcomm.com
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        bibek.patro@oss.qualcomm.com
-References: <20251105075307.1658329-1-charan.kalla@oss.qualcomm.com>
- <eb596f7a-e13b-4edd-8ee7-05424ea3d9e5@oss.qualcomm.com>
- <c4b1df46-e4b6-4d95-971c-7aaf33bd35f1@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <c4b1df46-e4b6-4d95-971c-7aaf33bd35f1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: OvsgCinqVh51k1AB6s9YLzF14cGTZSvL
-X-Authority-Analysis: v=2.4 cv=eO4eTXp1 c=1 sm=1 tr=0 ts=69149670 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=COuKgFje69h7aUJomk8A:9 a=QEXdDO2ut3YA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDExNSBTYWx0ZWRfXyQyPHgL+OAJU
- ImRJMUqO2E87VCj0Aepk89Ag8jlT+v4RjaSJZFIuBZHf5YyfdgSGQWJQkXomhwZJr9Z6ZEfssIA
- lgb9xg3FJxDfDlZmVMUKgmY1BdEnfCDgHl0Po4/p7uvHubtcilo0/Ozpfop9Fj2aDjLOYb5NvgJ
- 0S1Qa1FiDFecwTpayrWLrAuY/1yCWEd92PMm5jN9FzzTIuuW1qRGvHTjxNEHNhR5kPk+66F/6NF
- eJjzwRFPx0Dm34ygKK/X6WFOzQTaiZUPIJlpW/XgrUmpfbaTNJpZMTBzINZOMDSHNTR9eG83Zok
- cRfQYpszhCkDCQPziqkJvg8PVbqn/VtUPx1g4JfqYDKAAyTJdsrPedK/2ZTZeKhgDbEG/s7/glM
- 9928q6OtQKw+tDbyvP6x/0q4Qhh1PA==
-X-Proofpoint-ORIG-GUID: OvsgCinqVh51k1AB6s9YLzF14cGTZSvL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-12_03,2025-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
- impostorscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511120115
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251112140157.24ff4f2e@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_061513_976991_BDB6ACB2 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20251112_061757_545340_72677DE4 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,45 +72,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/25 3:02 PM, Charan Teja Kalla wrote:
+On Wed, Nov 12, 2025 at 02:01:57PM +0000, David Laight wrote:
+> On Wed, 12 Nov 2025 12:28:01 +0000
+> Mark Rutland <mark.rutland@arm.com> wrote:
 > 
+> > On Wed, Nov 12, 2025 at 09:58:46AM +0800, Chenghai Huang wrote:
+> > > From: Weili Qian <qianweili@huawei.com>
+> > > 
+> > > Starting from ARMv8.4, stp and ldp instructions become atomic.  
+> > 
+> > That's not true for accesses to Device memory types.
+> > 
+> > Per ARM DDI 0487, L.b, section B2.2.1.1 ("Changes to single-copy atomicity in
+> > Armv8.4"):
+> > 
+> >   If FEAT_LSE2 is implemented, LDP, LDNP, and STP instructions that load
+> >   or store two 64-bit registers are single-copy atomic when all of the
+> >   following conditions are true:
+> >   • The overall memory access is aligned to 16 bytes.
+> >   • Accesses are to Inner Write-Back, Outer Write-Back Normal cacheable memory.
+> > 
+> > IIUC when used for Device memory types, those can be split, and a part
+> > of the access could be replayed multiple times (e.g. due to an
+> > intetrupt).
 > 
-> On 11/5/2025 2:44 PM, Konrad Dybcio wrote:
->>> +	{ .compatible = "qcom,fastrpc-compute-cb",
->>> +			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
->> This will be globally applied to all smmu-v2 targets with fastrpc,
->> starting from MSM8996 ending at Kaanapali and everything inbetween
->>
->> Are these settings always valid?
-> Oops, you are correct...this settings are not always applicable it seems.
-> 
-> Example: lpass compute and cdsp compute node uses the
-> "qcom,fastrpc-compute-cb", but it is for the later that ACTLR settings
-> are valid.
-> 
-> Then for these cases, should we be extending the actlr match array with
-> additional compatible string and then add them in all the device nodes
-> that require actlr setting? example:
-> 
-> @@ -3119,7 +3119,8 @@ fastrpc {
->       compute-cb@1 {
-> -         compatible = "qcom,fastrpc-compute-cb";
-> +         compatible = "qcom,fastrpc-compute-cb",
-> +                      "qcom,fastrpc-compute-cb-actlr";
+> That can't be right.
 
-dt-bindings (and especially compatible strings) must not be altered solely
-to work around a driver being suboptimal
+For better or worse, the architecture permits this, and I understand
+that there are implementations on which this can happen.
 
-But because you reported that these settings can change both between
-platforms and instances of the same devices on these platforms, we could
-possibly reconsider adding ACTRL settings to the consumer device nodes
-where they stray away from the otherwise seemingly reasonable baseline
-we have in the driver so far..
+> IO accesses can reference hardware FIFO so must only happen once.
 
-Or we could introduce some more bespoke matching logic.
+This has nothing to do with the endpoint, and so any FIFO in the
+endpoint is immaterial.
 
-I would like to know more about the scope of this issue, i.e. the matrix
-of (soc, device, actlr_val) that needs special handling.
+I agree that we want to ensure that the accesses only happen once, which
+is why I have raised that it is unsound to use LDP/LDNP/STP in this way.
 
-Konrad
+> (Or is 'Device memory' something different from 'Device register'?
+
+I specifically said "Device memory type", which is an attribute that the
+MMU associates with a VA, and determines how the MMU (and memory system
+as a whole) treats accesses to that VA.
+
+You can find the architecture documentation I referenced at:
+
+  https://developer.arm.com/documentation/ddi0487/lb/
+
+> I'm also not sure that the bus cycles could get split by an interrupt,
+> that would require a mid-instruction interrupt - very unlikely.
+
+There are various reasons why an implementation might split the accesses
+made by a single instruction, and why an interrupt (or other event)
+might occur between accesses and cause a replay of some of the
+constituent accesses. This has nothing to do with splitting bus cycles.
+
+Mark.
 
