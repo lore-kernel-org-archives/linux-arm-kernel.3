@@ -4,74 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4867ECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5EDCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g5x08jGt52UM8WSsG9ya+V4RgsZN+VKoptwBF5ItOqA=; b=DlyB1HLqNyeSmWO6hShX2gE5+r
-	vFpdAziOyaXdV+FBQU9g+3GoPwlySHvkOoevxhjeGhjzTj9gUFZE8PohlusVOgO5x/L1lxGRHdSnt
-	oaJxDByVBvSb6r4UFBjLvB0zLJ4feRa83+4WTIwSaZtJQpUS24eQk/kA1AzTB8bgwq0TTzPh0m+N4
-	fGisfljXWMglJNdWSgJQ2/dwb16ZVRTTDMpPeYqav/oLJMp5nNBMlSWIXXh4USe9HxmIo7oB5eyim
-	HIzm2gggXhbhbVYmboTh56KHP0b4jZJOMOGDUp9UPQON7F/wyy88w0+r4cWUo54GfpCyttAtQ9PHv
-	JVOn8GGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ey6LDiXkumCT+pUbQCWZsNxNHeWFqIF+kAZraexImRs=; b=RZd91D9Wd7OBlV
+	vBhN5npkooQl8SCDcrkSuhTbnecZZrzBxNk6rqf9Ttj7PsrfuAIwxEcugLmIBHqVxssvgGbY6Pwc4
+	GnnqZHOynV+Qux6MP0r00er/FLkxkchuC1m1XKA45+HDWt5PNTzTVArq1PIPgTo/dsw6SGVxNsOkx
+	OWfO1mKBmXCRpyBNAkphq+wwPuAbI0UUeoD6NIvRhAiR1mB7KR82Do8F+qvA/TfiifkPbml9xupC1
+	ib6q4B6vSMxdpRBaAq2kPhmBjacsGPiJcSeE13mrzJtlAmgI9+PeUpZrneIGZuXSPtB9mU+Lkgwh4
+	dlav95dMQwYzJLenTLHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6FT-00000008LvE-0bbt;
-	Wed, 12 Nov 2025 08:30:40 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1vJ6G3-00000008M2V-3yxs;
+	Wed, 12 Nov 2025 08:31:15 +0000
+Received: from mail-centralusazon11010070.outbound.protection.outlook.com ([52.101.61.70] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6FQ-00000008LtQ-27ic
+	id 1vJ6Fv-00000008Lzz-2i1Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:30:38 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1762936223;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g5x08jGt52UM8WSsG9ya+V4RgsZN+VKoptwBF5ItOqA=;
-	b=R3lDZxN7sT6NE/Y5oVWLcfzs0503DA2ed4Jc0iohPyN+1aH3pcIqAC3kJUsjoomKtgi40u
-	/CnJ3pRC1UlI9ViRoh5UhzQ1gIcaxQQoY/pDDeB2U56h0Y8hXonrwJQmSw9Xryn48245i2
-	EUdyuSWN7FgwmD6HvyL3u/IsnlyxebpTtkRNfIlg7Szj7IflSNLjv3Ohitz0beKBhjp/NE
-	QzRwavsPrhuFpy9JkVkBd3Tsyfq22XmGxSVjwlDclG9LPzTiw1BuZAC04sYeKfdp0DVaBC
-	L0fG6rnOZfI3Qsl8qwBzBRotjPq03L5bEuiU7vgcNSVQdzXLyHbJ85RXNLFBnQ==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 12 Nov 2025 09:30:19 +0100
-Message-Id: <DE6KQEJ3S9R8.F3LC0FHN4GJ2@cknow-tech.com>
-Cc: "Manivannan Sadhasivam" <mani@kernel.org>, "Lorenzo Pieralisi"
- <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Heiko Stuebner"
- <heiko@sntech.de>, "Kever Yang" <kever.yang@rock-chips.com>, "Simon Xue"
- <xxm@rock-chips.com>, "Damien Le Moal" <dlemoal@kernel.org>, "Dragan Simic"
- <dsimic@manjaro.org>, "FUKAUMI Naoki" <naoki@radxa.com>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Richard Zhu" <hongxing.zhu@nxp.com>, "Frank Li"
- <Frank.li@nxp.com>, "Lucas Stach" <l.stach@pengutronix.de>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Fabio
- Estevam" <festevam@gmail.com>, "Conor Dooley" <conor@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Thierry Reding"
- <thierry.reding@gmail.com>, "Jonathan Hunter" <jonathanh@nvidia.com>, "Hans
- Zhang" <hans.zhang@cixtech.com>, <linux-tegra@vger.kernel.org>,
- <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <kernel@pengutronix.de>, "Bjorn
- Helgaas" <bhelgaas@google.com>
-Subject: Re: [PATCH 3/4] PCI: dw-rockchip: Configure L1sub support
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Bjorn Helgaas" <helgaas@kernel.org>, "Niklas Cassel"
- <cassel@kernel.org>, "Shawn Lin" <shawn.lin@rock-chips.com>
-References: <20251111221621.2208606-1-helgaas@kernel.org>
- <20251111221621.2208606-4-helgaas@kernel.org>
-In-Reply-To: <20251111221621.2208606-4-helgaas@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 12 Nov 2025 08:31:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bEbQi6YcZjwXiT/cf5q4UC39g0bjwGcvZ21wlhx889A49vWi5oFNpqRqHzbpAgswygsfFsdo3BRZyp4vWuadCgQ8ae+/ivuWdWH0jE6lSe9wcSNT0ePw74wMmFYE+Um10w2YXUMp4neFkqwVTfK9aPe4sA5N+gaBPJZdEqrCus+LI6DtL+cE28Af67Wzhp+YBaK3KifdqyYsBpcj212m+N5C4Lyt9fQwMhV2XVSyaZWlZEfOcmsoeZ78WyqcVhNrzLMcbLYbkZVWywNynkHOX+5pRsggS2WjNMvszJz/d5A0/Ldpjsh7DkYDJCKoAiltuHPmmHE/ZoVkgIqgZ9tomQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ey6LDiXkumCT+pUbQCWZsNxNHeWFqIF+kAZraexImRs=;
+ b=audjFuuiwdWk2q0gB5gTh/MOKNsKsylbea7Eqz0KCcEInNwwxQtMOrk6/6ECt2VGh+dpMcYST9JaRRQnDNi8x9zS/UqdMCXAa5NAigQUvzhr2de57iQ8BdXoRuq1DNwCqh10XLfpitthEwEF3HIzpEvwLv6gWUX0lpVjjzrJgPLgfhXXB9mEUr/zYPS8HKqaC6duRvQD7zm2CW3lvuIiKYCosapBm338NJJlLbYpCIwOWatBigvhYzT6bkX3FvgwnlKzXOcpzKFhu12PlvcU3ikICn6A9vcPc5uVeclCwulHLXlaeKzx4RFzO4Vw7rkQ9zrQepNqihN8gtECupSMhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ey6LDiXkumCT+pUbQCWZsNxNHeWFqIF+kAZraexImRs=;
+ b=oeEHGkTzW+QgDPOYWOYxCVtmrvE5W+BB/di2Md7VUZQWjD582qaBTQtT4s5sykPrl1W5DL5hbM9MCwBKjBqyfD27T9ibnCtja/IkmjtThjRMvSCr6CJkMueIQ9kk1LDRuK+kfrJe5JI3M0+91VyhDsm8usYRhocPJjrrVtnbCM0=
+Received: from BN0PR03CA0026.namprd03.prod.outlook.com (2603:10b6:408:e6::31)
+ by CO1PR10MB4513.namprd10.prod.outlook.com (2603:10b6:303:93::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
+ 2025 08:31:02 +0000
+Received: from BN2PEPF00004FBF.namprd04.prod.outlook.com
+ (2603:10b6:408:e6:cafe::21) by BN0PR03CA0026.outlook.office365.com
+ (2603:10b6:408:e6::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9298.16 via Frontend Transport; Wed,
+ 12 Nov 2025 08:31:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF00004FBF.mail.protection.outlook.com (10.167.243.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 08:31:02 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
+ 2025 02:31:01 -0600
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
+ 2025 02:31:00 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 12 Nov 2025 02:31:00 -0600
+Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AC8UxtU2389830;
+	Wed, 12 Nov 2025 02:31:00 -0600
+From: Anshul Dalal <anshuld@ti.com>
+Subject: [PATCH v2 0/2] dt-bindings: arm: keystone: ti,sci: add entries for
+ boot mboxes
+Date: Wed, 12 Nov 2025 14:00:52 +0530
+Message-ID: <20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALxFFGkC/33Nyw6CMBCF4VchXVvDjJbbyvcwpCm0yERhTEsIh
+ PDuVuLa5X8W39lEcJ5cEFWyCe9mCsRjDDwlou3N+HCSbGyBKSqAVMnnRYc1tDxqY61umCc9GHo
+ 1vLggi6vCxtqyKDMUkXh719Fy8Pc6dk9hYr8ebzN81x8M8B+eQYJUWBrMO4Q0z24TnVseRL3v+
+ wcAhS+pxQAAAA==
+X-Change-ID: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
+ Shilimkar" <ssantosh@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+	"Anshul Dalal" <anshuld@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762936259; l=1180;
+ i=anshuld@ti.com; s=20251022; h=from:subject:message-id;
+ bh=68FxSSMF36gqwG2iIUMfVvcnWtjX1Dmj7OBqO+Nn9uk=;
+ b=tTdyiO5tHARSufrm0GtB4VZFEWlFNtEk6Po4AkvfVx+zlhxwJiMrFoACSWbCbprZxBsEiOO4Q
+ 8GLWYVblVO9ANUHCFtIaD9+XnLi4AJm0ndQkCz9fKLfjFNSLyN5Fk/U
+X-Developer-Key: i=anshuld@ti.com; a=ed25519;
+ pk=Kv8FlQElcrR6efyEHmjtE83y8e0HKvqPyvVY+PJ4UFw=
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBF:EE_|CO1PR10MB4513:EE_
+X-MS-Office365-Filtering-Correlation-Id: 942c2fbe-7c6d-44de-5ce7-08de21c5d066
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NEhtU3J1SUZWQ3J6U05jVnROd3MrQ1k4NHAvVmhCUjFnVkZrdjVoRHVrUDl6?=
+ =?utf-8?B?UkxmRVNoRkNBTzh6S2phaWRVUEw0WlYvUzVsTzJDMjZuRVRmUTJhaWlHNlQw?=
+ =?utf-8?B?T3hlMlg5R3Q1dE5HbnM1a3BIRXJyMG5yNFRPc1JZYjByMHI5bHM1MzBvMnp3?=
+ =?utf-8?B?UVhSNXpJdGNhRGR2eEJOMzRGSjdoUkIwZW5HZFRtdmR3K1pqU3hvSk80aXpQ?=
+ =?utf-8?B?dlFHeG1WaWExdFVsSG5Uck9DSkVualpROUMwdi9hZERWV2NTam1wZHFDN082?=
+ =?utf-8?B?Y0lCR0IxYlZzdWEzRFY5b2d1TUtackVORTd2WGxVeE5Bayt6N3hNUDFMK2NQ?=
+ =?utf-8?B?TG5CNytyOGNPZTMydktVRkUycHZ2eWRuVEdyRFFhRDVXQzRGV1dscEVwUHdz?=
+ =?utf-8?B?eFBrQmF3c0k2S0lPbkxUT1JsOVFYQkdYN0pTUis0bXV5V2QzdVExSGdJYTRs?=
+ =?utf-8?B?aHZnZ1YyYlMyL0JCTUpTbXE1RnY2MkVJVmVaYlgxZkZxOUNBakZhS1BrN0ZT?=
+ =?utf-8?B?cnBXbzZWN3ByUGppdGV4L2UvYmJ5K1ZkTmMrVUovY0U5THFWellydUdza2Fq?=
+ =?utf-8?B?SkorZmxKM21MZkc1RW45MTVWMksxbkEvanNuUUt3UzRyME1CWWdpSEhmakth?=
+ =?utf-8?B?NW40YkN3Mm1OQVNkemRadHliM3poRXVGM0E0dFdadWQ3Z2YwU0RCQzd2YU4r?=
+ =?utf-8?B?QkcrRWRqbXZUS0o1YzQwVnl0Z0ZRT2dwcDMvTUVxelJleXEwdi9pZ1YxMmY0?=
+ =?utf-8?B?ekIvb2o3TXBzUXZSMGs2ZHpLYUVHSlllQms3eXlNQ2xEb2NNUjJCWEhwTzZF?=
+ =?utf-8?B?TFdNV2UwTk9rR1lWalBjS095VlczbURjdXBRRFIyV0pkTDJhemlHTWpBYkE0?=
+ =?utf-8?B?MUhLL2p6aEtEeXpiU3hJeGovR2RJbThKRVg1UXVGSzFRKytVbFVOWG9QbGkv?=
+ =?utf-8?B?SDdIY1I4dk9RYlpLSC80Tmc5YWVYQVJHcHFxeVpueXlDMTJmeStOUlU0RkZL?=
+ =?utf-8?B?aDlacEVYT2tjMGZmcC9ROVhLOWFrZG15VmNIRnFMN0p3ak85cS9OMVJyS3d6?=
+ =?utf-8?B?cE5Bb3YycjF6TG5HUTdDK1RrUnFwYy9HcVVzZ050Und6K1VvTjU1K2t5d1Ux?=
+ =?utf-8?B?NVVDVW1icXZEbmR1KzhscDhaRTFmd1I2RWFqRW1IaWR5NlFLSFRtT1VrMVZx?=
+ =?utf-8?B?UjJMUzBnall0OStJQlcrYTZPYW12aHZiYUUyQVJSOU1kS21xSzl2L1BEckJI?=
+ =?utf-8?B?dExDTGJzWFNpVmxpc0pPQXI1Ujl6cWgzeVVXYnpSa0MrM2MyZWdJMGo0UmF4?=
+ =?utf-8?B?RUJQTUVYQWkxMmp5TW1lS0hLb1ROdFVQczg3dVZmcVhUajJQeG5SUDlNSXUy?=
+ =?utf-8?B?MVYzelYwYUdYa0tDWHFsOThzWmVCMi9vMGt5OGdOQUZoVGh4Nm1RQ05EUWMx?=
+ =?utf-8?B?R2Nwa3BpQ0ZpUy9MclJwUE9ERXhqNUNpRTIxdUV0a00ySDZ0SG5ydCtLRDQ3?=
+ =?utf-8?B?K3o3STBmRGJ1Smc5cVlRQWU5NzBkYlg1Z1VRL3FOdkZuWTBUUWRXd2M3dTZu?=
+ =?utf-8?B?aGJJZWRVa1NvSmRQd0pzdVRGM2FialR2VlZtWXcxUnhTemw3ZlpJWGE4eDVB?=
+ =?utf-8?B?MUh4WTJTVUVoWTRYenJOdDBBSVpGTERRM0ZyT291Y0d3N3pIdDV1NytRVTV5?=
+ =?utf-8?B?ZkpTK3FnUkhlamY3OUJZMTZ5YzVyMzloT3dXaXJHNHJDMk04TC9PYkJ3eTNR?=
+ =?utf-8?B?TGZOV0Rqa3FqeGN2YVd5S040M2J0bW0vMnU4aW1TMUd4amhkU2FsUERpcldr?=
+ =?utf-8?B?aUlSSnRnUkkrb3JjUXZBSnlNYnk5ZzRVUGlMdXJFb3NSeXNPYTRacGxBbDc5?=
+ =?utf-8?B?cUxKaUdMSVVRRWNsOWV0d1Z0SFEwdERHcDY2RWEvTEg0b003dThjMy8vVlBH?=
+ =?utf-8?B?SDBhQ2Rrb1pPc1NqZDNxREdhRjJRdVNsZE1RZWN0a1lOeXhUQXV4UFIyWHdu?=
+ =?utf-8?B?Mzg0VVc1SHI1YVIxTkNhOHZzbkxtaHFqbml2TUw1R2ZVc3ZGRmlJcHpsT1ln?=
+ =?utf-8?B?WTVnaTJ6ZWkyanZzZHB4NlJYc0ltbzl5UWFraVFWQTZpQmlxbUx6TkQ0dEwz?=
+ =?utf-8?Q?ReY0=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 08:31:02.0710
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 942c2fbe-7c6d-44de-5ce7-08de21c5d066
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBF.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_003036_823170_80A22231 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20251112_003108_385326_A1A2B2B0 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,133 +176,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Nov 11, 2025 at 11:16 PM CET, Bjorn Helgaas wrote:
-> From: Shawn Lin <shawn.lin@rock-chips.com>
->
-> L1 PM Substates for RC mode require support in the dw-rockchip driver
-> including proper handling of the CLKREQ# sideband signal. It is mostly
-> handled by hardware, but software still needs to set the clkreq fields
-> in the PCIE_CLIENT_POWER_CON register to match the hardware implementatio=
-n.
->
-> For more details, see section '18.6.6.4 L1 Substate' in the RK3658 TRM 1.=
-1
+K3 devices use the system controller HW block to run the TIFS firmware,
+currently we document the RX and TX channels only however before the
+firmware is loaded, a different set of  mailboxes are required to load
+firmware to the HW block.
 
-s/RK3658/RK3568/
+This patch set documents the missing mailboxes in the binding.
 
-Sorry,
-  Diederik
+Signed-off-by: Anshul Dalal <anshuld@ti.com>
+---
+Changes in v2:
+- Remove maxItems entry
+- Remove RFC tag from patch (added by mistake in v1)
+- Document the new mailboxes in mboxes instead of mbox-names
+- Provide example with all the mailboxes set
+- Update commit title to have "ti,sci"
+- Split into two patches
+- Link to v1: https://lore.kernel.org/r/20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com
 
-> Part 2, or section '11.6.6.4 L1 Substate' in the RK3588 TRM 1.0 Part2.
->
-> Meanwhile, for the EP mode, we haven't prepared enough to actually suppor=
-t
-> L1 PM Substates yet. So disable it now until proper support is added late=
-r.
->
-> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-> [bhelgaas: set pci->l1ss_support so DWC core preserves L1SS Capability bi=
-ts;
-> drop corresponding code here]
-> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> Link: https://patch.msgid.link/1761187883-150120-1-git-send-email-shawn.l=
-in@rock-chips.com
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 38 +++++++++++++++++++
->  1 file changed, 38 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/=
-controller/dwc/pcie-dw-rockchip.c
-> index 3e2752c7dd09..62a095752833 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -62,6 +62,12 @@
->  /* Interrupt Mask Register Related to Miscellaneous Operation */
->  #define PCIE_CLIENT_INTR_MASK_MISC	0x24
-> =20
-> +/* Power Management Control Register */
-> +#define PCIE_CLIENT_POWER_CON		0x2c
-> +#define  PCIE_CLKREQ_READY		FIELD_PREP_WM16(BIT(0), 1)
-> +#define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
-> +#define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
-> +
->  /* Hot Reset Control Register */
->  #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
->  #define  PCIE_LTSSM_APP_DLY2_EN		BIT(1)
-> @@ -85,6 +91,7 @@ struct rockchip_pcie {
->  	struct regulator *vpcie3v3;
->  	struct irq_domain *irq_domain;
->  	const struct rockchip_pcie_of_data *data;
-> +	bool supports_clkreq;
->  };
-> =20
->  struct rockchip_pcie_of_data {
-> @@ -200,6 +207,32 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pc=
-i)
->  	return FIELD_GET(PCIE_LINKUP_MASK, val) =3D=3D PCIE_LINKUP;
->  }
-> =20
-> +/*
-> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for th=
-e steps
-> + * needed to support L1 substates. Currently, just enable L1 substates f=
-or RC
-> + * mode if CLKREQ# is properly connected and supports-clkreq is present =
-in DT.
-> + * For EP mode, there are more things should be done to actually save po=
-wer in
-> + * L1 substates, so disable L1 substates until there is proper support.
-> + */
-> +static void rockchip_pcie_configure_l1sub(struct dw_pcie *pci)
-> +{
-> +	struct rockchip_pcie *rockchip =3D to_rockchip_pcie(pci);
-> +
-> +	/* Enable L1 substates if CLKREQ# is properly connected */
-> +	if (rockchip->supports_clkreq &&
-> +	    rockchip->data->mode =3D=3D DW_PCIE_RC_TYPE ) {
-> +		rockchip_pcie_writel_apb(rockchip, PCIE_CLKREQ_READY,
-> +					 PCIE_CLIENT_POWER_CON);
-> +		pci->l1ss_support =3D true;
-> +		return;
-> +	}
-> +
-> +	/* Otherwise, pull down CLKREQ# */
-> +	rockchip_pcie_writel_apb(rockchip,
-> +				 PCIE_CLKREQ_PULL_DOWN | PCIE_CLKREQ_NOT_READY,
-> +				 PCIE_CLIENT_POWER_CON);
-> +}
-> +
->  static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
->  {
->  	u32 cap, lnkcap;
-> @@ -264,6 +297,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp =
-*pp)
->  	irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
->  					 rockchip);
-> =20
-> +	rockchip_pcie_configure_l1sub(pci);
->  	rockchip_pcie_enable_l0s(pci);
-> =20
->  	return 0;
-> @@ -301,6 +335,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *=
-ep)
->  	struct dw_pcie *pci =3D to_dw_pcie_from_ep(ep);
->  	enum pci_barno bar;
-> =20
-> +	rockchip_pcie_configure_l1sub(pci);
->  	rockchip_pcie_enable_l0s(pci);
->  	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
-> =20
-> @@ -412,6 +447,9 @@ static int rockchip_pcie_resource_get(struct platform=
-_device *pdev,
->  		return dev_err_probe(&pdev->dev, PTR_ERR(rockchip->rst),
->  				     "failed to get reset lines\n");
-> =20
-> +	rockchip->supports_clkreq =3D of_property_read_bool(pdev->dev.of_node,
-> +							  "supports-clkreq");
-> +
->  	return 0;
->  }
-> =20
+---
+Anshul Dalal (2):
+      dt-bindings: arm: keystone: add missing items to mboxes
+      dt-bindings: arm: keystone: add boot_* mboxes to ti,sci
+
+ .../devicetree/bindings/arm/keystone/ti,sci.yaml   | 26 ++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+---
+base-commit: 4427259cc7f7571a157fbc9b5011e1ef6fe0a4a8
+change-id: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
+
+Best regards,
+-- 
+Anshul Dalal <anshuld@ti.com>
 
 
