@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB12CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6937ACD3440
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoXkKGLztEe9q37Tv8U2LYEixPP42ziR47BEg6jYob0=; b=muobpZTxW0McHyu3g+IaCBTTrj
-	NMOJwlm1y7moINL6D4DdvUBnmwMs/W81wGOa9SyX6KbPeMmUY6XIZRUt7QidLsGfivNc0kxmqdYMh
-	u/DLQefzIA5vn6wSK62vPrhYSQwJXxpoLxiEcy77IU8D3FpyhRkq7Rt9v1b02zRSNbvCaHoR0tRm7
-	VhtESNfjW7r3UHcg2kHKTY+u0CqNZnbW3+INyqBG8SxjdlAw1pe6dlOZ45B7BEeSm1ELW638NFcnL
-	NtpuVnArvkShM/G6yT4nwDMYKLNuPnacrX4WHrPFTMULB+ZUR5/OqdzdxOunI8WlG7wR/bmCVbN0C
-	k/yy2T8g==;
+	bh=KazYSMUi3seSS4oObUkpu/Tp1JR7fu/js/EwRQBrgiA=; b=E7EgvGODXAaTx46uLva6xVSxlD
+	KxE8MUwGQyzKy+jzSiq2dlQc93fdUyTyhsDkkbGgsNfMpBauLpjH7k+n039CbN5knxfUDNR1t5HGs
+	gdtmTIF/3YoCdnWOLgcDFL9Tnmo4SnfT5LHVROhDqZcuJ7dZstjSLJ0p5HrCDgqovXqwi7tNHMOwU
+	xT2kaKpjP0MLHza2hukL9tQ93gqUMegAWoYJ9XhOpdXx3uri0BGcA6iljqZnVli+Hs8RPOYP4RoRE
+	qNCNfNnBdj8JMn7DZiwfRdLO+x2vIeQpgX5zrmarGkHzU/xkpOOTQW4Dg+bfR/k3Lr7iXJ4+RIsFq
+	DX15CrtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFXT-00000009KJu-1QhY;
-	Wed, 12 Nov 2025 18:25:51 +0000
+	id 1vJFXV-00000009KMA-0Jco;
+	Wed, 12 Nov 2025 18:25:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFXC-00000009JzA-3F4z
+	id 1vJFXF-00000009K2w-0O7w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 18:25:36 +0000
+	Wed, 12 Nov 2025 18:25:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A4731595;
-	Wed, 12 Nov 2025 10:25:26 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C33651515;
+	Wed, 12 Nov 2025 10:25:28 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69C2C3F63F;
-	Wed, 12 Nov 2025 10:25:32 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 900473F63F;
+	Wed, 12 Nov 2025 10:25:34 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 12 Nov 2025 18:24:45 +0000
-Subject: [PATCH v3 19/25] tools/include: Sync uapi/linux/perf.h with the
- kernel sources
+Date: Wed, 12 Nov 2025 18:24:46 +0000
+Subject: [PATCH v3 20/25] perf mem: Print extended fields
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-perf_support_arm_spev1-3-v3-19-e63c9829f9d9@arm.com>
+Message-Id: <20251112-perf_support_arm_spev1-3-v3-20-e63c9829f9d9@arm.com>
 References: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
 In-Reply-To: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -52,17 +51,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762971891; l=2534;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762971891; l=3651;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=nC/Q92p0Kkfbn1r09MFtZiy8fIzaDI15INoMzpYTApc=;
- b=ERBFWY8M/wpVv/Umdo38r3jZOslTJmXz7qJVRIL3z7NvxSTdX5bEL7M4ddDKcaqDDg8bw4FTl
- W3aWJAfRbdjBjD2qrvBayYkwUh8QHygHulDPXUqLnIzVVh2vYKNdsQG
+ bh=A7ojri2MUqobrd+TLOmz8lLFTBFq9buLIlAc/yoYVBg=;
+ b=+CIICRF0kKKwCbqZzzjolMZ58mP7afNb0PCC3SrH5HJHj7vYONLtzPMQwZGjLst13tWe5/Rnj
+ 2vu7+yE0UBTBwRVBtGFXz3igdofry4nf289S/tU7TEPtSIotxwyhZg1
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_102535_007901_4B8ABA4A 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_102540_977643_C2CCE6ED 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +75,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sync for extended memory operation bit fields.
+Print the extended operation types and affiliate info.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/include/uapi/linux/perf_event.h | 32 ++++++++++++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+ tools/perf/util/mem-events.c | 66 ++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 60 insertions(+), 6 deletions(-)
 
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index 78a362b8002776e5ce83a0d7816601638c61ecc6..9b9fa59fd828756b5e8e93520da5a269f0dfff52 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -1309,14 +1309,32 @@ union perf_mem_data_src {
- 			mem_snoopx  :  2, /* Snoop mode, ext */
- 			mem_blk     :  3, /* Access blocked */
- 			mem_hops    :  3, /* Hop level */
--			mem_rsvd    : 18;
-+			mem_op_ext  :  4, /* Extended type of opcode */
-+			mem_dp      :  1, /* Data processing */
-+			mem_fp      :  1, /* Floating-point */
-+			mem_pred    :  1, /* Predicated */
-+			mem_atomic  :  1, /* Atomic operation */
-+			mem_excl    :  1, /* Exclusive */
-+			mem_ar      :  1, /* Acquire/release */
-+			mem_sg      :  1, /* Scatter/Gather */
-+			mem_cond    :  1, /* Conditional */
-+			mem_rsvd    :  6;
- 	};
- };
- #elif defined(__BIG_ENDIAN_BITFIELD)
- union perf_mem_data_src {
- 	__u64 val;
- 	struct {
--		__u64	mem_rsvd    : 18,
-+		__u64	mem_rsvd    :  6,
-+			mem_cond    :  1, /* Conditional */
-+			mem_sg      :  1, /* Scatter/Gather */
-+			mem_ar      :  1, /* Acquire/release */
-+			mem_excl    :  1, /* Exclusive */
-+			mem_atomic  :  1, /* Atomic operation */
-+			mem_pred    :  1, /* Predicated */
-+			mem_fp      :  1, /* Floating-point */
-+			mem_dp      :  1, /* Data processing */
-+			mem_op_ext  :  4, /* Extended type of opcode */
- 			mem_hops    :  3, /* Hop level */
- 			mem_blk     :  3, /* Access blocked */
- 			mem_snoopx  :  2, /* Snoop mode, ext */
-@@ -1426,6 +1444,16 @@ union perf_mem_data_src {
- /* 5-7 available */
- #define PERF_MEM_HOPS_SHIFT			43
+diff --git a/tools/perf/util/mem-events.c b/tools/perf/util/mem-events.c
+index 80b3069427bc4bb5ffc3ab0856c01c76d9ba3ba6..c0aee982fb4f1a849c28a8bb01693855922832f6 100644
+--- a/tools/perf/util/mem-events.c
++++ b/tools/perf/util/mem-events.c
+@@ -413,11 +413,15 @@ static const char * const mem_hops[] = {
  
-+/* Extended type of memory opcode: */
-+#define PERF_MEM_EXT_OP_NA			0x0    /* Not available */
-+#define PERF_MEM_EXT_OP_MTE_TAG			0x1    /* MTE tag */
-+#define PERF_MEM_EXT_OP_NESTED_VIRT		0x2    /* Nested virtualization */
-+#define PERF_MEM_EXT_OP_MEMCPY			0x3    /* Memory copy */
-+#define PERF_MEM_EXT_OP_MEMSET			0x4    /* Memory set */
-+#define PERF_MEM_EXT_OP_SIMD			0x5    /* SIMD */
-+#define PERF_MEM_EXT_OP_GCS			0x6    /* Guarded Control Stack */
-+#define PERF_MEM_EXT_OP_SHIFT			46
+ static int perf_mem__op_scnprintf(char *out, size_t sz, const struct mem_info *mem_info)
+ {
+-	u64 op = PERF_MEM_LOCK_NA;
++	union perf_mem_data_src data_src;
++	u64 op = PERF_MEM_OP_NA, ext_op = 0;
+ 	int l;
+ 
+-	if (mem_info)
+-		op = mem_info__const_data_src(mem_info)->mem_op;
++	if (mem_info) {
++		data_src = *mem_info__const_data_src(mem_info);
++		op = data_src.mem_op;
++		ext_op = data_src.mem_op_ext;
++	}
+ 
+ 	if (op & PERF_MEM_OP_NA)
+ 		l = scnprintf(out, sz, "N/A");
+@@ -432,6 +436,19 @@ static int perf_mem__op_scnprintf(char *out, size_t sz, const struct mem_info *m
+ 	else
+ 		l = scnprintf(out, sz, "No");
+ 
++	if (ext_op == PERF_MEM_EXT_OP_MTE_TAG)
++		l += scnprintf(out + l, sz - l, " MTE");
++	else if (ext_op == PERF_MEM_EXT_OP_NESTED_VIRT)
++		l += scnprintf(out + l, sz - l, " NV");
++	else if (ext_op == PERF_MEM_EXT_OP_MEMCPY)
++		l += scnprintf(out + l, sz - l, " MEMCPY");
++	else if (ext_op == PERF_MEM_EXT_OP_MEMSET)
++		l += scnprintf(out + l, sz - l, " MEMSET");
++	else if (ext_op == PERF_MEM_EXT_OP_SIMD)
++		l += scnprintf(out + l, sz - l, " SIMD");
++	else if (ext_op == PERF_MEM_EXT_OP_GCS)
++		l += scnprintf(out + l, sz - l, " GCS");
 +
- #define PERF_MEM_S(a, s) \
- 	(((__u64)PERF_MEM_##a##_##s) << PERF_MEM_##a##_SHIFT)
+ 	return l;
+ }
  
+@@ -582,9 +599,6 @@ int perf_mem__blk_scnprintf(char *out, size_t sz, const struct mem_info *mem_inf
+ 	size_t l = 0;
+ 	u64 mask = PERF_MEM_BLK_NA;
+ 
+-	sz -= 1; /* -1 for null termination */
+-	out[0] = '\0';
+-
+ 	if (mem_info)
+ 		mask = mem_info__const_data_src(mem_info)->mem_blk;
+ 
+@@ -600,6 +614,44 @@ int perf_mem__blk_scnprintf(char *out, size_t sz, const struct mem_info *mem_inf
+ 	return l;
+ }
+ 
++static int perf_mem__aff_scnprintf(char *out, size_t sz,
++				   const struct mem_info *mem_info)
++{
++	union perf_mem_data_src data_src;
++	size_t l = 0;
++
++	sz -= 1; /* -1 for null termination */
++	out[0] = '\0';
++
++	if (!mem_info)
++		goto out;
++
++	data_src = *mem_info__const_data_src(mem_info);
++
++	if (data_src.mem_dp)
++		l += scnprintf(out + l, sz - l, " DP");
++	if (data_src.mem_fp)
++		l += scnprintf(out + l, sz - l, " FP");
++	if (data_src.mem_pred)
++		l += scnprintf(out + l, sz - l, " PRED");
++	if (data_src.mem_atomic)
++		l += scnprintf(out + l, sz - l, " ATOMIC");
++	if (data_src.mem_excl)
++		l += scnprintf(out + l, sz - l, " EX");
++	if (data_src.mem_ar)
++		l += scnprintf(out + l, sz - l, " AR");
++	if (data_src.mem_sg)
++		l += scnprintf(out + l, sz - l, " SG");
++	if (data_src.mem_cond)
++		l += scnprintf(out + l, sz - l, " COND");
++
++out:
++	if (!l)
++		l += scnprintf(out + l, sz - l, " N/A");
++
++	return l;
++}
++
+ int perf_script__meminfo_scnprintf(char *out, size_t sz, const struct mem_info *mem_info)
+ {
+ 	int i = 0;
+@@ -616,6 +668,8 @@ int perf_script__meminfo_scnprintf(char *out, size_t sz, const struct mem_info *
+ 	i += perf_mem__lck_scnprintf(out + i, sz - i, mem_info);
+ 	i += scnprintf(out + i, sz - i, "|BLK ");
+ 	i += perf_mem__blk_scnprintf(out + i, sz - i, mem_info);
++	i += scnprintf(out + i, sz - i, "|AFF");
++	i += perf_mem__aff_scnprintf(out + i, sz - i, mem_info);
+ 
+ 	return i;
+ }
 
 -- 
 2.34.1
