@@ -4,142 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDD0CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95105CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRKhUWc7w2iAG9gyJBZyUPz1wkiqOFB3aQ/y72EXfe4=; b=tpkFSlLAgWTjUQyfQ9R9jQQPl8
-	p2OH0ZucuqtGLwAgSniB8EqiALRzY9HLTouDxGXACP4tu1blKr+tl8fyUOrRMXN/+KOjbQDHimhhy
-	UXxnd8eog2JMaITuoQm9I+gT4mTuQwe9D6cCglteTVo22Wd4rhSYes9kZBaKYcOpvyh0zRuCc9ttZ
-	Gan1+w7xSTqaoWufGTwgHq+ZRIr4+JKYyXSnivqgrL7bZrfI9PY9l6hZR1rzAe/jr3SuZtzMtyTdp
-	0mnJUJOtepmWPiFfRtn2Yu0O7K0KfMibCoQCL9Y8sh3/O+tG8dI/Gi8nRkVojpDMkgO3dD/hVje/X
-	LECaONMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z4YAab8lEVoX8o7HKOXOiywpYzCpEEyW7oCkq/M5CVc=; b=TsZP/kQ16IkCnd
+	P1aOzFjoYQq/82xGlD19JYiOXFwXbk9+7f6qd90Xh3HX+1Z4U1uU4EQg3PzYbKVnbSGRUzZ0csFcg
+	P92P6X61rsnQr4uIoiLzd8/rCbYPhZGwQjwbDB+iYZ+IalCJg86B8yb3BAF0nY99oVODN8KTzT4d9
+	vGhe6AG5GnKlzYVn8EzPtN9gBDme0f1UtnoPccnIxL/GIODo+vdCOBrI8jgLxQYbl59hpUHSWqnEs
+	HQ34KKvX6hJbX3aoBSZMAp1BpovSLrqxoLVfdRzh8V0GADoi9opZE+y0WD5lOwewt5ps9w+CoOoxk
+	SW5B0jDkCJ9MZwFvtj1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCaj-000000091rC-16wK;
-	Wed, 12 Nov 2025 15:17:01 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vJCg6-000000092Gp-05e1;
+	Wed, 12 Nov 2025 15:22:34 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCag-000000091qR-4Brp
+	id 1vJCg3-000000092FX-2XFV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:17:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eHPD9slpP2jDVuRoDmSZ5ueHsYTWwF3S4+omQdjh02/kTn5OAqeBeHc26S6yyJTv44EBiuyTKdXnp5RBAlx/NDDBQ20zen05/q2CGqYer8KKl3sXMjk4QMCqZ2q1ejUhrzWEMvmx3rd0whB4s3prz8QVL/qkhhK9M30dv2z3aQnYol3iwXwGIU3kbIvQ3dhShY1wb9t+vk21Vk9ZNq3sRUYDt0pjEfqHuZ+U50J4YhYTs2MeW7LzjIXbh6HSKwkNgOvg1oWbJcB6EyeOdS+b+zZiNkUIeYPXRyOAnz+zvdJMiRtnW/URJsJ6MKzGqMqEXXMluDBC90RX8kuofZbx0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CRKhUWc7w2iAG9gyJBZyUPz1wkiqOFB3aQ/y72EXfe4=;
- b=S3ZJJ1QLgPodZ5emJOx/ucMPP1G20CPDIzePC8zixD8c6D2kWcdAGYpfuqi0EBuDz0DAB28Q9tzlZ+RyZqcjQOSr8ta2wHxhdj3uoP5qJUYBNsW75IS+FIZ/Yz2oFDtuir7DbGxGN2lHC9kYwuilFbfL6HTeRE4N3D3xKKlOt5Ryg6aMJRwWEJo0p3SdxF6zvyiP+bD6M1vprBlLna/5aLM9pG+B9aFnuCqb7qFsdNzlcNn0VMs1qXuAEejqRaAFr0YjhQ/I0XdJg2lbhJDFrIEufMjHSW2SsLaze9/8gqoTzFONeUdWPWIwh9bTfK7pVLQU4g/UYwU/PXe2uF7N1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CRKhUWc7w2iAG9gyJBZyUPz1wkiqOFB3aQ/y72EXfe4=;
- b=GrRV5vnnvEkprdbZyZiTktaAWrZQUm5ghjoq+aQS9dDPIjVGUKVXI8CQfSG+rrET5nSPD0bBieajC2wXqroUMb42K426jjJpAumT4b7BOS8JzDXN0GNJ8n32/UH5TRLWNId3w/ngSp3uZYAFWsVUjrbFF+HUN5CfclzR367nAow=
-Received: from MN0PR05CA0017.namprd05.prod.outlook.com (2603:10b6:208:52c::21)
- by DS0PR10MB7068.namprd10.prod.outlook.com (2603:10b6:8:144::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
- 2025 15:16:48 +0000
-Received: from MN1PEPF0000ECD4.namprd02.prod.outlook.com
- (2603:10b6:208:52c:cafe::cd) by MN0PR05CA0017.outlook.office365.com
- (2603:10b6:208:52c::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.6 via Frontend Transport; Wed,
- 12 Nov 2025 15:16:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MN1PEPF0000ECD4.mail.protection.outlook.com (10.167.242.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:16:44 +0000
-Received: from DFLE109.ent.ti.com (10.64.6.30) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20; Wed, 12 Nov
- 2025 09:16:40 -0600
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 12
- Nov 2025 09:16:40 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 12 Nov 2025 09:16:40 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ACFGe6W2860422;
-	Wed, 12 Nov 2025 09:16:40 -0600
-Date: Wed, 12 Nov 2025 09:16:40 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Md Shofiqul Islam <shofiqtest@gmail.com>
-CC: <ssantosh@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] soc: ti: knav_qmss_queue: free resources in remove
- callback (v2)
-Message-ID: <20251112151640.rraufakkykekhmgf@stand>
-References: <20251110212751.Jdztdakpcerpqpr28@gmail.com>
- <20251110224459.49724-1-shofiqtest@gmail.com>
+	Wed, 12 Nov 2025 15:22:33 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42b31c610fcso829377f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 07:22:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762960949; x=1763565749; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z4YAab8lEVoX8o7HKOXOiywpYzCpEEyW7oCkq/M5CVc=;
+        b=s7LVxbzzCTNDU7XAX+2vCED5nB2V03w1eAgUerhsO1Kvr6J8+hAEtm0VOUJmZOtTw2
+         73NCPCNVAW3/otC4xnrt2PxZ4VfhFmwHjqnx4giGsUvzM0HCyAe3O0UNjxMB2wypxUMX
+         QfG1hIRU1Pj1kR/XtU1ShCMiWY0QDu7ApsVXJy0YiQSV4UEakqGX5BJGBJRQ4MF+3FuQ
+         l8B95hd1dCPtMH16nGR6fMZyh20knEo5ouf4PSrqnSefIFG6RXFK3CtLGBrIgr64usDZ
+         LCkFhoHUCpB6iEDe+0jiVCcLyv8+Y0+jQ2TxXaJ0J7puJzncm/x2jrTLLhY/Xg/I24Ht
+         norw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762960949; x=1763565749;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z4YAab8lEVoX8o7HKOXOiywpYzCpEEyW7oCkq/M5CVc=;
+        b=pf2+HfJmszuZmTe8teJkEb5p9gUIgUP5ckXh0QBikfuUNu5YzRbAPVmDLUM1E2CiFN
+         nDcsGPaBw+9QUWh8DXs4ab1WZrJ6FKMfFzfBJ8TGiD//Gt52sG4N8BghUcgOdLvr4Ptw
+         fciHCOVV0BfB8FhP+3yER7ak4oWYOOfj5QPICdB40IUpOGxaFNOAMBwa5gZCYv6wwDnf
+         k9oK5XpqDnLbIh3FC9MJ+4diAbkD3aSkw5nG11MApCLYjgIcJC047bCeL/KFw9CGo5so
+         HsDJC0oMXZTsK4GLk56pDWHmfQ/D4GO/26qUZsMr4A+RQRs3DRAZK2Uj1BhYp3p44yYU
+         6A+g==
+X-Forwarded-Encrypted: i=1; AJvYcCWCmlMDRseKM0wv5ywhooHI9ilZ7Oie4J1xCs2TjVC9cUDdoP2gLOz6WAB6gzu2sYLPaz8IKx0Tv3p8HdH5AoxO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl0oQP7N5TLRDisNHnazEx2+G5Q0Sq+JcJs/zdxkT8DzJPvxsX
+	lH5Fya1RTpf+z8Ee+g5vMouEWxcRmxnica0/x0QADoHU6M0tDk9XEo07lzRUbmHzAms=
+X-Gm-Gg: ASbGncvtHFyaTWhesNThDWwAJow5kfUUV/OLHz0WFJit49Ye5W5PaTmNmGvn0dh2vlA
+	EtodgyQXZ6vqaoz4wg7tVL8o7C9LOngJpmmImpCOL38WwrBcTk3R3VvZ9ZMhBt/4r9cQqYpaK9w
+	RBmN+X2eD1Go4/j8E134JLD+k4lD4G3dIBOlo3KddoMrR4H+VqIofgXbnTy+YZj7N4hE5CDFtD9
+	/6byjIOjz3WJ+5d0BHGDGhoCZRvfbimHypC/mgUxooZ9ANRiBG8pam6jRh2om/Vbgxg8NsYy7fu
+	QI1hOLEO1fEEZiAu1YPzphkZJpkvKXayrsbhtxWgb/i4m+l7ZE6n0zlylU41tLW5NLHki0/KNYA
+	KXCsSaX/dF4xOOamH3wyZRUx0pQVyhaavkcyHHgDusr1KPnf7aOzgn74pUQq7ujSppjcC8DU0Ub
+	aYnFHFxK4SEA==
+X-Google-Smtp-Source: AGHT+IGne5oDnoDNxspZOCag1+PS+dRQCZvqbFW+O5kS5m0nBl9iRLtaXl0HXuN+7Jr4WMxw58qV2A==
+X-Received: by 2002:a05:6000:4308:b0:429:c711:229a with SMTP id ffacd0b85a97d-42b4bdd4f2bmr3324821f8f.56.1762960949156;
+        Wed, 12 Nov 2025 07:22:29 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm33573485f8f.35.2025.11.12.07.22.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 07:22:28 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v4 00/13] coresight: Update timestamp attribute to be an
+ interval instead of bool
+Date: Wed, 12 Nov 2025 15:22:06 +0000
+Message-Id: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251110224459.49724-1-shofiqtest@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD4:EE_|DS0PR10MB7068:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb302d87-9e65-4b42-d2f2-08de21fe7deb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eixk2q7gzoeucQzEDHThcecB4UqVv6sjfnUmO5y9PGqOPV2vAJK/9JOkSz+R?=
- =?us-ascii?Q?dN6PnrqfKJtHYJiNE8sYG8JqN1W0KiPldlw4qKgXatSsMMnDnHLVDLkz+6yE?=
- =?us-ascii?Q?h3HNKuxOOMJD7K1L/yO5/j8+P8ABF2NSnFD3JKQnt4E8MJ5Shs7gGT2ef6VV?=
- =?us-ascii?Q?XF9ZUUJLr9qwf2BN+B1eIsItBMlw72vRi4f6zDQ7Ls8FrM/QVydSdaIlz6yw?=
- =?us-ascii?Q?7objWetrcvjZg5u3GzHYhOW+H83r0ROQhpx2zUsD+fOKVZpGqZr0zoS9hDtW?=
- =?us-ascii?Q?eluZ8khjFA/ao32aACxWrxEmZF3B1uCo4qCPTlwJHQmjqA106Fc94N0sfwaX?=
- =?us-ascii?Q?wCRIzEH0WuZm8zQD6zhIwdNkn/5vwAw9pdKFC01Usd7sSmzaYINr506rM4XZ?=
- =?us-ascii?Q?J61JQHroeZdyIVMzPyeEDx2NVJL87aKvwPHbyHVJqs1TPAv0mk9V7/tV8meX?=
- =?us-ascii?Q?+gxmyV9OnALLfXypEbTrYxL3yowIlohbfEJDzBsVNwZ8VOd//zf10QN/6wyN?=
- =?us-ascii?Q?Da721YFKr1qZ9sPF9qobi2m8TBTxxfJ8KFqwK1mLIi0tDBS2IUIE9184Jha9?=
- =?us-ascii?Q?48sBu3+tp6S23TC1DDoMA7pD5j8TRGD29OktnPEdZZsxPIWo7rMJj3e+MN2c?=
- =?us-ascii?Q?ZineGCd4GfYmxw1U9R6llT12DVzbjDs+5m93hd+3z5OoOq+b5b+5/z5WQ/D6?=
- =?us-ascii?Q?ulrUCFgPK9rS12g8y4xogWl1LE3ogbE11Ic3xzJ2iDD7dO8MS1lHOrJZxxh9?=
- =?us-ascii?Q?0/JEwA9ZaRSQRtn+gBUJ0xSM69ijHS6JtFAJJ7w1Ck7RBpoz3VWaAQuZGKOQ?=
- =?us-ascii?Q?ujwjuuGUJD12j+mttNqWX9RIaU1c9DP7Xo2FaolU1esgUqwc/ZCANrhUqpyv?=
- =?us-ascii?Q?XDyeRAyqS4Ac0gVEOYmZJ8oKnmZDoSq69UNXoLccSjk0e/6ncclE7hiX+kxr?=
- =?us-ascii?Q?JQKIBfFnqcjL+nIICjRT9PwpNUsFpAcVmydrZkzi43HDM8PP7Rubyhzqhweu?=
- =?us-ascii?Q?O+I22eoz021QC0uW83rg0jBrBBOR6m8yOf/7Ed7Ra6JAtuTzVmktZAOjpjHN?=
- =?us-ascii?Q?uoGZhqyGPK8ZNVfTxYgtx4Pmc+sGVNrkDDfdaiX4LF+O3urMoUrAnVGYd6ZS?=
- =?us-ascii?Q?mpIGscKNVgH4Tc5ttmjD+asmc+BFMRUWP+qFLgxXCCfApB5sESQ/xbPWuidW?=
- =?us-ascii?Q?cGHYvWFo2RQZzQ1Gc9MQ6axH4Siw0gg/OT+YIj/2Ovtc5xy8ccU0/95RrqaO?=
- =?us-ascii?Q?lmsZiSlTpj5pFW4JWoG9gGWvolXYrvBAv3nNDVhgE5KaofQ0lAreAUhOl37h?=
- =?us-ascii?Q?UAcEh9XswcQngxG27pWn6dS4R6oHZrDdmD5BxrkEWSalDtZqmn4c08TpW8GV?=
- =?us-ascii?Q?QJ/Z0+oEp7ibW6SJ+fod6WIWnjfCs9HluX4U0hDhAGP1Kg+E5d8ToGTGvHud?=
- =?us-ascii?Q?RmrvVok5TpbA/Vw0Jsr3WGwOpkK06nLCMEdNe4vDq1yhr242LGTpR9RGf9IT?=
- =?us-ascii?Q?M+2nbnLeaKpsa/bK4iP7xiY7F09DCs/9HXEp+ogvlnzmM8I92H1aMQlA17TJ?=
- =?us-ascii?Q?5Tygp36aeuICmE7PnE3hFL7jG2YCGLxroF4J0mFF?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:16:44.9957
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb302d87-9e65-4b42-d2f2-08de21fe7deb
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD4.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7068
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB6mFGkC/23OwQ6CMAyA4VcxOzuzdcDAk+9hPMDWwYwO3cwiI
+ by7AxOjkePfpF87koDeYiD7zUg8Rhts71Jk2w1RXe1apFanJsAgZxIyeq6vGKgKNAxOGY93KhV
+ ALmtRohYk7d08GvtczOMpdWfDo/fDciLyefrWSs5XtMgpow1jXOkCRcayw8W62ve73rdk5iJ8E
+ 2sPRUiEkoVRTSmLqtB/hPgQnDFYI0QiDObaQGMqrvkPMU3TC4G5yJU5AQAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_071659_043577_217146A7 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20251112_072231_681673_FE3DEF94 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,107 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 00:44-20251111, Md Shofiqul Islam wrote:
-> 
-> Hi Nishanth,
-> 
-> Thanks for reviewing!
-> 
-> This is version 2 (v2) of the patch, not the same as before.
-> I have fixed the formatting and indentation issues you pointed out.
-> The patch now passes checkpatch.pl without any warnings or errors.
-> 
-> Changes in v2:
-> - Fixed indentation and alignment issues reported by checkpatch
-> - Wrapped commit message lines to within 75 characters
-> 
-> Thanks again for your feedback!
-> 
-> Regards,
-> Md Shofiqul Islam
-> 
-> Implement the TODO in knav_queue_remove() by stopping PDSPs and
-> freeing queue regions and queue ranges before disabling runtime PM,
-> mirroring the allocations performed in the probe path.
-> 
-> This ensures resources are released on driver unbind and avoids
-> leaking queue/region state.
-> 
-> Signed-off-by: Md Shofiqul Islam <shofiqtest@gmail.com>
+Do some cleanups then expand the timestamp format attribute from 1 bit
+to 4 bits for ETMv4 in Perf mode. The current interval is too high for
+most use cases, and particularly on the FVP the number of timestamps
+generated is excessive. This change not only still allows disabling or
+enabling timestamps, but also allows the interval to be configured.
 
-Please fix the commit message. I use b4 to apply patches.
-Documentation/process/submitting-patches.rst
-or https://docs.kernel.org/process/submitting-patches.html
-https://docs.kernel.org/process/email-clients.html
+The old bit is kept deprecated and undocumented for now. There are known
+broken versions of Perf that don't read the format attribute positions
+from sysfs and instead hard code the timestamp bit. We can leave the old
+bit in the driver until we need the bit for another feature or enough
+time has passed that these old Perfs are unlikely to be used.
 
-Also you can see how patches are reviewed, the style used
-https://lore.kernel.org/linux-arm-kernel/
+The interval option is added as an event format attribute, rather than a
+Coresight config because it's something that the driver is already
+configuring automatically in Perf mode using any unused counter, so it's
+not possible to modify this with a config.
 
-(hint: don't add (v2) as postfix in $subject)
+Applies to coresight/next
 
-> ---
->  drivers/soc/ti/knav_qmss_queue.c | 21 ++++++++++-----------
->  1 file changed, 10 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-> index 1e5f3e9faa99..7d9f3570ecf3 100644
-> --- a/drivers/soc/ti/knav_qmss_queue.c
-> +++ b/drivers/soc/ti/knav_qmss_queue.c
-> @@ -1,11 +1,11 @@
->  // SPDX-License-Identifier: GPL-2.0-only
-> -/*
-> +/**
->   * Keystone Queue Manager subsystem driver
->   *
->   * Copyright (C) 2014 Texas Instruments Incorporated - http://www.ti.com
-> - * Authors:	Sandeep Nair <sandeep_n@ti.com>
-> - *		Cyril Chemparathy <cyril@ti.com>
-> - *		Santosh Shilimkar <santosh.shilimkar@ti.com>
-> + * Authors: Sandeep Nair <sandeep_n@ti.com>
-> + *          Cyril Chemparathy <cyril@ti.com>
-> + *          Santosh Shilimkar <santosh.shilimkar@ti.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v4:
+- Add #defines for true and false resources ETM_RES_SEL_TRUE/FALSE
+- Reword comment about finding a counter to say if there are no
+  resources there are no counters.
+- Extend existing timestamp format attribute instead of adding a new one
+- Refactor all the config definitions and parsing to use
+  GEN_PMU_FORMAT_ATTR()/ATTR_CFG_GET_FLD() so we can see where the
+  unused bits are.
+- Link to v3: https://lore.kernel.org/r/20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org
 
-un-necessary change, drop.
->   */
->  
->  #include <linux/debugfs.h>
-> @@ -1884,14 +1884,13 @@ static int knav_queue_probe(struct platform_device *pdev)
->  
->  static void knav_queue_remove(struct platform_device *pdev)
->  {
-> -    struct knav_device *kdev = platform_get_drvdata(pdev);
-> -
-> -    knav_queue_stop_pdsps(kdev);
-> -    knav_queue_free_regions(kdev);
-> -    knav_free_queue_ranges(kdev);
-> +	struct knav_device *kdev = platform_get_drvdata(pdev);
->  
-> -    pm_runtime_put_sync(&pdev->dev);
-> -    pm_runtime_disable(&pdev->dev);
-> +	knav_queue_stop_pdsps(kdev);
-> +	knav_queue_free_regions(kdev);
-> +	knav_free_queue_ranges(kdev);
-> +	pm_runtime_put_sync(&pdev->dev);
-> +	pm_runtime_disable(&pdev->dev);
+Changes in v3:
+- Move the format attr definitions to coresight-etm-perf.h we can
+  compile on arm32 without #ifdefs - (Leo)
+- Convert the new #ifdefs to a single one in an is_visible() function so
+  that the code is cleaner - (Leo)
+- Drop the change to remove the holes in struct etmv4_config as they
+  were grouped by function - (Mike)
+- Link to v2: https://lore.kernel.org/r/20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org
 
-When submitting a patch, please rebase and squash local changes.. and
-make sure the patch applies cleanly.
+Changes in v2:
+- Only show the attribute for ETMv4 to improve usability and fix the
+  arm32 build error. Wrapping everything in
+  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) isn't ideal, but the -perf.c
+  file is shared between ETMv3 and ETMv4, and there is already precedent
+  for doing it this way.
+- Link to v1: https://lore.kernel.org/r/20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org
 
->  }
->  
->  static struct platform_driver keystone_qmss_driver = {
-> -- 
-> 2.51.1
-> 
-> 
+---
+James Clark (13):
+      coresight: Change syncfreq to be a u8
+      coresight: Repack struct etmv4_drvdata
+      coresight: Refactor etm4_config_timestamp_event()
+      coresight: Hide unused ETMv3 format attributes
+      coresight: Define format attributes with GEN_PMU_FORMAT_ATTR()
+      coresight: Interpret ETMv3 config with ATTR_CFG_GET_FLD()
+      coresight: Don't reject unrecognized ETMv3 format attributes
+      coresight: Interpret perf config with ATTR_CFG_GET_FLD()
+      coresight: Interpret ETMv4 config with ATTR_CFG_GET_FLD()
+      coresight: Remove misleading definitions
+      coresight: Extend width of timestamp format attribute
+      coresight: Allow setting the timestamp interval
+      coresight: docs: Document etm4x timestamp interval option
 
-PS: if you are not comfortable with upstream patch flow, I suggest
-online training/in-person training from various sources such as bootlin
-etc..
+ Documentation/trace/coresight/coresight.rst        |  15 +-
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |  59 +++++---
+ drivers/hwtracing/coresight/coresight-etm-perf.h   |  39 +++++
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  36 ++---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 164 +++++++++++++--------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  62 +++++---
+ include/linux/coresight-pmu.h                      |  24 ---
+ 7 files changed, 247 insertions(+), 152 deletions(-)
+---
+base-commit: efdccf6a511891db037e08f1351e72eaa101021e
+change-id: 20250724-james-cs-syncfreq-7c2257a38ed3
 
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+James Clark <james.clark@linaro.org>
+
 
