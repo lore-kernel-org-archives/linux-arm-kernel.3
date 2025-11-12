@@ -4,86 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40785CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47247CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQnMOSoBh6c02XpaM92rHFo3ekXwzKheXU/0txW3bog=; b=O0DZyTViYSPpvPBvBMvpUpj7+k
-	tLf3gV3Wwb22buM5MX4EohLCyVW7u+66qf/Uu5vu7Cy1EmQPkTQ4noKU1kx1QIk5EYlqJJPGdRsyq
-	mEGI6zxPSo8zxs/mZz+UvexpDPlx9pHCl+AHQgAr0Q25J6IwIiZHwtIppSOC3ejnD8VnzZfS0qaLU
-	VgoBN6HeDddvj43JgAe5HzBuv5zshD4zWQ40kWSnPPwlXDm4zVwVv4eFAkpzQad4WEOR2o2dBPUhm
-	Le1ml/4diAylpypjDR0/d87bRZxl+3pyhMC50nT1KB3x65QbmnHglE4mGIaoVWHp+NLWoCmAX6T5l
-	DPrrhODg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XwHKT9RuhU9gwQp1S/NjkPluc+vkdi3A0OZHk/g55EY=; b=DuHxeB7XFMcB1RGlVIFc3wNKfY
+	ILIfT+dB5uQpX4Ut3WJzySZDC3JToU8ksGGXDsQ41MJx5p9M+up8Qov6Qjs7F4/R5jkrLTeRGjs+g
+	XcvHkffQwjzj3OFkTPkV/iEB35tXpCeCyINCyncmN2TloiwzIC37VeJztEzDb7oETZKJQiZ/9R+nM
+	cUOq4JiOqBdY/VIiXD7zY4YGR4qixPMlrXYY2mlGlxYWwg/j38Bq//aGECMtPerX/nIK2VZfDDP3O
+	kgNvfF8QO/ezaPkHsCQkvqJPuEZc08T8xB/Py7yMklLKNldKwwOR4lfM4tvgHqweiN0leLjfvRZOP
+	YyYok78w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ61w-00000008K7V-1XQi;
-	Wed, 12 Nov 2025 08:16:40 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vJ62s-00000008KIs-379y;
+	Wed, 12 Nov 2025 08:17:38 +0000
+Received: from mail-japaneastazon11010033.outbound.protection.outlook.com ([52.101.229.33] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ61s-00000008K3i-23iu
+	id 1vJ62p-00000008KI0-2jEi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:16:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 36EF51A1A0B;
-	Wed, 12 Nov 2025 08:16:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E91766070B;
-	Wed, 12 Nov 2025 08:16:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0D00810371904;
-	Wed, 12 Nov 2025 09:16:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762935389; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=HQnMOSoBh6c02XpaM92rHFo3ekXwzKheXU/0txW3bog=;
-	b=vi/Gk5XLFGdPJ7ioZPuZQMq1Sw+qBGaB2Ibv2uhLkgVRAFIsTHFnB5wiGmnJsH+lEQ6qCV
-	KR3geUy9jHdD3rpPNj0UAev3bdA1gOAkxKr62rt5HgQ/rqbOiOu+5w6Lwcvkgu4R4opMfl
-	qJBgCadS4hhctbc1ioqQJKIFBT/wMdZcNDqamrTovDLBGo2GPEXyGVGiZEk6Gk4EWsCx9v
-	GGVQnQaULWqeyhaaLU5WMJT0oUCnv2qSB8uyBc5bPWmF5xZMNGK5UaJOtagxQ3q/G2wRjt
-	hxnPc6/6K8H8U3baaySQ00ln7aW5kILINmz9UUEtgpMsv0SFu3FAnGXg7rTwQQ==
-Message-ID: <dd488c39-3aa3-43f6-8cf7-abca4af3cc7a@bootlin.com>
-Date: Wed, 12 Nov 2025 09:16:20 +0100
+	Wed, 12 Nov 2025 08:17:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lpbc0agodlp9f9XWmxOysNxadk+Y9/ZRm4wp+lbmYKSp3F+CCqfLbgu5bnmaaMXWd9FKhcZYwwq/KawcCG9CFiaZrDC8thOqLFNBzp2lnG8GTOVpPGB7E9SsFZKAxcfzoRnEVfaECsWVumgngU0pHGUQmfmuou402QoBD94e9Z4EWot3Rzmnc5LdG7gg+MJKqNG6BeZllrWnjrXrAXjKCAD97YIhqpLcfUa/YDCZBuhkYfjL+MYqdcuLFMNriTLaC27dkkXzsnaMoBBm+GmUvQLY9oVy72u0JYFZA3Rck+Ydgx0oIKJbpSEzqMSN2lSkI08crvDhCDATKM0pH3zV0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XwHKT9RuhU9gwQp1S/NjkPluc+vkdi3A0OZHk/g55EY=;
+ b=Gi+sqEA7bEB7f2Wuuu9FH19DxPuOI3y2eZtI3JuDrXnrWPF9JQbzTZl5pcwg8rDT3JDiMB2/qBEGWHzFZ4sl+HCkT9Q133m72BmQjON4JU8J7aN1VGFzMyR9/pRD8T/R9rYRpcGT0Y0G7KmHX5ZIbpTux5PVoNhwWkC6LZwB+toBnCd/58zEFu2wvCkvntWC0xvbXukBOa2DW/YtuMbFUeD5IjJbXoHPo0lyoBf+bP4dSMmXyfTOqNDDQBQg5Td3Srp1KBfS/HU75LFaO35y+qo7I2kJoCZvDQcvyXVwRS07QsQNMV1U13oBK/IQjC8bFwBD+5taJZGJ+PDdHUYgIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XwHKT9RuhU9gwQp1S/NjkPluc+vkdi3A0OZHk/g55EY=;
+ b=Qj4FAebad7Ue1gMexcRSFeH3dgjJF6+fE41PrO6RY3PlqIwhjCE4MxW29Dqm1fy31JndqEwANwzFL8XlB9VQxvUvhi3cTfkR73ZxRVEAeY86D7s+wXjjkCatVM30dqc07pZTpVV0lLH30rXXAnMvmrKby24r1bw+d/2eZCokrOysJKbHhXG71dB0Gu3agT3w2L6TDVyMsKy72rcq3xqBAR9SF5Y5ylM7XgnfvtET0y3rARlwbkfstHyFNoBAI9XeQXqVcRqSz7Py4YqF6GjdFy/vMAlCeyZPhknrYU10QNY2hR5UHEEeFxNxOSSSAWpxPW98+k8xYGvvrPbT1Zadyg==
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by TYYPR01MB15134.jpnprd01.prod.outlook.com (2603:1096:405:1a3::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
+ 2025 08:17:28 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 08:17:27 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: 'Ben Horgan' <ben.horgan@arm.com>, "james.morse@arm.com"
+	<james.morse@arm.com>
+CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+	"bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
+	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "dakr@kernel.org"
+	<dakr@kernel.org>, "dave.martin@arm.com" <dave.martin@arm.com>,
+	"david@redhat.com" <david@redhat.com>, "dfustini@baylibre.com"
+	<dfustini@baylibre.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "gshan@redhat.com"
+	<gshan@redhat.com>, "guohanjun@huawei.com" <guohanjun@huawei.com>,
+	"jeremy.linton@arm.com" <jeremy.linton@arm.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
+	<lcherian@marvell.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "peternewman@google.com" <peternewman@google.com>,
+	"quic_jiles@quicinc.com" <quic_jiles@quicinc.com>, "rafael@kernel.org"
+	<rafael@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"rohit.mathew@arm.com" <rohit.mathew@arm.com>, "scott@os.amperecomputing.com"
+	<scott@os.amperecomputing.com>, "sdonthineni@nvidia.com"
+	<sdonthineni@nvidia.com>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "xhao@linux.alibaba.com"
+	<xhao@linux.alibaba.com>, Dave Martin <Dave.Martin@arm.com>
+Subject: RE: [PATCH 16/33] arm_mpam: Probe the hardware features resctrl
+ supports
+Thread-Topic: [PATCH 16/33] arm_mpam: Probe the hardware features resctrl
+ supports
+Thread-Index: AQHcT+M0gRCHbjUqWU6I/WrXktg/6LTuuZEg
+Date: Wed, 12 Nov 2025 08:17:27 +0000
+Message-ID: <OSZPR01MB8798C1FB9EA4C2155C88FFC88BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-17-ben.horgan@arm.com>
+In-Reply-To: <20251107123450.664001-17-ben.horgan@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=de353708-718b-47b6-be4b-d52b9bef2da8;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-11-12T08:16:40Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYYPR01MB15134:EE_
+x-ms-office365-filtering-correlation-id: 5ab86ac2-361a-495c-b222-08de21c3eb0b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|1580799027|38070700021;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?Z1ZnRHZ2TStVcXUvRHowQ3lGVldTVExXbW51bERDbzNSeGlxWjZPN0Fr?=
+ =?iso-2022-jp?B?OEpzMFhsL1FzSm1lUXVXOS84d3J2Nyt5TnhIcFVPSFhRMUVNWURuS1RU?=
+ =?iso-2022-jp?B?TW9aNGFkNk5ocWt3SUtlSXNqYUZOY2VDeTNsOGZPbm1sdDFoNk0vWUo5?=
+ =?iso-2022-jp?B?MUo4dWx6K0x4SDkwdGR6eDZHQnFXWjcrd1Y2UXZ6cjUxVWsvMmErNG1t?=
+ =?iso-2022-jp?B?S2JCblhNTGNJWVJqUUQ0bEtMWnNvWjBYYlhmTEZ3WkN3VTl6YkovUHc2?=
+ =?iso-2022-jp?B?RGdJaWxtZnVMTzBwamg4TEdld3VKRGVGVG5md25wQ1hOQ1Q5RnJnYWRj?=
+ =?iso-2022-jp?B?WDFmUXFzWmRjZGFJcWN0ckJwQWE2aWozaElVc0hja25SNHpqb09haWJ3?=
+ =?iso-2022-jp?B?ZytOZnNKeE5sQy9tY0pMVkpxb0FzVkRnVFMxektJYy9wbmdnMmRtSUxK?=
+ =?iso-2022-jp?B?a3pnd3NaTnJFeFJwUkpvNjlJcFJwcEtTdWlZL28wSFdqOHFpYXFQSnkw?=
+ =?iso-2022-jp?B?bDVXVjM5RWhlVmszbnFLMkptSDdhdW5FNnVCNVk4MFdDQnhqcEYzYmxo?=
+ =?iso-2022-jp?B?QnNLcjMxWDRlczlmb05aKzNjUEJ4ajlkZFBDZ0RXajRSOGZnSko2SUdY?=
+ =?iso-2022-jp?B?dU1QSmVZekxqdFY1cG8weU93VWVOL0g2YmRTYUxLS1ZUMEFPMXM4QnA4?=
+ =?iso-2022-jp?B?RTU5VUlrNmJGeTB2MHJBMmpWd2pMOGRZK3VDMmdrN1VEVmNhbEU4QzZX?=
+ =?iso-2022-jp?B?Y3pYMzZzd2ttcVJEVFFGNUJzZUFXM2RiZndxWmQ4TEYrdy9JVjQ5ZkZ1?=
+ =?iso-2022-jp?B?bWx2dmdRUnBiNVlwbUJvY0hRdXBEVGdKdlljK3FqWGZ5aTI0S2JOSkdy?=
+ =?iso-2022-jp?B?bEZjbnpQa0FQY015bmZoUWh4VDhvYmtDNXU2S2x0cWhUY3BsY0l2VUkv?=
+ =?iso-2022-jp?B?L2xrSXd3UlplSlNmT1pCdVIzOXR3K0xyQ3RRQnpmMTFFNnlrVXdjNnBJ?=
+ =?iso-2022-jp?B?NVdwZE1CQWM0S2pMblJKenRBbFQvc2EvaWRxcDJVa0tDRkU4c0VjeWpa?=
+ =?iso-2022-jp?B?RTR6Vm1neGxyMmUya3VaMVhYTGRTNHZ4VUdFdkIvUENGc3BnV0xreGhV?=
+ =?iso-2022-jp?B?bTE2ZDJBMnErYUFBL3M4bU9BYVZQZ05rZnN3ZUxDc3RBUU9hMERaV3dJ?=
+ =?iso-2022-jp?B?S3U0bkhzUGRYbnM3V01MZXJnT0F5bi90SGZJU3NMRFdDQXlacFFPTlFH?=
+ =?iso-2022-jp?B?UXN4NWRHMCtKeFZ5elFoQkcyWkx6cUt4NFgvWXM2amJiME9Bblo0VFF2?=
+ =?iso-2022-jp?B?NE5iVzU0SmdIcWxOc3kySE1sZ1dKUTRiNWlYYWEyTG04T1doa2RMbmlT?=
+ =?iso-2022-jp?B?T2tJeVRxV1dCaFJKeDAyR2J6c1pmT1VuZmo4bmliZmF4dk9xT0lTdEVC?=
+ =?iso-2022-jp?B?TG5mWjVNVTJzZ2ZTR1N1OXQ0eiszeUJJNTZmbmxmeG01V2FGeEs4K3po?=
+ =?iso-2022-jp?B?K0xDd2l4dWZucWM4cGtmUHBaSkxCcDJXa2dScy9KYy9Qc3dBRTNOcjRv?=
+ =?iso-2022-jp?B?eE9FMFlsVWZyV2NJa3RhTmJnZk5KcWNPSkVQWVMwZDA2T1ZqUFp4dU5H?=
+ =?iso-2022-jp?B?dDBaS2tML2RGbGovb3hBQUswRjRlTVg5MXdRNGFjL0ZzUHZoaHBEVEJD?=
+ =?iso-2022-jp?B?MUJDa21Ec1Jzc00vYkRxN1h1bm8vKy9LZkRXcnV0cUlVU1JhbEk2OUxP?=
+ =?iso-2022-jp?B?b0dCUTI4clRuM0ZLM1NSOVFEeG1rQzI3UklJU3JsVC9DM2paMWlaa1Jn?=
+ =?iso-2022-jp?B?QmdPcHBYNWZUUVdVbjU3d1VHd0kwbXVsQVQzNm0zZjNyYjIvT0U5WHZL?=
+ =?iso-2022-jp?B?YklvZHNhZGpLRXdiaGk4RFNHWU1oRlRLTG40Y1ZrVDJ2enBTUW9GWWVP?=
+ =?iso-2022-jp?B?b1NSYjVxd3Bja0cxVzlzMTNpd1R1SXgrbDFwMzVRNkc5eHNUTVdtTjhZ?=
+ =?iso-2022-jp?B?Z0VaL0lRTDAyQXpwcmxTR3JwMlNlMVBiQXJuVTlCTy9RS1pNNkZWOXJx?=
+ =?iso-2022-jp?B?TklJRU1hUnlkd3g4blRWUjJiNXY3WVA1SzRZdGlZRHhpb29wbEwyL0oz?=
+ =?iso-2022-jp?B?cWs1L2d6QURzKzBvbUQrQ0kyWHBmOU12ZWxrM1M2ZEZLaHd0bFVENXEz?=
+ =?iso-2022-jp?B?QkhZQWdrYzB5dERBQVFmTFZoN2VRaWkvRlZQNXhMbjlnZk1KeE9Ib00x?=
+ =?iso-2022-jp?B?WWNmQT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(1580799027)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?SXVFTE9DTEltT3hFWjQ0SXJCYXZmTGhISlhkeGNKOWtzL05TS3R5Rzc2?=
+ =?iso-2022-jp?B?WFRPSkQ0YWJ5M0xpZW5MaTRxWmNHZytEaDlmQyt3Vlh0ZkVBMnBjSkRH?=
+ =?iso-2022-jp?B?Y1JPNVV2L2RmV2p5Qmthc3ByWStPTEsxVmdVdWFNWW1tTHNTMUtWL01l?=
+ =?iso-2022-jp?B?QVduelBtWkhabWk2a3dTbmgwME8wM2oranRZUjZXRVh0QXFjcm5jOGxG?=
+ =?iso-2022-jp?B?c2dBK1Rpc2QzWGNtYmtHdXZOZnFwS0UwdzMzVnV5U0VyVHhDeW5idEQ5?=
+ =?iso-2022-jp?B?TktWREhKVmwrNEMrRCtUNU10YkVRN2d6M2x2Q2hiUUNsQjB6MFE0OUFY?=
+ =?iso-2022-jp?B?OGM4U0FKeFUvUEV1ZjYwNUdiV2g2djh0aGZOdTdRTkpOeTh4YlI1azkr?=
+ =?iso-2022-jp?B?eWdqSnhFWnNTNDVHNHBHZW4rZlRqL2dhY0wybTF2Q2xPdWZ4czdtSUlx?=
+ =?iso-2022-jp?B?UWJ3eTY4OXlKcHpwcjBrSXAwMGN6L1FOTFp1WlpEa2R0UWx3KzZEOUtP?=
+ =?iso-2022-jp?B?QUFkVmV4QWM0WGZjMlB1L2lZdUc5OGJjcWZkWEg3TUNhWTQxYVR5VFlm?=
+ =?iso-2022-jp?B?TnBUL1lxNFBjT1hrWjJpb1Q2M3NkclI1MHZ0SXQvNWNad1J3YVE4bWxS?=
+ =?iso-2022-jp?B?bXdBRzZpK28zRDNvYUp6cnQ0WCtBRnZZZXYwSkNlOGJVQ0pwQjdKSS9E?=
+ =?iso-2022-jp?B?ZWdLWnZGL0tjdHRxdlE4V2lWYW9hTHovWEI4MG5hVndLaVhOd2tnSzk0?=
+ =?iso-2022-jp?B?amV1N3A2YWlldlptRW5xSkJORlcrSFB2a3N4Mjg3ZXRJTzBjS3ZwV1Qv?=
+ =?iso-2022-jp?B?K0tJOVRLYjRDYzU1RUV6b29aeGZNS3dneXgxdEhDQXZjZWllelN4cVFM?=
+ =?iso-2022-jp?B?NFc1WEorOFkzKzkwalRSS1pVL1paVmZxazMyeHhidEgrbU9oM3UxZ3J0?=
+ =?iso-2022-jp?B?aUpiU1picXNudGRESzl3OTVGQ1J0a2VQY1YyQnVpMHhVQ3duQVFtTWpL?=
+ =?iso-2022-jp?B?MWRzdzlMbytWdFFpOTFJVzh3T2JKK3FyWDNaNC9QdjZZTzB1Zk9SNTMx?=
+ =?iso-2022-jp?B?VTlYMFZITHdxTDVudldVTW4yMU9LaUdMVHgycGlWVDFzdjVrMmZWZmRE?=
+ =?iso-2022-jp?B?b3NWNnFUcU5tdnRUZ3dJU3NQRVVBUlc0VUZEWGRBOWs2WERRL21RZzQw?=
+ =?iso-2022-jp?B?MWZNN1ptRWJYNnFxbmJoYitTcnBsUnVWbkZjZTljTkc5WGVYRVo5VTNL?=
+ =?iso-2022-jp?B?dDRTNHJYZGhEWlZvNm5hK1RPaC9na0lOWTY4Zzg4VFBkY3I5K1NHUnc3?=
+ =?iso-2022-jp?B?MS9HSFN5YXAzWnVtL3l6Y0kzdE8yd25vM3VaeUEvckRHQThBMFpheXdz?=
+ =?iso-2022-jp?B?S1hKUEJnMFBkRGNSU3B4Q3dTeVlNQzZtRXJFZk4wejE1b0hKczhUWXR4?=
+ =?iso-2022-jp?B?cXRNbk9pV1hSZ3ZYTHBzTHVxa1QvaUhtUlFSc1FWQVJpQWx3bWtkNWo2?=
+ =?iso-2022-jp?B?SXg0aXNjODBLTUFiVXF4akc2MFE2RVJrdjZoSkZneEpRSHZUMzA5Z3RZ?=
+ =?iso-2022-jp?B?RzloQ2pZRWtDcmNuMXF2SDUyODUrSXF6Z2pQRmxYU1RHcWUySUc1Z2xH?=
+ =?iso-2022-jp?B?OHBtd252anhLekEvKzJNYVdXdlNNUUNud3lvNXY2cVQ2cVJHbWRHN20x?=
+ =?iso-2022-jp?B?aSt2QjFXUXJmV1ZjVU8waUhtTUZJMzNhdTdTZWZ2V2RIM2lLL3Y2N1FX?=
+ =?iso-2022-jp?B?QXZmWjBaenZlcUJYQWJhdkVzdytQNkJ5a2VtbkJLOGpza2g2RWlQUm9J?=
+ =?iso-2022-jp?B?VkIwVCt1RjE1QXdIMVJEeVNVSmUxaHVpZ3dweGc1NERRMUFRUXFuNlNL?=
+ =?iso-2022-jp?B?M0RRazVEZVROWmZ6L21PdFZ3VVZiSC9vaWdWaUxTTHIySnRKaExjM25O?=
+ =?iso-2022-jp?B?cmhpZ2FwVkg5K3YvQmc3bXltYmhkRUhzN3l4YXpwanFna1BwZGdRYkYr?=
+ =?iso-2022-jp?B?Q3VLZnk5clArQUtNTTJmNGxoNXhQVEVOZGwxVmkzZTlzY2dWdXVRVVdC?=
+ =?iso-2022-jp?B?VzF0bGx0N2ttd0pBUDMvRGcvOXJkZi94ZkJYLzlqKzNNTlZNZVlMVmJV?=
+ =?iso-2022-jp?B?N2R6VlJIZ08vUmEwMzIzenBnVGp3Q2pkUExYNW9rLzZnRmhFWnFWbC9i?=
+ =?iso-2022-jp?B?MiszZHVkWnRWa3phcytkRXNUUUNYZ0Z2Szk3ejA4TmpTWVllaDFpWWpR?=
+ =?iso-2022-jp?B?ZEkzc3dnU2gzL01velU0N3QyVWNCZlFwSlFVKzl0eHFGM0Y2WGxqaFlX?=
+ =?iso-2022-jp?B?YS9EOFl6bSt1ZVhpeExZcGdFVUNmRTczQnc9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v15 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
- <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
- <56410c74-3d0e-4cdc-87a0-230cad8f691a@lunn.ch>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <56410c74-3d0e-4cdc-87a0-230cad8f691a@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ab86ac2-361a-495c-b222-08de21c3eb0b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 08:17:27.8564
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: irM0hum0u+h5XvaRqD7x/VY6j1zYDAuT8X/quO0VYnuv2w1Cx1nOozmCwnTpJu8kJkE6BCr8NfpbYzfjykZqes+IgjbZoI6NRVWIxKL1BiE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB15134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_001636_678878_015626B4 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20251112_001735_687461_510C5297 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +217,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+> From: James Morse <james.morse@arm.com>
+>=20
+> Expand the probing support with the control and monitor types we can use =
+with
+> resctrl.
+>=20
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-On 11/11/2025 04:34, Andrew Lunn wrote:
-> On Thu, Nov 06, 2025 at 10:47:26AM +0100, Maxime Chevallier wrote:
->> The ability to describe the physical ports of Ethernet devices is useful
->> to describe multi-port devices, as well as to remove any ambiguity with
->> regard to the nature of the port.
->>
->> Moreover, describing ports allows for a better description of features
->> that are tied to connectors, such as PoE through the PSE-PD devices.
->>
->> Introduce a binding to allow describing the ports, for now with 2
->> attributes :
->>
->>  - The number of lanes, which is a quite generic property that allows
->>    differentating between multiple similar technologies such as BaseT1
->>    and "regular" BaseT (which usually means BaseT4).
-> 
-> You still use lanes here, but the implementation has moved on to
-> pairs.
-> 
-> Please add my Reviewed-by when you fix this.
-
-Arg, I've made updates on lanes -> pairs, but as you point out I have
-missed a few :( thanks for spotting this,
-
-Maxime
-
-> 
-> 	Andrew
-
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 
