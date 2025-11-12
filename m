@@ -4,114 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76678CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61445CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9WDlQ7DWHtwL1Z7L4374KsRfHbFCWrN/hi+LWPQAYs=; b=C0ZxWxpycFWjcggQa8dwkDxPqG
-	a/X16O0J6gJAPp1/GY2Uch5eOlceTU35HYBLXbfSa3AJ6Ykl11d8tbY4XTTcNSzGtVxTNNm1tyYrU
-	LqPGNh6rUZDqLQDOZUrJAytpGpquKXi7X0OP6wXgUfrxylYUXrDwkR49PL6YGloKEzN7IGCdU/MbJ
-	ypmIjSzng2ntZiK4iWRSDEm45XJhCm9qYruKLFgAYxIeg1F4bruVdJPC1rWzm1Jt3HnKplM2Z/27/
-	0UikbkOlrMpxGOfn1KgzTTvUcrIdNYKCd80sSlXYANiDjnXteVN3ukhHepFgNE/BuybPiXhhKJstM
-	RLYX2kRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pHG9bRC/eTBIEqmoQg8JdOZqrHqlbR+KL5CL3+34Mnk=; b=Ba5CDTIA/dT7OmE2LU8UJTdKmX
+	pPDxRPt47Qr0rE7eenYZn2VNNPGbT+sDKT9VfHhh4Sf/eDqfvulAWIWf5Hr22YxIWs983lj3AGS9v
+	egszlBxAnwqhijmODG8u05LLxt/nbj52YS/kotMSYUHcjf4y5n1DU3DuoLxCSnjZq6VqbXjNggnW9
+	H+scRUZy667dxWeacdeC2fTku30LWna2hw2jB/FQMzEnWpiD4EvPyBH95VxbP+g/jZbGQK66EyHWp
+	OBEyL1sr8ZHRstHasIQALWrnipmFpaZF9GGJpeyK+jzaFPzszi3RhXQ/LT37grrPNaANJ5guoT/7e
+	Mg6I0EmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7TO-00000008V6a-2wN8;
-	Wed, 12 Nov 2025 09:49:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJ7Um-00000008VQA-1mpr;
+	Wed, 12 Nov 2025 09:50:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7TM-00000008V5o-0mVT
+	id 1vJ7Ul-00000008VPo-30KL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:49:05 +0000
+	Wed, 12 Nov 2025 09:50:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E7224028C;
-	Wed, 12 Nov 2025 09:49:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A21C8C4CEF8;
-	Wed, 12 Nov 2025 09:48:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FC7B6020B;
+	Wed, 12 Nov 2025 09:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE0C7C4CEF8;
+	Wed, 12 Nov 2025 09:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762940943;
-	bh=cv+A0Rv4b6lrzkLMP+XQea/RkP4alO9eM9auJHAeB7k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PTz8vIdxtSj3/VXZCWtGx5HxaUpBY+G/6h1LPqn7seq3v0wAI67GLIMDM967O/6re
-	 ex77pnTeevTT9PlHJwahNhiORDJ6SWtyvatWksBi2jd1TQD+ODzBU6/ILy6dC3sc5Y
-	 oAr/mwwxkt12d3lgDSMOlwMKoY30EqNxtsBS9h48sYdvN9P0XhkNdV2SI/nkBZIzJE
-	 Btp6k4bdwaHSY7AUexNzZS7BxL7KsmB79uETuIefoifN/Dli3p7QOXrcS+PRUGechV
-	 YXyCHuSSAfjlPesSTL9P2wxlSWmdoROX/iwB4myGfPQvLWyn57Ya48PdQvVGmynML0
-	 MLMXq0baf3N1g==
-Message-ID: <312ca473-77a6-4b95-b558-bb121294fbc9@kernel.org>
-Date: Wed, 12 Nov 2025 10:48:57 +0100
+	s=k20201202; t=1762941027;
+	bh=wKkYTwbaHODjzCytHEFDqnL5g4JxssRcsrQb6AjyIG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=THXlsGbFErwUFo1wXBwnqtZVc6BeYn6L2UE7CtZWfMJ4+KHQIlHtuc0TildUHh9Ob
+	 lbTpx2tKz/MJDGXzxMH3yv/POWUQ2aqZzG7HA94ie+/hvHaVTkNs0qr3mkXqf8MUl6
+	 3xQrouYjCT1oIZFDzLeMNz2k5X4HgsMojIK8wtRmO6zaaZSfFJSKTvA/atntB+Nvce
+	 UTg4ZNmTK0FKQW5hAT0TVEXQQv998uAJgquRdnYwTccyPWKJ4vmwWzDuutaq7NLM3K
+	 yO9dpZI9D2EUC6PxhSTPniAIx6r42xtWyAYBzgMBzkGIU3Q09/XJ3yR3XEsaBgw3Vc
+	 GTO/aG2ppFgmw==
+Date: Wed, 12 Nov 2025 10:50:19 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Charles Mirabile <cmirabil@redhat.com>
+Cc: fj1078ii@fujitsu.com, catalin.marinas@arm.com, fj2767dz@fujitsu.com,
+	guohanjun@huawei.com, ilkka@os.amperecomputing.com, lenb@kernel.org,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rafael@kernel.org,
+	sudeep.holla@arm.com, will@kernel.org, tglx@linutronix.de,
+	maz@kernel.org
+Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
+Message-ID: <aRRYW7UK7PWb6cpS@lpieralisi>
+References: <OSAPR01MB7669F9B9E145A50B38819E13D5CEA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
+ <20251112044239.4049011-1-cmirabil@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: dts: google: Add initial dts for frankel,
- blazer, and mustang
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org,
- Roy Luo <royluo@google.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Julius Werner <jwerner@chromium.org>,
- William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.4.I5032910018cdd7d6be7aea78870d04c0dc381d6e@changeid>
- <40e67c6d-2430-483b-b4b1-0220ffbd6418@kernel.org>
- <CAGXv+5Gx+skrUR3PXt=RSL8YyKZYeQCkJ-3qW9wtrHrr9aqWAg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAGXv+5Gx+skrUR3PXt=RSL8YyKZYeQCkJ-3qW9wtrHrr9aqWAg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_014904_265822_73F42A77 
-X-CRM114-Status: GOOD (  44.07  )
+In-Reply-To: <20251112044239.4049011-1-cmirabil@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,205 +74,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2025 10:35, Chen-Yu Tsai wrote:
-> On Wed, Nov 12, 2025 at 4:14 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 11/11/2025 20:22, Douglas Anderson wrote:
->>> Add barebones device trees for frankel (Pixel 10), blazer (Pixel 10
->>> Pro), and mustang (Pixel 10 Pro XL). These device trees are enough to
->>> boot to a serial prompt using an initramfs.
->>>
->>> Many things can be noted about these device trees:
->>>
->>> 1. They are organized as "dts" files for the main SoC and "dtso"
->>>    overlays for the boards. There is discussion about this in the
->>>    bindings patch ("dt-bindings: arm: google: Add bindings for
->>>    frankel/blazer/mustang").
->>> 2. They won't boot with the currently shipping bootloader. The current
->>>    bootloader hardcodes several paths to nodes that it wants to update
->>>    and considers it a fatal error if it can't find these nodes.
->>>    Interested parties will need to wait for fixes to land and a new
->>>    bootloader to be rolled out before attempting to use these.
->>> 3. They only add one revision (MP1) of each of frankel, blazer, and
->>>    mustang. With this simple barebones device tree, there doesn't
->>>    appear to be any difference between the revisions. More revisions
->>>    will be added as needed in the future. The heuristics in the
->>>    bootloader will pick the MP1 device tree if there are not any
->>>    better matches.
->>> 4. They only add the dts for the B0 SoC for now. The A0 SoC support
->>>    can be added later if we find the need.
->>> 5. Even newer versions of the bootloader will still error out if they
->>>    don't find a UFS node to add calibration data to. Until UFS is
->>>    supported, we provide a bogus UFS node for the bootloader. While
->>>    the bootloader could be changed, there is no long-term benefit
->>>    since eventually the device tree will have a UFS node.
->>> 6. They purposely choose to use the full 64-bit address and size cells
->>>    for the root node and the `soc@0` node. Although I haven't tested
->>>    the need for this, I presume the arguments made in commit
->>>    bede7d2dc8f3 ("arm64: dts: qcom: sdm845: Increase address and size
->>>    cells for soc") would apply here.
->>> 7. Though it looks as if the UART is never enabled, the bootloader
->>>    knows to enable the UART when the console is turned on. Baud rate
->>>    is configurable in the bootloader so is never hardcoded in the
->>>    device tree.
->>>
->>> Signed-off-by: Douglas Anderson <dianders@chromium.org>
->>> ---
->>> To avoid fragmenting the discussion, IMO:
->>> * Let's have the discussion about using the "dts" for SoC and the
->>>   "dtso" for the boards in response to the bindings (patch #1).
->>
->> That's discussion here, bindings are irrelevant to this.
->>
->>> * If we want to have a discussion about putting "board-id" and
->>>   "model-id" at the root of the board overlays, we can have it
->>>   here. I'll preemptively note that the "board-id" and "model-id"
->>>   won't show up in the final combined device tree and they are just
->>>   used by the tool (mkdtimg). We could change mkdtimg to parse the
->>>   "compatible" strings of the overlays files (since I've put the IDs
->>>   there too), but official the docs [1] seem to indicate that
->>>   top-level properties like this are OK.
->>>
->>> In order for these device trees to pass validation without warnings,
->>> it's assumed you have my dtc patches:
->>> * https://lore.kernel.org/r/20251110204529.2838248-1-dianders@chromium.org
->>> * https://lore.kernel.org/r/20251110204529.2838248-2-dianders@chromium.org
->>>
->>> [1] https://git.kernel.org/pub/scm/utils/dtc/dtc.git/tree/Documentation/dt-object-internal.txt?h=main
->>>
->>>  arch/arm64/boot/dts/google/Makefile           |   9 +
->>>  arch/arm64/boot/dts/google/lga-b0.dts         | 391 ++++++++++++++++++
->>>  .../arm64/boot/dts/google/lga-blazer-mp1.dtso |  22 +
->>>  .../boot/dts/google/lga-frankel-mp1.dtso      |  22 +
->>>  .../boot/dts/google/lga-mustang-mp1.dtso      |  22 +
->>>  .../boot/dts/google/lga-muzel-common.dtsi     |  17 +
->>>  6 files changed, 483 insertions(+)
->>>  create mode 100644 arch/arm64/boot/dts/google/lga-b0.dts
->>>  create mode 100644 arch/arm64/boot/dts/google/lga-blazer-mp1.dtso
->>>  create mode 100644 arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
->>>  create mode 100644 arch/arm64/boot/dts/google/lga-mustang-mp1.dtso
->>>  create mode 100644 arch/arm64/boot/dts/google/lga-muzel-common.dtsi
->>>
->>> diff --git a/arch/arm64/boot/dts/google/Makefile b/arch/arm64/boot/dts/google/Makefile
->>> index a6b187e2d631..276001e91632 100644
->>> --- a/arch/arm64/boot/dts/google/Makefile
->>> +++ b/arch/arm64/boot/dts/google/Makefile
->>> @@ -1 +1,10 @@
->>>  # SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
->>> +
->>> +dtb-$(CONFIG_ARCH_GOOGLE) += \
->>> +     lga-blazer-mp1.dtb \
->>> +     lga-frankel-mp1.dtb \
->>> +     lga-mustang-mp1.dtb
->>> +
->>> +lga-blazer-mp1-dtbs          := lga-b0.dtb lga-blazer-mp1.dtbo
->>> +lga-frankel-mp1-dtbs         := lga-b0.dtb lga-frankel-mp1.dtbo
->>> +lga-mustang-mp1-dtbs         := lga-b0.dtb lga-mustang-mp1.dtbo
->>> diff --git a/arch/arm64/boot/dts/google/lga-b0.dts b/arch/arm64/boot/dts/google/lga-b0.dts
->>> new file mode 100644
->>> index 000000000000..83c2db4f20ef
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/google/lga-b0.dts
->>> @@ -0,0 +1,391 @@
->>> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
->>> +/*
->>> + * Google Tensor G5 (laguna) SoC rev B0
->>> + *
->>> + * Copyright 2024-2025 Google LLC.
->>> + */
->>> +
->>> +/dts-v1/;
->>> +
->>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +#include <dt-bindings/interrupt-controller/irq.h>
->>> +
->>> +/ {
->>> +     model = "Google Tensor G5 rev B0";
->>> +     compatible = "google,soc-id-0005-rev-10", "google,lga";
->>
->> So that's SoC, thus must not be a DTS file, but DTSI.
->>
->> ...
->>
->>
->> ...
->>
->>
->>> diff --git a/arch/arm64/boot/dts/google/lga-frankel-mp1.dtso b/arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
->>> new file mode 100644
->>> index 000000000000..133494de7a9b
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
->>
->> And that's a board, so DTS.
->>
->>> @@ -0,0 +1,22 @@
->>> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
->>> +/*
->>> + * Google Pixel 10 (frankel) MP 1
->>> + *
->>> + * Copyright 2024-2025 Google LLC.
->>> + */
->>> +
->>> +/dts-v1/;
->>> +/plugin/;
->>> +
->>> +#include "lga-muzel-common.dtsi"
->>> +
->>> +/ {
->>> +     board-id = <0x070306>;
->>> +     board-rev = <0x010000>;
->>
->> Undocumented ABI, which you cannot document because these properties are
->> not allowed. You cannot have them.
+[+cc Thomas, Marc]
+
+On Tue, Nov 11, 2025 at 11:42:37PM -0500, Charles Mirabile wrote:
+> Hi All—
 > 
-> This is part of the discussion I want to have at Plumbers. But I suppose
-> we can start here.
-
-Then the patch should be called RFC as not yet ready for merging. :)
-
+> On Mon, Nov 10, 2025 at 07:38:17AM +0000, Kazuhiro Abe (Fujitsu) wrote:
+> > Hi Will,
+> > 
+> > > Hi Will,
+> > > 
+> > > > [You don't often get email from will@kernel.org. Learn why this is
+> > > > important at https://aka.ms/LearnAboutSenderIdentification ]
+> > > >
+> > > > On Mon, Oct 20, 2025 at 09:23:05PM +0800, Hanjun Guo wrote:
+> > > > > On 2025/10/17 15:39, Kazuhiro Abe wrote:
+> > > > > > AGDI has two types of signaling modes: SDEI and interrupt.
+> > > > > > Currently, the AGDI driver only supports SDEI.
+> > > > > > Therefore, add support for interrupt signaling mode The interrupt
+> > > > > > vector is retrieved from the AGDI table, and call panic function
+> > > > > > when an interrupt occurs.
+> > > > > >
+> > > > > > Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> > > > > > Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+> > > > > > ---
+> > > > > > Hanjun, I have addressed all your comments.
+> > > > > > Please review them.
+> > > > > >
+> > > > > > v3->v4
+> > > > > >   - Add a comment to the flags member.
+> > > > > >   - Fix agdi_interrupt_probe.
+> > > > > >   - Fix agdi_interrupt_remove.
+> > > > > >   - Add space in struct initializsation.
+> > > > > >   - Delete curly braces.
+> > > > >
+> > > > > Looks good to me,
+> > > > >
+> > > > > Acked-by: Hanjun Guo <guohanjun@huawei.com>
+> > > >
+> > > > I wasn't cc'd on the original patch but I couldn't figure out why it
+> > > > uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
+> > > > it does is enable it.
+> > > 
+> > > I misunderstood the usage of request_irq and enable_irq.
+> > > Since there's no need to separate them, I will remove IRQF_NO_AUTOEN and the
+> > > enable_irq call, and send v5.
+> > 
+> > I found out when calling request_nmi, removing IRQF_NO_AUTOEN results in an error (-EINVAL).
+> > Therefore, I would like to keep IRQF_NO_AUTOEN specified.
+> > If you have any comments on this version, please let me know.
 > 
-> The Android DTB partition format uses six 32-bit integers for matching,
-> as opposed to a compatible string used in FIT images. Two of the integers
-> are the "id" and "rev" numbers in the example above. The remaining four
-> are custom and left up to the (vendor) bootloader implementation.
+> Could it be that this is just a bug in `request_nmi`? I see the following:
 > 
-> The values for these fields need to be stored somewhere with the .dts.
-> The compiled DTB is useless if the user cannot build a proper image for
-> the bootloader to consume, and that involves putting in the right numbers
-> in these fields. The android "mkdtimg" tool can either take the values
-> from some known properties within the DTB, or have them fed to it
-> externally.
+> if (!desc || (irq_settings_can_autoenable(desc) &&
+>     !(irqflags & IRQF_NO_AUTOEN)) ||
+>     !irq_settings_can_request(desc) ||
+>     WARN_ON(irq_settings_is_per_cpu_devid(desc)) ||
+>     !irq_supports_nmi(desc))
+> 	return -EINVAL;
 > 
-> So if we don't want these numbers in the dts itself, then we should come
-> up with some format to store them beside the dts files.
-
-Re-iterating comment from Rob long time ago: adding such new properties
-is fine, but they must come for more than one user and be universal
-across these users.
-
-And of course the ABI needs to be documented which did not happen here.
-
-I indeed said incorrectly that "properties are not allowed". The
-properties could be allowed if we document them according to above Rob's
-comment, but that did not happen.
-
-Adding these properties per one SoC vendor is not really allowed, like
-qcom,board-id and qcom,msm-id, but maybe you intend to make it generic.
-
+> Perhaps there is just a missing `!` before `irq_settings_can_autoenable`.
 > 
+> As far as I can tell it has always been wrong - git blame points me to the
+> original commit where that code was introduced:
 > 
-> On a similar note, we would have a similar problem with FIT images and
-> overlays. The FIT image format maps a (series of) compatible string(s)
-> to one DTB and any number of overlays. If overlays are involved, then
-> the compatible string cannot come from the DTB itself, and the mapping
-> must be stored somewhere.
+> b525903c254da ("genirq: Provide basic NMI management for interrupt lines")
 
-I recall, although cannot find now references to, a email talk on the
-list saying that such overlays should have their own compatible, thus
-solving this mapping problem.
+I don't think that's the right rationale (and I can't claim to understand
+it fully either - that's why I added Thomas/Marc in CC).
 
+As per b525903c254da - IIUC NMI must not be autoenable-capable -
+enable/disable must be done using enable_nmi/disable_nmi_nosync explicitly.
 
-Best regards,
-Krzysztof
+cbe16f35bee6 ("genirq: Add IRQF_NO_AUTOEN for request_irq/nmi()")
+added the logic checking the IRQF_NO_AUTOEN flag to request_nmi().
+
+Now, AFAICS irq_settings_can_autoenable(desc) returns true in this
+specific case - the IRQ is a GICv3 SPI.
+
+First question is - before commit cbe16f35bee6, how request_nmi() could
+have possibly succeeded - irq_settings_can_autoenable() would return
+true and request_nmi() would have failed.
+
+Come cbe16f35bee6:
+
+if (!desc || (irq_settings_can_autoenable(desc) && !(irqflags & IRQF_NO_AUTOEN)) ||
+	!irq_settings_can_request(desc) ||
+	WARN_ON(irq_settings_is_per_cpu_devid(desc)) ||
+	!irq_supports_nmi(desc))
+		return -EINVAL;
+
+Now the check passes _if_ you pass in irqflags IRQF_NO_AUTOEN.
+
+I agree with Will that's a bit counterintuitive - maybe we can force
+the irqdesc to be NOAUTOEN in request_nmi() directly ?
+
+Thomas and Marc know better so that's where I stop.
+
+Thanks,
+Lorenzo
+
+> I looked and the only two callers are using `IRQF_NO_AUTOEN` so I guess it
+> just hasn't been noticed yet.
+> 
+> Happy to send a patch to fix it.
+> 
+> > 
+> > Best Regards,
+> > Kazuhiro Abe
+> > 
+> > > 
+> > > Best Regards,
+> > > Kazuhiro Abe
+> > > 
+> > > >
+> > > > Will
+> 
+> Best—Charlie
+> 
 
