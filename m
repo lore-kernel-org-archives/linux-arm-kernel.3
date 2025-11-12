@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D15CCFA1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089B8CCF9F8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxEfks45+g/txQkM7EUeMfqzJB74Hnv4X0eJQe5Eu8A=; b=4JS7GxVng/JHDT3bU1Pv0vsVFi
-	tMwrueZk9k15/q06wexr1SmdCYYKE383rMz+xRIHeP+F+yno62uLsafATbGYwgigiRD5Ue+JWnZxU
-	8Pj5YdrOYXoQSEJwikbeN8osvGVLnolGOJlFYqwM92TL3O1pvwYSb1c8dyU686GBm7oVvd4INJxfa
-	X5vFhu1rdupYJ5TLUxiLGfRoVrsMwbzXQATwIf3tCspI1bcxM86t7CxYz0N69l+G2eXe2hh3+QHPn
-	rPS/pOaR38NRHrS3pSdLnVTqQj9EcBbM+Kqib1izxSFf2P/lFI3EWVbgPrJLD2EkVInsKnU6vVEIc
-	/UmVl4mw==;
+	bh=L837Yp8nav+KEOtcZreSnaQ5/uahsB7Tg/vSa/L0EGE=; b=YTotxEoMHxhqz1cjVXpJNhQnAU
+	+Ram2bVzdLIGA8rXJuRXMRc7wrBGgbAssUCZBAJ4+RBmzlPR5zC6Zj+WAL5YVjmrqytq+ByrALO4c
+	e8iBuJ71eAziusmRQo6ehB4FCKedvGk0OQFqRhEaUDJXfzW0COcyNnNEuXK32WxYX2O2/ETvYEd9h
+	22Qr5vZrzkBsbdTTzLskYPw/NO8CpFHp7u/WdYe3LyNjOVBVi0CGoatQmNEBZSS/Y2AKakjU+FL1z
+	etvMz/W6dwrdK3u5Y7wAZiy1pHvF2oI1xEiDBmSkejcsJ90fNHQIlluK0TWcMMpQIfZjgVdKWyekU
+	jaxfnUpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9VY-00000008jhg-2KKF;
-	Wed, 12 Nov 2025 11:59:28 +0000
+	id 1vJ9VZ-00000008jiO-0EXu;
+	Wed, 12 Nov 2025 11:59:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ9VM-00000008jTg-1hVF
+	id 1vJ9VO-00000008jVX-162R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:59:17 +0000
+	Wed, 12 Nov 2025 11:59:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3D8F1515;
-	Wed, 12 Nov 2025 03:59:07 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB9731595;
+	Wed, 12 Nov 2025 03:59:09 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B2CD3F5A1;
-	Wed, 12 Nov 2025 03:59:13 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA8D03F5A1;
+	Wed, 12 Nov 2025 03:59:15 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 12 Nov 2025 11:58:45 +0000
-Subject: [PATCH v7 09/11] coresight: etm4x: Add flag to retain single-shot
- status
+Date: Wed, 12 Nov 2025 11:58:46 +0000
+Subject: [PATCH v7 10/11] coresight: etm4x: Retain sequencer state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-arm_coresight_power_management_fix-v7-9-33e0b6f995f7@arm.com>
+Message-Id: <20251112-arm_coresight_power_management_fix-v7-10-33e0b6f995f7@arm.com>
 References: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 In-Reply-To: <20251112-arm_coresight_power_management_fix-v7-0-33e0b6f995f7@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +52,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=3090;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762948736; l=1115;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=BsV/TnNGLVxgcRtuiV8XJGCDu3IXH1gu8yzF/0OuKVo=;
- b=E7sC1AkCoNGnSc+uvOnnYGNZU6DEltMqbhPyEL5n+rkJ847rLsyxUcVeFT+2M0qMKYoKZuSla
- 5UOY3bIUC9nBJUrV62ZThscPlHiMtewL4v5EsvJLgx4+1/5I7bhcYGa
+ bh=W6IWLdrCPoM/4ElNNYQF3l5pRtiMI4xDguVMHWDD5SI=;
+ b=W+x6V0jL42DsOZJDS5F5KOHuDy0zsl8hLsGAuhmxRy4zp+3V641rX6D8Xg7O3Fnoo4u+KWyMp
+ uRd/DGk5G2VDCSzkQCrhYZPPGrq+7tetBHktO6szhhPO4/VU/AmUbx9
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_035916_572255_E08DA7C5 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20251112_035919_789289_EC89A677 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a 'retain_ss_status' flag to the config structure.
+Retain sequencer state in the disable flow and will be restored in the
+enable flow.
 
-By default, the flag is set to zero so that the TRCSSCSRn.STATUS bit
-is cleared to restart the single-shot mode.
+As a result, the flow will be reused by CPU suspend and resume in
+sequential change.
 
-If the flag is set, the single-shot status will be retained, thus
-avoiding restart the single-shot. The retain flag is automatically
-cleared to restore the default behavior on the next call.
-
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 15 ++++++++++++---
- drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
- 2 files changed, 14 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 560975b70474c3449aa6799fc1a8e05d5ea93495..8b85a73e29f407a8d5e26a25f4dceaadaeed05ed 100644
+index 8b85a73e29f407a8d5e26a25f4dceaadaeed05ed..afee54ac0aec0c0e521fa1885a95f48555a369de 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -565,9 +565,18 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
- 		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+@@ -1034,6 +1034,10 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+ 			etm4x_relaxed_read32(csa, TRCCNTVRn(i));
+ 	}
  
- 	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
--		/* always clear status bit on restart if using single-shot */
--		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
--			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-+		if (!config->retain_ss_status) {
-+			/* always clear status bit on restart if using single-shot */
-+			if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-+				config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-+		} else {
-+			/*
-+			 * Leave the single-shot status unchanged; clear the
-+			 * retain flag to restore the default behavior
-+			 * (restart single-shot) for the next call.
-+			 */
-+			config->retain_ss_status = 0;
-+		}
- 		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
- 		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
- 		if (etm4x_sspcicrn_present(drvdata, i))
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 012c52fd19338133129752d35523dc102df24604..d82ec1559b34787dffc7debf4643d948e3850b2a 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -802,6 +802,7 @@ enum etm_impdef_type {
-  * @ss_ctrl:	Controls the corresponding single-shot comparator resource.
-  * @ss_status:	The status of the corresponding single-shot comparator.
-  * @ss_pe_cmp:	Selects the PE comparator inputs for Single-shot control.
-+ * @retain_ss_status: Retains single-shot status.
-  * @addr_idx:	Address comparator index selector.
-  * @addr_val:	Value for address comparator.
-  * @addr_acc:	Address comparator access type.
-@@ -846,6 +847,7 @@ struct etmv4_config {
- 	u32				ss_ctrl[ETM_MAX_SS_CMP];
- 	u32				ss_status[ETM_MAX_SS_CMP];
- 	u32				ss_pe_cmp[ETM_MAX_SS_CMP];
-+	u8				retain_ss_status;
- 	u8				addr_idx;
- 	u64				addr_val[ETM_MAX_SINGLE_ADDR_CMP];
- 	u64				addr_acc[ETM_MAX_SINGLE_ADDR_CMP];
++	/* read back the sequencer state */
++	if (drvdata->nrseqstate)
++		config->seq_state = etm4x_relaxed_read32(csa, TRCSEQSTR);
++
+ 	coresight_disclaim_device_unlocked(csdev);
+ 	etm4_cs_lock(drvdata, csa);
+ 
 
 -- 
 2.34.1
