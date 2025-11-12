@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028CECD3438
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA63CD3438
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+8yKxNwsvXUEhjxCwvicR5xdfW+0T2fiaGdn5PB9Dg=; b=UtoWyc+OmzVCWiU71oECR/6llB
-	kVF0xUcYJIsxtx2IxLTD0hl+wMo/kFPf6FMN6K3OIF5CXOYgAc/H5ytvd7wpQPBIh7IhspVYSue9M
-	Luv/QkS7+A481ht32BYBhzhrqdRS37xUnjcfuAZ8sIkHRtiF2sMcz+1Ivea+iO1D+FAArduQq494d
-	QRj6s6eFxhLyZfFDoxGK0pJw9hyuvXD8KfduuABVFyKyaqQ3KmT4gSwDVCCmpfR4MuDIfIhHxNCZO
-	Ha7ohRzVc3Ox72+BrgXnjE9iUSY4QYxSvIqkGkdWBxdHa7ny4h2QflocCorKGd2IDvkOriwF/AGil
-	9I1XNIoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WwtNEkJgHpZA7uSkB2KW0BhrwBSS+RF9yXFAhkYY8kQ=; b=dPLxFouzPYIjhBXqvNcM9jW8ZU
+	taT8q1tQryNxai/xcOH1Pn+dGjXSfDKZ3yUt0gWPOBCqbmAb5bfqdMoask9qCXWh4YpsyetGLiMs+
+	XPxOhb4Sed9z5yNPCZtI43o+ul4zhkENCB+pLUBIzVOlovlcQrIetopOsuonuwmMmFelLzR4uwyRa
+	J2B9Z06IMyZQCGQzeeYbrT3Xosk2CwtKW6yFkVm8AMD5uSlIp5LM5tTzScOX4eo4vnDI9SsANy2Fz
+	VlIyq2Z85CMfkbSiFE6MVKJGkZSfBIfiwPJygiv7SGSYAPA6vSnFTAimS28wBX982TJ9ZHDKpbqzk
+	PqGN6Tag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFNZ-00000009Iui-1eiq;
-	Wed, 12 Nov 2025 18:15:37 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFNW-00000009IuJ-3wYb
+	id 1vJFNs-00000009Iy7-31zY;
+	Wed, 12 Nov 2025 18:15:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJFNr-00000009IxW-1LZu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 18:15:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d6BQT0LBXzHnGkR;
-	Thu, 13 Nov 2025 02:15:13 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 857E11400D9;
-	Thu, 13 Nov 2025 02:15:32 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 12 Nov
- 2025 18:15:31 +0000
-Date: Wed, 12 Nov 2025 18:15:30 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Mark
- Rutland" <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
-	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
-	<james.clark@linaro.org>, Jinjie Ruan <ruanjinjie@huawei.com>, "Alexandru
- Elisei" <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v4 15/26] genirq: Update request_percpu_nmi() to take an
- affinity
-Message-ID: <20251112181530.000008bd@huawei.com>
-In-Reply-To: <20251020122944.3074811-16-maz@kernel.org>
-References: <20251020122944.3074811-1-maz@kernel.org>
-	<20251020122944.3074811-16-maz@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 12 Nov 2025 18:15:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 671091515;
+	Wed, 12 Nov 2025 10:15:45 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA8783F63F;
+	Wed, 12 Nov 2025 10:15:52 -0800 (PST)
+Date: Wed, 12 Nov 2025 18:15:50 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 18/25] perf/uapi: Extend data source fields
+Message-ID: <20251112181550.GC3243746@e132581.arm.com>
+References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
+ <20251017-perf_support_arm_spev1-3-v2-18-2d41e4746e1b@arm.com>
+ <20251112180309.GA3243746@e132581.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112180309.GA3243746@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_101535_133380_0985E881 
-X-CRM114-Status: UNSURE (   7.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_101555_405195_0BC0B38B 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +69,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025 13:29:32 +0100
-Marc Zyngier <maz@kernel.org> wrote:
-
-> Continue spreading the notion of affinity to the percpu interrupt
-> request code by updating the call sites that use request_percpu_nmi()
-> (all two of them) to take an affinity pointer. This pointer is
-> firmly NULL for now.
+On Wed, Nov 12, 2025 at 06:03:09PM +0000, Leo Yan wrote:
+> Hi Peter.Z, Ingo,
 > 
-> Tested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> On Fri, Oct 17, 2025 at 11:05:07AM +0100, Leo Yan wrote:
+> > Arm CPUs introduce several new types of memory operations, like MTE tag
+> > accessing, system register access for nested virtualization, memcpy &
+> > memset, and Guarded Control Stack (GCS).
+> 
+> Do you mind review this patch for extending memory data source field?
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+I didn't include the perf core maintainers in the recipient list.
 
+I'll resend this series for better visibility. Sorry for the spam.
 
+Thanks,
+Leo
 
