@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C66DCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C67CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TfBBll7plQVG4jmIJcdQk3DSYpimQWr9oy8pKjz02Aw=; b=mX8LEY/h7/SRO1eMn9hY9s/qSQ
-	O1U5oAvmseRZv1wSx9BLQRNF+O0S2681vVFEF+CpBeW1T9pz6a+oKba8DbC0MGvEMNsvB2v0lGCsj
-	AhJOu+UjxRqwcGbhyRA2+k65vracDhMIXxh1KBBPNugwsCWBpwPyxFKGGvleQLPfmhldTCMnzf7XS
-	QNPzFpXTCHf6rsm18I7y7OsGOXglmRRaL0Zw5qFQSzME83pKBC383M0u7WZBPDxwfoSU4nuhrknmU
-	MEAyAr2eZj/37t0AoW1dVU7k1VnS7cVimmak+k3Ox6WEfp6UTSs5c7r3rt70DW5RcYOMi38D1Nv1w
-	BvA0P0EA==;
+	bh=oNI7LGWITa4EqINx3hRdJjLYG6Q/rRCvp1T1pOKy7wA=; b=s/4MV4HgHG+sBRj4KMU6u6Qqal
+	QST28ma9MvtWoB3+Dty10hZ/5Mfu5bh6/fvdRujXJsD753b/A3qvAgiPXevs+mXB5U6jXyFmAV0fU
+	+a8GcJH10siWGQ9PqGveI6KpWnSJ2SOks8H0F/2kus/I8tBRblu2W8XwPNRi+gG4eOwg3510N3KgA
+	dRkRezYGLMYlKc9lRzE6mFxRV0/wKo+X/oE3aTTcEpSaDy0eenNXJLKAsrhuY+plDS1kcxtFTfiMW
+	509baPoEFqKVTvnUw10ZXVdPvmbcRzECAkmmaH0O47SPzptQ/hgwgkD39KEoy9gYvyMstkx/q5JUH
+	ugCies3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8rY-00000008fCq-0IHP;
-	Wed, 12 Nov 2025 11:18:08 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vJ8rm-00000008fKV-1fZF;
+	Wed, 12 Nov 2025 11:18:22 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8rV-00000008fBO-2wI6
+	id 1vJ8rd-00000008fG3-06Px
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:18:06 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7b7828bf7bcso664511b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:18:05 -0800 (PST)
+	Wed, 12 Nov 2025 11:18:21 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-bc0e89640b9so270335a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:18:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762946285; x=1763551085; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1762946292; x=1763551092; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=TfBBll7plQVG4jmIJcdQk3DSYpimQWr9oy8pKjz02Aw=;
-        b=R53/uqzt90V80/HmObG3PadV9nVMmwiCF9a8Q6Lt8CxgYfQp542nK53cprGifZnISO
-         IpWCTrf/Tsok6Lpj921jbiXzKzi4aK2RPdRUrL5P+wJBYXsoriElLOETeIhjCJxrFlb0
-         Ls1I1a4SYmY0r2SDEybt/c8o/SRDgvHUw7ru5yWeHCKaonrayJ3YKrjs64Aw2eY8RJl1
-         DADL7npjI27Sx0dKTMRhFrdMfcWkSBNHeEhBHiHzjVL33vMs7BRKaJPFMg9lJFuz5mjz
-         UH5Ez+PlZ59dDGcBp0XA3NJt8hfoMg7vSfLnXbmJ3Zcl+xZMjvYdByJKTcdpuQQWHcAx
-         ZIMw==
+        bh=oNI7LGWITa4EqINx3hRdJjLYG6Q/rRCvp1T1pOKy7wA=;
+        b=I4BVN7d6SwciGW1qzVNYtaKyTvoOE0HabTvc6el0oyo8W/1/Kgd3rXLOqYQlSr6zHq
+         tbQvUYG8MXHoEnFDWtqCxlUi+YRoY/pFWVEY8hSapN2Kkptcy2lqYOx6nw2JjFWRwdPE
+         UCSwxLz4SokvT6aVyRuqtTHYOFuBKj4xGID7NbeDaiYGWachV0csLrYby6/xeVSLpAJ5
+         MXEG7Ygr1qCXlXA9h11j+eoo5H+7cu31BYL+uLemFIHg/Ke3RM4htnVyaGnr4j5cN+Dp
+         29Ibn9CmnQD52PECvd9ho2iJgHc5i8z5Gf2+ZPYeXUlowD4fdw3PdAWOTBXbz2o0cNwU
+         EhiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762946285; x=1763551085;
+        d=1e100.net; s=20230601; t=1762946292; x=1763551092;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=TfBBll7plQVG4jmIJcdQk3DSYpimQWr9oy8pKjz02Aw=;
-        b=eR3V4Mqd8MGv3WN/0N5pmAJrSQbx8Eu72cavUZtI3Q19h7XdjrCUFEz5+CYQyfGuZw
-         kDc+2OBgJkqSoeDu8VK6OzNnclFqP9P9InWt0eV70Ed1PJKqiia/2Iv5jVgXPnmWUb6H
-         bu4hVunnGz8kGe/kBc1IqKXXs5p0Oa4zO+G3NDN9EThc85WsCTtWBgFZan/fJpEf0U4g
-         31ZmNg/fee+v2D5yhCh57tj0AkOi9359rXAg659fuC9qg5reJZVgIwu4uPyqvBbpGn7m
-         8IEAjZtkf74qo/i++KjdPl8KfT29RvLGWeLxsP7uinZAPMC2JdcOfvA0VXkFl0wV35BQ
-         Qsdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRBM3TZ5uukFPRiilzGkUFJ7Y2tXE0FPUPQ1Hb9UjPz484l0LWJFpDUeTtf104Qki4uB69ipnWfJ1U+uy5Muhk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUvSrTQ85yiXTrJ2KTlkCR0ezKoo736RgynZ8L9VsfpxlH85xD
-	0UwD21fOEtTHGrfr4nMGc7rlXllBLpBQ2LAEZhP/q5PpV67q3dCECnoc
-X-Gm-Gg: ASbGncvZRb6PsDX4n8HfUDDYTl4vS/ZzHHlK52lc5+HJvQ2CTS6VC52fbfiMdbir7uB
-	B4bcXGq/FPCmgqbGEyTF3s2UM8kXQZU8hNqJlRQAkIxbdBnDOPS8SzcQG9Mxj5DZe0k2cX+it4w
-	Y+WC7n52KXJx91qStbzdef2MEmwaJQi1QboK/ErEiEDeVVscKX12Kcn457iRVntx/zJChca0idn
-	/1VWWZ6j+UXZTYALg00/rLDMiVSF7fjS3t0sWPAbZhpV+up1Dbzggw8HuMN/7R62GUkF5YOtytE
-	0/06XB6Sa809Z81dIewxWIoSqjTYioBuvilJFKWaq9BfiNy+osH8vrsn0txLXVPhjYI2BckbhNA
-	km4a+rF/8kKps2jqEHlrsaxGMH89TSZMVdgJOXN/2+fvJ83+MHzlZ79GBGFr1wA8u8J0nvE7qR0
-	KlZ60Z0UupWO5mEjl18uGu+DSLdsCQOrr2UIP0CxaXFCPYYwmut0VlJnNZLAZGGj8weaUkm1VXw
-	KJ20ivB+tXVgTTT6P3GrouaOydLbOjrdpZdnjJLSFAZ2TCgfypUcuA=
-X-Google-Smtp-Source: AGHT+IHA0P4UnsPFIhj4utJwEq6rWs7Nkg1EY8pIQ9eKSlMotkC1tp8iAeDrvqrEcOWVVi+EwKFK9w==
-X-Received: by 2002:a17:903:2f88:b0:274:5030:2906 with SMTP id d9443c01a7336-2984edcd3a1mr35066775ad.46.1762946284740;
-        Wed, 12 Nov 2025 03:18:04 -0800 (PST)
+        bh=oNI7LGWITa4EqINx3hRdJjLYG6Q/rRCvp1T1pOKy7wA=;
+        b=csIpDoOELQGcJ3Kr3GhjQ4LDFtAu6VrssSRMmX/SRhY5IhzqrEoxM6IOfZsVXAJ9vF
+         UiYeCeG/3cgNiP7n/O/jYLcp1NCgk1cuwAuSFia7tDFpt7rHBrR5f6ujJpWvNBiH9gHg
+         S4xYoziIU+1JpOaG80LthyT6TdvareK7qKjVxH8ztNhznVig1YBODl57QwTSc7ux6Ij4
+         HfTD7PlT6QYqBMYOUB8VqdiEkJSl/CQ26zHggxAOE6LB069BVIUHdFokxSjc6mExVsyw
+         icwzsRPlLKdWZvg8cYwE7zPDSdK4AfDtGI1LSrgqXu5FjZWeUx/1twPNJfb8grZ/N4DE
+         Tafw==
+X-Forwarded-Encrypted: i=1; AJvYcCVio7MUyKhtTnfHIypr7pAROEWH3QPSIHT+i4m14TtdLZtff/h64XQmhYoXvm+BnRWYu0fTDDavXDkkm/1orCAh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQkcszcbWWGxOipksesPGjIDjXffTzT+LCKn4COSQg2bRgZxO0
+	o7pyssWMK7mavVQa1fkQQFOd5+YtCnpw40r/EW6VUyA4wU3qHep9UJU9
+X-Gm-Gg: ASbGncspVpcKl7HJG8G9Af75rdsKJBl3L+3cuzz9okDa8uaiZPzErzRugXGYiVum2gr
+	9n+pmIKSSHvK74FoSdgQnRLOdaBteC0QC3umyeztIGhLHC7cdgEHMVjWkw7l+9KS1/S3lc2MuPV
+	zQTTyaVAYkolESO4hxJ+7uZAv5h3AyvGlnmYEzAyI63jkCP49godkFj/I5Y3S+DgHLn8otHVcQB
+	+5tNDtixQWm+37S9TjtQkI7aZ6s3zDBBHooZWVEeIS/VViEdpYvtsGRg/XNS/SM6/xqGYaUTAE0
+	+AUGJHKrc7cIqh/ounENOOQZKdQa1v5gpl4TiebGe2bRienecRlLAk+ZnzGjJguiGO1+8ZhZyc2
+	Zf9JmnG0YKgGq3bbn1qpPQUdPUzLdruIglhMA6/K+gtKR6ieUla6ypuKjP6Nr1nTBlxeEUM5Sc0
+	mcDc9nnqOd/h0i+1k3uERr2e1JfypSOuIODo4ioES7KTnkiC8+FAubTNSCL5KGAmhRFo6Juo9Wi
+	js0JdQtSL+dvO5MmVX38twYcyXE8ZanazhEhx3DewhzQ4zk+M5SJrs=
+X-Google-Smtp-Source: AGHT+IELfcxDjkTjHjE9o1zeO9QJOYdqpFiv0rmTaYc64N3Xo1j3VaCkx7ujy498PmB8+3B+SyLiqw==
+X-Received: by 2002:a17:902:e948:b0:298:2e7a:3c47 with SMTP id d9443c01a7336-2984ee01fb9mr30708195ad.42.1762946292125;
+        Wed, 12 Nov 2025 03:18:12 -0800 (PST)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dca0f28sm27386695ad.60.2025.11.12.03.17.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2984dca0f28sm27386695ad.60.2025.11.12.03.18.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 03:18:04 -0800 (PST)
+        Wed, 12 Nov 2025 03:18:11 -0800 (PST)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Wed, 12 Nov 2025 21:16:50 +1000
-Subject: [PATCH v5 04/11] mfd: macsmc: Wire up Apple SMC RTC subdevice
+Date: Wed, 12 Nov 2025 21:16:51 +1000
+Subject: [PATCH v5 05/11] mfd: macsmc: Add new __SMC_KEY macro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-macsmc-subdevs-v5-4-728e4b91fe81@gmail.com>
+Message-Id: <20251112-macsmc-subdevs-v5-5-728e4b91fe81@gmail.com>
 References: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
 In-Reply-To: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -95,18 +95,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
  linux-input@vger.kernel.org, linux-doc@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=747;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=876;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=0X8ztOxPIoLqy18jxO5aLU25sae5cz22Tql+G03LG0c=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDJkiOUeYXSp6HTiumdkXFc1P4lS9PK9pZfHi1fzZ2ef4u
- HINXwV1TGRhEONisBRTZNnQJOQx24jtZr9I5V6YOaxMIEOkRRoYgICFgS83Ma/USMdIz1TbUM/Q
- UMdYx4iBi1MAptrWmuF/hdDOyUmTfkptiMp9whlc1h/rFWiQ075Z8Ps7E5W4r7/9GRkmt8XcOv9
- ZLjFA4cGDV3ZBzGeuTKy/kmDxwz4r+r3ILmcmAA==
+ bh=6q93RqE2TlCEUP2NwG3riu6HujLsBQ7xoREhizw4YE8=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDJkiOUejzpjy/vkkvernsg0f1VocNBsYcmoPfGGcYNvqp
+ 94524SxYyILgxgXg6WYIsuGJiGP2UZsN/tFKvfCzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
+ hjrGOkYMXJwCMNXqRgz//d6GbizPvxkYE//8vkPl+4R5pvWLTsfJFmx87tjWwd0lx8jQpZzsKay
+ ZNaeq6ohQs4Oau4P32Xf26tccFrxZZXi3cwY7AA==
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_031805_749479_668382DD 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20251112_031813_071687_0089A53A 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +121,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new SMC RTC function to the mfd device
+When using the _SMC_KEY macro in switch/case statements, GCC 15.2.1 errors
+out with 'case label does not reduce to an integer constant'. Introduce
+a new __SMC_KEY macro that can be used instead.
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- drivers/mfd/macsmc.c | 1 +
+ include/linux/mfd/macsmc.h | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index e6cdae221f1d..500395bb48da 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -47,6 +47,7 @@
- static const struct mfd_cell apple_smc_devs[] = {
- 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
- 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
-+	MFD_CELL_OF("macsmc-rtc", NULL, NULL, 0, 0, "apple,smc-rtc"),
- };
+diff --git a/include/linux/mfd/macsmc.h b/include/linux/mfd/macsmc.h
+index 6b13f01a8592..f6f80c33b5cf 100644
+--- a/include/linux/mfd/macsmc.h
++++ b/include/linux/mfd/macsmc.h
+@@ -41,6 +41,7 @@ typedef u32 smc_key;
+  */
+ #define SMC_KEY(s) (smc_key)(_SMC_KEY(#s))
+ #define _SMC_KEY(s) (((s)[0] << 24) | ((s)[1] << 16) | ((s)[2] << 8) | (s)[3])
++#define __SMC_KEY(a, b, c, d) (((u32)(a) << 24) | ((u32)(b) << 16) | ((u32)(c) << 8) | ((u32)(d)))
  
- static int apple_smc_cmd_locked(struct apple_smc *smc, u64 cmd, u64 arg,
+ #define APPLE_SMC_READABLE BIT(7)
+ #define APPLE_SMC_WRITABLE BIT(6)
 
 -- 
 2.51.2
