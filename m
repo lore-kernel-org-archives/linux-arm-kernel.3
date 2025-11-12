@@ -4,153 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B7DCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D483CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=; b=Ms/1ZQqKPsiKOmBqFCSi1671W3
-	3R02398yToCym4QEy7RHwDYgN8op0MmktM8v7yehNn+scFojW/MCJWfjrXZF/d2fU2lWVOd6I7B2m
-	AXrvf2pje8h3R3ctEZoxxeQUK2BZPfx+RyGAuBoNnIgj9/lVbbSXh1e08sZ+1OK2vjkVt202RLCE0
-	Y1WvsK7NQ+oI2h6msLq4ly19NheX9rYkSulSU9oU3zD7MLSkFrXldX+LpCJLLS2K7f8vAFfIqj3r1
-	BlVCmo8Bbd+gdD0/C0pgXt95+M6mInFNs3gh9qQ1erGyB3loj7H/TqRdLCg0qNASrcTw2Q5Q8RqQz
-	2UOBF6Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/T4Ozi2mOS33VKynHD2AOjCruDQ9QppjMMIG3UFo+o=; b=WH5b4D/LKHCkwyCTxQ4zBTgWlW
+	wepAJlfZ0C98WgBq1YZvoh/kC7htNWVaHI/2s0ePS2fQQ+UilYBmdMYC7y++ubT4jJrKDptlcc7c+
+	V57g3PHzZeXHSyhrKXsCCRLrYwr3WbtMDfRnG6SP+C53D1sA7D2XMK7Ny0pq3pjSTyygvz/hMHvOz
+	HE18AryscKGAu9wif5OPkA/ihgnfYcp4qPevOxroq3Pkp29B+xFbDIV+RUxG+iPbKt4Z2gNdc36XI
+	WJA3MZLdqDsNzLh3KWVmZ7yjDxbjLDxvfOJRYHM3Dba0c5CVZYyKeKv3tfcVtPTSPEKJux8GGxQol
+	Tw2rSuZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCU0-000000091IC-3bL9;
-	Wed, 12 Nov 2025 15:10:04 +0000
-Received: from mail-southcentralusazon11013006.outbound.protection.outlook.com ([40.93.196.6] helo=SA9PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCTx-000000091Hm-3RxD
+	id 1vJCZy-000000091gu-1bJP;
+	Wed, 12 Nov 2025 15:16:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJCZw-000000091fv-1FCQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:10:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNct5qNt5lGICe+fQLWJ4I6+c/tULq8HFDmS5zBxknlAk8uIwjxZOUmocSjKy5yDAzNrQxpiypmk6+t5YY47PjJq1+YovX2vtDaxxhPN7IrHQwnZuInJZfe14K/7fro72PABdC7vf7D5oLtALUBdH++c6+dscLsd9q1g/3Eqar/aUAg+o+yL2oaMMllOXH5nrG6xSw8ZSB2fb92U95idcLmUeWqNtpp4Rnqk+W2zKPU1dnUfbt6Z7krYiH9G8fHHzAxui0UKtarhCWCJvDC1Poagmq/LBNomdj/oEAR6BWebT6n6JDjwSCiew9e8WR9p4MxjbdRyrvw/AExxfN3JVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=;
- b=ueS4iPMBhCE8hGrrFboc8h+iNQ7dwVKqnXrnX8KCTB3lInuH94tuYG3fZ0nHSo6uET4T2jnwx1G7o9rGFokt5MkfoZixZbQrk+/CG46BTmcUw+kyHJlXvsc6TOCAl1DkN7U9Y+vHBcEdSF8KN5UzLAzNB1dDy0inGtF3caaF87gIs2Eipo+VqCIuDquym3qqxHltytvGpcN4v/qFv3s9q9jnqK1zsjGGXq9Qhq3tqec8I9QBcjqhe9ALBde19VE/IlWmWpR7o4zaIbGeADA9k7XHhAR4uYhVLh2APB6mjhVaqszEw96FwAvpardYxBppW1JvDARmvE5D7/vuj6UCBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=;
- b=a3z4y3GtX8nSuI6aRREQZxGI9ipYA61PW5UGNOVZiPH7hjQKornE4iEGzBTXbzM15R1gmvFZcitq1PUiBLsBStFUKSGTUU9ksM8ZIE/En7jWmasNFCu4LQ0TI+qeI32DVaGyvFVH0weuIwqd61PNTP9phftePtdhTtTe4gtm6Us=
-Received: from CY5PR17CA0013.namprd17.prod.outlook.com (2603:10b6:930:17::34)
- by CH0PR10MB5178.namprd10.prod.outlook.com (2603:10b6:610:dd::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Wed, 12 Nov
- 2025 15:09:57 +0000
-Received: from CY4PEPF0000E9D0.namprd03.prod.outlook.com
- (2603:10b6:930:17:cafe::94) by CY5PR17CA0013.outlook.office365.com
- (2603:10b6:930:17::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Wed,
- 12 Nov 2025 15:09:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000E9D0.mail.protection.outlook.com (10.167.241.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:09:55 +0000
-Received: from DFLE109.ent.ti.com (10.64.6.30) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20; Wed, 12 Nov
- 2025 09:09:47 -0600
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 12
- Nov 2025 09:09:47 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 12 Nov 2025 09:09:47 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ACF9l2O2845097;
-	Wed, 12 Nov 2025 09:09:47 -0600
-Date: Wed, 12 Nov 2025 09:09:47 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH] clk: keystone: Fix discarded const qualifiers
-Message-ID: <20251112150947.i6iionea3cqrpkxe@pacemaker>
-References: <20251028161643.1727046-1-abarnas@google.com>
+	Wed, 12 Nov 2025 15:16:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 100A01515;
+	Wed, 12 Nov 2025 07:16:03 -0800 (PST)
+Received: from [10.1.196.87] (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34D2D3F66E;
+	Wed, 12 Nov 2025 07:16:09 -0800 (PST)
+Message-ID: <197141a4-bbfc-40df-8860-1291b810f676@arm.com>
+Date: Wed, 12 Nov 2025 15:15:34 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251028161643.1727046-1-abarnas@google.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D0:EE_|CH0PR10MB5178:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e1406c2-c47b-4265-d807-08de21fd89e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TWVEanFpZEhzOVkvcm9RYkFYenJwQzczSGVXNTNreEdtWHJQb3lNY21WOE4z?=
- =?utf-8?B?dVRCNWl3dEN0elVVNmU3cXZjKzc2dE1NaVpNZEJOaG1OVHVFQUxob011Tktu?=
- =?utf-8?B?UWdRR3pPSmlXUWhlTEc5TkI3SnN5T0dkMUFscUNKZEI3YXZPOVZxVlpzWUxO?=
- =?utf-8?B?d1RuRVM1VUdydUVPWkdFdmNxVTFWT2wxbmlNZ0VST081NVNVenFhS2NuMlVG?=
- =?utf-8?B?NFNDRlRFWkFoS29vMW5wTkIya3hhajc0aFY4d2Nya3NmM1RHck51MEM0dUZT?=
- =?utf-8?B?SW5zLzVEL2VVYTVudXVIbUVXWGxUcWZwSjJ1UkczV1BiaVg0a2lFeklqMC9X?=
- =?utf-8?B?VDFFK1FySko0SWYrNnBPT1dTbGo1TlFaZ2lLUnlUelNKNXNIKzh1SDNDUGZi?=
- =?utf-8?B?aEo3TlprbGU2eFJhUGVuVkRjaFJGSzJmbFpqYXN5MDBPUHZ4Y0hjanJPSmRq?=
- =?utf-8?B?YStaRW1zdWNRekNOelM4MDZEeEVEaFRZWm1jeG02aFBacEtTdHE2V1FSbkJK?=
- =?utf-8?B?ekpGWHVwY2VrV2lUSDE5SzlFTFZKRnd0YndPdjJhZUtJVWNWR1VhTTNHcFRT?=
- =?utf-8?B?UndDbTZZUXVzZ1VlWkd5Qk5VMkFBZFNNR1lxWUpqV2p2L0s2ZjFyZlJMNStC?=
- =?utf-8?B?VndFMEpabkZCNGZrUlF3MTZSRFRZbzh4ckdwak9KZzliU3lQL09tKzNVVERJ?=
- =?utf-8?B?T29RV01JY0g0MUttZTJSZlY1MFlsOW5yVENMRFVPWEhjZHRtaWpZdnRnaEgz?=
- =?utf-8?B?dm95QjZsOGYwVzlqMW1iVEJzZ3diMVpORVVkNkowbHU1U1E3b3M1azNXenVE?=
- =?utf-8?B?OW1EZXhIOEVFSkFxMEQyaGhvMUxMNzhqYTB4UjY1eEczZDNybWpzKy9OYzFZ?=
- =?utf-8?B?blRwQmFKeWZnQytVTHlhbHpxaTlkeXc2TzJlVFllcGhPQWt0Mzhtczg3b3hh?=
- =?utf-8?B?OUJZeUZDZVV0NS9aaW1BK3kySTk4eC8wRVdwRHZQUWxQNVVFbi94VTQ5UUxn?=
- =?utf-8?B?eW1SZVo5aEd2anh4NFpzeEZtcDRjZnhMSnN2Q2ttVjRGTjduM3IvTXVRT3BG?=
- =?utf-8?B?YkhUSklPU1RtcDlFZjEwSWhNMmwxazQ4OEhNdGYzVC8wWjhCR0JwL0o3b211?=
- =?utf-8?B?UHpQc1YwdmNxYXdKeFpIQ3RGMVlkdExHNS9oVjJJVWNka0o4Y0lJN3A0MzBv?=
- =?utf-8?B?Yy9lQ2dlNG5tYjl1Nis2MjJVcElCYUlIOUxUNytubUZmUEd0Nll4T2VZeW5p?=
- =?utf-8?B?cUpSWE01OGkwOHdZUXlRM1U4VFl5T0k1SUduUnRvL3R4MmpzSTNTdWh0dWtT?=
- =?utf-8?B?U21iZU56TjlDd25oSmdYTHJBbWJHcThmN25oREZzcm5OZGgvS3lEZUM0ZEMw?=
- =?utf-8?B?QWRKVXozdXU0emhRZThJeDA2UTVTdVpjU0Z6OW45Sks0OGFCdVh6VWV0a1hk?=
- =?utf-8?B?NzAya1RNNW9OclRuRTJQQVB6ZWJkMUpMN29mNVBPN0xtWktSa3p2a3JHSEZw?=
- =?utf-8?B?eTlCd1RKR0szZ0NxdHFtNHZJc3FjWjZzeHI0SE1YLyt0bmNuUm9LVTlycTBT?=
- =?utf-8?B?bjNLM3RyQWdhRWpnKyt3aCtZVVNOanF3Tk9jV3BsR2pOcDBmZWtqS0I0eW5O?=
- =?utf-8?B?aGlva0pHZ1RxTlM2ZVZzWEVkaGpKZnpXM2hQL2NnNDNON0h5SHV4UzgxWWx5?=
- =?utf-8?B?U20zRC8wLzVMZ0pCMVg4SVF6UDFGVE9FUy9EV0lvSkozOUtKNkRWeHZlY0Z3?=
- =?utf-8?B?dkE3blZFZ0swdEgwUkpMcVdud1hoNmJTQnpMRzhJdHdDYm0xM0xOMGFwQlZW?=
- =?utf-8?B?N3hPQmV0eTZpeW0xQmg4OXlwU0ZoRXQ2WjMxWWJLaGRqclFpK2t0STJieFNV?=
- =?utf-8?B?SXBGOG1GSkdwQlg4T2xYeHhDZSszSm50Q0c3NnZZeCtSR3ArbTdTaEFjSUk5?=
- =?utf-8?B?aVZ3L1VQclUwckM2d0NvNVEyd0lQWHpRSnU2WFAvakw5VUY2OUNOMVlkZGZG?=
- =?utf-8?B?MjlvbzE1aEtEcGg0a01NV3ZyOFhxTm1HTVAxU2g2NDNGMENoRVhmUjZQSVY5?=
- =?utf-8?B?eldHSlBzakZNaW9iZWN4V3JiQnh0bFZZNjVFVWpockZLYzBRK3Q3R3o2aXdo?=
- =?utf-8?Q?ncIY=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:09:55.6200
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e1406c2-c47b-4265-d807-08de21fd89e4
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D0.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5178
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight: etm-perf: Fix reference count leak in
+ etm_setup_aux
+To: Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com,
+ mike.leach@linaro.org, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ stable@vger.kernel.org
+References: <20251112012405.11731-1-make24@iscas.ac.cn>
+Content-Language: en-US
+From: Leo Yan <leo.yan@arm.com>
+In-Reply-To: <20251112012405.11731-1-make24@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_071001_955900_4DD24C8E 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20251112_071612_412252_3981D4C3 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,43 +69,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:16-20251028, Adrian Barnaś wrote:
-> Add const qualifiers to the pointers returned from 'container_of' macro
-> to prevent breaking the const promise on const struct pointers from
-> parameters.
-> 
-> Once you have a mutable container structure pointer, you can change
-> structure fields through it, which violates the const guarantee.
-> 
-> Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> ---
->  drivers/clk/keystone/sci-clk.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index a4b42811de55..9d5071223f4c 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -496,8 +496,8 @@ static int ti_sci_scan_clocks_from_fw(struct sci_clk_provider *provider)
->  static int _cmp_sci_clk_list(void *priv, const struct list_head *a,
->  			     const struct list_head *b)
->  {
-> -	struct sci_clk *ca = container_of(a, struct sci_clk, node);
-> -	struct sci_clk *cb = container_of(b, struct sci_clk, node);
-> +	const struct sci_clk *ca = container_of(a, struct sci_clk, node);
-> +	const struct sci_clk *cb = container_of(b, struct sci_clk, node);
->  
->  	return _cmp_sci_clk(ca, &cb);
->  }
-> -- 
-> 2.51.1.851.g4ebd6896fd-goog
-> 
-> 
-Reviewed-by: Nishanth Menon <nm@ti.com>
+On 11/12/25 01:24, Ma Ke wrote:
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+> @@ -454,6 +454,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+>  		goto err;
+>  
+>  out:
+> +	if (user_sink) {
+> +		put_device(&user_sink->dev);
+> +		user_sink = NULL;
+> +	}
+
+After searched kernel, I prefer to put device in coresight_get_sink_by_id().
+Please refer acpi_dev_present() how to do that.
+
+I would like Suzuki's confirmation in case I introduce noise.
+
+Thanks,
+Leo  
 
