@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77988CD4857
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 21:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3DACD484E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 21:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2DpkjORXKClcfZTmW7CaccU88dCo7Vxf1K3yE+R8sc=; b=viHSDecI5MSUSv6nuZayqm9Jqi
-	wLVzGMETB6fTZMA5OR+exAklEBS2aPso96Y7dhM4ivVZYaJHx4yP4ytXGhrgyVNNGXckKTMapGzrJ
-	XprWZoHucgru5TUrsYvjxAamFSovm2lvkr3J+Z/VsW0l/Ku9fk1iYgwSyYA/ObqagV7l9IJa8p/sE
-	eFCdPXQxjfWX0tV6lyQMdeP/ppejaL7du26NMG2BhvKaMFUXGw2gdvkPk0vchmz4m5ikgYshsiY9g
-	3BdOeh5GcRnrebWZg2Rzs2sAwG5pQJHpDPkqAId/BItz5e7j1fPXAXclQ2H5DuS9hQ2dWje4GzoUb
-	0LH7VXxg==;
+	bh=8q3Qe6gb056JvM9s++jg7oTSQ04Kj7us0jGA/rzNvOs=; b=GgOBv6eHgxOUeAug0Yup3ZhNSa
+	j01iEHU5L7bwHwPi+HqGcBYwR9cH/4Bm0GInyo1HUH1ViVq3qsVOpQBRWgpitStXKafwdB2h19HOQ
+	XSSU1qPGFArRRCm8GqawZnPANpfYlUORjDd9sMTxn3MNHRaPnVvCGzqcBs70TEcL3XYDyAg+fRhMu
+	CTslafYklmXJfZ3id6jH0cbHdpS2oAGPBvf4yivwFduyICx02rsUNavsQi6cCZcneAdNZt+mXIKOy
+	1xWEYtxPZlB14NQ6VbnXz11KD2EtcjO/4lS4C8McJoFOR6OSzy1rfyiIF5ZVa3hY4UFajnFqhd9jl
+	5VVfjs4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJIbr-00000009Y8D-1PjW;
-	Wed, 12 Nov 2025 21:42:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vJIrJ-00000009Yxg-3MVP;
+	Wed, 12 Nov 2025 21:58:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJIbl-00000009Y1x-2fU2;
-	Wed, 12 Nov 2025 21:42:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=m2DpkjORXKClcfZTmW7CaccU88dCo7Vxf1K3yE+R8sc=; b=gC1cEODl4Rnftt6sX/oOIDWLGl
-	fzFAclVMca07MkCloXmDpTfcO9Jf+QCg+X0gEbgf8Tcb9Ft9dnb58Agekwrs71TCBIocIjAhSeDlV
-	MZpsC5Udws9nEUnXd4+BB8vCMYjkQJ2VItN1vB4Fdm2IYEHWS45fpZOaKpOzV8lYYh/BrMmrmyIlH
-	vxV0TZpsSXpPzH8ktzYl2t3eu28NU3RGOZi4DavejB/LJXOCngLiG8mTalu5MlaTqF5nysH8nOj9D
-	0AX+c+BvEaEEcOXKIx9qobaS58pdwezMLOkPb22NuK9p3+TMWfGIDV3PJjwZQtXQvAMHtis/2EeOO
-	6OFSyxUg==;
-Received: from i53875b63.versanet.de ([83.135.91.99] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vJIba-0003tg-5D; Wed, 12 Nov 2025 22:42:18 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ukleinek@debian.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 4/5] dt-bindings: arm: rockchip: add TS233 to RK3568-based QNAP NAS devices
-Date: Wed, 12 Nov 2025 22:42:05 +0100
-Message-ID: <20251112214206.423244-5-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20251112214206.423244-1-heiko@sntech.de>
-References: <20251112214206.423244-1-heiko@sntech.de>
+	id 1vJIrH-00000009YxH-0Um0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 21:58:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C8A9943D2C;
+	Wed, 12 Nov 2025 21:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A965AC19423;
+	Wed, 12 Nov 2025 21:58:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762984708;
+	bh=DCH5YBw66ErM1uxNNoYc8WJxzsfE8ZpJahysVMrqAkU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oiByVJTnWtO3RGPuzsmVE4E2uE/UfTblS478WXOkC0X6nxJ04o4iYt40TAukSmtzM
+	 b9LjYsPnXMBkDmACHOOjmm+zPI6GlG8BVFMZ/BbVVkrwXCk0fM+OYtixdNnylkimVG
+	 i+/E/UN8DriSWpPQR9nP/eEzoEHPcfm3AmmhuWMzlvK/fJAB6l4bg/wcqXi2tZxha6
+	 ydiIQOZf886r2mu/1FfxaVQ4sdGVWWPcML1X3WB+XAgPk16zytV9u170+XMXXONFx/
+	 s2lGF8aKLMP7rPymB7B6IYBACriIQPv1lknibV0I139ZO3Y2oxU044TziB1secfV/p
+	 rlx8c+ZIzYF8w==
+Message-ID: <69451eb5-a36e-4443-8e34-7a06627b087d@kernel.org>
+Date: Wed, 12 Nov 2025 22:58:23 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net V3 1/2] veth: enable dev_watchdog for detecting
+ stalled TXQs
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?=
+ <toke@toke.dk>, Eric Dumazet <eric.dumazet@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
+ ihor.solodrai@linux.dev, "Michael S. Tsirkin" <mst@redhat.com>,
+ makita.toshiaki@lab.ntt.co.jp, toshiaki.makita1@gmail.com,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel-team@cloudflare.com
+References: <176236363962.30034.10275956147958212569.stgit@firesoul>
+ <176236369293.30034.1875162194564877560.stgit@firesoul>
+ <20251106172919.24540443@kernel.org>
+ <b9f01e64-f7cc-4f5a-9716-5767b37e2245@kernel.org>
+ <20251107175445.58eba452@kernel.org>
+Content-Language: en-US
+From: Jesper Dangaard Brouer <hawk@kernel.org>
+In-Reply-To: <20251107175445.58eba452@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_134229_679081_044C89E4 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20251112_135831_189441_6C1C240F 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QNAP builds a number of variants of the RK3568-based NAS design.
 
-Add the 2-bay TS233 variant.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+On 08/11/2025 02.54, Jakub Kicinski wrote:
+> On Fri, 7 Nov 2025 14:42:58 +0100 Jesper Dangaard Brouer wrote:
+>>> I think this belongs in net-next.. Fail safe is not really a bug fix.
+>>> I'm slightly worried we're missing a corner case and will cause
+>>> timeouts to get printed for someone's config.
+>>
+>> This is a recovery fix.  If the race condition fix isn't 100% then this
+>> patch will allow veth to recover.  Thus, to me it makes sense to group
+>> these two patches together.
+>>
+>> I'm more worried that we we're missing a corner case that we cannot
+>> recover from. Than triggering timeouts to get printed, for a config
+>> where NAPI consumer veth_poll() takes more that 5 seconds to run (budget
+>> max 64 packets this needs to consume packets at a rate less than 12.8
+>> pps). It might be good to get some warnings if the system is operating
+>> this slow.
+>>
+>> Also remember this is not the default config that most people use.
+>> The code is only activated if attaching a qdisc to veth, which isn't
+>> default. Plus, NAPI mode need to be activated, where in normal NAPI mode
+>> the producer and consumer usually runs on the same CPU, which makes it
+>> impossible to overflow the ptr_ring.  The veth backpressure is primarily
+>> needed when running with threaded-NAPI, where it is natural that
+>> producer and consumer runs on different CPUs. In our production setup
+>> the consumer is always slower than the producer (as the product inside
+>> the namespace have installed too many nftables rules).
+> 
+> I understand all of this, but IMO the fix is in patch 2.
+> This is a resiliency improvement, not a fix.
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 6aceaa8acbb2..790f910aa38b 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -868,9 +868,11 @@ properties:
-           - const: prt,mecsbc
-           - const: rockchip,rk3568
- 
--      - description: QNAP TS-433-4G 4-Bay NAS
-+      - description: QNAP TS-x33 NAS devices
-         items:
--          - const: qnap,ts433
-+          - enum:
-+              - qnap,ts233
-+              - qnap,ts433
-           - const: rockchip,rk3568
- 
-       - description: Radxa Compute Module 3 (CM3)
--- 
-2.47.2
+As maintainer you have the final say, so I send a [V4]. Notice that
+doing it this way will cause a merge conflict once net and net-next gets
+merged.
 
+[V4] 
+https://lore.kernel.org/all/176295319819.307447.6162285688886096284.stgit@firesoul/
+
+--Jesper
 
