@@ -4,110 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1F5CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA5DCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9eu56qr3t2Ms4T4UXDPTQheQQ0JA6etRS3h0iSUvNg=; b=duEGMJIwwQbmorvQG1sSfxlWVt
-	Cya+AsuDu4fdnjye93HP9prR5BlZiIDFAHEHhC3FxNakSjGkpZ9RNY1UT68szg3fFzFWgWHSyqNON
-	L2dG8yCy1iHJRKiCk6zHFE++JN4aLUxdUXRnxGk8Mp4Ur1yFPGm/W6mPK9yWJvY47G+Mb/Vqfh2h+
-	UGfv6SsLYpNgi3VQGbmevQc1yM/+cmRcGU/ag+1lCtRYYuhrEJYMTSxm7bVmBzZi5g33Gbanvx2rF
-	cHQSgRvezqjNNdqKeaZMx8bDr21m23lXc8FfLsI+LLyUnRAmCQbv10cKAVaBIVdbmbkH951TvpBRI
-	MyYTI4Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lGraRH9uevKqJuqG1Upk4uztJ5pT0JASF7LV6x6Vrbw=; b=Cu0onh/SfhWiDHitK2zpZEgGMB
+	6EZPsfzZdT2o9uELE780YAUchf0YV8k0wM35FhZU0ajQobqlsrByUv/yOrfOJjvlbgTfEcwnDWlE0
+	Tv3DlmpUiDHFjXpXOspZ8orfDBqibYWvJkqbo1HHH4itGWmMr9q3nUZnHscBfyYRDiSCKQg6m6WEV
+	b5zG4kpoXIMVuOuWZGhheW9n/vH61eUbrQEqNvzC7OpKpb8M8LWxG1sQ9ZXLKrb25J/if3Liacae5
+	kVb5tw0n0Ac1EJtGPPcorxRZmnJcK9fSyJX6jckEleocw+Fu+S0iD3vestm/+XSlTJPRkp+/dv73n
+	P9UNnqbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6l8-00000008QI4-1XCZ;
-	Wed, 12 Nov 2025 09:03:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJ6nJ-00000008QZh-2FTZ;
+	Wed, 12 Nov 2025 09:05:41 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6l6-00000008QHf-0r6c
+	id 1vJ6nG-00000008QZ8-3A0K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:03:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 863E043BD9;
-	Wed, 12 Nov 2025 09:03:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F38BFC4CEF7;
-	Wed, 12 Nov 2025 09:03:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762938199;
-	bh=Z1rlKCk1Nhe5K59waoJFbh/idsdRsU7TIzVadeX5qdU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cafYFwJzYP5/1Fu5Hx/SsZUQCu2JEhXDblxOClIhiZu7RiOotzbgpvcPVgvQ7I0GK
-	 JNxaPJAng8kO+nfWF3wuJyGAtgH/lzG0S6/cV6vughryDF4O+8io6cWtmS3okNnOlN
-	 PlocZLGs/NlqqidcLcDxi1bKli8gRSRa3LBY+T0jQnZe67BerUr/W7Rby4xCACPfZ/
-	 zj3WN1leOW4sRk3BxfOrmgVNzCw2T27OPv6xq/9+EdUt317zYr++DmbCNFuBdp8pvs
-	 SajREaQLjT/XW/EpN1IDuQwf+04HIakOplP5Dj45oziIcx5dFsDd12uczSaMZNe3HN
-	 Yu+kUUrhmMorA==
-Message-ID: <6ec14b05-4427-4bf0-9a19-1e22c4ae7176@kernel.org>
-Date: Wed, 12 Nov 2025 10:03:15 +0100
+	Wed, 12 Nov 2025 09:05:36 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-8a479c772cfso47358885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:05:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762938333; x=1763543133; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lGraRH9uevKqJuqG1Upk4uztJ5pT0JASF7LV6x6Vrbw=;
+        b=WxGwTUTIctch6ZufsZc8AjAZdoHoUp8d3gwr2/uygS1wEOfdjJRGVOI09LpbuW2RZm
+         c/MPbPLTyoUiRbZXqPWFsnqjbBLYOZA0gYvsSDbzbXRD4KB7zHSXbPwOFpK2hjdnPodt
+         DRLwE1bAvkTw+eFn+qX9gUXFV7PZFQvDRLy6zouMjuor35qU5n7gVJhhlVa5k/J85egA
+         J+G+3B4Zsm96cOYCjah7hnffq+7fvtnH8MfjFMG58P+8kGjlr2tgN7QAt9VtutzUDy/x
+         LUJOifOTjUVyFK4fKiz6fg3HqMWvntTbvcQmbO2p8Y5le5o/J66kXZQXZI+OusL8QwES
+         yLrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762938333; x=1763543133;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lGraRH9uevKqJuqG1Upk4uztJ5pT0JASF7LV6x6Vrbw=;
+        b=bKZl+nFZoOnWKOCpcK1g04faKhozwKxYq2WNjGWHsGX3TrmcUJonEtEjqgXw6f5yeN
+         lCqrGj61rPdAJ05TSpYNxhufFTdaGrn7SSgtEQmwlD8wxj6fFNARSwdiRZkh/wQHesgy
+         lri7UbpL9RaRBb3A26Q1WDYXmR93wsVOMyxWdBDFMSDDLBp4ctIJjkeL01iYhLkfT0A4
+         c5GsCoTiFmTYDlmzM2QxWMq25VY1y6z8aImUY/a5uiyo8vpBZm7Dwf0OW5j9sK0noxIO
+         xWXsQ3TkAmvUnbRMZ4Uphd8n0Y88LtlR3kBvwEALuFFUMuFpEFB99p/8xspbt+dNe8qN
+         dYHA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9XH80SQ40HGYouAVKtHUpwJ79CePvcN5Jh/GSCLQvDcZXLCQ3UXfbPPDduAeZyY3Uw0cjV45dloo9e66P222A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRdcQX8EXPHIX8fZokd2rSjphoh2wMGT6HMFp+XJ0xSH/yEyQw
+	fQihLEB5trbOUyFtJ5jaY0vYjbIWgAo9aSRqHUOXACwpY8k5uqAMWXzSsvhuYO7yeJm47l5CtGd
+	2HL2Pf4mZwwakypNSqjh67bkfKzViFbuo/AdH4tesjw==
+X-Gm-Gg: ASbGncvO6ht3IemuMyFni3ecoN8LgXaqFINfM2JLm4VHxnmd38bwLQRFg5wL4fzrwFd
+	D64SqjAeyA4iB3MSWApOPOi9g0MAxHE0RwFuNc/t1tJ7bAlu3jEBpkRhoegP5PIfU3EfkPSJjHH
+	q/tvM0DQ1Wi+tjGiVo/KZbZ2co5PzidtdfPUfoH6obQ4wWlhS+Ag7uYM3TRWXIU4vaIOUeXZ9jk
+	w6060xsU4h8f8zxWIX8+raRQT9gBKQio3jsT2mvoXt7JVyO1iCWTRQK7W7699Rg8h3QuGhWWpkg
+	TIONuLh7eDEljPWzLQ==
+X-Google-Smtp-Source: AGHT+IG3g9Ctj97I/wRZUZshjr7NcFapd6j5PezeeBYMXOdtYdfrrN0ql8kRHtp64+cKzuvlQ3x37eIL7e0FtB7qStA=
+X-Received: by 2002:a05:620a:1a89:b0:8a2:ac60:dc3a with SMTP id
+ af79cd13be357-8b29b8491dfmr264753485a.81.1762938333497; Wed, 12 Nov 2025
+ 01:05:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] dt-bindings: arm: keystone: add boot_* mboxes to
- ti,sci
-To: Anshul Dalal <anshuld@ti.com>, Nishanth Menon <nm@ti.com>,
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com>
- <20251112-k3_syscon_add_boot_mailboxes-v2-2-aebc1e47b391@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251112-k3_syscon_add_boot_mailboxes-v2-2-aebc1e47b391@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
+ <20251111-arm_coresight_power_management_fix-v6-10-f55553b6c8b3@arm.com>
+In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-10-f55553b6c8b3@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 12 Nov 2025 09:05:22 +0000
+X-Gm-Features: AWmQ_bmNY83cckdpv8rVDQiT9VbVxWbWEr5kZCEtMBGA789FKnD9AHfUl8GgCNo
+Message-ID: <CAJ9a7VjAYPCi-s_jsa3bZ6Po6denegp_gC3NRz79w+W4Sdw4hA@mail.gmail.com>
+Subject: Re: [PATCH v6 10/11] coresight: etm4x: Retain sequencer state
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_010320_285265_B3BF7D42 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_010534_981676_BE00B743 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,24 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2025 09:30, Anshul Dalal wrote:
->    ti,host-id:
->      $ref: /schemas/types.yaml#/definitions/uint32
-> @@ -128,3 +137,14 @@ examples:
->          #reset-cells = <2>;
->        };
->      };
+On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Retain sequencer state in the disable flow and will be restored in the
+> enable flow.
+>
+> As a result, the flow will be reused by CPU suspend and resume in
+> sequential change.
+>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 8b85a73e29f407a8d5e26a25f4dceaadaeed05ed..afee54ac0aec0c0e521fa1885a95f48555a369de 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1034,6 +1034,10 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>                         etm4x_relaxed_read32(csa, TRCCNTVRn(i));
+>         }
+>
+> +       /* read back the sequencer state */
+> +       if (drvdata->nrseqstate)
+> +               config->seq_state = etm4x_relaxed_read32(csa, TRCSEQSTR);
 > +
-> +  - |
-> +    sms: system-controller@44083000 {
-> +      compatible = "ti,am654-sci";
+>         coresight_disclaim_device_unlocked(csdev);
+>         etm4_cs_lock(drvdata, csa);
+>
+>
+> --
+> 2.34.1
+>
 
-I asked to update the example. THE example, existing example, not adding
-new example or examples.
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
-You claim in this patch that EVERY device has 6 mailboxes, so I do not
-understand why you need new example.
-
-Best regards,
-Krzysztof
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
