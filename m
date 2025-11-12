@@ -4,86 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296C8CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10640CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5yZrG2IX4YxIpRwaDv2ArGlK0M+w1CHoD4d5r14y/Vg=; b=vpcwXjg6a9esAQVD1+D8Twl5W8
-	pu1x4Z7MZFR+HgXLiiK/bXXv0/zvnoEgYIysl01Nsx6lm5mox9j4bXXbWvat35V030YlCcEdcNNkv
-	mAniAl176OD9mKazvv9NTZV2EDiSY48xgb4sMYebme00J8mFpykSrgtR4F67aMpWpV9I5RzGjO5cQ
-	ZnqxbytiHOZABmG2f3t8zVKztV5BjqVXP//2mXvaxD7rICMPFIUIp5BptjJTyqAG/743WhQX5aWSa
-	mVw+INJgO9ZqQ/HhreSxvrKBf8en+rbiWi0rKS9gxaqFdWCvJLKyCRiNn4og38aLHmv0R2Gl2ZSpr
-	5AGyu3yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CoY8cGYvff+fELs73ZOVQEIjucMjDg/vjJcwBZM3eiw=; b=tAPW/zkEpEQMwSg20EQuiXEz0d
+	tCNoJyjUoRYiCtM/aGoTcAStKPQC/LYRSWuzREpiwB8VMNskUUnNv14ZppcnT4NkPOLQ0WqUtXXGe
+	XRs/8wkcoVfg5SzoFGqLJHisnXiSMqxuPNvgt+2hX04ILN+mTV78VPaLWrH1n4d40+A7H2lKIik2k
+	Zvi5u76Div14iovT/qPMXtHMpnLTi2MZ7gRp7EzPV/ILSxWF9rXZI0kcRrJmo6Hb11lgXCVLpKed3
+	RgD7ip5tifXLP5s8zaoq5vD2UFCzJkKH69nuhrA0Q4xjmAnxIYFQcRaSb76D6birhAW6BspyiP4DJ
+	C9p0qd8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6nb-00000008Qcv-2EDV;
-	Wed, 12 Nov 2025 09:05:55 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1vJ6qF-00000008QyT-2r30;
+	Wed, 12 Nov 2025 09:08:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6nZ-00000008QcF-0Lag
+	id 1vJ6qD-00000008QyH-42QR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:05:54 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8a479c772cfso47375085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:05:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762938352; x=1763543152; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5yZrG2IX4YxIpRwaDv2ArGlK0M+w1CHoD4d5r14y/Vg=;
-        b=KHyHoawjxZuodWyTa1jN6Hy+Nk0Oc8vpuGlBi92fjIiJVplyKxMW4dDfWTbzqGNoDT
-         AqestI/FHZT3TVSsFInZ9HI0ZzraKn8y7WWgJS6x+F3QBnd7wY/N2OiW3n2FjVw4L77j
-         4dk722hr5byLQ55oXSorjimWhGfrHVUekW3LBUMurTjjsB039YGrrsu+QMPY6/SBCTyn
-         b+HquNB0o49kJa0xD869y4ovKKdxUraIuUtfmKgrV3jYdvOUAkQzWskBzgJFArVy2CO8
-         x890acCZ81ZxAyrZbUCatxCofC0GBJ6PwGsEDYaAKg2XcxqzIWfUBpybc0BzwvfqV2hB
-         MPcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762938352; x=1763543152;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5yZrG2IX4YxIpRwaDv2ArGlK0M+w1CHoD4d5r14y/Vg=;
-        b=K68uppuUPmiL3QFmqtXZ5fw4XQrVlFBkUzU/g7Ih3gp/4jNY06SVEifmQTK0vCQAeD
-         l6LAdnC5K+/pdb7afmYVX24tbsFrXRte/qfNRGgCK2ZZoE/CJn62uqfXKADyzooQDn3s
-         MbYFTIwWRDcc0UIbLmcNLtszAsW6FTNY6x/j6yaGT1gi7Lvy72Iw4D0IOYJTxdgW0+YI
-         2DncIZK55vjvS6sSxl5miQD4lW8zTTgVlRKdvnl28T5rgU0omY8YvcUG4WRC9ybzJDBa
-         pB6q2f56zPsKOMaXXhSxoxq5SgIrgyh86V+ZdgFWLT5TVxA8IaMzWY7Xa6r08gfe94Vp
-         sb6w==
-X-Forwarded-Encrypted: i=1; AJvYcCUSK4cvjYYNQPWnIA9sLwxhfVQkjPcYDpxNlDR0AWA9Cy6MQUPFRQX+sy4QeJ5C253jwRbPAQSmMzved1xRtpXO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4wArC3V39LVtxmRHAnE/ieY9rQJIOpszcRroxeZXYuP/pgTPR
-	QySu+jtrkvAlo4fcbX/fap5QFiZVaxma/ho8arQZxT1Ip80FRqQuHe5fJ5ShcJWQ17W3W9BuPSC
-	yVRmLKamhZn7c+qmvYJdF6TTu6ya7ycxJr4WdDkC0rw==
-X-Gm-Gg: ASbGncsqydYuAucSpNcDSE93rFqsXAJiqoiostloWKRp7MgYWu6xmytr2LaTXXtkrF5
-	zntFGp6JPj6Ga99WBIOdjzHTE8gGSylzj4NLuijUucN1kNoAkfuwVCP5JjiUCoN012RDGX4UUUH
-	KuWaAtnhMT77WB2vuS9CIo8RXghpIoi2pn36w0cRcibivfCLoy13B+vSIzFQYAde6+0TgOVVquA
-	TQ0sTSL96jrlTxPfL7+JMNBKjRvZtFQUWSec+j4uZsAiOukgb/k+4Hls9nun8N/WGY6gshY6DTm
-	MyqhTH8I6i0A1fquTw==
-X-Google-Smtp-Source: AGHT+IEC7n+0Hwkg9zr5NO1uSZUM7AK5PNiZZB2P46Bu53qwG53b5ovHC1jdrTqeK05WEuOnWhT3mAi7auMuGuRKL00=
-X-Received: by 2002:a05:620a:29c4:b0:8a2:e1db:f442 with SMTP id
- af79cd13be357-8b29b77a962mr278703785a.30.1762938351858; Wed, 12 Nov 2025
- 01:05:51 -0800 (PST)
+	Wed, 12 Nov 2025 09:08:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA83060211;
+	Wed, 12 Nov 2025 09:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2F1C19423;
+	Wed, 12 Nov 2025 09:08:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762938516;
+	bh=fPlfJInIkVVGN9ej8lr8KJJv7if0Cdwdc3VVXzlPNA0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Map12MD8WPoa9Dz+/7u2ptaxxzhd1cu95gd3hN+9JtTBl0RBiIUeDDeczX6WXvzL7
+	 AZ4dkcyaQn2Z+teNrTklPEL9FS63PDMDSb+5PO9v1gWi8NsTYQBCkuKlVtOoTa3Il/
+	 W86nxkqMEVsAA7dMvXPRIVpa6TJdipwuOwT7DY+ToQgiKIAaAtKpHXxiSkNbeP+NXA
+	 th8j6OtxalqY6timU/HGVwIII5yG+aIxp/8A79BAw2PbziJa0+m6om6wq+1sGZLXo1
+	 uLgKGb4xfA83gq7fp1mE9i8I+y80BAmsRTTN7sWELib6GQZ0dtCzrf3o6MyHMLoNjh
+	 Q0P1ySTznnypQ==
+Message-ID: <baafb460-fb65-4cd2-9911-89d828199d9b@kernel.org>
+Date: Wed, 12 Nov 2025 10:08:29 +0100
 MIME-Version: 1.0
-References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
- <20251111-arm_coresight_power_management_fix-v6-9-f55553b6c8b3@arm.com>
-In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-9-f55553b6c8b3@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 12 Nov 2025 09:05:39 +0000
-X-Gm-Features: AWmQ_bkmKIWILtUntJbmcwDYHQl58aiFuvF6wc_IMZKDOzzvd9U0QdClpUNo3ME
-Message-ID: <CAJ9a7Vg2mbHA2wP0umUgh828uhnGqYZZ3LPWHt8zJ5ORF0LXwg@mail.gmail.com>
-Subject: Re: [PATCH v6 09/11] coresight: etm4x: Add flag to retain single-shot status
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_010553_135060_971A0465 
-X-CRM114-Status: GOOD (  24.73  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
+To: Daniel Baluta <daniel.baluta@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de,
+ alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com,
+ marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de,
+ joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
+ josua@solid-run.com, francesco.dolcini@toradex.com, primoz.fiser@norik.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Xiaofeng Wei <xiaofeng.wei@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+ Joseph Guo <qijian.guo@nxp.com>
+References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
+ <20251109214515.121742-2-rpimentel.silva@gmail.com>
+ <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
+ <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
+ <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com>
+ <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
+ <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,78 +129,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
->
-> Add a 'retain_ss_status' flag to the config structure.
->
-> By default, the flag is set to zero so that the TRCSSCSRn.STATUS bit
-> is cleared to restart the single-shot mode.
->
-> If the flag is set, the single-shot status will be retained, thus
-> avoiding restart the single-shot. The retain flag is automatically
-> cleared to restore the default behavior on the next call.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 15 ++++++++++++---
->  drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
->  2 files changed, 14 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 560975b70474c3449aa6799fc1a8e05d5ea93495..8b85a73e29f407a8d5e26a25f4dceaadaeed05ed 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -565,9 +565,18 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->                 etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->
->         for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> -               /* always clear status bit on restart if using single-shot */
-> -               if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -                       config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> +               if (!config->retain_ss_status) {
-> +                       /* always clear status bit on restart if using single-shot */
-> +                       if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> +                               config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> +               } else {
-> +                       /*
-> +                        * Leave the single-shot status unchanged; clear the
-> +                        * retain flag to restore the default behavior
-> +                        * (restart single-shot) for the next call.
-> +                        */
-> +                       config->retain_ss_status = 0;
-> +               }
->                 etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
->                 etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
->                 if (etm4x_sspcicrn_present(drvdata, i))
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index 012c52fd19338133129752d35523dc102df24604..d82ec1559b34787dffc7debf4643d948e3850b2a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -802,6 +802,7 @@ enum etm_impdef_type {
->   * @ss_ctrl:   Controls the corresponding single-shot comparator resource.
->   * @ss_status: The status of the corresponding single-shot comparator.
->   * @ss_pe_cmp: Selects the PE comparator inputs for Single-shot control.
-> + * @retain_ss_status: Retains single-shot status.
->   * @addr_idx:  Address comparator index selector.
->   * @addr_val:  Value for address comparator.
->   * @addr_acc:  Address comparator access type.
-> @@ -846,6 +847,7 @@ struct etmv4_config {
->         u32                             ss_ctrl[ETM_MAX_SS_CMP];
->         u32                             ss_status[ETM_MAX_SS_CMP];
->         u32                             ss_pe_cmp[ETM_MAX_SS_CMP];
-> +       u8                              retain_ss_status;
->         u8                              addr_idx;
->         u64                             addr_val[ETM_MAX_SINGLE_ADDR_CMP];
->         u64                             addr_acc[ETM_MAX_SINGLE_ADDR_CMP];
->
-> --
-> 2.34.1
->
+On 12/11/2025 09:15, Daniel Baluta wrote:
+> On Tue, Nov 11, 2025 at 2:49 PM Daniel Baluta <daniel.baluta@gmail.com> wrote:
+>>
+>> On Tue, Nov 11, 2025 at 1:50 PM Fabio Estevam <festevam@gmail.com> wrote:
+>>>
+>>> Hi Daniel,
+>>>
+>>> On Tue, Nov 11, 2025 at 5:45 AM Daniel Baluta <daniel.baluta@gmail.com> wrote:
+>>>
+>>>> In addition to that, Rogerio please read:
+>>>>
+>>>> https://docs.kernel.org/process/submitting-patches.html
+>>>>
+>>>> At this moment I think you should keep the original author of the
+>>>> patch.
+>>>
+>>> Right, but NXP makes a total mess with authorship.
+>>
+>> I cannot disagree with you on this, let me clarify it internally with
+>> NXP colleagues
+>> and sort everything out.
+> 
+> Hi Fabio & Rogerio,
+> 
+> Checked internally and to track the correct authorship and development work
+> here is how NXP would prefer to get credit.
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Sorry, but individual contributors do not need to give any credits to
+NXP. If NXP wanted to sent the patches to have credit, they would do it.
 
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Did sending happened?
+
+If not, then any contributor is rightful to take the patches from
+downstream and send them only, ONLY with their authorship. That's what
+DCO allows and that's what established practice as well.
+
+NXP had a chance to upstream. When they decided not to, they forfeit any
+rights to claim they want any authorship.
+
+
+> 
+> #Use git commit --amend --author="Xiaofeng Wei <xiaofeng.wei@nxp.com>"
+
+NAK, there is no single patch like that from above author:
+
+https://lore.kernel.org/all/?q=f%3Axiaofeng.wei%40nxp.com
+
+Remember, downstream code does not matter. Does not exist.
+
+
+> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> 
+> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> 
+> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
+> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+> 
+> Co-developed-by: Steven Yang <steven.yang@nxp.com>
+> Signed-off-by: Steven Yang <steven.yang@nxp.com>
+> 
+> Co-developed-by: Lei Xu <lei.xu@nxp.com>
+> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+> 
+> Then you can add your own C-d-b and S-o-b.
+> 
+> Thanks,
+> Daniel.
+
+
+Best regards,
+Krzysztof
 
