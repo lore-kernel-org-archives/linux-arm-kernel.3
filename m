@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA74CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F78CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTwrD0he+f24KqlpT3Ss1w3zmdwF2PBi99LPn1qOni4=; b=TGB4kYdHvm0YmKghNk67Nfe77j
-	BmoqwYDv9nBOLHIZpGnOGvzs/mtGlbu/BbIAGyhepwGwp/DCsl/xJYZuYjFCLUwnY87XO4mzNd1nz
-	fMhdA+9YNn1OnMNTb1tadhrlXNhmuf060qopdhtmPnPlYaj6RftO1VuDWNsF2eZaS41U2/lXRzEDO
-	xxKDl0eBsQxUQab2hvOWR3IV5Akm5Cl/8/U8H+PeunGbY5TMC+dZ9To4CpPK0z00YCFq8U9co3HoE
-	M2AJ+ufeYp9Ti1t+wDGY2nE/xVim9f5jSyUDGRwLdEvkjEMUOH6rtXstA3MgsTGyiJyHeiuikz2ZO
-	cCmSMLkQ==;
+	bh=LxUF+h7S30BNbJmH4g7pCp3lBzmymefVuj0S5lsfjbg=; b=PNRGcEhJgqGnNFJKhbnHtup6Mz
+	93GEn7bxS2krNiGU0ywsLEVpTDLHWSulVklSRXNFO5avGWsxTAKGWCWFH0wv5F7z4hJ/hhmW/vAdM
+	Vv9iu02vzlhN3f/8yQvyo1mPgR89f23vyp2sPscPZLEXv7HkZBA1dAF6mgOwiwrTuoiYc1FJtuQEK
+	FyXLZYYRpsujEydPgnbrKgqJw9AL1XXbn6tHxbunwe7YTn9IoepNqjPw+ZR4G/rGMho1Z8dTxL1La
+	YsBFEz6bYVZwGTX+WFO9Wwa6GZ28KQ+bJw8iillV8elGT2V/rVmdItjd8yOMJd0iK4clc6jYASytO
+	mp/Zt34g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0AM-000000080FQ-0xtm;
-	Wed, 12 Nov 2025 02:00:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJ0TL-000000081AF-4Aba;
+	Wed, 12 Nov 2025 02:20:36 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0AI-000000080EH-3M6E;
-	Wed, 12 Nov 2025 02:00:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCBF043C33;
-	Wed, 12 Nov 2025 02:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A715EC4CEFB;
-	Wed, 12 Nov 2025 02:00:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762912853;
-	bh=Juz6pLF7SAhgmhKL45ZMU0F5tm2E81SzTf1c2RwwZA4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=HokDcZybggXfHF3SNp/0uNcSapDRBFf1O6vQpLIU2pojcO61vWpR9HJibg4Jz1e+0
-	 e5+Ku76PdB46WqZ3+F5yNqCQM9hzqrgxbhYCYxFD3YKCirmK/4doMpl7B8nxNq0292
-	 dhM22tKgktPPd0poKBVbgQQqVepMjJlT8dDtrkaPO4vdaiEy24+QpkXoWIhQxsxXJC
-	 suVvdv+GEjcBErCTq5sgx09mK0LhrHvx5K0xHlai1nc87B7x/S1gHQQ1z3n9FTnuc1
-	 piFo0/axYSBrVrAdE0ExxJ7FwpaLCiVOYg3SWBd5wdX+fK1iMCqwUC33+xIGFm4dTU
-	 Reyi7X//KPopw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB14A380DBCD;
-	Wed, 12 Nov 2025 02:00:24 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vJ0TJ-0000000819i-1zQ8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 02:20:35 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3410c86070dso248868a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Nov 2025 18:20:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762914032; x=1763518832; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LxUF+h7S30BNbJmH4g7pCp3lBzmymefVuj0S5lsfjbg=;
+        b=YIelYShQtN+EoxUfnXxd4y3JW+no81buND78/dENRk2n70gwGUwbSAQHgjeUlY8oAe
+         bBlG5skTYZGrRXfZDBgkNlC39KB5HV/C3sFav4EFImpvjxSh87EXatUr5P71/2SbLZ+u
+         kvRGy6TKmkv27fFOfqfCPPYxAwvhO2o2ftzAOzyQ+wmBzaJvgaIKSf9vrQc905ASU0jq
+         iKcu6r1vmCq7deQ0cb6QvS7JOz5PTews2m12PszfbakQ8MWxa2w92/ucL3TFlcoAM4X3
+         JXnPQQA19qolnMYWQTBF986BksGOc8aNGYpZMLtrKUO0AKqA/JrGWMYiIr3fcwT3eFUN
+         5U6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762914032; x=1763518832;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LxUF+h7S30BNbJmH4g7pCp3lBzmymefVuj0S5lsfjbg=;
+        b=tNmlZWUh0NoByTlo2AndIhIyqkCoEYINtNHM6zQu5s379luSuXmpExVUCp1UJtvoQJ
+         erb2rAyMYKw7CHAdMCk1syBwIttzg/kYTepmk5xLai4a1bz5yfJ2lw2wcL0R+Dtly06J
+         vdiUqIwkGhZ1eik9azsnO6l2pPrV8+MspS8BWWGsNAmOxp5fFS/4TiNV7ZhJ6pbv6q4m
+         Vb2Ve5hYGKArI2FLKsyOokWPiRbfeUXkcYKz9L5aXmlRJluT+SNXJEl2AFdMFhpkFa+6
+         aH0jXHIA/Q6ZY9x6uIOxfBvrvbDuyttX8jyZVoGckW2xfhyaAh8UVfwaogpAJdpdpvdH
+         IzjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUaiLY663v6ER/uunoaPH3Li6bqWDfXs7F8Ljkm/4foSSkueAfw5sIfe3zQWbfQ5plN9scKvkp6hiCuQFYWP3nb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQxIFEvi1J0ya5TZK4NQ378+wVbodJonsVf422YKQUXy9fiR4F
+	ET0zEYUiK7Ol0s171if1nUwuoWfhG5cQjcJGdfq2wFJPlPwkXknZ2avoTmIPe4xg75iuuvovTAE
+	GjHutpRLa9W2UD+SpqiFxDB5cgsvknNI=
+X-Gm-Gg: ASbGnctqPfmltW7uRv/PizqGkE9sq/5JtfXfAYbfVG5c+GZgLtcjsuKE+SaAkbgtK9b
+	HQKkuWyz1AQhsPyETQ5Klpd5zhRUnICU7A6g0NCc2iI2q3m8csqhQlUSmB9G3GajihDYiLdhoqC
+	zmzH/Y+ZdrXNx2tr6feeb5LqJDU1A4v004ty55mmpVmoSwnq9oi+wRHwe6cyufdNvvfh3mjkXDi
+	qCJ6a6cuPl3GhoTT4Q8Y6X5a402k6gL2k29sosm3i3fUvquVuhk/5NLkGj/
+X-Google-Smtp-Source: AGHT+IFtc6HQrz/xKZ9emyb5FEGlT0SRf+ATUq6DWBXr3zYhujoZ6/yNyjXJ5nXZWWbTjr5BzqbESW0tw1NXrAGBcT8=
+X-Received: by 2002:a17:90a:d88b:b0:340:be4d:8980 with SMTP id
+ 98e67ed59e1d1-343dde27552mr1630702a91.14.1762914032513; Tue, 11 Nov 2025
+ 18:20:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/3] net: stmmac: convert meson8b to use
- stmmac_get_phy_intf_sel()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176291282374.3632748.15831065649442897979.git-patchwork-notify@kernel.org>
-Date: Wed, 12 Nov 2025 02:00:23 +0000
-References: <aRH50uVDX4_9O5ZU@shell.armlinux.org.uk>
-In-Reply-To: <aRH50uVDX4_9O5ZU@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, jbrunet@baylibre.com, khilman@baylibre.com,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, martin.blumenstingl@googlemail.com,
- mcoquelin.stm32@gmail.com, neil.armstrong@linaro.org, netdev@vger.kernel.org,
- pabeni@redhat.com
+References: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
+In-Reply-To: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Wed, 12 Nov 2025 10:20:20 +0800
+X-Gm-Features: AWmQ_bk8d1h8tBpBrZUtGjow-hV3gnwT5P-EgH-CH9iaE3RQY3pwj7BwDScJKrc
+Message-ID: <CAA+D8APHUZmP8qfta4=YL200hJkiikru8yQPddvBZyx-+-1ZtQ@mail.gmail.com>
+Subject: Re: [PATCH v7 0/7] drm/bridge: imx: Add HDMI PAI driver on i.MX8MP
+To: Shengjiu Wang <shengjiu.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
+	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	victor.liu@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
+	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_180054_861677_9B3DAB05 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20251111_182033_516210_ABD44427 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +104,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Shawn
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+On Tue, Sep 23, 2025 at 1:30=E2=80=AFPM Shengjiu Wang <shengjiu.wang@nxp.co=
+m> wrote:
+>
+> The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
+> acts as the bridge between the Audio Subsystem to the HDMI TX Controller.
+>
+> Add HDMI PAI driver on i.MX8MP to make HDMI audio function fully work.
+>
+> changes in v7:
+> - add back the mutex which removed in v6
+> - add Tested-by tag from Alexander.
+>
+> changes in v6:
+> - remove mutex in dw_hdmi_set_sample_iec958()
+>
+> changes in v5:
+> - add empty line commit message for patch 7
+> - remove blank line in dts node
+> - add component_unbind_all when dw_hdmi_probe return error
+>
+> changes in v4:
+> - separate dts for soc and board
+> - bind hdmi_pai with hdmi_tx by moving some code to .bind() and .unbind()
+> - add "select DRM_DW_HDMI" to fix build error reported by test robot
+> - remove unnecessary code/definition in pai driver
+>
+> changes in v3:
+> - add space and 'U' in asoundef.h
+> - add more commit message for binding doc commit
+> - add bitfield.h header for fixing build error
+>
+> changes in v2:
+> - address some comments on commit messages
+> - add two more commits:
+>   add definitions for the bits in IEC958 subframe
+>   add API dw_hdmi_set_sample_iec958() for iec958 format
+> - use component helper in hdmi_pai and hdmi_tx driver
+> - use regmap in hdmi_pai driver.
+> - add clocks in binding doc
+>
+> Shengjiu Wang (7):
+>   dt-bindings: display: imx: add HDMI PAI for i.MX8MP
+>   ALSA: Add definitions for the bits in IEC958 subframe
+>   drm/bridge: dw-hdmi: Add API dw_hdmi_to_plat_data() to get plat_data
+>   drm/bridge: dw-hdmi: Add API dw_hdmi_set_sample_iec958() for iec958
+>     format
+>   drm/bridge: imx: add driver for HDMI TX Parallel Audio Interface
+>   arm64: dts: imx8mp: Add hdmi parallel audio interface node
+>   arm64: dts: imx8mp-evk: enable hdmi_pai device
 
-On Mon, 10 Nov 2025 14:42:26 +0000 you wrote:
-> This series splits out meson8b from the previous 16 patch series
-> as that now has r-b tags.
-> 
-> This series converts meson8b to use stmmac_get_phy_intf_sel(). This
-> driver is not converted to the set_phy_intf_sel() method as it is
-> unclear whether there are ordering dependencies that would prevent
-> it. I would appreciate the driver author looking in to whether this
-> conversion is possible.
-> 
-> [...]
+Could you please review the above two dts patches?
+Thanks.
 
-Here is the summary with links:
-  - [net-next,v2,1/3] net: stmmac: meson8b: use PHY_INTF_SEL_x
-    https://git.kernel.org/netdev/net-next/c/12f42597ab14
-  - [net-next,v2,2/3] net: stmmac: meson8b: use phy_intf_sel directly
-    https://git.kernel.org/netdev/net-next/c/52d639da6fee
-  - [net-next,v2,3/3] net: stmmac: meson8b: use stmmac_get_phy_intf_sel()
-    https://git.kernel.org/netdev/net-next/c/da3d1501235d
+Best regards
+Shengjiu wang
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+>
+>  .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    |  12 ++
+>  .../display/imx/fsl,imx8mp-hdmi-pai.yaml      |  69 ++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |   4 +
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  27 ++-
+>  drivers/gpu/drm/bridge/imx/Kconfig            |  11 ++
+>  drivers/gpu/drm/bridge/imx/Makefile           |   1 +
+>  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c  | 158 ++++++++++++++++++
+>  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c   |  65 ++++++-
+>  .../drm/bridge/synopsys/dw-hdmi-gp-audio.c    |   5 +
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c     |  18 +-
+>  include/drm/bridge/dw_hdmi.h                  |  11 +-
+>  include/sound/asoundef.h                      |   9 +
+>  12 files changed, 382 insertions(+), 8 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx=
+8mp-hdmi-pai.yaml
+>  create mode 100644 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+>
+> --
+> 2.34.1
+>
 
