@@ -4,108 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A03CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F86CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3/das4ubE9uR5TguJHrzbDRooxN8NkIfutEvQj/4rpI=; b=kVrILrlrkQzvKtTPZ7x87ZK1eu
-	wRh8WrEA6tDDJ9R87W6Zerr/VdQh+VEJCjtkq9Roz6TbXO696kJLwdz3yvZm3COqP09tuqjCahRDJ
-	fIDZQzHY/swMQCIHuSjTk324hLklJvn/IhqGU/Ih7VrOo3IYdSNEEGBMukbeeaIiDZzsParoPL1UU
-	XwR5Yd98pO87czy+T2JvVCDicNnPC3e+8N55ECaalRVux7mwQzObd2ePlComiIeppq5ctn4FxnTuf
-	659TSq+slZezvonTrtDNoQMjqpfSu6v62AaHlnk9FYLx+Gi0vdO8VRYVoGvftjcYeMWUC2hOsYAxe
-	39jaPqSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2WoyvLfsQmPtdm4nkn/hiTGuICHM6lk3vnIcezdy2Oo=; b=s+vyUmYj+bBQEJpBBkWtowKT1E
+	iFPV5K5U7Q1BaqJogYdcp0XbLwffIiUrVe7nuQnMln01WmX0hVNqFdtdvb2nvJwAxBKE6UUjP/M27
+	CsHatJ3HT/7YbdMrs5jD3VYwq6vLQ9zIk/kFS/5gPpVKjiQcf1UtmYzs/zPam3hDB2MJ8FMXaDN+u
+	TLUstlv/pjcbdOM1X6yb9RZR60u7IVSycBuqv5zaezdWXLFVGlZO3eWrypF+w4tfIhzgZsYMEpjs+
+	gFUHmsvicFuhU97ZzJQVaVoGhbODYTaL0usjF05M14q2RAEflgs7jGwT1MtbNW16t+mGZqbu9lTZb
+	A+OivUvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7CM-00000008T5D-1j3u;
-	Wed, 12 Nov 2025 09:31:30 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vJ7DH-00000008TCs-3Ebf;
+	Wed, 12 Nov 2025 09:32:27 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7CK-00000008T4R-07MN
+	id 1vJ7DE-00000008TC3-2xRm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:31:29 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B7EF382E;
-	Wed, 12 Nov 2025 10:29:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762939765;
-	bh=lRHs2b3PU1XMQWNAuMfLar6FdYxKzGJIWTuWW0xBJe0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=du4OOMfWVmL7SlfPiGInAeibPEs7dMJtwlcaoSE3+brxITSF92ppzXILMGtCUjGFr
-	 xa2zCYLw/r4tZpi/kiRihZZXcRek33u548UTq1/cUcYHKyQlJLTM7ypG2CTCxEfgv6
-	 lL++7XeXsS9qOeNW6W3HLl1HTNz9UeWI7sMSTeXI=
-Message-ID: <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
-Date: Wed, 12 Nov 2025 11:31:21 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-To: Sean Anderson <sean.anderson@linux.dev>,
- Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>
-Cc: David Airlie <airlied@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
- <20250627145058.6880-1-mike.looijmans@topic.nl>
- <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
- <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 12 Nov 2025 09:32:25 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4775d8428e8so4679965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:32:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1762939942; x=1763544742; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2WoyvLfsQmPtdm4nkn/hiTGuICHM6lk3vnIcezdy2Oo=;
+        b=xCCq2L9T+DgsEm1IqNuZPrLUCradoB2WU2ygX2S22EMVowCcUUJoDneon8N8wqASES
+         xbuxyT04KHWdWXHK1TDrE+M1wnJ2e5I3KPfJkFMo2k1EPKVMbRymaPC1kqMj9HlQtJZX
+         uM5ELPTtWGfe0pMnKZxQwO4sez0YbWIs5ZzqFQTVwo3Z9ynK1UeJDbCvUd53ynPjW8B+
+         lrt2RkVhLie0DfTdOGb2+dDm6Q6awgbc4w+7o0WW4m4PR7Ejju2Qf+dPhYkSCHcWK8tD
+         xa8fzYM9IGHI+4jIGr3vsPex43wsCltqmdFes1zTf2h8p3LB1Wku6Fh2mxk8jFA/95E8
+         i3/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762939942; x=1763544742;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2WoyvLfsQmPtdm4nkn/hiTGuICHM6lk3vnIcezdy2Oo=;
+        b=wsEPOKrLSLuncZsjEA9LC1WOfxsHZ7aLYIzbKK+5ccfsSeGf2S424Yj9CXeA9SghTs
+         kUxaASeZIvjcFk8AG9UQq2kUwGD1dfTMt4c4wLcUOgPZU0syLKb+HCiv88lX7/L/nDT7
+         zIw8h1mpFuTeqj6KT/mA+msi3znwlNkHDsT2RlFRSan5AnEPK3kR0FTva/vXSfTywFTA
+         gMURWI9G18RF9AgpbUD2LSopsjNF/Liv/tjppAfR0nWW0omfXfmXy9CTKb2AfJJqpy0b
+         TFeglmn+N5FjwzTuAxsUVHZDtgPqaP/sEiqP2E+Q1hNT2e9F2jkE9p+tp7vhEy2NrIi7
+         S8CA==
+X-Gm-Message-State: AOJu0YzBpuPoM62K4VRtuRVIyu5rLXRHQmIEKW8AGF5awFVIq7EkAO67
+	BhHbrZuaWyOvY8LLxSSec90lC7NTrV2tCtBzwJGAH5CGGaPcEDC4Z2BCto6Vy6NfAqL00haNSx5
+	BqhKiyIUIzaHa6kzCF4lYNYczKBitoeRlL9aVuBTUWizoQcnPizWNyUx7gbth6lo7XqVJpTw7TP
+	AoAlVdQwEThVetFVHywnf8TaZo4aWdSnJOpW9n3kWFn0jI
+X-Google-Smtp-Source: AGHT+IH30r/s666xdrLYfepHwYnrd1V312B8VeNygFIReMzeJ12+spYn+kBflzwPtaz1tZHaTElmrDY8
+X-Received: from wmpr17.prod.google.com ([2002:a05:600c:3211:b0:475:dc85:436d])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:6305:b0:477:79cf:89d4
+ with SMTP id 5b1f17b1804b1-477870a6581mr17873025e9.31.1762939942483; Wed, 12
+ Nov 2025 01:32:22 -0800 (PST)
+Date: Wed, 12 Nov 2025 10:32:13 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6086; i=ardb@kernel.org;
+ h=from:subject; bh=YwmxQKsUOFQYWar95FUZN5F26qwSCCGHb0kG0kCqz9E=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVMkRPYJV0U+B1Piyw3iJTw5yvsYLgdsmHeVc2Hsh+ieP
+ /wpDzM6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwESEMhj+x+/ju3zokHP/gRZN
+ w/5Q7bmlov9XcL4UVZ5jc7rtVfYLJ0aGhy/WHFdk4eK4pib89kOg+Mv9Z19INia91TGtjLO4xBT NCAA=
+X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
+Message-ID: <20251112093212.2392848-2-ardb+git@google.com>
+Subject: [GIT PULL] libcrypto/arm64: Move kernel mode FP/SIMD buffer to the stack
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, ebiggers@kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_013128_209743_1F15C6DC 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20251112_013224_771460_506C5963 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,58 +93,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Ard Biesheuvel <ardb@kernel.org>
 
-On 11/11/2025 23:09, Sean Anderson wrote:
-> On 11/4/25 16:53, Sean Anderson wrote:
->> On 6/27/25 10:50, Mike Looijmans wrote:
->>> XRGB8888 is the default mode that Xorg will want to use. Add support
->>> for this to the Zynqmp DisplayPort driver, so that applications can use
->>> 32-bit framebuffers. This solves that the X server would fail to start
->>> unless one provided an xorg.conf that sets DefaultDepth to 16.
->>>
->>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
->>> ---
->>>
->>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
->>>  1 file changed, 5 insertions(+)
->>>
->>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>> index 80d1e499a18d..501428437000 100644
->>> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
->>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->>>  		.swap		= true,
->>>  		.sf		= scaling_factors_888,
->>> +	}, {
->>> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
->>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->>> +		.swap		= true,
->>> +		.sf		= scaling_factors_888,
->>>  	}, {
->>>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
->>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
->>
->> Tested-by: Sean Anderson <sean.anderson@linux.dev>
->>
->> I can confirm that this provides a nice performance boost :)
-> 
-> Actually, I think a better fix would be to make the "video" plane the
-> primary one. That plane supports XRGB8888 natively, and then the
-> graphics plane can be used as an overlay for e.g. windows or cursors.
-True, but I think usually the overlay plane is the video plane, which
-supports YUV formats. If we use the video plane as the root plane, then
-that one is reserved and there's no "real" video overlay plane.
+Hi Eric,
 
-Did you check my recent reply to the thread? I didn't have too much time
-to debug all the combinations and what exactly the userspace does. I'm
-inclined to just merge this one which should improve the user experience
-quite a bit, even if there are still unclear parts to this. The related
-code can be improved later if we figure out the details.
+(cc Catalin)
 
-Any objections?
+I have prepared a branch for libcrypto-next containing all the arm64 FP/SIMD
+changes that are needed to move the kernel mode FP/SIMD buffers to the stack.
 
- Tomi
+I have created two stable tags [a] and [b] in my tree at [0], containing the
+changes as sent to and reviewed on the list, reordered to accommodate the task
+of merging this into libcrypto-next in a bisectable manner.
 
+  [a] scoped-ksimd-for-arm-arm64
+  [b] arm64-fpsimd-on-stack-for-v6.19
+  
+On top of [a], two additional lib/crypto patches have been applied to update
+code that has already been queued up in libcrypto-next, moving it to the new
+scoped ksimd API as well. This is better than hiding the changes in a merge
+commit. The merge still resulted in a conflict on the old versions of the files
+that were moved, but this is resolved by simply deleting them.
+
+Please pull. Or alternatively, if you prefer, recreate the following sequence
+directly on top of libcrypto-next (and resolve the conflict)
+
+      Merge tag 'ardb/scoped-ksimd-for-arm-arm64'
+      lib/crypto: arm/blake2b: Move to scoped ksimd API
+      lib/crypto: arm64: Move remaining algorithms to scoped ksimd API
+      Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto
+
+The following changes since commit f101371e1972df3d897bf2326eda3c28aca2e58c:
+
+  Merge remote-tracking branch 'ebiggers/libcrypto-aes-gcm' into libcrypto-next (2025-11-11 11:08:57 -0800)
+
+are available in the Git repository at:
+
+  [0] git://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git arm64-fpsimd-on-stack-for-libcrypto
+
+for you to fetch changes up to 82ef0a6ac77cc0eaca1b5c2fc3436b18cda6ef83:
+
+  Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto (2025-11-12 10:08:20 +0100)
+
+----------------------------------------------------------------
+Ard Biesheuvel (25):
+      arm64/simd: Add scoped guard API for kernel mode SIMD
+      ARM/simd: Add scoped guard API for kernel mode SIMD
+[a]   lib/crypto: Switch ARM and arm64 to 'ksimd' scoped guard API
+      lib/crc: Switch ARM and arm64 to 'ksimd' scoped guard API
+      crypto/arm64: aes-ce-ccm - Avoid pointless yield of the NEON unit
+      crypto/arm64: sm4-ce-ccm - Avoid pointless yield of the NEON unit
+      crypto/arm64: sm4-ce-gcm - Avoid pointless yield of the NEON unit
+      crypto: aegis128-neon - Move to more abstract 'ksimd' guard API
+      raid6: Move to more abstract 'ksimd' guard API
+      crypto/arm64: aes-ccm - Switch to 'ksimd' scoped guard API
+      crypto/arm64: aes-blk - Switch to 'ksimd' scoped guard API
+      crypto/arm64: aes-gcm - Switch to 'ksimd' scoped guard API
+      crypto/arm64: nhpoly1305 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: polyval - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sha3 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sm3 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sm4 - Switch to 'ksimd' scoped guard API
+      arm64/xorblocks:  Switch to 'ksimd' scoped guard API
+      net/mlx5: Switch to more abstract scoped ksimd guard API on arm64
+      arm64/fpu: Enforce task-context only for generic kernel mode FPU
+[b]   arm64/fpsimd: Allocate kernel mode FP/SIMD buffers on the stack
+      Merge tag 'ardb/scoped-ksimd-for-arm-arm64'
+      lib/crypto: arm/blake2b: Move to scoped ksimd API
+      lib/crypto: arm64: Move remaining algorithms to scoped ksimd API
+      Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto
+
+ arch/arm/include/asm/simd.h                  |   7 +
+ arch/arm64/crypto/aes-ce-ccm-glue.c          | 116 +++++++--------
+ arch/arm64/crypto/aes-ce-glue.c              |  87 ++++++-----
+ arch/arm64/crypto/aes-glue.c                 | 139 ++++++++---------
+ arch/arm64/crypto/aes-neonbs-glue.c          | 150 +++++++++----------
+ arch/arm64/crypto/ghash-ce-glue.c            |  27 ++--
+ arch/arm64/crypto/nhpoly1305-neon-glue.c     |   5 +-
+ arch/arm64/crypto/sm3-ce-glue.c              |  15 +-
+ arch/arm64/crypto/sm3-neon-glue.c            |  16 +-
+ arch/arm64/crypto/sm4-ce-ccm-glue.c          |  49 ++----
+ arch/arm64/crypto/sm4-ce-cipher-glue.c       |  10 +-
+ arch/arm64/crypto/sm4-ce-gcm-glue.c          |  62 +++-----
+ arch/arm64/crypto/sm4-ce-glue.c              | 214 ++++++++++++---------------
+ arch/arm64/crypto/sm4-neon-glue.c            |  25 +---
+ arch/arm64/include/asm/fpu.h                 |  16 +-
+ arch/arm64/include/asm/neon.h                |   4 +-
+ arch/arm64/include/asm/processor.h           |   7 +-
+ arch/arm64/include/asm/simd.h                |  10 ++
+ arch/arm64/include/asm/xor.h                 |  22 ++-
+ arch/arm64/kernel/fpsimd.c                   |  54 +++++--
+ crypto/aegis128-neon.c                       |  33 ++---
+ drivers/net/ethernet/mellanox/mlx5/core/wc.c |  19 +--
+ lib/crc/arm/crc-t10dif.h                     |  19 +--
+ lib/crc/arm/crc32.h                          |  11 +-
+ lib/crc/arm64/crc-t10dif.h                   |  19 +--
+ lib/crc/arm64/crc32.h                        |  16 +-
+ lib/crypto/arm/blake2b.h                     |   5 +-
+ lib/crypto/arm/chacha.h                      |  11 +-
+ lib/crypto/arm/curve25519.h                  |   5 +-
+ lib/crypto/arm/poly1305.h                    |   6 +-
+ lib/crypto/arm/sha1.h                        |  13 +-
+ lib/crypto/arm/sha256.h                      |  12 +-
+ lib/crypto/arm/sha512.h                      |   5 +-
+ lib/crypto/arm64/chacha.h                    |  11 +-
+ lib/crypto/arm64/poly1305.h                  |   6 +-
+ lib/crypto/arm64/polyval.h                   |  23 ++-
+ lib/crypto/arm64/sha1.h                      |   7 +-
+ lib/crypto/arm64/sha256.h                    |  19 +--
+ lib/crypto/arm64/sha3.h                      |  13 +-
+ lib/crypto/arm64/sha512.h                    |   8 +-
+ lib/raid6/neon.c                             |  17 +--
+ lib/raid6/recov_neon.c                       |  15 +-
+ 42 files changed, 616 insertions(+), 712 deletions(-)
 
