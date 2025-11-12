@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479A2CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC11CD3441
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EtmqNZExTpOoWoC+piJmNvBBjNMhWOel9iqpkSCV1+Y=; b=h4Ildolx8AWzmha3W5+8NGlvzY
-	Q8SEkUresAX2Qp6jdeCGE5M1p0aepf12zvNbZqy12mmAfvCjcPb8ACpu8mPoHQPCnmuTvOzVjfAI2
-	kw2awqhPQyYn/FbqsXV4P5OrlfbLxxLv2nMxRurAkLMTYMcoyc/aUU9x2z1V9FwbSZSTkL3lx9crW
-	L3Br18k2Uqp7K97RBtNBczsDhX9kmETmzSQroY7E+0lmelu0RXQLlweWgo8Si+Pn1fwTnIxp3yGL8
-	6zXPsGm5EV0kIlCUbBVIVZpSXXXsw5V7fQyP4iSMIeQJDzphqxIdEsq4Z81Syd15mEaJdryWXRI25
-	QZBnH59Q==;
+	bh=K7ln0toHq/0MQOc65uIhyCoHwUIQS5KRyuTK6cMzOkY=; b=DVZgE070KRmbT1+N1oVc4Oijpk
+	IsIZBmgiPatgi/JfFO0+Mnmb7q3Q+kS2BPXkFJV/R9+WtANX2LT/M9FNpE+88Iwj+OC0ht4QzGzNK
+	iCmTFXWwMoaGevqgE5p/KMkuTPJQPWGic29fszSLEDbGH3F/dnCZaOpWYY3NU1SQkXq0lL0oa100H
+	qmWc7aBRlnIC72q8X7UziGN01c4g4FteeKQSYujk4ukEAlsTC9rPXyQ8t8y86ltIwMLnWdoLmzipM
+	N+X8H7vvi+KneJzFDQY0ENf4yA2ELE/mNx+h3hZkne4mgEMnuKbxG57bzNZHmNZLXXk3W8/xU2X57
+	gxq1J9nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFWs-00000009JaO-2sKL;
-	Wed, 12 Nov 2025 18:25:14 +0000
+	id 1vJFWt-00000009JbK-1h6d;
+	Wed, 12 Nov 2025 18:25:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFWk-00000009JUr-2s7a
+	id 1vJFWp-00000009JYB-2AUE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 18:25:08 +0000
+	Wed, 12 Nov 2025 18:25:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FF021595;
-	Wed, 12 Nov 2025 10:24:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D96221515;
+	Wed, 12 Nov 2025 10:25:02 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D58E3F63F;
-	Wed, 12 Nov 2025 10:25:04 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A42BC3F63F;
+	Wed, 12 Nov 2025 10:25:08 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 12 Nov 2025 18:24:32 +0000
-Subject: [PATCH v3 06/25] perf arm_spe: Decode SME data processing packet
+Date: Wed, 12 Nov 2025 18:24:34 +0000
+Subject: [PATCH v3 08/25] perf arm_spe: Consolidate operation types
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-perf_support_arm_spev1-3-v3-6-e63c9829f9d9@arm.com>
+Message-Id: <20251112-perf_support_arm_spev1-3-v3-8-e63c9829f9d9@arm.com>
 References: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
 In-Reply-To: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -51,16 +51,17 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762971890; l=3212;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1762971891; l=2655;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Eh/nqOU+QofsS2OSXnw9Q/W0xybJNqrLOXhmO4OxKOw=;
- b=tAXK8Gn5kIHERiBzsIgLon1W4Myyb4BlHhKv7xSzqGsQ/xcVTFkp0J+NDFDjcgHhofqrOR4Za
- wVKpLI7gvyQAG1GwVHzZgV+wT5BDFeHzkK7W4VB6sUvtqZ3ufVYJIxZ
+ bh=qKx9lN2m9B2LaNp9/BsuTsz4PMHucWRf4+sxupt4WJ8=;
+ b=fgY3metDPsIJLUysLmv9P8Ko2c2ueKyZmcpqCJZwANpHcASyl8Ddv3fzJBegrpFNbfc14C+wZ
+ vFEHiMJCYkDA63bMayyKDfv6c+wM/8GXcSZcYFJS9Z07qVHlMceTCLg
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_102506_846746_21E51A65 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20251112_102511_680113_B03BD7BF 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,68 +76,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For SME data processing, decode its Effective vector length or Tile Size
-(ETS), and print out if a floating-point operation.
+Consolidate operation types in a way:
 
-After:
+(a) Extract the second-level types into separate enums.
+(b) The second-level types for memory and SIMD operations are classified
+    by modules. E.g., an operation may relate to general register,
+    SIMD/FP, SVE, etc.
+(c) The associated information tells details. E.g., an operation is
+    load or store, whether it is atomic operation, etc.
 
-  .  00000000:  49 00                                           SME-OTHER ETS 1024 FP
-  .  00000002:  b2 18 3c d7 83 00 80 ff ff                      VA 0xffff800083d73c18
-  .  0000000b:  9a 00 00                                        LAT 0 XLAT
-  .  0000000e:  43 00                                           DATA-SOURCE 0
+Start the enum items for the second-level types from 8 to accommodate
+more entries within a 32-bit integer.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c |  9 +++++++++
- tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 11 +++++++++++
- 2 files changed, 20 insertions(+)
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h | 46 ++++++++++++-----------
+ 1 file changed, 24 insertions(+), 22 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index 21b65a9b40f481b6cb25aaf01ab627ade046ff72..5769ba2f414049161f271fd8b8f40c440d15a75a 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -351,6 +351,15 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
- 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
- 			if (payload & SPE_OP_PKT_SVE_PRED)
- 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " PRED");
-+		} else if (SPE_OP_PKT_OTHER_SUBCLASS_SME(payload)) {
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, "SME-OTHER");
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+index 1259cbadfdc8098019afcd4cf65e733475310392..b555e2cc1dc36f209c23b0d84378da0ee65c1ab3 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+@@ -36,29 +36,31 @@ enum arm_spe_op_type {
+ 	ARM_SPE_OP_OTHER	= 1 << 0,
+ 	ARM_SPE_OP_LDST		= 1 << 1,
+ 	ARM_SPE_OP_BRANCH_ERET	= 1 << 2,
++};
 +
-+			/* SME effective vector length or tile size */
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " ETS %d",
-+					       SPE_OP_PKG_SME_ETS(payload));
++enum arm_spe_2nd_op_ldst {
++	ARM_SPE_OP_GP_REG		= 1 << 8,
++	ARM_SPE_OP_UNSPEC_REG		= 1 << 9,
++	ARM_SPE_OP_NV_SYSREG		= 1 << 10,
++	ARM_SPE_OP_SIMD_FP		= 1 << 11,
++	ARM_SPE_OP_SVE_OTHER		= 1 << 12,
++	ARM_SPE_OP_SVE_LDST		= 1 << 13,
 +
-+			if (payload & SPE_OP_PKT_OTHER_FP)
-+				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
- 		} else if (SPE_OP_PKT_OTHER_SUBCLASS_OTHER(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, "OTHER");
- 			if (payload & SPE_OP_PKT_OTHER_ASE)
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-index 704601c6dbe30e93f83a82670d0d60344a22222a..adf4cde320aad01265b5232b0d6ff6b1f752f35f 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-@@ -125,10 +125,21 @@ enum arm_spe_events {
++	/* Assisted information for memory / SIMD */
++	ARM_SPE_OP_LD			= 1 << 20,
++	ARM_SPE_OP_ST			= 1 << 21,
++	ARM_SPE_OP_ATOMIC		= 1 << 22,
++	ARM_SPE_OP_EXCL			= 1 << 23,
++	ARM_SPE_OP_AR			= 1 << 24,
++};
  
- #define SPE_OP_PKT_OTHER_SUBCLASS_OTHER(v)	(((v) & GENMASK_ULL(7, 3)) == 0x0)
- #define SPE_OP_PKT_OTHER_SUBCLASS_SVE(v)	(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x8)
-+#define SPE_OP_PKT_OTHER_SUBCLASS_SME(v)	(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x88)
+-	/* Second level operation type for OTHER */
+-	ARM_SPE_OP_SVE_OTHER		= 1 << 16,
+-
+-	/* Second level operation type for LDST */
+-	ARM_SPE_OP_LD			= 1 << 16,
+-	ARM_SPE_OP_ST			= 1 << 17,
+-	ARM_SPE_OP_ATOMIC		= 1 << 18,
+-	ARM_SPE_OP_EXCL			= 1 << 19,
+-	ARM_SPE_OP_AR			= 1 << 20,
+-	ARM_SPE_OP_SIMD_FP		= 1 << 21,
+-	ARM_SPE_OP_GP_REG		= 1 << 22,
+-	ARM_SPE_OP_UNSPEC_REG		= 1 << 23,
+-	ARM_SPE_OP_NV_SYSREG		= 1 << 24,
+-	ARM_SPE_OP_SVE_LDST		= 1 << 25,
+-
+-	/* Second level operation type for BRANCH_ERET */
+-	ARM_SPE_OP_BR_COND		= 1 << 16,
+-	ARM_SPE_OP_BR_INDIRECT		= 1 << 17,
+-	ARM_SPE_OP_BR_GCS		= 1 << 18,
+-	ARM_SPE_OP_BR_CR_BL		= 1 << 19,
+-	ARM_SPE_OP_BR_CR_RET		= 1 << 20,
+-	ARM_SPE_OP_BR_CR_NON_BL_RET	= 1 << 21,
++enum arm_spe_2nd_op_branch {
++	ARM_SPE_OP_BR_COND		= 1 << 8,
++	ARM_SPE_OP_BR_INDIRECT		= 1 << 9,
++	ARM_SPE_OP_BR_GCS		= 1 << 10,
++	ARM_SPE_OP_BR_CR_BL		= 1 << 11,
++	ARM_SPE_OP_BR_CR_RET		= 1 << 12,
++	ARM_SPE_OP_BR_CR_NON_BL_RET	= 1 << 13,
+ };
  
- #define SPE_OP_PKT_OTHER_ASE			BIT(2)
- #define SPE_OP_PKT_OTHER_FP			BIT(1)
- 
-+/*
-+ * SME effective vector length or tile size (ETS) is stored in byte 0
-+ * bits [6:4,2]; the length is rounded up to a power of two and use 128
-+ * as one step, so ETS calculation is:
-+ *
-+ *   128 * (2 ^ bits [6:4,2]) = 32 << (bits [6:4,2])
-+ */
-+#define SPE_OP_PKG_SME_ETS(v)			(128 << (FIELD_GET(GENMASK_ULL(6, 4), (v)) << 1 | \
-+							(FIELD_GET(BIT(2), (v)))))
-+
- #define SPE_OP_PKT_LDST_SUBCLASS_GP_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x0)
- #define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(v)	(((v) & GENMASK_ULL(7, 1)) == 0x4)
- #define SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x10)
+ enum arm_spe_common_data_source {
 
 -- 
 2.34.1
