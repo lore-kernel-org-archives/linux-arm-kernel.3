@@ -4,76 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220ECCD13DF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36512CD13DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Xm3Jqg8+2+w93tYfaelw64xlHAeRO0zvEeZG7tD2rY=; b=lHjqcFnS7I7W5LaWr5ywZzWnah
-	O7KE+0Qu9nqP3y6Q+yJ266AcdMNRk+VZnNtTFujF4zcMB7pVbpfcaAI1iU0eEl+1XEiqIKkN0n1Zq
-	KCFcfqAuZ8Sin3tv0LIkjiX+VqnovH+nfgVTRRpVzLSirqgwjLPYVbl7AtpAuLq9BsIMbBrlQAK0v
-	MkmOVXFgiaJgcd1V119rELH3OdrbFH6sp9UICcWO2wYgl1HsiW3Gf69pZXzZKlOL4p94Kfiv3Effm
-	/UnqNDcNQS/pSS9Fldo954F0HLHGJybjy5mR9NMzeuni8iT5QnoafSf73oP+KCUg4KLq39mVC+A6u
-	vuZRWNzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HdeqSpuhXdLu5xteyLv65M1RmZtJDaQC+TCDRBoLAis=; b=qmAVILxLuW2lCEW3sskY0vB3B9
+	KCr/2dve4Yz+1f27wdiLa7XzLB9vLoDdRDP1qXHasM6KmpSFUqkgoMFcMc+IyZSTpGiG24GZAMi7N
+	FdXJaLoGC+JcRlLcGlS/4TfR/l5Fefk2f6/GALFC59mC3bON4zd1QuiBopc7c0JtCDE4vxtre8fdd
+	HvvYOC1FKobPZXDh+g3bzY5XgLmPoYQVEhTt7YDqjs8nEqsBQh5HK+THRFa+9QVU6bKjl4AKbBzFG
+	fMvkE6V6xAJ3sdkec7kvjUMFCAH20TDyWfR7/Ito5zvI88Cw5z5r28tw+MptHtbhRTe7yctHCfodP
+	A84cMJ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDUA-00000009A68-40jn;
-	Wed, 12 Nov 2025 16:14:18 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDU8-00000009A5V-1LoF;
-	Wed, 12 Nov 2025 16:14:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0Xm3Jqg8+2+w93tYfaelw64xlHAeRO0zvEeZG7tD2rY=; b=G+dKewrSVXrUAZuM5F125UT8S5
-	zaHU7+ocovD/gn4fA6+EswWdZMrDTfbsrTbw14r2Cor1QHzNQcTISEZrJU2WYmMx2qLZD/NEqUPY5
-	yPHLkyR4lNokoGZeE6gktrisq9jHWTzYdm5MvpLaRmNbCWzXFBv3JnyQPZ0Xy9Y4eZs6qk/vvkvjc
-	0WRVop6jos4sjQmhwoxYumOKXVIqoWSrofKP0mAUZCVzPzOoXBynk8TANECztvxeaL6oDqRs1hknl
-	jmow3HcEIXe3rV4TamzKI1JBGpTwwrGJIBIvM0ONW3KgFDI6FuEYaTFy/RzBULsxsCYhvmKS86jUx
-	uq7cHWIw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56664)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vJDU0-000000004Dt-3Opf;
-	Wed, 12 Nov 2025 16:14:08 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vJDTy-0000000041V-0hAR;
-	Wed, 12 Nov 2025 16:14:06 +0000
-Date: Wed, 12 Nov 2025 16:14:06 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
-	William Mcvicker <willmcvicker@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org
-Subject: Re: [PATCH v4 1/2] phy: add new phy_notify_state() api
-Message-ID: <aRSyTst8Vd-Qb2Ha@shell.armlinux.org.uk>
-References: <20251112-phy-notify-pmstate-v4-0-717d78009d15@linaro.org>
- <20251112-phy-notify-pmstate-v4-1-717d78009d15@linaro.org>
+	id 1vJDWg-00000009AMv-3r0Z;
+	Wed, 12 Nov 2025 16:16:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJDWe-00000009AMb-3JPY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 16:16:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E9D6497;
+	Wed, 12 Nov 2025 08:16:44 -0800 (PST)
+Received: from [10.57.66.231] (unknown [10.57.66.231])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D61A3F63F;
+	Wed, 12 Nov 2025 08:16:49 -0800 (PST)
+Message-ID: <b677c2d4-7d62-4b87-8c38-1523b2d05915@arm.com>
+Date: Wed, 12 Nov 2025 16:16:48 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112-phy-notify-pmstate-v4-1-717d78009d15@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/11] CoreSight: Refactor power management for ETMv3/4
+Content-Language: en-GB
+To: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
+ <176294942171.582484.7200845964334648364.b4-ty@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <176294942171.582484.7200845964334648364.b4-ty@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_081416_363560_E6FDCDCC 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_081652_893678_D55C8214 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,26 +69,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 04:05:58PM +0000, Peter Griffin wrote:
-> +int phy_notify_state(struct phy *phy, union phy_notify state)
-...
-> @@ -255,6 +266,7 @@ int phy_reset(struct phy *phy);
->  int phy_calibrate(struct phy *phy);
->  int phy_notify_connect(struct phy *phy, int port);
->  int phy_notify_disconnect(struct phy *phy, int port);
-> +int phy_notify_state(struct phy *phy, union phy_notify state);
->  static inline int phy_get_bus_width(struct phy *phy)
->  {
->  	return phy->attrs.bus_width;
-> @@ -412,6 +424,13 @@ static inline int phy_notify_disconnect(struct phy *phy, int index)
->  	return -ENOSYS;
->  }
->  
-> +static inline int phy_notify_phystate(struct phy *phy, union phy_notify state)
+On 12/11/2025 12:10, Suzuki K Poulose wrote:
+> 
+> On Tue, 11 Nov 2025 18:58:34 +0000, Leo Yan wrote:
+>> This series is extracted from the CoreSight power management fixes and
+>> refactoring [1], focusing on ETMv3/4 power management.
+>>
+>> This series has been verified on Juno-r2 platform.
+>>
+>> [1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
+>>
+>> [...]
+> 
+> Applied, thanks!
+> 
+> [01/11] coresight: Change device mode to atomic type
+>          https://git.kernel.org/coresight/c/693d1eaca940
+> [02/11] coresight: etm4x: Always set tracer's device mode on target CPU
+>          https://git.kernel.org/coresight/c/28eee2158575
+> [03/11] coresight: etm3x: Always set tracer's device mode on target CPU
+>          https://git.kernel.org/coresight/c/ab3fde32afe6
+> [04/11] coresight: etm4x: Correct polling IDLE bit
+>          https://git.kernel.org/coresight/c/4dc4e22f9536
+> [05/11] coresight: etm4x: Add context synchronization before enabling trace
+>          https://git.kernel.org/coresight/c/64eb04ae5452
+> [06/11] coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
+>          https://git.kernel.org/coresight/c/1fdc2cd347a7
+> [07/11] coresight: etm4x: Remove the redundant DSB
+>          https://git.kernel.org/coresight/c/a5e6f584dab0
 
-Should this be phy_notify_state() ?
+Based on the recent discussions, I have dropped the patches below. We 
+cannot let the corruption creep in with cpu-idle, which wasn't possible
+otherwise.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Suzuki
+
+> [08/11] coresight: etm4x: Remove the state_needs_restore flag
+>          https://git.kernel.org/coresight/c/d2c051f7a5ed
+> [09/11] coresight: etm4x: Add flag to retain single-shot status
+>          https://git.kernel.org/coresight/c/c3d84848bd70
+> [10/11] coresight: etm4x: Retain sequencer state
+>          https://git.kernel.org/coresight/c/1b4e911af51c
+> [11/11] coresight: etm4x: Reuse normal enable and disable logic in CPU idle
+>          https://git.kernel.org/coresight/c/efdccf6a5118
+> 
+> Best regards,
+
 
