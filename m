@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6240CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310E3CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/TNSDK51KEaNBTo1DMLY4DHz1Ol2XIRRHRNeKhH6vs=; b=CYb+ddZNHUkRFHgpYgrKy8UajV
-	03uILKQopPnn8y8TCh8qMJQ6dM11+QVPhF0tv6xMewoOYxKmUCcwAbHEoWCCZb40LGleqUaNE4c4K
-	CozQovq8MAbF807XejDyUDjxt+sHy6fwHD/+lGPew229Vx8r5e9wFbY2LzlwVC7KrRFGV7LkkjMeS
-	lFeq8n4xtnYJPeux0xp63AbdsEq8CJna+bztZDxJhXHgTmxk/D/nVv9ar8cuDbOuWt+5b1xyu0QhT
-	7hkDbxdqdXSQOpRPAMloZIkJtz+IIhrg1NPf3zmWwv3Fg8FbXtS83kpr3nhysM4/wO3Dif/xRaCZb
-	Ul0Zyf9w==;
+	bh=QDMBnPvR0SZGzdm//dan7ZzD2F1F7ldqUYtuR1uALFY=; b=VaheL0qNYy8tEzyh+95QXQntBD
+	XAF0HalGDU+n/3g+Ktl2ys+PNehG3mdMCbRj5hIHV5x+Sx94TkhjxzmOYXcGWKAf+oJlDZiJDulH2
+	OVB+U6rLTBufeaI1VeNicP6/y9DirNDtFkCO5TSRvCd2l/tC0Knvs0maQa5lXj0szMmYBrYADjL+J
+	xXm7GSOXxIetSmV7Zh/JIouucFvByVqe66JwbLS4MGDN147xWqKcRufLtakvFI6tsBoyOhYkJ8fI+
+	1A5vTMXDvWeO/xy1nLazr2R+QocMfycz94zJKREdAjXfQtmD8LR3x4zp0LZb9N5Vm8YKdQcUVJFLU
+	LhECa77A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJC9l-00000008zHe-1yQz;
-	Wed, 12 Nov 2025 14:49:09 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJC9j-00000008zHC-19me
+	id 1vJCGL-00000008zdt-1Eqp;
+	Wed, 12 Nov 2025 14:55:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJCGI-00000008zdX-1RCN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 14:49:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To; bh=Y/TNSDK51KEaNBTo1DMLY4DHz1Ol2XIRRHRNeKhH6vs=; b=zPH4iuqJDw0VV3v+
-	PBLlhleuXAl8nce9Lh9Hes0xKWiYiqRKLEL5zxcWj29as152Gv4stb5+hDnC2CjZAsQ2CAtYI98Nn
-	u7JbtvAacN7Zag/hZo8vWpgRPr1w5H1ckhz4haUGOtcEynXp0DgwpivTVXYYIwCrQRnS7Lv+faHFF
-	eRW/Gd113OvPW681OPDA1LmChdig2M8q9kSFX6nj0D4G9pSWaMd+T8bHUrPsM17bYQed902RtmjQZ
-	fB5994qHjw0GmdKAIlJxP/qGOxwYVqcRo55ZoA1Sgn+2xAjCukuA/qLHtt09Ry+gx5ajo+HvRzazc
-	YDFebkVPkCi+F0+mjA==;
-Received: from [63.135.74.212] (helo=[192.168.1.241])
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1vJC94-004DRg-5j; Wed, 12 Nov 2025 14:48:26 +0000
-Message-ID: <59f8bc30-c1c6-4f07-87dd-cd2893ae87f7@codethink.co.uk>
-Date: Wed, 12 Nov 2025 14:48:23 +0000
+	Wed, 12 Nov 2025 14:55:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B993E1515;
+	Wed, 12 Nov 2025 06:55:45 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0D483F66E;
+	Wed, 12 Nov 2025 06:55:48 -0800 (PST)
+Message-ID: <a9edf77f-41d8-4e3c-b621-e2d37604a410@arm.com>
+Date: Wed, 12 Nov 2025 14:55:47 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/4] io-128-nonatomic: introduce
- io{read|write}128_{lo_hi|hi_lo}
-To: Chenghai Huang <huangchenghai2@huawei.com>, arnd@arndb.de,
- catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- anshuman.khandual@arm.com, ryan.roberts@arm.com,
- andriy.shevchenko@linux.intel.com, herbert@gondor.apana.org.au,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-api@vger.kernel.org
-Cc: fanghao11@huawei.com, shenyang39@huawei.com, liulongfang@huawei.com,
- qianweili@huawei.com
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
- <20251112015846.1842207-4-huangchenghai2@huawei.com>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20251112015846.1842207-4-huangchenghai2@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 09/33] ACPI / MPAM: Parse the MPAM table
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>,
+ "james.morse@arm.com" <james.morse@arm.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "dakr@kernel.org" <dakr@kernel.org>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@redhat.com" <david@redhat.com>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "guohanjun@huawei.com" <guohanjun@huawei.com>,
+ "jeremy.linton@arm.com" <jeremy.linton@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "lenb@kernel.org" <lenb@kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-10-ben.horgan@arm.com>
+ <OSZPR01MB8798996B4D879FF695AE216C8BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <OSZPR01MB8798996B4D879FF695AE216C8BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_064907_404639_370683EC 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20251112_065554_542629_6806EEFA 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2025 01:58, Chenghai Huang wrote:
-> From: Weili Qian <qianweili@huawei.com>
-> 
-> In order to provide non-atomic functions for io{read|write}128.
-> We define a number of variants of these functions in the generic
-> iomap that will do non-atomic operations.
-> 
-> These functions are only defined if io{read|write}128 are defined.
-> If they are not, then the wrappers that always use non-atomic operations
-> from include/linux/io-128-nonatomic*.h will be used.
-> 
-> Signed-off-by: Weili Qian <qianweili@huawei.com>
-> Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
-> ---
->   include/linux/io-128-nonatomic-hi-lo.h | 35 ++++++++++++++++++++++++++
->   include/linux/io-128-nonatomic-lo-hi.h | 34 +++++++++++++++++++++++++
->   2 files changed, 69 insertions(+)
->   create mode 100644 include/linux/io-128-nonatomic-hi-lo.h
->   create mode 100644 include/linux/io-128-nonatomic-lo-hi.h
-> 
-> diff --git a/include/linux/io-128-nonatomic-hi-lo.h b/include/linux/io-128-nonatomic-hi-lo.h
-> new file mode 100644
-> index 000000000000..b5b083a9e81b
-> --- /dev/null
-> +++ b/include/linux/io-128-nonatomic-hi-lo.h
-> @@ -0,0 +1,35 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _LINUX_IO_128_NONATOMIC_HI_LO_H_
-> +#define _LINUX_IO_128_NONATOMIC_HI_LO_H_
-> +
-> +#include <linux/io.h>
-> +#include <asm-generic/int-ll64.h>
-> +
-> +static inline u128 ioread128_hi_lo(const void __iomem *addr)
-> +{
-> +	u32 low, high;
+Hi Shaopeng,
 
-did you mean u64 here?
+On 11/12/25 07:01, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> Add code to parse the arm64 specific MPAM table, looking up the cache level
+>> from the PPTT and feeding the end result into the MPAM driver.
+>>
+>> This happens in two stages. Platform devices are created first for the MSC
+>> devices. Once the driver probes it calls acpi_mpam_parse_resources() to
+>> discover the RIS entries the MSC contains.
+>>
+>> For now the MPAM hook mpam_ris_create() is stubbed out, but will update the
+>> MPAM driver with optional discovered data about the RIS entries.
+>>
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+>> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-> +	high = ioread64(addr + sizeof(u64));
-> +	low = ioread64(addr);
-> +
-> +	return low + ((u128)high << 64);
-> +}
-> +
-> +static inline void iowrite128_hi_lo(u128 val, void __iomem *addr)
-> +{
-> +	iowrite64(val >> 64, addr + sizeof(u64));
-> +	iowrite64(val, addr);
-> +}
-> +
+>> +static struct platform_device * __init acpi_mpam_parse_msc(struct
+>> +acpi_mpam_msc_node *tbl_msc) {
+>> +	struct platform_device *pdev __free(platform_device_put) =
+>> +		platform_device_alloc("mpam_msc", tbl_msc->identifier);
+>> +	int next_res = 0, next_prop = 0, err;
+>> +	/* pcc, nrdy, affinity and a sentinel */
+>> +	struct property_entry props[4] = { 0 };
+>> +	/* mmio, 2xirq, no sentinel. */
+>> +	struct resource res[3] = { 0 };
+>> +	struct acpi_device *companion;
+>> +	enum mpam_msc_iface iface;
+>> +	char uid[16];
+>> +	u32 acpi_id;
+>> +
+>> +	if (!pdev)
+>> +		return ERR_PTR(-ENOMEM);
+>> +
+>> +	/* Some power management is described in the namespace: */
+>> +	err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+> 
+> It's a bit strange to store the uid length in the variable err.
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+A little, yes. The value is only used for error checking and it's not
+that uncommon so I'll leave it as is.
 
-https://www.codethink.co.uk/privacy.html
+linux$ git grep 'err = snprintf' | wc -l
+17
+
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> 
+
+Thanks!
+Thanks,
+
+Ben
+
 
