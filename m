@@ -4,88 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C2ACCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60EA9CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 02:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yOWODANQDIHMfLu0rwnPfEXOOr2ZhK5K8qrgiyRk9cg=; b=PTy42BTQyg+9y3bQHqlWWi//Dg
-	+/TM6ojPKe2Y9ys6YZV9NbW6AaBQ2YzusoJxavr8iCm6ARynRJ2dK95PvlGpSmb/tvxpOfZ3BHrPZ
-	KcNZv0grBYQ27XECwPze4zq17KFHcepbR0htGHZuOcrIV6ciYabmoKK/XxXzzIY1AQhBvnQ4gnoED
-	kft6L+2l+GSDGgXRYrJNhJkKPiLq+5QHvPR9ro72ByJJIX9SG6XndWJEwYkPRKVE7zzbn/xwcUTmV
-	1MKgIcKvcUx8s6yjrS8v326uAuqYg5/Jh0v6ew52fzamYGw+7m9pYm0A6Z6WObEH/5NfTGt/6RlW/
-	hA5qrMMA==;
+	bh=zhJ1h/19pA1rVIw2NzIOWDwzP/r8gLb7prN4Oc3+rqY=; b=1ml2rJjHiJ9BND2590lpkRNheB
+	zacWdGdMOOOzBOdbwSt9bAqeaAb64Zbhbezr4LZ690otwRNJyEWd0T76GQwGBSg/nxRu2wzmEMi6z
+	NPAHTHP5IzbAbzUcZKk6pqnzwqLsudGJdMr0kEyAo6ZxsWkA2aBjwwPrADjJsxbg+IH/aWjkEQq5C
+	ZZRfSJpUb5F8IPoGLlWkjcc9OfJi7BTMJ842OPK2lLH3iIV1zykKcW9HEtAaUT2YJr88tRvXc5jEo
+	mtRGeAApYa+y0mnFT5e8dKB5aibVh3WMaVRpBHHOyrvWwIImgrBi9B3lZX+w9hsVuhiIhAgi5eIy3
+	WMDutd8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0qe-000000082Ch-1pSz;
-	Wed, 12 Nov 2025 02:44:40 +0000
-Received: from [203.254.224.25] (helo=mailout2.samsung.com)
+	id 1vJ0vu-000000082Qr-1o2V;
+	Wed, 12 Nov 2025 02:50:06 +0000
+Received: from mail-koreacentralazon11023126.outbound.protection.outlook.com ([40.107.44.126] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ0qb-000000082C8-0RlC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 02:44:39 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251112024427epoutp02e1b5abc7725b44c357a5fb3b80ec502f~3IkceQQBu2645726457epoutp02W
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 02:44:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251112024427epoutp02e1b5abc7725b44c357a5fb3b80ec502f~3IkceQQBu2645726457epoutp02W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1762915468;
-	bh=yOWODANQDIHMfLu0rwnPfEXOOr2ZhK5K8qrgiyRk9cg=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=YJHmufgYEvlLJz8obeav2XLl0nrq0QEfnxZEdKeqZIY4LHV+FL7GX/ewKbD7/Sfb3
-	 H9F+NkSutI5fO/rMsObe12B+GP0RnrALpmpcfCa9GOZE1ppDK/LSGHL8aMAIhm0+j2
-	 Gsn7TEjg4Qhd48TBf9LZD/VeTF7WQKge99VK5TdE=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251112024427epcas2p170cb0b4b978d81daff8bc7c88295d370~3IkcB9zdH1160111601epcas2p1q;
-	Wed, 12 Nov 2025 02:44:27 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.38.208]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4d5nmW0sB7z3hhT7; Wed, 12 Nov
-	2025 02:44:27 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251112024426epcas2p2aca7746bef270abaec0ae578405f48a7~3IkbGjLlV2914629146epcas2p2Q;
-	Wed, 12 Nov 2025 02:44:26 +0000 (GMT)
-Received: from KORCO180968 (unknown [12.80.207.170]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251112024426epsmtip1b3344ef6680e6abf662312475b3240e3~3IkbBjKhd2474724747epsmtip1j;
-	Wed, 12 Nov 2025 02:44:26 +0000 (GMT)
-From: <hy_fifty.lee@samsung.com>
-To: "'Inki Dae'" <daeinki@gmail.com>
-Cc: "'Seung-Woo Kim'" <sw0312.kim@samsung.com>, "'Kyungmin Park'"
-	<kyungmin.park@samsung.com>, "'David Airlie'" <airlied@gmail.com>, "'Simona
- Vetter'" <simona@ffwll.ch>, "'Krzysztof Kozlowski'" <krzk@kernel.org>,
-	"'Alim	Akhtar'" <alim.akhtar@samsung.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <CAAQKjZM3qgQO=FaAuc4d1aUT1fCT6Vfo0X7Y7B=NwRNM=B34wA@mail.gmail.com>
-Subject: RE: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
- instead of zero-sized update
-Date: Wed, 12 Nov 2025 11:44:26 +0900
-Message-ID: <000001dc537e$42b8bc20$c82a3460$@samsung.com>
+	id 1vJ0vr-000000082Pz-0A8P;
+	Wed, 12 Nov 2025 02:50:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cyq2AkxHrmiDmv91djjP00tLCGrUR1VscSvSARaG7ts+WbvLnCE1Nx2XyhPZWuUf+2CRxxE87QN6JH30NiVjvEMj1jxlGzh6vU3Z39WqU9foVJMSl/H32r6cIJLNburPvux8PqpEybDLmAbAPEq5yJrr5HZvnI/KLQRoRnnaeVTaPdqLl1xIgbfk+L/YVZzZFlArBlk8j0V2bUh+7PnLp3Z4QXBIqhedUDahkOXZ2vOanun2Oi8xJUsFE0+BLOpDju+CoPfqIE2nLz5aCrFwTwP6/50yJgMESOp2Z6f1umuifPCaRMl2/hZCywBOy2bD0kaXRx1xGtzR3rRmxNto+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zhJ1h/19pA1rVIw2NzIOWDwzP/r8gLb7prN4Oc3+rqY=;
+ b=tXRq7MS0iCK/mHHRCdsVLiN4XV1LmFGykcK7RdYwuTIo4P5PEm+Bpv63yRqFQMrE/KMvYwd+WJpPVzoCnKWTLAMJ4R73CjcdITfWOc0VHURjp9f6QKj9K+dFNqjL6Mz2aiX/5Ce+gsx7dWjfrNPjfT0TmhC20VAD6CeLPgvBGFfIcq60ZQPRcB4dqBgYST25mOREwvQiV90qel+xmu9YOKgMM1/shAMMO7zkVRCLx5zNgfXXsSqFZMHzihzWf4zu7HjtfB4JUz0dWV9eKKCC1h4ZtaFGSe8T0ZznW+34ayl0jHlsz/zbon9+Ecnto5CywlfDB9vNIYpMwTyzxZ02uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cknow-tech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR06CA0016.apcprd06.prod.outlook.com (2603:1096:4:186::22)
+ by TYPPR06MB8208.apcprd06.prod.outlook.com (2603:1096:405:383::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.12; Wed, 12 Nov
+ 2025 02:49:51 +0000
+Received: from SG1PEPF000082E1.apcprd02.prod.outlook.com
+ (2603:1096:4:186:cafe::b) by SI2PR06CA0016.outlook.office365.com
+ (2603:1096:4:186::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Wed,
+ 12 Nov 2025 02:49:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E1.mail.protection.outlook.com (10.167.240.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 02:49:49 +0000
+Received: from [172.16.96.116] (unknown [172.16.96.116])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 4AEBA41C0141;
+	Wed, 12 Nov 2025 10:49:48 +0800 (CST)
+Message-ID: <e8ef529b-b2e9-4c39-8137-60795fda7773@cixtech.com>
+Date: Wed, 12 Nov 2025 10:49:47 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQKrEiEoxOdjyVP8b+iXtap5zLOX/ADk05gtAXiteQICvjd5q7MlRQUg
-Content-Language: ko
-X-CMS-MailID: 20251112024426epcas2p2aca7746bef270abaec0ae578405f48a7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4
-References: <CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
-	<20250929043110.3631025-1-hy_fifty.lee@samsung.com>
-	<20250929043110.3631025-2-hy_fifty.lee@samsung.com>
-	<CAAQKjZM3qgQO=FaAuc4d1aUT1fCT6Vfo0X7Y7B=NwRNM=B34wA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] PCI: dw-rockchip: Configure L1sub support
+To: Bjorn Helgaas <helgaas@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>,
+ Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
+ FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>,
+ Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
+ Bjorn Helgaas <bhelgaas@google.com>
+References: <20251111221621.2208606-1-helgaas@kernel.org>
+ <20251111221621.2208606-4-helgaas@kernel.org>
+Content-Language: en-US
+From: Hans Zhang <hans.zhang@cixtech.com>
+In-Reply-To: <20251111221621.2208606-4-helgaas@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E1:EE_|TYPPR06MB8208:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a4b5c70-cfa5-4e0e-6de1-08de219625a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1Y5WG1acmE5TFBITlpjS0djdWxpdXY3a0dzSnl0Q1JWV0xlYjFYSmdsZVQ5?=
+ =?utf-8?B?NXQ3dG96dWFWdTF6UktQZFlMMENkUUlhU2Jyc2szT3U5cDB2emc3OFBLdnB4?=
+ =?utf-8?B?VUlxNEtrcXgwZUJrY2Q4UVVtMjF2RXZwVDJFYVp1ZVE0ck9BVnFaQS9HTU8w?=
+ =?utf-8?B?OXpJeGZoRkJNVUNBUjE0S0VJTEd1T0l3M1BSMGxFTG15RG0vdWYvKzZZTmZS?=
+ =?utf-8?B?d0tkbWJTbkVHcUFKRXpyV21pQ25vUjlVZk9uZmpaNStDd0tRVEFuZm9tZXlz?=
+ =?utf-8?B?L1dhTTA1bmtaazRXemU0TDkyQm1JZy9VRHpKeENMQVhzWTkxR2hRUEhNS2hl?=
+ =?utf-8?B?cUs4c2pteERFZHNHcHl6Nm9NMHptcG84UVY3ME85Tys2aHRrN2ZBRUFVbjNM?=
+ =?utf-8?B?M0h3bXZERU81c3VLakd2Z1Bvd0QyMHFWUnQ2YS9YNHdUMEJ1QUtFazNsUS9t?=
+ =?utf-8?B?cFJ1TzU5eUhDZG82NlY4ZDVDOFBVZEtZK2VvcytZWFd4RGUxQkNBSWFRMklQ?=
+ =?utf-8?B?N2NwNTRDSDVoaFlEckc4aEpRbEZYd01FSis2aGxNaWRxV0JQZmJsUmZucjRu?=
+ =?utf-8?B?ZlFJTFMzbW1WWU03MnhZSzlsekx3MWVxd2lLRDdRYlB3ekROZjZmVDJlWTUv?=
+ =?utf-8?B?cHdDcDZZR2RwbTNHdVV5YUVxNDUweEhHOGZ4dElVUHltdkVra0dhancrSzFv?=
+ =?utf-8?B?UkZ1MWQzMmw2NkFWcmxOR3dXQWNSV05DcWRXQnJPK1VPOTYwZFBGVnFUSWRh?=
+ =?utf-8?B?bkFySUY1S0RBRWgvSGdJSjBGcGNKVzB4KzQ1U2lnRmI2Nk5QN0hGeGtobS9J?=
+ =?utf-8?B?QUJoRDk5eWUxekZqWldNSFFicCtSL1RZa1JNV3RXd2k0b0lpZDJWcWdoSWlN?=
+ =?utf-8?B?NUdZWTJQYm1EY0RMV3RKcDdsNnhJVWtzc1g5TTR1Y0xqNzMvRTNjVHhRQ05r?=
+ =?utf-8?B?bWdTaUpKcEJVbVFaNDZ6OFZBUzlIWVZ1dkxMdU9vQS82ZFJ5SlplVWVhZUNQ?=
+ =?utf-8?B?YTlISWNvcmFGYVlxTUZ1bzdHbEs2TmNGczlsdWpTa1hNRTlwS2RWcWhnbGtt?=
+ =?utf-8?B?YTVnS041dGZvczNxbTByOFBlczd6bVU5RXh1dVVqYlRLaTllNlg4U2FwWU41?=
+ =?utf-8?B?ZlZDQUh3Z2JhS0p1ekpBRUE5ZU5tWGtDTDBYbnFTa2F3VWVtK2MxMmxHTHVz?=
+ =?utf-8?B?YXlYdjBKSmlBK2E0L09QK1BxemtWcXk0UjM0Smt2S3F3K2hORmhyTXdSR3FM?=
+ =?utf-8?B?WVJxSndkcXluLzZ2VTJlOGxUZE8xaEYzNFpEamF6dXlYQzNYbEZnR01WUHEw?=
+ =?utf-8?B?dWlFd2kxQnNHc3V6bXBKd2lyQXZWdHdVQ1RwbWZ3R0JHY21ZZlBxN3ZnS3pH?=
+ =?utf-8?B?NjkvMTM2NklrbnFIemcwZ2tFb3VWMFhzZHptbzc5SzREQ1VsOVFXRTdkTnBI?=
+ =?utf-8?B?RjliUlZja2hYVVVzWXlRU01NSklCYzF3TDZhVktQOTM1N1RDejhmZVE5RnI1?=
+ =?utf-8?B?NTNud1h0eGVaR0lhREpJM3FnTEtYaHZPNVBERlFJVUJEZnhrVmFVK1hlNzEw?=
+ =?utf-8?B?RGdFYUdIaUVydjZvSHIrVk81S2FNZWs2a0lKN3RETFJzNmJWZTc5MzB3Zkwy?=
+ =?utf-8?B?VzV5TzZITGxjanlaNzB5V3JreUZLMHZ6dFE0TDhPSGQzeWFEcis1aVpRWUpn?=
+ =?utf-8?B?allMcEUyQTc0bkttZWtvcFlkcUNSa1Q2aVhxZHFENktXbkM4bmZWTVpGSGVx?=
+ =?utf-8?B?YXFCZi8yRFcxVlBUNThRYUpzSldxVngyc1EzTzAvaFBWUWhrSW1kQjZCZ2lv?=
+ =?utf-8?B?bVN3aVlHbUsvZFVDSFFpT2gyVUtQdWs3NlFmSVZ4bTFtdVR2YkpZS0JDc0VN?=
+ =?utf-8?B?S0pRWkJQcWRSVElyM1NaNjhxVHppZXdYcHVpRUtFaDJnSThIbXo1S21NMVRo?=
+ =?utf-8?B?OUdsOGZpc2Urenk4UmhoY0NuUi82aXZGUjZQTzM1cG9ESGNLYW4wdkJuOTBq?=
+ =?utf-8?B?UEdTcnlYYUliVnJHSTgzdktxT3VTNEcwR29yTC9vK1lUanFac3Juckl1S09G?=
+ =?utf-8?Q?qRWVoK?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 02:49:49.2380
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a4b5c70-cfa5-4e0e-6de1-08de219625a8
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E1.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR06MB8208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_184437_779415_18F84BBB 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20251111_185003_091638_E3BB50D0 
+X-CRM114-Status: GOOD (  26.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,114 +160,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Inki Dae <daeinki=40gmail.com>
-> Sent: Monday, November 10, 2025 11:24 AM
-> To: Hoyoung Lee <hy_fifty.lee=40samsung.com>
-> Cc: Seung-Woo Kim <sw0312.kim=40samsung.com>; Kyungmin Park
-> <kyungmin.park=40samsung.com>; David Airlie <airlied=40gmail.com>; Simona
-> Vetter <simona=40ffwll.ch>; Krzysztof Kozlowski <krzk=40kernel.org>; Alim
-> Akhtar <alim.akhtar=40samsung.com>; dri-devel=40lists.freedesktop.org; li=
-nux-
-> arm-kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org; li=
-nux-
-> kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH 1/3=5D drm/exynos: plane: Disable fully off-screen
-> planes instead of zero-sized update
->=20
-> Thanks for contribution,
->=20
-> 2025=EB=85=84=209=EC=9B=94=2029=EC=9D=BC=20(=EC=9B=94)=20=EC=98=A4=ED=9B=
-=84=201:29,=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=EB=8B=98=EC=9D=
-=B4=20=EC=9E=91=0D=0A>=20=EC=84=B1:=0D=0A>=20>=0D=0A>=20>=20Some=20configur=
-ations=20require=20additional=20actions=20when=20all=20windows=20are=0D=0A>=
-=20>=20disabled=20to=20keep=20DECON=20operating=20correctly.=20Programming=
-=20a=20zero-sized=0D=0A>=20>=20window=20in=20->atomic_update()=20leaves=20t=
-he=20plane=20logically=20enabled=20and=20can=0D=0A>=20>=20bypass=20those=20=
-disable=20semantics.=0D=0A>=20>=0D=0A>=20>=20Treat=20a=20fully=20off-screen=
-=20plane=20as=20not=20visible=20and=20take=20the=20explicit=0D=0A>=20>=20di=
-sable=20path.=0D=0A>=20>=0D=0A>=20>=20Implementation=20details:=0D=0A>=20>=
-=20-=20exynos_plane_mode_set():=20if=20computed=20actual_w/actual_h=20is=20=
-zero,=20mark=0D=0A>=20>=20=20=20state->visible=20=3D=20false=20and=20return=
-=20early.=0D=0A>=20>=20-=20exynos_plane_atomic_check():=20if=20=21visible,=
-=20skip=20further=20checks=20and=0D=0A>=20>=20=20=20return=200.=0D=0A>=20>=
-=20-=20exynos_plane_atomic_update():=20if=20=21visible,=20call=20->disable_=
-plane();=0D=0A>=20>=20=20=20otherwise=20call=20->update_plane().=0D=0A>=20>=
-=0D=0A>=20>=20No=20functional=20change=20for=20visible=20planes;=20off-scre=
-en=20planes=20are=20now=0D=0A>=20>=20cleanly=20disabled,=20ensuring=20the=
-=20disable=20hooks=20run=20consistently.=0D=0A>=20>=0D=0A>=20>=20Signed-off=
--by:=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=0D=0A>=20>=20---=0D=0A>=
-=20>=20=20drivers/gpu/drm/exynos/exynos_drm_plane.c=20=7C=2012=20++++++++++=
-+-=0D=0A>=20>=20=201=20file=20changed,=2011=20insertions(+),=201=20deletion=
-(-)=0D=0A>=20>=0D=0A>=20>=20diff=20--git=20a/drivers/gpu/drm/exynos/exynos_=
-drm_plane.c=0D=0A>=20>=20b/drivers/gpu/drm/exynos/exynos_drm_plane.c=0D=0A>=
-=20>=20index=207c3aa77186d3..842974154d79=20100644=0D=0A>=20>=20---=20a/dri=
-vers/gpu/drm/exynos/exynos_drm_plane.c=0D=0A>=20>=20+++=20b/drivers/gpu/drm=
-/exynos/exynos_drm_plane.c=0D=0A>=20>=20=40=40=20-91,6=20+91,11=20=40=40=20=
-static=20void=20exynos_plane_mode_set(struct=0D=0A>=20exynos_drm_plane_stat=
-e=20*exynos_state)=0D=0A>=20>=20=20=20=20=20=20=20=20=20actual_w=20=3D=20ex=
-ynos_plane_get_size(crtc_x,=20crtc_w,=20mode->hdisplay);=0D=0A>=20>=20=20=
-=20=20=20=20=20=20=20actual_h=20=3D=20exynos_plane_get_size(crtc_y,=20crtc_=
-h,=0D=0A>=20>=20mode->vdisplay);=0D=0A>=20>=0D=0A>=20>=20+=20=20=20=20=20=
-=20=20if=20(=21actual_w=20=7C=7C=20=21actual_h)=20=7B=0D=0A>=20>=20+=20=20=
-=20=20=20=20=20=20=20=20=20=20=20=20=20state->visible=20=3D=20false;=0D=0A>=
-=20=0D=0A>=20The=20state->visible=20field=20in=20the=20DRM=20atomic=20frame=
-work=20is=20set=20to=20true=20only=0D=0A>=20when=20the=20following=20condit=
-ions=20are=20met:=0D=0A>=20-=20Both=20state->crtc=20and=20state->fb=20are=
-=20present=20(having=20only=20one=20of=20them=0D=0A>=20results=20in=20an=20=
-error).=0D=0A>=20-=20src_w/src_h=20and=20crtc_w/crtc_h=20are=20non-zero.=0D=
-=0A>=20-=20The=20source=20rectangle=20does=20not=20exceed=20the=20framebuff=
-er=20bounds=20(e.g.,=20src_x=0D=0A>=20+=20src_w=20<=3D=20fb->width).=0D=0A>=
-=20-=20Rotation=20and=20clipping=20checks=20pass=20successfully.=0D=0A>=20=
-=0D=0A>=20However,=20this=20patch=20modifies=20the=20state->visible=20value=
-=20within=20vendor-=0D=0A>=20specific=20code.=20Doing=20so=20can=20be=20pro=
-blematic=20because=20it=20overrides=20a=20field=0D=0A>=20that=20is=20manage=
-d=20by=20the=20DRM=20atomic=20framework.=20Even=20if=20it=20currently=20wor=
-ks,=0D=0A>=20it=20may=20lead=20to=20unexpected=20behavior=20in=20the=20futu=
-re.=0D=0A>=20=0D=0A>=20For=20example,=20if=20the=20DRM=20atomic=20framework=
-=20sets=20visible=20=3D=20true=20after=0D=0A>=20validating=20the=20above=20=
-conditions=20and=20begins=20processing=20certain=20logic,=20but=0D=0A>=20th=
-e=20vendor=20driver=20later=20changes=20it=20to=20false,=20the=20framework=
-=20may=20still=0D=0A>=20assume=20the=20variable=20remains=20true,=20resulti=
-ng=20in=20inconsistent=20states.=0D=0A>=20=0D=0A>=20Turning=20off=20a=20pla=
-ne=20when=20it=20doesn=E2=80=99t=20need=20to=20be=20displayed=20is=20a=20go=
-od=20idea=20I=0D=0A>=20think.=20You=20might=20consider=20contributing=20thi=
-s=20behavior=20upstream=20so=20it=20can=20be=0D=0A>=20properly=20handled=20=
-within=20the=20DRM=20atomic=20framework=20itself.=0D=0A>=20=0D=0A>=20Thanks=
-,=0D=0A>=20Inki=20Dae=0D=0A>=20=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=
-=20=20=20=20=20=20return;=0D=0A>=20>=20+=20=20=20=20=20=20=20=7D=0D=0A>=20>=
-=20+=0D=0A>=20>=20=20=20=20=20=20=20=20=20if=20(crtc_x=20<=200)=20=7B=0D=0A=
->=20>=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20if=20(actual_w)=0D=
-=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
-=20=20=20src_x=20+=3D=20((-crtc_x)=20*=20exynos_state->h_ratio)=0D=0A>=20>=
-=20>>=2016;=20=40=40=20-244,6=20+249,9=20=40=40=20static=20int=20exynos_pla=
-ne_atomic_check(struct=0D=0A>=20drm_plane=20*plane,=0D=0A>=20>=20=20=20=20=
-=20=20=20=20=20/*=20translate=20state=20into=20exynos_state=20*/=0D=0A>=20>=
-=20=20=20=20=20=20=20=20=20exynos_plane_mode_set(exynos_state);=0D=0A>=20>=
-=0D=0A>=20>=20+=20=20=20=20=20=20=20if=20(=21new_plane_state->visible)=0D=
-=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20return=200;=0D=0A>=
-=20>=20+=0D=0A>=20>=20=20=20=20=20=20=20=20=20ret=20=3D=20exynos_drm_plane_=
-check_format(exynos_plane->config,=0D=0A>=20exynos_state);=0D=0A>=20>=20=20=
-=20=20=20=20=20=20=20if=20(ret)=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=
-=20=20=20=20=20=20return=20ret;=0D=0A>=20>=20=40=40=20-263,8=20+271,10=20=
-=40=40=20static=20void=20exynos_plane_atomic_update(struct=0D=0A>=20drm_pla=
-ne=20*plane,=0D=0A>=20>=20=20=20=20=20=20=20=20=20if=20(=21new_state->crtc)=
-=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20return;=0D=0A=
->=20>=0D=0A>=20>=20-=20=20=20=20=20=20=20if=20(exynos_crtc->ops->update_pla=
-ne)=0D=0A>=20>=20+=20=20=20=20=20=20=20if=20(new_state->visible=20&&=20exyn=
-os_crtc->ops->update_plane)=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=20=
-=20=20=20=20=20exynos_crtc->ops->update_plane(exynos_crtc,=0D=0A>=20>=20exy=
-nos_plane);=0D=0A>=20>=20+=20=20=20=20=20=20=20else=20if=20(exynos_crtc->op=
-s->disable_plane)=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
-=20exynos_crtc->ops->disable_plane(exynos_crtc,=0D=0A>=20>=20+=20exynos_pla=
-ne);=0D=0A>=20>=20=20=7D=0D=0A>=20>=0D=0A>=20>=20=20static=20void=20exynos_=
-plane_atomic_disable(struct=20drm_plane=20*plane,=0D=0A>=20>=20--=0D=0A>=20=
->=202.34.1=0D=0A>=20>=0D=0A>=20>=0D=0A=0D=0AHi=20Inki,=0D=0AThanks=20for=20=
-the=20review.=0D=0A=0D=0AI=20agree=20that=20mutating=20state->visible=20val=
-ue=20in=20vendor=20code=20is=20risky.=0D=0ARather=20than=20touching=20the=
-=20DRM=20atomic=20framework=20or=20that=20field,=20how=20about=20we=20add=
-=20a=20driver-private=20flag=20in=20Exynos(e.g.=20exynos_drm_plane_state->v=
-isible)=20and=20use=20that=20instead?=0D=0AIf=20this=20approach=20sounds=20=
-reasonable=20to=20you,=20I=E2=80=99ll=20spin=20a=20v2=20along=20these=20lin=
-es.=0D=0A=0D=0ABRs,=0D=0AHoyoung=20Lee=0D=0A=0D=0A=0D=0A
+
+
+On 11/12/2025 6:16 AM, Bjorn Helgaas wrote:
+> EXTERNAL EMAIL
+> 
+> From: Shawn Lin <shawn.lin@rock-chips.com>
+> 
+> L1 PM Substates for RC mode require support in the dw-rockchip driver
+> including proper handling of the CLKREQ# sideband signal. It is mostly
+> handled by hardware, but software still needs to set the clkreq fields
+> in the PCIE_CLIENT_POWER_CON register to match the hardware implementation.
+> 
+> For more details, see section '18.6.6.4 L1 Substate' in the RK3658 TRM 1.1
+> Part 2, or section '11.6.6.4 L1 Substate' in the RK3588 TRM 1.0 Part2.
+> 
+> Meanwhile, for the EP mode, we haven't prepared enough to actually support
+> L1 PM Substates yet. So disable it now until proper support is added later.
+> 
+> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+> [bhelgaas: set pci->l1ss_support so DWC core preserves L1SS Capability bits;
+> drop corresponding code here]
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> Link: https://patch.msgid.link/1761187883-150120-1-git-send-email-shawn.lin@rock-chips.com
+
+
+Reviewed-by: Hans Zhang <hans.zhang@cixtech.com>
+
+Best regards,
+Hans
+
+> ---
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 38 +++++++++++++++++++
+>   1 file changed, 38 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 3e2752c7dd09..62a095752833 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -62,6 +62,12 @@
+>   /* Interrupt Mask Register Related to Miscellaneous Operation */
+>   #define PCIE_CLIENT_INTR_MASK_MISC     0x24
+> 
+> +/* Power Management Control Register */
+> +#define PCIE_CLIENT_POWER_CON          0x2c
+> +#define  PCIE_CLKREQ_READY             FIELD_PREP_WM16(BIT(0), 1)
+> +#define  PCIE_CLKREQ_NOT_READY         FIELD_PREP_WM16(BIT(0), 0)
+> +#define  PCIE_CLKREQ_PULL_DOWN         FIELD_PREP_WM16(GENMASK(13, 12), 1)
+> +
+>   /* Hot Reset Control Register */
+>   #define PCIE_CLIENT_HOT_RESET_CTRL     0x180
+>   #define  PCIE_LTSSM_APP_DLY2_EN                BIT(1)
+> @@ -85,6 +91,7 @@ struct rockchip_pcie {
+>          struct regulator *vpcie3v3;
+>          struct irq_domain *irq_domain;
+>          const struct rockchip_pcie_of_data *data;
+> +       bool supports_clkreq;
+>   };
+> 
+>   struct rockchip_pcie_of_data {
+> @@ -200,6 +207,32 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
+>          return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
+>   }
+> 
+> +/*
+> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
+> + * needed to support L1 substates. Currently, just enable L1 substates for RC
+> + * mode if CLKREQ# is properly connected and supports-clkreq is present in DT.
+> + * For EP mode, there are more things should be done to actually save power in
+> + * L1 substates, so disable L1 substates until there is proper support.
+> + */
+> +static void rockchip_pcie_configure_l1sub(struct dw_pcie *pci)
+> +{
+> +       struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
+> +
+> +       /* Enable L1 substates if CLKREQ# is properly connected */
+> +       if (rockchip->supports_clkreq &&
+> +           rockchip->data->mode == DW_PCIE_RC_TYPE ) {
+> +               rockchip_pcie_writel_apb(rockchip, PCIE_CLKREQ_READY,
+> +                                        PCIE_CLIENT_POWER_CON);
+> +               pci->l1ss_support = true;
+> +               return;
+> +       }
+> +
+> +       /* Otherwise, pull down CLKREQ# */
+> +       rockchip_pcie_writel_apb(rockchip,
+> +                                PCIE_CLKREQ_PULL_DOWN | PCIE_CLKREQ_NOT_READY,
+> +                                PCIE_CLIENT_POWER_CON);
+> +}
+> +
+>   static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+>   {
+>          u32 cap, lnkcap;
+> @@ -264,6 +297,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+>          irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
+>                                           rockchip);
+> 
+> +       rockchip_pcie_configure_l1sub(pci);
+>          rockchip_pcie_enable_l0s(pci);
+> 
+>          return 0;
+> @@ -301,6 +335,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+>          struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>          enum pci_barno bar;
+> 
+> +       rockchip_pcie_configure_l1sub(pci);
+>          rockchip_pcie_enable_l0s(pci);
+>          rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
+> 
+> @@ -412,6 +447,9 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+>                  return dev_err_probe(&pdev->dev, PTR_ERR(rockchip->rst),
+>                                       "failed to get reset lines\n");
+> 
+> +       rockchip->supports_clkreq = of_property_read_bool(pdev->dev.of_node,
+> +                                                         "supports-clkreq");
+> +
+>          return 0;
+>   }
+> 
+> --
+> 2.43.0
+> 
+
 
