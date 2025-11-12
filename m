@@ -4,126 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014EBCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417D2CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSztckojv+GqVh3631biyXabc5eYtfi32inR8Djw0Z4=; b=a9ORcw5Zo93taHUrXCL6Zhn8rS
-	Has150vKAv3BgFh9zqZX8a7j0QATTVjlGmleUYrJ9lBIA9Je3nSS5M4TId3/A0i1O5VRa3+nxgegr
-	dkh/kmwB/0kYZ2jeHeMCxupDcIp4myhlfVEDFESoJbq6a8b5pRLd/d3GNRm6wLqb6kzJiWTOqxB9P
-	W3gMiGrWgF1BO5ups0fouw7HTImdPdI1yT2CQ0PSZTvhB7rsGKYTZk/QOhxKwJMPn9QTXqFrNJym4
-	u44vX8w9jxjs65iHJz638pzqYgtafOzpowLKFl0nbatPY+kI9fd/YX8ptjBJpfjoj77nTOD8kko8+
-	MDULDQ4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/jRKol/2vDQz4Em/+Xoj5ebiBdSpA++VR8zmhfcyWbA=; b=zWKe20uyIVNVKWVadO7jgKCAfr
+	XFnauLHGwvMwdwCPKJxZ+mxqke+nVAD/Cco+Qd4/NPeU8lX2mpV1elNGNxhkJlpPdJlXJ29OUeQQF
+	4vQ7hmjK7Sy1AWBqRky/EmnIPCmUrHrLwYPqORWUPeODrKmOt4WKoPyxrHijRFs8z4EwrgTSNDX7C
+	kzXLvALB2cjqD5GWWwZfWcyBQ6SRui1MzLkTmpcPB+K0QRzg2Nj7A9jupQu4t0T7/8sciSsbsuVMR
+	bHjKXTg913mj2ZxTckjQUn33w/AHr0wWWwUOeCOGb2brjLMIC1/A8Xn0oIKMLM87g6PESa82loELx
+	NCdPUs0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBlk-00000008vLP-3Yye;
-	Wed, 12 Nov 2025 14:24:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJBoI-00000008vb2-0Wqi;
+	Wed, 12 Nov 2025 14:26:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBli-00000008vL6-3wLW
+	id 1vJBoG-00000008vaL-1D68
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 14:24:20 +0000
+	Wed, 12 Nov 2025 14:26:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2713741A4F;
-	Wed, 12 Nov 2025 14:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA094C113D0;
-	Wed, 12 Nov 2025 14:24:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 66F1B60257;
+	Wed, 12 Nov 2025 14:26:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E41EC16AAE;
+	Wed, 12 Nov 2025 14:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762957458;
-	bh=PmGuP4r3+cBd38kkmGU+mt79GFtmpj8Wnvaya23YJC8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EMm35X3dnj7gpLe3F/KCPn28SRSvXCpzznpPZLi80X4tzkBJYwim5cIlbiEPjOHpg
-	 lXV95RqKN2vy4dG1kpjPZzx6z+FEZolsBts8cE3IEKDr2LiM/8OZdYzoVrjxC+8xiD
-	 o4j+NeOWTPXU9BQxH32zzbJYI4Qdd/Zm/fZJdNSw5JTzfitaLPE4QR2U8n5Ad90L/L
-	 BWAZ5V4QLm+uaUwkzzbn8LWT6wQHmD+EN8jt+BsFXV6LebuR6HTNeHeFXMDxhgLaiN
-	 Z+aQazfJ7IyFDo02HZF+ZFdRs3tLbaIm7/8KuzijWV25LpU7qsgm4l2oonllbEat9o
-	 PSBhLMCzPMB8Q==
-Message-ID: <3ce2f4c2-e22a-46ab-9c2c-61aed49944f8@kernel.org>
-Date: Wed, 12 Nov 2025 15:24:10 +0100
+	s=k20201202; t=1762957615;
+	bh=8LUezGoas/zmkSOZwz/kzJnb2VRdwiKxlL8+JEtsPf8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=pvZ8qQDdJVqzltMy/ze8Er8u6IJu173ESkYNKVw9z9pkLu370HHo94TsqBRIXMVFz
+	 CGp7TZ0NXOecgl6ATmqX+YFTvmG2e8rNYf7N054NmVCC+qVBFSq8RhMIAOTYB80f6Z
+	 ZA/vYfyDK1C/QdDU7RiIiuMxvxSzqzhQn+tD6RkAUg4NrQqONLl4UTU596/pf0HJp+
+	 lWa4M5csMx5+HuF78H9Nk1j8Vh962P4W5SJMim4KcJDOLkHPREnoFU/R1TG/Oj83Mc
+	 k+pr3wLPI4Pfn9tVAv5ZvaCoDmE3TKBaEM2Hs5YdvVvl6+Dd64+41Xrewppnu2YP5K
+	 d0ArcASWF6+NQ==
+Date: Wed, 12 Nov 2025 08:26:53 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-To: Rogerio Pimentel <rpimentel.silva@gmail.com>,
- Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Fabio Estevam <festevam@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, alexander.stein@ew.tq-group.com,
- dario.binacchi@amarulasolutions.com, marex@denx.de,
- Markus.Niebel@tq-group.com, y.moog@phytec.de, joao.goncalves@toradex.com,
- frieder.schrempf@kontron.de, josua@solid-run.com,
- francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>,
- Daniel Baluta <daniel.baluta@nxp.com>, Joseph Guo <qijian.guo@nxp.com>
-References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
- <20251109214515.121742-2-rpimentel.silva@gmail.com>
- <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
- <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
- <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com>
- <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
- <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
- <baafb460-fb65-4cd2-9911-89d828199d9b@kernel.org>
- <2e160fe1-bcb2-41cf-817e-ac2a36959b16@kernel.org>
- <CAEnQRZDg0yAjR-a-4J2ZKAjh3mm8NeQCA=o2kyNJtXMAFCMLAA@mail.gmail.com>
- <56530f64-6ddf-4d2a-a079-0578db260449@kernel.org>
- <CAEnQRZD=h5qOC445U3_+HPh7aCE8TohSpZmg9hgkRE7mg5HUpA@mail.gmail.com>
- <CAOkaPuX7YeUJJj15dY0vD8mngg5MS5uBwU_UfrFRFjrghR7NDw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAOkaPuX7YeUJJj15dY0vD8mngg5MS5uBwU_UfrFRFjrghR7NDw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_062419_024354_6D74ADD3 
-X-CRM114-Status: UNSURE (   5.43  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, nfraprado@collabora.com, 
+ jk@codeconstruct.com.au, linux-kernel@vger.kernel.org, 
+ Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
+ Taniya Das <quic_tdas@quicinc.com>, linux-aspeed@lists.ozlabs.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, bmc-sw@aspeedtech.com, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Eric Biggers <ebiggers@kernel.org>, Nishanth Menon <nm@ti.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+In-Reply-To: <20251112101157.2149169-1-ryan_chen@aspeedtech.com>
+References: <20251112101157.2149169-1-ryan_chen@aspeedtech.com>
+Message-Id: <176295563530.1637905.10146284162033916464.robh@kernel.org>
+Subject: Re: [PATCH v8 0/4] Introduce ASPEED AST27xx BMC SoC
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,25 +80,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2025 15:04, Rogerio Pimentel wrote:
-> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> 
-> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> 
-> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
-> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
-> 
-> Co-developed-by: Steven Yang <steven.yang@nxp.com>
-> Signed-off-by: Steven Yang <steven.yang@nxp.com>
-> 
-> Co-developed-by: Lei Xu <lei.xu@nxp.com>
-> Signed-off-by: Lei Xu <lei.xu@nxp.com>
-> 
-> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
 
-ack.
+On Wed, 12 Nov 2025 18:11:53 +0800, Ryan Chen wrote:
+> This introduces initial support for the Aspeed AST27xx SoC and the AST2700
+> Evaluation Board (EVB) to the Linux kernel. The AST27xx is the 8th
+> generation Baseboard Management Controller (BMC) SoC from Aspeed,
+> featuring improved performance, enhanced security, and expanded I/O
+> capabilities compared to previous generations.
+> 
+> AST27xx SOC Family
+>  - https://www.aspeedtech.com/server_ast2700/
+>  - https://www.aspeedtech.com/server_ast2720/
+>  - https://www.aspeedtech.com/server_ast2750/
+> 
+> Bindings Dependencies:
+>  check with "make CHECK_DTBS=y W=1 arch/arm64/boot/dts/aspeed/ dtbs"
+> 
+> - scu/silicon-id: Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+> - gpio: Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
+> Binding dependency patch:
+> - intc: Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+>  - https://lore.kernel.org/all/20251030060155.2342604-2-ryan_chen@aspeedtech.com/
+>    (merged into the irq/drivers)
+> 
+> v8:
+> - Kconfig.platforms
+>  - update commit message and help description.
+> - aspeed-g7-a35.dtsi,aspeed-g7-common.dtsi,ast2700-evb.dts
+>  - change license using a dual license of MIT + GPL2.0+
+>  - add company copyright.
+> - merge original v7 patch(3/5) and (4/5) to 1 v8patch(3/4)
+>  - that can do build test with make CHECK_DTBS=y W=1 arch/arm64/boot/dts/aspeed/ dtbs
+> 
+> v7:
+> - remove aspeed,ast2x00-scu.yaml modify
+> - separate aspeed-g7.dtsi to aspeed-g7-a35.dtsi and aspeed-g7-common.dtsi
+> - move aliases to ast2700-evb.dts file
+> 
+> v6:
+> - rebased on v6.18-rc1
+> - aspeed,ast2x00-scu.yaml
+>  - fixed dt-binding yaml issuse report.
+> 
+> v5:
+> - modify ast27XX 7th generation description to 8th generation.
+> - aspeed.yaml
+>  - modify missing blank line.
+> - Kconfig.platforms
+>  - modify ast27XX 7th generation to 8th generation.
+> 
+> v4:
+> - make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ fix.
+> - modify commit message remove itemlize.
+> - remove modify aspeed,ast2700-intc.yaml patch.
+> - aspeed.yaml
+>  - Add AST2700 board compatible.
+> - aspeed-g7.dtsi
+>  - modify all size-cells from 1 to 2.
+>  - add serial aliases, gpio, mdio, uart0 ~ 14.
+>  - add firmware for optee, reserved memory for atf and optee.
+>  - modify cpu@0 to cpu0: cpu@0.
+>  - fix intc-ic for yaml dependency.
+> - ast2700-evb.dts
+>  - update stdout-path = "serial12:115200n8";
+> 
+> v3:
+> - https://lore.kernel.org/all/20241212155237.848336-1-kevin_chen@aspeedtech.com/
+> - Split clk and reset driver to other commits, which are in series of
+>   "Add support for AST2700 clk driver".
+> - For BMC console by UART12, add uart12 using ASPEED INTC architecture.
+> 
+> aspeed,ast2700-intc.yaml
+> - Add minItems to 1 to fix the warning by "make dtbs_check W=1".
+> - Add intc1 into example.
+> 
+> Kconfig.platforms
+>   - Remove MACH_ASPEED_G7.
+> 
+> Ryan Chen (4):
+>   dt-bindings: arm: aspeed: Add AST2700 board compatible
+>   arm64: Kconfig: Add ASPEED SoC family Kconfig support
+>   arm64: dts: aspeed: Add initial AST27xx SoC device tree
+>   arm64: configs: Update defconfig for AST2700 platform support
+> 
+>  .../bindings/arm/aspeed/aspeed.yaml           |   6 +
+>  arch/arm64/Kconfig.platforms                  |   6 +
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/aspeed/Makefile           |   4 +
+>  arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi | 154 ++++++++
+>  .../boot/dts/aspeed/aspeed-g7-common.dtsi     | 351 ++++++++++++++++++
+>  arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  31 ++
+>  arch/arm64/configs/defconfig                  |   1 +
+>  8 files changed, 554 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
+>  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-a35.dtsi
+>  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> 
+> --
+> 2.34.1
+> 
+> 
+> 
 
-Best regards,
-Krzysztof
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.18-rc3-15-gbe755eb2b021 (exact match)
+ Base: tags/v6.18-rc3-15-gbe755eb2b021 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/aspeed/' for 20251112101157.2149169-1-ryan_chen@aspeedtech.com:
+
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@12101b00 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@12101b00 (aspeed,ast2700-intc-ic): interrupts: [[0, 192, 4], [0, 193, 4], [0, 194, 4], [0, 195, 4], [0, 196, 4], [0, 197, 4], [0, 198, 4], [0, 199, 4], [0, 200, 4], [0, 201, 4]] is too long
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18100 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18100 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 0]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18110 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18110 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 1]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18120 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18120 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 2]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18130 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18130 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 3]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18140 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18140 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 4]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18150 (aspeed,ast2700-intc-ic): #interrupt-cells: 2 was expected
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@14c18150 (aspeed,ast2700-intc-ic): interrupts-extended: [[7, 5]] is too short
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml
+
+
+
+
+
 
