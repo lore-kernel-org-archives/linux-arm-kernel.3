@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE21CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4873CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQotLZ7bYQhnw+F+e2EgZGDV56Lv1I3QeSzBHAS6ry4=; b=B+JmPNFcSwNmqC8A5ndPRXUoQl
-	w6AoWtiRL8BMZ/8b+SKR16/Ifjp3SYUs6P7MzgepZw62YWgYobLCbgpghtdBwyImERo2K03uFzPln
-	FOlvBr3QMUv3IIAxXKQWfQgshnbJyCQgioJALRb+Dj7cEEsdubCu6Vv79aHR5k5jaNN4cLXLucyB2
-	IsZckIfQfivuK6Z1T/0tzBuUhv4cfkUlQiGSIKHc2KN22Ht1eVzqBoSAuI9T/BgXvJ8fKuGkgbO9Y
-	upGKRs9yDbVe+hCg/g7L2Fr/PMHKU9RvGwVY54Ni0QtBMjGtu12kSOfhLlce25lhqvAkpY249Ub1M
-	CNLAcPmQ==;
+	bh=KWYzkbp7pgBrTyt1NisY6LsxXizq6AqdKv5W+aeRvmM=; b=zeany4Os0nskUGi3OkYMZiygsZ
+	8f7yFkJq6oyCAJ8L+Vn8P1Xb+N0FHw+FtmfYpfN9GcGHyfvA+I26nFo/1vyKB3PhCEHPAwLUwuL1N
+	XHls3J1omqSk4yAa4AXL7WyjEbZp2aISwFw8USQOyfwwi/g2cH5UEgH6/PQVE+Kc0pGX48HOTxtll
+	1KO0WdlTK7Gknkk1kQ7XWAghxj7ZTenyoZ55B7DecIP/GQdkuQE4P4N2Yj5BO+wNuZkj5qACdr/Or
+	RidAmXxtf/9qsXMNqB0xIPq4RVWgabE+fud+BKYCLYIcphFr6/N/dk2sCWI4BgD867HvaY7Qf6A3Y
+	i22XsXRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ72C-00000008Rqf-1q53;
+	id 1vJ72C-00000008RqK-0bkH;
 	Wed, 12 Nov 2025 09:21:00 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ727-00000008Rnh-3ztL
+	id 1vJ726-00000008RnR-3513
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:20:57 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4710d174c31so5254555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:20:55 -0800 (PST)
+	Wed, 12 Nov 2025 09:20:55 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-42b2ad29140so272853f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:20:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1762939254; x=1763544054; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1762939253; x=1763544053; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hQotLZ7bYQhnw+F+e2EgZGDV56Lv1I3QeSzBHAS6ry4=;
-        b=C7znL1x7485TmZXf2eIA7yPRg7L6pVKJ7dBSp+Bp0rkBqaPESUdHGRVSGekRczf/YH
-         fVcnOaDyg4bNebnzTebUlVdqJcqtEBviXTziq/f7oRBiOHBOcNjVik41BUTrT88xKluV
-         FDZezFDApEx5+CIs5qpCxQiZlagz+qMl1kD/U7c6/QGmhakkUJ50FMZcp+/YXgKfZf7t
-         tOcP5Q0irjmzfjCTW4+3JgTCYg//Ro1LG+yBRhIZ8xk4nKTpHytI2Y4850nQtv71DqC4
-         GiVL9LwrWnD4sFphEcyxxqn52Kj2z04Xt4mg4bqrK12+o3Vu7ZuR8JoTD2jNN82s5k2O
-         vMPg==
+        bh=KWYzkbp7pgBrTyt1NisY6LsxXizq6AqdKv5W+aeRvmM=;
+        b=HqC+iqmR9Gmpk/RZISaHiKCglnJ2B9/KaNZ1wvU5t+0oEKtyxFr8wc3Q0eUnRsceGh
+         5IONXMl1+7WjFNk/s2seuztorIoCvhfzcndIsbE5Oh7fw4el+eyzE0AWeGccumyxN3gC
+         YyBnYHMHkkMfV+CNbV1WTB27olRIQwgNARBCVIPkz8XSlsKgi64hZ8xRqG5NgCONet2P
+         YNOkvc1hhUXfCgbi5q3DUWWHvyV5TCC+0HEGmeUuO10SocZPd0ufGaYAeNR5lMuEUaMC
+         B5SxLviwwx/EnqXHnR34HOV3GLUR5mTJA7DAo7qIgHA0By0yFSzyBu5nFVX+SCYYn2x0
+         RSaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762939254; x=1763544054;
+        d=1e100.net; s=20230601; t=1762939253; x=1763544053;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hQotLZ7bYQhnw+F+e2EgZGDV56Lv1I3QeSzBHAS6ry4=;
-        b=luoc42mm3gp7dR+8v2kmnn6IeGWZtooOf0RxX9bQMQRU4VFVYfK+Wd6rhtDZpiYFV/
-         NP3xOfAPyvyNmotG7Uc1SYvKzmPTpmASnMKxZmctI3hQJ3IO348nx7v67uWovJcJJYdH
-         KS0xobodYkngHtW6Bep6+/9tSDNiKl4D0vkovSkBln6PotcZ8O2M5Yv9Ul+E+Hsl1gzL
-         755kRDf78GvgRI9qWUWR+n/3tbMJDREWjOSBuGnRGApOiZuQyzieXp/HZP7DLQEDtpO5
-         C7eXz7qj9Z5D/As3qAQbf8d0o/s5J86haAWmEPFO6QSrR06SMT4hpYiqFfDMVBNRT5xY
-         V64w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+BWJSeq+6MmIFPsgLSMqQfB9KG4Nx4cVCEL53QRW4mEyhqoAw7sBxYVwkeI5WRdFgADqt3OL30Y6mTyisHNsG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVLJP2w2SOe0PJkBjpcJcfeTGLgV7TVUz7I8MRhYCW1K6fgQya
-	sPQlW4cLlAanhl8vP3oIAby48MQoYc6pDzxyAgBYbHL1v/ThNd1nV6KJlCEQkQGfhYX26wV5JY7
-	Wkw==
-X-Google-Smtp-Source: AGHT+IEdhQH8jlroYKYvxsaYTlWqQTwHspf9KNTFXBGWy9dvL6TNub1QcuZfnvQ1vjy2EWftQq8lAjgPlA==
-X-Received: from wmqu15.prod.google.com ([2002:a05:600c:19cf:b0:477:1022:3342])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4583:b0:477:54cd:200e
- with SMTP id 5b1f17b1804b1-477870718c2mr21893365e9.1.1762939253822; Wed, 12
- Nov 2025 01:20:53 -0800 (PST)
-Date: Wed, 12 Nov 2025 09:20:45 +0000
+        bh=KWYzkbp7pgBrTyt1NisY6LsxXizq6AqdKv5W+aeRvmM=;
+        b=Uix1cNVdnZzszojmH2oYyoIL556w5ZYQDsJ1jS1DPaCXsAJmq+TyuX07CnTXfePs92
+         FttU1khZ8rjcz33Ro3suOE18Ykf9gJnVomeC/XpfRYq5vcbg+yK4d+QHcMnQgZpp8/aS
+         cFfodtt8YCwzKlT7r6S76HlVcGwX5hSeERlN1Pbfs8RFS9z7uEUKZcvJQ+6bihY/gE4E
+         7StVfrlF7iDXu639R3n1jJ5T+xdM5/XF5rFL9xph0Mi+HIibk6S0mtYjh7E9dE+NBv6x
+         FbimWXL+sXwytrnlKMyPg3vGpAZjsxMJ89f8lmqo3veLJTfIO9GTOMuAq0NZncN6dkWv
+         CAxg==
+X-Forwarded-Encrypted: i=1; AJvYcCV8SXn4g7frOF1yQxGWP6qA5QFnGIBrnugDeLjX6Yc3bZRuUr3NvNeP+xyMJePIWeV+ukjB3JrEWm9M5l5I8ODJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/6MLEYZ32QlVeHCq69MSV1xv5ID3nXsTq5o1TRDAErTKWt3ys
+	ENrlPL3P/u4dPeg4g7Q9jx12SEbUzI/LH8nUFp6niNKMVeTMqgjEV2/2DxY88v74inWJHfwA7zg
+	hPQ==
+X-Google-Smtp-Source: AGHT+IGUxVjjdxFwwNK4gZXP4qgE13aKlaUArWEuRF3RKto04rT8yPc6uk6hvts3WN96BEEYzipP0OdKrw==
+X-Received: from wmjl26.prod.google.com ([2002:a7b:c35a:0:b0:46e:37d6:c1a6])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:354d:b0:477:7d94:5d28
+ with SMTP id 5b1f17b1804b1-47787061cfcmr17563335e9.7.1762939252639; Wed, 12
+ Nov 2025 01:20:52 -0800 (PST)
+Date: Wed, 12 Nov 2025 09:20:44 +0000
 In-Reply-To: <20251112092051.1376245-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251112092051.1376245-1-tabba@google.com>
 X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251112092051.1376245-3-tabba@google.com>
-Subject: [PATCH v4 2/8] KVM: arm64: Fix Trace Buffer trap polarity for
- protected VMs
+Message-ID: <20251112092051.1376245-2-tabba@google.com>
+Subject: [PATCH v4 1/8] KVM: arm64: Fix Trace Buffer trapping for protected VMs
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -75,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_012055_991115_19599815 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20251112_012054_774518_99E06339 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
-register accesses. These accesses are trapped to EL2 when the bits are
-clear.
+For protected VMs in pKVM, the hypervisor should trap accesses to trace
+buffer system registers if Trace Buffer isn't supported by the VM.
+However, the current code only traps if Trace Buffer External Mode isn't
+supported.
 
-The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
-had the polarity inverted. When a guest did not support the Trace Buffer
-feature, the code was setting E2TB. This incorrectly disabled the trap,
-potentially allowing a protected guest to access registers for a feature
-it was not given.
+Fix this by checking for FEAT_TRBE (Trace Buffer) rather than
+FEAT_TRBE_EXT.
 
-Fix this by inverting the operation.
-
-Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
+Fixes: 9d5261269098 ("KVM: arm64: Trap external trace for protected VMs")
+Reported-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
  arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 8d06a246dfd1..f6f8996c4f97 100644
+index 43bde061b65d..8d06a246dfd1 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+@@ -117,7 +117,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+ 	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceFilt, IMP))
  		val |= MDCR_EL2_TTRF;
  
- 	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
--		val |= MDCR_EL2_E2TB_MASK;
-+		val &= ~MDCR_EL2_E2TB_MASK;
+-	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
+ 		val |= MDCR_EL2_E2TB_MASK;
  
  	/* Trap Debug Communications Channel registers */
- 	if (!kvm_has_feat(kvm, ID_AA64MMFR0_EL1, FGT, IMP))
 -- 
 2.51.2.1041.gc1ab5b90ca-goog
 
