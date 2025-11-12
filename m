@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 123AACD3438
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F521CD3438
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 18:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ic15IujNYgH7VvJfsLoG4yoapJKPVHCQVOq9qRUFEDQ=; b=l742E3Mcq3EiyV54Z4s9NrERPp
-	N0Yvl45OWCnnOw05a+dlhRfcQdcfP8HHMAz+wmAyzcXfaR9kJ7D/I+bbfZuydy8Wk90IqBexE3k1D
-	luJyQNlQoJ2OlMIEtGer7u0iit+Idp/8qaq0XN8Q9r1IJC7bvzS9HwuK7PgYOIpXJPYv4smCCUC1F
-	IwGcta4PBL+dZT9vDT3lur3zQAb/Tmjg36ITOjbQWZl03Jw9vKUUiS64ipU6RIa0TArEgrrlAQeT/
-	jQO+S5++L2tRmR2O3eG6fDhBnxld62bQZsUsIDNc7rOkvsTlJ8pGJJmMWDOYwV869azLptrBDGvNt
-	kbcDHeDA==;
+	bh=cWkI+seuy8dRvV6vNKEAhdpJWsV6CidEWgpPet8p6QY=; b=o57/1snYS9r025DnIIgu+ezLWK
+	ob1gv7CWLzFA0WSNnkBmjXA+u9zgMAoXeEPVUhi4Zh/GjwaTScGArWBciqHNyEkUwEtTFMI08IB/d
+	REmbaF98qELXRf4hJdLSQ+jYFLitOhGXH0GDFjYQET1YvkLBxkwlutr8AgaEQhv3pg/wPzMo4h4P0
+	1Odw1KbCGaZC8ISovyfoN5W3EYtQ13byKelOTziEAKlE2M2KogWV0MCTB/e1A5wd2OQqG0OdZjYMr
+	Pse7NsX49rmUGMJ1xhv1rXGv6TvgpUrm0oQisJAalrP1Y9TSYRkj00kVvR73/1Vs6VVO9zKy2gAGB
+	jF3e6iFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFZI-00000009LnC-1035;
-	Wed, 12 Nov 2025 18:27:44 +0000
+	id 1vJFcf-00000009M21-1HnW;
+	Wed, 12 Nov 2025 18:31:13 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJFZF-00000009LmV-29qs
+	id 1vJFcZ-00000009M12-0iRm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 18:27:42 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d6BhP52h0zHnH4q;
-	Thu, 13 Nov 2025 02:27:17 +0800 (CST)
+	Wed, 12 Nov 2025 18:31:11 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d6Bm726nbzJ469q;
+	Thu, 13 Nov 2025 02:30:31 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3B7011402FB;
-	Thu, 13 Nov 2025 02:27:37 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2F6C61402F5;
+	Thu, 13 Nov 2025 02:31:04 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 12 Nov
- 2025 18:27:36 +0000
-Date: Wed, 12 Nov 2025 18:27:35 +0000
+ 2025 18:31:03 +0000
+Date: Wed, 12 Nov 2025 18:31:02 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Marc Zyngier <maz@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -49,12 +49,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
 	<james.clark@linaro.org>, Jinjie Ruan <ruanjinjie@huawei.com>, "Alexandru
  Elisei" <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v4 17/26] genirq: Add request_percpu_irq_affinity()
- helper
-Message-ID: <20251112182735.00001363@huawei.com>
-In-Reply-To: <20251020122944.3074811-18-maz@kernel.org>
+Subject: Re: [PATCH v4 18/26] perf: arm_pmu: Request specific affinities for
+ percpu NMI/IRQ
+Message-ID: <20251112183102.000012bc@huawei.com>
+In-Reply-To: <20251020122944.3074811-19-maz@kernel.org>
 References: <20251020122944.3074811-1-maz@kernel.org>
-	<20251020122944.3074811-18-maz@kernel.org>
+	<20251020122944.3074811-19-maz@kernel.org>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -63,8 +63,9 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_102741_696113_4F20A5F9 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20251112_103107_355770_C4117A7C 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +80,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025 13:29:34 +0100
+On Mon, 20 Oct 2025 13:29:35 +0100
 Marc Zyngier <maz@kernel.org> wrote:
 
-> While it would be nice to simply make request_percpu_irq() take
-> an affinity mask, the churn is likely to be on the irritating side
-> given that most drivers do not give a damn about affinities.
-
-Only 37 instances. I'd have been tempted to do it anyway :)
-
+> From: Will Deacon <will@kernel.org>
 > 
-> So take the more innocuous path to provide a helper that parallels
-> request_percpu_irq(), with an affinity as a bonus argument.
+> Let the PMU driver request both NMI and normal IRQs with an affinity
+> mask matching the PMU affinity.
 > 
-> Yes, request_percpu_irq_affinity() is a bit of a mouthful.
-> 
+> Signed-off-by: Will Deacon <will@kernel.org>
 > Tested-by: Will Deacon <will@kernel.org>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
+
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
 
