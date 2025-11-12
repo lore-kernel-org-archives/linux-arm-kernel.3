@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B350CCCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A03CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lqCuPp9H8HI1+6gmMgoIdl2q4ASSXdaZj3EL+jeW6CU=; b=t+DsgXWhZrbURIz2y8C+3JEV20
-	GOvAlYCMmCCuGkU/hmgeOpyp0YXiMQunPqXcgYJcfgrgJ5zhmIOMIfh4/lVAam5eK82eWFWcq8mCW
-	UUgPERjZcFI9/GfRs1JiCKw1v6ol9iomfUX9hbUdTraiGOVCXW30CGPL0xtjbTv4GHwsEHzT4xnCO
-	SQm6QMbP4+UZLnQUAy5S6xgwDAbOLahF3zv3H247Hrge5ZLDFOgDmzzF3abM9E+iKtUwDln/7FrWk
-	yyLF+vDvgDfBCObJ4hXJ77EnMMhWz2q5rHN9/B5VeP8jNVz/anmCGjOUCmfjSMUilFuJjDNpYR4Dv
-	k8CGfkBw==;
+	bh=3/das4ubE9uR5TguJHrzbDRooxN8NkIfutEvQj/4rpI=; b=kVrILrlrkQzvKtTPZ7x87ZK1eu
+	wRh8WrEA6tDDJ9R87W6Zerr/VdQh+VEJCjtkq9Roz6TbXO696kJLwdz3yvZm3COqP09tuqjCahRDJ
+	fIDZQzHY/swMQCIHuSjTk324hLklJvn/IhqGU/Ih7VrOo3IYdSNEEGBMukbeeaIiDZzsParoPL1UU
+	XwR5Yd98pO87czy+T2JvVCDicNnPC3e+8N55ECaalRVux7mwQzObd2ePlComiIeppq5ctn4FxnTuf
+	659TSq+slZezvonTrtDNoQMjqpfSu6v62AaHlnk9FYLx+Gi0vdO8VRYVoGvftjcYeMWUC2hOsYAxe
+	39jaPqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7BM-00000008SwH-2Ifk;
-	Wed, 12 Nov 2025 09:30:28 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vJ7CM-00000008T5D-1j3u;
+	Wed, 12 Nov 2025 09:31:30 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7BJ-00000008Svr-3JKy
+	id 1vJ7CK-00000008T4R-07MN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:30:27 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b4736e043f9so87529266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:30:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762939823; x=1763544623; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lqCuPp9H8HI1+6gmMgoIdl2q4ASSXdaZj3EL+jeW6CU=;
-        b=b4noCFo0083aAk0zcUzN/FhnHjeX1Mba/bLMDphHXNejMWp+r9qWHg5aIkuH3Bg99h
-         CxjmOJ3C1HFgScFUiGSCeFYDRcZubSWwOqLuJr+7e+T1KnSmhSkAoarAcIk+/78ys7DI
-         JNFdgRod+nwZ5VMfEPo1x8tJSW6BJuoehHHPKyzN0sHUTrY0xEJDguyW6vochBg0RZQX
-         PvoS4nmOBSikrSCJjaPiYhUm6MBa0VWS9fqHG0C7pY8HJee3NtzD1EtIbn5XdYklGWO4
-         XLtRPFJ5IFIdoIQpBUD5QmS8q8H5SWCpj7ZbYcNNT1JAJ0k5k7NPi3fvvGajZFoY6O8O
-         m6Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762939823; x=1763544623;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lqCuPp9H8HI1+6gmMgoIdl2q4ASSXdaZj3EL+jeW6CU=;
-        b=OuQ9jf+bS9HEmHewABDLQxD8j9LeJRTKbPFFdBBS5/RCjmn1Xd+4XjBHCLzceH5SQM
-         GPzuxxZOFwiKrkyO/oRT1slqiPs/gvk8eVUE3yV7Eebc2wIz+RZiXGvrxkmkxbWlK+Yx
-         6UqvSSkAFd0hGtMEqjXEVG53PYCBHXj8Q2VCLs7aKruAb30WTUOuk9bmriUyKcMKQam4
-         DReUTxGByBDb62hG/iKtR+c6dbeiWFDrYiF9ts/lCU9kVkXPu1XVzA84PAP/jhL9URCi
-         O6aelNWz0gYSW4gABJxDxo9+TtGv067OhyTtLz8A2T38Q2VUk/NtEfP0AY9MJ6BRH2gs
-         ArDw==
-X-Forwarded-Encrypted: i=1; AJvYcCXLil9UvYuadrwZw7Wag8VDk8e782EnsgmOma2OlmfF+vuI9FK9EP5ogBUl7qdRe3+hWEPmp7QHDARitGRjMZ/T@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6IjvR6sHbigcfj54KNnfW8CB9Wz4FywksAgTTU2Fs7bfAeVnv
-	5vgfaFPwYcmp1Tg0SMsvissuWYUCM9e4YfAGybEyXh6z+nL17t3gkSrf3WyKJaP5PsrK9amrnTy
-	8Zu2m8cdGWE0pK5uDJgH8InihglEPR4k=
-X-Gm-Gg: ASbGnctvHOGiYB/hZ2jQKTS/IifNzNx+rIJiS5ANJRF+bLaVC0YKnpRvSRqdzj7Q/q/
-	11ZoN1eXiItUp9qxyaSiCGmQ6s3nC+1ciucvrrusAWz8voI9nogy1pJ7IpTfsl/t4A6REWdOm6h
-	KT5OM/03qskWsiDFzF1ZTuCIneKcZXr1p9EYLvPYmPQHUH9blwgmzAsO5eZbkELIbRFHw5YM+gY
-	Sz5mCxCaRCWoi1ECU/4fo/bYz/e/8CBVnHHIc7cPZ01EzELb/qG4/tmuw==
-X-Google-Smtp-Source: AGHT+IGyBC+BBxL1KaIi5mi0ySnjGyT9eGbf3VfoXUYHbfCWS/PwYWYo/VnJObXv4/YPosnSNepi2Bx4++0gAs1GJ6k=
-X-Received: by 2002:a17:907:3f0b:b0:b73:2df0:9fa9 with SMTP id
- a640c23a62f3a-b7331aec6fcmr200176166b.59.1762939823249; Wed, 12 Nov 2025
- 01:30:23 -0800 (PST)
+	Wed, 12 Nov 2025 09:31:29 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B7EF382E;
+	Wed, 12 Nov 2025 10:29:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1762939765;
+	bh=lRHs2b3PU1XMQWNAuMfLar6FdYxKzGJIWTuWW0xBJe0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=du4OOMfWVmL7SlfPiGInAeibPEs7dMJtwlcaoSE3+brxITSF92ppzXILMGtCUjGFr
+	 xa2zCYLw/r4tZpi/kiRihZZXcRek33u548UTq1/cUcYHKyQlJLTM7ypG2CTCxEfgv6
+	 lL++7XeXsS9qOeNW6W3HLl1HTNz9UeWI7sMSTeXI=
+Message-ID: <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
+Date: Wed, 12 Nov 2025 11:31:21 +0200
 MIME-Version: 1.0
-References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
- <20251109214515.121742-2-rpimentel.silva@gmail.com> <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
- <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
- <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com>
- <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
- <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
- <baafb460-fb65-4cd2-9911-89d828199d9b@kernel.org> <2e160fe1-bcb2-41cf-817e-ac2a36959b16@kernel.org>
-In-Reply-To: <2e160fe1-bcb2-41cf-817e-ac2a36959b16@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Wed, 12 Nov 2025 11:32:44 +0200
-X-Gm-Features: AWmQ_bk_gSFa8QTHeI1JrrzB0W9QZ2CPKTfJSvtyKPLDEFBLVYzLq3Nt1FpD5Yg
-Message-ID: <CAEnQRZDg0yAjR-a-4J2ZKAjh3mm8NeQCA=o2kyNJtXMAFCMLAA@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>, Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com, 
-	marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de, 
-	joao.goncalves@toradex.com, frieder.schrempf@kontron.de, josua@solid-run.com, 
-	francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Joseph Guo <qijian.guo@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+To: Sean Anderson <sean.anderson@linux.dev>,
+ Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>
+Cc: David Airlie <airlied@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
+ <20250627145058.6880-1-mike.looijmans@topic.nl>
+ <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
+ <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_013025_878965_C1ECDCD7 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20251112_013128_209743_1F15C6DC 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +120,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 11:14=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 12/11/2025 10:08, Krzysztof Kozlowski wrote:
-> > On 12/11/2025 09:15, Daniel Baluta wrote:
-> >> On Tue, Nov 11, 2025 at 2:49=E2=80=AFPM Daniel Baluta <daniel.baluta@g=
-mail.com> wrote:
-> >>>
-> >>> On Tue, Nov 11, 2025 at 1:50=E2=80=AFPM Fabio Estevam <festevam@gmail=
-.com> wrote:
-> >>>>
-> >>>> Hi Daniel,
-> >>>>
-> >>>> On Tue, Nov 11, 2025 at 5:45=E2=80=AFAM Daniel Baluta <daniel.baluta=
-@gmail.com> wrote:
-> >>>>
-> >>>>> In addition to that, Rogerio please read:
-> >>>>>
-> >>>>> https://docs.kernel.org/process/submitting-patches.html
-> >>>>>
-> >>>>> At this moment I think you should keep the original author of the
-> >>>>> patch.
-> >>>>
-> >>>> Right, but NXP makes a total mess with authorship.
-> >>>
-> >>> I cannot disagree with you on this, let me clarify it internally with
-> >>> NXP colleagues
-> >>> and sort everything out.
-> >>
-> >> Hi Fabio & Rogerio,
-> >>
-> >> Checked internally and to track the correct authorship and development=
- work
-> >> here is how NXP would prefer to get credit.
-> >
-> > Sorry, but individual contributors do not need to give any credits to
-> > NXP. If NXP wanted to sent the patches to have credit, they would do it=
-.
-> >
-> > Did sending happened?
-> >
-> > If not, then any contributor is rightful to take the patches from
-> > downstream and send them only, ONLY with their authorship. That's what
-> > DCO allows and that's what established practice as well.
-> >
-> > NXP had a chance to upstream. When they decided not to, they forfeit an=
-y
-> > rights to claim they want any authorship.
-> >
-> >
-> >>
-> >> #Use git commit --amend --author=3D"Xiaofeng Wei <xiaofeng.wei@nxp.com=
->"
-> >
-> > NAK, there is no single patch like that from above author:
-> >
-> > https://lore.kernel.org/all/?q=3Df%3Axiaofeng.wei%40nxp.com
-> >
-> > Remember, downstream code does not matter. Does not exist.
-> >
-> >
->
->
-> ... and because last two months there were two or three cases where
-> vendor companies bullied individual contributors, I will be quite strict
-> about that. Vendor company does not receive any authorship on patches
-> sent by independent contributors which the vendor NEVER submitted,
-> unless author really wants that. But I will treat any such insisting on
-> authorship by vendor like NXP as bullying and working AGAINST the communi=
-ty.
+Hi,
 
-I'm sorry that people use "bully" in this context. We are just trying
-to help with
-the limited time we have and create a friendly environment around NXP
-upstream support.
+On 11/11/2025 23:09, Sean Anderson wrote:
+> On 11/4/25 16:53, Sean Anderson wrote:
+>> On 6/27/25 10:50, Mike Looijmans wrote:
+>>> XRGB8888 is the default mode that Xorg will want to use. Add support
+>>> for this to the Zynqmp DisplayPort driver, so that applications can use
+>>> 32-bit framebuffers. This solves that the X server would fail to start
+>>> unless one provided an xorg.conf that sets DefaultDepth to 16.
+>>>
+>>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+>>> ---
+>>>
+>>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
+>>>  1 file changed, 5 insertions(+)
+>>>
+>>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>> index 80d1e499a18d..501428437000 100644
+>>> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
+>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+>>>  		.swap		= true,
+>>>  		.sf		= scaling_factors_888,
+>>> +	}, {
+>>> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
+>>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+>>> +		.swap		= true,
+>>> +		.sf		= scaling_factors_888,
+>>>  	}, {
+>>>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
+>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
+>>
+>> Tested-by: Sean Anderson <sean.anderson@linux.dev>
+>>
+>> I can confirm that this provides a nice performance boost :)
+> 
+> Actually, I think a better fix would be to make the "video" plane the
+> primary one. That plane supports XRGB8888 natively, and then the
+> graphics plane can be used as an overlay for e.g. windows or cursors.
+True, but I think usually the overlay plane is the video plane, which
+supports YUV formats. If we use the video plane as the root plane, then
+that one is reserved and there's no "real" video overlay plane.
 
-We (NXP) immensely  appreciate individual contributions from everyone.
+Did you check my recent reply to the thread? I didn't have too much time
+to debug all the combinations and what exactly the userspace does. I'm
+inclined to just merge this one which should improve the user experience
+quite a bit, even if there are still unclear parts to this. The related
+code can be improved later if we figure out the details.
 
-We need to be fair, the v1 of this patchset was taken from NXP
-downstream without
-respecting the Developer Certificate of Origin.
+Any objections?
 
-E.g there were commits pulled in from our internal tree without
-keeping the S-o-B tags.
-As I said keeping the original author is a sign of respecting the
-initial work of NXP developers
-and a recommendation from NXP.
+ Tomi
 
-What is your suggestion on moving on with this? Would keeping the
-authorship from Rogerio
-and adding S-o-B and C-d-b tags as above work for everyone?
-
-
-Daniel.
 
