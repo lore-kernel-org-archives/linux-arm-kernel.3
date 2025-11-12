@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E56CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A779DCCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGeM2DELVMgZ6SKmlIdnazdriMZD+9Nus+/AM3HYOy8=; b=CsxEWTZUwS+dX1oci8N2hG1jNV
-	9R7XJoQcIKxwHsnguyqHsRLe2L0AHAxS0CN060reSnn5557H4wlmjpj8GBrwWZW7zD/fiqWn4LslP
-	V+2J4PE39iLdRFS0sYkfsJwkZAxjPqgK9t01gbuEg2P/vQrCCw2VXfdpPTO0pVhMd4HF7wQPcuS1B
-	YKT6L40x8cgicb12IDYsFlg4zr6b/Se76uHoqkxKwVw5wRey9axTWdy69NoYRDEK0dgoI/vjCIs0e
-	QE6r0ogEY9FlNohfGQcXWUDUAELt02H4XHHQpz3/xDF0fki0Rj6BVt1PX9jULfrgIGOv60WIzqtLL
-	vnZY2DHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cElq+wtoOjfXL9zKsYRu09ghvKlD3Q+EYQSAGR5FBls=; b=SBwZK3G67Sx6pDLakzR1d2P3Y9
+	Rg3miX7YN6hisUxVD0NxnLewBsQTxM/mGnWK2wQdp8LUSHVNt6Esot4CUaKFVIk3D+nog/gpjDrsn
+	KZ6q3Vl+Y7LBCcgQwNDIobbIqlLmalf09MXr+hMttWgabZrZ/2aRjp2dyYRbqk/y2WTsOHrbbM3Gt
+	NxsyTSFXdbD8oHOXm1Setz9ibQHQKbvCpgvkHIA/gHhRV4YQQQCqoNLu+tXA3jkwZ308LWOpM0TL/
+	q+L1ANKYYzAOtu0iaN37swZ+Fq7OqvEhbC3duxDzDFkRoJHrHKCV12R4gJEzBzf7ScoDLDi4xlo78
+	fjHNqJKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6bi-00000008Ox9-1pyL;
-	Wed, 12 Nov 2025 08:53:38 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vJ6eU-00000008PDa-08Qe;
+	Wed, 12 Nov 2025 08:56:30 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6bg-00000008OwZ-0ot5
+	id 1vJ6eQ-00000008PDA-2bkt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:53:37 +0000
+	Wed, 12 Nov 2025 08:56:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762937616; x=1794473616;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=pjxiwBubEaNKJ/nTiFrobQwVMbkHpsPzm4BgKDwGVKU=;
-  b=jcH30y2bU+/AroLaPL94zlPhhwBWGyuotdOjNfVIn9jQB8jjMr33IIMC
-   VtMt98LWZDzPcpbbaY+Ip/bJkPOF0BYRtoskc+QElBKswJ7OTXzWdLR9P
-   Md1x8k+wRKZxyB6JWkq/cjjnfRPGEQ5eSC0L0F4u1UvH6LWOcfK6ByeHa
-   E3ZI4RhFhUNGglKhqNBYfmsRnVQMS+hR7z7kLZ8RkO83ZJwpJvrf9YAFk
-   /SBkMusZH/qb/j8QzsigCo5ax6eT1nciAxvdHJ+Fu6FQtyGDiuwG3oA1B
-   N/oxvic9fE9Cs/XPRF6OgXZcofS1Wm614zWhhmbiTg256UmVIbx+V+gXV
+  t=1762937786; x=1794473786;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=sl+zfwNpML36ev1KM+JlgPIGMQCZVqEo/fI0Ku9iDIM=;
+  b=fGALw/eLaZVSh94xsKsEmSEf+Jgfvg94Wfdf3CnLOAilqPx5Sk2fMp5h
+   oc6OL1VWJyxDZBcEAgvWbmvCVBAnhFa1QA7GsVBi5Fk77ggskZbRf5+EM
+   SFJ6PkyFBOd80+2TzAVDXi0mh4xy9V8rwf9m30EE+SoTDevrJNemJfkCH
+   GcPlbv7loaXx3wbAUsxUeujVS8/lidWMiehlbNGFVES8P9fdnuxEtUiCZ
+   WGJb8h4/xh+1vsHpNDd3r+PDH7Bv21ejMTcokQhMEteQb35FucbELuFf1
+   W9/upKLS1FjlxyqM1tyXh+nRrCfzkHA4591bNONarKwoaT6dePGko8BB6
    Q==;
-X-CSE-ConnectionGUID: Cx66CjWYQoW9/eQZAnBkAA==
-X-CSE-MsgGUID: inOpmsVfQ7KKQh1+9IFZXw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11610"; a="82392754"
+X-CSE-ConnectionGUID: NlOrHRerT6mWyLrJy0VtMg==
+X-CSE-MsgGUID: MkPodEH3RJipSuKSBS6trw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11610"; a="90470260"
 X-IronPort-AV: E=Sophos;i="6.19,299,1754982000"; 
-   d="scan'208";a="82392754"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2025 00:53:35 -0800
-X-CSE-ConnectionGUID: Ow3E/Gl7QD2RmMHthFmdWw==
-X-CSE-MsgGUID: UDf+sN02Raek9Ap4NdIqig==
+   d="scan'208";a="90470260"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2025 00:56:24 -0800
+X-CSE-ConnectionGUID: 6iy+RXr/QdiJ/GHS8641Ig==
+X-CSE-MsgGUID: qqOSY0sjRGOCddFGLQVfKw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,299,1754982000"; 
-   d="scan'208";a="189011973"
-Received: from lkp-server01.sh.intel.com (HELO 7b01c990427b) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 12 Nov 2025 00:53:29 -0800
-Received: from kbuild by 7b01c990427b with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vJ6bW-000434-1M;
-	Wed, 12 Nov 2025 08:53:26 +0000
-Date: Wed, 12 Nov 2025 16:52:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, afael@kernel.org,
-	bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com,
-	kevin.tian@intel.com
-Cc: oe-kbuild-all@lists.linux.dev, will@kernel.org, robin.murphy@arm.com,
-	lenb@kernel.org, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, kvm@vger.kernel.org,
-	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
-	helgaas@kernel.org, etzhao1900@gmail.com
-Subject: Re: [PATCH v5 3/5] iommu: Add iommu_driver_get_domain_for_dev()
- helper
-Message-ID: <202511121645.Oi9e0lrt-lkp@intel.com>
-References: <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
+   d="scan'208";a="188806184"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa007.fm.intel.com with ESMTP; 12 Nov 2025 00:56:22 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id EC9B495; Wed, 12 Nov 2025 09:56:20 +0100 (CET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Christian Bruel <christian.bruel@foss.st.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-pci@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Subject: [PATCH v1 1/1] PCI: stm32-ep: Don't use "proxy" headers
+Date: Wed, 12 Nov 2025 09:56:20 +0100
+Message-ID: <20251112085620.1452826-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_005336_274975_440B30BD 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20251112_005626_669664_E8DE5EEB 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolin,
+Update header inclusions to follow IWYU (Include What You Use)
+principle.
 
-kernel test robot noticed the following build warnings:
+In this case replace of_gpio.h, which is subject to remove by the GPIOLIB
+subsystem, with the respective headers that are being used by the driver.
 
-[auto build test WARNING on next-20251110]
-[cannot apply to pci/next pci/for-linus awilliam-vfio/next awilliam-vfio/for-linus rafael-pm/linux-next rafael-pm/bleeding-edge linus/master v6.18-rc5 v6.18-rc4 v6.18-rc3 v6.18-rc5]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/pci/controller/dwc/pcie-stm32-ep.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Nicolin-Chen/iommu-Lock-group-mutex-in-iommu_deferred_attach/20251111-131520
-base:   next-20251110
-patch link:    https://lore.kernel.org/r/0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc%40nvidia.com
-patch subject: [PATCH v5 3/5] iommu: Add iommu_driver_get_domain_for_dev() helper
-config: microblaze-randconfig-r072-20251112 (https://download.01.org/0day-ci/archive/20251112/202511121645.Oi9e0lrt-lkp@intel.com/config)
-compiler: microblaze-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251112/202511121645.Oi9e0lrt-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511121645.Oi9e0lrt-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/iommu/iommu.c:2229 function parameter 'dev' not described in 'iommu_get_domain_for_dev'
->> Warning: drivers/iommu/iommu.c:2250 function parameter 'dev' not described in 'iommu_driver_get_domain_for_dev'
->> Warning: drivers/iommu/iommu.c:2229 function parameter 'dev' not described in 'iommu_get_domain_for_dev'
->> Warning: drivers/iommu/iommu.c:2250 function parameter 'dev' not described in 'iommu_driver_get_domain_for_dev'
-
+diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+index 3400c7cd2d88..2b9b451306fc 100644
+--- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
++++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+@@ -7,9 +7,9 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/of_platform.h>
+-#include <linux/of_gpio.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
