@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FADDCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D02CCFA1E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8QXK5IyhwqaMijL3hkVhWCaA8zE6wM5nnYVCkVnNy8=; b=UkesLt95mn3b+LyLLto3J+nGts
-	hpcdE0UlXHnzijSW6bw8ghcbe9hea1qxBQYqAAakURyghmdQHRSscB2ZuiXB9PmGUMb+di2FEjria
-	z+LxWQwNnVLWREVr02ueKStRQNNGH/dnAojRaT50EmYXTU4ioNVHCI3BEws3Yj5MUxK0PCZvrUYRH
-	QINTXZkvrX6OWWBdBbsFNr5wwTKqqeCL10XgcYn4b36r9OazOz92J5EXPChblu2+Ske1CuWB+79j6
-	PxFnfAzGJDjO72KEjWenUUeo5TrAZ2U5jEqCzzsf1WATWvAh/lGvbUZSHlNdid7MQOg8Wrv+7xYho
-	2+9gYxmw==;
+	bh=CDSdYmkj0+ryjFEqIIpAJYeLYQdfS//sbY9Pkge/Mr4=; b=zRHCodiuVxfCSgmDGEPStuwzs+
+	VSsIViTkEJDcT6hBYcmAl13lag0IJWCcWGcP+i+L885mCCZ7U2322LbCe7sRlFJbca6+cq+zLKOkI
+	ML8829j/oy3xBWdhuBV1yRjQGGYcSR0OcgkSmX9Lg/+klar8WDvTaiUDWUPOjjmvQEDC6IEojCXLx
+	bzkWtGPZn63HG3gZypznFIW6GLeHDk822Dcf+Q1h13zzCycysjpoarstqug0AGiuSSZIpUDWWVOY0
+	HI7FWqwWd4E6jDyYrS6EJunam5r80/bd2aCdEEOSAqzWLDr943sLdWEPsqaqE2DrYZ4WeJxbPabG/
+	5y2NX+Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6HO-00000008MVa-316N;
-	Wed, 12 Nov 2025 08:32:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJ6Ij-00000008MgP-0Tw0;
+	Wed, 12 Nov 2025 08:34:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6HN-00000008MVN-1dSL
+	id 1vJ6If-00000008MfZ-3pcm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:32:37 +0000
+	Wed, 12 Nov 2025 08:33:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D7556022A;
-	Wed, 12 Nov 2025 08:32:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99523C4CEF8;
-	Wed, 12 Nov 2025 08:32:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46E3A40B62;
+	Wed, 12 Nov 2025 08:33:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23938C116B1;
+	Wed, 12 Nov 2025 08:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762936356;
-	bh=HLgjcXexC7pF9CiIspXb6LGzy7iOI12i9DXTENjQK1w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q0FshDGYRzjn07iHUHbVMBW8fPmDhBKmWCPzT00v75yPduJYGW2UmC2/VKp9vxj+7
-	 MnCplljpJw87Koy57fVoNRxcUGDoxMdUrXq2eIPT3n3Xqf/R9PBn5JQ0OM85yZBo8i
-	 9/EXi274/+HFzeskwFpZGIsDTbCg0iZWrNb+Gzzo8rTeuBMI/PGPn0+7QDMolXxGiy
-	 5dq0Mg/RA9jpB+No8NXN3jgCRg44e8sS/qBeu6E/+NjYI5QD+8DaI4gbLYCsXpl56z
-	 cHRpZRRNhIIIMv7kebKpg6Z6IxLEm7HJu2hy3xXrhThe6GwyTK2uAMh/+m1Q004QjA
-	 1g58dONx5oGKg==
-Date: Wed, 12 Nov 2025 09:32:33 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Roy Luo <royluo@google.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-Message-ID: <20251112-logical-grebe-of-modernism-dcf83b@kuoka>
-References: <20251111130624.3069704-1-royluo@google.com>
- <20251111130624.3069704-2-royluo@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251111130624.3069704-2-royluo@google.com>
+	s=k20201202; t=1762936437;
+	bh=81f0ESLSrnetgKGzemcxP8SfAbjzKr+GfwSLMaWOTFw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Qr7kV1C7PkAAiV0WEdvnFAjNELGLD9nOqg1HaEzXLXtHkYdeBiKlVu5/nz0F8WvDs
+	 ATYkqKkjN/63MXvgCFzwpl7EGVe/X0jBZvmE613OI2ZwWBPdJzp2egaPpHcJFZ5u5q
+	 uv/VPbmPGRueN//p9s1KpM7TRPjoLmKpB/mh0rc9ncnsXD9JPxxPEJApOShu5upu3x
+	 CicYGiDKmCLVwOzS+5NPs6p+ZWC32uAlXhVQCohBnYdlHSVuHiiD32LYoE/usiE0Ks
+	 zdaq9TqJIm8Sulxc5+wNiwDr1Ual/8n1zc69LEeU2Zv3SM74XQ9S4Xok+8P/Y17ptk
+	 Aqm54UmE05bKQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJ6Ic-00000004Su3-2m1u;
+	Wed, 12 Nov 2025 08:33:54 +0000
+Date: Wed, 12 Nov 2025 08:33:54 +0000
+Message-ID: <86y0obtzt9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 20/45] KVM: arm64: Revamp vgic maintenance interrupt configuration
+In-Reply-To: <aRPQBQVPLVXGOxU-@kernel.org>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-21-maz@kernel.org>
+	<aRPQBQVPLVXGOxU-@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_003358_013864_7C3C8445 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +92,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 01:06:23PM +0000, Roy Luo wrote:
-> Document the device tree bindings for the DWC3 USB controller found in
-> Google Tensor SoCs, starting with the G5 generation.
+On Wed, 12 Nov 2025 00:08:37 +0000,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> The Tensor G5 silicon represents a complete architectural departure from
-> previous generations (like gs101), including entirely new clock/reset
-> schemes, top-level wrapper and register interface. Consequently,
-> existing Samsung/Exynos DWC3 USB bindings are incompatible, necessitating
-> this new device tree binding.
+> On Sun, Nov 09, 2025 at 05:15:54PM +0000, Marc Zyngier wrote:
+> > +static void summarize_ap_list(struct kvm_vcpu *vcpu,
+> > +			      struct ap_list_summary *als)
+> >  {
+> >  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+> >  	struct vgic_irq *irq;
+> > -	int count = 0;
+> > -
+> > -	*multi_sgi = false;
+> >  
+> >  	lockdep_assert_held(&vgic_cpu->ap_list_lock);
+> >  
+> > -	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+> > -		int w;
+> > +	*als = (typeof(*als)){};
+> >  
+> > -		raw_spin_lock(&irq->irq_lock);
+> > -		/* GICv2 SGIs can count for more than one... */
+> > -		w = vgic_irq_get_lr_count(irq);
+> > -		raw_spin_unlock(&irq->irq_lock);
+> > +	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+> > +		scoped_guard(raw_spinlock, &irq->irq_lock) {
+> > +			if (vgic_target_oracle(irq) != vcpu)
+> > +				continue;
 > 
-> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
-> Dual-Role Device single port with hibernation support.
-> 
-> Signed-off-by: Roy Luo <royluo@google.com>
-> ---
->  .../bindings/usb/google,gs5-dwc3.yaml         | 140 ++++++++++++++++++
->  1 file changed, 140 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> new file mode 100644
-> index 000000000000..bfaf6cbdfec3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> @@ -0,0 +1,140 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (c) 2025, Google LLC
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/google,gs5-dwc3.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
-> +
-> +maintainers:
-> +  - Roy Luo <royluo@google.com>
-> +
-> +description:
-> +  Describes the DWC3 USB controller block implemented on Google Tensor SoCs,
-> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the controller
-> +  features Dual-Role Device single port with hibernation add-on.
-> +
-> +properties:
-> +  compatible:
-> +    const: google,gs5-dwc3
+> From our conversation about this sort of thing a few weeks ago, wont
+> this 'continue' interact pooly with the for loop that scoped_guard()
+> expands to?
 
-Doug just said SoC is lga, not gs5, so you need both to align on that.
-Actually not only you both, but whoever else is upstreaming from Google.
+Gahhh... I was sure I had killed that everywhere, but obviously failed
+to. I wish there was a coccinelle script to detect this sort of broken
+constructs (where are the script kiddies when you really need them?).
 
-It is not the community who should synchronize and organize way how
-Google works on their own stuff. Google should organize how Google works
-on your Google's stuff.
+Thanks for spotting it!
 
-Best regards,
-Krzysztof
+> Consistent with the other checks against the destination oracle you'll
+> probably want a branch hint too.
 
+Yup, I'll add that.
+
+Thanks again,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
