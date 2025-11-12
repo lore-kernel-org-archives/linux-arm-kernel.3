@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB238CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 06:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14530CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 06:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YuWLVONgyPu1bzDb4MHL7iucPCpv2D1xLsRhnghR5qc=; b=sacgFp7qhPk3i6H1SIan6exH9O
-	zn+YdBfyhd8g/BCKNrjUS9q1GyWcyXL1Tn+EqPWPu4F20iaRnoHG+UjKk8fHKtaci2nqrPHxaBe1S
-	cdsLyBms/2/kZfNZO5aK0rFivq4GTP6Jy9a0bIF+J/PxbnRkq+WQ3z9pFXKBOvzo7v0HYaC42o4YI
-	P1nS+fQk17gDsKBXWh9LnEOKvfi8Ifn5HIF4PitGrb3kqDWpr/JWj08jpk/ykgANZvS36plp/1IZM
-	bfF7gol65IzIbOSoPljtqImXPecA9H0TYpThSVzKthdRcwu9/f9Egl65RDR4TG6lLuyUDAksNl7vN
-	Y+WeLpqA==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xnS0OQEA3AageQZ1uJNHdc0P0/5sPNgTMpAK7cB+nU4=; b=WZEWRl/uEyoiu1t1Y21RXFyCVx
+	V0zB3fjbrLzDOjsT6XnZTFYMmVElz9N8rR9qYBBvmge73bHUMXLmNVmkqdBLoT8FgpmRvgVo2Cw9G
+	XzAtvHLEVEzxVj80BnXrv4PVSbVcKAZvPTIWnnnYAH/K8Y397UBxqRjHuifg3+InMxo+L47le4Oz7
+	88Q55gpDty7dB58ewvP6bFRcfp/376ekMGzbvA2b2RegC4LBU/gs6E0aSRLgCLzuAUJPUBFprvca6
+	F4nqZOM4SH/wRDc9THzA902HJrhkAxvsj2NHvyDxRJre7ZWxgJlcqSEknckYvBcLaylahnzCeRKWI
+	aiPo+Y4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ3wd-00000008B9K-0hTj;
-	Wed, 12 Nov 2025 06:03:03 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1vJ4FG-00000008Bmv-39PS;
+	Wed, 12 Nov 2025 06:22:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ3wa-00000008B8y-2V5T
+	id 1vJ4FD-00000008BmJ-16jl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 06:03:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1762927380; x=1794463380;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=5P785U/6nIR5hmheHhi3SEIcKPyZPlJEhzUt1w6Lq7I=;
-  b=ejKl62PZKtrULgsUCTkeIqkXOzXn66zJSEtWj0qInmtP93l2kafd7oqE
-   +gA7YnjNhDe23H9Zdsqjz3pZJ1WpHccX0/plG0r46uDurRKgqQZkYQLSe
-   L+ihT9PUDR4lNQOYfMwXjcB6OK+4ukaekJZ5v/+/vdVzd/DNuPedAkCGO
-   AfHA+QH4keejhDVnFhrLMA0xRyBx1MG6JMyVwTt9kRESVOOA3m8ZWgM7d
-   aoEcOaSaa7Ww6NDCYoq2aZ/L5lGwtP0l//ZPGW5o70irMv6iOHyWiclsZ
-   DZSaQnTJTudqe8N9Jqx3qf3qdVqlAmaKxep8lIxYn45+HWajDquXO1f20
-   A==;
-X-CSE-ConnectionGUID: TXs5cYv7S3q+I7pE4s1EzQ==
-X-CSE-MsgGUID: n94rCRuPRa248XRGak169Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="64920248"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="64920248"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 22:02:59 -0800
-X-CSE-ConnectionGUID: h2IRcZemTGuOgw+Cz+mqmA==
-X-CSE-MsgGUID: SUtSziV9Qu6Uwss2XMdTJQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,298,1754982000"; 
-   d="scan'208";a="189864807"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2025 22:02:55 -0800
-Message-ID: <d5445875-76bd-453d-b959-25989f5d3060@linux.intel.com>
-Date: Wed, 12 Nov 2025 13:58:51 +0800
+	Wed, 12 Nov 2025 06:22:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1762928532;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=xnS0OQEA3AageQZ1uJNHdc0P0/5sPNgTMpAK7cB+nU4=;
+	b=hJZeAV/KiohzOAT5TlQ7wHdlhAPz1CxQm0qGH5KeWmGA6a6bb9npKawkSDrO/Nwb3PCRdH
+	hVqq5D7SELXiJRdr1VzaNjeHAPhVMz0oZuR+9eSKwUj8s8SxczxVFJM4m2HI4gf4TzpTao
+	3SVgouyNQoGmpEZ1j23We0BhL9VUmUw=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-628-VMAvkH14NYS06SgY_yu_nA-1; Wed,
+ 12 Nov 2025 01:22:08 -0500
+X-MC-Unique: VMAvkH14NYS06SgY_yu_nA-1
+X-Mimecast-MFC-AGG-ID: VMAvkH14NYS06SgY_yu_nA_1762928527
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 82DB6180047F;
+	Wed, 12 Nov 2025 06:22:06 +0000 (UTC)
+Received: from [172.20.120.109] (unknown [10.30.44.79])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 49CA818004A3;
+	Wed, 12 Nov 2025 06:22:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 11 of 56): Test report for for-kernelci
+ (6.18.0-rc5, upstream-arm-next, 74c96472)
+Date: Wed, 12 Nov 2025 06:22:05 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] iommu: Add iommu_driver_get_domain_for_dev()
- helper
-To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, afael@kernel.org,
- bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com, kevin.tian@intel.com
-Cc: will@kernel.org, robin.murphy@arm.com, lenb@kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, kvm@vger.kernel.org, patches@lists.linux.dev,
- pjaroszynski@nvidia.com, vsethi@nvidia.com, helgaas@kernel.org,
- etzhao1900@gmail.com
-References: <cover.1762835355.git.nicolinc@nvidia.com>
- <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <0303739735f3f49bcebc244804e9eeb82b1c41dc.1762835355.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <50258.125111201220800132@us-mta-628.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CxSF6pQYqX-BP8SP5YRzxjuzINOkT4GzJqY8YNmIWec_1762928527
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_220300_708249_59C85D65 
-X-CRM114-Status: GOOD (  31.59  )
+X-CRM114-CacheID: sfid-20251111_222215_719687_BB58A0AD 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,134 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/25 13:12, Nicolin Chen wrote:
-> There is a need to stage a resetting PCI device to temporally the blocked
-> domain and then attach back to its previously attached domain after reset.
-> 
-> This can be simply done by keeping the "previously attached domain" in the
-> iommu_group->domain pointer while adding an iommu_group->resetting_domain,
-> which gives troubles to IOMMU drivers using the iommu_get_domain_for_dev()
-> for a device's physical domain in order to program IOMMU hardware.
-> 
-> And in such for-driver use cases, the iommu_group->mutex must be held, so
-> it doesn't fit in external callers that don't hold the iommu_group->mutex.
-> 
-> Introduce a new iommu_driver_get_domain_for_dev() helper, exclusively for
-> driver use cases that hold the iommu_group->mutex, to separate from those
-> external use cases.
-> 
-> Add a lockdep_assert_not_held to the existing iommu_get_domain_for_dev()
-> and highlight that in a kdoc.
-> 
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->   include/linux/iommu.h                       |  1 +
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  5 ++--
->   drivers/iommu/iommu.c                       | 28 +++++++++++++++++++++
->   3 files changed, 32 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index 801b2bd9e8d49..a42a2d1d7a0b7 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -910,6 +910,7 @@ extern int iommu_attach_device(struct iommu_domain *domain,
->   extern void iommu_detach_device(struct iommu_domain *domain,
->   				struct device *dev);
->   extern struct iommu_domain *iommu_get_domain_for_dev(struct device *dev);
-> +struct iommu_domain *iommu_driver_get_domain_for_dev(struct device *dev);
->   extern struct iommu_domain *iommu_get_dma_domain(struct device *dev);
->   extern int iommu_map(struct iommu_domain *domain, unsigned long iova,
->   		     phys_addr_t paddr, size_t size, int prot, gfp_t gfp);
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index a33fbd12a0dd9..412d1a9b31275 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -3125,7 +3125,8 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
->   		       struct arm_smmu_domain *smmu_domain, ioasid_t pasid,
->   		       struct arm_smmu_cd *cd, struct iommu_domain *old)
->   {
-> -	struct iommu_domain *sid_domain = iommu_get_domain_for_dev(master->dev);
-> +	struct iommu_domain *sid_domain =
-> +		iommu_driver_get_domain_for_dev(master->dev);
->   	struct arm_smmu_attach_state state = {
->   		.master = master,
->   		.ssid = pasid,
-> @@ -3191,7 +3192,7 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
->   	 */
->   	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
->   		struct iommu_domain *sid_domain =
-> -			iommu_get_domain_for_dev(master->dev);
-> +			iommu_driver_get_domain_for_dev(master->dev);
->   
->   		if (sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
->   		    sid_domain->type == IOMMU_DOMAIN_BLOCKED)
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 1e322f87b1710..1f4d6ca0937bc 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -2217,6 +2217,15 @@ void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
->   }
->   EXPORT_SYMBOL_GPL(iommu_detach_device);
->   
-> +/**
-> + * iommu_get_domain_for_dev() - Return the DMA API domain pointer
-> + * @dev - Device to query
-> + *
-> + * This function can be called within a driver bound to dev. The returned
-> + * pointer is valid for the lifetime of the bound driver.
-> + *
-> + * It should not be called by drivers with driver_managed_dma = true.
+Hi, we tested your kernel and here are the results:
 
-"driver_managed_dma != true" means the driver will use the default
-domain allocated by the iommu core during iommu probe. The iommu core
-ensures that this domain stored at group->domain will not be changed
-during the driver's whole lifecycle. That's reasonable.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-How about making some code to enforce this requirement? Something like
-below ...
+Tested-by: CKI Project <cki-project@redhat.com>
 
-> + */
->   struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
->   {
->   	/* Caller must be a probed driver on dev */
-> @@ -2225,10 +2234,29 @@ struct iommu_domain *iommu_get_domain_for_dev(struct device *dev)
->   	if (!group)
->   		return NULL;
->   
-> +	lockdep_assert_not_held(&group->mutex);
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
-...
-	if (WARN_ON(!dev->driver || !group->owner_cnt || group->owner))
-		return NULL;
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2153135332
 
-> +
->   	return group->domain;
->   }
->   EXPORT_SYMBOL_GPL(iommu_get_domain_for_dev);
->   
-> +/**
-> + * iommu_driver_get_domain_for_dev() - Return the driver-level domain pointer
-> + * @dev - Device to query
-> + *
-> + * This function can be called by an iommu driver that wants to get the physical
-> + * domain within an iommu callback function where group->mutex is held.
-> + */
-> +struct iommu_domain *iommu_driver_get_domain_for_dev(struct device *dev)
-> +{
-> +	struct iommu_group *group = dev->iommu_group;
-> +
-> +	lockdep_assert_held(&group->mutex);
-> +
-> +	return group->domain;
-> +}
-> +EXPORT_SYMBOL_GPL(iommu_driver_get_domain_for_dev);
-> +
->   /*
->    * For IOMMU_DOMAIN_DMA implementations which already provide their own
->    * guarantees that the group and its default domain are valid and correct.
+Tests that were not ran because of internal issues:
+    /distribution/check-install [aarch64]
+    /distribution/command [aarch64]
+    /test/misc/machineinfo [aarch64]
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
 
-Others look good to me.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
