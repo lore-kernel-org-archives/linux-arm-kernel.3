@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337FFCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4616CD3429
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iD6vtrRiqRZrqacv/A5UUfoAppBPQ2mnaERSKSCrLnk=; b=nGd4HCM5jHcqfW1tN6flH9jhQN
-	c+07f+jBSlbWXZ0UCH/RA5XbKjdMNK00ar9sOf7eXhxd8p6baOm1sEVUYbMpBq8N9ZI3EGYkUkw7t
-	ulcpRd7/dOjRvziksz2GoMmgkZgqB8LTWz+iOB6E2ySw+5+aTFO6hBqfFYqE8HlYkx29/IxJeBk45
-	wdZ6S87haiyyxkmaTVnL/VSOfbpouU23UvllTYordwzhWKnIZ5GNJOOT8jGo++kvtzo2DqXvUHnc2
-	xjuI3Vqrj1DGqfMHMLtyewHAwlcWEJip8j2RT5x4dFOMDH3jzfOJT0+6Tpn8XfvuysM6HKC8FfMl+
-	J7VogSvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M1eCAhXmDr9+kBNATXdCTz8d5iMFSVRFKM18smgzemg=; b=M3jftw/mFzeNYVKcO7LkLLCFqQ
+	A8oSUktreVdC/orFu1YCZj3qVnoQPcwxwXhJTbjeSstwvyXbw2oHbnnJEBg6dIaBk9xYYIMZyNSgq
+	DqMrxBQPuWqVyeq0N+Ha6Q+cuVLxYgdP6o8qckHqQx3KWfXeoYZY/vlw010OYYQYn82tg9x4yS1C+
+	ekRgi/H89WtRK/WTOr9AqQ6I2S2Cny8W/4jqMfnVUMvQLTtj9YHnDSHTLKYw33VY00inUXiUddaqR
+	uoFRgupU1L5/gwXSPJn28k+TkQdD+TcD4x06YORft3jcA9EpUhH0oV8Kfoki1tOtkG+d7Xypg8mHH
+	mxnHM9mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJF0L-00000009H4E-02Uq;
-	Wed, 12 Nov 2025 17:51:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJF2D-00000009HF8-3AWn;
+	Wed, 12 Nov 2025 17:53:33 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJF0I-00000009H3l-1zNi;
-	Wed, 12 Nov 2025 17:51:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 145EF44231;
-	Wed, 12 Nov 2025 17:51:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4D3DC4CEF8;
-	Wed, 12 Nov 2025 17:51:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762969893;
-	bh=T7knzhZ/hAoWyK2lUxIZdB+Ka4TMwRh1ujkOMO4Lf04=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rO6Mud0EMKXzwiNc2bQlzO+QiF4pc3XFFext9cJ/t5Wa69rSTMlzvwp4mvrpz5ern
-	 1/w711HXbiu7bl1ydAB5DUdFcwgQ1lJWeN5IpVji2dEdgRtnIF2lrTd0he6MlSGbV+
-	 Zu6LUatZFmxfv4DqArs0FAoWQnazXwpImSlLMqQBPAtLcvSFfO6Qh9Ae3bcMYyPItL
-	 aHx51+xOY/Tg8XTyidCaat1h3AuReI9ji7hHyBaIaStsRhn2b+K5jgPh7En09xzheM
-	 0NaPZ/ftBPYlEZu+UPAyMN6G+DftPSkldBOvdcp8DKUWQSRJl+tUyr3vPq+x1twkib
-	 lhmGS0PYRvO5Q==
-Date: Wed, 12 Nov 2025 23:21:07 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, kernel@pengutronix.de, 
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH 1/4] PCI: dwc: Advertise L1 PM Substates only if driver
- requests it
-Message-ID: <22srj63j7fzmsebwxwjnnxnpmdn2iwxo36gkrl36gdm7ge2xif@dmrdbfgu3hn3>
-References: <20251111221621.2208606-1-helgaas@kernel.org>
- <20251111221621.2208606-2-helgaas@kernel.org>
- <aRRDzKFVTFTIuvvh@ryzen>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRRDzKFVTFTIuvvh@ryzen>
+	id 1vJF2B-00000009HDs-0BZ7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 17:53:32 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-475c422fd70so8010275e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 09:53:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1762970008; x=1763574808; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=M1eCAhXmDr9+kBNATXdCTz8d5iMFSVRFKM18smgzemg=;
+        b=eqG1HgsklB9otifRrKfEbjc/k+OJ+uQtp4nTLtRYg0rPiAeH/zdL2T6cXfwNPiqHP9
+         1CSbqXteDKxAMB4G8X0stbj0HUfJoDuWTsQG66k2NH4tNCPswpcA7ueB0HbJwHXwotkC
+         JbeiEbHlla5Pfzb6AvLF7pVobS0IC8gVl71Gh8y5sG/xukzrBqke+Wakw4The7uAmlxN
+         CaIiYVQFhDJNBphmDodz0rcH/o4lw+JWHPwQX0vAw3s1sUC/P0biIzDBOnTJJSrkFb1b
+         uzNcTlmpV/LZyEZTQL7fuXBGTBUu6zbuNHn0IxTvvY/BoeSf0BKEpbEL0qKZLJAwR8wW
+         fh4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762970008; x=1763574808;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M1eCAhXmDr9+kBNATXdCTz8d5iMFSVRFKM18smgzemg=;
+        b=imeKUFHCVF7lKt9hBSAhFdWrSI3x3L2AS7YgcCi4QWdg58boRMq22kZ9Qt+StrCxQf
+         2t+4lf2gmc5hp0PFzIW3PFsXA2Dl6XmfoJLow8PDDK0IvNNirUnQyd/EyLUUkVONyLBY
+         IusKRaMHrmD0/kumt7k+hqB0jc0/kFZ+ooiYNg17tHuPcJ6YfRi5N3W5U4VhKU3lwtvW
+         S8anMiEnqxfl4wt6A1YTeq2NzdfRUHsKD8tNi3zj7ekx2+07kLXRWEpLpeyaeG8A407i
+         Y4OQTxjKw1VmRfc30UZYaLK9LIM7CGtLbOmNtrY8uhXw9qlYpbDrXNWrSvxMNeMZgEnk
+         ePVg==
+X-Gm-Message-State: AOJu0Yy1rmQ449Up+uE02a9m5y+uiw0ESNUncaNKH83utIuLws/vuyYr
+	D6pR2i4AAdS8HWaiulQoRB9We0K3ViG6pkmJoqcJK6l9YxXURs8hofY7d6+EhGogut2r+FO0Ba9
+	jcEorPtyIevYCXZaSED0jBNh/K3npO9/u4GqZ6zhsdht2A6Nig66ataxjwPGgU3+QjTS8ut0yR5
+	MdghmUr1reUit9xiYojfrnqD0TuEResBsVMqejT/Y7TFEC
+X-Google-Smtp-Source: AGHT+IEebGJGBdHFsjiiDR5eFS/gIcIUAP221Wu8xdiSKNctgoPGWLYMxUjGOPTCDoUPoQqvagm6QWkP
+X-Received: from wmg22.prod.google.com ([2002:a05:600c:22d6:b0:474:979d:a20d])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b13:b0:477:28c1:26ce
+ with SMTP id 5b1f17b1804b1-477870413femr35612675e9.7.1762970008205; Wed, 12
+ Nov 2025 09:53:28 -0800 (PST)
+Date: Wed, 12 Nov 2025 18:53:17 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=753; i=ardb@kernel.org;
+ h=from:subject; bh=OcA6f2ob9JexwbEKAOgfU9lLkm1nmoT5BKN+Rc8QMNs=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVPkZO8+rxsTspMZEmK/NDTOd/rLNdEg64pOAff0YyzyZ
+ Q0rMqo6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwESM/Rn+Cngdzch9I/d1ntma
+ Pw6L/JTj9JSFeebsEvS6cDrC7E1fLyPDt0cOs58aB3/KDpey+/IguqF2yRfvPPmWnzXP98/wMs7 kAAA=
+X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
+Message-ID: <20251112175316.2841017-4-ardb+git@google.com>
+Subject: [PATCH 0/2] efi/arm64: Simplify SVE/SME state preserve/restore
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-efi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Kees Cook <keescook@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_095134_579836_969AA3E3 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20251112_095331_115056_029EF502 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +96,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 09:22:36AM +0100, Niklas Cassel wrote:
-> On Tue, Nov 11, 2025 at 04:16:08PM -0600, Bjorn Helgaas wrote:
-> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > @@ -1060,6 +1060,8 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
-> >  		PCI_COMMAND_MASTER | PCI_COMMAND_SERR;
-> >  	dw_pcie_writel_dbi(pci, PCI_COMMAND, val);
-> >  
-> > +	dw_pcie_config_l1ss(pci);
-> 
-> The name dw_pcie_config_l1ss() sounds like we are enabling l1ss.
-> 
-> I know naming is hard.
-> 
-> Perhaps dw_pcie_disable_unsupported_l1ss() ?
-> 
-> Or something similar.
-> 
-> 
-> > --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> > @@ -1067,6 +1067,8 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
-> >  	val &= ~REQ_NOT_ENTR_L1;
-> >  	writel(val, pcie->parf + PARF_PM_CTRL);
-> >  
-> > +	pci->l1ss_support = true;
-> > +
-> >  	val = readl(pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
-> >  	val |= EN;
-> >  	writel(val, pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
-> 
-> While it seems like ops_2_7_0 is the only type that explicitly does a
-> register write to enable L1ss, other versions might have the register
-> as enabled by default, so it would be nice if Mani could confirm exactly
-> which versions that should set l1ss_support = true.
-> 
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Yes, on the rest of the platforms, this bit is supposed to be enabled by
-default. AFAIK, all Qcom platforms should support L1SS, atleast the
-non-IPQ/APQ ones.
+The EFI specific SVE/SME state preserve/restore logic is unneeded, and
+can be removed. Patch #1 adds some lkdtm test cases to emulate the
+condition under which this code might be called.
 
-We should set it for below cfgs:
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Kees Cook <keescook@chromium.org>
 
-cfg_fw_managed
-cfg_sc8280xp
-cfg_1_34_0
-cfg_1_9_0
-cfg_2_7_0
+Ard Biesheuvel (2):
+  lkdtm/bugs: Add cases for BUG and PANIC occurring in hardirq context
+  arm64/efi: Remove unneeded SVE/SME fallback preserve/store handling
 
-I excluded msm8996 due to one recent bug report.
-
-- Mani
+ arch/arm64/kernel/fpsimd.c | 130 +++-----------------
+ drivers/misc/lkdtm/bugs.c  |  53 ++++++++
+ 2 files changed, 73 insertions(+), 110 deletions(-)
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.52.0.rc1.455.g30608eb744-goog
+
 
