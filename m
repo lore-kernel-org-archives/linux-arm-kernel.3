@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96AE0CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DD9CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2kO2vWIGsxvP5jIy7quJYT/UfLR+pgK9lzFV+ZhbJnU=; b=YQeNs/RYakdMCBTl9Sdmj2j6Ka
-	4PAus2AqbkficCJ61QHXuCi2JGf/sWMTfnzg65jUmIlW2aVjmSO4Mxx7tVQu47ejVHnB6Twd+LVdh
-	FXDU2EsLnFKX+uGJ3thTNETXBGcEsTWXIPjKY06Ffyz6+sMDY0tAol8qa7R6y+4XVg0k2Xie2PHtT
-	aaf4bvgcACb4vD5truUX6kbrXq33gVc6cAM0BcgCuB3fvrB9/fMhKi/KZXmDIrAFBINeI1kF7noi3
-	D6ApKigbMceeOQQO2tn2YeXpMkhTINbgWE3jdozkPT99dXxDYyepBzL1d+YY0GjUiesJkisND353M
-	fc8drVUA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eaY9qzSEuHwDMfDqM2mSbh8XyoCRrbKT1zEVawsT8+w=; b=jndibZavJhquT4EkA26wrxZcUE
+	AJMrxpJaeT6ldMWdOktjxjhTVBWnEY8t8Ow6IfskUrTGg5jHqmHGR5rFc3ahDJZM9XwTHvUoeZO0D
+	rxC+OVIz8ePrW/9NJtw7W7YAKs5Gxmxig4OoJm9XnR8jAzyJhYQgMfzoFGxQJ64VhzOQNzt1tEfMf
+	LS6kymRR7W8T1EGe7+IbejEQJpImatXJ3hdL1P5VvXZKCP/j6gGHFDsYDoqMUSWoSKWh+k6lrkRVQ
+	DgNe4rBtXs6PCUnC/AVRWopul0J7ejgxs2wQBFm4voy35DvryqvP2ATgjnYIwCZBjC/V4yUI+KXJa
+	IHMpV9JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8i4-00000008dxY-2t4n;
-	Wed, 12 Nov 2025 11:08:20 +0000
+	id 1vJ8iA-00000008e0g-21jy;
+	Wed, 12 Nov 2025 11:08:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8i2-00000008dwi-3q6H
+	id 1vJ8i7-00000008dyy-3PY8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 11:08:20 +0000
+	Wed, 12 Nov 2025 11:08:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F6F31515;
-	Wed, 12 Nov 2025 03:08:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B70531595;
+	Wed, 12 Nov 2025 03:08:15 -0800 (PST)
 Received: from MacBook-Pro.blr.arm.com.com (unknown [10.164.18.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AD24E3F66E;
-	Wed, 12 Nov 2025 03:08:12 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 58F5D3F66E;
+	Wed, 12 Nov 2025 03:08:18 -0800 (PST)
 From: Dev Jain <dev.jain@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -50,15 +50,17 @@ Cc: ryan.roberts@arm.com,
 	david@kernel.org,
 	ziy@nvidia.com,
 	Dev Jain <dev.jain@arm.com>
-Subject: [RFC PATCH 0/2] Enable vmalloc block mappings by default on arm64
-Date: Wed, 12 Nov 2025 16:38:05 +0530
-Message-Id: <20251112110807.69958-1-dev.jain@arm.com>
+Subject: [RFC PATCH 1/2] mm/vmalloc: Do not align size to huge size
+Date: Wed, 12 Nov 2025 16:38:06 +0530
+Message-Id: <20251112110807.69958-2-dev.jain@arm.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20251112110807.69958-1-dev.jain@arm.com>
+References: <20251112110807.69958-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_030818_993911_F27D01CA 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20251112_030823_931087_A4C0BDEF 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +75,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the quest for reducing TLB pressure via block mappings, enable huge
-vmalloc by default on arm64 for BBML2-noabort systems which support kernel
-live mapping split.
+vmalloc() consists of the following:
 
-This series is an RFC, because I cannot get a performance improvement for
-the usual benchmarks which we have. Currently, vmalloc follows an opt-in
-approach for block mappings - the users calling vmalloc_huge() are the ones
-which expect the most advantage from block mappings. Most users of
-vmalloc(), kvmalloc() and kvzalloc() map a single page. After applying this
-series, it is expected that a considerable number of users will produce
-cont mappings, and probably none will produce PMD mappings.
+(1) find empty space in the vmalloc space -> (2) get physical pages from
+the buddy system -> (3) map the pages into the pagetable.
 
-I am asking for help from the community in testing - I believe that one of
-the testing methods is xfstests: a lot of code uses the APIs mentioned
-above. I am hoping that someone can jump in and run at least xfstests, and
-probably some other tests which can take advantage of the reduced TLB
-pressure from vmalloc cont mappings.
+It turns out that the cost of (1) and (3) is pretty insignificant. Hence,
+the cost of vmalloc becomes highly sensitive to physical memory allocation
+time.
 
-Dev Jain (2):
-  mm/vmalloc: Do not align size to huge size
-  arm64/mm: Enable vmalloc-huge by default
+Currently, if we decide to use huge mappings, apart from aligning the start
+of the target vm_struct region to the huge-alignment, we also align the
+size. This does not seem to produce any benefit (apart from simplification
+of the code), and there is a clear disadvantage - as mentioned above, the
+main cost of vmalloc comes from its interaction with the buddy system, and
+thus requesting more memory than was requested by the caller is suboptimal
+and unnecessary.
 
- arch/arm64/include/asm/vmalloc.h |  6 +++++
- arch/arm64/mm/pageattr.c         |  4 +--
- include/linux/vmalloc.h          |  7 +++++
- mm/vmalloc.c                     | 44 +++++++++++++++++++++++++-------
- 4 files changed, 49 insertions(+), 12 deletions(-)
+This change is also motivated due to the next patch ("arm64/mm: Enable
+vmalloc-huge by default"). Suppose that some user of vmalloc maps 17 pages,
+uses that mapping for an extremely short time, and vfree's it. That patch,
+without this patch, on arm64 will ultimately map 16 * 2 = 32 pages in a
+contiguous way. Since the mapping is used for a very short time, it is
+likely that the extra cost of mapping 15 pages defeats any benefit from
+reduced TLB pressure, and regresses that code path. 
 
+Signed-off-by: Dev Jain <dev.jain@arm.com>
+---
+ mm/vmalloc.c | 38 ++++++++++++++++++++++++++++++--------
+ 1 file changed, 30 insertions(+), 8 deletions(-)
+
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 798b2ed21e46..ddd9294a4634 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -647,7 +647,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages, unsigned int page_shift)
+ {
+-	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
++	unsigned int i, step, nr = (end - addr) >> PAGE_SHIFT;
+ 
+ 	WARN_ON(page_shift < PAGE_SHIFT);
+ 
+@@ -655,7 +655,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 			page_shift == PAGE_SHIFT)
+ 		return vmap_small_pages_range_noflush(addr, end, prot, pages);
+ 
+-	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
++	step = 1U << (page_shift - PAGE_SHIFT);
++	for (i = 0; i < ALIGN_DOWN(nr, step); i += step) {
+ 		int err;
+ 
+ 		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+@@ -666,8 +667,9 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 
+ 		addr += 1UL << page_shift;
+ 	}
+-
+-	return 0;
++	if (IS_ALIGNED(nr, step))
++		return 0;
++	return vmap_small_pages_range_noflush(addr, end, prot, pages + i);
+ }
+ 
+ int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+@@ -3171,7 +3173,7 @@ struct vm_struct *__get_vm_area_node(unsigned long size,
+ 	unsigned long requested_size = size;
+ 
+ 	BUG_ON(in_interrupt());
+-	size = ALIGN(size, 1ul << shift);
++	size = PAGE_ALIGN(size);
+ 	if (unlikely(!size))
+ 		return NULL;
+ 
+@@ -3327,7 +3329,7 @@ static void vm_reset_perms(struct vm_struct *area)
+ 	 * Find the start and end range of the direct mappings to make sure that
+ 	 * the vm_unmap_aliases() flush includes the direct map.
+ 	 */
+-	for (i = 0; i < area->nr_pages; i += 1U << page_order) {
++	for (i = 0; i < ALIGN_DOWN(area->nr_pages, 1U << page_order); i += (1U << page_order)) {
+ 		unsigned long addr = (unsigned long)page_address(area->pages[i]);
+ 
+ 		if (addr) {
+@@ -3339,6 +3341,18 @@ static void vm_reset_perms(struct vm_struct *area)
+ 			flush_dmap = 1;
+ 		}
+ 	}
++	for (; i < area->nr_pages; ++i) {
++		unsigned long addr = (unsigned long)page_address(area->pages[i]);
++
++		if (addr) {
++			unsigned long page_size;
++
++			page_size = PAGE_SIZE;
++			start = min(addr, start);
++			end = max(addr + page_size, end);
++			flush_dmap = 1;
++		}
++	}
+ 
+ 	/*
+ 	 * Set direct map to something invalid so that it won't be cached if
+@@ -3602,6 +3616,7 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
+ 	 * more permissive.
+ 	 */
+ 	if (!order) {
++page_map:
+ 		while (nr_allocated < nr_pages) {
+ 			unsigned int nr, nr_pages_request;
+ 
+@@ -3633,13 +3648,18 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
+ 			 * If zero or pages were obtained partly,
+ 			 * fallback to a single page allocator.
+ 			 */
+-			if (nr != nr_pages_request)
++			if (nr != nr_pages_request) {
++				order = 0;
+ 				break;
++			}
+ 		}
+ 	}
+ 
+ 	/* High-order pages or fallback path if "bulk" fails. */
+ 	while (nr_allocated < nr_pages) {
++		if (nr_pages - nr_allocated < (1UL << order))
++			goto page_map;
++
+ 		if (!(gfp & __GFP_NOFAIL) && fatal_signal_pending(current))
+ 			break;
+ 
+@@ -5024,7 +5044,9 @@ static void show_numa_info(struct seq_file *m, struct vm_struct *v,
+ 
+ 	memset(counters, 0, nr_node_ids * sizeof(unsigned int));
+ 
+-	for (nr = 0; nr < v->nr_pages; nr += step)
++	for (nr = 0; nr < ALIGN_DOWN(v->nr_pages, step); nr += step)
++		counters[page_to_nid(v->pages[nr])] += step;
++	for (; nr < v->nr_pages; ++nr)
+ 		counters[page_to_nid(v->pages[nr])] += step;
+ 	for_each_node_state(nr, N_HIGH_MEMORY)
+ 		if (counters[nr])
 -- 
 2.30.2
 
