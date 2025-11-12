@@ -4,144 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF92CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 13:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EE4CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 13:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGXDUZfwsFaeBt+mI+uOkjAH29Y58afQeL3Rc1JtMjU=; b=zsSOO2b97ZaPoDv6Ftw4WbzReF
-	imXV0vNJ9ZkbII4D/9HG28UXckPksd85ksUX+g9vAxw4hyi7vzEd2puCg4bWepI1yHC20A8hMm5jO
-	B2ESju0CSth8KQRjoqcOixtF6fEGesYl9XVNRTtC6++CsvDI9IumOuhXvgPaCwqCBLaQUQYnySAGi
-	91sh3BcgT9+OZVF6d9g3ZDiMFhF84Vlit8cv61cqkylDgsf59rcTG86abjMdESok/IetbR+gkc4cU
-	OaM6J/CnbLsAdkJmV/WeUS008Qpgc3rmebHmlUQJXEAPjC78UMyu2LTpcqlwtY+v7OZhexmfdZgxb
-	oK3atP+Q==;
+	bh=SgZfesCetY4oHvl5h838KNujUcn8Vd//cFUVGen2iPY=; b=Yn5NxNY19DEtFzJl1k5zFiZdGi
+	SAhtKrQPQx86IoIitguH0/lrrTtMUpo6TYPMwyDyWWZ/Nb4I7I4EAR4rCa2U7EDPhw33PfREyJu8x
+	71OZFqnFVAq7TWQ2Y5+ylPDGD4TTzvCURt7JYtXOAs3fBHUZMLFv6cd6fnpxIcg0do1/SI8MIiVlt
+	WPHL+IrHxdeNgV5FJL+a9baVXJiCsgdT8ihTt4u2snufMqtuxx9tey1hDGj7ISUs7Ykl+r4tMdiB3
+	u2TLt/XJu6tOkQsF2z7PsyC4KyD9vHLYUAGzgqkNcJVYqFXPeJOy80mKoMuL2eraxLz5D5gDwzolr
+	bQa1LZ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAzY-00000008r0Y-108p;
-	Wed, 12 Nov 2025 13:34:32 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vJB2q-00000008rIr-28Hp;
+	Wed, 12 Nov 2025 13:37:56 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAzV-00000008qzm-3NK7
+	id 1vJB2m-00000008rI4-3v02
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 13:34:31 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AC7jh913506684
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 13:34:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qGXDUZfwsFaeBt+mI+uOkjAH29Y58afQeL3Rc1JtMjU=; b=DkzSjzv7o890FYzS
-	PBiPzp55r4DJMOP29CmA8Sqo05Q4TKIbmj95EaPeqWWnkd7n7ssJzT3K6OzItw+S
-	SiyjcxBWTAHBfIoyfvSdtNrjopSWDFF2z0DEOUztvgtFdJptwCS3nI/ef67tW/ho
-	kmDq/sUiFJYzpxvmVLww9GJAyVxCl32gu1Apg/6oi4GqVGn9smOkS/cDbPDlC50T
-	7YvxvQyN4QIevIwB6DvVJkSWE50k379exeVVACRgedoP3kTRA+dI8cmfXTrIhfam
-	/V6u8uGdGYwaE02sycCc6ANZDLWkvMkv6fosAbUnSW/isUMVUfi/9uLrywQ4/sLQ
-	4nyjVw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4acdcc2kay-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 13:34:29 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b222111167so22945785a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 05:34:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1762954468; x=1763559268; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qGXDUZfwsFaeBt+mI+uOkjAH29Y58afQeL3Rc1JtMjU=;
-        b=Cku55cNOrwSEqi/qqgXBo2qJxrlfhbSzXy7QkKzX8nTY4ncKbYCHJznHrHBBAzE94U
-         C5Ed9HjE/AMfspF+/MFkqtl8chTXJqxZ/a3PuOyqZYwL5BCFw/tf/nez3ZnEnoRRgoI7
-         P7F/kE06pMhZMIisS+H125tIRKFDg4SCzYiVoM9QzWcmtCVKyghn2/ETumFetYRMZuR1
-         ATq0hv3Qd1GIF3qB0B9d752QIUikuX/KBz8BY8Y7G16ZWfsZLtg9kTEtrFyps1Y26Euy
-         Eimeip3kkZLc6nt4sGhx7OcnMQhZejNIYgbCYSc0Uwu8OHqChWQwKsNWneCAs7MCuMSd
-         uVdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762954468; x=1763559268;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qGXDUZfwsFaeBt+mI+uOkjAH29Y58afQeL3Rc1JtMjU=;
-        b=sGR9hCKyOA/6AalTt1VR3bxJi8X60108n3WmNfXWsTBh/ytBacmfQbOZx3PIyWp2un
-         eKW+Pd9al+xQJDY1LyMBuYFlA4Y20/wtPZxqGek+sq1g++AtBRBO9ytIBeJGGbz6NxKF
-         HdNAg7t91zs1mX8hft2yDNY6FLLFEoxI90jtoF7m0+TG2Zc13rSTU7I0SkuX65+byigt
-         lhPGroov9dAmRedCfnzx+BK867Si3tty2S9jYvFAGU/vNGJ/8n9Jm+kN7KxyTe2M/XAr
-         /8jNyWBIc4V7zWuZFPYwMmgknfr1qaWr8Pm2HOJxCi9LkfgpqyCmqOIeFoEjcmMRcLx5
-         bVxg==
-X-Forwarded-Encrypted: i=1; AJvYcCUE063b1BKuYEOJaoJjeU/Zss5slJcYBSe4T8nSzMSrkxbX2ntvTlrge1RDjxkmJ+aZmflr+HPHlXcRQnZkpbuc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5MK/i2hf9LqJsAXeFPcQVjKw4OULx6thpjDwBFIdqZyCNgxDr
-	nYMAjkxe385mwijUiqSq6dNjrAoIzDMPF1GBFvNdpK5iAY+v1zOAhcibzBa5sPzf7I4FdafZKmX
-	Q5z1SDybF3lUKPksU/EwJ64Heg0/Y8/TObMMjOpUw8C1KVpTWGZAG9GwbqTdCVFFwVkxxMcgTly
-	uVFLaBbnq7MA==
-X-Gm-Gg: ASbGncuYBsX5DTSjjSh7+YScHK5JRKaMgzh+cHertQCJVrwCXI4bjSwCZ2vGtOLji2L
-	T/4DXvJYKF+PvmUOy0WxFojhYTFsbJ37XWL+ztt+kdd0GHZU5IP2IwITjwRhdPQ/T/EPrxEb9L4
-	BfYup3MOgkGcigomp7OxIX3qRaqIVsgbwM/ChH43sGtcdy8oQGTa57yfwWTz/31SqHNBonVcQRa
-	yvv/mLdROyYtmxxptoiRcgpGZJKbz97rg7fuULhjUK7lXjM2++YRL8YpDxt9sLdv2VIUvMj5vKF
-	6OmS0XThAAi44RxXoty0zXKkOSydRVVfvGhmtvHLiCMkwdsQJDjSLruHQwwqB5yDQLcRtr0XzK/
-	iQEH8HItjT08R535WgdYNHIHDySK5NQwhTRMZqtLgzzZmeqWMRId7a5Xv
-X-Received: by 2002:ac8:5808:0:b0:4ed:a8f8:307b with SMTP id d75a77b69052e-4eddba75ee9mr26331631cf.0.1762954467860;
-        Wed, 12 Nov 2025 05:34:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGxtX+WAajjcT2p8bWAOl+s/zxUhDfeHoxA5vB04XFWyNVaIXKxhv+DFjlp7i/O3F94Gm5Rmg==
-X-Received: by 2002:ac8:5808:0:b0:4ed:a8f8:307b with SMTP id d75a77b69052e-4eddba75ee9mr26331151cf.0.1762954467258;
-        Wed, 12 Nov 2025 05:34:27 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7339a7078dsm105318066b.6.2025.11.12.05.34.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Nov 2025 05:34:26 -0800 (PST)
-Message-ID: <5a1aaf4a-c5d5-42e1-9044-d12a6c231904@oss.qualcomm.com>
-Date: Wed, 12 Nov 2025 14:34:24 +0100
+	Wed, 12 Nov 2025 13:37:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A24711A1A29;
+	Wed, 12 Nov 2025 13:37:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6ADE06070B;
+	Wed, 12 Nov 2025 13:37:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 126FA102F16E2;
+	Wed, 12 Nov 2025 14:37:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762954669; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=SgZfesCetY4oHvl5h838KNujUcn8Vd//cFUVGen2iPY=;
+	b=FMJuKDZ8BinI+FLM8rQQYM1P95xSOnbXoDKeJX1JKeNhlx2VD2Kgvt38kskzvKKYSJ/S78
+	vPGvQGQL/hJ659RvOdvPRl30w0qoHWa/n73nGPqDDVGqRWVzvLvfBF6NK9VrGALfq05uY8
+	nX9KCCokyIq4T5m9kAPBa1/z4YToLM7HYuWEMMpaXbflNe6dzzZwzFXv+2KmDRLEvQR2tY
+	BhxpY5iT3dgg88OczC6vCcb0MSmVTR67/YZTEmmjhgsu7L6DG8O0pA14w6r5bSpYj7ZNbe
+	3CnRca/IH3scqTddJqWPsgBrjX+qcBSFGY+9ac4YjgQn7AnZYl4vlHsTczY/Cw==
+Message-ID: <7c96aca1-ffa7-49b9-9fc2-04229da338b6@bootlin.com>
+Date: Wed, 12 Nov 2025 14:37:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 0/5] iommu/arm-smmu: introduction of ACTLR
- implementation for Qualcomm SoCs
-To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        Enric Balletbo i Serra <eballetb@redhat.com>
-Cc: robdclark@gmail.com, will@kernel.org, robin.murphy@arm.com,
-        joro@8bytes.org, jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
-        krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
-        dmitry.baryshkov@linaro.org, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
-        Eric Chanudet <echanude@redhat.com>, charan.kalla@oss.qualcomm.com
-References: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
- <CALE0LRupg93WsBVc62Lqt-T9qmK5MdEYoScxyP7=ttKJYXAsUA@mail.gmail.com>
- <33826089-54b5-47bc-8a5b-6004c7a276b8@oss.qualcomm.com>
+Subject: Re: [PATCH net-next v15 01/15] dt-bindings: net: Introduce the
+ ethernet-connector description
+To: Rob Herring <robh@kernel.org>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+ Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
+ <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
+ <20251112124355.GA1269790-robh@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <33826089-54b5-47bc-8a5b-6004c7a276b8@oss.qualcomm.com>
+In-Reply-To: <20251112124355.GA1269790-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: urEGFtP9Mykd-AbAUrouT6gfq2K01dLq
-X-Proofpoint-ORIG-GUID: urEGFtP9Mykd-AbAUrouT6gfq2K01dLq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDEwOSBTYWx0ZWRfX9i7maxlSNiuG
- VEP+7RwYH95m9o8BfZKYbj0HfnXH0cHT84PEND8fkpR9Km8qLKR0tan67bSSJQuUnLJs/neYe6K
- Ku1elSfCST09Z9Rh7PpvqNNN9aKalIhBs4x3fC0FikHzwOSWM4uui9Y0U+FwNxZH7a95ACRJJ6W
- tvd7+Fs0Pw4+q2xoTMR5iN2Fzj+u2HJjO0N7YHMQySPzbFI+IJEHc5iwumNgbF+CpoR/53qp2sP
- NCWKaHRW5dQJ9g/BVgVzSGyxZaqwjwJDf3yCPbScb+4Sq/XG+i9xcFieCI1c9OKJM5IqCt5ftnp
- j07X/K24kB6IJWPb1Eo/zEZKoERBwznh+vtDyzsFNHIbcDFHX91ou10Tu8EwMNWzLZlylHiuh3n
- CDbZ7O+YXekEs14yZfNL76Aepf2w8A==
-X-Authority-Analysis: v=2.4 cv=L/0QguT8 c=1 sm=1 tr=0 ts=69148ce5 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=QyXUC8HyAAAA:8
- a=i3X5FwGiAAAA:8 a=EUspDBNiAAAA:8 a=SKrgUew0zp_WtuwtRiYA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=TjNXssC_j7lpFel5tvFf:22
- a=mmqRlSCDY2ywfjPLJ4af:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-12_03,2025-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
- clxscore=1015 adultscore=0 suspectscore=0 spamscore=0 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511120109
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_053429_873603_5A43E1BD 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20251112_053753_111193_4F80BBE4 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,129 +98,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/25 9:45 AM, Bibek Kumar Patro wrote:
-> 
-> 
-> On 11/7/2025 2:58 PM, Enric Balletbo i Serra wrote:
->> On Thu, Dec 12, 2024 at 4:14 PM Bibek Kumar Patro
->> <quic_bibekkum@quicinc.com> wrote:
->>>
->>> This patch series consist of six parts and covers the following:
->>>
->>> 1. Provide option to re-enable context caching to retain prefetcher
->>>     settings during reset and runtime suspend.
->>>
->>> 2. Remove cfg inside qcom_smmu structure and replace it with single
->>>     pointer to qcom_smmu_match_data avoiding replication of multiple
->>>     members from same.
->>>
->>> 3. Add support for ACTLR PRR bit setup via adreno-smmu-priv interface.
->>>
->>> 4. Introduce intital set of driver changes to implement ACTLR register
->>>     for custom prefetcher settings in Qualcomm SoCs.
->>>
->>> 5. Add ACTLR data and support for qcom_smmu_500.
->>>
->>> Changes in v18 from v17_RESEND:
->>>   - 1/5 : No changes
->>>   - 2/5 : No changes - reviewed-by tags collected
->>>   - 3/5 : Addition of
->>>     pm_runtime_resume_and_get()/pm_runtime_put_autosuspend()
->>>     around register access of PRR related private interfaces
->>>     as discussed in v17_RESEND.
->>>   - 4/5, 5/5 : No changes - reviewed-by tags collected
->>>   Link to v17_RESEND:
->>>   https://lore.kernel.org/all/20241114160721.1527934-1-quic_bibekkum@quicinc.com/
->>>
->>> Resend of v17:
->>>   Addition of minor fix of the build warning reported by kernel test robot [1] by powerpc_random config [2].
->>>   [1]:https://lore.kernel.org/all/202411140748.6mcFdJdO-lkp@intel.com/#t
->>>   [2]:https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/config
->>>
->>> Changes in v17 from v16:
->>>   Tags provided earlier not collected yet on patch 1/5, 3/5, 4/5, 5/5
->>>   due to the following revisions:
->>>   - 1/5 : Move the CPRE workaround out of qualcomm specific logic and gate with config
->>>           , update the silicon-errata.rst file
->>>   - 2/5 : No changes - reviewed-by tags collected
->>>   - 3/5 : Move the compatible check before assignment of callback as suggested.
->>>   - 4/5 : Add the actlr setting for *adreno variant* of MMU-500 as well.
->>>   - 5/5 : Due to changes in 1/5, minor refactoring had to be done before adding table.
->>>   Link to v16:
->>>   https://lore.kernel.org/all/20241008125410.3422512-1-quic_bibekkum@quicinc.com/
->>>
->>> Changes in v16 from v15:
->>>   - Incorporate Dimitry's suggestion on patch 4/5 to use dev_dbg instead of dev_notice.
->>>   - Fix kernel test robot warning [1] coming for 32bit architecture configuration.
->>>   - Updatingthe tags
->>>   [1]: https://lore.kernel.org/all/202409230343.Q8KnYl2w-lkp@intel.com/
->>>   Link to v15:
->>>   https://lore.kernel.org/all/20240920155813.3434021-1-quic_bibekkum@quicinc.com/
->>>
->>> Changes in v15 from v14:
->>>   - As discussed with Robin and Dmitry modify the actlr table and logic to use
->>>     compatible string instead of sid, mask for device matching which is
->>>     similar to qcom_smmu_client_of_match mechanism.
->>>   - Expand the comment in qcom_smmu500_reset to document reason why CPRE bit is re-enabled again
->>>     after arm_mmu500_reset resets the bit.
->>>   - Rearrange the series in order to keep prefetch setting patches in the end.
->>>   Link to v14:
->>>   https://lore.kernel.org/all/20240816174259.2056829-1-quic_bibekkum@quicinc.com/
->>>
->>
->> Hi all,
->>
->> I've been looking at the evolution of the Qualcomm SMMU driver
->> (arm-smmu-qcom.c) and had a question about the design change for
->> configuring the SMMU_CB_ACTLR register.
->>
->> It appears there are two different approaches:
->>
->> 1. The "SID" Approach (Older): In some versions, a driver would use a
->> large, platform-specific struct (e.g., sa8775p_apps_actlr_cfg) that
->> maps individual Stream IDs (SIDs) to specific ACTLR values. This
->> allowed for very granular, per-SID tuning. For example, a device with
->> 10 SIDs could have a specific setting for just one (0x2141), while the
->> others used a default.
->>
->> 2. The "Compatible String" Approach (Newer/Upstream): The current
->> upstream driver appears to use a client_match array (an of_device_id
->> list) in qcom_smmu_init_context. This maps a device's compatible
->> string to a single ACTLR value, which is then written to the device's
->> assigned Context Bank.
->>
->> I want to make sure I understand the implications of this new, simpler
->> approach, as it seems to introduce a trade-off where granularity is
->> lost:
->>
->> Multiple SIDs, One Device: A single device that uses many SIDs in the
->> device tree (e.g., the video codec, which might list 0x2141, 0x25C1,
->> 0x2161, etc.) will now have one ACTLR setting applied to the Context
->> Bank that serves all of those SIDs, even if the old SID-based list
->> only specified a setting for one of them.
->>
->> Am I correct in this analysis? I'm assuming this was an intentional
->> design choice to simplify the driver, based on the assumption that all
->> SIDs for a single device (and all devices with the same compatible)
->> can share the same ACTLR tuning.
->>
-> 
-> Hi Eric,
-> 
-> If a device has multiple SIDs, all serving the same functionality and grouped under the same "iommus" field, for example:
-> 
-> iommus = <&apps_smmu, 0x2141, 0x0>,
->           <&apps_smmu, 0x25c1, 0x0>,
->           <&apps_smmu, 0x2161, 0x0>;
-> 
-> In this case, all the SIDs will be associated with the same context bank. Even if the three SIDs have different ACTLR settings, since SMMU_CB_ACTLR is per CB setting, all SIDs attached to that bank will share the same ACTLR configuration. This is why we designed it to be "per device / per compatible".
+Hi Rob,
 
-Does that suggest the settings may be slightly suboptimal?
+On 12/11/2025 13:43, Rob Herring wrote:
+> On Thu, Nov 06, 2025 at 10:47:26AM +0100, Maxime Chevallier wrote:
+>> The ability to describe the physical ports of Ethernet devices is useful
+>> to describe multi-port devices, as well as to remove any ambiguity with
+>> regard to the nature of the port.
+>>
+>> Moreover, describing ports allows for a better description of features
+>> that are tied to connectors, such as PoE through the PSE-PD devices.
+>>
+>> Introduce a binding to allow describing the ports, for now with 2
+>> attributes :
+>>
+>>  - The number of lanes, which is a quite generic property that allows
+>>    differentating between multiple similar technologies such as BaseT1
+>>    and "regular" BaseT (which usually means BaseT4).
+>>
+>>  - The media that can be used on that port, such as BaseT for Twisted
+>>    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+>>    ethernet, etc. This allows defining the nature of the port, and
+>>    therefore avoids the need for vendor-specific properties such as
+>>    "micrel,fiber-mode" or "ti,fiber-mode".
+>>
+>> The port description lives in its own file, as it is intended in the
+>> future to allow describing the ports for phy-less devices.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>>  .../bindings/net/ethernet-connector.yaml      | 53 +++++++++++++++++++
+>>  .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
+>>  MAINTAINERS                                   |  1 +
+>>  3 files changed, 72 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>> new file mode 100644
+>> index 000000000000..2b67907582c7
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>> @@ -0,0 +1,53 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Generic Ethernet Connector
+>> +
+>> +maintainers:
+>> +  - Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> +
+>> +description:
+>> +  An Ethernet Connector represents the output of a network component such as
+>> +  a PHY, an Ethernet controller with no PHY, or an SFP module.
+>> +
+>> +properties:
+>> +
+>> +  pairs:
+>> +    description:
+>> +      Defines the number of BaseT pairs that are used on the connector.
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> 
+> Constraints? Wouldn't 4 pairs be the max?
 
-There's some work being done to allow more granular association of
-the passed SIDs:
+Andrew also made that remark on the code, I'll add a constraint on
+1, 2 or 4 pairs.
 
-https://lore.kernel.org/linux-arm-msm/20250928171718.436440-1-charan.kalla@oss.qualcomm.com/
+> 
+> Is it possible you need to know which pairs are wired?
 
-Konrad
+For now I don't think so, except maybe for when 2 pairs are wired
+when 4 are supported on the PHY and connector, but even then I don't
+think HW designers have a choice about which one to use. It's unclear
+to me wether this would be useful.
+
+> 
+>> +
+>> +  media:
+> 
+> Both of these names are a bit generic though I don't have a better 
+> suggestion.
+> 
+>> +    description:
+>> +      The mediums, as defined in 802.3, that can be used on the port.
+>> +    enum:
+>> +      - BaseT
+>> +      - BaseK
+>> +      - BaseS
+>> +      - BaseC
+>> +      - BaseL
+>> +      - BaseD
+>> +      - BaseE
+>> +      - BaseF
+>> +      - BaseV
+>> +      - BaseMLD
+>> +
+>> +required:
+>> +  - media
+>> +
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        media:
+>> +          contains:
+>> +            const: BaseT
+>> +    then:
+>> +      required:
+>> +        - pairs
+> 
+> else:
+>   properties:
+>     pairs: false
+> 
+> ??
+
+Ah I didn't know this was necessary, I'll add that, thanks !
+
+> 
+>> +
+>> +additionalProperties: true
+>> +
+>> +...
+>> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>> index 2ec2d9fda7e3..f434768d6bae 100644
+>> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>> @@ -277,6 +277,17 @@ properties:
+>>  
+>>      additionalProperties: false
+>>  
+>> +  mdi:
+>> +    type: object
+>> +
+>> +    patternProperties:
+>> +      '^connector-[a-f0-9]+$':
+> 
+> Unit addresses are hex, index suffixes are decimal: connector-[0-9]+
+
+Ah right, indeed. I'll address that.
+
+> 
+> 
+>> +        $ref: /schemas/net/ethernet-connector.yaml#
+>> +
+>> +        unevaluatedProperties: false
+>> +
+>> +    additionalProperties: false
+>> +
+>>  required:
+>>    - reg
+>>  
+>> @@ -313,5 +324,12 @@ examples:
+>>                      default-state = "keep";
+>>                  };
+>>              };
+>> +            /* Fast Ethernet port, with only 2 pairs wired */
+>> +            mdi {
+>> +                connector-0 {
+>> +                    pairs = <2>;
+>> +                    media = "BaseT";
+>> +                };
+>> +            };
+>>          };
+>>      };
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 1ab7e8746299..19ba82b98616 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -9276,6 +9276,7 @@ R:	Russell King <linux@armlinux.org.uk>
+>>  L:	netdev@vger.kernel.org
+>>  S:	Maintained
+>>  F:	Documentation/ABI/testing/sysfs-class-net-phydev
+>> +F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>>  F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>>  F:	Documentation/devicetree/bindings/net/mdio*
+>>  F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
+>> -- 
+>> 2.49.0
+>>
+
+Thanks for reviewing !
+
+Maxime
+
 
