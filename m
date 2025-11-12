@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01528CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 07:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF30CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 07:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08iDqk6P13svNsYsS1KWrZFEuZBpCaJzdspTj1f/ibw=; b=kdYdKvyerXHnLQNRNxwL9NWbho
-	k4P0wkqMl2544Ls9EcVxiedqoBsUAHEME+4nx9wAYd2FRrSgG/FKm6JzcLQ8u3eHm2pw9yPetpJ4+
-	15dy/9qNyVkhGZFWbvOqRdUPaMSTiCKEPF+aXfilMhLWhQgQTszP8xEh/vjd3zLTDawYH2rr3R6vG
-	E7Db46Dsr/IRk+iBpXi02/JQyVTth4dl7kF0HxtkLXzVswqKRM/M9vsIVsETc530cK1pLSMMElIw4
-	VX/iP745L5SWpNwSL5Q1WbDyqc3XrHW4OpPnqKJRK4lFCn/gXzrhZZtXaaxzuVDCbGkkM57mynS9Q
-	1SJGl5yg==;
+	bh=45oT/7cnN08EnpXxS1wbz/Dbs/cSfP/qRXG4tgtmFkk=; b=2IyJ2KY6uLTOzd9cJxYzOg8Hrd
+	2lXssNnaYUE/kW4d750jAWwbVmI51tEk60+E0VOvICZJPlRRsoISheoCqbg04TWhma7BLxXWjpOoJ
+	JOQTR2WrLHGRXfeM83uCHfjbmyQAx02Fxu/b5oy68LzJdGZ2ZAwxCgrvsdQN2pgUCR06EWcHtrt9P
+	hIgYznOQudNCcRQPc3ObcdP8QTVu9Pm8QVz3TLsNWh/u4f67JYcoMNMpwn0tC44Pewkpfy8JLqESx
+	LQ8YlJ8QcbaINP/bYOQG64xH7BrcMTrN6nqaKhvkMyTLnrTSjmD25Qw+fd8LEDSnk6XZRr38jOFpV
+	FT37HnIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5ke-00000008IcI-3JOa;
-	Wed, 12 Nov 2025 07:58:48 +0000
+	id 1vJ5lh-00000008Ip3-2hfI;
+	Wed, 12 Nov 2025 07:59:53 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5ke-00000008IbR-26J8
+	id 1vJ5lg-00000008Ior-1Bhm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 07:58:48 +0000
+	Wed, 12 Nov 2025 07:59:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4CD860211;
-	Wed, 12 Nov 2025 07:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7176C19425;
-	Wed, 12 Nov 2025 07:58:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B2E856020F;
+	Wed, 12 Nov 2025 07:59:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 752BBC16AAE;
+	Wed, 12 Nov 2025 07:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762934325;
-	bh=LCcm4OEFjR8DYGyKj6LSbU8hEZdIWWL61ysKlxDrze8=;
+	s=k20201202; t=1762934391;
+	bh=8akT4ONHrb64kEpomTVQoIZ4ml3bBSkkAHISRhlCNw8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=em99TkqXV9U4/QWNHpLXP61LEDKwoh7NyP1c/sGdZHcHYecqBvDgK4BBa4wdDKjgT
-	 jfcppFD9Brk5YirkwYEijLZMbmfDQAddoa2X+y1y/xl7HA5Y3/TJaJqHMgAk6/gZzC
-	 dOWCGbn3lx2ttiBBesuIpvLYgKzxBuv+9s+rEzMmuL5kmMBaZqg7FIVHraFyKLvLTN
-	 +ypehuDtw80VoK6bHLEfZLVAE9cJVsrjfchF/rEFM26+LsB9PW4+Np0yCeizqMbhwe
-	 GTkRKPTzmKlOBL9jqf2p+Gg3OObRGb7n9+EH3+qM+WYIQEkqm6CnWKfVag3A4MTvOi
-	 c+5zuT5Q18ahQ==
-Message-ID: <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org>
-Date: Wed, 12 Nov 2025 08:58:40 +0100
+	b=KK7zbsj5Z0zIlqpCf3ig03tzzo5aDho0FdA6Jh8r9UqeVB64YKFrEcENBmYHPUfDj
+	 LpCZLoMQwXhuiVo68hhc/iEd7o+aQBun6Dp47cZX5TtClU6j/i2dPV1/ODxZrKe1oW
+	 hWbzh2VGRJYM4Ui6/fyN1OUqHs1fa3COoLhsu7ZMIoMxENAhrPtBCcSPewgpHQN3IC
+	 y5qSFS0pYdnxqC0OjmM3EegXcnGTcHGyd+6Rhy1Rk8FF/Bys8HJGBYRbVFD/7eoYcy
+	 RD2xXuQqC46jJoBdND9y3TjWuAIAWv/mm8EakQQ0u44SzE0HgC//5GH95dXAUlQRFV
+	 Qb9VNAmPaUFng==
+Message-ID: <3e99dcf8-7a8d-42e9-9d29-f05542df1fa4@kernel.org>
+Date: Wed, 12 Nov 2025 08:59:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for
- frankel/blazer/mustang
+Subject: Re: [PATCH 2/4] dt-bindings: serial: snps-dw-apb-uart: Add
+ "google,lga-uart"
 To: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
@@ -56,9 +56,12 @@ To: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
 Cc: linux-samsung-soc@vger.kernel.org, Roy Luo <royluo@google.com>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Chen-Yu Tsai <wenst@chromium.org>, Julius Werner <jwerner@chromium.org>,
- William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
+ William McVicker <willmcvicker@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org
 References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
+ <20251111112158.2.I040412d80bc262f213444aa6f6ec4f0334315a67@changeid>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +107,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
+In-Reply-To: <20251111112158.2.I040412d80bc262f213444aa6f6ec4f0334315a67@changeid>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,257 +125,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/11/2025 20:22, Douglas Anderson wrote:
-> Add top-level DT bindings useful for Pixel 10 (frankel), Pixel 10 Pro
-> (blazer), and Pixel 10 Pro XL (mustang).
-> 
-> Since overlays are fairly well-supported these days and the downstream
-> Pixel bootloader assumes that the SoC is the base overlay and specific
-> board revisions are overlays, reflect the SoC / board split in the
-> bindings.
-> 
-> The SoC in the Pixel 10 series has the marketing name of "Tensor
-> G5". Despite the fact that it sounds very similar to the "Tensor G4",
-> it's a very different chip. Tensor G4 was, for all intents and
-> purposes, a Samsung Exynos offshoot whereas Tensor G5 is entirely its
-> own SoC. This SoC is known internally as "laguna" and canonically
-> referred to in code as "lga". There are two known revisions of the
-> SoC: an A0 pre-production variant (ID 0x000500) and a B0 variant (ID
-> 0x000510) used in production. The ID is canonicaly broken up into a
-> 16-bit SoC product ID, a 4-bit major rev, and a 4-bit minor rev.
-> 
-> The dtb for all supported SoC revisions is appended to one of the boot
-> partitions and the bootloader will look at the device trees and pick
-> the correct one. The current bootloader uses a downstream
-> `soc_compatible` node to help it pick the correct device tree. It
-> looks like this:
->   soc_compatible {
->     B0 {
->       description = "LGA B0";
->       product_id = <0x5>;
->       major = <0x1>;
->       minor = <0x0>;
->       pkg_mode = <0x0>;
->     };
->   };
-> Note that `pkg_mode` isn't currently part of the ID on the SoC and the
-> bootloader always assumes 0 for it.
-> 
-> In this patch, put the SoC IDs straight into the compatible. Though
-> the bootloader doesn't look at the compatible at the moment, this
-> should be easy to teach the bootloader about.
-> 
-> Boards all know their own platform_id / product_id / stage / major /
-> minor / variant. For instance, Google Pixel 10 Pro XL MP1 is:
-> * platform_id (8-bits): 0x07 - frankel/blazer/mustang
-> * product_id (8-bits):  0x05 - mustang
-> * stage (4-bits):       0x06 - MP
-> * major (8-bits):       0x01 - MP 1
-> * minor (8-bits):       0x00 - MP 1.0
-> * variant (8-bits):     0x00 - No special variant
-> 
-> When board overlays are packed into the "dtbo" partition, a tool
-> (`mkdtimg`) extracts a board ID and board rev from the overlay and
-> stores that as metadata with the overlay. Downstream, the dtso
-> intended for the Pixel 10 Pro XL MP1 has the following properties at
-> its top-level:
->   board_id = <0x70506>;
->   board_rev = <0x010000>;
-> 
-> The use of top-level IDs can probably be used for overlays upstream as
-> well, but also add the IDs to the compatible string in case it's
-> useful.
-> 
-> Compatible strings are added for all board revisions known to be
-> produced based on downstream sources.
-> 
-> A few notes:
-> * If you look at `/proc/device-tree/compatible` and
->   `/proc/device-tree/model` on a running device, that won't
->   necessarily be an exact description of the hardware you're running
->   on. If the bootloader can't find a device tree that's an exact match
->   then it will pick the best match (within reason--it will never pick
->   a device tree for a different product--just for different revs of
->   the same product).
-> * There is no merging of the top-level compatible from the SoC and
->   board. The compatible string containing IDs for the SoC will not be
->   found in the device-tree passed to the OS.
+> The Google Tensor G5 SoC (known as "laguna" and canonically written in
+> code as "lga") has a UART based on Designware IP. The UART appears to
+> work reasonably well, at least for serial console, with the existing
+> driver in Linux. Add a compatible for this UART based on the canonical
+> "lga" name for this SoC with a fallback to the existing
+> "snps,dw-apb-uart".
 > 
 > Signed-off-by: Douglas Anderson <dianders@chromium.org>
 > ---
-> In the past, attempts to have the SoC as a base device tree and boards
-> supported as overlays has been NAKed. From a previous discussion [1]
-> "Nope, boards are not overlays. Boards are DTB." I believe this needs
-> to be relitigated.
-> 
-> In the previous NAK, I didn't see any links to documentation
-> explicitly stating that DTBs have to represent boards. It's also
-> unclear, at least to me, _why_ a DTB would be limited to represent a
-> "board" nor what the definition of a "board" is.
-> 
-> As at least one stab at why someone might not want an overlay scheme
-> like this, one could point out that the top-level compatible can be a
-> bit of a mess. Specifically in this scheme the board "compatible" from
-> the overlay will fully replace/hide the SoC "compatible" from the base
-> SoC. If this is truly the main concern, it wouldn't be terribly hard
-> to add a new semantic (maybe selectable via a new additional
-> property?) that caused the compatible strings to be merged in a
-> reasonable way.
-> 
-> Aside from dealing with the compatible string, let's think about what
-> a "board" is. I will make the argument here that the SoC qualifies as
-> a "board" and that the main PCB of a phone can be looked at as a
-> "cape" for this SoC "board". While this may sound like a stretch, I
-> would invite a reader to propose a definition of "board" that excludes
-> this. Specifically, it can be noted:
-> * I have a development board at my desk that is "socketed". That is, I
->   can pull the SoC out and put a different one in. I can swap in a
->   "rev A0" or a "rev B0" SoC into this socket. Conceivably, I could
->   even put a "Tensor G6", G7, G8, or G999 in the socket if it was
->   compatible. In this sense, the "SoC" is a standalone thing that can
->   be attached to the devboard "cape". The SoC being a standalone thing
->   is in the name. It's a "system" on a chip.
-> * In case the definition of a board somehow needs a PCB involved, I
->   can note that on my dev board the CPU socket is soldered onto to a
->   CPU daughtercard (a PCB!) that then has a board-to-board connector
->   to the main PCB.
-> * Perhaps one could argue that a dev board like I have describe would
->   qualify for this SoC/board overlay scheme but that a normal cell
->   phone wouldn't because the SoC isn't removable. Perhaps removability
->   is a requirement here? If so, imagine if some company took a
->   Raspberry Pi, soldered some components directly onto the "expansion"
->   pins, and resold that to consumers. Does this mean they can't use
->   overlays?
-> 
-> To me, the above arguments justify why SoC DTBs + "board" overlays
-> should be accepted. As far as I can tell, there is no downside and
-> many people who would be made happy with this.
-> 
-> [1] https://lore.kernel.org/all/dbeb28be-1aac-400b-87c1-9764aca3a799@kernel.org/
-> 
->  .../devicetree/bindings/arm/google.yaml       | 87 +++++++++++++++----
->  1 file changed, 68 insertions(+), 19 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/google.yaml b/Documentation/devicetree/bindings/arm/google.yaml
-> index 99961e5282e5..f9f9ea1c8050 100644
-> --- a/Documentation/devicetree/bindings/arm/google.yaml
-> +++ b/Documentation/devicetree/bindings/arm/google.yaml
-> @@ -13,27 +13,18 @@ description: |
->    ARM platforms using SoCs designed by Google branded "Tensor" used in Pixel
->    devices.
->  
-> -  Currently upstream this is devices using "gs101" SoC which is found in Pixel
-> -  6, Pixel 6 Pro and Pixel 6a.
-> +  These bindings for older Pixel devices don't use device tree overlays so
-> +  no separate SoC entry is added. This may change in the future.
->  
-> -  Google have a few different names for the SoC:
-> -  - Marketing name ("Tensor")
-> -  - Codename ("Whitechapel")
-> -  - SoC ID ("gs101")
-> -  - Die ID ("S5P9845")
-> -
-> -  Likewise there are a couple of names for the actual device
-> -  - Marketing name ("Pixel 6")
-> -  - Codename ("Oriole")
-> -
-> -  Devicetrees should use the lowercased SoC ID and lowercased board codename,
-> -  e.g. gs101 and gs101-oriole.
-> +  Newer Pixel devices are expected to have the SoC device tree as the base
-> +  and specific board device trees as overlays.
->  
->  properties:
->    $nodename:
->      const: '/'
->    compatible:
->      oneOf:
-> +      # Google Tensor G1 AKA gs101 AKA whitechapel AKA Die ID S5P9845 boards
->        - description: Google Pixel 6 or 6 Pro (Oriole or Raven)
->          items:
->            - enum:
-> @@ -41,13 +32,71 @@ properties:
->                - google,gs101-raven
->            - const: google,gs101
->  
-> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
-> +      - description: Tensor G5 SoC (laguna)
-> +        items:
-> +          - enum:
-> +              - google,soc-id-0005-rev-00  # A0
-> +              - google,soc-id-0005-rev-10  # B0
 
-SoCs cannot be final compatibles. Your commit msg does not explain what
-is 'soc-id' or 'soc_id' in this context.
 
-> +          - const: google,lga
-> +      - description: Google Pixel 10 Board (Frankel)
-> +        items:
-> +          - enum:
-> +              - google,pixel-id-070302-rev-000000  # Proto 0
-> +              - google,pixel-id-070302-rev-010000  # Proto 1
-> +              - google,pixel-id-070302-rev-010100  # Proto 1.1
-> +              - google,pixel-id-070303-rev-010000  # EVT 1
-> +              - google,pixel-id-070303-rev-010100  # EVT 1.1
-> +              - google,pixel-id-070303-rev-010101  # EVT 1.1 Wingboard
-> +              - google,pixel-id-070304-rev-010000  # DVT 1
-> +              - google,pixel-id-070305-rev-010000  # PVT 1
-> +              - google,pixel-id-070306-rev-010000  # MP 1
-> +          - const: google,lga-frankel
-> +          - const: google,lga
-
-So what is the lga? What is lga-frankel?
-
-> +      - description: Google Pixel 10 Pro Board (Blazer)
-> +        items:
-> +          - enum:
-> +              - google,pixel-id-070402-rev-000000  # Proto 0
-> +              - google,pixel-id-070402-rev-010000  # Proto 1
-> +              - google,pixel-id-070402-rev-010100  # Proto 1.1
-> +              - google,pixel-id-070403-rev-010000  # EVT 1
-> +              - google,pixel-id-070403-rev-010100  # EVT 1.1
-> +              - google,pixel-id-070404-rev-010000  # DVT 1
-> +              - google,pixel-id-070405-rev-010000  # PVT 1
-> +              - google,pixel-id-070406-rev-010000  # MP 1
-> +          - const: google,lga-blazer
-> +          - const: google,lga
-> +      - description: Google Pixel 10 Pro XL Board (Mustang)
-> +        items:
-> +          - enum:
-> +              - google,pixel-id-070502-rev-000000  # Proto 0
-> +              - google,pixel-id-070502-rev-010000  # Proto 1
-> +              - google,pixel-id-070502-rev-010100  # Proto 1.1
-> +              - google,pixel-id-070502-rev-010101  # Proto 1.1 Wingboard
-> +              - google,pixel-id-070503-rev-010000  # EVT 1
-> +              - google,pixel-id-070503-rev-010100  # EVT 1.1
-> +              - google,pixel-id-070503-rev-010101  # EVT 1.1 Wingboard
-> +              - google,pixel-id-070504-rev-010000  # DVT 1
-> +              - google,pixel-id-070505-rev-010000  # PVT 1
-> +              - google,pixel-id-070506-rev-010000  # MP 1
-> +          - const: google,lga-mustang
-> +          - const: google,lga
-> +
-> +allOf:
->    # Bootloader requires empty ect node to be present
-> -  ect:
-> -    type: object
-> -    additionalProperties: false
-
-Please keep it here
-
-> +  - if:
-> +      properties:
-> +        compatible:
-
-not:
-
-> +          contains:
-> +            const: google,gs101
-
-> +    then:
-> +      properties:
-> +        ect:
-
-ect: false, instead
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
