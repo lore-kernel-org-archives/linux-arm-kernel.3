@@ -4,87 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FD1CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9977CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3J2SQ2MS8dcDbwpzIMEG2pL1DkMnn151+RUfhBjTvU8=; b=nr5RfWDqVvfwLwG4WbSDqWC9dJ
-	9hLlFHw9a8ISaIJc1AKRFVUtQS3BjYxSGXggmAlVwhPlS7/ce2QKtbU5+QiCwqvdhpvA1wdbKTQlG
-	MvGYieHeODeWppqAwR+ox2lapjxZfsanCCdzHxVs5KIbewy6zCEx9ntcsL/LhsU5RXUqXIYJGXRCC
-	302EETggHlrUCon1/0bIJpLIifa6mKnygdXu69yfGkfQdJ6XHYsTUcs32yNOIkWnAuhuOzfkZRrXy
-	yB06phv/soIK7UORrS8prAtXiQHcZx90MmOSmYDEQBI0wN0ZmajR0Z0m6oyZXgpl0xxIIHngZUpfE
-	tSWVzw/A==;
+	bh=S/FKmo2H88iRf1QkHiF0Bngu0nOd8FTDe7RHgQ3rR/s=; b=gTL7uZQMKDy7gKbHEMKPQT3ssQ
+	vlqjsAV+xUkZZ6BqZwbWkXyu4sUuHUiyg5bI66mYB2KX/a9cUmtyOJ7BfmB4fAtHeYf7lj7JCtgak
+	Lza9tBF3b9V7fOs6rkuBe1dprCyvG5cTZBYqztkF2mCMQd2IkwXqJrQ1GxFQ8L/Ipghs77hLvWsIU
+	EtpKdQ+XYGfMe3vOasfugnch/XcgGs+IX+6B+QHB4RiaKtO6uzmz9R2vyTXaBWpRx9zhWghBO+/TC
+	Wl8Eq/7D3sU3khKyslcztvN90fGSqSAsGlD4deXtmG9aJFsSrZm7Yr1Ps/LwtcUJnBFmYpYcHUV6w
+	mxWWIENQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6yM-00000008RTG-07R3;
-	Wed, 12 Nov 2025 09:17:02 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1vJ6zn-00000008Rbr-09Cx;
+	Wed, 12 Nov 2025 09:18:31 +0000
+Received: from mail-japanwestazon11010049.outbound.protection.outlook.com ([52.101.228.49] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6yI-00000008RSh-3y8c
+	id 1vJ6zk-00000008RbN-2ek7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:17:00 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8b271e6833fso51037985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 01:16:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762939018; x=1763543818; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3J2SQ2MS8dcDbwpzIMEG2pL1DkMnn151+RUfhBjTvU8=;
-        b=RIiESX2l1EXxl/JMozMTqtOYhHjTZzbtWZCxSb8iVnNMl6EQYs2u8MHZlWqJbw/44m
-         MmR+gVOQNJ9OB8FekrGBGdZ1fiA2KF9T7bJjjOjXyST5OiqBb4J0btaKbpCAB89vld5l
-         jJSlT3XvfT106WDS5FtcSbqcNivQC88ucbtmvzv5iA39Qz1CKDlqD7bP75/iB7PaIeMu
-         W5XHAnyOuAPkMjFi7WV4rBN7mm5PejTv9QG1tA625BmKk0/crD4tJENpRVWGO4PQvRDB
-         idUjnf17gpJVYV6hw29HhAXujMwXQiVJhIFeJCmpxCivTkdOyvfVKRSOdeftUkUyGVZO
-         SLIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762939018; x=1763543818;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3J2SQ2MS8dcDbwpzIMEG2pL1DkMnn151+RUfhBjTvU8=;
-        b=MWHl8lLq76dHwU0YA9nT7EBRlPdjxVAPQE9yHUBXAmiAD+/5TvCJHBgXBXXa/NYPB0
-         1wRkh9ewXID+mvmxiu8fC/rtd64HDcPOdyGEplBtBDjs1HNOrYfYr2jFcrDq7K+qBDGs
-         Kw11R/goEM7yBeq+FuKiyqv61Na/RpqfzdVYZTbroeqy95ULYYjNBYSnxS0GD/yXNHEA
-         hdjbZIMRT1CThJNlQF4iFVQU+nnzDzp1a/xsl6knRrhXkPojmAOOq9b7pQP8ST1R7VX8
-         n0uUFkfhfFTtkFa/rc8xjM7XktPYG8BaYCgZ2st9S0+gHE6aYRYmkbuMCWZ4W6eAuoJL
-         +U+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXvt9hNAs1ySOz/oq7fW3PuE+73X8pfQe0QBW0vZn3BDZefpVYNbhnXqnwlFU5LOZfRLEp4BYQda7khr8fDXr/5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE8XIfpfwNGIgAqiukgKbBVemeXiQgab8Gq1auJDE+tEQ5pcGW
-	H+Vz5OtMBd4l9PTmkhiXOim5yZdkQ1hR8DXOjTwhzxgxe1MomtAjqpaetEFvpUdnUiypQYh2RG2
-	AnuchGBWyemfV60ZUdx+q3h9iyAmEDi60HpOlJYRWkw==
-X-Gm-Gg: ASbGncsrcfDpaiSQIWuMAtpoDLoZUNVmvKlnZihxysD2HP9xa3ds1bmH52gAW/VZeKA
-	VlIXPwmIWXybD7Eadwl4KcgvGK3K8nShZgOuCf6UUj0gq/gP4NbVWjr3HliD5nVeR7tFQ0madOu
-	qwmIJRwTqWq62LLJRv+YVnwg2YoC5LsjZfwo9XlUePt5YLX2FErcS+rbxCHYqt6XOGJXkT+yyjO
-	9y4MTBml6kVCdatvvEsRlSduAycJZocP0ecI8XZJm1GXUVjNYg+eQwn+9MPe1lRTz/nbJR+N2qs
-	AUGZHpUBTAEHZM7Lsg==
-X-Google-Smtp-Source: AGHT+IGSDKuUGD8fvLs5EFxvAWY3gcx0YOJBfoPRkx8JxsZiIYJ4NFBrWZftqxYBuPL01KuADhtAoiQRhw3ltpkqT8Q=
-X-Received: by 2002:a05:620a:7107:b0:8b2:6402:117 with SMTP id
- af79cd13be357-8b288a0d50cmr783113385a.34.1762939017596; Wed, 12 Nov 2025
- 01:16:57 -0800 (PST)
+	Wed, 12 Nov 2025 09:18:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cszc2gT/vphhVHc+pWMX0RqhX1BhHlYs1QEvOcfa4vDRHA3MdHzKPy/EO3TIIqCUFgw7Y4YsOlYH8+1KxTMyoyPY/OuwvHJyNG7W2+iLRw3EZDHRrdCIDWe1UAq/jXK3EMaKUX9eYJtsdgnZiYw3dSuFr659Wqc7svx64IUMBcpMKQU3mQtqVqReE4uKAF4Xa/yR7Rr5rdEfHbikhk3vblZnhqt2gbe1MnMZR2TgOuO104XrDys0Om0+wghe3ybAwhY/i0kj35t7fkLUJONS8QSqqF4Q/kZWlrttxtFpot4izhoh79okuuhhlo9b48jUmvuNITNtZbwkbP7wi7O6GQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S/FKmo2H88iRf1QkHiF0Bngu0nOd8FTDe7RHgQ3rR/s=;
+ b=MUS5DTRh9xTnvpf8l8BKYI1U5toDs625s46IMY4wWP0zmlQuAKTVGqRgi8dMdjiYF36EoDmm1br1FMWPXFmrXeeoaNXcplD82NHEuGo24joJQhxm2hgPiAisoaklsWbeyIS4q/s8YL9PTguftKUXd4hrxQiK9uTrFLcJlvxZxXHyDiPCbpmRwcwL3/fPZSDNoaPVM2v6UUprwXOR2jFqAjU7g2uHq3IjgrJBQ94pcBXc9LYBZ8TvdgpIyPnN1TW0FcqwUek8hiOB248jYoLOknU9AD3BobuwnD6h9eNCtYiQTfA1cx+qXdniFkBCiVUV3cnTqlzxlglCr53/g8NWvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S/FKmo2H88iRf1QkHiF0Bngu0nOd8FTDe7RHgQ3rR/s=;
+ b=WKbdO5hrh2IyEiA70/f9OhRSs/wuKN5bOYXK43geCHK8vbARy2yuhmP2YMNC6AOXRi1EHD1jvrQD7DSPkIoGNWkXWaRXKar2KSfujrjwxmnR5fviKa1Os5kDHdGShUPU3OVIUuufOc3kMBtSwxxOaMkvRVpI87M6fgNPOE5CZUq1tKP/67MV+fZfNpiJBsN38amNL82yWDAySkRUri0UzvcapzLdR4kk9/owrWXoR1x1mrVVpAYGHaHWZxxTLdSrra2rvGNtvwaY8izSgFIRQ1kazpbb3n+yqBmjZ4SM+kU+c0KO+hEoTp7dNeMNcd25gN9KHGlUoMpqKI9L6s1q8Q==
+Received: from OSAPR01MB7669.jpnprd01.prod.outlook.com (2603:1096:604:142::8)
+ by OS9PR01MB16185.jpnprd01.prod.outlook.com (2603:1096:604:3de::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
+ 2025 09:18:18 +0000
+Received: from OSAPR01MB7669.jpnprd01.prod.outlook.com
+ ([fe80::2b44:88c5:b2fe:5b4a]) by OSAPR01MB7669.jpnprd01.prod.outlook.com
+ ([fe80::2b44:88c5:b2fe:5b4a%4]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 09:18:18 +0000
+From: "Kazuhiro Abe (Fujitsu)" <fj1078ii@fujitsu.com>
+To: 'Charles Mirabile' <cmirabil@redhat.com>
+CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "Koichi Okuno
+ (Fujitsu)" <fj2767dz@fujitsu.com>, "guohanjun@huawei.com"
+	<guohanjun@huawei.com>, "ilkka@os.amperecomputing.com"
+	<ilkka@os.amperecomputing.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>,
+	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "will@kernel.org"
+	<will@kernel.org>
+Subject: RE: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
+Thread-Topic: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
+Thread-Index: AQHcPzk5+UU2j3z+uUO7itsPcFLu87TLCuOAgBfAiwCAAiHCgIAGvGIwgAL1hYCAAEmYsA==
+Date: Wed, 12 Nov 2025 09:18:18 +0000
+Message-ID: <OSAPR01MB766981DB17DEF8F3161321E0D5CCA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
+References: <OSAPR01MB7669F9B9E145A50B38819E13D5CEA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
+ <20251112044239.4049011-1-cmirabil@redhat.com>
+In-Reply-To: <20251112044239.4049011-1-cmirabil@redhat.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: =?utf-8?B?TVNJUF9MYWJlbF8xZTkyZWY3My0wYWQxLTQwYzUtYWQ1NS00NmRlMzM5Njgw?=
+ =?utf-8?B?MmZfQWN0aW9uSWQ9ZjAwNTQ0NTEtMDAxOC00NWMxLThiODAtZWJiMDljZjlh?=
+ =?utf-8?B?YzUwO01TSVBfTGFiZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFkNTUtNDZkZTMz?=
+ =?utf-8?B?OTY4MDJmX0NvbnRlbnRCaXRzPTA7TVNJUF9MYWJlbF8xZTkyZWY3My0wYWQx?=
+ =?utf-8?B?LTQwYzUtYWQ1NS00NmRlMzM5NjgwMmZfRW5hYmxlZD10cnVlO01TSVBfTGFi?=
+ =?utf-8?B?ZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFkNTUtNDZkZTMzOTY4MDJmX01ldGhv?=
+ =?utf-8?B?ZD1Qcml2aWxlZ2VkO01TSVBfTGFiZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFk?=
+ =?utf-8?B?NTUtNDZkZTMzOTY4MDJmX05hbWU9RlVKSVRTVS1QVUJMSUPigIs7TVNJUF9M?=
+ =?utf-8?B?YWJlbF8xZTkyZWY3My0wYWQxLTQwYzUtYWQ1NS00NmRlMzM5NjgwMmZfU2V0?=
+ =?utf-8?B?RGF0ZT0yMDI1LTExLTEyVDA5OjA2OjA5WjtNU0lQX0xhYmVsXzFlOTJlZjcz?=
+ =?utf-8?B?LTBhZDEtNDBjNS1hZDU1LTQ2ZGUzMzk2ODAyZl9TaXRlSWQ9YTE5ZjEyMWQt?=
+ =?utf-8?B?ODFlMS00ODU4LWE5ZDgtNzM2ZTI2N2ZkNGM3O01TSVBfTGFiZWxfMWU5MmVm?=
+ =?utf-8?B?NzMtMGFkMS00MGM1LWFkNTUtNDZkZTMzOTY4MDJmX1RhZz0xMCwgMCwgMSwg?=
+ =?utf-8?Q?1;?=
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSAPR01MB7669:EE_|OS9PR01MB16185:EE_
+x-ms-office365-filtering-correlation-id: 2c1561dc-8006-47eb-d26f-08de21cc6ab3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|38070700021|1580799027;
+x-microsoft-antispam-message-info: =?utf-8?B?ekVSSjg5Q3hJQWdHd0RzeHFabVNKOTNjNlk3QlErMklWenVVT2kyTVQ2aUpH?=
+ =?utf-8?B?MTdtcE9WUVRxbmtudHQ5MnpYVTZudUlqSWZDRXpJdUUydTdpTWhNTlYvREg5?=
+ =?utf-8?B?bElNZmVxNGxFWmVJMUFWS0R6eW1IUUZjMksrcUtRUnREaTdhOEszSkFiU3BJ?=
+ =?utf-8?B?MVY1ODAzZnZ6Y1p2U0hlTXFpSXFPRSs5SGlOYVZwb0JJSmxvU1BnTUd3bEdI?=
+ =?utf-8?B?M2ZMdi81VE9VY3Z6cGc4VVA0cUZQWUo4U2xHY0RmaDd4UC81Z2E0eEpHc3BV?=
+ =?utf-8?B?Q2dKSjZqQTJzTnBEcGRKVldZU2dIbjl5Z013emhGL3R2Y3Vjc2p3TFArYTF1?=
+ =?utf-8?B?eGhoVlJndmVBNHo1Y1M0dzF2WW0ybE94ZkkwNXhRZklSbVo1TG1VSHE3TWRQ?=
+ =?utf-8?B?NW5yMjBjSUFIczRjdGt3K0JJd2RCT2QvcWxrdlVpTlJjcDB3SFBsNjNkTC9k?=
+ =?utf-8?B?L2lGcjFKSERUQkVDN3Iydnl1b3IyZzdEUDRnTHpkSEVVOWZ1MWdqckpRUzlu?=
+ =?utf-8?B?MnYvYW1CQmVXQVZzVThpQzU3cFFUbW5PSStMUCs0dUJkT21aTlQzZ2diTWJN?=
+ =?utf-8?B?bHBQSGlPTk1iR2lxU1QzbWp4bGVreEcybVFDTWFkTkp5RUpXSGxVRlNhQlox?=
+ =?utf-8?B?ZktnOEZzcC90bkNPRWJ0YkxqMnZlbnhuNWFJM0twUFdtWGpxVTZ6ZUF6M014?=
+ =?utf-8?B?aFBTeFZJZkRuVnRjUHFsT2FSSWpWQWpGQXBmSVZkcllKVjNGNWR6SGFjZ1VP?=
+ =?utf-8?B?STAzRDdWcVhaS1dTN1UybzlXZDdGNDlZN2xkUGVZenN5ZUJJenF5d1ArRDlz?=
+ =?utf-8?B?TXRrbDR0Y3Rud1hLNWtVbGlHcUQ1ck8vQnBPd2tjaHRxWkR3eFN5a2t1ZmN4?=
+ =?utf-8?B?TERVQmRTcVlCWEZJdGJidC91a2djWm9rRHJRa0Z1R2NldG01TEFaS0dNZXhU?=
+ =?utf-8?B?dUMycGxtZGxYRE5QbU56dDRISmNuMmFjNmt2akxzODhwUGdLYmswdG9oTkxi?=
+ =?utf-8?B?Tkk2V1AyMzdmZDZ4TUlBQTRCamo0U2dTdHdtanpidlQ3dFVNRlRZZlBiNVNr?=
+ =?utf-8?B?d0dpc01iS3NqL1I2UDhFZjBiaWQ0bVpDb0w3TU9JZG9BVjl1d0RRNnNLM3E1?=
+ =?utf-8?B?VW5PcFRRRVhPVGJ5aHVrYlRiUWlhbmllMU1CWDZ6OUFISzlKd3pRRjFaaFVw?=
+ =?utf-8?B?Zm8ydGhtQUtKeHkxL3cyejVaMUFTbVBtbU9TcVkyUzM2NzNNR083NTVHYWJl?=
+ =?utf-8?B?OER0cHA3ak1GWUtaYmhmdTFyVlFpTGhST3dpM29RaXA5UDRaUDd5ZytKd3pL?=
+ =?utf-8?B?M2MzZUhwOFJsc1hHYzdXRGI1ajZ0Z3U5aVFxVlNWbUgzcklaNGpGNFVQZXdx?=
+ =?utf-8?B?ZnZPYUZQbXdNY1NJQmRpTVlucmlhalB6S0pjSGIxbktIWVpydUVEQ284R3Yy?=
+ =?utf-8?B?ditxbzluUUlaK1VSMEszMWFpR1pUQW5pdTUxNTdZOS8vN2NDQW9ITXQ5UjQr?=
+ =?utf-8?B?QXBUcDBtNW9ldTNvVUcrSmY0QXRwRTQrQnVFN2RTUm03ZXVReGtRNWxJSzFz?=
+ =?utf-8?B?NnZDU3FoUHRPQ1VaejdHZlVHdU05bGFpdEpzUFl6b21ock5Vb3lYcnV1Mlkw?=
+ =?utf-8?B?Tk9GazR1SkMyUkw1MC9XRC9XaVVRdWZVUnF0WTJCdk9nZXdrUDduRGlCK29I?=
+ =?utf-8?B?WnFjZFVZQkhjcUpiWXFFWjRROFBuNnhOazZTdU1WSTJvL3NKdlMwaWw2WEpJ?=
+ =?utf-8?B?aTZVcFJFVmdkekdiaXhZSmtVRlY1YnE0WmVGYlRYSS9RUG1qRjYzaElHVzFM?=
+ =?utf-8?B?S1o5c1lKU0tQbDdRc0k5TGVUZmFnbVZucXdqUm8yU1JFdjREdHluL0M1WExL?=
+ =?utf-8?B?dXpPU2VJWlJaUURxMUNQV1FBQ1BmcDE4MGdlREFMdXVCdTBDZDMyVFNBcEla?=
+ =?utf-8?B?ekErUXdUTUpFYU5XVHBOQTlwRmZmOGRRU2VaVXU2OUJyNWtvaXd1WGdwc0Jw?=
+ =?utf-8?B?SmtKR1JWM28zdkVhdU9NKzF3bGxpemJXVkllSExFakVnYmZyelp0dDRsSml5?=
+ =?utf-8?B?cDBYVjZpK1BHZFJmekU4Q252TzBwOEZ2UmpmUT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSAPR01MB7669.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(38070700021)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QzdmUjR4RGpxUVgxNEg5MVN0Q2dDejQvcVdISThRdkpERjdWam1wR2dsdmln?=
+ =?utf-8?B?a1JSbk5aUHduOVphSUY5c0Q0STVmTHlYVktudnRXWjRFeVRoS295czN1VXUw?=
+ =?utf-8?B?V2dYaGJyOUFRQWEvVnJOeW1oQ29LNVJFNm84NS9VQzF1dXBYM2RsVUwwR0dx?=
+ =?utf-8?B?aC9aeW5LUWhGSnJLUVVkbGlxZXp1YmZPOFZHQk1FOUNLSUZYWnJBK3BPVUZR?=
+ =?utf-8?B?M3NhUXBBczRzeWR6UDQ4UGNreVZwZE05cjB6S1dpMjE4a1R6VmxiVmxVcHVu?=
+ =?utf-8?B?bVNySXpOaHJoYVVQUW45eVp3QnF1S2cxeFhxeFhWbUZoc3Y3aUpwcHQwZHRv?=
+ =?utf-8?B?TVVXYVMvdmQ5VHNwaDBlZThiRHpEM215TGU0V1lYS04yWlVjZnVmc3R2eVhC?=
+ =?utf-8?B?QU5mbkk5RDRQbU1Lc2VpWHJiY2RWS0RkN1F5VUNIc2R5VjFtb0hhOHFUYjhs?=
+ =?utf-8?B?NFRLWGtFeUZQdERMVE5NODMzanByRDFkWVh5aUk4c0NMbkF4ODFuek9lek84?=
+ =?utf-8?B?Slp5YXNpL1dhWHEwM1d2VE5Zb1ZWYUI3bzloUldJNGV6R2NSSFR3Z1JPK1BR?=
+ =?utf-8?B?TVo2Mm5admJsbDhrVWpsYVphMjRmdkVWbis0bHVzWG5JNVRsMFdVT2c0VkdC?=
+ =?utf-8?B?WTFucnFQa09teE9hYW5PemNjZkxTT25UQkMrYktyVU96eitxY0hRVXZGY0sr?=
+ =?utf-8?B?RTJHTUI4V2RPaDI4SWtaR0JjU3JXWHRMRHpUcDBudllCUGE1ZkE1V2RJd0Va?=
+ =?utf-8?B?WGFZU3pJcWZKYlIvS3FHbmYxb2EwL0d1S1RLTlhvWXlsa1MxQ09pY055bk9n?=
+ =?utf-8?B?b0syelF5UGUxcWtJdUFhV3h6RGx1blZ1VU93SVl6VjhMcVQ4MnBZQndUT2xm?=
+ =?utf-8?B?eXhhNFdDbmNtWEVrT2FJQTF6ZXhnQ25aMlhSUXFLWmNOMk9tTDJpU0x4L0pz?=
+ =?utf-8?B?bUIvRDRFZ2l6TklHTFlISFl3MWljR0VWem9Qays4eW1zbGpOK3pSTDY4dlF0?=
+ =?utf-8?B?WHF4em1POXNTT3JjQSs4MGVXaTZaMGJLTld4RVlleEpaRmplaUYvdEswUWE5?=
+ =?utf-8?B?b0k2Q0RsQnAxWjR1UE8rL1ZudkpJcElzeG9jUS8rK3BuNGo1cUd1YnRuNHNQ?=
+ =?utf-8?B?d01TOW96Ty9EYWI4UHBFVE1lbE1YQ1FzU3BjeWhxczdseFBEV1ZweTBwQUtN?=
+ =?utf-8?B?SENGWEt0TTZrYzRWSStEK2U5STNXL0ZGbG9QSXkyekFPdVhEYlpXdWhkNVF1?=
+ =?utf-8?B?ODZzaDJPemwxYVdZN29zUjI5eVQ3SWhMd04rcVVQRXgrTmhMQ3UydWlWdm9R?=
+ =?utf-8?B?RjZWTUdWUDJlZWVnRU1laFhGN2NUUFhwUkNaVEVzOW1SVlBPYzVyU2hEQktM?=
+ =?utf-8?B?bFhBYjRGOVhhbVVnR1ROVExEb1g2Nk5JcWhXNkl0TUZ3UXVBSnV1TS9tKzZ1?=
+ =?utf-8?B?NHB0dlg4NkVUbjU1QytEYlhzdGVGVzBxYmw0U0NPdkI1ZkExUXZQVVZ0TFJW?=
+ =?utf-8?B?bk9Xa2N2NGpWZ1J4enJRWmYrNGRBZnhHRGlnTUdoa3FzU3ZzNzFadU04QVR1?=
+ =?utf-8?B?Ty91SnhqemRkSDhzZDhpZEVYMHlQa2lmZ21oZC90SEUvOGVUVjJvMHJWVmNK?=
+ =?utf-8?B?YVZKckxJRXRyYjFZUmxkbDVoT2xFRFlVU1VvQnhYclpUYTk1Ny9OTWZUa3pz?=
+ =?utf-8?B?VzJxdkxSTDNXVFdiTDA0N3llK0lTQ3NFNjZBOWdoTTcvWTRGdTcyK3FTdEc4?=
+ =?utf-8?B?dExYczBtUUlZc1VITitVT3BqQmtoVnc1bVNnK0crQzA4b1VRZUhIMkRobkp1?=
+ =?utf-8?B?NGhWVWNpT1FFblBoeDR2UGtnNE9JdXlRTU5iS040Y0QyL2NLRGtLWG4wTlBm?=
+ =?utf-8?B?ZitmRkpLTUNVMHFYbWs0QnErYnh5VW1rY00yTnBLQlJOTHdwVmNBVDlmVzkz?=
+ =?utf-8?B?N0tCR0I5OWk3SUNGcEVLYzFCMUFZTGU5OVE4d2ZReEE3cHlrTzlaY3NkU2h5?=
+ =?utf-8?B?V3g5Vm1BSVBDc2NYOGIvRGVMNkFITTBnYjVKMENpaWhHNFQ2SFpoVnZRbG52?=
+ =?utf-8?B?Wk9HbjRUc3J6dEQ4aXNjUkQ1UHFxaUJqcHRRbDIxQkhZbXdiWHlYNzJLbzVK?=
+ =?utf-8?B?dUVocCtEd1Bwbkw0NGJIaTM3QXpCVVM0SGV2T2wxTk1FMXcwVUtnWFFNN0hB?=
+ =?utf-8?B?bUE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20251111-arm_coresight_power_management_fix-v6-0-f55553b6c8b3@arm.com>
- <20251111-arm_coresight_power_management_fix-v6-11-f55553b6c8b3@arm.com>
-In-Reply-To: <20251111-arm_coresight_power_management_fix-v6-11-f55553b6c8b3@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 12 Nov 2025 09:16:46 +0000
-X-Gm-Features: AWmQ_bkPdovuyMz_3Lw-mKkTGemIS1tOjYegn-nd3UfhiJyHgdoomYjEwZJQ9og
-Message-ID: <CAJ9a7VjpmWdethzwpKuo8mvGxU69HjZieGh+6iqTN6aSEow5gA@mail.gmail.com>
-Subject: Re: [PATCH v6 11/11] coresight: etm4x: Reuse normal enable and
- disable logic in CPU idle
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSAPR01MB7669.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c1561dc-8006-47eb-d26f-08de21cc6ab3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 09:18:18.0213
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4P35jKgBmeX5fRRkps8Q3oMoy5E7+qZHB7K88YE4hto5WUvhsJ6n39XCJb1WlpggsfjhtB5FS2sFO7eK7FhRt2GJLILQ6KrBLBRFAjPO2hQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB16185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_011659_106417_DE39A8D2 
-X-CRM114-Status: GOOD (  43.13  )
+X-CRM114-CacheID: sfid-20251112_011829_041892_8BCDDB64 
+X-CRM114-Status: GOOD (  37.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,479 +203,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
-
-The save/restore sequence is only used if the ETM is active at the
-time of power down.
-
-However, by removing the specific save/restore structure, and using
-the existing drvdata->config structure, the actual state can be
-changed by sysfs from another PE, as the sysfs accesses only write to
-the drvdata->config structure and not the actual hardware.  Thus this
-change permits the corruption of the saved state, which will result in
-restore != saved..
-
- While using the same code is a good idea avoiding lots of
-duplication, it may be necessary to have a copy of the drvdata->config
-passed in to the relevant functions.
-
-We have considered in the past if it might be worthwhile isolating the
-sysfs and perf config settings in the etm - it may be worth
-re-visiting this again with a save restore copy in mind to.
-
-On Tue, 11 Nov 2025 at 18:59, Leo Yan <leo.yan@arm.com> wrote:
->
-> The etm4_enable_trace_unit() function is almost identical to the restore
-> flow, with a few differences listed below:
->
-> 1) TRCQCTLR register
->
->    The TRCQCTLR register is saved and restored during CPU idle, but it
->    is never touched in the normal flow. Given the Q element is not
->    enabled (TRCCONFIGR.QE bits), it is acceptable to omit saving and
->    restoring this register during idle.
->
-> 2) TRCSSCSRn.STATUS bit
->
->    The restore flow does not explicitly clear the TRCSSCSRn.STATUS bit
->    but instead directly loads the saved value. In contrast, the normal
->    flow clears this bit to 0 when re-enabling single-shot control.
->
->    Therefore, the restore function passes the restart_ss argument as
->    false to etm4_enable_hw() to avoid re-enabling single-shot mode.
->
-> 3) Claim Tag Handling
->
->    The claim tag is acquired and released in normal flow, on the other
->    hand, the claim protocol is not applied in CPU idle flow - it simply
->    restores the saved value.
->
->    The claim bits serve two purpose:
->
->    * Exclusive access between the kernel driver and an external
->      debugger. During CPU idle, the kernel driver locks the OS Lock,
->      ensuring that the external debugger cannot access the trace unit.
->      Therefore, it is safe to release the claim tag during idle.
->
->    * Notification to supervisory software to save/restore context for
->      external debuggers. The kernel driver does not touch the external
->      debugger's claim bit (ETMCLAIM[0]).
->
->    Based on this, it is safe to acquire and release claim tag in the
->    idle sequence.
->
-> 4) OS Lock Behavior
->
->    The OS Lock should be locked during CPU idle states. This differs
->    from the normal flow, which unlock it. This special handling remains
->    in the CPU save path.
->
-> This commit reuses the normal enable and disable logic in the CPU idle
-> path. The common disable logic is moved into a new function
-> __etm4_disable_hw(), which omits the etm4_cs_{unlock|lock}() pairs and
-> is convenient to call from the save callback.
->
-
-Why omit cs lock/unlock? Not unlocking the software lock prevents the
-claim tag registers from being written, which contradicts 3) above,
-and prevents other writes during the disable sequence.
-
-Regards
-
-Mike.
-
-
-> The resume callback sets the 'retain_ss_status' flag to avoid
-> restarting the single-shot mode, and then directly calls
-> etm4_enable_hw().
->
-> The save context in the driver data is no longer needed and has been
-> removed.
->
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 215 ++-------------------
->  drivers/hwtracing/coresight/coresight-etm4x.h      |  57 ------
->  2 files changed, 16 insertions(+), 256 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index afee54ac0aec0c0e521fa1885a95f48555a369de..1c17d54729200671ec6339f43755ea4267dd61dc 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1002,7 +1002,7 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
->         isb();
->  }
->
-> -static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> +static void __etm4_disable_hw(struct etmv4_drvdata *drvdata)
->  {
->         u32 control;
->         struct etmv4_config *config = &drvdata->config;
-> @@ -1010,7 +1010,6 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->         struct csdev_access *csa = &csdev->access;
->         int i;
->
-> -       etm4_cs_unlock(drvdata, csa);
->         etm4_disable_arch_specific(drvdata);
->
->         if (!drvdata->skip_power_up) {
-> @@ -1039,12 +1038,21 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->                 config->seq_state = etm4x_relaxed_read32(csa, TRCSEQSTR);
->
->         coresight_disclaim_device_unlocked(csdev);
-> -       etm4_cs_lock(drvdata, csa);
->
->         dev_dbg(&drvdata->csdev->dev,
->                 "cpu: %d disable smp call done\n", drvdata->cpu);
->  }
->
-> +static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> +{
-> +       struct coresight_device *csdev = drvdata->csdev;
-> +       struct csdev_access *csa = &csdev->access;
-> +
-> +       etm4_cs_unlock(drvdata, csa);
-> +       __etm4_disable_hw(drvdata);
-> +       etm4_cs_lock(drvdata, csa);
-> +}
-> +
->  static void etm4_disable_sysfs_smp_call(void *info)
->  {
->         struct etmv4_drvdata *drvdata = info;
-> @@ -1852,8 +1860,7 @@ static int etm4_dying_cpu(unsigned int cpu)
->
->  static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  {
-> -       int i, ret = 0;
-> -       struct etmv4_save_state *state;
-> +       int ret = 0;
->         struct coresight_device *csdev = drvdata->csdev;
->         struct csdev_access *csa;
->         struct device *etm_dev;
-> @@ -1884,91 +1891,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->                 goto out;
->         }
->
-> -       if (!drvdata->paused)
-> -               etm4_disable_trace_unit(drvdata);
-> -
-> -       state = drvdata->save_state;
-> -
-> -       if (drvdata->nr_pe)
-> -               state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
-> -       state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
-> -       state->trcauxctlr = etm4x_read32(csa, TRCAUXCTLR);
-> -       state->trceventctl0r = etm4x_read32(csa, TRCEVENTCTL0R);
-> -       state->trceventctl1r = etm4x_read32(csa, TRCEVENTCTL1R);
-> -       if (drvdata->stallctl)
-> -               state->trcstallctlr = etm4x_read32(csa, TRCSTALLCTLR);
-> -       state->trctsctlr = etm4x_read32(csa, TRCTSCTLR);
-> -       state->trcsyncpr = etm4x_read32(csa, TRCSYNCPR);
-> -       state->trcccctlr = etm4x_read32(csa, TRCCCCTLR);
-> -       state->trcbbctlr = etm4x_read32(csa, TRCBBCTLR);
-> -       state->trctraceidr = etm4x_read32(csa, TRCTRACEIDR);
-> -       if (drvdata->q_filt)
-> -               state->trcqctlr = etm4x_read32(csa, TRCQCTLR);
-> -
-> -       state->trcvictlr = etm4x_read32(csa, TRCVICTLR);
-> -       state->trcviiectlr = etm4x_read32(csa, TRCVIIECTLR);
-> -       state->trcvissctlr = etm4x_read32(csa, TRCVISSCTLR);
-> -       if (drvdata->nr_pe_cmp)
-> -               state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
-> -
-> -       for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -               state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> -
-> -       if (drvdata->nrseqstate) {
-> -               state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
-> -               state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
-> -       }
-> -
-> -       if (drvdata->numextinsel)
-> -               state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
-> -
-> -       for (i = 0; i < drvdata->nr_cntr; i++) {
-> -               state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
-> -               state->trccntctlr[i] = etm4x_read32(csa, TRCCNTCTLRn(i));
-> -               state->trccntvr[i] = etm4x_read32(csa, TRCCNTVRn(i));
-> -       }
-> -
-> -       /* Resource selector pair 0 is reserved */
-> -       for (i = 2; i < drvdata->nr_resource * 2; i++)
-> -               state->trcrsctlr[i] = etm4x_read32(csa, TRCRSCTLRn(i));
-> -
-> -       for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> -               state->trcssccr[i] = etm4x_read32(csa, TRCSSCCRn(i));
-> -               state->trcsscsr[i] = etm4x_read32(csa, TRCSSCSRn(i));
-> -               if (etm4x_sspcicrn_present(drvdata, i))
-> -                       state->trcsspcicr[i] = etm4x_read32(csa, TRCSSPCICRn(i));
-> -       }
-> -
-> -       for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> -               state->trcacvr[i] = etm4x_read64(csa, TRCACVRn(i));
-> -               state->trcacatr[i] = etm4x_read64(csa, TRCACATRn(i));
-> -       }
-> -
-> -       /*
-> -        * Data trace stream is architecturally prohibited for A profile cores
-> -        * so we don't save (or later restore) trcdvcvr and trcdvcmr - As per
-> -        * section 1.3.4 ("Possible functional configurations of an ETMv4 trace
-> -        * unit") of ARM IHI 0064D.
-> -        */
-> -
-> -       for (i = 0; i < drvdata->numcidc; i++)
-> -               state->trccidcvr[i] = etm4x_read64(csa, TRCCIDCVRn(i));
-> -
-> -       for (i = 0; i < drvdata->numvmidc; i++)
-> -               state->trcvmidcvr[i] = etm4x_read64(csa, TRCVMIDCVRn(i));
-> -
-> -       state->trccidcctlr0 = etm4x_read32(csa, TRCCIDCCTLR0);
-> -       if (drvdata->numcidc > 4)
-> -               state->trccidcctlr1 = etm4x_read32(csa, TRCCIDCCTLR1);
-> -
-> -       state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR0);
-> -       if (drvdata->numvmidc > 4)
-> -               state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR1);
-> -
-> -       state->trcclaimset = etm4x_read32(csa, TRCCLAIMCLR);
-> -
-> -       if (!drvdata->skip_power_up)
-> -               state->trcpdcr = etm4x_read32(csa, TRCPDCR);
-> +       __etm4_disable_hw(drvdata);
->
->         /* wait for TRCSTATR.IDLE to go up */
->         if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
-> @@ -1976,17 +1899,8 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->                         "timeout while waiting for Idle Trace Status\n");
->                 etm4_os_unlock(drvdata);
->                 ret = -EBUSY;
-> -               goto out;
->         }
->
-> -       /*
-> -        * Power can be removed from the trace unit now. We do this to
-> -        * potentially save power on systems that respect the TRCPDCR_PU
-> -        * despite requesting software to save/restore state.
-> -        */
-> -       if (!drvdata->skip_power_up)
-> -               etm4x_relaxed_write32(csa, (state->trcpdcr & ~TRCPDCR_PU),
-> -                                     TRCPDCR);
->  out:
->         etm4_cs_lock(drvdata, csa);
->         return ret;
-> @@ -2010,103 +1924,13 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
->
->  static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->  {
-> -       int i;
-> -       struct etmv4_save_state *state = drvdata->save_state;
-> -       struct csdev_access *csa = &drvdata->csdev->access;
-> -
->         if (WARN_ON(!drvdata->csdev))
->                 return;
->
-> -       etm4_cs_unlock(drvdata, csa);
-> -       etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
-> -
-> -       if (drvdata->nr_pe)
-> -               etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
-> -       etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
-> -       etm4x_relaxed_write32(csa, state->trcauxctlr, TRCAUXCTLR);
-> -       etm4x_relaxed_write32(csa, state->trceventctl0r, TRCEVENTCTL0R);
-> -       etm4x_relaxed_write32(csa, state->trceventctl1r, TRCEVENTCTL1R);
-> -       if (drvdata->stallctl)
-> -               etm4x_relaxed_write32(csa, state->trcstallctlr, TRCSTALLCTLR);
-> -       etm4x_relaxed_write32(csa, state->trctsctlr, TRCTSCTLR);
-> -       etm4x_relaxed_write32(csa, state->trcsyncpr, TRCSYNCPR);
-> -       etm4x_relaxed_write32(csa, state->trcccctlr, TRCCCCTLR);
-> -       etm4x_relaxed_write32(csa, state->trcbbctlr, TRCBBCTLR);
-> -       etm4x_relaxed_write32(csa, state->trctraceidr, TRCTRACEIDR);
-> -       if (drvdata->q_filt)
-> -               etm4x_relaxed_write32(csa, state->trcqctlr, TRCQCTLR);
-> -
-> -       etm4x_relaxed_write32(csa, state->trcvictlr, TRCVICTLR);
-> -       etm4x_relaxed_write32(csa, state->trcviiectlr, TRCVIIECTLR);
-> -       etm4x_relaxed_write32(csa, state->trcvissctlr, TRCVISSCTLR);
-> -       if (drvdata->nr_pe_cmp)
-> -               etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
-> -
-> -       for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> -               etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> -
-> -       if (drvdata->nrseqstate) {
-> -               etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
-> -               etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
-> -       }
-> -       if (drvdata->numextinsel)
-> -               etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
-> +       /* Instruct etm4_enable_hw() not to restart the single-shot mode */
-> +       drvdata->config.retain_ss_status = 1;
->
-> -       for (i = 0; i < drvdata->nr_cntr; i++) {
-> -               etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
-> -               etm4x_relaxed_write32(csa, state->trccntctlr[i], TRCCNTCTLRn(i));
-> -               etm4x_relaxed_write32(csa, state->trccntvr[i], TRCCNTVRn(i));
-> -       }
-> -
-> -       /* Resource selector pair 0 is reserved */
-> -       for (i = 2; i < drvdata->nr_resource * 2; i++)
-> -               etm4x_relaxed_write32(csa, state->trcrsctlr[i], TRCRSCTLRn(i));
-> -
-> -       for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> -               etm4x_relaxed_write32(csa, state->trcssccr[i], TRCSSCCRn(i));
-> -               etm4x_relaxed_write32(csa, state->trcsscsr[i], TRCSSCSRn(i));
-> -               if (etm4x_sspcicrn_present(drvdata, i))
-> -                       etm4x_relaxed_write32(csa, state->trcsspcicr[i], TRCSSPCICRn(i));
-> -       }
-> -
-> -       for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> -               etm4x_relaxed_write64(csa, state->trcacvr[i], TRCACVRn(i));
-> -               etm4x_relaxed_write64(csa, state->trcacatr[i], TRCACATRn(i));
-> -       }
-> -
-> -       for (i = 0; i < drvdata->numcidc; i++)
-> -               etm4x_relaxed_write64(csa, state->trccidcvr[i], TRCCIDCVRn(i));
-> -
-> -       for (i = 0; i < drvdata->numvmidc; i++)
-> -               etm4x_relaxed_write64(csa, state->trcvmidcvr[i], TRCVMIDCVRn(i));
-> -
-> -       etm4x_relaxed_write32(csa, state->trccidcctlr0, TRCCIDCCTLR0);
-> -       if (drvdata->numcidc > 4)
-> -               etm4x_relaxed_write32(csa, state->trccidcctlr1, TRCCIDCCTLR1);
-> -
-> -       etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR0);
-> -       if (drvdata->numvmidc > 4)
-> -               etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
-> -
-> -       etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
-> -
-> -       if (!drvdata->skip_power_up)
-> -               etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
-> -
-> -       /*
-> -        * As recommended by section 4.3.7 ("Synchronization when using the
-> -        * memory-mapped interface") of ARM IHI 0064D
-> -        */
-> -       dsb(sy);
-> -       isb();
-> -
-> -       /* Unlock the OS lock to re-enable trace and external debug access */
-> -       etm4_os_unlock(drvdata);
-> -
-> -       if (!drvdata->paused)
-> -               etm4_enable_trace_unit(drvdata);
-> -
-> -       etm4_cs_lock(drvdata, csa);
-> +       etm4_enable_hw(drvdata);
->  }
->
->  static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-> @@ -2293,13 +2117,6 @@ static int etm4_probe(struct device *dev)
->                 pm_save_enable = coresight_loses_context_with_cpu(dev) ?
->                                PARAM_PM_SAVE_SELF_HOSTED : PARAM_PM_SAVE_NEVER;
->
-> -       if (pm_save_enable != PARAM_PM_SAVE_NEVER) {
-> -               drvdata->save_state = devm_kmalloc(dev,
-> -                               sizeof(struct etmv4_save_state), GFP_KERNEL);
-> -               if (!drvdata->save_state)
-> -                       return -ENOMEM;
-> -       }
-> -
->         raw_spin_lock_init(&drvdata->spinlock);
->
->         drvdata->cpu = coresight_get_cpu(dev);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index d82ec1559b34787dffc7debf4643d948e3850b2a..8d4a1f0f1e52a38a280b7fbe978129287a8ba60c 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -864,61 +864,6 @@ struct etmv4_config {
->         u8                              s_ex_level;
->  };
->
-> -/**
-> - * struct etm4_save_state - state to be preserved when ETM is without power
-> - */
-> -struct etmv4_save_state {
-> -       u32     trcprocselr;
-> -       u32     trcconfigr;
-> -       u32     trcauxctlr;
-> -       u32     trceventctl0r;
-> -       u32     trceventctl1r;
-> -       u32     trcstallctlr;
-> -       u32     trctsctlr;
-> -       u32     trcsyncpr;
-> -       u32     trcccctlr;
-> -       u32     trcbbctlr;
-> -       u32     trctraceidr;
-> -       u32     trcqctlr;
-> -
-> -       u32     trcvictlr;
-> -       u32     trcviiectlr;
-> -       u32     trcvissctlr;
-> -       u32     trcvipcssctlr;
-> -
-> -       u32     trcseqevr[ETM_MAX_SEQ_STATES];
-> -       u32     trcseqrstevr;
-> -       u32     trcseqstr;
-> -       u32     trcextinselr;
-> -       u32     trccntrldvr[ETMv4_MAX_CNTR];
-> -       u32     trccntctlr[ETMv4_MAX_CNTR];
-> -       u32     trccntvr[ETMv4_MAX_CNTR];
-> -
-> -       u32     trcrsctlr[ETM_MAX_RES_SEL];
-> -
-> -       u32     trcssccr[ETM_MAX_SS_CMP];
-> -       u32     trcsscsr[ETM_MAX_SS_CMP];
-> -       u32     trcsspcicr[ETM_MAX_SS_CMP];
-> -
-> -       u64     trcacvr[ETM_MAX_SINGLE_ADDR_CMP];
-> -       u64     trcacatr[ETM_MAX_SINGLE_ADDR_CMP];
-> -       u64     trccidcvr[ETMv4_MAX_CTXID_CMP];
-> -       u64     trcvmidcvr[ETM_MAX_VMID_CMP];
-> -       u32     trccidcctlr0;
-> -       u32     trccidcctlr1;
-> -       u32     trcvmidcctlr0;
-> -       u32     trcvmidcctlr1;
-> -
-> -       u32     trcclaimset;
-> -
-> -       u32     cntr_val[ETMv4_MAX_CNTR];
-> -       u32     seq_state;
-> -       u32     vinst_ctrl;
-> -       u32     ss_status[ETM_MAX_SS_CMP];
-> -
-> -       u32     trcpdcr;
-> -};
-> -
->  /**
->   * struct etm4_drvdata - specifics associated to an ETM component
->   * @pclk:       APB clock if present, otherwise NULL
-> @@ -981,7 +926,6 @@ struct etmv4_save_state {
->   *             at runtime, due to the additional setting of TRFCR_CX when
->   *             in EL2. Otherwise, 0.
->   * @config:    structure holding configuration parameters.
-> - * @save_state:        State to be preserved across power loss
->   * @skip_power_up: Indicates if an implementation can skip powering up
->   *                the trace unit.
->   * @paused:    Indicates if the trace unit is paused.
-> @@ -1036,7 +980,6 @@ struct etmv4_drvdata {
->         bool                            lpoverride;
->         u64                             trfcr;
->         struct etmv4_config             config;
-> -       struct etmv4_save_state         *save_state;
->         bool                            skip_power_up;
->         bool                            paused;
->         DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
->
-> --
-> 2.34.1
->
-
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+SGkgQ2hhcmxpZSwNClRoYW5rIHlvdSBmb3IgeW91ciBjb21tZW50cy4NCg0KPiBIaSBBbGzigJQN
+Cj4gDQo+IE9uIE1vbiwgTm92IDEwLCAyMDI1IGF0IDA3OjM4OjE3QU0gKzAwMDAsIEthenVoaXJv
+IEFiZSAoRnVqaXRzdSkgd3JvdGU6DQo+ID4gSGkgV2lsbCwNCj4gPg0KPiA+ID4gSGkgV2lsbCwN
+Cj4gPiA+DQo+ID4gPiA+IFtZb3UgZG9uJ3Qgb2Z0ZW4gZ2V0IGVtYWlsIGZyb20gd2lsbEBrZXJu
+ZWwub3JnLiBMZWFybiB3aHkgdGhpcyBpcw0KPiA+ID4gPiBpbXBvcnRhbnQgYXQgaHR0cHM6Ly9h
+a2EubXMvTGVhcm5BYm91dFNlbmRlcklkZW50aWZpY2F0aW9uIF0NCj4gPiA+ID4NCj4gPiA+ID4g
+T24gTW9uLCBPY3QgMjAsIDIwMjUgYXQgMDk6MjM6MDVQTSArMDgwMCwgSGFuanVuIEd1byB3cm90
+ZToNCj4gPiA+ID4gPiBPbiAyMDI1LzEwLzE3IDE1OjM5LCBLYXp1aGlybyBBYmUgd3JvdGU6DQo+
+ID4gPiA+ID4gPiBBR0RJIGhhcyB0d28gdHlwZXMgb2Ygc2lnbmFsaW5nIG1vZGVzOiBTREVJIGFu
+ZCBpbnRlcnJ1cHQuDQo+ID4gPiA+ID4gPiBDdXJyZW50bHksIHRoZSBBR0RJIGRyaXZlciBvbmx5
+IHN1cHBvcnRzIFNERUkuDQo+ID4gPiA+ID4gPiBUaGVyZWZvcmUsIGFkZCBzdXBwb3J0IGZvciBp
+bnRlcnJ1cHQgc2lnbmFsaW5nIG1vZGUgVGhlDQo+ID4gPiA+ID4gPiBpbnRlcnJ1cHQgdmVjdG9y
+IGlzIHJldHJpZXZlZCBmcm9tIHRoZSBBR0RJIHRhYmxlLCBhbmQgY2FsbA0KPiA+ID4gPiA+ID4g
+cGFuaWMgZnVuY3Rpb24gd2hlbiBhbiBpbnRlcnJ1cHQgb2NjdXJzLg0KPiA+ID4gPiA+ID4NCj4g
+PiA+ID4gPiA+IFJldmlld2VkLWJ5OiBJbGtrYSBLb3NraW5lbiA8aWxra2FAb3MuYW1wZXJlY29t
+cHV0aW5nLmNvbT4NCj4gPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEthenVoaXJvIEFiZSA8Zmox
+MDc4aWlAYWEuanAuZnVqaXRzdS5jb20+DQo+ID4gPiA+ID4gPiAtLS0NCj4gPiA+ID4gPiA+IEhh
+bmp1biwgSSBoYXZlIGFkZHJlc3NlZCBhbGwgeW91ciBjb21tZW50cy4NCj4gPiA+ID4gPiA+IFBs
+ZWFzZSByZXZpZXcgdGhlbS4NCj4gPiA+ID4gPiA+DQo+ID4gPiA+ID4gPiB2My0+djQNCj4gPiA+
+ID4gPiA+ICAgLSBBZGQgYSBjb21tZW50IHRvIHRoZSBmbGFncyBtZW1iZXIuDQo+ID4gPiA+ID4g
+PiAgIC0gRml4IGFnZGlfaW50ZXJydXB0X3Byb2JlLg0KPiA+ID4gPiA+ID4gICAtIEZpeCBhZ2Rp
+X2ludGVycnVwdF9yZW1vdmUuDQo+ID4gPiA+ID4gPiAgIC0gQWRkIHNwYWNlIGluIHN0cnVjdCBp
+bml0aWFsaXpzYXRpb24uDQo+ID4gPiA+ID4gPiAgIC0gRGVsZXRlIGN1cmx5IGJyYWNlcy4NCj4g
+PiA+ID4gPg0KPiA+ID4gPiA+IExvb2tzIGdvb2QgdG8gbWUsDQo+ID4gPiA+ID4NCj4gPiA+ID4g
+PiBBY2tlZC1ieTogSGFuanVuIEd1byA8Z3VvaGFuanVuQGh1YXdlaS5jb20+DQo+ID4gPiA+DQo+
+ID4gPiA+IEkgd2Fzbid0IGNjJ2Qgb24gdGhlIG9yaWdpbmFsIHBhdGNoIGJ1dCBJIGNvdWxkbid0
+IGZpZ3VyZSBvdXQgd2h5DQo+ID4gPiA+IGl0IHVzZXMgSVJRRl9OT19BVVRPRU4gd2hlbiByZXF1
+ZXN0aW5nIHRoZSBpcnEgZ2l2ZW4gdGhhdCB0aGUNCj4gPiA+ID4gZmlyc3QgdGhpbmcgaXQgZG9l
+cyBpcyBlbmFibGUgaXQuDQo+ID4gPg0KPiA+ID4gSSBtaXN1bmRlcnN0b29kIHRoZSB1c2FnZSBv
+ZiByZXF1ZXN0X2lycSBhbmQgZW5hYmxlX2lycS4NCj4gPiA+IFNpbmNlIHRoZXJlJ3Mgbm8gbmVl
+ZCB0byBzZXBhcmF0ZSB0aGVtLCBJIHdpbGwgcmVtb3ZlIElSUUZfTk9fQVVUT0VODQo+ID4gPiBh
+bmQgdGhlIGVuYWJsZV9pcnEgY2FsbCwgYW5kIHNlbmQgdjUuDQo+ID4NCj4gPiBJIGZvdW5kIG91
+dCB3aGVuIGNhbGxpbmcgcmVxdWVzdF9ubWksIHJlbW92aW5nIElSUUZfTk9fQVVUT0VOIHJlc3Vs
+dHMNCj4gaW4gYW4gZXJyb3IgKC1FSU5WQUwpLg0KPiA+IFRoZXJlZm9yZSwgSSB3b3VsZCBsaWtl
+IHRvIGtlZXAgSVJRRl9OT19BVVRPRU4gc3BlY2lmaWVkLg0KPiA+IElmIHlvdSBoYXZlIGFueSBj
+b21tZW50cyBvbiB0aGlzIHZlcnNpb24sIHBsZWFzZSBsZXQgbWUga25vdy4NCj4gDQo+IENvdWxk
+IGl0IGJlIHRoYXQgdGhpcyBpcyBqdXN0IGEgYnVnIGluIGByZXF1ZXN0X25taWA/IEkgc2VlIHRo
+ZSBmb2xsb3dpbmc6DQo+IA0KPiBpZiAoIWRlc2MgfHwgKGlycV9zZXR0aW5nc19jYW5fYXV0b2Vu
+YWJsZShkZXNjKSAmJg0KPiAgICAgIShpcnFmbGFncyAmIElSUUZfTk9fQVVUT0VOKSkgfHwNCj4g
+ICAgICFpcnFfc2V0dGluZ3NfY2FuX3JlcXVlc3QoZGVzYykgfHwNCj4gICAgIFdBUk5fT04oaXJx
+X3NldHRpbmdzX2lzX3Blcl9jcHVfZGV2aWQoZGVzYykpIHx8DQo+ICAgICAhaXJxX3N1cHBvcnRz
+X25taShkZXNjKSkNCj4gICAgICAgICByZXR1cm4gLUVJTlZBTDsNCj4gDQo+IFBlcmhhcHMgdGhl
+cmUgaXMganVzdCBhIG1pc3NpbmcgYCFgIGJlZm9yZSBgaXJxX3NldHRpbmdzX2Nhbl9hdXRvZW5h
+YmxlYC4NCj4gDQo+IEFzIGZhciBhcyBJIGNhbiB0ZWxsIGl0IGhhcyBhbHdheXMgYmVlbiB3cm9u
+ZyAtIGdpdCBibGFtZSBwb2ludHMgbWUgdG8gdGhlIG9yaWdpbmFsDQo+IGNvbW1pdCB3aGVyZSB0
+aGF0IGNvZGUgd2FzIGludHJvZHVjZWQ6DQo+IA0KPiBiNTI1OTAzYzI1NGRhICgiZ2VuaXJxOiBQ
+cm92aWRlIGJhc2ljIE5NSSBtYW5hZ2VtZW50IGZvciBpbnRlcnJ1cHQgbGluZXMiKQ0KPiANCj4g
+SSBsb29rZWQgYW5kIHRoZSBvbmx5IHR3byBjYWxsZXJzIGFyZSB1c2luZyBgSVJRRl9OT19BVVRP
+RU5gIHNvIEkgZ3Vlc3MgaXQNCj4ganVzdCBoYXNuJ3QgYmVlbiBub3RpY2VkIHlldC4NCj4gDQo+
+IEhhcHB5IHRvIHNlbmQgYSBwYXRjaCB0byBmaXggaXQuDQoNCkkgbm90aWNlZCB0aGF0IGNvbW1p
+dCAoYjUyNTkwM2MyNTRkYSkgbG9nIHNheXM6DQo+ICBJbnRlcnJ1cHQgbGluZXMgYWxsb2NhdGVk
+IGZvciBOTUkgZGVsaXZlcnkgbXVzdCBiZSBlbmFibGVkL2Rpc2FibGVkIHRocm91Z2gNCj4gIGVu
+YWJsZV9ubWkvZGlzYWJsZV9ubWlfbm9zeW5jIHRvIGtlZXAgdGhlaXIgc3RhdGUgY29uc2lzdGVu
+dC4NCg0KU2ltaWxhciBjb21tZW50cyBhbHNvIGV4aXN0IGluIHRoZSBmdW5jdGlvbiBjb21tZW50
+cyBvZiByZXF1ZXN0X25taSgpLg0KU28sIEkgd29uZGVyIGlmIGRpc2FibGluZyBhdXRvLWVuYWJs
+aW5nIGZvciByZXF1ZXN0X25taSgpIGlzIGEgZGVzaWduIGNob2ljZS4NCg0KQXMgZmFyIGFzIEkg
+Y2FuIHNlZSwgdGhlcmUgaXMgbm8gZnVuZGFtZW50YWwgcmVhc29uIHRvIHJlc3RyaWN0IHRoZSBm
+bGFnLg0KSWYgd2UgYWdyZWUgdG8gcmVtb3ZlIHRoZSByZXN0cmljdGlvbiBmb3IgcmVxdWVzdF9u
+bWkoKSwgIEknbSB3aWxsaW5nIHRvIHVwZGF0ZSB0aGlzIHBhdGNoLg0KSSdkIGxpa2UgdG8ga25v
+dyBvdGhlcnMnIG9waW5pb25zLg0KDQpCZXN0IFJlZ2FyZHMsDQpLYXp1aGlybyBBYmUNCj4gDQo+
+ID4NCj4gPiBCZXN0IFJlZ2FyZHMsDQo+ID4gS2F6dWhpcm8gQWJlDQo+ID4NCj4gPiA+DQo+ID4g
+PiBCZXN0IFJlZ2FyZHMsDQo+ID4gPiBLYXp1aGlybyBBYmUNCj4gPiA+DQo+ID4gPiA+DQo+ID4g
+PiA+IFdpbGwNCj4gDQo+IEJlc3TigJRDaGFybGllDQoNCg==
 
