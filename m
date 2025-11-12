@@ -4,78 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A9CCCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAA7CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CszuyZCpIAkXuMjAUxx68LzymHvfkndaeApzQvLhEA=; b=u8oOatMAEDH6t1LreVvDW8SCuy
-	Robxrbftxroi0J8zlrIvFWBRBJfl7OSCOsPRejjp6EIza5lkKU975WJdxmU7nSkXlJSsBoJMXbHV4
-	LD2lPwq0+rjUURYI23m21vb2qbyoamMtqtXCDH3IFmGRKOxmVMtEkdS7d+IDwUfnE7aUj/TRkfGpd
-	7Hg2k6SNwGXmOg0Ro25FTYa6mlwOwvfaZja28Lxx3+drbCZy+taQ2LSF42F5exM9MhdIzd+Xz7otf
-	sY8bSxBOYvGGrTyr5p/Odn4lHhhcn1PSjRG0VFgro+DvQ/Y3uYfwHgndRKeei0ZMELU7rruTgPZU3
-	VmhSMYFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Hfto6ldBbq6SssQFYFLJli8HNqlGHBesR7Ocmh9PvdU=; b=sKlzYibXk7P72a
+	1a6LpG9iQQkTpkz6yTM7wz9eqCWSYfKlRya8dwOqwZgr8JtzTPR96V3Ca8uHWE2sSk6z508PwpPZT
+	GFYMBhjP5naJyJpA9DNtsbJ9VkKSEPNH47lXkQXNG9Wn1QdJoKedwLaLZXZhyQ++kkVZy6tBMio21
+	dYVajxH6MAMOJMDlJhMDVrLRvhgMvh4hSFLl6O69Eid0sG/upLcwESbbD9hh/1h68EgpTUbIlOAGK
+	5e/7uj14SRGFfqoWHKNrNsKQC4NZe/beN1nZynkN8zcKqnCyc4NZn4NsKjgwBL91mIp3ZwgtTE/hS
+	816L9w0wQThmszoxodpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8Jl-00000008bDY-0Lzx;
-	Wed, 12 Nov 2025 10:43:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8Jh-00000008bDC-3Dhn
+	id 1vJ8Ns-00000008bT7-23vq;
+	Wed, 12 Nov 2025 10:47:28 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ8Np-00000008bRS-1CZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:43:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7755A1515;
-	Wed, 12 Nov 2025 02:42:59 -0800 (PST)
-Received: from [10.57.41.24] (unknown [10.57.41.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A008F3F5A1;
-	Wed, 12 Nov 2025 02:43:00 -0800 (PST)
-Message-ID: <cdb4b97a-415b-4dba-877b-0cd570381a6d@arm.com>
-Date: Wed, 12 Nov 2025 11:42:58 +0100
+	Wed, 12 Nov 2025 10:47:27 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ACAdejl531077;
+	Wed, 12 Nov 2025 11:47:10 +0100
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013052.outbound.protection.outlook.com [40.107.159.52])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4acreu03p6-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 12 Nov 2025 11:47:10 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aJKzlFOWIodMCJ37G6kjqpS4vfVV8iKyJ8xlhnaQfxhKa56z2t+++iFWLwx0Q3W7gFYWE05BJNXoiBULyyL4Gar2b1/rTq8dxjSe9F8kgyyBLGC+ppdx9eHN/DlVF/MEtnaDN2CLrA9iWYBM/8HmgwDGp4NJ5VayudberwPmb7c8nS83QqkeSf+PNzBDYGP6sydsulPNWgdzWzmDPA6rkJPbDdsh2NsXl5R+1Ka2YlWvH0oVjtHHDgJqzPlKCmuK+mPqKKPkpfyy69dcxMtrTINR3P3sl4Hu0N/GxEXU89cvOrESykMpomRqMVmX35ZwT00G+bHAo99O7fxd+wl2Lg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Hfto6ldBbq6SssQFYFLJli8HNqlGHBesR7Ocmh9PvdU=;
+ b=qF8E8fz2mvshgkAiXUx9oxcwaCUKZMidtZuCLYssxPNpwBaQbWThgtowX1rbFYV5LZTOCXM6+HgnVlD9meLuJtzkoH/jL6FZzQT9AhFGl1Ln1UN+a6f7C1WMnDmTy7T/TLAjh4SOWvAXJrF+aTebMPPRsmWGnLs/VwkW6wKQl6gzz5CcGOIsYUgvPbqLIJlIeymvaLNBPIikcHAUJoLE6TAxCh/gUZf1tB2z88v1VTvFtAhINnvT+PKgr1CgkSWpom94i7llUBbyds/0wLSn5lx7QDinJk9yPfVS6n/x0nf/Hfpw1fd5HR5/UQge2+rJ6C+m3r/HQ/TS+zhlfAf0qA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Hfto6ldBbq6SssQFYFLJli8HNqlGHBesR7Ocmh9PvdU=;
+ b=FgOuBEjTXKmwBEy2HBc53XOdtPa+sTB+jObYaKkcFjb7KOLdzyEt/Sxs1q3Cz1NkVHqF1tr2LIBF1im825hmlmvjFuKiRqzllDzLW3r9A2rHOtYoL/QBVgfQnP4hJBUxsTR4jyLv4zD2VVYmTQr2+SOwJnlymBuSVcSzgF1FhL6co7GWpgy3N6S4XNbr4Z0ayBfvucWtxQN23cx9YBOeIFCVu8VFCsDSsBjTiGJ/8Z6LsEQqz/Etc+1IFu6O2GZH6xyjFNKbHoQlYmP32nhsMOHxt4yGNs+5ciD+qg02QMqC9tZ3GDBFDeXZHDTfFaPmGow80SE855QtkZ1rq5q8WA==
+Received: from CWLP265CA0503.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:18b::9)
+ by AS2PR10MB6542.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:55d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
+ 2025 10:47:05 +0000
+Received: from AM3PEPF00009BA0.eurprd04.prod.outlook.com
+ (2603:10a6:400:18b:cafe::6) by CWLP265CA0503.outlook.office365.com
+ (2603:10a6:400:18b::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Wed,
+ 12 Nov 2025 10:47:04 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AM3PEPF00009BA0.mail.protection.outlook.com (10.167.16.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 10:47:05 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 12 Nov
+ 2025 11:47:13 +0100
+Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Wed, 12 Nov
+ 2025 11:47:04 +0100
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: [PATCH 0/6] Add boot phase tags for STMicroelectronics boards
+Date: Wed, 12 Nov 2025 11:46:42 +0100
+Message-ID: <20251112-upstream_uboot_properties-v1-0-0b19133710e3@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org,
- David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-8-kevin.brodsky@arm.com>
- <999feffa-5d1d-42e3-bd3a-d949f2a9de9d@arm.com>
- <cc9dc398-b9c5-4bb8-94ad-7e7f3ddd5b4f@arm.com>
- <824bf705-e9d6-4eeb-9532-9059fa56427f@arm.com>
- <58fd1a6e-f2c4-421c-9b95-dea4b244a515@arm.com>
- <8f70692c-25a9-4bd0-94ab-43ab435e4b1b@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <8f70692c-25a9-4bd0-94ab-43ab435e4b1b@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJJlFGkC/x3MMQqAMAxA0atIZgtNUBCvIiJWo2bQlrSKIN7d4
+ viG/x+IrMIR2uIB5Uui+CMDywKmbTxWNjJnA1mqEZHMGWJSHvfhdN6nIagPrCkvDFHVWGdd5XC
+ C3AflRe7/3fXv+wFQ3U+OawAAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Patrick Delaunay <patrick.delaunay@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.13.0
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF00009BA0:EE_|AS2PR10MB6542:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce15b6d5-88a1-4597-48a5-08de21d8d1f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1gyb1R5bDl4TlBHb0F5cyszclh1QWlnVWdCbkhUT2RhV2E2TEdtTlkrRjJs?=
+ =?utf-8?B?NlhORXZDR2lIOE9EY2hOWDZQaWlvUHRDSEZ6OEdzaWJENkplNkZpUVl2TFQw?=
+ =?utf-8?B?dUZEeDZSS3FVT2tnK3ZhejJVRjRkdURDanBsYis0a1JqVXBZdXhGZEx2aDVP?=
+ =?utf-8?B?NnMwbzZyNjVhOFIrYkY3M0c0R09SNVlPNlc3Y2Z0bW4xQ0EvMjg0VFpUQStw?=
+ =?utf-8?B?Um84Ylc0RUYxNUFmYTBQNEc3VHRzNURnUnhQaDFBTGh6ZmkzNnZMaUFqZ2x2?=
+ =?utf-8?B?OWt6MFZvdGVMYTA1WGhGazFoVzVsRXRNMk5oTG90YUlqYndNakdYNW9TdXBN?=
+ =?utf-8?B?c3A5VStKNTkraGhVZFYwUXJhbzROSWFZQXZSN2JPcS9xTDlldytpVXJNNTk4?=
+ =?utf-8?B?SGlvRC9GSmFNSDlWanRhV0lHckJtUCt5OXZCdkpRZDgwYU5acVZsVzBIL1N5?=
+ =?utf-8?B?WWNDeEVuUlZxUmR3U3dxSm5RT3FrWXgzK1lvOE5Md2plZTBWbE9ra1FGRXFP?=
+ =?utf-8?B?WjNnNjRyQ2hvU3FSL3IyWXZaN1kyTkdCNFJZb3U0SXB2ck5NSWt0ODZDSTBx?=
+ =?utf-8?B?dU02dmVFTmpSbUJjTkpuSUVXdUFsRDlPR3dtVkFoTmNSZjVVRHpETkx4SkFD?=
+ =?utf-8?B?TEkrYS9vU1lQSmZLRWNlaEMwcDR4L1B4QUQ5UTVkTVVkNWFWSmFLNHl4OGNs?=
+ =?utf-8?B?NzNRRGl5YmoxcjRWK1JHQjczQzNDQXo1Rk5DTTg1eitWNU5yYVByVzJXWGor?=
+ =?utf-8?B?WWlEVDh3RXJPM0ZKQWx4bFppQThQcmI5WE1tZitTWlh1Z0pNdTF4OEc0OFVE?=
+ =?utf-8?B?N2xhVUE0OUF4UjVGTnNrOUozeUpQWjE3Q2N6OStVcnJHcEZwSWZzbTlGZlpG?=
+ =?utf-8?B?SEJJNExiNkw5NStuZFdIMlh4SXZzekRHSUJ2aEhzcDdSVG9nTDE5WEl4b21G?=
+ =?utf-8?B?M2ZDMlhNcVNBaloxUzB3MEtKOTNlWVJlZXRnYS9LZStoYjJSeUM2Yk1RRmp4?=
+ =?utf-8?B?Z3dWN1NlL29paVJPM2g4S29MdXpiT0NWbGNFQ1NSZGZUL3I0VTlnUEx2Q1kr?=
+ =?utf-8?B?aG4wYmdSWGRLVG9ERDRPM3RKNyt6TTdiSkswTTNZR245aDZKTnVxd0V0bE01?=
+ =?utf-8?B?aWc1MHByTklBUUZMYVVGa044ZTh2WUMxaCt0Y04xbU5xOTRFeDFCQS9BMXJG?=
+ =?utf-8?B?OUhaY0V6RTVMY3o4dUNaOEhXblp0T0dCQWFMaHpmQ2JYbG1PdDZBT1RUWE5p?=
+ =?utf-8?B?YXkxRUVSSTU3bVBJelRrNHR3bDF3ekxXTmZyZW9ZQzV3L3A4V21WWEZYL2w2?=
+ =?utf-8?B?TG5nSHVjUUZQOGlKUDBNK2twbnM4Z3F2aGR2N2lta3dHbEtYK0ZISEJxSVZU?=
+ =?utf-8?B?UmhZdHNOWmltOGw2Ylh3b2xRTHlYTXRZWWdZcnNnSnZ1c2Z4ZWc2Rk5ZQVdO?=
+ =?utf-8?B?VjNPT3JjVU52YXZXaGhSNmp6aFE3cXh5RElVdFduV25Xbmc0QXlUTmRsa0ZX?=
+ =?utf-8?B?Ni95N2o2KzhTc25rand1UDhpdm1aYzFucUlhdDVlQUdLODgvSkcxQ1VOQUNu?=
+ =?utf-8?B?QWU2cld6ZmJTN0RLMmVEc0pFTFo0VVgxc3cwZ1BLaGNJbmRzOW9zYld4K2h4?=
+ =?utf-8?B?RllPOG1qUTNBVTJOVGVaZ3dsUzJlbUdQWE0rS2ZRWHQ1SmpNT0xIZUpIM0JE?=
+ =?utf-8?B?ZlNDYWc3b1Q4bE1aNWlhWDU2elNYblVhUzhrRVB6cXYraHlPVEJDMWtVdGVE?=
+ =?utf-8?B?Z0N3SG9WTG82SmpJWVlZek12OFNCK29ReGtON2FybmF2SmpITHFQa2l4ZVFT?=
+ =?utf-8?B?OTJNY29pNVhOWW5USUFzQmxaRHlCcjJWZ1ZETkhGc00vamUrb1VyUERYcmdQ?=
+ =?utf-8?B?ZGdSWk9TLytBa1U5NTNkZnBacjdQV0N4eXgvQjM1WVRJU2lWRGNWdVZybjNR?=
+ =?utf-8?B?U3FQWVhVTk9NZXFpTUE3UEJ4RXJ1WjRWeUI3K2ROK25mc0hiTis4VnZpM2NG?=
+ =?utf-8?B?eUxBUkRIelNySGhDcVlZdHJrdG5PTlJVb3VHN0s5MnBhS2NHdzJHYmtxVlIv?=
+ =?utf-8?B?MHBmTkluZE95TDU2NEh2RS9xRnJmL0ROMStFZWJ1bkNaNGliMHVqT2lQYVNs?=
+ =?utf-8?Q?GmRY=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 10:47:05.1380
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce15b6d5-88a1-4597-48a5-08de21d8d1f3
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009BA0.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB6542
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDA4NiBTYWx0ZWRfX58XZO8Hd7IC0
+ oHvjGREjlYtfQrdDgQG8TsGZgMzNDKEJgCMoSvrwIyRQiOLEmdDMgA871EzSPbvg+T/+uog/lkx
+ iRQ2elyUgm/t3AULSieqEgRTSXD4mVbbxMTUS5dleHjW3BoyMxIAqG3kOC53PJ5ia+eLWechdhe
+ yJdC+/SrdTgIyVfUIhNpHunYrtKgimW8U1tR0v9p6nh6Yepm2/zyXneaPxbbrgOkmrG9SzYA0CD
+ 3JItMXW+jmFB4QnoWiHARQxSaksxZAriZiyFOwdFKfkzn36vo9H/GtiM5VwEwyY/5OxQoIgEnvG
+ Dtz9eb6IRnzUG8kN5CDb+RvGImowW1lMbHbxdjLdeW8OqQ34DidPk/Msxglt3UZXi5OJamoSEcf
+ c8VNmHV79HMyWw8bP3yx3MFX01A43g==
+X-Authority-Analysis: v=2.4 cv=D+hK6/Rj c=1 sm=1 tr=0 ts=691465ae cx=c_pps
+ a=1plMItIg/2aKyTZzCDpi9Q==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=XWp4PHTOCikA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=tf5JQrcXl1QFNXzbJ9IA:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-ORIG-GUID: brWYArT7KXuNeZ3whiqxFem8Xq2dE9u-
+X-Proofpoint-GUID: brWYArT7KXuNeZ3whiqxFem8Xq2dE9u-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-12_03,2025-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
+ clxscore=1015 lowpriorityscore=0 spamscore=0 priorityscore=1501 adultscore=0
+ suspectscore=0 bulkscore=0 phishscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511120086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_024309_900705_E09D9809 
-X-CRM114-Status: GOOD (  30.39  )
+X-CRM114-CacheID: sfid-20251112_024725_950618_D014239C 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,192 +195,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 17:03, Ryan Roberts wrote:
-> On 11/11/2025 15:56, Kevin Brodsky wrote:
->> On 11/11/2025 10:24, Ryan Roberts wrote:
->>> [...]
->>>
->>>>>> +		state->active = true;
->>>>>> +		arch_enter_lazy_mmu_mode();
->>>>>> +	}
->>>>>>  }
->>>>>>  
->>>>>>  static inline void lazy_mmu_mode_disable(void)
->>>>>>  {
->>>>>> -	arch_leave_lazy_mmu_mode();
->>>>>> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
->>>>>> +
->>>>>> +	VM_WARN_ON_ONCE(state->nesting_level == 0);
->>>>>> +	VM_WARN_ON(!state->active);
->>>>>> +
->>>>>> +	if (--state->nesting_level == 0) {
->>>>>> +		state->active = false;
->>>>>> +		arch_leave_lazy_mmu_mode();
->>>>>> +	} else {
->>>>>> +		/* Exiting a nested section */
->>>>>> +		arch_flush_lazy_mmu_mode();
->>>>>> +	}
->>>>>>  }
->>>>>>  
->>>>>>  static inline void lazy_mmu_mode_pause(void)
->>>>>>  {
->>>>>> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
->>>>>> +
->>>>>> +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
->>>>> nit: do you need the first condition? I think when nesting_level==0, we expect
->>>>> to be !active?
->>>> I suppose this should never happen indeed - I was just being extra
->>>> defensive.
->>>>
->>>> Either way David suggested allowing pause()/resume() to be called
->>>> outside of any section so the next version will bail out on
->>>> nesting_level == 0.
->>> Ignoring my current opinion that we don't need pause/resume at all for now; Are
->>> you suggesting that pause/resume will be completely independent of
->>> enable/disable? I think that would be best. So enable/disable increment and
->>> decrement the nesting_level counter regardless of whether we are paused.
->>> nesting_level 0 => 1 enables if not paused. nesting_level 1 => 0 disables if not
->>> paused. pause disables nesting_level >= 1, resume enables if nesting_level >= 1.
->> This is something else. Currently the rules are:
->>
->> [A]
->>
->> // pausing forbidden
->> enable()
->>     pause()
->>     // pausing/enabling forbidden
->>     resume()
->> disable()
->>
->> David suggested allowing:
->>
->> [B]
->>
->> pause()
->> // pausing/enabling forbidden
->> resume()
->>
->> Your suggestion is also allowing:
->>
->> [C]
->>
->> pause()
->>     // pausing forbidden
->>     enable()
->>     disable()
->> resume()
-> I think the current kasan kasan_depopulate_vmalloc_pte() path will require [C]
-> if CONFIG_DEBUG_PAGEALLOC is enabled on arm64. It calls __free_page() while
-> paused. I guess CONFIG_DEBUG_PAGEALLOC will cause __free_page() ->
-> debug_pagealloc_unmap_pages() ->->-> update_range_prot() -> lazy_mmu_enable().
+The bootph-all flag was introduced in dt-schema
+(dtschema/schemas/bootph.yaml) to define node usage across
+different boot phases.
+    
+To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
+present in all boot stages, so add missing bootph-all phase flag
+to these nodes to support SD boot.
 
-Well, I really should have tried booting with KASAN enabled before...
-lazy_mmu_mode_enable() complains exactly as you predicted:
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+Patrice Chotard (6):
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f4 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f7 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics h7 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp13 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp15 boards
+      arm64: dts: st: Add boot phase tags for STMicroelectronics mp2 boards
 
-> [    1.047587] WARNING: CPU: 0 PID: 1 at include/linux/pgtable.h:273
-> update_range_prot+0x2dc/0x50c
-> [    1.048025] Modules linked in:
-> [    1.048296] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> 6.18.0-rc3-00012-ga901e7f479f1 #142 PREEMPT
-> [    1.048706] Hardware name: FVP Base RevC (DT)
-> [    1.048941] pstate: 11400009 (nzcV daif +PAN -UAO -TCO +DIT -SSBS
-> BTYPE=--)
-> [    1.049309] pc : update_range_prot+0x2dc/0x50c
-> [    1.049631] lr : update_range_prot+0x80/0x50c
-> [    1.049950] sp : ffff8000800e6f20
-> [    1.050162] x29: ffff8000800e6fb0 x28: ffff700010014000 x27:
-> ffff700010016000
-> [    1.050747] x26: 0000000000000000 x25: 0000000000000001 x24:
-> 00000000008800f7
-> [    1.051308] x23: 0000000000000000 x22: fff00008000f7000 x21:
-> fff00008003009f8
-> [    1.051884] x20: fff00008000f8000 x19: 1ffff0001001cdea x18:
-> ffff800080769000
-> [    1.052469] x17: ffff95c63264ec00 x16: ffff8000800e7504 x15:
-> 0000000000000003
-> [    1.053045] x14: ffff95c63482f000 x13: 0000000000000000 x12:
-> ffff783ffc0007bf
-> [    1.053620] x11: 1ffff83ffc0007be x10: ffff783ffc0007be x9 :
-> dfff800000000000
-> [    1.054203] x8 : fffd80010001f000 x7 : ffffffffffffffff x6 :
-> 0000000000000001
-> [    1.054776] x5 : 0000000000000000 x4 : fff00008003009f9 x3 :
-> 1ffe00010006013f
-> [    1.055348] x2 : fff0000800300000 x1 : 0000000000000001 x0 :
-> 0000000000000000
-> [    1.055912] Call trace:
-> [    1.056100]  update_range_prot+0x2dc/0x50c (P)
-> [    1.056478]  set_memory_valid+0x44/0x70
-> [    1.056850]  __kernel_map_pages+0x68/0xe4
-> [    1.057226]  __free_frozen_pages+0x528/0x1180
-> [    1.057601]  ___free_pages+0x11c/0x160
-> [    1.057961]  __free_pages+0x14/0x20
-> [    1.058307]  kasan_depopulate_vmalloc_pte+0xd4/0x184
-> [    1.058748]  __apply_to_page_range+0x678/0xda8
-> [    1.059149]  apply_to_existing_page_range+0x14/0x20
-> [    1.059553]  kasan_release_vmalloc+0x138/0x200
-> [    1.059982]  purge_vmap_node+0x1b4/0x8a0
-> [    1.060371]  __purge_vmap_area_lazy+0x4f8/0x870
-> [    1.060779]  _vm_unmap_aliases+0x488/0x6ec
-> [    1.061176]  vm_unmap_aliases+0x1c/0x34
-> [    1.061567]  change_memory_common+0x17c/0x380
-> [    1.061949]  set_memory_ro+0x18/0x24
-> [...]
+ arch/arm/boot/dts/st/stm32429i-eval.dts       | 11 +++++
+ arch/arm/boot/dts/st/stm32746g-eval.dts       | 10 +++++
+ arch/arm/boot/dts/st/stm32f4-pinctrl.dtsi     | 12 ++++++
+ arch/arm/boot/dts/st/stm32f429-disco.dts      | 11 +++++
+ arch/arm/boot/dts/st/stm32f429.dtsi           |  9 ++++
+ arch/arm/boot/dts/st/stm32f469-disco.dts      | 12 ++++++
+ arch/arm/boot/dts/st/stm32f7-pinctrl.dtsi     | 11 +++++
+ arch/arm/boot/dts/st/stm32f746-disco.dts      | 12 ++++++
+ arch/arm/boot/dts/st/stm32f746.dtsi           |  5 +++
+ arch/arm/boot/dts/st/stm32f769-disco.dts      | 12 ++++++
+ arch/arm/boot/dts/st/stm32h743.dtsi           | 19 +++++++++
+ arch/arm/boot/dts/st/stm32mp131.dtsi          | 21 ++++++++++
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts       | 11 +++++
+ arch/arm/boot/dts/st/stm32mp15-scmi.dtsi      | 26 ++++++++++++
+ arch/arm/boot/dts/st/stm32mp151.dtsi          | 29 +++++++++++++
+ arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dts | 14 +++++++
+ arch/arm/boot/dts/st/stm32mp157a-dk1.dts      | 43 +++++++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-dk2.dts      | 43 +++++++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-ed1-scmi.dts | 14 +++++++
+ arch/arm/boot/dts/st/stm32mp157c-ed1.dts      | 60 +++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dts | 31 ++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-ev1.dts      | 36 ++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp211.dtsi        |  7 ++++
+ arch/arm64/boot/dts/st/stm32mp215f-dk.dts     |  1 +
+ arch/arm64/boot/dts/st/stm32mp231.dtsi        | 22 ++++++++++
+ arch/arm64/boot/dts/st/stm32mp235f-dk.dts     | 11 +++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        | 27 +++++++++++-
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts     | 11 +++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    | 11 +++++
+ 29 files changed, 541 insertions(+), 1 deletion(-)
+---
+base-commit: 53c18dc078bb6d9e9dfe2cc0671ab78588c44723
+change-id: 20251112-upstream_uboot_properties-22480b0b4b1c
 
+Best regards,
+-- 
+Patrice Chotard <patrice.chotard@foss.st.com>
 
-> Arguably you could move the resume() to before the __free_page(). But it just
-> illustrates that it's all a bit brittle at the moment...
-
-Difficult to disagree. With things like DEBUG_PAGEALLOC it becomes very
-hard to know what is guaranteed not to use lazy MMU.
-
->>> Perhaps we also need nested pause/resume? Then you just end up with 2 counters;
->>> enable_count and pause_count. Sorry if this has already been discussed.
->> And finally:
->>
->> [D]
->>
->> pause()
->>     pause()
->>         enable()
->>         disable()
->>     resume()
->> resume()
->>
->> I don't really mind either way, but I don't see an immediate use for [C]
->> and [D] - the idea is that the paused section is short and controlled,
->> not made up of arbitrary calls. 
-> If my thinking above is correct, then I've already demonstrated that this is not
-> the case. So I'd be inclined to go with [D] on the basis that it is the most robust.
->
-> Keeping 2 nesting counts (enable and pause) feels pretty elegant to me and gives
-> the fewest opportunities for surprises.
-
-Agreed, if we're going to allow enable() within a paused section, then
-we might as well allow paused sections to nest too. The use-case is
-clear, so I'm happy to go ahead and make those changes.
-
-David, any thoughts?
-
-- Kevin
-
->
-> Thanks,
-> Ryan
->
->> A potential downside of allowing [C] and
->> [D] is that it makes it harder to detect unintended nesting (fewer
->> VM_WARN assertions). Happy to implement it if this proves useful though.
->>
->> OTOH the idea behind [B] is that it allows the caller of
->> pause()/resume() not to care about whether lazy MMU is actually enabled
->> or not - i.e. the kasan helpers would keep working even if
->> apply_to_page_range() didn't use lazy MMU any more.
->>
->>>>>> +
->>>>>> +	state->active = false;
->>>>>>  	arch_leave_lazy_mmu_mode();
->>>>>>  }
->>>>>>  
->>>>>> [...]
 
