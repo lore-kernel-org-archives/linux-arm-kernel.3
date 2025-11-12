@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4361BCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 01:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6CFCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 01:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYfwcXlk1yVhq5DVinFiJbUOXo8e/FkjNZ+187JUQvQ=; b=lIJSkZ8+45QmOmEW4RbBLBVTRf
-	88XtjFF09FRj08zppO+c/tVDuGqaDjJNeNr/P+lhNblGMVHa/SbwwVDv8824JDTjSStvM16E0I58L
-	civkc7sJV0worVM4M+NQZhj/VLbUS8VxOYwHNsf98MNCRRrK1skbEnfYic1g88drF0nLqo8SI3lgH
-	2uxciWwDhEcjGAomLQeklPJ56yzl7zBUdd0SmdHYWNJ+f2aF+aRoUCl+/yOzVnMX/SNGU//QLuQAM
-	zm5jMZ0+HhV1bK2HVA0T3j5oEJxYBplWJ8mEhPOeDd2D8M6Z1Fh2Q1HO4c0+ggyuyUfqAC/OftKdZ
-	td+X7oYg==;
+	bh=C9neEnQq3thnjzjGOw8nSCkjTdV9aE9g14bGC4lf5vE=; b=jO6rFiNQZQJciEzn/HauGi0sj2
+	gvbFbsATgVjtO2/QGuq5Te4XXP46mPaZyCVknh8dWInjgaoLPVYvtup8Zz8kRtuXxhvyEMaD7Xw7b
+	Z0s1dDHb9Iew+1mQ91fvE69NsnTQUDnmjmprNnIooa+WWGm4lhVYoxm4jQ675bOdyvROO5PQo33Fy
+	gUnyY+ouatJJFxbyl57l3C2U5KoT3K16zzvo45ceuRLavufaysFe9hmGYMYnJ1v8SdSgQUCG7X1ym
+	815hdB7lQy6MsBcH1Cy58S7RVDloT4quTZu/Z3ZnF22ggdWPC+SVZdyxGrDuKwg9gmOdWxG4v/2w0
+	wOuT2YPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ00x-00000007yiz-39cl;
-	Wed, 12 Nov 2025 01:51:15 +0000
-Received: from mail-m16.yeah.net ([220.197.32.16])
+	id 1vJ02b-00000007yqr-0hlC;
+	Wed, 12 Nov 2025 01:52:57 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ00u-00000007yic-1jEF
+	id 1vJ02Y-00000007yqP-3G0x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 01:51:14 +0000
+	Wed, 12 Nov 2025 01:52:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=hYfwcXlk1yVhq5DVinFiJbUOXo8e/FkjNZ+187JUQvQ=;
-	b=g2OnEPAAzyP8npm4AZ+DsbfBUsKE+VOkkIsHbR8DM5R8ndnfTRN9gZOsm006g7
-	1gy1K3u7D2+fX5wx+0jMYPvwLLbgT2EQLiigh52k0OxTyufcz35V4g8MERCGW4EV
-	IwkqXZzqMk5ENaydSxSc6uknGetzcgC+qBNYW8fSqpGek=
+	Content-Type; bh=C9neEnQq3thnjzjGOw8nSCkjTdV9aE9g14bGC4lf5vE=;
+	b=NqdefhQyq+sZoVxWznWBYZ2OWBn2H2NOGNh/Os3l7rkNzBdk2i26nmATH0wU4P
+	4q0YgG+IWidcwRRI6NciXc1/zWQefvi7CKHaEs1D2zFXHaLtglQ7lvHI8/NTmeeZ
+	nx7ued2u44pRu9fIGoz21fG+CByCpz55MYqHXBgoBwAa8=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgD3XBjz5xNpPSHPAQ--.5419S3;
-	Wed, 12 Nov 2025 09:50:45 +0800 (CST)
-Date: Wed, 12 Nov 2025 09:50:43 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAXXYde6BNpLQ7yAA--.5484S3;
+	Wed, 12 Nov 2025 09:52:32 +0800 (CST)
+Date: Wed, 12 Nov 2025 09:52:30 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.li@nxp.com>, "robh@kernel.org" <robh@kernel.org>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add
- supports-clkreq property to PCIe M.2 port
-Message-ID: <aRPn89vIkmije-Ks@dragon>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 0/11] PCI: imx6: Add a method to handle CLKREQ#
+ override
+Message-ID: <aRPoXvIeooNhLpfn@dragon>
 References: <20251015030428.2980427-1-hongxing.zhu@nxp.com>
- <20251015030428.2980427-2-hongxing.zhu@nxp.com>
- <aRLhko0h1OZgvo2o@dragon>
- <AS8PR04MB8833D099959C62A97AC8CB868CCFA@AS8PR04MB8833.eurprd04.prod.outlook.com>
- <aRNf3TUTawixqGR1@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRNf3TUTawixqGR1@lizhi-Precision-Tower-5810>
-X-CM-TRANSID: M88vCgD3XBjz5xNpPSHPAQ--.5419S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZr4kWrWrZw1DtFy5JFW5Wrg_yoW5Zr4DpF
-	WUGF4DGF18WFyrJwsFqFyFkFyDtwn3AFsI9r1DWryUtrZ0kF1FqF429rs3ur1Dtr48K3y0
-	vF1qq3sag345Zr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jbVysUUUUU=
+In-Reply-To: <20251015030428.2980427-1-hongxing.zhu@nxp.com>
+X-CM-TRANSID: Mc8vCgAXXYde6BNpLQ7yAA--.5484S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUo1v3UUUUU
 X-Originating-IP: [117.80.155.87]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiORZWu2kT5-bznwAA3F
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNwBx1mkT6GC+PAAA3g
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_175112_840446_32876808 
-X-CRM114-Status: GOOD (  26.96  )
+X-CRM114-CacheID: sfid-20251111_175255_126287_D22EA1E9 
+X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,79 +77,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 11:10:05AM -0500, Frank Li wrote:
-> On Tue, Nov 11, 2025 at 08:02:35AM +0000, Hongxing Zhu wrote:
-> > > -----Original Message-----
-> > > From: Shawn Guo <shawnguo2@yeah.net>
-> > > Sent: 2025年11月11日 15:11
-> > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > > lpieralisi@kernel.org; kwilczynski@kernel.org; mani@kernel.org;
-> > > robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > > kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
-> > > linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
-> > > imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > > Subject: Re: [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add
-> > > supports-clkreq property to PCIe M.2 port
-> > >
-> > > On Wed, Oct 15, 2025 at 11:04:18AM +0800, Richard Zhu wrote:
-> > > > According to PCIe r6.1, sec 5.5.1.
-> > > >
-> > > > The following rules define how the L1.1 and L1.2 substates are entered:
-> > > > Both the Upstream and Downstream Ports must monitor the logical state
-> > > > of the CLKREQ# signal.
-> > > >
-> > > > Typical implement is using open drain, which connect RC's clkreq# to
-> > > > EP's clkreq# together and pull up clkreq#.
-> > > >
-> > > > imx95-15x15-evk matches this requirement, so add supports-clkreq to
-> > > > allow PCIe device enter ASPM L1 Sub-State.
-> > > >
-> > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > ---
-> > > >  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 1 +
-> > > >  1 file changed, 1 insertion(+)
-> > > >
-> > > > diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> > > > b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> > > > index 148243470dd4a..3ee032c154fa3 100644
-> > > > --- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> > > > +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> > > > @@ -556,6 +556,7 @@ &pcie0 {
-> > > >  	pinctrl-names = "default";
-> > > >  	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
-> > > >  	vpcie-supply = <&reg_m2_pwr>;
-> > > > +	supports-clkreq;
-> > >
-> > > Is binding updated for this property?
-> > >
-> > > Shawn
-> > >
-> > Hi Shawn:
-> > As I know that It's a documented binding property as below.
-> > - supports-clkreq:
-> >    If present this property specifies that CLKREQ signal routing exists from
-> >    root port to downstream device and host bridge drivers can do programming
-> >    which depends on CLKREQ signal existence. For example, programming root port
-> >    not to advertise ASPM L1 Sub-States support if there is no CLKREQ signal.
-> > ./Documentation/devicetree/bindings/pci/pci.txt
-> 
-> Shawn:
-> 
-> 	This file should be removed. It is already merge to Rob's dt-scheme
-> as PCIe standard properties.
-> 
-> See: https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-bus-common.yaml
+On Wed, Oct 15, 2025 at 11:04:17AM +0800, Richard Zhu wrote:
+> [PATCH v6 01/11] arm64: dts: imx95-15x15-evk: Add supports-clkreq
+> [PATCH v6 02/11] arm64: dts: imx95-19x19-evk: Add supports-clkreq
+> [PATCH v6 03/11] arm64: dts: imx8mm-evk: Add supports-clkreq property
+> [PATCH v6 04/11] arm64: dts: imx8mp-evk: Add supports-clkreq property
+> [PATCH v6 05/11] arm64: dts: imx8mq-evk: Add supports-clkreq property
+> [PATCH v6 06/11] arm64: dts: imx8qm-mek: Add supports-clkreq property
+> [PATCH v6 07/11] arm64: dts: imx8qxp-mek: Add supports-clkreq
 
-Ah, thanks!
-
-Rob,
-
-So it's no longer the case that kernel Documentation/devicetree/bindings
-has all bindings documentation?  Or it's never been the case?  I used to
-grep a property in the folder to see if it's documented or not.
-
-Shawn
+Applied these, thanks!
 
 
