@@ -4,141 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54956CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 928EBCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 11:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zA848SkabEn1QnVAIPBikXdCbqRN1MdWv+kVvgT+r5w=; b=3lnCd+kyrMQipHK6qp4YxXK9g/
-	3VrkC2J2jmTSS56jkAgrjnfaaFu0HRBJKLqw6ullPnUR7QnGaWB6FCVCENgXYfLBV7vdufrLsJTq3
-	MX9paNca+wGwEAPMAlRsSQGP8E8kVRQPaodx1DP59SGHykQa5q0ZMukMb8ksBP047PeK5/l8CToSk
-	Xnw5byfmv79PucE9RUNFgBXDSt2UI2gXlqjrsOKLPDLVv03YaCIXJQTRmykOocxpdt0GJoTmUuaMJ
-	yVG8BrlyGp7IMzJ7kTmW4O2ACzTu8kuXFztGxNi2NKysIJEC/g/6KWtt/dcBxMI/Ipq4N5OoQP9Qs
-	/yJlEoWA==;
+	bh=fhpeU9U5S/hGeJg9f9bTT5WPcsYN6w1Wj4PWqyqzdyc=; b=GlO7adqEs8WTZlQmJ4gO6FdU61
+	lpjVjF7c6z5wgNIC6SKSPKaFxOQw2rrYbxs390BIgqnXcNFwP2jMMNA5kgC9oinKbJLXmK6UCGNTj
+	YsIpGAqr15VUOj3pd3lWmJGqiWcswqi5zcjoR8OtCn4x5qLsLonyVq6YBMk8KS27+nOXFi0rpBy7+
+	Q8finIYAc5jqLAPKJiCd4sgBA+FLYhejqBRcdOWfAXihB9pFiqT2lrmKgMD12P7uGODLNdb+KUw9S
+	2z8v+mXse646AZ2Dc2D3tCSXpiIt8zgEkP96IkKiqjUtiBDm3ykd/sPGRaAJ2N1Y49Q6vNVcYhI5Q
+	3ZGQ+gsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8eG-00000008d9t-2H0S;
-	Wed, 12 Nov 2025 11:04:24 +0000
-Received: from mail-japaneastazon11022120.outbound.protection.outlook.com ([52.101.126.120] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vJ8hb-00000008dsv-0JU6;
+	Wed, 12 Nov 2025 11:07:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8eC-00000008d9K-4Bf4;
-	Wed, 12 Nov 2025 11:04:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TWN2aHpk2T5k3GawjwPPmFplPP9R+pNNQXBDVh7uYzJc9c0vpzfYMXRs7dG1Uzhwh6Br5OGc+erDceoU1YIG3X6kAUnmgAJNW8bWVFp0jvJ4bkuAmS26H2BRg2SCe5O6mAwBQalPtaxWi2RifCQFl0ly6SCMRT9fNML+tlM4WDLhjFr0qUD7g4pvJjudwfl0EUqiNrSMesyaA01bVOj5pmmJBnM1K3pxtakoFqw9gI5dUTUAnOlGGdilKVArExMLsjnCJa6O4v6/q7VwdUNBAaZxwcc5zKgbWNQ1hpEwnHSdD0xNVIUJHrV8Ih+D1f8ozDL5nWro5hggctMSw1M/Ig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zA848SkabEn1QnVAIPBikXdCbqRN1MdWv+kVvgT+r5w=;
- b=nvbaOx72e36jUgWyJZO8kH5vKrn+dSwe7ccYn2aO01wLWtxG9lawNcIW1ovkm9D1dv/lvqLVsPQdPEY6wJQShIewvsoDhCzs+Gwri42wftD8aX7GXWFgr3bbiC09BrqLA3v7E1P0Ng2QxkdZZvcJmx07Ae9rQyGqsQbgBm0zw5IufLmbtLYlgGXfa4DBYBBL0kgAq2UkB2dp8hS3HHwiqs9XlPVgcjyC2Qf52dcfe8YRcIWqGmqgEHTJDuOmVF6ObX0TfuqNimtduJ35ZYrQ8x9svcWObuAvXjQ2QBQjyeT85PjaYPpJ14HTB5ebUDxKklrLtr4PXCeF0+iEjk3opA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=163.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR04CA0014.apcprd04.prod.outlook.com (2603:1096:4:197::18)
- by TY0PR06MB5756.apcprd06.prod.outlook.com (2603:1096:400:27e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
- 2025 11:04:13 +0000
-Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
- (2603:1096:4:197:cafe::1d) by SI2PR04CA0014.outlook.office365.com
- (2603:1096:4:197::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Wed,
- 12 Nov 2025 11:04:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 11:04:12 +0000
-Received: from [172.16.96.116] (unknown [172.16.96.116])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 23CB440A5BD4;
-	Wed, 12 Nov 2025 19:04:11 +0800 (CST)
-Message-ID: <6bd16478-4bf9-436a-b862-02d1ebac3d29@cixtech.com>
-Date: Wed, 12 Nov 2025 19:04:10 +0800
+	id 1vJ8hY-00000008dsF-1NZc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 11:07:49 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AC9X00I1001747
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 11:07:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fhpeU9U5S/hGeJg9f9bTT5WPcsYN6w1Wj4PWqyqzdyc=; b=AbFmXmBTta7gKjns
+	M54/EkecUo+B6cPlccmI4n5Aj9/wqRd2an+bzFJ+ms700a4OajXZeUEs0gXWQRLc
+	etsB8+PdB0dKId8+lOeFMHY7TYoDx1ABopbYg7tBtpG6H6xL3S35HNvLdVM/zgAq
+	yfYjYPBDelBKRb0j2yq5sVRydVg/9Wase8IyulhN4dEeUlmoH2zYiu39rd5AJymA
+	5IfH9hlH087LSQuSPibn+jT/AI985QAaVn+au/GJ6aMhUMY+rDwa++KEfRyjYwxK
+	dXGbWqcERW93lnoYSWvH1QxycRclRX0ECjE89dnAtVJyZcIgPp1aXQ1KNS+XJChv
+	rcbN5w==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4acqq20bj5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 11:07:47 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ed83a05863so2097201cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:07:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1762945666; x=1763550466; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fhpeU9U5S/hGeJg9f9bTT5WPcsYN6w1Wj4PWqyqzdyc=;
+        b=HVKMek30QQkpsBxTdjIPWMIt5ehWAs7ofzVws/2YUnpgeZ+lJdXV4mik0ZsaM4cTSY
+         OmsnJxKKKC5WBq532M38lqn7je3J65wKO5nnu95xVJZnw6WRU75ej1rDots6viJsf5e6
+         TtzyWulALsyxJudeM5S23qB6WTHx4s55HExWc0IL2HzDWO8Mp9ntPf69qfzapFvBDfTo
+         z0HDbzASnVNGc4OxSfLdaHt/FdHR3vjkzSncfmbH2HIV5/MtV2p7p3sbmi5G0JJc1n5F
+         IUwt87yxIuwzznNbao4yT0IFncgxXiJF2SuiZDtUE2/XEfmpDCtROqSYZLKxX1mwqIzc
+         idLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762945666; x=1763550466;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fhpeU9U5S/hGeJg9f9bTT5WPcsYN6w1Wj4PWqyqzdyc=;
+        b=DmHGbUIzZ2f31eFhL7anzDZxsf8A/BHdWY7LhVUXJfhQhBAa4auNojPt/lxKMK0TAD
+         kR4Ee3UxM975ZXOh/fJ5qN6oGypdSnO0lu6DWAMdqMEQco1ln1yzyOjFGaaNDN0US2bC
+         g11mztBH/kPIocIPerjWXf6e6hamzzr5VkW+G5JbJgq1DmfF1fkFkrwTH75+ltgD40XW
+         0j8UxrWpnOeIQ9bWX7T3RlzeQ5YLSdkC98NNc4z9wMcwP3cQRwSVgY7lWfwDBLIu7Swe
+         mKbIZPKtb5vv8tuk4Us5IsiuRnTuhx7MyJ+FfsV/4hwbDvMEwy94ZQ8UnnIS04vc0c7Q
+         yWQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUhxidSmpiuZh6XHykjLNK/2RtPto8lj9aEvFqRHi0gJ+Sf2BoqrCokOCsEInhU8oBfw1sXuJUdrz7kkj9o7viB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzShscnjkvpkvTObFmHSheqHuuN4B9VNX+ifCbORCpz2UlKhfnw
+	5lu15VOzFp9JOW5q29MIwUoYNW+1lJNTklOWJs4n7ifCxDvCXVJywgIf5SXhLjIfK6NGFpnelqt
+	xV3dXGv7FjgPn0Vk3AHfe154XJxLLihiRWJoBivIkTGredfqBa2bMLwh1b+ObwgJgm5W9GMLN8D
+	Xx/A==
+X-Gm-Gg: ASbGncu+zWl6KXpWb3n56yIoBKWGdhREsfXD5Ofs6NPeW40yhQyT55pWRsgHIzy8+SA
+	jHuf1bFMUNguVm3o10BJ21Xmxm/7kDw8/BVBNpok0M2FYW3BAA/A/TLcZ5HLigVtRd2aMvgWN0f
+	pzEvLtFcrV4DYs7MtCxiQaeZWXkQA//yvwaKYPxfy6F+qRx/5UuhXTeTR63c1+AbswnIMrUZMGZ
+	6uYluqUlnDMORmY4vAr865YcjRQQoN9F3zqUbal7SMxwCq4dlWHa2joyBNuFrQLcivRNTLxRO8h
+	PP3AY3grmu2Ndm0cl4E40uYCLmbAuBiTc/ZNlTPfu6Mf7PHl+CziwUUeO0IWJY1lX25iGAxls3+
+	bvk/++ofrcA0UX+S06t+oLO9bDd96qnObvo/d4A/7nxxW4F3Or0A2HnPp
+X-Received: by 2002:a05:622a:1a9a:b0:4e8:a001:226d with SMTP id d75a77b69052e-4eddbcc8ccbmr21834711cf.7.1762945666363;
+        Wed, 12 Nov 2025 03:07:46 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEsThee/kJ9PQlX1eMjNVcf3pwMggayYjNqOtdauF4RKz6aTdQHNiSCZ2A6kK70/XwvxAErjQ==
+X-Received: by 2002:a05:622a:1a9a:b0:4e8:a001:226d with SMTP id d75a77b69052e-4eddbcc8ccbmr21834301cf.7.1762945665887;
+        Wed, 12 Nov 2025 03:07:45 -0800 (PST)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64165b2aa03sm10031978a12.6.2025.11.12.03.07.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Nov 2025 03:07:45 -0800 (PST)
+Message-ID: <1202b66c-6d4f-4909-a010-7e5e3ec7f0c7@oss.qualcomm.com>
+Date: Wed, 12 Nov 2025 12:07:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] PCI: Configure Root Port MPS during host probing
-To: Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>,
- lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
- helgaas@kernel.org, heiko@sntech.de, mani@kernel.org, yue.wang@Amlogic.com
-Cc: pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, cassel@kernel.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20251104165125.174168-1-18255117159@163.com>
- <20251104165125.174168-2-18255117159@163.com>
- <ef433574-3e81-4636-82c8-9bc3552addca@rock-chips.com>
+Subject: Re: [PATCH v2 14/21] drm/msm/adreno: Support AQE engine
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Jordan Crouse
+ <jordan@cosmicpenguin.net>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        Connor Abbott <cwabbott0@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org
+References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
+ <20251110-kaana-gpu-support-v2-14-bef18acd5e94@oss.qualcomm.com>
 Content-Language: en-US
-From: Hans Zhang <hans.zhang@cixtech.com>
-In-Reply-To: <ef433574-3e81-4636-82c8-9bc3552addca@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|TY0PR06MB5756:EE_
-X-MS-Office365-Filtering-Correlation-Id: c57403e5-38e8-4caf-6227-08de21db369f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RmFBTlJiUlJzdnJzV2dqUkNjNjJmYk5UUklDVlRWL05kU0xLWXFhYWt2UjZw?=
- =?utf-8?B?NHI2ZURTRlVTZ1pQeGFpL1VvcWdyeVZTdnRPTlV0L29lSDhxZ0kvbTRaNlBG?=
- =?utf-8?B?aTRUOVRqNzgvWnFrNWwwN25CR2dSbmNVdVRtRzlaaFRxc3A5cllwT2htTjVo?=
- =?utf-8?B?Y3ZiNHA4WVJGWUVUVXpERHUyWnlkVlV5SVdPNlhYVUlmaXQrZm9FdDRYS28w?=
- =?utf-8?B?cWM3ZmFCZzZIVWN3aGZrandIK1FCa2pvdHl6Q0R2cTdpSlNMdWRoQjFIeHpM?=
- =?utf-8?B?MDdmVldQcEo2MDNkUHhSYXFmV0FiZ1NVRWhVVTBDQWFaaXpSdFZYaHBKRkdD?=
- =?utf-8?B?ZldvZDhpQTc1bysrbEJPV0lHUVdnT2ZCZjI5Wll1cTZwSnZWR0RFQXFpRXMz?=
- =?utf-8?B?OUw1emc5cG5MczFVTEk0MFE5UGhaUUcxTExOaTltYjRYNVROMnp0ME50dHJH?=
- =?utf-8?B?akF4aGQ1Q0R1cnRady9iT0U1UDZtOWtMNjNLUm1XZlAwVmJnaWhMZmZHWWZa?=
- =?utf-8?B?T0JNZ2s4bStTdmpDb1BOZW5wQU5VZWNZbnljSll4cnhjUUFRYzVzTkVobGxS?=
- =?utf-8?B?NEFzSFg4TXo0Nis0TERKQngwQ2xEd1p1b3NCaWZWaVN3Q29pRm1pL0VJdHJW?=
- =?utf-8?B?VE9ENmx5bEh6aUt0cVl0Sjh3Rm1yVTY5YnBuaUdvSEh1aDN6Q1MySUd5eFQv?=
- =?utf-8?B?OVFvSVAvVFZPRVVLWXVlN1dkVDM4Q1FtT1QzODRGdWxva0FjTU0zMHpMT0Uv?=
- =?utf-8?B?Y2FYVFZUWmtQZmhOUVNUTG1hVDBPZVlOWVBockcxUCtDQThqaDZKK3Y3aXpW?=
- =?utf-8?B?ZkFjSFFNU1ZRaHFMSmJIbmpKWmJ3aEl2UFdpMjJpU1cxL21HaEtIUUY0K2Fh?=
- =?utf-8?B?NWFlNk9GMVFoZEtxTGhHbUEyckdJek1qaDlwT0FOeVd6VUpPK1NROWhRNHZP?=
- =?utf-8?B?NmN3ZWpFdld1RXlFVytKTG9iVEV6MVZUT1VmMEp2d2lsb1c0TTFTUHNhOHJm?=
- =?utf-8?B?SG5aalBoTWs1cGl4YW5YQkVQdXhpVkVUaENQMW16QXVackp2WThHZmpjc1h2?=
- =?utf-8?B?aGFLMlYvQ2o2cGk3aEtScU5RVnhxa09pZThCQUVSVjRLMHFhNUhuaUljMXlp?=
- =?utf-8?B?OGErVmxuSTVONlczRU02Sy9KbDZjZUJsbWlZU3RzdXhNbkFxNFArNldWbTZJ?=
- =?utf-8?B?UjN5K0ZPaVIyYWo0N2svcDgzbE1zOWVkVFVOVlg3K0ZidkIvdm1WeGVwYXRG?=
- =?utf-8?B?TVYxcXoyMCtKVTFwemJ0eWZTZlIwUzhqOWJVd2gyTG81THg4M3Y5empsSUtG?=
- =?utf-8?B?RE01a2Y0U2RONmc4WXFmdzZpUnN5TytUUmQ1SEd3ekVSKy9jdnVqaTZPOTZT?=
- =?utf-8?B?UlQ1R0l3TjY5b3R2cHh1N1RXbG4ySm9CUnBGUWpvMWZuVXhIRE5NZlNtNHJY?=
- =?utf-8?B?WFFJTUoxNmY2Q0hWRTdMN3pldkcvYjJ0dGlseHY1YXAvYURvVkFLVlVydFVX?=
- =?utf-8?B?dWZGUEgzTWp4WU5VTTgwL1NlOG5PaVVlQnFmbWpMdU1rOVVkR3U5emJZN3NL?=
- =?utf-8?B?MWZwNGhlNWFKUmV5ZkMwUUtqSldHcnU5TTRlZE95b3ZVMjN2aDRzSktRSlAx?=
- =?utf-8?B?aDZNWE16Z0JpcGEzNWkyOEw5VTBGWkd6RjZRQzlVc3NNQW5PSUtVNjgvNHho?=
- =?utf-8?B?NFIycGNTbDVBT2FvYXc2V254Q3oyNURZKzdjUTJBVXdHSkJwdXk0ZjRGY2oz?=
- =?utf-8?B?S0h2SXo0VGFIZmhkNWhyM1NGSmZjZnhlT0NhQVZOazhybjJtUlo5dE0xZWpV?=
- =?utf-8?B?SFoxQStnVWVsMHY5c3R0eUZjOXpWSGZYMGZ6MEJrbS80cktzdjRic2lNNkY4?=
- =?utf-8?B?OUlpY0pQb1N1dHBRd2x1dVpFNmR1MGltSjR2bUZkUm5RN00vNG5CT2Y0elJz?=
- =?utf-8?B?VnpHREV3NkVjdGs2V0M5djlWTWtxbzdmK1lkdW1DSzZjemJFWXBKUEhjbEY0?=
- =?utf-8?B?WGlueXpnNks5eG05SWVSVldoSmtYQ2tXdDhrbUx6dHNpc1lHbVZFUVlFdWUv?=
- =?utf-8?B?SnFYZldTZVcwS1p4aklRMGx0TlFtWHBSTE1XaXREdk56b1B5aHhKbkd0VnZ4?=
- =?utf-8?Q?pInQ=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(7416014)(376014)(7053199007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 11:04:12.9423
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c57403e5-38e8-4caf-6227-08de21db369f
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E4.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5756
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20251110-kaana-gpu-support-v2-14-bef18acd5e94@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=EbHFgfmC c=1 sm=1 tr=0 ts=69146a83 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=XSWwlsXGtsdNaMXbhvkA:9
+ a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-ORIG-GUID: UltyoUsAXB9E-XM-nLAVnSPYKuIEZc90
+X-Proofpoint-GUID: UltyoUsAXB9E-XM-nLAVnSPYKuIEZc90
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDA4OSBTYWx0ZWRfX+oawc0MwhBs2
+ aLL77CnjjvLCjAOhBH5DAWHc6o7aWSbfoMmsz9oRLI4CnEF+3HGeMJSLue8osnwHb27hU9SZhod
+ 800yAuSVAapMd1aPOJ4igsGa9WlDWe98txX188EXWwxrMDVrt5v3kjKU0pZZ/KmL0NLqPTpooPa
+ L2R0NfrVr/1ls9JAkzcgNixFWA+Tdc70HOybn3ngAaF+h7UND/WBl1fmxnN/Pb7r+0fJ2Gb3Hm0
+ BXexXkztrjvX2agvbyG1ZVUiOUfsU7mMGM7M0almYp4i97Lm6+0IItWkbM6r6uzLbAtpP/JewBv
+ eSvdAxvafQuT+M4/4oRd6EE6CECyi4h5GwKr9l10yC01sPIX4DU2Fv5O0OV/2fF7b3iIMzbBOhF
+ Mtf891Ir+I0dztHVSYPhQ18YTnQe/g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-12_03,2025-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0 bulkscore=0
+ malwarescore=0 adultscore=0 phishscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511120089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_030421_042763_BF9C4489 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20251112_030748_501255_ECAE829A 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,81 +167,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/12/2025 4:31 PM, Shawn Lin wrote:
-> EXTERNAL EMAIL
+On 11/10/25 5:37 PM, Akhil P Oommen wrote:
+> AQE (Applicaton Qrisc Engine) is a dedicated core inside CP which aides
+> in Raytracing related workloads. Add support for loading the AQE firmware
+> and initialize the necessary registers.
 > 
-> 在 2025/11/05 星期三 0:51, Hans Zhang 写道:
->> Current PCIe initialization logic may leave Root Ports (root bridges)
->> operating with non-optimal Maximum Payload Size (MPS) settings. Existing
->> code in pci_configure_mps() returns early for devices without an upstream
->> bridge (!bridge) which includes Root Ports, so their MPS values remain
->> at firmware/hardware defaults. This fails to utilize the controller's 
->> full
->> capabilities, leading to suboptimal data transfer efficiency across the
->> PCIe hierarchy.
->>
->> With this patch, during the host controller probing phase:
->> - When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF), and
->> - The device is a Root Port without an upstream bridge (!bridge),
->> The Root Port's MPS is set to its hardware-supported maximum value
->> (128 << dev->pcie_mpss).
->>
->> Note that this initial maximum MPS setting may be reduced later, during
->> downstream device enumeration, if any downstream device does not suppor
->> the Root Port's maximum MPS.
->>
->> This change ensures Root Ports are properly initialized before downstream
->> devices negotiate MPS, while maintaining backward compatibility via the
->> PCIE_BUS_TUNE_OFF check.
->>
+> Since AQE engine has dependency on preemption context records, expose
+> Raytracing support to userspace only when preemption is enabled.
 > 
-> Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
 
-Hi Shawn,
+Side question: is the AQE fully functional on any gen7 targets?
+A750?
 
-Thank you for your test.
+[...]
 
-Best regards,
-Hans
+> -		adreno_gpu->has_ray_tracing =
+> -			!!(fuse_val & A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING);
+> +		/*
+> +		 * AQE requires preemption records, so disable raytracing
+> +		 * if preemption is not supported
+> +		 */
+> +		if (gpu->nr_rings == 1)
 
-> 
->> Suggested-by: Niklas Cassel <cassel@kernel.org>
->> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/probe.c | 12 ++++++++++++
->>   1 file changed, 12 insertions(+)
->>
->> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
->> index 0ce98e18b5a8..2459def3af9b 100644
->> --- a/drivers/pci/probe.c
->> +++ b/drivers/pci/probe.c
->> @@ -2196,6 +2196,18 @@ static void pci_configure_mps(struct pci_dev *dev)
->>               return;
->>       }
->>
->> +     /*
->> +      * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at 
->> all),
->> +      * start off by setting Root Ports' MPS to MPSS. This only 
->> applies to
->> +      * Root Ports without an upstream bridge (root bridges), as 
->> other Root
->> +      * Ports will have downstream bridges. Depending on the MPS 
->> strategy
->> +      * and MPSS of downstream devices, the Root Port's MPS may be
->> +      * overridden later.
->> +      */
->> +     if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
->> +         pcie_bus_config != PCIE_BUS_TUNE_OFF)
->> +             pcie_set_mps(dev, 128 << dev->pcie_mpss);
->> +
->>       if (!bridge || !pci_is_pcie(bridge))
->>               return;
->>
-> 
-> 
+"nr_rings > 1"?
 
+> +			adreno_gpu->has_ray_tracing =
+> +				!!(fuse_val & A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING);
+>  	} else if (adreno_is_a740(adreno_gpu)) {
+>  		/* Raytracing is always enabled on a740 */
+>  		adreno_gpu->has_ray_tracing = true;
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
+> index b507ff4e1756..7921b4a68937 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
+> @@ -58,6 +58,8 @@ struct a6xx_gpu {
+>  
+>  	struct drm_gem_object *sqe_bo;
+>  	uint64_t sqe_iova;
+> +	struct drm_gem_object *aqe_bo;
+> +	uint64_t aqe_iova;
+>  
+>  	struct msm_ringbuffer *cur_ring;
+>  	struct msm_ringbuffer *next_ring;
+> diff --git a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
+> index 78dcb9bc3377..2ef69161f1d0 100644
+> --- a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
+> @@ -616,6 +616,9 @@ static int hw_init(struct msm_gpu *gpu)
+>  		goto out;
+>  
+>  	gpu_write64(gpu, REG_A8XX_CP_SQE_INSTR_BASE, a6xx_gpu->sqe_iova);
+> +	if (a6xx_gpu->aqe_iova)
+> +		gpu_write64(gpu, REG_A8XX_CP_AQE_INSTR_BASE_0, a6xx_gpu->aqe_iova);
+
+I believe you should also set CP_AQE_APRIV_CNTL per-pipe
+
+Should we also enable AQE1 while at it, to reduce potential backwards
+compatibility issues? Would that require solving the iommu woes?
+
+Konrad
 
