@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1BCCD13DF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220ECCD13DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHp0vlZV1WtbBtzQe6wtd8XiK7RzP32z1aP6bt04lls=; b=wws7wLgbDvK+S1yTSgBR7i9+eY
-	1IW136VgIQi8OwI8e5pU9RAwgsynBi3SILniQIr3xAg7FbJwJBe73HjGiN1KyK4bVFIwudhdoXGSf
-	e2CZgAIcGIs9sQDIkY6e2Hh0NqrWmubcZE1nwLVBmdFx6FkPU0RFE9Ubtrh/WF929GmKySI8bNsse
-	qKy3p5dAV69nL1iCP8H7ptDuoiGyPPZkIvYqi9gWcc5HBBpG1us+9EwRe4bJwlBjBPsy7pinM7GoX
-	BCah+zlfpje3quo+dSZ56d69jmwF0T+9JjAlt9x8PeVsDNdNskCoEokpZlxew0lz2WP8Y5xLNaSEW
-	PrHfOOwg==;
+	bh=0Xm3Jqg8+2+w93tYfaelw64xlHAeRO0zvEeZG7tD2rY=; b=lHjqcFnS7I7W5LaWr5ywZzWnah
+	O7KE+0Qu9nqP3y6Q+yJ266AcdMNRk+VZnNtTFujF4zcMB7pVbpfcaAI1iU0eEl+1XEiqIKkN0n1Zq
+	KCFcfqAuZ8Sin3tv0LIkjiX+VqnovH+nfgVTRRpVzLSirqgwjLPYVbl7AtpAuLq9BsIMbBrlQAK0v
+	MkmOVXFgiaJgcd1V119rELH3OdrbFH6sp9UICcWO2wYgl1HsiW3Gf69pZXzZKlOL4p94Kfiv3Effm
+	/UnqNDcNQS/pSS9Fldo954F0HLHGJybjy5mR9NMzeuni8iT5QnoafSf73oP+KCUg4KLq39mVC+A6u
+	vuZRWNzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDOC-000000099ja-0LME;
-	Wed, 12 Nov 2025 16:08:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJDUA-00000009A68-40jn;
+	Wed, 12 Nov 2025 16:14:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDOA-000000099jD-1ST0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 16:08:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9B3141763;
-	Wed, 12 Nov 2025 16:08:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE056C19423;
-	Wed, 12 Nov 2025 16:08:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762963683;
-	bh=YefFrkFh2ka5EuvQuIu/uvgVeOwTY9i8o5A90/l8DmY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VT3rp2j3wUjnVlybPKLW+Mc9rYFazrBioZUVDaDEVJY5QHNvJYPKV8EPf17IHCgZi
-	 Xg4IuP5GCuYdKnGlV7i+SuAerCqeHLRFDiReaFnpFjXrIQIlZu3PhH1kdQdhgBUt3L
-	 hTen82QPuVXenxoaT1axX1mtcJz3yeadZIKeC6n5kEZWI61w2f15OfVJRmsa5ooz7H
-	 R5+xjKmnZ/et8UwhDPw+s63Tio5V6g+0WPyLFtQ3HIlWoCOm17gGE4/FpgANl2Kqm7
-	 AeaZQ+mjpMadNaaHdyAnSWFmHbgx9cOFp1Zfs32Z6vTmxDNzAehwmHdRMOl8txMNZk
-	 RvlTb7Tg7RJOA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	id 1vJDU8-00000009A5V-1LoF;
+	Wed, 12 Nov 2025 16:14:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0Xm3Jqg8+2+w93tYfaelw64xlHAeRO0zvEeZG7tD2rY=; b=G+dKewrSVXrUAZuM5F125UT8S5
+	zaHU7+ocovD/gn4fA6+EswWdZMrDTfbsrTbw14r2Cor1QHzNQcTISEZrJU2WYmMx2qLZD/NEqUPY5
+	yPHLkyR4lNokoGZeE6gktrisq9jHWTzYdm5MvpLaRmNbCWzXFBv3JnyQPZ0Xy9Y4eZs6qk/vvkvjc
+	0WRVop6jos4sjQmhwoxYumOKXVIqoWSrofKP0mAUZCVzPzOoXBynk8TANECztvxeaL6oDqRs1hknl
+	jmow3HcEIXe3rV4TamzKI1JBGpTwwrGJIBIvM0ONW3KgFDI6FuEYaTFy/RzBULsxsCYhvmKS86jUx
+	uq7cHWIw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56664)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJDO5-00000004bAK-1rok;
-	Wed, 12 Nov 2025 16:08:01 +0000
-Date: Wed, 12 Nov 2025 16:08:01 +0000
-Message-ID: <86tsyztese.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	will@kernel.org,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vJDU0-000000004Dt-3Opf;
+	Wed, 12 Nov 2025 16:14:08 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vJDTy-0000000041V-0hAR;
+	Wed, 12 Nov 2025 16:14:06 +0000
+Date: Wed, 12 Nov 2025 16:14:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: Re: [PATCH v2] arm64: Fix typos and spelling errors in comments
-In-Reply-To: <aRSnd6cyAdeBtEF4@arm.com>
-References: <aQoF3pu8CjO3tAl6@willie-the-truck>
-	<20251106135655.8441-1-mrigendra.chaubey@gmail.com>
-	<aRSnd6cyAdeBtEF4@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, mrigendra.chaubey@gmail.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
+	William Mcvicker <willmcvicker@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org
+Subject: Re: [PATCH v4 1/2] phy: add new phy_notify_state() api
+Message-ID: <aRSyTst8Vd-Qb2Ha@shell.armlinux.org.uk>
+References: <20251112-phy-notify-pmstate-v4-0-717d78009d15@linaro.org>
+ <20251112-phy-notify-pmstate-v4-1-717d78009d15@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112-phy-notify-pmstate-v4-1-717d78009d15@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_080806_405088_D25D4BF2 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20251112_081416_363560_E6FDCDCC 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025 15:27:51 +0000,
-Catalin Marinas <catalin.marinas@arm.com> wrote:
-> 
-> On Thu, Nov 06, 2025 at 07:26:55PM +0530, mrigendrachaubey wrote:
-> > This patch corrects several minor typographical and spelling errors
-> > in comments across multiple arm64 source files.
-> > 
-> > No functional changes.
-> > 
-> > Signed-off-by: mrigendrachaubey <mrigendra.chaubey@gmail.com>
-> > ---
-> >  arch/arm64/include/asm/assembler.h  | 4 ++--
-> >  arch/arm64/include/asm/cpufeature.h | 4 ++--
-> >  arch/arm64/include/asm/el2_setup.h  | 2 +-
-> >  arch/arm64/include/asm/pgtable.h    | 4 ++--
-> >  arch/arm64/include/asm/suspend.h    | 2 +-
-> >  arch/arm64/kernel/acpi.c            | 2 +-
-> >  arch/arm64/kernel/cpufeature.c      | 2 +-
-> >  arch/arm64/kernel/ftrace.c          | 2 +-
-> >  arch/arm64/kernel/machine_kexec.c   | 2 +-
-> >  arch/arm64/kernel/probes/uprobes.c  | 2 +-
-> >  arch/arm64/kernel/sdei.c            | 2 +-
-> >  arch/arm64/kernel/smp.c             | 4 ++--
-> >  arch/arm64/kernel/traps.c           | 2 +-
-> >  arch/arm64/kvm/arch_timer.c         | 2 +-
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c       | 2 +-
-> >  arch/arm64/kvm/mmu.c                | 2 +-
-> >  arch/arm64/kvm/nested.c             | 2 +-
-> 
-> Marc, Oliver, do you care about these kvm typos and are you happy for
-> them to go in via the arm64 tree?
+On Wed, Nov 12, 2025 at 04:05:58PM +0000, Peter Griffin wrote:
+> +int phy_notify_state(struct phy *phy, union phy_notify state)
+...
+> @@ -255,6 +266,7 @@ int phy_reset(struct phy *phy);
+>  int phy_calibrate(struct phy *phy);
+>  int phy_notify_connect(struct phy *phy, int port);
+>  int phy_notify_disconnect(struct phy *phy, int port);
+> +int phy_notify_state(struct phy *phy, union phy_notify state);
+>  static inline int phy_get_bus_width(struct phy *phy)
+>  {
+>  	return phy->attrs.bus_width;
+> @@ -412,6 +424,13 @@ static inline int phy_notify_disconnect(struct phy *phy, int index)
+>  	return -ENOSYS;
+>  }
+>  
+> +static inline int phy_notify_phystate(struct phy *phy, union phy_notify state)
 
-Yup, works for me, and hopefully Oliver too. I don't think we have any
-planned conflict with these files, but just in case, put it on a
-"spelingz" branch that we can drag in if needed.
-
-Thanks,
-
-	M.
+Should this be phy_notify_state() ?
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
