@@ -4,133 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A48CD1297
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64388CD13DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N6VrpTc1O+P0RJB06V2xQYPFqtLUV/TkuSkmjXF6DkE=; b=tzJjP5NeBe/Hfdlco0AltGWTmu
-	UtcNne8boDLc37VcAblgHxvkAHpzWpoPuyDjYERW7lAjhJRpuzz+4lf07xOiLNUR1/JLpV3vZ9xE3
-	JeQA1E1JCqdDV7phSnI/RX1RyHGF0Yrh3Sne5YNctt2B2ydnJWZXIjQPITRhQE3g7wf4mKitjD8LK
-	90k5JB654iAIovvps3Mga7AJ/p4FZyHrNE31ejG23btRF8I0aOHMOkq/PpcJcCwbTAfrC5+TTakRu
-	kYr5GZ6KsGnHLFfolq/uwG92jJIfX24jVSU/NB/hYtRDDEGp7evkgxH6XIk1otHSP6/YvPuRLiyGF
-	pDzHJc/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugc73/FBK2H08d2/k2ZcJAtj1ysp+vddai5j+RBrKDk=; b=Smy7VO9RCZGI4QorUZFPCJHczC
+	de3RV5SNOm3QmUlPMKR8JMi1wXKSSsJz4tRvJAbN7aRNhiU3ut/oe5jh1FGO+IGOnBZ84Dful7M+D
+	hEPZVv1AuLJWyEQ0108VONsxBOl4iOXgTAYjrWr5qizon6u4dTzp5F7O3w+UaNDam56K0OR2oINDO
+	ScrV91hBJNLegLNCbBouG2t1uw4cuF55AdPng1RV/0DJMum+r0IqQwljxYaBs13kWWs7zWtnyQuR2
+	H6XdT7s5S089nWz6qb8BFUEXpvByRUevmc6qY/qYf5aThCYuQgkdTTALJtXlO/4XNa+/7ZnVoEvvb
+	Es2s6jow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDBF-000000098Ng-2kL6;
-	Wed, 12 Nov 2025 15:54:45 +0000
-Received: from mail-eastusazon11012017.outbound.protection.outlook.com ([52.101.53.17] helo=BL0PR03CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDBC-000000098Mb-1zWM
+	id 1vJDLx-000000099Fi-1dqC;
+	Wed, 12 Nov 2025 16:05:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJDLv-000000099FL-0Yr4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:54:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jFhiBDAha3o4vAeL4DXbeqNP2IwZqh/wCyxsAUEfE6YaU1VAdB2vQ/NexAc+AYIlqi7GKut+nRZ/kJ84wZrVCnkKK/kBTUKQlU3uoNF3i3AsVc+DYijPD46udbn26FGxtz+f1adY3rFhOH5VVlhcIZgJw+xLazX4IXw8XJZdNDYVHPCvL6ZVBXDy+TXUYgrgP9J1isUFZ4sjogoqAn7oDYqH6JJhO0PyZnQkf5LcEwOd1Ol7rkP3JWHKh1sjixfDWsI714Mtj0OOhzPUrCebn6xHpa6BEOcKdDGlW3M0VYBwIAfwElQ7g5fQtlubfMNJw8EQyyIZ5klkcR3yBR3fMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N6VrpTc1O+P0RJB06V2xQYPFqtLUV/TkuSkmjXF6DkE=;
- b=a9U9v0l2WsQZmQug/JZ1GGGx5Z6Nz4x1i2UpZ9UkkFGVj53HfvnXpXCdu627U39y6MK6woTfdjJQDGNnMtxCRxiXO20Mxi/c0Tsz0e3jfa+vtnBCYSnnMnj6ox2Bzu87PvmNmVbPuyon/4DHx4j/x+y0sg00hvodwkhoCt0+sKjU/wAvoSX2A6VC01Oyl9Ko5Nf+5YGSY85Oi0VV7tlYLoNd/XIqvTGeMZ/PaRMj5bPht1pUAFjRIMgHS0Od00cN98RsD/jfTJ/cH0u7fJCD4LHEFrIJXPPYoGI8AJU0nsZ2CpcalPs3MOO9tCtFeH6HWhT3+cpMy41tcE33jmztiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N6VrpTc1O+P0RJB06V2xQYPFqtLUV/TkuSkmjXF6DkE=;
- b=xjNFa3k37Vzbty4Cb0q/KkOh8lEBbhplf6WewsJ6rq0ZSvnCGG8JDrGQljFTOrvCzt2gyOAGvOoihbpgD+9rm3bYc6x3zaPwrplViXGScT3XJ5M3i04InCr9JOswSeAGKTMlvcXG30hwUoA5CKErkSBt3PJve+UUQpsvEK1uwBI=
-Received: from SN7PR18CA0025.namprd18.prod.outlook.com (2603:10b6:806:f3::29)
- by BN3PR12MB9570.namprd12.prod.outlook.com (2603:10b6:408:2ca::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
- 2025 15:54:37 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:f3:cafe::b) by SN7PR18CA0025.outlook.office365.com
- (2603:10b6:806:f3::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Wed,
- 12 Nov 2025 15:54:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:54:36 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 12 Nov
- 2025 07:54:35 -0800
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 12 Nov 2025 07:54:32 -0800
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <michal.simek@amd.com>
-CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<git@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Subject: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset constraint for the versal platform
-Date: Wed, 12 Nov 2025 21:24:30 +0530
-Message-ID: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 12 Nov 2025 16:05:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84D762B;
+	Wed, 12 Nov 2025 08:05:38 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 647CF3F63F;
+	Wed, 12 Nov 2025 08:05:41 -0800 (PST)
+Message-ID: <2189df41-ca50-4e10-a65c-4c297f9dc63b@arm.com>
+Date: Wed, 12 Nov 2025 16:05:40 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|BN3PR12MB9570:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8bb4847c-162b-49a8-1130-08de2203c7e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bYlIh8iZTIAW8sEQg62pqsd4BR8d7r/JpYPglO5Z8a6CjZPFjvnnTSrMiEN5?=
- =?us-ascii?Q?MVgXj3255SJdghA3bGvU0C8RiTDuPiZJ/cOXAF1lNHlGa6Qe+W50IL8H9VhU?=
- =?us-ascii?Q?TftcAUytQqzigBVbHs0mQIEpHnyJLYCFAk7WDfacbAjc++1zpUGdiXWLoOJX?=
- =?us-ascii?Q?Lf9/pR6qVsFOVCwAS2aBoMOZlQeIXPj/A8NJU54rgT0LunX/I4dj4pfv7ll9?=
- =?us-ascii?Q?7+1PIkFaO5q+XL4fCIDgHfk+RKIAHWqRopZ/3VIoS1kFluDfylUNg0MuIRX9?=
- =?us-ascii?Q?NoAt3EsiW1LlD9fCcDjmEshuUL2mMyD7XLKqHMWy0rocKVRWFxnVUQqpFNWs?=
- =?us-ascii?Q?OkzXKhZ8WJr3NNJUEy1PULQS6pWUe3Z0pvauce0A7el5u7DGe3+K1zMfdmZx?=
- =?us-ascii?Q?VBtJx5s6NwJC1jWUm95q/r2s8htV1tt8DEqeHUs+HFRWdMAI9rtcv0mQ8IlO?=
- =?us-ascii?Q?uBStIKpVvFq61Kc/9z4ISJCKhd6p3NSB8qfqd50oNlPIPMcwvg/7K2pWPfp+?=
- =?us-ascii?Q?3ACv13KxMe6clA7d9oBSt2RucSBx58b+u5DalZgmeLCFQLOLxtq4DdPklGxT?=
- =?us-ascii?Q?6/nnP0ToNzBOqLnn2VamKkA2ZpjRqVQWhF5kWKtYTx7Rx2ELLkXRTCb0/f6p?=
- =?us-ascii?Q?okAtrG1xvUULJcENK08PAJMtipqIu3cM/2yt9HtzD9thot4Oeu7N1L9fiDs0?=
- =?us-ascii?Q?zswtPYk7Fs6IyL1yLaiwiXa7G3jNnK2fUfnxnAu/0kmL5SGCwQ4QVCCepXBK?=
- =?us-ascii?Q?T2qwsutLZo9xpJmG7b6Y2nJg5hqa/0K69yCpW/E2RVJMvfkUElYlxQNAfVGN?=
- =?us-ascii?Q?VKRquuDD4dGTSNTxIrclx10qm0Q4wsVPCQ47GCOe/XlmEhtBvjDhYtL4lY1r?=
- =?us-ascii?Q?gfxw8QiwWzpXBT90EOsGEzNh6jYtb4spNSf6alEO7LNUH5jCwwNKrD2NqJvi?=
- =?us-ascii?Q?2K90/M73LPqwi6ZqqWDu4NfsOH2mzJ38geAQ1IcqxcKSnsZ+LPL1YOilkaKD?=
- =?us-ascii?Q?jP0TdGFzyVltSL3E8TjXxY5Q4hQUpfSXfMR11rRbwGiLcsV20pEEerEMeDhy?=
- =?us-ascii?Q?mARgj9rq5dcXq5s8UmRwk7LWlU1/f8biapZTxsRM9Sf5gOPQLlINq/v8r/hf?=
- =?us-ascii?Q?fque5owLPXKk3ZrOgeMXNzFMOc/VqVsiGq1J8dcAQ3oB+MDZwll96jpUPPfR?=
- =?us-ascii?Q?fN5KAmTmgToLxqwt6R5kLWTTvChY6x7s874WA3nfPhrYuk26lkuwsiF00XpH?=
- =?us-ascii?Q?b5w3+BCyFLcUIgBvJw6fVnz2SoSORKHxkk5S6tb8hAQQxa6eKl0gpy1gQtYe?=
- =?us-ascii?Q?RswvtnQgO0J1GJUbU18uRlsN1ineAI4pyzXb1ZaPb4R7K7vjrcvQTkcSQMd7?=
- =?us-ascii?Q?o+DeNdzyj9MdZZWeNrZKvMrxm0Epfw7jfsDTe+OSM9gPWgNFnw9c6To5GGNf?=
- =?us-ascii?Q?eT53DK5uTuStY/HHHVhZWmhtLMfcjbk4C2bH78X20ys/zC5/gtQeEd109j2g?=
- =?us-ascii?Q?szMBpLOjcjcY6SO1GNpzEJfGr+zct46srkY1CorBPDOyG0nzveZeKLPSaDgn?=
- =?us-ascii?Q?yrHCCgUB21MpHj89M3Y=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:54:36.6434
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bb4847c-162b-49a8-1130-08de2203c7e4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR12MB9570
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
+ kbuild boiler plate
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: james.morse@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-11-ben.horgan@arm.com>
+ <20251110165841.00005a74@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251110165841.00005a74@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_075442_554059_1FE04923 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_080547_261844_1435417A 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,81 +78,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD Versal platform USB 2.0 IP controller receives one reset input from
-the SoC controlled by the CRL.RST_USB [RESET] register so accordingly
-describe reset constraints.
+Hi Jonathan,
 
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
- .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 43 +++++++++++++++----
- 1 file changed, 34 insertions(+), 9 deletions(-)
+On 11/10/25 16:58, Jonathan Cameron wrote:
+> On Fri, 7 Nov 2025 12:34:27 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+>> only be accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until
+>> the system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
+>>
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> 
+> Hi Ben,
+> 
+> A few minor things from a fresh read.
+> Nothing to prevent a tag though.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-index 36f5c644d959..cd0cc9da242f 100644
---- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-+++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-@@ -50,17 +50,22 @@ properties:
-     description:
-       A list of phandles for resets listed in reset-names.
- 
--    items:
--      - description: USB core reset
--      - description: USB hibernation reset
--      - description: USB APB reset
-+    oneOf:
-+      - items:
-+          - description: USB controller reset
-+      - items:
-+          - description: USB core reset
-+          - description: USB hibernation reset
-+          - description: USB APB reset
- 
-   reset-names:
--    items:
--      - const: usb_crst
--      - const: usb_hibrst
--      - const: usb_apbrst
--
-+    oneOf:
-+      - items:
-+          - const: usb_crst
-+      - items:
-+          - const: usb_crst
-+          - const: usb_hibrst
-+          - const: usb_apbrst
-   phys:
-     minItems: 1
-     maxItems: 2
-@@ -95,6 +100,26 @@ required:
-   - resets
-   - reset-names
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - xlnx,versal-dwc3
-+    then:
-+      properties:
-+        resets:
-+          maxItems: 1
-+        reset-names:
-+          maxItems: 1
-+    else:
-+      properties:
-+        resets:
-+          minItems: 3
-+        reset-names:
-+          minItems: 3
-+
- additionalProperties: false
- 
- examples:
+Thanks!
 
-base-commit: b179ce312bafcb8c68dc718e015aee79b7939ff0
--- 
-2.34.1
+> 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> new file mode 100644
+>> index 000000000000..6c6be133d73a
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_devices.c
+> 
+> 
+>> +
+>> +static void mpam_msc_drv_remove(struct platform_device *pdev)
+>> +{
+>> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
+>> +
+>> +	if (!msc)
+>> +		return;
+> 
+> Agree with Gavin on this. If there is a reason this might be NULL
+> then a comment would avoid the question being raised again. If not
+> drop the check.
+
+Dropped.
+
+> 
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	mpam_msc_destroy(msc);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +
+>> +	synchronize_srcu(&mpam_srcu);
+> 
+> Trivial but perhaps a comment on why. I assume this is because the
+> devm_ cleanup isn't safe until after an RCU grace period?
+
+This becomes clearer in the next patch where it is moved into
+mpam_free_garbage() so I'll leave this bare.
+
+> 
+>> +}
+>> +
+>> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +	int err;
+>> +	u32 tmp;
+>> +	struct mpam_msc *msc;
+>> +	struct resource *msc_res;
+>> +	struct device *dev = &pdev->dev;
+>> +
+>> +	lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +	if (!msc)
+>> +		return ERR_PTR(-ENOMEM);
+>> +
+>> +	err = devm_mutex_init(dev, &msc->probe_lock);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+> 
+> Trivial but I'd add a blank line here.
+
+done
+
+> 
+>> +	err = devm_mutex_init(dev, &msc->part_sel_lock);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+> 
+> Trivial but I'd add a blank line here.
+
+done
+
+> 
+>> +	msc->id = pdev->id;
+>> +	msc->pdev = pdev;
+>> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+>> +	INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +	err = update_msc_accessibility(msc);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+>> +	if (cpumask_empty(&msc->accessibility)) {
+>> +		dev_err_once(dev, "MSC is not accessible from any CPU!");
+>> +		return ERR_PTR(-EINVAL);
+>> +	}
+>> +
+>> +	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+>> +		msc->iface = MPAM_IFACE_MMIO;
+>> +	else
+>> +		msc->iface = MPAM_IFACE_PCC;
+>> +
+>> +	if (msc->iface == MPAM_IFACE_MMIO) {
+>> +		void __iomem *io;
+>> +
+>> +		io = devm_platform_get_and_ioremap_resource(pdev, 0,
+>> +							    &msc_res);
+>> +		if (IS_ERR(io)) {
+>> +			dev_err_once(dev, "Failed to map MSC base address\n");
+>> +			return ERR_CAST(io);
+>> +		}
+>> +		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>> +		msc->mapped_hwpage = io;
+>> +	} else {
+>> +		return ERR_PTR(-ENOENT);
+>> +	}
+>> +
+>> +	list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
+>> +	platform_set_drvdata(pdev, msc);
+>> +
+>> +	return msc;
+>> +}
+>> +
+>> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +	int err;
+>> +	struct mpam_msc *msc = NULL;
+>> +	void *plat_data = pdev->dev.platform_data;
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	msc = do_mpam_msc_drv_probe(pdev);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +	if (!IS_ERR(msc)) {
+>> +		/* Create RIS entries described by firmware */
+>> +		err = acpi_mpam_parse_resources(msc, plat_data);
+>> +		if (err)
+>> +			mpam_msc_drv_remove(pdev);
+>> +	} else {
+>> +		err = PTR_ERR(msc);
+>> +	}
+> 
+> Seems convoluted. Not obvious to me why you can't do early exits on err and
+> having simpler flow. Maybe something more messy happens in patches after this
+> series to justify the complex approach.
+> 
+> 	if (IS_ERR(msc))
+> 		return PTR_ERR(msc);
+> 
+> 	/* Create RIS entries described by firmware */
+> 	err = acpi_mpam_parse_resources(msc, plat_data);
+> 	if (err) {
+> 		mpam_msc_drv_remove(pdev);
+> 		return err;
+> 	}
+> 
+> 	if (atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
+> 		pr_info("Discovered all MSC\n");
+> 
+> 	return 0;
+
+It's still like this at the end of the current mpam snapshot branch so
+I'll simplify based on your suggestion.
+
+> 
+>> +
+>> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
+>> +		pr_info("Discovered all MSC\n");
+>> +
+>> +	return err;
+>> +}
+>> +
+>> +static struct platform_driver mpam_msc_driver = {
+>> +	.driver = {
+>> +		.name = "mpam_msc",
+>> +	},
+>> +	.probe = mpam_msc_drv_probe,
+>> +	.remove = mpam_msc_drv_remove,
+>> +};
+>> +
+>> +static int __init mpam_msc_driver_init(void)
+>> +{
+>> +	if (!system_supports_mpam())
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	init_srcu_struct(&mpam_srcu);
+>> +
+>> +	fw_num_msc = acpi_mpam_count_msc();
+>> +
+> 
+> Trivial but I'd drop this blank line to keep the call closely
+> associated with the error check.
+
+done
+
+> 
+>> +	if (fw_num_msc <= 0) {
+>> +		pr_err("No MSC devices found in firmware\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return platform_driver_register(&mpam_msc_driver);
+>> +}
+>> +subsys_initcall(mpam_msc_driver_init);
+> 
+> 
+
+Thanks,
+
+Ben
 
 
