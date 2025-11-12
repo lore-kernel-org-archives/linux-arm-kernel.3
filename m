@@ -4,97 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B258CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B605CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFiNysBG6OvNw9jo5O2oUZrLaPvoxn/0er906rz18Og=; b=IiFLGzsQ9Q9y9HbztcUghlVtOX
-	nCozrL/24nBy4LrzcmJWgHjUFwq6Scz70NWZJ5QOTgnqSyyhOV+OciisjW4cj9nQkjQj+5Dc0I4/i
-	HuIFZAtWHMCSuWEdF3YvLs31/A//y3smIQ9nP6ORfdTWimzsI0uhMNKgEijxr0jiMcMLz3AuDHdFZ
-	n/rac/tMPJNptyA37h0bOExcJy/GDM89Pd/GbyxJCvvUc/s+//IQHw+aO8k6Dbn401YWKfUeeN3CY
-	9ROFOg37Sz+uERqsUz/68eS2TrXh1gmnahkr813K5Iiw1EParLD1cA1lldJt8e/Grr3cc66NndGYb
-	7q4dR61A==;
+	bh=5IgqMB/v3xeO5BgQjIq0XWQN2JeRWzsu5Px5Hi7zIAE=; b=B5hKWbUUiPbCRf5R/aUgAEQbfu
+	1cq1zAyETqf1ILVnRgxxOJzPKEobcqsbp/zSIvp4B9IyRsoku4QDMyLIcTFKBgr+gwKmt6pWaw5V6
+	MN/mekRGxOu3aAOQk00QPnnIppE7u9V1oC93jfyaOjTqI+5qnQIl06crYSTvDzjB3uwkvGMqu+19G
+	7PmOQPMzV6YK7Sj4wFwhXFDwGjkt8JRFC1/USgPeT+19m5aNVZF4VKlpRcb5wqHuU5O+0A3KuT/BI
+	6BJoocF9fxy3rpEo3rbZcNUhkUedhMCJ1n5Enu9ssdOntZB1x64VVon/03/4Uxk4FTCYNePsP2Lxx
+	8ndNjLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBQC-00000008tl4-43PW;
-	Wed, 12 Nov 2025 14:02:04 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vJBTP-00000008u2o-29Ac;
+	Wed, 12 Nov 2025 14:05:23 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBQA-00000008tkI-0geX
+	id 1vJBTN-00000008u2U-3iC3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 14:02:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47728f914a4so5649345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 06:02:01 -0800 (PST)
+	Wed, 12 Nov 2025 14:05:23 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-340ba29d518so637536a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 06:05:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1762956120; x=1763560920; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1762956321; x=1763561121; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cFiNysBG6OvNw9jo5O2oUZrLaPvoxn/0er906rz18Og=;
-        b=aY0QO2OPYpx3js/WOhMIbnAO6MDp7O29EanSHk6XkO1zlFV4XZG0wdFVpH3zjWQ9vL
-         zyj/4vbvx11qQs1UNRhtuhOVIAFJvbJQ/CWNIj2UP13Ndg6TZgfB4gFso72wBly0d6ov
-         9Lrocn5qALJ9sMXFr6lEnWgBibp6zNmgjQUSKtPlRNh+B0/c1h0+BjEPRoNmp6z4qbvq
-         IJb+H4BsP7vVKzbxAAQ37DTmjWgATQ1kQuc5+9H/ngHIVab20nuYn0xtqF4ro+bTDkiI
-         mN6rFtcV2FGZX6QFLm0Rb14Y5KcgX70A0i+OlQNEpt/ktfTLd+Jx9c4JJxO8OG0JWBX3
-         pQVA==
+        bh=5IgqMB/v3xeO5BgQjIq0XWQN2JeRWzsu5Px5Hi7zIAE=;
+        b=LgwxxhNJauIYkebi3JU+O2aSK50NclUaOsNtnNGUYmfM/tsD6pN2TktMxZCRx1qeUu
+         oGdTuuS6ZGaHXsJFwVgJDjz1aG+DL7E/8jk0wAOr3a7fOrLXrMdPkvFneEnmvS6WsMgm
+         nbsjYCanUBg/idZtiG4t51UfBZh+Pt0RWJtbFv8AEKIYJFcp4gzGy2N1tFXimqK6gaBV
+         8pmQl1U4cfb5U3NlvrV9rdc6UG7QHsccoxcAYkN2KbWAgGIbDj5ItBIiWRxeJSGsltfJ
+         qCobPvoCWxZjWc5k+yKRAqbUSmzXMQtx4NKlW+j27nngsVwPXNewHm/U+XalQQh9Rcw+
+         jCUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762956120; x=1763560920;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1762956321; x=1763561121;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=cFiNysBG6OvNw9jo5O2oUZrLaPvoxn/0er906rz18Og=;
-        b=aMy1M+JdKI8XVwn7I5/5byLLemjoZo0IK2htbQjo3a4uIEGYAHCkW+iNAfDQD2l5UQ
-         242NTUTupPE/rsQBtlhkvP0/oJVbpSzwOs6El+h/z2rDY0wfmc3Omz+yMP2t+zKxnBn5
-         Dr+mklIr81nQ+kPstZ56aD92XCwcnwOipCd+MD+1H/JjxJKoKeQ57f10XIqCZhXFuWFC
-         Q7KusZ8De4tuIgYQKfLg7fF3dEXC3VZT7c9FNJDVEEE7eKqZKqO7PUnwoSO7HdPLOTeQ
-         QpbQ7pfUn2/IpCh/hfYJBuIcomrkc3uWkYXzBxzbm6KcUOWdyWNVj922VhVBHLxArNuJ
-         s3eQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRPlfRunUuwu9VVZmeEjYtbt6vhI80fNdpDbbmGdW4CLWrkxtHLcDGvpkDyh3c89cUzqF5m8osJYRfzeC6o7n6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjdQSvWm29EXD8eCdqBnkjf9DS11jzk1BQIZsvjp4JMKVtAUyZ
-	twrjqUbZK9qzRMkxwQWOPBT2E2UcOa5xXVGH31oZGy8vmI09UsH5aw5g
-X-Gm-Gg: ASbGnctYkpDipvuktgFxWVVeX8y59pqy+CpHT8M3n/AzzuFxbU7VIDiEBZRGjrlCoVh
-	FY0p4tHDmTMvTBGP+gIjijgLDeF+SJR7sHYBj0RpDHYHgTCTxZVKVsOpYSyUTyZcMRxM2UCFzU0
-	hxzJEk7IXkfdNsbMJgtSm+lN12Lv2tnzjtyxEORkWXDokI5b4YHl0u6Eu/1ZbDUJWzJWTpd2k/H
-	XoQlsFLiyorpwjg5K+9L5XhqrEJx/4Qay2fjpXa7FZ82SMNrgxH2o3Hay8DVvmNzTMXC3aHCzXq
-	0i9G97XiIkUDUvTEqKLvpolqT7Fi2DadoGND19tJSiBBVemzbav7nE7cb1u4j61JVuzE9DndpTD
-	sj8g1gbjymaI2QNSKdTi1ATM+5NG2qk29T8VBRDdHPskAEBd0h4sZ4TjHs1FQLODnXIajQfuio4
-	YV/CJLvTWeZ3rrzbGQVI2zQ1Zvi1yX0/3PcpYAlBgFuw==
-X-Google-Smtp-Source: AGHT+IEPEHr94PrGNc5EHN4MH5qDhAUHAyxSl1e3kw9Nt1S+if+1dRlR+YYzG83HBOq1lnqrURitPg==
-X-Received: by 2002:a05:600c:3b17:b0:475:de12:d3b2 with SMTP id 5b1f17b1804b1-477870cdce6mr27931775e9.36.1762956119466;
-        Wed, 12 Nov 2025 06:01:59 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47789ffea1esm16272835e9.13.2025.11.12.06.01.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 06:01:59 -0800 (PST)
-Date: Wed, 12 Nov 2025 14:01:57 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Chenghai Huang <huangchenghai2@huawei.com>, arnd@arndb.de,
- catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- anshuman.khandual@arm.com, ryan.roberts@arm.com,
- andriy.shevchenko@linux.intel.com, herbert@gondor.apana.org.au,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-api@vger.kernel.org, fanghao11@huawei.com, shenyang39@huawei.com,
- liulongfang@huawei.com, qianweili@huawei.com
-Subject: Re: [PATCH RFC 4/4] arm64/io: Add {__raw_read|__raw_write}128
- support
-Message-ID: <20251112140157.24ff4f2e@pumpkin>
-In-Reply-To: <aRR9UesvUCFLdVoW@J2N7QTR9R3>
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
-	<20251112015846.1842207-5-huangchenghai2@huawei.com>
-	<aRR9UesvUCFLdVoW@J2N7QTR9R3>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=5IgqMB/v3xeO5BgQjIq0XWQN2JeRWzsu5Px5Hi7zIAE=;
+        b=mzkopo0GyuimGGI3HaTOe/bC9gV82IDl2iCDB6h9lVB8T4lzkYqCKEEN0GslmEQijN
+         PImXIHy9GWbDn1A2713vIksTvS1nZzlS/BBn7R7OmHRnIoQTUAfrEiN4m2SJvBPZxgNW
+         6WOWW8SGBWUik4KnCe7V/vYPQSyO7v24ZYhaOav940TpNO9fCxQ8c7PoQD2mV/dw/PYM
+         uKIPnElKQvlZLXwqxIaz3QycI+kvg6OXTa+ptWaRsj4I+DFL0oFMyMlnyNyESinhSGvD
+         /4Tl68SF28uP9apus2X3hyVyedTmH//kliGEoenycQvihygKTgbjr0oqXALQTdaWYI4L
+         awCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUqa/xZK1Wj16Br5iYzr5FQyFbBq5+4iIL/DWwiw6inpQ5ooq9SYk8iUS4GUpZ99tY/dkkpzMTvQIBZp9iRY6va@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4Rol5hCut85ikjb0deiyW2J6GQ8ZfSVpUJDP6b32D1/RYpaMZ
+	HsMYt99nnEs4dxZ081MxNJxkOBdtXG+SJ+Ojo60CLQcXProYipa3qjz+PAHzRy1fNLqMNBouP0A
+	RabxCiSyQ7uSohAZBdLZxqbx5/sGST4lSFGt7mtPumw==
+X-Gm-Gg: ASbGncvI7mz32xS7/QBzNqqBN74iJaefrvw3pOxNzcWt4eR0F1aDn8adKyOox1ZeID6
+	8EoJaKFFUhvpYjIMk89ocUD/6utUBn1Rn/CQ+AQYMSYVg+8PRnD7r1JAVIFPqxwDcrwaP6DRQXd
+	177gHnemgbZt46lDLuT3NpmxbHNG+p3VKuow+GhcavTL8l6rQFGkr6Mhu7Z0RaiXPXU+d70dHTg
+	myTka7CemVwAjiv8SDLAPhADY2jfLRDQFZjXTUmJclJAUWriMeNEotSNjv2
+X-Google-Smtp-Source: AGHT+IGGE4/VL1DEyxNrJ9gXhy58i37XginUx1Z79nbxZV1zaeXJiHFTS6UKxC5C1DeQKZdokBPv7izFiH2R6Na0d44=
+X-Received: by 2002:a17:90b:3f88:b0:33e:2934:6e11 with SMTP id
+ 98e67ed59e1d1-343dde1328emr4083273a91.11.1762956320459; Wed, 12 Nov 2025
+ 06:05:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20251109214515.121742-1-rpimentel.silva@gmail.com>
+ <20251109214515.121742-2-rpimentel.silva@gmail.com> <9d48a54c-0585-4524-b9d5-30696f5ecc8b@kernel.org>
+ <CAEnQRZCvpXzGt=7NGv7-s+y0gvOg7Jx4OqbfbW3uv8jDp-jroQ@mail.gmail.com>
+ <CAOMZO5CU09fcBB8oUOO=qC=Du3Q9gnJOQacK=6v+pnSQViex3g@mail.gmail.com>
+ <CAEnQRZCHKemw2YVT=WVJvUMr9CCWoZ3MORt_mU1V-62C53n-3w@mail.gmail.com>
+ <CAEnQRZBBJ4PGDOk7hBP_qsk7bBiec8pHb0DYKs2mhOAahNyKww@mail.gmail.com>
+ <baafb460-fb65-4cd2-9911-89d828199d9b@kernel.org> <2e160fe1-bcb2-41cf-817e-ac2a36959b16@kernel.org>
+ <CAEnQRZDg0yAjR-a-4J2ZKAjh3mm8NeQCA=o2kyNJtXMAFCMLAA@mail.gmail.com>
+ <56530f64-6ddf-4d2a-a079-0578db260449@kernel.org> <CAEnQRZD=h5qOC445U3_+HPh7aCE8TohSpZmg9hgkRE7mg5HUpA@mail.gmail.com>
+In-Reply-To: <CAEnQRZD=h5qOC445U3_+HPh7aCE8TohSpZmg9hgkRE7mg5HUpA@mail.gmail.com>
+From: Rogerio Pimentel <rpimentel.silva@gmail.com>
+Date: Wed, 12 Nov 2025 09:04:26 -0500
+X-Gm-Features: AWmQ_bkE3E5kBt-au_w0tdPJgXF5KUKjHFMKLDQ12VqLfiSClucWeakQI7DwekA
+Message-ID: <CAOkaPuX7YeUJJj15dY0vD8mngg5MS5uBwU_UfrFRFjrghR7NDw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Fabio Estevam <festevam@gmail.com>, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com, 
+	marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de, 
+	joao.goncalves@toradex.com, frieder.schrempf@kontron.de, josua@solid-run.com, 
+	francesco.dolcini@toradex.com, primoz.fiser@norik.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Xiaofeng Wei <xiaofeng.wei@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Joseph Guo <qijian.guo@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_060202_215584_AA3BB1A7 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20251112_060521_946972_CC4CC330 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +111,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025 12:28:01 +0000
-Mark Rutland <mark.rutland@arm.com> wrote:
+On Wed, Nov 12, 2025 at 7:33=E2=80=AFAM Daniel Baluta <daniel.baluta@gmail.=
+com> wrote:
+>
+> <snip>
+>
+> > > We (NXP) immensely  appreciate individual contributions from everyone=
+.
+> > >
+> > > We need to be fair, the v1 of this patchset was taken from NXP
+> > > downstream without
+> > > respecting the Developer Certificate of Origin.
+> >
+> > No, it wasn't. Please read carefully DCO. The chain here was not
+> > correct, but that's the only thing.
+> >
+>
+> Indeed carefully reading the DCO Clause b) you are right.
+>
+> > >
+> > > E.g there were commits pulled in from our internal tree without
+> > > keeping the S-o-B tags.
+> >
+> > Read DCO, please. It is not mandatory to keep 3rd party SoB. It is
+> > perfectly fine to skip it, if needed according to (b) of DCO certifying=
+.
+> >
+>
+> True. In my understanding though if one bases their work on others work
+> they should at least keep the S-o-b tag as a common courtesy.
+>
+> Commit messages explicitly says that the work is based on NXP internal
+> tree patches.
+>
+> At this point I leave to Rogerio's appreciation on which S-o-B flags
+> to pull and how much
+> of his work is based on NXP tree.
+>
+> Thanks a lot Rogerio and Krzysztof for helping move this forward.
 
-> On Wed, Nov 12, 2025 at 09:58:46AM +0800, Chenghai Huang wrote:
-> > From: Weili Qian <qianweili@huawei.com>
-> >=20
-> > Starting from ARMv8.4, stp and ldp instructions become atomic. =20
->=20
-> That's not true for accesses to Device memory types.
->=20
-> Per ARM DDI 0487, L.b, section B2.2.1.1 ("Changes to single-copy atomicit=
-y in
-> Armv8.4"):
->=20
->   If FEAT_LSE2 is implemented, LDP, LDNP, and STP instructions that load
->   or store two 64-bit registers are single-copy atomic when all of the
->   following conditions are true:
->   =E2=80=A2 The overall memory access is aligned to 16 bytes.
->   =E2=80=A2 Accesses are to Inner Write-Back, Outer Write-Back Normal cac=
-heable memory.
->=20
-> IIUC when used for Device memory types, those can be split, and a part
-> of the access could be replayed multiple times (e.g. due to an
-> intetrupt).
+Thanks Daniel, Krzysztof and Fabio for the review and discussion.
+I understand and agree with Krzysztof's point, but if there are no problems=
+,
+I would like to keep all the names suggested by Daniel:
 
-That can't be right.
-IO accesses can reference hardware FIFO so must only happen once.
-(Or is 'Device memory' something different from 'Device register'?
-I'm also not sure that the bus cycles could get split by an interrupt,
-that would require a mid-instruction interrupt - very unlikely.
-Interleaving is most likely to come from another cpu.
+Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
 
-More interesting would be whether the instructions generate a single
-PCIe TLP? (perhaps even only most of the time.)
-PCIe reads are high latency, anything that can be done to increase the
-size of the TLP improves PIO throughput massively.
+Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
 
-	David
+Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
+Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
 
->=20
-> I don't think we can add this generally. It is not atomic, and not
-> generally safe.
->=20
-> Mark.
-...
+Co-developed-by: Steven Yang <steven.yang@nxp.com>
+Signed-off-by: Steven Yang <steven.yang@nxp.com>
+
+Co-developed-by: Lei Xu <lei.xu@nxp.com>
+Signed-off-by: Lei Xu <lei.xu@nxp.com>
+
+Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
 
