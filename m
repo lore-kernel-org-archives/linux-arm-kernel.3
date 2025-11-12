@@ -4,80 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D426ACCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B7DCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67tur2SxAmfzT4iE1i7jIyIrOA72Ol4dT4CzWrLs4sM=; b=vmlNieM8PJTbp1vdzbuduX9aD7
-	ydkl6V7qTRiydZAEgQ8C1qUTV7dZ1wN37nYeZnnJEqgXLyKpP6tdN0iw389+ezowG1iTURez1Be7Z
-	s8FIV1zgAUCUUk7DoMuarEFXNkFcBb70yimsfbw3YxtiJbTaF/RW/wN8VG2yb0Qk+izhouST2BAgE
-	fxgoQxpLPhm13Ztj3YTXU6hyOzXH9rWy5A6IJ+IKk4IMfJSac0z7htGk4gV2k5Wiv1Pd3R5x3/xDz
-	3I+0KjDN0oIkgMCwJl2xjdAbsHEWAUyeNj5Sjn2N7FENl9z48oqyHCwuQMzjix1yoA2dppAME8YMw
-	TLqylHEQ==;
+	bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=; b=Ms/1ZQqKPsiKOmBqFCSi1671W3
+	3R02398yToCym4QEy7RHwDYgN8op0MmktM8v7yehNn+scFojW/MCJWfjrXZF/d2fU2lWVOd6I7B2m
+	AXrvf2pje8h3R3ctEZoxxeQUK2BZPfx+RyGAuBoNnIgj9/lVbbSXh1e08sZ+1OK2vjkVt202RLCE0
+	Y1WvsK7NQ+oI2h6msLq4ly19NheX9rYkSulSU9oU3zD7MLSkFrXldX+LpCJLLS2K7f8vAFfIqj3r1
+	BlVCmo8Bbd+gdD0/C0pgXt95+M6mInFNs3gh9qQ1erGyB3loj7H/TqRdLCg0qNASrcTw2Q5Q8RqQz
+	2UOBF6Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCPV-000000090sJ-3eA9;
-	Wed, 12 Nov 2025 15:05:25 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vJCU0-000000091IC-3bL9;
+	Wed, 12 Nov 2025 15:10:04 +0000
+Received: from mail-southcentralusazon11013006.outbound.protection.outlook.com ([40.93.196.6] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCPS-000000090ri-3vPu
+	id 1vJCTx-000000091Hm-3RxD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:05:24 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vJCP7-0005AM-QV; Wed, 12 Nov 2025 16:05:01 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vJCP7-0006PJ-14;
-	Wed, 12 Nov 2025 16:05:01 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vJCP7-00GVCq-0g;
-	Wed, 12 Nov 2025 16:05:01 +0100
-Date: Wed, 12 Nov 2025 16:05:01 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [EXT] Re: [PATCH v19 0/7] firmware: imx: driver for NXP
- secure-enclave
-Message-ID: <20251112150501.qkjclsoq2bg75ed5@pengutronix.de>
-References: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
- <20251016114151.jzmapaecsmmnkpt3@pengutronix.de>
- <AM9PR04MB8604C2AAA70406883320C5C995FCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20251103190811.wp4o7hlnus6ynn32@pengutronix.de>
- <AM9PR04MB8604AA80EC97E06AADBF334695C3A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20251111131442.nddhk3475oapf2zh@pengutronix.de>
- <AM9PR04MB86047231B5320C01759BFCAE95CCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+	Wed, 12 Nov 2025 15:10:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UNct5qNt5lGICe+fQLWJ4I6+c/tULq8HFDmS5zBxknlAk8uIwjxZOUmocSjKy5yDAzNrQxpiypmk6+t5YY47PjJq1+YovX2vtDaxxhPN7IrHQwnZuInJZfe14K/7fro72PABdC7vf7D5oLtALUBdH++c6+dscLsd9q1g/3Eqar/aUAg+o+yL2oaMMllOXH5nrG6xSw8ZSB2fb92U95idcLmUeWqNtpp4Rnqk+W2zKPU1dnUfbt6Z7krYiH9G8fHHzAxui0UKtarhCWCJvDC1Poagmq/LBNomdj/oEAR6BWebT6n6JDjwSCiew9e8WR9p4MxjbdRyrvw/AExxfN3JVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=;
+ b=ueS4iPMBhCE8hGrrFboc8h+iNQ7dwVKqnXrnX8KCTB3lInuH94tuYG3fZ0nHSo6uET4T2jnwx1G7o9rGFokt5MkfoZixZbQrk+/CG46BTmcUw+kyHJlXvsc6TOCAl1DkN7U9Y+vHBcEdSF8KN5UzLAzNB1dDy0inGtF3caaF87gIs2Eipo+VqCIuDquym3qqxHltytvGpcN4v/qFv3s9q9jnqK1zsjGGXq9Qhq3tqec8I9QBcjqhe9ALBde19VE/IlWmWpR7o4zaIbGeADA9k7XHhAR4uYhVLh2APB6mjhVaqszEw96FwAvpardYxBppW1JvDARmvE5D7/vuj6UCBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TCB58Vy8ZtmmN+K2Jz2+forEBp/DSlYXrIiRl/Y2Ehs=;
+ b=a3z4y3GtX8nSuI6aRREQZxGI9ipYA61PW5UGNOVZiPH7hjQKornE4iEGzBTXbzM15R1gmvFZcitq1PUiBLsBStFUKSGTUU9ksM8ZIE/En7jWmasNFCu4LQ0TI+qeI32DVaGyvFVH0weuIwqd61PNTP9phftePtdhTtTe4gtm6Us=
+Received: from CY5PR17CA0013.namprd17.prod.outlook.com (2603:10b6:930:17::34)
+ by CH0PR10MB5178.namprd10.prod.outlook.com (2603:10b6:610:dd::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Wed, 12 Nov
+ 2025 15:09:57 +0000
+Received: from CY4PEPF0000E9D0.namprd03.prod.outlook.com
+ (2603:10b6:930:17:cafe::94) by CY5PR17CA0013.outlook.office365.com
+ (2603:10b6:930:17::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Wed,
+ 12 Nov 2025 15:09:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000E9D0.mail.protection.outlook.com (10.167.241.135) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:09:55 +0000
+Received: from DFLE109.ent.ti.com (10.64.6.30) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20; Wed, 12 Nov
+ 2025 09:09:47 -0600
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 12
+ Nov 2025 09:09:47 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 12 Nov 2025 09:09:47 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ACF9l2O2845097;
+	Wed, 12 Nov 2025 09:09:47 -0600
+Date: Wed, 12 Nov 2025 09:09:47 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH] clk: keystone: Fix discarded const qualifiers
+Message-ID: <20251112150947.i6iionea3cqrpkxe@pacemaker>
+References: <20251028161643.1727046-1-abarnas@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <AM9PR04MB86047231B5320C01759BFCAE95CCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251028161643.1727046-1-abarnas@google.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D0:EE_|CH0PR10MB5178:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e1406c2-c47b-4265-d807-08de21fd89e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TWVEanFpZEhzOVkvcm9RYkFYenJwQzczSGVXNTNreEdtWHJQb3lNY21WOE4z?=
+ =?utf-8?B?dVRCNWl3dEN0elVVNmU3cXZjKzc2dE1NaVpNZEJOaG1OVHVFQUxob011Tktu?=
+ =?utf-8?B?UWdRR3pPSmlXUWhlTEc5TkI3SnN5T0dkMUFscUNKZEI3YXZPOVZxVlpzWUxO?=
+ =?utf-8?B?d1RuRVM1VUdydUVPWkdFdmNxVTFWT2wxbmlNZ0VST081NVNVenFhS2NuMlVG?=
+ =?utf-8?B?NFNDRlRFWkFoS29vMW5wTkIya3hhajc0aFY4d2Nya3NmM1RHck51MEM0dUZT?=
+ =?utf-8?B?SW5zLzVEL2VVYTVudXVIbUVXWGxUcWZwSjJ1UkczV1BiaVg0a2lFeklqMC9X?=
+ =?utf-8?B?VDFFK1FySko0SWYrNnBPT1dTbGo1TlFaZ2lLUnlUelNKNXNIKzh1SDNDUGZi?=
+ =?utf-8?B?aEo3TlprbGU2eFJhUGVuVkRjaFJGSzJmbFpqYXN5MDBPUHZ4Y0hjanJPSmRq?=
+ =?utf-8?B?YStaRW1zdWNRekNOelM4MDZEeEVEaFRZWm1jeG02aFBacEtTdHE2V1FSbkJK?=
+ =?utf-8?B?ekpGWHVwY2VrV2lUSDE5SzlFTFZKRnd0YndPdjJhZUtJVWNWR1VhTTNHcFRT?=
+ =?utf-8?B?UndDbTZZUXVzZ1VlWkd5Qk5VMkFBZFNNR1lxWUpqV2p2L0s2ZjFyZlJMNStC?=
+ =?utf-8?B?VndFMEpabkZCNGZrUlF3MTZSRFRZbzh4ckdwak9KZzliU3lQL09tKzNVVERJ?=
+ =?utf-8?B?T29RV01JY0g0MUttZTJSZlY1MFlsOW5yVENMRFVPWEhjZHRtaWpZdnRnaEgz?=
+ =?utf-8?B?dm95QjZsOGYwVzlqMW1iVEJzZ3diMVpORVVkNkowbHU1U1E3b3M1azNXenVE?=
+ =?utf-8?B?OW1EZXhIOEVFSkFxMEQyaGhvMUxMNzhqYTB4UjY1eEczZDNybWpzKy9OYzFZ?=
+ =?utf-8?B?blRwQmFKeWZnQytVTHlhbHpxaTlkeXc2TzJlVFllcGhPQWt0Mzhtczg3b3hh?=
+ =?utf-8?B?OUJZeUZDZVV0NS9aaW1BK3kySTk4eC8wRVdwRHZQUWxQNVVFbi94VTQ5UUxn?=
+ =?utf-8?B?eW1SZVo5aEd2anh4NFpzeEZtcDRjZnhMSnN2Q2ttVjRGTjduM3IvTXVRT3BG?=
+ =?utf-8?B?YkhUSklPU1RtcDlFZjEwSWhNMmwxazQ4OEhNdGYzVC8wWjhCR0JwL0o3b211?=
+ =?utf-8?B?UHpQc1YwdmNxYXdKeFpIQ3RGMVlkdExHNS9oVjJJVWNka0o4Y0lJN3A0MzBv?=
+ =?utf-8?B?Yy9lQ2dlNG5tYjl1Nis2MjJVcElCYUlIOUxUNytubUZmUEd0Nll4T2VZeW5p?=
+ =?utf-8?B?cUpSWE01OGkwOHdZUXlRM1U4VFl5T0k1SUduUnRvL3R4MmpzSTNTdWh0dWtT?=
+ =?utf-8?B?U21iZU56TjlDd25oSmdYTHJBbWJHcThmN25oREZzcm5OZGgvS3lEZUM0ZEMw?=
+ =?utf-8?B?QWRKVXozdXU0emhRZThJeDA2UTVTdVpjU0Z6OW45Sks0OGFCdVh6VWV0a1hk?=
+ =?utf-8?B?NzAya1RNNW9OclRuRTJQQVB6ZWJkMUpMN29mNVBPN0xtWktSa3p2a3JHSEZw?=
+ =?utf-8?B?eTlCd1RKR0szZ0NxdHFtNHZJc3FjWjZzeHI0SE1YLyt0bmNuUm9LVTlycTBT?=
+ =?utf-8?B?bjNLM3RyQWdhRWpnKyt3aCtZVVNOanF3Tk9jV3BsR2pOcDBmZWtqS0I0eW5O?=
+ =?utf-8?B?aGlva0pHZ1RxTlM2ZVZzWEVkaGpKZnpXM2hQL2NnNDNON0h5SHV4UzgxWWx5?=
+ =?utf-8?B?U20zRC8wLzVMZ0pCMVg4SVF6UDFGVE9FUy9EV0lvSkozOUtKNkRWeHZlY0Z3?=
+ =?utf-8?B?dkE3blZFZ0swdEgwUkpMcVdud1hoNmJTQnpMRzhJdHdDYm0xM0xOMGFwQlZW?=
+ =?utf-8?B?N3hPQmV0eTZpeW0xQmg4OXlwU0ZoRXQ2WjMxWWJLaGRqclFpK2t0STJieFNV?=
+ =?utf-8?B?SXBGOG1GSkdwQlg4T2xYeHhDZSszSm50Q0c3NnZZeCtSR3ArbTdTaEFjSUk5?=
+ =?utf-8?B?aVZ3L1VQclUwckM2d0NvNVEyd0lQWHpRSnU2WFAvakw5VUY2OUNOMVlkZGZG?=
+ =?utf-8?B?MjlvbzE1aEtEcGg0a01NV3ZyOFhxTm1HTVAxU2g2NDNGMENoRVhmUjZQSVY5?=
+ =?utf-8?B?eldHSlBzakZNaW9iZWN4V3JiQnh0bFZZNjVFVWpockZLYzBRK3Q3R3o2aXdo?=
+ =?utf-8?Q?ncIY=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:09:55.6200
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e1406c2-c47b-4265-d807-08de21fd89e4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_070523_145149_D667BAAA 
-X-CRM114-Status: GOOD (  52.67  )
+X-CRM114-CacheID: sfid-20251112_071001_955900_4DD24C8E 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,179 +165,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-11-12, Pankaj Gupta wrote:
-
-...
-
-> > > Voltage regulation for i.MX93 in Linux kernel, is done by ELE.
-> > >
-> > > During Linux suspend-resume, Secure-enclave (V2X on i.MX95) part of
-> > > wake-up domain, will be managed by secure-enclaves(ELE) part of
-> > > always-on domain.
-> > 
-> > So to sum-up, please correct me if I got it wrong:
-> > 
-> >  - NXP puts the ELE into the non-secure world, in case only one MU
-> >    exists. The reason for this is that the ELE is also used to handle
-> >    power-management.
->
-> For NXP SoCs with multi-MU(s) too, NXP proposes to put ELE driver into
-> non-secure world.
-
-With the ELE-FW and OP-TEE OS fix applied both worlds can communicate.
-Therefore it doesn't matter and I didn't mentioned it explicit above.
-
-That beeing said, with both worlds capable to talk to ELE and the ELE
-beeing very system critical, both worlds have to agree to the
-responsibilities, e.g. OP-TEE OS is not allow to manipulate the
-power-state behind the back of Linux.
-
-> >  - NXP exposes an uAPI which can be used to send arbitrary commands from
-> >    userspace to the ELE. (no filtering done yet)
->
-> It is not correct to say that no filtering is done.
-> Before sending as well as after receiving the message, the message header of the buffers
-> are parsed to check:
-> - TX-buffer with Command-tag is allowed to be sent, RX-buffer with response-tag is allowed to be received, without logging errors.
-
-I really don't want to step to deep into this, but that beeing said. If
-you refer to cmd_tag, than this tag is used by your below mentioned
-library also for NVM access. NVM is clearly something we do have a
-linux-framework and uAPI for.
-
-> - TX buffer size & Rx-Buffer size should match the size mentioned in the buffer.
-> - FW version from the header is checked, if required secondary or runtime FW Is loaded, before forwarding the request to ELE.
-> - In certain cases especially for exceptions, the message IDs are also compared.
+On 16:16-20251028, Adrian Barnaś wrote:
+> Add const qualifiers to the pointers returned from 'container_of' macro
+> to prevent breaking the const promise on const struct pointers from
+> parameters.
 > 
-> > 
-> >  --> Sounds to me that the userpace can influence the system behavior
-> >      very badly.
-> > 
->
-> Messages created and sent by User-space
-> library(https://github.com/nxp-imx/imx-secure-enclave), are
-> scrutinized as stated above in the kernel driver.
-
-This is uAPI which can be used by everyone and because your library may
-not implement access to power-managment calls doesn't mean that other
-libs do. I'm not sure if your proposed driver will block such attempts
-from userspace.
-
-> Moreover,
-> As part of this library, message creation, send-receive, IOCTLS etc.
-> kernel interface implementation logic, is not exposed to users of this
-> library.
-
-Your library is not the interface, the interface is the uAPI exposed by
-the kernel. This interface/your driver needs to handle valid and invalid
-access, e.g. hsm -> valid, nvm -> not valid since it is abstracted via
-NVMEM.
-
-> With the help of secure-boot and IMA-EVM, rootfs can be restricted to
-> not allow any new application or modified userspace library, to
-> execute.
->
-> This way bad impact to the system behavior can be prevented.
-
-Sorry but I really have to say that I have to NACK. Your interface is
-the kernel uAPI and not some NXP userspace library.
-
-An attacker could gain runtime system access and poke the ELE with
-arbitrary commands till he finds a fw-bug using the kernel uAPI (not
-your library of course).
-
-> > > > > * Linux HWRNG.
-> > > > > * Loading the secondary runtime fw.
-> > > >
-> > > > What is a secondary runtime-fw?
-> > > ELE FW size is larger than the size of ELE internal secure memory.
-> > > Hence FW is split into two.
-> > >
-> > > Primary FW, is the FW, that enables features that helps for SoC boot-up.
-> > > Secondary runtime FW, is the FW, that enables features like HSM.
-> > 
-> > Ah okay, thanks for the input.
-> > 
-> > > > To conclude this longly discussion:
-> > 
-> > ...
-> > 
-> > > > I still have mixed feeling about the fusing (including the 1-MU
-> > > > case), since it requires a secure-world OS in place once the LOCK_DOWN
-> > fuse was burned.
-> > > > It's fine by me if NXP wants to have and wants to maintain a multi-path
-> > here.
-> > >
-> > > Write fuse API will be added, to allow writing fuses from secure world
-> > > too.
-> > 
-> > This is a device life-cycle problem and if NXP decides to maintain multiple write
-> > paths, depending on the runtime-SoC state, this is fine by me.
-> > 
-> > What needs to be ensured is, that the fuse-issue doesn't exist for the 1-MU
-> > case (i.MX8ULP) as you said.
->
-> As said above "Write fuse API will be added, to allow writing fuses
-> from secure world too."
-> This will be true for 1 MU or multi-MU.
-
-In your previous mail you just said that there is no such issue with the
-write path. Now you say that the single-MU case needs the same
-workaround.. At least I have read it that way.
-
-> > > > Last but least, the uAPI which can be used to send arbitrary ELE
-> > > > commands seems unusual. But I don't know how secure-enclaves are
-> > > > abstracted within the kernel, so these are just my two cents.
-> > >
-> > > it's not unusual at all. The pattern of userspace sending commands
-> > > directly to the kernel via a queue is quite common like:
-> > >
-> > > GPUs: As you mentioned, userspace drivers (like those in Vulkan or
-> > > CUDA) often build command buffers and submit them directly to the
-> > > kernel or hardware.
-> > 
-> > That's right, but these drivers do at least some filtering on the OPs and check if
-> > they are allowed. According your patchset, you just write
-> > (se_if_fops_write()) the provided userspace buffer.
+> Once you have a mutable container structure pointer, you can change
+> structure fields through it, which violates the const guarantee.
 > 
-> We are validating the buffer size against the size mentioned in the
-> buffer header.
-> Refer above comments for more details.
+> Signed-off-by: Adrian Barnaś <abarnas@google.com>
+> ---
+>  drivers/clk/keystone/sci-clk.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> > > Secure Enclaves: In systems like Intel SGX or AMD SEV, userspace
-> > > applications interact with enclaves via ioctl or mmap interfaces,
-> > > often sending structured commands or messages.
-> > 
-> > What I'm aware of is, that most secure-enclaves are switching to the standard
-> > TPM API.
->
-> In case of NXP SoC with ELE HW IP, ELE is considered as on-SoC TPM. No
-> additional or external TPM is needed, if ELE is present on SoC.
-
-I said "TPM API" not "TPM device", may it be fTPM or dTPM. I think AMD
-switched to fTPM, so no special userspace-requirements must be
-fulfilled. However, this is also off-topic.
-
-Regards,
-  Marco
-
-
+> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+> index a4b42811de55..9d5071223f4c 100644
+> --- a/drivers/clk/keystone/sci-clk.c
+> +++ b/drivers/clk/keystone/sci-clk.c
+> @@ -496,8 +496,8 @@ static int ti_sci_scan_clocks_from_fw(struct sci_clk_provider *provider)
+>  static int _cmp_sci_clk_list(void *priv, const struct list_head *a,
+>  			     const struct list_head *b)
+>  {
+> -	struct sci_clk *ca = container_of(a, struct sci_clk, node);
+> -	struct sci_clk *cb = container_of(b, struct sci_clk, node);
+> +	const struct sci_clk *ca = container_of(a, struct sci_clk, node);
+> +	const struct sci_clk *cb = container_of(b, struct sci_clk, node);
+>  
+>  	return _cmp_sci_clk(ca, &cb);
+>  }
+> -- 
+> 2.51.1.851.g4ebd6896fd-goog
 > 
-> > 
-> > Regards,
-> >   Marco
-> > 
 > 
-> Regards
-> Pankaj
-> 
+Reviewed-by: Nishanth Menon <nm@ti.com>
 
 -- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
