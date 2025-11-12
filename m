@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37305CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A126CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 14:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFpG+YXKofa49FeP7jAoUUT9+RlY8OI+4nxbVsD7De0=; b=jb1yEY2Hm312azfT3UJAkGuOwZ
-	MCdSpYhWwfyqoRCuSo206QOWGnKBnriSSoj7aMqrzzuhtWziCo5jQUSjaEpjZp5zMSEiHAQaZGacG
-	uRBw1k5oFJ+6XBGslG0nI18V4VbaUJy38KSjYAmPtvzV+ermInxGCBkH7zIDAEU0eMSmWTi0Hunwe
-	41x/xpXR8h8zzUtaQ6tie92R0G46/gicQZ/Km54omZh6mRiJWhpUPR6uUr/IqwBCxHh0yUgV6cLz6
-	qibZYLmdj40C2imHfgD44RHD5wlLXjrOX44RPr+QLa31GXPh/YaRNum0+bsMNK9Hm/PVyPi/M4dMD
-	mV1pYEpA==;
+	bh=sdW3OlTExVNBHFnWUo8/ACBmb4Vov6jHiAMtYyCLPPY=; b=aEhivqZjdtzNZbwTZCcCz6KDWZ
+	VAjIJ/86GFIYU/qYLEJy2VURnyNF+UQ0/9EeHylyi0YZOm/1uuSSHccKpsasLdsLQe4UCEe0F+Vg5
+	KVkqJuAEJ1Scsz4jpJ0b4Q8yb2NydUhjcBRSvMoMXX4gk8lJ6FqQAN9H0/wnTPPC0RJS3XHJ2tgif
+	ne7R449VsFtDyf8FWFu2cuC5jVRKu0T/QyXW8GSERacW8HcREJdzV6VAQlZ+pK4MBozcSoy6Ze664
+	qboKn2gUct0oVqNaJ0eYfMb5UZ9LS/svKtZhV4lVqngWr2o85YC9PbsnfuKcKM8xvk4pHR9a3n3sA
+	9POZb37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBfc-00000008uuT-31xX;
-	Wed, 12 Nov 2025 14:18:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBfZ-00000008uu8-1oF2
+	id 1vJBiy-00000008v81-14Bk;
+	Wed, 12 Nov 2025 14:21:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJBiw-00000008v7n-0q4R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 14:17:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38B4D1515;
-	Wed, 12 Nov 2025 06:17:48 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9D563F5A1;
-	Wed, 12 Nov 2025 06:17:52 -0800 (PST)
-Date: Wed, 12 Nov 2025 14:17:49 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Chenghai Huang <huangchenghai2@huawei.com>, arnd@arndb.de,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	anshuman.khandual@arm.com, ryan.roberts@arm.com,
-	andriy.shevchenko@linux.intel.com, herbert@gondor.apana.org.au,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-api@vger.kernel.org, fanghao11@huawei.com,
-	shenyang39@huawei.com, liulongfang@huawei.com, qianweili@huawei.com
-Subject: Re: [PATCH RFC 4/4] arm64/io: Add {__raw_read|__raw_write}128 support
-Message-ID: <aRSXDTT44_3iutEg@J2N7QTR9R3>
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
- <20251112015846.1842207-5-huangchenghai2@huawei.com>
- <aRR9UesvUCFLdVoW@J2N7QTR9R3>
- <20251112140157.24ff4f2e@pumpkin>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251112140157.24ff4f2e@pumpkin>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_061757_545340_72677DE4 
-X-CRM114-Status: GOOD (  21.34  )
+	Wed, 12 Nov 2025 14:21:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D96B6021C;
+	Wed, 12 Nov 2025 14:21:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC674C4CEF1;
+	Wed, 12 Nov 2025 14:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762957284;
+	bh=/hOxQ9C2lk+N1NIFVh7E5xgqEFJaMmpx3AHeuX5+Zpg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S9WMmZ/QWOtdikDnydmU61FjwbB33dU661tQCn0LGXCwTDjFjNyMN4nAabSqTbQQX
+	 zMofYdpo2BcBxGlJnV5HMtLCFuXnDYQNDvTu+q3mpqyZAvbo+Sa9LV87XW1KeufzDi
+	 WwEA2yI09w1qqI0sjrv3ScXYLoi3mo3DpmHIgUyAZaDc1bQUTeDMYjOvsm+QV582zX
+	 9ZzC1xGvrofsGKVNhyKWh0TKCfnARAMQfOOjSTtQcx68Gb7/Y0Edk7Funj/6mhQmCo
+	 1BzEGBIcLqj6xDaoz8Jjj4bQrLf4sIX8SvgxygQ5cNrDZFl4MMH1XVGaY84pKOr6tF
+	 6dYb9u2R7cGrQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJBis-00000004Z5y-2Y9g;
+	Wed, 12 Nov 2025 14:21:22 +0000
+Date: Wed, 12 Nov 2025 14:21:22 +0000
+Message-ID: <86v7jftjq5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	paulmck@kernel.org,
+	mhiramat@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: arm64: pseudo NMI bootconfig question
+In-Reply-To: <rs4igmsjrm6r2aio4nbe5jos3vcqk2u4bjhltjwtj2pn3cquip@kv3grgec7qrb>
+References: <rs4igmsjrm6r2aio4nbe5jos3vcqk2u4bjhltjwtj2pn3cquip@kv3grgec7qrb>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leitao@debian.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, paulmck@kernel.org, mhiramat@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,60 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 02:01:57PM +0000, David Laight wrote:
-> On Wed, 12 Nov 2025 12:28:01 +0000
-> Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> > On Wed, Nov 12, 2025 at 09:58:46AM +0800, Chenghai Huang wrote:
-> > > From: Weili Qian <qianweili@huawei.com>
-> > > 
-> > > Starting from ARMv8.4, stp and ldp instructions become atomic.  
-> > 
-> > That's not true for accesses to Device memory types.
-> > 
-> > Per ARM DDI 0487, L.b, section B2.2.1.1 ("Changes to single-copy atomicity in
-> > Armv8.4"):
-> > 
-> >   If FEAT_LSE2 is implemented, LDP, LDNP, and STP instructions that load
-> >   or store two 64-bit registers are single-copy atomic when all of the
-> >   following conditions are true:
-> >   • The overall memory access is aligned to 16 bytes.
-> >   • Accesses are to Inner Write-Back, Outer Write-Back Normal cacheable memory.
-> > 
-> > IIUC when used for Device memory types, those can be split, and a part
-> > of the access could be replayed multiple times (e.g. due to an
-> > intetrupt).
-> 
-> That can't be right.
+On Wed, 12 Nov 2025 14:05:43 +0000,
+Breno Leitao <leitao@debian.org> wrote:
+>=20
+> Hello,
+>=20
+> In most major Linux distributions, it=E2=80=99s common to have a separate=
+ debug kernel
+> build. This variant is compiled with additional debug configuration optio=
+ns to
+> provide deeper observability and easier debugging, typically at the expen=
+se of
+> some performance.
+>=20
+> This approach is also used in several companies, including mine. The debug
+> flavor is usually a drop-in replacement deployed when investigating
+> issues, allowing quicker identification before more detailed manual
+> debugging.
+>=20
+> I=E2=80=99m currently debugging some hung tasks using the debug kernel fl=
+avor and
+> noticed that backtraces weren=E2=80=99t printed correctly because PSEUDO =
+NMI isn=E2=80=99t
+> enabled.
+>=20
+> AFAIK, to enable PSEUDO NMI on ARM, the following are required:
+>=20
+>  cmdline: irqchip.gicv3_pseudo_nmi=3D1
+>  config: CONFIG_ARM64_PSEUDO_NMI=3Dy
+>=20
+> I wanted to have pseudo NMI enabled by default in the debug kernel
+> (without relying on kernel command-line parameters), but this isn=E2=80=
+=99t
+> possible today. The reason is that `irqchip.gicv3_pseudo_nmi` is an early
+> parameter, which can=E2=80=99t be set through bootconfig, so, independent=
+ of my
+> .config, I need to hack cmdline arguments to have the debuggability
+> I need.
+>=20
+> Question:
+>=20
+> Would it make sense to provide an option to enable pseudo NMI in certain
+> kernel configuration without requiring an extra command-line parameter?
 
-For better or worse, the architecture permits this, and I understand
-that there are implementations on which this can happen.
+[I wasn't asked, but I'll give my answer anyway]
 
-> IO accesses can reference hardware FIFO so must only happen once.
+The short answer is no. The long answer is that there is so much
+broken HW out there that dies a painful death when enabling pseudo-NMI
+that is isn't practical to do so. It also brings a measurable
+overhead to some of the most frequent operations (interrupt masking).
 
-This has nothing to do with the endpoint, and so any FIFO in the
-endpoint is immaterial.
+Until someone weeds out the broken machines (in some cases, by prying
+them from my cold dead hands), the requirement for the option is
+likely to stick.
 
-I agree that we want to ensure that the accesses only happen once, which
-is why I have raised that it is unsound to use LDP/LDNP/STP in this way.
+Thanks,
 
-> (Or is 'Device memory' something different from 'Device register'?
+	M.
 
-I specifically said "Device memory type", which is an attribute that the
-MMU associates with a VA, and determines how the MMU (and memory system
-as a whole) treats accesses to that VA.
-
-You can find the architecture documentation I referenced at:
-
-  https://developer.arm.com/documentation/ddi0487/lb/
-
-> I'm also not sure that the bus cycles could get split by an interrupt,
-> that would require a mid-instruction interrupt - very unlikely.
-
-There are various reasons why an implementation might split the accesses
-made by a single instruction, and why an interrupt (or other event)
-might occur between accesses and cause a replay of some of the
-constituent accesses. This has nothing to do with splitting bus cycles.
-
-Mark.
+--=20
+Without deviation from the norm, progress is not possible.
 
