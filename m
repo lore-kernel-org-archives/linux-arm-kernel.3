@@ -4,163 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5743ACCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66942CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mk2H8qPpAGFioL5Cy9VRJykYCU6poPcB+DKSZmtQxJM=; b=x8FJYGkNAy9IdYARBOhhQ0ejtK
-	F7+TFB03u0Hbms9b6BAc9aDKGGspa+GVullVg3Jw8NWJFgB/kUsrlIFV7NkUAZCME8WknDku0M/j2
-	ln9fAktTnrXXbbHEdnHtF0PHqFVeWms7gITA2xaIOL0jAvfok67ZN5Yst/xlScGTGG3Js5EbDx2rT
-	UP1nVk3fH3zSqlESPGoABxx6LNyKjctnpArP1+sJJXIIYUjATFNgrEvuLSsh8vpuINKzBlvoUWnjT
-	P4t3Iof+ae1J02pUnkhpCbkeZuwGo4JzOfIkeIKhzfTgM6TXMu3+++cjs+q/F6gsp6aKhJ/Zl7EVe
-	MgjTPKMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c8EF6cBHJBO/Q2isSVRmRC/bblG4Ra8gNeer+nZltPQ=; b=Rk8eBlB0+i+QEe
+	Q31Wj+9CNMSu3DO1hX6c2+LyjWr6Y6htTfaCQJtLGOFusLgjzM+7RSRf8mtdqQwbLoOMRcA0Pdgh7
+	XRx+Q3rNE8AKnrGUd9cu65TlgPL1hyeUEOJgtmZzmPXctMT2mAePcD+oi5JhDj8EjBQK5hqAqayLC
+	mCzZDJwpfIMZSgrBZh5izqMDVX2RiZfPUZCDVHkC2f5s54HnHQt+dKKSxsqRLusM3mrGn554Tt2+0
+	rnHzNYfPz4o2f/GMUO8lJiDch2dhpsUmZqGtme3xvXl9goEOlUITSI8oouV+rx3PGktWfkkfCK81W
+	TXSORThtKrEA5htgDbQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ81o-00000008YcK-0n4J;
-	Wed, 12 Nov 2025 10:24:40 +0000
-Received: from mail-westus3azon11011027.outbound.protection.outlook.com ([40.107.208.27] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vJ868-00000008YuQ-3k7G;
+	Wed, 12 Nov 2025 10:29:08 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ81l-00000008YbO-1iU5
+	id 1vJ866-00000008YtC-2Cns
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:24:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=euetDiiUyO5BUSTe68LOW8ZgKePBR6K8Cwfg9jEvIklnUYvqJ4tFwlVLkIVY4uWOVGe/p4dU+WCRf1W3hOhdIZSxG9c/AhgP6NVCGbkKwH3bHkqkTOR5rsQbxfQCfX7UH63GyhowailzjpiKLoDoDzrdHhy1UvzFbLybeAtvIAGUNBV6VBEDsiXuz8QSymBr+XsRuGr9cCUxGqwHp4Ioog/f1OYP/iaEakv3QK0yfo56ys+lZtu3+QNG6MKkgUSc+PIb/T2hFyC8ilSPoj4xe6vpGx2f7XnL17Xdf1+9p+5JFGX5lM69SnxNnyvQcDSC2WVLYsaBvrPKAO3BAC550Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mk2H8qPpAGFioL5Cy9VRJykYCU6poPcB+DKSZmtQxJM=;
- b=yty5usLJYOwpM7AgwW2lYnGQ5oQjMwuuWrPI2EC4uLvsfSZYD2PTd2PwQwVuBCf+BT5h6lmfsKtb4GG/TIBKxV0L7gYFOAraDBJ6uAOM3/Qf9Gy3Yh/Z8O+PXHAs7YTauUMoy+VUxr5SDr3vKcZaFdG8Ow+g+hXhdbmOcnHTkXMUNT2os1Eu4IdolGlOXQQwlRL2Yds3/znOvb/m/S20LHX0sd42BBVW4Xd9vQPqTeWP4rnChpFfReTzibz6ix39O24WraVaVXJ5VVc8J8/c94hZbwMODOiihfO9L3bCyGhkzAXBlE6h60GmjTDTluVvpk0OLnbB2K/QExNmh26VVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mk2H8qPpAGFioL5Cy9VRJykYCU6poPcB+DKSZmtQxJM=;
- b=J0tVAyWsr00XqdYEnO9/wheVyN1Si4t20YWWN6RE3mvEgnavvJHBnIzaeV+xBibAFEChNfnW7hoV21MhD8Gaypu15vOYQCOxZsgeOLNU/rxuhpgKk2QFPrM9jeFiuP0VrQjOuv1Y8ONAMmRVh/wQSVWChyGXMjY/8z/yVqbiuxI=
-Received: from CH0PR07CA0014.namprd07.prod.outlook.com (2603:10b6:610:32::19)
- by SJ0PR10MB4797.namprd10.prod.outlook.com (2603:10b6:a03:2d8::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
- 2025 10:24:33 +0000
-Received: from CH2PEPF00000143.namprd02.prod.outlook.com
- (2603:10b6:610:32:cafe::1b) by CH0PR07CA0014.outlook.office365.com
- (2603:10b6:610:32::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Wed,
- 12 Nov 2025 10:24:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH2PEPF00000143.mail.protection.outlook.com (10.167.244.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 10:24:31 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
- 2025 04:24:30 -0600
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
- 2025 04:24:30 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 12 Nov 2025 04:24:30 -0600
-Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ACAOTr62536862;
-	Wed, 12 Nov 2025 04:24:29 -0600
-From: Anshul Dalal <anshuld@ti.com>
-Date: Wed, 12 Nov 2025 15:54:25 +0530
-Subject: [PATCH v3] dt-bindings: arm: keystone: add boot_* mboxes to ti,sci
+	Wed, 12 Nov 2025 10:29:07 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42b3298502cso62096f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 02:29:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1762943344; x=1763548144; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=c8EF6cBHJBO/Q2isSVRmRC/bblG4Ra8gNeer+nZltPQ=;
+        b=INC7vKsM1l/UJN9nHCGqS8l1KdqRcqYbkZoRaQG8jYJ8YCtW/AM5/ZZFh7e6T+VbYE
+         CdmtslBROchxNMaCzl1tuY++76tg53aKdLWa5H+fXEC0fI7xpUQLegq6iq8LSkNFAxTW
+         W+MDhnEeHOmOD+4TTrNgqyTjnUFdKS2sJmlRSIJMBF/eU6qBVenwaoaLOeax3jC0UA2N
+         4dPgUxKL1OsVxh7iImM7DQ6+ePvA3EIjxsVbdV/FOo1QYuC/Izdayv4dUhMlJVCdfle3
+         v/Mhsb1nlt2ISVSSC89gPY7/B640nJbZz/gshHm1EHnAkHCkcsJzgwjgNFHjAH2xZGOS
+         RnlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762943344; x=1763548144;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c8EF6cBHJBO/Q2isSVRmRC/bblG4Ra8gNeer+nZltPQ=;
+        b=tTgmb6zmI3l/cjdAUYuUv0vpHPEJ8FPzaF9myDYLt9SliovwosNgP6UKFxO+zKfm8S
+         cMAkeCZSQEhIeFA1s7asM9WmsGp9CzvQsl17LisOMmIPJbxur3Uj9MO+Q3dW+KaL8j8a
+         Ei//eiMOjOYCpk9d9Q5qNBJyNqj79fd5uiJ/7cbWmVJuUeNir1FJ80cqXg+JpGZGbjAl
+         V8D34OFrlKVPvjY0TnPe4FV4oemGK5PbUY3dAx4yrgVfplU3AG3MvuizKTKxNOcKNmbg
+         qT8vLZHRMKVIqTSiBjEpq5wKkuT+oDEBgiXhvf1nYu9nKdYUI6hy/kh7TqDxE9YE4lmv
+         dKjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUMUxAkSzZqI5A0fahucYCNiU3ar/N0niU/qSEHJfQbvKkgEkGNS+86l7VJSMlR21G/l0BMtfIaAyTUCJdn5UH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDwuXmmWOUQdMYtpmEh4taZMQY/oRRduA1lhtXY/n8d/W3QR2Y
+	jNVogodsHOjqsYzk9ipona+hcIRWcf6kl1B6+viX9WEXHmx/va8qM07e7x8PljKv2XQ=
+X-Gm-Gg: ASbGncviQ7R7n8oZMtGHHZqjGnI7E763HgvP5uGhX+JxYzE6800GqTmT+i3LDQm5Z0x
+	T6lWcz7MHKRC7JkqmxTHVpF+lJGlpSpERr2VuqkHaUKUwek7nRzPJRS8DENu97byUjcizjpbRBA
+	mzYkYI5n2hF4S9jkGrd1RGD+aNq3plNp0EUCBW5sspRaxwDPzsgVs+Danvs1y3cbX+gzlQ94Bj8
+	gtFIID3AIHRzYVODGcmXeC7qDTs1b4j5Xx1rTD4Tv6Ib2Nq1BAeHqHQqPDYBSWKfvt17D0DcXuZ
+	1tzYuqZovZaKso4pipJITWEfN/z+qu5S29xGZODw01GZnQ6UXwrRBGLgKNWx0CNQk81amNlMLWI
+	smQxMWLO0TVyZVocYPM1Vzs+dbNkT8PZvELpi7q0p24nqKlsp8Ay2vlFm3ADRCp83qqwvlCp/za
+	w7PvFeMeEC2cxCeYKP
+X-Google-Smtp-Source: AGHT+IEMmjHlZdR4rkkkBtikr3kREAJzYe3gVzEQY2F/CPNjTW6FIV3Gq5nMQMHGsI7EpVQgzvavzw==
+X-Received: by 2002:a05:6000:230e:b0:42b:3746:3b83 with SMTP id ffacd0b85a97d-42b4bdb73bbmr1049650f8f.8.1762943344377;
+        Wed, 12 Nov 2025 02:29:04 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b32ecf522sm22020001f8f.45.2025.11.12.02.29.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 02:29:03 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 00/11] of: Add wrappers to match root node with OF
+ device ID tables
+Date: Wed, 12 Nov 2025 11:28:45 +0100
+Message-Id: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251112-k3_syscon_add_boot_mailboxes-v3-1-66155a4236dc@ti.com>
-X-B4-Tracking: v=1; b=H4sIAFlgFGkC/4XNSw6CMBSF4a2Qjq3hXt6O3IcxTUuL3CjUtKSBE
- PYuEGMc6fA/g+/MzBtHxrNTNDNnAnmy/RrJIWJ1K/ub4aTXZhhjBhBn/J4IP/na9kJqLZS1g+g
- kPZQdjedlmqHSuiqrHNlKPJ1paNz5y3Xtlvxg3bS/BdjWNwzwGw7AgWdYSSwahLjIzwMda9uxT
- Q34LeEfCXnMpVE1mLRQSQUfaVmWFykJQJAPAQAA
-X-Change-ID: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
- Shilimkar" <ssantosh@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-	"Anshul Dalal" <anshuld@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762943068; l=2968;
- i=anshuld@ti.com; s=20251022; h=from:subject:message-id;
- bh=BnWZA9pdZFtnoBLs9CS0Q5eLuK8L3TooZt8GSSJVh4I=;
- b=MvsYmuIZfYBxx7udQMpxMEa1opPAkZ/FI/2objCMjwN6i6oBZyTB1Vo+bqiRu+mjrICkGhGtP
- 9bezfDfidQfC5vlw8HdzjV7TuXlyIc6vP70eYl98yQrgiWaOcEDr/C8
-X-Developer-Key: i=anshuld@ti.com; a=ed25519;
- pk=Kv8FlQElcrR6efyEHmjtE83y8e0HKvqPyvVY+PJ4UFw=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000143:EE_|SJ0PR10MB4797:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c618fca-d758-4eb5-924e-08de21d5ab42
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QW1uSWthelBudTJOWDlQMENKK1ZDV0c5WGtUVUQ1OXpSUitYOU8rVEErU0ZH?=
- =?utf-8?B?VEdpUDlyQ2RXSTdZOXNkeCt6QVJ1c0ZVdlR3d2tnckIwZDlUMXdFcytUai9B?=
- =?utf-8?B?QWFEVXh1T1FqVjRIVW1OekVkRWE4cEhTVlFNQU9wSWhpWHdibVBZODhPOVNK?=
- =?utf-8?B?TmVZUFhOb3l1cGtUUFNhNWdKUHpkdHBFT05YMWxvM0RMSnhuQWlXaktMb0Z3?=
- =?utf-8?B?SjJlUEI2QlhQcWxUME9ocUg0QUVDeExkL0NGNXBDUm9vN1h0dmFXUnZVVlVP?=
- =?utf-8?B?ZUFwUFJMbE1EVjNucXZsSm5qWVVaSzlLQVhZS1Z3ZVA4THdBdEZPWWYwTlVa?=
- =?utf-8?B?L1NleFoycnVWazgzR2hqM0dzbCsxQmJyMERRZGQ4WGJrdXZVeDlobGIzREpN?=
- =?utf-8?B?RzNka0sxRndyZU1qMXRSak11ZHh3WG9KT0p4WkMvZHhsSXcvR3Btb090Z3k2?=
- =?utf-8?B?MldOaUNhQ0NKcXIxSnk3Q1VnbS9YemloV0c3dUlaMmpvTFExRDBLS1VabUxK?=
- =?utf-8?B?QkNvMnBnWk5GcmRLYjFibi9vSG1YRVYwUGx3Vmd1TWI1QzExMHRpZHM3eDlT?=
- =?utf-8?B?QVRpT2lsM09tTSt6V0UyWnQ3RUNlRk52NElmN2d5Y0J3UitLbDlOWGxYckRX?=
- =?utf-8?B?Y2paaDVpL1JXakNpaUlmbTVVWUlLZElvTUlyN1FZaDJOVUlkdEVZSE1IWDZu?=
- =?utf-8?B?SWdDTVczcWZKQkt4c01JOG16R09WTU1MNDhvZ29oZnRxcmpJWGgzMWh4VlhF?=
- =?utf-8?B?Y01jVVpqRnRUZStvaFJVejVPbXVNOVhOOXkvanRINi9LZzhsZkRWRnNsZU9u?=
- =?utf-8?B?RzBna2duSG12dTBGZHpIN2JZNDU3NHJPcXpnUmVuV28wTUpWT1l4WjlVNm0z?=
- =?utf-8?B?QmdTa1Q2U0MvWngzcnE0cEFqZUhGdEkyQk1zaG9tazZlNzU3cVJIbDQ1a2g0?=
- =?utf-8?B?TTdmdDRkbkxPdVkrNm56NytQN3YwZHNQckZ0Q01nUkIvQzUyTnhKaTJSbWxT?=
- =?utf-8?B?TmRyVGduUk9icVo5VnJsK29FMTViaHkrV21acUMyUkg0dkM1L0lNc2FnbVFj?=
- =?utf-8?B?MDh4YklZS1p2bXRuT3RsbnRhOHBRN1JBbGpTcnZGNW9ZeS8yZ3dLbmhtaFlM?=
- =?utf-8?B?ZHQ2Z2NZMzdST3hoaWpFakhIZ0RPRHllcEFGQ2VsQ3FsRXZSL3daZ0dwZ3kx?=
- =?utf-8?B?cGkySWNTdFVpUjBabm9ONTJxRW1ibGR3S2xOTUNYMlVZbXVkS1dTSUEzbkk2?=
- =?utf-8?B?aDVkOVdwNnovZ05rYmhUeEFuZVIwSmZSemZjVGZnY2piSSs1WmppLzd1Z2x5?=
- =?utf-8?B?SzV1RURkd25ZbDZPTEJVVmhZWFNxRE5WTVplZFVvWnk4K0FkRXFnalA4NG43?=
- =?utf-8?B?cFFSaDgyYkZpeXhOMmM5TnhMeTFlbE1lY0VRVGdxNzhaNzcyUS9oMHY0dHlm?=
- =?utf-8?B?ZG55dUY1QnRiLzQvYUM1bkRxYVl2eGUzM1BEczhQcU9nZUVYRE5ncktZSUhW?=
- =?utf-8?B?ODBHZkpXR0xVcEFzWXlVR3F0K0dTWldnSkJzYUNuYThxZHc4MllxeUozLzBH?=
- =?utf-8?B?RG9rb3FqN1BFOW52Z1BPODJyK3hKVUVoamNrQTlQYUxTamtIYWdZZVR5b1VD?=
- =?utf-8?B?RUI0dWc1ejJwSkVtT1V1UVJmSHVFOUtMOHNoWDh2Qi9YbEVjY25vek5xcjdS?=
- =?utf-8?B?VnV0cWoxU0libTR2c3Z1S1ArZU1pZWFYM0lTU3RFNmpRNnJoUVVlRkN5YUpj?=
- =?utf-8?B?eGdoV2hpM0RUZjdESW5hME1XNEJ3aElLUTVlUXNDTUdla25seGw0Znh3RUFS?=
- =?utf-8?B?K3VXcVJiU2NjNGNFV0IraFBZcGIvNWM5RGkyUTRrNU5YOCs2MCtVUU1sMkVG?=
- =?utf-8?B?R01vMm1Ba1hWdStRcnZ0QUVMcGN1cWhDbDZVeXRndEpHNHE3M25sUG8wcEk5?=
- =?utf-8?B?UVBURENQOEYzVzV4Y2g0SDJqd0VWdm5Ga1NHNnZnbGlmeVJkbkRiME1BS3I4?=
- =?utf-8?B?SFFEbjVma01icE4zYTc3cFM2RUFVNWd1SGNnYXlQeHpya2tVbnd2dzJrbmg5?=
- =?utf-8?B?d1ZjZlIvaWlLb1VLNndCcTJGeXFZYnFYYzRibDhiSW1nMVFxWUxLWmZHSGN2?=
- =?utf-8?Q?RsI4=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 10:24:31.7675
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c618fca-d758-4eb5-924e-08de21d5ab42
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000143.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4797
+X-B4-Tracking: v=1; b=H4sIAF5hFGkC/42NQQrCMBBFr1Jm7UgSYiyuvId0MW0n7YAmkpSgl
+ N7dWC/g5sP78N9fIXMSznBpVkhcJEsMFcyhgWGmMDHKWBmMMietlcPeYvT4oGWYfymBcaSF0JK
+ zvVfWtdpC3T8Te3nt7ltXeZa8xPTer4r+tv9Yi0aF47lVTLrmYK53CZTiMaYJum3bPr5NAz/DA
+ AAA
+X-Change-ID: 20251106-b4-of-match-matchine-data-4a64bf046814
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3319;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=5+dyAstf0xhbGIWyYKa5+nXexFcqNXdclmhKrec/Eu0=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpFGFgkKzLKPJ79bhNkhzUMxTf7Rq0m0OFEmF4q
+ dnv57GH9wqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaRRhYAAKCRDBN2bmhouD
+ 18J1EACLN9dO8VHBUsLifJcqZjQO60hgIzWj+1YfL7nCpzD4o/V3Zb9fmbppxoW4A8qBWHFp+9z
+ bla89lZvHQZo5Io3ja8lW7quIu9nzOFwt9GGBLMYb+Y4ukJpyT7gnUqW8MSni+LVw0fGpJwzl4c
+ khYK2MI/R/M9d8wpqyfT9qS9+54jhVEmCX7oAcfw6fUOJghJ82AjVlioaejmfFriDfgq1AqC7Tt
+ tLYC/FxWxmwChwzttO5J6CuIWkPJQQoqWoFeMjSJqgz0In8mhbWxhp1F6NyiLwj1BL9z6dGyTRX
+ L7/11go/X9B2H+c37Dx4RMwFJb5p53L1RfJ+cc5Ub1MMcEhPFlxWk7LVM0QTk1T1sIszZNTiSch
+ rRf7xEqCdXvr9Fpd+TIK7K7Wm11BCoErJWT6hj0bsWLVtyC3N+y5Pfk/nekv4/4e2hbWTQg3cQf
+ MCAmbLzployqG0E87eyUpzn8cC9Zyu9YZs2rc1Mrc4ZHC7AJlaWEAPmoNfpCZVFKErcfVMjy0a8
+ PPMvUe1+u/lpKCkXWSD8JfOk+mFkqB8gR2Kh+tMtX6hJHj8J05MZAWwknwQKHYYwAY6QKdUnk3g
+ zOhsW95VFgRYFLBwwC+Cz0wjXr5kwLh4U2ZhwY0tRVnLtCw0DWHx6zGGwKRTG/YKbYQjDuv2t7S
+ KoMdrL+EsQdcY+Q==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_022437_454356_8A7554F4 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20251112_022906_620825_245A21ED 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,86 +146,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootloader on K3 devices makes use of mailboxes as per the ROM spec
-which might be different than one's available to the kernel (firmware
-spec).
-
-Therefore, this patch adds the missing mailbox entries to the DT binding
-to represent the mailboxes exposed by the hardware during boot for the
-purpose of loading the firmware.
-
-Signed-off-by: Anshul Dalal <anshuld@ti.com>
----
-Changes in v3:
-- Drop [1/2] of the last patch series
-- Update existing example with boot_* mailboxes instead of adding a new one
-- Link to v2: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com
-
 Changes in v2:
-- Remove maxItems entry
-- Remove RFC tag from patch (added by mistake in v1)
-- Document the new mailboxes in mboxes instead of mbox-names
-- Provide example with all the mailboxes set
-- Update commit title to have "ti,sci"
-- Split into two patches
-- Link to v1: https://lore.kernel.org/r/20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com
----
- .../devicetree/bindings/arm/keystone/ti,sci.yaml      | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+- Drop cpufreq/ti change: not correct.
+- Drop soc/qcom/qcom_pd_mapper.c - objections from Dmitry and I think
+  better to drop the patch in such case.
+- I did not implement feedback for first patch to make the
+  of_machine_compatible_match() matching machines in arbitrary nodes,
+  because there is no such use case possible and no arguments were provided.
+  I also did not use cleanup.h in first patch because existing code
+  of_device_get_match_data() does not use it and I prefer uniformity.
 
-diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-index 25a2b42105e541cb3c8ad12a0dfec1af038fa907..be8a5b2b051b441884795059c70892910d981130 100644
---- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-+++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-@@ -51,15 +51,27 @@ properties:
-     minItems: 1
- 
-   mbox-names:
-+    minItems: 2
-     description: |
-       Specifies the mailboxes used to communicate with TI-SCI Controller
-       made available from TI-SCI controller.
-     items:
-       - const: rx
-       - const: tx
-+      - const: notify
-+      - const: boot_rx
-+      - const: boot_tx
-+      - const: boot_notify
- 
-   mboxes:
-     minItems: 2
-+    items:
-+      - description: RX thread
-+      - description: TX thread
-+      - description: Notify thread
-+      - description: boot stage RX thread
-+      - description: boot stage TX thread
-+      - description: boot stage Notify thread
- 
-   ti,host-id:
-     $ref: /schemas/types.yaml#/definitions/uint32
-@@ -90,9 +102,10 @@ examples:
-   - |
-     pmmc: system-controller@2921800 {
-       compatible = "ti,k2g-sci";
--      mbox-names = "rx", "tx";
--      mboxes = <&msgmgr 5 2>,
--               <&msgmgr 0 0>;
-+      mbox-names = "rx", "tx", "notify", "boot_rx", "boot_tx", "boot_notify";
-+      mboxes = <&secure_proxy_mcu 8>, <&secure_proxy_mcu 6>,
-+        <&secure_proxy_mcu 5>, <&secure_proxy_mcu 4>,
-+        <&secure_proxy_mcu 5>, <&secure_proxy_sa3 5>;
-       reg-names = "debug_messages";
-       reg = <0x02921800 0x800>;
-     };
+- Add Ack/Rb tags.
+- Link to v1: https://patch.msgid.link/20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org
+
+Dependency/merging
+==================
+All patches depend on the first patch, thus everything could go via
+Rob's tree with people's acks.
+
+Description
+===========
+Several drivers duplicate same code for getting reference to the root
+node, matching it against 'struct of_device_id' table and getting out
+the match data from the table entry.
+
+There is a of_machine_compatible_match() wrapper but it takes array of
+strings, which is not suitable for many drivers since they want the
+driver data associated with each compatible.
+
+Add two wrappers, similar to existing of_device_get_match_data():
+1. of_machine_device_match() doing only matching against 'struct
+   of_device_id' and returning bool.
+2. of_machine_get_match_data() doing the matching and returning
+   associated driver data for found compatible.
+
+Best regards,
+Krzysztof
 
 ---
-base-commit: 4427259cc7f7571a157fbc9b5011e1ef6fe0a4a8
-change-id: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
+Krzysztof Kozlowski (11):
+      of: Add wrappers to match root node with OF device ID tables
+      cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
+      cpufreq: mediatek: Simplify with of_machine_get_match_data()
+      cpufreq: sun50i: Simplify with of_machine_device_match()
+      cpuidle: big_little: Simplify with of_machine_device_match()
+      firmware: qcom: scm: Simplify with of_machine_device_match()
+      irqchip/atmel-aic: Simplify with of_machine_get_match_data()
+      platform: surface: Simplify with of_machine_get_match_data()
+      powercap: dtpm: Simplify with of_machine_get_match_data()
+      soc: qcom: ubwc: Simplify with of_machine_get_match_data()
+      soc: tegra: Simplify with of_machine_device_match()
+
+ drivers/cpufreq/cpufreq-dt-platdev.c               | 15 ++-----
+ drivers/cpufreq/mediatek-cpufreq.c                 | 12 +-----
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 11 +----
+ drivers/cpuidle/cpuidle-big_little.c               | 11 +----
+ drivers/firmware/qcom/qcom_scm.c                   | 17 +-------
+ drivers/irqchip/irq-atmel-aic-common.c             | 15 ++-----
+ drivers/of/base.c                                  | 47 ++++++++++++++++++++++
+ .../platform/surface/surface_aggregator_registry.c | 13 +-----
+ drivers/powercap/dtpm.c                            | 16 +-------
+ drivers/soc/qcom/ubwc_config.c                     | 14 ++-----
+ drivers/soc/tegra/common.c                         | 12 +-----
+ include/linux/of.h                                 | 13 ++++++
+ 12 files changed, 79 insertions(+), 117 deletions(-)
+---
+base-commit: a4ebba34e722123f1c09ce3282e26f052fc8b27f
+change-id: 20251106-b4-of-match-matchine-data-4a64bf046814
 
 Best regards,
 -- 
-Anshul Dalal <anshuld@ti.com>
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
