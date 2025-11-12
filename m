@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96666CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E1ACCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 12:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFx9klrGphXMuQ0Ni1tPTVbcnMYOSG4/RwPE6ggaLbg=; b=lmmX8g6nUkV6jGwKrrQTUVP5zs
-	HAxe/ZlDb2WzQVFVzCJ1mB9wNpDkKOZVTukjtZTqADYhQg/ZP9WYHvlDUvKTpI1XxyMsui73wgZSX
-	5M0L7ptnZQpCy1GeuJfxdetg/BIH+MZiXmhVzAj/n9yBluimzdAxL+JSjGw6KZNW6SJ4quTrVh9FE
-	2HPFflFph789U8AXgHc28Cwal4nHMQq+b4Dje7WbvVHgDGnGHgun/XXbjE78oOOpXgYASe5iWR6fj
-	A0+ZcsMTjuWiTSSl6sKmJpD3dkosXvoj4TFXAL170aG2fLND3UTiN4j2gBzW7VPqPXbrzWf3a7IUc
-	QO86ry1Q==;
+	bh=uK0l7QDV+ABFqTSoOMZzgiXyTIr6vW6Jdj2b1FWdB/Y=; b=3DND9IPfItwsb3zdkOZGG9gqBE
+	knH+l209PD0Mt28ZpyxfqDiSo2N99kqpokOkivXauVVV9BLJtJ15fOa1/5OY9rRlfLDyoSIlNkxG8
+	rLvP55WBNOZHvKJbhoyiyEYDh7UcIbfvKgX/BeZtR5KgJhG4blnGTeFqxyhlAsL2+/u379gk+mqX5
+	WT8h6kOWdAytOp8QYqA8nPz75LWzkPGIGHMKd49lsvaE81Z9T0yUcVdeFPAP9guxufWPJ54dH26JX
+	McAWu9J7L9YmgqSt/fSWOAwoCud/7A+YCPy1V+MWGuCMGkjgy7siLppUE3qgJkz+1r8pGvm5jrR/6
+	QoPOBjSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAFj-00000008naC-3O0Y;
-	Wed, 12 Nov 2025 12:47:11 +0000
-Received: from inva021.nxp.com ([92.121.34.21])
+	id 1vJALd-00000008nqy-3eNJ;
+	Wed, 12 Nov 2025 12:53:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJAFg-00000008nZf-41Ht
+	id 1vJALb-00000008nqN-14ma
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 12:47:10 +0000
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 5EDF6203D9F;
-	Wed, 12 Nov 2025 13:47:06 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 518F52015AE;
-	Wed, 12 Nov 2025 13:47:06 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 0F511202C9;
-	Wed, 12 Nov 2025 13:47:06 +0100 (CET)
-Date: Wed, 12 Nov 2025 13:47:06 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Wed, 12 Nov 2025 12:53:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 82A5744083;
+	Wed, 12 Nov 2025 12:53:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD60C4AF0B;
+	Wed, 12 Nov 2025 12:53:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762951994;
+	bh=Xq4laesBhXBU8cnsibjlgRX7+Xd6QHEEQNRsfNd8xHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MgbNA+aNi66iHWuzy6LKut7QTLt+D+/WXgdFltYAbxJCNbzgA1InxXNZhXB1n5p0c
+	 vnaW4LMGTXWq3iqK+mCrPfR/wgZ3CmaTYYbgSRIL+gsVedu2ksUj6iZV9eWJ1VDx8L
+	 2t0dYDDlC7uKsojwf3BaUVsp/1kxfrK/qs3b/tQL4PlVsjE6+lxoNCV4z50uPZEu0c
+	 IZ7IeyRYTrjvIwKCeVpl50DpVm5RZpwxhGxt3aVEGIxSEwIzBVQiTRda3iQYX8yVoG
+	 FLcPcsS+iUYDO9jpoGvblj2BtEDt27fgN3g5T5VkFwZycgbBRxR4Axqu2EhuuHABrh
+	 i4BX+X/MEfm9A==
+Date: Wed, 12 Nov 2025 06:53:12 -0600
+From: Rob Herring <robh@kernel.org>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Enric Balletbo i Serra <eballetb@redhat.com>
-Subject: Re: [PATCH v3] arm64: dts: freescale: Add GMAC Ethernet for S32G2
- EVB and RDB2 and S32G3 RDB3
-Message-ID: <aRSBypL8JpsSPRtX@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20251103-nxp-s32g-boards-v3-1-b51db0b8b3ff@oss.nxp.com>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH v5 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Message-ID: <20251112125312.GA1319094-robh@kernel.org>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-2-shenwei.wang@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251103-nxp-s32g-boards-v3-1-b51db0b8b3ff@oss.nxp.com>
-X-Virus-Scanned: ClamAV using ClamSMTP
+In-Reply-To: <20251104203315.85706-2-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_044709_129412_2B6C877E 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20251112_045315_349016_B8768B26 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +85,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 10:24:01AM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On Tue, Nov 04, 2025 at 02:33:11PM -0600, Shenwei Wang wrote:
+> Remote processors may announce multiple devices (e.g., I2C, GPIO) over
+> an RPMSG channel. These devices may require corresponding device tree
+> nodes, especially when acting as providers, to supply phandles for their
+> consumers.
 > 
-> Add support for the Ethernet connection over GMAC controller connected to
-> the Micrel KSZ9031 Ethernet RGMII PHY located on the boards.
+> Define an RPMSG node to work as a container for a group of RPMSG channels
+> under the imx_rproc node.
 > 
-> The mentioned GMAC controller is one of two network controllers
-> embedded on the NXP Automotive SoCs S32G2 and S32G3.
+> Each subnode within "rpmsg" represents an individual RPMSG channel. The
+> name of each subnode corresponds to the channel name as defined by the
+> remote processor.
 > 
-> The supported boards:
->  * EVB:  S32G-VNP-EVB with S32G2 SoC
->  * RDB2: S32G-VNP-RDB2
->  * RDB3: S32G-VNP-RDB3
+> All remote devices associated with a given channel are defined as child
+> nodes under the corresponding channel node.
 > 
-> Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
 > ---
-> Changes in v3:
->  - moved compatible to the head of mdio node
->  - removed redundant cell size declaration
->  - Link to v2: https://lore.kernel.org/r/20251031-nxp-s32g-boards-v2-1-6e214f247f4e@oss.nxp.com
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 123 ++++++++++++++++++
+>  1 file changed, 123 insertions(+)
 > 
-> Changes in v2:
->  - fixed correct instance orders, include blank lines
->  - Link to v1: https://lore.kernel.org/r/20251006-nxp-s32g-boards-v1-1-f70a57b8087f@oss.nxp.com
-> ---
->  arch/arm64/boot/dts/freescale/s32g2.dtsi        | 58 ++++++++++++++++++++++++-
->  arch/arm64/boot/dts/freescale/s32g274a-evb.dts  | 18 +++++++-
->  arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts | 16 +++++++
->  arch/arm64/boot/dts/freescale/s32g3.dtsi        | 58 ++++++++++++++++++++++++-
->  arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts | 18 +++++++-
->  5 files changed, 164 insertions(+), 4 deletions(-)
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index 57d75acb0b5e..897a16c4f7db 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -84,6 +84,92 @@ properties:
+>        This property is to specify the resource id of the remote processor in SoC
+>        which supports SCFW
+>  
+> +  rpmsg:
+> +    type: object
+> +    additionalProperties: false
+> +    description:
+> +      Present a group of RPMSG channel devices.
+> +
+> +    properties:
+> +      rpmsg-io-channel:
+> +        type: object
+> +        additionalProperties: false
+> +        properties:
+> +          '#address-cells':
+> +            const: 1
+> +
+> +          '#size-cells':
+> +            const: 0
+> +
+> +        patternProperties:
+> +          "gpio@[0-9a-f]+$":
+> +            type: object
+> +            unevaluatedProperties: false
+> +            properties:
+> +              compatible:
+> +                enum:
+> +                  - fsl,imx-rpmsg-gpio
+> +
+> +              reg:
+> +                maxItems: 1
+
+I still don't understand what the numbers for 'reg' mean here. You 
+explained it and I still don't understand. In any case, it needs to be 
+explained in the schema.
+
+For example, why do GPIO and I2C each have their own number space?
+
+> +
+> +              "#gpio-cells":
+> +                const: 2
+> +
+> +              gpio-controller: true
+> +
+> +              interrupt-controller: true
+> +
+> +              "#interrupt-cells":
+> +                const: 2
+> +
+> +            required:
+> +              - compatible
+> +              - reg
+> +              - "#gpio-cells"
+> +              - "#interrupt-cells"
+> +
+> +            allOf:
+> +              - $ref: /schemas/gpio/gpio.yaml#
+> +              - $ref: /schemas/interrupt-controller.yaml#
+> +
+> +        required:
+> +          - '#address-cells'
+> +          - '#size-cells'
+> +
+> +      rpmsg-i2c-channel:
+> +        type: object
+> +        unevaluatedProperties: false
+> +        properties:
+> +          '#address-cells':
+> +            const: 1
+> +
+> +          '#size-cells':
+> +            const: 0
+> +
+> +        patternProperties:
+> +          "i2c@[0-9a-f]+$":
+> +            type: object
+> +            unevaluatedProperties: false
+> +            properties:
+> +              compatible:
+> +                enum:
+> +                  - fsl,imx-rpmsg-i2c
+> +
+> +              reg:
+> +                maxItems: 1
+> +
+> +            required:
+> +              - compatible
+> +              - reg
+> +
+> +            allOf:
+> +              - $ref: /schemas/i2c/i2c-controller.yaml#
+> +
+> +        required:
+> +          - '#address-cells'
+> +          - '#size-cells'
+> +
+>  required:
+>    - compatible
+>  
+> @@ -146,5 +232,42 @@ examples:
+>                  &mu 3 1>;
+>        memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
+>        syscon = <&src>;
+> +
+> +      rpmsg {
+> +        rpmsg-io-channel {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +
+> +          gpio@0 {
+> +            compatible = "fsl,imx-rpmsg-gpio";
+> +            reg = <0>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            #interrupt-cells = <2>;
+> +            interrupt-controller;
+> +            interrupt-parent = <&rpmsg_gpioa>;
+> +          };
+> +
+> +          gpio@1 {
+> +            compatible = "fsl,imx-rpmsg-gpio";
+> +            reg = <1>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            #interrupt-cells = <2>;
+> +            interrupt-controller;
+> +            interrupt-parent = <&rpmsg_gpiob>;
+> +          };
+> +        };
+> +
+> +        rpmsg-i2c-channel {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +
+> +          i2c@0 {
+> +            compatible = "fsl,imx-rpmsg-i2c";
+> +            reg = <0>;
+> +          };
+> +        };
+> +      };
+>      };
+>  ...
+> -- 
+> 2.43.0
 > 
-[..]
-
-Hi,
-
-may I ask for review or merge?
-
-I have another patches prepared, but there is a direct
-dependacy of having gmac node included in dts.
-
-Thanks.
-/Jan
 
