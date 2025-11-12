@@ -4,56 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91197CD3428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790B5CD3429
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UH00cLBOgn6XmQGO+qGldoVEAxQ8CjDrPyUc2vYa1vE=; b=3fHa/pvUl7eA9/RckGuqJHgWcl
-	sNHhX6Y+GbxsWauSj0t3JsCrQPUBIVfMWsVMfb4XHnQEmhAIXrgBIPslzJ/cwn1mdc65iFN5fh9i3
-	HK9vFjOWO114nCEuKquXYm/ea4H++8ZkkGYCF3ePreuQ9EJiSfv8ej8+tJc0yKep0leKLSgDzgkqT
-	LnT28DDxYiNILqCqXDbdxsIZjPLwrrcwxW/0b9AA3mAg2gFvGP7ysZv55BNqNZke2usgqc7tE1hNW
-	xPCttsThG7W6ZayZNPobGyu1mPdPjGiuedl64ByxDtaxtHzSPIA6X+GnP9pzT5nDJL0zEiLJL+UoD
-	1xHypLMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8fFp1zvnznBgN+0T1h+jmPtm8mqRaI84OPEX4IDfRKM=; b=ea2zkcYAa1vUT7BS9lyDuLi2Sf
+	WFozW61K5g3jG/QYT8HQe4j3h9/wb02RfWLDwxvhIta6qkyJ2+sKSA+8bTV4V3x0ITQgy+audSgwD
+	QK1ERvKGluQhYDBROjunVnY/Qc8rExMQVpzK+2l2A+p6xzOxy06uBg5PFJbL96b6uIe/Rqc6in9eH
+	vmzFTTNcBikT5VyHL5Ky5xIj5/C1ZiVa1ljhACAvhYS8BDHCHN1b6L1MZC5wFF/i7SzYbPwofd7XA
+	4NokTZCtba43Ufe22ZEX6jc4r9WVov/9knZSHangea+wy/jGnRAhTWfJACyXGhuD7qBsxq1qdkHId
+	eUKu5ipA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJENC-00000009Dyn-1dIJ;
-	Wed, 12 Nov 2025 17:11:10 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1vJEUP-00000009ETP-0gOd;
+	Wed, 12 Nov 2025 17:18:37 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJEN6-00000009DyG-3V0R
+	id 1vJEUK-00000009ERU-3KuI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 17:11:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1762967462;
-	bh=UH00cLBOgn6XmQGO+qGldoVEAxQ8CjDrPyUc2vYa1vE=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=jSImEvu1baT55TI/QIpvgq9TDLhb8ObaPYxF3D8AhV7cvnEKHAXjo6QZHuPknsZPz
-	 UKZkydOyvmgakn6c9K7uIF3VxhsIpWRB+QT60jSgps2zyzCCX9q1GQ2mb3LjLNFkXM
-	 cMOWOAGpJojODwN5tSKzpwkDjXw3OtyKBKsqEA/s=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 5E65C40251; Wed, 12 Nov 2025 09:11:02 -0800 (PST)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 5BF874010D;
-	Wed, 12 Nov 2025 09:11:02 -0800 (PST)
-Date: Wed, 12 Nov 2025 09:11:02 -0800 (PST)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com, 
-    will@kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [v2 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-In-Reply-To: <3af5d651-5363-47f7-b828-702d9a0c881c@arm.com>
-Message-ID: <a6eec165-9c48-56aa-8b05-6bf73411e4bf@gentwo.org>
-References: <20251023215210.501168-1-yang@os.amperecomputing.com> <3af5d651-5363-47f7-b828-702d9a0c881c@arm.com>
+	Wed, 12 Nov 2025 17:18:33 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b71397df721so173915166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 09:18:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1762967911; x=1763572711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8fFp1zvnznBgN+0T1h+jmPtm8mqRaI84OPEX4IDfRKM=;
+        b=fnY8l3fI26Ac+ToyFr+8T5yWTtxU3ksUiH8c2S+QJzTfm4hIz79/sIjqnUwP+mvJ5r
+         XaefqbOwpyF4rhyaQzFHCLCXvaYuK83Pi8BgNsI4K3WGdiDnvd8L+OrZLE6RBSa6wQhK
+         XfIrDu+wyOqY9SuxHrj1NlniVNO1cCCb4mV7k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762967911; x=1763572711;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8fFp1zvnznBgN+0T1h+jmPtm8mqRaI84OPEX4IDfRKM=;
+        b=q5LlKxT7T0tBGSwphwOxIC8hkR/kvjupJ8MMKlyP2EuCo0Pb38lMLam1FKe1d6gw2j
+         zwu/LAFKXgkDrCiPKQLAeWdGktzapWPL3nK4h4TzKEzojuyV8bg2mVtXUgl8UkqhimdC
+         kMpa+mQvxjBqfARAbad8kNLM3CcvzGekGygwMmlOZSBBnTbpihAJjAF8zptdtzDBHdRX
+         JpLIX3CX9mLvnip8BXCcginIRXTn8u0ksvL8ZbZkH8EEKKH0E4zHPL01E3/U5MKfkKtA
+         AEyny0aJ7cWLCrtOGpXLqB5eAGlk5rdbFa8P37F+CA0DNpvxN2YKe52ZEmWTGbuKw0mL
+         y0BA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKU1ShUwQAniU/4vD1TWbcMA09Rx34RaXHGfu5aNUVL4fBijwWtSewi7qBoyZZXobZ4dy6e9PxLQ8fZt8F8RDV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGgfVG4qNuNAb8iQYZ76y5iXxo8s3afz02JC8KSaGakEDze8iW
+	oo2rhMleaTojDJ/v39+3+MFAGwBFmNRqg4DpDg94ltY9daF40RXhPpv2Bdm9ip2/caM=
+X-Gm-Gg: ASbGncu7aAWu8Ct+116lWFKSvdgoAWSV97StKpcV0uhKk9HX54uUg92FmBAqBEnBO6E
+	Gpvx1AqXIb/m+JccNZ8Jm8DboFcx95gyuQaco1+bfTewT1saQyh+v6fRhTn94oTqqyLoLZETqbO
+	dgki/ZjMpXpdaa3NJ+RZxyDMYFok1SPlmcaIFL6W4dzcASx4hCF5q9JuJR1rCWEloFlLSh4LKa3
+	b+h7xNjCt6YkCkGybEjDDHFbw8xhNqw7673KGeHzjLrj7oSPahkbCgpaCYYDtAcqYRSyrcoiEqv
+	wzbuxVEj71VNWh2UzQJH/EGQ8OOfSqQ+pgNDj5g7WkES++tnWGu/iAnxQZG6f2dKz+7ND2J73aM
+	V97PA8xEJx1Rz5sncFZ3aO9ZAlmIpf6bLAbc4yZ4Nq/CcK5u9ZIy4qn3R2W1m/lnFNm02Fbisgn
+	7542bwKMMIENK0T4YdTPMHrLqpFP6dyAGy3WgJWGhrJjY+aHRZy1hnXVlYLmdKP+QkCbh5qz/DV
+	p/lou84Vbik59Fc+Q/mbx6qiSDeOTwCJyNOA/0B7s3C/V+u7MfEE4s=
+X-Google-Smtp-Source: AGHT+IEEV00bHQWd/lidxf8la3g3vKUR8rGrFzsvXovQz2c7aRvWz16PbrAlC12SmBL57s3JHbjEbg==
+X-Received: by 2002:a17:907:60d3:b0:b4e:a47f:715d with SMTP id a640c23a62f3a-b733198d584mr376086166b.17.1762967910867;
+        Wed, 12 Nov 2025 09:18:30 -0800 (PST)
+Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-54-71-163.retail.telecomitalia.it. [79.54.71.163])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b73381dd3besm180731866b.43.2025.11.12.09.18.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 09:18:30 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-amarula@amarulasolutions.com,
+	Frank Li <Frank.Li@nxp.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Russell King <linux@armlinux.org.uk>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [RESEND PATCH v2 2/2] ARM: mxs_defconfig: enable sound drivers for imx28-amarula-rmm
+Date: Wed, 12 Nov 2025 18:17:13 +0100
+Message-ID: <20251112171820.4046537-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251112171820.4046537-1-dario.binacchi@amarulasolutions.com>
+References: <20251112171820.4046537-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_091104_916655_D158C633 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20251112_091832_851138_BB8C32EB 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,33 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025, Ryan Roberts wrote:
+Enable TLV320AIC3X I2C codec and simple-card support used on Amarula
+rmm board.
 
-> I have a long-term aspiration to enable "per-process page size", where each user
-> space process can use a different page size. The first step is to be able to
-> emulate a page size to the process which is larger than the kernel's. For that
-> reason, I really dislike introducing new ABI that exposes the geometry of the
-> kernel page tables to user space. I'd really like to be clear on what use case
-> benefits from this sort of information before we add it.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-One is user space where you want to "emulate" other page sizes and the
-other is kernel space.
+---
 
-The per process page size is likely going to end up
-being a per VMA page size since these address spaces can be shared and the
-VMA is already containing information about huge pages, memory policies
-and other stuff relatd to memory layout. And yes it would be great to have
-an accounting of the page sizes used in a VMA.
+Changes in v2:
+- Drop 1/3 patch "ASoC: mxs-saif: support usage with simple-audio-card"
+  because merged in linux-next.
 
+ arch/arm/configs/mxs_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> nit: arm64 tends to use the term "linear map" not "direct map". I'm not sure why
-> or what the history is. Given this is arch-specific should we be aligning on the
-> architecture's terminology here? I don't know...
+diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
+index 3b08c63b6de4..603fb003b223 100644
+--- a/arch/arm/configs/mxs_defconfig
++++ b/arch/arm/configs/mxs_defconfig
+@@ -100,6 +100,8 @@ CONFIG_SND=y
+ CONFIG_SND_SOC=y
+ CONFIG_SND_MXS_SOC=y
+ CONFIG_SND_SOC_MXS_SGTL5000=y
++CONFIG_SND_SOC_TLV320AIC3X_I2C=y
++CONFIG_SND_SIMPLE_CARD=y
+ CONFIG_USB=y
+ CONFIG_USB_EHCI_HCD=y
+ CONFIG_USB_STORAGE=y
+-- 
+2.43.0
 
-Other architectures are already exposing this data via the terminology
-used here. The information is useful for seeing if there is an issue with
-small pages that could be impacting kernel performance. It is surprising
-coming from oter architectures that this information is not readily
-available.
-
+base-commit: 24172e0d79900908cf5ebf366600616d29c9b417
+branch: imx28-amarula-rmm-audio
 
