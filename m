@@ -4,93 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD0ECCD1297
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFFBCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YETsnt5LWQuxxsuLBsy1SxsGYRqR4GjZ60Oc430mZIU=; b=fS7jEYsyQ9Y0Pf9TlFxsSHkPqA
-	JWn52j/TNNAJklrEBb+kOtpGvVU9SadpQCvC7BTDDNXTxVQEKMqU8WDC0iiU52wx2xBvJXG1d3Sf1
-	5mX2p9yeCxZpubwfRGDNb1iQ/OHVTUjbwIiI3chzYiPIRNhZuvA7IubN/lxQf9ECDjDb27S6e2IRL
-	aEMTdAmStoEgXhgIOizkHLn0XopvSfqKgYm6XN5RK3TjTYhsu1OC9eVAMjL8WuWX3SzknClZt0l36
-	1u0tCnQ8IYnmfZ4SOJXymoAtJPmp3aMqY6d/aCeQtEzbPVBwNrzzilGNV3tT/moRQaOQXmw8Jk3AF
-	UQHeBO3g==;
+	bh=UhlI/vSFSAspE71T0ckc8UpsUTd5b+4k64on86P2rBM=; b=NNEXtKPATioLGY4JX81UdVtT2B
+	t5sK17fbY3kS4bTdtxPle/QLjsCB+QQM0pJ1yj4OU9zH/ew6Vw80imhkdddKh9vfkEcS/gng5HBeh
+	9g2u6reGSnVQqbsTzy+lHcudUOFE6pYhSjmeXxLJYmMbEwTj8keObvzs+6T7/aGJ0PFq1YmzWi9R0
+	nEgku86ARvnwby1De4D4+N1HWZb9kkOXItB/oqyDipXSF1w4D09Ra0EpvdImtcm5pI5Ng1bEWtBqL
+	CkrHVQVA1GXd/nGT1zOah5PTv7TsI/vmUIuif+YR1nb416f3Q2Km18y0kJ3JFhcjHemUPmNTsZxAI
+	BnZmJC5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCgJ-000000092Th-45QS;
-	Wed, 12 Nov 2025 15:22:47 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vJCk1-000000093iZ-1XE9;
+	Wed, 12 Nov 2025 15:26:37 +0000
+Received: from mail-westus3azon11012027.outbound.protection.outlook.com ([40.107.209.27] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCgA-000000092K4-47eA
+	id 1vJCjy-000000093i6-2X2e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:22:42 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b3c965ca9so558783f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 07:22:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762960957; x=1763565757; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YETsnt5LWQuxxsuLBsy1SxsGYRqR4GjZ60Oc430mZIU=;
-        b=lDo6+WHlvCFy2DH3ADTKWVLMd1ZOEAigBB9Bu+Ps3gBArMDtPmXIUg3eARxxdBC+ng
-         6TPNYyvqicDY4yaeyngYLQvwWgxuRXv3mJu4xmgN0ct69x7Cz92J2th13UOg2FrcdrVh
-         XmLZDt0mVO+wNiG8e3JZBp7kj/jCrFrnvecU5nd619n630L2xjIKSgAcMhlvsDmDSBr9
-         fRt8nYPQ4NRk1j8UIsz6D2S94M+TQfbDO8pSe2nPBuTeLHkCuVqA5pfMtUU+tmwmWMsq
-         TsvnnpRChWMe2OH0CDjsVfI24bNhg2V38HbxUqquahH50OMqfD8kRmZ0sGvLvDN6EsYJ
-         dY2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762960957; x=1763565757;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=YETsnt5LWQuxxsuLBsy1SxsGYRqR4GjZ60Oc430mZIU=;
-        b=QPBIIyWVUtZZqZjDQx6cbSqNStBKtAm7acylh/K+kvXXmC9ntGYMOkD81gZdrgyEDh
-         wPPzxyLtmSc7nsSDyfyycyaT6IYAfb/9I4Zcz5vHBIEtOmokmyKgXRtN6bBBOxf8fzjL
-         8HyFZ8ruOi8m+fjmpyldNXPp7LitCBz6qNGlRkLn6dpY/zQYa4gYUe2FjkHJQ0pfagDh
-         WLmu/qPTTcH0bhqYl0NvyCBb57CkjY24YYT6hI4Hf2j8KW+Ez7qIhou53il8zKq3RJ1x
-         yVyZxpcwL1UK7MXwrQ7zlxdMyF4mRab8C82mS0XaQ4YhsN8sRDqs8GWnthzaEO1TrVeT
-         7YyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWv6PbTlJDLN7MnAdz86KLRCuf9DKzw9ARXqXGr2QEm4+XePdQ1UpphXjV8ZKmlUhan1o7DQA5wrB1qnIGSO2yA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUPhFoFpiNmG+iZzacfKCOSNKUDY6foBYDe//JJsE3H15AaxAH
-	x/L4Q+NPX3Fmk92tuNrK/zh93PoX8IO1+/abE+iz7zqq2i9PRgSZIaYeCIHhMtQaWoI=
-X-Gm-Gg: ASbGncshq1CaWD7dX+GF3DqJWEC9eH0Pk0ahnLWKfEKGXljnS09yPd1EP/XSURVZBWN
-	Acesmxz3HUDypwoYU4bL88qUoo9X5VTqpENXCKo/HwDUtJ02QYqF8DxoORvAh24IXFo+iI3E8zu
-	gBJX0JXWT/jv4Ixlba85x7Znl9QwHgkVV6qoFpSPzCgm4liMZ44Vue/5iL58TLoyd3PtWHEeCxS
-	ScSJaGwzOfjBGaY8MlrgoDUcHqbZl3mtRZbPuBV+0SYhK6gWY54ttTInRSyZACl4gvtnyVq3c9L
-	tqBcFnv7zzh4uMrLUCaWCDy49HDa2vHIAM10hXUgK3HXXS5GKAbLvGMKTae/Rb0QATTvjuK92GX
-	u8Fz/MVslOO6KW0oqyx1qAyCYBhcaxMfk+HNiPDOGDOdZ10U5NO1oZ2A8CCt/ES31IiyrH38eLw
-	IupdmMJ3c5ApLF9y/JKeWJ
-X-Google-Smtp-Source: AGHT+IGkUdJ1tT6maJPY0NlY8NR0Mlq7ejN67NI2u5oaHXO9CTIjlAkj6ENeRyhSR6+QoDIl3mZfwA==
-X-Received: by 2002:a5d:5f50:0:b0:42b:3661:305c with SMTP id ffacd0b85a97d-42b4bdce2damr2544670f8f.55.1762960957062;
-        Wed, 12 Nov 2025 07:22:37 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm33573485f8f.35.2025.11.12.07.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 07:22:36 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Wed, 12 Nov 2025 15:22:15 +0000
-Subject: [PATCH v4 09/13] coresight: Interpret ETMv4 config with
- ATTR_CFG_GET_FLD()
+	Wed, 12 Nov 2025 15:26:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wlC0axKr90hMw3SFgXzhUqPOedaktDJK/+l98/1Y/BcqwgLcd1Lobl6HLkZjcWBZd2MaV3qy2K6FpN2ovCJpBNQM067xHGgJgCI9ll5/jrR8Lxv79OjCwY5sA6n8uS09jJ1ol5l1JgAHFicDssEzG5qCDN1jYrfyzBBQhke5+tnipNM2czYYkV5moTAPTRef35QXKP905YjxSVB9cEDeYcIJHCKvAfbfG2B7z66GkeNzVJ/WH18MxW+gDrW6QtYIFwSmdSPypX40Rne6gTz7FlpBqf83KXvq94CZ3EJ6u38ZO+/5CsPNeL2WioHv6gPYYYJwjA96mKxYU68z/FhhaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UhlI/vSFSAspE71T0ckc8UpsUTd5b+4k64on86P2rBM=;
+ b=bWnAt7t20YZXTONi9yKqkbCKmGj7rciSZ9uKceYc+cAPYDm9zHRSEETltJg1AIydQPCWH4uIa3/usKNflJe1NUqWo1JGhe14tcY9wYbqbXqfOpdsZbpeA+w+j90kcdRY7C1VLz1I7SEr2jX5Rxtjk7qJZ7hykEpvnfvlrbNvJLSyv507T6whcHImkASgcnVJTiUF5FfdE30aiHrBcSTaro/3y9R11XH3uQ7LtUBKW20QKyUzOQqPBWRgZQx/fPX2WUuXb4kQSR7UqhGlri0u6lRG/jhU4OjY/NFYECtQZ3RxzIMk0rYLBi2JXIxn33YIftioAY8tf5yqR12guYIr6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UhlI/vSFSAspE71T0ckc8UpsUTd5b+4k64on86P2rBM=;
+ b=n/zycsD6JBrDb+pJe9oQsEpdFUMTy1CZwzzOfP24nqc2tIAPQrSszCMP8X+84lNneDqbYoVqi+8qlYakErICOE0MsLyeDWuTbEOShecgzq/aWphaFSSypwYHzxw7ntdFibztdyonvW33iZAZf3A3ivEmyb7JQkrihU6SFKj4GFU=
+Received: from MN2PR06CA0025.namprd06.prod.outlook.com (2603:10b6:208:23d::30)
+ by MW4PR10MB6419.namprd10.prod.outlook.com (2603:10b6:303:20f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
+ 2025 15:26:29 +0000
+Received: from BL6PEPF00022575.namprd02.prod.outlook.com
+ (2603:10b6:208:23d:cafe::11) by MN2PR06CA0025.outlook.office365.com
+ (2603:10b6:208:23d::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Wed,
+ 12 Nov 2025 15:26:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL6PEPF00022575.mail.protection.outlook.com (10.167.249.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:26:27 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
+ 2025 09:26:18 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 12 Nov
+ 2025 09:26:18 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 12 Nov 2025 09:26:18 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ACFQHOa2875701;
+	Wed, 12 Nov 2025 09:26:17 -0600
+Message-ID: <bc987a5f-ee3f-4722-92e5-056bef4d84f9@ti.com>
+Date: Wed, 12 Nov 2025 09:26:17 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 3/3] firmware: ti_sci: Remove constant 0 function
+ arguments
+To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>, Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>
+CC: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
+	Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, "Kendall
+ Willis" <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
+ <20251103-topic-am62-partialio-v6-12-b4-v10-3-0557e858d747@baylibre.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20251103-topic-am62-partialio-v6-12-b4-v10-3-0557e858d747@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-james-cs-syncfreq-v4-9-165ba21401dc@linaro.org>
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
-In-Reply-To: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF00022575:EE_|MW4PR10MB6419:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a743f75-1823-47d6-2734-08de21ffd94b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VGFwZEdnV25Odk1IV2I4aVJ5elBOMjdWVUNKUGlpYXlseG1PR2o2emQzZFJU?=
+ =?utf-8?B?TVJiOWp2eGNUYUpEZk0rd0VrcEZQNVozUmlhdjE0MTZXT2hxQW5TR1pPZXh0?=
+ =?utf-8?B?RzlvRE9WbHFNUzRSdVIrdmVBZUVuNkJvTHJHZkdNRFBCYTFYVWlpdXZlWlJm?=
+ =?utf-8?B?aEs3REVQeDVRNnd4WEdRSktJSGI4YjN1cUNvWUYxMEIzUkxrSDNJQktKM3k2?=
+ =?utf-8?B?WnlyMzVMdE12YVl0YklUSlNDdFZLOTRvdVYzWVJhRHd5c0dZbXdJSTYwSWF0?=
+ =?utf-8?B?S3paRDFSV2NKaDE3c01YVGlXb2hpUjBlZkNIS21veW1xQ3hUZnpCNS9UL0VO?=
+ =?utf-8?B?WVlkSUNrS0lnVFpOeFlYT0RoeDEyeW9pVUw1cW9MNTduYnBxVnFOdGc1a0tP?=
+ =?utf-8?B?b3NQMWNQSzB2amlzeWVVdnZVRnhDYkk5MTdGTE9JQVJzTjdacHBqRGtTaThH?=
+ =?utf-8?B?MFpXQitUcFBtT013SldJK245VFRKZEJxYi9xYzBtMDY0OWU0SU1abjFMbW5Y?=
+ =?utf-8?B?R2ZVQ3A1Q3hPZmhUU0V2eDlTRW5HMmRidVlwdU9mM3cwUnJPS0QvQ0VrOEtL?=
+ =?utf-8?B?MlRkQlJOdUZJbTBsVklybTI0ejFmM3k3RFR2M1o2NFFsOWl0c0RYcktVd3Rl?=
+ =?utf-8?B?UEZ3bDFha0sxZlhORGpaWmVJOHcva0tPV091cGVKN3ptTmJuYm9NWmdvZlph?=
+ =?utf-8?B?Y0V6WnR2YldtNHI3VE5Kc3BPcUZMcWladDY2TkU1Rkx3N0JiaEtsWWIwc3Ft?=
+ =?utf-8?B?aGRLTjVKSGZVRFM1YURMeFVTd2hrREhVTFdQM21YalN4ZER0b1hBQ0hLWmZG?=
+ =?utf-8?B?Sk00YjdwNXFjb0gweXJyT1Y5L3I1WXhTUHlJRXppM0Y5emZNMGJWYTBvcXR3?=
+ =?utf-8?B?TThZQnc4VThkSGVUN3dZa3VzMUllRWcxYmRtR292RkRpMFBaT29jZjFhSmha?=
+ =?utf-8?B?ZWsvSWthTmY1M1FjSldjbHFES0Y1MU9ObXpWTnY3ejUwbXRjSGlXUWlBSnNH?=
+ =?utf-8?B?RE8rTElNaVI5TDNXNXFBU201a1VXZ2hyVjRLdXJoSDhQZWt4cUFwaldWaTB6?=
+ =?utf-8?B?Si8vajBXbjNJVGVVUm5PaHE5M3BuQzA5b2Flb1MybUZxcjkxUnJEeUpTMTJO?=
+ =?utf-8?B?Mkw3MzNXaWxHS3B1dlRCb0JlcHROVlkzME9uYm9ENFpvY0FoY1l0eU0zd3dw?=
+ =?utf-8?B?dHFDNk9wK3pyUXlqZUcyNnZjL2EvRExlbXBxSndQNkYrLyszbmNXSlFINTVr?=
+ =?utf-8?B?S25xTlcrdlJ3Y3ZCNjQvTHlEWmYzQWZQVUkxQkVRYytIbGpPeUNQR3JsNTd4?=
+ =?utf-8?B?NHU5NEhFTDVNcVF5bkNVenpFbDN2aEEwTVlld2FrTXNBOUFkcWliOURsZURD?=
+ =?utf-8?B?K1d1R3RXSGhLWXlxaCtDSkhSNDRCQlJsMmxpQTdGT3BFcSswOTdBTGpEL2pS?=
+ =?utf-8?B?NFpGZkFHOFdSS1A1SUFBdUdqRk1yTmEybmRKaVArSmdoaWNVQ0IrS3VXUXRD?=
+ =?utf-8?B?cUpPOVVJN3plTkxobjc0UFlPczkrREF0SHdLMUdQYXJSODZIeHhDWXBTOWZB?=
+ =?utf-8?B?bW1jMXZ1eThWTmZBU3lzMXV4WWx6TCtHRGhpa2JFZWVNL0cyQUpucHZRSksr?=
+ =?utf-8?B?ZWVCcVU3UlNjQ2lLR2tPdTRUYkg4S3lGY2lDeWNaTDZMcUxmY1ZIZGp2MVVK?=
+ =?utf-8?B?WXhMdXRmRHFYVGFma0wvNFhIdlFyNFVwNnByV3hwdHpQOGNEUk90TWx5Z3Fx?=
+ =?utf-8?B?bXJjNTdVR1BDUUlPVXBXQ3JjM3VjL0JZOXN6QVFobVMyeFVUOVN6ZWFKMVZW?=
+ =?utf-8?B?NlVUM0FGQ2o4dEllN0tvRm0wNzhWa0xRNXFHWDVzSm1pcWZib2dVOHhnLzlQ?=
+ =?utf-8?B?djhDQWhGRTlHTTU2dml3VjVRR0lDV3pUaW1YZ3pHMzJpbU40TDg4T1o1bWF1?=
+ =?utf-8?B?andYYnhvVTBSd0N1VkZPcVMwUGU3YjZtQlhQdE90eE9LNU4reGREdTZSWU55?=
+ =?utf-8?B?NVZCWmdVSlg4TXpydm10akZBL2tIUTR5aVllZDE4NG10ZExJdTNUZUxLNjNN?=
+ =?utf-8?B?czlxSXV2TkRBY2xYTTY4RGw2T0haR3E0bmVIdVB3STNJT1lXWGdnZ3pqdUlx?=
+ =?utf-8?Q?HOkw=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:26:27.7873
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a743f75-1823-47d6-2734-08de21ffd94b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00022575.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_072239_068177_77F98D90 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20251112_072634_652559_101F3D95 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,132 +169,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove hard coded bitfield extractions and shifts and replace with
-ATTR_CFG_GET_FLD().
+On 11/3/25 6:42 AM, Markus Schneider-Pargmann (TI.com) wrote:
+> ti_sci_cmd_prepare_sleep takes three arguments ctx_lo, ctx_hi and
+> debug_flags which are always 0 for the caller. Remove these arguments as
+> they are basically unused.
+> 
 
-ETM4_CFG_BIT_BB was defined to give the register bit positions to
-userspace, TRCCONFIGR_BB should be used in the kernel so replace it.
+Does that matter? The functionality is still available and when we do
+use those arguments we will just have to revert this patch.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 44 ++++++++++------------
- 1 file changed, 19 insertions(+), 25 deletions(-)
+Andrew
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 380a7840adb8..1aa0357a5ce7 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -29,6 +29,7 @@
- #include <linux/seq_file.h>
- #include <linux/uaccess.h>
- #include <linux/perf_event.h>
-+#include <linux/perf/arm_pmu.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/property.h>
-@@ -789,17 +790,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 		goto out;
- 
- 	/* Go from generic option to ETMv4 specifics */
--	if (attr->config & BIT(ETM_OPT_CYCACC)) {
-+	if (ATTR_CFG_GET_FLD(attr, cycacc)) {
- 		config->cfg |= TRCCONFIGR_CCI;
- 		/* TRM: Must program this for cycacc to work */
--		cc_threshold = attr->config3 & ETM_CYC_THRESHOLD_MASK;
-+		cc_threshold = ATTR_CFG_GET_FLD(attr, cc_threshold);
- 		if (!cc_threshold)
- 			cc_threshold = ETM_CYC_THRESHOLD_DEFAULT;
- 		if (cc_threshold < drvdata->ccitmin)
- 			cc_threshold = drvdata->ccitmin;
- 		config->ccctlr = cc_threshold;
- 	}
--	if (attr->config & BIT(ETM_OPT_TS)) {
-+	if (ATTR_CFG_GET_FLD(attr, timestamp)) {
- 		/*
- 		 * Configure timestamps to be emitted at regular intervals in
- 		 * order to correlate instructions executed on different CPUs
-@@ -819,17 +820,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 	}
- 
- 	/* Only trace contextID when runs in root PID namespace */
--	if ((attr->config & BIT(ETM_OPT_CTXTID)) &&
-+	if (ATTR_CFG_GET_FLD(attr, contextid1) &&
- 	    task_is_in_init_pid_ns(current))
- 		/* bit[6], Context ID tracing bit */
- 		config->cfg |= TRCCONFIGR_CID;
- 
- 	/*
--	 * If set bit ETM_OPT_CTXTID2 in perf config, this asks to trace VMID
--	 * for recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the
--	 * kernel is not running in EL2.
-+	 * If set bit contextid2 in perf config, this asks to trace VMID for
-+	 * recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the kernel
-+	 * is not running in EL2.
- 	 */
--	if (attr->config & BIT(ETM_OPT_CTXTID2)) {
-+	if (ATTR_CFG_GET_FLD(attr, contextid2)) {
- 		if (!is_kernel_in_hyp_mode()) {
- 			ret = -EINVAL;
- 			goto out;
-@@ -840,26 +841,22 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 	}
- 
- 	/* return stack - enable if selected and supported */
--	if ((attr->config & BIT(ETM_OPT_RETSTK)) && drvdata->retstack)
-+	if (ATTR_CFG_GET_FLD(attr, retstack) && drvdata->retstack)
- 		/* bit[12], Return stack enable bit */
- 		config->cfg |= TRCCONFIGR_RS;
- 
- 	/*
--	 * Set any selected configuration and preset.
--	 *
--	 * This extracts the values of PMU_FORMAT_ATTR(configid) and PMU_FORMAT_ATTR(preset)
--	 * in the perf attributes defined in coresight-etm-perf.c.
--	 * configid uses bits 63:32 of attr->config2, preset uses bits 3:0 of attr->config.
--	 * A zero configid means no configuration active, preset = 0 means no preset selected.
-+	 * Set any selected configuration and preset. A zero configid means no
-+	 * configuration active, preset = 0 means no preset selected.
- 	 */
--	if (attr->config2 & GENMASK_ULL(63, 32)) {
--		cfg_hash = (u32)(attr->config2 >> 32);
--		preset = attr->config & 0xF;
-+	if (ATTR_CFG_GET_FLD(attr, configid)) {
-+		cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
-+		preset = ATTR_CFG_GET_FLD(attr, preset);
- 		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
- 	}
- 
- 	/* branch broadcast - enable if selected and supported */
--	if (attr->config & BIT(ETM_OPT_BRANCH_BROADCAST)) {
-+	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
- 		if (!drvdata->trcbb) {
- 			/*
- 			 * Missing BB support could cause silent decode errors
-@@ -868,7 +865,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 			ret = -EINVAL;
- 			goto out;
- 		} else {
--			config->cfg |= BIT(ETM4_CFG_BIT_BB);
-+			config->cfg |= TRCCONFIGR_BB;
- 		}
- 	}
- 
-@@ -1104,11 +1101,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
- 		return -EINVAL;
- 
- 	etm4_disable_hw(drvdata);
--	/*
--	 * The config_id occupies bits 63:32 of the config2 perf event attr
--	 * field. If this is non-zero then we will have enabled a config.
--	 */
--	if (attr->config2 & GENMASK_ULL(63, 32))
-+	/* If configid is non-zero then we will have enabled a config. */
-+	if (ATTR_CFG_GET_FLD(attr, configid))
- 		cscfg_csdev_disable_active_config(csdev);
- 
- 	/*
-
--- 
-2.34.1
+> Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
+> ---
+>   drivers/firmware/ti_sci.c | 17 ++++++-----------
+>   1 file changed, 6 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index 811507ded63ac784ad6c6ad77b2f827768f3f3c7..023c603ae58cb5df176c66eec429bd0b4037b798 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -1664,14 +1664,10 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+>    * ti_sci_cmd_prepare_sleep() - Prepare system for system suspend
+>    * @handle:		pointer to TI SCI handle
+>    * @mode:		Device identifier
+> - * @ctx_lo:		Low part of address for context save
+> - * @ctx_hi:		High part of address for context save
+> - * @debug_flags:	Debug flags to pass to firmware
+>    *
+>    * Return: 0 if all went well, else returns appropriate error value.
+>    */
+> -static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+> -				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
+> +static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode)
+>   {
+>   	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
+>   			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
+> @@ -1702,9 +1698,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+>   
+>   	req = (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
+>   	req->mode = mode;
+> -	req->ctx_lo = ctx_lo;
+> -	req->ctx_hi = ctx_hi;
+> -	req->debug_flags = debug_flags;
+> +	req->ctx_lo = 0;
+> +	req->ctx_hi = 0;
+> +	req->debug_flags = 0;
+>   
+>   	ret = ti_sci_do_xfer(info, xfer);
+>   	if (ret) {
+> @@ -3729,7 +3725,7 @@ static int ti_sci_sys_off_handler(struct sys_off_data *data)
+>   
+>   	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
+>   
+> -	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO, 0, 0, 0);
+> +	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO);
+>   	if (ret) {
+>   		dev_err(info->dev,
+>   			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
+> @@ -3768,8 +3764,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+>   			 * internal use and can be 0
+>   			 */
+>   			return ti_sci_cmd_prepare_sleep(&info->handle,
+> -							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
+> -							0, 0, 0);
+> +							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED);
+>   		} else {
+>   			/* DM Managed is not supported by the firmware. */
+>   			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
+> 
 
 
