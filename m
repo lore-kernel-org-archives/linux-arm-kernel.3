@@ -4,66 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55706CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4965BCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhbFNglbsyFidxSMguacRQhEDF9HOTp0hiXYvkpQ1rQ=; b=cPWC3Iu9/VrCQvrc4MfAvdSGi6
-	h9jT8QOqdE1BtMb8vHj9HGhf96KRtCFruiwcbvAz0YzKLaFYgWvpV6jJF2tOfUWdZUhKOdS1EaPMf
-	G3aFl8ZzhDR29rSmdWsmQoM49UCKBit2E67EugGAhkayxPVZZGBPEnMui40x+03gjOzhdHMdpJXBq
-	LvbsrSB+cAaHwvQuh+6SE+Oyf9Gpb8Jn7ONm/n/5QxR5fJ0niGDr8n3V2HPgAlPZ6gSN10hOKseoG
-	qJBr/laKXwpb1KAOismcR6ukejVdPbGNhswgF3QKke9+n2zhhYNVl4Wd1wqRgK5+W+dUG9AmqswcI
-	uip0LHcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1xEUqnMhqMDd4NoLdnK/s8pzYsrGyQ3BrmHj/KeDs0=; b=TR1bo0flJZkaicS1yrqzPCGkIY
+	rVmfJnu3kApQuH3v9CB/5UR+PuY5a58iVEJAEg7Q+1t6l7Piy57EQpTNmZh3EMRvY1Cxwtr+drByH
+	LBQMoUmWGM+0tbnkt9wZyfPbj+zNEj0/J1/dYc8w9iBmfwM7fSS4bbK+wRTVCGcJmpmRzAR9TIBu7
+	8KrY1cKbGGyjwfebPg87ZD/K78CTfOpDJs63DpbE3O2frtI9coVnq6d2kSef//ajesOpO+zeoCYaY
+	Klbxn52AF807WDncE68alPEED0F9bHUF21rb7slIU36DT77vvrdQQw1pVv2XLgvQpHkg9AhLTg7gr
+	S0/A/5vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCqK-000000094Rz-2pao;
-	Wed, 12 Nov 2025 15:33:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCqH-000000094Ra-1N21
+	id 1vJCtX-000000094e3-11az;
+	Wed, 12 Nov 2025 15:36:27 +0000
+Received: from mail-norwayeastazon11013027.outbound.protection.outlook.com ([40.107.159.27] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJCtV-000000094da-0DVl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:33:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B0681515;
-	Wed, 12 Nov 2025 07:32:56 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 261973F66E;
-	Wed, 12 Nov 2025 07:32:59 -0800 (PST)
-Message-ID: <85ce2f10-d174-472d-b74c-a3e34dc4a40f@arm.com>
-Date: Wed, 12 Nov 2025 15:32:57 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-11-ben.horgan@arm.com>
- <5b9136d6-b6c0-4f24-a8d2-05d7700140a8@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
+	Wed, 12 Nov 2025 15:36:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e83dNvrHoYLk470rKppaIa/MHLpo0k/eBXNsDauZUYtGiHISSOJhdbLZgkCzRYpuo5hJmtBpOJCLNvBY4SBRHPdEFvCV3rIr3p6+DG7KSXB30kedHDM7sbgAo2ndN1O1GMV8Y2SNB7ObXlXyGcfTsjLHj01bojiYI/ak/MeyeRS6rX0iqLMKL/bluLff2nJzyLvYtU0+NnswaQaQEh9DaI4eRVVKwwKpMk1mkF1Btg29kTJJ1pv7S4SorvrA3SHTpOBwKcXbgVc/Ga4iIobgT2XqILSEQHPAmEJA52znuFwmcX9dbpHkhTx2f9l3p0bEBGf6bNb1msJjQz5+I7Y+hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V1xEUqnMhqMDd4NoLdnK/s8pzYsrGyQ3BrmHj/KeDs0=;
+ b=p3MQNEPecLVic6g90HEQL6afeTanKysy2/t/HN3ZKTfSLv+Up5yZcvdxzoIAdoNsVEFzXucLwTy+ozhn8tZ9GEbHNk/M2DArujHr7OrmXoYkLR8c2dKNszNV2OEUZLDOwuF3TcX4djPWSAMekczfvhfjZH99DvpqscVjkjA9WmvPMZep2G1eefaFjVbz7F0DkhUHRwEd3bBtxANXZjoOQ9/MIi73DPLF870JkTaY8jxc8Iigb1aFNZeVFElDk92Ga1SQdrJMCF7itPHw12Cq7HAhiRP0RWgyD2okM8z2oh0mpiXRlzCp3Vc58CPEsVCzzsJq1w4f+lfXa0CPqNAyWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V1xEUqnMhqMDd4NoLdnK/s8pzYsrGyQ3BrmHj/KeDs0=;
+ b=URV7d4sN4I/appEDSHWdRvAR7Zrv6hTK5VXUqstOSTPyjcrf+u4B/WH6zNKp1XMlLId2yNsJ49DTmJOjuphuGQXjgXy9KOLZ2s+RJMwFIKxHh/fbtF6BO7cguJaIMz81s+woOGtbiyoCEGDnRvkxk4pWbKk0k/LyfoZVgStfZY93JaqkRdi7o3fo3GwxRo5GTdPX2q4pFeEgozWZichK3iIqWSukGEsn5LpmM1u+Qksi22xcb2cDJsuT/rs6hOiNiCd7ICU3GUcxc4qUVEYZlrHrpSwJqk2zCGSbRBdThV+B0Ko2oFvWMVnYsj6KyXPlSt3xWn/OI7j9CLb1Y7n0Cw==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by VI0PR04MB11483.eurprd04.prod.outlook.com (2603:10a6:800:2cb::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
+ 2025 15:36:19 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 15:36:19 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Rob Herring <robh@kernel.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, Linus Walleij
+	<linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
+ Fan <peng.fan@nxp.com>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v5 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Thread-Topic: [PATCH v5 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Thread-Index: AQHcU+oXQjD048+dOEiUuYS5/jRDvA==
+Date: Wed, 12 Nov 2025 15:36:19 +0000
+Message-ID: <PAXPR04MB918521F7ABFB880CD1F6B1F889CCA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-2-shenwei.wang@nxp.com>
+ <20251112125312.GA1319094-robh@kernel.org>
+In-Reply-To: <20251112125312.GA1319094-robh@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <5b9136d6-b6c0-4f24-a8d2-05d7700140a8@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|VI0PR04MB11483:EE_
+x-ms-office365-filtering-correlation-id: d90ed598-f20c-4fd1-c2a4-08de220139df
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?5SZnIJ9z8RACYZk85hlIiAOJ7YkkGJ6TvCDX930T9rM8vCrIdW5N/Up25C?=
+ =?iso-8859-1?Q?i39Yql0MjtBxjkwcqHszkKD2wOThpInubHbAFJhls4fLyLskXjej2zw+Sg?=
+ =?iso-8859-1?Q?//LTM1Qb5oVwEiuH/wnDGdILBcRECKf0FuhHRBH09bHbmxSRXb3/FbeabL?=
+ =?iso-8859-1?Q?Yqucum09qqjyUVturN4UGbJHtR8qeBU2MwFGFCt/lPmz+4/0ZhSrKIO853?=
+ =?iso-8859-1?Q?EcOktVQ0ku4XDbT4IKQ+yIwnyC1fP4XFFkpF1xzRCUGEWJs78gWPWY0+NT?=
+ =?iso-8859-1?Q?BasUNr81bbYNoQfpjOYzX4pjGMI1mBcxnCtIMY5TgweVrxb986pncbLihD?=
+ =?iso-8859-1?Q?dOrAqbTQ7vD1N0Q6n677VlAQepjMXoagLnzq9JDF9AYiNk3mBzPKfUYet6?=
+ =?iso-8859-1?Q?7yclbHXyKtH4VtVEfsJ3ePAaNbOjbNae6z6aulTaUqPPpBilroFe3+V9qo?=
+ =?iso-8859-1?Q?uBT3ZofMox48XHozUtBtfWGLvtXLiylrsJrk4j4meLJlFcOBDF0wmEVe9R?=
+ =?iso-8859-1?Q?ZVn+K+17JTuDmBHlMLyO9QOlUMPxZKp9+4ciNOnvx+AHLiEEiK1JY606D7?=
+ =?iso-8859-1?Q?Lw0nRLbGePyVXLsnb6Gbqa4vb6LkrXCyJ8XHn7NjE0X8n6h0jW6welvcdp?=
+ =?iso-8859-1?Q?xpTICddfUhVEHw0F0FubdOmJLbLd9Hmfwon4vIWkCPSXJWV/lN+CtrEj4X?=
+ =?iso-8859-1?Q?WzrVYwPuBBp8Zt5tR5kg3w2i65dIRlsn5YIPOxqByvt1g+RbAm96g7p85h?=
+ =?iso-8859-1?Q?6TxbDC7AFrM6nQ7KD02Dl1mB+stY4DD4ZPNkX0HFHuv35Q3Yu2rp+yRiYj?=
+ =?iso-8859-1?Q?7UMARRYB1kQuWTDw9Zk6QVPUDooKYR+qQryb3KRW3QEU6dRriA7i6d1tDk?=
+ =?iso-8859-1?Q?sKeC9qeQzibuh6funN7m6JsPgGYp21dzcuDGFjk5JvMMe/DP1VF0ypERon?=
+ =?iso-8859-1?Q?IK8e+8E4ouw79zsxqDYisN5Y3JzK+TH5/RdcaTNTALFxK0Mzng5GGKxuUf?=
+ =?iso-8859-1?Q?ymVZkgY8wJUA6m2QEMgINCjt6NFr81W38ksSY5x5x4zLQS9qTmtz5MQj0g?=
+ =?iso-8859-1?Q?/uKQI76h8MtuanE0R5uFA4Ef1OVhmL5YFd8bVyXzc5ddtoCuAQjcG1t/Gj?=
+ =?iso-8859-1?Q?22Tq75781uN0k22dTjU/NsjQoZWyNSzdFyUiPfjp7eqDOI7tSFEkM7+4Pt?=
+ =?iso-8859-1?Q?K0Wyrf6C4uyFVI0bFI5svK9uDN7qO5vi3MDzKSZTh1oRXIkMn5GsShzKcu?=
+ =?iso-8859-1?Q?TmFgJ64NCKwAnBhQJifEC3PguCkxHsvJtq+dcCQuv2iJVWXkSsM7XE42zF?=
+ =?iso-8859-1?Q?iIsngBiHguU1uS4jS9Me4elEx0AEl/B6YpXxJEOIrWCTIo/Ab1naauGUv9?=
+ =?iso-8859-1?Q?7DNw7NZWLdTbsarxkrgI8xMEOfhsr08bHSf/ZqUqfhnIwufsy/fwFDlOXH?=
+ =?iso-8859-1?Q?SD5w3lPs7tur/N5Fe8octue54V6gWhHjgJrweXaGjDI6d8PhX4lneXvLap?=
+ =?iso-8859-1?Q?ynTwQIz621u6yXG6PWFCGDF9RB0d4IH1jcwQYbTW8pVk/0UnsGFs2eWCT9?=
+ =?iso-8859-1?Q?GV29dgxB3zqDA9eSd2X8Jm0BsJ8D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?J435sDBm9GanYaNVfgsE+4sHU8TZFzDf7axxcKm3TZOQ/x2ePTPwjzhni1?=
+ =?iso-8859-1?Q?hT9w5TsLCrpXWKtaElA9WLfxB0/Xku2SaiqaiHVhSbkjQr5eWO7FPihQgg?=
+ =?iso-8859-1?Q?lgNg6iE9Jrjg7GvOIACjmFDYJbkEjfSIungRFWxjpG20xNBq5zYuhigXBQ?=
+ =?iso-8859-1?Q?W4gDJZaSrmcm+FiHz3CFGwqr1yExYDF63YTN46F2sIzJv/N4HfZjVdzmCm?=
+ =?iso-8859-1?Q?MsNmikmcDdCiTpIxOEC67m3Gn0USOXEFNB6pw1DyfQqhxrl7S2heJaBVHf?=
+ =?iso-8859-1?Q?dlrpTcSIp5ByYICEcV9Lo23v7a6PwDt2e+Js2+d/cEXAJ7Bqjy4Irpo7T9?=
+ =?iso-8859-1?Q?QyuXIEQFiTigBlaZ54izmXptbcCG5PmQbHw2xQ7jKWN+PFmv+mnXLHPGPb?=
+ =?iso-8859-1?Q?0tZsYg0KUwXFqXcJxXHI8Kpl6JgIwl/qxnb88QGDUdkgD+w7OjuCIbXWYt?=
+ =?iso-8859-1?Q?quVHI0tRYtb40CHLMPRMZ3MhSloOcfO1nZVEubV9EwXjLVDK7HztcbJQGd?=
+ =?iso-8859-1?Q?9nDzmJ6XsABfffufheP/IjTdiDJV1VxvTWy3EbtT5CVi29iqjcmwpy0Tg7?=
+ =?iso-8859-1?Q?eOZLimGhSWGy2eha047MFjCDZ68rwfsu2K+xOzmC5yEP18cvk6nwQKV91N?=
+ =?iso-8859-1?Q?uyNY40gXX4eBmX69Fdk+dMKjD3WEGHT+fi4Vr/zRwHv498sKCDKDV6kbxN?=
+ =?iso-8859-1?Q?tM6cg90CCNBp41z+1+0jG09EoFIeUiInj/RQtIaoDGu9hvB49VfpyJF8LE?=
+ =?iso-8859-1?Q?u/kwAKdJVpW3sG8a29lx1rFixV3dMhvF3Za5gWzEAMdAwPQc8iJsxzX05Q?=
+ =?iso-8859-1?Q?vpMEY1TbY6hEkNe1Xn9uApSv/nwvm/Ly9DQiUon4KY61mCpV5vq9euRfLC?=
+ =?iso-8859-1?Q?SQmthz09qgydXvMEiWYFkqMjp0kb1Iq0M8em58nOzEJmIezyHB2+sCC5pO?=
+ =?iso-8859-1?Q?XnRibSRn1/DNygWwSaSeQUUM/I+1hlQ5PPmR/v5QukwRaX9YnpDVWgGrvY?=
+ =?iso-8859-1?Q?MQAmmN/ExYwOWYLsYIYaQ/TeEZCuf9EcNQ49h4D8MZhMbX1oGfNnZlYVpI?=
+ =?iso-8859-1?Q?yMfXspVEHxatsYZu6Pf4Mo8dxNdZH8zn8DoF1luqWSY4SQl91ogJcoaqzy?=
+ =?iso-8859-1?Q?Yovwthb74JqdIYQajpcDvkNZRnIADymlbNMr1nUI5k5Xp2/0MDkvBy1Flm?=
+ =?iso-8859-1?Q?reeFWZORjPdnTx6HUtp8MZAQExSNEq73RNF12pj+c350EoUciAL8r2k8I9?=
+ =?iso-8859-1?Q?iBm7/R86xTn8thZzDRo7f7BnAraecWKg6wrzFnUc4scmjPXNcCPBCLFv/i?=
+ =?iso-8859-1?Q?HNPQX1AkqtqHUHKmSM4Vsd6GJher9S5RHuv378pdR+BQdDxDhIwwe3KAEI?=
+ =?iso-8859-1?Q?AmB0LLGfHeENJXGo16HuIvilElbGzZAI4Z6Qj2Fii2mMRvIfnIXO09B3Rd?=
+ =?iso-8859-1?Q?yN+bFPh0iyF1jTDV4aBpNnbWEb8qFZmwvnbz8yPuV69stZpvez4LC7JrEW?=
+ =?iso-8859-1?Q?4r7pkIs4RIe6c7FPziyR90JIMN7Gp5hw6z3L9c+ZL0/7CL6F55kAddjoLZ?=
+ =?iso-8859-1?Q?rmcv0t6tMtJ9GVPTZX1AhnmlUWq8Fz4locfZ0fyBCmDZjaL9u5geEk2sQO?=
+ =?iso-8859-1?Q?PPZmo8N/nBvL8=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d90ed598-f20c-4fd1-c2a4-08de220139df
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 15:36:19.3968
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: j+vuErivvCZijpko1tBoTCwyHxNAtTYvl/idaY6en72QTtj+XWvmQ95Q5O2yr66D/e8eguGYRgbYx+0GKAsR0A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11483
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_073305_471075_9D39CF77 
-X-CRM114-Status: GOOD (  41.07  )
+X-CRM114-CacheID: sfid-20251112_073625_117589_546A98A4 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,456 +176,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
 
-On 11/8/25 09:28, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 11/7/25 10:34 PM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
->> only be accessible from those CPUs, and they may not be online.
->> Touching the hardware early is pointless as MPAM can't be used until
->> the system-wide common values for num_partid and num_pmg have been
->> discovered.
->>
-> 
-> I'm not sure if below commit log is more clearer as I'm not a English
-> native speaker:
 
-Thanks for the detailed review of the messages and comments. I've
-skipped the ones that I think don't improve the clarity. (I see Jonathan
-has a detailed reply which matches my understanding of English.)
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: Wednesday, November 12, 2025 6:53 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> <mathieu.poirier@linaro.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; C=
+onor
+> Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha
+> Hauer <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Linus
+> Walleij <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>;
+> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>; linux-
+> remoteproc@vger.kernel.org; devicetree@vger.kernel.org; imx@lists.linux.d=
+ev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux=
+-
+> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v5 1/5] dt-bindings: remoteproc: imx_rproc: Add
+> "rpmsg" subnode support
+> > +        patternProperties:
+> > +          "gpio@[0-9a-f]+$":
+> > +            type: object
+> > +            unevaluatedProperties: false
+> > +            properties:
+> > +              compatible:
+> > +                enum:
+> > +                  - fsl,imx-rpmsg-gpio
+> > +
+> > +              reg:
+> > +                maxItems: 1
+>=20
+> I still don't understand what the numbers for 'reg' mean here. You explai=
+ned it
+> and I still don't understand. In any case, it needs to be explained in th=
+e schema.
+>=20
+> For example, why do GPIO and I2C each have their own number space?
+>=20
 
-> 
-> MPAM probing is convoluted. MSCs that are integrated to a set of CPUs
-> may only be accessible from those CPUs, ...
-> 
->> Start with driver probe/remove and mapping the MSC.
->>
->> CC: Carl Worth <carl@os.amperecomputing.com>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v3:
->>  From Jonathan:
->> Include cleanup
->> Use devm_mutex_init()
->> Add an ERR_CAST()
->> Fenghua:
->> Return zero from update_msc_accessibility()
->> Additional:
->> Fail probe if MSC doesn't have an MMIO interface
->> ---
->>   arch/arm64/Kconfig              |   1 +
->>   drivers/Kconfig                 |   2 +
->>   drivers/Makefile                |   1 +
->>   drivers/resctrl/Kconfig         |  15 +++
->>   drivers/resctrl/Makefile        |   4 +
->>   drivers/resctrl/mpam_devices.c  | 194 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_internal.h |  49 ++++++++
->>   7 files changed, 266 insertions(+)
->>   create mode 100644 drivers/resctrl/Kconfig
->>   create mode 100644 drivers/resctrl/Makefile
->>   create mode 100644 drivers/resctrl/mpam_devices.c
->>   create mode 100644 drivers/resctrl/mpam_internal.h
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index c5e66d5d72cd..004d58cfbff8 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -2025,6 +2025,7 @@ config ARM64_TLB_RANGE
->>     config ARM64_MPAM
->>       bool "Enable support for MPAM"
->> +    select ARM64_MPAM_DRIVER if EXPERT    # does nothing yet
->>       select ACPI_MPAM if ACPI
->>       help
->>         Memory System Resource Partitioning and Monitoring (MPAM) is an
->> diff --git a/drivers/Kconfig b/drivers/Kconfig
->> index 4915a63866b0..3054b50a2f4c 100644
->> --- a/drivers/Kconfig
->> +++ b/drivers/Kconfig
->> @@ -251,4 +251,6 @@ source "drivers/hte/Kconfig"
->>     source "drivers/cdx/Kconfig"
->>   +source "drivers/resctrl/Kconfig"
->> +
->>   endmenu
->> diff --git a/drivers/Makefile b/drivers/Makefile
->> index 8e1ffa4358d5..20eb17596b89 100644
->> --- a/drivers/Makefile
->> +++ b/drivers/Makefile
->> @@ -194,6 +194,7 @@ obj-$(CONFIG_HTE)        += hte/
->>   obj-$(CONFIG_DRM_ACCEL)        += accel/
->>   obj-$(CONFIG_CDX_BUS)        += cdx/
->>   obj-$(CONFIG_DPLL)        += dpll/
->> +obj-y                += resctrl/
->>     obj-$(CONFIG_DIBS)        += dibs/
->>   obj-$(CONFIG_S390)        += s390/
->> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
->> new file mode 100644
->> index 000000000000..ef2f3adf64a9
->> --- /dev/null
->> +++ b/drivers/resctrl/Kconfig
->> @@ -0,0 +1,15 @@
->> +menuconfig ARM64_MPAM_DRIVER
->> +    bool "MPAM driver"
->> +    depends on ARM64 && ARM64_MPAM && EXPERT
->> +    help
->> +      Memory System Resource Partitioning and Monitoring (MPAM)
->> driver for
->> +      System IP, e,g. caches and memory controllers.
->> +
->> +if ARM64_MPAM_DRIVER
->> +
->> +config ARM64_MPAM_DRIVER_DEBUG
->> +    bool "Enable debug messages from the MPAM driver"
->> +    help
->> +      Say yes here to enable debug messages from the MPAM driver.
->> +
->> +endif
-> 
-> I am asking myself why "depends on ARM64_MPAM_DRIVER" can't be used
-> here? :-)
-> 
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> new file mode 100644
->> index 000000000000..898199dcf80d
->> --- /dev/null
->> +++ b/drivers/resctrl/Makefile
->> @@ -0,0 +1,4 @@
->> +obj-$(CONFIG_ARM64_MPAM_DRIVER)            += mpam.o
->> +mpam-y                        += mpam_devices.o
->> +
->> +ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)    += -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->> mpam_devices.c
->> new file mode 100644
->> index 000000000000..6c6be133d73a
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -0,0 +1,194 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2025 Arm Ltd.
->> +
->> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
->> +
->> +#include <linux/acpi.h>
->> +#include <linux/arm_mpam.h>
->> +#include <linux/cacheinfo.h>
->> +#include <linux/cpumask.h>
->> +#include <linux/device.h>
->> +#include <linux/errno.h>
->> +#include <linux/gfp.h>
->> +#include <linux/list.h>
->> +#include <linux/lockdep.h>
->> +#include <linux/mutex.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/printk.h>
->> +#include <linux/srcu.h>
->> +#include <linux/types.h>
->> +
->> +#include "mpam_internal.h"
->> +
->> +/*
->> + * mpam_list_lock protects the SRCU lists when writing. Once the
->> + * mpam_enabled key is enabled these lists are read-only,
->> + * unless the error interrupt disables the driver.
->> + */
-> 
-> s/when writing/for writing
-> s/are read-only/become read-only
-> 
->> +static DEFINE_MUTEX(mpam_list_lock);
->> +static LIST_HEAD(mpam_all_msc);
->> +
->> +struct srcu_struct mpam_srcu;
->> +
->> +/*
->> + * Number of MSCs that have been probed. Once all MSC have been
->> probed MPAM
->> + * can be enabled.
->> + */
-> 
-> s/all MSC/all MSCs  (?)
-Changed.
-> 
->> +static atomic_t mpam_num_msc;
->> +
->> +/*
->> + * An MSC can control traffic from a set of CPUs, but may only be
->> accessible
->> + * from a (hopefully wider) set of CPUs. The common reason for this
->> is power
->> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
->> + * corresponding cache may also be powered off. By making accesses from
->> + * one of those CPUs, we ensure this isn't the case.
->> + */
-> 
-> s/An MSC/A MSC (?)
-> s/from a/from the
-> s/isn't the case/is the case (?)
-Updated this last one to be:
+Hi Rob,
 
-By making accesses from one of those CPUs, we ensure we don't access a
-cache that's powered off.
+The reg property represents the index of the GPIO controllers. Since the dr=
+iver manages controllers=20
+on a remote system, this index tells the remote system which controller to =
+operate.
 
-> 
->> +static int update_msc_accessibility(struct mpam_msc *msc)
->> +{
->> +    u32 affinity_id;
->> +    int err;
->> +
->> +    err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
->> +                       &affinity_id);
->> +    if (err)
->> +        cpumask_copy(&msc->accessibility, cpu_possible_mask);
->> +    else
->> +        acpi_pptt_get_cpus_from_container(affinity_id,
->> +                          &msc->accessibility);
->> +    return 0;
->> +}
->> +
-> 
-> {} is needed for the block spanning multiple lines.
+For example, if the remote system has four GPIO controllers but only alloca=
+tes two (indices 0 and 2)=20
+to Linux, the DTS might look like this:
 
-Made it one line.
+          gpio@0 {
+            compatible =3D "fsl,imx-rpmsg-gpio";
+            reg =3D <0>;
+          };
 
-> 
-> I would validate msc->accessibility here instead of its caller
-> (do_mpam_msc_drv_probe()).
-> 
->         if (cpumask_empty(&msc->accessibility))
->             return {-EINVAL, -ENOENT};
-> 
->> +static int fw_num_msc;
->> +
->> +static void mpam_msc_destroy(struct mpam_msc *msc)
->> +{
->> +    struct platform_device *pdev = msc->pdev;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    list_del_rcu(&msc->all_msc_list);
->> +    platform_set_drvdata(pdev, NULL);
->> +}
->> +
->> +static void mpam_msc_drv_remove(struct platform_device *pdev)
->> +{
->> +    struct mpam_msc *msc = platform_get_drvdata(pdev);
->> +
->> +    if (!msc)
->> +        return;
-> 
-> 'msc' is unlikely to be NULL here, so the check could be droped.
+          gpio@2 {
+            compatible =3D "fsl,imx-rpmsg-gpio";
+            reg =3D <2>;
+          }
 
-Dropped.
-
-> 
->> +
->> +    mutex_lock(&mpam_list_lock);
->> +    mpam_msc_destroy(msc);
->> +    mutex_unlock(&mpam_list_lock);
->> +
->> +    synchronize_srcu(&mpam_srcu);
->> +}
->> +
->> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device
->> *pdev)
->> +{
->> +    int err;
->> +    u32 tmp;
->> +    struct mpam_msc *msc;
->> +    struct resource *msc_res;
->> +    struct device *dev = &pdev->dev;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
->> +    if (!msc)
->> +        return ERR_PTR(-ENOMEM);
->> +
->> +    err = devm_mutex_init(dev, &msc->probe_lock);
->> +    if (err)
->> +        return ERR_PTR(err);
->> +    err = devm_mutex_init(dev, &msc->part_sel_lock);
->> +    if (err)
->> +        return ERR_PTR(err);
->> +    msc->id = pdev->id;
->> +    msc->pdev = pdev;
->> +    INIT_LIST_HEAD_RCU(&msc->all_msc_list);
->> +    INIT_LIST_HEAD_RCU(&msc->ris);
->> +
->> +    err = update_msc_accessibility(msc);
->> +    if (err)
->> +        return ERR_PTR(err);
->> +    if (cpumask_empty(&msc->accessibility)) {
->> +        dev_err_once(dev, "MSC is not accessible from any CPU!");
->> +        return ERR_PTR(-EINVAL);
->> +    }
->> +
-> 
-> As suggested above, this check would be done inside
-> update_msc_accessibility().
-
-Unless you object I'll keep this as is and make void
-update_msc_accessibility() a void function. I think this works better
-with the naming.
-
-> 
->> +    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->> +        msc->iface = MPAM_IFACE_MMIO;
->> +    else
->> +        msc->iface = MPAM_IFACE_PCC;
->> +
->> +    if (msc->iface == MPAM_IFACE_MMIO) {
->> +        void __iomem *io;
->> +
->> +        io = devm_platform_get_and_ioremap_resource(pdev, 0,
->> +                                &msc_res);
->> +        if (IS_ERR(io)) {
->> +            dev_err_once(dev, "Failed to map MSC base address\n");
->> +            return ERR_CAST(io);
->> +        }
->> +        msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->> +        msc->mapped_hwpage = io;
->> +    } else {
->> +        return ERR_PTR(-ENOENT);
-> 
-> Would be:
->         return ERR_PTR(-EINVAL);
-
-Sure.
-
-> 
->> +    }
->> +
->> +    list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
->> +    platform_set_drvdata(pdev, msc);
->> +
->> +    return msc;
->> +}
->> +
->> +static int mpam_msc_drv_probe(struct platform_device *pdev)
->> +{
->> +    int err;
->> +    struct mpam_msc *msc = NULL;
->> +    void *plat_data = pdev->dev.platform_data;
->> +
->> +    mutex_lock(&mpam_list_lock);
->> +    msc = do_mpam_msc_drv_probe(pdev);
->> +    mutex_unlock(&mpam_list_lock);
->> +    if (!IS_ERR(msc)) {
->> +        /* Create RIS entries described by firmware */
->> +        err = acpi_mpam_parse_resources(msc, plat_data);
->> +        if (err)
->> +            mpam_msc_drv_remove(pdev);
->> +    } else {
->> +        err = PTR_ERR(msc);
->> +    }
->> +
->> +    if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
->> +        pr_info("Discovered all MSC\n");
-> 
-> s/all MSC/all MSCs
-> 
->> +
->> +    return err;
->> +}
->> +
->> +static struct platform_driver mpam_msc_driver = {
->> +    .driver = {
->> +        .name = "mpam_msc",
->> +    },
->> +    .probe = mpam_msc_drv_probe,
->> +    .remove = mpam_msc_drv_remove,
->> +};
->> +
->> +static int __init mpam_msc_driver_init(void)
->> +{
->> +    if (!system_supports_mpam())
->> +        return -EOPNOTSUPP;
->> +
->> +    init_srcu_struct(&mpam_srcu);
->> +
->> +    fw_num_msc = acpi_mpam_count_msc();
->> +
->> +    if (fw_num_msc <= 0) {
->> +        pr_err("No MSC devices found in firmware\n");
->> +        return -EINVAL;
->> +    }
->> +
->> +    return platform_driver_register(&mpam_msc_driver);
->> +}
->> +subsys_initcall(mpam_msc_driver_init);
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
->> mpam_internal.h
->> new file mode 100644
->> index 000000000000..540066903eca
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -0,0 +1,49 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +// Copyright (C) 2025 Arm Ltd.
->> +
->> +#ifndef MPAM_INTERNAL_H
->> +#define MPAM_INTERNAL_H
->> +
->> +#include <linux/arm_mpam.h>
->> +#include <linux/cpumask.h>
->> +#include <linux/io.h>
->> +#include <linux/mutex.h>
->> +#include <linux/types.h>
->> +
->> +struct platform_device;
->> +
->> +struct mpam_msc {
->> +    /* member of mpam_all_msc */
->> +    struct list_head    all_msc_list;
->> +
->> +    int            id;
->> +    struct platform_device    *pdev;
->> +
->> +    /* Not modified after mpam_is_enabled() becomes true */
->> +    enum mpam_msc_iface    iface;
->> +    u32            nrdy_usec;
->> +    cpumask_t        accessibility;
->> +
->> +    /*
->> +     * probe_lock is only taken during discovery. After discovery these
->> +     * properties become read-only and the lists are protected by SRCU.
->> +     */
->> +    struct mutex        probe_lock;
->> +    unsigned long        ris_idxs;
->> +    u32            ris_max;
->> +
->> +    /* mpam_msc_ris of this component */
->> +    struct list_head    ris;
->> +
->> +    /*
->> +     * part_sel_lock protects access to the MSC hardware registers
->> that are
->> +     * affected by MPAMCFG_PART_SEL. (including the ID registers that
->> vary
->> +     * by RIS).
->> +     * If needed, take msc->probe_lock first.
->> +     */
->> +    struct mutex        part_sel_lock;
->> +
->> +    void __iomem        *mapped_hwpage;
->> +    size_t            mapped_hwpage_sz;
->> +};
->> +#endif /* MPAM_INTERNAL_H */
-> 
-> Thanks,
-> Gavin
-> 
+Similarly, I=B2C numbers are mapped to their corresponding remote controlle=
+rs in the same way. That's why
+each has their own number space.
 
 Thanks,
+Shenwei
 
-Ben
-
+> > +
+> > +              "#gpio-cells":
+> > +                const: 2
+> > +
+> > +              gpio-controller: true
 
