@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61445CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CFACCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 09:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHG9bRC/eTBIEqmoQg8JdOZqrHqlbR+KL5CL3+34Mnk=; b=Ba5CDTIA/dT7OmE2LU8UJTdKmX
-	pPDxRPt47Qr0rE7eenYZn2VNNPGbT+sDKT9VfHhh4Sf/eDqfvulAWIWf5Hr22YxIWs983lj3AGS9v
-	egszlBxAnwqhijmODG8u05LLxt/nbj52YS/kotMSYUHcjf4y5n1DU3DuoLxCSnjZq6VqbXjNggnW9
-	H+scRUZy667dxWeacdeC2fTku30LWna2hw2jB/FQMzEnWpiD4EvPyBH95VxbP+g/jZbGQK66EyHWp
-	OBEyL1sr8ZHRstHasIQALWrnipmFpaZF9GGJpeyK+jzaFPzszi3RhXQ/LT37grrPNaANJ5guoT/7e
-	Mg6I0EmA==;
+	bh=+v3yQ/fdB5rjTqk3qWsehScZwB952CxACdSoJj3L98U=; b=DVeFa7VVjhlFCzlxvzYIancIHI
+	mAag45epO+MtBIqxguVizS2Nb/5hKvp3AA9BtEzkiqr9L71abqBc64YeHZ0fHpvlxX594BJdRNNJC
+	O9aMUk6qDx+vCuQPVZURVMGg3IIE6RreqrJdYSlAEpcFHckwKGYfFJLqtNSJ0yn/G32my2+C/tJfY
+	Sjef6XTi6pkrNwp4prf3S2N5Vf+JFMDkZogPis95pjFdoRiQqJ97DU7xsGaO8J5LkqsCuxcisoCjf
+	KIaqbGBKzjMkEKHkJU8z17MNbRktCHpUgJA3JFwXdkMaO6DuQAhevwMbAQBSADakZXHI5f72LxvuY
+	lewgvkUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7Um-00000008VQA-1mpr;
-	Wed, 12 Nov 2025 09:50:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJ7ac-00000008VuC-0wHo;
+	Wed, 12 Nov 2025 09:56:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ7Ul-00000008VPo-30KL
+	id 1vJ7aa-00000008Vu1-36YZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 09:50:31 +0000
+	Wed, 12 Nov 2025 09:56:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FC7B6020B;
-	Wed, 12 Nov 2025 09:50:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE0C7C4CEF8;
-	Wed, 12 Nov 2025 09:50:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DF62F6013B;
+	Wed, 12 Nov 2025 09:56:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89091C4CEF8;
+	Wed, 12 Nov 2025 09:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762941027;
-	bh=wKkYTwbaHODjzCytHEFDqnL5g4JxssRcsrQb6AjyIG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=THXlsGbFErwUFo1wXBwnqtZVc6BeYn6L2UE7CtZWfMJ4+KHQIlHtuc0TildUHh9Ob
-	 lbTpx2tKz/MJDGXzxMH3yv/POWUQ2aqZzG7HA94ie+/hvHaVTkNs0qr3mkXqf8MUl6
-	 3xQrouYjCT1oIZFDzLeMNz2k5X4HgsMojIK8wtRmO6zaaZSfFJSKTvA/atntB+Nvce
-	 UTg4ZNmTK0FKQW5hAT0TVEXQQv998uAJgquRdnYwTccyPWKJ4vmwWzDuutaq7NLM3K
-	 yO9dpZI9D2EUC6PxhSTPniAIx6r42xtWyAYBzgMBzkGIU3Q09/XJ3yR3XEsaBgw3Vc
-	 GTO/aG2ppFgmw==
-Date: Wed, 12 Nov 2025 10:50:19 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Charles Mirabile <cmirabil@redhat.com>
-Cc: fj1078ii@fujitsu.com, catalin.marinas@arm.com, fj2767dz@fujitsu.com,
-	guohanjun@huawei.com, ilkka@os.amperecomputing.com, lenb@kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, rafael@kernel.org,
-	sudeep.holla@arm.com, will@kernel.org, tglx@linutronix.de,
-	maz@kernel.org
-Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
-Message-ID: <aRRYW7UK7PWb6cpS@lpieralisi>
-References: <OSAPR01MB7669F9B9E145A50B38819E13D5CEA@OSAPR01MB7669.jpnprd01.prod.outlook.com>
- <20251112044239.4049011-1-cmirabil@redhat.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251112044239.4049011-1-cmirabil@redhat.com>
+	s=k20201202; t=1762941391;
+	bh=gRCZf9Ayfo1qLWyDTVQsRixm5fKxDCpVixnU+WvPMQY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MGuvBukaozndXY9PPPIcpdwaZghXipBbs2p/7qKye1qXFeh4Ra1K2Nwak5Pzu5rHr
+	 ZQMiJbpAQF6L1ydSe6Bq4gE7Rc1CgXSh81/tBq1eV1h0W6uORAaDetyoq90G/VgagA
+	 1VCKAcaELm7O3cmUZ0cDuxeIEH/M87q+2yqvejLNSQeHoNEU3KgW8aTb0zjHuCp5Tp
+	 WY7HtvoRjbVhdzsDM4y087TGX4E6Zo9GvkE+6ruDUdzZTgaegSp2w3I1BglFBei0as
+	 WTsemcZLKJhx30CAH5AJ3SnRuu+ho9yG6y/OQmzL0fLWVxzK1ODe8dZd1wM2z43bYY
+	 zXyeMNwo+DWJg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJ7aX-00000004UXd-0dxm;
+	Wed, 12 Nov 2025 09:56:29 +0000
+Date: Wed, 12 Nov 2025 09:56:28 +0000
+Message-ID: <86wm3vtvzn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 20/45] KVM: arm64: Revamp vgic maintenance interrupt configuration
+In-Reply-To: <aRRJOSNnvD1B0ZfJ@kernel.org>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-21-maz@kernel.org>
+	<aRPQBQVPLVXGOxU-@kernel.org>
+	<86y0obtzt9.wl-maz@kernel.org>
+	<aRRJOSNnvD1B0ZfJ@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,122 +91,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Thomas, Marc]
-
-On Tue, Nov 11, 2025 at 11:42:37PM -0500, Charles Mirabile wrote:
-> Hi All—
+On Wed, 12 Nov 2025 08:45:45 +0000,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> On Mon, Nov 10, 2025 at 07:38:17AM +0000, Kazuhiro Abe (Fujitsu) wrote:
-> > Hi Will,
-> > 
-> > > Hi Will,
+> On Wed, Nov 12, 2025 at 08:33:54AM +0000, Marc Zyngier wrote:
+> > On Wed, 12 Nov 2025 00:08:37 +0000,
+> > Oliver Upton <oupton@kernel.org> wrote:
 > > > 
-> > > > [You don't often get email from will@kernel.org. Learn why this is
-> > > > important at https://aka.ms/LearnAboutSenderIdentification ]
-> > > >
-> > > > On Mon, Oct 20, 2025 at 09:23:05PM +0800, Hanjun Guo wrote:
-> > > > > On 2025/10/17 15:39, Kazuhiro Abe wrote:
-> > > > > > AGDI has two types of signaling modes: SDEI and interrupt.
-> > > > > > Currently, the AGDI driver only supports SDEI.
-> > > > > > Therefore, add support for interrupt signaling mode The interrupt
-> > > > > > vector is retrieved from the AGDI table, and call panic function
-> > > > > > when an interrupt occurs.
-> > > > > >
-> > > > > > Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> > > > > > Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-> > > > > > ---
-> > > > > > Hanjun, I have addressed all your comments.
-> > > > > > Please review them.
-> > > > > >
-> > > > > > v3->v4
-> > > > > >   - Add a comment to the flags member.
-> > > > > >   - Fix agdi_interrupt_probe.
-> > > > > >   - Fix agdi_interrupt_remove.
-> > > > > >   - Add space in struct initializsation.
-> > > > > >   - Delete curly braces.
-> > > > >
-> > > > > Looks good to me,
-> > > > >
-> > > > > Acked-by: Hanjun Guo <guohanjun@huawei.com>
-> > > >
-> > > > I wasn't cc'd on the original patch but I couldn't figure out why it
-> > > > uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
-> > > > it does is enable it.
+> > > On Sun, Nov 09, 2025 at 05:15:54PM +0000, Marc Zyngier wrote:
+> > > > +static void summarize_ap_list(struct kvm_vcpu *vcpu,
+> > > > +			      struct ap_list_summary *als)
+> > > >  {
+> > > >  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+> > > >  	struct vgic_irq *irq;
+> > > > -	int count = 0;
+> > > > -
+> > > > -	*multi_sgi = false;
+> > > >  
+> > > >  	lockdep_assert_held(&vgic_cpu->ap_list_lock);
+> > > >  
+> > > > -	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+> > > > -		int w;
+> > > > +	*als = (typeof(*als)){};
+> > > >  
+> > > > -		raw_spin_lock(&irq->irq_lock);
+> > > > -		/* GICv2 SGIs can count for more than one... */
+> > > > -		w = vgic_irq_get_lr_count(irq);
+> > > > -		raw_spin_unlock(&irq->irq_lock);
+> > > > +	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+> > > > +		scoped_guard(raw_spinlock, &irq->irq_lock) {
+> > > > +			if (vgic_target_oracle(irq) != vcpu)
+> > > > +				continue;
 > > > 
-> > > I misunderstood the usage of request_irq and enable_irq.
-> > > Since there's no need to separate them, I will remove IRQF_NO_AUTOEN and the
-> > > enable_irq call, and send v5.
+> > > From our conversation about this sort of thing a few weeks ago, wont
+> > > this 'continue' interact pooly with the for loop that scoped_guard()
+> > > expands to?
 > > 
-> > I found out when calling request_nmi, removing IRQF_NO_AUTOEN results in an error (-EINVAL).
-> > Therefore, I would like to keep IRQF_NO_AUTOEN specified.
-> > If you have any comments on this version, please let me know.
+> > Gahhh... I was sure I had killed that everywhere, but obviously failed
+> > to. I wish there was a coccinelle script to detect this sort of broken
+> > constructs (where are the script kiddies when you really need them?).
+> > 
+> > Thanks for spotting it!
+> > 
+> > > Consistent with the other checks against the destination oracle you'll
+> > > probably want a branch hint too.
+> > 
+> > Yup, I'll add that.
 > 
-> Could it be that this is just a bug in `request_nmi`? I see the following:
-> 
-> if (!desc || (irq_settings_can_autoenable(desc) &&
->     !(irqflags & IRQF_NO_AUTOEN)) ||
->     !irq_settings_can_request(desc) ||
->     WARN_ON(irq_settings_is_per_cpu_devid(desc)) ||
->     !irq_supports_nmi(desc))
-> 	return -EINVAL;
-> 
-> Perhaps there is just a missing `!` before `irq_settings_can_autoenable`.
-> 
-> As far as I can tell it has always been wrong - git blame points me to the
-> original commit where that code was introduced:
-> 
-> b525903c254da ("genirq: Provide basic NMI management for interrupt lines")
+> I can take care of it when applying. These patches need to bake :)
 
-I don't think that's the right rationale (and I can't claim to understand
-it fully either - that's why I added Thomas/Marc in CC).
-
-As per b525903c254da - IIUC NMI must not be autoenable-capable -
-enable/disable must be done using enable_nmi/disable_nmi_nosync explicitly.
-
-cbe16f35bee6 ("genirq: Add IRQF_NO_AUTOEN for request_irq/nmi()")
-added the logic checking the IRQF_NO_AUTOEN flag to request_nmi().
-
-Now, AFAICS irq_settings_can_autoenable(desc) returns true in this
-specific case - the IRQ is a GICv3 SPI.
-
-First question is - before commit cbe16f35bee6, how request_nmi() could
-have possibly succeeded - irq_settings_can_autoenable() would return
-true and request_nmi() would have failed.
-
-Come cbe16f35bee6:
-
-if (!desc || (irq_settings_can_autoenable(desc) && !(irqflags & IRQF_NO_AUTOEN)) ||
-	!irq_settings_can_request(desc) ||
-	WARN_ON(irq_settings_is_per_cpu_devid(desc)) ||
-	!irq_supports_nmi(desc))
-		return -EINVAL;
-
-Now the check passes _if_ you pass in irqflags IRQF_NO_AUTOEN.
-
-I agree with Will that's a bit counterintuitive - maybe we can force
-the irqdesc to be NOAUTOEN in request_nmi() directly ?
-
-Thomas and Marc know better so that's where I stop.
+Yes, they do. Here's the current state of additional changes I have
+(compile tested only).
 
 Thanks,
-Lorenzo
 
-> I looked and the only two callers are using `IRQF_NO_AUTOEN` so I guess it
-> just hasn't been noticed yet.
-> 
-> Happy to send a patch to fix it.
-> 
-> > 
-> > Best Regards,
-> > Kazuhiro Abe
-> > 
-> > > 
-> > > Best Regards,
-> > > Kazuhiro Abe
-> > > 
-> > > >
-> > > > Will
-> 
-> Best—Charlie
-> 
+	M.
+
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index bd67ad1fcad5e..28184582f23d3 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -851,15 +851,15 @@ static void summarize_ap_list(struct kvm_vcpu *vcpu,
+ 	*als = (typeof(*als)){};
+ 
+ 	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+-		scoped_guard(raw_spinlock, &irq->irq_lock) {
+-			if (vgic_target_oracle(irq) != vcpu)
+-				continue;
+-
+-			if (!irq->active)
+-				als->nr_pend++;
+-			else
+-				als->nr_act++;
+-		}
++		guard(raw_spinlock)(&irq->irq_lock);
++
++		if (unlikely(vgic_target_oracle(irq) != vcpu))
++			continue;
++
++		if (!irq->active)
++			als->nr_pend++;
++		else
++			als->nr_act++;
+ 
+ 		if (irq->intid < VGIC_NR_SGIS)
+ 			als->nr_sgi++;
+@@ -915,8 +915,8 @@ static void summarize_ap_list(struct kvm_vcpu *vcpu,
+  *
+  *      - deactivation can happen in any order, and we cannot rely on
+  *	  EOImode=0's coupling of priority-drop and deactivation which
+- *	  imposes strict reverse Ack order. This means that DIR must be set
+- *	  if we have active interrupts outside of the LRs.
++ *	  imposes strict reverse Ack order. This means that DIR must
++ *	  trap if we have active interrupts outside of the LRs.
+  *
+  *      - deactivation of SPIs can occur on any CPU, while the SPI is only
+  *	  present in the ap_list of the CPU that actually ack-ed it. In that
+
+-- 
+Without deviation from the norm, progress is not possible.
 
