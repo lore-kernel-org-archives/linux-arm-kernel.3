@@ -4,114 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2A8CD13DD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9F6CD13DD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 16:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3zf+/GCTzFTCgE5kx1XIhvvkdps3fbhzPkXxT6Wkygo=; b=KRiAWwFykVUOg6NDqI16zT/Idi
-	liJebgkRz3NtgYuhBq6p6jFWJY6mdA/RlNUK/yLj/o42XDCWj05ycTNqjUp9a3GtVjFDUlZhJnOdi
-	rZCj9TRWbflYgFxwPimwqPzAhpx2g6GxddEXcbykG7gDfkVFRXT3bGKNKkicYPsT0Co3tJnyDiRNX
-	CAr1cYNDs4xhJEca0Oc3g+XZnw3aAu48KL/8I9JEyqa/VgALw7imvWxzmqXIc2yFZHrMCOQasuaOF
-	uck2V0t9Dh2GX6IMiFzYeAL4ErI3M5tCQALLHQfF5UrPdxNsbN4v1Pfv4Svfq2xCW2Z6MmXOdLipj
-	2fvnbCKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nEk3efs5UmYqOp9HsUBbVk+JLXOej1iukWHljM6N/CA=; b=LQQXOGkCl4Rn38gKqbQccx48Zy
+	J0ZIz8+AUu+mMBT/TNDQf76m6XJGN/6E831TeFBOCYBcv32ovRVPMs7PNK1IThSMLp9nNt4doxF75
+	J5xpYSDPdPrZx20cQUdB5Q6HZeAWTQUq9QSJFWArf5GNq4MhwZGrFDF0YaX/K0P20khPtp+Vn5XAR
+	eTHQrEIFjETd4cdddJ3znbpz1yeyj91zPOGlXotBsK3FM1GVXwh3sUAnomxOoAIKEqA7GFU/jNi+f
+	p+wG3bSCa8p26neKAv8WKg6SuWE87RoDGNyetCJHtDjrMxSQjLgixHkr04qwHP2wJqLeZsboal+Au
+	wL3hxbTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDgq-00000009B6w-1d2L;
-	Wed, 12 Nov 2025 16:27:24 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vJDlJ-00000009BYk-1Atx;
+	Wed, 12 Nov 2025 16:32:01 +0000
+Received: from mail-norwayeastazon11013064.outbound.protection.outlook.com ([40.107.159.64] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJDgk-00000009B3P-3kBw
+	id 1vJDlH-00000009BYK-1Bgw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 16:27:20 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so5491405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 08:27:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762964837; x=1763569637; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3zf+/GCTzFTCgE5kx1XIhvvkdps3fbhzPkXxT6Wkygo=;
-        b=D9rGyvha0584Dh4ulD9iU5raXJaG0EIg2N9tZ2W/oJvbBwwnV94ovc3x4aUd1su3JP
-         mVhCgeeEweC4uAkqnbfYWWPbQWUJRYNgTzlQY7T62Aj02rii+Qtr18mxvCsV/FXgOosC
-         MV67ey55/70BPQ7vrz9bM0tV6/UpzW4PJDAEoyrXla9IifDk9k39l4pNYqcfoXkyP1d3
-         Fk2QKZvMtBREWKRb5VBEFNfFJT2WQc515tk6FxlDI9XtsK4KwdK4KaRCagySE/gu6egw
-         d3UeNx/Hu16AkxiDWPpvni4sqhFXwhvO2xcHbkcEci4YjkTOIXQq4EjVRBP2ZegF+thF
-         /c/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762964837; x=1763569637;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3zf+/GCTzFTCgE5kx1XIhvvkdps3fbhzPkXxT6Wkygo=;
-        b=rYbs5KFrVmkkdPH+2MlvqQ99k10P7ZVKc5IN6d23kw9Lq/qCN9WBNPVW+KrtHnEC3V
-         XlRNvLKJicMhTSba0j9LMJ05AaXb1NPB97bSTgB6KlNKTb+nA0btQFMTvA7Tmo4GnUuM
-         /sOQo1RJ7EAlWxd27d/0WngKb5WjL26SeI/96YweAdjzGJa+rSj5E7sw1LcC2QAaBBhR
-         HB7gFYRD2gxiXu5T1zjp1lY8kosFvV9ahVPSRHKva9R+DpPTrIxvMaDKkg5mzUioP9rp
-         KRgQbUyvN8wmzJaOGoqmaZUsZtz9AVBTSpYBTm0poVlV0epRQaJPOLDp4n4ye5f2ef2r
-         zB3w==
-X-Forwarded-Encrypted: i=1; AJvYcCUD8kThpHWo219f3SLfX6u7oDIDt1YPyzu16+nuEDb4y7vHy2hLt9LIL1XakAgRAzdpQiTyNwRJs2uk2tDMyLHW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl5fy/+lqNQQ1iysPsi9+9Q2FTrmjU4MitZZ1+LD+nhTozN9fd
-	/x9U+63YOp1SYGB6DmWFitm4IurHbcusNLvN2CzQPPAFr+waJBXDNqzehJa81zW8XF0=
-X-Gm-Gg: ASbGncsY0WUkwpQmztioJJLxM81KwTxJwpahAeqBzFSxspXSK0ZOf+FUAeEfdfArnSU
-	vwGiLH94T/gVWewB9BX6ZLNofO997dtmbFwvQ6UB4hKmJtxl17Z8ffEW8kU+IvSVC8VXRmD1LpL
-	Lz1e3TXQE6g6FHLKv4bzuZ6iN+Zw7H3jyVU3WWZ6XmCwfbCi8IpiQ25S27ngvFEqzGNdXWqdXtp
-	n6drtaXlGVDwOQ0KazSmxIfhs5BN4fHTt8svpsLzNsZ3BnozMam7dLtYzfyf4GMC7ZSr12TIIGi
-	EvgZBF2ATg1HmB9mf0A9KA4eWh+nEWuNXSpcNu8dzkdXcVXB8WIVRD6y8epEHE4vwFxhfrqv2S4
-	PWPPwwNfOCZwRCqhhejrDyiXWgkjImrbGMy7ZfxM4rLvM1IIOEajB3+019hHwB6JlFvGo77djW+
-	QG1rSUJMsI02uFPdGcAtvGQ/jR6MXTGKA=
-X-Google-Smtp-Source: AGHT+IGbQBT6h9D+QiV3NZeclPrdWfHO3lE+CnYRzD/4ItKJuieqX8JUgxpLYyCA2DaWGs9ABKZfZA==
-X-Received: by 2002:a05:600c:8b22:b0:477:63dc:be00 with SMTP id 5b1f17b1804b1-47787086655mr33058775e9.25.1762964837199;
-        Wed, 12 Nov 2025 08:27:17 -0800 (PST)
-Received: from gpeter-l.roam.corp.google.com ([145.224.66.100])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47787e36ca3sm48534815e9.5.2025.11.12.08.27.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 08:27:16 -0800 (PST)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 12 Nov 2025 16:27:07 +0000
-Subject: [PATCH v5 2/2] phy: samsung: gs101-ufs: Add .notify_phystate() &
- hibern8 enter/exit values
+	Wed, 12 Nov 2025 16:32:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uAG3RFMP8rPRQ1SXcMn/Fv9dEADG3/qvh0sS28lo/ujchOkQxCDOUqwKymEwOl4CVpdfrmofArx1x8Z+TrDIRRZ2ixlsRUj/AtMdV7+Cs/QivacADDwIbGAzuLCvfQECEc7ZmAQQPai8JbPx9QIXzgijUmGiM2rWq5f++B7e1aFfGTEsciS/g/pGWpq/6piHPcn/ULK0AkxlaW8+lZjyTCaI3XVJHbVvdzrq4eT9BzOQYH5UWx+V58GPw0ZDvIl4Pa/6Z8ElE8mrdEQ2TqvRuW5XPS1GGHbhYmr97W1OhX3z3YR6xdYf2cKEYPA1dd6+cMXDGjnfKswgxc5gbfJkuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nEk3efs5UmYqOp9HsUBbVk+JLXOej1iukWHljM6N/CA=;
+ b=fy/7+Ig3GbqQS0q8HB8TMKL/zLznNspfPjJDlC8DgZ/k4VpiqE31OezcQcFLsrS7g4wDJDZ0W9O0yEnE4/dVM4AY7Na1n7wToQ4dr3E6qkBiwxGVNsXVTfVV+fD347mlgindQNpj+I1cMXeOTvEWBwGjjFY14lVD+C/q4sT7sKTNNqwcOl8yJB5D3BPGXojKWVYEpC4Tj0Z/tEMon91L1p5rDncUJqq2wyhZME43rSnYVfn1/+UEu+rAS/T4GPPuTbSvZMNNdwQz5oz/eKXjEHYzf4DqX4qiIYrBobBECQNPl5DGxFQtsTY3uo/QRR5miPXa/XSnj380VhdYGE4qvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nEk3efs5UmYqOp9HsUBbVk+JLXOej1iukWHljM6N/CA=;
+ b=iUv2T3X6VMT8zJijiATenWiMttFQfXc0yCSBGQCWeVvWruPBVfKgX/NAa/9CE7Y2SNhxee7CShWgo3nztt6My6yFdKsqYArMeEt3o7UnTiQ73qGXihGO64Xpg4ojrfSnePwVHsvnPsCTlOMwZtHSRjGVKJ4YnJRNIoGcsxrYAA5kltAaqtgJeYXKF99pNKrYYbKuhAbYXMsAoUgmvISHckwTU4R8wtxRMwUEyCRS0Ei5CkgaRtD0+tWzzbnOHKepjPyglBJUDjcl09PHgmSxa2FQNWOUU0/ccz2S+89srdV0NvkfVDpdCdc3yEufQ1VJuq4YY+n+kn6tcWgWouPD6g==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by AM8PR04MB7329.eurprd04.prod.outlook.com (2603:10a6:20b:1d0::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
+ 2025 16:31:53 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 16:31:52 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+Thread-Topic: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+Thread-Index: AQHcU/HZrq6NLJx0oEuky2ze4vYHyg==
+Date: Wed, 12 Nov 2025 16:31:52 +0000
+Message-ID: <PAXPR04MB91854DD6096AD550074FA16189CCA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-4-shenwei.wang@nxp.com>
+ <CACRpkdZR2C=+ssYOKnF=hyOqTakGjVxzp5_qz=3-uYRpzaZgNQ@mail.gmail.com>
+ <AS8PR04MB9176F105B09FF939B22B85E589CFA@AS8PR04MB9176.eurprd04.prod.outlook.com>
+ <9bcd63d2-f75f-4cb6-a81f-eefc983a99bb@lunn.ch>
+In-Reply-To: <9bcd63d2-f75f-4cb6-a81f-eefc983a99bb@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AM8PR04MB7329:EE_
+x-ms-office365-filtering-correlation-id: 0774cfaa-f168-44c4-cb7b-08de2208fc60
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|376014|366016|7416014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?TuA2YYDMrKVzKtWwaZP/xElhvCWxNWIpnocSCjxiyRIb/EoJ8Kg7Ui4ZOTmY?=
+ =?us-ascii?Q?e8h2P3vnQaYH6JLvIKkTwf3mXzzTq2ZktFjkEscQn07OopG3HRiq3SZSymuj?=
+ =?us-ascii?Q?OYJfiwEwLrk3DteQGc9Rvs0SECaGFhtR+T1jRm7f/srtSgSw/fS7DlzjQkim?=
+ =?us-ascii?Q?QOraFSPi2GyrEWzAwhblmcc+Xqp3Oed4hF5kgqQNNxjcCeNyffuOiCMQnJru?=
+ =?us-ascii?Q?bZYgPoJeQx+vNvIV8oStwfUS+SqZ9kxHTKWadUXeMOoVIdYGoncvFGRQlXW0?=
+ =?us-ascii?Q?6AM7VVl6P6SbaOKBqL1IAMhelOZjoPwgaiPMHK2M/0XKfXT7US1S9QiubaS+?=
+ =?us-ascii?Q?2XnsBEtT9BlD1hPaZegjWwefmihnkA57nnHW3M72rQithyZ39dl+bNj1tbow?=
+ =?us-ascii?Q?TlWzm8R+sXbdQK/4tx+CqZQq5HXISvVlVDjnUot3klGLRqZXBJR0Z/I0WiIh?=
+ =?us-ascii?Q?Vmgq0CRYETD4ufihY8hDyH5mfcrnNx+n5GVFAVZkTE/YexIutx6bH11yFBnH?=
+ =?us-ascii?Q?Wc4Nv3KDUG4Woz+qoxRjduWlzSZMdJpLsfDveks5wHrNREbZjEbfT3WWEL0h?=
+ =?us-ascii?Q?CbOrfGzUHZgQ7TQa/CvplBVEmK0mDpQOWQITz2zpTWM1JCFCzYG59EBPcmZx?=
+ =?us-ascii?Q?5nYhH41v2sVWCNBJAueJfs3FU32jUIfquvWHnmX9jZxdw4izDI19Fs8JPYtD?=
+ =?us-ascii?Q?1qMkR/XP3IBNvvvMMdSLVCPr0oMb7gdz81kxsogESxdQxz0HSCzXUsiba929?=
+ =?us-ascii?Q?n3aDue9aJlAhOk8W5qvelABL3C/F3gK8fhVH3GKQySicqnMyy3rcrR286vnH?=
+ =?us-ascii?Q?f+m7mgZI7gGSklixZzs9URjrHORXqsoPgoULQL6g9Q/tF5YLAHG/mLvclGKP?=
+ =?us-ascii?Q?Bc7xPzd9kg1VJBFfuYDA37R6+BqlMCc8LIOVzRiF0Xi2iN634Wt5jhTXG2ZC?=
+ =?us-ascii?Q?mVn9melup1MnPO9zJs1S+1n2tWTaNreOTrOrzAxdqmFx+/BOE/fqkINe0jjE?=
+ =?us-ascii?Q?cddA4hZvhg3mT/4N5smT2m63FeiigJJnve9muA5QXXSNgu1Gnb714C/Ilf3K?=
+ =?us-ascii?Q?u3XXOb9rx3SN4yM+dLNXU5N9aerA2VoUtnzzxzNWfELCh52q+gxscxXCx9LK?=
+ =?us-ascii?Q?5Y1w/3y7nwIYuPN4H8qCB5G4VEk1FlQEnOf3d7/SeIgMWwmn2ZetCABsGCSa?=
+ =?us-ascii?Q?AVeJHZalaNhBIQYJQ2acQzyfyvBFZDu2f4LwfsSDqUoClxPFiRZFvNwrUjm1?=
+ =?us-ascii?Q?gtdYVRkyxC9+5dpRrsms0NhBQ1RFc4o2zDzzvPBIg9mb8yx/RcFCqaaHBHAX?=
+ =?us-ascii?Q?Yy04mdbXvkoaTrUOjli9PpuQ37X43JwP8xw0sCDjAwTnn+5iulzFyeaJl2uX?=
+ =?us-ascii?Q?5Xpf/iPrKTSAUP1+ZiF9WVD0AlFv0sAvO3GRGs6VJpmZdmy4iSYBsgNQ5ptD?=
+ =?us-ascii?Q?RN9dt5cH9H3mVpsuR89j+2KcQ1NeF1MvoXLnjM1bHYp50pOSI0nUHI9135NP?=
+ =?us-ascii?Q?+vXhOv6Ab3s3S/EB0j90wopDMuA6dv23+8Bp?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JDCwVe917qONsx4FKHua0wavI28kwCPaplzU36WBtLR1t2OrxZnA5iOlZWPS?=
+ =?us-ascii?Q?unEHbepAr9fNJOCAC3c3ZoNP54+54zttv4gDyaTolNKyxmzsxUi5+wKGYwMw?=
+ =?us-ascii?Q?c+IAUc8JgzI44JhyJbLuJKi+JmFgfsoydT/MiJ0N/ecsOVeFW3LboXPNyrBf?=
+ =?us-ascii?Q?7hn6T4dAC32wz3aZDMoqIWOuDbvQZ+1mO02Wy+f7iy9oufb64MfM4l2l84m/?=
+ =?us-ascii?Q?Qbva7FiEqNvSSmQyK1lxqEUmA4Z6uGHNYrymlc6uOOTSsELLqmuM7u+1nBfw?=
+ =?us-ascii?Q?eDR6n0dx/4Mzq3ulwJSe5hUnz+EaUB8vx5r5EcfriGYaTGEl+3GMm9h/lE/m?=
+ =?us-ascii?Q?AyGrBgJZTlCoWCq0lO9ySavBqn4pbUjuyz3v1rXGxfmOL1YAiR9TCNz8V006?=
+ =?us-ascii?Q?cSY8yjwAABAZuBuZFoMdkJ/Hwn4PN5fCj6N/w5QB7HOAAPFxLRWV9AapNurf?=
+ =?us-ascii?Q?5JLEcdoU+8dsFAv7M4i7EUxjn/hqUHkgCr6pO8coHWD7x9fbSRW5Kup49gkA?=
+ =?us-ascii?Q?6Dd0G0BgSuJK224/YX/AGRwOLtitjr7ZBYRu7zwl+VB13wvmGDDrSXrILKmF?=
+ =?us-ascii?Q?ndrnogcEyJJTCwbyFS7/RbfCzU96XiYpOxtv/irbLtlO/43XkGngprcShpjp?=
+ =?us-ascii?Q?jFAsZKA4DelUCLwCBruCEDjPgU36yS+glXHJke/3Z4olwFsGH0kUvpxzhqKE?=
+ =?us-ascii?Q?stTW8wWtMvs9OL1u5qeBMSCZ1uaxJ8KOuX2Aa6C1N+7Z9ABNX5PPtvux70AU?=
+ =?us-ascii?Q?Ka8cI/Qzd0CTUO4jNl+vetuKaiIEb1B6DFxXPy3aijny0rYH6LAJbAvj33tX?=
+ =?us-ascii?Q?AgXJsbZiVmO2PUW1d+fEkQGhvfVG235jRGd+4F/sf3g4Z3RaPU9KJ8SrbCy1?=
+ =?us-ascii?Q?Fxzcc6nBvcDpGJyasOAgHYtEMso1XSY6v4YgdCvptxfNIGbBePOWXVPqjuYl?=
+ =?us-ascii?Q?XP8j8HKJvaCC5RtWfvfgS2pOuxPqjzNTVBIbNnpHuKDyeRuz87u4Ov7243x8?=
+ =?us-ascii?Q?/WZfkt+EASE3AFxbucFZdRh41YsLntkqajmLH45QG6WF5143Wl4GLE8L/pJv?=
+ =?us-ascii?Q?KC2Z0AFclCgmCPED1mjgP35GPE3CSgOpYhZX55Bjvb89EfWyjllDTZ9ujA6d?=
+ =?us-ascii?Q?UGqqAtZEr5Qsipg8ID7m7trglNGWs64aW0GoS/DrcVexyopYBcBsKcqpsBqO?=
+ =?us-ascii?Q?Pf87fDMEa9AFU+Bk3ssVkYw2z7m0Ck2eaTPV4Mm/8ER1VdgPxkUYdT/8xBgM?=
+ =?us-ascii?Q?mb3cirwVNxZ85+pOwKj67RUqiQcOPB3NZ9VXIu8tQT4whEEkZkzwoYW0Zl7N?=
+ =?us-ascii?Q?R9BNyMYjRjtnSjs0tDcC+0cOEWX3WZzlZEgVCYIWecoW/RM2jEoFP46a0d1/?=
+ =?us-ascii?Q?0oPJWG0+TuyYXib1ZI7qJqmjbHypqd6FnWyeEl/x0TFaoepVwzo2YbyCNyBh?=
+ =?us-ascii?Q?tdssTbCmtloxhUaNn97fvPtywlwia3wLVjA0EVGb5i8OMCreX59zDX1SsbuQ?=
+ =?us-ascii?Q?jUsvj6mLo6O/f4wCAhHGHx7BeVKZHaZK0PL3ttYCM0vpy7DxRVL4HtBmvChO?=
+ =?us-ascii?Q?ZkfDfUVu+TMJMNaZx1g=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-phy-notify-pmstate-v5-2-39df622d8fcb@linaro.org>
-References: <20251112-phy-notify-pmstate-v5-0-39df622d8fcb@linaro.org>
-In-Reply-To: <20251112-phy-notify-pmstate-v5-0-39df622d8fcb@linaro.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- kernel-team@android.com, William Mcvicker <willmcvicker@google.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org, 
- Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5855;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=ZkTyvzs3kiErZLDD09beyCa4zgS6txIDoNMnbc53+tY=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpFLVfwlZ5jst5dZK7+RF0jA51MBaOdzMVv/kjL
- xcH1R87WhSJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaRS1XwAKCRDO6LjWAjRy
- utY0D/4sWragFjlosVxmET+0kZGsxeZNRi/7KobzDWh8KPTwpWOjtFZ0jEYq7e/lCmyWaKbqRK3
- AopubMfgLd5aVJpavGeSQNki7Mclzw34Y013JC+5EK9+0fcQIZ+5XBY452ipzmXUqbILM51Psqw
- LxZwfTy5+KfWVNQtH1OjVmtBXZT4D4js5fAhw9svh7AHQefpQpOxxQd9Diq9ZVsNlivopmBxOwg
- tyq/Rk75SvyYCJVcwGNJIf8vkWRlzO0gL2UWAvElzvx1PckfqzsjscDntF1jvZC7zb//Cc7i/73
- MD7lm0YIpj9NTYMsrp/S57zXDEGsSkwuUfrinROfsDEt1GKVy0x5grhYLJlrikObGlgUPzVad3a
- s9VoVJAn1MMZzOlbY/TaHbzipsdBmzRS4Be1mnoVlmhVviBvZOdHQEwx1/E7R+tKQdB50jvnsEp
- QjDukapygIb9xPt9rSGE2eoRMbQWvG2wOm8LZHaQnsXS+oiXlf4AbuXMUE+TbwSReceSsD9Dufd
- szvDKlxO+kwk0oIvXhv0KrI/ffWkhL5xM+ehg98Xrl7rc49VCxo/6PqvRmkpdOc+J1zAMWdCm7a
- XrtXSrJbq4lJvzxooZA1CqBIMVtvY2GXgmTD40tnZj2RGiqg8Tk3hLMgvb/9kbC4g/3x0oDWXHl
- ysVzOtkmaxPD3Ag==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0774cfaa-f168-44c4-cb7b-08de2208fc60
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 16:31:52.2038
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fVSaI4HG91WRVVkIQ9svLmzy/T5jmYfLMFv8U5VDOlX/2jTEYteq2Pk8ljBWg7NcWmQCTgfz0evrFFdNOW3Mag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_082718_984924_44380BEB 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20251112_083159_349915_45108364 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,171 +175,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the .notify_phystate() callback and provide the gs101 specific
-phy values that need to be programmed when entering and exiting the hibern8
-state.
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
-Changes in v4
- - Resolve Intel 0-day warning
----
- drivers/phy/samsung/phy-gs101-ufs.c   | 28 ++++++++++++++++++++++++
- drivers/phy/samsung/phy-samsung-ufs.c | 40 +++++++++++++++++++++++++++++++++++
- drivers/phy/samsung/phy-samsung-ufs.h |  7 ++++++
- 3 files changed, 75 insertions(+)
 
-diff --git a/drivers/phy/samsung/phy-gs101-ufs.c b/drivers/phy/samsung/phy-gs101-ufs.c
-index 17b798da5b5761f8e367599517d2d97bf0bb6b74..a15e1f453f7f3cecd6d3aa75217633ac4b6085d0 100644
---- a/drivers/phy/samsung/phy-gs101-ufs.c
-+++ b/drivers/phy/samsung/phy-gs101-ufs.c
-@@ -108,12 +108,39 @@ static const struct samsung_ufs_phy_cfg tensor_gs101_post_pwr_hs_config[] = {
- 	END_UFS_PHY_CFG,
- };
- 
-+static const struct samsung_ufs_phy_cfg tensor_gs101_post_h8_enter[] = {
-+	PHY_TRSV_REG_CFG_GS101(0x262, 0x08, PWR_MODE_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x265, 0x0A, PWR_MODE_ANY),
-+	PHY_COMN_REG_CFG(0x1, 0x8,  PWR_MODE_ANY),
-+	PHY_COMN_REG_CFG(0x0, 0x86,  PWR_MODE_ANY),
-+	PHY_COMN_REG_CFG(0x8, 0x60,  PWR_MODE_HS_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x222, 0x08, PWR_MODE_HS_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x246, 0x01, PWR_MODE_HS_ANY),
-+	END_UFS_PHY_CFG,
-+};
-+
-+static const struct samsung_ufs_phy_cfg tensor_gs101_pre_h8_exit[] = {
-+	PHY_COMN_REG_CFG(0x0, 0xC6,  PWR_MODE_ANY),
-+	PHY_COMN_REG_CFG(0x1, 0x0C,  PWR_MODE_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x262, 0x00, PWR_MODE_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x265, 0x00, PWR_MODE_ANY),
-+	PHY_COMN_REG_CFG(0x8, 0xE0,  PWR_MODE_HS_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x246, 0x03, PWR_MODE_HS_ANY),
-+	PHY_TRSV_REG_CFG_GS101(0x222, 0x18, PWR_MODE_HS_ANY),
-+	END_UFS_PHY_CFG,
-+};
-+
- static const struct samsung_ufs_phy_cfg *tensor_gs101_ufs_phy_cfgs[CFG_TAG_MAX] = {
- 	[CFG_PRE_INIT]		= tensor_gs101_pre_init_cfg,
- 	[CFG_PRE_PWR_HS]	= tensor_gs101_pre_pwr_hs_config,
- 	[CFG_POST_PWR_HS]	= tensor_gs101_post_pwr_hs_config,
- };
- 
-+static const struct samsung_ufs_phy_cfg *tensor_gs101_hibern8_cfgs[] = {
-+	[CFG_POST_HIBERN8_ENTER]	= tensor_gs101_post_h8_enter,
-+	[CFG_PRE_HIBERN8_EXIT]		= tensor_gs101_pre_h8_exit,
-+};
-+
- static const char * const tensor_gs101_ufs_phy_clks[] = {
- 	"ref_clk",
- };
-@@ -170,6 +197,7 @@ static int gs101_phy_wait_for_cdr_lock(struct phy *phy, u8 lane)
- 
- const struct samsung_ufs_phy_drvdata tensor_gs101_ufs_phy = {
- 	.cfgs = tensor_gs101_ufs_phy_cfgs,
-+	.cfgs_hibern8 = tensor_gs101_hibern8_cfgs,
- 	.isol = {
- 		.offset = TENSOR_GS101_PHY_CTRL,
- 		.mask = TENSOR_GS101_PHY_CTRL_MASK,
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.c b/drivers/phy/samsung/phy-samsung-ufs.c
-index f3cbe6b17b235bb181b3fae628d75822f0c9183a..ee665f26c2361ff9c3933b10ac713bbd9085b459 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.c
-+++ b/drivers/phy/samsung/phy-samsung-ufs.c
-@@ -217,6 +217,44 @@ static int samsung_ufs_phy_set_mode(struct phy *generic_phy,
- 	return 0;
- }
- 
-+static int samsung_ufs_phy_notify_state(struct phy *phy,
-+					union phy_notify state)
-+{
-+	struct samsung_ufs_phy *ufs_phy = get_samsung_ufs_phy(phy);
-+	const struct samsung_ufs_phy_cfg *cfg;
-+	int i, err = -EINVAL;
-+
-+	if (!ufs_phy->cfgs_hibern8)
-+		return 0;
-+
-+	if (state.ufs_state == PHY_UFS_HIBERN8_ENTER)
-+		cfg = ufs_phy->cfgs_hibern8[CFG_POST_HIBERN8_ENTER];
-+	else if (state.ufs_state == PHY_UFS_HIBERN8_EXIT)
-+		cfg = ufs_phy->cfgs_hibern8[CFG_PRE_HIBERN8_EXIT];
-+	else
-+		goto err_out;
-+
-+	for_each_phy_cfg(cfg) {
-+		for_each_phy_lane(ufs_phy, i) {
-+			samsung_ufs_phy_config(ufs_phy, cfg, i);
-+		}
-+	}
-+
-+	if (state.ufs_state == PHY_UFS_HIBERN8_EXIT) {
-+		for_each_phy_lane(ufs_phy, i) {
-+			if (ufs_phy->drvdata->wait_for_cdr) {
-+				err = ufs_phy->drvdata->wait_for_cdr(phy, i);
-+				if (err)
-+					goto err_out;
-+			}
-+		}
-+	}
-+
-+	return 0;
-+err_out:
-+	return err;
-+}
-+
- static int samsung_ufs_phy_exit(struct phy *phy)
- {
- 	struct samsung_ufs_phy *ss_phy = get_samsung_ufs_phy(phy);
-@@ -233,6 +271,7 @@ static const struct phy_ops samsung_ufs_phy_ops = {
- 	.power_off	= samsung_ufs_phy_power_off,
- 	.calibrate	= samsung_ufs_phy_calibrate,
- 	.set_mode	= samsung_ufs_phy_set_mode,
-+	.notify_phystate = samsung_ufs_phy_notify_state,
- 	.owner          = THIS_MODULE,
- };
- 
-@@ -287,6 +326,7 @@ static int samsung_ufs_phy_probe(struct platform_device *pdev)
- 	phy->dev = dev;
- 	phy->drvdata = drvdata;
- 	phy->cfgs = drvdata->cfgs;
-+	phy->cfgs_hibern8 = drvdata->cfgs_hibern8;
- 	memcpy(&phy->isol, &drvdata->isol, sizeof(phy->isol));
- 
- 	if (!of_property_read_u32_index(dev->of_node, "samsung,pmu-syscon", 1,
-diff --git a/drivers/phy/samsung/phy-samsung-ufs.h b/drivers/phy/samsung/phy-samsung-ufs.h
-index a28f148081d168344b47f2798b00cb098f0a8574..f2c2e744e5bae87c9cfcaa17f4a09456f134966a 100644
---- a/drivers/phy/samsung/phy-samsung-ufs.h
-+++ b/drivers/phy/samsung/phy-samsung-ufs.h
-@@ -92,6 +92,11 @@ enum {
- 	CFG_TAG_MAX,
- };
- 
-+enum {
-+	CFG_POST_HIBERN8_ENTER,
-+	CFG_PRE_HIBERN8_EXIT,
-+};
-+
- struct samsung_ufs_phy_cfg {
- 	u32 off_0;
- 	u32 off_1;
-@@ -108,6 +113,7 @@ struct samsung_ufs_phy_pmu_isol {
- 
- struct samsung_ufs_phy_drvdata {
- 	const struct samsung_ufs_phy_cfg **cfgs;
-+	const struct samsung_ufs_phy_cfg **cfgs_hibern8;
- 	struct samsung_ufs_phy_pmu_isol isol;
- 	const char * const *clk_list;
- 	int num_clks;
-@@ -124,6 +130,7 @@ struct samsung_ufs_phy {
- 	struct clk_bulk_data *clks;
- 	const struct samsung_ufs_phy_drvdata *drvdata;
- 	const struct samsung_ufs_phy_cfg * const *cfgs;
-+	const struct samsung_ufs_phy_cfg * const *cfgs_hibern8;
- 	struct samsung_ufs_phy_pmu_isol isol;
- 	u8 lane_cnt;
- 	int ufs_phy_state;
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: Wednesday, November 12, 2025 7:42 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Linus Walleij <linus.walleij@linaro.org>; Bjorn Andersson
+> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Rob
+> Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Cono=
+r
+> Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha
+> Hauer <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Bartosz
+> Golaszewski <brgl@bgdev.pl>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
+> <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rp=
+msg bus
+>=20
+> Since this has not been merged yet, there are no existing systems.
+>=20
 
--- 
-2.51.2.1041.gc1ab5b90ca-goog
+In this context, "system" refers to both Linux and the remote firmware. The=
+ remote firmware=20
+for i.MX platforms has already been released and widely used by our custome=
+rs. Maintaining=20
+compatibility with the existing firmware would provide a better solution fo=
+r customers.
 
+Thanks,
+Shenwei
+
+> It is well known that what gets merged into mainline is often different t=
+o the
+> initial out of tree version. You just need to deal with it. One option yo=
+u have is to
+> set the vendor byte to 1, so indicating NXP. If Linux uses vendor 0, it m=
+ight be
+> your out of tree vendor driver, not the in kernel driver. Just document i=
+n the
+> specification vendor 0 is reserved.
+>=20
+> You are going to have to modify your firmware anyway, level interrupts ar=
+e
+> broken. And this is an example of why quirks are needed.
+>=20
+>         Andrew
 
