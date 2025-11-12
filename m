@@ -4,60 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1B2CD4842
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E7BCD4842
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9o8NRvJdzTieC05I6sj+VphdIDRCWgXCmaEd+EQUzE=; b=2JtoafG+v9wrDGGcYEElTblzbC
-	Bk82XbAOnLQQoChCwM869A3NLXgRA4TUcU48n8bQ+ycQOe45oJhBrUuFMt0wz1DgVgx0mwqX2fOXP
-	6vKQ6sevvGUPAkBUQR5CW5vhc+KzKJqEomykeSz7ACTjWB90berKSnjsfkykCLfyEppwpJkFpCgcr
-	I9utBPKF8jYzT/42hMNDry8LN/1Yr25Y9z9E7KZAqk2lK4JnZJaSFhDScTu8CyIunZurtyQ/Z6m7M
-	HULEeufzwQJuamIBfdy+ykR1P+DrGRXLxtTcBX4K4ZwB3NHazL3ev3avRf5tbbj9buaKoM79/LoCj
-	KFgHwkBA==;
+	bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=; b=Ai98/OzX/T4mU7nQoANfGdataD
+	DignV0Xfgawtd6/vqjjYdeCxGQvE3pPWOMFEiQHljIi+SbbC5PTucDseSclGuDdKCuX3x1LU3kwDS
+	R6L+PJ8y53seGq0r1DBGzzN2D1wsYLc+UbZco5Gls6QDM5VD4wH7IzzhMMkVco9a7ArreQqdTCWSs
+	kaGZK/oSBQQ4jPFrX6NzjFQ1ZB5pRJ0vOImR713k/QNHfj0q92a+fCNv5QxFWHjR9aTHC/VezAdSq
+	LbtZe/40nnSRnCkLu8MngfYqCyUALKclTgFi1fXVfuws+o4lNJQQXoTf5AhEVndbHG6tiQPBbAgRd
+	xrJJj8cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHa0-00000009UTR-0nBs;
-	Wed, 12 Nov 2025 20:36:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vJHd3-00000009UhE-3JY2;
+	Wed, 12 Nov 2025 20:39:45 +0000
+Received: from mail-westus3azon11012034.outbound.protection.outlook.com ([40.107.209.34] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHZz-00000009UTI-0qOp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Nov 2025 20:36:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=s9o8NRvJdzTieC05I6sj+VphdIDRCWgXCmaEd+EQUzE=; b=kp57rjurHJAHd7F+xCvQZd2no/
-	zldsm/PODHXAoZPRO03KjAvh+i6TFvDrouKIddaHozeoKX6h2p6XnR40qvkW2IfcfJjSqtjOOASHE
-	pcLUkbSjzs9jrpSZ1b8HCTaxH2HZB+iIqy3JOelzm0XwDoUm+rsEL547/n1nbkk1Zdvdon9bDW7m/
-	fbDrR+VT28Mw+bAffi2/e9rYJYquUsYKCdFL34XhsCio+W3x5wyTN9hfghxd3d7PyPKLuC/rsdqJN
-	omr01SQUfqZXqu1vGLmq3jMm7SSbX5suEPyADu3Kw4ySsNlAUtR/0apBO+uhzbLc6bklHuhuBZo+/
-	5LaH1Fjg==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHZx-00000006TTz-1U22;
-	Wed, 12 Nov 2025 20:36:33 +0000
-Date: Wed, 12 Nov 2025 20:36:33 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Jinchao Wang <wangjinchao600@gmail.com>
-Cc: kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	workflows@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v8 00/27] mm/ksw: Introduce KStackWatch debugging tool
-Message-ID: <aRTv0eHfX0j8vJOW@casper.infradead.org>
-References: <20251110163634.3686676-1-wangjinchao600@gmail.com>
- <aRIh4pBs7KCDhQOp@casper.infradead.org>
- <aRLmGxKVvfl5N792@ndev>
+	id 1vJHd0-00000009UgR-1jwP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 20:39:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q2av7b2wDqQl+ezPzaqTqpPKGp/FIscilC6kC43z3aqvuJvK4qsvyjLkpdVDj+6DQlmlRHcxxzVXdfI69V6YKk+ykYeOHfYgia6JEPK1bPso2SjNQYeMdkcon9Qcb3JH6arIKzrBwXn4m2x86XqoDwoByuk/VK9vkdkclxklztWUp/UBI19epgT7zsHdQ/4j3vQ7JPdIA2AeV/s7DxHZpMqCL+B+5I5mFMtdfIrMZyuXpGP8PSRww98bTwW/NM/IZ6VQqqzizPrEPRjyrvrwAyGey//07skEBNJnXpQ3YfVOrkY/79Z0d1//BqoTdoAkIEEa/009NcXzSOH24T+aTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=;
+ b=t8cJUEllQS6B1QXH+qcJ+QrtxDGURRynFclg5w9HSmEOmR/1YzMP/9W9/kBPeI4bSIs+QHUHSXzqLNjCmhy5RrLg1QDibhbc3KOz+FBj5AcvlyDgFuQMBASznHfJBZ6ywdCXLyxPMxDzvQf7vEyoR8NbOX+8/5qxL9ncafhlBxTEtxLx3QQr5nOVEAdR32a5PO4FI0sKrZND9PJv1KaBmGEM/W4ZrsoCJDeNW/lFPkYcyEc9HN7j9tJgrXKIjKQq+G9CsjljRRjxXM9L1zcYoEril0J0TxJzx8YmNAjB9tQFS/jCkcImd5Yzz6grTz8qhflxvsoepFrEzAL3hIBvaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=;
+ b=NXJY8N3vBlfDOkO4poQJhz0rj1knvXD4OfcdLHB0j3srBg0MGFyfxORmJPSSaTWqADrg5arvXXpEYrgjep11PKaRPvQeIsRSEuFGZXMS0JmlNUlE4aTK9C85EWg0AZ8Ea/GGomKMwReVa5Hdb/3oGmYutdwbvV419I+lkmPEa1wXJQswN2hipzNGw5K8DO9KOkmHzQ7as71KnpoRsUbXql6tSUxtiGIvAIScKihCFl4hca/Y6SpRfeB1+1N3A+o/z3/gVqhpx1a9Q66HGKOGyh7rJeh6un/+0Bio/8AVQmJhoU3oZDdY95WTz2N+5pY1pmNsN+GfCJwqfwFOlVSD4g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SA1PR12MB9248.namprd12.prod.outlook.com (2603:10b6:806:3a3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
+ 2025 20:39:34 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 12 Nov 2025
+ 20:39:29 +0000
+Message-ID: <13376c0c-8a33-43bd-aa72-b696baa2932b@nvidia.com>
+Date: Wed, 12 Nov 2025 12:39:26 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/33] ACPI: Define acpi_put_table cleanup handler and
+ acpi_get_table_ret() helper
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-9-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251107123450.664001-9-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0145.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::30) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRLmGxKVvfl5N792@ndev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SA1PR12MB9248:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4545f4c-cfed-4eee-b711-08de222b93ca
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0ZOakxITmhWL1RhK2luSlpJalRYTFVUSHZ1eTNFMmpWZ0ZxbFZMeVR2L0gz?=
+ =?utf-8?B?TGtzQjV0allFVkRWSDhFQm9SdTczUHB1NkZQelF2SVYwOXpPZE5uZUxGMmxr?=
+ =?utf-8?B?ZnlUV0l5YXBiTTl0SVFMY05MMVZCNjFkMzc5bUo1QWhqRktlRWgwa3IwRWlK?=
+ =?utf-8?B?OTl0V3Q0eU96MUNjWUVnak5pS1gxalpyK1NsUjV3bVNnM2ZLcjJibjNKQ2pW?=
+ =?utf-8?B?a2VBa2pycVhzR1hFeFBuRVlqd1l3V3JSUHF2RStzdk5iMVV1cFVBZWg1cnBH?=
+ =?utf-8?B?dVdFWUpYbjREcE80bm5PWS80dkpYSHN2RGxraUc1cHdwTDV0VkdoeUpmYW4v?=
+ =?utf-8?B?WitmZHpqYWdXK0UxaXdSYzE3VnBVY3FiTVd6UFI1b1dDTHBRRmExSWpKV0xk?=
+ =?utf-8?B?OU0xU0FRa0x4YWxwbmdDT0p2REJ5Qml5Wld2b1hqQW5jR2Q3a1g2akFxbzVI?=
+ =?utf-8?B?VlZZV3dRamJFeUhFNU1lZ2xwTG5HeVJQQW83UFhUWXFhT090ak56VHVzeUZZ?=
+ =?utf-8?B?S3NDaWJ2Tkl1bHB2UDJZN29XTlA3Tis4bnhMNlNBUGxsUVBWaGVRWGN0dDZx?=
+ =?utf-8?B?OEVRWnVoTFpSVVhsUFdBcFQxbWJKbWJiRWZtZWdWc3NqQTBZV3BkemlRTlZC?=
+ =?utf-8?B?RHd0YzlyNFdFSEhUaTFnb09iTHJ4b1RBclJoNVNaQlZBL2w1TzViRk9UdWtG?=
+ =?utf-8?B?eVZvREdNdGlId0NzZ0RvenBjU1BmUnVyNzZpb3VQWHpWeW1CSmlJekZRbW1N?=
+ =?utf-8?B?RzJKY25LeGFwVzdlR2hHTzlTaXB0RDl3NTY2OFhOMWJIL3dLUGUzVW1zcFF0?=
+ =?utf-8?B?MGxZQy9Jc2VwYWV1ZStjU3RVNjdSdEtNNERSaUZoVGhDNlFTMERhVTZQRXdS?=
+ =?utf-8?B?OFduOEJZMzhVQk11SjlhZjFDNGU1VmMvMkpQTjBPYy9vdU9JNjV4UlpvUGxm?=
+ =?utf-8?B?KzBEVjFkVzJ0S0hOdmFCcjg4U0RURmxoYXF1NzZHNHNsM3I4NVA2MlpLdDRm?=
+ =?utf-8?B?dklRSWp1M3U1VVEvTUNlcEVwV040WFJyUUMzVGdwMEpNQktsV2JvUW1EQ3A1?=
+ =?utf-8?B?NEQ3aGFOVGNROWFNU0VINUFTOFVSbFZxOXg2Q2JrN25wY0pRYjFxQkd6MFdG?=
+ =?utf-8?B?UXJtbEJucHJJa3RjUjBhenVZbWIwcHZlS0g1Yi9CSHhPVVE4azlqRUxpWStz?=
+ =?utf-8?B?TTFXVzVrMFMvQmp0Ni83dlJwL3FUcy85SEp2cFlNdE5RdVd2UjFNSzFXRTR4?=
+ =?utf-8?B?KzV2Y0FEOS9YRENadC9NM0s4UjVyd0lQdE5ZSlpyWDZRVHBIWmRvOGRmdkgw?=
+ =?utf-8?B?bWIwRkhiQjJQOEQzWWUxbnphMUFublRGVmN3WXlXaW82RVNXNDcweXV5YzZa?=
+ =?utf-8?B?VEV0U3NUVk5NY2w4Tm9sMG0yT1p4Y0RVdHNLUlhsWkRyWnY2N2U1clpGUGtM?=
+ =?utf-8?B?RThobS9wSGY0WWJaODFqd1BST3hzSXlFTEJLVURGME1iSXNnZG5kZ29nYnl4?=
+ =?utf-8?B?S2F6REJxRURsTDd0b0NweGQySkFQaHhmemxuYnBpZTlKNWlVZE0rNTJZSzRY?=
+ =?utf-8?B?U1JsVTdUVXJIUXRpdHVqV3U1VTdSN0plK0t5UjkzR3NaMUtuUi9ZeVJCbldC?=
+ =?utf-8?B?Q1UzYTFQMWhMVVZEQWhwTHU1emtsT3JuYWpZMWFsSzVLMVpCeU16a2t1OTRE?=
+ =?utf-8?B?bnhzeFQrVWhwb21ibG9OZWRZNnFQd3NlUHpPazcwbk9XUUlUS1NETUFsUGFO?=
+ =?utf-8?B?YUZTYkMvYjZzR2k2dDZTcEJ0Q21CVGl4YlFlOW83QzNJcDdlSDFEaDhDL3BZ?=
+ =?utf-8?B?MFUrTlVyay9WcGE2NzIrcEpaelNPZ0dZOTNzcEh0Ky9vbUM0NzJncFNLUUVq?=
+ =?utf-8?B?dmJyS0NYajE0Y3dVR1RnK2tIOUdlZWNVOU5xa2RrSGxvSVNsWm84cHNWeVZQ?=
+ =?utf-8?Q?S/zxkcuR8PLnJddm3bln7eM0n3pkcUZs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dTd3SGM1NG9XYitoV0x1Y0Yzd3QvbkYxOHY3RTNQbjZyMlFpUzlMU1l0NVlR?=
+ =?utf-8?B?WmgrTEhWaDJnRFBpTUdUei81L2dLa0dCMXNvbTJWVGhoei9XbUROSk80Y1Jv?=
+ =?utf-8?B?S0N1QnhxK3VNSTloWUFkb2w1d3hPdk5raHVGbElQTlhPamN4VUcyeExXT0ky?=
+ =?utf-8?B?SUEzMkRWL3dpZ3RoNFh1bkxQajlRd1pySXUyT042MFhjYVIyWXc2b3hZUWc2?=
+ =?utf-8?B?OGEzRnFHVjlhb1doNDVNZWc1TlJBNDc3MGozaGVnRktjOXZvOE5PeUtmUDRT?=
+ =?utf-8?B?WjNGdDNlcFVRa29ESDRVVGdzZzFmQXJ1VXFkSzNIYkcrOTlsN0d4TGtOYmJ5?=
+ =?utf-8?B?M2JJeUN1WE40Q2xCY3V4MUNwZnBSaVhxVFJTbTZYNFdjcjBOclZDSFR5SEx1?=
+ =?utf-8?B?aGJ6aytFSzc5blludU9PR093Y20vMC9DcDgrYUxXV0ZkSFRLNTRJOC8xeTVI?=
+ =?utf-8?B?TjkxY3VsWXcxYzluc2xFakQ4THQrZkZvRTR2ZW1yeFhaaW02OW9VcDBlUlhs?=
+ =?utf-8?B?TWNxSzUrdDZEYTRJQkVZMjN5WERZNmtYZWJvUFd3RWZ2L1dBaWo0b2tTZ0Z5?=
+ =?utf-8?B?NkwyczdYaHE4R2VSdk5uK3FmbVA5NHRRUzJXdnI2ZmJhckFYYnFZOFFaOHpU?=
+ =?utf-8?B?cEsva2hUcS9NZDhOU2I1NUp3ZWZ6WlUrbE5qaW9wOEZ1cjYzaU5BOE5iQXBZ?=
+ =?utf-8?B?SFd6cHpKRzRXZVE1VHpxTk9ZVGRxZzRDZlExTXVXZHRnT2VZc2QyQ1lHaHZz?=
+ =?utf-8?B?a2EyTDNHQ0J5cHRIaEhzWnBhdW1kM0RyZUhsR0pVQ3lpZm4xOEtJMXF6d25n?=
+ =?utf-8?B?L1NHbWdyb1hkeGVmS1UrSjYxZnMvdlVjVUZ0aHRGcVZVMllrN2tCdXlrcy9x?=
+ =?utf-8?B?R2xRaHZYMjJDTXBmVmV0Y0c4K0haanJGY1puTDNQSGd4b05za2w1ZnhFbHpx?=
+ =?utf-8?B?VStwOC9HYkRsT1h4VDJUbzBjNTljVVpyeVV2ZkhpU3hWdVlwSG15dFdVcDQ4?=
+ =?utf-8?B?SDZrUEpwUC9tVTdqUzlCK3BFdG91NWl6MCtLb1dXeUZqNUIzVDVBUGpEVjRD?=
+ =?utf-8?B?Z3NnU2c4c3JKMWxxaTYwNW1kUjYxYzgzcXVtUzZ6a2lleHRISzVpTmdWMjZR?=
+ =?utf-8?B?RmFnSDFmaGQ3NDFJdG00Uzd2a3pBTmFEVzlDR3Jsd1d2Q1BlZnN0TndieTIw?=
+ =?utf-8?B?WWo4RFhJdzNvZWxDclFRQ1NiR1BOZmJ1K25qRGNnVDFqTEFTSXU1c2JDQ2wz?=
+ =?utf-8?B?WW5UMmZWWjVPSmZ5alBaS0dCT2tBYmtBTVVrbXVsMHNiYWJxQ2wydTZXU3RB?=
+ =?utf-8?B?Rkw1SHVBT1ZEZDdWSG1rWDNCT3RqUTVBUHR3bFVFdWVtZWx3aEtXc05HUnFF?=
+ =?utf-8?B?anp1bTVRSFV6NWw3eloyd2pmaVcrTjd3bGdhbll1Qzg1N01BamVMR0VFTDhV?=
+ =?utf-8?B?M0JJMkh1NFBVaElJYmxPS3k0cHBYWk11bHNzV0lCdDhvc09EQy9MRURBNXlE?=
+ =?utf-8?B?bUVoMHI2b1hBeUN5L3B5dFpGWnVNZnZ1U0Y1ZllkcFBVV2FkTjhCVEpraFZq?=
+ =?utf-8?B?OGNYOW5nRWplV2NYRHVZM3ZlYUtPV1JKTHNBNzAydHRNNmxNbFBYNmdwMFBz?=
+ =?utf-8?B?Y2lPY2ZYblo1clBuR2h1ZStIWFRDaGloQWdJYTIrT01mdWI5dWErMFZ4akVI?=
+ =?utf-8?B?RDJNNmJZc3VoMzNpZ1U1emNJSFNjVzFvMGp5YzQ2eGhRMmhIcS9EZG1RaEZo?=
+ =?utf-8?B?aHVRMHBqM2NNeC8xR2ZZYVBKZXgyZ1drTkVYemZIMVFhb2FDTVV5c0NyazV6?=
+ =?utf-8?B?aVJnNUdkaGxvMCt0d29nQUdEWVFjZXJseEJIaHdNY0grOTVpSkhnV2Z6T1FV?=
+ =?utf-8?B?ejAwK2szQS9Ga0JoVzBqSEdWUDErbVV3c05EQkl5Tm43TmwwZ1hYWEgwTFUw?=
+ =?utf-8?B?RFlQTkRsYitKMWtYQlNhemZYTTZKMWI1eVBhZWJ2UmhZQlRTMDRrbHE5Lzl2?=
+ =?utf-8?B?WExhWnlNUitSdHA0VmN6c0djMUV1NlFUWnRTMSttK1l2Y2Jma25Xc1RUODNt?=
+ =?utf-8?B?bUhYTkRJUE4zSUZnZlYxckIybGNVb3oxUEN1ZkNOSVVuZWVoaXhHdU5ES1VZ?=
+ =?utf-8?Q?xUO/4EOD5l51Oi0PinP3KGDP6?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4545f4c-cfed-4eee-b711-08de222b93ca
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 20:39:29.3953
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8+L+BX0RqHzjYlsZCbpzNcIpn9HqBn24OnLAYMSlXlUhvC9uL/IDeCrd305N4g9n2dr3GqWGx1UWXuO95PFzsA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9248
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_123942_833639_F6E22C06 
+X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,92 +188,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[dropping all the individual email addresses; leaving only the
-mailing lists]
 
-On Wed, Nov 12, 2025 at 10:14:29AM +0800, Jinchao Wang wrote:
-> On Mon, Nov 10, 2025 at 05:33:22PM +0000, Matthew Wilcox wrote:
-> > On Tue, Nov 11, 2025 at 12:35:55AM +0800, Jinchao Wang wrote:
-> > > Earlier this year, I debugged a stack corruption panic that revealed the
-> > > limitations of existing debugging tools. The bug persisted for 739 days
-> > > before being fixed (CVE-2025-22036), and my reproduction scenario
-> > > differed from the CVE report—highlighting how unpredictably these bugs
-> > > manifest.
-> > 
-> > Well, this demonstrates the dangers of keeping this problem siloed
-> > within your own exfat group.  The fix made in 1bb7ff4204b6 is wrong!
-> > It was fixed properly in 7375f22495e7 which lists its Fixes: as
-> > Linux-2.6.12-rc2, but that's simply the beginning of git history.
-> > It's actually been there since v2.4.6.4 where it's documented as simply:
-> > 
-> >       - some subtle fs/buffer.c race conditions (Andrew Morton, me)
-> > 
-> > As far as I can tell the changes made in 1bb7ff4204b6 should be
-> > reverted.
+
+On 11/7/25 04:34, Ben Horgan wrote:
+> Define a cleanup helper for use with __free to release the acpi table when
+> the pointer goes out of scope. Also, introduce the helper
+> acpi_get_table_ret() to simplify a commonly used pattern involving
+> acpi_get_table().
 > 
-> Thank you for the correction and the detailed history. I wasn't aware this
-> dated back to v2.4.6.4. I'm not part of the exfat group; I simply
-> encountered a bug that 1bb7ff4204b6 happened to resolve in my scenario.
-> The timeline actually illustrates the exact problem KStackWatch addresses:
-> a bug introduced in 2001, partially addressed in 2025, then properly fixed
-> months later. The 24-year gap suggests these silent stack corruptions are
-> extremely difficult to locate.
-
-I think that's a misdiagnosis caused by not understanding the limited
-circumstances in which the problem occurs.  To hit this problem, you
-have to have a buffer_head allocated on the stack.  That doesn't happen
-in many places:
-
-fs/buffer.c:    struct buffer_head tmp = {
-fs/direct-io.c: struct buffer_head map_bh = { 0, };
-fs/ext2/super.c:        struct buffer_head tmp_bh;
-fs/ext2/super.c:        struct buffer_head tmp_bh;
-fs/ext4/mballoc-test.c: struct buffer_head bitmap_bh;
-fs/ext4/mballoc-test.c: struct buffer_head gd_bh;
-fs/gfs2/bmap.c: struct buffer_head bh;
-fs/gfs2/bmap.c: struct buffer_head bh;
-fs/isofs/inode.c:       struct buffer_head dummy;
-fs/jfs/super.c: struct buffer_head tmp_bh;
-fs/jfs/super.c: struct buffer_head tmp_bh;
-fs/mpage.c:     struct buffer_head map_bh;
-fs/mpage.c:     struct buffer_head map_bh;
-
-It's far more common for buffer_heads to be allocated from slab and
-attached to folios.  The other necessary condition to hit this problem
-is that get_block() has to actually read the data from disk.  That's
-not normal either!  Most filesystems just fill in the metadata about
-the block and defer the actual read to when the data is wanted.  That's
-the high-performance way to do it.
-
-So our opportunity to catch this bug was highly limited by the fact that
-we just don't run the codepaths that would allow it to trigger.
-
-> > > Initially, I enabled KASAN, but the bug did not reproduce. Reviewing the
-> > > code in __blk_flush_plug(), I found it difficult to trace all logic
-> > > paths due to indirect function calls through function pointers.
-> > 
-> > So why is the solution here not simply to fix KASAN instead of this
-> > giant patch series?
+> These are first used in a subsequent commit.
 > 
-> KASAN caught 7375f22495e7 because put_bh() accessed bh->b_count after
-> wait_on_buffer() of another thread returned—the stack was invalid.
-> In 1bb7ff4204b6 and my case, corruption occurred before the victim
-> function of another thread returned. The stack remained valid to KASAN,
-> so no warning triggered. This is timing-dependent, not a KASAN deficiency.
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-I agree that it's a narrow race window, but nevertheless KASAN did catch
-it with ntfs and not with exfat.  The KASAN documentation states that
-it can catch this kind of bug:
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 
-Generic KASAN supports finding bugs in all of slab, page_alloc, vmap, vmalloc,
-stack, and global memory.
+Thanks.
 
-Software Tag-Based KASAN supports slab, page_alloc, vmalloc, and stack memory.
-
-Hardware Tag-Based KASAN supports slab, page_alloc, and non-executable vmalloc
-memory.
-
-(hm, were you using hwkasan instead of swkasan, and that's why you
-couldn't see it?)
-
+-Fenghua
 
