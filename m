@@ -4,89 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24E1CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C481CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 03:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZWws+fIBp+8PUP6tmrutIa0sWhFQjnrwwm6369ndT4=; b=wlZwzmzij1s8lPkxuTrdtBJMH5
-	LMmwzxdRpbwMjrcovTl8reMFkEOXBNKkroSVqn/hwiBTA2aTBEn7q7wdgGWuQWaqZeiEcTISNJl74
-	FpLe9jOwFw8iBriV7oor1fRysqkvxql57J2ylDOl+9wD+ok2HiPHbC+xwPOOcF6AnbVN7pvQ9nBiZ
-	WkO6+Y41K8W8MIvLy2K+24ohaZTt5O8kNihR9MqlbWBpVbaLDqbxBE4Mf6ZsZEs/ZuQxxJmkMP7AA
-	//x1UultwD3FT4/BxakOFojll2DcSxNZI93cQxseBuJc8k4xB5LZvCNm/gwvx//K8zb7fu67N3omX
-	3xVpNO0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7cQ5E/HjbHLANNGSa0Xiks5Ouj9LdjAKoH7zxdXDfIE=; b=W4e0M3ed1lBkyqO2l9+eRqJ9As
+	Ppp0mqdatwVyPtTky3ZzQYeURBnaLVDhS2tvUwZl6Y6e520Ia3CaBDASnbsJSg0To1vm9MHiZkN7A
+	ZbevF8EIRIB4x+ApZ6tE1Bmhm6H2oG9vkOCN6DPxHG6Kq6hRt/9wKrSmARBdua22afEgTSATmcxvi
+	HG+d0Q3cVlEQVm3bk0uV6+72bnA6DsIAQMcZOCRWRbSX7NYhi6cdI+OgJRw23gxKbMesby0iWtYOv
+	CqXPPvWfUCKQHyXu5EiBx21caJtyD0e6GB3QChBV6B5nRe12nrl5607EGcXJYnLtvOoURGVdbFrw+
+	V/ZMWWbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ18r-000000083Cq-06Oi;
-	Wed, 12 Nov 2025 03:03:29 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1vJ1nd-000000084eJ-3lJm;
+	Wed, 12 Nov 2025 03:45:37 +0000
+Received: from mail-japaneastazon11023122.outbound.protection.outlook.com ([52.101.127.122] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ18l-000000083C7-11nV
+	id 1vJ1nb-000000084do-1iDj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 03:03:27 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251112030316epoutp039dc56bbe93ac92b7ebaf0f2c844626b1~3I03TaEoB0558405584epoutp03H
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 03:03:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251112030316epoutp039dc56bbe93ac92b7ebaf0f2c844626b1~3I03TaEoB0558405584epoutp03H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1762916596;
-	bh=wZWws+fIBp+8PUP6tmrutIa0sWhFQjnrwwm6369ndT4=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=f4vbFE/fEybqSTzTEG/CwpBGc8s78tHf/tyiCXT8RV932R+byWDmew2gIFUJmPuFV
-	 s+7FkhnZSRewt/qK15fjDgaWZEN2Ox5It922ujCiDwmAhOCFUBKlxoNQXNnkLs8U8t
-	 IdrwAaLTxOLNmU8tKsEED8ynMv3IFn/hGhzFCZjE=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251112030315epcas2p1982cfce34da8bf2aca9203fdfbe5dbbc~3I02yJO4E2083120831epcas2p1Q;
-	Wed, 12 Nov 2025 03:03:15 +0000 (GMT)
-Received: from epcas2p3.samsung.com (unknown [182.195.38.203]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4d5pBC2vPKz3hhTC; Wed, 12 Nov
-	2025 03:03:15 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251112030314epcas2p1310eb02cf25788eafc5165541ed77063~3I017jHwb2083120831epcas2p1J;
-	Wed, 12 Nov 2025 03:03:14 +0000 (GMT)
-Received: from KORCO180968 (unknown [12.80.207.170]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251112030314epsmtip2252084f69954c4044b7444d64956a445~3I011vSbr0649406494epsmtip2E;
-	Wed, 12 Nov 2025 03:03:14 +0000 (GMT)
-From: <hy_fifty.lee@samsung.com>
-To: "'Inki Dae'" <daeinki@gmail.com>
-Cc: "'Seung-Woo Kim'" <sw0312.kim@samsung.com>, "'Kyungmin Park'"
-	<kyungmin.park@samsung.com>, "'David Airlie'" <airlied@gmail.com>, "'Simona
- Vetter'" <simona@ffwll.ch>, "'Krzysztof Kozlowski'" <krzk@kernel.org>,
-	"'Alim	Akhtar'" <alim.akhtar@samsung.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <CAAQKjZNCpK4rq6DFUtiQ2rxCeb_34Mp54quVto+9LRJMH3=ZhQ@mail.gmail.com>
-Subject: RE: [PATCH 2/3] drm/exynos: Convert to drmm_mode_config_init() and
- drop manual cleanup
-Date: Wed, 12 Nov 2025 12:03:14 +0900
-Message-ID: <000101dc5380$e33e1c10$a9ba5430$@samsung.com>
-MIME-Version: 1.0
+	Wed, 12 Nov 2025 03:45:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HSa7JJAI13j67PDi4Y+ds+C3ZB1Q4s24ATCfog90xMKqAj7uhHOh3t5rSKJlxQioa+MvxMn8sAqJ/OMSt4XQKBBOk2hajAtgtPhDPOaEiOIDZD53/EGwlC6WmFLmIn2VSc57LK5H5lLXfpPKFBY+M+57po7ZNSlFT0x1nlpllxrvlKD7gI346HGmnkPoIJOAZA20BhiqPsPHtAOaM8iimSIuftRUrkX8MCnECgQPcGl+plC821QxIDupXhM1wp4imEA6tgNHvD45GuuiYg5Fr7K06RD3M9oC/5k/zk6fQjo/lmKf30x+EmIBStJWJtscOHpKaaZD7NZm6UcKOf2nkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7cQ5E/HjbHLANNGSa0Xiks5Ouj9LdjAKoH7zxdXDfIE=;
+ b=Q2+XiVIyZwirSj9gz5pc67fxrdsFgS04xmnTsiLbcWbQwB5l/wzqrnVy5e4argb4+slqqZG/fgIn00zZcZJYXBqc2eGYmYExNQh3+kGiPcpQZJeMf1wsdfunzWvOID8B60y2bDSseH8I66iwbhgqmgkQsLKWCANHcAidD2kXURz70EULk4V8rEE5RsfweBpVX663Rp6DQl1zjnsuhmFrzseNFLJIv/4cl+/MMU/crkUyyEukDB7UXSBv5SOVEGaTlB/pyxSZe0uPlBFCjgttzmGlq3taVpXCegBIKF0eVmQb5gvaggiMiJkGuFLIlIpwTHo50Tfus4+nXkQ/vVuoxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7cQ5E/HjbHLANNGSa0Xiks5Ouj9LdjAKoH7zxdXDfIE=;
+ b=LF4ZfE/O2wGTxS4GtiVn3Amub3NuFLNjxOJhvBybsXwHk9BHmMxFuPL5YIy1+Qcm5Vl8qZrEPVjLcns32lSGzv8PBJnSojKdj0ufD8w+UTHP697JX5o/DaQ2D2igHauLNm6QtCGo2mesq3P6GwS2FlBZifBOZipJeQtInDLmQnshmcN91CvZdrPGmX1gvmVd+apfeWWfn/nD7N6db/2rW0xYt6X3YSg88u9eUnJ4yJMNOlX09prrV+KRrEr2VwdJFSFS1LEAR2zf+nzWuJoanoPTDTn0Fm29LyQ6UDgSfu1QdYZX1m4vxc0OFgvLz4/DiKxtn977I/856UNq0cmmdw==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SEZPR06MB6088.apcprd06.prod.outlook.com (2603:1096:101:ef::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
+ 2025 03:45:23 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 03:45:23 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support for
+ AST2600
+Thread-Topic: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Thread-Index: AQHcUjKRp/5wUPPeG0Wo2Pz9fS4A+7TsCtCAgAJeVpA=
+Date: Wed, 12 Nov 2025 03:45:23 +0000
+Message-ID: <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
+ <20251110-rgmii_delay_2600-v4-4-5cad32c766f7@aspeedtech.com>
+ <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
+In-Reply-To: <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEZPR06MB6088:EE_
+x-ms-office365-filtering-correlation-id: 8f473c3a-84dc-43ea-d427-08de219de8dc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?8Je+0FVGvFLMRbHkMqPwmglCztHUb0Y2iZy8osQ215PwESZ4YuwyB3BhZ8jC?=
+ =?us-ascii?Q?TqPvJll/W45H/HbE86gEnYHV8CrJ8i//EqUoBVJF5sn046q/y9UDSHc55E25?=
+ =?us-ascii?Q?gEiikIZanKuo84ziADp2PAV3xX5HnoOzZJn4gpXTJULmAiAScUpGFCfVLmjj?=
+ =?us-ascii?Q?0O/tBPAtZK6n3iFYcZK2FbVnPYke5XZvlRU8k4WCDe3ojV8+2z7dnulK+cVm?=
+ =?us-ascii?Q?VibT+ruuPCPKVxjjS0WCqNo6Pi3LM2Tce6M+EpMZy7vI7/gzRXsZ3R6UjNmI?=
+ =?us-ascii?Q?x1SMsdhUMsOl7Ibs/yM7bEwMk7ELBjJM2jBkQC5YMPlShQYyhvw+ZoSgAme7?=
+ =?us-ascii?Q?4GrRvoK7nvAl38CivaOTd1B9xjsGLL5P5q9cu9q93OJlMmanmbUpILfpdrnZ?=
+ =?us-ascii?Q?Olt46vDwst7CcvO6eTYHUWR1gFkfSbwtugAz993XZTloMwgpm9eD/hFPIMxq?=
+ =?us-ascii?Q?4VN02bOzqXR+J3cDWWoKQyYbeY+6cG5OMa4wdtzzfIZKwHDev1/9DcAQEQvw?=
+ =?us-ascii?Q?jzO8/vhTwjUyhqvvwmfbDTm7McCrjSpEt5TnLetg15Z2tgcJTLZnwgXMKcPa?=
+ =?us-ascii?Q?bav8Rlvo/5gaBgRwz4q56Dq2HGziA2dr8h+4vtG7O5X8gb9E8LKzFXeOGUmq?=
+ =?us-ascii?Q?Q7+AgwF6kuQlPVGg20EhxxU9QGUpNInbI+889fXRhJi2iIpbVUw+hBnS2v/8?=
+ =?us-ascii?Q?GB1bt6DJEplvjUPNR1JGCzUmdEz4SbqOuKHH7hkKnSggzq541OlZaX4VsKWi?=
+ =?us-ascii?Q?CLvOhGCLBrb0CfTQuBhAHPQHfXRv9AIc6tOhfJBiRjajcs8ppLU207v+iDLv?=
+ =?us-ascii?Q?1zeLSAFFTT5BynSn1r49dtlGlqkcSY00rbvExAWHbsaFrKgGYDV0ChzupSpw?=
+ =?us-ascii?Q?5IeIVR6mXFtafp4OWbkyBq0HIkK4iuQ14QHExlDHODhXZGzvsGzBLw0bf4LS?=
+ =?us-ascii?Q?+yDjlSf11Y8MfM8Gtz1ro+lUfLFwb6CFukKeonqk2ANoGK2y1+8FXQr6Hf/i?=
+ =?us-ascii?Q?/XIXL4ZqLJYajLQHxKAt0bJAsIhNja0d5bXUoyJDrcgELkrmFa5yUp8wjy+X?=
+ =?us-ascii?Q?HyiAaPDvJtyHU582JNjjVIKD7ieOJQc9FOxoTHD3sQ/v87EOfuuTJGAUp1ib?=
+ =?us-ascii?Q?o8zAHwNtTUIAO354s/kAuUMQMdmZe2yAI0yhYUNM8W/q+Lm3sncvWU42scyw?=
+ =?us-ascii?Q?AhTJU6SulMkMNA6VisHz+ft86+ZWy3sFhb/pVifnioxDuIEhYODZofs81I6R?=
+ =?us-ascii?Q?I/Nb6tyy6SvfhNxw1yD1t7XqIIgnv0F1GUW8Z66zmVc4fN2xyRefTs2S0OV/?=
+ =?us-ascii?Q?0uwBgqS8Fu1BI2onqA+HDn3jzoiFyeNZUGUxYhTUk5t7S9RBEgpfpS6ZQfDr?=
+ =?us-ascii?Q?nqfGhXJXluoVMj5tGV+aO58c1qCdeZvWKjp4A7lRl2JPxOZ5qrTFaBG8KSM2?=
+ =?us-ascii?Q?T3TnFetbmeR80HMOdOVbB577ammlrpG4o/BjPdhs916VMQL5lUVy3FlQpjLe?=
+ =?us-ascii?Q?yWmwtrPUwSDShGO37r1rN11REdxP3EQwCJjU?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?BXe9MwUTkPdqAUb46W8e4cXxcpo5YucZCiEL/lHG7n+7BhURvKfCTjQAOM1J?=
+ =?us-ascii?Q?f/nSR6zjNWniLa4fcHyFjPBEcba8ERCbcOwv7L/Lk4nTlwalBumUaMnUmUK5?=
+ =?us-ascii?Q?0oFHYkG4pUKEwsJmqtpj7qL2wp5HR1/zSQOxbi312ZsqeiDae+5MGC/DwMer?=
+ =?us-ascii?Q?fMTWMeYteWLLN22kOD1/PyKymvXTgkYqWZIQhdhi++euGWDNo+3ZkLPKO9eV?=
+ =?us-ascii?Q?cwEBRnQ/Z1I+hxGtzNGN3w0pVVP2wr6eaidSjyg+Jer+pWwvOMGg7y07Co12?=
+ =?us-ascii?Q?8Q82axi4sCshEwUa36eDK9J55q3ZVXj51Z7o24XEDtFxvjbLQ2FMxnUqDpNl?=
+ =?us-ascii?Q?kRbqZeE2WOPe0/He2mu4Bt8VC9OefD6yICVLodikG+0oASXnPPdN5KHN0fKS?=
+ =?us-ascii?Q?imlg7mxc7jDx5MkzAv37E95VkydaF5k9d29viP79PPLS1cp4nj6CaCdnn7Ap?=
+ =?us-ascii?Q?L9tiQrlrPbJyc8wy2mMLmkKIkoaArE+slP3PuZphRuDpRVe98fL3AHwRsn8n?=
+ =?us-ascii?Q?r9E66Uzv2J3HiqdQk+5pd8lOihV7KBAYuUWxd2fyUa80NT+ZwX/dgWU8Mja7?=
+ =?us-ascii?Q?ePV26bSBEiwvsQPNn9LILa3Ari7sWZMXFgUhVcYsoRLJc1xDZIKrKKC7yWh7?=
+ =?us-ascii?Q?uLB7SvB/B3G64zfcZPFZUccFL9NWKjauNDczzzcuTHmKlB/e3uiAbygOjoQb?=
+ =?us-ascii?Q?7fALs4dYIOzQhkjE3VfNLmk64LRqjqZNfbcdFUwYeFmAp+6Cx4boqOZNg8/p?=
+ =?us-ascii?Q?s5jS7bcBoMCCHm47d1xTYpA9nnFa/NbMUxPquKnl/q3gINXDFknpQgkcdv8Z?=
+ =?us-ascii?Q?9DSI3xxwsngYGb6r/cvsiLtrwvcMzhIqborO9QFzHViNol2umOAyHCo2OTYB?=
+ =?us-ascii?Q?W9tQF1fYvNqmxEWsyKIpjlIxrU64ItLfdajleXhJSO4NemKGtNIB8zXR4uQN?=
+ =?us-ascii?Q?15prZeF/nfuYOvKxcsnTcfbB8p1iN6uXeWP2vcKDz3J5UR0qwfE7yRpnIMtL?=
+ =?us-ascii?Q?VzobaNMA9Zs060U3TGNa1GsYUt2xcdnToGcswrfQOTOMJ2diPwqbxCrUSRPI?=
+ =?us-ascii?Q?QVGhwfoi++agGLp3DUqJkWic+QM/PipIgOwfGHVMMtTZqBAysgXkBxQEF3pL?=
+ =?us-ascii?Q?4eqmGuE0nvOf5PKYzUWB811mghjWUKTF3h0Mwee/kqcp2FPcbPy8tKskmV42?=
+ =?us-ascii?Q?/NyJHU1CJjviSCRHQeIKmbx94f69ZJXAhfiq4lv4MkAT0iLRHeCUGv1vVqgc?=
+ =?us-ascii?Q?dFBS9mNyCuNmR2WDV4A1XWeiF3CYGgKXD88NyLDY1JwU5ayoFpa+qiyqTUhN?=
+ =?us-ascii?Q?qLiYYRa5+NuUk0ajHDhndx1OdyrOo9ZobWHQy30hrfj9svKkiRk2pPvm94P3?=
+ =?us-ascii?Q?skPR3WpsDh7BGDF+w0gWQN10QQUGXVLUE7mfhDzd6tIESqSXtpi5sJLM9Wji?=
+ =?us-ascii?Q?7T4aWwwfnXlWjg4Eh3jXDYNxKjoTxcJYemG79a8fcxKeDtaRFtQ6x3kXcA3S?=
+ =?us-ascii?Q?IGlYJI66DONzwxOm4VJ5bIH2XnTe/d9U044D3i/cSemk3APPBfsuOcP2lFS5?=
+ =?us-ascii?Q?cDM+JT+LpAM8N0EWMLw/qCb7K0sFk1NspuIcJArB?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQISjSe4EPKM2z52xGofwApISJwl9QDk05gtAfIIk1QBrzY+fbRa/MNw
-Content-Language: ko
-X-CMS-MailID: 20251112030314epcas2p1310eb02cf25788eafc5165541ed77063
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7
-References: <CGME20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7@epcas2p2.samsung.com>
-	<20250929043110.3631025-1-hy_fifty.lee@samsung.com>
-	<20250929043110.3631025-3-hy_fifty.lee@samsung.com>
-	<CAAQKjZNCpK4rq6DFUtiQ2rxCeb_34Mp54quVto+9LRJMH3=ZhQ@mail.gmail.com>
+MIME-Version: 1.0
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f473c3a-84dc-43ea-d427-08de219de8dc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2025 03:45:23.2984
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kNl4FaijuCtWz1GzwmzK0WDM+2Gr8JW6vHJiKLFEiQMP7OOjGlqmhEyA6CTBb5C8wdgUDPmAL/uNUfwihnGTmAHuZ0vZcHUr2fBd9jE7gg8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251111_190325_534986_95FADF29 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251111_194535_755301_05E32772 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,89 +174,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Inki Dae <daeinki=40gmail.com>
-> Sent: Monday, November 10, 2025 2:22 PM
-> To: Hoyoung Lee <hy_fifty.lee=40samsung.com>
-> Cc: Seung-Woo Kim <sw0312.kim=40samsung.com>; Kyungmin Park
-> <kyungmin.park=40samsung.com>; David Airlie <airlied=40gmail.com>; Simona
-> Vetter <simona=40ffwll.ch>; Krzysztof Kozlowski <krzk=40kernel.org>; Alim
-> Akhtar <alim.akhtar=40samsung.com>; dri-devel=40lists.freedesktop.org; li=
-nux-
-> arm-kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org; li=
-nux-
-> kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH 2/3=5D drm/exynos: Convert to drmm_mode_config_init=
-()
-> and drop manual cleanup
+Hi Andrew,
+
+Thank you for your reply.
+
+> > +	/* Add a warning to notify the existed dts based on AST2600. It is
+> > +	 * recommended to update the dts to add the rx/tx-internal-delay-ps t=
+o
+> > +	 * specify the RGMII delay and we recommend using the "rgmii-id" for
+> > +	 * phy-mode property to tell the PHY enables TX/RX internal delay and
+> > +	 * add the corresponding rx/tx-internal-delay-ps properties.
+> > +	 */
 >=20
-> 2025=EB=85=84=209=EC=9B=94=2029=EC=9D=BC=20(=EC=9B=94)=20=EC=98=A4=ED=9B=
-=84=201:54,=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=EB=8B=98=EC=9D=
-=B4=20=EC=9E=91=0D=0A>=20=EC=84=B1:=0D=0A>=20>=0D=0A>=20>=20Switch=20mode-c=
-onfig=20initialization=20to=20drmm_mode_config_init()=20so=20that=0D=0A>=20=
->=20the=20lifetime=20is=20tied=20to=20drm_device.=20Remove=20explicit=0D=0A=
->=20>=20drm_mode_config_cleanup()=20from=20error=20and=20unbind=20paths=20s=
-ince=20cleanup=20is=0D=0A>=20now=20managed=20by=20DRM.=0D=0A>=20>=0D=0A>=20=
->=20No=20functional=20change=20intended.=0D=0A>=20>=0D=0A>=20>=20Signed-off=
--by:=20Hoyoung=20Lee=20<hy_fifty.lee=40samsung.com>=0D=0A>=20>=20---=0D=0A>=
-=20>=20=20drivers/gpu/drm/exynos/exynos_drm_drv.c=20=7C=204=20+---=0D=0A>=
-=20>=20=201=20file=20changed,=201=20insertion(+),=203=20deletions(-)=0D=0A>=
-=20>=0D=0A>=20>=20diff=20--git=20a/drivers/gpu/drm/exynos/exynos_drm_drv.c=
-=0D=0A>=20>=20b/drivers/gpu/drm/exynos/exynos_drm_drv.c=0D=0A>=20>=20index=
-=206cc7bf77bcac..1aea71778ab1=20100644=0D=0A>=20>=20---=20a/drivers/gpu/drm=
-/exynos/exynos_drm_drv.c=0D=0A>=20>=20+++=20b/drivers/gpu/drm/exynos/exynos=
-_drm_drv.c=0D=0A>=20>=20=40=40=20-257,7=20+257,7=20=40=40=20static=20int=20=
-exynos_drm_bind(struct=20device=20*dev)=0D=0A>=20>=20=20=20=20=20=20=20=20=
-=20dev_set_drvdata(dev,=20drm);=0D=0A>=20>=20=20=20=20=20=20=20=20=20drm->d=
-ev_private=20=3D=20(void=20*)private;=0D=0A>=20>=0D=0A>=20>=20-=20=20=20=20=
-=20=20=20drm_mode_config_init(drm);=0D=0A>=20>=20+=20=20=20=20=20=20=20drmm=
-_mode_config_init(drm);=0D=0A>=20>=0D=0A>=20>=20=20=20=20=20=20=20=20=20exy=
-nos_drm_mode_config_init(drm);=0D=0A>=20>=0D=0A>=20>=20=40=40=20-297,7=20+2=
-97,6=20=40=40=20static=20int=20exynos_drm_bind(struct=20device=20*dev)=0D=
-=0A>=20>=20=20err_unbind_all:=0D=0A>=20>=20=20=20=20=20=20=20=20=20componen=
-t_unbind_all(drm->dev,=20drm);=0D=0A>=20>=20=20err_mode_config_cleanup:=0D=
-=0A>=20>=20-=20=20=20=20=20=20=20drm_mode_config_cleanup(drm);=0D=0A>=20=0D=
-=0A>=20In=20the=20current=20implementation,=20there=20is=20a=20potential=20=
-dereference=20issue=0D=0A>=20because=20the=20private=20object=20may=20be=20=
-freed=20before=20to_dma_dev(dev)=20is=20called.=0D=0A>=20When=20drmm_mode_c=
-onfig_init()=20is=20invoked,=20it=20registers=0D=0A>=20drm_mode_config_clea=
-nup()=20as=20a=20managed=20action.=20This=20means=20that=20the=20cleanup=0D=
-=0A>=20function=20will=20be=20automatically=20executed=20later=20when=0D=0A=
->=20drm_dev_put()=20is=20called.=0D=0A>=20=0D=0A>=20The=20problem=20arises=
-=20when=20drm_dev_put()=20is=20called=20without=20explicitly=0D=0A>=20invok=
-ing=20drm_mode_config_cleanup()=20first,=20as=20in=20the=20original=20code.=
-=20In=20that=0D=0A>=20case,=20the=20managed=20cleanup=20is=20performed=20la=
-ter,=20which=20allows=0D=0A>=20to_dma_dev(dev)=20to=20be=20called=20after=
-=20the=20private=20object=20has=20already=20been=0D=0A>=20released.=0D=0A>=
-=20=0D=0A>=20For=20reference,=20the=20following=20sequence=20may=20occur=20=
-internally=20when=0D=0A>=20drm_mode_config_cleanup()=20is=20executed:=0D=0A=
->=201.=20drm_mode_config_cleanup()=20is=20called.=0D=0A>=202.=20During=20th=
-e=20cleanup=20of=20FBs,=20planes,=20CRTCs,=20encoders,=20and=20connectors,=
-=0D=0A>=20framebuffers=20or=20GEM=20objects=20may=20be=20released.=0D=0A>=
-=203.=20At=20this=20point,=20Exynos-specific=20code=20could=20invoke=20to_d=
-ma_dev(dev).=0D=0A>=20=0D=0A>=20Therefore,=20the=20private=20object=20must=
-=20remain=20valid=20until=0D=0A>=20drm_mode_config_cleanup()=20completes.=
-=0D=0A>=20It=20would=20be=20safer=20to=20adjust=20the=20code=20so=20that=20=
-kfree(private)=20is=20performed=0D=0A>=20after=20drm_dev_put(drm)=20to=20en=
-sure=20the=20private=20data=20remains=20available=20during=0D=0A>=20cleanup=
-.=0D=0A>=20=0D=0A>=20Thanks,=0D=0A>=20Inki=20Dae=0D=0A>=20=0D=0A>=20>=20=20=
-=20=20=20=20=20=20=20exynos_drm_cleanup_dma(drm);=0D=0A>=20>=20=20=20=20=20=
-=20=20=20=20kfree(private);=0D=0A>=20>=20=20=20=20=20=20=20=20=20dev_set_dr=
-vdata(dev,=20NULL);=0D=0A>=20>=20=40=40=20-317,7=20+316,6=20=40=40=20static=
-=20void=20exynos_drm_unbind(struct=20device=20*dev)=0D=0A>=20>=20=20=20=20=
-=20=20=20=20=20drm_atomic_helper_shutdown(drm);=0D=0A>=20>=0D=0A>=20>=20=20=
-=20=20=20=20=20=20=20component_unbind_all(drm->dev,=20drm);=0D=0A>=20>=20-=
-=20=20=20=20=20=20=20drm_mode_config_cleanup(drm);=0D=0A>=20=0D=0A>=20Ditto=
-.=0D=0A>=20=0D=0A>=20>=20=20=20=20=20=20=20=20=20exynos_drm_cleanup_dma(drm=
-);=0D=0A>=20>=0D=0A>=20>=20=20=20=20=20=20=20=20=20kfree(drm->dev_private);=
-=0D=0A>=20>=20--=0D=0A>=20>=202.34.1=0D=0A>=20>=0D=0A>=20>=0D=0A=0D=0AHi,=
-=20Inki=0D=0AThanks=20for=20the=20review=20and=20for=20pointing=20out=20the=
-=20to_dma_dev()=20path=0D=0A=0D=0AIf=20I=20understand=20you=20correctly,=20=
-fine=20with=20using=20DRMM,=20but=20kfree(priv)=20should=20occur=20after=20=
-drm_dev_put(drm)=0D=0AThat=20would=20mean=20releasing=20the=20drm_device=20=
-first=20and=20freeing=20dev_private=20afterwards.=0D=0AOf=20course,=20we=20=
-will=20also=20need=20to=20adjust=20the=20probe()=20error-unwind=20(err_free=
-)=20order=20accordingly.=0D=0ADo=20you=20anticipate=20any=20side=20effects=
-=20from=20this=20ordering=20change?=20I=E2=80=99d=20appreciate=20your=20tho=
-ughts.=0D=0A=0D=0ABRs,=0D=0AHoyoung=20Lee=0D=0A=0D=0A
+> I would not say that exactly. Normally you don't need rx/tx-internal-dela=
+y-ps. It
+> is only requires for badly designed boards where the designer did not cor=
+rectly
+> balance the line lengths.  So i would word this such that it is recommend=
+ed to
+> use "rgmii-id", and if necessary, add small "rx/tx-internal-delay-ps" val=
+ues.
+>=20
+
+Agreed.
+I will update this comment in next version.
+
+> > +	scu =3D syscon_regmap_lookup_by_phandle(np, "aspeed,scu");
+> > +	if (IS_ERR(scu)) {
+> > +		dev_err(dev, "failed to get aspeed,scu");
+> > +		return PTR_ERR(scu);
+> > +	}
+>=20
+> This is an optional property. If it does not exist, you have an old DT bl=
+ob. It is
+> not an error. So you need to do different things depending on what the er=
+ror
+> code is. If it does not exist, just return 0 and leave the hardware alone=
+. If it is
+> some other error report it, and abort the probe.
+>=20
+
+Based on this for next version, I want to move the "aspeed,scu" from dtsi t=
+o dts.
+Change it to optional and accord it whether existed to decide it is old or =
+new DT=20
+blob.
+
+Thanks,
+Jacky
+
 
