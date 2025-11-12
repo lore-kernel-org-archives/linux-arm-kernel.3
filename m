@@ -4,86 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A947CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A658CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTnbgSuE6RgEYpYQF2xhT+pvJdvD6WChCNxRoxD+Pr4=; b=ghp4jjlPTvBeSX5z7fUoomCfx7
-	kTX0s/vJnegG2gOW/4hyrvwgNqQkUtxmuy0mBLCHzXuxxLIne770EQrF8nAq4w0IphiQBeo/3zC55
-	5jrDYiNo18rY1BMuZDRKqThvEa8wU9E9xrkFYO550DUoWiZk28grbLbPUxcuk99Q0Zqir2uJgT+EN
-	1EX7hzlNY7LetVl+hgeCk6FXRWKYRBQ8xCQl80Y2fEhf0QK0USL1jCyR0wUHCdqk+8iEd4puujbYT
-	tWk2Nx5UGhIvf1wmHWX1gnzOuwh2EVBfIW00K+MhXk3QkBoet+oqO0GyOXhYRKnPSfUnm3LwP+ZkJ
-	3gbalm0Q==;
+	bh=M5BgvMB1iTqZ1gkecXnCRQnWlWuO/DiKcCpFZzMdeTI=; b=4cgBV5zfXSRwcC54RdzLJVZn8C
+	EAsECupzRMItWYm9ov35JeE4LDcfH8+fKwvyPEriawxwDnIWIynBKYIvy349IT4kOOJH54sYvME+k
+	9O2aVwx1oB5idozDsSEbSkGCk3UuR3wZ1PIFwLkhXJV4hPeiceWPp6AwRTKp16mW9Ze3Ys9M5MdYT
+	XxBVnzhHVnvYCSJTRuC+X8USW4zlXEPbhwLFD8WMDE8HmhTyRoHjZlSWjNDQmhx+F7h5wY/0OKap0
+	qP68EFjBXuIaNaPLh22XQasoct+i50iAkKEWqcQs/6kw2EcPLtVVBY4UzMQul2I4Ks16r+NpnEnmW
+	eTf+1zbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ68c-00000008KhR-4BXC;
-	Wed, 12 Nov 2025 08:23:35 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vJ69B-00000008KlK-1Ri6;
+	Wed, 12 Nov 2025 08:24:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ68a-00000008Kh3-2rT2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:23:34 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 58F7FC0F55A;
-	Wed, 12 Nov 2025 08:23:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E7F976070B;
-	Wed, 12 Nov 2025 08:23:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3728B1037196F;
-	Wed, 12 Nov 2025 09:23:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1762935807; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=rTnbgSuE6RgEYpYQF2xhT+pvJdvD6WChCNxRoxD+Pr4=;
-	b=g3Mg4xdXi7Vo0r1FgrG9Rjot6Ej08ydVfBPOwi8fdXDBWr5eT9S6lnTvA26SsxaTHQ9gx4
-	BFaeeJOaIuWS80K+dWG1DJtjToCM74e59oy4iMKORNxT5ehTm7Aw9jIW0q9OjQ9292A7Ki
-	Pl4MUmnLn79fRrj9sFOmIkberIWtNCbPlj/sdUydxvgUsd4/XwUV0H7E6dX/B/6Wo104bM
-	io/Vmu5l+cCK2zU8bMrnt2Dk6RgfCqQLBohwNnbyt4blColBHfqaVsWwmnjjzL1MpUdx3f
-	qyVc/l0tHLVm+gq7dX2oL4rdXTWFHjYKftqfCgZms2gUK2eK9bvvnK5rb734Dg==
-Message-ID: <33bad77f-8468-4e4a-a60d-adf9e1145816@bootlin.com>
-Date: Wed, 12 Nov 2025 09:23:21 +0100
+	id 1vJ699-00000008Kkr-1win;
+	Wed, 12 Nov 2025 08:24:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ACBD443E14;
+	Wed, 12 Nov 2025 08:24:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 381D5C116B1;
+	Wed, 12 Nov 2025 08:24:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762935846;
+	bh=nPgIElCsbpJYasIzjMJOq1v5dfPCNLHDI/7LeLitaKo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NPlPq+RM0G7b72mCTTTtcouVS4XBtI33J8V715Lf4rY7WBJPYTlKN/gXhiIK8tfr0
+	 HfJoQUONE9Jhe65mDcTIJcXMunEVq/erqEbRui/nwWfvQyJOR1ci8zYuJ5UmJTfWNc
+	 1829z/qQewKmdDoxxwyh+OFtvkv8qUjZF2AHwWnOifG5bNRDtfRhphe3TfNS88B1a/
+	 sUiIVOmTcMJdJ3kQzKe3OLarcbZJemcs3kEhP84ts8lzGmD1GtsdfTGjij0Dp+jyNX
+	 7Z65OThEjRjA4yOu6stsirYiJaCMDRbKtn8bA37mBUSG0QwHVkfIJmbkVR4dTckhgY
+	 e7Y1/DTRjsmpg==
+Message-ID: <88893633-ca4f-42d2-8d69-7f065ea34bf0@kernel.org>
+Date: Wed, 12 Nov 2025 09:24:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v15 03/15] net: phy: Introduce PHY ports
- representation
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
- <20251106094742.2104099-4-maxime.chevallier@bootlin.com>
- <fc89e17f-c6f5-4a84-8780-737969ed2e22@lunn.ch>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [RESEND PATCH v7 4/5] dt-bindings: clock: rockchip: Add RK3506
+ clock and reset unit
+To: Elaine Zhang <zhangqing@rock-chips.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, heiko@sntech.de, robh@kernel.org, p.zabel@pengutronix.de,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, finley.xiao@rock-chips.com,
+ sugar.zhang@rock-chips.com
+References: <20251112022111.3828521-1-zhangqing@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <fc89e17f-c6f5-4a84-8780-737969ed2e22@lunn.ch>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251112022111.3828521-1-zhangqing@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_002332_895935_13519AF4 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20251112_002407_549474_B1B7D651 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +121,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/11/2025 04:53, Andrew Lunn wrote:
->> +/**
->> + * phy_caps_medium_get_supported() - Returns linkmodes supported on a given medium
->> + * @supported: After this call, contains all possible linkmodes on a given medium,
->> + *	       and with the given number of lanes, or less.
+On 12/11/2025 03:21, Elaine Zhang wrote:
+> From: Finley Xiao <finley.xiao@rock-chips.com>
 > 
-> lanes -> pairs?
-
-indeed :(
-
+> Add device tree bindings for clock and reset unit on RK3506 SoC.
+> Add clock and reset IDs for RK3506 SoC.
 > 
->> +	/* The PHY driver might have added, removed or set medium/lanes info,
->> +	 * so update the port supported accordingly.
-> 
-> lanes -> pairs?
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 
-yes true :(
-> 
->> +struct phy_port *phy_of_parse_port(struct device_node *dn)
->> +{
->> +	struct fwnode_handle *fwnode = of_fwnode_handle(dn);
->> +	enum ethtool_link_medium medium;
->> +	struct phy_port *port;
->> +	const char *med_str;
->> +	u32 pairs = 0, mediums = 0;
->> +	int ret;
->> +
->> +	ret = fwnode_property_read_u32(fwnode, "pairs", &pairs);
->> +	if (ret)
->> +		return ERR_PTR(ret);
->> +
-> 
-> I think this needs to come later. It is not critical now, but when we
-> come to add other medium, it will need moving. If we add say -K, and
-> need lanes, we don't want to error out here because pairs is missing.
 
-Ack, I'll relax the check
+You just again ignored Conor's feedback and resent only this, so his
+questions are buried in the archives.
 
-> 
->> +	ret = fwnode_property_read_string(fwnode, "media", &med_str);
->> +	if (ret)
->> +		return ERR_PTR(ret);
->> +
->> +	medium = ethtool_str_to_medium(med_str);
->> +	if (medium == ETHTOOL_LINK_MEDIUM_NONE)
->> +		return ERR_PTR(-EINVAL);
-> 
->> +	if (pairs && medium != ETHTOOL_LINK_MEDIUM_BASET) {
->> +		pr_err("pairs property is only compatible with BaseT medium\n");
->> +		return ERR_PTR(-EINVAL);
->> +	}
-> 
-> This i think needs changing, if medium == ETHTOOL_LINK_MEDIUM_BASET
-> then get pairs, and validate it. I would probably also test it is 1,
-> 2, or 4.
+NAK
 
-That's fine by me :) I'll update the binding as well then, as having 3
-pairs will never be correct.
-
-Thanks a lot for looking at this !
-
-Maxime
-
-> 
-> 	Andrew
-
+Best regards,
+Krzysztof
 
