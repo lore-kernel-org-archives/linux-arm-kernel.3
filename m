@@ -4,68 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789C6CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 13:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F526CCF9F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 13:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ej+aGJgyz3wx3ho72iG1/faySqIeeZYS2pWVO1HuFFE=; b=s1heOSsqmmvz714J8t7+z/x/io
-	0d/hSJ7BQY5PwsdJ9PpmheNqwJW+5RHV3D85GNdXqsEsFA6occJUpJkBHAA73WWRILHuyOTM4kxEJ
-	EbrYm8J0rZMQOSuPopbqVd34KYiV3I38F3zrj4pqASrGRMYZ23wdW4GbiDZcQOqycEv1jDt65Ay2F
-	9TUGJu9UPT8Juq/aewd2lGUMff5QXYyFLVBvmxuU68vAX+8SUoPrMAjrpaM0V0HvFQw0/UqonNbqO
-	YJ3ysQp+SUDFcerVvw3hdqKBEhRVxpKSwtP9SR1AEgIv/II3/du9Gcg9AzLsFkqf6HjHA3NAWXODO
-	HRGa+uHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XBFAMrOJQxMwscqUKdzjpajXl7OxXxRyAGXjE2x3Poc=; b=aL39JRHn9eaubX
+	JnqawbR/TQbkZ0IqmySgoyq9E0UvGUdkf8FpvIx+R2CTURafm7iRE7OEyuGioFw+OEwGtfrHFyf96
+	Yub+CG1PWiaAjM3eNW2CxW9J23i0jBGOAqFPeQo0oeZeuhnnPH+RRN70/dsEQucmWT4bk6mBFpUdQ
+	+6S7OzWer0A3oPAg829HWts01i8PdMQzuyG30cVnrt0AqKc9tDeZ5L2dUb8F8mMMW/7xtKnht7wDc
+	c2rcpLprufmWZs4pLM2WNqXekKVvh/T1QC/7yUbe+Mn5z4NUUduy13N0Q7/eIg4+HrP/C5VvGRjRy
+	yyJSuzyAgOvvuZCE3c7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBBs-00000008rqc-0Bh1;
-	Wed, 12 Nov 2025 13:47:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJBK2-00000008sPA-3cQs;
+	Wed, 12 Nov 2025 13:55:42 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJBBo-00000008rq4-2wMW
+	id 1vJBK0-00000008sOS-1wOE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 13:47:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 579834411E;
-	Wed, 12 Nov 2025 13:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18AF3C16AAE;
-	Wed, 12 Nov 2025 13:47:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762955231;
-	bh=vPEO6ikNEl3G+Iubi37HdKqFst9U39SbweNp03IaAiY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BGGX34S+AN1fXpuAD93pNyKB/dnqJ7vh63XW22gkH9KktBCsRxYdgUfDxQt7ZQh5x
-	 zPQT48qb4+GWwU8/kCUizf6NRWXW3eP0CVoEAMvKqzfqnyw4Uv8Bu8AwOXqedyfPCF
-	 BfK40Os18/KrTVF3OXNVoSd63GFv0D9coueENszVv446ZYOxMEJNOhVxkj51laRr1f
-	 YRhdUor3gIxfNZ0X3sRQdYbhQb7GgGFzfkZj2GXOMhmvDldc2zf03YvuZek0nUJi9V
-	 IFEu3DldiDVeqLogvWXXbXQUp5smT9Y0YSFvghuRaPbCnxaGuRUkJLlhXTEvkNBDnx
-	 s0u5qYoXbFVZA==
-Date: Wed, 12 Nov 2025 21:29:18 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mmc@vger.kernel.org, soc@lists.linux.dev
-Subject: Re: [PATCH 5/9] mmc: sdhci: add Black Sesame Technologies BST C1200
- controller driver
-Message-ID: <aRSLruoEBfl2fJ8m@xhacker>
-References: <20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com>
- <20250923-v4-patch-final-v1-5-2283ad7cbf88@thundersoft.com>
+	Wed, 12 Nov 2025 13:55:42 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4777707a7c2so6704575e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 05:55:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1762955738; x=1763560538; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XBFAMrOJQxMwscqUKdzjpajXl7OxXxRyAGXjE2x3Poc=;
+        b=GAjLBMU4OflAOVnojciwwMZC4O3qWkD9SKDG1BuzqrlKP55o0Y+S72YZrGRzO6LHU0
+         GwT9BfIBPJDkrVm9uCHuRrvxs7uB/Of1yQk4UOkPsvjy7k6qIwMZyg3Cb4AxPDJOonZa
+         qmAVdcS31+WS213P6zOz3oqu2fGwZJuyy8wZAFpKtuo/Wb8IxTSwkvhX2uLGBWfe9b3p
+         Dzm8BVeCCKv5lsGHN/6N9dQn9dZY9Z3QU+WTpE2RGk5v/iOvn0vplJ6eT+zEI86FJfRt
+         W7OddSnRPqI2YcO7hUFnGB/13xMLVvCjzxb64RY6CYnmO5aKskc5ZFKDqW8dVztXPss/
+         HE8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762955738; x=1763560538;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XBFAMrOJQxMwscqUKdzjpajXl7OxXxRyAGXjE2x3Poc=;
+        b=hAa9EtQzBi8oSbMF49/NFXoW7oef8TcCZkdpuCLYfALNSiIY6VkH61NBZFgqqkbve1
+         EHxJ/YYNG15R4rrlwfg7gEj/TtSz5SMt1gCvF4IG/KA14YNvjgRYSdl2d9cewswOSj+K
+         LYK4wIulOhcJOj6CfL/7mwCdjjvPmhQPVxJ+xdV7gruthFKA/iIuutKAKv/vFB6FaWaE
+         IM+CByVbEThjY6j5iu4Ur2Snd5yyZpP9kGBW+RTfGX+hYV1iX8OdGEcv9hrOqkTFRPIE
+         0/kq0J0yFKRUrztA5LgzxCgP3Y50QlBnqNR3+dOwNRYtOvMy/Jvuu3HkDVUYYrYk2bI9
+         20Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVh3DsOviou0HRf7YfF5fgVPh2e9qgm3AT783iDaGpTzTHiEZDAaqDBTuMVrGubw/mWT1GK8M8WRDPiwf6BMPyJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyca4OOQ0qzvafZ5FlgmDwKuKxvzOoG8p4UnR7GlYG+0iD3V89r
+	QY9NkCpWniX3s2SpQs12Epclg+GcZ+6RruxhKJ0/9tf2+6BTihdOEVY14RywVc5Fjas=
+X-Gm-Gg: ASbGncsfOSr7xyDxF/P4MJTjYroKuHtkchU3Nd1g6disgTsfPBrWn2feaE1O6Pm88RK
+	te0pDUgVPD354BwQ2olx1khPZ5AfPG9rfHESp/9sw/FO8mD52pn7udyjnEVUWbEGTOq+ueaa0Tq
+	8qyg4sHkpkG6Gwj9FybfqaRV9x5amL4BTxb8Cb5EB8HAzSoVH23DDFGJt7qvlEWmvTrBroeBaId
+	UNk0Ebn0lQdG6S4ic195msETR8AdACb7zHKsvkWD9MkFs1uMrUUW+AcqZvMAql1d3ar60W2KVqk
+	duRaQ9n7ANUkVyUhoGLvxjON4VajIh2BNujGWh8apkqUQNzQCxRSAO2Sj03chDh6nsoqz4FH+yZ
+	sOzjDbhK5ozchKgfB+FdNiHCmqGiNjPz0N/6JmBe1mZUvEZwn2wgHgH3D87g4by0A4IA5xN0U4q
+	vrwQ==
+X-Google-Smtp-Source: AGHT+IFKbQP8SOa1kCByQ4QNAMeH3OJkwfo0T2LCw/ncI1JxiJlrem/nOWVbpAKDdbocGkE7atAYEw==
+X-Received: by 2002:a7b:c3ca:0:b0:475:dadd:c474 with SMTP id 5b1f17b1804b1-477814424a6mr41685355e9.10.1762955737889;
+        Wed, 12 Nov 2025 05:55:37 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:2a6:e453:42d3:11])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47787e2b835sm37711685e9.2.2025.11.12.05.55.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 05:55:37 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH v4 00/10] gpio: improve support for shared GPIOs
+Date: Wed, 12 Nov 2025 14:55:29 +0100
+Message-Id: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250923-v4-patch-final-v1-5-2283ad7cbf88@thundersoft.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANGRFGkC/2XNTQrCMBCG4atI1kby27SuvIe4SNNJOyBNSSQop
+ Xc3LSIWl9/A885MEkSERM6HmUTImDCMZajjgbjBjj1Q7MomggnNGlbTfsJA02AjdLQy4KQWda3
+ aihQxRfD43GrXW9kDpkeIry2e+Xr9dITadTKnjBqjwYCHllt5ueNoYziF2JM1lMUXcybEHouCO
+ 6ms5b7tPKv+sPzFzR7L9TN3uqqt88q4HV6W5Q1O6cYmIQEAAA==
+X-Change-ID: 20250908-gpio-shared-67ec352884b6
+To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5266;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=ml3z2pXKnumVWoVR4wBDLwJ0K3TTyVqmRXtK2nzVm5A=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpFJHUGKHmIdlssRyuI2zDM2oFpYK4thJPAm+An
+ vHpyc0KzgaJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaRSR1AAKCRAFnS7L/zaE
+ w33fD/4wxGJ2NszFom9FCtcgZxRPtXC4TIw0cdgBDpHnMlLRoRgOAjdfUJihy0bw6eS2jS7ljuF
+ xl+cvSgGjYZKuVQ9KhCVKpDSqiVJL04dSv+zJVRrShx7nRCM4wF3iMJ6CKgZcNw77haE9dlLp/m
+ YG4swj9fw7Huu/DrvNJYEVevDnUOWOUHcq8BBT3F31cqHz7nROXVUOQG72XkSv6qWDmth5+heLG
+ RQ4hzKrShyu9Uq6lEtmyGeW/WoCa1Cg2AM25q8a9TF+FxAjOc3lblwDpzJnUFwluqiYs57b60Cl
+ a19ONlSGyD43DGZ1PE+RxelEz21/fY/3ZOsVyoKRKs8FbKaJVpSPIJ9HoKEgSnbm6m2k02MGeVn
+ KtGdBzVa5LA9oIDJzoi4264FN2pzMc3lCcLDe3bht5K410FQxoMOEmWbPEOMvapBeMyNqC7YDi+
+ 89I2llq8RZt6kTdrtTsVbIJvUEq2MphlgBo7crobjaqWe4kjaodXe6FZK/UDZWi82s6g5f374Jf
+ YQE7UzlHuW0iJeFZjwocqK5NwOQiOen7mVIonjAGkQUGpoLYR1CpLzkEIBsTUm+n/P3QuEy2Ycw
+ ArR5jiJEL6GoiqMTZUtZ11BjOQg5A+/xtxylAdWow8iwqEymoQ1S2EreHkiy83bfB4vpkmE9g9G
+ HS6Gr22pXsrOo7Q==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_054712_819614_7CD85973 
-X-CRM114-Status: GOOD (  41.08  )
+X-CRM114-CacheID: sfid-20251112_055540_629151_EC0F92BB 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,686 +135,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 02:10:11PM +0800, Albert Yang wrote:
-> Add SDHCI controller driver for Black Sesame Technologies C1200 SoC.
-> 
-> This driver supports the DWCMSHC SDHCI controller with BST-specific
+Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
+came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
+this series however impacts Qualcomm platforms. It's a runtime dependency
+of patches 8 and 9. Would you mind Acking it so that I can take it into
+an immutable branch that I'll make available to Mark Brown for him to
+take patches 8-10 through the ASoC and regulator trees for v6.19?
 
-If this is snps dwcmshc, I'm afraid there will be many code duplications
-when you add set_uhs_signaling, cqe support etc. in the future.
+Problem statement: GPIOs are implemented as a strictly exclusive
+resource in the kernel but there are lots of platforms on which single
+pin is shared by multiple devices which don't communicate so need some
+way of properly sharing access to a GPIO. What we have now is the
+GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+doesn't do any locking or arbitration of access - it literally just hand
+the same GPIO descriptor to all interested users.
 
-There's also a common 128MB boundary "feature" with dwcmshc, OK, I see bst
-variant uses a bounce buffer from sram, so no need to share the 128MB
-boundary handling. But what about if BST solves the 32bit bus sdhci controller
-limitation in new generation SoCs? Then you'll duplicate the 128MB
-boundary handing too.
+The proposed solution is composed of three major parts: the high-level,
+shared GPIO proxy driver that arbitrates access to the shared pin and
+exposes a regular GPIO chip interface to consumers, a low-level shared
+GPIOLIB module that scans firmware nodes and creates auxiliary devices
+that attach to the proxy driver and finally a set of core GPIOLIB
+changes that plug the former into the GPIO lookup path.
 
-So I'm wondering why not add the bst support to exisiting dwcmshc
-driver?
+The changes are implemented in a way that allows to seamlessly compile
+out any code related to sharing GPIOs for systems that don't need it.
 
-> enhancements including:
-> - Custom clock management and tuning
-> - Power management support
-> - BST-specific register configurations
-> - Support for eMMC and SD card interfaces
-> - Hardware limitation workaround for 32-bit DMA addressing
-> 
-> The driver addresses specific hardware constraints where:
-> - System memory uses 64-bit bus, eMMC controller uses 32-bit bus
-> - eMMC controller cannot access memory through SMMU due to hardware bug
-> - All system DRAM is configured outside 4GB boundary (ZONE_DMA32)
-> - Uses SRAM-based bounce buffer within 32-bit address space
-> 
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> 
-> ---
-> Changes for v4:
-> - Rename all functions from bst_* to sdhci_bst_* for better namespace consistency
-> - Rename driver file from sdhci-of-bst-c1200.c to sdhci-of-bst.c
-> - Rename dwcmshc_priv structure to sdhci_bst_priv for clarity
-> - Update driver name from "sdhci-dwcmshc" to "sdhci-bst" throughout
-> - Add comprehensive register bit mask definitions and named constants
-> - Replace manual polling loops with read_poll_timeout() for clock stability
-> - Add dedicated sdhci_bst_wait_int_clk() function for internal clock management
-> - Completely rewrite power management with proper power-off handling
-> - Enhance clock control with read-modify-write operations to avoid clobbering
-> - Add MBIU burst mode configuration based on power state
-> - Improve error handling and cleanup in probe/remove functions
-> - Simplify bounce buffer allocation and remove redundant MMC parameter adjustments
-> - Add SDHCI_QUIRK_BROKEN_ADMA quirk for hardware limitation
-> - Replace ioread32/iowrite32 with readl/writel for consistency
-> - Update copyright year and simplify license text
-> - Improve tuning algorithm with clearer variable naming
-> - Enhance register access patterns with proper bit field manipulation
-> - Add power-off clock management to reduce idle power consumption
-> - Add Acked-by: Arnd Bergmann
-> 
-> Changes for v3:
-> - Simplify dwcmshc_priv structure by removing unused fields
-> - Improve helper functions with better encapsulation
-> - Use devm_platform_ioremap_resource() for resource management
-> - Update Kconfig description and alphabetical ordering
-> - Clarify documentation on hardware limitations and bounce buffer approach
-> - Remove duplicate sdhci_writew SDHCI_CLOCK_CONTROL
-> 
-> Changes for v2:
-> - Remove COMMON_CLK dependency from Kconfig (MMC_SDHCI_BST)
-> - Add ARCH_BST || COMPILE_TEST dependency from Kconfig (MMC_SDHCI_BST)
-> - Replace temporary ioremap with persistent mapping
-> - Map CRM registers once during probe instead of per-access
-> - Add proper cleanup in remove callback
-> - Refactor bounce buffer allocation with simplified error handling
-> - Remove unnecessary DMA configuration layers
-> - Prune unused headers and legacy vendor debug code
-> - Remove deprecated sdhci_bst_print_vendor() export
-> - Convert internal functions to static scope
-> - Standardize naming conventions (DRIVER_NAME, DEFAULT_MAX_FREQ)
-> - Optimize clock configuration routines
-> - Fix register access macros for EMMC_CTRL with proper offset calculation
-> - Correct device tree compatibility string to "bst,c1200-dwcmshc-sdhci"
-> - Add robust ioremap error checking
-> - Improve bounce buffer allocation failure handling
-> - Update MODULE_DESCRIPTION and AUTHOR fields
-> - Add explanatory comments for hardware limitations
-> - Remove redundant multi-host setup infrastructure
-> - Fix build warnings from lkp (kernel test robot)
-> ---
->  drivers/mmc/host/Kconfig        |  14 ++
->  drivers/mmc/host/Makefile       |   1 +
->  drivers/mmc/host/sdhci-of-bst.c | 544 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 559 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-> index 7232de1c068873d9bccec0b3b43ece939cb84894..75c37be559d23bff773bbe3f018b76c34ad710ca 100644
-> --- a/drivers/mmc/host/Kconfig
-> +++ b/drivers/mmc/host/Kconfig
-> @@ -429,6 +429,20 @@ config MMC_SDHCI_BCM_KONA
->  
->  	  If you have a controller with this interface, say Y or M here.
->  
-> +config MMC_SDHCI_BST
-> +	tristate "SDHCI support for Black Sesame Technologies BST C1200 controller"
-> +	depends on ARCH_BST || COMPILE_TEST
-> +	depends on MMC_SDHCI_PLTFM
-> +	depends on OF
-> +	help
-> +	  This selects the Secure Digital Host Controller Interface (SDHCI)
-> +	  for Black Sesame Technologies BST C1200 SoC. The controller is
-> +	  based on Synopsys DesignWare Cores Mobile Storage Controller but
-> +	  requires platform-specific workarounds for hardware limitations.
-> +
-> +	  If you have a controller with this interface, say Y or M here.
-> +	  If unsure, say N.
-> +
->  config MMC_SDHCI_F_SDH30
->  	tristate "SDHCI support for Fujitsu Semiconductor F_SDH30"
->  	depends on MMC_SDHCI_PLTFM
-> diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-> index 5057fea8afb696e210e465a6a2aafc68adad7854..ee412e6b84d6c91f80654e53d0a05b549d4b6171 100644
-> --- a/drivers/mmc/host/Makefile
-> +++ b/drivers/mmc/host/Makefile
-> @@ -13,6 +13,7 @@ obj-$(CONFIG_MMC_MXS)		+= mxs-mmc.o
->  obj-$(CONFIG_MMC_SDHCI)		+= sdhci.o
->  obj-$(CONFIG_MMC_SDHCI_UHS2)	+= sdhci-uhs2.o
->  obj-$(CONFIG_MMC_SDHCI_PCI)	+= sdhci-pci.o
-> +obj-$(CONFIG_MMC_SDHCI_BST)	        += sdhci-of-bst.o
->  sdhci-pci-y			+= sdhci-pci-core.o sdhci-pci-o2micro.o sdhci-pci-arasan.o \
->  				   sdhci-pci-dwc-mshc.o sdhci-pci-gli.o
->  obj-$(CONFIG_MMC_SDHCI_ACPI)	+= sdhci-acpi.o
-> diff --git a/drivers/mmc/host/sdhci-of-bst.c b/drivers/mmc/host/sdhci-of-bst.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b19b763f216a25f58d37c8e288a8aa791f1e20f7
-> --- /dev/null
-> +++ b/drivers/mmc/host/sdhci-of-bst.c
-> @@ -0,0 +1,544 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * SDHCI driver for Black Sesame Technologies C1200 controller
-> + *
-> + * Copyright (c) 2025 Black Sesame Technologies
-> + */
-> +
-> +#include <linux/delay.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/ioport.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_reserved_mem.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/iopoll.h>
-> +#include "sdhci.h"
-> +#include "sdhci-pltfm.h"
-> +
-> +/* SDHCI standard register extensions */
-> +#define SDHCI_CLOCK_PLL_EN		0x0008
-> +#define SDHCI_TUNING_COUNT		0x20
-> +#define SDHCI_VENDOR_PTR_R		0xE8
-> +
-> +/* Synopsys vendor specific registers */
-> +#define SDHC_EMMC_CTRL_R_OFFSET		0x2C
-> +#define MBIU_CTRL			0x510
-> +
-> +/* MBIU burst control bits */
-> +#define BURST_INCR16_EN			BIT(3)
-> +#define BURST_INCR8_EN			BIT(2)
-> +#define BURST_INCR4_EN			BIT(1)
-> +#define BURST_EN			(BURST_INCR16_EN | BURST_INCR8_EN | BURST_INCR4_EN)
-> +#define MBIU_BURST_MASK			GENMASK(3, 0)
-> +
-> +/* CRM (Clock/Reset/Management) register offsets */
-> +#define SDEMMC_CRM_BCLK_DIV_CTRL	0x08
-> +#define SDEMMC_CRM_TIMER_DIV_CTRL	0x0C
-> +#define SDEMMC_CRM_RX_CLK_CTRL		0x14
-> +#define SDEMMC_CRM_VOL_CTRL		0x1C
-> +#define REG_WR_PROTECT			0x88
-> +#define DELAY_CHAIN_SEL			0x94
-> +
-> +/* CRM register values and bit definitions */
-> +#define REG_WR_PROTECT_KEY		0x1234abcd
-> +#define BST_VOL_STABLE_ON		BIT(7)
-> +#define BST_TIMER_DIV_MASK		GENMASK(7, 0)
-> +#define BST_TIMER_DIV_VAL		0x20
-> +#define BST_TIMER_LOAD_BIT		BIT(8)
-> +#define BST_BCLK_EN_BIT			BIT(10)
-> +#define BST_RX_UPDATE_BIT		BIT(11)
-> +#define BST_EMMC_CTRL_BIT2		BIT(2)
-> +
-> +/* Clock frequency limits */
-> +#define BST_DEFAULT_MAX_FREQ		2000000UL
-> +#define BST_DEFAULT_MIN_FREQ		400000UL
-> +
-> +/* Clock control bit definitions */
-> +#define BST_CLOCK_DIV_MASK		GENMASK(7, 0)
-> +#define BST_CLOCK_DIV_SHIFT		8
-> +#define BST_BCLK_DIV_MASK		GENMASK(9, 0)
-> +
-> +/* Clock frequency thresholds */
-> +#define BST_CLOCK_THRESHOLD_LOW		1500
-> +
-> +/* Clock stability polling parameters */
-> +#define BST_CLK_STABLE_POLL_US		1000	/* Poll interval in microseconds */
-> +#define BST_CLK_STABLE_TIMEOUT_US	20000	/* Timeout for internal clock stabilization (us) */
-> +
-> +struct sdhci_bst_priv {
-> +	void __iomem *crm_reg_base;
-> +};
-> +
-> +union sdhci_bst_rx_ctrl {
-> +	struct {
-> +		u32 rx_revert:1,
-> +		    rx_clk_sel_sec:1,
-> +		    rx_clk_div:4,
-> +		    rx_clk_phase_inner:2,
-> +		    rx_clk_sel_first:1,
-> +		    rx_clk_phase_out:2,
-> +		    rx_clk_en:1,
-> +		    res0:20;
-> +	};
-> +	u32 reg;
-> +};
-> +
-> +static u32 sdhci_bst_crm_read(struct sdhci_pltfm_host *pltfm_host, u32 offset)
-> +{
-> +	struct sdhci_bst_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +
-> +	return readl(priv->crm_reg_base + offset);
-> +}
-> +
-> +static void sdhci_bst_crm_write(struct sdhci_pltfm_host *pltfm_host, u32 offset, u32 value)
-> +{
-> +	struct sdhci_bst_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +
-> +	writel(value, priv->crm_reg_base + offset);
-> +}
-> +
-> +static int sdhci_bst_wait_int_clk(struct sdhci_host *host)
-> +{
-> +	u16 clk;
-> +
-> +	if (read_poll_timeout(sdhci_readw, clk, (clk & SDHCI_CLOCK_INT_STABLE),
-> +			      BST_CLK_STABLE_POLL_US, BST_CLK_STABLE_TIMEOUT_US, false,
-> +			      host, SDHCI_CLOCK_CONTROL))
-> +		return -EBUSY;
-> +	return 0;
-> +}
-> +
-> +static unsigned int sdhci_bst_get_max_clock(struct sdhci_host *host)
-> +{
-> +	return BST_DEFAULT_MAX_FREQ;
-> +}
-> +
-> +static unsigned int sdhci_bst_get_min_clock(struct sdhci_host *host)
-> +{
-> +	return BST_DEFAULT_MIN_FREQ;
-> +}
-> +
-> +static void sdhci_bst_enable_clk(struct sdhci_host *host, unsigned int clk)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host;
-> +	unsigned int div;
-> +	u32 val;
-> +	union sdhci_bst_rx_ctrl rx_reg;
-> +
-> +	pltfm_host = sdhci_priv(host);
-> +	if (clk == 0) {
-> +		div = clk;
-> +	} else if (clk > BST_DEFAULT_MAX_FREQ) {
-> +		div = clk / 1000;
-> +		div = BST_DEFAULT_MAX_FREQ / div;
-> +	} else if (clk < BST_CLOCK_THRESHOLD_LOW) {
-> +		div = clk;
-> +	} else {
-> +		div = BST_DEFAULT_MAX_FREQ * 100;
-> +		div = div / clk;
-> +		div /= 100;
-> +	}
-> +
-> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-> +	clk &= ~SDHCI_CLOCK_CARD_EN;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +
-> +	clk &= ~SDHCI_CLOCK_PLL_EN;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
-> +	val &= ~BST_TIMER_LOAD_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
-> +
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
-> +	val &= ~BST_TIMER_DIV_MASK;
-> +	val |= BST_TIMER_DIV_VAL;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
-> +
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
-> +	val |= BST_TIMER_LOAD_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
-> +
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
-> +	val &= ~BST_RX_UPDATE_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
-> +
-> +	rx_reg.reg = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
-> +
-> +	rx_reg.rx_revert = 0;
-> +	rx_reg.rx_clk_sel_sec = 1;
-> +	rx_reg.rx_clk_div = 4;
-> +	rx_reg.rx_clk_phase_inner = 2;
-> +	rx_reg.rx_clk_sel_first = 0;
-> +	rx_reg.rx_clk_phase_out = 2;
-> +
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, rx_reg.reg);
-> +
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
-> +	val |= BST_RX_UPDATE_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
-> +
-> +	/* Disable clock first */
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
-> +	val &= ~BST_BCLK_EN_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
-> +
-> +	/* Setup clock divider */
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
-> +	val &= ~BST_BCLK_DIV_MASK;
-> +	val |= div;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
-> +
-> +	/* Enable clock */
-> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
-> +	val |= BST_BCLK_EN_BIT;
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
-> +
-> +	/* RMW the clock divider bits to avoid clobbering other fields */
-> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-> +	clk &= ~(BST_CLOCK_DIV_MASK << BST_CLOCK_DIV_SHIFT);
-> +	clk |= (div & BST_CLOCK_DIV_MASK) << BST_CLOCK_DIV_SHIFT;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +
-> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-> +	clk |= SDHCI_CLOCK_PLL_EN;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +
-> +	clk |= SDHCI_CLOCK_CARD_EN;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +
-> +	clk |= SDHCI_CLOCK_INT_EN;
-> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-> +}
-> +
-> +static void sdhci_bst_set_clock(struct sdhci_host *host, unsigned int clock)
-> +{
-> +	/* Turn off card/internal/PLL clocks when clock==0 to avoid idle power */
-> +	u32 clk_reg = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-> +
-> +	if (!clock) {
-> +		clk_reg &= ~(SDHCI_CLOCK_CARD_EN | SDHCI_CLOCK_INT_EN | SDHCI_CLOCK_PLL_EN);
-> +		sdhci_writew(host, clk_reg, SDHCI_CLOCK_CONTROL);
-> +		return;
-> +	}
-> +	sdhci_bst_enable_clk(host, clock);
-> +}
-> +
-> +/**
-> + * sdhci_bst_reset - Reset the SDHCI host controller
-> + * @host: SDHCI host controller
-> + * @mask: Reset mask
-> + *
-> + * Performs a reset of the SDHCI host controller with special handling for eMMC.
-> + */
-> +static void sdhci_bst_reset(struct sdhci_host *host, u8 mask)
-> +{
-> +	u16 vendor_ptr, emmc_ctrl_reg;
-> +	u32 reg;
-> +
-> +	if (host->mmc->caps2 & MMC_CAP2_NO_SD) {
-> +		vendor_ptr = sdhci_readw(host, SDHCI_VENDOR_PTR_R);
-> +		emmc_ctrl_reg = vendor_ptr + SDHC_EMMC_CTRL_R_OFFSET;
-> +
-> +		reg = sdhci_readw(host, emmc_ctrl_reg);
-> +		reg &= ~BST_EMMC_CTRL_BIT2;
-> +		sdhci_writew(host, reg, emmc_ctrl_reg);
-> +		sdhci_reset(host, mask);
-> +		usleep_range(10, 20);
-> +		reg = sdhci_readw(host, emmc_ctrl_reg);
-> +		reg |= BST_EMMC_CTRL_BIT2;
-> +		sdhci_writew(host, reg, emmc_ctrl_reg);
-> +	} else {
-> +		sdhci_reset(host, mask);
-> +	}
-> +}
-> +
-> +/**
-> + * sdhci_bst_set_timeout - Set timeout value for commands
-> + * @host: SDHCI host controller
-> + * @cmd: MMC command
-> + *
-> + * Sets the timeout control register to maximum value (0xE).
-> + */
-> +static void sdhci_bst_set_timeout(struct sdhci_host *host, struct mmc_command *cmd)
-> +{
-> +	sdhci_writeb(host, 0xE, SDHCI_TIMEOUT_CONTROL);
-> +}
-> +
-> +/**
-> + * sdhci_bst_set_power - Set power mode and voltage
-> + * @host: SDHCI host controller
-> + * @mode: Power mode to set
-> + * @vdd: Voltage to set
-> + *
-> + * Sets power mode and voltage, also configures MBIU control register.
-> + */
-> +static void sdhci_bst_set_power(struct sdhci_host *host, unsigned char mode,
-> +				unsigned short vdd)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	u32 reg;
-> +	u32 val;
-> +
-> +	sdhci_set_power(host, mode, vdd);
-> +
-> +	if (mode == MMC_POWER_OFF) {
-> +		/* Disable MBIU burst mode */
-> +		reg = sdhci_readw(host, MBIU_CTRL);
-> +		reg &= ~BURST_EN; /* Clear all burst enable bits */
-> +		sdhci_writew(host, reg, MBIU_CTRL);
-> +
-> +		/* Disable CRM BCLK */
-> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
-> +		val &= ~BST_BCLK_EN_BIT;
-> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
-> +
-> +		/* Disable RX clock */
-> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
-> +		val &= ~BST_RX_UPDATE_BIT;
-> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
-> +
-> +		/* Turn off voltage stable power */
-> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_VOL_CTRL);
-> +		val &= ~BST_VOL_STABLE_ON;
-> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_VOL_CTRL, val);
-> +	} else {
-> +		/* Configure burst mode only when powered on */
-> +		reg = sdhci_readw(host, MBIU_CTRL);
-> +		reg &= ~MBIU_BURST_MASK; /* Clear burst related bits */
-> +		reg |= BURST_EN; /* Enable burst mode for better bandwidth */
-> +		sdhci_writew(host, reg, MBIU_CTRL);
-> +	}
-> +}
-> +
-> +/**
-> + * sdhci_bst_execute_tuning - Execute tuning procedure
-> + * @host: SDHCI host controller
-> + * @opcode: Opcode to use for tuning
-> + *
-> + * Performs tuning procedure by trying different values and selecting the best one.
-> + *
-> + * Return: 0 on success, negative errno on failure
-> + */
-> +static int sdhci_bst_execute_tuning(struct sdhci_host *host, u32 opcode)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host;
-> +	int ret = 0, error;
-> +	int first_start = -1, first_end = -1, best = 0;
-> +	int second_start = -1, second_end = -1, has_failure = 0;
-> +	int i;
-> +
-> +	pltfm_host = sdhci_priv(host);
-> +
-> +	for (i = 0; i < SDHCI_TUNING_COUNT; i++) {
-> +		/* Protected write */
-> +		sdhci_bst_crm_write(pltfm_host, REG_WR_PROTECT, REG_WR_PROTECT_KEY);
-> +		/* Write tuning value */
-> +		sdhci_bst_crm_write(pltfm_host, DELAY_CHAIN_SEL, (1ul << i) - 1);
-> +
-> +		/* Wait for internal clock stable before tuning */
-> +		if (sdhci_bst_wait_int_clk(host)) {
-> +			dev_err(mmc_dev(host->mmc), "Internal clock never stabilised\n");
-> +			return -EBUSY;
-> +		}
-> +
-> +		ret = mmc_send_tuning(host->mmc, opcode, &error);
-> +		if (ret != 0) {
-> +			has_failure = 1;
-> +		} else {
-> +			if (has_failure == 0) {
-> +				if (first_start == -1)
-> +					first_start = i;
-> +				first_end = i;
-> +			} else {
-> +				if (second_start == -1)
-> +					second_start = i;
-> +				second_end = i;
-> +			}
-> +		}
-> +	}
-> +
-> +	/* Calculate best tuning value */
-> +	if (first_end - first_start >= second_end - second_start)
-> +		best = ((first_end - first_start) >> 1) + first_start;
-> +	else
-> +		best = ((second_end - second_start) >> 1) + second_start;
-> +
-> +	if (best < 0)
-> +		best = 0;
-> +
-> +	sdhci_bst_crm_write(pltfm_host, DELAY_CHAIN_SEL, (1ul << best) - 1);
-> +	/* Confirm internal clock stable after setting best tuning value */
-> +	if (sdhci_bst_wait_int_clk(host)) {
-> +		dev_err(mmc_dev(host->mmc), "Internal clock never stabilised\n");
-> +		return -EBUSY;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * sdhci_bst_voltage_switch - Perform voltage switch
-> + * @host: SDHCI host controller
-> + *
-> + * Enables voltage stable power.
-> + */
-> +static void sdhci_bst_voltage_switch(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +
-> +	/* Enable voltage stable power */
-> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_VOL_CTRL, BST_VOL_STABLE_ON);
-> +}
-> +
-> +static const struct sdhci_ops sdhci_bst_ops = {
-> +	.set_clock		= sdhci_bst_set_clock,
-> +	.set_bus_width		= sdhci_set_bus_width,
-> +	.set_uhs_signaling	= sdhci_set_uhs_signaling,
-> +	.get_min_clock		= sdhci_bst_get_min_clock,
-> +	.get_max_clock		= sdhci_bst_get_max_clock,
-> +	.reset			= sdhci_bst_reset,
-> +	.set_power		= sdhci_bst_set_power,
-> +	.set_timeout		= sdhci_bst_set_timeout,
-> +	.platform_execute_tuning = sdhci_bst_execute_tuning,
-> +	.voltage_switch		= sdhci_bst_voltage_switch,
-> +};
-> +
-> +static const struct sdhci_pltfm_data sdhci_bst_pdata = {
-> +	.ops = &sdhci_bst_ops,
-> +	.quirks = SDHCI_QUIRK_BROKEN_ADMA |
-> +		  SDHCI_QUIRK_DELAY_AFTER_POWER |
-> +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +		  SDHCI_QUIRK_INVERTED_WRITE_PROTECT,
-> +	.quirks2 = SDHCI_QUIRK2_BROKEN_DDR50 |
-> +		   SDHCI_QUIRK2_TUNING_WORK_AROUND |
-> +		   SDHCI_QUIRK2_ACMD23_BROKEN,
-> +};
-> +
-> +static int sdhci_bst_alloc_bounce_buffer(struct sdhci_host *host)
-> +{
-> +	struct mmc_host *mmc = host->mmc;
-> +	unsigned int bounce_size;
-> +	int ret;
-> +
-> +	/* Fixed SRAM bounce size to 32KB: verified config under 32-bit DMA addressing limit */
-> +	bounce_size = SZ_32K;
-> +
-> +	ret = of_reserved_mem_device_init_by_idx(mmc_dev(mmc), mmc_dev(mmc)->of_node, 0);
-> +	if (ret) {
-> +		dev_err(mmc_dev(mmc), "Failed to initialize reserved memory\n");
-> +		return ret;
-> +	}
-> +
-> +	host->bounce_buffer = dma_alloc_coherent(mmc_dev(mmc), bounce_size,
-> +						 &host->bounce_addr, GFP_KERNEL);
-> +	if (!host->bounce_buffer)
-> +		return -ENOMEM;
-> +
-> +	host->bounce_buffer_size = bounce_size;
-> +
-> +	return 0;
-> +}
-> +
-> +static int sdhci_bst_probe(struct platform_device *pdev)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host;
-> +	struct sdhci_host *host;
-> +	struct sdhci_bst_priv *priv;
-> +	int err;
-> +
-> +	host = sdhci_pltfm_init(pdev, &sdhci_bst_pdata, sizeof(struct sdhci_bst_priv));
-> +	if (IS_ERR(host))
-> +		return PTR_ERR(host);
-> +
-> +	pltfm_host = sdhci_priv(host);
-> +	priv = sdhci_pltfm_priv(pltfm_host); /* Get platform private data */
-> +
-> +	err = mmc_of_parse(host->mmc);
-> +	if (err)
-> +		return err;
-> +
-> +	sdhci_get_of_property(pdev);
-> +
-> +	/* Get CRM registers from the second reg entry */
-> +	priv->crm_reg_base = devm_platform_ioremap_resource(pdev, 1);
-> +	if (IS_ERR(priv->crm_reg_base)) {
-> +		err = PTR_ERR(priv->crm_reg_base);
-> +		return err;
-> +	}
-> +
-> +	/*
-> +	 * Silicon constraints for BST C1200:
-> +	 * - System RAM base is 0x800000000 (above 32-bit addressable range)
-> +	 * - The eMMC controller DMA engine is limited to 32-bit addressing
-> +	 * - SMMU cannot be used on this path due to hardware design flaws
-> +	 * - These are fixed in silicon and cannot be changed in software
-> +	 *
-> +	 * Bus/controller mapping:
-> +	 * - No registers are available to reprogram the address mapping
-> +	 * - The 32-bit DMA limit is a hard constraint of the controller IP
-> +	 *
-> +	 * Given these constraints, an SRAM-based bounce buffer in the 32-bit
-> +	 * address space is required to enable eMMC DMA on this platform.
-> +	 */
-> +	err = sdhci_bst_alloc_bounce_buffer(host);
-> +	if (err) {
-> +		dev_err(&pdev->dev, "Failed to allocate bounce buffer: %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	err = sdhci_add_host(host);
-> +	if (err)
-> +		goto err_free_bounce_buffer;
-> +
-> +	return 0;
-> +
-> +err_free_bounce_buffer:
-> +	if (host->bounce_buffer) {
-> +		dma_free_coherent(mmc_dev(host->mmc), host->bounce_buffer_size,
-> +				  host->bounce_buffer, host->bounce_addr);
-> +		host->bounce_buffer = NULL;
-> +	}
-> +	of_reserved_mem_device_release(mmc_dev(host->mmc));
-> +
-> +	return err;
-> +}
-> +
-> +static void sdhci_bst_remove(struct platform_device *pdev)
-> +{
-> +	struct sdhci_host *host = platform_get_drvdata(pdev);
-> +
-> +	/* Free bounce buffer if allocated */
-> +	if (host->bounce_buffer) {
-> +		dma_free_coherent(mmc_dev(host->mmc), host->bounce_buffer_size,
-> +				  host->bounce_buffer, host->bounce_addr);
-> +		host->bounce_buffer = NULL;
-> +	}
-> +
-> +	/* Release reserved memory */
-> +	of_reserved_mem_device_release(mmc_dev(host->mmc));
-> +
-> +	/* Use platform helper for remove */
-> +	sdhci_pltfm_remove(pdev);
-> +}
-> +
-> +static const struct of_device_id sdhci_bst_ids[] = {
-> +	{ .compatible = "bst,c1200-dwcmshc-sdhci" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, sdhci_bst_ids);
-> +
-> +static struct platform_driver sdhci_bst_driver = {
-> +	.driver = {
-> +		.name = "sdhci-bst",
-> +		.of_match_table = sdhci_bst_ids,
-> +	},
-> +	.probe = sdhci_bst_probe,
-> +	.remove = sdhci_bst_remove,
-> +};
-> +module_platform_driver(sdhci_bst_driver);
-> +
-> +MODULE_DESCRIPTION("Black Sesame Technologies SDHCI driver (BST)");
-> +MODULE_AUTHOR("Black Sesame Technologies Co., Ltd.");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.43.0
-> 
+The practical use-case for this are the powerdown GPIOs shared by
+speakers on Qualcomm db845c platform, however I have also extensively
+tested it using gpio-virtuser on arm64 qemu with various DT
+configurations.
+
+I'm Cc'ing some people that may help with reviewing/be interested in
+this: OF maintainers (because the main target are OF systems initially),
+Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
+in audio or regulator drivers and one of the goals of this series is
+dropping the hand-crafted GPIO enable counting via struct
+regulator_enable_gpio in regulator core), Andy and Mika because I'd like
+to also cover ACPI (even though I don't know about any ACPI platform that
+would need this at the moment, I think it makes sense to make the
+solution complete), Dmitry (same thing but for software nodes), Mani
+(because you have a somewhat related use-case for the PERST# signal and
+I'd like to hear your input on whether this is something you can use or
+maybe it needs a separate, implicit gpio-perst driver similar to what
+Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
+last week in person and I also use the auxiliary bus for the proxy
+devices).
+
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Changes in v4:
+- Collect tags
+- Extend Cc list
+- Link to v3: https://lore.kernel.org/r/20251029-gpio-shared-v3-0-71c568acf47c@linaro.org
+
+Changes in v3:
+- Make strends() a static inline function
+- Use an empty release() callback for auxiliary devices
+- Refactor the code for finding the shared descriptors in the GPIOLIB
+  shared module, split it into several smaller functions
+- Use str_high_low() where applicable
+- Use non-atomic bit ops where atomicity is not required
+- Link to v2: https://lore.kernel.org/r/20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org
+
+Changes in v2:
+- Fix a memory leak in error path in gpiolib-shared
+- Drop the gpio-wcd934x fix that already went upstream
+- Free resources used during scanning by GPIOs that turned out to be
+  unique
+- Rework the OF property scanning
+- Add patches making the regulator subsystem aware of shared GPIOs
+  managed by GPIOLIB
+- Link to v1: https://lore.kernel.org/r/20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org
+
+---
+Bartosz Golaszewski (10):
+      string: provide strends()
+      gpiolib: define GPIOD_FLAG_SHARED
+      gpiolib: implement low-level, shared GPIO support
+      gpio: shared-proxy: implement the shared GPIO proxy driver
+      gpiolib: support shared GPIOs in core subsystem code
+      gpio: provide gpiod_is_shared()
+      arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+      ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+      ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+      regulator: make the subsystem aware of shared GPIOs
+
+ arch/arm64/Kconfig.platforms     |   1 +
+ drivers/gpio/Kconfig             |  17 ++
+ drivers/gpio/Makefile            |   2 +
+ drivers/gpio/gpio-shared-proxy.c | 333 +++++++++++++++++++++++
+ drivers/gpio/gpiolib-shared.c    | 558 +++++++++++++++++++++++++++++++++++++++
+ drivers/gpio/gpiolib-shared.h    |  71 +++++
+ drivers/gpio/gpiolib.c           |  70 ++++-
+ drivers/gpio/gpiolib.h           |   2 +
+ drivers/regulator/core.c         |   8 +
+ include/linux/gpio/consumer.h    |   9 +
+ include/linux/string.h           |  18 ++
+ lib/tests/string_kunit.c         |  13 +
+ sound/soc/codecs/wsa881x.c       |   3 +-
+ sound/soc/codecs/wsa883x.c       |   7 +-
+ 14 files changed, 1096 insertions(+), 16 deletions(-)
+---
+base-commit: 96bf1bb63977b67d1a3e4a3645f857bc3fa03f48
+change-id: 20250908-gpio-shared-67ec352884b6
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
