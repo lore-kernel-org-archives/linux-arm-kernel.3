@@ -4,103 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF30CCF9F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CCDCCFA1E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rt+jeQ1XRUj/xqkVOPKXqYs256K/htyDigTFKcqMrBg=; b=bHkUTKC9N+WQojlfBvrAfnGWGc
-	mPQsMuzeZ9Va0qQeL/ZArje3gKkuS3+18kPmjYkgy9SIZG6Ty6hy2+ZdqdQJQ9vApA3F3NV3SU4qn
-	5QrTj5bzvW3oSwEsC/Yj98FgwU9mJgV2YEdQvrVO3wvQIeuQmi3WVzmDOljnOz3KlHuLt/0HhUInp
-	KIAHxf7Ge9Ub+7eCYm1c2kTEzhWRJJv6xmca4p0eq5kPNhNd4YPiZhCuI2EoeNZ/rlpe2prr6bn/U
-	J/+nsvMKKJyxSnvEoPzNpJywXeR/0XN6aFTBsOAWpqBmXlXenZvyHZt3KXzYrMd3vx+wGleEMENu/
-	3T5fv+kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4r8kdH0pUswhe2luKHJzOMwnpCm6I7LsdwMbrtAnRnM=; b=mu+urwwCSPWpwToKkQ1qcEzJkt
+	RE7EOlVkJ0DWyuc7IQwW6V/X+tVbIddLloo9kEBbn5poEgBpN8+ZlhmyMrxvAFyQkenTfjHxl0KMo
+	VRGs0lWeMrH5u24fENB1+1bJsvPfc6i2UkwgWQutKAHjaN6XiHjnwRwiAodlck6WmztzWpq1EhvRR
+	MNWuEyUM2cT0WhDti39BzcP9csDBZs6aw1i9o7anscVmuMBGqVfp3OlRBAY1Ner/Rw0Tpj15wDMHl
+	22+KKRV7XdxY8OKId3o9Ka597N0Y2m8uwBZ39rnVlH4eTXmGOc+rVSr/lXwdz5eHCVWYy3vDRsGdE
+	FzxQL1jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6EF-00000008LJO-20uP;
-	Wed, 12 Nov 2025 08:29:23 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vJ6EP-00000008LQf-0qZG;
+	Wed, 12 Nov 2025 08:29:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ6E9-00000008LGD-1Hh8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 08:29:19 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-429c82bf86bso269670f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 00:29:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1762936156; x=1763540956; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rt+jeQ1XRUj/xqkVOPKXqYs256K/htyDigTFKcqMrBg=;
-        b=b3/A2+nHyXsWWIG+bFkPUCtb1iefgeTDGJPcBnyrespmPdr9cEA1q2oI4jaIP8f/Y/
-         jCw6B/z3cj8wDyspnXDPrpWNA6eHc2C1FF6VDPwyJ2QYoh2DzZOFSwfRGc+KeOTk60XS
-         V4hWUwPanSpxVXP7LXnkOO1ESr9ApxrBLE9Sx1qBOOhFfxZVbg6LQoqovLdGj39AuGFB
-         WnPVUL+BxMge+S+4rvB2WMuHiliA3zouFmbMhUbVyQSTm8zYCwFLS94mZx5PObjm3n7g
-         dU4twezfLCCoCwTACNfpY8CXADGDU7Yqqjdr7p5vLOR4JcXxpw2kg7QE9R4vISlFTabX
-         saZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1762936156; x=1763540956;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=rt+jeQ1XRUj/xqkVOPKXqYs256K/htyDigTFKcqMrBg=;
-        b=XNhcTf+lgkpUNLUfxWYFqqO2NGLfa3Lz5NCaPTDJ9oTNO+kF7TYrHeLs4xYMmU0sa8
-         UGg5W0GaY8dOSOO8havv3yCXY3kBHCEFa1roRQniVAuBP0CxMWbFNAfzglLyHecTveis
-         JH27TEnCtDOOMY4JH8n3pf0QwWuaIAOgXACrftq4pOdJ81U8g2kNCQBjyBv8BizFhsY5
-         3LE84DqRu+Jr9zVLlGOlcEMWUsVjl+vO4DM7RD8WOu/yQYQAiocMd0YBxW30lY+BDjWP
-         pOrUQjmct1TWiNGdkyheSbRcvyBEYfTKExGIjcbtmu2Dfbcs7yTp4gnLNwVRdpw7fkTY
-         8E3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW/3Q/nxe9mFU9zphFakjcKNvzpiOInkPsxfHk/POzUUhv5bJ46qWqO1nU4RWe7kKhsiiqLNTzNKK5qgs8gaKco@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9vsstDu7/78Wu55wzS053cFtNBj/N3S/er+DKRWNKuzb9Y4rB
-	BJ7l284aG7F88NxO0z7dCxMSOuqv0U7NYpvyuwm9nYBAjTkuMCy3A/+WVE3wPHWuZAA=
-X-Gm-Gg: ASbGncu7zz2P4n7/n2dYliqZXJGY6iuIhgrnahEZmqRgjmZlMMM7DmW+vtE25g9akvZ
-	BDiL2Gux0TjgmivMdBthxoZVEdFUYn2C/CQr+r53kSmGQh8Zbxbg0di29Z7DOe5wDT95dEQ/qkQ
-	LRUxY7WYOK9YplMY1gmgC4IZsonEXIQHyapuugKBuJWS9neyktNvhj30nz3UehqJwEUIzs3EBaT
-	5SY37BBSLmfac6byn21iXbxjDjmooLK0oASeiLzRzaQIwSTCQHIvL2r8aQwKI18yft/y8f3x5hm
-	kEcjf++2jSyMYL9Sc3EMfojJ8MYPnOIGX85xxaEhMFkkkj6oM7zG9oDfkpt1Wg+CeIbuzqOCorh
-	/845OeOHrHrR94DqrrgTNLhfVY89eeTU436XzMO90q23S+kKFdPd2VkYdGnfJFgzrQ6MkvMPtis
-	WX/Cu05Vjeh1/Xb+sB7FZ+9F25CF+bJIGnk/f4HlHsHG6wFLCqtNUR6ido
-X-Google-Smtp-Source: AGHT+IHGHnSfrrzELDfd7YF+hF/OHj22idkKXVhcMLjXsrVeGVwFD7eZctJMNZ+Ugf0VFaQBvE7Wwg==
-X-Received: by 2002:a05:6000:2301:b0:429:d4e1:cbb5 with SMTP id ffacd0b85a97d-42b4bb8f0cemr1432783f8f.8.1762936155583;
-        Wed, 12 Nov 2025 00:29:15 -0800 (PST)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42ac677ab75sm31571428f8f.35.2025.11.12.00.29.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Nov 2025 00:29:15 -0800 (PST)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Wed, 12 Nov 2025 08:29:06 +0000
-Subject: [PATCH v2 2/5] nvmem: add Samsung Exynos OTP support
+	id 1vJ6EM-00000008LNy-3SkQ;
+	Wed, 12 Nov 2025 08:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0ED69406D7;
+	Wed, 12 Nov 2025 08:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36568C4AF0F;
+	Wed, 12 Nov 2025 08:29:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762936169;
+	bh=P/0U373DGH20CkAHJePNGHyKPPEzprJMAMaujhEWE3g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S6TTndyT/9VXKdEYPZNdVHH1e9mSNLLOM0nt2QNNuy2DF1zpJ7VX1W+XA8x8VBpFw
+	 0q6reZVdpYS5+XUTeIlSFeRx/5l+TKy5+5Rh3Jtxytgs3/FTaIUG4PY7L+PNR7D4PF
+	 wXiTYDw8GjkAr6Eq8wyo5PlZ5FKT6nEP5lRpV8aqYzrH0DwRY/S2dqMJrFElqiVqMn
+	 RIDq1wZTZe7QbeVDI+1y+p6nbUc9YUwzB9djea+Ku5JeccJn6zwmtExUdHKGhMMIZC
+	 bN3Wj70GJa9eWKC0+3SeaJ3f5uIehr962xnTbck2guqY5qREURZ8Vegcrhv4M/VpBo
+	 +fZ8lRpBqYwzw==
+Date: Wed, 12 Nov 2025 09:29:20 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH 2/4] PCI: tegra194: Remove unnecessary L1SS disable code
+Message-ID: <aRRFYEgBigYDlfQh@ryzen>
+References: <20251111221621.2208606-1-helgaas@kernel.org>
+ <20251111221621.2208606-3-helgaas@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251112-gs101-otp-v2-2-bff2eb020c95@linaro.org>
-References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
-In-Reply-To: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: semen.protsenko@linaro.org, willmcvicker@google.com, 
- kernel-team@android.com, linux-kernel@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1762936153; l=6857;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=Li+VDDl2o0wwPBNrOIHV0RaUwWBjWYyE/9cxRiwy8Sw=;
- b=Ddba4WgE/pF9+yKfDxWBoS8iGMOCyRE6dcilKwkcgA/7aCGbrve9EJXLFHar0NWFf+ToGMfUP
- PiVbkgEiOVWBDLzdJYaXCyKetvYMfFzb1KkwBBesLc04vpaaAYAS61Y
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251111221621.2208606-3-helgaas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_002917_389980_5DBD2388 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20251112_002930_932592_281B2293 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,223 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Exynos OTP controller. Read the
-product and chip IDs from the OTP controller registers space and
-register the SoC info to the SoC interface.
+On Tue, Nov 11, 2025 at 04:16:09PM -0600, Bjorn Helgaas wrote:
+> From: Bjorn Helgaas <bhelgaas@google.com>
+> 
+> The DWC core clears the L1 Substates Supported bits unless the driver sets
+> the "dw_pcie.l1ss_support" flag.
+> 
+> The tegra194 init_host_aspm() sets "dw_pcie.l1ss_support" if the platform
+> has the "supports-clkreq" DT property.  If "supports-clkreq" is absent,
+> "dw_pcie.l1ss_support" is not set, and the DWC core will clear the L1
+> Substates Supported bits.
+> 
+> The tegra194 code to clear the L1 Substates Supported bits is unnecessary,
+> so remove it.
+> 
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> ---
 
-The driver can be extended to empower the controller become nvmem
-provider. This is not in the scope of this patch because it seems the
-OTP memory space is not yet used by any consumer, even downstream.
+Since init_host_aspm() is now the only place using struct tegra_pcie_dw
+struct member cfg_link_cap_l1sub, I think that you can remove this struct
+member, and instead make this a local variable in init_host_aspm().
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/nvmem/Kconfig      |  10 +++
- drivers/nvmem/Makefile     |   2 +
- drivers/nvmem/exynos-otp.c | 160 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 172 insertions(+)
-
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index e0d88d3199c11a3b71cc274b2114e9554ac486fc..aa8c14d4624b820a3685cdf14f2f32521a82db4a 100644
---- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -84,6 +84,16 @@ config NVMEM_BRCM_NVRAM
- 	  This driver provides support for Broadcom's NVRAM that can be accessed
- 	  using I/O mapping.
- 
-+config NVMEM_EXYNOS_OTP
-+	tristate "Samsung Exynos OTP support"
-+	depends on ARCH_EXYNOS || COMPILE_TEST
-+	help
-+	  This driver provides support for the OTP controller found on some
-+	  Samsung Exynos SoCs.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called nvmem-exynos-otp.
-+
- config NVMEM_IMX_IIM
- 	tristate "i.MX IC Identification Module support"
- 	depends on ARCH_MXC || COMPILE_TEST
-diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-index 70a4464dcb1e25cf9116280a32f4a0f4f9941a75..920a536fc359a5a7d8f3aabba6a712e85c277ee7 100644
---- a/drivers/nvmem/Makefile
-+++ b/drivers/nvmem/Makefile
-@@ -20,6 +20,8 @@ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
- nvmem-bcm-ocotp-y			:= bcm-ocotp.o
- obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
- nvmem_brcm_nvram-y			:= brcm_nvram.o
-+obj-$(CONFIG_NVMEM_EXYNOS_OTP)		+= nvmem-exynos-otp.o
-+nvmem-exynos-otp-y			:= exynos-otp.o
- obj-$(CONFIG_NVMEM_IMX_IIM)		+= nvmem-imx-iim.o
- nvmem-imx-iim-y				:= imx-iim.o
- obj-$(CONFIG_NVMEM_IMX_OCOTP)		+= nvmem-imx-ocotp.o
-diff --git a/drivers/nvmem/exynos-otp.c b/drivers/nvmem/exynos-otp.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..5acdc6ef1f8e07ffb6d465b160659732f4ef5a22
---- /dev/null
-+++ b/drivers/nvmem/exynos-otp.c
-@@ -0,0 +1,160 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright 2025 Linaro Ltd.
-+ *
-+ * Samsung Exynos OTP driver.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/device/devres.h>
-+#include <linux/err.h>
-+#include <linux/ioport.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/sys_soc.h>
-+
-+#define EXYNOS_OTP_PRODUCT_ID			0
-+#define EXYNOS_OTP_PRODUCT_ID_MASK		GENMASK(31, 12)
-+#define EXYNOS_OTP_PRODUCT_ID_MAIN_REV		GENMASK(3, 0)
-+
-+#define EXYNOS_OTP_CHIPID(i)			(0x4 + (i) * 4)
-+#define EXYNOS_OTP_CHIPID3_SUB_REV		GENMASK(19, 16)
-+
-+#define EXYNOS_OTP_PRODUCT_ID_MAIN_REV_SHIFT	4
-+
-+struct exynos_otp {
-+	struct clk *pclk;
-+	struct device *dev;
-+	struct regmap *regmap;
-+};
-+
-+static const struct exynos_otp_soc_id {
-+	const char *name;
-+	u32 id;
-+} eotp_soc_ids[] = {
-+	{ "GS101", 0x9845 },
-+};
-+
-+static const char *exynos_otp_xlate_soc_name(u32 id)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eotp_soc_ids); i++)
-+		if (id == eotp_soc_ids[i].id)
-+			return eotp_soc_ids[i].name;
-+	return NULL;
-+}
-+
-+static void exynos_otp_unregister_soc(void *data)
-+{
-+	soc_device_unregister(data);
-+}
-+
-+static int exynos_otp_soc_device_register(struct exynos_otp *eotp)
-+{
-+	struct soc_device_attribute *soc_dev_attr;
-+	struct regmap *regmap = eotp->regmap;
-+	struct device *dev = eotp->dev;
-+	struct soc_device *soc_dev;
-+	u32 val, main_rev, sub_rev;
-+	u32 product_id, revision;
-+	int ret;
-+
-+	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
-+	if (!soc_dev_attr)
-+		return -ENOMEM;
-+
-+	ret = regmap_read(regmap, EXYNOS_OTP_PRODUCT_ID, &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to read product id\n");
-+
-+	product_id = FIELD_GET(EXYNOS_OTP_PRODUCT_ID_MASK, val);
-+	main_rev = FIELD_GET(EXYNOS_OTP_PRODUCT_ID_MAIN_REV, val);
-+
-+	ret = regmap_read(regmap, EXYNOS_OTP_CHIPID(3), &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to read chip id\n");
-+
-+	sub_rev = FIELD_GET(EXYNOS_OTP_CHIPID3_SUB_REV, val);
-+	revision = main_rev << EXYNOS_OTP_PRODUCT_ID_MAIN_REV_SHIFT | sub_rev;
-+
-+	soc_dev_attr->family = "Samsung Exynos";
-+	soc_dev_attr->soc_id = exynos_otp_xlate_soc_name(product_id);
-+	if (!soc_dev_attr->soc_id)
-+		return dev_err_probe(dev, -ENODEV, "failed to translate chip id to name\n");
-+
-+	soc_dev_attr->revision = devm_kasprintf(dev, GFP_KERNEL, "%x",
-+						revision);
-+	if (!soc_dev_attr->revision)
-+		return -ENOMEM;
-+
-+	soc_dev = soc_device_register(soc_dev_attr);
-+	if (IS_ERR(soc_dev))
-+		return dev_err_probe(dev, PTR_ERR(soc_dev),
-+				     "failed to register to the SoC interface\n");
-+
-+	ret = devm_add_action_or_reset(dev, exynos_otp_unregister_soc, soc_dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add devm action\n");
-+
-+	return 0;
-+}
-+
-+static int exynos_otp_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct exynos_otp *eotp;
-+	struct resource *res;
-+	void __iomem *base;
-+
-+	eotp = devm_kzalloc(dev, sizeof(*eotp), GFP_KERNEL);
-+	if (!eotp)
-+		return -ENOMEM;
-+
-+	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	const struct regmap_config reg_config = {
-+		.reg_bits = 32,
-+		.reg_stride = 4,
-+		.val_bits = 32,
-+		.use_relaxed_mmio = true,
-+		.max_register = (resource_size(res) - reg_config.reg_stride),
-+	};
-+
-+	eotp->regmap = devm_regmap_init_mmio(dev, base, &reg_config);
-+	if (IS_ERR(eotp->regmap))
-+		return PTR_ERR(eotp->regmap);
-+
-+	eotp->pclk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(eotp->pclk))
-+		return dev_err_probe(dev, PTR_ERR(eotp->pclk), "failed to get clock\n");
-+
-+	eotp->dev = dev;
-+
-+	return exynos_otp_soc_device_register(eotp);
-+}
-+
-+static const struct of_device_id exynos_otp_dt_ids[] = {
-+	{ .compatible = "google,gs101-otp" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, exynos_otp_dt_ids);
-+
-+static struct platform_driver exynos_otp_driver = {
-+	.probe	= exynos_otp_probe,
-+	.driver = {
-+		.name	= "exynos-otp",
-+		.of_match_table = exynos_otp_dt_ids,
-+	},
-+};
-+module_platform_driver(exynos_otp_driver);
-+
-+MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
-+MODULE_DESCRIPTION("Samsung Exynos OTP driver");
-+MODULE_LICENSE("GPL");
-
--- 
-2.51.2.1041.gc1ab5b90ca-goog
-
+Other than that, looks good to me:
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
