@@ -4,73 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17065CD4853
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 22:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63A6CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 22:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMwDComZzU47oOP/+A3ALS4v871rFPra/Aj4ODDnnBQ=; b=sAjON/eBz08+swoSaBpsnUZ1+s
-	CJTVFjuUD8Jvch5mYiJWcEMsfH8lgXuehvgsRZz9OegtxMfmygHYtLTKpB/YxG+GsbdVIZnBHgYPY
-	VHrpJFTdSHAgRfn1ouT5A96D4XXhDtjSzKm/u8OWo7W9l9SbvKlV4C/xCcZw4zGJ8twpB0R0UJCJe
-	+yb0T1xnY7PBA9wtHYwDOvLOCXChsnmuFixhE8KotGSo6NZm1EcqSCGeRYJfDb9GJ3GIBozypFhWn
-	sTNc50BXGD8/y5FlaXyk92lGONL/ZOeUZIIabBiKZfrnmm4lugsYv9oDNVjF6R3gQOY/fo/DdB6J3
-	3sz0O0wQ==;
+	bh=wCLWzX702pi4aTstDqLnv19XZbpXxu4yq61VZJJIH2A=; b=xYF6yBouph9u2qHbZE0UD9sseo
+	cTubFaQVvM9At6PosNrTz0Rp5jsSmMRPVYNtFABMs/bwH+AoVXRiRcpxFYnENfEXU3/1IAYFEKr14
+	Xp/Q/gk/musH8GkNH/DeWhqtVJ9fosviqprcM38m0ZroIiwOKj+0p77n1y0rtuVBXBhj/5IZp593f
+	A8ruMJWyAzjxWFCKepNutRILWmGDCKYau5A0zFIhnfw3llltNBp72kBnaUuv1rtevQzJv+khFbNsS
+	YW6ivJva4IO3cJ951V8GaMmCBCgyp48I+mg3/c0F+u5tCauaFMhc0/fs2caPN+1Y7TgFClwf9coT+
+	ZS+JqWdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJJHw-00000009a0p-3Jch;
-	Wed, 12 Nov 2025 22:26:04 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vJJJr-00000009a8D-0vqG;
+	Wed, 12 Nov 2025 22:28:03 +0000
+Received: from mail-centralusazon11021115.outbound.protection.outlook.com ([52.101.62.115] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJJHu-00000009a0D-0ppq
+	id 1vJJJo-00000009a7n-3U0T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 22:26:04 +0000
-Received: from pendragon.ideasonboard.com (82-203-161-95.bb.dnainternet.fi [82.203.161.95])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 6B94450A;
-	Wed, 12 Nov 2025 23:24:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762986240;
-	bh=PS8sGnEMqi/E524B9pETv/HzJCvpAyFaN2txZ357aEA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EbrY+MpqxgP0my+FG1nw9KYOLcsvUJ8X63WXyH4Q+dO0K1djc7/jt2IGx5PKGoDMD
-	 VhTAA6tRqmLwhLpmPZUp4CfNRbvh0IC+FCwHjiSlD+zj2s+A/LL8MlRz54mrcJvxK3
-	 WF0s3iTMKCckgyEMGmTbcMv4frBdzQH4U7YCXppg=
-Date: Thu, 13 Nov 2025 00:25:51 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251112222551.GB9135@pendragon.ideasonboard.com>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
- <20251027234648.GC24987@pendragon.ideasonboard.com>
- <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
- <20251028071817.GX13023@pendragon.ideasonboard.com>
- <20251111235434.GA25874@pendragon.ideasonboard.com>
- <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
+	Wed, 12 Nov 2025 22:28:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C20pj4+TWxWZH/vfN6X/OIeOkQnN/XiRYsvL+AB9MCyT8VQIzJjl+vxf1EVGs6wLaiuvPLyspnREDs3TVEGCgSA6Ujpy/J4N51luc4Bnh+MaFBGFvoX6ok0gwAfWoSw712kxxPEPALD40aMtmIoWKhWh1r7jaDUuNL+p+/v8F/RMcesGNq4dN22UeiCsOiUTnKIuo8eMiz4HhEvZq/MRbq6MElQypc6AohR2numl7yl6J/xLZ66h8ndYeb+Urzhhwi2psP2iRByGzB1gG4PawN7/8UNBTZ4JTQJvwogeijr5TeWb1qvcRC6/gfI57eOLNtsQ5/W3w+BT57O3go8pKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wCLWzX702pi4aTstDqLnv19XZbpXxu4yq61VZJJIH2A=;
+ b=KGSAbiIHRU/on937uXjCqpBha8doODZgFh2JgNB0DdFaSbl2UAjkwn8iT67iF0OSc0QhKnymhMC5Rp0dPhUqIEAVKWTRzniLqczE8fnO2FQlCZQ65LrEgAw1ssdwITbzgZn94SuMTBWEH4oTDvZvZaX+H3UHWHwrhN6w7yaEzoLJcYAYIrx52twm3Aocm31hJqRkm1lGeaUo7vtpgE5X9yakuUcGH/EX580KGha0fLmlR+O9pscgNh4ldO9DvNWSLTECVezcL66oCf04O19GpWJU3SbNS2WsHkBhQ353hK46usB95h6q38CA1fUWN/BObSWo/vcqSeTAltAnp2tQng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wCLWzX702pi4aTstDqLnv19XZbpXxu4yq61VZJJIH2A=;
+ b=kx9IS0j9TzHByFMtAOAjiF6BHXT6yi7cUr9qh6J8/jQo3GY8rnSPxfbVgHweonUMhFWwNENAEXeXQcJAbc/i7PgteSnssG1W9i2MePzSY3aww7SL62DOLT5N5IVl9VW8ZC5MuXTuTWVfqy5ImffCRQRdAz6HawU2bISP6gbYD7A=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SA1PR01MB994069.prod.exchangelabs.com (2603:10b6:806:4a3::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.16; Wed, 12 Nov 2025 22:27:54 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
+ 22:27:52 +0000
+Message-ID: <3aa3558d-cfc6-43a1-8c73-9b01ed1e2b3e@os.amperecomputing.com>
+Date: Wed, 12 Nov 2025 14:27:49 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: ryan.roberts@arm.com, rppt@kernel.org, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251112062716.64801-1-dev.jain@arm.com>
+ <20251112062716.64801-2-dev.jain@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <20251112062716.64801-2-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0082.namprd03.prod.outlook.com
+ (2603:10b6:a03:331::27) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB994069:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09bf1169-a59e-46a9-7c72-08de223ab7e7
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UlkxRDdKUmtEeEoyUEpBZndFSVRYYVNaVjBoaVAveTF0SklZei9TUkloVy9p?=
+ =?utf-8?B?cUZjdWdZcVRSOUZwSXpxUUkyQTgvSEpGT24rQ1FKM1ZOTjdGVEpjSkxFUWFn?=
+ =?utf-8?B?UWd0Vm9FL1VWYlU2UWdMeXNhdEdvWUJNRXhSNmdQUzZYbEpreGVCWk9IVmx3?=
+ =?utf-8?B?M1p5UDE4c0VDU0FDK3dETjB3OVpkZ3M0c3RycmplNDcvUnEwNTk0cHM2c1Rl?=
+ =?utf-8?B?ekxBVzlvN2VvcjBMZHNtN3VMei9rMGtCdWpTdjY5ekNqR0Z4VGZBVEF4Rm0v?=
+ =?utf-8?B?NExSN3MwN1IwVHNKSnFEQUdTdnlHVWF5RDEwUzZTQlpwMFF5aXp5UzZ0aFB4?=
+ =?utf-8?B?ZEMrc2JwTk56SitLL2RhOVNTVmFOSlpxMzhnTldJS0J4QW4yNkJwWmYyclM1?=
+ =?utf-8?B?dm5GODFERTlmbnJKeVU0TXk5RDhSVlR6cnh1NzFvWkQ3QjBZejF3UW1OM0lj?=
+ =?utf-8?B?NkRGbGtPZG52N1E3WG8vU1ZRWVFqRU4rcXJiaWg3bmo0TjMxV3ZvQ01LVmI0?=
+ =?utf-8?B?ODQxT2JTeUw2MzZYTFFwYVcxTi9FM3RTMTcwbHAwN1NsbGYyQ256eC9ZbFdZ?=
+ =?utf-8?B?YlhyejhxaGsyazV5WUJxN1JyeTgrVTFxREpudkN3NFVvNGVKR2tEbUhxOEw5?=
+ =?utf-8?B?NlFXSlJXWVNBZ3AvbU9nQmdQMnRQdjRsclVwYndOMm9RRUFGYnVpcVVoQWtL?=
+ =?utf-8?B?V2FXczZsZmlreUE4L2hVdkFHeEtiblFBQjROcmpZNEZNTldQcEpsRTg0dkxz?=
+ =?utf-8?B?SzNaYkJNemJVK25OWjZzOXI5WThuNFJtam51bEh6Smt3alpFOTZuaUhLRjJr?=
+ =?utf-8?B?b0M2OUF0cGtvZFRpYy9wNldMYkdnZDBWeHY3cEZ1cVR0WW5sc3lXQW11UzNZ?=
+ =?utf-8?B?aGVxQUJlelljbDhha3A4cm55QzcveHRrd0VkRTJneGtraXp1MkwrK3NTdzBr?=
+ =?utf-8?B?Z1dOazdlY20xbDlheWhKbVRrY01TTE9wb0VhUWZ4WXkxY0RPWThLZnFMdWp4?=
+ =?utf-8?B?QmdoMmxpR08xeVhuVi9xeFZacVJ6SkExSFFSVmdvazMrbkhQeHAwd2FITXFZ?=
+ =?utf-8?B?R2l0Skk5QU5HS0paWkxpNFgvQ1Q5N3BFMTI3WGp2dmhHS3Q4L3JGSDE2QkIr?=
+ =?utf-8?B?VEJneTRDcVBweXpFdTF4RWhpS1ZWVE16SlMvS0FjVXkzUWNvcVZUbTJWMUc1?=
+ =?utf-8?B?eU14MlpRUzg3NEdqRjk5c0VtamJ3OVVtZ2R0MFhXL3VJaXB5TC9GY0hMUHNT?=
+ =?utf-8?B?RFN6QjJkYzdCRU1xZ0d4dldaR0FhNWNiWU5NckhRakpsMm9OL0ZWMUlyRm9x?=
+ =?utf-8?B?MWNKU0Rza1JjRmVYbHkxSGRjZ0w1WVp1djRBYm15Z3FLN0pkTzUzRTlQTWMx?=
+ =?utf-8?B?OVpRdzMyNmpTcWl1ZWJVZTkxSjE0NVdySXMrbWRPOGNxb2F1akEzc0ZpM0pn?=
+ =?utf-8?B?LzcwMm9vclZ4Y3Z6NEpZL2I5L1pZTkhWYnhyb3A2dDRIenJiYTNHOWt6MUsy?=
+ =?utf-8?B?RURpQ3FZNk9weXBNTlMwTjZLNGk4OUpVZ1c5MWRXS0VpeUdWN1lwcFlSL2Vi?=
+ =?utf-8?B?TFdBK013S0l4OW9QcU9YaDRvU1AvYzNmTzBFNjFoWW5ESkxab0xZWm13K0ZU?=
+ =?utf-8?B?M0ZiNHBVMzBWanJpdEVrQ1FmYkN1YnNVVFFkeE84amtscHFIR1orTFFYcWFt?=
+ =?utf-8?B?SGp4VTViZzRPMFZ0YXY3eitLcFBMbVMySXQrSGNvbzdFRWNtQXptL2UxSGZh?=
+ =?utf-8?B?eUI1R1Zkc284QkxwYTl3Y3ViLzhkbzZtUmpGWDBZMnUyQTdFY3ZZOHlKRmZu?=
+ =?utf-8?B?ZnhlQkxGbnM1MW9xWlZLZ21RV0Zqc3l2TjlSQjUvRUJJbFgxVSt0OFpZTXVD?=
+ =?utf-8?B?Tk9yWWNwSFZiVkNEVFJCaWtUVUR2MC9FVDV4NXBHbjFzOFRBdWlQRnBVWWI1?=
+ =?utf-8?B?cUVqdnVyWGpkeDM4MDlSaGhtSGJ2cDFhTXFZTE4rajcrUEdoVXNqNVBnbUh2?=
+ =?utf-8?B?bHFORWZRVHBnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGhIaUJtK2h5Q1o5bTd3Um9RZ1lPa2Fab013UkRsYUdlcjVXUGlwOUdINFRt?=
+ =?utf-8?B?YnZ0T2RacWFSMnZwQUVFYzYvVkZNSDIwRCtDeXNjLzI3Y3hJYWhhMUNWc2JF?=
+ =?utf-8?B?d1ZPbXlhQnA2V1IrSzJDcEtsOU5iM1JncWxwbVc5c0xLZzE2Wkx2SnhJbmNm?=
+ =?utf-8?B?cVprdThzQkNHVUQxckJvaEVhL21xY1FwVlYreWI5SFF3dFFTN3BtampGNmxl?=
+ =?utf-8?B?YitUbjhockZIdUNIVW9pQ3IvZkRrWjl0M1drNGFEQkU3YldIQWNOUHpZaVlE?=
+ =?utf-8?B?b2pFZWR5dWN0TVliMXAwZ2Y3dXY2dGs2aDJvYVk3Q0xPQ1E3T1JFK2J1c3ZJ?=
+ =?utf-8?B?cER2ZXB2YjFnakNGZm1oYjRlMFVRN0diTXhpZ2RISzc2dWdHdHhLa1FmNVZM?=
+ =?utf-8?B?TEpGakJCanJVS1BIWlRPc01QYTUzdmFGUm94NUVSdEUycXQ0QldtMmxkQzIw?=
+ =?utf-8?B?NENQTEI3K2s3OVdIdmRXaG5pd3c1UmsvQmJvOWlvZWJaM2dacnB6R1haeVFm?=
+ =?utf-8?B?Um9sM0ZCY25ZdFZGai82Y3czRDFqNWtEbzB5SFJpUGVvWlBBL2g4Mi9iMk9j?=
+ =?utf-8?B?SG0xL2w3N3RPUEg1T29KcWg3MVdNUmxDWE5pMVpFbXNzQkpDaXI0d0lSU2tn?=
+ =?utf-8?B?Z2NqUmMvdGlwSElnM3pDUzlqM3pTenZjU3M4bWRDMXhvaGdIQXpvRmpDcG9B?=
+ =?utf-8?B?TGtzcU95WjVSaFJPVlBxZzBBS0xpUlhpTnJ0OUxrR2xrZE4zeHdjaGlPM2VD?=
+ =?utf-8?B?dmpWMkFnSHJSZmVGV2FSenBIZVk5S0k3cTZTQmhOR1ovdGFHbXdCQVUraVBv?=
+ =?utf-8?B?blJxOWtLYUpVeW1VbitWWjhOTE5qTjhJMW5HN29ib25idC95OWZEUW5WYUQv?=
+ =?utf-8?B?OWRnNGhEQXBiWUFHaWdjTG9ZME1vSlhhUGN0K0FNU2hUSnBsOFJDMHVnNFVv?=
+ =?utf-8?B?YVp4Y3RoL3FJNFF0RkRTRmNpVC9FQ0RKOFp5VElwdHZPcSszNWZ5ZnAwL0Fn?=
+ =?utf-8?B?KzNRbHdtVEI2bVV4SXB0SWJiNEF6bnF6TFZuanFQUHNFaTN1K24zeFdNZTdo?=
+ =?utf-8?B?Q1E4a0R2Y0d6bTVWU2RLa0xxdWxmQ1VCdGFYVllJRnNFTlJTK0hqZVlsbTJP?=
+ =?utf-8?B?eVhxM21NWmt2ZmZYR1VUUktWRWg5dWljZmNWcEdNRjdFdjFJbGdoYTQwTkRH?=
+ =?utf-8?B?RUVRaVRSd1Jvcm95dnpVakNWQnUyMEJCRWtIR21ObTczRnNnbkRpSEVITXdB?=
+ =?utf-8?B?eTlRNWtYOUZITTFYbWF4MXgrdGIyVVNvKzRMUXhaVnJ4d3h5VWRLclFCbzgr?=
+ =?utf-8?B?Z0RvZENEajIvaEtFcVhzamV1TGNpbnlPTHBGdnFJbE1Td3Vpa0s2d29jQzhZ?=
+ =?utf-8?B?M3RxdFFCVmhZRUlqblBCWmV5NHZrT3dVUGdCRVoySVJXUW02UG5WRytER2gv?=
+ =?utf-8?B?M1VkMFBEbzhxSGl3MEpQdEk5TUNTdnl5T1Zkcm85MzNVaWsyanZRbFlKeVQz?=
+ =?utf-8?B?UytqQ1pZUkNKWnJsSlBsRnBOOFBSc2VxY1E3ZzNaQzhPVHVCb0U4UU1GR205?=
+ =?utf-8?B?V3FiNjRicEtUODRUT3lxZi94bUNOdHRmdU9qWnoyQUE2T3NORWtLVzNIWjBl?=
+ =?utf-8?B?VDBtTnpidC9IK0pKT3pkRVZDaEs0WVFzWWZCTWJZQjBJMHZaYmVQSWdYTHZR?=
+ =?utf-8?B?aUJDZm52aDkrVG0yZUhFYVBzTnJPTkIybW5zTktkb3Y0UFZFbDRxK3dWeGJm?=
+ =?utf-8?B?SGlkNXFiSmo2ZmVVTWt4QWJ0YXVIQ1hkem9vTlM0azRUK0tyNmgxdHpNbGV0?=
+ =?utf-8?B?Z2FlMW5tVEMva3k3My81eU54NmxYdlRnWWt2VkV3M3JWSGlGM0VqT2hZdHgz?=
+ =?utf-8?B?SkxpSFc2cWNTZGI2RGdFRDNKNTJ4aldUNTAwcGVvdURyWkpHSy9tL3ZJcTRU?=
+ =?utf-8?B?SHZUSkp3akNGTUk3RFRQOGwyZUVZVWFBNXdGN1oxTURlcWdEbFFtMVl4UUJY?=
+ =?utf-8?B?RkpmRkttTjJScXh1QWtXV3NTTHA5YjYxcFcrcnAvblNTbC9NQnlUeE40NVN6?=
+ =?utf-8?B?SGNMQzdMdFNYaXM4bURrcndHZ3pPSXliWGUxMldjL3hGNDQyQUphZnk3a0FE?=
+ =?utf-8?B?ejRlOTAzSTJyenZONmsxV0Znd2VTck5xZ2FZb0FLMVgxQVltVGFuMXQrL040?=
+ =?utf-8?Q?astaSDyMhou8I3SkP2Tr+bw=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09bf1169-a59e-46a9-7c72-08de223ab7e7
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 22:27:52.7944
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LfPz7xSterSeVUlrZlvo2/RRN75S6uKhARDsnvCa6PGzMcHU2/ro2ThHJ7ZgPRm8wxI/FrraAM3JTRQE532UhL9Hj7kqCM3ATXutx0d8IKk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB994069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_142602_402733_F30ADCB3 
-X-CRM114-Status: GOOD (  52.63  )
+X-CRM114-CacheID: sfid-20251112_142800_900377_C64DE130 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +180,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 12:03:13PM +0000, Russell King (Oracle) wrote:
-> On Wed, Nov 12, 2025 at 01:54:34AM +0200, Laurent Pinchart wrote:
-> > On Tue, Oct 28, 2025 at 09:18:17AM +0200, Laurent Pinchart wrote:
-> > > I didn't notice it at the time because my board was connected to a
-> > > switch that didn't support EEE.
-> > 
-> > I can confirm that reverting that commit makes the issue disappear. So
-> > we're dealing with an interrupt storm that occurs when all three of the
-> > following conditions are true:
-> > 
-> > - cpu-pd-wait is enabled
-> > - EEE is enabled
-> > - the peer also supports EEE
-> 
-> Thanks - overall, please take the statistics and interrupt status bits
-> with a pinch of salt - I suspect there are cases where the interrupt
-> is not actually enabled, and the code doesn't take action to clear
-> down a set status bit, but _does_ count it - so every interrupt that
-> happens increments the counter.
 
-True. To (partly) avoid that, I've dropped the line that discards
-disabled bits in dwmac4_irq_status():
 
- 	/* Discard disabled bits */
--	intr_status &= intr_enable;
+On 11/11/25 10:27 PM, Dev Jain wrote:
+> The rodata=on security measure requires that any code path which does
+> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
+> too. Therefore, if such a call fails, we must abort set_memory_* and caller
+> must take appropriate action; currently we are suppressing the error, and
+> there is a real chance of such an error arising post commit a166563e7ec3
+> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
+> propagate any error to the caller.
+>
+> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
 
-to ensure that all bits are processed and cleared. I then didn't see any
-high count of any of the GMAC_INT_STATUS interrupts. For
-MTL_INTERRUPT_STATUS it's a bit different, as by default only one queue
-is processed.
+Thanks for fixing this. My old patches propagated the return value of 
+splitting page table which was called outside __change_memory_common(). 
+But it was missed in the final patches.
 
-> > Furthermore, I tried counting bits from all the interrupt status
-> > registers I could find. The count of MTL_INTERRUPT_STATUS Q0IS to Q4IS
-> > bits is very high, and so are the DMA_CH0_STATUS TBU and ETI bits.
-> 
-> TBU means that the transmitter found that the next buffer was owned by
-> the "application" rather than the hardware, which would be normal after
-> getting to the end of the queued packets.
-> 
-> ETI means that a packet has been transferred into MTL memory, and thus
-> would occur for every transmitted packet.
-> 
-> Having dug into the imx8m documentation and the driver this morning,
-> I don't think TBU and ETI are the source of the interrupt storm. Their
-> corresponding interrupt enable bits are DMA_CHAN_INTR_ENA_TBUE and
-> DMA_CHAN_INTR_ENA_ETE (driver names). Both of these only appear in a
-> header file - the code never enables these interrupts. So, TBU and ETI
-> should not be causing an interrupt storm.
-> 
-> As for QxIS, stmmac_common_interrupt() will iterate over the queues
-> in use, calling stmmac_host_mtl_irq_status() aka dwmac4_irq_mtl_status()
-> for each. Only if this happens will MTL_CHAN_INT_CTRL() be read which
-> clears the status bit. In other words, if e.g. Q1IS is set, but only
-> one queue is being used. dwmac4_irq_mtl_status() won't be called for
-> queue 1, and thus MTL_CHAN_INT_CTRL() won't be read to clear Q1IS.
+The fix looks good to me. Reviewed-by: Yang Shi 
+<yang@os.amperecomputing.com>
 
-That's why I tried to enable all 5 queues in DT, but alas, it didn't
-help. I'll try again and count all possible interrupts.
+Yang
+> ---
+> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
+> I have dropped stable since no real chance of failure was there.
+>
+>   arch/arm64/mm/pageattr.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 5135f2d66958..b4ea86cd3a71 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	unsigned long size = PAGE_SIZE * numpages;
+>   	unsigned long end = start + size;
+>   	struct vm_struct *area;
+> +	int ret;
+>   	int i;
+>   
+>   	if (!PAGE_ALIGNED(addr)) {
+> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>   		for (i = 0; i < area->nr_pages; i++) {
+> -			__change_memory_common((u64)page_address(area->pages[i]),
+> +			ret = __change_memory_common((u64)page_address(area->pages[i]),
+>   					       PAGE_SIZE, set_mask, clear_mask);
+> +			if (ret)
+> +				return ret;
+>   		}
+>   	}
+>   
 
-> > The debix board's DT doesn't specify a multi-queue setup, so only
-> > channel 0 gets processed in stmmac_dma_interrupt(). I thought that could
-> > explain why Q1IS to Q4IS stay set (but not why Q0IS also has a high
-> > count, or why Q1IS to Q4IS are set in the first place), and enabled
-> > multi-queue support in DT by copying the imx8mp-evk configuration. I
-> > then see lots of non-zero DMA_CH1_STATUS, DMA_CH2_STATUS and
-> > DMA_CH4_STATUS values (but DMA_CH3_STATUS stays 0 all the time), but
-> > sadly this doesn't fix the interrupt storm.
-> 
-> Now, a queue will only be enabled if stmmac_dma_rx_mode() /
-> stmmac_dma_tx_mode() is called, which only happens for queues that are
-> going ot be used. So, I think QxIS where x >= 1 is set is a red
-> herring.
-> 
-> Given that the driver does a software reset which clears out all the
-> registers, any stale configuration for queues e.g. from a boot loader
-> can't be preserved.
-
-I agree that it seems really weird. And why this would be related to
-cpuidle and EEE is also a mystery.
-
-> > I don't think I can debug this further and figure out the root cause
-> > unassisted in a reasonable amount of time, so I'd like to merge
-> > disabling EEE as a workaround for the time being, unless someone has any
-> > idea of what I could test next. I'll submit a v2 of this patch with an
-> > updated commit message.
-> 
-> I'm also not fully conversant with dwmac hardware, especially not the
-> v5.10 hardware that is in imx8m. All the above is stuff I've pieced
-> together this morning from reading the driver code and the imx8m
-> manual. I'm putting in effort here to try and get to the bottom of
-> your problem without hardware... it would be helpful if others could
-> do the same rather than throwing their hands up.
-
-More help would certainly be welcome. And I really appreciate your
-support Russell.
-
-> The driver is really crappy, and part of the reason its crappy is
-> because of this kind of "patch in a workaround because we can't be
-> bothered to do the research and fix problems properly" attitude.
-> 
-> I'm saying enough is enough. I'm saying no, not going to merge a
-> workaround for this problem. I want to see stmmac improve. I've
-> put in considerable effort over the last year or so sorting out
-> fundamental issues that others just can't be bothered to solve
-> properly (like the DMA reset failures on resume that has plagued
-> this driver which no one seems _capable_ of fixing, yet I, with no
-> experience of stmmac, was able to analyse the issue, read the
-> availble documentation, and fix the problem properly once and for
-> all.) Either I'm bloody good at what I do and everyone else is
-> useless, or it's laziness by others. It pisses me off that I seem
-> to be one of the few who is willing to put the effort in to stuff
-> in the kernel to see _improvement_. I don't _have_ to work on stmmac,
-> but me working on stmmac benefits a lot of people.
-> 
-> What I'm saying is, we need more people willing to put effort in
-> and less bodging.
-
-While I would like to merge a workaround and move on, I also understand
-your position, having had the exact same stance in other kernel areas
-and pushing for problems to be fixed correctly instead of worked around.
-The only argument I have to defend the workaround approach is that I'm
-putting a lot of hours trying to do the right things in other
-subsystems, and I can hardly scale that to networking. It's not a great
-argument though.
-
--- 
-Regards,
-
-Laurent Pinchart
 
