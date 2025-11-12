@@ -4,176 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA11CD4845
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1B2CD4842
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jy5iEsB8lh3Vgutt5b0Z2rhcTIjFTBE+3e3HbP3ujrM=; b=G789vqPtnlQ236hTs5FwKh8iLu
-	MbDucZrzu3hYwsBTteH9pr62Opmt95/rTQ/eAaybHprFgXW88K9pwLWlwpkFpWfhfE+E7/PFTpuwG
-	/MvUNtmAO48+/vO+bWpkdXXEXOUKezLD1FHhxaNBG7fvnUQFk9DK1APorMFdjzEadKtyrMXIPGo5G
-	nQcuhJ8D9dHstzqft8y2WhCGnCONdLhIxsmPVX+SDYDV188dD8IxhhCo9d34Ob2KnuAtePsZmLCaZ
-	JGBMpQHd9Nj37VDZienk8E4kPRuIf0hodPCOy60tI6kFzT5wdXWxD10fQfHYJXUwtXGRxL77lArZv
-	dESZGgZQ==;
+	bh=s9o8NRvJdzTieC05I6sj+VphdIDRCWgXCmaEd+EQUzE=; b=2JtoafG+v9wrDGGcYEElTblzbC
+	Bk82XbAOnLQQoChCwM869A3NLXgRA4TUcU48n8bQ+ycQOe45oJhBrUuFMt0wz1DgVgx0mwqX2fOXP
+	6vKQ6sevvGUPAkBUQR5CW5vhc+KzKJqEomykeSz7ACTjWB90berKSnjsfkykCLfyEppwpJkFpCgcr
+	I9utBPKF8jYzT/42hMNDry8LN/1Yr25Y9z9E7KZAqk2lK4JnZJaSFhDScTu8CyIunZurtyQ/Z6m7M
+	HULEeufzwQJuamIBfdy+ykR1P+DrGRXLxtTcBX4K4ZwB3NHazL3ev3avRf5tbbj9buaKoM79/LoCj
+	KFgHwkBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHWM-00000009UFw-2c1N;
-	Wed, 12 Nov 2025 20:32:50 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vJHa0-00000009UTR-0nBs;
+	Wed, 12 Nov 2025 20:36:36 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHWJ-00000009UFK-2eVe
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 20:32:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aHD2Qda9Yz8xYE/j0dnRvuF2pU97A8FRebvovn8B4epB6Mrn5UIwR2ydXQi01EE9S2DAIxjRxl9idtUpI7hf1oDccHtyexWAqr8/e0R5R6rS8y2lITleWx2ZxMt00RCMnP3LGIexDIMxMX7gNmJh9pzSlTutrDvWPMFj4Nc35h4CZJnoZB+Ta/EsTo9EkcsYsnsiM22AIccddVSNwEuM4n4QMTTyhATcRt0OgizdG61nJG2DQuSWqY+t1lER+tD9ISMPsegKRHLHRRQdxXfiqmrDNyf540vX+vgD9NMqD4HgJJr2EBYa5BrN9uau+HbxGF3NVsQde68wQjVZvZiUhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jy5iEsB8lh3Vgutt5b0Z2rhcTIjFTBE+3e3HbP3ujrM=;
- b=NqIs5CBBuES4YRoTDt25+gKOdu98tFNHCfV40L1CRVh2clCV6m1njuxHA2cCCET0PgeCQ1RgJwNiX5LHdmEnTjSdJ7Kw/9xIJl3xX2hpY8C5U4fMM0AqPvPb3c5oh9zbHjZEg5UrxdK7X53o0ur1CUaX00nqXfaHTTbYanMabYM6yM2vEpwfBQERWV5z3euN4UfUL2/p/xwRov1GhGVBOAoe05ka5pItvHwEIkP/6X86qH2gsI3R/4VoWScX5AUFh6UK+LNmtWFXP7gWRrR/jSDkxDP1A18h4F6j0ympHlsMRiPoaS2guKPN6lRxF9KICc5cmMaOBP2uxJxe883ytQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jy5iEsB8lh3Vgutt5b0Z2rhcTIjFTBE+3e3HbP3ujrM=;
- b=ELuYSRaKXwpSpLPN/40KpClss+bHc384XEB5S2DZKyYKGpSTPs4/14lk1MCAvN5mgDfsY7xeDh/Gh3Ft2K7xG43wa1pJz8qRox4tT4p3IdCjhgm/hJXU40vVIKh16ym612WEcbtjyM5cfO4VjjOUF5GEknx5P+rDxZbf3PqX49ZKNcPGkCLTDD6UNXVtW32bYcPhnNvx5VrLYrSJXFzNzlq6P5TbRWaocNSS8LEK1KUawv3SyAa8hv5zEx6s+lyzpN+5JI+gMm8ucxuVQv8gJKX/WLK+56FY75c5a2fy1P3GyxREUtXGz67ocorwr5Z1VWlVcv7OH9zHYeO6pPhbXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- SA1PR12MB6945.namprd12.prod.outlook.com (2603:10b6:806:24c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
- 2025 20:32:41 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 12 Nov 2025
- 20:32:41 +0000
-Message-ID: <7abc217a-7218-4231-994a-870a0e95896f@nvidia.com>
-Date: Wed, 12 Nov 2025 12:32:38 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/33] platform: Define platform_device_put cleanup
- handler
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-8-ben.horgan@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251107123450.664001-8-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0143.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::28) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	id 1vJHZz-00000009UTI-0qOp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Nov 2025 20:36:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=s9o8NRvJdzTieC05I6sj+VphdIDRCWgXCmaEd+EQUzE=; b=kp57rjurHJAHd7F+xCvQZd2no/
+	zldsm/PODHXAoZPRO03KjAvh+i6TFvDrouKIddaHozeoKX6h2p6XnR40qvkW2IfcfJjSqtjOOASHE
+	pcLUkbSjzs9jrpSZ1b8HCTaxH2HZB+iIqy3JOelzm0XwDoUm+rsEL547/n1nbkk1Zdvdon9bDW7m/
+	fbDrR+VT28Mw+bAffi2/e9rYJYquUsYKCdFL34XhsCio+W3x5wyTN9hfghxd3d7PyPKLuC/rsdqJN
+	omr01SQUfqZXqu1vGLmq3jMm7SSbX5suEPyADu3Kw4ySsNlAUtR/0apBO+uhzbLc6bklHuhuBZo+/
+	5LaH1Fjg==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJHZx-00000006TTz-1U22;
+	Wed, 12 Nov 2025 20:36:33 +0000
+Date: Wed, 12 Nov 2025 20:36:33 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Jinchao Wang <wangjinchao600@gmail.com>
+Cc: kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	workflows@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v8 00/27] mm/ksw: Introduce KStackWatch debugging tool
+Message-ID: <aRTv0eHfX0j8vJOW@casper.infradead.org>
+References: <20251110163634.3686676-1-wangjinchao600@gmail.com>
+ <aRIh4pBs7KCDhQOp@casper.infradead.org>
+ <aRLmGxKVvfl5N792@ndev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SA1PR12MB6945:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e76ed73-13e4-403b-7a36-08de222aa09b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TTdLcTJIdGUvVDZ2cENsWWhTekg1ZW1OL0l2RVRuemhnTk5wbXFQOVRkaVpJ?=
- =?utf-8?B?VHc4SVVSWENMdU82L3YyYmJvaGQycnJPZndCQVlreXpGNXp6RVd4K0R2L1JH?=
- =?utf-8?B?SjlUQUo4RDdOdC9JQ0ZMRGhOZDBVdFVNdUxSRHFmZXoxd3FNRjV0ZlNIQmJD?=
- =?utf-8?B?RmZIVjMrcTh1MlE3TUN2a2J0QU1xN0lkMjRBamFtYVUvWThpNjBQOGVYT3Jn?=
- =?utf-8?B?U0hNRTBIdzJGUmt2Wmh3R3ZUUFg0czhZQStDdXoybjc5QTBxc1hycUdQRFZT?=
- =?utf-8?B?REw4enBkMjFidXJKY0dGRmRZTWJXaWtuUXB3TlpMbTFrWXQ3WDRyRDhzemhR?=
- =?utf-8?B?cXQzNCswbjFkb1FVeWJrZHluQ3FJM2JYdy8zSkRVV2E5OU1CdE1EYmd6dTlt?=
- =?utf-8?B?N2tuY2NYNWZSenJXQWQxcktLSTZqR3BjaWNHUlJNdzVlTzJld0dYTzVuYkpT?=
- =?utf-8?B?SXpYZzlvbys1SlFLM1JoSVZnZjB0UmthQzFCbFUvNnpZUVNDTUxwV25ZODhN?=
- =?utf-8?B?RjBlYXlVNS9lVzRaNFZtdmFDYTZvMmd0NjVyU3c3SjlSODVlaUV6ZjRFNnJp?=
- =?utf-8?B?TjFVN21lTkl0WEp5bjI1S0dSNmo4TlRzQXJsbkptN1RmbVhGeklKTTVBeFpS?=
- =?utf-8?B?UmJFem9XNmFoTGRDZ0dPWGJXdW1tM2ZKZlk4TjJOOTMwLzFzakFURTZ2SjZi?=
- =?utf-8?B?ekk4elNueWt4Y0sxTEJoSUpOTS9rU2dLbmxlbWxmN0RONjlDL3BrSVB1Wkg0?=
- =?utf-8?B?NEw5cHVxM25ZSzc5YXR5ek1McFRBUjMzUDVjQXhBRFd5VTFzRzduQldydmcr?=
- =?utf-8?B?VytrZzNzZXo0aUpOd3FteVhpblZlajZaVVRVc1RiRWxuOVVuQzk3NCtQeG5z?=
- =?utf-8?B?MXdHTlZhbWxVQUpGV1k4dDEyTEpUdmtla2I1MiszZ3cvTFp3dkduVjJpQ09u?=
- =?utf-8?B?VVMySWd1R1QvSm9BZ3VvN0xFOThOWWwxY3JoUEY3MzBOR212clVIRTVWUWpa?=
- =?utf-8?B?SmhRVU9xMU4wMjJCYXBBYkIrSWhicTR6QUYxT0JkUkRRWFZwVU5LR1RLMzQ1?=
- =?utf-8?B?M3hzanlOV0o4UURkYmdIUHFmK3o5UXJLMWRQUlVZMDZWUUN4QmZLbzhMTGZs?=
- =?utf-8?B?SXZRcUkxOXcrMXVkc1dYWFZieFdYaStZWWJZNnBoYU1HV1B3UXZuR1FWbWtT?=
- =?utf-8?B?bkdndkxjRE14Q2RTZ25BUis0cXYyMnF6aHVxT2hKWGNJUm0xeW1rMlVJRzBH?=
- =?utf-8?B?K2tlbmxXbk1hYzgwNWJzcnMwcDEzY3Mybjc3d05ieFpsTEJjeVd4VW8yYS9k?=
- =?utf-8?B?eUh5c0tvYUYrek82MG5Wa3VCei92MEcybFE5MEZSS3NVMGIzNVBia09oN0pX?=
- =?utf-8?B?MEZYQ2pyblRacTRzdEFXdjI4aHltY2NIQnQ0TzBIV0tKZ1hDK2J4dTNJZUIv?=
- =?utf-8?B?WXYzQnFPU1ZtditaTTVsZkI3bDlWemRVRXA5cU5UOExpbE5qN2RQZGoxckF1?=
- =?utf-8?B?d3IxT0dSdVFxbE1EQUpPQ1lsU3BubkhvT2IzZzdWWXJVdFdKV0g1WjNpMjF6?=
- =?utf-8?B?TjJPUVkzakJYZ1R5OXNWV2FLcUljRkJ0RTFoaFFrUWVKb1dCZCswcWFjUjli?=
- =?utf-8?B?RkJxWjZzMDNsU1dvK1duNmsxTFQ0STc0ckhhazBJNlU5Yk9vVzNxYkxFNTlw?=
- =?utf-8?B?WThvMWlJVUI2MUNXT1NIODl5ZEpaa1lub3pLQ21sMHlML0ZDRjZxQThkT2tk?=
- =?utf-8?B?aTNZSzhkTnB1K1hsQXFpcWVTcG91WUVUdkFQT0VyYlN4TlZhTGppSlZ3Yk5y?=
- =?utf-8?B?THdITytqOE5tMTV0WFplQ2NDUWUwRkxFL3BRNjlGTG9mNThjdjMvU0JhRXNq?=
- =?utf-8?B?VXlvd0JYRHRqaG5aOFhtL2NhQlpEM0hrQVc4SnY4eTlYd3VIYkRJUTN1b1JP?=
- =?utf-8?Q?OwZMwT1S+QfQ4M/24mPl3viyLMWPrkSD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1hZLzJoY2NwRlkrS3UrQWdJdXhPSTJnMFpkb0F6c3p3b3ZlR2UxRHFCc3NZ?=
- =?utf-8?B?dzZWbXZUcW1zdVRXZVJYYVJuUmFreU16b1l1V0kvVTRMeStMWFZkZW0wL2FO?=
- =?utf-8?B?QWF0S2JPZ25ZUTZ2d1AzaVhDaEhFRkVBRSt3a0RUREJKd3MzTGg3WDQrUHR3?=
- =?utf-8?B?MGJHYzdqckhZQ0hpeC9UZDhZY2RJR0FvN2gzMGZDWGFmWGVYd2tlL3FZalp5?=
- =?utf-8?B?THErVlpFQVhvTjgyQmtpUWhHbVBmTTBZVVU1N0pmc3NGYlg0UDVzMUdCTkdj?=
- =?utf-8?B?TzNFR2NJZStoNGpzOTZSUDNhK3gyV1ZWc2NvcUNjZVlNTCtXbzlsZkNxNjZi?=
- =?utf-8?B?OWFJcFdXL1N4M1VuaHU4R1cxNHhXRW1jaGt1SThGMTVSN2w5RzNTMUVnT0tt?=
- =?utf-8?B?ZmhTeDQ5elpOZVRkemZMNVQ0TXl5WTRQTjVMUzZQbHdPekVuNHExN3NaNS9Y?=
- =?utf-8?B?S3FXTWlEOUFYWmYzR0dEMVZMMGRYSGNRbkhzeVhqNkNxWVFvd1NDanh5RkM5?=
- =?utf-8?B?bmF3RGc4VllhVVBxNFEwYS9NK3plVGYvSVROS0QxRk43R1RMeTVyV2d6WXVG?=
- =?utf-8?B?d2ZNTklRd1VZQmZSVmc4Q0Q1NUw3VjZtUllGMjhaV0wyVDBDaUZBNkt0bEVn?=
- =?utf-8?B?QVA5SWR6NjBHL0ZDUWlsems1OXNVWTEvRjJ1ZXRKN0lXUXRhcWhqbkVxNlc1?=
- =?utf-8?B?cHM2OWdYbkh6eC9sTnZOU3FGTzZ3bEtDU2hxc2hYSFNqVFY3RlJZWEwxSHNI?=
- =?utf-8?B?R0tab2Y1WjV1S0dQajg4RTFuSFd6YmFlamFtSEhaelRVUnFKRDN0dFIwZThM?=
- =?utf-8?B?K3B6eFNDQXkxZWVXWEZUaWFoNVUvT1c3NEZzemZnNjBnVmwwandQejRjTkNF?=
- =?utf-8?B?VkwrRjRld0thK0I5RVpMQkxWZlkxaVFYbnY2TEhiZVpMTG5CSFBJMzhIUDlk?=
- =?utf-8?B?em4vTDlHblV4V1JSaVJMdStxZ1RuaXQxM29yaUhUandhc0Z5eEZwU2NwQzlk?=
- =?utf-8?B?WUZPcHFQY1ZQZ1dlSjJEOTVyYnAzQkMvaklCZ1MwcTkvRVBQVGpZcFhldi9W?=
- =?utf-8?B?Unh1RVhoUTQwU0ZhcmNGUmdrV3NpT01PNXFJNkgxWjduaFhzYXZNRUprWGc4?=
- =?utf-8?B?ODRLUGZ4V1U2SmlFRWtOb01jcVk4ZEc1UXpUeENOUFpIR0phS1EveHl2YVdF?=
- =?utf-8?B?ejBSK1VSQlAxNThkMkhqWGhTRjVQZ1o3Ty9QcEhEbDVhS0VpVE4vSGZOVHFW?=
- =?utf-8?B?MWIrK25JcDgzTDNCN1dZajRNdkpSdzI2Y3ZLREkvUDl4VFVMRnluKzl3aDJh?=
- =?utf-8?B?eVJ2OGJ0WWE2cCtNLzJ4ejBSTmFUdkR5Y3Y2ZkZKK0ppdDh5d2NiTkNXZ280?=
- =?utf-8?B?UFFZdTJLSzdyMXd2WnFLdWlGeVVueE1YWStpTWp6MUg1TmhLcVlnSzlrL2Rs?=
- =?utf-8?B?MzRtWUpRYVRLVmhkT2l1d1hLY2FzNGx6MDBWakFyWDh2SStoV0VqazBHM09B?=
- =?utf-8?B?VGhkWmJaTkxIOENPMC9GajhSeklUMnV6VDBHcXBHb21rWmFiY2R2ekZxbjZ3?=
- =?utf-8?B?Y0tjOGZJMWIzQnFpaWtmZHhwa3RVRmVmQ2pyRUljZktuTEc0bWpxaUppWTFu?=
- =?utf-8?B?QitCdytzdEJPWndtOWpCUXQ1ZmU3UDl6TVdOYlpnL1hMRlBOb25zZERqdnc1?=
- =?utf-8?B?NlJZaVdoVExhNWF3bXZxbXp5anczcUhMamRpZHp5YktrUXBCd3FEY3VrUTRC?=
- =?utf-8?B?MUlBdkJrRm1QY0o5SlZIOGtWa3U3TmdLVDVTWmNJR2xERE1oUzhzQXZLWjg0?=
- =?utf-8?B?QWxJbGhRQjZ4Q1hVa1RJZmZrTnh3ZUlDUkU4dXBLNUZxS3NyaG9LTzV1dk9S?=
- =?utf-8?B?MHJDRTBidmF4OG5YbXo3ZUtIcTdTeEwxL1NqNnBSVjhublpBbDFCMElMSXVH?=
- =?utf-8?B?dG4zSy9pSnJGZTY1NTgwWlh0dDlWZW5vV2JWSGNWOWlybXJxbmpCU1pFZnZ6?=
- =?utf-8?B?dk81MkpsWDNpWFFWV2JSdVVjMkZLTFA4OVFDR2tLWGl6WEVtWFRSMjVvQWVS?=
- =?utf-8?B?cStoRlRBdk5HRnJPakpaaDdtTmtTRDUvSUdzNGJzbXZtRzdnTGhTcEJUMHRi?=
- =?utf-8?Q?UQAa3AH4Y2IPQKfYwx2mDzEtd?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e76ed73-13e4-403b-7a36-08de222aa09b
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 20:32:41.6663
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U4ahxqckG450GcfCjCivjnoXkER5JYkH6w33YrpM0F2lNGGwFZfVyR4c5CHbA3OCSny3bCAOfMQufgRrSu+sgQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6945
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_123247_686525_F3A54BF5 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aRLmGxKVvfl5N792@ndev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,22 +72,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[dropping all the individual email addresses; leaving only the
+mailing lists]
 
-
-On 11/7/25 04:34, Ben Horgan wrote:
-> Define a cleanup helper for use with __free to destroy platform devices
-> automatically when the pointer goes out of scope. This is only intended to
-> be used in error cases and so should be used with return_ptr() or
-> no_free_ptr() directly to avoid the automatic destruction on success.
+On Wed, Nov 12, 2025 at 10:14:29AM +0800, Jinchao Wang wrote:
+> On Mon, Nov 10, 2025 at 05:33:22PM +0000, Matthew Wilcox wrote:
+> > On Tue, Nov 11, 2025 at 12:35:55AM +0800, Jinchao Wang wrote:
+> > > Earlier this year, I debugged a stack corruption panic that revealed the
+> > > limitations of existing debugging tools. The bug persisted for 739 days
+> > > before being fixed (CVE-2025-22036), and my reproduction scenario
+> > > differed from the CVE report—highlighting how unpredictably these bugs
+> > > manifest.
+> > 
+> > Well, this demonstrates the dangers of keeping this problem siloed
+> > within your own exfat group.  The fix made in 1bb7ff4204b6 is wrong!
+> > It was fixed properly in 7375f22495e7 which lists its Fixes: as
+> > Linux-2.6.12-rc2, but that's simply the beginning of git history.
+> > It's actually been there since v2.4.6.4 where it's documented as simply:
+> > 
+> >       - some subtle fs/buffer.c race conditions (Andrew Morton, me)
+> > 
+> > As far as I can tell the changes made in 1bb7ff4204b6 should be
+> > reverted.
 > 
-> A first use of this is introduced in a subsequent commit.
+> Thank you for the correction and the detailed history. I wasn't aware this
+> dated back to v2.4.6.4. I'm not part of the exfat group; I simply
+> encountered a bug that 1bb7ff4204b6 happened to resolve in my scenario.
+> The timeline actually illustrates the exact problem KStackWatch addresses:
+> a bug introduced in 2001, partially addressed in 2025, then properly fixed
+> months later. The 24-year gap suggests these silent stack corruptions are
+> extremely difficult to locate.
+
+I think that's a misdiagnosis caused by not understanding the limited
+circumstances in which the problem occurs.  To hit this problem, you
+have to have a buffer_head allocated on the stack.  That doesn't happen
+in many places:
+
+fs/buffer.c:    struct buffer_head tmp = {
+fs/direct-io.c: struct buffer_head map_bh = { 0, };
+fs/ext2/super.c:        struct buffer_head tmp_bh;
+fs/ext2/super.c:        struct buffer_head tmp_bh;
+fs/ext4/mballoc-test.c: struct buffer_head bitmap_bh;
+fs/ext4/mballoc-test.c: struct buffer_head gd_bh;
+fs/gfs2/bmap.c: struct buffer_head bh;
+fs/gfs2/bmap.c: struct buffer_head bh;
+fs/isofs/inode.c:       struct buffer_head dummy;
+fs/jfs/super.c: struct buffer_head tmp_bh;
+fs/jfs/super.c: struct buffer_head tmp_bh;
+fs/mpage.c:     struct buffer_head map_bh;
+fs/mpage.c:     struct buffer_head map_bh;
+
+It's far more common for buffer_heads to be allocated from slab and
+attached to folios.  The other necessary condition to hit this problem
+is that get_block() has to actually read the data from disk.  That's
+not normal either!  Most filesystems just fill in the metadata about
+the block and defer the actual read to when the data is wanted.  That's
+the high-performance way to do it.
+
+So our opportunity to catch this bug was highly limited by the fact that
+we just don't run the codepaths that would allow it to trigger.
+
+> > > Initially, I enabled KASAN, but the bug did not reproduce. Reviewing the
+> > > code in __blk_flush_plug(), I found it difficult to trace all logic
+> > > paths due to indirect function calls through function pointers.
+> > 
+> > So why is the solution here not simply to fix KASAN instead of this
+> > giant patch series?
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> KASAN caught 7375f22495e7 because put_bh() accessed bh->b_count after
+> wait_on_buffer() of another thread returned—the stack was invalid.
+> In 1bb7ff4204b6 and my case, corruption occurred before the victim
+> function of another thread returned. The stack remained valid to KASAN,
+> so no warning triggered. This is timing-dependent, not a KASAN deficiency.
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+I agree that it's a narrow race window, but nevertheless KASAN did catch
+it with ntfs and not with exfat.  The KASAN documentation states that
+it can catch this kind of bug:
 
-Thanks.
+Generic KASAN supports finding bugs in all of slab, page_alloc, vmap, vmalloc,
+stack, and global memory.
 
--Fenghua
+Software Tag-Based KASAN supports slab, page_alloc, vmalloc, and stack memory.
+
+Hardware Tag-Based KASAN supports slab, page_alloc, and non-executable vmalloc
+memory.
+
+(hm, were you using hwkasan instead of swkasan, and that's why you
+couldn't see it?)
+
 
