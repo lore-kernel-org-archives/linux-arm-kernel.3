@@ -4,176 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E7BCD4842
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A89ACD4842
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 20:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=; b=Ai98/OzX/T4mU7nQoANfGdataD
-	DignV0Xfgawtd6/vqjjYdeCxGQvE3pPWOMFEiQHljIi+SbbC5PTucDseSclGuDdKCuX3x1LU3kwDS
-	R6L+PJ8y53seGq0r1DBGzzN2D1wsYLc+UbZco5Gls6QDM5VD4wH7IzzhMMkVco9a7ArreQqdTCWSs
-	kaGZK/oSBQQ4jPFrX6NzjFQ1ZB5pRJ0vOImR713k/QNHfj0q92a+fCNv5QxFWHjR9aTHC/VezAdSq
-	LbtZe/40nnSRnCkLu8MngfYqCyUALKclTgFi1fXVfuws+o4lNJQQXoTf5AhEVndbHG6tiQPBbAgRd
-	xrJJj8cg==;
+	bh=yeZSq8cTRPNkCJBMRm08kt9ICnIHjlA+S0LO9P37S5U=; b=FKa7bvE6snK+tK3ZlSxQfELpKs
+	FWgSjVHfjkPl7KMceRTJcCP0hB6Rg2nszAdQZVB6iC/99RXRC+Adf/tzelhxcnosf6SFJ4f3pbzTh
+	VUm7/rCllxXKKvicmdrV3D2mhN7izNn9JETtjdWbScPHjn/STf2ov8lZBorfd45X5djs2ZBxG0/r3
+	4L2WklfckMq57Zz2c4WZHZlgguv+p0FddkcnX58s0rp/JxYK5+wS29Q5sZ6/thZVbej7l/AFobjRq
+	1ynljlsF8pU7TjUktJkPLjKcm219a5CjKl0v6ZuLKHUqxO3GklnqI/69GJDbaZD4wth84xPl9A1sN
+	HHAaT8fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHd3-00000009UhE-3JY2;
-	Wed, 12 Nov 2025 20:39:45 +0000
-Received: from mail-westus3azon11012034.outbound.protection.outlook.com ([40.107.209.34] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vJHrb-00000009VLQ-2zyS;
+	Wed, 12 Nov 2025 20:54:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJHd0-00000009UgR-1jwP
+	id 1vJHrZ-00000009VL3-1ajs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 20:39:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q2av7b2wDqQl+ezPzaqTqpPKGp/FIscilC6kC43z3aqvuJvK4qsvyjLkpdVDj+6DQlmlRHcxxzVXdfI69V6YKk+ykYeOHfYgia6JEPK1bPso2SjNQYeMdkcon9Qcb3JH6arIKzrBwXn4m2x86XqoDwoByuk/VK9vkdkclxklztWUp/UBI19epgT7zsHdQ/4j3vQ7JPdIA2AeV/s7DxHZpMqCL+B+5I5mFMtdfIrMZyuXpGP8PSRww98bTwW/NM/IZ6VQqqzizPrEPRjyrvrwAyGey//07skEBNJnXpQ3YfVOrkY/79Z0d1//BqoTdoAkIEEa/009NcXzSOH24T+aTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=;
- b=t8cJUEllQS6B1QXH+qcJ+QrtxDGURRynFclg5w9HSmEOmR/1YzMP/9W9/kBPeI4bSIs+QHUHSXzqLNjCmhy5RrLg1QDibhbc3KOz+FBj5AcvlyDgFuQMBASznHfJBZ6ywdCXLyxPMxDzvQf7vEyoR8NbOX+8/5qxL9ncafhlBxTEtxLx3QQr5nOVEAdR32a5PO4FI0sKrZND9PJv1KaBmGEM/W4ZrsoCJDeNW/lFPkYcyEc9HN7j9tJgrXKIjKQq+G9CsjljRRjxXM9L1zcYoEril0J0TxJzx8YmNAjB9tQFS/jCkcImd5Yzz6grTz8qhflxvsoepFrEzAL3hIBvaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GZurKfd2bhdEbsw5S1ss+bxF/jbnbku4yxDKjQn2bvs=;
- b=NXJY8N3vBlfDOkO4poQJhz0rj1knvXD4OfcdLHB0j3srBg0MGFyfxORmJPSSaTWqADrg5arvXXpEYrgjep11PKaRPvQeIsRSEuFGZXMS0JmlNUlE4aTK9C85EWg0AZ8Ea/GGomKMwReVa5Hdb/3oGmYutdwbvV419I+lkmPEa1wXJQswN2hipzNGw5K8DO9KOkmHzQ7as71KnpoRsUbXql6tSUxtiGIvAIScKihCFl4hca/Y6SpRfeB1+1N3A+o/z3/gVqhpx1a9Q66HGKOGyh7rJeh6un/+0Bio/8AVQmJhoU3oZDdY95WTz2N+5pY1pmNsN+GfCJwqfwFOlVSD4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- SA1PR12MB9248.namprd12.prod.outlook.com (2603:10b6:806:3a3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
- 2025 20:39:34 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 12 Nov 2025
- 20:39:29 +0000
-Message-ID: <13376c0c-8a33-43bd-aa72-b696baa2932b@nvidia.com>
-Date: Wed, 12 Nov 2025 12:39:26 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/33] ACPI: Define acpi_put_table cleanup handler and
- acpi_get_table_ret() helper
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-9-ben.horgan@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251107123450.664001-9-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0145.namprd05.prod.outlook.com
- (2603:10b6:a03:33d::30) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Wed, 12 Nov 2025 20:54:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 691A14070A;
+	Wed, 12 Nov 2025 20:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C22C4CEF7;
+	Wed, 12 Nov 2025 20:54:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762980883;
+	bh=shLPokjsUpILOo1X8P8C8cncHvHe+SlOKxjkENPFbPQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C6oYEDCZaLs1q97C73mboQdwy54DSbOAzBgJt0e5c6NbKPH7F3vCJaSqEE6YxEeen
+	 xNUFsLpNEFyeCyJGUXJHfd+n39G0W0A+9Wcs4qUcJn1eXEMOMA71Fq8mqWFQ+gi1Nh
+	 ZjHRhCa0QcIfJ6k0MsNk11NKNnyB0UtJsmsYa/ptE/2fntLbnE9GxxXTg3ipvu9fle
+	 EiufeUp/I/1hMMfGK9l48NlqRsHpDjDdHWdLFV9bRoKEFKNDQZifQTvmATwu6QfNDk
+	 BNBfubcFe2UmRU7fxIaRyziQQWfp8du5Owu47JCA8UNAbcyZFWOjas5XtpbMon4Tb7
+	 Hwj5S8XGdJuZQ==
+Date: Wed, 12 Nov 2025 12:53:02 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [GIT PULL] libcrypto/arm64: Move kernel mode FP/SIMD buffer to
+ the stack
+Message-ID: <20251112205302.GB1760@sol>
+References: <20251112093212.2392848-2-ardb+git@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SA1PR12MB9248:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4545f4c-cfed-4eee-b711-08de222b93ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0ZOakxITmhWL1RhK2luSlpJalRYTFVUSHZ1eTNFMmpWZ0ZxbFZMeVR2L0gz?=
- =?utf-8?B?TGtzQjV0allFVkRWSDhFQm9SdTczUHB1NkZQelF2SVYwOXpPZE5uZUxGMmxr?=
- =?utf-8?B?ZnlUV0l5YXBiTTl0SVFMY05MMVZCNjFkMzc5bUo1QWhqRktlRWgwa3IwRWlK?=
- =?utf-8?B?OTl0V3Q0eU96MUNjWUVnak5pS1gxalpyK1NsUjV3bVNnM2ZLcjJibjNKQ2pW?=
- =?utf-8?B?a2VBa2pycVhzR1hFeFBuRVlqd1l3V3JSUHF2RStzdk5iMVV1cFVBZWg1cnBH?=
- =?utf-8?B?dVdFWUpYbjREcE80bm5PWS80dkpYSHN2RGxraUc1cHdwTDV0VkdoeUpmYW4v?=
- =?utf-8?B?WitmZHpqYWdXK0UxaXdSYzE3VnBVY3FiTVd6UFI1b1dDTHBRRmExSWpKV0xk?=
- =?utf-8?B?OU0xU0FRa0x4YWxwbmdDT0p2REJ5Qml5Wld2b1hqQW5jR2Q3a1g2akFxbzVI?=
- =?utf-8?B?VlZZV3dRamJFeUhFNU1lZ2xwTG5HeVJQQW83UFhUWXFhT090ak56VHVzeUZZ?=
- =?utf-8?B?S3NDaWJ2Tkl1bHB2UDJZN29XTlA3Tis4bnhMNlNBUGxsUVBWaGVRWGN0dDZx?=
- =?utf-8?B?OEVRWnVoTFpSVVhsUFdBcFQxbWJKbWJiRWZtZWdWc3NqQTBZV3BkemlRTlZC?=
- =?utf-8?B?RHd0YzlyNFdFSEhUaTFnb09iTHJ4b1RBclJoNVNaQlZBL2w1TzViRk9UdWtG?=
- =?utf-8?B?eVZvREdNdGlId0NzZ0RvenBjU1BmUnVyNzZpb3VQWHpWeW1CSmlJekZRbW1N?=
- =?utf-8?B?RzJKY25LeGFwVzdlR2hHTzlTaXB0RDl3NTY2OFhOMWJIL3dLUGUzVW1zcFF0?=
- =?utf-8?B?MGxZQy9Jc2VwYWV1ZStjU3RVNjdSdEtNNERSaUZoVGhDNlFTMERhVTZQRXdS?=
- =?utf-8?B?OFduOEJZMzhVQk11SjlhZjFDNGU1VmMvMkpQTjBPYy9vdU9JNjV4UlpvUGxm?=
- =?utf-8?B?KzBEVjFkVzJ0S0hOdmFCcjg4U0RURmxoYXF1NzZHNHNsM3I4NVA2MlpLdDRm?=
- =?utf-8?B?dklRSWp1M3U1VVEvTUNlcEVwV040WFJyUUMzVGdwMEpNQktsV2JvUW1EQ3A1?=
- =?utf-8?B?NEQ3aGFOVGNROWFNU0VINUFTOFVSbFZxOXg2Q2JrN25wY0pRYjFxQkd6MFdG?=
- =?utf-8?B?UXJtbEJucHJJa3RjUjBhenVZbWIwcHZlS0g1Yi9CSHhPVVE4azlqRUxpWStz?=
- =?utf-8?B?TTFXVzVrMFMvQmp0Ni83dlJwL3FUcy85SEp2cFlNdE5RdVd2UjFNSzFXRTR4?=
- =?utf-8?B?KzV2Y0FEOS9YRENadC9NM0s4UjVyd0lQdE5ZSlpyWDZRVHBIWmRvOGRmdkgw?=
- =?utf-8?B?bWIwRkhiQjJQOEQzWWUxbnphMUFublRGVmN3WXlXaW82RVNXNDcweXV5YzZa?=
- =?utf-8?B?VEV0U3NUVk5NY2w4Tm9sMG0yT1p4Y0RVdHNLUlhsWkRyWnY2N2U1clpGUGtM?=
- =?utf-8?B?RThobS9wSGY0WWJaODFqd1BST3hzSXlFTEJLVURGME1iSXNnZG5kZ29nYnl4?=
- =?utf-8?B?S2F6REJxRURsTDd0b0NweGQySkFQaHhmemxuYnBpZTlKNWlVZE0rNTJZSzRY?=
- =?utf-8?B?U1JsVTdUVXJIUXRpdHVqV3U1VTdSN0plK0t5UjkzR3NaMUtuUi9ZeVJCbldC?=
- =?utf-8?B?Q1UzYTFQMWhMVVZEQWhwTHU1emtsT3JuYWpZMWFsSzVLMVpCeU16a2t1OTRE?=
- =?utf-8?B?bnhzeFQrVWhwb21ibG9OZWRZNnFQd3NlUHpPazcwbk9XUUlUS1NETUFsUGFO?=
- =?utf-8?B?YUZTYkMvYjZzR2k2dDZTcEJ0Q21CVGl4YlFlOW83QzNJcDdlSDFEaDhDL3BZ?=
- =?utf-8?B?MFUrTlVyay9WcGE2NzIrcEpaelNPZ0dZOTNzcEh0Ky9vbUM0NzJncFNLUUVq?=
- =?utf-8?B?dmJyS0NYajE0Y3dVR1RnK2tIOUdlZWNVOU5xa2RrSGxvSVNsWm84cHNWeVZQ?=
- =?utf-8?Q?S/zxkcuR8PLnJddm3bln7eM0n3pkcUZs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dTd3SGM1NG9XYitoV0x1Y0Yzd3QvbkYxOHY3RTNQbjZyMlFpUzlMU1l0NVlR?=
- =?utf-8?B?WmgrTEhWaDJnRFBpTUdUei81L2dLa0dCMXNvbTJWVGhoei9XbUROSk80Y1Jv?=
- =?utf-8?B?S0N1QnhxK3VNSTloWUFkb2w1d3hPdk5raHVGbElQTlhPamN4VUcyeExXT0ky?=
- =?utf-8?B?SUEzMkRWL3dpZ3RoNFh1bkxQajlRd1pySXUyT042MFhjYVIyWXc2b3hZUWc2?=
- =?utf-8?B?OGEzRnFHVjlhb1doNDVNZWc1TlJBNDc3MGozaGVnRktjOXZvOE5PeUtmUDRT?=
- =?utf-8?B?WjNGdDNlcFVRa29ESDRVVGdzZzFmQXJ1VXFkSzNIYkcrOTlsN0d4TGtOYmJ5?=
- =?utf-8?B?M2JJeUN1WE40Q2xCY3V4MUNwZnBSaVhxVFJTbTZYNFdjcjBOclZDSFR5SEx1?=
- =?utf-8?B?aGJ6aytFSzc5blludU9PR093Y20vMC9DcDgrYUxXV0ZkSFRLNTRJOC8xeTVI?=
- =?utf-8?B?TjkxY3VsWXcxYzluc2xFakQ4THQrZkZvRTR2ZW1yeFhaaW02OW9VcDBlUlhs?=
- =?utf-8?B?TWNxSzUrdDZEYTRJQkVZMjN5WERZNmtYZWJvUFd3RWZ2L1dBaWo0b2tTZ0Z5?=
- =?utf-8?B?NkwyczdYaHE4R2VSdk5uK3FmbVA5NHRRUzJXdnI2ZmJhckFYYnFZOFFaOHpU?=
- =?utf-8?B?cEsva2hUcS9NZDhOU2I1NUp3ZWZ6WlUrbE5qaW9wOEZ1cjYzaU5BOE5iQXBZ?=
- =?utf-8?B?SFd6cHpKRzRXZVE1VHpxTk9ZVGRxZzRDZlExTXVXZHRnT2VZc2QyQ1lHaHZz?=
- =?utf-8?B?a2EyTDNHQ0J5cHRIaEhzWnBhdW1kM0RyZUhsR0pVQ3lpZm4xOEtJMXF6d25n?=
- =?utf-8?B?L1NHbWdyb1hkeGVmS1UrSjYxZnMvdlVjVUZ0aHRGcVZVMllrN2tCdXlrcy9x?=
- =?utf-8?B?R2xRaHZYMjJDTXBmVmV0Y0c4K0haanJGY1puTDNQSGd4b05za2w1ZnhFbHpx?=
- =?utf-8?B?VStwOC9HYkRsT1h4VDJUbzBjNTljVVpyeVV2ZkhpU3hWdVlwSG15dFdVcDQ4?=
- =?utf-8?B?SDZrUEpwUC9tVTdqUzlCK3BFdG91NWl6MCtLb1dXeUZqNUIzVDVBUGpEVjRD?=
- =?utf-8?B?Z3NnU2c4c3JKMWxxaTYwNW1kUjYxYzgzcXVtUzZ6a2lleHRISzVpTmdWMjZR?=
- =?utf-8?B?RmFnSDFmaGQ3NDFJdG00Uzd2a3pBTmFEVzlDR3Jsd1d2Q1BlZnN0TndieTIw?=
- =?utf-8?B?WWo4RFhJdzNvZWxDclFRQ1NiR1BOZmJ1K25qRGNnVDFqTEFTSXU1c2JDQ2wz?=
- =?utf-8?B?WW5UMmZWWjVPSmZ5alBaS0dCT2tBYmtBTVVrbXVsMHNiYWJxQ2wydTZXU3RB?=
- =?utf-8?B?Rkw1SHVBT1ZEZDdWSG1rWDNCT3RqUTVBUHR3bFVFdWVtZWx3aEtXc05HUnFF?=
- =?utf-8?B?anp1bTVRSFV6NWw3eloyd2pmaVcrTjd3bGdhbll1Qzg1N01BamVMR0VFTDhV?=
- =?utf-8?B?M0JJMkh1NFBVaElJYmxPS3k0cHBYWk11bHNzV0lCdDhvc09EQy9MRURBNXlE?=
- =?utf-8?B?bUVoMHI2b1hBeUN5L3B5dFpGWnVNZnZ1U0Y1ZllkcFBVV2FkTjhCVEpraFZq?=
- =?utf-8?B?OGNYOW5nRWplV2NYRHVZM3ZlYUtPV1JKTHNBNzAydHRNNmxNbFBYNmdwMFBz?=
- =?utf-8?B?Y2lPY2ZYblo1clBuR2h1ZStIWFRDaGloQWdJYTIrT01mdWI5dWErMFZ4akVI?=
- =?utf-8?B?RDJNNmJZc3VoMzNpZ1U1emNJSFNjVzFvMGp5YzQ2eGhRMmhIcS9EZG1RaEZo?=
- =?utf-8?B?aHVRMHBqM2NNeC8xR2ZZYVBKZXgyZ1drTkVYemZIMVFhb2FDTVV5c0NyazV6?=
- =?utf-8?B?aVJnNUdkaGxvMCt0d29nQUdEWVFjZXJseEJIaHdNY0grOTVpSkhnV2Z6T1FV?=
- =?utf-8?B?ejAwK2szQS9Ga0JoVzBqSEdWUDErbVV3c05EQkl5Tm43TmwwZ1hYWEgwTFUw?=
- =?utf-8?B?RFlQTkRsYitKMWtYQlNhemZYTTZKMWI1eVBhZWJ2UmhZQlRTMDRrbHE5Lzl2?=
- =?utf-8?B?WExhWnlNUitSdHA0VmN6c0djMUV1NlFUWnRTMSttK1l2Y2Jma25Xc1RUODNt?=
- =?utf-8?B?bUhYTkRJUE4zSUZnZlYxckIybGNVb3oxUEN1ZkNOSVVuZWVoaXhHdU5ES1VZ?=
- =?utf-8?Q?xUO/4EOD5l51Oi0PinP3KGDP6?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4545f4c-cfed-4eee-b711-08de222b93ca
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 20:39:29.3953
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8+L+BX0RqHzjYlsZCbpzNcIpn9HqBn24OnLAYMSlXlUhvC9uL/IDeCrd305N4g9n2dr3GqWGx1UWXuO95PFzsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9248
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112093212.2392848-2-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_123942_833639_F6E22C06 
-X-CRM114-Status: UNSURE (   6.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_125445_464262_3CC5FF9A 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,22 +72,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/7/25 04:34, Ben Horgan wrote:
-> Define a cleanup helper for use with __free to release the acpi table when
-> the pointer goes out of scope. Also, introduce the helper
-> acpi_get_table_ret() to simplify a commonly used pattern involving
-> acpi_get_table().
+On Wed, Nov 12, 2025 at 10:32:13AM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> These are first used in a subsequent commit.
+> Hi Eric,
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> (cc Catalin)
+> 
+> I have prepared a branch for libcrypto-next containing all the arm64 FP/SIMD
+> changes that are needed to move the kernel mode FP/SIMD buffers to the stack.
+> 
+> I have created two stable tags [a] and [b] in my tree at [0], containing the
+> changes as sent to and reviewed on the list, reordered to accommodate the task
+> of merging this into libcrypto-next in a bisectable manner.
+> 
+>   [a] scoped-ksimd-for-arm-arm64
+>   [b] arm64-fpsimd-on-stack-for-v6.19
+>   
+> On top of [a], two additional lib/crypto patches have been applied to update
+> code that has already been queued up in libcrypto-next, moving it to the new
+> scoped ksimd API as well. This is better than hiding the changes in a merge
+> commit. The merge still resulted in a conflict on the old versions of the files
+> that were moved, but this is resolved by simply deleting them.
+> 
+> Please pull. Or alternatively, if you prefer, recreate the following sequence
+> directly on top of libcrypto-next (and resolve the conflict)
+> 
+>       Merge tag 'ardb/scoped-ksimd-for-arm-arm64'
+>       lib/crypto: arm/blake2b: Move to scoped ksimd API
+>       lib/crypto: arm64: Move remaining algorithms to scoped ksimd API
+>       Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto
+> 
+> The following changes since commit f101371e1972df3d897bf2326eda3c28aca2e58c:
+> 
+>   Merge remote-tracking branch 'ebiggers/libcrypto-aes-gcm' into libcrypto-next (2025-11-11 11:08:57 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   [0] git://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git arm64-fpsimd-on-stack-for-libcrypto
+> 
+> for you to fetch changes up to 82ef0a6ac77cc0eaca1b5c2fc3436b18cda6ef83:
+> 
+>   Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into arm64-fpsimd-on-stack-for-libcrypto (2025-11-12 10:08:20 +0100)
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+I pulled these into a libcrypto-fpsimd-on-stack branch based on
+2dbb6f4a25d38fcf (which is currently the last commit that I'm planning
+for the "main" libcrypto pull request).
 
-Thanks.
+Then I updated the head of libcrypto-next to be the merge of
+libcrypto-tests, libcrypto-aes-gcm, and libcrypto-fpsimd-on-stack.  I'll
+send these as separate pull requests after the main libcrypto one.
 
--Fenghua
+In theory this should all work out.
+
+Note: I changed "lib/crypto: arm64: Move remaining algorithms to scoped
+ksimd API" to remove <asm/neon.h> from lib/crypto/arm64/polyval.h for
+consistency with the other files, and to add braces around the for loop.
+
+Thanks!
+
+- Eric
 
