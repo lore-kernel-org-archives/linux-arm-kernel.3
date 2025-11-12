@@ -4,169 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6243CD3435
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337FFCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 17:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7JrrJxTt3cltbRKHP8+6M8dRMReQWwP1zlGPJ86Wc4=; b=SyQJV2h3FSlU85WhNU8m2iMZ1/
-	aHg3AyBF0WBDOWXC9njp+4iAsYjrNoKqq6FQsdg3HbUuO6VKgatxQN1LQJp3WhM5qJJpGrlEOA804
-	5kt+HkiSLdSXb9QR0Q1zG27bqGDb/Y8KOCPNGXpLTkd5xpKMHt1OyaKGlPvWNuPix0mI82VXIeLqb
-	2Kv6YOvOl/RHuYWn1ITd2t/DPBXhfRz+hzn2h/mqF37U2oTzEhZ+k7qN76WRXnsM6w25DBdjB9JgL
-	Zs9kXTlDagsWGBGuYlaKxLcS26t76FHEdOXjjwxKLJgWOIxh1vv5k4a/xNGV1z9u5NCmtHDwtCPpN
-	Nm3Ms6bw==;
+	bh=iD6vtrRiqRZrqacv/A5UUfoAppBPQ2mnaERSKSCrLnk=; b=nGd4HCM5jHcqfW1tN6flH9jhQN
+	c+07f+jBSlbWXZ0UCH/RA5XbKjdMNK00ar9sOf7eXhxd8p6baOm1sEVUYbMpBq8N9ZI3EGYkUkw7t
+	ulcpRd7/dOjRvziksz2GoMmgkZgqB8LTWz+iOB6E2ySw+5+aTFO6hBqfFYqE8HlYkx29/IxJeBk45
+	wdZ6S87haiyyxkmaTVnL/VSOfbpouU23UvllTYordwzhWKnIZ5GNJOOT8jGo++kvtzo2DqXvUHnc2
+	xjuI3Vqrj1DGqfMHMLtyewHAwlcWEJip8j2RT5x4dFOMDH3jzfOJT0+6Tpn8XfvuysM6HKC8FfMl+
+	J7VogSvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJEwq-00000009Grf-0ssi;
-	Wed, 12 Nov 2025 17:48:00 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vJF0L-00000009H4E-02Uq;
+	Wed, 12 Nov 2025 17:51:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJEwn-00000009GrD-2E7p
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 17:47:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vbr03HZTF2bvfeapPqAre86k0X41WeE5q/wyzNc7ATbRQhE2mQrVThmpg5ZT7CqgpAwHkJUL1cNZ/x4hJEIkQKT/jrDOW5MKm5As4UFHuHsFVmFg1DFp8Jyh38bKMQr0ADBauQIxzAr/PD7E6jeWocTXEPAoAiOrtSRfXix+OzmiGbV+xyLZDfDuvQ6ndEd31KNmLa/UAeUE/2I/uUm3Xwi25xrXvMr8BhbxBQc9kx8iT9B2aFPoUAOHMXR55v6q1zlEM1uRfClKEJfavT+MT93H3XCFODiX153ZtpZNHrL4zKN5+Q6ukxc4ZoW8KzZkGrv9gaY7PR2WmuHnezCZog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U7JrrJxTt3cltbRKHP8+6M8dRMReQWwP1zlGPJ86Wc4=;
- b=TE3CbHwHZ3aZYW9aJIv0ic85boMzbpS+5MY+u4bS+PAlOrg2leFnlWqBWoPOCYj32MeIO+xfolbQ02gvAWk9bkZ5OZlIQa+NwLIbH8LQbwHlDzfpxPAeLpVRAegz+5t5CnsP8bhFl5Mvd/JioFxhmmtIbclrgDUs/Fu5zjdjpUz4HRdvXA4FtNeeRzRoMOC/BN0fx+201cW0b/0WQqceIP4dmRvZZ0EzW1tw36ZCC+Nz2oOY5Pkvw07C+KNrLpmKSCtAhZ81UNYYuLwG6uEED/axDMKPH6VqFPZIpuAtMpYAiXVuv7bEh22bm6PaQfx34dLVfogWUXsTGp3rYQX8TQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U7JrrJxTt3cltbRKHP8+6M8dRMReQWwP1zlGPJ86Wc4=;
- b=DGyccirsq+Z0Jv6k292hztRCPWpYJu6sQj/d/P0RXr/o9j87HYrO9rOSCSokC3E2LPRL0fyri3JglkKR5JfL+FTTeyycbIJC1GMlRvBmqYW9eu4DU5cwQKNG4k9otee1e5BCwP4K06mexlJF/Zt8kh2xIK17ytGBdqbUlrBr+TyT+QsLN+sOxwtEX+kv9y0aqkWWG5r7jj666Azye/M6799ZXF0u/5sIQCl8ZyYKo3TqIs85BQnEggnRFouF/ka471WD0Ctz0/3sil0lPdnipr0XYuPDoJKvefMicZa6jYWuzatXxVqVoehau+jnzMGrTBYk5NPCXhz4ynbYRPsE0w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22)
- by AM9PR04MB8339.eurprd04.prod.outlook.com (2603:10a6:20b:3e6::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
- 2025 17:37:49 +0000
-Received: from AM9PR04MB8907.eurprd04.prod.outlook.com
- ([fe80::a361:2618:7785:3bc9]) by AM9PR04MB8907.eurprd04.prod.outlook.com
- ([fe80::a361:2618:7785:3bc9%4]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
- 17:37:49 +0000
-Message-ID: <6484e7a7-6094-49a3-8b86-ede29c630596@nxp.com>
-Date: Wed, 12 Nov 2025 19:37:48 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ASoC: SOF: imx9: use SCMI API for LM management
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
- Bard Liao <yung-chuan.liao@linux.intel.com>,
- Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
- Daniel Baluta <daniel.baluta@nxp.com>,
- Kai Vehmanen <kai.vehmanen@linux.intel.com>, Mark Brown <broonie@kernel.org>
-Cc: linux-sound@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251112144124.680-1-laurentiumihalcea111@gmail.com>
-Content-Language: en-US
-From: Iuliana Prodan <iuliana.prodan@nxp.com>
-In-Reply-To: <20251112144124.680-1-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P191CA0049.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:657::8) To AM9PR04MB8907.eurprd04.prod.outlook.com
- (2603:10a6:20b:40a::22)
+	id 1vJF0I-00000009H3l-1zNi;
+	Wed, 12 Nov 2025 17:51:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 145EF44231;
+	Wed, 12 Nov 2025 17:51:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4D3DC4CEF8;
+	Wed, 12 Nov 2025 17:51:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762969893;
+	bh=T7knzhZ/hAoWyK2lUxIZdB+Ka4TMwRh1ujkOMO4Lf04=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rO6Mud0EMKXzwiNc2bQlzO+QiF4pc3XFFext9cJ/t5Wa69rSTMlzvwp4mvrpz5ern
+	 1/w711HXbiu7bl1ydAB5DUdFcwgQ1lJWeN5IpVji2dEdgRtnIF2lrTd0he6MlSGbV+
+	 Zu6LUatZFmxfv4DqArs0FAoWQnazXwpImSlLMqQBPAtLcvSFfO6Qh9Ae3bcMYyPItL
+	 aHx51+xOY/Tg8XTyidCaat1h3AuReI9ji7hHyBaIaStsRhn2b+K5jgPh7En09xzheM
+	 0NaPZ/ftBPYlEZu+UPAyMN6G+DftPSkldBOvdcp8DKUWQSRJl+tUyr3vPq+x1twkib
+	 lhmGS0PYRvO5Q==
+Date: Wed, 12 Nov 2025 23:21:07 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, kernel@pengutronix.de, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH 1/4] PCI: dwc: Advertise L1 PM Substates only if driver
+ requests it
+Message-ID: <22srj63j7fzmsebwxwjnnxnpmdn2iwxo36gkrl36gdm7ge2xif@dmrdbfgu3hn3>
+References: <20251111221621.2208606-1-helgaas@kernel.org>
+ <20251111221621.2208606-2-helgaas@kernel.org>
+ <aRRDzKFVTFTIuvvh@ryzen>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8907:EE_|AM9PR04MB8339:EE_
-X-MS-Office365-Filtering-Correlation-Id: a100383d-5f3c-4122-7be3-08de22123318
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YkRuYXltQmNJeHZSdmhldWx2MnBQc3MzM3l0c2c2OVV0VngycWU5dmExSHc2?=
- =?utf-8?B?eDlmSHJwWk5FMWQyN1BGU20rWGYxUzlDYm1IWU9TdWQ5d0FmbjdQQXBBUmdE?=
- =?utf-8?B?RlBPdHVaclRJK1FIcCtLaXpwQXorSkNrcWM2eFI1LzlpM21PUVRyTnhhdkp4?=
- =?utf-8?B?bG5vSkxjY3Nlb2VvRStvUzd1cEsweG51SjZBTnN3R0Rvc1hCQ3ZtaW82Y3Y1?=
- =?utf-8?B?V01EMktGR0M1T0VReis4WU16TUhtV0dWbC9uTkdGQjk0Rkg5ak1UdWNTM2JK?=
- =?utf-8?B?cVBNeXJiQVc3M0RkSEZXR3pYQ0hZSlIvaktRRGQwZFdETDlzZFF0S2M5akF4?=
- =?utf-8?B?QXNnOG9tT1dEcDlSMEF4Znc4bWQ3bXB6cmdvTUxDOTVLUmdha295NnBHSi85?=
- =?utf-8?B?c0I2clhnNlVuQ2dpWWVEWnlVQVAvUytGQldYcENjeVRGYmZ4QnlnSnI5VFVL?=
- =?utf-8?B?cGZoQ2VUYlY1QmV5bWpyRXppUzNvM2ZjM3V5dHh5TG5DdmlOQWZUU1Q5ck5V?=
- =?utf-8?B?dkdCVzlkUTJKeC9TTWkxRnAvNjZydDJrZ0VRaytQakc3UHAvZ3c2UFFhVmth?=
- =?utf-8?B?aGpRY2hFNUh3V1dlMEVZc3ZkRmpETHVEQmRJTG5FVlVFc0hJay9iRUs5Snc1?=
- =?utf-8?B?VWQxVTNVUXFBblhKaUo4WGJoNUVvV2pvWXg5T1FLVHlrdlNadHlZYlYvcEVz?=
- =?utf-8?B?NFpkMU1ZbmgzNkI5TllRSkFTMEVrZzJpbzA2QWZDWERacS83a2NXc0E2RlVN?=
- =?utf-8?B?MXhPV2liQzJacHk5R3c3emRjSFpQRmFnZG15RXZmclRjR2pWYWI4VnBGSjlq?=
- =?utf-8?B?QStiQUkxQVowVUo1MjEzM2tpTldkZ0Zaa3RCbE5iSjdMUDkrekMvK1RMckdB?=
- =?utf-8?B?K0k4RHgydTZGRFgzQk4xenNFOWFCOTJ4RXkwcG1XV21CUWYwZnNuOFhzSFpR?=
- =?utf-8?B?T3VKekZnZ1pYTTUvYmtYdHhHNEx1SlF5N211dXJPVGdHTEF2UzkvNGl3eGNL?=
- =?utf-8?B?dkQ3WW14TUZKb292czh6YllTNjlhVG11ZEF5NERCOEVJaDVaM1lteEQ1YlZ1?=
- =?utf-8?B?MENLcUJXTkxUMkxsTUQ0c3hxeDZtWGdDcG1ES3I3YUpBRiswWDYzTXhxcFVE?=
- =?utf-8?B?SktkNzVmek56SzVKTFR4aTJGbkRHT3FBUlczM2kzMjE1WERNUTBVMTFZOW5I?=
- =?utf-8?B?MktteVdoZThKaW9qVTEvQmtlVUR2cjFUdGU2NFVGL2R6OGMxUy91WDN1RGhx?=
- =?utf-8?B?WlkrNkI5SEdEUENtNlE3M3hORzNzY0kzV3RJaWZoTFNaUlFuaEZsT3pGZ29S?=
- =?utf-8?B?OHlQd295aGc1aVdtSHhtQllJMXIwNXBZN1UrY3UvbHFlMnlHRlVYdGJYZjVu?=
- =?utf-8?B?Q1Z1S3B0anJSRmt6RXYzbFFkTm1jcWVVSG83RzFCYXRnTTd4TzZjWmpBUE05?=
- =?utf-8?B?bU1Uc09FdExUTG9MbUdnMlFXUE4wQXNhVW1ZTnhRUXA0aThZTE9jNXBXVmVM?=
- =?utf-8?B?YWpEdEx0bWlrMndCUno4dHBFUC9SeWFvajVrbXJuV2JqRnZlZHU0clZIZ3Nz?=
- =?utf-8?B?SXFRcFkwU2lvT2FjVE9ROUFsZ3dUQU11RUY5UjRIczdFUFAxTlBkWFVlaUxk?=
- =?utf-8?B?OGZ3em5NYUF3M1h3SG5DN1gvV2xhd09OaTFTNVJLR2JqYzBDTEUrZitEaU9v?=
- =?utf-8?B?cUY4UGlLVEtlYUtQemJIZFNESTlOZmw2dnpVbVZiWm54WHEzMTN6ZVlzbUZ3?=
- =?utf-8?B?NUdkQW9iOWQ2c0RSUVg1Q1I2RThIbzNrZkFIVHRuVUFPZXVyWktSS24yd0lN?=
- =?utf-8?B?cHliMHM3VGlOSVUweEZiNmNjOFRBc2JTeEJMRDRmWUtJQ2puallIME5rT0Y5?=
- =?utf-8?B?YW43QVI2N2dQS3Rmd2JjS3AzalZ6NUIwWmwxb2ZCczdsZm9pMC9hbzc5WFEz?=
- =?utf-8?Q?3cw3tkz2HgjOoDxIO6R70fB7KZFfdxok?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8907.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MnoxdnZjTnZJZGhlZ3dhdVdtalFLaGFCK0VISzJNR1F4a2h0ZWdTTURWMVk5?=
- =?utf-8?B?eTdaUzlXK3JFREFMcnJ1dkhQNXRVYXJLV0g4amVDMG5CdGtRRHNNdjZwQUw1?=
- =?utf-8?B?Uk12MDRFa3hKNnA3dy9OWUZlS2lWYk1nM2I3Nk1mN1dJZWdHd3NPSis5NzRw?=
- =?utf-8?B?N1poeklHS1VxQ0d1TUdrSncyZjk5ZHBzcHVjd25RVHkwdVJqNDFJcS9ERldw?=
- =?utf-8?B?dXlQeFRQeGxoSkplWjdKVVR1YS9wekY4SkhMNEVqVXpGVHRiMnVyc2hqVk83?=
- =?utf-8?B?NENQYmt4SWhod2J1amNpTmdBckNxNEw1Z2s4emJ4NHk3Wkc4UXFneUl1bGI4?=
- =?utf-8?B?VVYrYmJVRVBWc1Bkc3FvNzVuWEJINWsvaHRrOHJYbTdnNE5QSmdYeDBPQlg0?=
- =?utf-8?B?M1NEaUFMSXZ4R1huYW5ZVDdNNXZlRC9KZGUwQU9ES2lSTlBuN0ovempwL1Zu?=
- =?utf-8?B?b3BvbXBqK2YwcGl0TFhHb2t6OElBUDZDbG90cmw4dzlVNjBTaEpBM2VBUU9P?=
- =?utf-8?B?TGRleEhyTFQ2TFlFeFo1bGh5NTdqYTduV3VlSXExSDJDOXFpMWpmNUE0enQ2?=
- =?utf-8?B?VG9pOEMvTUdSV2ZyWWtSQm1jMzdraVA3QjZudU80ZkI3TWNvaVd3VExQU0NO?=
- =?utf-8?B?a0xwTkxyRjY3T01vOGtaMFE1QktaUHdrNUdtVnlhR1FpdWxrWU1GaVBsaWZk?=
- =?utf-8?B?UmYwWkhhYXE2WC8xaURMR1NyOVUra2lkUG9KbHdZd1BlanFCSndKOEhlVy81?=
- =?utf-8?B?bFpUR2x4aHAwdURZdGowYWhFMHVxa0ZKVCtPWEZYbk9Eb0V0TkdUcTVrKzI4?=
- =?utf-8?B?K1BxQi9aeFJKai94a0RNSGJtMEMzSEtNR1VVZElwcGZING5oZTZPeDFWZm9B?=
- =?utf-8?B?QlpqcUV0WlFVTjl0RnRvSUY1VXFDblNTOWViRkwxZTh0MDdmS0g2aFo2RFBJ?=
- =?utf-8?B?VStCQ3h3VUNyc3E5TVJ2WnpQQmowaitiK0llWmNlMHh4Z3VPeUhVS2ZrYk1K?=
- =?utf-8?B?cDRuYjQydGhla2JYWVFQbSt3Y0ZaWG4yNFpUQks2UHVPYnF4dW15V0dOWDBU?=
- =?utf-8?B?K2pIUmRoSG92Nk1KSXRYYzdlZkpZMWJoazByUkd2My9NdTVpSmJhOW8rTDQ3?=
- =?utf-8?B?Z2VUNXNQYi9PMkp5cjd2MjlMaDNIZjZFQjdobjFTU2RycHliRFRKZ3BUdzFJ?=
- =?utf-8?B?S3dHWDZCb1RaUm5QdzltMGhDc2JWeDNBRlVlSjJONkJHL09mRHBEUGMyZEJP?=
- =?utf-8?B?d0N6WEFBbWN3aWFIK3RuenJwV25JTEhwdXlYK1BiZEpMcmFTN2xKaGEwM3M2?=
- =?utf-8?B?N1NZN3FjSlh1SnhJczExYTlzTUprTHN3ZzA3emVmaHhSK1g5ZGZ1bzlFS1BD?=
- =?utf-8?B?a05uU1BQWnBQcnlibzBmK2NKa0dmczNVUWZqdGJRU3JleFJCWklxR1lIbGMw?=
- =?utf-8?B?aDVIQ3FSK2F3RkZZcmtFMXFzVTM0K29MaE1QTm55M1dpRGVyM2Z0WXZVM3Zs?=
- =?utf-8?B?eFVKODdDMEpWZnkwWU5KcWlUV0lEZEQvY0orbWpJWlFYaFZNWnRyMjVyeVFB?=
- =?utf-8?B?dGlKK1NnN1djRmNHcUM3SnMzcEVvMUV6WkllNm9Xb3FNc0VxRFNFNVpLU3Vh?=
- =?utf-8?B?eUZqWHZNckdRZExuc0FtV1llU1NuYjNSM1BJOXYyMXVqbjBUeFg1L29XZ2lC?=
- =?utf-8?B?NWtKd2VBdHdQdDR4RCtPL0hkaUxSZUg2TnhXcHVUWHIzZUJrMWtkMzJBMXpx?=
- =?utf-8?B?SGZMT1BtMFV2Q1dxMFRIRFdham1XcXExcWNEQW1lRTl2SW9WSVRFYnV4T0gx?=
- =?utf-8?B?akRrcHJYTi9XZ1hlNmNkcG0rcEk0dHNOTG91a1ppenNhSEJjOXJlUUtuV2RY?=
- =?utf-8?B?YzR1U2ZQLzltTllIQ2l2TFBvOThqckc3VCsxemdTeVIwTC8wdlZSbEphd0NW?=
- =?utf-8?B?ZE1xd21uck9FWmhKajBYSWFqMWs2QmlSUDNEQ1NhcEpVS3JCc3pzRldPaDZh?=
- =?utf-8?B?TVFMY1kyaU5Id1RUb2FyaExDRXpuRzNFVVdhQ1NFalNmNXNFRXRnZnZ6SzNq?=
- =?utf-8?B?WGs2SmV2d1pkWDZibmxBTmJ3MjVOeWdtSjVTcXhmZU9VWnlVV3E2SXQzblRa?=
- =?utf-8?B?akZqQVlRS2ZpaXozdllKY0t2aE1aL2VOTEFEbGJqRVdTQ2pDRDlrQk1pODNo?=
- =?utf-8?B?aHc9PQ==?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a100383d-5f3c-4122-7be3-08de22123318
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8907.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 17:37:49.7255
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 33+olVFggzO5Wgp0OrrTNXtsnG60u3YPRsf3yfsbojPpYXrT9lbnM95Csrx5os8jn4p9BP/OqYmzGF3hcX9Uiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8339
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aRRDzKFVTFTIuvvh@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_094757_600938_86B9C9C7 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20251112_095134_579836_969AA3E3 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,102 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/2025 4:41 PM, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Wed, Nov 12, 2025 at 09:22:36AM +0100, Niklas Cassel wrote:
+> On Tue, Nov 11, 2025 at 04:16:08PM -0600, Bjorn Helgaas wrote:
+> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > @@ -1060,6 +1060,8 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
+> >  		PCI_COMMAND_MASTER | PCI_COMMAND_SERR;
+> >  	dw_pcie_writel_dbi(pci, PCI_COMMAND, val);
+> >  
+> > +	dw_pcie_config_l1ss(pci);
 > 
-> Linux supports NXP's LMM SCMI protocol so switch to using the appropriate
-> API. The SIPs were intended to act as placeholders until the support for
-> said protocol was upstreamed.
+> The name dw_pcie_config_l1ss() sounds like we are enabling l1ss.
 > 
-> The underlying CPU protocol command from IMX_SIP_SRC_M_RESET_ADDR_SET is
-> replaced by a LMM protocol command with the same effect (i.e. setting the
-> boot address) since using the CPU protocol would require additional
-> permissions (which TF-A already had). Apart from this, the SIPs are
-> replaced by their equivalent Linux LMM commands.
+> I know naming is hard.
 > 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->   sound/soc/sof/imx/imx9.c | 36 ++++++++----------------------------
->   1 file changed, 8 insertions(+), 28 deletions(-)
+> Perhaps dw_pcie_disable_unsupported_l1ss() ?
 > 
-> diff --git a/sound/soc/sof/imx/imx9.c b/sound/soc/sof/imx/imx9.c
-> index 853155d5990a..e56e8a1c8022 100644
-> --- a/sound/soc/sof/imx/imx9.c
-> +++ b/sound/soc/sof/imx/imx9.c
-> @@ -3,19 +3,11 @@
->    * Copyright 2025 NXP
->    */
->   
-> -#include <linux/arm-smccc.h>
-> +#include <linux/firmware/imx/sm.h>
->   
->   #include "imx-common.h"
->   
-> -#define IMX_SIP_SRC 0xC2000005
-> -#define IMX_SIP_SRC_M_RESET_ADDR_SET 0x03
-> -
-> -#define IMX95_CPU_VEC_FLAGS_BOOT BIT(29)
-> -
-> -#define IMX_SIP_LMM 0xC200000F
-> -#define IMX_SIP_LMM_BOOT 0x0
-> -#define IMX_SIP_LMM_SHUTDOWN 0x1
-> -
-> +#define IMX95_M7_CPU_ID 0x1
->   #define IMX95_M7_LM_ID 0x1
->   
->   static struct snd_soc_dai_driver imx95_dai[] = {
-> @@ -38,7 +30,6 @@ static int imx95_ops_init(struct snd_sof_dev *sdev)
->   
->   static int imx95_chip_probe(struct snd_sof_dev *sdev)
->   {
-> -	struct arm_smccc_res smc_res;
->   	struct platform_device *pdev;
->   	struct resource *res;
->   
-> @@ -49,31 +40,20 @@ static int imx95_chip_probe(struct snd_sof_dev *sdev)
->   		return dev_err_probe(sdev->dev, -ENODEV,
->   				     "failed to fetch SRAM region\n");
->   
-> -	/* set core boot reset address */
-> -	arm_smccc_smc(IMX_SIP_SRC, IMX_SIP_SRC_M_RESET_ADDR_SET, res->start,
-> -		      IMX95_CPU_VEC_FLAGS_BOOT, 0, 0, 0, 0, &smc_res);
-> -
-> -	return smc_res.a0;
-> +	return scmi_imx_lmm_reset_vector_set(IMX95_M7_LM_ID, IMX95_M7_CPU_ID,
-> +					     0, res->start);
+> Or something similar.
+> 
+> 
+> > --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> > @@ -1067,6 +1067,8 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+> >  	val &= ~REQ_NOT_ENTR_L1;
+> >  	writel(val, pcie->parf + PARF_PM_CTRL);
+> >  
+> > +	pci->l1ss_support = true;
+> > +
+> >  	val = readl(pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
+> >  	val |= EN;
+> >  	writel(val, pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
+> 
+> While it seems like ops_2_7_0 is the only type that explicitly does a
+> register write to enable L1ss, other versions might have the register
+> as enabled by default, so it would be nice if Mani could confirm exactly
+> which versions that should set l1ss_support = true.
+> 
 
-Please add a dependency for SND_SOC_SOF_IMX9 on CONFIG_IMX_SCMI_LMM_DRV. 
-Without this, the functions scmi_imx_lmm_reset_vector_set and 
-scmi_imx_lmm_operation will return -EOPNOTSUPP.
+Yes, on the rest of the platforms, this bit is supposed to be enabled by
+default. AFAIK, all Qcom platforms should support L1SS, atleast the
+non-IPQ/APQ ones.
 
-Iulia
+We should set it for below cfgs:
 
->   }
->   
->   static int imx95_core_kick(struct snd_sof_dev *sdev)
->   {
-> -	struct arm_smccc_res smc_res;
-> -
-> -	arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_BOOT,
-> -		      IMX95_M7_LM_ID, 0, 0, 0, 0, 0, &smc_res);
-> -
-> -	return smc_res.a0;
-> +	return scmi_imx_lmm_operation(IMX95_M7_LM_ID, SCMI_IMX_LMM_BOOT, 0);
->   }
->   
->   static int imx95_core_shutdown(struct snd_sof_dev *sdev)
->   {
-> -	struct arm_smccc_res smc_res;
-> -
-> -	arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_SHUTDOWN,
-> -		      IMX95_M7_LM_ID, 0, 0, 0, 0, 0, &smc_res);
-> -
-> -	return smc_res.a0;
-> +	return scmi_imx_lmm_operation(IMX95_M7_LM_ID,
-> +				      SCMI_IMX_LMM_SHUTDOWN,
-> +				      SCMI_IMX_LMM_OP_FORCEFUL);
->   }
->   
->   static const struct imx_chip_ops imx95_chip_ops = {
+cfg_fw_managed
+cfg_sc8280xp
+cfg_1_34_0
+cfg_1_9_0
+cfg_2_7_0
 
+I excluded msm8996 due to one recent bug report.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
