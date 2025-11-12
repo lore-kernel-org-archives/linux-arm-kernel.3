@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A7ECCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A9CCCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 10:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D73MWA8ka8aEIE+w9e4D2DgNs2P+08G82s04OupWhnA=; b=ukZrBXSWUSkLuFK0LWfTw0AsW8
-	ChF/d039plfP9NSYCjuZ7hC9xQJSylbp+MdrJzz/yxIIErCMcUU2W3QJBIdTRXeEItJzeHIZ8d9Ld
-	j/5iV/ZX4hu/G49EG3gbcBLJUyETPUMz8KDx88Y3KFKgQN2rhHzSWK58s0JwZ67ld/6AMQyX/P1Ry
-	gDH5Lul2vzd0VeHG2Q6fJXyoKQUCVsME2aHNg2DyMCdsd6s39l3xWNyvpuaHVi0sW0Y3wQeAHc1fn
-	URJ+ZvvGp0QSxO0RXhfN3sSbpcEfNhoERtuAkf3oUQZRVDHK5e2RIYDuwRYyFJQBtTWnmK+YdHU+9
-	cv3JwJLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CszuyZCpIAkXuMjAUxx68LzymHvfkndaeApzQvLhEA=; b=u8oOatMAEDH6t1LreVvDW8SCuy
+	Robxrbftxroi0J8zlrIvFWBRBJfl7OSCOsPRejjp6EIza5lkKU975WJdxmU7nSkXlJSsBoJMXbHV4
+	LD2lPwq0+rjUURYI23m21vb2qbyoamMtqtXCDH3IFmGRKOxmVMtEkdS7d+IDwUfnE7aUj/TRkfGpd
+	7Hg2k6SNwGXmOg0Ro25FTYa6mlwOwvfaZja28Lxx3+drbCZy+taQ2LSF42F5exM9MhdIzd+Xz7otf
+	sY8bSxBOYvGGrTyr5p/Odn4lHhhcn1PSjRG0VFgro+DvQ/Y3uYfwHgndRKeei0ZMELU7rruTgPZU3
+	VmhSMYFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8Gx-00000008b3h-2Nyb;
-	Wed, 12 Nov 2025 10:40:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ8Gw-00000008b3Z-0UmW
+	id 1vJ8Jl-00000008bDY-0Lzx;
+	Wed, 12 Nov 2025 10:43:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJ8Jh-00000008bDC-3Dhn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 10:40:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C76F60211;
-	Wed, 12 Nov 2025 10:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6A7C4CEF5;
-	Wed, 12 Nov 2025 10:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1762944016;
-	bh=fArjS5d1VGJyoJlpK8/kTVa4co5DDb54sPzWb1uYDc0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jAlWKDOpXUvGtie/QpUH+R5pbt+HZLKyo1ngtEYsp9M7sLAx0VkhBTqkXBZX78u/N
-	 FRidhlc2r+Q9D5wm+9z+UosLMufqhdAedmRaXwY1wAyfAft6MkuY9INsucXOimoFxs
-	 7Bj9sFmD6QV/1jJcGsn9wZUW6jeHovuREBQZ5MqzN9W0uyeQCMRqvgZMDgDrYFHxeE
-	 hCr0tKZOoCRWGVTe+GimUKc//n0iPDFy3QMDjmFjRqGWylh7zeiOQu+wKKraA0piYi
-	 D7Z9spKmDIxyDukveDYhUsjIOtWDKffJgqa4WIsB20xtbkjy8GAwqN9Ke/vu4NkF3s
-	 FQjeQIEpmtISg==
-Date: Wed, 12 Nov 2025 02:40:15 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: arm64: VHE: Compute fgt traps before activating them
-Message-ID: <aRRkD8tAVcGp5zsY@kernel.org>
-References: <20251112102853.47759-1-alexandru.elisei@arm.com>
+	Wed, 12 Nov 2025 10:43:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7755A1515;
+	Wed, 12 Nov 2025 02:42:59 -0800 (PST)
+Received: from [10.57.41.24] (unknown [10.57.41.24])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A008F3F5A1;
+	Wed, 12 Nov 2025 02:43:00 -0800 (PST)
+Message-ID: <cdb4b97a-415b-4dba-877b-0cd570381a6d@arm.com>
+Date: Wed, 12 Nov 2025 11:42:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112102853.47759-1-alexandru.elisei@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/12] mm: enable lazy_mmu sections to nest
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org,
+ David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-8-kevin.brodsky@arm.com>
+ <999feffa-5d1d-42e3-bd3a-d949f2a9de9d@arm.com>
+ <cc9dc398-b9c5-4bb8-94ad-7e7f3ddd5b4f@arm.com>
+ <824bf705-e9d6-4eeb-9532-9059fa56427f@arm.com>
+ <58fd1a6e-f2c4-421c-9b95-dea4b244a515@arm.com>
+ <8f70692c-25a9-4bd0-94ab-43ab435e4b1b@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8f70692c-25a9-4bd0-94ab-43ab435e4b1b@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_024309_900705_E09D9809 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,49 +90,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+On 11/11/2025 17:03, Ryan Roberts wrote:
+> On 11/11/2025 15:56, Kevin Brodsky wrote:
+>> On 11/11/2025 10:24, Ryan Roberts wrote:
+>>> [...]
+>>>
+>>>>>> +		state->active = true;
+>>>>>> +		arch_enter_lazy_mmu_mode();
+>>>>>> +	}
+>>>>>>  }
+>>>>>>  
+>>>>>>  static inline void lazy_mmu_mode_disable(void)
+>>>>>>  {
+>>>>>> -	arch_leave_lazy_mmu_mode();
+>>>>>> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+>>>>>> +
+>>>>>> +	VM_WARN_ON_ONCE(state->nesting_level == 0);
+>>>>>> +	VM_WARN_ON(!state->active);
+>>>>>> +
+>>>>>> +	if (--state->nesting_level == 0) {
+>>>>>> +		state->active = false;
+>>>>>> +		arch_leave_lazy_mmu_mode();
+>>>>>> +	} else {
+>>>>>> +		/* Exiting a nested section */
+>>>>>> +		arch_flush_lazy_mmu_mode();
+>>>>>> +	}
+>>>>>>  }
+>>>>>>  
+>>>>>>  static inline void lazy_mmu_mode_pause(void)
+>>>>>>  {
+>>>>>> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+>>>>>> +
+>>>>>> +	VM_WARN_ON(state->nesting_level == 0 || !state->active);
+>>>>> nit: do you need the first condition? I think when nesting_level==0, we expect
+>>>>> to be !active?
+>>>> I suppose this should never happen indeed - I was just being extra
+>>>> defensive.
+>>>>
+>>>> Either way David suggested allowing pause()/resume() to be called
+>>>> outside of any section so the next version will bail out on
+>>>> nesting_level == 0.
+>>> Ignoring my current opinion that we don't need pause/resume at all for now; Are
+>>> you suggesting that pause/resume will be completely independent of
+>>> enable/disable? I think that would be best. So enable/disable increment and
+>>> decrement the nesting_level counter regardless of whether we are paused.
+>>> nesting_level 0 => 1 enables if not paused. nesting_level 1 => 0 disables if not
+>>> paused. pause disables nesting_level >= 1, resume enables if nesting_level >= 1.
+>> This is something else. Currently the rules are:
+>>
+>> [A]
+>>
+>> // pausing forbidden
+>> enable()
+>>     pause()
+>>     // pausing/enabling forbidden
+>>     resume()
+>> disable()
+>>
+>> David suggested allowing:
+>>
+>> [B]
+>>
+>> pause()
+>> // pausing/enabling forbidden
+>> resume()
+>>
+>> Your suggestion is also allowing:
+>>
+>> [C]
+>>
+>> pause()
+>>     // pausing forbidden
+>>     enable()
+>>     disable()
+>> resume()
+> I think the current kasan kasan_depopulate_vmalloc_pte() path will require [C]
+> if CONFIG_DEBUG_PAGEALLOC is enabled on arm64. It calls __free_page() while
+> paused. I guess CONFIG_DEBUG_PAGEALLOC will cause __free_page() ->
+> debug_pagealloc_unmap_pages() ->->-> update_range_prot() -> lazy_mmu_enable().
 
-On Wed, Nov 12, 2025 at 10:28:53AM +0000, Alexandru Elisei wrote:
-> On VHE, the Fine Grain Traps registers are written to hardware in
-> kvm_arch_vcpu_load()->..->__activate_traps_hfgxtr(), but the fgt array is
-> computed later, in kvm_vcpu_load_fgt(). This can lead to zero being written
-> to the FGT registers the first time a VCPU is loaded.
+Well, I really should have tried booting with KASAN enabled before...
+lazy_mmu_mode_enable() complains exactly as you predicted:
 
-Yikes! This is no good, thank you for spotting it.
+> [    1.047587] WARNING: CPU: 0 PID: 1 at include/linux/pgtable.h:273
+> update_range_prot+0x2dc/0x50c
+> [    1.048025] Modules linked in:
+> [    1.048296] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+> 6.18.0-rc3-00012-ga901e7f479f1 #142 PREEMPT
+> [    1.048706] Hardware name: FVP Base RevC (DT)
+> [    1.048941] pstate: 11400009 (nzcV daif +PAN -UAO -TCO +DIT -SSBS
+> BTYPE=--)
+> [    1.049309] pc : update_range_prot+0x2dc/0x50c
+> [    1.049631] lr : update_range_prot+0x80/0x50c
+> [    1.049950] sp : ffff8000800e6f20
+> [    1.050162] x29: ffff8000800e6fb0 x28: ffff700010014000 x27:
+> ffff700010016000
+> [    1.050747] x26: 0000000000000000 x25: 0000000000000001 x24:
+> 00000000008800f7
+> [    1.051308] x23: 0000000000000000 x22: fff00008000f7000 x21:
+> fff00008003009f8
+> [    1.051884] x20: fff00008000f8000 x19: 1ffff0001001cdea x18:
+> ffff800080769000
+> [    1.052469] x17: ffff95c63264ec00 x16: ffff8000800e7504 x15:
+> 0000000000000003
+> [    1.053045] x14: ffff95c63482f000 x13: 0000000000000000 x12:
+> ffff783ffc0007bf
+> [    1.053620] x11: 1ffff83ffc0007be x10: ffff783ffc0007be x9 :
+> dfff800000000000
+> [    1.054203] x8 : fffd80010001f000 x7 : ffffffffffffffff x6 :
+> 0000000000000001
+> [    1.054776] x5 : 0000000000000000 x4 : fff00008003009f9 x3 :
+> 1ffe00010006013f
+> [    1.055348] x2 : fff0000800300000 x1 : 0000000000000001 x0 :
+> 0000000000000000
+> [    1.055912] Call trace:
+> [    1.056100]  update_range_prot+0x2dc/0x50c (P)
+> [    1.056478]  set_memory_valid+0x44/0x70
+> [    1.056850]  __kernel_map_pages+0x68/0xe4
+> [    1.057226]  __free_frozen_pages+0x528/0x1180
+> [    1.057601]  ___free_pages+0x11c/0x160
+> [    1.057961]  __free_pages+0x14/0x20
+> [    1.058307]  kasan_depopulate_vmalloc_pte+0xd4/0x184
+> [    1.058748]  __apply_to_page_range+0x678/0xda8
+> [    1.059149]  apply_to_existing_page_range+0x14/0x20
+> [    1.059553]  kasan_release_vmalloc+0x138/0x200
+> [    1.059982]  purge_vmap_node+0x1b4/0x8a0
+> [    1.060371]  __purge_vmap_area_lazy+0x4f8/0x870
+> [    1.060779]  _vm_unmap_aliases+0x488/0x6ec
+> [    1.061176]  vm_unmap_aliases+0x1c/0x34
+> [    1.061567]  change_memory_common+0x17c/0x380
+> [    1.061949]  set_memory_ro+0x18/0x24
+> [...]
 
-> Also, any changes to
-> the fgt array will be visible only after the VCPU is scheduled out, and
-> then back in, which is not the intended behaviour.
-> 
-> Fix it by computing the fgt array just before the fgt traps are written
-> to hardware.
-> 
-> Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+> Arguably you could move the resume() to before the __free_page(). But it just
+> illustrates that it's all a bit brittle at the moment...
 
-> ---
-> 
-> Stumbled upon this when running a Linux guest on FVP with FEAT_S1PIE
-> enabled.  Linux touches PIRE0_EL1 very early during boot, in __cpu_setup().
-> HFGWTR_EL2 was 0 the first time the VCPU was run, KVM would then trap
-> the access to PIR0_EL1 (PIRE0_EL1 is an inverted trap) and trigger the
-> BUG_ON(!r->access) from perform_access().
-> 
-> I hacked __activate_traps_hfgxtr() to print the register value for
-> HFGWTR_EL2. Before this patch, during the first vcpu_load(),
-> HFGWTR_EL2 is 0, then it has the correct value. After this patch, it
-> always has the correct value.
-> 
-> If I were to venture a shot in the dark, it might be that the name is a bit
-> misleading - it's kvm_vpcu_load_fgt(), but it doesn't load anything onto
-> hardware, it just computes values. Might be worth renaming to avoid
-> similar ordering issues in the future.
+Difficult to disagree. With things like DEBUG_PAGEALLOC it becomes very
+hard to know what is guaranteed not to use lazy MMU.
 
-Ack, naming isn't quite the best here. The idea was for the name to make
-it obvious that it is meant to be used at vcpu_load().
+>>> Perhaps we also need nested pause/resume? Then you just end up with 2 counters;
+>>> enable_count and pause_count. Sorry if this has already been discussed.
+>> And finally:
+>>
+>> [D]
+>>
+>> pause()
+>>     pause()
+>>         enable()
+>>         disable()
+>>     resume()
+>> resume()
+>>
+>> I don't really mind either way, but I don't see an immediate use for [C]
+>> and [D] - the idea is that the paused section is short and controlled,
+>> not made up of arbitrary calls. 
+> If my thinking above is correct, then I've already demonstrated that this is not
+> the case. So I'd be inclined to go with [D] on the basis that it is the most robust.
+>
+> Keeping 2 nesting counts (enable and pause) feels pretty elegant to me and gives
+> the fewest opportunities for surprises.
 
-Thanks,
-Oliver
+Agreed, if we're going to allow enable() within a paused section, then
+we might as well allow paused sections to nest too. The use-case is
+clear, so I'm happy to go ahead and make those changes.
+
+David, any thoughts?
+
+- Kevin
+
+>
+> Thanks,
+> Ryan
+>
+>> A potential downside of allowing [C] and
+>> [D] is that it makes it harder to detect unintended nesting (fewer
+>> VM_WARN assertions). Happy to implement it if this proves useful though.
+>>
+>> OTOH the idea behind [B] is that it allows the caller of
+>> pause()/resume() not to care about whether lazy MMU is actually enabled
+>> or not - i.e. the kasan helpers would keep working even if
+>> apply_to_page_range() didn't use lazy MMU any more.
+>>
+>>>>>> +
+>>>>>> +	state->active = false;
+>>>>>>  	arch_leave_lazy_mmu_mode();
+>>>>>>  }
+>>>>>>  
+>>>>>> [...]
 
