@@ -4,170 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E10CCFA1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77E6CCFA1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 08:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LKYmegH3ykHGiWV1hZKmrDw3+XreT4d7ug60Uik8NjY=; b=lNLsHNX6DLDmvKscYuQOkfeWMi
-	NVICZ7O6X9eFUVIaC+FXvv25nyKcv1P/UuYtJH5CZxM4uFIxZQVLdRn52AFSungeZtIcKvAVCmvoB
-	/5NmmUFsIcmh5F+zGntk+qTSTQCE3Na+1glIp/G0BsIDh7btvseEkVBgbDE1V69WtYkApxFyptKHR
-	imqlJ/VjFXU6sa8tjOSD58XZAMHxFX+xwWqQAeHwW9M/NyT5XebACiS95JnSLwf/D5Y8V3W8VLTbU
-	vJrbo1+CI5j3zONTgCPAxrvMvORUGOU/fwRAQzN15gstnfkLUwOpAwNbD7DqToF0nB2zmzIi2gZSA
-	1kq71HrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+GhC3Bci1xtsbEg2vkYp7kMzTRCQEdTtiwvIPvO9jrc=; b=G9ZzNEWTdODfUaKV6T/wqJ51kT
+	JnXtfU7JuM4w1LBAKd80JWrw7VnIy338KcSSBOZU+0zO5Q3Vftq3ufbKEmN49RNdGDcu1hnhmaWO2
+	MLgaHEnKnxjEnm6dChkGQgPG3d3KIl4JQEjemXUugZSgHL+/8J9od2343PYOVw3l001l2ToheZY+W
+	JsZlqHCIj9XGMRSBBoDWygGMSt+mVtdH0tRbHA1mU+z1xMPatC/fHKCTaSzaT+xkX9KMgPubp7J6L
+	JQVSkxu9di6pcvnQF6vZ8w55S0+SiHF17XVzXK4l0qEdpnQAHkPx+C/9B93oLQuiiZFyfzpZ31kiF
+	5VrbYVmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5sB-00000008JLe-1g3E;
-	Wed, 12 Nov 2025 08:06:35 +0000
-Received: from mail-southcentralusazon11012009.outbound.protection.outlook.com ([40.93.195.9] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vJ5vj-00000008Jfn-2SCU;
+	Wed, 12 Nov 2025 08:10:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJ5s7-00000008JKT-2u3r;
-	Wed, 12 Nov 2025 08:06:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZouAj7AhL/BkBx4cdt/c/JJ/Ncqv5WcHHKCP0X5bUUk0AZHUJQIiiAecbHuOcVdvdfYsUXR2uwYGbnZaljdvKLCDuC7BSXOj+1+3NRr4ItSnrdfgDRI0XE01bpEpeCHyJYvyQTQ9ohoL1IqnU0862M5dpUUL7+m5Sa8io+uRmwb/3RNGH9PiAJtFTtK8ZJnG6BcG3ysW3UwmDCw1pxbLWZZ4dI6cnwEOSJOn6haNtWL/BJuan3N9rbJbYvi5mK/WwkawvAJ+GT5PM4FlLJ72AcCnho+y7k7T4Kj3dXlCvT5mHb7JDmAtHiTAdiB1l7c0eOSveTyYQADEI1pbWR1t8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LKYmegH3ykHGiWV1hZKmrDw3+XreT4d7ug60Uik8NjY=;
- b=zBXoC7ZiMa9ElI40t/wL59FujROvSr/vsVSUbHU8DMATZafQl1xzqIGwCY7ZvhjwIlIni/tg3cmfXxPLKSebpcBj6vqHeMpcDCJkRJU/giUEV8FkHIgOiS+80kts2q+TPpObOmCi204guKF429dGJWTKRz3Zj1TpENjWHwwAca73evg85WHjlHAqS3rqdq/s32v1i3Fb1KCvxTjG/dImT2Pn4cCmassW+bAudYvvyvYUoIM2e6NYBtVtNlrrDjy8nF/5GS7jYt2f4kIStmADApoTWKRUNTNCiTnccjkhrzO6/nXwNyrES5K4vcdXPZCCEsKKX/sN1euGydvC2Pt7uA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LKYmegH3ykHGiWV1hZKmrDw3+XreT4d7ug60Uik8NjY=;
- b=ngzOWlR9HHenRcNT4vNyCG0iWzBW5wOfCf4vgi/9z+VmAry9jxiKcxAuofHbuxnRYyAG/0ggp2W1TwxZtnN1TBX9LCxs0yrDoPt2QAHhBo3ip3n6C6oElWIbyCF1OPJcAqFvmhRwjKrHixsea2IG+WeKuFQtjdwpmqShxUPvHQRZri+1Zb6k/Ouon1A6Tv3PYWy4PwK5lEbfjR1qWugV1zYAvmHglc1lb8KvzocMlCRHAfgcVydpHxtKFgkWNB/1DtIivQ3SjXrJUGwgCZ3W0SroOQeonZ383dr7D7KUGq+UW4QruJItm4n88WyE34lBenhgZaMuLsdGSoQrf+YFTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SA1PR03MB6498.namprd03.prod.outlook.com (2603:10b6:806:1c5::7)
- by DM4PR03MB7000.namprd03.prod.outlook.com (2603:10b6:8:48::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Wed, 12 Nov
- 2025 08:06:25 +0000
-Received: from SA1PR03MB6498.namprd03.prod.outlook.com
- ([fe80::feea:da58:faeb:9ebc]) by SA1PR03MB6498.namprd03.prod.outlook.com
- ([fe80::feea:da58:faeb:9ebc%4]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
- 08:06:24 +0000
-Message-ID: <e940eae5-16bb-46e1-83aa-47c6ff747083@altera.com>
-Date: Wed, 12 Nov 2025 13:36:09 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/2] PCI: Configure Root Port MPS during host probing
-To: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org,
- kwilczynski@kernel.org, bhelgaas@google.com, helgaas@kernel.org,
- heiko@sntech.de, mani@kernel.org, yue.wang@Amlogic.com
-Cc: pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, cassel@kernel.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20251104165125.174168-1-18255117159@163.com>
-Content-Language: en-US
-From: Mahesh Vaidya <mahesh.vaidya@altera.com>
-In-Reply-To: <20251104165125.174168-1-18255117159@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0070.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b7::10) To SA1PR03MB6498.namprd03.prod.outlook.com
- (2603:10b6:806:1c5::7)
+	id 1vJ5vi-00000008Jff-3wTu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Nov 2025 08:10:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FB766020F;
+	Wed, 12 Nov 2025 08:10:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A9FAC16AAE;
+	Wed, 12 Nov 2025 08:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1762935013;
+	bh=iv/OPEfQvs2X2gEq4hDNQaM+Mdv+7H4qcOkVCuUzYvc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=t+16XDEn2tz88QHz1qof4GA7lGaNoQ8SBVlOT4YHqqiRtEU/n0xdDxY70KEIN1Wlq
+	 5yj91quFLQHofrnrYAoI4AB88x5AcfpbI1KTRthlrRcclbAJQ99ykS9p/sHTVlrJtb
+	 6BZZd9MFBCGPVX/PJYmQKKAmcueOQYjbJnf7ZEGlQ6056yRXBN7WJcqQdlbKtT0/vg
+	 adASYXnaVFyHVDYqsVK70Z0ZRoomJTkoYMaOckyP3P9hGmyV/41wbjyjRoyv5Btf5P
+	 fLVoU+X8FkLDZJHnmemrY7QhmJHtdjqHxzURQGY2dedz6DD6J6HrCY6Kp9PsRKCDCJ
+	 jUfZALiZyMLvg==
+Message-ID: <b55d94f2-6b79-407f-af58-b9847db3c9a2@kernel.org>
+Date: Wed, 12 Nov 2025 09:10:07 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR03MB6498:EE_|DM4PR03MB7000:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55c0c3a0-5d68-48a4-a02d-08de21c25f1e
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TFRFRG5aY3JHOEZTMFlxZ3YxQTFNYlM2Vy9iaFh5MFhaNlkwWTNEWFduVlds?=
- =?utf-8?B?ZndNS0Z3VEh3MDdYK1dqcTA2aC85QWE4OHlUTS9HN3pwSmdpT2F1eHRIM0Ru?=
- =?utf-8?B?N1JCR2JpOXRLRjhISlpSeXdZejZ4VmlENHFncW9sRStqMVZBL0ZjenNnb3Fq?=
- =?utf-8?B?WjlKUHJjNDdJWGQ5Qm95ZHdRUjc4TTVDUlRmb0tGSUh5MUV6akkwOVZxUDRW?=
- =?utf-8?B?VnJNdXBoVmM0SHNXTElDQU9OVWZUdmk2eU1SaEZVYWJpbDFOeTJYSTA3OTJX?=
- =?utf-8?B?RGh1WlBzOE1YSEFlbzdCeSt3UkZVTTlWQzBxeHF5OGNEVFhsZkhqeTNLbHJK?=
- =?utf-8?B?WkpBWFlqSEJST0VqcDB4UWhVN2JQam00QVh0Sk9ldUQvcWR3Y3A3NXhlWnBT?=
- =?utf-8?B?OVJNdkJVcEQ2UWk3SGY5OWhiaEoyb0lUcmRIS2JvT0VuZkJyeFRpaUg0OWRk?=
- =?utf-8?B?RWZIOWRIY0oyTC9kVllpdDBJQkhUcGYvZmFsL0I4OEhkbTV4NUZIS0c1MTcz?=
- =?utf-8?B?R21kNjd1ZVh2ME1sLzJsQ3pHYUNoOVNZNXdMOTF6cW1yUDJTRGlFUjNBOGl1?=
- =?utf-8?B?MjVmL0VSQzRxTit6MWQvZW5yRWZxZ29Xazl0NHA3ejJYeDlWeE81VSs2akJr?=
- =?utf-8?B?Qm10OUtreHF1RFJQVUNhMG40NmhtdE9CaVZhMHVrWW5QUElabktLZWhXa201?=
- =?utf-8?B?UCtYWFYzV3pkWHIwUW1Xa0ZzdHVvbndZVlpDbTAxOC83ejNxR1JpMTY0ZUJo?=
- =?utf-8?B?c0pPK1ptUWhLakNrRm1HT3FNSVl3S2NCcUEycytpV21BSmtDY2hzaFhmRDly?=
- =?utf-8?B?NG9kRy9oMy9iNERKMVVqK0NDd0o5WXdiK0FEdXJ5QUhMdlc2YlVTbU53Zy9X?=
- =?utf-8?B?bThJVVVZWDErMzFTcWZkUzRMSmZVSjhYWGZrc3NxeURuNDRPWFFZWnZNSGU3?=
- =?utf-8?B?MExjMW5NTUdheEdKc09wejdiUXRPeVBCZHNyQ1B0TnRDeThZdXRxeGhRTlNO?=
- =?utf-8?B?cXdmZUZRckxQUDBEeXhZbEdiOGNqOUdiMS9ERngrZzU5L2hIS3BaU2xieFZL?=
- =?utf-8?B?c25SUEZjQ2YvRUhmTVpTSnBXYjc3UlNYUXJDMkNUUWFVOXR4S1h5elJpd3Vh?=
- =?utf-8?B?bEErdEUxdE1SY2d4N3pZdkF6dCsweXdLN3FreEFDUzA0T2lzQlZrUHFYL2J0?=
- =?utf-8?B?RmxyTzNXWjFBTkdWUXA4MkZEc2d4d2s0dDJ1V21vcURpcEExT3pMVml0clZq?=
- =?utf-8?B?eG9tSHBjZHJFU0ZiMi9FcnpSUHByYzN2R1NMS3hHMWtEZTlvbmcvOGlXWUNN?=
- =?utf-8?B?N1F6czdVSUI2YkZ2L1ordjdwUmcvMFJzTFo0TFV4ZWptTTYxNjg2c0ZPM3ZM?=
- =?utf-8?B?NFpGc1c5WDc2SlRod1RBVTVaL1g0bG5GeGxkb3pHeFFuNWwrb1lrLzNJejFo?=
- =?utf-8?B?TEZYallHU1Bsa2RmWnBaMzBFL2pPbFdCcnlOb0VXVTVTSjdVYnNkR3BvdFpU?=
- =?utf-8?B?cVltYTYwZ3hoRjF1TXErN0RkWkVxbnJTaTFNRFBwODhEYnQ2NlVieG13cC8r?=
- =?utf-8?B?K2JOZXV5M0JRV2NSd1U3a0lDdGRzQTlsSkUxN3dJMSt3dVpUK3hzQXhaVFBs?=
- =?utf-8?B?eWxTcTh6aGZ1Wk93am1oOFl1NlhFYzVka2E2V01EUXJKdmNpWStvMEJtTkZU?=
- =?utf-8?B?bGJwV3hMU0hSU3lBeVErRFVmTWN1OEg1eHk2UGJmN2ZPRldjWXRCTWg4ZytJ?=
- =?utf-8?B?bHMwMzdrdy96SHdzczlkUHFMT2dmTzRxenI5OEJweGxWa1hjb3loY0h3SUlG?=
- =?utf-8?B?cVlGUXA5YTg0dnFrRVpseGRNR2EvZTU5eW9jMnZSTU5tamt4TmpSdDhOVmNK?=
- =?utf-8?B?Z0JMVjQ4YW5qaFVHR2l2OVNUM0NpaklFNmtuZk5oVWRuYUVBMCtBZHhZUm5q?=
- =?utf-8?Q?g0P5lv7C+yNNPkEg1ILEZEk06OZFDG5N?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR03MB6498.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NHdzYVBISWxjY2NlcThnOGVxcmJHWXhVdVhXZ2hNdTlCUThPWTBmUmFKdDYw?=
- =?utf-8?B?Ti8wdzVmU3UrcGVSZFFtaFBqUnFsVG5laXFqVlI1V1EwbHpQcE81L0JwK2NW?=
- =?utf-8?B?ZkRGOCtQTUY2UEVRbVh6QWZnOStEOTBuTUNnanpyaysvOS9xMmZ4Mm9Ed0la?=
- =?utf-8?B?UkJTTnB6QmpRMTBlaGM4SVJZTVp5L0dYUzJ5aGdhM2E4ZVdUS0Roa1htZFZl?=
- =?utf-8?B?MitoWkExWWhZRkhiTkxqZHhqbXZOQnFub1J3TWlnQjQwU0tLZDBFOVBzQ1lJ?=
- =?utf-8?B?VWFxblBmRno2bFNYZkdqNzVMaytEZmtwM2M5dVNHSG5nTkx4TTZIUENTZHE1?=
- =?utf-8?B?d1NrUW9Bam50WVhRQ3B4aCtZZ3ZvM2Mzalp5UVF0cW1zWEtLd3ZhcGdPUGlt?=
- =?utf-8?B?djA0bVRQTVBFSjFhU1FrSG9MaEZpUm9IbDduRTVvelZsQ3FkazJQZ0dBRVpR?=
- =?utf-8?B?N0FuV3l3REJhaFVBVkU0YXNoSFgvYURuRGhvQnlBMENiWEdDY2hDRkQ5NTNV?=
- =?utf-8?B?ODhXS1BsZWpneitMSnc2YlFZQ3dyT3phSXNaWnNhQWFXbU93aGYxVThycFI4?=
- =?utf-8?B?UVdsV00wWWtMcXk0ZkZqWmpVUCs4c2VMY0VKNjFkdTNJdy8wNEY0L2szczgv?=
- =?utf-8?B?QWJjMEhwQldOc1VwRytHRzlabnIzazBVelhjTmJaVy9BTHNkUGJoVzYwckxx?=
- =?utf-8?B?Mnl0cHpCc21YNVVwL3Y3dzZzSmR1d3p3MjJKaWxkWExzZnhWdkdOQlA5dU9R?=
- =?utf-8?B?d2RCc2k4WWNweTU5ODNzZlhkOVZxWVdyL04xM2RLY2dBb0ZGZzZvVUZ4QUlX?=
- =?utf-8?B?K21iUnNVbTNqMCtqQ1RlRVNKdlpWaHkyVE9aUUNWaTJrZmdqUGRKM2pITDVp?=
- =?utf-8?B?SE1qY3FoeGxhU3QzSFFvSWhQZmVpbmh6MnBLKzNGOTV3bUdwV2I1cHpXQk5z?=
- =?utf-8?B?U3grL0s1WlVlUGYvQWVWUDY0NDR1Mm1hdjVDdFZNVzJuWVhSU3REQXFTWDA4?=
- =?utf-8?B?KzRYUEtES3NyRHl1ZzdPM2tXS3IzcytIeGFOMXlEUWtRMytWSjRPSjdUaUE4?=
- =?utf-8?B?U2VsRnQvN0h4aU4zOUQzRjJjckdhR2RuSlRwOERJSzNLdG5JeTZFU25HcWFS?=
- =?utf-8?B?d2ZrSUlYRmJKOUNGVThNTExoSmMvS3Y4bzZNQ2RrY1NxRVVWakFxN3VTZ2Rq?=
- =?utf-8?B?VU5JVlYwb2syY1YzTzVQVExTVmZ3UXhYRzV4bEs2L1FoSnh6c0lkYzFscXNQ?=
- =?utf-8?B?NldCZklVc3R3TWFHVTBWOEJXREhrZ2tKV1BzeUZ3SUpaZ3lLeEU0dEdQQzNs?=
- =?utf-8?B?Y2NlYVRITHJxQXZXOVpWWHJaTkxldzFJLzZpRk42L29vSlVGZ2E3LzF5citl?=
- =?utf-8?B?UkVvQklEeXpQRmtFS20yY1g2R0Y2T09xSWl3ZGNxMWFnNVFNOGhubjVsTnJL?=
- =?utf-8?B?LzhVZjdUNmpnazNKNW9wN1gzOHlrSFFEbmZhZm80eWpxSG5CdlVQUlZuakRj?=
- =?utf-8?B?UGpLVi9RY1IyL3RJalA1clY3bEROVHRRZXV5MUx3MVZDeUk3Z3NmazZYY09K?=
- =?utf-8?B?eHJ0dUNYNTVMTi9sRUUrWXhGdE0yUkh3UTdVYW5MSnMwZzlidEZoeEpGNzR6?=
- =?utf-8?B?TGZiaHBkck94Zll1UjlpYXVmekFlcnVrelhiOTFHdDJJK3B3V1Zqb1FDMGtj?=
- =?utf-8?B?MDBXRTVnWkpremtBUmFjVGVMalNvamlvbXdRanNOa2xhVjczVzE3WldYRjIv?=
- =?utf-8?B?YzkrVTZIZDlJNk94L1BVMFNNdTB6MU9JMlVSNW14YXNBb1liMm1UQmtKNjlE?=
- =?utf-8?B?RktvdXF6YkxKWnJzWDAyczhvd3FabC9KY1JvWVlaWUdGcWN5ZlVUSW10K1ZT?=
- =?utf-8?B?cURLdytiQWJRMmxaM3BKbFRMNjNJbUZlRWp5Z2w2Q2xhRG1HclJNUjhZbWhK?=
- =?utf-8?B?QWpHV1RQUjlqelpHYVFFQ1NlaWpDd3pXeVAzWTZBSGxsUmV5ZG9XYWdXaFpB?=
- =?utf-8?B?bjN2Tld2RGxEVENYUVcvYXNib2JXQ3FnZk9KVWJlL0JuWmNBTHlnaXl2WHUr?=
- =?utf-8?B?elBYTWd6M1BCWkF4VGRFSlN6VllKRk1vSFdPa1R5bjg5WUQrTkR1SkQ4amVo?=
- =?utf-8?B?RVpoK1h4dFVLZEwwSzU0VG5NdGJIbkZuOUc4T0x6UkgyeXBzMTU2QXlqYzlM?=
- =?utf-8?B?OFE9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55c0c3a0-5d68-48a4-a02d-08de21c25f1e
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR03MB6498.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 08:06:24.4441
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ATzkl0ezhRH1rKwHFVjR6VvB2DeXAHGSVnh9bP9gySdrum6KjFHRLjh8ZSDLbIBMQylD0+piduR/16+6hgd8/w9M3WwfgKyOH7Nvu6GEXeQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR03MB7000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_000631_755159_200AA41B 
-X-CRM114-Status: GOOD (  17.58  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: google: Add dts directory for
+ Google-designed silicon
+To: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org, Roy Luo <royluo@google.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Chen-Yu Tsai <wenst@chromium.org>, Julius Werner <jwerner@chromium.org>,
+ William McVicker <willmcvicker@google.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Drew Fustini <fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+ soc@lists.linux.dev
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a1f1395814@changeid>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a1f1395814@changeid>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,78 +126,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 04-11-2025 22:21, Hans Zhang wrote:
-> Current PCIe initialization exhibits a key optimization gap: Root Ports
-> may operate with non-optimal Maximum Payload Size (MPS) settings. While
-> downstream device configuration is handled during bus enumeration, Root
-> Port MPS values inherited from firmware or hardware defaults often fail
-> to utilize the full capabilities supported by controller hardware. This
-> results in suboptimal data transfer efficiency throughout the PCIe
-> hierarchy.
->
-> This patch series addresses this by:
->
-> 1.  Core PCI enhancement (Patch 1):
-> - Proactively configures Root Port MPS during host controller probing
-> - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
-> - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
-> - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
-> - Preserves standard MPS negotiation during downstream enumeration
->
-> 2.  Driver cleanup (Patch 2):
-> - Removes redundant MPS configuration from Meson PCIe controller driver
-> - Functionality is now centralized in PCI core
-> - Simplifies driver maintenance long-term
->
+On 11/11/2025 20:22, Douglas Anderson wrote:
+> The first four Google Tensor SoCs were offshoots of Samsung Exynos
+> SoCs and their device trees were organized under the "exynos/google"
+> directory. Starting with the Google Tensor G5 SoC in Pixel 10 phones,
+> Google Tensor SoCs are now of Google's own design. Add a location in
+> the tree to store these device tree files.
+> 
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
 > ---
-> Changes for v6:
-> - Modify the commit message and comments. (Bjorn)
-> - Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
->    without an upstream bridge (root bridges), avoiding incorrect handling of
->    non-root-bridge Root Ports (Niklas).
-Tested this patch series on Agilex 7.
+> 
+>  MAINTAINERS                         | 1 +
+>  arch/arm64/Kconfig.platforms        | 6 ++++++
+>  arch/arm64/boot/dts/Makefile        | 1 +
+>  arch/arm64/boot/dts/google/Makefile | 1 +
+>  4 files changed, 9 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/google/Makefile
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ddecf1ef3bed..f73a247ec61c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -10606,6 +10606,7 @@ C:	irc://irc.oftc.net/pixel6-kernel-dev
+>  F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
+>  F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
+>  F:	arch/arm64/boot/dts/exynos/google/
+> +F:	arch/arm64/boot/dts/google/
+>  F:	drivers/clk/samsung/clk-gs101.c
+>  F:	drivers/phy/samsung/phy-gs101-ufs.c
+>  F:	include/dt-bindings/clock/google,gs101.h
 
-Tested-by: Mahesh Vaidya <mahesh.vaidya@altera.com>
 
->
-> Changes for v5:
-> https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
->
-> - Use pcie_set_mps directly instead of pcie_write_mps.
-> - The patch 1 commit message were modified.
->
-> Changes for v4:
-> https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
->
-> - The patch [v4 1/2] add a comment to explain why it was done this way.
-> - The patch [v4 2/2] have not been modified.
-> - Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
->    that this patch cannot be submitted. In addition, Mani also suggests
->    dropping this patch until this series of issues is resolved.
->
-> Changes for v3:
-> https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
->
-> - The new split is patch 2/3 and 3/3.
-> - Modify the patch 1/3 according to Niklas' suggestion.
->
-> Changes for v2:
-> https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
->
-> - According to the Maintainer's suggestion, limit the setting of MPS
->    changes to platforms with controller drivers.
-> - Delete the MPS code set by the SOC manufacturer.
-> ---
->
-> Hans Zhang (2):
->    PCI: Configure Root Port MPS during host probing
->    PCI: dwc: Remove redundant MPS configuration
->
->   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->   drivers/pci/probe.c                    | 12 ++++++++++++
->   2 files changed, 12 insertions(+), 17 deletions(-)
->
->
-> base-commit: 691d401c7e0e5ea34ac6f8151bc0696db1b2500a
+I am fine with this but also please consider having separate maintainers
+entry, because, as you said, this is a completely different SoC.
+
+In any case, up to you folks.
+
+
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index 13173795c43d..044af9a3b45f 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -138,6 +138,12 @@ config ARCH_EXYNOS
+>  	help
+>  	  This enables support for ARMv8 based Samsung Exynos SoC family.
+>  
+> +config ARCH_GOOGLE
+> +	bool "Google-Designed SoC family"
+> +	help
+> +	  This enables support for Google Tensor chips starting at the
+> +	  Google Tensor G5.
+> +
+>  config ARCH_K3
+>  	bool "Texas Instruments Inc. K3 multicore SoC architecture"
+>  	select SOC_TI
+> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
+> index b0844404eda1..b4b5023d61d2 100644
+> --- a/arch/arm64/boot/dts/Makefile
+> +++ b/arch/arm64/boot/dts/Makefile
+> @@ -17,6 +17,7 @@ subdir-y += cavium
+>  subdir-y += cix
+>  subdir-y += exynos
+>  subdir-y += freescale
+> +subdir-y += google
+>  subdir-y += hisilicon
+>  subdir-y += intel
+>  subdir-y += lg
+> diff --git a/arch/arm64/boot/dts/google/Makefile b/arch/arm64/boot/dts/google/Makefile
+> new file mode 100644
+> index 000000000000..a6b187e2d631
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/google/Makefile
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+Drop the '+' in GPL license.
+
+
+Best regards,
+Krzysztof
 
