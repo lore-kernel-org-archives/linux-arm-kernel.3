@@ -4,181 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE6DCD13DD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE46CD13CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7UV/GdFmDnxcn6OU+sCvW5h0+v3JozZkQo/areDkxCA=; b=F5ICFQ/Um6uAXnFmSu9nWP6VON
-	NKgqjePB1Flc4rTpTlD3h46GKV55eVom9VAgk0MIBrT7/UySIlLFZOMeHAK02rK+QsxL5n/L/f5r0
-	GxxEAx3LIgrO+jlpy4cL6qxHJnJqZETZOcB7pEM9NwbcaUu2G+udE+RHcJr0izYR5oxQRI4QKrgs4
-	4BqQciS9P69lji6hSPkfl0talcu5o5jjmRVA3iI2gKxTqE12fDFJAuB5KkGw53QqY63uLbtnJ7HMc
-	VEWYZOrrWqBBNsUATqrEMYxQqsgagnhxUyzXddb+YoeFYMtHip1tjcoKwTVW7WUGxxVFAY+E6AVph
-	eH0NmoFg==;
+	bh=BxPWeNm+YRcGsylPmhFyIf8ssMNkrL6fNFfSq61DRNY=; b=bT7oylfc+nHM4XEvagrjzlemuL
+	uXemZPzNFcUC9dAnklMDbd5APsXcxt+MaVmQ9FSDiosR04CkkEH775tpKmionTpQJs4GM3CqlXLAa
+	hDgNPVBfZDnx9pf/n1BdmK7zpdewBACVEkwdCpmWFR9nsM5kCFyFGW8In265N74cRGfGmAmc96jbq
+	IOPqER3g49mWWtBeoILtqM4CASw8/cYCxuFXgYpITfhZYBoMoL7VF4W7nbn8CZ3qVUxESMC49SRRe
+	iuL9RuI8196o1HFGDn+SrElSBQWaJtHOG0oI5MyD2qoli5RTV8SWQ517VVAFSQlWnYkiSX59UwRCN
+	dqKliV5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJD5q-000000096QG-20Gr;
-	Wed, 12 Nov 2025 15:49:10 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vJD5r-000000096Rc-3w59;
+	Wed, 12 Nov 2025 15:49:12 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJD5X-0000000964T-1c86
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:48:52 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ACFjefv1614025;
-	Wed, 12 Nov 2025 16:48:42 +0100
-Received: from db3pr0202cu003.outbound.protection.outlook.com (mail-northeuropeazon11010028.outbound.protection.outlook.com [52.101.84.28])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4acqa79pfb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 12 Nov 2025 16:48:42 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W9N6i/GphxxjwQGB2f7Lhg0PxutwHqYd6VCfvNk/FtoEwe2r6rV09DaIoBexTTN8Eao0JU3Iv0iUD/9+R6O2DwVN27lYAHXDrbJhHVAOze9jLkUABFzKKPIi98JY37AGGe46GsvBg19eYiuelS/UhNilI/4mtP/q+QwABrbsOaXQeMlIVVlBQSU0V51sGs8hZuEK4LoGU5XnLw3Zlj0xRYZpOAqZYxRr3f+3t7hw4Ak6SIIU+9kS5pyYjHKXCzYQuXpKx9l7oQhbLpnvBYx0bPJz+p+IThxH8Ezd4zo+8c1G9ycCx7/hmE8A3jlT1+Tjm+TFtVYFwQdkG+ra4m9N8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7UV/GdFmDnxcn6OU+sCvW5h0+v3JozZkQo/areDkxCA=;
- b=hlOjUpxDINcX5aTnvxIH4d0pJJrZ2K/ZptkIWkLPp7lmWTb5fQyStCZjFjVbEns+j0EzpJaL6+Hsyj7FYXMNaagp+mMceD+s5DKHmad6CT6hPQhbE9CVioyUeMHYO0vkP+Lh6PZbkm7+uqW1jzZcFKxTMOfj6Gtxhr6qqZZ8ruGTQwkbSjNBwWiNYtwRpvO5ZQNVxxJnMEt2m81SAVFF1aevNkhteuEOjMo4xANibpSyVAOlLj0NQNh1hLEbwTaLKGCMcchF4WSwOx5YQ3OnsfpzgfR55e4i+fFJ5UQUmDFY97w77ST0l+ba7NaiWQ3JLW9/ABx8EQbj/9fvmKoM5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7UV/GdFmDnxcn6OU+sCvW5h0+v3JozZkQo/areDkxCA=;
- b=AwaCb1+Tx9wai5j8fSNhbf1CKn8noO//py3cRfYaVl4rmMSdM35pZKmYvMB9V/+A1HBbRFXh/LeUjSnmunys3sXEtqw50rb6mUQOJgoO2TGrY7i2LS3AJl/UpMDw10eUD6yJqGowGaBhEA59x0axERbQzQvDRdQj0JylWFqONta859gdJJzwlLFSjgq0F/gK7frC2FsVl2EV2DSt+n9iMxmkPJSTd9CnjF/U5+mGNh8Os//ziAD33a5APdAJ+yiTsB40ppvls/xXxtNibWiAN05CP/zV5jIeOpghwnDyCdEWx9HJK5rrVabXOXIebcMs20HdYkkbzluKYbfFMfSeXQ==
-Received: from AM0PR02CA0162.eurprd02.prod.outlook.com (2603:10a6:20b:28d::29)
- by VI1PR10MB3533.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:139::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 12 Nov
- 2025 15:48:39 +0000
-Received: from AMS1EPF0000004E.eurprd04.prod.outlook.com
- (2603:10a6:20b:28d:cafe::d8) by AM0PR02CA0162.outlook.office365.com
- (2603:10a6:20b:28d::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.15 via Frontend Transport; Wed,
- 12 Nov 2025 15:48:38 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS1EPF0000004E.mail.protection.outlook.com (10.167.16.139) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Wed, 12 Nov 2025 15:48:38 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 12 Nov
- 2025 16:48:40 +0100
-Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Wed, 12 Nov
- 2025 16:48:23 +0100
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Wed, 12 Nov 2025 16:48:18 +0100
-Subject: [PATCH 15/15] arm64: dts: st: Add boot-led for stm32mp257f-ev1
+	id 1vJD5Y-0000000965e-0M1H;
+	Wed, 12 Nov 2025 15:48:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 864681A1A4D;
+	Wed, 12 Nov 2025 15:48:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A0AB6070B;
+	Wed, 12 Nov 2025 15:48:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F5A4102F192F;
+	Wed, 12 Nov 2025 16:48:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1762962529; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BxPWeNm+YRcGsylPmhFyIf8ssMNkrL6fNFfSq61DRNY=;
+	b=AFIU84LVCv9aPJV/SF2tYePN20e+huFLqBLkCZ+66e6kwA1D+2c2BnsoklPeHAC0VQJ9ko
+	Jt7TwxQ+npNn2lutRD3zK8ZYbXWgHWAYhpeScp8WhdWA0Yz2yXxLZoqxstpuOZAJtDSm4v
+	syciLtpAjhPCI2a6BXgejWJM24YkPPr5z95u0BXlQ1BtH9+xDFHxNAyekzrNABRoTsg5a0
+	iUz05/Qe1gycpcQVqKpsA0Ax2RE+lgvSM1PfD8jvi+ye0VjvQAlST/Xo5VlQnuw+0Jpk5s
+	tFxrS6XQXFdG+vjipIb7Is4JXA4zuHmzptCiPChilTqbIxx1CeODkYMid718TA==
+Message-ID: <4d203e8d-64ba-4b08-9152-a059426a8a79@bootlin.com>
+Date: Wed, 12 Nov 2025 16:48:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 04/13] net: stmmac: mediatek: use
+ PHY_INTF_SEL_x
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Keguang Zhang <keguang.zhang@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-mips@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
+ Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aRLvrfx6tOa-RhrY@shell.armlinux.org.uk>
+ <E1vIjTu-0000000DqtI-2sUB@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vIjTu-0000000DqtI-2sUB@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251112-upstream_add_boot-led_for_stm32_boards-v1-15-50a3a9b339a8@foss.st.com>
-References: <20251112-upstream_add_boot-led_for_stm32_boards-v1-0-50a3a9b339a8@foss.st.com>
-In-Reply-To: <20251112-upstream_add_boot-led_for_stm32_boards-v1-0-50a3a9b339a8@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Patrice Chotard <patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF0000004E:EE_|VI1PR10MB3533:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73fa9c00-4cc4-4a89-00d4-08de2202f295
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Sm1Pb2Z0VkZZZ1krTVBoSVc4WTg4TDBaZ1ZKeXpJQWp2VWR3R0NPWFBtQkdj?=
- =?utf-8?B?WU5uV2MrUzdkb2NNQW11R3pOMW1WS1hZWXNIUWVweHpWNGo0SEtlVGwxbUgw?=
- =?utf-8?B?K0hEOUVqTTZXZ0RuWFhDVTJvSzBUOWJRcWxKTWtTQ0RlRDZUYVRoZmxhN3pu?=
- =?utf-8?B?R3V1cDlhdDhJYUJTaUd0cFNmOU9rTXNmMHpMNTBKeEVQTlhhUU9vd0M5ellF?=
- =?utf-8?B?dGM1ckdmWnp3alJ0aXBYWFZzRHBIS3FUK3hIeEpKQ25JeThWWU84QW5aaHhs?=
- =?utf-8?B?aUFpZmNjZWo1cWpzSHZXVy8wb1FORjVWNHpPazI1UnVUTXg5ZkxsbHp6b2Zo?=
- =?utf-8?B?WkhCTEJLeVFsTVN1VGxQaHp5SytpMmUzL0R0MUNRQkJNdG5qeEFvbS9uNEZF?=
- =?utf-8?B?Z0RuUXkvYXNiRC9aczNXRzVxc21zR1BWUGhhSlg4Zzc3WWNrNUlpZGtKUlFF?=
- =?utf-8?B?QlVTRWt1ZDk5a094Mi9ObVcyb29Ed0FUeVNPTUN1cnA1a0hZSytocVNGUkdi?=
- =?utf-8?B?eUlCT0h2RDZYUFBaVFQ3Z2E1NEMxUE02Sjl2b041V0pyUUY3NFUzeUtuRGVG?=
- =?utf-8?B?akVTNGo1M2Z5WllEaGN4L3pwRlNVUHZWWWh5RHVrTlFWR3NzaWw3eFQvdDhQ?=
- =?utf-8?B?OVQvaEN4TGxqa01uelJEZUlBRnJqWVAwUHZla0FzaXBNMDNnUWE3ZCsyKzhW?=
- =?utf-8?B?QUdxcU03YnBwT1BIOXArTEdobHRqV21qRmoxeXJlY3ovR1p6TGVpZjNnQ0pk?=
- =?utf-8?B?Y2FpY2prOEptTXg0Zm52UzdHMjVKYUZIVEEyaFdUMW5Eai9oNzFVVWY0Sjht?=
- =?utf-8?B?UjZLc1kxRzVhSGlKa0Vsem1MZVJRaHhhaHh5dTVqb1hqVzQ5aFo0RUdGamo0?=
- =?utf-8?B?RkZKc0NWcElOQnZXSEtWQTdJVlJiNlBIQm1BRmhSdGFQVm1FOVRtVUhYd2lM?=
- =?utf-8?B?V0JsT2tETzdjMEkyYmZWNzJzb2MxVTViMUtmMnNXRG9VUVVNT25Vbk5UcThv?=
- =?utf-8?B?K0o4dUhIRXdJeEprQXN2bmpCRUx6WkhEWDJZZDlRRk5hYmtBU1FWcUE4ZXRq?=
- =?utf-8?B?dWk2ZGpKUmxBUGlFMklyZGJ2THg4OGpvbUpQYzJJcUhHMkVQbFVjL253RGNx?=
- =?utf-8?B?ZGlpOFZLdmljSmpGbUd6aDFZdDEzWFpMTHFmUk9keWtnM2JzQ0J1c29jWWQ2?=
- =?utf-8?B?dks3WWFGQlFVU3RLa2ZlSWovaFRzNkQwNENLaUhnY3QwWlFOQ1Q5dzU3WmxO?=
- =?utf-8?B?aDZkNGlwZ0UvaGREdFB0N2hVVnJyOGl1MVMySy9wazVwVWxrNkpXQUEySzJa?=
- =?utf-8?B?OEpNNDFzZ2FzTHBOTlNOUHBscEMwMi9RQnNsWFVoM054bEVLdllna1Ftcll2?=
- =?utf-8?B?L1pxNDQrdURXaThuRFREUkZieGVrWWErUXFOREJXNzBsTmpWYXRUSzNsU3du?=
- =?utf-8?B?c3FXQ25pazdzNlJZdXp2S1RIZG4yUjFGTXR6NnRDUmZ3ZkxCNkdoV25wNGxl?=
- =?utf-8?B?eWRzaVBxZmwzV2NWbHduNFlrS0VYbkR3K1BIbVB0ZW45T3lTU2xFNWhKNlcz?=
- =?utf-8?B?elZHQ3c0dmtvU1BHWktYL0tobVZZYWljYjVwcjA4K3dUM2FJUXZlTmdCY2tH?=
- =?utf-8?B?QmppOUMrVnlVVUJxWWdjbGlWZ0V6UDRtalR4VjlXZ2NNeFhtRks5Wm9OTXFn?=
- =?utf-8?B?bWxpMU1yM2U0bGV0eVgvaDFXbWdZeWtJbllGYmFKakJubmZrY2YveTJYclhS?=
- =?utf-8?B?bnpWWUg2eFBySGYvcHI3T0hHVWpPZThEUjJlM3l2dTlJaVU4OGRSTzdNcVhy?=
- =?utf-8?B?SE1DNzlZMWIyNHZvMkhBNk5SWTU5bzV3Y294N21CbXNQckkrL2NUeDdJRTlW?=
- =?utf-8?B?VU11R0tld0xOVTlpWEo1TSt3UGp6eXJEYzEzR0xtU3pCVHFSWWt6dFk3VHlC?=
- =?utf-8?B?RHBEcUVJdVVvN1Z1QWhGWUpZT3pQQSt6dnRxSDJSd1VnbC9iWUFTbnJIZDkv?=
- =?utf-8?B?VWRCVXNEekR1cUo0V1BJR2ZscUI5bkhKWHZFaTBnV2J6VWxDaWJ3cnhLZjFF?=
- =?utf-8?B?TnhTa1huaTBpc1RVWS9NcUxMWnI1M0ljaVdRc0kxdUJLbktySXgzRXZtQnZC?=
- =?utf-8?Q?Bl8Y=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:48:38.7529
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73fa9c00-4cc4-4a89-00d4-08de2202f295
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000004E.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3533
-X-Proofpoint-GUID: 8JhxQVQBVil33xhoYUxdoNMeKQsxYw1U
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEyMDEyOCBTYWx0ZWRfX6n6pkTcZKHYl
- i3NohB+rVjjS/SuMPL4URVunqCFz0k8s7bVTbLdcb7qAJTQG4cWyw//xk60Xlre/HbuVMtog2zK
- pciZy9MYlB8tnQLrV/HuOydMKv4T5yUvhe5QN76HbfQ40Su2TzsCDTBppcs6jVNjKY6Eg2oHEHJ
- ggL/S3Xui78y4/S7IMYNJY04yi25yqDCS5lzq13/uvvP+rjtvF0v75Q2LrfE5gpffKx+r5YfEDV
- EsUkosviQobYPFKeHkOQCoqbdgY8WXScu3L88xGzCF5VWTBceN6su0zL5I2FZt+2+tt066DdiKQ
- 4aQv+NcQmTGHJ4Wo4sDH8WCdHdUfu1u13N1+Mp/T3sCQ2h3NrY3QDON1OLAvlYraZZxy8AxqR+N
- MTavFg0IgNdscGC1yH99EkG0hrgNpg==
-X-Proofpoint-ORIG-GUID: 8JhxQVQBVil33xhoYUxdoNMeKQsxYw1U
-X-Authority-Analysis: v=2.4 cv=VoAuwu2n c=1 sm=1 tr=0 ts=6914ac5a cx=c_pps
- a=mf19cOnrXCbh2f51U4A3hA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=XWp4PHTOCikA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=GoHG9ZAtNuuEcBzL9IoA:9
- a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-12_05,2025-11-11_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1015
- impostorscore=0 adultscore=0 priorityscore=1501 phishscore=0 suspectscore=0
- malwarescore=0 bulkscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511120128
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_074851_749182_8E355AFD 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20251112_074852_266455_F088697A 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,43 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add options/u-boot/boot-led property to specify to U-Boot
-the LED which indicates a successful boot.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index f41213187723..703b0c08eb5f 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -46,7 +46,7 @@ pad_clk: pad-clk {
- 	gpio-leds {
- 		compatible = "gpio-leds";
- 
--		led-blue {
-+		led_blue: led-blue {
- 			function = LED_FUNCTION_HEARTBEAT;
- 			color = <LED_COLOR_ID_BLUE>;
- 			gpios = <&gpioj 7 GPIO_ACTIVE_HIGH>;
-@@ -94,6 +94,13 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x1 0x0>;
- 	};
- 
-+	options {
-+		u-boot {
-+			compatible = "u-boot,config";
-+			boot-led = <&led_blue>;
-+		};
-+	};
-+
- 	panel_lvds: display {
- 		compatible = "edt,etml0700z9ndha", "panel-lvds";
- 		enable-gpios = <&gpiog 15 GPIO_ACTIVE_HIGH>;
+On 11/11/2025 09:12, Russell King (Oracle) wrote:
+> Use PHY_INTF_SEL_x definitions for the fields that correspond to the
+> phy_intf_sel inputs to the dwmac core.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
--- 
-2.43.0
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-mediatek.c   | 18 ++++++++----------
+>  1 file changed, 8 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> index f1b36f0a401d..dcdf28418fec 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> @@ -17,9 +17,6 @@
+>  
+>  /* Peri Configuration register for mt2712 */
+>  #define PERI_ETH_PHY_INTF_SEL	0x418
+> -#define PHY_INTF_MII		0
+> -#define PHY_INTF_RGMII		1
+> -#define PHY_INTF_RMII		4
+>  #define RMII_CLK_SRC_RXC	BIT(4)
+>  #define RMII_CLK_SRC_INTERNAL	BIT(5)
+>  
+> @@ -118,16 +115,16 @@ static int mt2712_set_interface(struct mediatek_dwmac_plat_data *plat)
+>  	/* select phy interface in top control domain */
+>  	switch (plat->phy_mode) {
+>  	case PHY_INTERFACE_MODE_MII:
+> -		intf_val |= PHY_INTF_MII;
+> +		intf_val |= PHY_INTF_SEL_GMII_MII;
+>  		break;
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		intf_val |= (PHY_INTF_RMII | rmii_rxc | rmii_clk_from_mac);
+> +		intf_val |= PHY_INTF_SEL_RMII | rmii_rxc | rmii_clk_from_mac;
+>  		break;
+>  	case PHY_INTERFACE_MODE_RGMII:
+>  	case PHY_INTERFACE_MODE_RGMII_TXID:
+>  	case PHY_INTERFACE_MODE_RGMII_RXID:
+>  	case PHY_INTERFACE_MODE_RGMII_ID:
+> -		intf_val |= PHY_INTF_RGMII;
+> +		intf_val |= PHY_INTF_SEL_RGMII;
+>  		break;
+>  	default:
+>  		dev_err(plat->dev, "phy interface not supported\n");
+> @@ -297,17 +294,18 @@ static int mt8195_set_interface(struct mediatek_dwmac_plat_data *plat)
+>  	/* select phy interface in top control domain */
+>  	switch (plat->phy_mode) {
+>  	case PHY_INTERFACE_MODE_MII:
+> -		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_MII);
+> +		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL,
+> +				       PHY_INTF_SEL_GMII_MII);
+>  		break;
+>  	case PHY_INTERFACE_MODE_RMII:
+> -		intf_val |= (rmii_rxc | rmii_clk_from_mac);
+> -		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_RMII);
+> +		intf_val |= rmii_rxc | rmii_clk_from_mac;
+> +		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_SEL_RMII);
+>  		break;
+>  	case PHY_INTERFACE_MODE_RGMII:
+>  	case PHY_INTERFACE_MODE_RGMII_TXID:
+>  	case PHY_INTERFACE_MODE_RGMII_RXID:
+>  	case PHY_INTERFACE_MODE_RGMII_ID:
+> -		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_RGMII);
+> +		intf_val |= FIELD_PREP(MT8195_ETH_INTF_SEL, PHY_INTF_SEL_RGMII);
+>  		break;
+>  	default:
+>  		dev_err(plat->dev, "phy interface not supported\n");
 
 
