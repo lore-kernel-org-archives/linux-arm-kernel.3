@@ -4,165 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6716CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312FECCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Nov 2025 15:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WkEww59ZUJev2sZgKv8SiTze9ERZFSa3VB9MIL3RmMk=; b=f37wMEjQ+sBTjxmnsu7J+4TOTw
-	5CYcprlKJ2IZmr5h88DGMvPAROrZoBkxKFhtPElMPJl9thZLx8uCOcdql7e3PrVUKa5NDUAZ7OsEI
-	J13tNxqSC/JXbpGgpk1nv/BiqsBNtbf+DgeK4aUTbNfEtT7f/hr4rPnZ49D3Vs8Pt7gWKXHHznqVK
-	Fm/u5PEp3KZfb2cqDKjxlKz4J1FvxzMH8CBiXjnrm0hQGEUphv/DHKD8bOzfgD1gC8gCsBsAz+qQH
-	VzZRpjfEkLc+kEPbQjVq0YV+PjayrlvF76uqkfFGNL/muYH63x7756LGnJQAmIMRYH0Ka5axeMtrl
-	m+AXsxDw==;
+	bh=jmWLeH97fIztN3BxpfVTr0ckNNYcHK6aY96DN2VwNkI=; b=MINUxhKUfBZkQ/zNYJyZp/PT9U
+	C589ba8xNdJXLktwbWG3eliRxzDmitsmBxpL03lJQs+73lMbzeIv8i33fvjA/TIAlSiPF3Z2HTUsu
+	TyDTeIDSNGgU9Ae4CNai5jXUapztsPmqC1ha5+XcCqH0LYtLqXEGnrf+5fUSGMC2rprNcgdjA5CLI
+	ci/aG9FT7Jj+e190cXE3/o/OYZUc24acW29OFwaNHj2knjtb+Jqa4FTngTkk3dRdMdpG0LAI3H/36
+	LrYcySStmrVNuRgFoF7pbSUkrYf+GAdIphEhhLMSmKmSRY9eiiU09wvzuqdhHCCl4aaNt4fCOD5eu
+	Y0WKpb1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCuj-000000094tT-22ik;
-	Wed, 12 Nov 2025 15:37:41 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJCuK-000000094oM-0Z5m
+	id 1vJCv3-000000094xK-3P2g;
+	Wed, 12 Nov 2025 15:38:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJCv0-000000094wO-33EN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Nov 2025 15:37:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=npy1CrX09Z47lCYNzDHZddl5lO0bxbcJKcnrwT2P+K/6gSYXYJoVPLoCCyiqEFzTXaMkqzgt6LMNOXQSoil4tiSZzvhaDm/D7w8mmSfO7xn0I43yD2jARo/WGs/MMSWdhitC25sC5UoqQKzdcihfqsHwYbTSQ5l1LWeaAqDxMd3BsOcPiG0t+Doa8UM3hVXfOME66btn0QbQKGXEPBvlVZv+sGUHtyMqajUlAwdUB64F6jTHO6GlhnG9AAPi6KJQJHfXZRkaA4uJjz5ETVXZfH52//J5uCy0GmdO37hDzEjimiAlRXg/KVrS4/SI4KdfOQieF4wjcQQH/OC7uRh43g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r7dpUYELm7KoFRH4nDOBoF/OqwDbI+d/zuSRgIwFXHs=;
- b=CfX0PRRPP+UNE3aPV6409ueWiTNIMBSVB1XTnavGQBuwIyjF7HFRZwuOSBdii834LSj40El2qQAC41TwKJz6SFq8IumTKCXPH91hWCXkp1VsYx+YuB8ko5pwmj163q4LVuEwPMaS2HjbUNPxjKWL8EgulRkhh4aOCvCBYj0eH9BpfofXuLilOh6UMqpu4R/lD/bUC6+rFjoo5hFo+U8CNnrtX9cjlaaGS+BE8xoHRT+2MXyWd49sOv+xQngu6s73D/iG4YW3YUSX5K92BSJEXYjqveb1q/HHaNTEH9j2+J5+Tjm1d05Q+K5E/9Ra3fEiBVg6K7cv/MVL4EC8o0d4Dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r7dpUYELm7KoFRH4nDOBoF/OqwDbI+d/zuSRgIwFXHs=;
- b=K31FwC33eMq53KQULNry+9eskfYqwpTZrUJ60sDLCuA0rjgxw+a4bou9XuoOii20FnM3rjq0nbGKjCguOknrrMvqAiVYe3j69rbUmo2uSO3Um1OxIRwkIun4IZ9SqzhIDRXKqqNTkrtfRr5CksMGOUa5yyimU00KKsfWdZAajeQxQPOZlAd71NzCUfNuG88R3f49B5zKh3axIBmjG7gLYUNt/0BPsD2I+cKIfEJg/gjRcq9oIeb6M6HW8b89Iuwp+fKGnayew0AtlQ1z1GOndcAx3h4k3WloSaeEyTXEE8Ch/T1JWpS9OQr/tObYzlOdQgJYo9O+ef589xfE7w0S0A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by OSKPR04MB11414.eurprd04.prod.outlook.com (2603:10a6:e10:97::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Wed, 12 Nov
- 2025 15:36:54 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9320.013; Wed, 12 Nov 2025
- 15:36:53 +0000
-Date: Wed, 12 Nov 2025 10:36:41 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Kirill A. Shutemov" <kas@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Max Krummenacher <max.krummenacher@toradex.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
-	Vitor Soares <vitor.soares@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add Toradex SMARC iMX95
-Message-ID: <aRSpifUe+fH7OHtE@lizhi-Precision-Tower-5810>
-References: <20251111151618.70132-1-francesco@dolcini.it>
- <20251111151618.70132-3-francesco@dolcini.it>
- <aRNeMJWsCTRO3j6X@lizhi-Precision-Tower-5810>
- <aRN562k3NXCMghEl@gaggiata.pivistrello.it>
- <20251112094737.GA5126@francesco-nb>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251112094737.GA5126@francesco-nb>
-X-ClientProxiedBy: SJ2PR07CA0001.namprd07.prod.outlook.com
- (2603:10b6:a03:505::11) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 12 Nov 2025 15:37:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17ED01515;
+	Wed, 12 Nov 2025 07:37:50 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2670E3F66E;
+	Wed, 12 Nov 2025 07:37:53 -0800 (PST)
+Message-ID: <83ba6e8f-30be-4e82-ae1f-2443a0f16d3c@arm.com>
+Date: Wed, 12 Nov 2025 15:37:51 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|OSKPR04MB11414:EE_
-X-MS-Office365-Filtering-Correlation-Id: 508eb6f5-1686-4551-2d50-08de22014dd2
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?IevzEIi8JGVSupqPR2ElI1vtq4dH0xNbFuUWrcPXG2XPsgaXWsLf8+guOZ?=
- =?iso-8859-1?Q?axBxVTX/7j4p8y/hrRMIFWV2qAmNT56QN8c4fgWB6aSeAe3jZd9S1oAHH1?=
- =?iso-8859-1?Q?Fgme5i8CMhQK0v0Hs7gugwpobUreJuX6/ayjwID204CK6fZq98fHuNOtOT?=
- =?iso-8859-1?Q?rSeyXOntid928FUOVRx+VrltiOzyhAgaN/O6R62itlm/5ZwpwM96oiO+cv?=
- =?iso-8859-1?Q?JFZGRvkAqU2L+R0xlMh5CX5Ll+VxRqvLUdaTGZ4JoGq5w2Vbax9kALN04g?=
- =?iso-8859-1?Q?XqwlUI7eCwjLgBFEhEHiC+35E9tQy+90BvAOAU6bKM7foXadXwmwlgk7CG?=
- =?iso-8859-1?Q?Rs488Mlfyoki5mskxoRao1dQAjmv4mrPgOmkBJYFkIglIRAzIQNiV2jMk6?=
- =?iso-8859-1?Q?tceRMoha6z24fNMt1DyELXV3Je+soKOg/HBm/Qa3OxQUZsOY6f7vo2eaJG?=
- =?iso-8859-1?Q?e+iSaawRanyfWMFJOFvK14g7CC+ST2GY1yQEmyYRC58UAtJ4sek/a1i2rB?=
- =?iso-8859-1?Q?kLvcv99rOlwKKXpKmG6mGFCJdgn+9GIMBRQzdezx6NOmXiTwoyXIXZ0KoY?=
- =?iso-8859-1?Q?yE9cP11+UO4LKvTrPxiDsoEPa42F6GbbLknTR3IUNqui9fCpQ6jWVPb2P7?=
- =?iso-8859-1?Q?+rIdApHtXmfjmizR1QgwtJ4JQTTFvLnTf/rlWi88poP5nZhHdp0zHzMFwj?=
- =?iso-8859-1?Q?6jas6K/VNkwqtDEpZJ95s5dOcZITHDW7bGbZO3u8GmoirFkrkzcOYD9CYH?=
- =?iso-8859-1?Q?pd86aJx2MfKWIJXRSWZdbhXBjGCurUKls8WzTmOORDEerSw3ItPLHxUniB?=
- =?iso-8859-1?Q?H4I+v0dU54FK8eYymwXs3JfwDN5sUiRHdex1PP+pEIJ9gHhfMe6JCeVlIM?=
- =?iso-8859-1?Q?DDe6AJO60lZGYZH3u/+ZpjzLqe4sIF6+2agZ1lDPFvTRjwJYrschJfbfMC?=
- =?iso-8859-1?Q?H5hqkUl2uOSBNb9dGZpF4zeQFYlF/XYhAvXWdwyTr5+pcsiGfBYI2K0GdB?=
- =?iso-8859-1?Q?SzNTNJquZ2TFnZId2IndSqre2Fm/6ry4eZ3efOqkHrqTRjknHT0nGK4mIa?=
- =?iso-8859-1?Q?FiEAqMOFU+KrAPwMUb4O1NrWfRRyc9r2mHWB6JZk8WB6EAvtaFZo9C30+T?=
- =?iso-8859-1?Q?RwqcmepeaNfAMubcdxqXRHxaM/rm9M16PhkEFLFdioTEUY3vEkHTtG2PO0?=
- =?iso-8859-1?Q?rGB3GO5jvbJZGoC1+2Yhxw5GttTSsdOvZY+QULm7Y8UV1BDKMfLEOIspRu?=
- =?iso-8859-1?Q?5R01eSm3OYPPVlqOJybbj26NB/1GdnCNwZRwNLZbWJs4FKqlREi3jg1+iw?=
- =?iso-8859-1?Q?4ujRoIgJOfF3+hUyiPeLyIjxXsn1DT982OpKtq3cgEcdrHkHZvz1noBz1F?=
- =?iso-8859-1?Q?Y4xU7FjwSybBOYDL9xZqLJzUBmcKCOMDM6vTUVyhK2QYZaHfPL0HdmHPQZ?=
- =?iso-8859-1?Q?pGW+Mn3R1avq3rKMSMSBUouPJMuxyXYWAwvAPzoI+kTL/3uQhaAxG6Pm69?=
- =?iso-8859-1?Q?7707F5yuLY6d1YlbHpqre7t26/Qq1AV7vP164lfkxyVg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?7SEh+lJ0gKtTQ9tRDJicoQxW7RKkclrWit/LTvlkqwAk3xJu6A7rsS1QE/?=
- =?iso-8859-1?Q?5AJTKYcMyrP+Fjev/N7kRHc9VMp475uE0OW539tozoMTZalu+Spz3+U/f2?=
- =?iso-8859-1?Q?M7kYpQLpW4bz/CIUMwWpWVh8wehU9bLhWUjgJnWpb0J6Hb5aA9ILA7hBja?=
- =?iso-8859-1?Q?9+Ta074BoUYeZ3+qV/TWuYwWhSzTr7w5hxflazB6UKEe0D9fjQpgBh4GrG?=
- =?iso-8859-1?Q?QD7wKsJrC+QZk1GgD3o6oLQzJ2lwxkFvMFL/pu68jlayMox00PtWax2z1K?=
- =?iso-8859-1?Q?vlsiZ/WZn00NelKWy3LNDn1tdzrsKBm4YLQQRzop8VKkB5uRhHdGEtO0EV?=
- =?iso-8859-1?Q?gu0H0incb/kwT41zW4+S4XVJGHCXiCmmf7xz/3eSb/+AKpmmT8PPcY45Gl?=
- =?iso-8859-1?Q?KXc62S2DN6XbFqgINgWNHlhNRhqSooSkedvZg5uHtdujXl5R4kfknx53mO?=
- =?iso-8859-1?Q?kovA/A5oqKhwkBIWb3NcFmGHGL+dg0/ITl7DqBvJW2ytT3pbxj//HGNa7v?=
- =?iso-8859-1?Q?TwZONu1VDI38FkGROsMDn9UEivKiUfcFFO9pY9YDAm/UJJI1RUaaQjXVxl?=
- =?iso-8859-1?Q?nH5Nltn2xYCCEzsWJHk3Oo22NVwJ5OUdYaHAjXyp0muGCuZnfuZ/uBMSyS?=
- =?iso-8859-1?Q?Yj4dZYx3baTvxDbsxP4Vkw4xZJlQvRA08DRPbLeG/anhTLRh7vC6cyOntF?=
- =?iso-8859-1?Q?lbZJ+MZfvBaWt2wElcVO3GiGCA+HrZJWiYN5ejkYKy9Qt8x09daYU5AHCx?=
- =?iso-8859-1?Q?ueTAoi5FQxaoAShyxGnWQoV8OFEGCkpW1ahqMA3ZmzoZZFF/HCL8GT6Vd6?=
- =?iso-8859-1?Q?QDty/iXFHHjJ2+XijJPf7DIxQb34X9V9749FQW209ZWkYy+BGbmEwqexNc?=
- =?iso-8859-1?Q?RzRUmZdRcmsnU3qjmd/xQdrfijKCldh9HBoo+sxEoBftleSeel6IPTd2uP?=
- =?iso-8859-1?Q?SjmJ9PGLkYvCfeoC3jbGQzrcwdgPCmOn6Aa8kcUjvSqvhA+ewVZoIQjHfv?=
- =?iso-8859-1?Q?ZGp5ZWVuX19OMk1g0Q3HTtxu2bfY/KfQaTZB9BgdugBp4ddaVGfSruF39Z?=
- =?iso-8859-1?Q?56uHXzXoAH6tWclcKuA2Ed857tnBbODgWaYkCcOq054xDXEl5fT/HHn0Tw?=
- =?iso-8859-1?Q?IfPS2fLrL4uJ5Z7JplwXirZXxkuLE9RIjHsp8G2yxweupPhttz7KVvqf9G?=
- =?iso-8859-1?Q?1DxImz+Hz+ub6SdCjL/NkzL4qOjaRybbYiWNfkWLzWMB4GKDopMsWBygcY?=
- =?iso-8859-1?Q?p/y7AKp4OlAFE+rx33l4jSnBB73PYuhQ6d0Fvu/dQsWoBYyqqsMx+ZF8R4?=
- =?iso-8859-1?Q?Ly66tvRF1Kx7cnTXBOno+ewzlhmhwiEVpItYtH50iaesxqjG7Qm1OvP60A?=
- =?iso-8859-1?Q?xOeeBu+uLxNEfEIYVuw2gJykQE5T/11nnitIjgHbkIsLJj1lzuP3fMLw8B?=
- =?iso-8859-1?Q?hArW88NSf+7lrCaizjxqOuW2g4UTV0RueDt+xSmwTyn+OpvXLqBTqKfEa3?=
- =?iso-8859-1?Q?OUJeYgTP0zzTaAPkOq0Z0NJ8/tcTsd69LOzCqiygoSnSDXqZUYQxtcHKbP?=
- =?iso-8859-1?Q?NgBJBHfdEGilIngiu074Le9MhoCU8LHBLx2HxaCMgLcNlQEAMIsTrwvUN/?=
- =?iso-8859-1?Q?49go9mvmWfO0pMBBGLrAtMNfKpLDnWmjca?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 508eb6f5-1686-4551-2d50-08de22014dd2
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2025 15:36:53.0775
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qaYKyWzYJYO+JmPbyx/VAsqz8C4Vjt3yK2XeCC33MLkKr+shY92A+L+thDEgmHddI+OATD4ciBtmGYkOIVLwng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11414
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
+ kbuild boiler plate
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>,
+ "james.morse@arm.com" <james.morse@arm.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "dakr@kernel.org" <dakr@kernel.org>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@redhat.com" <david@redhat.com>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "guohanjun@huawei.com" <guohanjun@huawei.com>,
+ "jeremy.linton@arm.com" <jeremy.linton@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "lenb@kernel.org" <lenb@kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-11-ben.horgan@arm.com>
+ <OSZPR01MB879857F2126672D1EADA04668BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <OSZPR01MB879857F2126672D1EADA04668BCCA@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_073738_043686_51A4E61D 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20251112_073758_902560_77E1A526 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,87 +99,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 10:47:37AM +0100, Francesco Dolcini wrote:
-> On Tue, Nov 11, 2025 at 07:01:15PM +0100, Francesco Dolcini wrote:
-> > Hello Frank,
-> >
-> > On Tue, Nov 11, 2025 at 11:02:56AM -0500, Frank Li wrote:
-> > > On Tue, Nov 11, 2025 at 04:16:14PM +0100, Francesco Dolcini wrote:
-> > > > From: Max Krummenacher <max.krummenacher@toradex.com>
-> > > >
-> > > > Add DT support for Toradex SMARC iMX95 SoM and Development carrier
-> > > > board.
-> > > >
-> > > > The module consists of an NXP i.MX95 family SoC, up to 16GB of LPDDR5
-> > > > RAM and up to 128GB of storage, a USB 3.0 Host Hub and 2.0 OTG, two
-> > > > Gigabit Ethernet PHYs, a 10 Gigabit Ethernet interface, an I2C EEPROM
-> > > > and Temperature Sensor, an RX8130 RTC, a Quad/Dual lane CSI interface,
-> > > > and some optional addons: TPM 2.0, DSI, LVDS, DisplayPort (through a
-> > > > DSI-DP bridge), and Wi-Fi/BT module.
-> > > >
-> > > > Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-imx95
-> > > > Link: https://www.toradex.com/products/carrier-board/smarc-development-board-kit
-> > > > Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
-> > > > Co-developed-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > > > Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > > > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > > > Co-developed-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
-> > > > Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
-> > > > Co-developed-by: Vitor Soares <vitor.soares@toradex.com>
-> > > > Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
-> > > > Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > > > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > > > ---
-> > > > v2:
-> > > >  - move enable-active-high after gpio
-> > > >  - add newline between properties and child node in som_dsi2dp_bridge
-> > > > ---
-> > > >  arch/arm64/boot/dts/freescale/Makefile        |    1 +
-> > > >  .../dts/freescale/imx95-toradex-smarc-dev.dts |  277 ++++
-> > > >  .../dts/freescale/imx95-toradex-smarc.dtsi    | 1155 +++++++++++++++++
-> > > >  3 files changed, 1433 insertions(+)
-> > > >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
-> > > >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> > > >
-> > > > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> > > > index 75676b908299..28f8eaf18471 100644
-> > > > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > > > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > > > @@ -390,6 +390,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
-> > > >  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
-> > > >  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-> > > >  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
-> > > > +dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
-> > > >  dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
-> > > >
-> > > ...
-> > > > +
-> > > > +/* SMARC PCIE_A / M2 Key B */
-> > > > +&pcie0 {
-> > > > +	status = "okay";
-> > >
-> > > Nit: if there are next version, please consider add supports-clkreq.
-> >
-> > What do you expect exactly?
-> > Maybe what you are looking for is in imx95-toradex-smarc.dtsi?
->
-> Found it, you are referring to https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-bus-common.yaml#L155
->
-> We would not be able to test it, the required changes in the PCIe driver
-> are not merged yet, so I would prefer to skip it for this series for the
-> moment.
+Hi Shaopeng,
 
-No impact for current drivers. Only thing you need check schematic, make
-sure #clkreq really connected. If connected, you can put it.
+On 11/12/25 07:22, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may only be
+>> accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until the
+>> system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
+>>
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+[...]
+>> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device
+>> +*pdev) {
+>> +	int err;
+>> +	u32 tmp;
+>> +	struct mpam_msc *msc;
+>> +	struct resource *msc_res;
+>> +	struct device *dev = &pdev->dev;
+>> +
+>> +	lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +	if (!msc)
+>> +		return ERR_PTR(-ENOMEM);
+>> +
+>> +	err = devm_mutex_init(dev, &msc->probe_lock);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+>> +	err = devm_mutex_init(dev, &msc->part_sel_lock);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+>> +	msc->id = pdev->id;
+>> +	msc->pdev = pdev;
+>> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+>> +	INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +	err = update_msc_accessibility(msc);
+>> +	if (err)
+>> +		return ERR_PTR(err);
+> 
+> Since the return value of update_msc_accessibility(msc) is always 0,
+> this check is unnecessary.
 
-i.MX's PCIe driver default enable it. but l1ss have not enabled. add
-supports-clkreq will keep the same behavior as before when pci driver
-update.
+Yes, I've changed update_msc_accessibility() to return void.
+> 
+> Best regards,
+> Shaopeng TAN
+> 
+Thanks,
 
-Frank
+Ben
 
->
-> Francesco
->
 
