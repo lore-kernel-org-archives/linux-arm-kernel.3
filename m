@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C3FCD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8805ECD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=; b=UdqZPwWC+JI2VmZCSAbsQzddiB
-	7UNOxykw50lV2VA+bs0t0ItNMDpoGl3vthi9RWeAQ7I8dLHN9znQG1Y+C2re07Toy/PWzONPGdkTs
-	IZyR0+T6PMrEKO8j4GVdr05I8l959xMOCiYKmscIxSUdVZ4gQajTo6gXDcBWXzdR18LPJpsmdmviV
-	OVRMChOtUEojz6h0vsDfAYv+syW9RtC3nn3RBG0ycRFSyEl8Hcx65AaLU//RxsLfYxUqzWtKfOoxB
-	Ifr9ZYIgLzlZWfdE7VeNWtPIfgdli4MmJJxM93g9dqT92oct8eOZWu3mS6qdgFzJ+x/BeZUltNqSF
-	RH4OeUhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=71lVmJnPUGpleZ4mKAV+ATu2lJgo6JW7DPtl5X40bXo=; b=z2HoQxrVujSg+sa9vfYrXel+tW
+	qhBa1kxCE8hRTNijQY4E/PO0rRjk5TPlozUfZOlRemnj6B5U6FhNUidN9YYW6oh3YGhvlrATp+Hb/
+	R4KycXeWo3RUj3TabOCeU7CuGs3X8kCtrnULLaQwKSvrMuAK/GNUqF8Y1ywUaVtAI8gzcr3qsE9ma
+	0KftG3MuurT7SXX7pOseZy8+zfjqSHpZfkFrD7nSgmXxb5wVNyzUxs7DOLK7JH78fYTK+Q47b9ipi
+	kMTIUQe3Z+xKz0HLgtfikcyAEjih6y9tF4TDXR2lo1C46PEWBuL2QqVn+W451hjZRri8Cc/JPNZLH
+	dAbqQPlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJafB-0000000Aphg-0Cav;
-	Thu, 13 Nov 2025 16:59:13 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1vJahx-0000000ApzJ-1hIk;
+	Thu, 13 Nov 2025 17:02:05 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJaf8-0000000AphI-2Dzd
+	id 1vJahv-0000000Apyf-0F7O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 16:59:11 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso1767463a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:59:09 -0800 (PST)
+	Thu, 13 Nov 2025 17:02:04 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-295c64cb951so241625ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:02:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763053148; x=1763657948; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=;
-        b=uxOvNcw2Qh0MOQ5oPrbMkx/6qNhHroxXnoteeoBj6kdLIE3hEXXV/fvtMXp4GaH6ar
-         GQ7BVs60/WqJyulCaivQ7mxtF+YuXxMeCKUG7iqAfvGtA6yHqmvp1yt0K9Q85aNmXRtl
-         uo4Al1BZLfqGqGZwUQ/pxGkLRtBPeTpTQggkrytrVaK4iVuKYqT1fDaDEn/wDwTWSyEj
-         E6aVCSer/hbJqf6UvwzciPL3kSkl4GFmdMzCIhhFImdCbyy9+VdbSZEB3hILKbgiHyz6
-         v7OMFsNuekaY+x7KmAuDrOu2Cmb4CLLVfQPEFKwlO3dU32NQ272nTzr0eVR8spS2N4Rf
-         82rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763053148; x=1763657948;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1763053320; x=1763658120; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=;
-        b=s6GUTJ3wspoQovFISbcan9iRKj6BbrdeJcvTV62WgYK89/WGSuXVZu8GAkzveQ4iq1
-         sRHFgrKgbLMI9A3E1SkVv3t7DKdYvI9xqUYzMJzCXqOYFcRLhj2biez+UpxWLXtnDl26
-         Jr6ZwevyZTfXN4D3j7oyhFaiPl2D08j6zRilEeHNOLf4L/hthvI2skD8lpcjHIg/4ss6
-         ULSyiXDWAzqzBb/kDLP1SM6eVSp46bL6VtxIAc4++bZTANHxiA6Dw6uKrRWMAhKjjHy7
-         ytEyBHU09m3c/qJmcSL/p3ZjWX1Vsmw+rYMMGUfrKcel6Zx0eUHNm9NVbOhi3Az7V/Yz
-         FMZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWpL4kmY+9GJBu4nu/kA8JQfGeP/jLbGFGnuntKuVv3s38isrxmolYRJfo2AFoI53PyzmXdA+SlNmTgf/7OThlG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVRdpXWxSs9sUsuPp3JvvxF1Moq7sciEjeHXOdZj6gOBKy5hm6
-	wXAe5y9WbDa8Q07agbHw5xeEdQvt4OkSKRNzziSK+4o7mKseG5tijhqJ18X1iwrIlKVWhvwli+h
-	UeW9YAbGdpqZRJ55ljjRprUjTtn6HlU+OTOXVCcb89Q==
-X-Gm-Gg: ASbGncusOBmVJJs4PiXyBqrw5gT547wKjIkXOoc/FA8fVPTCUeKwYDKw4iIRQwVR1wT
-	S3nKQdkJg6RrOTtQe8/1zkQJTa6pOaKXH/1N5iLGg1sk7aVDb3XPS8fot6ZGEZZPI2316fORMPG
-	qD1Gl7Ruv9H4O5KUywqAkiExCYC9noG9UIVHs9mIUMN/ypN5SpK9hS9m2kxIfDzFrXGwAAKjgfL
-	r875yfKkuExkL2rSDn2STjSHWQjHzZdLBG9U4OGyAts0sUTxpfQZhAL9EGU9sK5DEJiSsyy10Sk
-	RludAUCMHhRB5A==
-X-Google-Smtp-Source: AGHT+IHNiNj5c6BzZKED1Z000ERZybmUuYkJX4r0ws3HcIoZwiOXufpN2vALmssDs7zOCU5+nbxIjpi4YX1O6qX0ouE=
-X-Received: by 2002:a05:6402:254a:b0:63c:4da1:9a10 with SMTP id
- 4fb4d7f45d1cf-6431a55e345mr6812988a12.31.1763053148461; Thu, 13 Nov 2025
- 08:59:08 -0800 (PST)
+        bh=71lVmJnPUGpleZ4mKAV+ATu2lJgo6JW7DPtl5X40bXo=;
+        b=JmFS6+StkK9qIr0o6KGYq6lnHTT+rFqHz1B3cPl5IS6SktserwM/OW7e5bEAdRO2iF
+         0pR/4k2v7WdxNAPCL1YguQMngJe2RgdASIhHVMvS9InHtXM2koGaIXdsctT1ypq8YDKl
+         pcWQiHLUkayX4VoL4lSVACfUz1x/peNJObyyIIMjqyjWQN7WjU6ecqVGt0kZEaT8jPZJ
+         UaZST2/pgsgFyU2tswYDiArxl7+JO1WpwuV5E4m51vucmqX6KVXTJufCV+X7RrVDdHQJ
+         PfTG6OQVfeMAinhpEFMawFLREJpcTHXzSdDEWnB/eKk6tKyocIS2gAqhhCndYpmVWN5X
+         aMTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763053320; x=1763658120;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=71lVmJnPUGpleZ4mKAV+ATu2lJgo6JW7DPtl5X40bXo=;
+        b=djFeRzkjj1t5lC6bcsF/xAq9z3mS2gchHIbTO0HnQwcXQTeVqHQlwg67TVknuAw8vC
+         gWI6hjg9eKlGYflecYicUcfk8B9klBhMIBo9wRwRxpWopCHISQVuTqt4nXBGDcJoUTmT
+         6axn+v5QVqxkO03PNylw3UWJkM6XEkBmwWKNqdkRF+uT4bjzNcfzDlFFPeDAnVRUBbPp
+         L8by/+t75J/VV1a7COZ223TaW9wUE0XMnIb9Ceaio/9eDQIfgj3viPq/au+KkcsKHlkT
+         4INVe2P50dNqMdEG5LL2jsQhrUNOPhVQiPsVvpjz2TmuIluxq0FRa707dIBqd2qWFzmN
+         RsMA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8L+oMt9M6nxW31G1Ib28ivMOrnl6dMiDIF4pN8+HcdQdR4IikW4S2BEUfE85I3CpG4aMrXs4+yhgtuYrhQYXA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDHXfU2JsUZEXgm0Aoy2tm53CzT9FKB/pad0dKbq/hYuxJWnnf
+	xiGW+qUapJ7EWbQDu2dVQDChUzZ0i646lx4ZTkeBCRKU/x0SPiiuRHeiG4gZ79Hku+OFKVRDNCw
+	/C22xyiZoctBbw5K+FXXfIY0DNLPTWdvL15/DgASc
+X-Gm-Gg: ASbGncu/EKq9zSl0MrBkBHbcOHkJKnossF7q+tJXEB8aPDmGrzvOEq2mt5emormG+8I
+	jNhhRsYQin58h0CW1tSwOA5zE9H0f8WK7423J9IhTTAVfgIjvEorACBRSuiw2nLvxLGc380Hoq0
+	dRGdeXL+6r8ONNRIkxa9gnE3SBwKFdbpLsEaB21XH9zIdV/BMiB3HIscKWQn7twCLsTExGbz7Ke
+	aGMA7uF2VdXbUEdP1agkRnocRJt7e4nk3oxe+0If0mwJYdluZWduMcZEOxWAUijnujxEvhK8yss
+	gNeJO1t7s+I1O6fimkR+HM4kvUFd73qydxVQU5+QCzPcpsM=
+X-Google-Smtp-Source: AGHT+IGPRC+CQUBmBgdB89n61eAw0eI7sbJGyZXKLvUJxxPGOF5tt6zXBQxQuv/YyuQenUu73z2Yj6aCC42mzV1WO3c=
+X-Received: by 2002:a17:903:1c6:b0:290:d7fd:6297 with SMTP id
+ d9443c01a7336-2985b7b9694mr6318995ad.2.1763053319900; Thu, 13 Nov 2025
+ 09:01:59 -0800 (PST)
 MIME-Version: 1.0
-References: <20251110173334.234303-1-vincent.guittot@linaro.org>
- <20251110173334.234303-4-vincent.guittot@linaro.org> <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
-In-Reply-To: <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 13 Nov 2025 17:58:57 +0100
-X-Gm-Features: AWmQ_bkUC0Olt3VIt07NPBKQfZFgoo8sTusuWbmfnXreuUvnA3jlm9GTd56XT6U
-Message-ID: <CAKfTPtAFg-=k_Et8RMa4Ok1oBv87qpMrdiW+Xy9NixZAXUUm6w@mail.gmail.com>
-Subject: Re: [PATCH 3/4 v4] PCI: s32g: Add initial PCIe support (RC)
-To: Frank Li <Frank.li@nxp.com>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
+References: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
+In-Reply-To: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
+From: Ian Rogers <irogers@google.com>
+Date: Thu, 13 Nov 2025 09:01:47 -0800
+X-Gm-Features: AWmQ_bmZpgw7lXxzv2FCuAKiN2hVXWb-V-IiXd3o9kNnnrnUCNcZLuky19EZHhk
+Message-ID: <CAP-5=fXiiWRDPzONNNZQZc4QOBQoz=kRnJq77on5r4w9aDx-XA@mail.gmail.com>
+Subject: Re: [PATCH v3 00/25] perf arm_spe: Extend operations
+To: Leo Yan <leo.yan@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Arnaldo Carvalho de Melo <acme@redhat.com>, linux-perf-users@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_085910_627008_93C62CAC 
-X-CRM114-Status: GOOD (  34.41  )
+X-CRM114-CacheID: sfid-20251113_090203_124099_25056B12 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,184 +99,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 at 20:30, Frank Li <Frank.li@nxp.com> wrote:
+On Wed, Nov 12, 2025 at 10:24=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
 >
-> On Mon, Nov 10, 2025 at 06:33:33PM +0100, Vincent Guittot wrote:
-> > Add initial support of the PCIe controller for S32G Soc family. Only
-> > host mode is supported.
-> >
-> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  drivers/pci/controller/dwc/Kconfig            |  10 +
-> >  drivers/pci/controller/dwc/Makefile           |   1 +
-> >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  27 ++
-> >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 435 ++++++++++++++++++
-> >  4 files changed, 473 insertions(+)
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> >
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index 349d4657393c..e276956c3fca 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
-> >         in order to enable device-specific features PCIE_TEGRA194_EP must be
-> >         selected. This uses the DesignWare core.
-> >
-> > +config PCIE_NXP_S32G
-> > +     tristate "NXP S32G PCIe controller (host mode)"
-> > +     depends on ARCH_S32 || COMPILE_TEST
-> > +     select PCIE_DW_HOST
-> > +     help
-> > +       Enable support for the PCIe controller in NXP S32G based boards to
-> > +       work in Host mode. The controller is based on DesignWare IP and
-> > +       can work either as RC or EP. In order to enable host-specific
-> > +       features PCIE_NXP_S32G must be selected.
-> > +
-> >  config PCIE_DW_PLAT
-> >       bool
-> >
-> > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-> > index 7ae28f3b0fb3..3301bbbad78c 100644
-> > --- a/drivers/pci/controller/dwc/Makefile
-> > +++ b/drivers/pci/controller/dwc/Makefile
-> > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
-> >  obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
-> >  obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
-> >  obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
-> > +obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
-> >  obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
-> >  obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
-> >  obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > new file mode 100644
-> > index 000000000000..c264446a8f21
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > @@ -0,0 +1,27 @@
-> > +/* SPDX-License-Identifier: GPL-2.0+ */
-> > +/*
-> > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> > + * Copyright 2016-2023, 2025 NXP
-> > + */
-> > +
-> > +#ifndef PCIE_S32G_REGS_H
-> > +#define PCIE_S32G_REGS_H
-> > +
-> > +/* PCIe controller Sub-System */
-> > +
-> > +/* PCIe controller 0 General Control 1 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
-> > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
-> > +#define SRIS_MODE                            BIT(8)
-> > +
-> > +/* PCIe controller 0 General Control 3 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
-> > +#define LTSSM_EN                             BIT(0)
-> > +
-> > +/* PCIe Controller 0 Link Debug 2 */
-> > +#define PCIE_S32G_PE0_LINK_DBG_2             0xB4
-> > +#define SMLH_LTSSM_STATE_MASK                        GENMASK(5, 0)
-> > +#define SMLH_LINK_UP                         BIT(6)
-> > +#define RDLH_LINK_UP                         BIT(7)
-> > +
-> > +#endif  /* PCI_S32G_REGS_H */
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > new file mode 100644
-> > index 000000000000..18bf0fe6f416
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > @@ -0,0 +1,435 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * PCIe host controller driver for NXP S32G SoCs
-> > + *
-> > + * Copyright 2019-2025 NXP
-> > + */
-> > +
-> ...
-> > +
-> > +#define PCIE_LINKUP  (SMLH_LINK_UP | RDLH_LINK_UP)
-> > +
-> > +static bool s32g_has_data_phy_link(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
-> > +
-> > +     if ((reg & PCIE_LINKUP) == PCIE_LINKUP) {
-> > +             switch (FIELD_GET(SMLH_LTSSM_STATE_MASK, reg)) {
-> > +             case DW_PCIE_LTSSM_L0:
-> > +             case DW_PCIE_LTSSM_L0S:
-> > +             case DW_PCIE_LTSSM_L1_IDLE:
-> > +                     return true;
-> > +             default:
-> > +                     return false;
+> This series enhances tooling to support new operations:
 >
-> Are you sure code can go here? I think IP set flag PCIE_LINKUP of
-> PCIE_S32G_PE0_LINK_DBG_2 only after LTSSM in above states. Do you know
-> which case PCIE_LINKUP is true, but LTSSM is not other state?
+>   - Support for MTE tag since Arm SPE v1.3;
+>   - Support for Advanced SIMD extension and SVE operations;
+>   - Support memcpy, memset and GCS operations;
+>   - Support extended operations for atomic, Acquire/Release and
+>     Exclusive instructions.
+>   - Enhance the data source for associated info, like floating-point,
+>     conditional, data processing, etc.
 >
-> I remember I asked if DEBUG0 register work? any conclusion?
+> This series is divided into three parts:
 >
-> > +             }
-> > +     }
-> > +
-> > +     return false;
-> > +}
-> > +
+>   Patches 01 ~ 06: Support raw dump for new operations;
+>   Patches 07 ~ 17: Export the operation info into records, so that the
+>                    information can be later consumed by samples.
+>   Patches 18 ~ 25: Set the operation info into sample's data source and
+>                    SIMD flag, and updated the document.
 >
-> ...
+> This patch series is tested on FVP for native parsing and x86_64 for
+> cross parsing.
 >
-> > +
-> > +static int s32g_pcie_parse_port(struct s32g_pcie *s32g_pp, struct device_node *node)
-> > +{
-> > +     struct device *dev = s32g_pp->pci.dev;
-> > +     struct s32g_pcie_port *port;
-> > +     int num_lanes;
-> > +
-> > +     port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > +     if (!port)
-> > +             return -ENOMEM;
-> > +
-> > +     port->phy = devm_of_phy_get(dev, node, NULL);
-> > +     if (IS_ERR(port->phy))
-> > +             return dev_err_probe(dev, PTR_ERR(port->phy),
-> > +                             "Failed to get serdes PHY\n");
-> > +
-> > +     INIT_LIST_HEAD(&port->list);
-> > +     list_add_tail(&port->list, &s32g_pp->ports);
-> > +
-> > +     /*
-> > +      * The DWC core initialization code cannot parse yet the num-lanes
-> > +      * attribute in the Root Port node. The S32G only supports one Root
-> > +      * Port for now so its driver can parse the node and set the num_lanes
-> > +      * field of struct dwc_pcie before calling dw_pcie_host_init().
-> > +      */
-> > +     if (!of_property_read_u32(node, "num-lanes", &num_lanes))
-> > +             s32g_pp->pci.num_lanes = num_lanes;
->
-> Can you add this to dwc core driver?
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-It has been agreed on v3 that I should handle this locally for now
-until dwc core driver gets the support of root port nodes
-https://lore.kernel.org/all/20251106173853.GA1959661@bhelgaas/
+Reviewed-by: Ian Rogers <irogers@google.com>
 
+Thanks!
+Ian
+
+> ---
+> Changes in v3:
+> - Rebased on the latest perf-tools-next branch.
+> - Link to v2: https://lore.kernel.org/r/20251017-perf_support_arm_spev1-3=
+-v2-0-2d41e4746e1b@arm.com
 >
-> Frank
+> Changes in v2:
+> - Refined to use enums for 2nd operation types. (James)
+> - Avoided adjustment bit positions for operations. (James)
+> - Used enum for extended operation type in uapi header and defined
+>   individual bit field for operation details in uaip header. (James)
+> - Refined SIMD flag definitions. (James)
+> - Extracted a separate commit for updating tool's header. (James/Arnaldo)
+> - Minor improvement for printing memory events.
+> - Rebased on the latest perf-tools-next branch.
+> - Link to v1: https://lore.kernel.org/r/20250929-perf_support_arm_spev1-3=
+-v1-0-1150b3c83857@arm.com
 >
-> > +
-> > +     return 0;
-> > +}
-> > +
-> ...
-> > --
-> > 2.43.0
-> >
+> ---
+> Leo Yan (25):
+>       perf arm_spe: Fix memset subclass in operation
+>       perf arm_spe: Unify operation naming
+>       perf arm_spe: Decode GCS operation
+>       perf arm_spe: Rename SPE_OP_PKT_IS_OTHER_SVE_OP macro
+>       perf arm_spe: Decode ASE and FP fields in other operation
+>       perf arm_spe: Decode SME data processing packet
+>       perf arm_spe: Remove unused operation types
+>       perf arm_spe: Consolidate operation types
+>       perf arm_spe: Introduce data processing macro for SVE operations
+>       perf arm_spe: Report register access in record
+>       perf arm_spe: Report MTE allocation tag in record
+>       perf arm_spe: Report extended memory operations in records
+>       perf arm_spe: Report associated info for SVE / SME operations
+>       perf arm_spe: Report memset and memcpy in records
+>       perf arm_spe: Report GCS in record
+>       perf arm_spe: Expose SIMD information in other operations
+>       perf arm_spe: Synthesize memory samples for SIMD operations
+>       perf/uapi: Extend data source fields
+>       tools/include: Sync uapi/linux/perf.h with the kernel sources
+>       perf mem: Print extended fields
+>       perf arm_spe: Set extended fields in data source
+>       perf sort: Support sort ASE and SME
+>       perf sort: Sort disabled and full predicated flags
+>       perf report: Update document for SIMD flags
+>       perf arm_spe: Improve SIMD flags setting
+>
+>  include/uapi/linux/perf_event.h                    | 32 ++++++++-
+>  tools/include/uapi/linux/perf_event.h              | 32 ++++++++-
+>  tools/perf/Documentation/perf-report.txt           |  5 +-
+>  tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  | 56 ++++++++++++++--
+>  tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  | 61 +++++++++-------=
+-
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 53 ++++++++-------
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     | 40 +++++++----
+>  tools/perf/util/arm-spe.c                          | 77 ++++++++++++++++=
++-----
+>  tools/perf/util/mem-events.c                       | 66 ++++++++++++++++=
++--
+>  tools/perf/util/sample.h                           | 21 ++++--
+>  tools/perf/util/sort.c                             | 21 ++++--
+>  11 files changed, 359 insertions(+), 105 deletions(-)
+> ---
+> base-commit: da8fcfba0854dbe0b0eca465d35620c9cf4c89c1
+> change-id: 20250820-perf_support_arm_spev1-3-b6efd6fc77b2
+>
+> Best regards,
+> --
+> Leo Yan <leo.yan@arm.com>
+>
 
