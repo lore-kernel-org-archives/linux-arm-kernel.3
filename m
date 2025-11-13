@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFD5CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 08:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AE4CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 08:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3+aKTOIenGftNdk1yVOu9tIQlDGr8NCbK8NJ7Ofmko=; b=pV6lMJIpzs7xeOz7YBzK65iTCG
-	xL2hKxUYyIZdXCY1MO7xlI83T8hlrIdrXSCYBtcEqyff9303qLdy/ojt92ngwK5Ycr4Eub0uDfzPb
-	ReLSgywIqC3ekgmmeroePBCdEWRLnIsQXBpI8Vm9k9DQOI2RHqZNDL3OUNTdr1yUNCyWbJZSqpUVi
-	Udly4Z4DJwh4Q+d5bYEq+HWzOTPlntkr0MXbFcEW2mc1kWiVBIOfuajnOrtB5pbZNzyqkpYfA625A
-	DE/EuU+WJXVRUuwiijOptK7NI1yo/BZEugmtjv1bAsJMudjOnEeiOphiqRIUUu2h8QopDxODieaxE
-	uNSDNTEA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aC/YI8pVNBhBAJ0Bm63Vhh0r3zEXsT98uT+P6hsoSMw=; b=gBzCkF3czmkGyMj2kbQ/E00yag
+	nCsP9ndr0B997v0AdHjjxyLBY4r/+fYgAl2CAnM3/ZPa0NuImYTZgC7F2mZSd60fgzFC5zXD/cK85
+	T7PlTpvIiN2tXV11nCuQeP6zyBRXpfqpx/3ZFS6EYHcewUOW/miCYqV4F+78WsbHdH/IXZ9HX5uU9
+	3ca7GvG/b/RrGqqm1kyONH2tsN0JOrc4EyvFu4DiSiZYyZwD4IIKNAQ5fOA9T8vPJmJjHi+ZCy4Zo
+	yYrXHXHhVlGKidBBXo3n9Uv1dpJbgetw8zmIprZn4bQXy34p7jqNOKhdYKmu50OzrY85MXLCtPXMf
+	XXjkOBug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJSPv-0000000A3Tr-0PYW;
-	Thu, 13 Nov 2025 08:10:55 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vJSTO-0000000A3hl-35mn;
+	Thu, 13 Nov 2025 08:14:30 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJSPs-0000000A3Sv-0OBr
+	id 1vJSTM-0000000A3hI-2CM7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 08:10:54 +0000
+	Thu, 13 Nov 2025 08:14:30 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BD24FC0F56D;
-	Thu, 13 Nov 2025 08:10:26 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4B3B44E4167F;
+	Thu, 13 Nov 2025 08:14:25 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 662B86068C;
-	Thu, 13 Nov 2025 08:10:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49ABA102F1BFF;
-	Thu, 13 Nov 2025 09:10:37 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 10E196068C;
+	Thu, 13 Nov 2025 08:14:25 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3BB2A102F1BFF;
+	Thu, 13 Nov 2025 09:14:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763021447; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=M3+aKTOIenGftNdk1yVOu9tIQlDGr8NCbK8NJ7Ofmko=;
-	b=CUWyeqgsbpmiskIh05Y3xODwBRnwBI2KZgH/KPNlL96QAoCGCVcwTsZwUqVi/wtaFeyEVn
-	tkEZ3JlJpZOc5Ia9T4BQXDE6JSt4mx9YW5PP8nCFLlvYQzOwEgrx2Ni304blYKBuJUTL5b
-	kXPR07CiaeUNrab2aazgJdRkSD4BEHcQYdETyI1KmQM/ZY0BpL+UcK6IWDzDjG/stqPo8N
-	emV5Oy7+nvmZAS6QDaMwRtU/nLUWWoKctyJcIQtFpfEc9gLVmdp8XPd/OBBZsm6PUg6Tlt
-	JWkr9DkjPzdbvsxxyKz0nCTGBtYnlVu96ZGFm7EpVAcI1sPUsPck/Fp1bw0HGg==
-Message-ID: <21e8408a-027a-4e74-899e-8ec59ddb17ef@bootlin.com>
-Date: Thu, 13 Nov 2025 09:10:37 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v15 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-References: <20251106094742.2104099-1-maxime.chevallier@bootlin.com>
- <20251106094742.2104099-2-maxime.chevallier@bootlin.com>
- <56410c74-3d0e-4cdc-87a0-230cad8f691a@lunn.ch>
+	t=1763021663; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=aC/YI8pVNBhBAJ0Bm63Vhh0r3zEXsT98uT+P6hsoSMw=;
+	b=D7hvpvIRJ1mxAYpKyp8Epfv8kkxGsnvhYXlfftoYYC9AGHfwCDaO4Q38UXvkRAcAov4yMj
+	dCY8VJCfRkXXVD6QcORNcwnRtEcGHEU2Qa+jx+8MgYwLxXtxAh7EKTRqmqgcKPTrxXkSmp
+	2ZesVv8//jgGYLaodl7u9Tw2VoeMDKXtA5Alp2+efLEuIcyu1G4/x5oMMv9gUNUGD5WrBz
+	9cEDgMNhkfmKgITnoUk5guaCKIfrFcCY7tKjvCACMslt22+fNFWAs+yNK0rJE7q9ihXAU8
+	qsS6npsPUf0S8RIvgWZ4J8KpAp9uyi+NoRC0ZvsyznCfwqjcgN4HWtWZOcmLpg==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <56410c74-3d0e-4cdc-87a0-230cad8f691a@lunn.ch>
+To: davem@davemloft.net
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: [PATCH net-next v16 00/15] net: phy: Introduce PHY ports representation
+Date: Thu, 13 Nov 2025 09:14:02 +0100
+Message-ID: <20251113081418.180557-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_001052_312509_E050AAAB 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20251113_001428_724244_524BD5B4 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +100,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi everyone,
 
-On 11/11/2025 04:34, Andrew Lunn wrote:
-> On Thu, Nov 06, 2025 at 10:47:26AM +0100, Maxime Chevallier wrote:
->> The ability to describe the physical ports of Ethernet devices is useful
->> to describe multi-port devices, as well as to remove any ambiguity with
->> regard to the nature of the port.
->>
->> Moreover, describing ports allows for a better description of features
->> that are tied to connectors, such as PoE through the PSE-PD devices.
->>
->> Introduce a binding to allow describing the ports, for now with 2
->> attributes :
->>
->>  - The number of lanes, which is a quite generic property that allows
->>    differentating between multiple similar technologies such as BaseT1
->>    and "regular" BaseT (which usually means BaseT4).
-> 
-> You still use lanes here, but the implementation has moved on to
-> pairs.
-> 
-> Please add my Reviewed-by when you fix this.
+This is v16 of the phy_port work. Changes are typos, a more relaxed
+check when parsing DT pairs, and binding updates. Thanks a lot to Andrew
+and Rob for the reviews on the last round.
 
-I'm about to send v16, but I have also taken Rob's comments into account
-so I'm going to err on the safe side and not include your review tag, in
-case I mess this up :(
+This series conflicts with Romain's series on fiber support for dp83869:
+https://lore.kernel.org/all/20251110-sfp-1000basex-v2-0-dd5e8c1f5652@bootlin.com/
 
-again, thanks a lot for the round of reviews on v15 !
+As a remainder, a few important notes :
+
+ - This is only a first phase. It instantiates the port, and leverage
+   that to make the MAC <-> PHY <-> SFP usecase simpler.
+
+ - Next phase will deal with controlling the port state, as well as the
+   netlink uAPI for that.
+
+ - The end-goal is to enable support for complex port MUX. This
+   preliminary work focuses on PHY-driven ports, but this will be
+   extended to support muxing at the MII level (Multi-phy, or compo PHY
+   + SFP as found on Turris Omnia for example).
+
+ - The naming is definitely not set in stone. I named that "phy_port",
+   but this may convey the false sense that this is phylib-specific.
+   Even the word "port" is not that great, as it already has several
+   different meanings in the net world (switch port, devlink port,
+   etc.). I used the term "connector" in the binding.
+
+A bit of history on that work :
+
+The end goal that I personnaly want to achieve is :
+
+            + PHY - RJ45
+            | 
+ MAC - MUX -+ PHY - RJ45
+
+After many discussions here on netdev@, but also at netdevconf[1] and
+LPC[2], there appears to be several analoguous designs that exist out
+there.
+
+[1] : https://netdevconf.info/0x17/sessions/talk/improving-multi-phy-and-multi-port-interfaces.html
+[2] : https://lpc.events/event/18/contributions/1964/ (video isn't the
+right one)
+
+Take the MAchiatobin, it has 2 interfaces that looks like this :
+
+ MAC - PHY -+ RJ45
+            |
+	    + SFP - Whatever the module does
+
+Now, looking at the Turris Omnia, we have :
+
+
+ MAC - MUX -+ PHY - RJ45
+            |
+	    + SFP - Whatever the module does
+
+We can find more example of this kind of designs, the common part is
+that we expose multiple front-facing media ports. This is what this
+current work aims at supporting. As of right now, it does'nt add any
+support for muxing, but this will come later on.
+
+This first phase focuses on phy-driven ports only, but there are already
+quite some challenges already. For one, we can't really autodetect how
+many ports are sitting behind a PHY. That's why this series introduces a
+new binding. Describing ports in DT should however be a last-resort
+thing when we need to clear some ambiguity about the PHY media-side.
+
+The only use-cases that we have today for multi-port PHYs are combo PHYs
+that drive both a Copper port and an SFP (the Macchiatobin case). This
+in itself is challenging and this series only addresses part of this
+support, by registering a phy_port for the PHY <-> SFP connection. The
+SFP module should in the end be considered as a port as well, but that's
+not yet the case.
+
+However, because now PHYs can register phy_ports for every media-side
+interface they have, they can register the capabilities of their ports,
+which allows making the PHY-driver SFP case much more generic.
+
+Let me know what you think, I'm all in for discussions :)
+
+Regards,
+
+Changes in v16:
+ - From Andrew, relaxed the check on the number of pairs so that we only
+   fail when baseT is missing pairs
+ - Add a check for either 1, 2 or 4 pairs
+ - Lots of typos (mostly lanes -> pairs)
+ - Added Andrew's review tags (thanks again)
+ - From Rob, added an "else" statement in the ethernet-connector binding
+ - Changed the node name for ethernet connectors to be decimal
+
+Changes in V15:
+ - Update bindings, docs and code to use pairs instead of lanes
+ - Make pairs only relevant for BaseT
+
+Changes in V14:
+ - Fixed kdoc
+ - Use the sfp module_caps feature.
+
+Changes in V13:
+ - Added phy_caps support for interface selection
+ - Aggregated tested-by tags
+
+Changes in V12:
+ - Moved some of phylink's internal helpers to phy_caps for reuse in
+   phylib
+ - Fixed SFP interface selection
+ - Added Rob's review and changes in patch 6
+
+Changes in V11:
+ - The ti,fiber-mode property was deprecated in favor of the
+   ethernet-connector binding
+ - The .attach_port was split into an MDI and an MII version
+ - I added the warning back in the AR8031 PHY driver
+ - There is now an init-time check on the number of lanes associated to
+   every linkmode, making sure the number of lanes is above or equal to
+   the minimum required
+ - Various typos were fixed all around
+ - We no longer use sfp_select_interface() for SFP interface validation
+
+Changes in V10:
+ - Rebase on net-next
+ - Fix a typo reported by Köry
+ - Aggregate all reviews
+ - Fix the conflict on the qcom driver
+
+Changes in V9:
+ - Removed maxItems and items from the connector binding
+ - Fixed a typo in the binding
+
+Changes in V8:
+ - Added maxItems on the connector media binding
+ - Made sure we parse a single medium
+ - Added a missing bitwise macro
+
+Changes in V7:
+ - Move ethtool_medium_get_supported to phy_caps
+ - support combo-ports, each with a given set of supported modes
+ - Introduce the notion of 'not-described' ports
+
+Changes in V6:
+
+ - Fixed kdoc on patch 3
+ - Addressed a missing port-ops registration for the Marvell 88x2222
+   driver
+ - Addressed a warning reported by Simon on the DP83822 when building
+   without CONFIG_OF_MDIO
+
+Changes in V5 :
+
+ - renamed the bindings to use the term "connector" instead of "port"
+ - Rebased, and fixed some issues reported on the 83822 driver
+ - Use phy_caps
+
+Changes in V4 :
+
+ - Introduced a kernel doc
+ - Reworked the mediums definitions in patch 2
+ - QCA807x now uses the generic SFP support
+ - Fixed some implementation bugs to build the support list based on the
+   interfaces supported on a port
+
+V15: https://lore.kernel.org/all/20251106094742.2104099-1-maxime.chevallier@bootlin.com/
+V14: https://lore.kernel.org/netdev/20251013143146.364919-1-maxime.chevallier@bootlin.com/
+V13: https://lore.kernel.org/netdev/20250921160419.333427-1-maxime.chevallier@bootlin.com/
+V12: https://lore.kernel.org/netdev/20250909152617.119554-1-maxime.chevallier@bootlin.com/
+V11: https://lore.kernel.org/netdev/20250814135832.174911-1-maxime.chevallier@bootlin.com/
+V10: https://lore.kernel.org/netdev/20250722121623.609732-1-maxime.chevallier@bootlin.com/
+V9: https://lore.kernel.org/netdev/20250717073020.154010-1-maxime.chevallier@bootlin.com/
+V8: https://lore.kernel.org/netdev/20250710134533.596123-1-maxime.chevallier@bootlin.com/
+v7: https://lore.kernel.org/netdev/20250630143315.250879-1-maxime.chevallier@bootlin.com/
+V6: https://lore.kernel.org/netdev/20250507135331.76021-1-maxime.chevallier@bootlin.com/
+V5: https://lore.kernel.org/netdev/20250425141511.182537-1-maxime.chevallier@bootlin.com/
+V4: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
+V3: https://lore.kernel.org/netdev/20250207223634.600218-1-maxime.chevallier@bootlin.com/
+RFC V2: https://lore.kernel.org/netdev/20250122174252.82730-1-maxime.chevallier@bootlin.com/
+RFC V1: https://lore.kernel.org/netdev/20241220201506.2791940-1-maxime.chevallier@bootlin.com/
 
 Maxime
 
-> 
-> 	Andrew
+Maxime Chevallier (15):
+  dt-bindings: net: Introduce the ethernet-connector description
+  net: ethtool: Introduce ETHTOOL_LINK_MEDIUM_* values
+  net: phy: Introduce PHY ports representation
+  net: phy: dp83822: Add support for phy_port representation
+  dt-bindings: net: dp83822: Deprecate ti,fiber-mode
+  net: phy: Create a phy_port for PHY-driven SFPs
+  net: phy: Introduce generic SFP handling for PHY drivers
+  net: phy: marvell-88x2222: Support SFP through phy_port interface
+  net: phy: marvell: Support SFP through phy_port interface
+  net: phy: marvell10g: Support SFP through phy_port
+  net: phy: at803x: Support SFP through phy_port interface
+  net: phy: qca807x: Support SFP through phy_port interface
+  net: phy: Only rely on phy_port for PHY-driven SFP
+  net: phy: dp83822: Add SFP support through the phy_port interface
+  Documentation: networking: Document the phy_port infrastructure
+
+ .../bindings/net/ethernet-connector.yaml      |  57 +++
+ .../devicetree/bindings/net/ethernet-phy.yaml |  18 +
+ .../devicetree/bindings/net/ti,dp83822.yaml   |   9 +-
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/phy-port.rst         | 111 ++++++
+ MAINTAINERS                                   |   3 +
+ drivers/net/phy/Makefile                      |   2 +-
+ drivers/net/phy/dp83822.c                     |  78 ++--
+ drivers/net/phy/marvell-88x2222.c             |  94 ++---
+ drivers/net/phy/marvell.c                     |  92 ++---
+ drivers/net/phy/marvell10g.c                  |  52 +--
+ drivers/net/phy/phy-caps.h                    |   5 +
+ drivers/net/phy/phy-core.c                    |   6 +
+ drivers/net/phy/phy_caps.c                    |  65 ++++
+ drivers/net/phy/phy_device.c                  | 337 +++++++++++++++++-
+ drivers/net/phy/phy_port.c                    | 212 +++++++++++
+ drivers/net/phy/qcom/at803x.c                 |  77 ++--
+ drivers/net/phy/qcom/qca807x.c                |  72 ++--
+ include/linux/ethtool.h                       |  39 +-
+ include/linux/phy.h                           |  63 +++-
+ include/linux/phy_port.h                      |  99 +++++
+ include/uapi/linux/ethtool.h                  |  20 ++
+ net/ethtool/common.c                          | 268 ++++++++------
+ 23 files changed, 1399 insertions(+), 381 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ create mode 100644 Documentation/networking/phy-port.rst
+ create mode 100644 drivers/net/phy/phy_port.c
+ create mode 100644 include/linux/phy_port.h
+
+-- 
+2.49.0
 
 
