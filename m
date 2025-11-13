@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6781CCD5BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A894CD5BBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9qI5ZvfTa0mQrrAkzpYrWodT4xWHf74yruf7flnfVU=; b=kzn/sZV1g2y2zEhSOYiTPmPgpq
-	uS6JmbRP8+H7koLFirmyqC2QuSUIPQEII9lOlo31mM7JAyJBTjJVFTSDcSghz29sBHlkjscHvdxFi
-	7vFAXrQiaMwE7B8qACk5ryxYtosDmaLRXfEaxnhpzgxByj+PIDp+YQr5UF7uGebJEHqoq17a3OVLj
-	lHeLgGa8MaelAzeHRkv7l2L8dDmo7Lu4T2Seu8Samhghskfhju74KC0s9UV24sU3WZsjb/EvmRx9E
-	P+4jgMYrAzSctkl+CkLHVOirW2CVJbzxthKsA1GUxeURJub1cv9mrqsuGahWaEJCr7BYT16I9CEZM
-	Re9OV50A==;
+	bh=/5WNpQnXexzvUnL0SZ99IdSXhXmMgcUViaTDBYNlqpc=; b=e3xtjKfg8fwRfH6dXcVb7QrFxf
+	TLkb+gMcQNRGPYXnIHMBKBz8+Diwje4Vp5LJs2sxEiKWv6tBpMzKy7w6Fotg+BHZO9HmZ6bXt9Wcp
+	Q2l/UViGA/Ak4iuIkcvVyM+WfwVMlyY7/1VYW2+YP6xnozHRkgPBxfH4D+nqSe4Rcp2el0FqYscre
+	4san9vtaFSRXMgkUFWl/tYzmla4sIYOMw3427HKswGey/UwjmnKSvG8HTNh8wptU01O85TnVxArbx
+	WBxqhnpjT3zYWZyFKN1Kefl/gigo4eflvbnjFzNIHYaxavk/142QCLVTi5DgM4OngQ6Vb3musOYXJ
+	p3uWWSTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV2r-0000000ALiv-1Sws;
-	Thu, 13 Nov 2025 10:59:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJV39-0000000ALnr-2n8d;
+	Thu, 13 Nov 2025 10:59:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV2q-0000000ALiR-1bsc
+	id 1vJV36-0000000ALlm-03jd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:59:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC98E601A5;
-	Thu, 13 Nov 2025 10:59:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B6EDC4CEF8;
-	Thu, 13 Nov 2025 10:59:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763031555;
-	bh=Zvdweb7sPHEeEOATLYg5ZKE15WfGNFkQDUUENT+CM2M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rgAn7ljucc1JPWaouEyA8zXhdLpPmZmFbDbjO4S3nTHajpiLuhplgiWIlOw+pwCaB
-	 5DKkwciq0/+d9fuSjkTT7YegU+jC5E0sNoZaQVvZRsi9Dvr81nsG2Cke1fCje2fJjU
-	 8/2iVkzdSSNG3y3k0zRC+13VHg7VASh0UQICb50YmzY1uJQmTUHbs/P4cs37ZtxcrX
-	 7dCblITogY7v2CfelGJJ3kbzmNOpZviCSwDUpGGu1adTcG+ijz6pDlCdHnNVQewEO4
-	 Uy2Ia2FV6WmEQDG8kozDJvRZftMvVpRbwjzF6GmvBIBIaD1SmHTk09FNZ0Pr93Bsz+
-	 OOz8LUCx0PJBA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Thu, 13 Nov 2025 10:59:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/5WNpQnXexzvUnL0SZ99IdSXhXmMgcUViaTDBYNlqpc=; b=yKV4hulOarStJW8vTLYXGFp8YA
+	rPoIOcXqdG4NMjw9GmU20MW0ESE5LKgb8jupmnv7SWYVMlRoVAiBEIpZdJOXz5E2BRHUqJl0I4szj
+	20xFQK4HyPgyDNaxzZevSwX6Z041S+7a+AjiK1AAPYzVkayuivmVCKvYkCaEmvCiM0mZNH7IMxBsP
+	/LgrL1DDv3AzBh3uR14PjP/9in40tvpo6RXZsU5mBUNy7nrfy8aj4+3X/GeocEKxEDTBj+s6VK8Lx
+	NtSKPfzY1MDJEs12eqjvdu5VeRoWD26mZdyFIENjHQ2h2F+G1iulhoU0gErD1FEA4TkIT1wGjnC7Q
+	WIOgBTpw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58100)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJV2n-00000004qU6-0pnK;
-	Thu, 13 Nov 2025 10:59:13 +0000
-Date: Thu, 13 Nov 2025 10:59:12 +0000
-Message-ID: <86qzu2tczj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: kvmarm@lists.linux.dev,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vJV2z-000000005JA-1Pjw;
+	Thu, 13 Nov 2025 10:59:25 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vJV2x-000000004n0-0xU7;
+	Thu, 13 Nov 2025 10:59:23 +0000
+Date: Thu, 13 Nov 2025 10:59:23 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu
-	<yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan
-	<yaoyuan@linux.alibaba.com>
-Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
-In-Reply-To: <b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-5-maz@kernel.org>
-	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
-	<b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
+References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
+ <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
+ <20251027234648.GC24987@pendragon.ideasonboard.com>
+ <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
+ <20251028071817.GX13023@pendragon.ideasonboard.com>
+ <20251111235434.GA25874@pendragon.ideasonboard.com>
+ <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
+ <20251112222551.GB9135@pendragon.ideasonboard.com>
+ <20251113010627.GC9135@pendragon.ideasonboard.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251113010627.GC9135@pendragon.ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_025932_498898_80E1188D 
+X-CRM114-Status: GOOD (  62.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,93 +99,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Nov 2025 09:52:23 +0000,
-Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->=20
-> On 09.11.2025 18:15, Marc Zyngier wrote:
-> > The trap bits are currently only set to manage CPU errata. However,
-> > we are about to make use of them for purposes beyond beating broken
-> > CPUs into submission.
-> >
-> > For this purpose, turn these errata-driven bits into a patched-in
-> > constant that is merged with the KVM-driven value at the point of
-> > programming the ICH_HCR_EL2 register, rather than being directly
-> > stored with with the shadow value..
-> >
-> > This allows the KVM code to distinguish between a trap being handled
-> > for the purpose of an erratum workaround, or for KVM's own need.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
->=20
-> This patch landed in today's linux-next as commit ca30799f7c2d ("KVM:=20
-> arm64: Turn vgic-v3 errata traps into a patched-in constant"). In my=20
-> tests I found that it triggers oops and breaks booting on Raspberry Pi5=20
-> and Amlogic SM1 based boards: Odroid-C4 and Khadas VIM3l. Here is the=20
-> failure log:
->=20
-> alternatives: applying system-wide alternatives
-> Internal error: Oops - Undefined instruction: 0000000002000000 [#1]=C2=A0=
- SMP
-> Modules linked in:
-> CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11665=20
-> PREEMPT
-> Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
-> Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
-> pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
-> pc : vgic_v3_broken_seis+0x14/0x44
-> lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
-> ...
-> Call trace:
->  =C2=A0vgic_v3_broken_seis+0x14/0x44 (P)
->  =C2=A0__apply_alternatives+0x1b4/0x200
->  =C2=A0__apply_alternatives_multi_stop+0xac/0xc8
->  =C2=A0multi_cpu_stop+0x90/0x178
->  =C2=A0cpu_stopper_thread+0x8c/0x11c
->  =C2=A0smpboot_thread_fn+0x160/0x32c
->  =C2=A0kthread+0x150/0x228
->  =C2=A0ret_from_fork+0x10/0x20
-> Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
-> ---[ end trace 0000000000000000 ]---
-> note: migration/0[18] exited with irqs disabled
-> note: migration/0[18] exited with preempt_count 1
-> rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 1-...0: (7 ticks this GP) idle=3D0124/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 2-...0: (7 ticks this GP) idle=3D0154/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 3-...0: (7 ticks this GP) idle=3D018c/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 (detected by 0, t=3D6502 jiffies, g=3D-1179,=
- q=3D2 ncpus=3D4)
-> Sending NMI from CPU 0 to CPUs 1:
-> Sending NMI from CPU 0 to CPUs 2:
-> Sending NMI from CPU 0 to CPUs 3:
->=20
-> Let me know how I can help in debugging this issue.
+On Thu, Nov 13, 2025 at 03:06:27AM +0200, Laurent Pinchart wrote:
+> On Thu, Nov 13, 2025 at 12:25:52AM +0200, Laurent Pinchart wrote:
+> > On Wed, Nov 12, 2025 at 12:03:13PM +0000, Russell King (Oracle) wrote:
+> > > On Wed, Nov 12, 2025 at 01:54:34AM +0200, Laurent Pinchart wrote:
+> > > > On Tue, Oct 28, 2025 at 09:18:17AM +0200, Laurent Pinchart wrote:
+> > > > > I didn't notice it at the time because my board was connected to a
+> > > > > switch that didn't support EEE.
+> > > > 
+> > > > I can confirm that reverting that commit makes the issue disappear. So
+> > > > we're dealing with an interrupt storm that occurs when all three of the
+> > > > following conditions are true:
+> > > > 
+> > > > - cpu-pd-wait is enabled
+> > > > - EEE is enabled
+> > > > - the peer also supports EEE
+> > > 
+> > > Thanks - overall, please take the statistics and interrupt status bits
+> > > with a pinch of salt - I suspect there are cases where the interrupt
+> > > is not actually enabled, and the code doesn't take action to clear
+> > > down a set status bit, but _does_ count it - so every interrupt that
+> > > happens increments the counter.
+> > 
+> > True. To (partly) avoid that, I've dropped the line that discards
+> > disabled bits in dwmac4_irq_status():
+> > 
+> >  	/* Discard disabled bits */
+> > -	intr_status &= intr_enable;
+> > 
+> > to ensure that all bits are processed and cleared. I then didn't see any
+> > high count of any of the GMAC_INT_STATUS interrupts. For
+> > MTL_INTERRUPT_STATUS it's a bit different, as by default only one queue
+> > is processed.
+> > 
+> > > > Furthermore, I tried counting bits from all the interrupt status
+> > > > registers I could find. The count of MTL_INTERRUPT_STATUS Q0IS to Q4IS
+> > > > bits is very high, and so are the DMA_CH0_STATUS TBU and ETI bits.
+> > > 
+> > > TBU means that the transmitter found that the next buffer was owned by
+> > > the "application" rather than the hardware, which would be normal after
+> > > getting to the end of the queued packets.
+> > > 
+> > > ETI means that a packet has been transferred into MTL memory, and thus
+> > > would occur for every transmitted packet.
+> > > 
+> > > Having dug into the imx8m documentation and the driver this morning,
+> > > I don't think TBU and ETI are the source of the interrupt storm. Their
+> > > corresponding interrupt enable bits are DMA_CHAN_INTR_ENA_TBUE and
+> > > DMA_CHAN_INTR_ENA_ETE (driver names). Both of these only appear in a
+> > > header file - the code never enables these interrupts. So, TBU and ETI
+> > > should not be causing an interrupt storm.
+> > > 
+> > > As for QxIS, stmmac_common_interrupt() will iterate over the queues
+> > > in use, calling stmmac_host_mtl_irq_status() aka dwmac4_irq_mtl_status()
+> > > for each. Only if this happens will MTL_CHAN_INT_CTRL() be read which
+> > > clears the status bit. In other words, if e.g. Q1IS is set, but only
+> > > one queue is being used. dwmac4_irq_mtl_status() won't be called for
+> > > queue 1, and thus MTL_CHAN_INT_CTRL() won't be read to clear Q1IS.
+> > 
+> > That's why I tried to enable all 5 queues in DT, but alas, it didn't
+> > help. I'll try again and count all possible interrupts.
+> 
+> Here's my debug patch (not very pretty, sorry about that):
 
-Wild guess. Can you try this (untested)?
+That's fine. Thanks for providing this and the raw data.
 
-	M.
+> Here are the corresponding stats captured right after booting to
+> userspace, with the 0 counts stripped off to keep the output readable:
+> 
+>      irq_gmac_0_n: 1
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index fc7a4cb8e231d..598621b14a30d 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -829,8 +829,8 @@ static const struct midr_range broken_seis[] =3D {
- static bool vgic_v3_broken_seis(void)
- {
- 	return (is_kernel_in_hyp_mode() &&
--		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS) &&
--		is_midr_in_range_list(broken_seis));
-+		is_midr_in_range_list(broken_seis) &&
-+		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS));
- }
-=20
- void noinstr kvm_compute_ich_hcr_trap_bits(struct alt_instr *alt,
+RSGMIIS, disabled, cleared by read of MAC_PHYIF_CONTROL_STATUS.
 
---=20
-Without deviation from the norm, progress is not possible.
+>      irq_gmac_5_n: 4047
+
+LPIIS, enabled, cleared by read of LPI_CONTROL_STATUS which is done.
+
+>      irq_gmac_18_n: 46
+
+MDIOIS, disabled, clear on read of _this_ status register
+
+>      irq_mtl0_n: 2244307
+
+This will increment each time dwmac4_irq_mtl_status() is called for
+channel 0, which will be called each time stmmac_common_interrupt() is
+called. Thus, this indicates the total number of times the stmmac
+interrupt handler has been called.
+
+>      irq_mtl_0_n: 2244307
+>      irq_mtl_1_n: 2244307
+>      irq_mtl_2_n: 2244307
+>      irq_mtl_3_n: 2244307
+>      irq_mtl_4_n: 2244307
+
+These should be cleared by reading the corresponding queue interrupt
+control/status register, iow MTL_CHAN_INT_CTRL(). However, we do not
+write to MTL_CHAN_INT_CTRL() to enable any of the interrupts there, so
+this looks weird to me, so it would be an idea to look at what value
+this MTL_CHAN_INT_CTRL() register contains, it may provide something
+useful, but I actually suspect it's another red herring.
+
+>      irq_chan0_n: 2244307
+
+Similarly to irq_mtl0_n, this will increment each time
+dwmac4_dma_interrupt() is called for channel 0, which will be via
+stmmac_napi_check(), stmmac_dma_interrupt() and
+stmmac_common_interrupt(). Therefore, it is expected to have the same
+value as irq_mtl0_n.
+
+>      irq_chan0_0_n: 333
+>      irq_chan0_2_n: 2244307
+>      irq_chan0_6_n: 2769
+>      irq_chan0_10_n: 2244307
+>      irq_chan0_11_n: 2799
+>      irq_chan0_15_n: 2701
+
+Only interrupts 0, 6, 12, 14 and 15 are enabled. Status bits in this
+register require '1' to be written to clear them. As the value written
+back is the status that was read masked by the interrupt enable, if
+bits 2 or 10 are set, they will never be cleared, so will increment
+each and every time stmmac_common_interrupt() is called. Therefore,
+these values are not significant.
+
+> 
+> Here are the stats after enabling five queues in DT, also captured right
+> after booting to userspace:
+> 
+>      irq_gmac_0_n: 1
+>      irq_gmac_5_n: 4020
+>      irq_gmac_18_n: 41
+>      irq_mtl0_n: 1286469
+>      irq_mtl1_n: 1286469
+>      irq_mtl2_n: 1286469
+>      irq_mtl3_n: 1286469
+>      irq_mtl4_n: 1286469
+>      irq_mtl_0_n: 6432345
+>      irq_mtl_1_n: 6432345
+>      irq_mtl_2_n: 6432345
+>      irq_mtl_3_n: 6432345
+>      irq_mtl_4_n: 6432345
+
+These values are the sum of irq_mtl[0-4]_n, so would be expected given
+the other numbers.
+
+>      irq_chan0_n: 1286469
+>      irq_chan1_n: 1286469
+>      irq_chan2_n: 1286469
+>      irq_chan3_n: 1286469
+>      irq_chan4_n: 1286469
+>      irq_chan0_0_n: 416
+>      irq_chan0_2_n: 1286466
+>      irq_chan0_6_n: 3470
+>      irq_chan0_10_n: 1286466
+>      irq_chan0_11_n: 2740
+>      irq_chan0_15_n: 2686
+>      irq_chan1_2_n: 1286469
+>      irq_chan1_10_n: 1286469
+>      irq_chan2_2_n: 1286467
+>      irq_chan2_10_n: 1286467
+>      irq_chan4_2_n: 1286469
+>      irq_chan4_10_n: 1286469
+
+It's slightly interesting that irq_chanX_2_n and irq_chanX_10_n don't
+match their corresponding irq_chanX_n values, which implies that they
+have been clear. It's likely given that we're talking about 0, 2 or 3
+times that's due to the first few packets and these bits hadn't been
+set. So again, I don't think TBU and ETI are significant.
+
+> Setting eee-broken-1000t, with a single queue:
+> 
+>      irq_gmac_0_n: 1
+>      irq_gmac_18_n: 6
+>      irq_mtl0_n: 2548
+>      irq_mtl_0_n: 2548
+>      irq_mtl_1_n: 2548
+>      irq_mtl_2_n: 2548
+>      irq_mtl_3_n: 2548
+>      irq_mtl_4_n: 2548
+>      irq_chan0_n: 2548
+>      irq_chan0_0_n: 282
+>      irq_chan0_2_n: 2548
+>      irq_chan0_6_n: 2324
+>      irq_chan0_10_n: 2548
+>      irq_chan0_11_n: 29
+>      irq_chan0_15_n: 2548
+
+These counts suggest that the interrupt handler was entered 2548 times
+at the point they were captured, which corresponds to "normal"
+interrupts for channel 0.
+
+> 
+> And eee-broken-1000t with 5 queues:
+> 
+>      irq_gmac_0_n: 1
+>      irq_gmac_18_n: 8
+>      irq_mtl0_n: 2672
+>      irq_mtl1_n: 2672
+>      irq_mtl2_n: 2672
+>      irq_mtl3_n: 2672
+>      irq_mtl4_n: 2672
+>      irq_mtl_0_n: 13360
+>      irq_mtl_1_n: 13360
+>      irq_mtl_2_n: 13360
+>      irq_mtl_3_n: 13360
+>      irq_mtl_4_n: 13360
+>      irq_chan0_n: 2672
+>      irq_chan1_n: 2672
+>      irq_chan2_n: 2672
+>      irq_chan3_n: 2672
+>      irq_chan4_n: 2672
+>      irq_chan0_0_n: 283
+>      irq_chan0_2_n: 2672
+>      irq_chan0_6_n: 2439
+>      irq_chan0_10_n: 2672
+>      irq_chan0_11_n: 46
+>      irq_chan0_15_n: 2672
+>      irq_chan2_2_n: 2670
+>      irq_chan2_10_n: 2670
+>      irq_chan3_2_n: 2672
+>      irq_chan3_10_n: 2672
+
+So channel 0 responsible for 2672 normal interrupts. Again, this
+reinforces that the other values with 2672 are likely not significant.
+
+> Given the enabled interrupts, I agree that the counters are misleading,
+> as none of the interrupt bits with high counts are enabled. I'm however
+> not entirely sure about the MTL interrupt status register, it's not
+> clear to me if it is wired to the EQOS IRQ line as I don't see a
+> corresponding interrupt enable register.
+> 
+> If we rule out the main EQOS IRQ line and the per-channel RX and TX IRQ
+> lines as the source of the interrupt storm, the last possible culprit
+> according to section 7.1.2 (A53 Interrupts) of the i.MX8MP reference
+> manual would be the "ENET QOS TSN LPI RX exit Interrupt" that is OR'ed
+> into IRQ 135. As that's related to EEE, it's a probable culprit, but I
+> don't know how what controls that IRQ line.
+
+As you have several interrupt signals which presumably show up in
+/proc/interrupts, do the values in your IRQ counters correspond with
+those interrupt sources? Are any of these interrupts shared with
+anything else?
+
+Hmm, looking at 7.1.2, and the mention of "ENET QOS TSN LPI RX exit
+Interrupt" I'm wondering whether Freescale have wired the lpi_intr_o
+signal of the GMAC to their OR4 gate. This is the LPI RX exit
+interrupt output, and it is cleared when reading the LPI control/
+status register. However, its deassertion is synchronous to the RX
+clock domain, so it will take time to clear.
+
+The purpose of this signal is to trigger to external hardware (to the
+GMAC) to restore the application clock to the MAC. I'm not sure that
+this was meant to be wired to an actual CPU interrupt. The only clue
+is the name which suggests it is, but there's nothing that states
+there's a way to disable it being asserted which makes me more
+suspicious that it's not meant to be a CPU interrupt.
+
+So, maybe this is the cause of the interrupt storm. Maybe Kieran isn't
+seeing the storm because his receive path is not entering LPI.
+
+I think a useful check for this would be if you could either disable
+LPI entry at the link partner, or hook it up to another system which
+can have tx_lpi disabled, and see how the iMX8 system behaves.
+
+If preventing the iMX8 receive path entering LPI fixes the problem,
+then I think this is likely the culpret.
+
+However, I'd be worred about this - if we "disable LPI" by way of
+the advertisement at the local end, there is the possibility that a
+remote system could override the negotiation and force its transmit
+link into LPI mode, which would cause the iMX8MP receive side to see
+LPI entry and exit, triggering this interrupt. If this is correct,
+that gives an attacker a way to manipulate the iMX8MP system,
+potentially causing all sorts of problems.
+
+Hmm. Not sure I like this look of that.
+
+If this hypothesis is correct, then yes, disabling EEE is the only
+way forward for this, but I would suggest going further - ensuring
+that SmartEEE is enabled on the PHY but with the advertisement
+cleared (so EEE negotiation indicates not supported) to block the
+receive side LPI getting to the EQOS.
+
+This also means that 100M EEE would also be affected, so just
+disabling 1G EEE in DT is insufficient.
+
+Andrew - if we need to go down this path, I think we need a flag in
+the PHY flags to indicate that we want SmartEEE enabled.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
