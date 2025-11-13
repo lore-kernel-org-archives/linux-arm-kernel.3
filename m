@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD971CD98D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEB0CD98D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSmElYIYOFrisvQwDCGz3/P+2Vw/ZOXr/m32JCzG3ck=; b=aZJNTh2VYj4PO/g9sW1lRd+07i
-	8diFvUfz5uTitzK8qomLTUgp7pxkSmPE/NfqE88pap354QR43iv9LRkK14Eynpe9+fUypn7BN42OD
-	9vI0pUtms8SRa4FsvWPdo/12/iNmRI8OqBvUnStSKKKu01Zc4ExcTXbmyBftWueITKGVuoyJ0xDGS
-	m5iJkJ8omCFR+zRAPe2nVKs/E73afDkkp+/6+mefmatWkG/WqbUfPeBy/4JIN4Cf3gHYR9fVQ3RS/
-	5JW9mbxqW1/IdOq0omOvxNAkU35PWKKgu39YR0Gvya6psLr6yuJ1SxRU/26fPjLxaKwgxZmUNnVF2
-	PaFvCS5Q==;
+	bh=5Uhbpb7RyajdWDDpWmpksIjyCAuJkS1y0NkpJKMbSOg=; b=t+Og7V6Fl1kT8CKMK6hUkrevgB
+	Z1HawweWateOAhP+fzDizrpomtPMFUvJaOy5uYrTrFgfsXYCfr3f52+OW+k/bYmCmOKxbTMbLo5rD
+	TzFuYLmbONOPa8eJbw6/jaZUEWR6N6T1+NkVCVYGLYHgnqLJ7VooFk+pI6wpjipJCCgmmCWgFc7Lg
+	dhS4M6brC1WvePW1MomfPCUlCvh6VPrupyQRVcc5VrbXD0vItL0ZspjAuQGBPgY21x1l7eRZGQ+Ie
+	jFO8xeSDD9LTb2wXyYsIpgzCfhHv63HbR6Qh39suMN+Ch2obaYqdiXiBR43V7LXB7L/B7/I7JIuMP
+	q+AJ3e8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdCf-0000000B1r2-3LpX;
-	Thu, 13 Nov 2025 19:41:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJdKo-0000000B2RT-1XaV;
+	Thu, 13 Nov 2025 19:50:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdCe-0000000B1qk-2YKS;
-	Thu, 13 Nov 2025 19:41:56 +0000
+	id 1vJdKm-0000000B2RI-40MN;
+	Thu, 13 Nov 2025 19:50:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7E6C60123;
-	Thu, 13 Nov 2025 19:41:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD1CC4CEF1;
-	Thu, 13 Nov 2025 19:41:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 10FEF6011F;
+	Thu, 13 Nov 2025 19:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D5E5C113D0;
+	Thu, 13 Nov 2025 19:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763062915;
-	bh=rd2zpPCHj2LC0VX+Ni1vP+XGAM697mBCGbgOGiSycFc=;
+	s=k20201202; t=1763063419;
+	bh=l8KIsccA1YWYWTLWU7e76Frhe8QvZs+opM2EpB6tHZ8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ESVbNSBN5U75Smbj3dlhdPq58cUYnJoFgHs7TbvPT8SisZiJDqF81eX/Kp4/7LYR/
-	 ubATuM17Fg0p/LMsk88h2One9ciuWnpeYqCD8nFvn6gfjbN8uyk+dbCNdTjskFqzj8
-	 gFfiAm1Mt5naSEI9o6gNCtLWiMIeXP0rKoNHaQbhnPpCVStGUF7NlnCKlnBA2mBzRP
-	 1BKfOXDR2IIjfSqTaK4uCE/vEqUyyPjd4YF4C4rZYLq+MjCW8O0pD9BgUYHnw0TAbD
-	 /gd89hC9xhggKM5UlfKMq6OFobhfphUi8sfX7BWgtssrSloOgvwcIVOfkB0goGvNGU
-	 1cf69nyUgUyvw==
-Message-ID: <8fafec79-febd-464a-903b-e7e8b841b6c9@kernel.org>
-Date: Thu, 13 Nov 2025 20:41:51 +0100
+	b=m2WY8ADM/g1lyTomMRPfayjqUwxzke0dwvaW2gfk0DIkhMALXqbOIpT6ui0VISuHl
+	 F0QPjwRM42rd4/zkh3Me6bt5k6rnVnWS0MzK/hqIZXt0ZKxAhJepJqhS56j4+I0PUw
+	 cyywHcVIn0/asyJWvp1Rkwt9POhC/pjY6ICzPCuOiajGbY5uLi2kOGIkpOxlUXH6da
+	 BNBswYYAS7AuRk2n3jUiIMXL4CyYG09KUYgiGZ6oY8LJPQNKawy7ROMdIYxqPD+/8Y
+	 ltrCJNd3a9IIwxmctChE3GV9riHmETETkV2d90mSLgWe3Tx8JSUxnMSxYd1EFhb2bv
+	 N/LiUlgu/tR3A==
+Message-ID: <3add6c9f-1bcd-4ec7-ae5e-ba1e67c5087d@kernel.org>
+Date: Thu, 13 Nov 2025 20:50:14 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: mfd: Add Realtek ISO system controller
-To: =?UTF-8?B?RWxlYW5vciBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
- "afaerber@suse.de" <afaerber@suse.de>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, "lee@kernel.org"
- <lee@kernel.org>, =?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
- <james.tai@realtek.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
- =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-References: <20251105104452.6336-1-eleanor.lin@realtek.com>
- <20251105104452.6336-3-eleanor.lin@realtek.com>
- <88d90e44-88d9-4b5c-ba76-1e27dd28f78b@kernel.org>
- <06078f60af0948d19b1abae53eeec7f6@realtek.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: realtek: Add Kent SoC and EVB device
+ trees
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, afaerber@suse.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, lee@kernel.org,
+ james.tai@realtek.com
+Cc: linux-arm-kernel@lists.infradead.org,
+ linux-realtek-soc@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cy.huang@realtek.com, stanley_chang@realtek.com
+References: <20251113123009.26568-1-eleanor.lin@realtek.com>
+ <20251113123009.26568-4-eleanor.lin@realtek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <06078f60af0948d19b1abae53eeec7f6@realtek.com>
+In-Reply-To: <20251113123009.26568-4-eleanor.lin@realtek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,70 +117,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 13:19, Eleanor Lin [林祐君] wrote:
-> Hi Krzysztof,
-> 
-> Sorry for the delay in responding to you.
-> 
->> On 05/11/2025 11:44, Yu-Chun Lin wrote:
->>> Add DT binding schema for Realtek system controller.
->>>
->>> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
->>> ---
->>>  .../bindings/mfd/realtek,iso-system.yaml      | 65
->> +++++++++++++++++++
->>>  1 file changed, 65 insertions(+)
->>>  create mode 100644
->>> Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
->>> b/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
->>> new file mode 100644
->>> index 000000000000..6fbdedd3ee5b
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
->>> @@ -0,0 +1,65 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/mfd/realtek,iso-system.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Realtek ISO System Controller
->>> +
->>> +description: |
->>
->>
->> Do not need '|' unless you need to preserve formatting.
->>
-> 
-> I will remove it in V2.
-> 
->>> +  The Realtek ISO System Controller is a register area that contains
->>> + miscellaneous system registers for the SoC and serves as a parent
->>> + node  for other functions.
->>> +
->>> +maintainers:
->>> +  - James Tai <james.tai@realtek.com>
->>> +  - Yu-Chun Lin <eleanor.lin@realtek.com>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - realtek,iso-system
->>
->> No clue what is "iso system", neither commit msg, nor title nor description
->> explain me that. Please add first bindings for the iso soc or if this is not soc,
->> then use only soc-specific compatibles (see writing bindings doc).
->>
-> 
-> I will rename 'realtek,misc' for clarity.
+On 13/11/2025 13:30, Yu-Chun Lin wrote:
+> diff --git a/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi b/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
+> new file mode 100644
+> index 000000000000..0989afcbde67
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
+> @@ -0,0 +1,129 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-2-Clause)
 
-How "misc" clarifies a lot? In what way this helps anyone to understand:
-1. What is this hardware?
-2. What device it is?
-3. How do you fulfill requirements from writing-bindings?
+Odd, why do you want GPLv3 or GPLv4? GPLv3 has quite strict
+requirements, so I hope you know what you are doing and your legal
+understand this.
+
+> +/*
+> + * Realtek RTD1920S Smallville EVB
+> + *
+> + * Copyright (c) 2024 Realtek Semiconductor Corp.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/thermal/thermal.h>
+> +#include "rtd1920.dtsi"
+> +
+> +/ {
+> +	chosen {
+> +		bootargs = "earlycon=uart8250,mmio32,0x98007800";
+
+Drop bootargs, I asked for this last time. That's debugging.
+
+> +		stdout-path = "serial0:460800n8";
+> +	};
+
 
 
 Best regards,
