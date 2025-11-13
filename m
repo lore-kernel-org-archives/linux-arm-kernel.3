@@ -4,53 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E68CD8C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3380ECD8CB0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZmNLrZCd5cLiNNamQhB1s6uGE4q3KxgejBL+QKMWMc=; b=MX0QVYqKzhK335MUDdIrQJgPE3
-	ANREg3qvAZjPw2qbwum4n5WT1abF4WS0ZdjQKXsAEz6Ne7HgGjYUYFZjmTgKjF2hsDnHmCt2UDwqa
-	UaaVLKTKStwGELFVCzcNzVV+crxHf/j66kuYIGkFb3skP+pxKwEufezC2tVoh+ovXBNy40Ser64VS
-	kOetMUDo1MMlFV1VGmYManv0iS5/szmAS7wpumD0CBSi8F5IMZL52s5viKrFvvgjdCUo4Es7hDTNo
-	sHLEG9Bmqp2zY7WZ9NKb0pVbGs5EZ00XZ1QKNHk4ga/HTB4Mnp1fVfSnxAFGXI14jRPF9bAerY+dd
-	tSxxa8yg==;
+	bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=; b=RLnd7cnTth5fG7v7dYm2tP/zY7
+	VxnlZLtZOOGQm1wv7m2oD8gMtuN5pNO/bvUrdSfGSvRflvArWzB1nEYolSrd5GAVOupt51IZtBggg
+	OiACLeZxsNpIHqhaw4tIXgx9z/wP9p9plEpouDV9plgCk0/2PaaoAurzB2b7njIR/Wd0DjP/PqTjG
+	iq28Bm3sl6uh/UcCMW/QtlPO8fDmyqapdWvgR/gRN0h5OIoxzyXYSOLz/CMTiPoTp1wwGcCHs/4kK
+	Ve0lx7YBMmedPQbnuRaRfVjNINiB+qhTmjRG9xmeOUyfJ1Q3s/Anrv09+LXNgl0LS/tF0Eb4Br2nI
+	Lnu0XhWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbFB-0000000As3C-0a80;
-	Thu, 13 Nov 2025 17:36:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbF8-0000000As2L-03OP
+	id 1vJbHA-0000000AsCy-2JlA;
+	Thu, 13 Nov 2025 17:38:28 +0000
+Received: from mail-northcentralusazon11022074.outbound.protection.outlook.com ([40.107.200.74] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJbH8-0000000AsCO-0G1s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 17:36:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EF8E12FC;
-	Thu, 13 Nov 2025 09:36:12 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A21B03F66E;
-	Thu, 13 Nov 2025 09:36:19 -0800 (PST)
-Date: Thu, 13 Nov 2025 17:36:17 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	james.clark@linaro.org
-Subject: Re: [PATCH v2 1/1] coresight: fix issue where coresight component
- has no claimtags
-Message-ID: <20251113173617.GA3568724@e132581.arm.com>
-References: <20251027223545.2801-1-mike.leach@linaro.org>
- <20251027223545.2801-2-mike.leach@linaro.org>
+	Thu, 13 Nov 2025 17:38:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=etXEwlV8XnXJb+crMMz+tIYmiovox4I6yLP90SKbnDlASTQ14Gt4Y4CBZmtXnA55PbUM/bU2xXIuoMd0wdFZzQ24xnsw9r9QoHrBEhUa1IPlAxpDpQoZBr7Uplvu12puzPfA6l7AzBU78CdJzCTHckON/FtUg1TJrQeolZI4FGkqmRUWCois1esNmjpBoTIfAIwrRazQMdxj27kQXDDtR52lX3TxIwu5pVeL26+jHNdvP6ts6350OPOvT+su7ybgmnA7g44T38nPK8p3N5s/bc6zMLiTKyuzjG+s+w24dPOfGPu6RbFHqwA81gpu7EGSX7EWzmJBl/JN1KldErfQtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=;
+ b=yzt5Mo/vJ1i+JqwHDMLvDTiyHCL2EZCCBgGEAOhLiKJaIcGKSq5kjmlqJqzKoCZiQvWo1ae1IGD9DYYLve5XzCBIHPdu+azEvNAcTHEwE0VJnlX/n7DMDE/1ZABA32nXLD+SHHOB6pAyoD35BsX8a3M8zGv05Zaa9AjI+xKQObKPd+XwG93Aro9K/XMkvivWfpCuNlshiZY+7I3GDMLkEW+c2k/LxEZKo1DGEULlZ5/cEz0gE6RFy8bLW/YFugnFxUEeJ1yF9MrDFe+ct37HiiOAchSqo1Np17T64MKXAEA9ITR4qRpWEiPkrO1hUzARoDqKgrKDMuO9WubeCDHCwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=;
+ b=XL6IWX+rqNauDVInMJvQ3+D+JgcxN4FXHIZ7t5yzamJt1f60SOSsppok+KfCczJzLmKvtliw16KW3fj9HQ8IWaL9GuLUi0BPWOKZtHLuh9At5kexIGFq0DnkUjGdSYj7Fx7iJRpvCsJ1iVafcq98uIt7oHj6ieYxNmf4jb7Wt8Y=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ BL4PR01MB9097.prod.exchangelabs.com (2603:10b6:208:590::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.17; Thu, 13 Nov 2025 17:38:19 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
+ 17:38:19 +0000
+Message-ID: <ed879c7d-456d-4981-9949-1edfc8b9af71@os.amperecomputing.com>
+Date: Thu, 13 Nov 2025 09:38:16 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: rppt@kernel.org, shijie@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251112062716.64801-1-dev.jain@arm.com>
+ <20251112062716.64801-2-dev.jain@arm.com>
+ <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CY5P221CA0013.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:930:b::29) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027223545.2801-2-mike.leach@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BL4PR01MB9097:EE_
+X-MS-Office365-Filtering-Correlation-Id: 014478a9-5b7a-42b6-6507-08de22db6f3e
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RGRrbFNmWmNVYzBiaXo2TmdySEJWbUEyT1loYnp4RE5hZk9BNStNd0dqTU5T?=
+ =?utf-8?B?amZnek1HNmRoUFVJRTFPekpLWllaSVNyOXlOaHpza05uUFNZK1luVHN4aVFN?=
+ =?utf-8?B?Zm92N0E4Wllmb09sdE1HS2M4VUs0RHQreHBtVUJUb053SytIUWFReDdseTRM?=
+ =?utf-8?B?MlhLaWp0L2VLZFJUWkF6N3ZXVjlWTmVuYzFnZzl5cUphQllTaHdUd3RvMEZp?=
+ =?utf-8?B?dndGa1pRdDNPWk9GaHJwc1dDVzg5dThESHhEbGdFMnl5UzNBTXpqdzJXZ0RI?=
+ =?utf-8?B?NnU1OWZBZ1RXRThrVGR4akRaMEZpdXY4em5WWjdicmRGaDlHRlg3M3o3cXpS?=
+ =?utf-8?B?MTZ0endOU1p5Z29rdEVPSkZFTkZESC8ydnppQmI0d0JDRVJEMStJUEFrRXlW?=
+ =?utf-8?B?aXFZVk5xTHMvZEJIbGIzbHdlcGtEbW5xTlNDMGRQTW8xT3UzU01pYlB2T09P?=
+ =?utf-8?B?ZFFhbzM3MVNodmtSaWYrM3pDVWowK2IrTktoVEZFc2ppTHE5VWhPdTVpYWNm?=
+ =?utf-8?B?aXVhdGVvOW5mM1RaeDV5RDd3cE1rTUY3MkJwcGhCZ1QzdUFSNG5XaGFQMjNL?=
+ =?utf-8?B?eTZaeG96NUV0cUdGMlU5Vk5TcnRFU1VYU1dZcGg3VFRLV09JdmMyTVFUV2Fy?=
+ =?utf-8?B?QldOUnl4VExHc1Mxd001eWdDd3J0YnJtemxRaGRuMzdsYmQycFJNQmtNdmJw?=
+ =?utf-8?B?ODhpRWtQM0Z1MzRwVUxSRW1EYlJCVVhBYVhNUFZMVk9BaU1rZGNET01obVpS?=
+ =?utf-8?B?bDBHYzBkUE9ISnVsRnJOVEZqWERLOG9CZFpnVTh4ci94K3AzYi9QYldQRlR3?=
+ =?utf-8?B?ejNnRmZMY0srclY5N0lMeERBRmZaYUZPRnRiMndDbzBYSStwUzBJK0FSU2xP?=
+ =?utf-8?B?dFdRUXlaNFFGamhwUXZ4WGwzbEdGVUluYWswcEFtR05uTWo3TmlLNDhFb0xI?=
+ =?utf-8?B?SFFLUmZjVHo0MTdjS3F5TmVXeHdSTUhvWi9uektrb2M5eWpOdGRTRm02Nkpn?=
+ =?utf-8?B?K0JuNkV5R1lBNVAxNTJ5dlNjeTFpRDZyRnpkZDJ4THp0c3YzMGFWZjFGZVc3?=
+ =?utf-8?B?cVZCOVBqWEFLQVpSbXZ5UGNCS0Q5RlFGb2p1Y010ZEJjOWtFUmRITllmYjV3?=
+ =?utf-8?B?WVpxVlk1dDNnQ3RVeEsvek5IMW9ncE01WlNQR3F1MnVVVFIxV24xSFFhR3JG?=
+ =?utf-8?B?c0Z2SUtETjJ5MXY2elFHRnViL2dsQlZHeVhqYm5TeFlwWkpRdnhCRUV3SENi?=
+ =?utf-8?B?TzJzYlRzRTNMNEpqdEJFeXJsOWxQM3VHZldiYkttL3cxZW5OSkx6MmlBWlpW?=
+ =?utf-8?B?aUZFaEpZZkduSnlhMHIwZkt4L0NGZVFwdkd6Ry9jbk9NcHJLa2NHQ2pIMkY3?=
+ =?utf-8?B?OS8wYWZkRlFrOEV0cVErdExTTENpVzBucXlKbG9uQTVoTUIzL2ZtWXIxQlln?=
+ =?utf-8?B?ZldGSlFSUkhFR01MRStSNW5nT0VUUXBDYUhYeHMzZStDUGx0bTVkYWtGeUxX?=
+ =?utf-8?B?UW45dVk3WU9OQm5QamduU0dBRVJYL1JxdXp4NWpZMjVTWGVXZVM0YnN4ZDNz?=
+ =?utf-8?B?OThPRlVuY3N2WC9jOEY0TVlSTk1HWTJ4eWpyaG9ZOWg4d0U4RFhkZjUydmVJ?=
+ =?utf-8?B?MEFTaW1OZTVsU2RCNGtHcElqUGt6TitoOE51ZmQ0NEtwSGlOTEFock9QYTJP?=
+ =?utf-8?B?T00yYWxjdVBVWUJKVkExd0sxRms5K2p1bStHSU9RU0JIU3ZXSEJxc0tFUERP?=
+ =?utf-8?B?ck5FM0lvUDdhN0xtUjNRWXBTb3JxY0drZU8vUlFoam9vQjZEMlBRLzlZRFBp?=
+ =?utf-8?B?RjNWUFEvSG9yNGlRb2dyOXVVUC9yc2R0MkxaS29wMWpCZHVMWXNoOUFPRy9Y?=
+ =?utf-8?B?K3ZXUkRnM0dZZnFuREV0dW5VSGNKUzR6V3RUV3JYOFl2bTg0ZS80cFRLOUox?=
+ =?utf-8?B?ZkdCeTBSWVY5TE14UTVnSUdGNmhyWlRYS2lTSmg5aGkwcGxlWDR5Z2FBekww?=
+ =?utf-8?B?Y0hZcFRieFV3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2hJZDVkQ3hiWUpYempXZlUvakhOY0Q0a0wwSWdKTE1keEJCT0lLenM2UkNK?=
+ =?utf-8?B?QXg0YVVZQld1VWJ4WnAvd2hDRGpvTG4yUUs4K3c2UXhTRDh2eWdnR3BVMU8v?=
+ =?utf-8?B?cEVSN1hxT09BdCtWRzRZZDVEOFNJZU1aMWRzS1FjT2Vod0xJOS9zR3FGdUxj?=
+ =?utf-8?B?ZVNQNUROVXpYaWpML01la1l4aE5xeURTL3NyQ1g4Y1Q2V1FRUXVmM2dyYTI3?=
+ =?utf-8?B?QWpXSENJdVJGUnE0SmVkRStNNktKc2VJRkFYWTd0dk5lelp4MnpOSUYyWnlL?=
+ =?utf-8?B?RlJTUGZDUnBhOXFYMXVKRDlFdWVvcVZ6YVo0SWwzakZWamZzRjhhd3FwZ1hX?=
+ =?utf-8?B?M0RsSnhzZElVdDJGZ0M0VUtsVW5FRHV1M29QZEVPRkxRYW4xMnBSRWl0Vnhk?=
+ =?utf-8?B?V1BPS1VhdzVZSkJtc2VMczNZR0MyOFpKVlFRcEVUV2RNc0lKSG96TVJOb3d2?=
+ =?utf-8?B?UnI3REQ2dktZdURPWGY3ZzEyTitvdmUzcWFHdXFWWWt1NlVzM3hGZzR4dUl1?=
+ =?utf-8?B?cGxKSVU0d2kxeGg3NTFaRWE1ZWN1cDF3MHJpcG0zTHk0NjBGeGlOdGtKRE9N?=
+ =?utf-8?B?V2hDRzNIZ0FkY3phRWdXVFlxVGZOVm03NXE0ZTY2ZzJJTE5HMW9kUEpWd2FN?=
+ =?utf-8?B?VlhBelpjZnJCZnlSSkJ4WWZsbTN6TVBDdUg5ZDdOTlo4KzdoMHBqWjBEaXlM?=
+ =?utf-8?B?N1RMNnVzQktSR1pkN082Y2Zwalc5Y2JOQUxqNk4xelpPRVY0aUxLR3I2ZVlj?=
+ =?utf-8?B?bG44MUJ0Q0h0Ulc4cDd0VWpXQVRjNTlSQWN4ZnNMdkZUM1VqclRtc0FtQVRL?=
+ =?utf-8?B?em44WW9sN2hZNlByOEdvbnFVNG01L0wvUEMxdEVyYXVqNTNISlAwRUhxV05J?=
+ =?utf-8?B?V3Jwa2p2bWV1ZStpYnBoMktnaU80cXRUcS9aUzJHSU90bGxoTi8yZndHOE9z?=
+ =?utf-8?B?bVIwaU5FUnpXL3FVS2xGNmRQOTdQQktVakhwT3V1cUQ4UStDYk5NV3MrblYv?=
+ =?utf-8?B?UHc1QkZVYWdJNTZSS096L1ZyR3hZVUljQ3hHanE2ZlJsYmN2R3d3by8ybGl1?=
+ =?utf-8?B?V0xWMU5VT0owc0FZTWxYMnM4R1Jna1dTUTQrQThJbzgxOHJsZVhLekRlL1RC?=
+ =?utf-8?B?aEpQMHN1ZGUvb0loWnVFN3BJbVdsc3FNMnMrazQxN3JKelpPTEZjZVppemlu?=
+ =?utf-8?B?UUFyc0tUSXZlbTkwbStUeEJJWXZSZ016V1k5WkhZYVNPRlRMaDJOZDlheHBi?=
+ =?utf-8?B?SFFGYnJFczZWMnJRUVc5SEJtWDJEVXBTM0RuSkQyaVJEc2wyamFtNXZPVmhH?=
+ =?utf-8?B?TkJSN2dMNW0rS2ZlNFRENzdQTHZDNkdWdEl0a3cxZE05a0VGTFIzUmtPZEtK?=
+ =?utf-8?B?WFNjV1h6bjZwWWtIMUJOSFdBcVhpeEhvVkRkTlBaZnBhOVhrWGszVnRUb0Rq?=
+ =?utf-8?B?ZElBVVY1cHZod3p5V3Q5TW1zR1MyZjlYVzBDdWVJQWxLMGs3UE16NVdGVDh4?=
+ =?utf-8?B?cEExQlJYeW52L01KbDhML1ZkR1RmamcrWUs4QnpLRTFJdUo3UUVCQm5KTWYw?=
+ =?utf-8?B?am9BZWZULzRZUWdCNDY1aUlZNTBpaHhmVG9iSU9leWxnL1d4TzMzOFFRYWhh?=
+ =?utf-8?B?Y3RmVUI3QllKSDRxWkdPQlVrQVFYMzZQbEE2USttcURGMXpEeUtHR01WTEx3?=
+ =?utf-8?B?QnBGdVVNMllXc3RPeXFVMklaYS9lT2lmNzlRWUt3U0JJNk80TXp2aUwzYlQ3?=
+ =?utf-8?B?L0t1Ym9Ja09jdUU1NVFGYlloYXBieGh6KzhsdUR0elMyVTd4aXdHWEpEUVZE?=
+ =?utf-8?B?NXkzcXE5VDR1SDlRRTJaUE9MMllxeUdGSlJGZXlOS0xzMUlpYTNTcjNUTit2?=
+ =?utf-8?B?V010b0hDaVVLVWsvMWtrM3hwMkZvaHV2S2tqRldIdWs3elo1N2lwcUtrcUZr?=
+ =?utf-8?B?czBMT0pjN2N1Um5oUEVMeFErTHBWbWwwY1h2d3NDMFRER1VjdVQxM0ZCVHdl?=
+ =?utf-8?B?enVzdXNNWkd4RERYUHR0MjRHNUIrWnU1L0pQR2N6eURtZ002Vk11M1NzZ09I?=
+ =?utf-8?B?VTMvcXpzd0p3TTI0NlBVTVhiUHhYbVNQdFZJNjVmZkM0VTlrSVg0T204Rm11?=
+ =?utf-8?B?cVdESzE4WU9zSmRuMGtRWDFlblV0S2x2cVNSRFlFdmlwdzNJWVdjaXkvTDBI?=
+ =?utf-8?Q?7U5crbACbKY5YnZKnCFJFKg=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 014478a9-5b7a-42b6-6507-08de22db6f3e
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 17:38:19.4020
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZQcoNBjEQfes4FAnRKJsWbt6vF6nVVak02LG862JsIKE0MsGS1n3AXfPQ472RP2AbFZ+tBlFmCA7uBZOVHIJB2thd7lzl1RUwMNGlYauXek=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR01MB9097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_093622_138744_4E863357 
-X-CRM114-Status: GOOD (  36.37  )
+X-CRM114-CacheID: sfid-20251113_093826_141606_FBC21F57 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,223 +182,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 10:35:45PM +0000, Mike Leach wrote:
-> Coresight components have 0 to 8 claim tag bits. ARM recommends 4 and
-> the implemented claim tag protocol uses two of these.
-> 
-> If a component has insufficient claim tags then the protocol incorrectly
-> returns an error when attempting to claim a component.
-> 
-> Fix by reading CLAIMSET to establish then actual number of claim tags
-> and return success when attempting to claim a component were there are
-> insufficient tags to implement the protocol.
-> 
-> Signed-off-by: Mike Leach <mike.leach@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++--
->  drivers/hwtracing/coresight/coresight-priv.h | 10 +++++
->  include/linux/coresight.h                    | 15 +++++++
->  3 files changed, 68 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 3267192f0c1c..61b4902b0ead 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -131,6 +131,39 @@ coresight_find_out_connection(struct coresight_device *csdev,
->  	return ERR_PTR(-ENODEV);
->  }
->  
-> +/*
-> + * Reading CLAiMSET returns  a bitfield representing the number of claim tags
 
-s/CLAiMSET/CLAIMSET
 
-> + * implemented from bit 0 to bit nTag-1, valid bits set to 1.
-> + *
-> + * Claim protocol requires 2 bits so test for MS bit required,
-> + * bit 1 -  CORESIGHT_CLAIM_BIT_PROTOCOL_HI
-> + *
-> + * return true if sufficient claim tags implemented for protocol
-> + */
-> +static bool coresight_claim_tags_implemented_unlocked(struct csdev_access *csa)
-> +{
-> +	u32 claim_bits_impl = FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-> +			 csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-> +	return ((claim_bits_impl & CORESIGHT_CLAIM_BIT_PROTOCOL_HI) != 0);
+On 11/13/25 3:55 AM, Ryan Roberts wrote:
+> On 12/11/2025 06:27, Dev Jain wrote:
+>> The rodata=on security measure requires that any code path which does
+>> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
+>> too. Therefore, if such a call fails, we must abort set_memory_* and caller
+>> must take appropriate action; currently we are suppressing the error, and
+>> there is a real chance of such an error arising post commit a166563e7ec3
+>> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
+>> propagate any error to the caller.
+>>
+>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>
+> It would be good to get this into v6.18 I guess?
 
-How about a simple one?
+Yeah, agreed.
 
-        return !!FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-                           csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-> +}
-> +
-> +/*
-> + * check if we can use the claim tag protocol.
-> + *
-> + * If currently unknown - read register to determine if sufficient tags and
-> + * save value, otherwise return current value.
-> + */
-> +static bool coresight_check_use_claim_tag_unlocked(struct coresight_device *csdev)
-> +{
-> +	if (csdev->claim_tag_info == CS_CLAIM_TAG_UNKNOWN) {
-> +		if (coresight_claim_tags_implemented_unlocked(&csdev->access))
-> +			csdev->claim_tag_info = CS_CLAIM_TAG_STD_PROTOCOL;
-> +		else
-> +			csdev->claim_tag_info = CS_CLAIM_TAG_NOT_IMPL;
-> +	}
-> +	return (csdev->claim_tag_info == CS_CLAIM_TAG_STD_PROTOCOL);
-> +}
-> +
->  static u32 coresight_read_claim_tags_unlocked(struct coresight_device *csdev)
->  {
->  	return FIELD_GET(CORESIGHT_CLAIM_MASK,
+>
+> Although I think this will conflict with a patch from Yang that makes this work
+> with a partial vm area range - But I think that one will only go to v6.19.
 
-Why do not apply claim tag implemented check in
-coresight_read_claim_tags_unlocked() ?
-
-> @@ -156,6 +189,9 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
->  
->  void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
->  {
-> +	if (!coresight_claim_tags_implemented_unlocked(csa))
-> +		return;
-
-Here it does not call coresight_check_use_claim_tag_unlocked(), which
-means the cached flag is not used. I think we should be consistent
-across all claim tag functions.
-
-This is why I suggested to put the flag into csdev_access rather than
-in csdev. Seems to me, it is nature to use csdev_access to store this
-flag, as it presents a attribute for register access (we can consider
-csdev presents a device on bus).
-
-If agree with above, then we can create a new function:
-
-  void coresight_init_self_claim_tag(struct csdev_access *csa)
-  {
-      csa->claim_tag_implemented = !!FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-                           csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-
-      if (csa->claim_tag_implemented)
-          coresight_clear_self_claim_tag(csa);
-  }
-
-This function is called by probe()s in CoreSight drivers, afterwards,
-simply check the flag "csa->claim_tag_implemented".
-
-A minor benefit is we can drop coresight_check_use_claim_tag_unlocked()
-and the enum coresight_claim_tag_info, as we just need to initialize
-csa->claim_tag_implemented at the init phase.
-
-> +
->  	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
->  				     CORESIGHT_CLAIMCLR);
->  	isb();
-> @@ -175,12 +211,13 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag_unlocked);
->  int coresight_claim_device_unlocked(struct coresight_device *csdev)
->  {
->  	int tag;
-> -	struct csdev_access *csa;
->  
->  	if (WARN_ON(!csdev))
->  		return -EINVAL;
->  
-> -	csa = &csdev->access;
-> +	if (!coresight_check_use_claim_tag_unlocked(csdev))
-> +		return 0;
-
-> +
->  	tag = coresight_read_claim_tags_unlocked(csdev);
->  
->  	switch (tag) {
-> @@ -190,7 +227,7 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
->  			return 0;
->  
->  		/* There was a race setting the tag, clean up and fail */
-> -		coresight_clear_self_claim_tag_unlocked(csa);
-> +		coresight_clear_self_claim_tag_unlocked(&csdev->access);
->  		dev_dbg(&csdev->dev, "Busy: Couldn't set self claim tag");
->  		return -EBUSY;
->  
-> @@ -237,6 +274,9 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
->  	if (WARN_ON(!csdev))
->  		return;
->  
-> +	if (!coresight_check_use_claim_tag_unlocked(csdev))
-> +		return;
-
-If use the method mentioned, no need to spread
-coresight_check_use_claim_tag_unlocked() in claim and disclaim functions.
+Yes, it will conflict. But it is quite easy to solve. I will rebase my 
+patch on top of it once it is picked.
 
 Thanks,
-Leo
+Yang
 
-> +
->  	if (coresight_read_claim_tags_unlocked(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
->  		coresight_clear_self_claim_tag_unlocked(&csdev->access);
->  	else
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index 33e22b1ba043..270f179c8535 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -41,6 +41,16 @@ extern const struct device_type coresight_dev_type[];
->  #define CORESIGHT_CLAIM_SELF_HOSTED	2
->  #define CORESIGHT_CLAIM_INVALID		3
->  
-> +/*
-> + * Coresight specification defines a maximum of 8 claim tag bits.
-> + * The precise number is implementation defined, and may be obtained by
-> + * reading the CLAIMSET register.
-> + */
-> +#define CORESIGHT_CLAIM_BITS_MAX_MASK	GENMASK(7, 0)
-> +
-> +/* MS Bit required by the protocol */
-> +#define CORESIGHT_CLAIM_BIT_PROTOCOL_HI	BIT(1)
-> +
->  #define TIMEOUT_US		100
->  #define BMVAL(val, lsb, msb)	((val & GENMASK(msb, lsb)) >> lsb)
->  
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 6de59ce8ef8c..fefe4317a793 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -242,6 +242,19 @@ struct coresight_trace_id_map {
->  	raw_spinlock_t lock;
->  };
->  
-> +/*
-> + * Coresight claim tag info:
-> + * CS_CLAIM_TAG_UNKNOWN      - not yet checked.
-> + * CS_CLAIM_TAG_STD_PROTOCOL - using standard claim/release protocol.
-> + * CS_CLAIM_TAG_NOT_IMPL     - no claim tags available.
-> + */
-> +enum coresight_claim_tag_info {
-> +	CS_CLAIM_TAG_UNKNOWN,
-> +	CS_CLAIM_TAG_STD_PROTOCOL,
-> +	CS_CLAIM_TAG_NOT_IMPL,
-> +};
-> +
-> +
->  /**
->   * struct coresight_device - representation of a device as used by the framework
->   * @pdata:	Platform data with device connections associated to this device.
-> @@ -265,6 +278,7 @@ struct coresight_trace_id_map {
->   *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
->   *		spinlock.
->   * @orphan:	true if the component has connections that haven't been linked.
-> + * @claim_tag_info: how the device is using claim tags.
->   * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
->   *		by writing a 1 to the 'enable_sink' file.  A sink can be
->   *		activated but not yet enabled.  Enabling for a _sink_ happens
-> @@ -291,6 +305,7 @@ struct coresight_device {
->  	local_t	mode;
->  	int refcnt;
->  	bool orphan;
-> +	enum coresight_claim_tag_info claim_tag_info;
->  	/* sink specific fields */
->  	bool sysfs_sink_activated;
->  	struct dev_ext_attribute *ea;
-> -- 
-> 2.32.0
-> 
+>
+> Thanks,
+> Ryan
+>
+>> ---
+>> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
+>> I have dropped stable since no real chance of failure was there.
+>>
+>>   arch/arm64/mm/pageattr.c | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 5135f2d66958..b4ea86cd3a71 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	unsigned long size = PAGE_SIZE * numpages;
+>>   	unsigned long end = start + size;
+>>   	struct vm_struct *area;
+>> +	int ret;
+>>   	int i;
+>>   
+>>   	if (!PAGE_ALIGNED(addr)) {
+>> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>   		for (i = 0; i < area->nr_pages; i++) {
+>> -			__change_memory_common((u64)page_address(area->pages[i]),
+>> +			ret = __change_memory_common((u64)page_address(area->pages[i]),
+>>   					       PAGE_SIZE, set_mask, clear_mask);
+>> +			if (ret)
+>> +				return ret;
+>>   		}
+>>   	}
+>>   
+
 
