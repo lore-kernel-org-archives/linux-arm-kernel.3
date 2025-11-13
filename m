@@ -4,83 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1D1CD5BBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9878CD5BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQxVZOwqzt8ufdPSc+oNPv69jpp9MlTZED/9aX1ukig=; b=uid3UgyO4Z7LzsT/qi6uHQ7Q7C
-	0QxkfcTFoosENiCJnSTXZn/296KZigBxNyhzlrtFC2NRJKQKovOwFbJ25i0BiiGcqdhIrPk8B2QLb
-	jn8XoKbaqf2Sm+bVBKIHHoPS/PiApCvy3PWAZ84wtiJJU4jIK7BELoZ3MBOINUrKuNp4U8OeXba1P
-	5cra53NkuCpucoe6MNHgn6iS1yE25ksjHCSwxRMpMAixyHK3Ig7nBc10/30e2BE8aq1xCunlEpRY8
-	bJwmhSbxdIObVwlvrNoA2tjSFHZlSNHmkoHr+rfYc1/ImgyI7nO4lUsjejt/Af3ykVpOCKKLBfT9E
-	steaoUuQ==;
+	bh=otlNO0CfgXL9gTNZ7R4b+ThSCRxp0enRmEIlgoxjAr0=; b=VosMaeAYW96KVy7ABhHKY/Litm
+	7cFw/Nlj0ECqDSfLHwxqBxkJJCC2u56K+ILPlx17RZ3MXF6BYtXPZv7R3SDhD76jSUsgPerFy7Oqw
+	nvmxyBSw/xLmeEXIYWDCDpd7Thv2MVkOv/UtxFRP0QwB3LXEwp92oEN7zUmYFbcXvol+emEkFncSB
+	J/jpxtu3I1e5NLTFc/EtOXlIoolN6pXnBhMpX/eAUZ++JZO25HNd9S+Uk4IO/6u+9Dbp9UZyV5V7O
+	JqBONFSzHarHDXPGJzC88/yXPHxiocpTwBLQlZFrcIx57Z/dAUb2pLebbJyUwFk9iMOMWPpQpyeq4
+	yVKlMZ8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV0d-0000000ALCw-0FqG;
-	Thu, 13 Nov 2025 10:56:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV0b-0000000ALCP-28xd
+	id 1vJV0g-0000000ALEa-3l17;
+	Thu, 13 Nov 2025 10:57:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJV0c-0000000ALCa-2q1a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:56:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 545B1601E6;
-	Thu, 13 Nov 2025 10:56:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AA2C4CEF1;
-	Thu, 13 Nov 2025 10:56:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763031416;
-	bh=RwaVnsdgpISyeE4GiZ82KJN1s6WkXDzSwm4Kq3Nfw3M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JTpcO1k0Rctuhgx/PJZVV5iU65CxvhM5w2CTGGYt4dyI3ZD9EqNSzmIbqxoO4329k
-	 IcFgrQ5ljyvAi9cjuHHuQ2IJTCZGpFYNLU4Dgwk0pl2IsA7SJ6p5fE6sqID5Yx+Gr+
-	 86pnBGy9nS1OsdBoerc8ur+EkOxmRbhrYgZ//+MOlXyw7zMoLLsC8a6yX9oklMrklZ
-	 Bgoiw2qc1f8HZAO/iaIWPbracGoNwAYi+MPCsiF8rj0cKaJhiCkB9H8EFQNPjY252Q
-	 XZ4DkU6FtyhH2EYiK51JwFkiMeO6DFJrHnaSNByuggAZhBzvokbuR6IqF61B/znBmL
-	 5kowCzCR1vBGA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJV0X-00000004qPg-1fAd;
-	Thu, 13 Nov 2025 10:56:53 +0000
-Date: Thu, 13 Nov 2025 10:56:52 +0000
-Message-ID: <86seeitd3f.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu
-	<yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan
-	<yaoyuan@linux.alibaba.com>
-Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
-In-Reply-To: <b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-5-maz@kernel.org>
-	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
-	<b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 13 Nov 2025 10:56:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 259DB1477;
+	Thu, 13 Nov 2025 02:56:49 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D24CB3F792;
+	Thu, 13 Nov 2025 02:56:55 -0800 (PST)
+Date: Thu, 13 Nov 2025 10:56:53 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Ally Heev <allyheev@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Subject: Re: [PATCH] arm: fix uninitialized pointers with free attr
+Message-ID: <aRW5dWxhosQzqiCF@pluto>
+References: <20251105-aheev-uninitialized-free-attr-arm-v1-1-f7b6cb5d3361@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251105-aheev-uninitialized-free-attr-arm-v1-1-f7b6cb5d3361@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_025658_752085_5AC65428 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +65,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Wed, Nov 05, 2025 at 07:37:52PM +0530, Ally Heev wrote:
+> Uninitialized pointers with `__free` attribute can cause undefined
+> behaviour as the memory assigned(randomly) to the pointer is freed
+> automatically when the pointer goes out of scope
 
-On Thu, 13 Nov 2025 09:52:23 +0000,
-Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->=20
-> On 09.11.2025 18:15, Marc Zyngier wrote:
-> > The trap bits are currently only set to manage CPU errata. However,
-> > we are about to make use of them for purposes beyond beating broken
-> > CPUs into submission.
-> >
-> > For this purpose, turn these errata-driven bits into a patched-in
-> > constant that is merged with the KVM-driven value at the point of
-> > programming the ICH_HCR_EL2 register, rather than being directly
-> > stored with with the shadow value..
-> >
-> > This allows the KVM code to distinguish between a trap being handled
-> > for the purpose of an erratum workaround, or for KVM's own need.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
->=20
-> This patch landed in today's linux-next as commit ca30799f7c2d ("KVM:=20
-> arm64: Turn vgic-v3 errata traps into a patched-in constant"). In my=20
-> tests I found that it triggers oops and breaks booting on Raspberry Pi5=20
-> and Amlogic SM1 based boards: Odroid-C4 and Khadas VIM3l. Here is the=20
-> failure log:
->=20
-> alternatives: applying system-wide alternatives
-> Internal error: Oops - Undefined instruction: 0000000002000000 [#1]=C2=A0=
- SMP
-> Modules linked in:
-> CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11665=20
-> PREEMPT
-> Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
-> Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
-> pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
-> pc : vgic_v3_broken_seis+0x14/0x44
-> lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
-> ...
-> Call trace:
->  =C2=A0vgic_v3_broken_seis+0x14/0x44 (P)
->  =C2=A0__apply_alternatives+0x1b4/0x200
->  =C2=A0__apply_alternatives_multi_stop+0xac/0xc8
->  =C2=A0multi_cpu_stop+0x90/0x178
->  =C2=A0cpu_stopper_thread+0x8c/0x11c
->  =C2=A0smpboot_thread_fn+0x160/0x32c
->  =C2=A0kthread+0x150/0x228
->  =C2=A0ret_from_fork+0x10/0x20
-> Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
-> ---[ end trace 0000000000000000 ]---
-> note: migration/0[18] exited with irqs disabled
-> note: migration/0[18] exited with preempt_count 1
-> rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 1-...0: (7 ticks this GP) idle=3D0124/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 2-...0: (7 ticks this GP) idle=3D0154/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 3-...0: (7 ticks this GP) idle=3D018c/1/0x40=
-00000000000000=20
-> softirq=3D9/10 fqs=3D3250
-> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 (detected by 0, t=3D6502 jiffies, g=3D-1179,=
- q=3D2 ncpus=3D4)
-> Sending NMI from CPU 0 to CPUs 1:
-> Sending NMI from CPU 0 to CPUs 2:
-> Sending NMI from CPU 0 to CPUs 3:
->=20
-> Let me know how I can help in debugging this issue.
+Hi,
 
-I think the common thing between these machines is that although they
-run VHE, they are stuck with a GICv2, and should never get to this
-code path.
+> 
+> arm doesn't have any bugs related to this as of now, but
+> it is better to initialize and assign pointers with `__free` attr
+> in one statement to ensure proper scope-based cleanup
+>
 
-Can you dump the kernel log until this point? Something must be
-screwed in the detection logic.
+Thanks for this, I agree that it is better to stick to the intended
+usage-pattern in order to avoid future issues when the nearby code
+changes; for this reason I would also NOT add a Fix tag (...like you
+effectively did NOT...just to clarify why :P)
+
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
 Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Cristian
 
