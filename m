@@ -4,82 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E386CCD8CB2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA10CD8CB2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YH1Cg3grEs8bseWJdoAQDPBWVWpe2yrRAsliatC+ws0=; b=Xkj+CTg7s119wactT36jHM1dnD
-	oIA+jM21Pkz4T7Al4rQW4qmQY9J+KYNmZfsEfM8pa5FB9l0c0ci3esH2AwzZeezy2rtBvtSLKwgso
-	ibW3sEn/4i+JlCJSVXslPgQFkl9KXZQkfSehERmoIyfS7eU7/16No+Xug3DwGX9DNdg76AYwZWZcI
-	2hOTqCX3Lq4sJv42WwuaPHgXqkXqwN2VPGV0YcAdHTNXlTysqlfuPXgyQVZLTWit+S3CcBKnYbHoM
-	2bybABwWIt+dZ6Xz7Ffvyw7FhMM75NNHqDjhTKasrMrZcdyVbDOflgcQz6Pwrroln+laCiMKq1QVb
-	SBIq5KQw==;
+	bh=lL0mSwKKFxekVSvkxHXaDoFzIgy3cAiSnzxZ+KTB+U0=; b=SZBcWC3gsn169kVJfG8lW/0abv
+	LhwEnh3KMIqGWGKS9Qs+EFh7tvgueG9U4jZG+WB5n6FqKRls0tGTN0BDl602QIq3J5/xGcb3mFVse
+	wsJhmxeckLhfVISoV7+HPDVdiqQHdXuu+6B0krHXsaO2g9hPGZossvP3+vsWImV6LFZDCqVaWHkEg
+	cgaDJB1hBCOnHRvwIEFAIThjdcUf4ehaXGhQVdA/q2PqhLMIMrc1tr7UVG2DNFx1GFezwKDFs0h1i
+	/vR+sVykUWHXCQEcXIA23aVJdYnHytbPXI6DuXJ4eUye2VGHEP67KzHU6nAfE8n8WYciQvYBZrxGG
+	NY+HjlDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbr6-0000000Av0r-45vn;
-	Thu, 13 Nov 2025 18:15:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJbul-0000000AvGt-2zlk;
+	Thu, 13 Nov 2025 18:19:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbr3-0000000Auzs-3RLn
+	id 1vJbuk-0000000AvGn-2N6w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 18:15:34 +0000
+	Thu, 13 Nov 2025 18:19:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A2CA41E4F;
-	Thu, 13 Nov 2025 18:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7F53C19421;
-	Thu, 13 Nov 2025 18:15:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763057733;
-	bh=ZH1Vb+6y/P0bhQpaACvsGQx+4Pw+NOxnF0TR28s/Uzw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VwrWQnDR7Z5C+cHvxQpIpvCRn0BFq7STAgYoyi78ZLBHA6CEOKiKytf3PDpMtIcVM
-	 vSh3TCvRIcu6IeAe1WAowfnDofnPUzLnyYBXY17ZOfh5A48VannBXPcOqXeZo0qIhX
-	 5OylOkfQIjUuTqwL7D/Y+hJeiZCGV4JlB0lppswDMoLKZ8JEkv5YOSLVS6oeIhselb
-	 ipNXQultFvSUn/IpUhWTi24+dakr63JVavjJxVX8CPiJ3EWLn6gMUcOTTGXE1foMiQ
-	 hnMaW2kL3RRF/w0crYpnhDZPt6uaN3NdvMaKz0dfN4tgPOYCKBIq9SN9c7iohVemYl
-	 9/YUhlEtkCGkQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJbr0-00000004yF0-1rTR;
-	Thu, 13 Nov 2025 18:15:30 +0000
-Date: Thu, 13 Nov 2025 18:15:29 +0000
-Message-ID: <86ikfdu7cu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v2 05/45] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
-In-Reply-To: <7ae5874e-366f-4abd-9142-ffbe21fed3a8@sirena.org.uk>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-6-maz@kernel.org>
-	<7ae5874e-366f-4abd-9142-ffbe21fed3a8@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com, Aishwarya.TCV@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_101533_897737_CD791576 
-X-CRM114-Status: GOOD (  20.09  )
+	by tor.source.kernel.org (Postfix) with ESMTP id B986360127;
+	Thu, 13 Nov 2025 18:19:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D39FAC4CEF1;
+	Thu, 13 Nov 2025 18:19:18 +0000 (UTC)
+Date: Thu, 13 Nov 2025 18:19:16 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Barry Song <21cnbao@gmail.com>
+Subject: Re: [RFC PATCH 5/5] dma-mapping: Allow batched DMA sync operations
+ if supported by the arch
+Message-ID: <aRYhJO9_eR9W-EnZ@arm.com>
+References: <20251029023115.22809-1-21cnbao@gmail.com>
+ <20251029023115.22809-6-21cnbao@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029023115.22809-6-21cnbao@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +55,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, iommu@lists.linux.dev, Anshuman Khandual <anshuman.khandual@arm.com>, Will Deacon <will@kernel.org>, Tangquan Zheng <zhengtangquan@oppo.com>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, Barry Song <v-songbaohua@oppo.com>, Marc Zyngier <maz@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Nov 2025 14:33:02 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (quoted-printable)>]
-> On Sun, Nov 09, 2025 at 05:15:39PM +0000, Marc Zyngier wrote:
-> > A long time ago, an unsuspecting architect forgot to add a trap
-> > bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
-> > what's a bit of spec between friends? Thankfully, this was fixed
-> > in a later revision, and ARM "deprecates" the lack of trapping
-> > ability.
-> 
-> I'm seeing a regression on i.MX8MP-EVK and Toradax AM625+Mallow boards
-> (both 4xA53+GICv3) in protected mode only with a bunch of the KVM
-> selftests, including the arch_timer one:
-> 
-> # selftests: kvm: arch_timer
-> # Random seed: 0x6b8b4567
-> # ==== Test Assertion Failure ====
-> #   lib/arm64/processor.c:487: false
-> #   pid=4469 tid=4473 errno=4 - Interrupted system call
-> # ==== Test Assertion Failure ====
-> #   lib/arm64/processor.c:487: false
-> #   pid=4469 tid=4471 errno=4 - Interrupted system call
-> # ==== Test Assertion Failure ====
-> #   lib/arm64/processor.c:487: false
-> #   pid=4469 tid=4472 errno=4 - Interrupted system call
-> # ==== Test Assertion Failure ====
-> #   lib/arm64/processor.c:487: false
-> #   pid=4469 tid=4470 errno=4 - Interrupted system call
-> #      1	0x0000000000414387: assert_on_unhandled_exception at processor.c:487
-> #      2	0x000000000040727f: _vcpu_run at kvm_util.c:1699
-> #      3	 (inlined by) vcpu_run at kvm_util.c:1710
-> #      4	0x0000000000402b07: test_vcpu_run at arch_timer.c:55
-> #      5	0x0000ffffb12f2f9b: ?? ??:0
-> #      6	0x0000ffffb135e58b: ?? ??:0
-> #      1	0x0000000000414387: assert_on_unhandled_exception at processor.c:487
-> #      2	0x000000000040727f: _vcpu_run at kvm_util.c:1699
-> #      3	 (inlined by) vcpu_run at kvm_util.c:1710
-> #      4	0x0000000000402b07: test_vcpu_run at arch_timer.c:55
-> #      5	0x0000ffffb12f2f9b: ?? ??:0
-> #      6	0x0000ffffb135e58b: ?? ??:0
-> #   Unexpected exception (vector:0x4, ec:0x0)
-> #      1	0x0000000000414387: assert_on_unhandled_exception at processor.c:487
-> #      2	0x000000000040727f: _vcpu_run at kvm_util.c:1699
-> #      3	 (inlined by) vcpu_run at kvm_util.c:1710
-> #      4	0x0000000000402b07: test_vcpu_run at arch_timer.c:55
-> #      5	0x0000ffffb12f2f9b: ?? ??:0
-> #      6	0x0000ffffb135e58b: ?? ??:0
-> #      1	0x0000000000414387: assert_on_unhandled_exception at processor.c:487
-> #      2	0x000000000040727f: _vcpu_run at kvm_util.c:1699
-> #      3	 (inlined by) vcpu_run at kvm_util.c:1710
-> #      4	0x0000000000402b07: test_vcpu_run at arch_timer.c:55
-> #      5	0x0000ffffb12f2f9b: ?? ??:0
-> #      6	0x0000ffffb135e58b: ?? ??:0
-> not ok 28 selftests: kvm: arch_timer # exit=254
-> 
-> The arch_timer case bisects to this patch in -next, regular nVHE mode
-> runs this test happily.
+On Wed, Oct 29, 2025 at 10:31:15AM +0800, Barry Song wrote:
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 1f9ee9759426..a0b45f84a91f 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -403,9 +403,16 @@ void dma_direct_sync_sg_for_device(struct device *dev,
+>  		swiotlb_sync_single_for_device(dev, paddr, sg->length, dir);
+>  
+>  		if (!dev_is_dma_coherent(dev))
+> -			arch_sync_dma_for_device(paddr, sg->length,
+> -					dir);
+> +#ifdef CONFIG_ARCH_WANT_BATCHED_DMA_SYNC
+> +			arch_sync_dma_for_device_batch_add(paddr, sg->length, dir);
+> +#else
+> +			arch_sync_dma_for_device(paddr, sg->length, dir);
+> +#endif
+>  	}
+> +#ifdef CONFIG_ARCH_WANT_BATCHED_DMA_SYNC
+> +	if (!dev_is_dma_coherent(dev))
+> +		arch_sync_dma_batch_flush();
+> +#endif
+>  }
+>  #endif
 
-My hunch is that we're missing something like the hack below, but I
-haven't tried it yet.
+Just a high-level comment for now. I'm not opposed to the idea of
+batching the DSB barriers, we do this for ptes. However, the way it's
+implemented in the generic files, with lots of #ifdefs, makes the code
+pretty unreadable.
 
-I'll probably get to it tomorrow.
-
-	M.
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 82da9b03692d4..3108b5185c204 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -444,6 +444,8 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 
- 	/* Scalable Vector Registers are restricted. */
- 
-+	HOST_HANDLED(SYS_ICC_PMR_EL1),
-+
- 	RAZ_WI(SYS_ERRIDR_EL1),
- 	RAZ_WI(SYS_ERRSELR_EL1),
- 	RAZ_WI(SYS_ERXFR_EL1),
-@@ -457,9 +459,12 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 
- 	/* Limited Ordering Regions Registers are restricted. */
- 
-+	HOST_HANDLED(SYS_ICC_DIR_EL1),
-+	HOST_HANDLED(SYS_ICC_RPR_EL1),
- 	HOST_HANDLED(SYS_ICC_SGI1R_EL1),
- 	HOST_HANDLED(SYS_ICC_ASGI1R_EL1),
- 	HOST_HANDLED(SYS_ICC_SGI0R_EL1),
-+	HOST_HANDLED(SYS_ICC_CTLR_EL1),
- 	{ SYS_DESC(SYS_ICC_SRE_EL1), .access = pvm_gic_read_sre, },
- 
- 	HOST_HANDLED(SYS_CCSIDR_EL1),
+Can we have something like arch_sync_dma_begin/end() and let the arch
+code handle the barriers as they see fit?
 
 -- 
-Without deviation from the norm, progress is not possible.
+Catalin
 
