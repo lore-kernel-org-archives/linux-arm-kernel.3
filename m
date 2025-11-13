@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE72CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC12CD98F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IAH0ljWgr/r7rtXP8CHeFZ266fhcWeM8ywYAtKpwpc4=; b=OObx4NkNWOAyjOGDI4QkRQBtm1
-	ChS77CKscCOYOk1QPHiGtBKcAesiQclyyWeB/xhr1F2qeETpOjKMLOi66Rbu/SnwpRSExB8N3f9Id
-	8q2SqXfGJX/mINY7gOOioc8+Xu1yI4r+qmM5ox5tZMz/zTqdsdRKHacSQx0Y6FHNfudQ8ekLL4hsF
-	HT9P/jLE0pU+t0aAZshH6XXzCbwjj3nv5zLzOOvJT3nrCZdgG1mGLm4fyi41JBM2mhZ1fOUxUFxoZ
-	iOMupsmuS+SqbmxuzuCDQnqR64lmFaGbCcl7pEJ54voUPz2Mx4I4dHA6fQl8zlQG3dJiB4yvH/umM
-	qOszLypA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N8U24sO6e6httf2hxXjc6YUvS3goaUUaOyj8qFfupFU=; b=P9hpMu18mK68u4j2bmBTodYzE+
+	CA3KHcqP+c/Qcfr0Q/hu9PLNfkbbmH3Tv31BLW9MbV5o2L4gWN6pz2ItPz0yxJsd2RQKAzgi32j1l
+	zyqpy6yqbbH4iXqPGlduWJY7PqjFCk+JnzS6cOyXPMBNb/YMgDms5lOxvoWyTpHmzE874uG+OjcKT
+	MxA1zcaM2Cn6o+qzMksBFVChw3Xy1zfGmkrHiY68U2cM9CSKZKnETv0btaKxE5RofMBPlyRNdwLdL
+	Q3K/98FMjTdT06UwNzdLTECmcEZs+2Sfw1NgWi2PHnW17g0llnbJNSFhZAcdNQOUts6ZOy4e2OyqQ
+	xzPg96rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJftf-0000000BBsy-2ofC;
-	Thu, 13 Nov 2025 22:34:31 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJftd-0000000BBsF-2zge;
-	Thu, 13 Nov 2025 22:34:29 +0000
-Message-ID: <6757912e-c729-4114-8aea-44a34a9c3a3d@infradead.org>
-Date: Thu, 13 Nov 2025 14:34:28 -0800
+	id 1vJfvI-0000000BC5i-0JUV;
+	Thu, 13 Nov 2025 22:36:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJfvF-0000000BC5F-1Gdn;
+	Thu, 13 Nov 2025 22:36:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=N8U24sO6e6httf2hxXjc6YUvS3goaUUaOyj8qFfupFU=; b=pdaf5v2kpjdd3L8m7MpTD/k7FZ
+	tEeUMmQgNYvULW6OFSQyWsUYSGIP0x1cZqDXwkXZhL6AkIHEO3EPf+qurca7bn5gErEAu1AgnwKXM
+	oWKsss3Jam9eKIbsrDCPPU0M0usEhuzkeuMy7OP04rtsORGZ8X44U2LfAmd5Vn4/ptx1hHY9TJ/Tw
+	aRYkw3qRlQpZot7Qwn7JOK5PqVeCCJOqaeyrepB94GjfioEXAtEJoWOTbY389yMdGJoZB0aY2BOXl
+	mx2n1kCqVGU6fyLYV92LkVGfgKwcEUAZCw0W6UOukop8G6NmYZkkEfc9B5Fmn/LyICMVLBWhcazyw
+	Ki/XwKuw==;
+Received: from i53875a11.versanet.de ([83.135.90.17] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vJfv4-0005Rc-Hp; Thu, 13 Nov 2025 23:35:58 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, michael.opdenacker@rootcommit.com
+Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add Tinkerboard 3 and 3S device tree
+Date: Thu, 13 Nov 2025 23:35:57 +0100
+Message-ID: <3310785.5fSG56mABF@diego>
+In-Reply-To: <20251111172003.2324525-3-michael.opdenacker@rootcommit.com>
+References: <20251111172003.2324525-1-michael.opdenacker@rootcommit.com>
+ <20251111172003.2324525-3-michael.opdenacker@rootcommit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
-To: Shenwei Wang <shenwei.wang@nxp.com>,
- Daniel Baluta <daniel.baluta@gmail.com>, Rob Herring <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- dl-linux-imx <linux-imx@nxp.com>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-4-shenwei.wang@nxp.com>
- <20251112125741.GB1319094-robh@kernel.org>
- <CAEnQRZB4ymvSERKhJW=PAk5xA2JYD=i4wzkbumj_g5S8BjONjg@mail.gmail.com>
- <1dd236fc-26f7-4c02-b183-c3fc13d24767@infradead.org>
- <PAXPR04MB9185B7827B1CCD1CD8D0E9B389CDA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <PAXPR04MB9185B7827B1CCD1CD8D0E9B389CDA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_143609_371876_9BD05683 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +72,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Michael,
+
+Am Dienstag, 11. November 2025, 18:20:23 Mitteleurop=C3=A4ische Normalzeit =
+schrieb michael.opdenacker@rootcommit.com:
+> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+>=20
+> Add initial device tree support for Asus Tinkerboard 3 [1] and 3S [2],
+> which are SBCs based on the Rockchip 3566 SoC.
+>=20
+> The "3S" version ("S" for "storage") just adds a 16 GB eMMC
+> and a "mask ROM" DIP switch (to mask the eMMC and enter "Mask ROM"
+> mode for recovery) to the "3" version.
+>=20
+> This adds support for:
+> - Debug UART (/dev/ttyS2)
+> - SD card (/dev/mmcblk1)
+> - eMMC (/dev/mmcblk0, only on Tinkerboard 3S)
+> - I2C:
+>   - i2c0 (internal bus with a PMIC and regulators)
+>   - i2c2 (internal bus with an at24 eeprom and an RTC device)
+> - USB 2.0 ports
+> - 2 GPIO LEDS
+>=20
+> Link: https://tinker-board.asus.com/series/tinker-board-3.html [1]
+> Link: https://tinker-board.asus.com/series/tinker-board-3s.html [2]
+> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+> ---
+
+please follow the DTS coding style
+https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
 
 
-On 11/13/25 2:23 PM, Shenwei Wang wrote:
-> 
-> 
->> -----Original Message-----
->> From: Randy Dunlap <rdunlap@infradead.org>
->> Sent: Wednesday, November 12, 2025 3:18 PM
->> To: Daniel Baluta <daniel.baluta@gmail.com>; Rob Herring <robh@kernel.org>
->> Cc: Shenwei Wang <shenwei.wang@nxp.com>; Bjorn Andersson
->> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>;
->> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
->> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
->> <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Linus Walleij
->> <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>; Pengutronix
->> Kernel Team <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>;
->> Peng Fan <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
->> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
->> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
->> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
->> Subject: [EXT] Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
->> On 11/12/25 5:35 AM, Daniel Baluta wrote:
->>> On Wed, Nov 12, 2025 at 2:59 PM Rob Herring <robh@kernel.org> wrote:
->>>>
->>>> On Tue, Nov 04, 2025 at 02:33:13PM -0600, Shenwei Wang wrote:
->>>>> Describes the gpio rpmsg transport protocol over the rpmsg bus
->>>>> between the cores.
->>>>>
->>>>> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
->>>>> ---
->>>>>  Documentation/staging/gpio-rpmsg.rst | 202
->> +++++++++++++++++++++++++++
->>>>>  Documentation/staging/index.rst      |   1 +
->>>>
->>>> Why is this in staging when none of the drivers are?
->>>
->>> I guess that's because remoteproc.rst and rpmsg.rst are in
->>> Documentation/staging and that's because when converting them from
->>> .txt to .rst the author didn't know a good place where to move them.
->>>
->>> Would Documentation/driver-api be a good place for these doc files? I
->>> can move them and then Shenwei place the gpio-rpmsg.rst in the
->>> Documentation/driver-api also
->>
->> Documentation/driver-api/gpio/ if its driver documentation.
->> Documentation/userspace-api/gpio/ if it user API docs There is also gpio
->> documentation in Documentation/admin-guide/gpio/ which could also be
->> appropriate depending on the nature of the document.
->>
-> 
-> Thanks Randy!
-> 
-> Do we have a final decision on where to place this document?
-> My thought is that Documentation/driver-api/gpio/ seems more appropriate. 
-> However, it’s worth noting that while this is a driver-related document, it doesn’t describe the driver API itself.
+> +/ {
+> +	aliases {
+> +		serial2 =3D &uart2;
+> +		mmc1 =3D &sdmmc0;
+> +		i2c0 =3D &i2c0;
+> +		i2c2 =3D &i2c2;
 
-I agree that in driver-api/gpio/ seems to be the best place for it.
-(even though it's not my call)
+alphabetical property order
 
--- 
-~Randy
+
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial2:1500000n8";
+> +	};
+> +
+> +	vcc3v3_sys: regulator-3v3-vcc-sys {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc3v3_sys";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		vin-supply =3D <&vcc5v0_sys>;
+> +	};
+> +
+> +	vcc5v0_sys: regulator-5v0-vcc-sys {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc5v0_sys";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +	};
+> +
+> +	vcc5v0_usb_host: regulator-5v0-vcc-usb-host {
+> +		compatible =3D "regulator-fixed";
+> +		enable-active-high;
+> +		gpios =3D <&gpio0 RK_PA6 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&usb_host_pwren_h>;
+> +		regulator-name =3D "vcc5v0_usb_host";
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		vin-supply =3D <&vcc5v0_sys>;
+> +	};
+> +
+> +	gpio_leds: gpio-leds {
+
+gpio-foo before regulator-bar
+
+> +		compatible =3D "gpio-leds";
+> +
+> +		act-led {
+> +			gpios =3D <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger=3D"mmc1";
+> +};
+
+missing indentation
+
+> +
+> +		rsv-led {
+> +			gpios =3D <&gpio0 RK_PD6 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger=3D"none";
+> +		};
+> +	};
+> +};
+> +
+> +&uart2 {
+
+alphabetical ordering of phandles please (uart2 definitly somewhere after i=
+2c0)
+
+> +	status =3D "okay";
+> +};
+> +
+> +&i2c0 {
+> +	status =3D "okay";
+> +
+> +	rk809: pmic@20 {
+> +		compatible =3D "rockchip,rk809";
+> +		reg =3D <0x20>;
+> +		assigned-clocks =3D <&cru I2S1_MCLKOUT_TX>;
+> +		assigned-clock-parents =3D <&cru CLK_I2S1_8CH_TX>;
+> +		#clock-cells =3D <1>;
+> +		clocks =3D <&cru I2S1_MCLKOUT_TX>;
+> +		clock-names =3D "mclk";
+> +		clock-output-names =3D "rk809-clkout1", "rk809-clkout2";
+> +		interrupt-parent =3D <&gpio0>;
+> +		interrupts =3D <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&pmic_int_l>, <&i2s1m0_mclk>;
+> +		#sound-dai-cells =3D <0>;
+> +		system-power-controller;
+> +		wakeup-source;
+> +
+> +		vcc1-supply =3D <&vcc3v3_sys>;
+> +		vcc2-supply =3D <&vcc3v3_sys>;
+> +		vcc3-supply =3D <&vcc3v3_sys>;
+> +		vcc4-supply =3D <&vcc3v3_sys>;
+> +		vcc5-supply =3D <&vcc3v3_sys>;
+> +		vcc6-supply =3D <&vcc3v3_sys>;
+> +		vcc7-supply =3D <&vcc3v3_sys>;
+> +		vcc8-supply =3D <&vcc3v3_sys>;
+> +		vcc9-supply =3D <&vcc3v3_sys>;
+> +
+> +		regulators {
+> +			vcc_1v8: DCDC_REG5 {
+> +				regulator-name =3D "vcc_1v8";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <1800000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +
+> +			vcc3v3_sd: SWITCH_REG2 {
+> +				regulator-name =3D "vcc3v3_sd";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +
+> +			vccio_sd: LDO_REG5 {
+> +				regulator-name =3D "vccio_sd";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +
+> +			vcc_3v3: SWITCH_REG1 {
+> +				regulator-name =3D "vcc_3v3";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	vdd_cpu: regulator@40 {
+
+you probably need &cpu0 phandles to set this regulator-supply?
+
+> +		compatible =3D "silergy,syr827";
+> +		reg =3D <0x40>;
+> +		fcs,suspend-voltage-selector =3D <1>;
+> +		regulator-name =3D "vdd_cpu";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt =3D <830000>;
+> +		regulator-max-microvolt =3D <1200000>;
+> +		regulator-ramp-delay =3D <2300>;
+> +		vin-supply =3D <&vcc3v3_sys>;
+> +
+> +		regulator-state-mem {
+> +			regulator-off-in-suspend;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c2 {
+> +	status =3D "okay";
+> +
+> +	m24c08@50 {
+
+I guess eeprom@50 ?
+
+Heiko
+
 
 
