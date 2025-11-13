@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9484DCD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BBBCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqYikByT1SlfqKsSnbFwTTETF4iKjYU6Faix6h9yVlk=; b=HnElylwFfAiTdFiaKsRfkm4Xak
-	hga6rOrlddw/wGxDFP2LQH+kmZ6hms/5YDi+NAxkktLvXuvXKWMs/YclTKfxHVMci+dfuR3Q8DNYY
-	PV8P+kUGTEb3j+tOcs5VrZ7haqyL8kvse9yvJ3iIFIThhWQGuXCY7merI/F+eo3PDaX9JJPac6c4V
-	4nJ2OizYl81/4jwBDnLJQx6yg6GphljcjZHoZcxjj6KovrgIClfmPxSGDmkYa1xz4cLuruZtgZ0Ya
-	snfPPdX0TpVeU9dwBgtsj5OucpClutMkfH0kq26JJ9Yg07p+QLqwAUX4xOXnhs5XbnodwsHnkVBdZ
-	CNl89CSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W24rXr9XTIjoWbBrgVjF1WMdWafKto7r84bSibgNW+k=; b=Deb+Kvd3KcIvnJdIkx6cNzOvrz
+	UIKRX7Xihob6VjZqQndOC41g8JTbEQ8+aujn9/xjB1SHUUcdjkDXWK7xPuUtNZy9PxRLJOK8eqYBh
+	xr1YMs94JR8ijGqm6wxAzJbRh6J6WcMAlldb2NghF/K3nit/217A3GRhU7sWb1SPcXLuLaFt3t9NV
+	qs5PzcPhloUQrsf3P0bE6eY8bn4F7s6Xf+6wbUe/mu50ggvJVqiuYoMCtLYnOkPGItJJVafWxYssc
+	qJc6HC1D8UcKWXbwiw0P5GV+g8LXb34iP4mZNzrtktZoC0cGq7dfOWBhoY0HL2DpT8DbLvCpVkxQd
+	Ixs7Jd+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcnx-0000000AzDJ-2mw2;
-	Thu, 13 Nov 2025 19:16:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJcpr-0000000AzTY-1eJV;
+	Thu, 13 Nov 2025 19:18:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcnv-0000000AzCp-3ZVD
+	id 1vJcpq-0000000AzTQ-3kWv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 19:16:25 +0000
+	Thu, 13 Nov 2025 19:18:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA9C1440C9;
-	Thu, 13 Nov 2025 19:16:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE21C113D0;
-	Thu, 13 Nov 2025 19:16:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 554AA60122
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04370C4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763061382;
-	bh=IblUqGpTbIRtiXEqbdz5S15EKx867g0thOANjT9zzo0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jAWm3OCdZCohQVKp5xXcn4czTWQ2MTmmYQBUnepiL/xkhVs6FGcaMfyOJocxIz7Bp
-	 5V1tpOfeN/K8T7KYy8X/7mAkx2OyFLh336Et0Q8Xr4N6XyTYOUBc/j6rhxx/P90J1r
-	 w2YIuNuxfi2VH0RJo2wSezaWCaZ7uUnHVrpbxdVG3LWs5GMsAJMv5QaW2quFEtKicP
-	 K12bENP+L8JMTxNVY1si2rwXPADgiezPGKXDCtVWufNcSKOD6PqjHfQRr5D1OIiw5u
-	 u9JNu2wVtrmHHuBzWHK2yOj/8BefmBT2ArjGapig3s8vDGX4KDuSvXVKvpHQcuEJr9
-	 T+6Q/gD9Wrpig==
-Date: Thu, 13 Nov 2025 19:16:18 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"Simek, Michal" <michal.simek@amd.com>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"git (AMD-Xilinx)" <git@amd.com>
-Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset
- constraint for the versal platform
-Message-ID: <20251113-risk-doorstop-4ec156b58d0a@spud>
-References: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
- <20251112-bagging-diameter-4ebab1f9ed45@spud>
- <MN0PR12MB59537C0F520B40977620BFCDB7CDA@MN0PR12MB5953.namprd12.prod.outlook.com>
+	s=k20201202; t=1763061502;
+	bh=6UprQ8VPFTOJEJnrAk3c1+70Nbd/u85upyCo1jyU1qk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=W0X7qiriJx8qwv9BbYquHPo7dcdlB2adgQNwN+FfcpIdmW/AITZJ5Zpqm03CC/Dxr
+	 6GnRSXQmfJ+W2vthEpzKITubGF74mnCc6WUcvin3uowyc8BT86f+//ZfLYv29g+BBF
+	 lF+wiMxVq3NM9L1tiAzuG5XwvTH/cQqPOIPuH8Swojls+LSeWQiKJpBdWwsNkrHfoc
+	 ViJlr54gGxXeICJKCHSvemTDsL0eAAUa1Kuky49BxecjyBAtJpJBy74zC1sU1paLFh
+	 iEnE0JiwwGU2Q+ypXPimklXXrXm0/+3QIl6jESwwRiu7KL4wKdlkBy+NprPJA+WbMw
+	 +qgnAYGxQ0H4g==
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-657230e45e8so540909eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 11:18:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVnAY3bt3MnEp2o0BYYISIHNmUad0mueMkA59QSuN2x5nWabmO4Ho3TN9KMHOhv+ech3htJFTajp7N+Gb6nVs5w@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzbw6Q43BpRx8C8EFXS06LPpeytQX5nbkvLSGQsVKa3MbGVbIGm
+	NOave+21Z25soTn2qMNsMrQmd2ldsNvoAWJBZy0UazCiQzwsPrPeYeoFiR0Cb7sVqAvjQ5wXrUi
+	7fQQHvqHamY23h7FWD0G64CNKoUCJJho=
+X-Google-Smtp-Source: AGHT+IEEkDRYf3o6eWh7An4Eb7oaPpWELLivUE1adLZQeit4rdCPvsjZcC3pPuLNVua35azYMW1z4kNGcBFvSY5y77M=
+X-Received: by 2002:a05:6871:e324:b0:3d4:b889:7d65 with SMTP id
+ 586e51a60fabf-3e8674043b0mr485629fac.19.1763061501288; Thu, 13 Nov 2025
+ 11:18:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="R/LfrMLgE6sszEZI"
-Content-Disposition: inline
-In-Reply-To: <MN0PR12MB59537C0F520B40977620BFCDB7CDA@MN0PR12MB5953.namprd12.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_111623_932417_6AA2C126 
-X-CRM114-Status: GOOD (  22.15  )
+References: <20251029163336.2785270-1-thierry.reding@gmail.com>
+ <20251029163336.2785270-2-thierry.reding@gmail.com> <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
+ <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m> <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
+In-Reply-To: <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 13 Nov 2025 20:18:10 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
+X-Gm-Features: AWmQ_bka8IUODzeQR5ggeX8uZbZXXCIST1G0sD3k8DJ8TOKe2Mgor6ApCD0oVpM
+Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,132 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---R/LfrMLgE6sszEZI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 13, 2025 at 12:15:02PM +0000, Pandey, Radhey Shyam wrote:
-> [Public]
->=20
-> > -----Original Message-----
-> > From: Conor Dooley <conor@kernel.org>
-> > Sent: Thursday, November 13, 2025 12:38 AM
-> > To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>
-> > Cc: gregkh@linuxfoundation.org; robh@kernel.org; krzk+dt@kernel.org;
-> > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>; linux-
-> > usb@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
-> > kernel@lists.infradead.org; linux-kernel@vger.kernel.org; git (AMD-Xili=
-nx)
-> > <git@amd.com>
-> > Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset =
-constraint for
-> > the versal platform
+On Thu, Nov 13, 2025 at 7:32=E2=80=AFPM Thierry Reding <thierry.reding@gmai=
+l.com> wrote:
+>
+> On Wed, Nov 05, 2025 at 05:52:01PM +0100, Thierry Reding wrote:
+> > On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
+> > > On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.redin=
+g@gmail.com> wrote:
+> > > >
+> > > > From: Thierry Reding <treding@nvidia.com>
+> > > >
+> > > > Several drivers can benefit from registering per-instance data alon=
+g
+> > > > with the syscore operations. To achieve this, move the modifiable f=
+ields
+> > > > out of the syscore_ops structure and into a separate struct syscore=
+ that
+> > > > can be registered with the framework. Add a void * driver data fiel=
+d for
+> > > > drivers to store contextual data that will be passed to the syscore=
+ ops.
+> > > >
+> > > > Signed-off-by: Thierry Reding <treding@nvidia.com>
+> > >
+> > > This change is fine with me, so I can apply it unless somebody has an=
+y
+> > > specific heartburn related to it (Greg?), but in case you want to
+> > > route it differently
+> > >
+> > > Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 > >
-> > On Wed, Nov 12, 2025 at 09:24:30PM +0530, Radhey Shyam Pandey wrote:
-> > > AMD Versal platform USB 2.0 IP controller receives one reset input
-> > > from the SoC controlled by the CRL.RST_USB [RESET] register so
-> > > accordingly describe reset constraints.
-> > >
-> > > Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> > > ---
-> > >  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 43
-> > > +++++++++++++++----
-> > >  1 file changed, 34 insertions(+), 9 deletions(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> > > b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> > > index 36f5c644d959..cd0cc9da242f 100644
-> > > --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> > > +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> > > @@ -50,17 +50,22 @@ properties:
-> > >      description:
-> > >        A list of phandles for resets listed in reset-names.
-> > >
-> > > -    items:
-> > > -      - description: USB core reset
-> > > -      - description: USB hibernation reset
-> > > -      - description: USB APB reset
-> > > +    oneOf:
-> > > +      - items:
-> > > +          - description: USB controller reset
-> > > +      - items:
-> > > +          - description: USB core reset
-> > > +          - description: USB hibernation reset
-> > > +          - description: USB APB reset
-> > >
-> > >    reset-names:
-> > > -    items:
-> > > -      - const: usb_crst
-> > > -      - const: usb_hibrst
-> > > -      - const: usb_apbrst
-> > > -
-> > > +    oneOf:
-> > > +      - items:
-> > > +          - const: usb_crst
+> > I have a few follow-up patches for the Tegra PMC driver that depend on
+> > this. 6.19 is what I was targetting, so if we could put this into a
+> > stable branch that'd be the best solution. I can set that up via the
+> > Tegra tree if you and Greg are okay with it.
 > >
-> > Why do we need all this oneOf stuff if both have the same first reset?
-> > Can't you just set minItems: 1?
->=20
-> Thanks. I have now set minItems:1 and defined compatible based
-> reset min/max constraints. Doing some more validation and
-> will send out the v2.
->=20
-> Example:
-> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> @@ -47,6 +47,7 @@ properties:
->        - const: ref_clk
->=20
->    resets:
-> +    minItems: 1
->      description:
->        A list of phandles for resets listed in reset-names.
->=20
-> @@ -56,6 +57,7 @@ properties:
->        - description: USB APB reset
->=20
->    reset-names:
-> +    minItems: 1
->      items:
->        - const: usb_crst
->        - const: usb_hibrst
-> @@ -95,6 +97,28 @@ required:
->    - resets
->    - reset-names
->=20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - xlnx,versal-dwc3
-> +    then:
-> +      properties:
-> +        resets:
-> +          maxItems: 1
-> +        reset-names:
-> +          maxItems: 1
-> +    else:
-> +      properties:
-> +        resets:
-> +          minItems: 3
-> +          maxItems: 3
+> > If that's all too complicated, I can probably wait until the next cycle
+> > to merge the PMC changes.
+>
+> I've added this single patch to a branch based off of v6.18-rc1 that I
+> plan to feed into linux-next so it can get some broader exposure.
+>
+> I can keep that branch stable so it can go through multiple trees if
+> needed. If anyone's interested, the branch is here:
+>
+>         https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git/l=
+og/?h=3Dfor-6.19/syscore
 
-FWIW, this maxItems is not needed as it matches the number in the list.
-
---R/LfrMLgE6sszEZI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRYuggAKCRB4tDGHoIJi
-0gT9AQCko4kdzAGADmzJ9rqSW1og+tEAc0KZ4IN9qoyyNQ7pigEA50Ga3HW83D8L
-WvF3aHpMsTZijeLjVl33kuBr+RPqgAY=
-=GL2A
------END PGP SIGNATURE-----
-
---R/LfrMLgE6sszEZI--
+You beat me to this, sorry about the delay.
 
