@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9EFCD4F2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 05:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB68CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 05:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ITLN6DrW4j9W1gRe4G0SjKiXKIkSq/9JXCq9e/dhlsU=; b=JOxlR41c5XnC8b5f7lt7zcPypn
-	Ko1SF52XwXXAMGxWx5YDw51Yc43R7OU/XCXbAjrfWqYKc/xNB2umS9WmME9EU1LW/3LWu/QVwM989
-	lblZWrllXpBUdYBpajWamimBLngkXvyP+xoYQv/qtbPlNogJj+ezNDwaFeFrw6vcK05U5qBd1VcKH
-	290YAhSR1GBNYgW4TV3Jl4qxJCHq9KRZEdPBsa2DuLb0RLmRfNSczoxosCPrLZ8t4Ge10PRI9Tzsm
-	PnVRLW7aD4r0WgZLXDLpszV2TV9ZPjimGaNyb8+FaGZnk2LhxOduUDdujuY5pJsp0wGwaUpWohFXM
-	4GZSUe2Q==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s9SgCCzfx7hqB2TFCbu/gbrkrcw0YcG+BnpWWFTO5/g=; b=TZUK+SSr/0q7EvgQyJGB/YHCa5
+	rfiQMWIh1pPDAXkQvPRm8E6XOP1ljHN8UlygkTn1bX33mTHqqZylliYuOCkoi1eofFE3mblXmFzRK
+	9ua5h8i4PRg6FVY0wHoW53F6Gq6Q8XoBU5ZBmwdGONpEwK5cNxU7FeTl7mFEVBsXv8rCEculNj+aG
+	c0ndrG93kcrxB13jkJWFJFfs6Elfe5mC4aPzlG6fWCpj5MJlXhC0HYwNsw1WssVyTzUwrSGyKtW2q
+	1TFNl4dlWBSvuQCfMxD6vxK8U1nqxvOugU615ni3rXY1GdSz0clueHGr7pz6g6W4A2G8C71nwdCju
+	9yEcIQfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJPpX-00000009urb-46bW;
-	Thu, 13 Nov 2025 05:25:11 +0000
+	id 1vJPpb-00000009usO-19K9;
+	Thu, 13 Nov 2025 05:25:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJPpV-00000009urL-47lP
+	id 1vJPpZ-00000009urv-4A7a
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Nov 2025 05:25:10 +0000
+	Thu, 13 Nov 2025 05:25:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=ITLN6DrW4j9W1gRe4G0SjKiXKIkSq/9JXCq9e/dhlsU=; b=NZQW57ai9Ndc2R5SySVbnifoMj
-	eqiLiDxoGG7Mg0Q2k2CI/w2Rzu/63/bKpgxfbZpsx3VfcB7+rv1BxSVpkOMYsQfnT0K+OCB6ncR+V
-	GOuBma2gw3dANYCbMMsY91zOcs7VqW9hafeDxtWgUlvvEB9IIZSSehAZFjbgtaLqgeKlgNm6XsaHR
-	Az3ZsPL4MPWAV4rM6daaxtgZYmchsT565gMrP0VnZyJHvg8/YnMVErp0ivlk+rIDWHpl3C7hpgXUQ
-	JCRJBD4SV/2AJJj92pefXQaNaJun/0yTLwM1vFqK9squup8fJFqmMhxrjUr8aM6+Zd3ztAIwXDxyj
-	ajwVbqiw==;
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=s9SgCCzfx7hqB2TFCbu/gbrkrcw0YcG+BnpWWFTO5/g=; b=rJNOtpSjcYAOxagGMy/V+SagfV
+	007lnhyl9grx7cS1L7jRhS/mZhwkmXtWx7lKlCD4SbsggQxmwNXxOVG3ip7iUkcDjw0Mrdt6va73s
+	fv63w656FPLCFXWulOZo7JYc1xyzQQKldBmnqI6OddST2Wb8C6Hp/W1xQga64izyQKHrBCuS6ug0g
+	qNjZ478xJ27Aqtj/L0dlQaHcFqMsOnVdgiGlJu+T1oOGoMvSHetwzvcvu9X7GsYauSTiLGj2ik/yE
+	03ZhK81Vm8r7p/vVSV68pBC1i2jeWPbAVNmz30HTVYKMKz/wjH5GczCIAeRTsIxJSVikdqvTNKb4B
+	q49ObLWA==;
 Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJOxk-0000000H4qd-0o2y
+	id 1vJOxr-0000000H4rn-3THu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 04:29:40 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-433795a17c1so22554075ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 21:25:01 -0800 (PST)
+	Thu, 13 Nov 2025 04:29:45 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-4331d49b5b3so23123575ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 21:25:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763011500; x=1763616300; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ITLN6DrW4j9W1gRe4G0SjKiXKIkSq/9JXCq9e/dhlsU=;
-        b=KfqNnku64vzCQKfxlS3ItRqr1XKBvN2PgUF/52TjLlK59J+G13PmKh3yBpuTcNbK9U
-         bh/z9Et1glJ/poe70+rFDkk+NPGMVF8utCqnB6pk+swcQ1GeO6oNaw7fL36vTdC/Mnj4
-         bN3XHRL54uVAIy4AOR0L9EEy1ivKBVV4QC5xQQMRa+J+6YnPOhow1C3mBuVE1NggmAFm
-         t5x6upipDTu1ZlDKWl72QnvZH+aLT8IuZPrAr4mWPbzWakWHuQyXBQoBDBnMenECpHVc
-         00zhXgVBnIjdq2dV5pcC4te9pzAVFVW8QNy8BDj5WQg+RHTv7SY8/H4Pos1dp0Z+N1JM
-         PEng==
+        d=google.com; s=20230601; t=1763011509; x=1763616309; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s9SgCCzfx7hqB2TFCbu/gbrkrcw0YcG+BnpWWFTO5/g=;
+        b=Fux9gZujb9/xOOM4mDv2sUpAtZ96qULcvQryMTkG7AuG7Ra2mbg2sXUkJdP4md5wu1
+         Y+nRwPYlt12lIAZDgwU6+cgc9XIUKcA/FZKnSdm49U7tWrERUy3m/d+A2eIvxVnFChK6
+         R5kOw7OdVDoWtKhbnj680NHWCowXdNtOvNk4E1NQfPzZc00HNlB2Z1yONaHIqbiWsveZ
+         9ug/zPZjU1zYDULhzo/rj0TnbGJbaYGB1a2zQqtHtu+h/8NO1Vc8kfbej5lo83jyuCqK
+         +00rU1btHwZ/B5pLCN2M7YHe11BLZmj+BktfOY0KX9Qx/3OPCTbAk6ASWo1IrvfaDskG
+         PzcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763011500; x=1763616300;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ITLN6DrW4j9W1gRe4G0SjKiXKIkSq/9JXCq9e/dhlsU=;
-        b=odTo2kPQYEBkf3OYXu34LIfVsh1hPKkOSYET6JOETQHK1maOvidgb04rG//1MH3sez
-         9+QyvzMUoTXdhdCjyqUbFTtY7zBQ2EMMyiAMRDWRfR8n+aL1tJvnxj9rdNjYp3dZjfq7
-         B6IFDtFTSMoybGvHGXLiJwyYDJk+oJQ6ZD6V6QATNHGg5HnmC1zAY0bSAhZezpwHVFci
-         hSHfjfguHsxdXNaRdp9F1P8Ic6JkkkeMtMU3+kmRJnmhENBmDCCChy/1dyWMGErqvFJE
-         W0Rm2fS4t6kX4cbixJrv7tl76LoqR5uAwv753/egCS5pjnjMWt9lP8JTEQucywia0qCR
-         55Qg==
-X-Forwarded-Encrypted: i=1; AJvYcCVD+O0TEm1mq+azGGgh8l5k1+TZGLhXAqJ6m7DuxdzQxG66haleLTYunBuE3o/a0/3su7khqKaaL9C/MRtDcT6m@lists.infradead.org
-X-Gm-Message-State: AOJu0YyInZtWAQdDwEmhCWFpmyogmCoELTcDYmE7W4RembA3ipdY2OoT
-	TLxs4mOOVczgAd3Go9/OSCBYfW7F1nA0UhgtiG2/pwJMNC3is6X0AvZFTRMYcW5nEDLyJ2OgMQ9
-	/EhM5pNePSQ==
-X-Google-Smtp-Source: AGHT+IFL6UP4YmlKx250LyiOtTQeJ7J1ke7xQcOZuRjsBn2ACx0ONuYF1IJLK61YzRE922HtvlvNEGnRGSBI
-X-Received: from jaa26.prod.google.com ([2002:a05:6638:ae1a:b0:5ad:7f49:aa05])
- (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a92:c245:0:b0:433:78b8:943a
- with SMTP id e9e14a558f8ab-43473d15984mr90010315ab.10.1763011500033; Wed, 12
- Nov 2025 21:25:00 -0800 (PST)
-Date: Thu, 13 Nov 2025 05:24:49 +0000
+        d=1e100.net; s=20230601; t=1763011509; x=1763616309;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s9SgCCzfx7hqB2TFCbu/gbrkrcw0YcG+BnpWWFTO5/g=;
+        b=l37rqZ7go4C9x2LWIlG++bCo8kaD4tjIfGVdkRJGJBGLTV0uXQYYDkJh2vgO6xEh0t
+         iNBNT6a8fKbL0qo6UNIU14I5A8+7KIzoYLc51FbZYmztjlJJuUJ4puXEFfamzQ96VO2j
+         kEl43CZA5QU8YBnd6rAoNR6U33CsMviDajyFW6mesWtJfjnFtz0g6nFIEt91dHojfE8l
+         TrcCGaaGVymrYC4hAgGMnTFE3oZdVBasDtKIl8MKiXjrkbQ4vHHmEHRxPwKpk2h8v9dk
+         s8udw+p0YHdpgeDOpnyrwdtbPBAIyjQribp+h97bavlDxkkXJn6vSNH36eQNcWSMfftb
+         qPpw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgshA4IFpLsyGKaI4t3rwRnUeMuIQlG0hovGKResLM5wFwltRcx7nQ+F1J1LsA8SrquNw+4renjenVdKJuqljB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn6HoEGR51xqSreyeXIe2w5lIbeE6scNMBzqD9ufRD7BVpmapQ
+	C34kX3+8xtIGFTCgfHtFHWZNXBZpfIxNG51kBG2Z6kZj4r0xoGZ078YWYEL8iFq4sF0HrstHfx9
+	Y6bZFTaxxpA==
+X-Google-Smtp-Source: AGHT+IEyJSyJIvlGRNrSoUOGgfcAkjKY1WyU5H5l7T8c0BR5P21QqG7oUV9JZZVGF8o1Ck1Nj4/ZN1JRw7Lq
+X-Received: from ilbbk5.prod.google.com ([2002:a05:6e02:3285:b0:433:76d7:5d39])
+ (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6e02:190e:b0:433:7310:f5bf
+ with SMTP id e9e14a558f8ab-43473daeab5mr67314545ab.22.1763011509204; Wed, 12
+ Nov 2025 21:25:09 -0800 (PST)
+Date: Thu, 13 Nov 2025 05:24:50 +0000
+In-Reply-To: <20251113052452.975081-1-rananta@google.com>
 Mime-Version: 1.0
+References: <20251113052452.975081-1-rananta@google.com>
 X-Mailer: git-send-email 2.51.2.1041.gc1ab5b90ca-goog
-Message-ID: <20251113052452.975081-1-rananta@google.com>
-Subject: [PATCH 0/3] KVM: arm64: Reschedule as needed when destroying the
- stage-2 page-tables
+Message-ID: <20251113052452.975081-2-rananta@google.com>
+Subject: [PATCH 1/3] KVM: arm64: Only drop references on empty tables in stage2_free_walker
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oupton@kernel.org>, Marc Zyngier <maz@kernel.org>
 Cc: Raghavendra Rao Anata <rananta@google.com>, Mingwei Zhang <mizhang@google.com>, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	Oliver Upton <oliver.upton@linux.dev>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_042938_203736_4F86D43D 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251113_042944_045364_D1D9E8D7 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,101 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Oliver Upton <oliver.upton@linux.dev>
 
-When destroying a fully-mapped 128G VM abruptly, the following scheduler
-warning is observed:
+A subsequent change to the way KVM frees stage-2s will invoke the free
+walker on sub-ranges of the VM's IPA space, meaning there's potential
+for only partially visiting a table's PTEs.
 
-  sched: CPU 0 need_resched set for > 100018840 ns (100 ticks) without schedule
-  CPU: 0 UID: 0 PID: 9617 Comm: kvm_page_table_ Tainted: G O 6.16.0-smp-DEV #3 NONE
-  Tainted: [O]=OOT_MODULE
-  Call trace:
-      show_stack+0x20/0x38 (C)
-      dump_stack_lvl+0x3c/0xb8
-      dump_stack+0x18/0x30
-      resched_latency_warn+0x7c/0x88
-      sched_tick+0x1c4/0x268
-      update_process_times+0xa8/0xd8
-      tick_nohz_handler+0xc8/0x168
-      __hrtimer_run_queues+0x11c/0x338
-      hrtimer_interrupt+0x104/0x308
-      arch_timer_handler_phys+0x40/0x58
-      handle_percpu_devid_irq+0x8c/0x1b0
-      generic_handle_domain_irq+0x48/0x78
-      gic_handle_irq+0x1b8/0x408
-      call_on_irq_stack+0x24/0x30
-      do_interrupt_handler+0x54/0x78
-      el1_interrupt+0x44/0x88
-      el1h_64_irq_handler+0x18/0x28
-      el1h_64_irq+0x84/0x88
-      stage2_free_walker+0x30/0xa0 (P)
-      __kvm_pgtable_walk+0x11c/0x258
-      __kvm_pgtable_walk+0x180/0x258
-      __kvm_pgtable_walk+0x180/0x258
-      __kvm_pgtable_walk+0x180/0x258
-      kvm_pgtable_walk+0xc4/0x140
-      kvm_pgtable_stage2_destroy+0x5c/0xf0
-      kvm_free_stage2_pgd+0x6c/0xe8
-      kvm_uninit_stage2_mmu+0x24/0x48
-      kvm_arch_flush_shadow_all+0x80/0xa0
-      kvm_mmu_notifier_release+0x38/0x78
-      __mmu_notifier_release+0x15c/0x250
-      exit_mmap+0x68/0x400
-      __mmput+0x38/0x1c8
-      mmput+0x30/0x68
-      exit_mm+0xd4/0x198
-      do_exit+0x1a4/0xb00
-      do_group_exit+0x8c/0x120
-      get_signal+0x6d4/0x778
-      do_signal+0x90/0x718
-      do_notify_resume+0x70/0x170
-      el0_svc+0x74/0xd8
-      el0t_64_sync_handler+0x60/0xc8
-      el0t_64_sync+0x1b0/0x1b8
+Split the leaf and table visitors and only drop references on a table
+when the page count reaches 1, implying there are no valid PTEs that
+need to be visited. Invalidate the table PTE to avoid traversing the
+stale reference.
 
-The host kernel was running with CONFIG_PREEMPT_NONE=y, and since the
-page-table walk operation takes considerable amount of time for a VM
-with such a large number of PTEs mapped, the warning is seen.
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/kvm/hyp/pgtable.c | 38 ++++++++++++++++++++++++++++++------
+ 1 file changed, 32 insertions(+), 6 deletions(-)
 
-To mitigate this, split the walk into smaller ranges, by checking for
-cond_resched() between each range. Since the path is executed during
-VM destruction, after the page-table structure is unlinked from the
-KVM MMU, relying on cond_resched_rwlock_write() isn't necessary.
-
-Patch-1 kills the assumption that the page-table hierarchy under the
-table is free (in stage2_free_walker()). Instead, drop and clear the
-references only on empty tables.
-
-Patch-2 splits the kvm_pgtable_stage2_destroy() function into separate
-'walk' and 'free PGD' parts.
-
-Patch-3 leverages the split and performs the walk periodically over
-smaller ranges and calls cond_resched() between them.
-
-The series was originally posted and merged [1], but was later reverted
-due to syzkaller catching a UAF bug [2]. This series fixes the issue, and
-the original need_resched warning is addressed.
-
-[1]: https://lore.kernel.org/all/175582091313.1266576.4329884314263043118.b4-ty@linux.dev/
-[2]: https://lore.kernel.org/all/20250910180930.3679473-1-oliver.upton@linux.dev/ 
-
-Oliver Upton (1):
-  KVM: arm64: Only drop references on empty tables in stage2_free_walker
-
-Raghavendra Rao Ananta (2):
-  KVM: arm64: Split kvm_pgtable_stage2_destroy()
-  KVM: arm64: Reschedule as needed when destroying the stage-2
-    page-tables
-
- arch/arm64/include/asm/kvm_pgtable.h | 30 +++++++++++++
- arch/arm64/include/asm/kvm_pkvm.h    |  4 +-
- arch/arm64/kvm/hyp/pgtable.c         | 63 +++++++++++++++++++++++-----
- arch/arm64/kvm/mmu.c                 | 36 +++++++++++++++-
- arch/arm64/kvm/pkvm.c                | 11 ++++-
- 5 files changed, 129 insertions(+), 15 deletions(-)
-
-
-base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index c351b4abd5dbf..6d6a23f7dedb6 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1535,20 +1535,46 @@ size_t kvm_pgtable_stage2_pgd_size(u64 vtcr)
+ 	return kvm_pgd_pages(ia_bits, start_level) * PAGE_SIZE;
+ }
+ 
+-static int stage2_free_walker(const struct kvm_pgtable_visit_ctx *ctx,
+-			      enum kvm_pgtable_walk_flags visit)
++static int stage2_free_leaf(const struct kvm_pgtable_visit_ctx *ctx)
+ {
+ 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
+ 
+-	if (!stage2_pte_is_counted(ctx->old))
++	mm_ops->put_page(ctx->ptep);
++	return 0;
++}
++
++static int stage2_free_table_post(const struct kvm_pgtable_visit_ctx *ctx)
++{
++	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
++	kvm_pte_t *childp = kvm_pte_follow(ctx->old, mm_ops);
++
++	if (mm_ops->page_count(childp) != 1)
+ 		return 0;
+ 
++	/*
++	 * Drop references and clear the now stale PTE to avoid rewalking the
++	 * freed page table.
++	 */
+ 	mm_ops->put_page(ctx->ptep);
++	mm_ops->put_page(childp);
++	kvm_clear_pte(ctx->ptep);
++	return 0;
++}
+ 
+-	if (kvm_pte_table(ctx->old, ctx->level))
+-		mm_ops->put_page(kvm_pte_follow(ctx->old, mm_ops));
++static int stage2_free_walker(const struct kvm_pgtable_visit_ctx *ctx,
++			      enum kvm_pgtable_walk_flags visit)
++{
++	if (!stage2_pte_is_counted(ctx->old))
++		return 0;
+ 
+-	return 0;
++	switch (visit) {
++	case KVM_PGTABLE_WALK_LEAF:
++		return stage2_free_leaf(ctx);
++	case KVM_PGTABLE_WALK_TABLE_POST:
++		return stage2_free_table_post(ctx);
++	default:
++		return -EINVAL;
++	}
+ }
+ 
+ void kvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
 -- 
 2.51.2.1041.gc1ab5b90ca-goog
 
