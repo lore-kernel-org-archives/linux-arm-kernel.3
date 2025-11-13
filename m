@@ -4,140 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43895CD5BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1D1CD5BBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vm39iNR6dNotxR7n77foxtOdlkiTgJfxOdRsnvxB1C0=; b=GH8WNfj/AUWf0M+4Cd4NK7b31+
-	w4vAiqkmbrXKnV8GRDZeGWepqOJ5Ncbl7/9cOHxwrzDRuV/l4+oPUORL/MZg2egfO7TcvAtJsYYAn
-	G0DqmkhiY0xOxu/rIzVWxU9GvTS/LrpRj0HLEU6nkWqb90wsFtsHrgnL74P4xvQFpCcDjvnau9gTK
-	vLzCkrEGlnSOdwIJ3brjqe1q1DaNMYfgFqQYA1gNtqWz+JwDdgUkErsbX48SqdaMIaMwOCZP4/kSb
-	m9TrFHz8EDdaPD66M9busYjWe2QpEg3lytGwxkq1yUcg3cUrAH+6ctkSSuePq8vYbeaDbw0lSajby
-	C3PQgIXg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XQxVZOwqzt8ufdPSc+oNPv69jpp9MlTZED/9aX1ukig=; b=uid3UgyO4Z7LzsT/qi6uHQ7Q7C
+	0QxkfcTFoosENiCJnSTXZn/296KZigBxNyhzlrtFC2NRJKQKovOwFbJ25i0BiiGcqdhIrPk8B2QLb
+	jn8XoKbaqf2Sm+bVBKIHHoPS/PiApCvy3PWAZ84wtiJJU4jIK7BELoZ3MBOINUrKuNp4U8OeXba1P
+	5cra53NkuCpucoe6MNHgn6iS1yE25ksjHCSwxRMpMAixyHK3Ig7nBc10/30e2BE8aq1xCunlEpRY8
+	bJwmhSbxdIObVwlvrNoA2tjSFHZlSNHmkoHr+rfYc1/ImgyI7nO4lUsjejt/Af3ykVpOCKKLBfT9E
+	steaoUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUw1-0000000AKJy-3DNS;
-	Thu, 13 Nov 2025 10:52:13 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vJV0d-0000000ALCw-0FqG;
+	Thu, 13 Nov 2025 10:56:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUvz-0000000AKJ7-2dwJ
+	id 1vJV0b-0000000ALCP-28xd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:52:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mQiwIhCgz62fdfoIqM/du8vEJHMxXUaNJaR1/58SkGhGk/zwUk/g6NDB8djfX6q19DR/LI1y270KbMul7O51Dx8ClHGSHTxiPO+4/EqUsb6O4SpZ8LkVyABcTnKr+zxdm99abbLDVtnKlXoBDAZoY5YU0U2VUL4gNhiInYqn6o1yud1bS6i+b6jwD311kmAEs2Oa/rz4XP2m/qUjvvw+DHBnsMDoBJXqJi2OXeijP/c7gG4xE40OzI/6yR58Aeveq9Wx6eyZ2vubVD0PgVO66tx4kt7YZyH1V2wqR8tZh2+ZT5uPkn0wMSoFwwaVItEOP5/R+/btcl4j8rvGGiS79g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vm39iNR6dNotxR7n77foxtOdlkiTgJfxOdRsnvxB1C0=;
- b=bdzSxA2kmEEpoltsy+LeXr9wLL1DmrUn+sDhHpWm3L89NclbTTCU5AlBLuWXckr/UE2x8NctDhfZolFQRmsiAZd8G+SJ3NbmOQapAobdliZJ0qd0CSVVV5hdK+AQo1VN2h2aynOjS+TG3DA+1wHvrX9iw+5/6K/swc/gEGLtjPfxGDCJ9EAUUhYyiOhmAC9H0rL23U+kQJHA2FWA8+FCSn7i9B4lf8y11btkRuJ90WDDzgvZCfpCcOOOmCLxCvldbWJm2Y+rpR4Wnsx0zeiVOorbP0tG8O650wVdNJivd5p0BQCtXES8jB4gWuXM1A3J1N7NOVoqbPXEo5k1aIzSuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PS2PR01CA0054.apcprd01.prod.exchangelabs.com
- (2603:1096:300:57::18) by TYUPR06MB6194.apcprd06.prod.outlook.com
- (2603:1096:400:346::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.15; Thu, 13 Nov
- 2025 10:52:02 +0000
-Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
- (2603:1096:300:57:cafe::57) by PS2PR01CA0054.outlook.office365.com
- (2603:1096:300:57::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Thu,
- 13 Nov 2025 10:52:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 10:52:01 +0000
-Received: from [172.16.96.116] (unknown [172.16.96.116])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 760A341604E0;
-	Thu, 13 Nov 2025 18:52:00 +0800 (CST)
-Message-ID: <d53942f3-fa4e-4d9b-bcf0-5d58eb6bf739@cixtech.com>
-Date: Thu, 13 Nov 2025 18:51:59 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from
- tristate to bool
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
- kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
- bhelgaas@google.com, unicorn_wang@outlook.com, kishon@kernel.org
-Cc: arnd@arndb.de, stable@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- srk@ti.com
-References: <20251113092721.3757387-1-s-vadapalli@ti.com>
- <da56386a-b6ac-4034-a063-811cd7d71fa5@cixtech.com>
- <d0516a4c5b9e5b04df25220a32c259cce89f7d1b.camel@ti.com>
-Content-Language: en-US
-From: Hans Zhang <hans.zhang@cixtech.com>
-In-Reply-To: <d0516a4c5b9e5b04df25220a32c259cce89f7d1b.camel@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|TYUPR06MB6194:EE_
-X-MS-Office365-Filtering-Correlation-Id: b53b4633-d441-4d69-8cea-08de22a2acf0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013|32650700017;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UFpnSk5pQUlsRTlCSUN1SFQwYmV2V2xnQWdNcmhyRllUM0VBRSswZDdYSHN3?=
- =?utf-8?B?SEtDZTZVNi9ST3VLRGxyYlNlOWhmR3BsYU5uMjgxR2Job0ttSVl0eTBTM1ZR?=
- =?utf-8?B?bHo4UVljc3RsYTBTZDUzcXBtdHdTZUtMeEtaOGJWV0RucnVyU2M0WXY1b1BI?=
- =?utf-8?B?emN2NkQ4OXc1NDBFTHd5WFNWNEpPZ1VpR3U2d0RFNlljSVRvNFQyT0trYVdq?=
- =?utf-8?B?a1JJSys4S2RkaWhzbURHMld6dFNrVFRQQTJGbkNWRHY4MzhZNGhJdDBwK1Zq?=
- =?utf-8?B?cS9TK05qNGlBYUFpQWN4WkNVZTJpRkZrOENmSWhaWXdXRUtqYk9ueUNzNjVm?=
- =?utf-8?B?Y3BWckhldmF1SGhrNUNuRmxJMkttYVlhRTliN2cwUzJWMkcwRG1yN1NSNTJ6?=
- =?utf-8?B?bWNVZjJlRjJuWVUxVWU3MUFScTdVUTJaUm03bUxpRFh4TDBnV1VyZ1A1Z2NY?=
- =?utf-8?B?QldCTFB5cTBTV3dPY0VMVENJNzRsTTgvRElldlAwS2lsMEFuMHhDK2t3ME1U?=
- =?utf-8?B?K0lhaGxyYzVoN2dwZWYvMnJzOVBZOG4yeEthVUJxSi8wS2VZa1J0ai9IeXRD?=
- =?utf-8?B?YzFydWZFMmlMTHlpTGlobFlBOEdXcGhtdzhhWlJmTDlvYlh0WkFlcTcrdEtO?=
- =?utf-8?B?cmlGUzhteEQxOXNSYkNJZmg0bTVGVTU2ckJFVWwrbldkMDk3cjZnY3VWVEtt?=
- =?utf-8?B?ZFlhdzdwQ09LNC9tK21OaEpXb1ZqRm5hbjBQL3ovQW5KanczbUR0aWRVU0tK?=
- =?utf-8?B?VEhTYWZZMW9EV0dEY2F0MjVOL2RtMFN0YmRwbUxlRFJVeHhZRkl4MXFJR1hB?=
- =?utf-8?B?ZHBCVUQ3dzV4YW04NGowdmtYaWo1L0lYNU05SVpJQ3VjQUhEMFBJeEppeXpO?=
- =?utf-8?B?cW53NExSVklUd2lwTzlJcjRNN3ROVGs4VXFNcDVsa0Z6L09ySHVCTkIxSFlJ?=
- =?utf-8?B?bi85ZFRPM09UUUpLNmswNkxhOVRqNnBnR1FwVkJFMDY1U3Q1NXBRK3cwMWFw?=
- =?utf-8?B?MjN4bVVQVDhxWGh2Z1Iwc0NEc3g3YVJhOGg0eFl2SHB4NzF4OVprc1R6dUgw?=
- =?utf-8?B?N2hkOGRzYUFVQzJXdUVaWmJ3OHZCbHZmK1BUUkM5UGtpaFM5Yk0xUS9PWEVa?=
- =?utf-8?B?Z3JHQXFHZHQrOXFlOWQySVJsNDlsSmppelA2NDV2YnBONnBqb2N2dSs5OUxj?=
- =?utf-8?B?Z3dpNEF0S1h0bTVtUHl5dDVxWVZqSzkrL3haSGFuZzZJL0tuMjRleGpoS28x?=
- =?utf-8?B?aS9sMTZMODZZNHdsbUppYmNheXNGZFlVSWlUblBsMFk3WEpGaUQyN2F0YkM4?=
- =?utf-8?B?VjJvcFFxd3NtbngycXBIZlB5MFBhRzNLZWZiTnNmMldYMUlWYkZoWDhzOGxX?=
- =?utf-8?B?a2hUWTgvbjFxVlRHYzlTQWo4eUp4ZFlTVXlwQzZsWDVuU0ZKa2xvZEZ2aXlF?=
- =?utf-8?B?TkpsSHZSRzVZUDZnN2VybGlqdEdzZlBFdzZkYkg0S0ZpTmRZV3hnellSS280?=
- =?utf-8?B?VmxteklTOVhObkxFN09sdVpoWjJMSHFCV2Z4WkJYV3V4cjJablB1TEN6R1Bx?=
- =?utf-8?B?YWthdndYVUZiR1NtdnFQek50N0h1eFZxdmpLZk1WUnVWREJ5UFpvZVA3RVdE?=
- =?utf-8?B?dW1CMkF5dnRDNHMvYjk5UHdiOFJ1RzBFK25mVlpIbUlRS1ZXajIxZmNDT3lv?=
- =?utf-8?B?OEM5T3VhcEc0MUs0T25OQVRMSDhQQkY5Zm81OGVhR1d2MkoxdXdiNWJEeUNp?=
- =?utf-8?B?dS9WK1lqc0xKUE5yd042dXlIV0Y0NVdXQW5zTXpOenAyd3dzei9xcTh6OEFM?=
- =?utf-8?B?bnNnSGhDWHRqdzEzTW5GdExSQy9NenBTYzZDbG1NRTdtaVNYV2NERW02ZFlC?=
- =?utf-8?B?cjkxYUFBaU0vYVdraG1XcE1QL2U0VW1XMUFDcHdqSm45dW10YmhTbk1aRnBT?=
- =?utf-8?B?dXlPcGpwZ0owZ2dWMGQ5elBIY1V0VnIxNjAxV0NzNmZGSHhKb2F1TGRHTC83?=
- =?utf-8?B?QnJMcEV4bjU3SWVzeG51WW02SHhYMU1DemdPRTBHVDRvUjFGR1piUlc3K3Ba?=
- =?utf-8?B?d3l0UmJsQlYxRncwbjRmZkpvSjFaN2dkZjlwcjhOK0pUK1BNUC91bzduUU5Z?=
- =?utf-8?Q?Fi2CDnK1iTCSoi3Rd6L20yniK?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013)(32650700017);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 10:52:01.2682
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b53b4633-d441-4d69-8cea-08de22a2acf0
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB6194
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_025211_677382_E4248872 
-X-CRM114-Status: GOOD (  17.39  )
+	Thu, 13 Nov 2025 10:56:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 545B1601E6;
+	Thu, 13 Nov 2025 10:56:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AA2C4CEF1;
+	Thu, 13 Nov 2025 10:56:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763031416;
+	bh=RwaVnsdgpISyeE4GiZ82KJN1s6WkXDzSwm4Kq3Nfw3M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JTpcO1k0Rctuhgx/PJZVV5iU65CxvhM5w2CTGGYt4dyI3ZD9EqNSzmIbqxoO4329k
+	 IcFgrQ5ljyvAi9cjuHHuQ2IJTCZGpFYNLU4Dgwk0pl2IsA7SJ6p5fE6sqID5Yx+Gr+
+	 86pnBGy9nS1OsdBoerc8ur+EkOxmRbhrYgZ//+MOlXyw7zMoLLsC8a6yX9oklMrklZ
+	 Bgoiw2qc1f8HZAO/iaIWPbracGoNwAYi+MPCsiF8rj0cKaJhiCkB9H8EFQNPjY252Q
+	 XZ4DkU6FtyhH2EYiK51JwFkiMeO6DFJrHnaSNByuggAZhBzvokbuR6IqF61B/znBmL
+	 5kowCzCR1vBGA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJV0X-00000004qPg-1fAd;
+	Thu, 13 Nov 2025 10:56:53 +0000
+Date: Thu, 13 Nov 2025 10:56:52 +0000
+Message-ID: <86seeitd3f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu
+	<yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan
+	<yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
+In-Reply-To: <b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-5-maz@kernel.org>
+	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
+	<b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: m.szyprowski@samsung.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,94 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marek,
 
+On Thu, 13 Nov 2025 09:52:23 +0000,
+Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+>=20
+> On 09.11.2025 18:15, Marc Zyngier wrote:
+> > The trap bits are currently only set to manage CPU errata. However,
+> > we are about to make use of them for purposes beyond beating broken
+> > CPUs into submission.
+> >
+> > For this purpose, turn these errata-driven bits into a patched-in
+> > constant that is merged with the KVM-driven value at the point of
+> > programming the ICH_HCR_EL2 register, rather than being directly
+> > stored with with the shadow value..
+> >
+> > This allows the KVM code to distinguish between a trap being handled
+> > for the purpose of an erratum workaround, or for KVM's own need.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+>=20
+> This patch landed in today's linux-next as commit ca30799f7c2d ("KVM:=20
+> arm64: Turn vgic-v3 errata traps into a patched-in constant"). In my=20
+> tests I found that it triggers oops and breaks booting on Raspberry Pi5=20
+> and Amlogic SM1 based boards: Odroid-C4 and Khadas VIM3l. Here is the=20
+> failure log:
+>=20
+> alternatives: applying system-wide alternatives
+> Internal error: Oops - Undefined instruction: 0000000002000000 [#1]=C2=A0=
+ SMP
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11665=20
+> PREEMPT
+> Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
+> Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
+> pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> pc : vgic_v3_broken_seis+0x14/0x44
+> lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
+> ...
+> Call trace:
+>  =C2=A0vgic_v3_broken_seis+0x14/0x44 (P)
+>  =C2=A0__apply_alternatives+0x1b4/0x200
+>  =C2=A0__apply_alternatives_multi_stop+0xac/0xc8
+>  =C2=A0multi_cpu_stop+0x90/0x178
+>  =C2=A0cpu_stopper_thread+0x8c/0x11c
+>  =C2=A0smpboot_thread_fn+0x160/0x32c
+>  =C2=A0kthread+0x150/0x228
+>  =C2=A0ret_from_fork+0x10/0x20
+> Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
+> ---[ end trace 0000000000000000 ]---
+> note: migration/0[18] exited with irqs disabled
+> note: migration/0[18] exited with preempt_count 1
+> rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 1-...0: (7 ticks this GP) idle=3D0124/1/0x40=
+00000000000000=20
+> softirq=3D9/10 fqs=3D3250
+> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 2-...0: (7 ticks this GP) idle=3D0154/1/0x40=
+00000000000000=20
+> softirq=3D9/10 fqs=3D3250
+> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 3-...0: (7 ticks this GP) idle=3D018c/1/0x40=
+00000000000000=20
+> softirq=3D9/10 fqs=3D3250
+> rcu:=C2=A0=C2=A0=C2=A0=C2=A0 (detected by 0, t=3D6502 jiffies, g=3D-1179,=
+ q=3D2 ncpus=3D4)
+> Sending NMI from CPU 0 to CPUs 1:
+> Sending NMI from CPU 0 to CPUs 2:
+> Sending NMI from CPU 0 to CPUs 3:
+>=20
+> Let me know how I can help in debugging this issue.
 
-On 11/13/2025 6:43 PM, Siddharth Vadapalli wrote:
-> EXTERNAL EMAIL
-> 
-> On Thu, 2025-11-13 at 18:38 +0800, Hans Zhang wrote:
->> Hi Siddharth,
->>
->>
->> Your patch repeats this part.
-> 
-> I am not sure I understand the "repetition" that you are referring to. The
-> patch below is updating:
-> PCIE_CADENCE_PLAT, PCIE_CADENCE_PLAT_HOST and PCIE_CADENCE_PLAT_EP
-> from 'bool' to 'tristate'.
-> 
-> The current patch is updating:
-> PCIE_CADENCE, PCIE_CADENCE_HOST and PCIE_CADENCE_EP
-> [No 'PLAT' in the configs]
-> from 'tristate' to 'bool'.
-> 
-Hi Siddharth,
+I think the common thing between these machines is that although they
+run VHE, they are stuck with a GICv2, and should never get to this
+code path.
 
-Sorry, I was mistaken.
+Can you dump the kernel log until this point? Something must be
+screwed in the detection logic.
 
-Best regards,
-Hans
+Thanks,
 
->>
->>
->> https://patchwork.kernel.org/project/linux-pci/patch/20251108140305.1120117-2-hans.zhang@cixtech.com/
->>
->> Best regards,
->> Hans
->>
->> On 11/13/2025 5:27 PM, Siddharth Vadapalli wrote:
->>> EXTERNAL EMAIL
->>>
->>> The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
->>> PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
->>> library of helpers. Since the vendor drivers could individually be built
->>> as built-in or as loadable modules, it is possible to select a build
->>> configuration wherein a vendor driver is built-in while the library is
->>> built as a loadable module. This will result in a build error as reported
->>> in the 'Closes' link below.
->>>
->>> Address the build error by changing the library configs to be 'bool'
->>> instead of 'tristate'.
->>>
->>> Reported-by: kernel test robot <lkp@intel.com>
->>> Closes: https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
->>> Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
->>> Cc: <stable@vger.kernel.org>
->>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->>> ---
->>>    drivers/pci/controller/cadence/Kconfig | 6 +++---
->>>    1 file changed, 3 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
->>> index 02a639e55fd8..980da64ce730 100644
->>> --- a/drivers/pci/controller/cadence/Kconfig
->>> +++ b/drivers/pci/controller/cadence/Kconfig
->>> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
->>>           depends on PCI
->>>
->>>    config PCIE_CADENCE
->>> -       tristate
->>> +       bool
->>>
->>>    config PCIE_CADENCE_HOST
->>> -       tristate
->>> +       bool
->>>           depends on OF
->>>           select IRQ_DOMAIN
->>>           select PCIE_CADENCE
->>>
->>>    config PCIE_CADENCE_EP
->>> -       tristate
->>> +       bool
->>>           depends on OF
->>>           depends on PCI_ENDPOINT
->>>           select PCIE_CADENCE
->>> --
->>> 2.51.1
->>>
->>>
-> 
-> Regards,
-> Siddharth.
+	M.
 
+--=20
+Without deviation from the norm, progress is not possible.
 
