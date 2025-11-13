@@ -4,118 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F2ECD4F2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE67CD6E60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UgaaNIIdEX1iWMXTquk64k8u/ArECzWZoVmNB09qjKs=; b=AXuIv4+9kz1KercC8+XQ+0RhIl
-	67uHVR9eyqZ73VrViInmZtzfB6cvC+us20wZpbPjyHLCmu8CLRyXbZQm0Z818zEOZjra54TXennd8
-	UMZtcpZPooiOv1WVz4j+CBZpKcBg1T85xALrpaXej81hwkSJBRMzuQsIzij2xu3RuyME64MdUrLgb
-	P3Gi6ZwsUlvivJfFl0ssH/SLZORPUK9tgsf+wDeqdmbPHHK6mfamJOZwhZeGH0oGinqrCOnOmChX5
-	j304guN0iUluOyfzQ0fgHk9AW+M/EBD7eK9y+Wj1JkhztkSnzmqah3mmSF59zUADx7Wi8OeW0B1kW
-	H3NO1Lwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZzdsQR5smlHyf22BLz9a3iXlL66hG8Pk2Rn47gll6+8=; b=cGB5fCPuBgAkF1uGWruOghj2M2
+	B+3Pob/dVhXhKiJULhy4ZIavWanUF92ONLRGcyveIKYPHr0ot1SQE8xcKWsWPP/+Byi2xdjw4SZRJ
+	RsMf2u2G+eJJNSgz9dKW5laH/KTfPdTGQK8YsZ54Wf0sWNSIu5yx4q4mrUCAbgyBypPKpzZozzXGb
+	ThlpnhvTT2Fd2KmNhQdyy0AtAwXkBb05ONIaWTSQxsLIGSfl1+S8uzmxdmL2cMhhjh5NOKv7RIcJ+
+	lH9z+P4L1Wr/YrHVkuc3EhbYZ2w0Xgtv0cs3hJV1WFYji8tjWAJczK1MdTrcBgkpuVPZT4OkD1jUQ
+	R0d5BjZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXYs-0000000AYsP-0CTC;
-	Thu, 13 Nov 2025 13:40:30 +0000
-Received: from mx13.kaspersky-labs.com ([91.103.66.164])
+	id 1vJXmY-0000000AZro-2aIQ;
+	Thu, 13 Nov 2025 13:54:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXYm-0000000AYqT-2wBD
+	id 1vJXmW-0000000AZrS-2NYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 13:40:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaspersky.com;
-	s=mail202505; t=1763041213;
-	bh=UgaaNIIdEX1iWMXTquk64k8u/ArECzWZoVmNB09qjKs=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=H+aRAHoM0yCJg2E1f+L0rDS80xdkmBtnzkIS4nbOrOtMxDKTojmKDpVOJJkKdF8mv
-	 JK8B8BAlsVV0gLijGDCrnF9HAObbUUQUvYADj4PyLKvMUrcpfEnUmbpb5F0SodfzFU
-	 2PfDn24wTRKjVYjWv6LDw325PtpKaSPjnGzoq4WYzr76jj4UgD+IQ1S9I5yyWGE6wU
-	 XC8d1/tQsoXeR04rAiQmRnXvBYanmTQfzD6aFYrimGNSG+dXQ9uakpI9fJJX1sXqXO
-	 LqgH2IDr63LUtLpDhgJ9GpCLSFppak3a2LLQv32NkcnhTPi4nlGJjzU2qXVZYWhFK3
-	 HjOneFW7E8s9w==
-Received: from relay13.kaspersky-labs.com (localhost [127.0.0.1])
-	by relay13.kaspersky-labs.com (Postfix) with ESMTP id 729013E2675;
-	Thu, 13 Nov 2025 16:40:13 +0300 (MSK)
-Received: from mail-hq2.kaspersky.com (unknown [91.103.66.200])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client CN "mail-hq2.kaspersky.com", Issuer "Kaspersky MailRelays CA G3" (verified OK))
-	by mailhub13.kaspersky-labs.com (Postfix) with ESMTPS id B82DC3E4618;
-	Thu, 13 Nov 2025 16:40:10 +0300 (MSK)
-Received: from zhigulin-p.avp.ru (10.16.104.190) by HQMAILSRV2.avp.ru
- (10.64.57.52) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 13 Nov
- 2025 16:40:10 +0300
-From: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-CC: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Inochi Amaoto
-	<inochiama@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, Joe Hattori
-	<joe@pf.is.s.u-tokyo.ac.jp>, Rayagond Kokatanur <rayagond@vayavyalabs.com>,
-	Giuseppe CAVALLARO <peppe.cavallaro@st.com>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lvc-project@linuxtesting.org>
-Subject: [PATCH net] net: stmmac: add clk_prepare_enable() error handling
-Date: Thu, 13 Nov 2025 16:40:07 +0300
-Message-ID: <20251113134009.79440-1-Pavel.Zhigulin@kaspersky.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 13 Nov 2025 13:54:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A97FB60217;
+	Thu, 13 Nov 2025 13:54:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40204C19422;
+	Thu, 13 Nov 2025 13:54:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763042075;
+	bh=+eiYuQTlJMcgq/um/mZzzKGyhjmsIRw7x4ekIWvmY/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=txJkF5FTgucRclDGl/+nRNJi8tlfSGLE4+IQ9ck78w9qoy9Th7UppRKQGB5QHsYgZ
+	 LRC2bLqh4G7rf/o33v+aCv3LApwXMQNb5Y3GsBDqRjuNeDWP2TGlyq/ShP6grhAckk
+	 XIJUeEpmvalPFJdjvq6CmUBD5njyBiMEEn7Q8Q3+iP8qdo6ZT5Ose/qcp/txA14otR
+	 Ne5b4FbsDVOPXQouMDOaMQUxub3Xl6U2ww8uXC+yIpC33UEMEOgdzvoq8mKulRdet0
+	 J8dhLzyKxMgfNgyVdmSTtjBc4fUgFr5k2gbFxjL9hh1W29sJriI6qCgMdUQ6Ll6FIo
+	 vLDyjHVViO50A==
+Received: from mchehab by mail.kernel.org with local (Exim 4.98.2)
+	(envelope-from <mchehab+huawei@kernel.org>)
+	id 1vJXmT-0000000BIvM-18qS;
+	Thu, 13 Nov 2025 14:54:33 +0100
+Date: Thu, 13 Nov 2025 14:54:33 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, maz@kernel.org, 
+	oliver.upton@linux.dev, duenwen@google.com, rananta@google.com, jthoughton@google.com, 
+	vsethi@nvidia.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
+Message-ID: <wuuvrqxezybzdnijarlom4wvxlfgzgjoakwt7ixittz2jb4mal@ngjvq2rrt2ps>
+References: <20251013185903.1372553-1-jiaqiyan@google.com>
+ <20251020144646.GT316284@nvidia.com>
+ <CACw3F528D6odL3MJWb28Y4HVOLo56tMQXBpvti5nhczdpMxOdQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.16.104.190]
-X-ClientProxiedBy: HQMAILSRV3.avp.ru (10.64.57.53) To HQMAILSRV2.avp.ru
- (10.64.57.52)
-X-KSE-ServerInfo: HQMAILSRV2.avp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/13/2025 13:24:51
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 0
-X-KSE-AntiSpam-Info: Lua profiles 198052 [Nov 13 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.11
-X-KSE-AntiSpam-Info: Envelope from: Pavel.Zhigulin@kaspersky.com
-X-KSE-AntiSpam-Info: LuaCore: 76 0.3.76
- 6aad6e32ec76b30ee13ccddeafeaa4d1732eef15
-X-KSE-AntiSpam-Info: {Tracking_cluster_exceptions}
-X-KSE-AntiSpam-Info: {Tracking_real_kaspersky_domains}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: zhigulin-p.avp.ru:7.1.1,5.0.1;kaspersky.com:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_white_helo}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: Rate: 0
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Deterministic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 11/13/2025 13:26:00
-X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
- rules found
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 11/13/2025 11:57:00 AM
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
-X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
- rules found
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
-X-KSMG-AntiPhishing: NotDetected
-X-KSMG-AntiSpam-Interceptor-Info: not scanned
-X-KSMG-AntiSpam-Status: not scanned, disabled by settings
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/11/13 09:15:00 #27919685
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 52
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_054025_072922_F7B0728E 
-X-CRM114-Status: GOOD (  14.16  )
+In-Reply-To: <CACw3F528D6odL3MJWb28Y4HVOLo56tMQXBpvti5nhczdpMxOdQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,48 +80,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver previously ignored the return value of 'clk_prepare_enable()'
-for both the CSR clock and the PCLK in 'stmmac_probe_config_dt()' function.
+Hi,
 
-Add 'clk_prepare_enable()' return value checks.
+On Mon, Nov 10, 2025 at 09:41:33AM -0800, Jiaqi Yan wrote:
+> On Mon, Oct 20, 2025 at 7:46 AM Jason Gunthorpe <jgg@nvidia.com> wrote:
+> >
+> > On Mon, Oct 13, 2025 at 06:59:00PM +0000, Jiaqi Yan wrote:
+> > > Problem
+> > > =======
+> > >
+> > > When host APEI is unable to claim a synchronous external abort (SEA)
+> > > during guest abort, today KVM directly injects an asynchronous SError
+> > > into the VCPU then resumes it. The injected SError usually results in
+> > > unpleasant guest kernel panic.
+> > >
+> > > One of the major situation of guest SEA is when VCPU consumes recoverable
+> > > uncorrected memory error (UER), which is not uncommon at all in modern
+> > > datacenter servers with large amounts of physical memory. Although SError
+> > > and guest panic is sufficient to stop the propagation of corrupted memory,
+> > > there is room to recover from an UER in a more graceful manner.
+> > >
+> > > Proposed Solution
+> > > =================
+> > >
+> > > The idea is, we can replay the SEA to the faulting VCPU. If the memory
+> > > error consumption or the fault that cause SEA is not from guest kernel,
+> > > the blast radius can be limited to the poison-consuming guest process,
+> > > while the VM can keep running.
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
+I like the idea of having a "guest-first"/"host-first" approach for APEI,
+letting userspace (likely rasdaemon) to decide to handle hardware errors
+either at the guest or at the host. Yet, it sounds wrong to have a flag
+called KVM_EXIT_ARM_SEA, as:
 
-Fixes: bfab27a146ed ("stmmac: add the experimental PCI support")
-Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+    1. This is not exclusive to ARM;
+    2. There are other notification mechanisms that can rise an APEI
+       errors. For instance QEMU code defines:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 27bcaae07a7f..042d542b9c65 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -632,7 +632,9 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 			dev_warn(&pdev->dev, "Cannot get CSR clock\n");
- 			plat->stmmac_clk = NULL;
- 		}
--		clk_prepare_enable(plat->stmmac_clk);
-+		rc = clk_prepare_enable(plat->stmmac_clk);
-+		if (rc < 0)
-+			dev_warn(&pdev->dev, "Cannot enable CSR clock: %d\n", rc);
- 	}
+    ACPI_GHES_NOTIFY_POLLED = 0,
+    ACPI_GHES_NOTIFY_EXTERNAL = 1,
+    ACPI_GHES_NOTIFY_LOCAL = 2,
+    ACPI_GHES_NOTIFY_SCI = 3,
+    ACPI_GHES_NOTIFY_NMI = 4,
+    ACPI_GHES_NOTIFY_CMCI = 5,
+    ACPI_GHES_NOTIFY_MCE = 6,
+    ACPI_GHES_NOTIFY_GPIO = 7,
+    ACPI_GHES_NOTIFY_SEA = 8,
+    ACPI_GHES_NOTIFY_SEI = 9,
+    ACPI_GHES_NOTIFY_GSIV = 10,
+    ACPI_GHES_NOTIFY_SDEI = 11,
+    ACPI_GHES_NOTIFY_RESERVED = 12
 
- 	plat->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
-@@ -640,7 +642,11 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 		ret = plat->pclk;
- 		goto error_pclk_get;
- 	}
--	clk_prepare_enable(plat->pclk);
-+	rc = clk_prepare_enable(plat->pclk);
-+	if (rc < 0) {
-+		dev_err(&pdev->dev, "Cannot enable pclk: %d\n", rc);
-+		goto error_pclk_get;
-+	}
+ - even on arm. QEMU currently implements two mechanisms (SEA and GPIO);
+ - once we implement the same feature on Intel, it will likely use
+   NMI, MCE and/or SCI.
 
- 	/* Fall-back to main clock in case of no PTP ref is passed */
- 	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
---
-2.43.0
+So, IMO, the best would be to use a more generic name like
+KVM_EXIT_APEI or KVM_EXIT_GHES - or maybe even name it the way it really
+is meant: KVM_EXIT_ACPI_GUEST_FIRST.
 
+That's said, I'd say that we need an implementation on a real userspace
+applicaton to be able to test it (rasdaemon being the obvious candidate).
+
+In order to test, the better is to use the new QEMU code (for 10.2) to
+allow injecting hardware errors via QMP.
+
+Regards,
+Mauro
 
