@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B735CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 21:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B97CD98E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 21:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKdcUxBbgoEuFmbObo7PNGGWqqEYEVRcGhIxFU91GJA=; b=oBjzhQiFln6KrB8L5QOQgLAmFW
-	oEtShjkgS6yRbQWlLuNePrLE4PWkupZJa/7EDAVP3sYvAMbDb46dRENxVyXVVFAgEl1lnK5iE9IZB
-	ul3PhzeZDSUvO3ymbrWSEohLP62lv0UOqvKfl47yLsMEmZNRbhCIMqRmeXVxO1TVBK059Z2HeSKkI
-	wJzNGOv3QYKjEc6U5cS1pAHgzLOPznbv4WFY7DXTWHARGqI9+lAupNBkbgZV1oNSqYJjipdWekerf
-	KHg3S50irSN3bV3gfTzwUhF3ALhBsJkNlxjTPlCw7UDWhS6R13I5ixWaSJNlNsHYhK6/Hf4WxlKft
-	k6hDSGVw==;
+	bh=3geGswiqCo3GsUSfNRmOgAZx3bknHVtZ13LGHgpLV5c=; b=jMMbzl2ab9WHyYgBOf/x3noeT7
+	ByHzjsv+Gs5iA0Toow4G4FVm+GQzTT925zgLFbeBvmEUHirhl2WuTq5+g8DSwLDT7lwQgl5MSFY5o
+	BYw44e3clV/8Yidyh1B2bQPTSn2aGNifnH+vp2fe8v89strAlr0Rwc8nld8JDdo0QC0eBHL+NtrVu
+	V4QkrOlq/XjOZK1T3SVuz6QNhBCqBGzEv8OR7HRma8kRSeP0Iy2Myt8C5FEnoiziRYWkE33gUgVWV
+	R1qAi1Z7h4U/RSov1m4mx34msaMBv1PNSbmzZP5RUG37rY5JNR6szZhpnZ2MprMh09uexMZWBAyR2
+	KK59Zi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJeWm-0000000B6tR-2Grv;
-	Thu, 13 Nov 2025 21:06:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJf0p-0000000B8g1-0KP6;
+	Thu, 13 Nov 2025 21:37:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJeWl-0000000B6t8-2SyU
+	id 1vJf0n-0000000B8f6-0XXx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 21:06:47 +0000
+	Thu, 13 Nov 2025 21:37:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9511060126;
-	Thu, 13 Nov 2025 21:06:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3D99C16AAE;
-	Thu, 13 Nov 2025 21:06:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E6BB60123;
+	Thu, 13 Nov 2025 21:37:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC1DC113D0;
+	Thu, 13 Nov 2025 21:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763068006;
-	bh=IC4VpM6ZN4n39UtKfc2C/9ZDlOpdPQkYd/6hCrS82gc=;
+	s=k20201202; t=1763069867;
+	bh=rxL7Gci2ztB1l+oHFBXQu9xc4TlmQwnasATOD0+gSsA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OjYnTKJ/stoU+JDIoC3n2v+tPgNx/vKxfRWf/HLoAlV5nbyLzTu3Ft8Fvny0t11N6
-	 QMA8MUkfHE+tj4p6jJ7b633oqS+hKmhvAFLG3eeT++DIUO73t7L8dCzgIitVFGXwPx
-	 vKgeQKWtb+KRhIFIRnPtm2OSNHPsq6HhaSnbDz9d921vntsZAJo/H+LncPIkgF2weV
-	 uy73KnJRVrKK02jSnG8GQYTr7ugY8LNqcFVOCrzY0BCSN3QTF9vi2wTgxEYMl/Fx8z
-	 jMbYJcK3VZ/574J8jMi1QZrcEHBIeMWLfcLIVztc/DQqN83+i6/LjyEV2cR5bm6/E0
-	 e9Xsi8eezp0qw==
+	b=GvkUI3zh4TXQWAF/jkz1rD8ACMooMrT6gTt6F7LqLMW0pIbenBrms060ck2KP7zLm
+	 5Qg6dNO4uS5dUXXfrC2ZSdYAR1Oe2qhtLoF64+aaRC9q1iD0QlGn6+LgoweHYF2iXq
+	 PM7/Ey2rJpvQUR4ofpCIfRTxVeI3rq6OBU3D2iHnXWljtJKoQ/+aMB6vxTQWQf2Lih
+	 c8jH5OjwrC4pdKMeR7Kjo7m8aSonT3vptbPfqXgc/4/8nBMPWd2eHVllqhY/+0S2/u
+	 8uetADDxajYTDLYQevWVJ4pXGiXpmYMGgvf81FEhuecA1cz/YDODAjLZP6weJ6hODn
+	 GFjPZZ12zK7Hw==
 From: Oliver Upton <oupton@kernel.org>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	Jiaqi Yan <jiaqiyan@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	duenwen@google.com,
-	rananta@google.com,
-	jthoughton@google.com,
-	vsethi@nvidia.com,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	pbonzini@redhat.com,
-	corbet@lwn.net,
-	shuah@kernel.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
-Date: Thu, 13 Nov 2025 13:06:42 -0800
-Message-ID: <176305834766.2137300.8747261213603076982.b4-ty@kernel.org>
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH] KVM: arm64: GICv3: Check the implementation before accessing ICH_VTR_EL2
+Date: Thu, 13 Nov 2025 13:37:45 -0800
+Message-ID: <176306986138.2184993.9505471875702043816.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251013185903.1372553-1-jiaqiyan@google.com>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
+In-Reply-To: <20251113172524.2795158-1-maz@kernel.org>
+References: <20251113172524.2795158-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -89,27 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Oct 2025 18:59:00 +0000, Jiaqi Yan wrote:
-> Problem
-> =======
+On Thu, 13 Nov 2025 17:25:24 +0000, Marc Zyngier wrote:
+> The ICH_HCR_EL2 patching code is generally GIC implementation agnostic,
+> except when checking for broken Apple HW, which imposes to read
+> ICH_VTR_EL2.
 > 
-> When host APEI is unable to claim a synchronous external abort (SEA)
-> during guest abort, today KVM directly injects an asynchronous SError
-> into the VCPU then resumes it. The injected SError usually results in
-> unpleasant guest kernel panic.
+> It is therefore important to check whether we are running on such
+> HW before reading this register, as it will otherwise UNDEF when
+> run on HW that doesn't have GICv3.
 > 
 > [...]
 
-I've gone ahead and done some cleanups, especially around documentation.
-
 Applied to next, thanks!
 
-[1/3] KVM: arm64: VM exit to userspace to handle SEA
-      https://git.kernel.org/kvmarm/kvmarm/c/ad9c62bd8946
-[2/3] KVM: selftests: Test for KVM_EXIT_ARM_SEA
-      https://git.kernel.org/kvmarm/kvmarm/c/feee9ef7ac16
-[3/3] Documentation: kvm: new UAPI for handling SEA
-      https://git.kernel.org/kvmarm/kvmarm/c/4debb5e8952e
+[1/1] KVM: arm64: GICv3: Check the implementation before accessing ICH_VTR_EL2
+      https://git.kernel.org/kvmarm/kvmarm/c/8ed2ae76f20c
 
 --
 Best,
