@@ -4,101 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC24CD5BBB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84FAACD5BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0hk/9oKjZpX3yolBpPlN0u54kAbbIh38AdbzQ0+tRw=; b=a++lqOCANFlkEr+3WrJnfHj5C+
-	xVHcScMMGk+9t61nOFo/xnBJPd12xo4XLXoJIVgOCRkalGmItVpwBcdGFNbEutYV8Q9x2tkqh425Y
-	Vorw04X5LMgOiIUaR4XSi38/q7GPcEgd3tOCf+7Q9r7hE6AnMf4sELyC8xXX8cXOn3NSRqzWsrqHW
-	fjcgQz0ow5CoClDY9CJ4vAJSjZkVRdMTNLJ5E+JzKk85/rMQKLf6LeqqLPgrr6ZLby9ccdte68fj6
-	PVAVcCWO9A2YV7pLQsD6WSkJO3ABPVRSEX1eIgHel8oWVUlEpzhkiAK8qWLVLEEkgydMKum/7TOjU
-	ZsC4/YDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KneE+CHdhKHPFQs4hczWXHtfrVUW1VO77WP+m5tj/Pw=; b=RKyHyeIOP1hMgL0VwcRYpZ1e72
+	G8boEeVmKkH2HhUdbkd2vJQRMFxcu1fJcPLlJCdnVPJDjVYL1lcLhL4RCALAxJgwDh1+QhjJAjyiD
+	zTMI0LFQCi5k6qhTdnzkdaFheP8DKVt6zXp2TPTGumpXW7pJ3x80Uqu7RDmvvIWql8Ac/uuWSKGY6
+	/fsaUdlQP8v/0vmMzuXztLU9YJWNQg4jMrhlXMHQVvJsizAyMllhrLvOG8ijTqcIQXvkhE0uys4I9
+	v0hxUm8TQsVzhaOymAwAKqG4FB67Bpc3w97rj7kbz9ML2gyg60IyC4tZwN+uOuG7cD2RnRjFmmJQ0
+	LvTtggNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUtW-0000000AJts-0bJs;
-	Thu, 13 Nov 2025 10:49:38 +0000
-Received: from mx-relay47-hz3.antispameurope.com ([94.100.134.236])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUtT-0000000AJsD-0o83
+	id 1vJUvq-0000000AKHH-1xdS;
+	Thu, 13 Nov 2025 10:52:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJUvn-0000000AKG1-0Ym1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:49:36 +0000
-ARC-Authentication-Results: i=1; mx-gate47-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=e0hk/9oKjZpX3yolBpPlN0u54kAbbIh38AdbzQ0+tRw=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1763030962;
- b=fJyKx0K4faOEIT5CcqiodpJuWHx5psSjMLw0qDRu3e2awsqePn2Q1DOmIlfJVRAG4TvppZxM
- lWH1FZwZXvCMv+/HTqDk9gZsma5EA9kS1p4cDqYSbCirZo6DPX2pSj6NqKKgwnFzcJ9DaMo3aLk
- 96wxk461PVKEIME8iqHV2wWytRmuibkmY1l1m5/rigN/YJQkecOgUuopeO79XtALYVcw5ChJvNW
- 004r2UWzIkV2VdNJxNtq5AxHR7BP0d7YSGDpb4NPvv/Z/2cmX7R6PvHoua7FlCaEUjlgTgpaKu7
- 7wYukjKkYZlG/+0ont5if/BTEse2rZvl6/d+fm6ipA+FQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1763030962;
- b=RI1EVjL9y9JbnRrpyZcvXWrMWqcYgq0dU6WuT/+bA0Gpu548rPMIxoWjc8Ve7tkh68qTbTmt
- n0HBsOXUjHpIi4w4GvZkE2dxgLBdt/B+K+PRRwqW6OkapuF5OxZG1opVkOZdSw6ZPXrR6MZYD7I
- V6JIOaLSanwgOd9/+yHZ3VlgE1n5+rWWBZT9dhFBj19TtRna/M41P+eCHrqnr6VOcVhtBM4Vmxb
- GVnnaot6T7Gh/m/vHGAUZ/xax2guXuNH0KSuQz/WsHOVdlmTXAcWMkRWWHB1YNqd/MllgasR9iU
- gUnjFdlomFY0U8u60pcz63+IslGfmvoUwrCbU/J59mJNw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay47-hz3.antispameurope.com;
- Thu, 13 Nov 2025 11:49:22 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 7DEC75A0FB5;
-	Thu, 13 Nov 2025 11:49:05 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	Thu, 13 Nov 2025 10:52:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4F7412FC;
+	Thu, 13 Nov 2025 02:51:48 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49EE73F66E;
+	Thu, 13 Nov 2025 02:51:55 -0800 (PST)
+Date: Thu, 13 Nov 2025 10:51:42 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Artem Shimko <a.shimko.dev@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: mba8xx: Add MicIn routing
-Date: Thu, 13 Nov 2025 11:48:55 +0100
-Message-ID: <20251113104859.1354420-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251113104859.1354420-1-alexander.stein@ew.tq-group.com>
-References: <20251113104859.1354420-1-alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH v2] scmi: reset: validate number of reset domains
+Message-ID: <aRW4PpPjVw1-melm@pluto>
+References: <20251103161044.2269377-1-a.shimko.dev@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay47-hz3.antispameurope.com with 4d6cTG256Zz4MJ2w
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 38de7fd8ba10c26054d70621dd57a3ee
-X-cloud-security: scantime:2.335
-DKIM-Signature: a=rsa-sha256;
- bh=e0hk/9oKjZpX3yolBpPlN0u54kAbbIh38AdbzQ0+tRw=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1763030961; v=1;
- b=B2a8L8RrvFSXVbZxOL0b6RM89loEqFRAP6TNQoXwLfxKxecoamLirMPqeSXDkBVqZTZ0a+9s
- 8u+PWI4KvSDweVsYE+rlA9UEBT9vWnXsL8J2DOf+qWD4JMn19EkSzYgipCO6IskqznAiAgdpcZf
- 3LRWxctWrU1wTOWF8KopsbKaTjwxH+eQvPCmGXSjoa0nEDtdD+KTKxmMgt8M63El8bO6Vl4TzjM
- nClAzPLP8xBs/ULhJea5u2zigzmsPPFzz+gFKRemeccjKnl6RMUO7uGOQobcMcVMIU+IwwLhcAW
- WTVGtotgyqDAIDq6RwIfC4if8to5yqk06silzl4XhDl6g==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251103161044.2269377-1-a.shimko.dev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_024935_372520_66A9F404 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251113_025159_207793_35DCBA1A 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,32 +64,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MicIn is connected to IN3_L. Add routing including the Mic Bias.
+On Mon, Nov 03, 2025 at 07:10:43PM +0300, Artem Shimko wrote:
+> Add validation to reject zero reset domains during protocol initialization.
+> 
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/mba8xx.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+Hi Artem,
 
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-index c4b5663949ade..f534dab44e8ed 100644
---- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-@@ -128,6 +128,13 @@ sound {
- 		model = "tqm-tlv320aic32";
- 		audio-codec = <&tlv320aic3x04>;
- 		ssi-controller = <&sai1>;
-+		audio-routing =
-+			"IN3_L", "Mic Jack",
-+			"Mic Jack", "Mic Bias",
-+			"IN1_L", "Line In Jack",
-+			"IN1_R", "Line In Jack",
-+			"Line Out Jack", "LOL",
-+			"Line Out Jack", "LOR";
- 	};
- };
- 
--- 
-2.43.0
+> The fix adds an explicit check for zero domains in
+> scmi_reset_protocol_init(), returning -EINVAL early during protocol
+> initialization. This prevents the driver from proceeding with a
+> non-functional state and avoids potential kernel panics in functions
+> like scmi_reset_domain_reset() and scmi_reset_notify_supported() that
+> assume dom_info is always valid.
 
+Indeed, this was alreay spotted/reported/fixed in other protocols, but
+the preferred solution is NOT to bail-out when there are ZERO domains,
+but to carry-on WITHOUT crashing of course: the reason for this is
+testing scenarios in which you can have a platform/FW reply with ZERO
+domains.
+
+> 
+> The change is minimal and safe, affecting only the error case while
+> preserving all existing functionality for valid configurations.
+> The existing -ENOMEM handling for memory allocation remains unchanged
+> and sufficient.
+>
+
+In fact if you look at the code there are already a lot of places in
+reset.c where the code path is anyway guarded by num_domains so it is
+NOT problematic.
+
+There are, though, other places where the dom-> dereference is NOT
+protected and those could be probelematic.
+
+Have you seen any crash related to this for real when zero num_domains
+are reported ?
+
+Anyway, it would be good to harden the protocol code as already done
+a bit in other protocols in the past, but I advise you to lookup in
+perf.c the scmi_perf_domain_lookup() helper as an example and see
+how it used across perf to address a similar scenario and adopt the
+same solution for reset in order to harden the code while preserving
+the possibility to initialize the protocol even with ZERO domains for
+testing purposes.
+
+Thanks,
+Cristian
 
