@@ -4,117 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667AFCD5BC1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7881FCD5BBB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOVsghD//v/gc8NejIDYNkQIuu+CJUvTJXEbJh67ttM=; b=XxZmSU2zyea5I6bvaSzLE3DaAb
-	sWMtRS8HQoOWQ0ZjRlT6f4cy441stzsXdS21Ka++s+OCAB/Vs6lm/Ab+Go/+sunBLq4h2msk9WNVN
-	D35fP/oPJmUuD6Y8pks3J8TcGOyqIxDy+MrWG96mIExhECzO4nUuMzh83y0xHWZmjj2T1b0kpf64y
-	J8VcN4tYD81ahMStJBT4GIR0jt8crpXX26hgvGZAu0gdoHiTm41FZOvofpkOFMB3uQfRk7eU+6qUJ
-	xVU1F0/BD28cK8vYz63IAPIla8fF17d5VNI9j5ZBZIsvMOKAX+MgqiAqmpBPuOKtJJec67uK2drjL
-	68dC3vGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JE76VrvkJ8thy9rw4JcIrGyVmg/X64PmrArTcuB2Suo=; b=ofW7PIvcKbwmmBqq5/V5aaTdNY
+	rRsdju8BHCeFdCAsorx3pRzBW//TNSYJ6G7a3l5Aess8T6r1w/u606u3aGqdI4HoUs+tn2BO+0E8K
+	3Dntmhky8MJQN9tH4MEwBxI87rcHKP+/dO/Akbs/WpVEMWbUMYXx1tynE5CdrVtG0PAMyxvt6ZdRX
+	ow8TwV06uJPxBqOLU03UWwOr9EyW0U/hAnTDiBOh8Yaz27ija3u3nZXmubTBksArZyaGIOoUUSFB8
+	MvvFouWhiZ8sd+KVE8iUe8qruLOsngwU0FykiwrgWBGxXFLnRCUD/ndSX1U60g//IhZzSGC3VaC8Q
+	ruHeTtug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUoM-0000000AJCx-11yW;
-	Thu, 13 Nov 2025 10:44:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJUpI-0000000AJU6-2IAB;
+	Thu, 13 Nov 2025 10:45:16 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUoJ-0000000AJBo-3zdI
+	id 1vJUpF-0000000AJSx-39Ue
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:44:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 387A84091D;
-	Thu, 13 Nov 2025 10:44:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6021C113D0;
-	Thu, 13 Nov 2025 10:44:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763030655;
-	bh=/KuQbQ1XBKAT9RmYZtPnZa404uPS8QlYbR7LnYoq0GA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MXw4hCyUuiOVkUptaA1npF7ZuOnvlE+4UkLkyePgScCWoawEeVQv35zehuRHqtEle
-	 pssslC8zpv2dW0+5809yyiEg6OYBh6rKgf2n/GpDFyC5JmjLm7E/5Wh1LaDjw5u8Ia
-	 /RV62w/dBjRSuQZhNUrj847c6/0pyy4Fod3q39rUfz4b+HCION3dkYNVBe9PJ01ZWX
-	 BT2g6x6P0WakqSpCVNCcZBHoW1XduTIC3sNBkD9CWued/mWcNzNdMO4AM828mavI59
-	 iccXuKxakxrSh4/019CKYJ8tVkQSVutbHwUymPCrfTohEJdFS+MMGQBQS602wPVcfS
-	 faweT90J4lucQ==
-Message-ID: <8eea72ea-c106-4dff-979f-c1acd6b0d617@kernel.org>
-Date: Thu, 13 Nov 2025 11:44:10 +0100
+	Thu, 13 Nov 2025 10:45:14 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vJUp6-0007QK-KI; Thu, 13 Nov 2025 11:45:04 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vJUp6-000Ez2-0q;
+	Thu, 13 Nov 2025 11:45:04 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vJUp6-000000005XD-0n6P;
+	Thu, 13 Nov 2025 11:45:04 +0100
+Message-ID: <5422542a5bc21edeb229006dc6776c590bb74410.camel@pengutronix.de>
+Subject: Re: [PATCH v2 2/3] reset: cix: add support for cix sky1 resets
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
+Date: Thu, 13 Nov 2025 11:45:04 +0100
+In-Reply-To: <20251113075935.774359-3-gary.yang@cixtech.com>
+References: <20251113075935.774359-1-gary.yang@cixtech.com>
+	 <20251113075935.774359-3-gary.yang@cixtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] nvmem: add Samsung Exynos OTP support
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- semen.protsenko@linaro.org, willmcvicker@google.com,
- kernel-team@android.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
- <20251112-gs101-otp-v2-2-bff2eb020c95@linaro.org>
- <20251113-benign-macaw-of-development-dbd1f8@kuoka>
- <9d77461c-4487-4719-98db-1c5c5025c87e@linaro.org>
- <725ea727-d488-40aa-b36d-04d6d44a8ec5@kernel.org>
- <1af37451-1f66-4b6b-8b36-846cbd2ca1e8@linaro.org>
- <62bb6c08-a1d0-4dba-a431-0d6ce49d66b2@linaro.org>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <62bb6c08-a1d0-4dba-a431-0d6ce49d66b2@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_024416_038073_3D503FFD 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20251113_024513_795837_8F1CF501 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,38 +78,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2025 11:26, Tudor Ambarus wrote:
->>
->>>>> this can easily be just customized chipid driver - with different
->>>>> implementation of exynos_chipid_get_chipid_info().
->>>>
->>>> If the answer is no to my question above, how shall I model the device
->>>> that binds to the existing exynos-chipid driver?
->>> Just extend the existing driver.
->>>
->> So you mean I shall have something like that in DT:
->>
->> +		chipid@10000000 {
->> +			compatible = "google,gs101-chipid";
->> +			reg = <0x10000000 0xf084>;
->> +			clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
->> +			interrupts = <GIC_SPI 752 IRQ_TYPE_LEVEL_HIGH 0>;
->> +		};
->>
->> Maybe remove the interrupts because I don't need them for reading OTP regs.
->>
->> What happens in the maybe unlikely case we do want to add support for OTP
->> for GS101? How will we describe that in DT?
->>
-> 
-> Ah, I guess you meant to keep the node as I described it in patch 3/5,
-> an efuse node with a google,gs101-otp compatible, that will bind to the
-> existing exynos-chipid driver. Then if/when we add OTP support, move
-> everything to a new OTP driver. That can work, yes. Unless I add some
-> OTP support now, to justify the new driver. Both shall be okay, right?
+On Do, 2025-11-13 at 15:59 +0800, Gary Yang wrote:
+> There are two reset controllers on Cix Sky1 Soc.
+> One is located in S0 domain, and the other is located
+> in S5 domain.
+>=20
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> ---
+>  drivers/reset/Kconfig      |   7 +
+>  drivers/reset/Makefile     |   1 +
+>  drivers/reset/reset-sky1.c | 381 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 389 insertions(+)
+>  create mode 100644 drivers/reset/reset-sky1.c
+>=20
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 78b7078478d4..45768cd3b135 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -278,6 +278,13 @@ config RESET_SIMPLE
+>  	   - SiFive FU740 SoCs
+>  	   - Sophgo SoCs
+> =20
+> +config RESET_SKY1
+> +	bool "Cix Sky1 reset controller"
+> +	depends on HAS_IOMEM
+> +	depends on ARCH_CIX || COMPILE_TEST
+> +	help
+> +	  This enables the reset controller for Cix Sky1.
+> +
+>  config RESET_SOCFPGA
+>  	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOC=
+FPGA)
+>  	default ARM && ARCH_INTEL_SOCFPGA
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index f7934f9fb90b..a878ac4a6e4b 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -36,6 +36,7 @@ obj-$(CONFIG_RESET_RZG2L_USBPHY_CTRL) +=3D reset-rzg2l-=
+usbphy-ctrl.o
+>  obj-$(CONFIG_RESET_RZV2H_USB2PHY) +=3D reset-rzv2h-usb2phy.o
+>  obj-$(CONFIG_RESET_SCMI) +=3D reset-scmi.o
+>  obj-$(CONFIG_RESET_SIMPLE) +=3D reset-simple.o
+> +obj-$(CONFIG_RESET_SKY1) +=3D reset-sky1.o
+>  obj-$(CONFIG_RESET_SOCFPGA) +=3D reset-socfpga.o
+>  obj-$(CONFIG_RESET_SPACEMIT) +=3D reset-spacemit.o
+>  obj-$(CONFIG_RESET_SUNPLUS) +=3D reset-sunplus.o
+> diff --git a/drivers/reset/reset-sky1.c b/drivers/reset/reset-sky1.c
+> new file mode 100644
+> index 000000000000..b9e03e76736a
+> --- /dev/null
+> +++ b/drivers/reset/reset-sky1.c
+> @@ -0,0 +1,381 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + *
+> + * CIX System Reset Controller (SRC) driver
+> + *
+> + * Author: Jerry Zhu <jerry.zhu@cixtech.com>
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset-controller.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <dt-bindings/reset/cix,sky1-rst.h>
+> +#include <dt-bindings/reset/cix,sky1-rst-fch.h>
+> +
+> +#define SKY1_RESET_SLEEP_MIN_US		50
+> +#define SKY1_RESET_SLEEP_MAX_US		100
+> +
+> +struct sky1_src_signal {
+> +	unsigned int offset, bit;
+> +};
+> +
+> +struct sky1_src_variant {
+> +	const struct sky1_src_signal *signals;
+> +	unsigned int signals_num;
+> +};
+> +
+> +struct sky1_src {
+> +	struct reset_controller_dev rcdev;
+> +	struct regmap *regmap;
+> +	const struct sky1_src_signal *signals;
+> +};
+> +
+> +enum {
+> +	CSU_PM_RESET				=3D 0x304,
+> +	SENSORHUB_RESET				=3D 0x308,
+> +	SENSORHUB_NOC_RESET			=3D 0x30c,
+> +
+> +	RESET_GROUP0_S0_DOMAIN_0		=3D 0x400,
+> +	RESET_GROUP0_S0_DOMAIN_1		=3D 0x404,
+> +	RESET_GROUP1_USB_PHYS			=3D 0x408,
+> +	RESET_GROUP1_USB_CONTROLLERS		=3D 0x40c,
+> +
+> +	RESET_GROUP0_RCSU			=3D 0x800,
+> +	RESET_GROUP1_RCSU			=3D 0x804,
+> +
 
-Yes.
+Unnecessary empty line.
 
-Best regards,
-Krzysztof
+Please fix this and the other issues reported by
+
+  scripts/checkpatch.pl --strict
+
+regards
+Philipp
 
