@@ -4,78 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756C6CD5BC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30241CD5BC0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9X7iTrE54YvbjdjoY+sM5rW8UTYJ7bZtGLvp7X0Czrc=; b=dr053p4aE3r/PjH6kIPIcpfnJ6
-	0EpM/WXoJE2Dj6sBTiQ17P/peQ5zv0tiIrdOEF2cjoUL7XtcuweqVTpos6b1rFmERqxGJzHoigWSh
-	hwUNqN9zzI930LIldPFMKavEb/QkxkWu0jhJeAaWRKTB81zeeDqL4UwvaCL4ZsctKVl6AcZKfWvQl
-	NpjDU+Qg6rmFcul1PgPUEEqYDY2OduJPO16I/BiRAzG/UGm7T9DonStsnHrbcefCK6KZIbsndAPb1
-	QXEjV4hF7IoziQ8IoCY1zdNP+vEHNs2vaRWFkelP4e9kMDKcm6mcMkii6wZPs7NC47OXdeH1kU06P
-	kiNGCIhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iODD4cjwT3BBF6BOO1Y/noX2AdzyKEr8wOGO8Is9Bd4=; b=GQcT4RbAEunO7tdmq9xb5E63V5
+	36iv+vLbOcCV13HkMApz8KdGl6bw0w2sqwrK8ApS4MuCP4/C/vo/yIpzt4GXjlIl2UJ7jy4KUVwaa
+	yEp75VXOAdZsKxB81qtJ0Q8Xv6qvmIvRH1vS6FT9iiwvDpjfk0EnVBLG/+y9la/otGvVI0/PXKKYA
+	9L3v6A7vr0CGRi5ndSKvW2/aMrYE27cKDif7Gba/3wQ7c+VA5K/BaFqGw6IAnd5XVww9mHnK0kC4F
+	x7mQ5jV0Y6jeh1Od7Lxy2tgrOhpxg83xFEHKZwqVdYn44RHFrrgCJHDfuaVr8OQr879nXWMp/BXix
+	jGnDkSow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUhj-0000000AIIX-4C4u;
-	Thu, 13 Nov 2025 10:37:28 +0000
-Received: from mail-oi1-f173.google.com ([209.85.167.173])
+	id 1vJUip-0000000AIQc-1Uja;
+	Thu, 13 Nov 2025 10:38:35 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUhh-0000000AII6-44Fs
+	id 1vJUim-0000000AIPd-2WYl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:37:27 +0000
-Received: by mail-oi1-f173.google.com with SMTP id 5614622812f47-4504458b29eso220257b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 02:37:25 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763030244; x=1763635044;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9X7iTrE54YvbjdjoY+sM5rW8UTYJ7bZtGLvp7X0Czrc=;
-        b=pbWEgOXu0+QxajExYsxQV0FDyXabtxk+//aLuDybjbI3ixzLx24NH8cz4Uu6QEOviY
-         E198XqqGpyfnoetZYv8D6l28At51lqQTPW8Bc7t/BvKMX0DrOrLRsXxFhonWhbp/IqDH
-         rSyZXvExuI0Trn/uGEoPfHEsUCmmSjevGSeNoK1u7gn9sycGz7IhnalyIS0P0jnWhCaY
-         1XcMkbVcM76pWyyc3XT5tlQIiwHyqIGZ3SW2vMx6xkxrWiHzmDsabAhnCmAMniGFyiSV
-         pMMDAJAfsk5I4oIlTsaczQswIuZnUI6krFgZ7UJ31uzn6FowUJ6uggH7WmJ5goy2+mfC
-         D1Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCXrFFnCTq3fEzUME3J+t7AehTmRU0jYuEmrFSFcqjIb7RIXqhWn0ZDnxyksR1pjmNmN8wHdD5+PaxY6jmLPJQv2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnfCSLxfsC//tCOuZ+3hLskvbq+bH0IHedFs4a2LKGqaZ+h0Pt
-	4SedYam55yoaTCssVfrQcYUixKiiFQ4CevNAB4dDYVeWypMyOVQS8OXblOHO2Q==
-X-Gm-Gg: ASbGncua/Z1ZefjtSPjKICVRtg5lvDwPT6C5fehoMe5rJUAUknAGQZw7U656qimi/0y
-	QhCuaWvweaHPHvJF94vwAgTWjtpycSPWy6aN6taxPpj/FEAubjuznXugt/aOyxPpvUrq7Zk+oLk
-	3AhJpfw2FqKnUXSar1EdiFBzxgL1jbhzrMwlxGkRM7ojXhe/yErce+g3RETmgsMx704cFByYtAW
-	arxyqX8upNjGekPAq1489L2RXhUXhBvW0D5Umu/WLM3qrRiQnI3ZwSHdHjD335RIxtK7ywatHba
-	43YHtMemYIs/CnOG0DbMyAh9/QalolloILseQ0h822eMwEqnOtc41QBTZk/CcreWyXoN99VbyI9
-	Mg8ZcRdj91VcacRxVUZKujP6k/lQELBHKccWY+C2A/uQlmXU0BXJdW7P0U1C/HFARBa0YPW3gd3
-	X0kxPpEGLouqGRkA==
-X-Google-Smtp-Source: AGHT+IE/f6sikSSSQxq5UoFZC0KflDi2CwXhInx9Gf6bYjFg8swkwTEGM1fl7p9fobc8bv67Tx2JyQ==
-X-Received: by 2002:a05:6808:c144:b0:450:10b:a53a with SMTP id 5614622812f47-450746aa372mr2852284b6e.65.1763030244344;
-        Thu, 13 Nov 2025 02:37:24 -0800 (PST)
-Received: from gmail.com ([2a03:2880:10ff:51::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c73a3d420fsm896950a34.30.2025.11.13.02.37.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Nov 2025 02:37:23 -0800 (PST)
-Date: Thu, 13 Nov 2025 02:37:22 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>, oss@malat.biz
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	paulmck@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: arm64: pseudo NMI bootconfig question
-Message-ID: <wqzhgeu5vlkeuomajvy7vf3x4gf3fsnzmczmkswvjo7xdyzzbo@6uqjqftbzgot>
-References: <rs4igmsjrm6r2aio4nbe5jos3vcqk2u4bjhltjwtj2pn3cquip@kv3grgec7qrb>
- <20251113133403.308046d2df1c97ba7dcd2388@kernel.org>
+	Thu, 13 Nov 2025 10:38:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A5s9917xWoPBK6YSDwcu2QrRLax0//VdegR6dN7DWurTxBkldfPzMWRUTH9jm0TPuZiS7RaRjIXcLgRHSEmlk0TgchmnLBp7vLMJ6SjBQG0FV00+nPKLAcDUk8DSN/5SbiM7dJFeJ5Ub6lMz91LN55/gedE32t+5hB0V53MuI/pfZfHkkBg/FT9acXMt9YuHnbC4h8FCUbhxgyNqqMvVGZnisVhRMJSgiGTY4gqk/2Vllsm6k2pNe1eCLHm9zvu64k4qIHY20CZWYOCAxW7yt9q0b8Mmz5LHd8gkKT/tTLcgAnSB7eC0OA9CSTS+wT0ShL0m2hMqJBWbTfANUM5QDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iODD4cjwT3BBF6BOO1Y/noX2AdzyKEr8wOGO8Is9Bd4=;
+ b=m9X+yWNDIYI5WmmQn9YsDQhCdv0qHBR4UzVTY9E07oz48sETkvtiFBc3M055dxj6WA2GKuo7L7CuvHtR009biPIRaXQt6XdQNvamo8AKxIDH6lRIrfWkUN1WyZabAjIUmCJBFvG6HUdY2F2NMsKx1E8pSYzqpha6fM6rnYj33gjCbmvbFfn8ozKGIq41MHxeejzRipZj13NVk6KZlLsxkUUYlXaFHBYjZRHoouR34uOMua0kgkBS3YgunVuw4pHBs822LkjMMRbtQwa3GuhuH2eAqEqE4AxuP9mdezvLHhP3BJY8VY5F1PVUpp67XD0yJfiyfjjliL8+PwycgTvPCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TY4PR01CA0028.jpnprd01.prod.outlook.com (2603:1096:405:2bf::17)
+ by SEZPR06MB5047.apcprd06.prod.outlook.com (2603:1096:101:44::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
+ 2025 10:38:23 +0000
+Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
+ (2603:1096:405:2bf:cafe::ae) by TY4PR01CA0028.outlook.office365.com
+ (2603:1096:405:2bf::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Thu,
+ 13 Nov 2025 10:38:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 10:38:22 +0000
+Received: from [172.16.96.116] (unknown [172.16.96.116])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0912940A5BD4;
+	Thu, 13 Nov 2025 18:38:22 +0800 (CST)
+Message-ID: <da56386a-b6ac-4034-a063-811cd7d71fa5@cixtech.com>
+Date: Thu, 13 Nov 2025 18:38:21 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251113133403.308046d2df1c97ba7dcd2388@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from
+ tristate to bool
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
+ kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+ bhelgaas@google.com, unicorn_wang@outlook.com, kishon@kernel.org
+Cc: arnd@arndb.de, stable@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ srk@ti.com
+References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+Content-Language: en-US
+From: Hans Zhang <hans.zhang@cixtech.com>
+In-Reply-To: <20251113092721.3757387-1-s-vadapalli@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|SEZPR06MB5047:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7162e3f7-ab1c-4907-838d-08de22a0c530
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|32650700017|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TklIcXAvczR3Y1ZQc3RBZ2E2S0RiQ2xlOWhKYmt2YyttZXJuejBWTW5yNEYx?=
+ =?utf-8?B?YnVqNW5IUjBXVTFLallXakkza2JHU2FLU1E4QTR1ejZ5TUVUQXMrdW44ZTF4?=
+ =?utf-8?B?Z25iU2ZQWUkyaTZpZElVRkQ4NlRFeTl4endkN2F5VU1UQ0FSc0FLV1RaUVkr?=
+ =?utf-8?B?MGRJU1E1aUVpMzVwYkhBYWFmeUNwQW9Wb2MvV1REWjJITnVYT3A5aEVpdUE3?=
+ =?utf-8?B?Sy9EMlpwd0tYYmhYMU9iMU9sSUdPcmJNTDI5M1M5SENwMFdvMVJmZ0hlTldV?=
+ =?utf-8?B?VlM1OWMrZEpOeG5Ka2E4M1pnd3dUeXBFQlZqTUpSWkJwRm9PeUIxc0wzaW9s?=
+ =?utf-8?B?YkNjMHZtc3A4MU1CNDRXYkN4MHl1SmNxeFFxSElIa3M5OEw4THVPSHB5RitQ?=
+ =?utf-8?B?cFk5RDZoUitTRmwxU2xJL3lXcFMxUEFTc2twdnlKYXR1bjN2c2xheU8rdG5D?=
+ =?utf-8?B?ZXY4eTRsVWtweEJwbmN5azdrT25rbHptWkJ3a3c2NFRmeTJMU1Ara28rYk9B?=
+ =?utf-8?B?U1ZWck5KeUFvemFwdUZEL1dtcXRncGpUQ1FwQXpSMGtMVmZOZ3NtcVgxc0tr?=
+ =?utf-8?B?U2k4MitQL1k1dXpwcVNUUC81QmlRUVpwUWc3NENCOFk0OCtocUk1SjhzUWxX?=
+ =?utf-8?B?WEVuenkxUlhiWHIwZ3ViQXRuMjFyZ082aCsrNVlxcVpwSTJqWXBXZ1VjMTFn?=
+ =?utf-8?B?ZWN1b3gwN2dmVmVNc09lTVczOVdVQkovRGwzWHNENVc3aVljdjRSQ3R6TmdB?=
+ =?utf-8?B?RWJOYkluV0l6QjVFWEtkb0RXL0RiZlJMNUl6RU1NdTB0M0VpbjZPeVVyeCt2?=
+ =?utf-8?B?aGZLcmt3OVRpcm5lRVFKdkpOaDBxVHVidWVlQmZ3OWlGcFpxWUVRL0N2Zkov?=
+ =?utf-8?B?dkRkNWx0S1BiaUVOa2RQYk9sZThsQ1A3UGZ4NS95STZocS9LMExmaHFZdEF2?=
+ =?utf-8?B?SEp2ZWtJbTJrR3gxd1hYazVBMStRb1d5cm1JUHhBZnh4WS8vNFRaakJweHV3?=
+ =?utf-8?B?dUJ4cGF4V01GVWJWSk5oUXQ3VFNHd0RZZzhTZS92QTRhbkh4enlqNG1HWjR6?=
+ =?utf-8?B?cjQzT3NjSTA3a3hYckRTOG81NjkxWmE4MDJKZUtVdVFxODhhZHVqeTBVbThP?=
+ =?utf-8?B?VTBNMStSR3duSzdkT3M3V2JWTEFzQjBXWXBWVXlob3hVbW1ZNkpVOC9QWkhI?=
+ =?utf-8?B?RnR5TDROMTgxanJnMlhtN1ZycUFQaUFZR2ZmZm9TbVRkcFZac3RqY0pHZDhI?=
+ =?utf-8?B?Y3pvZWRsRDg2R21kY0lpVW4xMktVenNORndpUHorR240bVB3TUJveWlKSzdk?=
+ =?utf-8?B?WHpLNjNvcnRzN0MxSnRrTldJMEp3TFlvRmpaMXZiWkpSWFluZkRkTmkrUkJa?=
+ =?utf-8?B?YkZqZDJITkNtVVlTMXRpYTMvZUw0WmVzZmdQVm5ha1BVdEQ2cjNhbkx4aDRo?=
+ =?utf-8?B?dEh2ZWlmSVNkQXB6ZjNidXpOY3J1OGtpaXB1WlNMRlRxd0N6TVVONnZMSW1K?=
+ =?utf-8?B?bkhCVTNOQktvbjFsWm0xWnRVdkpWV2c1NitZejdYSGd0K0Z1ZEtrSjFvRE5w?=
+ =?utf-8?B?V0RZUURQOW52bmY3RmVKSXo4SDY0ZDY2L3FtTktRaU5QS1Z2S2VLSGx4dCt0?=
+ =?utf-8?B?Y1UvaWJ6Z3FIOFJkcXVqV3BOY2RTK3ZTZW15YzlhYit5bHo3d0lQQkthSVg4?=
+ =?utf-8?B?MGpyU3N2bFBhQ3NWUHFFVkEyaGZUbEdBOEJtTHVVRjRhV1AxMnRQZlFpRzIy?=
+ =?utf-8?B?UFNTSzYvcTd6d1U5SDlHZzNHcTdrcEFJTUVsN3l2L2h2bVc2bnY5TFhZOHA4?=
+ =?utf-8?B?YUxWdm1OQW5PeTN0R2lyb3lJMlFxYk55dDNhTkFEeXZCUEprYmp4bGtEQ3Vm?=
+ =?utf-8?B?VnR6VUs5OHJ5bmVuRGFUMGlCbUhCWjhob3RwS3RET3NKRlI0OGUrTnFHRG93?=
+ =?utf-8?B?WmFNNm5CdTN3T0hlUVkyS3V4UEVocmVDMHVUdUhnQVU1VEpWMXpRQVY2T2Zl?=
+ =?utf-8?B?eWFsQllZdWZKcldhOG1vYkRXUkpUNlMwR2tBM1FkazNuckFlZlVHdVlHd0h1?=
+ =?utf-8?B?L2xvdGFDRkZCWG1kelNqMzkwRTE0QnZacUp5b2dPdE1KeE1DUlFaUWFobU8y?=
+ =?utf-8?Q?zXl0TICyIGgWAtF4mBoWc38Vd?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(32650700017)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 10:38:22.9384
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7162e3f7-ab1c-4907-838d-08de22a0c530
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_023726_015668_324BE370 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20251113_023832_644780_B0824047 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,59 +150,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Masami,
+Hi Siddharth,
 
-On Thu, Nov 13, 2025 at 01:34:03PM +0900, Masami Hiramatsu wrote:
-> > I wanted to have pseudo NMI enabled by default in the debug kernel
-> > (without relying on kernel command-line parameters), but this isn’t
-> > possible today. The reason is that `irqchip.gicv3_pseudo_nmi` is an early
-> > parameter, which can’t be set through bootconfig, so, independent of my
-> > .config, I need to hack cmdline arguments to have the debuggability
-> > I need.
+
+Your patch repeats this part.
+
+
+https://patchwork.kernel.org/project/linux-pci/patch/20251108140305.1120117-2-hans.zhang@cixtech.com/
+
+Best regards,
+Hans
+
+On 11/13/2025 5:27 PM, Siddharth Vadapalli wrote:
+> EXTERNAL EMAIL
 > 
-> Yeah, that parameter is for early architecture initialization,
-> which is done before parsing bootconfig.
+> The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
+> PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
+> library of helpers. Since the vendor drivers could individually be built
+> as built-in or as loadable modules, it is possible to select a build
+> configuration wherein a vendor driver is built-in while the library is
+> built as a loadable module. This will result in a build error as reported
+> in the 'Closes' link below.
 > 
-> Can you try building kernel with:
+> Address the build error by changing the library configs to be 'bool'
+> instead of 'tristate'.
 > 
-> (arm64)
-> cmdline=$(cat /proc/cmdline)
-> CONFIG_CMDLINE="irqchip.gicv3_pseudo_nmi=1 ${cmdline}"
-> CMDLINE_FORCE=y
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
+> Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>   drivers/pci/controller/cadence/Kconfig | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+> index 02a639e55fd8..980da64ce730 100644
+> --- a/drivers/pci/controller/cadence/Kconfig
+> +++ b/drivers/pci/controller/cadence/Kconfig
+> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
+>          depends on PCI
+> 
+>   config PCIE_CADENCE
+> -       tristate
+> +       bool
+> 
+>   config PCIE_CADENCE_HOST
+> -       tristate
+> +       bool
+>          depends on OF
+>          select IRQ_DOMAIN
+>          select PCIE_CADENCE
+> 
+>   config PCIE_CADENCE_EP
+> -       tristate
+> +       bool
+>          depends on OF
+>          depends on PCI_ENDPOINT
+>          select PCIE_CADENCE
+> --
+> 2.51.1
+> 
+> 
 
-This option isn’t practical for my use case since I maintain a generic
-debug kernel that needs to support multiple workloads and services, each
-with their own kernel command line. I’d need something similar to the
-old CMDLINE_EXTEND feature (which was removed some time ago), or perhaps
-a mechanism like CMDLINE_PREPEND or CMDLINE_APPEND, which were never
-introduced.
-
-Another possible solution would be to load bootconfig earlier in the
-boot process so that early parameters can be defined within bootconfig.
-Petr suggested this approach some time back, but it doesn’t appear to
-have made it upstream.
-
-https://lore.kernel.org/all/20231123194106.08f5832f558fe806b1fd8098@kernel.org/
-
-I’m not fully up to speed on the details of this change, so I want to
-ask directly: Would Petr’s approach—allowing early parameters to be set
-via bootconfig make sense from a bootconfig design perspective?
-
-> BTW I wonder why you can not configure your bootloader to pass it.
-
-The main issue is that changing cmdline parameters increases the
-confusion for users, and updating the kernel command line isn’t simple
-in a heterogeneous environment.
-
-My objective is to provide a drop-in kernel replacement, so the user
-only needs to swap the kernel binary, gaining additional debugging
-capabilities without modifying anything else.
-
-Additionally, it’s common for the same kernel version to be used across
-different bootloaders, which makes distributing and installing debug
-kernels even more complicated if additional changes (such as appending
-configurations to the cmdline) are required.
-
-Thanks for your help!
---breno
 
