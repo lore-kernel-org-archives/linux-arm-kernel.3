@@ -4,170 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3380ECD8CB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAD5CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=; b=RLnd7cnTth5fG7v7dYm2tP/zY7
-	VxnlZLtZOOGQm1wv7m2oD8gMtuN5pNO/bvUrdSfGSvRflvArWzB1nEYolSrd5GAVOupt51IZtBggg
-	OiACLeZxsNpIHqhaw4tIXgx9z/wP9p9plEpouDV9plgCk0/2PaaoAurzB2b7njIR/Wd0DjP/PqTjG
-	iq28Bm3sl6uh/UcCMW/QtlPO8fDmyqapdWvgR/gRN0h5OIoxzyXYSOLz/CMTiPoTp1wwGcCHs/4kK
-	Ve0lx7YBMmedPQbnuRaRfVjNINiB+qhTmjRG9xmeOUyfJ1Q3s/Anrv09+LXNgl0LS/tF0Eb4Br2nI
-	Lnu0XhWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+JQM0qza973ABZuzr6aa5Z2wmZ+M0zuMA14fh1o1Cmc=; b=x2mLfQNlSU7ZvFNaiInrbgyFaZ
+	pALi2tNgw1B8/CZat3cqJKie9sxBYQfTPhyucerhQNKMu70/zjwNAMcKSHzMYp0DSBWWpfpbn0c9f
+	V9Gns2Xt2/k+pPozTyQVJoctrhORRiOpgu2bcotW1tXFTJsOuRa2zh2L5+EmIWa7Pha9iugUE9tGk
+	XzyOfMesIHGORiB27MIXmI6Kc9ZY19mFa7bkQOkpimzWbIfdxjLgvlEsdMwM7rMevviuZQUjT+JyE
+	8GGqHBA8XAAUeDzh+pI2EduAf2llJNuJNOS4LroI+G2ZaIeNvTT79BYcVByN+RXQVqsQF+czt2aN+
+	zGC7JAGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbHA-0000000AsCy-2JlA;
-	Thu, 13 Nov 2025 17:38:28 +0000
-Received: from mail-northcentralusazon11022074.outbound.protection.outlook.com ([40.107.200.74] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vJbMR-0000000AsXv-3Efc;
+	Thu, 13 Nov 2025 17:43:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbH8-0000000AsCO-0G1s
+	id 1vJbMO-0000000AsXZ-22Nx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 17:38:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=etXEwlV8XnXJb+crMMz+tIYmiovox4I6yLP90SKbnDlASTQ14Gt4Y4CBZmtXnA55PbUM/bU2xXIuoMd0wdFZzQ24xnsw9r9QoHrBEhUa1IPlAxpDpQoZBr7Uplvu12puzPfA6l7AzBU78CdJzCTHckON/FtUg1TJrQeolZI4FGkqmRUWCois1esNmjpBoTIfAIwrRazQMdxj27kQXDDtR52lX3TxIwu5pVeL26+jHNdvP6ts6350OPOvT+su7ybgmnA7g44T38nPK8p3N5s/bc6zMLiTKyuzjG+s+w24dPOfGPu6RbFHqwA81gpu7EGSX7EWzmJBl/JN1KldErfQtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=;
- b=yzt5Mo/vJ1i+JqwHDMLvDTiyHCL2EZCCBgGEAOhLiKJaIcGKSq5kjmlqJqzKoCZiQvWo1ae1IGD9DYYLve5XzCBIHPdu+azEvNAcTHEwE0VJnlX/n7DMDE/1ZABA32nXLD+SHHOB6pAyoD35BsX8a3M8zGv05Zaa9AjI+xKQObKPd+XwG93Aro9K/XMkvivWfpCuNlshiZY+7I3GDMLkEW+c2k/LxEZKo1DGEULlZ5/cEz0gE6RFy8bLW/YFugnFxUEeJ1yF9MrDFe+ct37HiiOAchSqo1Np17T64MKXAEA9ITR4qRpWEiPkrO1hUzARoDqKgrKDMuO9WubeCDHCwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hJGMVItCMdERCvJOv+FUrYJFSgRpxAnNaXzgejNuxRU=;
- b=XL6IWX+rqNauDVInMJvQ3+D+JgcxN4FXHIZ7t5yzamJt1f60SOSsppok+KfCczJzLmKvtliw16KW3fj9HQ8IWaL9GuLUi0BPWOKZtHLuh9At5kexIGFq0DnkUjGdSYj7Fx7iJRpvCsJ1iVafcq98uIt7oHj6ieYxNmf4jb7Wt8Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BL4PR01MB9097.prod.exchangelabs.com (2603:10b6:208:590::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.17; Thu, 13 Nov 2025 17:38:19 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
- 17:38:19 +0000
-Message-ID: <ed879c7d-456d-4981-9949-1edfc8b9af71@os.amperecomputing.com>
-Date: Thu, 13 Nov 2025 09:38:16 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- catalin.marinas@arm.com, will@kernel.org
-Cc: rppt@kernel.org, shijie@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251112062716.64801-1-dev.jain@arm.com>
- <20251112062716.64801-2-dev.jain@arm.com>
- <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CY5P221CA0013.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:930:b::29) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Thu, 13 Nov 2025 17:43:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A3A81442EF;
+	Thu, 13 Nov 2025 17:43:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161A7C4CEF1;
+	Thu, 13 Nov 2025 17:43:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763055831;
+	bh=69BuV/Su/GcdTdHrL9gxzXflM0lUoZrqMWAuVIVx3LI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IQSZ7KQL8z4Xo5cLzDS6HUFsnfylgBFqj2rZ9hMycJTVn2ORjF2CZzMeIYuusU6cJ
+	 840R2aJpRQcXc6846WmZfniEFvtkQ8Ab4URBqV4nZ0nSkhJ3IKV9wNOZuaGhFy2YIn
+	 RVYviPivmL68wdkKEH89xGYTjrod6GbR5oZtqOIgRQ9KWtNV7Ja7gN/gNqYuS/vv9p
+	 3wYl2GY5nWVK7K7h9Vu9Zpvmd1sRm6zyn53JyNE6KAiWENI66IS2GQ8Nfhh2WJsczJ
+	 7hiKpGZvgMOZFulTtWGf2f9mg0GFh6QJKJXADVZBx+f3ONfrhbsP0JC/pDxqgpO57P
+	 rpEX9ut2Zv/DA==
+Message-ID: <abb77afe-c285-46ba-88ac-08574bd67712@kernel.org>
+Date: Thu, 13 Nov 2025 18:43:46 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BL4PR01MB9097:EE_
-X-MS-Office365-Filtering-Correlation-Id: 014478a9-5b7a-42b6-6507-08de22db6f3e
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RGRrbFNmWmNVYzBiaXo2TmdySEJWbUEyT1loYnp4RE5hZk9BNStNd0dqTU5T?=
- =?utf-8?B?amZnek1HNmRoUFVJRTFPekpLWllaSVNyOXlOaHpza05uUFNZK1luVHN4aVFN?=
- =?utf-8?B?Zm92N0E4Wllmb09sdE1HS2M4VUs0RHQreHBtVUJUb053SytIUWFReDdseTRM?=
- =?utf-8?B?MlhLaWp0L2VLZFJUWkF6N3ZXVjlWTmVuYzFnZzl5cUphQllTaHdUd3RvMEZp?=
- =?utf-8?B?dndGa1pRdDNPWk9GaHJwc1dDVzg5dThESHhEbGdFMnl5UzNBTXpqdzJXZ0RI?=
- =?utf-8?B?NnU1OWZBZ1RXRThrVGR4akRaMEZpdXY4em5WWjdicmRGaDlHRlg3M3o3cXpS?=
- =?utf-8?B?MTZ0endOU1p5Z29rdEVPSkZFTkZESC8ydnppQmI0d0JDRVJEMStJUEFrRXlW?=
- =?utf-8?B?aXFZVk5xTHMvZEJIbGIzbHdlcGtEbW5xTlNDMGRQTW8xT3UzU01pYlB2T09P?=
- =?utf-8?B?ZFFhbzM3MVNodmtSaWYrM3pDVWowK2IrTktoVEZFc2ppTHE5VWhPdTVpYWNm?=
- =?utf-8?B?aXVhdGVvOW5mM1RaeDV5RDd3cE1rTUY3MkJwcGhCZ1QzdUFSNG5XaGFQMjNL?=
- =?utf-8?B?eTZaeG96NUV0cUdGMlU5Vk5TcnRFU1VYU1dZcGg3VFRLV09JdmMyTVFUV2Fy?=
- =?utf-8?B?QldOUnl4VExHc1Mxd001eWdDd3J0YnJtemxRaGRuMzdsYmQycFJNQmtNdmJw?=
- =?utf-8?B?ODhpRWtQM0Z1MzRwVUxSRW1EYlJCVVhBYVhNUFZMVk9BaU1rZGNET01obVpS?=
- =?utf-8?B?bDBHYzBkUE9ISnVsRnJOVEZqWERLOG9CZFpnVTh4ci94K3AzYi9QYldQRlR3?=
- =?utf-8?B?ejNnRmZMY0srclY5N0lMeERBRmZaYUZPRnRiMndDbzBYSStwUzBJK0FSU2xP?=
- =?utf-8?B?dFdRUXlaNFFGamhwUXZ4WGwzbEdGVUluYWswcEFtR05uTWo3TmlLNDhFb0xI?=
- =?utf-8?B?SFFLUmZjVHo0MTdjS3F5TmVXeHdSTUhvWi9uektrb2M5eWpOdGRTRm02Nkpn?=
- =?utf-8?B?K0JuNkV5R1lBNVAxNTJ5dlNjeTFpRDZyRnpkZDJ4THp0c3YzMGFWZjFGZVc3?=
- =?utf-8?B?cVZCOVBqWEFLQVpSbXZ5UGNCS0Q5RlFGb2p1Y010ZEJjOWtFUmRITllmYjV3?=
- =?utf-8?B?WVpxVlk1dDNnQ3RVeEsvek5IMW9ncE01WlNQR3F1MnVVVFIxV24xSFFhR3JG?=
- =?utf-8?B?c0Z2SUtETjJ5MXY2elFHRnViL2dsQlZHeVhqYm5TeFlwWkpRdnhCRUV3SENi?=
- =?utf-8?B?TzJzYlRzRTNMNEpqdEJFeXJsOWxQM3VHZldiYkttL3cxZW5OSkx6MmlBWlpW?=
- =?utf-8?B?aUZFaEpZZkduSnlhMHIwZkt4L0NGZVFwdkd6Ry9jbk9NcHJLa2NHQ2pIMkY3?=
- =?utf-8?B?OS8wYWZkRlFrOEV0cVErdExTTENpVzBucXlKbG9uQTVoTUIzL2ZtWXIxQlln?=
- =?utf-8?B?ZldGSlFSUkhFR01MRStSNW5nT0VUUXBDYUhYeHMzZStDUGx0bTVkYWtGeUxX?=
- =?utf-8?B?UW45dVk3WU9OQm5QamduU0dBRVJYL1JxdXp4NWpZMjVTWGVXZVM0YnN4ZDNz?=
- =?utf-8?B?OThPRlVuY3N2WC9jOEY0TVlSTk1HWTJ4eWpyaG9ZOWg4d0U4RFhkZjUydmVJ?=
- =?utf-8?B?MEFTaW1OZTVsU2RCNGtHcElqUGt6TitoOE51ZmQ0NEtwSGlOTEFock9QYTJP?=
- =?utf-8?B?T00yYWxjdVBVWUJKVkExd0sxRms5K2p1bStHSU9RU0JIU3ZXSEJxc0tFUERP?=
- =?utf-8?B?ck5FM0lvUDdhN0xtUjNRWXBTb3JxY0drZU8vUlFoam9vQjZEMlBRLzlZRFBp?=
- =?utf-8?B?RjNWUFEvSG9yNGlRb2dyOXVVUC9yc2R0MkxaS29wMWpCZHVMWXNoOUFPRy9Y?=
- =?utf-8?B?K3ZXUkRnM0dZZnFuREV0dW5VSGNKUzR6V3RUV3JYOFl2bTg0ZS80cFRLOUox?=
- =?utf-8?B?ZkdCeTBSWVY5TE14UTVnSUdGNmhyWlRYS2lTSmg5aGkwcGxlWDR5Z2FBekww?=
- =?utf-8?B?Y0hZcFRieFV3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2hJZDVkQ3hiWUpYempXZlUvakhOY0Q0a0wwSWdKTE1keEJCT0lLenM2UkNK?=
- =?utf-8?B?QXg0YVVZQld1VWJ4WnAvd2hDRGpvTG4yUUs4K3c2UXhTRDh2eWdnR3BVMU8v?=
- =?utf-8?B?cEVSN1hxT09BdCtWRzRZZDVEOFNJZU1aMWRzS1FjT2Vod0xJOS9zR3FGdUxj?=
- =?utf-8?B?ZVNQNUROVXpYaWpML01la1l4aE5xeURTL3NyQ1g4Y1Q2V1FRUXVmM2dyYTI3?=
- =?utf-8?B?QWpXSENJdVJGUnE0SmVkRStNNktKc2VJRkFYWTd0dk5lelp4MnpOSUYyWnlL?=
- =?utf-8?B?RlJTUGZDUnBhOXFYMXVKRDlFdWVvcVZ6YVo0SWwzakZWamZzRjhhd3FwZ1hX?=
- =?utf-8?B?M0RsSnhzZElVdDJGZ0M0VUtsVW5FRHV1M29QZEVPRkxRYW4xMnBSRWl0Vnhk?=
- =?utf-8?B?V1BPS1VhdzVZSkJtc2VMczNZR0MyOFpKVlFRcEVUV2RNc0lKSG96TVJOb3d2?=
- =?utf-8?B?UnI3REQ2dktZdURPWGY3ZzEyTitvdmUzcWFHdXFWWWt1NlVzM3hGZzR4dUl1?=
- =?utf-8?B?cGxKSVU0d2kxeGg3NTFaRWE1ZWN1cDF3MHJpcG0zTHk0NjBGeGlOdGtKRE9N?=
- =?utf-8?B?V2hDRzNIZ0FkY3phRWdXVFlxVGZOVm03NXE0ZTY2ZzJJTE5HMW9kUEpWd2FN?=
- =?utf-8?B?VlhBelpjZnJCZnlSSkJ4WWZsbTN6TVBDdUg5ZDdOTlo4KzdoMHBqWjBEaXlM?=
- =?utf-8?B?N1RMNnVzQktSR1pkN082Y2Zwalc5Y2JOQUxqNk4xelpPRVY0aUxLR3I2ZVlj?=
- =?utf-8?B?bG44MUJ0Q0h0Ulc4cDd0VWpXQVRjNTlSQWN4ZnNMdkZUM1VqclRtc0FtQVRL?=
- =?utf-8?B?em44WW9sN2hZNlByOEdvbnFVNG01L0wvUEMxdEVyYXVqNTNISlAwRUhxV05J?=
- =?utf-8?B?V3Jwa2p2bWV1ZStpYnBoMktnaU80cXRUcS9aUzJHSU90bGxoTi8yZndHOE9z?=
- =?utf-8?B?bVIwaU5FUnpXL3FVS2xGNmRQOTdQQktVakhwT3V1cUQ4UStDYk5NV3MrblYv?=
- =?utf-8?B?UHc1QkZVYWdJNTZSS096L1ZyR3hZVUljQ3hHanE2ZlJsYmN2R3d3by8ybGl1?=
- =?utf-8?B?V0xWMU5VT0owc0FZTWxYMnM4R1Jna1dTUTQrQThJbzgxOHJsZVhLekRlL1RC?=
- =?utf-8?B?aEpQMHN1ZGUvb0loWnVFN3BJbVdsc3FNMnMrazQxN3JKelpPTEZjZVppemlu?=
- =?utf-8?B?UUFyc0tUSXZlbTkwbStUeEJJWXZSZ016V1k5WkhZYVNPRlRMaDJOZDlheHBi?=
- =?utf-8?B?SFFGYnJFczZWMnJRUVc5SEJtWDJEVXBTM0RuSkQyaVJEc2wyamFtNXZPVmhH?=
- =?utf-8?B?TkJSN2dMNW0rS2ZlNFRENzdQTHZDNkdWdEl0a3cxZE05a0VGTFIzUmtPZEtK?=
- =?utf-8?B?WFNjV1h6bjZwWWtIMUJOSFdBcVhpeEhvVkRkTlBaZnBhOVhrWGszVnRUb0Rq?=
- =?utf-8?B?ZElBVVY1cHZod3p5V3Q5TW1zR1MyZjlYVzBDdWVJQWxLMGs3UE16NVdGVDh4?=
- =?utf-8?B?cEExQlJYeW52L01KbDhML1ZkR1RmamcrWUs4QnpLRTFJdUo3UUVCQm5KTWYw?=
- =?utf-8?B?am9BZWZULzRZUWdCNDY1aUlZNTBpaHhmVG9iSU9leWxnL1d4TzMzOFFRYWhh?=
- =?utf-8?B?Y3RmVUI3QllKSDRxWkdPQlVrQVFYMzZQbEE2USttcURGMXpEeUtHR01WTEx3?=
- =?utf-8?B?QnBGdVVNMllXc3RPeXFVMklaYS9lT2lmNzlRWUt3U0JJNk80TXp2aUwzYlQ3?=
- =?utf-8?B?L0t1Ym9Ja09jdUU1NVFGYlloYXBieGh6KzhsdUR0elMyVTd4aXdHWEpEUVZE?=
- =?utf-8?B?NXkzcXE5VDR1SDlRRTJaUE9MMllxeUdGSlJGZXlOS0xzMUlpYTNTcjNUTit2?=
- =?utf-8?B?V010b0hDaVVLVWsvMWtrM3hwMkZvaHV2S2tqRldIdWs3elo1N2lwcUtrcUZr?=
- =?utf-8?B?czBMT0pjN2N1Um5oUEVMeFErTHBWbWwwY1h2d3NDMFRER1VjdVQxM0ZCVHdl?=
- =?utf-8?B?enVzdXNNWkd4RERYUHR0MjRHNUIrWnU1L0pQR2N6eURtZ002Vk11M1NzZ09I?=
- =?utf-8?B?VTMvcXpzd0p3TTI0NlBVTVhiUHhYbVNQdFZJNjVmZkM0VTlrSVg0T204Rm11?=
- =?utf-8?B?cVdESzE4WU9zSmRuMGtRWDFlblV0S2x2cVNSRFlFdmlwdzNJWVdjaXkvTDBI?=
- =?utf-8?Q?7U5crbACbKY5YnZKnCFJFKg=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 014478a9-5b7a-42b6-6507-08de22db6f3e
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 17:38:19.4020
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZQcoNBjEQfes4FAnRKJsWbt6vF6nVVak02LG862JsIKE0MsGS1n3AXfPQ472RP2AbFZ+tBlFmCA7uBZOVHIJB2thd7lzl1RUwMNGlYauXek=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR01MB9097
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for
+ frankel/blazer/mustang
+To: Doug Anderson <dianders@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ linux-samsung-soc@vger.kernel.org, Roy Luo <royluo@google.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Chen-Yu Tsai <wenst@chromium.org>, Julius Werner <jwerner@chromium.org>,
+ William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
+ <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org>
+ <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
+ <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
+ <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
+ <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org>
+ <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_093826_141606_FBC21F57 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20251113_094352_590672_E5538536 
+X-CRM114-Status: GOOD (  52.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,70 +130,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/13/25 3:55 AM, Ryan Roberts wrote:
-> On 12/11/2025 06:27, Dev Jain wrote:
->> The rodata=on security measure requires that any code path which does
->> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
->> too. Therefore, if such a call fails, we must abort set_memory_* and caller
->> must take appropriate action; currently we are suppressing the error, and
->> there is a real chance of such an error arising post commit a166563e7ec3
->> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
->> propagate any error to the caller.
+On 13/11/2025 18:16, Doug Anderson wrote:
+> Hi,
+> 
+> On Thu, Nov 13, 2025 at 8:34 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >>
->> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->
-> It would be good to get this into v6.18 I guess?
-
-Yeah, agreed.
-
->
-> Although I think this will conflict with a patch from Yang that makes this work
-> with a partial vm area range - But I think that one will only go to v6.19.
-
-Yes, it will conflict. But it is quite easy to solve. I will rebase my 
-patch on top of it once it is picked.
-
-Thanks,
-Yang
-
->
-> Thanks,
-> Ryan
->
->> ---
->> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
->> I have dropped stable since no real chance of failure was there.
+>> On 13/11/2025 17:23, Doug Anderson wrote:
+>>> Hi,
+>>>
+>>> On Wed, Nov 12, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>
+>>>>>>> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
+>>>>>>> +      - description: Tensor G5 SoC (laguna)
+>>>>>>> +        items:
+>>>>>>> +          - enum:
+>>>>>>> +              - google,soc-id-0005-rev-00  # A0
+>>>>>>> +              - google,soc-id-0005-rev-10  # B0
+>>>>>>
+>>>>>> SoCs cannot be final compatibles.
+>>>>>
+>>>>> Right. I talked about this at length "after the cut" in my patch. See
+>>>>> above. I wish to relitigate this policy and wish to know more details
+>>>>> about where it is documented, the reasons for decision, and where the
+>>>>> boundary exactly lies between something that's allowed to be a final
+>>>>> compatible and something that's not. I made several arguments above
+>>>>> for why I think the SoC should be allowed as a final compatible, so it
+>>>>
+>>>> Because this represents a actual device users run. It is electronically,
+>>>> physically impossible to run the SoC alone.
+>>>
+>>> I'm not convinced that this definition is as clear as you're making it
+>>> out to be. It's physically impossible to run many "boards" alone.
+>>>
+>>> Want to boot up a Raspberry Pi? Provide it with power. Hook up a
+>>> display to it. Hook up a keyboard to it. Plug in an Ethernet cable.
+>>> Plug an SD card in it. Without those things it doesn't run.
 >>
->>   arch/arm64/mm/pageattr.c | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 5135f2d66958..b4ea86cd3a71 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -148,6 +148,7 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	unsigned long size = PAGE_SIZE * numpages;
->>   	unsigned long end = start + size;
->>   	struct vm_struct *area;
->> +	int ret;
->>   	int i;
->>   
->>   	if (!PAGE_ALIGNED(addr)) {
->> @@ -185,8 +186,10 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
->>   		for (i = 0; i < area->nr_pages; i++) {
->> -			__change_memory_common((u64)page_address(area->pages[i]),
->> +			ret = __change_memory_common((u64)page_address(area->pages[i]),
->>   					       PAGE_SIZE, set_mask, clear_mask);
->> +			if (ret)
->> +				return ret;
->>   		}
->>   	}
->>   
+>> But I can plug them...
+> 
+> I can plug my lga SoC into my dev board too. My dev board literally
 
+So this will be dev board... If you plug this into dev board, then I
+claim that your compatible must be specific for this system thus
+describe that product, which is SoC and devboard, not SoC alone.
+
+
+> has a place for me to drop in the SoC. I unscrew the socket connector,
+> carefully make sure that none of the balls of the SoC have dust
+> particles on them (and we have instructions for cleaning the SoC),
+> then drop the SoC into the socket (ideally using a vacuum pen tool). I
+> then screw the top back together which uses compression to attach the
+> balls on the SoC.
+> 
+> Yes, this is only true on dev boards and not phones, but we want to be
+> able to support dev boards too and it would be silly to have a
+> different split between DTB and overlays for dev boards and phones
+> that are based on the same architecture
+You still have dev board thus need dev board compatible.
+
+> 
+> 
+>>> Want to boot up a lga-B0 SoC? Hook up power to the power pins. Connect
+>>> a MIPI panel to the MIPI pins. Connect a UFS chip to the UFS pins.
+>>> Without those things it doesn't run.
+>>
+>> These I cannot plug, it's impossible for me.
+>>
+>> My clumsy fingers are too big for these pins.
+> 
+> As per above, sockets do exist. They are pluggable. I have confidence
+> that even with clumsy fingers you could drop the SoC into the slot and
+> screw the connector down.
+> 
+> I'm still not totally convinced that it should require the existence
+> of a socket to justify this but, yes, they do exist.
+> 
+> 
+>> And following your logic, we should have the compatible for the
+>> transistors, because that's basically what SoC is made of.
+> 
+> My logic (stated later in my email) is that the minimum requirement
+> for a compatible should be something with a CPU able to execute
+> instructions. A single transistor can't do that. If you want to
+> combine a bunch of transistors together to make a CPU then absolutely
+> you should be able to have a DTB representing this CPU.
+
+Linux cannot execute instructions on this SoC alone. You need dev board.
+
+My clumsy fingers were just example, but you simply cannot run any
+software on this SoC without something else.
+
+Virtual models and virtual platforms could be run without that
+"something else" and they are allowed to have just the compatible. See
+all the FVPs and QEMU platforms.
+
+
+ >
+>>> Yes, the complexity of just "hooking up" the components on an SoC is
+>>> an order of magnitude harder than a Raspberry Pi, but it's still just
+>>> hooking it up to external components. In both cases, we are modeling
+>>> the core "brains" (the part that contains the processor) as the DTB
+>>> and everything else just "hooks up" to interfaces.
+>>
+>> You mix the topics, so I don't follow. I speak here about bindings - you
+>> cannot have the that compatible alone, because it is incomplete, just
+>> like compatible for "transistor" is not correct in that context. You
+>> speak what could or could be DTB, different topic.
+> 
+> A "SoC" is "complete". It has a processor that can run instructions.
+
+Then show me executing any piece of software, which is the consumer of
+the bindings, and runs on the SoC without the rest of the hardware system.
+
+> 
+> 
+>>> If I had to make a definition for what the base DTB should be it
+>>> should be the component with the boot CPU. _Why_ is that the wrong
+>>> definition?
+>>>
+>>>
+>>>> There are few - one or two - exceptions for the SoMs, but never for SoC.
+>>>
+>>> OK, but the big question: _WHY???_
+>>>
+>>> Where does it say that a DTB has to be something that can run "alone"
+>>
+>> We don't discuss DTB here, but the top-level compatibles.
+>>
+>> Why? Because DT spec says so.
+>>
+>> "Specifies a list of platform architectures with which this platform is
+>> compatible. "
+>>
+>> And when you combine it with the standard definition of the
+>> "compatible", it is not *a* "platform architecture" but *list* of
+>> platform architectures describing this device as a whole.
+> 
+> I still don't understand why a SoC doesn't qualify for your
+> definition. Even if it did, there is _no benefit_ from excluding a SoC
+> from this definition. I'm trying to figure out what the benefit is for
+> holding to this stance.
+
+We write bindings for users. There is no user of SoC and such compatible
+alone. There is no such real use case.
+
+Your use case is broken bootloader which pretends there is no board, but
+there is a board, someone just did not want to admit it.
+
+We don't develop for such use cases.
+
+> 
+> In any case, maybe we can approach this a different way that I alluded
+> to in one of my other posts. Can we just call the SoC thing something
+> different and make everyone happy?
+> 
+> 1. Rename the SoC file to lga-b0.dtf (device tree fragment) and
+> _REMOVE_ the top-level compatible. Problem solved--we're not adding a
+> top-level compatible.
+> 
+> 2. Add a special node at the top level of the "dtf" file describing it
+> (so someone could figure it's useful for). Like:
+> 
+> fragment-info {
+>   compatible = "google,soc-id";
+>   google,product-id = <0x5>;
+>   google,major-rev = <0x1>;
+>   google,minor-rev = <0x0>;
+>   google,package-mode = <0x0>;
+> };
+> 
+> 3. We can compile the "dtf" file using existing tools into a "dtfb".
+> This looks just like a "dtb" but has no top-level compatible but
+> instead has "fragment-info".
+> 
+> Now we're not violating any spec because we're not adding any
+> top-level compatible.
+
+Didn't you just describe an overlay or DTSI file?
+
+Best regards,
+Krzysztof
 
