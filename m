@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24EACD98FD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 23:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BA6CD98FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 23:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJeR7t9tgTEHlG4D2WrgLlF56zewIPkv9VSl1Jojg3Q=; b=oTBUoaG+v493C4muETF5fyOrq2
-	qfexGIDmDF5P5yMxpz8VkLXF4kRfMwAOgc/g72UHGZxbPzAxMmFFxVEH3wz7n3ARGUJdXW5g9lXe8
-	faUjt6RW0Rwz9f8iIW+50tTcRkXrvlrnM5P79XYZDxpDcjUAehZbARSouIDUme2DqtOgNJGcc2cIM
-	WXYL9gGKbppLdd01ELv2V20kuEwkum6nAb0z4rqWR/XdPEJV9PNA9a/BjTBm+/P+cSmrtL8P6IiAx
-	nmW97SOyM0VlGkxR9tlBwnyjonRFAivdC5mAHbpV33elV3Um2cNBV1EyoXtI4qcA4UEKF3nHPMjIM
-	V4YUanmQ==;
+	bh=Qb9QVWLvQSLjszFx/cD4yNV/N7YJOyJ+nOOkxxmz2SQ=; b=16L85bITpvI+vEYvUk0QKSJ94t
+	+WNwkR4SJe2G5Qbwcb0cvZTqRTcLCtrkKSqSfdrndCi7Dw+3U76Kj9hmXZK/oBddN4K2pbSnEuVEJ
+	0CgOSiIo6sFo9n6IO6mg8sw7meXvxAY9yohj1lTjhaqvvLEi7oFudgJ8XsQiRysh8V+7JI1r7zWQJ
+	CiPlM/P8DYF2cZPtdfpxhtXWQrOvVyUh+U1yOAwg35P+3gpo4S8kOWSxYd+E8rP2bhe2mnGk6QCVc
+	M1/6il0gXGAeCSfmV03tq8IT2foZlnFlqkoHXrMWgvWmYr7E4VsIN1Av9UX2OUBHjAeqP9jwLkUk7
+	IUdqXTqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJgMy-0000000BEGu-1Wxq;
-	Thu, 13 Nov 2025 23:04:48 +0000
+	id 1vJgNF-0000000BEOk-0kna;
+	Thu, 13 Nov 2025 23:05:05 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJgMo-0000000BEB0-0IAd;
-	Thu, 13 Nov 2025 23:04:39 +0000
+	id 1vJgMp-0000000BEBT-1GrQ;
+	Thu, 13 Nov 2025 23:04:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=BJeR7t9tgTEHlG4D2WrgLlF56zewIPkv9VSl1Jojg3Q=; b=FC+RosTwSMQHdLw7GIrZ+a1ZRn
-	rHhFRpXZqm1Ug+EY6LHJDYigw0jDWvHtIUoW4XpS4Skx5CEixPJpwxc66jGYpu9qgoWzy0Zf1Im+R
-	1LtINKhkrqZYVI2YnXemn/1sVpml4ABSJtbyrdcPDdj+xJlSShlXL4V5g2NL5yS4Kox+zDMy2rWFV
-	Q1Vv4bdGeNrnqDcnSy2uMhVBJhJT2rnpETnbyazsAheRA/TE++y4E3FNLUUs1t1UU53Xs7l9gPW/f
-	5/Ll2Hamxq+iy0XG8Lilr41osaZSQpFeTYkUoHNieq7ZsJWObYspP/56DJ2EdvmQi2KDyt1+3UoNn
-	s60YnlWA==;
+	bh=Qb9QVWLvQSLjszFx/cD4yNV/N7YJOyJ+nOOkxxmz2SQ=; b=sSt1Bii9OWPINrJJF8UotjfpPk
+	B48T7ehLnvlEcg+eAWlmuo45tUBLAQ5sT060YF7Sckg2vi90GeHOZW6Jdl9TKbD7VLufiERHhetm+
+	i7aZWswd5UaiBAcTz690xIcCFhwEosACwY0EhWbx0lYZrvOM/wa55I5BG7oto+oMDzwseRSZe1rP6
+	mN5oRyi9q/yHsGaRUNNktfMi1zaMz3EU28AR926TYkVjkmeUKJo8JKIutj+qEbs+hTbdBut5xad+N
+	GdB+uUnilwdghAIcNaW3xNp2zHCYpIPtAfRVdPNVk1fx0hfwyet7C/GTF+TaWvQD8/SFKkI7+5m0g
+	+arKaUpg==;
 Received: from i53875a11.versanet.de ([83.135.90.17] helo=phil..)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vJgMl-0005bo-RV; Fri, 14 Nov 2025 00:04:35 +0100
+	id 1vJgMk-0005bo-2s; Fri, 14 Nov 2025 00:04:34 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: Johan Jonker <jbx6244@gmail.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
+	Hsun Lai <i@chainsx.cn>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] ARM: dts: rockchip: rk3288: move edp assigned-clocks to edp node
-Date: Fri, 14 Nov 2025 00:04:26 +0100
-Message-ID: <176307502903.495066.8544378087012934104.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH 1/6] arm64: dts: rockchip: add mmc aliases for 100ASK DshanPi A1
+Date: Fri, 14 Nov 2025 00:04:21 +0100
+Message-ID: <176307502906.495066.9339764118786240746.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <7d6fa223-ab90-4c44-9180-54df78467ea5@gmail.com>
-References: <7d6fa223-ab90-4c44-9180-54df78467ea5@gmail.com>
+In-Reply-To: <20251101120010.41729-1-amadeus@jmu.edu.cn>
+References: <20251101120010.41729-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_150438_105445_FAA25662 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20251113_150439_347317_EDDDCFAE 
+X-CRM114-Status: UNSURE (   8.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,20 +79,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 02 Nov 2025 00:18:13 +0100, Johan Jonker wrote:
-> The rk3288 power-controller node contains an assigned-clocks property
-> that conflicts with the bindings. From the git history it shows that they
-> wanted to assign the rk3288 EDP_24M clock input centrally before an edp
-> node was available. Move the edp assigned-clocks property to the edp node
-> to reduce dtbs_check output.
+On Sat, 01 Nov 2025 20:00:05 +0800, Chukun Pan wrote:
+> Add missing MMC aliases. Remove the max-frequency property
+> from the MMC node, which is already defined in rk3576.dtsi.
 > 
 > 
-> [...]
 
 Applied, thanks!
 
-[1/1] ARM: dts: rockchip: rk3288: move edp assigned-clocks to edp node
-      commit: 10712ce694a67304a99dbba20f8cb146ca5f4fd6
+[2/6] arm64: dts: rockchip: fixes regulator for 100ASK DshanPi A1
+      commit: 0b822c59c826f47dc63d9470b4710bd251266cae
+[3/6] arm64: dts: rockchip: fixes ethernet for 100ASK DshanPi A1
+      commit: 9c79c9e03547068404cca5139dfea281d655ff90
+[4/6] arm64: dts: rockchip: fixes supply for 100ASK DshanPi A1
+      commit: 621bb09a76fa12a9e61c9d745ae524db86abf781
+[5/6] arm64: dts: rockchip: fixes audio for 100ASK DshanPi A1
+      commit: e99d922d37351ddcd6e1d3f4623340db547c8398
 
 Best regards,
 -- 
