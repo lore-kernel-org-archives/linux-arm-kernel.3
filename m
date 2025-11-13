@@ -4,89 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7F0CD6E73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 14:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645A6CD8C82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 15:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m53OXX0FSEdVsD/HzcBlcWiZnahYMqqYD9/Rw82fxP8=; b=hpzSRJR987mbyCLb1cTX8Js7Lk
-	RKQMi808P7rr8xcm64Nfo1+KtU/HU63cdAfdmAdfuCnrZZ/m+1ApLX4BMv0xWvurt7JyTozs9OI++
-	btoyu6gsMJsckwt78OcvanrnAivb8JoKy/H5T6wWxa7RdMWs+la4mAJwmvwpp+jLbPDvwW5kXto+z
-	D0E7gHrJKnEh7rF0du549CfGA5zgiabxAIJK2Cxz/Mw6pZAxQAx+5+BDscU3bZR36tXKpx6JkHDj9
-	QJ9Fz108kviVL+uQJP0KrZPJiw3UBsfiGRiqH7cqNvE0gobOBtqGSIPR0HAG8m6Vy21Ai8WANbtuS
-	jw9cDtSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zx27lg0Fm1BSnL1wW15DEZpROxDPEpmqHJimq83J/wg=; b=GW7Kc4LDFm4suu9GoHvJlt35sj
+	vjsb57fRpaHL8HISECc4qtTwYjVddIOeSN7830ZAS9E83q2HhFp6JcFD/ILrX0fXXEOEX87ibNtjG
+	4obViFjAzHFhBUSuBkD5QI44NuYGlW6HzDbQ9+2c59t5umH8DwGXlfQ26EYiR45q9i+yyqq7Q2nXy
+	mpVj0Fqn+lYpMtN4nzlnWcTydNiE3yXp19GZt5ID12/PpPIyxWD1yP+iLClTUOXsIhgUkrwyf3IJP
+	RfXNTPA3vae8RjOPjSep/W3bAzEBXDyVbKU+X9L6YrLEuTSm96CSlYIrgF7+FIpGJE8lbX/FXmRMJ
+	FdJUVPDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJYZa-0000000AdVC-2ooI;
-	Thu, 13 Nov 2025 14:45:18 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJYZW-0000000AdUV-0hZX
+	id 1vJYqb-0000000Aegi-3pLK;
+	Thu, 13 Nov 2025 15:02:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJYqZ-0000000AegH-1qpt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 14:45:17 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6418738efa0so1524329a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:45:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763045112; x=1763649912; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=m53OXX0FSEdVsD/HzcBlcWiZnahYMqqYD9/Rw82fxP8=;
-        b=b6mr6aGye6U77VYghjDEx47dJJLcbECUe0wOZnsvsi0lAKh2l+rO9upuws5OQc/9ba
-         7OPCEW9GRWoAXJ1L0Hd6hhz7AR2nUjGy25ww1Fyri5R0HDvxXUlh6VCLw2HWFD4ZL5X9
-         7A7kTm5itTwczWJZlSlANp3pKjsFbQrO9xJ2kJq+NeHJi+0xme7lEtKfdkm8JN7P0J3E
-         rQb6ek3JP0+P2KGMA4RCUMy3MajZf7gSAiyYPkMrwkc4/Ulos9Gr8zQyyXOk7fClusGd
-         oGnMFfoiulXqh0MQcIgCHMGFV4f3D3Ce6BVoNoPkZOtS0Ong+lmIUPybIVAlJCDhea3b
-         hqAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763045112; x=1763649912;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m53OXX0FSEdVsD/HzcBlcWiZnahYMqqYD9/Rw82fxP8=;
-        b=Qm31dGNSsEpB910vZzi9pzS51t+FY7GMbvSdoj0FgwjEREyyijfneIPYOuFToWn2fj
-         TMeAiZsQyp4Q996Dp6qMfZmopHQXMaW4LoiVA8tlWfJnjiS4030rkUDa6ywoh9OeeF+8
-         cKTbSWoRBkgVlN7zoEGf1F9t0ozHfF3pPHsPPJwwuXkgVdALkalw+X544102i5gEF6pu
-         FS4eQL8dsuor2cKnpvTeh5JJOxvL5yf6Ah5OQbA/dA+ru5vFXP5oPv/SkjKIOEj5FlY7
-         zTZJzopryFsrrOJdLeie32xWqqQJOkkSe90/UYZanecUTVylmRDxiU7bR+YS+47sNhTJ
-         5KFA==
-X-Forwarded-Encrypted: i=1; AJvYcCVyAAdbHBnIpyZBg+hdn8zGlq7yEubuEUUeG2NslqiPGk46DUQavblwae5cw14IQutIv4QlKfvxjCkMSHpAC7qr@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtdz3pmlBzdaA7akfJAoRbyAwE3BYFU/rb0eJCfQF1N8UzOFU/
-	4UiUKtaB4+jrNJwkP513cekUC+8+IXd1XPntd8YBtNIRw1dam7gfwRn9jmc5iRwPeuiIh+tMnfQ
-	UWF462tgDIp/22kxO4zDomt8OPaau1r0gB8J58fhozA==
-X-Gm-Gg: ASbGncuYDT1y3mmlVX8MTMlIR9CVOaJTaekYFQQriJOwwyoQqEGTrzvq7l39k7Z4y5C
-	MEra44l+APwUlLPDY6xPAMA52VxcM2qZnUWAi9Wla6Osd0Ouq4oAmxR5VYZcL8+ibg1Hgg0uSDh
-	ekNCqa7GxQifI+J+cU5XOYs2C/aZ3qtZHG6AXCRi/uAvWOXk2oEW+hUoDlqQMfRWxdhqka7anZa
-	Z/UvDz796Dr6GFJTQHN1c0dsQoONZxORdOmF15WPj8z1tnxylHeB9EUZrsdOJq+5NVZL1JNeCbF
-	QDCpzA8rLeIDlA==
-X-Google-Smtp-Source: AGHT+IH4jj6eVtxRt3wKbnn+UazVGdwbCJoI149sIZw96/aCkUMses1jDosEW0DIlhxtvuCWHuc2IKSjJmxjA9t2HMA=
-X-Received: by 2002:a05:6402:42c8:b0:640:fb13:6b8 with SMTP id
- 4fb4d7f45d1cf-6431a548655mr6370272a12.22.1763045111775; Thu, 13 Nov 2025
- 06:45:11 -0800 (PST)
+	Thu, 13 Nov 2025 15:02:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17A7B1477;
+	Thu, 13 Nov 2025 07:02:41 -0800 (PST)
+Received: from [10.1.27.38] (Suzukis-MBP.cambridge.arm.com [10.1.27.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 140C63F66E;
+	Thu, 13 Nov 2025 07:02:46 -0800 (PST)
+Message-ID: <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
+Date: Thu, 13 Nov 2025 15:02:45 +0000
 MIME-Version: 1.0
-References: <20251110173334.234303-1-vincent.guittot@linaro.org>
- <20251110173334.234303-4-vincent.guittot@linaro.org> <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
-In-Reply-To: <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 13 Nov 2025 15:44:58 +0100
-X-Gm-Features: AWmQ_bkvZNjQ1Qh_dA2hcZ-2KrSCoqn4Hw9CqqUeyqhk9LfBW4EldGpwJgFMJrs
-Message-ID: <CAKfTPtDCysLA6TLxUnP8-vsD4DwvPz2Ri6R5k6YE4ZtQY0uk8Q@mail.gmail.com>
-Subject: Re: [PATCH 3/4 v4] PCI: s32g: Add initial PCIe support (RC)
-To: Frank Li <Frank.li@nxp.com>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
+ to avoid race conditions
+Content-Language: en-GB
+To: Junhao He <hejunhao3@h-partners.com>, james.clark@linaro.org,
+ anshuman.khandual@arm.com, yeoreum.yun@arm.com, mike.leach@linaro.org,
+ leo.yan@arm.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+ jonathan.cameron@huawei.com
+References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
+ <20251111122149.1981162-3-hejunhao3@h-partners.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251111122149.1981162-3-hejunhao3@h-partners.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_064516_074630_C1526B8E 
-X-CRM114-Status: GOOD (  36.57  )
+X-CRM114-CacheID: sfid-20251113_070251_576992_8CB34008 
+X-CRM114-Status: GOOD (  35.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,193 +69,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Nov 2025 at 20:30, Frank Li <Frank.li@nxp.com> wrote:
->
-> On Mon, Nov 10, 2025 at 06:33:33PM +0100, Vincent Guittot wrote:
-> > Add initial support of the PCIe controller for S32G Soc family. Only
-> > host mode is supported.
-> >
-> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  drivers/pci/controller/dwc/Kconfig            |  10 +
-> >  drivers/pci/controller/dwc/Makefile           |   1 +
-> >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  27 ++
-> >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 435 ++++++++++++++++++
-> >  4 files changed, 473 insertions(+)
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> >
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index 349d4657393c..e276956c3fca 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
-> >         in order to enable device-specific features PCIE_TEGRA194_EP must be
-> >         selected. This uses the DesignWare core.
-> >
-> > +config PCIE_NXP_S32G
-> > +     tristate "NXP S32G PCIe controller (host mode)"
-> > +     depends on ARCH_S32 || COMPILE_TEST
-> > +     select PCIE_DW_HOST
-> > +     help
-> > +       Enable support for the PCIe controller in NXP S32G based boards to
-> > +       work in Host mode. The controller is based on DesignWare IP and
-> > +       can work either as RC or EP. In order to enable host-specific
-> > +       features PCIE_NXP_S32G must be selected.
-> > +
-> >  config PCIE_DW_PLAT
-> >       bool
-> >
-> > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-> > index 7ae28f3b0fb3..3301bbbad78c 100644
-> > --- a/drivers/pci/controller/dwc/Makefile
-> > +++ b/drivers/pci/controller/dwc/Makefile
-> > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
-> >  obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
-> >  obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
-> >  obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
-> > +obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
-> >  obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
-> >  obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
-> >  obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > new file mode 100644
-> > index 000000000000..c264446a8f21
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > @@ -0,0 +1,27 @@
-> > +/* SPDX-License-Identifier: GPL-2.0+ */
-> > +/*
-> > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> > + * Copyright 2016-2023, 2025 NXP
-> > + */
-> > +
-> > +#ifndef PCIE_S32G_REGS_H
-> > +#define PCIE_S32G_REGS_H
-> > +
-> > +/* PCIe controller Sub-System */
-> > +
-> > +/* PCIe controller 0 General Control 1 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
-> > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
-> > +#define SRIS_MODE                            BIT(8)
-> > +
-> > +/* PCIe controller 0 General Control 3 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
-> > +#define LTSSM_EN                             BIT(0)
-> > +
-> > +/* PCIe Controller 0 Link Debug 2 */
-> > +#define PCIE_S32G_PE0_LINK_DBG_2             0xB4
-> > +#define SMLH_LTSSM_STATE_MASK                        GENMASK(5, 0)
-> > +#define SMLH_LINK_UP                         BIT(6)
-> > +#define RDLH_LINK_UP                         BIT(7)
-> > +
-> > +#endif  /* PCI_S32G_REGS_H */
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > new file mode 100644
-> > index 000000000000..18bf0fe6f416
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > @@ -0,0 +1,435 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * PCIe host controller driver for NXP S32G SoCs
-> > + *
-> > + * Copyright 2019-2025 NXP
-> > + */
-> > +
-> ...
-> > +
-> > +#define PCIE_LINKUP  (SMLH_LINK_UP | RDLH_LINK_UP)
-> > +
-> > +static bool s32g_has_data_phy_link(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
-> > +
-> > +     if ((reg & PCIE_LINKUP) == PCIE_LINKUP) {
-> > +             switch (FIELD_GET(SMLH_LTSSM_STATE_MASK, reg)) {
-> > +             case DW_PCIE_LTSSM_L0:
-> > +             case DW_PCIE_LTSSM_L0S:
-> > +             case DW_PCIE_LTSSM_L1_IDLE:
-> > +                     return true;
-> > +             default:
-> > +                     return false;
->
-> Are you sure code can go here? I think IP set flag PCIE_LINKUP of
-> PCIE_S32G_PE0_LINK_DBG_2 only after LTSSM in above states. Do you know
-> which case PCIE_LINKUP is true, but LTSSM is not other state?
+Hi Junhao,
 
-I don't have access to such details but can't we have
-DW_PCIE_LTSSM_L123_SEND_EIDLE or other transient state but PCIE_LINKUP
-?
+While your patch fixes the problem it introduces imbalance in the
+way perf vs sysfs modes are handled.
 
->
-> I remember I asked if DEBUG0 register work? any conclusion?
+On 11/11/2025 12:21, Junhao He wrote:
+> From: Junhao He <hejunhao3@huawei.com>
+> 
+> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+> in tmc_etr_enable_hw() is triggered sometimes:
+> 
+>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>   [..snip..]
+>   Call trace:
+>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>    coresight_enable_path+0x1c8/0x218 [coresight]
+>    coresight_enable_sysfs+0xa4/0x228 [coresight]
+>    enable_source_store+0x58/0xa8 [coresight]
+>    dev_attr_store+0x20/0x40
+>    sysfs_kf_write+0x4c/0x68
+>    kernfs_fop_write_iter+0x120/0x1b8
+>    vfs_write+0x2c8/0x388
+>    ksys_write+0x74/0x108
+>    __arm64_sys_write+0x24/0x38
+>    el0_svc_common.constprop.0+0x64/0x148
+>    do_el0_svc+0x24/0x38
+>    el0_svc+0x3c/0x130
+>    el0t_64_sync_handler+0xc8/0xd0
+>    el0t_64_sync+0x1ac/0x1b0
+>   ---[ end trace 0000000000000000 ]---
+> 
+> Since the sysfs buffer allocation and the hardware enablement is not
+> in the same critical region, it's possible to race with the perf
+> 
+> mode:
+>    [sysfs mode]                   [perf mode]
+>    tmc_etr_get_sysfs_buffer()
+>      spin_lock(&drvdata->spinlock)
+>      [sysfs buffer allocation]
+>      spin_unlock(&drvdata->spinlock)
+>                                   spin_lock(&drvdata->spinlock)
+>                                   tmc_etr_enable_hw()
+>                                     drvdata->etr_buf = etr_perf->etr_buf
+>                                   spin_unlock(&drvdata->spinlock)
+>   spin_lock(&drvdata->spinlock)
 
-I mentioned in the cover letter that I was still waiting feedback from
-internal team before switching to DEBUG0 and DEBUG1 and remove
-.get_ltssm() and .link_up()
+^^ Could we not double check the mode here and break out ?
 
-I received the feedback earlier today that I can use DEBUG0 and
-DEBUG1, so I don't need to implement .get_ltssm() and .link_up(). I
-will remove them in the next version
+Something like this :
 
->
-> > +             }
-> > +     }
-> > +
-> > +     return false;
-> > +}
-> > +
->
-> ...
->
-> > +
-> > +static int s32g_pcie_parse_port(struct s32g_pcie *s32g_pp, struct device_node *node)
-> > +{
-> > +     struct device *dev = s32g_pp->pci.dev;
-> > +     struct s32g_pcie_port *port;
-> > +     int num_lanes;
-> > +
-> > +     port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > +     if (!port)
-> > +             return -ENOMEM;
-> > +
-> > +     port->phy = devm_of_phy_get(dev, node, NULL);
-> > +     if (IS_ERR(port->phy))
-> > +             return dev_err_probe(dev, PTR_ERR(port->phy),
-> > +                             "Failed to get serdes PHY\n");
-> > +
-> > +     INIT_LIST_HEAD(&port->list);
-> > +     list_add_tail(&port->list, &s32g_pp->ports);
-> > +
-> > +     /*
-> > +      * The DWC core initialization code cannot parse yet the num-lanes
-> > +      * attribute in the Root Port node. The S32G only supports one Root
-> > +      * Port for now so its driver can parse the node and set the num_lanes
-> > +      * field of struct dwc_pcie before calling dw_pcie_host_init().
-> > +      */
-> > +     if (!of_property_read_u32(node, "num-lanes", &num_lanes))
-> > +             s32g_pp->pci.num_lanes = num_lanes;
->
-> Can you add this to dwc core driver?
->
-> Frank
->
-> > +
-> > +     return 0;
-> > +}
-> > +
-> ...
-> > --
-> > 2.43.0
-> >
+
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
+b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index e0d83ee01b77..2097c57d19d0 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1314,6 +1314,9 @@ static int tmc_enable_etr_sink_sysfs(struct 
+coresight_device *csdev)
+         if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+                 csdev->refcnt++;
+                 goto out;
++       } else if (coresight_get_mode(csdev) != CS_MODE_DISABLED) {
++               ret = -EBUSY;
++               goto out;
+         }
+
+         ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+
+
+Suzuki
+
+
+>   tmc_etr_enable_hw()
+>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
+>                                  the perf side
+>    spin_unlock(&drvdata->spinlock)
+> 
+> A race condition is introduced here, perf always prioritizes execution, and
+> warnings can lead to concerns about potential hidden bugs, such as getting
+> out of sync.
+> 
+> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
+> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
+> enabled in a different mode, and simplily the setup and checks for "mode".
+> To prevent race conditions between mode transitions.
+> 
+> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function for ETR")
+> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
+> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
+> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
+> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
+> ---
+>   .../hwtracing/coresight/coresight-tmc-etr.c   | 106 +++++++++---------
+>   1 file changed, 55 insertions(+), 51 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index b07fcdb3fe1a..fe1d5e8a0d2b 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1263,11 +1263,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>   	}
+>   
+> -	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
+> -		ret = -EBUSY;
+> -		goto out;
+> -	}
+> -
+>   	/*
+>   	 * If we don't have a buffer or it doesn't match the requested size,
+>   	 * use the buffer allocated above. Otherwise reuse the existing buffer.
+> @@ -1278,7 +1273,6 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   		drvdata->sysfs_buf = new_buf;
+>   	}
+>   
+> -out:
+>   	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>   
+>   	/* Free memory outside the spinlock if need be */
+> @@ -1289,7 +1283,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>   
+>   static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>   {
+> -	int ret = 0;
+> +	int ret;
+>   	unsigned long flags;
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
+> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>   
+>   	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>   
+> -	/*
+> -	 * In sysFS mode we can have multiple writers per sink.  Since this
+> -	 * sink is already enabled no memory is needed and the HW need not be
+> -	 * touched, even if the buffer size has changed.
+> -	 */
+> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+> -		csdev->refcnt++;
+> -		goto out;
+> -	}
+> -
+>   	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+> -	if (!ret) {
+> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
+> +	if (!ret)
+>   		csdev->refcnt++;
+> -	}
+>   
+> -out:
+>   	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>   
+>   	if (!ret)
+> @@ -1729,39 +1710,24 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   {
+>   	int rc = 0;
+>   	pid_t pid;
+> -	unsigned long flags;
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	struct perf_output_handle *handle = data;
+>   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+>   
+> -	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+> -	 /* Don't use this sink if it is already claimed by sysFS */
+> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+> -		rc = -EBUSY;
+> -		goto unlock_out;
+> -	}
+> -
+> -	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
+> -		rc = -EINVAL;
+> -		goto unlock_out;
+> -	}
+> +	if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
+> +		return -EINVAL;
+>   
+>   	/* Get a handle on the pid of the session owner */
+>   	pid = etr_perf->pid;
+>   
+>   	/* Do not proceed if this device is associated with another session */
+> -	if (drvdata->pid != -1 && drvdata->pid != pid) {
+> -		rc = -EBUSY;
+> -		goto unlock_out;
+> -	}
+> +	if (drvdata->pid != -1 && drvdata->pid != pid)
+> +		return -EBUSY;
+>   
+> -	/*
+> -	 * No HW configuration is needed if the sink is already in
+> -	 * use for this session.
+> -	 */
+> +	/* The sink is already in use for this session */
+>   	if (drvdata->pid == pid) {
+>   		csdev->refcnt++;
+> -		goto unlock_out;
+> +		return rc;
+>   	}
+>   
+>   	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
+> @@ -1773,22 +1739,60 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   		csdev->refcnt++;
+>   	}
+>   
+> -unlock_out:
+> -	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>   	return rc;
+>   }
+>   
+>   static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>   			       enum cs_mode mode, void *data)
+>   {
+> -	switch (mode) {
+> -	case CS_MODE_SYSFS:
+> -		return tmc_enable_etr_sink_sysfs(csdev);
+> -	case CS_MODE_PERF:
+> -		return tmc_enable_etr_sink_perf(csdev, data);
+> -	default:
+> -		return -EINVAL;
+> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +	int rc;
+> +
+> +retry:
+> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+> +		if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
+> +		    coresight_get_mode(csdev) != mode)
+> +			return -EBUSY;
+> +
+> +		switch (mode) {
+> +		case CS_MODE_SYSFS:
+> +			if (drvdata->reading)
+> +				return -EBUSY;
+> +
+> +			if (csdev->refcnt) {
+> +				/* The sink is already enabled via sysfs */
+> +				csdev->refcnt++;
+> +				return 0;
+> +			}
+> +
+> +			/*
+> +			 * A sysfs session is currently enabling ETR, preventing
+> +			 * a second sysfs process from repeatedly triggering the
+> +			 * enable procedure.
+> +			 */
+> +			if (coresight_get_mode(csdev) == CS_MODE_SYSFS && !csdev->refcnt)
+> +				goto retry;
+> +
+> +			/*
+> +			 * Set ETR to sysfs mode before it is fully enabled, to
+> +			 * prevent race conditions during mode transitions.
+> +			 */
+> +			coresight_set_mode(csdev, mode);
+> +			break;
+> +		case CS_MODE_PERF:
+> +			return tmc_enable_etr_sink_perf(csdev, data);
+> +		default:
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	rc = tmc_enable_etr_sink_sysfs(csdev);
+> +	if (rc) {
+> +		guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
+>   	}
+> +
+> +	return rc;
+>   }
+>   
+>   static int tmc_disable_etr_sink(struct coresight_device *csdev)
+
 
