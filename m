@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF70CD8CA6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A869CD8CA7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj/RGfakRKkYcl4SJ39qFPj323Qz3ct93QXm2CvuRf8=; b=IcSYmDN3JvsEQNt2863P+eZN/t
-	rPaanebgq8yb/jakHmvctsLtL/B+5HRWS+r8yGSQJFZplPAHwz0q5+8jEUERGtWoRvDGUtAV37dWs
-	9QpGFkqJA7jEgZ2ZnbJ4oljzhQCAX6EtyVWql9fZthwHp6w92AgM3OFmPVSzwGCtg5RLdTVxHj7uK
-	hwYu1HbiUHVb1WxQ9LGbik/H/HaNcev7vTH3YLoEdPSa36p7agv9rYInyvDdI4AmB/Me3xl7A3kI0
-	oqXCLRxVz/On4viXux6X1R/aCiga+lOgrCjmMoLViodeoKenVsK5AA7zxJWhZjvvHH8K7f77WGQ1g
-	wRa4PvbA==;
+	bh=rBW+8UXlGGe/TypZCw8KIj5u5+hhXI1l5BzdyD1ProI=; b=AYGLI55waehogmQK3ueBhuxYo8
+	KNCOhq375mBgf686Th+Qmgj0jiilp6sRzMR9JiulkmvJL021ZhI8FQBZxB8QYXdxBXbFwxWdQTdFm
+	AHWsOEB1qlQmA12hxYj8ZDVUPa+2NhzLns14KffjjBa+Cxz+bsZCMqQob4dRyH95czAsX4DNl6zHz
+	Z7dWqU8lrEJtxojzl6IeF/wgWpCpA/XvMJjYS2xJSJLeO2GDc/K2mlZk239fSg1n2zB4AxpKqAvfr
+	tfrQxGBpInXR7OnQwcXB4w6w9W3SdhXXsVm+oDQFg3WMyq5GxzbAynus0KgvxlQvIV3HnE3BA1DEE
+	Ro84j3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJaH9-0000000Ao1j-1EhO;
-	Thu, 13 Nov 2025 16:34:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJaH6-0000000Ao1J-2UAl
+	id 1vJaMZ-0000000AoPJ-3g7p;
+	Thu, 13 Nov 2025 16:39:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJaMW-0000000AoOb-0jF5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 16:34:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9796D42E47;
-	Thu, 13 Nov 2025 16:34:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4A4C4CEF7;
-	Thu, 13 Nov 2025 16:34:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763051659;
-	bh=qN6vkdRA+SD3osdiT+bql8/nbfPL5qfu0t44p2AElEU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CQKMGcvW1owOb8kmjPFGLgUOupZ3TVEvmZc5tLkJE7HljUGcexPhg9cxvMhFTPk7p
-	 6GfpSTvMleUxXNL9kt37fdgfezrp7xQ0DS5MwJPNi49WgIbe4QcM69xfwPGYA6ze5W
-	 12KQRDjQ9WIua/7NQ/s+1ByaWpxedcoYMYaBV+++TxEiac6NliLtRPnLQ935WrBjg2
-	 7naUVuCCaiPTTzp9DxfWOmU9zEZTKzkmWHj0hKFCyjpJt7kSF2PrXrq+ocgw46rcRz
-	 iXjlqfsmCIqsO4TBkBrFf/tbr8t9qEgw8Aw2vM9fG9pkNYVoiqyvm+c8GT6sLqw8vP
-	 Zuv9OeCZd/ngw==
-Message-ID: <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org>
-Date: Thu, 13 Nov 2025 17:34:14 +0100
+	Thu, 13 Nov 2025 16:39:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D13412FC;
+	Thu, 13 Nov 2025 08:39:47 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D5713F5A1;
+	Thu, 13 Nov 2025 08:39:50 -0800 (PST)
+Message-ID: <47603a3c-e94d-4452-9f09-0e27ff02e18b@arm.com>
+Date: Thu, 13 Nov 2025 16:39:48 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for
- frankel/blazer/mustang
-To: Doug Anderson <dianders@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- linux-samsung-soc@vger.kernel.org, Roy Luo <royluo@google.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Chen-Yu Tsai <wenst@chromium.org>, Julius Werner <jwerner@chromium.org>,
- William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
- <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org>
- <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
- <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
- <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 11/33] arm_mpam: Add the class and component structures
+ for firmware described ris
+To: Fenghua Yu <fenghuay@nvidia.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-12-ben.horgan@arm.com>
+ <316b04af-2005-47f0-887d-6e9d4031df5b@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
+In-Reply-To: <316b04af-2005-47f0-887d-6e9d4031df5b@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_083420_695075_311536FD 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20251113_083956_255366_7AED9101 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,87 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2025 17:23, Doug Anderson wrote:
-> Hi,
+Hi Fenghua,
+
+On 11/13/25 03:23, Fenghua Yu wrote:
+> Hi, Ben and James,
 > 
-> On Wed, Nov 12, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->>>>> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
->>>>> +      - description: Tensor G5 SoC (laguna)
->>>>> +        items:
->>>>> +          - enum:
->>>>> +              - google,soc-id-0005-rev-00  # A0
->>>>> +              - google,soc-id-0005-rev-10  # B0
->>>>
->>>> SoCs cannot be final compatibles.
->>>
->>> Right. I talked about this at length "after the cut" in my patch. See
->>> above. I wish to relitigate this policy and wish to know more details
->>> about where it is documented, the reasons for decision, and where the
->>> boundary exactly lies between something that's allowed to be a final
->>> compatible and something that's not. I made several arguments above
->>> for why I think the SoC should be allowed as a final compatible, so it
->>
->> Because this represents a actual device users run. It is electronically,
->> physically impossible to run the SoC alone.
+> On 11/7/25 04:34, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
 > 
-> I'm not convinced that this definition is as clear as you're making it
-> out to be. It's physically impossible to run many "boards" alone.
+> [SNIP]
 > 
-> Want to boot up a Raspberry Pi? Provide it with power. Hook up a
-> display to it. Hook up a keyboard to it. Plug in an Ethernet cable.
-> Plug an SD card in it. Without those things it doesn't run.
-
-But I can plug them...
-
+>> +static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+>> +                  enum mpam_class_types type, u8 class_id,
+>> +                  int component_id)
+>> +{
+>> +    int err;
+>> +    struct mpam_vmsc *vmsc;
+>> +    struct mpam_msc_ris *ris;
+>> +    struct mpam_class *class;
+>> +    struct mpam_component *comp;
+>> +    struct platform_device *pdev = msc->pdev;
+>> +
+>> +    lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +    if (ris_idx > MPAM_MSC_MAX_NUM_RIS)
+>> +        return -EINVAL;
+>> +
+>> +    if (test_and_set_bit(ris_idx, &msc->ris_idxs))
+>> +        return -EBUSY;
+>> +
+>> +    ris = devm_kzalloc(&msc->pdev->dev, sizeof(*ris), GFP_KERNEL);
+>> +    if (!ris)
+>> +        return -ENOMEM;
 > 
-> Want to boot up a lga-B0 SoC? Hook up power to the power pins. Connect
-> a MIPI panel to the MIPI pins. Connect a UFS chip to the UFS pins.
-> Without those things it doesn't run.
+> The ris_idx bit in msc->ris_idxs is not cleared on error paths in this
+> function. The bit cannot be set again.
+> 
+> Not sure if this is a real problem in any case. Clearing the bit on
+> error paths may be clean code.
 
-These I cannot plug, it's impossible for me.
-
-My clumsy fingers are too big for these pins.
-
-And following your logic, we should have the compatible for the
-transistors, because that's basically what SoC is made of.
+I think this would just add noise. There is no anticipation of any
+functionality after failing to create RIS and I expect there are more
+places in the code where this assumption is relied on.
 
 > 
-> Yes, the complexity of just "hooking up" the components on an SoC is
-> an order of magnitude harder than a Raspberry Pi, but it's still just
-> hooking it up to external components. In both cases, we are modeling
-> the core "brains" (the part that contains the processor) as the DTB
-> and everything else just "hooks up" to interfaces.
-
-You mix the topics, so I don't follow. I speak here about bindings - you
-cannot have the that compatible alone, because it is incomplete, just
-like compatible for "transistor" is not correct in that context. You
-speak what could or could be DTB, different topic.
-
+> [SNIP]
 > 
-> If I had to make a definition for what the base DTB should be it
-> should be the component with the boot CPU. _Why_ is that the wrong
-> definition?
+> Thanks.
 > 
-> 
->> There are few - one or two - exceptions for the SoMs, but never for SoC.
-> 
-> OK, but the big question: _WHY???_
-> 
-> Where does it say that a DTB has to be something that can run "alone"
+> -Fenghua
 
-We don't discuss DTB here, but the top-level compatibles.
+Thanks,
 
-Why? Because DT spec says so.
+Ben
 
-"Specifies a list of platform architectures with which this platform is
-compatible. "
-
-And when you combine it with the standard definition of the
-"compatible", it is not *a* "platform architecture" but *list* of
-platform architectures describing this device as a whole.
-
-
-Best regards,
-Krzysztof
 
