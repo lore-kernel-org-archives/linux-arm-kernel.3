@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D89ECD6E44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47B0CD6E41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jTDAmGHp1q5/xTe6V0Q92rmBn/VAPbs3Cn95LO6lU9o=; b=io/nGMuZ8BlT6FuMSlBdoyvj8j
-	ZlgIWHOJ+E/MRkNofyt+YU4EosKrKyTwrLaozMkkB8PdR/GjNGch50uemcW/f/dqoxf1XpY+D5ZXf
-	RH9aWvMk43glFY5WnV6v1yWVS4wyBbomTJbtZJzCyMalsCUJq5xb/hzLEPurDVxJKfGDhyH2WROdN
-	HbFuYiA5FL1WrDXeP3kgzajNAtjX1NimEUP0rWbQHgwNF5MFXHfe50VTPD8nFuFrTsnQlSd1CiwRn
-	33iH6WfkN6pp1z4NcYnN3eP2W473oIC4epBcH9HD9g+Gae/atrkFLAV5cRNh45TbGiHLRfvrTsyTe
-	rOHvV5RQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3n7VgvFCLSz8JV7XPuzRdpY4FKOAm8fRWH1je80ytA=; b=Lwy0YV+aGtOuzUAJzmFZpRr0qu
+	YzGfBIqNXbi4p3vAnE0eZIqwMIuBp7snoOfFkWv1z1Ege/eDeSH8j2SKRsPuflKhSS9AOgkV7HSaq
+	51urHOvcBCCUNEZkHqgUrz2kw0H+SYQZ43LCdMHFKBlne8VtTOjJ9o2VPAOdwycLRhMVxtyxhRNVs
+	wWFuRjAKbSKYII9y1mID/Iepgm1qZd9Iz7547Qw2NzTOc/ABt/0FQCv5AzDWb21EIfFL9Z6ZQ1YWq
+	Ti8E1qYBHBy3yrAsIxBqd3rc26+GjpA6Qx81aRVweLPnYv0MBweVqpDFIK9m9UdjQYyVaEzOe42dG
+	Ln2UlS2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJWag-0000000ATKj-2eSM;
-	Thu, 13 Nov 2025 12:38:18 +0000
+	id 1vJWar-0000000ATMh-3yr6;
+	Thu, 13 Nov 2025 12:38:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJWae-0000000ATKI-0hzA
+	id 1vJWap-0000000ATLs-0Sr3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 12:38:17 +0000
+	Thu, 13 Nov 2025 12:38:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A64B34428E;
-	Thu, 13 Nov 2025 12:38:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D95AC4CEF8;
-	Thu, 13 Nov 2025 12:38:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C95B8406D2;
+	Thu, 13 Nov 2025 12:38:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E0DC19424;
+	Thu, 13 Nov 2025 12:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763037492;
-	bh=25tS6q1AZItoMjE4RRfXKyei13//Mr24PudR3vNckio=;
-	h=From:To:Cc:Subject:Date:From;
-	b=vHg4vXRN92JvP3p4h2LoLuD1MDwBbqu4piKyhRd1tXZIkgEiDQM5YoWGSbPAjeXBN
-	 UCWvWRhBdhmZ2U6eaOVNvIakAH0H26L/w3FN1lS+LdfjDR1zOYfeukkrRnMNu0twk8
-	 hOOBqLyYTch3poaZMmaJ9tHotZwkxf8YbVzBIQcYmqD9jJKLqIJg5Dm/pIjW9MfcI9
-	 jhqm3XxVWdUF1Leh92aQA08Au0lSPGd9uNheCbPZlrILtFxy8KxtkpjMbmgBi0tSVV
-	 yQ/iufs2ppFWm8EbSJcR/90Jz7yKStgxo1jQ/s/hUV/CS8a8znVmJSbPrp99SQW3ej
-	 MdkqW3BGskd8w==
+	s=k20201202; t=1763037506;
+	bh=YnnW7zN+aKxuUBmWBuWqRRKoptp3OePRxKnEM6fAzmA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eakqP6OLvQySInHmGJPnCvI6x0YzqEvAB/m/d5qTanF1B1Z93+W8G3F71AxCBLLpu
+	 Q3QuVL6855HtTW4TzGMdkJgXyCn3vGgFRgqJhAzSluxdOhy8Cpz+Ik3VcY+LLxOzZB
+	 ZhBygtK0ivDcM4L8GU+XRZB6mmaQEtwwWc2iSXdp/NmvV7KVrBRBb31Wvp2Z2dKBPo
+	 oYb2jpNBnuKPNb/Atl07i9GOgCdI9cw0IovQQbB2l/cm8bcqDzwe/Fk0uqakxrf0c3
+	 xQ05qt2TZhhzfqUebUeGBbWnfItTZPFJiO0+jdQDEF5Vuk7eZVT2wz3pNY/j/58MYr
+	 cSdhPzu7v6z5Q==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Steven Rostedt <rostedt@kernel.org>,
 	Florent Revest <revest@google.com>,
@@ -55,15 +55,17 @@ Cc: bpf@vger.kernel.org,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Menglong Dong <menglong8.dong@gmail.com>,
 	Song Liu <song@kernel.org>
-Subject: [PATCHv2 bpf-next 0/9] ftrace,bpf: Use single direct ops for bpf trampolines
-Date: Thu, 13 Nov 2025 13:37:42 +0100
-Message-ID: <20251113123750.2507435-1-jolsa@kernel.org>
+Subject: [PATCHv2 bpf-next 1/8] ftrace: Make alloc_and_copy_ftrace_hash direct friendly
+Date: Thu, 13 Nov 2025 13:37:43 +0100
+Message-ID: <20251113123750.2507435-2-jolsa@kernel.org>
 X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251113123750.2507435-1-jolsa@kernel.org>
+References: <20251113123750.2507435-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_043816_249968_1B107F85 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20251113_043827_168960_14FE6C3D 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hi,
-while poking the multi-tracing interface I ended up with just one ftrace_ops
-object to attach all trampolines.
+Make alloc_and_copy_ftrace_hash to copy also direct address
+for each hash entry.
 
-This change allows to use less direct API calls during the attachment changes
-in the future code, so in effect speeding up the attachment.
-
-In current code we get a speed up from using just a single ftrace_ops object.
-
-- with current code:
-
-  Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
-
-     6,364,157,902      cycles:k
-       828,728,902      cycles:u
-     1,064,803,824      instructions:u                   #    1.28  insn per cycle
-    23,797,500,067      instructions:k                   #    3.74  insn per cycle
-
-       4.416004987 seconds time elapsed
-
-       0.164121000 seconds user
-       1.289550000 seconds sys
-
-
-- with the fix:
-
-   Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
-
-     6,535,857,905      cycles:k
-       810,809,429      cycles:u
-     1,064,594,027      instructions:u                   #    1.31  insn per cycle
-    23,962,552,894      instructions:k                   #    3.67  insn per cycle
-
-       1.666961239 seconds time elapsed
-
-       0.157412000 seconds user
-       1.283396000 seconds sys
-
-
-
-The speedup seems to be related to the fact that with single ftrace_ops object
-we don't call ftrace_shutdown anymore (we use ftrace_update_ops instead) and
-we skip the synchronize rcu calls (each ~100ms) at the end of that function.
-
-
-rfc: https://lore.kernel.org/bpf/20250729102813.1531457-1-jolsa@kernel.org/
-v1:  https://lore.kernel.org/bpf/20250923215147.1571952-1-jolsa@kernel.org/
-
-v2 changes:
-- rebased on top fo bpf-next/master plus Song's livepatch fixes [1] 
-- renamed the API functions [2] [Steven]
-- do not export the new api [Steven]
-- kept the original direct interface:
-
-  I'm not sure if we want to melt both *_ftrace_direct and the new interface
-  into single one. It's bit different in semantic (hence the name change as
-  Steven suggested [2]) and I don't think the changes are not that big so
-  we could easily keep both APIs.
-
-v1 changes:
-- make the change x86 specific, after discussing with Mark options for
-  arm64 [Mark]
-
-thanks,
-jirka
-
-
-[1] https://lore.kernel.org/bpf/20251027175023.1521602-1-song@kernel.org/
-[2] https://lore.kernel.org/bpf/20250924050415.4aefcb91@batman.local.home/
+Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
-Jiri Olsa (8):
-      ftrace: Make alloc_and_copy_ftrace_hash direct friendly
-      ftrace: Export some of hash related functions
-      ftrace: Add update_ftrace_direct_add function
-      ftrace: Add update_ftrace_direct_del function
-      ftrace: Add update_ftrace_direct_mod function
-      bpf: Add trampoline ip hash table
-      ftrace: Factor ftrace_ops ops_func interface
-      bpf, x86: Use single ftrace_ops for direct calls
+ kernel/trace/ftrace.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
- arch/x86/Kconfig        |   1 +
- include/linux/bpf.h     |   7 ++-
- include/linux/ftrace.h  |  37 ++++++++++++++-
- kernel/bpf/trampoline.c | 199 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------
- kernel/trace/Kconfig    |   3 ++
- kernel/trace/ftrace.c   | 326 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
- kernel/trace/trace.h    |   8 ----
- 7 files changed, 532 insertions(+), 49 deletions(-)
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 59cfacb8a5bb..0e3714b796d9 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -1186,7 +1186,7 @@ static void __add_hash_entry(struct ftrace_hash *hash,
+ }
+ 
+ static struct ftrace_func_entry *
+-add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
++add_hash_entry_direct(struct ftrace_hash *hash, unsigned long ip, unsigned long direct)
+ {
+ 	struct ftrace_func_entry *entry;
+ 
+@@ -1195,11 +1195,18 @@ add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
+ 		return NULL;
+ 
+ 	entry->ip = ip;
++	entry->direct = direct;
+ 	__add_hash_entry(hash, entry);
+ 
+ 	return entry;
+ }
+ 
++static struct ftrace_func_entry *
++add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
++{
++	return add_hash_entry_direct(hash, ip, 0);
++}
++
+ static void
+ free_hash_entry(struct ftrace_hash *hash,
+ 		  struct ftrace_func_entry *entry)
+@@ -1372,7 +1379,7 @@ alloc_and_copy_ftrace_hash(int size_bits, struct ftrace_hash *hash)
+ 	size = 1 << hash->size_bits;
+ 	for (i = 0; i < size; i++) {
+ 		hlist_for_each_entry(entry, &hash->buckets[i], hlist) {
+-			if (add_hash_entry(new_hash, entry->ip) == NULL)
++			if (add_hash_entry_direct(new_hash, entry->ip, entry->direct) == NULL)
+ 				goto free_hash;
+ 		}
+ 	}
+-- 
+2.51.1
+
 
