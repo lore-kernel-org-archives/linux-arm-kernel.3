@@ -4,79 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E81CD5BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7412ACD5BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYdX7jPld9MHxC/2N/BdveINDqwOk1bdDkzTmhtgkOU=; b=MqHtPeVSQ5banTjbnHe0yuWOA4
-	sLVthiPi7F0IJAYvgZ77oIZoDw87Nvg4+EJNM2vO5Gvy3jVAw34hbz2kPeaflhMHIcQw2mPr9pRwO
-	X87CxMr22XTr4LQEHSb4uWIdgUVVP3ACrINR6lMY83/rjF1DPUU6ghHlFnguIy8IqF3M/eGzC2xbl
-	LxPgKKo2K758rzEauKnoP7ncEO+OermFRKhMiyXtxycA3EMDq7cA/Z5CJ7/fYcRt6pd//524m1fS6
-	j7Hkwu9g8B7hs/+Vrg6S7gV4053Wa9VZApTPSx/+C4UqhSUn2UbSO0yFoOt0fnTy8WIeDfYcgBH/2
-	Dbm1vj1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=; b=RD933AMKlvfiBv8f0h44HrzuVy
+	HPEEJbCeAWLpb/9RpRpQaVuw6RICKIFcEdNhM+LpmsgSanz8b95f1PWdFLi6iQTNqj1YfJAerug+9
+	YTHQ8ZRJvqRbtVdd7HBT7crbqRteKS3H8DuO+PO24DGed78gsBD7SYCCxiiz6GLzd1AXYOHa9HcEF
+	/a1JEptmu/rJeeKliyk+VDd0o1OxR1J30hFrrzIsaZpP0ddOYJ2Wpn/eBkvcsdSr1UI66U7XsPxCD
+	5QJcapGGPERufUUMgbRQJTEArBnKlIsy24rIp786a6X3LjDPFyTnlJSTRCB8UiQDmrdlLWkXImt+p
+	+X1ZS0Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVEN-0000000AMw5-27Zq;
-	Thu, 13 Nov 2025 11:11:11 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1vJVHH-0000000AN9J-2f7I;
+	Thu, 13 Nov 2025 11:14:11 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVEI-0000000AMv2-3DaQ
+	id 1vJVHG-0000000AN8n-0Dkq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 11:11:10 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=sYdX7jPld9MHxC/2N/BdveINDqwOk1bdDkzTmhtgkOU=;
-	b=wkgAbgOj/Uyjk7TB32BI8+jld98422LU2nbkIaBXSanzYHVi6qJph7P+LYaPeIHyxTIgLssdk
-	NQu5KsJuHwWmg2eHARW+n+NAqI8UehAXAc67lMDLPw4XFhrBllr1+6vcAwL6U9EC1JXIXpDVMd7
-	26SAoBvKW98bxHl/K+3zxXw=
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4d6cwR1YknzKm5S;
-	Thu, 13 Nov 2025 19:09:11 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id F095D180044;
-	Thu, 13 Nov 2025 19:10:51 +0800 (CST)
-Received: from kwepemq200001.china.huawei.com (7.202.195.16) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Nov 2025 19:10:51 +0800
-Received: from [10.67.120.171] (10.67.120.171) by
- kwepemq200001.china.huawei.com (7.202.195.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Nov 2025 19:10:51 +0800
-Message-ID: <fb2412cd-7417-4d65-9dea-d166a3bd146f@huawei.com>
-Date: Thu, 13 Nov 2025 19:10:50 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/4] io-128-nonatomic: introduce
- io{read|write}128_{lo_hi|hi_lo}
-To: Ben Dooks <ben.dooks@codethink.co.uk>, <arnd@arndb.de>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<anshuman.khandual@arm.com>, <ryan.roberts@arm.com>,
-	<andriy.shevchenko@linux.intel.com>, <herbert@gondor.apana.org.au>,
-	<linux-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-crypto@vger.kernel.org>,
-	<linux-api@vger.kernel.org>
-CC: <fanghao11@huawei.com>, <shenyang39@huawei.com>, <liulongfang@huawei.com>,
-	<qianweili@huawei.com>
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
- <20251112015846.1842207-4-huangchenghai2@huawei.com>
- <59f8bc30-c1c6-4f07-87dd-cd2893ae87f7@codethink.co.uk>
-From: huangchenghai <huangchenghai2@huawei.com>
-Content-Language: en-US
-In-Reply-To: <59f8bc30-c1c6-4f07-87dd-cd2893ae87f7@codethink.co.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	Thu, 13 Nov 2025 11:14:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=va36n8R5MGj+f0y49gfAoGwtmf9eNyepS6SnthYRlbaUGF15O0PcF2P01A1clXaIIHbJymcw7sJqfIxZGdmwmkac3AfFRp97fRM0wqxUx/ZG74meff2J3iRmf+asjyYdrSTcImPECaA3Hy2VTxXBSy7YHYFu8jeziiy5o/DWYS50/SOxa1hMSZ/kSEwdnFYuZUXXZIOFn0A5uZ2Z0wwd8ndNyL0JXadQGJ/n2AcJrtrhbLamoDn4PXge6Yy0BueCmQ2rBTRKg9WdBHZLjoWu/+t262PCKMSSMgUMtIVM+CRMsUehUxzGRs7OzVa3q977cKz3qN8UcxL3gs0NHklw/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=;
+ b=Yp9CacuZNpvhKdfXyPJRuf5S6DcJPygJj9SnVnG3b8R4dvf9/U6oAmu5bDI/DiUh54lQBjtNdvUdTs+yIn9DU3qVKVhAYbWp0upTayeDGwLULURW0QpjqE1oiTYkMVZ8atrccLuf7TzRCgavopKMjz0F4AgTaGA5jyMzDAvR7cNv87KsB7PUvZek7BSPIn4IKMrFC0zYQCoJSXqvkqWxnttPlBLpfl6sc1FRQsaCkEDVza1WEAug+3lb2UhnxkMJlM5Fvnqn1dxbGi1+jL+S/skqRzS508FUCorwtGV8kgN2EHqIBYYgQeNoorS9OHOoRpncF+BPsj9I0zndCjxkCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=;
+ b=MSnQK54wRGv/yflSLjQ4/lEVAus8mUbVjvs2BUrdpPL7Qkyph0r6SFwQ+E+APoES+9hnPo+7P1NeEoLUyqSe3rOpngQ7UftJtRx0VN5jyo/SR6zx3tND19YFzQNJloV85UAcd8bDYkx9fysoJ4pbz8ZDMU52RHbFaCA+0I2HTvc85Evs05RGlFDiTT0v5c46DG1R6LUGTwaBECCEThM32aQW+pQgZuaRFuKIFkUJn18aZM0Z8jLTps7faojx+EYp70JyOUQlNVzVQQ5Cy+63A/35XUDUge3mEZqNnZWtU3BRLJ8YyYu017Bi1wXz1VA0mnYxFZkjFt3FL8x1IGyixA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8825.eurprd04.prod.outlook.com (2603:10a6:20b:408::7)
+ by AS4PR04MB9364.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Thu, 13 Nov
+ 2025 11:14:03 +0000
+Received: from AM9PR04MB8825.eurprd04.prod.outlook.com
+ ([fe80::67fa:3e46:acd8:78d0]) by AM9PR04MB8825.eurprd04.prod.outlook.com
+ ([fe80::67fa:3e46:acd8:78d0%3]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
+ 11:14:03 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	Frank.Li@nxp.com,
+	jun.li@nxp.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8qm-mek: fix mux-controller select/enable-gpios polarity
+Date: Thu, 13 Nov 2025 19:14:44 +0800
+Message-Id: <20251113111444.888985-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.171]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq200001.china.huawei.com (7.202.195.16)
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
+ (2603:1096:4:194::18) To AM9PR04MB8825.eurprd04.prod.outlook.com
+ (2603:10a6:20b:408::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8825:EE_|AS4PR04MB9364:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e83ec15-dfe3-4743-9c32-08de22a5c088
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|19092799006|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HLKaMJhvDmzNIswCXg7Abcm1URPFBKf2pZO6xu9ibDN6+x6VnCNzu2WGeEoO?=
+ =?us-ascii?Q?Bs2wxsigI0ECVmusfg5ebeeC9oQZIjpMKZaisE+6sCiawYE4zajZqZ1Xm3+D?=
+ =?us-ascii?Q?d2gYedrAxVsfv0t2EaQift8WHShxSsAe0F6vc0av/NPeOF3GOUeLd1R/pd7N?=
+ =?us-ascii?Q?VGNMJEgcwvdO8oAGqHGKLmo+RbtfWCED2uo5JFqQvqqpH8zdE/mUtbZ9aBLL?=
+ =?us-ascii?Q?VJd5dQehjV33rQ/ppfMpcR0HQOibgPnJXibxPoBT4pO8lvXigcAztsDfh3ut?=
+ =?us-ascii?Q?RuO+E9qvhrGOWa1k3RgIrr4mRuGlRwkwN0HaQkpdQgJsVVMatqkFyHs6rlyf?=
+ =?us-ascii?Q?iZTZ3yrLb3fbMF1FPB3AyOZikEOdjfjRT5g9r64l0dJT+Zvo3/pn5ffvyXZu?=
+ =?us-ascii?Q?1BabnhQAWodM1gKlROhKpFwbkX4PeMvdV41SnO++d9Vx3gARjMhF6jyKiTg3?=
+ =?us-ascii?Q?EA+uFkGZ5dcFIrWRBmaCd2UuUP8sAcF7QWZW1UZJFz1ecD6nzVaqAh84FCsf?=
+ =?us-ascii?Q?mMKvRJLmtPfhCTKNo77UYPy7eEiIRP9zvoIa7Zsyimu/nPzm3L6gSCo+b/rR?=
+ =?us-ascii?Q?T/YF8W8+OTzjSz79xvbJzvF27lp/SsJhkETxQEpycjbQRhORbFe8dhfWdPuu?=
+ =?us-ascii?Q?96WqHrfvOUDK77s8kTTJ18nG7A4U/vyGRZjP4oG2CQDzSLfFd33UO+8Bq63e?=
+ =?us-ascii?Q?C/JfIQe6SvvsPPPo5guE8kn0n+H99r3K0lIIn3M8VwyAKOnMO8oi43ADhwe+?=
+ =?us-ascii?Q?vaKzfI4kHvQvyxSxtzPAGmtGr1fqT304kQoXbcbztUE/2FtjSDIgrsz+QgMe?=
+ =?us-ascii?Q?RNcL91j1CsWFf9GpZM05uRrlU9AY9AZQETk+Q2ARje4eofqXqWQZTa62ARH8?=
+ =?us-ascii?Q?3Y4IkqmfjTRP2AUW57PosJfPPhhwXzgywdTtCuDfhU+9KoKBWPd7x5t8J80L?=
+ =?us-ascii?Q?RrUmr4dxrU51c/ra+aMQ26Jb7Bs5vMd2Bq8MXyiKE+MkA8rqY0OCnDh8Ijqq?=
+ =?us-ascii?Q?uu0A45W7dZ0QxituN4ZEZ3OR1nxqfXYiJ/2xco/jaVbWNX6SdGi3gPTO/JSh?=
+ =?us-ascii?Q?3ucPRlErQbVW6WhCqUU1LuA0zYopJ0GNDDbwRefWzi1cq3lQpMaKw5/SXidj?=
+ =?us-ascii?Q?BbJfM00Z7f59j5DylrLjZY0bRC60v0VJBoGihRSUIJrMDvbmge1/RSEUYG1g?=
+ =?us-ascii?Q?XOqPWO7xri+HlrnJs+Pan7qufRgwNc4tr6Q6+3hwRKY9ARnvLscKzn3wDwo3?=
+ =?us-ascii?Q?IgZo2VDPc3JLkAHVMZ4fMo3XPzpIaLU1SaHqsYMStHPWLArB1vjfCTqvMbZy?=
+ =?us-ascii?Q?BZoaGfPEDb0i71Gh1suv4fkDsvXBTznB4hbu3B09l3ivGXY8ce9W0Wg0IwGz?=
+ =?us-ascii?Q?25oU3ulCZliLcC/4/ZoW1zM6fgcO+8Hotz3hoBDpzC6hMjxnkDzAC3CHyyUk?=
+ =?us-ascii?Q?Eu+/3nyrGwWHv5UyN2vZM3hBQfbf7FupkRkO9/p//iNSSOFbIbTuOalVgmct?=
+ =?us-ascii?Q?xQcU79lKL9LyjMBOC48fa22RpQ591VToGt7j?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8825.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(19092799006)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z/n2c0zOQIbSANVhFh0n9fyhq6EdxBKnXBlOPL8DsL/UF5I9WNzv7X5efYBR?=
+ =?us-ascii?Q?ue0/ezaC1A4PJY2zr6nZXW9yDq5uajj5RBmMW9FXQWUOunTEGKHZHchZ6k2r?=
+ =?us-ascii?Q?nSvROnSXVkasnpLZc30GOIJc1Uqtb8ukQz2K5LDvQZcgkU5n/l3R/qhX+4Qj?=
+ =?us-ascii?Q?d2Gas5RP1o9wcpcGTEG3ZDNG2Sh77MLJL99EJ502M4RQ1QZLQLqQ6W7fC2IH?=
+ =?us-ascii?Q?Wdgm0yTKNCbuSrhui/88j1bD/9ZRPMP7dJ5X5VmkA15nhEZTFuNyI7HCSpkP?=
+ =?us-ascii?Q?sAeh+H+rHrKP53Wvi2przMpmcCtqILZaWBSS+sQI4hjmIahHvYMf65lVROMk?=
+ =?us-ascii?Q?0BGla7CD6dj8z8RfQPhbA3IbiNW3zzpmgRU9x0CKWkH8i/zC25znMfVjImBp?=
+ =?us-ascii?Q?X83R/1Uu3+FtUBvHIqgGSeK4Ycm3ilemFEFy1j4N0pBlLK16nVhVz9H9/44E?=
+ =?us-ascii?Q?/TLuWa1r2cEXSz1KvlnJj3+8gbZ05/KG/b3q51KYOxVO0EdihpXuClUz+9g7?=
+ =?us-ascii?Q?JqrZIK7UuSEc2vkDZpg5zwqs2JRkqoyxc6YBvg8V6HpedHUIal1ageZcTRYr?=
+ =?us-ascii?Q?iHbaMG6Xx//xDTCKtQ4FvKzeByhf4tdgcVPFpLScsybzf5ceGh8XO4y9AETR?=
+ =?us-ascii?Q?6JCc8BjPPMZr8iY3Y/p7PMtCoyvOXMrVxoi9PTJYAlZgIzc15I0K+YfYIqgu?=
+ =?us-ascii?Q?3g+NI5QmgTCamh8zZbJMC0EIsWDHyxTnzc2YLx7ZNrRv0zDxqeulN/iTJ7q4?=
+ =?us-ascii?Q?hh0KnZjiT7AONOiN2UPOHMfkKxk0HUR/45KMJDjpPweznn2k6auL31b5q/Br?=
+ =?us-ascii?Q?LVpoJ7BAnS9//5S9YoiLo4+J29mmOnKPhE8fcFrtAirBj/f2wv4bImD+PhdH?=
+ =?us-ascii?Q?TyPCBqaAjcWZ77ffiz7GMMHnR+3cDA30eVg8K1QKrgIRecXo/MhY1vCgMs6/?=
+ =?us-ascii?Q?MJzJjhXeXyHsWRyNWnuTVxzXZVz6poPAPoNWxYdO6RitlldEYq7VQ47EnBeL?=
+ =?us-ascii?Q?TFoG8NUX4d2lnjsdMYmVMPepwQ3Mf/EndLGbnbPa0iyNGd+rBb6YqWv3tkCo?=
+ =?us-ascii?Q?QYknb1mH7X7X0++1diUmYA9osrLvIebdySVutTouyRfnCYYsB8a4bfdPExq3?=
+ =?us-ascii?Q?Tn0sHKvVnw+pAKKmCADIWpXSr3lpFm+aP6onawToOj2Z7229JtZZEjeMm2ob?=
+ =?us-ascii?Q?ThzB6zzCrTTPeBfRybMe3DxacCJtYJhtiYfVz1CX9NjPanCEMta8QoghwFO9?=
+ =?us-ascii?Q?X4FLkDB5616K0dHEus2JYOvGIB1A65CqbRpacFPNl8dxE/A6/smtyiVzrI0G?=
+ =?us-ascii?Q?rfWELytXoDxPbcSdxq/7bhxP4hC9nx9k+3pzOfSvQQcjGPE4nSlbIBBBGhak?=
+ =?us-ascii?Q?wkHckO8eEk/bOZ8ij6ApKdyHx6kIcooZhqH9wploLW64VG53GIJzFuX37mVi?=
+ =?us-ascii?Q?DTj0V73odldA70G2dYTRYROS5ZS1dVTAOR+/D5E+oBGbhl8p2U6tDUuouAmR?=
+ =?us-ascii?Q?xTcvgFAJhkiNumtljVW4ldpXd3vjhYTSgC366z8p8BuPFYnysb8kuVUy34hA?=
+ =?us-ascii?Q?1RrXMWeHeqe05qxtFOq8dqNtE8R+UjQ8PKzgY3bx?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e83ec15-dfe3-4743-9c32-08de22a5c088
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8825.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 11:14:03.2071
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jl+LU7ZwytuqUw+IucmgnA1Seky1Wpd/261ztpHgPP/cof8bzE0KZreVNEBHIsiwsn2zSTf7aeg5HO+hiV74cQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9364
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_031107_370511_03ED80CB 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20251113_031410_106360_0FCB992F 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,64 +165,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+According to the board design, set SEL to high means flipped
+connection (TX2/RX2). And the TCPM will output logical 1 if it needs
+flipped connection. So switch to active high for select-gpios.
+The EN pin on mux chip is low active, so switch to active low for
+enable-gpios too.
 
-在 2025/11/12 22:48, Ben Dooks 写道:
-> On 12/11/2025 01:58, Chenghai Huang wrote:
->> From: Weili Qian <qianweili@huawei.com>
->>
->> In order to provide non-atomic functions for io{read|write}128.
->> We define a number of variants of these functions in the generic
->> iomap that will do non-atomic operations.
->>
->> These functions are only defined if io{read|write}128 are defined.
->> If they are not, then the wrappers that always use non-atomic operations
->> from include/linux/io-128-nonatomic*.h will be used.
->>
->> Signed-off-by: Weili Qian <qianweili@huawei.com>
->> Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
->> ---
->>   include/linux/io-128-nonatomic-hi-lo.h | 35 ++++++++++++++++++++++++++
->>   include/linux/io-128-nonatomic-lo-hi.h | 34 +++++++++++++++++++++++++
->>   2 files changed, 69 insertions(+)
->>   create mode 100644 include/linux/io-128-nonatomic-hi-lo.h
->>   create mode 100644 include/linux/io-128-nonatomic-lo-hi.h
->>
->> diff --git a/include/linux/io-128-nonatomic-hi-lo.h 
->> b/include/linux/io-128-nonatomic-hi-lo.h
->> new file mode 100644
->> index 000000000000..b5b083a9e81b
->> --- /dev/null
->> +++ b/include/linux/io-128-nonatomic-hi-lo.h
->> @@ -0,0 +1,35 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +#ifndef _LINUX_IO_128_NONATOMIC_HI_LO_H_
->> +#define _LINUX_IO_128_NONATOMIC_HI_LO_H_
->> +
->> +#include <linux/io.h>
->> +#include <asm-generic/int-ll64.h>
->> +
->> +static inline u128 ioread128_hi_lo(const void __iomem *addr)
->> +{
->> +    u32 low, high;
->
-> did you mean u64 here?
->
-Thank you for your reminder, I made a rookie mistake.
+Fixes: b237975b2cd5 ("arm64: dts: imx8qm-mek: add usb 3.0 and related type C nodes")
+Cc: stable@vger.kernel.org
+Reviewed-by: Jun Li <jun.li@nxp.com>
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+index 202d5c67ac40..9c0b6b8d6459 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+@@ -217,8 +217,8 @@ mux-controller {
+ 		compatible = "nxp,cbdtu02043", "gpio-sbu-mux";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_typec_mux>;
+-		select-gpios = <&lsio_gpio4 6 GPIO_ACTIVE_LOW>;
+-		enable-gpios = <&lsio_gpio4 19 GPIO_ACTIVE_HIGH>;
++		select-gpios = <&lsio_gpio4 6 GPIO_ACTIVE_HIGH>;
++		enable-gpios = <&lsio_gpio4 19 GPIO_ACTIVE_LOW>;
+ 		orientation-switch;
+ 
+ 		port {
+-- 
+2.34.1
 
-Chenghai
-
->> +    high = ioread64(addr + sizeof(u64));
->> +    low = ioread64(addr);
->> +
->> +    return low + ((u128)high << 64);
->> +}
->> +
->> +static inline void iowrite128_hi_lo(u128 val, void __iomem *addr)
->> +{
->> +    iowrite64(val >> 64, addr + sizeof(u64));
->> +    iowrite64(val, addr);
->> +}
->> +
->
 
