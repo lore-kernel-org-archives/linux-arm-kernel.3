@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E732ACD8CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9379CD8CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H4jjp7axaBvicMbdr4s2WtfV9ES1GnvYOOI9pfOctHo=; b=DnICGVe57ThtlMCNFui3cRGj7o
-	p6jCktwPBUhebiSOtvoa47N5IRxlnIU28x5+DeS+OZcMEAnGEVqNhqA5pi0mit8JV0j3RSr8sJ4LB
-	TtYnjR67CwV4yiT+Vx8nUu0lmxcC+q+ZGCyBAbIwc3I5MNLRgkvBL61FfrEnYSpkKE29AxGr4zg/c
-	KqJXPhivUWs7iPYt3S5s7OgUAbclUmj1Kblpx8l9fEZCtdLE/6aoNF1EmsdUxTi4AX24kUcnTvH7h
-	Et207FWzq3NIF/oto26A1hb0hivwz9WQCACdWWZ/IgH5Luo17OAqjhHXbI6FnEVl9WkOPuM7+NfzW
-	WM4NbQSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vi9owoVH6aUP0fVTf+FUnfCjOSXpbLhfI17rV+VhSrI=; b=k/RcOI6ToUZA9N/T1cZZV3xQ+r
+	vC1pmqoii5kIFqXwhyrvsMX/dpauOPFvCPB0+amY6YJ0c2nlPoLjysFxASdb5zdQujc727KAqPk3W
+	M41L+NeGMwWbGsHbMnIcNx0JrIexmN4cO1FmFdOYjLOK++Cow2sov8dirJ4TqFueYRZaJu2JCGUHw
+	7+T0ap5xeiywdp6B8HbQ5nZR3NcjIFOcWQ5j1mu0D8zONPiRWaJcd3ZmPw9fnZkfQXU5wqqhnE0OF
+	UrOoYY5mbuywdZjypddxp2ruPXeHnm81xT9Ifh1GRdwdWF/2Kds4s3vv1zUSDCsXtO5CzQHD2PGHa
+	gJNl6n2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJazC-0000000ArFn-01zN;
-	Thu, 13 Nov 2025 17:19:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJb4g-0000000ArZ7-0Hfe;
+	Thu, 13 Nov 2025 17:25:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJazA-0000000ArFP-0A4F;
-	Thu, 13 Nov 2025 17:19:53 +0000
+	id 1vJb4e-0000000ArYX-091q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Nov 2025 17:25:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20FB042E34;
-	Thu, 13 Nov 2025 17:19:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7621FC4CEF5;
-	Thu, 13 Nov 2025 17:19:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B999D4362C;
+	Thu, 13 Nov 2025 17:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C55AC4CEF5;
+	Thu, 13 Nov 2025 17:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763054391;
-	bh=YgN1ZBq/zprMvZP9Ny3zoKp3YiLQvdalkDw2OGjAfhk=;
-	h=From:Date:Subject:To:Cc:From;
-	b=gEk3/99qvhItMDJFcO6s/DbvkfrTE+bK/hXx2ga16uTB4dKZb7ESUAWBcUJgqNT+b
-	 tq1cmgodEnrbDGvzdUHUDG2yNRvkcTJGe0JRrB9vtahinldZ0zNupKGsh2ohmkpxtq
-	 BGJew8PK6u4wcocyjYuJ3m/O/x2597arfVwiZnBGRARg2A0MLovNtLBOTb7LFVCnAj
-	 MywOH/o3MwQDnQC/k2x80K/eWDJyO0IvYu8XEMyMXYpt1yPTbkVKbUjmKXVSZcKMWL
-	 Dt610IRqeO/QlvyyKCBEEg6uf11XG9g3CfqTTqHt3Plpwj7wW1hL4sliMaBsV9gUFm
-	 ox3Q64+okmQyg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 13 Nov 2025 18:19:38 +0100
-Subject: [PATCH net] net: airoha: Do not loopback traffic to GDM2 if it is
- available on the device
+	s=k20201202; t=1763054730;
+	bh=MGcf2zVIHQnkSUY5McLemWtDefzifDwz1x3OzNPv4CY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=fKlg/TxrqZ9J/vGmga9SZoE7TIeaZuqsEmxyMSIzWzombRjl7vqVjMQQ1wEoQy7JO
+	 ntU0myS4O9Qh+/lpm1MQ4Jv38hDKApDPJ/YZia+126dHRJ/1UxUPCgSpyIWtgFMLyB
+	 zOZe+ZzEo0HO+4qfo/2Tvt57cH2JAQyG1za+ZhwIsZWZvUIiAPJbTU5YePER+1ceXa
+	 wYhBXpQCw7xOOLKy52yHBNUz5IX4IwfTMmsIqAx34wF9leG2kTXiBOs6kGx7UOxlrD
+	 7AA0n0rTj38dunjHmLdrTOIDpksBGvPaUOn7CrA3bPx0IUlDBqgvtk76G4VdIYUk7/
+	 L76pRuohXdFtQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJb4a-00000004xKh-0h6Q;
+	Thu, 13 Nov 2025 17:25:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: [PATCH] KVM: arm64: GICv3: Check the implementation before accessing ICH_VTR_EL2
+Date: Thu, 13 Nov 2025 17:25:24 +0000
+Message-ID: <20251113172524.2795158-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251113-airoha-hw-offload-gdm2-fix-v1-1-7e4ca300872f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACkTFmkC/x3MQQqAIBBA0avErBtIK6iuEi0sZ3KgMhQqkO6et
- Hx/8RNECkIRhiJBoEui+CNDlQUszhwrodhs0JVulVI1GgneGXQ3eubNG4ur3TWyPKh7brizXLU
- zQx6cgXL+5+P0vh8gh6zqbAAAAA==
-X-Change-ID: 20251113-airoha-hw-offload-gdm2-fix-29f4f8df05bf
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, m.szyprowski@samsung.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_091952_107102_4F706049 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251113_092532_110763_FB9C175F 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha_eth driver forwards offloaded uplink traffic (packets received on
-GDM1 and forwarded to GDM{3,4}) to GDM2 in order to apply hw QoS.
-This is correct if the device does not support a dedicated GDM2 port. In
-this case, in order to enable hw offloading for uplink traffic, the
-packets should be sent to GDM{3,4} directly.
+The ICH_HCR_EL2 patching code is generally GIC implementation agnostic,
+except when checking for broken Apple HW, which imposes to read
+ICH_VTR_EL2.
 
-Fixes: 9cd451d414f6 ("net: airoha: Add loopback support for GDM2")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+It is therefore important to check whether we are running on such
+HW before reading this register, as it will otherwise UNDEF when
+run on HW that doesn't have GICv3.
+
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Fixes: ca30799f7c2d ("KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant")
+Closes: https://lore.kernel.org/r/b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_ppe.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-v3.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index c373f21d95f5a610deae365c64bc589c21f5e1a0..0caabb0c3aa06948e46ad087c50eba5babc81994 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -308,7 +308,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 			if (!airoha_is_valid_gdm_port(eth, port))
- 				return -EINVAL;
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index fc7a4cb8e231d..598621b14a30d 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -829,8 +829,8 @@ static const struct midr_range broken_seis[] = {
+ static bool vgic_v3_broken_seis(void)
+ {
+ 	return (is_kernel_in_hyp_mode() &&
+-		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS) &&
+-		is_midr_in_range_list(broken_seis));
++		is_midr_in_range_list(broken_seis) &&
++		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS));
+ }
  
--			if (dsa_port >= 0)
-+			if (dsa_port >= 0 || eth->ports[1])
- 				pse_port = port->id == 4 ? FE_PSE_PORT_GDM4
- 							 : port->id;
- 			else
-
----
-base-commit: f694d215d34035cc64b1d176fd82db0d1f2428d4
-change-id: 20251113-airoha-hw-offload-gdm2-fix-29f4f8df05bf
-
-Best regards,
+ void noinstr kvm_compute_ich_hcr_trap_bits(struct alt_instr *alt,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.3
 
 
