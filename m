@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89509CD98CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40477CD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tE/rNH0KWG/DAc/KpJx6sg3d1dpFFQa/4mtimD5bwT8=; b=nVhBiGuFND5aB5HOjKQdtD6YG4
-	A/JJAptsQjFx0OvfoUbDj/sabU968xOzn4NBpvVN4dIxDJFO3nIlhW+PGnAST6TEr5xM1d+uA8KU9
-	9yRSaW2nASi7D+S5Vgg+BjA6O2JE5Wu7XsqwCq3QxzggOD0Qh2UlFv4PezgNuvxlXUGu+CPsQO9+w
-	kZCdOhAoQy9xcBqDIowN+RzYUzOBPp7SQzhOxtRqMw+YZFJzhQ8KpCvh74d9v0gTPmCU3MrEDd1Bc
-	n1ggq/z4trd6FpMxjnEOTcj27SQyP0Q2RUzmIw72ZgUTxhyMisCBok95wptbTt9tXivptFWMHSBn8
-	IYjwWBEA==;
+	bh=ZVPZWOGdHWtR2CVlcFx2tpHqGVjK2aNUkDrR5qAHZKk=; b=kVAPZ7+ff2z0oIPWRikmcCedDS
+	0EnzDyOKaT6TOLGVzQlni3WQgv6AtSvgRJUxl6/53RdzYUGSblvyYrg0XGjx/H8Y1bGSW6ywZbYy3
+	D6xRZjbegOCY493PgbOIToMdriSQ1mSFcs8enali0jxKlVdhzi4VWStqHYSSDOy/APs1rMnwlVWSx
+	LxQHK3YacqCKToimFYYllW7mipQn1Yo5esKrQoE5w0Y/Ou64euy86MXUTgzqLMAiZORSQ4/6jlhCe
+	HG6Vw0whgySuZMsT00kAc7lH69ZQbUrjLAQF//oWd53yy684BPaGK2RPiQKHC487JEebXYD26xCKk
+	7fTz3hEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcXP-0000000Axgo-38RL;
-	Thu, 13 Nov 2025 18:59:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJcXe-0000000Axjw-09gY;
+	Thu, 13 Nov 2025 18:59:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcXN-0000000Axg2-0ENf
+	id 1vJcXd-0000000Axjh-1b0Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 18:59:18 +0000
+	Thu, 13 Nov 2025 18:59:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA13D42B9E;
-	Thu, 13 Nov 2025 18:59:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21328C4CEF8;
-	Thu, 13 Nov 2025 18:59:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72B7460122;
+	Thu, 13 Nov 2025 18:59:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B540C19422;
+	Thu, 13 Nov 2025 18:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763060356;
-	bh=bRo43ZXqGD3NNIoHn1ylw4FbNh/9bqm8ocau1/+g3MM=;
+	s=k20201202; t=1763060372;
+	bh=F2bQ+XQbUaZUjs1Xt96NSZK8kaysy6fQf97pHBE+eg4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iRuzrKzBGRvvGyf5octAUw8GZMPOADOHPj5iUgcRVkSC7YvgCvelXzadXqGZkVO+b
-	 ne8eD2SEPpjPFW4m9XGy9OtNkspJGMFkL8P3K00moOM3bVYUII8vdPsBOvADnjlFHx
-	 9GcOqyEKU1QYtbPbCDV9y4waZszEr/1XBfF0QQD6qRoSB6IEw7ECfc01cR5skwKjxV
-	 htU9e/8Vfh3BDlZMwSefrHLzD4anwDcJtExMP4Xr+skrvgHoeezdo2bVLSHWjBhjN9
-	 k8/WQLKyqQljzMP8ZLRNZuNftB1IZPt0F8lJMfsWGnZhTBfRhWnAwbpV/4PNwogVi3
-	 TL5kj6AMEXssg==
+	b=ub15V7pUcvO+3uAssuTCicljpioc/2ci0kxHfB9FgcYYG8Vr/O6nTlKxyn4uBMj5h
+	 pqwHRcg5K1ErpGqAfarnqGEpibqHA0VShpwAzzJoPO3MozNBY3MAaeA3CzqzX5zSFG
+	 XsrC87Cgn6++MUBpOVKNDEI6TfzlTOqscs8S06s8faeFtVrDbCgRLjXoPm1pVekpG9
+	 YcQBbUpIMIkKeqEzn0ndVi1eAR3yzFmd4pEOLZBooFXmEiAzILGII3uvqb5uWlywD3
+	 byeR88k1p4iH9Fi806zQyfSdkGt7QfNc7x/QKkD9imOOk6+S1C1+aBmeU3OozArAUg
+	 ZWod8/0AHdD3g==
 From: Catalin Marinas <cmarinas@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linu Cherian <linu.cherian@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+To: ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	cl@gentwo.org,
+	will@kernel.org,
 	Yang Shi <yang@os.amperecomputing.com>
-Subject: Re: [PATCH v4 0/2] arm64/mm: prevent panic on -ENOMEM in arch_add_memory()
-Date: Thu, 13 Nov 2025 18:59:03 +0000
-Message-ID: <176306032237.2459767.15705296734744226735.b4-ty@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [v2 PATCH] arm64: mm: make linear mapping permission update more robust for patial range
+Date: Thu, 13 Nov 2025 18:59:18 +0000
+Message-ID: <176306032241.2459767.8275191874359460210.b4-ty@arm.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251017051437.2836080-1-linu.cherian@arm.com>
-References: <20251017051437.2836080-1-linu.cherian@arm.com>
+In-Reply-To: <20251023204428.477531-1-yang@os.amperecomputing.com>
+References: <20251023204428.477531-1-yang@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_105917_115521_DFDAC038 
-X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +76,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Catalin Marinas <catalin.marinas@arm.com>
 
-On Fri, 17 Oct 2025 10:44:35 +0530, Linu Cherian wrote:
-> arch_add_memory() acts as a means to hotplug memory into a system. It
-> invokes __create_pgd_mapping() which further unwinds to call
-> pgtable_alloc(). Initially, this path was only invoked during early boot
-> and therefore it made sense to BUG_ON() in case pgtable_alloc() failed.
-> Now however, we risk running into a kernel crash if we try to hotplug
-> memory into a system that is already extremely tight on available
-> memory. This is undesirable and hence __create_pgd_mapping() and it's
-> helpers are reworked to be able to propagate the error from
-> pgtable_alloc() allowing the system to fail gracefully.
+On Thu, 23 Oct 2025 13:44:28 -0700, Yang Shi wrote:
+> The commit fcf8dda8cc48 ("arm64: pageattr: Explicitly bail out when changing
+> permissions for vmalloc_huge mappings") made permission update for
+> partial range more robust. But the linear mapping permission update
+> still assumes update the whole range by iterating from the first page
+> all the way to the last page of the area.
+> 
+> Make it more robust by updating the linear mapping permission from the
+> page mapped by start address, and update the number of numpages.
 > 
 > [...]
 
 Applied to arm64 (for-next/misc), thanks!
 
-[1/2] arm64/mm: Allow __create_pgd_mapping() to propagate pgtable_alloc() errors
-      https://git.kernel.org/arm64/c/bfc184cb1ba7
-[2/2] arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
-      https://git.kernel.org/arm64/c/1b214452b6a7
+[1/1] arm64: mm: make linear mapping permission update more robust for patial range
+      https://git.kernel.org/arm64/c/37cb0aab9068
 
 -- 
 Catalin
