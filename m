@@ -4,74 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18658CD3441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 01:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC84CD3441
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 01:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V86cWAIeV+fwRWkbhKdyS+50zBx3UAPVkBi2SkfGmIM=; b=sqxnQYyBz1UJtwgAua8MTkbQBB
-	cl4GQJVjw28aQncHYnWVB8jssHAvjxn1n9S0x9b61YMcx5JcJMVtRvwdQgCl6ciruubyBagqWMebj
-	VqwXnMxOYzijtUWdyjeu6b7pU3R//1YbLno4tt0rEhvFrn7/kEdZnY1hzkjkeFSe1xHcXJi1ikhIe
-	jYkq21bTb9plg8iPpsveOUWv0hmU0YO6xtkxAdArgnD8q8f3Rl9qSzSlBqC76/Yd9YEQEuQQ6bs3G
-	ZzycmsyYjJjlH9XnLhXV2/VzSiu75fnP2PvzjlJqy7aAZPxBH6H6J2e4WyeuiGpSYM/7ALaiNEvJ8
-	Hl8rOjHA==;
+	bh=HUp9XSelBvHam5yKb7kd4Uyi0l9skDUn0FSAP36J340=; b=Vw+6BSWnKxHs06c8LWlPV//6ua
+	qWOd/1Z+lkUb84iA4oS/hOMWGqiyrrPUwfg+DXSKdw7SQT5YIhLY/2280eBw2B/V6Y30WqF9kLZMF
+	mC5YZERSXkBxRuJmUUSZat///u9DwSsxIcxC+O2x1SvPhQLjrMQl1bmbaL4NrkEtiH3grxL4bFfQj
+	5SvJNDYjdNnlQZMtN/Qc4kiZEjejIpFX6sGKIkSkJ2J8shbtDS8vZ1F4aDio9Xh3ZsBUBo/ei9C/K
+	SiFAgcG/IAHScbC7c+p1hEeihg1yki8EnYFN2rwff4Q/xbVLo1qAy7y9dNEAz6PdsUJQ1Rg3a7oGa
+	8XWhWHMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLnQ-00000009hTL-49p5;
-	Thu, 13 Nov 2025 01:06:44 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vJLpz-00000009hfS-3aQN;
+	Thu, 13 Nov 2025 01:09:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJLnN-00000009hSo-1eaK
+	id 1vJLpy-00000009hf1-2XB5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Nov 2025 01:09:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=HUp9XSelBvHam5yKb7kd4Uyi0l9skDUn0FSAP36J340=; b=FfftLiNswqlZQeLbNm12p9w3sx
+	iObFgUqRPH0wV8SnV2zqAy37ZTHTKYkxQOfgSvh7yLgoRY7XOalVXHjujcrXsUGqwDytizie1p5aJ
+	u5q6QMRCtLTUjvQiJAJ5yfOVw884taVG1XAtOCExeRQBeP+taSJpVrlSy5rOwPoLOE8Fy2wYAtL1e
+	VfG+98luP24RocfFYAFsTw40i8xGrEM0TsSm8EkrRcWOtmp7Vqn88XCvC+B7NKLbvw6emjGwumFYy
+	MRK5LPrSQ2Z/E+pwRn+JQrQgYkC7VA5qkFm7FjDD00ePmys0jsT9xyBVO8fp6v4zoOBb0ERRZorsI
+	qB+WWVFw==;
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJKyF-0000000GjJ2-1OPF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 01:06:43 +0000
-Received: from pendragon.ideasonboard.com (unknown [213.216.211.176])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 90B9E1E3;
-	Thu, 13 Nov 2025 02:04:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1762995878;
-	bh=B+FDL24nj3s0v6ci3ABPL9haxpsJcIYDAoodEow92SM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=umVaNpYavBxrKwWIesPyZmEYnGIw3R1lB8JmFTOdbWJsOfkgJ2EHnRweZBLiZsO2r
-	 1QGcAtXNLLR6739W/a+pISfQQNC9DBTrcvMPnVfwvVtJke4EyQwVaAS2tAa4JErdXH
-	 9C12FQoCF9pIuzIoe84TZohNKqHFknzW39lPMc14=
-Date: Thu, 13 Nov 2025 03:06:27 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251113010627.GC9135@pendragon.ideasonboard.com>
-References: <20251026122905.29028-1-laurent.pinchart@ideasonboard.com>
- <aP-ML-A_h13pXY2d@shell.armlinux.org.uk>
- <20251027234648.GC24987@pendragon.ideasonboard.com>
- <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
- <20251028071817.GX13023@pendragon.ideasonboard.com>
- <20251111235434.GA25874@pendragon.ideasonboard.com>
- <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
- <20251112222551.GB9135@pendragon.ideasonboard.com>
+	Thu, 13 Nov 2025 00:13:54 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7a9c64dfa6eso171879b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Nov 2025 17:09:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762996155; x=1763600955; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HUp9XSelBvHam5yKb7kd4Uyi0l9skDUn0FSAP36J340=;
+        b=HEcq0w56cJ+Gb8xvOC6XmDw4MK+81x+7WDcPaTJZvEu8Xgyf2EQVHEzQwNhBoZhrOC
+         ZjZzCRdWH8Vd77rD4wR9FLGAA4hybw8+LcfApkinBqkABOu+lZGQWsZSR5zBlcbbV1Go
+         mzuBJuEyyMyF/KSAJ8lx6IGc988Zlr+8q4QtZ7KlegNdC2QZnEFCTY7EZtgeUP58TsNT
+         4Tf5OnIQ+W600ltUmdi9Vg6A0utfdxBdX/npD1LL1DO/btByn5mjgs02oMTxvUEKDjDW
+         vdJdDFzYJtWzjus5n2pGwac8BacSWntYOJVwPYV0cMPGblU6A6msMVhbPjYse422ExO6
+         Nt7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762996155; x=1763600955;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HUp9XSelBvHam5yKb7kd4Uyi0l9skDUn0FSAP36J340=;
+        b=jjekv8ln0Lv3+o+ux3JB5RRK01Chfsghr21gUAf9LXuI6y1t8byv6Tiae+2THcYLmt
+         Ucra2cxcBTtAWToQqsGMwGELsRS/ViT/pHBoo4yfoibTCuvylCN99URffbQCc1jg2q01
+         g9BKaBsi6FHorpShg8rrXVclmaxRKHc3DflXB0VCth+uNlh0/nrDh2zcIWbVtOneqGZg
+         wBfo9RUmsf6xH8rirsCSFqG9aD0QzKnuLQwP9nkrN4aotS00QDnpGIdQ4T8hJ9SqKlP6
+         ivLeONemFZ9D/fxMQGpEp1eij7BJ8irok75OmTid06K8yEwr5w2dpFlr0n161YTCIQA9
+         GOLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXBd5+fv89mTKA6Uf2boz1HCWDrTHV1n4vTrh4iV1r47Km/YRcI/cZMoryb426SDzl8GLekU9xnQVyyiXQryF/I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3nTzS16W5EWKphFQSLL0P51j+BsFFjz34UIj//IbbScNY+tw2
+	k3ab/hOqtqgYEkqAfkw9XxhMd6zH6vN+NqznbQOtK4DF6D/k3cjrTH+K
+X-Gm-Gg: ASbGncvHVBtDbqgaeXzA/c3bikoFow4PCHc28feIefYteoMntfN8XnvlTVbso7nvUZP
+	6PFTjDjiE7yTiD2u61JVSEOE/fuggP6pJT/OuLEBfBNhhUz20P5iOqnjlLdRkghha+aytV3sYzL
+	OwEGC1hES6o8vpE761ujlen7nn5LC97lCgC2Vw0xiWlqa/kmC8DOCtCI8RfzPOS9SReFKoC8NJo
+	aToBEWOv9QJjG+Hk5asg+R0hz9JJMInBekvo7OhpeXHDCt2WZo0jBPFEuz1/xDbCKcgN5FghMGI
+	yZYCbGOPGIa/vbKHKqDXWuZe9cD5HDEBxfagXsHhbGniTtvpuqW6rvXytraC68heog2cgvsnNPZ
+	+wy2pKmZPN6MBYzI3KsdxorMjlJAxRNf/jQEu3djEICNzYC8nzk3q
+X-Google-Smtp-Source: AGHT+IG6mp0E78VSvu/3qqFMgI1T8YiQOF856a+2bF57H7GUKPTtbD8FuO+l8D99yBgWDvvJxeroug==
+X-Received: by 2002:a05:6a20:7f92:b0:344:97a7:8c68 with SMTP id adf61e73a8af0-3590bb147d7mr5734286637.54.1762996154814;
+        Wed, 12 Nov 2025 17:09:14 -0800 (PST)
+Received: from geday ([2804:7f2:8082:3106::1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b927826dc9sm303318b3a.53.2025.11.12.17.09.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 17:09:14 -0800 (PST)
+Date: Wed, 12 Nov 2025 22:09:03 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: =?utf-8?B?5byg54Oo?= <ye.zhang@rock-chips.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-pci <linux-pci@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	devicetree <devicetree@vger.kernel.org>,
+	krzk+dt <krzk+dt@kernel.org>, conor+dt <conor+dt@kernel.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	linux-rockchip <linux-rockchip@lists.infradead.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
+Message-ID: <aRUvr0UggTYkkCZ_@geday>
+References: <4b5ffcccfef2a61838aa563521672a171acb27b2.1762321976.git.geraldogabriel@gmail.com>
+ <ba120577-42da-424d-8102-9d085c1494c8@rock-chips.com>
+ <aQsIXcQzeYop6a0B@geday>
+ <67b605b0-7046-448a-bc9b-d3ac56333809@rock-chips.com>
+ <aQ1c7ZDycxiOIy8Y@geday>
+ <d9e257bd-806c-48b4-bb22-f1342e9fc15a@rock-chips.com>
+ <aRLEbfsmXnGwyigS@geday>
+ <AGsAmwCFJj0ZQ4vKzrqC84rs.3.1762847224180.Hmail.ye.zhang@rock-chips.com>
+ <aRQ_R90S8T82th45@geday>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251112222551.GB9135@pendragon.ideasonboard.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aRQ_R90S8T82th45@geday>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_170641_754433_7BB5E4C5 
-X-CRM114-Status: GOOD (  42.16  )
+X-CRM114-CacheID: sfid-20251113_001352_398926_5B38F09D 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,947 +133,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 12:25:52AM +0200, Laurent Pinchart wrote:
-> On Wed, Nov 12, 2025 at 12:03:13PM +0000, Russell King (Oracle) wrote:
-> > On Wed, Nov 12, 2025 at 01:54:34AM +0200, Laurent Pinchart wrote:
-> > > On Tue, Oct 28, 2025 at 09:18:17AM +0200, Laurent Pinchart wrote:
-> > > > I didn't notice it at the time because my board was connected to a
-> > > > switch that didn't support EEE.
-> > > 
-> > > I can confirm that reverting that commit makes the issue disappear. So
-> > > we're dealing with an interrupt storm that occurs when all three of the
-> > > following conditions are true:
-> > > 
-> > > - cpu-pd-wait is enabled
-> > > - EEE is enabled
-> > > - the peer also supports EEE
+On Wed, Nov 12, 2025 at 05:03:32AM -0300, Geraldo Nascimento wrote:
+> On Tue, Nov 11, 2025 at 03:47:04PM +0800, 张烨 wrote:
+> > Hi Geraldo,
 > > 
-> > Thanks - overall, please take the statistics and interrupt status bits
-> > with a pinch of salt - I suspect there are cases where the interrupt
-> > is not actually enabled, and the code doesn't take action to clear
-> > down a set status bit, but _does_ count it - so every interrupt that
-> > happens increments the counter.
+> > In standard GPIO operations, the typical practice is to set the output level first before configuring the direction as output. This approach helps avoid outputting an uncertain voltage level at the instant when the direction switches from input to output.
 > 
-> True. To (partly) avoid that, I've dropped the line that discards
-> disabled bits in dwmac4_irq_status():
+> Thanks for the explanation Ye Zhang, it makes sense to me. It avoids the
+> pin to not be floating so to speak. I kept hammering at this problem, by
+> the way is PCIe PERST# side-band signal refusing to co-operate and
+> failing PCIe initial link-training.
 > 
->  	/* Discard disabled bits */
-> -	intr_status &= intr_enable;
+> You're not going to like this:
 > 
-> to ensure that all bits are processed and cleared. I then didn't see any
-> high count of any of the GMAC_INT_STATUS interrupts. For
-> MTL_INTERRUPT_STATUS it's a bit different, as by default only one queue
-> is processed.
+> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+> index 47174eb3ba76..fea2c55992e8 100644
+> --- a/drivers/gpio/gpio-rockchip.c
+> +++ b/drivers/gpio/gpio-rockchip.c
+> @@ -183,11 +183,13 @@ static int rockchip_gpio_set(struct gpio_chip *gc, unsigned int offset,
+>  	struct rockchip_pin_bank *bank = gpiochip_get_data(gc);
+>  	unsigned long flags;
+>  
+> +	rockchip_gpio_set_direction(gc, offset, true);
+> +
+>  	raw_spin_lock_irqsave(&bank->slock, flags);
+>  	rockchip_gpio_writel_bit(bank, offset, value, bank->gpio_regs->port_dr);
+>  	raw_spin_unlock_irqrestore(&bank->slock, flags);
+>  
+> -	return 0;
+> +	return rockchip_gpio_set_direction(gc, offset, false);
+>  }
+>  
+>  static int rockchip_gpio_get(struct gpio_chip *gc, unsigned int offset)
 > 
-> > > Furthermore, I tried counting bits from all the interrupt status
-> > > registers I could find. The count of MTL_INTERRUPT_STATUS Q0IS to Q4IS
-> > > bits is very high, and so are the DMA_CH0_STATUS TBU and ETI bits.
-> > 
-> > TBU means that the transmitter found that the next buffer was owned by
-> > the "application" rather than the hardware, which would be normal after
-> > getting to the end of the queued packets.
-> > 
-> > ETI means that a packet has been transferred into MTL memory, and thus
-> > would occur for every transmitted packet.
-> > 
-> > Having dug into the imx8m documentation and the driver this morning,
-> > I don't think TBU and ETI are the source of the interrupt storm. Their
-> > corresponding interrupt enable bits are DMA_CHAN_INTR_ENA_TBUE and
-> > DMA_CHAN_INTR_ENA_ETE (driver names). Both of these only appear in a
-> > header file - the code never enables these interrupts. So, TBU and ETI
-> > should not be causing an interrupt storm.
-> > 
-> > As for QxIS, stmmac_common_interrupt() will iterate over the queues
-> > in use, calling stmmac_host_mtl_irq_status() aka dwmac4_irq_mtl_status()
-> > for each. Only if this happens will MTL_CHAN_INT_CTRL() be read which
-> > clears the status bit. In other words, if e.g. Q1IS is set, but only
-> > one queue is being used. dwmac4_irq_mtl_status() won't be called for
-> > queue 1, and thus MTL_CHAN_INT_CTRL() won't be read to clear Q1IS.
-> 
-> That's why I tried to enable all 5 queues in DT, but alas, it didn't
-> help. I'll try again and count all possible interrupts.
+> By setting direction INPUT, then writing out, then setting OUTPUT again
+> miraculously it doesn't fail initial link training, with no other
+> changes that already have been rejected by PCI folks and Shawn Lin.
 
-Here's my debug patch (not very pretty, sorry about that):
+Hi Ye, Shawn,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 8f34c9ad457f..52810c45c635 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -139,6 +139,253 @@ struct stmmac_extra_stats {
- 	unsigned long rx_vlan;
- 	unsigned long rx_split_hdr_pkt_n;
- 	/* Tx/Rx IRQ error info */
-+	unsigned long irq_down_n;
-+	unsigned long irq_fpe_n;
-+	unsigned long irq_sfty_n;
-+
-+	unsigned long irq_gmac_0_n;
-+	unsigned long irq_gmac_1_n;
-+	unsigned long irq_gmac_2_n;
-+	unsigned long irq_gmac_3_n;
-+	unsigned long irq_gmac_4_n;
-+	unsigned long irq_gmac_5_n;
-+	unsigned long irq_gmac_6_n;
-+	unsigned long irq_gmac_7_n;
-+	unsigned long irq_gmac_8_n;
-+	unsigned long irq_gmac_9_n;
-+	unsigned long irq_gmac_10_n;
-+	unsigned long irq_gmac_11_n;
-+	unsigned long irq_gmac_12_n;
-+	unsigned long irq_gmac_13_n;
-+	unsigned long irq_gmac_14_n;
-+	unsigned long irq_gmac_15_n;
-+	unsigned long irq_gmac_16_n;
-+	unsigned long irq_gmac_17_n;
-+	unsigned long irq_gmac_18_n;
-+	unsigned long irq_gmac_19_n;
-+	unsigned long irq_gmac_20_n;
-+	unsigned long irq_gmac_21_n;
-+	unsigned long irq_gmac_22_n;
-+	unsigned long irq_gmac_23_n;
-+	unsigned long irq_gmac_24_n;
-+	unsigned long irq_gmac_25_n;
-+	unsigned long irq_gmac_26_n;
-+	unsigned long irq_gmac_27_n;
-+	unsigned long irq_gmac_28_n;
-+	unsigned long irq_gmac_29_n;
-+	unsigned long irq_gmac_30_n;
-+	unsigned long irq_gmac_31_n;
-+
-+	unsigned long irq_mtl0_n;
-+	unsigned long irq_mtl1_n;
-+	unsigned long irq_mtl2_n;
-+	unsigned long irq_mtl3_n;
-+	unsigned long irq_mtl4_n;
-+
-+	unsigned long irq_mtl_0_n;
-+	unsigned long irq_mtl_1_n;
-+	unsigned long irq_mtl_2_n;
-+	unsigned long irq_mtl_3_n;
-+	unsigned long irq_mtl_4_n;
-+	unsigned long irq_mtl_5_n;
-+	unsigned long irq_mtl_6_n;
-+	unsigned long irq_mtl_7_n;
-+	unsigned long irq_mtl_8_n;
-+	unsigned long irq_mtl_9_n;
-+	unsigned long irq_mtl_10_n;
-+	unsigned long irq_mtl_11_n;
-+	unsigned long irq_mtl_12_n;
-+	unsigned long irq_mtl_13_n;
-+	unsigned long irq_mtl_14_n;
-+	unsigned long irq_mtl_15_n;
-+	unsigned long irq_mtl_16_n;
-+	unsigned long irq_mtl_17_n;
-+	unsigned long irq_mtl_18_n;
-+	unsigned long irq_mtl_19_n;
-+	unsigned long irq_mtl_20_n;
-+	unsigned long irq_mtl_21_n;
-+	unsigned long irq_mtl_22_n;
-+	unsigned long irq_mtl_23_n;
-+	unsigned long irq_mtl_24_n;
-+	unsigned long irq_mtl_25_n;
-+	unsigned long irq_mtl_26_n;
-+	unsigned long irq_mtl_27_n;
-+	unsigned long irq_mtl_28_n;
-+	unsigned long irq_mtl_29_n;
-+	unsigned long irq_mtl_30_n;
-+	unsigned long irq_mtl_31_n;
-+
-+	unsigned long irq_chan0_n;
-+	unsigned long irq_chan1_n;
-+	unsigned long irq_chan2_n;
-+	unsigned long irq_chan3_n;
-+	unsigned long irq_chan4_n;
-+
-+	unsigned long irq_chan0_0_n;
-+	unsigned long irq_chan0_1_n;
-+	unsigned long irq_chan0_2_n;
-+	unsigned long irq_chan0_3_n;
-+	unsigned long irq_chan0_4_n;
-+	unsigned long irq_chan0_5_n;
-+	unsigned long irq_chan0_6_n;
-+	unsigned long irq_chan0_7_n;
-+	unsigned long irq_chan0_8_n;
-+	unsigned long irq_chan0_9_n;
-+	unsigned long irq_chan0_10_n;
-+	unsigned long irq_chan0_11_n;
-+	unsigned long irq_chan0_12_n;
-+	unsigned long irq_chan0_13_n;
-+	unsigned long irq_chan0_14_n;
-+	unsigned long irq_chan0_15_n;
-+	unsigned long irq_chan0_16_n;
-+	unsigned long irq_chan0_17_n;
-+	unsigned long irq_chan0_18_n;
-+	unsigned long irq_chan0_19_n;
-+	unsigned long irq_chan0_20_n;
-+	unsigned long irq_chan0_21_n;
-+	unsigned long irq_chan0_22_n;
-+	unsigned long irq_chan0_23_n;
-+	unsigned long irq_chan0_24_n;
-+	unsigned long irq_chan0_25_n;
-+	unsigned long irq_chan0_26_n;
-+	unsigned long irq_chan0_27_n;
-+	unsigned long irq_chan0_28_n;
-+	unsigned long irq_chan0_29_n;
-+	unsigned long irq_chan0_30_n;
-+	unsigned long irq_chan0_31_n;
-+
-+	unsigned long irq_chan1_0_n;
-+	unsigned long irq_chan1_1_n;
-+	unsigned long irq_chan1_2_n;
-+	unsigned long irq_chan1_3_n;
-+	unsigned long irq_chan1_4_n;
-+	unsigned long irq_chan1_5_n;
-+	unsigned long irq_chan1_6_n;
-+	unsigned long irq_chan1_7_n;
-+	unsigned long irq_chan1_8_n;
-+	unsigned long irq_chan1_9_n;
-+	unsigned long irq_chan1_10_n;
-+	unsigned long irq_chan1_11_n;
-+	unsigned long irq_chan1_12_n;
-+	unsigned long irq_chan1_13_n;
-+	unsigned long irq_chan1_14_n;
-+	unsigned long irq_chan1_15_n;
-+	unsigned long irq_chan1_16_n;
-+	unsigned long irq_chan1_17_n;
-+	unsigned long irq_chan1_18_n;
-+	unsigned long irq_chan1_19_n;
-+	unsigned long irq_chan1_20_n;
-+	unsigned long irq_chan1_21_n;
-+	unsigned long irq_chan1_22_n;
-+	unsigned long irq_chan1_23_n;
-+	unsigned long irq_chan1_24_n;
-+	unsigned long irq_chan1_25_n;
-+	unsigned long irq_chan1_26_n;
-+	unsigned long irq_chan1_27_n;
-+	unsigned long irq_chan1_28_n;
-+	unsigned long irq_chan1_29_n;
-+	unsigned long irq_chan1_30_n;
-+	unsigned long irq_chan1_31_n;
-+
-+	unsigned long irq_chan2_0_n;
-+	unsigned long irq_chan2_1_n;
-+	unsigned long irq_chan2_2_n;
-+	unsigned long irq_chan2_3_n;
-+	unsigned long irq_chan2_4_n;
-+	unsigned long irq_chan2_5_n;
-+	unsigned long irq_chan2_6_n;
-+	unsigned long irq_chan2_7_n;
-+	unsigned long irq_chan2_8_n;
-+	unsigned long irq_chan2_9_n;
-+	unsigned long irq_chan2_10_n;
-+	unsigned long irq_chan2_11_n;
-+	unsigned long irq_chan2_12_n;
-+	unsigned long irq_chan2_13_n;
-+	unsigned long irq_chan2_14_n;
-+	unsigned long irq_chan2_15_n;
-+	unsigned long irq_chan2_16_n;
-+	unsigned long irq_chan2_17_n;
-+	unsigned long irq_chan2_18_n;
-+	unsigned long irq_chan2_19_n;
-+	unsigned long irq_chan2_20_n;
-+	unsigned long irq_chan2_21_n;
-+	unsigned long irq_chan2_22_n;
-+	unsigned long irq_chan2_23_n;
-+	unsigned long irq_chan2_24_n;
-+	unsigned long irq_chan2_25_n;
-+	unsigned long irq_chan2_26_n;
-+	unsigned long irq_chan2_27_n;
-+	unsigned long irq_chan2_28_n;
-+	unsigned long irq_chan2_29_n;
-+	unsigned long irq_chan2_30_n;
-+	unsigned long irq_chan2_31_n;
-+
-+	unsigned long irq_chan3_0_n;
-+	unsigned long irq_chan3_1_n;
-+	unsigned long irq_chan3_2_n;
-+	unsigned long irq_chan3_3_n;
-+	unsigned long irq_chan3_4_n;
-+	unsigned long irq_chan3_5_n;
-+	unsigned long irq_chan3_6_n;
-+	unsigned long irq_chan3_7_n;
-+	unsigned long irq_chan3_8_n;
-+	unsigned long irq_chan3_9_n;
-+	unsigned long irq_chan3_10_n;
-+	unsigned long irq_chan3_11_n;
-+	unsigned long irq_chan3_12_n;
-+	unsigned long irq_chan3_13_n;
-+	unsigned long irq_chan3_14_n;
-+	unsigned long irq_chan3_15_n;
-+	unsigned long irq_chan3_16_n;
-+	unsigned long irq_chan3_17_n;
-+	unsigned long irq_chan3_18_n;
-+	unsigned long irq_chan3_19_n;
-+	unsigned long irq_chan3_20_n;
-+	unsigned long irq_chan3_21_n;
-+	unsigned long irq_chan3_22_n;
-+	unsigned long irq_chan3_23_n;
-+	unsigned long irq_chan3_24_n;
-+	unsigned long irq_chan3_25_n;
-+	unsigned long irq_chan3_26_n;
-+	unsigned long irq_chan3_27_n;
-+	unsigned long irq_chan3_28_n;
-+	unsigned long irq_chan3_29_n;
-+	unsigned long irq_chan3_30_n;
-+	unsigned long irq_chan3_31_n;
-+
-+	unsigned long irq_chan4_0_n;
-+	unsigned long irq_chan4_1_n;
-+	unsigned long irq_chan4_2_n;
-+	unsigned long irq_chan4_3_n;
-+	unsigned long irq_chan4_4_n;
-+	unsigned long irq_chan4_5_n;
-+	unsigned long irq_chan4_6_n;
-+	unsigned long irq_chan4_7_n;
-+	unsigned long irq_chan4_8_n;
-+	unsigned long irq_chan4_9_n;
-+	unsigned long irq_chan4_10_n;
-+	unsigned long irq_chan4_11_n;
-+	unsigned long irq_chan4_12_n;
-+	unsigned long irq_chan4_13_n;
-+	unsigned long irq_chan4_14_n;
-+	unsigned long irq_chan4_15_n;
-+	unsigned long irq_chan4_16_n;
-+	unsigned long irq_chan4_17_n;
-+	unsigned long irq_chan4_18_n;
-+	unsigned long irq_chan4_19_n;
-+	unsigned long irq_chan4_20_n;
-+	unsigned long irq_chan4_21_n;
-+	unsigned long irq_chan4_22_n;
-+	unsigned long irq_chan4_23_n;
-+	unsigned long irq_chan4_24_n;
-+	unsigned long irq_chan4_25_n;
-+	unsigned long irq_chan4_26_n;
-+	unsigned long irq_chan4_27_n;
-+	unsigned long irq_chan4_28_n;
-+	unsigned long irq_chan4_29_n;
-+	unsigned long irq_chan4_30_n;
-+	unsigned long irq_chan4_31_n;
-+
- 	unsigned long tx_undeflow_irq;
- 	unsigned long tx_process_stopped_irq;
- 	unsigned long tx_jabber_irq;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index d85bc0bb5c3c..b1a6416ce9e1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -630,8 +630,16 @@ static int dwmac4_irq_mtl_status(struct stmmac_priv *priv,
- 	u32 mtl_int_qx_status;
- 	int ret = 0;
+Here's more contained workaround without resorting to clearing DDR to
+INPUT for every GPIO:
+
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+index ee1822ca01db..1d89131ec6ac 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -315,7 +315,8 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+ 			    PCIE_CLIENT_CONFIG);
  
-+	if (!WARN_ON(chan >= 5))
-+		(&priv->xstats.irq_mtl0_n)[chan]++;
-+
- 	mtl_int_qx_status = readl(ioaddr + MTL_INT_STATUS);
+ 	msleep(PCIE_T_PVPERL_MS);
+-	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
++	gpiod_direction_input(rockchip->perst_gpio);
++	gpiod_direction_output(rockchip->perst_gpio, 1);
  
-+	for (unsigned int i = 0; i < 32; ++i) {
-+		if (mtl_int_qx_status & BIT(i))
-+			(&priv->xstats.irq_mtl_0_n)[i]++;
-+	}
-+
- 	/* Check MTL Interrupt */
- 	if (mtl_int_qx_status & MTL_INT_QX(chan)) {
- 		/* read Queue x Interrupt status */
-@@ -654,11 +662,16 @@ static int dwmac4_irq_status(struct mac_device_info *hw,
- {
- 	void __iomem *ioaddr = hw->pcsr;
- 	u32 intr_status = readl(ioaddr + GMAC_INT_STATUS);
--	u32 intr_enable = readl(ioaddr + GMAC_INT_EN);
-+//	u32 intr_enable = readl(ioaddr + GMAC_INT_EN);
- 	int ret = 0;
+ 	msleep(PCIE_RESET_CONFIG_WAIT_MS);
  
-+	for (unsigned int i = 0; i < 32; ++i) {
-+		if (intr_status & BIT(i))
-+			(&x->irq_gmac_0_n)[i]++;
-+	}
-+
- 	/* Discard disabled bits */
--	intr_status &= intr_enable;
-+//	intr_status &= intr_enable;
- 
- 	/* Not used events (e.g. MMC interrupts) are not handled. */
- 	if ((intr_status & mmc_tx_irq))
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-index 57c03d491774..106a59afc96c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-@@ -179,6 +179,15 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
- 	else if (dir == DMA_DIR_TX)
- 		intr_status &= DMA_CHAN_STATUS_MSK_TX;
- 
-+	if (!WARN_ON(chan >= 5)) {
-+		(&x->irq_chan0_n)[chan]++;
-+
-+		for (unsigned int i = 0; i < 32; ++i) {
-+			if (intr_status & BIT(i))
-+				(&priv->xstats.irq_chan0_0_n)[32*chan + i]++;
-+		}
-+	}
-+
- 	/* ABNORMAL interrupts */
- 	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 39fa1ec92f82..492d65314e51 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -78,6 +78,252 @@ static const struct stmmac_stats stmmac_gstrings_stats[] = {
- 	STMMAC_STAT(rx_vlan),
- 	STMMAC_STAT(rx_split_hdr_pkt_n),
- 	/* Tx/Rx IRQ error info */
-+	STMMAC_STAT(irq_down_n),
-+	STMMAC_STAT(irq_fpe_n),
-+	STMMAC_STAT(irq_sfty_n),
-+
-+	STMMAC_STAT(irq_gmac_0_n),
-+	STMMAC_STAT(irq_gmac_1_n),
-+	STMMAC_STAT(irq_gmac_2_n),
-+	STMMAC_STAT(irq_gmac_3_n),
-+	STMMAC_STAT(irq_gmac_4_n),
-+	STMMAC_STAT(irq_gmac_5_n),
-+	STMMAC_STAT(irq_gmac_6_n),
-+	STMMAC_STAT(irq_gmac_7_n),
-+	STMMAC_STAT(irq_gmac_8_n),
-+	STMMAC_STAT(irq_gmac_9_n),
-+	STMMAC_STAT(irq_gmac_10_n),
-+	STMMAC_STAT(irq_gmac_11_n),
-+	STMMAC_STAT(irq_gmac_12_n),
-+	STMMAC_STAT(irq_gmac_13_n),
-+	STMMAC_STAT(irq_gmac_14_n),
-+	STMMAC_STAT(irq_gmac_15_n),
-+	STMMAC_STAT(irq_gmac_16_n),
-+	STMMAC_STAT(irq_gmac_17_n),
-+	STMMAC_STAT(irq_gmac_18_n),
-+	STMMAC_STAT(irq_gmac_19_n),
-+	STMMAC_STAT(irq_gmac_20_n),
-+	STMMAC_STAT(irq_gmac_21_n),
-+	STMMAC_STAT(irq_gmac_22_n),
-+	STMMAC_STAT(irq_gmac_23_n),
-+	STMMAC_STAT(irq_gmac_24_n),
-+	STMMAC_STAT(irq_gmac_25_n),
-+	STMMAC_STAT(irq_gmac_26_n),
-+	STMMAC_STAT(irq_gmac_27_n),
-+	STMMAC_STAT(irq_gmac_28_n),
-+	STMMAC_STAT(irq_gmac_29_n),
-+	STMMAC_STAT(irq_gmac_30_n),
-+	STMMAC_STAT(irq_gmac_31_n),
-+
-+	STMMAC_STAT(irq_mtl0_n),
-+	STMMAC_STAT(irq_mtl1_n),
-+	STMMAC_STAT(irq_mtl2_n),
-+	STMMAC_STAT(irq_mtl3_n),
-+	STMMAC_STAT(irq_mtl4_n),
-+	STMMAC_STAT(irq_mtl_0_n),
-+	STMMAC_STAT(irq_mtl_1_n),
-+	STMMAC_STAT(irq_mtl_2_n),
-+	STMMAC_STAT(irq_mtl_3_n),
-+	STMMAC_STAT(irq_mtl_4_n),
-+	STMMAC_STAT(irq_mtl_5_n),
-+	STMMAC_STAT(irq_mtl_6_n),
-+	STMMAC_STAT(irq_mtl_7_n),
-+	STMMAC_STAT(irq_mtl_8_n),
-+	STMMAC_STAT(irq_mtl_9_n),
-+	STMMAC_STAT(irq_mtl_10_n),
-+	STMMAC_STAT(irq_mtl_11_n),
-+	STMMAC_STAT(irq_mtl_12_n),
-+	STMMAC_STAT(irq_mtl_13_n),
-+	STMMAC_STAT(irq_mtl_14_n),
-+	STMMAC_STAT(irq_mtl_15_n),
-+	STMMAC_STAT(irq_mtl_16_n),
-+	STMMAC_STAT(irq_mtl_17_n),
-+	STMMAC_STAT(irq_mtl_18_n),
-+	STMMAC_STAT(irq_mtl_19_n),
-+	STMMAC_STAT(irq_mtl_20_n),
-+	STMMAC_STAT(irq_mtl_21_n),
-+	STMMAC_STAT(irq_mtl_22_n),
-+	STMMAC_STAT(irq_mtl_23_n),
-+	STMMAC_STAT(irq_mtl_24_n),
-+	STMMAC_STAT(irq_mtl_25_n),
-+	STMMAC_STAT(irq_mtl_26_n),
-+	STMMAC_STAT(irq_mtl_27_n),
-+	STMMAC_STAT(irq_mtl_28_n),
-+	STMMAC_STAT(irq_mtl_29_n),
-+	STMMAC_STAT(irq_mtl_30_n),
-+	STMMAC_STAT(irq_mtl_31_n),
-+
-+	STMMAC_STAT(irq_chan0_n),
-+	STMMAC_STAT(irq_chan1_n),
-+	STMMAC_STAT(irq_chan2_n),
-+	STMMAC_STAT(irq_chan3_n),
-+	STMMAC_STAT(irq_chan4_n),
-+
-+	STMMAC_STAT(irq_chan0_0_n),
-+	STMMAC_STAT(irq_chan0_1_n),
-+	STMMAC_STAT(irq_chan0_2_n),
-+	STMMAC_STAT(irq_chan0_3_n),
-+	STMMAC_STAT(irq_chan0_4_n),
-+	STMMAC_STAT(irq_chan0_5_n),
-+	STMMAC_STAT(irq_chan0_6_n),
-+	STMMAC_STAT(irq_chan0_7_n),
-+	STMMAC_STAT(irq_chan0_8_n),
-+	STMMAC_STAT(irq_chan0_9_n),
-+	STMMAC_STAT(irq_chan0_10_n),
-+	STMMAC_STAT(irq_chan0_11_n),
-+	STMMAC_STAT(irq_chan0_12_n),
-+	STMMAC_STAT(irq_chan0_13_n),
-+	STMMAC_STAT(irq_chan0_14_n),
-+	STMMAC_STAT(irq_chan0_15_n),
-+	STMMAC_STAT(irq_chan0_16_n),
-+	STMMAC_STAT(irq_chan0_17_n),
-+	STMMAC_STAT(irq_chan0_18_n),
-+	STMMAC_STAT(irq_chan0_19_n),
-+	STMMAC_STAT(irq_chan0_20_n),
-+	STMMAC_STAT(irq_chan0_21_n),
-+	STMMAC_STAT(irq_chan0_22_n),
-+	STMMAC_STAT(irq_chan0_23_n),
-+	STMMAC_STAT(irq_chan0_24_n),
-+	STMMAC_STAT(irq_chan0_25_n),
-+	STMMAC_STAT(irq_chan0_26_n),
-+	STMMAC_STAT(irq_chan0_27_n),
-+	STMMAC_STAT(irq_chan0_28_n),
-+	STMMAC_STAT(irq_chan0_29_n),
-+	STMMAC_STAT(irq_chan0_30_n),
-+	STMMAC_STAT(irq_chan0_31_n),
-+
-+	STMMAC_STAT(irq_chan1_0_n),
-+	STMMAC_STAT(irq_chan1_1_n),
-+	STMMAC_STAT(irq_chan1_2_n),
-+	STMMAC_STAT(irq_chan1_3_n),
-+	STMMAC_STAT(irq_chan1_4_n),
-+	STMMAC_STAT(irq_chan1_5_n),
-+	STMMAC_STAT(irq_chan1_6_n),
-+	STMMAC_STAT(irq_chan1_7_n),
-+	STMMAC_STAT(irq_chan1_8_n),
-+	STMMAC_STAT(irq_chan1_9_n),
-+	STMMAC_STAT(irq_chan1_10_n),
-+	STMMAC_STAT(irq_chan1_11_n),
-+	STMMAC_STAT(irq_chan1_12_n),
-+	STMMAC_STAT(irq_chan1_13_n),
-+	STMMAC_STAT(irq_chan1_14_n),
-+	STMMAC_STAT(irq_chan1_15_n),
-+	STMMAC_STAT(irq_chan1_16_n),
-+	STMMAC_STAT(irq_chan1_17_n),
-+	STMMAC_STAT(irq_chan1_18_n),
-+	STMMAC_STAT(irq_chan1_19_n),
-+	STMMAC_STAT(irq_chan1_20_n),
-+	STMMAC_STAT(irq_chan1_21_n),
-+	STMMAC_STAT(irq_chan1_22_n),
-+	STMMAC_STAT(irq_chan1_23_n),
-+	STMMAC_STAT(irq_chan1_24_n),
-+	STMMAC_STAT(irq_chan1_25_n),
-+	STMMAC_STAT(irq_chan1_26_n),
-+	STMMAC_STAT(irq_chan1_27_n),
-+	STMMAC_STAT(irq_chan1_28_n),
-+	STMMAC_STAT(irq_chan1_29_n),
-+	STMMAC_STAT(irq_chan1_30_n),
-+	STMMAC_STAT(irq_chan1_31_n),
-+
-+	STMMAC_STAT(irq_chan2_0_n),
-+	STMMAC_STAT(irq_chan2_1_n),
-+	STMMAC_STAT(irq_chan2_2_n),
-+	STMMAC_STAT(irq_chan2_3_n),
-+	STMMAC_STAT(irq_chan2_4_n),
-+	STMMAC_STAT(irq_chan2_5_n),
-+	STMMAC_STAT(irq_chan2_6_n),
-+	STMMAC_STAT(irq_chan2_7_n),
-+	STMMAC_STAT(irq_chan2_8_n),
-+	STMMAC_STAT(irq_chan2_9_n),
-+	STMMAC_STAT(irq_chan2_10_n),
-+	STMMAC_STAT(irq_chan2_11_n),
-+	STMMAC_STAT(irq_chan2_12_n),
-+	STMMAC_STAT(irq_chan2_13_n),
-+	STMMAC_STAT(irq_chan2_14_n),
-+	STMMAC_STAT(irq_chan2_15_n),
-+	STMMAC_STAT(irq_chan2_16_n),
-+	STMMAC_STAT(irq_chan2_17_n),
-+	STMMAC_STAT(irq_chan2_18_n),
-+	STMMAC_STAT(irq_chan2_19_n),
-+	STMMAC_STAT(irq_chan2_20_n),
-+	STMMAC_STAT(irq_chan2_21_n),
-+	STMMAC_STAT(irq_chan2_22_n),
-+	STMMAC_STAT(irq_chan2_23_n),
-+	STMMAC_STAT(irq_chan2_24_n),
-+	STMMAC_STAT(irq_chan2_25_n),
-+	STMMAC_STAT(irq_chan2_26_n),
-+	STMMAC_STAT(irq_chan2_27_n),
-+	STMMAC_STAT(irq_chan2_28_n),
-+	STMMAC_STAT(irq_chan2_29_n),
-+	STMMAC_STAT(irq_chan2_30_n),
-+	STMMAC_STAT(irq_chan2_31_n),
-+
-+	STMMAC_STAT(irq_chan3_0_n),
-+	STMMAC_STAT(irq_chan3_1_n),
-+	STMMAC_STAT(irq_chan3_2_n),
-+	STMMAC_STAT(irq_chan3_3_n),
-+	STMMAC_STAT(irq_chan3_4_n),
-+	STMMAC_STAT(irq_chan3_5_n),
-+	STMMAC_STAT(irq_chan3_6_n),
-+	STMMAC_STAT(irq_chan3_7_n),
-+	STMMAC_STAT(irq_chan3_8_n),
-+	STMMAC_STAT(irq_chan3_9_n),
-+	STMMAC_STAT(irq_chan3_10_n),
-+	STMMAC_STAT(irq_chan3_11_n),
-+	STMMAC_STAT(irq_chan3_12_n),
-+	STMMAC_STAT(irq_chan3_13_n),
-+	STMMAC_STAT(irq_chan3_14_n),
-+	STMMAC_STAT(irq_chan3_15_n),
-+	STMMAC_STAT(irq_chan3_16_n),
-+	STMMAC_STAT(irq_chan3_17_n),
-+	STMMAC_STAT(irq_chan3_18_n),
-+	STMMAC_STAT(irq_chan3_19_n),
-+	STMMAC_STAT(irq_chan3_20_n),
-+	STMMAC_STAT(irq_chan3_21_n),
-+	STMMAC_STAT(irq_chan3_22_n),
-+	STMMAC_STAT(irq_chan3_23_n),
-+	STMMAC_STAT(irq_chan3_24_n),
-+	STMMAC_STAT(irq_chan3_25_n),
-+	STMMAC_STAT(irq_chan3_26_n),
-+	STMMAC_STAT(irq_chan3_27_n),
-+	STMMAC_STAT(irq_chan3_28_n),
-+	STMMAC_STAT(irq_chan3_29_n),
-+	STMMAC_STAT(irq_chan3_30_n),
-+	STMMAC_STAT(irq_chan3_31_n),
-+
-+	STMMAC_STAT(irq_chan4_0_n),
-+	STMMAC_STAT(irq_chan4_1_n),
-+	STMMAC_STAT(irq_chan4_2_n),
-+	STMMAC_STAT(irq_chan4_3_n),
-+	STMMAC_STAT(irq_chan4_4_n),
-+	STMMAC_STAT(irq_chan4_5_n),
-+	STMMAC_STAT(irq_chan4_6_n),
-+	STMMAC_STAT(irq_chan4_7_n),
-+	STMMAC_STAT(irq_chan4_8_n),
-+	STMMAC_STAT(irq_chan4_9_n),
-+	STMMAC_STAT(irq_chan4_10_n),
-+	STMMAC_STAT(irq_chan4_11_n),
-+	STMMAC_STAT(irq_chan4_12_n),
-+	STMMAC_STAT(irq_chan4_13_n),
-+	STMMAC_STAT(irq_chan4_14_n),
-+	STMMAC_STAT(irq_chan4_15_n),
-+	STMMAC_STAT(irq_chan4_16_n),
-+	STMMAC_STAT(irq_chan4_17_n),
-+	STMMAC_STAT(irq_chan4_18_n),
-+	STMMAC_STAT(irq_chan4_19_n),
-+	STMMAC_STAT(irq_chan4_20_n),
-+	STMMAC_STAT(irq_chan4_21_n),
-+	STMMAC_STAT(irq_chan4_22_n),
-+	STMMAC_STAT(irq_chan4_23_n),
-+	STMMAC_STAT(irq_chan4_24_n),
-+	STMMAC_STAT(irq_chan4_25_n),
-+	STMMAC_STAT(irq_chan4_26_n),
-+	STMMAC_STAT(irq_chan4_27_n),
-+	STMMAC_STAT(irq_chan4_28_n),
-+	STMMAC_STAT(irq_chan4_29_n),
-+	STMMAC_STAT(irq_chan4_30_n),
-+	STMMAC_STAT(irq_chan4_31_n),
-+
- 	STMMAC_STAT(tx_undeflow_irq),
- 	STMMAC_STAT(tx_process_stopped_irq),
- 	STMMAC_STAT(tx_jabber_irq),
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-index 75b470ee621a..32a2b440fc46 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-@@ -141,6 +141,8 @@ void stmmac_fpe_irq_status(struct stmmac_priv *priv)
- 	 * here, since the status flags of MAC_FPE_CTRL_STS are "clear on read"
- 	 */
- 	value = readl(ioaddr + reg->mac_fpe_reg);
-+	if (value)
-+		priv->xstats.irq_fpe_n++;
- 
- 	if (value & STMMAC_MAC_FPE_CTRL_STS_TRSP) {
- 		status |= FPE_EVENT_TRSP;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 650d75b73e0b..cbc748380dda 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3771,6 +3771,7 @@ static int stmmac_request_irq_single(struct net_device *dev)
- 	enum request_irq_err irq_err;
- 	int ret;
- 
-+	netdev_info(dev, "%s: requesting main IRQ\n", __func__);
- 	ret = request_irq(dev->irq, stmmac_interrupt,
- 			  IRQF_SHARED, dev->name, dev);
- 	if (unlikely(ret < 0)) {
-@@ -3785,6 +3786,7 @@ static int stmmac_request_irq_single(struct net_device *dev)
- 	 * is used for WoL
- 	 */
- 	if (priv->wol_irq > 0 && priv->wol_irq != dev->irq) {
-+		netdev_info(dev, "%s: requesting WOL IRQ\n", __func__);
- 		ret = request_irq(priv->wol_irq, stmmac_interrupt,
- 				  IRQF_SHARED, dev->name, dev);
- 		if (unlikely(ret < 0)) {
-@@ -3798,6 +3800,7 @@ static int stmmac_request_irq_single(struct net_device *dev)
- 
- 	/* Request the IRQ lines */
- 	if (priv->lpi_irq > 0 && priv->lpi_irq != dev->irq) {
-+		netdev_info(dev, "%s: requesting LPI IRQ\n", __func__);
- 		ret = request_irq(priv->lpi_irq, stmmac_interrupt,
- 				  IRQF_SHARED, dev->name, dev);
- 		if (unlikely(ret < 0)) {
-@@ -3813,6 +3816,7 @@ static int stmmac_request_irq_single(struct net_device *dev)
- 	 * Error line in case of another line is used
- 	 */
- 	if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq) {
-+		netdev_info(dev, "%s: requesting safety IRQ\n", __func__);
- 		ret = request_irq(priv->sfty_irq, stmmac_safety_interrupt,
- 				  IRQF_SHARED, dev->name, dev);
- 		if (unlikely(ret < 0)) {
-@@ -6030,12 +6034,16 @@ static irqreturn_t stmmac_interrupt(int irq, void *dev_id)
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 
- 	/* Check if adapter is up */
--	if (test_bit(STMMAC_DOWN, &priv->state))
-+	if (test_bit(STMMAC_DOWN, &priv->state)) {
-+		priv->xstats.irq_down_n++;
- 		return IRQ_HANDLED;
-+	}
- 
- 	/* Check ASP error if it isn't delivered via an individual IRQ */
--	if (priv->sfty_irq <= 0 && stmmac_safety_feat_interrupt(priv))
-+	if (priv->sfty_irq <= 0 && stmmac_safety_feat_interrupt(priv)) {
-+		priv->xstats.irq_sfty_n++;
- 		return IRQ_HANDLED;
-+	}
- 
- 	/* To handle Common interrupts */
- 	stmmac_common_interrupt(priv);
+This results in working PCIe for me, pass initial link training.
 
+I think I need to provide more details:
 
-Here are the corresponding stats captured right after booting to
-userspace, with the 0 counts stripped off to keep the output readable:
+GPIO in question is GPIO0-12 / GPIO0-PB4. On RK3399PRO VMARC schematic
+it's called PCIE_PERST#_3.3V and it's in the PMUIO1 domain.
 
-     irq_gmac_0_n: 1
-     irq_gmac_5_n: 4047
-     irq_gmac_18_n: 46
-     irq_mtl0_n: 2244307
-     irq_mtl_0_n: 2244307
-     irq_mtl_1_n: 2244307
-     irq_mtl_2_n: 2244307
-     irq_mtl_3_n: 2244307
-     irq_mtl_4_n: 2244307
-     irq_chan0_n: 2244307
-     irq_chan0_0_n: 333
-     irq_chan0_2_n: 2244307
-     irq_chan0_6_n: 2769
-     irq_chan0_10_n: 2244307
-     irq_chan0_11_n: 2799
-     irq_chan0_15_n: 2701
+Without workaround I have about 6 milliseconds, from driver probe and
+parsing of DT that sets initial value 0 for GPIO, to deassert PERST#
+by setting it high. Which is why just removing msleep(PCIE_T_PVPERL_MS)
+produced working PCIe for me.
 
-Here are the stats after enabling five queues in DT, also captured right
-after booting to userspace:
+After the ~6 ms it becomes necessary to hack direction to input then
+setting direction to output to properly deassert PERST# and proceed
+with initial link training - which is why, again, hacking PERST# as
+either open-drain with pull-up or open-source with pull-down worked:
+gpiolib hacks that by setting direction INPUT.
 
-     irq_gmac_0_n: 1
-     irq_gmac_5_n: 4020
-     irq_gmac_18_n: 41
-     irq_mtl0_n: 1286469
-     irq_mtl1_n: 1286469
-     irq_mtl2_n: 1286469
-     irq_mtl3_n: 1286469
-     irq_mtl4_n: 1286469
-     irq_mtl_0_n: 6432345
-     irq_mtl_1_n: 6432345
-     irq_mtl_2_n: 6432345
-     irq_mtl_3_n: 6432345
-     irq_mtl_4_n: 6432345
-     irq_chan0_n: 1286469
-     irq_chan1_n: 1286469
-     irq_chan2_n: 1286469
-     irq_chan3_n: 1286469
-     irq_chan4_n: 1286469
-     irq_chan0_0_n: 416
-     irq_chan0_2_n: 1286466
-     irq_chan0_6_n: 3470
-     irq_chan0_10_n: 1286466
-     irq_chan0_11_n: 2740
-     irq_chan0_15_n: 2686
-     irq_chan1_2_n: 1286469
-     irq_chan1_10_n: 1286469
-     irq_chan2_2_n: 1286467
-     irq_chan2_10_n: 1286467
-     irq_chan4_2_n: 1286469
-     irq_chan4_10_n: 1286469
-
-Setting eee-broken-1000t, with a single queue:
-
-     irq_gmac_0_n: 1
-     irq_gmac_18_n: 6
-     irq_mtl0_n: 2548
-     irq_mtl_0_n: 2548
-     irq_mtl_1_n: 2548
-     irq_mtl_2_n: 2548
-     irq_mtl_3_n: 2548
-     irq_mtl_4_n: 2548
-     irq_chan0_n: 2548
-     irq_chan0_0_n: 282
-     irq_chan0_2_n: 2548
-     irq_chan0_6_n: 2324
-     irq_chan0_10_n: 2548
-     irq_chan0_11_n: 29
-     irq_chan0_15_n: 2548
-
-And eee-broken-1000t with 5 queues:
-
-     irq_gmac_0_n: 1
-     irq_gmac_18_n: 8
-     irq_mtl0_n: 2672
-     irq_mtl1_n: 2672
-     irq_mtl2_n: 2672
-     irq_mtl3_n: 2672
-     irq_mtl4_n: 2672
-     irq_mtl_0_n: 13360
-     irq_mtl_1_n: 13360
-     irq_mtl_2_n: 13360
-     irq_mtl_3_n: 13360
-     irq_mtl_4_n: 13360
-     irq_chan0_n: 2672
-     irq_chan1_n: 2672
-     irq_chan2_n: 2672
-     irq_chan3_n: 2672
-     irq_chan4_n: 2672
-     irq_chan0_0_n: 283
-     irq_chan0_2_n: 2672
-     irq_chan0_6_n: 2439
-     irq_chan0_10_n: 2672
-     irq_chan0_11_n: 46
-     irq_chan0_15_n: 2672
-     irq_chan2_2_n: 2670
-     irq_chan2_10_n: 2670
-     irq_chan3_2_n: 2672
-     irq_chan3_10_n: 2672
-
-I've also printed the value of the interrupt enable registers. With one
-queue,
-
-MAC_INTERRUPT_ENABLE 0x00001030
-DMA_CH0_INTERRUPT_ENABLE 0x0000d041
-DMA_CH1_INTERRUPT_ENABLE 0x00000000
-DMA_CH2_INTERRUPT_ENABLE 0x00000000
-DMA_CH3_INTERRUPT_ENABLE 0x00000000
-DMA_CH4_INTERRUPT_ENABLE 0x00000000
-
-And with 4 queues,
-
-MAC_INTERRUPT_ENABLE 0x00001030
-DMA_CH0_INTERRUPT_ENABLE 0x0000d041
-DMA_CH1_INTERRUPT_ENABLE 0x0000d041
-DMA_CH2_INTERRUPT_ENABLE 0x0000d041
-DMA_CH3_INTERRUPT_ENABLE 0x0000d041
-DMA_CH4_INTERRUPT_ENABLE 0x0000d041
-
-(bit 0 of the DMA interrupt enable registers is sometimes not set, which
-I understand is normal)
-
-Given the enabled interrupts, I agree that the counters are misleading,
-as none of the interrupt bits with high counts are enabled. I'm however
-not entirely sure about the MTL interrupt status register, it's not
-clear to me if it is wired to the EQOS IRQ line as I don't see a
-corresponding interrupt enable register.
-
-If we rule out the main EQOS IRQ line and the per-channel RX and TX IRQ
-lines as the source of the interrupt storm, the last possible culprit
-according to section 7.1.2 (A53 Interrupts) of the i.MX8MP reference
-manual would be the "ENET QOS TSN LPI RX exit Interrupt" that is OR'ed
-into IRQ 135. As that's related to EEE, it's a probable culprit, but I
-don't know how what controls that IRQ line. The LPI interrupt status bit
-is set in MAC_INTERRUPT_STATUS with a reasonable count, and we clear the
-LPI interrupt sources when that happens. Just to be sure, I modified
-dwmac4_irq_status() to read and process the GMAC4_LPI_CTRL_STATUS
-register regardless of the LPIIS bit status, and that doesn't help. The
-corresponding stats seem reasonable:
-
-     irq_tx_path_in_lpi_mode_n: 4
-     irq_tx_path_exit_lpi_mode_n: 4
-     irq_rx_path_in_lpi_mode_n: 2537
-     irq_rx_path_exit_lpi_mode_n: 2535
-
-I also checked the MAC_MMC_RX_INTERRUPT and MAC_MMC_TX_INTERRUPT
-registers as they contain LPI-related bits, but the corresponding mask
-registers have all bits set:
-
-MAC_MMC_RX_INTERRUPT      0x00000000
-MAC_MMC_TX_INTERRUPT      0x00000000
-MAC_MMC_RX_INTERRUPT_MASK 0x0fffffff
-MAC_MMC_TX_INTERRUPT_MASK 0x0fffffff
-
-According to the reference manual, this masks all corresponding
-interrupts.
-
-I'm really puzzled by the "ENET QOS TSN LPI RX exit Interrupt" IRQ line.
-Based on its name I would assume it would be linked to bit RLPIEX in the
-MAC_LPI_CONTROL_STATUS register, but that seems quite pointless as
-that's available as an interrupt source through
-MAC_INTERRUPT_STATUS.LPIIS. The shortcut doesn't seem necessary. Are we
-missing something, or chasing the wrong suspect ?
-
-> > > The debix board's DT doesn't specify a multi-queue setup, so only
-> > > channel 0 gets processed in stmmac_dma_interrupt(). I thought that could
-> > > explain why Q1IS to Q4IS stay set (but not why Q0IS also has a high
-> > > count, or why Q1IS to Q4IS are set in the first place), and enabled
-> > > multi-queue support in DT by copying the imx8mp-evk configuration. I
-> > > then see lots of non-zero DMA_CH1_STATUS, DMA_CH2_STATUS and
-> > > DMA_CH4_STATUS values (but DMA_CH3_STATUS stays 0 all the time), but
-> > > sadly this doesn't fix the interrupt storm.
-> > 
-> > Now, a queue will only be enabled if stmmac_dma_rx_mode() /
-> > stmmac_dma_tx_mode() is called, which only happens for queues that are
-> > going ot be used. So, I think QxIS where x >= 1 is set is a red
-> > herring.
-> > 
-> > Given that the driver does a software reset which clears out all the
-> > registers, any stale configuration for queues e.g. from a boot loader
-> > can't be preserved.
-> 
-> I agree that it seems really weird. And why this would be related to
-> cpuidle and EEE is also a mystery.
-> 
-> > > I don't think I can debug this further and figure out the root cause
-> > > unassisted in a reasonable amount of time, so I'd like to merge
-> > > disabling EEE as a workaround for the time being, unless someone has any
-> > > idea of what I could test next. I'll submit a v2 of this patch with an
-> > > updated commit message.
-> > 
-> > I'm also not fully conversant with dwmac hardware, especially not the
-> > v5.10 hardware that is in imx8m. All the above is stuff I've pieced
-> > together this morning from reading the driver code and the imx8m
-> > manual. I'm putting in effort here to try and get to the bottom of
-> > your problem without hardware... it would be helpful if others could
-> > do the same rather than throwing their hands up.
-> 
-> More help would certainly be welcome. And I really appreciate your
-> support Russell.
-> 
-> > The driver is really crappy, and part of the reason its crappy is
-> > because of this kind of "patch in a workaround because we can't be
-> > bothered to do the research and fix problems properly" attitude.
-> > 
-> > I'm saying enough is enough. I'm saying no, not going to merge a
-> > workaround for this problem. I want to see stmmac improve. I've
-> > put in considerable effort over the last year or so sorting out
-> > fundamental issues that others just can't be bothered to solve
-> > properly (like the DMA reset failures on resume that has plagued
-> > this driver which no one seems _capable_ of fixing, yet I, with no
-> > experience of stmmac, was able to analyse the issue, read the
-> > availble documentation, and fix the problem properly once and for
-> > all.) Either I'm bloody good at what I do and everyone else is
-> > useless, or it's laziness by others. It pisses me off that I seem
-> > to be one of the few who is willing to put the effort in to stuff
-> > in the kernel to see _improvement_. I don't _have_ to work on stmmac,
-> > but me working on stmmac benefits a lot of people.
-> > 
-> > What I'm saying is, we need more people willing to put effort in
-> > and less bodging.
-> 
-> While I would like to merge a workaround and move on, I also understand
-> your position, having had the exact same stance in other kernel areas
-> and pushing for problems to be fixed correctly instead of worked around.
-> The only argument I have to defend the workaround approach is that I'm
-> putting a lot of hours trying to do the right things in other
-> subsystems, and I can hardly scale that to networking. It's not a great
-> argument though.
-
--- 
-Regards,
-
-Laurent Pinchart
+Thanks,
+Geraldo Nascimento
 
