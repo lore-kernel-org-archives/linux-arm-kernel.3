@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406FDCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 07:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD2BCD4F28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 07:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFnlErVVXN6XRBIGhIMd4+4N2/5jdtjG6+eDc7WmDfs=; b=gr81XfWRzpvQd1hakPV+N3LqzV
-	pmBZHEEONDMHsxRspV7WKgLHq35U0rBOxPc26xxVY1k7zWfXWX6yKYgADfIsn0SLyxA7Bm/0PsWY7
-	SxPwfO5lnriDu1R1io7OdbqDGuB6lmTNbP34hgMKJI9fA428DVtAuoSZ+1MLSJwrfutHN/Yi6OJx/
-	E4MaATWiqANJj7ynD58rlCFH7cP/nVWuyoZtASTHlWl/Ww4BjlFm7OaXTsM3QVT5I1wT4cEJdIDlr
-	Wa9TSga6OlYkDjI7zHtAHcpjyn7exaeBqE33B+U0UYJjV3AxxJw27l26y58iPr4mUAwRE+8ToFJhD
-	ZkUtUnWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Qg2QVHThW3X+Uk9q9cbkaKJfTzK0QTxisU1xZ/OPtw=; b=AX18rUeOW2gAXQIWVhNaMViOz1
+	SX5Jw+MpxXI0JAFmFhltvYSXiuU36/lP/GR0AN8yELM0B4GB6X4+pPb1SElRwJ1pXymXXc9guuiUU
+	QstSLKn+R+PX+AN6nDt2ZKzk5kCjbfA1GR1cFtOni1FiOO+jBFDpEdLel+us0uUQicMnG7Ak/at25
+	Viiwfw8u9A3cb1hL+oUZhFeiTat6Z1hw7JSHjwk2uK2J3KE0Qb4NouLNIBIc9Hc5QL9SD3SPA5dCa
+	VpyU60Yv1ioKKm/g9ghEOgyspmj6wd7rJrUOpJ0A49G40FsCubhGYIwYEqIAeVSgZ9AXGnmry2gaL
+	tjP9b72g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJRXt-00000009z1w-0uxm;
-	Thu, 13 Nov 2025 07:15:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJRZz-00000009zBy-2fjC;
+	Thu, 13 Nov 2025 07:17:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJRXp-00000009z1j-2M4D
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 07:15:01 +0000
+	id 1vJRZx-00000009zBa-3WzO;
+	Thu, 13 Nov 2025 07:17:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E5A3601A5;
-	Thu, 13 Nov 2025 07:14:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AF0FC4CEFB;
-	Thu, 13 Nov 2025 07:14:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 56D2643F33;
+	Thu, 13 Nov 2025 07:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D55ACC4CEF5;
+	Thu, 13 Nov 2025 07:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763018099;
-	bh=SDz5IUPxp2WbK+ZgDzhfQ6GPQiWpizsIvuDW3iYmwq0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=upuLy5FBcpDEll3XS50VxE9Au3AHGzSdnn0VLeRQIvE3pvPuCAv05ylFRgi3B4GrK
-	 ebPWnXeK/tUzX7oCMaP1jqHZR9uOqKO57Mqh7DRcE9/Tup9ucHbhJsQqdaDhn+9cpa
-	 EQdvXakUcKplTiRIMIUFkN0JBXK+yZD3Yuz1oilvPC8sS0d3gKjuJSnVZy+zsL41ma
-	 Jm20U0Y5ffm7SZgInoOnRaaNyj5GL9k0Cm9WJMuvFQeH+3Bx3qL19kAfQri3obgt0e
-	 9sAemzqUUaqLVpI7KHIsmykzN7Byv7qWNmEK/+RTwPgIc9aiqRbov23qVkhrEeigoS
-	 ClM/Gcf619yFw==
-Message-ID: <259e917f-0570-40d6-983f-bfe9d77444a7@kernel.org>
-Date: Thu, 13 Nov 2025 08:14:54 +0100
+	s=k20201202; t=1763018232;
+	bh=AVBlLnGckxjKwnnOnUXaDm2zDGvoig0seanX4A70Bw4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YUM+ik+p6IFzpN7zZLzxa9AwLB2kyODzK7ekmsbMAzKaxleQyyuFSMVBZxXQwZCZI
+	 0bj1d6pAcTkjALLuJycRZ5zkxzTOvAheE0Zdw134wk7tK5zPXv4xyDuz7GuXOTxQxP
+	 qh3HvKC3YA6tn5LQEBBHadkmBBHJWKIkl/AhstES9j3lZgUvOCFjjvbC3Kxuajbr+J
+	 ctw46CNizo0oqX/WPj+KZYouyD/R2SKrVl0Gzs5nTZkOtynOVORmaIUcddX97cEDwP
+	 rxm6+DIXuZCKMfd7NmxjvrNnEyT1Tt6ROX8VReskblxiBMy0KpOhzBmTxaM0T5ItjQ
+	 o96jkxwVdSqPA==
+Date: Thu, 13 Nov 2025 08:17:09 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Zilin Guan <zilin@seu.edu.cn>
+Cc: nbd@nbd.name, ryder.lee@mediatek.com, shayne.chen@mediatek.com,
+	sean.wang@mediatek.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, jianhao.xu@seu.edu.cn
+Subject: Re: [PATCH net] mt76: mt7615: Fix memory leak in
+ mt7615_mcu_wtbl_sta_add()
+Message-ID: <aRWF9QJuwGaDlUvT@lore-desk>
+References: <20251113062415.103611-1-zilin@seu.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: Add compatible for
- Facebook Anacapa BMC
-To: Peter Shen <sjg168@gmail.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
- Joel Stanley <joel@jms.id.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, peter.shen@amd.com
-References: <20251112211248.3711889-1-sjg168@gmail.com>
- <20251112211248.3711889-2-sjg168@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251112211248.3711889-2-sjg168@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aZWRFATKm1FfpMf2"
+Content-Disposition: inline
+In-Reply-To: <20251113062415.103611-1-zilin@seu.edu.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251112_231713_919927_9CCE6B80 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2025 22:12, Peter Shen wrote:
-> This patch adds the compatible string for the Facebook Anacapa BMC
-> which uses an Aspeed AST2600 SoC. This is required before adding
-> the board's device tree source file.
-> 
-> Signed-off-by: Peter Shen <sjg168@gmail.com>
+
+--aZWRFATKm1FfpMf2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> In mt7615_mcu_wtbl_sta_add(), an skb sskb is allocated. If the
+> subsequent call to mt76_connac_mcu_alloc_wtbl_req() fails, the function
+> returns an error without freeing sskb, leading to a memory leak.
+>=20
+> Fix this by calling dev_kfree_skb() on sskb in the error handling path
+> to ensure it is properly released.
+>=20
+> Fixes: 99c457d902cf9 ("mt76: mt7615: move mt7615_mcu_set_bmc to mt7615_mc=
+u_ops")
+> Signed-off-by: Zilin Guan <zilin@seu.edu.cn>
 > ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/ne=
+t/wireless/mediatek/mt76/mt7615/mcu.c
+> index 4064e193d4de..08ee2e861c4e 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+> @@ -874,8 +874,10 @@ mt7615_mcu_wtbl_sta_add(struct mt7615_phy *phy, stru=
+ct ieee80211_vif *vif,
+>  	wtbl_hdr =3D mt76_connac_mcu_alloc_wtbl_req(&dev->mt76, &msta->wcid,
+>  						  WTBL_RESET_AND_SET, NULL,
+>  						  &wskb);
+> -	if (IS_ERR(wtbl_hdr))
+> +	if (IS_ERR(wtbl_hdr)) {
+> +		dev_kfree_skb(sskb);
 
+Hi Zilin,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I can't see how this is useful since if mt76_connac_mcu_alloc_wtbl_req retu=
+rns
+an error, wskb will not be allocated.
 
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
+Regards,
+Lorenzo
 
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here ('b4 trailers -u ...'). However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for tags received on the version they apply.
+>  		return PTR_ERR(wtbl_hdr);
+> +	}
+> =20
+>  	if (enable) {
+>  		mt76_connac_mcu_wtbl_generic_tlv(&dev->mt76, wskb, vif, sta,
+> --=20
+> 2.34.1
+>=20
 
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
+--aZWRFATKm1FfpMf2
+Content-Type: application/pgp-signature; name=signature.asc
 
-Best regards,
-Krzysztof
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaRWF9QAKCRA6cBh0uS2t
+rCxgAQCW+qnvlH5fPUCxWkj4AlWKqGylBMeUcC1chjZl+uY/UwEAhUhsrUJk7tn7
+QaT4KvLwkDqdr6peuN/QcQvG50qs6wM=
+=uKrq
+-----END PGP SIGNATURE-----
+
+--aZWRFATKm1FfpMf2--
 
