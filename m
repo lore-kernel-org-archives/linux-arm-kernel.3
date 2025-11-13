@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B97CD98E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 21:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A14CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 21:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3geGswiqCo3GsUSfNRmOgAZx3bknHVtZ13LGHgpLV5c=; b=jMMbzl2ab9WHyYgBOf/x3noeT7
-	ByHzjsv+Gs5iA0Toow4G4FVm+GQzTT925zgLFbeBvmEUHirhl2WuTq5+g8DSwLDT7lwQgl5MSFY5o
-	BYw44e3clV/8Yidyh1B2bQPTSn2aGNifnH+vp2fe8v89strAlr0Rwc8nld8JDdo0QC0eBHL+NtrVu
-	V4QkrOlq/XjOZK1T3SVuz6QNhBCqBGzEv8OR7HRma8kRSeP0Iy2Myt8C5FEnoiziRYWkE33gUgVWV
-	R1qAi1Z7h4U/RSov1m4mx34msaMBv1PNSbmzZP5RUG37rY5JNR6szZhpnZ2MprMh09uexMZWBAyR2
-	KK59Zi5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NcojkujFPu3YegPjP4dWio8amjxnKtpooGbz3NKSWYI=; b=3/hEjwBnIdJSQNvduRgK+1sYcJ
+	F43GMPL1bQLxVl3l+puxdis6RRGU2nW8EmrxHqBCZXzIKusVwQcbOycI49DNSWjRW6/zVXcq1YieN
+	Gyik2XwAe5rYhwAd5W2CdY68dUGyGQ7MH09X0WMiIWYKIkDBPpXbOyJccEuVofeah/58QrtgheTVg
+	TxHVFtCCZijKhhWlHUNGp9b8kg/iG5usyaxMDzbfEIZD7kbYgqXUr138S2snd8Mh0TGPooq1yftOR
+	Bik0458PQmUe5D7a7+vM+rDAdhKlF6COrwdFT/xazafzVr+K/ZY3xGIqtKrvaAZZ70Sgqz1UjjODI
+	/F8K6Zhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJf0p-0000000B8g1-0KP6;
-	Thu, 13 Nov 2025 21:37:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJfLv-0000000BAO0-3set;
+	Thu, 13 Nov 2025 21:59:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJf0n-0000000B8f6-0XXx
+	id 1vJfLu-0000000BANu-2V4e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 21:37:49 +0000
+	Thu, 13 Nov 2025 21:59:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E6BB60123;
-	Thu, 13 Nov 2025 21:37:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC1DC113D0;
-	Thu, 13 Nov 2025 21:37:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B16BB6014A;
+	Thu, 13 Nov 2025 21:59:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA6AC4CEF8;
+	Thu, 13 Nov 2025 21:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763069867;
-	bh=rxL7Gci2ztB1l+oHFBXQu9xc4TlmQwnasATOD0+gSsA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GvkUI3zh4TXQWAF/jkz1rD8ACMooMrT6gTt6F7LqLMW0pIbenBrms060ck2KP7zLm
-	 5Qg6dNO4uS5dUXXfrC2ZSdYAR1Oe2qhtLoF64+aaRC9q1iD0QlGn6+LgoweHYF2iXq
-	 PM7/Ey2rJpvQUR4ofpCIfRTxVeI3rq6OBU3D2iHnXWljtJKoQ/+aMB6vxTQWQf2Lih
-	 c8jH5OjwrC4pdKMeR7Kjo7m8aSonT3vptbPfqXgc/4/8nBMPWd2eHVllqhY/+0S2/u
-	 8uetADDxajYTDLYQevWVJ4pXGiXpmYMGgvf81FEhuecA1cz/YDODAjLZP6weJ6hODn
-	 GFjPZZ12zK7Hw==
+	s=k20201202; t=1763071177;
+	bh=UnZOEY9cSyoxchmU4I4ZbyI1+seIbFOun8eX8HryMlQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bt1HFehqN+Es/5TQWa0IXHbiptw4nRqIqt1PyD4C47kF5v281LoeHwiC2xMoJ12eY
+	 06DSzN8q/p0QvuBNE3kPhjI7C4lppN71hEQLXNyP35bt575ilt3trvdavSArqM1gVf
+	 uXRM73grYNc+ws/jr0I51YEbl2+3jqEfqbsOWcBow6c1Zz61FGe1GTfVQ6U5aQbidc
+	 xOgA7tPNdFcyjIhdXFhhQ66vmJ/c8DLpAJHVeLvjiiiQ5H1EwpxOaBEoAPw2nFWL3Y
+	 YfitVFLlTu3eggDBs/TuK3BomDp86SiyQq8XpmGz3rL80g8T2jTfB3TokcFXRmcsCl
+	 4T4iotV2r/+hw==
+Date: Thu, 13 Nov 2025 13:59:35 -0800
 From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
+To: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH] KVM: arm64: GICv3: Check the implementation before accessing ICH_VTR_EL2
-Date: Thu, 13 Nov 2025 13:37:45 -0800
-Message-ID: <176306986138.2184993.9505471875702043816.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251113172524.2795158-1-maz@kernel.org>
-References: <20251113172524.2795158-1-maz@kernel.org>
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>, Aishwarya.TCV@arm.com,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 05/45] KVM: arm64: GICv3: Detect and work around the
+ lack of ICV_DIR_EL1 trapping
+Message-ID: <aRZUx1WkyKdFQgYy@kernel.org>
+References: <20251109171619.1507205-1-maz@kernel.org>
+ <20251109171619.1507205-6-maz@kernel.org>
+ <7ae5874e-366f-4abd-9142-ffbe21fed3a8@sirena.org.uk>
+ <86ikfdu7cu.wl-maz@kernel.org>
+ <7ea5c49d-b093-475e-9f27-ad92dcc4b560@sirena.org.uk>
+ <86frahu21h.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86frahu21h.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Nov 2025 17:25:24 +0000, Marc Zyngier wrote:
-> The ICH_HCR_EL2 patching code is generally GIC implementation agnostic,
-> except when checking for broken Apple HW, which imposes to read
-> ICH_VTR_EL2.
+On Thu, Nov 13, 2025 at 08:10:18PM +0000, Marc Zyngier wrote:
+> +Fuad
 > 
-> It is therefore important to check whether we are running on such
-> HW before reading this register, as it will otherwise UNDEF when
-> run on HW that doesn't have GICv3.
+> On Thu, 13 Nov 2025 19:06:31 +0000,
+> Mark Brown <broonie@kernel.org> wrote:
+> > 
+> > [1  <text/plain; us-ascii (7bit)>]
+> > On Thu, Nov 13, 2025 at 06:15:29PM +0000, Marc Zyngier wrote:
+> > > Mark Brown <broonie@kernel.org> wrote:
+> > 
+> > > > The arch_timer case bisects to this patch in -next, regular nVHE mode
+> > > > runs this test happily.
+> > 
+> > > My hunch is that we're missing something like the hack below, but I
+> > > haven't tried it yet.
+> > 
+> > > I'll probably get to it tomorrow.
+> > 
+> > That still fails FWIW.
 > 
-> [...]
+> Yup, this has uncovered yet another pKVM bug, which doesn't preserve
+> the vgic_model in its private kvm structure. I'm able to make it work
+> with this:
 
-Applied to next, thanks!
+Thanks for debugging this Marc. I've added a patch on top of kvmarm/next
+with this. I don't have any A53 machines around but I was able to repro
+using kvm-arm.vgic_v3_common_trap=1 on QEMU.
 
-[1/1] KVM: arm64: GICv3: Check the implementation before accessing ICH_VTR_EL2
-      https://git.kernel.org/kvmarm/kvmarm/c/8ed2ae76f20c
-
---
-Best,
+Thanks,
 Oliver
 
