@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86205CD4F2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B96CD6E55
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BpMnBBv7giTtQZjG6lEuMEHtEm5yFgJZ+gcmpwLKmxM=; b=0yasvc1J9rlhREl+XqLV0sd3Zi
-	38MS/pHD9V09uAdySfoWAiSh6nuX9TEzdAPagZFXMoQ3zOhdyWaCbcCdhCRMEHImfMKumsaHnjRit
-	joarVq7aOZpUiwetOj5zve+t/XOBOJOkQd+Pu8CgPwQ4/jtGwat5gi35Z463QJ1itokugOmECOtFu
-	9b2kbyYrBo/JwdHxFHG9MByn9ax2CDCs44Fxj1m2TzIPQGvJjgqibKnLHLPpPRz6fF59MCbKnvlia
-	RcbZlDBQwqPEf2q36G84CvjB5p2/elBKJiECwse4tLe8W4hj5jw8WNN6TuNBYRg2q6ok/qAus75Sv
-	ks9ejw6Q==;
+	bh=n1CkMMW19YRuicfdgv7RAomaqUjFuAF8ESShxFloH8Q=; b=hRM7wJ+q0jtCnWBpYFxpwA/VX1
+	acbSILPL8I4fa3kg6ZvoCJdwl6NXn/P2o8Yff5l6aPIva8JbmBI5wXVO+cztigBT48QiZaJz+nDZl
+	dQZ+XdcCSofcFQpU9aolriMTyY0QirMfleyu/3oPLzXuzpGk9+VOluMHooedeUBnyT1ILb1ESloT0
+	i0UEjOxeme/XQ/Zcm2B0XK14seg5TLfWn/8dqsHKkNi5ou+I4Jp8GRhakFyyam+AJ6kUKdNBbwHBh
+	c/WOc4hMbbxN+R0zCG5Fy0cqaIM4Wb4eu3agbQvJ/GCRYQO3bMfPfMs7oIHYzo0BA0VYbnci09YWY
+	yT90knjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXWK-0000000AYWr-16GK;
-	Thu, 13 Nov 2025 13:37:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJXYM-0000000AYnR-2p0T;
+	Thu, 13 Nov 2025 13:39:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXWI-0000000AYWj-3JHd
+	id 1vJXYJ-0000000AYn7-43hv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 13:37:50 +0000
+	Thu, 13 Nov 2025 13:39:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9C9060222;
-	Thu, 13 Nov 2025 13:37:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71DC4C19422;
-	Thu, 13 Nov 2025 13:37:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3FCEB43F8D;
+	Thu, 13 Nov 2025 13:39:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10ED7C116D0;
+	Thu, 13 Nov 2025 13:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763041069;
-	bh=hMDqncVTMGAeoVR3a3d7f5yNX81QBpwoNu17uq0iXMc=;
+	s=k20201202; t=1763041195;
+	bh=qZNTS+SsKyGq5cJUoJdNddEpiS/NdktIA7Wmi47YSI0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=U8M7ts+kjRsY7U3j2SeaXDYLHevxWSv17TMsi68DyHZDAV2PUEwaypzEkPEPqo3GW
-	 Pj7u3jgYXvBEcN+VGLMzcJhJORvQaVdP+qfSSmaJhCx6YHCsbe0/1W8qPJUalrVIh5
-	 QP0oxUgqXp+pzxC3XSzcSydqil9ZeCfoKYWShNZljp325WqBTIZGzvfppkkvqrpyDB
-	 X+EEJBQay1hIhfXTx25b1PNLYb3BRmcP7cThJnVaHgWwvPKisfA9va3vhIO6P6uvVM
-	 gsyTHFH+lT5WO2hvnp4aWdkNxI5rLuPSWMkatVGsejdrjO1oganuMGQ2G5y0P/FWk2
-	 v2qErzM5INOcw==
+	b=A4Jbw+/R6bIUOmh0jqAwRGsgWCRKFxO621Q7LcuzoqI95D9gOWCq0i7jLqALA9eKw
+	 3pDvyLMVjs+tFz72NZ7yrLPUVFG/dkNvZiZlOC8Wb7IBDeuXzjU4n0Db9VvRUospVJ
+	 34PXNkYqCZEk3L8FaNtWm+nSQcd+86h6+jzaVlGG6CI3lk9T4boNvVj10y3+sxPxwI
+	 Bvtl/SJH/8JVRELMIF1VQFIs5TouKlYTVZ6fMAlmL+pWnRDNNivWbrTlBg37UEWx5z
+	 ykRTsgmqW2ZbETjDOHlxN3sDkflRjEnngr0g9Uv/wc71ZJmUkP0uJjBlr82LF1w8CV
+	 Ge8RBzRYY6BGg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vJXWF-00000004t2S-0Lup;
-	Thu, 13 Nov 2025 13:37:47 +0000
-Date: Thu, 13 Nov 2025 13:37:46 +0000
-Message-ID: <86ms4qt5n9.wl-maz@kernel.org>
+	id 1vJXYG-00000004t5r-3WS5;
+	Thu, 13 Nov 2025 13:39:52 +0000
+Date: Thu, 13 Nov 2025 13:39:52 +0000
+Message-ID: <86ldkat5jr.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Jonathan Cameron <jonathan.cameron@huawei.com>
 Cc: <linux-kernel@vger.kernel.org>,
@@ -75,11 +75,11 @@ Cc: <linux-kernel@vger.kernel.org>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	"Alexandru\
  Elisei" <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v4 14/26] genirq: Add affinity to percpu_devid interrupt requests
-In-Reply-To: <20251112181318.000064be@huawei.com>
+Subject: Re: [PATCH v4 17/26] genirq: Add request_percpu_irq_affinity() helper
+In-Reply-To: <20251112182735.00001363@huawei.com>
 References: <20251020122944.3074811-1-maz@kernel.org>
-	<20251020122944.3074811-15-maz@kernel.org>
-	<20251112181318.000064be@huawei.com>
+	<20251020122944.3074811-18-maz@kernel.org>
+	<20251112182735.00001363@huawei.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -89,6 +89,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, ruanjinjie@huawei.com, alexandru.elisei@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_053956_044933_2EA4490C 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +106,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025 18:13:18 +0000,
+On Wed, 12 Nov 2025 18:27:35 +0000,
 Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
 > 
-> On Mon, 20 Oct 2025 13:29:31 +0100
+> On Mon, 20 Oct 2025 13:29:34 +0100
 > Marc Zyngier <maz@kernel.org> wrote:
 > 
-> > Add an affinity field to both the irqaction structure and the interrupt
-> > request primitives. Nothing is making use of it yet, and the only value
-> > used it NULL, which is used as a shorthand for cpu_possible_mask.
+> > While it would be nice to simply make request_percpu_irq() take
+> > an affinity mask, the churn is likely to be on the irritating side
+> > given that most drivers do not give a damn about affinities.
 > 
-> used is NULL
+> Only 37 instances. I'd have been tempted to do it anyway :)
+
+I'm leaving this as an exercise for people who enjoy cross-subsystem
+patch series!
+
 > 
 > > 
-> > This will shortly get used with actual affinities.
+> > So take the more innocuous path to provide a helper that parallels
+> > request_percpu_irq(), with an affinity as a bonus argument.
+> > 
+> > Yes, request_percpu_irq_affinity() is a bit of a mouthful.
 > > 
 > > Tested-by: Will Deacon <will@kernel.org>
 > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> 
-> With trivial bit of documentation added
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
-> > ---
-> >  include/linux/interrupt.h |  5 +++--
-> >  kernel/irq/manage.c       | 14 ++++++++++----
-> >  2 files changed, 13 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
-> > index 0ec1a71ab4e84..52147d5f432b3 100644
-> > --- a/include/linux/interrupt.h
-> > +++ b/include/linux/interrupt.h
-> > @@ -125,6 +125,7 @@ struct irqaction {
-> >  		void		*dev_id;
-> >  		void __percpu	*percpu_dev_id;
-> >  	};
-> > +	const struct cpumask	*affinity;
-> 
-> This structure has kernel-doc that needs an update.
-> 
-> >  	struct irqaction	*next;
-> >  	irq_handler_t		thread_fn;
-> >  	struct task_struct	*thread;
-
-See 68c4c159a0db4 ("genirq: Fix percpu_devid irq affinity
-documentation") in -next for the merged fix.
 
 Thanks,
 
