@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00168CD6E42
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910D3CD6E48
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rc4sJfcwE234sCoLeSfNws+4rHy29ABTjnHCIwUL8OY=; b=ZmkCso4Pp6ieAo6Oowal4cSxlp
-	uFKytERer75EHnhjGapFd00tRApczfUY8XSTNaQM0WR3ZG1supiNkkp3twF7J3xHu2xvv1x2UR3Lc
-	AqlSkexwQYdeIvCOLtGLU84EEJ5WTymIIIExTBmoQa2/ZjdI0Ln6aEv4s+wqJUJBoYlBVBAN0soc1
-	fJeFaOc7nmw6Wi2ZWIPdV3hMUKwpsfFhhJ4ztTa74bb1ymj2ZyKtgjGPWbn9+MvcAmrjy2036hz6R
-	8ppgIn4fIPO4azqhZPuLiGLp7UUr19JsvfdugYZFQC4N15RFXbq7RLT0fWEg3Vr0Uegq5ooAgn8DE
-	1bSbirqA==;
+	bh=PTo4NiLOqxrlkui47pxmWMqp2NYL5bevodQO1aurAOM=; b=Yp5nihsMqj+BtCIz0MQ3waw8QP
+	YxNDyAXKTyfoz2wVCkJUJlVKS1rkTnRs4f6n8w94R/tJLlktsSSzIPOrrmVA8QzWbYN8LnCi+Wu+y
+	xu1mhWH2ZjwPXX9pdk1FRmPYsFackcnu5K2G3z+7Y58pqpMi7xZ2qTueEzZ3PZTI2kA/p1yYWkA+x
+	tOqpE9AlzDyf38WBvTArG2hwnNUcXKko28hvZkE1sbdB/ZCVTBlNB7PyNzFjIhdW4iIjDSV88NlG5
+	3GVt/UOThKTzHBgs2qwBAOf1tSRd/TV6eeTQuA0KUrpqM/6N57uikDqRlei532+Ev0b1mpfc88pj6
+	23pMn1JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJWLo-0000000ARlK-3LQA;
-	Thu, 13 Nov 2025 12:22:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vJWLe-0000000ARbl-11Fx;
+	Thu, 13 Nov 2025 12:22:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJWLf-0000000ARbo-2mbb;
-	Thu, 13 Nov 2025 12:22:49 +0000
+	id 1vJWLb-0000000ARZK-1UDN;
+	Thu, 13 Nov 2025 12:22:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763036563;
-	bh=Q2b+AjuDHevZT4A1PbKOjLTq44s3ZXzwctElSef5DkE=;
+	s=mail; t=1763036559;
+	bh=TbcA0pAYmyWmxfp86PUKSTB7vNHLm5tB2SOEjyV+PpI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AqzCZw7CIvF8nNsn4zNOR9TlsnXWZ5jX3pRJd70nu119E0AdTHT2xQW8OOkl6wqIR
-	 t+YZK1XXycaY0f4eCQo0B/LMbK0HjZlLfBAGmIjUnjBHyV46pfmVeDvhNYY4M8ZBOr
-	 fK8hckHYvYh1a2NLlLz3fHymL6qBjAtKaH23XJ2jl+CIo3oxnrqntl7bidTNvIb1ZL
-	 OHbUgrSER0cP87qIzweuaUBAhxeqA1M7Sr3IdTnc2xTRPE3n2F1bUY8KNYiSnPVAMc
-	 PgPtaBMlUQ839RGdlM2p0e/AQ7Vj3XT1cS8h6FNV99WrNW3aaKpokBOT44uPWMHyhY
-	 vrDihRTf5iZPA==
+	b=Pif3DHdGQ2W2wihUPxEsLj0clgNC5bMmqwVN6bV/BWjSkzfFpXIMCAzAycDerydIn
+	 K7DZAjROsCtR4afAGOi3gcx5EFcj81FTlqr5ZLYI5T/qoMlif6oLWaim+c8aIvpy2h
+	 tNmMwOHW6CQHyoYgOnpGI/I5NyXDjGVP3Kq720X1ufyduFU1YEkUuJj4MloAuOQbfA
+	 IXwcKwQBer8la4vAA2Uvt6y6oZ1g3sTI7nuJILIN+DSkPTH94thF4MVH/muUmyf+vG
+	 rR1Vbn5G98qhqxKtAcH1ym1NUNrGVKByw/efVgA7NxV+amFQg1GS7blFtTCOXzKz3E
+	 295yLHyRc4/2Q==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9E41817E1416;
-	Thu, 13 Nov 2025 13:22:42 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9AB1A17E127F;
+	Thu, 13 Nov 2025 13:22:38 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: dmaengine@vger.kernel.org
 Cc: sean.wang@mediatek.com,
@@ -58,18 +58,17 @@ Cc: sean.wang@mediatek.com,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 7/8] dmaengine: mediatek: mtk-uart-apdma: Add support for Dimensity 6300
-Date: Thu, 13 Nov 2025 13:22:28 +0100
-Message-ID: <20251113122229.23998-8-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 1/8] dt-bindings: dma: mediatek,uart-dma: Allow MT6795 single compatible
+Date: Thu, 13 Nov 2025 13:22:22 +0100
+Message-ID: <20251113122229.23998-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251113122229.23998-1-angelogioacchino.delregno@collabora.com>
 References: <20251113122229.23998-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_042248_015219_4325CC76 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251113_042243_540949_4FBBCE64 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible string and match data for the APDMA IP version
-found in the MediaTek Dimensity 6300 MT6835 SoC; this supports
-extended addressing with up to 34 bits.
+While it is true that this SoC is compatible with the MT6577 APDMA
+IP, that is valid only when the IP is used in 32-bits addressing
+mode, and, by the way there is no good reason to do so.
+
+Since the APDMA IP in MT6795 supports 33 bits addressing, this
+means that it is a newer revision compared to the one found in
+MT6577, hence only partially compatible with it.
+
+Allow nodes to specify "mediatek,mt6795-uart-dma" as their only
+compatible in the case of MT6795; this is done in lieu of the fact
+that there are other SoCs integrating the same version of this IP
+as MT6795, and those will eventually get their own compatible that
+expresses full compatibility with this SoC.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/dma/mediatek/mtk-uart-apdma.c | 1 +
+ Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/dma/mediatek/mtk-uart-apdma.c b/drivers/dma/mediatek/mtk-uart-apdma.c
-index 802a4d6c11fa..dfcfc618bb8c 100644
---- a/drivers/dma/mediatek/mtk-uart-apdma.c
-+++ b/drivers/dma/mediatek/mtk-uart-apdma.c
-@@ -470,6 +470,7 @@ static void mtk_uart_apdma_free(struct mtk_uart_apdmadev *mtkd)
- static const struct of_device_id mtk_uart_apdma_match[] = {
- 	{ .compatible = "mediatek,mt6577-uart-dma", .data = (void *)32 },
- 	{ .compatible = "mediatek,mt6795-uart-dma", .data = (void *)33 },
-+	{ .compatible = "mediatek,mt6835-uart-dma", .data = (void *)34 },
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, mtk_uart_apdma_match);
+diff --git a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
+index dab468a88942..10fc92b60de5 100644
+--- a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
+@@ -28,6 +28,7 @@ properties:
+           - const: mediatek,mt6577-uart-dma
+       - enum:
+           - mediatek,mt6577-uart-dma
++          - mediatek,mt6795-uart-dma
+ 
+   reg:
+     minItems: 1
 -- 
 2.51.1
 
