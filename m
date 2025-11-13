@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307ACCCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54B0CD4F28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLbacaR5clbNto/ko7Nx4/YFPvA6DfmhL0b6nWQNI0I=; b=ZQ69FhDKIoBWS0maN/aS39uwAF
-	AMx5UV0zfr1PLW1trRAqLcSJsGkqhwfXrk7ZCmhTx7UhNbaiOsjSgQzf3SaH5X1Ptr1uCfrZ+KGzZ
-	s7tUrmpcyaXCjmvnX5RHR/VZCEPrHq6EVgUrcC+1BMc5mUQuPjID1/SgLmR1r78ugOnvobJuL7oZc
-	2kJC/sjy7+NkhmPC8QdhrZDUN36s2ajnVLwTlNdr3cNRnGO/VtQT6OnsvY3+62/6BV7tEF+kGECtA
-	FNBSu7i4l4hHZ6gJNiM7kkEcHc1ER8c1xwy0v20pReG24Srdj5dYMMvmvMH6uNvt/YCvV/UJc+Wfk
-	GzA6rAFw==;
+	bh=Cj5WcnpC6VXVJQMWzMDepRZ3rmr4nIs6MtyZFP6Agoc=; b=OYtdlZHvpKWy8pTD2ZZrE6P5a5
+	h9YHJWhufLcJhUvHaIpYcQTTkK+kZxUJ3Bo/6pScpg/Bp3MiJOw2tVFKTDUxhftqll7d+5tjRSneI
+	/znWKIofj9TPTSbeO+/ibkrn/5KEz/faaFxZkOmPvMT44Kuj04t2L7Ai988CtncCnFvC5/UQWC9Lv
+	+FbZIxPg8toqCMH+im1AiRFCJ/iK9QoOnjH8hGmG7pyGwXodmxKqKY9viQktXXA2INpyO8ZuIsEFN
+	S93hTAzKJd+L/gtC/kBDVFnXaGJcXVFR4W/A73aidTvNioosUjz8DxzCVjwNt6KNKzYiT/djCg0hT
+	5vgiak1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJR0m-00000009xfI-0Zta;
-	Thu, 13 Nov 2025 06:40:52 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1vJR0q-00000009xhC-3Fwc;
+	Thu, 13 Nov 2025 06:40:56 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJR0i-00000009xdx-0NQy
+	id 1vJR0o-00000009xff-2R4A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 06:40:50 +0000
+	Thu, 13 Nov 2025 06:40:56 +0000
 Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20251113064041epoutp01e67dedda0e7023164617affd4aae8d37~3fb-KClEr1386513865epoutp01b
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:40:41 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20251113064041epoutp01e67dedda0e7023164617affd4aae8d37~3fb-KClEr1386513865epoutp01b
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251113064051epoutp02f23c5e6c950bb29c4381c2e55bd42a46~3fcIDt_HT1354513545epoutp02u
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:40:51 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251113064051epoutp02f23c5e6c950bb29c4381c2e55bd42a46~3fcIDt_HT1354513545epoutp02u
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1763016041;
-	bh=lLbacaR5clbNto/ko7Nx4/YFPvA6DfmhL0b6nWQNI0I=;
+	s=mail20170921; t=1763016051;
+	bh=Cj5WcnpC6VXVJQMWzMDepRZ3rmr4nIs6MtyZFP6Agoc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IQqPXiJ3/oxaL4v6sB3KvXD1L6ioNLQHixtSuj3bCsFZ3SYkCdkWSlV7Hhuq/vHMx
-	 nMjx47Ub1eGOddZDnBb4MUsXp6eNkHoqXsVPyA47s3OuNVFZ42pItSN4CwbUzKLnFq
-	 873fLHJkcX0CKxwaIV71lcGCjA8O0RhCaRpDXnlM=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20251113064041epcas2p4f9f150d07cc3310bd8ef664c34f596ea~3fb_pyfWI0213302133epcas2p4i;
-	Thu, 13 Nov 2025 06:40:41 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.38.211]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4d6Vyc5dn7z6B9mB; Thu, 13 Nov
-	2025 06:40:40 +0000 (GMT)
+	b=KOUexU7/LH7gMbxnGsUAHrN0VhOmHfKGnznZPxQ1VhqvL/BHmisI1lKiVwz8K4tkM
+	 i1Jip6xEY7vgFb0yjUhJaeSpZXFuveYEcS+K1yrdBzsBCCmXWSTTiuYgtOOsreMzKa
+	 +Ri2ILLWnYdrw+ebowrx6V5GqCanlOKCHIBZZf9o=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20251113064050epcas2p3cd42bc0aa11291347d38af6f8899b32f~3fcHdz--h1139111391epcas2p3S;
+	Thu, 13 Nov 2025 06:40:50 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.203]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4d6Vyp2wzkz6B9m7; Thu, 13 Nov
+	2025 06:40:50 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
 	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251113064040epcas2p2df8da3f9c5a2c41c6aedc37d37b366de~3fb9gbpRX1513415134epcas2p2q;
-	Thu, 13 Nov 2025 06:40:40 +0000 (GMT)
+	20251113064049epcas2p2194df7393ea60912eec18077bbddf637~3fcGSpbyE1513415134epcas2p2_;
+	Thu, 13 Nov 2025 06:40:49 +0000 (GMT)
 Received: from asswp60 (unknown [10.229.9.60]) by epsmtip2.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20251113064039epsmtip2d3d1a6afb1b99aa8c0726f1ee01e8ca0~3fb9U2F5c0205702057epsmtip2T;
-	Thu, 13 Nov 2025 06:40:39 +0000 (GMT)
+	20251113064049epsmtip2faeabf7d30c2a5e75b52971a6d4173b1~3fcGMfose0165401654epsmtip2i;
+	Thu, 13 Nov 2025 06:40:49 +0000 (GMT)
 From: Shin Son <shin.son@samsung.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
 	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
@@ -62,29 +62,28 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
 Cc: Henrik Grimler <henrik@grimler.se>, Shin Son <shin.son@samsung.com>,
 	linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 RESEND 1/3] dt-bindings: thermal: samsung: Adjust
- '#thermal-sensor-cells' to 1
-Date: Thu, 13 Nov 2025 15:40:20 +0900
-Message-ID: <20251113064022.2701578-2-shin.son@samsung.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 RESEND 3/3] arm64: dts: exynosautov920: Add multiple
+ sensors
+Date: Thu, 13 Nov 2025 15:40:22 +0900
+Message-ID: <20251113064022.2701578-4-shin.son@samsung.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251113064022.2701578-1-shin.son@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251113064040epcas2p2df8da3f9c5a2c41c6aedc37d37b366de
+X-CMS-MailID: 20251113064049epcas2p2194df7393ea60912eec18077bbddf637
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251113064040epcas2p2df8da3f9c5a2c41c6aedc37d37b366de
+X-CMS-RootMailID: 20251113064049epcas2p2194df7393ea60912eec18077bbddf637
 References: <20251113064022.2701578-1-shin.son@samsung.com>
-	<CGME20251113064040epcas2p2df8da3f9c5a2c41c6aedc37d37b366de@epcas2p2.samsung.com>
+	<CGME20251113064049epcas2p2194df7393ea60912eec18077bbddf637@epcas2p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_224048_545343_1482755D 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20251112_224054_953363_0AF6EFFE 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,102 +98,459 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ExynosAuto v920 SoC includes multiple TMU instances; each instance
-monitors a subset of the SoC's up to 16 hardware thermal sensors.
+Create a new exynosautov920-tmu.dtsi describing new TMU hardware
+and include it from exynosautov920.dtsi.
 
-Additionally, add myself to the bindings' maintainers list, as I plan
-to actively work on the exynosautov920 TMU support and handle further
-updates in this area.
+The exynosautov920-tmu node uses the misc clock as its source.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This TMU binding defines multiple thermal zones with a critical trip point
+at 125 degrees:
+
+tmu_top : cpus0-0, cpus0-1, cpus0-2, cpus0-3,
+          cpus1-0, cpus1-1, cpus1-2, cpus1-3,
+	  cpus1-4, cpus1-5, cpus1-6, cpus1-7
+
+tmu_sub0: cpus0-4, cpus0-5, cpus0-6, cpus0-7,
+          cpus2-0, cpus2-1, cpus2-2, cpus2-3
+
+tmu_sub1: gpu0, gpu1, gpu2, gpu3, npu0, npu1
+
 Signed-off-by: Shin Son <shin.son@samsung.com>
 ---
- .../thermal/samsung,exynos-thermal.yaml       | 33 ++++++++++++++++++-
- 1 file changed, 32 insertions(+), 1 deletion(-)
+ .../boot/dts/exynos/exynosautov920-tmu.dtsi   | 377 ++++++++++++++++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |  31 ++
+ 2 files changed, 408 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
 
-diff --git a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-index 29a08b0729ee..6b01f508542c 100644
---- a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-@@ -8,6 +8,7 @@ title: Samsung Exynos SoC Thermal Management Unit (TMU)
- 
- maintainers:
-   - Krzysztof Kozlowski <krzk@kernel.org>
-+  - Shin Son <shin.son@samsung.com>
- 
- description: |
-   For multi-instance tmu each instance should have an alias correctly numbered
-@@ -27,6 +28,7 @@ properties:
-       - samsung,exynos5420-tmu-ext-triminfo
-       - samsung,exynos5433-tmu
-       - samsung,exynos7-tmu
-+      - samsung,exynosautov920-tmu
- 
-   clocks:
-     minItems: 1
-@@ -62,11 +64,17 @@ properties:
-     minItems: 1
- 
-   '#thermal-sensor-cells':
--    const: 0
-+    enum: [0, 1]
- 
-   vtmu-supply:
-     description: The regulator node supplying voltage to TMU.
- 
-+  samsung,sensors:
-+    description: Number of thermal sensors monitored by this TMU instance.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 0
-+    maximum: 15
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+new file mode 100644
+index 000000000000..641d142e0eeb
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+@@ -0,0 +1,377 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Samsung's ExynosAuto920 TMU configurations device tree source
++ *
++ * Copyright (c) 2020 Samsung Electronics Co., Ltd.
++ *
++ * Samsung's ExynosAuto920 SoC TMU(Thermal Managemenut Unit) are listed as
++ * device tree nodes in this file.
++ */
 +
- required:
-   - compatible
-   - clocks
-@@ -97,6 +105,8 @@ allOf:
-         reg:
-           minItems: 2
-           maxItems: 2
-+        '#thermal-sensor-cells':
-+          const: 0
-   - if:
-       properties:
-         compatible:
-@@ -119,6 +129,8 @@ allOf:
-         reg:
-           minItems: 1
-           maxItems: 1
-+        '#thermal-sensor-cells':
-+          const: 0
- 
-   - if:
-       properties:
-@@ -139,6 +151,25 @@ allOf:
-         reg:
-           minItems: 1
-           maxItems: 1
-+        '#thermal-sensor-cells':
-+          const: 0
++/ {
++	thermal-zones {
++		cpus0-0-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 9>;
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynosautov920-tmu
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+        clock-names:
-+          items:
-+            - const: tmu_apbif
-+        reg:
-+          maxItems: 1
-+        '#thermal-sensor-cells':
-+          const: 1
++			trips {
++				cpus0_0_critical: cpus0-0-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-1-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 10>;
++
++			trips {
++				cpus0_1_critical: cpus0-1-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-2-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 11>;
++
++			trips {
++				cpus0_2_critical: cpus0-2-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-3-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 12>;
++
++			trips {
++				cpus0_3_critical: cpus0-3-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-4-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 7>;
++
++			trips {
++				cpus0_4_critical: cpus0-4-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-5-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 8>;
++
++			trips {
++				cpus0_5_critical: cpus0-5-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-6-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 9>;
++
++			trips {
++				cpus0_6_critical: cpus0-6-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus0-7-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 10>;
++
++			trips {
++				cpus0_7_critical: cpus0-7-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-0-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 1>;
++
++			trips {
++				cpus1_0_critical: cpus1-0-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-1-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 2>;
++
++			trips {
++				cpus1_1_critical: cpus1-1-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-2-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 3>;
++
++			trips {
++				cpus1_2_critical: cpus1-2-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-3-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 4>;
++
++			trips {
++				cpus1_3_critical: cpus1-3-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-4-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 5>;
++
++			trips {
++				cpus1_4_critical: cpus1-4-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-5-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 6>;
++
++			trips {
++				cpus1_5_critical: cpus1-5-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-6-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 7>;
++
++			trips {
++				cpus1_6_critical: cpus1-6-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus1-7-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_top 8>;
++
++			trips {
++				cpus1_7_critical: cpus1-7-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus2-0-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 3>;
++
++			trips {
++				cpus2_0_critical: cpus2-0-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus2-1-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 4>;
++
++			trips {
++				cpus2_1_critical: cpus2-1-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus2-2-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 5>;
++
++			trips {
++				cpus2_2_critical: cpus2-2-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		cpus2-3-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub0 6>;
++
++			trips {
++				cpus2_3_critical: cpus2-3-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		gpu0-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 1>;
++
++			trips {
++				gpu0_critical: gpu0-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		gpu1-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 2>;
++
++			trips {
++				gpu1_critical: gpu1-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		gpu2-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 3>;
++
++			trips {
++				gpu2_critical: gpu2-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		gpu3-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 4>;
++
++			trips {
++				gpu3_critical: gpu3-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		npu0-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 6>;
++
++			trips {
++				npu0_critical: npu0-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++
++		npu1-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tmu_sub1 7>;
++
++			trips {
++				npu1_critical: npu1-critical {
++					temperature = <125000>;	/* millicelsius */
++					hysteresis = <0>;	/* millicelsius */
++					type = "critical";
++				};
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+index 6ee74d260776..e52f4abb0eb3 100644
+--- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+@@ -330,6 +330,36 @@ watchdog_cl1: watchdog@10070000 {
+ 			samsung,cluster-index = <1>;
+ 		};
  
- additionalProperties: false
++		tmu_top: tmu@100a0000 {
++			compatible = "samsung,exynosautov920-tmu";
++			reg = <0x100a0000 0x1000>;
++			interrupts = <GIC_SPI 951 IRQ_TYPE_LEVEL_HIGH>;
++			#thermal-sensor-cells = <1>;
++			clocks = <&cmu_misc CLK_DOUT_MISC_NOCP>;
++			clock-names = "tmu_apbif";
++			samsung,sensors = <12>;
++		};
++
++		tmu_sub0: tmu@100b0000 {
++			compatible = "samsung,exynosautov920-tmu";
++			reg = <0x100b0000 0x1000>;
++			interrupts = <GIC_SPI 950 IRQ_TYPE_LEVEL_HIGH>;
++			#thermal-sensor-cells = <1>;
++			clocks = <&cmu_misc CLK_DOUT_MISC_NOCP>;
++			clock-names = "tmu_apbif";
++			samsung,sensors = <10>;
++		};
++
++		tmu_sub1: tmu@100c0000 {
++			compatible = "samsung,exynosautov920-tmu";
++			reg = <0x100c0000 0x1000>;
++			interrupts = <GIC_SPI 949 IRQ_TYPE_LEVEL_HIGH>;
++			#thermal-sensor-cells = <1>;
++			clocks = <&cmu_misc CLK_DOUT_MISC_NOCP>;
++			clock-names = "tmu_apbif";
++			samsung,sensors = <7>;
++		};
++
+ 		gic: interrupt-controller@10400000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
+@@ -1533,3 +1563,4 @@ timer {
+ };
  
+ #include "exynosautov920-pinctrl.dtsi"
++#include "exynosautov920-tmu.dtsi"
 -- 
 2.50.1
 
