@@ -4,142 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A74CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC1BCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=; b=KFrhaTxW7aIQAeLz7XVr2VU7qo
-	x9oGP2ekMb+z0IR5EE7/4S6nzSj/o448VLc0g5sE5sDf8a9FNAp4H2h2C+li+ey0S8hSeRDJX1bzY
-	7el0LDIrCFSG23pVQl8Mtq6WT+QarFYj7M9SKAK1dtxJHv1wLwrZ/Wrmf/BvkhFT+wID21joUiFQy
-	8RTX1zaOsnvL8NfAM3KTT6lcYd86gaoci9Gsox2CEF06F/r/RUA0VrKlVos59MRuSNB2TjHaD0+8R
-	YzIIPgbKPSFZ1XgCujnxc9nf6X+TvoOKZrFEEInCNSpZp9A14xICKB9akwOsdwCrIv3H+skrGHOi+
-	W5DyJf/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N0Al/MgTi9UiIFNlCU2Rlyn7hcGn2O9uqtmtM9MWWL4=; b=Ag9NbUM4HbzGmEDRylpCitBz+u
+	u6YkOpfIcY3HjAz6BG4wOOglmL/4Nk/SXuMq+p7Eq2UWowUrdoSpxGV2raQZD+Dyf5u2820g3k3Wr
+	iESltcysuNDPBcBVwXuGBe+CCsnPvIpymmbD09GlG8cRd4yfsIU/MuWPBSgyqcTbNrrN/22427jL1
+	Ha81L/sZMa384rEOGdDY+CUEWejiqj48od7PDhYxzwfT9OVdM2+pSLF+dQQGFpJRTdTxIQPPAWel+
+	YXcCUU+WhsAjSuOEGDcX/sKa814dC0l1MYDMgdGqcSFToFYo1/eIspaAG/iZCM0WzH+nx+o7gv9zN
+	GoHjUSYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTbx-0000000ABgh-2QFs;
-	Thu, 13 Nov 2025 09:27:25 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vJTd2-0000000ABro-3yxS;
+	Thu, 13 Nov 2025 09:28:32 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTbq-0000000ABeN-2inG
+	id 1vJTd0-0000000ABrB-0ty2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 09:27:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IHb8CMr35BC+8vNqPzWedotN5NKfyew/zF9adEYfeO9QBXshk+TGiHcdPEzrVnMaN6LwKBrfLkNco+bXFWzKuMEJePN5hysPJc7Fp/7L5e1l+mIcOle1VVjD16zUuunj/UGD3mfJjF7tgkWHGB3ehAsFqCVCtMZXf1Y1G+DOHSTvtreE1/gTAlNE4ggkwWU9ly1+3TWDn9O83ebMz/4TMHYOeGdmUPAkZgvj2IdK0qRRZYK81XMxvMsN/EUixBNq95MQglSA3SKWHgcYzcWtqQhxXtaJQwzBw11iW/StrH4KwXLeFYNkvfSwukE2UQHUhkjJbzR4wdbpu0cEsR1n2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=;
- b=lBAB9frgWnjjuQJQcvPH44shJtvFIUyoV1R3L+x/bVoIxU8rbXuy6Q1jmb4AaGudYaEDvNaac6Z59y26E62J2oa0Yg6DdmXPtbJfQKeuYoZcRgBgLKA2mn+29phcuxwpxs9pqqXrLfUpzF2xh7bqBzuyEJ0uWU518JiglDN3KEiyhjaaq03DE9R5s1odzj6cXJ2MVy4QDY4nq1h8MXB0HvD9oFR0hiWNSqbQ0rom2DW9rVt+85uuySEMQ0z6H2O2UtPpoQKEs1ZVO+svSUYjRpLZwPIOthbZJ+Gj/3Tn8M46JDZl0+L/bfZktSJxgZj+7y1wgNTb0HG5XxH2KvYvKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=;
- b=XOc2CDFsso4ti0uKIRSLoupe7GkyqufxbJcSsdkrDifq9zQ6kFIJLxnaT+MhzsRmBueVVXj105ryKoHx3IGGUiG311Q24rjBOPRufiRzzVB7qSgccsgIbhYnw2BDGVisKzTUOsc1fp9cjH8IhiIIzIe+uczAu0Npl4horaKUNTI=
-Received: from SJ0PR13CA0126.namprd13.prod.outlook.com (2603:10b6:a03:2c6::11)
- by DM6PR10MB4348.namprd10.prod.outlook.com (2603:10b6:5:21e::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
- 2025 09:27:12 +0000
-Received: from SJ1PEPF00002313.namprd03.prod.outlook.com
- (2603:10b6:a03:2c6:cafe::b8) by SJ0PR13CA0126.outlook.office365.com
- (2603:10b6:a03:2c6::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.6 via Frontend Transport; Thu,
- 13 Nov 2025 09:27:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ1PEPF00002313.mail.protection.outlook.com (10.167.242.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 09:27:12 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
- 2025 03:27:10 -0600
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
- 2025 03:27:09 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 13 Nov 2025 03:27:09 -0600
-Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AD9R5TO4193020;
-	Thu, 13 Nov 2025 03:27:06 -0600
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <unicorn_wang@outlook.com>,
-	<kishon@kernel.org>
-CC: <arnd@arndb.de>, <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate to bool
-Date: Thu, 13 Nov 2025 14:57:20 +0530
-Message-ID: <20251113092721.3757387-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.51.1
+	Thu, 13 Nov 2025 09:28:31 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3c965ca9so295728f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 01:28:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763026108; x=1763630908; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N0Al/MgTi9UiIFNlCU2Rlyn7hcGn2O9uqtmtM9MWWL4=;
+        b=hnmKFiACCFFy+Og2ReVm9e4e9+hwFEbRRJSbXAdLkdCqUqafm7ezJPmGD+kCOK40vn
+         cC4czocfw7auZ9b/BaCYWg13nCrCUGGmdvJeAOFqYyF0+AHiwfDZioyJjORQ1rvyD/6t
+         6PmVy/wYTmZgT3JBCWsP38nmSALwgsAXkj6vkU5HwT2IuP3WRc2aJSr+u8iR7lSb8PXC
+         nBR/gxBLEsR0y8jsTDMChn0fd6yUpzAbcZkt4pE8RJ3giKkdU5ljSwDMTtb2POxl8hAg
+         XblMUeQt42NsgpOYsBse4fG8TgOaJRcumnsc5HppMwfZYow+ULB+3HrYnbaPlKhlDQ0a
+         B9Ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763026108; x=1763630908;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=N0Al/MgTi9UiIFNlCU2Rlyn7hcGn2O9uqtmtM9MWWL4=;
+        b=XCWd8n7OpcncDAuYMRFzNkS8u/ITo8XCS3rtt1k5caRicUpp32BEfsfJdBQDMOBE9B
+         PYu143ui8nKwfWR4xh/7ryv7BDFZFnSeiW9baePVHaQkwApYirnpTgkbTvZD3WgowrhX
+         tcSvQIW+cc4hpFJoisz2t0IcL00d5hKucf1ZOgdhewYiyXkg72nGagMRscESC1aFl3Ei
+         O9H43G4sJzYrms3VzokbILl/lEQ2lhvW9ClqeKHi6W1C36fpj/9Cqo9ycXcbWwLCgtbv
+         Tfl/Jxie674LLADHN7jpDm5KHYAG0abpvgoGuNTuF2E647lkXTO2vH8I44c7L9Y6AgQj
+         hC2w==
+X-Forwarded-Encrypted: i=1; AJvYcCVmfk1XCTJ5+SpWuUzPryRND9uYm6i82+FWrZhLmJMGC2QAguMvFu+aDkCnOE6GO8B+TjqeQWxpFILJxqefHnhL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw31ZHCXT5izOrm6YSVbDAKd0hGvNuZ6h0+4bvZpwDqNVfYRYgA
+	17Irt/awprtEb7ouA/TI0Dp5vpOl/XfgP2H9YJbcZsfuHS6c6OmtuJPi6+KD3r2moic=
+X-Gm-Gg: ASbGnctXWa0Zwf59BrusVP277MhmAdDRxDB1UYtx/Y7ESlxOGrawBJSK1K7zngETqRT
+	kTJmiEbRdkfrscXe4QP5YCKq4AGK/6Jr1hBbN/L2/9gLF92uqIdQOx6cCzqKLQLtFOTlw/luQ+Y
+	uUf2UOm+9fTF1wkZFwAvTUbDjNGcjO3kQRssWHyPBmKkphCgVkEKcrTfENLiV3b+TtUFCRZWwMQ
+	HzTeCM+I6DzeMV+97VfSEKKdEb/nB1tNVG9QKMFbE4IZvFLZDHCk9BDe3+pMtCHlJLLn7qInuFU
+	lY7BdHU0OY3yeqJUyat28K9zSJPUhCK9D0ji2cFUY1KUW/1KmH2hrh5AT7MFE2HMWhofbqL31HM
+	ec+6fVGjD85+OYkToknglPOMzWV31mUzV43na5A5rk740aKbqtt+Cj6OsHB+ZD1lC4f6pgA1wjr
+	ZGMHH7MA==
+X-Google-Smtp-Source: AGHT+IGA8zptVGd6p2fpQ3iMFNNP5Z9WNKG2CHeOguw2sJYdTOHLeD4IEEwaHIyLI4eZtg1rS/iU3w==
+X-Received: by 2002:a05:6000:2509:b0:42b:3e20:f1b2 with SMTP id ffacd0b85a97d-42b4bb8b8fcmr4530969f8f.4.1763026107981;
+        Thu, 13 Nov 2025 01:28:27 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e85cc0sm3038492f8f.17.2025.11.13.01.28.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Nov 2025 01:28:27 -0800 (PST)
+Message-ID: <9d77461c-4487-4719-98db-1c5c5025c87e@linaro.org>
+Date: Thu, 13 Nov 2025 11:28:25 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002313:EE_|DM6PR10MB4348:EE_
-X-MS-Office365-Filtering-Correlation-Id: b06bf77e-baad-484e-2884-08de2296d381
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|32650700017|82310400026|376014|7416014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PkpGETsYmpP9MZsspr10Un0HwtARDC0j1NfbQE4IVxXj2hGumedF/AoAFp5q?=
- =?us-ascii?Q?yaM7jhoeyTf2y0Sl0paU3AWsveMV0seh1ygRnHcqq2NWagAWYegRrrCjOGvl?=
- =?us-ascii?Q?Ol4fsWMs8GiwkPgiGNlZg5PcAXhjRu263/W7eskHzZO+45PkCq/0fb6yUhgV?=
- =?us-ascii?Q?JFjUM2I4bsdq3tVH7LVe42ZvQhVsBGO3P5LZn68rBA7Luvx1fGBjK3GhV9AQ?=
- =?us-ascii?Q?cJPGImMMjKBYFloGD+Mi6ZLoH0rRM6pH1B4tQq6W6GTlGksStfHAjWjkNSig?=
- =?us-ascii?Q?E1vflyH14VUbA+qjPPe8tllz1mjjfL+BMkopAp91m+naPH1g37RNcUa3b0+D?=
- =?us-ascii?Q?6R77cZPzbJCI2gYEyHjbGCufXQklgAKshf+1pPczf2RtKmZZ8FrxD1Ezyjmf?=
- =?us-ascii?Q?4Dr063XK4rz3OygHVGvsyYwwtHMZbST3b2ecYDbtBGQEb0E8AjkMUSoCYyQg?=
- =?us-ascii?Q?xn1/fiDVK8kWVr6heqO/+Ik0HwnNJ+rYfHtKgbvrlOJCe00TsLvlf+Cb4DGR?=
- =?us-ascii?Q?XJYRVoNCTzlpwQoNBguDHWtUfM2pJfzLuaN2yO6w9Z1HDVom9oL5kzAS23gp?=
- =?us-ascii?Q?yUEWu0rRaGGAc8X1kzsg8dfk1DS6kkL0+pTcqrZoSkPghiXX6IV5F6gUZncm?=
- =?us-ascii?Q?xflFMdXYyVHyMZAPmdmIWQy/v9i77LhV2iwuY/yTTA9KS3Q/kqDlyw6Y+FNU?=
- =?us-ascii?Q?/EATGI/x7PAP/7zOEblKaPUekw3sJe5HOc8Q7yOa8ZHq6e4fVDR7rYXaY5BL?=
- =?us-ascii?Q?K2qmd9OLNWojropyVLUg+C9WeU0Rt2GrW8RwuXb5l0WGbVcbo327c/vZQM92?=
- =?us-ascii?Q?EAt0oC7lrFhi9RDLC7d/bKDNlmoEdgJd+6LmLHtmyxoDZ4aiex8Bh0f8wqGb?=
- =?us-ascii?Q?AtUkqRD8Qa64A5KMt6fOvP9tUp2MKYH5Xz5WUU8YHuuI2lXhySk2kdkGY7aV?=
- =?us-ascii?Q?f2WHVh3sBwz+Ss1aU+/mHhv2MsiOspgK1E93P6yJP4a9N1oVSW2qY2/lGTcp?=
- =?us-ascii?Q?nArv8LjVjnRsb4f+V5hWlVJwt7KqStEAC4JRdMXSq02wKoQmYgXWgVFI4U/P?=
- =?us-ascii?Q?vIOmXzl7O1z2h1c3zj1KmCwywMQNFFveNTI+hHr4zWBIiDibJTFTZC3O6aof?=
- =?us-ascii?Q?HEUcBRTfyYPGGTcHlRAhkBtd0Xr3qnxOQj2Qz/7GPSmSkrsNwIU/F5oitfJG?=
- =?us-ascii?Q?kUhYB/xNgN/vdEigVTBuhZwj3sNINyKVfBpFK2j9YUEsloKaiRf+CYD96uTA?=
- =?us-ascii?Q?mYRpRD0sVqcHGLJJyQiSBacL7SHW+EC3gof8Q1SG9HwHX8hRRXJHxnQFqN8H?=
- =?us-ascii?Q?KrWgC9VnubQKnSkoG7HWW7OOU7LK6fQ8v7vaNfBxDIJzlaNsMgfxc4Fqis/x?=
- =?us-ascii?Q?xvajF0+TbrItP15lAJQTi9uDkVrGaGjU5QIF+OH30yjnGNZfbxquoaot8zBI?=
- =?us-ascii?Q?7nlt6uHNU3EzTrVd3dCThxD9cnKzz2OqIPmGqB8uoF2a5QfFujbyAZgJ990K?=
- =?us-ascii?Q?WxnebXahhe4DJ2FQdVVWUo5p1uc3jxLdB33tHfZ1l8SycRKd90eUbjBDjuYa?=
- =?us-ascii?Q?nueXYvNMVWGBz/rMzVo=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(32650700017)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 09:27:12.1481
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b06bf77e-baad-484e-2884-08de2296d381
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002313.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4348
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] nvmem: add Samsung Exynos OTP support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ semen.protsenko@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
+ <20251112-gs101-otp-v2-2-bff2eb020c95@linaro.org>
+ <20251113-benign-macaw-of-development-dbd1f8@kuoka>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20251113-benign-macaw-of-development-dbd1f8@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_012718_687927_0C2F124F 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20251113_012830_281301_98ED1851 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,51 +111,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
-PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
-library of helpers. Since the vendor drivers could individually be built
-as built-in or as loadable modules, it is possible to select a build
-configuration wherein a vendor driver is built-in while the library is
-built as a loadable module. This will result in a build error as reported
-in the 'Closes' link below.
 
-Address the build error by changing the library configs to be 'bool'
-instead of 'tristate'.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
-Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
- drivers/pci/controller/cadence/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+On 11/13/25 10:30 AM, Krzysztof Kozlowski wrote:
+> On Wed, Nov 12, 2025 at 08:29:06AM +0000, Tudor Ambarus wrote:
+>> Add initial support for the Samsung Exynos OTP controller. Read the
+>> product and chip IDs from the OTP controller registers space and
+>> register the SoC info to the SoC interface.
+>>
+>> The driver can be extended to empower the controller become nvmem
+>> provider. This is not in the scope of this patch because it seems the
+>> OTP memory space is not yet used by any consumer, even downstream.
+> 
+> Quick look tells me you just duplicated existing Samsung ChipID driver.
+> Even actual product ID registers and masks are the same, with one
+> difference - you read CHIPID3... which is the same as in newer Exynos,
+> e.g. Exynos8895.
 
-diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
-index 02a639e55fd8..980da64ce730 100644
---- a/drivers/pci/controller/cadence/Kconfig
-+++ b/drivers/pci/controller/cadence/Kconfig
-@@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
- 	depends on PCI
- 
- config PCIE_CADENCE
--	tristate
-+	bool
- 
- config PCIE_CADENCE_HOST
--	tristate
-+	bool
- 	depends on OF
- 	select IRQ_DOMAIN
- 	select PCIE_CADENCE
- 
- config PCIE_CADENCE_EP
--	tristate
-+	bool
- 	depends on OF
- 	depends on PCI_ENDPOINT
- 	select PCIE_CADENCE
--- 
-2.51.1
+Yes, that's correct. It's very similar with the Samsung ChipID driver.
 
+> 
+> What is exactly the point of having this as separate driver? I think
+
+The difference is that for gs101 the chipid info is part of the OTP
+registers. GS101 OTP has a clock, an interrupt line, a register space 
+(that contains product and chip ID, TMU data, ASV, etc) and a 32Kbit
+memory space that can be read/program/locked with specific commands.
+
+The ChipID driver handles older exynos platforms that have a dedicated
+chipid device that references a SFR register space to get the product
+and chip ID. On GS101 (but also for e850 and autov9 I assume) the
+"ChipID block" is just an abstraction, it's not a physical device. The
+ChipID info is from OTP. When the power-on sequence progresses, the OTP
+chipid values are loaded to the OTP registers. We need the OTP clock to
+be on in order to read them. So GS101 has an OTP device that also happens
+to have chip ID info.
+
+For now I just got the chipid info and registered it to the SoC interface
+(which is very similar to that the exynos-chipid driver does), but this
+driver can be extended to export both its memory space and register space
+as nvmem devices, if any consumer needs them. Downstream GS101 drivers
+seem to use just the chip id info and a dvfs version from the OTP
+registers. DVFS version is not going to be used upstream as we're defining
+the OPPs in DT. So I was not interested in extending the driver with nvmem
+provider support, because it seems we don't need it for GS101.
+
+Do the above justify the point of having a dedicated driver?
+
+> this can easily be just customized chipid driver - with different
+> implementation of exynos_chipid_get_chipid_info().
+
+If the answer is no to my question above, how shall I model the device
+that binds to the existing exynos-chipid driver?
+
+Thanks!
+ta
 
