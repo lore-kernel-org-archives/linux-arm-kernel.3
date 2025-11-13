@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FC8CD98D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9484DCD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4o0ryZTMkuy62CEXa12XiKN4UsmvuV0qmwiIssY1rc=; b=R/Js2DFmItUZ0LCG+xtZDKxFUp
-	eWmgLWwhsR2djf+CuKjFvr09/zItA7+wFAP9BelbB8PQFJc3ZofROauz0OXuZOBNmoqKVouHd4IX0
-	YztHy+guRLV99OSVHNT7RhLQFibSP+LYeaJp3I8lF/+pkGWsf7oV2q4tSxsjNruqps5AZS6ur/jsM
-	abvl4MA7TtYObGWmx8kzMRmqjYBwm5BWGPwGXFugcgneyPt5zkX88Z3DAD5TOu3BB29zmFSnXcxcA
-	qPqfWIf5n6o4j15MZ/NJN58HU03XRJJbEoXZVi9lSN8zciqNTpqn2Huk3t3jeGgf/VAsGSPBEOvyk
-	PC6n7zSw==;
+	bh=rqYikByT1SlfqKsSnbFwTTETF4iKjYU6Faix6h9yVlk=; b=HnElylwFfAiTdFiaKsRfkm4Xak
+	hga6rOrlddw/wGxDFP2LQH+kmZ6hms/5YDi+NAxkktLvXuvXKWMs/YclTKfxHVMci+dfuR3Q8DNYY
+	PV8P+kUGTEb3j+tOcs5VrZ7haqyL8kvse9yvJ3iIFIThhWQGuXCY7merI/F+eo3PDaX9JJPac6c4V
+	4nJ2OizYl81/4jwBDnLJQx6yg6GphljcjZHoZcxjj6KovrgIClfmPxSGDmkYa1xz4cLuruZtgZ0Ya
+	snfPPdX0TpVeU9dwBgtsj5OucpClutMkfH0kq26JJ9Yg07p+QLqwAUX4xOXnhs5XbnodwsHnkVBdZ
+	CNl89CSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJceW-0000000AyP3-1dC9;
-	Thu, 13 Nov 2025 19:06:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJcnx-0000000AzDJ-2mw2;
+	Thu, 13 Nov 2025 19:16:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJceU-0000000AyOm-3ALH
+	id 1vJcnv-0000000AzCp-3ZVD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 19:06:38 +0000
+	Thu, 13 Nov 2025 19:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D108E60225;
-	Thu, 13 Nov 2025 19:06:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAB13C19421;
-	Thu, 13 Nov 2025 19:06:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EA9C1440C9;
+	Thu, 13 Nov 2025 19:16:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE21C113D0;
+	Thu, 13 Nov 2025 19:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763060797;
-	bh=c4o0ryZTMkuy62CEXa12XiKN4UsmvuV0qmwiIssY1rc=;
+	s=k20201202; t=1763061382;
+	bh=IblUqGpTbIRtiXEqbdz5S15EKx867g0thOANjT9zzo0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FBF1FrJsur20m/Sikm1MD0deGRjb2V1j7lLOlUSAewPjJ91BsoD2M1dS392jnYW22
-	 tpB8BSWlGdYSTpz3aleB9TbWGT4BXJFvy9iZ5KRcqX9/nf+xEYtpZ+X0T+jr/WuVEq
-	 ScEGsNK9XKfCkXjK15/58K3vufm+oGxVlWGmUVuTK9KacRCyHD+O/Q7DBf3z3Hi0wM
-	 4VG7cQIAlgOXgKAn3wHvfZLqWKbGeUCA1u+gNwn2EdiDt71J8ujBOt6BzsUhK7py92
-	 Y3UJgmmunkGGlOrNy95Qt6B9lZc7XVO1cNKDZW++wySH8oL/iB6xr3gj7402pCa3Ir
-	 c/V8fuAVoBcvA==
-Date: Thu, 13 Nov 2025 19:06:31 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v2 05/45] KVM: arm64: GICv3: Detect and work around the
- lack of ICV_DIR_EL1 trapping
-Message-ID: <7ea5c49d-b093-475e-9f27-ad92dcc4b560@sirena.org.uk>
-References: <20251109171619.1507205-1-maz@kernel.org>
- <20251109171619.1507205-6-maz@kernel.org>
- <7ae5874e-366f-4abd-9142-ffbe21fed3a8@sirena.org.uk>
- <86ikfdu7cu.wl-maz@kernel.org>
+	b=jAWm3OCdZCohQVKp5xXcn4czTWQ2MTmmYQBUnepiL/xkhVs6FGcaMfyOJocxIz7Bp
+	 5V1tpOfeN/K8T7KYy8X/7mAkx2OyFLh336Et0Q8Xr4N6XyTYOUBc/j6rhxx/P90J1r
+	 w2YIuNuxfi2VH0RJo2wSezaWCaZ7uUnHVrpbxdVG3LWs5GMsAJMv5QaW2quFEtKicP
+	 K12bENP+L8JMTxNVY1si2rwXPADgiezPGKXDCtVWufNcSKOD6PqjHfQRr5D1OIiw5u
+	 u9JNu2wVtrmHHuBzWHK2yOj/8BefmBT2ArjGapig3s8vDGX4KDuSvXVKvpHQcuEJr9
+	 T+6Q/gD9Wrpig==
+Date: Thu, 13 Nov 2025 19:16:18 +0000
+From: Conor Dooley <conor@kernel.org>
+To: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"git (AMD-Xilinx)" <git@amd.com>
+Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset
+ constraint for the versal platform
+Message-ID: <20251113-risk-doorstop-4ec156b58d0a@spud>
+References: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
+ <20251112-bagging-diameter-4ebab1f9ed45@spud>
+ <MN0PR12MB59537C0F520B40977620BFCDB7CDA@MN0PR12MB5953.namprd12.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IqwhI93WVr97nscY"
+	protocol="application/pgp-signature"; boundary="R/LfrMLgE6sszEZI"
 Content-Disposition: inline
-In-Reply-To: <86ikfdu7cu.wl-maz@kernel.org>
-X-Cookie: An idle mind is worth two in the bush.
+In-Reply-To: <MN0PR12MB59537C0F520B40977620BFCDB7CDA@MN0PR12MB5953.namprd12.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_111623_932417_6AA2C126 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +84,131 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---IqwhI93WVr97nscY
+--R/LfrMLgE6sszEZI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 13, 2025 at 06:15:29PM +0000, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+On Thu, Nov 13, 2025 at 12:15:02PM +0000, Pandey, Radhey Shyam wrote:
+> [Public]
+>=20
+> > -----Original Message-----
+> > From: Conor Dooley <conor@kernel.org>
+> > Sent: Thursday, November 13, 2025 12:38 AM
+> > To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>
+> > Cc: gregkh@linuxfoundation.org; robh@kernel.org; krzk+dt@kernel.org;
+> > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>; linux-
+> > usb@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+> > kernel@lists.infradead.org; linux-kernel@vger.kernel.org; git (AMD-Xili=
+nx)
+> > <git@amd.com>
+> > Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset =
+constraint for
+> > the versal platform
+> >
+> > On Wed, Nov 12, 2025 at 09:24:30PM +0530, Radhey Shyam Pandey wrote:
+> > > AMD Versal platform USB 2.0 IP controller receives one reset input
+> > > from the SoC controlled by the CRL.RST_USB [RESET] register so
+> > > accordingly describe reset constraints.
+> > >
+> > > Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> > > ---
+> > >  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 43
+> > > +++++++++++++++----
+> > >  1 file changed, 34 insertions(+), 9 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > > b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > > index 36f5c644d959..cd0cc9da242f 100644
+> > > --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > > +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > > @@ -50,17 +50,22 @@ properties:
+> > >      description:
+> > >        A list of phandles for resets listed in reset-names.
+> > >
+> > > -    items:
+> > > -      - description: USB core reset
+> > > -      - description: USB hibernation reset
+> > > -      - description: USB APB reset
+> > > +    oneOf:
+> > > +      - items:
+> > > +          - description: USB controller reset
+> > > +      - items:
+> > > +          - description: USB core reset
+> > > +          - description: USB hibernation reset
+> > > +          - description: USB APB reset
+> > >
+> > >    reset-names:
+> > > -    items:
+> > > -      - const: usb_crst
+> > > -      - const: usb_hibrst
+> > > -      - const: usb_apbrst
+> > > -
+> > > +    oneOf:
+> > > +      - items:
+> > > +          - const: usb_crst
+> >
+> > Why do we need all this oneOf stuff if both have the same first reset?
+> > Can't you just set minItems: 1?
+>=20
+> Thanks. I have now set minItems:1 and defined compatible based
+> reset min/max constraints. Doing some more validation and
+> will send out the v2.
+>=20
+> Example:
+> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> @@ -47,6 +47,7 @@ properties:
+>        - const: ref_clk
+>=20
+>    resets:
+> +    minItems: 1
+>      description:
+>        A list of phandles for resets listed in reset-names.
+>=20
+> @@ -56,6 +57,7 @@ properties:
+>        - description: USB APB reset
+>=20
+>    reset-names:
+> +    minItems: 1
+>      items:
+>        - const: usb_crst
+>        - const: usb_hibrst
+> @@ -95,6 +97,28 @@ required:
+>    - resets
+>    - reset-names
+>=20
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - xlnx,versal-dwc3
+> +    then:
+> +      properties:
+> +        resets:
+> +          maxItems: 1
+> +        reset-names:
+> +          maxItems: 1
+> +    else:
+> +      properties:
+> +        resets:
+> +          minItems: 3
+> +          maxItems: 3
 
-> > The arch_timer case bisects to this patch in -next, regular nVHE mode
-> > runs this test happily.
+FWIW, this maxItems is not needed as it matches the number in the list.
 
-> My hunch is that we're missing something like the hack below, but I
-> haven't tried it yet.
-
-> I'll probably get to it tomorrow.
-
-That still fails FWIW.
-
---IqwhI93WVr97nscY
+--R/LfrMLgE6sszEZI
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkWLDcACgkQJNaLcl1U
-h9CHwAf/T+DZlAAEflS6H6jO+BA36LhxPkjMUd+GbOOat4+PEXU0sJf3AtFWB2WK
-aIQlFqC7YpzBL7UxoqajhZzrGK26TZFr3hyuVCL9wo5gRhqSPbH2JVTyqQ6I5rrE
-gF9vdJdeWmLYVdEOj+UAtnFwNqqZdm3hiSZaAANBxcr1C6C9u7OUlZhxlKMYGUkf
-PzQpwZzBudtqiRHCo2uRLEeNQffLLhO/MmQJeLo1r/BGAf9LHNLZ/Jj+YpUkyjHp
-zuUYITl4AfLiyyzcuLSi0CzEawlU6OLLHf+cdaryobUa+DzIIsXzcYr2orVum7Xl
-6Mkc3eWj3QdABeeu4lRGQ7fTyD7b8g==
-=Moc7
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRYuggAKCRB4tDGHoIJi
+0gT9AQCko4kdzAGADmzJ9rqSW1og+tEAc0KZ4IN9qoyyNQ7pigEA50Ga3HW83D8L
+WvF3aHpMsTZijeLjVl33kuBr+RPqgAY=
+=GL2A
 -----END PGP SIGNATURE-----
 
---IqwhI93WVr97nscY--
+--R/LfrMLgE6sszEZI--
 
