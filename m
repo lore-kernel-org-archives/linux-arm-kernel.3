@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAC2CD5BC1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB3DCD5BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DOHzn/9DAH/i+tolL3JrnlQVLcqlXrv14Zpc6GuuAyM=; b=uOx8jAxM2xApSazPRYHoEIW0CH
-	wQjoI3x6u+TvbHR3ms3hHUIcHkekYjTLy9WotNXiruj8ZYSKcxxYAunOWQi+7diADiPXfR0BTD7Uj
-	Yf+6zxgyva/faB/cSo7C2faP9/vToorgo/IvAUCUQlvRagEB6Q9CrGsNghkQocMyDOoM7UDuI6BrK
-	/i8lfjQ2RUsG0Trpkx9hFZOl3i21NZh2kHQBjaDqOctYAm1lM0TMWlbc9tkuatjhu15iw5O+vma+I
-	u5L+cSmBP/4VFuZErMjVvKhouj9VWD7IHNypgmysM+xCHzgHN/76ESD2dW2EFkCHDYZeiSEeZjFPN
-	Vx0tueOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pux3hN3Gl7vLivHnYvNqjnFb+a2LWEYfciZAIz5y2kE=; b=fvEfTJ4jridBDUFK+6Ohx+NImJ
+	hg0Lcky3zfgyIY7F0y7OnjrCpI1WDLqrBhJ9DCIxrN70ztcbZBLsEwMtfEKR1yi9fTjarGvkeBnKG
+	Uwx1NTtZqTow4xxEoHzd85RLbmvyBQa5OZpF9cK4HhNYYPJsxbDXaqd4LhkeAQOUjW/SI1tKpN3dX
+	LGKM0yd5246sT3Z7teR1hu4cObCsz78hpoQMbeGsGMoFEkUaZPAhNVSL9NBKuhjFxyBYrIzV3UypY
+	AC8qu6jBIsBeEFPc1r5WqOAXrKv5fDevsIlVDA7OTgWHAMiw5D8sYtJkdzttTaRH8cMoZEz17BYk0
+	aU770xuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV1Y-0000000ALQc-0yKz;
+	id 1vJV1b-0000000ALRb-2aMG;
+	Thu, 13 Nov 2025 10:57:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJV1X-0000000ALQ8-3f5b;
 	Thu, 13 Nov 2025 10:57:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV1W-0000000ALPl-0FQo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:57:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CBE112FC;
-	Thu, 13 Nov 2025 02:57:43 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C34293F66E;
-	Thu, 13 Nov 2025 02:57:49 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 13 Nov 2025 10:57:39 +0000
-Subject: [PATCH v2] perf arm_spe: Add CPU variants supporting common data
- source packet
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Pux3hN3Gl7vLivHnYvNqjnFb+a2LWEYfciZAIz5y2kE=; b=lyrDlTBuN+tIi0mnoEc2sf0Xt6
+	ZIhkEwsTYMAQldfj4iH1fc6gdZnCGaiUBtaeeUHiGTNPy1SZoJxU49Lu0CnWYwJ+/8uUOCW6MKd73
+	BMEiaolNJwlmOc0NqDW1YJzF5oHFyNEpByt0cv5PrETzMpovJz2swK8gWPzR7lpo4fVm/lFujLkQ3
+	CGcTQKPPgFW4rvE0wQDZGxXdDN0ZrRiUgHHWUWfKxiJALhk0ZuL0/jknMlymDtDVtd/NC9BA7eowp
+	sCDLmaXd258ETRBpoqZ4XQMTuoTGU+z8m8UTo9UDpeF0uIVlGS91nj7psUU87x1wDzuWOv2REyXHi
+	FjyBJ37A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJU9o-0000000HZvz-29SI;
+	Thu, 13 Nov 2025 10:02:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B1AAB41992;
+	Thu, 13 Nov 2025 10:57:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26E90C19422;
+	Thu, 13 Nov 2025 10:57:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763031465;
+	bh=OMfFW1nnKw5k2mezbZUycTzr4g1sGGxhFbFHTc77Xdw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GyS+VXkBGeRBeL5aBOjs4Sn+VEaE8YGlvkKK2hPFzt7EwSjw7KcbtxQVJ3iXn4ybL
+	 wz9BbOzaNDw12FDRBwsGzz3aEM2VaycoDGFswsIVB9Qxw/CRx6NroC8NhBlKnVebQ0
+	 WeSpZqhOwDJarwAc+UEFyNGVkIck1h75Vue3D/qw8nWTBWcNoOtNzw40HLySVKuP86
+	 +my6QnYEhxrsArnkQjOOWBJaZ90wuoIypbYpfTIH9o6K/b97vTX0ujhlZtF4HnT8uf
+	 u5IXhpTj20X16k4aTVjRilFqJ6qpyh3LrRLH9AFpeK2EU0znmDMOWiph3Badx6zl+C
+	 Kjphjdzx0Bkwg==
+Date: Thu, 13 Nov 2025 11:57:42 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Zilin Guan <zilin@seu.edu.cn>
+Cc: angelogioacchino.delregno@collabora.com, jianhao.xu@seu.edu.cn,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org,
+	matthias.bgg@gmail.com, nbd@nbd.name, ryder.lee@mediatek.com,
+	sean.wang@mediatek.com, shayne.chen@mediatek.com
+Subject: Re: [PATCH net] mt76: mt7615: Fix memory leak in
+ mt7615_mcu_wtbl_sta_add()
+Message-ID: <aRW5phMmzul8wTn-@lore-desk>
+References: <aRWF9QJuwGaDlUvT@lore-desk>
+ <20251113094135.348383-1-zilin@seu.edu.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251113-perf_arm_spe_update_midr_list-v2-1-d547768f5520@arm.com>
-X-B4-Tracking: v=1; b=H4sIAKK5FWkC/42NQQ6CMBBFr0JmbU1bqURX3MOQpraDTCK0mSLRE
- O5u5QQu38/L+ytkZMIM12oFxoUyxamAPlTgBzc9UFAoDFpqo6RqRELurePR5oT2lYKb0Y4U2D4
- pz+J+NrX32nkZApRGYuzpvfdvXeGhSJE/+92ifuu/5UUJJS4Ba9kYI0+mbot69HGEbtu2L5oAb
- pXIAAAA
-X-Change-ID: 20251017-perf_arm_spe_update_midr_list-b654cc2ac0dd
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>, 
- Ian Rogers <irogers@google.com>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763031469; l=2390;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=JEDHEeHplqXn7/z58T8cqTyw0I4jR/py96X9534o7VQ=;
- b=lMdTaX4c6NaFZSKte1Bs7+Lplifa78Kf/rBbmE3GUtVPqWzTzDxV3om6G1IHMWsMvUWe2MIIv
- kfBfJBqLs9uA3rQmeor7cXssSEjLfqvcEYAwyiKAZeU5WojCyXHTj9s
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="39OyxfwhcaPPfO4y"
+Content-Disposition: inline
+In-Reply-To: <20251113094135.348383-1-zilin@seu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_025754_223601_39B76C8D 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251113_100225_014802_63A23857 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the following CPU variants to the list for data source decoding:
 
-  - Cortex-A715 [1]
-  - Cortex-A78C [2]
-  - Cortex-X1 [3]
-  - Cortex-X4 [4]
-  - Neoverse V3 [5]
+--39OyxfwhcaPPfO4y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[1] https://developer.arm.com/documentation/101590/0103/Statistical-Profiling-Extension-Support/Statistical-Profiling-Extension-data-source-packet
-[2] https://developer.arm.com/documentation/102226/0002/Debug-descriptions/Statistical-Profiling-Extension/implementation-defined-features-of-SPE
-[3] https://developer.arm.com/documentation/101433/0102/Debug-descriptions/Statistical-Profiling-Extension/implementation-defined-features-of-SPE
-[4] https://developer.arm.com/documentation/102484/0003/Statistical-Profiling-Extension-support/Statistical-Profiling-Extension-data-source-packet
-[5] https://developer.arm.com/documentation/107734/0002/Statistical-Profiling-Extension-support/Statistical-Profiling-Extension-data-source-packet
+> On Thu, Nov 13, 2025 at 08:17:09AM +0100, Lorenzo Bianconi wrote:
+> > [-- Attachment #1: Type: text/plain, Size: 1475 bytes --]
+> >=20
+> > > In mt7615_mcu_wtbl_sta_add(), an skb sskb is allocated. If the
+> > > subsequent call to mt76_connac_mcu_alloc_wtbl_req() fails, the functi=
+on
+> > > returns an error without freeing sskb, leading to a memory leak.
+> > >=20
+> > > Fix this by calling dev_kfree_skb() on sskb in the error handling path
+> > > to ensure it is properly released.
+> > >=20
+> > > Fixes: 99c457d902cf9 ("mt76: mt7615: move mt7615_mcu_set_bmc to mt761=
+5_mcu_ops")
+> > > Signed-off-by: Zilin Guan <zilin@seu.edu.cn>
+> > > ---
+> > >  drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 4 +++-
+> > >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > >=20
+> > > diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/driver=
+s/net/wireless/mediatek/mt76/mt7615/mcu.c
+> > > index 4064e193d4de..08ee2e861c4e 100644
+> > > --- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+> > > +++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+> > > @@ -874,8 +874,10 @@ mt7615_mcu_wtbl_sta_add(struct mt7615_phy *phy, =
+struct ieee80211_vif *vif,
+> > >  	wtbl_hdr =3D mt76_connac_mcu_alloc_wtbl_req(&dev->mt76, &msta->wcid,
+> > >  						  WTBL_RESET_AND_SET, NULL,
+> > >  						  &wskb);
+> > > -	if (IS_ERR(wtbl_hdr))
+> > > +	if (IS_ERR(wtbl_hdr)) {
+> > > +		dev_kfree_skb(sskb);
+> >=20
+> > Hi Zilin,
+> >=20
+> > I can't see how this is useful since if mt76_connac_mcu_alloc_wtbl_req =
+returns
+> > an error, wskb will not be allocated.
+> >=20
+> > Regards,
+> > Lorenzo
+>=20
+> Hi Lorenzo,
+>=20
+> Thanks for your review.
+>=20
+> You are correct that 'wskb' is not allocated in this error path.=20
+> However, my patch is intended to free 'sskb', which was allocated=20
+> earlier in the function. Without this change, 'sskb' is leaked if
+> mt76_connac_mcu_alloc_wtbl_req() fails.
+>=20
+> This approach is similar to the error handling logic later in the
+> function, where a failure in sending one skb results in the other one
+> being freed.
+>=20
+> Hope this clarifies.
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
-Changes in v2:
-- Rebased on latest perf-tools-next branch.
-- Link to v1: https://lore.kernel.org/r/20251017-perf_arm_spe_update_midr_list-v1-1-9de407550354@arm.com
----
- tools/perf/util/arm-spe.c | 5 +++++
- 1 file changed, 5 insertions(+)
+yes, right. I misread the code. I agree with the fix.
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 614ce032f87e46d1f3754258f51bb1693ec128b7..f5bcc84eaa271f4dcc70bb585e517657e523de11 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -570,16 +570,21 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- }
- 
- static const struct midr_range common_ds_encoding_cpus[] = {
-+	MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
-+	MIDR_ALL_VERSIONS(MIDR_CORTEX_A78C),
-+	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
-+	MIDR_ALL_VERSIONS(MIDR_CORTEX_X4),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_X925),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
-+	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
- 	{},
- };
- 
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
----
-base-commit: da8fcfba0854dbe0b0eca465d35620c9cf4c89c1
-change-id: 20251017-perf_arm_spe_update_midr_list-b654cc2ac0dd
+>=20
+> > >  		return PTR_ERR(wtbl_hdr);
+> > > +	}
+> > > =20
+> > >  	if (enable) {
+> > >  		mt76_connac_mcu_wtbl_generic_tlv(&dev->mt76, wskb, vif, sta,
+> > > --=20
+> > > 2.34.1
+> > >=20
+>=20
+> Best Regards,
+> Zilin Guan
 
-Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
+--39OyxfwhcaPPfO4y
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaRW5pgAKCRA6cBh0uS2t
+rMwDAP47wALgPmIE6tUjCgJFQCsffcrKOTD677lZaRxgFK1KiQEAgtoWFZ4Rph8X
+FRyBF15dTBXErLYgBnyapoMTJ/x/gQw=
+=IWEV
+-----END PGP SIGNATURE-----
+
+--39OyxfwhcaPPfO4y--
 
