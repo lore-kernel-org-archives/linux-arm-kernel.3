@@ -4,50 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD68CD8C9C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA76CD8C9C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NhVlSHlsI2eOpvXuT1PBGoELKwc9NP7eiaTgcRPmtK4=; b=h8TvZ9msHBhArAOsNNJ/bUBBtE
-	PrwcQ4kA02+s+qJ6Lqu0mp7YAJUmHMBFyZpj04AGVem3OBdw6l9F/03Bh/KGz4ZUnqZw9OuAtwZu2
-	Hc8OomH6e2W5rGy4BxRc3s1XzMlVikJDUeFxm7Wpi6YHSq36nkJ2aTRhZDqFTg7Y7qzFG8v2GKlUB
-	fyEF8UvA2u30VjgutJLVcurvB7BS5SobGfXUk+zQeIz4IwH9RwDYYFVsk0fheoG+DuERG6wcoX1tW
-	qZ3GKpgVqH1tLIESX+pwi/92DdohXoF7MKo0eEhuf9MUP+xCCCTcZ8/NVr7VQ+P4InHAZH6+tnrNL
-	24W0O2Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j0jrR3573DfEeE6mK2J+RTXekLmf87bfO87MMshSXLY=; b=L1EbHAyt5fZf9pGPpcqT4U1ekK
+	tMBzDt936rMQCO1payEaRaVmAdDQmLueHIOUvNDk10WVaffnTqFR8h/PcdcoVrUrVqshnTreCacp8
+	6Jl1rP/8juuUtSdIuR621M77nyspf56yonmjWZOH4aTrgNYpmxWKoBrf2aIClpnuaFUWKB/HTlIoF
+	pgWqixKK/3+iTbKX4+ShxYGEbJOJ/LmTeZ/usW7+egKyxw+ejFVVQjIPTFXpHjkrdvyu+y359sjrg
+	1CfU90G15Y4PRZX8dOnCTxZh2G9nWYJeXzc0Lzkl55W38UIb2sdgGxCSuGawftByl0rGfuEudtEwd
+	gfTvDJEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa2V-0000000Amof-1Z8V;
+	id 1vJa2V-0000000Amoq-2mTU;
 	Thu, 13 Nov 2025 16:19:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa2U-0000000AmoB-0odF
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vJa2S-0000000Amnr-2eLp;
 	Thu, 13 Nov 2025 16:19:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FD80600C3;
-	Thu, 13 Nov 2025 16:19:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E22C4CEF5;
-	Thu, 13 Nov 2025 16:19:11 +0000 (UTC)
-Date: Thu, 13 Nov 2025 16:19:09 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	ryan.roberts@arm.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Add a fallback stub for pgd_page_paddr()
-Message-ID: <aRYE_Z-x_RUKkqUS@arm.com>
-References: <20251014110633.304961-1-anshuman.khandual@arm.com>
- <aQoORmgliayA0s_a@willie-the-truck>
- <e660e033-6300-4deb-b034-4d26746d8d01@arm.com>
- <aQuDdE_Tj3di7q3P@willie-the-truck>
- <044a6526-d6e8-4ae0-9279-8cc42bff5aa0@arm.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763050749;
+	bh=ZbbaaHUsQVLypoOUIIZkHe7iZlm+xeNap25LcZ0bsIk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=L08N9R9H05FYgeI9He5wHagRWiiNK1wBzRiAIi1E0bwjHP0B2EawoC/wrhPwCN6Y5
+	 jhuQHRwtEgVNqhy1K8RlbKaA6mevZjcmqSfVk09V1KBpkYqzapV1YnScBMrbOIYjOX
+	 VO4RxYBGG1jvY89tItdFBj+QnC0NoujI7MTpkhy770bdBzoC53sQLi2f8D6yMnAv+L
+	 XslBpTDc5Z4swz4lXyOEr3alCOFf9ZUXdjRUlAQxuWVXekfL64byL9cFcYkfNoWBly
+	 iuaXggnvrQNWwSLGZXDdPxCELz6+ayfY5Rg8wYmCTxE7/qW4zGxeSh5vSq1nYDiIdg
+	 60E/apd/bqVHA==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:9cb8:f653:99e7:c419])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B644117E00B0;
+	Thu, 13 Nov 2025 17:19:07 +0100 (CET)
+From: Laura Nao <laura.nao@collabora.com>
+To: daniel.lezcano@linaro.org
+Cc: andrew-ct.chen@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	arnd@arndb.de,
+	bchihi@baylibre.com,
+	colin.i.king@gmail.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	frank-w@public-files.de,
+	fshao@chromium.org,
+	kernel@collabora.com,
+	krzk+dt@kernel.org,
+	lala.lin@mediatek.com,
+	laura.nao@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	nfraprado@collabora.com,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rui.zhang@intel.com,
+	srini@kernel.org,
+	u.kleine-koenig@baylibre.com,
+	wenst@chromium.org
+Subject: Re: [PATCH RESEND v3 3/9] thermal/drivers/mediatek/lvts: Guard against zero temp_factor in lvts_raw_to_temp
+Date: Thu, 13 Nov 2025 17:18:59 +0100
+Message-Id: <20251113161859.280743-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <84b9fd00-ce75-43bf-a53b-48818628f7e2@linaro.org>
+References: <84b9fd00-ce75-43bf-a53b-48818628f7e2@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <044a6526-d6e8-4ae0-9279-8cc42bff5aa0@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_081912_840348_69282A67 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,21 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 07:29:55AM +0530, Anshuman Khandual wrote:
-> On 05/11/25 10:33 PM, Will Deacon wrote:
-> > So my question is, would such a user compile today? If not, then your
-> > patch is pointless.
-> 
-> The point is this macro is not visible outside #ifdef PGTBALE_LEVELS > 4
-> where as similar ones such as p4d_page_paddr() and pud_page_paddr() are
-> always visible via their respective fallback stubs, when PGTABLE_LEVELS
-> are lower.
+Hi Daniel,
 
-Yes but we needed the p4d/pud fallbacks to be able to use them in
-functions like early_fixmap_init_pud() without #ifdefs. We don't have
-such a case for pgd_page_paddr(), so I don't think this patch makes
-sense on its own.
+On 11/10/25 13:42, Daniel Lezcano wrote:
+> On 10/16/25 16:21, Laura Nao wrote:
+>> Add a guard against zero temp_factor in lvts_raw_to_temp() to prevent
+>> division by zero and ensure safe conversion. 
+>
+> Is the temp_factor something else than a ro data statically initialized by the lvts_data structure ?
+>
+> It is pointless to handle the case where the temp_factor is zero. If we read the temperature the kernel crashes immediately (which means it was not tested).
+>
+> The temp_factor is an internal value of the driver. If the temp_factor is zero, the driver is buggy and should be fixed.
+>
+>
 
--- 
-Catalin
+That’s right - if temp_factor is zero, that indicates broken platform 
+data. I propose failing the probe instead of adding a runtime guard, 
+since this condition should never happen in a valid configuration. This 
+way, we make the developer aware of the issue early and avoid a kernel 
+crash at runtime.
+
+I'll send out a v4 to drop the "if (temp_factor == 0)" checks and 
+replace the warning with an error:
+
+if (!lvts_data->temp_factor)
+	return dev_err_probe(dev, -EINVAL, "temp_factor should never be zero; check platform data.\n");
+
+Best,
+
+Laura
+
+>> Fixes: 6725a29321e4 ("thermal/drivers/mediatek/lvts_thermal: Make coeff configurable")
+>> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+>> Reviewed-by: Fei Shao <fshao@chromium.org>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>   drivers/thermal/mediatek/lvts_thermal.c | 12 +++++++++---
+>>   1 file changed, 9 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+>> index 1c54d0b75b1a..4ef549386add 100644
+>> --- a/drivers/thermal/mediatek/lvts_thermal.c
+>> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+>> @@ -284,11 +284,14 @@ static int lvts_raw_to_temp(u32 raw_temp, int temp_factor)
+>>     static u32 lvts_temp_to_raw(int temperature, int temp_factor)
+>>   {
+>> -    u32 raw_temp = ((s64)(golden_temp_offset - temperature)) << 14;
+>> +    u32 raw_temp;
+>>   -    raw_temp = div_s64(raw_temp, -temp_factor);
+>> +    if (temp_factor == 0)
+>> +        return temperature;
+>>   -    return raw_temp;
+>> +    raw_temp = ((s64)(golden_temp_offset - temperature)) << 14;
+>> +
+>> +    return div_s64(raw_temp, -temp_factor);
+>>   }
+>>     static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
+>> @@ -1346,6 +1349,9 @@ static int lvts_probe(struct platform_device *pdev)
+>>       if (irq < 0)
+>>           return irq;
+>>   +    if (!lvts_data->temp_factor)
+>> +        dev_warn(dev, "temp_factor should never be zero; check platform data.\n");
+>> +
+>>       golden_temp_offset = lvts_data->temp_offset;
+>>         ret = lvts_domain_init(dev, lvts_td, lvts_data); 
+> If
+>
+>
+>
+>
+>
+
 
