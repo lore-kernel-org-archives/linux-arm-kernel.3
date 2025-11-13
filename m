@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40A4CD8CB0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A84ACD8CB0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=53i6hc89+8JoHFGdA82pjuxn/jNjJDmBPopxlzzO+wk=; b=v6q5lZZGCEi4r+ENlNxqb8HTy3
-	Lo/I+40at6wsjBraDUBrX2sgGJGyRuiu+VRa7XFh6w5f255N0AgbnkYKz1Nn5F+lWJjy1jhgOpFvR
-	eqTxkXIwTzxMXORKkssl4l6MbvOaNdsNvVJDXxwWfA1rQ9d1g9C4AF0bBr8o2RvHTwEDdx0dJDdFB
-	99hqAvdzI6zCF+5WbJH6fLHyj541X9Jt9E6pUsiK+yTzyDtEMtjAbxmQp6xoJA/n3mxoK5nqeWsY1
-	uDItsivSISCcw2aCn4smOlQmM7EbqUmHvfoc3RuxCXapAWNIFx8AxJX5y6t8GCse2r73J/PYEgGi2
-	OE9bkR9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XuI9JXuGMQe+qBDDwJRIMLDDaz6Ki24k1VsQCKN82Y=; b=tdb+sbZdv++vOaTO92h0zpMR7S
+	xL2xoscJZKbYUH9gcXVlb6ECoN33VFB4o3xQZt4C8rmzjEKkDuC6nz1Hy/DXPhyTY2bIeMaY+K8lq
+	u9/SN6MjLrh0eUMf/UHvLJoJ5BeWFKcw4i8OPKRk2DVZFF7t7UtM7n3kKzZfXFe81phOB9ZQUYgh9
+	GNYYrRECwSFJ+JrevrpFNDHne0Zdliu8EV5544LDIzZMZK2Sxt0AfOLYet2+4Z0DRd7Goj3J3pORe
+	pjp2yHRVlsRFDPD9EnLez5Seeoxmt+efv8p0cWBc/OAjqRnu+cxZgerAPuTNdVNf7YS55TGYLTKAv
+	in9dke0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbOx-0000000Askx-2Fbf;
-	Thu, 13 Nov 2025 17:46:31 +0000
+	id 1vJbPB-0000000AsoG-0SZC;
+	Thu, 13 Nov 2025 17:46:45 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbOu-0000000Asjy-3czC;
-	Thu, 13 Nov 2025 17:46:30 +0000
+	id 1vJbP9-0000000Asmz-1Y1d;
+	Thu, 13 Nov 2025 17:46:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=53i6hc89+8JoHFGdA82pjuxn/jNjJDmBPopxlzzO+wk=; b=BQXc+IATtKi13BpTL1VZUnNd00
-	IUzuiFdQYx4qHb8zBNfQNLj67X3MH9fiKJrtkNPxOFYFvsuycCvEs6fEnVglOXgG5IaOs2yDb4tps
-	KvCdrjLgyqy5ZFVMWP29AeZNcwmthIYBTST/kIgZv+1K0lBLuZHUOcr9UdFM/5+FbK0xik8wKt67i
-	vuPAv2hiuCozXVBtLNy2+1w4ETJCTiBh0seZcqqiWfY8TrZi63Ss0/mo9jWFGwR1Q2ukfqDrHoi8B
-	d3ATVdcuYIq79P82rLC0Qud1oM/LdjIeaD4MlaDzanLR4YTwCZY09DyFZnN1CTNEjJfSs+P2r+xnF
-	GXR5FMlg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40570)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=2XuI9JXuGMQe+qBDDwJRIMLDDaz6Ki24k1VsQCKN82Y=; b=r0s+nd/7X+KzRASyRyVdM1bmBL
+	G7VSdwMUMsN+DzqUtR6XR6pyBPyr1zp6Dp9zDHXLEbyK5Dgg6rWWHW95kvEzL9IRT2xu8dS8Me8as
+	aD3ieFEXMntaw2P5hjcEE7GpWlbSVM+MhGM+r+HrMGK58vRkpr4xT/8oALYHjDzF/ryc87nzYHIcu
+	N0klpWYAanSN1W6GK+XcXcDIPgL9n3p02+LhjCR793SQpqzzRpeQOuN/esYOvCw/nC+dJs7LGLR20
+	N3GkBJ+S/pHMVhqV//jHomaQScq6NGYskuqq2BzeuEpZAjT8sP/xRzIbqM+CAoNx/PhzM+Op7gEj6
+	u7NnyxFQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40654 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vJbOl-000000005nC-3xID;
-	Thu, 13 Nov 2025 17:46:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vJbOi-0000000053j-23CL;
-	Thu, 13 Nov 2025 17:46:16 +0000
-Date: Thu, 13 Nov 2025 17:46:16 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vJbP2-000000005nT-0CAJ;
+	Thu, 13 Nov 2025 17:46:36 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vJbP1-0000000EBqJ-1AjR;
+	Thu, 13 Nov 2025 17:46:35 +0000
+In-Reply-To: <aRYZaKTIvfYoV3wE@shell.armlinux.org.uk>
+References: <aRYZaKTIvfYoV3wE@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/4] net: stmmac: rk: use PHY_INTF_SEL_x
-Message-ID: <aRYZaKTIvfYoV3wE@shell.armlinux.org.uk>
+Subject: [PATCH net-next 1/4] net: stmmac: rk: replace HIWORD_UPDATE() with
+ GRF_FIELD()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vJbP1-0000000EBqJ-1AjR@rmk-PC.armlinux.org.uk>
+Date: Thu, 13 Nov 2025 17:46:35 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_094628_900946_F64C9B3E 
-X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-CacheID: sfid-20251113_094643_583506_12755E16 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,15 +91,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is a minimal conversion of the dwmac-rk huge driver to use
-PHY_INTF_SEL_x constants.
+Provide GRF_FIELD() which takes the high/low bit numbers of the field
+and field value, generates the mask and passes it to FIELD_PREP_WM16.
+Replace all HIWORD_UPDATE() instances with this.
 
-Patch 2 appears to reorder the output functions making diffing the
-generated code impossible.
+No change to produced code on aarch64.
 
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 245 +++++++++++--------------
- 1 file changed, 109 insertions(+), 136 deletions(-)
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 64 +++++++++----------
+ 1 file changed, 32 insertions(+), 32 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index a5c7e03ebc63..794a7ed71451 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -149,11 +149,11 @@ static int rk_set_clk_mac_speed(struct rk_priv_data *bsp_priv,
+ 	return clk_set_rate(clk_mac_speed, rate);
+ }
+ 
+-#define HIWORD_UPDATE(val, mask, shift) \
+-		(FIELD_PREP_WM16((mask) << (shift), (val)))
++#define GRF_FIELD(hi, lo, val)		\
++	FIELD_PREP_WM16(GENMASK_U16(hi, lo), val)
+ 
+-#define GRF_BIT(nr)	(BIT(nr) | BIT(nr+16))
+-#define GRF_CLR_BIT(nr)	(BIT(nr+16))
++#define GRF_BIT(nr)			(BIT(nr) | BIT(nr+16))
++#define GRF_CLR_BIT(nr)			(BIT(nr+16))
+ 
+ #define DELAY_ENABLE(soc, tx, rx) \
+ 	(((tx) ? soc##_GMAC_TXCLK_DLY_ENABLE : soc##_GMAC_TXCLK_DLY_DISABLE) | \
+@@ -168,8 +168,8 @@ static int rk_set_clk_mac_speed(struct rk_priv_data *bsp_priv,
+ #define RK_MACPHY_DISABLE		GRF_CLR_BIT(0)
+ #define RK_MACPHY_CFG_CLK_50M		GRF_BIT(14)
+ #define RK_GMAC2PHY_RMII_MODE		(GRF_BIT(6) | GRF_CLR_BIT(7))
+-#define RK_GRF_CON2_MACPHY_ID		HIWORD_UPDATE(0x1234, 0xffff, 0)
+-#define RK_GRF_CON3_MACPHY_ID		HIWORD_UPDATE(0x35, 0x3f, 0)
++#define RK_GRF_CON2_MACPHY_ID		GRF_FIELD(15, 0, 0x1234)
++#define RK_GRF_CON3_MACPHY_ID		GRF_FIELD(5, 0, 0x35)
+ 
+ static void rk_gmac_integrated_ephy_powerup(struct rk_priv_data *priv)
+ {
+@@ -285,8 +285,8 @@ static const struct rk_gmac_ops px30_ops = {
+ #define RK3128_GMAC_TXCLK_DLY_DISABLE  GRF_CLR_BIT(14)
+ #define RK3128_GMAC_RXCLK_DLY_ENABLE   GRF_BIT(15)
+ #define RK3128_GMAC_RXCLK_DLY_DISABLE  GRF_CLR_BIT(15)
+-#define RK3128_GMAC_CLK_RX_DL_CFG(val) HIWORD_UPDATE(val, 0x7F, 7)
+-#define RK3128_GMAC_CLK_TX_DL_CFG(val) HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3128_GMAC_CLK_RX_DL_CFG(val) GRF_FIELD(13, 7, val)
++#define RK3128_GMAC_CLK_TX_DL_CFG(val) GRF_FIELD(6, 0, val)
+ 
+ /* RK3128_GRF_MAC_CON1 */
+ #define RK3128_GMAC_PHY_INTF_SEL_RGMII	\
+@@ -350,8 +350,8 @@ static const struct rk_gmac_ops rk3128_ops = {
+ #define RK3228_GRF_CON_MUX	0x50
+ 
+ /* RK3228_GRF_MAC_CON0 */
+-#define RK3228_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 7)
+-#define RK3228_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3228_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(13, 7, val)
++#define RK3228_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ /* RK3228_GRF_MAC_CON1 */
+ #define RK3228_GMAC_PHY_INTF_SEL_RGMII	\
+@@ -456,8 +456,8 @@ static const struct rk_gmac_ops rk3228_ops = {
+ #define RK3288_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(14)
+ #define RK3288_GMAC_RXCLK_DLY_ENABLE	GRF_BIT(15)
+ #define RK3288_GMAC_RXCLK_DLY_DISABLE	GRF_CLR_BIT(15)
+-#define RK3288_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 7)
+-#define RK3288_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3288_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(13, 7, val)
++#define RK3288_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rk3288_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+@@ -537,8 +537,8 @@ static const struct rk_gmac_ops rk3308_ops = {
+ #define RK3328_GRF_MACPHY_CON1	0xb04
+ 
+ /* RK3328_GRF_MAC_CON0 */
+-#define RK3328_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 7)
+-#define RK3328_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3328_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(13, 7, val)
++#define RK3328_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ /* RK3328_GRF_MAC_CON1 */
+ #define RK3328_GMAC_PHY_INTF_SEL_RGMII	\
+@@ -651,8 +651,8 @@ static const struct rk_gmac_ops rk3328_ops = {
+ #define RK3366_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(7)
+ #define RK3366_GMAC_RXCLK_DLY_ENABLE	GRF_BIT(15)
+ #define RK3366_GMAC_RXCLK_DLY_DISABLE	GRF_CLR_BIT(15)
+-#define RK3366_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RK3366_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3366_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RK3366_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rk3366_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+@@ -718,8 +718,8 @@ static const struct rk_gmac_ops rk3366_ops = {
+ #define RK3368_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(7)
+ #define RK3368_GMAC_RXCLK_DLY_ENABLE	GRF_BIT(15)
+ #define RK3368_GMAC_RXCLK_DLY_DISABLE	GRF_CLR_BIT(15)
+-#define RK3368_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RK3368_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3368_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RK3368_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rk3368_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+@@ -785,8 +785,8 @@ static const struct rk_gmac_ops rk3368_ops = {
+ #define RK3399_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(7)
+ #define RK3399_GMAC_RXCLK_DLY_ENABLE	GRF_BIT(15)
+ #define RK3399_GMAC_RXCLK_DLY_DISABLE	GRF_CLR_BIT(15)
+-#define RK3399_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RK3399_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3399_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RK3399_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rk3399_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+@@ -901,8 +901,8 @@ static const struct rk_gmac_ops rk3506_ops = {
+ #define RK3528_GMAC_TXCLK_DLY_ENABLE	GRF_BIT(14)
+ #define RK3528_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(14)
+ 
+-#define RK3528_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0xFF, 8)
+-#define RK3528_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0xFF, 0)
++#define RK3528_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(15, 8, val)
++#define RK3528_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(7, 0, val)
+ 
+ #define RK3528_GMAC0_PHY_INTF_SEL_RMII	GRF_BIT(1)
+ #define RK3528_GMAC1_PHY_INTF_SEL_RGMII	GRF_CLR_BIT(8)
+@@ -1041,8 +1041,8 @@ static const struct rk_gmac_ops rk3528_ops = {
+ #define RK3568_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
+ 
+ /* RK3568_GRF_GMAC0_CON0 && RK3568_GRF_GMAC1_CON0 */
+-#define RK3568_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RK3568_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3568_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RK3568_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+@@ -1096,8 +1096,8 @@ static const struct rk_gmac_ops rk3568_ops = {
+ #define RK3576_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(7)
+ #define RK3576_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(7)
+ 
+-#define RK3576_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0x7F, 8)
+-#define RK3576_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0x7F, 0)
++#define RK3576_GMAC_CLK_RX_DL_CFG(val)		GRF_FIELD(14, 8, val)
++#define RK3576_GMAC_CLK_TX_DL_CFG(val)		GRF_FIELD(6, 0, val)
+ 
+ /* SDGMAC_GRF */
+ #define RK3576_GRF_GMAC_CON0			0X0020
+@@ -1220,8 +1220,8 @@ static const struct rk_gmac_ops rk3576_ops = {
+ #define RK3588_GMAC_TXCLK_DLY_ENABLE(id)	GRF_BIT(2 * (id) + 2)
+ #define RK3588_GMAC_TXCLK_DLY_DISABLE(id)	GRF_CLR_BIT(2 * (id) + 2)
+ 
+-#define RK3588_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
+-#define RK3588_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
++#define RK3588_GMAC_CLK_RX_DL_CFG(val)		GRF_FIELD(15, 8, val)
++#define RK3588_GMAC_CLK_TX_DL_CFG(val)		GRF_FIELD(7, 0, val)
+ 
+ /* php_grf */
+ #define RK3588_GRF_GMAC_CON0			0X0008
+@@ -1400,11 +1400,11 @@ static const struct rk_gmac_ops rv1108_ops = {
+ #define RV1126_GMAC_M1_TXCLK_DLY_DISABLE	GRF_CLR_BIT(2)
+ 
+ /* RV1126_GRF_GMAC_CON1 */
+-#define RV1126_GMAC_M0_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RV1126_GMAC_M0_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RV1126_GMAC_M0_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RV1126_GMAC_M0_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ /* RV1126_GRF_GMAC_CON2 */
+-#define RV1126_GMAC_M1_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 8)
+-#define RV1126_GMAC_M1_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0x7F, 0)
++#define RV1126_GMAC_M1_CLK_RX_DL_CFG(val)	GRF_FIELD(14, 8, val)
++#define RV1126_GMAC_M1_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+ 
+ static void rv1126_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
