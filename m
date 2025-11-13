@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B484CD8C85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 15:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B36CD8C8F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eO08yAJL2+iPpYzeNmwM0YR9k1khw+2M2/QRkBIoq5I=; b=AASU877rnPMI6UVVymiOB8AqqS
-	czlcZfp4n1w241lA0zwHquSUKk2NMp20tC2OpiUgPgmbbthHM6m4F+85+eTejS1+HzagoIjSb6F1g
-	Ma1/Qu0a+5GBVtX1uELfXzxG41fldFYOS3P71UiVyjZAxZPsQlGaH4b/yVd8LyzSslb519CdHXl4B
-	eNnwUEJmrI/M3JGCY2r+cuCFhzDevyZZMY+2W/+TrtO/xENP2dhCUimQZVagETZVuXTMXi9cECdok
-	4fsVl62M4VLEdC7TZBOWOH2vvLCR4ejHcp0Ii+CvqvX5Oq1li2XOkqb1rjEDZhLT1n8yR1aF/rjac
-	jdeqCoiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oSWIHRyyO3hooO64JACSCpnVieSk/9Ppr4dvEYGltzw=; b=x1QSLwMARXORlKNMtp4l3j6TXT
+	k5LSq2er02mHVYQTTv2TTgZRjSVK03+OtOUDm+G+o7TnX0x5dmRuYsb7wByu/jNlMz3VRZ3Ku1fkc
+	t+T2FMf4wNO8Zz19TMl8Bxsq2tzfCOuaUe7rMkc0zwbCpv0FrZXpE9Sv0xnGxjcLJk4SrmgQ6t+Ww
+	mED80ZIJY7gx+LTpDRMKgHMPlf6rpKz3ShRJCgTP2W5xEYdqvbTI5jIXOoMV6YvJmwLi6JU6QinxV
+	/+nvg9RF+Qpjb6bbbtRtDsImgKIvY1vesEqGLc24rjAnODeGAfuF5Py+jlXyu9ewjhXkiWfhJxK7M
+	bMjElCkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZNH-0000000AjUP-10F9;
-	Thu, 13 Nov 2025 15:36:39 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1vJZjw-0000000Al2W-06EQ;
+	Thu, 13 Nov 2025 16:00:04 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZNE-0000000AjTa-33Xe
+	id 1vJZjr-0000000Al0o-3EJi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 15:36:38 +0000
-Message-ID: <d16af3e8-3ca1-4676-9112-32f7e33bd6df@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1763048193;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eO08yAJL2+iPpYzeNmwM0YR9k1khw+2M2/QRkBIoq5I=;
-	b=oIhh1LHFeqonkNSOYHAXCoLgDnrY1+uIzi2hOrkYeLDlncR4E6OEb+aqzoqlYsTf/wtn26
-	imrnsA93QYD/88N2T5n+nQylXmnmwy6WLpgfDx8wyz37Q8ZrP4HvCBC9AHtPfa2H66hSLQ
-	/YLAW8o4aSam0hefdlgrRsivjV6w+i4=
-Date: Thu, 13 Nov 2025 10:36:12 -0500
+	Thu, 13 Nov 2025 16:00:01 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-64180bd67b7so1391760a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 07:59:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763049598; x=1763654398; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oSWIHRyyO3hooO64JACSCpnVieSk/9Ppr4dvEYGltzw=;
+        b=MYWZ/A+QsxpDsdK7urM+cKOEA09xDeMr8noSz6cn/j1XHZCFnw0B498pwrbXLX8iJF
+         xpsHy62JwJ1h9XCHWILT0Lou8A9+9Qi+ILgVBPRSuy7tAtVRXbSScOrkuetreL0LPwnV
+         +i6IhTN7q8U1D19CJq6ZPogkWnTnW3sN5WPoN7v27DlMPh0plWT4mNTc+5HhLWf3Q05q
+         ZKGnrV7X00xFo7gR9Yt9W2F7bFLlBlh5BOzwFfms7vT49Yy0yGtqVbdf9Vnqg1zgFPgd
+         QAcZz6SJogFXryGpTt5ASQJAE8EboikonoiPYufQZLm0alFJgnAKoiRbcYIqCUqLPtYu
+         +RMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763049598; x=1763654398;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oSWIHRyyO3hooO64JACSCpnVieSk/9Ppr4dvEYGltzw=;
+        b=G5AQB/7v3xSScptGETzqfw7MFkCtvddrgllUiuyM2RWPluTTaUZ+6wVft9fMx0yCld
+         Q3sW3FXHMjCldJhpYECw/a13jijTiQuXTKf8al5q4zCTm6Nq9E/uVSCdYgkvzxLA5Gtg
+         pFhStcpRDA7wz15b3j5yk27BOY23UvztD9nCJSTP75970510cDO6hMRaMIR957WxPLb/
+         ACThoPDl/tMY2R49ZFCrGtXMBJe7oenLOs35h1puuqJx3XgudPjgpY7MzJPAxdpOyda4
+         2kKSm9f/WIlbPnCkU5M6QUSCA+y1DZNbR79tyQPSg+djNdkuUXS02fvZYxUCO8DWA/j3
+         5r4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV5d3esXJ85hx8rrSeRjJobVhlwQbqtIEdiaO99esZccR94rZX2UG60IKBSGkqN7NlnSiceT4j1Mcp6NNeFQNLp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxX0Uvu0IAKDXmKov1PnFczN+bCt3OnKSTB+i3DwfMYEKSOI+72
+	4/LAfzGwZUu+kQxyGmWE6zZEi0XSkXiwhHiTNBrjamA1ohNqFG4Zw1Mg
+X-Gm-Gg: ASbGnctJh7Db4qw70qCmTxIgBK22k5SeGVwb3FsxNOPPqxg/+UZpv3j8eiujlsfJYr3
+	Km5IjJ8EPYb7VgbpAsTZ5d8nJCnT05lAKI8DDzKN9cSNiuAv3njA5OJR/DYoc8Buhdal/z9+6DR
+	NQVwsJXtvyE1RHHKTYA1PRiTvKwH1Q/QO8CFOvlTst9re/ED00TFyyWDwGbsRQjcm+R3Tk9bqy7
+	AmPCk9QikmhQxWj1IFUhw3gatZPTSUaZPvpbTfcUkA2YlG9kSSLMauL6w/AcjtHz8fzsjAwzGrn
+	83Za+JXlQNu2Fypm1B4GKAxA2bHxw2Hk3YLETrjj+6HskiwSWpNTKyOzT8yjo2ASeKmjQLtHQNk
+	vYh3AItbLohBWFl15Z3ZgJhBD7PgSciS7xHfsN9smXGOJa5zQyN0WZEOC/MA2DXxXLA2dCWf9hI
+	kh3DCpIWPmf3JuMo+jeUk4qiI=
+X-Google-Smtp-Source: AGHT+IFoy3Qrt2T/zWrqrEncmeovSM7PWIvEMpppfNPTs0PN5vcTlJFJgXzZBDKyyQYJxY9NrZnMDA==
+X-Received: by 2002:a05:6402:40c6:b0:640:c454:e9 with SMTP id 4fb4d7f45d1cf-6431a395d46mr6335604a12.4.1763049597599;
+        Thu, 13 Nov 2025 07:59:57 -0800 (PST)
+Received: from krava (37-188-200-155.red.o2.cz. [37.188.200.155])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b2615sm1675323a12.32.2025.11.13.07.59.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Nov 2025 07:59:57 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Thu, 13 Nov 2025 16:59:50 +0100
+To: bot+bpf-ci@kernel.org
+Cc: rostedt@kernel.org, revest@google.com, mark.rutland@arm.com,
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ast@kernel.org,
+	daniel@iogearbox.net, andrii@kernel.org, menglong8.dong@gmail.com,
+	song@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com,
+	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
+Subject: Re: [PATCHv2 bpf-next 3/8] ftrace: Add update_ftrace_direct_add
+ function
+Message-ID: <aRYAdoHh0S95C4wA@krava>
+References: <20251113123750.2507435-4-jolsa@kernel.org>
+ <c341189e76b2cf9bb2fe712c074bdd652f73edd5ea2f409655b2d78a62bd332f@mail.kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>
-Cc: David Airlie <airlied@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
- <20250627145058.6880-1-mike.looijmans@topic.nl>
- <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
- <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
- <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c341189e76b2cf9bb2fe712c074bdd652f73edd5ea2f409655b2d78a62bd332f@mail.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_073636_931628_B8D38666 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20251113_075959_848279_B3D717FC 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +106,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/25 04:31, Tomi Valkeinen wrote:
-> Hi,
+On Thu, Nov 13, 2025 at 01:02:18PM +0000, bot+bpf-ci@kernel.org wrote:
+> > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> > index e23e6a859..ded3a306a 100644
+> > --- a/include/linux/ftrace.h
+> > +++ b/include/linux/ftrace.h
 > 
-> On 11/11/2025 23:09, Sean Anderson wrote:
->> On 11/4/25 16:53, Sean Anderson wrote:
->>> On 6/27/25 10:50, Mike Looijmans wrote:
->>>> XRGB8888 is the default mode that Xorg will want to use. Add support
->>>> for this to the Zynqmp DisplayPort driver, so that applications can use
->>>> 32-bit framebuffers. This solves that the X server would fail to start
->>>> unless one provided an xorg.conf that sets DefaultDepth to 16.
->>>>
->>>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
->>>> ---
->>>>
->>>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
->>>>  1 file changed, 5 insertions(+)
->>>>
->>>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>>> index 80d1e499a18d..501428437000 100644
->>>> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>>> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->>>> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
->>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->>>>  		.swap		= true,
->>>>  		.sf		= scaling_factors_888,
->>>> +	}, {
->>>> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
->>>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
->>>> +		.swap		= true,
->>>> +		.sf		= scaling_factors_888,
->>>>  	}, {
->>>>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
->>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
->>>
->>> Tested-by: Sean Anderson <sean.anderson@linux.dev>
->>>
->>> I can confirm that this provides a nice performance boost :)
->> 
->> Actually, I think a better fix would be to make the "video" plane the
->> primary one. That plane supports XRGB8888 natively, and then the
->> graphics plane can be used as an overlay for e.g. windows or cursors.
-> True, but I think usually the overlay plane is the video plane, which
-> supports YUV formats. If we use the video plane as the root plane, then
-> that one is reserved and there's no "real" video overlay plane.
-
-But you can't use it as an overlay anyway unless you enable colorkey.
-Otherwise it's always an "underlay". So you can't actually have e.g. the
-video layer display a decoded video in a window because that would
-require userspace to "carve out" the window in the graphics alpha layer.
-But as discussed earlier in this thread, the alpha channel is always
-disabled by this driver! So the video layer is completely unusable in
-the current driver anyway.
-
-> Did you check my recent reply to the thread? I didn't have too much time
-> to debug all the combinations and what exactly the userspace does. I'm
-> inclined to just merge this one which should improve the user experience
-> quite a bit, even if there are still unclear parts to this. The related
-> code can be improved later if we figure out the details.
+> [ ... ]
 > 
-> Any objections?
+> > @@ -568,6 +570,11 @@ static inline int modify_ftrace_direct_nolock(struct ftrace_ops *ops, unsigned l
+> >  	return -ENODEV;
+> >  }
+> >
+> > +int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> > +{
+> > +	return -ENODEV;
+> > +}
+> > +
+> >  /*
+> >   * This must be implemented by the architecture.
+> >   * It is the way the ftrace direct_ops helper, when called
+> 
+> Should this stub function have static inline qualifiers? All the other
+> stub functions in this section (ftrace_find_rec_direct,
+> register_ftrace_direct, unregister_ftrace_direct, modify_ftrace_direct,
+> and modify_ftrace_direct_nolock) use static inline. Without it, this
+> could cause multiple definition linker errors when the header is
+> included in multiple compilation units.
 
-I object to this because it solidifies the current state of affairs
-where the alpha channel of the graphics layer can't be used. I will
-submit a series later today to change the primary plane and enable the
-alpha channel.
+yep, also the other ones are missing it, will add.. thanks
 
---Sean
+jirka
+
+> 
+> 
+> ---
+> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+> 
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/19332026793
+
 
