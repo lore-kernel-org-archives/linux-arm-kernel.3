@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BBBCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A04FCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W24rXr9XTIjoWbBrgVjF1WMdWafKto7r84bSibgNW+k=; b=Deb+Kvd3KcIvnJdIkx6cNzOvrz
-	UIKRX7Xihob6VjZqQndOC41g8JTbEQ8+aujn9/xjB1SHUUcdjkDXWK7xPuUtNZy9PxRLJOK8eqYBh
-	xr1YMs94JR8ijGqm6wxAzJbRh6J6WcMAlldb2NghF/K3nit/217A3GRhU7sWb1SPcXLuLaFt3t9NV
-	qs5PzcPhloUQrsf3P0bE6eY8bn4F7s6Xf+6wbUe/mu50ggvJVqiuYoMCtLYnOkPGItJJVafWxYssc
-	qJc6HC1D8UcKWXbwiw0P5GV+g8LXb34iP4mZNzrtktZoC0cGq7dfOWBhoY0HL2DpT8DbLvCpVkxQd
-	Ixs7Jd+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MYtiuKaBwelsO351mfbV3Me/wfDnJfjqadKQTKmivyM=; b=eFMjSAs62HFHCDSq0m5V/oa+C/
+	YB6aOzSFKH4lUzu2ZLUm25S8ydPgVR8o2sLO6Vue0hcWF5/PvdLzhAzthct3sbU909pWLc4dJf2/U
+	M2EYVQNf8Xrfo39yKmOkNCro+CiaSKMO0iSVto1BFRd4LsS22lRX8gk29xt47f8S9I1xblwKJApHf
+	LDcqTl2cBQl4b9WPxAj1gzvY53FoRL7m/eValFulv5uW3GUzAr3H33Yd60MklEnA+fD/IC7TNEojK
+	QfnIoo2WGLIsU4pIOloYe70xIUNAcYo9CNJzdyHP63VeS2t8W6oo6bot/wDSKpEep5u3JuNnYLRi6
+	7TT+fEZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcpr-0000000AzTY-1eJV;
-	Thu, 13 Nov 2025 19:18:23 +0000
+	id 1vJd07-0000000B08l-00o5;
+	Thu, 13 Nov 2025 19:28:59 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcpq-0000000AzTQ-3kWv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 19:18:23 +0000
+	id 1vJd05-0000000B08Z-2QWX;
+	Thu, 13 Nov 2025 19:28:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 554AA60122
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04370C4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 19:18:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE75960122;
+	Thu, 13 Nov 2025 19:28:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4666C113D0;
+	Thu, 13 Nov 2025 19:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763061502;
-	bh=6UprQ8VPFTOJEJnrAk3c1+70Nbd/u85upyCo1jyU1qk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=W0X7qiriJx8qwv9BbYquHPo7dcdlB2adgQNwN+FfcpIdmW/AITZJ5Zpqm03CC/Dxr
-	 6GnRSXQmfJ+W2vthEpzKITubGF74mnCc6WUcvin3uowyc8BT86f+//ZfLYv29g+BBF
-	 lF+wiMxVq3NM9L1tiAzuG5XwvTH/cQqPOIPuH8Swojls+LSeWQiKJpBdWwsNkrHfoc
-	 ViJlr54gGxXeICJKCHSvemTDsL0eAAUa1Kuky49BxecjyBAtJpJBy74zC1sU1paLFh
-	 iEnE0JiwwGU2Q+ypXPimklXXrXm0/+3QIl6jESwwRiu7KL4wKdlkBy+NprPJA+WbMw
-	 +qgnAYGxQ0H4g==
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-657230e45e8so540909eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 11:18:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVnAY3bt3MnEp2o0BYYISIHNmUad0mueMkA59QSuN2x5nWabmO4Ho3TN9KMHOhv+ech3htJFTajp7N+Gb6nVs5w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbw6Q43BpRx8C8EFXS06LPpeytQX5nbkvLSGQsVKa3MbGVbIGm
-	NOave+21Z25soTn2qMNsMrQmd2ldsNvoAWJBZy0UazCiQzwsPrPeYeoFiR0Cb7sVqAvjQ5wXrUi
-	7fQQHvqHamY23h7FWD0G64CNKoUCJJho=
-X-Google-Smtp-Source: AGHT+IEEkDRYf3o6eWh7An4Eb7oaPpWELLivUE1adLZQeit4rdCPvsjZcC3pPuLNVua35azYMW1z4kNGcBFvSY5y77M=
-X-Received: by 2002:a05:6871:e324:b0:3d4:b889:7d65 with SMTP id
- 586e51a60fabf-3e8674043b0mr485629fac.19.1763061501288; Thu, 13 Nov 2025
- 11:18:21 -0800 (PST)
+	s=k20201202; t=1763062136;
+	bh=qGKHCq3IkG1f2krj8XlGruglJb9NvGo4NAueK5tlbj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bSWPRh256IUJOk89hPwbvQx6XfBiLWyif7ZaKrL9AGBSocThtuX8c/E7wUXKzp454
+	 XdoyseBi1YQEsa1ATaZ6XGYw539zBPD+zDwTa4t80vVp+EEqTQuXksETqWQodi4KWv
+	 KTcfx3ptxVruJtgz+VBVSJWxNsKU39akmnCJNli5tn/oeAmFMG5o/dGVAvs6+UyEq1
+	 IrnADkEmKSArZNcfnfAXXxu5NzsoLBFwDxMiEHhXLlmZk2m+nkE6kWKNauoOOm79Da
+	 PIpYxjqPxRYc34nOMYFdq5w7rNUxVGJaXXaFI362rOSglQhT+2vPAhThhQLtjMRC1a
+	 Gai5N8Zx90zcg==
+Date: Thu, 13 Nov 2025 19:28:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: afaerber@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, lee@kernel.org, james.tai@realtek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cy.huang@realtek.com,
+	stanley_chang@realtek.com
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: realtek: Add Kent Soc family
+ compatibles
+Message-ID: <20251113-preorder-task-4e5ba09580d8@spud>
+References: <20251113123009.26568-1-eleanor.lin@realtek.com>
+ <20251113123009.26568-2-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-References: <20251029163336.2785270-1-thierry.reding@gmail.com>
- <20251029163336.2785270-2-thierry.reding@gmail.com> <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
- <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m> <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
-In-Reply-To: <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 13 Nov 2025 20:18:10 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
-X-Gm-Features: AWmQ_bka8IUODzeQR5ggeX8uZbZXXCIST1G0sD3k8DJ8TOKe2Mgor6ApCD0oVpM
-Message-ID: <CAJZ5v0gupHEg8ip+2R1wYAQ=BQn4Mk5EMMu==StRxwvXA0WwsA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ptaQ1TJ62zXffYwA"
+Content-Disposition: inline
+In-Reply-To: <20251113123009.26568-2-eleanor.lin@realtek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +74,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 7:32=E2=80=AFPM Thierry Reding <thierry.reding@gmai=
-l.com> wrote:
->
-> On Wed, Nov 05, 2025 at 05:52:01PM +0100, Thierry Reding wrote:
-> > On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
-> > > On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.redin=
-g@gmail.com> wrote:
-> > > >
-> > > > From: Thierry Reding <treding@nvidia.com>
-> > > >
-> > > > Several drivers can benefit from registering per-instance data alon=
-g
-> > > > with the syscore operations. To achieve this, move the modifiable f=
-ields
-> > > > out of the syscore_ops structure and into a separate struct syscore=
- that
-> > > > can be registered with the framework. Add a void * driver data fiel=
-d for
-> > > > drivers to store contextual data that will be passed to the syscore=
- ops.
-> > > >
-> > > > Signed-off-by: Thierry Reding <treding@nvidia.com>
-> > >
-> > > This change is fine with me, so I can apply it unless somebody has an=
-y
-> > > specific heartburn related to it (Greg?), but in case you want to
-> > > route it differently
-> > >
-> > > Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-> >
-> > I have a few follow-up patches for the Tegra PMC driver that depend on
-> > this. 6.19 is what I was targetting, so if we could put this into a
-> > stable branch that'd be the best solution. I can set that up via the
-> > Tegra tree if you and Greg are okay with it.
-> >
-> > If that's all too complicated, I can probably wait until the next cycle
-> > to merge the PMC changes.
->
-> I've added this single patch to a branch based off of v6.18-rc1 that I
-> plan to feed into linux-next so it can get some broader exposure.
->
-> I can keep that branch stable so it can go through multiple trees if
-> needed. If anyone's interested, the branch is here:
->
->         https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git/l=
-og/?h=3Dfor-6.19/syscore
 
-You beat me to this, sorry about the delay.
+--ptaQ1TJ62zXffYwA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Nov 13, 2025 at 08:30:07PM +0800, Yu-Chun Lin wrote:
+> Define compatible strings for Realtek RTD1501s, RTD1861b and RTD1920s.
+>=20
+
+> Additionally, convert legacy DTS-style comments to YAML description
+> properties, following the pattern from the ARM bindings conversion series
+> [1].
+
+"Additionally" is often a sign that it should be in a different patch.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+>=20
+> [1] https://lore.kernel.org/lkml/20200622125527.24207-2-afaerber@suse.de/
+>=20
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+>  .../devicetree/bindings/arm/realtek.yaml      | 42 +++++++++++++------
+>  1 file changed, 30 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/realtek.yaml b/Documen=
+tation/devicetree/bindings/arm/realtek.yaml
+> index ddd9a85099e9..be529490640c 100644
+> --- a/Documentation/devicetree/bindings/arm/realtek.yaml
+> +++ b/Documentation/devicetree/bindings/arm/realtek.yaml
+> @@ -14,21 +14,21 @@ properties:
+>      const: '/'
+>    compatible:
+>      oneOf:
+> -      # RTD1195 SoC based boards
+> -      - items:
+> +      - description: RTD1195 SoC based boards
+> +        items:
+>            - enum:
+>                - mele,x1000 # MeLE X1000
+>                - realtek,horseradish # Realtek Horseradish EVB
+>            - const: realtek,rtd1195
+> =20
+> -      # RTD1293 SoC based boards
+> -      - items:
+> +      - description: RTD1293 SoC based boards
+> +        items:
+>            - enum:
+>                - synology,ds418j # Synology DiskStation DS418j
+>            - const: realtek,rtd1293
+> =20
+> -      # RTD1295 SoC based boards
+> -      - items:
+> +      - description: RTD1295 SoC based boards
+> +        items:
+>            - enum:
+>                - mele,v9 # MeLE V9
+>                - probox2,ava # ProBox2 AVA
+> @@ -36,25 +36,43 @@ properties:
+>                - zidoo,x9s # Zidoo X9S
+>            - const: realtek,rtd1295
+> =20
+> -      # RTD1296 SoC based boards
+> -      - items:
+> +      - description: RTD1296 SoC based boards
+> +        items:
+>            - enum:
+>                - synology,ds418 # Synology DiskStation DS418
+>            - const: realtek,rtd1296
+> =20
+> -      # RTD1395 SoC based boards
+> -      - items:
+> +      - description: RTD1395 SoC based boards
+> +        items:
+>            - enum:
+>                - bananapi,bpi-m4 # Banana Pi BPI-M4
+>                - realtek,lion-skin # Realtek Lion Skin EVB
+>            - const: realtek,rtd1395
+> =20
+> -      # RTD1619 SoC based boards
+> -      - items:
+> +      - description: RTD1501s SoC based boards
+> +        items:
+> +          - enum:
+> +              - realtek,phantom # Realtek Phantom EVB (8GB)
+> +          - const: realtek,rtd1501s
+> +
+> +      - description: RTD1619 SoC based boards
+> +        items:
+>            - enum:
+>                - realtek,mjolnir # Realtek Mjolnir EVB
+>            - const: realtek,rtd1619
+> =20
+> +      - description: RTD1861b SoC based boards
+> +        items:
+> +          - enum:
+> +              - realtek,krypton # Realtek Krypton EVB (8GB)
+> +          - const: realtek,rtd1861b
+> +
+> +      - description: RTD1920s SoC based boards
+> +        items:
+> +          - enum:
+> +              - realtek,smallville # Realtek Smallville EVB (4GB)
+> +          - const: realtek,rtd1920s
+> +
+>  additionalProperties: true
+> =20
+>  ...
+> --=20
+> 2.34.1
+>=20
+
+--ptaQ1TJ62zXffYwA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRYxcwAKCRB4tDGHoIJi
+0kD3AP499BiiUVsgMMA2wKPbp7/L+tqW7fMI0z0FMaEJj5vA0QEA6jt6JeIqW6fR
+GNQx1tBoteLH60oiHQw+4ElAEkAtugU=
+=GZa9
+-----END PGP SIGNATURE-----
+
+--ptaQ1TJ62zXffYwA--
 
