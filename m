@@ -4,84 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADA8CD8C9C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D0F1CD8C96
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PwY8/spu0ONdqdQvGiutjYHEIa06VccOFD73h04xJ2g=; b=NGLRYnCaKEodNE7LCy14QOFac1
-	2FuQQWlyqKuWscOUpTEbhKYUbkQdNYXruFutdIBHnhlVL1IA/5Zep1j5tAy0ZLA+PeJyDJ737vRVF
-	ptYN8RpgBMvs5h/cy1s8zE51LS5qp1P0I43ynRQIi0kl64ze/cgzL2B02uj1uLpFtyvlnJG2vfk+0
-	serncwELry+LIy5qSBinz1OVIzgWvXxCFv2NfRH99ZHzumGmRvA/L6J4HdxAkoqOvJc+PymkkWp6T
-	jQm3y70A41O/+nDQqNe9mcUfjHRzEfeXVBni77NnON7WXE7u6rvX3ea8NMvg4NttnFLgvNNAbXc1E
-	Q46JyCHw==;
+	bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=; b=47/tyzUstiWwcvagnPAS/kz6Xg
+	ypiyx5tut4dxekjD/lzUzJefPQAOzvdz0lNqiBUhiOUAp6sgJFEs5c7mRSyZImzSxotaOeVEcQXkB
+	7/l5Rz6VNW1JCefOCU0zJ4kxCuSF5tFGUmy+z7zfclLPV9OYte3WbNZvrFuyYQjLHQrAypxKg/A1S
+	DrM4Mf0mTrQy3ihwEKaZZ6k1ZylWBUGXTYnIMRmjkwC4jq4zMxa2hnD8Box+4Zz3gbNDDu2zusgvD
+	qn1Oo8r1CK3hkK0fZ+U8MvGk5zUVTwM11ZqhRcRVo9KMGZmu641O2pl1XFXGDFWB15Xi7HenWC9tG
+	SumovHKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa4M-0000000An5S-0FhV;
-	Thu, 13 Nov 2025 16:21:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vJa7K-0000000AnJF-3ur2;
+	Thu, 13 Nov 2025 16:24:14 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa4K-0000000An4j-13fB;
-	Thu, 13 Nov 2025 16:21:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763050864;
-	bh=eBWGYbEPMSvsTZJWmtZWO1t79PMxcV429zFLf0WhYQw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FXGx0vo55dQWrQLSZ6T5FwniDgYI8sm4cMlr4ZHSh0vV2u9jFCJsdEcRIbc7Tqdhr
-	 w/P4ldsvV+lsw6AGnXfWLgVu6XnFxaQ+J11rJiHgM8vE6bmEJs+AsfaIZUoYvZR8nh
-	 T5c7GcM+bDwbbNxRvnwst2Dr0au4OntLx9K99s3uAMbmEuJt67dgU8iyTogu4ch3MD
-	 xyYEPdMW+4+e4UgU7z0ppYQvxdtIv3Sx1eHwZFWIBZrSOv8GCYEIkyvJBVlS+ISK7F
-	 uip+yMNGWz97aCboHz61ru3EoKCProh9B/a0t23QVRJyGwwYGsEqVNkAbiuhI5c4Wx
-	 T2IyvBkxMAO/g==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:9cb8:f653:99e7:c419])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 97DB117E1341;
-	Thu, 13 Nov 2025 17:21:03 +0100 (CET)
-From: Laura Nao <laura.nao@collabora.com>
-To: daniel.lezcano@linaro.org
-Cc: andrew-ct.chen@mediatek.com,
-	angelogioacchino.delregno@collabora.com,
-	arnd@arndb.de,
-	bchihi@baylibre.com,
-	colin.i.king@gmail.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	frank-w@public-files.de,
-	fshao@chromium.org,
-	kernel@collabora.com,
-	krzk+dt@kernel.org,
-	lala.lin@mediatek.com,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	lukasz.luba@arm.com,
-	matthias.bgg@gmail.com,
-	nfraprado@collabora.com,
-	rafael@kernel.org,
-	robh@kernel.org,
-	rui.zhang@intel.com,
-	srini@kernel.org,
-	u.kleine-koenig@baylibre.com
-Subject: Re: [PATCH RESEND v3 4/9] thermal: mediatek: lvts: Add platform ops to support alternative conversion logic
-Date: Thu, 13 Nov 2025 17:20:53 +0100
-Message-Id: <20251113162053.281093-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <1e0545da-5d24-4ca4-863d-0d5671902d0b@linaro.org>
-References: <1e0545da-5d24-4ca4-863d-0d5671902d0b@linaro.org>
+	id 1vJa7I-0000000AnIi-0pl3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Nov 2025 16:24:13 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso1696205a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:24:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1763051047; x=1763655847; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=;
+        b=Svqg+hgNMY5fbXNVv2H4VE8eXoCN6ElnPtGJdRidubeT0uuI7U2jcbzzI07Yjjrzfo
+         jypeE6QcxgEP9hsp0qQfTKH5CuMFRMglA9kmAxOtUAD7g1iJssFOqBufH95BkXVKdNBt
+         fPxqI+Wnr/X5hx8RIduCBqOBD4+9oFsUB+hAc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763051047; x=1763655847;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=;
+        b=wrzNy1WuwkJan92metFFeFnyJxcjDnZ5p/pWpZhEoKF1JDxPtDFd/vpcoan2nEjc0k
+         Hc4u1cmIFO1xowJIEEk456rIrMBcQEzcZ2AFQXud4nPA4lgtFqIi6k3+COZNW9tT9vXW
+         EUabZWAMujJsW+X+9svllTvZVbLiufVZQSI67+ERjp5tYlh6PelA7mtm/OWWa61g21eQ
+         oHJosNngMCK7qR8NPYvSd1CLM1O+gU7wNegZeBqaWo7HGepDo3XVQvPSdthfzZOdQjRt
+         C6ml8H48RIKdt3+d9ZByKYDqb3ZN7sb/S6f8os78InBzdTpCmlmjGOtDmbt/JGcXfTGb
+         Gpsg==
+X-Forwarded-Encrypted: i=1; AJvYcCWR2dA19oSht9vaVHK618MqH3KkYSjBLSpO8t9Y51S9CjKu85m223PiuKqAN9F4Ckpt17itFTISnio7uyNYuDgF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywwn7Hl2MiJwlUk0FLcui/4gTKSFU/CWEFzFQ6PhddYKal6DF0N
+	JbY3fSuFFPsE+ATxEHoGGXfxhcmE99YdhC1Dz1hN9a7GgRWJUzk338vKLkXQ5WoJMqpg8Rj2kzS
+	4oqNb/HzB
+X-Gm-Gg: ASbGncue+/lUQpRoCOHWGkOkspni0FqLwD1+OiB0qBTYTievI1DzYVJpXKdO0VoJ9RN
+	JqOLqR3ipSQGPO+V72y8MdLBfw/16pL1FWn6Bcw93h+DOsY/K2u9hhY+OlwnpCjldE6wtdiOOjw
+	mQvgAfkzTpVDyCm751iEjBxVPuB+tq7uVneAc8hpfo0S8cwsXsG5n29E9pDKOlZnGlhMwqMO9WN
+	MT7lltSdMZyJGEoQjdj5yjXk/JzTeQoy0K+B4xRtgxq2YhuRlXeCLDygrSQfjTriAnegmfn7/Qd
+	CaWL2fapuu4lC0CDsQ9aYRFi5LcaeTg+xVJ5OthLr79IxnCDbgGyGeeFLBUwdFdT0nagaFOa3KP
+	+lp7WYPWYGFM2BhrIPLult5lXh5UI9gpiUImNZnzxaPvAOXJgjzMl6M75/ZQY24WVMKLhRm1VSW
+	Xkf04jUP3qOwWsIWDxO3DidPDvbRt9ov9eyKSOKXL1+J7AlHPOyw==
+X-Google-Smtp-Source: AGHT+IHh/cNc7DIFq1m8UJfyPiJ+Za6XkI0jGkiAs1OlbSIdo/nrT3LY9Wvl/ULja59p+DcxknIpJQ==
+X-Received: by 2002:a17:907:1c1b:b0:b37:4f78:55b2 with SMTP id a640c23a62f3a-b7331b5f2b8mr743372466b.34.1763051046437;
+        Thu, 13 Nov 2025 08:24:06 -0800 (PST)
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com. [209.85.128.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734ff2615esm190265966b.73.2025.11.13.08.24.04
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Nov 2025 08:24:05 -0800 (PST)
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-471191ac79dso11361835e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:24:04 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWTjKMniA9/drCY8G0m822wTPOmAu6d0meaMQ46gBbBnFWHAjwOoVSq5kJZgUA5BX1oxhNFSJ1ly3JSE152cnTf@lists.infradead.org
+X-Received: by 2002:a05:600c:350d:b0:46e:32a5:bd8d with SMTP id
+ 5b1f17b1804b1-4778fe553famr1167935e9.3.1763051043969; Thu, 13 Nov 2025
+ 08:24:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
+ <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org> <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
+ <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
+In-Reply-To: <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Thu, 13 Nov 2025 08:23:52 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bkn8U9vLweoLL7ChsWq65S9_NbSZw7csl7J0f4Er_fIbKu-AjDA18N3giM
+Message-ID: <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_082108_511295_B190776B 
-X-CRM114-Status: GOOD (  22.78  )
+X-CRM114-CacheID: sfid-20251113_082412_324311_C188D8F5 
+X-CRM114-Status: GOOD (  57.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,112 +115,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi,
 
-On 11/10/25 14:06, Daniel Lezcano wrote:
-> On 10/16/25 16:21, Laura Nao wrote:
->> Introduce lvts_platform_ops struct to support SoC-specific versions of
->> lvts_raw_to_temp() and lvts_temp_to_raw() conversion functions.
->>
->> This is in preparation for supporting SoCs like MT8196/MT6991, which
->> require a different lvts_temp_to_raw() implementation.
->>
->> Reviewed-by: Fei Shao <fshao@chromium.org>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>   drivers/thermal/mediatek/lvts_thermal.c | 27 ++++++++++++++++++++++---
->>   1 file changed, 24 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
->> index 4ef549386add..df1c0f059ad0 100644
->> --- a/drivers/thermal/mediatek/lvts_thermal.c
->> +++ b/drivers/thermal/mediatek/lvts_thermal.c
->> @@ -125,8 +125,14 @@ struct lvts_ctrl_data {
->>               continue; \
->>           else
->>   +struct lvts_platform_ops {
->> +    int (*lvts_raw_to_temp)(u32 raw_temp, int temp_factor);
->> +    u32 (*lvts_temp_to_raw)(int temperature, int temp_factor);
->> +};
->> +
->>   struct lvts_data {
->>       const struct lvts_ctrl_data *lvts_ctrl;
->> +    const struct lvts_platform_ops *ops;
->>       const u32 *conn_cmd;
->>       const u32 *init_cmd;
->>       int num_cal_offsets;
->> @@ -300,6 +306,7 @@ static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
->>       struct lvts_ctrl *lvts_ctrl = container_of(lvts_sensor, struct lvts_ctrl,
->>                              sensors[lvts_sensor->id]);
->>       const struct lvts_data *lvts_data = lvts_ctrl->lvts_data;
->> +    const struct lvts_platform_ops *ops = lvts_data->ops;
->>       void __iomem *msr = lvts_sensor->msr;
->>       u32 value;
->>       int rc;
->> @@ -332,7 +339,7 @@ static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
->>       if (rc)
->>           return -EAGAIN;
->>   -    *temp = lvts_raw_to_temp(value & 0xFFFF, lvts_data->temp_factor);
->> +    *temp = ops->lvts_raw_to_temp(value & 0xFFFF, lvts_data->temp_factor); 
+On Wed, Nov 12, 2025 at 11:23=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 >
-> Don't do this in each functions. It does not help for the readability.
+> >>> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
+> >>> +      - description: Tensor G5 SoC (laguna)
+> >>> +        items:
+> >>> +          - enum:
+> >>> +              - google,soc-id-0005-rev-00  # A0
+> >>> +              - google,soc-id-0005-rev-10  # B0
+> >>
+> >> SoCs cannot be final compatibles.
+> >
+> > Right. I talked about this at length "after the cut" in my patch. See
+> > above. I wish to relitigate this policy and wish to know more details
+> > about where it is documented, the reasons for decision, and where the
+> > boundary exactly lies between something that's allowed to be a final
+> > compatible and something that's not. I made several arguments above
+> > for why I think the SoC should be allowed as a final compatible, so it
 >
-> May be something like:
->
-> int lvts_raw_to_temp(u32 raw_temp, const struct lvts_ctrl_data)
-> {
->     return data->ops->lvts_temp_to_raw(raw_temp, data->temp_factor);
-> }
->
-> or
->
-> int lvts_raw_to_temp(u32 raw_temp, const struct lvts_ctrl_data)
-> {
->     int temperature;
->
->     if (data->ops->lvts_temp_to_raw)
->         return data->ops->lvts_temp_to_raw(raw_temp, data->temp_factor);
->
->     temperature = ((s64)(raw_temp & 0xFFFF) * temp_factor) >> 14;
->         temperature += golden_temp_offset;
->
->         return temperature;
-> }
->
-> ... and get rid of all the lvts_platform_ops_v1
->
-> (btw _v1 is confusing, it suggests there multiple versions of the same SoC)
->
+> Because this represents a actual device users run. It is electronically,
+> physically impossible to run the SoC alone.
 
-Right, the first option looks more efficient. Since temp_offset is 
-already part of lvts_data, the function would look like:
+I'm not convinced that this definition is as clear as you're making it
+out to be. It's physically impossible to run many "boards" alone.
 
-int lvts_raw_to_temp(u32 raw_temp, const struct lvts_data *lvts_data)
-{
-	return lvts_data->ops->lvts_raw_to_temp(raw_temp, lvts_data->temp_factor);
-}
+Want to boot up a Raspberry Pi? Provide it with power. Hook up a
+display to it. Hook up a keyboard to it. Plug in an Ethernet cable.
+Plug an SD card in it. Without those things it doesn't run.
 
-and the same pattern applies for temp_to_raw().
+Want to boot up a lga-B0 SoC? Hook up power to the power pins. Connect
+a MIPI panel to the MIPI pins. Connect a UFS chip to the UFS pins.
+Without those things it doesn't run.
 
-This change will require renaming the existing 
-lvts_raw_to_temp()/lvts_temp_to_raw()/lvts_temp_to_raw_v2() 
-implementations. I agree the current _v1 and _v2 suffixes aren’t very 
-descriptive. Since lvts_temp_to_raw_v2() version is only used by MT8196,
-it could be renamed to lvts_temp_to_raw_mt8196(), with the corresponding 
-platform ops defined as lvts_platform_ops_mt8196. The base 
-lvts_raw_to_temp()/lvts_temp_to_raw() are shared across the other SoCs,
-so they could be renamed after the first supported platform (mt7988) and 
-reused for all SoCs that share the same logic.
+Yes, the complexity of just "hooking up" the components on an SoC is
+an order of magnitude harder than a Raspberry Pi, but it's still just
+hooking it up to external components. In both cases, we are modeling
+the core "brains" (the part that contains the processor) as the DTB
+and everything else just "hooks up" to interfaces.
 
-I'll send out a v4 with the proposed changes.
+If I had to make a definition for what the base DTB should be it
+should be the component with the boot CPU. _Why_ is that the wrong
+definition?
 
-Thanks,
 
-Laura
+> There are few - one or two - exceptions for the SoMs, but never for SoC.
 
-> [ ... ]
+OK, but the big question: _WHY???_
+
+Where does it say that a DTB has to be something that can run "alone"
+and (most importantly) what benefit do we get for making that
+requirement (AKA _WHY_)? This is the question you're not answering.
+From Rob's response, he doesn't seem to think that a DTB needs to be
+for something that can boot alone and he seems OK with allowing a
+fairly flexible split here. Rob's response was focused on making sure
+we can do validation and I'd love to continue on with that discussion.
+
+
+> > would be great if you could respond to them and tell me where I got it
+> > wrong.
+> >
+> >
+> >> Your commit msg does not explain what
+> >> is 'soc-id' or 'soc_id' in this context.
+> >
+> > In the commit message I do say: "SoC: an A0 pre-production variant (ID
+> > 0x000500) and a B0 variant (ID 0x000510) used in production. The ID is
+> > canonicaly broken up into a 16-bit SoC product ID, a 4-bit major rev,
+> > and a 4-bit minor rev."
 >
+> >
+> > ...then, I further say "In this patch, put the SoC IDs straight into
+>
+> That's fine.
+>
+> > the compatible. Though the bootloader doesn't look at the compatible
+> > at the moment, this should be easy to teach the bootloader about."
+>
+> But nothing explains why this SoC can be run alone without board.
+> >
+> > The idea here is for the bootloader, which can read the ID of the
+> > current SoC, to be able to pick the right device tree from among
+> > multiple. I am certainly not married to putting the SoC ID in the
+>
+> I am not discussing about style of the compatible. I said - you cannot
+> have SoC compatible alone. None of above gives any argument for that.
+>
+> > compatible like this. As I mentioned above, in downstream device trees
+> > the SoC is stored in a custom node and I thought upstream would hate
+> > that. I also considered giving the `soc@0` node a custom compatible
+> > string and adding properties about the SoC ID underneath that and
+> > teaching the bootloader how to find this, and I can switch to this if
+> > you prefer.
+> >
+> > If you have an alternate technique for which the bootloader could pick
+> > a device tree based on the current SoC ID or you have specific wording
+> > that you think I should add to the commit message to explain my
+> > current scheme, I'm happy to adjust things.
+> >
+> >
+> >>> +          - const: google,lga
+> >>> +      - description: Google Pixel 10 Board (Frankel)
+> >>> +        items:
+> >>> +          - enum:
+> >>> +              - google,pixel-id-070302-rev-000000  # Proto 0
+> >>> +              - google,pixel-id-070302-rev-010000  # Proto 1
+> >>> +              - google,pixel-id-070302-rev-010100  # Proto 1.1
+> >>> +              - google,pixel-id-070303-rev-010000  # EVT 1
+> >>> +              - google,pixel-id-070303-rev-010100  # EVT 1.1
+> >>> +              - google,pixel-id-070303-rev-010101  # EVT 1.1 Wingboa=
+rd
+> >>> +              - google,pixel-id-070304-rev-010000  # DVT 1
+> >>> +              - google,pixel-id-070305-rev-010000  # PVT 1
+> >>> +              - google,pixel-id-070306-rev-010000  # MP 1
+> >>> +          - const: google,lga-frankel
+> >>> +          - const: google,lga
+> >>
+> >> So what is the lga?
+> >
+> > "google,lga" is the name of the processor. I was under the impression
+> > that the last entry in the top-level compatible string was supposed to
+> > be the SoC compatible string. Certainly this was true in every board
+>
+> google,soc-id-0005-rev-00 is the soc compatible string.
+>
+> > I've worked with and I seem to even recall it being requested by DT
+> > folks. It also seems to match what I see in examples in the kernel
+> > docs [1].
+>
+> Sorry but no. Writing bindings do not request having two compatibles for
+> the same soc in two different, independent (orthogonal) lists.
+>
+> So it is rev-xyz + google,lga-frankel + soc-id + lga, if you need that
+> soc-id part.
 
+Probably not worth continuing to discuss until we can agree that the
+SoC can be in its own dtb. If we can agree upon that we can talk about
+if we need the SoC part in the top-level compatible and how to
+accomplish that. I had a few ideas / suggestions in my response to Rob
+that roughly break down into:
+
+* Don't model the SoC in the top-level compatible. Maybe put it in the
+soc@0 node.
+
+* Come up with a rule for "merging" top-level compatibles if a base
+and overlay both define.
+
+Whatever solution we come up with, I want to make sure it handles our
+socketed dev boards where the SoC can be removed and replaced with a
+different one.
+
+
+> >>> +allOf:
+> >>>    # Bootloader requires empty ect node to be present
+> >>> -  ect:
+> >>> -    type: object
+> >>> -    additionalProperties: false
+> >>
+> >> Please keep it here
+> >
+> > "it" being "additionalProperties", I think? I'm not sure I understand,
+> > but let's discuss below in the context of full examples and not diffs.
+>
+> I meant ect node, existing hunk. Properties must be defined in top-level.
+
+OK, much clearer. Thanks!
+
+
+> > The best my brain can parse your request, I think you're asking for thi=
+s:
+> >
+> > --
+> >
+> > properties:
+> >   ...
+> >   ...
+> >   ect:
+> >     type: object
+> >     additionalProperties: false
+> >
+> > allOf:
+> >   # Bootloader requires empty ect node to be present
+> >   - if:
+> >       properties:
+> >         compatible:
+> >           not:
+> >             contains:
+> >               const: google,gs101
+> >     then:
+> >       properties:
+> >         ect: false
+> >     else:
+> >       required:
+> >       - ect
+>
+> Yes, actually now I see you could drop the "not:" and exchange the
+> "then:else:" branches.
+
+For the sake of clarity, I'll go with this:
+
+properties:
+  ...
+  ...
+  ect:
+    type: object
+    additionalProperties: false
+
+allOf:
+  # Bootloader requires empty ect node to be present
+  - if:
+      properties:
+        compatible:
+          contains:
+            const: google,gs101
+    then:
+      required:
+      - ect
+
+additionalProperties: true
 
