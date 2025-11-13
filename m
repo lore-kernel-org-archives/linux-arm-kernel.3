@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC74CCFA18
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF531CD4F28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9JsRaS9ANua2/x9DO+pOgLBjhs5V4OwBAa5L+RuN4Os=; b=zns75OEI0Is17RgmZuYd0kTAe6
-	EXx+8vxUmnZG26hf6NySPwRIgKih46fWwFx272WMVMuyJp8+9FmB6NEVB1zlmIpy14cIaxmYJGWom
-	gfmYsu8oUAHQrLo66WCupt9MYndAwYou9NGL2HvLRT+/hw+HCwg8bTFITAYwDjAPDAouzjfxghAYj
-	aAMDIcAHZi9MnZlhPQyiZQguxPmTm+KVl8Wnj4CB5iOBM7ZrM4vD9Yc6U6EdDfTKGcm4qMCK8cUay
-	uns5DO2iOu8x1f6AjBM+4ysH86pi16oUkCbnLNSyxzVj+Ut37nSIuaE4o4VwuZuXk0USpgIEJljCW
-	Yzt/I02g==;
+	bh=+O51X/BMpBBEdJ0NRkQN+4zXcaMm2aqmHp+UN1OTgUE=; b=SM2I8NPhSKYFpTRlyArOdwJsjA
+	UmfooQ75fn7xf8uIGx8697NbaIDFTRA/+rNcGrR47jb/klke1LPtV/jVWosgYCVnQ0nzb+Ngz5fk5
+	yP8ILllaFMYu3xnUaYxy4iqxE+LjkaNJKif4xGljnUPPQTL76LjMIXPW5hHePaapsHo2jEW/XiWSX
+	yoYg5jXGcs50dvHAt17al9kQ74GrFefXE6UikwnrhWN9F6zZyBOfRHR/s0jaFWoQuU+oJNu4GSD3X
+	97j5i5NSzCVMU+oXMLTLClQYU+JhDKoP5sbX6olLU4YVQcWed2r3QCSPElh3rm6uD/c/fBGLrAx1D
+	hg0HBqxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJQaY-00000009wkO-0t4h;
-	Thu, 13 Nov 2025 06:13:46 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vJQi2-00000009x1O-0Vr5;
+	Thu, 13 Nov 2025 06:21:30 +0000
+Received: from mail-southcentralusazon11011061.outbound.protection.outlook.com ([40.93.194.61] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJQaV-00000009wjp-266F
+	id 1vJQhz-00000009x10-3CcS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 06:13:44 +0000
+	Thu, 13 Nov 2025 06:21:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VVhvtK1iGF2f3ijmJkWL2Nz2jSp4BXXnoWYLcp4MlNaTTf9AJuFwkegJKEBV1vdJY41ZjW45/wHynGpcGDvk5y/UM2YQQfBsN3JpCFKXH15UctLzKPsDCG/wkId/3dYtCRvbAciE00St1599IhSNrIk6oygVdXNOG9fqOaL2b4Ol2iNv+0EwsYylHhtdyb0OWx12SPrSqhTrVO9WSNyDrGzkFWjl66eS0v2AAef80fHEITxlW7z6JR9ZFWxkik6D/J/unJMPrd28qODDyeW/QEoRaaglr44bmJqmhk3C72TyAlKMBnwXhmTmFjejsr0Y4pyIWnLvA1XUn31ArZKsQg==
+ b=qpaeJep0n963dEUareXgWy8xiOeBymmBwDQoyXT3fje584RxrCgDap9+nnwu34ObPX5BJStQUpKwcihqJ0nGoZhHeyggg3ZwChVKD4rMGGKCw61NrdAuMeQe/iL3vZWpaVeu56ydOBd0AEka9ISDFaadkABvDKp953v+kJVXXQNehMI6+ysHFBFsEon7jdX8/wSYlnOP6NEiyxbI8hAUlibcYQEEO9Pat72xfekcv8n096RwAY6qc2f/eROAEu08MYG+JOEEWEhoO8JgkGtMCpPcOQVSUwxyBKsw6yNXRDoswp2c1fiZGpjl8QpKKRctiKW3ZpaPXjhAv04smBRqRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9JsRaS9ANua2/x9DO+pOgLBjhs5V4OwBAa5L+RuN4Os=;
- b=eXAPXJt27wqeBLGWlqmj6cagqjWjeN8C0pPJB0uWD3U1KqMPIulteO1vnOxI9+b4qdM8np0Cf6Fi2/6l6B3+f3LJKVEDCVkGb+HY6wnIGJ+jPgNRPYOqmVhm4ZIL6JV5jzPy7ygHpuA4TDYPGsAtkBBiCEdJENEfZqwT+yCliJ4KKZ/XZyOf7mW4xshP3cYDGeM60reqET/UaVeALGiCNX2gkcoJBewzAkexDrS5atLuzrfbSsV/OsVLIuXE3T2b8SYfa71Iy7r8tsoxbFjWc5aXJ3JVlJEB8bze6xM1U/JpCTcKcQodXsaJMniDLxs2ncrijQ/vHekw3/T7Jqc6sQ==
+ bh=+O51X/BMpBBEdJ0NRkQN+4zXcaMm2aqmHp+UN1OTgUE=;
+ b=kdyVRdb3ILKmZVS6f4Fvovjtp9vidZ24WFcRcKDJqig9foFdTcYJEnVZi8bAuFOrnj7D7LJnEFylthKXjzY0F+QdlDMaudHeki7bHrQLDT8U8K4jTqYqz5lOivwwewMLTe2jpJkiw+lk/6rWilnvw+QEy/a1H0Oks9Dr33diJZBgGnbMyheFh2H3VtCG7Yv1Z971dkCD5qolfKXfoAeHhwz6hU1ykEj4XGQFawgSG35vVoLqdkIJYntUH91wZj7xrn+lS2toXweCM8Cv40gVdMpZDqWNFwqJ1i9BUZt1bmJTv/u0diq6DiqZ8eoVyIODDfwQrPhZ2J12/NlPfdCVRQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9JsRaS9ANua2/x9DO+pOgLBjhs5V4OwBAa5L+RuN4Os=;
- b=AchGzgI/imnvgZX07qWBCDdygq0nQu/qLWPxyZsgtVG7mh87SaJqOp2I0Nzr99WcLGjPXFN5uttJloGbeFVAsb2GicUhPeSPYsWj6x2NDNXqfDpQy5toMSO7GlwZ4KBU1TE8ga0TakqBYWcU8HGH1OUwgkF0OUz2XlH9w+XNMLU=
-Received: from SN7PR18CA0022.namprd18.prod.outlook.com (2603:10b6:806:f3::21)
- by CY8PR10MB6586.namprd10.prod.outlook.com (2603:10b6:930:59::5) with
+ bh=+O51X/BMpBBEdJ0NRkQN+4zXcaMm2aqmHp+UN1OTgUE=;
+ b=M/SODdCzr2R61D6SpXEgpLzzYcuE2w8Qfq8DL4QaVb/z4L8xXZyZstjDLkX5XRD22+W0372bnKXX2C5gkbkZn/UUMZ0IeEHo+E+h7YsVxCVLiFUzOi2HKM3Vv063+B8Ch12Gk+lqVl3Ufiqtb6Cpt2XdKOIiUhe1wUW+56Xeoa0=
+Received: from CH0P221CA0035.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::22)
+ by BY5PR10MB4321.namprd10.prod.outlook.com (2603:10b6:a03:202::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Thu, 13 Nov
- 2025 06:13:39 +0000
-Received: from SA2PEPF00001507.namprd04.prod.outlook.com
- (2603:10b6:806:f3:cafe::fd) by SN7PR18CA0022.outlook.office365.com
- (2603:10b6:806:f3::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Thu,
- 13 Nov 2025 06:13:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
+ 2025 06:21:23 +0000
+Received: from CH1PEPF0000AD7D.namprd04.prod.outlook.com
+ (2603:10b6:610:11d:cafe::cd) by CH0P221CA0035.outlook.office365.com
+ (2603:10b6:610:11d::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Thu,
+ 13 Nov 2025 06:21:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SA2PEPF00001507.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH1PEPF0000AD7D.mail.protection.outlook.com (10.167.244.86) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 06:13:38 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 06:21:21 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
- 2025 00:13:36 -0600
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 00:21:16 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
- 2025 00:13:36 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 00:21:15 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 13 Nov 2025 00:13:36 -0600
+ Transport; Thu, 13 Nov 2025 00:21:15 -0600
 Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AD6DZa73985030;
-	Thu, 13 Nov 2025 00:13:35 -0600
-Date: Thu, 13 Nov 2025 11:43:34 +0530
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AD6LE6j3956165;
+	Thu, 13 Nov 2025 00:21:15 -0600
+Date: Thu, 13 Nov 2025 11:51:14 +0530
 From: Dhruva Gole <d-gole@ti.com>
 To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
 CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
@@ -85,64 +85,63 @@ CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
  Hilman" <khilman@baylibre.com>, Sebin Francis <sebin.francis@ti.com>,
 	"Kendall Willis" <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v10 1/3] firmware: ti_sci: Support transfers without
- response
-Message-ID: <20251113061334.wqluum2u4joye64z@lcpd911>
+Subject: Re: [PATCH v10 2/3] firmware: ti_sci: Partial-IO support
+Message-ID: <20251113062114.m5zgjgeg4xnvkany@lcpd911>
 References: <20251103-topic-am62-partialio-v6-12-b4-v10-0-0557e858d747@baylibre.com>
- <20251103-topic-am62-partialio-v6-12-b4-v10-1-0557e858d747@baylibre.com>
+ <20251103-topic-am62-partialio-v6-12-b4-v10-2-0557e858d747@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251103-topic-am62-partialio-v6-12-b4-v10-1-0557e858d747@baylibre.com>
+In-Reply-To: <20251103-topic-am62-partialio-v6-12-b4-v10-2-0557e858d747@baylibre.com>
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001507:EE_|CY8PR10MB6586:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c273e8a-ccc3-4fce-29d0-08de227bc961
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7D:EE_|BY5PR10MB4321:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0141569c-bc72-4a58-f83d-08de227cdcf3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bg8GX78gJA9RcL45D0+BYfdO79K5m6/cSatLBd0qT+7USzXIZC4UHKqQj1hb?=
- =?us-ascii?Q?VrpQbrwTsjwY2EFZxcKArQKycS9Q2eJhGzDJLy9hrR7ZIVtTxJ9uJX+LAArQ?=
- =?us-ascii?Q?Vmw3tO3RvLKod2r1OaCxAQNN/1dYnZDo8Lt5lesXNb+LKu5kmHIs9MJBicAa?=
- =?us-ascii?Q?RVsRjNnnV8OgQ5z4uvIWG8Pfijvj9AxnjVULO3757Tu9/GFlCZYYkR81+KnS?=
- =?us-ascii?Q?Cg35OMxUT7Sd4pmRNVuokkH3kg0+5yqgQMTbh8tQwACKmUL6H3/ZZ/StZ1QE?=
- =?us-ascii?Q?f8YTIFriOLBRrk+Trhk7dIUvdTChXnTdXcyb3G5TjJELqFp0ttUmY1nAwAYT?=
- =?us-ascii?Q?bYUMU8/whjyXBhqu4E70nYcryAbiz5oXiAxklIqmu00uSwY4FnxnAmW5G6g7?=
- =?us-ascii?Q?VpJix0jgaHyJc9VR7+ZeJYOuu6Rd+b9zCS+xACBwmtz3h8BzuFx3gZ83U7TH?=
- =?us-ascii?Q?sj5Zmk/QBJlhFXT/lkNp1+AgGml4Eg/4QRHZ6x5rcyWTYDF+NvyosErobZzI?=
- =?us-ascii?Q?Q5+Yj2S3R0HjnN4z5J/y3TKjWperAiKG7T/uFPTL83bFImncSG0I7qfaQvDa?=
- =?us-ascii?Q?tjN2FZ62PVQtAxyr4Z1P1f5XLw+BJiDJ3+jJ/MUo1FuUTo5tdV8GOULUWsDR?=
- =?us-ascii?Q?1P7YxEdlr23JYrSOf2yWzWK9RgFFHkLxuP/mrqH3IfdCZbZM7yiOxs0zTlLo?=
- =?us-ascii?Q?8j4EJO3/4vVM4AVon8SA2+Bsv6RjVjpuXp6GeeDLJXiYNUBA6/y3lVaMQygm?=
- =?us-ascii?Q?zSHgm3SkohYIIm0rsH10IIWqOeboD12Ue/dKw71di7PUWB4nZeHedDiRyasc?=
- =?us-ascii?Q?Q1npAscGXCcsXsgXSX9SJ+0FwqdHRBoitlp+1IiHyNoVyu1OH/OG/oj1PEAT?=
- =?us-ascii?Q?dm0SR8715cP99/yBWcRowFbY1NmaMIkqPNbJE4A/5BuJdVmUTM6CEgDquKPD?=
- =?us-ascii?Q?LxQ+SlZ79TxMrKM064uFmSPkcaFF2WDa1ULgQghI9g61yDmRay4dXZYjJaR9?=
- =?us-ascii?Q?dQ70xVGUi9OZKE+oNrpwikoADjcu3aC9aW7BnS/HyLljFFJu7GlG69inEM4r?=
- =?us-ascii?Q?VnefLYFp5kuCr0D4FIDDgIbFrriuTNgrVhbd51n6jIl5lfJissHyMP10n9bv?=
- =?us-ascii?Q?DkWgtQraWSZ0j7tZNZHReisJNfW9s9v4AKSDdbRVrDYqt1Bk4LH39nTNHueb?=
- =?us-ascii?Q?5ZjUb2vqx0glTw6CRUt9BLXoMAEsSlp48sqQZopXSsUsmCRUb+82IjgXDgUX?=
- =?us-ascii?Q?wLtwaYlsmU5VW22FazG1rh7oASpuOdYFuCD8bfSY37ij5Ie0HCRNbTzZL+y9?=
- =?us-ascii?Q?3+fvzC/zgG2oLOm1uvNV+k814jQAkDD4Q7afCQ2Q3JlS46hYtPQyptplAEza?=
- =?us-ascii?Q?M1yJuqZCMT5f8S6bvKVwlPthTpiLjppoxHC1qlILS50NKPCEjCrZlEbcQBF6?=
- =?us-ascii?Q?0ucQhU8TPULScezvmemYk1sajfyN09yISbbpIp1pdFym3En0PNbUcTq6q479?=
- =?us-ascii?Q?3Q2JKW4TqjzPq8WaQtSey8V0syZnWJjfjOG6GcUdYzblr3tAwW4diZbkEo+3?=
- =?us-ascii?Q?Zzh1xavfaElG4WfcYYM=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?n+Qs+oen0c8187b9+WzRC5ETu503bPTvctyi+n1gTYIQqi3R2PMHJsernBxX?=
+ =?us-ascii?Q?80o3U4zfmxUH3VVjrtqZZlivzyJciF5U05MEdXC5825HETJkLpCl5NuKk/PY?=
+ =?us-ascii?Q?clPPYKbzR6pnALjLKXSuOGjTJsZafdNTQGqQHaVSGIeZ40NNRs438JrBPu8z?=
+ =?us-ascii?Q?n9DFyeuVHUK2d6WQKQ9PzwKvgF2L9nlZeDH8hB+aPd+QPy5s4FgChBDUFD3e?=
+ =?us-ascii?Q?ZZmXHhgCwFxRFFF719vxYJ7rVjYa8+qp8JVQRt2/SeX8HrrgxA7i8eeVcIXk?=
+ =?us-ascii?Q?mXngJtWDK88xL4CfPmpO8F03aipYZ1wx+RZQVmYzzOyPWR4yIWkhF8OeeU9W?=
+ =?us-ascii?Q?uqGHEcjQe6rw4vyGq6BtS7vxnTcs7kxUbNtNAKgmeTmLl9Orz0CBN7t23Yb7?=
+ =?us-ascii?Q?lFOeKYg8lvukYqWFrCl4fwyAC/0DkDv8y9yJXmihVVmzd4lPbNRR1YNQYyVW?=
+ =?us-ascii?Q?45oI/i/TIN3+fsikRKIcLFQJx663mdxXBGoWyLFAGpzH7DgpgQfrnUPtpMap?=
+ =?us-ascii?Q?oOrPOA/7NZxXJgKdL+ABBDQTUg/xx3yHBLNnYdH4EN3l5X1jjNUHoh6vtjnL?=
+ =?us-ascii?Q?iSMoelg34/v+BKHYtWloXR6+gsCTZ15oKMLIOt/+UDw7P8GMrJshPy1bDmbQ?=
+ =?us-ascii?Q?/H5MCsyaYA+0HIGaskgtbdAKIPJpm3PEUzPy0ox+6/KnFZ0n0ywmhqr0DLzU?=
+ =?us-ascii?Q?ElU4bHqciXdiudGQ+MG8yyINdpqeTxsVch8VSh+ZkRA+OEJPJ0aytWt9oh8b?=
+ =?us-ascii?Q?hkJiabULmDE+X3+Yvaf8tnq68Jm+B9DBUXvUfYMaLlRMQm6jnNJAR/oyZeWi?=
+ =?us-ascii?Q?msG0jJXnk09ysGD0SSEHpktUnM4zOL3AmLhFiCpBGel6PeZ9edKawcRgBghQ?=
+ =?us-ascii?Q?RdE6M1ckwbXAQ4jk/khKJSAEnWoy4p23ZZveXrgfgy9YgP+0m84QDlhupJ3G?=
+ =?us-ascii?Q?+s7KpWr7lKEb3USnHqzMD5o8kBPukQhlnTt0yHpv0RqpXYP4SJ3uzpm0IQL1?=
+ =?us-ascii?Q?KSTCHCLY+wHAvC3/gb6Z3xcqhUUItEVnj/C0B39uePjyTUaIBp5UN3knXSqX?=
+ =?us-ascii?Q?6Wb5ngzedkscDUdYIxHp0Czf6sx8lzNJTz4H20qISRdGpN/9JOB6vzjj0ji3?=
+ =?us-ascii?Q?DERv0rVqepAlAxt7lHDOiK43xC70fqOqup9FFuDE6JbbrBPitIT96po9dzZs?=
+ =?us-ascii?Q?eUMiDeVmtvS8Il+oM6OHpfqtRh0MHkr3jLDNWl2g5CsNz6zdO3KwSS/o2W9m?=
+ =?us-ascii?Q?z1khrDOHmPmkEGUPzmmNhP0Q9Z3IobpF2vCAVvMLZVgHkW23Ke03eHynJj8G?=
+ =?us-ascii?Q?IEx915RDuJJQNWD4w9syKzEEiz9IKu4+pUVaWhB9X4RPCxQjJHZEtXwoVv+q?=
+ =?us-ascii?Q?7JDBB/ULOwrDhhnvZpYm9rpnoIigNH90TKgaK76ZoZGveawylaIGdZtYJJdj?=
+ =?us-ascii?Q?54NW+hXosJEzjhRWeKRx2tx5oiVnFF/CemjGTJpEiKc61Wnlt6W1Gc39FWQJ?=
+ =?us-ascii?Q?kfgzuvxxK7SrCe9Gf+03zSS/WJ1s+niwNZnDiwEEiSNFHiiWF+w1HHGYfNEj?=
+ =?us-ascii?Q?OKy0E8CMr7Js1bP7JFo=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1101;
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 06:13:38.7339
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 06:21:21.1013
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c273e8a-ccc3-4fce-29d0-08de227bc961
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0141569c-bc72-4a58-f83d-08de227cdcf3
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001507.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7D.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6586
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4321
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_221343_563450_D248FA6B 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20251112_222127_861324_6ADD3219 
+X-CRM114-Status: GOOD (  39.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,48 +156,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Nov 03, 2025 at 13:42:19 +0100, Markus Schneider-Pargmann (TI.com) wrote:
-> Check the header flags if an response is expected or not. If it is not
-> expected skip the receive part of ti_sci_do_xfer(). This prepares the
-> driver for one-way messages as prepare_sleep for Partial-IO.
+On Nov 03, 2025 at 13:42:20 +0100, Markus Schneider-Pargmann (TI.com) wrote:
+> Add support for Partial-IO poweroff. In Partial-IO pins of a few
+> hardware units can generate system wakeups while DDR memory is not
+> powered resulting in a fresh boot of the system. These hardware units in
+> the SoC are always powered so that some logic can detect pin activity.
 > 
-> Reviewed-by: Kendall Willis <k-willis@ti.com>
+> If the system supports Partial-IO as described in the fw capabilities, a
+> sys_off handler is added. This sys_off handler decides if the poweroff
+> is executed by entering normal poweroff or Partial-IO instead. The
+> decision is made by checking if wakeup is enabled on all devices that
+> may wake up the SoC from Partial-IO.
+> 
+> The possible wakeup devices are found by checking which devices
+> reference a "Partial-IO" system state in the list of wakeup-source
+> system states. Only devices that are actually enabled by the user will
+> be considered as an active wakeup source. If none of the wakeup sources
+> is enabled the system will do a normal poweroff. If at least one wakeup
+> source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
+> message from the sys_off handler. Sending this message will result in an
+> immediate shutdown of the system. No execution is expected after this
+> point. The code will wait for 5s and do an emergency_restart afterwards
+> if Partial-IO wasn't entered at that point.
+> 
+> A short documentation about Partial-IO can be found in section 6.2.4.5
+> of the TRM at
+>   https://www.ti.com/lit/pdf/spruiv7
+> 
 > Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
 > ---
->  drivers/firmware/ti_sci.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> index 49fd2ae01055d0f425062147422471f0fd49e4bd..2585cb82d1ad8e3d79bca458a2b86cc81a3e627b 100644
-> --- a/drivers/firmware/ti_sci.c
-> +++ b/drivers/firmware/ti_sci.c
-> @@ -398,6 +398,9 @@ static void ti_sci_put_one_xfer(struct ti_sci_xfers_info *minfo,
->  static inline int ti_sci_do_xfer(struct ti_sci_info *info,
->  				 struct ti_sci_xfer *xfer)
->  {
-> +	struct ti_sci_msg_hdr *hdr = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
-> +	bool response_expected = !!(hdr->flags & (TI_SCI_FLAG_REQ_ACK_ON_PROCESSED |
-> +						  TI_SCI_FLAG_REQ_ACK_ON_RECEIVED));
->  	int ret;
->  	int timeout;
->  	struct device *dev = info->dev;
-> @@ -409,12 +412,12 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
->  
->  	ret = 0;
->  
-> -	if (system_state <= SYSTEM_RUNNING) {
-> +	if (response_expected && system_state <= SYSTEM_RUNNING) {
->  		/* And we wait for the response. */
->  		timeout = msecs_to_jiffies(info->desc->max_rx_timeout_ms);
->  		if (!wait_for_completion_timeout(&xfer->done, timeout))
->  			ret = -ETIMEDOUT;
-> -	} else {
-> +	} else if (response_expected) {
-
-Makes sense to me for one sided communication messages like partial IO
-which is essentially a power off.
 
 Reviewed-by: Dhruva Gole <d-gole@ti.com>
+
+
+>  drivers/firmware/ti_sci.c | 109 +++++++++++++++++++++++++++++++++++++++++++---
+>  drivers/firmware/ti_sci.h |   5 +++
+>  2 files changed, 107 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index 2585cb82d1ad8e3d79bca458a2b86cc81a3e627b..811507ded63ac784ad6c6ad77b2f827768f3f3c7 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -1673,6 +1673,9 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+>  static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+>  				    u32 ctx_lo, u32 ctx_hi, u32 debug_flags)
+>  {
+> +	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
+> +			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
+> +			TI_SCI_FLAG_REQ_ACK_ON_PROCESSED;
+>  	struct ti_sci_info *info;
+>  	struct ti_sci_msg_req_prepare_sleep *req;
+>  	struct ti_sci_msg_hdr *resp;
+> @@ -1689,7 +1692,7 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+>  	dev = info->dev;
+>  
+>  	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
+> -				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+> +				   msg_flags,
+>  				   sizeof(*req), sizeof(*resp));
+>  	if (IS_ERR(xfer)) {
+>  		ret = PTR_ERR(xfer);
+> @@ -1709,11 +1712,12 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+>  		goto fail;
+>  	}
+>  
+> -	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+> -
+> -	if (!ti_sci_is_response_ack(resp)) {
+> -		dev_err(dev, "Failed to prepare sleep\n");
+> -		ret = -ENODEV;
+> +	if (msg_flags == TI_SCI_FLAG_REQ_ACK_ON_PROCESSED) {
+> +		resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+> +		if (!ti_sci_is_response_ack(resp)) {
+> +			dev_err(dev, "Failed to prepare sleep\n");
+> +			ret = -ENODEV;
+> +		}
+>  	}
+>  
+>  fail:
+> @@ -3667,6 +3671,78 @@ devm_ti_sci_get_resource(const struct ti_sci_handle *handle, struct device *dev,
+>  }
+>  EXPORT_SYMBOL_GPL(devm_ti_sci_get_resource);
+>  
+> +/*
+> + * Iterate all device nodes that have a wakeup-source property and check if one
+> + * of the possible phandles points to a Partial-IO system state. If it
+> + * does resolve the device node to an actual device and check if wakeup is
+> + * enabled.
+> + */
+> +static bool ti_sci_partial_io_wakeup_enabled(struct ti_sci_info *info)
+> +{
+> +	struct device_node *wakeup_node = NULL;
+> +
+> +	for_each_node_with_property(wakeup_node, "wakeup-source") {
+> +		struct of_phandle_iterator it;
+> +		int err;
+> +
+> +		of_for_each_phandle(&it, err, wakeup_node, "wakeup-source", NULL, 0) {
+> +			struct platform_device *pdev;
+> +			bool may_wakeup;
+> +
+> +			/*
+> +			 * Continue if idle-state-name is not off-wake. Return
+> +			 * value is the index of the string which should be 0 if
+> +			 * off-wake is present.
+> +			 */
+> +			if (of_property_match_string(it.node, "idle-state-name", "off-wake"))
+> +				continue;
+> +
+> +			pdev = of_find_device_by_node(wakeup_node);
+> +			if (!pdev)
+> +				continue;
+> +
+> +			may_wakeup = device_may_wakeup(&pdev->dev);
+> +			put_device(&pdev->dev);
+> +
+> +			if (may_wakeup) {
+> +				dev_dbg(info->dev, "%pOF identified as wakeup source for Partial-IO\n",
+> +					wakeup_node);
+> +				of_node_put(it.node);
+> +				of_node_put(wakeup_node);
+> +				return true;
+> +			}
+> +		}
+> +	}
+> +
+> +	return false;
+> +}
+> +
+> +static int ti_sci_sys_off_handler(struct sys_off_data *data)
+> +{
+> +	struct ti_sci_info *info = data->cb_data;
+> +	const struct ti_sci_handle *handle = &info->handle;
+> +	bool enter_partial_io = ti_sci_partial_io_wakeup_enabled(info);
+> +	int ret;
+> +
+> +	if (!enter_partial_io)
+> +		return NOTIFY_DONE;
+> +
+> +	dev_info(info->dev, "Entering Partial-IO because a powered wakeup-enabled device was found.\n");
+> +
+> +	ret = ti_sci_cmd_prepare_sleep(handle, TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO, 0, 0, 0);
+> +	if (ret) {
+> +		dev_err(info->dev,
+> +			"Failed to enter Partial-IO %pe, trying to do an emergency restart\n",
+> +			ERR_PTR(ret));
+> +		emergency_restart();
+> +	}
+> +
+> +	mdelay(5000);
+> +	emergency_restart();
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+>  static int tisci_reboot_handler(struct sys_off_data *data)
+>  {
+>  	struct ti_sci_info *info = data->cb_data;
+> @@ -3946,6 +4022,19 @@ static int ti_sci_probe(struct platform_device *pdev)
+>  		goto out;
+>  	}
+>  
+> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO) {
+> +		ret = devm_register_sys_off_handler(dev,
+> +						    SYS_OFF_MODE_POWER_OFF,
+> +						    SYS_OFF_PRIO_FIRMWARE,
+> +						    ti_sci_sys_off_handler,
+> +						    info);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to register sys_off_handler %pe\n",
+> +				ERR_PTR(ret));
+> +			goto out;
+> +		}
+> +	}
+> +
+>  	dev_info(dev, "ABI: %d.%d (firmware rev 0x%04x '%s')\n",
+>  		 info->handle.version.abi_major, info->handle.version.abi_minor,
+>  		 info->handle.version.firmware_revision,
+> @@ -3955,7 +4044,13 @@ static int ti_sci_probe(struct platform_device *pdev)
+>  	list_add_tail(&info->node, &ti_sci_list);
+>  	mutex_unlock(&ti_sci_list_mutex);
+>  
+> -	return of_platform_populate(dev->of_node, NULL, NULL, dev);
+> +	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
+> +	if (ret) {
+> +		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
+> +		goto out;
+> +	}
+> +	return 0;
+> +
+>  out:
+>  	if (!IS_ERR(info->chan_tx))
+>  		mbox_free_channel(info->chan_tx);
+> diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+> index 701c416b2e78f8ef20ce6741a88ffa6fd4853b2d..09eaea54dd5cabce72dd1652c9603e3ab446b60c 100644
+> --- a/drivers/firmware/ti_sci.h
+> +++ b/drivers/firmware/ti_sci.h
+> @@ -595,6 +595,11 @@ struct ti_sci_msg_resp_get_clock_freq {
+>  struct ti_sci_msg_req_prepare_sleep {
+>  	struct ti_sci_msg_hdr	hdr;
+>  
+> +/*
+> + * When sending prepare_sleep with MODE_PARTIAL_IO no response will be sent,
+> + * no further steps are required.
+> + */
+> +#define TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO				0x03
+>  #define TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED				0xfd
+>  	u8			mode;
+>  	u32			ctx_lo;
+> 
+> -- 
+> 2.51.0
+> 
 
 -- 
 Best regards,
