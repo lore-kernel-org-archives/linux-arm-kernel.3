@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A769CD98D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD971CD98D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 19:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0WSyQ0QSdWVQ8Eadt/WN+pwvl5dQgdBcjYC0AULsmg0=; b=IdrlYMr+J2JmnUDdfkRvq76i+d
-	W++hT3BlIYNLD1kSNGG3an8y2gml4AGCC14S/kCzLa1rzSou7/aF4DRaBSkZnao1Cs8tqFGfdNQwe
-	ewxw0zNnSX9RU/P88A0+i+hklCyBb/hT+FgE3koOgZqWOeyUoOT7nwJ7CY3In25yLIPXt8k/dGV9o
-	zIII+IC8P/Tm0vTjmzrhoTIasbKhfh6Qn6AYPhc65ufVL4d1l7PgIU8lvDIVMM9EUu3nmZNB0Iz1f
-	XTNnNw7sRt7X3kKJ2HXaATFaEcG3Jc7rSWEowIMJ0EmE9KPeB2l6+LdkkXZy5SCJFWX6A0e/q6bMn
-	A4WRsdEA==;
+	bh=sSmElYIYOFrisvQwDCGz3/P+2Vw/ZOXr/m32JCzG3ck=; b=aZJNTh2VYj4PO/g9sW1lRd+07i
+	8diFvUfz5uTitzK8qomLTUgp7pxkSmPE/NfqE88pap354QR43iv9LRkK14Eynpe9+fUypn7BN42OD
+	9vI0pUtms8SRa4FsvWPdo/12/iNmRI8OqBvUnStSKKKu01Zc4ExcTXbmyBftWueITKGVuoyJ0xDGS
+	m5iJkJ8omCFR+zRAPe2nVKs/E73afDkkp+/6+mefmatWkG/WqbUfPeBy/4JIN4Cf3gHYR9fVQ3RS/
+	5JW9mbxqW1/IdOq0omOvxNAkU35PWKKgu39YR0Gvya6psLr6yuJ1SxRU/26fPjLxaKwgxZmUNnVF2
+	PaFvCS5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdBl-0000000B1g1-1Akz;
-	Thu, 13 Nov 2025 19:41:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJdCf-0000000B1r2-3LpX;
+	Thu, 13 Nov 2025 19:41:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJdBi-0000000B1fh-1JFI;
-	Thu, 13 Nov 2025 19:40:58 +0000
+	id 1vJdCe-0000000B1qk-2YKS;
+	Thu, 13 Nov 2025 19:41:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BADBC600CB;
-	Thu, 13 Nov 2025 19:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B4CC4CEF1;
-	Thu, 13 Nov 2025 19:40:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D7E6C60123;
+	Thu, 13 Nov 2025 19:41:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD1CC4CEF1;
+	Thu, 13 Nov 2025 19:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763062857;
-	bh=TcT52yLXeNEehNW66+XeJkIqErBHCAX4NfTuEp14RQE=;
+	s=k20201202; t=1763062915;
+	bh=rd2zpPCHj2LC0VX+Ni1vP+XGAM697mBCGbgOGiSycFc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WraHeHFZ1imxSQShswAz2LQ/MaAmTBxwA8zuSEaBHV0B0zX4hy2Z1TZBvAe7DnTUf
-	 2htf6fs05O1u0dfnztGMJiCyT6/+7IZxzgpErIGcQY88VWb2iac4BJVKpKWC8KkTzE
-	 SpBgAZBXoC6zdF8h6ykoICReTFs2JSvg6RstG47OSntpEiAIvlv5gt8uZ6U9v+FF9H
-	 WrBBGE3KqH93Q3gJGVd6428I+nZwmobfdMzR4jBB0lCeyoFqRjtwb+4Nob9sa3yjev
-	 xKyb9INI+6pPgL+6J++95AET0KKtdot63ROGb/PxYBrNEpZuYawDqgO0x8h7/jSIO8
-	 Yk90xK02AneJA==
-Message-ID: <96f79b35-cabe-4c90-a404-5c10a2853cb3@kernel.org>
-Date: Thu, 13 Nov 2025 20:40:52 +0100
+	b=ESVbNSBN5U75Smbj3dlhdPq58cUYnJoFgHs7TbvPT8SisZiJDqF81eX/Kp4/7LYR/
+	 ubATuM17Fg0p/LMsk88h2One9ciuWnpeYqCD8nFvn6gfjbN8uyk+dbCNdTjskFqzj8
+	 gFfiAm1Mt5naSEI9o6gNCtLWiMIeXP0rKoNHaQbhnPpCVStGUF7NlnCKlnBA2mBzRP
+	 1BKfOXDR2IIjfSqTaK4uCE/vEqUyyPjd4YF4C4rZYLq+MjCW8O0pD9BgUYHnw0TAbD
+	 /gd89hC9xhggKM5UlfKMq6OFobhfphUi8sfX7BWgtssrSloOgvwcIVOfkB0goGvNGU
+	 1cf69nyUgUyvw==
+Message-ID: <8fafec79-febd-464a-903b-e7e8b841b6c9@kernel.org>
+Date: Thu, 13 Nov 2025 20:41:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: realtek: Add Kent SoC and EVB device
- trees
+Subject: Re: [PATCH 2/3] dt-bindings: mfd: Add Realtek ISO system controller
 To: =?UTF-8?B?RWxlYW5vciBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
  "afaerber@suse.de" <afaerber@suse.de>, "robh@kernel.org" <robh@kernel.org>,
  "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
@@ -62,9 +61,9 @@ Cc: "linux-arm-kernel@lists.infradead.org"
  =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
  =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
 References: <20251105104452.6336-1-eleanor.lin@realtek.com>
- <20251105104452.6336-4-eleanor.lin@realtek.com>
- <14b19124-ab99-4ee4-89c9-81e724c4b5bb@kernel.org>
- <cfd4ca2e1a8341edb4585e664b00f4a6@realtek.com>
+ <20251105104452.6336-3-eleanor.lin@realtek.com>
+ <88d90e44-88d9-4b5c-ba76-1e27dd28f78b@kernel.org>
+ <06078f60af0948d19b1abae53eeec7f6@realtek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <cfd4ca2e1a8341edb4585e664b00f4a6@realtek.com>
+In-Reply-To: <06078f60af0948d19b1abae53eeec7f6@realtek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -127,28 +126,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2025 13:25, Eleanor Lin [林祐君] wrote:
+On 11/11/2025 13:19, Eleanor Lin [林祐君] wrote:
+> Hi Krzysztof,
+> 
+> Sorry for the delay in responding to you.
+> 
+>> On 05/11/2025 11:44, Yu-Chun Lin wrote:
+>>> Add DT binding schema for Realtek system controller.
+>>>
+>>> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+>>> ---
+>>>  .../bindings/mfd/realtek,iso-system.yaml      | 65
+>> +++++++++++++++++++
+>>>  1 file changed, 65 insertions(+)
+>>>  create mode 100644
+>>> Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
+>>>
+>>> diff --git
+>>> a/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
+>>> b/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
+>>> new file mode 100644
+>>> index 000000000000..6fbdedd3ee5b
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/mfd/realtek,iso-system.yaml
+>>> @@ -0,0 +1,65 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/mfd/realtek,iso-system.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >>> +
->>> +#include <dt-bindings/thermal/thermal.h> #include "rtd1501.dtsi"
+>>> +title: Realtek ISO System Controller
 >>> +
->>> +/ {
->>> +     chosen {
->>> +             bootargs = "earlycon=uart8250,mmio32,0x98007800
->>> +                         console=ttyS0,460800 8250.nr_uarts=2
->> init=/init
->>> +                         loglevel=8 max_loop=64 loop.max_part=7
->>> +
->>> +firmware_class.path=/vendor/firmware/,/vendor/av_fw";
+>>> +description: |
 >>
->> NAK, drop all bootargs. None of above are suitable for mainline. Don't post all
->> this android or custom initramfs stuff.
+>>
+>> Do not need '|' unless you need to preserve formatting.
 >>
 > 
-> I will remove all custom bootargs and keep only 'earlycon=uart8250,mmio32,0x98007800'.
+> I will remove it in V2.
 > 
+>>> +  The Realtek ISO System Controller is a register area that contains
+>>> + miscellaneous system registers for the SoC and serves as a parent
+>>> + node  for other functions.
+>>> +
+>>> +maintainers:
+>>> +  - James Tai <james.tai@realtek.com>
+>>> +  - Yu-Chun Lin <eleanor.lin@realtek.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - enum:
+>>> +          - realtek,iso-system
+>>
+>> No clue what is "iso system", neither commit msg, nor title nor description
+>> explain me that. Please add first bindings for the iso soc or if this is not soc,
+>> then use only soc-specific compatibles (see writing bindings doc).
+>>
+> 
+> I will rename 'realtek,misc' for clarity.
 
+How "misc" clarifies a lot? In what way this helps anyone to understand:
+1. What is this hardware?
+2. What device it is?
+3. How do you fulfill requirements from writing-bindings?
 
-Not really, that's debugging not mainline use.
 
 Best regards,
 Krzysztof
