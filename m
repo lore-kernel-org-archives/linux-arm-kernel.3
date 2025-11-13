@@ -4,101 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66D1CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731C8CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0UVVQud0Izrm82Y9YsVW4ejkPGLxxg20QvfQU/ToybY=; b=yPTPnxQphqJZ1t8GEepk2IGTjl
-	VTCQc8igDG2hR5MXtQXWIygC3SKoMwtm2XEu2vRY3xdAOAu34rBnUvOo6UZBjsg/aDO0Gm8OWE+Cp
-	LP+mXGz61JuRgYTfsuBheoSxXGsuMBCO10+7U+xgWD0PGH9aicaFFEf5vJJJk0vGmSz/sEH90qo+s
-	4/03Y713t0cfGPFi4b3Y6slSithI3990s8PJCte/kjszhvee0AkGfrzRFj3sUktElCwpcB/wlJ70C
-	JUTadK6/en6ct4OaBLIQ2y0/Hj/sTHcl7fFSUMPpAeEWVuq7vd7xx4XGi77ECeIwimwOW4oVxbNyV
-	Y48wMjKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F6f3/zeu2qwQ8nE+acCB9sZtcR4ZMP7ePZXWRXo0I8U=; b=QeGDq2hwYwOjaQvf//1medgZGe
+	eMdSLBHyODXzm8l5oXuJRzeqakZOuDYz27q7fysAzfeIc8DdKXpSH63vY6zQoCR/DwHoYHu4PjgOS
+	K6AJozaf3vqE4xBGG3EaKtj2ijcSkOlUeIZ93d6Gu5UeSLqXQ/5Qqf7mqgMdWL8EbqiIfIKAKTp3i
+	cm+Irguouu1kAu8LzaWkO6GobNPk2Xh4E7eqtb77gCJrhc9BdwdKzxXiksF/H2yNIi7fX7rZWBMCT
+	y39xJxjvzWaUBJww9uWB6O8lhDO8fHK4zl0uF80/5et6+4fQVDGdfeSjpxKmK2IzlhlR1nDLxM14C
+	F8mtPWFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJg4g-0000000BCjk-47D9;
-	Thu, 13 Nov 2025 22:45:54 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1vJg4v-0000000BClK-1DN7;
+	Thu, 13 Nov 2025 22:46:09 +0000
+Received: from mail-westus3azon11010052.outbound.protection.outlook.com ([52.101.201.52] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJg4e-0000000BCjL-41Ui
+	id 1vJg4p-0000000BCkR-1Xji
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 22:45:54 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-641677916b5so2475373a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 14:45:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763073950; x=1763678750; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0UVVQud0Izrm82Y9YsVW4ejkPGLxxg20QvfQU/ToybY=;
-        b=UqOUDtGwqxfFbuUrVvGNjBGLLidl+ZRGeQnefM66YGvk/7ZIy87Zy80gvxeG3WY7j1
-         tDUl7eSBU3qPTDI7FbArEOSyOXgCqm/Lak42myiJGB9eAaPfaIyT1OqyQGKVefjmdYGv
-         v4+QvFqMU3CGu4HGZHemNf/+DrMuWnmBI0Rog=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763073950; x=1763678750;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0UVVQud0Izrm82Y9YsVW4ejkPGLxxg20QvfQU/ToybY=;
-        b=AA6736JHy0Ng5VZaEQZO7+ICg1j1L8D0b8DsKzX7ZQu/ZjPtG+SQJxNNFxNVQonyH8
-         yAo1sC80HqC1VO26PhiC8qB5TJrgQqlWEr5fMPg5fQSw7QxMf1V4XzRiwS2kI8g0WNlh
-         B/ZTCyQ1Zv7ZF070IqEnEz+xEjLPruROeXitAmOckXHMI3TDmpjARTGWA/XZRYxod6O9
-         WN+p2BfTT69myD2bLU7CwU6eOIiIXOQZ0slGBAnSwPRqvapTbRR5b6Q3d/zJyE51955i
-         BTMTuZ+8sV9U0eEkgGZuIl7pLDreAStppbea94cClzwBgMf0amiq01GZVRGrEqEIg0ay
-         8Y0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUZXyJWPi9wli1G6rFP/4LadgV3n4Y5qqmWrr0O8SZrmUvvyJIziarYzHZM5KaZ2ZI1R+x1lN33mZdK7wEJpc5M@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnyej6CcXB6HoZbs4W4Dc6B/crKa39wAJnBKpe9pS/U4pzezrK
-	xJ6GHfRCJjWMU1vWNr87em1D3yyAMocZz4lnL7U0WTWPXUTqf7S2O+A4qPEgK0aI4Uqs6Nk3EV9
-	3sUjqBRR/
-X-Gm-Gg: ASbGncvEREYzlzqg9qPx0GfxcCf+NJ1I1M7bm5IhJb/88lDGfeRXbS5iXLQjdakVl5M
-	7ELpwGU0sQKB4xUK/QrWbcpbAbTdofGGiEjZ+r2BikFeKoi55mVtLzqlH1OooInBZXUVwniH8Ye
-	0zTIHQhwuhPb/e++SxzKLFvk+ZUwvGEJpcbSLDF6HPgjglhOh5bhxBrAgseNkzJzdyv6Eu1juBP
-	AbekpdLESSO8RCraX4nbp3xJvU+vOWck+W8FTLFcdwntqysNw09HahnOeK2PJnzb5sWuRfyKh6q
-	INmg0GTPVKiI9hAjLTak8oJ4SxPHagNUOXf4MGvhsOWsyLw9GFbfKEb6572xyNeSNL4e1USd1Gs
-	igp5ZCuBBQ71X3zn8DGLxhRGzDIjJM9ZaTHycvTGZ57GkxrylNzZ1BiTkPor5ogYEHwGLNznJLU
-	btDbqLl2C/MULhNx8Fq8G0Hx4zPwUBPUYCMWFeEcPdT8j1c22/0Q==
-X-Google-Smtp-Source: AGHT+IGjwOytuJEIYDnvjdFAZ9Rf/+LpYCkKkJtrXmAI2Qrz3MaRh0PH/SH4yRwVNX9YeSbjI4jU8g==
-X-Received: by 2002:a17:907:60d3:b0:b73:21af:99bc with SMTP id a640c23a62f3a-b736782da23mr88790266b.28.1763073949757;
-        Thu, 13 Nov 2025 14:45:49 -0800 (PST)
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com. [209.85.221.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fad41e5sm251427366b.19.2025.11.13.14.45.49
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Nov 2025 14:45:49 -0800 (PST)
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-42b32a5494dso739321f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 14:45:49 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXknNShU0cFJP+fxsjumryBkZ0doAFJENCFDwjOwshw1sQMg1VgS5yvsYxsFf00oNxfmVckJnNjK8ZlnUNYHDhR@lists.infradead.org
-X-Received: by 2002:a05:6000:2010:b0:42b:3c3e:5d53 with SMTP id
- ffacd0b85a97d-42b5933aff4mr761555f8f.16.1763073948860; Thu, 13 Nov 2025
- 14:45:48 -0800 (PST)
-MIME-Version: 1.0
-References: <20251111073459.44030-1-cuiyunhui@bytedance.com>
-In-Reply-To: <20251111073459.44030-1-cuiyunhui@bytedance.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 13 Nov 2025 14:45:36 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VGvp5XsT9R9-LR-dSbGAZ5YVcm=HxBYibCcSdVnNkyPA@mail.gmail.com>
-X-Gm-Features: AWmQ_bkNWl8O-v3oF1GNsRABKkGX6YQ-aUhM_Mt29bXwj4MZQ9qr2FjFv9F9mEw
-Message-ID: <CAD=FV=VGvp5XsT9R9-LR-dSbGAZ5YVcm=HxBYibCcSdVnNkyPA@mail.gmail.com>
-Subject: Re: [PATCH v5 0/2] Add HARDLOCKUP_DETECTOR_PERF support for RISC-V
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
-	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
-	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
-	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
-	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
-	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 13 Nov 2025 22:46:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FRXq9IXLZH348y1nq1xnWhiTVqgI19Wy4ALj3SH+kxrnMVnuaoZY6yP7+6uHEUtMrLgBuAbroFDZ+aMz9FyuJf9VcAbLdyfT3TvQ5Ik5H2GxPF5HFPYKB7GrDAALQJHFcnlUdc0URJHWkNc4imIUxNHKmDinTd78VQVfj8qWfwHMLkRL9hKOV7f1r3tFs2NEYsyhjddWwa+oaS+C9rVqZ3v6p49QcMmXrTtCF+SM7MSw0hN53GJk76w/SY2GBb4IHzny8EFjX0F30zM7TrQxecsOUkD8LT41pRHvGMLj7DkjD1XaFdPGHr/EncQ2NPb/w9F2RWrMPjg0gJKr+FX6Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F6f3/zeu2qwQ8nE+acCB9sZtcR4ZMP7ePZXWRXo0I8U=;
+ b=ior3MOF/m5iPr2cw4iekEjmAn8Q3NRs0tPm8Z6WigzmCWdXZjtKVpD6+SlZPy5pSXfLKiYeDRLI9fHEmwxA8yJYdyiE3V0VcVRf4j9DV4Imm59Vo8HvYrDcQwE04vAcFMBJMDPNAsdd8T7GS5RJ/1MHc6DAYceWlPbBJc59f9/1c5L0s0AobOWZQrb3lB92Gi197CSkcHBWS1F1Rb09mwqZ48JouIoQqZzy2Or8hnK7sOtFqOOOcXrgqDOkmLbX2TcQz2pAymP4PFwHyFtPMaTxYVqEiccJBik/F+nvP+kNtWqhvfLQbb3jx68KpoRBikpUx4y4GCrOplK3ho53YmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F6f3/zeu2qwQ8nE+acCB9sZtcR4ZMP7ePZXWRXo0I8U=;
+ b=V/l2yvq558YJl8GPY/KKYGVby12IUsqjEmDr5KCZ8qtg4kxfxH1YcPNjcbiMS4n49PhqfuAIH9ZdA/DBR6Dfl+AmsT87UQmmeiFvn28lONoX3EohP7yC9lNSnFczUyLIrovo1N5Kh7nVotJ/9N5aDsW+Co2QetbIwIz9ggqXE4s=
+Received: from MW4PR12MB7165.namprd12.prod.outlook.com (2603:10b6:303:21b::14)
+ by CY5PR12MB6201.namprd12.prod.outlook.com (2603:10b6:930:26::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
+ 2025 22:45:57 +0000
+Received: from MW4PR12MB7165.namprd12.prod.outlook.com
+ ([fe80::a32f:9b78:fc2e:6076]) by MW4PR12MB7165.namprd12.prod.outlook.com
+ ([fe80::a32f:9b78:fc2e:6076%5]) with mapi id 15.20.9298.010; Thu, 13 Nov 2025
+ 22:45:57 +0000
+From: "Klymenko, Anatoliy" <Anatoliy.Klymenko@amd.com>
+To: Sean Anderson <sean.anderson@linux.dev>, Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Mike
+ Looijmans <mike.looijmans@topic.nl>, David Airlie <airlied@gmail.com>, Thomas
+ Zimmermann <tzimmermann@suse.de>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Simona Vetter <simona@ffwll.ch>,
+	"Simek, Michal" <michal.simek@amd.com>
+Subject: RE: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+Thread-Topic: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+Thread-Index: AQHcVN1fOsfPV96fSkmPQZIoJ3U4R7TxK3pA
+Date: Thu, 13 Nov 2025 22:45:57 +0000
+Message-ID: <MW4PR12MB71651E0E82AD8E4898DBD017E6CDA@MW4PR12MB7165.namprd12.prod.outlook.com>
+References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+ <20251113203715.2768107-3-sean.anderson@linux.dev>
+In-Reply-To: <20251113203715.2768107-3-sean.anderson@linux.dev>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-11-13T22:12:31.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MW4PR12MB7165:EE_|CY5PR12MB6201:EE_
+x-ms-office365-filtering-correlation-id: c8e68490-7e8e-4bf9-989b-08de23066928
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?JOOV26RXUPcLxO/UbtIGjSDsgmxS5ZY615YbLz/eGmQCRcwpHmEGKj4u4jSD?=
+ =?us-ascii?Q?a+AlO6KXgCuKCTrVEDPK5hhnMoienIajhILXieGI9QmkfHveLeer/Nst+FGV?=
+ =?us-ascii?Q?bFV0GGxdrKB8838caoB3nHOXUuAUiw6Vv0t/R7sS1RTdhwrYKIACn59ZE3zz?=
+ =?us-ascii?Q?ZacdlW31c2j9jikbOAMNbFQExJk8vLCzXG8M69fbyEMO0JNvpVN+CPJyZ1Xg?=
+ =?us-ascii?Q?FaOxBwb5p4+CDViyjzcoptvtDNBnWWhzwIF9QaRevyRTtbS5PxUG9h8PhV2D?=
+ =?us-ascii?Q?0B9tlIY5lU8Prr/K1fsd7BPz6cPtJMvPw9mZVR+XhyZYv4Hp01LPOH9seTQ4?=
+ =?us-ascii?Q?Pg4182NMS7AgS91yLwchV1l4kFv51dzCp78v7sMlizaa8QGZK3v0xGwRBNe1?=
+ =?us-ascii?Q?NiqjGOlYa0GpO0+ap1oZ98v95m+uVXAnHtlfu+VUuOv+axwTUezTAiyy0r79?=
+ =?us-ascii?Q?L9wNDFA8V23YANny+oIua7vl15IumSRRfn2LfEiE5BfP6qLbwFS0Oo2wd7v2?=
+ =?us-ascii?Q?T8PWXRmGyyTPR1LTsrESimDLpwwUt7HjaAmwKEyJulGFp0YydgcVyZU4JTzA?=
+ =?us-ascii?Q?iwxODtAf5aTCLAnryA0revf0ApDXw1RGuIVdtSZU35jD7e0zQlZkMgrhz6RF?=
+ =?us-ascii?Q?3ObjlbKmI8sCGWPOGZVReCWGcuaJerE16UznOumAE2vr/DQ6/7eOr8GS64N7?=
+ =?us-ascii?Q?z6ck3Hh6OaJKx8HVZI9kcAnQKMRkjKFDjdWogve8psnRrva97LatlbpOjAHp?=
+ =?us-ascii?Q?mtmQwTlzUwQ/u4r2X7m7YANbQXrK+YDIAcTE8g4gWcbOOAqB2ZKBqIEibhRa?=
+ =?us-ascii?Q?jf3pGarxULm2azyaNYV19kUAq9Xy1W8i/6Ts96dlwcoowjXHahHJDVlRjNNC?=
+ =?us-ascii?Q?J6YaRYOhsxYOfT/fHMm+QsJS/P5QHfLIR88hyLYzc9WMGJaibgP10C2W/FGx?=
+ =?us-ascii?Q?iW3kjFx7AHS0KEteHoWvplWhsRqAWYHgyH+K1KUpWxXH4DpdbZOj27ZiPN/+?=
+ =?us-ascii?Q?dNz73osLUKkMQJqR22SulvvlfhoJcS61Bj04zRPkpXaUQH0JrM6O1Pkhi+sE?=
+ =?us-ascii?Q?HkYPWEeizY2pMZPqBl0DyWawdUXjniu3TlMg9MnKN52NsNm1hId8ItWvHzD1?=
+ =?us-ascii?Q?8zDUDSK6J230i/8p+7Htwcxiak30+izIyvVV6sdZqyuxzvxcqv6jFVz1WJLn?=
+ =?us-ascii?Q?9bIQqetPDtglSqxE+vojb8jhGvjb9pNITatwelfoA+VvFy3r3Eia+nliNe1L?=
+ =?us-ascii?Q?Ph2MWxx8drMEomtc/uQ+AXu+BcjcfFsGXP4gN6f/NXKHEfjzSTNMDXFvRToH?=
+ =?us-ascii?Q?G49k6uhhQd3qIg1iQo0DFizSAtVftlkw2kogqhhidCOc1zJiFDtJsOQy0ItM?=
+ =?us-ascii?Q?zfkRLGd6sCPNm2PLhSnbpucJSnAIAMxOASRMWR3V+HMelR+JkD7FJ5pfVSsb?=
+ =?us-ascii?Q?sLzvLH14Al4QHDV0UiXlKohIS8BrEpxN/avVq8KrIv1RpMYU6HJJV1etNet4?=
+ =?us-ascii?Q?Y4DcnbXyEaU/vnlPP6zEv9ajfxeCS4wKbPHJ?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB7165.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yzzS59AiqBJF1kC1GSbDblXwmpNU9aRjwQYqxu7G0vCnlJa5YSrw1/YDHW6+?=
+ =?us-ascii?Q?EsXYo1P+kPYFymTGE5Y314mVzjqwQrsierS5U1fjDkHk4fJIeKuEGqoe7QGY?=
+ =?us-ascii?Q?+Q44hEvRybeeaSEofOdaGUACztDLLOAqlVkW+c5CJnjntVERnR1Oq/1M+iwT?=
+ =?us-ascii?Q?BKnKuvPBxiUVlTRaec7tTg/rZGcsyULSZyijGBgEE3GCtfL1jfk+c0u0rDTu?=
+ =?us-ascii?Q?1IvaVlTQqN/KQPkLnBa1C2rFBHT2KPMCx9IoAsSgeFDCqvjQLFf6WiO8E2eu?=
+ =?us-ascii?Q?vWovFPrLu7VQd0jd7nLZfJNZauvSol1C1XpyhT/wF5t7LWQy+wgS7h+c7ovX?=
+ =?us-ascii?Q?/hLR5sTnKo4am78lCHLyx2spz0ymISy1E67GBjH95ldnPErp/LWtfNytt12J?=
+ =?us-ascii?Q?kBGWCm2gK+gvRaFwWbtyNoO5CZi55YICfQp9ebdFQEf/BCQwVzEx+zvJMh9E?=
+ =?us-ascii?Q?9CfX1iJ+XJPLNWe1niMKx+ZMOOKefyBLpJomQO1UHSbssmO5+KJl8XsPaa0C?=
+ =?us-ascii?Q?qqp9dnZTBaagx3dkVcary/TDCfXMSuQ7jFtTiN8R+MOrosWcCrsJPKfvZY0x?=
+ =?us-ascii?Q?/MmxsXVzgB5dx2eNSHt5imdUwJZWSnEMfEgd+331Yt+jY/+DBtId223ZpoD3?=
+ =?us-ascii?Q?7Nkd2Y2hfp86+dJf3VW2Dc++k6tv1air1r76xCZR1nxs0cH1AzFkuZIBMXfG?=
+ =?us-ascii?Q?rhUMLJSSt2GrJK/YSVI4CLkGCaMYRcp1tEtXSIVb2BHt/rOWQd+7nemI8ePq?=
+ =?us-ascii?Q?mmHpMt/249OJ8CfXfk3vH680s0lcDaLT/kenLynzn7iNK9JT+4wIB7tAL4LL?=
+ =?us-ascii?Q?pgUy7plAAhXAEkzbbnqZNvfEuqJ/KEZbxFCSGhfE9QNyHM6Tz7sjDud6i0TH?=
+ =?us-ascii?Q?vwCRsUY0agAoR5Y0OVWqC/9nJdT8jloyTXYP53izgi10SO8gIG3kbuYisRvb?=
+ =?us-ascii?Q?ljVTCLPEX7CuPTeVE+x1yLmN6ZWUt/2aVFpLguuTrKMyNbTVomBHX5Jm2P38?=
+ =?us-ascii?Q?ZOFuIMQykc8vpC00FNJb1hCnX340Zj2/KKGt/6Ku3L1GCn2JNnxI+IA2g6UD?=
+ =?us-ascii?Q?VriC9CVKIlo6hVioHI2znyZFb6aMiF5lgPHQotHXpuNuH5KBI1RQQBLk4uuF?=
+ =?us-ascii?Q?pOHREQvrpFL0O++P71XVI8laprrgHhugKJzbn1OwE9xwGsBoWZQgC4X2Bb5n?=
+ =?us-ascii?Q?YBxtlxO0N0YXP+L1nFKqfN4KkmeabWu4tIlCDqzSlCdxc9NMyPE8or+Lleay?=
+ =?us-ascii?Q?UXXbQSykZmqfse0YxI3Lb8VOKTiKzp3FkEdGhZtA/X6JWfyOpc2/3GMfW5JD?=
+ =?us-ascii?Q?BmtDK91rBBniMLo2uNW/QgATZqG7TT7s0phcmWhH80Sub45N6mhrYHc9QMrp?=
+ =?us-ascii?Q?Ri6wlUinBc3n/vuta6GUx7gUegmFDLcZrS2l0dwOw9GzycPdPcGYz1IYHmv0?=
+ =?us-ascii?Q?fRdKXM10kLxhyGNVPfhxljvm4RCA8gbczQupvm/URz4iW5u8ViPeYoOrbkGC?=
+ =?us-ascii?Q?KMWoebSzI0JYyhUkhCFOPsaCxEWRg/02e/KAp48Wfe3WCUUcRxalTWefJcvg?=
+ =?us-ascii?Q?RriDJ+ot7Fvnpa6sJUE=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB7165.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8e68490-7e8e-4bf9-989b-08de23066928
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Nov 2025 22:45:57.3690
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: n5XVm/LCMABTRgVh+qbyrtotujT2rIvwvqa8j/GN9K78kc00V6ImlGK4WN4LSlS+RIxFlx24WdJDGlzHly+5Aw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6201
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_144553_028072_E036F6D2 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20251113_144603_439565_920028DF 
+X-CRM114-Status: GOOD (  39.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,66 +171,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-On Mon, Nov 10, 2025 at 11:35=E2=80=AFPM Yunhui Cui <cuiyunhui@bytedance.co=
-m> wrote:
->
-> After discussion [1],[2], hardlockup_perf cannot be completely replaced b=
-y
-> the hardlockup_buddy approach, so this patch is still being submitted.
->
-> v1->v2:
-> The contents of arch/arm64/watchdog_hld.c are directly consolidated into
-> kernel/watchdog_perf.c.
->
->
-> v2->v3:
-> Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update logic=
-,
-> select it by default on arm64 and riscv, without affecting other arches
-> like x86 and PPC.
->
-> v3->v4:
-> Place the line "select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR=
-_PERF && CPU_FREQ"
-> in the Kconfig files for arm64 and riscv in one line, with no line breaks=
-.
->
-> v4->v5:
-> Remove __weak from hw_nmi_get_sample_period()
->
-> Link: https://lore.kernel.org/all/CAD=3DFV=3DUEhVCD6JehQi1wor2sSmtTLDyf=
-=3D37xfo-DOTK1=3Du1xzA@mail.gmail.com/ [1]
-> Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao600@=
-gmail.com/ [2]
->
-> Yunhui Cui (2):
->   watchdog: move arm64 watchdog_hld into common code
->   riscv: add HARDLOCKUP_DETECTOR_PERF support
->
->  arch/arm64/Kconfig               |  1 +
->  arch/arm64/kernel/Makefile       |  1 -
->  arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
->  arch/riscv/Kconfig               |  3 +
->  drivers/perf/arm_pmu.c           | 10 +++-
->  drivers/perf/riscv_pmu_sbi.c     | 10 ++++
->  include/linux/perf/arm_pmu.h     |  2 -
->  kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
->  lib/Kconfig.debug                |  8 +++
->  9 files changed, 114 insertions(+), 98 deletions(-)
->  delete mode 100644 arch/arm64/kernel/watchdog_hld.c
+Hi Sean,
 
-Perhaps you missed that (I think) Andrew had already dropped your v4
-due to the Kernel Test Robot finding a problem. See:
+Thanks a lot for the patch (and tackling the alpha issue in general)
 
-https://lore.kernel.org/r/202510240701.eB6r97V3-lkp@intel.com
+> -----Original Message-----
+> From: Sean Anderson <sean.anderson@linux.dev>
+> Sent: Thursday, November 13, 2025 12:37 PM
+> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+> Cc: linux-kernel@vger.kernel.org; Mike Looijmans <mike.looijmans@topic.nl=
+>;
+> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+> <tzimmermann@suse.de>; Maarten Lankhorst
+> <maarten.lankhorst@linux.intel.com>; Klymenko, Anatoliy
+> <Anatoliy.Klymenko@amd.com>; Maxime Ripard <mripard@kernel.org>; linux-
+> arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
+> Michal <michal.simek@amd.com>; Sean Anderson
+> <sean.anderson@linux.dev>
+> Subject: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>
+>
+> The zynqmp has two planes: "video" and "graphics". The video plane
+>
+> - Is on the bottom (zpos=3D0) (except when chroma keying as the master pl=
+ane)
+> - Supports "live" input (e.g. from an external source)
+> - Supports RGB, YUV, and YCbCr formats, including XRGB8888
+> - Does not support transparency, except via chroma keying (colorkey)
+> - Must cover the entire screen (translation/resizing not supported)
+>
+> The graphics plane
+>
+> - Is on the top (zpos=3D1)
+> - Supports "live" input (e.g. from an external source)
+> - Supports RGB and YUV444 formats, but not XRGB8888
+> - Supports transparency either via
+>   - Global alpha channel, which disables per-pixel alpha when enabled
+>   - Per-pixel alpha, which cannot be used with global alpha
+>   - Chroma keying (colorkey)
+> - Must cover the entire screen (translation/resizing not supported)
+>
+> Currently the graphics plane is the primary plane. Make the video plane
+> the primary plane:
+>
+> - The video plane supports XRGB8888, which is the default 24-bit
+>   colorspace for X. This results in improved performance when compared
+>   to RGB565.
+> - The graphics plane can be used as an overlay because it has a higher
+>   z-pos and supports a per-pixel alpha channel. Unfortunately, clients
+>   like weston cannot currently take advantage of this because they
+>   expect overlay planes to support translation/resizing.
+>
+> One downside to this approach could be that the graphics plane has worse
+> support for YUV and YCBCr, so it may be more difficult to compose video
 
-I don't think you've fixed these problems in v5, have you? I think you
-need a v6 for it? I haven't dug all the way, but I'd suspect the
-compile error is if "HARDLOCKUP_DETECTOR_PERF" is defined but not
-"CPU_FREQ". Indeed, that matches the config in the report...
+Not just more difficult but practically impossible:
+1. GFX (in Xilinx terminology) plane doesn't support pixel upscaling, so
+no support for NV12, YUY2 and other common video pixel formats.
+2. Both planes are unscalable, this means we can only output native
+display resolution video on the top plane, or display thick black frame
+around the picture. We are losing GFX masking capabilities.
+3. We won't be able to render subtitles on top of the video.
+Probably the only practical video player option remains here is to render
+video to a texture and embed it into graphics composition.
 
+> streams into the window of a media player. However, no existing software
+> could rely on this because there is no way to enable the per-pixel alpha
+> channel when the graphics plane is enabled. This makes it impossible to
 
--Doug
+This situation is a driver bug not a fatum. Per pixel alpha blending works
+just fine if we disable global alpha. We just need to avoid enabling it whe=
+n
+we have alpha capable GFX plane format.
+
+> "carve out" an area in the graphics plane where the video plane shows
+> through. This limitation is addressed in the next patch, but it means we
+> do not need to worry about compatibility in this area.
+>
+> An alternate approach could be to pretend that the graphics plane
+> supports XRGB8888 by using the supported ARGB8888 mode instead and
+> enabling the global alpha channel. However, this would rule out ever
+> using the per-pixel alpha channel.
+>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> ---
+>
+>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> index c80a2d4034f3..456ada9ac003 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> @@ -161,8 +161,8 @@ static int zynqmp_dpsub_create_planes(struct
+> zynqmp_dpsub *dpsub)
+>                 if (!formats)
+>                         return -ENOMEM;
+>
+> -               /* Graphics layer is primary, and video layer is overlay.=
+ */
+> -               type =3D i =3D=3D ZYNQMP_DPSUB_LAYER_VID
+> +               /* Graphics layer is overlay, and video layer is primary.=
+ */
+> +               type =3D i =3D=3D ZYNQMP_DPSUB_LAYER_GFX
+>                      ? DRM_PLANE_TYPE_OVERLAY :
+> DRM_PLANE_TYPE_PRIMARY;
+>                 ret =3D drm_universal_plane_init(&dpsub->drm->dev, plane,=
+ 0,
+>                                                &zynqmp_dpsub_plane_funcs,
+> @@ -322,7 +322,7 @@ static const struct drm_crtc_funcs
+> zynqmp_dpsub_crtc_funcs =3D {
+>
+>  static int zynqmp_dpsub_create_crtc(struct zynqmp_dpsub *dpsub)
+>  {
+> -       struct drm_plane *plane =3D &dpsub->drm-
+> >planes[ZYNQMP_DPSUB_LAYER_GFX];
+> +       struct drm_plane *plane =3D &dpsub->drm-
+> >planes[ZYNQMP_DPSUB_LAYER_VID];
+>         struct drm_crtc *crtc =3D &dpsub->drm->crtc;
+>         int ret;
+>
+> --
+> 2.35.1.1320.gc452695387.dirty
+
+Thank you,
+Anatoliy
 
