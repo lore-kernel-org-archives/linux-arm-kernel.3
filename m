@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2921ECD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C8ACD98CC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=vypfoCHyNA71TZL8kA8N3I9Fe3pQWZEycvSdihqFZuU=; b=O4fwHg8TZGL+5f
-	1YiH3p9BY/WXrVqm2jfBpwGOD9W7hdiKMf9Utou//s405iNJoy7bf4/QjgRew+XjdbQfqliGlkcsL
-	zYx5o32+Ijvk7gcZPfLMcxqhD+2aGGt2XlPgePmYEGgpfwbYkoytumkeJXnSXfEVoTsPjQZDibRQ8
-	W2mSdNoB1gHBxUoLisTqbkRCCNgGr0+WmJUOcy76TRGctqQiKfiiO/K8sRLqfs/70bQA5wtqLAhjT
-	0H2O1y+aahHjHNfHEN6CP0BEgeOf0824DRaiHHnzaMe8tY8C4EJK4p250uwzWofn45xtDQDothYwg
-	8tVmhNNKJXJEgLJ65FGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OYFJecGvF/PSLvcfOfBEFxneWPelTQqrxpNgn7eEBM0=; b=v2zmtnWU4SBSC2XkGBURiu4V9h
+	dlwZEHQsq9ZuVvI70wZ7JrXtvLgn7qYEpo3R+0U++JF/Blw7E0lz24foBgDoarlbb+DbJiDobJx7o
+	NkR5vf5pvSeiQTn5DA+XtDYgwSW/mRhemzYMWmA409W6CRuPNIIuccw8yIlAz9YczRHDxC7mdr5CB
+	3h14YiBenckHxY9zv5uC+KFcHwOAJXsMeleHfLYZ8uuwGxLPfjgxiyGx92H78HMQIQfykiN+TKBJ+
+	O6WlRDaneY0AR4E0uuc5eG/eYutoKIy3Gr7OBZGGWtTrW0CtMv5yy/CFu9SIqWhDInDxjF54bSM+U
+	q5FUSLgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcMi-0000000AxCX-3fYw;
-	Thu, 13 Nov 2025 18:48:16 +0000
+	id 1vJcXA-0000000AxeF-1rHa;
+	Thu, 13 Nov 2025 18:59:04 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJcMf-0000000AxC9-3bFN
+	id 1vJcX8-0000000Axdt-1TXV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 18:48:15 +0000
+	Thu, 13 Nov 2025 18:59:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 130B240AF4;
-	Thu, 13 Nov 2025 18:48:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B72B3C4CEF1;
-	Thu, 13 Nov 2025 18:48:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DF8E443942;
+	Thu, 13 Nov 2025 18:59:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC502C4CEF8;
+	Thu, 13 Nov 2025 18:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763059692;
-	bh=ZruTlfRU5hPkW+XuRxMTGWrNG1rB4wG/83de4k1qrS8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=sy4qYApcRfWPdXBhESWfm2WIxzG2f+dLU4mU7qVwxV9KHviy8mqEr/qr+2JXYeMWm
-	 pxsEZUKvWxfzR5xPwicrQB8YTiUUZZhuo64qwAqBT9K5V4lmK2SyHeaIxCoU3FYrcW
-	 oF3proxO6XgPUej88gzvQVW58bGjOGfpvQs8Clkim9VEU+G/7OVS3uPTIOOVv9l3i/
-	 DmCXwH6jLF6DjOdihR08DMmNq42TiYweRavxjI4NzlBQoe516yyuzevM0qTV6wrRSt
-	 8lVLyxQl1AvrdlEEFCUumEx9r+KHNRdPFjTfnOYL/JSaybBZG6anH/eIVDFtrEonH4
-	 30TIb15CGXSvA==
-Date: Thu, 13 Nov 2025 12:48:11 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, jingoohan1@gmail.com,
-	christian.bruel@foss.st.com, krishna.chundru@oss.qualcomm.com,
-	qiang.yu@oss.qualcomm.com, shradha.t@samsung.com,
-	thippeswamy.havalige@amd.com, inochiama@gmail.com,
-	fan.ni@samsung.com, cassel@kernel.org, kishon@kernel.org,
-	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v5 4/4] PCI: keystone: Add support to build as a loadable
- module
-Message-ID: <20251113184811.GA2297285@bhelgaas>
+	s=k20201202; t=1763060340;
+	bh=Y9smVE2v6A+tgVYcflKTZ+tDgKK7i+qAb7N4nXKZcuk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tOgYb1tHK0YsCQNQ27eKv2OIqxJxST9HuH2GBNrGY5xZ4ABcNit5J6rXnODTc49zh
+	 jQIfTS6P9ODopRXGU0r/mTTeG1h3WOrMR44JHxx62fi6p5Vwd42ZB+kPZSsr1fTi7v
+	 tAuWBk8VECh0RR+oW+C9XILVw3E+hvq+j6KutRCdoBamdRFYKoSQug1JGOIywa+5wQ
+	 3k7s3rzgNuiHKxaYQhcBhQEypTvcdihJCzDhdoImbNVOfAbTPfySTahNzQyacSSjhf
+	 I0t04f4bDLmUagHm1XoQVUds5LGkg8yC/TE12eKXNzlb1QdIz9zsV0KrzbvAxiGsZO
+	 q0k8slu+uMf5Q==
+From: Catalin Marinas <cmarinas@kernel.org>
+To: will@kernel.org,
+	Dev Jain <dev.jain@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	anshuman.khandual@arm.com,
+	wangkefeng.wang@huawei.com,
+	ryan.roberts@arm.com,
+	baohua@kernel.org,
+	pjaroszynski@nvidia.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RESEND] [PATCH v2] arm64/mm: Elide TLB flush in certain pte protection transitions
+Date: Thu, 13 Nov 2025 18:58:42 +0000
+Message-ID: <176306032240.2459767.9191020544205608195.b4-ty@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251017160251.96717-1-dev.jain@arm.com>
+References: <20251017160251.96717-1-dev.jain@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aRYk4Xj1SNEFYW-J@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_104814_423993_EE824576 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20251113_105902_435599_CB2C3ADA 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 06:35:13PM +0000, Russell King (Oracle) wrote:
-> On Thu, Nov 13, 2025 at 12:13:55PM -0600, Bjorn Helgaas wrote:
-> > >  config PCI_KEYSTONE_HOST
-> > > -	bool "TI Keystone PCIe controller (host mode)"
-> > > +	tristate "TI Keystone PCIe controller (host mode)"
-> > >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> > >  	depends on PCI_MSI
-> > >  	select PCIE_DW_HOST
-> > > -	select PCI_KEYSTONE
-> > > +	select PCI_KEYSTONE if ARM
-> > > +	select PCI_KEYSTONE_TRISTATE if !ARM
-> > 
-> > This is kind of a lot of dancing to make keystone built-in on ARM32
-> > because hook_fault_code() is __init, while making it modular
-> > everywhere else.
-> > 
-> > Is hook_fault_code() __init for some intrinsic reason?  All the
-> > existing callers are __init, so that's one reason.  But could it be
-> > made non-__init?
-> 
-> Yes. To discourage use in modules, because there is *no* way to safely
-> remove a hook.
-> 
-> While one can call hook_fault_code() with a NULL handler, that doesn't
-> mean that another CPU isn't executing in that function. If that code
-> gets unmapped while another CPU is executing it (because of a module
-> being unmapped) then we'll get another fault.
-> 
-> Trying to throw locks at this doesn't help - not without holding locks
-> over the execution of the called function, which *will* be extremely
-> detrimental on all fault handling, and probably introduce deadlocks.
+From: Catalin Marinas <catalin.marinas@arm.com>
 
-Ah, thanks, I hadn't thought about the removal problem.
+On Fri, 17 Oct 2025 21:32:51 +0530, Dev Jain wrote:
+> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
+> required for some cases, for example, when changing from PROT_NONE to
+> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
+> growing into the non-main heaps), and unsetting uffd-wp in a range.
+> 
+> Therefore, implement pte_needs_flush() for arm64, which is already
+> implemented by some other arches as well.
+> 
+> [...]
+
+Applied to arm64 (for-next/misc), thanks!
+
+[1/1] arm64/mm: Elide TLB flush in certain pte protection transitions
+      https://git.kernel.org/arm64/c/c320dbb7c80d
+
+-- 
+Catalin
+
 
