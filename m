@@ -4,65 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB820CD5BDE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4165CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 12:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOx0S0cPl7YwQEQRZw2PeSlHMO6bmrzRxYRUwYisekU=; b=LcsP0cre6fXnIJ9hVx3pbtLoY/
-	ugwyWdi28+DMkKZkiZ2pmg+1QJFzi9dd7VNRqVJYiVsH38wt6TTWCyVHqDVqiOAmwXgaV0YTc1C1g
-	iCbt0jEyGRK3AWHWkMWyajCoAQ+Q/KldPffgcIFUeA6MUT0JBOJrQGpDRaHgpVEGoWhG5YfCCOiU+
-	K6V8NrNiKbnCCAEcKefKLOmRFfy08moFG58E5K7nOTle/2+Cp2U1tIKK29ggSdmVkzwvD+4HkctqY
-	40YxL/3TviXNsmqvFHLwu4KK/HZot2R+4mK2k6KkV2gyXssX+65FzErfusdtF2dar64o/5TN3PhIh
-	Te83+xsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kni+uprTvh4HbnOvPSWuU/+R6LdqI9scCjXvyN/5gVI=; b=FIte+/5rb3ZUxOWiE6joJBHd28
+	U9egWsuw2VDJMYdnKTFU5sXErmMh20deocHiiYuNb0hN+4HM31cNvYAZSYSGMaSy3OVNrkb6rYzOp
+	DeqqpNYRrFlvZgUIbLakRZWnIBzeRv3DgD8v32AYZNEdRhH4rwx+2uw516ByekbtHn3gWr386Yc4U
+	GHIt3J8eJN2cInnaNOm56UmbChgTzuckj29IT29OCfa8bEEFQ8y2Ue+jgRdj2Eoablt66bth36XD2
+	aiLNf15oHFMGasGF8c7AH9aYZw4AHsTzNJeRQzhtqEm/H6kHCuxlDpMxPYeeegTYuW9gYELDzKcsN
+	mGsgaS9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJW9O-0000000AQuU-36KA;
-	Thu, 13 Nov 2025 12:10:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJW9M-0000000AQu7-1arC
+	id 1vJWEJ-0000000ARIG-3zl4;
+	Thu, 13 Nov 2025 12:15:11 +0000
+Received: from mail-centralusazon11010070.outbound.protection.outlook.com ([52.101.61.70] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJWEG-0000000ARHg-3bI9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 12:10:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5889512FC;
-	Thu, 13 Nov 2025 04:09:55 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3115F3F5A1;
-	Thu, 13 Nov 2025 04:09:58 -0800 (PST)
-Message-ID: <d9694bdf-ab58-4706-8e1e-8266d7ac2ecd@arm.com>
-Date: Thu, 13 Nov 2025 12:09:56 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/33] ACPI / MPAM: Parse the MPAM table
-To: Fenghua Yu <fenghuay@nvidia.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-10-ben.horgan@arm.com>
- <26396142-4f14-4175-85ba-2e8d780abbd9@nvidia.com>
-From: Ben Horgan <ben.horgan@arm.com>
+	Thu, 13 Nov 2025 12:15:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ervb7l2Hse0FTKr0qgBGa2wBHqWtYPPBlqtcJh0bMX9JW9fex9J4DQauXKTIja8v0bEhh0XiVpkBGNQc5yovHiBkjO+ezsRnIrtFlHfQMqGUHYfzqz0TLz8g/917f4KXOUnMsTJbfaXTvI8sFdOwP2MvSESddQLqUosbITZlrcmrg1RLAx7b4AxhS9Zwc8Ay6zPsZg/7MxaJj9Y7ZrcrkPR0YY6dadOK+ywdJkXlSu3BipNJav3irkBz85RR4fl/eXngjpVghdZOYfn8apP2uenkisJHWT8dFXYHm5OqAJpO2Te5Gl1lDL7rYS75zuFTxWuaRtP3U/EnFZh51gH8mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kni+uprTvh4HbnOvPSWuU/+R6LdqI9scCjXvyN/5gVI=;
+ b=A96uMaSTVYcXfCOYqdTr6RsJlrMkPd+gd41X54OQuxqiiQD10aTv4lgyFo5UFtah91Xek0DCNqZ1g+dqGaBlcaMhXW/PL/yqLRAUoLxA91qIJvRuwqeanUEqyyjHwUx5RiNDAhtvovkyOksBjehzD+cCjFvPHX3+XidxqAPoeaCyaLIJ2qqkF6mVuAzOE29QMrs8NSQoG4xN6N3/m0pzhbBG4iJKi0O6OAa8HNBj5KVqni/AfkRMrXG7CKFmiR8Zq/xqFaIqhAXTULj9St9529iJuUZWkze4HOspJDP1Vm6Gdx5ewM1p4yyi7hjLOsRDoKAz6Xuwx/U/z4xzxarDOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kni+uprTvh4HbnOvPSWuU/+R6LdqI9scCjXvyN/5gVI=;
+ b=f2kky85FlUpUxepTpICTD3kLWOTBoCXpWKHL/5FrSNqLmzLP6TCaZMOuYTXsiJ4kzzrOUSLHBo1hi4HE2ZySfjMpKlNkV3VULGs/St9R75Of9Vt2iXDkpKIcceNrPxObjlXoV3keyIjCEH4af71oqy3pM5JPghMDZqcA4W7P3RY=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by IA1PR12MB7712.namprd12.prod.outlook.com (2603:10b6:208:420::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Thu, 13 Nov
+ 2025 12:15:02 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%5]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
+ 12:15:02 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Conor Dooley <conor@kernel.org>
+CC: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, "Simek,
+ Michal" <michal.simek@amd.com>, "linux-usb@vger.kernel.org"
+	<linux-usb@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>
+Subject: RE: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset
+ constraint for the versal platform
+Thread-Topic: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset
+ constraint for the versal platform
+Thread-Index: AQHcU+zDcCWaPQULXkSxJV7QRsA8c7TvZ26AgAEcEiA=
+Date: Thu, 13 Nov 2025 12:15:02 +0000
+Message-ID: <MN0PR12MB59537C0F520B40977620BFCDB7CDA@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20251112155430.1326426-1-radhey.shyam.pandey@amd.com>
+ <20251112-bagging-diameter-4ebab1f9ed45@spud>
+In-Reply-To: <20251112-bagging-diameter-4ebab1f9ed45@spud>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <26396142-4f14-4175-85ba-2e8d780abbd9@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-11-13T12:04:44.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
+ Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|IA1PR12MB7712:EE_
+x-ms-office365-filtering-correlation-id: 3a260c1b-9a15-4e10-dcba-08de22ae45e6
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?I+CBIQV+uDa92p9qUvMITFbQ6gM1EgjBUgwVS0aBZ9ecqSBqJAfBNQfDZYbn?=
+ =?us-ascii?Q?z4mHX/XppjMRg6SZ5FU5rVuxu6/OtqrnRBhsPxYmFTyTwf8DCeHg3c1MrFqO?=
+ =?us-ascii?Q?ZxTZvzVzZMzTza3Kkfkr7i4ZpxBgaCwjlQKcBjBieFPG5uJpCs9wgIlkuWEF?=
+ =?us-ascii?Q?X0ELznjsuXj/NGjAIox2A73reCsOLwQgglBkmo5jlPeg1xSULNB0OnMxw0np?=
+ =?us-ascii?Q?ldsmxh6ZNko6pXeNfT2sLQ/kNi2irJCTOoobLNc44DGlv8KNKDIr2F1XhnoU?=
+ =?us-ascii?Q?Xz7Tyyba9QS3n9VRkP47T/l379bP2xBqYKTrftH84n6UsvcBLgtgQ1uDQzPN?=
+ =?us-ascii?Q?BG35qutbtXoQd4Sv++6wcZKMsk4vH9tfDYcezPoGwhQpDieOYWY6fz5IV1IF?=
+ =?us-ascii?Q?dTXmK3m38LTYbVHJdctjaatdX8JskdnLzFWiM56aWfsn4MxQQMDSIx+XaS/v?=
+ =?us-ascii?Q?uPtIh0NAzvPKV4hDEMcQKDq/GeJB0dBRvpXGRSsqnYeCUK0ewzPPjtZwl56u?=
+ =?us-ascii?Q?6jvvOcFF8CZos1sSfkYb+xU7s3Xln1AfwqfV5+8jYexnYOWPcUy9OUnHHUB/?=
+ =?us-ascii?Q?nPm87YAJnaSMGCsqXY9nnOpNrneYNZlXA5WXtmAYdyfH5yh7mdLuD54cJYbw?=
+ =?us-ascii?Q?eu5n3DihHwN0hxxBDR0s0xzsGTBor0usItTI+fUDwUkOOTuUIZXLxc08unv6?=
+ =?us-ascii?Q?Q5olQtVQedCYXXRgg9e6uFhPyhEXG1Dik9f0aIY7KXkAZ8gTvNei/yItntum?=
+ =?us-ascii?Q?Gnav7JmjhbQcmuphFWIoRdCKwnmltaRU9UGPl55eCzVMUrFmUJHpAz0XxI40?=
+ =?us-ascii?Q?Q5H4RS97pbsL2O84y2ajspNh3SiQV+bMFAQGJJzaHtzjEICnymw20J8imoYD?=
+ =?us-ascii?Q?ud4gSKSTzWXrabvaKBreeW5heZusbcLbym7F69DVP35XpBUpjDZDr7T/D7NR?=
+ =?us-ascii?Q?BmUDRMACI8MTi2n+6G/2SDtSxlqKjtcxL0xQNPW4izBET7CcyfJVkKyyLnsq?=
+ =?us-ascii?Q?T5exUNQeLf4U1Ji7FjlYXwhwtWSTKU/1n8jBccf5AvERSOl0GeDSg8MV1GXF?=
+ =?us-ascii?Q?TFPYytcEZ4pLk788vOUREa1r3MrFl3L5avUWNYYp7MKUci5dzz5+gA8I8x8O?=
+ =?us-ascii?Q?+THCBRCKVe/4fZCrXHpCRyU5zIS1eL0DXo+f8y26LXO0nBS1niXMlsMQL7Fu?=
+ =?us-ascii?Q?FpZ0VHdLdgeM++wqy1YcWr4h7qAdBkZ4w+HPAeTm9hnvs5aaxOoN50bVDUcw?=
+ =?us-ascii?Q?A87rl138z1csmd2GnLg48MIQMwZ9JgJ8F1ijFKa9V9EYiJcNNT3epSW+F38W?=
+ =?us-ascii?Q?uBgCabvmmq/21BPqm+DSsj49A/4xat5pScYevE6JQdGPA+nMRj7T0nvaG9Ds?=
+ =?us-ascii?Q?SckIYsZ1qP96sQtIMRN1kNRAEiDVq50ElG1Ek6Tg+mK4dYUMbdTT7XD4GDEO?=
+ =?us-ascii?Q?eiEy+dOahwJfzRTXmGv8ngtfacJT0wYLklZzT/8wXugi1KXJnpVsF7wYMwiG?=
+ =?us-ascii?Q?DnjJKtQIYC0BFZWs4nJge+xtDiXR9mshAlZQ?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?s9KPBxiWl6k1rf13Ywxj5OEKyw3U8SMs70a/mqc9fy7TdrmMxAstBmLT0i5O?=
+ =?us-ascii?Q?3wnc489f/N1ueeuxqvDP0SQWxLq/cQNAXNn4fn37Nk8HMHqljbINHECidUiJ?=
+ =?us-ascii?Q?lbOng+Dq/VUWn3BkXdGwKMh8frozzIODd/RypyNd5mVIrC2yi3m3qBu9QuD8?=
+ =?us-ascii?Q?qBFhFCOrMt6ObU5rd8iKqNWHuR8opzziUnzHN/FM+z/9Lbz5sjIwki3nOEi9?=
+ =?us-ascii?Q?+HeL5ZhL/pwATQLreU9GJPKcJq/ltryUXEvSJ1XvHXuBeEQQCuzvXi/6eRc+?=
+ =?us-ascii?Q?pKkYF3iU52Lj7RPhNIQOeOJzoNbEL1nh077rPA9fHjUm0oh/jFXImS1L1kLx?=
+ =?us-ascii?Q?6O7hFKQDDhs1bPt9/+kO6YXzRkQkv6oxLIJlyXSQjw3mLaakPEgr6mUovQop?=
+ =?us-ascii?Q?74dfwOInON0FykIRPvAyJhuuolbyTnhz26+q6C/PucvgjrXh1Eky+aozFuGU?=
+ =?us-ascii?Q?sFI4g7mYdhQKC9SHR6gyocRr1Jyo7qWlyZSvOq1EuCcsIWlU5aTYfr6kKD7Q?=
+ =?us-ascii?Q?fJq/m1BWPfCzLlO+Rqgm9/n1Ttfh3voGA141TC2YdoNMn0QafLcxdmP8t2Cg?=
+ =?us-ascii?Q?8aWtrKNuw/8GnNrB/qywpbADHxHI8C4kO1D3w8H5mCef6fOxP9iEE8wi5Nk9?=
+ =?us-ascii?Q?vVkaUoccEJaqSt5Vl/9GZV/Dg7i9cqMrOVqgLhwRLYA7nTuX0bAyEszkSazu?=
+ =?us-ascii?Q?meqP6gdoBMpi6Ec3DPRZPjvBqMNSLAuO85wbw5Y+1wDFLTMEFDlAzvOhnSLE?=
+ =?us-ascii?Q?sf2h1b/1j8lQqhcjTK82YQNcxPg9sb9XBIhWZteFQDVvrTiklfu0QhGc+AIQ?=
+ =?us-ascii?Q?WadPlngsNKy26ZU6YjLcEnXX3+u7tk44cYYi6fiUOHEyvIO7ZV+a7pmh74qI?=
+ =?us-ascii?Q?tTG/caZn0xpVvIfyA+RX9Xz+Us2AUqIOwWlBWET1wm7z4BFlGqn12BCsYDcm?=
+ =?us-ascii?Q?uk8Omd0Dwa8iV+4hcatto45jHkyM2eN7oyI+RpW93f1Q1ZU+vlv9gc+p7DxS?=
+ =?us-ascii?Q?5MvZYyWyABiwiCMs0qB0tUi8zF0lHiB6qXNyIlj5BFU0jQ9hmnQaFy91sb0R?=
+ =?us-ascii?Q?yuCq/2gBZrmW3XnUIm7w4pPYL2lgqnMj8XBgZ7pzMIqeRsAtc0Vpoxgtqzu1?=
+ =?us-ascii?Q?GAdAmRfMIC9dW8yUz5uOkJ7uh6+V5n1Fcxoi4pPrcj4R7r7yfOXewnldyicX?=
+ =?us-ascii?Q?5bAeybgpSBPc2Ztxs98ugy7OAQ35WzI9Vvk214/QuTAGyBYMJtXxslHv6DVw?=
+ =?us-ascii?Q?aeP0Q3tAZ7JRTl7kBYDU0lMYrKoNzqI1yT9tDkuzMxXlxx1KqM6g3ZlXcBf7?=
+ =?us-ascii?Q?z2rA2/ylk/0+/I0pDw1uaNQVa4PjIAqwdPAb+QDkcFy4RX5Myoka+S0xmRyO?=
+ =?us-ascii?Q?zv75bTkXrZeYlnQWx2b9y4nzTUcslbDBxXFaVYtLvUglP9dx7rsH5OLPJ4uf?=
+ =?us-ascii?Q?yeNn9TXyx0JB+hG+QzVEEqmt9x80Bcx4x2C6+OnpS6R/EVOyY9oAdXACik4N?=
+ =?us-ascii?Q?cUPjYXFQV3+JxD74KuSJaTXBZX64NfbX1nw+FdLQc2gyx+aa5ljYDPnvVDNx?=
+ =?us-ascii?Q?7/e/1ZfAgRyVkG/FNkE=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a260c1b-9a15-4e10-dcba-08de22ae45e6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Nov 2025 12:15:02.5214
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JEoPRS20qn9U2Zs4fx7cri9jIkU/4+3epyHg0lPUL1kECL28cN9mbgZLvtsQI/XN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_041004_507657_0171FBA0 
-X-CRM114-Status: GOOD (  36.48  )
+X-CRM114-CacheID: sfid-20251113_041508_941507_5D9031C2 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,305 +171,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+[Public]
 
-On 11/13/25 02:16, Fenghua Yu wrote:
-> Hi, Ben and James,
-> 
-> On 11/7/25 04:34, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Add code to parse the arm64 specific MPAM table, looking up the cache
->> level from the PPTT and feeding the end result into the MPAM driver.
->>
->> This happens in two stages. Platform devices are created first for the
->> MSC devices. Once the driver probes it calls acpi_mpam_parse_resources()
->> to discover the RIS entries the MSC contains.
->>
->> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
->> the MPAM driver with optional discovered data about the RIS entries.
->>
->> CC: Carl Worth <carl@os.amperecomputing.com>
->> Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
->> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-[...]
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Thursday, November 13, 2025 12:38 AM
+> To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>
+> Cc: gregkh@linuxfoundation.org; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>; linux-
+> usb@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; git (AMD-Xilinx=
+)
+> <git@amd.com>
+> Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: Describe the reset co=
+nstraint for
+> the versal platform
+>
+> On Wed, Nov 12, 2025 at 09:24:30PM +0530, Radhey Shyam Pandey wrote:
+> > AMD Versal platform USB 2.0 IP controller receives one reset input
+> > from the SoC controlled by the CRL.RST_USB [RESET] register so
+> > accordingly describe reset constraints.
+> >
+> > Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> > ---
+> >  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 43
+> > +++++++++++++++----
+> >  1 file changed, 34 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > index 36f5c644d959..cd0cc9da242f 100644
+> > --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> > @@ -50,17 +50,22 @@ properties:
+> >      description:
+> >        A list of phandles for resets listed in reset-names.
+> >
+> > -    items:
+> > -      - description: USB core reset
+> > -      - description: USB hibernation reset
+> > -      - description: USB APB reset
+> > +    oneOf:
+> > +      - items:
+> > +          - description: USB controller reset
+> > +      - items:
+> > +          - description: USB core reset
+> > +          - description: USB hibernation reset
+> > +          - description: USB APB reset
+> >
+> >    reset-names:
+> > -    items:
+> > -      - const: usb_crst
+> > -      - const: usb_hibrst
+> > -      - const: usb_apbrst
+> > -
+> > +    oneOf:
+> > +      - items:
+> > +          - const: usb_crst
+>
+> Why do we need all this oneOf stuff if both have the same first reset?
+> Can't you just set minItems: 1?
 
->> +        if (nid == NUMA_NO_NODE) {
->> +            pr_debug("Bad proxmity domain %lld, using node 0 instead\n",
-> 
-> Typo.
-> s/proxmity/proximity/
+Thanks. I have now set minItems:1 and defined compatible based
+reset min/max constraints. Doing some more validation and
+will send out the v2.
 
-Done.
+Example:
+--- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
++++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+@@ -47,6 +47,7 @@ properties:
+       - const: ref_clk
 
-> 
->> +                 res->locator.memory_locator.proximity_domain);
->> +            nid = 0;
->> +        }
->> +        return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
->> +                       255, nid);
->> +    default:
->> +        /* These get discovered later and are treated as unknown */
->> +        return 0;
->> +    }
->> +}
->> +
->> +int acpi_mpam_parse_resources(struct mpam_msc *msc,
->> +                  struct acpi_mpam_msc_node *tbl_msc)
->> +{
->> +    int i, err;
->> +    char *ptr, *table_end;
->> +    struct acpi_mpam_resource_node *resource;
->> +
->> +    ptr = (char *)(tbl_msc + 1);
->> +    table_end = ptr + tbl_msc->length;
-> 
-> tbl_msc->length equals size of the ENTIRE msc node. ptr points to the
-> end of tbl_msc. ptr + tbl_msc->length is past the end of the msc node.
-> This will access data outside of this MSC node.
-> 
-> Better to change to:
-> +    table_end = (char *)tbl_msc + tbl_msc->length;
+   resets:
++    minItems: 1
+     description:
+       A list of phandles for resets listed in reset-names.
 
-Yes, makes sense.
+@@ -56,6 +57,7 @@ properties:
+       - description: USB APB reset
 
-> 
->> +    for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
->> +        u64 max_deps, remaining_table;
->> +
->> +        if (ptr + sizeof(*resource) > table_end)
->> +            return -EINVAL;
->> +
->> +        resource = (struct acpi_mpam_resource_node *)ptr;
->> +
->> +        remaining_table = table_end - ptr;
->> +        max_deps = remaining_table / sizeof(struct acpi_mpam_func_deps);
->> +        if (resource->num_functional_deps > max_deps) {
->> +            pr_debug("MSC has impossible number of functional
->> dependencies\n");
->> +            return -EINVAL;
->> +        }
->> +
->> +        err = acpi_mpam_parse_resource(msc, resource);
->> +        if (err)
->> +            return err;
->> +
->> +        ptr += sizeof(*resource);
->> +        ptr += resource->num_functional_deps * sizeof(struct
->> acpi_mpam_func_deps);
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->> +/*
->> + * Creates the device power management link and returns true if the
->> + * acpi id is valid and usable for cpu affinity.  This is the case
->> + * when the linked device is a processor or a processor container.
->> + */
->> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
->> +                     struct platform_device *pdev,
->> +                     u32 *acpi_id)
->> +{
->> +    char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1] = { 0 };
->> +    bool acpi_id_valid = false;
->> +    struct acpi_device *buddy;
->> +    char uid[11];
->> +    int len;
->> +
->> +    memcpy(hid, &tbl_msc->hardware_id_linked_device,
->> +           sizeof(tbl_msc->hardware_id_linked_device));
->> +
->> +    if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
->> +        *acpi_id = tbl_msc->instance_id_linked_device;
->> +        acpi_id_valid = true;
->> +    }
->> +
->> +    len = snprintf(uid, sizeof(uid), "%u",
->> +               tbl_msc->instance_id_linked_device);
->> +    if (len >= sizeof(uid)) {
->> +        pr_debug("Failed to convert uid of device for power
->> management.");
->> +        return acpi_id_valid;
->> +    }
->> +
->> +    buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
->> +    if (buddy)
->> +        device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
-> 
-> Refcount leak here?
-> 
-> Refcount of the device object pointed by buddy is not released and
-> refcount leaks.
-> > Better to change to:
-> +    if (buddy) {
-> +        device_link_add(...);
-> +        acpi_dev_put(buddy);  <====== release refcount here
-> +    }
+   reset-names:
++    minItems: 1
+     items:
+       - const: usb_crst
+       - const: usb_hibrst
+@@ -95,6 +97,28 @@ required:
+   - resets
+   - reset-names
 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - xlnx,versal-dwc3
++    then:
++      properties:
++        resets:
++          maxItems: 1
++        reset-names:
++          maxItems: 1
++    else:
++      properties:
++        resets:
++          minItems: 3
++          maxItems: 3
++        reset-names:
++          minItems: 3
++          maxItems: 3
++
 
-Yes, device_link_add() calls get_device() to increment the refcount and
-so the acpi_dev_put() is required.
-
-> 
-> or free refcount automatically:
-> +DEFINE_FREE(acpi_dev_put, struct acpi_device *, if (_T) acpi_dev_put(_T))
-> ...
-> +    struct acpi_device *buddy __free(acpi_dev_put);
-> ...
-> 
->> +
->> +    return acpi_id_valid;
->> +}
->> +
->> +static int decode_interface_type(struct acpi_mpam_msc_node *tbl_msc,
->> +                 enum mpam_msc_iface *iface)
->> +{
->> +    switch (tbl_msc->interface_type) {
->> +    case ACPI_MPAM_MSC_IFACE_MMIO:
->> +        *iface = MPAM_IFACE_MMIO;
->> +        return 0;
->> +    case ACPI_MPAM_MSC_IFACE_PCC:
->> +        *iface = MPAM_IFACE_PCC;
->> +        return 0;
->> +    default:
->> +        return -EINVAL;
->> +    }
->> +}
->> +
->> +static struct platform_device * __init acpi_mpam_parse_msc(struct
->> acpi_mpam_msc_node *tbl_msc)
->> +{
->> +    struct platform_device *pdev __free(platform_device_put) =
->> +        platform_device_alloc("mpam_msc", tbl_msc->identifier);
->> +    int next_res = 0, next_prop = 0, err;
->> +    /* pcc, nrdy, affinity and a sentinel */
->> +    struct property_entry props[4] = { 0 };
->> +    /* mmio, 2xirq, no sentinel. */
->> +    struct resource res[3] = { 0 };
->> +    struct acpi_device *companion;
->> +    enum mpam_msc_iface iface;
->> +    char uid[16];
->> +    u32 acpi_id;
->> +
->> +    if (!pdev)
->> +        return ERR_PTR(-ENOMEM);
->> +
->> +    /* Some power management is described in the namespace: */
->> +    err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
->> +    if (err > 0 && err < sizeof(uid)) {
->> +        companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
->> +        if (companion)
->> +            ACPI_COMPANION_SET(&pdev->dev, companion);
-> 
-> Ditto. companion's refcount leak here as well?
-
-Looks like it. Added a acpi_dev_put().
-
-> 
->> +        else
->> +            pr_debug("MSC.%u: missing namespace entry\n",
->> +                 tbl_msc->identifier);
->> +    }
->> +
->> +    if (decode_interface_type(tbl_msc, &iface)) {
->> +        pr_debug("MSC.%u: unknown interface type\n", tbl_msc-
->> >identifier);
->> +        return ERR_PTR(-EINVAL);
->> +    }
->> +
->> +    if (iface == MPAM_IFACE_MMIO)
->> +        res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
->> +                               tbl_msc->mmio_size,
->> +                               "MPAM:MSC");
->> +    else if (iface == MPAM_IFACE_PCC)
->> +        props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->> +                            tbl_msc->base_address);
->> +
->> +    acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
->> +
->> +    WARN_ON_ONCE(next_res > ARRAY_SIZE(res));
-> 
-> Not sure if this WARN_ON_ONCE() is really helpful.
-> 
-> Even before this WARN happens, previously res[next_res] accesseing
-> outside of res[] may hit panic or data corruption already.
-> 
-> Maybe it's better to add a helper to access res[] and report error when
-> accessing out of res[] scope. A few places can call the helper to access
-> res[]:
-
-This warning looks to be there just to catch programming errors. There
-are 3 places next_res could be incremented and res[] has 3 entries so I
-don't see how an out of bounds access could occur without code changes
-and as accesses are made using res[next_res++], or equivalent, it is
-likely this warning would be hit if a new res is added without
-remembering to increase the size of the array. Given this, I'll keep
-this code as it is.
-
-> 
-> +static int add_resource(struct resource *res, int *idx, int max,
-> +            struct resource new_res)
-> +{
-> +    if (*idx >= max) {
-> +        pr_err("Too many resources (max %d)\n", max);
-> +        return -ENOSPC;
-> +    }
-> +    res[(*idx)++] = new_res;
-> +    return 0;
-> +}
-> 
-> Then can call the helper to replace res[next_res++]:
-> +    if (iface == MPAM_IFACE_MMIO) {
-> +        err = add_resource(res, &next_res, ARRAY_SIZE(res),
-> +                 DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
-> +                               tbl_msc, +                           
-> mmio_size,
-> +                               "MPAM:MSC"));
-> +        if (err)
-> +            return ERR_PTR(-ENOSPC);
-> +    }
-> 
->> +    err = platform_device_add_resources(pdev, res, next_res);
->> +    if (err)
->> +        return ERR_PTR(err);
->> +
->> +    props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
->> +                        tbl_msc->max_nrdy_usec);
->> +
->> +    /*
->> +     * The MSC's CPU affinity is described via its linked power
->> +     * management device, but only if it points at a Processor or
->> +     * Processor Container.
->> +     */
->> +    if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id))
->> +        props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
->> acpi_id);
->> +
->> +    WARN_ON_ONCE(next_prop > ARRAY_SIZE(props));
-> 
-> Ditto for this WARN here?
-
-Similarly to above, this is just guarding against later adding more
-properties. This one can be tightened though as
-device_create_managed_software_node() expects a zero terminated array.
-Changing to:
-
-WARN_ON_ONCE(next_prop > ARRAY_SIZE(props) - 1);
-
-> 
-> [SNIP]
-> 
-> Thanks.
-> 
-> -Fenghua
-Thanks,
-
-Ben
-
+>
+> > +      - items:
+> > +          - const: usb_crst
+> > +          - const: usb_hibrst
+> > +          - const: usb_apbrst
+> >    phys:
+> >      minItems: 1
+> >      maxItems: 2
+> > @@ -95,6 +100,26 @@ required:
+> >    - resets
+> >    - reset-names
+> >
+> > +allOf:
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            enum:
+> > +              - xlnx,versal-dwc3
+> > +    then:
+> > +      properties:
+> > +        resets:
+> > +          maxItems: 1
+> > +        reset-names:
+> > +          maxItems: 1
+> > +    else:
+> > +      properties:
+> > +        resets:
+> > +          minItems: 3
+> > +        reset-names:
+> > +          minItems: 3
+> > +
+> >  additionalProperties: false
+> >
+> >  examples:
+> >
+> > base-commit: b179ce312bafcb8c68dc718e015aee79b7939ff0
+> > --
+> > 2.34.1
+> >
 
