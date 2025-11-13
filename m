@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B28CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE72CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=583dJEBabhOLtZnyQafdNj+T2+TN+CFjj2gjRihiiGU=; b=DHi8EnkzWIT7Ma0jKqLSUKnRoX
-	8Wk5IWUoFwaSXS2UJtk3gsKT4gv+BdPPVfMAc/OAYL5S+MrEKcfarKG3Jk+3pLp2qQNK6u07V8pdB
-	WrkFxdAwBa4snsr2CvUew8EOq9NJXRsrOJRJCTqdKyDcugS5IcXQ9yYeAx5lIBHieG8T6f3zEEAz1
-	UgqM//JS5k+2Zyxusk4w7W019MLJrbXB6tfKny3afPaB33pZR4hw2ROGxilU7vqWqlmvC8Gbs8dWi
-	fxkh1c++kPPy/IEP7TpBxSklt8qCUa78LcWMfU/BGXPnbxXrzqROyOE4NxIGkMj3nASu29/yj2qFz
-	ZIGDrr+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IAH0ljWgr/r7rtXP8CHeFZ266fhcWeM8ywYAtKpwpc4=; b=OObx4NkNWOAyjOGDI4QkRQBtm1
+	ChS77CKscCOYOk1QPHiGtBKcAesiQclyyWeB/xhr1F2qeETpOjKMLOi66Rbu/SnwpRSExB8N3f9Id
+	8q2SqXfGJX/mINY7gOOioc8+Xu1yI4r+qmM5ox5tZMz/zTqdsdRKHacSQx0Y6FHNfudQ8ekLL4hsF
+	HT9P/jLE0pU+t0aAZshH6XXzCbwjj3nv5zLzOOvJT3nrCZdgG1mGLm4fyi41JBM2mhZ1fOUxUFxoZ
+	iOMupsmuS+SqbmxuzuCDQnqR64lmFaGbCcl7pEJ54voUPz2Mx4I4dHA6fQl8zlQG3dJiB4yvH/umM
+	qOszLypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJftB-0000000BBnf-3YQ7;
-	Thu, 13 Nov 2025 22:34:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJftA-0000000BBnW-2Tyk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 22:34:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FFE760149;
-	Thu, 13 Nov 2025 22:33:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9AFC4CEF7;
-	Thu, 13 Nov 2025 22:33:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763073239;
-	bh=ZomP9AbfNlKZXi56JMsQPWtvmmMeRaVV4VF65hib0gA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G+SorA+T3oiYjAaWcO8c9g2c8W82OReP7LPLrfICb7Q9fEn/bbZEuoh/2cayVXbj1
-	 6HsZOxZjfPp1eY9zGi78KJrTpOlFzr+lA/PZUho75r/isGPWLiaTYwQHQ3uehrOc1M
-	 Mfeb70ytgLuMZ9EgVEHW/ECEs4JnP80O0Nv5q2Byd3OhFqCmnb5tUlBV/l90Xkd5B6
-	 EhmK9qpjthxP2Iq0MkH2HCoOPdjQahUuAeMdM/KfQfLUSUktIwGjluFi4wN55MFRke
-	 5c+IQK0PXlLBRaby9MEpFZlBJUp+yA1gomij6ZTpAXb4yhh7PVuzyrD+rMG19wM7YL
-	 sms6HbHcZBejQ==
-Date: Thu, 13 Nov 2025 14:33:57 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: oliver.upton@linux.dev, maz@kernel.org, duenwen@google.com,
-	rananta@google.com, jthoughton@google.com, vsethi@nvidia.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com,
-	corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
-Message-ID: <aRZc1SqU01Cyxc5Y@kernel.org>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <176305834766.2137300.8747261213603076982.b4-ty@kernel.org>
- <CACw3F51cxSgd-=D46A6X6GptEZS8-JZ_MnB_yK_ZR1wktunYRA@mail.gmail.com>
+	id 1vJftf-0000000BBsy-2ofC;
+	Thu, 13 Nov 2025 22:34:31 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJftd-0000000BBsF-2zge;
+	Thu, 13 Nov 2025 22:34:29 +0000
+Message-ID: <6757912e-c729-4114-8aea-44a34a9c3a3d@infradead.org>
+Date: Thu, 13 Nov 2025 14:34:28 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+To: Shenwei Wang <shenwei.wang@nxp.com>,
+ Daniel Baluta <daniel.baluta@gmail.com>, Rob Herring <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ dl-linux-imx <linux-imx@nxp.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-4-shenwei.wang@nxp.com>
+ <20251112125741.GB1319094-robh@kernel.org>
+ <CAEnQRZB4ymvSERKhJW=PAk5xA2JYD=i4wzkbumj_g5S8BjONjg@mail.gmail.com>
+ <1dd236fc-26f7-4c02-b183-c3fc13d24767@infradead.org>
+ <PAXPR04MB9185B7827B1CCD1CD8D0E9B389CDA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <PAXPR04MB9185B7827B1CCD1CD8D0E9B389CDA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACw3F51cxSgd-=D46A6X6GptEZS8-JZ_MnB_yK_ZR1wktunYRA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +74,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 02:14:08PM -0800, Jiaqi Yan wrote:
-> On Thu, Nov 13, 2025 at 1:06 PM Oliver Upton <oupton@kernel.org> wrote:
-> >
-> > On Mon, 13 Oct 2025 18:59:00 +0000, Jiaqi Yan wrote:
-> > > Problem
-> > > =======
-> > >
-> > > When host APEI is unable to claim a synchronous external abort (SEA)
-> > > during guest abort, today KVM directly injects an asynchronous SError
-> > > into the VCPU then resumes it. The injected SError usually results in
-> > > unpleasant guest kernel panic.
-> > >
-> > > [...]
-> >
-> > I've gone ahead and done some cleanups, especially around documentation.
-> >
-> > Applied to next, thanks!
-> 
-> Many thanks, Oliver!
-> 
-> I assume I still need to send out v5 with typo fixed, comments
-> addressed, and your cleanups applied? If so, what specific tag/release
-> you want me to rebase v5 onto?
 
-No need -- I took care of the issues I spotted when applying, LMK if
-anything looks amiss on kvmarm/next.
 
-Thanks,
-Oliver
+On 11/13/25 2:23 PM, Shenwei Wang wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Randy Dunlap <rdunlap@infradead.org>
+>> Sent: Wednesday, November 12, 2025 3:18 PM
+>> To: Daniel Baluta <daniel.baluta@gmail.com>; Rob Herring <robh@kernel.org>
+>> Cc: Shenwei Wang <shenwei.wang@nxp.com>; Bjorn Andersson
+>> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>;
+>> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+>> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+>> <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Linus Walleij
+>> <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>; Pengutronix
+>> Kernel Team <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>;
+>> Peng Fan <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+>> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+>> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+>> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+>> Subject: [EXT] Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
+>> On 11/12/25 5:35 AM, Daniel Baluta wrote:
+>>> On Wed, Nov 12, 2025 at 2:59 PM Rob Herring <robh@kernel.org> wrote:
+>>>>
+>>>> On Tue, Nov 04, 2025 at 02:33:13PM -0600, Shenwei Wang wrote:
+>>>>> Describes the gpio rpmsg transport protocol over the rpmsg bus
+>>>>> between the cores.
+>>>>>
+>>>>> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+>>>>> ---
+>>>>>  Documentation/staging/gpio-rpmsg.rst | 202
+>> +++++++++++++++++++++++++++
+>>>>>  Documentation/staging/index.rst      |   1 +
+>>>>
+>>>> Why is this in staging when none of the drivers are?
+>>>
+>>> I guess that's because remoteproc.rst and rpmsg.rst are in
+>>> Documentation/staging and that's because when converting them from
+>>> .txt to .rst the author didn't know a good place where to move them.
+>>>
+>>> Would Documentation/driver-api be a good place for these doc files? I
+>>> can move them and then Shenwei place the gpio-rpmsg.rst in the
+>>> Documentation/driver-api also
+>>
+>> Documentation/driver-api/gpio/ if its driver documentation.
+>> Documentation/userspace-api/gpio/ if it user API docs There is also gpio
+>> documentation in Documentation/admin-guide/gpio/ which could also be
+>> appropriate depending on the nature of the document.
+>>
+> 
+> Thanks Randy!
+> 
+> Do we have a final decision on where to place this document?
+> My thought is that Documentation/driver-api/gpio/ seems more appropriate. 
+> However, it’s worth noting that while this is a driver-related document, it doesn’t describe the driver API itself.
+
+I agree that in driver-api/gpio/ seems to be the best place for it.
+(even though it's not my call)
+
+-- 
+~Randy
+
 
