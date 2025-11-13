@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC860CD5BCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF74CD5BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kstUxXctzALc3r6mHu6J3NJbeAPLhvcpKA5iAHi8E80=; b=PAC1dhsP0lLil62UtMdVtj22Oz
-	pSXnqf/Pk5+DNkYNtVRBkkcdZBlIeheBNkYh+NDuhZSSJmjSMwHW7XZywh8qw+ip0TaZilghhyYiT
-	eVoE84uVCA6EaS2/WJbJDdIk4ksQ4kftiJIhBfkuDwplCz4X2zI3WLCVT9K8aNUV3nxJyvbFfstae
-	ILwVy5shgMqPJSY6RXFrB/0lyvcpZpEWmDry0fLIYMHEfR3dD4OApLrS2PjYQmxBghnnWpJMLHXoR
-	gJ9y/m1s+XnCBntDFDfJiHHjLt8Ecae8R3S3ac+5070m8eI9oDPFoPDjP1Cusv74hxopzn+7D0XAy
-	7SETW0Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdG50GdO6gAEhJsxfa+nmzU70gs6Qy9WO2otRykW7Bo=; b=eFLGomYuLfhgov6KSBpE2DkSOq
+	NIN86uc7BufB3sXsEwDJpnntGH/y5JeW+ptDFGbJhlxpHIqry1M0mdIj/025xMtYzLVKvrl/fk6/3
+	+Ju4eF9EYJ5hLcT/iHDqVBS9TwMqIPEOAxROzJsL7/rBzTGSBcNHq5qL7LiY+y6N9a3qG7PiW2Dgm
+	bLU9uNWDarb77RygSfFMCLLuy3/iV/8Vqs1EFRChT3BkshFtPcyN/NBSpFddrXugLaQZJpn2kkZ8l
+	LXvscYOlmBMpjAtxnbgLs5IS3cMi9vVHFBZJtaAXp1xz5GH7zBZj6CinTP4dzMUA8/5SBuFAVlCvz
+	2P4eqG7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVar-0000000AOpN-16Df;
-	Thu, 13 Nov 2025 11:34:25 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1vJViM-0000000APPT-18U6;
+	Thu, 13 Nov 2025 11:42:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVao-0000000AOnK-3yry
+	id 1vJViK-0000000APPL-2YtB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 11:34:24 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4d6dTC663Vz9t9s;
-	Thu, 13 Nov 2025 12:34:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1763033647;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kstUxXctzALc3r6mHu6J3NJbeAPLhvcpKA5iAHi8E80=;
-	b=lkhjf2bugBr8TeoCb0ZzOBM0DsINKupPBIdRwGnhRqoTv2mFtNO1B8+oWW3FtNoI1aR6Y5
-	lgCYLSgrWZLc1v01kB/g7qw/zsDs7iyvBDzg6yXJiwuFAk/k2i1+CxlG6HFK1/RtSv2H+1
-	WpKP4kIBl9vqND3Vuu/E88hm1AKtQKvSY7kwDlErNfF9HAWhJhpLiZK/Cg1GWkJEDXfVAH
-	02ujI/5S/pMV6GYs4RlT/tpeb5niqTrV4A6tB0mZ9LYLA+6DY5rDIGDAyID8JaNmQR0h/w
-	Hb5zD+lQLV9yssY2mB7uoZOrg9Uih1isCNOWRrSEHkmSSs/moMZ+/PcbW2ndzw==
-Message-ID: <032bfb41-413d-4d59-aa66-7f109af4422d@mailbox.org>
-Date: Thu, 13 Nov 2025 12:34:03 +0100
-MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <aPoxfH_TLrsMxMVQ@pluto> <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
- <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org> <aRW7BZimWdpq4TyX@pluto>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aRW7BZimWdpq4TyX@pluto>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: e9d5488ffa9da467466
-X-MBO-RS-META: e53boqqq1douzuw15mwdychamyjjxw4y
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_033423_165054_33EBB5FF 
-X-CRM114-Status: GOOD (  19.89  )
+	Thu, 13 Nov 2025 11:42:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8573660219;
+	Thu, 13 Nov 2025 11:42:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C21CC4CEF8;
+	Thu, 13 Nov 2025 11:42:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763034127;
+	bh=QgHFt6FHIW10WhXSanDVm43md4tZOo1qLvXd9ZzB3AE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ytsd/mir0Lv9XI9rvJ+l8/nj1mIvaqoya/2pOSw1uoH+DeioGBHDiC66Tx+ZT2lBX
+	 hCndMN2VVpgy8VqruA5HYa8MOr4XUrEsVIzC8/k1jdVMM5wWOlFXGl0/k0DsOy7w2b
+	 DmNG9Lc24s3U4XgJVRCszq4tNHsW6NPaA5zH3a87YDVZZq/ctX5czwITd7PmZsqdT+
+	 mo9QfdJBIiZjqtOVvP2RCVLi/IZJOlx1osW+6bBJ4KA8JTlA4GUfjRtG162K29Mbt6
+	 pCnUKWKXigCKBNb2ZaL1k9LneO5gfbrTre2pYjf8UbV36kV1ECEt0YzNOI2W08SE5A
+	 mj+Q9F+5yZf/Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJViG-00000004rK3-3hWQ;
+	Thu, 13 Nov 2025 11:42:04 +0000
+Date: Thu, 13 Nov 2025 11:42:04 +0000
+Message-ID: <86pl9mtb03.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
+In-Reply-To: <20251113112333.GA1434041@e124191.cambridge.arm.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-5-maz@kernel.org>
+	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
+	<b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
+	<86seeitd3f.wl-maz@kernel.org>
+	<5a0aac14-6d1f-4941-b0d1-bb60572e7a6e@samsung.com>
+	<20251113112333.GA1434041@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, m.szyprowski@samsung.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,72 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/25 12:03 PM, Cristian Marussi wrote:
+On Thu, 13 Nov 2025 11:23:33 +0000,
+Joey Gouly <joey.gouly@arm.com> wrote:
 
-Hello Cristian,
+> I suppose the issue is that the alternatives in vgic_ich_hcr_trap_bits() are
+> always calculated, even if that function is only used from the gic-v3 code.
+> Calculating the trap bits reads ICH_VTR_EL2, which needs FEAT_GICv3.
 
-> bit of a late reply...
+Except that we have a bunch of rotten fruits that only have half a
+GICv3, so relying on FEAT_GICv3 isn't useful if we want to continue
+supporting these machines in the foreseeable future.
 
-No worries, I am buried under email myself, take your time.
+The fix for this is, I expect, what I posted at [1].
 
->>>> On Thu, Oct 23, 2025 at 02:35:57PM +0200, Marek Vasut wrote:
->>>>> Document new property arm,poll-transport, which sets all SCMI
->>>>> operation into
->>>>> poll mode. This is meant to work around uncooperative SCP
->>>>> implementations,
->>>>> which do not generate completion interrupts. This applies
->>>>> primarily on mbox
->>>>> based implementations, but does also cover SMC and VirtIO ones.
->>>>
->>>> Hi,
->>>>
->>>> ..indeed I was thinking a while ago about exposing the existing
->>>> force- polling
->>>> switch but in my case it was purely a testing-scenario
->>>> configuration, so a
->>>> no-no for the DT, things are different if you have to describe an HW
->>>> that has
->>>> no completion IRQ also on the a2p channel...
->>>
->>> Correct, at least until the SCP on this hardware is updated.
->>>
->>>> ...having said that, though, usually polling-mode is reserved to a few
->>>> selected commands in a few chosen scenarios (as you may have seen),
->>>> 'carpet-polling' non-for-testing for all the commands on A2P seems a lot
->>>> inefficient and heavy...is it really a viable solution ? or these
->>>> systems use such a low rate of SCMI messages that polling after each and
->>>> every message is negligible ?
->>>>
->>>> ..just to understand the context...
->>>
->>> These systems are early in development and it is likely that the SCP
->>> will be updated to generate interrupts properly. Currently, this is not
->>> the case, hence the carpet-polling, until this is resolved.
->>
->> While I was going through the SCMI spec, DEN0056F , page 209 , section "4.1
->> Shared memory based transport" , bullet • Completion interrupts, I found it
->> explicitly states:
->>
->> "
->> This transport supports polling or interrupt driven modes of communication.
->> In interrupt mode, when the callee completes processing a message, it raises
->> an interrupt to the caller. Hardware support for completion interrupts is
->> optional.
->> "
-> 
-> Oh, yes...I knew that...it is just that till now, no systems were really
-> ever developed that lacked the completion IRQ as a whole, it was, till now,
-> more of a case of having the capability NOT to use it selectively at runtime
-> and instead use polling when wanted (like for clock ops in ISR context)
-> 
-> I am not sure what is the reason why this only-polling scenario was never
-> supported in the HW description, this indeed pre-dates my work on SCMI....
-> ...I would/will check with Sudeep, when he's back, what are the reasons for
-> this (if any)...
+Thanks,
 
-Thank you !
+	M.
+
+[1] https://lore.kernel.org/r/86seeitd3f.wl-maz@kernel.org
 
 -- 
-Best regards,
-Marek Vasut
+Without deviation from the norm, progress is not possible.
 
