@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D401FCD4F28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195C9CCFA18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 06:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TsCv3+cJ+T1nVfr75kjuiGgZn2uIqwLNHM/E0w+NzcM=; b=ZSo8l7ExXEU2Oj5rcABOsLjKEn
-	KR6oZDncoo73vhYoPikuqzyz8u8Se7TX8KtBK6tYnRVC2ZIuIkdZSOg/lHdEoXNS23YWEFpfZKsOq
-	5hmR0Tw2cRLhldRRwBD7Zxw7daU16IhiQclIwl6K4d05eMS5M8eKyiToLoQ0tcSlebjPfqMizynLE
-	ppjBIwJxzxHOX4AlCg5br/fScMWohAd5vYJl8S0zVW2x7VD435E5SvPDJ1mZpPLFJJK4w08Bf/tpN
-	9JwVVWHUT6pdvVgZXGGMwmSE3bQH8A1v8bThbPIJ+DGBVPieQ9wDUZzI8sNudDpMAwUF4hxH+CMyT
-	3f7RcEfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=fhcEhnT4KvHOonmk1YCZsf0kTUFCWo0RLPs6umghfh0=; b=eQuAnwogrHN5akjzMHSIJVjPnc
+	eM91k/ST1IptpZBoo2wKKXEfuiIJkjR0u7RYi/QDcwRa6FJcwZUcp4PO8nUCgJoC9e+t81sKsZBVK
+	c4zvDdTa2mMokyXqwlEfKonqwksyGhvh4OmAieXJpFOD/ASpWrivYDneDuQCyD6JzMDjsb0eGkO7S
+	23MXeB6iPepP67R+L+OcFyB2LZDw7Mplwvx9f+zVfmN1ca89nmB42G0ggFdra9LBu1jSEA7UNdAOI
+	qNamGabcdyoUGNzI13yTqCZOVz2U+VY4VVA0ORXoLd3fvdJ8NMiRcqaZiK8LqDXb24jwUoEMa5NeR
+	9En5aA8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJQkv-00000009xBK-1afn;
-	Thu, 13 Nov 2025 06:24:29 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1vJR0f-00000009xe4-3U2i;
+	Thu, 13 Nov 2025 06:40:45 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJQks-00000009xAh-1I93;
-	Thu, 13 Nov 2025 06:24:28 +0000
-Received: from LAPTOP-N070L597.localdomain (unknown [58.241.16.34])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 296eb37ed;
-	Thu, 13 Nov 2025 14:24:18 +0800 (GMT+08:00)
-From: Zilin Guan <zilin@seu.edu.cn>
-To: nbd@nbd.name
-Cc: lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	jianhao.xu@seu.edu.cn,
-	Zilin Guan <zilin@seu.edu.cn>
-Subject: [PATCH net] mt76: mt7615: Fix memory leak in mt7615_mcu_wtbl_sta_add()
-Date: Thu, 13 Nov 2025 06:24:15 +0000
-Message-Id: <20251113062415.103611-1-zilin@seu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1vJR0c-00000009xdK-1Jvg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Nov 2025 06:40:44 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251113064033epoutp03e4fa8088550a026c04bf4a9a7025d368~3fb3yvA0L0307203072epoutp03m
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:40:33 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251113064033epoutp03e4fa8088550a026c04bf4a9a7025d368~3fb3yvA0L0307203072epoutp03m
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763016033;
+	bh=fhcEhnT4KvHOonmk1YCZsf0kTUFCWo0RLPs6umghfh0=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=GcHUH12sPOefPmyTGpLtpIjepR9DmMNf/aENZNhUvnjzdaqFux96JKxJrpsvBCDwX
+	 wzQ4/5BGurqME6zVb6u/6zTbNP/fr4PKc6bjI33rHDmDnrRtC0nqpNoLYMK5g8pBxS
+	 DEZdbeFA/eAwsAmdAKFqNTMVxInfCD+jRQ/r4WrQ=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20251113064033epcas2p3aed9145c058d905ac5833ff4bbc9d553~3fb3by6Hc0175501755epcas2p3L;
+	Thu, 13 Nov 2025 06:40:33 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.208]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4d6VyT1P1Kz2SSKt; Thu, 13 Nov
+	2025 06:40:33 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20251113064032epcas2p316f2b271e581d03b729a5944d9624d49~3fb2guVks0175501755epcas2p3C;
+	Thu, 13 Nov 2025 06:40:32 +0000 (GMT)
+Received: from asswp60 (unknown [10.229.9.60]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251113064032epsmtip2ffd412734659ee2cb9579ed2896b637d~3fb2bcIEO0149501495epsmtip2v;
+	Thu, 13 Nov 2025 06:40:32 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Henrik Grimler <henrik@grimler.se>, Shin Son <shin.son@samsung.com>,
+	linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 RESEND 0/3] Add exynosautov920 thermal support
+Date: Thu, 13 Nov 2025 15:40:19 +0900
+Message-ID: <20251113064022.2701578-1-shin.son@samsung.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a7be2e11303a1kunm4a412972110eee
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSBhLVkwdQ00eHh1LSh8eT1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlOQ1VJT0pVSk1VSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSUJDQ0xVSktLVUtZBg
-	++
-DKIM-Signature: a=rsa-sha256;
-	b=QHLrg1omORyQvGJuKbNRFxk3dRh3/GYzA5JngeZw/cgJz3tz9ACgBW2bd3Z6+7rYA7SajuYdGSRCfo3P1grhQ8VrnZfDX+cHJ/9pHnYzszEMp25biRgeaWIqL2ppQm2fXklqxBYJFMEIimNPxykQC0RGK2732adun6WtugWOBng=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
-	bh=TsCv3+cJ+T1nVfr75kjuiGgZn2uIqwLNHM/E0w+NzcM=;
-	h=date:mime-version:subject:message-id:from;
+X-CMS-MailID: 20251113064032epcas2p316f2b271e581d03b729a5944d9624d49
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251113064032epcas2p316f2b271e581d03b729a5944d9624d49
+References: <CGME20251113064032epcas2p316f2b271e581d03b729a5944d9624d49@epcas2p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251112_222426_962497_DE00FBBC 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251112_224043_041541_D148667B 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +95,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mt7615_mcu_wtbl_sta_add(), an skb sskb is allocated. If the
-subsequent call to mt76_connac_mcu_alloc_wtbl_req() fails, the function
-returns an error without freeing sskb, leading to a memory leak.
+This is a gentle reminder.
+The v7 series was first sent on Oct 16 and resent on Oct 31.
+Any review or feedback would be appreciated when you have time.
 
-Fix this by calling dev_kfree_skb() on sskb in the error handling path
-to ensure it is properly released.
+This patch series adds support for exynosautov920, automotive-grade
+processor. Although the exynosautov920's TMU hardware differs slightly
+from exisiting platform, its read and calibration logic closely follow
+our legacy TMU interface. To prevent runtime and build time errors,
+it is kept as a single change rather than being split.
 
-Fixes: 99c457d902cf9 ("mt76: mt7615: move mt7615_mcu_set_bmc to mt7615_mcu_ops")
-Signed-off-by: Zilin Guan <zilin@seu.edu.cn>
----
- drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+This change merges the new exynosautov920-specific register definitions and
+timing parameters into the exynos-tmu driver, ensuring consistent behavior
+across all Exynos series. All new code paths have been tested on a
+exynosautov920 board and verified to correctly read temperatures and
+emulate behavior.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-index 4064e193d4de..08ee2e861c4e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-@@ -874,8 +874,10 @@ mt7615_mcu_wtbl_sta_add(struct mt7615_phy *phy, struct ieee80211_vif *vif,
- 	wtbl_hdr = mt76_connac_mcu_alloc_wtbl_req(&dev->mt76, &msta->wcid,
- 						  WTBL_RESET_AND_SET, NULL,
- 						  &wskb);
--	if (IS_ERR(wtbl_hdr))
-+	if (IS_ERR(wtbl_hdr)) {
-+		dev_kfree_skb(sskb);
- 		return PTR_ERR(wtbl_hdr);
-+	}
- 
- 	if (enable) {
- 		mt76_connac_mcu_wtbl_generic_tlv(&dev->mt76, wskb, vif, sta,
+Changes in v7:
+- Use lowercase hex for register address
+- Dropped unnecessary 'minItems' from properties.
+- Added restriction for 'clock-names'
+
+Changes in v6:
+- Add a reviewer for the thermal driver patch.
+
+Changes in v5:
+- Changed the maximum number of thermal sensors to 15.
+
+Changes in v4:
+- Kept 'addtionalProperties: false'.
+- Removed the 'samsung,hw-sensor-indices' property in the binding.
+- Added the 'samsung,sensors' property in the binding.
+- Dropped code-like formatting and rewrote the description in plain,
+  hardware-focused language in the commit message.
+- Removed the bitmap and replaced the tz_count to sensor_count.
+
+Changes in v3:
+- Removed redundant commit message.
+- Rephrased the sentences to describe the hardware clearly.
+- Restricted sensor indices to V920.
+- Set #thermal-sensor-cells per variant.
+- Replaced 'additionalProperties' with 'unevaluatedProperties'.
+- Removed the duplicate #define and use the original.
+- Used lowercase hex in #define.
+- Simplified 'temp_to_code' and 'code_to_temp' to one computation
+  path by normalizing calib_temp.
+
+Changes in v2:
+- Replace the generic property with a vendor-specific one.
+- Added an indices property instead of ranges.
+- Shortened thermal node name and made them more generic.
+- Updated the indices logic accordingly after removing the ranges property.
+
+Shin Son (3):
+  dt-bindings: thermal: samsung: Adjust '#thermal-sensor-cells' to 1
+  thermal: exynos_tmu: Support new hardware and update TMU interface
+  arm64: dts: exynosautov920: Add multiple sensors
+
+ .../thermal/samsung,exynos-thermal.yaml       |  33 +-
+ .../boot/dts/exynos/exynosautov920-tmu.dtsi   | 377 ++++++++++++++++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |  31 ++
+ drivers/thermal/samsung/exynos_tmu.c          | 322 +++++++++++++--
+ 4 files changed, 725 insertions(+), 38 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+
 -- 
-2.34.1
+2.50.1
 
 
