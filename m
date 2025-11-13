@@ -4,95 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBE4CD5BA0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563EECD5BA0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UjOMsFb9kbRymmKpTR/5HYw4uxQJJRFpFEQGX6ehQ0=; b=I4bl7El7airfjPZ8/N3SBa++c+
-	NfXgXeAyaHn1TW9d8b1foieca2jdJRbyNu+ho9BvwHlW8hvF4PMxyDeOUI9mlzAWsHfONNDlKec8V
-	/auoHpeNvw5dQZKmcmb1R5nqG8HmM40pMVEh6z30SaWzbFPeXYqNFLDZGxTw90QvElXRC/nvNT7M4
-	R1k05kXN5wWQcnQlErlnmYeabBaHSeyYSshtWGsP05d+d3/SVMSTDokRp/DEBvjsElW3mzIf2eFPn
-	V8jkzFRX3cZL81Ghuq1sgNy/QWwrovwWVKO0J95J0rMAU6RJTmHLHNF88iMNowtct4TsZfx1NvLst
-	cuhHlKFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vMttMlk5U7Cky1BrHipanjy9/tMXuNemUExNF7IHqD4=; b=4VJG01LBGEGfUSVHI9k1CmgzTc
+	etcp68inTJ2lUGSXIX9iho+LuM0TTBail8Qcg3bU0xjkEAMxtGQiZ+qW4evsiltHuTlmzh2VxtzVu
+	O+o89u5d37hpicL789bGSNZLpLroakUdLtFlyZIYaoqjqYU2MqJE/Rtvon38I60BU36qa9L8xUS4e
+	YurrIBArSeAFWT6dF5W4lqC52Ou17+w6psYkDbrr5NwaUGkmWUUJqMSXyKim0SFZd8I0n+vaPoDsu
+	B9+Qr9bbpORcTQ/uN2NYiUA7I+1pIEzCg9NXVTtIYmh9Dt3gAdV0AVrzn+4aayJ8EgOZUMXA+Tehe
+	GQQMweig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTGY-0000000A9qX-434Q;
-	Thu, 13 Nov 2025 09:05:18 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTGV-0000000A9pF-2asN
+	id 1vJTKk-0000000AALg-1jrI;
+	Thu, 13 Nov 2025 09:09:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJTKh-0000000AAL8-37YU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 09:05:16 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4710022571cso5353695e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 01:05:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763024713; x=1763629513; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3UjOMsFb9kbRymmKpTR/5HYw4uxQJJRFpFEQGX6ehQ0=;
-        b=dvePIUls0dM/URCalNEZ30/jtOJ+obglo+ILV1wderN+CTRQ3qxX4//DmFe4zg28by
-         CUqS8DxJgoW1pgPZi+YGwVNpvyJfZjEpxwtQZqxugypgQJcONtJ3q5NOrTgwpTw7yN0z
-         hQKEnwR0xSajGDhJMXqSTKuQYBIntBJ3xw8rdodnkShsP1G+RyaXTKuL+80zF4oogU6U
-         ZwaP+UqhoBScxkgAN3hK0KHyZPYn0JFk71KpU4fVeG6z1+7bY75JwFUIfXgloT02qZt/
-         BgyyyYjWQSc4xtDbnX44ofTWKfbaAbApIujfdzq2r5h8Cife1QMUioUSpykK8Xuq2DnY
-         8Fow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763024713; x=1763629513;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3UjOMsFb9kbRymmKpTR/5HYw4uxQJJRFpFEQGX6ehQ0=;
-        b=Aa9CqBZm5Ed+Rydif9Y9bIliQ9gt8kQdRbtvyd6lrLY9L0W3p9AXE0x5A71CjGP8W3
-         8MqwhQN7H0+kP3zsPwk+ZC58xTzBa/KSZtMOUjZtnH0UlJ4SenyXoo2Lyoi7m5u6kucy
-         ldLNDlL1ba1fVpgU4nZfjqDwfokXMSiDExrHMoHr6KY/MGTMz5oGDqZk36J1CJRKkcT5
-         Xj1dzitOa4gj6IyCwhLsdGSqcPVtRawUrpmqbYbs+YW1htKtlBxRShxQ9BRQ8adg0lOx
-         6ZN8TsCS+CAUX062rvWGdi7obQw1AOEVsAPfBHdO9o922jWkOspjBQj3753t5BBuBSgR
-         LSjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVLuanwq9eEvNwHflyFeaQNIRx363TIANEL5jJJ2StF2f/RvnoKeeDIfnXIgl/XYEa2rs5Qdyd6rK3HSbNAjvSk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY6QNbudtvOa8KAicMDQCLhnegvDd04gbKdqjR/CYF9ClyGZ3w
-	VDNS6sRA+OcYeyabmV30t5O0xUWwGB3JOW7vvX+cU+0xSdn8DWdrkwMfwlxGpvrHo/w=
-X-Gm-Gg: ASbGncuvcCDVfWfFrw5P65ZvcLrdHz5fvmhXU6HlbIEKbWm/+V6Dv1Bd/snrLQ9A+yo
-	jJ5hpN1xdvjtHXs8JQ1wTGFZEt/Bso2ncoZK21439757Zs6C/1TiS8qoZG6x//cNSsWv4J6MhB2
-	0iNwMYSPeR8Eyf4mTXJEXFh2CgOATbiotLB9f3LeeBVVSXRNG86mMIscP5UAHtbLV5kFf67XsYL
-	OvMr62VOJxgMT6ujb8tRDefxrS6AEwHzJB1up5XxpqHopkm8vNvJWEF8woUI5IBvKutkkuMAQCP
-	H0csgcQq5hA0KpZCnmCndkbUvFPnsvr1KuvWIsCNHVu9J2pVnXisCtfMPKrvPR5J035vr2PjD1P
-	vdg1DZAG4RNgNsjuQW6bJuLPi/msAsOaQ1fMByz4IDowIXAwKWbnfe1DvBxJJVRKjBN1pSMkOx1
-	VEdomQ
-X-Google-Smtp-Source: AGHT+IEtWoaffuaVTqHh20HuWI5Dpw76dp6as3Uhkrib83c8uxD8cJiQ4F+dYLKDixdUDUaZQUzkpA==
-X-Received: by 2002:a05:600c:4455:b0:477:7bca:8b34 with SMTP id 5b1f17b1804b1-47787071919mr61751085e9.6.1763024713192;
-        Thu, 13 Nov 2025 01:05:13 -0800 (PST)
-Received: from [10.1.1.59] ([212.129.72.6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f203afsm2532796f8f.39.2025.11.13.01.05.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Nov 2025 01:05:12 -0800 (PST)
-Message-ID: <27a5521cd7ddbed0e870ac416dc829722f1b36a5.camel@linaro.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: nvmem: add google,gs101-otp
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Srinivas Kandagatla	
- <srini@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski	 <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter
- Griffin	 <peter.griffin@linaro.org>
-Cc: semen.protsenko@linaro.org, willmcvicker@google.com, 
-	kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Thu, 13 Nov 2025 09:05:10 +0000
-In-Reply-To: <20251112-gs101-otp-v2-1-bff2eb020c95@linaro.org>
-References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
-	 <20251112-gs101-otp-v2-1-bff2eb020c95@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	Thu, 13 Nov 2025 09:09:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0013B12FC;
+	Thu, 13 Nov 2025 01:09:23 -0800 (PST)
+Received: from [10.163.74.57] (unknown [10.163.74.57])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAB693F66E;
+	Thu, 13 Nov 2025 01:09:27 -0800 (PST)
+Message-ID: <dbc890f8-7105-4da5-a6fd-6f7b3a2b7147@arm.com>
+Date: Thu, 13 Nov 2025 14:39:24 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V6 1/3] tools: header: arm64: Replace TCR_NFD[0|1] with
+ TCR_EL1_NFD[0|1]
+To: Leo Yan <leo.yan@arm.com>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Arnaldo Carvalho de Melo <acme@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>
+References: <20251013052945.2197190-1-anshuman.khandual@arm.com>
+ <20251013052945.2197190-2-anshuman.khandual@arm.com>
+ <aQjm7wmvHa79hkyi@arm.com> <20251103180350.GZ281971@e132581.arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251103180350.GZ281971@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_010515_700591_0E07BC3D 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20251113_010935_827362_687C3187 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +71,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-11-12 at 08:29 +0000, Tudor Ambarus wrote:
-> Add binding for the OTP controller found on Google GS101.
->=20
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
-> =C2=A0.../bindings/nvmem/google,gs101-otp.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 56 ++++++++++++++++++++++
-> =C2=A01 file changed, 56 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yam=
-l b/Documentation/devicetree/bindings/nvmem/google,gs101-
-> otp.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ea87216761dbab9a7a5cecd87=
-a553a6a2a1783f7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
-> @@ -0,0 +1,56 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/nvmem/google,gs101-otp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google GS101 OTP Controller
-> +
-> +maintainers:
-> +=C2=A0 - Tudor Ambarus <tudor.ambarus@linaro.org>
-> +
-> +description: |
-> +=C2=A0 OTP controller drives a NVMEM memory where system or user specifi=
-c data
-> +=C2=A0 can be stored. The OTP controller register space if of interest a=
-s well
 
-If there's another version:
 
--> if of interest
--> is of interest
+On 03/11/25 11:33 PM, Leo Yan wrote:
+> On Mon, Nov 03, 2025 at 05:31:27PM +0000, Catalin Marinas wrote:
+>> On Mon, Oct 13, 2025 at 10:59:43AM +0530, Anshuman Khandual wrote:
+>>> Replace TCR_NFD[0|1] (used in TCR_CLEAR_FUJITSU_ERRATUM_010001) with field
+>>> definitions which are available in tool sysreg format. Helps in completely
+>>> dropping off the adhoc TCR_NFD[0|1] macros later.
+>>>
+>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>> Cc: Will Deacon <will@kernel.org>
+>>> Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
+>>> Cc: Namhyung Kim <namhyung@kernel.org>
+>>> Cc: Leo Yan <leo.yan@arm.com>
+>>> Cc: linux-kernel@vger.kernel.org
+>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>> ---
+>>>  tools/arch/arm64/include/asm/cputype.h | 2 +-
+>>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
+>>> index 139d5e87dc95..dfa12df5e290 100644
+>>> --- a/tools/arch/arm64/include/asm/cputype.h
+>>> +++ b/tools/arch/arm64/include/asm/cputype.h
+>>> @@ -243,7 +243,7 @@
+>>>  /* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
+>>>  #define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
+>>>  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
+>>> -#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
+>>> +#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
+>>
+>> Isn't this file usually updated automatically (well, someone running a
+>> script to sync) from the corresponding arch/arm64/ one?
+> 
+> Yes, usually perf tools maintainers (Arnaldo or Namhyung) will sync
+> headers in tools.
+> 
+> Seems to me, it is also fine to send this patch.  Please kindly remind
+> perf maintainers after the kernel changes have been merged, so it is
+> safe for picking up the change in tools.
+> 
+> BTW, I built the perf with this series and did not see any issue.
 
-In any case:
-
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-
-Cheers,
-Andre
+Agreed. I have not seen any problem around this as well.
 
