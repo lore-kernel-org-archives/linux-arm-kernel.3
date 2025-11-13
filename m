@@ -4,68 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE67CD6E60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C5CCD6E61
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzdsQR5smlHyf22BLz9a3iXlL66hG8Pk2Rn47gll6+8=; b=cGB5fCPuBgAkF1uGWruOghj2M2
-	B+3Pob/dVhXhKiJULhy4ZIavWanUF92ONLRGcyveIKYPHr0ot1SQE8xcKWsWPP/+Byi2xdjw4SZRJ
-	RsMf2u2G+eJJNSgz9dKW5laH/KTfPdTGQK8YsZ54Wf0sWNSIu5yx4q4mrUCAbgyBypPKpzZozzXGb
-	ThlpnhvTT2Fd2KmNhQdyy0AtAwXkBb05ONIaWTSQxsLIGSfl1+S8uzmxdmL2cMhhjh5NOKv7RIcJ+
-	lH9z+P4L1Wr/YrHVkuc3EhbYZ2w0Xgtv0cs3hJV1WFYji8tjWAJczK1MdTrcBgkpuVPZT4OkD1jUQ
-	R0d5BjZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PYq90gPok05Ftan3q4LlS4ySOfx7eLDR6jvQPaWFLaI=; b=0lLypD0+uzHBnLUaJLtCQJ/uTK
+	tuRq+8tl/whPt8nMikzfhtypWyRtXUoQq0VUUr47SjdKEnvYiJGjtuFP6SHElDard1VrlvnhFrKzH
+	l/ROn2b2vTNeq/bSgjPK6zh7pox0LPhY9mVSw9/EURw3oinrKeBMxcOjPglW9gFOoxub+DC7qKLHX
+	sZjGHvrn2E/1yrgvm3I9PbRH7bjGHupMYW0mefwGRNNW+GkPWvfMQlmfZkpVVx1L4lH8sVZ/G2uol
+	P/AwR4iURxCC1/3tQP9KYiTWYESsfGy2JqntbS/RasWLFS4Hez5u/+YVIjj+ogvBdoWrGK1CYgv4E
+	BEU4Q7Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXmY-0000000AZro-2aIQ;
-	Thu, 13 Nov 2025 13:54:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJXnU-0000000AZxI-1Ocn;
+	Thu, 13 Nov 2025 13:55:36 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXmW-0000000AZrS-2NYC
+	id 1vJXnR-0000000AZwa-1q51
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 13:54:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A97FB60217;
-	Thu, 13 Nov 2025 13:54:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40204C19422;
-	Thu, 13 Nov 2025 13:54:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763042075;
-	bh=+eiYuQTlJMcgq/um/mZzzKGyhjmsIRw7x4ekIWvmY/I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=txJkF5FTgucRclDGl/+nRNJi8tlfSGLE4+IQ9ck78w9qoy9Th7UppRKQGB5QHsYgZ
-	 LRC2bLqh4G7rf/o33v+aCv3LApwXMQNb5Y3GsBDqRjuNeDWP2TGlyq/ShP6grhAckk
-	 XIJUeEpmvalPFJdjvq6CmUBD5njyBiMEEn7Q8Q3+iP8qdo6ZT5Ose/qcp/txA14otR
-	 Ne5b4FbsDVOPXQouMDOaMQUxub3Xl6U2ww8uXC+yIpC33UEMEOgdzvoq8mKulRdet0
-	 J8dhLzyKxMgfNgyVdmSTtjBc4fUgFr5k2gbFxjL9hh1W29sJriI6qCgMdUQ6Ll6FIo
-	 vLDyjHVViO50A==
-Received: from mchehab by mail.kernel.org with local (Exim 4.98.2)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1vJXmT-0000000BIvM-18qS;
-	Thu, 13 Nov 2025 14:54:33 +0100
-Date: Thu, 13 Nov 2025 14:54:33 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, maz@kernel.org, 
-	oliver.upton@linux.dev, duenwen@google.com, rananta@google.com, jthoughton@google.com, 
-	vsethi@nvidia.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
-Message-ID: <wuuvrqxezybzdnijarlom4wvxlfgzgjoakwt7ixittz2jb4mal@ngjvq2rrt2ps>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <20251020144646.GT316284@nvidia.com>
- <CACw3F528D6odL3MJWb28Y4HVOLo56tMQXBpvti5nhczdpMxOdQ@mail.gmail.com>
+	Thu, 13 Nov 2025 13:55:34 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ADDI0BN3764325
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 13:55:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PYq90gPok05Ftan3q4LlS4ySOfx7eLDR6jvQPaWFLaI=; b=J+LpV72SJATiLwN1
+	sdxH62ruSbqsh8Ic+tb9+6OSbVfKojMtQ9Hy5e3qylgM3nE8Foxy+CMV7PJpRfl1
+	9g469/SlTULJgYFUJ4FXrskSFLr/XCjU2JraFCHDLP+TGY0iYzHgS3LRBvGEEWAr
+	ZegyHa0zEhrMAw2K6xm/0oiTYFw7++RJodiCPb7V6hWkfD8qF/zbEDCeT2xAHJNE
+	Vpp530YmDV4Q/TXy1oR6ixQ6necnTQFHqsueeVhAJM4BgEIwZz+SHQhaiPEOeJIn
+	MVOnfZuQF7iifHbRAVX9Cy8RdR+57iBBe+PrcffE4p6GZFYo3BmKYmkX1r7z5zi4
+	P5JNXw==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ad9jn1drq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 13:55:32 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-297dfae179bso20809245ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 05:55:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1763042132; x=1763646932; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PYq90gPok05Ftan3q4LlS4ySOfx7eLDR6jvQPaWFLaI=;
+        b=du9Fy8/4tKX5Lch1zxTyXEaCmxqOBP+Hw/6CxrihIqs0kH6v/F6eQ/QexVq1JZRTj+
+         3HISL2S1+5xkC2OUDRFhoVbcdC8PmNcxokAavHWHWFg6UotCLgRPbvZnb4wlf47W1bTw
+         zE1ZxQtQU0EMY1QihdoKfZl3VCJgJir2jGo7mlfG4bjwo/A4wsGazG9Q3LH+d0FV6LjL
+         CDdShlZVnZ2eS79TKk7aiOfEpE0se1YZ/UN422CTDNlxvXXii5A3SQ4JudmuZLDhH/w5
+         xdGxO34VIYoTKUXuTPCUJmk2jRYDKuL+LTbdus2g41U8/1/xECOLhM0RTBLdaXnIot5Y
+         7dUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763042132; x=1763646932;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PYq90gPok05Ftan3q4LlS4ySOfx7eLDR6jvQPaWFLaI=;
+        b=SJ1VPvnVAYz2J3wbsK1lxraA07xyz/vXYDCyj5qMSye8zjtVO0VCyF//oRZ7l5od0I
+         ZxemVv974E6y9ZRqyNmz4kD2bxbx6llLfC6wC0VXtZJbio6eLNPfwT//yQDojSsLznCB
+         jCkHsBRuEgO1DLtcfo9KC+dbjv3dRJsr8zqEmejKK+pUCHvcvIgyb3zxXUSiU9GM27VT
+         txqFaOSxjQ5xtqOaJ6WpYCXrNE40oNDcDbjPCDp82YVZ4vukdmvyjZHxLcSu08sYJR68
+         WxGDtOkCNJyLHgJpJay5lmxGFT9GtrJccT5Zxbf8en9r/T/RbjQrzkcJc5n6gYx3puJt
+         nVtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXVVAjoY6slfyV1J1MO2n4AlCXWWhd0o+C6m8wiDYU/HYC7LunpxE7aMfnHQi6M02wqCJlJsTGSzVljynXB0tSX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8Ia2V26ydHXqu/5GlhaVpvtyjskLHRUMDRxmvsfTn8lNux0Sr
+	nYi+PA+8ffKjwGGGuU3CyBT5KVz/yXcTWCq/cScaB4KqjE6BbEqgTGbV/Hi8Xmgq2KyZOsZ4Bar
+	nDg7DBU4gRhBWcShFwMQosnGuYJRArfFM9LNP9U7Q5wR5cx0yYDiqxVDRkSs46+QH5KCUb0SCco
+	7ujQ==
+X-Gm-Gg: ASbGnctHg6G0RSOydG3xAeODCQH9cGsFocNjl5bc6tfkk3GXl5SiGdn1qJpgnbDSGuz
+	E+9p5f21+Mo1/9qVULVXY8tT6ihvknuzwD7mMRaxiAQ0r6XUvElNBPnuJksa8d67Xw2yc8JKwtd
+	NjauXLRoc8QqbGlRuPv+1z9JXk3XcaQOFOcJ+cQ33v/1K6oW8vzXbDrMigjNXBS0lutsAdmqQRb
+	NH10LzKVjRpobcsI9BDm1CxX+cwCHHR4ynZbFGYm0oXIlxsKa3CFxZthvNQIuRejI/bRTwQZLms
+	EvBBh6wCw/lAhah+joVz7huTAnSoQVIU6u9tFp4yFHRLMfSdiJib1xRrG4GN+6LwmaK4mJnFL4r
+	JNqgNFoCUtfuiwELJBM6SxrnOHKxE
+X-Received: by 2002:a17:902:d583:b0:295:592e:7633 with SMTP id d9443c01a7336-2984eda9ademr94497335ad.29.1763042131771;
+        Thu, 13 Nov 2025 05:55:31 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHT1ffqRPXlTOuOE+KE3Wz2kdPEseeGi4tLYYplf2iHM7EojlOZXfQ+bTEJ192e9zzGd1U2mQ==
+X-Received: by 2002:a17:902:d583:b0:295:592e:7633 with SMTP id d9443c01a7336-2984eda9ademr94496775ad.29.1763042131113;
+        Thu, 13 Nov 2025 05:55:31 -0800 (PST)
+Received: from [192.168.1.5] ([106.212.255.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c245fa1sm26803425ad.36.2025.11.13.05.55.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Nov 2025 05:55:30 -0800 (PST)
+Message-ID: <1db3d7f5-0cdf-449c-bbc3-dc40c89ab27f@oss.qualcomm.com>
+Date: Thu, 13 Nov 2025 19:25:22 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 0/5] iommu/arm-smmu: introduction of ACTLR
+ implementation for Qualcomm SoCs
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        Enric Balletbo i Serra <eballetb@redhat.com>
+Cc: robdclark@gmail.com, will@kernel.org, robin.murphy@arm.com,
+        joro@8bytes.org, jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
+        krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+        dmitry.baryshkov@linaro.org, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
+        Eric Chanudet <echanude@redhat.com>
+References: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
+ <CALE0LRupg93WsBVc62Lqt-T9qmK5MdEYoScxyP7=ttKJYXAsUA@mail.gmail.com>
+ <33826089-54b5-47bc-8a5b-6004c7a276b8@oss.qualcomm.com>
+ <5a1aaf4a-c5d5-42e1-9044-d12a6c231904@oss.qualcomm.com>
+Content-Language: en-US
+From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+In-Reply-To: <5a1aaf4a-c5d5-42e1-9044-d12a6c231904@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACw3F528D6odL3MJWb28Y4HVOLo56tMQXBpvti5nhczdpMxOdQ@mail.gmail.com>
+X-Authority-Analysis: v=2.4 cv=BvmQAIX5 c=1 sm=1 tr=0 ts=6915e354 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=pJoDNl42m32kJ7anCML+mQ==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=UTFmerWDhw6whTtWHmAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-ORIG-GUID: _CFes4_gj-Rl7H-0PYqONNVs8DqDCGHz
+X-Proofpoint-GUID: _CFes4_gj-Rl7H-0PYqONNVs8DqDCGHz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEzMDEwNiBTYWx0ZWRfX8dUvTvLKFs3d
+ 7KpCMqAJF0vEwpLZRf0OTMD3hdZMYr6GYtZ/9HsiTniTuDd5pJ6r8ODcFruV8Gu3EZOw/dixLqg
+ szW9JVo7lc6a77WoL1KfG6sMNVEHVlAPBrH7EttKEBw5+GaoTGTjGxMpln93iCxoSAmCcAxKaZC
+ f/a+h6ZvPSPUFULjJhvnbq9OnXiefekPz4bm7Z9RU08srMZdGHqE8Vwxn7/UF4X24alI++WIQLK
+ wHRRfm6+kqwYnWcGZig3Rm820BGPLlZgguc1Tk2WuGKEf/w43WIHczez88R3e6MH4v5WK8B9gbX
+ 11aasczyYXGDyaAVnAPupKDBywohFRAQEXNT85VcFaqKcVUF+RGoe7zB32DghcA9CBoPLb1Lz/n
+ WNoCPJV9wWoPe4VfAocDfLCKlVvLPA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-13_02,2025-11-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 malwarescore=0 phishscore=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 clxscore=1015 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511130106
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_055533_492485_4204A948 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,71 +157,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, Nov 10, 2025 at 09:41:33AM -0800, Jiaqi Yan wrote:
-> On Mon, Oct 20, 2025 at 7:46 AM Jason Gunthorpe <jgg@nvidia.com> wrote:
-> >
-> > On Mon, Oct 13, 2025 at 06:59:00PM +0000, Jiaqi Yan wrote:
-> > > Problem
-> > > =======
-> > >
-> > > When host APEI is unable to claim a synchronous external abort (SEA)
-> > > during guest abort, today KVM directly injects an asynchronous SError
-> > > into the VCPU then resumes it. The injected SError usually results in
-> > > unpleasant guest kernel panic.
-> > >
-> > > One of the major situation of guest SEA is when VCPU consumes recoverable
-> > > uncorrected memory error (UER), which is not uncommon at all in modern
-> > > datacenter servers with large amounts of physical memory. Although SError
-> > > and guest panic is sufficient to stop the propagation of corrupted memory,
-> > > there is room to recover from an UER in a more graceful manner.
-> > >
-> > > Proposed Solution
-> > > =================
-> > >
-> > > The idea is, we can replay the SEA to the faulting VCPU. If the memory
-> > > error consumption or the fault that cause SEA is not from guest kernel,
-> > > the blast radius can be limited to the poison-consuming guest process,
-> > > while the VM can keep running.
 
-I like the idea of having a "guest-first"/"host-first" approach for APEI,
-letting userspace (likely rasdaemon) to decide to handle hardware errors
-either at the guest or at the host. Yet, it sounds wrong to have a flag
-called KVM_EXIT_ARM_SEA, as:
+On 11/12/2025 7:04 PM, Konrad Dybcio wrote:
+>> Hi Eric,
+>>
+>> If a device has multiple SIDs, all serving the same functionality and grouped under the same "iommus" field, for example:
+>>
+>> iommus = <&apps_smmu, 0x2141, 0x0>,
+>>           <&apps_smmu, 0x25c1, 0x0>,
+>>           <&apps_smmu, 0x2161, 0x0>;
+>>
+>> In this case, all the SIDs will be associated with the same context bank. Even if the three SIDs have different ACTLR settings, since SMMU_CB_ACTLR is per CB setting, all SIDs attached to that bank will share the same ACTLR configuration. This is why we designed it to be "per device / per compatible".
+> Does that suggest the settings may be slightly suboptimal?
+> 
+Or it is limitation to use the ACTLR?
 
-    1. This is not exclusive to ARM;
-    2. There are other notification mechanisms that can rise an APEI
-       errors. For instance QEMU code defines:
+> There's some work being done to allow more granular association of
+> the passed SIDs:
+> 
+> https://lore.kernel.org/linux-arm-msm/20250928171718.436440-1-
+> charan.kalla@oss.qualcomm.com/
+Sorry, I am unable to link this limitation for actlr setting with the
+work. Can you elaborate please?
 
-    ACPI_GHES_NOTIFY_POLLED = 0,
-    ACPI_GHES_NOTIFY_EXTERNAL = 1,
-    ACPI_GHES_NOTIFY_LOCAL = 2,
-    ACPI_GHES_NOTIFY_SCI = 3,
-    ACPI_GHES_NOTIFY_NMI = 4,
-    ACPI_GHES_NOTIFY_CMCI = 5,
-    ACPI_GHES_NOTIFY_MCE = 6,
-    ACPI_GHES_NOTIFY_GPIO = 7,
-    ACPI_GHES_NOTIFY_SEA = 8,
-    ACPI_GHES_NOTIFY_SEI = 9,
-    ACPI_GHES_NOTIFY_GSIV = 10,
-    ACPI_GHES_NOTIFY_SDEI = 11,
-    ACPI_GHES_NOTIFY_RESERVED = 12
+IIUC, unless the SIDs are totally separated per actlr settings and
+attached to CB(which are limited), this can't be achieved...but may be a
+question here to check is it really a __valid__ to associate a different
+actlr settings SID to use the same CB?
 
- - even on arm. QEMU currently implements two mechanisms (SEA and GPIO);
- - once we implement the same feature on Intel, it will likely use
-   NMI, MCE and/or SCI.
-
-So, IMO, the best would be to use a more generic name like
-KVM_EXIT_APEI or KVM_EXIT_GHES - or maybe even name it the way it really
-is meant: KVM_EXIT_ACPI_GUEST_FIRST.
-
-That's said, I'd say that we need an implementation on a real userspace
-applicaton to be able to test it (rasdaemon being the obvious candidate).
-
-In order to test, the better is to use the new QEMU code (for 10.2) to
-allow injecting hardware errors via QMP.
-
-Regards,
-Mauro
 
