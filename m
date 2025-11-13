@@ -4,166 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11F3CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DD1CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5zm240b9LMkAwHDYzNatS3Zq5ccj4Se/T4wQKo0mTl0=; b=aKV8sTggyBH5Knxunle4btw11+
-	xjNgdtYlsQeLDOg1rANFGmd6kjxzD3djZ4oOlgGySWY2Q+7OZIs9MRe86sSQycDq6sIoaoR4W7Zkd
-	nD/RiyIW/QYY/1LsO4Id72c6yQPRSEMOqaPS7dahFf4xUJ4Cl3jq8RBcnFdK4hdZg4/LkFsO1Wwue
-	IDFUXtI7rdAKspRw+/0U4Y/5D7rYFELIoopcBwqfx2AodrhEUvnBm6KnkuXgEdaNSQzPl1HdIn8ec
-	aHId+FXB6gxYqt/Xes979r3q7fCph1VJObT3o9HdIMO579jlD5LCCWt93pYfF8zJds+NhR/gh06XN
-	anGmC9DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=MDyF8CnLXeGEPAkBmsx+FCAF13
+	Ac4BKnaHf6OXBR5ZYCaXboR4fySAzm4vuc1mpuuEyolQIQ/PoZZXBu6lXXoRF6O32ztHBSXYQz2Or
+	ecda6cFVpVYQIPsWrEHZ/O3JxKZRLUBwtQ6f2gqo2lFI2u6MRl8Joa/Y2rOYcSvqvcvlSXD1lcHuk
+	U+DzrT3QuXShGBdaG7fyyY4sUZCfoI125B0dqf3PtzfzKSdneK3oRbdBFdBv1DGK1GvVM/eZ4XbhR
+	uWcMMz5ZH5xpgOEpBUmRLbFyDx3hwUnSRZ/PtMvtZANpIb7DfTEb4xJ3Ntqq2qjSlfU/wMmH9/M4W
+	UliSpEzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJU5A-0000000AEzn-0IlC;
-	Thu, 13 Nov 2025 09:57:36 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vJUKW-0000000AFin-395Z;
+	Thu, 13 Nov 2025 10:13:28 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJU56-0000000AEyq-1qsp;
-	Thu, 13 Nov 2025 09:57:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mqbqH36cNCNqTeKyHKi1QGUcSTIB8VDQyf4PYKssdOLO3LLdCCCYKaT6I4B8Ty54Ea8NUZVF1QWoMwu5SelrstLR/8qpOp+Uviy+1yDjuTDxKwDyHKNY2QJHiGTPZLoKTm8fN2nIMqjfYfAiqjQ9jEkJu/6CYkM6r0mQ3byRmfAFCEmuQ5+s4njTlaQKa5f9aTBN5hdpDWA2RWIY2/hXTtQxOKHxOCxAvtDiQmwlA3SHrKyxoUTKRAVe0S4/Z4hrO5c/5sZfoW+7yo7a+ZolkpXPPvZp43T/wR85EEN6zKV1lsmEnk/35e31hdijMyd8udxRRwqRwTGVKXPfSKBJBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5zm240b9LMkAwHDYzNatS3Zq5ccj4Se/T4wQKo0mTl0=;
- b=jTNN5NHnz3uRtAzCMoEv6Bw+RlzNg729Peq0IATeA1eOwiJsqargXPwnBiTsZtcNpFd37NI0em5d3+4qrPH1VUq3+nENXV3OG3QiBLURpLGJrmdZw6mo9Hyt718jhboSeMPcDwhuBovnS2ykuHJRQc9p2Y86ZGewQikKtE4gD5YJJvU3m8UH0rc4Eid3b9JyTmlN6st6gULcWP1Axa3LrX+2tY63UU3qPzOyymS5TLDDwLp/K6m++sDE4SQvPpxcG1/mqPm/jzei0BTj6BQsXIL9djnn/fy3V3Vulj1XD3Y2k3D0pwMHlJ8MOHt0a3ZB78bGx9bJRZVNNcyL5RchUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5zm240b9LMkAwHDYzNatS3Zq5ccj4Se/T4wQKo0mTl0=;
- b=ksoc4oY79pcR2ydntGbbzHhYI8gFfyH+RLR8U+cNt1WZXGmaepyvliL8bscuuGKOTpYRjPCGkv+r4Q3e6S4Q+18YfeHaKlETrezsGYkAZJUixelM7JBgcuMrWCmk10TiWVemUa6h0DmWPvQVpsYycAR+AwqzSL1g04AJ5z08GOI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by GVXPR04MB9804.eurprd04.prod.outlook.com (2603:10a6:150:114::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Thu, 13 Nov
- 2025 09:57:23 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1%6]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
- 09:57:17 +0000
-Message-ID: <575fd825-5ee8-4a46-b9ef-2a16d9ce61b1@cherry.de>
-Date: Thu, 13 Nov 2025 10:57:16 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: disable HS400 on RK3588 Tiger
-To: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251112-tiger-hs200-v1-1-b50adac107c0@cherry.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20251112-tiger-hs200-v1-1-b50adac107c0@cherry.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: WA1P291CA0008.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:19::19) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1vJUKT-0000000AFiO-3Avn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Nov 2025 10:13:27 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id E525A140016D;
+	Thu, 13 Nov 2025 05:13:23 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 13 Nov 2025 05:13:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763028803;
+	 x=1763115203; bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=
+	dx4L72BG/Weyjy69zTnbObR32UfXg1Kw8iNWEtEAsc5ctiYB9KiV+Y5KHXKAAFyV
+	znTtPr97A7XPqUq6kqTG0t4x99wH0CL0wo/+Io92jdFb+M9ltLQjRLpoPtFnMpab
+	uIharEfdRj55SEfwSiacBpy1LhsYiikhOnXYysamSQrk6+RqhNZh/VfIEkVDpPoV
+	Ggsu1ixpcpYPec3hKZJ+kqvRxsC81YJ1j7EyK61SKZ6djuLHixpcJ6NjlGzhqBwB
+	ySqAiolMiio8+z/7Sw085mu9UwA88QaYT9qIpnhwIEHk+BTOPQgbvv4X0SUjvwlE
+	HBmXzg//bKE7FUKziXnKIA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763028803; x=
+	1763115203; bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=v
+	RMchbv0sISLH4MACLD2Xur8OemJoKpH/lrUkmb2bd06oHzddVHR9Jh6Y7wTEf9SV
+	UPl9b5NoPy8Ud9grx8HXjADs9RFvs45cR0/bBzgELXkdBdMwsN0chXusr646LhlM
+	Z0jF7I4izj996Y5tUh4VJkhdqyQM1Tco/J8Fy/eWwZCkdT0ghxcnkhAzmQgr0Kcj
+	iEQagtz9GgaB3r1kojoaWWUXGl1BiIhu08/vJTUKCMm9HlI7f4neW2N6YjORV3G0
+	EssG57zQTapGcEaNqzv0uFAzGMc9U1MO652ZRYRBtn1zyLOTYaofyYjIe7RHe91+
+	Uim604CkGUgpDyJ0j1JIw==
+X-ME-Sender: <xms:Q68VaSHBnABlehvIB8HPLW1ZPP6tZIr4l4xh6kr1kC9kKKzEywDbgA>
+    <xme:Q68VaeK0PJywiAn5sO0QtCbhWtpa4C6k-C1LKuTzyX5bfrjrBpD7MgOsquQjAGuPh
+    7xBxjzgvlJBGWEjJYhsmwvos-8QjSPCa460qPCjU7sHm8CzpWV0UcM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdeiieejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
+    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
+    phhtthhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghhvghlghgrrg
+    hssehgohhoghhlvgdrtghomhdprhgtphhtthhopehkihhshhhonheskhgvrhhnvghlrdho
+    rhhgpdhrtghpthhtohepkhifihhltgiihihnshhkiheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheplhhpihgvrhgrlhhishhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehm
+    rghniheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
+    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehunhhitghorhhnpgifrghnghesohhuth
+    hlohhokhdrtghomhdprhgtphhtthhopehsqdhvrggurghprghllhhisehtihdrtghomh
+X-ME-Proxy: <xmx:Q68VafAHyv8bK6Ia8xhwRSoZVJZ-23YfWweBZ8eMyvWbXODYpACFVg>
+    <xmx:Q68VaatI5w3AsYwXW5HDHo4k-RdK6zja_vVWsVXJ8gWGFG6YFWdmGg>
+    <xmx:Q68Vad8a0h3ovFMUiJiwnhwyAPdtiKYPFGlTB08M6a7RPOIDx1Rfdw>
+    <xmx:Q68VaRQKTDzHimbKtlnbdrZjMFhicrKweFiiliNmy2Ndb_wdL1U8LQ>
+    <xmx:Q68Vaevt84g7sRauZ_invuhu7qkg2Yo7dhzae9iFqMsr3pCTZAV471Hv>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 02C82700054; Thu, 13 Nov 2025 05:13:23 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|GVXPR04MB9804:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43a561b3-7040-41fb-712f-08de229b075b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y1lpNnZlZm1mNVZITGtiYWl5TzBIc1BocFpodlJYVTVMNC9pVFlmUklkYVRr?=
- =?utf-8?B?TGRTRTl0QWFxeWJ4VXlpN2FsMlR0UDZ1VWVOVExvN09HeTlWdVpqYnJTZEwx?=
- =?utf-8?B?Nm9sVzZRNmFVYjRGd1VZZ0l5ak5YYk1VSEZRbHVJYVdtbmRHZFZISWs3NlNn?=
- =?utf-8?B?QnVHaXFDZlpsdEhvSkhaRkQ5bEpGbHdNdU1pcW1sS3BnanJEcUI5ci84YzBs?=
- =?utf-8?B?NFcya0NXMk5uT0RjTWRZRVRFT3BUWHFwRHI5Nk0vMlZMcnpqczVvc2hlaVBG?=
- =?utf-8?B?TDVqamZ1N3g4MHFVMXJQL2JKTnhxUFlTMnFuY0cwTDRQcVUraTVsQkNsa25j?=
- =?utf-8?B?WkRuRTZqblRRUlU0QWo2UnNucVpxdThEcHZDVVBnOFBjam00UTZEQzZnNWF6?=
- =?utf-8?B?YW85ZFZPOTB3b29SRUNGbnhEL1lZQW5RT3BNaFF4UjkrUDJkWk5jT29HOGgr?=
- =?utf-8?B?bEVGUWpsS0ZLdWxiR0JabW1jUDRyM21NSldObTNGdFhxdlpHU1dIYTBGdlh0?=
- =?utf-8?B?eFgzd1dDQjRDYzNsaGhvZXNacnc2a0hOa2dGM0RZU3V6YzVsVnMzNFNnR1lC?=
- =?utf-8?B?OVQ1cnV4WnZvdDFBQWYyZzFFWWNNa2ZmY3pudkpZRUtQZGR0RlV1ckYzVGZn?=
- =?utf-8?B?U0hxRzVCeWVlOVRrSnZSbCtPRlVtKyt2TmZHVnpaS1NWY0VtTkdkcnJpdHRE?=
- =?utf-8?B?eEhia2VQd1RXS1RDeTBmakxGVWgxZ3FhY1NEMlFsTSszdUEwTnFvTzVVei9O?=
- =?utf-8?B?R0puV0VKZE85SHprRXZySDRQQ1dDVnpUUDZnUU5PbmVoMnVlTDU1SERma2RR?=
- =?utf-8?B?cXZwK2ZkRzMxZTlTZ3BPZzl1d2srcmpmZ1YzUmFHd2FGMlhnZzhwK2haOTBj?=
- =?utf-8?B?RVduZzZvZm5vUXN4UkxRaGVRd0NTaTBGSjFVWE0xZmJibk1jVTQyTFFxNGdm?=
- =?utf-8?B?dFVVZlNGUnBwTExnT3VOQ1dpSUpKM2twSkIvdTJ0OGFDTzNUc29USk1ZaTRK?=
- =?utf-8?B?QWNOQXdGUm1jaEhKZU11aVlITWF5U0R1WHpDWS9WQ0xMRlo5aDlHdXRSZ2Y2?=
- =?utf-8?B?RDZKalFmK3FSRnJKQXNPenlBZDRMMUszRXJQOCsxaXBFcElCZXBCR3B3MjJs?=
- =?utf-8?B?NFd0N3NTa2tTQ2ZoL3p5NzRqY3l2L3B1QjhhQnh6Ri91dlBQMEVGRkF3b1RJ?=
- =?utf-8?B?Um9BTE9reE5sRWVzUlU4bEdoRjlxZGxSRHJkOWZzMW1hc28raTdiaDNCMGlX?=
- =?utf-8?B?enJ2cUZoT3ZTZjFPeTJETFhWc0hYUUFiOHFFNEozcmpHK2NJcjBHemo5RC9Q?=
- =?utf-8?B?d0JOVGIwV21qVWRmMXQrcDI4TTRsZkg4TU1NL3VQcHFOa0hvMGN6bGdWOXQ4?=
- =?utf-8?B?RGRMTnh4MXdabWxzZENsMWpTSTFyYjE5QXhHMDh3QzE0eGpNRk54dHlLYnAr?=
- =?utf-8?B?T0tGUnd6ZnZCWnZWNTU4SHFpYmw3eDFJTFdydllhSk56Nmh4UWJBSmh5K1Rl?=
- =?utf-8?B?ZVZ1SDJtekYrZ3BybXVvWGlwWkxkNVJUQi9BUmZWS0pWTDhHa3FaN284TFlE?=
- =?utf-8?B?Y1NISG1scVd6R0s2ZTJHMmlwSXFUTXY0TXYvUUw4NXh4SHlobmEyN2lkcnZN?=
- =?utf-8?B?b2RlbjNCZG5abnRsa1dpMGtXRDZucEVocmFkZmxQUFVtNlRIT2N0Qkc2MERC?=
- =?utf-8?B?bWtSYWNVMlpUaHNsNXp0L2NHZnNlZ0ZDWHdQU3Z5eDlBU0lXVEJ6RkNQdlJx?=
- =?utf-8?B?Um0rYlFuVXlMWGlsTytCaDRVSS9TTG1HV2ZSWktSVFBkaG8yUW5MRmp2NGht?=
- =?utf-8?B?dExUMkdjZ3BjNXhUa2lTTklQeC9BNGNhaGh0b0FNcTVHc2R6S0xCMHgyRUhF?=
- =?utf-8?B?YWsxcGl1V044eDRHWXU2WDRkOTFSUFdFZDFtR09DSGN5ckhaQVFZNEhGV2VT?=
- =?utf-8?Q?ojWoEPJOjKqTvApvUZ3r4zkWDR86xne4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Wlp0dmxJQ1o2T3Q3dTNZYXZsU1pMbUppUzBkcUZkSHlsQ1NxZVZBeGpIdngv?=
- =?utf-8?B?SlJkcHQxSDlKZkdwUEYvRWhUdHNpcFpWVi9QZXVGNjJ2VExIVEFWNDhWR2pj?=
- =?utf-8?B?ZnRZaHdtYVZSdUdyUlZvcW1FaE91V2s3bHpLYkVJbktFVDhwajB1bkNheU9w?=
- =?utf-8?B?Zi9qSXNxYUY4U2xOTVBXVDVhVWJ1MEhoVUV6QUt0eFU0cmdPMDRDaUFKaytQ?=
- =?utf-8?B?dGxMRHlhMlN4YVBOWURqeCtVQnZIc2ZvY09zNkZ6eE9TVGxic254eUc1Ky9x?=
- =?utf-8?B?RU5US0VYNkZzM0p0KzBoWkpya3dzVWd1SEJEamZxU2VUM2c3Y2w1K2xrUHJ1?=
- =?utf-8?B?bFV0dUdQR21ZVWl0OXFFajM1SkE4dHpScXlqaUQ1cTdmem5KSmtaZ3Z0UmhT?=
- =?utf-8?B?Umprc1dOeDlHMkZocm5wcjdxQ3pBOS90SHJ1dWlPNTRaS0lhS3RlaGo2WXBP?=
- =?utf-8?B?d2lvakVHODFqcFNKTW5RenpRTTFBTWZKL05NVFBqWjFsWmYrYW5LTGpDM3lL?=
- =?utf-8?B?bENqdFpnQ2lJcmZsQUk3R2pCSnNCWlAzNjA1a0oxVFBwV0xSU3JZZkZFZlJS?=
- =?utf-8?B?MG9QcncrNmlPMW5Mck5vMXlLM1l5eEZEdmhJNlVSeUk4dkJZSDFvR0d0ZkZr?=
- =?utf-8?B?OFB3ekpiVnBhdUFhdzh2T0F2VnFPVzQ3djg3OEtsVCtTMi9CWCs2TG9mMHd2?=
- =?utf-8?B?d2EyUUtCWDNsaXd6SGNlVkM5a1g0VWtYb3dxZm9sbzdjYW9uancyRlRjZVE0?=
- =?utf-8?B?V1dWcFRoYzRnSitkdTZsNTIzUXlBMlpBUmlQcHhLN3l5ako2Qm4wVXFtdVBO?=
- =?utf-8?B?R21qL1MyYkZ5RDQwUUk5SmNLTjA5bk0wRnNRWnZUWlBPakdRanp2Q2tvS2gv?=
- =?utf-8?B?cHNBamtYOEs3THRrNnZVNDJYZlltejJLM1JIaXVsakNVZlBzeTgrbklvdCtL?=
- =?utf-8?B?SyswemNQRUZocE9uUXlmeEduRjJGS0taMGhWbE1FVURUdmZtYVgwUy9heXVh?=
- =?utf-8?B?QTFPdU4vYlNUZG0vWk9FZm5XbXMzWU9aRDJFMUhEdnN1eWs0SmxzQ2xyd3JC?=
- =?utf-8?B?dnV6ajJnRDd4SmVuUENRTUtiL2tvM2R5U1FjeEF6dXE5UzdiN2pZcnkrR0Vh?=
- =?utf-8?B?RHBrNWlXaE9kcVNhbWRVNjlwVWpXb1BQT2RlVkcyZkxxb2NlWm1PZHRRekpH?=
- =?utf-8?B?RVNLTnI5QVZiWGhUdmVwdEx6Tk42Sk1UdHIrUWpsb2ExR3c2WlpncHpPcGJn?=
- =?utf-8?B?YWwxc0UwSDhrYk9Bc25ScnFTanI1RmdOY0E0RnJxU3VSQXpYNGk3cjJDN2pN?=
- =?utf-8?B?azAxenNzMlpZelVKTUNJNG5SR09JcDdzNFQ2QWkyMXArNXNuRFRxRTVhbVI4?=
- =?utf-8?B?NDNwQUpLZHNpc2c0V3lkQXRaVW1BTWtiazRUbDhuQk9CT3BIdXlsbHRiT3hP?=
- =?utf-8?B?dWpJck5kNWZSTW9tdEFsQ3I2dVRwTU1qZnFFSzhDRysySFlSNC9McFJGWlNu?=
- =?utf-8?B?TVFRSDdrS3NNVmxSUVJLUjJtckdVRE1zUVlFS0cyaTQ4RmQ4b1RuVEhRL2s5?=
- =?utf-8?B?Y09zMlVJSVVDY3lmMEMyc2lSTno0NFZSd3I3V29oMGtVY2daZ3pRTExSejQy?=
- =?utf-8?B?a3ROb3ZJVU1mamdHSkZMeVdTb1lmb2p1ZVJrT3FQK3NZOHFpdC8wanRLd2Vq?=
- =?utf-8?B?WkQrVG1sZFlHVU9sMlJOWWoweXFjcWx4M1EvMks0cVR3S1NKYTAvaUxZNVE4?=
- =?utf-8?B?VGg5VjVva05TM2NuNGxzVi9tV3N6eFc5QzhkczJHNGpFK01WTldSNDBNQ2t1?=
- =?utf-8?B?WWRxRlI0UE5IUjM5KzQvV1FLbTJTS2xRRjdZcURMbW9QT011YVJCSkhpVXZH?=
- =?utf-8?B?anJoQ1RuWGpLQXRaY2NOYjIyekxRZjZBOWhLbGxvM0Rva2lSazBKWVBXb3FR?=
- =?utf-8?B?YlJycE8ya0NwcWFzbTNPZFFScyt1VnVEZDY2UnZDZnFPRE84ZUthQ1NHVS9p?=
- =?utf-8?B?QUI3R1B0ajZRTGJ1eFdZUk5PMXZxbnNZUFEybVQ5SWtlSjltbFp5K1I1Z3RU?=
- =?utf-8?B?YlhqY3YwejZoeXBKUStkTE1NSUdIRXNTRXUyaTJtMnRjbnMxR2FzdEYwZnYz?=
- =?utf-8?B?SmJLSUE1TjhzaXFGSER2UGdTTjFMMVdUSHJDNG1Va0ZhVnVSKzFROSthd2Jo?=
- =?utf-8?B?cXc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43a561b3-7040-41fb-712f-08de229b075b
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 09:57:17.4287
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5gGHT+gVZc4Dn420E2b65YY73/0VuCgKm63S95jR+cAxpa+d2Y2w40OZyHbZ7U6kBje70a9oiu9VpHyM7EmeXMGnEb8YFVL0t8pXw/I2Eiw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9804
+X-ThreadId: AO4N9SNPwumV
+Date: Thu, 13 Nov 2025 11:13:01 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Siddharth Vadapalli" <s-vadapalli@ti.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ bhelgaas@google.com, "Chen Wang" <unicorn_wang@outlook.com>,
+ "Kishon Vijay Abraham I" <kishon@kernel.org>
+Cc: stable@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ srk@ti.com
+Message-Id: <084b804f-2999-4f8d-8372-43cfbf0c0d28@app.fastmail.com>
+In-Reply-To: <20251113092721.3757387-1-s-vadapalli@ti.com>
+References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate
+ to bool
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_015732_652842_BB944A83 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20251113_021326_355800_158805F9 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,41 +121,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Thu, Nov 13, 2025, at 10:27, Siddharth Vadapalli wrote:
+> The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
+> PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
+> library of helpers. Since the vendor drivers could individually be built
+> as built-in or as loadable modules, it is possible to select a build
+> configuration wherein a vendor driver is built-in while the library is
+> built as a loadable module. This will result in a build error as reported
+> in the 'Closes' link below.
+>
+> Address the build error by changing the library configs to be 'bool'
+> instead of 'tristate'.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: 
+> https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
+> Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-On 11/12/25 4:01 PM, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> We've had reports from the field that some RK3588 Tiger have random
-> issues with eMMC errors.
-> 
-> Applying commit a28352cf2d2f ("mmc: sdhci-of-dwcmshc: Change
-> DLL_STRBIN_TAPNUM_DEFAULT to 0x4") didn't help and seemed to have made
-> things worse for our board.
-> 
-> Our HW department checked the eMMC lines and reported that they are too
-> long and don't look great so signal integrity is probably not the best.
-> 
-> Note that not all Tigers with the same eMMC chip have errors, so the
-> suspicion is that we're really on the edge in terms of signal integrity
-> and only a handful devices are failing. Additionally, we have RK3588
-> Jaguars with the same eMMC chip but the layout is different and we also
-> haven't received reports about those so far.
-> 
-> Lowering the max-frequency to 150MHz from 200MHz instead of simply
-> disabling HS400 was briefly tested and seem to work as well. We've
-> disabled HS400 downstream and haven't received reports since so we'll go
-> with that instead of lowering the max-frequency.
-> 
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+I really think there has to be a better solution here, this is not
+an unusual problem.
 
-Went too fast and forgot:
+> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
+>  	depends on PCI
+> 
+>  config PCIE_CADENCE
+> -	tristate
+> +	bool
+> 
+>  config PCIE_CADENCE_HOST
+> -	tristate
+> +	bool
+>  	depends on OF
+>  	select IRQ_DOMAIN
+>  	select PCIE_CADENCE
+> 
+>  config PCIE_CADENCE_EP
+> -	tristate
+> +	bool
+>  	depends on OF
+>  	depends on PCI_ENDPOINT
+>  	select PCIE_CADENCE
 
-Fixes: 6173ef24b35b ("arm64: dts: rockchip: add RK3588-Q7 (Tiger) SoM")
-Cc: stable@vger.kernel.org
+I think the easiest way would be to leave PCIE_CADENCE as
+a 'tristate' symbol but make the other two 'bool', and then
+adjust the Makefile logic to use CONFIG_PCIE_CADENCE as
+the thing that controls how the individual drivers are built.
 
-Will give a few days for reviews and then send a v2 next week.
+That way, if any platform specific driver is built-in, both
+the EP and HOST support are built-in or disabled but never
+loadable modules. As long as all platform drivers are
+loadable modules, so would be the base support.
 
-Cheers,
-Quentin
+     Arnd
 
