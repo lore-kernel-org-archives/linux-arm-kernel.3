@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A54BCD8CAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4797ACD5BD1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YI6SwLVxaeWge12jpv+g65IL6HLVUJJ6dHq74rzDBFI=; b=RNPp6908KtHPQfW+G7PhI6fXsw
-	WqbhcLgCPVqkz6OKK4LkdlXySYCG8p9tpaCpULpDBHOqySUfQgPl1C+/C4w7N3xZneDZa9YSEOyre
-	u5IkkfffHI2pANBfttaxaTVSpUoFKJcYndcWsKl/iaV8bGT639kKY+Wob/2jStziQca+hU5ySSM4W
-	dIK3OQV3LoNgrqyX9x9NgHrCPBmRatpegHK+QV+m1lJuddcXUTLLDWqVN2pjDmu2Of3ELAIG6vpPt
-	UFVMaMvJwmNv5DJuVga99Sl2ac4VluPVj6cbsryycA20hzt7QXoGx3zIsDdF7cyKoIvdSl0NxuLL1
-	RzrXMZ3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjmyUoSgWGPF4zvVWfGOycyI7trdqjygTmFFY0Eg8Ok=; b=G9W1D1r8ixefOQcmr9stETh8UA
+	S1gY1ycR2jDDxkBwWOOh4+zDVZ8Z0XaLJODMOzzhPwqTcZslcTOPWkpFn5PBeot5RH9wkKi7E8srj
+	ZrSFugsVK4FIWyWHRhxBox3B/qQdLJYSqsQCy5Frrc/gsfQ/bDTQUwCr6x2J7JNudsum28K0yqT6N
+	thKx4g9sdWOuI/F01+nE/szLezaobzrCl4EiggiMEBdd3LBnlW++PhLhPtPTE8D0F/XjrTixIJpoR
+	eRM7N86z1YqI+HcSqwuLHHyFZRqoWwnw5F+XAQCKIvLcP9KOkD2h1IYcChS2H66RmUH+eNcQlmgHk
+	FbEvuM1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbZU-0000000Atov-0ArI;
-	Thu, 13 Nov 2025 17:57:24 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vJbe2-0000000AuAr-0o4f;
+	Thu, 13 Nov 2025 18:02:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbZS-0000000Atnl-0KRa
+	id 1vJbe0-0000000AuAK-0lHa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 17:57:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47758595eecso6475005e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:57:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763056640; x=1763661440; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YI6SwLVxaeWge12jpv+g65IL6HLVUJJ6dHq74rzDBFI=;
-        b=maWq3Oud17fzMjL4/JDq7MRkm1tOCmZy1gfNm+EIvPlqxNUifhye0GAEgT7V/qDTZq
-         OASRuL8o1kLmiDtAW9IkXGeA8t1E8/bYBxd2GB8KZiIkBPpghyRDKE2Yd0TH9Cl6mKPT
-         MQk/lGc8VntMZROhRiRm5gtgoQbHeGgoIX3Am/wxDbjG6ynegEgfidAY8Qv395+0dxjw
-         Xx9rA7Tddd2UUdsSNmGovl0Kk55oeAsqHhRMPirhhSaCPvXnW3kRl3KaQ8md9iKQSo6n
-         857w36v5PZsyKS3bd7V9tpALzXGPlEwA69p5KeSdy+oc9yra7ReHW3MD2oU3pMPY+LyB
-         0Xhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763056640; x=1763661440;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YI6SwLVxaeWge12jpv+g65IL6HLVUJJ6dHq74rzDBFI=;
-        b=lWCMxPpssmiMeoFsX5RbTpG+WsrmL0znnpRA7JwKN289p2+Kfe7o5DRFRgziMTjS1+
-         QksJ/JLWrXc/1WalqCdqaLEUf6PRg84JgpMLWzvYvsPfOQGBnsnITquxKnZeIr4/2con
-         venbIdIwzOutsZ8SDKBgJd6tEqafhboJ3iYOLj1qxSauugoehdVHUPg79S8Q3uQ84LRy
-         D7J8wVc055OcWEak/liXX3C5JZpRywT5o/iLW3UIU2+NVbHmmJdLpKPY0OTH7QsdK3po
-         RbYKjfva4zq6QbwFeXPgjN+xFcHGyFKQ6vrY0CktxXJgg5CJykwEvW+aommuqh3lJ3G4
-         ZKRg==
-X-Forwarded-Encrypted: i=1; AJvYcCWs6KpEuZZpH6PYFFyW1PuxTg3t0+7rsC7owGQjCLvpAyP0r2DZEQvgriQt0YFll0IrcLNayXcHbLxSAhcIB70h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yygg2xwTy4+vgXPSNGVxS317OvmSVq2DCZmh+ZmbAzyWjhrgz3c
-	kTRNqekNNTvhwtoWzMcEfJV6ILz/DInhdqGgKKcQW5JSMXiDfjxVn6FXFqjeqqNFRu5XPC8zu3A
-	i7egOoiQLUiBeU8tY2PcRJDEwD30EHEc=
-X-Gm-Gg: ASbGncvJbAv6oUijn3QQYMkGmhdCPcJBQ4WnQ0V2o/x3ta8G/r293xPNy7JxGVKWJ8l
-	9llNL4ps/BW1+pfBZL2k3Mwl0wAWCPfpo980bUCnJI3uTV8SHpCJOjkM3kkDQazLXNLstKpBFl2
-	SbNflLkUUZGTw8/j4e4Xq+eYfJ++KX5VpJhMFOMyVtBSoNNDHA159ZU8+FvSwM2W//B+NgE24B/
-	iN+4fsPTv8y5SHsSibmJ5ifGQBVx6XL9RWxnMxFxXIi73UTM4bivqqMWRAyp/ZulLxBwtuScAMX
-	JNgXqvt4k5c=
-X-Google-Smtp-Source: AGHT+IHbO+ZGBFXO5ge0ijkSwdvqQcv57wZTtQs6YNPPselRxjdniZ7ynd75vfty+uOIzSWSgkGQqLyBXVlxsfcb078=
-X-Received: by 2002:a05:600c:3b84:b0:476:a25f:6a4d with SMTP id
- 5b1f17b1804b1-4778fe4f3d1mr4281155e9.1.1763056639666; Thu, 13 Nov 2025
- 09:57:19 -0800 (PST)
+	Thu, 13 Nov 2025 18:02:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 47F1A438A3;
+	Thu, 13 Nov 2025 18:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B45C4CEF8;
+	Thu, 13 Nov 2025 18:01:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763056923;
+	bh=pefRbuYJ4cIwww2DTcSFGlDLKpPtGWwLfORT21um08k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qRYJZsx2w43hy0S+72gbKKMc/zciGp0kmjazlFFcrbx4ca7kWF2USySYUFmicDs/7
+	 a4O8H2EMZa9pMbwGypr3qrmOCgzTS4X25nEI/JcGnuCT0kMf4QaE8HKf0CXCN2rmqU
+	 RGvGNlwE1L2JLWVvWyBhg0+13XN6dHkbMP/9pCtr8viqDFhLBszebnitjHqMcE8WwH
+	 FG2Nxsop+q/ZdZGgd6nUt7AOd5mFEL757RjwvHkaBDtN1YDK5lEl4/aEEtLg38IdZn
+	 NMQvgwfLjOJZnysAhU7ttmwj6yqS1wgNmaYbIM/qbE2mAHSFBwuEYzeo/M37UJd9jC
+	 52yHrUb4EvuEQ==
+Date: Thu, 13 Nov 2025 18:01:57 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Stephen Rothwell <sfr@canb.auug.org.au>, Aishwarya.TCV@arm.com
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a
+ patched-in constant
+Message-ID: <72e1e8b5-e397-4dc5-9cd6-a32b6af3d739@sirena.org.uk>
+References: <20251109171619.1507205-1-maz@kernel.org>
+ <20251109171619.1507205-5-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251113123750.2507435-6-jolsa@kernel.org> <c3260fe9e3d8ad79c75a6e8281f9fae5580beb3fcdd08e2015f417e11ec0a1b2@mail.kernel.org>
- <aRYAhDqGsOHZzTL-@krava>
-In-Reply-To: <aRYAhDqGsOHZzTL-@krava>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 13 Nov 2025 09:57:05 -0800
-X-Gm-Features: AWmQ_bljz9ERUrLpgXYFmwgFdNYuQjEZ9EECbJhv0IrVw392banlmrLNtGinfI0
-Message-ID: <CAADnVQKnnZkODUUDDJQNJ7tVnoGreggw5NuvaP81=rpUYXwd7g@mail.gmail.com>
-Subject: Re: [PATCHv2 bpf-next 5/8] ftrace: Add update_ftrace_direct_mod function
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: bot+bpf-ci@kernel.org, rostedt@kernel.org, 
-	Florent Revest <revest@google.com>, Mark Rutland <mark.rutland@arm.com>, bpf <bpf@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Menglong Dong <menglong8.dong@gmail.com>, Song Liu <song@kernel.org>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Eduard <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, Chris Mason <clm@meta.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4mHS3LPUsnt5TA9O"
+Content-Disposition: inline
+In-Reply-To: <20251109171619.1507205-5-maz@kernel.org>
+X-Cookie: Live Free or Live in Massachusetts.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_095722_169035_C3683F65 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20251113_100204_265854_9F5F495F 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,105 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 8:00=E2=80=AFAM Jiri Olsa <olsajiri@gmail.com> wrot=
-e:
->
-> On Thu, Nov 13, 2025 at 01:02:17PM +0000, bot+bpf-ci@kernel.org wrote:
-> > > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> > > index 433c36c3a..bacb6d9ab 100644
-> > > --- a/include/linux/ftrace.h
-> > > +++ b/include/linux/ftrace.h
-> > > @@ -544,6 +544,7 @@ int modify_ftrace_direct_nolock(struct ftrace_ops=
- *ops, unsigned long addr);
-> > >
-> > >  int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace_h=
-ash *hash);
-> > >  int update_ftrace_direct_del(struct ftrace_ops *ops, struct ftrace_h=
-ash *hash);
-> > > +int update_ftrace_direct_mod(struct ftrace_ops *ops, struct ftrace_h=
-ash *hash, bool do_direct_lock);
-> > >
-> > >  void ftrace_stub_direct_tramp(void);
-> > >
-> > > @@ -581,6 +582,11 @@ int update_ftrace_direct_del(struct ftrace_ops *=
-ops, struct ftrace_hash *hash)
-> > >     return -ENODEV;
-> > >  }
-> > >
-> > > +int modify_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_=
-hash *hash, bool do_direct_lock)
-> >                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-> > The stub function name doesn't match the declaration. Should this be
-> > update_ftrace_direct_mod() instead of modify_ftrace_direct_hash()?
->
-> it should, my bad
->
-> >
-> > > +{
-> > > +   return -ENODEV;
-> > > +}
-> > > +
-> >
-> > [ ... ]
-> >
-> > > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> > > index 345f3fdd2..627d05b57 100644
-> > > --- a/kernel/trace/ftrace.c
-> > > +++ b/kernel/trace/ftrace.c
-> > > @@ -6445,6 +6445,74 @@ int update_ftrace_direct_del(struct ftrace_ops=
- *ops, struct ftrace_hash *hash)
-> > >     return err;
-> > >  }
-> > >
-> > > +int update_ftrace_direct_mod(struct ftrace_ops *ops, struct ftrace_h=
-ash *hash, bool do_direct_lock)
-> > > +{
-> > > +   struct ftrace_hash *orig_hash =3D ops->func_hash->filter_hash;
-> > > +   struct ftrace_func_entry *entry, *tmp;
-> > > +   static struct ftrace_ops tmp_ops =3D {
-> > > +           .func           =3D ftrace_stub,
-> > > +           .flags          =3D FTRACE_OPS_FL_STUB,
-> > > +   };
-> > > +   unsigned long size, i;
-> > > +   int err;
-> > > +
-> > > +   if (!hash_count(hash))
-> > > +           return 0;
-> > > +   if (check_direct_multi(ops))
-> > > +           return -EINVAL;
-> > > +   if (!(ops->flags & FTRACE_OPS_FL_ENABLED))
-> > > +           return -EINVAL;
-> > > +   if (direct_functions =3D=3D EMPTY_HASH)
-> > > +           return -EINVAL;
-> > > +
-> > > +   if (do_direct_lock)
-> > > +           mutex_lock(&direct_mutex);
-> > > +
-> > > +   /* Enable the tmp_ops to have the same functions as the direct op=
-s */
-> > > +   ftrace_ops_init(&tmp_ops);
-> > > +   tmp_ops.func_hash =3D ops->func_hash;
-> > > +
-> > > +   err =3D register_ftrace_function_nolock(&tmp_ops);
-> > > +   if (err)
-> > > +           goto unlock;
-> > > +
-> > > +   /*
-> > > +    * Call __ftrace_hash_update_ipmodify() here, so that we can call
-> > > +    * ops->ops_func for the ops. This is needed because the above
-> > > +    * register_ftrace_function_nolock() worked on tmp_ops.
-> > > +    */
-> > > +   err =3D __ftrace_hash_update_ipmodify(ops, orig_hash, orig_hash, =
-true);
-> >                                                                        =
- ^^^^
-> > Does __ftrace_hash_update_ipmodify() accept a fourth argument? The
-> > function signature shows it only takes three parameters (ops, old_hash,
-> > new_hash). This looks like a compilation error.
->
-> the whole patchset is based on bpf-next/master plus Song's livepatch
-> fixes which change modify_ftrace_direct_hash function, it's mentioned
-> in the cover letter
 
-Ohh. Will send bpf PR to Linus today and merge into bpf-next afterwards.
+--4mHS3LPUsnt5TA9O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Nov 09, 2025 at 05:15:38PM +0000, Marc Zyngier wrote:
+> The trap bits are currently only set to manage CPU errata. However,
+> we are about to make use of them for purposes beyond beating broken
+> CPUs into submission.
+>=20
+> For this purpose, turn these errata-driven bits into a patched-in
+> constant that is merged with the KVM-driven value at the point of
+> programming the ICH_HCR_EL2 register, rather than being directly
+> stored with with the shadow value..
+
+We're seeing the no-vgic-v3 failures in -next with slightly different
+symptoms to those that were seen in mainline and fixed with Sacha's
+change da888524c393 ("KVM: arm64: vgic-v3: Trap all if no in-kernel
+irqchip").  That change generated a conflict with this patch which
+Stephen resolved in what looks like a reasonable fashion tactically but
+I suspect needs some wider changes.  The test now fails with:
+
+# selftests: kvm: no-vgic-v3
+# Random seed: 0x6b8b4567
+# =3D=3D=3D=3D Test Assertion Failure =3D=3D=3D=3D
+#   lib/arm64/processor.c:487: false
+#   pid=3D2080 tid=3D2080 errno=3D4 - Interrupted system call
+#      1	0x0000000000413d27: assert_on_unhandled_exception at processor.c:4=
+87
+#      2	0x0000000000406c1f: _vcpu_run at kvm_util.c:1699
+#      3	 (inlined by) vcpu_run at kvm_util.c:1710
+#      4	0x000000000040308b: test_run_vcpu at no-vgic-v3.c:124
+#      5	0x0000000000402253: test_guest_no_gicv3 at no-vgic-v3.c:155
+#      6	 (inlined by) main at no-vgic-v3.c:174
+#      7	0x0000ffff9dc17543: ?? ??:0
+#      8	0x0000ffff9dc17617: ?? ??:0
+#      9	0x000000000040242f: _start at ??:?
+#   Unexpected exception (vector:0x4, ec:0x18)
+not ok 25 selftests: kvm: no-vgic-v3 # exit=3D254
+
+Log showing the failure:
+
+   https://lava.sirena.org.uk/scheduler/job/2079953#L2994
+
+This is on i.MX8MP-EVK, 4xA53 and a GICv3.
+
+No bisect or anything, between unrelated DRM breakage in -next and the
+same test failing in Linus' tree in -rc3 which the kvm-arm tree is based
+on it's a bit of a mess.
+
+--4mHS3LPUsnt5TA9O
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkWHRQACgkQJNaLcl1U
+h9CkFwf7BHSBpu13Gl2dKmMGEJ2tarZfJaanGVTIuXwd3MufzE8sMiFiUs9RDduR
+K6xSxs+YogP46QjHrhJn6PkamnE9JsJ7AWCbuf5mkw74ON7ROFXcuCqBXlSxL8w/
+l2jFp2sBgQRLYhMPJAnrIoVDgRhmPfnHVtafsg4vutmLxRcN4+wOQuL21J578KDA
+M2Id7VjL0JupztKELzp9pbVblX65VJgu/nFduWrn7qPbdtF5LLPvotyXRp0MoAHn
+yb1RdvDkjyasDHHuJSMXtX1COI2oTRWgky2VifAh2gTLVtUy9GKQC+ki5pLGgehs
+S+j6wno6JUxOJXzCBkr6A8pwb+3wtA==
+=waEM
+-----END PGP SIGNATURE-----
+
+--4mHS3LPUsnt5TA9O--
 
