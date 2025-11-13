@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622A6CD98C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ED0CD8CBD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v9yZQXqBch1JSJzcaQQctkjx9YKy3u8FyEyL/vNPgfc=; b=TmeuzHFEpMbYVKmTdX6S/tN1wD
-	zB2i1mYwd/0kiA4Sl86nD3NhZW1rkVGj1n6DU7CJ/kVrkUuIufcQlBF02x5GLrLhWKL88sTbtblKk
-	ht+NTs9euaaDChdkTuGYpSrgP1n5pTHJUBgHlEzo7xRw2LLYkcM9ox0bpteXnEfQVxBCLhYmmKvem
-	hmrurrD/G3iqf8OLsI02mYXRmSlLcZ+sK5RyIUGA9N72kD2xdWYLAD0BoU98vMRp3oNmOIkVg7p4N
-	vZKM7EtBqRDNEEgeyerBlw/+i7hw4EEiD2cVfVq7LEaPqtOk7cxgTTNSwHGXq/LfInmxPhHRlLwQu
-	pcT/7iog==;
+	bh=6t2p8YbLBHcslktU0UoaLjCR0MumsgT3xwVUYNWTUxA=; b=ZNBhfXDkHitbNH9ifEWu37jbzb
+	iaBQ+6rs2KbhD62X7IGXShf9+Ep+arqZ2E2J2SK0e/QTjZACPPaIrmZGf/FfxnYIgKggwQ5ARlxau
+	gfWimyPQtdFUnUddrSB34U1lFjBWIgP3V9gKTPB38vIA1aPla2Sy4CcvKV7+AgEy4YAmaAn+ZvnxQ
+	vH4t/+SmNZDabM9zNvmNqA63lBBDzhdzXBCCm9YRsVnNYBNj8icq9wPY+wM7q2Yx+PedJCEsqxH8k
+	9OgY12P2zK5VK8KtCxB+TExWxs8SRqKka+ydTORKtiOL2wMj/uHeabbXlw5QG60AwmZC1YlBFyngs
+	ohvyOaXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJc7j-0000000Aw9Z-24M5;
-	Thu, 13 Nov 2025 18:32:47 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vJcAd-0000000AwQP-1CTg;
+	Thu, 13 Nov 2025 18:35:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJc7h-0000000Aw8t-1XKv
+	id 1vJcAa-0000000AwPy-0tmK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 18:32:46 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47777000dadso8833065e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 10:32:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763058763; x=1763663563; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=v9yZQXqBch1JSJzcaQQctkjx9YKy3u8FyEyL/vNPgfc=;
-        b=DgVaS9meF8soCexdGJXeDDuBijzdu/2XRCTDOtY+vMuOO26T5ZcPZ0UHTR2GKz6e/B
-         /kO+klzmULKgV58DiC6mmCPpGGfIgUqhO6gHM8iVUDdGE0qav6sd9g0PFrt15if7rPn9
-         k3orZrN4BXEbypW4W5zxTfTJfLXh8QWXjcf3A+th8U5MvUUV0A4kevxytFjID/Szw/H6
-         V6NskOhkVT7Uu/BRL1+FleCVqhHDsyplptqgmLkp4coiTUo2irebBMKfVrxwjFdKD3s1
-         THrlh0nuNg4TIIHzqgEAqkvQFPYERsmfYOnE6f1gUJZ/1wFdpP4KO0P1IPDqFbvitrFR
-         +qCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763058763; x=1763663563;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v9yZQXqBch1JSJzcaQQctkjx9YKy3u8FyEyL/vNPgfc=;
-        b=jB18fGsh83Lp9rZ+oeLAF1yJchJUL/cO4dq7EVm8R6MOfu09c5Cfm+XMNwNLJNsswI
-         NaGeHyOyOpoIfnKiuogBn5XTBmx3IDrx+/jobMqUbDbCPicYLHr/oxBWaTJsOwehQ0mS
-         rLucL+Drv0Db/prj8t9dymG2qClBVPc6xidY5pJ+uQK3SYvdU74eaVLqMRLv+rX7rrcb
-         PlsgA4o6MriFFbxTxKIr6bZF/KIu6nCBIFwIB6aC2+lNMwCJuaw26Y3Ty2ek3GteEivA
-         d5pz6QNtSEcfg+gDiPhhkr52RCX9TkVQST18eozYX3ZXQlNwULTh2/YNBsLRV6VEZlkk
-         2xQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXdIthRrqXChlp5TpuDh7nbVVZxYojhBA0/zAqK4upsTe5mDORq4esmuNO6QpzbLkEBr8wTcWO6mK1/rpySyt/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrTgQzrUbab8Jx0yBwz9m0iqMGRJ+Y2u2DdiwhZcdNB+QiAu5C
-	Fw2Q5rDO4GCE4CefFmJNw+971fAmw5xOt40jgiB8CuE7nIq+ib7+Bbzk
-X-Gm-Gg: ASbGncv890msZcS7y52a00xeGrPH2REWhbKXTgfktScF40PkQksnCJrtGh5fkRuRxKF
-	zkwKB8yW89xrFUVUVjwuemnvr7f6b4RGVOtimt8tIj9YKTs9YcOL9pfOImlRVqwxvt6yQE87fXL
-	/Mxc+lSysUrJ8BaZIrgVGTvlmhE+b8+ZscdjZ02uTr6VpexDX0J1XYKFzMtwVHZtWv7YtdUu9/D
-	lPPd7pqOooZkuhRS05mXAKtG9ZaycdrrhZc1nh9kVFDttS7bNcAxeJ4bd+l1ZcQisQhDQQnqNX9
-	Yv8Xan691Fb4m++9nXZX4yXodUHdsgiNYucWR6y8zEIvkxgUzMMvHF+thny4J11+kwDCN8hcp/+
-	SzIubmNdnLe8gx0/0yioUIEH5rNNP8FLTZjJ+Q7DrVmDsmLc3QKTzdABD5/EZo39V2u0K6wHyVI
-	nb49I32vK00votJGoFoIOeOZpYKKi7Q2qCXWkl7Vm25iZBIfLw3lotlarxea6Lf5bAtMsTxDnuk
-	g==
-X-Google-Smtp-Source: AGHT+IEUOfl9Mj/MhDnCs6vXeSUiBJWe5OA5hhf/B85epyvDSKEXz8FsTxq8lGXRcYwvA52KNvjEqA==
-X-Received: by 2002:a05:600c:3b12:b0:477:67ca:cdbb with SMTP id 5b1f17b1804b1-4778febd327mr4653575e9.36.1763058762895;
-        Thu, 13 Nov 2025 10:32:42 -0800 (PST)
-Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4778c88bee1sm63595835e9.11.2025.11.13.10.32.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Nov 2025 10:32:40 -0800 (PST)
-Date: Thu, 13 Nov 2025 19:32:38 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-Message-ID: <2tx3o5es77oa37zqvikcoo6n2ryxvepa54ezsaawcjdbf3g3wp@o2dbcbskjksk>
-References: <20251029163336.2785270-1-thierry.reding@gmail.com>
- <20251029163336.2785270-2-thierry.reding@gmail.com>
- <CAJZ5v0igMJ12KoYCmrWauvOfdxaNP5-XVKoSxUroaKFN7S-rTQ@mail.gmail.com>
- <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m>
+	Thu, 13 Nov 2025 18:35:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6t2p8YbLBHcslktU0UoaLjCR0MumsgT3xwVUYNWTUxA=; b=y8WfZTN6cL6otaUWpXfGU52xBx
+	ma4BsYIpHqG6zDl+oXONdln+e99CHmTERVcpqyn3iIEYioR8FkoIKAaMY1CT9q6rgsTLddIYKMRni
+	7O/qqMj/ytuAIlcj3b9DZyM7f/+UR5nJOXcIsnHOP6xXCbv1YXQp0W6HCC4QHThfkYEX4W7YXune+
+	Vc+chLKOhjfatyvpx/w+qblGKqgBAQfByQUX/ia4vgFq9rIoLn9CWTgIw5B/WgWLoA2s8+r7Nh3xI
+	9QqjjavTiaObmkqvttkC0m0AzAmeqRp864xfUT2dwnG9SAa01+ozlylkbq83PYr+lckC+oht+alM/
+	ENxiyWXQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43958)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vJcAC-000000005rZ-0epR;
+	Thu, 13 Nov 2025 18:35:20 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vJcA5-0000000054u-2qcp;
+	Thu, 13 Nov 2025 18:35:13 +0000
+Date: Thu, 13 Nov 2025 18:35:13 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com,
+	christian.bruel@foss.st.com, krishna.chundru@oss.qualcomm.com,
+	qiang.yu@oss.qualcomm.com, shradha.t@samsung.com,
+	thippeswamy.havalige@amd.com, inochiama@gmail.com,
+	fan.ni@samsung.com, cassel@kernel.org, kishon@kernel.org,
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v5 4/4] PCI: keystone: Add support to build as a loadable
+ module
+Message-ID: <aRYk4Xj1SNEFYW-J@shell.armlinux.org.uk>
+References: <20251029080547.1253757-5-s-vadapalli@ti.com>
+ <20251113181355.GA2293401@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7axrx4sqgqvkj2b7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3dzha4qyqdrbutxby3n5nkvihnxrhniqr6w726eumhzgln2w5l@fbu72mzmjz4m>
+In-Reply-To: <20251113181355.GA2293401@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_103245_420886_999CB5C8 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20251113_103544_251152_80FDD414 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 13, 2025 at 12:13:55PM -0600, Bjorn Helgaas wrote:
+> >  config PCI_KEYSTONE_HOST
+> > -	bool "TI Keystone PCIe controller (host mode)"
+> > +	tristate "TI Keystone PCIe controller (host mode)"
+> >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
+> >  	depends on PCI_MSI
+> >  	select PCIE_DW_HOST
+> > -	select PCI_KEYSTONE
+> > +	select PCI_KEYSTONE if ARM
+> > +	select PCI_KEYSTONE_TRISTATE if !ARM
+> 
+> This is kind of a lot of dancing to make keystone built-in on ARM32
+> because hook_fault_code() is __init, while making it modular
+> everywhere else.
+> 
+> Is hook_fault_code() __init for some intrinsic reason?  All the
+> existing callers are __init, so that's one reason.  But could it be
+> made non-__init?
 
---7axrx4sqgqvkj2b7
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/7] syscore: Pass context data to callbacks
-MIME-Version: 1.0
+Yes. To discourage use in modules, because there is *no* way to safely
+remove a hook.
 
-On Wed, Nov 05, 2025 at 05:52:01PM +0100, Thierry Reding wrote:
-> On Mon, Nov 03, 2025 at 05:18:08PM +0100, Rafael J. Wysocki wrote:
-> > On Wed, Oct 29, 2025 at 5:33=E2=80=AFPM Thierry Reding <thierry.reding@=
-gmail.com> wrote:
-> > >
-> > > From: Thierry Reding <treding@nvidia.com>
-> > >
-> > > Several drivers can benefit from registering per-instance data along
-> > > with the syscore operations. To achieve this, move the modifiable fie=
-lds
-> > > out of the syscore_ops structure and into a separate struct syscore t=
-hat
-> > > can be registered with the framework. Add a void * driver data field =
-for
-> > > drivers to store contextual data that will be passed to the syscore o=
-ps.
-> > >
-> > > Signed-off-by: Thierry Reding <treding@nvidia.com>
-> >=20
-> > This change is fine with me, so I can apply it unless somebody has any
-> > specific heartburn related to it (Greg?), but in case you want to
-> > route it differently
-> >=20
-> > Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
->=20
-> I have a few follow-up patches for the Tegra PMC driver that depend on
-> this. 6.19 is what I was targetting, so if we could put this into a
-> stable branch that'd be the best solution. I can set that up via the
-> Tegra tree if you and Greg are okay with it.
->=20
-> If that's all too complicated, I can probably wait until the next cycle
-> to merge the PMC changes.
+While one can call hook_fault_code() with a NULL handler, that doesn't
+mean that another CPU isn't executing in that function. If that code
+gets unmapped while another CPU is executing it (because of a module
+being unmapped) then we'll get another fault.
 
-I've added this single patch to a branch based off of v6.18-rc1 that I
-plan to feed into linux-next so it can get some broader exposure.
+Trying to throw locks at this doesn't help - not without holding locks
+over the execution of the called function, which *will* be extremely
+detrimental on all fault handling, and probably introduce deadlocks.
 
-I can keep that branch stable so it can go through multiple trees if
-needed. If anyone's interested, the branch is here:
-
-	https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git/log/?h=3Df=
-or-6.19/syscore
-
-Thierry
-
---7axrx4sqgqvkj2b7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkWJEYACgkQ3SOs138+
-s6GbLQ/+LcY0n50MLCzG6P3cLlbnizYWB4fd77qBH6YbB2iRPf1TPkFtC1s24QiA
-KgZqLzCkJ5rw0Xtvmtzci4gr3GeqsMf/4DM0k3X5WdN/DMat0RTe1rhVuxq0MmGV
-7kmy+iB9FW6MgVt4kjeYdEL94ohEKXEUKTS6HTGfPFsonbJjnZdIsv4GVThClyxW
-Y3vE0mnoAvxjqtVu57jc/Ihryv5Zz6pYiX9AWhT1ryTG7tmgKuFWW0YgqkFy/Y9O
-rneSUrPJCeOBzjgL5oY6mPqTCl5f0VdGMb9S18RK+DKXSCLW7b0nGt4CCN7sEuOo
-7Dy1UuUjok1XLs8NYPQ7oDD29Q536WmrUmQMjMm0R3HuqmmD+PDO0/I9QA2cuOvw
-V1zUm+XqIlAyZs4lZkJXotqlCEBkPNCv0iIqEraETrCS1RYi/k0eqPF3Yu3oQc5p
-58cnaEW28DaJ9+Cy7T4NCu7lsDzDyyL+5n4HQyWGaFkVYU+Wkfh0H1ezo8bP9txU
-/Yan3s21OGdjzLMcCT0abiDrFOdN9N6HGOI2/UHnz87jxubwy7HjZ52Fkz3iGATD
-uz1HyHzrIav2FWTN0PkENUQpiTQIHTs0znDBKPpTvDkeVbTF5nQuP2S0+bUGxvLR
-BBevVnm7dT2dD5WqJbGfhem+DFPn66JVA5SFq9+/bvG0KsOpwpA=
-=Jfb5
------END PGP SIGNATURE-----
-
---7axrx4sqgqvkj2b7--
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
