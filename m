@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F40CD6E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 14:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8004DCD6E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 14:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbaeXo4KE9yMfmuYX6R1L5QpV2vTC1shul/jR3qCbUY=; b=MaPlv5fS8b3XfWpZOytzQeCWf1
-	7fgXlKlpbebcjrGBA+TfhMPoFE4+077bG+UxzyvkJMqw/eqAVIlwXaeM/4/xwtDCRYlsDXQaMazCM
-	INNXqeulztBYe7yHyT8x9E+wdAQgg/TpgFvmpIdJEcdKfnGVrisli/m/UvJA6xPnc2cH5IuX2aBTB
-	roaPwMxvMXzRBIcF109mN1XUErwg3hnJWFKdy0dfG44vBdALGmR/Ue/+OftzgHrdPPfTsOtyxAFt1
-	Seb7s+QK1DWkx3OMtDau/l250uZoNU04HTJa7iLvEnO5UGeAJ3Mlfoz5aO9gq5FYtoUsGSV31d6uS
-	AvgiKV6Q==;
+	bh=AQkkqmO1JTEqvi4TMO0ZQ/b1FHhR2XjnwcEZpp95XA4=; b=sORTr22ZX+czEwmTzCi1JE5ZWO
+	vb3bKv6vx+GXvd6vrAIsRnBi53LkMjBdm1Zi3rNsRkAZmmA+skgOl0qMmMQxCP7A1lafLMSAs/+eK
+	PeoTzqIa2JdOYP6lJGIXUlRSf6Gs6rNorS60rERQkBPBqlKkHwYJG7U3RRWIYcLAtwHa4JWutHw9b
+	sRc6sLcooZFr7yTcfXZDfgUU0npZAIucMzwZcilL5xoj+zb+jxoLxK+5QPXnGGCgqy7IlYU0g38Gb
+	D9zvulOaIa6zcJRNysS1p06lDE3LaO8UsPuGDEFBmP9Sz308tUrPrgV2GVdgCkC6kvMWZf2M2YBbO
+	hnGKoO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJYAy-0000000AbQ5-2Pyh;
-	Thu, 13 Nov 2025 14:19:52 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1vJYEb-0000000Abgv-0rty;
+	Thu, 13 Nov 2025 14:23:37 +0000
+Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJYAv-0000000AbP9-2Aqr
+	id 1vJYEY-0000000AbgS-2Rlg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 14:19:51 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=lbaeXo4KE9yMfmuYX6R1L5QpV2vTC1shul/jR3qCbUY=;
-	b=IephhnrPjI3WgO4hXW6woAtfholMSI/VQ4vQlLE/hp99p/ay01ajxwAx1BuC2ukiL3J+T+L05
-	s73Ob+3z5xfYsdxmiCtyqlKZEUO6+GfkoSL2WopLoIRsjxEzeNkv2X0+meo3uF7TUEY1a+oiEQv
-	wdRXrTozJdaCb7nNal9dcVQ=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4d6j6C3sltz1prLD;
-	Thu, 13 Nov 2025 22:17:55 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 618A0180B65;
-	Thu, 13 Nov 2025 22:19:36 +0800 (CST)
-Received: from kwepemq200001.china.huawei.com (7.202.195.16) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Nov 2025 22:19:36 +0800
-Received: from [10.67.120.171] (10.67.120.171) by
- kwepemq200001.china.huawei.com (7.202.195.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Nov 2025 22:19:35 +0800
-Message-ID: <017956b9-cb91-4068-b9d0-b54f93d83eeb@huawei.com>
-Date: Thu, 13 Nov 2025 22:19:34 +0800
+	Thu, 13 Nov 2025 14:23:35 +0000
+Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-9351ed45fb8so251814241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:23:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763043813; x=1763648613; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AQkkqmO1JTEqvi4TMO0ZQ/b1FHhR2XjnwcEZpp95XA4=;
+        b=EpQPHJp7Y5psSP9ICilELCFnvodc52Tu9C7bRChYT4cz8Z9TlU0ZmdGX9WQ8yKPRMQ
+         DESqSAoIp9wFLp4292FMMC2ZJk2JMeBIMvLswoZlyxfJTXd+fNR2jMeTIjvVMY+vx1JF
+         kT7sk7r91BrNaHrTE4fMfxhY3xLPbl/w+oPn7UDN/Mw0mNuGGRhfY+dGyNtCYrx7EZJR
+         LWHlygjJ5KkfP2xjkI4ryF28jaPSWL2Lr929Rkp2WdPngllOToxzButf2HCQ6GOW25pv
+         B9XwgTYlmdif8K7/k412m2wMNp4FC0yoaxkfKa8jSGBcPMtiTs+sNX5LQBySs84Xt+Y/
+         tQeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763043813; x=1763648613;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=AQkkqmO1JTEqvi4TMO0ZQ/b1FHhR2XjnwcEZpp95XA4=;
+        b=e9ACdesQVWffeR4e8Fc9+sKRJGKgNU02i+VfqKh4a5L5hy65QZQ//DXL0pgvtsA80Y
+         dVEFBro8H+mj/MKZ8sHesUPSuN7dKyRsc5MwR+XBVdydh3zosxWgJGFckeA4CPtpDZwS
+         xbEI54yn7lmGCXxMEaWg+YjqsSroQHvBl6Yc6EvKz3u69BuYkmL9KB+Zt2w4fZn/Zjxo
+         VMxpsqpK6lHC/3l6rwgjORFEZ4ZkWTcXx0EOqUYDBfgoxYYQGBRICospFLoz/lVH6GWf
+         dPIXhUHAmkGeauSs1g7mYEJi/4npE+hdkNoYx8Y9+a8DQzv+v4jSSeYsD0DasXYnzB87
+         BvDg==
+X-Forwarded-Encrypted: i=1; AJvYcCU+f9pEOhEDvYpcUutI+RbOAPQXwjkFyL6pyYybxrM40R2RN0xfgXkLymTegQcjmDvgFNVxTHSDXJJ/KBiqzRO0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVSTRe+JR20R3vbNTJ+Dgft6DKil8MtdyZRjrLF+5GmHeSfmJ9
+	9u0QUyVY/eHZrA3xQyeNsq8VxNPbyyDsLjsWelePmkGH83FaduWEUmMwHSR3D7K/FEoY2BtZnTR
+	cJTLEA0KkboDHApckRgqij3Qd9N9xJvI=
+X-Gm-Gg: ASbGnct0Zr2Wu15Xqa4Qd0iDEb3Hyxxe4ke30N4HRsNppjTZ6xJ6YnMpzSXJkF+oU5m
+	p0hB1leLfetDWAAaMjbEE6SIrIlq/tlYLIfPsqLQOjSlZEqzvk4qZMIKw3DDhB9ZGxcSxyUaTJ0
+	mEgORVxOSHIPas7VzfhAgSiMIv+xT33o6YjF84RovChQcvZR0jyLnCOK4cEwWmKQplzuQ/RPF+l
+	pDEZ6scZtyMjr7ShRDmbadFL/KpjFiHgOd/JzrhNVdKDV39tFxjF4Rhmn/BWMkciCAKCw==
+X-Google-Smtp-Source: AGHT+IEdl9tzzz4LmeLbbScFz7vEKneZAAwSpFKwNSObLKjtaLI1BVG/9M8fwcPigkX8YTSZH2mEkOKn47z8CXxwMZQ=
+X-Received: by 2002:a67:e043:0:b0:5df:ac57:b0ea with SMTP id
+ ada2fe7eead31-5dfac57b3ddmr1090766137.10.1763043812409; Thu, 13 Nov 2025
+ 06:23:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 4/4] arm64/io: Add {__raw_read|__raw_write}128 support
-To: Mark Rutland <mark.rutland@arm.com>
-CC: <arnd@arndb.de>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<akpm@linux-foundation.org>, <anshuman.khandual@arm.com>,
-	<ryan.roberts@arm.com>, <andriy.shevchenko@linux.intel.com>,
-	<herbert@gondor.apana.org.au>, <linux-kernel@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-crypto@vger.kernel.org>, <linux-api@vger.kernel.org>,
-	<fanghao11@huawei.com>, <shenyang39@huawei.com>, <liulongfang@huawei.com>,
-	<qianweili@huawei.com>
-References: <20251112015846.1842207-1-huangchenghai2@huawei.com>
- <20251112015846.1842207-5-huangchenghai2@huawei.com>
- <aRR9UesvUCFLdVoW@J2N7QTR9R3>
-From: huangchenghai <huangchenghai2@huawei.com>
-Content-Language: en-US
-In-Reply-To: <aRR9UesvUCFLdVoW@J2N7QTR9R3>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.171]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200001.china.huawei.com (7.202.195.16)
+References: <CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
+ <20250929043110.3631025-1-hy_fifty.lee@samsung.com> <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
+ <CAAQKjZM3qgQO=FaAuc4d1aUT1fCT6Vfo0X7Y7B=NwRNM=B34wA@mail.gmail.com> <000001dc537e$42b8bc20$c82a3460$@samsung.com>
+In-Reply-To: <000001dc537e$42b8bc20$c82a3460$@samsung.com>
+From: Inki Dae <daeinki@gmail.com>
+Date: Thu, 13 Nov 2025 23:22:55 +0900
+X-Gm-Features: AWmQ_bkMCoxlUNto3uZx9EZFH13ZH-AWorJ3ocnpvF6QI-HTLttLH3Rd-wpAotw
+Message-ID: <CAAQKjZMAPtisBhgcZE1QVoUsG8n=4PGzNB9rdVtjxaVnGc0YOA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
+ instead of zero-sized update
+To: hy_fifty.lee@samsung.com
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_061950_330320_70F47F0C 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20251113_062334_645402_5C9D2EE4 
+X-CRM114-Status: GOOD (  40.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,91 +101,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Hoyoung,
 
-在 2025/11/12 20:28, Mark Rutland 写道:
-> On Wed, Nov 12, 2025 at 09:58:46AM +0800, Chenghai Huang wrote:
->> From: Weili Qian <qianweili@huawei.com>
->>
->> Starting from ARMv8.4, stp and ldp instructions become atomic.
-> That's not true for accesses to Device memory types.
+2025=EB=85=84 11=EC=9B=94 12=EC=9D=BC (=EC=88=98) =EC=98=A4=EC=A0=84 11:44,=
+ <hy_fifty.lee@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
 >
-> Per ARM DDI 0487, L.b, section B2.2.1.1 ("Changes to single-copy atomicity in
-> Armv8.4"):
+> > -----Original Message-----
+> > From: Inki Dae <daeinki@gmail.com>
+> > Sent: Monday, November 10, 2025 11:24 AM
+> > To: Hoyoung Lee <hy_fifty.lee@samsung.com>
+> > Cc: Seung-Woo Kim <sw0312.kim@samsung.com>; Kyungmin Park
+> > <kyungmin.park@samsung.com>; David Airlie <airlied@gmail.com>; Simona
+> > Vetter <simona@ffwll.ch>; Krzysztof Kozlowski <krzk@kernel.org>; Alim
+> > Akhtar <alim.akhtar@samsung.com>; dri-devel@lists.freedesktop.org; linu=
+x-
+> > arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linu=
+x-
+> > kernel@vger.kernel.org
+> > Subject: Re: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen
+> > planes instead of zero-sized update
+> >
+> > Thanks for contribution,
+> >
+> > 2025=EB=85=84 9=EC=9B=94 29=EC=9D=BC (=EC=9B=94) =EC=98=A4=ED=9B=84 1:2=
+9, Hoyoung Lee <hy_fifty.lee@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91
+> > =EC=84=B1:
+> > >
+> > > Some configurations require additional actions when all windows are
+> > > disabled to keep DECON operating correctly. Programming a zero-sized
+> > > window in ->atomic_update() leaves the plane logically enabled and ca=
+n
+> > > bypass those disable semantics.
+> > >
+> > > Treat a fully off-screen plane as not visible and take the explicit
+> > > disable path.
+> > >
+> > > Implementation details:
+> > > - exynos_plane_mode_set(): if computed actual_w/actual_h is zero, mar=
+k
+> > >   state->visible =3D false and return early.
+> > > - exynos_plane_atomic_check(): if !visible, skip further checks and
+> > >   return 0.
+> > > - exynos_plane_atomic_update(): if !visible, call ->disable_plane();
+> > >   otherwise call ->update_plane().
+> > >
+> > > No functional change for visible planes; off-screen planes are now
+> > > cleanly disabled, ensuring the disable hooks run consistently.
+> > >
+> > > Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
+> > > ---
+> > >  drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++++++++-
+> > >  1 file changed, 11 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> > > b/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> > > index 7c3aa77186d3..842974154d79 100644
+> > > --- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> > > +++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
+> > > @@ -91,6 +91,11 @@ static void exynos_plane_mode_set(struct
+> > exynos_drm_plane_state *exynos_state)
+> > >         actual_w =3D exynos_plane_get_size(crtc_x, crtc_w, mode->hdis=
+play);
+> > >         actual_h =3D exynos_plane_get_size(crtc_y, crtc_h,
+> > > mode->vdisplay);
+> > >
+> > > +       if (!actual_w || !actual_h) {
+> > > +               state->visible =3D false;
+> >
+> > The state->visible field in the DRM atomic framework is set to true onl=
+y
+> > when the following conditions are met:
+> > - Both state->crtc and state->fb are present (having only one of them
+> > results in an error).
+> > - src_w/src_h and crtc_w/crtc_h are non-zero.
+> > - The source rectangle does not exceed the framebuffer bounds (e.g., sr=
+c_x
+> > + src_w <=3D fb->width).
+> > - Rotation and clipping checks pass successfully.
+> >
+> > However, this patch modifies the state->visible value within vendor-
+> > specific code. Doing so can be problematic because it overrides a field
+> > that is managed by the DRM atomic framework. Even if it currently works=
+,
+> > it may lead to unexpected behavior in the future.
+> >
+> > For example, if the DRM atomic framework sets visible =3D true after
+> > validating the above conditions and begins processing certain logic, bu=
+t
+> > the vendor driver later changes it to false, the framework may still
+> > assume the variable remains true, resulting in inconsistent states.
+> >
+> > Turning off a plane when it doesn=E2=80=99t need to be displayed is a g=
+ood idea I
+> > think. You might consider contributing this behavior upstream so it can=
+ be
+> > properly handled within the DRM atomic framework itself.
+> >
+> > Thanks,
+> > Inki Dae
+> >
+> > > +               return;
+> > > +       }
+> > > +
+> > >         if (crtc_x < 0) {
+> > >                 if (actual_w)
+> > >                         src_x +=3D ((-crtc_x) * exynos_state->h_ratio=
+)
+> > > >> 16; @@ -244,6 +249,9 @@ static int exynos_plane_atomic_check(struc=
+t
+> > drm_plane *plane,
+> > >         /* translate state into exynos_state */
+> > >         exynos_plane_mode_set(exynos_state);
+> > >
+> > > +       if (!new_plane_state->visible)
+> > > +               return 0;
+> > > +
+> > >         ret =3D exynos_drm_plane_check_format(exynos_plane->config,
+> > exynos_state);
+> > >         if (ret)
+> > >                 return ret;
+> > > @@ -263,8 +271,10 @@ static void exynos_plane_atomic_update(struct
+> > drm_plane *plane,
+> > >         if (!new_state->crtc)
+> > >                 return;
+> > >
+> > > -       if (exynos_crtc->ops->update_plane)
+> > > +       if (new_state->visible && exynos_crtc->ops->update_plane)
+> > >                 exynos_crtc->ops->update_plane(exynos_crtc,
+> > > exynos_plane);
+> > > +       else if (exynos_crtc->ops->disable_plane)
+> > > +               exynos_crtc->ops->disable_plane(exynos_crtc,
+> > > + exynos_plane);
+> > >  }
+> > >
+> > >  static void exynos_plane_atomic_disable(struct drm_plane *plane,
+> > > --
+> > > 2.34.1
+> > >
+> > >
 >
->    If FEAT_LSE2 is implemented, LDP, LDNP, and STP instructions that load
->    or store two 64-bit registers are single-copy atomic when all of the
->    following conditions are true:
->    • The overall memory access is aligned to 16 bytes.
->    • Accesses are to Inner Write-Back, Outer Write-Back Normal cacheable memory.
+> Hi Inki,
+> Thanks for the review.
 >
-> IIUC when used for Device memory types, those can be split, and a part
-> of the access could be replayed multiple times (e.g. due to an
-> intetrupt).
+> I agree that mutating state->visible value in vendor code is risky.
+> Rather than touching the DRM atomic framework or that field, how about we=
+ add a driver-private flag in Exynos(e.g. exynos_drm_plane_state->visible) =
+and use that instead?
+> If this approach sounds reasonable to you, I=E2=80=99ll spin a v2 along t=
+hese lines.
 >
-> I don't think we can add this generally. It is not atomic, and not
-> generally safe.
->
-> Mark.
-Thanks for your correction. I misunderstood the behavior of LDP and
-STP instructions. So, regarding device memory types, LDP and STP
-instructions do not guarantee single-copy atomicity.
 
-For devices that require 128-bit atomic access, is it only possible
-to implement this functionality in the driver?
+For now, it is fine to add a driver-private flag and apply the change
+only to Exynos. However, I believe this feature can also be generally
+applied to other SoCs whose display controllers support multiple
+hardware overlays, not just Exynos. Therefore, it would be ideal if
+this could eventually be integrated into the DRM atomic framework so
+that other SoCs may also take advantage of it in the future.
 
-Chenghai
+Thanks,
+Inki Dae
+
+> BRs,
+> Hoyoung Lee
 >
->> Currently, device drivers depend on 128-bit atomic memory IO access,
->> but these are implemented within the drivers. Therefore, this introduces
->> generic {__raw_read|__raw_write}128 function for 128-bit memory access.
->>
->> Signed-off-by: Weili Qian <qianweili@huawei.com>
->> Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
->> ---
->>   arch/arm64/include/asm/io.h | 21 +++++++++++++++++++++
->>   1 file changed, 21 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
->> index 83e03abbb2ca..80430750a28c 100644
->> --- a/arch/arm64/include/asm/io.h
->> +++ b/arch/arm64/include/asm/io.h
->> @@ -50,6 +50,17 @@ static __always_inline void __raw_writeq(u64 val, volatile void __iomem *addr)
->>   	asm volatile("str %x0, %1" : : "rZ" (val), "Qo" (*ptr));
->>   }
->>   
->> +#define __raw_write128 __raw_write128
->> +static __always_inline void __raw_write128(u128 val, volatile void __iomem *addr)
->> +{
->> +	u64 low, high;
->> +
->> +	low = val;
->> +	high = (u64)(val >> 64);
->> +
->> +	asm volatile ("stp %x0, %x1, [%2]\n" :: "rZ"(low), "rZ"(high), "r"(addr));
->> +}
->> +
->>   #define __raw_readb __raw_readb
->>   static __always_inline u8 __raw_readb(const volatile void __iomem *addr)
->>   {
->> @@ -95,6 +106,16 @@ static __always_inline u64 __raw_readq(const volatile void __iomem *addr)
->>   	return val;
->>   }
->>   
->> +#define __raw_read128 __raw_read128
->> +static __always_inline u128 __raw_read128(const volatile void __iomem *addr)
->> +{
->> +	u64 high, low;
->> +
->> +	asm volatile("ldp %0, %1, [%2]" : "=r" (low), "=r" (high) : "r" (addr));
->> +
->> +	return (((u128)high << 64) | (u128)low);
->> +}
->> +
->>   /* IO barriers */
->>   #define __io_ar(v)							\
->>   ({									\
->> -- 
->> 2.33.0
->>
->>
+>
+>
 
