@@ -4,76 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1FCCD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A15CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AurxHB+1uui5/KyI6RjD3+/Z2czI5L1MebXDzDX6mLY=; b=rvzpGxbnZKX3RjHGLIINlj9ozX
-	uQh08DjZY9CzSc8g+UvJaW+LmAEb4yubA93afduzCdKWG056rMmbWIy85zM0qRQ7St3EVB4ozRQrz
-	W5Fhm0n8e2c+HGUKy9CiUjyoRo+qjo168h3vD7Dr3H28yAPm1krIbqXgAT+y8Ef2478I5YebYyiGw
-	2cDAwR4TbSCQSgvOucHTTBxgj6N/Q5lBlN8PxxyoVax5cgTnl88CZ7LF5iCKZuYZIcoU9EcwM1M8p
-	j2NnUGrceEXwJRs0AJXuRBhInDoyEjw1Rka72EYEH7+1Ilc4foAFJ2BqcgGQvDfBMGJaDaOMCWlPk
-	qn1URV/A==;
+	bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=; b=q51MCjj5IE+PAGPDxd8NczX05g
+	/GIQZZ/n0QVH685BhyVNjmmEqxBIWiZrRro06xpAB7vFTfo1yGBLaflvG4yapA7E7AJIOtcMF4wjp
+	cNEGWek8BVc0zBrksHWFWipEEJ30RB+d/ibV5IfclUITGyMiBSQx2zwY8h3/d/jFT4Vk+B22gDg8n
+	cHoox1K2cvvEosK1qYzqTcB+pxvsN5O0roHlDAXeOMsOYia8KszPZyqF+ETnB3jkUGWgEKQCbD6co
+	/+C03KqhbthkOp3BsCh8Daq1WeL6GgzxgEAjegiHxO9oMPx84RmXOZtwdHyEsytxvEHg4WaSSgVJ5
+	2tpH4mHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTxz-0000000AEJK-0sUw;
-	Thu, 13 Nov 2025 09:50:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTxx-0000000AEIT-00iZ;
-	Thu, 13 Nov 2025 09:50:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E89CC12FC;
-	Thu, 13 Nov 2025 01:49:57 -0800 (PST)
-Received: from [10.57.40.163] (unknown [10.57.40.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5B913F66E;
-	Thu, 13 Nov 2025 01:49:59 -0800 (PST)
-Message-ID: <953f1aaa-d8bd-4091-9bf6-9538ccdd3bfa@arm.com>
-Date: Thu, 13 Nov 2025 09:50:40 +0000
+	id 1vJTzg-0000000AEUb-4BVM;
+	Thu, 13 Nov 2025 09:51:57 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJTze-0000000AEUA-2w9n
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Nov 2025 09:51:55 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-429c48e05aeso333862f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 01:51:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763027513; x=1763632313; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=;
+        b=EnSIaDF6Y4ocOHqN1YnsfzW9873/0OBKTq7gHcTHIjiHTfwlf8fP0gjOw1g1neuYtU
+         QfUXmwpyjxDqe7ASGXGIbEV+G+h/R3incXV+1+Hg2pUMhmdIzEAt50TvXgWQMlezCyGw
+         /0utTLOdBSWwqn6uVhz/1pNyBYMo70wYWwqGipl/xm63o9XR66HXwbrB7VyQl4hHLbFa
+         IGxI9I/z4vVCQfF2fVrb/K5e6MDOMKbFSYtng28Ms0mptyBCj8QzPUvE6qeqLGiF4cgg
+         Kg81HdVsHGWn8ptIuU3Xv7KCRVnlXGLlm9EERukwR23hSotmGo4wHFrLNDrYaI0Mdier
+         w/jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763027513; x=1763632313;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=;
+        b=WdpGcSBFm6pBpMZVHwgKxCdLmNECISsjCGrH9fcp8U/7Q0DfrLoqxpbp5eASk9bYmp
+         mvd1tPYlyZxoySW5cjlzsvKcm1UTZZeFeYdkzTPepcvQLbI3+N8Us15E2H+sl/LrM0fn
+         wr4C234dTcmyo2bzl5zdmq8NLx3DASKcSvMsUOvGHRAh5LxT3fU7jjsUddi5ZHd9uO/p
+         74B5c4+255/PDER7LuY0jdlRY4LC93AbvIvFDpKIJtO9PQyWZPnd/TrRBg8lM623Hbg6
+         0vtiWEYa1Nr4jBsBSbBLzu/fXF+UiYr/4vOrf7jV5d2hj0pRAcyBt7Ik5TJjgc1dqJ65
+         DF+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWz+0G4nU6DiHHk1pKie+E9KOvUm+MOBRmEe63f5JgS8WmYfxGvfq+deFruQ4dMCQyWfdg7FFWdPQ55C3GJoFvU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh33RvDSSm7IJkUPLx3cPnDjxZjSZ8xtZHDrcUwbVbZpiVLeDR
+	DJ1F6H58KQdHK+WvkOG+rVWlX2Axw0LImv5COh37FRqIG0qWzcpYR+HfpZLkiUxA2tg=
+X-Gm-Gg: ASbGncso4YPGOnydeceaaUp0Eu+nLlT8T9yhCa1u+dbd6HDH83CCmFrK9vJ9NQHebV8
+	hS5A5Ypp3TYHOyFXgUfQyjxPcJigG/8AnZ3E5wh4mzBd5n1jS1R+znPbtgi+s3Lm/hdcLJ7wW8w
+	enpDqpdtJVJ+LfF4C9XU6wV1bcE2aBKpwkveLL1onR1p7P786ajwB6FstecdWqRuCk5Ftg/IhLn
+	l10l3O+JneufymZSe89obUdb8uNtuMPwIS+ckFNligZ2rCFjQ/bREpFlhJRCamGXh1yWA/lMZjQ
+	wv7f7l2Wkb++L1edI8nQwLbmrbCiMFGBe0OOSoplGUJQ8PUFjEWcKTz5yXAV8b9yIlNs7f0YYGC
+	VM8G4MjAwkrVfamtJuQa0+v7URfCdhIR3O5mr+BdFNQymKVx7tIQJc6jPfCc98MbuPVXSXlTFiB
+	54pgmsMDIsib47LkSp
+X-Google-Smtp-Source: AGHT+IHZkeuEDZYJsmeqSkNhq3Bl5KYXIylnr89Ea5RYR3BcZR9jpgcLY7nN/+8jXCtmO4YuJD3daw==
+X-Received: by 2002:a05:6000:2887:b0:429:58f:26f with SMTP id ffacd0b85a97d-42b5281c40cmr2203450f8f.24.1763027512635;
+        Thu, 13 Nov 2025 01:51:52 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f1fd50sm2817519f8f.38.2025.11.13.01.51.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Nov 2025 01:51:52 -0800 (PST)
+Message-ID: <1af37451-1f66-4b6b-8b36-846cbd2ca1e8@linaro.org>
+Date: Thu, 13 Nov 2025 11:51:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/11] powercap: dtpm: Simplify with
- of_machine_get_match_data()
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Samuel Holland <samuel@sholland.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Viresh Kumar <viresh.kumar@linaro.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Thierry Reding <thierry.reding@gmail.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Saravana Kannan <saravanak@google.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Maximilian Luz <luzmaximilian@gmail.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-pm@vger.kernel.org,
- Chen-Yu Tsai <wens@kernel.org>, Yangtao Li <tiny.windzz@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Hans de Goede <hansg@kernel.org>
-References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
- <20251112-b4-of-match-matchine-data-v2-9-d46b72003fd6@linaro.org>
+Subject: Re: [PATCH v2 2/5] nvmem: add Samsung Exynos OTP support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ semen.protsenko@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
+ <20251112-gs101-otp-v2-2-bff2eb020c95@linaro.org>
+ <20251113-benign-macaw-of-development-dbd1f8@kuoka>
+ <9d77461c-4487-4719-98db-1c5c5025c87e@linaro.org>
+ <725ea727-d488-40aa-b36d-04d6d44a8ec5@kernel.org>
 Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <20251112-b4-of-match-matchine-data-v2-9-d46b72003fd6@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <725ea727-d488-40aa-b36d-04d6d44a8ec5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_015009_175212_41A5A1B2 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20251113_015154_792330_3A709623 
+X-CRM114-Status: GOOD (  33.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +115,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 11/12/25 10:28, Krzysztof Kozlowski wrote:
-> Replace open-coded getting root OF node, matching against it and getting
-> the match data with new of_machine_get_match_data() helper.
+On 11/13/25 11:35 AM, Krzysztof Kozlowski wrote:
+> On 13/11/2025 10:28, Tudor Ambarus wrote:
+>>
+>>
+>> On 11/13/25 10:30 AM, Krzysztof Kozlowski wrote:
+>>> On Wed, Nov 12, 2025 at 08:29:06AM +0000, Tudor Ambarus wrote:
+>>>> Add initial support for the Samsung Exynos OTP controller. Read the
+>>>> product and chip IDs from the OTP controller registers space and
+>>>> register the SoC info to the SoC interface.
+>>>>
+>>>> The driver can be extended to empower the controller become nvmem
+>>>> provider. This is not in the scope of this patch because it seems the
+>>>> OTP memory space is not yet used by any consumer, even downstream.
+>>>
+>>> Quick look tells me you just duplicated existing Samsung ChipID driver.
+>>> Even actual product ID registers and masks are the same, with one
+>>> difference - you read CHIPID3... which is the same as in newer Exynos,
+>>> e.g. Exynos8895.
+>>
+>> Yes, that's correct. It's very similar with the Samsung ChipID driver.
+>>
+>>>
+>>> What is exactly the point of having this as separate driver? I think
+>>
+>> The difference is that for gs101 the chipid info is part of the OTP
+>> registers. GS101 OTP has a clock, an interrupt line, a register space 
+>> (that contains product and chip ID, TMU data, ASV, etc) and a 32Kbit
+>> memory space that can be read/program/locked with specific commands.
+>>
+>> The ChipID driver handles older exynos platforms that have a dedicated
+>> chipid device that references a SFR register space to get the product
+>> and chip ID. On GS101 (but also for e850 and autov9 I assume) the
+>> "ChipID block" is just an abstraction, it's not a physical device. The
+>> ChipID info is from OTP. When the power-on sequence progresses, the OTP
+>> chipid values are loaded to the OTP registers. We need the OTP clock to
+>> be on in order to read them. So GS101 has an OTP device that also happens
+>> to have chip ID info.
+>>
+>> For now I just got the chipid info and registered it to the SoC interface
+>> (which is very similar to that the exynos-chipid driver does), but this
+>> driver can be extended to export both its memory space and register space
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> ---
+> There is no code for that now and possibility of extension is not a
+> reason to duplicate yet.
 > 
-> Depends on the first OF patch.
-> ---
->   drivers/powercap/dtpm.c | 16 +---------------
->   1 file changed, 1 insertion(+), 15 deletions(-)
-> 
-> diff --git a/drivers/powercap/dtpm.c b/drivers/powercap/dtpm.c
-> index f390665743c4..129d55bc705c 100644
-> --- a/drivers/powercap/dtpm.c
-> +++ b/drivers/powercap/dtpm.c
-> @@ -548,9 +548,7 @@ static int dtpm_for_each_child(const struct dtpm_node *hierarchy,
->    */
->   int dtpm_create_hierarchy(struct of_device_id *dtpm_match_table)
->   {
-> -	const struct of_device_id *match;
->   	const struct dtpm_node *hierarchy;
-> -	struct device_node *np;
->   	int i, ret;
->   
->   	mutex_lock(&dtpm_lock);
-> @@ -567,19 +565,7 @@ int dtpm_create_hierarchy(struct of_device_id *dtpm_match_table)
->   		goto out_pct;
->   	}
->   
-> -	ret = -ENODEV;
-> -	np = of_find_node_by_path("/");
-> -	if (!np)
-> -		goto out_err;
-> -
-> -	match = of_match_node(dtpm_match_table, np);
-> -
-> -	of_node_put(np);
-> -
-> -	if (!match)
-> -		goto out_err;
-> -
-> -	hierarchy = match->data;
-> +	hierarchy = of_machine_get_match_data(dtpm_match_table);
->   	if (!hierarchy) {
->   		ret = -EFAULT;
->   		goto out_err;
-> 
+>> as nvmem devices, if any consumer needs them. Downstream GS101 drivers
+>> seem to use just the chip id info and a dvfs version from the OTP
+>> registers. DVFS version is not going to be used upstream as we're defining
+>> the OPPs in DT. So I was not interested in extending the driver with nvmem
+>> provider support, because it seems we don't need it for GS101.
+>>
+>> Do the above justify the point of having a dedicated driver?
+> Only partially, I asked about driver. I did not spot previously the
+> clock, so we have two differences - CHIPID3 register and clock - right?
 
-I don't know if Daniel had a chance to look at it, but I can help him.
+clock and interrupts, but I don't use the interrupts because I just need
+to read the OTP registers to get the chip id info.
 
-The patch looks OK.
+> I wonder why Exynos8895 and others, which are already supported, do not
+> use CHIPID3, but nevertheless these two differences can be easily
+> integrated into existing driver.
 
-The extra return error value which is removed doesn't harm the client of
-this function in other subsystem.
+they can be integrated, but I want to make sure we're making the best
+decision.
 
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+>>> this can easily be just customized chipid driver - with different
+>>> implementation of exynos_chipid_get_chipid_info().
+>>
+>> If the answer is no to my question above, how shall I model the device
+>> that binds to the existing exynos-chipid driver?
+> Just extend the existing driver.
+> 
+So you mean I shall have something like that in DT:
+
++		chipid@10000000 {
++			compatible = "google,gs101-chipid";
++			reg = <0x10000000 0xf084>;
++			clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
++			interrupts = <GIC_SPI 752 IRQ_TYPE_LEVEL_HIGH 0>;
++		};
+
+Maybe remove the interrupts because I don't need them for reading OTP regs.
+
+What happens in the maybe unlikely case we do want to add support for OTP
+for GS101? How will we describe that in DT?
+
+Thanks!
+ta
 
