@@ -4,105 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A635DCD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18A9CD8C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 18:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6uac0xj8a+6k+KJ/TLozw+bMuDmR0K+Bzcv/b4RoLw=; b=COFkN1KnIvSgxAW57pUvjsC+Fu
-	KIJTlQFdDLkhQS0lwVbruzEFA6xNJOD6fbYWfDT5qGbHn/LZ8ODh9vL+hW+513ggtucomRLaS+lko
-	opDr229MFUahh+Xad+2XUUevjoi0zn32acRDeCleRAVlJHcEyJJRV0rztjz0WEfFMRuXSSuUFGgYJ
-	lZs5/H5wRyIxXMMHITnvCf+B0aGJEeMhQe9Ri0w66Dpy3JUj7TTUwse9wzYhjfZcxamXBzJiLedZc
-	h++nmWBv2JB5z7MuaEt9tWVosqRd7BNmQ9MbSgPrrJK0j7gkWvUI9pSf/b8wpKGCpvLa6RR8Ph7EJ
-	9y5yQ9nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TyNYHbz9RzpuLXhlUnl5webp3KZC/SmVD8y8tlRVROA=; b=RYL+w35zUQHBFE
+	QyZDYb2tZRilJDqrh5+lJZouz5aukt9jv5gDuvIvXtJu4a82aWXDoXdsDmAA1EO0itv2fX7jC1Lol
+	8fsVARDSZwkWEbpy80cpUgAEsptGhvd1etDHq12oWgThuIZ1aGpblDaHcU4+kdXfWGL4KdrfGc992
+	ZJfCY592GDYwJXIe/v6zkMsv4TfPEGxdqYMNjz8G+7AUfVrgxJFPflUWU67VZyjHgyUlbrHYQzhiB
+	fOKayf13bKy/RZUAfand5457yXYFYkKRp39FHP+cIFDFe6Bi8GSAGiqJIY9cbQfpCGOIZTBFcB1o6
+	IXug1s73JFiWoEd1y7bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbh2-0000000AuQ5-3GAQ;
-	Thu, 13 Nov 2025 18:05:12 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vJbpX-0000000AunC-394F;
+	Thu, 13 Nov 2025 18:13:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJbgz-0000000AuPd-3xcJ
+	id 1vJbpW-0000000Aun5-00pD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 18:05:11 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-640d0ec9651so1943904a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 10:05:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763057107; x=1763661907; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X6uac0xj8a+6k+KJ/TLozw+bMuDmR0K+Bzcv/b4RoLw=;
-        b=P0w1NTnCKWh4Hp0rMJZ9dIygB2NWDvyORcD/q76MYuTj5SmkUFGmB52iEY2fQxCubT
-         pmymp+P8jBikipLs9F5lKNeO5bVx92MRF8EA8TZzc4grrdgxz33v0PDujO7tUzhtOP4n
-         nes0TsicXKgSvcgtwhLxROFCroRIFo8KRWips=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763057107; x=1763661907;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=X6uac0xj8a+6k+KJ/TLozw+bMuDmR0K+Bzcv/b4RoLw=;
-        b=Gfa30iDtM8Z6iP8P5qPQ4VdQYAr+P5xr4OerIUqVZSl3gWtwRFbd+UarmmaYNsi4Re
-         +qpakaHdjhu4bhZzrnRf9J+VIne0Ew4zQO7r+0XzWjy/HzEFGw2SJ+c+buTH+yiqbOWR
-         tg8nUTByUBA0fM93CahHZjGA5WK2jQH67nR4Fl4KjJdXopIbTVdV47YQ9THuBYWdSR9a
-         +OAs0uVii1sAfYWPr401Hv60bSD8bFQJj16Zg6123xgU93jPhYNJQaKuNt4MLPGhRYrL
-         dCVtnV8E11NoQiJ8AsnZ6Qp14cRUB0rHesxckmweFfsdV3lHj8JeU6fw5wApsWuTnY4c
-         9HiA==
-X-Forwarded-Encrypted: i=1; AJvYcCW4aaLfmJChGqk1ivxegDOlHqlW/rmCIwg6n99xFqgABSAy8Sqq6la+3b0hw/KwRDysaMW0nKbCABdXAs0c1re6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpHK+WDY1iLi8AoeegRxrmX0a8woE752Tt/slIV34NXu9VLvCD
-	cSf3ho3+esD7RkYb3RauMRr1wyuK5L+/dzrL9MOWFqQiWIWBcjuJK+8343DRg7+BdTriIEO0PRz
-	74XTJWWx9
-X-Gm-Gg: ASbGnctfCzxcZemq1DuA3JV3GZGhiiw909N/WEFgv0zCLeWZ1BG9YfQsYntMXHalpMG
-	wSJjN7J7k5Zsea3R1Ew+EuHtk/8ScRZCXX/jJVCkubyq9LHZwA5PRw0K0Mhff5n5X6ernBf+DTq
-	+U3JiQVNYLBQTFnea5GxszYG60JV/L+lQi8Yd8QQid5w76A3V1uKy5USF9aavS2n7ruLZUe/HLz
-	I934M4trpW5/1GYdsIJR99LLep9v/zeebojg65E3JqmoPKcBuw7DGgQnpRGAZPL1mMLCMqpBvbr
-	xaju8W9dqYbGgQdsvzSG4UBtUtGdNjU7MwgpJ6ghA32Kvql8wElQ9lgW4udU8yiptxMMlNVX1hG
-	WD4eZl4cZgeg9h8nrq0k9//nwhxkHYoUs4/oBMkcNa3Z4MDlVOGo+UFreOJJDFZtmmSZ3F4TfxJ
-	mZmnMRw0M3mzI1VIyX9HxrmZmwewb7nGnlnTNKRuafQKqIQ55HHdfe3tCJfWddx5zlG1h6atE=
-X-Google-Smtp-Source: AGHT+IEtFLVwkAvl651blFShcRjUH2y7BXsAMbf4W01NG5xO6RFIA20WAfFowS1bRaEJDGPxEEfG7w==
-X-Received: by 2002:a05:6402:3546:b0:641:4b82:10c9 with SMTP id 4fb4d7f45d1cf-64350e9ed31mr166017a12.27.1763057106710;
-        Thu, 13 Nov 2025 10:05:06 -0800 (PST)
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com. [209.85.221.51])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b28b0sm1926858a12.30.2025.11.13.10.05.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Nov 2025 10:05:05 -0800 (PST)
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-42b3377aaf2so724056f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 10:05:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW9jhMKq0asY7Z795qVdL49QP+od/qWt2Qqg252f2u4QBSiQFUo2g16yy+Lev+qX1NDrWB8LgJ2HT6QwDVW6vN/@lists.infradead.org
-X-Received: by 2002:a05:6000:1863:b0:42b:3023:66a9 with SMTP id
- ffacd0b85a97d-42b59367802mr289626f8f.22.1763057105007; Thu, 13 Nov 2025
- 10:05:05 -0800 (PST)
+	Thu, 13 Nov 2025 18:13:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DAB3361CF4;
+	Thu, 13 Nov 2025 18:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AA55C4CEF8;
+	Thu, 13 Nov 2025 18:13:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763057636;
+	bh=hb/FO4V3eVHR2RnKCICg4vV3cwhuxn5dtsUG3W/ZL3w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=GAeXoZnD0ky14VG0Muy9qj0XgPiUQdXS28xi+Pffx6l3JTGDimfw4wLQYdkNGJWfL
+	 sXR93nMF71w3TAo9+EmnuZlMAxnrWwMHA2m487LyCzfrfuLmzGwvvv85+N7GCzwrQ6
+	 zjp9GfUAsoOMJbkfIdnIGw/pEvnnXvnvOVdAkuvfKy4WuQk0zQ7G6KrFG3TANGhVwn
+	 J2fmk46Xbt87Zh4EaA6Jz5r0JbBndG1Gid5Wn2gW6DIniz9vh8iImKryaNDpRB2tb4
+	 S1H3a+yGue1ulyQDH/0OtQcLxavnbA98/GjK+L98qek+0aXHthH2fdvxjVhc6ullZS
+	 X3tfd5X2NPRTg==
+Date: Thu, 13 Nov 2025 12:13:55 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+	christian.bruel@foss.st.com, krishna.chundru@oss.qualcomm.com,
+	qiang.yu@oss.qualcomm.com, shradha.t@samsung.com,
+	thippeswamy.havalige@amd.com, inochiama@gmail.com,
+	fan.ni@samsung.com, cassel@kernel.org, kishon@kernel.org,
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v5 4/4] PCI: keystone: Add support to build as a loadable
+ module
+Message-ID: <20251113181355.GA2293401@bhelgaas>
 MIME-Version: 1.0
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
- <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org> <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
- <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org> <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
- <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org> <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
- <abb77afe-c285-46ba-88ac-08574bd67712@kernel.org>
-In-Reply-To: <abb77afe-c285-46ba-88ac-08574bd67712@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 13 Nov 2025 10:04:53 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VcAbgv41tjgWQN4i8Wqk6T6uvdpQ261Q_hcKM4AMpGEw@mail.gmail.com>
-X-Gm-Features: AWmQ_bm88XdKzAi5IStwbrVdXDDrbTXMC9ViB_9-mq5L9vr4mmyrArKaiYvTgn4
-Message-ID: <CAD=FV=VcAbgv41tjgWQN4i8Wqk6T6uvdpQ261Q_hcKM4AMpGEw@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
-	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_100510_029912_7535A839 
-X-CRM114-Status: GOOD (  30.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251029080547.1253757-5-s-vadapalli@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,89 +76,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+[+to Russell, hook_fault_code() __init-ness]
 
+On Wed, Oct 29, 2025 at 01:34:52PM +0530, Siddharth Vadapalli wrote:
+> The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
+> Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
+> that the 'pci-keystone.c' driver depends upon have been exported for use,
+> enable support to build the driver as a loadable module.
+> 
+> Additionally, the functions marked by the '__init' keyword may be invoked:
+> a) After a probe deferral
+> OR
+> b) During a delayed probe - Delay attributed to driver being built as a
+>    loadable module
+> 
+> In both of the cases mentioned above, the '__init' memory will be freed
+> before the functions are invoked. This results in an exception of the form:
+> 
+> 	Unable to handle kernel paging request at virtual address ...
+> 	Mem abort info:
+> 	...
+> 	pc : ks_pcie_host_init+0x0/0x540
+> 	lr : dw_pcie_host_init+0x170/0x498
+> 	...
+> 	ks_pcie_host_init+0x0/0x540 (P)
+> 	ks_pcie_probe+0x728/0x84c
+> 	platform_probe+0x5c/0x98
+> 	really_probe+0xbc/0x29c
+> 	__driver_probe_device+0x78/0x12c
+> 	driver_probe_device+0xd8/0x15c
+> 	...
+> 
+> To address this, introduce a new function namely 'ks_pcie_init()' to
+> register the 'fault handler' while removing the '__init' keyword from
+> existing functions.
+> ...
 
-On Thu, Nov 13, 2025 at 9:43=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> >>> Yes, the complexity of just "hooking up" the components on an SoC is
-> >>> an order of magnitude harder than a Raspberry Pi, but it's still just
-> >>> hooking it up to external components. In both cases, we are modeling
-> >>> the core "brains" (the part that contains the processor) as the DTB
-> >>> and everything else just "hooks up" to interfaces.
-> >>
-> >> You mix the topics, so I don't follow. I speak here about bindings - y=
-ou
-> >> cannot have the that compatible alone, because it is incomplete, just
-> >> like compatible for "transistor" is not correct in that context. You
-> >> speak what could or could be DTB, different topic.
-> >
-> > A "SoC" is "complete". It has a processor that can run instructions.
->
-> Then show me executing any piece of software, which is the consumer of
-> the bindings, and runs on the SoC without the rest of the hardware system=
-.
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -482,15 +482,21 @@ config PCI_DRA7XX_EP
+>  	  to enable device-specific features PCI_DRA7XX_EP must be selected.
+>  	  This uses the DesignWare core.
+>  
+> +# ARM32 platforms use hook_fault_code() and cannot support loadable module.
+>  config PCI_KEYSTONE
+>  	bool
+>  
+> +# On non-ARM32 platforms, loadable module can be supported.
+> +config PCI_KEYSTONE_TRISTATE
+> +	tristate
+> +
+>  config PCI_KEYSTONE_HOST
+> -	bool "TI Keystone PCIe controller (host mode)"
+> +	tristate "TI Keystone PCIe controller (host mode)"
+>  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
+>  	depends on PCI_MSI
+>  	select PCIE_DW_HOST
+> -	select PCI_KEYSTONE
+> +	select PCI_KEYSTONE if ARM
+> +	select PCI_KEYSTONE_TRISTATE if !ARM
 
-Show me something that runs on a Raspberry Pi (the models that don't
-have eMMC) that runs without hooking up power and plugging in an SD
-card. :-P
+This is kind of a lot of dancing to make keystone built-in on ARM32
+because hook_fault_code() is __init, while making it modular
+everywhere else.
 
+Is hook_fault_code() __init for some intrinsic reason?  All the
+existing callers are __init, so that's one reason.  But could it be
+made non-__init?
 
-> > In any case, maybe we can approach this a different way that I alluded
-> > to in one of my other posts. Can we just call the SoC thing something
-> > different and make everyone happy?
-> >
-> > 1. Rename the SoC file to lga-b0.dtf (device tree fragment) and
-> > _REMOVE_ the top-level compatible. Problem solved--we're not adding a
-> > top-level compatible.
-> >
-> > 2. Add a special node at the top level of the "dtf" file describing it
-> > (so someone could figure it's useful for). Like:
-> >
-> > fragment-info {
-> >   compatible =3D "google,soc-id";
-> >   google,product-id =3D <0x5>;
-> >   google,major-rev =3D <0x1>;
-> >   google,minor-rev =3D <0x0>;
-> >   google,package-mode =3D <0x0>;
-> > };
-> >
-> > 3. We can compile the "dtf" file using existing tools into a "dtfb".
-> > This looks just like a "dtb" but has no top-level compatible but
-> > instead has "fragment-info".
-> >
-> > Now we're not violating any spec because we're not adding any
-> > top-level compatible.
->
-> Didn't you just describe an overlay or DTSI file?
+There are several drivers that use hook_fault_code() and could
+potentially be modular (imx6, keystone, ixp4xx, rcar).
 
-Sure, you can look at it that way. ...and since you're happy with
-"dtsi" files I assume you're happy with my "device tree fragment"
-files, right?
-
-The difference here is:
-
-* A "dtf" file must be able to compile (with dtc) on its own. Contrast
-with a "dtsi" file could rely on labels that are provided by the file
-including it.
-
-* A "dtf" file needs to have "/dts-v1/;" at the top, unlike a "dtsi" file.
-
-* Kernel (or other OS) build rules will be happy compiling a "dtf"
-file. This is in contrast with a "dtsi" file.
-
-* A "dtf" file is _intended_ to be compiled and hooked up to an
-overlay. This means it will always be compiled with "-@".
-
-* We can document the requirement that a "dtf" file needs to live
-together with the overlays that it will be combined with to make
-complete device trees. This means that there is no need to set a new
-ABI boundary here and we can be flexible with what labels are exported
-by the "dtf" file.
-
-
-If that all sounds reasonable, I'll get working on it right away.
-
--Doug
+Bjorn
 
