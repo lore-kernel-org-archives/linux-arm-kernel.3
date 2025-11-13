@@ -4,65 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7831CD8CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90242CD8CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 17:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=svpqCzIEpZ4ip7v4H347LmUetRtrw3UrNH1HpF2Nsn4=; b=rK6LQJsFqlR+sXVLhvb1Lt9+i6
-	qOl2A820owOyO4qN66mt57IUiNfWtMQa2tq1Ug69BVIdoIAm7vELbA2/TWK3zyYuVM7EGMyteVZBT
-	tgvIufF7ForXuEJlhqS0BDI/LTBYkZprEc738iJy6IqbG8ESy9id+tHaqMM3L7194SFrxUbTnWXfl
-	CtKuph3FnbNbSa50w6aFeHfUZ6/xpblSHYhB2ff9wVwU1mSPsOfHZ6Z/PNnfglGqTA6TFRPfOFkBY
-	ibELkkvBsY+By8PtW5BzNKk5p7qmMCXgJbnldcdMs5XU4Ixi9e6YVCxJ9fLea/rf7wgRMMGDU01K6
-	RyhvEVpQ==;
+	bh=WtyftZQVY4swvTgixLURevtyRejq31WTYbhe23ooHsw=; b=fyErW4bnQ7JjInMQikIT9VFqVt
+	5P5HQK9Xgr+8QVIxwgxwaEsWB88s8EMGqWkNB53jB+rdkjTnKrVDTk4Lmz83owAlBQ8PsjX1+HPXR
+	52A9A3NO3wTQhTaCsVn6LBamQvlyaYt+K96P/NMRIcJdS6nuejerynKesPiScIa+kLBYWd3KX3pvr
+	47+c7zfAbAqVc7wEB4WfA2O3jXHLs8et0IprtbF0vyJo2JBxNTHV4sk6sOhrAz9SWTRzdbLF0zYCg
+	687EyDz3x0dUUd+2Xt2wFaBZwShsHIaTg37NEU7GFiRBKeRWJnzSmtSF/M69oqm5xqmHgVJpFDkkH
+	xSLc1ifw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJauZ-0000000AqrI-48Nv;
-	Thu, 13 Nov 2025 17:15:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJauX-0000000Aqqn-0hdT
+	id 1vJavs-0000000Aqyq-1fm7;
+	Thu, 13 Nov 2025 17:16:28 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJavq-0000000AqyP-1UQ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 17:15:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C53EA12FC;
-	Thu, 13 Nov 2025 09:14:54 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61BDB3F66E;
-	Thu, 13 Nov 2025 09:14:57 -0800 (PST)
-Message-ID: <cadd5e98-5e41-4cd9-9104-a707d6ffbfb7@arm.com>
-Date: Thu, 13 Nov 2025 17:14:56 +0000
+	Thu, 13 Nov 2025 17:16:27 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-64198771a9bso1988722a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:16:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1763054180; x=1763658980; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WtyftZQVY4swvTgixLURevtyRejq31WTYbhe23ooHsw=;
+        b=RuaNvWulKE1pzcLSNu6OBES42ay0IbERDMrVg7GMd1WIUj8aRlEeoR9A93s/g1IMYD
+         JNK9c8b3LkWOrGW5CdPXb2QXaK3xUFSsFJrVxxMHWF1+VhaPfZhDTdq2ON0eWLC/Q9Cr
+         FIZjv3bZTjPY4EvrBxDitOYoBa9MUJ78Two7w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763054180; x=1763658980;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WtyftZQVY4swvTgixLURevtyRejq31WTYbhe23ooHsw=;
+        b=qwiuGO16ebsj7z+5itRIKUwJvu+EglPlasMTviXE+8RabXL/rRXpeZlefp2MKY6JQX
+         Yn4sNliSRfv+6YUnh8aHX8DSUTl0zHgxd6lEcau52NIOfFp2ZqgA1LpqP1uXPlYiaaIN
+         J8zvLcOfswH8dRltdpGVXRTMHZWwnmx6KHL2uhy6sJ2Rwh4q8jvoMpOuTez09vt1DPm5
+         XubwoLk1jJHveOen36A8zGUNP0niaIN9bOxxmvVMAElWbDAxSiyYkS3NlwJX8o/NeTwW
+         mUMU6OZm67xBXW/+VuqhOfom+jxXuqyg2kaD5olVt4OV39svFwipmOAVZhpNVgDWuIAo
+         uVtw==
+X-Forwarded-Encrypted: i=1; AJvYcCUb002nfT0WX8FWQgSZM1UzGBv0OcZAwGH+bl+Xz6ZgxJM+kZaupwWaGvX1IqibrViNwZwB5Lwm/KNUBjOCtoKU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHK2jKHtYiz/ho0bwn3gzbR/F7PXTfzvFICaTlHuyU8sSfji81
+	5oVNjtgr9bj+1A3/NQsZjvgZS9A3KD9v2ZsuAp4dYHHxETBzArCxCDstaqmTj3ktOQDcr4fFdAw
+	fzMoqLBo/
+X-Gm-Gg: ASbGnctuLOZfag7+/FW+3R5p+GONRcw0nCVsN+bQvrWdyxvlXgeaxdX3mgHnX4kmITB
+	8VVm0PNjcnzhSx94Ky9hgZNTuFz6bA8Iogxb84qce8EHns3zHdxHZ/dWHKKwGkBFhQa2NpSjeRu
+	XWuuE3ebHNatDaagx+sUoHbg7fSZJlDskU6tLXUV4QXe+XMwtmHNPipZJ5DMO6SFqlwimGJtv3G
+	ff0aGBi/bZ2/VPsEI1s6NlkBNtmatmIY9wscK0+DdeL6Fjqb39WCP7CHPhUoKzUlg8c7GalekSq
+	dhCIJ6W7qIq6yH3La1Z7vYxInaB7Ps0gOlF/3K9p8UfD+iY+a3Dny81t9pxcgYa3aaux5YO1dwR
+	Le+5D8OBbcycXgWoE6z32JRylcCqlSJ5fgFRXoBPybiuoeFVNLxqR6zRG8w4bQdHXHJls2A+cJx
+	s3NQqWtJqAKchVpQLaomjs27CxTE/EF/40yeJjcdxWYmypWhUQFp07aCgeyT2w
+X-Google-Smtp-Source: AGHT+IFCydM0ZrmDxDtFwlsXq9EcgVABqfwIjmcyL70IkCcFcblbNOM3I1w7ZNcToZjLmH+8yAJ5bw==
+X-Received: by 2002:a17:907:7fa9:b0:b72:decb:f868 with SMTP id a640c23a62f3a-b736789cebamr417766b.2.1763054179905;
+        Thu, 13 Nov 2025 09:16:19 -0800 (PST)
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com. [209.85.221.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fd8099asm203805966b.43.2025.11.13.09.16.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Nov 2025 09:16:18 -0800 (PST)
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-429c8632fcbso815990f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:16:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXV4T93HALeQskLaqxsuFgnQ8kaFEnLsBA3Ik3zRX/OWLAvnsDsKZ0WBrTfmh5yFUmdFRqQ7f7xxSpw1oD8Yof9@lists.infradead.org
+X-Received: by 2002:a05:6000:4008:b0:429:c54d:8bd3 with SMTP id
+ ffacd0b85a97d-42b59384951mr167096f8f.53.1763054177127; Thu, 13 Nov 2025
+ 09:16:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 23/33] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-24-ben.horgan@arm.com>
- <07acf54a-231f-428d-ac94-f4f9ec95de21@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <07acf54a-231f-428d-ac94-f4f9ec95de21@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251111192422.4180216-1-dianders@chromium.org>
+ <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
+ <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org> <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
+ <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org> <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
+ <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org>
+In-Reply-To: <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Thu, 13 Nov 2025 09:16:05 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bkZ_nOTQudV33wGWWwO5Hz7EB8FByvmJpxXsQ9PqvC8-S17wTHTwbtZyow
+Message-ID: <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_091505_296256_B3B1E0F0 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20251113_091626_448722_FB7E4E17 
+X-CRM114-Status: GOOD (  48.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,521 +116,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+Hi,
 
-On 11/9/25 22:59, Gavin Shan wrote:
-> Hi Ben
-> 
-> On 11/7/25 10:34 PM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> When CPUs come online the MSC's original configuration should be
->> restored.
->>
->> Add struct mpam_config to hold the configuration. This has a bitmap of
->> features that were modified. Once the maximum partid is known, allocate
->> a configuration array for each component, and reprogram each RIS
->> configuration from this.
->>
->> CC: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Cc: Shaopeng Tan (Fujitsu) tan.shaopeng@fujitsu.com
->> Cc: Peter Newman peternewman@google.com
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v3:
->> Drop tags
->> Fix component reset, otherwise cpbm wrong and controls not set.
->> Add a cfg_lock to guard configuration of an msc
->> ---
->>   drivers/resctrl/mpam_devices.c  | 268 ++++++++++++++++++++++++++++++--
->>   drivers/resctrl/mpam_internal.h |  27 ++++
->>   2 files changed, 280 insertions(+), 15 deletions(-)
->>
-> 
-> With the following comments addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->> mpam_devices.c
->> index 3a0ad8d93fff..8b0944bdaf28 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -144,6 +144,16 @@ static void mpam_free_garbage(void)
->>       }
->>   }
->>   +/*
->> + * Once mpam is enabled, new requestors cannot further reduce the
->> available
->> + * partid. Assert that the size is fixed, and new requestors will be
->> turned
->> + * away.
->> + */
->> +static void mpam_assert_partid_sizes_fixed(void)
->> +{
->> +    WARN_ON_ONCE(!partid_max_published);
->> +}
->> +
-> 
-> Would be worthy to be a online function.
+On Thu, Nov 13, 2025 at 8:34=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 13/11/2025 17:23, Doug Anderson wrote:
+> > Hi,
+> >
+> > On Wed, Nov 12, 2025 at 11:23=E2=80=AFPM Krzysztof Kozlowski <krzk@kern=
+el.org> wrote:
+> >>
+> >>>>> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
+> >>>>> +      - description: Tensor G5 SoC (laguna)
+> >>>>> +        items:
+> >>>>> +          - enum:
+> >>>>> +              - google,soc-id-0005-rev-00  # A0
+> >>>>> +              - google,soc-id-0005-rev-10  # B0
+> >>>>
+> >>>> SoCs cannot be final compatibles.
+> >>>
+> >>> Right. I talked about this at length "after the cut" in my patch. See
+> >>> above. I wish to relitigate this policy and wish to know more details
+> >>> about where it is documented, the reasons for decision, and where the
+> >>> boundary exactly lies between something that's allowed to be a final
+> >>> compatible and something that's not. I made several arguments above
+> >>> for why I think the SoC should be allowed as a final compatible, so i=
+t
+> >>
+> >> Because this represents a actual device users run. It is electronicall=
+y,
+> >> physically impossible to run the SoC alone.
+> >
+> > I'm not convinced that this definition is as clear as you're making it
+> > out to be. It's physically impossible to run many "boards" alone.
+> >
+> > Want to boot up a Raspberry Pi? Provide it with power. Hook up a
+> > display to it. Hook up a keyboard to it. Plug in an Ethernet cable.
+> > Plug an SD card in it. Without those things it doesn't run.
+>
+> But I can plug them...
 
-Assuming you mean 'inline'. I don't think it really matters but I'll
-leave it as is so that WARN_ON_ONCE() only ever gives one warning.
+I can plug my lga SoC into my dev board too. My dev board literally
+has a place for me to drop in the SoC. I unscrew the socket connector,
+carefully make sure that none of the balls of the SoC have dust
+particles on them (and we have instructions for cleaning the SoC),
+then drop the SoC into the socket (ideally using a vacuum pen tool). I
+then screw the top back together which uses compression to attach the
+balls on the SoC.
 
-> 
->>   static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
->>   {
->>       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc-
->> >accessibility));
->> @@ -343,6 +353,7 @@ mpam_component_alloc(struct mpam_class *class, int
->> id)
->>       return comp;
->>   }
->>   +static void __destroy_component_cfg(struct mpam_component *comp);
->>   static void mpam_class_destroy(struct mpam_class *class);
->>     static void mpam_component_destroy(struct mpam_component *comp)
->> @@ -351,6 +362,8 @@ static void mpam_component_destroy(struct
->> mpam_component *comp)
->>         lockdep_assert_held(&mpam_list_lock);
->>   +    __destroy_component_cfg(comp);
->> +
->>       list_del_rcu(&comp->class_list);
->>       add_to_garbage(comp);
->>   @@ -820,31 +833,59 @@ static void mpam_reset_msc_bitmap(struct
->> mpam_msc *msc, u16 reg, u16 wd)
->>       __mpam_write_reg(msc, reg, bm);
->>   }
->>   -static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16
->> partid)
->> +/* Called via IPI. Call while holding an SRCU reference */
->> +static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16
->> partid,
->> +                      struct mpam_config *cfg)
->>   {
->>       struct mpam_msc *msc = ris->vmsc->msc;
->>       struct mpam_props *rprops = &ris->props;
->>   -    WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
->> -
->>       mutex_lock(&msc->part_sel_lock);
->>       __mpam_part_sel(ris->ris_idx, partid, msc);
->>   -    if (mpam_has_feature(mpam_feat_cpor_part, rprops))
->> -        mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
->> +    if (mpam_has_feature(mpam_feat_cpor_part, rprops) &&
->> +        mpam_has_feature(mpam_feat_cpor_part, cfg)) {
->> +        if (cfg->reset_cpbm)
->> +            mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
->> +                          rprops->cpbm_wd);
->> +        else
->> +            mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
->> +    }
-> 
-> {} is needed by 'if (cfg->reset_cpbm)'
+Yes, this is only true on dev boards and not phones, but we want to be
+able to support dev boards too and it would be silly to have a
+different split between DTB and overlays for dev boards and phones
+that are based on the same architecture.
 
-Changed to be one line.
 
-> 
->>   -    if (mpam_has_feature(mpam_feat_mbw_part, rprops))
->> -        mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops-
->> >mbw_pbm_bits);
->> +    if (mpam_has_feature(mpam_feat_mbw_part, rprops) &&
->> +        mpam_has_feature(mpam_feat_mbw_part, cfg)) {
->> +        if (cfg->reset_mbw_pbm)
->> +            mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM,
->> +                          rprops->mbw_pbm_bits);
->> +        else
->> +            mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
->> +    }
->>   
-> 
-> { } is need by 'if (cfg->reset_mbw_pbm)'
+> > Want to boot up a lga-B0 SoC? Hook up power to the power pins. Connect
+> > a MIPI panel to the MIPI pins. Connect a UFS chip to the UFS pins.
+> > Without those things it doesn't run.
+>
+> These I cannot plug, it's impossible for me.
+>
+> My clumsy fingers are too big for these pins.
 
-Changed to be one line.
+As per above, sockets do exist. They are pluggable. I have confidence
+that even with clumsy fingers you could drop the SoC into the slot and
+screw the connector down.
 
-> 
->> -    if (mpam_has_feature(mpam_feat_mbw_min, rprops))
->> +    if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
->> +        mpam_has_feature(mpam_feat_mbw_min, cfg))
->>           mpam_write_partsel_reg(msc, MBW_MIN, 0);
->>   -    if (mpam_has_feature(mpam_feat_mbw_max, rprops))
->> -        mpam_write_partsel_reg(msc, MBW_MAX, MPAMCFG_MBW_MAX_MAX);
->> +    if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
->> +        mpam_has_feature(mpam_feat_mbw_max, cfg)) {
->> +        if (cfg->reset_mbw_max)
->> +            mpam_write_partsel_reg(msc, MBW_MAX, MPAMCFG_MBW_MAX_MAX);
->> +        else
->> +            mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
->> +    }
->>         mutex_unlock(&msc->part_sel_lock);
->>   }
->>   +static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
->> +{
->> +    *reset_cfg = (struct mpam_config) {
->> +        .reset_cpbm = true,
->> +        .reset_mbw_pbm = true,
->> +        .reset_mbw_max = true,
->> +    };
->> +    bitmap_fill(reset_cfg->features, MPAM_FEATURE_LAST);
->> +}
->> +
->>   /*
->>    * Called via smp_call_on_cpu() to prevent migration, while still being
->>    * pre-emptible. Caller must hold mpam_srcu.
->> @@ -852,16 +893,19 @@ static void mpam_reset_ris_partid(struct
->> mpam_msc_ris *ris, u16 partid)
->>   static int mpam_reset_ris(void *arg)
->>   {
->>       u16 partid, partid_max;
->> +    struct mpam_config reset_cfg;
->>       struct mpam_msc_ris *ris = arg;
->>         if (ris->in_reset_state)
->>           return 0;
->>   +    mpam_init_reset_cfg(&reset_cfg);
->> +
->>       spin_lock(&partid_max_lock);
->>       partid_max = mpam_partid_max;
->>       spin_unlock(&partid_max_lock);
->>       for (partid = 0; partid <= partid_max; partid++)
->> -        mpam_reset_ris_partid(ris, partid);
->> +        mpam_reprogram_ris_partid(ris, partid, &reset_cfg);
->>         return 0;
->>   }
->> @@ -894,6 +938,7 @@ static void mpam_reset_msc(struct mpam_msc *msc,
->> bool online)
->>   {
->>       struct mpam_msc_ris *ris;
->>   +    mutex_lock(&msc->cfg_lock);
->>       list_for_each_entry_srcu(ris, &msc->ris, msc_list,
->> srcu_read_lock_held(&mpam_srcu)) {
->>           mpam_touch_msc(msc, &mpam_reset_ris, ris);
->>   @@ -903,6 +948,61 @@ static void mpam_reset_msc(struct mpam_msc
->> *msc, bool online)
->>            */
->>           ris->in_reset_state = online;
->>       }
->> +    mutex_unlock(&msc->cfg_lock);
->> +}
->> +
->> +struct mpam_write_config_arg {
->> +    struct mpam_msc_ris *ris;
->> +    struct mpam_component *comp;
->> +    u16 partid;
->> +};
->> +
->> +static int __write_config(void *arg)
->> +{
->> +    struct mpam_write_config_arg *c = arg;
->> +
->> +    mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c-
->> >partid]);
->> +
->> +    return 0;
->> +}
->> +
->> +static void mpam_reprogram_msc(struct mpam_msc *msc)
->> +{
->> +    u16 partid;
->> +    bool reset;
->> +    struct mpam_config *cfg;
->> +    struct mpam_msc_ris *ris;
->> +    struct mpam_write_config_arg arg;
->> +
->> +    /*
->> +     * No lock for mpam_partid_max as partid_max_published has been
->> +     * set by mpam_enabled(), so the values can no longer change.
->> +     */
->> +    mpam_assert_partid_sizes_fixed();
->> +
->> +    mutex_lock(&msc->cfg_lock);
->> +    list_for_each_entry_srcu(ris, &msc->ris, msc_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        if (!mpam_is_enabled() && !ris->in_reset_state) {
->> +            mpam_touch_msc(msc, &mpam_reset_ris, ris);
->> +            ris->in_reset_state = true;
->> +            continue;
->> +        }
->> +
->> +        arg.comp = ris->vmsc->comp;
->> +        arg.ris = ris;
->> +        reset = true;
->> +        for (partid = 0; partid <= mpam_partid_max; partid++) {
->> +            cfg = &ris->vmsc->comp->cfg[partid];
->> +            if (!bitmap_empty(cfg->features, MPAM_FEATURE_LAST))
->> +                reset = false;
->> +
-> 
-> s/!bitmap_empty()/!bitmap_full (?)
+I'm still not totally convinced that it should require the existence
+of a socket to justify this but, yes, they do exist.
 
-This is checking if there is any work for the configuration to do and so
-checking if there are any feature bits set, !bitmap_empty(), is the
-correct thing to do.
 
-> 
->> +            arg.partid = partid;
->> +            mpam_touch_msc(msc, __write_config, &arg);
->> +        }
->> +        ris->in_reset_state = reset;
->> +    }
->> +    mutex_unlock(&msc->cfg_lock);
->>   }
->>     static void _enable_percpu_irq(void *_irq)
->> @@ -926,7 +1026,7 @@ static int mpam_cpu_online(unsigned int cpu)
->>               _enable_percpu_irq(&msc->reenable_error_ppi);
->>             if (atomic_fetch_inc(&msc->online_refs) == 0)
->> -            mpam_reset_msc(msc, true);
->> +            mpam_reprogram_msc(msc);
->>       }
->>         return 0;
->> @@ -1125,6 +1225,9 @@ static struct mpam_msc
->> *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>       if (err)
->>           return ERR_PTR(err);
->>       err = devm_mutex_init(dev, &msc->error_irq_lock);
->> +    if (err)
->> +        return ERR_PTR(err);
->> +    err = devm_mutex_init(dev, &msc->cfg_lock);
->>       if (err)
->>           return ERR_PTR(err);
->>       mpam_mon_sel_lock_init(msc);
->> @@ -1585,6 +1688,70 @@ static void mpam_unregister_irqs(void)
->>       }
->>   }
->>   +static void __destroy_component_cfg(struct mpam_component *comp)
->> +{
->> +    add_to_garbage(comp->cfg);
->> +}
->> +
->> +static void mpam_reset_component_cfg(struct mpam_component *comp)
->> +{
->> +    int i;
->> +    struct mpam_props *cprops = &comp->class->props;
->> +
->> +    mpam_assert_partid_sizes_fixed();
->> +
->> +    if (!comp->cfg)
->> +        return;
->> +
->> +    for (i = 0; i <= mpam_partid_max; i++) {
->> +        comp->cfg[i] = (struct mpam_config) {};
->> +        bitmap_fill(comp->cfg[i].features, MPAM_FEATURE_LAST);
->> +        bitmap_set((unsigned long *)&comp->cfg[i].cpbm, 0, cprops-
->> >cpbm_wd);
->> +        bitmap_set((unsigned long *)&comp->cfg[i].mbw_pbm, 0, cprops-
->> >mbw_pbm_bits);
->> +        bitmap_set((unsigned long *)&comp->cfg[i].mbw_max, 16 -
->> cprops->bwa_wd, cprops->bwa_wd);
->> +    }
->> +}
->> +
->> +static int __allocate_component_cfg(struct mpam_component *comp)
->> +{
->> +    mpam_assert_partid_sizes_fixed();
->> +
->> +    if (comp->cfg)
->> +        return 0;
->> +
->> +    comp->cfg = kcalloc(mpam_partid_max + 1, sizeof(*comp->cfg),
->> GFP_KERNEL);
->> +    if (!comp->cfg)
->> +        return -ENOMEM;
->> +
->> +    /*
->> +     * The array is free()d in one go, so only cfg[0]'s structure needs
->> +     * to be initialised.
->> +     */
->> +    init_garbage(&comp->cfg[0].garbage);
->> +
->> +    mpam_reset_component_cfg(comp);
->> +
->> +    return 0;
->> +}
->> +
->> +static int mpam_allocate_config(void)
->> +{
->> +    struct mpam_class *class;
->> +    struct mpam_component *comp;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    list_for_each_entry(class, &mpam_classes, classes_list) {
->> +        list_for_each_entry(comp, &class->components, class_list) {
->> +            int err = __allocate_component_cfg(comp);
->> +            if (err)
->> +                return err;
->> +        }
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   static void mpam_enable_once(void)
->>   {
->>       int err;
->> @@ -1604,15 +1771,25 @@ static void mpam_enable_once(void)
->>        */
->>       cpus_read_lock();
->>       mutex_lock(&mpam_list_lock);
->> -    mpam_enable_merge_features(&mpam_classes);
->> +    do {
->> +        mpam_enable_merge_features(&mpam_classes);
->>   -    err = mpam_register_irqs();
->> +        err = mpam_register_irqs();
->> +        if (err) {
->> +            pr_warn("Failed to register irqs: %d\n", err);
->> +            break;
->> +        }
->>   +        err = mpam_allocate_config();
->> +        if (err) {
->> +            pr_err("Failed to allocate configuration arrays.\n");
->> +            break;
->> +        }
->> +    } while (0);
->>       mutex_unlock(&mpam_list_lock);
->>       cpus_read_unlock();
->>         if (err) {
->> -        pr_warn("Failed to register irqs: %d\n", err);
->>           mpam_disable_reason = "Failed to enable.";
->>           schedule_work(&mpam_broken_work);
->>           return;
->> @@ -1632,6 +1809,9 @@ static void mpam_reset_component_locked(struct
->> mpam_component *comp)
->>       struct mpam_vmsc *vmsc;
->>         lockdep_assert_cpus_held();
->> +    mpam_assert_partid_sizes_fixed();
->> +
->> +    mpam_reset_component_cfg(comp);
->>         guard(srcu)(&mpam_srcu);
->>       list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
->> @@ -1732,6 +1912,64 @@ void mpam_enable(struct work_struct *work)
->>           mpam_enable_once();
->>   }
->>   +#define maybe_update_config(cfg, feature, newcfg, member, changes)
->> do { \
->> +    if (mpam_has_feature(feature, newcfg) &&            \
->> +        (newcfg)->member != (cfg)->member) {            \
->> +        (cfg)->member = (newcfg)->member;            \
->> +        mpam_set_feature(feature, cfg);                \
->> +                                    \
->> +        (changes) = true;                    \
->> +    }                                \
->> +} while (0)
->> +
->> +static bool mpam_update_config(struct mpam_config *cfg,
->> +                   const struct mpam_config *newcfg)
->> +{
->> +    bool has_changes = false;
->> +
->> +    maybe_update_config(cfg, mpam_feat_cpor_part, newcfg, cpbm,
->> has_changes);
->> +    maybe_update_config(cfg, mpam_feat_mbw_part, newcfg, mbw_pbm,
->> has_changes);
->> +    maybe_update_config(cfg, mpam_feat_mbw_max, newcfg, mbw_max,
->> has_changes);
->> +
->> +    return has_changes;
->> +}
->> +
->> +int mpam_apply_config(struct mpam_component *comp, u16 partid,
->> +              struct mpam_config *cfg)
->> +{
->> +    struct mpam_write_config_arg arg;
->> +    struct mpam_msc_ris *ris;
->> +    struct mpam_vmsc *vmsc;
->> +    struct mpam_msc *msc;
->> +
->> +    lockdep_assert_cpus_held();
->> +
->> +    /* Don't pass in the current config! */
->> +    WARN_ON_ONCE(&comp->cfg[partid] == cfg);
->> +
->> +    if (!mpam_update_config(&comp->cfg[partid], cfg))
->> +        return 0;
->> +
->> +    arg.comp = comp;
->> +    arg.partid = partid;
->> +
->> +    guard(srcu)(&mpam_srcu);
->> +    list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        msc = vmsc->msc;
->> +
->> +        mutex_lock(&msc->cfg_lock);
->> +        list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
->> +                     srcu_read_lock_held(&mpam_srcu)) {
->> +            arg.ris = ris;
->> +            mpam_touch_msc(msc, __write_config, &arg);
->> +        }
->> +        mutex_unlock(&msc->cfg_lock);
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   static int __init mpam_msc_driver_init(void)
->>   {
->>       if (!system_supports_mpam())
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
->> mpam_internal.h
->> index c6937161877a..842d32f148b5 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -91,6 +91,9 @@ struct mpam_msc {
->>        */
->>       struct mutex        part_sel_lock;
->>   +    /* cfg_lock protects the msc configuration. */
->> +    struct mutex        cfg_lock;
->> +
->>       /*
->>        * mon_sel_lock protects access to the MSC hardware registers
->> that are
->>        * affected by MPAMCFG_MON_SEL, and the mbwu_state.
->> @@ -180,6 +183,21 @@ struct mpam_class {
->>       struct mpam_garbage    garbage;
->>   };
->>   +struct mpam_config {
->> +    /* Which configuration values are valid. */
->> +    DECLARE_BITMAP(features, MPAM_FEATURE_LAST);
->> +
->> +    u32    cpbm;
->> +    u32    mbw_pbm;
->> +    u16    mbw_max;
->> +
->> +    bool    reset_cpbm;
->> +    bool    reset_mbw_pbm;
->> +    bool    reset_mbw_max;
->> +
->> +    struct mpam_garbage    garbage;
->> +};
->> +
->>   struct mpam_component {
->>       u32            comp_id;
->>   @@ -188,6 +206,12 @@ struct mpam_component {
->>         cpumask_t        affinity;
->>   +    /*
->> +     * Array of configuration values, indexed by partid.
->> +     * Read from cpuhp callbacks, hold the cpuhp lock when writing.
->> +     */
->> +    struct mpam_config    *cfg;
->> +
->>       /* member of mpam_class:components */
->>       struct list_head    class_list;
->>   @@ -247,6 +271,9 @@ extern u8 mpam_pmg_max;
->>   void mpam_enable(struct work_struct *work);
->>   void mpam_disable(struct work_struct *work);
->>   +int mpam_apply_config(struct mpam_component *comp, u16 partid,
->> +              struct mpam_config *cfg);
->> +
->>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
->> cache_level,
->>                      cpumask_t *affinity);
->>   
-> 
-> Thanks,
-> Gavin
-> 
+> And following your logic, we should have the compatible for the
+> transistors, because that's basically what SoC is made of.
 
-Thanks,
+My logic (stated later in my email) is that the minimum requirement
+for a compatible should be something with a CPU able to execute
+instructions. A single transistor can't do that. If you want to
+combine a bunch of transistors together to make a CPU then absolutely
+you should be able to have a DTB representing this CPU.
 
-Ben
 
+> > Yes, the complexity of just "hooking up" the components on an SoC is
+> > an order of magnitude harder than a Raspberry Pi, but it's still just
+> > hooking it up to external components. In both cases, we are modeling
+> > the core "brains" (the part that contains the processor) as the DTB
+> > and everything else just "hooks up" to interfaces.
+>
+> You mix the topics, so I don't follow. I speak here about bindings - you
+> cannot have the that compatible alone, because it is incomplete, just
+> like compatible for "transistor" is not correct in that context. You
+> speak what could or could be DTB, different topic.
+
+A "SoC" is "complete". It has a processor that can run instructions.
+
+
+> > If I had to make a definition for what the base DTB should be it
+> > should be the component with the boot CPU. _Why_ is that the wrong
+> > definition?
+> >
+> >
+> >> There are few - one or two - exceptions for the SoMs, but never for So=
+C.
+> >
+> > OK, but the big question: _WHY???_
+> >
+> > Where does it say that a DTB has to be something that can run "alone"
+>
+> We don't discuss DTB here, but the top-level compatibles.
+>
+> Why? Because DT spec says so.
+>
+> "Specifies a list of platform architectures with which this platform is
+> compatible. "
+>
+> And when you combine it with the standard definition of the
+> "compatible", it is not *a* "platform architecture" but *list* of
+> platform architectures describing this device as a whole.
+
+I still don't understand why a SoC doesn't qualify for your
+definition. Even if it did, there is _no benefit_ from excluding a SoC
+from this definition. I'm trying to figure out what the benefit is for
+holding to this stance.
+
+In any case, maybe we can approach this a different way that I alluded
+to in one of my other posts. Can we just call the SoC thing something
+different and make everyone happy?
+
+1. Rename the SoC file to lga-b0.dtf (device tree fragment) and
+_REMOVE_ the top-level compatible. Problem solved--we're not adding a
+top-level compatible.
+
+2. Add a special node at the top level of the "dtf" file describing it
+(so someone could figure it's useful for). Like:
+
+fragment-info {
+  compatible =3D "google,soc-id";
+  google,product-id =3D <0x5>;
+  google,major-rev =3D <0x1>;
+  google,minor-rev =3D <0x0>;
+  google,package-mode =3D <0x0>;
+};
+
+3. We can compile the "dtf" file using existing tools into a "dtfb".
+This looks just like a "dtb" but has no top-level compatible but
+instead has "fragment-info".
+
+Now we're not violating any spec because we're not adding any
+top-level compatible.
+
+
+-Doug
 
