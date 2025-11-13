@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A14CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 21:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2ACCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 22:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NcojkujFPu3YegPjP4dWio8amjxnKtpooGbz3NKSWYI=; b=3/hEjwBnIdJSQNvduRgK+1sYcJ
-	F43GMPL1bQLxVl3l+puxdis6RRGU2nW8EmrxHqBCZXzIKusVwQcbOycI49DNSWjRW6/zVXcq1YieN
-	Gyik2XwAe5rYhwAd5W2CdY68dUGyGQ7MH09X0WMiIWYKIkDBPpXbOyJccEuVofeah/58QrtgheTVg
-	TxHVFtCCZijKhhWlHUNGp9b8kg/iG5usyaxMDzbfEIZD7kbYgqXUr138S2snd8Mh0TGPooq1yftOR
-	Bik0458PQmUe5D7a7+vM+rDAdhKlF6COrwdFT/xazafzVr+K/ZY3xGIqtKrvaAZZ70Sgqz1UjjODI
-	/F8K6Zhg==;
+	bh=V0+UD+Yw+EAgKYBaOW8R3QEC9Yrxig+NIt3rjRIBbtM=; b=oFHEx3SMUiPscSQetshfbr5KII
+	Hm0M97APpHixpsieWQLZJGpqgYcwfAQT4cVLizucmn+FpgdOmhNtovBU4N88cCEV010fDduV/TUEt
+	DNjuiAXUh6RBEXEuiZyrcwl845Bb/ea6cZM54mF5oFA2H7CwQXsW4cEQeajfDMSZU7K1thJHRpMqd
+	DgPPblFwJxiUI8tRvB6on2iJ2YEeNE1v9Zqni6QPuJzQGkp8AJv1hXFucpPpTpEc6APuW3+HXLl4L
+	TQiy6t1XF5sTWr17XjDFlPX9OdlFu+dGpWsOGO52shE67bFLsOrhq5xUAEIj2PzjUBRrWfrBrOwQR
+	UtT32vHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJfLv-0000000BAO0-3set;
-	Thu, 13 Nov 2025 21:59:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJfW9-0000000BApz-3UEA;
+	Thu, 13 Nov 2025 22:10:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJfLu-0000000BANu-2V4e
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 21:59:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B16BB6014A;
-	Thu, 13 Nov 2025 21:59:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA6AC4CEF8;
-	Thu, 13 Nov 2025 21:59:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763071177;
-	bh=UnZOEY9cSyoxchmU4I4ZbyI1+seIbFOun8eX8HryMlQ=;
+	id 1vJfW6-0000000BApR-2P7x;
+	Thu, 13 Nov 2025 22:10:12 +0000
+Received: from pendragon.ideasonboard.com (82-203-165-222.bb.dnainternet.fi [82.203.165.222])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 9B62DA8F;
+	Thu, 13 Nov 2025 23:08:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763071683;
+	bh=dKdEN6uk0uJTL9PTysEpXfawWX1Up2xnGgIfoHRGKbI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bt1HFehqN+Es/5TQWa0IXHbiptw4nRqIqt1PyD4C47kF5v281LoeHwiC2xMoJ12eY
-	 06DSzN8q/p0QvuBNE3kPhjI7C4lppN71hEQLXNyP35bt575ilt3trvdavSArqM1gVf
-	 uXRM73grYNc+ws/jr0I51YEbl2+3jqEfqbsOWcBow6c1Zz61FGe1GTfVQ6U5aQbidc
-	 xOgA7tPNdFcyjIhdXFhhQ66vmJ/c8DLpAJHVeLvjiiiQ5H1EwpxOaBEoAPw2nFWL3Y
-	 YfitVFLlTu3eggDBs/TuK3BomDp86SiyQq8XpmGz3rL80g8T2jTfB3TokcFXRmcsCl
-	 4T4iotV2r/+hw==
-Date: Thu, 13 Nov 2025 13:59:35 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>, Aishwarya.TCV@arm.com,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 05/45] KVM: arm64: GICv3: Detect and work around the
- lack of ICV_DIR_EL1 trapping
-Message-ID: <aRZUx1WkyKdFQgYy@kernel.org>
-References: <20251109171619.1507205-1-maz@kernel.org>
- <20251109171619.1507205-6-maz@kernel.org>
- <7ae5874e-366f-4abd-9142-ffbe21fed3a8@sirena.org.uk>
- <86ikfdu7cu.wl-maz@kernel.org>
- <7ea5c49d-b093-475e-9f27-ad92dcc4b560@sirena.org.uk>
- <86frahu21h.wl-maz@kernel.org>
+	b=YEkTkthxQzEcJJhVrVrzjcyCeXDHk0PRd12zVw3NKYtS1fZEUFNHTXi+TqT2nCGnD
+	 4XSmGjRSfT+B2cQIAvoIdHKu1kIQRe5sRgyipDliGwwZck+5BGH98n7ClTy7ntDcCm
+	 zKvDpmFq4nUVZpKGqGmnqHDx3vdhemfmfVsLr+Gg=
+Date: Fri, 14 Nov 2025 00:09:51 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: dri-devel@lists.freedesktop.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v3 0/2] drm/rockchip: dw_hdmi_qp: Fixup usage of
+ enable_gpio
+Message-ID: <20251113220951.GA5912@pendragon.ideasonboard.com>
+References: <20251027222641.25066-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <86frahu21h.wl-maz@kernel.org>
+In-Reply-To: <20251027222641.25066-1-laurent.pinchart@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_141010_760199_1132E9BC 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 08:10:18PM +0000, Marc Zyngier wrote:
-> +Fuad
-> 
-> On Thu, 13 Nov 2025 19:06:31 +0000,
-> Mark Brown <broonie@kernel.org> wrote:
-> > 
-> > [1  <text/plain; us-ascii (7bit)>]
-> > On Thu, Nov 13, 2025 at 06:15:29PM +0000, Marc Zyngier wrote:
-> > > Mark Brown <broonie@kernel.org> wrote:
-> > 
-> > > > The arch_timer case bisects to this patch in -next, regular nVHE mode
-> > > > runs this test happily.
-> > 
-> > > My hunch is that we're missing something like the hack below, but I
-> > > haven't tried it yet.
-> > 
-> > > I'll probably get to it tomorrow.
-> > 
-> > That still fails FWIW.
-> 
-> Yup, this has uncovered yet another pKVM bug, which doesn't preserve
-> the vgic_model in its private kvm structure. I'm able to make it work
-> with this:
+Andy, Heiko, Sandy, could one of you push this to drm-misc ?
 
-Thanks for debugging this Marc. I've added a patch on top of kvmarm/next
-with this. I don't have any A53 machines around but I was able to repro
-using kvm-arm.vgic_v3_common_trap=1 on QEMU.
+On Tue, Oct 28, 2025 at 12:26:39AM +0200, Laurent Pinchart wrote:
+> Hello,
+> 
+> The dw_hdmi_qp driver supports a "enable-gpios" DT property that is not
+> documented in the corresponding DT bindings, and is not used in any
+> upstream device tree sources. This patch series renames the property to
+> "frl-enable-gpios" to express its purpose more clearly, and documents it
+> in the bindings.
+> 
+> In the previous these two patches were part of "[PATCH v2 0/5] arm64:
+> dts: rockchip: Add device tree for the Orange Pi CM5 Base board" ([1]).
+> I have split them from the Orange Pi CM5 Base DT and rebased them on top
+> of the drm-misc-next branch to ease integration.
+> 
+> The other main change compared to v2 is the rename of the property from
+> "tmds-enable-gpios" to "frl-enable-gpios".
+> 
+> [1] https://lore.kernel.org/all/20251005235542.1017-1-laurent.pinchart@ideasonboard.com/
+> 
+> Cristian Ciocaltea (2):
+>   dt-bindings: display: rk3588-dw-hdmi-qp: Add frl-enable-gpios property
+>   drm/rockchip: dw_hdmi_qp: Fixup usage of enable_gpio member in main
+>     struct
+> 
+>  .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml       | 11 +++++++++++
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     | 14 +++++++-------
+>  2 files changed, 18 insertions(+), 7 deletions(-)
+> 
+> 
+> base-commit: 18ff1dc462ef6dacba76ea9cb9a4fadb385d6ec4
 
-Thanks,
-Oliver
+-- 
+Regards,
+
+Laurent Pinchart
 
