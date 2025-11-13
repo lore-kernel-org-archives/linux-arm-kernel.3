@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8ADCD8C94
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 15:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B484CD8C85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dc807XTs3vahOFZ04ibLRMSAJaCm4V/IMq6B1/2zPgY=; b=N/zvRyj7rrnCGYbOZsHP1IImCR
-	VzUrMcULgOsvvybi+NPlEC/cuoxBFUSnUHEWpmoVEmCmKwCUcCnnfOni107u+l+x4wJwYerMcX6cw
-	iSPd575awgx4exN1Nd09imL4wMWIcgLx3wBWwk2L0ZEyamV09WUX9dJiYuh/6eWbCan513VY4qHrC
-	ALJmcbQVLcDOMjf+dSv94hjuRhqjknyCmIh/8XObFqsuJO/RfRpHXdwHlC1ZetbCdp2zjKvkyqHgj
-	XEElpO4hfkigeHz3bSeaX+l7g7PZ6F+wX9nxHvoXooblFEn2fxDGO0Zm29jwwZFMHAHQx1iAtBwn8
-	eZixH1og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eO08yAJL2+iPpYzeNmwM0YR9k1khw+2M2/QRkBIoq5I=; b=AASU877rnPMI6UVVymiOB8AqqS
+	czlcZfp4n1w241lA0zwHquSUKk2NMp20tC2OpiUgPgmbbthHM6m4F+85+eTejS1+HzagoIjSb6F1g
+	Ma1/Qu0a+5GBVtX1uELfXzxG41fldFYOS3P71UiVyjZAxZPsQlGaH4b/yVd8LyzSslb519CdHXl4B
+	eNnwUEJmrI/M3JGCY2r+cuCFhzDevyZZMY+2W/+TrtO/xENP2dhCUimQZVagETZVuXTMXi9cECdok
+	4fsVl62M4VLEdC7TZBOWOH2vvLCR4ejHcp0Ii+CvqvX5Oq1li2XOkqb1rjEDZhLT1n8yR1aF/rjac
+	jdeqCoiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZJM-0000000AjBn-04UG;
-	Thu, 13 Nov 2025 15:32:36 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vJZNH-0000000AjUP-10F9;
+	Thu, 13 Nov 2025 15:36:39 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJZJJ-0000000AjBN-0uQN
+	id 1vJZNE-0000000AjTa-33Xe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 15:32:34 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-298145fe27eso10676225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 07:32:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763047952; x=1763652752; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Dc807XTs3vahOFZ04ibLRMSAJaCm4V/IMq6B1/2zPgY=;
-        b=KMM1P7KP3NiWr5Y6cDKcVou+u+cQ5o9QxS4AatlHBRXuBFmtIQcTL2VhIxtFMpPIdT
-         MWfPafbLR3wSZFIdwO3ZzxrmmT5sqaeTAd3OHfRKbVzNMWBjj4Lt/x5FyvSMG65gpkiM
-         xps99LyWK1riaFp9pf9AHQ2wOyqCp59i3Uw3XiVAZtlFIO+jck40oQbKTsSAZKtsVua5
-         cg7yOX0flelouNdd855ptvGNnOo0cT/eo8kWPFoxdSNIEjCwj4TJxGJO/LrayuOyiVvI
-         18ovy10ucMFT2ODm+O3xcmzM3JtTvOG4BBYX8xn/qPZkn5ViD5ZFyTScbURZJ5OD7dhj
-         PmpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763047952; x=1763652752;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dc807XTs3vahOFZ04ibLRMSAJaCm4V/IMq6B1/2zPgY=;
-        b=mv45TmDKmf53e/sU3z8R5KP9uA2N7iaUv09dH3VssSto2ZVptZ2NQ8sOENEaYsA0UY
-         iDlrtaD9g3g00MTE0vB3E+9iw/tzQiucvvLw/uEXmGURrJzcqaIFn2ByUeZ3dO5rX77o
-         Vg+1k4AfhmLc+pAFMZIY9ZGGCnxe6QfmrzrtHUODI50AN+V9vdeNZUlx3BshgYUlbMCC
-         tEPxZA5Q+hAQpTKzMhqO96U24QORV7tf/l8FVxoLbiRUPnuN+V3Vyo9JcP72SeaXXrov
-         Eu1pKM1vM2zQ1PKAqGja0Uix9iqA7jxsXbgrgafTr6TaitYqYqUVctZHkEhCHziUU5dQ
-         j4ug==
-X-Forwarded-Encrypted: i=1; AJvYcCWj+rOra+NqbJv2cnBXIuMsvOrFyEKmwFv3Enxc73k3YPyvBLX0orXsd/PHv9nl9Ihasy0Elj0iyLCkTNQPElOi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBKVqFJkVP3pBeIcuWP/+mEGgTM71k5jjrIv8EvfR2IHppO1ex
-	a3+JhOeFCZoitnayYZkBCq8B03CZg8ftKj6aA0+hfvUsZRlmWFuyCVMIS+P5bpMHFPw=
-X-Gm-Gg: ASbGncudAiouvbxYq2ubO8IS2Q6l4Ay22AWrNHPR02yh3oOANg/OPt6l62Nx4zL+7iF
-	M76hY2+ezGe+SRgQ6S3IqDct16GHJHc2T03+zAFVhmVDa2SE1d6v2Wq2SK+lS1YlLeWk+4Z+25/
-	b9R/1f8M83iXv+xjYTKR0/rGcLUJfhhX+dwZ7J5PB3IQKJ/hCBHYEDqQkYjP4B6eOL9xxhpp9nc
-	usOxqaElH6jN9cqVAYDSGlMSTxhLmjZ51D0o1znVVJ6AUwv1yuWxPRe08+TUy9x6vNXHlsmCBfi
-	o2OZ+bKPP3q+CIrrH64ZPHJALIivbsyGpH+lds0hH6oRqVURkat3ouQZTJrdbzoRfkLkKDepf8y
-	u/BmnhjF215bUU7238WH9eb5BqkMwIgBli0Yem4hxSs/kOw0jXfqpFaAJ9vPPv1txMUSGBAVvhy
-	PpblEiLjYr8+bt5OJFsdVdB2I=
-X-Google-Smtp-Source: AGHT+IExGtwG81uwzj9JgnEK26nwTkuowQ0TGIoI/B/ng4jHpuOWuk3RVAjeNdIAjjrFddHoISsZ3w==
-X-Received: by 2002:a17:902:d54f:b0:295:34ba:7afa with SMTP id d9443c01a7336-2984eddf6a5mr85532495ad.43.1763047952195;
-        Thu, 13 Nov 2025 07:32:32 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:aee4:3fd6:a52:8e9a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2bed4fsm29590765ad.75.2025.11.13.07.32.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Nov 2025 07:32:31 -0800 (PST)
-Date: Thu, 13 Nov 2025 08:32:28 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v6] remoteproc: Use of_reserved_mem_region_* functions
- for "memory-region"
-Message-ID: <aRX6DJoaP4MXG3fN@p14s>
-References: <20251031175926.1465360-1-robh@kernel.org>
- <aRN0fdOAV0B728qo@p14s>
- <20251111195923.GA3629535-robh@kernel.org>
- <CANLsYkwcbrTaKASdr5fj0m9ARS4xUgzVH8iWQKwTCvEsoZDDsQ@mail.gmail.com>
- <CAL_JsqL7HcDkPgJjcqJSagdN=gH2rv6noVS57QMGNRp0YCxUBw@mail.gmail.com>
+	Thu, 13 Nov 2025 15:36:38 +0000
+Message-ID: <d16af3e8-3ca1-4676-9112-32f7e33bd6df@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1763048193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eO08yAJL2+iPpYzeNmwM0YR9k1khw+2M2/QRkBIoq5I=;
+	b=oIhh1LHFeqonkNSOYHAXCoLgDnrY1+uIzi2hOrkYeLDlncR4E6OEb+aqzoqlYsTf/wtn26
+	imrnsA93QYD/88N2T5n+nQylXmnmwy6WLpgfDx8wyz37Q8ZrP4HvCBC9AHtPfa2H66hSLQ
+	/YLAW8o4aSam0hefdlgrRsivjV6w+i4=
+Date: Thu, 13 Nov 2025 10:36:12 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqL7HcDkPgJjcqJSagdN=gH2rv6noVS57QMGNRp0YCxUBw@mail.gmail.com>
+Subject: Re: [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Mike Looijmans <mike.looijmans@topic.nl>, dri-devel@lists.freedesktop.org,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>
+Cc: David Airlie <airlied@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.fb98a918-329e-4536-a0a5-a99b22ba0120@emailsignatures365.codetwo.com>
+ <20250627145058.6880-1-mike.looijmans@topic.nl>
+ <a8f0de1d-07e8-4e48-8495-9cafa0febcf5@linux.dev>
+ <d2759f7e-23a5-4d68-b50f-4c510540bcdd@linux.dev>
+ <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <6d17761f-c2c5-422c-a14f-0e560676c21f@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_073233_278666_5A849A9C 
-X-CRM114-Status: GOOD (  35.37  )
+X-CRM114-CacheID: sfid-20251113_073636_931628_B8D38666 
+X-CRM114-Status: GOOD (  25.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,122 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 10:59:42AM -0600, Rob Herring wrote:
-> On Wed, Nov 12, 2025 at 9:43 AM Mathieu Poirier
-> <mathieu.poirier@linaro.org> wrote:
-> >
-> > On Tue, 11 Nov 2025 at 12:59, Rob Herring <robh@kernel.org> wrote:
-> > >
-> > > On Tue, Nov 11, 2025 at 10:38:05AM -0700, Mathieu Poirier wrote:
-> > > > Hi Rob,
-> > > >
-> > > > Please see may comment for st_remoteproc.c
-> > > >
-> > > > On Fri, Oct 31, 2025 at 12:59:22PM -0500, Rob Herring (Arm) wrote:
-> > > > > Use the newly added of_reserved_mem_region_to_resource() and
-> > > > > of_reserved_mem_region_count() functions to handle "memory-region"
-> > > > > properties.
+On 11/12/25 04:31, Tomi Valkeinen wrote:
+> Hi,
 > 
-> [...]
+> On 11/11/2025 23:09, Sean Anderson wrote:
+>> On 11/4/25 16:53, Sean Anderson wrote:
+>>> On 6/27/25 10:50, Mike Looijmans wrote:
+>>>> XRGB8888 is the default mode that Xorg will want to use. Add support
+>>>> for this to the Zynqmp DisplayPort driver, so that applications can use
+>>>> 32-bit framebuffers. This solves that the X server would fail to start
+>>>> unless one provided an xorg.conf that sets DefaultDepth to 16.
+>>>>
+>>>> Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+>>>> ---
+>>>>
+>>>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
+>>>>  1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>>> index 80d1e499a18d..501428437000 100644
+>>>> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>>> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>>>> @@ -312,6 +312,11 @@ static const struct zynqmp_disp_format avbuf_gfx_fmts[] = {
+>>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+>>>>  		.swap		= true,
+>>>>  		.sf		= scaling_factors_888,
+>>>> +	}, {
+>>>> +		.drm_fmt	= DRM_FORMAT_XRGB8888,
+>>>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_RGBA8888,
+>>>> +		.swap		= true,
+>>>> +		.sf		= scaling_factors_888,
+>>>>  	}, {
+>>>>  		.drm_fmt	= DRM_FORMAT_RGBA8888,
+>>>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_GFX_ABGR8888,
+>>>
+>>> Tested-by: Sean Anderson <sean.anderson@linux.dev>
+>>>
+>>> I can confirm that this provides a nice performance boost :)
+>> 
+>> Actually, I think a better fix would be to make the "video" plane the
+>> primary one. That plane supports XRGB8888 natively, and then the
+>> graphics plane can be used as an overlay for e.g. windows or cursors.
+> True, but I think usually the overlay plane is the video plane, which
+> supports YUV formats. If we use the video plane as the root plane, then
+> that one is reserved and there's no "real" video overlay plane.
+
+But you can't use it as an overlay anyway unless you enable colorkey.
+Otherwise it's always an "underlay". So you can't actually have e.g. the
+video layer display a decoded video in a window because that would
+require userspace to "carve out" the window in the graphics alpha layer.
+But as discussed earlier in this thread, the alpha channel is always
+disabled by this driver! So the video layer is completely unusable in
+the current driver anyway.
+
+> Did you check my recent reply to the thread? I didn't have too much time
+> to debug all the combinations and what exactly the userspace does. I'm
+> inclined to just merge this one which should improve the user experience
+> quite a bit, even if there are still unclear parts to this. The related
+> code can be improved later if we figure out the details.
 > 
-> > > > > diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-> > > > > index e6566a9839dc..043348366926 100644
-> > > > > --- a/drivers/remoteproc/st_remoteproc.c
-> > > > > +++ b/drivers/remoteproc/st_remoteproc.c
-> > > > > @@ -120,40 +120,37 @@ static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> > > > >     struct device *dev = rproc->dev.parent;
-> > > > >     struct device_node *np = dev->of_node;
-> > > > >     struct rproc_mem_entry *mem;
-> > > > > -   struct reserved_mem *rmem;
-> > > > > -   struct of_phandle_iterator it;
-> > > > > -   int index = 0;
-> > > > > -
-> > > > > -   of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-> > > > > -   while (of_phandle_iterator_next(&it) == 0) {
-> > > > > -           rmem = of_reserved_mem_lookup(it.node);
-> > > > > -           if (!rmem) {
-> > > > > -                   of_node_put(it.node);
-> > > > > -                   dev_err(dev, "unable to acquire memory-region\n");
-> > > > > -                   return -EINVAL;
-> > > > > -           }
-> > > > > +   int index = 0, mr = 0;
-> > > > > +
-> > > > > +   while (1) {
-> > > > > +           struct resource res;
-> > > > > +           int ret;
-> > > > > +
-> > > > > +           ret = of_reserved_mem_region_to_resource(np, mr++, &res);
-> > > > > +           if (ret)
-> > > > > +                   return 0;
-> > > >
-> > > > The original code calls rproc_elf_load_rsc_table() [1] after iterating through
-> > > > the memory region, something that won't happen with the above.
-> > >
-> > > Indeed. it needs the following incremental change. It is slightly
-> > > different in that rproc_elf_load_rsc_table() is not called if
-> > > 'memory-region' is missing, but the binding says that's required.
-> > >
-> > > 8<--------------------------------------------------
-> > >
-> > > diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-> > > index 043348366926..cb09c244fdb5 100644
-> > > --- a/drivers/remoteproc/st_remoteproc.c
-> > > +++ b/drivers/remoteproc/st_remoteproc.c
-> > > @@ -120,15 +120,19 @@ static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> > >         struct device *dev = rproc->dev.parent;
-> > >         struct device_node *np = dev->of_node;
-> > >         struct rproc_mem_entry *mem;
-> > > -       int index = 0, mr = 0;
-> > > +       int index = 0;
-> > >
-> > >         while (1) {
-> > >                 struct resource res;
-> > >                 int ret;
-> > >
-> > > -               ret = of_reserved_mem_region_to_resource(np, mr++, &res);
-> > > -               if (ret)
-> > > -                       return 0;
-> > > +               ret = of_reserved_mem_region_to_resource(np, index, &res);
-> > > +               if (ret) {
-> > > +                       if (index)
-> > > +                               break;
-> > > +                       else
-> > > +                               return ret;
-> > > +               }
-> >
-> > This looks brittle and I'm not sure it would work.
-> >
-> > Going back to the original implementation, the only time we want to
-> > "break" is when @index is equal to the amount of memory regions _and_
-> > ret is -EINVAL.  Any other condition should return.
-> 
-> @index equal to number of entries returns -ENODEV, so that condition
-> is impossible. We can simply it to this:
-> 
-> if (ret == -ENODEV && index)
->     break;
-> else
->     return ret;
+> Any objections?
 
-To me this needs to be:
+I object to this because it solidifies the current state of affairs
+where the alpha channel of the graphics layer can't be used. I will
+submit a series later today to change the primary plane and enable the
+alpha channel.
 
-entries = of_reserved_mem_region_count(np); 
-
-...
-...
-
-if (ret == -ENODEV && index == entries)
-        break;
-else
-        return ret;
-
-But taking a step back, it might even be easier to go from a while() to a for(),
-the same way you did in imx_rproc_addr_init().
-
-> 
-> If you want to keep the prior behavior when 'memory-region' is
-> missing, then '&& index' can be removed, but I think that was wrong
-> behavior.
-> 
-> Rob
+--Sean
 
