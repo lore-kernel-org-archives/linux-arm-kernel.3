@@ -4,159 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D38ACD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A74CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hBQHZTyCsz2E3OEb1ZqiRZ3GGm1s7VIXPos3wQ/Oo+o=; b=Emmf5zkGhAlTtquw0p5VgSStfe
-	9w8ltHSc56tku03BAC7iJwxA9PeU2L80Pm+WpfCexPFzSjoAyd8f0ggBS8ZO/h8joKHPEKv9mEnJh
-	jdekqOalDcABZ9iJSsePxXJbtOnP1R8e7iDcjC6m+uFK8hCLqBjOhTLC1nxQeWg1otxnuF3eFDTJ/
-	Es4VjG/+QPZiTUHIiuM6HGTzoLmUeoNDlekmGcKMz00MsDZBVDC49ODzkAwTrsKoCR5agise5rNWp
-	ri+WFsAjwL1vSNyAfPgOCrku7dHXBjQOIQtb9Mguqz6BFS7xisB6CQPvMFhelAYn6Cb8HHN/cvr0W
-	8HxyEQcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=; b=KFrhaTxW7aIQAeLz7XVr2VU7qo
+	x9oGP2ekMb+z0IR5EE7/4S6nzSj/o448VLc0g5sE5sDf8a9FNAp4H2h2C+li+ey0S8hSeRDJX1bzY
+	7el0LDIrCFSG23pVQl8Mtq6WT+QarFYj7M9SKAK1dtxJHv1wLwrZ/Wrmf/BvkhFT+wID21joUiFQy
+	8RTX1zaOsnvL8NfAM3KTT6lcYd86gaoci9Gsox2CEF06F/r/RUA0VrKlVos59MRuSNB2TjHaD0+8R
+	YzIIPgbKPSFZ1XgCujnxc9nf6X+TvoOKZrFEEInCNSpZp9A14xICKB9akwOsdwCrIv3H+skrGHOi+
+	W5DyJf/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTbs-0000000ABfQ-0A4f;
-	Thu, 13 Nov 2025 09:27:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vJTbx-0000000ABgh-2QFs;
+	Thu, 13 Nov 2025 09:27:25 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTbp-0000000ABe8-11ID
+	id 1vJTbq-0000000ABeN-2inG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 09:27:18 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AD4wZum3336785
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:27:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hBQHZTyCsz2E3OEb1ZqiRZ3GGm1s7VIXPos3wQ/Oo+o=; b=DZ2znY/dexHHqMHq
-	9UkWyfkyA6sxniXfSVzQ3mjIGhqO9rwCQKTW75wPB3nlkpUsS0OtYu8UxJQXenRk
-	pcC/7jHqrzkDz1W3+4SVTQy5RvEhR1a1BLews3b1dTMnuu5k0dQ020YVVJy2DVN5
-	sZMi3oF9NrfocKv5ItoZdY74rweVMQxLL2DnVYQHV/b9nofgv98w5BqsQjFYHz4L
-	iDylQbuQi84kF6BdGMY6P+BalSzQ5+T0zJ6ubsI91moQLfbQiSMla/AmjbyqcdGf
-	5NG/PtPFaRkLM+oxZm3TV4c2B5cWISuXHS5uwwv0W++sQfpde37Bk9ymdiBQgomD
-	05IFsQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ad8sa0ts1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:27:15 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8906754b823so20869885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 01:27:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763026035; x=1763630835; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hBQHZTyCsz2E3OEb1ZqiRZ3GGm1s7VIXPos3wQ/Oo+o=;
-        b=bRh6vysMXEOMcsfM8QDRzizUmULTNWOBn14LW/LY37TX5Q2U4D4k/eRvtHBb+dymIE
-         mAeQYc62Wz5q2qDcQlLSkfJUidp5fLHeAIY78HY8Xk4Q9fnRJKNSvo2KIuZRXM5M/Saw
-         VmipY+PKr++ZN2Nt0AnKJxwLsGtQY5Grk8o+5uF1dMpip+CCI+FsjalscJf/HIoqc+s9
-         bU2MUCDwO1QW2Vh4aoJMk0IWwq8eIUwlZ3+e8uqUHOMnAoOvVLhwlpIHYTwc0cPu9gnE
-         bo/YZB38mYjCQiVrt4yk/pvRtajCJQ6PPzjW2RDhcNxGdBXwqTbYSwc10XxyyN5Q6BO8
-         oAOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763026035; x=1763630835;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hBQHZTyCsz2E3OEb1ZqiRZ3GGm1s7VIXPos3wQ/Oo+o=;
-        b=DD+p/LGfXv5lmj+derHhUbz7bHVabQjlJzyEmIshuYrh/tWIP62GS0JbAauGoGYa6U
-         9EAsDdd+g2NOSZB++tlcnOS/gsyYWO6gWGXHcnfOTbcgouMKbhsBUx2eGNv3wDzlWFrb
-         vRB3gWLwXHZPQlo3Oo8rflviZ0CRLoe2USTMqw2CMV3fnTjIBQiGylgvv+AJ4ObWFe3K
-         +Rc0c2fdnXU6YUBa0UzywHPmCBI7n8EVQVWbLPnVIrL2zUJSSubv9XaecofhOJFSJVPa
-         YVY2U2VUgVmebmeZZAb/G7BIIPID3dIKkqTm63PFaiKgFIkMP0ubUBMWM3CAGGwkfbAG
-         kR5w==
-X-Forwarded-Encrypted: i=1; AJvYcCXAUeo40iOMTmCsapuw0076atVbuhQFUZi27XNjvbCO9B+maxFwNYRWljhggelMJdoqLSOcZeRAwsa8H/3Y+0Cv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI1dVUErfBGQKwJIc7suNI5w2EKEqWXSUDZRahEmgIUI59Ep9b
-	FBJ+1uVAB/eQGnQdkfTKycrXj1i7uPMPdKqj92GXUK1UlwOowRK8hQdoNmvqEOCsUa0UscYZHKy
-	XzpKy6d9plxbqpWPflax0E/imDYoB6fSWqQ5NXCUsPEp950YQ61HzCpb27JYGwi0yNQBUFphaWU
-	LYhw==
-X-Gm-Gg: ASbGncsXutdJY6l+FDWh0ckDtjL71dioxK2NyglJAU7llL8rXQpCuqkL7lBWwCCYvKV
-	jrXh41bLC61h3z2OL96GHwfEW9VCESXtH65m7ukzTi79NyYg1Z14Zz9+VIgbCi3+lwAoiJmmL1v
-	poj6aSVGmR4UUVV5qpNwsJhUTvxnQJaa4X9SmZeper+PqmPf8kJJUiwkgBwhBndKcfytsuwHH3S
-	L08OOeDMuXcBLCR1Ej4VPmy9nfn6ewnEEloQ8jGClsdKZ0p078Z9H//UcnMu1POU1Fmc00A35hF
-	W+FqZiOUWqhRzo8OBf5oz3XB8UNDlHkgnYtsSdL6n5NU+Gpu0MISUyVDer8tH87vFP9UDgq3b4J
-	wUtUq6bc6t3GdoJsnfUA/+7hw7ra/Tbbatw1kPqajQxUKgbZJsNOTohx7
-X-Received: by 2002:ac8:57d6:0:b0:4ec:f9c2:c200 with SMTP id d75a77b69052e-4eddbd957bemr55093331cf.11.1763026034636;
-        Thu, 13 Nov 2025 01:27:14 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHoZxoEy/JmKlmxIOPZpqL8nflJ1JnawU4oD4ovv9bKA6hPgIGxSwD69qSzkbCaaUf89Ywfyg==
-X-Received: by 2002:ac8:57d6:0:b0:4ec:f9c2:c200 with SMTP id d75a77b69052e-4eddbd957bemr55092921cf.11.1763026034164;
-        Thu, 13 Nov 2025 01:27:14 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4ce83dsm1028106a12.34.2025.11.13.01.27.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Nov 2025 01:27:13 -0800 (PST)
-Message-ID: <d87bea02-1a89-4854-b760-617c3655b287@oss.qualcomm.com>
-Date: Thu, 13 Nov 2025 10:27:09 +0100
+	Thu, 13 Nov 2025 09:27:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IHb8CMr35BC+8vNqPzWedotN5NKfyew/zF9adEYfeO9QBXshk+TGiHcdPEzrVnMaN6LwKBrfLkNco+bXFWzKuMEJePN5hysPJc7Fp/7L5e1l+mIcOle1VVjD16zUuunj/UGD3mfJjF7tgkWHGB3ehAsFqCVCtMZXf1Y1G+DOHSTvtreE1/gTAlNE4ggkwWU9ly1+3TWDn9O83ebMz/4TMHYOeGdmUPAkZgvj2IdK0qRRZYK81XMxvMsN/EUixBNq95MQglSA3SKWHgcYzcWtqQhxXtaJQwzBw11iW/StrH4KwXLeFYNkvfSwukE2UQHUhkjJbzR4wdbpu0cEsR1n2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=;
+ b=lBAB9frgWnjjuQJQcvPH44shJtvFIUyoV1R3L+x/bVoIxU8rbXuy6Q1jmb4AaGudYaEDvNaac6Z59y26E62J2oa0Yg6DdmXPtbJfQKeuYoZcRgBgLKA2mn+29phcuxwpxs9pqqXrLfUpzF2xh7bqBzuyEJ0uWU518JiglDN3KEiyhjaaq03DE9R5s1odzj6cXJ2MVy4QDY4nq1h8MXB0HvD9oFR0hiWNSqbQ0rom2DW9rVt+85uuySEMQ0z6H2O2UtPpoQKEs1ZVO+svSUYjRpLZwPIOthbZJ+Gj/3Tn8M46JDZl0+L/bfZktSJxgZj+7y1wgNTb0HG5XxH2KvYvKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PdRSHxlGS74JO/oURTcuVIbvsA/EO2eZ5Gq9re+VK4k=;
+ b=XOc2CDFsso4ti0uKIRSLoupe7GkyqufxbJcSsdkrDifq9zQ6kFIJLxnaT+MhzsRmBueVVXj105ryKoHx3IGGUiG311Q24rjBOPRufiRzzVB7qSgccsgIbhYnw2BDGVisKzTUOsc1fp9cjH8IhiIIzIe+uczAu0Npl4horaKUNTI=
+Received: from SJ0PR13CA0126.namprd13.prod.outlook.com (2603:10b6:a03:2c6::11)
+ by DM6PR10MB4348.namprd10.prod.outlook.com (2603:10b6:5:21e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
+ 2025 09:27:12 +0000
+Received: from SJ1PEPF00002313.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c6:cafe::b8) by SJ0PR13CA0126.outlook.office365.com
+ (2603:10b6:a03:2c6::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.6 via Frontend Transport; Thu,
+ 13 Nov 2025 09:27:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF00002313.mail.protection.outlook.com (10.167.242.167) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 09:27:12 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
+ 2025 03:27:10 -0600
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Nov
+ 2025 03:27:09 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 13 Nov 2025 03:27:09 -0600
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AD9R5TO4193020;
+	Thu, 13 Nov 2025 03:27:06 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <unicorn_wang@outlook.com>,
+	<kishon@kernel.org>
+CC: <arnd@arndb.de>, <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate to bool
+Date: Thu, 13 Nov 2025 14:57:20 +0530
+Message-ID: <20251113092721.3757387-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/21] drm/msm/adreno: Move adreno_gpu_func to
- catalogue
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, devicetree@vger.kernel.org
-References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
- <20251110-kaana-gpu-support-v2-5-bef18acd5e94@oss.qualcomm.com>
- <28d62905-c191-4c3a-995e-a4146ffce619@oss.qualcomm.com>
- <12e6f588-e422-4803-ae14-56e5297e564d@oss.qualcomm.com>
- <os7rpbynyoeolwvbrocx3yrrxzhextx3srywal2i54jj6dw3mw@n6fbt3pzjvj6>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <os7rpbynyoeolwvbrocx3yrrxzhextx3srywal2i54jj6dw3mw@n6fbt3pzjvj6>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: qNmJYkXBMb6FW1Svc999wzmckCTnnrNu
-X-Proofpoint-ORIG-GUID: qNmJYkXBMb6FW1Svc999wzmckCTnnrNu
-X-Authority-Analysis: v=2.4 cv=dcGNHHXe c=1 sm=1 tr=0 ts=6915a473 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=pBDOg7y053Z06RvWvLkA:9
- a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTEzMDA2OCBTYWx0ZWRfX08wdnaA31K93
- oS5OVFGsKC248ixyOqlIUf2d/36WGDUMQIWObb6CA4UOD5hol+QHT0X9OwjOckwu9FmD+I3pMch
- wTcvLsUrnDtMOCaEoXTdahCVm0Ce1ODH8oA12w2eQvJ2TCPNWbxj54UsogJ8PMAQh0sROl06xa/
- x8RpK/GBJFEnnZYAGNO8TJq63HxASkNf0XIhrbJRLPGFxmbsCvuuLsq6X+OJlDKtIq7hJnV3os4
- wU8KuMUaj+dGYPsw+8DxtQzd0oglncGBNkfP0udby2XgDXMpUiJ7YYWrdRKg7qQ3SanM6T7Pjhr
- J+T4+68q3seROc9OtIS1cXI5hh2/Q98+faI7atmCnn5r3HV4S2UPLM0m5QK3GH7qEWvU1nm0wGh
- LdJNhDISxj2tDk98Dmj1fwWZ2aAVag==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-13_01,2025-11-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0 phishscore=0
- suspectscore=0 clxscore=1015 impostorscore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511130068
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002313:EE_|DM6PR10MB4348:EE_
+X-MS-Office365-Filtering-Correlation-Id: b06bf77e-baad-484e-2884-08de2296d381
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|32650700017|82310400026|376014|7416014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PkpGETsYmpP9MZsspr10Un0HwtARDC0j1NfbQE4IVxXj2hGumedF/AoAFp5q?=
+ =?us-ascii?Q?yaM7jhoeyTf2y0Sl0paU3AWsveMV0seh1ygRnHcqq2NWagAWYegRrrCjOGvl?=
+ =?us-ascii?Q?Ol4fsWMs8GiwkPgiGNlZg5PcAXhjRu263/W7eskHzZO+45PkCq/0fb6yUhgV?=
+ =?us-ascii?Q?JFjUM2I4bsdq3tVH7LVe42ZvQhVsBGO3P5LZn68rBA7Luvx1fGBjK3GhV9AQ?=
+ =?us-ascii?Q?cJPGImMMjKBYFloGD+Mi6ZLoH0rRM6pH1B4tQq6W6GTlGksStfHAjWjkNSig?=
+ =?us-ascii?Q?E1vflyH14VUbA+qjPPe8tllz1mjjfL+BMkopAp91m+naPH1g37RNcUa3b0+D?=
+ =?us-ascii?Q?6R77cZPzbJCI2gYEyHjbGCufXQklgAKshf+1pPczf2RtKmZZ8FrxD1Ezyjmf?=
+ =?us-ascii?Q?4Dr063XK4rz3OygHVGvsyYwwtHMZbST3b2ecYDbtBGQEb0E8AjkMUSoCYyQg?=
+ =?us-ascii?Q?xn1/fiDVK8kWVr6heqO/+Ik0HwnNJ+rYfHtKgbvrlOJCe00TsLvlf+Cb4DGR?=
+ =?us-ascii?Q?XJYRVoNCTzlpwQoNBguDHWtUfM2pJfzLuaN2yO6w9Z1HDVom9oL5kzAS23gp?=
+ =?us-ascii?Q?yUEWu0rRaGGAc8X1kzsg8dfk1DS6kkL0+pTcqrZoSkPghiXX6IV5F6gUZncm?=
+ =?us-ascii?Q?xflFMdXYyVHyMZAPmdmIWQy/v9i77LhV2iwuY/yTTA9KS3Q/kqDlyw6Y+FNU?=
+ =?us-ascii?Q?/EATGI/x7PAP/7zOEblKaPUekw3sJe5HOc8Q7yOa8ZHq6e4fVDR7rYXaY5BL?=
+ =?us-ascii?Q?K2qmd9OLNWojropyVLUg+C9WeU0Rt2GrW8RwuXb5l0WGbVcbo327c/vZQM92?=
+ =?us-ascii?Q?EAt0oC7lrFhi9RDLC7d/bKDNlmoEdgJd+6LmLHtmyxoDZ4aiex8Bh0f8wqGb?=
+ =?us-ascii?Q?AtUkqRD8Qa64A5KMt6fOvP9tUp2MKYH5Xz5WUU8YHuuI2lXhySk2kdkGY7aV?=
+ =?us-ascii?Q?f2WHVh3sBwz+Ss1aU+/mHhv2MsiOspgK1E93P6yJP4a9N1oVSW2qY2/lGTcp?=
+ =?us-ascii?Q?nArv8LjVjnRsb4f+V5hWlVJwt7KqStEAC4JRdMXSq02wKoQmYgXWgVFI4U/P?=
+ =?us-ascii?Q?vIOmXzl7O1z2h1c3zj1KmCwywMQNFFveNTI+hHr4zWBIiDibJTFTZC3O6aof?=
+ =?us-ascii?Q?HEUcBRTfyYPGGTcHlRAhkBtd0Xr3qnxOQj2Qz/7GPSmSkrsNwIU/F5oitfJG?=
+ =?us-ascii?Q?kUhYB/xNgN/vdEigVTBuhZwj3sNINyKVfBpFK2j9YUEsloKaiRf+CYD96uTA?=
+ =?us-ascii?Q?mYRpRD0sVqcHGLJJyQiSBacL7SHW+EC3gof8Q1SG9HwHX8hRRXJHxnQFqN8H?=
+ =?us-ascii?Q?KrWgC9VnubQKnSkoG7HWW7OOU7LK6fQ8v7vaNfBxDIJzlaNsMgfxc4Fqis/x?=
+ =?us-ascii?Q?xvajF0+TbrItP15lAJQTi9uDkVrGaGjU5QIF+OH30yjnGNZfbxquoaot8zBI?=
+ =?us-ascii?Q?7nlt6uHNU3EzTrVd3dCThxD9cnKzz2OqIPmGqB8uoF2a5QfFujbyAZgJ990K?=
+ =?us-ascii?Q?WxnebXahhe4DJ2FQdVVWUo5p1uc3jxLdB33tHfZ1l8SycRKd90eUbjBDjuYa?=
+ =?us-ascii?Q?nueXYvNMVWGBz/rMzVo=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(32650700017)(82310400026)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 09:27:12.1481
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b06bf77e-baad-484e-2884-08de2296d381
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002313.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4348
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_012717_410942_71EB3076 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20251113_012718_687927_0C2F124F 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,36 +154,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/25 4:38 AM, Dmitry Baryshkov wrote:
-> On Thu, Nov 13, 2025 at 03:32:51AM +0530, Akhil P Oommen wrote:
->> On 11/12/2025 3:52 PM, Konrad Dybcio wrote:
->>> On 11/10/25 5:37 PM, Akhil P Oommen wrote:
->>>> In A6x family (which is a pretty big one), there are separate
->>>> adreno_func definitions for each sub-generations. To streamline the
->>>> identification of the correct struct for a gpu, move it to the
->>>> catalogue and move the gpu_init routine to struct adreno_gpu_funcs.
->>>>
->>>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->>>> ---
->>>
->>> [...]
->>>
->>>
->>>> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
->>>> index 44df6410bce1..9007a0e82a59 100644
->>>> --- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
->>>> +++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
->>>> @@ -683,7 +683,7 @@ static const struct adreno_info a6xx_gpus[] = {
->>>
->>> Somewhere among this diff, a619_holi needs to have gmu_wrapper funcs
->>
->> Could you point me to the holi's devicetree? Currently I see only a610
->> (sm6115) and a702 (qcm2290) uses gmu_wrapper.
-> 
-> I don't think upstream was ported to SM4350. SM6375 should need the same
-> hook, but I don't know why Konrad didn't enable GPU on that platform.
+The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
+PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
+library of helpers. Since the vendor drivers could individually be built
+as built-in or as loadable modules, it is possible to select a build
+configuration wherein a vendor driver is built-in while the library is
+built as a loadable module. This will result in a build error as reported
+in the 'Closes' link below.
 
-I'll try to fire up -next and confirm it hasn't bitrotten.
+Address the build error by changing the library configs to be 'bool'
+instead of 'tristate'.
 
-Konrad
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
+Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
+ drivers/pci/controller/cadence/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+index 02a639e55fd8..980da64ce730 100644
+--- a/drivers/pci/controller/cadence/Kconfig
++++ b/drivers/pci/controller/cadence/Kconfig
+@@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
+ 	depends on PCI
+ 
+ config PCIE_CADENCE
+-	tristate
++	bool
+ 
+ config PCIE_CADENCE_HOST
+-	tristate
++	bool
+ 	depends on OF
+ 	select IRQ_DOMAIN
+ 	select PCIE_CADENCE
+ 
+ config PCIE_CADENCE_EP
+-	tristate
++	bool
+ 	depends on OF
+ 	depends on PCI_ENDPOINT
+ 	select PCIE_CADENCE
+-- 
+2.51.1
+
 
