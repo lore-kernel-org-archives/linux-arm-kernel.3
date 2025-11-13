@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5509DCD6E5C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 14:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033A0CD6E71
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 14:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVixUFgUinIMl4CzwhwEfmabBWHIlWwH4AhL3rakTt8=; b=H7XT0MZG7xlqzrooO5rQoEQAt5
-	kQv/BptCEx3x5ntZ8MHCZiOz10vyRAFxA9ksGitWbUVWWM9r17uO0xqooDsDICtAt+Y8sGpQUtm3o
-	0+CsFYB8oCe+u1Xze67mHeAJAgrbwftr6Tjq9e0w7qzdoXjFYh85y/32uZYYe4ga6ChqQvpxNMavd
-	YBLzeEineusEn8x5sat7fJwn23J3jIymfLGHtNaZVqIz23UsAYOWfqpaUoU7parBPiKuKLquFRPP1
-	sVa3r15utW1wP1mzyesXfosP67Cl+dKmNtefz22Uzh4s8LpwQwgEyY93QH/6BIeeASgUdsyeFs86x
-	eNzKer5w==;
+	bh=8gGk2esZ3TPP+U/Xv/QDaG4ohk1EPYMCao+ua5Ut7t0=; b=wpJ/3I0KBgUcpYnnq5qOCgiZ8i
+	yAAsAzTRGLfdfe96Xfwk3R4Gl4GTvMYCdAQbjiL6k2Q4b/2Xt9lcbjNPtav0SFpDIL3QvQKwZU5TY
+	rArxtZ/e1enXmdbwD6gESE5HMz+lthMVYo0jd3krln+VWa0iP2OEuGYQ8hSwVSGjNLy3+zNXY7VsM
+	ZL3bc9qC1dUHL7s+Aduj4MyYI4EwB7O1T4HOlpFJ/Lrj7s7RtIkOFlyTg5uJoE+Huj34ryk50d/UE
+	gDKPmNDcvsXO0qPRwJ1HANpHtal3AY+dGY0qkdZwlHH6BydQmTxHMq2ijlf5dhCCrhseo+NXIeUdL
+	GHaWbTKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJY6U-0000000Ab6p-1iGs;
-	Thu, 13 Nov 2025 14:15:14 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vJYAU-0000000AbKT-3BxS;
+	Thu, 13 Nov 2025 14:19:22 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJY6Q-0000000Ab5D-3tJe
+	id 1vJYAS-0000000AbK4-1UD5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 14:15:13 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJY6G-0000bK-2i; Thu, 13 Nov 2025 15:15:00 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJY6E-000GpE-0d;
-	Thu, 13 Nov 2025 15:14:58 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id D0BB849EB2B;
-	Thu, 13 Nov 2025 14:14:57 +0000 (UTC)
-Date: Thu, 13 Nov 2025 15:14:56 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
-	linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-Message-ID: <20251113-slim-foamy-gecko-2dc389-mkl@pengutronix.de>
-References: <20251113075419.482940-1-zhangqing@rock-chips.com>
- <20251113075419.482940-4-zhangqing@rock-chips.com>
+	Thu, 13 Nov 2025 14:19:22 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-64180bd67b7so1213177a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 06:19:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763043558; x=1763648358; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8gGk2esZ3TPP+U/Xv/QDaG4ohk1EPYMCao+ua5Ut7t0=;
+        b=OPLK+hbeEcHGW2eUpj9s7FkxLaB98vZvj/CIwFPZDtqTZHElOjmKcRENZCFrdtpY5r
+         aRwL0Ak7ZAczBIcchtsBdsmyaqBtVu8t1sG7FiI+1JoXyetaSb8X5jX6P6xo8pB4SPuF
+         DEYB1O25fcZHjBBLwOrYlEqJKbT0W8e2dtOfAj1IA0r0uCJGYoRQHx+OpGyokKNqThpz
+         kqc58kuBLUnbgBCyleiHFlap3CU22+wWVbp4cfISuTSHdsJNxPgRUHBNn/dGz7hzp/NL
+         iu4/WaOXJmWM3aB+rk86DJlLzuR7J/VUCgH5Gzmc2xOh3GPOPXCQvqW3ztTFVWf79kAM
+         30Rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763043558; x=1763648358;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8gGk2esZ3TPP+U/Xv/QDaG4ohk1EPYMCao+ua5Ut7t0=;
+        b=gyajcMedGiSndxjjc8S077VBa2329QdKtIUdMixk/nfTXdnGxAIHhblh9zEo8NnDBg
+         1o3EF5AwAbTlCFY6ZFN6fW7Pi0gNrXNo63Mi1cStc43acALdTaM886cyw8kFDFf4Ct/1
+         T9aufVmdOPqnVm1EGh24iMSsxPAMP5MfVjl6zBD8mfMaHoNNAs7LLQfwbnHh/KEsNRg8
+         DBhVpW/xQG9MmE7nlgGa0Ux6hA5zLjkwT1NVYykNPcnU962024mnaJtIBy2YKBKOf2DM
+         +Htqsrc2csC1R2QGsNq6lSQK5uoUNmOKwKsX4M45Dm+sTxfR7g/fc/ycZC1HslD/8eu1
+         sCRg==
+X-Forwarded-Encrypted: i=1; AJvYcCUh0lJWx1Lc7sUzj2YVa2vSemddLhE8IFOL5iBPjTIICe1nmQuykQyn2SAfE5Egsay3Uq2dB+ECAZ+km7FO4Ib0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5nCViqKcED8Kj2PhnObDtr6VYKpp5OuggTwhRiNM6WsDEAohu
+	YPiz+bTO0bx/puLEV8jDQuO4veZVmMpIMFD3TEguwQkYOLzqCppPv1j/b3QNsfktNHdBmMIXhFA
+	OoY2uEAF3KxdYueuAALxXrfFvWaI9xn2o9nt2EJxrDQ==
+X-Gm-Gg: ASbGncsqvBazDUnyPuOcrh9AVGnM6dRXxYDc2NtQgQv4Wwlu4Vq5vVzptpFOmHhRHFS
+	dJh2s2GATunhZSxfeelubOVIp8WSv5K7dcqmix3oyQ41WQ8aD8Yx5ssVI+ESl7vNTy1X6rHKvS6
+	wgnk4mymzfT4ASETJbc1o1Krc8BSr8j712yrotTrPxK+JdtD+Bxl8Zqmesok2FN1C/3/ANPsE78
+	mrmE8HD0znSJsl3rNZosz0+H0daYkOqMmLDK6VrUfSX3DFPGAPjk/b+2B6hV1xgW90EP+4hbkHj
+	cZCqfYtz6oiyGA==
+X-Google-Smtp-Source: AGHT+IEk4ZuVDBz3u+9Uv4/zJfB1Emeu9cNMcz6aWafXiAHCM1K8SOZabMAhPk/X3XNWJIyPPXn256y5U9W+nbjKzzM=
+X-Received: by 2002:a05:6402:27c6:b0:640:95e2:cd17 with SMTP id
+ 4fb4d7f45d1cf-6431a57e355mr5833525a12.36.1763043558031; Thu, 13 Nov 2025
+ 06:19:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fdgezdn3owk5oz7x"
-Content-Disposition: inline
-In-Reply-To: <20251113075419.482940-4-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20251110173334.234303-1-vincent.guittot@linaro.org>
+ <20251110173334.234303-2-vincent.guittot@linaro.org> <aRIn1COnQG6Mz27j@lizhi-Precision-Tower-5810>
+In-Reply-To: <aRIn1COnQG6Mz27j@lizhi-Precision-Tower-5810>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 13 Nov 2025 15:19:06 +0100
+X-Gm-Features: AWmQ_bn4_FBV_0kJ1ugPYoCrbCQQh9T4qf5dxZ1Dk01YEW7NuCgTcJxJ5cXExLg
+Message-ID: <CAKfTPtBT6qT2zC8toUOEFD_ZkJPBMJgZrZc2NCAFSUXANYJ==Q@mail.gmail.com>
+Subject: Re: [PATCH 1/4 v4] dt-bindings: PCI: s32g: Add NXP PCIe controller
+To: Frank Li <Frank.li@nxp.com>
+Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
+	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_061511_283934_6BD24C0D 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20251113_061920_457922_D1177B25 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,657 +101,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---fdgezdn3owk5oz7x
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-MIME-Version: 1.0
-
-On 13.11.2025 15:54:19, Elaine Zhang wrote:
-> Is new controller, new register layout and Bit position definition:
-
-Let's improve the patch description a bit. What about:
-
-The CAN FD cores in the rk3576 SoC are a newer revision than those in
-the rk3568. The main differences are:
-
-- changed register layout
-- different bit position
-- ...
-
-I remember:
-- time stamp register removed
-
-Please go through this list and remove everything that was unchanged and
-add it to the list I started above.
-
-> Support CAN protocol, ISO 11898-1
-> Support transmit or receive error count
-> Support acceptance filter, more functional
-> Support interrupt and all interrupt can be masked
-> Support error code check
-> Support self test\silent\loop-back mode
-> Support auto retransmission mode
-> Support auto bus on after bus-off state
-> Support 2 transmit buffers
-> Support Internal Storage Mode
+On Mon, 10 Nov 2025 at 18:59, Frank Li <Frank.li@nxp.com> wrote:
 >
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  .../net/can/rockchip/rockchip_canfd-core.c    | 419 ++++++++++++++++++
->  drivers/net/can/rockchip/rockchip_canfd-rx.c  | 103 +++++
->  drivers/net/can/rockchip/rockchip_canfd-tx.c  |  20 +
->  drivers/net/can/rockchip/rockchip_canfd.h     | 258 +++++++++++
->  4 files changed, 800 insertions(+)
+> On Mon, Nov 10, 2025 at 06:33:31PM +0100, Vincent Guittot wrote:
+> > Describe the PCIe host controller available on the S32G platforms.
+> >
+> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> > Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> > Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  .../bindings/pci/nxp,s32g-pcie.yaml           | 130 ++++++++++++++++++
+> >  1 file changed, 130 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> > new file mode 100644
+> > index 000000000000..6077c251c2cd
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> > @@ -0,0 +1,130 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pci/nxp,s32g-pcie.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP S32G2xxx/S32G3xxx PCIe Root Complex controller
+> > +
+> > +maintainers:
+> > +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> > +  - Ionut Vicovan <ionut.vicovan@nxp.com>
+> > +
+> > +description:
+> > +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
+> > +  The S32G SoC family has two PCIe controllers, which can be configured as
+> > +  either Root Complex or Endpoint.
+> > +
+> > +allOf:
+> > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
 >
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net=
-/can/rockchip/rockchip_canfd-core.c
-> index 761cb36148ff..58fffcf97b20 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> @@ -31,6 +31,8 @@ static const char *__rkcanfd_get_model_str(enum rkcanfd=
-_model model)
->  		return "rk3568v2";
->  	case RKCANFD_MODEL_RK3568V3:
->  		return "rk3568v3";
-> +	case RKCAN_MODEL_RK3576:
-> +		return "rk3576";
->  	}
+> Suggest move allOf after required, in case add if-else branch later.
+
+okay
 >
->  	return "<unknown>";
-> @@ -176,6 +178,27 @@ static void rkcanfd_get_berr_counter_corrected(struc=
-t rkcanfd_priv *priv,
->  		    !!(reg_state & RKCANFD_REG_STATE_ERROR_WARNING_STATE));
->  }
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - enum:
+> > +          - nxp,s32g2-pcie
+> > +      - items:
+> > +          - const: nxp,s32g3-pcie
+> > +          - const: nxp,s32g2-pcie
+> > +
+> > +  reg:
+> > +    maxItems: 6
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: dbi
+> > +      - const: dbi2
+> > +      - const: atu
+> > +      - const: dma
+> > +      - const: ctrl
+> > +      - const: config
+> > +
+> > +  interrupts:
+> > +    maxItems: 2
 >
-> +static void rk3576can_get_berr_counter_corrected(struct rkcanfd_priv *pr=
-iv,
-> +						 struct can_berr_counter *bec)
-> +{
-> +	struct can_berr_counter bec_raw;
-
-You've removed the workaround handling for the berr_counter. This means
-your SoC is not affected by it. So the bec_raw and taking care of
-priv->bec is not needed.
-
-> +	u32 reg_state;
-> +
-> +	bec->rxerr =3D rkcanfd_read(priv, RK3576CAN_REG_RXERRORCNT);
-> +	bec->txerr =3D rkcanfd_read(priv, RK3576CAN_REG_TXERRORCNT);
-
-> +	bec_raw =3D *bec;
-remove, see above
-
-> +
-> +	priv->bec =3D *bec;
-
-remove, see above
-
-> +
-> +	reg_state =3D rkcanfd_read(priv, RKCANFD_REG_STATE);
-> +	netdev_vdbg(priv->ndev,
-> +		    "%s: Raw/Cor: txerr=3D%3u/%3u rxerr=3D%3u/%3u Bus Off=3D%u Warning=
-=3D%u\n",
-> +		    __func__,
-> +		    bec_raw.txerr, bec->txerr, bec_raw.rxerr, bec->rxerr,
-> +		    !!(reg_state & RK3576CAN_REG_STATE_BUS_OFF_STATE),
-> +		    !!(reg_state & RK3576CAN_REG_STATE_ERROR_WARNING_STATE));
-
-I think the vdbg can be removed, if the IP core is not affected by the
-problem.
-
-> +}
-> +
->  static int rkcanfd_get_berr_counter(const struct net_device *ndev,
->  				    struct can_berr_counter *bec)
->  {
-> @@ -206,6 +229,11 @@ static void rkcanfd_chip_interrupts_disable(const st=
-ruct rkcanfd_priv *priv)
->  	rkcanfd_write(priv, RKCANFD_REG_INT_MASK, RKCANFD_REG_INT_ALL);
->  }
+> Need match interrupt-names's restriction
 >
-> +static void rk3576can_chip_interrupts_disable(const struct rkcanfd_priv =
-*priv)
-> +{
-> +	rkcanfd_write(priv, RK3576CAN_REG_INT_MASK, RK3576CAN_REG_INT_ALL);
-> +}
-> +
->  static void rkcanfd_chip_fifo_setup(struct rkcanfd_priv *priv)
->  {
->  	u32 reg;
-> @@ -220,6 +248,48 @@ static void rkcanfd_chip_fifo_setup(struct rkcanfd_p=
-riv *priv)
->  	netdev_reset_queue(priv->ndev);
->  }
+>       minItems: 1
+>       maxItems: 2
+
+Yes
+
 >
-> +static void rk3576can_chip_fifo_setup(struct rkcanfd_priv *priv)
-> +{
-> +	u32 reg_ism, reg_water;
-> +
-> +	reg_ism =3D FIELD_PREP(RK3576CAN_REG_STR_CTL_ISM_SEL,
-> +			     RK3576CAN_REG_STR_CTL_ISM_SEL_CANFD_FIXED) |
-> +		  RK3576CAN_REG_STR_CTL_STORAGE_TIMEOUT_MODE;
-> +	reg_water =3D RK3576CAN_ISM_WATERMASK_CANFD;
-> +
-> +	/* internal sram mode */
-> +	rkcanfd_write(priv, RK3576CAN_REG_STR_CTL, reg_ism);
-> +	rkcanfd_write(priv, RK3576CAN_REG_STR_WTM, reg_water);
-> +	WRITE_ONCE(priv->tx_head, 0);
-> +	WRITE_ONCE(priv->tx_tail, 0);
-> +	netdev_reset_queue(priv->ndev);
-> +}
-> +
-> +static void rk3576can_atf_config(struct rkcanfd_priv *priv, int mode)
-> +{
-> +	int i;
-> +
-> +	switch (mode) {
-> +	case RK3576CAN_REG_ATFM_MASK_SEL_MASK_MODE:
-> +		for (i =3D 0; i < 5; i++) {
-> +			rkcanfd_write(priv, RK3576CAN_REG_ATF(i), 0);
-> +			rkcanfd_write(priv, RK3576CAN_REG_ATFM(i), RK3576CAN_REG_ATFM_ID);
-> +		}
-> +		break;
-> +	case RK3576CAN_REG_ATFM_MASK_SEL_LIST_MODE:
-> +		for (i =3D 0; i < 5; i++) {
-> +			rkcanfd_write(priv, RK3576CAN_REG_ATF(i), 0);
-> +			rkcanfd_write(priv, RK3576CAN_REG_ATFM(i), RK3576CAN_REG_ATFM_MASK_SE=
-L);
-> +		}
-> +		break;
-> +	default:
-> +		rkcanfd_write(priv, RK3576CAN_REG_ATF_CTL, RK3576CAN_REG_ATF_CTL_ATF_D=
-IS_ALL);
-> +		return;
-> +	}
-> +
-> +	rkcanfd_write(priv, RK3576CAN_REG_ATF_CTL, 0);
-> +}
-> +
->  static void rkcanfd_chip_start(struct rkcanfd_priv *priv)
->  {
->  	u32 reg;
-> @@ -285,6 +355,61 @@ static void rkcanfd_chip_start(struct rkcanfd_priv *=
-priv)
->  		   rkcanfd_read(priv, RKCANFD_REG_MODE));
->  }
+> > +
+> > +  interrupt-names:
+> > +    items:
+> > +      - const: msi
+> > +      - const: dma
+> > +    minItems: 1
+> > +
+> ...
+> > +
+> > +        pcie@40400000 {
+> > +            compatible = "nxp,s32g3-pcie",
+> > +                         "nxp,s32g2-pcie";
 >
-> +static void rk3576can_chip_start(struct rkcanfd_priv *priv)
-> +
-> +{
-> +	u32 reg;
-> +
-> +	rkcanfd_chip_set_reset_mode(priv);
-> +
-> +	/* Receiving Filter: accept all */
-> +	rk3576can_atf_config(priv, RK3576CAN_REG_ATFM_MASK_SEL_MASK_MODE);
-> +
-> +	/* enable:
-> +	 * - WORK_MODE: transition from reset to working mode
-> +	 */
-> +	reg =3D rkcanfd_read(priv, RKCANFD_REG_MODE);
-> +	priv->reg_mode_default =3D reg | RKCANFD_REG_MODE_WORK_MODE;
-> +
-> +	if (priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK) {
-> +		priv->reg_mode_default |=3D RKCANFD_REG_MODE_LBACK_MODE;
-> +		rkcanfd_write(priv, RK3576CAN_REG_ERROR_MASK,
-> +			      RK3576CAN_REG_ERROR_MASK_ACK_ERROR);
-> +	}
-> +
-> +	/* mask, i.e. ignore:
-> +	 * - RX_FINISH_INT - Rx finish interrupt
-> +	 */
-> +	priv->reg_int_mask_default =3D RK3576CAN_REG_INT_RX_FINISH_INT;
-> +
-> +	/* Do not mask the bus error interrupt if the bus error
-> +	 * reporting is requested.
-> +	 */
-> +	if (!(priv->can.ctrlmode & CAN_CTRLMODE_BERR_REPORTING))
-> +		priv->reg_int_mask_default |=3D RKCANFD_REG_INT_ERROR_INT;
-> +
-> +	memset(&priv->bec, 0x0, sizeof(priv->bec));
-> +
-> +	rk3576can_chip_fifo_setup(priv);
-> +
-> +	rkcanfd_write(priv, RK3576CAN_REG_AUTO_RETX_CFG,
-> +		      RK3576CAN_REG_AUTO_RETX_CFG_AUTO_RETX_EN);
-> +
-> +	rkcanfd_write(priv, RK3576CAN_REG_BRS_CFG,
-> +		      RK3576CAN_REG_BRS_CFG_BRS_NEGSYNC_EN |
-> +		      RK3576CAN_REG_BRS_CFG_BRS_POSSYNC_EN);
-> +
-> +	rkcanfd_set_bittiming(priv);
-> +
-> +	priv->devtype_data.interrupts_disable(priv);
-> +	rkcanfd_chip_set_work_mode(priv);
-> +
-> +	priv->can.state =3D CAN_STATE_ERROR_ACTIVE;
-> +
-> +	netdev_dbg(priv->ndev, "%s: reg_mode=3D0x%08x\n", __func__,
-> +		   rkcanfd_read(priv, RKCANFD_REG_MODE));
-> +}
-> +
->  static void __rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum ca=
-n_state state)
->  {
->  	priv->can.state =3D state;
-> @@ -301,6 +426,13 @@ static void rkcanfd_chip_stop(struct rkcanfd_priv *p=
-riv, const enum can_state st
->  	__rkcanfd_chip_stop(priv, state);
->  }
+> put to one line to save LOC.
+
+Okay
+
 >
-> +static void rk3576can_chip_stop(struct rkcanfd_priv *priv, const enum ca=
-n_state state)
-> +{
-> +	priv->can.state =3D state;
-> +
-> +	__rkcanfd_chip_stop(priv, state);
-> +}
-> +
->  static void rkcanfd_chip_stop_sync(struct rkcanfd_priv *priv, const enum=
- can_state state)
->  {
->  	priv->can.state =3D state;
-> @@ -309,6 +441,13 @@ static void rkcanfd_chip_stop_sync(struct rkcanfd_pr=
-iv *priv, const enum can_sta
->  	__rkcanfd_chip_stop(priv, state);
->  }
->
-> +static void rk3576can_chip_stop_sync(struct rkcanfd_priv *priv, const en=
-um can_state state)
-> +{
-> +	priv->can.state =3D state;
-> +
-> +	__rkcanfd_chip_stop(priv, state);
-> +}
-> +
->  static int rkcanfd_set_mode(struct net_device *ndev,
->  			    enum can_mode mode)
->  {
-> @@ -364,6 +503,9 @@ static const char *rkcanfd_get_error_type_str(unsigne=
-d int type)
->  #define RKCAN_ERROR_CODE(reg_ec, code) \
->  	((reg_ec) & RKCANFD_REG_ERROR_CODE_##code ? __stringify(code) " " : "")
->
-> +#define RK3576CAN_ERROR_CODE(reg_ec, code) \
-> +	((reg_ec) & RK3576CAN_REG_ERROR_CODE_##code ? __stringify(code) " " : "=
-")
-> +
->  static void
->  rkcanfd_handle_error_int_reg_ec(struct rkcanfd_priv *priv, struct can_fr=
-ame *cf,
->  				const u32 reg_ec)
-> @@ -493,6 +635,128 @@ rkcanfd_handle_error_int_reg_ec(struct rkcanfd_priv=
- *priv, struct can_frame *cf,
->  	}
->  }
->
-> +static void
-> +rk3576can_handle_error_int_reg_ec(struct rkcanfd_priv *priv, struct can_=
-frame *cf,
-> +				  const u32 reg_ec)
-> +{
-> +	struct net_device_stats *stats =3D &priv->ndev->stats;
-> +	unsigned int type;
-> +	u32 reg_state, reg_cmd;
-> +
-> +	type =3D FIELD_GET(RK3576CAN_REG_ERROR_CODE_TYPE, reg_ec);
-> +	reg_cmd =3D rkcanfd_read(priv, RK3576CAN_REG_CMD);
-> +	reg_state =3D rkcanfd_read(priv, RK3576CAN_REG_STATE);
-> +
-> +	netdev_dbg(priv->ndev, "%s Error in %s %s Phase: %s%s%s%s%s%s%s%s%s%s%s=
-%s%s%s%s%s%s%s%s%s%s%s%s%s%s(0x%08x) CMD=3D%u RX=3D%u TX=3D%u Error-Warning=
-=3D%u Bus-Off=3D%u\n",
-> +		   rkcanfd_get_error_type_str(type),
-> +		   reg_ec & RK3576CAN_REG_ERROR_CODE_DIRECTION_RX ? "RX" : "TX",
-> +		   reg_ec & RK3576CAN_REG_ERROR_CODE_PHASE ? "Data" : "Arbitration",
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_ACK_EOF),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_CRC),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_STUFF_COUNT),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_DATA),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_SOF_DLC),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, TX_IDLE),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_ERROR),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_OVERLOAD),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_SPACE),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_EOF),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_ACK_LIM),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_ACK),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_CRC_LIM),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_CRC),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_STUFF_COUNT),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_DATA),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_DLC),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_BRS_ESI),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_RES),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_FDF),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_ID2_RTR),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_SOF_IDE),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_BUS_IDLE),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_BUS_INT),
-> +		   RK3576CAN_ERROR_CODE(reg_ec, RX_STOP),
-> +		   reg_ec, reg_cmd,
-> +		   !!(reg_state & RK3576CAN_REG_STATE_RX_PERIOD),
-> +		   !!(reg_state & RK3576CAN_REG_STATE_TX_PERIOD),
-> +		   !!(reg_state & RK3576CAN_REG_STATE_ERROR_WARNING_STATE),
-> +		   !!(reg_state & RK3576CAN_REG_STATE_BUS_OFF_STATE));
-> +
-> +	priv->can.can_stats.bus_error++;
-> +
-> +	if (reg_ec & RK3576CAN_REG_ERROR_CODE_DIRECTION_RX)
-> +		stats->rx_errors++;
-> +	else
-> +		stats->tx_errors++;
-> +
-> +	if (!cf)
-> +		return;
-> +
-> +	if (reg_ec & RK3576CAN_REG_ERROR_CODE_DIRECTION_RX) {
-> +		if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_SOF_IDE)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_SOF;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_ID2_RTR)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_RTR;
-> +		/* RKCANFD_REG_ERROR_CODE_RX_FDF */
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_RES)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_RES0;
-> +		/* RKCANFD_REG_ERROR_CODE_RX_BRS_ESI */
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_DLC)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_DLC;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_DATA)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_DATA;
-> +		/* RKCANFD_REG_ERROR_CODE_RX_STUFF_COUNT */
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_CRC)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_CRC_SEQ;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_CRC_LIM)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_ACK_DEL;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_ACK)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_ACK;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_ACK_LIM)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_ACK_DEL;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_EOF)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_EOF;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_RX_SPACE)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_EOF;
-> +	} else {
-> +		cf->data[2] |=3D CAN_ERR_PROT_TX;
-> +
-> +		if (reg_ec & RK3576CAN_REG_ERROR_CODE_TX_SOF_DLC)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_SOF;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_TX_DATA)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_DATA;
-> +		/* RKCANFD_REG_ERROR_CODE_TX_STUFF_COUNT */
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_TX_CRC)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_CRC_SEQ;
-> +		else if (reg_ec & RK3576CAN_REG_ERROR_CODE_TX_ACK_EOF)
-> +			cf->data[3] =3D CAN_ERR_PROT_LOC_ACK_DEL;
-> +	}
-> +
-> +	switch (reg_ec & RK3576CAN_REG_ERROR_CODE_TYPE) {
-> +	case FIELD_PREP_CONST(RK3576CAN_REG_ERROR_CODE_TYPE,
-> +			      RK3576CAN_REG_ERROR_CODE_TYPE_BIT):
-> +
-> +		cf->data[2] |=3D CAN_ERR_PROT_BIT;
-> +		break;
-> +	case FIELD_PREP_CONST(RK3576CAN_REG_ERROR_CODE_TYPE,
-> +			      RK3576CAN_REG_ERROR_CODE_TYPE_STUFF):
-> +		cf->data[2] |=3D CAN_ERR_PROT_STUFF;
-> +		break;
-> +	case FIELD_PREP_CONST(RK3576CAN_REG_ERROR_CODE_TYPE,
-> +			      RK3576CAN_REG_ERROR_CODE_TYPE_FORM):
-> +		cf->data[2] |=3D CAN_ERR_PROT_FORM;
-> +		break;
-> +	case FIELD_PREP_CONST(RK3576CAN_REG_ERROR_CODE_TYPE,
-> +			      RK3576CAN_REG_ERROR_CODE_TYPE_ACK):
-> +		cf->can_id |=3D CAN_ERR_ACK;
-> +		break;
-> +	case FIELD_PREP_CONST(RK3576CAN_REG_ERROR_CODE_TYPE,
-> +			      RK3576CAN_REG_ERROR_CODE_TYPE_CRC):
-> +		cf->data[3] =3D CAN_ERR_PROT_LOC_CRC_SEQ;
-> +		break;
-> +	}
-> +}
-> +
->  static int rkcanfd_handle_error_int(struct rkcanfd_priv *priv)
->  {
->  	struct net_device_stats *stats =3D &priv->ndev->stats;
-> @@ -530,6 +794,41 @@ static int rkcanfd_handle_error_int(struct rkcanfd_p=
-riv *priv)
->  	return 0;
->  }
->
-> +static int rkcanfd_handle_rk3576_error_int(struct rkcanfd_priv *priv)
-> +{
-> +	struct net_device_stats *stats =3D &priv->ndev->stats;
-> +	struct can_frame *cf =3D NULL;
-> +	u32 reg_ec;
-> +	struct sk_buff *skb;
-> +	int err;
-> +
-> +	reg_ec =3D rkcanfd_read(priv, RK3576CAN_REG_ERROR_CODE);
-> +	if (!reg_ec)
-> +		return 0;
-> +
-> +	if (priv->can.ctrlmode & CAN_CTRLMODE_BERR_REPORTING) {
-> +		skb =3D alloc_can_err_skb(priv->ndev, &cf);
-> +		if (cf) {
-> +			struct can_berr_counter bec;
-> +
-> +			priv->devtype_data.get_berr_counter(priv, &bec);
-> +			cf->can_id |=3D CAN_ERR_PROT | CAN_ERR_BUSERROR | CAN_ERR_CNT;
-> +			cf->data[6] =3D bec.txerr;
-> +			cf->data[7] =3D bec.rxerr;
-> +		}
-> +	}
-> +
-> +	rk3576can_handle_error_int_reg_ec(priv, cf, reg_ec);
-> +	if (!cf)
-> +		return 0;
-> +
-> +	err =3D can_rx_offload_queue_tail(&priv->offload, skb);
-> +	if (err)
-> +		stats->rx_fifo_errors++;
-> +
-> +	return 0;
-> +}
-> +
->  static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
->  {
->  	struct net_device_stats *stats =3D &priv->ndev->stats;
-> @@ -575,6 +874,50 @@ static int rkcanfd_handle_state_error_int(struct rkc=
-anfd_priv *priv)
->  	return 0;
->  }
->
-> +static int rkcanfd_handle_rk3576_state_error_int(struct rkcanfd_priv *pr=
-iv)
-> +{
-> +	struct net_device_stats *stats =3D &priv->ndev->stats;
-> +	enum can_state new_state, rx_state, tx_state;
-> +	struct net_device *ndev =3D priv->ndev;
-> +	struct can_berr_counter bec;
-> +	struct can_frame *cf =3D NULL;
-> +	struct sk_buff *skb;
-> +	int err;
-> +
-> +	priv->devtype_data.get_berr_counter(priv, &bec);
-
-You're already in the rk3576 specific code.
-
-> +	can_state_get_by_berr_counter(ndev, &bec, &tx_state, &rx_state);
-> +
-> +	new_state =3D max(tx_state, rx_state);
-> +	if (new_state =3D=3D priv->can.state)
-> +		return 0;
-> +
-> +	/* The skb allocation might fail, but can_change_state()
-> +	 * handles cf =3D=3D NULL.
-> +	 */
-> +	skb =3D alloc_can_err_skb(priv->ndev, &cf);
-> +	can_change_state(ndev, cf, tx_state, rx_state);
-> +
-> +	if (new_state =3D=3D CAN_STATE_BUS_OFF) {
-> +		priv->devtype_data.chip_stop(priv, CAN_STATE_BUS_OFF);
-> +		can_bus_off(ndev);
-> +	}
-> +
-> +	if (!skb)
-> +		return 0;
-> +
-> +	if (new_state !=3D CAN_STATE_BUS_OFF) {
-> +		cf->can_id |=3D CAN_ERR_CNT;
-> +		cf->data[6] =3D bec.txerr;
-> +		cf->data[7] =3D bec.rxerr;
-> +	}
-> +
-> +	err =3D can_rx_offload_queue_tail(&priv->offload, skb);
-> +	if (err)
-> +		stats->rx_fifo_errors++;
-> +
-> +	return 0;
-> +}
-> +
->  static int
->  rkcanfd_handle_rx_fifo_overflow_int(struct rkcanfd_priv *priv)
->  {
-> @@ -621,6 +964,55 @@ rkcanfd_handle_rx_fifo_overflow_int(struct rkcanfd_p=
-riv *priv)
->  	err; \
->  })
->
-> +static irqreturn_t rk3576can_irq(int irq, void *dev_id)
-> +{
-> +	struct rkcanfd_priv *priv =3D dev_id;
-> +	u32 reg_int_unmasked, reg_int;
-> +
-> +	reg_int_unmasked =3D rkcanfd_read(priv, RK3576CAN_REG_INT);
-> +	reg_int =3D reg_int_unmasked & ~priv->reg_int_mask_default;
-> +
-> +	if (!reg_int)
-> +		return IRQ_NONE;
-> +
-> +	rkcanfd_write(priv, RK3576CAN_REG_INT, reg_int);
-> +
-> +	if (reg_int & (RK3576CAN_REG_INT_RXSTR_TIMEOUT_INT |
-> +		       RK3576CAN_REG_INT_ISM_WTM_INT |
-> +		       RK3576CAN_REG_INT_RX_FIFO_FULL_INT)) {
-> +		rkcanfd_write(priv, RK3576CAN_REG_INT_MASK,
-> +			      priv->reg_int_mask_default | RK3576CAN_REG_INT_ISM_WTM_INT |
-> +			      RK3576CAN_REG_INT_RXSTR_TIMEOUT_INT |
-> +			      RK3576CAN_REG_INT_RX_FINISH_INT);
-> +		rkcanfd_handle(priv, rk3576_rx_int);
-> +	}
-> +
-> +	if (reg_int & RK3576CAN_REG_INT_TX_FINISH_INT)
-> +		rkcanfd_handle(priv, rk3576_tx_int);
-> +
-> +	if (reg_int & RK3576CAN_REG_INT_ERROR_INT)
-> +		rkcanfd_handle(priv, rk3576_error_int);
-> +
-> +	if (reg_int & (RK3576CAN_REG_INT_BUS_OFF_INT |
-> +		       RK3576CAN_REG_INT_PASSIVE_ERROR_INT |
-> +		       RK3576CAN_REG_INT_ERROR_WARNING_INT) ||
-> +	    priv->can.state > CAN_STATE_ERROR_ACTIVE)
-> +		rkcanfd_handle(priv, rk3576_state_error_int);
-> +
-> +	if (reg_int & RK3576CAN_REG_INT_WAKEUP_INT)
-> +		netdev_info(priv->ndev, "%s: WAKEUP_INT\n", __func__);
-> +
-> +	if (reg_int & RK3576CAN_REG_INT_BUS_OFF_RECOVERY_INT)
-> +		netdev_info(priv->ndev, "%s: BUS_OFF_RECOVERY_INT\n", __func__);
-> +
-> +	if (reg_int & RK3576CAN_REG_INT_OVERLOAD_INT)
-> +		netdev_info(priv->ndev, "%s: OVERLOAD_INT\n", __func__);
-> +
-> +	can_rx_offload_irq_finish(&priv->offload);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
->  static irqreturn_t rkcanfd_irq(int irq, void *dev_id)
->  {
->  	struct rkcanfd_priv *priv =3D dev_id;
-> @@ -775,6 +1167,16 @@ static void rkcanfd_register_done(const struct rkca=
-nfd_priv *priv)
->  			    RKCANFD_ERRATUM_5_SYSCLOCK_HZ_MIN / MEGA);
->  }
->
-> +static void rk3576can_register_done(const struct rkcanfd_priv *priv)
-> +{
-> +	u32 dev_id;
-> +
-> +	dev_id =3D rkcanfd_read(priv, RK3576CAN_REG_RTL_VERSION);
-> +	netdev_info(priv->ndev,
-> +		    "Rockchip-CANFD %s rev%u.\n",
-> +		    rkcanfd_get_model_str(priv), dev_id);
-
-Please also print the activated errata.
-
-> +}
-> +
->  static int rkcanfd_register(struct rkcanfd_priv *priv)
->  {
->  	struct net_device *ndev =3D priv->ndev;
-> @@ -856,6 +1258,20 @@ static const struct rkcanfd_devtype_data rkcanfd_de=
-vtype_data_rk3568v3 =3D {
->  	.register_done =3D rkcanfd_register_done,
->  };
->
-> +/* The rk3576 CAN-FD */
-> +static const struct rkcanfd_devtype_data rkcan_devtype_data_rk3576 =3D {
-> +	.model =3D RKCAN_MODEL_RK3576,
-> +	.quirks =3D RKCANFD_QUIRK_CANFD_BROKEN,
-
-Is CAN-FD mode broken on the rk3576?
-
-Please test CAN-FD and please do the tests documented near the
-definition of RKCANFD_QUIRK_CANFD_BROKEN:
-
-| Tests on the rk3568v2 and rk3568v3 show that receiving certain
-| CAN-FD frames trigger an Error Interrupt.
-|
-| - Form Error in RX Arbitration Phase: TX_IDLE RX_STUFF_COUNT (0x0a010100)=
- CMD=3D0 RX=3D0 TX=3D0
-|   Error-Warning=3D1 Bus-Off=3D0
-|   To reproduce:
-|   host:
-|     cansend can0 002##01f
-|   DUT:
-|     candump any,0:0,#FFFFFFFF -cexdHtA
-|
-| - Form Error in RX Arbitration Phase: TX_IDLE RX_CRC (0x0a010200) CMD=3D0=
- RX=3D0 TX=3D0
-|   Error-Warning=3D1 Bus-Off=3D0
-|   To reproduce:
-|   host:
-|     cansend can0 002##07217010000000000
-|   DUT:
-|     candump any,0:0,#FFFFFFFF -cexdHtA
-
-regards,
-Marc
-
---
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---fdgezdn3owk5oz7x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkV590ACgkQDHRl3/mQ
-kZwXxgf/QFI0uqBWxPBqTIwX85rKIzjXtfoVbNQSzhZe/cFsspkhKUdWEYoogUu1
-8cCyYjdrdH1HKfyn8LFTd+sMd4cXUUlPQ7edt/3oeS5hE5Qwi5hUOVMq8wp60qvJ
-AFoUx+eN0+OC9fdxseqdJwtJosj6Yj0hW26GyXCaXmXAlzwrWLmi4FWtJkrpMZqK
-7k6EWncOxYOL/XzLdUdNt+tLiSKIKpk7PwkPi3CV3afqWsgmF/UON8oQ1qlXq7OO
-B+j1dRzvUTZC7TMA3aIPasAP7EKS8EnDtO5eFvgtrcpfVpWQK4vBfbNZD+q1jusv
-cXBj05rBGuMGElTfe12UVuw7GvqmtQ==
-=Qh/y
------END PGP SIGNATURE-----
-
---fdgezdn3owk5oz7x--
+> Frank
+> > +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> > +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> > +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> > +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> > +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> > +                  <0x5f 0xffffe000 0x0 0x00002000>;   /* config space */
+> ...
+> > +            };
+> > +        };
+> > +    };
+> > --
+> > 2.43.0
+> >
 
