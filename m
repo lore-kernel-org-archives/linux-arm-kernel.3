@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07702CD5BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C22CCD5BC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MD5uXzVGGApG7p8HRtAp+gA1hKTXj4ZXoGDhCs//GoQ=; b=2p9JFt0FKxcgn+0a7DC/Q3olHV
-	Tc85lx6eJ7wABtLbi9Q2rfvic1jIRJGamxwph3qAcnaYCdvo7U6Jod6uqg/wtocXb4/rvzXMHXr4f
-	PI4vC90BQlkA3V0FQQ4XWqR++zTSqSOFQzsaYWyeqx2BszHEWW7m5Ft1DBMdjm6PQct9zm3NDjNRF
-	FZV9SQ4EEvSmcPsfDoSePllNsFDA8ZN7o9P3JBu9zXGojY2EZNoYSt9lOOY4zi8sxc7UtGcU7n3p/
-	QHu8pol4cueLM63wViKjKKA/+4lwe5JZkYDDanZkvW9fSuhC+q4bRvZJDq1iPGTdreG3s5Vnr33ZY
-	SKk7qy2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kqkWiWcYnxi17IyGzCRh9cyjIzNEstLuh3K6nHg31Eg=; b=nPEZrdWO6t80aRcQtZI3k3EoYp
+	rXbO1Ufv1r6tE7iJQ+kcbxkZS/j9mWRH1kb5cnpV1Q6Se9xhYRd1oNkl52EH3ziLm6WFABxrB16G8
+	BODhuxJO5vA2P7r6pSKl19G7E7ZftAjT+mPowcYmPJMtjPkxh+nyn8HEzo1oIkHH2lFoECWRCfjDI
+	YOKDt0e/+99EyAS9ObS1ur04Z3ljB2xrf0MgT7vYX+poyXyI5QugZpmH2SpsSzSeZPRiyxja83xgm
+	fNeXkDu6WBf45qNVisT06kbueCkenf4NIABsT8yXazeoY1fVlAGhbaaj56XNEZ4lcM9PGo45KlgSL
+	mY8ex4kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV75-0000000AMGD-44jC;
-	Thu, 13 Nov 2025 11:03:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJV74-0000000AMFB-0wMD
+	id 1vJV8M-0000000AMVi-1ShQ;
+	Thu, 13 Nov 2025 11:04:58 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJV8I-0000000AMUe-0Ois
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 11:03:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9CDC12FC;
-	Thu, 13 Nov 2025 03:03:29 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11CCA3F66E;
-	Thu, 13 Nov 2025 03:03:35 -0800 (PST)
-Date: Thu, 13 Nov 2025 11:03:33 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <aRW7BZimWdpq4TyX@pluto>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <aPoxfH_TLrsMxMVQ@pluto>
- <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
- <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
+	Thu, 13 Nov 2025 11:04:56 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251113110448euoutp0250897e029f3f2496ccce592838f0d89c~3jClF9J0Y0133401334euoutp02d
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 11:04:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251113110448euoutp0250897e029f3f2496ccce592838f0d89c~3jClF9J0Y0133401334euoutp02d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763031888;
+	bh=kqkWiWcYnxi17IyGzCRh9cyjIzNEstLuh3K6nHg31Eg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=LgyIoE18zzfiy8anCypr4aZuOUFn4QpIZ2y+rAZa/ybD1GzGC68OPqVyPzOdO+S8I
+	 e3ZSDUodPchK7pAy8hw3QIrNd9GOgiC8VBfLE6aNv8eqxMuiUgahPMthvMRenNr/Qc
+	 a7ce+PQY0DVuuN+G/vT9djfyV8tzMGVK4hx0Z054=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251113110447eucas1p1436e94dadc1b25e592751399bb1f3304~3jCkmbUMS1734917349eucas1p1E;
+	Thu, 13 Nov 2025 11:04:47 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251113110446eusmtip16e8f883b8d9e296cc2c6d8a1f08a379e~3jCj3P3oQ3094030940eusmtip1k;
+	Thu, 13 Nov 2025 11:04:46 +0000 (GMT)
+Message-ID: <5a0aac14-6d1f-4941-b0d1-bb60572e7a6e@samsung.com>
+Date: Thu, 13 Nov 2025 12:04:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a
+ patched-in constant
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, Zenghui Yu
+	<yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Yao Yuan
+	<yaoyuan@linux.alibaba.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <86seeitd3f.wl-maz@kernel.org>
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
+X-CMS-MailID: 20251113110447eucas1p1436e94dadc1b25e592751399bb1f3304
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c
+X-EPHeader: CA
+X-CMS-RootMailID: 20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-5-maz@kernel.org>
+	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
+	<b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
+	<86seeitd3f.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_030338_393199_0E816965 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20251113_030455_513730_09F8335B 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,71 +91,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 01:52:42AM +0100, Marek Vasut wrote:
-> On 10/23/25 4:00 PM, Marek Vasut wrote:
-> 
-> Hello again,
-> 
+On 13.11.2025 11:56, Marc Zyngier wrote:
+> Hi Marek,
+>
+> On Thu, 13 Nov 2025 09:52:23 +0000,
+> Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+>> On 09.11.2025 18:15, Marc Zyngier wrote:
+>>> The trap bits are currently only set to manage CPU errata. However,
+>>> we are about to make use of them for purposes beyond beating broken
+>>> CPUs into submission.
+>>>
+>>> For this purpose, turn these errata-driven bits into a patched-in
+>>> constant that is merged with the KVM-driven value at the point of
+>>> programming the ICH_HCR_EL2 register, rather than being directly
+>>> stored with with the shadow value..
+>>>
+>>> This allows the KVM code to distinguish between a trap being handled
+>>> for the purpose of an erratum workaround, or for KVM's own need.
+>>>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> This patch landed in today's linux-next as commit ca30799f7c2d ("KVM:
+>> arm64: Turn vgic-v3 errata traps into a patched-in constant"). In my
+>> tests I found that it triggers oops and breaks booting on Raspberry Pi5
+>> and Amlogic SM1 based boards: Odroid-C4 and Khadas VIM3l. Here is the
+>> failure log:
+>>
+>> alternatives: applying system-wide alternatives
+>> Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
+>> Modules linked in:
+>> CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11665
+>> PREEMPT
+>> Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
+>> Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
+>> pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>> pc : vgic_v3_broken_seis+0x14/0x44
+>> lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
+>> ...
+>> Call trace:
+>>    vgic_v3_broken_seis+0x14/0x44 (P)
+>>    __apply_alternatives+0x1b4/0x200
+>>    __apply_alternatives_multi_stop+0xac/0xc8
+>>    multi_cpu_stop+0x90/0x178
+>>    cpu_stopper_thread+0x8c/0x11c
+>>    smpboot_thread_fn+0x160/0x32c
+>>    kthread+0x150/0x228
+>>    ret_from_fork+0x10/0x20
+>> Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
+>> ---[ end trace 0000000000000000 ]---
+>> note: migration/0[18] exited with irqs disabled
+>> note: migration/0[18] exited with preempt_count 1
+>> rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+>> rcu:     1-...0: (7 ticks this GP) idle=0124/1/0x4000000000000000
+>> softirq=9/10 fqs=3250
+>> rcu:     2-...0: (7 ticks this GP) idle=0154/1/0x4000000000000000
+>> softirq=9/10 fqs=3250
+>> rcu:     3-...0: (7 ticks this GP) idle=018c/1/0x4000000000000000
+>> softirq=9/10 fqs=3250
+>> rcu:     (detected by 0, t=6502 jiffies, g=-1179, q=2 ncpus=4)
+>> Sending NMI from CPU 0 to CPUs 1:
+>> Sending NMI from CPU 0 to CPUs 2:
+>> Sending NMI from CPU 0 to CPUs 3:
+>>
+>> Let me know how I can help in debugging this issue.
+> I think the common thing between these machines is that although they
+> run VHE, they are stuck with a GICv2, and should never get to this
+> code path.
+>
+> Can you dump the kernel log until this point? Something must be
+> screwed in the detection logic.
 
-Hi,
+Here is a complete boot log:
 
-bit of a late reply...
+Booting Linux on physical CPU 0x0000000000 [0x414fd0b1]
+Linux version 6.18.0-rc3+ (m.szyprowski@AMDC4653) (aarch64-linux-gnu-gcc 
+(Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 
+2.38) #11666 SMP PREEMPT Thu Nov 13 11:58:18 CET 2025
+KASLR enabled
+Machine model: Raspberry Pi 5 Model B Rev 1.0
+earlycon: pl11 at MMIO 0x000000107d001000 (options '115200n8')
+printk: legacy bootconsole [pl11] enabled
+printk: debug: ignoring loglevel setting.
+Reserved memory: created CMA memory pool at 0x000000003bc00000, size 64 MiB
+OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+OF: reserved mem: 0x000000003bc00000..0x000000003fbfffff (65536 KiB) map 
+reusable linux,cma
+OF: reserved mem: 0x0000000000000000..0x000000000007ffff (512 KiB) nomap 
+non-reusable atf@0
+NUMA: Faking a node at [mem 0x0000000000000000-0x00000001ffffffff]
+NODE_DATA(0) allocated [mem 0x1fefe4a00-0x1fefe763f]
+Zone ranges:
+   DMA      [mem 0x0000000000000000-0x00000000ffffffff]
+   DMA32    empty
+   Normal   [mem 0x0000000100000000-0x00000001ffffffff]
+Movable zone start for each node
+Early memory node ranges
+   node   0: [mem 0x0000000000000000-0x000000000007ffff]
+   node   0: [mem 0x0000000000080000-0x000000003fbfffff]
+   node   0: [mem 0x0000000040000000-0x00000001ffffffff]
+Initmem setup node 0 [mem 0x0000000000000000-0x00000001ffffffff]
+On node 0, zone DMA: 1024 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.1 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: MIGRATE_INFO_TYPE not supported.
+psci: SMC Calling Convention v1.2
+percpu: Embedded 35 pages/cpu s104336 r8192 d30832 u143360
+pcpu-alloc: s104336 r8192 d30832 u143360 alloc=35*4096
+pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+Detected PIPT I-cache on CPU0
+CPU features: detected: Virtualization Host Extensions
+CPU features: detected: Spectre-v4
+CPU features: detected: Spectre-BHB
+CPU features: kernel page table isolation forced ON by KASLR
+CPU features: detected: Kernel page table isolation (KPTI)
+CPU features: detected: SSBS not fully self-synchronizing
+alternatives: applying boot alternatives
+Kernel command line: console=ttyAMA10,115200n8 earlycon 
+root=PARTUUID=11111111-03 rw clk_ignore_unused rootdelay=2 
+ignore_loglevel earlycon
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+software IO TLB: area num 4.
+software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
+Fallback order for Node 0: 0
+Built 1 zonelists, mobility grouping on.  Total pages: 2096128
+Policy zone: Normal
+mem auto-init: stack:off, heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Running RCU self tests
+Running RCU synchronous self tests
+rcu: Preemptible hierarchical RCU implementation.
+rcu:     RCU event tracing is enabled.
+rcu:     RCU lockdep checking is enabled.
+rcu:     RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=4.
+  Trampoline variant of Tasks RCU enabled.
+  Tracing variant of Tasks RCU enabled.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+Running RCU synchronous self tests
+RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 
+rcu_task_cpu_ids=4.
+RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 
+rcu_task_cpu_ids=4.
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+arch_timer: cp15 timer running at 54.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 
+0xc743ce346, max_idle_ns: 440795203123 ns
+sched_clock: 56 bits at 54MHz, resolution 18ns, wraps every 4398046511102ns
+Console: colour dummy device 80x25
+Lock dependency validator: Copyright (c) 2006 Red Hat, Inc., Ingo Molnar
+... MAX_LOCKDEP_SUBCLASSES:  8
+... MAX_LOCK_DEPTH:          48
+... MAX_LOCKDEP_KEYS:        8192
+... CLASSHASH_SIZE:          4096
+... MAX_LOCKDEP_ENTRIES:     32768
+... MAX_LOCKDEP_CHAINS:      65536
+... CHAINHASH_SIZE:          32768
+  memory used by lock dependency info: 6429 kB
+  memory used for stack traces: 4224 kB
+  per task-struct memory footprint: 1920 bytes
+Calibrating delay loop (skipped), value calculated using timer 
+frequency.. 108.00 BogoMIPS (lpj=216000)
+pid_max: default: 32768 minimum: 301
+LSM: initializing lsm=capability
+Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Running RCU synchronous self tests
+Running RCU synchronous self tests
+rcu: Hierarchical SRCU implementation.
+rcu:     Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+smp: Bringing up secondary CPUs ...
+Detected PIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000100 [0x414fd0b1]
+Detected PIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000200 [0x414fd0b1]
+Detected PIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000300 [0x414fd0b1]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU: All CPU(s) started at EL2
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: Data cache clean to the PoU not required for I/D 
+coherence
+CPU features: detected: Common not Private translations
+CPU features: detected: CRC32 instructions
+CPU features: detected: RCpc load-acquire (LDAPR)
+CPU features: detected: LSE atomic instructions
+CPU features: detected: Privileged Access Never
+CPU features: detected: PMUv3
+CPU features: detected: RAS Extension Support
+CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+alternatives: applying system-wide alternatives
+Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
+Modules linked in:
+CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11666 
+PREEMPT
+Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
+Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
+pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : vgic_v3_broken_seis+0x14/0x44
+lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
+sp : ffff8000800b3c90
+x29: ffff8000800b3c90 x28: ffff8000800b3d58 x27: ffffa07c4e48dd28
+x26: 0000000000000001 x25: ffffa07c50461000 x24: ffffa07c50460000
+x23: ffffa07c51864000 x22: ffffa07c4e48dd28 x21: ffff00000028dd28
+x20: ffffa07c51864598 x19: ffffa07c505b2e10 x18: 00000000ffffffff
+x17: 6465726975716572 x16: 20746f6e20556f50 x15: 0000000000000001
+x14: 0000000000000000 x13: 0000000000000000 x12: ffff000100292520
+x11: ffffa07c51f7e620 x10: 0000000000000000 x9 : 0000000000000001
+x8 : ffff8000800b3c98 x7 : ffff8000800b3d60 x6 : ffffa07c5060dc28
+x5 : 0000000000000001 x4 : ffffa07c4f7645cc x3 : 0000000000000001
+x2 : ffff00000028dd28 x1 : 0000000000000008 x0 : 0000000000000000
+Call trace:
+  vgic_v3_broken_seis+0x14/0x44 (P)
+  __apply_alternatives+0x1b4/0x200
+  __apply_alternatives_multi_stop+0xac/0xc8
+  multi_cpu_stop+0x90/0x178
+  cpu_stopper_thread+0x8c/0x11c
+  smpboot_thread_fn+0x160/0x32c
+  kthread+0x150/0x228
+  ret_from_fork+0x10/0x20
+Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
+---[ end trace 0000000000000000 ]---
+note: migration/0[18] exited with irqs disabled
+note: migration/0[18] exited with preempt_count 1
+rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+rcu:     1-...0: (7 ticks this GP) idle=0194/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     2-...0: (7 ticks this GP) idle=00c4/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     3-...0: (7 ticks this GP) idle=01bc/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     (detected by 0, t=6502 jiffies, g=-1179, q=2 ncpus=4)
+Sending NMI from CPU 0 to CPUs 1:
+Sending NMI from CPU 0 to CPUs 2:
+Sending NMI from CPU 0 to CPUs 3:
 
-> > > On Thu, Oct 23, 2025 at 02:35:57PM +0200, Marek Vasut wrote:
-> > > > Document new property arm,poll-transport, which sets all SCMI
-> > > > operation into
-> > > > poll mode. This is meant to work around uncooperative SCP
-> > > > implementations,
-> > > > which do not generate completion interrupts. This applies
-> > > > primarily on mbox
-> > > > based implementations, but does also cover SMC and VirtIO ones.
-> > > 
-> > > Hi,
-> > > 
-> > > ..indeed I was thinking a while ago about exposing the existing
-> > > force- polling
-> > > switch but in my case it was purely a testing-scenario
-> > > configuration, so a
-> > > no-no for the DT, things are different if you have to describe an HW
-> > > that has
-> > > no completion IRQ also on the a2p channel...
-> > 
-> > Correct, at least until the SCP on this hardware is updated.
-> > 
-> > > ...having said that, though, usually polling-mode is reserved to a few
-> > > selected commands in a few chosen scenarios (as you may have seen),
-> > > 'carpet-polling' non-for-testing for all the commands on A2P seems a lot
-> > > inefficient and heavy...is it really a viable solution ? or these
-> > > systems use such a low rate of SCMI messages that polling after each and
-> > > every message is negligible ?
-> > > 
-> > > ..just to understand the context...
-> > 
-> > These systems are early in development and it is likely that the SCP
-> > will be updated to generate interrupts properly. Currently, this is not
-> > the case, hence the carpet-polling, until this is resolved.
-> 
-> While I was going through the SCMI spec, DEN0056F , page 209 , section "4.1
-> Shared memory based transport" , bullet • Completion interrupts, I found it
-> explicitly states:
-> 
-> "
-> This transport supports polling or interrupt driven modes of communication.
-> In interrupt mode, when the callee completes processing a message, it raises
-> an interrupt to the caller. Hardware support for completion interrupts is
-> optional.
-> "
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-Oh, yes...I knew that...it is just that till now, no systems were really
-ever developed that lacked the completion IRQ as a whole, it was, till now,
-more of a case of having the capability NOT to use it selectively at runtime
-and instead use polling when wanted (like for clock ops in ISR context)
-
-I am not sure what is the reason why this only-polling scenario was never
-supported in the HW description, this indeed pre-dates my work on SCMI....
-...I would/will check with Sudeep, when he's back, what are the reasons for
-this (if any)...
-
-Thanks,
-Cristian
 
