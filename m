@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E26CCD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C3FCD8CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++5rjZ0PQeu1DPqtcc4G9gcTYjwBzO1LwjjGTumFNcg=; b=JzP7vv0TUo2RxhuIAq4eVZCkb7
-	VanrkfC+P+LSgCWkmD/Ca0doMvbaDBBDH8AYw56QeHj51hh5heac+EHn7dDWxFOWwQh7WwnpOX0K7
-	A8AC09yNOJJr2ME2y0rLq6axwJOd5e2y3pH+vQybx3gB3aF+MeoPIyR2lcMNXgC4kGaq8cv/yzsii
-	PBF0+fCecexVSPW6Z18fsWdcwG9RlO+d2aUZ5dvQiUZBte9gmSGVioimuGjuNnySyK338SfUUMMXv
-	ilFvBAFx0vuOnyJyyVINufiUojPLYNPqxOcquw+PWarKp7D0lg5Q3O1g6uaz53QXQz0BJoeDpEo0i
-	a9IgIwtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=; b=UdqZPwWC+JI2VmZCSAbsQzddiB
+	7UNOxykw50lV2VA+bs0t0ItNMDpoGl3vthi9RWeAQ7I8dLHN9znQG1Y+C2re07Toy/PWzONPGdkTs
+	IZyR0+T6PMrEKO8j4GVdr05I8l959xMOCiYKmscIxSUdVZ4gQajTo6gXDcBWXzdR18LPJpsmdmviV
+	OVRMChOtUEojz6h0vsDfAYv+syW9RtC3nn3RBG0ycRFSyEl8Hcx65AaLU//RxsLfYxUqzWtKfOoxB
+	Ifr9ZYIgLzlZWfdE7VeNWtPIfgdli4MmJJxM93g9dqT92oct8eOZWu3mS6qdgFzJ+x/BeZUltNqSF
+	RH4OeUhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJaQB-0000000Aojl-1snZ;
-	Thu, 13 Nov 2025 16:43:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJaQ9-0000000AojF-07DW
+	id 1vJafB-0000000Aphg-0Cav;
+	Thu, 13 Nov 2025 16:59:13 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJaf8-0000000AphI-2Dzd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 16:43:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48D6412FC;
-	Thu, 13 Nov 2025 08:43:31 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 405C93F63F;
-	Thu, 13 Nov 2025 08:43:34 -0800 (PST)
-Message-ID: <0b4e74a8-6a8a-429d-92a7-35df8ef04e9c@arm.com>
-Date: Thu, 13 Nov 2025 16:43:32 +0000
+	Thu, 13 Nov 2025 16:59:11 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso1767463a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:59:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763053148; x=1763657948; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=;
+        b=uxOvNcw2Qh0MOQ5oPrbMkx/6qNhHroxXnoteeoBj6kdLIE3hEXXV/fvtMXp4GaH6ar
+         GQ7BVs60/WqJyulCaivQ7mxtF+YuXxMeCKUG7iqAfvGtA6yHqmvp1yt0K9Q85aNmXRtl
+         uo4Al1BZLfqGqGZwUQ/pxGkLRtBPeTpTQggkrytrVaK4iVuKYqT1fDaDEn/wDwTWSyEj
+         E6aVCSer/hbJqf6UvwzciPL3kSkl4GFmdMzCIhhFImdCbyy9+VdbSZEB3hILKbgiHyz6
+         v7OMFsNuekaY+x7KmAuDrOu2Cmb4CLLVfQPEFKwlO3dU32NQ272nTzr0eVR8spS2N4Rf
+         82rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763053148; x=1763657948;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nKGQCbFSZFfN1OMLvE+EkMUU0QXCTcfpOtpHJMHTRc0=;
+        b=s6GUTJ3wspoQovFISbcan9iRKj6BbrdeJcvTV62WgYK89/WGSuXVZu8GAkzveQ4iq1
+         sRHFgrKgbLMI9A3E1SkVv3t7DKdYvI9xqUYzMJzCXqOYFcRLhj2biez+UpxWLXtnDl26
+         Jr6ZwevyZTfXN4D3j7oyhFaiPl2D08j6zRilEeHNOLf4L/hthvI2skD8lpcjHIg/4ss6
+         ULSyiXDWAzqzBb/kDLP1SM6eVSp46bL6VtxIAc4++bZTANHxiA6Dw6uKrRWMAhKjjHy7
+         ytEyBHU09m3c/qJmcSL/p3ZjWX1Vsmw+rYMMGUfrKcel6Zx0eUHNm9NVbOhi3Az7V/Yz
+         FMZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWpL4kmY+9GJBu4nu/kA8JQfGeP/jLbGFGnuntKuVv3s38isrxmolYRJfo2AFoI53PyzmXdA+SlNmTgf/7OThlG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVRdpXWxSs9sUsuPp3JvvxF1Moq7sciEjeHXOdZj6gOBKy5hm6
+	wXAe5y9WbDa8Q07agbHw5xeEdQvt4OkSKRNzziSK+4o7mKseG5tijhqJ18X1iwrIlKVWhvwli+h
+	UeW9YAbGdpqZRJ55ljjRprUjTtn6HlU+OTOXVCcb89Q==
+X-Gm-Gg: ASbGncusOBmVJJs4PiXyBqrw5gT547wKjIkXOoc/FA8fVPTCUeKwYDKw4iIRQwVR1wT
+	S3nKQdkJg6RrOTtQe8/1zkQJTa6pOaKXH/1N5iLGg1sk7aVDb3XPS8fot6ZGEZZPI2316fORMPG
+	qD1Gl7Ruv9H4O5KUywqAkiExCYC9noG9UIVHs9mIUMN/ypN5SpK9hS9m2kxIfDzFrXGwAAKjgfL
+	r875yfKkuExkL2rSDn2STjSHWQjHzZdLBG9U4OGyAts0sUTxpfQZhAL9EGU9sK5DEJiSsyy10Sk
+	RludAUCMHhRB5A==
+X-Google-Smtp-Source: AGHT+IHNiNj5c6BzZKED1Z000ERZybmUuYkJX4r0ws3HcIoZwiOXufpN2vALmssDs7zOCU5+nbxIjpi4YX1O6qX0ouE=
+X-Received: by 2002:a05:6402:254a:b0:63c:4da1:9a10 with SMTP id
+ 4fb4d7f45d1cf-6431a55e345mr6812988a12.31.1763053148461; Thu, 13 Nov 2025
+ 08:59:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 14/33] arm_mpam: Probe hardware to find the supported
- partid/pmg values
-To: Fenghua Yu <fenghuay@nvidia.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-15-ben.horgan@arm.com>
- <90c483a2-a7e0-4c87-a3da-8643bec63879@nvidia.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <90c483a2-a7e0-4c87-a3da-8643bec63879@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251110173334.234303-1-vincent.guittot@linaro.org>
+ <20251110173334.234303-4-vincent.guittot@linaro.org> <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
+In-Reply-To: <aRI9T260bl9bok4W@lizhi-Precision-Tower-5810>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 13 Nov 2025 17:58:57 +0100
+X-Gm-Features: AWmQ_bkUC0Olt3VIt07NPBKQfZFgoo8sTusuWbmfnXreuUvnA3jlm9GTd56XT6U
+Message-ID: <CAKfTPtAFg-=k_Et8RMa4Ok1oBv87qpMrdiW+Xy9NixZAXUUm6w@mail.gmail.com>
+Subject: Re: [PATCH 3/4 v4] PCI: s32g: Add initial PCIe support (RC)
+To: Frank Li <Frank.li@nxp.com>
+Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
+	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_084341_185673_B3E36A8F 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251113_085910_627008_93C62CAC 
+X-CRM114-Status: GOOD (  34.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,91 +101,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+On Mon, 10 Nov 2025 at 20:30, Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Mon, Nov 10, 2025 at 06:33:33PM +0100, Vincent Guittot wrote:
+> > Add initial support of the PCIe controller for S32G Soc family. Only
+> > host mode is supported.
+> >
+> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  drivers/pci/controller/dwc/Kconfig            |  10 +
+> >  drivers/pci/controller/dwc/Makefile           |   1 +
+> >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  27 ++
+> >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 435 ++++++++++++++++++
+> >  4 files changed, 473 insertions(+)
+> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> >
+> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> > index 349d4657393c..e276956c3fca 100644
+> > --- a/drivers/pci/controller/dwc/Kconfig
+> > +++ b/drivers/pci/controller/dwc/Kconfig
+> > @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
+> >         in order to enable device-specific features PCIE_TEGRA194_EP must be
+> >         selected. This uses the DesignWare core.
+> >
+> > +config PCIE_NXP_S32G
+> > +     tristate "NXP S32G PCIe controller (host mode)"
+> > +     depends on ARCH_S32 || COMPILE_TEST
+> > +     select PCIE_DW_HOST
+> > +     help
+> > +       Enable support for the PCIe controller in NXP S32G based boards to
+> > +       work in Host mode. The controller is based on DesignWare IP and
+> > +       can work either as RC or EP. In order to enable host-specific
+> > +       features PCIE_NXP_S32G must be selected.
+> > +
+> >  config PCIE_DW_PLAT
+> >       bool
+> >
+> > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+> > index 7ae28f3b0fb3..3301bbbad78c 100644
+> > --- a/drivers/pci/controller/dwc/Makefile
+> > +++ b/drivers/pci/controller/dwc/Makefile
+> > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
+> >  obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
+> >  obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
+> >  obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
+> > +obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
+> >  obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
+> >  obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
+> >  obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
+> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> > new file mode 100644
+> > index 000000000000..c264446a8f21
+> > --- /dev/null
+> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> > @@ -0,0 +1,27 @@
+> > +/* SPDX-License-Identifier: GPL-2.0+ */
+> > +/*
+> > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
+> > + * Copyright 2016-2023, 2025 NXP
+> > + */
+> > +
+> > +#ifndef PCIE_S32G_REGS_H
+> > +#define PCIE_S32G_REGS_H
+> > +
+> > +/* PCIe controller Sub-System */
+> > +
+> > +/* PCIe controller 0 General Control 1 */
+> > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
+> > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
+> > +#define SRIS_MODE                            BIT(8)
+> > +
+> > +/* PCIe controller 0 General Control 3 */
+> > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
+> > +#define LTSSM_EN                             BIT(0)
+> > +
+> > +/* PCIe Controller 0 Link Debug 2 */
+> > +#define PCIE_S32G_PE0_LINK_DBG_2             0xB4
+> > +#define SMLH_LTSSM_STATE_MASK                        GENMASK(5, 0)
+> > +#define SMLH_LINK_UP                         BIT(6)
+> > +#define RDLH_LINK_UP                         BIT(7)
+> > +
+> > +#endif  /* PCI_S32G_REGS_H */
+> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > new file mode 100644
+> > index 000000000000..18bf0fe6f416
+> > --- /dev/null
+> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > @@ -0,0 +1,435 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * PCIe host controller driver for NXP S32G SoCs
+> > + *
+> > + * Copyright 2019-2025 NXP
+> > + */
+> > +
+> ...
+> > +
+> > +#define PCIE_LINKUP  (SMLH_LINK_UP | RDLH_LINK_UP)
+> > +
+> > +static bool s32g_has_data_phy_link(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
+> > +
+> > +     if ((reg & PCIE_LINKUP) == PCIE_LINKUP) {
+> > +             switch (FIELD_GET(SMLH_LTSSM_STATE_MASK, reg)) {
+> > +             case DW_PCIE_LTSSM_L0:
+> > +             case DW_PCIE_LTSSM_L0S:
+> > +             case DW_PCIE_LTSSM_L1_IDLE:
+> > +                     return true;
+> > +             default:
+> > +                     return false;
+>
+> Are you sure code can go here? I think IP set flag PCIE_LINKUP of
+> PCIE_S32G_PE0_LINK_DBG_2 only after LTSSM in above states. Do you know
+> which case PCIE_LINKUP is true, but LTSSM is not other state?
+>
+> I remember I asked if DEBUG0 register work? any conclusion?
+>
+> > +             }
+> > +     }
+> > +
+> > +     return false;
+> > +}
+> > +
+>
+> ...
+>
+> > +
+> > +static int s32g_pcie_parse_port(struct s32g_pcie *s32g_pp, struct device_node *node)
+> > +{
+> > +     struct device *dev = s32g_pp->pci.dev;
+> > +     struct s32g_pcie_port *port;
+> > +     int num_lanes;
+> > +
+> > +     port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> > +     if (!port)
+> > +             return -ENOMEM;
+> > +
+> > +     port->phy = devm_of_phy_get(dev, node, NULL);
+> > +     if (IS_ERR(port->phy))
+> > +             return dev_err_probe(dev, PTR_ERR(port->phy),
+> > +                             "Failed to get serdes PHY\n");
+> > +
+> > +     INIT_LIST_HEAD(&port->list);
+> > +     list_add_tail(&port->list, &s32g_pp->ports);
+> > +
+> > +     /*
+> > +      * The DWC core initialization code cannot parse yet the num-lanes
+> > +      * attribute in the Root Port node. The S32G only supports one Root
+> > +      * Port for now so its driver can parse the node and set the num_lanes
+> > +      * field of struct dwc_pcie before calling dw_pcie_host_init().
+> > +      */
+> > +     if (!of_property_read_u32(node, "num-lanes", &num_lanes))
+> > +             s32g_pp->pci.num_lanes = num_lanes;
+>
+> Can you add this to dwc core driver?
 
-On 11/13/25 03:50, Fenghua Yu wrote:
-> Hi, Ben and James,
-> 
-> On 11/7/25 04:34, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
-> [SNIP]
-> 
->> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
->> +                           u8 ris_idx)
->> +{
->> +    int err;
->> +    struct mpam_msc_ris *ris;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    if (!test_bit(ris_idx, &msc->ris_idxs)) {
->> +        err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
->> +                         0, 0);
->> +        if (err)
->> +            return ERR_PTR(err);
->> +    }
->> +
->> +    list_for_each_entry(ris, &msc->ris, msc_list) {
->> +        if (ris->ris_idx == ris_idx)
->> +            return ris;
->> +    }
->> +
->> +    return ERR_PTR(-ENOENT);
->> +}
->> +
->>   static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>   {
->>       u64 idr;
->> +    u16 partid_max;
->> +    u8 ris_idx, pmg_max;
->> +    struct mpam_msc_ris *ris;
->>       struct device *dev = &msc->pdev->dev;
->>         lockdep_assert_held(&msc->probe_lock);
->> @@ -464,6 +564,40 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>           return -EIO;
->>       }
->>   +    /* Grab an IDR value to find out how many RIS there are */
->> +    mutex_lock(&msc->part_sel_lock);
->> +    idr = mpam_msc_read_idr(msc);
->> +    mutex_unlock(&msc->part_sel_lock);
->> +
->> +    msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
->> +
->> +    /* Use these values so partid/pmg always starts with a valid
->> value */
->> +    msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
->> +    msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
->> +
->> +    for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
->> +        mutex_lock(&msc->part_sel_lock);
->> +        __mpam_part_sel(ris_idx, 0, msc);
->> +        idr = mpam_msc_read_idr(msc);
->> +        mutex_unlock(&msc->part_sel_lock);
->> +
->> +        partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
->> +        pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
->> +        msc->partid_max = min(msc->partid_max, partid_max);
->> +        msc->pmg_max = min(msc->pmg_max, pmg_max);
->> +
->> +        mutex_lock(&mpam_list_lock);
->> +        ris = mpam_get_or_create_ris(msc, ris_idx);
->> +        mutex_unlock(&mpam_list_lock);
->> +        if (IS_ERR(ris))
->> +            return PTR_ERR(ris);
-> 
-> It's better to destroy ris's that were previously created before this
-> failed ris? Otherwise, there is a memory leak for those allocated ris's?
+It has been agreed on v3 that I should handle this locally for now
+until dwc core driver gets the support of root port nodes
+https://lore.kernel.org/all/20251106173853.GA1959661@bhelgaas/
 
-This should be handled by mpam_disable() which is run on probe failure.
-
-> 
-> Thanks.
-> 
-> -Fenghua
-
-
-Thanks,
-
-Ben
-
+>
+> Frank
+>
+> > +
+> > +     return 0;
+> > +}
+> > +
+> ...
+> > --
+> > 2.43.0
+> >
 
