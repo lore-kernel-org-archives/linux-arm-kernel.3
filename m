@@ -4,103 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D0F1CD8C96
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18B6CD8C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 16:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=; b=47/tyzUstiWwcvagnPAS/kz6Xg
-	ypiyx5tut4dxekjD/lzUzJefPQAOzvdz0lNqiBUhiOUAp6sgJFEs5c7mRSyZImzSxotaOeVEcQXkB
-	7/l5Rz6VNW1JCefOCU0zJ4kxCuSF5tFGUmy+z7zfclLPV9OYte3WbNZvrFuyYQjLHQrAypxKg/A1S
-	DrM4Mf0mTrQy3ihwEKaZZ6k1ZylWBUGXTYnIMRmjkwC4jq4zMxa2hnD8Box+4Zz3gbNDDu2zusgvD
-	qn1Oo8r1CK3hkK0fZ+U8MvGk5zUVTwM11ZqhRcRVo9KMGZmu641O2pl1XFXGDFWB15Xi7HenWC9tG
-	SumovHKg==;
+	bh=f4w9gz1EStBnmNqFWjlwX42Oe9RoSqgVszNo3p/wZFA=; b=RB37rKbURr465Zj36qT/t3qe13
+	7jiQRXB1HHoJxmryFvaFROTo6KINTDpzbXt2am7OlB4aIYTsKJM1xUmtYf3OquJkwwNtBBC0OUITy
+	LuN/Wyc1/7llRFXLKvng0UorlVaDGWLhnym3MxVrqT6x1huU9qVpsZocBdc9YsaZNOvT5h8Jn8s+R
+	AYn+uh/mxdGSZNbzs2PYTPFiTSwruaRZlbQ1RGn1VfHlMw9SOjwXnPK1CzzLeA+x0VLxovFtGGuC5
+	Rqvm0/QIGJ86CopSTQUgbMI2Ounr0LADE9+9/N3KkzliOrw6et83YnY6WFSN3Uli1/ItwqRq/BUsD
+	VZZXFg/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa7K-0000000AnJF-3ur2;
-	Thu, 13 Nov 2025 16:24:14 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vJa9z-0000000AnYB-1NEE;
+	Thu, 13 Nov 2025 16:26:59 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJa7I-0000000AnIi-0pl3
+	id 1vJa9w-0000000AnXb-2d69
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 16:24:13 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso1696205a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:24:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763051047; x=1763655847; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=;
-        b=Svqg+hgNMY5fbXNVv2H4VE8eXoCN6ElnPtGJdRidubeT0uuI7U2jcbzzI07Yjjrzfo
-         jypeE6QcxgEP9hsp0qQfTKH5CuMFRMglA9kmAxOtUAD7g1iJssFOqBufH95BkXVKdNBt
-         fPxqI+Wnr/X5hx8RIduCBqOBD4+9oFsUB+hAc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763051047; x=1763655847;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=K5wt2b9AIytvZm3PkDsPhENWn/BTbuYs0T0/KW2/iVE=;
-        b=wrzNy1WuwkJan92metFFeFnyJxcjDnZ5p/pWpZhEoKF1JDxPtDFd/vpcoan2nEjc0k
-         Hc4u1cmIFO1xowJIEEk456rIrMBcQEzcZ2AFQXud4nPA4lgtFqIi6k3+COZNW9tT9vXW
-         EUabZWAMujJsW+X+9svllTvZVbLiufVZQSI67+ERjp5tYlh6PelA7mtm/OWWa61g21eQ
-         oHJosNngMCK7qR8NPYvSd1CLM1O+gU7wNegZeBqaWo7HGepDo3XVQvPSdthfzZOdQjRt
-         C6ml8H48RIKdt3+d9ZByKYDqb3ZN7sb/S6f8os78InBzdTpCmlmjGOtDmbt/JGcXfTGb
-         Gpsg==
-X-Forwarded-Encrypted: i=1; AJvYcCWR2dA19oSht9vaVHK618MqH3KkYSjBLSpO8t9Y51S9CjKu85m223PiuKqAN9F4Ckpt17itFTISnio7uyNYuDgF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywwn7Hl2MiJwlUk0FLcui/4gTKSFU/CWEFzFQ6PhddYKal6DF0N
-	JbY3fSuFFPsE+ATxEHoGGXfxhcmE99YdhC1Dz1hN9a7GgRWJUzk338vKLkXQ5WoJMqpg8Rj2kzS
-	4oqNb/HzB
-X-Gm-Gg: ASbGncue+/lUQpRoCOHWGkOkspni0FqLwD1+OiB0qBTYTievI1DzYVJpXKdO0VoJ9RN
-	JqOLqR3ipSQGPO+V72y8MdLBfw/16pL1FWn6Bcw93h+DOsY/K2u9hhY+OlwnpCjldE6wtdiOOjw
-	mQvgAfkzTpVDyCm751iEjBxVPuB+tq7uVneAc8hpfo0S8cwsXsG5n29E9pDKOlZnGlhMwqMO9WN
-	MT7lltSdMZyJGEoQjdj5yjXk/JzTeQoy0K+B4xRtgxq2YhuRlXeCLDygrSQfjTriAnegmfn7/Qd
-	CaWL2fapuu4lC0CDsQ9aYRFi5LcaeTg+xVJ5OthLr79IxnCDbgGyGeeFLBUwdFdT0nagaFOa3KP
-	+lp7WYPWYGFM2BhrIPLult5lXh5UI9gpiUImNZnzxaPvAOXJgjzMl6M75/ZQY24WVMKLhRm1VSW
-	Xkf04jUP3qOwWsIWDxO3DidPDvbRt9ov9eyKSOKXL1+J7AlHPOyw==
-X-Google-Smtp-Source: AGHT+IHh/cNc7DIFq1m8UJfyPiJ+Za6XkI0jGkiAs1OlbSIdo/nrT3LY9Wvl/ULja59p+DcxknIpJQ==
-X-Received: by 2002:a17:907:1c1b:b0:b37:4f78:55b2 with SMTP id a640c23a62f3a-b7331b5f2b8mr743372466b.34.1763051046437;
-        Thu, 13 Nov 2025 08:24:06 -0800 (PST)
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com. [209.85.128.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734ff2615esm190265966b.73.2025.11.13.08.24.04
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Nov 2025 08:24:05 -0800 (PST)
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-471191ac79dso11361835e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 08:24:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWTjKMniA9/drCY8G0m822wTPOmAu6d0meaMQ46gBbBnFWHAjwOoVSq5kJZgUA5BX1oxhNFSJ1ly3JSE152cnTf@lists.infradead.org
-X-Received: by 2002:a05:600c:350d:b0:46e:32a5:bd8d with SMTP id
- 5b1f17b1804b1-4778fe553famr1167935e9.3.1763051043969; Thu, 13 Nov 2025
- 08:24:03 -0800 (PST)
+	Thu, 13 Nov 2025 16:26:58 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 43FAB7A018B;
+	Thu, 13 Nov 2025 11:26:53 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 13 Nov 2025 11:26:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763051213;
+	 x=1763137613; bh=f4w9gz1EStBnmNqFWjlwX42Oe9RoSqgVszNo3p/wZFA=; b=
+	HY1WGiKv3Dv07Gf3cqg+/2xDskMOOGV0jt5JvYBUdKYGp6ztUDzClykx6Yq17Duw
+	AdDTNfCFup0Ghro47BorJ7YyzNRprjkhReyrsefVCOTvP7DxuWB4betgNyzaRrQ3
+	Fq5R5qpljb7tsmJXKnOtzmhuBFn2NpTOgIbsVpsmjTdxLlvWXPjMaJF34pu6DD0T
+	UpGf5jg88gaglTKnSFUleWb7ZSaUk5kXySVo6FXlEni5yrnNqnK0tE8Z/U67Ij4t
+	wfZJYZI3+XcaUGVbK+vCrbiM4NhPHEBPrirHcNyLcPo1gN9iDlRoVzLDiHv1f2D3
+	XC/9Gp9wWBe6xPKbSz/8vg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763051213; x=
+	1763137613; bh=f4w9gz1EStBnmNqFWjlwX42Oe9RoSqgVszNo3p/wZFA=; b=H
+	cC1NRHL27jqhuSEpLo0hwXaS2f1KKdPRh8xFXia70l7kBPmocwH2nwm4eHk7PlL1
+	BSyF4eZiByo4Oz70F+LgVGdHWC8063zS47uy5HGdTZOTpftjQb1VCJpk/JtcDl7m
+	cV1ndcLV3SGgEGhJesGojGIN3oBOgKn2DhqF6VG9sYA14stpx2HXSqjpkCFdB5MX
+	p6bYaG6Lf/0h9LFpAZa2eD7d+e4CCW+fO0OMem48xcgOUWwdXfZN3zS6YVdKy7pp
+	yIIafaTgcoLhwB5FKosXge1UV5kEEFuOjWsx8ymeKejZiVMV9QnEQUJCOj+hNJQc
+	48kUJIS4OwFwdc7usv+Zw==
+X-ME-Sender: <xms:zAYWaedsIvVhMymcRHbxPns-YWGddKglCyyT7BLfEAv3PBZME49jLw>
+    <xme:zAYWaTC8AuB5Ibtt7FJZj7TbzF7UX0gT4qhdXcy75S8_O8N0T1Wc7JdkG4U_8_hWW
+    kpvMSTeVQk3GOevWt_FUJ2AiGoZsQRNhY1v4p7K_H1AtW3usHi9GI8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdejgedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepgfeiveevuedvkeeltdduieehgeekkeetheeuhefhvdeihfefjefhffdvtedttdfh
+    necuffhomhgrihhnpehptghishhighdrtghomhdpkhgvrhhnvghlrdhorhhgnecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhn
+    uggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtph
+    htthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohep
+    jhhovgihrdhgohhulhihsegrrhhmrdgtohhmpdhrtghpthhtohepshhuiihukhhirdhpoh
+    hulhhoshgvsegrrhhmrdgtohhmpdhrtghpthhtohephigrnhhghigttggttggtsehgmhgr
+    ihhlrdgtohhmpdhrtghpthhtohepphhrihhmvgdriigvnhhgsehhihhsihhlihgtohhnrd
+    gtohhmpdhrtghpthhtohepfigrnhhgiihhohhuudeshhhishhilhhitghonhdrtghomhdp
+    rhgtphhtthhopeiguhifvghiheeshhhurgifvghirdgtohhmpdhrtghpthhtohephihuii
+    gvnhhghhhuiheshhhurgifvghirdgtohhmpdhrtghpthhtohepmhgriieskhgvrhhnvghl
+    rdhorhhg
+X-ME-Proxy: <xmx:zAYWaSQh-VUXUXMuKp3YKXX49zc96e8ybu5KeSqtVRi-NGqS-GuFoA>
+    <xmx:zAYWaUfAs0EZwWfmLsUhJ5XZXCpgQUn4BF39u9WtqlYVtlyIc5OqaA>
+    <xmx:zAYWaTuLqsV3A1Hm_nT3-0anhLoaaMsJ34oAAJbycoX15Y0fZ_vwKg>
+    <xmx:zAYWaYI93oTD6qaeLFmdZlMcrFpy9skIDJnqow082zg2CBrQdG1Xpg>
+    <xmx:zQYWaSzSFz-TDnYp836JkDeyCCoj0TvI3ZZI8eS_Ii_Lv4E5qiUkMCUI>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E8E0E700054; Thu, 13 Nov 2025 11:26:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
- <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org> <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
- <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
-In-Reply-To: <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 13 Nov 2025 08:23:52 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bkn8U9vLweoLL7ChsWq65S9_NbSZw7csl7J0f4Er_fIbKu-AjDA18N3giM
-Message-ID: <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
-	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: ALjut8WcExBk
+Date: Thu, 13 Nov 2025 17:26:30 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhou Wang" <wangzhou1@hisilicon.com>, "Marc Zyngier" <maz@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Oliver Upton" <oliver.upton@linux.dev>,
+ "Joey Gouly" <joey.gouly@arm.com>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Zenghui Yu" <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, "Yicong Yang" <yangyccccc@gmail.com>,
+ prime.zeng@hisilicon.com, xuwei5@huawei.com
+Message-Id: <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+In-Reply-To: <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+ <20251107072127.448953-6-wangzhou1@hisilicon.com>
+ <861pm4vn02.wl-maz@kernel.org>
+ <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_082412_324311_C188D8F5 
-X-CRM114-Status: GOOD (  57.01  )
+X-CRM114-CacheID: sfid-20251113_082657_001900_E548FD11 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,224 +123,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Wed, Nov 12, 2025 at 11:23=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+On Thu, Nov 13, 2025, at 15:40, Zhou Wang wrote:
+> On 2025/11/11 19:15, Marc Zyngier wrote:
+>> On Fri, 07 Nov 2025 07:21:25 +0000,
+>> 
+>> But this doesn't mean that the system actually supports this. It is
+>> also trivial for EL0 to spoof a PASID using ST64BV, by populating the
+>> bottom 32bit with whatever it wants (hiding ST64BV0 doesn't prevent
+>> this).
 >
-> >>> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
-> >>> +      - description: Tensor G5 SoC (laguna)
-> >>> +        items:
-> >>> +          - enum:
-> >>> +              - google,soc-id-0005-rev-00  # A0
-> >>> +              - google,soc-id-0005-rev-10  # B0
-> >>
-> >> SoCs cannot be final compatibles.
-> >
-> > Right. I talked about this at length "after the cut" in my patch. See
-> > above. I wish to relitigate this policy and wish to know more details
-> > about where it is documented, the reasons for decision, and where the
-> > boundary exactly lies between something that's allowed to be a final
-> > compatible and something that's not. I made several arguments above
-> > for why I think the SoC should be allowed as a final compatible, so it
+> I am confused here, we enable FEAT_LS64 and FEAT_LS64V in this patch,
+> so only LD64B/ST64B/ST64BV are involved.
 >
-> Because this represents a actual device users run. It is electronically,
-> physically impossible to run the SoC alone.
-
-I'm not convinced that this definition is as clear as you're making it
-out to be. It's physically impossible to run many "boards" alone.
-
-Want to boot up a Raspberry Pi? Provide it with power. Hook up a
-display to it. Hook up a keyboard to it. Plug in an Ethernet cable.
-Plug an SD card in it. Without those things it doesn't run.
-
-Want to boot up a lga-B0 SoC? Hook up power to the power pins. Connect
-a MIPI panel to the MIPI pins. Connect a UFS chip to the UFS pins.
-Without those things it doesn't run.
-
-Yes, the complexity of just "hooking up" the components on an SoC is
-an order of magnitude harder than a Raspberry Pi, but it's still just
-hooking it up to external components. In both cases, we are modeling
-the core "brains" (the part that contains the processor) as the DTB
-and everything else just "hooks up" to interfaces.
-
-If I had to make a definition for what the base DTB should be it
-should be the component with the boot CPU. _Why_ is that the wrong
-definition?
-
-
-> There are few - one or two - exceptions for the SoMs, but never for SoC.
-
-OK, but the big question: _WHY???_
-
-Where does it say that a DTB has to be something that can run "alone"
-and (most importantly) what benefit do we get for making that
-requirement (AKA _WHY_)? This is the question you're not answering.
-From Rob's response, he doesn't seem to think that a DTB needs to be
-for something that can boot alone and he seems OK with allowing a
-fairly flexible split here. Rob's response was focused on making sure
-we can do validation and I'd love to continue on with that discussion.
-
-
-> > would be great if you could respond to them and tell me where I got it
-> > wrong.
-> >
-> >
-> >> Your commit msg does not explain what
-> >> is 'soc-id' or 'soc_id' in this context.
-> >
-> > In the commit message I do say: "SoC: an A0 pre-production variant (ID
-> > 0x000500) and a B0 variant (ID 0x000510) used in production. The ID is
-> > canonicaly broken up into a 16-bit SoC product ID, a 4-bit major rev,
-> > and a 4-bit minor rev."
+> Sending the value of ACCDATA(maybe a PASID) is defined in ST64BV0, which
+> is not enabled currently.
 >
-> >
-> > ...then, I further say "In this patch, put the SoC IDs straight into
->
-> That's fine.
->
-> > the compatible. Though the bootloader doesn't look at the compatible
-> > at the moment, this should be easy to teach the bootloader about."
->
-> But nothing explains why this SoC can be run alone without board.
-> >
-> > The idea here is for the bootloader, which can read the ID of the
-> > current SoC, to be able to pick the right device tree from among
-> > multiple. I am certainly not married to putting the SoC ID in the
->
-> I am not discussing about style of the compatible. I said - you cannot
-> have SoC compatible alone. None of above gives any argument for that.
->
-> > compatible like this. As I mentioned above, in downstream device trees
-> > the SoC is stored in a custom node and I thought upstream would hate
-> > that. I also considered giving the `soc@0` node a custom compatible
-> > string and adding properties about the SoC ID underneath that and
-> > teaching the bootloader how to find this, and I can switch to this if
-> > you prefer.
-> >
-> > If you have an alternate technique for which the bootloader could pick
-> > a device tree based on the current SoC ID or you have specific wording
-> > that you think I should add to the commit message to explain my
-> > current scheme, I'm happy to adjust things.
-> >
-> >
-> >>> +          - const: google,lga
-> >>> +      - description: Google Pixel 10 Board (Frankel)
-> >>> +        items:
-> >>> +          - enum:
-> >>> +              - google,pixel-id-070302-rev-000000  # Proto 0
-> >>> +              - google,pixel-id-070302-rev-010000  # Proto 1
-> >>> +              - google,pixel-id-070302-rev-010100  # Proto 1.1
-> >>> +              - google,pixel-id-070303-rev-010000  # EVT 1
-> >>> +              - google,pixel-id-070303-rev-010100  # EVT 1.1
-> >>> +              - google,pixel-id-070303-rev-010101  # EVT 1.1 Wingboa=
-rd
-> >>> +              - google,pixel-id-070304-rev-010000  # DVT 1
-> >>> +              - google,pixel-id-070305-rev-010000  # PVT 1
-> >>> +              - google,pixel-id-070306-rev-010000  # MP 1
-> >>> +          - const: google,lga-frankel
-> >>> +          - const: google,lga
-> >>
-> >> So what is the lga?
-> >
-> > "google,lga" is the name of the processor. I was under the impression
-> > that the last entry in the top-level compatible string was supposed to
-> > be the SoC compatible string. Certainly this was true in every board
->
-> google,soc-id-0005-rev-00 is the soc compatible string.
->
-> > I've worked with and I seem to even recall it being requested by DT
-> > folks. It also seems to match what I see in examples in the kernel
-> > docs [1].
->
-> Sorry but no. Writing bindings do not request having two compatibles for
-> the same soc in two different, independent (orthogonal) lists.
->
-> So it is rev-xyz + google,lga-frankel + soc-id + lga, if you need that
-> soc-id part.
+> If a bad system implements ST64BV wrongly, isn't the fault of this bad
+> system?
 
-Probably not worth continuing to discuss until we can agree that the
-SoC can be in its own dtb. If we can agree upon that we can talk about
-if we need the SoC part in the top-level compatible and how to
-accomplish that. I had a few ideas / suggestions in my response to Rob
-that roughly break down into:
+As far as I can tell, the design of ST64BV/ST64BV0 is a bit vague
+on this, both on the Arm architecture and the PCI side [1], which each
+leave the meaning of ACCDATA open to system design.
 
-* Don't model the SoC in the top-level compatible. Maybe put it in the
-soc@0 node.
+However, when the intention is to implement a shared hardware workqueue
+in the style of drivers/dma/idxd/ [2], the only sensible implementation
+is to follow the way that the corresponding Intel instructions work:
 
-* Come up with a rule for "merging" top-level compatibles if a base
-and overlay both define.
+- movdir64b/st64b is a nonprivileged instruction to produce a posted
+  atomic 64-byte write TLP to a PCIe device, which can only be used
+  with a dedicated workqueue that is preconfigured to a fixed PASID
 
-Whatever solution we come up with, I want to make sure it handles our
-socketed dev boards where the SoC can be removed and replaced with a
-different one.
+- enqcmds/st64bv is a privileged instruction to produce a non-posted
+  atomic 64-byte write Deferrable Memory Write (DMWr) TLP, which can be
+  used on a shared workqueue from kernel space, using an arbitrary PASID
+  value per transaction, which would normally correspond to the
+  physical address space when the kernel initiates DMA.
 
+- enqcmd/st64bv0 is a nonprivileged instruction like enqcmds/st64bv
+  using the pasid from accdata that corresponds to 
+  current->mm->iommu_mm->pasid value [3] in the kernel for the task
+  that initates the transaction in userspace.
 
-> >>> +allOf:
-> >>>    # Bootloader requires empty ect node to be present
-> >>> -  ect:
-> >>> -    type: object
-> >>> -    additionalProperties: false
-> >>
-> >> Please keep it here
-> >
-> > "it" being "additionalProperties", I think? I'm not sure I understand,
-> > but let's discuss below in the context of full examples and not diffs.
->
-> I meant ect node, existing hunk. Properties must be defined in top-level.
+A PCIe device can tell the difference between a posted write and a
+non-posted DMWr, but it cannot tell the difference between st64bv
+and st64bv0, so the kernel must disallow st64bv from userspace if
+it can be used on a device that expects the PASID value in the
+low bits.
 
-OK, much clearer. Thanks!
+Things would be different if there is a PCIe device that expects
+a DMWr transaction but does not use it for a shared hardware
+workqueue with the PASID in that field.
 
+Are you using a particular device, or are you trying to enable
+the support in general? If you have a specific device you are
+working on, does it use the PASID data or not?
 
-> > The best my brain can parse your request, I think you're asking for thi=
-s:
-> >
-> > --
-> >
-> > properties:
-> >   ...
-> >   ...
-> >   ect:
-> >     type: object
-> >     additionalProperties: false
-> >
-> > allOf:
-> >   # Bootloader requires empty ect node to be present
-> >   - if:
-> >       properties:
-> >         compatible:
-> >           not:
-> >             contains:
-> >               const: google,gs101
-> >     then:
-> >       properties:
-> >         ect: false
-> >     else:
-> >       required:
-> >       - ect
->
-> Yes, actually now I see you could drop the "not:" and exchange the
-> "then:else:" branches.
+Things will clearly get a lot harder if we want to support a
+system that can have devices with conflicting interpretations
+of the ACCDATA value. Ideally we could always use the
+iommu_mm->pasid value here and enable st64bv0 globally like
+idxd does. If any devices requires the use of st64bv, that
+would have to be mutually exclusive with another driver
+handing out access to shared hardware workqueues.
 
-For the sake of clarity, I'll go with this:
+     Arnd
 
-properties:
-  ...
-  ...
-  ect:
-    type: object
-    additionalProperties: false
-
-allOf:
-  # Bootloader requires empty ect node to be present
-  - if:
-      properties:
-        compatible:
-          contains:
-            const: google,gs101
-    then:
-      required:
-      - ect
-
-additionalProperties: true
+[1] https://members.pcisig.com/wg/PCI-SIG/document/14237
+[2] https://www.kernel.org/doc/html/v6.1/x86/sva.html
+[3] drivers/iommu/iommu-sva.c
 
