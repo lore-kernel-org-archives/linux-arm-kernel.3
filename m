@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38E8CD5BCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F65CD5BCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YOdKUWpnDqUyqcYNuz75KA693wA1dsJDHqrLKwKny5k=; b=t2IUUXkQLHUsH49xZ7K42/n4oR
-	2FmIyJ6PllU4W3FLDoSO1aVcTP5aQ2x5kzyJBH/vHNJzxwUX6FFLOySqX+GFIgZu4BFNKueXMDAjd
-	lxyP3g0Zx+GBd50w3CI+ZaKHvWWjYFjh0s02N6Te5PkkEDFP1FzmfS+leeGZRWHsVMZfaPEk3VzNG
-	T6svGYrPiipO/m7AmiHDw9E9pPe3yfdlJupuWVClv5JOLG8kFlKVhztPCHBxlCQq7WYSEQCaLYeIm
-	P8URBWFmoJ0bezegZLcUsqoKC2NTlWNMBHUfPfxOZqOBjO64Hu0d8BE2yT72zkb6K4FGDRaylz/ea
-	x4s9bDLA==;
+	bh=5SDb3IoUnYaa9Sf7IDgbAoj6rH/TButYUORUNpr7JA4=; b=rAyeVL5BH0Ktj38Mv6APoiZRbF
+	eVQNiMxNc3W6g2dnPBJFYN6uTDhhNhFKsrlevUbmsKqsuY3IF3YOA3pSik07GfqWRffuUGcdDnFI7
+	gX9kQqaRBDWKTxUfEdDdgjp1DVmTaqr4ZsNhvbCxMsI1dSsRQCRYmIPqXff40LQAY5Z2pr2U4XYJA
+	vbOgx+olUExAtY0h5W1M2kphnqOkgU52M9d4p7XJ0G3DQRcXrKaHzu4baOrq+7n17W+FvWK8aFxZw
+	IULv1C4g5y8F+8k/g7i1jPpr8iVtAvXbBz+uBYRCXutU43G79QddQ1yQ0OcRiYuqEW9YCtX8l4PpJ
+	cojNRveQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVUN-0000000AO6l-3noK;
-	Thu, 13 Nov 2025 11:27:43 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	id 1vJVUH-0000000AO4V-0wl6;
+	Thu, 13 Nov 2025 11:27:37 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVUI-0000000AO3O-0L52
+	id 1vJVUE-0000000AO3d-1EF2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 11:27:39 +0000
-X-CSE-ConnectionGUID: MRHuWa0kTI6Lt2ZP5B982A==
-X-CSE-MsgGUID: KyhrcSpkSba0cQfQ1HQTYg==
+	Thu, 13 Nov 2025 11:27:36 +0000
+X-CSE-ConnectionGUID: Z4y3QjuaTqmsgxq+sukCIw==
+X-CSE-MsgGUID: ehtI6f+7QGGN6QAhnXukJw==
 Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie5.idc.renesas.com with ESMTP; 13 Nov 2025 20:27:37 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 13 Nov 2025 20:27:32 +0900
 Received: from vm01.adwin.renesas.com (unknown [10.226.92.175])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 3FC48428B0EC;
-	Thu, 13 Nov 2025 20:27:32 +0900 (JST)
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 25CC7428B0E9;
+	Thu, 13 Nov 2025 20:27:27 +0900 (JST)
 From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -49,17 +49,17 @@ Cc: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 2/2] net: stmmac: Disable EEE RX clock stop when VLAN is enabled
-Date: Thu, 13 Nov 2025 11:27:21 +0000
-Message-ID: <20251113112721.70500-3-ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net-next v2 1/2] net: stmmac: Fix VLAN 0 deletion in vlan_del_hw_rx_fltr()
+Date: Thu, 13 Nov 2025 11:27:20 +0000
+Message-ID: <20251113112721.70500-2-ovidiu.panait.rb@renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251113112721.70500-1-ovidiu.panait.rb@renesas.com>
 References: <20251113112721.70500-1-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_032738_232995_262BD708 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20251113_032734_440303_5558FC66 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the Renesas RZ/V2H EVK platform, where the stmmac MAC is connected to a
-Microchip KSZ9131RNXI PHY, creating or deleting VLAN interfaces may fail
-with timeouts:
+When the "rx-vlan-filter" feature is enabled on a network device, the 8021q
+module automatically adds a VLAN 0 hardware filter when the device is
+brought administratively up.
 
-    # ip link add link end1 name end1.5 type vlan id 5
-    15c40000.ethernet end1: Timeout accessing MAC_VLAN_Tag_Filter
-    RTNETLINK answers: Device or resource busy
+For stmmac, this causes vlan_add_hw_rx_fltr() to create a new entry for
+VID 0 in the mac_device_info->vlan_filter array, in the following format:
 
-Disabling EEE at runtime avoids the problem:
+    VLAN_TAG_DATA_ETV | VLAN_TAG_DATA_VEN | vid
 
-    # ethtool --set-eee end1 eee off
-    # ip link add link end1 name end1.5 type vlan id 5
-    # ip link del end1.5
+Here, VLAN_TAG_DATA_VEN indicates that the hardware filter is enabled for
+that VID.
 
-The stmmac hardware requires the receive clock to be running when writing
-certain registers, such as those used for MAC address configuration or
-VLAN filtering. However, by default the driver enables Energy Efficient
-Ethernet (EEE) and allows the PHY to stop the receive clock when the link
-is idle. As a result, the RX clock might be stopped when attempting to
-access these registers, leading to timeouts and other issues.
+However, on the delete path, vlan_del_hw_rx_fltr() searches the vlan_filter
+array by VID only, without verifying whether a VLAN entry is enabled. As a
+result, when the 8021q module attempts to remove VLAN 0, the function may
+mistakenly match a zero-initialized slot rather than the actual VLAN 0
+entry, causing incorrect deletions and leaving stale entries in the
+hardware table.
 
-Commit dd557266cf5fb ("net: stmmac: block PHY RXC clock-stop")
-addressed this issue for most register accesses by wrapping them in
-phylink_rx_clk_stop_block()/phylink_rx_clk_stop_unblock() calls.
-However, VLAN add/delete operations may be invoked with bottom halves
-disabled, where sleeping is not allowed, so using these helpers is not
-possible.
+Fix this by verifying that the VLAN entry's enable bit (VLAN_TAG_DATA_VEN)
+is set before matching and deleting by VID. This ensures only active VLAN
+entries are removed and avoids leaving stale entries in the VLAN filter
+table, particularly for VLAN ID 0.
 
-Therefore, to fix this, disable the RX clock stop feature in the phylink
-configuration if VLAN features are set. This ensures the RX clock remains
-active and register accesses succeed during VLAN operations.
-
+Fixes: ed64639bc1e08 ("net: stmmac: Add support for VLAN Rx filtering")
 Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-v2 changes:
-- Added comment mentioning that EEE RX clock stop is disabled to allow
-  access to VLAN registers.
-- Added "Reviewed-by" tag from Russell.
+v2 changes: none
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ccf383b355e7..101babc8513e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1245,7 +1245,11 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 	/* Stmmac always requires an RX clock for hardware initialization */
- 	config->mac_requires_rxc = true;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index ff02a79c00d4..b18404dd5a8b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -122,7 +122,8 @@ static int vlan_del_hw_rx_fltr(struct net_device *dev,
  
--	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
-+	/* Disable EEE RX clock stop to ensure VLAN register access works
-+	 * correctly.
-+	 */
-+	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI) &&
-+	    !(priv->dev->features & NETIF_F_VLAN_FEATURES))
- 		config->eee_rx_clk_stop_enable = true;
+ 	/* Extended Rx VLAN Filter Enable */
+ 	for (i = 0; i < hw->num_vlan; i++) {
+-		if ((hw->vlan_filter[i] & VLAN_TAG_DATA_VID) == vid) {
++		if ((hw->vlan_filter[i] & VLAN_TAG_DATA_VEN) &&
++		    ((hw->vlan_filter[i] & VLAN_TAG_DATA_VID) == vid)) {
+ 			ret = vlan_write_filter(dev, hw, i, 0);
  
- 	/* Set the default transmit clock stop bit based on the platform glue */
+ 			if (!ret)
 -- 
 2.51.0
 
