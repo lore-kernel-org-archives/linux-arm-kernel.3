@@ -4,153 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7412ACD5BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4954FCD5BC7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 11:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=; b=RD933AMKlvfiBv8f0h44HrzuVy
-	HPEEJbCeAWLpb/9RpRpQaVuw6RICKIFcEdNhM+LpmsgSanz8b95f1PWdFLi6iQTNqj1YfJAerug+9
-	YTHQ8ZRJvqRbtVdd7HBT7crbqRteKS3H8DuO+PO24DGed78gsBD7SYCCxiiz6GLzd1AXYOHa9HcEF
-	/a1JEptmu/rJeeKliyk+VDd0o1OxR1J30hFrrzIsaZpP0ddOYJ2Wpn/eBkvcsdSr1UI66U7XsPxCD
-	5QJcapGGPERufUUMgbRQJTEArBnKlIsy24rIp786a6X3LjDPFyTnlJSTRCB8UiQDmrdlLWkXImt+p
-	+X1ZS0Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C+r3eA7uqjYviG5Wbo7UxLrUTDN7ePU6jG8MMKZBMMA=; b=BxswfEZkWqaSfCphuaE1Bw0meC
+	3pY5EZG9vK45i5q+UJbl7iVjZe0zhTwc6L/zPRcZfyyxd0MK2tUqGgxpTNSBMZa3llNYeoGAucIpu
+	d+8kJBq/6AeYXBme9T/qXjqQIXBLilEzMtZCboQXnU+V0ZK1VIF7ExXxwaFDx+Vh8JtYT3870QHwT
+	xoTGHwHqTyOtJTmwZokklasgLZ/Imdj6QCgU+2EWPsOzkPVMBJu6pTkigWCDc/eFWOoQEPqEvMJky
+	J4X/kBRqyVuDCEHes3M0Ubhdia2cGRhRemaQWYPOV0DjMgDYefN10EkUp3BEcgjupmKr2NzcNMyb/
+	ju6NeErw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVHH-0000000AN9J-2f7I;
-	Thu, 13 Nov 2025 11:14:11 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vJVLh-0000000ANP1-10iS;
+	Thu, 13 Nov 2025 11:18:45 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJVHG-0000000AN8n-0Dkq
+	id 1vJVLe-0000000ANOb-0UBW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 11:14:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=va36n8R5MGj+f0y49gfAoGwtmf9eNyepS6SnthYRlbaUGF15O0PcF2P01A1clXaIIHbJymcw7sJqfIxZGdmwmkac3AfFRp97fRM0wqxUx/ZG74meff2J3iRmf+asjyYdrSTcImPECaA3Hy2VTxXBSy7YHYFu8jeziiy5o/DWYS50/SOxa1hMSZ/kSEwdnFYuZUXXZIOFn0A5uZ2Z0wwd8ndNyL0JXadQGJ/n2AcJrtrhbLamoDn4PXge6Yy0BueCmQ2rBTRKg9WdBHZLjoWu/+t262PCKMSSMgUMtIVM+CRMsUehUxzGRs7OzVa3q977cKz3qN8UcxL3gs0NHklw/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=;
- b=Yp9CacuZNpvhKdfXyPJRuf5S6DcJPygJj9SnVnG3b8R4dvf9/U6oAmu5bDI/DiUh54lQBjtNdvUdTs+yIn9DU3qVKVhAYbWp0upTayeDGwLULURW0QpjqE1oiTYkMVZ8atrccLuf7TzRCgavopKMjz0F4AgTaGA5jyMzDAvR7cNv87KsB7PUvZek7BSPIn4IKMrFC0zYQCoJSXqvkqWxnttPlBLpfl6sc1FRQsaCkEDVza1WEAug+3lb2UhnxkMJlM5Fvnqn1dxbGi1+jL+S/skqRzS508FUCorwtGV8kgN2EHqIBYYgQeNoorS9OHOoRpncF+BPsj9I0zndCjxkCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NOGtHeV/XIznJClnBPJyTKkum40plAFpbiIX/+fF19c=;
- b=MSnQK54wRGv/yflSLjQ4/lEVAus8mUbVjvs2BUrdpPL7Qkyph0r6SFwQ+E+APoES+9hnPo+7P1NeEoLUyqSe3rOpngQ7UftJtRx0VN5jyo/SR6zx3tND19YFzQNJloV85UAcd8bDYkx9fysoJ4pbz8ZDMU52RHbFaCA+0I2HTvc85Evs05RGlFDiTT0v5c46DG1R6LUGTwaBECCEThM32aQW+pQgZuaRFuKIFkUJn18aZM0Z8jLTps7faojx+EYp70JyOUQlNVzVQQ5Cy+63A/35XUDUge3mEZqNnZWtU3BRLJ8YyYu017Bi1wXz1VA0mnYxFZkjFt3FL8x1IGyixA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8825.eurprd04.prod.outlook.com (2603:10a6:20b:408::7)
- by AS4PR04MB9364.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Thu, 13 Nov
- 2025 11:14:03 +0000
-Received: from AM9PR04MB8825.eurprd04.prod.outlook.com
- ([fe80::67fa:3e46:acd8:78d0]) by AM9PR04MB8825.eurprd04.prod.outlook.com
- ([fe80::67fa:3e46:acd8:78d0%3]) with mapi id 15.20.9320.013; Thu, 13 Nov 2025
- 11:14:03 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	Frank.Li@nxp.com,
-	jun.li@nxp.com
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: imx8qm-mek: fix mux-controller select/enable-gpios polarity
-Date: Thu, 13 Nov 2025 19:14:44 +0800
-Message-Id: <20251113111444.888985-1-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
- (2603:1096:4:194::18) To AM9PR04MB8825.eurprd04.prod.outlook.com
- (2603:10a6:20b:408::7)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8825:EE_|AS4PR04MB9364:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e83ec15-dfe3-4743-9c32-08de22a5c088
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|19092799006|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HLKaMJhvDmzNIswCXg7Abcm1URPFBKf2pZO6xu9ibDN6+x6VnCNzu2WGeEoO?=
- =?us-ascii?Q?Bs2wxsigI0ECVmusfg5ebeeC9oQZIjpMKZaisE+6sCiawYE4zajZqZ1Xm3+D?=
- =?us-ascii?Q?d2gYedrAxVsfv0t2EaQift8WHShxSsAe0F6vc0av/NPeOF3GOUeLd1R/pd7N?=
- =?us-ascii?Q?VGNMJEgcwvdO8oAGqHGKLmo+RbtfWCED2uo5JFqQvqqpH8zdE/mUtbZ9aBLL?=
- =?us-ascii?Q?VJd5dQehjV33rQ/ppfMpcR0HQOibgPnJXibxPoBT4pO8lvXigcAztsDfh3ut?=
- =?us-ascii?Q?RuO+E9qvhrGOWa1k3RgIrr4mRuGlRwkwN0HaQkpdQgJsVVMatqkFyHs6rlyf?=
- =?us-ascii?Q?iZTZ3yrLb3fbMF1FPB3AyOZikEOdjfjRT5g9r64l0dJT+Zvo3/pn5ffvyXZu?=
- =?us-ascii?Q?1BabnhQAWodM1gKlROhKpFwbkX4PeMvdV41SnO++d9Vx3gARjMhF6jyKiTg3?=
- =?us-ascii?Q?EA+uFkGZ5dcFIrWRBmaCd2UuUP8sAcF7QWZW1UZJFz1ecD6nzVaqAh84FCsf?=
- =?us-ascii?Q?mMKvRJLmtPfhCTKNo77UYPy7eEiIRP9zvoIa7Zsyimu/nPzm3L6gSCo+b/rR?=
- =?us-ascii?Q?T/YF8W8+OTzjSz79xvbJzvF27lp/SsJhkETxQEpycjbQRhORbFe8dhfWdPuu?=
- =?us-ascii?Q?96WqHrfvOUDK77s8kTTJ18nG7A4U/vyGRZjP4oG2CQDzSLfFd33UO+8Bq63e?=
- =?us-ascii?Q?C/JfIQe6SvvsPPPo5guE8kn0n+H99r3K0lIIn3M8VwyAKOnMO8oi43ADhwe+?=
- =?us-ascii?Q?vaKzfI4kHvQvyxSxtzPAGmtGr1fqT304kQoXbcbztUE/2FtjSDIgrsz+QgMe?=
- =?us-ascii?Q?RNcL91j1CsWFf9GpZM05uRrlU9AY9AZQETk+Q2ARje4eofqXqWQZTa62ARH8?=
- =?us-ascii?Q?3Y4IkqmfjTRP2AUW57PosJfPPhhwXzgywdTtCuDfhU+9KoKBWPd7x5t8J80L?=
- =?us-ascii?Q?RrUmr4dxrU51c/ra+aMQ26Jb7Bs5vMd2Bq8MXyiKE+MkA8rqY0OCnDh8Ijqq?=
- =?us-ascii?Q?uu0A45W7dZ0QxituN4ZEZ3OR1nxqfXYiJ/2xco/jaVbWNX6SdGi3gPTO/JSh?=
- =?us-ascii?Q?3ucPRlErQbVW6WhCqUU1LuA0zYopJ0GNDDbwRefWzi1cq3lQpMaKw5/SXidj?=
- =?us-ascii?Q?BbJfM00Z7f59j5DylrLjZY0bRC60v0VJBoGihRSUIJrMDvbmge1/RSEUYG1g?=
- =?us-ascii?Q?XOqPWO7xri+HlrnJs+Pan7qufRgwNc4tr6Q6+3hwRKY9ARnvLscKzn3wDwo3?=
- =?us-ascii?Q?IgZo2VDPc3JLkAHVMZ4fMo3XPzpIaLU1SaHqsYMStHPWLArB1vjfCTqvMbZy?=
- =?us-ascii?Q?BZoaGfPEDb0i71Gh1suv4fkDsvXBTznB4hbu3B09l3ivGXY8ce9W0Wg0IwGz?=
- =?us-ascii?Q?25oU3ulCZliLcC/4/ZoW1zM6fgcO+8Hotz3hoBDpzC6hMjxnkDzAC3CHyyUk?=
- =?us-ascii?Q?Eu+/3nyrGwWHv5UyN2vZM3hBQfbf7FupkRkO9/p//iNSSOFbIbTuOalVgmct?=
- =?us-ascii?Q?xQcU79lKL9LyjMBOC48fa22RpQ591VToGt7j?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8825.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(19092799006)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z/n2c0zOQIbSANVhFh0n9fyhq6EdxBKnXBlOPL8DsL/UF5I9WNzv7X5efYBR?=
- =?us-ascii?Q?ue0/ezaC1A4PJY2zr6nZXW9yDq5uajj5RBmMW9FXQWUOunTEGKHZHchZ6k2r?=
- =?us-ascii?Q?nSvROnSXVkasnpLZc30GOIJc1Uqtb8ukQz2K5LDvQZcgkU5n/l3R/qhX+4Qj?=
- =?us-ascii?Q?d2Gas5RP1o9wcpcGTEG3ZDNG2Sh77MLJL99EJ502M4RQ1QZLQLqQ6W7fC2IH?=
- =?us-ascii?Q?Wdgm0yTKNCbuSrhui/88j1bD/9ZRPMP7dJ5X5VmkA15nhEZTFuNyI7HCSpkP?=
- =?us-ascii?Q?sAeh+H+rHrKP53Wvi2przMpmcCtqILZaWBSS+sQI4hjmIahHvYMf65lVROMk?=
- =?us-ascii?Q?0BGla7CD6dj8z8RfQPhbA3IbiNW3zzpmgRU9x0CKWkH8i/zC25znMfVjImBp?=
- =?us-ascii?Q?X83R/1Uu3+FtUBvHIqgGSeK4Ycm3ilemFEFy1j4N0pBlLK16nVhVz9H9/44E?=
- =?us-ascii?Q?/TLuWa1r2cEXSz1KvlnJj3+8gbZ05/KG/b3q51KYOxVO0EdihpXuClUz+9g7?=
- =?us-ascii?Q?JqrZIK7UuSEc2vkDZpg5zwqs2JRkqoyxc6YBvg8V6HpedHUIal1ageZcTRYr?=
- =?us-ascii?Q?iHbaMG6Xx//xDTCKtQ4FvKzeByhf4tdgcVPFpLScsybzf5ceGh8XO4y9AETR?=
- =?us-ascii?Q?6JCc8BjPPMZr8iY3Y/p7PMtCoyvOXMrVxoi9PTJYAlZgIzc15I0K+YfYIqgu?=
- =?us-ascii?Q?3g+NI5QmgTCamh8zZbJMC0EIsWDHyxTnzc2YLx7ZNrRv0zDxqeulN/iTJ7q4?=
- =?us-ascii?Q?hh0KnZjiT7AONOiN2UPOHMfkKxk0HUR/45KMJDjpPweznn2k6auL31b5q/Br?=
- =?us-ascii?Q?LVpoJ7BAnS9//5S9YoiLo4+J29mmOnKPhE8fcFrtAirBj/f2wv4bImD+PhdH?=
- =?us-ascii?Q?TyPCBqaAjcWZ77ffiz7GMMHnR+3cDA30eVg8K1QKrgIRecXo/MhY1vCgMs6/?=
- =?us-ascii?Q?MJzJjhXeXyHsWRyNWnuTVxzXZVz6poPAPoNWxYdO6RitlldEYq7VQ47EnBeL?=
- =?us-ascii?Q?TFoG8NUX4d2lnjsdMYmVMPepwQ3Mf/EndLGbnbPa0iyNGd+rBb6YqWv3tkCo?=
- =?us-ascii?Q?QYknb1mH7X7X0++1diUmYA9osrLvIebdySVutTouyRfnCYYsB8a4bfdPExq3?=
- =?us-ascii?Q?Tn0sHKvVnw+pAKKmCADIWpXSr3lpFm+aP6onawToOj2Z7229JtZZEjeMm2ob?=
- =?us-ascii?Q?ThzB6zzCrTTPeBfRybMe3DxacCJtYJhtiYfVz1CX9NjPanCEMta8QoghwFO9?=
- =?us-ascii?Q?X4FLkDB5616K0dHEus2JYOvGIB1A65CqbRpacFPNl8dxE/A6/smtyiVzrI0G?=
- =?us-ascii?Q?rfWELytXoDxPbcSdxq/7bhxP4hC9nx9k+3pzOfSvQQcjGPE4nSlbIBBBGhak?=
- =?us-ascii?Q?wkHckO8eEk/bOZ8ij6ApKdyHx6kIcooZhqH9wploLW64VG53GIJzFuX37mVi?=
- =?us-ascii?Q?DTj0V73odldA70G2dYTRYROS5ZS1dVTAOR+/D5E+oBGbhl8p2U6tDUuouAmR?=
- =?us-ascii?Q?xTcvgFAJhkiNumtljVW4ldpXd3vjhYTSgC366z8p8BuPFYnysb8kuVUy34hA?=
- =?us-ascii?Q?1RrXMWeHeqe05qxtFOq8dqNtE8R+UjQ8PKzgY3bx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e83ec15-dfe3-4743-9c32-08de22a5c088
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8825.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 11:14:03.2071
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jl+LU7ZwytuqUw+IucmgnA1Seky1Wpd/261ztpHgPP/cof8bzE0KZreVNEBHIsiwsn2zSTf7aeg5HO+hiV74cQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9364
+	Thu, 13 Nov 2025 11:18:44 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1763032718;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C+r3eA7uqjYviG5Wbo7UxLrUTDN7ePU6jG8MMKZBMMA=;
+	b=RJ40f5UZpL+AYew0HKB3Ry38U/jj0BY+uYJilws9y2DZDU9YIyC5HmOU8C8hRQ4YjgUhvf
+	0wZ6+z/JUelK8f5JxA6G9Ed+Q+ptcnrvdz9NkqNzJEfDrFwKjsPHgF5ZuaByEYgqFyontT
+	SaKpUYpQ9wXtNskzxYj3/+Bjm97+7+RfuxuO5oMCGDI04ns5jPrD4OLUXvsme6H5w4UykS
+	1HL62VZP/mV0Ioyt1uDv/yVRsZ2u4i9Q2E4W1f9Wa6LcKf8A8dWf0PC8CxZ8bTqtX1nKco
+	kzqeEaRzmGZP/OrF7kvUaHs38mlDYj9OC8c6mhADKRu5h/k5SobOqRT47hBpGw==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 13 Nov 2025 12:18:17 +0100
+Message-Id: <DE7IXK6SWV7J.3B9AOCCGWT4EH@cknow-tech.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Dang Huynh" <dang.huynh@mainlining.org>, "Andy Yan" <andyshrk@163.com>
+Cc: <heiko@sntech.de>, <hjc@rock-chips.com>, <diederik@cknow-tech.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-rockchip@lists.infradead.org>, "Andy
+ Yan" <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] drm/rockchip: vop2: Use OVL_LAYER_SEL configuration
+ instead of use win_mask calculate used layers
+References: <20251112085024.2480111-1-andyshrk@163.com>
+ <hrg6geclph37olvqr3o5v4d4mifvl25kaemh7f2z3hwega7h2b@muf2gkfqzvvz>
+In-Reply-To: <hrg6geclph37olvqr3o5v4d4mifvl25kaemh7f2z3hwega7h2b@muf2gkfqzvvz>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_031410_106360_0FCB992F 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20251113_031842_878313_D9C4CC47 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,36 +74,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the board design, set SEL to high means flipped
-connection (TX2/RX2). And the TCPM will output logical 1 if it needs
-flipped connection. So switch to active high for select-gpios.
-The EN pin on mux chip is low active, so switch to active low for
-enable-gpios too.
+On Thu Nov 13, 2025 at 9:11 AM CET, Dang Huynh wrote:
+> Hi Andy,
+>
+> This fix works on my device. No more black box around the cursor.
+>
+> Tested-by: Dang Huynh <dang.huynh@mainlining.org>
 
-Fixes: b237975b2cd5 ("arm64: dts: imx8qm-mek: add usb 3.0 and related type C nodes")
-Cc: stable@vger.kernel.org
-Reviewed-by: Jun Li <jun.li@nxp.com>
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks for testing and your Tested-by tag :-D
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index 202d5c67ac40..9c0b6b8d6459 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -217,8 +217,8 @@ mux-controller {
- 		compatible = "nxp,cbdtu02043", "gpio-sbu-mux";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_typec_mux>;
--		select-gpios = <&lsio_gpio4 6 GPIO_ACTIVE_LOW>;
--		enable-gpios = <&lsio_gpio4 19 GPIO_ACTIVE_HIGH>;
-+		select-gpios = <&lsio_gpio4 6 GPIO_ACTIVE_HIGH>;
-+		enable-gpios = <&lsio_gpio4 19 GPIO_ACTIVE_LOW>;
- 		orientation-switch;
- 
- 		port {
--- 
-2.34.1
+FYI: Apparently something went wrong with delivery it as it only arrived
+at LKML, but not dri-devel, linux-arm-kernel or linux-rockchip MLs.
+No idea if that's problematic (for b4 f.e.) though.
+
+'lore' has it here:
+https://lore.kernel.org/all/hrg6geclph37olvqr3o5v4d4mifvl25kaemh7f2z3hwega7=
+h2b@muf2gkfqzvvz/
+
+Cheers,
+ Diederik
+
+> On Wed, Nov 12, 2025 at 04:50:23PM +0800, Andy Yan wrote:
+>> From: Andy Yan <andy.yan@rock-chips.com>
+>>=20
+>> When there are multiple Video Ports, and only one of them is working
+>> (for example, VP1 is working while VP0 is not), in this case, the
+>> win_mask of VP0 is 0. However, we have already set the port mux for VP0
+>> according to vp0->nlayers, and at the same time, in the OVL_LAYER_SEL
+>> register, there are windows will also be assigned to layers which will
+>> map to the inactive VPs. In this situation, vp0->win_mask is zero as it
+>> now working, it is more reliable to calculate the used layers based on
+>> the configuration of the OVL_LAYER_SEL register.
+>>=20
+>> Note: as the configuration of OVL_LAYER_SEL is take effect when the
+>> vsync is come, so we use the value backup in vop2->old_layer_sel instead
+>> of read OVL_LAYER_SEL directly.
+>>=20
+>> Fixes: 3e89a8c68354 ("drm/rockchip: vop2: Fix the update of LAYER/PORT s=
+elect registers when there are multi display output on rk3588/rk3568")
+>> Reported-by: Diederik de Haas <diederik@cknow-tech.com>
+>> Closes: https://bugs.kde.org/show_bug.cgi?id=3D511274
+>> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+>> ---
+>>=20
+>>  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 49 +++++++++++++++++---
+>>  1 file changed, 42 insertions(+), 7 deletions(-)
+>>=20
+>> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/=
+drm/rockchip/rockchip_vop2_reg.c
+>> index d22ce11a4235..f3950e8476a7 100644
+>> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+>> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+>> @@ -1369,6 +1369,25 @@ static const struct vop2_regs_dump rk3588_regs_du=
+mp[] =3D {
+>>  	},
+>>  };
+>> =20
+>> +/*
+>> + * phys_id is used to identify a main window(Cluster Win/Smart Win, not
+>> + * include the sub win of a cluster or the multi area) that can do over=
+lay
+>> + * in main overlay stage.
+>> + */
+>> +static struct vop2_win *vop2_find_win_by_phys_id(struct vop2 *vop2, uin=
+t8_t phys_id)
+>> +{
+>> +	struct vop2_win *win;
+>> +	int i;
+>> +
+>> +	for (i =3D 0; i < vop2->data->win_size; i++) {
+>> +		win =3D &vop2->win[i];
+>> +		if (win->data->phys_id =3D=3D phys_id)
+>> +			return win;
+>> +	}
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>>  static unsigned long rk3568_set_intf_mux(struct vop2_video_port *vp, in=
+t id, u32 polflags)
+>>  {
+>>  	struct vop2 *vop2 =3D vp->vop2;
+>> @@ -1842,15 +1861,31 @@ static void vop2_parse_alpha(struct vop2_alpha_c=
+onfig *alpha_config,
+>>  	alpha->dst_alpha_ctrl.bits.factor_mode =3D ALPHA_SRC_INVERSE;
+>>  }
+>> =20
+>> -static int vop2_find_start_mixer_id_for_vp(struct vop2 *vop2, u8 port_i=
+d)
+>> +static int vop2_find_start_mixer_id_for_vp(struct vop2_video_port *vp)
+>>  {
+>> -	struct vop2_video_port *vp;
+>> -	int used_layer =3D 0;
+>> +	struct vop2 *vop2 =3D vp->vop2;
+>> +	struct vop2_win *win;
+>> +	u32 layer_sel =3D vop2->old_layer_sel;
+>> +	u32 used_layer =3D 0;
+>> +	unsigned long win_mask =3D vp->win_mask;
+>> +	unsigned long phys_id;
+>> +	bool match;
+>>  	int i;
+>> =20
+>> -	for (i =3D 0; i < port_id; i++) {
+>> -		vp =3D &vop2->vps[i];
+>> -		used_layer +=3D hweight32(vp->win_mask);
+>> +	for (i =3D 0; i < 31; i +=3D 4) {
+>> +		match =3D false;
+>> +		for_each_set_bit(phys_id, &win_mask, ROCKCHIP_VOP2_ESMART3) {
+>> +			win =3D vop2_find_win_by_phys_id(vop2, phys_id);
+>> +			if (win->data->layer_sel_id[vp->id] =3D=3D ((layer_sel >> i) & 0xf))=
+ {
+>> +				match =3D true;
+>> +				break;
+>> +			}
+>> +		}
+>> +
+>> +		if (!match)
+>> +			used_layer +=3D 1;
+>> +		else
+>> +			break;
+>>  	}
+>> =20
+>>  	return used_layer;
+>> @@ -1935,7 +1970,7 @@ static void vop2_setup_alpha(struct vop2_video_por=
+t *vp)
+>>  	u32 dst_global_alpha =3D DRM_BLEND_ALPHA_OPAQUE;
+>> =20
+>>  	if (vop2->version <=3D VOP_VERSION_RK3588)
+>> -		mixer_id =3D vop2_find_start_mixer_id_for_vp(vop2, vp->id);
+>> +		mixer_id =3D vop2_find_start_mixer_id_for_vp(vp);
+>>  	else
+>>  		mixer_id =3D 0;
+>> =20
+>> --=20
+>> 2.43.0
+>>=20
+>> base-commit: ded94ec6167e84195507237100f6278941e36fdd
+>> branch: drm-misc-next-2025-1016
+>>=20
+>>=20
+>> _______________________________________________
+>> Linux-rockchip mailing list
+>> Linux-rockchip@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
 
