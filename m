@@ -4,94 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B96CD6E55
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F2ECD4F2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 13:40:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1CkMMW19YRuicfdgv7RAomaqUjFuAF8ESShxFloH8Q=; b=hRM7wJ+q0jtCnWBpYFxpwA/VX1
-	acbSILPL8I4fa3kg6ZvoCJdwl6NXn/P2o8Yff5l6aPIva8JbmBI5wXVO+cztigBT48QiZaJz+nDZl
-	dQZ+XdcCSofcFQpU9aolriMTyY0QirMfleyu/3oPLzXuzpGk9+VOluMHooedeUBnyT1ILb1ESloT0
-	i0UEjOxeme/XQ/Zcm2B0XK14seg5TLfWn/8dqsHKkNi5ou+I4Jp8GRhakFyyam+AJ6kUKdNBbwHBh
-	c/WOc4hMbbxN+R0zCG5Fy0cqaIM4Wb4eu3agbQvJ/GCRYQO3bMfPfMs7oIHYzo0BA0VYbnci09YWY
-	yT90knjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UgaaNIIdEX1iWMXTquk64k8u/ArECzWZoVmNB09qjKs=; b=AXuIv4+9kz1KercC8+XQ+0RhIl
+	67uHVR9eyqZ73VrViInmZtzfB6cvC+us20wZpbPjyHLCmu8CLRyXbZQm0Z818zEOZjra54TXennd8
+	UMZtcpZPooiOv1WVz4j+CBZpKcBg1T85xALrpaXej81hwkSJBRMzuQsIzij2xu3RuyME64MdUrLgb
+	P3Gi6ZwsUlvivJfFl0ssH/SLZORPUK9tgsf+wDeqdmbPHHK6mfamJOZwhZeGH0oGinqrCOnOmChX5
+	j304guN0iUluOyfzQ0fgHk9AW+M/EBD7eK9y+Wj1JkhztkSnzmqah3mmSF59zUADx7Wi8OeW0B1kW
+	H3NO1Lwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXYM-0000000AYnR-2p0T;
-	Thu, 13 Nov 2025 13:39:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJXYs-0000000AYsP-0CTC;
+	Thu, 13 Nov 2025 13:40:30 +0000
+Received: from mx13.kaspersky-labs.com ([91.103.66.164])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJXYJ-0000000AYn7-43hv
+	id 1vJXYm-0000000AYqT-2wBD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 13:39:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FCEB43F8D;
-	Thu, 13 Nov 2025 13:39:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10ED7C116D0;
-	Thu, 13 Nov 2025 13:39:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763041195;
-	bh=qZNTS+SsKyGq5cJUoJdNddEpiS/NdktIA7Wmi47YSI0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=A4Jbw+/R6bIUOmh0jqAwRGsgWCRKFxO621Q7LcuzoqI95D9gOWCq0i7jLqALA9eKw
-	 3pDvyLMVjs+tFz72NZ7yrLPUVFG/dkNvZiZlOC8Wb7IBDeuXzjU4n0Db9VvRUospVJ
-	 34PXNkYqCZEk3L8FaNtWm+nSQcd+86h6+jzaVlGG6CI3lk9T4boNvVj10y3+sxPxwI
-	 Bvtl/SJH/8JVRELMIF1VQFIs5TouKlYTVZ6fMAlmL+pWnRDNNivWbrTlBg37UEWx5z
-	 ykRTsgmqW2ZbETjDOHlxN3sDkflRjEnngr0g9Uv/wc71ZJmUkP0uJjBlr82LF1w8CV
-	 Ge8RBzRYY6BGg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJXYG-00000004t5r-3WS5;
-	Thu, 13 Nov 2025 13:39:52 +0000
-Date: Thu, 13 Nov 2025 13:39:52 +0000
-Message-ID: <86ldkat5jr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Mark\
- Rutland" <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J.\
- Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"Saravana\
- Kannan" <saravanak@google.com>,
-	Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau
-	<j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark
-	<james.clark@linaro.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	"Alexandru\
- Elisei" <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v4 17/26] genirq: Add request_percpu_irq_affinity() helper
-In-Reply-To: <20251112182735.00001363@huawei.com>
-References: <20251020122944.3074811-1-maz@kernel.org>
-	<20251020122944.3074811-18-maz@kernel.org>
-	<20251112182735.00001363@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, ruanjinjie@huawei.com, alexandru.elisei@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 13 Nov 2025 13:40:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaspersky.com;
+	s=mail202505; t=1763041213;
+	bh=UgaaNIIdEX1iWMXTquk64k8u/ArECzWZoVmNB09qjKs=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	b=H+aRAHoM0yCJg2E1f+L0rDS80xdkmBtnzkIS4nbOrOtMxDKTojmKDpVOJJkKdF8mv
+	 JK8B8BAlsVV0gLijGDCrnF9HAObbUUQUvYADj4PyLKvMUrcpfEnUmbpb5F0SodfzFU
+	 2PfDn24wTRKjVYjWv6LDw325PtpKaSPjnGzoq4WYzr76jj4UgD+IQ1S9I5yyWGE6wU
+	 XC8d1/tQsoXeR04rAiQmRnXvBYanmTQfzD6aFYrimGNSG+dXQ9uakpI9fJJX1sXqXO
+	 LqgH2IDr63LUtLpDhgJ9GpCLSFppak3a2LLQv32NkcnhTPi4nlGJjzU2qXVZYWhFK3
+	 HjOneFW7E8s9w==
+Received: from relay13.kaspersky-labs.com (localhost [127.0.0.1])
+	by relay13.kaspersky-labs.com (Postfix) with ESMTP id 729013E2675;
+	Thu, 13 Nov 2025 16:40:13 +0300 (MSK)
+Received: from mail-hq2.kaspersky.com (unknown [91.103.66.200])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail-hq2.kaspersky.com", Issuer "Kaspersky MailRelays CA G3" (verified OK))
+	by mailhub13.kaspersky-labs.com (Postfix) with ESMTPS id B82DC3E4618;
+	Thu, 13 Nov 2025 16:40:10 +0300 (MSK)
+Received: from zhigulin-p.avp.ru (10.16.104.190) by HQMAILSRV2.avp.ru
+ (10.64.57.52) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 13 Nov
+ 2025 16:40:10 +0300
+From: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+CC: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Inochi Amaoto
+	<inochiama@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, Joe Hattori
+	<joe@pf.is.s.u-tokyo.ac.jp>, Rayagond Kokatanur <rayagond@vayavyalabs.com>,
+	Giuseppe CAVALLARO <peppe.cavallaro@st.com>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lvc-project@linuxtesting.org>
+Subject: [PATCH net] net: stmmac: add clk_prepare_enable() error handling
+Date: Thu, 13 Nov 2025 16:40:07 +0300
+Message-ID: <20251113134009.79440-1-Pavel.Zhigulin@kaspersky.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.16.104.190]
+X-ClientProxiedBy: HQMAILSRV3.avp.ru (10.64.57.53) To HQMAILSRV2.avp.ru
+ (10.64.57.52)
+X-KSE-ServerInfo: HQMAILSRV2.avp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/13/2025 13:24:51
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 198052 [Nov 13 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: Pavel.Zhigulin@kaspersky.com
+X-KSE-AntiSpam-Info: LuaCore: 76 0.3.76
+ 6aad6e32ec76b30ee13ccddeafeaa4d1732eef15
+X-KSE-AntiSpam-Info: {Tracking_cluster_exceptions}
+X-KSE-AntiSpam-Info: {Tracking_real_kaspersky_domains}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: zhigulin-p.avp.ru:7.1.1,5.0.1;kaspersky.com:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
+X-KSE-AntiSpam-Info: {Tracking_white_helo}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Deterministic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 11/13/2025 13:26:00
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 11/13/2025 11:57:00 AM
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSMG-AntiPhishing: NotDetected
+X-KSMG-AntiSpam-Interceptor-Info: not scanned
+X-KSMG-AntiSpam-Status: not scanned, disabled by settings
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/11/13 09:15:00 #27919685
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 52
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_053956_044933_2EA4490C 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20251113_054025_072922_F7B0728E 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +130,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025 18:27:35 +0000,
-Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
-> 
-> On Mon, 20 Oct 2025 13:29:34 +0100
-> Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > While it would be nice to simply make request_percpu_irq() take
-> > an affinity mask, the churn is likely to be on the irritating side
-> > given that most drivers do not give a damn about affinities.
-> 
-> Only 37 instances. I'd have been tempted to do it anyway :)
+The driver previously ignored the return value of 'clk_prepare_enable()'
+for both the CSR clock and the PCLK in 'stmmac_probe_config_dt()' function.
 
-I'm leaving this as an exercise for people who enjoy cross-subsystem
-patch series!
+Add 'clk_prepare_enable()' return value checks.
 
-> 
-> > 
-> > So take the more innocuous path to provide a helper that parallels
-> > request_percpu_irq(), with an affinity as a bonus argument.
-> > 
-> > Yes, request_percpu_irq_affinity() is a bit of a mouthful.
-> > 
-> > Tested-by: Will Deacon <will@kernel.org>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Thanks,
+Fixes: bfab27a146ed ("stmmac: add the experimental PCI support")
+Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-	M.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 27bcaae07a7f..042d542b9c65 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -632,7 +632,9 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 			dev_warn(&pdev->dev, "Cannot get CSR clock\n");
+ 			plat->stmmac_clk = NULL;
+ 		}
+-		clk_prepare_enable(plat->stmmac_clk);
++		rc = clk_prepare_enable(plat->stmmac_clk);
++		if (rc < 0)
++			dev_warn(&pdev->dev, "Cannot enable CSR clock: %d\n", rc);
+ 	}
 
--- 
-Without deviation from the norm, progress is not possible.
+ 	plat->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
+@@ -640,7 +642,11 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 		ret = plat->pclk;
+ 		goto error_pclk_get;
+ 	}
+-	clk_prepare_enable(plat->pclk);
++	rc = clk_prepare_enable(plat->pclk);
++	if (rc < 0) {
++		dev_err(&pdev->dev, "Cannot enable pclk: %d\n", rc);
++		goto error_pclk_get;
++	}
+
+ 	/* Fall-back to main clock in case of no PTP ref is passed */
+ 	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
+--
+2.43.0
+
 
