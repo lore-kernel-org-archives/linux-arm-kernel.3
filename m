@@ -4,109 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DD1CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E28CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=MDyF8CnLXeGEPAkBmsx+FCAF13
-	Ac4BKnaHf6OXBR5ZYCaXboR4fySAzm4vuc1mpuuEyolQIQ/PoZZXBu6lXXoRF6O32ztHBSXYQz2Or
-	ecda6cFVpVYQIPsWrEHZ/O3JxKZRLUBwtQ6f2gqo2lFI2u6MRl8Joa/Y2rOYcSvqvcvlSXD1lcHuk
-	U+DzrT3QuXShGBdaG7fyyY4sUZCfoI125B0dqf3PtzfzKSdneK3oRbdBFdBv1DGK1GvVM/eZ4XbhR
-	uWcMMz5ZH5xpgOEpBUmRLbFyDx3hwUnSRZ/PtMvtZANpIb7DfTEb4xJ3Ntqq2qjSlfU/wMmH9/M4W
-	UliSpEzg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZtIO5kca0ZTg3YtTGPrbR7qGnVeDZz+8bUk07FkpFoM=; b=Z1KNLepjQNjZ3xQwwhFQQ/9u4D
+	cQjcD11knG84tOHo29YcSZPrLMboqMBpfhEDbnFq45jngZKkhpu2mxCT/88flu+vhabLgb2Oi2hu6
+	4AsyBlyYGjJHxOQaDkKUk4rv8vC254zMcdGm3Zt5zsU3uepL9lYow6r87zaKRYHjNAqrzAOaXfyZc
+	Xjf+36BZf97M+UDQKHgno0coneGnKX1fdUs1sXW226zlyQTqgTl8qKRRUjuSSzi24aImqRTVCsvaW
+	ve21+f7u80zM0E+wcjgBD9HgN5pKAIW5Rvi4cz+9nFjDFid+kJrqtGEo1N3Eu2FzI5ips8Ex1F35v
+	dFuyInOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUKW-0000000AFin-395Z;
-	Thu, 13 Nov 2025 10:13:28 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1vJUKr-0000000AFmO-2Fnv;
+	Thu, 13 Nov 2025 10:13:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUKT-0000000AFiO-3Avn
+	id 1vJUKq-0000000AFlr-2DHV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Nov 2025 10:13:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ZtIO5kca0ZTg3YtTGPrbR7qGnVeDZz+8bUk07FkpFoM=; b=RyGmG2gyk/kAmcEJ0Di+4b8EG/
+	kNBHyu9Jfv97INnFYYLZs2pJz6tfDgDABsaUpGOw9guNFQji6+MCZBkylGVLljWyXD+JEOdn9INvB
+	aWrThiANwqNnlL0qJHXeZGQSxBtEOTHS9+/NPsTR+S0eAn9+FILnKmFDaa9h7+cqz6tdgvSRdMfwx
+	bL5+C7HcHiQOnpIrrr+/wSu5iWSLBQ3Fg0PDqQBl8vX07MynWsoCDZdAccmRT/X9oNXMZaPTg1Dy0
+	aYwALKJSuV16fAb8YIDfUr/mEtbNBNXHt4+yYKeai71Te8ncPMi6zj6JkWwssw0Oz4ZRQgI7gvHBt
+	KnKCvCrA==;
+Received: from server.couthit.com ([162.240.164.96])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJTT7-0000000HUbz-0tgP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:13:27 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E525A140016D;
-	Thu, 13 Nov 2025 05:13:23 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 13 Nov 2025 05:13:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1763028803;
-	 x=1763115203; bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=
-	dx4L72BG/Weyjy69zTnbObR32UfXg1Kw8iNWEtEAsc5ctiYB9KiV+Y5KHXKAAFyV
-	znTtPr97A7XPqUq6kqTG0t4x99wH0CL0wo/+Io92jdFb+M9ltLQjRLpoPtFnMpab
-	uIharEfdRj55SEfwSiacBpy1LhsYiikhOnXYysamSQrk6+RqhNZh/VfIEkVDpPoV
-	Ggsu1ixpcpYPec3hKZJ+kqvRxsC81YJ1j7EyK61SKZ6djuLHixpcJ6NjlGzhqBwB
-	ySqAiolMiio8+z/7Sw085mu9UwA88QaYT9qIpnhwIEHk+BTOPQgbvv4X0SUjvwlE
-	HBmXzg//bKE7FUKziXnKIA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763028803; x=
-	1763115203; bh=eBsaFtA2xBcklMBM2lcRD3QQiiT0+IpJhfUOqJ08udk=; b=v
-	RMchbv0sISLH4MACLD2Xur8OemJoKpH/lrUkmb2bd06oHzddVHR9Jh6Y7wTEf9SV
-	UPl9b5NoPy8Ud9grx8HXjADs9RFvs45cR0/bBzgELXkdBdMwsN0chXusr646LhlM
-	Z0jF7I4izj996Y5tUh4VJkhdqyQM1Tco/J8Fy/eWwZCkdT0ghxcnkhAzmQgr0Kcj
-	iEQagtz9GgaB3r1kojoaWWUXGl1BiIhu08/vJTUKCMm9HlI7f4neW2N6YjORV3G0
-	EssG57zQTapGcEaNqzv0uFAzGMc9U1MO652ZRYRBtn1zyLOTYaofyYjIe7RHe91+
-	Uim604CkGUgpDyJ0j1JIw==
-X-ME-Sender: <xms:Q68VaSHBnABlehvIB8HPLW1ZPP6tZIr4l4xh6kr1kC9kKKzEywDbgA>
-    <xme:Q68VaeK0PJywiAn5sO0QtCbhWtpa4C6k-C1LKuTzyX5bfrjrBpD7MgOsquQjAGuPh
-    7xBxjzgvlJBGWEjJYhsmwvos-8QjSPCa460qPCjU7sHm8CzpWV0UcM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdeiieejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghhvghlghgrrg
-    hssehgohhoghhlvgdrtghomhdprhgtphhtthhopehkihhshhhonheskhgvrhhnvghlrdho
-    rhhgpdhrtghpthhtohepkhifihhltgiihihnshhkiheskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtoheplhhpihgvrhgrlhhishhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehm
-    rghniheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdroh
-    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
-    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehunhhitghorhhnpgifrghnghesohhuth
-    hlohhokhdrtghomhdprhgtphhtthhopehsqdhvrggurghprghllhhisehtihdrtghomh
-X-ME-Proxy: <xmx:Q68VafAHyv8bK6Ia8xhwRSoZVJZ-23YfWweBZ8eMyvWbXODYpACFVg>
-    <xmx:Q68VaatI5w3AsYwXW5HDHo4k-RdK6zja_vVWsVXJ8gWGFG6YFWdmGg>
-    <xmx:Q68Vad8a0h3ovFMUiJiwnhwyAPdtiKYPFGlTB08M6a7RPOIDx1Rfdw>
-    <xmx:Q68VaRQKTDzHimbKtlnbdrZjMFhicrKweFiiliNmy2Ndb_wdL1U8LQ>
-    <xmx:Q68Vaevt84g7sRauZ_invuhu7qkg2Yo7dhzae9iFqMsr3pCTZAV471Hv>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 02C82700054; Thu, 13 Nov 2025 05:13:23 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 13 Nov 2025 09:18:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=ZtIO5kca0ZTg3YtTGPrbR7qGnVeDZz+8bUk07FkpFoM=; b=nHyB9Axr1obPAgzx5YRL/eeIE9
+	zirePwshBHmtJnRzrwcDa385HGNjVpWRKwstNBxHuaKqP/mSKJ9t/d6V2b5em37FJbosvZJiXjSbW
+	kRqEJkugWqQ53dWmtxfLxy+OC3HjEaAuoKVb5h+C+YXxil44TospHccwi8ISu1UaxA2namEar67UK
+	toLs97XBqA48qrn0tDnxIanMb8Kj9aU6VvLymQBtuEjyLgyq2f65CdZUgG0I3n7E8wYWReX9xqLhT
+	laJW4ca2fZqYmZ+LRGiDT6fGASYb5YorxpMV9JkJd9A3+gPt3fqqmdoTIywTQmJI82m226LbJcd0K
+	tfAE8eUQ==;
+Received: from [122.175.9.182] (port=42952 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vJUJy-0000000GdLN-3OLf;
+	Thu, 13 Nov 2025 05:12:55 -0500
+From: Parvathi Pudi <parvathi@couthit.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	basharath@couthit.com,
+	afd@ti.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	alok.a.tiwari@oracle.com,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v5 0/3] STP/RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Date: Thu, 13 Nov 2025 15:40:20 +0530
+Message-ID: <20251113101229.675141-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-ThreadId: AO4N9SNPwumV
-Date: Thu, 13 Nov 2025 11:13:01 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Siddharth Vadapalli" <s-vadapalli@ti.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
- bhelgaas@google.com, "Chen Wang" <unicorn_wang@outlook.com>,
- "Kishon Vijay Abraham I" <kishon@kernel.org>
-Cc: stable@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- srk@ti.com
-Message-Id: <084b804f-2999-4f8d-8372-43cfbf0c0d28@app.fastmail.com>
-In-Reply-To: <20251113092721.3757387-1-s-vadapalli@ti.com>
-References: <20251113092721.3757387-1-s-vadapalli@ti.com>
-Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate
- to bool
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_021326_355800_158805F9 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20251113_091817_799004_5830A735 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,58 +116,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025, at 10:27, Siddharth Vadapalli wrote:
-> The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
-> PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
-> library of helpers. Since the vendor drivers could individually be built
-> as built-in or as loadable modules, it is possible to select a build
-> configuration wherein a vendor driver is built-in while the library is
-> built as a loadable module. This will result in a build error as reported
-> in the 'Closes' link below.
->
-> Address the build error by changing the library configs to be 'bool'
-> instead of 'tristate'.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: 
-> https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
-> Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Hi,
 
-I really think there has to be a better solution here, this is not
-an unusual problem.
+The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
+(ICSSM), which provides the foundational support for Ethernet functionality
+over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
+net-next recently [1].
 
-> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
->  	depends on PCI
-> 
->  config PCIE_CADENCE
-> -	tristate
-> +	bool
-> 
->  config PCIE_CADENCE_HOST
-> -	tristate
-> +	bool
->  	depends on OF
->  	select IRQ_DOMAIN
->  	select PCIE_CADENCE
-> 
->  config PCIE_CADENCE_EP
-> -	tristate
-> +	bool
->  	depends on OF
->  	depends on PCI_ENDPOINT
->  	select PCIE_CADENCE
+This patch series enhances the PRU-ICSSM Ethernet driver to support bridge
+(STP/RSTP) SWITCH mode, which has been implemented using the "switchdev"
+framework and interacts with the "mstp daemon" for STP and RSTP management
+in userspace.
 
-I think the easiest way would be to leave PCIE_CADENCE as
-a 'tristate' symbol but make the other two 'bool', and then
-adjust the Makefile logic to use CONFIG_PCIE_CADENCE as
-the thing that controls how the individual drivers are built.
+When the  SWITCH mode is enabled, forwarding of Ethernet packets using
+either the traditional store-and-forward mechanism or via cut-through is
+offloaded to the two PRU based Ethernet interfaces available within the
+ICSSM. The firmware running on the PRU inspects the bridge port states and
+performs necessary checks before forwarding a packet. This improves the
+overall system performance and significantly reduces the packet forwarding
+latency.
 
-That way, if any platform specific driver is built-in, both
-the EP and HOST support are built-in or disabled but never
-loadable modules. As long as all platform drivers are
-loadable modules, so would be the base support.
+Protocol switching from Dual-EMAC to bridge (STP/RSTP) SWITCH mode can be
+done as follows.
 
-     Arnd
+Assuming eth2 and eth3 are the two physical ports of the ICSS2 instance:
+
+>> brctl addbr br0
+>> ip maddr add 01:80:c2:00:00:00 dev br0
+>> ip link set dev br0 address $(cat /sys/class/net/eth2/address)
+>> brctl addif br0 eth2
+>> brctl addif br0 eth3
+>> mstpd
+>> brctl stp br0 on
+# STP to RSTP mode
+>> mstpctl setforcevers br0 rstp
+>> ip link set dev br0 up
+
+To revert back to the default dual EMAC mode, the steps are as follows:
+
+>> ip link set dev br0 down
+>> brctl delif br0 eth2
+>> brctl delif br0 eth3
+>> brctl delbr br0
+
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported.
+
+Sample test logs obtained from AM33x, AM43x and AM57x verifying the
+functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/59116f8cc13ac74e02412de5cdc5ed02)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/7c46bac2b16ff224eb2aed7e913b1826)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/79014a8bdea9349189da00ebd7f05329)
+
+[1] https://lore.kernel.org/all/20250912104741.528721-1-parvathi@couthit.com/
+
+This is the v5 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v4] of the series.
+
+Changes from v4 to v5:
+
+*) Addressed ALOK TIWARI comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4:
+
+*) Addressed Andrew Lunn comments on patch 1 and 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3:
+
+*) Dropped the RFC tag.
+*) Addressed  MD Danish Anwar comments on patch 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Added RFC tag as net-next is closed now.
+*) Updated the cover letter of the series to generalize and indicate support for
+both STP and RSTP along with subject change as per Andrew Lunn's suggestion.
+*) Addressed the Andrew Lunn's comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+[v1] https://lore.kernel.org/all/20250925141246.3433603-1-parvathi@couthit.com/
+[v2] https://lore.kernel.org/all/20251006104908.775891-1-parvathi@couthit.com/
+[v3] https://lore.kernel.org/all/20251014124018.1596900-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20251110125539.31052-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Roger Quadros (3):
+  net: ti: icssm-prueth: Adds helper functions to configure and maintain
+    FDB
+  net: ti: icssm-prueth: Adds switchdev support for icssm_prueth driver
+  net: ti: icssm-prueth: Adds support for ICSSM RSTP switch
+
+ drivers/net/ethernet/ti/Makefile              |    2 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  518 +++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   27 +-
+ .../ethernet/ti/icssm/icssm_prueth_fdb_tbl.h  |   76 ++
+ .../ethernet/ti/icssm/icssm_prueth_switch.c   | 1050 +++++++++++++++++
+ .../ethernet/ti/icssm/icssm_prueth_switch.h   |   37 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  103 ++
+ .../net/ethernet/ti/icssm/icssm_switchdev.c   |  332 ++++++
+ .../net/ethernet/ti/icssm/icssm_switchdev.h   |   13 +
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 ++
+ 10 files changed, 2255 insertions(+), 23 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_fdb_tbl.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.43.0
+
 
