@@ -4,101 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A15CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DB3CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 09:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=; b=q51MCjj5IE+PAGPDxd8NczX05g
-	/GIQZZ/n0QVH685BhyVNjmmEqxBIWiZrRro06xpAB7vFTfo1yGBLaflvG4yapA7E7AJIOtcMF4wjp
-	cNEGWek8BVc0zBrksHWFWipEEJ30RB+d/ibV5IfclUITGyMiBSQx2zwY8h3/d/jFT4Vk+B22gDg8n
-	cHoox1K2cvvEosK1qYzqTcB+pxvsN5O0roHlDAXeOMsOYia8KszPZyqF+ETnB3jkUGWgEKQCbD6co
-	/+C03KqhbthkOp3BsCh8Daq1WeL6GgzxgEAjegiHxO9oMPx84RmXOZtwdHyEsytxvEHg4WaSSgVJ5
-	2tpH4mHA==;
+	bh=DfH0s4PJ2lNDp9KjHR2xRGPvl8kyzS0lqJ/ga3aU49k=; b=jzSPCG29MAUqW4IwJ7Y8yGbEHm
+	JJDJpZpDxstUT5kzdAoJbh9QXi9w+bEU7FTQ+FVbBIRdDY36Cpedh6dLvZdEHzM68YFvgqWhimXYi
+	wqMWeEdiRd7ZxRnsWZD9P6MRXGKWumdBIoUNaEA6GwWETAeUJETVViSgib9PmHk1rfnAMrsOmQX8z
+	J2a0z6ark7tEEP2O+nUo2Un7VAdVS8cKyA5k9HrEbqlQSRYf+vh1y3jrYHKfYlp0qvvKMhzqhvUJ6
+	AzuT0aC/aW8xcAFv7QGrzidOQ7GIv4aiHm+dBQi2vu2xHRsSNFv2exXOnLHSHZ4Amm+sW/LIFWSiH
+	t8EAch+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTzg-0000000AEUb-4BVM;
-	Thu, 13 Nov 2025 09:51:57 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vJU0J-0000000AEZ4-1Lpt;
+	Thu, 13 Nov 2025 09:52:35 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJTze-0000000AEUA-2w9n
+	id 1vJU0G-0000000AEY3-1A3m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 09:51:55 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-429c48e05aeso333862f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 01:51:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763027513; x=1763632313; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=;
-        b=EnSIaDF6Y4ocOHqN1YnsfzW9873/0OBKTq7gHcTHIjiHTfwlf8fP0gjOw1g1neuYtU
-         QfUXmwpyjxDqe7ASGXGIbEV+G+h/R3incXV+1+Hg2pUMhmdIzEAt50TvXgWQMlezCyGw
-         /0utTLOdBSWwqn6uVhz/1pNyBYMo70wYWwqGipl/xm63o9XR66HXwbrB7VyQl4hHLbFa
-         IGxI9I/z4vVCQfF2fVrb/K5e6MDOMKbFSYtng28Ms0mptyBCj8QzPUvE6qeqLGiF4cgg
-         Kg81HdVsHGWn8ptIuU3Xv7KCRVnlXGLlm9EERukwR23hSotmGo4wHFrLNDrYaI0Mdier
-         w/jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763027513; x=1763632313;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZDYZngmwSRp+0NNAwoPTnkhHZW5E4BniA8duLqhYUG0=;
-        b=WdpGcSBFm6pBpMZVHwgKxCdLmNECISsjCGrH9fcp8U/7Q0DfrLoqxpbp5eASk9bYmp
-         mvd1tPYlyZxoySW5cjlzsvKcm1UTZZeFeYdkzTPepcvQLbI3+N8Us15E2H+sl/LrM0fn
-         wr4C234dTcmyo2bzl5zdmq8NLx3DASKcSvMsUOvGHRAh5LxT3fU7jjsUddi5ZHd9uO/p
-         74B5c4+255/PDER7LuY0jdlRY4LC93AbvIvFDpKIJtO9PQyWZPnd/TrRBg8lM623Hbg6
-         0vtiWEYa1Nr4jBsBSbBLzu/fXF+UiYr/4vOrf7jV5d2hj0pRAcyBt7Ik5TJjgc1dqJ65
-         DF+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWz+0G4nU6DiHHk1pKie+E9KOvUm+MOBRmEe63f5JgS8WmYfxGvfq+deFruQ4dMCQyWfdg7FFWdPQ55C3GJoFvU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzh33RvDSSm7IJkUPLx3cPnDjxZjSZ8xtZHDrcUwbVbZpiVLeDR
-	DJ1F6H58KQdHK+WvkOG+rVWlX2Axw0LImv5COh37FRqIG0qWzcpYR+HfpZLkiUxA2tg=
-X-Gm-Gg: ASbGncso4YPGOnydeceaaUp0Eu+nLlT8T9yhCa1u+dbd6HDH83CCmFrK9vJ9NQHebV8
-	hS5A5Ypp3TYHOyFXgUfQyjxPcJigG/8AnZ3E5wh4mzBd5n1jS1R+znPbtgi+s3Lm/hdcLJ7wW8w
-	enpDqpdtJVJ+LfF4C9XU6wV1bcE2aBKpwkveLL1onR1p7P786ajwB6FstecdWqRuCk5Ftg/IhLn
-	l10l3O+JneufymZSe89obUdb8uNtuMPwIS+ckFNligZ2rCFjQ/bREpFlhJRCamGXh1yWA/lMZjQ
-	wv7f7l2Wkb++L1edI8nQwLbmrbCiMFGBe0OOSoplGUJQ8PUFjEWcKTz5yXAV8b9yIlNs7f0YYGC
-	VM8G4MjAwkrVfamtJuQa0+v7URfCdhIR3O5mr+BdFNQymKVx7tIQJc6jPfCc98MbuPVXSXlTFiB
-	54pgmsMDIsib47LkSp
-X-Google-Smtp-Source: AGHT+IHZkeuEDZYJsmeqSkNhq3Bl5KYXIylnr89Ea5RYR3BcZR9jpgcLY7nN/+8jXCtmO4YuJD3daw==
-X-Received: by 2002:a05:6000:2887:b0:429:58f:26f with SMTP id ffacd0b85a97d-42b5281c40cmr2203450f8f.24.1763027512635;
-        Thu, 13 Nov 2025 01:51:52 -0800 (PST)
-Received: from [10.11.12.107] ([5.12.85.52])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f1fd50sm2817519f8f.38.2025.11.13.01.51.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Nov 2025 01:51:52 -0800 (PST)
-Message-ID: <1af37451-1f66-4b6b-8b36-846cbd2ca1e8@linaro.org>
-Date: Thu, 13 Nov 2025 11:51:50 +0200
+	Thu, 13 Nov 2025 09:52:34 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251113095226euoutp02400ed482fc004a78bd579bdc91a7eb81~3iDZSDlig1719517195euoutp02r
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 09:52:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251113095226euoutp02400ed482fc004a78bd579bdc91a7eb81~3iDZSDlig1719517195euoutp02r
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763027546;
+	bh=DfH0s4PJ2lNDp9KjHR2xRGPvl8kyzS0lqJ/ga3aU49k=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=GDT0A4U1bXuTjMEFII1R2qESkSv0qOeA7R+lYzGz2ZHQdtJ0gG3x3sleKF+Azw1Ow
+	 tWcr0Rp+NKZncfSDVhbg5C4VYG/kmefbO9XfoPn5/qIXkNP8nh4bitz1GXtp29HUWU
+	 TLh1aSi9EPrg+yyvty43DP8uwlPzHnnpgoaQ7NCk=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c~3iDY3I0Qy2231922319eucas1p21;
+	Thu, 13 Nov 2025 09:52:25 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251113095224eusmtip11cf3bf4e737456b0cc65926c596b0dac~3iDXpGtVx1837718377eusmtip1b;
+	Thu, 13 Nov 2025 09:52:23 +0000 (GMT)
+Message-ID: <b618732b-fd26-49e0-84c5-bfd54be09cd2@samsung.com>
+Date: Thu, 13 Nov 2025 10:52:23 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] nvmem: add Samsung Exynos OTP support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- semen.protsenko@linaro.org, willmcvicker@google.com,
- kernel-team@android.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251112-gs101-otp-v2-0-bff2eb020c95@linaro.org>
- <20251112-gs101-otp-v2-2-bff2eb020c95@linaro.org>
- <20251113-benign-macaw-of-development-dbd1f8@kuoka>
- <9d77461c-4487-4719-98db-1c5c5025c87e@linaro.org>
- <725ea727-d488-40aa-b36d-04d6d44a8ec5@kernel.org>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a
+ patched-in constant
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, Zenghui Yu
+	<yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Yao Yuan
+	<yaoyuan@linux.alibaba.com>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <725ea727-d488-40aa-b36d-04d6d44a8ec5@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20251109171619.1507205-5-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c
+X-EPHeader: CA
+X-CMS-RootMailID: 20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-5-maz@kernel.org>
+	<CGME20251113095225eucas1p261508e40d5b802f6e5be58600bb4a02c@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_015154_792330_3A709623 
-X-CRM114-Status: GOOD (  33.46  )
+X-CRM114-CacheID: sfid-20251113_015232_894934_3C5BB722 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,95 +89,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 09.11.2025 18:15, Marc Zyngier wrote:
+> The trap bits are currently only set to manage CPU errata. However,
+> we are about to make use of them for purposes beyond beating broken
+> CPUs into submission.
+>
+> For this purpose, turn these errata-driven bits into a patched-in
+> constant that is merged with the KVM-driven value at the point of
+> programming the ICH_HCR_EL2 register, rather than being directly
+> stored with with the shadow value..
+>
+> This allows the KVM code to distinguish between a trap being handled
+> for the purpose of an erratum workaround, or for KVM's own need.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+This patch landed in today's linux-next as commit ca30799f7c2d ("KVM: 
+arm64: Turn vgic-v3 errata traps into a patched-in constant"). In my 
+tests I found that it triggers oops and breaks booting on Raspberry Pi5 
+and Amlogic SM1 based boards: Odroid-C4 and Khadas VIM3l. Here is the 
+failure log:
+
+alternatives: applying system-wide alternatives
+Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
+Modules linked in:
+CPU: 0 UID: 0 PID: 18 Comm: migration/0 Not tainted 6.18.0-rc3+ #11665 
+PREEMPT
+Hardware name: Raspberry Pi 5 Model B Rev 1.0 (DT)
+Stopper: multi_cpu_stop+0x0/0x178 <- __stop_cpus.constprop.0+0x7c/0xc8
+pstate: 604000c9 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : vgic_v3_broken_seis+0x14/0x44
+lr : kvm_compute_ich_hcr_trap_bits+0x48/0xd8
+...
+Call trace:
+  vgic_v3_broken_seis+0x14/0x44 (P)
+  __apply_alternatives+0x1b4/0x200
+  __apply_alternatives_multi_stop+0xac/0xc8
+  multi_cpu_stop+0x90/0x178
+  cpu_stopper_thread+0x8c/0x11c
+  smpboot_thread_fn+0x160/0x32c
+  kthread+0x150/0x228
+  ret_from_fork+0x10/0x20
+Code: 52800000 f100203f 54000040 d65f03c0 (d53ccb21)
+---[ end trace 0000000000000000 ]---
+note: migration/0[18] exited with irqs disabled
+note: migration/0[18] exited with preempt_count 1
+rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+rcu:     1-...0: (7 ticks this GP) idle=0124/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     2-...0: (7 ticks this GP) idle=0154/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     3-...0: (7 ticks this GP) idle=018c/1/0x4000000000000000 
+softirq=9/10 fqs=3250
+rcu:     (detected by 0, t=6502 jiffies, g=-1179, q=2 ncpus=4)
+Sending NMI from CPU 0 to CPUs 1:
+Sending NMI from CPU 0 to CPUs 2:
+Sending NMI from CPU 0 to CPUs 3:
+
+Let me know how I can help in debugging this issue.
 
 
-On 11/13/25 11:35 AM, Krzysztof Kozlowski wrote:
-> On 13/11/2025 10:28, Tudor Ambarus wrote:
->>
->>
->> On 11/13/25 10:30 AM, Krzysztof Kozlowski wrote:
->>> On Wed, Nov 12, 2025 at 08:29:06AM +0000, Tudor Ambarus wrote:
->>>> Add initial support for the Samsung Exynos OTP controller. Read the
->>>> product and chip IDs from the OTP controller registers space and
->>>> register the SoC info to the SoC interface.
->>>>
->>>> The driver can be extended to empower the controller become nvmem
->>>> provider. This is not in the scope of this patch because it seems the
->>>> OTP memory space is not yet used by any consumer, even downstream.
->>>
->>> Quick look tells me you just duplicated existing Samsung ChipID driver.
->>> Even actual product ID registers and masks are the same, with one
->>> difference - you read CHIPID3... which is the same as in newer Exynos,
->>> e.g. Exynos8895.
->>
->> Yes, that's correct. It's very similar with the Samsung ChipID driver.
->>
->>>
->>> What is exactly the point of having this as separate driver? I think
->>
->> The difference is that for gs101 the chipid info is part of the OTP
->> registers. GS101 OTP has a clock, an interrupt line, a register space 
->> (that contains product and chip ID, TMU data, ASV, etc) and a 32Kbit
->> memory space that can be read/program/locked with specific commands.
->>
->> The ChipID driver handles older exynos platforms that have a dedicated
->> chipid device that references a SFR register space to get the product
->> and chip ID. On GS101 (but also for e850 and autov9 I assume) the
->> "ChipID block" is just an abstraction, it's not a physical device. The
->> ChipID info is from OTP. When the power-on sequence progresses, the OTP
->> chipid values are loaded to the OTP registers. We need the OTP clock to
->> be on in order to read them. So GS101 has an OTP device that also happens
->> to have chip ID info.
->>
->> For now I just got the chipid info and registered it to the SoC interface
->> (which is very similar to that the exynos-chipid driver does), but this
->> driver can be extended to export both its memory space and register space
-> 
-> 
-> There is no code for that now and possibility of extension is not a
-> reason to duplicate yet.
-> 
->> as nvmem devices, if any consumer needs them. Downstream GS101 drivers
->> seem to use just the chip id info and a dvfs version from the OTP
->> registers. DVFS version is not going to be used upstream as we're defining
->> the OPPs in DT. So I was not interested in extending the driver with nvmem
->> provider support, because it seems we don't need it for GS101.
->>
->> Do the above justify the point of having a dedicated driver?
-> Only partially, I asked about driver. I did not spot previously the
-> clock, so we have two differences - CHIPID3 register and clock - right?
+> ---
+>   arch/arm64/kernel/image-vars.h       |  1 +
+>   arch/arm64/kvm/hyp/vgic-v3-sr.c      | 21 +++++---
+>   arch/arm64/kvm/vgic/vgic-v3-nested.c |  9 ----
+>   arch/arm64/kvm/vgic/vgic-v3.c        | 81 +++++++++++++++++-----------
+>   arch/arm64/kvm/vgic/vgic.h           | 16 ++++++
+>   5 files changed, 82 insertions(+), 46 deletions(-)
+>
+> ...
 
-clock and interrupts, but I don't use the interrupts because I just need
-to read the OTP registers to get the chip id info.
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-> I wonder why Exynos8895 and others, which are already supported, do not
-> use CHIPID3, but nevertheless these two differences can be easily
-> integrated into existing driver.
-
-they can be integrated, but I want to make sure we're making the best
-decision.
-
->>> this can easily be just customized chipid driver - with different
->>> implementation of exynos_chipid_get_chipid_info().
->>
->> If the answer is no to my question above, how shall I model the device
->> that binds to the existing exynos-chipid driver?
-> Just extend the existing driver.
-> 
-So you mean I shall have something like that in DT:
-
-+		chipid@10000000 {
-+			compatible = "google,gs101-chipid";
-+			reg = <0x10000000 0xf084>;
-+			clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
-+			interrupts = <GIC_SPI 752 IRQ_TYPE_LEVEL_HIGH 0>;
-+		};
-
-Maybe remove the interrupts because I don't need them for reading OTP regs.
-
-What happens in the maybe unlikely case we do want to add support for OTP
-for GS101? How will we describe that in DT?
-
-Thanks!
-ta
 
