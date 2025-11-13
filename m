@@ -4,138 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30241CD5BC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E549CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Nov 2025 10:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iODD4cjwT3BBF6BOO1Y/noX2AdzyKEr8wOGO8Is9Bd4=; b=GQcT4RbAEunO7tdmq9xb5E63V5
-	36iv+vLbOcCV13HkMApz8KdGl6bw0w2sqwrK8ApS4MuCP4/C/vo/yIpzt4GXjlIl2UJ7jy4KUVwaa
-	yEp75VXOAdZsKxB81qtJ0Q8Xv6qvmIvRH1vS6FT9iiwvDpjfk0EnVBLG/+y9la/otGvVI0/PXKKYA
-	9L3v6A7vr0CGRi5ndSKvW2/aMrYE27cKDif7Gba/3wQ7c+VA5K/BaFqGw6IAnd5XVww9mHnK0kC4F
-	x7mQ5jV0Y6jeh1Od7Lxy2tgrOhpxg83xFEHKZwqVdYn44RHFrrgCJHDfuaVr8OQr879nXWMp/BXix
-	jGnDkSow==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zbJoa1hwbJizqIs9EGehGc0HSX8WNwochBNfe5irJSw=; b=kulKlaucWzTx4kXR9ze/xA/VX4
+	Rg+TS3Bfb7fE4+5eV/i9dGQkz9legafIkRQnCPK9axB4sj2Ekv3vr5XytA7lOEh7FksjZr5SRapWM
+	wL67tfwwUawZbtYgpwAb8h8o4Y/DoxdG/z7BtWBtA3haKrpN/0XdF7H+ngp6P7A9EbHT+CLmBrFUS
+	kLTKp3tqt8pCVoTHYvh050RPWtGndyOu2iOUyqgNHNWht5xWyNh28yFewIsu5mDpIFuBW549HuLMv
+	YhnfcywzeeopvXpjk6ubq+rMSvxJOjPBUBThFQKStZWxEPFkvVBupCcOYPNcCqnbIWqePw6+1MUyX
+	I6MDc8DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUip-0000000AIQc-1Uja;
-	Thu, 13 Nov 2025 10:38:35 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vJUkg-0000000AIcR-3dqZ;
+	Thu, 13 Nov 2025 10:40:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJUim-0000000AIPd-2WYl
+	id 1vJUkf-0000000AIcD-1teO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Nov 2025 10:38:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A5s9917xWoPBK6YSDwcu2QrRLax0//VdegR6dN7DWurTxBkldfPzMWRUTH9jm0TPuZiS7RaRjIXcLgRHSEmlk0TgchmnLBp7vLMJ6SjBQG0FV00+nPKLAcDUk8DSN/5SbiM7dJFeJ5Ub6lMz91LN55/gedE32t+5hB0V53MuI/pfZfHkkBg/FT9acXMt9YuHnbC4h8FCUbhxgyNqqMvVGZnisVhRMJSgiGTY4gqk/2Vllsm6k2pNe1eCLHm9zvu64k4qIHY20CZWYOCAxW7yt9q0b8Mmz5LHd8gkKT/tTLcgAnSB7eC0OA9CSTS+wT0ShL0m2hMqJBWbTfANUM5QDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iODD4cjwT3BBF6BOO1Y/noX2AdzyKEr8wOGO8Is9Bd4=;
- b=m9X+yWNDIYI5WmmQn9YsDQhCdv0qHBR4UzVTY9E07oz48sETkvtiFBc3M055dxj6WA2GKuo7L7CuvHtR009biPIRaXQt6XdQNvamo8AKxIDH6lRIrfWkUN1WyZabAjIUmCJBFvG6HUdY2F2NMsKx1E8pSYzqpha6fM6rnYj33gjCbmvbFfn8ozKGIq41MHxeejzRipZj13NVk6KZlLsxkUUYlXaFHBYjZRHoouR34uOMua0kgkBS3YgunVuw4pHBs822LkjMMRbtQwa3GuhuH2eAqEqE4AxuP9mdezvLHhP3BJY8VY5F1PVUpp67XD0yJfiyfjjliL8+PwycgTvPCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from TY4PR01CA0028.jpnprd01.prod.outlook.com (2603:1096:405:2bf::17)
- by SEZPR06MB5047.apcprd06.prod.outlook.com (2603:1096:101:44::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Thu, 13 Nov
- 2025 10:38:23 +0000
-Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
- (2603:1096:405:2bf:cafe::ae) by TY4PR01CA0028.outlook.office365.com
- (2603:1096:405:2bf::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.16 via Frontend Transport; Thu,
- 13 Nov 2025 10:38:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Thu, 13 Nov 2025 10:38:22 +0000
-Received: from [172.16.96.116] (unknown [172.16.96.116])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0912940A5BD4;
-	Thu, 13 Nov 2025 18:38:22 +0800 (CST)
-Message-ID: <da56386a-b6ac-4034-a063-811cd7d71fa5@cixtech.com>
-Date: Thu, 13 Nov 2025 18:38:21 +0800
+	Thu, 13 Nov 2025 10:40:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E378601B9;
+	Thu, 13 Nov 2025 10:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CAACC113D0;
+	Thu, 13 Nov 2025 10:40:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763030428;
+	bh=XAEk2gO6Dgxkt9QVW+uJ7j3ysQrmrx0Zs+nhWoNI+40=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Or3b0ixyWVlT1dPdqmaC72tRC7xq4wLgmibR7nhfxqQPwD23TaEMpvfSpRpORd5i4
+	 YjxOs3CDyda2vvRJ5Q5ieKiCN6W4vNkOvSHWGiNIuHEKBBGhzz1T0501nUJ4PXAoka
+	 xSNN549KxsGYWabcjhBatJ8iWDYVovGZTPc+rkIhm0fUTfN84mAHCXw2qwk92AULcs
+	 Ax46ybza4k814xTWkCIGklfNePhtVX3zB0guMs5YHyNA6FasQN9PDvv3/ODelJcjB/
+	 nQ54NDrJpaklq2uT3Q7DPalSWY+ZqZo3SdQ5eEBztnNYKAZl5aHwgFgvNdSY9PGstU
+	 XnlrxmiENxRHQ==
+Message-ID: <28fa635b-f9a6-41c3-8199-9630ed3e7649@kernel.org>
+Date: Thu, 13 Nov 2025 11:40:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from
- tristate to bool
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
- kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
- bhelgaas@google.com, unicorn_wang@outlook.com, kishon@kernel.org
-Cc: arnd@arndb.de, stable@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- srk@ti.com
-References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+ "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ "naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
+ <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
+ <0b76f196-f642-4991-ad5c-717c23938421@kernel.org>
+ <TY2PPF5CB9A1BE6597ECD46BD4CB7C5F09FF2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <3c3287f6-1c5c-4c4d-9349-32665a5e1585@kernel.org>
+ <TY2PPF5CB9A1BE6FE06477B9CC51B8133DAF2CFA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <TY2PPF5CB9A1BE67DBBC08424DD062549BDF2CDA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 Content-Language: en-US
-From: Hans Zhang <hans.zhang@cixtech.com>
-In-Reply-To: <20251113092721.3757387-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <TY2PPF5CB9A1BE67DBBC08424DD062549BDF2CDA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|SEZPR06MB5047:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7162e3f7-ab1c-4907-838d-08de22a0c530
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|32650700017|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TklIcXAvczR3Y1ZQc3RBZ2E2S0RiQ2xlOWhKYmt2YyttZXJuejBWTW5yNEYx?=
- =?utf-8?B?YnVqNW5IUjBXVTFLallXakkza2JHU2FLU1E4QTR1ejZ5TUVUQXMrdW44ZTF4?=
- =?utf-8?B?Z25iU2ZQWUkyaTZpZElVRkQ4NlRFeTl4endkN2F5VU1UQ0FSc0FLV1RaUVkr?=
- =?utf-8?B?MGRJU1E1aUVpMzVwYkhBYWFmeUNwQW9Wb2MvV1REWjJITnVYT3A5aEVpdUE3?=
- =?utf-8?B?Sy9EMlpwd0tYYmhYMU9iMU9sSUdPcmJNTDI5M1M5SENwMFdvMVJmZ0hlTldV?=
- =?utf-8?B?VlM1OWMrZEpOeG5Ka2E4M1pnd3dUeXBFQlZqTUpSWkJwRm9PeUIxc0wzaW9s?=
- =?utf-8?B?YkNjMHZtc3A4MU1CNDRXYkN4MHl1SmNxeFFxSElIa3M5OEw4THVPSHB5RitQ?=
- =?utf-8?B?cFk5RDZoUitTRmwxU2xJL3lXcFMxUEFTc2twdnlKYXR1bjN2c2xheU8rdG5D?=
- =?utf-8?B?ZXY4eTRsVWtweEJwbmN5azdrT25rbHptWkJ3a3c2NFRmeTJMU1Ara28rYk9B?=
- =?utf-8?B?U1ZWck5KeUFvemFwdUZEL1dtcXRncGpUQ1FwQXpSMGtMVmZOZ3NtcVgxc0tr?=
- =?utf-8?B?U2k4MitQL1k1dXpwcVNUUC81QmlRUVpwUWc3NENCOFk0OCtocUk1SjhzUWxX?=
- =?utf-8?B?WEVuenkxUlhiWHIwZ3ViQXRuMjFyZ082aCsrNVlxcVpwSTJqWXBXZ1VjMTFn?=
- =?utf-8?B?ZWN1b3gwN2dmVmVNc09lTVczOVdVQkovRGwzWHNENVc3aVljdjRSQ3R6TmdB?=
- =?utf-8?B?RWJOYkluV0l6QjVFWEtkb0RXL0RiZlJMNUl6RU1NdTB0M0VpbjZPeVVyeCt2?=
- =?utf-8?B?aGZLcmt3OVRpcm5lRVFKdkpOaDBxVHVidWVlQmZ3OWlGcFpxWUVRL0N2Zkov?=
- =?utf-8?B?dkRkNWx0S1BiaUVOa2RQYk9sZThsQ1A3UGZ4NS95STZocS9LMExmaHFZdEF2?=
- =?utf-8?B?SEp2ZWtJbTJrR3gxd1hYazVBMStRb1d5cm1JUHhBZnh4WS8vNFRaakJweHV3?=
- =?utf-8?B?dUJ4cGF4V01GVWJWSk5oUXQ3VFNHd0RZZzhTZS92QTRhbkh4enlqNG1HWjR6?=
- =?utf-8?B?cjQzT3NjSTA3a3hYckRTOG81NjkxWmE4MDJKZUtVdVFxODhhZHVqeTBVbThP?=
- =?utf-8?B?VTBNMStSR3duSzdkT3M3V2JWTEFzQjBXWXBWVXlob3hVbW1ZNkpVOC9QWkhI?=
- =?utf-8?B?RnR5TDROMTgxanJnMlhtN1ZycUFQaUFZR2ZmZm9TbVRkcFZac3RqY0pHZDhI?=
- =?utf-8?B?Y3pvZWRsRDg2R21kY0lpVW4xMktVenNORndpUHorR240bVB3TUJveWlKSzdk?=
- =?utf-8?B?WHpLNjNvcnRzN0MxSnRrTldJMEp3TFlvRmpaMXZiWkpSWFluZkRkTmkrUkJa?=
- =?utf-8?B?YkZqZDJITkNtVVlTMXRpYTMvZUw0WmVzZmdQVm5ha1BVdEQ2cjNhbkx4aDRo?=
- =?utf-8?B?dEh2ZWlmSVNkQXB6ZjNidXpOY3J1OGtpaXB1WlNMRlRxd0N6TVVONnZMSW1K?=
- =?utf-8?B?bkhCVTNOQktvbjFsWm0xWnRVdkpWV2c1NitZejdYSGd0K0Z1ZEtrSjFvRE5w?=
- =?utf-8?B?V0RZUURQOW52bmY3RmVKSXo4SDY0ZDY2L3FtTktRaU5QS1Z2S2VLSGx4dCt0?=
- =?utf-8?B?Y1UvaWJ6Z3FIOFJkcXVqV3BOY2RTK3ZTZW15YzlhYit5bHo3d0lQQkthSVg4?=
- =?utf-8?B?MGpyU3N2bFBhQ3NWUHFFVkEyaGZUbEdBOEJtTHVVRjRhV1AxMnRQZlFpRzIy?=
- =?utf-8?B?UFNTSzYvcTd6d1U5SDlHZzNHcTdrcEFJTUVsN3l2L2h2bVc2bnY5TFhZOHA4?=
- =?utf-8?B?YUxWdm1OQW5PeTN0R2lyb3lJMlFxYk55dDNhTkFEeXZCUEprYmp4bGtEQ3Vm?=
- =?utf-8?B?VnR6VUs5OHJ5bmVuRGFUMGlCbUhCWjhob3RwS3RET3NKRlI0OGUrTnFHRG93?=
- =?utf-8?B?WmFNNm5CdTN3T0hlUVkyS3V4UEVocmVDMHVUdUhnQVU1VEpWMXpRQVY2T2Zl?=
- =?utf-8?B?eWFsQllZdWZKcldhOG1vYkRXUkpUNlMwR2tBM1FkazNuckFlZlVHdVlHd0h1?=
- =?utf-8?B?L2xvdGFDRkZCWG1kelNqMzkwRTE0QnZacUp5b2dPdE1KeE1DUlFaUWFobU8y?=
- =?utf-8?Q?zXl0TICyIGgWAtF4mBoWc38Vd?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(32650700017)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2025 10:38:22.9384
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7162e3f7-ab1c-4907-838d-08de22a0c530
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5047
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_023832_644780_B0824047 
-X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,67 +135,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth,
+On 13/11/2025 10:34, Ryan Chen wrote:
+>>>>>> +  reg:
+>>>>>> +    minItems: 1
+>>>>>
+>>>>> Why?
+>>>>
+>>>> Will update as following.
+>>>>
+>>>> reg:
+>>>>   minItems: 1
+>>>>   maxItems: 2
+>>>
+>>>
+>>> No. You changed nothing. Instead explain why this is flexible.
+>>>
+>>> See writing bindings.
+>>
+>> Sorry, I still not understand your point. Do you mean need to explain why reg is
+>> flexible 1 -> 2?
+>> If yes, I will update to following.
+>>
+>> reg:
+>>   minItems: 1
+>>   maxItems: 2
+>>   description:
+>>     The first region covers the controller registers.
+>>     The optional second region covers the controller's buffer space.
+> 
+> After check the
+> https://docs.kernel.org/devicetree/bindings/writing-schema.html#annotated-example-schema
+> I think I should update with following, am I correct ?
+> 
+>  reg:
+>    items:
+>      - description: The first region covers the controller registers.
+> 	 - description: The optional second region covers the controller's buffer space.
 
+Please drop "The first region covers" and same for the second. Just say
+what is this - controller register and controllers buffer space - and
+second one is not optional now.
 
-Your patch repeats this part.
+> 
+> What you question about 
+> " Please explain me how one, same SoC has optional IO address space? I asked to explain WHY this is flexible"
+> The AST2600 i2c controller have three io,buffer,dma mode. 
+> The AST2600 have buffer register for buffer transfer. That is 2nd reg offset. 
 
+So the SoC *HAS* it. It is always there. It cannot be missing in the
+hardware.
 
-https://patchwork.kernel.org/project/linux-pci/patch/20251108140305.1120117-2-hans.zhang@cixtech.com/
+> If dtsi not descript it, the driver will go back to io mode transfer. Flexible implement is in driver.
+
+Describe the hardware.
 
 Best regards,
-Hans
-
-On 11/13/2025 5:27 PM, Siddharth Vadapalli wrote:
-> EXTERNAL EMAIL
-> 
-> The drivers associated with the PCIE_CADENCE, PCIE_CADENCE_HOST AND
-> PCIE_CADENCE_EP configs are used by multiple vendor drivers and serve as a
-> library of helpers. Since the vendor drivers could individually be built
-> as built-in or as loadable modules, it is possible to select a build
-> configuration wherein a vendor driver is built-in while the library is
-> built as a loadable module. This will result in a build error as reported
-> in the 'Closes' link below.
-> 
-> Address the build error by changing the library configs to be 'bool'
-> instead of 'tristate'.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202511111705.MZ7ls8Hm-lkp@intel.com/
-> Fixes: 1c72774df028 ("PCI: sg2042: Add Sophgo SG2042 PCIe driver")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->   drivers/pci/controller/cadence/Kconfig | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
-> index 02a639e55fd8..980da64ce730 100644
-> --- a/drivers/pci/controller/cadence/Kconfig
-> +++ b/drivers/pci/controller/cadence/Kconfig
-> @@ -4,16 +4,16 @@ menu "Cadence-based PCIe controllers"
->          depends on PCI
-> 
->   config PCIE_CADENCE
-> -       tristate
-> +       bool
-> 
->   config PCIE_CADENCE_HOST
-> -       tristate
-> +       bool
->          depends on OF
->          select IRQ_DOMAIN
->          select PCIE_CADENCE
-> 
->   config PCIE_CADENCE_EP
-> -       tristate
-> +       bool
->          depends on OF
->          depends on PCI_ENDPOINT
->          select PCIE_CADENCE
-> --
-> 2.51.1
-> 
-> 
-
+Krzysztof
 
