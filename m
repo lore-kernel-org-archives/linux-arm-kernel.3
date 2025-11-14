@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A083BCE7AAB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 11:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795ADCE7AB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 11:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQhQwX+ek5grd7jJCowADyE2KpeDQy5TkXuCqrcT1ME=; b=gkWX2oJwvoNu/4LGfPCYlA6Yyw
-	+g3FgAYyfOJkNQoQ1KOG2pFYWewvg4i6LHysyrDKMxlJTOJnfjdSKNOoqAAcIdkSPoqmOS4UFY99k
-	AX5eGCZgHE9hZYn6wk2YPDzhqZ6dltbHSofPtlt0ZUijNLhpmMb4XVppfNCrwhn4Q54wxZbRAeaDR
-	ra8gxjlKmMgvmAwQJH8V8iyrYcjPtHjocx4Sa9cUWjwRJ4jD5KDACma4HREzj9rijvZbtV4rBroNo
-	qSdw1jYlAgGgsUHh6x8Nrsr+YMFK/3C+amdwgUaJ0EcDtC73NrNpaAE1MxI+5pVM+cPAdnNOYHOYE
-	Bfy5mk4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tQcSzEpSwA6ZBpPi/rTINYX4HBb66yNmYZWYgUBx7xg=; b=r5l4FH8lqhhHSjXKKuQ42k504m
+	+sw7gW14BovybBfHu/9YmdAt94IURGx50ijclJzQBvdbtjh8CjoLqjKj6IA0jNH4SMBdCx425RwVi
+	HdW5xdKYlE8kpKJJrhm6bWinkT41raQpbo1CLatyg9JUYFXokmkTU55yjBKk0djRd5yxHAWgf6DDu
+	gTZwz8qynQC4GEBQK5CYkC47x4e9WTDriAAAU/cfDSwSMMeRYM3lJXya1F1l/SWWNpXNwnSefRfTz
+	+7/POUPhZHtxUnVSPuOChswJVCKvK0gJebqGdrJ1x7NBMS2kDFdZqWaaForoE8bI+vaWLa0Nf4z11
+	yjCjVlNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrYc-0000000C4tP-1ytr;
-	Fri, 14 Nov 2025 11:01:34 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vJrih-0000000C5oR-0kNc;
+	Fri, 14 Nov 2025 11:11:59 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrYZ-0000000C4sd-3nbS
+	id 1vJrif-0000000C5nz-16vW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 11:01:33 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJrYL-0001Cr-Kr; Fri, 14 Nov 2025 12:01:17 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJrYK-000PGR-0s;
-	Fri, 14 Nov 2025 12:01:16 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id CE67A49F467;
-	Fri, 14 Nov 2025 11:01:15 +0000 (UTC)
-Date: Fri, 14 Nov 2025 12:01:15 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: zhangqing <zhangqing@rock-chips.com>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org, 
-	conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-can@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	cl@rock-chips.com, kernel@pengutronix.de, krzk+dt@kernel.org, 
-	mailhol.vincent@wanadoo.fr
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-Message-ID: <20251114-utopian-cheerful-otter-33c1d5-mkl@pengutronix.de>
-References: <20251113075419.482940-1-zhangqing@rock-chips.com>
- <20251113075419.482940-4-zhangqing@rock-chips.com>
- <20251113-slim-foamy-gecko-2dc389-mkl@pengutronix.de>
- <176d96b4-397c-49d4-8e8e-2f77a5d59c12@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7qbjzmaz2uefdur2"
-Content-Disposition: inline
-In-Reply-To: <176d96b4-397c-49d4-8e8e-2f77a5d59c12@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Fri, 14 Nov 2025 11:11:58 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b5c6c817a95so152865566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 03:11:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763118715; x=1763723515; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tQcSzEpSwA6ZBpPi/rTINYX4HBb66yNmYZWYgUBx7xg=;
+        b=oN1gqxAlm3wf4U+Qr8Es9d0vChPCzIY+ltz3XvY1sIHl0L21pi6q/mkaq0qHVVoD+T
+         78CwgxW4f113/ku5u2ltExDxxcazZ9MRcqfCv3S70Nqgp0qvNswFNZ6MRhIuGYs0a9s6
+         nr7wGVB3DGVv53+39WjxFXbZAFEd4vfo0comED7pxOYFt5NOjWUgM8marf8Vy/dSvHy+
+         IxXHzaPMhyeo84DHF54vv23D7ab3XivThUyAPgmAeE9gQ5beay/5KCWk9lLBATfrPhu4
+         nmB1O6mGwjjdiYBfS6xHdTupGh3LSxJRzdXlEdK8gUNGWq9TE9+oo9PVB+II/wFtNp2a
+         8W2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763118715; x=1763723515;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tQcSzEpSwA6ZBpPi/rTINYX4HBb66yNmYZWYgUBx7xg=;
+        b=UeCIr2L9lR7QlsMR7VBh5foQeQjF0knVLwZwMa7wgI6ep0K3c5uB+Yds6WG1AlbjTP
+         D6BppGC1F0JsH5LOCLDa56sRBM80k2rp2POUZOS83zB7xakHftcwQbi/AyKQVnxA/c7j
+         7j3yDY8R0RzLFGFRIyS2y2U9MwTg//msK/yzwnNBgtJxybUgZpQn2Dd1utkqsaIXG4XG
+         pZTa2HJdACqi0JtehOvFRucZumlU9E04Un5sFhI9MfNMJqpdP4V3YdYbdc2h3HTmpl5i
+         cGWp/nkQrVVQPze+CGkSJ4AHlSJFT7WgxdcwyQgkScGEzqFxq7Y1391xpRyHNaAwtrGI
+         GnRA==
+X-Forwarded-Encrypted: i=1; AJvYcCVuw9SddxoPJlRxwdVegZ+fqZbSBj1pWbOCcRqMD6sxO8EoXCZ03sRjcIk4YJ8WkapCN6NNCZAik8rapUTxZX0I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnt/rWqDtvK49G3lzZDSDjNERf6jCd/9MoaIsDH8QHn2+jGZ5T
+	zbAMXsbswMJR+ao+s2Im95MRkqTDA3vsvHLpRSjxAP9IzIcwdPTpfES5m6dqSGotcuKlxs3/6Gv
+	t9XqKaIF2qQ==
+X-Google-Smtp-Source: AGHT+IGnWVB505G2W650/nXNH2n0iR9oY27m/GdXw2nME7uc6d5UvqI4cEORymAa2S62GvJ0zkxb/mKrP/Ib
+X-Received: from ejcvi2.prod.google.com ([2002:a17:907:d402:b0:b73:7326:8548])
+ (user=korneld job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:6d20:b0:b45:66f6:6a0a
+ with SMTP id a640c23a62f3a-b736793d74dmr217106466b.44.1763118714892; Fri, 14
+ Nov 2025 03:11:54 -0800 (PST)
+Date: Fri, 14 Nov 2025 11:11:53 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAHgOF2kC/x3MQQqAIBBA0avIrBNSDKWrRIjUWEOkohGBdPek5
+ Vv8X6FgJiwwsgoZbyoUQ4PoGCy7CxtyWptB9nIQQiiejvu0FOiyIXrvuFuM6QelUUsNrUoZPT3 /cZrf9wNy+DuXYQAAAA==
+X-Change-Id: 20251114-pkvm_init_noffa-ac880547e727
+X-Mailer: b4 0.14.2
+Message-ID: <20251114-pkvm_init_noffa-v1-1-87a82e87c345@google.com>
+Subject: [PATCH] KVM: arm64: Fix error checking for FFA_VERSION
+From: "=?utf-8?q?Kornel_Dul=C4=99ba?=" <korneld@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Bartlomiej Grzesik <bgrzesik@google.com>, Tomasz Nowicki <tnowicki@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	"=?utf-8?q?Kornel_Dul=C4=99ba?=" <korneld@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_030131_942643_36AA6564 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20251114_031157_356569_601B8AE9 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +96,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+According to section 13.2 of the DEN0077 FF-A specification, when
+firmware does not support the requested version, it should reply with
+FFA_RET_NOT_SUPPORTED(-1). Table 13.6 specifies the type of the error
+code as int32.
+Currently, the error checking logic compares the unsigned long return
+value it got from the SMC layer, against a "-1" literal. This fails due
+to a type mismatch: the literal is extended to 64 bits, whereas the
+register contains only 32 bits of ones(0x00000000ffffffff).
+Consequently, hyp_ffa_init misinterprets the "-1" return value as an
+invalid FF-A version. This prevents pKVM initialization on devices where
+FF-A is not supported in firmware.
+Fix this by explicitly casting res.a0 to s32.
 
---7qbjzmaz2uefdur2
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-MIME-Version: 1.0
+Signed-off-by: Kornel Dul=C4=99ba <korneld@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On 14.11.2025 17:55:53, zhangqing wrote:
-> > > +/* The rk3576 CAN-FD */
-> > > +static const struct rkcanfd_devtype_data rkcan_devtype_data_rk3576 =
-=3D {
-> > > +	.model =3D RKCAN_MODEL_RK3576,
-> > > +	.quirks =3D RKCANFD_QUIRK_CANFD_BROKEN,
-> > Is CAN-FD mode broken on the rk3576?
-> >
-> > Please test CAN-FD and please do the tests documented near the
-> > definition of RKCANFD_QUIRK_CANFD_BROKEN:
-> >
-> > | Tests on the rk3568v2 and rk3568v3 show that receiving certain
-> > | CAN-FD frames trigger an Error Interrupt.
-> > |
-> > | - Form Error in RX Arbitration Phase: TX_IDLE RX_STUFF_COUNT (0x0a010=
-100) CMD=3D0 RX=3D0 TX=3D0
-> > |   Error-Warning=3D1 Bus-Off=3D0
-> > |   To reproduce:
-> > |   host:
-> > |     cansend can0 002##01f
-> > |   DUT:
-> > |     candump any,0:0,#FFFFFFFF -cexdHtA
-> > |
-> > | - Form Error in RX Arbitration Phase: TX_IDLE RX_CRC (0x0a010200) CMD=
-=3D0 RX=3D0 TX=3D0
-> > |   Error-Warning=3D1 Bus-Off=3D0
-> > |   To reproduce:
-> > |   host:
-> > |     cansend can0 002##07217010000000000
-> > |   DUT:
-> > |     candump any,0:0,#FFFFFFFF -cexdHtA
-> There is no doubt about the other modifications above. They will be
-> corrected in version V10.
->
-> CANFD requires authorization and is not supported by default.
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 58b7d0c477d7fce235fc70d089d175c7879861b5..ab1e53bd4ceeea431fc30a87548=
+2ed1523b01ab5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -792,7 +792,7 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *r=
+es,
+ 			.a0 =3D FFA_VERSION,
+ 			.a1 =3D ffa_req_version,
+ 		}, res);
+-		if (res->a0 =3D=3D FFA_RET_NOT_SUPPORTED)
++		if ((s32)res->a0 =3D=3D FFA_RET_NOT_SUPPORTED)
+ 			goto unlock;
+=20
+ 		hyp_ffa_version =3D ffa_req_version;
+@@ -943,7 +943,7 @@ int hyp_ffa_init(void *pages)
+ 		.a0 =3D FFA_VERSION,
+ 		.a1 =3D FFA_VERSION_1_2,
+ 	}, &res);
+-	if (res.a0 =3D=3D FFA_RET_NOT_SUPPORTED)
++	if ((s32)res.a0 =3D=3D FFA_RET_NOT_SUPPORTED)
+ 		return 0;
+=20
+ 	/*
 
-Can you explain what you mean by authorization? What do you mean by "not
-supported"?
+---
+base-commit: 6fa9041b7177f6771817b95e83f6df17b147c8c6
+change-id: 20251114-pkvm_init_noffa-ac880547e727
 
-> After obtaining authorization, it can be used, so this place is not
-> considered broken.
-> What's the best way to handle this situation?
-
-regards,
-Marc
-
+Best regards,
 --=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Kornel Dul=C4=99ba <korneld@google.com>
 
---7qbjzmaz2uefdur2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkXC/gACgkQDHRl3/mQ
-kZxHpwgAkC5up5LxQ0M/i45TK5HrheSKwaAeoDS/jf4rhHzNBY1cctV7AE15Su8a
-Hl3AFmclsThC1Mk1cny/1hCPVZ0t8vWE2NxcZkQdJ1YUMqPhMCgl9PP9RnYl5EZg
-bDb71An58FEBd4O0I9Oiwf/5uIsvnJKli71TDwkGWbzLJPuveX5UXJgwzPrpWkvn
-iU3+gPOuLHVTq+xWZdWSCSJ9M5R13HXyI3V35vfbvBLHuspYiaFknMmZd3X+5Yhy
-eQUHAk9DS67Pkp/0UNm7eYWXwj0DVHI2cffJD/JL8eaZ+iy6rS/8mmAC91gX8PRZ
-YIsN5HiZiINF0lao5T2d+ddcKBH/3w==
-=Nqc9
------END PGP SIGNATURE-----
-
---7qbjzmaz2uefdur2--
 
