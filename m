@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA6F2CE7AA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C40CE7AAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46vaQCF34z6rfJD8H1TZ1Cjvrz/2PmA+Sz++Z3gut2I=; b=veTT+PEWVhS5lOQnwAa4JG33Ph
-	cdRovxh2lHqQ6HaQyp5ovlE5c9Pulis0oe1ciiWZ2hxu2hOB7NW7wDNtszBMDW6KLq1SrWF4Gh1o7
-	bIRuZd6rZkqmpY7Iz+a/wQ6RKX9ezcZsGMitbpmYtJZr+uncgCx+KuHaCOqrvGDM2qWtHGF4iGsxk
-	7+luEdpvufCBzchITIgovanJ0u2MCOlJO89MujLrMl2z4poTFbK9D+zACj8rdfe8PFTgDabnOEfh2
-	Cab/ak1CyMiOncVH00dFDE2PPr687AgYrgOmyZXthzmX5I7fQngXoI062f7/bMkloLMxP+6T0Dyko
-	IcMZtuJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EVI70XYhKYZsLUwKcSgm0ZILaXsijNoyMVaO+azULSE=; b=d2yl++pfCcRpmQjsaQZlCCqbN6
+	K53cbzn04o9NqLoJCKkbKp92rAb45im01eZHRX24Ps2o12qcApg5wHVscxahp0SqfpBmloP0dBTaW
+	FnZhoj/m2SY/WlX7rcH9RTDk8ghyP3gkPhOjx1+6HUQgLyffbjbEMCNZXeOODzaUKOCQ9WV/QUycI
+	ZAZLi0BWmY2W5XpS5wSQkBPrmum/FvzX3Y4GB7VCMR5bigWqRvqWDpaRXstScPAB2DPH7+Ppiic6r
+	9BjnBPS5uh1UDiry3h06aZHo2ma9VHDV7qDLRrcFPdWXNw66VmQ/Upv7t3Ko9r0+0FSxTaCg33p5h
+	nXH2tJig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqiX-0000000ByWo-1Z4e;
-	Fri, 14 Nov 2025 10:07:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqiU-0000000ByWM-3eGR
+	id 1vJqkU-0000000ByiL-2bhD;
+	Fri, 14 Nov 2025 10:09:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJqkT-0000000Byhv-0ajY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:07:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D91101063;
-	Fri, 14 Nov 2025 02:07:33 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB7BD3F5A1;
-	Fri, 14 Nov 2025 02:07:36 -0800 (PST)
-Message-ID: <38f65035-159d-47d9-b88a-15d79552d8ae@arm.com>
-Date: Fri, 14 Nov 2025 10:07:35 +0000
+	Fri, 14 Nov 2025 10:09:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7487843EF8;
+	Fri, 14 Nov 2025 10:09:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F0E2C4CEF8;
+	Fri, 14 Nov 2025 10:09:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763114984;
+	bh=3FPisBOj9ak9xPE4SRE6FfLYTzBMXBsTCrX3XBItwsw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dAH3EZ89a4elLYpbNHW8qvo2f6IxnT+9vSDLnBIzISDEtTbgFR6RfLxV/HqIwtjrJ
+	 0b1wt4Gezo3lqYZgOJcHiWo1ow/pVPe+xx5r9Uo1XNuhJOf4wVObbRJodU4j7FeJd9
+	 q6uXtcaDGCEMoHazQ8enQKc2//ot+OApLd2z5n/BLVoAinejtYeALxPEFjdhcrCnbO
+	 K5pd7GmCAbYPH+PfMNW4q1mgdcIh5YZzbyGa2PgevNCYwZECQsajWcl1gBOICKeLZQ
+	 aNH63QF0rClbWlrfFDyKdwM6Fr7JGpShEwEVFygr78BGU0B6PaJGyjtfP1leUudVd4
+	 Hx9qeKgz8COCQ==
+Date: Fri, 14 Nov 2025 10:09:39 +0000
+From: Simon Horman <horms@kernel.org>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com, boon.khai.ng@altera.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/2] net: stmmac: Fix VLAN 0 deletion in
+ vlan_del_hw_rx_fltr()
+Message-ID: <aRb_42Er4k9tMGZO@horms.kernel.org>
+References: <20251111093000.58094-1-ovidiu.panait.rb@renesas.com>
+ <20251111093000.58094-2-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 26/33] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-27-ben.horgan@arm.com>
- <61680de1-6732-48a6-a871-9cc9f17f6759@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <61680de1-6732-48a6-a871-9cc9f17f6759@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251111093000.58094-2-ovidiu.panait.rb@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_020743_001843_C9132959 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20251114_020945_201659_5EBC37AE 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,384 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+On Tue, Nov 11, 2025 at 09:29:59AM +0000, Ovidiu Panait wrote:
+> When the "rx-vlan-filter" feature is enabled on a network device, the 8021q
+> module automatically adds a VLAN 0 hardware filter when the device is
+> brought administratively up.
+> 
+> For stmmac, this causes vlan_add_hw_rx_fltr() to create a new entry for
+> VID 0 in the mac_device_info->vlan_filter array, in the following format:
+> 
+>     VLAN_TAG_DATA_ETV | VLAN_TAG_DATA_VEN | vid
+> 
+> Here, VLAN_TAG_DATA_VEN indicates that the hardware filter is enabled for
+> that VID.
+> 
+> However, on the delete path, vlan_del_hw_rx_fltr() searches the vlan_filter
+> array by VID only, without verifying whether a VLAN entry is enabled. As a
+> result, when the 8021q module attempts to remove VLAN 0, the function may
+> mistakenly match a zero-initialized slot rather than the actual VLAN 0
+> entry, causing incorrect deletions and leaving stale entries in the
+> hardware table.
+> 
+> Fix this by verifying that the VLAN entry's enable bit (VLAN_TAG_DATA_VEN)
+> is set before matching and deleting by VID. This ensures only active VLAN
+> entries are removed and avoids leaving stale entries in the VLAN filter
+> table, particularly for VLAN ID 0.
+> 
+> Fixes: ed64639bc1e08 ("net: stmmac: Add support for VLAN Rx filtering")
+> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
 
-On 11/9/25 23:13, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 11/7/25 10:34 PM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Reading a monitor involves configuring what you want to monitor, and
->> reading the value. Components made up of multiple MSC may need values
->> from each MSC. MSCs may take time to configure, returning 'not ready'.
->> The maximum 'not ready' time should have been provided by firmware.
->>
->> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
->> not ready, then wait the full timeout value before trying again.
->>
->> CC: Shanker Donthineni <sdonthineni@nvidia.com>
->> Cc: Shaopeng Tan (Fujitsu) <tan.shaopeng@fujitsu.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v3:
->> Add tag - thanks
->> Bring config_mismatch into this commit (Jonathan)
->> whitespace
->> ---
->>   drivers/resctrl/mpam_devices.c  | 237 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_internal.h |  19 +++
->>   2 files changed, 256 insertions(+)
->>
-> 
-> With below minor comments addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-Thanks!
-
-> 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->> mpam_devices.c
->> index f51ffb1400db..86abbac5e1ad 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -886,6 +886,243 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>       return 0;
->>   }
->>   +struct mon_read {
->> +    struct mpam_msc_ris        *ris;
->> +    struct mon_cfg            *ctx;
->> +    enum mpam_device_features    type;
->> +    u64                *val;
->> +    int                err;
->> +};
->> +
->> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->> +                   u32 *flt_val)
->> +{
->> +    struct mon_cfg *ctx = m->ctx;
->> +
->> +    /*
->> +     * For CSU counters its implementation-defined what happens when not
->> +     * filtering by partid.
->> +     */
->> +    *ctl_val = MSMON_CFG_x_CTL_MATCH_PARTID;
->> +
->> +    *flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
->> +
->> +    if (m->ctx->match_pmg) {
->> +        *ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->> +        *flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
->> +    }
->> +
->> +    switch (m->type) {
->> +    case mpam_feat_msmon_csu:
->> +        *ctl_val |= MSMON_CFG_CSU_CTL_TYPE_CSU;
->> +
->> +        if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
->> +            *flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
->> +                           ctx->csu_exclude_clean);
-> 
-> {} missed here.
-
-Changed to one line.
-
-> 
->> +
->> +        break;
->> +    case mpam_feat_msmon_mbwu:
->> +        *ctl_val |= MSMON_CFG_MBWU_CTL_TYPE_MBWU;
->> +
->> +        if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
->> +            *flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
->> +
->> +        break;
->> +    default:
->> +        return;
-> 
-> s/return/break
-> 
-> We may add a error message here:
-> 
->         pr_warn("Unsupported feature %d\n", m->type);
-> 
-
-Using pr_warn("Unexpected monitor type %d\n", m->type);       
-> 
->> +    }
->> +}
->> +
->> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->> +                    u32 *flt_val)
->> +{
->> +    struct mpam_msc *msc = m->ris->vmsc->msc;
->> +
->> +    switch (m->type) {
->> +    case mpam_feat_msmon_csu:
->> +        *ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
->> +        *flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
->> +        return;
->> +    case mpam_feat_msmon_mbwu:
->> +        *ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
->> +        *flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
->> +        return;
->> +    default:
->> +        return;
->> +    }
->> +}
-> 
-> s/return/break for all cases, and maybe a warning message for the
-> default case.
-
-Done
-
-> 
->> +
->> +/* Remove values set by the hardware to prevent apparent mismatches. */
->> +static void clean_msmon_ctl_val(u32 *cur_ctl)
->> +{
->> +    *cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
->> +}
->> +
-> 
-> May be worthy be to a inline function.
-
-Done
-
-> 
->> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->> +                     u32 flt_val)
->> +{
->> +    struct mpam_msc *msc = m->ris->vmsc->msc;
->> +
->> +    /*
->> +     * Write the ctl_val with the enable bit cleared, reset the counter,
->> +     * then enable counter.
->> +     */
->> +    switch (m->type) {
->> +    case mpam_feat_msmon_csu:
->> +        mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
->> +        mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
->> +        mpam_write_monsel_reg(msc, CSU, 0);
->> +        mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val |
->> MSMON_CFG_x_CTL_EN);
->> +        break;
->> +    case mpam_feat_msmon_mbwu:
->> +        mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
->> +        mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->> +        mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val |
->> MSMON_CFG_x_CTL_EN);
->> +        /* Counting monitors require NRDY to be reset by software */
->> +        mpam_write_monsel_reg(msc, MBWU, 0);
->> +        break;
->> +    default:
->> +        return;
-> 
-> s/return/break, and maybe a warning message for the default case.
-
-Done. Using the same warning as above.
-
-> 
->> +    }
->> +}
->> +
->> +static void __ris_msmon_read(void *arg)
->> +{
->> +    u64 now;
->> +    bool nrdy = false;
->> +    bool config_mismatch;
->> +    struct mon_read *m = arg;
->> +    struct mon_cfg *ctx = m->ctx;
->> +    struct mpam_msc_ris *ris = m->ris;
->> +    struct mpam_props *rprops = &ris->props;
->> +    struct mpam_msc *msc = m->ris->vmsc->msc;
->> +    u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
->> +
->> +    if (!mpam_mon_sel_lock(msc)) {
->> +        m->err = -EIO;
->> +        return;
->> +    }
->> +    mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
->> +          FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
->> +    mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
->> +
->> +    /*
->> +     * Read the existing configuration to avoid re-writing the same
->> values.
->> +     * This saves waiting for 'nrdy' on subsequent reads.
->> +     */
->> +    read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
->> +    clean_msmon_ctl_val(&cur_ctl);
->> +    gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
->> +    config_mismatch = cur_flt != flt_val ||
->> +              cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
->> +
->> +    if (config_mismatch)
->> +        write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
->> +
->> +    switch (m->type) {
->> +    case mpam_feat_msmon_csu:
->> +        now = mpam_read_monsel_reg(msc, CSU);
->> +        if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
->> +            nrdy = now & MSMON___NRDY;
->> +        break;
->> +    case mpam_feat_msmon_mbwu:
->> +        now = mpam_read_monsel_reg(msc, MBWU);
->> +        if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
->> +            nrdy = now & MSMON___NRDY;
->> +        break;
->> +    default:
->> +        m->err = -EINVAL;
->> +        break;
-> 
-> This 'break' can be droped.
-
-Done
-
-> 
->> +    }
->> +    mpam_mon_sel_unlock(msc);
->> +
->> +    if (nrdy) {
->> +        m->err = -EBUSY;
->> +        return;
->> +    }
->> +
->> +    now = FIELD_GET(MSMON___VALUE, now);
->> +    *m->val += now;
->> +}
->> +
->> +static int _msmon_read(struct mpam_component *comp, struct mon_read
->> *arg)
->> +{
->> +    int err, any_err = 0;
->> +    struct mpam_vmsc *vmsc;
->> +
->> +    guard(srcu)(&mpam_srcu);
->> +    list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        struct mpam_msc *msc = vmsc->msc;
->> +        struct mpam_msc_ris *ris;
->> +
->> +        list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
->> +                     srcu_read_lock_held(&mpam_srcu)) {
->> +            arg->ris = ris;
->> +
->> +            err = smp_call_function_any(&msc->accessibility,
->> +                            __ris_msmon_read, arg,
->> +                            true);
->> +            if (!err && arg->err)
->> +                err = arg->err;
->> +
->> +            /*
->> +             * Save one error to be returned to the caller, but
->> +             * keep reading counters so that get reprogrammed. On
->> +             * platforms with NRDY this lets us wait once.
->> +             */
->> +            if (err)
->> +                any_err = err;
->> +        }
->> +    }
->> +
->> +    return any_err;
->> +}
->> +
->> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
->> +            enum mpam_device_features type, u64 *val)
->> +{
->> +    int err;
->> +    struct mon_read arg;
->> +    u64 wait_jiffies = 0;
->> +    struct mpam_props *cprops = &comp->class->props;
->> +
->> +    might_sleep();
->> +
->> +    if (!mpam_is_enabled())
->> +        return -EIO;
->> +
->> +    if (!mpam_has_feature(type, cprops))
->> +        return -EOPNOTSUPP;
->> +
->> +    arg = (struct mon_read) {
->> +        .ctx = ctx,
->> +        .type = type,
->> +        .val = val,
->> +    };
->> +    *val = 0;
->> +
->> +    err = _msmon_read(comp, &arg);
->> +    if (err == -EBUSY && comp->class->nrdy_usec)
->> +        wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
->> +
->> +    while (wait_jiffies)
->> +        wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
->> +
->> +    if (err == -EBUSY) {
->> +        arg = (struct mon_read) {
->> +            .ctx = ctx,
->> +            .type = type,
->> +            .val = val,
->> +        };
->> +        *val = 0;
->> +
->> +        err = _msmon_read(comp, &arg);
->> +    }
->> +
->> +    return err;
->> +}
->> +
->>   static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16
->> wd)
->>   {
->>       u32 num_words, msb;
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
->> mpam_internal.h
->> index e59c0f4d9ada..d8f8e29987e0 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -184,6 +184,22 @@ struct mpam_props {
->>   #define mpam_set_feature(_feat, x)    set_bit(_feat, (x)->features)
->>   #define mpam_clear_feature(_feat, x)    clear_bit(_feat, (x)->features)
->>   +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
->> +enum mon_filter_options {
->> +    COUNT_BOTH    = 0,
->> +    COUNT_WRITE    = 1,
->> +    COUNT_READ    = 2,
->> +};
->> +
->> +struct mon_cfg {
->> +    u16            mon;
->> +    u8            pmg;
->> +    bool            match_pmg;
->> +    bool            csu_exclude_clean;
->> +    u32            partid;
->> +    enum mon_filter_options opts;
->> +};
->> +
->>   struct mpam_class {
->>       /* mpam_components in this class */
->>       struct list_head    components;
->> @@ -327,6 +343,9 @@ void mpam_disable(struct work_struct *work);
->>   int mpam_apply_config(struct mpam_component *comp, u16 partid,
->>                 struct mpam_config *cfg);
->>   +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
->> +            enum mpam_device_features, u64 *val);
->> +
->>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
->> cache_level,
->>                      cpumask_t *affinity);
->>   
-> Thanks,
-> Gavin
-> 
-
-Thanks,
-
-Ben
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
