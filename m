@@ -4,56 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11A6CE8D68
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BBFCE7AFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcyJn1tkb82n/VdxROnhkF76zhV/W1b00Lj77nCarw0=; b=JfHd5MX4HVuriuwv9fc100q7MB
-	0TLyEydKAGUUZ+PwR+trK404K1OAvSZ5a6ky2gCAgPK5D+WMlfSpoR0zOH+6cVXzdeLR1HohXDMPm
-	Aq3qu0VgWn7nwEG8/zmNWjvDNPoQkNE09qmprJGYdZvlIzWBjiYrnX+A76AyggBO652qBwXl84PmD
-	riqT4Y1PiNpoTfWs60uJ/mDqdfzWOC6ywKIR8cXG92p0Rxs+ATWfxsPktVkyDAdqtL50PKJCJNBWf
-	UzJyCTVE89Sx9iTadDOqp368WU9Av7doSE5HqcGbgTDBO2EpfcrvCh50uIRo9bDfvH9+VFrUOMcVu
-	C4Xh+a4A==;
+	bh=R8qQzZhIWGCLSP8vPQOtc5NmHuw015KgkUf4oeB0WMc=; b=liauhR+Dr3fdy5EFOBT7U+xaKJ
+	2LRgbrrGJTWEaSVgPherbIn9mm/dcw07shFOE0SLOStA6rBpKopVCXqxNo5+FC8nzY15DIZtNBx5H
+	kQnqQbHP3O7cKz2LT9QTyM2B87lKq3jbjNh7IxYAx2Y0tqm/ScOakTW4uGvWT+wiXIuz2kxJCggVQ
+	egT0HpRDdSUfdTtUBJZTul0pfsU5/hklblJPNNEIphwssYhUA9+Z6aWCfpge8kQ4R5QT0PUgX6qjA
+	BDNL8pBEVB3UiqyziEtFQen0+HFpPUsVb0okMBDPXkivzxGeWfOQ3fmc9MdpsFIgl0BFjhc5lME33
+	Wos67wpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJyAY-0000000CvV6-1ISR;
-	Fri, 14 Nov 2025 18:05:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJyAV-0000000CvUV-1Y6U
+	id 1vJyFH-0000000Cw8N-1X3W;
+	Fri, 14 Nov 2025 18:10:03 +0000
+Received: from mail-ej1-f46.google.com ([209.85.218.46])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJyFF-0000000Cw7d-17Ja
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 18:05:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5291A1063;
-	Fri, 14 Nov 2025 10:04:58 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D3E43F5A1;
-	Fri, 14 Nov 2025 10:05:05 -0800 (PST)
-Date: Fri, 14 Nov 2025 18:05:03 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 13/13] coresight: docs: Document etm4x timestamp
- interval option
-Message-ID: <20251114180503.GM3568724@e132581.arm.com>
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
- <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
+	Fri, 14 Nov 2025 18:10:02 +0000
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b7359b03878so300744366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 10:10:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1763143799; x=1763748599; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=R8qQzZhIWGCLSP8vPQOtc5NmHuw015KgkUf4oeB0WMc=;
+        b=NUyaj7hrrBRni0mV3KImUywOBAz+PhpKfemfZH7lrGfBqEdqFaKd9QGVqp+c3BvbGZ
+         D9HROvk1JEg0XNnmy3R5Ld5i2NqeebjRb3ePeZP4Rwf3EsVhko98mLQs2wmaDrZasJzn
+         vetOjt6vV5QrVEbOcUCJcNKx7sDxxNqnn1+/0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763143799; x=1763748599;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R8qQzZhIWGCLSP8vPQOtc5NmHuw015KgkUf4oeB0WMc=;
+        b=KCLXP/WnUyqAspC0ysdEWFHTXRSgvr6O4cjlAT4Xr3Zr9JrioZeJFFv/R0guZAyXur
+         sCbcOP6BlgvpMCNkc7mVOOmwyrcbuQL54V1ZM7AMQjqIaxfBanHuNxhkYTZlA2H8uvkX
+         8pegDkhTxG13GrbX/43nl4syFwsQq0y9DiWEkUApPB+CSpZoJPBt2xfwl98vPUtmg6iX
+         Wdl+nV0EsHt2PLyp+dlQ0ozZsVDhEtcbk3lOKZuBw518ozKUR3K45DBUS43AEwDGGTXM
+         GeVZ/ZO+drh5GOeS6PYYpUXHs4it7OlrVs6ZenWgPQDjaqjnq0oDbA32amHiMmuMU7vy
+         mkPQ==
+X-Gm-Message-State: AOJu0YwQ73t1sNNnLptwwNHf+McvWwO0h5HFioWZgHfy2lJrU6SZ152n
+	7NFS29OraxV658pA/A0f95rbioGZJD6P6HITi/axh/R+MXCIaMHfjn7yu43120UpKXvQzdj19om
+	1bDDMs4WuxfB0WvFO3wVsQlwXFmeX5pDS5DXyHUbM
+X-Gm-Gg: ASbGncuDFfaSOV/bUKEfJFNWut8uaXPsLGMjwwzEhHX1D16OnQLEVfVUgDnl2qNoxI1
+	R1izF0SLmh27pU16w8wR/c0ngFVvDAdfSok8ISz1RTBjElq5MpK6UPSn9C99O66rELOCgAzvxER
+	QOTmpV81DktWOhRZCZ4YiRitob72pD9TdNop169QdscwwUKPkSb+/DvnC/6pLl2Z6VN32QxeknT
+	21loe4POhXgs5hbxBjLDiMMRlLxSs7NS7P/LKpK3hPixuXs7IFwgzo+oQ4fHiGLZbb8t8c/BJ9U
+	uA5e
+X-Google-Smtp-Source: AGHT+IExxhygUk184s9UEYnGIp0Y7VKAW16mQXGNIivL6M30ouE5Dlc7H2XC+tXQUb8E7Bxe3ZgisHnxvpUyi0cdpJI=
+X-Received: by 2002:a17:907:3f1d:b0:b72:b7cd:f59e with SMTP id
+ a640c23a62f3a-b73658aa141mr469517066b.8.1763143798910; Fri, 14 Nov 2025
+ 10:09:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
+References: <20251006230205.521341-1-sjg@chromium.org> <20251006230205.521341-5-sjg@chromium.org>
+ <aQ-zE_EmoPbgCItD@levanger>
+In-Reply-To: <aQ-zE_EmoPbgCItD@levanger>
+From: Simon Glass <sjg@chromium.org>
+Date: Fri, 14 Nov 2025 11:09:46 -0700
+X-Gm-Features: AWmQ_bn3YwxAZejq6GcqYY3-aXpCr2hDyUvCmW-Ly8TyOSurBWad8qFguf92KZc
+Message-ID: <CAFLszThNq4Yr=uoEXjt_xsvXZRNBPqmm9wX+SwLJMfeMKenNfQ@mail.gmail.com>
+Subject: Re: [PATCH v4 4/7] scripts/make_fit: Provide a way to add built modules
+To: Nicolas Schier <nsc@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Ahmad Fatoum <a.fatoum@pengutronix.de>, Masahiro Yamada <masahiroy@kernel.org>, 
+	=?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
+	Tom Rini <trini@konsulko.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_100507_445934_D33296A4 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20251114_101001_360031_2CD26DB1 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,63 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 03:22:19PM +0000, James Clark wrote:
-> Document how the new field is used, maximum value and the interaction
-> with SYNC timestamps.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  Documentation/trace/coresight/coresight.rst | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
-> index 806699871b80..80b5ed09d69b 100644
-> --- a/Documentation/trace/coresight/coresight.rst
-> +++ b/Documentation/trace/coresight/coresight.rst
-> @@ -613,8 +613,19 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
->       - Session local version of the system wide setting: :ref:`ETM_MODE_RETURNSTACK
->         <coresight-return-stack>`
->     * - timestamp
-> -     - Session local version of the system wide setting: :ref:`ETMv4_MODE_TIMESTAMP
-> -       <coresight-timestamp>`
-> +     - Controls generation and interval of timestamps.
-> +
-> +       0 = off, 1 = maximum interval .. 15 = minimum interval.
+Hi Nicolas,
 
-I am struggling to understand the "maximum" and "minimum" usage here.
+On Sat, 8 Nov 2025 at 22:19, Nicolas Schier <nsc@kernel.org> wrote:
+>
+> On Mon, Oct 06, 2025 at 05:01:55PM -0600, Simon Glass wrote:
+> > Provide arguments to support building a ramdisk from a directory tree of
+> > modules. This is a convenient way to try out a kernel with its modules.
+> >
+> > This makes use of the cpio tool rather than attempting to use a python
+> > module or our own code. The list of modules is provided in a file.
+>
+> The list of modules is provided via command line option/arguments,
+> isn't it?
 
-Seems to me, you are saying:
+The argument list ends up being too long, so it uses a file. The file
+name is provided using an @filename argument.
 
-    1 = maximum frequency .. 15 = minimum frequency
+>
+> >
+> > Signed-off-by: Simon Glass <sjg@chromium.org>
+> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> > ---
+> >
+> > Changes in v4:
+> > - Provide the list of modules from the Makefile
+> > - Reduce verbosity (don't print every module filename)
+>
+> Reviewed-by: Nicolas Schier <nsc@kernel.org>
 
-> +
-> +       Values 1 - 14 use a counter that decrements every cycle to generate a
-> +       timestamp on underflow. The reload value for the counter is 2 raised to
-> +       the power of timestamp interval - 1. If the value is 1 then the reload
-> +       value is 1, if the value is 11 then the reload value is 1024 etc.
+Thanks for looking at these.
 
-I saw your replying to Randy, yeah, the formula would be much clear.
-
-> +
-> +       Setting the minimum interval (15) will disable the counter generated
-> +       timestamps, freeing the counter resource, leaving only ones emitted when
-> +       a SYNC packet is generated for every 4096 bytes of trace.
-
-"every 4096 bytes" is not always true.
-
-Isn't this defined in TRCSYNCPR.PERIOD?  Maybe just say "... for every
-period of trace defined in TRCSYNCPR.PERIOD", or even more general
-"... for every period of trace".
-
-Thanks,
-Leo
-
-> +
->     * - cc_threshold
->       - Cycle count threshold value. If nothing is provided here or the provided value is 0, then the
->         default value i.e 0x100 will be used. If provided value is less than minimum cycles threshold
-> 
-> -- 
-> 2.34.1
-> 
+Regards,
+Simon
 
