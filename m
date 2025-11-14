@@ -4,86 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068AECE8D4E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B50CE8D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMIhhtle2a2xp6NyKTydE1LVPDYCY/qxlboHNvvD0Mk=; b=C42qCvj8p9rawGwzB5kSeCayeR
-	OEljaKWrTPYE6d+rnFPLPweVxV+ak28YjGtSXi43o3jsxIE4W0u+O3ADUVpez7vX4+nBSxqSHhFXJ
-	K0ry6WFAl0KRO993CTcFJuWUgj3TGus2jZPIgg+j8Wrkt6mVwduyr59vouaEU79mSxXwW3IPRTGT3
-	X1aPVb/qBc/B1E90b/N0K4Va7te7awiMq0GkYsCojj3cBHDcoztif7stkY1fH65NzeIHyzoFJnRKx
-	Yf99HHaXoYniok/dGEVU1NvidXxsN8Qj32anIx6p6bIWJzB+QijLXpdth/kepN16uXMvuUxoyaLpk
-	TFjhM6EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M9f+1V/Gs5C5ClKhbfgT9um9exOzG9W9HnZ9J5MzYFY=; b=S18+XBxJDz0njnx4nXJhcM97my
+	gqGyy3o6aJEs6kn25lxc6vHtd5U744ctLSCwod5/fesiD28RTyGuPJA7dFPCUsXZ9hZLBJD/HC8hX
+	SHzZ70/f+0Q05phGnZOnwbZgBiX70y6outUO7ow4tTRko6MREKmdZZGWzqccToqW362/LXCShCpvo
+	Wbo8NFvOUSwahyghxh+8tb2nzZQboDyDLQyNhFuo2VtmQk1CiMjUwNg6N1OQ6eXIfxmRORxeIsDHR
+	N82Cu05FQINNCFdmuXTgf2jrFNK/MJlg+sZ/2rm2lF3bEUGRNgJ7EPTyOe84dk9U4tCObeSWO8V34
+	tAqo7alA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwFk-0000000CeIo-0S7i;
-	Fri, 14 Nov 2025 16:02:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vJwHQ-0000000CeVb-28aW;
+	Fri, 14 Nov 2025 16:04:08 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwFi-0000000CeIW-2YGq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 16:02:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=zMIhhtle2a2xp6NyKTydE1LVPDYCY/qxlboHNvvD0Mk=; b=WgRN9znK7j95dC9/A/j4L7elbk
-	h9SNgH1O3T74+HAIafBsNj3hJ6R1/QK9C80SqDRAyug5JNr7F5oLG867srMYkoztF4W9jp2OlhxXO
-	E32rNk8p/nO+cUcOEVdm8MW7XYQeVLFWPWvJQckZ3aQ9Yqm+ZnwEWVLu0K9mwxOPnePyOpKthfvoV
-	I5ifdRHpEk1CAft0j7TvbVmGOc/yRoR4K4fYYV93gcTSgt4syPpR4sOMZrXBHsfwL+z3tXs4ehYK7
-	jz21DXEKwNyW9MTV2/R5Fv5ddsQRatjjdSR9XFwEaIcYzpzvpKzGOq9GZRzGyYN0RU/gBpCk8JTos
-	Vur3mmfA==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvO0-00000002uVo-3bmD
+	id 1vJwHN-0000000CeV1-1jFx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:06:54 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwFX-0001tc-Ks; Fri, 14 Nov 2025 17:02:11 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwFX-000RjJ-0w;
-	Fri, 14 Nov 2025 17:02:11 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwFX-00000000Ags-0qAH;
-	Fri, 14 Nov 2025 17:02:11 +0100
-Message-ID: <8b225c56612ff01845a90388be0945c7d0b3f0d2.camel@pengutronix.de>
-Subject: Re: [PATCH v5 4/6] reset: imx8mp-audiomix: Extend the driver usage
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	 <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Daniel Baluta
-	 <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li
-	 <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team
-	 <kernel@pengutronix.de>
-Date: Fri, 14 Nov 2025 17:02:11 +0100
-In-Reply-To: <20251114133738.1762-5-laurentiumihalcea111@gmail.com>
-References: <20251114133738.1762-1-laurentiumihalcea111@gmail.com>
-	 <20251114133738.1762-5-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1+deb13u1 
+	Fri, 14 Nov 2025 16:04:07 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 8E2337A01AE;
+	Fri, 14 Nov 2025 11:04:02 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Fri, 14 Nov 2025 11:04:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763136242;
+	 x=1763222642; bh=M9f+1V/Gs5C5ClKhbfgT9um9exOzG9W9HnZ9J5MzYFY=; b=
+	iUuUK+IqWqJXW16WpkpxRxPRAtrf6jqtV7WJneZ3XbpcXufA5YS7BhLcfFN3iKGY
+	wVjrBvMkUBSaeOk9SVPhEh1CmfMmrDpdE2ogQ3sHiuidBHmYT82ymxj8Pm/g/Pea
+	gJeWNvSxej3ucg9i89MEvdGDo5tFuWpSKmkzX5kBAKAalJPch9aE780StTAW5NFx
+	Cmlbpi50BB2XPnhFURxMaI1Hg2WDObVPkE0uxWY/hKvxsjiJgtzpzTzyhgMibwPi
+	JOP5y0ENCFAaaMokteMOyLWKENySsm/55Y1q8nVGAJkalDFY1CiipLPwPWHNRXzz
+	Pf7LCQRkIHYGJB9bmpGdYA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763136242; x=
+	1763222642; bh=M9f+1V/Gs5C5ClKhbfgT9um9exOzG9W9HnZ9J5MzYFY=; b=E
+	PmgzzJcrt+h0JC8NtWhi4UJRX9JSEuwVpcW9P6a4pCvY0SdhcCGIMF6xyQFbrC0G
+	BOtT89f8YPJKbFNjWyvAXNY+1I/nW62tdg3sfFoEUhthpdYnbptmds2a0TaCpQFp
+	96IC/ikXcG4TaiQ9TitSuG0vIJmE3/sD82Beh1LV023voCOJPXGvFUIlw0fEV5n/
+	9sX7vQuB8+9cFSdG91otRe3+89cpyfjFrlWd+3azBdxXeGXipIhkFf5y623elKZL
+	hWa3BFMOxipEnFpGZOXyFgIdtR1niCl/7Mi+dLC7+VqVKhoMN8Kov+EHxRGA2qDW
+	BSNisJaMiHTUZPS/8y9GQ==
+X-ME-Sender: <xms:8VIXaSQUTbGlNqoBm96asAebHCJLTwjAMNlPXbzGLJF4vrZcYX7zhw>
+    <xme:8VIXaSm_qGICw4h1CKRHnPHP4ec_0wMH3rj0ydB-3a3qqTvG1luEEXgi3ZUCQIKN6
+    6FvXdlGJZEkYEGxiV3PNVZSbxyKCOQFWYGELxzfm0ejHp0QQWCE_aY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvuddtvdehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdelpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegtrghtrghlih
+    hnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepjhgrmhgvshdrmhhorhhs
+    vgesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtg
+    homhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhn
+    rdgtohhmpdhrtghpthhtohepjhhonhgrthhhrghnrdgtrghmvghrohhnsehhuhgrfigvih
+    drtghomhdprhgtphhtthhopehlihhnuhigrghrmheshhhurgifvghirdgtohhmpdhrtghp
+    thhtohepfigrnhhghihushhhrghnuddvsehhuhgrfigvihdrtghomhdprhgtphhtthhope
+    hpvghtvghriiesihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:8VIXaaCQi_bM4GIEQ_jBunmYtmzlrZxFP7n5lAYiWyfa-4msWaS0iQ>
+    <xmx:8VIXaVSysmvIwseAM0TznwvZ94MPNSpd_nqP7aY25ncwx8evwSv4_w>
+    <xmx:8VIXaRalsjiiTdT-vQi9kNTQC_wzVzBavsjweVEQDrXnjhGzfpXXpg>
+    <xmx:8VIXaaW8w0IjPS9W8wroo2kONi-pnHfHvtBzWdvJYt9D-V7aoy1gzQ>
+    <xmx:8lIXaaNw9x_t5t-hIL3XLxZP43HBdfy0h65TDU0tI1Usk61Z7PgFp97w>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 41EC1700065; Fri, 14 Nov 2025 11:04:01 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-ThreadId: AWJreI-smgpg
+Date: Fri, 14 Nov 2025 17:03:40 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jonathan Cameron" <Jonathan.Cameron@huawei.com>
+Cc: "Conor Dooley" <conor@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, linux-cxl@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-mm@kvack.org,
+ "Dan Williams" <dan.j.williams@intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Drew Fustini" <fustini@kernel.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "James Morse" <james.morse@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Davidlohr Bueso" <dave@stgolabs.net>, linuxarm@huawei.com,
+ "Yushan Wang" <wangyushan12@huawei.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, x86@kernel.org,
+ "Andy Lutomirski" <luto@kernel.org>,
+ "Dave Jiang" <dave.jiang@intel.com>
+Message-Id: <93c1c6be-dae5-477e-8924-1b77f8567732@app.fastmail.com>
+In-Reply-To: <20251114155746.00003719@huawei.com>
+References: <20251031111709.1783347-1-Jonathan.Cameron@huawei.com>
+ <20251108-spearmint-contend-aa3dd8a0220e@spud>
+ <20251114124958.00006a85@huawei.com>
+ <20251114-juror-stiffness-046b47b8d9f7@spud>
+ <02244119-d6b8-4ef4-833f-b8fba7a73f43@app.fastmail.com>
+ <20251114155746.00003719@huawei.com>
+Subject: Re: [PATCH v5 0/6]  Cache coherency management subsystem
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_150652_959647_06E7F8BE 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20251114_080405_931684_50B64696 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,58 +139,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2025-11-14 at 05:37 -0800, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->=20
-> Switch to per-device reset map to allow reusing the driver for other NXP
-> block control IPs.
->=20
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  drivers/reset/reset-imx8mp-audiomix.c | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-=
-imx8mp-audiomix.c
-> index 35df9bd5f71a..d3396f37d1ff 100644
-> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> @@ -24,7 +24,12 @@ struct imx8mp_reset_map {
->  	bool active_low;
->  };
-> =20
-> -static const struct imx8mp_reset_map reset_map[] =3D {
-> +struct imx8mp_reset_info {
-> +	const struct imx8mp_reset_map *map;
-> +	int num_lines;
-> +};
-> +
-> +static const struct imx8mp_reset_map imx8mp_reset_map[] =3D {
->  	[IMX8MP_AUDIOMIX_EARC_RESET] =3D {
->  		.offset	=3D IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->  		.bit =3D 0,
-> @@ -42,9 +47,15 @@ static const struct imx8mp_reset_map reset_map[] =3D {
->  	},
->  };
-> =20
-> +static const struct imx8mp_reset_info imx8mp_reset_info =3D {
-> +	.map =3D imx8mp_reset_map,
-> +	.num_lines =3D ARRAY_SIZE(imx8mp_reset_map),
-> +};
-> +
->  struct imx8mp_audiomix_reset {
->  	struct reset_controller_dev rcdev;
->  	struct regmap *regmap;
-> +	const struct imx8mp_reset_info *rinfo;
+On Fri, Nov 14, 2025, at 16:57, Jonathan Cameron wrote:
+> On Fri, 14 Nov 2025 15:07:33 +0100 "Arnd Bergmann" <arnd@arndb.de> wrote:
+> Hi Arnd,
+>
+> Thanks for taking another look.
+>
+> Agreed splitting the menus reduces chance of confusion, so makes
+> sense to me as well.
+>
+> Implementation wise I think we have to use menuconfig + bool if we want
+> to have help and dependencies and then an if block under that.
+> The syntax for Kconfig always leaves me finding an example to copy
+> rather than finding it intuitive
+>
+> menuconfig CACHEMAINT_FOR_DMA
+> 	bool "Cache management for noncoherent DMA"
+> 	depends on RISCV
+> 	help
+> 	  These drivers implement support for noncoherent DMA master devices
+> 	  on platforms that lack the standard CPU interfaces for this.
+>
+> if CACHEMAINT_FOR_DMA
+> ... drivers here...
+>
+> endif #CACHEMAINT_FOR_DMA
+>
+> menuconfig CACHEMAINT_FOR_HOTPLUG
+> 	bool "Cache management for hotplug like operations"
+> 	depends on GENERIC_CPU_CACHE_MAINTENANCE
+> 	help
+> 	   These drivers implement support for cache management flows
+> 	   as required for action such as memory hotplug on platforms
+> 	   where this is done by platform specific interfaces.
+>
+> if CACHEMAINT_FOR_HOTPLUG
+> ... drivers here
+>
+> endif #CACHEMAINT_FOR_HOTPLUG
 
-Since only rinfo->map is used in imx8mp_audiomix_update(), you could
-directly store a
+Works for me.
 
-	const struct imx8mp_reset_map *map;
+> I'm not sure if the 'hotplug like' is close enough to all the cases
+> for device drivers that provide the services needed to implement
+> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMEGION
 
+The _FOR_HOTPLUG does feel a little more specific than it should be,
+but I haven't come up with a better name for it yet. We'll
+probably figure that out if we ever get a second driver here.
 
-regards
-Philipp
+> Alternative might be to phrase around pushing beyond the point of
+> coherence, but that seems to be an ARM specific term and would
+> seem to incorporate fine grained sharing where this interface might
+> work but isn't a good solution.
+
+Agreed.
+
+     Arnd
 
