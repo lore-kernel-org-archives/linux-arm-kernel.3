@@ -4,75 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFECCDE018
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 13:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC1FCE7B0B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 13:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fbFk7KZ0BwyEZpOIy4kBBZW32von3K2W8VOf2JwXGQ=; b=SSp60XZ+wRHI24w55G+U7V2sZS
-	+8/Ju+nquWigYCvJpoEDpmoz4w+/Ulhyps+RXY7V0RpierD3NXQFO7WwJYwzHyXrwCcnzK/76LCoO
-	/2DTzOcnYJZ9Pki8bRM3cbryxQaS3GJAStH6lAflwlBqoPdUXtuua/o3tSd3x9amgAvjyQyDobY/W
-	azW68+kXs9ITqLcjOkcRxGbKhvlrzk7E8Kow87uvnsj6siSEucmUfvqeffsjJOg62EbqaUjAQP3vs
-	/AaKhVLfME9tqn9D2s5A41hDOatLxDlkev4ktJ/a4e8DTi6tc2yeQa/24ms4dkpnMjdv2NcImJbBa
-	+kOMm17w==;
+	bh=9tFYx+r0LtpX/2l5hmodetJ2Wuc+Oih4VLt/Zf0jWOY=; b=jI7DA+f4cozqFq0btAsh2rY5Uh
+	mmnJ4FUktgQ7AIEbz7ejmTe1n9xCtapww7ezGAE9xO1L/5KCdoturqLxnoUzx6H0B5Vp8TWfDEqQi
+	VEOoMlJ4zcaU9rbGdzzGIQgpSJf87k20dhO2BvrkfiujQLAYy0WBKKjLhNhmjO0D36hCqePv7M2RG
+	W0ZuwdSYEukZCTIapS02VIqA/4FsmunmJm/moKJvk7+jyGu9cwcPlQaYhcHr1t9YIkCTcVI2GDCdo
+	adFc18cgYzpjd6un2iN3i0MTfHY9aeFLtOD2lNmXlmIFDxaWUR5X67L5d8NT2spOaoEni7tMcOtXi
+	GmJl54Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJtlN-0000000CFgo-3y4C;
-	Fri, 14 Nov 2025 13:22:53 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vJtnG-0000000CFqY-2bk8;
+	Fri, 14 Nov 2025 13:24:50 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJtlL-0000000CFgN-1v4e
+	id 1vJtnD-0000000CFpt-0bpP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 13:22:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJtlF-0003Gu-9f; Fri, 14 Nov 2025 14:22:45 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vJtlD-000QjO-0z;
-	Fri, 14 Nov 2025 14:22:43 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id E3F1E49F5AE;
-	Fri, 14 Nov 2025 13:22:42 +0000 (UTC)
-Date: Fri, 14 Nov 2025 14:22:42 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: zhangqing <zhangqing@rock-chips.com>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org, 
-	conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-can@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	cl@rock-chips.com, kernel@pengutronix.de, krzk+dt@kernel.org, 
-	mailhol.vincent@wanadoo.fr
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-Message-ID: <20251114-illegal-flounder-of-maturity-edc269-mkl@pengutronix.de>
-References: <20251113075419.482940-1-zhangqing@rock-chips.com>
- <20251113075419.482940-4-zhangqing@rock-chips.com>
- <20251113-slim-foamy-gecko-2dc389-mkl@pengutronix.de>
- <176d96b4-397c-49d4-8e8e-2f77a5d59c12@rock-chips.com>
- <20251114-utopian-cheerful-otter-33c1d5-mkl@pengutronix.de>
- <3233894e-9409-4b74-a954-0b30064c3c8c@rock-chips.com>
+	Fri, 14 Nov 2025 13:24:49 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47754e9cc7fso12271305e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 05:24:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763126685; x=1763731485; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9tFYx+r0LtpX/2l5hmodetJ2Wuc+Oih4VLt/Zf0jWOY=;
+        b=eMdBvtfXCq5L1bG1GD7YJstBRAF/6zKuTdiqVqJxTM7DeqSafb4TKXAAOYBDoQvnxg
+         BOVVgZAOYnGxIaNwc8mxyL1HslM8nsPC4FONtucsoZ6ILdOKEtQnEJ9yHipeJ+aR/npn
+         HmbFJhUW7neiGswwE7ibGvgwDGh/AE3qVnhPoNp2w1ZMUVdUvhg3L1386ZiT9WimPZO3
+         AzAga8NtkN3XJ8CpaZQNbtrQ6OjfB3a8tGtf159QRbPSb7RR0zuhGKMRL2MEnlvtvXkr
+         Zb4Mjtaw3gaYDI4cro6vhH7E+6mgCFJW8pFurcGKk6oiE6zw6RKKiAMG+ha3h5erKTqY
+         vW1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763126685; x=1763731485;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9tFYx+r0LtpX/2l5hmodetJ2Wuc+Oih4VLt/Zf0jWOY=;
+        b=MQ/xGfwj1tvYVW57Ek5lzxtzoKrMgRu+ic+oPOdsEGGIOGpCM+fti2poX7/7J90c6f
+         6/qvTW2LY0/7vyMNJEzIU8DL0aKxy5bIMGPV0/bPQvUDGqDcMOSJqBRFIlH83SniEu1a
+         nNSuwif4oZjyqLLsRJI1A082O+68ve9IVA1dHZwgorxiiUjIC4zDVGHQlycsGa7LwgA1
+         iIIOSfyCUtjYWFrJunLG14zZtSihhUGKKvox6t4nAC8mahDwZl3uWZIDqtiAM/BtK0nD
+         TV9tVUB/Uh8FdClUSu1hDQcly/AU9nz0vHScx542oFmm9XfzTvtQrd81bAI/lQKI647C
+         0wHg==
+X-Forwarded-Encrypted: i=1; AJvYcCV4/QeO8lqftVU8C/qEbxR9ATQtK4Y381gxd5yvuh1+oTHMefLkQ9KolM0wJCrYBkL7cWExCQ9mYOQ42zUpdHnj@lists.infradead.org
+X-Gm-Message-State: AOJu0YylrSxwD0huncja5DRA+uMoD+FsZnu+xt6KlLLb26TxIMu8pAPq
+	xi25F650mz5HOwSK0wJRZbaDZlUPP8snb/gPk9X4jH0oq/bCh+KJ5daD
+X-Gm-Gg: ASbGncvrWGZg5/Gvf+f10Gy8wGtu6acGHQCKob9PR6KX39/IQ+pN4E/5eLV1YtEqA2B
+	njhzEp1w2ZzTTtTGCGKLmBWTJpRvQCYqAP9+hEeDj3R1i/okoOnvRWRCMr3cz+mdTkThJTjkGly
+	ifAJtjWFMecponHmE/7YXvYEHQG7JLcBqyiwzQxkQY+DDJi6TyYXsIha3UD95e+9zqhHfG3gaTR
+	n1svNGDUnb5VuDG0zld5409H5QP83rBrj8aGz043qV0yoYjSYcNi+dZUEO77znTiGh9l2I1+3GV
+	6GSwzPoOPjabmT4z2Onh/5W1vI76nw37Rv7g2msDsm9XmbPvIaNt8WBk573RPQE8ZXVYzZv4+br
+	RQCb5A0XSHLaVOJhmnKquqQFv1Aroi87aOdLfidpHGjyYYJZvpvPZvPf8TkR7JC8G5bNuXEG/11
+	XZFNO/jAMq6Pbw9uWX6E4QNseQLvkwDGHCw8VH81A6obs4IhT1c2d/dFm3PpYDN5Re2ZZUgFQEf
+	Q==
+X-Google-Smtp-Source: AGHT+IGGro6Ab6Q6hQTIcaBq7Nzqv7eihH1X2JDeRvd7W4sKRsUWsSzI35q89svHlSq6wH7pBHiBUw==
+X-Received: by 2002:a05:600c:1c20:b0:477:5b0a:e616 with SMTP id 5b1f17b1804b1-4778fe4f635mr29777265e9.5.1763126684877;
+        Fri, 14 Nov 2025 05:24:44 -0800 (PST)
+Received: from orome (p200300e41f274600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f27:4600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4778bb454a6sm46271815e9.2.2025.11.14.05.24.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Nov 2025 05:24:43 -0800 (PST)
+Date: Fri, 14 Nov 2025 14:24:41 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Maximilian Luz <luzmaximilian@gmail.com>, 
+	Hans de Goede <hansg@kernel.org>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v2 00/11] of: Add wrappers to match root node with OF
+ device ID tables
+Message-ID: <kqtjfqkzz3lfnpg7lo5m4dctowsxqxtlcdtktoatpze3hr3tue@ku6p25skb666>
+References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
+ <f949c2a6-df24-41bb-aac7-f5567d03c5f5@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qaousal5vpe3w2e4"
+	protocol="application/pgp-signature"; boundary="ntn2juw5rgeaer4c"
 Content-Disposition: inline
-In-Reply-To: <3233894e-9409-4b74-a954-0b30064c3c8c@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <f949c2a6-df24-41bb-aac7-f5567d03c5f5@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_052251_496353_C4ABC50E 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20251114_052447_198442_4B88D667 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +117,53 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---qaousal5vpe3w2e4
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
+--ntn2juw5rgeaer4c
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
+Subject: Re: [PATCH v2 00/11] of: Add wrappers to match root node with OF
+ device ID tables
 MIME-Version: 1.0
 
-On 14.11.2025 20:14:13, zhangqing wrote:
->
-> =E5=9C=A8 2025/11/14 19:01, Marc Kleine-Budde =E5=86=99=E9=81=93:
-> > On 14.11.2025 17:55:53, zhangqing wrote:
-> > > > > +/* The rk3576 CAN-FD */
-> > > > > +static const struct rkcanfd_devtype_data rkcan_devtype_data_rk35=
-76 =3D {
-> > > > > +	.model =3D RKCAN_MODEL_RK3576,
-> > > > > +	.quirks =3D RKCANFD_QUIRK_CANFD_BROKEN,
-> > > > Is CAN-FD mode broken on the rk3576?
-> > > >
-> > > > Please test CAN-FD and please do the tests documented near the
-> > > > definition of RKCANFD_QUIRK_CANFD_BROKEN:
-> > > >
-> > > > | Tests on the rk3568v2 and rk3568v3 show that receiving certain
-> > > > | CAN-FD frames trigger an Error Interrupt.
-> > > > |
-> > > > | - Form Error in RX Arbitration Phase: TX_IDLE RX_STUFF_COUNT (0x0=
-a010100) CMD=3D0 RX=3D0 TX=3D0
-> > > > |   Error-Warning=3D1 Bus-Off=3D0
-> > > > |   To reproduce:
-> > > > |   host:
-> > > > |     cansend can0 002##01f
-> > > > |   DUT:
-> > > > |     candump any,0:0,#FFFFFFFF -cexdHtA
-> > > > |
-> > > > | - Form Error in RX Arbitration Phase: TX_IDLE RX_CRC (0x0a010200)=
- CMD=3D0 RX=3D0 TX=3D0
-> > > > |   Error-Warning=3D1 Bus-Off=3D0
-> > > > |   To reproduce:
-> > > > |   host:
-> > > > |     cansend can0 002##07217010000000000
-> > > > |   DUT:
-> > > > |     candump any,0:0,#FFFFFFFF -cexdHtA
-> > > There is no doubt about the other modifications above. They will be
-> > > corrected in version V10.
-> > >
-> > > CANFD requires authorization and is not supported by default.
-> > Can you explain what you mean by authorization? What do you mean by "not
-> > supported"?
->
-> For RK3576 SoC, the IC hardware design supports CANFD.
-> However, a license application is required before it can be used; otherwi=
-se,
-> there will be legal risks.
+On Wed, Nov 12, 2025 at 12:52:48PM +0100, AngeloGioacchino Del Regno wrote:
+> Il 12/11/25 11:28, Krzysztof Kozlowski ha scritto:
+> > Changes in v2:
+>=20
+> Note:
+>=20
+> Looks ok based on code and based on testing on the following platforms:
+>  - tegra: Jetson Xavier NX Development Kit
 
-INANL. If an SoC is supplied without a license for the IP cores that you
-want to use in a product you sell, you must purchase a license from
-Bosch:
+Thanks for testing, but Xavier NX doesn't run any of the code changed by
+this patch. soc_is_tegra() is a legacy function that we need for DT
+backwards-compatibility and should only run on 32-bit ARM devices.
 
-https://www.bosch-semiconductors.com/products/ip-modules/can-protocol-licen=
-se/can-protocol-license.html
+Technically there's one case in drivers/soc/tegra/flowctrl.c that runs
+this on Tegra210, but it should probably undergo the same treatment as
+the PMC and FUSE drivers. The code that needs this is only used for CPU
+power management on 32-bit ARM devices.
 
-I don't see why you should restrict the driver to CAN only, if CAN-FD is
-functional.
+Thierry
 
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---qaousal5vpe3w2e4
+--ntn2juw5rgeaer4c
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkXLR8ACgkQDHRl3/mQ
-kZxcJQf+IBUb+EvRr6yojdWFYfh0iU6b+aUU/2CZ3TkeWzdBIRLFUkaKGsPr+XBS
-4+qZeP0ur/AFd84E24pp1uN6T7XCVNwQh97MzfCXx32rkJNHQvrQehp8llBWg5mM
-jwTsCyuu28Ber/ehYp7aprO0YMSwe+ocKilEtD6TBAG6KU9SQ/BDLnXTyQ3ql8Hj
-ZYK8BA1sYtCnz6tr4sHuClKwmfQqoozXi/YWikAtCrNrcphB7cHv5znanwUC1VS4
-50HLYsFXPQr/fPAT6bVX28XIGjFK01uDPHacWkzu0WcXLVqfNtN4f79gXkxogwvk
-GZDGFSCCXSVNPD0EXrPK838WQ/bRAA==
-=aDZ6
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmkXLZkACgkQ3SOs138+
+s6G/cA/+IgP1K3OXIF03hJ/xSNn2a6/dnr1TTFLAUI6Ge13aBNVPxKCDqoxLZCAt
+pN2vtjYNWX0Z80+tnCpGdf961hS6OY28OJmABKNotQvlrnzBSn8ggsZ64UlAka80
+SRr74Do7F4bWqWrBHEDD4FRjlYR0OVy2/s0i5Zcavhixa1bqN/F9gTWT+kKItZOE
+TcV+O8gQF/op9NSShu+oXIZFRcPKdugCNN8w77cE/9B/0o1iII9DzX5uzFYK0Au4
+M7rAxBiHHh71czN3ts79Mcyinj9kcC3zGq9wtusv3N18sDRqwZCp+mPP3Y8Up0t4
+OotwMzxf59FsoSpNDUh/FgkCNoDoDXbajVzHTig9OQspb/nNis+P5Pbw7FIZb8Q2
+3jq8uRvMP3p8gc2pB7nnyQoC6ToofIcHlnhbW0oi1Fi0HovauoN7Vb8/gsJDWY6c
+hBe4ABpghzhh0VXFf8CM0vK2MonZYPO0BTyDguUr4nx6QGrrLnBG7S/B2wvaIzgs
+UeyUPjbgEhQVdyWALBKf6aK9IXi/Wp+s9w0XJ7qG14q665MqwxIXXIo0ZOIiIe28
+e+Ajuapyv0juG6x+mVb44mHgWqZ6bquDTegdCr9PakfF4rDYnDKAcdzOM7/y8/UX
+FXAgwJiScvxp/LO7D70bNXMPtYPQ3TVxDJu2I5128N5iNtuaxgE=
+=vxrn
 -----END PGP SIGNATURE-----
 
---qaousal5vpe3w2e4--
+--ntn2juw5rgeaer4c--
 
