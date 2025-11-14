@@ -4,140 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE787CE7B1F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0908CE7B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHbOf6w5rlj656BCFSOxLzgqhHO7ycdTLJssDuPvEBo=; b=XjnvuY3cQG7PLTPde933nA2ZO+
-	lhcA7PCVSfD7aJuHXBkamrc3iZAd9tvgWbBzrDhNKNSIXLc9zwyKzJI5qhI8K6tzHE4VcFXQapcfz
-	Bn7ONqidiKecRYtwfT9sDlvCoQaF10hkL8DEmM+xd1WUnUv0znUQzL+SIsaoXYtXZA+5RCW+Gaaej
-	Ta9SjK5CmkRpgnGUtH68FZ/eA2beThxQIikoBZonpkx5nAJFycs5GkqFdC+c3Za0GOVZwAm+CMJHQ
-	6ACikBpLCtQPU1SuGZCqU+501HsIHFf+Bj6/EaGoaGFKTQzMCft02/cdyRp2Vyukr7rZRVtFn2LTD
-	NnK/cZ4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yaOnWsallY2h02dbHE2TfeYyzinx89DAlIovAUP6XT0=; b=fsJEaQIIvMPONtfMAFeH8yTvjl
+	el3+gW8vuGWgKILeSEvYw5Ry4zopbVPqSwi79PWBA2EV2gOcmDkXmo1Nb1ggXnp2CPvhWoOno4kwx
+	WorOKODtf/Eo4Rd6cftoU2P0eK2bsGrAqAvsD26mlvwBxD18Akh2cL/T6TNCRSuPkZtVDDLPKmkTC
+	tPnChZ57bgRJYsBRcFbEgRqLGvfvDbLvaUwakgKpnL1GnDnsr6MpiJx8/UDcnAFJK/d/B64ZdycBN
+	uHyRgOH57D/oL6ZCFCqsFfiZfY6AnGhr6GHfrG+PH7MzCYAhQf0xY0XnsEPEA+OW1SPGiVHGP909V
+	aLA86H0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvYZ-0000000CVZS-38UY;
-	Fri, 14 Nov 2025 15:17:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvYX-0000000CVXl-3rEk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 15:17:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YHbOf6w5rlj656BCFSOxLzgqhHO7ycdTLJssDuPvEBo=; b=gwtnZJGSx5iAv92mHM68Bk8xaD
-	8DsbAEJf3HohptjTLAwjaQHNkN8S3CpNtALURu9SYXCi4Gtpq2KV5SBLXWra3oV9+Iq0ScgrHYGR6
-	dVLAm715cz+fqH4VvMUvKVNDGRX/qW+QqHVLR2OoulfOWQ2OUeCxKWknoNwtn60PmyW0QVzn+1j4u
-	WLZAy1dNRCdFYP6ZZznLjlDd2yK5snW79CS1Jp+Q25wPDLwAZpeDIinburfWCmkpr8bk3iXYGj33m
-	jbydxULjnrYEyYgIJhv7FNuDe6H0NXkbT+UYIu4who9KE+wzZLA6LUnXZzvndO1Tw/SEOVQnWoNd+
-	ZtJN5CaQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJugq-00000002nHQ-13jD
+	id 1vJvZ2-0000000CVrW-2vBn;
+	Fri, 14 Nov 2025 15:18:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJvYz-0000000CVq0-3FZU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:22:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763133461;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YHbOf6w5rlj656BCFSOxLzgqhHO7ycdTLJssDuPvEBo=;
-	b=iirRmPEn5keefa8xiA70bhb7vKhUlus6LpLEwZW0Q2Yg1Hf0BFVcimm6w/TapkVf71m17e
-	/ehTR7M1CVl5xFR6Be/I0lt0PKj12ofuiykppIZ4HaQqqxl6H6wjGf8kuiMqlMg2CP7H+U
-	pK/ugHJRf7UmwO9AIj8AyS6RRqWDDmQ=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763133462;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YHbOf6w5rlj656BCFSOxLzgqhHO7ycdTLJssDuPvEBo=;
-	b=evrrEUR5NVHn+ukFbam5BNmM2tiY4yDz16ZImRoRct50GfQdZRj7Ux3n8DFRY6Zi6uo8pI
-	swMTEw2RcQs1RrkVRB2NisLhhbvU5GcJtfoQ5UdqmzjPTPL8yhBfP9bHr+IOXkzpkHuKz3
-	4PNktAxc73GWtDoLJeqNdn9WNJUIxBI=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-531--Ii0M5UDM1-LvTUINdpoDg-1; Fri,
- 14 Nov 2025 10:17:37 -0500
-X-MC-Unique: -Ii0M5UDM1-LvTUINdpoDg-1
-X-Mimecast-MFC-AGG-ID: -Ii0M5UDM1-LvTUINdpoDg_1763133453
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2DC7C1956096;
-	Fri, 14 Nov 2025 15:17:33 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.226.10])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A94EB180049F;
-	Fri, 14 Nov 2025 15:17:18 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	rcu@vger.kernel.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>,
-	Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: [RFC PATCH v7 31/31] x86/entry: Add an option to coalesce TLB flushes
-Date: Fri, 14 Nov 2025 16:14:28 +0100
-Message-ID: <20251114151428.1064524-11-vschneid@redhat.com>
-In-Reply-To: <20251114150133.1056710-1-vschneid@redhat.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
+	Fri, 14 Nov 2025 15:18:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64BF51063;
+	Fri, 14 Nov 2025 07:18:05 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D1353F66E;
+	Fri, 14 Nov 2025 07:18:12 -0800 (PST)
+Date: Fri, 14 Nov 2025 15:18:10 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 07/13] coresight: Don't reject unrecognized ETMv3
+ format attributes
+Message-ID: <20251114151810.GG3568724@e132581.arm.com>
+References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
+ <20251112-james-cs-syncfreq-v4-7-165ba21401dc@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112-james-cs-syncfreq-v4-7-165ba21401dc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_142216_433446_E6C9759E 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20251114_071813_853534_60CC65F7 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,73 +68,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previous patches have introduced a mechanism to prevent kernel text updates
-from inducing interference on isolated CPUs. A similar action is required
-for kernel-range TLB flushes in order to silence the biggest remaining
-cause of isolated CPU IPI interference.
+On Wed, Nov 12, 2025 at 03:22:13PM +0000, James Clark wrote:
+> config isn't the only field, there are also config1, config2, etc.
+> Rejecting unrecognized attributes is therefore inconsistent as it wasn't
+> done for all fields. It was only necessary when we were directly
+> programming attr->config into ETMCR and didn't hide the unsupported
+> fields, but now it's not needed so remove it.
 
-These flushes are mostly caused by vmalloc manipulations - e.g. on x86 with
-CONFIG_VMAP_STACK, spawning enough processes will easily trigger
-flushes. Unfortunately, the newly added context_tracking IPI deferral
-mechanism cannot be leveraged for TLB flushes, as the deferred work would
-be executed too late. Consider the following execution flow:
+It is fine for not validating all configs (please ignore my comment for
+checking all configs in my reply for patch 04).
 
-  <userspace>
+I am wandering if need to remove ETM3X_SUPPORTED_OPTIONS totally. I
+saw etm_enable_hw() uses it to clear config bits, so it makes sense to
+keep it.
 
-  !interrupt!
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-  SWITCH_TO_KERNEL_CR3 // vmalloc range becomes accessible
-
-  idtentry_func_foo()
-    irqentry_enter()
-      irqentry_enter_from_user_mode()
-	enter_from_user_mode()
-	  [...]
-	    ct_kernel_enter_state()
-	      ct_work_flush() // deferred flush would be done here
-
-Since there is no sane way to assert no stale entry is accessed during
-kernel entry, any code executed between SWITCH_TO_KERNEL_CR3 and
-ct_work_flush() is at risk of accessing a stale entry. Dave had suggested
-hacking up something within SWITCH_TO_KERNEL_CR3 itself, which is what has
-been implemented in the previous patches.
-
-Make kernel-range TLB flush deferral available via CONFIG_COALESCE_TLBI.
-
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- arch/x86/Kconfig | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index fa9229c0e0939..04f9d6496bbbc 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2189,6 +2189,23 @@ config ADDRESS_MASKING
-	  The capability can be used for efficient address sanitizers (ASAN)
-	  implementation and for optimizations in JITs.
-
-+config COALESCE_TLBI
-+       def_bool n
-+       prompt "Coalesce kernel TLB flushes for NOHZ-full CPUs"
-+       depends on X86_64 && MITIGATION_PAGE_TABLE_ISOLATION && NO_HZ_FULL
-+       help
-+	 TLB flushes for kernel addresses can lead to IPIs being sent to
-+	 NOHZ-full CPUs, thus kicking them out of userspace.
-+
-+	 This option coalesces kernel-range TLB flushes for NOHZ-full CPUs into
-+	 a single flush executed at kernel entry, right after switching to the
-+	 kernel page table. Note that this flush is unconditionnal, even if no
-+	 remote flush was issued during the previous userspace execution window.
-+
-+	 This obviously makes the user->kernel transition overhead even worse.
-+
-+	 If unsure, say N.
-+
- config HOTPLUG_CPU
-	def_bool y
-	depends on SMP
---
-2.51.0
-
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm3x-core.c | 7 -------
+>  1 file changed, 7 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> index 4511fc2f8d72..584d653eda81 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> @@ -333,13 +333,6 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
+>  	if (config->mode)
+>  		etm_config_trace_mode(config);
+>  
+> -	/*
+> -	 * At this time only cycle accurate, return stack  and timestamp
+> -	 * options are available.
+> -	 */
+> -	if (attr->config & ~ETM3X_SUPPORTED_OPTIONS)
+> -		return -EINVAL;
+> -
+>  	config->ctrl = 0;
+>  
+>  	if (ATTR_CFG_GET_FLD(attr, cycacc))
+> 
+> -- 
+> 2.34.1
+> 
 
