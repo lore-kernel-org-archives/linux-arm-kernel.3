@@ -4,68 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DBECDE01B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4D7CDE01A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrZu68cQFEoaA1tEm+6w22JTgrzxCMVscivrPw9ACnU=; b=cVsVNFPVrDqrz3z5LLCk1jk2mK
-	nTJSdDNPsuHdcL1wPMZfwIyO18zkaGjn+i+nUxmqCnzR1gt3mj3qxeXTkhfsmXCzEm3WaZIbPPmcp
-	DcYvBm9PQSdCyv9GsDvk8WGaFFY8E4SgQtMN+KqmXV7M9CR9PuWSK87eLkLf74hhKerh3QGvmNPku
-	rudozhTDN5iwS5LgSpdQNSHmbdf75DKq/QrK4eEwNAUYpOBYQMz50JhezXM0vAyXeUeQlWtevORPT
-	8CUEUGKIxp6X3PhbjhtoOlL4RUWGxTjD2xusl22ERi/fYSmnYxdsxTBwMz0lwUP7KA779yKLWITv6
-	RFX8QCxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EH+MBrZQrO5821dZqqARpOK4of13aqVDtBtwFBldXl0=; b=4H2jthcGne8KumrOYb9zoo9hJn
+	+dMxhu5hzhH1IadrknxrK8H8n7rkUuUBLqR7hun5H4olMF7WTQA9ImEguK+ctBxidyrbh7TjvP4Xz
+	kc39bBxfp3qijZ0zgFUDbjfUydwKaxUj95nmAQa8gN1GyEjUQvxkNhq924zepfn/XrpcI5npHdV+6
+	xShk8An+w96wvRYN4MElsxZlvWtBgyJHXLm1fCGiUtOuqMQJ+8J1Zu/8fB/2TlhSAiFSx7Dp2WoKQ
+	5aHsPuZIwA3xCPHPc/nQ5FYIdxm3A46jKbOWiCE+2r0ZgfIyJCp/sgRPcM2usvIZx8X3TN0WUing0
+	6iJH2sWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJo8B-0000000Bk96-2Ido;
-	Fri, 14 Nov 2025 07:22:03 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vJoMf-0000000BlBd-2Wlj;
+	Fri, 14 Nov 2025 07:37:01 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJo87-0000000Bk6U-3Ehh
+	id 1vJoMd-0000000BlBG-02Kp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 07:22:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:content-transfer-encoding
-	:in-reply-to; s=k1; bh=QrZu68cQFEoaA1tEm+6w22JTgrzxCMVscivrPw9AC
-	nU=; b=XO5VmrZQgvsNF2j5p04YVDCNh2RvciAmO6f1YJS5IqilRw55uyiP1OAh8
-	aek8Si+4pfrznioXvLbvmq1lUm6VbhZVZMfRtNL+R2nuFR/fPvvCRiStVfNYqtmy
-	6hpO5DTIZ0JhQ3EkeGi2DW+C0ZSdUc1v3H9/wwLIhvDOj6Wvtnx2ZE9OoNGk6zWF
-	OucX1gMT7WCYU2gcX/jRHCfDTjPVVs6C7jqTldKLejB+GbVbMfvU1wL33kXZU00p
-	DEIL/c8DYS1K/ToAM1eUAJs7gzACSR5fNFPYDPEWAT/hE3i0ic1z6rxhvoFXOxWt
-	qQtNztQrJKa3w85u8rQCtvjHCoMbQ==
-Received: (qmail 2203272 invoked from network); 14 Nov 2025 08:21:53 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 14 Nov 2025 08:21:53 +0100
-X-UD-Smtp-Session: l3s3148p1@6ssM2ohDSLIujnuZ
-Date: Fri, 14 Nov 2025 08:21:53 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Marek Vasut <marek.vasut@mailbox.org>, arm-scmi@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <aRbYkXDuHZCCgFe5@ninjato>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <aPoxfH_TLrsMxMVQ@pluto>
- <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
- <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
- <aRW7BZimWdpq4TyX@pluto>
+	Fri, 14 Nov 2025 07:37:00 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 73F9421227;
+	Fri, 14 Nov 2025 07:36:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1763105815; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=EH+MBrZQrO5821dZqqARpOK4of13aqVDtBtwFBldXl0=;
+	b=xODLR5Wgz5QwgveYEV5t9RwPtERYEJTUK9d3/+CAAPXNa/oiM4l/N6d+SrOhcz8g1jBafT
+	cGQKiwXk/ckmt4DhGjW0ThLJNwE4TY5qYrnpaZg1rnDMUt0kJ7kC2sJ8A78mi+bM+bXY7C
+	aO5JTI3KDpQ3Ta0eaalbxOlbip9AEFY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1763105815;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=EH+MBrZQrO5821dZqqARpOK4of13aqVDtBtwFBldXl0=;
+	b=EMlWKjJ1GGBKbHKPW/hp48eGeayR2bnfza0brrOUmPKDgWnUUEgoGBC0DeCeEgYdubZLXW
+	4106ZnDfKwCoXgAA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=xODLR5Wg;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=EMlWKjJ1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1763105815; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=EH+MBrZQrO5821dZqqARpOK4of13aqVDtBtwFBldXl0=;
+	b=xODLR5Wgz5QwgveYEV5t9RwPtERYEJTUK9d3/+CAAPXNa/oiM4l/N6d+SrOhcz8g1jBafT
+	cGQKiwXk/ckmt4DhGjW0ThLJNwE4TY5qYrnpaZg1rnDMUt0kJ7kC2sJ8A78mi+bM+bXY7C
+	aO5JTI3KDpQ3Ta0eaalbxOlbip9AEFY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1763105815;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=EH+MBrZQrO5821dZqqARpOK4of13aqVDtBtwFBldXl0=;
+	b=EMlWKjJ1GGBKbHKPW/hp48eGeayR2bnfza0brrOUmPKDgWnUUEgoGBC0DeCeEgYdubZLXW
+	4106ZnDfKwCoXgAA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 07F733EA61;
+	Fri, 14 Nov 2025 07:36:54 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id SSlAOxbcFmkVZgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 14 Nov 2025 07:36:54 +0000
+Message-ID: <3805461a-cc7e-4ea4-8e26-823827aa7e70@suse.de>
+Date: Fri, 14 Nov 2025 08:36:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] drm: zynqmp: Check property creation status
+To: Sean Anderson <sean.anderson@linux.dev>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ dri-devel@lists.freedesktop.org
+Cc: linux-kernel@vger.kernel.org, Mike Looijmans <mike.looijmans@topic.nl>,
+ David Airlie <airlied@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>
+References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+ <20251113203715.2768107-2-sean.anderson@linux.dev>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20251113203715.2768107-2-sean.anderson@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRW7BZimWdpq4TyX@pluto>
+X-Rspamd-Queue-Id: 73F9421227
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[vger.kernel.org,topic.nl,gmail.com,linux.intel.com,amd.com,kernel.org,lists.infradead.org,ffwll.ch];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[linux.dev:email,suse.de:dkim,suse.de:mid,suse.de:email,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_232200_701905_C1336E7F 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20251113_233659_351717_BCA31CC3 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +173,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian, Marek, all,
 
-I am working with Marek on the same project.
 
-> > While I was going through the SCMI spec, DEN0056F , page 209 , section "4.1
-> > Shared memory based transport" , bullet • Completion interrupts, I found it
-> > explicitly states:
-> > 
-> > "
-> > This transport supports polling or interrupt driven modes of communication.
-> > In interrupt mode, when the callee completes processing a message, it raises
-> > an interrupt to the caller. Hardware support for completion interrupts is
-> > optional.
-> > "
-> 
-> Oh, yes...I knew that...it is just that till now, no systems were really
-> ever developed that lacked the completion IRQ as a whole, it was, till now,
-> more of a case of having the capability NOT to use it selectively at runtime
-> and instead use polling when wanted (like for clock ops in ISR context)
+Am 13.11.25 um 21:37 schrieb Sean Anderson:
+> Make sure to return an error in the event that we can't create our
+> properties.
+>
+> Fixes: 650f12042b85 ("drm: xlnx: zynqmp_dpsub: Add global alpha support")
+> Fixes: 8c772f0b2b8e ("drm: xlnx: zynqmp_dpsub: Expose plane ordering to userspace")
+>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 
-So, I also read in the spec that completion irq is optional and wondered
-why it was not possible to describe that in DT. And while we do strive
-to get the SCP fixed alone for technical reasons (it is just better),
-the spec doesn't actually require this, right? So, my suggestion for v2
-is to reword the commit messages a little. More in the direction of
-"support irqless implementations" rather than "support broken FW until
-fixed". Or?
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-> I am not sure what is the reason why this only-polling scenario was never
-> supported in the HW description, this indeed pre-dates my work on SCMI....
-> ...I would/will check with Sudeep, when he's back, what are the reasons for
-> this (if any)...
+> ---
+>
+>   drivers/gpu/drm/xlnx/zynqmp_kms.c | 12 +++++++++---
+>   1 file changed, 9 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> index 2bee0a2275ed..c80a2d4034f3 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> @@ -174,9 +174,15 @@ static int zynqmp_dpsub_create_planes(struct zynqmp_dpsub *dpsub)
+>   
+>   		drm_plane_helper_add(plane, &zynqmp_dpsub_plane_helper_funcs);
+>   
+> -		drm_plane_create_zpos_immutable_property(plane, i);
+> -		if (i == ZYNQMP_DPSUB_LAYER_GFX)
+> -			drm_plane_create_alpha_property(plane);
+> +		ret = drm_plane_create_zpos_immutable_property(plane, i);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (i == ZYNQMP_DPSUB_LAYER_GFX) {
+> +			ret = drm_plane_create_alpha_property(plane);
+> +			if (ret)
+> +				return ret;
+> +		}
+>   	}
+>   
+>   	return 0;
 
-Cool, thank you. Looking forward to hear about it!
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-Happy hacking,
-
-   Wolfram
 
 
