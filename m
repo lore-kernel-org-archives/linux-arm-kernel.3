@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6EDCE8D67
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 17:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE834CE8D67
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 17:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Ck6SOmONUUBFapcwaTAajZaO0W9Pz5IV9Dw+0dnbis=; b=28ugVlhGL/H1U8egTIgLMqd3ZP
-	1w+Z62SdGwyzx4Y7mxmgd0nG6n3E7onJ0WDY9HVCTxzXX5snXikGzZraSsI/ebbmOCH6yRCmL/2IU
-	xiLXD6uA/KD1mn6F4k4KfoWI/7QRLmsgt+Hy/7aKMAheZkL26/8Jt9NMrO+tycnDKZgmvjf6FLEdR
-	fdMzRnZl0eKTKLwXOsurEjB9MKAOxE+9OaHPMHESPGaiNsE8C55jqBd3mrSYkzgMvkhZWTbsa7Cgx
-	vxy7EfBAUVj8xf6HrVqj+P00sa3jpxWPfKLqjxPqqpQkBXftyIc8uMEoLWyoYsLxrE8kpxX9iaih1
-	y6DY8Frg==;
+	bh=PwuI3jI0wGP6bH93JJab3mYRO6FSydmmmterhv6hDow=; b=tvS1HC3wfZSkesPcNmWZjx6Aiw
+	4+WnfJpB0BNwNE9xevb23LHGCpskpvamQC22GMbf2v5KpJdm0xMRhykyUJ4UT1tNK8y21rGyyhCyp
+	qNB4w06UzVoEIOTMwFGIFeaX9ZY0WdtLESMcGPDhXY8eve+uBQExRBTCRmgDNo5vmCpYl9yNR451K
+	QNABZYnUb4KMqjG+TaigKyheIGVd+/z7iwKbUoeEaKBgqNBBeTRIOFY6IekV6QxkZR4Qoe7I6O2em
+	KXzsnUpWzIkfy/zpvAn5SbUheMYTueMxOzLzpEjdJOIkpX/STw+G712W+aYSvQTzJcZO1r/ywPLOH
+	v07L+M1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxlX-0000000CrTE-0xbW;
-	Fri, 14 Nov 2025 17:39:19 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vJxnQ-0000000CrcP-2jTW;
+	Fri, 14 Nov 2025 17:41:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJxlV-0000000CrSo-26Sx
+	id 1vJxnO-0000000Crbu-1Pep
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 17:39:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=6Ck6SOmONUUBFapcwaTAajZaO0W9Pz5IV9Dw+0dnbis=; b=4kpHF5tYp2Yz6vjrWw3CUwrXXh
-	l8dl4e4oNdfuSFYI3a9N/QON/D4BNgazftXzA980LfiWzTzWj6UouLxL25prrHnradLIQ/H6sD/tU
-	MJmUMRGukz9tVd1T79/2VyjYGixXBJpnmKrIjPbr7PRr+aL8yrboMKZjninYXpB5HBvE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vJxlH-00E0Yl-B0; Fri, 14 Nov 2025 18:39:03 +0100
-Date: Fri, 14 Nov 2025 18:39:03 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
-Message-ID: <1b39ba56-e38c-4661-9973-b56fdaa1bcae@lunn.ch>
-References: <20251104203315.85706-1-shenwei.wang@nxp.com>
- <20251104203315.85706-4-shenwei.wang@nxp.com>
- <CACRpkdZR2C=+ssYOKnF=hyOqTakGjVxzp5_qz=3-uYRpzaZgNQ@mail.gmail.com>
- <AS8PR04MB9176F105B09FF939B22B85E589CFA@AS8PR04MB9176.eurprd04.prod.outlook.com>
- <9bcd63d2-f75f-4cb6-a81f-eefc983a99bb@lunn.ch>
- <PAXPR04MB91854DD6096AD550074FA16189CCA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB91854DD6096AD550074FA16189CCA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Fri, 14 Nov 2025 17:41:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B0534439D;
+	Fri, 14 Nov 2025 17:41:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15639C4CEF5;
+	Fri, 14 Nov 2025 17:41:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763142073;
+	bh=/RQWg1MUgwhS9EZg+jb/ASLDoPZeUTGyXQGlnxWumDo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QZjmmVxTxDYya/03MhG03dKGTmac+EBA4829fy2mzheBL46Hy0aMDfnwGJqNVRD6l
+	 0UShIdnYB1FLyvq95DrsVMSFkbocIb29UgWUOBpQmULNneK14HFYFxyb3e/7diU0mL
+	 iN3HrhoRhiBv7MMfyyQ/6g0yMnfvzhQqcAb7gJwf5OvMIhNApUZBG3bdO1b4Di35uN
+	 5pwkB1yaGKiRTLBxdAlx4TOe30jrS+DwpdSSEEcUeX0i6t9GKsjbyIfNW29FxrF6eZ
+	 PG7PSFKGcNitRpeycZl6AaZP1VRToGPpFp08w8Dm80Nci+fYWN4ce+0bYJCNPUo3vd
+	 OGLf1ZtBYDizA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJxnK-00000005J5w-1yC9;
+	Fri, 14 Nov 2025 17:41:10 +0000
+Date: Fri, 14 Nov 2025 17:41:10 +0000
+Message-ID: <86a50otsuh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
+In-Reply-To: <CA+EHjTzi9Q9hqAu1Xk51hO3uz0FdUGjdPSViN4RAD6tuXJkvYQ@mail.gmail.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-30-maz@kernel.org>
+	<CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+	<86cy5ku06v.wl-maz@kernel.org>
+	<CA+EHjTzi9Q9hqAu1Xk51hO3uz0FdUGjdPSViN4RAD6tuXJkvYQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_093917_578958_973729EA 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20251114_094114_415131_B89EF2DE 
+X-CRM114-Status: GOOD (  46.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +95,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 04:31:52PM +0000, Shenwei Wang wrote:
+On Fri, 14 Nov 2025 15:53:33 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
+> Hi Marc,
 > 
-> > -----Original Message-----
-> > From: Andrew Lunn <andrew@lunn.ch>
-> > Sent: Wednesday, November 12, 2025 7:42 AM
-> > To: Shenwei Wang <shenwei.wang@nxp.com>
-> > Cc: Linus Walleij <linus.walleij@linaro.org>; Bjorn Andersson
-> > <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Rob
-> > Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor
-> > Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha
-> > Hauer <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Bartosz
-> > Golaszewski <brgl@bgdev.pl>; Pengutronix Kernel Team
-> > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
-> > <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
-> > devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> > kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
-> > doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
-> > Subject: [EXT] Re: [PATCH v5 3/5] docs: staging: gpio-rpmsg: gpio over rpmsg bus
-> > 
-> > Since this has not been merged yet, there are no existing systems.
-> > 
+> On Fri, 14 Nov 2025 at 15:02, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Fri, 14 Nov 2025 14:20:46 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > Now that we are ready to handle deactivation through ICV_DIR_EL1,
+> > > > set the trap bit if we have active interrupts outside of the LRs.
+> > > >
+> > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > > ---
+> > > >  arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
+> > > >  1 file changed, 7 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > index 1026031f22ff9..26e17ed057f00 100644
+> > > > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > @@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+> > > >                 ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
+> > > >         cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
+> > > >                 ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
+> > > > +
+> > > > +       /*
+> > > > +        * Note that we set the trap irrespective of EOIMode, as that
+> > > > +        * can change behind our back without any warning...
+> > > > +        */
+> > > > +       if (irqs_active_outside_lrs(als))
+> > > > +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
+> > > >  }
+> > >
+> > > I just tested these patches as they are on kvmarm/next
+> > > 2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
+> > > 'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
+> > > additional pKVM patches. I tried running it with pKVM (non-protected)
+> > > and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
+> > > when booting a non-protected guest, which triggers a bug in
+> > > handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
+> > >
+> > > This trap is happening because of setting this particular trap (TDIR).
+> > > Just removing this trap from vgic_v3_configure_hcr() from the ToT on
+> > > kvmarm/next boots fine.
+> >
+> > This is surprising, as I'm not hitting this on actual HW. Are you
+> > getting a 0x18 trap? If so, is it coming from the host? Can you
+> > correlate the PC with what the host is doing?
 > 
-> In this context, "system" refers to both Linux and the remote firmware. The remote firmware 
-> for i.MX platforms has already been released and widely used by our customers. Maintaining 
-> compatibility with the existing firmware would provide a better solution for customers.
+> I should have given you that earlier, sorry.
+> 
+> Yes, it's an 0x18 trap from the host (although it happens when I boot
+> a guest). Here is the relevant part of the backtrace addr2lined and
+> the full one below.
+>
+> handle_percpu_devid_irq+0x90/0x120 (kernel/irq/chip.c:930)
+> generic_handle_domain_irq+0x40/0x64 (include/linux/irqdesc.h:?)
+> gic_handle_irq+0x4c/0x110 (include/linux/irqdesc.h:?)
+> call_on_irq_stack+0x30/0x48 (arch/arm64/kernel/entry.S:893)
+> 
+> [   28.454804] Code: d65f03c0 92800008 f9000008 17fffffa (d4210000)
+> [   28.454873] kvm [266]: Hyp Offset: 0xfff1205c3fe00000
+> [   28.455157] Kernel panic - not syncing: HYP panic:
+> [   28.455157] PS:204023c9 PC:000e5fa4413e39bc ESR:00000000f2000800
+> [   28.455157] FAR:ffff800082733d3c HPFAR:0000000000500000 PAR:0000000000000000
 
-From what i understand, this is not just GPIO. There is also I2C? And
-RTC? I would expect a generic implementation of these as well? I find
-it unlikely you can persuade all these subsystem Maintainers to accept
-your protocols as is. You need to make changes so that GPIOs
-interrupts work correctly, so i would just accept you need to change
-the firmware. And i've given you a way you can keep backwards
-compatible to your out of tree driver...
+I expect you have a write to ICC_DIR_EL1 at this address?
 
-	  Andrew
+> [   28.455157] VCPU:0000000000000000
+> [   28.459703] CPU: 5 UID: 0 PID: 266 Comm: kvm-vcpu-0 Not tainted
+> 6.18.0-rc3-g2ea7215187c5 #8 PREEMPT
+> [   28.460247] Hardware name: linux,dummy-virt (DT)
+> [   28.460615] Call trace:
+> [   28.460900]  show_stack+0x18/0x24 (C)
+> [   28.461234]  dump_stack_lvl+0x40/0x84
+> [   28.461421]  dump_stack+0x18/0x24
+> [   28.461566]  vpanic+0x11c/0x364
+> [   28.461698]  vpanic+0x0/0x364
+> [   28.461838]  nvhe_hyp_panic_handler+0x118/0x190
+> [   28.462056]  handle_percpu_devid_irq+0x90/0x120
+> [   28.462248]  handle_percpu_devid_irq+0x90/0x120
+> [   28.462439]  generic_handle_domain_irq+0x40/0x64
+> [   28.462643]  gic_handle_irq+0x4c/0x110
+> [   28.462814]  call_on_irq_stack+0x30/0x48
+> [   28.463003]  do_interrupt_handler+0x4c/0x6c
+> [   28.463184]  el1_interrupt+0x3c/0x60
+> [   28.463348]  el1h_64_irq_handler+0x18/0x24
+> [   28.463525]  el1h_64_irq+0x6c/0x70
+> [   28.463799]  local_daif_restore+0x8/0xc (P)
+> [   28.463980]  el0t_64_sync_handler+0x84/0x12c
+> [   28.464164]  el0t_64_sync+0x198/0x19c
+> 
+> > It would indicate that we are leaking trap bits on exit, and that QEMU
+> > is trapping ICC_DIR_EL1 on top of ICV_DIR_EL1 (which the HW I have
+> > access to doesn't seem to do).
+> >
+> > > I'm running this on QEMU with '-machine virt,gic-version=3 -cpu max'
+> > > and the kernel with 'kvm-arm.mode=protected' and with
+> > > 'kvm-arm.mode=nvhe'.
+> > >
+> > > Let me know if you need any more info or help testing.
+> >
+> > On top of the above, could you give the hack below a go? I haven't
+> > tested it at all (I'm in the middle of a bisect from hell...)
+> 
+> With the hack it boots, both nvhe and protected mode.
+
+OK. At least we know what the issue is, and it shouldn't be too hard
+to fix. I guess there is an opportunity for cleanup here, and I'll
+look into it shortly (probably not before Monday though).
+
+Thanks again,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
