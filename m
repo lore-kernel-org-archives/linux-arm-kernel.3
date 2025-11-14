@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AD1CE8D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAB6CE8D51
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flo7wE5cJdGEcbfldrzVb8HnH2wgod0BYmxlVO9Ya7k=; b=ozKxIRRkOt9PNF8ZWY15wKIY+K
-	Mnv+DDWnfzNDRep9BW7mlmT07M0LAsIdeID3oxj3q5Lrf0fOoZUOuidU3olUhZ5BFF9xljo2ptf/S
-	pik2KlkjlXl7pTZSZNeaPn7e0iZ6+e3SOidxracoNmFpGgiCk/Yj4s0PSjNiSdxxmlmCo9KjcQx0J
-	PkkrzsV7uLudWbwW136P0BlHnRfQwLNp7hpXv7HeLnxN8cQ5oNbV3D4cy/Em9tGEVeJf7cIozEcGX
-	CuBqZ41A2wcgtqBfzQw8bsdSqZ3XzMeeX8r1o+v8o6JTRXDx4mJLOy6kjown6IJV8UwxDC2/TAP4S
-	vLJNQJTQ==;
+	bh=WTpPGsCBl8yUbistziTlNy+Y0tDqzOkRqUOHR4fXQF4=; b=z/TeXscqAaxIow74aAxgRt83CF
+	Stq5bzQmWGrpvCZEBMu53DLuaGiCx1Syx0MzF6a7wx6DUq06PVGvkRqXrB1Yk84H9nsLRqqk8FTuP
+	YiJ3MvdpTAkHAxN3JLheVQ0+JPJ1x5ZxVR1EnZX+y0PjjD+dde33VRU1mnZbqOb1a8588DKndEJIV
+	r0lorp5GMuV0nPiL0tiqwJWma5N3mD7lBp0zBmPlyoR004ag2cJEYBsMMFbldyKCtPePHoCGU1qjQ
+	Bzzlt8/jvobz4Jpt37GcNbo10RYKg6Hsy3MLPbUGgTmhO8Yo7VHGu390emlQBMqv0O9sUnHpizzd3
+	5vQVmhvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwM8-0000000CgJz-39Kv;
-	Fri, 14 Nov 2025 16:09:00 +0000
+	id 1vJwMC-0000000CgP8-2vnW;
+	Fri, 14 Nov 2025 16:09:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJwLy-0000000Cg4M-0nct
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Nov 2025 16:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=WTpPGsCBl8yUbistziTlNy+Y0tDqzOkRqUOHR4fXQF4=; b=OignNNQzHVHkn1RdU/Klv3FsMM
+	H7Fx9R2S3bwJTTUCnULcIbvLrN+U09/m65iuQltyZgG/XTAta1D7podXvJwzxPwJ3d7j+i8vbIAoE
+	z8P7uGWKawj9eeamHjAw0C1ujNM2yPlaPQOdVyxV3vZ0UFY8OdJ3hvvx3ZAaUHYt9uH8rswxk43Sd
+	U2loKxmW0BDRY8prBVvhwbSnEGbQXuTQb8P8Vfh3RbxnrIUOaax90GYfn/OyQZ7N/J2DLM89EL6gz
+	kA5C6pMSZgKz2D3zaJyR5SPw1xDUq8u89hfLtkjQZTvWXhq/bUWAaV5zGNApGTWq+38BoRia0T6oM
+	JtqZgQUg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLq-0000000Cftr-3jz2
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJvUF-00000002veQ-15hl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:08:44 +0000
+	Fri, 14 Nov 2025 15:13:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4CD01BCB;
-	Fri, 14 Nov 2025 08:08:34 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4837919F6;
+	Fri, 14 Nov 2025 08:08:37 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46E483F5A1;
-	Fri, 14 Nov 2025 08:08:40 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF63A3F5A1;
+	Fri, 14 Nov 2025 08:08:42 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -46,17 +61,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 27/35] KVM: arm64: Make MTE functions public
-Date: Fri, 14 Nov 2025 16:07:08 +0000
-Message-ID: <20251114160717.163230-28-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 28/35] KVM: arm64: at: Use callback for reading descriptor
+Date: Fri, 14 Nov 2025 16:07:09 +0000
+Message-ID: <20251114160717.163230-29-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_080843_050417_FB9E005B 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20251114_151319_664981_EF73469C 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,68 +86,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sanitise_mte_tags() (renamed to kvm_sanitise_mte_tags()) and
-kvm_vma_mte_allowed() public, to be used by the SPE virtualization code.
+Allow callers of __kvm_translate_va() to use a custom defined function for
+reading the translation table descriptor from guest memory. This will be
+useful for SPE virtualization, where the translation tables must also be
+mapped at stage 2 for the entire duration of the guest profiling session.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/include/asm/kvm_mmu.h | 3 +++
- arch/arm64/kvm/mmu.c             | 9 +++++----
- 2 files changed, 8 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h |  6 ++++++
+ arch/arm64/kvm/at.c                 | 17 +++++++++++++----
+ arch/arm64/kvm/nested.c             |  7 ++++---
+ 3 files changed, 23 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index e4069f2ce642..37b84e9d4337 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -183,6 +183,9 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
- int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
- int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
- 
-+bool kvm_vma_mte_allowed(struct vm_area_struct *vma);
-+void kvm_sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn, unsigned long size);
-+
- phys_addr_t kvm_mmu_get_httbr(void);
- phys_addr_t kvm_get_idmap_vector(void);
- int __init kvm_mmu_init(u32 *hyp_va_bits);
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 7cc964af8d30..8abba9619c58 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1434,13 +1434,14 @@ static int get_vma_page_shift(struct vm_area_struct *vma, unsigned long hva)
-  * Must be called with kvm->mmu_lock held to ensure the memory remains mapped
-  * while the tags are zeroed.
-  */
--static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
--			      unsigned long size)
-+void kvm_sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn, unsigned long size)
- {
- 	unsigned long i, nr_pages = size >> PAGE_SHIFT;
- 	struct page *page = pfn_to_page(pfn);
- 	struct folio *folio = page_folio(page);
- 
-+	lockdep_assert_held(&kvm->mmu_lock);
-+
- 	if (!kvm_has_mte(kvm))
- 		return;
- 
-@@ -1462,7 +1463,7 @@ static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index f7c06a840963..e9a73ea74f24 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -284,6 +284,11 @@ static inline unsigned int ps_to_output_size(unsigned int ps, bool pa52bit)
  	}
  }
  
--static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
-+bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
- {
- 	return vma->vm_flags & VM_MTE_ALLOWED;
++typedef int (*read_desc_fn)(struct kvm_vcpu *, gpa_t, void *, unsigned long);
++
++int kvm_vcpu_read_desc(struct kvm_vcpu *vcpu, gpa_t gpa, void *desc,
++		       unsigned long len);
++
+ enum trans_regime {
+ 	TR_EL10,
+ 	TR_EL20,
+@@ -305,6 +310,7 @@ struct s1_walk_filter {
+ 
+ struct s1_walk_info {
+ 	struct s1_walk_filter	*filter;
++	read_desc_fn		read_desc;
+ 	u64	     		baddr;
+ 	enum trans_regime	regime;
+ 	unsigned int		max_oa_bits;
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index be26d5aa668c..e1df4278d5d5 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -110,6 +110,12 @@ static u64 effective_tcr2(struct kvm_vcpu *vcpu, enum trans_regime regime)
+ 	return vcpu_read_sys_reg(vcpu, TCR2_EL2);
  }
-@@ -1833,7 +1834,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (!fault_is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
- 		if (mte_allowed) {
--			sanitise_mte_tags(kvm, pfn, vma_pagesize);
-+			kvm_sanitise_mte_tags(kvm, pfn, vma_pagesize);
- 		} else {
- 			ret = -EFAULT;
- 			goto out_unlock;
+ 
++int kvm_vcpu_read_desc(struct kvm_vcpu *vcpu, gpa_t gpa, void *desc,
++		       unsigned long len)
++{
++	return kvm_read_guest(vcpu->kvm, gpa, desc, len);
++}
++
+ static bool s1pie_enabled(struct kvm_vcpu *vcpu, enum trans_regime regime)
+ {
+ 	if (!kvm_has_s1pie(vcpu->kvm))
+@@ -142,6 +148,9 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 	unsigned int stride, x;
+ 	bool va55, tbi, lva;
+ 
++	if (!wi->read_desc)
++		return -EINVAL;
++
+ 	va55 = va & BIT(55);
+ 
+ 	if (vcpu_has_nv(vcpu)) {
+@@ -414,7 +423,7 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 				return ret;
+ 		}
+ 
+-		ret = kvm_read_guest(vcpu->kvm, ipa, &desc, sizeof(desc));
++		ret = wi->read_desc(vcpu, ipa, &desc, sizeof(desc));
+ 		if (ret) {
+ 			fail_s1_walk(wr, ESR_ELx_FSC_SEA_TTW(level), false);
+ 			return ret;
+@@ -1542,9 +1551,9 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ }
+ 
+ /*
+- * Translate a VA for a given EL in a given translation regime, with
+- * or without PAN. This requires wi->{regime, as_el0, pan} to be
+- * set. The rest of the wi and wr should be 0-initialised.
++ * Translate a VA for a given EL in a given translation regime, with or without
++ * PAN. This requires wi->{read_desc, regime, as_el0, pan} to be set. The rest
++ * of the wi and wr should be 0-initialised.
+  */
+ int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 		       struct s1_walk_result *wr, u64 va)
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index f04cda40545b..92e94bb96bcc 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1196,9 +1196,10 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		invalidate_vncr(vt);
+ 
+ 		vt->wi = (struct s1_walk_info) {
+-			.regime	= TR_EL20,
+-			.as_el0	= false,
+-			.pan	= false,
++			.read_desc	= kvm_vcpu_read_desc,
++			.regime		= TR_EL20,
++			.as_el0		= false,
++			.pan		= false,
+ 		};
+ 		vt->wr = (struct s1_walk_result){};
+ 	}
 -- 
 2.51.2
 
