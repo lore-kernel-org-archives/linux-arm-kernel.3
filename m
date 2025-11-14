@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7A0CEACD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E691BCEACCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TGO8+N9PpF7BMxZuziqATlztibLC+TocFdsUk8iwYM0=; b=oFt9F5dPbQD6CZ
-	1pykwOrs2B0mb58OZ/6u/V158PbL8HbTAxoYM9uc92QuwUJNpVafl/YKecqPB12B0iUCDL7Af2fsm
-	KLVfJzHP7EYXPIXkQWF6L0Py3Kmm2uA0W33qg0KuLgsfW9uHGI65kcvIMGOtaOruAKgROQR0qw03N
-	G6uADbzl5xX35Hd8TFDO1x+HsARCxzsV9QlpQdlIPagezInD1cjzJlZ8g+U0klzV6tZQPk4hHvIvK
-	IHD9sGu6hvhyhtQMmfEp9Q97oDq1Zxk+KJRkAsphHJXrg9xPj0gizsAPlY/MAarwhFuxkEgJ0DNLQ
-	NzvzVSdsmJKAMbCK+6sg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SwXF9tal94iNHV4eOVQTLawRfelJ0MW33nNiGPXjjVc=; b=xQsvbwtSaoui9qlEMrv2NCnEo/
+	TeMeBypPjXTayNXODdhMrIe8LOOKU0qgqm/QtxnfExl4PmRmC2DWhEnUlcXxYu6eXskIotrRZ9HIu
+	UzcRsft6siTAwl8tqexe19+Ig/XhYc2bqkTEy8lSBuvDq92mP7FQhjwmDeq02hoM45+zSUqd/YXqh
+	GUoRemzZw/uLOiEyfbk91pzsziO15jXLF/mDuR9XcUUFu2fZrP6MCLZvWBtQq1sZUgK1BMxKKRz5V
+	8bU5Nq411DXa+38hPYXjrDvSoWhfewYURoFfHBCq+l+UTZGfZaC9Ft+4kfph4rz52tCPNw/JkR0E1
+	5/dkTKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1SN-0000000D8EV-2F3U;
-	Fri, 14 Nov 2025 21:35:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vK1Vl-0000000D8OP-0MxQ;
+	Fri, 14 Nov 2025 21:39:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1SK-0000000D8E7-2bxH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 21:35:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B06F043D42;
-	Fri, 14 Nov 2025 21:35:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 615DFC4CEF1;
-	Fri, 14 Nov 2025 21:35:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763156141;
-	bh=7+gBsjbSf8GGUjKAhjC9BjsZi2tNC9506bmmv93MuO0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=aa7dTlg+g4JoT9xX34DucEx0Z+AdddJdQXp3TRuzjqjFnyE4M4YPv4U6sDfQ8DaOS
-	 mPBVLXkF4VNf1JKgb8ADAeETueV3PJuPCTVdDGIhEXCXM1PwjsP27s9Ci5IOrzqkYv
-	 QNty5UnzGGK89TrFyWlCmjZpuq+Xin2YSIi/lXHdnA9eeuWV9SdXJNdeT5Gd9MbDSD
-	 qQoW2iBN0NyKRzBoShc+ZNsj7izl4YfPU9R/fBWkVqcSeIjdO1QwhmDaN0RU5HfRmX
-	 w0ATx4bBEOKtQgV6jE7HEhbXWn/qdxhmwbtQmFfMGvsib42qjUfT7N+Fiz5O4sW2ww
-	 u7ueHayrsqO9g==
-Date: Fri, 14 Nov 2025 15:35:40 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	chester62515@gmail.com, mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, cassel@kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Minghuan Lian <minghuan.Lian@nxp.com>,
-	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <20251114213540.GA2335845@bhelgaas>
+	id 1vK1Vi-0000000D8Nl-27qY;
+	Fri, 14 Nov 2025 21:39:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763156350;
+	bh=3icBXaIjkkmGJus6zc+62rhTqrwbaHXApyWJC0TMgV8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=kgGuD/S3uMVEW6q7G8QfUh9dqhva1To6XZ1DlwzDMtbDgkXoKuqT9AoxMFr6KZUHv
+	 Sg6LmFiQsx/qSZ6NiKVRGCyUqCRWBFCR0DC9NJb+S3Db6EVpFqScUj8MRMhyg4gw0z
+	 smx/2cVuVB1TSf8CdMJ7ogyHrrFdQvaPJ0KZJzq2wmd7wfj4sahQgFet1xu0S0eFWA
+	 EOwDf9vRT/8U2C0w0gZ7MLlgxY+3LIPTVQKAnTwyY1jHIGcl7/fuuwsSdbm+r0+o04
+	 fTPVW6cExRULU08xB4NyjUoN4VvlXRreqIrcwMPYc8p00e1xLAZWGk3JifF3xGSvjW
+	 mE61NMnCWOyEg==
+Received: from [IPv6:2606:6d00:11:696f::c41] (unknown [IPv6:2606:6d00:11:696f::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 382DF17E013C;
+	Fri, 14 Nov 2025 22:39:08 +0100 (CET)
+Message-ID: <38bf1d78ab2d60ce31698223bdbc569fa8813134.camel@collabora.com>
+Subject: Re: [PATCH v3 3/6] media: mediatek: encoder: Add support for VCP
+ encode process
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>, Nathan Hebert	
+ <nhebert@chromium.org>, Arnd Bergmann <arnd@arndb.de>, Irui Wang	
+ <irui.wang@mediatek.com>, George Sun <george.sun@mediatek.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>
+Date: Fri, 14 Nov 2025 16:39:07 -0500
+In-Reply-To: <20250814085642.17343-4-kyrie.wu@mediatek.com>
+References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+	 <20250814085642.17343-4-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-RJGE2iN2mzFCSOVJdVo4"
+User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b945e463-52ec-417c-8e6a-599c35a6727d@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_133544_726105_35E08A81 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20251114_133914_731537_F5E029A2 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +102,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 11:05:45AM +0100, Christian Bruel wrote:
-> > > The implication is that *every* user of dw_pcie_suspend_noirq() would
-> > > have to check for the link being up.  There are only three existing
-> > > callers:
-> > > 
-> > >    imx_pcie_suspend_noirq()
-> > >    ls_pcie_suspend_noirq()
-> > >    stm32_pcie_suspend_noirq()
-> > > 
-> > > but none of them checks for the link being up.
-> 
-> stm32 supports L1.1, so we bail out before pme_turn_off() in
-> dw_pcie_suspend_noirq()
 
-I think you're referring to this code::
+--=-RJGE2iN2mzFCSOVJdVo4
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-  dw_pcie_suspend_noirq()
-  {
-        /*
-         * If L1SS is supported, then do not put the link into L2 as some
-         * devices such as NVMe expect low resume latency.
-         */
-        if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-                return 0;
+Hi,
 
-        if (pci->pp.ops->pme_turn_off) {
-                pci->pp.ops->pme_turn_off(&pci->pp);
-        } else {
-                ret = dw_pcie_pme_turn_off(pci);
-                if (ret)
-                        return ret;
-        }
+Le jeudi 14 ao=C3=BBt 2025 =C3=A0 16:56 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> From: Irui Wang <irui.wang@mediatek.com>
+>=20
+> When encoding by VCP interface, encoder driver need change to VCP path:
 
-I think this is bogus.  For starters, the code doesn't match the
-comment.  The comment talks about "L1SS being supported", but the code
-checks for L1 (not L1SS).  And it checks whether L1 is *enabled* (in
-Link Control), not whether it's *supported* (in Link Capabilities).
+Please use something like:
 
-And it's up to the user whether L1 is enabled.  Users can disable L1
-by building the kernel with PCIEASPM_PERFORMANCE, booting with
-"pcie_aspm.policy=performance", or using sysfs.
+Adapt the encoder driver to support VCP firmwares interface.
 
-It doesn't make sense to me to decide anything about PME_Turn_Off
-based on PCI_EXP_LNKCTL_ASPM_L1.
+> Firstly, set encoder driver fw type to 'VCP'. Then, allocate RC buffers
 
-We've had this conversation before, e.g.,
-https://lore.kernel.org/linux-pci/?q=b%3Adw_pcie_suspend_noirq+b%3ANVMe+f%3Ahelgaas,
-and Richard actually posted a patch to remove this code [2], but I
-hesitated because I didn't think we had a good explanation for why it
-was there in the first place and it was now OK to remove it.
+Drop "Firstly, ", go straight to the verb.
 
-But I think I was wrong and we should just remove this code and debug
-whatever breaks.
+Set the encoder driver fw type ...
 
-> > If no devices are attached to the bus, then there is no need to
-> > broadcast PME_Turn_Off and wait for L2/L3. I've just sent out a
-> > series that fixes it [1].  Hopefully, this will allow Vincent to
-> > use dw_pcie_{suspend/resume}_noirq() APIs.
-> >
-> > - Mani
-> > 
-> > [1] https://lore.kernel.org/linux-pci/20251106061326.8241-1-manivannan.sadhasivam@oss.qualcomm.com/
-> 
-> dw_pcie_suspend_noirq() path tested OK on stm32mp2.
-> 
-> Regards
-> 
-> Christian
+> by the VCP device. Finally, send the shared memory address into VCP and
+> map the encoder vsi address by the VCP shared memory address.
 
-[2] https://lore.kernel.org/linux-pci/20250924194457.GA2131297@bhelgaas/
+This one is a little too broken for me, please rework this comment. When we=
+ say
+"map address", we don't expect that to be mapped by another address. "map" =
+is
+the action, so I suppose you wanted to specify where it is mapped to ? CPU
+address space or device address space ?
+
+Please rework this message.
+
+>=20
+> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+> ---
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.c=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 6 +++++
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.h=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 1 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_priv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 1 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_vcp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 6 +++++
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0 3 +++
+> =C2=A0.../vcodec/encoder/venc/venc_common_if.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 23 ++++++++++++++-----
+> =C2=A0.../mediatek/vcodec/encoder/venc_vpu_if.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 14 ++++++++++-
+> =C2=A07 files changed, 47 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.=
+c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> index 0381acceda25..7a504f093bd8 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> @@ -105,3 +105,9 @@ int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw)
+> =C2=A0	return fw->type;
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_type);
+> +
+> +struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw)
+> +{
+> +	return fw->ops->get_fw_dev(fw);
+> +}
+> +EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_dev);
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.=
+h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
+> index e7304a7dd3e0..56c26b91651e 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
+> @@ -43,5 +43,6 @@ int mtk_vcodec_fw_ipi_send(struct mtk_vcodec_fw *fw, in=
+t id,
+> =C2=A0int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw);
+> =C2=A0int mtk_vcodec_fw_get_ipi(enum mtk_vcodec_fw_type type, int hw_id);
+> =C2=A0int mtk_vcodec_fw_get_venc_ipi(enum mtk_vcodec_fw_type type);
+> +struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw);
+> =C2=A0
+> =C2=A0#endif /* _MTK_VCODEC_FW_H_ */
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+priv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> index 0a2a9b010244..710c83c871f4 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> @@ -29,6 +29,7 @@ struct mtk_vcodec_fw_ops {
+> =C2=A0	int (*ipi_send)(struct mtk_vcodec_fw *fw, int id, void *buf,
+> =C2=A0			unsigned int len, unsigned int wait);
+> =C2=A0	void (*release)(struct mtk_vcodec_fw *fw);
+> +	struct device *(*get_fw_dev)(struct mtk_vcodec_fw *fw);
+> =C2=A0};
+> =C2=A0
+> =C2=A0#if IS_ENABLED(CONFIG_VIDEO_MEDIATEK_VCODEC_VPU)
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+vcp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+> index f6b93e1bcbf3..646e3944dd4f 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+> @@ -432,6 +432,11 @@ static void mtk_vcodec_vcp_release(struct mtk_vcodec=
+_fw *fw)
+> =C2=A0{
+> =C2=A0}
+> =C2=A0
+> +static struct device *mtk_vcodec_vcp_get_fw_dev(struct mtk_vcodec_fw *fw=
+)
+> +{
+> +	return fw->vcp->vcp_device->dev;
+> +}
+> +
+> =C2=A0static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_msg =3D {
+> =C2=A0	.load_firmware =3D mtk_vcodec_vcp_load_firmware,
+> =C2=A0	.get_vdec_capa =3D mtk_vcodec_vcp_get_vdec_capa,
+> @@ -440,6 +445,7 @@ static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_=
+msg =3D {
+> =C2=A0	.ipi_register =3D mtk_vcodec_vcp_set_ipi_register,
+> =C2=A0	.ipi_send =3D mtk_vcodec_vcp_ipi_send,
+> =C2=A0	.release =3D mtk_vcodec_vcp_release,
+> +	.get_fw_dev =3D mtk_vcodec_vcp_get_fw_dev,
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_v=
+codec_fw_use fw_use)
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
+.c
+> index a1e4483abcdb..bb913dfe5f04 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> @@ -252,6 +252,9 @@ static int mtk_vcodec_probe(struct platform_device *p=
+dev)
+> =C2=A0	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,scp"=
+,
+> =C2=A0					 &rproc_phandle)) {
+> =C2=A0		fw_type =3D SCP;
+> +	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vcp",
+> +					 &rproc_phandle)) {
+> +		fw_type =3D VCP;
+> =C2=A0	} else {
+> =C2=A0		dev_err(&pdev->dev, "[MTK VCODEC] Could not get venc IPI device")=
+;
+> =C2=A0		return -ENODEV;
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_com=
+mon_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_=
+if.c
+> index da7cf90bd54b..b28d559285ea 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.=
+c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.=
+c
+> @@ -478,8 +478,13 @@ static void venc_free_rc_buf(struct venc_inst *inst,
+> =C2=A0{
+> =C2=A0	int i;
+> =C2=A0	struct device *dev;
+> +	struct mtk_vcodec_fw *fw =3D inst->ctx->dev->fw_handler;
+> +
+> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP)
+> +		dev =3D mtk_vcodec_fw_get_dev(fw);
+> +	else
+> +		dev =3D &inst->ctx->dev->plat_dev->dev;
+> =C2=A0
+> -	dev =3D &inst->ctx->dev->plat_dev->dev;
+> =C2=A0	mtk_venc_mem_free(inst, dev, &bufs->rc_code);
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < core_num; i++)
+> @@ -528,12 +533,18 @@ static int venc_alloc_rc_buf(struct venc_inst *inst=
+,
+> =C2=A0	struct device *dev;
+> =C2=A0	void *tmp_va;
+> =C2=A0
+> -	dev =3D &inst->ctx->dev->plat_dev->dev;
+> -	if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
+> -		return -ENOMEM;
+> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP) {
+> +		dev =3D mtk_vcodec_fw_get_dev(fw);
+> +		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
+> +			return -ENOMEM;
+> +	} else {
+> +		dev =3D &inst->ctx->dev->plat_dev->dev;
+> +		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
+> +			return -ENOMEM;
+> =C2=A0
+> -	tmp_va =3D mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
+> -	memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
+> +		tmp_va =3D mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
+> +		memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
+> +	}
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < core_num; i++) {
+> =C2=A0		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_info[i]))
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c=
+ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+> index 537b9955932e..9a90c2271297 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+> @@ -8,13 +8,23 @@
+> =C2=A0#include "venc_ipi_msg.h"
+> =C2=A0#include "venc_vpu_if.h"
+> =C2=A0
+> +#define VSI_OFFSET_MASK 0x0FFFFFFF
+> +
+> =C2=A0static void handle_enc_init_msg(struct venc_vpu_inst *vpu, const vo=
+id *data)
+> =C2=A0{
+> =C2=A0	const struct venc_vpu_ipi_msg_init_comm *msg =3D data;
+> =C2=A0	struct mtk_vcodec_fw *fw =3D vpu->ctx->dev->fw_handler;
+> +	u64 pa_start, vsi_offset;
+> =C2=A0
+> =C2=A0	vpu->inst_addr =3D msg->init_ack.vpu_inst_addr;
+> -	vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, vpu->inst_addr);
+> +
+> +	if (mtk_vcodec_fw_get_type(fw) =3D=3D VCP) {
+> +		pa_start =3D (u64)fw->vcp->iova_addr;
+> +		vsi_offset =3D (msg->vpu_vsi_addr & VSI_OFFSET_MASK) - (pa_start & VSI=
+_OFFSET_MASK);
+> +		vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, ENCODER_MEM) + vsi_offset;
+> +	} else {
+> +		vpu->vsi =3D mtk_vcodec_fw_map_dm_addr(fw, msg->vpu_vsi_addr);
+> +	}
+> =C2=A0
+> =C2=A0	/* Firmware version field value is unspecified on MT8173. */
+> =C2=A0	if (mtk_vcodec_fw_get_type(fw) =3D=3D VPU)
+> @@ -155,6 +165,8 @@ int vpu_enc_init(struct venc_vpu_inst *vpu)
+> =C2=A0	out.base.venc_inst =3D (unsigned long)vpu;
+> =C2=A0	if (MTK_ENC_DRV_IS_COMM(vpu->ctx)) {
+> =C2=A0		out.codec_type =3D vpu->ctx->q_data[MTK_Q_DATA_DST].fmt->fourcc;
+> +		if (mtk_vcodec_fw_get_type(vpu->ctx->dev->fw_handler) =3D=3D VCP)
+> +			out.shared_iova =3D vpu->ctx->dev->fw_handler->vcp->iova_addr;
+> =C2=A0		msg_size =3D sizeof(struct venc_ap_ipi_msg_init_comm);
+> =C2=A0	} else {
+> =C2=A0		msg_size =3D sizeof(struct venc_ap_ipi_msg_init);
+
+Code looks fine to me, so just resend with a comprehensible message please.
+
+cheers,
+Nicolas
+
+--=-RJGE2iN2mzFCSOVJdVo4
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaRehewAKCRDZQZRRKWBy
+9FacAQDcXC1+bhx+LAFOQQhwRw7Iubab0rcFfZidc1UlxkgSmwD9FqFGKRsEIm1A
+bhNQWalvBqAyg7iEUVaFpICC7gajwQo=
+=YiRQ
+-----END PGP SIGNATURE-----
+
+--=-RJGE2iN2mzFCSOVJdVo4--
 
