@@ -4,86 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691A8CE7B13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B49ECE7B13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iebc9wAbiB5E5IOqak411hyeSp97Jf8NhK9FIOstGQ4=; b=lo6zJk2k8DMiE+AndGwmQF2TJS
-	59ueL2GyJj91kRSt/HNgPRFEZSwqtdhP/kix3YjsYbi5Oa3l8GRftIhLN8O2E5rpFEmjHWrF5fEq6
-	cM6uiXIYz4mWYqnA7oT1yzpbMS30BgxNZvZmIbqNrkBbG+2lZMS/wO6+Eav87pUSHPd3l3504Zcqa
-	FPgAjHZjFYRpksKKyTraig0zTq6Z+H525Fidn+Qyij5pDfT+8/EL7uDQjbEpNSKKfS3YFa7hUw9+h
-	bD5BvcNrsAyVdayArZZTiK7tKEBHj1sx9XfLQ3scO4xM9aDsdCyNQrSEUmh1OIR97ixLAfKzEpLOF
-	yBL6Oy9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TQ9qAP1jynhq56w3FNF76wiXhRdCJQJmkcCu8hs9das=; b=PCL4oBwG5pkEUQfQXB0LEPhod6
+	j+SEoFkwQ3bd+Yf1kNp9BSDzMvjPyILRvSog5iC+dKin/9yl0M5vXKQPwa96BiCadtLNjePQ/si1l
+	2Puz1nD4Yy1DUi467XQiUj3nrn55dvKUjaPKLK9v6uPB37KIaqaqPPQzTI6lhc3PQF/GgcoXQL1/p
+	v/bjGLLFCugLg4iJ4wGMPanOEycsKfljJu0ql6atEnMHAc0QjEYkcc68SlCfnjb5oIKKLgWezuipX
+	D8FWxmb6tr/qLm1Oj7l296I3tnzgvVm8B0bKfcbQEhkTeiyOlr3QjwNB6nAVVh8riKqs5Qx/Wxov2
+	CZI1ooCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJug4-0000000CLzA-107Q;
-	Fri, 14 Nov 2025 14:21:28 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vJujh-0000000CMR5-0V6n;
+	Fri, 14 Nov 2025 14:25:13 +0000
+Received: from mx13.kaspersky-labs.com ([91.103.66.164])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJug1-0000000CLyg-0o5x
+	id 1vJujc-0000000CMOZ-3Mr1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:21:26 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ed67a143c5so299581cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:21:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763130083; x=1763734883; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iebc9wAbiB5E5IOqak411hyeSp97Jf8NhK9FIOstGQ4=;
-        b=NdDJ7Ln4nNzBpoyuR4MNgmMFBLN/OphxRshGb4bnYA7WGi3AjuhaGDw9HtQXQZZCso
-         OgG6vL3sXK1w4CYJNOWCBprrbQQFQ9QPFcP+C2AsRLm9EFma2CccgwxtNJ6c+PQYdL3w
-         DJgAYAoQGYhHbYuzz61hUbUkG8jSnMMtG+4xmXGacTdd5giWXhJeTi54S7y5g2U6/EMz
-         awQNAeDgl0r20WKOqtJlZ7sskoeXa7YCW/fvi0j7w9BAzAV/JnEhW3hY6G3Qxqf3fina
-         aLGO5InWtKDDNpTeX3qaCmi14HsnsFKaT05IJdTMHqW+3ugf12CPEwrz5DTxvEPofjSj
-         cSeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763130083; x=1763734883;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iebc9wAbiB5E5IOqak411hyeSp97Jf8NhK9FIOstGQ4=;
-        b=YlsvJ1o0IcI1SIu4uMBU14S2qSAe6KVzwmqFB6Rh2B+bhgmTAckbyWp/GWVpG/0J0B
-         d9+FpyHzE+9nNWGGp5lBe4oUaBsvPyfaFktddCfyxUA7R1V2Kd70NQkhkf4NmxPjnhju
-         k1S97GjJzpM2O5SQZMyCDHd3FBiYiKXIy9/MqyNEhJdusqs/FmJwxPyHwLxkFaX8WNn2
-         j7s6VSKyJ2G+QbJ9XWTGNbesMT0WRDQqQUt3pIk51oLdEjMqazNiMbPvue5kJMeImbB0
-         jCZfiuXpnXzn27YHqK7AYRVdkEhKn3Nf2lrVPBk8i199VjfBZaqcXuIedAP2l4KrPvnj
-         Pq5g==
-X-Forwarded-Encrypted: i=1; AJvYcCXFWWyCmuJkMfcheIsopcv/d3i8S3Rhlvo7uhtBAm7P2x68qFyT9cEcJrvkr7EuSMLmtZu7dJoutxxc/rPyjO23@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOQzZiAJLoS4oqgZULQ3sCFY9g/Ih4pEKrynUpmR1OKl34CDbg
-	5X8sOM39Fb45zzocypMrwr2W2x/0Ds7CU1wznr0f0sc6nQMxujIf8bTeZEpKutC4mzCMe8nKb6+
-	4RRZps57s/0tb26IflQ1hrbX8ru4oRIdqlnOX9z5Dnz0dqbHKtLfc0ysjR/s=
-X-Gm-Gg: ASbGnctfXtwBrRgK7agDTiaSw7147Dkyc3T4AaCQ/1uf9cssv8ufZCY666g0q/02eHW
-	B/XdpCr0uQzUEX/sjXD6/a+fvbdHIpeUs+oLFRTl3Zz18A49HrYqZcNTz7+wJ8k7coxWgH138nm
-	eB7IzOE9MiH4lLBUZOhV+VHBza8b2rN7Gz+GdJRDC0L2IajMB4FaYWz60bGW3bkTcLWDzUQ/mb0
-	WZkurflJXHrnPfdbtkRw2koknV2YsvEpTy+MDNECqZ7ZGUEDK0UY5s2BKXILOk/juhdLOtURsu5
-	LffWMJqGfi4Lnw9S
-X-Google-Smtp-Source: AGHT+IE5Oe19RaLFBsVRY5odgzBmRaaiSdzxsgMGjxiUojw4mI94n9CHnCtVAFThAGs6iI94m/QfSBQkFZ6pjRXMhQg=
-X-Received: by 2002:ac8:580f:0:b0:4e5:7827:f4b9 with SMTP id
- d75a77b69052e-4edf47135camr5213031cf.3.1763130082793; Fri, 14 Nov 2025
- 06:21:22 -0800 (PST)
+	Fri, 14 Nov 2025 14:25:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaspersky.com;
+	s=mail202505; t=1763130294;
+	bh=TQ9qAP1jynhq56w3FNF76wiXhRdCJQJmkcCu8hs9das=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	b=S6CjI91vAWRwG3S5c1FA5vp36IzbpPBJzU9drG0r20BybvNfgWjHMgpG8hHE9Fcxv
+	 4uxKJ7idstligMMNamNJjVqCdEEhqczWs63qUWahgcmdAmKDkYj2zCX6f4xIZuwmgm
+	 7EA10lz9kym3uWgKci4c77UfEyZ3cj9OEpLfI2w+GzajTxkb3txtlHyYpFPMhisdpJ
+	 +Pwu/75k2rzYATaJTpRkbi+9XVivKmWeVvZeABPYtmIpvWjnHrZkjEvOMQvNZWWO4z
+	 DgyFdyfw0K8QYe4ZHP0lNkJOVcyEQBFwKssQH4YYGGwzcFX8gKV9bySrFG4eD+DZjc
+	 G7xeSsHORCZ4A==
+Received: from relay13.kaspersky-labs.com (localhost [127.0.0.1])
+	by relay13.kaspersky-labs.com (Postfix) with ESMTP id AABC93E5142;
+	Fri, 14 Nov 2025 17:24:54 +0300 (MSK)
+Received: from mail-hq2.kaspersky.com (unknown [91.103.66.200])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail-hq2.kaspersky.com", Issuer "Kaspersky MailRelays CA G3" (verified OK))
+	by mailhub13.kaspersky-labs.com (Postfix) with ESMTPS id A41413E230B;
+	Fri, 14 Nov 2025 17:24:51 +0300 (MSK)
+Received: from zhigulin-p.avp.ru (10.16.104.190) by HQMAILSRV2.avp.ru
+ (10.64.57.52) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 14 Nov
+ 2025 17:23:52 +0300
+From: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+CC: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Inochi Amaoto
+	<inochiama@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, Joe Hattori
+	<joe@pf.is.s.u-tokyo.ac.jp>, Rayagond Kokatanur <rayagond@vayavyalabs.com>,
+	Giuseppe CAVALLARO <peppe.cavallaro@st.com>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lvc-project@linuxtesting.org>
+Subject: [PATCH net v2] net: stmmac: add clk_prepare_enable() error handling
+Date: Fri, 14 Nov 2025 17:23:50 +0300
+Message-ID: <20251114142351.2189106-1-Pavel.Zhigulin@kaspersky.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20251109171619.1507205-1-maz@kernel.org> <20251109171619.1507205-30-maz@kernel.org>
-In-Reply-To: <20251109171619.1507205-30-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 14 Nov 2025 14:20:46 +0000
-X-Gm-Features: AWmQ_bkph9z6RWKdMnig0aZ2huiMgSjHMys0UY_nuIP5-xDzsPT50bNsv9UL6s8
-Message-ID: <CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
-Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when
- interrupts overflow LR capacity
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Yao Yuan <yaoyuan@linux.alibaba.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.16.104.190]
+X-ClientProxiedBy: HQMAILSRV2.avp.ru (10.64.57.52) To HQMAILSRV2.avp.ru
+ (10.64.57.52)
+X-KSE-ServerInfo: HQMAILSRV2.avp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/14/2025 14:08:44
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 198105 [Nov 14 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: Pavel.Zhigulin@kaspersky.com
+X-KSE-AntiSpam-Info: LuaCore: 76 0.3.76
+ 6aad6e32ec76b30ee13ccddeafeaa4d1732eef15
+X-KSE-AntiSpam-Info: {Tracking_cluster_exceptions}
+X-KSE-AntiSpam-Info: {Tracking_real_kaspersky_domains}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1;zhigulin-p.avp.ru:7.1.1,5.0.1;kaspersky.com:7.1.1,5.0.1;127.0.0.199:7.1.2
+X-KSE-AntiSpam-Info: {Tracking_white_helo}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Deterministic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 11/14/2025 14:16:00
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 11/14/2025 12:07:00 PM
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSMG-AntiPhishing: NotDetected, bases: 2025/11/14 13:28:00
+X-KSMG-AntiSpam-Interceptor-Info: not scanned
+X-KSMG-AntiSpam-Status: not scanned, disabled by settings
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/11/14 12:42:00 #27925085
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected, bases: 2025/11/14 13:28:00
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 52
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_062125_240031_C3F86BF3 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20251114_062509_537042_E82F8759 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +130,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+The driver previously ignored the return value of 'clk_prepare_enable()'
+for both the CSR clock and the PCLK in 'stmmac_probe_config_dt()' function.
 
-On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
->
-> Now that we are ready to handle deactivation through ICV_DIR_EL1,
-> set the trap bit if we have active interrupts outside of the LRs.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index 1026031f22ff9..26e17ed057f00 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
->                 ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
->         cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
->                 ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
-> +
-> +       /*
-> +        * Note that we set the trap irrespective of EOIMode, as that
-> +        * can change behind our back without any warning...
-> +        */
-> +       if (irqs_active_outside_lrs(als))
-> +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
->  }
+Add 'clk_prepare_enable()' return value checks.
 
-I just tested these patches as they are on kvmarm/next
-2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
-'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
-additional pKVM patches. I tried running it with pKVM (non-protected)
-and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
-when booting a non-protected guest, which triggers a bug in
-handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-This trap is happening because of setting this particular trap (TDIR).
-Just removing this trap from vgic_v3_configure_hcr() from the ToT on
-kvmarm/next boots fine.
+Fixes: bfab27a146ed ("stmmac: add the experimental PCI support")
+Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+---
+v2: Fix 'ret' value initialization after build bot notification.
+v1: https://lore.kernel.org/all/20251113134009.79440-1-Pavel.Zhigulin@kaspersky.com/
 
-I'm running this on QEMU with '-machine virt,gic-version=3 -cpu max'
-and the kernel with 'kvm-arm.mode=protected' and with
-'kvm-arm.mode=nvhe'.
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-Let me know if you need any more info or help testing.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 27bcaae07a7f..8f9eb9683d2b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -632,7 +632,9 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 			dev_warn(&pdev->dev, "Cannot get CSR clock\n");
+ 			plat->stmmac_clk = NULL;
+ 		}
+-		clk_prepare_enable(plat->stmmac_clk);
++		rc = clk_prepare_enable(plat->stmmac_clk);
++		if (rc < 0)
++			dev_warn(&pdev->dev, "Cannot enable CSR clock: %d\n", rc);
+ 	}
 
-Cheers,
-/fuad
+ 	plat->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
+@@ -640,7 +642,12 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 		ret = plat->pclk;
+ 		goto error_pclk_get;
+ 	}
+-	clk_prepare_enable(plat->pclk);
++	rc = clk_prepare_enable(plat->pclk);
++	if (rc < 0) {
++		ret = ERR_PTR(rc);
++		dev_err(&pdev->dev, "Cannot enable pclk: %d\n", rc);
++		goto error_pclk_get;
++	}
 
+ 	/* Fall-back to main clock in case of no PTP ref is passed */
+ 	plat->clk_ptp_ref = devm_clk_get(&pdev->dev, "ptp_ref");
+--
+2.43.0
 
->  static bool lr_signals_eoi_mi(u64 lr_val)
-> --
-> 2.47.3
->
->
 
