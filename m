@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23402CDE019
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B079CCDE006
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9qmFoiFCndJ663gJtOj5zhzWJH5eFx0hcwLNA9LnIU=; b=oRz+Tju5Rx3QzN3ImG4GRWYJSX
-	V7gRfzb4hUW6Tyk7qbbNm+mCH2VwLle8un9MQH52ZcAIkhFXzHk0YA5MPfQ/eutztDFMYaFKpxwqb
-	86D7kh+iBdOzzqy5uudaZEEKTw7d5IBABtLzrI+vKZwY5nTENj5ENBHSeI6Slqc+8i5bgmRQtc/of
-	+rPm9UYtI44W7L/b8TXtdxwDBfmtcF1hiUyEJG9gHdulhE2sN7sYyD3MpaWgkhhfabH0SuUOmWamq
-	PXBBiFGp3kAXEuzgq0a4BJLzTZFfd3zVkeuM60OM2qwyk9KOZtXS45hAw0hGMmTWk3Zd79258QSDY
-	qFlkaSBg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=89YFiJ/Wh4hAAoYq8gOKD9UqG77+iIqKpI2Jvm7L0YY=; b=AB/ZVWRTo35wCr2X+V4vPxCtfV
+	vDE29z9D+VHK+1AR/aVK5XmKvFa/mEVDj1gKhdeN3Y/Tf9s1k0dsJ89EKbUpiQpb/HWigxOtKh/Df
+	C8jcbyP4fiwD3gT7EX0srUJlHwkz2v6fsFrbuDEIHCvegE4xORoMs4mrFU5y7VuzEc0InkEgVWWqD
+	PT04xRSPNu70DcT44fTd4+rUK9ACT6I9yGzEtUUlIU62ce4JY4r/7tty8y3bi2w+rv9FyJZtyquf/
+	JjXBuBkXRw32R3ZwDEQ8JjeYZJhAgPrAB2KIPzBi7UNLhS+3J+FA5LscY18KVn9IreYsXZHVWptAA
+	oDvSt6pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnvx-0000000Biki-0CuH;
-	Fri, 14 Nov 2025 07:09:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJnx7-0000000Biu2-36Nh;
+	Fri, 14 Nov 2025 07:10:37 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnvu-0000000BikR-2BOB
+	id 1vJnx3-0000000Bisl-2zRI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 07:09:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4F0A60138;
-	Fri, 14 Nov 2025 07:09:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66B48C4AF09;
-	Fri, 14 Nov 2025 07:09:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763104161;
-	bh=uMczW6xm3tzYXJie6UXCYYndNg50YuEV29JoCE/q1ik=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OXB/SH+eZFegjNwezMreXdWJVEB1Uw8X41gZ8U+mRfgeMPGcwoVsxSXizMcK192pJ
-	 J238StqrQcqXv35Q4ssEC1oHeThV3GPZmfsHNkzmV+DhTvlV+IId4opjTz+qAllAiH
-	 qCOq8WyydbO2MSknFThAQVQffscFRq83G0F5UPjYOOjh7hckuaRiXJER15dtzjA3wq
-	 Mkx0W12hqqC1An0g12pxy+yDVr+1Rrybr2sVY1UpkwLtZB2mH8plHHZYzZ2ZNEC+pd
-	 vRF1/goXKkSDpC2dMVBusVB0Gp5jQ3+0LFSzAiejIXxGbsns+1+dW+MZgWB2ddls8p
-	 N1u0fooSE49iQ==
-Message-ID: <77918d70-49a0-4922-8f41-60b236a0ae3d@kernel.org>
-Date: Fri, 14 Nov 2025 08:09:16 +0100
+	Fri, 14 Nov 2025 07:10:35 +0000
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
+	:Subject:Date:Message-Id:MIME-Version:Content-Transfer-Encoding;i=
+	yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=1763104224;x=1764313824;bh=ZyZbk4ge
+	M5CS5wO0ueAyUR0irGkrwv8RifK13AYs0oA=;b=vCUy6OvEEqQasGSfhXrd6CbayylYJ6+DUmtxaq
+	h1P8+Z33yyiUA5J1vRiMVCX9i4V4ULXe3K7lDMQJ+Iryuapyn0cJPTBhwHQuDfOfI9JXicZchMGZx
+	xwenYuDSgyJA+5rxuKw+W3u/CH8yEPhaQesivnM6NpUxxXNB0z+pIDbulVx9axbsw6PvRjlsyfywk
+	mMbqL37/nKUjb0yth0ZT1dPIO+0VcQ4zRiUJMEAQ4dtVdEWKrQC0mtAqFUL1W0x+8zXB1QHH24CCl
+	OozTU1Vz/VQXjUdd88yCXDdKYk+0JLRFYkUs3Vu0y9xdQWoLcQCqTIyL8v1XA/VUbRqW/py9Q==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 5AE7AONa3876984; Fri, 14 Nov 2025 16:10:24 +0900
+X-Iguazu-Qid: 2rWgP4I4zWgpT5ii9N
+X-Iguazu-QSIG: v=2; s=0; t=1763104224; q=2rWgP4I4zWgpT5ii9N; m=BKYLoLsdkX9EDYa+JXbp0G+uwgGPlmm/1WYhYC2H+gE=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4d77ZQ6cCcz1xnj; Fri, 14 Nov 2025 16:10:22 +0900 (JST)
+X-SA-MID: 54823655
+From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+To: Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+Subject: [PATCH v3 0/2] clk: visconti: Add support for VIIF on Toshiba Visconti TMPV770x SoC
+Date: Fri, 14 Nov 2025 16:05:10 +0900
+X-TSB-HOP2: ON
+Message-Id: <20251114070512.855008-1-yuji2.ishikawa@toshiba.co.jp>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: freescale: Add FRDM-IMX91 basic support
-To: Joseph Guo <qijian.guo@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Justin Jiang <justin.jiang@nxp.com>, Tom Zheng <haidong.zheng@nxp.com>,
- Steven Yang <steven.yang@nxp.com>
-References: <20251114-imx91_frdm-v1-0-e5763bdf9336@nxp.com>
- <20251114-imx91_frdm-v1-1-e5763bdf9336@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251114-imx91_frdm-v1-1-e5763bdf9336@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_231034_412207_13098AD0 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,92 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/11/2025 07:55, Joseph Guo wrote:
-> +
-> +	reserved-memory {
-> +		ranges;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			alloc-ranges = <0 0x80000000 0 0x30000000>;
-> +			reusable;
-> +			size = <0 0x10000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +
-> +	sound-mqs {
-> +		compatible = "fsl,imx6sx-sdb-mqs",
-> +			     "fsl,imx-audio-mqs";
-> +		audio-codec = <&mqs1>;
-> +		audio-cpu = <&sai1>;
-> +		model = "mqs-audio";
-> +	};
-> +
-> +	sw-keys {
+This series adds support for Video Input Interface (VIIF) module to the
+clock and reset driver of Toshiba Visconti TMPV770x SoC. The first patch
+provides the identifiers for clocks and resets. The second patch privides
+the control sequence of registers.
 
-That's not how the node is called. Either use existing name or follow DT
-spec in node naming.
+This patchset depends on https://lore.kernel.org/all/20251114065358.854817-1-yuji2.ishikawa@toshiba.co.jp/
 
-> +		compatible = "gpio-keys";
-> +
-> +		K2: user_btn1 {
+Changelog v2:
+- dt-bindings: Do not modify existing identifiers to avoid breaking ABI.
+- clk: Update clk_gate_tables to reflect changes in bindings identifiers.
+
+Changelog v3:
+- dt-bindings:
+  - Only add new clock/reset identifiers.
+  - Remove TMPV770X_NR_CLK and others in a preceding patch
+- clk: Obtain the number of clocks in the driver source.
+
+Yuji Ishikawa (2):
+  dt-bindings: clock: tmpv770x: Add VIIF clocks
+  clk: visconti: Add VIIF clocks
+
+ drivers/clk/visconti/clkc-tmpv770x.c         | 75 +++++++++++++++++++-
+ include/dt-bindings/clock/toshiba,tmpv770x.h | 11 +++
+ include/dt-bindings/reset/toshiba,tmpv770x.h |  8 +++
+ 3 files changed, 92 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
 
 
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
-
-And underscore used... Please do not send us downstream code.
-
-You need to write it from scratch from usptream code, not send us what
-you have in downstream.
-
-...
-
-> +	};
-> +
-> +	pcf2131: rtc@53 {
-> +		compatible = "nxp,pcf2131";
-> +		reg = <0x53>;
-> +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
-> +		interrupt-parent = <&pcal6524>;
-> +		status = "okay";
-
-Why?
-
-> +	};
-> +};
-> +
-> +&lpspi3 {
-> +	cs-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>;
-> +	pinctrl-0 = <&pinctrl_lpspi3>;
-> +	pinctrl-1 = <&pinctrl_lpspi3>;
-> +	pinctrl-names = "default", "sleep";
-> +	gpio = <&pcal6408 0 GPIO_ACTIVE_HIGH>;
-> +	status = "okay";
-> +
-> +	spidev0: spi@0 {
-> +		compatible = "lwn,bk4";
-
-NAK, don't fake nodes. Just because downstream uses this, is not correct
-argument. This does not exist here.
-
-...
-
-> +
-> +	pinctrl_usdhc2_gpio_sleep: usdhc2gpiogrpsleep {
-
-You still not bother to test your own code... Again, why are you sending
-downstream code?
-
-Best regards,
-Krzysztof
 
