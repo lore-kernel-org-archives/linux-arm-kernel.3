@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90EDCE7AA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8578BCE7AA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+URdYloP1X0Be0QGBTMXY11c1QBiml4xjvRjBFG+cA=; b=nZZD1GTbbF+ETwFfiqihYm7CiC
-	HLiFDWl1x4aKW1+Nu5QOXL53Hq1LaARgfL8/yzvOSTQcO680l9bmOx/30FfauvymclfGDwg/HYI1T
-	YK+pNip7rDbNBzadyBaHJ5ymdqEOTRzoN25PpA/scCoHq8akLYzIdRjJC8EQavnSrWu2qOLzJ0BWM
-	qReRSUHko421wJSnGtqqsXxOaIOf54WZ6fQOFjK5NFepCSAmoOZgyEfReFrwXDqSJ9oiJV7Br1uIo
-	Bi/ob/RigKA07gPbHYSZQpjsOaFu9FSM7v9dc8BgWL0uyLCvWb+O7uPaw47P8P+r20JRPGgBfxkLK
-	tvFaXZ5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yN1S2ZnRS64XTQWiCEeoApawp6Zm3EsGR3gB6amByfY=; b=HuGJ1TwuyyW0mQ8akg0na/BWg3
+	kRmdmtPSWpe5cx2IQfTsZ0ECBRDU0W5cWmrlulGXYJGWuO4EDQoa+y0B0SxiXVinF+DezhC0iT8iw
+	agPHT68dz+JrBBz44/al1YZL3Sr//oMwi32zFvZ5GLhgcSQ0Am55+MkTNm2Y/6f4+epsNP/HTUjgv
+	jxfOBsw+gBZG3uUPMJ5O1ZoaGs7m3GoYLV48sXgH5iRewT7Glk3kwulsIIm88iSNUeu4ZOwhpNQKp
+	eAnm+N0ZszJmEXR6X2EWHjN3lRHGxqgLvr6luRBJbyP4lLWij9AjDFm80Po3c8OOTzjUr2xlBKnNJ
+	cwS23Z9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr7I-0000000C1Y6-2cDy;
-	Fri, 14 Nov 2025 10:33:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr7H-0000000C1XZ-0eb1
+	id 1vJr7R-0000000C1ai-2DHz;
+	Fri, 14 Nov 2025 10:33:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJr7P-0000000C1Zv-3lZW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:33:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EA821063;
-	Fri, 14 Nov 2025 02:33:10 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B28953F5A1;
-	Fri, 14 Nov 2025 02:33:13 -0800 (PST)
-Message-ID: <e4521b04-6c3c-418b-8cee-6be43d5ef17f@arm.com>
-Date: Fri, 14 Nov 2025 10:33:12 +0000
+	Fri, 14 Nov 2025 10:33:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 194136017D;
+	Fri, 14 Nov 2025 10:33:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6D8C19421;
+	Fri, 14 Nov 2025 10:33:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763116406;
+	bh=b5OwkNMvy1x2IysaOqDsG57B8PQrzrGFhfkbSYYkR0A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HXyqydi2lZnpyrw0/0lR0YpZSKujyfxxMKaUGDtahDIfqEtu2IhKlYLGiFiNp099a
+	 sH1MABdbFsTk8b/RExfQfa5+BE7oRzzP5rT4HX71LoLe5Jbkuz/7MW/Zbc6Dsok55P
+	 z+7x6UlX0MPC63XsIdSkoq4y61m4hpV2b0iyrDAj3E8Z0BT8AbapSk9oqbvbpvm/Wc
+	 3AadrhNV6gfNdF7zUvaFohO42kaQ3CoJX5cNic+oKWI8jI+RK0LEZ+TObjXOmFlbcq
+	 XwbI/C1fqbXSa48xYujH5mxmAaTGqF4T4K6g1w3GW5s9VTnlRstsMNrB+pQUl0C0y9
+	 d2C769XDAMMTA==
+Date: Fri, 14 Nov 2025 10:33:19 +0000
+From: Simon Horman <horms@kernel.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: namcao@linutronix.de, vadim.fedorenko@linux.dev,
+	jacob.e.keller@intel.com, christian.koenig@amd.com,
+	sumit.semwal@linaro.org, sdf@fomichev.me, john.fastabend@gmail.com,
+	hawk@kernel.org, daniel@iogearbox.net, ast@kernel.org,
+	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linaro-mm-sig@lists.linaro.org, dri-devel@lists.freedesktop.org,
+	linux-media@vger.kernel.org, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
+Subject: Re: [PATCH net-next v5 5/6] net: ti: icssg-prueth: Add AF_XDP zero
+ copy for RX
+Message-ID: <aRcFb-vsoLw24MbU@horms.kernel.org>
+References: <20251111101523.3160680-1-m-malladi@ti.com>
+ <20251111101523.3160680-6-m-malladi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 23/33] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: james.morse@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
- guohanjun@huawei.com, jeremy.linton@arm.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <20251107123450.664001-24-ben.horgan@arm.com>
- <20251110172724.00005675@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251110172724.00005675@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_023319_241970_DED62FAE 
-X-CRM114-Status: GOOD (  13.33  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251111101523.3160680-6-m-malladi@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On Tue, Nov 11, 2025 at 03:45:22PM +0530, Meghana Malladi wrote:
 
-On 11/10/25 17:27, Jonathan Cameron wrote:
-> On Fri, 7 Nov 2025 12:34:40 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> From: James Morse <james.morse@arm.com>
->>
->> When CPUs come online the MSC's original configuration should be restored.
->>
->> Add struct mpam_config to hold the configuration. This has a bitmap of
->> features that were modified. Once the maximum partid is known, allocate
-> 
-> I'm not following 'were modified'.  When?  Sometime in the past?
-> Perhaps "features that have been modified when XXX happens" or
+...
 
-The intent of the features bitmp is to only update the configuration in
-hardware for the feautures that require it. On reset, this is all
-features, but for a user configuration change this is just the
-difference from what was previously set.
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
 
-However, I don't think the difference part is currently working
-correctly; the bitmap always has all the bits set and so any update
-configures everything. I'll look into this.
+...
 
-> 
-> Having read the code I think this is something like "are modified as configuration
-> is read".
-> 
->> a configuration array for each component, and reprogram each RIS
->> configuration from this.
-Thanks,
+> +static int prueth_dma_rx_push_mapped_zc(struct prueth_emac *emac,
+> +					struct prueth_rx_chn *rx_chn,
+> +					struct xdp_buff *xdp)
+> +{
+> +	struct net_device *ndev = emac->ndev;
+> +	struct cppi5_host_desc_t *desc_rx;
+> +	struct prueth_swdata *swdata;
+> +	dma_addr_t desc_dma;
+> +	dma_addr_t buf_dma;
+> +	int buf_len;
+> +
+> +	buf_dma = xsk_buff_xdp_get_dma(xdp);
+> +	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
+> +	if (!desc_rx) {
+> +		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
+> +		return -ENOMEM;
+> +	}
+> +	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
+> +
+> +	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
+> +			 PRUETH_NAV_PS_DATA_SIZE);
+> +	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
+> +	buf_len = xsk_pool_get_rx_frame_size(rx_chn->xsk_pool);
+> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
+> +	swdata = cppi5_hdesc_get_swdata(desc_rx);
+> +	swdata->type = PRUETH_SWDATA_XSK;
+> +	swdata->data.xdp = xdp;
+> +
+> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
+> +					desc_rx, desc_dma);
+> +
+> +	return 0;
 
-Ben
+nit: The line above is dead code.
 
+> +}
+
+...
 
