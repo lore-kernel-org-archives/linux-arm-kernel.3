@@ -4,187 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B56CE7A8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 08:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E859CE7A97
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BCk7sn7D7x7seB9TSmFS5DtxZCAI4e8ojwcF71Iz/kI=; b=cWl9d3V4fuaihLlfqly4YuB3DV
-	39H8eWPV2xCKMqL7aqyA9xVMM39VbdBxgq2XzHK3Rfc3YjYIzOXnDw8QbZ+Sslrcxuv2Lno6o2VZH
-	YLnHrYMrHiFTLzJp1QF7bbVLPDuyepen/bjZ2YspQ5w7JewBYb7xAyLk4iyx87ruqvjudsb0MlZaO
-	Ywm5lymrtPTAujF3rtnzboyWehfj6L4i8GDyh+5Tt/UaF1E4WYJUnuNxgqRfOxzCXe5qsajl6bviW
-	9aZtiO5FsVvH4mMjDhpgby2MVK9wxUhdxsFgh+TyF7TcVV5ysy9/oV6Q6aBB7MlI5oR89TOT4kHDQ
-	d+CtrO0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iCcUl7mObBKcyatST9e6V4eam+xl2MxsbVpgWLPjrOk=; b=kjuPx/uIPq5bApoduLJURrmpH0
+	Iu1qUfEJowfOrpK/t67LD9FxXUiE3hWadGSL9I959AUSyNUbnjSyL5ZhBbCkglX1XNseOe4daqVbC
+	EXH3PsGfiKCLZFA8SUVvPtpzyPowBe5ADr7z1Ho7Ha4TrJ5biYaeeiS/QmRuHbLH9HqRQNOXo0B9j
+	mrSCoOztg3JC+NM+S/cbqLl2PDWUf65pmKJBc9g+1fe/6LB+Sbg8UbPSKDUpKjFFWGuXFCuxl9AU4
+	YTVoNRTSwQdTGc30X+M8jaF7Dfv1WpB0JMwGd2kARqNulAFDm1CDt+0BLOz3jB/y/nbNPqIDb7DhD
+	H6ivFhbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpbj-0000000BqmV-0vgA;
-	Fri, 14 Nov 2025 08:56:39 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1vJpoY-0000000Brj8-3Uo9;
+	Fri, 14 Nov 2025 09:09:54 +0000
+Received: from mx-relay50-hz3.antispameurope.com ([94.100.134.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpbh-0000000Bqm2-0q7e
+	id 1vJpoV-0000000BriC-0IKG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 08:56:38 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE8n3r71844775;
-	Fri, 14 Nov 2025 09:56:30 +0100
-Received: from mrwpr03cu001.outbound.protection.outlook.com (mail-francesouthazon11011043.outbound.protection.outlook.com [40.107.130.43])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4adr7j20bm-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 14 Nov 2025 09:56:30 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DyDhZEpA9mtCQobdy34GYsufAaNXgfj3iZgcQJgvrgneLxLdHXyPnBmEr46ntsyih8VtzacF8VZCmfJttwxWjsP1ZK95TB0r472LSqANDqK7/MDKKZoS3H0V++QislHP8HJbbgKSvdfOIaUdyVTDOo0UDDDfTT1GJYvYJpD4/MxYDd1kszjkGOV0vdDiQEXIgWYLhkTYn24Ht1sQdIeV31t3L60E2svVJC05/80WJMAIoQuz7SESSKepgR8dBA4u/GXeuWtbzxdlT2LOvmbu60e9Px6y8CcgE6JCLY6tjQ/AirPjodQI7QJX4YkbeFNchIUv3WcjtXAVgU7XVGvpsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BCk7sn7D7x7seB9TSmFS5DtxZCAI4e8ojwcF71Iz/kI=;
- b=ej74QKRFgEt0BHZL4uT/2jZEYiJa1j6j6oBNOsBTdMcJXbUPGzGgPBkBy/2nTEc+F62M66zXE2zpoSEDb4ruOj4e0Qd5dh/SlpvJobzRg7o7EIbUUKST7MeBHGd5wF06aNmM+CPefgSpuLaZXZtzynLe0YgjyjPfbu0mjb11nZjqvHnteIb0u/gXGdpFndBkbTJc3P9MmqBQGj0IxkzMFNE7WuwKvbGsZK0PfP/2OYWY1pkkeDncVZFd5eLEFXTI4PPtjB/NjLpGozi/2s8q5ReMd2D33YREKop167VidqlnqcydeEetWxijRfrOxzqIoAN2xoURRvPyJsDgtJ0X6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BCk7sn7D7x7seB9TSmFS5DtxZCAI4e8ojwcF71Iz/kI=;
- b=VmZOZV84d9w7gpHRZ1kK+1wnDfIXmqYxmFbfY/hjPk2zxpqy+lT7lMXhBJuLUIwkol5g9PmMrMjLsGpVzgJM/XpmAjCqIce2sGNWAK2qVE17+9+jWDnRX9yzv6FdfO5rrFtS9TVHvrc9hBVtECl2n4ppEPG17vd99duVRFbQariUprgH36LFitmpRskH5x5hbs8yoMrPpqg3kZXZ+2z02ohvVtktg+GQoRq3oz/FfPAQPOGlRMZ9AStGBmsZqMpD9Tycic9u19HJ1M2mVVRqIqXZjJaRDed/CTBLr5J9uojmKmOR9w40Y1Eo5k/sy2ZOV3LdmKrFVHKr+9Xo/ReVvA==
-Received: from DU7P250CA0013.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::27)
- by FRWPR10MB9366.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:d10:17b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Fri, 14 Nov
- 2025 08:56:27 +0000
-Received: from DB1PEPF000509F1.eurprd03.prod.outlook.com
- (2603:10a6:10:54f:cafe::f4) by DU7P250CA0013.outlook.office365.com
- (2603:10a6:10:54f::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.18 via Frontend Transport; Fri,
- 14 Nov 2025 08:56:27 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509F1.mail.protection.outlook.com (10.167.242.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9298.6 via Frontend Transport; Fri, 14 Nov 2025 08:56:26 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 09:08:28 +0100
-Received: from localhost (10.130.77.120) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 09:08:16 +0100
-From: Christian Bruel <christian.bruel@foss.st.com>
-Date: Fri, 14 Nov 2025 09:08:05 +0100
-Subject: [PATCH] PCI: stm32: Fix EP page_size alignment
+	Fri, 14 Nov 2025 09:09:53 +0000
+ARC-Authentication-Results: i=1; mx-gate50-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=iCcUl7mObBKcyatST9e6V4eam+xl2MxsbVpgWLPjrOk=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1763111383;
+ b=tT9065L3gJenlWFIKFRnHsY7FrlPBgoHMqLiWsQrSTYJQppfg5U6qRNJixqZU8+efqw1eg0K
+ fLyY3Kpj+cNz2ag5JpScu9FgzepoS+oYoe2P80AxNuCRN0NBYEgv2SiZrTV2GxzrUQNqsgkP45Q
+ wp9t8TJ9hA1hFLRU2t/426f5fKiIrMvl4oq8ln7fUkadZZRx2tg+zwfymwUcBI3DKhE+wZ2yDNB
+ WwhVIxqT00YILQhoAGV9PdQdWbTdunPTYxh19ydP6zXIWreRqBYiJWBQxuBEg0lqa1qSWMo7Fxl
+ EweiszWagDQTngRJ20MH0nYUMtrZPC2Y1TtqUSEYvQbbw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1763111383;
+ b=BrwntfhugQiJYWe964vEbJ3oqA7St7j6iIsQ1eAk10nN+fxv1mbz6BEW6pEVfuWNCRznZskn
+ KLYBA+DWufGFjvQzQrBdlIp45QHfe44NLZuM42zDH6sxBr3fj/gw1uyXHKo0L76TtF6oLaeuWrB
+ TRiyE164kWtukaS1xppG2WzvmpjHtPYL8EQG7j7vGD6IUf9lkMo2soefMILfC6OH1+uXcl8NeS2
+ SgU1ruyPK66vvuZGM3mQu/GQavE12RifsZxr+0SEjdZTVwqTkbpmnYD6mdU45c3mehZ6NEI0O6E
+ AinpALGfU+iS7VXYmvv8ZKTfDaqPg7tsxXDh+tdYXz2DA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay50-hz3.antispameurope.com;
+ Fri, 14 Nov 2025 10:09:43 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 479EEA40F56;
+	Fri, 14 Nov 2025 10:09:37 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Matthias Schiffer <matthias.schiffer@tq-group.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/2] clkdev: improve ID length error message
+Date: Fri, 14 Nov 2025 10:09:32 +0100
+Message-ID: <20251114090934.1471533-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251114-atu_align_ep-v1-1-88da5366fa04@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAGTjFmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDQ0Nj3cSS0vjEnMz0vPjUAl3zJIuUlERTo9RUC0sloJaCotS0zAqwcdG
- xtbUAVq4K914AAAA=
-X-Change-ID: 20251113-atu_align_ep-7b8dda52ee89
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        "Manivannan
- Sadhasivam" <mani@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        "Alexandre Torgue" <alexandre.torgue@foss.st.com>
-CC: <linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Christian Bruel <christian.bruel@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F1:EE_|FRWPR10MB9366:EE_
-X-MS-Office365-Filtering-Correlation-Id: d02a259c-0468-4246-7438-08de235bb217
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d2g0YWJUKzJOTlVDeHpuMWViWWZhUUk0bEJsS2ovRTQ4VVBrU1B5NlpQRGFi?=
- =?utf-8?B?Tkk0RGVDMDAyTUk0MW5WbEx5QldOdUVxbFdNQkJRcC9xRW9hVlMyVXJsZWZ2?=
- =?utf-8?B?ckE2cUc0cHFjRzA1aVpEOXFVMUpoWXZoNTF2MXJLaG9DWjJTS3RBK3ZoRk1K?=
- =?utf-8?B?OUI0QWdGV0ExbUVRUU9BRXpBcHF2bjBzY21CMjlaSUpFWTU0Ny9FeC9EU2R2?=
- =?utf-8?B?REhEOWRnSFlkajhyalR6NzI4MFFmWEprQWl0K2RCa01yQzhCc2RBYWFRZ3Bm?=
- =?utf-8?B?eU1zUytFK0FwendDOWtnMXNVMzBUb2JpQVRVdnJaUzlWa05UeTJmcHk3d1NO?=
- =?utf-8?B?dXc1WlZTUVlPS2pXR01MSEpMeUpVaU5NTmhqc3h6UXNaWXFab3c2WGQ4TEtJ?=
- =?utf-8?B?Y0FDS0txMHpRR0d5T29DdlBjdHVBaVNmUzBxVTFQYWVLeTN2TFdJZWVmWTFD?=
- =?utf-8?B?bnQrbHIzRVNJYmhCQ3BnMUZUZXJzS3h0NVBuTGwwUHlNeVFPblhzbWFEaHI1?=
- =?utf-8?B?b08wSTRXbFNsQU9JdG1CbjAzVVNwRi9oY2Ivbm1idFd2ampXcU1odit6SU1L?=
- =?utf-8?B?K2twN0QzQzVyNWx1VG83Qm5ZTXkxWXpkcUxCeTZCZXVybk44eG9LQStGYXFu?=
- =?utf-8?B?MkJDd3NUZXF3MS9meDFLSGNvbG5sREFNeVNyZkh1S2I4a3RieVZVSTZVS2hT?=
- =?utf-8?B?SnlEZGx5ZGo3c0Y0QVQzNHFvSTdDdUtDWGFRZlUrY1JFM1VHTXR5cjh3aVBW?=
- =?utf-8?B?VXJjKzBZMVJCR3FKOERES2dNY0RjVk1vYlJpNTlxQ0xINldvQVBCeWh2cUpv?=
- =?utf-8?B?TFlST0xUdW8zc3BkZjc0eEw0U2hvazZYaGRnZi9UUG9jYkJLSjhjSDEwYlpq?=
- =?utf-8?B?WEphdmNFMStqSURLcVJ2dzhzeTg1VkZscEVnTHBRa1hONDlXVWFpYkxEMWI2?=
- =?utf-8?B?UGV6Q25qUktna1YwVVR0VXBJTkdvS1VHSlJkM2tMUzI4QWplL0VMc1d4bWhs?=
- =?utf-8?B?TnBXTzNNV042ZjJGRksxcjQybmltNzQ0WWVDVExJMjBJT0dWY2dKdHRUcU5q?=
- =?utf-8?B?YlpTOVhUY2pQaHZKbktnRzlVdE9yRzluL0JaMloxVFpIT2VoanJXbWM4OWp1?=
- =?utf-8?B?VkRRRW5lQzBkZ2MxMEV2VFdYbG94dUFyOU5SbEJ0bzQwZE5DNWg5QlFwT2x2?=
- =?utf-8?B?ZzdEcGFvV0ZQRXhpakM2Ym9hdVpBNGhKSmE5YldsUU43SlVpRHV6T0N3a0ZT?=
- =?utf-8?B?T1VqRXgzcysvSHpjWkprdG1TZ1c3VnYvNnVlUzV5VVBnREFoU2lZMkp2WTNR?=
- =?utf-8?B?QnJncDByYkk1QVlEbStjYitPU2ZJYnMyV2NPRUlWWHdSWkl0VDdIUnFlWnFQ?=
- =?utf-8?B?T092VG1DNXVxTVBQekVIQWNzSG5XV01DODlMTWR4NUw3a3hZQzJoeDUxUVhZ?=
- =?utf-8?B?SGp2T2pGQVJ0Mk5vZTNLOElidDZTclZxd3pLajMrUlB1czJ2VXpienNOWnht?=
- =?utf-8?B?TWVuTDVacG9CRk5LTVRsR3MyUVhkYTB1bmVhcU9MczB1bTEySWJBOXpkdldL?=
- =?utf-8?B?NTB3cWpiR2JLVldqbTNiTUpQOUNDYnZIWWJsK1pSbU96anltckV0NkVSV28w?=
- =?utf-8?B?anM4OHlOREZwbENobDFHSE8yVWo1Qndva1dHSXgzZXpJbW8vUHJOeTVHQnpM?=
- =?utf-8?B?WHNxRjRJbVMwLzRmZmx0Vy8ycW0vUUJiRW9LemNkb1hXVTBEWEF5cHYrRHda?=
- =?utf-8?B?NENOejhQRUU5VTduVnhST1Q1TGt3QXdCLzdFUkd4WDNJOVZJSnBiaFB0RkF0?=
- =?utf-8?B?STN5YWYvTm9BNHVyV2lDNVA5MmFqUW92WXo0THp5N0Z5b0kvYTJsNUJvN1lH?=
- =?utf-8?B?ZjllZHZmUFUwYjhmSkwvMmthcnJLRlhzUWx4SndyM3ZpOGw3cXNGQTk5VlVH?=
- =?utf-8?B?Ukg2K0c5QVFPeDllRXVSWVNXT09BYThOMkxScVFGUUM3S0NWSGxCWVBabWxa?=
- =?utf-8?B?M0hyOXpTdG9QbjFWZE02eFdZN1FwOWZkV2U2NHJPVHJLZjMxQXhMdVhzKzZi?=
- =?utf-8?B?Njl1bG15L3pqL253SWx5elVtUURCN1I2bFlFVUZST2kxY1VFWmZpcnBobXRE?=
- =?utf-8?Q?KGHY=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 08:56:26.7218
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d02a259c-0468-4246-7438-08de235bb217
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F1.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR10MB9366
-X-Proofpoint-ORIG-GUID: _TtAZvxlZnKyM-QDbRKhSVuHLsPP6nqs
-X-Authority-Analysis: v=2.4 cv=DPqCIiNb c=1 sm=1 tr=0 ts=6916eebe cx=c_pps
- a=CUAEBjslK4IwMcEc9encMA==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RA8ZoFPxCIQA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=RBZf8w3eM5daZnp2LboA:9
- a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA2OSBTYWx0ZWRfX7iqiq+fzDoZQ
- W2lfF8IOAcVSGBN0TBHgvIfWKFALUDKh+Jpnhg/pMI+wqWchzexjCa+cuWBOjHIL0MT9EGwalhK
- D/wTSSTEamdF3AJmJ7PUIKumz4jpDgokR7pDg7nh5x65BGPIcFwuIgGXojff9uX/aKdKkSg+wkG
- Ks8iYUxg+dg0KcZU40zzg8mI+VPevF8lUOEz5xL8aU8JPsZ4YrTxjGhc1PI4imisww13PJc7is1
- 8ASrqtURSnGF9plkoazx5y+Nr0pmh9qMbqzPeOHFf+FUUzwP3/KzsPrPbeJH8trAajVsKQVtozk
- ePX3iuMA1cSdF5Qnc0DXXNG5FcLF2KdVM+OwXsp1YmkPAtvE9FMH0sY3RZqxX8zmizmpi6MJ8eM
- EFrvojsECA/z+U3xgnHLK1l3H11wSA==
-X-Proofpoint-GUID: _TtAZvxlZnKyM-QDbRKhSVuHLsPP6nqs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-14_02,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 phishscore=0
- priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140069
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay50-hz3.antispameurope.com with 4d7BD14nV0z2nHBD
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: aaff629fdae590416fb6f4fa6334fecb
+X-cloud-security: scantime:1.892
+DKIM-Signature: a=rsa-sha256;
+ bh=iCcUl7mObBKcyatST9e6V4eam+xl2MxsbVpgWLPjrOk=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1763111382; v=1;
+ b=WzZyjjJ4h7RCYNCDZprTbx/9w9Bts/NFZm/NZomLGaAyR3fwVi4OCc1OTjbbHteAG8AaMawh
+ q9ARlKubThR1NCcqdBqCWrfA7od4f7QBwXesTQ9BEDhsFeY86/aK79WHIdeJnlJkpx0xxXzchZ1
+ zmXOCNMd22H5aMmY8C9KFdr2MjMALHNZMH67rJxye5+ZqLRd2G4heDbtTgFxPsdxfS+OBdrHqEY
+ MJmH9MqoiDR3010TqfQ9+JR5SWPeAoMzdpl8rwhda/bB6z4451ZTGPmAV5PvO5AtsL8z79w/Q8M
+ lUE9BbtXwjIm0rqlRY7wsCbdbSEo1GH5Qn0mtlWtSPWUQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_005637_731011_B21418F0 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_010951_358335_3B608DFC 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,35 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pci_epc_mem_alloc_addr() will allocate the cpu addr from the ATU
-window phys base and a page number. The resulting cpu addr must be
-correcly aligned with the ATU required alignment.
+From: Matthias Schiffer <matthias.schiffer@tq-group.com>
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+"is greater than X" is very unclear if you're not familiar with the
+code. Change the wording to "is longer than X bytes". In addition, add a
+space between device and connection ID to make it easier to determine
+which part of the ID is responsible for the length.
+
+Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- drivers/pci/controller/dwc/pcie-stm32-ep.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/clkdev.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
-index 3400c7cd2d88a279c49ef36a99fc7537c381c384..004033ed60a8917438b08f5941908405c339716a 100644
---- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
-@@ -237,6 +237,8 @@ static int stm32_add_pcie_ep(struct stm32_pcie *stm32_pcie,
+diff --git a/drivers/clk/clkdev.c b/drivers/clk/clkdev.c
+index e0bede6350e11..f46324622cca0 100644
+--- a/drivers/clk/clkdev.c
++++ b/drivers/clk/clkdev.c
+@@ -201,7 +201,7 @@ vclkdev_alloc(struct clk_hw *hw, const char *con_id, const char *dev_fmt,
+ 	else
+ 		vaf.fmt = "null-device";
+ 	vaf.va = &ap_copy;
+-	pr_err("%pV:%s: %s ID is greater than %zu\n",
++	pr_err("%pV: %s: %s ID is longer than %zu bytes\n",
+ 	       &vaf, con_id, failure, max_size);
+ 	va_end(ap_copy);
  
- 	ep->ops = &stm32_pcie_ep_ops;
- 
-+	ep->page_size = stm32_pcie_epc_features.align;
-+
- 	ret = dw_pcie_ep_init(ep);
- 	if (ret) {
- 		dev_err(dev, "Failed to initialize ep: %d\n", ret);
-
----
-base-commit: 9c557fdcc2f5fab8541dbba9b08c222f89009f09
-change-id: 20251113-atu_align_ep-7b8dda52ee89
-
-Best regards,
 -- 
-Christian Bruel <christian.bruel@foss.st.com>
+2.43.0
 
 
