@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B680CE8D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD1ECE8D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8Xlnsx/zmgvCXCQMzb89zgvdg2ATSgROq5OfvhcQiQ=; b=p2sXaTv3befPwehLE0khB6v22k
-	E5u/RpVNZfraid3U1ylhEkTL6gVl2UjU7KXuqa5JDyUPB0acAIpwPaSwad84Sds+atVYbsi4f/v8w
-	Nh9/esjPPWBsaNoQyoOVeKgN17hJPYDaXT04xS08Rtk83FVaFpUI2pCB+v+NuYNNYgSYn9zAfXLK+
-	yNPMioZpSzq7MCuZCWAXTWWwVBdElC0aOLyw9jIMDA4iB8v6RGM09pyfRPgXw+y3MF/+ShGP/4SzF
-	l0it76jSdQF0r6L25W+XVCrj+9TKBlvK75FylG7Vm2DUEjGbdVIdkgpZWqjXzw0kKLjlv2mVWfC/1
-	Iwe9/59g==;
+	bh=fsk6+T2AtVszNYzWV/LcSl1b1bVsSSFwiuU9hcifY+Q=; b=1VqX3TAzTRaizNezNWps7UYnIy
+	n6rCgIwOrG9BlzNUjARFmiEAG92+xNz5DuU/Q5wi36wLgOs1UiYJBfZg9eoKVGl8U+FCPNSzk1hcf
+	0SikkWy/1WZBgiEdUyEzdizxPpgmfpWcgB8vGs3yqiLh8yz0Hu4gMrp9ISjndh3sM3Zzpc3lQLU8/
+	UJ/ynPQ9M/yaWfFXFycrY1WneTJ8/fHe+HY+vDSLKNQFYIVrLylbsySkofh/6zZdZa8eOPFGZY5H2
+	s1kXzYu1x7qq1/8INxeBslsED/5wLskilzfSI55ZnVbc0Xd1HDA4tnPUwRdBRP5GHnORpUaL9jfxz
+	bSARd/Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLu-0000000CfzL-1FWZ;
-	Fri, 14 Nov 2025 16:08:46 +0000
+	id 1vJwLs-0000000Cfwu-33iE;
+	Fri, 14 Nov 2025 16:08:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLg-0000000Cfip-39DA
+	id 1vJwLc-0000000Cfcv-3UPy
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 16:08:32 +0000
+	Fri, 14 Nov 2025 16:08:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=N8Xlnsx/zmgvCXCQMzb89zgvdg2ATSgROq5OfvhcQiQ=; b=o1rnhe975Yaj+Gh5p3AQb6kwu9
-	LQQEaTmTk+OKxW+j/OX0+dMaBLnhVl+x7QK377xsGJNRirKG1PRdZfZP10PfDhNm6hQRAwRigIru8
-	NJSdDVQ2iNdAM4BAp+m4BVmByt7XurLPzhD2sTMkX6j7hWQeoh8FmenS7nAFlxGGN/KgSl0qKuBpb
-	ngHcE/57vFk6ZUFsNdYD6+6TO/nR6wazQFrt4BI7ofLqGeyZTWLhKsW/egpFSY72sUXAA1aczlku5
-	++n81Ygt9kUJqGEY1L6sx+4oKthIA/w8/M7elzpx3W8+MZhYSQjNUIp8/RNgDjXtkA1XQVDm/GwBX
-	bBsSGDfA==;
+	bh=fsk6+T2AtVszNYzWV/LcSl1b1bVsSSFwiuU9hcifY+Q=; b=j1m/iuWESuQmR07hDvp9eOfvba
+	X/QwetC+5w34K08WnLPs1ZSa/lD+7+xrnHIZRUKpYNcvM8BPx+relGD5munCjNDpVO2T6KoDzj57U
+	zt5t1nOvwOJdXjm3an6UwxZ5sBoiQPx1vuarc3Bj31DbPPxCKcz175S7QO9sCc3bFdhejR2wV1QxO
+	qDzG1utA6kSIIGz+JLjQbCiwD3cXsT8+Q1N0TgHFsN5H2MXIyMGQ8Y9tUPVBvAVcNY/Yipg57qltk
+	eYelqDNoz+fEHwY18MR8l2BeWSyOtuhOk1phr2Rp0sLJmhQgg53Hdx+yboGxkfKfbWEUm+u1zEFD/
+	TzLFdwEw==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvTz-00000002vXZ-0rHH
+	id 1vJvTv-00000002vWE-0Xhd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:13:04 +0000
+	Fri, 14 Nov 2025 15:13:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0CA119F6;
-	Fri, 14 Nov 2025 08:08:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59D9A1BB2;
+	Fri, 14 Nov 2025 08:08:17 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 546493F5A1;
-	Fri, 14 Nov 2025 08:08:25 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D01663F5A1;
+	Fri, 14 Nov 2025 08:08:22 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -61,18 +61,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 21/35] KVM: arm64: Check for unsupported CPU early in kvm_arch_vcpu_load()
-Date: Fri, 14 Nov 2025 16:07:02 +0000
-Message-ID: <20251114160717.163230-22-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 20/35] KVM: arm64: config: Use functions from spe.c to test FEAT_SPE_{FnE,FDS}
+Date: Fri, 14 Nov 2025 16:07:01 +0000
+Message-ID: <20251114160717.163230-21-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_151303_467295_B10AF019 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_151259_550172_0803F5AD 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +86,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When support for SPE is added, KVM will have to touch SPE hardware
-registers on VCPU load and put. Move the check for unsupported CPU at the
-start of kvm_arch_vcpu_load(), so KVM doesn't try to access SPE registers
-on a CPU which doesn't have FEAT_SPE.
+KVM's FGU mechanism will trap the registers introduced by FEAT_SPE_FnE and
+FEAT_SPE_FDS if the feature is not present for the VM. Move the functions
+that check for the presence of these features out of config.c and into
+spe.c, since that's where the bulk of SPE virtualization lies.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/kvm/arm.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/kvm_spe.h | 11 +++++++++++
+ arch/arm64/kvm/config.c          | 16 +++-------------
+ arch/arm64/kvm/spe.c             |  4 ++--
+ 3 files changed, 16 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 783e331fb57a..f5c846c16cb8 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -586,6 +586,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	struct kvm_s2_mmu *mmu;
- 	int *last_ran;
+diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+index 47b94794cc5f..6bc728723897 100644
+--- a/arch/arm64/include/asm/kvm_spe.h
++++ b/arch/arm64/include/asm/kvm_spe.h
+@@ -41,6 +41,9 @@ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
  
-+	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
-+		vcpu_set_on_unsupported_cpu(vcpu);
+ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
+ u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding);
 +
- 	if (is_protected_kvm_enabled())
- 		goto nommu;
++bool kvm_spe_has_feat_spe_fne(struct kvm *kvm);
++bool kvm_spe_has_feat_spe_fds(struct kvm *kvm);
+ #else
+ struct kvm_spe {
+ };
+@@ -82,6 +85,14 @@ static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encodi
+ {
+ 	return 0;
+ }
++static inline bool kvm_spe_has_feat_spe_fne(struct kvm *kvm)
++{
++	return false;
++}
++static inline bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
++{
++	return false;
++}
+ #endif /* CONFIG_KVM_ARM_SPE */
  
-@@ -656,9 +659,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 		kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
- 			     &vcpu->arch.vgic_cpu.vgic_v3);
- 	}
--
--	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
--		vcpu_set_on_unsupported_cpu(vcpu);
+ #endif /* __ARM64_KVM_SPE_H__ */
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index ed6b167b7aa8..51ad0bf936c0 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -285,16 +285,6 @@ static bool feat_sme_smps(struct kvm *kvm)
+ 		(read_sysreg_s(SYS_SMIDR_EL1) & SMIDR_EL1_SMPS));
  }
  
- void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+-static bool feat_spe_fds(struct kvm *kvm)
+-{
+-	/*
+-	 * Revists this if KVM ever supports SPE -- this really should
+-	 * look at the guest's view of PMSIDR_EL1.
+-	 */
+-	return (kvm_has_feat(kvm, FEAT_SPEv1p4) &&
+-		(read_sysreg_s(SYS_PMSIDR_EL1) & PMSIDR_EL1_FDS));
+-}
+-
+ static bool feat_trbe_mpam(struct kvm *kvm)
+ {
+ 	/*
+@@ -548,7 +538,7 @@ static const struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
+ 		   HDFGRTR_EL2_PMBPTR_EL1	|
+ 		   HDFGRTR_EL2_PMBLIMITR_EL1,
+ 		   FEAT_SPE),
+-	NEEDS_FEAT(HDFGRTR_EL2_nPMSNEVFR_EL1, FEAT_SPE_FnE),
++	NEEDS_FEAT(HDFGRTR_EL2_nPMSNEVFR_EL1, kvm_spe_has_feat_spe_fne),
+ 	NEEDS_FEAT(HDFGRTR_EL2_nBRBDATA		|
+ 		   HDFGRTR_EL2_nBRBCTL		|
+ 		   HDFGRTR_EL2_nBRBIDR,
+@@ -852,7 +842,7 @@ static const struct reg_bits_to_feat_map hdfgrtr2_feat_map[] = {
+ 		   HDFGRTR2_EL2_nPMSSDATA,
+ 		   FEAT_PMUv3_SS),
+ 	NEEDS_FEAT(HDFGRTR2_EL2_nPMIAR_EL1, FEAT_SEBEP),
+-	NEEDS_FEAT(HDFGRTR2_EL2_nPMSDSFR_EL1, feat_spe_fds),
++	NEEDS_FEAT(HDFGRTR2_EL2_nPMSDSFR_EL1, kvm_spe_has_feat_spe_fds),
+ 	NEEDS_FEAT(HDFGRTR2_EL2_nPMBMAR_EL1, FEAT_SPE_nVM),
+ 	NEEDS_FEAT(HDFGRTR2_EL2_nSPMACCESSR_EL1	|
+ 		   HDFGRTR2_EL2_nSPMCNTEN	|
+@@ -885,7 +875,7 @@ static const struct reg_bits_to_feat_map hdfgwtr2_feat_map[] = {
+ 		   feat_pmuv3p9),
+ 	NEEDS_FEAT(HDFGWTR2_EL2_nPMSSCR_EL1, FEAT_PMUv3_SS),
+ 	NEEDS_FEAT(HDFGWTR2_EL2_nPMIAR_EL1, FEAT_SEBEP),
+-	NEEDS_FEAT(HDFGWTR2_EL2_nPMSDSFR_EL1, feat_spe_fds),
++	NEEDS_FEAT(HDFGWTR2_EL2_nPMSDSFR_EL1, kvm_spe_has_feat_spe_fds),
+ 	NEEDS_FEAT(HDFGWTR2_EL2_nPMBMAR_EL1, FEAT_SPE_nVM),
+ 	NEEDS_FEAT(HDFGWTR2_EL2_nSPMACCESSR_EL1	|
+ 		   HDFGWTR2_EL2_nSPMCNTEN	|
+diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+index 92eb46276c71..fa24e47a1e73 100644
+--- a/arch/arm64/kvm/spe.c
++++ b/arch/arm64/kvm/spe.c
+@@ -92,7 +92,7 @@ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+ 	return true;
+ }
+ 
+-static bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
++bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
+ {
+ 	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
+ 
+@@ -100,7 +100,7 @@ static bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
+ 	       FIELD_GET(PMSIDR_EL1_FDS, spe_pmu->pmsidr_el1);
+ }
+ 
+-static bool kvm_spe_has_feat_spe_fne(struct kvm *kvm)
++bool kvm_spe_has_feat_spe_fne(struct kvm *kvm)
+ {
+ 	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
+ 
 -- 
 2.51.2
 
