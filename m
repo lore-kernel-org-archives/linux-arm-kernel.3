@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F58CE8D44
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53113CE7B1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HoyLw1vBRzfbe7y18qv3BekspAvWvfPmLJaNDkdEegI=; b=J3OIvYj56htLGcQWtZqBV2WV2W
-	35WF20J9uk6oEAAynSiApDfyMyy+bihwP50IP/banCD3xSKdoYjySIBTuOn29K7o1qx0kXqq2D5mF
-	ZLoIlM0tQQAYNWcQRrl8TaAHJnhV1ssAz2p2Oc1w2vInr+BWeiVQW30OJSREXErSnpe0YLmKAtmmZ
-	BO2KRiflwWMuGtmtoO1xaBR7Ozh8TGvPvRHtZ94jnFuQVPWY/lwMlokyahdWKzex1VK34s58EBV9S
-	0Op4xOGUVEO1xa9yAFG8ZuhUVIHhuRRb4gtffij+H0RBCUGudTjJCyh4XkfD8qmFxokM+d1m0sBuT
-	P+6ybKHA==;
+	bh=aOTKwp0adOL4jPwfWhfwM8YwO6RBrghgftMY4ldtJKc=; b=HS2BJAe8z1K7e6Hni8TEoWKtNe
+	vX1ZNeTvgkCNawugSZOlOxU3WL6UArrFgt4bdMytSByUP4n5ewY2aNifvlqs0Ge+Zlu+Sq02Hg/TR
+	zm7Xwd0Knldg3cfDuZE00aM+d5hJ+BDlqXGhRsMpeeqqgkWEV5sRY4WJE/eY/tIKLxjYEPMpMbG5i
+	VVS4oX8KIqlHdlZZcYNNK8mFKA8Io31IsBvThk9yZiO1vjTqIS8dQ1K0rgvf7YgIMoiEAhsCsWbZD
+	Hs+BVNyNa7DlG0Ym0iyv9z9PaYjYSuA8+aZppaEs0tbmepnGVTRQU3PW8WIkSisdvqjYh3LneX1jv
+	3qjYapVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvk3-0000000CZKI-3wzt;
-	Fri, 14 Nov 2025 15:29:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vJvkr-0000000CZa0-1ES4;
+	Fri, 14 Nov 2025 15:30:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvk1-0000000CZGz-0PTU
+	id 1vJvkq-0000000CZZS-0flA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Nov 2025 15:30:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=aOTKwp0adOL4jPwfWhfwM8YwO6RBrghgftMY4ldtJKc=; b=ZwjYn6QHiSI99XnRDScg+ffq+F
+	qnXm4WqJuzg0d1Ds5oT2LwUWtvOus1iAdJuUxvoGBwsZZOo/v3SSZcsaGmZ3Ll1vg0T9TLLSaM0GY
+	3qOw/WMEgjfa/7zjf7mR4tFxGAMKjmYn6tVvkZpAWkXYZreQ5Ntcyl3KEWQffIYcsEC3+KNfPoL+0
+	o2LUrZEFN/xjHN3bzfl3wj/6hnM8h/B6uaGlje81vW+XYpzYnicSR4nXpl0VfpVWd3EPPaXOuszkD
+	1jPmVBnhpub3QQUQov/qsDgeN0L/cHjHmI3kfb4Qs2rkzGdcZqflwnGh63uQ0iNyzW0iKrFi9951M
+	UybysXFg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJut8-00000002pXy-1tgu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:29:38 +0000
-Date: Fri, 14 Nov 2025 16:29:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1763134174;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HoyLw1vBRzfbe7y18qv3BekspAvWvfPmLJaNDkdEegI=;
-	b=RnUY5rWIqJEh3dj9C7DXa7u8wSk/KK5l0Gkawp1HjwW5YwZ398UBLl7sh5FrIMlETbTeHq
-	zMVUYBL1C5xOBj6nNNOoK/m6qXc38hzlycsirEcVjPil9YMucIdrdASId0L/FgDW/TW2tW
-	asE4tN1dHC+psx6l0PvYCpIqQ6g2JWZZp+BSwq7EHBREaNSntivO4tjoWqVDYo/Z9Nn6mn
-	N48ZG02WTGd+2eeR7iXOxawGiZaPZ8EPBzl6yGbKoLujw5OaJxFkYJee29FLVM+Fv7rXc4
-	Idf5KH1HzrI0dOgxy6EKRNO/ZtGMS8yfSy17nJFHNrJ5AzNA0KzgIqYu0KVKjQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1763134174;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HoyLw1vBRzfbe7y18qv3BekspAvWvfPmLJaNDkdEegI=;
-	b=O85WkXy/vomNF9nDuy6zVsOWSErHJa0CNPb3rgZbOgbNIgJgbI4226HrXfvTbc+iJj6WcL
-	AdIM3wKwbzE7JrBQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Nicolas Schier <nicolas@fjasle.eu>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Chen-Yu Tsai <wenst@chromium.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, J =?utf-8?Q?=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
-	"Reviewed-by : Nicolas Schier" <nsc@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, Parth Pancholi <parth.pancholi@toradex.com>, 
-	Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>, 
-	Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 6/8] kbuild: Allow adding modules into the FIT ramdisk
-Message-ID: <20251114162255-10e006c6-dadc-44df-a8ed-ab4a00fc6402@linutronix.de>
-References: <20251114142741.1919072-1-sjg@chromium.org>
- <20251114142741.1919072-7-sjg@chromium.org>
+	Fri, 14 Nov 2025 14:35:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D12A51063;
+	Fri, 14 Nov 2025 07:30:15 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14CBA3F66E;
+	Fri, 14 Nov 2025 07:30:22 -0800 (PST)
+Date: Fri, 14 Nov 2025 15:30:21 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 08/13] coresight: Interpret perf config with
+ ATTR_CFG_GET_FLD()
+Message-ID: <20251114153021.GH3568724@e132581.arm.com>
+References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
+ <20251112-james-cs-syncfreq-v4-8-165ba21401dc@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251114142741.1919072-7-sjg@chromium.org>
+In-Reply-To: <20251112-james-cs-syncfreq-v4-8-165ba21401dc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_072937_283337_77123909 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20251114_143458_720318_6118E19D 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,91 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 07:27:32AM -0700, Simon Glass wrote:
-> Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-> ramdisk image within the FIT.
+On Wed, Nov 12, 2025 at 03:22:14PM +0000, James Clark wrote:
+> The "config:" string construction in format_attr_contextid_show() can be
+> removed because it either showed the existing context1 or context2
+> formats which have already been generated, so can be called themselves.
 > 
-> Add image.fit as a target which requires modules, so that modules will
-> built automatically when using FIT_MODULES=1
+> The other conversions are straightforward replacements.
 > 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> Acked-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
+>  drivers/hwtracing/coresight/coresight-etm-perf.c | 18 ++++++++----------
+>  1 file changed, 8 insertions(+), 10 deletions(-)
 > 
-> Changes in v5:
-> - Build modules automatically if needed (fix from Nicolas Schier)
-> 
-> Changes in v4:
-> - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
-> - Use an empty FIT_MODULES to disable the feature, instead of '0'
-> - Make use of the 'modules' dependency to ensure modules are built
-> - Pass the list of modules to the script
-> 
->  Makefile             |  1 +
->  arch/arm64/Makefile  |  1 +
->  scripts/Makefile.lib | 10 ++++++++--
->  3 files changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 8cd46222fc48..4eccaef95826 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -773,6 +773,7 @@ endif
->  # Just "make" or "make all" shall build modules as well
->  
->  modules-targets := all
-> +modules-targets += $(if $(FIT_MODULES),image.fit)
->  modules-targets += modules
->  modules-targets += nsdeps
->  modules-targets += compile_commands.json
-> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> index 73a10f65ce8b..7036f251ab40 100644
-> --- a/arch/arm64/Makefile
-> +++ b/arch/arm64/Makefile
-> @@ -174,6 +174,7 @@ endif
->  all:	$(notdir $(KBUILD_IMAGE))
->  
->  image.fit: dtbs
-> +image.fit: $(if $(FIT_MODULES),modules)
->  
->  vmlinuz.efi image.fit: Image
->  $(BOOT_TARGETS): vmlinux
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 1d581ba5df66..c6a3aa653035 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -398,11 +398,17 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
->  # Use this to override the compression algorithm
->  FIT_COMPRESSION ?= gzip
->  
-> +# Set this to 1 to include an initrd with all the kernel modules
-> +FIT_MODULES ?=
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index d19e2568a0d1..7272e758aebf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -80,12 +80,11 @@ static ssize_t format_attr_contextid_show(struct device *dev,
+>  					  struct device_attribute *attr,
+>  					  char *page)
+>  {
+> -	int pid_fmt = ETM_OPT_CTXTID;
+> -
+>  #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+> -	pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ETM_OPT_CTXTID;
+> +	if (is_kernel_in_hyp_mode())
+> +		return contextid2_show(dev, attr, page);
+>  #endif
 
-'0' will also trigger that behavior.
+As said, this function now is only used for ETM4, we can remove "#if
+IS_ENABLED(...)".
 
-> +
->  quiet_cmd_fit = FIT     $@
-> -      cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> -		--name '$(UIMAGE_NAME)' \
-> +      cmd_fit = $(if $(FIT_MODULES), \
-> +		find $(objtree) -name '*.ko' > $(objtree)/.modules-list 2>/dev/null &&) \
+Otherwise, LGTM:
 
-This will include stale module files. You can get an up-to-date list from
-$(objtree)/modules.order with a bit post-processing.
-Maybe kbuild can be extended to also create a list of the .ko files.
-(I would be interested in that for my own usecases, too)
-
-> +		$(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> +		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
->  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
->  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
-> +		$(if $(FIT_MODULES),--modules @$(objtree)/.modules-list) \
->  		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
->  
->  # XZ
-> -- 
-> 2.43.0
-> 
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
