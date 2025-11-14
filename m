@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CB0CEACCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BE1CEACCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uY1UjNXsGvOoIk4pnpJlYhtQYGWMnV7zZL4cG77pwUw=; b=UUCKrcZ5zO+Y0LoJl3pUWxTWkx
-	4rrVmqBGyHI+8F3QrKUn6LvsBL1cssr1QL/tebzUwdWYM6tQiZH1vcCYNCACyklgTWHIwr6+826oC
-	ld5h7ATzJtcakIlLAELZS6tVBwDjois4BsvLxhUsIqp95Vz6S083g21PYsC4CYkfRWCIgK9dH5FO1
-	62z2627g+CPP/1dhf1FFb4LRZfJp0fPdekbPKMW0ZnQN2u5imiLEO/TXESRCkA1c9VaSvSZLVgjGV
-	SjFUco1PgwwGMp1qjpUVFzJ4SsrBFnTmfASODKTmPFV/REOIHhyIRwBbRABzNl+ggqrlYv38zcqEl
-	skOny76w==;
+	bh=moIrsZPJc9CVAixrZljYOqI5g+UDDWOLYxzpPKPT1ok=; b=PHQuZYFHylCjJFY5vSMQI/xKpX
+	iGnpazMrb2MVu6j8K/xgRyCkDzm4ggSXvVbpFFtLKt4mjJUyRIg+CgEjS+v8jVPST2e9AsGtdTa9l
+	XSBbkSLy0o4Np6XDPbyU8NnRM1nMXW83v+uS/qcwN20z1Tpp250Fb8c8GY2U9F76dRbR1cUGRruQ2
+	V3HVT6gowY52vBRc8TC0nMp4C0F+87I3KfyMC/12GQtwszd2WiaKmqXzSCdd0TkP1fsEVv73Gl1hh
+	+q6zbbavkEg3E8tOQAancno9zh4CLAL6XjAC2Xqh56pboW+OjQbA+9dmwlR75qwpqKA7jm/QWSZH0
+	hxLM7a0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1Xq-0000000D8lV-2FgZ;
-	Fri, 14 Nov 2025 21:41:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vK1ZS-0000000D8z3-2Lca;
+	Fri, 14 Nov 2025 21:43:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1Xo-0000000D8kS-00aJ
+	id 1vK1ZQ-0000000D8yh-2aYj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 21:41:25 +0000
+	Fri, 14 Nov 2025 21:43:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D4B144278
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:41:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEC9C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:41:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F48743CCF;
+	Fri, 14 Nov 2025 21:43:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F370C4CEF5;
+	Fri, 14 Nov 2025 21:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763156483;
-	bh=870jrKcu3+KExQtVbENYeTTMwFI1maOpGdGAxr2Wqk8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NC0xxulKy/jVNsKu2R/tGkPcaCYwklP3aCdr0YuDrqo9Xf1BMj70GHOVB/x7T13fc
-	 qU1A3v1x9XrtQ0c8xSf8OADRSL5K+1urQOAVJ8cNeEFWEmjZVWuhBOkeHgTHS3ngF7
-	 jPwhSztkgPhTT/qVJgpNxF1JOAD+uqtvQkTUQ+E26SxQOdFQXdCiDx3XnXXJNK8RU/
-	 2Vw7bEWpXeohGB1XY4JvKXTth4xCsIuPQfdwZXqrSkdwpOdlWL6WCEqN90Ff14rvTh
-	 zDzv9J/aQx+5IXxQlDqcehvahGXpC3GL/kFgcD/f9Vd4lnSaNFQaxQOOYp0INu0SqM
-	 Y1o9ShchqWI9w==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-37a33f49018so20883541fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 13:41:23 -0800 (PST)
-X-Gm-Message-State: AOJu0YwSpRyDQ4tQkgQ4ltvRoaYY/YyjquCW4OmVWV9eeO2Z019Nm/gP
-	c7HRv7nBkRW5UF6P2T3zDn4/qs3qkZLMlopJlrjf30ykHEOCCElujPfdTUdEKpxtjObpKglhVkm
-	0+4P+w5gkTjrOVAnKmNe88PCyIWuuPHY=
-X-Google-Smtp-Source: AGHT+IFe29zqo8gCkaVXCnGx37R00NX2gqT1LHiMtVBd28KTVWuGUdLf+hz9jkToQkMKok2Ij0Qi5JeaMuvCOyDXR+c=
-X-Received: by 2002:a2e:8a98:0:b0:379:348:80da with SMTP id
- 38308e7fff4ca-37babb5eed2mr11178121fa.8.1763156481579; Fri, 14 Nov 2025
- 13:41:21 -0800 (PST)
-MIME-Version: 1.0
-References: <20251114085058.2195900-1-sumit.garg@kernel.org> <20251114085058.2195900-2-sumit.garg@kernel.org>
-In-Reply-To: <20251114085058.2195900-2-sumit.garg@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 14 Nov 2025 22:41:10 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEsJMp8O-BckAoizDQRyirbZN+jYjYF9GGga4kd30em=A@mail.gmail.com>
-X-Gm-Features: AWmQ_bn_38f2aWCNi1v3PYjks773oxLFEOd0gS6-DSalAed6w3PWFNsA8Tlp6A8
-Message-ID: <CAMj1kXEsJMp8O-BckAoizDQRyirbZN+jYjYF9GGga4kd30em=A@mail.gmail.com>
-Subject: Re: [PATCH 1/2] efi/reboot: Add support for EFI_RESET_PLATFORM_SPECIFIC
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	mark.rutland@arm.com, andersson@kernel.org, konradybcio@kernel.org, 
-	dmitry.baryshkov@oss.qualcomm.com, shivendra.pratap@oss.qualcomm.com, 
-	leif.lindholm@oss.qualcomm.com, linux-kernel@vger.kernel.org, 
-	Sumit Garg <sumit.garg@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+	s=k20201202; t=1763156583;
+	bh=cXiTKb+J/2SYyIzJUk+sk/CI7+/XXtxQoJeF7Igyxv4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Cwtfw0pbuIHZ+WaTGIuR2giaqRSC8JMXU7zPhUtvGG/SA4oU+j04at2oK34HjYBK0
+	 OCYZYlN8sg+6sxGTonxBK7oMXegA69JbhgiUya/+ajTotP8JRlx6BbsLQogd5NzI8C
+	 iBfSWauM1kDEq9wXDnhGZ1LJ4suVAYjZDBJZs1Fjz6cvgoKvaJNnfcqZYVQMnS+jpc
+	 Ffjvbhr8ZzL8ElCAwO0C0ows9byEsJZUoImqB421/7uuQHoLKRlUnxcMoSCE6rqO32
+	 ebf+nN+0qSJqFf2XiF3DFHTUsLAa5DVMPwANcUK229hP7GemOEEtWxNojAKN0BkJSs
+	 K9ZgUFXXkARQg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33B6A3A78A5E;
+	Fri, 14 Nov 2025 21:42:33 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v6.18-rc6
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20251114161152.92955-1-ulf.hansson@linaro.org>
+References: <20251114161152.92955-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20251114161152.92955-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.18-rc2
+X-PR-Tracked-Commit-Id: bbde14682eba21d86f5f3d6fe2d371b1f97f1e61
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 241e99dbdcdfa715989555fa1d83025a8ce95775
+Message-Id: <176315655168.1846194.15632016111013064431.pr-tracker-bot@kernel.org>
+Date: Fri, 14 Nov 2025 21:42:31 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_134124_344730_4D1B4F9B 
-X-CRM114-Status: GOOD (  26.53  )
+X-CRM114-CacheID: sfid-20251114_134304_675298_FAA4A48F 
+X-CRM114-Status: UNSURE (   4.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Nov 2025 at 09:51, Sumit Garg <sumit.garg@kernel.org> wrote:
->
-> From: Sumit Garg <sumit.garg@oss.qualcomm.com>
->
-> UEFI specification provides support for EfiResetPlatformSpecific reset
-> type as follows:
->
-> "
-> ResetSystem:
->
-> Calling this interface with ResetType of EfiResetPlatformSpecific
-> causes a system-wide reset. The exact type of the reset is defined
-> by the EFI_GUID that follows the Null-terminated Unicode string passed
-> into ResetData. If the platform does not recognize the EFI_GUID in
-> ResetData the platform must pick a supported reset type to perform.
-> The platform may optionally log the parameters from any non-normal
-> reset that occurs.
-> "
->
-> Lets use the ResetData to pass the platform specific reboot command
-> issued and leave it's interpretation to UEFI implementation following
-> the specification.
->
-> Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> ---
->  drivers/firmware/efi/reboot.c | 25 +++++++++++++++----------
->  include/linux/efi.h           |  5 +++--
->  2 files changed, 18 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/firmware/efi/reboot.c b/drivers/firmware/efi/reboot.c
-> index ceae84c19d22..23a2fc68e9c9 100644
-> --- a/drivers/firmware/efi/reboot.c
-> +++ b/drivers/firmware/efi/reboot.c
-> @@ -10,7 +10,7 @@ static struct sys_off_handler *efi_sys_off_handler;
->
->  int efi_reboot_quirk_mode = -1;
->
-> -void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
-> +void efi_reboot(enum reboot_mode reboot_mode, const char *data)
->  {
->         const char *str[] = { "cold", "warm", "shutdown", "platform" };
->         int efi_mode, cap_reset_mode;
-> @@ -18,14 +18,18 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
->         if (!efi_rt_services_supported(EFI_RT_SUPPORTED_RESET_SYSTEM))
->                 return;
->
-> -       switch (reboot_mode) {
-> -       case REBOOT_WARM:
-> -       case REBOOT_SOFT:
-> -               efi_mode = EFI_RESET_WARM;
-> -               break;
-> -       default:
-> -               efi_mode = EFI_RESET_COLD;
-> -               break;
-> +       if (data) {
-> +               efi_mode = EFI_RESET_PLATFORM_SPECIFIC;
-> +       } else {
-> +               switch (reboot_mode) {
-> +               case REBOOT_WARM:
-> +               case REBOOT_SOFT:
-> +                       efi_mode = EFI_RESET_WARM;
-> +                       break;
-> +               default:
-> +                       efi_mode = EFI_RESET_COLD;
-> +                       break;
-> +               }
->         }
->
->         /*
-> @@ -43,7 +47,8 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
->                 efi_mode = cap_reset_mode;
->         }
->
-> -       efi.reset_system(efi_mode, EFI_SUCCESS, 0, NULL);
-> +       efi.reset_system(efi_mode, EFI_SUCCESS, sizeof(data),
+The pull request you sent on Fri, 14 Nov 2025 17:11:46 +0100:
 
-You cannot use sizeof() here - it will return the size of a pointer to
-const char.
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.18-rc2
 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/241e99dbdcdfa715989555fa1d83025a8ce95775
 
-> +                        (efi_char16_t *)data);
->  }
->
->  bool __weak efi_poweroff_required(void)
-> diff --git a/include/linux/efi.h b/include/linux/efi.h
-> index a98cc39e7aaa..5324db1518b6 100644
-> --- a/include/linux/efi.h
-> +++ b/include/linux/efi.h
-> @@ -256,6 +256,7 @@ typedef union efi_boot_services efi_boot_services_t;
->  #define EFI_RESET_COLD 0
->  #define EFI_RESET_WARM 1
->  #define EFI_RESET_SHUTDOWN 2
-> +#define EFI_RESET_PLATFORM_SPECIFIC 3
->
->  /*
->   * EFI Runtime Services table
-> @@ -874,7 +875,7 @@ static inline bool efi_enabled(int feature)
->  {
->         return test_bit(feature, &efi.flags) != 0;
->  }
-> -extern void efi_reboot(enum reboot_mode reboot_mode, const char *__unused);
-> +extern void efi_reboot(enum reboot_mode reboot_mode, const char *data);
->
->  bool __pure __efi_soft_reserve_enabled(void);
->
-> @@ -895,7 +896,7 @@ static inline bool efi_enabled(int feature)
->         return false;
->  }
->  static inline void
-> -efi_reboot(enum reboot_mode reboot_mode, const char *__unused) {}
-> +efi_reboot(enum reboot_mode reboot_mode, const char *data) {}
->
->  static inline bool efi_soft_reserve_enabled(void)
->  {
-> --
-> 2.48.1
->
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
