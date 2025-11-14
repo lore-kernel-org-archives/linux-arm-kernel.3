@@ -4,74 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB489CEACC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 19:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DE0CEACC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 20:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8lB9dakmw9NfiuoYGNHXiqrSPMM8bBQOrOauIRCNdE=; b=tG3vnVUo+Z1hXaP8RpTxhg3JJw
-	HqE2/jtbWOVuZ7T26/6U6Tb5dzyRnwF4W8P71P7e1UclmjHbJD8PZNrvPFDZTBUQ//3i7WlQdnZlp
-	u8+jrOchOsLkeTQmb2asrWq2yG8fMUKL7PcTFQBquqNuVAn51yFCUIibuBJ3aAaNqX/0hOZiZAFOR
-	x3xKJQ0HIDRUcI4NGjWRaPpxYNQ2fj+oOPWHuLilo0Dk/97YCvAjG7ZI5vnQFJwtwtoHpdC7ExOo6
-	dsagCAn1Gg5vLDFQfl1g83F5SOZYW5Mx1c1hbwgUpMP2s+z01OEMf82j6fzcWG34DmRWhCW+ZwI7h
-	P2ybVwyw==;
+	bh=LYUw/3eFXDAFlHulEz7NKdmhrhcmAX+lT8DjEkJ/scc=; b=RcAzsTEQY4ThXYILQq880EsNpj
+	DyJyFtxR6oRzlUmbJvsYdzFUrWqvBvWcXSwTFxCmenDjz1PD1AW0itGY/0xOSk+jq+kKsEzUeuA/g
+	d+8f72r12jdVZQWlpKqioi9ghx+v9+x84y7Fh8tmAiEz9HdZYg+Wa5I9SZjGBhWK0B/eg52aMB+Hl
+	B/EYud8Ypbehc2gfESBU79s//yTYIKbo8wJSSJ6VYQJgrKn7WjlUCRtqApwSntBcbscAMAV1CSXOY
+	JQSm2ahl6ojTjAKqZojAMKRq/99UROyAoltxLQynB9UGOtolM/PWsL8VLHRB88kQx9LoCKBvKYLrY
+	sQskx+mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJzoj-0000000D2Tj-0wmt;
-	Fri, 14 Nov 2025 19:50:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vK01X-0000000D3Rm-2nZz;
+	Fri, 14 Nov 2025 20:03:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJzoh-0000000D2TK-1YNO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 19:50:44 +0000
+	id 1vK01V-0000000D3Qa-1UkD;
+	Fri, 14 Nov 2025 20:03:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5CE5140AE5;
-	Fri, 14 Nov 2025 19:50:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E80DC113D0;
-	Fri, 14 Nov 2025 19:50:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 15EEB43C7E;
+	Fri, 14 Nov 2025 20:03:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3DECC116B1;
+	Fri, 14 Nov 2025 20:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763149842;
-	bh=P4jDFgpckbb8dQFLTRe3SuzEwoCwGSI3TBV6Fvm2Xmo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N/BHTggG9tTYn8Mkb0UOHAwwm6lQ/2zpXZpXGP5BB0oXXofILPf5JDftkh0zxKQVF
-	 OiPXVwrQdhHjIrMFU57PKBbuBPr93mSNB6qIpnwb/P4bAs36SuRwJK+oO3sBUxntDW
-	 50S0ZNUB86646bQfmbYCQrszzAK42crqOZjpWvkZDI7Z4wS3GYyJre8Ya9NhzcZ9mx
-	 wmwBDkUX4l2LWIlGf/reQa+xT7BO565jPqmYszUSMWiAznHxHhClx3B/LpepdB70vW
-	 alo098hg/hGTAYYEvDqeHKH8Iy9YJvs/Ni0Aztw9js9B9pO5O0sZN9HwuKwD6EQCjY
-	 huWXvs64gwRKg==
-Date: Fri, 14 Nov 2025 20:50:27 +0100
-From: Nicolas Schier <nsc@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Chen-Yu Tsai <wenst@chromium.org>, Tom Rini <trini@konsulko.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Nathan Chancellor <nathan@kernel.org>,
+	s=k20201202; t=1763150635;
+	bh=ltEnvjxgD9o5H99nXke6/+81fhB8uRaYASSf5TBrxjw=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=GD3Rt3k398YaNy0snptghC6M1FcoQLmz1T1NW8gFp2GlUnnx2r1VNwWRF+OrxloKM
+	 Xq0krpMXxGm/MmrdoInP+AJh+3BJtEXQ1dnYis908LSwh/KtKH51I+8cZvUpBysh4U
+	 8S4ZjVPwZduREnryFARAilnYZlF9rkV2TPBW13rkNdvFLLaEMCa17kUiu6kjrXrZpy
+	 sYf3C8mSVL17jK+7+LXWLtbs9y+hoGyedXt2Xi8reo3XgQieX7v8I/gPH95VhJbruo
+	 16YmOAJwpPV/0wptucfhkclY70FCQd76Rm7MoWYNYHPewBIJNSmo1Or/9PBal8ed1M
+	 PaHLt0IphElGw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 4208ECE0C91; Fri, 14 Nov 2025 12:03:55 -0800 (PST)
+Date: Fri, 14 Nov 2025 12:03:55 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Valentin Schneider <vschneid@redhat.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-mm@kvack.org, rcu@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Parth Pancholi <parth.pancholi@toradex.com>,
-	Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>,
-	Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 6/8] kbuild: Allow adding modules into the FIT ramdisk
-Message-ID: <aReIA8YuOM7JIXIe@derry.ads.avm.de>
-References: <20251114142741.1919072-1-sjg@chromium.org>
- <20251114142741.1919072-7-sjg@chromium.org>
- <20251114162255-10e006c6-dadc-44df-a8ed-ab4a00fc6402@linutronix.de>
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>
+Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <b3472cb3-86fa-4687-bfce-3b9a1bf4ff36@paulmck-laptop>
+References: <20251114150133.1056710-1-vschneid@redhat.com>
+ <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
+ <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
+ <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
+ <1a911310-4ca5-45a4-b9bf-5f37c6ab238e@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251114162255-10e006c6-dadc-44df-a8ed-ab4a00fc6402@linutronix.de>
+In-Reply-To: <1a911310-4ca5-45a4-b9bf-5f37c6ab238e@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_115043_480042_F26A747E 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20251114_120357_463861_7F5602A5 
+X-CRM114-Status: GOOD (  78.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +111,253 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 04:29:33PM +0100, Thomas Weißschuh wrote:
-> On Fri, Nov 14, 2025 at 07:27:32AM -0700, Simon Glass wrote:
-> > Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-> > ramdisk image within the FIT.
-> > 
-> > Add image.fit as a target which requires modules, so that modules will
-> > built automatically when using FIT_MODULES=1
-> > 
-> > Signed-off-by: Simon Glass <sjg@chromium.org>
-> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> > Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> > Acked-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> > 
-> > Changes in v5:
-> > - Build modules automatically if needed (fix from Nicolas Schier)
-> > 
-> > Changes in v4:
-> > - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
-> > - Use an empty FIT_MODULES to disable the feature, instead of '0'
-> > - Make use of the 'modules' dependency to ensure modules are built
-> > - Pass the list of modules to the script
-> > 
-> >  Makefile             |  1 +
-> >  arch/arm64/Makefile  |  1 +
-> >  scripts/Makefile.lib | 10 ++++++++--
-> >  3 files changed, 10 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/Makefile b/Makefile
-> > index 8cd46222fc48..4eccaef95826 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -773,6 +773,7 @@ endif
-> >  # Just "make" or "make all" shall build modules as well
-> >  
-> >  modules-targets := all
-> > +modules-targets += $(if $(FIT_MODULES),image.fit)
-> >  modules-targets += modules
-> >  modules-targets += nsdeps
-> >  modules-targets += compile_commands.json
-> > diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> > index 73a10f65ce8b..7036f251ab40 100644
-> > --- a/arch/arm64/Makefile
-> > +++ b/arch/arm64/Makefile
-> > @@ -174,6 +174,7 @@ endif
-> >  all:	$(notdir $(KBUILD_IMAGE))
-> >  
-> >  image.fit: dtbs
-> > +image.fit: $(if $(FIT_MODULES),modules)
-> >  
-> >  vmlinuz.efi image.fit: Image
-> >  $(BOOT_TARGETS): vmlinux
-> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> > index 1d581ba5df66..c6a3aa653035 100644
-> > --- a/scripts/Makefile.lib
-> > +++ b/scripts/Makefile.lib
-> > @@ -398,11 +398,17 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
-> >  # Use this to override the compression algorithm
-> >  FIT_COMPRESSION ?= gzip
-> >  
-> > +# Set this to 1 to include an initrd with all the kernel modules
-> > +FIT_MODULES ?=
+On Fri, Nov 14, 2025 at 10:45:08AM -0800, Andy Lutomirski wrote:
 > 
-> '0' will also trigger that behavior.
 > 
-> > +
-> >  quiet_cmd_fit = FIT     $@
-> > -      cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> > -		--name '$(UIMAGE_NAME)' \
-> > +      cmd_fit = $(if $(FIT_MODULES), \
-> > +		find $(objtree) -name '*.ko' > $(objtree)/.modules-list 2>/dev/null &&) \
+> On Fri, Nov 14, 2025, at 10:14 AM, Paul E. McKenney wrote:
+> > On Fri, Nov 14, 2025 at 09:22:35AM -0800, Andy Lutomirski wrote:
+> >> 
 > 
-> This will include stale module files. You can get an up-to-date list from
-> $(objtree)/modules.order with a bit post-processing.
-> Maybe kbuild can be extended to also create a list of the .ko files.
-> (I would be interested in that for my own usecases, too)
+> >> > Oh, any another primitive would be possible: one CPU could plausibly 
+> >> > execute another CPU's interrupts or soft-irqs or whatever by taking a 
+> >> > special lock that would effectively pin the remote CPU in user mode -- 
+> >> > you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
+> >> > the transition on that CPU to kernel mode would then spin on entry to 
+> >> > kernel mode and wait for the lock to be released.  This could plausibly 
+> >> > get a lot of the on_each_cpu callers to switch over in one fell swoop: 
+> >> > anything that needs to synchronize to the remote CPU but does not need 
+> >> > to poke its actual architectural state could be executed locally while 
+> >> > the remote CPU is pinned.
+> >
+> > It would be necessary to arrange for the remote CPU to remain pinned
+> > while the local CPU executed on its behalf.  Does the above approach
+> > make that happen without re-introducing our current context-tracking
+> > overhead and complexity?
+> 
+> Using the pseudo-implementation farther down, I think this would be like:
+> 
+> if (my_state->status == INDETERMINATE) {
+>    // we were lazy and we never promised to do work atomically.
+>    atomic_set(&my_state->status, KERNEL);
+>    this_entry_work = 0;
+>    /* we are definitely not pinned in this path */
+> } else {
+>    // we were not lazy and we promised we would do work atomically
+>    atomic exchange the entire state to { .work = 0, .status = KERNEL }
+>    this_entry_work = (whatever we just read);
+>    if (this_entry_work & PINNED) {
+>      u32 this_cpu_pin_count = this_cpu_ptr(pin_count);
+>      while (atomic_read(&this_cpu_pin_count)) {
+>        cpu_relax();
+>      }
+>    }
+>  }
+> 
+> and we'd have something like:
+> 
+> bool try_pin_remote_cpu(int cpu)
+> {
+>     u32 *remote_pin_count = ...;
+>     struct fancy_cpu_state *remote_state = ...;
+>     atomic_inc(remote_pin_count);  // optimistic
+> 
+>     // Hmm, we do not want that read to get reordered with the inc, so we probably
+>     // need a full barrier or seq_cst.  How does Linux spell that?  C++ has atomic::load
+>     // with seq_cst and maybe the optimizer can do the right thing.  Maybe it's:
+>     smp_mb__after_atomic();
+> 
+>     if (atomic_read(&remote_state->status) == USER) {
+>       // Okay, it's genuinely pinned.
+>       return true;
+> 
+>       // egads, if this is some arch with very weak ordering,
+>       // do we need to be concerned that we just took a lock but we
+>       // just did a relaxed read and therefore a subsequent access
+>       // that thinks it's locked might appear to precede the load and therefore
+>       // somehow get surprisingly seen out of order by the target cpu?
+>       // maybe we wanted atomic_read_acquire above instead?
+>     } else {
+>       // We might not have successfully pinned it
+>       atomic_dec(remote_pin_count);
+>     }
+> }
+> 
+> void unpin_remote_cpu(int cpu)
+> {
+>     atomic_dec(remote_pin_count();
+> }
+> 
+> and we'd use it like:
+> 
+> if (try_pin_remote_cpu(cpu)) {
+>   // do something useful
+> } else {
+>   send IPI;
+> }
+> 
+> but we'd really accumulate the set of CPUs that need the IPIs and do them all at once.
+> 
+> I ran the theorem prover that lives inside my head on this code using the assumption that the machine is a well-behaved x86 system and it said "yeah, looks like it might be correct".  I trust an actual formalized system or someone like you who is genuinely very good at this stuff much more than I trust my initial impression :)
 
-oh yes, thanks for the pointer.  This is indeed quite simple and much
-better than calling find.  For in-tree kmods:
+Let's start with requirements, non-traditional though that might be. ;-)
 
-    compiled-modules = $(patsubst %.o,%.ko,$(call read-file, $(objtree)/modules.order))
+An "RCU idle" CPU is either in deep idle or executing in nohz_full
+userspace.
 
-But as we need the list of modules in a file, we can also add a
-$(call write-file,FILE,TEXT) macro (cp. read-file in
-scripts/Kbuild.include).
+1.	If the RCU grace-period kthread sees an RCU-idle CPU, then:
 
-Thomas, is this sufficient for your use case?  Or do you also need a
-make target outputting the list of kmods?
+	a.	Everything that this CPU did before entering RCU-idle
+		state must be visible to sufficiently later code executed
+		by the grace-period kthread, and:
 
+	b.	Everything that the CPU will do after exiting RCU-idle
+		state must *not* have been visible to the grace-period
+		kthread sufficiently prior to having sampled this
+		CPU's state.
 
-Kind regards,
-Nicolas
+2.	If the RCU grace-period kthread sees an RCU-nonidle CPU, then
+	it depends on whether this is the same nonidle sojourn as was
+	initially seen.  (If the kthread initially saw the CPU in an
+	RCU-idle state, it would not have bothered resampling.)
 
+	a.	If this is the same nonidle sojourn, then there are no
+		ordering requirements.	RCU must continue to wait on
+		this CPU.
+
+	b.	Otherwise, everything that this CPU did before entering
+		its last RCU-idle state must be visible to sufficiently
+		later code executed by the grace-period kthread.
+		Similar to (1a) above.
+
+3.	If a given CPU quickly switches into and out of RCU-idle
+	state, and it is always in RCU-nonidle state whenever the RCU
+	grace-period kthread looks, RCU must still realize that this
+	CPU has passed through at least one quiescent state.
+
+	This is why we have a counter for RCU rather than just a
+	simple state.
+
+The usual way to handle (1a) and (2b) is make the update marking entry
+to the RCU-idle state have release semantics and to make the operation
+that the RCU grace-period kthread uses to sample the CPU's state have
+acquire semantics.
+
+The usual way to handle (1b) is to have a full barrier after the update
+marking exit from the RCU-idle state and another full barrier before the
+operation that the RCU grace-period kthread uses to sample the CPU's
+state.  The "sufficiently" allows some wiggle room on the placement
+of both full barriers.  A full barrier can be smp_mb() or some fully
+ordered atomic operation.
+
+I will let Valentin and Frederic check the current code.  ;-)
+
+> >> Following up, I think that x86 can do this all with a single atomic (in the common case) per usermode round trip.  Imagine:
+> >> 
+> >> struct fancy_cpu_state {
+> >>   u32 work; // <-- writable by any CPU
+> >>   u32 status; // <-- readable anywhere; writable locally
+> >> };
+> >> 
+> >> status includes KERNEL, USER, and maybe INDETERMINATE.  (INDETERMINATE means USER but we're not committing to doing work.)
+> >> 
+> >> Exit to user mode:
+> >> 
+> >> atomic_set(&my_state->status, USER);
+> >
+> > We need ordering in the RCU nohz_full case.  If the grace-period kthread
+> > sees the status as USER, all the preceding KERNEL code's effects must
+> > be visible to the grace-period kthread.
+> 
+> Sorry, I'm speaking lazy x86 programmer here.  Maybe I mean atomic_set_release.  I want, roughly, the property that anyone who remotely observes USER can rely on the target cpu subsequently going through the atomic exchange path above.  I think even relaxed ought to be good enough for that one most architectures, but there are some potentially nasty complications involving that fact that this mixes operations on a double word and a single word that's part of the double word.
+
+Please see the requirements laid out above.
+
+> >> (or, in the lazy case, set to INDETERMINATE instead.)
+> >> 
+> >> Entry from user mode, with IRQs off, before switching to kernel CR3:
+> >> 
+> >> if (my_state->status == INDETERMINATE) {
+> >>   // we were lazy and we never promised to do work atomically.
+> >>   atomic_set(&my_state->status, KERNEL);
+> >>   this_entry_work = 0;
+> >> } else {
+> >>   // we were not lazy and we promised we would do work atomically
+> >>   atomic exchange the entire state to { .work = 0, .status = KERNEL }
+> >>   this_entry_work = (whatever we just read);
+> >> }
+> >
+> > If this atomic exchange is fully ordered (as opposed to, say, _relaxed),
+> > then this works in that if the grace-period kthread sees USER, its prior
+> > references are guaranteed not to see later kernel-mode references from
+> > that CPU.
+> 
+> Yep, that's the intent of my pseudocode.  On x86 this would be a plain 64-bit lock xchg -- I don't think cmpxchg is needed.  (I like to write lock even when it's implicit to avoid needing to trust myself to remember precisely which instructions imply it.)
+
+OK, then the atomic exchange provides all the ordering that the update
+ever needs.
+
+> >> if (PTI) {
+> >>   switch to kernel CR3 *and flush if this_entry_work says to flush*
+> >> } else {
+> >>   flush if this_entry_work says to flush;
+> >> }
+> >> 
+> >> do the rest of the work;
+> >> 
+> >> 
+> >> 
+> >> I suppose that a lot of the stuff in ti_flags could merge into here, but it could be done one bit at a time when people feel like doing so.  And I imagine, but I'm very far from confident, that RCU could use this instead of the current context tracking code.
+> >
+> > RCU currently needs pretty heavy-duty ordering to reliably detect the
+> > other CPUs' quiescent states without needing to wake them from idle, or,
+> > in the nohz_full case, interrupt their userspace execution.  Not saying
+> > it is impossible, but it will need extreme care.
+> 
+> Is the thingy above heavy-duty enough?  Perhaps more relevantly, could RCU do this *instead* of the current CT hooks on architectures that implement it, and/or could RCU arrange for the ct hooks to be cheap no-ops on architectures that support the thingy above.  By "could" I mean "could be done without absolutely massive refactoring and without the resulting code being an unmaintainable disaster?  I'm sure any sufficiently motivated human or LLM could pull off the unmaintainable disaster version.  I bet I could even do it myself!)
+
+I write broken and unmaintainable code all the time, having more than 50
+years of experience doing so.  This is one reason we have rcutorture.  ;-)
+
+RCU used to do its own CT-like hooks.  Merging them into the actual
+context-tracking code reduced the entry/exit overhead significantly.
+
+I am not seeing how the third requirement above is met, though.  I have
+not verified the sampling code that the RCU grace-period kthread is
+supposed to use because I am not seeing it right off-hand.
+
+> >> The idea behind INDETERMINATE is that there are plenty of workloads that frequently switch between user and kernel mode and that would rather accept a few IPIs to avoid the heavyweight atomic operation on user -> kernel transitions.  So the default behavior could be to do KERNEL -> INDETERMINATE instead of KERNEL -> USER, but code that wants to be in user mode for a long time could go all the way to USER.  We could make it sort of automatic by noticing that we're returning from an IRQ without a context switch and go to USER (so we would get at most one unneeded IPI per normal user entry), and we could have some nice API for a program that intends to hang out in user mode for a very long time (cpu isolation users, for example) to tell the kernel to go immediately into USER mode.  (Don't we already have something that could be used for this purpose?)
+> >
+> > RCU *could* do an smp_call_function_single() when the CPU failed
+> > to respond, perhaps in a manner similar to how it already forces a
+> > given CPU out of nohz_full state if that CPU has been executing in the
+> > kernel for too long.  The real-time guys might not be amused, though.
+> > Especially those real-time guys hitting sub-microsecond latencies.
+> 
+> It wouldn't be outrageous to have real-time imply the full USER transition.
+
+We could have special code for RT, but this of course increases the
+complexity.  Which might be justified by sufficient speedup.
+
+> >> Hmm, now I wonder if it would make sense for the default behavior of Linux to be like that.  We could call it ONEHZ.  It's like NOHZ_FULL except that user threads that don't do syscalls get one single timer tick instead of many or none.
+> >> 
+> >> 
+> >> Anyway, I think my proposal is pretty good *if* RCU could be made to use it -- the existing context tracking code is fairly expensive, and I don't think we want to invent a new context-tracking-like mechanism if we still need to do the existing thing.
+> >
+> > If you build with CONFIG_NO_HZ_FULL=n, do you still get the heavyweight
+> > operations when transitioning between kernel and user execution?
+> 
+> No.  And I even tested approximately this a couple weeks ago for unrelated reasons.  The only unnecessary heavy-weight thing we're doing in a syscall loop with mitigations off is the RDTSC for stack randomization.
+
+OK, so why not just build your kernels with CONFIG_NO_HZ_FULL=n and be happy?
+
+> But I did that test on a machine that would absolutely benefit from the IPI suppression that the OP is talking about here, and I think it would be really quite nice if a default distro kernel with a more or less default distribution could be easily convinced to run a user thread without interrupting it.  It's a little bit had that NO_HZ_FULL is still an exotic non-default thing, IMO.
+
+And yes, many distros enable NO_HZ_FULL by default.  I will refrain from
+suggesting additional static branches.  ;-)
+
+							Thanx, Paul
 
