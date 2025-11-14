@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CFDCDE00D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 12:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFB6CE7AFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 12:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vELGL+YLg67WURvnTEyN9CZyoywwF35KjCPfH+omGCM=; b=PbQ5n7EdIN4glgwTaoDpFFvSGE
-	k+/VZE73FY5zrd+RWgiHGsKQ/JJBO/Y8tQ8ugFE+COjg04EDTCAE6lRhdEszWgrSHA6VoUxeVslwy
-	tugKbJEWTJ1/ekYDOd/QFj+PmyeadVn8/irUbZehU+G0NevtjBcPcSW97lTz0U67BX975B8RYXFhE
-	PxsbodzDt7guBVWFQ1UVOMKBfq0oVwcjQg/rs84LWVo3WGHjo02AYn1RIby3Jp4LMhtAxRnGLqS0p
-	jIQHZeELh1Dsq1NGhwjtP0YdTZHhosjhTgm/tZrfXfZJPC3EwE3S8oUkdbiyD8Lu5QhGQ1ZI8BokD
-	k5fs2hsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CWfxlovtlHWLkMCBmtTkCS4/9QLpS74pQWB4HrtZZts=; b=dTbayTkYOVwRlewqVak+PNgRDl
+	gC6RnltZXlIR85OUl8XjfoFX4da7LAbXsrZxMYFmHEXfYal60fAQwDDiBv0lPo9w0SD5zZPvBLqUr
+	qb/PEO0rMkZPEKRxad3stoa6zq03byGvTga2hPQjZ5p4shTtooGm/NVYWuoZ2vqiBoxb+Y2wPYOZM
+	4Rl1Ni/jzyJuTisM5rHH+rLhARW5zUsl86DaYiI2GdM5GOmCgv0hZxzKed4WMwiCBayUNEzyA8uZu
+	XU30wh2GuP8UfwSwCYmiehs9ip3ikS4tplCC0Doug49uXlW+8E2z0rzVZKlnkxtG1q4BQqXSY2vfm
+	vU78Ms6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJsh6-0000000CBDu-3kDS;
-	Fri, 14 Nov 2025 12:14:24 +0000
-Received: from mail-m19731100.qiye.163.com ([220.197.31.100])
+	id 1vJsiz-0000000CBPG-2IJH;
+	Fri, 14 Nov 2025 12:16:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJsh3-0000000CBDJ-1PG7;
-	Fri, 14 Nov 2025 12:14:22 +0000
-Received: from [172.16.12.211] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 299e2ff87;
-	Fri, 14 Nov 2025 20:14:14 +0800 (GMT+08:00)
-Message-ID: <3233894e-9409-4b74-a954-0b30064c3c8c@rock-chips.com>
-Date: Fri, 14 Nov 2025 20:14:13 +0800
+	id 1vJsix-0000000CBP8-3U99
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 12:16:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8D136016F;
+	Fri, 14 Nov 2025 12:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C813C4CEF1;
+	Fri, 14 Nov 2025 12:16:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763122578;
+	bh=5RqXHqHz4UU/Pqj/bZXRU6L0/3Ft4c4j+w400Ub4OMo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=etOD6sJe6gVAOIzkTbbf5u51+gHFETMrpPt26qH77RYIyd9FEeBZshZ9sTzFabFgw
+	 Vls5lMsnSXt5n0pUbBKvyaxRM5vYXYKFXZ8dKhrVeWi7WlyKOQvdqBGPybtOZu3vt/
+	 K6XGCajFHSpDGMdbVoyS9UzhAc8iSQ2a6TKEssdmOSnZxLZcrOTZ1q81XLiHkjdzYR
+	 j0BFXq1SHuT/g5/iccpgag9XV3SUibryAL5sj96NpPwa8gd7gkH0+OCTwSZlstd3im
+	 c7+QRSjgPhIrB/dgJb6All7DJB8x/otBsSEs44cC3+iNc9x1VMBLy1J3NuuQu728NS
+	 7Q5CtnAj8vQeA==
+Date: Fri, 14 Nov 2025 17:46:11 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, mark.rutland@arm.com, andersson@kernel.org,
+	konradybcio@kernel.org, dmitry.baryshkov@oss.qualcomm.com,
+	shivendra.pratap@oss.qualcomm.com, leif.lindholm@oss.qualcomm.com,
+	linux-kernel@vger.kernel.org,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Subject: Re: [PATCH 2/2] arm64: efi: Pass reboot cmd parameter to efi_reboot()
+Message-ID: <aRcdiwgM9h_S7rP-@sumit-X1>
+References: <20251114085058.2195900-1-sumit.garg@kernel.org>
+ <20251114085058.2195900-3-sumit.garg@kernel.org>
+ <CAMj1kXE4Fo3i9f3npB0MBSOZP0x7HgF4A0KX_aUSBEBmar=NpA@mail.gmail.com>
+ <aRb2_OmkRTD46vnx@sumit-X1>
+ <CAMj1kXFpi1fMuAhuaBbMSd57F79E7Z0u4okzkKL+_6eKfGUKXA@mail.gmail.com>
+ <CAMj1kXE60LrWi8Au6qQ4EMQDFxQCJt5h6hBLuQHCz3HEp=2o3w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/3] net: can: rockchip: add can for RK3576 Soc
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, robh@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-can@vger.kernel.org,
- linux-rockchip@lists.infradead.org, cl@rock-chips.com,
- kernel@pengutronix.de, krzk+dt@kernel.org, mailhol.vincent@wanadoo.fr
-References: <20251113075419.482940-1-zhangqing@rock-chips.com>
- <20251113075419.482940-4-zhangqing@rock-chips.com>
- <20251113-slim-foamy-gecko-2dc389-mkl@pengutronix.de>
- <176d96b4-397c-49d4-8e8e-2f77a5d59c12@rock-chips.com>
- <20251114-utopian-cheerful-otter-33c1d5-mkl@pengutronix.de>
-From: zhangqing <zhangqing@rock-chips.com>
-In-Reply-To: <20251114-utopian-cheerful-otter-33c1d5-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a8249a13403a3kunmc0d95d2fbc54e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk1KGVZCSEJKTkpOTh4fGEpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=WxS7EliwFNkkh/33Nso4byD6TZWgb1CUuJsWPOaGt2An9EnsKLuKeJesM+qdTGK3hXG3fuS3alEjq9Lpve+Xpd8wQDadX8jGOI1mq31E6Krw1bwnjhvML7vSjUFsvSFswwKUFouA07AMRUS2L3ei9BoaJF7Intm5rZq9qOheG5I=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=vELGL+YLg67WURvnTEyN9CZyoywwF35KjCPfH+omGCM=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_041421_552856_3B3F7948 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXE60LrWi8Au6qQ4EMQDFxQCJt5h6hBLuQHCz3HEp=2o3w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +78,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 14, 2025 at 10:35:33AM +0100, Ard Biesheuvel wrote:
+> On Fri, 14 Nov 2025 at 10:33, Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > On Fri, 14 Nov 2025 at 10:31, Sumit Garg <sumit.garg@kernel.org> wrote:
+> > >
+> > > On Fri, Nov 14, 2025 at 10:26:03AM +0100, Ard Biesheuvel wrote:
+> > > > On Fri, 14 Nov 2025 at 09:51, Sumit Garg <sumit.garg@kernel.org> wrote:
+> > > > >
+> > > > > From: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > >
+> > > > > EFI ResetSystem runtime service allows for platform specific reset type
+> > > > > allowing the OS to pass reset data for the UEFI implementation to take
+> > > > > corresponding action. So lets pass the reboot cmd parameter for the EFI
+> > > > > driver to determine whether it's a platform specific reset requested or
+> > > > > not.
+> > > > >
+> > > > > Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > > ---
+> > > > >  arch/arm64/kernel/process.c | 2 +-
+> > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > >
+> > > > > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> > > > > index fba7ca102a8c..51784986c568 100644
+> > > > > --- a/arch/arm64/kernel/process.c
+> > > > > +++ b/arch/arm64/kernel/process.c
+> > > > > @@ -136,7 +136,7 @@ void machine_restart(char *cmd)
+> > > > >          * ResetSystem().
+> > > > >          */
+> > > > >         if (efi_enabled(EFI_RUNTIME_SERVICES))
+> > > > > -               efi_reboot(reboot_mode, NULL);
+> > > > > +               efi_reboot(reboot_mode, cmd);
+> > > > >
+> > > >
+> > > > I agree with the general principle. However, there are already
+> > > > existing callers of kernel_restart() that would end up passing a
+> > > > random string to efi_reboot(), resulting in platform specific reset
+> > > > with undefined result.
+> > >
+> > > Yeah true but the UEFI spec says:
+> > >
+> > > "If the platform does not recognize the EFI_GUID in ResetData the platform
+> > > must pick a supported reset type to perform. The platform may optionally
+> > > log the parameters from any non-normal reset that occurs."
+> > >
+> > > So, in these cases the UEFI implementation can fallback to normal reset
+> > > optionally logging the reset data being passed. Does that sounds
+> > > reasonable to you?
+> > >
+> >
+> > What the UEFI spec says might deviate from how real platforms in the
+> > field will behave when being passed a reset type that nobody ever
+> > tried passing before.
 
-在 2025/11/14 19:01, Marc Kleine-Budde 写道:
-> On 14.11.2025 17:55:53, zhangqing wrote:
->>>> +/* The rk3576 CAN-FD */
->>>> +static const struct rkcanfd_devtype_data rkcan_devtype_data_rk3576 = {
->>>> +	.model = RKCAN_MODEL_RK3576,
->>>> +	.quirks = RKCANFD_QUIRK_CANFD_BROKEN,
->>> Is CAN-FD mode broken on the rk3576?
->>>
->>> Please test CAN-FD and please do the tests documented near the
->>> definition of RKCANFD_QUIRK_CANFD_BROKEN:
->>>
->>> | Tests on the rk3568v2 and rk3568v3 show that receiving certain
->>> | CAN-FD frames trigger an Error Interrupt.
->>> |
->>> | - Form Error in RX Arbitration Phase: TX_IDLE RX_STUFF_COUNT (0x0a010100) CMD=0 RX=0 TX=0
->>> |   Error-Warning=1 Bus-Off=0
->>> |   To reproduce:
->>> |   host:
->>> |     cansend can0 002##01f
->>> |   DUT:
->>> |     candump any,0:0,#FFFFFFFF -cexdHtA
->>> |
->>> | - Form Error in RX Arbitration Phase: TX_IDLE RX_CRC (0x0a010200) CMD=0 RX=0 TX=0
->>> |   Error-Warning=1 Bus-Off=0
->>> |   To reproduce:
->>> |   host:
->>> |     cansend can0 002##07217010000000000
->>> |   DUT:
->>> |     candump any,0:0,#FFFFFFFF -cexdHtA
->> There is no doubt about the other modifications above. They will be
->> corrected in version V10.
->>
->> CANFD requires authorization and is not supported by default.
-> Can you explain what you mean by authorization? What do you mean by "not
-> supported"?
-For RK3576 SoC, the IC hardware design supports CANFD.
-However, a license application is required before it can be used; 
-otherwise, there will be legal risks.
->
->> After obtaining authorization, it can be used, so this place is not
->> considered broken.
->> What's the best way to handle this situation?
-> regards,
-> Marc
->
--- 
-张晴
-瑞芯微电子股份有限公司
-Rockchip Electronics Co.,Ltd
-地址：福建省福州市铜盘路软件大道89号软件园A区21号楼
-Add:No.21 Building, A District, No.89 Software Boulevard Fuzhou, Fujian 350003, P.R.China
-Tel:+86-0591-83991906-8601
-邮编：350003
-E-mail:elaine.zhang@rock-chips.com
-****************************************************************************
-保密提示：本邮件及其附件含有机密信息，仅发送给本邮件所指特定收件人。若非该特定收件人，请勿复制、使用或披露本邮件的任何内容。若误收本邮件，请从系统中永久性删除本邮件及所有附件，并以回复邮件或其他方式即刻告知发件人。福州瑞芯微电子有限公司拥有本邮件信息的著作权及解释权，禁止任何未经授权许可的侵权行为。
+I suppose from OS point of view, we need to follow the UEFI
+specification. However, there will be scope for quirks later if the real
+world problems occur. Currently, in case of EFI reboot we are just
+ignoring the reboot cmd parameter.
 
-IMPORTANT NOTICE: This email is from Fuzhou Rockchip Electronics Co., Ltd .The contents of this email and any attachments may contain information that is privileged, confidential and/or exempt from disclosure under applicable law and relevant NDA. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information is STRICTLY PROHIBITED. Please immediately contact the sender as soon as possible and destroy the material in its entirety in any format. Thank you.
+If you have in mind any sanity checks we should do here then feel free
+to propose and I can try to implement them.
 
-****************************************************************************
+> 
+> Also, the GUID is expected to follow an unbounded NULL terminated
+> UTF-16 string in memory, so we could easily cause a crash by doing
+> this if \0\0 doesn't appear in the memory following the string.
 
+Okay I see, would following change on top of this patchset address this
+concern?
+
+--- a/drivers/firmware/efi/reboot.c
++++ b/drivers/firmware/efi/reboot.c
+@@ -5,6 +5,7 @@
+  */
+ #include <linux/efi.h>
+ #include <linux/reboot.h>
++#include <linux/ucs2_string.h>
+
+ static struct sys_off_handler *efi_sys_off_handler;
+
+@@ -14,11 +15,18 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
+ {
+        const char *str[] = { "cold", "warm", "shutdown", "platform" };
+        int efi_mode, cap_reset_mode;
++       unsigned long reset_data_sz = 0;
++       efi_char16_t *reset_data = NULL;
+
+        if (!efi_rt_services_supported(EFI_RT_SUPPORTED_RESET_SYSTEM))
+                return;
+
+        if (data) {
++               reset_data_sz = ucs2_strlen(data) * sizeof(efi_char16_t);
++               reset_data = kzalloc(reset_data_sz + 2, GFP_KERNEL);
++               memcpy(reset_data, data, reset_data_sz);
++               reset_data_sz += 2;
++
+                efi_mode = EFI_RESET_PLATFORM_SPECIFIC;
+        } else {
+                switch (reboot_mode) {
+@@ -47,8 +55,7 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
+                efi_mode = cap_reset_mode;
+        }
+
+-       efi.reset_system(efi_mode, EFI_SUCCESS, sizeof(data),
+-                        (efi_char16_t *)data);
++       efi.reset_system(efi_mode, EFI_SUCCESS, reset_data_sz, reset_data);
+ }
+
+ bool __weak efi_poweroff_required(void)
+
+-Sumit
 
