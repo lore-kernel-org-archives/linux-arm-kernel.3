@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C22CCE8D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88042CE8D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cSNhX2pkt7zcNqtt73B/SxXjHG2Uh9RLAgF3dQ2MWK8=; b=h253fOl2NDFxqUaWrt3o6X47To
-	u98VS+8ow2a1HLG+1h5kNGoYzyd1e47Ogohbw6o+7dTirA5RtBVCU3cGoK5W58/iGbdLsVFKPuZZ2
-	R21p5HDDJ1h0eWEkEmiH2N7go+cwK6KK/Wbw9Hfdq2F86OP0ioAy8tT1T838zE1ypH9JlWpS8FHKU
-	L5/a4AQwzqBdD1P+6UtDGUsmZSBRIJBa+5VJbrFw3kUgeGbKFTC7aKo24PXdiwZ86NnpxM92HC8qY
-	i/sBLQFb4DWS1GhBIKo6IrE8meubwgkco35o9Dwe5YfMfNljP0Mj1O3sNDe1FfIbGlw99dheE8shg
-	PpZjNKTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qfIZVJD6t1lO6Uib0a71SltAzOzLDBohr5Vn+dKRzCQ=; b=CsZ6v3Idu/ltuZyKFEl88YIFMl
+	FL24giVvgB/Jqcf16isniz0njN2JNtwv8uKnO6v7K33GR23hMf+sdArAemZXwESti4bnwHWZWRppY
+	7LaHjU9GMc8PjoLcUuo1rabYcq8HCxqDM4dDJ3kxzDPPgt2hi9M/T+zpWNg0sAoBvdqstbJ0uWDSK
+	hnQK95keu3r/t0j7PklLgfY0wTPh2qXJhUThOa2KvoObkuzVQcW8T1O6/czGW83LE5k08KlJ+v8rz
+	CLhYS3Oktt0IbkTfwM5IgThtbkCtyAnUVM9H79k5PqzTiHOrFWOYraZtXQ/H4jgPxY5Bz1pf819d6
+	aHwmLo6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwP0-0000000CiEZ-3C3L;
-	Fri, 14 Nov 2025 16:11:58 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1vJwRa-0000000CiSS-1Ore;
+	Fri, 14 Nov 2025 16:14:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwOy-0000000CiE4-48Pc
+	id 1vJwRZ-0000000CiSB-1lyt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:11:58 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-37775ed97daso30206991fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 08:11:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763136715; x=1763741515; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cSNhX2pkt7zcNqtt73B/SxXjHG2Uh9RLAgF3dQ2MWK8=;
-        b=h/lhJmC7O0wP+Ut9UaLwHoLiDNfmUbGY36ZAoalf4yAnZCBMPdn355BMYMtwv0kvgB
-         i6sJxd9R5buVxVofG6Gg7zFkgcYfDcHDnWi7kAQ2tH6u4yDZmfnbUd3PQskl07EosAyZ
-         V7PvMcW/67VITk6GvdozvKwG6ZDRUiUo2kOFcQd8JFGc4GrmTKk2CI1aGBUzKUKbyVtb
-         PNd7o90SH5qXjfOqXR2rxcB3kNm2Bi+dX+zXlA1a4TfFhKdqa1KIiPNJORjbEBtX3Pr2
-         rs2s6+BA5CuRpqrYSUqpP856E5Tr9dJhoXt+XEwV4eIrZk3kz03PnFunH5N9Xj+iAKZ/
-         pj1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763136715; x=1763741515;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cSNhX2pkt7zcNqtt73B/SxXjHG2Uh9RLAgF3dQ2MWK8=;
-        b=Avh9G7DQP8DifSWEFNu2jPmjKRWPJdmbBJnabWZD9vfM8DzaOUYfPcDY9fSbdFXa8V
-         wEJM8JxZ1eu1IjTaHtO5a/lSgyQO42Gz/PeHcWkgXpFHeJJKNOhSra85UeAUmLl3h8K3
-         1MID6QtiL3UbRbfq7Zg8wD0KlumtxPhvT76q6e8kODzdVqvRRF1omJ6huPA5fvf/gi2x
-         UlFIUg3ZceDCk47Fb4pa+U8kj4k76sbi49Tqlbx2R+S7T5n7JNE8wPqyV74BWhWZEGfS
-         Q9C2ss25D5xf7LN8WSjO6n4SC4YYCVmEoGWD+1YhSCBAKHDFQAl4PqKVMkwFTmgIVZta
-         8DBg==
-X-Forwarded-Encrypted: i=1; AJvYcCU5aVKMQhkwZ3Jrz2GARce6/fP9UsygyFKVK9jzEJK8c8QAtX0PV++oLiTFvh9utrnbU88fSipNyZIcMjew9u9s@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUi1BdXScJOR74i6g7kAnPArn6VKqvAIg7QBw7vFiZdfKY/K6Q
-	KfLMmuL7X8iETjpZrw+RGu7Rk0+1q0SiSIzFo/aLMmThENsOwAwhzTrX3EW0pR/Plc+cyJEtAgO
-	FXELj
-X-Gm-Gg: ASbGncv/YN02Q0f1h9fr9xtJBXJWtZ+OicBK6ks/PLnerhNmvimvUZyqwAmUiSPfuM/
-	O/5P3+Ah22+6RGc4UFpbvRmmpzk95swBL7aYor5bbUYd7eFjD5JkikkHaWdnNbt0wb9yB2akpIs
-	sC1vTvI8qyRV7f4HJMtGHnEu9uiOVvRACDhp4+Ovkl/vlJYYoOWS3xxbJIr4B+xcJGh7r231X8L
-	V9b+fHEZAMnlS/n0XEwkup6LGE/DuhatHlblUsdCpn0ePpk8kT1R1neqODSZxbjVDXDF2dUqu18
-	fEtzQpKBg7DGNHbipHrN4Fn+PJ+G8LjwqVedmjqrzAmSU+OR64hhqcQWVxR6W/0c3mcpio5AZhH
-	rulCmib9L0rKCSAPrKbeNwoSQG4rDq4W26ensLyRzCd1T/p6N1mvEKJMJRqGI1e0KcXNmmWgri2
-	gLK203sW1EwXBGEiORXumZZwOUx6hZQFSyiYAWRuSCUlzu4+Gg4A19zriPz+xu
-X-Google-Smtp-Source: AGHT+IE/hPBAWD9qBVjQMVIn4EUSgwCIcA9zVNyR1z50W4cCJMeA0fLeL7x9Slc5b9xh7VmbI0rqbA==
-X-Received: by 2002:a05:651c:3041:b0:372:221a:b124 with SMTP id 38308e7fff4ca-37baacd9bbamr8456321fa.0.1763136714550;
-        Fri, 14 Nov 2025 08:11:54 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37b9ce080casm11520281fa.5.2025.11.14.08.11.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 08:11:53 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain fixes for v6.18-rc6
-Date: Fri, 14 Nov 2025 17:11:46 +0100
-Message-ID: <20251114161152.92955-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Fri, 14 Nov 2025 16:14:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E27960150;
+	Fri, 14 Nov 2025 16:14:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C428C4CEF1;
+	Fri, 14 Nov 2025 16:14:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763136876;
+	bh=bvJRcxzzKLlecIpg4D1rJZr4qSHf+dC7+R6tCSry39I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rsDcbHSCRx3ubUvTF5wvpcX53nWt37krucurCQKf/bmwGDgAjWHSfzaaSS92j8S8W
+	 BM9KWD6tNnC6WNO/YPAJR3L7Yyz8ymwvvlR3G9uDQ/l0AZMR1rqW21gZXMnQXNDE/j
+	 vSHdrEBQkm11cqS1aYvIn1nv8m7+AWeP/wddttVILXaVW+oDFAIEImCcTIcrBp2aFK
+	 mcD7xNOantzjwxdaXsgjYwGXUGmK1RvpF1hWu9HhiOOqVkm5A630mI8mlnWFD/DaVC
+	 62gWfg8VKOIHm9pSs3lAy+X9rEYcw5VqtrwIZir01OTfJaR2o93Cd6N3PBkRVh3ocW
+	 591X1RgzuGRhw==
+Date: Fri, 14 Nov 2025 16:14:30 +0000
+From: Will Deacon <will@kernel.org>
+To: Bill Tsui <b10902118@ntu.edu.tw>
+Cc: oleg@redhat.com, catalin.marinas@arm.com, nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com, morbo@google.com,
+	justinstitt@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v4 1/1] arm64: ptrace: fix hw_break_set() to set addr and
+ ctrl together
+Message-ID: <aRdVZmeOHYbm24NJ@willie-the-truck>
+References: <20251016154401.35799-1-b10902118@ntu.edu.tw>
+ <20251018133731.42505-1-b10902118@ntu.edu.tw>
+ <20251018133731.42505-2-b10902118@ntu.edu.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_081157_052771_23534599 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251018133731.42505-2-b10902118@ntu.edu.tw>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +73,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Sat, Oct 18, 2025 at 09:37:31PM +0800, Bill Tsui wrote:
+> This patch fixes the failure of PTRACE_SETREGSET when setting a hardware
+> breakpoint on a non-4-byte aligned address with a valid control to a
+> 32-bit tracee. The issue was discovered while testing LLDB.
+> 
+> Link: https://github.com/llvm/llvm-project/pull/152284
+> 
+> The failure happens because hw_break_set() checks and sets the breakpoint
+> address and control separately. This can result in an check failure when
+> it first validates the address to be set with old control.
+> 
+> For example, the control are initialized with breakpoint length of 4.
+> Combining with a non-4-byte aligned address would cross a 4-byte boundary,
+> which is invalid. However, the user-provided control may actually specify a
+> length of 1, which should be valid.
+> 
+> The fix is to set the address and control together.
 
-Here's a pull-request with a couple of pmdomain fixes intended for v6.18-rc6.
-Details about the highlights are as usual found in the signed tag.
+... but you only implement this for the native (64-bit) case, so I don't
+understand how it helps with the problem above.
 
-Please pull this in!
+> For reference, the check is in
+> 	arch/arm64/kernel/hw_breakpoint.c:hw_breakpoint_arch_parse()
+> which is called via:
+> 	modify_user_hw_breakpoint()
+> 	-> modify_user_hw_breakpoint_check()
+> 	-> hw_breakpoint_parse()
+> 	-> hw_breakpoint_arch_parse()
 
-Kind regards
-Ulf Hansson
+You don't need to include these details here.
 
+> @@ -524,9 +506,6 @@ static int hw_break_set(struct task_struct *target,
+>  			return -EINVAL;
+>  		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &addr,
+>  					 offset, offset + PTRACE_HBP_ADDR_SZ);
+> -		if (ret)
+> -			return ret;
+> -		ret = ptrace_hbp_set_addr(note_type, target, idx, addr);
+>  		if (ret)
+>  			return ret;
+>  		offset += PTRACE_HBP_ADDR_SZ;
+> @@ -537,10 +516,11 @@ static int hw_break_set(struct task_struct *target,
+>  					 offset, offset + PTRACE_HBP_CTRL_SZ);
+>  		if (ret)
+>  			return ret;
+> -		ret = ptrace_hbp_set_ctrl(note_type, target, idx, ctrl);
+> +		offset += PTRACE_HBP_CTRL_SZ;
+> +
+> +		ret = ptrace_hbp_set(note_type, target, idx, addr, ctrl);
 
-The following changes since commit 211ddde0823f1442e4ad052a2f30f050145ccada:
+Doesn't this break the case where userspace tries only to set the address?
+The loop will break out when !count without updating anything.
 
-  Linux 6.18-rc2 (2025-10-19 15:19:16 -1000)
+As I mentioned before, I'd prefer to leave this code as-is short of
+removing the indirection through perf entirely.
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.18-rc2
-
-for you to fetch changes up to bbde14682eba21d86f5f3d6fe2d371b1f97f1e61:
-
-  pmdomain: imx: Fix reference count leak in imx_gpc_remove (2025-11-04 17:29:00 +0100)
-
-----------------------------------------------------------------
-pmdomain providers:
- - imx: Fix reference count leak in ->remove()
- - samsung: Rework legacy splash-screen handover workaround
- - samsung: Fix potential memleak during ->probe()
- - arm: Fix genpd leak on provider registration failure for scmi
-
-----------------------------------------------------------------
-André Draszik (1):
-      pmdomain: samsung: plug potential memleak during probe
-
-Marek Szyprowski (1):
-      pmdomain: samsung: Rework legacy splash-screen handover workaround
-
-Miaoqian Lin (1):
-      pmdomain: imx: Fix reference count leak in imx_gpc_remove
-
-Sudeep Holla (1):
-      pmdomain: arm: scmi: Fix genpd leak on provider registration failure
-
- drivers/pmdomain/arm/scmi_pm_domain.c        | 13 +++++++++++--
- drivers/pmdomain/imx/gpc.c                   |  2 ++
- drivers/pmdomain/samsung/exynos-pm-domains.c | 29 ++++++++++++++--------------
- 3 files changed, 27 insertions(+), 17 deletions(-)
+Will
 
