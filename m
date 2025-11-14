@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11403CE8D50
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D3CCE8D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEf4qjsPqgccn8cpFWcEAcL5pmW2QpFCxBxXZDBIyBo=; b=LEWRYmoa6HlfmHexH8ylcezl0A
-	Y/uE8K3ppfLoVaC5YYGAyYQzxFU5sYL3WUcyZX/JPCYI6pacP59TCiCt+BAUPiQY1U3yRkuiuZ8ZG
-	Qcake7bhETLh8x+/eLROevpd9MId0wj4HVdEqM10UQDa3nFw14OcS1P5yjhVmlO5KwCdx3RC931IB
-	aexFvrSXNzspGGGFjoD6FERXVtL85gGJZDyzlNugYN8j7CVc5CgzDQ9EAOG1+F24x2qcQZs1bgIoV
-	r4Pla5g+6JHe0gyn5z6Rqo+vDx8LfjFLJX13EzHtn62r68SfrIcmq7it+IoUS0fTywX70L/HIssyE
-	oe6fkZbQ==;
+	bh=v+rh68F6qIk8dmJcuumlbFYbQzaNSQnA82XXmbEOvIE=; b=nW/ISGoKussvu7y06OktKYzeFQ
+	JmE0c7E+ATEdr4Lr+2ZWq84CpVtq56gsFL/uC511lLuThEdXFhgOm7qS2Apner03H23iOyMTBzdz2
+	wpDgshRBH5o1MYISTOGs1cevJOg5mJ+HCqgwKPP11QvAtgHYVQhNYENdTizR6/nz/ow6wontXC9yx
+	xzrt4Byr33sBsWAfTRRIZubWphGIqAqNx52/msGrU/LUN3lsvEHsQSddvkiu8BZh1b9PSIiE2+XHF
+	+QfuMf3pz+D9ITcJHeTFcGWDIByB3pjmMiPjv8V0Ml70/eXzBvzXf0zC+Rlo+Ab9QNO70UBowt/cI
+	VNpojBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLA-0000000CfAJ-17IY;
-	Fri, 14 Nov 2025 16:08:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwL8-0000000Cf7n-0cAr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 16:07:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hEf4qjsPqgccn8cpFWcEAcL5pmW2QpFCxBxXZDBIyBo=; b=UL75MGzC6evSh7Ce9HjnFBsbor
-	I2JXrJo29OBXvvSfAAmJuLQo3NekgbdjuPl5HoPA8JxDchXdTHvXcTLNAEP8+cHcm8tVawkbJzj/+
-	VkOnglFqs0R2pyXLmfhtq30wTbceWdgvoZn6ZhPjWNwBRroZaWkInmlfRWG3kv2ul+2zcFOd9h56s
-	cRsI9QTmRpQXxn+fY8RhPNAjFYdegpbSTJIPutijwXBgHIeJUJwtZls6JKkXiFSuUF4MQY9fqkqdG
-	jdFHTj5+ceiIw6D9ybTprVZJX7SYyerY8trm/vDG1U7vTgqPu/1Vxgi04Bddy1/8BmToJ2LH4Grze
-	PuB/fo6A==;
+	id 1vJwLM-0000000CfM7-2lEJ;
+	Fri, 14 Nov 2025 16:08:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvTQ-00000002vNY-2ohX
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJwLH-0000000CfGh-2lX4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:12:30 +0000
+	Fri, 14 Nov 2025 16:08:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C492E1BB2;
-	Fri, 14 Nov 2025 08:07:46 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F96619F6;
+	Fri, 14 Nov 2025 08:07:59 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4254E3F5A1;
-	Fri, 14 Nov 2025 08:07:52 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 112363F5A1;
+	Fri, 14 Nov 2025 08:08:04 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -61,18 +46,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 08/35] HACK! KVM: arm64: Enable SPE virtualization only in VHE mode
-Date: Fri, 14 Nov 2025 16:06:49 +0000
-Message-ID: <20251114160717.163230-9-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 13/35] perf: arm_spe_pmu: Add PMBIDR_EL1 to struct arm_spe_pmu
+Date: Fri, 14 Nov 2025 16:06:54 +0000
+Message-ID: <20251114160717.163230-14-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_151228_907280_390B0B1C 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_080807_773121_7504EF3C 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +71,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For RFC only.
+Add the read-only register PMBIDR_EL1 to struct arm_spe_pmu, as KVM will
+need it to virtualize SPE and it saves KVM having to read the hardware
+register each time a guest accesses it.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/kvm/spe.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/perf/arm_spe_pmu.c       | 1 +
+ include/linux/perf/arm_spe_pmu.h | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index 7e38f7d9075b..101258b55053 100644
---- a/arch/arm64/kvm/spe.c
-+++ b/arch/arm64/kvm/spe.c
-@@ -24,8 +24,8 @@ void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
- {
- 	struct arm_spu_entry *entry;
- 
--	/* TODO: pKVM support */
--	if (is_protected_kvm_enabled())
-+	/* TODO: pKVM and nVHE support */
-+	if (is_protected_kvm_enabled() || !has_vhe())
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 66ae36d4d32e..2ca3377538aa 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -1056,6 +1056,7 @@ static void __arm_spe_pmu_dev_probe(void *info)
+ 			"profiling buffer owned by higher exception level\n");
  		return;
+ 	}
++	spe_pmu->pmbidr_el1 = reg;
  
- 	guard(mutex)(&arm_spus_lock);
+ 	/* Minimum alignment. If it's out-of-range, then fail the probe */
+ 	fld = FIELD_GET(PMBIDR_EL1_ALIGN, reg);
+diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
+index 8a2db0e03e45..25425249c193 100644
+--- a/include/linux/perf/arm_spe_pmu.h
++++ b/include/linux/perf/arm_spe_pmu.h
+@@ -21,6 +21,7 @@ struct arm_spe_pmu {
+ 	cpumask_t				supported_cpus;
+ 	struct hlist_node			hotplug_node;
+ 
++	u64					pmbidr_el1;
+ 	int					irq; /* PPI */
+ 	u16					pmsver;
+ 	u16					min_period;
 -- 
 2.51.2
 
