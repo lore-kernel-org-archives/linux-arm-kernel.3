@@ -4,67 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA3FCE7AFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1060CE8D68
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JqrXtDIWacf7LyJzGg6QNUUCciuiFlCgHcYaRzx5iQ=; b=Lq6ffyf7rFzUYDheOeZlHTXPo3
-	iZ9+PLb+tZ/SnFplIo+EMTH3rTTNEZUESTs1Ytn08LJFHNzrfrC2jZggatEQsda0s8p2Z47ty+FBo
-	gOgfsZ6QjLBCu5+wJ8HqPUhSGPefpxlakg9K9L/XX43R0pXdEEGFnzcmaQ8mhSr7mm6T7MLzfHleW
-	ocCtDgT2zL9QQsKTkkMV3v9rOreLjRsFsvIj5KcmOzOL5P2o+ohCFpRRhQlins98lP0TQXHE/L1xG
-	xNoLdmEWxOf85qOtricd68tu9voR2GBTcX9WVNi9JNXdRKEjkvne+0K3vsFrtjvkqozu+gJaQNO8z
-	Q9U+Zq8A==;
+	bh=Fei2MTGWh2LdRoR3ef1akYdXBQVwcktqvwyxc7Hwx4s=; b=aSADdkC7w22JyWENZL2/4lj0/z
+	xKVDTyltcV3ocdJQZNAMCzGlM6lSxxJP6sGklgQV9vKBBNuwJvuyC7KsydkplvnV8M5MhPPJ7E0/R
+	egQRPWczxxyRK7KkS+J8Ed0cad5FLNxTtDCgcZPtQ7BBAkXlEiVG/mfpqaP5kpfcp/9agYkjzwkLU
+	c5esmpzq3+VAECobQmN7dkyB+IMDKZECtBJiRxjndhwxbtkmg33js7WRg/NhcunZcJIdocKfSDML7
+	GjDzD0ZAlj46ITBHWWJ6rcuwCz3YHMno2Glmpm4jRKHUmZYZSmRdkGSJ5mt5CnNNtOTLskeGDqhQL
+	t28hPnPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJy6O-0000000Cv1r-49Rj;
-	Fri, 14 Nov 2025 18:00:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJy6q-0000000Cv6d-3TA3;
+	Fri, 14 Nov 2025 18:01:20 +0000
+Received: from mail-southcentralusazon11013043.outbound.protection.outlook.com ([40.93.196.43] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJy6M-0000000Cv1b-40Bh
+	id 1vJy6n-0000000Cv5V-38dV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 18:00:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E17346017F;
-	Fri, 14 Nov 2025 18:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBFB6C113D0;
-	Fri, 14 Nov 2025 18:00:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763143249;
-	bh=e9XQZl86mEsvNS09VH+IEIv0jGQ7O2pqdXzZJddHorI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AbR0JYdRObIpR/g+rNtoNF3yoLixD1Y10MJheoW5qWEBN9qAll0ZH62gJNTf6bVtE
-	 0I8LcgDYc2WdpcHqqVda63LQYnd4TSbJXfpsZXKocBPwX2EvGzEa0Omp/ypUySSdsK
-	 q9qUpxnJI6UUhvI0Puh7SeUr3qLnpcNs8nxzrUcT6ptFOxEhp/Zo2xl+xW6KHqncpl
-	 PXgrspauobC8iPE0lPWlTerHeE5s4+6L5a/LYXmPh9J9mvCB9snxGf6jKH6PXr00fU
-	 yXImkxp+588UJNog+qd7ICb4IB4GEGRPraByvHRpzipq4I9CKaphmAXXOjSZi0NY1u
-	 J7HSPH26fm0YA==
-Date: Fri, 14 Nov 2025 18:00:45 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQw==?= =?utf-8?Q?H?= v2 1/3]
- dt-bindings: reset: add sky1 reset controller
-Message-ID: <20251114-problem-overbook-383f8e45cd0b@spud>
-References: <20251113075935.774359-1-gary.yang@cixtech.com>
- <20251113075935.774359-2-gary.yang@cixtech.com>
- <20251113-kissing-uphill-e8eea3fa6f5c@spud>
- <PUZPR06MB5887EC14CD0613594F071A9AEFCAA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+	Fri, 14 Nov 2025 18:01:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g5Vg0WOlLO9QnVvpNoVyzBb5Q2LZMhi1DZBd/dmCysjgW+wjXPA87RjwCXPC4bd693t1CpiVaqfq+Nd1aIAv+ddfRdX/VXdbSwo5tIux3MJ4tl766XKqrVbhVUKEWlv75yXcLS0N1QP5qwjt4qnlYCFLBLzd/YbOGUcw41YbM9GMPcsl/QBF1YJxEuiWhpkcQFPAN12DEQiHf8qn2m40Zpdhj0sg3FsUOZu0kRQ5SCcIp7EuH0lk4X9jLLBYsnIdgcUqI3xWcZiH/epNe2rMNYq2i5U4w+80lxwDwpLryCRVBCy+eSpqe5whunGPOVOUGzddLTB4ClKRej3W2zixFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Fei2MTGWh2LdRoR3ef1akYdXBQVwcktqvwyxc7Hwx4s=;
+ b=aMeF44ozu1YYvO2gsRPmVtmTkOpEwie8nJQthCAowLBsvT/m2+DeHFIqJYgIpVfgUqK8Z6VUxjPhA7xDuNR2/bjvg++asfjIZlCQqBiQJYsKTiuLysNdiTK5BEp6/rdVtCaBzy3D72Psg+0r31xMESMayHo5J6ppwTXoQQfv0sU3Am0sJWQSMsneeTaOjEhH85EnomonEWeexm8ztqd/G/Ah7wKHMapIwIvs0ZOxxQV2lo6YtDKNprZZGL7ANYSSyirkNdZTsL7ouF3z3NNoU+sYsiWsJuksd6B4rkusJYA1BXUsuN3PSyTZ1ctUbGSMnYii+w+5Q7mkvNpcO6MY4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Fei2MTGWh2LdRoR3ef1akYdXBQVwcktqvwyxc7Hwx4s=;
+ b=UmIXN1Idh+MN1dHulHjI7RvMaAfEK500+LPrU+88FeSI1JSoamIo/7mD+o3fRjAAnMb1Vqvm6IGDnn5eY/mGsm9A6q40FgAMs88v4+MyNTX7Yw7o0R6LJK2lF0B6++0HBwZVHCN8pxO/EBgX6+lcd1ux/KbidigQso/AgM7ri5nIMMuDNdxVHJEV+01LilNOjkbvnp88hc8g1us3Rb9YQ2dw4EmcC9lNE2FEkl3GKSvRiQjNa8NnCtXdQ+vJbhtaQn/bTRt/yDO5SUp1Wu7cRknpfk7AoXISytMCnCSF7/4aK9nuCn7ZUzGE/QA44v2MGd4WNCiT2eFCfGKde9HE2w==
+Received: from SA9PR13CA0072.namprd13.prod.outlook.com (2603:10b6:806:23::17)
+ by MW3PR12MB4412.namprd12.prod.outlook.com (2603:10b6:303:58::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.18; Fri, 14 Nov
+ 2025 18:01:06 +0000
+Received: from SA2PEPF00001507.namprd04.prod.outlook.com
+ (2603:10b6:806:23:cafe::46) by SA9PR13CA0072.outlook.office365.com
+ (2603:10b6:806:23::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.6 via Frontend Transport; Fri,
+ 14 Nov 2025 18:01:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SA2PEPF00001507.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 18:01:05 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 10:00:42 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 10:00:41 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 14 Nov 2025 10:00:40 -0800
+Date: Fri, 14 Nov 2025 10:00:38 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "afael@kernel.org"
+	<afael@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"alex@shazbot.org" <alex@shazbot.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>, "Jaroszynski, Piotr"
+	<pjaroszynski@nvidia.com>, "Sethi, Vikram" <vsethi@nvidia.com>,
+	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
+	<etzhao1900@gmail.com>
+Subject: Re: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <aRduRi8zBHdUe4KO@Asurada-Nvidia>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <a166b07a254d3becfcb0f86e4911af556acbe2a9.1762835355.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XhYsjJrSxviGfhoG"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <PUZPR06MB5887EC14CD0613594F071A9AEFCAA@PUZPR06MB5887.apcprd06.prod.outlook.com>
+In-Reply-To: <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001507:EE_|MW3PR12MB4412:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79b01a55-7513-4668-6b8b-08de23a7c85b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GC06iAck6zBl1Sz+YupLcRx2MHbSkkaxyu9R3/ugVzyDesKYrQfjLmYiUdcE?=
+ =?us-ascii?Q?lhydIqSkPT6k5iRjsw8+gXbjasOUqkzpNterO9C88gBTbsOWv0JxIj4/z+qM?=
+ =?us-ascii?Q?1UnPru33+nbO8uc6EaxsQNsIVvUP9c78J2IrMMVORQQhjVQmzqtPm6fcyzWZ?=
+ =?us-ascii?Q?zksGe1dZEmojjUEWIlXD5gl5rP1S9aliKYiz7qmJqk+jMr0PcWpa4fxL2BEY?=
+ =?us-ascii?Q?WZoMuCKncFgEkzMX9b3Pz8Syb2FmRIyvCgBsoJ3YuLvddEYXxtKPJlKK4BYA?=
+ =?us-ascii?Q?MAlS1y/QgHOpcrzrfhcYMYlGQbCFM0pB3/2rqmHptsEwqCqYgpbbCC8dT8zb?=
+ =?us-ascii?Q?/k0DEwebbjnuw6DPjXZPL+vZN6v6qJfy5/fKho7pWnfNpNu6wCUmBYlzb+vT?=
+ =?us-ascii?Q?kzDaez9oVvK1WApjdCEhisNj3fkKcau7pcc5QPnl8DRJZ7SZCkMAnqVYilGX?=
+ =?us-ascii?Q?8wPI1oc7Y+VcGl9WHN9SACN0eouAvtWMzG0NhzDdOPH5GQQIRhFMDR7mzXNE?=
+ =?us-ascii?Q?QrfzSVpKkjyHwW37oE2HbND2llFFCJ9xI7+JyFRy5s4Ow+6G9cdk62yr42zL?=
+ =?us-ascii?Q?B6A81AKApKS9KGLiXMd+Wbk1Z/dbbU6sRFGKvrGupj8WBO2RHegbtIl6825t?=
+ =?us-ascii?Q?oCzP2qR92z5x39lQ8101sroCpoimZZTlJEi89rIweHnBMrRm5tXdWGfwmeSd?=
+ =?us-ascii?Q?x8GUYYZ2MwRvsWkv1mLoN56YQkIJdZ95WQLz5RmCsnvLCfp+GJJ+a3v7RhbD?=
+ =?us-ascii?Q?XMnSPBhyZnvIPS5atVKYvGjhKJbxvVFrwHtl1UiWG6AiwqTmwiqbHz3XM+B0?=
+ =?us-ascii?Q?8A25VPdweIkX8qI9OUfrWL1p3E1YRQEfgZF7Kh11VTEsllR1lBkBfgIuZ1rG?=
+ =?us-ascii?Q?d6QG827lFpAbai7qU7CbcyvdWeEuu/ypzpfclyudZ83zoBDPyapz+cNmnjqe?=
+ =?us-ascii?Q?gFPJKH6vO6ybwCevln175/GoUfriscVW8F9+9Hr7JiE0O6JVWmlG6TlycCru?=
+ =?us-ascii?Q?Ne0Xu6uTJv6Jwrml4zQSxSkZsQ0tGJ62peYs9TK8LGV3tqW1tVLFxpvDngNn?=
+ =?us-ascii?Q?lHHQE35DpsIC/lGUXPClPhHgTZh95+v+eV4baWQPUCRNJld7TM342BaHJrmP?=
+ =?us-ascii?Q?ANJCvGFkXIiYvKmxP1mjFBuO0B21hrNEMVfR0T1wJoTjW8dIF5Xwy9KUg8eG?=
+ =?us-ascii?Q?n1zOqQyMV9CKS/WJx5FjrVtxegPFDI0igZZAFx4dHDTDGwjo1trhBPPS6tdU?=
+ =?us-ascii?Q?wkx2mFsEnAgMhLPuvRpRtuY+fsKk8uo8lbNWrBS5yTRTbmvjCxZWl9U4jZiU?=
+ =?us-ascii?Q?voYOjlhRHYYMJu7B7DbOBg0aU/TXFaf7BwFFj2LcCJBCPZ7uhMQQpC8WXagS?=
+ =?us-ascii?Q?uwX+o4HerEo/i+QTYAOk+xqJj/MkAvb2hEKsbWHV3SqRZdWMChwNk4zKcbNV?=
+ =?us-ascii?Q?GIoZAsX/5Ue19Ao+21eQCRO5T6bIs1m5mi/qzBkA/bJe7ZoE3MzaGVEiZ4sz?=
+ =?us-ascii?Q?ou0p2PJSGc3OL2N+dLmTxqKtoaV+Gh1gct+gLXV4Q2BJmYYiAvFqdzC+vgpx?=
+ =?us-ascii?Q?m69wpYNK75zt/K5ZGiw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 18:01:05.9688
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79b01a55-7513-4668-6b8b-08de23a7c85b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001507.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4412
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_100117_796222_775BABF4 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,340 +167,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 14, 2025 at 09:45:31AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Tuesday, November 11, 2025 1:13 PM
+> > 
+> > PCIe permits a device to ignore ATS invalidation TLPs, while processing a
+> > reset. This creates a problem visible to the OS where an ATS invalidation
+> > command will time out: e.g. an SVA domain will have no coordination with a
+> > reset event and can racily issue ATS invalidations to a resetting device.
+> > 
+> > The PCIe spec in sec 10.3.1 IMPLEMENTATION NOTE recommends to disable
+> > and
+> > block ATS before initiating a Function Level Reset. It also mentions that
+> > other reset methods could have the same vulnerability as well.
+> > 
+> > Now iommu_dev_reset_prepare/done() helpers are introduced for this
+> > matter.
+> > Use them in all the existing reset functions, which will attach the device
+> 
+> looks pci_reset_bus_function() was missed?
 
---XhYsjJrSxviGfhoG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Will add that.
 
-On Fri, Nov 14, 2025 at 02:28:47AM +0000, Gary Yang wrote:
-> Hi Conor:
->=20
-> Thanks for your comments
->=20
-> > On Thu, Nov 13, 2025 at 03:59:33PM +0800, Gary Yang wrote:
-> > > There are two reset controllers on Cix sky1 Soc.
-> > > One is located in S0 domain, and the other is located in S5 domain.
-> > >
-> > > Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> > > ---
-> > >  .../bindings/reset/cix,sky1-rst.yaml          |  48 +++++
-> > >  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
-> > >  include/dt-bindings/reset/cix,sky1-rst.h      | 164
-> > ++++++++++++++++++
-> > >  3 files changed, 254 insertions(+)
-> > >  create mode 100644
-> > > Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> > >  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
-> > >  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> > > b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> > > new file mode 100644
-> > > index 000000000000..6339ed3f296a
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> > > @@ -0,0 +1,48 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/reset/cix,sky1-rst.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: CIX Sky1 Reset Controller
-> > > +
-> > > +maintainers:
-> > > +  - Gary Yang <gary.yang@cixtech.com>
-> > > +
-> > > +description: |
-> > > +  CIX Sky1 reset controller can be used to reset various set of peri=
-pherals.
-> > > +  There are two reset controllers, one is located in S0 domain, the
-> > > +other
-> > > +  is located in S5 domain.
-> > > +
-> > > +  See also:
-> > > +  - include/dt-bindings/reset/cix,sky1-rst.h
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    items:
-> > > +      - enum:
-> > > +          - cix,sky1-rst
-> > > +          - cix,sky1-rst-fch
-> > > +      - const: syscon
-> >=20
-> > Why are these "syscon"s? I don't see that explained.
-> >=20
->=20
-> There are serval modules sharing the same register space on Cix Sky1 plat=
-form.
->=20
-> Maybe you will see these module later as we upstream more modules.
->=20
-> If miss any information, please let me know
+> > @@ -971,6 +971,7 @@ void pci_set_acpi_fwnode(struct pci_dev *dev)
+> >  int pci_dev_acpi_reset(struct pci_dev *dev, bool probe)
+> >  {
+> >  	acpi_handle handle = ACPI_HANDLE(&dev->dev);
+> > +	int ret = 0;
+> 
+> no need to initialize it. ditto for other reset functions.
 
-You need to describe these devices /now/ at least in part. Calling this
-device "-rst" doesn't make sense if it turns out that only 10% of the
-functionality is that. What else does it do?
+Ack.
 
->=20
-> Best wishes
-> Gary
->=20
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  '#reset-cells':
-> > > +    const: 1
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - '#reset-cells'
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/reset/cix,sky1-rst.h>
-> > > +    reset-controller@16000000 {
-> > > +      compatible =3D "cix,sky1-rst", "syscon";
-> > > +      reg =3D <0x16000000 0x1000>;
-> > > +      #reset-cells =3D <1>;
-> > > +    };
-> > > diff --git a/include/dt-bindings/reset/cix,sky1-rst-fch.h
-> > > b/include/dt-bindings/reset/cix,sky1-rst-fch.h
-> > > new file mode 100644
-> > > index 000000000000..8e67d7eb92aa
-> > > --- /dev/null
-> > > +++ b/include/dt-bindings/reset/cix,sky1-rst-fch.h
-> > > @@ -0,0 +1,42 @@
-> > > +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> > > +/* Author: Jerry Zhu <jerry.zhu@cixtech.com> */ #ifndef
-> > > +DT_BINDING_RESET_FCH_SKY1_H #define DT_BINDING_RESET_FCH_SKY1_H
-> > > +
-> > > +/* func reset for sky1 fch */
-> > > +
-> > > +#define SW_I3C0_RST_FUNC_G_N	0
-> > > +#define SW_I3C0_RST_FUNC_I_N	1
-> > > +#define SW_I3C1_RST_FUNC_G_N	2
-> > > +#define SW_I3C1_RST_FUNC_I_N	3
-> > > +#define SW_UART0_RST_FUNC_N	4
-> > > +#define SW_UART1_RST_FUNC_N	5
-> > > +#define SW_UART2_RST_FUNC_N	6
-> > > +#define SW_UART3_RST_FUNC_N	7
-> > > +#define SW_TIMER_RST_FUNC_N	8
-> > > +
-> > > +/* apb reset for sky1 fch */
-> > > +#define SW_I3C0_RST_APB_N	9
-> > > +#define SW_I3C1_RST_APB_N	10
-> > > +#define SW_DMA_RST_AXI_N	11
-> > > +#define SW_UART0_RST_APB_N	12
-> > > +#define SW_UART1_RST_APB_N	13
-> > > +#define SW_UART2_RST_APB_N	14
-> > > +#define SW_UART3_RST_APB_N	15
-> > > +#define SW_SPI0_RST_APB_N	16
-> > > +#define SW_SPI1_RST_APB_N	17
-> > > +#define SW_I2C0_RST_APB_N	18
-> > > +#define SW_I2C1_RST_APB_N	19
-> > > +#define SW_I2C2_RST_APB_N	20
-> > > +#define SW_I2C3_RST_APB_N	21
-> > > +#define SW_I2C4_RST_APB_N	22
-> > > +#define SW_I2C5_RST_APB_N	23
-> > > +#define SW_I2C6_RST_APB_N	24
-> > > +#define SW_I2C7_RST_APB_N	25
-> > > +#define SW_GPIO_RST_APB_N	26
-> > > +
-> > > +/* fch rst for xspi */
-> > > +#define SW_XSPI_REG_RST_N	27
-> > > +#define SW_XSPI_SYS_RST_N	28
-> > > +
-> > > +#endif
-> > > diff --git a/include/dt-bindings/reset/cix,sky1-rst.h
-> > > b/include/dt-bindings/reset/cix,sky1-rst.h
-> > > new file mode 100644
-> > > index 000000000000..72c0d6a60452
-> > > --- /dev/null
-> > > +++ b/include/dt-bindings/reset/cix,sky1-rst.h
-> > > @@ -0,0 +1,164 @@
-> > > +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> > > +/* Author: Jerry Zhu <jerry.zhu@cixtech.com> */ #ifndef
-> > > +DT_BINDING_RESET_SKY1_H #define DT_BINDING_RESET_SKY1_H
-> > > +
-> > > +/* reset for csu_pm */
-> > > +
-> > > +#define SKY1_CSU_PM_RESET_N		0
-> > > +#define SKY1_SENSORHUB_RESET_N		1
-> > > +#define SKY1_SENSORHUB_NOC_RESET_N	2
-> > > +
-> > > +/* reset group0 for s0 domain modules */
-> > > +#define SKY1_DDRC_RESET_N		3
-> > > +#define SKY1_GIC_RESET_N		4
-> > > +#define SKY1_CI700_RESET_N		5
-> > > +#define SKY1_SYS_NI700_RESET_N		6
-> > > +#define SKY1_MM_NI700_RESET_N		7
-> > > +#define SKY1_PCIE_NI700_RESET_N		8
-> > > +#define SKY1_GPU_RESET_N		9
-> > > +#define SKY1_NPUTOP_RESET_N		10
-> > > +#define SKY1_NPUCORE0_RESET_N		11
-> > > +#define SKY1_NPUCORE1_RESET_N		12
-> > > +#define SKY1_NPUCORE2_RESET_N		13
-> > > +#define SKY1_VPU_RESET_N		14
-> > > +#define SKY1_ISP_SRESET_N		15
-> > > +#define SKY1_ISP_ARESET_N		16
-> > > +#define SKY1_ISP_HRESET_N		17
-> > > +#define SKY1_ISP_GDCRESET_N		18
-> > > +#define SKY1_DPU_RESET0_N		19
-> > > +#define SKY1_DPU_RESET1_N		20
-> > > +#define SKY1_DPU_RESET2_N		21
-> > > +#define SKY1_DPU_RESET3_N		22
-> > > +#define SKY1_DPU_RESET4_N		23
-> > > +#define SKY1_DP_RESET0_N		24
-> > > +#define SKY1_DP_RESET1_N		25
-> > > +#define SKY1_DP_RESET2_N		26
-> > > +#define SKY1_DP_RESET3_N		27
-> > > +#define SKY1_DP_RESET4_N		28
-> > > +#define SKY1_DP_PHY_RST_N		29
-> > > +
-> > > +/* reset group1 for s0 domain modules */
-> > > +#define SKY1_AUDIO_HIFI5_RESET_N	30
-> > > +#define SKY1_AUDIO_HIFI5_NOC_RESET_N	31
-> > > +#define SKY1_CSIDPHY_PRST0_N		32
-> > > +#define SKY1_CSIDPHY_CMNRST0_N		33
-> > > +#define SKY1_CSI0_RST_N			34
-> > > +#define SKY1_CSIDPHY_PRST1_N		35
-> > > +#define SKY1_CSIDPHY_CMNRST1_N		36
-> > > +#define SKY1_CSI1_RST_N			37
-> > > +#define SKY1_CSI2_RST_N			38
-> > > +#define SKY1_CSI3_RST_N			39
-> > > +#define SKY1_CSIBRDGE0_RST_N		40
-> > > +#define SKY1_CSIBRDGE1_RST_N		41
-> > > +#define SKY1_CSIBRDGE2_RST_N		42
-> > > +#define SKY1_CSIBRDGE3_RST_N		43
-> > > +#define SKY1_GMAC0_RST_N		44
-> > > +#define SKY1_GMAC1_RST_N		45
-> > > +#define SKY1_PCIE0_RESET_N		46
-> > > +#define SKY1_PCIE1_RESET_N		47
-> > > +#define SKY1_PCIE2_RESET_N		48
-> > > +#define SKY1_PCIE3_RESET_N		49
-> > > +#define SKY1_PCIE4_RESET_N		50
-> > > +
-> > > +/* reset group1 for usb phys */
-> > > +#define SKY1_USB_DP_PHY0_PRST_N		51
-> > > +#define SKY1_USB_DP_PHY1_PRST_N		52
-> > > +#define SKY1_USB_DP_PHY2_PRST_N		53
-> > > +#define SKY1_USB_DP_PHY3_PRST_N		54
-> > > +#define SKY1_USB_DP_PHY0_RST_N		55
-> > > +#define SKY1_USB_DP_PHY1_RST_N		56
-> > > +#define SKY1_USB_DP_PHY2_RST_N		57
-> > > +#define SKY1_USB_DP_PHY3_RST_N		58
-> > > +#define SKY1_USBPHY_SS_PST_N		59
-> > > +#define SKY1_USBPHY_SS_RST_N		60
-> > > +#define SKY1_USBPHY_HS0_PRST_N		61
-> > > +#define SKY1_USBPHY_HS1_PRST_N		62
-> > > +#define SKY1_USBPHY_HS2_PRST_N		63
-> > > +#define SKY1_USBPHY_HS3_PRST_N		64
-> > > +#define SKY1_USBPHY_HS4_PRST_N		65
-> > > +#define SKY1_USBPHY_HS5_PRST_N		66
-> > > +#define SKY1_USBPHY_HS6_PRST_N		67
-> > > +#define SKY1_USBPHY_HS7_PRST_N		68
-> > > +#define SKY1_USBPHY_HS8_PRST_N		69
-> > > +#define SKY1_USBPHY_HS9_PRST_N		70
-> > > +
-> > > +/* reset group1 for usb controllers */
-> > > +#define SKY1_USBC_SS0_PRST_N		71
-> > > +#define SKY1_USBC_SS1_PRST_N		72
-> > > +#define SKY1_USBC_SS2_PRST_N		73
-> > > +#define SKY1_USBC_SS3_PRST_N		74
-> > > +#define SKY1_USBC_SS4_PRST_N		75
-> > > +#define SKY1_USBC_SS5_PRST_N		76
-> > > +#define SKY1_USBC_SS0_RST_N		77
-> > > +#define SKY1_USBC_SS1_RST_N		78
-> > > +#define SKY1_USBC_SS2_RST_N		79
-> > > +#define SKY1_USBC_SS3_RST_N		80
-> > > +#define SKY1_USBC_SS4_RST_N		81
-> > > +#define SKY1_USBC_SS5_RST_N		82
-> > > +#define SKY1_USBC_HS0_PRST_N		83
-> > > +#define SKY1_USBC_HS1_PRST_N		84
-> > > +#define SKY1_USBC_HS2_PRST_N		85
-> > > +#define SKY1_USBC_HS3_PRST_N		86
-> > > +#define SKY1_USBC_HS0_RST_N		87
-> > > +#define SKY1_USBC_HS1_RST_N		88
-> > > +#define SKY1_USBC_HS2_RST_N		89
-> > > +#define SKY1_USBC_HS3_RST_N		90
-> > > +
-> > > +/* reset group0 for rcsu */
-> > > +#define SKY1_AUDIO_RCSU_RESET_N			91
-> > > +#define SKY1_CI700_RCSU_RESET_N			92
-> > > +#define SKY1_CSI_RCSU0_RESET_N			93
-> > > +#define SKY1_CSI_RCSU1_RESET_N			94
-> > > +#define SKY1_CSU_PM_RCSU_RESET_N		95
-> > > +#define SKY1_DDR_BROADCAST_RCSU_RESET_N		96
-> > > +#define SKY1_DDR_CTRL_RCSU_0_RESET_N		97
-> > > +#define SKY1_DDR_CTRL_RCSU_1_RESET_N		98
-> > > +#define SKY1_DDR_CTRL_RCSU_2_RESET_N		99
-> > > +#define SKY1_DDR_CTRL_RCSU_3_RESET_N		100
-> > > +#define SKY1_DDR_TZC400_RCSU_0_RESET_N		101
-> > > +#define SKY1_DDR_TZC400_RCSU_1_RESET_N		102
-> > > +#define SKY1_DDR_TZC400_RCSU_2_RESET_N		103
-> > > +#define SKY1_DDR_TZC400_RCSU_3_RESET_N		104
-> > > +#define SKY1_DP0_RCSU_RESET_N			105
-> > > +#define SKY1_DP1_RCSU_RESET_N			106
-> > > +#define SKY1_DP2_RCSU_RESET_N			107
-> > > +#define SKY1_DP3_RCSU_RESET_N			108
-> > > +#define SKY1_DP4_RCSU_RESET_N			109
-> > > +#define SKY1_DPU0_RCSU_RESET_N			110
-> > > +#define SKY1_DPU1_RCSU_RESET_N			111
-> > > +#define SKY1_DPU2_RCSU_RESET_N			112
-> > > +#define SKY1_DPU3_RCSU_RESET_N			113
-> > > +#define SKY1_DPU4_RCSU_RESET_N			114
-> > > +#define SKY1_DSU_RCSU_RESET_N			115
-> > > +#define SKY1_FCH_RCSU_RESET_N			116
-> > > +#define SKY1_GICD_RCSU_RESET_N			117
-> > > +#define SKY1_GMAC_RCSU_RESET_N			118
-> > > +#define SKY1_GPU_RCSU_RESET_N			119
-> > > +#define SKY1_ISP_RCSU0_RESET_N			120
-> > > +#define SKY1_ISP_RCSU1_RESET_N			121
-> > > +#define SKY1_NI700_MMHUB_RCSU_RESET_N		122
-> > > +
-> > > +/* reset group1 for rcsu */
-> > > +#define SKY1_NPU_RCSU_RESET_N			123
-> > > +#define SKY1_NI700_PCIE_RCSU_RESET_N		124
-> > > +#define SKY1_PCIE_X421_RCSU_RESET_N		125
-> > > +#define SKY1_PCIE_X8_RCSU_RESET_N		126
-> > > +#define SKY1_SF_RCSU_RESET_N			127
-> > > +#define SKY1_RCSU_SMMU_MMHUB_RESET_N		128
-> > > +#define SKY1_RCSU_SMMU_PCIEHUB_RESET_N		129
-> > > +#define SKY1_RCSU_SYSHUB_RESET_N		130
-> > > +#define SKY1_NI700_SMN_RCSU_RESET_N		131
-> > > +#define SKY1_NI700_SYSHUB_RCSU_RESET_N		132
-> > > +#define SKY1_RCSU_USB2_HOST0_RESET_N		133
-> > > +#define SKY1_RCSU_USB2_HOST1_RESET_N		134
-> > > +#define SKY1_RCSU_USB2_HOST2_RESET_N		135
-> > > +#define SKY1_RCSU_USB2_HOST3_RESET_N		136
-> > > +#define SKY1_RCSU_USB3_TYPEA_DRD_RESET_N	137
-> > > +#define SKY1_RCSU_USB3_TYPEC_DRD_RESET_N	138
-> > > +#define SKY1_RCSU_USB3_TYPEC_HOST0_RESET_N	139
-> > > +#define SKY1_RCSU_USB3_TYPEC_HOST1_RESET_N	140
-> > > +#define SKY1_RCSU_USB3_TYPEC_HOST2_RESET_N	141
-> > > +#define SKY1_VPU_RCSU_RESET_N			142
-> > > +
-> > > +#endif
-> > > --
-> > > 2.49.0
-> > >
+> > +/*
+> > + * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software disables ATS
+> > before
+> > + * initiating a reset. Notify the iommu driver that enabled ATS.
+> > + */
+> > +int pci_reset_iommu_prepare(struct pci_dev *dev)
+> > +{
+> > +	if (pci_ats_supported(dev))
+> > +		return iommu_dev_reset_prepare(&dev->dev);
+> > +	return 0;
+> > +}
+> 
+> the comment says "driver that enabled ATS", but the code checks
+> whether ATS is supported.
+> 
+> which one is desired?
 
---XhYsjJrSxviGfhoG
-Content-Type: application/pgp-signature; name="signature.asc"
+The comments says "the iommu driver that enabled ATS". It doesn't
+conflict with what the PCI core checks here?
 
------BEGIN PGP SIGNATURE-----
+> > +	/* Have to call it after waiting for pending DMA transaction */
+> > +	ret = pci_reset_iommu_prepare(dev);
+> > +	if (ret) {
+> > +		pci_err(dev, "failed to stop IOMMU\n");
+> 
+> the error message could be more informative.
 
-iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRduTQAKCRB4tDGHoIJi
-0pqZAP9TCvZJO8xg5xkkZRXBxlQD4PRgCqAZa91tcoIcFlUYjgD4hvHD/cuLnJfX
-KRmhRyjIp7kH4xMAesV1UsElfn1cAw==
-=BrR7
------END PGP SIGNATURE-----
+OK. Perhaps print the ret value.
 
---XhYsjJrSxviGfhoG--
+Thanks!
+Nicolin
 
