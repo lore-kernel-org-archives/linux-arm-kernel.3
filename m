@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7E6CE8D7F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 19:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB489CEACC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 19:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BKMt1e1xwwdyo6F25+2WBQwen7/c53HCz7lpJvGRleE=; b=C05Zaog7vFlzVwCm8GJiLZDxhd
-	9WJYlkEzlLAiqx1GG5jFD2uIuSoBd/yXXpi+phUzhRiMm8HXuQTEO3+FUPWR426aSc8zoJlW4DWMu
-	3NiSiELjDyqe1ijYtIxyNRYwrPGG282ztzbXMsisbAS1YEhHm64YbhHmFqvbZe0qL2WKHeg2Q4oYO
-	D2aQojvAr6toHenWCogC1U2aDA4ZGe3xi7wvZw9mvHyV0OFSqSABv66fuckfpNeWwbm7vEupeeczY
-	SydPMJ3g9siN6bGUzisI+sT8rGrSyCnHzDxZYmuRMSmaUv+bszI07EsPwmeKrfRYtI5bGLLfLk5S0
-	KeHSnr6A==;
+	bh=U8lB9dakmw9NfiuoYGNHXiqrSPMM8bBQOrOauIRCNdE=; b=tG3vnVUo+Z1hXaP8RpTxhg3JJw
+	HqE2/jtbWOVuZ7T26/6U6Tb5dzyRnwF4W8P71P7e1UclmjHbJD8PZNrvPFDZTBUQ//3i7WlQdnZlp
+	u8+jrOchOsLkeTQmb2asrWq2yG8fMUKL7PcTFQBquqNuVAn51yFCUIibuBJ3aAaNqX/0hOZiZAFOR
+	x3xKJQ0HIDRUcI4NGjWRaPpxYNQ2fj+oOPWHuLilo0Dk/97YCvAjG7ZI5vnQFJwtwtoHpdC7ExOo6
+	dsagCAn1Gg5vLDFQfl1g83F5SOZYW5Mx1c1hbwgUpMP2s+z01OEMf82j6fzcWG34DmRWhCW+ZwI7h
+	P2ybVwyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJzaj-0000000D1c4-2FxQ;
-	Fri, 14 Nov 2025 19:36:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJzoj-0000000D2Tj-0wmt;
+	Fri, 14 Nov 2025 19:50:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJzai-0000000D1bw-05n4
+	id 1vJzoh-0000000D2TK-1YNO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 19:36:16 +0000
+	Fri, 14 Nov 2025 19:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DCC260189;
-	Fri, 14 Nov 2025 19:36:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E120DC116D0;
-	Fri, 14 Nov 2025 19:36:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CE5140AE5;
+	Fri, 14 Nov 2025 19:50:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E80DC113D0;
+	Fri, 14 Nov 2025 19:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763148974;
-	bh=ITF00HrK0W0pMP4VKbSDERXlz8TM7Nt545N6LU03Cqw=;
+	s=k20201202; t=1763149842;
+	bh=P4jDFgpckbb8dQFLTRe3SuzEwoCwGSI3TBV6Fvm2Xmo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=StIFBK5jd4GAuo9zZte+RK2fwQ52V4PCi1G0+AHF+OpYnuuoHbODPOO6Jrle2sEHw
-	 p3n8I4Bhyue1WRD8BA3a1REz8sNPq1XSTEEYPFPlAVazWkCd82WOBA8y4mK5R5rBzw
-	 3IH93v0uhYGxdmhY3m4nvdIYUW30up/W4uAHjZ0u12XAEYImTTR2agip0tcyAAjtwf
-	 rT0fHV+xo34TMyw+8DRqcuWzrRI4GMmC0CfFsEKgEh6VqDXLR2NZYXJwW+X/SNxt/0
-	 hgTaWGld3N+tdaRY1teQBx1wYcK53jQbvF6m6DbdmlNFqgm0trTP1hEYTJZOiDGwes
-	 A56+2pphOc+Cg==
-Date: Fri, 14 Nov 2025 13:40:42 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-Message-ID: <ej6u7f55wfhhbhmxnrubgrrzbkcsd564tkr76yieodw4ufaptl@szofah7assqe>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
+	b=N/BHTggG9tTYn8Mkb0UOHAwwm6lQ/2zpXZpXGP5BB0oXXofILPf5JDftkh0zxKQVF
+	 OiPXVwrQdhHjIrMFU57PKBbuBPr93mSNB6qIpnwb/P4bAs36SuRwJK+oO3sBUxntDW
+	 50S0ZNUB86646bQfmbYCQrszzAK42crqOZjpWvkZDI7Z4wS3GYyJre8Ya9NhzcZ9mx
+	 wmwBDkUX4l2LWIlGf/reQa+xT7BO565jPqmYszUSMWiAznHxHhClx3B/LpepdB70vW
+	 alo098hg/hGTAYYEvDqeHKH8Iy9YJvs/Ni0Aztw9js9B9pO5O0sZN9HwuKwD6EQCjY
+	 huWXvs64gwRKg==
+Date: Fri, 14 Nov 2025 20:50:27 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Chen-Yu Tsai <wenst@chromium.org>, Tom Rini <trini@konsulko.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>,
+	Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 6/8] kbuild: Allow adding modules into the FIT ramdisk
+Message-ID: <aReIA8YuOM7JIXIe@derry.ads.avm.de>
+References: <20251114142741.1919072-1-sjg@chromium.org>
+ <20251114142741.1919072-7-sjg@chromium.org>
+ <20251114162255-10e006c6-dadc-44df-a8ed-ab4a00fc6402@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251114162255-10e006c6-dadc-44df-a8ed-ab4a00fc6402@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_115043_480042_F26A747E 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +86,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 02:55:36PM +0100, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Fri, Nov 14, 2025 at 04:29:33PM +0100, Thomas Weißschuh wrote:
+> On Fri, Nov 14, 2025 at 07:27:32AM -0700, Simon Glass wrote:
+> > Support 'make image.fit FIT_MODULES=1' to put all the modules into a
+> > ramdisk image within the FIT.
+> > 
+> > Add image.fit as a target which requires modules, so that modules will
+> > built automatically when using FIT_MODULES=1
+> > 
+> > Signed-off-by: Simon Glass <sjg@chromium.org>
+> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> > Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
+> > Acked-by: Nathan Chancellor <nathan@kernel.org>
+> > ---
+> > 
+> > Changes in v5:
+> > - Build modules automatically if needed (fix from Nicolas Schier)
+> > 
+> > Changes in v4:
+> > - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
+> > - Use an empty FIT_MODULES to disable the feature, instead of '0'
+> > - Make use of the 'modules' dependency to ensure modules are built
+> > - Pass the list of modules to the script
+> > 
+> >  Makefile             |  1 +
+> >  arch/arm64/Makefile  |  1 +
+> >  scripts/Makefile.lib | 10 ++++++++--
+> >  3 files changed, 10 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/Makefile b/Makefile
+> > index 8cd46222fc48..4eccaef95826 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -773,6 +773,7 @@ endif
+> >  # Just "make" or "make all" shall build modules as well
+> >  
+> >  modules-targets := all
+> > +modules-targets += $(if $(FIT_MODULES),image.fit)
+> >  modules-targets += modules
+> >  modules-targets += nsdeps
+> >  modules-targets += compile_commands.json
+> > diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> > index 73a10f65ce8b..7036f251ab40 100644
+> > --- a/arch/arm64/Makefile
+> > +++ b/arch/arm64/Makefile
+> > @@ -174,6 +174,7 @@ endif
+> >  all:	$(notdir $(KBUILD_IMAGE))
+> >  
+> >  image.fit: dtbs
+> > +image.fit: $(if $(FIT_MODULES),modules)
+> >  
+> >  vmlinuz.efi image.fit: Image
+> >  $(BOOT_TARGETS): vmlinux
+> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> > index 1d581ba5df66..c6a3aa653035 100644
+> > --- a/scripts/Makefile.lib
+> > +++ b/scripts/Makefile.lib
+> > @@ -398,11 +398,17 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
+> >  # Use this to override the compression algorithm
+> >  FIT_COMPRESSION ?= gzip
+> >  
+> > +# Set this to 1 to include an initrd with all the kernel modules
+> > +FIT_MODULES ?=
 > 
-> Some qualcomm platforms use shared GPIOs. Enable support for them by
-> selecting the Kconfig switch provided by GPIOLIB.
+> '0' will also trigger that behavior.
 > 
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> > +
+> >  quiet_cmd_fit = FIT     $@
+> > -      cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
+> > -		--name '$(UIMAGE_NAME)' \
+> > +      cmd_fit = $(if $(FIT_MODULES), \
+> > +		find $(objtree) -name '*.ko' > $(objtree)/.modules-list 2>/dev/null &&) \
+> 
+> This will include stale module files. You can get an up-to-date list from
+> $(objtree)/modules.order with a bit post-processing.
+> Maybe kbuild can be extended to also create a list of the .ko files.
+> (I would be interested in that for my own usecases, too)
 
-Acked-by: Bjorn Andersson <andersson@kernel.org>
+oh yes, thanks for the pointer.  This is indeed quite simple and much
+better than calling find.  For in-tree kmods:
 
-Regards,
-Bjorn
+    compiled-modules = $(patsubst %.o,%.ko,$(call read-file, $(objtree)/modules.order))
 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
->  arch/arm64/Kconfig.platforms | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8cb3fd0f29e277af94f20 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -316,6 +316,7 @@ config ARCH_QCOM
->  	select GPIOLIB
->  	select PINCTRL
->  	select HAVE_PWRCTRL if PCI
-> +	select HAVE_SHARED_GPIOS
->  	help
->  	  This enables support for the ARMv8 based Qualcomm chipsets.
->  
-> 
-> -- 
-> 2.51.0
-> 
+But as we need the list of modules in a file, we can also add a
+$(call write-file,FILE,TEXT) macro (cp. read-file in
+scripts/Kbuild.include).
+
+Thomas, is this sufficient for your use case?  Or do you also need a
+make target outputting the list of kmods?
+
+
+Kind regards,
+Nicolas
+
 
