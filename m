@@ -4,96 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11A4CE7AAB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 975CFCE7AAE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5qnf43euh50xAz5oC9jatLweC4/+OTf4gXUuEO+dc9E=; b=cFgriM+P8EzCiVf0rJrl/gr8K+
-	EIJH0CDQjtNc42PGbr+t+mgUY+JjQ5ikPsT2ZXTbMpYaCgUxgdh3MmOhtO9W30koCTrY8DCFa8Nn6
-	rEK5cOTFZP/0bXqHs+pxGsDK6e7opur7hXtbiCBcit93T+xzJc9dPHRKm/Wjgg5WzT9hf9rn35cm+
-	fxP72hccAAK886rgNs4xcorDrOPXOqqWFPrjlYmR1JasNokP78lClx5VvaDdDz9APHxDwwP2yku3A
-	jOM+WniwAXtynhCTrU2uueaSQxhz9HvPJDfFDVsvwtpUQPHHwF13NjZgjnqjXHHaz3exl9+ZixzOa
-	y3o8bbpQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B2JtL1hlnaC87sMny1FCzpPNza9HEqZ0sbyjTEjtAXc=; b=ad5lhb9MMLLapfyreax6ubWDNi
+	cazhUeWD1Gn0wAgM2RqjhSeqYn9SLQQgsirjMOdO+G4gUG3TikryMFK0gMe7ApbVZamapPLgXzAQW
+	1QqTyP00VuUM0C8Oxr6fX3594YX9qMtNZCd77kwl4DhiDFbRgFRYCLjsRIMe0u4zNkLpm1cARxr84
+	IcFMMGwINZAq02fp44bHqOr0gD1eXzWhGqVjY+DK7o3+o34MLPCcDwnAM3Zq+7uOFIjDL4cD1JSva
+	c4Tl/Uk2PXis4H1ct1A7YOl1lYWQKyKpY0iQ4jYjP1PsEPvN/1rMBcieVRRlOyiN6x7hQNXr0cAjX
+	NJQcvidQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrHJ-0000000C3JG-1Uk0;
-	Fri, 14 Nov 2025 10:43:41 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vJrVB-0000000C4YB-1KKr;
+	Fri, 14 Nov 2025 10:58:01 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJrHG-0000000C3IX-2f7e
+	id 1vJrV8-0000000C4Xe-1fF4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:43:40 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b735487129fso266903466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 02:43:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1763117017; x=1763721817; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5qnf43euh50xAz5oC9jatLweC4/+OTf4gXUuEO+dc9E=;
-        b=RxGerznUieUOJcG6bTm4SqSYqdOFSz22YeIbYfxmYKYIjUgwGtYhYdFrMEO+9qeRGA
-         1fUZuXwgIJ122WB7KkAN7nVG9YXCvlL2Yr7lcglybNy7vHH5lt/ezP0KV0yN6379TiHu
-         7WmhJ0o7MGKDJtQR0/dfkh+9uV70C7UgloZaQ4aTRwet1Hhxj4yw3nnW7y1YMLhFMZZg
-         Kl54sSZgVSmZqFGwHfs9tyDdDNy99yBrmXZimEZF20biEctIbnNlmWoirxgZ7b8VY9zi
-         cmSOX018UP/XDY9a4I3P6nmB7Ce9pPZpye2rm6uV+3ufong+v347SGpYNWCvrnZ6iHcO
-         dhTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763117017; x=1763721817;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5qnf43euh50xAz5oC9jatLweC4/+OTf4gXUuEO+dc9E=;
-        b=mQlfLG/E9fWHfSpqlMHq/ZQZq6/3hzJ59Gg5vSsMp4DARXdCqjXCC7bGt1OUJU9kyD
-         CALMspu9grpFeR/j6fFmt/95CemFoujZj2pTwFM0L1gmtKJ31yCiKdyHcMFRvai8UQMZ
-         nhHu108d5RT6zJPUu36eUFBBbf2oeJn/6LqaTxgnfUaueexTccihtzVQLxWj6J5Boizf
-         pa4tBYBGw43RKmLEw7Tk5EK/ZfrdjDZga6kIVxbXGvMl9bkb1ck9DQnRMLQs0dV/93CM
-         KTYm3WXrxLn/Elhza3PHyTFfG4GZbl/9HV/HoWGwB51dbWBMN83zmO5hD04d9/PW9Pez
-         LvTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtuBLBVQIAGbKeKqoiE695wW2SJC0fX3T35zgc1OABhQyFAeDFK9Cz04xUhWZC6DxelftHSAJPw3VuDabUhgFk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZU4jcquTzTykXz/YjWS+qCUgHV5t/JFS+nyimg8SZ6HHcDfdZ
-	9rMcHoIrCnBGw+/MsMgJFcent3eOyoU1w7f9TzJf2OKzHYSfNM85QeXFTZzZ+s4xXnE=
-X-Gm-Gg: ASbGncsQcdZSwYsgJAXqTOSJDNz2qcsglAfiXC0v/uGHo36COgH3A0d1NB9j8szHEBx
-	C3wOb3rVuofzJSbuniMxKgwC33TNa5iHlWZTNRCZekpgfpFhtjGdnrzLAnjlmfiIzII4HNkRhC5
-	wN+heMb+Lj4Ajz5rqyMDQykeJcHPA9VSgpb8P9R7oO5bz94D7vZiYaxM29wh/Z1ggrsv4A7rYfe
-	BEBKd63VJUyPQyxNr7PW9LMP4q26HJirDFD3mJ13LJLwGxSEF47+OPCZ129xlH0QqZ2hL4sUzve
-	q/bk1mK7vwMTykGWtC1lwKHsYkzS0NYMz1X+nRWU+SwetrZswCRcv9w09q36vV2wj8T6Fcd4H33
-	Lg8JdvPVeWWNyeqBPJQjzop8QxEA4RY8afe7E7+XvlFxZz3vDf2hnCJrORot5L9LYQd0xMPMEAP
-	XJrPaqgIkLPBpGjw==
-X-Google-Smtp-Source: AGHT+IHMVj7O3E/KnHZI4uDJ5+oTdAiz5D+VVC1LG6ki9E2djSVIrRZEi/GgjbF6gY3JvKH3pseNvg==
-X-Received: by 2002:a17:907:2d25:b0:b73:4b56:7a37 with SMTP id a640c23a62f3a-b73678eacabmr241701066b.30.1763117016492;
-        Fri, 14 Nov 2025 02:43:36 -0800 (PST)
-Received: from linux ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fad43dfsm360561666b.20.2025.11.14.02.43.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 02:43:36 -0800 (PST)
-From: Marco Crivellari <marco.crivellari@suse.com>
-To: linux-kernel@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: [PATCH v2] wifi: mt76: replace use of system_wq with system_percpu_wq
-Date: Fri, 14 Nov 2025 11:43:25 +0100
-Message-ID: <20251114104325.116471-1-marco.crivellari@suse.com>
-X-Mailer: git-send-email 2.51.1
+	Fri, 14 Nov 2025 10:58:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FcaLlP0ell/oMRL+P7tH2XxW1IQKJ6TSPssVUU06SApiYaBTP0V04TtNKyCoQth2CNcyPXJGEwolfgL65YZT35jHQGpbgi9rgjFe3JyYkG5k4uEUn+I4tPw3uEfzt2H7TwbmO207jww9M+FAIVuCZ5GMtGhbw0E+R+k72oAku9grd+sfNkbPozGENzfsDYlQEmgkueGAV3xv723kFQmrPfmptQ3GOiXH1Hlbbzi3p2LGDzATwK3mP9Qx6KNDSzBN8OmZW6/zy7AyugjzyzKHxGHPAJomkOJsz7yNNSSQ5dD2JS3p7B87tZFymavxLrMDEjN+tgGRgDY2b6BXdGJxyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B2JtL1hlnaC87sMny1FCzpPNza9HEqZ0sbyjTEjtAXc=;
+ b=YguF+9ixfV5OrO6jrmPZivcBlrZCu/o/xe3iUlYLgKq5EfVrGeYE/oyXU7nz9H/HF58xxk7UggiqeIlPnX6Ejo8EdOGff0W4YbjzVEM7YhN+C9JWUMMvT5GC9DPlzfVegKy6MIv/tdokgMeHLhYHhWD+/HLL6EtJdcAcVqj3i3ploJAUcTmN1vL/1f/s1otf+JjOKQLPNJoOng/is6jvrM0QCNPtW557o+oZ+UuvzEsL1g7S9JwLE/mQN5bfMgdLiWR6Io7SvVAoDnl8q28yb43zhWrnxTZjmPajoZGDKZhBYp3SIHqO0Q7LijrY/SpXNutHdgZxlOaw9LrdneXeXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B2JtL1hlnaC87sMny1FCzpPNza9HEqZ0sbyjTEjtAXc=;
+ b=A4s46IFkuQ6+6X0PhlF4w4oZUXmo/fXpM95ySeGo1w9uQBHu55bo/iQgXxVqkTbxhGuVrDBY7OzedWvjfM27mHHuiQb/KTcL+uWsdED3LO9Klktjv1n5YsbOq3h6n2kvhde75dNf3tmNyM6Qjk9UeoEuKhzl+z+Mkk23ThUSGgA=
+Received: from BL1PR13CA0375.namprd13.prod.outlook.com (2603:10b6:208:2c0::20)
+ by CY5PR10MB6215.namprd10.prod.outlook.com (2603:10b6:930:30::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.18; Fri, 14 Nov
+ 2025 10:57:53 +0000
+Received: from BL02EPF00021F6F.namprd02.prod.outlook.com
+ (2603:10b6:208:2c0:cafe::b2) by BL1PR13CA0375.outlook.office365.com
+ (2603:10b6:208:2c0::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.6 via Frontend Transport; Fri,
+ 14 Nov 2025 10:57:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BL02EPF00021F6F.mail.protection.outlook.com (10.167.249.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 10:57:52 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 04:57:49 -0600
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 04:57:49 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 14 Nov 2025 04:57:49 -0600
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AEAvjdH1871514;
+	Fri, 14 Nov 2025 04:57:46 -0600
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Francesco Dolcini <francesco@dolcini.it>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Francesco Dolcini
+	<francesco.dolcini@toradex.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] arm64: dts: ti: Add Aquila AM69 Support
+Date: Fri, 14 Nov 2025 16:26:10 +0530
+Message-ID: <176311776041.1390105.6254099147958762962.b4-ty@ti.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251111175502.8847-1-francesco@dolcini.it>
+References: <20251111175502.8847-1-francesco@dolcini.it>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6F:EE_|CY5PR10MB6215:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb951401-cbdb-4a4f-66a5-08de236ca8c7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OWw5MHJ0a1pNeGVTTkthTTF3M1VaUUQ2R0FDQzhzdjhYZGtnQ0xERkN6Rzl3?=
+ =?utf-8?B?T2loaHM4cWV0bC9kR2RaL3RsRWpudlE0ZkxnaGtSQTk1TUg4YU44TzFhYWtl?=
+ =?utf-8?B?YVI2YkkzMlAvRnVlRVlvelZwdDZQOCtlZWNPWEVzNUwxMWJsTXpyZXZUcGpi?=
+ =?utf-8?B?L2QyTE5YL1Zqang1YmIvaVZHS2kzRU1xQXV0a0ZFVTU5OGk4N0xYcEZjMzg2?=
+ =?utf-8?B?NFh2U1pSMjJHUVFMUjJFYnpNUnVYOGlpSUFENC9peUJiVXNudENlbUpJVnJM?=
+ =?utf-8?B?aTlNMUpqbkg1MVVscjkvQnhRa0dtSVVaWTcxYUhUVWxHbXpKOEtqZnBpcERY?=
+ =?utf-8?B?YUdrRmNnM3NXVmVtM2NDb0hFNXVBZ09CZVU1L044Sm02bjA1azU3Z1BTZUE5?=
+ =?utf-8?B?NmN4dGlRMHovMWdxOGZzRlNUWTJjSHlFTHJON1NtQ2swVmJwMnVvWXhhd29u?=
+ =?utf-8?B?aTcxY0RLNlo1U2MrR01lL3hMOHBvc2wwbG83c211YnZXeUxuOTZPU0gwUHdQ?=
+ =?utf-8?B?eFhaMVRtUGgyUHJRMHBSME84M0hLQ2JuZFZCQVdPVWs0ZWdjL2hORndORGYr?=
+ =?utf-8?B?QW9relp6Q1RKRHhROFdQOFdQSEhJYmZNM29CZ280ZVZlSmNOWWE1bjJpcWNH?=
+ =?utf-8?B?K05mM0pYQ2JsYUtYalNMY0JCZytIZXlvN3BUNUsya2NrSGR6OTdpTlY5WVAx?=
+ =?utf-8?B?V2RlaDREcHQvenZ2cFRXOURqVDJVa01yYnpCM1ZZdnV2eGhjcTJHNUg0Z2dl?=
+ =?utf-8?B?TVYyRUZSUlVWWDB6VXFnZ280VzdGVUhORWsxN2k5Y2ZNa1M2WUpjTlNweTR4?=
+ =?utf-8?B?V2dUWDZxTWVmUWxhWWtZT2hnNG9LQkJZWThsSXRhN2YxWU0wR0owRmFTM2lY?=
+ =?utf-8?B?MERkTGY5M0NLWFN1ZElIQ0t6NU9FS3dGU2kyU3c1TmtEQy9STlBRYzhLN2JM?=
+ =?utf-8?B?elJwbjdrZEs3K3F5K0dkQUhKNmxBc1NQYmlFQTN6enBsN3cySG1BTFVKRVVi?=
+ =?utf-8?B?WjdielZzLzJCVnc4NnZSQzZkUUJMUGk5VEdHN2VVQ2tFT2IzWkhsY1RzUlky?=
+ =?utf-8?B?endjbG1yS3JxbkxBaVJwcUV3Y0RUam03dy9wMTJRRDFrRDhabm8xbDdWVXkw?=
+ =?utf-8?B?S1FFc1lpak9KR2lLYTdPcTA1YzZaUWZwTTdJcDBHUks1WTJCcnhwNmg5cHpH?=
+ =?utf-8?B?NG42aCtqZmZKUzlCL29VWUhZL3BJdlZYeStQVzRVRTEyRFMxRGlUNmk0THRV?=
+ =?utf-8?B?VWF6UUhQRHd6UjR5ZVFGeWJVbGdyS2tmem9iT0c5Z3lXWHJ3NGQ5VWxzcWpj?=
+ =?utf-8?B?OXR3OTZpRjJnZTZKNG9yRmhEaTA0aERUNTBwakhuenVwZzk3UUZSUThWSFhr?=
+ =?utf-8?B?TGlxaE12Y3lFSEJDdzZiU3pFVVlRVzBBRWhqbE9aeHhGTHdJelA5MUd4dFpl?=
+ =?utf-8?B?emlycXYxWmJPWTlJL2dZVVhrTnJTbXR6QkpNemFITWUzb0llbWU1SnlYRFR1?=
+ =?utf-8?B?bWRsYVlCekJCZW80WFl5bUtPWHJjOWdNb29RcXcyWUhPM1hheXB3VDMydTF1?=
+ =?utf-8?B?ai9ZdDBPRWljNWZuVlZqeXRsMUhaVEpSRWk1TExkdVV1UGtPK25GYWRMVysy?=
+ =?utf-8?B?SWVqcWJ3U3h2L2wzU0xYT0hFNzVHL2VEeEJIVFNaTS8wQmlRb0g5aitHSks1?=
+ =?utf-8?B?cWI5dmtoa001R2ZjT1o4dFBOazRpN1hYU0p1cGtVQ2RFbERJUk45T3ZFRThD?=
+ =?utf-8?B?eVJlcWJkLzg4Si95Q3hhcUZ4ZUtsUFh1OEl2R1IzKzFxekM5ODlCWDFIc01W?=
+ =?utf-8?B?N2d6Zy9FOFErd24zOFJma0lZWVJPd0ZLUU9QWE9GY24xaXZ4d0tyNEE1VFNF?=
+ =?utf-8?B?b3FmdGxRM3k3MmFGYklvUEwyZUhuZGcvY1ZTU3VKUmkxZGdVS1ZMQzJ4cHAr?=
+ =?utf-8?B?SEZYSDZWTHpoTU5lNytBcU9VRHJBeDVWcVBnYk1TdDUwcHphSW9PYU8wRitM?=
+ =?utf-8?B?L0J3cjIxQm9acThJT2kwenhFd2lNT0p5TmFqbTdiZ1BMSGI0ZndzaE1QUXh1?=
+ =?utf-8?B?Ymtld1gyUC9wUGZFWVJMNU1SQ0VoVncrdGdTbGpOT09EbDZKM0NoakhDNzcx?=
+ =?utf-8?Q?Wupk=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 10:57:52.7086
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb951401-cbdb-4a4f-66a5-08de236ca8c7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR10MB6215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_024338_687948_EE01317C 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20251114_025758_655354_DD3B4835 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +165,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently if a user enqueue a work item using schedule_delayed_work() the
-used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-schedule_work() that is using system_wq and queue_work(), that makes use
-again of WORK_CPU_UNBOUND.
+Hi Francesco Dolcini,
 
-This lack of consistentcy cannot be addressed without refactoring the API.
-For more details see the Link tag below.
+On Tue, 11 Nov 2025 18:54:56 +0100, Francesco Dolcini wrote:
+> This patch series adds support for the Toradex Aquila AM69 SoM and its
+> currently available carrier boards: the Aquila Development Board and Clover.
+> 
+> The Aquila AM69 SoM is based on the TI AM69 SoC from the Jacinto 7 family and
+> is designed for high-end embedded computing. The SoM features up to 32GB of
+> LPDDR4 RAM and 256GB eMMC storage, extensive multimedia support (3x Quad CSI,
+> 2x Quad DSI, DisplayPort, 5x Audio I2S/TDM), six Ethernet interfaces (1x 1G, 4x
+> 2.5G SGMII, 1x 10G), USB 3.2 Host and DRD support and a Wi-Fi 7/BT 5.3 module.
+> Additionally, it includes an RX8130 RTC, I2C EEPROM and Temperature Sensor and
+> an optional TPM 2.0.
+> 
+> [...]
 
-This continues the effort to refactor workqueue APIs, which began with
-the introduction of new workqueues and a new alloc_workqueue flag in:
+I have applied the following to branch ti-next on [1].
+Thank you!
 
-commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
+[1/3] dt-bindings: arm: ti: add Toradex Aquila AM69
+      commit: 2f6ef830a756f58312b3f3bbe3c1edb739e84ec5
+[2/3] arm64: dts: ti: Add Aquila AM69 Support
+      commit: 39ac6623b1d85fdc8b142c26991339fcad270606
+[3/3] arm64: dts: ti: am69-aquila: Add Clover
+      commit: 9f748a6177e1fba8b27588e6ac6721e129f097de
 
-Switch to using system_percpu_wq because system_wq is going away as part of
-a workqueue restructuring.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
-Link: https://lore.kernel.org/all/20250221112003.1dSuoGyc@linutronix.de/
-----
-Changs in v2:
-- improved commit log
-- rebased on v6.18-rc5
----
- drivers/net/wireless/mediatek/mt76/mt7921/init.c | 2 +-
- drivers/net/wireless/mediatek/mt76/mt7925/init.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/init.c b/drivers/net/wireless/mediatek/mt76/mt7921/init.c
-index b9098a7331b1..95764b82da39 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7921/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7921/init.c
-@@ -343,7 +343,7 @@ int mt7921_register_device(struct mt792x_dev *dev)
- 	dev->mphy.hw->wiphy->available_antennas_rx = dev->mphy.chainmask;
- 	dev->mphy.hw->wiphy->available_antennas_tx = dev->mphy.chainmask;
- 
--	queue_work(system_wq, &dev->init_work);
-+	queue_work(system_percpu_wq, &dev->init_work);
- 
- 	return 0;
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/init.c b/drivers/net/wireless/mediatek/mt76/mt7925/init.c
-index d7d5afe365ed..e33ab4849e8a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/init.c
-@@ -420,7 +420,7 @@ int mt7925_register_device(struct mt792x_dev *dev)
- 	dev->mphy.hw->wiphy->available_antennas_rx = dev->mphy.chainmask;
- 	dev->mphy.hw->wiphy->available_antennas_tx = dev->mphy.chainmask;
- 
--	queue_work(system_wq, &dev->init_work);
-+	queue_work(system_percpu_wq, &dev->init_work);
- 
- 	return 0;
- }
--- 
-2.51.1
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
 
