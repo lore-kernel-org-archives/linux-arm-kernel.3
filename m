@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB933CE7B13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDB7CE8D44
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,60 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMmlBQH87qc0iLTsoC0kEkCUtmtycQ0AK/A/GjWGx84=; b=HVPEVi75DSLOW3wqz8zZgVnt2z
-	vUQqCbd+CUzG9SDNJ86VxkhXC3wIVn3dPFoKrbBjKHsGdYZkzhR4neYcchZc9n5RrZcnSJou8lmRT
-	gzi7ixQtzTjqc1T2rSmxB9ePvqagpKCSvskyz8CDVYXVNp82vbtRwRi7XLETEMb5mZ0iEKzsrC5CI
-	NsyjixfbWjEqYlZpC461s/4g2tvaCZJ0l8Jv98WdIegEPiDrVXT4ik2Xxuu10Ok3Uok3Ch8gkSNHx
-	/ElCHvSI+JGE7e8PRNhQQcqQuzgXIAY3CNMtMl2OX/8TnygLe5V9e5Qz913IByUxQdXjh206Opc7t
-	v4S9TVPA==;
+	bh=VF/Wv+ak6jo1x6nCYfuETHT+TxEQ+CiFWDs2rTrqZwQ=; b=mgEEQJUnXSpPeswX8/FysUN0DG
+	/tQrGnOyQKoKqE5AW3zDLeAGLxsQos60E95j1O5g+0es5PkeoeegFpHQwdK34NwYAb+XN2iATq2kk
+	7SM78cG0TkdnHxLFwxG1Pv8LVBavL19NdHwfSyeLt9du/puVRISmUSLPgZ7g77G+kk+Bwd8n9V0zO
+	XXzovOZLmOn3QGRb6jFKwUe6xkK/389oJFq1P6jP6s4iXn52QbUmPNI12gQc2EspP9RdO5MjnmtYj
+	yb3Js5gpVLQahlVd7iwoIM539Eapbg8T1LgFqjI8Y/zKw9pclZKwBE5R2Ej5/s4Dy92esvRyFaNcI
+	7V4MPoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvbK-0000000CWUZ-0lVl;
-	Fri, 14 Nov 2025 15:20:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvbB-0000000CWH4-2z0S;
-	Fri, 14 Nov 2025 15:20:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=EMmlBQH87qc0iLTsoC0kEkCUtmtycQ0AK/A/GjWGx84=; b=G1WhuPMeEvfsha8x8vFtTucG2A
-	RQD7syFOdekS3MKLt3h6rFcoIR21zSUmcqt9fAByzGIAeWHFoOao5xBn+n5xATuLJXuxJRdgL9mMw
-	lCy2fRPtArxFxTiQELbcpX52/KGinGTOAOx0KiGuYVD2J9RocBEv9lUKJIc+fSn1piBChOKqLKq6r
-	lunjd5nC0/wgNGQC6V0oX918Lm3At0BYwhEIhJsYTK7PpW3lgB4bREsg6/Gd78zOC3Nr7UrkTdi+N
-	Ywj8NL7rmFmvd3hCKXx4V1SY4pZcpuaZD3nf0SwGh7ktwj1e+T23FFWwUr2tPT7yV/ONqa/tsD5Cv
-	6oxDh59A==;
+	id 1vJvbI-0000000CWQt-1O17;
+	Fri, 14 Nov 2025 15:20:36 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJujQ-00000002ndv-3fbk;
-	Fri, 14 Nov 2025 14:25:01 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJvb9-0000000CWFQ-2cr1;
+	Fri, 14 Nov 2025 15:20:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38B9243BA2;
+	by sea.source.kernel.org (Postfix) with ESMTP id A1165445B4;
 	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E6A37C4CEFB;
-	Fri, 14 Nov 2025 15:20:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6C900C4CEFB;
+	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763133620;
-	bh=X/qSIGjNpstppc3cO7WlUXDDm9zEONg8uCFoJGVo9oU=;
+	bh=GHnxTRuw22MR4qtuwF9W2TDh3o/kXnhIvkimy2U9IeY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=POnOo+m/g94N6HSqtk+fUHzwFFhlVauDbW05op0kw1HN18RQ5+AgmrcAzwdtmgFsw
-	 SFjy1TgBfNat3n6qbV63NDHytKs5aDCkWiDbGGI/x+PSdIHFeovmqZLcm3InQaSavo
-	 84v237RqN/dhJ06HuY7+Fedjvsmcp3MAYLbmjalipfIixyI/xfoahyHgc1DOrVGKt8
-	 Q/nGiRR4DnT61h0N5z37p7oBwq35JXeZJDVG6lLtogDmyE3Ff9Jjy0EF/4dqO1jbbW
-	 RwY5uS3aJ6A+HDWXBy08ibxksE+lQogay7Ev3gqp5RqxL0U4HtkoKPj+/Zuo+pYOdW
-	 Zu5Zmq2E8dp5w==
+	b=Q5T83CxVBU8JJH2HAMaTRvni/bXk83FfRxEWkz3Q5I7p28n2oppB5/1azviQpizwZ
+	 2wmR35QfNPXkAEyaaOa5bBcS1rjI/prhO0WZ5Id4EbbLlpH9mIHL/F2wq3/5rdvNzv
+	 0ZniH1KPr3PkWn4eiIEh+YGezxKejt66rQfD98PZ9T9763XBMtB9mX+SnRs2NcPJr0
+	 nb/CbNMqceLGoIr05ZnBQFhDoowiENExqrCk3B5cBXIcn/yVrad4fp+1uMb9icLq5O
+	 dHWPi/Z8w9si7AwdU0XPWzyI7PXSFUwLvWvFTcCjn+BS54HkmljbnDFWufEpgehY6y
+	 9S4u5aRjerxeQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1CF0CE7B1F;
-	Fri, 14 Nov 2025 15:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D161CE8D43;
+	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 14 Nov 2025 16:20:12 +0100
-Subject: [PATCH v15 01/14] Documentation: admin-guide: media: add rockchip
- camera interface
+Date: Fri, 14 Nov 2025 16:20:19 +0100
+Subject: [PATCH v15 08/14] media: rockchip: rkcif: add support for px30 vip
+ dvp capture
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v15-1-8f4915ee365d@collabora.com>
+Message-Id: <20240220-rk3568-vicap-v15-8-8f4915ee365d@collabora.com>
 References: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 In-Reply-To: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -94,19 +80,19 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  Michael Riesch <michael.riesch@collabora.com>, 
  Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=5914;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=27257;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=U7iKC5Z7rC7C53Ap0NfSIOxBMvV/vyD4bqRRxsyBYTE=;
- b=s1irjTmQEJpMU0CABC09HN/+7EB35RhcbFy4muTxn0ZqmjeWz4B8bFTmn3c2LatGR6p1JqPjh
- SAVx9byzIizAAs0P33o1M4mpXI1rXzrQQJtO91n5kbhvXWxYSx4Clcz
+ bh=4bio6dhNI8REHClVwTSJls2FCV0NnymBkYJ/imUqP68=;
+ b=upTjyLT2wzZLXVRrbrMtC6H9SysVY4SPBBTN00rKQbgtwF8klKTukFyZk7jZ5lpV5my2P23Bt
+ 1DK+eplgOV4BF1Ns+sC2YPFzX81qeKD2KFHIoXYn8sMm0tIz1Rz/8ur
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_142457_339171_3AD16793 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20251114_072027_775489_83F5D3E3 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,150 +110,917 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Riesch <michael.riesch@collabora.com>
 
-Add a document that describes the different variants of the Rockchip
-Camera Interface (CIF), their hardware layout, as well as their
-representation in the media controller centric rkcif device driver,
-which is located under drivers/media/platform/rockchip/rkcif.
+The PX30 Video Input Processor (VIP) unit features a Digital Video
+Port (DVP). Add support for the DVP in general and for the PX30
+VIP DVP in particular.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+Reviewed-by: Gerald Loacker <gerald.loacker@wolfvision.net>
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- .../admin-guide/media/rkcif-rk3568-vicap.dot       |  8 +++
- Documentation/admin-guide/media/rkcif.rst          | 79 ++++++++++++++++++++++
- Documentation/admin-guide/media/v4l-drivers.rst    |  1 +
- MAINTAINERS                                        |  7 ++
- 4 files changed, 95 insertions(+)
+ drivers/media/platform/rockchip/rkcif/Makefile     |   1 +
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.c    | 589 +++++++++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.h    |  24 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   |  28 +
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  15 +
+ drivers/media/platform/rockchip/rkcif/rkcif-regs.h | 131 +++++
+ 6 files changed, 788 insertions(+)
 
-diff --git a/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
-new file mode 100644
-index 000000000000..3fac59335459
---- /dev/null
-+++ b/Documentation/admin-guide/media/rkcif-rk3568-vicap.dot
-@@ -0,0 +1,8 @@
-+digraph board {
-+        rankdir=TB
-+        n00000001 [label="{{<port0> 0} | rkcif-dvp0\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000001:port1 -> n00000004
-+        n00000004 [label="rkcif-dvp0-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-+        n00000025 [label="{{} | it6801 2-0048\n/dev/v4l-subdev1 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000025:port0 -> n00000001:port0
-+}
-diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
-new file mode 100644
-index 000000000000..2558c121abc4
---- /dev/null
-+++ b/Documentation/admin-guide/media/rkcif.rst
-@@ -0,0 +1,79 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=========================================
-+Rockchip Camera Interface (CIF)
-+=========================================
-+
-+Introduction
-+============
-+
-+The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs in
-+different variants.
-+The different variants are combinations of common building blocks, such as
-+
-+* INTERFACE blocks of different types, namely
-+
-+  * the Digital Video Port (DVP, a parallel data interface)
-+  * the interface block for the MIPI CSI-2 receiver
-+
-+* CROP units
-+
-+* MIPI CSI-2 receiver (not available on all variants): This unit is referred
-+  to as MIPI CSI HOST in the Rockchip documentation.
-+  Technically, it is a separate hardware block, but it is strongly coupled to
-+  the CIF and therefore included here.
-+
-+* MUX units (not available on all variants) that pass the video data to an
-+  image signal processor (ISP)
-+
-+* SCALE units (not available on all variants)
-+
-+* DMA engines that transfer video data into system memory using a
-+  double-buffering mechanism called ping-pong mode
-+
-+* Support for four streams per INTERFACE block (not available on all
-+  variants), e.g., for MIPI CSI-2 Virtual Channels (VCs)
-+
-+This document describes the different variants of the CIF, their hardware
-+layout, as well as their representation in the media controller centric rkcif
-+device driver, which is located under drivers/media/platform/rockchip/rkcif.
-+
-+Variants
-+========
-+
-+Rockchip PX30 Video Input Processor (VIP)
-+-----------------------------------------
-+
-+The PX30 Video Input Processor (VIP) features a digital video port that accepts
-+parallel video data or BT.656.
-+Since these protocols do not feature multiple streams, the VIP has one DMA
-+engine that transfers the input video data into system memory.
-+
-+The rkcif driver represents this hardware variant by exposing one V4L2 subdevice
-+(the DVP INTERFACE/CROP block) and one V4L2 device (the DVP DMA engine).
-+
-+Rockchip RK3568 Video Capture (VICAP)
-+-------------------------------------
-+
-+The RK3568 Video Capture (VICAP) unit features a digital video port and a MIPI
-+CSI-2 receiver that can receive video data independently.
-+The DVP accepts parallel video data, BT.656 and BT.1120.
-+Since the BT.1120 protocol may feature more than one stream, the RK3568 VICAP
-+DVP features four DMA engines that can capture different streams.
-+Similarly, the RK3568 VICAP MIPI CSI-2 receiver features four DMA engines to
-+handle different Virtual Channels (VCs).
-+
-+The rkcif driver represents this hardware variant by exposing up the following
-+V4L2 subdevices:
-+
-+* rkcif-dvp0: INTERFACE/CROP block for the DVP
-+
-+and the following video devices:
-+
-+* rkcif-dvp0-id0: The support for multiple streams on the DVP is not yet
-+  implemented, as it is hard to find test hardware. Thus, this video device
-+  represents the first DMA engine of the RK3568 DVP.
-+
-+.. kernel-figure:: rkcif-rk3568-vicap.dot
-+    :alt:   Topology of the RK3568 Video Capture (VICAP) unit
-+    :align: center
-diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
-index 3bac5165b134..694fad685ff5 100644
---- a/Documentation/admin-guide/media/v4l-drivers.rst
-+++ b/Documentation/admin-guide/media/v4l-drivers.rst
-@@ -25,6 +25,7 @@ Video4Linux (V4L) driver-specific documentation
- 	qcom_camss
- 	raspberrypi-pisp-be
- 	rcar-fdp1
-+	rkcif
- 	rkisp1
- 	raspberrypi-rp1-cfe
- 	saa7134
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 42b20f33f3bb..2e1f959bb5f4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22242,6 +22242,13 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
- F:	drivers/net/can/rockchip/
+diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
+index 256335d95050..a36e294d569d 100644
+--- a/drivers/media/platform/rockchip/rkcif/Makefile
++++ b/drivers/media/platform/rockchip/rkcif/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_VIDEO_ROCKCHIP_CIF) += rockchip-cif.o
  
-+ROCKCHIP CAMERA INTERFACE (RKCIF) DRIVER
-+M:	Mehdi Djait <mehdi.djait@linux.intel.com>
-+M:	Michael Riesch <michael.riesch@collabora.com>
-+L:	linux-media@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/admin-guide/media/rkcif*
++rockchip-cif-objs += rkcif-capture-dvp.o
+ rockchip-cif-objs += rkcif-dev.o
+ rockchip-cif-objs += rkcif-interface.o
+ rockchip-cif-objs += rkcif-stream.o
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c
+new file mode 100644
+index 000000000000..b40135035ab8
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c
+@@ -0,0 +1,589 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2020 Maxime Chevallier <maxime.chevallier@bootlin.com>
++ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2025 Collabora, Ltd.
++ */
 +
- ROCKCHIP CRYPTO DRIVERS
- M:	Corentin Labbe <clabbe@baylibre.com>
- L:	linux-crypto@vger.kernel.org
++#include <media/v4l2-common.h>
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-mc.h>
++#include <media/v4l2-subdev.h>
++
++#include "rkcif-capture-dvp.h"
++#include "rkcif-common.h"
++#include "rkcif-interface.h"
++#include "rkcif-regs.h"
++#include "rkcif-stream.h"
++
++static const struct rkcif_output_fmt dvp_out_fmts[] = {
++	{
++		.fourcc = V4L2_PIX_FMT_NV16,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_422 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_UVUV,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV16M,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_422 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_UVUV,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV61,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_422 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_VUVU,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV61M,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_422 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_VUVU,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV12,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_420 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_UVUV,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV12M,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_420 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_UVUV,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV21,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_420 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_VUVU,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_NV21M,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_OUTPUT_420 |
++			       RKCIF_FORMAT_UV_STORAGE_ORDER_VUVU,
++		.cplanes = 2,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_RGB24,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_RGB565,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_BGR666,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SRGGB8,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGRBG8,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGBRG8,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SBGGR8,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SRGGB10,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGRBG10,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGBRG10,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SBGGR10,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SRGGB12,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGRBG12,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SGBRG12,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SBGGR12,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_SBGGR16,
++		.cplanes = 1,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_Y16,
++		.cplanes = 1,
++	},
++};
++
++static const struct rkcif_input_fmt px30_dvp_in_fmts[] = {
++	{
++		.mbus_code = MEDIA_BUS_FMT_YUYV8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_YUYV,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_YUYV8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_YUYV,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_INTERLACED,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_YVYU8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_YVYU,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_YVYU8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_YVYU,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_INTERLACED,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_UYVY8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_UYVY,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_UYVY8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_UYVY,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_INTERLACED,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_VYUY8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_VYUY,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_VYUY8_2X8,
++		.dvp_fmt_val = RKCIF_FORMAT_YUV_INPUT_422 |
++			       RKCIF_FORMAT_YUV_INPUT_ORDER_VYUY,
++		.fmt_type = RKCIF_FMT_TYPE_YUV,
++		.field = V4L2_FIELD_INTERLACED,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SBGGR8_1X8,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_8,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGBRG8_1X8,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_8,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGRBG8_1X8,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_8,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SRGGB8_1X8,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_8,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SBGGR10_1X10,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_10,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGBRG10_1X10,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_10,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGRBG10_1X10,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_10,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SRGGB10_1X10,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_10,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SBGGR12_1X12,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_12,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGBRG12_1X12,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_12,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SGRBG12_1X12,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_12,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_SRGGB12_1X12,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_12,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_RGB888_1X24,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_Y8_1X8,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_8,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_Y10_1X10,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_10,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	},
++	{
++		.mbus_code = MEDIA_BUS_FMT_Y12_1X12,
++		.dvp_fmt_val = RKCIF_FORMAT_INPUT_MODE_RAW |
++			       RKCIF_FORMAT_RAW_DATA_WIDTH_12,
++		.fmt_type = RKCIF_FMT_TYPE_RAW,
++		.field = V4L2_FIELD_NONE,
++	}
++};
++
++const struct rkcif_dvp_match_data rkcif_px30_vip_dvp_match_data = {
++	.in_fmts = px30_dvp_in_fmts,
++	.in_fmts_num = ARRAY_SIZE(px30_dvp_in_fmts),
++	.out_fmts = dvp_out_fmts,
++	.out_fmts_num = ARRAY_SIZE(dvp_out_fmts),
++	.has_scaler = true,
++	.regs = {
++		[RKCIF_DVP_CTRL] = 0x00,
++		[RKCIF_DVP_INTEN] = 0x04,
++		[RKCIF_DVP_INTSTAT] = 0x08,
++		[RKCIF_DVP_FOR] = 0x0c,
++		[RKCIF_DVP_LINE_NUM_ADDR] = 0x10,
++		[RKCIF_DVP_FRM0_ADDR_Y] = 0x14,
++		[RKCIF_DVP_FRM0_ADDR_UV] = 0x18,
++		[RKCIF_DVP_FRM1_ADDR_Y] = 0x1c,
++		[RKCIF_DVP_FRM1_ADDR_UV] = 0x20,
++		[RKCIF_DVP_VIR_LINE_WIDTH] = 0x24,
++		[RKCIF_DVP_SET_SIZE] = 0x28,
++		[RKCIF_DVP_SCL_CTRL] = 0x48,
++		[RKCIF_DVP_FRAME_STATUS] = 0x60,
++		[RKCIF_DVP_LAST_LINE] = 0x68,
++		[RKCIF_DVP_LAST_PIX] = 0x6c,
++	},
++};
++
++static inline unsigned int rkcif_dvp_get_addr(struct rkcif_device *rkcif,
++					      unsigned int index)
++{
++	if (WARN_ON_ONCE(index >= RKCIF_DVP_REGISTER_MAX))
++		return RKCIF_REGISTER_NOTSUPPORTED;
++
++	return rkcif->match_data->dvp->regs[index];
++}
++
++static inline __maybe_unused void rkcif_dvp_write(struct rkcif_device *rkcif,
++						  unsigned int index, u32 val)
++{
++	unsigned int addr = rkcif_dvp_get_addr(rkcif, index);
++
++	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
++		return;
++
++	writel(val, rkcif->base_addr + addr);
++}
++
++static inline __maybe_unused u32 rkcif_dvp_read(struct rkcif_device *rkcif,
++						unsigned int index)
++{
++	unsigned int addr = rkcif_dvp_get_addr(rkcif, index);
++
++	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
++		return 0;
++
++	return readl(rkcif->base_addr + addr);
++}
++
++static void rkcif_dvp_queue_buffer(struct rkcif_stream *stream,
++				   unsigned int index)
++{
++	struct rkcif_device *rkcif = stream->rkcif;
++	struct rkcif_buffer *buffer = stream->buffers[index];
++	u32 frm_addr_y, frm_addr_uv;
++
++	frm_addr_y = index ? RKCIF_DVP_FRM1_ADDR_Y : RKCIF_DVP_FRM0_ADDR_Y;
++	frm_addr_uv = index ? RKCIF_DVP_FRM1_ADDR_UV : RKCIF_DVP_FRM0_ADDR_UV;
++
++	rkcif_dvp_write(rkcif, frm_addr_y, buffer->buff_addr[RKCIF_PLANE_Y]);
++	rkcif_dvp_write(rkcif, frm_addr_uv, buffer->buff_addr[RKCIF_PLANE_UV]);
++}
++
++static int rkcif_dvp_start_streaming(struct rkcif_stream *stream)
++{
++	struct rkcif_device *rkcif = stream->rkcif;
++	struct rkcif_interface *interface = stream->interface;
++	struct v4l2_mbus_config_parallel *parallel;
++	struct v4l2_mbus_framefmt *source_fmt;
++	struct v4l2_subdev_state *state;
++	const struct rkcif_input_fmt *active_in_fmt;
++	const struct rkcif_output_fmt *active_out_fmt;
++	u32 val = 0;
++	int ret = -EINVAL;
++
++	state = v4l2_subdev_lock_and_get_active_state(&interface->sd);
++	source_fmt = v4l2_subdev_state_get_format(state, RKCIF_IF_PAD_SRC,
++						  stream->id);
++	if (!source_fmt)
++		goto out;
++
++	active_in_fmt = rkcif_interface_find_input_fmt(interface, false,
++						       source_fmt->code);
++	active_out_fmt = rkcif_stream_find_output_fmt(stream, false,
++						      stream->pix.pixelformat);
++	if (!active_in_fmt || !active_out_fmt)
++		goto out;
++
++	parallel = &interface->vep.bus.parallel;
++	if (parallel->bus_width == 16 &&
++	    (parallel->flags & V4L2_MBUS_PCLK_SAMPLE_DUALEDGE))
++		val |= RKCIF_FORMAT_BT1120_CLOCK_DOUBLE_EDGES;
++	val |= active_in_fmt->dvp_fmt_val;
++	val |= active_out_fmt->dvp_fmt_val;
++	rkcif_dvp_write(rkcif, RKCIF_DVP_FOR, val);
++
++	val = stream->pix.width;
++	if (active_in_fmt->fmt_type == RKCIF_FMT_TYPE_RAW)
++		val = stream->pix.width * 2;
++	rkcif_dvp_write(rkcif, RKCIF_DVP_VIR_LINE_WIDTH, val);
++
++	val = RKCIF_XY_COORD(stream->pix.width, stream->pix.height);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_SET_SIZE, val);
++
++	rkcif_dvp_write(rkcif, RKCIF_DVP_FRAME_STATUS, RKCIF_FRAME_STAT_CLS);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT, RKCIF_INTSTAT_CLS);
++	if (rkcif->match_data->dvp->has_scaler) {
++		val = active_in_fmt->fmt_type == RKCIF_FMT_TYPE_YUV ?
++			      RKCIF_SCL_CTRL_ENABLE_YUV_16BIT_BYPASS :
++			      RKCIF_SCL_CTRL_ENABLE_RAW_16BIT_BYPASS;
++		rkcif_dvp_write(rkcif, RKCIF_DVP_SCL_CTRL, val);
++	}
++
++	rkcif_dvp_write(rkcif, RKCIF_DVP_INTEN,
++			RKCIF_INTEN_FRAME_END_EN |
++			RKCIF_INTEN_PST_INF_FRAME_END_EN);
++
++	rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
++			RKCIF_CTRL_AXI_BURST_16 | RKCIF_CTRL_MODE_PINGPONG |
++			RKCIF_CTRL_ENABLE_CAPTURE);
++
++	ret = 0;
++
++out:
++	v4l2_subdev_unlock_state(state);
++	return ret;
++}
++
++static void rkcif_dvp_stop_streaming(struct rkcif_stream *stream)
++{
++	struct rkcif_device *rkcif = stream->rkcif;
++	u32 val;
++
++	val = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
++			val & (~RKCIF_CTRL_ENABLE_CAPTURE));
++	rkcif_dvp_write(rkcif, RKCIF_DVP_INTEN, 0x0);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT, 0x3ff);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_FRAME_STATUS, 0x0);
++
++	stream->stopping = false;
++}
++
++static void rkcif_dvp_reset_stream(struct rkcif_device *rkcif)
++{
++	u32 ctl = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
++
++	rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
++			ctl & (~RKCIF_CTRL_ENABLE_CAPTURE));
++	rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL, ctl | RKCIF_CTRL_ENABLE_CAPTURE);
++}
++
++static void rkcif_dvp_set_crop(struct rkcif_stream *stream, u16 left, u16 top)
++{
++	struct rkcif_device *rkcif = stream->rkcif;
++	u32 val;
++
++	val = RKCIF_XY_COORD(left, top);
++	rkcif_dvp_write(rkcif, RKCIF_DVP_CROP, val);
++}
++
++irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
++{
++	struct device *dev = ctx;
++	struct rkcif_device *rkcif = dev_get_drvdata(dev);
++	struct rkcif_stream *stream;
++	u32 intstat, lastline, lastpix, cif_frmst;
++	irqreturn_t ret = IRQ_NONE;
++
++	if (!rkcif->match_data->dvp)
++		return ret;
++
++	intstat = rkcif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
++	cif_frmst = rkcif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
++	lastline = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif, RKCIF_DVP_LAST_LINE));
++	lastpix = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
++
++	if (intstat & RKCIF_INTSTAT_FRAME_END) {
++		rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
++				RKCIF_INTSTAT_FRAME_END_CLR |
++				RKCIF_INTSTAT_LINE_END_CLR);
++
++		stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
++
++		if (stream->stopping) {
++			rkcif_dvp_stop_streaming(stream);
++			wake_up(&stream->wq_stopped);
++			ret = IRQ_HANDLED;
++			goto out;
++		}
++
++		if (lastline != stream->pix.height) {
++			v4l2_err(&rkcif->v4l2_dev,
++				 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
++				 intstat, cif_frmst, lastpix, lastline);
++
++			rkcif_dvp_reset_stream(rkcif);
++		}
++
++		rkcif_stream_pingpong(stream);
++
++		ret = IRQ_HANDLED;
++	}
++out:
++	return ret;
++}
++
++int rkcif_dvp_register(struct rkcif_device *rkcif)
++{
++	struct rkcif_interface *interface;
++	unsigned int streams_num;
++	int ret;
++
++	if (!rkcif->match_data->dvp)
++		return 0;
++
++	interface = &rkcif->interfaces[RKCIF_DVP];
++	interface->index = RKCIF_DVP;
++	interface->type = RKCIF_IF_DVP;
++	interface->in_fmts = rkcif->match_data->dvp->in_fmts;
++	interface->in_fmts_num = rkcif->match_data->dvp->in_fmts_num;
++	interface->set_crop = rkcif_dvp_set_crop;
++	ret = rkcif_interface_register(rkcif, interface);
++	if (ret)
++		return ret;
++
++	if (rkcif->match_data->dvp->setup)
++		rkcif->match_data->dvp->setup(rkcif);
++
++	streams_num = rkcif->match_data->dvp->has_ids ? 4 : 1;
++	for (unsigned int i = 0; i < streams_num; i++) {
++		struct rkcif_stream *stream = &interface->streams[i];
++
++		stream->id = i;
++		stream->interface = interface;
++		stream->out_fmts = rkcif->match_data->dvp->out_fmts;
++		stream->out_fmts_num = rkcif->match_data->dvp->out_fmts_num;
++		stream->queue_buffer = rkcif_dvp_queue_buffer;
++		stream->start_streaming = rkcif_dvp_start_streaming;
++		stream->stop_streaming = rkcif_dvp_stop_streaming;
++
++		ret = rkcif_stream_register(rkcif, stream);
++		if (ret)
++			goto err_streams_unregister;
++
++		interface->streams_num++;
++	}
++
++	return 0;
++
++err_streams_unregister:
++	for (unsigned int i = 0; i < interface->streams_num; i++)
++		rkcif_stream_unregister(&interface->streams[i]);
++
++	rkcif_interface_unregister(interface);
++
++	return ret;
++}
++
++void rkcif_dvp_unregister(struct rkcif_device *rkcif)
++{
++	struct rkcif_interface *interface;
++
++	if (!rkcif->match_data->dvp)
++		return;
++
++	interface = &rkcif->interfaces[RKCIF_DVP];
++
++	for (unsigned int i = 0; i < interface->streams_num; i++)
++		rkcif_stream_unregister(&interface->streams[i]);
++
++	rkcif_interface_unregister(interface);
++}
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h
+new file mode 100644
+index 000000000000..7b2da11497c3
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2025 Collabora, Ltd.
++ */
++
++#ifndef _RKCIF_CAPTURE_DVP_H
++#define _RKCIF_CAPTURE_DVP_H
++
++#include "rkcif-common.h"
++
++extern const struct rkcif_dvp_match_data rkcif_px30_vip_dvp_match_data;
++
++int rkcif_dvp_register(struct rkcif_device *rkcif);
++
++void rkcif_dvp_unregister(struct rkcif_device *rkcif);
++
++irqreturn_t rkcif_dvp_isr(int irq, void *ctx);
++
++#endif
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+index 63d5b45c7afe..c6ec578e1049 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+@@ -24,6 +24,8 @@
+ #include <media/v4l2-subdev.h>
+ #include <media/videobuf2-v4l2.h>
+ 
++#include "rkcif-regs.h"
++
+ #define RKCIF_DRIVER_NAME "rockchip-cif"
+ #define RKCIF_CLK_MAX	  4
+ 
+@@ -84,17 +86,31 @@ struct rkcif_dummy_buffer {
+ 	u32 size;
+ };
+ 
++enum rkcif_plane_index {
++	RKCIF_PLANE_Y,
++	RKCIF_PLANE_UV,
++	RKCIF_PLANE_MAX
++};
++
+ struct rkcif_input_fmt {
+ 	u32 mbus_code;
+ 
+ 	enum rkcif_format_type fmt_type;
+ 	enum v4l2_field field;
++
++	union {
++		u32 dvp_fmt_val;
++	};
+ };
+ 
+ struct rkcif_output_fmt {
+ 	u32 fourcc;
+ 	u32 mbus_code;
+ 	u8 cplanes;
++
++	union {
++		u32 dvp_fmt_val;
++	};
+ };
+ 
+ struct rkcif_interface;
+@@ -168,9 +184,21 @@ struct rkcif_interface {
+ 	void (*set_crop)(struct rkcif_stream *stream, u16 left, u16 top);
+ };
+ 
++struct rkcif_dvp_match_data {
++	const struct rkcif_input_fmt *in_fmts;
++	unsigned int in_fmts_num;
++	const struct rkcif_output_fmt *out_fmts;
++	unsigned int out_fmts_num;
++	void (*setup)(struct rkcif_device *rkcif);
++	bool has_scaler;
++	bool has_ids;
++	unsigned int regs[RKCIF_DVP_REGISTER_MAX];
++};
++
+ struct rkcif_match_data {
+ 	const char *const *clks;
+ 	unsigned int clks_num;
++	const struct rkcif_dvp_match_data *dvp;
+ };
+ 
+ struct rkcif_device {
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+index 49e53f70715c..207802073fd3 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+@@ -23,6 +23,7 @@
+ #include <media/v4l2-fwnode.h>
+ #include <media/v4l2-mc.h>
+ 
++#include "rkcif-capture-dvp.h"
+ #include "rkcif-common.h"
+ 
+ static const char *const px30_vip_clks[] = {
+@@ -34,6 +35,7 @@ static const char *const px30_vip_clks[] = {
+ static const struct rkcif_match_data px30_vip_match_data = {
+ 	.clks = px30_vip_clks,
+ 	.clks_num = ARRAY_SIZE(px30_vip_clks),
++	.dvp = &rkcif_px30_vip_dvp_match_data,
+ };
+ 
+ static const char *const rk3568_vicap_clks[] = {
+@@ -63,11 +65,21 @@ MODULE_DEVICE_TABLE(of, rkcif_plat_of_match);
+ 
+ static int rkcif_register(struct rkcif_device *rkcif)
+ {
++	int ret;
++
++	ret = rkcif_dvp_register(rkcif);
++	if (ret && ret != -ENODEV)
++		goto err;
++
+ 	return 0;
++
++err:
++	return ret;
+ }
+ 
+ static void rkcif_unregister(struct rkcif_device *rkcif)
+ {
++	rkcif_dvp_unregister(rkcif);
+ }
+ 
+ static int rkcif_notifier_bound(struct v4l2_async_notifier *notifier,
+@@ -112,6 +124,9 @@ static irqreturn_t rkcif_isr(int irq, void *ctx)
+ {
+ 	irqreturn_t ret = IRQ_NONE;
+ 
++	if (rkcif_dvp_isr(irq, ctx) == IRQ_HANDLED)
++		ret = IRQ_HANDLED;
++
+ 	return ret;
+ }
+ 
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
+new file mode 100644
+index 000000000000..91d42d31fd10
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
+@@ -0,0 +1,131 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ */
++
++#ifndef _RKCIF_REGS_H
++#define _RKCIF_REGS_H
++
++#define RKCIF_REGISTER_NOTSUPPORTED		0x420000
++#define RKCIF_FETCH_Y(VAL)			((VAL) & 0x1fff)
++#define RKCIF_XY_COORD(x, y)			(((y) << 16) | (x))
++
++/* DVP register contents */
++#define RKCIF_CTRL_ENABLE_CAPTURE		BIT(0)
++#define RKCIF_CTRL_MODE_PINGPONG		BIT(1)
++#define RKCIF_CTRL_MODE_LINELOOP		BIT(2)
++#define RKCIF_CTRL_AXI_BURST_16			(0xf << 12)
++
++#define RKCIF_INTEN_FRAME_END_EN		BIT(0)
++#define RKCIF_INTEN_LINE_ERR_EN			BIT(2)
++#define RKCIF_INTEN_BUS_ERR_EN			BIT(6)
++#define RKCIF_INTEN_SCL_ERR_EN			BIT(7)
++#define RKCIF_INTEN_PST_INF_FRAME_END_EN	BIT(9)
++
++#define RKCIF_INTSTAT_CLS			0x3ff
++#define RKCIF_INTSTAT_FRAME_END			BIT(0)
++#define RKCIF_INTSTAT_LINE_END			BIT(1)
++#define RKCIF_INTSTAT_LINE_ERR			BIT(2)
++#define RKCIF_INTSTAT_PIX_ERR			BIT(3)
++#define RKCIF_INTSTAT_DFIFO_OF			BIT(5)
++#define RKCIF_INTSTAT_BUS_ERR			BIT(6)
++#define RKCIF_INTSTAT_PRE_INF_FRAME_END		BIT(8)
++#define RKCIF_INTSTAT_PST_INF_FRAME_END		BIT(9)
++#define RKCIF_INTSTAT_FRAME_END_CLR		BIT(0)
++#define RKCIF_INTSTAT_LINE_END_CLR		BIT(1)
++#define RKCIF_INTSTAT_LINE_ERR_CLR		BIT(2)
++#define RKCIF_INTSTAT_PST_INF_FRAME_END_CLR	BIT(9)
++#define RKCIF_INTSTAT_ERR			0xfc
++
++#define RKCIF_FRAME_STAT_CLS			0x00
++#define RKCIF_FRAME_FRM0_STAT_CLS		0x20
++
++#define RKCIF_FORMAT_VSY_HIGH_ACTIVE		BIT(0)
++#define RKCIF_FORMAT_HSY_LOW_ACTIVE		BIT(1)
++
++#define RKCIF_FORMAT_INPUT_MODE_YUV		(0x00 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_PAL		(0x02 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_NTSC		(0x03 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_BT1120		(0x07 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_RAW		(0x04 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_JPEG		(0x05 << 2)
++#define RKCIF_FORMAT_INPUT_MODE_MIPI		(0x06 << 2)
++
++#define RKCIF_FORMAT_YUV_INPUT_ORDER_UYVY	(0x00 << 5)
++#define RKCIF_FORMAT_YUV_INPUT_ORDER_YVYU	(0x01 << 5)
++#define RKCIF_FORMAT_YUV_INPUT_ORDER_VYUY	(0x02 << 5)
++#define RKCIF_FORMAT_YUV_INPUT_ORDER_YUYV	(0x03 << 5)
++#define RKCIF_FORMAT_YUV_INPUT_422		(0x00 << 7)
++#define RKCIF_FORMAT_YUV_INPUT_420		BIT(7)
++
++#define RKCIF_FORMAT_INPUT_420_ORDER_ODD	BIT(8)
++
++#define RKCIF_FORMAT_CCIR_INPUT_ORDER_EVEN	BIT(9)
++
++#define RKCIF_FORMAT_RAW_DATA_WIDTH_8		(0x00 << 11)
++#define RKCIF_FORMAT_RAW_DATA_WIDTH_10		(0x01 << 11)
++#define RKCIF_FORMAT_RAW_DATA_WIDTH_12		(0x02 << 11)
++
++#define RKCIF_FORMAT_YUV_OUTPUT_422		(0x00 << 16)
++#define RKCIF_FORMAT_YUV_OUTPUT_420		BIT(16)
++
++#define RKCIF_FORMAT_OUTPUT_420_ORDER_EVEN	(0x00 << 17)
++#define RKCIF_FORMAT_OUTPUT_420_ORDER_ODD	BIT(17)
++
++#define RKCIF_FORMAT_RAWD_DATA_LITTLE_ENDIAN	(0x00 << 18)
++#define RKCIF_FORMAT_RAWD_DATA_BIG_ENDIAN	BIT(18)
++
++#define RKCIF_FORMAT_UV_STORAGE_ORDER_UVUV	(0x00 << 19)
++#define RKCIF_FORMAT_UV_STORAGE_ORDER_VUVU	BIT(19)
++
++#define RKCIF_FORMAT_BT1120_CLOCK_SINGLE_EDGES	(0x00 << 24)
++#define RKCIF_FORMAT_BT1120_CLOCK_DOUBLE_EDGES	BIT(24)
++#define RKCIF_FORMAT_BT1120_TRANSMIT_INTERFACE	(0x00 << 25)
++#define RKCIF_FORMAT_BT1120_TRANSMIT_PROGRESS	BIT(25)
++#define RKCIF_FORMAT_BT1120_YC_SWAP		BIT(26)
++
++#define RKCIF_SCL_CTRL_ENABLE_SCL_DOWN		BIT(0)
++#define RKCIF_SCL_CTRL_ENABLE_SCL_UP		BIT(1)
++#define RKCIF_SCL_CTRL_ENABLE_YUV_16BIT_BYPASS	BIT(4)
++#define RKCIF_SCL_CTRL_ENABLE_RAW_16BIT_BYPASS	BIT(5)
++#define RKCIF_SCL_CTRL_ENABLE_32BIT_BYPASS	BIT(6)
++#define RKCIF_SCL_CTRL_DISABLE_32BIT_BYPASS	(0x00 << 6)
++
++#define RKCIF_INTSTAT_F0_READY			BIT(0)
++#define RKCIF_INTSTAT_F1_READY			BIT(1)
++
++/* GRF register offsets and contents */
++#define RK3568_GRF_VI_CON0			0x340
++#define RK3568_GRF_VI_CON1			0x344
++#define RK3568_GRF_VI_STATUS0			0x348
++
++#define RK3568_GRF_VI_CON1_CIF_DATAPATH		BIT(9)
++#define RK3568_GRF_VI_CON1_CIF_CLK_DELAYNUM	GENMASK(6, 0)
++
++#define RK3568_GRF_WRITE_ENABLE(x)		((x) << 16)
++
++enum rkcif_dvp_register_index {
++	RKCIF_DVP_CTRL,
++	RKCIF_DVP_INTEN,
++	RKCIF_DVP_INTSTAT,
++	RKCIF_DVP_FOR,
++	RKCIF_DVP_LINE_NUM_ADDR,
++	RKCIF_DVP_FRM0_ADDR_Y,
++	RKCIF_DVP_FRM0_ADDR_UV,
++	RKCIF_DVP_FRM1_ADDR_Y,
++	RKCIF_DVP_FRM1_ADDR_UV,
++	RKCIF_DVP_VIR_LINE_WIDTH,
++	RKCIF_DVP_SET_SIZE,
++	RKCIF_DVP_SCL_CTRL,
++	RKCIF_DVP_CROP,
++	RKCIF_DVP_FRAME_STATUS,
++	RKCIF_DVP_LAST_LINE,
++	RKCIF_DVP_LAST_PIX,
++	RKCIF_DVP_REGISTER_MAX
++};
++
++#endif
 
 -- 
 2.39.5
