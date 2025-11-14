@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3705CE8D40
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37160CE8D40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlhOTxorkK0qWym+ups7Cpvw3GcGPEKIQshOQKtZsh8=; b=uV8ufikeDT6CYRUKgCHxVFYszX
-	Y5d2Z3h2/iCv7QJcFbL+ajpky/TpZ1S1u50JHQtU7Uhh1FZzdjuNwBT2PMV5zxX1TWd0a2YpbJY4Q
-	5uBkiqrkN6IiVIH3fLXljps8lhuHvzq8CvBh6HrSKtKWtD4pNoZZMQNhEuVwefqKRiKN6JUeFaHoU
-	gbCMDxKyvl+I630xzN3WOSi3WQvhC0NjbshfBRaTsayVXc6WjfuWvpDkcdJxIQV+51hNYCkAL527Y
-	IDUDs8Z++TKZM0hle2/mdbsT1WPIdU6RHgWAZ434iS0pWGf1O6XTYqLkKkXEI6PUyivDGIpQ9xDdc
-	wi1lNtqQ==;
+	bh=Twus3sbrBSG7NY/CIFTfFSuDbIZ0IfgbuuTAgR3/MuY=; b=FK8hnKJE/FCHFLr2OiO0RXu9Oe
+	Uim+vJ3nlMJcolclkIF6S0ENGCaU/NoR5S3EDNYK6qo/CyLshnMLdrTqdJ/MAb9kPnZ9s+81mXLz9
+	C0tOgWWQvJbDBmH8PWb5kO8QqqCKzMYHsgmxr5KDOWQMRd3Ng0dC799R9F5Ft5Kt/FCzjBPNe93Pt
+	+3NTzj6Fnci0DHZh4c9+U0lA1z0sRniLM7cvpsBHezejK4FzBOS9pkWqriGVZnaYoC57rnxnxFrVT
+	LCxkKu2wd8tWVdsUHF6qP4fb0ws8exfmUxMBgxgGCKT3kJRXEPM1KnJM1tlR9jLRJ8hlEDBqMHFKP
+	ZaBc1gTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvj5-0000000CYej-32g8;
-	Fri, 14 Nov 2025 15:28:39 +0000
+	id 1vJvjF-0000000CYjA-0bOe;
+	Fri, 14 Nov 2025 15:28:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvj5-0000000CYdp-0TXI
+	id 1vJvjB-0000000CYh6-2nKD
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 15:28:39 +0000
+	Fri, 14 Nov 2025 15:28:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=hlhOTxorkK0qWym+ups7Cpvw3GcGPEKIQshOQKtZsh8=; b=KMwQ0IkRLLIoeOty8a3qD9eRwp
-	HsDEQtIT6wPrn+nn57MXNKyS90yV1EL4s5VuwM+kvSlPDP+M/eS9koGsufJ8YUsx1OfSZC1tPoyag
-	3JQoP1ib3EFvVaSUkkKzrMiMV//KnqZdsqSD7yr8kQtsUqOrKX1ll42M+dmYfxEzi4kzGo2yQdR3h
-	HUDCG3C64NsXbTh7LoeFdVwjpLtkc8b8yylC5R1JUtbP6CTXSIZL9k0AEDpFWUbvzWYDgGAgGdVDN
-	V0pTkbgNADBTh9hjxvaJBg+KrIO9Kr787trQvbPb/SICU0jPLmCstiXqEqbcxqcRH2kegSJz/tLER
-	ZamoMpXw==;
+	bh=Twus3sbrBSG7NY/CIFTfFSuDbIZ0IfgbuuTAgR3/MuY=; b=i+3xtdj8WZkjvE1VKLNQNjySB6
+	v/PxNg1x+54M42iEeh6Xs0iQsUhj5nhoZ13k/a+1KS9vY1Im56TUKy/jaDEBNDJATFmiSvYBuImc3
+	4/7Q9jQgVGmEBdsW6b3whuKK2fmOTy73Xo+jllUzCcWhMKPzoP31GB7weRbF37sKkxlgiPg06BRrV
+	jtSM0223hobIqGZfPQtxesJcKDxuCKYW4mL+pyPl9EbYlH7IrOhUPuiL7cSI22TXaoVx5LzwerDfU
+	/2sj8ymI8D4ULJdltxOydGNDGNzYh9Ttjt1wcz9Q0ugAgztHdxDmTLWDoeaPDN+AG35eMmqj1vEiF
+	F6OsL+Cg==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJurM-00000002p8s-39hY
+	id 1vJurT-00000002pAD-0LgM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:33:11 +0000
+	Fri, 14 Nov 2025 14:33:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hlhOTxorkK0qWym+ups7Cpvw3GcGPEKIQshOQKtZsh8=; b=CoIURsqaLonDZQIr7hNe5QLTC3
-	Zki421bzvxpYIlkPP96GOBXFo1ZjrWQX80V8EgWCwwbS5gdNI91EutnRT0PhAugTq5HnLb1EXJlFY
-	cJPTik65dStS/dfMzt9O+cKPqMC17DS2fhheFYfRlDYo6artH0WBjJwQtg4dypAWZ6sVGwKEe7uLD
-	9yudhi0e76Q9SngQ4192JV4h/ZL9YZvfF+76c9BgdZsFaWWSPP7EhdeaCBsz7DJpXVG44S3BI7bE9
-	rFiO2+cSqFFeYr2SCKUYLgNjE90rmOYqUvxbO9S5JCp+L5392lo5caxR//wG5waRWuXteaqesoDtP
-	a20ptMqw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36182 helo=rmk-PC.armlinux.org.uk)
+	bh=Twus3sbrBSG7NY/CIFTfFSuDbIZ0IfgbuuTAgR3/MuY=; b=f+2PkKjcyy0ZBt+PQ+qC5DuZpm
+	LR6aELWhmN121eH9u1WrcaH/3M/jFdUpLigQfEJ8XMHbBrHs1c/NNqiMx78+jEiZk9G0Dgx69YWNz
+	VAKW/s9wYIBiHm6YHuQNgzWcBEXYy9+Qy6dFZnF4NQuAnfqOP6D8PZMBCcTfq7QNd69KuGiGBIdNa
+	FEMulAkxlJMI85h+oDOmTp3TGH8z6maWTvKgp3IeFMDvYpdbDkypgZWn0pAlea+4zg2GwL3jYc/ty
+	08MsZ6zwcnhZIoVoAG312whj+SsMjKxfrP7JeAb505AI2lJLJSvCtXy2FpZwBxqv7BMsEBNNk0ctj
+	aM0DcADA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36184 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vJviw-0000000076H-16Rl;
-	Fri, 14 Nov 2025 15:28:30 +0000
+	id 1vJvj1-0000000076b-2knP;
+	Fri, 14 Nov 2025 15:28:35 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vJviv-0000000EVjV-1CLF;
-	Fri, 14 Nov 2025 15:28:29 +0000
+	id 1vJvj0-0000000EVjb-1jDh;
+	Fri, 14 Nov 2025 15:28:34 +0000
 In-Reply-To: <aRdKVMPHXlIn457m@shell.armlinux.org.uk>
 References: <aRdKVMPHXlIn457m@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -82,17 +82,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	sophgo@lists.linux.dev
-Subject: [PATCH net-next 02/11] net: stmmac: move initialisation of phy_addr
- to stmmac_plat_dat_alloc()
+Subject: [PATCH net-next 03/11] net: stmmac: move initialisation of clk_csr to
+ stmmac_plat_dat_alloc()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vJviv-0000000EVjV-1CLF@rmk-PC.armlinux.org.uk>
-Date: Fri, 14 Nov 2025 15:28:29 +0000
+Message-Id: <E1vJvj0-0000000EVjb-1jDh@rmk-PC.armlinux.org.uk>
+Date: Fri, 14 Nov 2025 15:28:34 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_143308_846943_8D056B83 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20251114_143316_238402_5E8AAAF0 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,72 +107,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the default initialisation of plat_dat->phy_addr to
+Move the default initialisation of plat_dat->clk_csr to
 stmmac_plat_dat_alloc().
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c  | 3 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c     | 5 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c      | 1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 2 --
- 4 files changed, 5 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c     | 2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 5 -----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-index 2d803fa37e21..8593411844bc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-@@ -114,9 +114,6 @@ static void loongson_default_data(struct pci_dev *pdev,
- 	plat->clk_ref_rate = 125000000;
- 	plat->clk_ptp_rate = 125000000;
- 
--	/* Default to phy auto-detection */
--	plat->phy_addr = -1;
--
- 	plat->dma_cfg->pbl = 32;
- 	plat->dma_cfg->pblx8 = true;
- 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 400b4b955820..1851f7d0702d 100644
+index 1851f7d0702d..a36e8a90fcaa 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7563,6 +7563,11 @@ struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev)
- 	if (!plat_dat)
- 		return NULL;
+@@ -7565,8 +7565,10 @@ struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev)
  
-+	/* Set the defaults:
-+	 * - phy autodetection
-+	 */
-+	plat_dat->phy_addr = -1;
-+
+ 	/* Set the defaults:
+ 	 * - phy autodetection
++	 * - determine GMII_Address CR field from CSR clock
+ 	 */
+ 	plat_dat->phy_addr = -1;
++	plat_dat->clk_csr = -1;
+ 
  	return plat_dat;
  }
- EXPORT_SYMBOL_GPL(stmmac_plat_dat_alloc);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-index 622cdbeca20f..b981a9dd511d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-@@ -112,7 +112,6 @@ static int snps_gmac5_default_data(struct pci_dev *pdev,
- 	}
- 
- 	plat->bus_id = 1;
--	plat->phy_addr = -1;
- 	plat->phy_interface = PHY_INTERFACE_MODE_GMII;
- 
- 	plat->dma_cfg->pbl = 32;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 38d574907a04..745032fd46ce 100644
+index 745032fd46ce..fe3d95274fd6 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -480,8 +480,6 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+@@ -480,11 +480,6 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
  		plat->bus_id = ++bus_id;
  	}
  
--	/* Default to phy auto-detection */
--	plat->phy_addr = -1;
+-
+-	/* Default to get clk_csr from stmmac_clk_csr_set(),
+-	 * or get clk_csr from device tree.
+-	 */
+-	plat->clk_csr = -1;
+ 	if (of_property_read_u32(np, "snps,clk-csr", &plat->clk_csr))
+ 		of_property_read_u32(np, "clk_csr", &plat->clk_csr);
  
- 	/* Default to get clk_csr from stmmac_clk_csr_set(),
- 	 * or get clk_csr from device tree.
 -- 
 2.47.3
 
