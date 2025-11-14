@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A1CECE7AA4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9B2CE7AA4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YGmzVc68kew8L9Xgvg89ix+eYuRT6RtKTfNfBwt9gI=; b=Tea7cpdl1HuowekinevJuceNCg
-	QZZ43ROEIfSbgwHNcDolK8iftK1H2WP9rSo7PGR6n23BfUGcyhv9JDxboGLu93PXybcbg2PWeRlQV
-	VHLJEXa03vJpFBd/PE2ozjVdyiOTIu2D21YpHY7FpWeXNNYpB6DA7OPShd08W2IeN8JaQNh+635fs
-	k290c4eHLPXZhSH0iHJ73IqzAklMdV+Mywd0cyA68/kpb4VNsCfl/G9YfocfBcL2qZSIV5ipEut2g
-	bMvm4dlB2gKBs9BnVCenZcPy/0yKJrofoyTxLx8j1IuNs0O/om2BZ3wVxrPb2z12us6BnIjtZ8coR
-	DbsFKyuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWp7LuchF6H+7u1DhjhrRrpHa63xMfPWLdzP1Kf0aMM=; b=VREoEpRsEIQjPqO+yfHwq09qq/
+	+aCcEwvGhp1GzkSnCdbuq2DdAgVVxPpWefrZxoXeCmB4OE38nNMB4H9spLaxKZR3PTn3EuFpQxHWS
+	g+Vpoy4pbcDgOXjIbpd0tnwMXPA73Z3JsioGxO0E75x/L8+ho2k2Ns2RTw0Kid88Gr8l96+lHt7je
+	IbfdnfjhhJFhYkgoT36hMIbd30/QXdkejSYypzyJbrDFFBWBJgT/U3w+Sp7fc6x/+rxtIGtFHmbvW
+	eUMze3p2PAzBarWppzyfv+I+zAYqj+/sZrbvZI1LjpAdx5b+CcTcKuWlQv4kOA2aFOg/IyswAzjfR
+	J76sfonA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqSq-0000000Bx5P-16hv;
-	Fri, 14 Nov 2025 09:51:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJqVL-0000000BxJP-0aDk;
+	Fri, 14 Nov 2025 09:54:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqSo-0000000Bx5D-3JHX;
-	Fri, 14 Nov 2025 09:51:30 +0000
+	id 1vJqVI-0000000BxIN-0ho4;
+	Fri, 14 Nov 2025 09:54:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 375A160173;
-	Fri, 14 Nov 2025 09:51:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6F3C116D0;
-	Fri, 14 Nov 2025 09:51:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 20EE942A78;
+	Fri, 14 Nov 2025 09:54:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F29BC4CEF8;
+	Fri, 14 Nov 2025 09:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763113889;
-	bh=O6LXDluXDEafQVVWq0RnhAB+p7afdg+5W2HmBgq2z8g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eOIHdJMQE0TDkiX7ARkxw5G2WdNrnktz7C93zfpLOjSLn1DGMqxCGRL2+H11VXA5t
-	 TAOlaPLd7XmgJ+NrCWHohiq4sDtyeWuovmYsxLE6NpZDcPacrgvR/xN/N5QBnZp7E0
-	 RllAb1nSls9OhiBIou1vVRW7VHcLKxVoN+cobTMUB8JTFrxeD8T3wLJ0OcXmalQAsP
-	 SGvrZFfnjccYHeBUeR7Fo73jBd6Y+o468gsooIAT788zEP9Zp52R8ccTrqslkPpBcF
-	 gIebxjHCKli7Z65Z1mWRmDJcA4xPW8Cr/Ra2MqmxiQGtOI/WdLa9Xo5nqkPOfDLcT3
-	 nZXpAlzBI8F8A==
-Date: Fri, 14 Nov 2025 10:51:27 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
-	William Breathitt Gray <wbg@kernel.org>, kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, 
-	Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v3 3/5] pwm: Add rockchip PWMv4 driver
-Message-ID: <fgu42esufq2x4fcccncqs3hlotih2gqmws5atotlaznuahoslw@34vblr6vboze>
-References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
- <20251027-rk3576-pwm-v3-3-654a5cb1e3f8@collabora.com>
- <8a6e920b-9565-4161-9d71-63f924593c23@rock-chips.com>
+	s=k20201202; t=1763114043;
+	bh=7Me3sb9weC1h2vNWQ8pgMTTYpoHn88/1mo0s9IdEpHY=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=NMLzS4PEnehTHONqpwjO/ykIuIHZ+VPWgFM09FB7BAoO2VIhjE+r9W3s5jt2i5iT4
+	 n6wj6+tYoDQMLlNCWMYJLL0/yBuoNoSk5EJi+lpXbQxK6FDrUjOpmNT6PYhIr8VgfA
+	 azaWX7AQRUaXj9tpFX5GjE5TXSbR4IPR/bKy/e5Ohutk2f0CMLoFue+5jzlYDNfZAU
+	 8OP9NICQuiZ3NfKOw93IiWJyApEW7lS8KgTmX6qSHZNlLtI5cBHhI0dWLeR/qgFeuY
+	 j+Q5btxGFnSlGVejekYCUT8IInwhiGvKyZLlUmQWv+3HE2KAyk3tWM9z2OXPMIYlvl
+	 /Q6Ki4iGXAWvQ==
+Message-ID: <7a596b40-1fea-4dce-8ce9-0da805d2d1d5@kernel.org>
+Date: Fri, 14 Nov 2025 10:53:58 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xfykpml5ewgt3ra3"
-Content-Disposition: inline
-In-Reply-To: <8a6e920b-9565-4161-9d71-63f924593c23@rock-chips.com>
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v9 5/8] media: v4l2-core: Introduce v4l2-isp.c
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20251108-extensible-parameters-validation-v9-0-6a7e22aa57d0@ideasonboard.com>
+ <20251108-extensible-parameters-validation-v9-5-6a7e22aa57d0@ideasonboard.com>
+Content-Language: en-US, nl
+In-Reply-To: <20251108-extensible-parameters-validation-v9-5-6a7e22aa57d0@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_015404_283034_AEE08033 
+X-CRM114-Status: GOOD (  43.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,236 +82,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jacopo,
 
---xfykpml5ewgt3ra3
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 3/5] pwm: Add rockchip PWMv4 driver
-MIME-Version: 1.0
+While reviewing your code in the Mali PR I found one thing confusing in the
+v4l2-isp part. My apologies for not reviewing this before, I had too much
+to do.
 
-On Tue, Oct 28, 2025 at 04:16:26PM +0800, Damon Ding wrote:
-> Hi Nicolas,
->=20
-> On 10/28/2025 1:11 AM, Nicolas Frattaroli wrote:
-> > The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-> > referred to as "v4". This new IP is different enough from the previous
-> > Rockchip IP that I felt it necessary to add a new driver for it, instead
-> > of shoehorning it in the old one.
-> >=20
-> > Add this new driver, based on the PWM core's waveform APIs. Its platform
-> > device is registered by the parent mfpwm driver, from which it also
-> > receives a little platform data struct, so that mfpwm can guarantee that
-> > all the platform device drivers spread across different subsystems for
-> > this specific hardware IP do not interfere with each other.
-> >=20
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >   MAINTAINERS                   |   1 +
-> >   drivers/pwm/Kconfig           |  13 ++
-> >   drivers/pwm/Makefile          |   1 +
-> >   drivers/pwm/pwm-rockchip-v4.c | 353 +++++++++++++++++++++++++++++++++=
-+++++++++
-> >   4 files changed, 368 insertions(+)
-> >=20
->=20
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 8f3235ba825e..2079c2d51d5c 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -22372,6 +22372,7 @@ L:	linux-rockchip@lists.infradead.org
-> >   L:	linux-pwm@vger.kernel.org
-> >   S:	Maintained
-> >   F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-> > +F:	drivers/pwm/pwm-rockchip-v4.c
-> >   F:	drivers/soc/rockchip/mfpwm.c
-> >   F:	include/soc/rockchip/mfpwm.h
-> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> > index c2fd3f4b62d9..b852a7b2a29d 100644
-> > --- a/drivers/pwm/Kconfig
-> > +++ b/drivers/pwm/Kconfig
-> > @@ -615,6 +615,19 @@ config PWM_ROCKCHIP
-> >   	  Generic PWM framework driver for the PWM controller found on
-> >   	  Rockchip SoCs.
-> > +config PWM_ROCKCHIP_V4
-> > +	tristate "Rockchip PWM v4 support"
-> > +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> > +	depends on HAS_IOMEM
-> > +	depends on MFD_ROCKCHIP_MFPWM
-> > +	help
-> > +	  Generic PWM framework driver for the PWM controller found on
-> > +	  later Rockchip SoCs such as the RK3576.
-> > +
-> > +	  Uses the Rockchip Multi-function PWM controller driver infrastructu=
-re
-> > +	  to guarantee fearlessly concurrent operation with other functions of
-> > +	  the same device implemented by drivers in other subsystems.
-> > +
-> >   config PWM_SAMSUNG
-> >   	tristate "Samsung PWM support"
-> >   	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TE=
-ST
-> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> > index dfa8b4966ee1..fe0d16558d99 100644
-> > --- a/drivers/pwm/Makefile
-> > +++ b/drivers/pwm/Makefile
-> > @@ -55,6 +55,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+=3D pwm-rzg2l-gp=
-t.o
-> >   obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+=3D pwm-rz-mtu3.o
-> >   obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
-> >   obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
-> > +obj-$(CONFIG_PWM_ROCKCHIP_V4)	+=3D pwm-rockchip-v4.o
-> >   obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
-> >   obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
-> >   obj-$(CONFIG_PWM_SL28CPLD)	+=3D pwm-sl28cpld.o
-> > diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v=
-4.c
-> > new file mode 100644
-> > index 000000000000..7afa83f12b6a
-> > --- /dev/null
-> > +++ b/drivers/pwm/pwm-rockchip-v4.c
-> > @@ -0,0 +1,353 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Copyright (c) 2025 Collabora Ltd.
-> > + *
-> > + * A Pulse-Width-Modulation (PWM) generator driver for the generators =
-found in
-> > + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4=
-". Uses
-> > + * the MFPWM infrastructure to guarantee exclusive use over the device=
- without
-> > + * other functions of the device from different drivers interfering wi=
-th its
-> > + * operation while it's active.
-> > + *
-> > + * Technical Reference Manual: Chapter 31 of the RK3506 TRM Part 1, a =
-SoC which
-> > + * uses the same PWM hardware and has a publicly available TRM.
-> > + * https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_P=
-art_1_V1.2-20250811.pdf
-> > + *
-> > + * Authors:
-> > + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > + *
-> > + * Limitations:
-> > + * - When the output is disabled, it will end abruptly without letting=
- the
-> > + *   current period complete.
-> > + *   TODO: This can be fixed in the driver in the future by having the=
- enable-
-> > + *         to-disable transition switch to oneshot mode with one repet=
-ition,
-> > + *         and then disable the pwmclk and release mfpwm when the ones=
-hot
-> > + *         complete interrupt fires.
-> > + * - When the output is disabled, the pin will remain driven to whatev=
-er state
-> > + *   it last had.
-> > + * - Adjustments to the duty cycle will only take effect during the ne=
-xt period.
-> > + * - Adjustments to the period length will only take effect during the=
- next
-> > + *   period.
-> > + * - offset should be between 0 and (period - duty)
-> > + */
-> > +
-> > +#include <linux/math64.h>
-> > +#include <linux/mfd/rockchip-mfpwm.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pwm.h>
-> > +
-> > +struct rockchip_pwm_v4 {
-> > +	struct rockchip_mfpwm_func *pwmf;
-> > +	struct pwm_chip chip;
-> > +};
-> > +
-> > +struct rockchip_pwm_v4_wf {
-> > +	u32 period;
-> > +	u32 duty;
-> > +	u32 offset;
-> > +	u8 enable;
-> > +};
-> > +
->=20
-> ...
->=20
-> > +
-> > +static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_d=
-evice *pwm,
-> > +				   void *_wfhw)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> > +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> > +	int ret =3D 0;
-> > +
->=20
-> Redundant blank lin. ;-)
->=20
-> > +
-> > +	ret =3D mfpwm_acquire(pc->pwmf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	wfhw->period =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
-> > +	wfhw->duty =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
-> > +	wfhw->offset =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
-> > +	wfhw->enable =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE) & P=
-WMV4_EN_BOTH_MASK;
-> > +
-> > +	mfpwm_release(pc->pwmf);
-> > +
-> > +	return 0;
-> > +}
-> > +
->=20
-> ...
->=20
-> > +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> > +MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
-> > +MODULE_ALIAS("platform:pwm-rockchip-v4");
-> >=20
->=20
-> Tested-by: Damon Ding <damon.ding@rock-chips.com>
->=20
-> I have tested all the PWM channels in continuous mode on my RK3576-IOTEST
-> board.
->=20
-> Test commands are like:
->=20
-> cd /sys/class/pwm/pwmchip0/
-> echo 0 > export
-> cd pwm0
-> echo 10000 > period
-> echo 5000 > duty_cycle
-> echo normal > polarity
-> echo 1 > enable
+On 08/11/2025 10:36, Jacopo Mondi wrote:
+> Add to the V4L2 framework helper functions to support drivers when
+> validating a buffer of V4L2 ISP parameters.
+> 
+> Driver shall use v4l2_isp_params_validate_buffer_size() to verify the
+> size correctness of the data received from userspace, and after having
+> copied the data to a kernel-only memory location, complete the
+> validation by calling v4l2_isp_params_validate_buffer().
+> 
+> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>  MAINTAINERS                        |   2 +
+>  drivers/media/v4l2-core/Kconfig    |   4 ++
+>  drivers/media/v4l2-core/Makefile   |   1 +
+>  drivers/media/v4l2-core/v4l2-isp.c | 128 +++++++++++++++++++++++++++++++++++++
+>  include/media/v4l2-isp.h           |  91 ++++++++++++++++++++++++++
+>  5 files changed, 226 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index b4dd272a0790c317580d0747c8043738a1a58d8e..f9a86528a153f635a5a3db5ce9cf6854f699f47f 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26860,6 +26860,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
+> +F:	drivers/media/v4l2-core/v4l2-isp.c
+> +F:	include/media/v4l2-isp.h
+>  F:	include/uapi/linux/media/v4l2-isp.h
+>  
+>  VF610 NAND DRIVER
+> diff --git a/drivers/media/v4l2-core/Kconfig b/drivers/media/v4l2-core/Kconfig
+> index 331b8e535e5bbf33f22638b2ae8bc764ad5fc407..d50ccac9733cc39a43426ae7e7996dd0b5b45186 100644
+> --- a/drivers/media/v4l2-core/Kconfig
+> +++ b/drivers/media/v4l2-core/Kconfig
+> @@ -82,3 +82,7 @@ config V4L2_CCI_I2C
+>  	depends on I2C
+>  	select REGMAP_I2C
+>  	select V4L2_CCI
+> +
+> +config V4L2_ISP
+> +	tristate
+> +	depends on VIDEOBUF2_CORE
+> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
+> index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..329f0eadce994cc1c8580beb435f68fa7e2a7aeb 100644
+> --- a/drivers/media/v4l2-core/Makefile
+> +++ b/drivers/media/v4l2-core/Makefile
+> @@ -29,6 +29,7 @@ obj-$(CONFIG_V4L2_CCI) += v4l2-cci.o
+>  obj-$(CONFIG_V4L2_FLASH_LED_CLASS) += v4l2-flash-led-class.o
+>  obj-$(CONFIG_V4L2_FWNODE) += v4l2-fwnode.o
+>  obj-$(CONFIG_V4L2_H264) += v4l2-h264.o
+> +obj-$(CONFIG_V4L2_ISP) += v4l2-isp.o
+>  obj-$(CONFIG_V4L2_JPEG_HELPER) += v4l2-jpeg.o
+>  obj-$(CONFIG_V4L2_MEM2MEM_DEV) += v4l2-mem2mem.o
+>  obj-$(CONFIG_V4L2_VP9) += v4l2-vp9.o
+> diff --git a/drivers/media/v4l2-core/v4l2-isp.c b/drivers/media/v4l2-core/v4l2-isp.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..35f0b701f1729c3c0ccc34b1c89189b179e0b684
+> --- /dev/null
+> +++ b/drivers/media/v4l2-core/v4l2-isp.c
+> @@ -0,0 +1,128 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Video4Linux2 generic ISP parameters and statistics support
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#include <media/v4l2-isp.h>
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/device.h>
+> +
+> +#include <media/videobuf2-core.h>
+> +
+> +int v4l2_isp_params_validate_buffer_size(struct device *dev,
+> +					 struct vb2_buffer *vb,
+> +					 size_t max_size)
+> +{
+> +	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> +
+> +	/* Payload size can't be greater than the destination buffer size */
+> +	if (payload_size > max_size) {
+> +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Payload size can't be smaller than the header size */
+> +	if (payload_size < header_size) {
+> +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_isp_params_validate_buffer_size);
+> +
+> +int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+> +				    const struct v4l2_isp_params_buffer *buffer,
+> +				    const struct v4l2_isp_params_block_info *info,
+> +				    size_t num_blocks)
+> +{
+> +	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> +	size_t block_offset = 0;
+> +	size_t buffer_size;
+> +
+> +	/*
+> +	 * Currently only the first version of the V4L2 ISP parameters format is
+> +	 * supported. We accept both V0 and V1 to support existing drivers
+> +	 * compatible with V4L2 ISP that use either 0 or 1 as their "first
+> +	 * version" identifiers.
+> +	 */
+> +	if (buffer->version != V4L2_ISP_PARAMS_VERSION_V0 &&
+> +	    buffer->version != V4L2_ISP_PARAMS_VERSION_V1) {
+> +		dev_dbg(dev,
+> +			"Unsupported V4L2 ISP parameters format version: %u\n",
+> +			buffer->version);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Validate the size reported in the header */
+> +	buffer_size = header_size + buffer->data_size;
+> +	if (buffer_size != payload_size) {
+> +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
+> +			buffer_size, payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Walk the list of ISP configuration blocks and validate them. */
+> +	buffer_size = buffer->data_size;
+> +	while (buffer_size >= sizeof(struct v4l2_isp_params_block_header)) {
+> +		const struct v4l2_isp_params_block_info *block_info;
+> +		const struct v4l2_isp_params_block_header *block;
+> +
+> +		block = (const struct v4l2_isp_params_block_header *)
+> +			(buffer->data + block_offset);
+> +
+> +		if (block->type >= num_blocks) {
+> +			dev_dbg(dev,
+> +				"Invalid block type %u at offset %zu\n",
+> +				block->type, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		if (block->size > buffer_size) {
+> +			dev_dbg(dev, "Premature end of parameters data\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		/* It's invalid to specify both ENABLE and DISABLE. */
+> +		if ((block->flags & (V4L2_ISP_PARAMS_FL_BLOCK_ENABLE |
+> +				     V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)) ==
+> +		     (V4L2_ISP_PARAMS_FL_BLOCK_ENABLE |
+> +		     V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)) {
+> +			dev_dbg(dev, "Invalid block flags %x at offset %zu\n",
+> +				block->flags, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		/*
+> +		 * Match the block reported size against the info provided
+> +		 * one, but allow the block to only contain the header in
+> +		 * case it is going to be disabled.
+> +		 */
+> +		block_info = &info[block->type];
+> +		if (block->size != block_info->size &&
+> +		    (!(block->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) ||
+> +		    block->size != sizeof(*block))) {
+> +			dev_dbg(dev,
+> +				"Invalid block size %u (expected %zu) at offset %zu\n",
+> +				block->size, block_info->size, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		block_offset += block->size;
+> +		buffer_size -= block->size;
+> +	}
+> +
+> +	if (buffer_size) {
+> +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_isp_params_validate_buffer);
+> diff --git a/include/media/v4l2-isp.h b/include/media/v4l2-isp.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8b4695663699e7f176384739cf54ed7fa2c578f8
+> --- /dev/null
+> +++ b/include/media/v4l2-isp.h
+> @@ -0,0 +1,91 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Video4Linux2 generic ISP parameters and statistics support
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#ifndef _V4L2_ISP_H_
+> +#define _V4L2_ISP_H_
+> +
+> +#include <linux/media/v4l2-isp.h>
+> +
+> +struct device;
+> +struct vb2_buffer;
+> +
+> +/**
+> + * v4l2_isp_params_buffer_size - Calculate size of v4l2_isp_params_buffer
+> + * @max_params_size: The total size of the ISP configuration blocks
+> + *
+> + * Users of the v4l2 extensible parameters will have differing sized data arrays
+> + * depending on their specific parameter buffers. Drivers and userspace will
+> + * need to be able to calculate the appropriate size of the struct to
+> + * accommodate all ISP configuration blocks provided by the platform.
+> + * This macro provides a convenient tool for the calculation.
+> + */
+> +#define v4l2_isp_params_buffer_size(max_params_size) \
+> +	(offsetof(struct v4l2_isp_params_buffer, data) + (max_params_size))
+> +
+> +/**
+> + * v4l2_isp_params_validate_buffer_size - Validate a V4L2 ISP buffer sizes
+> + * @dev: the driver's device pointer
+> + * @vb: the videobuf2 buffer
+> + * @max_size: the maximum allowed buffer size
+> + *
+> + * This function performs validation of the size of a V4L2 ISP parameters buffer
+> + * before the driver can access the actual data buffer content.
+> + *
+> + * After the sizes validation, drivers should copy the buffer content to a
+> + * kernel-only memory area to prevent userspace from modifying it,
+> + * before completing validation using v4l2_isp_params_validate_buffer().
+> + *
+> + * The @vb buffer as received from the vb2 .buf_prepare() operation is checked
+> + * against @max_size and it's validated to be large enough to accommodate at
+> + * least one ISP configuration block.
+> + */
+> +int v4l2_isp_params_validate_buffer_size(struct device *dev,
+> +					 struct vb2_buffer *vb,
+> +					 size_t max_size);
+> +
+> +/**
+> + * struct v4l2_isp_params_block_info - V4L2 ISP per-block info
 
-Thanks for the test, very appreciated.
+Shouldn't this be v4l2_isp_params_block_type_info? After all, this
+isn't info about a block but about a block type.
 
-I wonder what made you test using sysfs instead of
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/libpwm.git/.
-Is it unknown? Too complicated? Other problems?
+> + * @size: the block expected size
+> + *
+> + * The v4l2_isp_params_block_info collects information of the ISP configuration
+> + * blocks for validation purposes. It currently only contains the expected
 
-Best regards
-Uwe
+blocks -> block types
 
---xfykpml5ewgt3ra3
-Content-Type: application/pgp-signature; name="signature.asc"
+> + * block size.
+> + *
+> + * Drivers shall prepare a list of block info, indexed by block type, one for
 
------BEGIN PGP SIGNATURE-----
+a list of block type info
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmkW+5wACgkQj4D7WH0S
-/k53tgf/ZFRrKZ3wCBT3fPYwc0esDlhE8SB04CeKkBuW/VIrFjkskcsGK2iJKR2r
-2bauJvrF4JaMaXzQb6gVZSdvirjIoNyObsUw1GcjndwxA18k+/7c2XPywT5JLtZ7
-c+OelHzh2dmXjDARoRMrHeUHIMMdTJIZZGtWl5mVNhoF/dwsbnw6ClUScmjrK/rs
-tcR6Mp6S9pWnYscxTq05ftyRClMflmU+FF7Svjq0ssoaZllI0W5KSUwAv9xOh1aO
-3LbRu0QVA9I0O5QKgJcIPjPbF14lBC2FFDSKJSAxTWVZLpzQtD3//phd42ktFrHr
-3kEGqi3j/uy7FRv8XWmKVGE2TfESaw==
-=aZBT
------END PGP SIGNATURE-----
+> + * each supported ISP block and correctly populate them with the expected block
 
---xfykpml5ewgt3ra3--
+block -> block type
+
+> + * size.
+> + */
+> +struct v4l2_isp_params_block_info {
+> +	size_t size;
+> +};
+> +
+> +/**
+> + * v4l2_isp_params_validate_buffer - Validate a V4L2 ISP parameters buffer
+> + * @dev: the driver's device pointer
+> + * @vb: the videobuf2 buffer
+> + * @buffer: the V4L2 ISP parameters buffer
+> + * @info: the list of per-block validation info
+
+@type_info: the array of per-block-type validation info
+
+> + * @num_blocks: the number of blocks
+
+@num_block_types: the number of block types in the type_info array
+
+Probably more places to correct.
+
+It took me some time before I realized that this was about the block types,
+not about the blocks themselves.
+
+Regards,
+
+	Hans
+
+> + *
+> + * This function completes the validation of a V4L2 ISP parameters buffer,
+> + * verifying each configuration block correctness before the driver can use
+> + * them to program the hardware.
+> + *
+> + * Drivers should use this function after having validated the correctness of
+> + * the vb2 buffer sizes by using the v4l2_isp_params_validate_buffer_size()
+> + * helper first. Once the buffer size has been validated, drivers should
+> + * perform a copy of the user provided buffer into a kernel-only memory buffer
+> + * to prevent userspace from modifying its content after it has been submitted
+> + * to the driver, and then call this function to complete validation.
+> + */
+> +int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+> +				    const struct v4l2_isp_params_buffer *buffer,
+> +				    const struct v4l2_isp_params_block_info *info,
+> +				    size_t num_blocks);
+> +
+> +#endif /* _V4L2_ISP_H_ */
+> 
+
 
