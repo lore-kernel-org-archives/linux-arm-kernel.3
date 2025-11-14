@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06ABCE8D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618F5CE8D77
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 18:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pd5v4wSNKEY3KlPQE7/uLwXpSddVwgTymirZOc88wbc=; b=NJr0ARKd+ppjRW8DZYZxzilb1V
-	fJfTZYFAyC/w9K9433+2HCAv4z0YymAcx4vwFNuKPjkBYVnXhAZx4GVqFBbqnf/D0+dkStjVPsKDI
-	EUz9Sa9xhMiNNXmg9glnOgIfnfotcJ3bpDLp0mHLmDyuiPYswoYL8TajFXOhtbt58f5li6DAYeydF
-	1f7gY9FRGWCbdjIowZAFC0g6AZrEfWKG4oTnp8Ge2cbiPXO37mIE/jKU0W7qm5C42RJrWHBVps+0F
-	PfwVl3rD3PY8VNk+kyas3gpL8gjbrMQc9UgVjC6M7KRbxygkaaW7pqSoM1KQdfAoTT7Edphr6Ulb5
-	k5vK14fQ==;
+	bh=ppuqIv4DsEDyTPz5netDrHF9wd1yn/r5ilOVoAffbdg=; b=LMUTgM7dv3XNg7dzJ7gfJ4Tg8c
+	Vr2XdHbGNzX7Fmm5u34kxbkk8+roCw1xf44TQfyXSzBDRVljYYbeKIbyert+TdHIUrWzSykO6qDHJ
+	tNPxGIkjJP/gRRCyOPTVjjtf5ttcEJgVI94vOYa1Smu0ZUQpm0YDS2QLMuQ60lpr/6TAclmea0l65
+	KvMeiV+Mo8o8zWsM4DEF5kvP2q0qKghVh34ytheruZYj6qefOrb59lCRQXN4da+1wJnt6jfoMwfQe
+	LBreJAqlWPgiGJsDvmMrp5L5QcYaXIHdTAlA6Xr86Vs7GdA/cEdUwNBXS/Q+UNeahkqKp0U4+ZX4E
+	MG/1YaGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJyJD-0000000CwK8-06Mk;
-	Fri, 14 Nov 2025 18:14:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJyW4-0000000CxJn-2UE9;
+	Fri, 14 Nov 2025 18:27:24 +0000
+Received: from mail-westcentralusazon11013006.outbound.protection.outlook.com ([40.93.201.6] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJyJB-0000000CwJv-49E1;
-	Fri, 14 Nov 2025 18:14:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A85060186;
-	Fri, 14 Nov 2025 18:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5640C116B1;
-	Fri, 14 Nov 2025 18:14:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763144044;
-	bh=o+j5swFsnXgCqnE0eg6/H67kOI6QLdqW9fhbdgj4dN0=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=jK8r0yvsojY1rymY5knaXU/LO05zt8VRVgkyIxC7vQXIdN1SVPl5xhqyRA3ej7V5m
-	 ZWVrw8lkCNfk1Bad7grOXshhcg0EoS0VYkJgVr8pwVjwQbXwDCnVmSpIKyVZcME/i9
-	 3/KkH0B6hEgPEGvxRQ31RiaEdmyWfGw2B5TeafY8uJLJoR1IkF5rrl/4IerK9Tshaj
-	 vX39a9LLOQ/BSkJ5+Tyodr09pvrvJb5B4ctrUoh9jdpCMNfmQiGJhsOYJZHFqb68Nf
-	 Bf3vHlOW/b768iOvaBfw3TWNnIUk72mAhEfgKx4h81AEU5WAMUatwzdzSeoimZaxns
-	 ToBGK/+oL0Xww==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 13468CE0CA7; Fri, 14 Nov 2025 10:14:04 -0800 (PST)
-Date: Fri, 14 Nov 2025 10:14:04 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>
-Cc: Valentin Schneider <vschneid@redhat.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-mm@kvack.org, rcu@vger.kernel.org,
-	the arch/x86 maintainers <x86@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: Re: [PATCH v7 00/31] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-Message-ID: <89398bdf-4dad-4976-8eb9-1e86032c8794@paulmck-laptop>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <c4768cf3-f131-44e6-9b25-ebeb633f32ee@app.fastmail.com>
- <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
+	id 1vJyW2-0000000CxJP-00xu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 18:27:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VrHv2QZNPmVEYGhc3hxI8eQpkgiq5pT4h/CEIkgu/oPcyPi5F0aAd2FJcsx1ZA7h2ptM3Bq4TfVij96stuHdLBRjhBuFO/6rb6bCN7JtoyyV4VGLiHjkXpS0+L4A1dKUphtmfZMjWaZH37lHHG/ton1BIDBYgaW5l2THngyLKTJR+d5bYfHCAAXCPp4faqqsG4uydG69Gi9yJ+al1/pzYff638aGvbMhBM9QMiB7N4CZ4Ec2qSQmBpU0JiFUlQa38MD9HhD/x3yI7fPWpcMLT0LBl/mFysuRtBOklZ5YVkZjMLVjJdMtn2/zkl3F3+LB7fZ+HrcroWuvVkEv8gsWyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ppuqIv4DsEDyTPz5netDrHF9wd1yn/r5ilOVoAffbdg=;
+ b=KfueVNgpr1cScF0LbgrL8wmEoFvfCIt5zTeHnJZLT8IAy/Sb/wT0OMG2nDcyneicRg7qghQlYph7DlDCqG718J+S+BXq4j+xaTlDv/UVd79gYnLrV24CufYFM94d0lxHgLwN3WgqAHPkZZt0us6o0Q7Zt01OVf6g+h4d3e3bXdqI79QKdUlWGYKNcAjmYcKraCiUHV7q7LD8a1/iQ4QBCfu8IP1p0M+ya4QFyOrFJJzjjrjg5ets6MXe8pfy61kC/HehzBo4+oBN0bTnypCGZwSXJwjDrxqzdN2XXrbV374CglIKkB3zpZgJLUo+S+2ZWa+3z3YbjssXv0pMBnfHqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ppuqIv4DsEDyTPz5netDrHF9wd1yn/r5ilOVoAffbdg=;
+ b=BW7GYuWEj8jUmTTdBRjnFJR2pzWr7SgjZ7idYv9GMLMvAi+UgTROEuKMkkTfASziGBrSjJpfqKmA91ODw/fnilYCQpzfma3H07fEstt1L8N9M3COYTEY83e6Y8uQewt4jLK6PBjYUABblyhUrpMg79iyId+J3Te2PaKA2fvzW5s9t+RYPWqA8gRxKQ0HIsn8gh8K5VAGxyeadinyRzigkBaWDPjotcvgQX/h4PcMKO9B4aP/kLk8GDejczd6ubjjVDRYdUv8/jND1IPJuM5i4YYtvUaGqmns4VsBYSXHLfwnq1h8WjryhX1HQPvGr3RnaPudJpaq9Kgi71pn2KH6Vg==
+Received: from CH5P221CA0006.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1f2::19)
+ by CH2PR12MB4117.namprd12.prod.outlook.com (2603:10b6:610:ae::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
+ 2025 18:27:14 +0000
+Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
+ (2603:10b6:610:1f2:cafe::5a) by CH5P221CA0006.outlook.office365.com
+ (2603:10b6:610:1f2::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.18 via Frontend Transport; Fri,
+ 14 Nov 2025 18:27:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 18:27:14 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 10:26:55 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 14 Nov
+ 2025 10:26:54 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 14 Nov 2025 10:26:53 -0800
+Date: Fri, 14 Nov 2025 10:26:52 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "afael@kernel.org"
+	<afael@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"alex@shazbot.org" <alex@shazbot.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>, "Jaroszynski, Piotr"
+	<pjaroszynski@nvidia.com>, "Sethi, Vikram" <vsethi@nvidia.com>,
+	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
+	<etzhao1900@gmail.com>
+Subject: Re: [PATCH v5 4/5] iommu: Introduce iommu_dev_reset_prepare() and
+ iommu_dev_reset_done()
+Message-ID: <aRd0bIFlbRgIzGKs@Asurada-Nvidia>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <28af027371a981a2b4154633e12cdb1e5a11da4a.1762835355.git.nicolinc@nvidia.com>
+ <BN9PR11MB527683978D304128441125C68CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <beb46a02-b902-438b-8b6d-b5f0d7ad0ae6@app.fastmail.com>
+In-Reply-To: <BN9PR11MB527683978D304128441125C68CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|CH2PR12MB4117:EE_
+X-MS-Office365-Filtering-Correlation-Id: 075dd32c-8e58-4923-ebfc-08de23ab6f63
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5SFY8QV9193IyFQB7lRyx0xcbyHO6LyZPKfTly/bhfjA8pkBjiSwLNAxzhX6?=
+ =?us-ascii?Q?EASh8nYX4WUvIanQi9PMqFWftBXP+ceYG+Vt8apFL5PpAULabCbFr13bkr0F?=
+ =?us-ascii?Q?5QtDmebjd9CygipfS7lCDf7KkDtZBntv6ayiduJV1aoSMVKHFlgQGBANjmOb?=
+ =?us-ascii?Q?10szY2nG8ltT1RKFbJ05Ku3+Tlyi/gDGkjDcmdKcR5/FhtxXWZNvIRQd5Lav?=
+ =?us-ascii?Q?htTwRoH+GUEV24cstHPeldw85qNMgXUKTZymVYd3v2cctDsa53YsZFv8x/tc?=
+ =?us-ascii?Q?Ng+Mkncc3g03BbvHB3C7wiydkQBW+ooBLPSC4qt7E9M1MpfKsVb4EKmHElFd?=
+ =?us-ascii?Q?y70n7L4Fd71bCZ/lejMqrVV6gZyb5N4VaUBX1K7afgMw/CV5EdgTKOp/It91?=
+ =?us-ascii?Q?wXdjWfTZCdiZcW8Esw476DT+2bOAdL4QP5PAGvgxXUBazPfXCt6MTvOB2BkJ?=
+ =?us-ascii?Q?+cHZmb2z3YOsmn5MjwpmhYFWZk0pEjARupOPIlhAP2BjworkFZ9qNMSJjQUi?=
+ =?us-ascii?Q?EL3xP2Tft3NDpOfdb7udNV6dSZFrKwHSeVOpRZcC0RQ9gVn+ncFnVK9kPZZY?=
+ =?us-ascii?Q?1GytGot+LBTDD36ERYpYA4LO74mNBq4keM0VY9OHGdtS8i8hjv4TL1Cz0fV7?=
+ =?us-ascii?Q?CTpmkEt8p79lxn4QKh3uvwVsFeOYJy79IeLn28ejBynU4axw8biXgm2bK3KI?=
+ =?us-ascii?Q?ZAdKzxaBy76OhkAC4B31/iulLzpI7EifzFdHX/Gv5DMvSKa7lqbfaWOK17bC?=
+ =?us-ascii?Q?IP4lUYUnsUtfq8mhcTd2A5rOiKczXHZhihhOO5fTilMiZdUJWawsqYZDF6PA?=
+ =?us-ascii?Q?6dKPiOUzXPHzZJqTzaobaW6ktrHfaaHAfcVPixup17vUfRjnj5++CTxC6jtm?=
+ =?us-ascii?Q?8bJJU9lFZPmV77tPSMkbnoauwwCBjQ8G6TN2gkOpEbZYgXiB2666nQ2U7CLb?=
+ =?us-ascii?Q?+EXu03+RX5tF60/EgfMHJUK2OhXTjQAXi/CuBQqoIYrAai0SraLMP9pM/9zl?=
+ =?us-ascii?Q?RaDfpANMVqMcgNZw6VGj+NYRsmi35p0A7kxLlq50OZzKLaPl4FvIxEuJbCp/?=
+ =?us-ascii?Q?x97NQlmMtNMVt+MCBO1x+zGaF+M0JzSCIoyCzSC8Ry3v8R6rYHNzeZIegMOz?=
+ =?us-ascii?Q?DB2tfeNknCcYfLUBA+EuEkHqTzyEmKsfIu3i0n/kFcuqi+O2B3PeUlX+Rnej?=
+ =?us-ascii?Q?unksTwCDzEB16luNiZuc1KlZitgE4CtLq76S2vtWwclCKyEcvIFTPkX9GPCC?=
+ =?us-ascii?Q?qaJwIby8mU34SJnP7Azj24cFIDVPCBgLoqTDi4Uy/VHFeeMKbxpMhofgxDvA?=
+ =?us-ascii?Q?77bKmTJDpdqyRnf/PtpK750dLM2GASsJaTaxJzQ3E2E+hkxDx7QZZ88LKNW5?=
+ =?us-ascii?Q?KPNI5abMctYh+cvO9Fgtycvw5rWwGCk9qYHcmQUnp3fvOYlL71jUpRX/vBJg?=
+ =?us-ascii?Q?DmXcTNd4J45CA1JnPEzLE8zNjG6bqgHcZJsvdRED6+5ooTo7GY6vGDU8F5Et?=
+ =?us-ascii?Q?jYZTgGY5BY1pU2cX0O0mcVKuyw/Ti3Gc7GyQD50NxEwbqKkO2xZ3qJB7+XUJ?=
+ =?us-ascii?Q?RNw6VFqk0vCzjguECx3ejALtHrjt8t4LAvEKyxl5?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 18:27:14.6630
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 075dd32c-8e58-4923-ebfc-08de23ab6f63
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4117
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_102722_071797_3FCCA416 
+X-CRM114-Status: GOOD (  35.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,193 +164,134 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 09:22:35AM -0800, Andy Lutomirski wrote:
+On Fri, Nov 14, 2025 at 09:37:27AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > @@ -2195,6 +2200,12 @@ int iommu_deferred_attach(struct device *dev,
+> > struct iommu_domain *domain)
+> > 
+> >  	guard(mutex)(&dev->iommu_group->mutex);
+> > 
+> > +	/*
+> > +	 * This is a concurrent attach while a group device is resetting. Reject
+> > +	 * it until iommu_dev_reset_done() attaches the device to group-
+> > >domain.
+> > +	 */
+> > +	if (dev->iommu_group->resetting_domain)
+> > +		return -EBUSY;
 > 
+> It might be worth noting that failing a deferred attach leads to failing
+> the dma map operation. It's different from other explicit attaching paths,
+> but there is nothing more we can do here.
+
+OK.
+	/*
+	 * This is a concurrent attach while a group device is resetting. Reject
+	 * it until iommu_dev_reset_done() attaches the device to group->domain.
+	 *
+	 * Worth noting that this may fail the dma map operation. But there is
+	 * nothing more we can do here.
+	 */
+
+
+> > @@ -2253,6 +2264,16 @@ struct iommu_domain
+> > *iommu_driver_get_domain_for_dev(struct device *dev)
+> > 
+> >  	lockdep_assert_held(&group->mutex);
+> > 
+> > +	/*
+> > +	 * Driver handles the low-level __iommu_attach_device(), including
+> > the
+> > +	 * one invoked by iommu_dev_reset_done(), in which case the driver
+> > must
+> > +	 * get the resetting_domain over group->domain caching the one
+> > prior to
+> > +	 * iommu_dev_reset_prepare(), so that it wouldn't end up with
+> > attaching
+> > +	 * the device from group->domain (old) to group->domain (new).
+> > +	 */
+> > +	if (group->resetting_domain)
+> > +		return group->resetting_domain;
 > 
-> On Fri, Nov 14, 2025, at 8:20 AM, Andy Lutomirski wrote:
-> > On Fri, Nov 14, 2025, at 7:01 AM, Valentin Schneider wrote:
-> >> Context
-> >> =======
-> >>
-> >> We've observed within Red Hat that isolated, NOHZ_FULL CPUs running a
-> >> pure-userspace application get regularly interrupted by IPIs sent from
-> >> housekeeping CPUs. Those IPIs are caused by activity on the housekeeping CPUs
-> >> leading to various on_each_cpu() calls, e.g.:
-> >>
-> >
-> >> The heart of this series is the thought that while we cannot remove NOHZ_FULL
-> >> CPUs from the list of CPUs targeted by these IPIs, they may not have to execute
-> >> the callbacks immediately. Anything that only affects kernelspace can wait
-> >> until the next user->kernel transition, providing it can be executed "early
-> >> enough" in the entry code.
-> >>
-> >
-> > I want to point out that there's another option here, although anyone 
-> > trying to implement it would be fighting against quite a lot of history.
-> >
-> > Logically, each CPU is in one of a handful of states: user mode, idle, 
-> > normal kernel mode (possibly subdivided into IRQ, etc), and a handful 
-> > of very narrow windows, hopefully uninstrumented and not accessing any 
-> > PTEs that might be invalid, in the entry and exit paths where any state 
-> > in memory could be out of sync with actual CPU state.  (The latter 
-> > includes right after the CPU switches to kernel mode, for example.)  
-> > And NMI and MCE and whatever weird "security" entry types that Intel 
-> > and AMD love to add.
-> >
-> > The way the kernel *currently* deals with this has two big historical oddities:
-> >
-> > 1. The entry and exit code cares about ti_flags, which is per-*task*, 
-> > which means that atomically poking it from other CPUs involves the 
-> > runqueue lock or other shenanigans (see the idle nr_polling code for 
-> > example), and also that it's not accessible from the user page tables 
-> > if PTI is on.
-> >
-> > 2. The actual heavyweight atomic part (context tracking) was built for 
-> > RCU, and it's sort or bolted on, and, as you've observed in this 
-> > series, it's really quite awkward to do things that aren't RCU using 
-> > context tracking.
-> >
-> > If this were a greenfield project, I think there's a straightforward 
-> > approach that's much nicer: stick everything into a single percpu flags 
-> > structure.  Imagine we have cpu_flags, which tracks both the current 
-> > state of the CPU and what work needs to be done on state changes.  On 
-> > exit to user mode, we would atomically set the mode to USER and make 
-> > sure we don't touch anything like vmalloc space after that.  On entry 
-> > back to kernel mode, we would avoid vmalloc space, etc, then atomically 
-> > switch to kernel mode and read out whatever deferred work is needed.  
-> > As an optimization, if nothing in the current configuration needs 
-> > atomic state tracking, the state could be left at USER_OR_KERNEL and 
-> > the overhead of an extra atomic op at entry and exit could be avoided.
-> >
-> > And RCU would hook into *that* instead of having its own separate set of hooks.
+> It's a pretty long sentence. Let's break it.
 
-Please note that RCU needs to sample a given CPU's idle state from other
-CPUs, and to have pretty heavy-duty ordering guarantees.  This is needed
-to avoid RCU needing to wake up idle CPUs on the one hand or relying on
-scheduling-clock interrupts waking up idle CPUs on the other.
+OK.
+	/*
+	 * Driver handles the low-level __iommu_attach_device(), including the
+	 * one invoked by iommu_dev_reset_done() that reattaches the device to
+	 * the cached group->domain. In this case, the driver must get the old
+	 * domain from group->resetting_domain rather than group->domain. This
+	 * prevents it from reattaching the device from group->domain (old) to
+	 * group->domain (new).
+	 */
 
-Or am I missing the point of your suggestion?
+>> +int iommu_dev_reset_prepare(struct device *dev)
+>
+> If this is intended to be used by pci for now, it's clearer to have a 'pci'
+> word in the name. Later when there is a demand calling it from other
+> buses, discussion will catch eyes to ensure no racy of UAF etc.
 
-> > I think that actually doing this would be a big improvement and would 
-> > also be a serious project.  There's a lot of code that would get 
-> > touched, and the existing context tracking code is subtle and 
-> > confusing.  And, as mentioned, ti_flags has the wrong scope.
+Well, if we make it exclusive for PCI. Perhaps just move these two
+from pci.c to iommu.c:
 
-Serious care would certainly be needed!  ;-)
+int pci_reset_iommu_prepare(struct pci_dev *dev);
+void pci_reset_iommu_done(struct pci_dev *dev);
 
-> > It's *possible* that one could avoid making ti_flags percpu either by 
-> > extensive use of the runqueue locks or by borrowing a kludge from the 
-> > idle code.  For the latter, right now, the reason that the 
-> > wake-from-idle code works is that the optimized path only happens if 
-> > the idle thread/cpu is "polling", and it's impossible for the idle 
-> > ti_flags to be polling while the CPU isn't actually idle.  We could 
-> > similarly observe that, if a ti_flags says it's in USER mode *and* is 
-> > on, say, cpu 3, then cpu 3 is most definitely in USER mode.  So someone 
-> > could try shoving the CPU number into ti_flags :-p   (USER means 
-> > actually user or in the late exit / early entry path.)
-> >
-> > Anyway, benefits of this whole approach would include considerably 
-> > (IMO) increased comprehensibility compared to the current tangled ct 
-> > code and much more straightforward addition of new things that happen 
-> > to a target CPU conditionally depending on its mode.  And, if the flags 
-> > word was actually per cpu, it could be mapped such that 
-> > SWITCH_TO_KERNEL_CR3 would use it -- there could be a single CR3 write 
-> > (and maybe CR4/invpcid depending on whether a zapped mapping is global) 
-> > and the flush bit could depend on whether a flush is needed.  And there 
-> > would be basically no chance that a bug that accessed 
-> > invalidated-but-not-flushed kernel data could be undetected -- in PTI 
-> > mode, any such access would page fault!  Similarly, if kernel text 
-> > pokes deferred the flush and serialization, the only code that could 
-> > execute before noticing the deferred flush would be the user-CR3 code.
-> >
-> > Oh, any another primitive would be possible: one CPU could plausibly 
-> > execute another CPU's interrupts or soft-irqs or whatever by taking a 
-> > special lock that would effectively pin the remote CPU in user mode -- 
-> > you'd set a flag in the target cpu_flags saying "pin in USER mode" and 
-> > the transition on that CPU to kernel mode would then spin on entry to 
-> > kernel mode and wait for the lock to be released.  This could plausibly 
-> > get a lot of the on_each_cpu callers to switch over in one fell swoop: 
-> > anything that needs to synchronize to the remote CPU but does not need 
-> > to poke its actual architectural state could be executed locally while 
-> > the remote CPU is pinned.
-
-It would be necessary to arrange for the remote CPU to remain pinned
-while the local CPU executed on its behalf.  Does the above approach
-make that happen without re-introducing our current context-tracking
-overhead and complexity?
-
-> Following up, I think that x86 can do this all with a single atomic (in the common case) per usermode round trip.  Imagine:
+> > +	/*
+> > +	 * Once the resetting_domain is set, any concurrent attachment to
+> > this
+> > +	 * iommu_group will be rejected, which would break the attach
+> > routines
+> > +	 * of the sibling devices in the same iommu_group. So, skip this case.
+> > +	 */
+> > +	if (dev_is_pci(dev)) {
+> > +		struct group_device *gdev;
+> > +
+> > +		for_each_group_device(group, gdev) {
+> > +			if (gdev->dev != dev)
+> > +				return 0;
+> > +		}
+> > +	}
 > 
-> struct fancy_cpu_state {
->   u32 work; // <-- writable by any CPU
->   u32 status; // <-- readable anywhere; writable locally
-> };
+> btw what'd be a real impact to reject concurrent attachment for sibling
+> devices? This series already documents the impact in uAPI for the device
+> under attachment, and the userspace already knows the restriction 
+> of devices in the group which must be attached to a same hwpt.
 > 
-> status includes KERNEL, USER, and maybe INDETERMINATE.  (INDETERMINATE means USER but we're not committing to doing work.)
-> 
-> Exit to user mode:
-> 
-> atomic_set(&my_state->status, USER);
+> Combining those knowledge I don't think there is a problem for 
+> userspace to be aware of that resetting a device in a multi-dev
+> group affects concurrent attachment of sibling devices...
 
-We need ordering in the RCU nohz_full case.  If the grace-period kthread
-sees the status as USER, all the preceding KERNEL code's effects must
-be visible to the grace-period kthread.
+It's following Jason's remarks:
+https://lore.kernel.org/linux-iommu/20250915125357.GH1024672@nvidia.com/
 
-> (or, in the lazy case, set to INDETERMINATE instead.)
+Perhaps we should add that to the uAPI, given the race condition
+that you mentioned below.
+
+> > +	/* Re-attach RID domain back to group->domain */
+> > +	if (group->domain != group->blocking_domain) {
+> > +		WARN_ON(__iommu_attach_device(group->domain, dev,
+> > +					      group->blocking_domain));
+> > +	}
 > 
-> Entry from user mode, with IRQs off, before switching to kernel CR3:
+> Even if we disallow resetting on a multi-dev group, there is still a
+> corner case not taken care here.
 > 
-> if (my_state->status == INDETERMINATE) {
->   // we were lazy and we never promised to do work atomically.
->   atomic_set(&my_state->status, KERNEL);
->   this_entry_work = 0;
-> } else {
->   // we were not lazy and we promised we would do work atomically
->   atomic exchange the entire state to { .work = 0, .status = KERNEL }
->   this_entry_work = (whatever we just read);
-> }
-
-If this atomic exchange is fully ordered (as opposed to, say, _relaxed),
-then this works in that if the grace-period kthread sees USER, its prior
-references are guaranteed not to see later kernel-mode references from
-that CPU.
-
-> if (PTI) {
->   switch to kernel CR3 *and flush if this_entry_work says to flush*
-> } else {
->   flush if this_entry_work says to flush;
-> }
+> It's possible that there is only one device in the group at prepare,
+> coming with a device hotplug added to the group in the middle,
+> then doing reset_done.
 > 
-> do the rest of the work;
+> In this case the newly-added device will inherit the blocking domain.
 > 
-> 
-> 
-> I suppose that a lot of the stuff in ti_flags could merge into here, but it could be done one bit at a time when people feel like doing so.  And I imagine, but I'm very far from confident, that RCU could use this instead of the current context tracking code.
+> Then reset_done should loop all devices in the group and re-attach
+> all of them to the cached domain.
 
-RCU currently needs pretty heavy-duty ordering to reliably detect the
-other CPUs' quiescent states without needing to wake them from idle, or,
-in the nohz_full case, interrupt their userspace execution.  Not saying
-it is impossible, but it will need extreme care.
+Oh, that's a good catch!
 
-> The idea behind INDETERMINATE is that there are plenty of workloads that frequently switch between user and kernel mode and that would rather accept a few IPIs to avoid the heavyweight atomic operation on user -> kernel transitions.  So the default behavior could be to do KERNEL -> INDETERMINATE instead of KERNEL -> USER, but code that wants to be in user mode for a long time could go all the way to USER.  We could make it sort of automatic by noticing that we're returning from an IRQ without a context switch and go to USER (so we would get at most one unneeded IPI per normal user entry), and we could have some nice API for a program that intends to hang out in user mode for a very long time (cpu isolation users, for example) to tell the kernel to go immediately into USER mode.  (Don't we already have something that could be used for this purpose?)
+I will address all of your notes.
 
-RCU *could* do an smp_call_function_single() when the CPU failed
-to respond, perhaps in a manner similar to how it already forces a
-given CPU out of nohz_full state if that CPU has been executing in the
-kernel for too long.  The real-time guys might not be amused, though.
-Especially those real-time guys hitting sub-microsecond latencies.
-
-> Hmm, now I wonder if it would make sense for the default behavior of Linux to be like that.  We could call it ONEHZ.  It's like NOHZ_FULL except that user threads that don't do syscalls get one single timer tick instead of many or none.
-> 
-> 
-> Anyway, I think my proposal is pretty good *if* RCU could be made to use it -- the existing context tracking code is fairly expensive, and I don't think we want to invent a new context-tracking-like mechanism if we still need to do the existing thing.
-
-If you build with CONFIG_NO_HZ_FULL=n, do you still get the heavyweight
-operations when transitioning between kernel and user execution?
-
-							Thanx, Paul
+Thank you
+Nicolin
 
