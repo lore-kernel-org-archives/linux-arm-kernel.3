@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6389CE7B1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C8CCE8D40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8bb0UJXfBdxAxh+iVnPVK+vs19ADwDSadYINv64vJMs=; b=Jm9/5h9rjzavHCGEVCK6TL6ein
-	8qditP7g/KTbpMbj+WaXNYQRs2DOWri8SpOco0NDG8jrY0zzI1iNdnpP3udiZrC84gCbCi+AfIw58
-	7adotpR1wta79YpCyQTJRpCGheGQhuzZXAxYkgCvkZ/v09pGf8T5Ceb8veRUQnKZibeB2PNyfOxo0
-	rPW+KJg+WrAxgi9UUCYDKC8WAbTjCElXMycVvGtIh1omcIFGsnq8hQtxEu55/1/Km1SLlcWxZNeXq
-	n3/x8TSzFTKztpqAYyPr3VWnkN9JfN9DWzBEdc55pqUNYCrjYRd8PVtaPZdYTRU2yA7LVz/u11mV7
-	KFFHoKsA==;
+	bh=udhFmhZtlG3TBzZAohN4eP9yg2+7Zj3K5xQejSUTbLs=; b=NX/mVpVIyxHOtUMw9paYO9bBkn
+	JHnPOW9Hft9+7NtjN04nes76HeO5VzXmnyYqRBbDb9HV92NH3y0Me6xaZ45dHtNzeEcDgTTzzaPNF
+	yqKCEukSsgTKYgIjSxvikco2PzqyjcaqcWz6JqHAyvYFSreqk3iKHVcZBeWtsS+JScShuyf8ujEg1
+	9UqNdcp1t64p1orkJYjCm5ejMX2UHVYaMbhQvKbXv9rGDX9CPHqsm5n/aRXsb6jWMHRVSXySm/C9I
+	Z13+rp/HeORKIa8cxMa9P5YUj/6UUYV+NaDYyZ4IO6fs3xWnsNJT99R3EA1KRvnAgOQ50xkWFtBWR
+	9FhiJWAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvEx-0000000CPUM-37Gg;
-	Fri, 14 Nov 2025 14:57:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vJvJz-0000000CPjy-2QDX;
+	Fri, 14 Nov 2025 15:02:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvEv-0000000CPTX-08aG
+	id 1vJvJs-0000000CPhK-0iff
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:57:30 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1036CB5;
-	Fri, 14 Nov 2025 15:55:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763132124;
-	bh=UTl0W5+Bdo6I+bjM1sDG2qr2k/CxEVF6Tf83hOXGMzU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PaZwhQLDGaev/igVb0jI/OydGH3dMJiRT5hie2WPZI9PhWjrvgydCncmP68HwsIgu
-	 NMOdv/Dod3ygTeAVnKJy2eINSdDKG2I3B7kqTPukZdAjBN9Jt3CCNjyRmGKUN7rBX6
-	 nd3GoNDppwdbVYgtEa5Z/5fN1XuPLYXj9XDckE7E=
-Date: Fri, 14 Nov 2025 15:57:21 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, nayden.kanchev@arm.com, 
-	robh+dt@kernel.org, mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	conor+dt@kernel.org, jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
-	laurent.pinchart@ideasonboard.com, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v13 15/15] Documentation: mali-c55: Document the mali-c55
- parameter setting
-Message-ID: <umslyxkmj4gnr743c6ixsykay5w2seoeiy2hzidg6lb3fcizep@dglvrn7l7a4q>
-References: <20251111-c55-v13-0-3dc581355e3a@ideasonboard.com>
- <20251111-c55-v13-15-3dc581355e3a@ideasonboard.com>
- <2n4sn2aakwl7k2qvcefb7m2zzllytj7i4nup55xex2ggdngfkd@gwpxbpmlupko>
- <aRdBbn4cpdn_7H0v@kekkonen.localdomain>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aRdBbn4cpdn_7H0v@kekkonen.localdomain>
+	Fri, 14 Nov 2025 15:02:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83712443B5;
+	Fri, 14 Nov 2025 15:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 418F1C2BCAF;
+	Fri, 14 Nov 2025 15:02:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763132555;
+	bh=bnQzitv+bcx/vm2e9QneP7g5jpvlqREWphFL7TxpTU4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ky5GRlAlhAqlckUwc8+x2G2tZ/UWYE7+cFntEDUbaAf+Bh34DB1pF6XBVehYerHOm
+	 +pSVYMfoGGXif7VC+8vQ8H9g/vVsaIqPLg/X0ZsnI0O8jm06s49mTU+amHx3K3Dl7y
+	 7NFv/ytgc/hdoA7qID1VOnBm9YHOIpgLCffgB4tQxWo4df383whExqrfr50XqLaJcU
+	 ZhOdmpWDtJHsOlfro8GuvbRgT2BPZ33/kzRyvXe0wcondMXxveg9OKFlcrLAz4oRic
+	 SZXIvXDU9gVpWzKE6X8WJv0+3VYa3lRxvu3Xz7WKMMRmdO4pKDMlXolASOoLNYrftB
+	 Ey2NK6nWwmXSA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vJvJo-00000005F1H-31IK;
+	Fri, 14 Nov 2025 15:02:32 +0000
+Date: Fri, 14 Nov 2025 15:02:32 +0000
+Message-ID: <86cy5ku06v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
+In-Reply-To: <CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-30-maz@kernel.org>
+	<CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_065729_232666_EF58FCD8 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20251114_070236_245690_8BDAF42D 
+X-CRM114-Status: GOOD (  33.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,152 +93,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
-   can't say timing is what we excel the most at.
-
-Afaik Hans has applied the PR, and as all comments here are on ...
-comments, they will be addressed with patches on top
-
-On Fri, Nov 14, 2025 at 04:49:18PM +0200, Sakari Ailus wrote:
-> Hi Jacopo,
->
-> On Thu, Nov 13, 2025 at 09:39:37AM +0100, Jacopo Mondi wrote:
-> > > +the data member with the blocks that need to be configured by the driver, but
-> > > +need not populate it with **all** the blocks, or indeed with any at all if there
-> > > +are no configuration changes to make. Populated blocks **must** be consecutive
-> > > +in the buffer. To assist both userspace and the driver in identifying the
-> > > +blocks each block-specific struct embeds :c:type:`v4l2_params_block_header` as
-> > > +its first member and userspace must populate the type member with a value from
-> > > +:c:type:`mali_c55_param_block_type`. Once the blocks have been populated
-> > > +into the data buffer, the combined size of all populated blocks shall be set in
-> > > +the data_size member of :c:type:`v4l2_params_buffer`. For example:
-> > > +
-> > > +.. code-block:: c
-> > > +
-> > > +	struct v4l2_params_buffer *params =
-> > > +		(struct v4l2_params_buffer *)buffer;
-> > > +
-> > > +	params->version = MALI_C55_PARAM_BUFFER_V1;
-> > > +	params->data_size = 0;
-> > > +
-> > > +	void *data = (void *)params->data;
-> > > +
-> > > +	struct mali_c55_params_awb_gains *gains =
-> > > +		(struct mali_c55_params_awb_gains *)data;
-> > > +
-> > > +	gains->header.type = MALI_C55_PARAM_BLOCK_AWB_GAINS;
-> > > +	gains->header.flags |= V4L2_PARAMS_FL_BLOCK_ENABLE;
-> > > +	gains->header.size = sizeof(struct mali_c55_params_awb_gains);
-> > > +
-> > > +	gains->gain00 = 256;
-> > > +	gains->gain00 = 256;
-> > > +	gains->gain00 = 256;
-> > > +	gains->gain00 = 256;
-> > > +
-> > > +	data += sizeof(struct mali_c55_params_awb_gains);
-> > > +	params->data_size += sizeof(struct mali_c55_params_awb_gains);
-> > > +
-> > > +	struct mali_c55_params_sensor_off_preshading *blc =
-> > > +		(struct mali_c55_params_sensor_off_preshading *)data;
-> > > +
-> > > +	blc->header.type = MALI_C55_PARAM_BLOCK_SENSOR_OFFS;
-> > > +	blc->header.flags |= V4L2_PARAMS_FL_BLOCK_ENABLE;
-> > > +	blc->header.size = sizeof(struct mali_c55_params_sensor_off_preshading);
-> > > +
-> > > +	blc->chan00 = 51200;
-> > > +	blc->chan01 = 51200;
-> > > +	blc->chan10 = 51200;
-> > > +	blc->chan11 = 51200;
-> > > +
-> > > +	params->total_size += sizeof(struct mali_c55_params_sensor_off_preshading);
+On Fri, 14 Nov 2025 14:20:46 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
 > >
-> > s/total_size/data_size
+> > Now that we are ready to handle deactivation through ICV_DIR_EL1,
+> > set the trap bit if we have active interrupts outside of the LRs.
 > >
-> > And I've also updated it to use the v4l2-isp types
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
+> >  1 file changed, 7 insertions(+)
 > >
-> > +.. code-block:: c
+> > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > index 1026031f22ff9..26e17ed057f00 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > @@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+> >                 ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
+> >         cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
+> >                 ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
 > > +
-> > +       struct v4l2_isp_params_buffer *params =
-> > +               (struct v4l2_isp_params_buffer *)buffer;
->
-> What's the type of buffer here? If it's void, you can drop the cast.
->
-> > +
-> > +       params->version = MALI_C55_PARAM_BUFFER_V1;
-> > +       params->data_size = 0;
-> > +
-> > +       void *data = (void *)params->data;
->
-> No need for a cast here.
->
-> > +
-> > +       struct mali_c55_params_awb_gains *gains =
-> > +               (struct mali_c55_params_awb_gains *)data;
->
-> Ditto.
->
-> Unless, I guess, you use C++. :-)
->
+> > +       /*
+> > +        * Note that we set the trap irrespective of EOIMode, as that
+> > +        * can change behind our back without any warning...
+> > +        */
+> > +       if (irqs_active_outside_lrs(als))
+> > +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
+> >  }
+> 
+> I just tested these patches as they are on kvmarm/next
+> 2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
+> 'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
+> additional pKVM patches. I tried running it with pKVM (non-protected)
+> and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
+> when booting a non-protected guest, which triggers a bug in
+> handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
+> 
+> This trap is happening because of setting this particular trap (TDIR).
+> Just removing this trap from vgic_v3_configure_hcr() from the ToT on
+> kvmarm/next boots fine.
 
-It was C++ code yes :)
+This is surprising, as I'm not hitting this on actual HW. Are you
+getting a 0x18 trap? If so, is it coming from the host? Can you
+correlate the PC with what the host is doing?
 
-> > +
-> > +       gains->header.type = MALI_C55_PARAM_BLOCK_AWB_GAINS;
-> > +       gains->header.flags |= V4L2_ISP_PARAMS_FL_BLOCK_ENABLE;
-> > +       gains->header.size = sizeof(struct mali_c55_params_awb_gains);
-> > +
-> > +       gains->gain00 = 256;
-> > +       gains->gain00 = 256;
-> > +       gains->gain00 = 256;
-> > +       gains->gain00 = 256;
-> > +
-> > +       data += sizeof(struct mali_c55_params_awb_gains);
->
-> 	data += sizeof(*gains);
->
-> ?
->
-> > +       params->data_size += sizeof(struct mali_c55_params_awb_gains);
->
-> Ditto.
->
-> > +
-> > +       struct mali_c55_params_sensor_off_preshading *blc =
-> > +               (struct mali_c55_params_sensor_off_preshading *)data;
-> > +
-> > +       blc->header.type = MALI_C55_PARAM_BLOCK_SENSOR_OFFS;
-> > +       blc->header.flags |= V4L2_ISP_PARAMS_FL_BLOCK_ENABLE;
-> > +       blc->header.size = sizeof(struct mali_c55_params_sensor_off_preshading);
-> > +
-> > +       blc->chan00 = 51200;
-> > +       blc->chan01 = 51200;
-> > +       blc->chan10 = 51200;
-> > +       blc->chan11 = 51200;
-> > +
-> > +       params->data_size += sizeof(struct mali_c55_params_sensor_off_preshading);
->
-> 	... += sizeof(*blc);
->
-> ?
+It would indicate that we are leaking trap bits on exit, and that QEMU
+is trapping ICC_DIR_EL1 on top of ICV_DIR_EL1 (which the HW I have
+access to doesn't seem to do).
 
-Patches will follow after v6.19 has been released
+> I'm running this on QEMU with '-machine virt,gic-version=3 -cpu max'
+> and the kernel with 'kvm-arm.mode=protected' and with
+> 'kvm-arm.mode=nvhe'.
+> 
+> Let me know if you need any more info or help testing.
 
+On top of the above, could you give the hack below a go? I haven't
+tested it at all (I'm in the middle of a bisect from hell...)
 
->
-> >
-> > With your ack, I'll apply the following changes before sending the PR.
-> >
-> > Thanks
-> >   j
-> >
-> > > +
-> > >  Arm Mali-C55 uAPI data types
-> > >  ============================
-> > >
-> > >
->
-> --
-> Regards,
->
-> Sakari Ailus
+Thanks,
+
+	M.
+
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index e950efa22547..71199e1a9294 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -243,7 +243,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
+                cpu_if->vgic_hcr |= val & ICH_HCR_EL2_EOIcount;
+        }
+ 
+-       write_gicreg(compute_ich_hcr(cpu_if) & ~ICH_HCR_EL2_En, ICH_HCR_EL2);
++       write_gicreg(0, ICH_HCR_EL2);
+ }
+ 
+ void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
+
+-- 
+Without deviation from the norm, progress is not possible.
 
