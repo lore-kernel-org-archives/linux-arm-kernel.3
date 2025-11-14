@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEB2CE8D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA11CE8D4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZTNWOjnizUqyQTj0dluKp1aHQqnCOIHeZo6aP9To3Q=; b=gXXifyFwHPNylTa49ZjYSXHRhg
-	u62Dqp15ksy4MTMQDWvC43OP3ZHVDpJ+yviPq8aCrnQX6mZnzZMKw/PiaE3VKQd6dyYjHkgrXtr9Y
-	dOg3aaqIC3BZLmH36N2mib54bg/AiBRvF0BFDL2LtsjDCrQoSV5IvsQqRA2Yt5lNYiIzd+/HK612q
-	r6Kc79+I+182J1rDTi2iSfqGdNp9NVUDHkUwFq3LPGKagP9+YmnI0bukqcWhXwk/09vNjcd5SD5Ag
-	7wYOGdVqtIdaiDXxoRcePcXbAw98xVIPyKjDKIYqIjoBsFoWIMz6S7AoxawXq/HiNM58jC/aCmuYV
-	y0eSw5IQ==;
+	bh=HMEUP9u3W9EIR+cFst4nLdjSq5wH8QN53pHZMn7gQng=; b=j+eAnj0qiG4ir54uXsMvOe94Pd
+	v8PoyI64lEJqT593ahF+0vGxf8HMcxiy+Xl/8+uZlcjlQ2W0MSX85zLquVtUmDTCMb6C/vKhhEFhG
+	sGeSzNLxedZkWEyc340GAZt3hd0Q+tz0U+6gBkM811pKrLjqZblOKAmI2Eq0aGvm7LEtRi0jESOVv
+	1Qnjh2adj++Ijw4qLzfI3Vqpq8PNtIgMsL+smUxTIUIDDCjoQfg5hzVsk8eR9RMgjQ7pZzgaD8T2l
+	BVEJ9VhAQX0xUrshKWbrXbpINzaU6b0JuHNNhZnkJLvB4ZfSDbzx1FjaX2/Lz77cw9PnqWJTwl9m/
+	FafVzEkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwMn-0000000ChBq-0bxe;
-	Fri, 14 Nov 2025 16:09:41 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwMk-0000000Ch4m-05q3
+	id 1vJwN4-0000000ChVp-2qag;
+	Fri, 14 Nov 2025 16:09:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJwN2-0000000ChTK-3nfx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:09:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwMb-0003CT-Dp; Fri, 14 Nov 2025 17:09:29 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwMb-000Ron-0N;
-	Fri, 14 Nov 2025 17:09:29 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vJwMb-00000000BWa-08pa;
-	Fri, 14 Nov 2025 17:09:29 +0100
-Message-ID: <e9b580b65add30dfd0be30c73610542dcea1f8cc.camel@pengutronix.de>
-Subject: Re: [PATCH v5 5/6] reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	 <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Daniel Baluta
-	 <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li
-	 <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team
-	 <kernel@pengutronix.de>
-Date: Fri, 14 Nov 2025 17:09:28 +0100
-In-Reply-To: <20251114133738.1762-6-laurentiumihalcea111@gmail.com>
-References: <20251114133738.1762-1-laurentiumihalcea111@gmail.com>
-	 <20251114133738.1762-6-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1+deb13u1 
+	Fri, 14 Nov 2025 16:09:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0ACF1AC1;
+	Fri, 14 Nov 2025 08:09:48 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC3EB3F5A1;
+	Fri, 14 Nov 2025 08:09:55 -0800 (PST)
+Date: Fri, 14 Nov 2025 16:09:54 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 09/13] coresight: Interpret ETMv4 config with
+ ATTR_CFG_GET_FLD()
+Message-ID: <20251114160954.GJ3568724@e132581.arm.com>
+References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
+ <20251112-james-cs-syncfreq-v4-9-165ba21401dc@linaro.org>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112-james-cs-syncfreq-v4-9-165ba21401dc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_080938_073248_7C4F2FE0 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20251114_080957_047758_7883FB55 
+X-CRM114-Status: GOOD (  27.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +68,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2025-11-14 at 05:37 -0800, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->=20
-> Support i.MX8ULP's SIM LPAV by adding its reset map definition.
->=20
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-
+On Wed, Nov 12, 2025 at 03:22:15PM +0000, James Clark wrote:
+> Remove hard coded bitfield extractions and shifts and replace with
+> ATTR_CFG_GET_FLD().
+> 
+> ETM4_CFG_BIT_BB was defined to give the register bit positions to
+> userspace, TRCCONFIGR_BB should be used in the kernel so replace it.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  drivers/reset/reset-imx8mp-audiomix.c | 45 +++++++++++++++++++++++++++
->  1 file changed, 45 insertions(+)
->=20
-> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-=
-imx8mp-audiomix.c
-> index d3396f37d1ff..83fc8bcf80ab 100644
-> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> @@ -3,6 +3,7 @@
->   * Copyright 2024 NXP
->   */
-> =20
-> +#include <dt-bindings/reset/fsl,imx8ulp-sim-lpav.h>
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 44 ++++++++++------------
+>  1 file changed, 19 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 380a7840adb8..1aa0357a5ce7 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/seq_file.h>
+>  #include <linux/uaccess.h>
+>  #include <linux/perf_event.h>
+> +#include <linux/perf/arm_pmu.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/property.h>
+> @@ -789,17 +790,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  		goto out;
+>  
+>  	/* Go from generic option to ETMv4 specifics */
+> -	if (attr->config & BIT(ETM_OPT_CYCACC)) {
+> +	if (ATTR_CFG_GET_FLD(attr, cycacc)) {
+>  		config->cfg |= TRCCONFIGR_CCI;
+>  		/* TRM: Must program this for cycacc to work */
+> -		cc_threshold = attr->config3 & ETM_CYC_THRESHOLD_MASK;
+> +		cc_threshold = ATTR_CFG_GET_FLD(attr, cc_threshold);
+>  		if (!cc_threshold)
+>  			cc_threshold = ETM_CYC_THRESHOLD_DEFAULT;
+>  		if (cc_threshold < drvdata->ccitmin)
+>  			cc_threshold = drvdata->ccitmin;
+>  		config->ccctlr = cc_threshold;
+>  	}
+> -	if (attr->config & BIT(ETM_OPT_TS)) {
+> +	if (ATTR_CFG_GET_FLD(attr, timestamp)) {
+>  		/*
+>  		 * Configure timestamps to be emitted at regular intervals in
+>  		 * order to correlate instructions executed on different CPUs
+> @@ -819,17 +820,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  	}
+>  
+>  	/* Only trace contextID when runs in root PID namespace */
+> -	if ((attr->config & BIT(ETM_OPT_CTXTID)) &&
+> +	if (ATTR_CFG_GET_FLD(attr, contextid1) &&
+>  	    task_is_in_init_pid_ns(current))
+>  		/* bit[6], Context ID tracing bit */
+>  		config->cfg |= TRCCONFIGR_CID;
+>  
+>  	/*
+> -	 * If set bit ETM_OPT_CTXTID2 in perf config, this asks to trace VMID
+> -	 * for recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the
+> -	 * kernel is not running in EL2.
+> +	 * If set bit contextid2 in perf config, this asks to trace VMID for
+> +	 * recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the kernel
+> +	 * is not running in EL2.
+>  	 */
+> -	if (attr->config & BIT(ETM_OPT_CTXTID2)) {
+> +	if (ATTR_CFG_GET_FLD(attr, contextid2)) {
+>  		if (!is_kernel_in_hyp_mode()) {
+>  			ret = -EINVAL;
+>  			goto out;
+> @@ -840,26 +841,22 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  	}
+>  
+>  	/* return stack - enable if selected and supported */
+> -	if ((attr->config & BIT(ETM_OPT_RETSTK)) && drvdata->retstack)
+> +	if (ATTR_CFG_GET_FLD(attr, retstack) && drvdata->retstack)
+>  		/* bit[12], Return stack enable bit */
+>  		config->cfg |= TRCCONFIGR_RS;
+>  
+>  	/*
+> -	 * Set any selected configuration and preset.
+> -	 *
+> -	 * This extracts the values of PMU_FORMAT_ATTR(configid) and PMU_FORMAT_ATTR(preset)
+> -	 * in the perf attributes defined in coresight-etm-perf.c.
+> -	 * configid uses bits 63:32 of attr->config2, preset uses bits 3:0 of attr->config.
+> -	 * A zero configid means no configuration active, preset = 0 means no preset selected.
+> +	 * Set any selected configuration and preset. A zero configid means no
+> +	 * configuration active, preset = 0 means no preset selected.
+>  	 */
+> -	if (attr->config2 & GENMASK_ULL(63, 32)) {
+> -		cfg_hash = (u32)(attr->config2 >> 32);
+> -		preset = attr->config & 0xF;
+> +	if (ATTR_CFG_GET_FLD(attr, configid)) {
+> +		cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
 
-This now depends on 3b521bf8c512 ("dt-bindings: clock: document 8ULP's
-SIM LPAV").
+Nitpick:
 
-regards
-Philipp
+
+    cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
+    if (cfg_hash) {
+
+Then we can avoid a redundant ATTR_CFG_GET_FLD().
+
+Otherwise:
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+> +		preset = ATTR_CFG_GET_FLD(attr, preset);
+>  		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+>  	}
+>  
+>  	/* branch broadcast - enable if selected and supported */
+> -	if (attr->config & BIT(ETM_OPT_BRANCH_BROADCAST)) {
+> +	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
+>  		if (!drvdata->trcbb) {
+>  			/*
+>  			 * Missing BB support could cause silent decode errors
+> @@ -868,7 +865,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  			ret = -EINVAL;
+>  			goto out;
+>  		} else {
+> -			config->cfg |= BIT(ETM4_CFG_BIT_BB);
+> +			config->cfg |= TRCCONFIGR_BB;
+>  		}
+>  	}
+>  
+> @@ -1104,11 +1101,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+>  		return -EINVAL;
+>  
+>  	etm4_disable_hw(drvdata);
+> -	/*
+> -	 * The config_id occupies bits 63:32 of the config2 perf event attr
+> -	 * field. If this is non-zero then we will have enabled a config.
+> -	 */
+> -	if (attr->config2 & GENMASK_ULL(63, 32))
+> +	/* If configid is non-zero then we will have enabled a config. */
+> +	if (ATTR_CFG_GET_FLD(attr, configid))
+>  		cscfg_csdev_disable_active_config(csdev);
+>  
+>  	/*
+> 
+> -- 
+> 2.34.1
+> 
 
