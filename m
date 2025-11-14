@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78280CE7AA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025ACCE7AAB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nC8UTxZicoaLj+gHj5PDV9Jqhe0Z6rG1WKRuxO8ygG0=; b=VA4l2jCJ1WxdOryfZfjMrgGZyY
-	CfvYVIsehPh6SOTNxCxQBrmeDikLdivJgMM1CF6EHA27AgOrBYrX9spVq5aFzaj7h5NNDcsqdMynw
-	q3tmN9SoXvG+BWQwPF3tpeGzw3LRuu8dFh8hO86Z8AgwunePRMm8Iqo9WYBFEti3JLN4GVmL229yN
-	ErmPbgpHjmYRmkw8VoiFmy6Cjk/th2uyFHkuYRLunRKX4zDXpisgb+fIr7MiWUXPnjI66FmeGBRTF
-	aoiLuIgLn7sA6ow69YSeTNPYZMWGVcLnd2sDAkIx7DzQAD4pAmpWgE7cW+KFaKt63GgDV07+KTg7g
-	JSotQz1w==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZv8FVn813ocMF2VlBAmSIScmppLB+BVDIW42HgaCKw=; b=NHAr44+DjZyjvSo5qvpR7T0XsK
+	QMKFUCAQb4oDMQPuvd6vOckBca+i8O4l4KA0t0Dz/fnGOf9MdzpuiQ98rKLJsQOFanI8WDI0N6pdI
+	AkPTsIpL5D8Np8uuy74vb7/+gzYUjl5ZWvXaqX6lMIa26niWzh57AwBmameZPASIVzIEYaJFuXV1I
+	F9YLD0QnKtvWG/P1P4xS7A7phsgHOPmeOWtdBRf0sBXrVqJslMPHBfL5X1Xv1Mry74wl/m285nJ0X
+	h/Sl04Nz/ubBNWuRhshpEISvNPUc1+GweggTcSg3tph6PV/QA6RYizJY1JVPLsknu4nJE8xab7F8t
+	HSd7j9uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr86-0000000C1km-3vUZ;
-	Fri, 14 Nov 2025 10:34:11 +0000
+	id 1vJr8A-0000000C1mA-23g6;
+	Fri, 14 Nov 2025 10:34:14 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr81-0000000C1ix-2y4I
+	id 1vJr84-0000000C1ix-3MCf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:34:08 +0000
+	Fri, 14 Nov 2025 10:34:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1763116445; x=1794652445;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=D9cxNLkNziaEdzUnkoYLDeMaPHjBAxKPggl+Zh8QZpU=;
-  b=Q7LYIPILAJ4GdO3mWFzxbMpx1o8hOR/9G8qDpHQiRA7JKaySu7uokgDl
-   W6YtZduZthdJcES8srze4JmUzTSj6yOMHmQ5vPsA/EABzuRAQig4UKbGS
-   ycLy5aSIxX/9tWYiQIMbQljHHoeYoYyR8CEkuDDKTGDacmnZEk3R2/xqV
-   tstli2KSLKsotCRO2VijY39v6ux3AyXwogD4hGHJtqRD2aJhmoaMS+4XM
-   SqGN2cKu7xJ5KtKdTTiyyLLzQd6KdrOnaufms96MYsbitg0AC9TWRa3/4
-   g5J05kyiHXvy2oL+ohUEQQADe7QAwdMbFmLHGnWiv7jPHJAblkHTtn2Vz
-   A==;
-X-CSE-ConnectionGUID: Bmgk/fX/QBGabdIqtVBXBQ==
-X-CSE-MsgGUID: wIk1cWa8SLKfj1V6vLzLuw==
+  t=1763116448; x=1794652448;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KPMD6p9uhlCxkQRs7hFiFLlZgxILwM9Wd1Kk2DwCaLw=;
+  b=rTEh/U0WDjo8lyYzgjIyCJOgOrsSpoxNTKp2xDx7QVbu0xzQVZzNS6fA
+   45gxZz2VI+1VRkcNOp4eIjMg/y/psaTN8WdiuVx8TpES0DjOyQOYctB0T
+   e+/dP6XSvcHUS9MhHzq/ZIrDlKl0i4zDBsUNfahDqwCKQVL6o1Imu2PoA
+   +ZJ9KfvJJtnQ3TDGxr0x8Oqu4PzDx5W8GVniiiHBybzgRKKUzl0KgzBVf
+   bGVXJ8X7d8Inq6Mend0T1ybqu03Lo4NfnrPsLxFlLXJc73+73LVB0vd5m
+   VrFVXVnEbRYfgGsVEFPliu+y1qxVV04jikH56JXGGvLgE9onn8DN7Frfv
+   g==;
+X-CSE-ConnectionGUID: BJd5VjbhRg+8Cp44sya7Mw==
+X-CSE-MsgGUID: V7oXaPY0R4WzV6ZtHHKvIw==
 X-IronPort-AV: E=Sophos;i="6.19,304,1754982000"; 
-   d="scan'208";a="49627358"
+   d="scan'208";a="49627364"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2025 03:34:00 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Nov 2025 03:34:01 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Fri, 14 Nov 2025 03:33:30 -0700
+ 15.1.2507.58; Fri, 14 Nov 2025 03:33:38 -0700
 Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 14 Nov 2025 03:33:29 -0700
+ 15.1.2507.58 via Frontend Transport; Fri, 14 Nov 2025 03:33:36 -0700
 From: <nicolas.ferre@microchip.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
 	<claudiu.beznea@tuxon.dev>
@@ -61,16 +61,18 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	Ryan Wanner <ryan.wanner@microchip.com>, Cristian Birsan
 	<cristian.birsan@microchip.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
 	<stable@vger.kernel.org>
-Subject: [PATCH 1/2] ARM: dts: microchip: sama7d65: fix uart fifo size to 32
-Date: Fri, 14 Nov 2025 11:33:12 +0100
-Message-ID: <20251114103313.20220-1-nicolas.ferre@microchip.com>
+Subject: [PATCH 2/2] ARM: dts: microchip: sama7g5: fix uart fifo size to 32
+Date: Fri, 14 Nov 2025 11:33:13 +0100
+Message-ID: <20251114103313.20220-2-nicolas.ferre@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251114103313.20220-1-nicolas.ferre@microchip.com>
+References: <20251114103313.20220-1-nicolas.ferre@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_023405_977854_FDCD8F4D 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20251114_023408_901609_29021202 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +90,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
 On some flexcom nodes related to uart, the fifo sizes were wrong: fix
-them to 32 data.  Note that product datasheet is being reviewed to fix
-inconsistency, but this value is validated by product's designers.
+them to 32 data.
 
-Fixes: 261dcfad1b59 ("ARM: dts: microchip: add sama7d65 SoC DT")
-Fixes: b51e4aea3ecf ("ARM: dts: microchip: sama7d65: Add FLEXCOMs to sama7d65 SoC")
-Cc: <stable@vger.kernel.org> # 6.16+
+Fixes: 7540629e2fc7 ("ARM: dts: at91: add sama7g5 SoC DT and sama7g5-ek")
+Cc: <stable@vger.kernel.org> # 5.15+
 Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/microchip/sama7g5.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index e53e2dd6d530..cd2cf9a6f40b 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -557,7 +557,7 @@ uart4: serial@200 {
+diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+index 381cbcfcb34a..03ef3d9aaeec 100644
+--- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+@@ -824,7 +824,7 @@ uart4: serial@200 {
  				dma-names = "tx", "rx";
  				atmel,use-dma-rx;
  				atmel,use-dma-tx;
--				atmel,fifo-size = <16>;
-+				atmel,fifo-size = <32>;
- 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
- 				status = "disabled";
- 			};
-@@ -618,7 +618,7 @@ uart6: serial@200 {
- 				clocks = <&pmc PMC_TYPE_PERIPHERAL 40>;
- 				clock-names = "usart";
- 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
 -				atmel,fifo-size = <16>;
 +				atmel,fifo-size = <32>;
  				status = "disabled";
  			};
  		};
-@@ -643,7 +643,7 @@ uart7: serial@200 {
+@@ -850,7 +850,7 @@ uart7: serial@200 {
  				dma-names = "tx", "rx";
  				atmel,use-dma-rx;
  				atmel,use-dma-tx;
 -				atmel,fifo-size = <16>;
 +				atmel,fifo-size = <32>;
- 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
  				status = "disabled";
  			};
+ 		};
 -- 
 2.43.0
 
