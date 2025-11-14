@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51394CE7B13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66926CE7B13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=usqzkbXAktOV+QTZEhZmGU1PKdliPqoVmQQvPTmUm64=; b=nz19PGiHfQzJuR27LWCukjN/kH
-	nkxoPxTsAMn83kazLTnyK+DPQCYCc4DrxO57Msesthd7DaXPDp0h5vHLdWwClG0BQ1lEd3Jbs6igp
-	TjJCjth/d1k/0xbGpTVD8sQBo24uTnNy1J22+DodOGaT5S96c4HK/SCY91uBFY3FOVc6R5V+ybhlc
-	NXPtXWY6VzgQR3DBvzA2jQm2dWHSyfGE3pizbpYobFGVGjSIHKd+hQtqWybO6vQHB1Uj2X+gqYkHi
-	YGHlOQuW0XykQx/As+5MZsnl3JhQxGnlZgivbFa/luqxUZNlMfrOhouGS5yKvaDw1IRem7xMF5f7e
-	SKevxazg==;
+	bh=tuugdbs4qPrYJbDgPmXQJ06XmUfS38Y/AWsXOl8uN2E=; b=NwtL6W+z/iXWBIjIBl+0krkDNu
+	MNxDRN0CA5iTRSVmOhjCMk6uT9casX1YQIFFCR2Zvht4uJjYqsTATfp30I3oyfZ6rYTGterJQAf9o
+	RpB1XKamPcL6QZtgxWTPgIbVx3O583JGJB17Y0u2gvrOFba8zyO8CoOFQXiC0xCZbB0U73MkDYQLH
+	nDf6duqhCGHE1oZx3/RDnH0Aw9Jns7WkNh5xr565xybyPEnTrvmzBZ2RdxBQmHhbbFo0gf8t/tVZE
+	ojfuTf7c3pgtgMtYXfpwo5OkyeF4rCjtSnSi/A1nxR5saz/n01Nt5FkIW3teMfc1FoSri1M8mqnab
+	GLPFI1mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJuu7-0000000COMc-1xgm;
-	Fri, 14 Nov 2025 14:35:59 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1vJuxM-0000000COYT-47GB;
+	Fri, 14 Nov 2025 14:39:20 +0000
+Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJuu4-0000000COM7-43qG
+	id 1vJuxK-0000000COY3-0tRI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:35:58 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6419e6dab7fso3091604a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:35:56 -0800 (PST)
+	Fri, 14 Nov 2025 14:39:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763130955; x=1763735755; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=usqzkbXAktOV+QTZEhZmGU1PKdliPqoVmQQvPTmUm64=;
-        b=bBGay4UroRQr0Ggxf+h5tJkSp9GmP9vUIssE7AAYeX6qqY9e9g/6MqrHJMM8hG5E6f
-         hig6Eq29KP5esPdilIkeOApYTuG1spCNs0VX3XqsB+wB83y/O5oSQXyZ0wPsYgcu1Zab
-         8LZFhECRyQO5UHwy5DFCwe9P1xU7SmyH5DAKrpStfqdKMvIf+S8lobGEBd9ybjrTMvqh
-         c+HKPmRBBjcZpaevnbtYakMts72l5VwimKCMrn8FmkTjpocHFN8BXobiJSSyi0ckFoJF
-         ps7zxsP1ehTsxPNieFzwcDQAM8/h3g6XG+Csvux42r1DONRqq5qbnk/0ecSPol8gthkU
-         SiLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763130955; x=1763735755;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=usqzkbXAktOV+QTZEhZmGU1PKdliPqoVmQQvPTmUm64=;
-        b=eZVW+8ob1ktLXM00g065lcn55cYvt8r7mfVV6cyGs1Eg73edexsQMILBylokmFtc2o
-         Msx9fwVrYxsRFzeKvyzuRl4gqvMhQmHAW8TYto7Gmp8TUsuBnUIbRolDGfhKkXA9UdbF
-         8f/xbcaCamKMubHVuEMrwwXP/xcHcSAyBhbSZGAff6BtB4/mWTKZH2EWDpXlVyUcmyLL
-         OyGG8lARy9v9AmbUKfvgEOrhktDBalgyKeuElI0b55ROGgvHIzjk8725IT0GJWz08CP7
-         Ggi0ncBM1QxIiGbxUhh4wVaJlbK9Av/7xQRzmusK3uooTfTYzCiJnRzLl6J7IOuRu7q6
-         G9Ew==
-X-Forwarded-Encrypted: i=1; AJvYcCVuK8n4qHsqaSJ88ZyMP1FB6dV5pzkY22pqpAui3LUrrkpBKW6Hw1nKXiM+izKVbi0oWsgPJScfLDg5kc3FOS4u@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIOmaTp5t8RDQ2kXfw3BZ3iK31pjz4Z5Ebk6TCnuqccwhRHGVu
-	w3X/MoqdNVqx86mXrtrt2bCvIN3t10K+fjoPMa26jubKWgCa2RlhJZNW
-X-Gm-Gg: ASbGnctNlD3t9TBRKVg8V2pgQKVEzrlcGcohXSL9C8MiE+69yqgQ3SWcCTor/BSQKlG
-	1l4wuZi7YtazEb/Oewzi0fCOGqXf/nPEb/HARhI4YS5H5H17DoN7s8eT4SQCssCyinsj4ZOd+8/
-	19rZGQwJnvWPB++Zum6V2cDtMjiDlgWS1SLFaGnlxCMz7Vheg/ycLaAR3ryriImecC7MSNnYPwU
-	qhHiqSD0X9ISM6M4s0OABr/bpogbNlNnXiW4sesvD1NfKzNxlrxZkYQf1tpYb/3OxIIaEG7JXvg
-	03pZgfUMdv1ejZNlMp/wNYcxkROyIC0Yw8+eUS5h8FOcJXtgn4F2SV5zfF+v9i+TQuizUmRJqWv
-	mAZw80l9im2wMdMIQeqECFo4jV7OP6XNzeKqoceBf7pBBTCcQmkdD2Hg2Q6qs8DzmqoifEcJtbH
-	QzRnmf9eyRcOuUG1TvEeqiWaNgDCtWAGXCZMBC3Q==
-X-Google-Smtp-Source: AGHT+IEkXh8aOaEa9VYbV+mSh0EevYMCtp8lTPm/U4emLvWPOqyGjxIaHiTsSpt8P+ehxwrwdlpbfQ==
-X-Received: by 2002:a17:907:6d1b:b0:b72:ad95:c1c2 with SMTP id a640c23a62f3a-b7367828c43mr340632166b.11.1763130954832;
-        Fri, 14 Nov 2025 06:35:54 -0800 (PST)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fa80afbsm391264766b.11.2025.11.14.06.35.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 06:35:54 -0800 (PST)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Mark Brown <broonie@kernel.org>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: linux-sound@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ASoC: SOF: imx9: use SCMI API for LM management
-Date: Fri, 14 Nov 2025 06:35:03 -0800
-Message-ID: <20251114143503.2139-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1763131158; x=1794667158;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=tuugdbs4qPrYJbDgPmXQJ06XmUfS38Y/AWsXOl8uN2E=;
+  b=bVy/zdWU9f+Pd52NOpLNK90M56yW6V3eRHYXUjq2FuVy1Pkrj2q+OnWR
+   SJZvO3rvj3S/+ub8jzGU8U9SSYX2tn99vcBjh/EBDhTnIrASefl9ba02Z
+   l0Y5ZiRFjCmU9acZ34IcAR7/PYloqwz9+TD8M0E8DdhXPkDJB7z/jvNTI
+   JJ6cFZIvklGH8doukweVAoD0NzrTdPNsRiTiN4NkFaJJKyMkS9fGIfF4f
+   1joQYfGXqTRcIITPKbnBiGPxH1Aa5rDE0DbwV/ZcWHs4KMqmgesp30027
+   jK4qprO96pP6Mi8UyBOV2i2xZr/SnPQY9oKx4qyBz+/a3CGcxucZVklZj
+   A==;
+X-CSE-ConnectionGUID: o5a+tyeIR5G2RJUtFkkssQ==
+X-CSE-MsgGUID: YR9i1iJSQ9qI4StgXjCJZw==
+X-IronPort-AV: E=Sophos;i="6.19,305,1754956800"; 
+   d="scan'208";a="7112465"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2025 14:39:12 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:4363]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.62.84:2525] with esmtp (Farcaster)
+ id f4ae6c68-9432-4b5a-b747-c7b52eb56619; Fri, 14 Nov 2025 14:39:12 +0000 (UTC)
+X-Farcaster-Flow-ID: f4ae6c68-9432-4b5a-b747-c7b52eb56619
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
+ Fri, 14 Nov 2025 14:39:12 +0000
+Received: from amazon.com (10.1.212.32) by EX19D001UWA001.ant.amazon.com
+ (10.13.138.214) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29; Fri, 14 Nov 2025
+ 14:39:09 +0000
+From: Maximilian Dittgen <mdittgen@amazon.de>
+To: <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <pbonzini@redhat.com>, <shuah@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<mdittgen@amazon.de>, <lilitj@amazon.de>, <nh-open-source@amazon.com>
+Subject: [PATCH] KVM: selftests: Add SYNC after guest ITS setup in vgic_lpi_stress
+Date: Fri, 14 Nov 2025 15:39:02 +0100
+Message-ID: <20251114143902.30435-1-mdittgen@amazon.de>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.1.212.32]
+X-ClientProxiedBy: EX19D041UWA002.ant.amazon.com (10.13.139.121) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_063557_253968_E500B39E 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251114_063918_309948_935D1BFC 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,114 +91,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+vgic_lpi_stress sends MAPTI and MAPC commands during guest GIC
+setup to map interrupt events to ITT entries and collection IDs
+to redistributors, respectively.
 
-Linux supports NXP's LMM SCMI protocol so switch to using the appropriate
-API. The SIPs were intended to act as placeholders until the support for
-said protocol was upstreamed.
+Theoretically, we have no guarantee that the ITS will
+finish handling these mapping commands before the selftest
+calls KVM_SIGNAL_MSI to inject LPIs to the guest. If LPIs
+are injected before ITS mapping completes, the ITS cannot
+properly pass the interrupt on to the redistributor.
 
-The underlying CPU protocol command from IMX_SIP_SRC_M_RESET_ADDR_SET is
-replaced by a LMM protocol command with the same effect (i.e. setting the
-boot address) since using the CPU protocol would require additional
-permissions (which TF-A already had). Apart from this, the SIPs are
-replaced by their equivalent Linux LMM commands.
+In practice, KVM processes ITS commands synchronously, so
+SYNC calls are functionally unnecessary and ignored in
+vgic_its_handle_command().
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+However, selftests should test based on ARM specification and
+be blind to KVM-specific implementation optimizations. Thus,
+we must update the test to be architecturally compliant and
+logically correct.
+
+Fix by adding a SYNC command to the selftests ITS library,
+then calling SYNC after ITS mapping to ensure mapping
+completes before signal_lpi() writes to GITS_TRANSLATER.
+
+This patch depends on commit a24f7afce048 ("KVM: selftests:
+fix MAPC RDbase target formatting in vgic_lpi_stress"), which
+is queued in kvmarm/fixes.
+
+Signed-off-by: Maximilian Dittgen <mdittgen@amazon.de>
 ---
-Changes in v2:
+Validated by the following debug logging to the GITS_CMD_SYNC handler
+in vgic_its_handle_command():
 
-* add dependency on CONFIG_IMX_SCMI_LMM_DRV.
-* link to v1: https://lore.kernel.org/lkml/20251112144124.680-1-laurentiumihalcea111@gmail.com/
+        kvm_info("ITS SYNC command: %016llx %016llx %016llx %016llx\n",
+            its_cmd[0], its_cmd[1], its_cmd[2], its_cmd[3]);
 
- sound/soc/sof/imx/Kconfig |  1 +
- sound/soc/sof/imx/imx9.c  | 36 ++++++++----------------------------
- 2 files changed, 9 insertions(+), 28 deletions(-)
+Initialized a selftest guest with 4 vCPUs by:
 
-diff --git a/sound/soc/sof/imx/Kconfig b/sound/soc/sof/imx/Kconfig
-index 327e2df94a58..09d88ce5b9e6 100644
---- a/sound/soc/sof/imx/Kconfig
-+++ b/sound/soc/sof/imx/Kconfig
-@@ -35,6 +35,7 @@ config SND_SOC_SOF_IMX8
- config SND_SOC_SOF_IMX9
- 	tristate "SOF support for i.MX9"
- 	depends on IMX_DSP
-+	depends on IMX_SCMI_LMM_DRV
- 	select SND_SOC_SOF_IMX_COMMON
- 	help
- 	  This adds support for Sound Open Firmware for NXP i.MX9 platforms.
-diff --git a/sound/soc/sof/imx/imx9.c b/sound/soc/sof/imx/imx9.c
-index 853155d5990a..e56e8a1c8022 100644
---- a/sound/soc/sof/imx/imx9.c
-+++ b/sound/soc/sof/imx/imx9.c
-@@ -3,19 +3,11 @@
-  * Copyright 2025 NXP
-  */
+        ./vgic_lpi_stress -v 4
+
+Confirmed that an ITS SYNC was successfully called for all 4 vCPUs:
+
+        kvm [5094]: ITS SYNC command: 0000000000000005 0000000000000000 0000000000000000 0000000000000000
+        kvm [5094]: ITS SYNC command: 0000000000000005 0000000000000000 0000000000010000 0000000000000000
+        kvm [5094]: ITS SYNC command: 0000000000000005 0000000000000000 0000000000020000 0000000000000000
+        kvm [5094]: ITS SYNC command: 0000000000000005 0000000000000000 0000000000030000 0000000000000000
+---
+ tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c   |  4 ++++
+ .../testing/selftests/kvm/include/arm64/gic_v3_its.h  |  1 +
+ tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c    | 11 +++++++++++
+ 3 files changed, 16 insertions(+)
+
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+index 687d04463983..e857a605f577 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+@@ -118,6 +118,10 @@ static void guest_setup_gic(void)
  
--#include <linux/arm-smccc.h>
-+#include <linux/firmware/imx/sm.h>
- 
- #include "imx-common.h"
- 
--#define IMX_SIP_SRC 0xC2000005
--#define IMX_SIP_SRC_M_RESET_ADDR_SET 0x03
--
--#define IMX95_CPU_VEC_FLAGS_BOOT BIT(29)
--
--#define IMX_SIP_LMM 0xC200000F
--#define IMX_SIP_LMM_BOOT 0x0
--#define IMX_SIP_LMM_SHUTDOWN 0x1
--
-+#define IMX95_M7_CPU_ID 0x1
- #define IMX95_M7_LM_ID 0x1
- 
- static struct snd_soc_dai_driver imx95_dai[] = {
-@@ -38,7 +30,6 @@ static int imx95_ops_init(struct snd_sof_dev *sdev)
- 
- static int imx95_chip_probe(struct snd_sof_dev *sdev)
- {
--	struct arm_smccc_res smc_res;
- 	struct platform_device *pdev;
- 	struct resource *res;
- 
-@@ -49,31 +40,20 @@ static int imx95_chip_probe(struct snd_sof_dev *sdev)
- 		return dev_err_probe(sdev->dev, -ENODEV,
- 				     "failed to fetch SRAM region\n");
- 
--	/* set core boot reset address */
--	arm_smccc_smc(IMX_SIP_SRC, IMX_SIP_SRC_M_RESET_ADDR_SET, res->start,
--		      IMX95_CPU_VEC_FLAGS_BOOT, 0, 0, 0, 0, &smc_res);
--
--	return smc_res.a0;
-+	return scmi_imx_lmm_reset_vector_set(IMX95_M7_LM_ID, IMX95_M7_CPU_ID,
-+					     0, res->start);
+ 	guest_setup_its_mappings();
+ 	guest_invalidate_all_rdists();
++
++	/* SYNC to ensure ITS setup is complete */
++	for (cpuid = 0; cpuid < test_data.nr_cpus; cpuid++)
++		its_send_sync_cmd(test_data.cmdq_base_va, cpuid);
  }
  
- static int imx95_core_kick(struct snd_sof_dev *sdev)
- {
--	struct arm_smccc_res smc_res;
--
--	arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_BOOT,
--		      IMX95_M7_LM_ID, 0, 0, 0, 0, 0, &smc_res);
--
--	return smc_res.a0;
-+	return scmi_imx_lmm_operation(IMX95_M7_LM_ID, SCMI_IMX_LMM_BOOT, 0);
- }
+ static void guest_code(size_t nr_lpis)
+diff --git a/tools/testing/selftests/kvm/include/arm64/gic_v3_its.h b/tools/testing/selftests/kvm/include/arm64/gic_v3_its.h
+index 3722ed9c8f96..58feef3eb386 100644
+--- a/tools/testing/selftests/kvm/include/arm64/gic_v3_its.h
++++ b/tools/testing/selftests/kvm/include/arm64/gic_v3_its.h
+@@ -15,5 +15,6 @@ void its_send_mapc_cmd(void *cmdq_base, u32 vcpu_id, u32 collection_id, bool val
+ void its_send_mapti_cmd(void *cmdq_base, u32 device_id, u32 event_id,
+ 			u32 collection_id, u32 intid);
+ void its_send_invall_cmd(void *cmdq_base, u32 collection_id);
++void its_send_sync_cmd(void *cmdq_base, u32 vcpu_id);
  
- static int imx95_core_shutdown(struct snd_sof_dev *sdev)
- {
--	struct arm_smccc_res smc_res;
--
--	arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_SHUTDOWN,
--		      IMX95_M7_LM_ID, 0, 0, 0, 0, 0, &smc_res);
--
--	return smc_res.a0;
-+	return scmi_imx_lmm_operation(IMX95_M7_LM_ID,
-+				      SCMI_IMX_LMM_SHUTDOWN,
-+				      SCMI_IMX_LMM_OP_FORCEFUL);
- }
+ #endif // __SELFTESTS_GIC_V3_ITS_H__
+diff --git a/tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c b/tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c
+index 0e2f8ed90f30..d9ee331074ea 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c
++++ b/tools/testing/selftests/kvm/lib/arm64/gic_v3_its.c
+@@ -253,3 +253,14 @@ void its_send_invall_cmd(void *cmdq_base, u32 collection_id)
  
- static const struct imx_chip_ops imx95_chip_ops = {
+ 	its_send_cmd(cmdq_base, &cmd);
+ }
++
++void its_send_sync_cmd(void *cmdq_base, u32 vcpu_id)
++{
++	struct its_cmd_block cmd = {};
++
++	its_encode_cmd(&cmd, GITS_CMD_SYNC);
++	its_encode_target(&cmd, procnum_to_rdbase(vcpu_id));
++
++	its_send_cmd(cmdq_base, &cmd);
++}
++
 -- 
-2.43.0
+2.50.1 (Apple Git-155)
+
+
+
+
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christian Schlaeger, Christof Hellmis
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
 
