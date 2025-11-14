@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDECCE8D44
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A63CE8D43
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ENIksXN2U64l4q40N8FJHvZ4VX38HUL2KuN/i4l9tZA=; b=ont0ywzgFspZGwabJ1MAM93fK+
-	y2H3kHEJJEb4xV5VGiICJDjT6mUmEpJeFeBdrmXIKzRzTpvEECW57iDMbK3m1OHyxcTUumTQKpNAr
-	u6GujquJFojrAyymjQNnmznU4k2sBB67K43F3CfYTYf57X5TPIpk+SjNFFOkPeEOJfTlXTIWBiZOE
-	HHll704Es+fPXCWox3JxN3CvXOtj1pkX7X37eVXxFomAdCb3vZpCQ2BVHdc36M4gFo0CxbGsYzq9o
-	zzYDX2v6O5Hs2GTAX14LyJDn/apmoNrRxrt+ZjtM53JI2ddYSFjFwQW28xNIaXmmeI7EAStYkfyR2
-	pyMZu9Yg==;
+	bh=m6d2YBVRAxsxtD7aavxLd6mWyhAION966pctRhNP1ms=; b=LhAK5ZFfF60nzs5fVHmE2XYjst
+	NDeDKpXvs9kkfHxl2G+quYS0/OH0F+E/bZwfyKUYndCtRvJlDn6sxAFH2VIaIjB/W+uAYEEMkD0+3
+	/+LN3Am/GjXMwcCtdO/l+OgYipw2kkyXl5/J/BGIi9cPmPE4dLK8MPAIBqcIqBlJ1Yy6+SuJQ9ePr
+	JG1b8GLiyZnc9fn5EsLsIugFW/d8xSB8M6V979pORgryYwyq5Sz17eDETGsqtCsy/j8x1SAxHQh7t
+	lIrXmZHVDhss5Pvi5ZehnbV9YzWj/LBMsPyqZlYn5xrRZjcDdD5JtPFkMoVDrBhAsUM7TkUE3QLx5
+	Rw3aCc7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvb5-0000000CWBi-3c96;
-	Fri, 14 Nov 2025 15:20:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vJvbF-0000000CWLR-1S5W;
+	Fri, 14 Nov 2025 15:20:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvb3-0000000CWAa-1XDx;
-	Fri, 14 Nov 2025 15:20:22 +0000
+	id 1vJvbA-0000000CWFV-116g;
+	Fri, 14 Nov 2025 15:20:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=m6d2YBVRAxsxtD7aavxLd6mWyhAION966pctRhNP1ms=; b=onVPbVE5DkIkF8ICd3BJWnrO/d
+	j8XxhNhyoeedXPTXnDHpM4U5SN0GSJXqFc/QCorIOg3MMyoJhIHipL7+/liThhQnAHoIPrnc8B4L+
+	1O2FAWp6xz4ORSJHjChraz8F9EkNk0JGlaumT0qpBJ8p4FhO27xt6rkZxJzBYnKri7Q/XTMtsLYXy
+	VxnnN66F6EDzSIR/FA7nzeDZbH0AhTdX0rB0hRikvoliWzm4aN1UCmCfqqE5yezGuHccCq44Ar5fL
+	q4zo4xQCcxmi4S2yACJJygUrjeE3G5OBtsQ/Q3YdaNs07xsxaI+jtCdVHZfuQ7xI9JSFzC/SvIFBk
+	SKqyLZDg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJujQ-00000002ndu-3fdj;
+	Fri, 14 Nov 2025 14:25:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 905996017A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3950343C33;
 	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 12CBCC2BC9E;
-	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EE15FC4CEF8;
+	Fri, 14 Nov 2025 15:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763133620;
-	bh=/1TF0zRtt7mWqpVWSJRUWVsD14mKx+O9cA7oSvQ2GAg=;
+	bh=rtJkcFLFc1knvqExD8Pr/+VubLNDMv/tDbYdwMGF14s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=S1/5XHKnnrphtqYGq9lCjBr49FveJYMd5UZGbfmfFtnTEPbueAi/CJpOsM4bWPIvS
-	 lDDFB/r7kxMy3fU+275iWD95x0UgRe8eymu7Ki1T1oHZtU8rDaYdkfILa1hPuzNTmA
-	 JkcnmC3cuMQlJUOR3w4ZAYLca4MvZQtkjY26JhvXXXbfrnuDRb2reSxWUPIWzxkgyP
-	 iEh4OaDg5BSL/F2pD4wDipzTd07ReX3ptNMwq1q8h2MFjikgShrHE/Af4q27vE5S2Y
-	 Y5WpMcIJawEji7Y0aZ7IzR6gzIYHLqRCeZ665ZJRHaB4/aQciA95SjVunkAPyc8BPx
-	 UrKYKtgCiK8cg==
+	b=J7NFc4Yyn/swMlV5tdQe49rvyHbSNNDpj9Xeit+RnxxiQH6Rssi/CnMnyLjRyZgsp
+	 rVE0Ak0prko9SwAGPhz9NFX6rpGPbIUM5cWpxcRpTRP0Lf922ew5VGPt0MGXgFxuHF
+	 /SfdYaHBDcUe8EtGxdGTUiJ1D7LUi/E+nmjWyCVrhBCaG0AeiJ0oLGvjvRcOPXe5SK
+	 Pm/QJMDz52N5Sz04Xz8C3IhfAAJgAJF/DhI0IpBMluJXEFbRV0SERYCrBp29DVQite
+	 lHEVJRNhkMu4HBWdrHfS07jsjY60FYDPdZRqHNNIXYHGbBy9KQhG7rMqtvSRsV0Y2D
+	 dRIOKEdWA2MfA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EFA87CE8D43;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E0B88CE8D40;
 	Fri, 14 Nov 2025 15:20:19 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 14 Nov 2025 16:20:14 +0100
-Subject: [PATCH v15 03/14] media: dt-bindings: add rockchip px30 vip
+Date: Fri, 14 Nov 2025 16:20:13 +0100
+Subject: [PATCH v15 02/14] media: dt-bindings: video-interfaces: add
+ defines for sampling modes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v15-3-8f4915ee365d@collabora.com>
+Message-Id: <20240220-rk3568-vicap-v15-2-8f4915ee365d@collabora.com>
 References: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 In-Reply-To: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -77,19 +92,22 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, 
  Michael Riesch <michael.riesch@collabora.com>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Mehdi Djait <mehdi.djait@bootlin.com>
+ Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=4457;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=1070;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=vRqzxW1KzAytWflPY3j+Yj6I1g337dXGa/YElJym2cw=;
- b=0PIYjY2wJvJu2FEKF5O56pai9bLH+sWRzzYwY6P39UtUXDgpAhEYmudSpJWzGiGDJs+MF7fFg
- bk+tpQFVd6NDOYVOleCSmn/zOvoWgOEA0dRuWWnK4wqn7XIBNKDgdhl
+ bh=i0G3bjQUxPWSrwDi2kbON/7nXKFuVdlWiYyEBIeG7YY=;
+ b=FEHaSk1PIArT1EGJtvOkdAjeayF31//VdjN6qurt+Wg6fMxwQlvw1u+zXDSZXD6qxpK1/ot5A
+ EN9R6q1+sDrCcgH/oLObU+xd/jKbd6iw0/amM6811QvlY72UHMfqDv9
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_142457_330943_766F83F7 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,163 +123,33 @@ Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehdi Djait <mehdi.djait@bootlin.com>
+From: Michael Riesch <michael.riesch@collabora.com>
 
-Add documentation for the Rockchip PX30 Video Input Processor (VIP).
+Add defines for the pixel clock sampling modes (rising edge, falling edge,
+dual edge) for parallel video interfaces.
+This avoids hardcoded constants in device tree sources.
 
-Signed-off-by: Mehdi Djait <mehdi.djait@bootlin.com>
-[revised description]
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- .../bindings/media/rockchip,px30-vip.yaml          | 124 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 2 files changed, 125 insertions(+)
+ include/dt-bindings/media/video-interfaces.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
-new file mode 100644
-index 000000000000..cc08ce94bef7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
-@@ -0,0 +1,124 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/rockchip,px30-vip.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip PX30 Video Input Processor (VIP)
-+
-+maintainers:
-+  - Mehdi Djait <mehdi.djait@linux.intel.com>
-+  - Michael Riesch <michael.riesch@collabora.com>
-+
-+description:
-+  The Rockchip PX30 Video Input Processor (VIP) receives the data from a camera
-+  sensor or CCIR656 encoder and transfers it into system main memory by AXI bus.
-+
-+properties:
-+  compatible:
-+    const: rockchip,px30-vip
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: ACLK
-+      - description: HCLK
-+      - description: PCLK
-+
-+  clock-names:
-+    items:
-+      - const: aclk
-+      - const: hclk
-+      - const: pclk
-+
-+  resets:
-+    items:
-+      - description: AXI
-+      - description: AHB
-+      - description: PCLK IN
-+
-+  reset-names:
-+    items:
-+      - const: axi
-+      - const: ahb
-+      - const: pclkin
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: input port on the parallel interface
-+
-+        properties:
-+          endpoint:
-+            $ref: video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              bus-type:
-+                enum:
-+                  - 5 # MEDIA_BUS_TYPE_PARALLEL
-+                  - 6 # MEDIA_BUS_TYPE_BT656
-+
-+            required:
-+              - bus-type
-+
-+    required:
-+      - port@0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/px30-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/media/video-interfaces.h>
-+    #include <dt-bindings/power/px30-power.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        video-capture@ff490000 {
-+            compatible = "rockchip,px30-vip";
-+            reg = <0x0 0xff490000 0x0 0x200>;
-+            interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&cru ACLK_CIF>, <&cru HCLK_CIF>, <&cru PCLK_CIF>;
-+            clock-names = "aclk", "hclk", "pclk";
-+            power-domains = <&power PX30_PD_VI>;
-+            resets = <&cru SRST_CIF_A>, <&cru SRST_CIF_H>, <&cru SRST_CIF_PCLKIN>;
-+            reset-names = "axi", "ahb", "pclkin";
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    cif_in: endpoint {
-+                        remote-endpoint = <&tw9900_out>;
-+                        bus-type = <MEDIA_BUS_TYPE_BT656>;
-+                    };
-+                };
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2e1f959bb5f4..3fa175e2b61f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22248,6 +22248,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/admin-guide/media/rkcif*
-+F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+diff --git a/include/dt-bindings/media/video-interfaces.h b/include/dt-bindings/media/video-interfaces.h
+index 88b9d05d8075..0b19c9b2e627 100644
+--- a/include/dt-bindings/media/video-interfaces.h
++++ b/include/dt-bindings/media/video-interfaces.h
+@@ -20,4 +20,8 @@
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CAB	4
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CBA	5
  
- ROCKCHIP CRYPTO DRIVERS
- M:	Corentin Labbe <clabbe@baylibre.com>
++#define MEDIA_PCLK_SAMPLE_FALLING_EDGE		0
++#define MEDIA_PCLK_SAMPLE_RISING_EDGE		1
++#define MEDIA_PCLK_SAMPLE_DUAL_EDGE		2
++
+ #endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACES_H__ */
 
 -- 
 2.39.5
