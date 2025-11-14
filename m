@@ -4,71 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12EDCE8D5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18032CE8D5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iI9J4tlNC+SSMmhFiTr7gPMAWNKQHr77sZKRtT+r31Q=; b=Z/XkOzUx+CqSUUlXJLblJILzO7
-	e9cUoR27Z2mnmQzZc/YQNLhBPuZ5fuEGMzpb7Wj10Hd0dw+tDyKteK3tCgQdc4OBF+w5ZDAQldP/H
-	F4NNDTIh2dmwiUAqcj9AyWqatsI8gFfWCRU6tCQ4+3reMe6lMrhU1R67xGPHOXVZEt3WfKT0UVy7t
-	uuEhXWoxaz6KQeUacuXKobafcIR3l7eSRCzJbdzhN+gSGSGq5R7u7inZr6ekyuF0I5fNXWPi8gsWm
-	jmSm8eIdaHAA0860zaeYZs4GYb9ccZCLaRAU9BACE6XhMoIRSSZPWOC0T/QW77542SUhAhaYzvcvH
-	XtGiN2VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=; b=jLmD2td1ptCVPjLVozZYFuNuWg
+	W+pIRE6bjXxHsxkcEU2rwMq53qUdcIgt8B9Oq2uYqeE54nMT2ADMs/pTQUseuHoOS3uYbrwDLmzQx
+	n9Xh8OaLzauTcDjYhu+YjRoO3udfHILQ8eX9KG38Adzf3MB53aaMW10bCYx8GZ5Vy/un6hLj9ah4O
+	BNg+F459aO6b7Btd9UnAb8BG4aflr5jqWqXxoCUJ31ltN4QmLRi4/dT8troEkuiEOlm0tR1qmnVc2
+	2weM2RDNA5QwxblqkiQEwGxVv9vDifkiLmKdHunLZOR3e8MM//glhsD/V0gHNYVzXDKteWqdyL/Vt
+	tmBqhnsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4q-0000000Cmc6-1ObK;
-	Fri, 14 Nov 2025 16:55:12 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vJx6T-0000000CnHI-3jV0;
+	Fri, 14 Nov 2025 16:56:53 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4h-0000000CmQy-3AvK;
-	Fri, 14 Nov 2025 16:55:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763139296; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=h5OiMH7vcp26YusQN7J8hqNMoIYH9GkcIHxPj08uajIe7iiXyFTvEBXpI9H/c+/PAmVr7Zf2V/EKseEDXioL+Dd0B1omlJkC6K+0uPEm36HQl635CLahLIsMB898Vi9sPtDVDPT2N55BnEP6QlOvH/I/RWG2OGomQsGKJY2nxyY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763139296; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=iI9J4tlNC+SSMmhFiTr7gPMAWNKQHr77sZKRtT+r31Q=; 
-	b=eQ1A3H3Cp1YGfezXpOXoX2ZUYchKqJD8nj2RcKDJs4odlxjqu9oldKRkhQNT5vVWpN81zdD7aWM2gAinFhehCgHvQq0kJ1aH9fsMV0XB9dQLYmc4+yju0NZ4QsccdsX8CdpwA5Zl0Hb6InCrn3LZ61asSJ9O+yO8z4lJBMcdjkc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139296;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=iI9J4tlNC+SSMmhFiTr7gPMAWNKQHr77sZKRtT+r31Q=;
-	b=FOVq4UkK7aWrgSfBx2m2IFqsM6HoW64gusj9Lfzkfc3nRxuPs96vLFSWOP8xqatS
-	VPCYwRdbzG8aN/JtJcE2KbCREX9aqK4knBNMIhYQyufyRPsL/g6M3qcPdoAUCrGt0Bz
-	ZAzOlQG4wREuMDa7aIOzLa1gx3qUf06IP91LMVsY=
-Received: by mx.zohomail.com with SMTPS id 1763139294579227.16027413825054;
-	Fri, 14 Nov 2025 08:54:54 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 14 Nov 2025 17:54:07 +0100
-Subject: [PATCH 13/13] interconnect: mediatek: Aggregate bandwidth with
- saturating add
+	id 1vJx6R-0000000CnGZ-2tGN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 16:56:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BRiThRsATw0WP4GGwX1Vzc/B6TO27ChxdOHSJV3CyU/WDRx0x8/vCR3+Jujb58VcxYzq22dpkpWDJewk6EFL6OT8Ckn9BBQ/1bT4csSQgXI3Yol3rieJ8nt4U2ahl16JnHy3hWPJHeBuSh5rbjat7/ozuZhw7hHfvsW/kRZvCH0FQScrPP9y7a5y6l8R+yKUxrtqOf7l+pklIrhsnOAHfA/Zir/y+WtaL/s6jeE0Flx8ZDzquglut0UGnRj7XfP6H9keP8XlDUkU3w6Z9sFX8zuoSUH8wA94kwWpaK8mYdTXzB8CKMVlRtN3PuhriCTmbQbv3PCoTV1LeaSiYk7V1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=;
+ b=l2lipc00in1OXi9gJMrWocIRStjaxKk3GXfS4sYCaFurJ8IV1pZpPMBZh5V/fjf13poQyXBYiyNY6hSEhficOHRtI8a+A66KVvv1eLKumVDwgTPYIZkW5ICJnmXjknUy4zya+L6assDiUAG9f2fsY97MaGRrdTXHuwK8vCVUPBxQLt3O/4BbjNOhmlZiMKBhxy07/iwtjYmcVAszZUHYqSPWGNQS91tvF4lp53fD3/9IUFZqfsmbE9j0dX1Wsb34R1h5WD3B/cqEkxJyVrHoC0mpbehW4qiSkP9G7lPzGqcJITqRnqJw7xhwQzM/mCe+5tn2ipVyouZgBAmRtG4whQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=;
+ b=bIFClWLSzIsvw0LRGiIb672EAun6mehESqqKU5bFMQ+SQACRzvL0WmnjkCnhEfIGS2OrPS0D2jJnqlIjtigKtnVLCl6b9nC3Ix6f8BNUrSxpAyatvNULQ0W9HasXeaty+NOwfILNpNButvLhkKA6jL0c5YOgowbiv359Yy1bOJZJrLIJ0U3Ml4UDMJfeETcKQr9TBd/hRyPJ8XvfixfFoepUewAG9ENU5VH7LuSqeYQs0xqxUynbWmFOGMMbYAKj/4+VZsshJVEG2w9TKt2pI/dbaG52p2GT9KYJq48qaUKGR6l2DvdsCeQul5wjqLneTofN13j4BIeYkkSIdpEBUQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS5PR04MB9825.eurprd04.prod.outlook.com (2603:10a6:20b:672::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
+ 2025 16:56:47 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.013; Fri, 14 Nov 2025
+ 16:56:46 +0000
+Date: Fri, 14 Nov 2025 11:56:39 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [PATCH 1/5] ARM: dts: lpc32xx: add bus surfix for simple-bus
+Message-ID: <aRdfR89CNvk7QRm8@lizhi-Precision-Tower-5810>
+References: <20251029202801.3963952-1-Frank.Li@nxp.com>
+ <af66cc8a-051a-4512-9a02-468b17550775@mleia.com>
+ <aRdWoQ/vPplF0aQA@lizhi-Precision-Tower-5810>
+ <03494fa4-26e6-4691-8fa6-5bd99c2c25a1@mleia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <03494fa4-26e6-4691-8fa6-5bd99c2c25a1@mleia.com>
+X-ClientProxiedBy: SJ0PR03CA0158.namprd03.prod.outlook.com
+ (2603:10b6:a03:338::13) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-mt8196-dvfsrc-v1-13-b956d4631468@collabora.com>
-References: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
-In-Reply-To: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Henry Chen <henryc.chen@mediatek.com>, Georgi Djakov <djakov@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS5PR04MB9825:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1abb935-32f6-4aab-5f10-08de239ecb92
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Mh37MtHq4OD4VBch1t0kKIDZLj2VvBfzH7fTqSX2gjHjJ+m3EpHsrcfs6pM8?=
+ =?us-ascii?Q?Rrtuf+3Eoq6dM4ILfe/nHWXKyTdPUJbUyP0akG7myeMEaraW75xi6llNN549?=
+ =?us-ascii?Q?8/9RS0/Yd/J9GfizzJ/Z/KJCWgnewi3DLnb4rscvbAweYsjuBhISI2I+hRUG?=
+ =?us-ascii?Q?VyrkQdKPH+UN0+FblJghwmj3AB9Jq67jmxoccRlCE6VaPjJD5mTH4UHj65PQ?=
+ =?us-ascii?Q?Fu0SC91oJL7hRrHAf53tWSkVpBYmCkNp3psXoFmMhOkBc3ZMVfb9TGgxBuwF?=
+ =?us-ascii?Q?fp/BHKNGi4fB4OCdsN6CCF3t/rpQphHooSMyZcI9MlwfCI/XiP4MexBHEWxc?=
+ =?us-ascii?Q?kNofiiLfCt7EIklLAFHq3Wi+easxJdSjoPDEROn8MBLv/QKOpixxUJuLZukX?=
+ =?us-ascii?Q?8BYq385/v4RqeWzCa79GJxi0eQFxYlWsvwqiNRAjiY7RBo8S2bvAJ56jb7YQ?=
+ =?us-ascii?Q?Nc0AxjtVCWYO7lDMqarwNRJB8SBlVztsSNKVDZf5dO++ZqAlY5U3b0abGe40?=
+ =?us-ascii?Q?JZmO0+on3Oefl9vS7SKhKpLYxivL9CRw0ynZMUf+sFeZlKZoauq/SNNxhUxq?=
+ =?us-ascii?Q?PUfT3KtlZDsWige4Tu7NCZxbGrVzhqSmLaTwTiqT90w10e+sJuev0VZ0FdUk?=
+ =?us-ascii?Q?3TXSOwhqMdzjh7SiUp+PHk4EF4iy/z2DeDG3QprQ6SX5xk3YQpXmRhoyKCoa?=
+ =?us-ascii?Q?R9ZhbVf4b2wFjn5L8PdCucZf5V4z1cO9EJE8+Z8vgUJV3QN023YMQ+fcX4gX?=
+ =?us-ascii?Q?xrzPoXMii6KTcCQQgkMywxaWb78o/T4Oit3Fecc6eQ/hg8/tp7r2ceA9ic+J?=
+ =?us-ascii?Q?6cNnuuafnXtvgivtj+7hjCZ2uGtWBsfFiHKd54aI5sIKPGUF047XeHcRvNLG?=
+ =?us-ascii?Q?ZU9JRSSdyaqSggIi5h07P0SvY0Wq4TW9ETZugPCk9lDKOthpGjBeTOAlWG29?=
+ =?us-ascii?Q?G04a4/+IZtZXdVy/tVgObfjIYPBhWswz9eDAOrw2CTD938kL5gDTqpGDOYvo?=
+ =?us-ascii?Q?8ol/tmVTsA33Fkdz76flVNzHNiA6AsCXPN6+hNDMmE/ZjWUDGdlezLkv2xHG?=
+ =?us-ascii?Q?+vOD2H4Nb8psYpLEOxUF/s5LXRmeF76+4V7e621WfM5HZrnsL9yHei0z8enB?=
+ =?us-ascii?Q?926JF3KkXaQRbdj2helK1HQ/XkyzlxTNABdnSKu7zN7yFNyYa0XnMB8SP3R2?=
+ =?us-ascii?Q?A3FjXk/8dQOR1T2d/A780jRIyQCVwPKbnI1m17AH9RPIBC8Ge/XsnbWN2425?=
+ =?us-ascii?Q?c8vu+RMZKtdvcSQGYVTFWo9i+SDY+7IUvun23pfJJiNB1RXYI/mtXDcsla81?=
+ =?us-ascii?Q?R73jXwTu7dgg450AtWMjT7Zvr2scw9QuFsg+/rP/wtR+3uaRgHBMO23Mmp5/?=
+ =?us-ascii?Q?I1rp+7jRWlmLnNGuGt9OJdG1WJBqwh7dtFMEzA8IweB9pK7pmoy0aTIRRWmJ?=
+ =?us-ascii?Q?8lCzbRSa7rwE1MKZPN7nnWOrkloSPHNT9JBF8Fj7ydBzweBir8TESQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1Mn18Q3YSY1gC3TXW306jcSstO5k5HlAVp7GSxnUosvx23BRVJlwsznT9NrZ?=
+ =?us-ascii?Q?ReNRb9iy7rW3J8Xh/SE3/7LhNatxMME+1X0/QJbt0+2XahDZil001vouK3ml?=
+ =?us-ascii?Q?7/HwazAK13Wfu2iS260Nug8xLa393H5VjszvghQ7Y015DdRhcGZgI2b4Tk++?=
+ =?us-ascii?Q?sx0PVisW9i7NoRNIZq/ikmlr21UlteHreV+DUuqFHDhJwj4FaSSxVgf5Nmcy?=
+ =?us-ascii?Q?vRlYExujCVdVXd7On4RRFF9K5rvS8dgjl2By6G38K9WRw0mfw4AbrI5kiMkj?=
+ =?us-ascii?Q?zZlPuy0t9+9KL+kLUGlRdykTaoVQBch2JrjyJYrsI7icWMRGGARCr9VjT0Sa?=
+ =?us-ascii?Q?2TC69wPvSHGL/2nUbcvaYiMkaPhB8UaODIhX7ihPSTMIREkxx3MHjk973MSj?=
+ =?us-ascii?Q?hclCDWD5+rp3DwvMqk2VqVgczWsevv8Dct9ZBstOq5VaVqxH3E66bc9TKik5?=
+ =?us-ascii?Q?gyM15Eshu55WKUbz5FdgJ8SqP1O8HcjglAycvm3fyGaCjJXMypG8DS/k3luh?=
+ =?us-ascii?Q?ZmpoKdSSKdlmRKOLvntknBph3iqnkaYLIh9STLV8Lcp1jb8lNvFZx9I5ohsB?=
+ =?us-ascii?Q?+t/gidgkhkd7keEnoLZlccC6UmqJd5mwcQStvuplHWCF4Xy4dniDmbrE6L9o?=
+ =?us-ascii?Q?dA0phYCyUb7AKGanyCDYnnPTRQpnnwzOTuUnk2V0MsxA7g9srkbB7HnFMwZU?=
+ =?us-ascii?Q?uDF/HzXVpc/S2AgRQ4275cOA4KQInXtX+ERfPutmkaRLkXMZ3FhHPOEZ7U0Z?=
+ =?us-ascii?Q?wY2bv5tkLytgSM443+YPl2+Stvy781tzARS2MlbMA/ygsexlpnYCksB/v+0X?=
+ =?us-ascii?Q?Pc3phefvgAdKYXzBMoXjTl7Ve7ldt65tY02SzCNTnZA3cp1OlAe75iE7MSOT?=
+ =?us-ascii?Q?LQO++RP1+W6Z5MHLsOHqyaFZN2c3x4Lb4LcPCxVJVDXYT81qUVf6GrOaVlJN?=
+ =?us-ascii?Q?MjoHz2Xug6hg+XnTMdZFEmDjxkKPfCPcwk1AvHxa2mH10V+IFgpc2XQgvill?=
+ =?us-ascii?Q?DxH60gk0zHWilvxD0Ue91E6fv1ZzGUn71UgpJA627N+I6ndDFB88q6jCOYVL?=
+ =?us-ascii?Q?0ERhqI3HCjrKhZHFTrjewULu4lsCe7Q6PYkQpOIYs6l8m+rTRn3SwotwaJXH?=
+ =?us-ascii?Q?MALps9H0G8prNS2JYQFdH/YwvGnyXrLAumxsiziagj6pQ24D3lFyd/v6dQHS?=
+ =?us-ascii?Q?5uqxAkU/aXUDpc21b4zwVElerZL+vkPgYyC/Vkw/gmyKk/rrjyy4PGTJw2tA?=
+ =?us-ascii?Q?hgqXnNuJubcdkj7//0124fMjKziOBxPHdPnb3NGZ1zk4dqfjHTtnbQHUfy6K?=
+ =?us-ascii?Q?rCGj7gylw5yNj9J0TUGmNTu7fbyJUYW1jKIi8gD8APSsEbcILzN8vnqPWHjy?=
+ =?us-ascii?Q?ZCbMRB0bvmz0rVotImYTfxo4qwWyurHv83Gh1gCp7MPky2sEc2k+jY5+NPIz?=
+ =?us-ascii?Q?cccU5iujJdpHmgoM7uuBZydS9QTxpLA3wGcy6UWeHszGHr1+wbRm4h9zdLdR?=
+ =?us-ascii?Q?SozoaEDgQ3Ljr4evCxeUs/DlIqbG85ecYxSBpbXGT27RdJoGUOb6fmKP3ekS?=
+ =?us-ascii?Q?x8mDk5kSnSzlJptCoCqeBYFkC9gNRJkV7NAd6tfR?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1abb935-32f6-4aab-5f10-08de239ecb92
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 16:56:46.1868
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GeJ3EANSqN7/syha+AeuzuhLehzHsF3dk4vYeIWAaLYRd+VFfKnk3XyBGpHUFBrAwPnTKT+l0+ljgg4DC5iW8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9825
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_085503_929293_29C6B78A 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251114_085651_738646_8A0A898F 
+X-CRM114-Status: GOOD (  29.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +162,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By using a regular non-overflow-checking add, the MediaTek icc-emi
-driver will happy wrap at U32_MAX + 1 to 0. As it's common for the
-interconnect core to fill in INT_MAX values, this is not a hypothetical
-situation, but something that actually happens in regular use. This
-would be pretty disasterous if anything used this driver.
+On Fri, Nov 14, 2025 at 06:44:03PM +0200, Vladimir Zapolskiy wrote:
+> On 11/14/25 18:19, Frank Li wrote:
+> > On Fri, Nov 14, 2025 at 01:55:50AM +0200, Vladimir Zapolskiy wrote:
+> > > Hi Frank.
+> > >
+> > > On 10/29/25 22:27, Frank Li wrote:
+> > > > add bus surfix for simple-bus to fix below CHECK_DTBS warnings:
+> > >
+> > > typo in the subject and in the commit message above, s/surfix/suffix/
+> > >
+> > > > arm/boot/dts/nxp/lpc/lpc3250-ea3250.dtb: usb (simple-bus): $nodename:0: 'usb' does not match '^([a-z][a-z0-9\\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+> > > >           from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+> > > >
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > >    arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 6 +++---
+> > > >    1 file changed, 3 insertions(+), 3 deletions(-)
+> > > >
+> > > > diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> > > > index 2236901a00313..9790b0a1d6537 100644
+> > > > --- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> > > > +++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> > > > @@ -86,7 +86,7 @@ dma: dma-controller@31000000 {
+> > > >    			#dma-cells = <2>;
+> > > >    		};
+> > > > -		usb {
+> > > > +		usb-bus {
+> > >
+> > > Device nodes under "usb" should be just elevated, the "simple-bus" here
+> > > was used only to group some controllers together.
+> > >
+> > > >    			#address-cells = <1>;
+> > > >    			#size-cells = <1>;
+> > > >    			compatible = "simple-bus";
+> > > > @@ -307,14 +307,14 @@ mpwm: pwm@400e8000 {
+> > > >    			};
+> > > >    		};
+> > > > -		fab {
+> > > > +		fab-bus {
+> > >
+> > > FAB shall find its place in the AXI/AHB/APB/... list, isn't it?
+> >
+> > what's FAB means? It is too short and hard to find exact information
+> > from google?
+>
+> You may find UM10326 "LPC32x0 and LPC32x0/01 User manual" document online,
+> LPC32xx is an old and simple SoC.
+>
+> FAB stands for Fast Access Bus, it's a bus behind AHB to FAB bridge, you
+> may get an overview from "Fig 3. LPC32x0 block diagram, AHB matrix view",
+> and "Table 4. Peripheral devices on the LPC32x0" lists all FAB peripherals.
+>
+> So, FAB is very similar to APB functionally, could it be just another
+> name of APB?.. Likely we won't know for sure.
+>
+> I'd suggest to send a change, which adds "fab" to the list of permitted
+> device tree node names with a "simple-bus" compatible. Or let me know,
+> and I'll do it myself whenever I find a minute for it...
 
-Replace the addition with an overflow-checked addition from overflow.h,
-and saturate to U32_MAX if an overflow is detected.
+If only use by NXP, I think it is not easy to add it. There are too much
+similar vendor specific bus name in other Soc.
 
-Fixes: b45293799f75 ("interconnect: mediatek: Add MediaTek MT8183/8195 EMI Interconnect driver")
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/interconnect/mediatek/icc-emi.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+It is local in https://github.com/devicetree-org/dt-schema.git
+dt-schema/dtschema/schemas
 
-diff --git a/drivers/interconnect/mediatek/icc-emi.c b/drivers/interconnect/mediatek/icc-emi.c
-index 182aa2b0623a..dfa3a9cd9399 100644
---- a/drivers/interconnect/mediatek/icc-emi.c
-+++ b/drivers/interconnect/mediatek/icc-emi.c
-@@ -12,6 +12,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
-+#include <linux/overflow.h>
- #include <linux/platform_device.h>
- #include <linux/soc/mediatek/dvfsrc.h>
- 
-@@ -22,7 +23,9 @@ static int mtk_emi_icc_aggregate(struct icc_node *node, u32 tag, u32 avg_bw,
- {
- 	struct mtk_icc_node *in = node->data;
- 
--	*agg_avg += avg_bw;
-+	if (check_add_overflow(*agg_avg, avg_bw, agg_avg))
-+		*agg_avg = U32_MAX;
-+
- 	*agg_peak = max_t(u32, *agg_peak, peak_bw);
- 
- 	in->sum_avg = *agg_avg;
+    pattern: '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
 
--- 
-2.51.2
+Most likely Rob prefer use prefix.
 
+Anyway, you can try if you want.
+
+Frank
+>
+> > > >    			#address-cells = <1>;
+> > > >    			#size-cells = <1>;
+> > > >    			compatible = "simple-bus";
+> > > >    			ranges = <0x20000000 0x20000000 0x30000000>;
+> > > >    			/* System Control Block */
+> > > > -			scb {
+> > > > +			scb-bus {
+> > > >    				compatible = "simple-bus";
+> > > >    				ranges = <0x0 0x40004000 0x00001000>;
+> > > >    				#address-cells = <1>;
+> > >
+> > > Here "simple-bus" is also unjustified...
+>
+> --
+> Best wishes,
+> Vladimir
+>
 
