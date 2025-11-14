@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DD7CE7A8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776B8CE7A9B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvVwQtNmEG4qHvjk2UdZPy13MIVA2z73/Z45yxgoHa0=; b=HsLHH4foDujGKS5dBMpbfeNqbf
-	ZE9yRuiA/UTeZzTGnL0CbBaciycHUrNr0qu8AU1crR+CI7Fvy+9Y3xHUMqkBoi+dXz/N/+s1t/o9A
-	eJU+pZH38vQ/l6luKmf5qwd/FPhdsJPt+wqpv0knWDpn7A/LZRfQp6MNcmTlGNN6yK1M9958z7DGZ
-	8Z4Wf60fFUrovD/ZZAwM7fsk5aJP3TBIOtqyVjp2ie/hzNIzbZtVbwg0ztVjCzIOloHLh06KewY/d
-	rG9hKaRN9zCnMs9g57ujIfg7WgDyN9U0kxF0/mRMFgs2SgBMpsKBE0FC81glWptubWSJ+WP+IxSii
-	LCk4ApmA==;
+	bh=IcTLuVvzBMEA/ay708wFmDjc/IhaRLQnhq+TuTHaNAY=; b=JHD8o+DyG4u4ikFH8L9B6zECFQ
+	yx0SR4PlZIbDIIWxdykV8JzTw2K6Nd/b8q/gPLBIs5h0dipwnjVQUuICLSOzoU7Qkg+gbg/RM/8sU
+	ILD8upya5v5FjanfciemRceYblwo3DJpio+BNrH1Qyx9/Zum11Wn6WY8saqtSWrq289/bgX52IlrZ
+	/yi7NqyOf5xK7oQwla85JV4tlQtDABxRYT6D66mmKB7LdPrQbHkSs4nQWB9wl5zCpJGphQwjDtucB
+	UHCoH/bZDIWviZ0y4lZb2Z0ZQX5jqaZ6uqdzYPhOx9BSMz5PpU6fHBlZiL4R4/cjDcjfX4Z3S+VzB
+	JC7m8yvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpyy-0000000BttC-0slt;
-	Fri, 14 Nov 2025 09:20:40 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpyu-0000000Btsl-3VcK
+	id 1vJq3t-0000000Buam-0NfR;
+	Fri, 14 Nov 2025 09:25:45 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJq3p-0000000BuZn-3SdA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 09:20:38 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4d7B3S6g5lz9sSm;
-	Fri, 14 Nov 2025 10:02:12 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Jh3Mqk4UdkM3; Fri, 14 Nov 2025 10:02:12 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4d7B3P5h7Hz9sSt;
-	Fri, 14 Nov 2025 10:02:09 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 940058B770;
-	Fri, 14 Nov 2025 10:02:09 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id WOt_dcMEhEst; Fri, 14 Nov 2025 10:02:09 +0100 (CET)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id DCFEA8B76E;
-	Fri, 14 Nov 2025 10:02:07 +0100 (CET)
-Message-ID: <83cdd7e8-51a7-4989-b270-93cec301cde7@csgroup.eu>
-Date: Fri, 14 Nov 2025 10:02:07 +0100
+	Fri, 14 Nov 2025 09:25:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4d7BXX1ZTYzLlVP;
+	Fri, 14 Nov 2025 17:23:56 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 986E21400CF;
+	Fri, 14 Nov 2025 17:25:36 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 14 Nov 2025 17:25:36 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 14 Nov 2025 17:25:35 +0800
+Message-ID: <1ed610f5-3f0b-614d-5e7f-2c643238bec3@hisilicon.com>
+Date: Fri, 14 Nov 2025 17:25:34 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/14] powerpc: Convert to physical address DMA mapping
-To: Leon Romanovsky <leon@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Robin Murphy <robin.murphy@arm.com>, Russell King <linux@armlinux.org.uk>,
- Juergen Gross <jgross@suse.com>, Stefano Stabellini
- <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- Matt Turner <mattst88@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Geoff Levand <geoff@infradead.org>, "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org,
- linux-alpha@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
-References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
- <20251015-remove-map-page-v5-10-3bbfe3a25cdf@kernel.org>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <20251015-remove-map-page-v5-10-3bbfe3a25cdf@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Marc Zyngier <maz@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>, Yicong Yang
+	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+ <20251107072127.448953-6-wangzhou1@hisilicon.com>
+ <861pm4vn02.wl-maz@kernel.org>
+ <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+ <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_012037_214533_50E0EB6C 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20251114_012542_192296_4B8F53D0 
+X-CRM114-Status: GOOD (  29.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,370 +83,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 15/10/2025 à 11:12, Leon Romanovsky a écrit :
-> From: Leon Romanovsky <leonro@nvidia.com>
+On 2025/11/14 0:26, Arnd Bergmann wrote:
+> On Thu, Nov 13, 2025, at 15:40, Zhou Wang wrote:
+>> On 2025/11/11 19:15, Marc Zyngier wrote:
+>>> On Fri, 07 Nov 2025 07:21:25 +0000,
+>>>
+>>> But this doesn't mean that the system actually supports this. It is
+>>> also trivial for EL0 to spoof a PASID using ST64BV, by populating the
+>>> bottom 32bit with whatever it wants (hiding ST64BV0 doesn't prevent
+>>> this).
+>>
+>> I am confused here, we enable FEAT_LS64 and FEAT_LS64V in this patch,
+>> so only LD64B/ST64B/ST64BV are involved.
+>>
+>> Sending the value of ACCDATA(maybe a PASID) is defined in ST64BV0, which
+>> is not enabled currently.
+>>
+>> If a bad system implements ST64BV wrongly, isn't the fault of this bad
+>> system?
 > 
-> Adapt PowerPC DMA to use physical addresses in order to prepare code
-> to removal .map_page and .unmap_page.
+> As far as I can tell, the design of ST64BV/ST64BV0 is a bit vague
+> on this, both on the Arm architecture and the PCI side [1], which each
+> leave the meaning of ACCDATA open to system design.
 > 
-> Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
-
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-
-Non fatal comments below.
-
-> ---
->   arch/powerpc/include/asm/iommu.h         |  8 ++++----
->   arch/powerpc/kernel/dma-iommu.c          | 22 ++++++++++-----------
->   arch/powerpc/kernel/iommu.c              | 14 +++++++-------
->   arch/powerpc/platforms/ps3/system-bus.c  | 33 ++++++++++++++++++--------------
->   arch/powerpc/platforms/pseries/ibmebus.c | 15 ++++++++-------
->   arch/powerpc/platforms/pseries/vio.c     | 21 +++++++++++---------
->   6 files changed, 60 insertions(+), 53 deletions(-)
+> However, when the intention is to implement a shared hardware workqueue
+> in the style of drivers/dma/idxd/ [2], the only sensible implementation
+> is to follow the way that the corresponding Intel instructions work:
 > 
-> diff --git a/arch/powerpc/include/asm/iommu.h b/arch/powerpc/include/asm/iommu.h
-> index b410021ad4c6..eafdd63cd6c4 100644
-> --- a/arch/powerpc/include/asm/iommu.h
-> +++ b/arch/powerpc/include/asm/iommu.h
-> @@ -274,12 +274,12 @@ extern void *iommu_alloc_coherent(struct device *dev, struct iommu_table *tbl,
->   				  unsigned long mask, gfp_t flag, int node);
->   extern void iommu_free_coherent(struct iommu_table *tbl, size_t size,
->   				void *vaddr, dma_addr_t dma_handle);
-> -extern dma_addr_t iommu_map_page(struct device *dev, struct iommu_table *tbl,
-> -				 struct page *page, unsigned long offset,
-> -				 size_t size, unsigned long mask,
-> +extern dma_addr_t iommu_map_phys(struct device *dev, struct iommu_table *tbl,
-> +				 phys_addr_t phys, size_t size,
-> +				 unsigned long mask,
->   				 enum dma_data_direction direction,
->   				 unsigned long attrs);
-
-'extern' is pointless for function prototypes.
-
-Report from checkpatch:
-
-CHECK: extern prototypes should be avoided in .h files
-#31: FILE: arch/powerpc/include/asm/iommu.h:277:
-+extern dma_addr_t iommu_map_phys(struct device *dev, struct iommu_table 
-*tbl,
-
-
-> -extern void iommu_unmap_page(struct iommu_table *tbl, dma_addr_t dma_handle,
-> +extern void iommu_unmap_phys(struct iommu_table *tbl, dma_addr_t dma_handle,
->   			     size_t size, enum dma_data_direction direction,
->   			     unsigned long attrs);
-
-Same:
-
-CHECK: extern prototypes should be avoided in .h files
-#37: FILE: arch/powerpc/include/asm/iommu.h:282:
-+extern void iommu_unmap_phys(struct iommu_table *tbl, dma_addr_t 
-dma_handle,
-
-
-
->   
-> diff --git a/arch/powerpc/kernel/dma-iommu.c b/arch/powerpc/kernel/dma-iommu.c
-> index 0359ab72cd3b..aa3689d61917 100644
-> --- a/arch/powerpc/kernel/dma-iommu.c
-> +++ b/arch/powerpc/kernel/dma-iommu.c
-> @@ -93,28 +93,26 @@ static void dma_iommu_free_coherent(struct device *dev, size_t size,
->   
->   /* Creates TCEs for a user provided buffer.  The user buffer must be
->    * contiguous real kernel storage (not vmalloc).  The address passed here
-> - * comprises a page address and offset into that page. The dma_addr_t
-> - * returned will point to the same byte within the page as was passed in.
-> + * is a physical address to that page. The dma_addr_t returned will point
-> + * to the same byte within the page as was passed in.
->    */
-> -static dma_addr_t dma_iommu_map_page(struct device *dev, struct page *page,
-> -				     unsigned long offset, size_t size,
-> +static dma_addr_t dma_iommu_map_phys(struct device *dev, phys_addr_t phys,
-> +				     size_t size,
->   				     enum dma_data_direction direction,
->   				     unsigned long attrs)
->   {
-> -	return iommu_map_page(dev, get_iommu_table_base(dev), page, offset,
-> -			      size, dma_get_mask(dev), direction, attrs);
-> +	return iommu_map_phys(dev, get_iommu_table_base(dev), phys, size,
-> +			      dma_get_mask(dev), direction, attrs);
->   }
->   
-> -
-> -static void dma_iommu_unmap_page(struct device *dev, dma_addr_t dma_handle,
-> +static void dma_iommu_unmap_phys(struct device *dev, dma_addr_t dma_handle,
->   				 size_t size, enum dma_data_direction direction,
->   				 unsigned long attrs)
->   {
-> -	iommu_unmap_page(get_iommu_table_base(dev), dma_handle, size, direction,
-> +	iommu_unmap_phys(get_iommu_table_base(dev), dma_handle, size, direction,
->   			 attrs);
->   }
->   
-> -
->   static int dma_iommu_map_sg(struct device *dev, struct scatterlist *sglist,
->   			    int nelems, enum dma_data_direction direction,
->   			    unsigned long attrs)
-> @@ -211,8 +209,8 @@ const struct dma_map_ops dma_iommu_ops = {
->   	.map_sg			= dma_iommu_map_sg,
->   	.unmap_sg		= dma_iommu_unmap_sg,
->   	.dma_supported		= dma_iommu_dma_supported,
-> -	.map_page		= dma_iommu_map_page,
-> -	.unmap_page		= dma_iommu_unmap_page,
-> +	.map_phys		= dma_iommu_map_phys,
-> +	.unmap_phys		= dma_iommu_unmap_phys,
->   	.get_required_mask	= dma_iommu_get_required_mask,
->   	.mmap			= dma_common_mmap,
->   	.get_sgtable		= dma_common_get_sgtable,
-> diff --git a/arch/powerpc/kernel/iommu.c b/arch/powerpc/kernel/iommu.c
-> index 244eb4857e7f..6b5f4b72ce97 100644
-> --- a/arch/powerpc/kernel/iommu.c
-> +++ b/arch/powerpc/kernel/iommu.c
-> @@ -848,12 +848,12 @@ EXPORT_SYMBOL_GPL(iommu_tce_table_put);
->   
->   /* Creates TCEs for a user provided buffer.  The user buffer must be
->    * contiguous real kernel storage (not vmalloc).  The address passed here
-> - * comprises a page address and offset into that page. The dma_addr_t
-> - * returned will point to the same byte within the page as was passed in.
-> + * is physical address into that page. The dma_addr_t returned will point
-> + * to the same byte within the page as was passed in.
->    */
-> -dma_addr_t iommu_map_page(struct device *dev, struct iommu_table *tbl,
-> -			  struct page *page, unsigned long offset, size_t size,
-> -			  unsigned long mask, enum dma_data_direction direction,
-> +dma_addr_t iommu_map_phys(struct device *dev, struct iommu_table *tbl,
-> +			  phys_addr_t phys, size_t size, unsigned long mask,
-> +			  enum dma_data_direction direction,
->   			  unsigned long attrs)
->   {
->   	dma_addr_t dma_handle = DMA_MAPPING_ERROR;
-> @@ -863,7 +863,7 @@ dma_addr_t iommu_map_page(struct device *dev, struct iommu_table *tbl,
->   
->   	BUG_ON(direction == DMA_NONE);
->   
-> -	vaddr = page_address(page) + offset;
-> +	vaddr = phys_to_virt(phys);
->   	uaddr = (unsigned long)vaddr;
->   
->   	if (tbl) {
-> @@ -890,7 +890,7 @@ dma_addr_t iommu_map_page(struct device *dev, struct iommu_table *tbl,
->   	return dma_handle;
->   }
->   
-> -void iommu_unmap_page(struct iommu_table *tbl, dma_addr_t dma_handle,
-> +void iommu_unmap_phys(struct iommu_table *tbl, dma_addr_t dma_handle,
->   		      size_t size, enum dma_data_direction direction,
->   		      unsigned long attrs)
->   {
-> diff --git a/arch/powerpc/platforms/ps3/system-bus.c b/arch/powerpc/platforms/ps3/system-bus.c
-> index afbaabf182d0..f4f3477d3a23 100644
-> --- a/arch/powerpc/platforms/ps3/system-bus.c
-> +++ b/arch/powerpc/platforms/ps3/system-bus.c
-> @@ -551,18 +551,20 @@ static void ps3_free_coherent(struct device *_dev, size_t size, void *vaddr,
->   
->   /* Creates TCEs for a user provided buffer.  The user buffer must be
->    * contiguous real kernel storage (not vmalloc).  The address passed here
-> - * comprises a page address and offset into that page. The dma_addr_t
-> - * returned will point to the same byte within the page as was passed in.
-> + * is physical address to that hat page. The dma_addr_t returned will point
-> + * to the same byte within the page as was passed in.
->    */
->   
-> -static dma_addr_t ps3_sb_map_page(struct device *_dev, struct page *page,
-> -	unsigned long offset, size_t size, enum dma_data_direction direction,
-> -	unsigned long attrs)
-> +static dma_addr_t ps3_sb_map_phys(struct device *_dev, phys_addr_t phys,
-> +	size_t size, enum dma_data_direction direction, unsigned long attrs)
-
-CHECK: Alignment should match open parenthesis
-#151: FILE: arch/powerpc/platforms/ps3/system-bus.c:559:
-+static dma_addr_t ps3_sb_map_phys(struct device *_dev, phys_addr_t phys,
-+	size_t size, enum dma_data_direction direction, unsigned long attrs)
-
-
-
->   {
->   	struct ps3_system_bus_device *dev = ps3_dev_to_system_bus_dev(_dev);
->   	int result;
->   	dma_addr_t bus_addr;
-> -	void *ptr = page_address(page) + offset;
-> +	void *ptr = phys_to_virt(phys);
-> +
-> +	if (unlikely(attrs & DMA_ATTR_MMIO))
-> +		return DMA_MAPPING_ERROR;
->   
->   	result = ps3_dma_map(dev->d_region, (unsigned long)ptr, size,
->   			     &bus_addr,
-> @@ -577,8 +579,8 @@ static dma_addr_t ps3_sb_map_page(struct device *_dev, struct page *page,
->   	return bus_addr;
->   }
->   
-> -static dma_addr_t ps3_ioc0_map_page(struct device *_dev, struct page *page,
-> -				    unsigned long offset, size_t size,
-> +static dma_addr_t ps3_ioc0_map_phys(struct device *_dev, phys_addr_t phys,
-> +				    size_t size,
->   				    enum dma_data_direction direction,
->   				    unsigned long attrs)
->   {
-> @@ -586,7 +588,10 @@ static dma_addr_t ps3_ioc0_map_page(struct device *_dev, struct page *page,
->   	int result;
->   	dma_addr_t bus_addr;
->   	u64 iopte_flag;
-> -	void *ptr = page_address(page) + offset;
-> +	void *ptr = phys_to_virt(phys);
-> +
-> +	if (unlikely(attrs & DMA_ATTR_MMIO))
-> +		return DMA_MAPPING_ERROR;
->   
->   	iopte_flag = CBE_IOPTE_M;
->   	switch (direction) {
-> @@ -613,7 +618,7 @@ static dma_addr_t ps3_ioc0_map_page(struct device *_dev, struct page *page,
->   	return bus_addr;
->   }
->   
-> -static void ps3_unmap_page(struct device *_dev, dma_addr_t dma_addr,
-> +static void ps3_unmap_phys(struct device *_dev, dma_addr_t dma_addr,
->   	size_t size, enum dma_data_direction direction, unsigned long attrs)
-
-CHECK: Alignment should match open parenthesis
-#193: FILE: arch/powerpc/platforms/ps3/system-bus.c:622:
-+static void ps3_unmap_phys(struct device *_dev, dma_addr_t dma_addr,
-  	size_t size, enum dma_data_direction direction, unsigned long attrs)
-
-
-
->   {
->   	struct ps3_system_bus_device *dev = ps3_dev_to_system_bus_dev(_dev);
-> @@ -690,8 +695,8 @@ static const struct dma_map_ops ps3_sb_dma_ops = {
->   	.map_sg = ps3_sb_map_sg,
->   	.unmap_sg = ps3_sb_unmap_sg,
->   	.dma_supported = ps3_dma_supported,
-> -	.map_page = ps3_sb_map_page,
-> -	.unmap_page = ps3_unmap_page,
-> +	.map_phys = ps3_sb_map_phys,
-> +	.unmap_phys = ps3_unmap_phys,
->   	.mmap = dma_common_mmap,
->   	.get_sgtable = dma_common_get_sgtable,
->   	.alloc_pages_op = dma_common_alloc_pages,
-> @@ -704,8 +709,8 @@ static const struct dma_map_ops ps3_ioc0_dma_ops = {
->   	.map_sg = ps3_ioc0_map_sg,
->   	.unmap_sg = ps3_ioc0_unmap_sg,
->   	.dma_supported = ps3_dma_supported,
-> -	.map_page = ps3_ioc0_map_page,
-> -	.unmap_page = ps3_unmap_page,
-> +	.map_phys = ps3_ioc0_map_phys,
-> +	.unmap_phys = ps3_unmap_phys,
->   	.mmap = dma_common_mmap,
->   	.get_sgtable = dma_common_get_sgtable,
->   	.alloc_pages_op = dma_common_alloc_pages,
-> diff --git a/arch/powerpc/platforms/pseries/ibmebus.c b/arch/powerpc/platforms/pseries/ibmebus.c
-> index 3436b0af795e..cad2deb7e70d 100644
-> --- a/arch/powerpc/platforms/pseries/ibmebus.c
-> +++ b/arch/powerpc/platforms/pseries/ibmebus.c
-> @@ -86,17 +86,18 @@ static void ibmebus_free_coherent(struct device *dev,
->   	kfree(vaddr);
->   }
->   
-> -static dma_addr_t ibmebus_map_page(struct device *dev,
-> -				   struct page *page,
-> -				   unsigned long offset,
-> +static dma_addr_t ibmebus_map_phys(struct device *dev, phys_addr_t phys,
->   				   size_t size,
->   				   enum dma_data_direction direction,
->   				   unsigned long attrs)
->   {
-> -	return (dma_addr_t)(page_address(page) + offset);
-> +	if (attrs & DMA_ATTR_MMIO)
-> +		return DMA_MAPPING_ERROR;
-> +
-> +	return (dma_addr_t)(phys_to_virt(phys));
->   }
->   
-> -static void ibmebus_unmap_page(struct device *dev,
-> +static void ibmebus_unmap_phys(struct device *dev,
->   			       dma_addr_t dma_addr,
->   			       size_t size,
->   			       enum dma_data_direction direction,
-> @@ -146,8 +147,8 @@ static const struct dma_map_ops ibmebus_dma_ops = {
->   	.unmap_sg           = ibmebus_unmap_sg,
->   	.dma_supported      = ibmebus_dma_supported,
->   	.get_required_mask  = ibmebus_dma_get_required_mask,
-> -	.map_page           = ibmebus_map_page,
-> -	.unmap_page         = ibmebus_unmap_page,
-> +	.map_phys           = ibmebus_map_phys,
-> +	.unmap_phys         = ibmebus_unmap_phys,
->   };
->   
->   static int ibmebus_match_path(struct device *dev, const void *data)
-> diff --git a/arch/powerpc/platforms/pseries/vio.c b/arch/powerpc/platforms/pseries/vio.c
-> index ac1d2d2c9a88..18cffac5468f 100644
-> --- a/arch/powerpc/platforms/pseries/vio.c
-> +++ b/arch/powerpc/platforms/pseries/vio.c
-> @@ -512,18 +512,21 @@ static void vio_dma_iommu_free_coherent(struct device *dev, size_t size,
->   	vio_cmo_dealloc(viodev, roundup(size, PAGE_SIZE));
->   }
->   
-> -static dma_addr_t vio_dma_iommu_map_page(struct device *dev, struct page *page,
-> -                                         unsigned long offset, size_t size,
-> -                                         enum dma_data_direction direction,
-> -                                         unsigned long attrs)
-> +static dma_addr_t vio_dma_iommu_map_phys(struct device *dev, phys_addr_t phys,
-> +					 size_t size,
-> +					 enum dma_data_direction direction,
-> +					 unsigned long attrs)
->   {
->   	struct vio_dev *viodev = to_vio_dev(dev);
->   	struct iommu_table *tbl = get_iommu_table_base(dev);
->   	dma_addr_t ret = DMA_MAPPING_ERROR;
->   
-> +	if (unlikely(attrs & DMA_ATTR_MMIO))
-> +		return ret;
-> +
->   	if (vio_cmo_alloc(viodev, roundup(size, IOMMU_PAGE_SIZE(tbl))))
->   		goto out_fail;
-> -	ret = iommu_map_page(dev, tbl, page, offset, size, dma_get_mask(dev),
-> +	ret = iommu_map_phys(dev, tbl, phys, size, dma_get_mask(dev),
->   			direction, attrs);
-
-CHECK: Alignment should match open parenthesis
-#285: FILE: arch/powerpc/platforms/pseries/vio.c:530:
-+	ret = iommu_map_phys(dev, tbl, phys, size, dma_get_mask(dev),
-  			direction, attrs);
-
-
->   	if (unlikely(ret == DMA_MAPPING_ERROR))
->   		goto out_deallocate;
-> @@ -536,7 +539,7 @@ static dma_addr_t vio_dma_iommu_map_page(struct device *dev, struct page *page,
->   	return DMA_MAPPING_ERROR;
->   }
->   
-> -static void vio_dma_iommu_unmap_page(struct device *dev, dma_addr_t dma_handle,
-> +static void vio_dma_iommu_unmap_phys(struct device *dev, dma_addr_t dma_handle,
->   				     size_t size,
->   				     enum dma_data_direction direction,
->   				     unsigned long attrs)
-> @@ -544,7 +547,7 @@ static void vio_dma_iommu_unmap_page(struct device *dev, dma_addr_t dma_handle,
->   	struct vio_dev *viodev = to_vio_dev(dev);
->   	struct iommu_table *tbl = get_iommu_table_base(dev);
->   
-> -	iommu_unmap_page(tbl, dma_handle, size, direction, attrs);
-> +	iommu_unmap_phys(tbl, dma_handle, size, direction, attrs);
->   	vio_cmo_dealloc(viodev, roundup(size, IOMMU_PAGE_SIZE(tbl)));
->   }
->   
-> @@ -605,8 +608,8 @@ static const struct dma_map_ops vio_dma_mapping_ops = {
->   	.free              = vio_dma_iommu_free_coherent,
->   	.map_sg            = vio_dma_iommu_map_sg,
->   	.unmap_sg          = vio_dma_iommu_unmap_sg,
-> -	.map_page          = vio_dma_iommu_map_page,
-> -	.unmap_page        = vio_dma_iommu_unmap_page,
-> +	.map_phys          = vio_dma_iommu_map_phys,
-> +	.unmap_phys        = vio_dma_iommu_unmap_phys,
->   	.dma_supported     = dma_iommu_dma_supported,
->   	.get_required_mask = dma_iommu_get_required_mask,
->   	.mmap		   = dma_common_mmap,
+> - movdir64b/st64b is a nonprivileged instruction to produce a posted
+>   atomic 64-byte write TLP to a PCIe device, which can only be used
+>   with a dedicated workqueue that is preconfigured to a fixed PASID
 > 
+> - enqcmds/st64bv is a privileged instruction to produce a non-posted
+>   atomic 64-byte write Deferrable Memory Write (DMWr) TLP, which can be
+>   used on a shared workqueue from kernel space, using an arbitrary PASID
+>   value per transaction, which would normally correspond to the
+>   physical address space when the kernel initiates DMA.
+> 
+> - enqcmd/st64bv0 is a nonprivileged instruction like enqcmds/st64bv
+>   using the pasid from accdata that corresponds to 
+>   current->mm->iommu_mm->pasid value [3] in the kernel for the task
+>   that initates the transaction in userspace.
+> 
+> A PCIe device can tell the difference between a posted write and a
+> non-posted DMWr, but it cannot tell the difference between st64bv
+> and st64bv0, so the kernel must disallow st64bv from userspace if
+> it can be used on a device that expects the PASID value in the
+> low bits.
+> 
+> Things would be different if there is a PCIe device that expects
+> a DMWr transaction but does not use it for a shared hardware
+> workqueue with the PASID in that field.
+> 
+> Are you using a particular device, or are you trying to enable
+> the support in general? If you have a specific device you are
+> working on, does it use the PASID data or not?
 
+Hi Arnd,
+
+Many thanks for your careful explanation! I got the pointer here.
+
+We have a real device in our SoC, which supports LS64B/ST64B/ST64BV.
+For ST64BV, Our device just receives 64B data atomically, not interpret
+it with PASID data.
+
+Best,
+Zhou
+
+> 
+> Things will clearly get a lot harder if we want to support a
+> system that can have devices with conflicting interpretations
+> of the ACCDATA value. Ideally we could always use the
+> iommu_mm->pasid value here and enable st64bv0 globally like
+> idxd does. If any devices requires the use of st64bv, that
+> would have to be mutually exclusive with another driver
+> handing out access to shared hardware workqueues.
+> 
+>      Arnd
+> 
+> [1] https://members.pcisig.com/wg/PCI-SIG/document/14237
+> [2] https://www.kernel.org/doc/html/v6.1/x86/sva.html
+> [3] drivers/iommu/iommu-sva.c
+> .
 
