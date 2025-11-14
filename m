@@ -4,83 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ABC5CE8D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC5DCE8D4C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jk5JSmxEp0HQ6Ptor41fJeYFMKyH+DMMft/X2zxuyiw=; b=uaKrjGw7plmH42FrvF78sr5K6V
-	Iev2XDyil4p9p81+cdwiJAg5N9yvSLa+teD/qAW/87FQ5c7xmtKIDikZAHfftot/H0plFf7CGK6+m
-	ewqb19croQ9cpjqnue45L0bnFVlmX3wP2xhL/QqM4jYLV/abOS9sbXJtf3Yyi6f3nPJ5s/CytLjBq
-	u00Z6UneKcLoQ2FHAgUKLoi4eh17A1TeMVKCI6dsqI+/ruepIOl+i9hDZq41T1p3JaHmNPBDTB8O4
-	FSSxC9bgkUJVaClmbF1RyKDtWEIxopOkwfoqnYG0AeVPyXyy1AhBBG/fl1tSztbaOEkK33BdVbI33
-	rMX5AQjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y4SDX/1GdpbWKhuMsarQXHUPLRNPCdexVegUqbW62Vs=; b=f409WgGvtJ5TK03MbnOVe4t2Pp
+	AN/MQu9743lvUaWGwDjsMP/iqazFJbAWiFka5DtaNz6CdpEKuGRpFmYsICWt843S6LyHpIYYDJs4g
+	8X7unDqgYtrWxGq/ril+sThb/OI+WwhaU9AtUcUGXzgDbyMm/PwhwjZ/Ntf2D7xpGsk5X6xlm028S
+	OBbwHlYipoSk/FZFMKW6J48kmWClJ2XVkfMWi7ydw/WRWDhpxx4Q0fzjp7g/9XtnFNM/V6IYN1LGP
+	iD0BBUOz4kIucsrmUkyYobnBxwmavp6ASp1iswWmhMiLYHkv2W4Pr8G8QeyVWNU10z8ht1lIFC/5z
+	CwuQ0Pmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJw8R-0000000CdDQ-0oDk;
-	Fri, 14 Nov 2025 15:54:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJw9y-0000000CdNd-2XpL;
+	Fri, 14 Nov 2025 15:56:26 +0000
+Received: from mx12.kaspersky-labs.com ([91.103.66.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJw8O-0000000CdCJ-3TRE
+	id 1vJw9w-0000000CdN4-11jx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:54:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8EB243272
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 15:54:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB18BC19422
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 15:54:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763135687;
-	bh=Jk5JSmxEp0HQ6Ptor41fJeYFMKyH+DMMft/X2zxuyiw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UgBmdEKTDGiYVfpy2hkvCXfk3uWC4J3SK6oa1txw8z2OVO6PN5nu/9tj/T32/w6y/
-	 BhzL+kNoREA3BP+kJrpg356lrtpmPYQErhimKRw9OLNHU6g7+lzGm9/55a3uOZT3H7
-	 GGnzo0mnJVopBvjTd9l5h4T1eR/hCpnGeoiyQt9ze2CYTSeu3yQZnxvX/12ijR7laR
-	 oDfeK2iuJED+uWkdIuk8aBjkc+//IwnsqHLxkOEvb2Ej1VA2isGXiNPFbfmGiRgF0O
-	 IXKRayKW6fWc2T1fm2kslUudIcL85uCJOWtQE/WXucEft5bMt2MvErrZ1WWh6xxxjG
-	 1xguQz98wgNGQ==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-afcb7ae6ed0so327010266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 07:54:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVBdi2cdIjDbfEjFniYG/ru8ZO4PhBT2TXtXbHK8vppAIJsDicBgr2QBg2IE4CBw1z4+V9af61Nu/C3zsTcvZsv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbchQQBzhgVOTOQfIahRZ9VqxIBIVzZgZKB8/8fhXSnvJXu7qt
-	oXMzDtHQEJIaATc5oa9OKhUsW8y7vR2YBavHGuOfv1RSsPW1FQnZny42tgW85uLnMvkw8Sycvjk
-	CtnygXcJ7MC8nhjYuW4DkLhq26bLj2Q==
-X-Google-Smtp-Source: AGHT+IF49BCOAXcksr6jxI1XuHeLVxsuwlCSI/U4/vtzUjKtf60KEEkA0yjf+Awa59L5KtlnwetAifVA0/77G7MfGqs=
-X-Received: by 2002:a17:907:94d6:b0:b65:b9fb:e4a7 with SMTP id
- a640c23a62f3a-b73677ed936mr342085366b.9.1763135686164; Fri, 14 Nov 2025
- 07:54:46 -0800 (PST)
+	Fri, 14 Nov 2025 15:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kaspersky.com;
+	s=mail202505; t=1763135780;
+	bh=y4SDX/1GdpbWKhuMsarQXHUPLRNPCdexVegUqbW62Vs=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	b=KlFJoQtC22dpCNQqqa7/IWbq3YawzGIKtcf9PX40ZxKVhveuUlpevQjVEcPbjg4y3
+	 pxaj5BSxRrAiDGGBc28OoUo2M8Zsi+eSxBHFQ8iGv0siYFOFmmxla1GwQxG8GVOjBr
+	 nEzvCM6mK4iVdRTn982gzKLv9CbuTw4L3voo3/f1tQi7P5EyUMhoCHO021NkZrH9hL
+	 ziWnVInYJHWehL5TzMu2yfyuWXcMJacq2tSwiIkNOx5QkZFIuKb8xybyexN9jU+L0o
+	 9E48oZ5JzxxQEBk/6mZOn6nL9ZWPMoslpu2f13b2CDVrboVrwccLMc1B0dlI8il9C6
+	 elAU9ELmU5I5g==
+Received: from relay12.kaspersky-labs.com (localhost [127.0.0.1])
+	by relay12.kaspersky-labs.com (Postfix) with ESMTP id 0BBBB5A5483;
+	Fri, 14 Nov 2025 18:56:20 +0300 (MSK)
+Received: from mail-hq2.kaspersky.com (unknown [91.103.66.200])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail-hq2.kaspersky.com", Issuer "Kaspersky MailRelays CA G3" (verified OK))
+	by mailhub12.kaspersky-labs.com (Postfix) with ESMTPS id 080615A49C8;
+	Fri, 14 Nov 2025 18:56:19 +0300 (MSK)
+Received: from zhigulin-p.avp.ru (10.16.104.190) by HQMAILSRV2.avp.ru
+ (10.64.57.52) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 14 Nov
+ 2025 18:55:19 +0300
+From: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+CC: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Michal Simek
+	<michal.simek@amd.com>, Esben Haabendal <esben@geanix.com>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>
+Subject: [PATCH net] net: xilinx: ll_temac: handle of_address_to_resource() failure in MDIO setup
+Date: Fri, 14 Nov 2025 18:55:18 +0300
+Message-ID: <20251114155519.3524628-1-Pavel.Zhigulin@kaspersky.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid>
- <05c833f0-15bc-4a86-9ac4-daf835fe4393@kernel.org> <CAD=FV=XXWK9pmZQvNk6gjkqe6kgLXaVENgz0pBii6Gai7BdL-A@mail.gmail.com>
- <00ea821c-5252-42cb-8f6f-da01453947bd@kernel.org> <CAD=FV=VSxeKgGcsRb9qiXq7nsbOWZjPvzmGEOhFA+pmABWdknQ@mail.gmail.com>
- <6490f20a-2492-4ee0-8f34-d529e0df0bad@kernel.org> <CAD=FV=Us7SU_OifVkS4mdfVhc=xGYSBiBpBk9aA1Ki0y+iYBpQ@mail.gmail.com>
- <abb77afe-c285-46ba-88ac-08574bd67712@kernel.org> <CAD=FV=VcAbgv41tjgWQN4i8Wqk6T6uvdpQ261Q_hcKM4AMpGEw@mail.gmail.com>
- <20251114-elite-refined-yak-bf9e64@kuoka>
-In-Reply-To: <20251114-elite-refined-yak-bf9e64@kuoka>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 14 Nov 2025 09:54:34 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLUNyMC274cXFcdfY7N6_uY-PrbH5RDiOfrfe2D_OAwjw@mail.gmail.com>
-X-Gm-Features: AWmQ_bn39ZgmKmSKZ9R4JlObI-OyA36Q7CJrSlb2twcDbMEmJ4DyC3n98UiHAJg
-Message-ID: <CAL_JsqLUNyMC274cXFcdfY7N6_uY-PrbH5RDiOfrfe2D_OAwjw@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: Add bindings for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Doug Anderson <dianders@chromium.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
-	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.16.104.190]
+X-ClientProxiedBy: HQMAILSRV4.avp.ru (10.64.57.54) To HQMAILSRV2.avp.ru
+ (10.64.57.52)
+X-KSE-ServerInfo: HQMAILSRV2.avp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/14/2025 15:35:04
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 198111 [Nov 14 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: Pavel.Zhigulin@kaspersky.com
+X-KSE-AntiSpam-Info: LuaCore: 76 0.3.76
+ 6aad6e32ec76b30ee13ccddeafeaa4d1732eef15
+X-KSE-AntiSpam-Info: {Tracking_cluster_exceptions}
+X-KSE-AntiSpam-Info: {Tracking_real_kaspersky_domains}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: kaspersky.com:7.1.1,5.0.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;zhigulin-p.avp.ru:7.1.1,5.0.1
+X-KSE-AntiSpam-Info: {Tracking_white_helo}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Deterministic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 11/14/2025 15:36:00
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 11/14/2025 2:08:00 PM
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSE-AttachmentFiltering-Interceptor-Info: no applicable attachment filtering
+ rules found
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-KSMG-AntiPhishing: NotDetected
+X-KSMG-AntiSpam-Interceptor-Info: not scanned
+X-KSMG-AntiSpam-Status: not scanned, disabled by settings
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2025/11/14 12:42:00 #27925085
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 52
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_075448_906311_A41FE6AC 
-X-CRM114-Status: GOOD (  39.15  )
+X-CRM114-CacheID: sfid-20251114_075624_489659_7AC1F65F 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,96 +125,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 3:26=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Thu, Nov 13, 2025 at 10:04:53AM -0800, Doug Anderson wrote:
-> > Hi,
-> >
-> >
-> > On Thu, Nov 13, 2025 at 9:43=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> > >
-> > > >>> Yes, the complexity of just "hooking up" the components on an SoC=
- is
-> > > >>> an order of magnitude harder than a Raspberry Pi, but it's still =
-just
-> > > >>> hooking it up to external components. In both cases, we are model=
-ing
-> > > >>> the core "brains" (the part that contains the processor) as the D=
-TB
-> > > >>> and everything else just "hooks up" to interfaces.
-> > > >>
-> > > >> You mix the topics, so I don't follow. I speak here about bindings=
- - you
-> > > >> cannot have the that compatible alone, because it is incomplete, j=
-ust
-> > > >> like compatible for "transistor" is not correct in that context. Y=
-ou
-> > > >> speak what could or could be DTB, different topic.
-> > > >
-> > > > A "SoC" is "complete". It has a processor that can run instructions=
-.
-> > >
-> > > Then show me executing any piece of software, which is the consumer o=
-f
-> > > the bindings, and runs on the SoC without the rest of the hardware sy=
-stem.
-> >
-> > Show me something that runs on a Raspberry Pi (the models that don't
-> > have eMMC) that runs without hooking up power and plugging in an SD
-> > card. :-P
->
-> It has MMC controller/slot described in the DTS and the SDcard itself is
-> DT-transparent, meaning you do not describe it in DTS, plus I can easily
-> insert such card, thus for sake of this discussion that RPi still works
-> fine with DTS.
->
-> This SoC cannot work without other pieces described in DT, that's why it
-> is incomplete and unusable on its own.
->
-> You are right that my previous arguments of hooking components are
-> incomplete, so let me rephrase it - the DTS file should be complete from
-> DT point of view and completly usable on its own. That's why DTS
-> represents board (with the exceptions of few SoMs as explaiend to me
-> long time ago).
->
-> SoC does not meet this criteria, therefore it is not suitable for DTS.
->
-> And if you claim that SoC could be fitting DTS, then I claim that
-> individual transistor or one IP block like DWC USB3 could be there as
-> well. With your arguments we could create DTS files for DWC USB3 nodes.
-> Fact that transistor or DWC USB3 cannot execute code on their own does
-> not matter, because it is nowhere said that DTS represents something
-> which can execute code. CPU executes code, so following this argument
-> DTS could contain only CPU device nodes..
->
-> If we allow subpieces, like SoC components or SoCs (both still unusable
-> on their own), as DTS files we open the pandora box of all possible
-> styles and formats. I don't see reasoon why would we want it, what
-> benefits this would bring to the ecosystem maintenance.
->
-> We did not document it that DTS represents usable board, but it is
-> implied all over the software projects, like GRUB devicetree [1] which
-> takes one DTB to load. Only one.
+temac_mdio_setup() ignores potential errors from
+of_address_to_resource() call and continues with
+an uninitialized resource.
 
-Obviously at the grub and kernel level we support only 1 DTB. No one
-is debating that here. Can we back up and stop debating implementation
-details.
+Add return value check for of_address_to_resource()
+call in temac_mdio_setup().
 
-The problem is in early boot before there's DT used where you
-determine the SoC and/or board at runtime and need to load the DTB
-from that information. Both are dynamic in Google's case, but it could
-easily be only the SoC or only the board is determined at runtime.
-There's another similar usecase of booting a SoM with a SoM DT and
-then applying the baseboard DT overlay. You could want to do both in
-the same system. Your options are either have every possible
-combination as a full DT or have a way to combine them at runtime in
-some way. I'm pretty certain the answer for the former will be there's
-not enough storage. So that leaves the latter option.
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-The only real answers here are a) your usecase is not valid or b) how
-to implement the usecase.
+Fixes: 8425c41d1ef7 ("net: ll_temac: Extend support to non-device-tree platforms")
+Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+---
+ drivers/net/ethernet/xilinx/ll_temac_mdio.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Rob
+diff --git a/drivers/net/ethernet/xilinx/ll_temac_mdio.c b/drivers/net/ethernet/xilinx/ll_temac_mdio.c
+index 07a9fb49eda1..ab23dc233768 100644
+--- a/drivers/net/ethernet/xilinx/ll_temac_mdio.c
++++ b/drivers/net/ethernet/xilinx/ll_temac_mdio.c
+@@ -98,7 +98,9 @@ int temac_mdio_setup(struct temac_local *lp, struct platform_device *pdev)
+ 		return -ENOMEM;
+
+ 	if (np) {
+-		of_address_to_resource(np, 0, &res);
++		rc = of_address_to_resource(np, 0, &res);
++		if (rc)
++			return rc;
+ 		snprintf(bus->id, MII_BUS_ID_SIZE, "%.8llx",
+ 			 (unsigned long long)res.start);
+ 	} else if (pdata) {
+--
+2.43.0
+
 
