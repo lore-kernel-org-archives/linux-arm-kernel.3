@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B205CCE8D4D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC0ACE8D50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mEmFM00esPONFQcUxX3YxOzqOIsvAChhC+zBTDbZKE=; b=CDlhIXjVu8jJrTAiM6/nBGTvUV
-	8VUhq9dmdBNyFipT2SsPFA+Su0Kz0r3JqKA2YVZ5yh5RzItvGozWm1EJTBKeNmN9RZXSoLyPr6GyA
-	LDRBj/hhRPgwsidvPu3sRoLdziA1Ozc634jw311EtfLk7uNtbsaZZgRR+IQu28jvjJsrndZfbQ+dY
-	eZ3MX+oirAncGyxKd0zeBJ+TDviYojTaBNn1MdaE2uOI1GnCcwrZ2GVOlXlrkyGR/154tIQiDGi0E
-	jJPxBk1+HjP2wpoSuVmBAkDjYy/NvI5ZukBV5MeIPeWNpjFQ7uIKHrI8XE7lZg/orz0RzOHIFhRC0
-	0MRhweGA==;
+	bh=fJ19vhqJ+e+4h/A9TJCtzDA+szgyD+K7yfdzkdNTf30=; b=gxRzZ3Ggu/Ba8s1Q03PUNX6ugn
+	wJwjh0D/URpmmzKzom5s7tmZn7eEzBwFPMAzJfuCidLALMUpmaMyQu6fjoHWraOD6o4EWef+wC9SP
+	JSAJl4mz3yGzoVD0ktfITx36TVFLVyu/Q6kGcqRDTErwHW+9TsZkqTYGBZMAdbUpURNkRKjP73VS9
+	B2Qzkw8FS7HzSdInYTnshMCneLeK8LGpywHNBUsdRusZPBMoJKmDlOrrrc2XGNxQ9z048xn4By/eh
+	Pi5MoHamvSX7KTFOjJpCWNRvNiNdd9Lc7SbOilKEXc3KFJURrwuf+glyuRF6gNZTpy/wsF/fltc58
+	htIOM1og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLc-0000000Cfe0-3Xn0;
-	Fri, 14 Nov 2025 16:08:28 +0000
+	id 1vJwLd-0000000CffV-2j6j;
+	Fri, 14 Nov 2025 16:08:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLM-0000000CfMJ-3tkN
+	id 1vJwLR-0000000CfTH-3yM0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:08:14 +0000
+	Fri, 14 Nov 2025 16:08:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D73201BB2;
-	Fri, 14 Nov 2025 08:08:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD01B1BB2;
+	Fri, 14 Nov 2025 08:08:09 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34B213F5A1;
-	Fri, 14 Nov 2025 08:08:10 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AC923F5A1;
+	Fri, 14 Nov 2025 08:08:15 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -45,19 +45,18 @@ To: maz@kernel.org,
 	kvmarm@lists.linux.dev
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
-	james.morse@arm.com,
-	Sudeep Holla <sudeep.holla@arm.com>
-Subject: [RFC PATCH v6 15/35] KVM: arm64: Add SPE VCPU device attribute to initialize SPE
-Date: Fri, 14 Nov 2025 16:06:56 +0000
-Message-ID: <20251114160717.163230-16-alexandru.elisei@arm.com>
+	james.morse@arm.com
+Subject: [RFC PATCH v6 17/35] KVM: arm64: Add writable SPE system registers to VCPU context
+Date: Fri, 14 Nov 2025 16:06:58 +0000
+Message-ID: <20251114160717.163230-18-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_080813_062728_7840A31C 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20251114_080818_071049_A125B99C 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,211 +71,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add KVM_ARM_VCPU_SPE_CTRL(KVM_ARM_VCPU_SPE_INIT) VCPU ioctl to initialize
-SPE. Initialization must be done exactly once for each VCPU.
+Add the writable SPE registers to the VCPU context. The registers for now
+have generic accessors, with proper handling to be added. PMSIDR_EL1 and
+PMBIDR_EL1 are not part of the VCPU context because they are read-only
+registers.
 
-[ Alexandru E: Split from "KVM: arm64: Add a new VCPU device control group
-	   for SPE" ]
-
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- Documentation/virt/kvm/devices/vcpu.rst | 28 +++++++++++++++++--
- arch/arm64/include/asm/kvm_spe.h        |  6 +++++
- arch/arm64/include/uapi/asm/kvm.h       |  1 +
- arch/arm64/kvm/arm.c                    |  4 +++
- arch/arm64/kvm/spe.c                    | 36 +++++++++++++++++++++++++
- 5 files changed, 73 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 13 +++++++
+ arch/arm64/include/asm/kvm_spe.h  | 11 ++++++
+ arch/arm64/kvm/debug.c            | 19 ++++++++---
+ arch/arm64/kvm/spe.c              | 13 +++++++
+ arch/arm64/kvm/sys_regs.c         | 56 ++++++++++++++++++++++++-------
+ 5 files changed, 94 insertions(+), 18 deletions(-)
 
-diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-index bb1bbd2ff6e2..29dd1f087d4a 100644
---- a/Documentation/virt/kvm/devices/vcpu.rst
-+++ b/Documentation/virt/kvm/devices/vcpu.rst
-@@ -306,6 +306,7 @@ From the destination VMM process:
- Returns:
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 373d22ec4783..876957320672 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -464,6 +464,19 @@ enum vcpu_sysreg {
+ 	PMOVSSET_EL0,	/* Overflow Flag Status Set Register */
+ 	PMUSERENR_EL0,	/* User Enable Register */
  
- 	 =======  ==========================================================
-+	 -EBUSY   SPE already initialized
- 	 -EFAULT  Error accessing the buffer management interrupt number
- 	 -EINVAL  Invalid interrupt number or not using an in-kernel irqchip
- 	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature not set
-@@ -328,7 +329,8 @@ vGIC implementation.
- :Returns:
- 
- 	 =======  ================================================
--	 -EBUSY   Virtual machine has already run
-+	 -EBUSY   Virtual machine has already run, or SPE already
-+                  initialized
- 	 -EFAULT  Error accessing the SPU identifier
- 	 -EINVAL  A different SPU already set
- 	 -ENXIO   SPE not supported or not properly configured, or
-@@ -357,7 +359,8 @@ have the specified SPU.
- :Returns:
- 
- 	 =======  =========================================================
--	 -EBUSY   Virtual machine has already run
-+	 -EBUSY   Virtual machine has already run, or SPE already
-+                  initialized
- 	 -EDOM    Buffer size cannot be represented by hardware
- 	 -EFAULT  Error accessing the max buffer size identifier
- 	 -EINVAL  A different maximum buffer size already set or the size is
-@@ -396,3 +399,24 @@ This memory that is pinned will count towards the process RLIMIT_MEMLOCK. To
- avoid the limit being exceeded, userspace must increase the RLIMIT_MEMLOCK limit
- prior to running the VCPU, otherwise KVM_RUN will return to userspace with an
- error.
++	/* SPE registers */
++	PMSCR_EL1,
++	PMSNEVFR_EL1,
++	PMSICR_EL1,
++	PMSIRR_EL1,
++	PMSFCR_EL1,
++	PMSEVFR_EL1,
++	PMSLATFR_EL1,
++	PMBLIMITR_EL1,
++	PMBPTR_EL1,
++	PMBSR_EL1,
++	PMSDSFR_EL1,
 +
-+5.2 ATTRIBUTE: KVM_ARM_VCPU_SPE_INIT
-+-----------------------------------
-+
-+:Parameters: no additional parameter in kvm_device_attr.addr
-+
-+Returns:
-+
-+	 =======  ============================================
-+	 -EBUSY   SPE already initialized for this VCPU
-+	 -ENXIO   SPE not supported or not properly configured
-+	 =======  ============================================
-+
-+Required.
-+
-+Request initialization of the Statistical Profiling Extension for this VCPU.
-+Must be done last, after SPE has been fully configured for the VCPU, and after
-+the in-kernel irqchip has been initialized.
-+
-+KVM will refuse to run the VCPU and KVM_RUN will return an error if SPE hasn't
-+been initialized for the VCPU.
+ 	/* Pointer Authentication Registers in a strict increasing order. */
+ 	APIAKEYLO_EL1,
+ 	APIAKEYHI_EL1,
 diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-index e48f7a7f67bb..6ce70cf2abaf 100644
+index 5e6d7e609a48..3506d8c4c661 100644
 --- a/arch/arm64/include/asm/kvm_spe.h
 +++ b/arch/arm64/include/asm/kvm_spe.h
-@@ -17,6 +17,7 @@ struct kvm_spe {
- 
- struct kvm_vcpu_spe {
- 	int irq_num;		/* Buffer management interrupt number */
-+	bool initialized;	/* SPE initialized for the VCPU */
- };
- 
- DECLARE_STATIC_KEY_FALSE(kvm_spe_available);
-@@ -30,6 +31,7 @@ static __always_inline bool kvm_supports_spe(void)
- 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_SPE))
- 
- void kvm_spe_init_vm(struct kvm *kvm);
-+int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
- 
+@@ -38,6 +38,9 @@ u8 kvm_spe_get_pmsver_limit(void);
  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-@@ -47,6 +49,10 @@ struct kvm_vcpu_spe {
- static inline void kvm_spe_init_vm(struct kvm *kvm)
+ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
++
++bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
++u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg);
+ #else
+ struct kvm_spe {
+ };
+@@ -71,6 +74,14 @@ static inline int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr
  {
+ 	return -ENXIO;
  }
-+static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
++static inline bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
++{
++	return true;
++}
++static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
 +{
 +	return 0;
 +}
- static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ #endif /* CONFIG_KVM_ARM_SPE */
+ 
+ #endif /* __ARM64_KVM_SPE_H__ */
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 3ad6b7c6e4ba..0821ebfb03fa 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -38,19 +38,28 @@ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
  {
- 	return -ENXIO;
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 9db652392781..186dcaf5e210 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -448,6 +448,7 @@ enum {
- #define   KVM_ARM_VCPU_SPE_IRQ			0
- #define   KVM_ARM_VCPU_SPE_SPU			1
- #define   KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE	2
-+#define   KVM_ARM_VCPU_SPE_INIT			3
+ 	preempt_disable();
  
- /* KVM_IRQ_LINE irq field index values */
- #define KVM_ARM_IRQ_VCPU2_SHIFT		28
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 9afdf66be8b2..783e331fb57a 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -899,6 +899,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 			return ret;
- 	}
+-	/*
+-	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+-	 * to disable guest access to the profiling and trace buffers
+-	 */
+ 	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+ 					 *host_data_ptr(nr_event_counters));
++	/*
++	 * This also clears MDCR_EL2_E2PB_MASK to disable guest access to the
++	 * trace buffer.
++	 */
+ 	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+-				MDCR_EL2_TPMS |
+ 				MDCR_EL2_TTRF |
+ 				MDCR_EL2_TPMCR |
+ 				MDCR_EL2_TDRA |
+ 				MDCR_EL2_TDOSA);
  
-+	ret = kvm_spe_vcpu_first_run_init(vcpu);
-+	if (ret)
-+		return ret;
++	if (vcpu_has_spe(vcpu)) {
++		/* Set buffer owner to EL1 and trap the buffer registers. */
++		vcpu->arch.mdcr_el2 |= FIELD_PREP(MDCR_EL2_E2PB, MDCR_EL2_E2PB_EL1_TRAP);
++		/* Leave TPMS zero and don't trap the sampling registers. */
++	} else {
++		/* Trap the sampling registers. */
++		vcpu->arch.mdcr_el2 |= MDCR_EL2_TPMS;
++		/* Leave E2PB zero and trap the buffer registers. */
++	}
 +
- 	mutex_lock(&kvm->arch.config_lock);
- 	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
- 	mutex_unlock(&kvm->arch.config_lock);
+ 	/* Is the VM being debugged by userspace? */
+ 	if (vcpu->guest_debug)
+ 		/* Route all software debug exceptions to EL2 */
 diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index 3478da2a1f7c..6bd074e40f6c 100644
+index 0c4896c6a873..5b3dc622cf82 100644
 --- a/arch/arm64/kvm/spe.c
 +++ b/arch/arm64/kvm/spe.c
-@@ -55,6 +55,19 @@ void kvm_spe_init_vm(struct kvm *kvm)
- 	kvm->arch.kvm_spe.max_buffer_size = KVM_SPE_MAX_BUFFER_SIZE_UNSET;
+@@ -8,6 +8,7 @@
+ #include <linux/kvm_host.h>
+ #include <linux/perf/arm_spe_pmu.h>
+ 
++#include <asm/kvm_emulate.h>
+ #include <asm/kvm_spe.h>
+ #include <asm/sysreg.h>
+ 
+@@ -78,6 +79,18 @@ u8 kvm_spe_get_pmsver_limit(void)
+ 	return min(pmsver, ID_AA64DFR0_EL1_PMSVer_V1P5);
  }
  
-+int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
++bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
 +{
-+	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
++	__vcpu_assign_sys_reg(vcpu, val, reg);
 +
-+	if (!vcpu_has_spe(vcpu))
-+		return 0;
++	return true;
++}
 +
-+	if (!vcpu_spe->initialized)
-+		return -EINVAL;
-+
-+	return 0;
++u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
++{
++	return __vcpu_sys_reg(vcpu, reg);
 +}
 +
  static u64 max_buffer_size_to_pmbidr_el1(u64 size)
  {
  	u64 msb_idx, num_bits;
-@@ -195,12 +208,16 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- {
- 	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
- 	struct kvm *kvm = vcpu->kvm;
-+	struct kvm_spe *kvm_spe = &kvm->arch.kvm_spe;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ac859c39c2be..5eeea229b46e 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1374,6 +1374,28 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 	return 0;
+ }
  
- 	lockdep_assert_held(&kvm->arch.config_lock);
- 
- 	if (!vcpu_has_spe(vcpu))
- 		return -ENODEV;
- 
-+	if (vcpu_spe->initialized)
-+		return -EBUSY;
-+
- 	switch (attr->attr) {
- 	case KVM_ARM_VCPU_SPE_IRQ: {
- 		int __user *uaddr = (int __user *)(long)attr->addr;
-@@ -239,6 +256,24 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- 
- 		return kvm_spe_set_max_buffer_size(vcpu, size);
- 	}
-+	case KVM_ARM_VCPU_SPE_INIT:
-+		if (!vcpu_spe->irq_num)
-+			return -ENXIO;
-+
-+		if (!kvm_spe->arm_spu)
-+			return -ENXIO;
-+
-+		if (kvm_spe->max_buffer_size == KVM_SPE_MAX_BUFFER_SIZE_UNSET)
-+			return -ENXIO;
-+
-+		if (!vgic_initialized(kvm))
-+			return -ENXIO;
-+
-+		if (kvm_vgic_set_owner(vcpu, vcpu_spe->irq_num, vcpu_spe))
-+			return -ENXIO;
-+
-+		vcpu_spe->initialized = true;
++static unsigned int spe_visibility(const struct kvm_vcpu *vcpu,
++				   const struct sys_reg_desc *r)
++{
++	if (vcpu_has_spe(vcpu))
 +		return 0;
- 	}
++
++	return REG_HIDDEN;
++}
++
++static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++			   const struct sys_reg_desc *r)
++{
++	u64 val = p->regval;
++	int reg = r->reg;
++
++	if (p->is_write)
++		return kvm_spe_write_sysreg(vcpu, reg, val);
++
++	p->regval = kvm_spe_read_sysreg(vcpu, reg);
++	return true;
++}
++
+ /* Silly macro to expand the DBG{BCR,BVR,WVR,WCR}n_EL1 registers in one go */
+ #define DBG_BCR_BVR_WCR_WVR_EL1(n)					\
+ 	{ SYS_DESC(SYS_DBGBVRn_EL1(n)),					\
+@@ -1406,6 +1428,14 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 	  .reset = reset_pmevtyper,					\
+ 	  .access = access_pmu_evtyper, .reg = (PMEVTYPER0_EL0 + n), }
  
- 	return -ENXIO;
-@@ -310,6 +345,7 @@ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- 	case KVM_ARM_VCPU_SPE_IRQ:
- 	case KVM_ARM_VCPU_SPE_SPU:
- 	case KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE:
-+	case KVM_ARM_VCPU_SPE_INIT:
- 		return 0;
- 	}
++#define SPE_TRAPPED_REG(name)						\
++	SYS_DESC(SYS_##name), .reg = name, .access = access_spe_reg,	\
++	.reset = reset_val, .val = 0, .visibility = spe_visibility
++
++#define SPE_UNTRAPPED_REG(name)						\
++	SYS_DESC(SYS_##name), .reg = name, .access = undef_access,	\
++	.reset = reset_val, .val = 0, .visibility = spe_visibility
++
+ /* Macro to expand the AMU counter and type registers*/
+ #define AMU_AMEVCNTR0_EL0(n) { SYS_DESC(SYS_AMEVCNTR0_EL0(n)), undef_access }
+ #define AMU_AMEVTYPER0_EL0(n) { SYS_DESC(SYS_AMEVTYPER0_EL0(n)), undef_access }
+@@ -3323,19 +3353,19 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_FAR_EL1), access_vm_reg, reset_unknown, FAR_EL1 },
+ 	{ SYS_DESC(SYS_PAR_EL1), NULL, reset_unknown, PAR_EL1 },
  
+-	{ SYS_DESC(SYS_PMSCR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSNEVFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSICR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSIRR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSFCR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSEVFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSLATFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSIDR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
+-	/* PMBIDR_EL1 is not trapped */
++	{ SPE_UNTRAPPED_REG(PMSCR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSNEVFR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSICR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSIRR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSFCR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSEVFR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSLATFR_EL1) },
++	{ SYS_DESC(SYS_PMSIDR_EL1), .access = undef_access },
++	{ SPE_TRAPPED_REG(PMBLIMITR_EL1) },
++	{ SPE_TRAPPED_REG(PMBPTR_EL1) },
++	{ SPE_TRAPPED_REG(PMBSR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSDSFR_EL1) },
++	{ SYS_DESC(SYS_PMBIDR_EL1), .access = undef_access },
+ 
+ 	{ PMU_SYS_REG(PMINTENSET_EL1),
+ 	  .access = access_pminten, .reg = PMINTENSET_EL1,
 -- 
 2.51.2
 
