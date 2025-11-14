@@ -4,48 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548D4CD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 05:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D621CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 05:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B5y+sYm5sP4UrSKiyKYVoarVxgUD9FR3ci7tWNg9ZI=; b=pJ2ZZ8ZwWOHsix99Nj/2ZGdM5z
-	28Mr04cKPOKCgkDq+ilYVEDOglD+s0lqKIMETY4IDngdTT3n4XjieC6qXlfXwzhWin34lINs0vJsg
-	rQQ6HW7Q9F4sKCe1vhZ1mGGcOQ9XIW57jZfETCHxCXmuQ3lahcHNRd5Pm2EvzzaLNG4k68BTdame8
-	6Zt05oExXRrAAQZhuCHhOj8RruqB6D/8ttlNbtf2M4K3Jv+hBS42h7UtndYHwnU2QaMSzfAEL+XDE
-	6oalh1eDD+f86ejMkZxNSYfOKPAUPFTQkmIuvEWeeX2PzHYtn/Po/oEjUXWv9yCzDZS0pideTd6b2
-	Lk2IcJPw==;
+	bh=f4BkXaRbSY4CpriOHwvnOYLmtFzMrOOh9JYVfFHYZLU=; b=QfAF6n0VrBYKAT7Z7GiUaRwXoc
+	gmgEeMvKHEW3jlWYiofF0gmr1cHMlwjfwgE/BOnufWutx3LaIcobaVp1aSD2QnUF3hMC1GP1Ihf3+
+	fsgVsw5+UJaptcgU/7RJmdUXHIjRtnzww7YmbFuTES+UoBBFrMnlAk01PK/iaSGMxyTdzJYXQmG3D
+	uWPoQtHHp+Blq/hcoMYTdsTpa0xvfguZhbwG5NtnOcoD+6jstCiDJMSKSBkARq1yorvYik6YlaMCA
+	EBSli6N2uZUZspWTdOUrPnWfwIwTwXQD6de++eRv+iDkUKSTokCBR6f0xn7x5Ht9s5n9vLNt8gpo+
+	WyGTEcPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJlwt-0000000BZrt-3Ic6;
-	Fri, 14 Nov 2025 05:02:15 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJlwr-0000000BZrS-3zdC;
-	Fri, 14 Nov 2025 05:02:13 +0000
-Message-ID: <0eb1a2b7-8064-4ac5-bcf8-b4898a8b5ac7@infradead.org>
-Date: Thu, 13 Nov 2025 21:02:13 -0800
+	id 1vJmUi-0000000BbPM-09gM;
+	Fri, 14 Nov 2025 05:37:12 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJmUc-0000000BbOD-31Rn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 05:37:08 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251114053700epoutp035e4fd4e0447fe8d87b3d7313a7db9523~3yNqh5l4M1782917829epoutp03y
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 05:37:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251114053700epoutp035e4fd4e0447fe8d87b3d7313a7db9523~3yNqh5l4M1782917829epoutp03y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763098620;
+	bh=f4BkXaRbSY4CpriOHwvnOYLmtFzMrOOh9JYVfFHYZLU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=YgyMmFYvQZKJBQaW2RZ1GrT7kT+Ok+o2IaDdCPx2EcyGSWVILyZADQ7jvRK5DbK99
+	 c4u54jHechDb2It81AO3pNdvVKuG2FkzkzLGnuSysUSF5BLCJKyhRofQ55HCCkHS6O
+	 ybO6+B2TPpW6zh6ufOqvvw+pxhqO6gaSa987tyig=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20251114053700epcas2p4c375cd9debd91d96156eef1e20d5f26b~3yNqGZZPU2059920599epcas2p4A;
+	Fri, 14 Nov 2025 05:37:00 +0000 (GMT)
+Received: from epcas2p1.samsung.com (unknown [182.195.38.206]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4d75Vg3vvJz3hhTH; Fri, 14 Nov
+	2025 05:36:59 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251114053658epcas2p1bb54b75492e5850a0dc6dbed8ec7cf38~3yNpA9ojs2511225112epcas2p1v;
+	Fri, 14 Nov 2025 05:36:58 +0000 (GMT)
+Received: from KORCO118486 (unknown [12.80.208.104]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251114053658epsmtip274ea3eac07362b98eb7eac08d3e37631~3yNo5WXGX2019320193epsmtip2D;
+	Fri, 14 Nov 2025 05:36:58 +0000 (GMT)
+From: =?utf-8?B?67Cw7IOB7ZuIL1Nhbmdob29uIEJhZQ==?= <sh86.bae@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <vkoul@kernel.org>, <alim.akhtar@samsung.com>,
+	<kishon@kernel.org>, <m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
+	<shradha.t@samsung.com>
+Cc: <krzk+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <945d5f68-66b9-40f3-afd7-64e746075d12@kernel.org>
+Subject: RE: [PATCH 1/4] dt-bindings: soc: samsung: exynos-sysreg: add hsi0
+ for ExynosAutov920
+Date: Fri, 14 Nov 2025 14:36:58 +0900
+Message-ID: <000001dc5528$b2053210$160f9630$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/13] coresight: docs: Document etm4x timestamp
- interval option
-To: James Clark <james.clark@linaro.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
- <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQISOccZb2Ez4IvEWuwZme1oXG7+3gG5WrFyAj6/1FYBYx2HL7RbA5zw
+Content-Language: ko
+X-CMS-MailID: 20251114053658epcas2p1bb54b75492e5850a0dc6dbed8ec7cf38
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5
+References: <20250926073921.1000866-1-sh86.bae@samsung.com>
+	<CGME20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5@epcas2p4.samsung.com>
+	<20250926073921.1000866-2-sh86.bae@samsung.com>
+	<945d5f68-66b9-40f3-afd7-64e746075d12@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251113_213706_906071_AFC3FDAB 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,42 +100,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/12/25 7:22 AM, James Clark wrote:
-> Document how the new field is used, maximum value and the interaction
-> with SYNC timestamps.
+> > Add hsi0 compatible for ExynosAutov920 PCIe settings for:
+> > - PCIe PHY power control
+> > - PLL settings for PCIe
+> > - PCIe device direction (RC/EP)
+> >
+> > Signed-off-by: Sanghoon Bae <sh86.bae@samsung.com>
+> > ---
+> >  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml   | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> This is not really related to PCIe or phy patchset, so putting it here
+> just makes life of maintainers more difficult. There is really no reason
+> for that.
 > 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  Documentation/trace/coresight/coresight.rst | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
-> index 806699871b80..80b5ed09d69b 100644
-> --- a/Documentation/trace/coresight/coresight.rst
-> +++ b/Documentation/trace/coresight/coresight.rst
-> @@ -613,8 +613,19 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
->       - Session local version of the system wide setting: :ref:`ETM_MODE_RETURNSTACK
->         <coresight-return-stack>`
->     * - timestamp
-> -     - Session local version of the system wide setting: :ref:`ETMv4_MODE_TIMESTAMP
-> -       <coresight-timestamp>`
-> +     - Controls generation and interval of timestamps.
-> +
-> +       0 = off, 1 = maximum interval .. 15 = minimum interval.
-> +
-> +       Values 1 - 14 use a counter that decrements every cycle to generate a
-> +       timestamp on underflow. The reload value for the counter is 2 raised to
-> +       the power of timestamp interval - 1. If the value is 1 then the reload
-> +       value is 1, if the value is 11 then the reload value is 1024 etc.
-
-	  value = 11: 2^11-1 = 2047
-
-Maybe add some parens?
-
-
--- 
-~Randy
+> Don't mix subsystems when not needed. DTS patchset targeting me, should be
+> separate from other subsystems in such case and it only needs to mention
+> in changelog or cover letter where are the bindings.
+Will separate this patch from the patchset
 
 
