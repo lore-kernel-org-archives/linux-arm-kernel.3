@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F34CE8D4F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD78CE8D50
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WcOHHuWLq+YTA6BfUSr302jRFdlKrJOhVg+OSstvphE=; b=JlRkMG6qTsnNoxVFP2gFa5R84C
-	SBiSjyHGXtFHiT6OuZIjBbyX/Sug7IRI5QAqfqIJ/nBUHPfWj/xXydLVKmaqzItDHFq3gM0V/FRrN
-	/ovJ2xc/8w4Tklf5ULX5706+y0hDbSPOAtKJlFREeTkKq3diFi3XtV6RuPA16E3I6JL4b5dmgeNQG
-	I+BXNysBOzAcNrdJIYg12pzj0N+BLWKRgfBFKtexQtgSwM9e0RNcOztfo3R5X8CmtMW+Cte3LJbiQ
-	s7CDYtzej6aBoMihALyXndxVxtfb/cpk1fqGWAUzJ48Hz9HdJkpi8wV7H2Wi7ZA0TA1Wdq8j0rmty
-	hE6IwXqw==;
+	bh=rc2TnrHXHZiGbCsxPYxVucAkzwI4G42BiHenIKnV+cg=; b=FhTJZWL4bIJFGsMSifrRO0dWT9
+	1XWr82gIxJ4I9gWSSYp2uktsdCAJi/xVFuqrRNj+lftkHPW8hkF/fpBZ2R6W9ciXiXGEmcYyZeq10
+	Vj7dOoVjvUNWe+7X2QfgvAckVpp7niYUspflrPNCGXYhXe/BPxenLO5lQCu26IFtEq5R32UIVgqr1
+	bVIdJPrCC/8k+Ks+8ea1xz5jppepzm8aDeihecrWHbOCbXrQHTMSVzPBItP3jSzXPPIDHvXwhbQcO
+	eg0bkYRkaWZkeZ8hAP/J6BIAKvoqfGOkETzkAWA+h2qoZ8eVwCgwG1EmXxNdTBCE0FrHeeVxIEsjs
+	AYIiAdDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwL0-0000000Cf2D-3ulN;
-	Fri, 14 Nov 2025 16:07:50 +0000
+	id 1vJwL1-0000000Cf2g-11fi;
+	Fri, 14 Nov 2025 16:07:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwKw-0000000CezM-1sql
+	id 1vJwKx-0000000Cezx-16xt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:07:47 +0000
+	Fri, 14 Nov 2025 16:07:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B63A51BB0;
-	Fri, 14 Nov 2025 08:07:36 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3868819F6;
+	Fri, 14 Nov 2025 08:07:39 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3797B3F5A1;
-	Fri, 14 Nov 2025 08:07:42 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0A9D3F5A1;
+	Fri, 14 Nov 2025 08:07:44 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -46,17 +46,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 04/35] perf: arm_spe_pmu: Move struct arm_spe_pmu to a separate header file
-Date: Fri, 14 Nov 2025 16:06:45 +0000
-Message-ID: <20251114160717.163230-5-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 05/35] KVM: arm64: Add KVM_CAP_ARM_SPE capability
+Date: Fri, 14 Nov 2025 16:06:46 +0000
+Message-ID: <20251114160717.163230-6-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_080746_610356_CFCD0D21 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20251114_080747_384373_FC1F3D72 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,122 +71,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM will soon want to make use of struct arm_spe_pmu, move it to a separate
-header where it will be easily accessible.
+Add the SPE capability that will be used by userspace to test if KVM
+supports SPE virtualization.
 
-Cc: Will Deacon <will@kernel.org>
+The SPE driver supports heterogenous systems. Keep track of all the
+available Statistical Profiling Units (SPUs) in the system, because KVM
+will require the user to associate a VM with exactly one SPU.
+
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- drivers/perf/arm_spe_pmu.c       | 32 +--------------------
- include/linux/perf/arm_spe_pmu.h | 49 ++++++++++++++++++++++++++++++++
- 2 files changed, 50 insertions(+), 31 deletions(-)
- create mode 100644 include/linux/perf/arm_spe_pmu.h
+ Documentation/virt/kvm/api.rst   | 10 +++++++++
+ arch/arm64/include/asm/kvm_spe.h | 20 +++++++++++++++++
+ arch/arm64/kvm/Makefile          |  1 +
+ arch/arm64/kvm/arm.c             |  5 ++++-
+ arch/arm64/kvm/spe.c             | 38 ++++++++++++++++++++++++++++++++
+ drivers/perf/arm_spe_pmu.c       |  2 ++
+ include/linux/perf/arm_spe_pmu.h |  8 +++++++
+ include/uapi/linux/kvm.h         |  1 +
+ 8 files changed, 84 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/include/asm/kvm_spe.h
+ create mode 100644 arch/arm64/kvm/spe.c
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index fa50645fedda..188ea783a569 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -28,6 +28,7 @@
- #include <linux/of.h>
- #include <linux/perf_event.h>
- #include <linux/perf/arm_pmu.h>
-+#include <linux/perf/arm_spe_pmu.h>
- #include <linux/platform_device.h>
- #include <linux/printk.h>
- #include <linux/slab.h>
-@@ -67,37 +68,6 @@ struct arm_spe_pmu_buf {
- 	void					*base;
- };
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 57061fa29e6a..10e0733297ac 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -9229,6 +9229,16 @@ KVM exits with the register state of either the L1 or L2 guest
+ depending on which executed at the time of an exit. Userspace must
+ take care to differentiate between these cases.
  
--struct arm_spe_pmu {
--	struct pmu				pmu;
--	struct platform_device			*pdev;
--	cpumask_t				supported_cpus;
--	struct hlist_node			hotplug_node;
--
--	int					irq; /* PPI */
--	u16					pmsver;
--	u16					min_period;
--	u16					counter_sz;
--
--#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
--#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
--#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
--#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
--#define SPE_PMU_FEAT_LDS			(1UL << 4)
--#define SPE_PMU_FEAT_ERND			(1UL << 5)
--#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
--#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
--#define SPE_PMU_FEAT_EFT			(1UL << 8)
--#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
--	u64					features;
--
--	u64					pmsevfr_res0;
--	u16					max_record_sz;
--	u16					align;
--	struct perf_output_handle __percpu	*handle;
--};
--
--#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
--
- /* Convert a free-running index from perf into an SPE buffer offset */
- #define PERF_IDX2OFF(idx, buf) \
- 	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
-diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
++8.46 KVM_CAP_ARM_SPE
++--------------------
++
++:Capability: KVM_CAP_ARM_SPE
++:Architectures: arm64
++:Type: vm
++
++This capability indicates that Statistical Profiling Extension (SPE)
++virtualization is available in KVM.
++
+ 9. Known KVM API problems
+ =========================
+ 
+diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
 new file mode 100644
-index 000000000000..86085a7559d9
+index 000000000000..6572384531e2
 --- /dev/null
-+++ b/include/linux/perf/arm_spe_pmu.h
-@@ -0,0 +1,49 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/arch/arm64/include/asm/kvm_spe.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * Split from driver/perf/arm_spe_pmu.c
-+ *
-+ * Copyright (C) 2016 ARM Limited
++ * Copyright (C) 2021 - ARM Ltd
 + */
 +
-+#ifndef __PERF_ARM_SPE_PMU_H__
-+#define __PERF_ARM_SPE_PMU_H__
++#ifndef __ARM64_KVM_SPE_H__
++#define __ARM64_KVM_SPE_H__
++
++#ifdef CONFIG_KVM_ARM_SPE
++DECLARE_STATIC_KEY_FALSE(kvm_spe_available);
++
++static __always_inline bool kvm_supports_spe(void)
++{
++	return static_branch_likely(&kvm_spe_available);
++}
++#else
++#define kvm_supports_spe()	false
++#endif /* CONFIG_KVM_ARM_SPE */
++
++#endif /* __ARM64_KVM_SPE_H__ */
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 3ebc0570345c..6ea071653c5e 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -29,6 +29,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+ kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+ kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
++kvm-$(CONFIG_KVM_ARM_SPE)     += spe.o
+ 
+ always-y := hyp_constants.h hyp-constants.s
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 052bf0d4d0b0..ee230cb34215 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -39,6 +39,7 @@
+ #include <asm/kvm_nested.h>
+ #include <asm/kvm_pkvm.h>
+ #include <asm/kvm_ptrauth.h>
++#include <asm/kvm_spe.h>
+ #include <asm/sections.h>
+ 
+ #include <kvm/arm_hypercalls.h>
+@@ -419,7 +420,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 		else
+ 			r = kvm_supports_cacheable_pfnmap();
+ 		break;
+-
++	case KVM_CAP_ARM_SPE:
++		r = kvm_supports_spe();
++		break;
+ 	default:
+ 		r = 0;
+ 	}
+diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+new file mode 100644
+index 000000000000..cf902853750f
+--- /dev/null
++++ b/arch/arm64/kvm/spe.c
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2021 - ARM Ltd
++ */
 +
 +#include <linux/cpumask.h>
-+#include <linux/container_of.h>
-+#include <linux/list.h>
-+#include <linux/perf_event.h>
-+#include <linux/platform_device.h>
-+#include <linux/types.h>
++#include <linux/kvm_host.h>
++#include <linux/perf/arm_spe_pmu.h>
 +
-+struct arm_spe_pmu {
-+	struct pmu				pmu;
-+	struct platform_device			*pdev;
-+	cpumask_t				supported_cpus;
-+	struct hlist_node			hotplug_node;
++#include <asm/kvm_spe.h>
++#include <asm/sysreg.h>
 +
-+	int					irq; /* PPI */
-+	u16					pmsver;
-+	u16					min_period;
-+	u16					counter_sz;
++DEFINE_STATIC_KEY_FALSE(kvm_spe_available);
 +
-+#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
-+#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
-+#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
-+#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
-+#define SPE_PMU_FEAT_LDS			(1UL << 4)
-+#define SPE_PMU_FEAT_ERND			(1UL << 5)
-+#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
-+#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
-+#define SPE_PMU_FEAT_EFT			(1UL << 8)
-+#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
-+	u64					features;
++static LIST_HEAD(arm_spus);
++static DEFINE_MUTEX(arm_spus_lock);
 +
-+	u64					pmsevfr_res0;
-+	u16					max_record_sz;
-+	u16					align;
-+	struct perf_output_handle __percpu	*handle;
++struct arm_spu_entry {
++	struct list_head link;
++	struct arm_spe_pmu *arm_spu;
 +};
 +
-+#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
++void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
++{
++	struct arm_spu_entry *entry;
 +
-+#endif /* __PERF_ARM_SPE_PMU_H__ */
++	guard(mutex)(&arm_spus_lock);
++
++	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
++	if (!entry)
++		return;
++
++	entry->arm_spu = arm_spu;
++	list_add_tail(&entry->link, &arm_spus);
++
++	if (list_is_singular(&arm_spus))
++		static_branch_enable(&kvm_spe_available);
++}
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 188ea783a569..66ae36d4d32e 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -1326,6 +1326,8 @@ static int arm_spe_pmu_device_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto out_teardown_dev;
+ 
++	kvm_host_spe_init(spe_pmu);
++
+ 	return 0;
+ 
+ out_teardown_dev:
+diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
+index 86085a7559d9..8a2db0e03e45 100644
+--- a/include/linux/perf/arm_spe_pmu.h
++++ b/include/linux/perf/arm_spe_pmu.h
+@@ -46,4 +46,12 @@ struct arm_spe_pmu {
+ 
+ #define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
+ 
++#ifdef CONFIG_KVM_ARM_SPE
++void kvm_host_spe_init(struct arm_spe_pmu *spe_pmu);
++#else
++static inline void kvm_host_spe_init(struct arm_spe_pmu *spe_pmu)
++{
++}
++#endif /* CONFIG_KVM_ARM_SPE */
++
+ #endif /* __PERF_ARM_SPE_PMU_H__ */
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 52f6000ab020..11e5dbde331b 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -963,6 +963,7 @@ struct kvm_enable_cap {
+ #define KVM_CAP_RISCV_MP_STATE_RESET 242
+ #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
+ #define KVM_CAP_GUEST_MEMFD_FLAGS 244
++#define KVM_CAP_ARM_SPE 245
+ 
+ struct kvm_irq_routing_irqchip {
+ 	__u32 irqchip;
 -- 
 2.51.2
 
