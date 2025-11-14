@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D3CCE7AAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA39CE7AAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zn+WZbkFWl9GEXlWzbgdsX9misJw5iBF5BGbREwNIdQ=; b=D/dx1BAZIv1T92t9EPgpp3hAO5
-	iyGUzKrHDvmQhBU6hQYySS82GtgK0QOv2WYEYhD+180FANj5FRA5l3GbtEKjucmNUgWlC5h7PAaWb
-	mjOuTal8ycygfqhpIOEpG9b7yCyet77cJLD7aC/j6sA2W/Pp0ZQcsFjTZwSsvGmTu2nfn+EEQ+vtU
-	cwSwhqxBukOoBXYgH5+tbzauyZNM0BmqUPT+kbwVOd429doA4rweMMd22W/c8S8imV+vtz8ep5a62
-	TvjAYSKuIi/btwLgo5Kq9x42vjY6K41aILGSKMsUNV+VqCoNf541H05sdgCpHM1zOgi98kD+3tv7K
-	URjfexGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLugjK/2aOcd1kANbuWrprVoDL7qwO58M/oqiXvPZ6s=; b=v3T2ZoSCNUDSJVvL2cKzu8MyeQ
+	O3BcSM8STnrWf1oZcgiUsl4OhpXUztV7aCu7iggEwF5WNw8Hnh/JGniFQ+BHs82GkIWXarON7ZdHU
+	mo0zl42EArBxk3mVTRepYfI0sMNFRvItsHg94i8+iZs56CTaWfToPZGw7NCKy+O2xIACDpSzNU1//
+	NkWsAITZIJjTENJ/dNTpxB1rJz8VS2PSndem23uY6F1t8kym5a002UlNhZrDA/4X9vCbEbVi1fF+a
+	NJyUaC1G9RhFjaOiT94HJhgMJnLidFMNF6+BSkleoktl0AIS/en1OHh4YB0yjkQPYV5nwxTlJz89P
+	D5mXTRgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqxg-0000000C0PF-2Ki4;
-	Fri, 14 Nov 2025 10:23:24 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1vJqzf-0000000C0lP-0bpg;
+	Fri, 14 Nov 2025 10:25:27 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqxW-0000000C0Ky-1nJT;
-	Fri, 14 Nov 2025 10:23:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=zn+WZbkFWl9GEXlWzbgdsX9misJw5iBF5BGbREwNIdQ=; 
-	b=ZnU1QTQ2Ezz66z5U+K+2XVzN9FSC9x7fI/wpDa0JR/y9hD98yNP5vNBBSB7/i4ZHJDzA3Vg6agJ
-	lZr/mJYkNxLWGhRY11EXNWP1m7kkhxAN+huwmjXhks6BcV88MvvVovp+w9+73Sz+Rj4c05YdKmf6V
-	YZx5Ap76TF7SxcHstmXugmQXRRsYHjw1dxIAlM/swiq2a9v8W4OA0Csy5dCyPTZS4CQIIYC9lFHVM
-	iWOw+pltNGDErFgNtW7dTYl7QYft3IxP8TFQsFAV/CLvUUgU3C+Xl5wTWub0z9STMqcPwdSaYROej
-	N4tt/J9N2G1zTGvWU9cYAhGQqCnoWlED3cvg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vJqwu-002yOl-2q;
-	Fri, 14 Nov 2025 18:22:37 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 14 Nov 2025 18:22:36 +0800
-Date: Fri, 14 Nov 2025 18:22:36 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Olivia Mackall <olivia@selenic.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	John Allen <john.allen@amd.com>,
-	Srujana Challa <schalla@marvell.com>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	linux-crypto@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@axis.com
-Subject: Re: [PATCH v2 0/6] crypto/hwrng: Simplify with
- of_device_get_match_data()
-Message-ID: <aRcC7NzNk7__6hb3@gondor.apana.org.au>
-References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
+	id 1vJqzd-0000000C0kz-1J9I
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 10:25:26 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5942bac322dso1657485e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 02:25:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1763115923; x=1763720723; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MLugjK/2aOcd1kANbuWrprVoDL7qwO58M/oqiXvPZ6s=;
+        b=Oux3S2nB88UMHIfAtRXu/75pNSOj9IqUekpgtV/+uBqd40nBK1b6UbxgBIa3JHguPg
+         hnbPi5nBPnyV1hfgVYPw3xLE+cy5AphNXiM6rOYnDOMrvzr7+GR/xH72nGquUi/HaFBH
+         vGocMzCeJrD6DuZaverZlf/Pv/WjAm6GUJNHekyFPYqS7DNb0LUD2vKzKaIMbVxkAmTX
+         LPa8ZGufdKnP5ldtzB+lpw/j1KlU68N8irjOtpo1qgqTkRvccXElwWIu/0d5fBZ7GsQc
+         ln7KJxUAi4fFuC2g4mcMVIAfFfrDyPLSMj7cgxsPiEnM8ZafGwJVa/1A9uj5Bat+zn8U
+         kbbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763115923; x=1763720723;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MLugjK/2aOcd1kANbuWrprVoDL7qwO58M/oqiXvPZ6s=;
+        b=I2RyxjfYihVysOZkcCAxRjhHHZg+fHKdbjHpMsDUBdYbVgxI7JXlU8WM67oTGcu+U/
+         Pky9yX2Z9pNA2e+6viyFAQgjv6mVvBiFZkrPoSM67yw1JmYlLDQ03NPhhrg423aLH89X
+         +ErqsF8zoTX8+XXSyHN3ElOZ3pl4TJ1PAoaheRqJ3ocxeMQ2VOag2eeYz6R2HBqEtJVQ
+         q2d+l84MnN21qeVslB8OV7WrH87SjVT46K+Dw/v02orNA0cRckpGRHoCMhJHg4L95rUb
+         GU24OXE2TwnMmIHndbnzJzLraH4AV0ZeZuJyMBaEME5CAX1CUeI/tMop6vgRDPpgsXLJ
+         LXfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUyoey54P6yzI28kyVFKuxQC0IWgfAVpzyzMTMeirb/gKvOP3Zpj5hUEjAJA+aaYEltmr5QLZCLNU/Htn5FPeT9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrHX5TWkrjbtyKX3KO4Y6St3OBKHsHHouV7oAtk6uQWLG8ho2C
+	Uj8X+Q3zvcDc8uQhujbhF06+j5NrLeL6iRwqyZlxn23MpNc3THtHsEIkUoa41KE0wxS7tvwYmQD
+	rSFNq4J+pNFnwDzQc0gNY9A/6bzqioZFBC7zQ0AVRVA==
+X-Gm-Gg: ASbGncscr29fDlEAeNk+mlBIlo8cL5WGj9rran32WbQQ90amIgRMtBwrj7pbtD2oHn4
+	ziRqBc27D9XspcZAo2/CxN8kjH3A0YEx/CnhVCC6I6jYA7rOVtZXzhjomSmvU7qrlif6Kovjh67
+	X7VqpK3zZxp2APt5sZWr4/UmMCn44hQfrGhesubcjIshpmrVriWyqSDfAbjuK12T6ra4o/tdxN2
+	xGJ6JbqlmMQ+EiluHeLuoWHZW8AO4H+1w7wFowFT5nVesLFoqOtJKCMPF9tonGqO5LHZlhsqEgH
+	XjDm/tUF5CYHPGbtnw==
+X-Google-Smtp-Source: AGHT+IG+vHnX/GfGDbOGf0qwI/P2NyNv9/lpky/1SJrhvTbXCs4bIpOoG9/nKcapAHhdcVGWWGxHXbG83qZQSmMMZIc=
+X-Received: by 2002:a05:6512:10c8:b0:593:f74:90c8 with SMTP id
+ 2adb3069b0e04-595841feb2amr831443e87.35.1763115922730; Fri, 14 Nov 2025
+ 02:25:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
+References: <20251106163758.340886-1-marco.crivellari@suse.com> <aRcCzMZTcO_GXvfg@gondor.apana.org.au>
+In-Reply-To: <aRcCzMZTcO_GXvfg@gondor.apana.org.au>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Fri, 14 Nov 2025 11:25:11 +0100
+X-Gm-Features: AWmQ_bmo8lguOmNNoBm-dyARH6Q5UwSpuUqVJKaH5K0WfT987DZTdzJ2ZM7ZMaI
+Message-ID: <CAAofZF4MqHDRRoLScMukxx8QefdSx1oeHyGiSB_ScL09XRqoLg@mail.gmail.com>
+Subject: Re: [PATCH] crypto: atmel-i2c - add WQ_PERCPU to alloc_workqueue users
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Tejun Heo <tj@kernel.org>, 
+	Lai Jiangshan <jiangshanlai@gmail.com>, Frederic Weisbecker <frederic@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Michal Hocko <mhocko@suse.com>, 
+	"David S . Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_022314_483495_3A342A9F 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20251114_022525_359352_CA43A871 
+X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +101,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 07, 2025 at 09:15:47AM +0100, Krzysztof Kozlowski wrote:
-> Changes in v2:
-> - crypto: artpec6: Add missing (enum artpec6_crypto_variant) cast (to
->   fix 32-bit builds)
-> - Add Acks/Rb tags.
-> - Link to v1: https://patch.msgid.link/20251106-crypto-of-match-v1-0-36b26cd35cff@linaro.org
-> 
-> Few simple cleanups, not tested on the hardware.
-> 
-> Care has to be taken when converting of_match_data() into
-> of_device_get_match_data(), because first can check arbitrary
-> device_node and the latter checks device's node.  Cases here should be
-> safe because of_match_data() uses 'dev.of_node'.
-> 
-> Best regards,
-> Krzysztof
-> 
-> ---
-> Krzysztof Kozlowski (6):
->       hwrng: bcm2835 - Move MODULE_DEVICE_TABLE() to table definition
->       hwrng: bcm2835 - Simplify with of_device_get_match_data()
->       crypto: artpec6 - Simplify with of_device_get_match_data()
->       crypto: ccp - Constify 'dev_vdata' member
->       crypto: ccp - Simplify with of_device_get_match_data()
->       crypto: cesa - Simplify with of_device_get_match_data()
-> 
->  drivers/char/hw_random/bcm2835-rng.c | 11 +++--------
->  drivers/crypto/axis/artpec6_crypto.c |  9 +++------
->  drivers/crypto/ccp/sp-dev.h          |  2 +-
->  drivers/crypto/ccp/sp-platform.c     | 17 +++--------------
->  drivers/crypto/marvell/cesa/cesa.c   |  7 ++-----
->  5 files changed, 12 insertions(+), 34 deletions(-)
-> ---
-> base-commit: cec65c58b74636b6410fc766be1ca89247fbc68e
-> change-id: 20251106-crypto-of-match-22726ffd20b4
-> 
-> Best regards,
-> -- 
-> Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Fri, Nov 14, 2025 at 11:22=E2=80=AFAM Herbert Xu <herbert@gondor.apana.o=
+rg.au> wrote:
+> [...]
+> Patch applied.  Thanks.
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Many thanks, also for cavium/nitrox and crypto qat.
+
+
+--
+
+Marco Crivellari
+
+L3 Support Engineer, Technology & Product
 
