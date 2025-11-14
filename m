@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67C6CE7AF8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 12:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B51CDE00D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 12:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UvAB0mCQYQ8c80Klm7WQAFVp/EeiM2LU4sVj8vpf494=; b=RNoScoTSip+VpdeAXAldSrb+lL
-	UlPRSwszeckT72EZQXxD+eVPNgno4+ZT4npV8+TepdPUCcUUx4oRXVwbIgMKlicCZUceCj1qV+4Y+
-	tnR4aDKwUa0hkqjPv9/ldIu2rIJRmA/YBH1A5sCJOF0WycgzCoXMGl5KaXhIRWU4xWwWPf4LepYze
-	lJlMQ2WMdhREVUJc1UmQM0uDgot7862aLFuOzN39s38WyyBl+2msr6/8eSJ9yr8xa5/yFljSwbh/L
-	TANlvy/f71ZJRJwlAuIBfOgqcx8Jbgou0g/EH2Zl0uuSk+ItsXULNg5LqTsmca5UyKIcKC7v/BH22
-	1DLSu07w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DPjgwRy+onJPS+IqkIcaIi3lzoC2BxsDCzhVvVFR+2A=; b=E8QkfopIuhEtru
+	q4cLNUFCbdoQwrEDqpdt7IIGogau8ujeSiBotv039TgFjOYEbqpUoGmO5AEmIwYH/WKn6HDaCuKVX
+	K/L+N60Kc2BbpQhTegZK1A75a4lEwvh4A2EUX5Pgn4y8oL4RvyqE6DMcg34b8tsToLozmONx/DawD
+	zVsrunAXoGvl0J10UntcOHtn3z8+iglc/1eQKN2mcTC7dmg5dLsWOnQUYJPKIbXIvkuliAprnm3u2
+	Z9hDcAoad1Y+pEhg4DFHKSiNl6eKedSGgrBKu+gxYLuRULsKJ7TlVBS9OuxhQt+oM/VS+BddUNxkK
+	m47uCW7wUfLC7/KAy+PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJsTu-0000000C9yX-1Bg6;
+	id 1vJsTu-0000000C9yG-00H7;
 	Fri, 14 Nov 2025 12:00:46 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJsTo-0000000C9wc-0aK9
+	id 1vJsTn-0000000C9wZ-1xzs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 12:00:41 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42b387483bbso1575600f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 04:00:39 -0800 (PST)
+	Fri, 14 Nov 2025 12:00:40 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42b3b0d76fcso1283217f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 04:00:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763121638; x=1763726438; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UvAB0mCQYQ8c80Klm7WQAFVp/EeiM2LU4sVj8vpf494=;
-        b=ouJCT80MGMY5TX0+8zjAuJIpz8Qd8ASrYGmoNvxjhnHM2woFwIMNorFpwkCXGNzZox
-         lw3716llP41cl2zXu380K9qk8WB0QcSH9WvwOascxDnA6qZFuPTLHB3oOCsIbREZDHMA
-         ebcRju11/TdJcJlaS7agvBjxtxfNSIadnoI3jUD2MfaGSAUCC1Iqi4d7bVzLoVZkRxZo
-         MjB8IQSaaN8dZKQQ+8Ar4XLrnhbxCumnRgh0XkW4YAtQJXKe8y3dgO7qYMz0TiutpD7a
-         UEsMt92unKMImSjb19TzXpbo5ZWknDA8jK0YL4HQ3Qdc6XeqUoGXOM6MHmQuAuh0PMiM
-         gbKA==
+        d=linaro.org; s=google; t=1763121636; x=1763726436; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DPjgwRy+onJPS+IqkIcaIi3lzoC2BxsDCzhVvVFR+2A=;
+        b=iV6edgj8PpHVKWwdbamQs2VlJjdIjX8nnRS8PebHsQS5C+2TiFaSaq+qhIT6LR3EMx
+         2I8U2NghP28zy/8RQfjqRilHuRN/q27bij7u/Cytj2ct5UYiiWuyeTED38RjyMun7DPT
+         whQz949FH70PKD0pKNhJWDypxWm6xKeF15vIF4NeJr5NRabl0aCfp618X/KYAvs1tOnK
+         KQtEodgMputgg//XNgVlF5J5yZS2tHl8ROkV5W/xSHtzVDxtpx8oWToHRMPPg1CXmt5r
+         2wFqBLmirjFigYjlGwwcpOpUvQgBJ1K22dc2LDqJu6+WxD/z6YS3KdYFjaTb9n1QRqDC
+         tMLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763121638; x=1763726438;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UvAB0mCQYQ8c80Klm7WQAFVp/EeiM2LU4sVj8vpf494=;
-        b=FyWivsNPrhKAnqQzJCA8l7npmKk3HggCJ9sXGpjLXlWR3pK/PiRLypTykr676cIS5I
-         WT5eQpgdnRhZOTdBTavQhQHB9upcDH/xIsNs5p1aAORHQadCf66sGvTVZ40nhlY7YlGM
-         uUTUKSQOiy4nkzYAG73u0xVJKoUzZCxocB8Elsh+wk9pCCGSxDKxIk6Y5nlYRALk2wpf
-         OESiniMmgU2L2Yv4C1Vum8Y/HPufcU6dCNs3OQ4M2zpf9VuEXjyB6iUBfdQZGvSmtCA3
-         LqdvOLP3ZDnEu97wsl4yMxEpCmMpedC5tstbbBrUmiO1KU+uEM1yfi3Fkf2+DoCcMrO7
-         VSFw==
-X-Gm-Message-State: AOJu0YyIxbhY0roV7b7kKDb0dnYlzf0ljwOWJrguZvWMZxyxcac6Rpha
-	jEERQgK2NtKpp8B0Ucl47yboZrYgGKjaTpDfBdSleXWKqpeVQSxnr3BP2pEWpKV4uec=
-X-Gm-Gg: ASbGncugbyoM+U8ns4sDXPtIhh48Jix6S5qWMrM6/8dq6YnDp5jiaveOODonUs33ezY
-	GRzZFCR8xAvVbqsZ/RmGAgb4CQF+tF7m89lYiIOS7P2OzoA4sq1Z8FiCIVE6OT5z+pg8EFJRjcJ
-	F1uqK2fXkCiTS4xTEVKKgSZaz01ZVnbM0fs/ejg+k+5FvfhnY7jidIpC0heeFh51jBwFA3OBQZt
-	MJ2oU+e97kobAK6P+2PHPVaalqtLhqmQNg80qqUSb0CKsaGKCL01UPsOOVBb5CS76U/T4QQwx2U
-	t+1NC818hwuRjVMo5oZsJz2KGce435hO3ow8FBi9mdm7L7QA7NDlhzdQNTX2pYv/h+b/wGcj14u
-	XgUg74bceVL77RtHnuY6xcgAZ5QGRYX9j/zvJ1h16N21lzP3kvEHvTGr6rMcSB18z+2R6CCyMT5
-	NHjSwgoqh4TugLbLaeKQhOtg872cQ6dTAoHwPjRKaN
-X-Google-Smtp-Source: AGHT+IFDytDOoxWCznl5GNdQ7r3wEaAqpdygs0quJMyPhhtYCqkt8A4W3XGhbVCI7Rkl0znQmLbd+g==
-X-Received: by 2002:a05:6000:2890:b0:42b:30f9:7998 with SMTP id ffacd0b85a97d-42b5934d76bmr2913871f8f.27.1763121638277;
-        Fri, 14 Nov 2025 04:00:38 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763121636; x=1763726436;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DPjgwRy+onJPS+IqkIcaIi3lzoC2BxsDCzhVvVFR+2A=;
+        b=JZLuKsmEFEvSA6CBg5Kraw3EJm3Z06W9Yd/hlQJh36klds//R4ilYSc7tLoF/EMBbm
+         Iu74os07VOySXkB5o/sJGvuKNENqlkYzNDs2IOAJr2gy3UV92icmCN3TXPWz/kGN5fjf
+         DOOovTY4ZXr/5MfboML1j3Up0epnlP1HaoL2FEP1W+2bd0vSbJ+CIvADor+sOwuRxwRP
+         HZut7V1+y68+6k/+N0gECeHpUIljMOg/Z/+dt7op5HNqr/hGu1WLhMSh3/vYjyD2DMuF
+         jIH3imIfunqz61HuRzRVn3a4QQwRAXMpJkqsZ0+I4rygZS+8Sc5iN0oEU3ew5MtAxnOU
+         DUDQ==
+X-Gm-Message-State: AOJu0YwgIGiQySHD9nqTBzVU/CqAQbtAzkqmGAvxJ0IYiIB3HZVU4PWn
+	J8pVGRy4H6ehjaECMsEiMEIZ0iB0xFMsv8tBo8K0u9YHQdt5NlBkggUqCPS2xVpmLOA=
+X-Gm-Gg: ASbGnctyXp8jZPaqxBw0hz9E3Me4CVsK8N2oczxoOQmMDYxWiRCa5H3IxeeJrqURvgS
+	ApdOoiUV3/3V2c3GpZZ1H5PcRnUkTF3d/8xsbo3rN2HOFgUE3Cz+i6z2RNNQIWOC1QlXxwIhhqK
+	/KPMHbb4Gtt9G2/a4bqpO3GzK8QWFmheoRWppAOC8ItRaCbu8IhKkfW62kxopwxaV9ETrku+2Qr
+	XbQ3fLrRFyqQTNwEMxzs0Ao7aYeBt4PGPPduPn2syfRXxe+15c5+NBcaHYbf/ClebAFGR7D5OVr
+	RePBl0DSD/axWrpOud3V/MCos76yBAfia+aVOzFYB13Ekglrltr/iT92JfMfUH5m0115xBAqUUU
+	tKXQ8GSxAnZbKJOSUBAYxDriXywrNzCf0EzHB3frdXJ05+vvD7n3t/+K9na/DrXqbYpOkq74RAf
+	OdT9v9DIQz1LjVRcy8QD66LTUJlB1NcA==
+X-Google-Smtp-Source: AGHT+IHX2390ivkvLs2uDJJ/4xAE1crzQXympMenKA3YTmHg28FuFzWNtXvAz1hi1yPzry+bv5rDqw==
+X-Received: by 2002:a05:6000:1ace:b0:3ff:17ac:a34b with SMTP id ffacd0b85a97d-42b59383b2dmr2998163f8f.42.1763121635434;
+        Fri, 14 Nov 2025 04:00:35 -0800 (PST)
 Received: from gpeter-l.roam.corp.google.com ([145.224.65.83])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e7ae5bsm9487578f8f.8.2025.11.14.04.00.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e7ae5bsm9487578f8f.8.2025.11.14.04.00.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 04:00:37 -0800 (PST)
+        Fri, 14 Nov 2025 04:00:34 -0800 (PST)
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 14 Nov 2025 12:00:17 +0000
-Subject: [PATCH v2 2/2] arm64: dts: exynos: gs101: remove syscon compatible
- from pmu node
+Subject: [PATCH v2 0/2] Remove syscon compatible from google,gs101-pmu node
+Date: Fri, 14 Nov 2025 12:00:15 +0000
+Message-Id: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-remove-pmu-syscon-compat-v2-2-9496e8c496c7@linaro.org>
-References: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
-In-Reply-To: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAM8ZF2kC/3WNQQ6CMBBFr0K6dgytqMGV9zAsSpnCJNIhU2wkh
+ LtbSVy6fC/5768qohBGdStWJZgoEocM5lAoN9jQI1CXWZnSnLUuDQiOnBCm8QVxiY4DOB4nO0P
+ Xtq6qja0QrcrzSdDTe08/mswDxZll2Z+S/tpf9PQ/mjSU4I1rr762HV78/UnBCh9ZetVs2/YBQ
+ 1IRWsEAAAA=
+X-Change-ID: 20251102-remove-pmu-syscon-compat-dbbc492a4eea
 To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,26 +89,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  kernel-team@android.com, willmcvicker@google.com, dan.carpenter@linaro.org, 
  arnd@arndb.de, robh@kernel.org, Peter Griffin <peter.griffin@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1844;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2515;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=cmENj0W8XtjYOV93TTYCBYmHtN9YboPhPdx0mxFR9/w=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpFxnhnEbiRUV2bxgCurkMI1ULYwN3pjRsDVkQ/
- Iqdy1H47GmJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaRcZ4QAKCRDO6LjWAjRy
- uphND/93WTuH9XIpzNaqeJVvHv8NtS/9c9v8swUUO444EIliwGiCxxV/coXPYhWI8QUrfPTrqh+
- 1Bf3ymdvHWfKrjBBhR1/QMZ3bI2I8JYczEvAtxPSpc6qUqmV8ET09puYBhtdQERfJpo78+hsVg8
- JfJD7UXGuSvpq1fITtC92c0aUIsHGcid0RXoFFTlOyaG0nklcSIlwmyK/2d8DzxQ/28HOy6+omx
- +ysHJkTdoG3pd9ErIYABY1NmpKOQX/+bKmTZ1DIGvXw6Er0xtqd6Rzi5cHdSbI9s6xYxIi6gb9i
- EZ51sbexkWvVRRXAFf272t3IS7voZ/PbJef4NAfopXrjojS8fUT+AH4N6EX3EOj9Hgg7aJwWhp/
- eFtbMpr5stHFvqWj9bcKX6bgJf21qrgr4KpHDKkF8ZoTT5mzjoAHY4gnfJJHa6Dm/CWzyREyYtl
- kwaFEeZ3HmCtAK3vi3NVlGb51SqMQV9YRJJmS57/Rxs/qNBH8/CGhDhKeqeVq7p+vOdTW0VYuOg
- PaUX8ZHsFl2lbqbbW9UGN92azRbYAZePGPLcYMDFLUEfnM2Yl9Jn+pc7eLweT9C/4rHZNxomI12
- Cm5YGjJm64UpUNmTB6BkvVanUq7Lf1fAmB7hGzJdjCJhaEMPG63UchaVDKttcdJDrLeSRxcG+2y
- zWSCtDBgHgBu0UQ==
+ bh=ZaIyBTnwagX+mg5Fm8v7qCDLfAe76rRU3qsBSCjnAxg=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpFxndB6OL9nN24aNIm+o9cKItyW9b1+ko0K+Iq
+ yFeHy0GxaOJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaRcZ3QAKCRDO6LjWAjRy
+ uhmSD/wPTru0lXRPUMWeofXVH/cZCkVFn8jaWh/YseuFJHZwg1JWLdjRynJqe+K3kJIBZ27WWcW
+ TcW86aJ0UT1oNYmV9Wd9czCKPp8Lnon0hVOTXVgnUU7/cmg+pq9vLu2uAJvUb45sd60K/WffmGl
+ DnNeWABUDi21VZLU8hXysxShZh6SIZ5E7euBcq/Xktl1ffo8vcjsFuyFCPvazTlDdiSrkf+HtZh
+ cwDZLR5loTi5ATtShLh0YEPZHkFn4KIlMZQTA+Ts2zdjEiNZ7VogsSV/ns0ECAi19sHE8dz5s8t
+ H+UgJAQcNCoCrl4x4ti9hfTsFWZu5c3gZ3cORU3orEdb0Qo+J8kDfPopMwsZbTzoSoZNoTqF86W
+ kEqnSqFQgFn4j0rkgYKyR48D82z5T+8DClouk2bHmFJqyWcAh2e5AvG85z+FxoZLcfRJOR2OBY3
+ 9Xvl1elZZJcmuNSj48UnXO+tPtVwWKii/KaNNtY05tfiaQD/qyDmSF4N++1Tz0bYZzX5LcBwvaT
+ u2NOYKdARwJ77m9Ag2pQhOq+jKr8iapK0PlZFwyqPRj0ZGccZT2dneqccGmyyXaGhGFqDfL78yJ
+ n/SCRenDrP6MXRUK6LVM3yMDbw5OSb5WDFkEdw7uablX/nVwpRTB5vynh7Kv5HUyRMeZ6FwnyIG
+ Ckhc5SWTFM3b1gw==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_040040_201153_D00A0255 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20251114_040039_576977_9781DAEA 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,47 +123,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi folks,
+
+This series removes the syscon compatible from the pmu_system_controller
+node, by updating both yaml bindings and device tree.
+
 Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
 "syscon" compatible") it is possible to register a regmap without the
 syscon compatible in the node.
 
-As mentioned in that commit, it's not correct to claim we are compatible
-with syscon, as a MMIO regmap created by syscon won't work. Removing the
-syscon compatible means syscon driver won't ever create a mmio regmap.
+As noted in that commit, it isn't really correct to claim we are compatible
+with syscon, as a MMIO regmap created by syscon driver won't work on gs101.
+Removing the syscon compatible means the syscon driver won't ever attempt
+to create a mmio regmap.
 
-Note this isn't usually an issue today as exynos-pmu runs at an early
-initcall so the custom regmap will have been registered first. However
-changes proposed in [1] will bring -EPROBE_DEFER support to syscon allowing
-this mechanism to be more robust, especially in highly modularized systems.
+Currently we rely on exynos-pmu running and registering its regmap at a
+very early initcall level, so no mmio created regmap is returned. For
+pinctrl driver that runs at the same initcall level as exynos-pmu today we
+have a custom exynos_get_pmu_regmap_by_phandle() API that supports
+-EPROBE_DEFER.
 
-Technically this is a ABI break but no other platforms are
-affected. Additionally (with the benefit of hindsight) a MMIO syscon has
-never worked for PMU register writes, thus the ABI break is justified.
+However with the changes proposed in [1] -EPROBE_DEFER will become
+supported in the syscon driver directly making this whole approach more
+robust especially in a highly modularized system with other drivers at the
+same initcall level. We should also be able to remove the custom API
+referenced above.
+
+Technically this is a ABI break but no other platforms are affected. With
+an old DT we will have the behaviour of today (rely on early initcall
+levels). But once [1] is merged, with a new DT we will benefit from
+-EPROBE_DEFER. Additionally PMU write register access was never working
+with a mmio syscon so the ABI break is justified.
+
+regards,
+
+Peter
 
 Link: https://lore.kernel.org/lkml/aQdHmrchkmOr34r3@stanley.mountain/ [1]
+
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
 Changes in v2:
- - Update commit message (Krzysztof)
+- Update commit description (Krzysztof)
+- Change Items to enum, remove const (Krzysztof)
+- Checkpatch warning commit msg length (Krzysztof)
+- Link to v1: https://lore.kernel.org/r/20251103-remove-pmu-syscon-compat-v1-0-f2cb7f9ade6f@linaro.org
+
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Peter Griffin (2):
+      dt-bindings: soc: samsung: exynos-pmu: remove syscon for google,gs101-pmu
+      arm64: dts: exynos: gs101: remove syscon compatible from pmu node
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index d06d1d05f36408137a8acd98e43d48ea7d4f4292..e1a7d33fd4a369f7b352b81d2070beb62a0ced16 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1705,7 +1705,7 @@ sysreg_apm: syscon@17420000 {
- 		};
- 
- 		pmu_system_controller: system-controller@17460000 {
--			compatible = "google,gs101-pmu", "syscon";
-+			compatible = "google,gs101-pmu";
- 			reg = <0x17460000 0x10000>;
- 			google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
- 
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 3 ++-
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi                  | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+---
+base-commit: 72fb0170ef1f45addf726319c52a0562b6913707
+change-id: 20251102-remove-pmu-syscon-compat-dbbc492a4eea
 
+Best regards,
 -- 
-2.52.0.rc1.455.g30608eb744-goog
+Peter Griffin <peter.griffin@linaro.org>
 
 
