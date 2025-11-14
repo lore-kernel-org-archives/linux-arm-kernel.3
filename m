@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D2FCE8D44
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546A6CE8D40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x8I9KPnocTwYvke4KmXVCDz7cZG6pMchNENixp9PaBs=; b=NIFghO39OgWsWCOZcVyR45gwTA
-	EjtSwy7m9nOC3Fdq8+YSG3S4dghENy48b4Y3C2K8UXrXKbbO1og9k1yvLU048B612YHFZxe2yy3qm
-	YlOjcx1cN/xO1zp+v9dUVG2XFwqOfjH8FKvQ8QisCj9z+i0YqSDQqA3/blzwmS5GiVkxxwL7l6jvD
-	ZUFk7ztYLLbwUGG/i/KbeHKRKn2nqSNi1ea5MLzxEp81QC0Ra3JrGlzLcO8q+UL8kh3smWqlRb+v1
-	pkV4k1KNbmRO7DWbZBbhCDg6vF09pIpbe9GWq4/HIB+RMG9sEHey5DGWhUHETOI/rhrMDBNfkxccd
-	AtAb2Otw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VSlAjd2/bzut7bsXFZj2fHFTw4dhyypYEGn0c01DsIg=; b=R1zx+5fKXzRKy0Cfth3sYoE7pU
+	IXLY4TxVFlO/S/mOvngVs+d9kOVZm86bEnYaMUzbnHWbTbU2J/y6rKCInfklsr3pYK5WzwnYKnsfG
+	jPzdtmZwdcmZCTSiCQ2amOudOeeU9ITa5qptzeimxnE5ROmsyOko+c6erKIZtP48EuA+EKCa4p49p
+	Az5k9RxU2OoOAW8CbgIc7uZNee3D4UJtwBK8ei5Wz/VxEjmLFbuolZqn1aRDlq9vqE5LVGxLxxCWh
+	42Kseig5Li08wLAqAKPQdKccb8wOZyLoEH4czU+Ok9SAzwoO93OfDvfT2wF/chtMVPHE1ncIZJnIS
+	BlKbMN4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvi4-0000000CYTa-3tK5;
-	Fri, 14 Nov 2025 15:27:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vJviw-0000000CYaR-2eyx;
+	Fri, 14 Nov 2025 15:28:30 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvi3-0000000CYTS-230Q
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 15:27:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=x8I9KPnocTwYvke4KmXVCDz7cZG6pMchNENixp9PaBs=; b=SfLfimekNYUqeTPdogfAfKCRSZ
-	8GiK4/wrIZJaEuQYYrw8pdCWV7kZo5UMMWoCRF3Z+5Sr9zZkWpiKR4jJrEIiNBR7MQvSQxfS3S0A9
-	IKbuKjHslY9GRUJIFQxtbcNI3iBV+HwWLbusOGQNgQ004z8wgOejV0OsVgvdh9g4ALJtUumE9YOr9
-	Keeqk8pmkPYuFA/nqqiMhMB+BHjmCqiEhMHu4GCNBAd9rWlb6wjdv1U9MpqYv8XDC2rISXr/tzIZ1
-	0g9dW3wCOYwRX8uHTHVwGLHbuLwnIymYOAoEbJbMOsS/bLg/UPbnkmXs5OR5iD+VP5gKOI0ABbB7q
-	loEzv0Cw==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJuqL-00000002owC-0NXH
+	id 1vJvit-0000000CYZn-41dr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:32:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=x8I9KPnocTwYvke4KmXVCDz7cZG6pMchNENixp9PaBs=; b=Zn9Awb85lPONKsoStmaW7puSJd
-	sWvTakfmHty+CMm9yYGn2u9kg/IUnrIviU8J6r5+kbjT2c+0wtalE3+CQn/03msl6F6/VZrPMbHGN
-	SIUgk6n5hY7iVXH8HC565xoQMEjiJg6gFliLTIarrIhlSYHmFiGQ0rUDvcG+D9jhTV/iuCzoMyxLg
-	26hEe04rdRWNm3bEIBDiqg1tYbPZAsQo3Y9Tamx1CNrxYEHaKhKoVwZgm9ogMPW3psyb12bFKmQd8
-	rmH+Xyh4lmrtsZACjXvvFBQRK4WyREdITOuOn74qX++CZCzNG5vHB5w1eAVUvsJMW3pl2a4KDOZUd
-	HTD62yYg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35954)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vJvho-0000000075e-1H7F;
-	Fri, 14 Nov 2025 15:27:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vJvhk-000000005wa-1i8p;
-	Fri, 14 Nov 2025 15:27:16 +0000
-Date: Fri, 14 Nov 2025 15:27:16 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, sophgo@lists.linux.dev
-Subject: [PATCH net-next 00/11] net: stmmac: clean up plat_dat
- allocation/initialisation
-Message-ID: <aRdKVMPHXlIn457m@shell.armlinux.org.uk>
+	Fri, 14 Nov 2025 15:28:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763134108; x=1794670108;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=z8lCr3fSbWR0YaeRJvRwXvQNpYW9CE1zd/Fm1bcIsCE=;
+  b=LkjbqH063u0pq5dYjXDf++VVJnwUmyFcHaX/9V4RECDnUMJL9FNB/Bv2
+   Mcz8jDM5RW+xp69OHg/NpzShe51fercrdgPMfcU+5TwgWwdQ//36XnYv7
+   AxeYPFMMouHhCbWcQcusPIfFXpKhbKrJI3ld4/Ol+azuxaxZObwlDYcGI
+   QaFV73UfBzX3OIi5SAgKv1JOqxsVHOt4i0e76BTh2hpaZCae3CVtQ9hKJ
+   OYtgpruwqQKxyIubZRf9e7ho6+cdFVfJBJ8TCdwvvjpUtCXJ1Py/xbCSP
+   DJL3PDb9+F1yjoi9eFXr/9E0aoFcPKHfUq46HfqBmLGRh/F7hlAFRXq1e
+   Q==;
+X-CSE-ConnectionGUID: 1Tt5qtIyRcaK/dip5+VMaA==
+X-CSE-MsgGUID: vZayeykyQZ+QsNygtbgUfw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11613"; a="75909790"
+X-IronPort-AV: E=Sophos;i="6.19,305,1754982000"; 
+   d="scan'208";a="75909790"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2025 07:28:27 -0800
+X-CSE-ConnectionGUID: 82XteTvSQDqJSy/t7iUKSw==
+X-CSE-MsgGUID: Ypb8ALdmRFS6MgEOugSKQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,305,1754982000"; 
+   d="scan'208";a="189450717"
+Received: from ijarvine-desk1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.53])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2025 07:28:24 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 606D5121DDE;
+	Fri, 14 Nov 2025 17:28:23 +0200 (EET)
+Date: Fri, 14 Nov 2025 17:28:23 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+	laurent.pinchart@ideasonboard.com,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v13 15/15] Documentation: mali-c55: Document the mali-c55
+ parameter setting
+Message-ID: <aRdKlwosRv-80_KN@kekkonen.localdomain>
+References: <20251111-c55-v13-0-3dc581355e3a@ideasonboard.com>
+ <20251111-c55-v13-15-3dc581355e3a@ideasonboard.com>
+ <2n4sn2aakwl7k2qvcefb7m2zzllytj7i4nup55xex2ggdngfkd@gwpxbpmlupko>
+ <aRdBbn4cpdn_7H0v@kekkonen.localdomain>
+ <umslyxkmj4gnr743c6ixsykay5w2seoeiy2hzidg6lb3fcizep@dglvrn7l7a4q>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <umslyxkmj4gnr743c6ixsykay5w2seoeiy2hzidg6lb3fcizep@dglvrn7l7a4q>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_143205_226323_8DB91C92 
-X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-CacheID: sfid-20251114_072828_026776_71FF667B 
+X-CRM114-Status: UNSURE (   9.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,21 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series cleans up the plat_dat allocation and initialisation,
-moving common themes into the allocator.
+Hi Jacopo,
 
-This results in a nice saving:
+On Fri, Nov 14, 2025 at 03:57:21PM +0100, Jacopo Mondi wrote:
+> Hi Sakari,
+>    can't say timing is what we excel the most at.
+> 
+> Afaik Hans has applied the PR, and as all comments here are on ...
+> comments, they will be addressed with patches on top
 
- drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  | 43 +---------------
- .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   | 22 +-------
- drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c |  1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  2 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 34 ++++++++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   | 39 +-------------
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 60 ++++------------------
- 7 files changed, 53 insertions(+), 148 deletions(-)
+This is just sample code, changing it later on will be fine.
+
+Thanks.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Kind regards,
+
+Sakari Ailus
 
