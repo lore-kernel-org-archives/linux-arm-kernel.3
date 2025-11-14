@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2445ACE7AAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D3CCE7AAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqZuiqR5XpCaInMgn5MgwyEPMHFWgFOqSEmpewRRB+I=; b=i0Amv4eBGm/Dnd0C6HmtEp+5Uq
-	r+avZzmmsz/dsAcc35nnW3hPKrJ03ns9N/XmwKZKINqOL4EdkyMu60puhXBSWR5wahiqNs4sXlNr2
-	j7FqZKVyGMkgqFQJmRtdcPqTu/Xzp38h2rNT+9Zo2YfEFb6qBqBq1zpP4k6Cn9C0qBZTv32rVD5cm
-	DAl53u71F76cVb981GlU8lcVnFLVDLwNguGS0Q5D4dRu+jYQnNDJSb3D/URK0A3Ro5S67IRE26nKw
-	QU0oN5NmRX8M1ACPVgGsmCp5Fqq4nXWRP7ypfj7OzAwoeiTZCyMevvHVKHm5VWpuHbwPFw6Y9Vjts
-	fiGIfJRw==;
+	bh=zn+WZbkFWl9GEXlWzbgdsX9misJw5iBF5BGbREwNIdQ=; b=D/dx1BAZIv1T92t9EPgpp3hAO5
+	iyGUzKrHDvmQhBU6hQYySS82GtgK0QOv2WYEYhD+180FANj5FRA5l3GbtEKjucmNUgWlC5h7PAaWb
+	mjOuTal8ycygfqhpIOEpG9b7yCyet77cJLD7aC/j6sA2W/Pp0ZQcsFjTZwSsvGmTu2nfn+EEQ+vtU
+	cwSwhqxBukOoBXYgH5+tbzauyZNM0BmqUPT+kbwVOd429doA4rweMMd22W/c8S8imV+vtz8ep5a62
+	TvjAYSKuIi/btwLgo5Kq9x42vjY6K41aILGSKMsUNV+VqCoNf541H05sdgCpHM1zOgi98kD+3tv7K
+	URjfexGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqwV-0000000Bztn-48LP;
-	Fri, 14 Nov 2025 10:22:11 +0000
+	id 1vJqxg-0000000C0PF-2Ki4;
+	Fri, 14 Nov 2025 10:23:24 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqwT-0000000BztR-2mza
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:22:10 +0000
+	id 1vJqxW-0000000C0Ky-1nJT;
+	Fri, 14 Nov 2025 10:23:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=yqZuiqR5XpCaInMgn5MgwyEPMHFWgFOqSEmpewRRB+I=; 
-	b=M4aZ43AAbD2/9h6zWA/Ze9XUhfFgkrvK5NUUBwTMAvjQvxRYy4ei/6xJBbTzpMprazXXtSIUXKL
-	g7xJ/FxR+QFENwXtwreme5X4d9tyVvC+hjMfTKhZi0t0zK4Srjp0VzJTocEXufYvyrWdLjUIp/DJh
-	99isXsWKbP00opmC4qjrCRL0go5P5baxvZyZwITn5pC2NOHi9i86g+nwpyqZ8PdUreOkxPLaPDPhA
-	VsnFN3oxtjfCEaoOQ+2cdzvfJFdVLyUD5BLAjJz1vtuzUciPmYbrhjc2Ss7Mg4OM46V+0ipxeVHWL
-	ecqaMTVDZIg9gI+PiMrzCBG2/6Px67bTrxKA==;
+	from:content-type:reply-to; bh=zn+WZbkFWl9GEXlWzbgdsX9misJw5iBF5BGbREwNIdQ=; 
+	b=ZnU1QTQ2Ezz66z5U+K+2XVzN9FSC9x7fI/wpDa0JR/y9hD98yNP5vNBBSB7/i4ZHJDzA3Vg6agJ
+	lZr/mJYkNxLWGhRY11EXNWP1m7kkhxAN+huwmjXhks6BcV88MvvVovp+w9+73Sz+Rj4c05YdKmf6V
+	YZx5Ap76TF7SxcHstmXugmQXRRsYHjw1dxIAlM/swiq2a9v8W4OA0Csy5dCyPTZS4CQIIYC9lFHVM
+	iWOw+pltNGDErFgNtW7dTYl7QYft3IxP8TFQsFAV/CLvUUgU3C+Xl5wTWub0z9STMqcPwdSaYROej
+	N4tt/J9N2G1zTGvWU9cYAhGQqCnoWlED3cvg==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vJqwO-002yON-1l;
-	Fri, 14 Nov 2025 18:22:05 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 14 Nov 2025 18:22:04 +0800
-Date: Fri, 14 Nov 2025 18:22:04 +0800
+	id 1vJqwu-002yOl-2q;
+	Fri, 14 Nov 2025 18:22:37 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 14 Nov 2025 18:22:36 +0800
+Date: Fri, 14 Nov 2025 18:22:36 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Marco Crivellari <marco.crivellari@suse.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Michal Hocko <mhocko@suse.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: Re: [PATCH] crypto: atmel-i2c - add WQ_PERCPU to alloc_workqueue
- users
-Message-ID: <aRcCzMZTcO_GXvfg@gondor.apana.org.au>
-References: <20251106163758.340886-1-marco.crivellari@suse.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	John Allen <john.allen@amd.com>,
+	Srujana Challa <schalla@marvell.com>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	linux-crypto@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@axis.com
+Subject: Re: [PATCH v2 0/6] crypto/hwrng: Simplify with
+ of_device_get_match_data()
+Message-ID: <aRcC7NzNk7__6hb3@gondor.apana.org.au>
+References: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251106163758.340886-1-marco.crivellari@suse.com>
+In-Reply-To: <20251107-crypto-of-match-v2-0-a0ea93e24d2a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_022209_728518_1E97D1A2 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20251114_022314_483495_3A342A9F 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 06, 2025 at 05:37:58PM +0100, Marco Crivellari wrote:
-> Currently if a user enqueues a work item using schedule_delayed_work() the
-> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-> schedule_work() that is using system_wq and queue_work(), that makes use
-> again of WORK_CPU_UNBOUND.
-> This lack of consistency cannot be addressed without refactoring the API.
+On Fri, Nov 07, 2025 at 09:15:47AM +0100, Krzysztof Kozlowski wrote:
+> Changes in v2:
+> - crypto: artpec6: Add missing (enum artpec6_crypto_variant) cast (to
+>   fix 32-bit builds)
+> - Add Acks/Rb tags.
+> - Link to v1: https://patch.msgid.link/20251106-crypto-of-match-v1-0-36b26cd35cff@linaro.org
 > 
-> alloc_workqueue() treats all queues as per-CPU by default, while unbound
-> workqueues must opt-in via WQ_UNBOUND.
+> Few simple cleanups, not tested on the hardware.
 > 
-> This default is suboptimal: most workloads benefit from unbound queues,
-> allowing the scheduler to place worker threads where they’re needed and
-> reducing noise when CPUs are isolated.
+> Care has to be taken when converting of_match_data() into
+> of_device_get_match_data(), because first can check arbitrary
+> device_node and the latter checks device's node.  Cases here should be
+> safe because of_match_data() uses 'dev.of_node'.
 > 
-> This continues the effort to refactor workqueue APIs, which began with
-> the introduction of new workqueues and a new alloc_workqueue flag in:
+> Best regards,
+> Krzysztof
 > 
-> commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
-> commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
-> 
-> This change adds a new WQ_PERCPU flag to explicitly request
-> alloc_workqueue() to be per-cpu when WQ_UNBOUND has not been specified.
-> 
-> With the introduction of the WQ_PERCPU flag (equivalent to !WQ_UNBOUND),
-> any alloc_workqueue() caller that doesn’t explicitly specify WQ_UNBOUND
-> must now use WQ_PERCPU.
-> 
-> Once migration is complete, WQ_UNBOUND can be removed and unbound will
-> become the implicit default.
-> 
-> Suggested-by: Tejun Heo <tj@kernel.org>
-> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
 > ---
->  drivers/crypto/atmel-i2c.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Krzysztof Kozlowski (6):
+>       hwrng: bcm2835 - Move MODULE_DEVICE_TABLE() to table definition
+>       hwrng: bcm2835 - Simplify with of_device_get_match_data()
+>       crypto: artpec6 - Simplify with of_device_get_match_data()
+>       crypto: ccp - Constify 'dev_vdata' member
+>       crypto: ccp - Simplify with of_device_get_match_data()
+>       crypto: cesa - Simplify with of_device_get_match_data()
+> 
+>  drivers/char/hw_random/bcm2835-rng.c | 11 +++--------
+>  drivers/crypto/axis/artpec6_crypto.c |  9 +++------
+>  drivers/crypto/ccp/sp-dev.h          |  2 +-
+>  drivers/crypto/ccp/sp-platform.c     | 17 +++--------------
+>  drivers/crypto/marvell/cesa/cesa.c   |  7 ++-----
+>  5 files changed, 12 insertions(+), 34 deletions(-)
+> ---
+> base-commit: cec65c58b74636b6410fc766be1ca89247fbc68e
+> change-id: 20251106-crypto-of-match-22726ffd20b4
+> 
+> Best regards,
+> -- 
+> Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Patch applied.  Thanks.
+All applied.  Thanks.
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
