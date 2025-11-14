@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A43CE8D57
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EA7CE8D57
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lypS4OCGKHljGBDBOhbks812Bl5TYzzffujcK7lKp1M=; b=Lf3RvnnZ/fhOiDg8PQAQuKNgFF
-	+YnAqUEywV1r6UNUkpDcH9RThfIWmR9hyjeGlbd0LKJG0+52PfrASip4g0zElbyjqix7zIyKFVkUD
-	HMyV7WluIc2TARk8cN+N6fRQy2E4mahhB0/2zAFv4NPQSMYxn1am29uXJQwMSe5vspEGpouYUvjvm
-	MWv1NvQZnZwq5Zmlr+we5eJpYTQgVrVvsRC1iIGx3x9AieMkLfbIu3BNE7HLAyo1e60ocjEm290hr
-	gxzHZyG9X3u5PbPHCuWVWqFfV4IYZdba78zFYp2uXasJc+yn+yPY2hn63EwDBwg1bdFdPOG2+AEqq
-	y6arnQGA==;
+	bh=1m9nLXhYlMrvlKNG2+wG+g956IXYnkkF+1lH0Nb/twY=; b=BW1w3XFTzNHxtZR/SEh+tPHrHX
+	UftoRcl/4Nwn2wiOoMb71SS14wjssF6eSusk9J5Rkfc+TOy8ppeXrJplP+JWGZlt+XI1YjhnQFYxf
+	SUDJsH2KHlReT2o4ufruldg7Nqeb0QB2SeRLdQAoM+BDwySunTCtRhgzPX9lX7udbm03Tjm5IXguN
+	z415QcJg1TkKhw2Btk8rDJmX5e03Oki8xEQkYJmHnzHiFSgBZlCbBpsqNilhTmegzIvyDLS9kWB91
+	9n+q6/WmIaQUoJtBiiyP/zOeM+W/S5WO3h3u1U9D/+Zu5a0J6ynKrvrCtNcji18VlPsiwf6fVkBkM
+	D8iOeYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4R-0000000Cm8g-1PHJ;
-	Fri, 14 Nov 2025 16:54:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4P-0000000Cm4n-0Qit;
-	Fri, 14 Nov 2025 16:54:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=lypS4OCGKHljGBDBOhbks812Bl5TYzzffujcK7lKp1M=; b=OmcbYqzReTBYUutRYwS/2u1Nft
-	uWR5UkbSFm02JxpjA/Ec0H9QyBMK8l0FZNDdA3JeVHfghR07g71ML/MChILNTweA8O6oaxKg2Hiqu
-	POkn3jhnjmobAjd+3xEawvLtD8TTFLk9lMd/JhX1RTjeKcX88959gjS9bTWn0Qpt+HUbAIXSgtkE1
-	nw6XtD9IrpDpNDTF4iRQn4m4LYqb3lre5uqnxNWPWPOoC8U5EDAOpyEIc5KjOHChj8ocu3kwG/hLf
-	8BdsdkjhLZ6R2sC3rhhmE485Qaa7CpMLTQiAlpLE0l7XisF0iEpSy+pWTojOeLSHfMl2kj/XPHehH
-	ulA95Qmg==;
+	id 1vJx4V-0000000CmE3-2NJY;
+	Fri, 14 Nov 2025 16:54:51 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwCh-000000032gr-1Lkc;
-	Fri, 14 Nov 2025 15:59:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763139272; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJx4S-0000000Cm9W-0Z1e;
+	Fri, 14 Nov 2025 16:54:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763139280; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=kIsqBtSo/Zatc1ZGc5M4q+Ujt5PykEskH6fTzFxPZ5U0fxFKNGv7LO7A3EZArpB7Lc1I7BNsMIiRKyWUgw00UfvbiGtcjR0hybeuBxIVK7d+EydLENx007HQOEbsuDQhq4zGvw17+auGK6943Lk64ngt9ahK/QHR6H2JzD2ex48=
+	b=aWox+0/dpxSiwxOr/KBKbzSwWASbf366rjLPxqtdLHpiIzadQoqL5VZpgT5Sqab8DlCwYhus7B1k1zpkWpVDd7/AobTdoMYkubFcOvgZekFECT7ou38aEKJK8l+PV2Col/4Sl9cStzN0T2iIC5hvlfXOILbSwAto0kVKTQHC0SA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763139272; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=lypS4OCGKHljGBDBOhbks812Bl5TYzzffujcK7lKp1M=; 
-	b=G4p5LYtTtNg2W9DSUAZA0EPkLQsZItbHulevCVmDgNDYOkxBe2pfrAdLNHbaAuXxyZET5JgY3Pc5a6kCzqevgQ/Z9OoyVCUB3+tUDXqP8FfMZrSpcca9OWsuAMOIC5+KNivof6qtgG86RYNtn+eXIrTlmRzigVNabSvbfcd18vg=
+	t=1763139280; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1m9nLXhYlMrvlKNG2+wG+g956IXYnkkF+1lH0Nb/twY=; 
+	b=muDXdH6zKIKIDg0z9LzCAQqPmp3V+NllIb/i2pxLflBH/HJnPIw79kw3oAo/TrhEtLbptpjTJrkZ+6Z/TmukX6/iGfFhXNZqE1GMaKRthrmp9rUwqVepwr1m62TAUL2M5IJ0iz3G+KU2G+1WNsFpWZ/h7RsRUwqhBwwSz9Nv/X8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139272;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139280;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=lypS4OCGKHljGBDBOhbks812Bl5TYzzffujcK7lKp1M=;
-	b=gfGecciJzg0sNj1rJEzmpwUVBHoDY+Zz9H/zIw8A3E9qZD2MJHzVpBf3BfZ3hcT9
-	szQrYIwODYJatRKSP3Efa2tXVQ74EiJfqIaZdKjUIGWhp/JzllhrNGB6ISjOp2gt3Gl
-	f5+sizyoKFcQVsSDxRlTdAzWeUynWs83mXRiW/14=
-Received: by mx.zohomail.com with SMTPS id 1763139271219137.1608638744043;
-	Fri, 14 Nov 2025 08:54:31 -0800 (PST)
+	bh=1m9nLXhYlMrvlKNG2+wG+g956IXYnkkF+1lH0Nb/twY=;
+	b=X1hJA4li0w6zqNmZBRWzA7uq2zthzTnVrXIOLDBRdFplzgr0aS29LW+EfS1Y3t60
+	pu4JTgSIm+qmLDlYVgnivvKBBtkTcNsAhuqBykkJAwxyZfQX59zneTpr9gj09o4LdkN
+	lD3vAE6ESToZVYbW+Y7H4/Ci11ngYIzxXSx8sYaI=
+Received: by mx.zohomail.com with SMTPS id 1763139278832560.3899297951552;
+	Fri, 14 Nov 2025 08:54:38 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 14 Nov 2025 17:54:01 +0100
-Subject: [PATCH 07/13] soc: mediatek: mtk-dvfsrc: Write bandwidth to EMI
- DDR if present
+Date: Fri, 14 Nov 2025 17:54:03 +0100
+Subject: [PATCH 09/13] soc: mediatek: mtk-dvfsrc: Get and Enable DVFSRC
+ clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-mt8196-dvfsrc-v1-7-b956d4631468@collabora.com>
+Message-Id: <20251114-mt8196-dvfsrc-v1-9-b956d4631468@collabora.com>
 References: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
 In-Reply-To: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -81,8 +67,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_155915_848161_6E413EC4 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20251114_085448_252203_E199A79C 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+The DVFSRC has a clock on all platforms.
 
-In preparation for adding support for DVFSRC Version 4, add a new
-`has_emi_ddr` member to struct dvfsrc_soc_data: if true, write the
-DRAM bandwidth both to the BW_AVG and to the newly defined EMI_BW
-register, present only on DVFSRC v4.
+Get and enable it in the probe function, so that Linux's common clock
+framework knows we're a user of it.
 
-Currently supported SoCs will not use this, as has_emi_ddr is left
-out from their platform data, hence reading false.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/soc/mediatek/mtk-dvfsrc.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/soc/mediatek/mtk-dvfsrc.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
-index 3cbccbb7469a..bf0e7b01d255 100644
+index 3a83fd4baf54..a43d6f913914 100644
 --- a/drivers/soc/mediatek/mtk-dvfsrc.c
 +++ b/drivers/soc/mediatek/mtk-dvfsrc.c
-@@ -72,6 +72,7 @@ struct mtk_dvfsrc {
+@@ -7,6 +7,7 @@
  
- struct dvfsrc_soc_data {
- 	const int *regs;
-+	const bool has_emi_ddr;
- 	const struct dvfsrc_opp_desc *opps_desc;
- 	u32 (*calc_dram_bw)(struct mtk_dvfsrc *dvfsrc, int type, u64 bw);
- 	u32 (*get_target_level)(struct mtk_dvfsrc *dvfsrc);
-@@ -107,6 +108,7 @@ enum dvfsrc_regs {
- 	DVFSRC_SW_BW,
- 	DVFSRC_SW_PEAK_BW,
- 	DVFSRC_SW_HRT_BW,
-+	DVFSRC_SW_EMI_BW,
- 	DVFSRC_VCORE,
- 	DVFSRC_REGS_MAX,
- };
-@@ -292,6 +294,9 @@ static void __dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u32 reg,
- 		new_bw = max(new_bw, min_bw);
+ #include <linux/arm-smccc.h>
+ #include <linux/bitfield.h>
++#include <linux/clk.h>
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -83,6 +84,7 @@ struct dvfsrc_opp_desc {
+ struct dvfsrc_soc_data;
+ struct mtk_dvfsrc {
+ 	struct device *dev;
++	struct clk *clk;
+ 	struct platform_device *icc;
+ 	struct platform_device *regulator;
+ 	const struct dvfsrc_soc_data *dvd;
+@@ -650,6 +652,11 @@ static int mtk_dvfsrc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(dvfsrc->regs))
+ 		return PTR_ERR(dvfsrc->regs);
  
- 	dvfsrc_writel(dvfsrc, reg, new_bw);
++	dvfsrc->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(dvfsrc->clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(dvfsrc->clk),
++				     "Couldn't get and enable DVFSRC clock\n");
 +
-+	if (type == DVFSRC_BW_AVG && dvfsrc->dvd->has_emi_ddr)
-+		dvfsrc_writel(dvfsrc, DVFSRC_SW_EMI_BW, bw);
- }
- 
- static void dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u64 bw)
+ 	arm_smccc_smc(MTK_SIP_DVFSRC_VCOREFS_CONTROL, MTK_SIP_DVFSRC_INIT,
+ 		      0, 0, 0, 0, 0, 0, &ares);
+ 	if (ares.a0)
 
 -- 
 2.51.2
