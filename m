@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A0E1CE8D5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C27CE8D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slpXXrUFzI9UcxqwpKnOSQb/CTXf+9m4NyR1Ck9WvZI=; b=CULC261oma4ECgEEcPK1jByIKb
-	SG+8xMpV9O6Gvd4Tg4YgALQDOh/6YxMgwkRsR0XlzEHDNbmjiDtw9AZ8SkSzMDJsedfYQsfh6rJvg
-	ZSdnxElU4xzRAZGoa6iGMO4eScwYMMJPqiTtkjIVBeLoEal+Izj4y7Vaod7/Z7s5QRBMohqtSdGPg
-	As2U1hQWfIbPIBQgmMj04K3vq789y6nfX0H92RACA3Jip5qXdTMmz04pd7C43FrBEx5EosgySRcz3
-	Pt/1sI3OGOCL1d29JDprJqhjd8RAkli2F0IS64Ri+X3llhprpM1GIQTWpfvNtdzdkyqo4wQAm/wd9
-	wqVmFOjA==;
+	bh=64HJ6Gf33VeIBQEaLCJDCwASoE3p0dnm8ZrPBrqSTIg=; b=bayUjBV6kBfmlFxHKrLqZ2g/eC
+	wYfXSmdQXKXXnrET9+say993sKPXN6u7tmBGdnIz9xsWX+7geZ2Czenor6kkoqAgFFW463ZyTnrlF
+	rU/mPjEVNj1WdP2lJ/4nCiPcMFn4l8WAq0EFsp+PXsajo2ugo0GqhCHn4jpS7UaawXe/q+Wh8pGXd
+	epqDn3cBvO48uH5VN4VpVR6JYuoPbMp3TgfMHCvzxDGfTWJDjks0qjn8hW3dWUdxiAHbOZVlBupYn
+	QyFXEy4w0v/wYFQd2xpb7aSVJCYtMKXJOiHZqQBLv9pLDLZBAt0QXnKfK0LP4tN/x0Yflh3z0wf9S
+	TNEgYeSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4U-0000000CmCs-477y;
-	Fri, 14 Nov 2025 16:54:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vJx4f-0000000CmOd-2PS3;
+	Fri, 14 Nov 2025 16:55:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx4O-0000000Cm4l-1YHF;
-	Fri, 14 Nov 2025 16:54:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763139276; cv=none; 
+	id 1vJx4b-0000000CmKQ-1OLx;
+	Fri, 14 Nov 2025 16:54:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=64HJ6Gf33VeIBQEaLCJDCwASoE3p0dnm8ZrPBrqSTIg=; b=JwKRMi5FMPlnFR4DpgVA1XKT8v
+	bGgtcT13pkH9zEwV3iw4VezW/i2X1nk5BochDUMvh3J99YK1vN2z5LFKtRtATT/LI0SwGuhWc3l/W
+	O9zWSVzW0By5/wQ6C3Bl9e3UYjN/cMIk6jya1050nT7VprIv9gMLDMmfIWJ8k7VTtjwmWWLed8pAJ
+	IE0aWlCfzb+DCylMNRKE+lcA0PM4AuLqfnvlnM8ufKzvcf+nKj66PhbeoJemNjZKji5E8yC4cfOfe
+	zAKiHg9VOO0My9deRS6FmvsodpwWQybLWiaDSX+lG4zj97qHgoRogExVvQ5OH45gx4uHRvX5B7xuk
+	C6P6f1Ew==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJwCt-000000032jM-2i9c;
+	Fri, 14 Nov 2025 15:59:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763139284; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ZigYjCfDM6h5xQfXG+EzUQvjuSI5tBwGuNRs+6/3xrllqLcVbB6AVWXAd6as2JNo+Ljcg2h5FwY4UFjnB9yLtU+CE11hSPJg6xAbGXUwZICgmXC5pO6DXAMQJ/g4jDFG0IzySSK7lh4xbi/b1Ln9TZQV3FF89ygHWhDqcAsscqU=
+	b=gHkjPHvwgKuxKO5xAUj3g6URE4piwUks8WlC8bQ4mpLjgisLp8sQ7fpfVNecRr0efKzgZ4wL1odRVNewW+1j7WmZ6CRsOpPdyKzX9RRlGvTOTbGS9NA/XFwPMoYcY6Ni07o4P1C/PiN2Oplo/RZ3LymvazWY4ld6sS5fnCTcejs=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763139276; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=slpXXrUFzI9UcxqwpKnOSQb/CTXf+9m4NyR1Ck9WvZI=; 
-	b=XAM/WfvFmBxZC5jiqFiJDTqm9407QH1QM/TssXr6gKRc1P4LhYtxb0O9zjyEceQB6WprHiIOWDx/C7FkpPuEJ/3p76nV0VRJ3bCCE5m9hzN9FUy81YenhSEgNvP1laZZA6jatrxEfHtPy+mzeOzd1ZtSjUxLrbW2YXJUmXnaJc4=
+	t=1763139284; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=64HJ6Gf33VeIBQEaLCJDCwASoE3p0dnm8ZrPBrqSTIg=; 
+	b=ljJ6szzQRP1oTJ3ZQifmNuUl2/3aUk0efEeDTuM4gn/XAyw6lazvp/YzrhVXocVV0ppfBfuuAtWKLX16NvmibW+mo9c620WqdUC9kiJnJmmZDnLTwR4IH34SxVhmMEGDOP08JMtgN8LZjz4QXidUxB/Jls5hOt1+s7bHVobXE8o=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139276;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139284;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=slpXXrUFzI9UcxqwpKnOSQb/CTXf+9m4NyR1Ck9WvZI=;
-	b=Hj7lZ+TmRxae/llDob4p/X+ZnWjRWFJumSSSpwNURAiIkTZZaNmAOyAkCmVENXzT
-	AiUwrPMcCL4u+h1TUEl1suigT7vzL69lJi/glT6UqOBQknG6u030NtEdiCxYi9qubi+
-	E9Hww4VzfKlc1oK07G1EZNJnWhZVDnsEid4iKOPs=
-Received: by mx.zohomail.com with SMTPS id 1763139274999909.8349499369342;
-	Fri, 14 Nov 2025 08:54:34 -0800 (PST)
+	bh=64HJ6Gf33VeIBQEaLCJDCwASoE3p0dnm8ZrPBrqSTIg=;
+	b=dvOI0vhT68lfg+tGWhgawU2MOgjH2Pf1unFxcae5jl3xqxQfXpBTf9hmGL/jd7C5
+	RIe49AV0qrvfwdU31wUL0T+eRVhJkJaIna+ebiGTC6itlZF9Jif3jDQefglvQHXSmCO
+	w1+rUeVPzJ0O24lUssSZI5qqE4bo6xWVQ00KSlSs=
+Received: by mx.zohomail.com with SMTPS id 1763139282689974.6503332654934;
+	Fri, 14 Nov 2025 08:54:42 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 14 Nov 2025 17:54:02 +0100
-Subject: [PATCH 08/13] soc: mediatek: mtk-dvfsrc: Add support for DVFSRCv4
- and MT8196
+Date: Fri, 14 Nov 2025 17:54:04 +0100
+Subject: [PATCH 10/13] soc: mediatek: mtk-dvfsrc: Rework bandwidth
+ calculations
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-mt8196-dvfsrc-v1-8-b956d4631468@collabora.com>
+Message-Id: <20251114-mt8196-dvfsrc-v1-10-b956d4631468@collabora.com>
 References: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
 In-Reply-To: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,8 +81,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_085445_323884_12CF1587 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20251114_155928_074602_F546A811 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,399 +97,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+The code, as it is, plays fast and loose with bandwidth units. It also
+doesn't specify its constraints in the actual maximum hardware value,
+but as some roundabout thing that then ends up multiplied into the
+actual hardware value constraint after some indirections. In part, this
+is due to the use of individual members for storing each limit, instead
+of making it possible to index them by type.
 
-Add support for the DVFSRC Version 4 by adding new functions for
-vcore/dram levels (in v4, called gears instead), and for readout
-of pre-programmed dvfsrc_opp entries, corresponding to each gear.
+Rework all of this by adding const array members indexed by the
+bandwidth type enum to the soc_data struct. This array expresses the
+actual hardware value limitations, not a factor thereof.
 
-In the probe function, for v4, the curr_opps is initialized from
-the get_hw_opps() function instead of platform data.
+Use the clamp function macro to clamp the values between the minimum and
+maximum constraints after all the calculations, which also means the
+code doesn't write nonsense to a hardware register when the math is
+wrong, as it'll constrain after all the calculations.
 
-In order to make use of the new DVFSRCv4 code, also add support
-for the MediaTek MT8196 SoC.
+Pass the type as the actual enum type as well, and not as an int. If
+there's some type checking that can be extracted from the function
+signature, then we may as well use it.
 
-Co-developed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Don't needlessly explicitly cast return values to the return type
+either; this is both unnecessary and makes it harder to spot type safety
+issues.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/soc/mediatek/mtk-dvfsrc.c | 248 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 247 insertions(+), 1 deletion(-)
+ drivers/soc/mediatek/mtk-dvfsrc.c | 107 ++++++++++++++++++++++++--------------
+ 1 file changed, 67 insertions(+), 40 deletions(-)
 
 diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
-index bf0e7b01d255..3a83fd4baf54 100644
+index a43d6f913914..548a28f50242 100644
 --- a/drivers/soc/mediatek/mtk-dvfsrc.c
 +++ b/drivers/soc/mediatek/mtk-dvfsrc.c
-@@ -15,11 +15,17 @@
- #include <linux/soc/mediatek/dvfsrc.h>
- #include <linux/soc/mediatek/mtk_sip_svc.h>
+@@ -64,12 +64,6 @@ enum mtk_dvfsrc_bw_type {
+ 	DVFSRC_BW_MAX,
+ };
  
-+/* DVFSRC_BASIC_CONTROL */
-+#define DVFSRC_V4_BASIC_CTRL_OPP_COUNT	GENMASK(26, 20)
-+
- /* DVFSRC_LEVEL */
- #define DVFSRC_V1_LEVEL_TARGET_LEVEL	GENMASK(15, 0)
- #define DVFSRC_TGT_LEVEL_IDLE		0x00
- #define DVFSRC_V1_LEVEL_CURRENT_LEVEL	GENMASK(31, 16)
- 
-+#define DVFSRC_V4_LEVEL_TARGET_LEVEL	GENMASK(15, 8)
-+#define DVFSRC_V4_LEVEL_TARGET_PRESENT	BIT(16)
-+
- /* DVFSRC_SW_REQ, DVFSRC_SW_REQ2 */
- #define DVFSRC_V1_SW_REQ2_DRAM_LEVEL	GENMASK(1, 0)
- #define DVFSRC_V1_SW_REQ2_VCORE_LEVEL	GENMASK(3, 2)
-@@ -27,9 +33,23 @@
- #define DVFSRC_V2_SW_REQ_DRAM_LEVEL	GENMASK(3, 0)
- #define DVFSRC_V2_SW_REQ_VCORE_LEVEL	GENMASK(6, 4)
- 
-+#define DVFSRC_V4_SW_REQ_EMI_LEVEL	GENMASK(3, 0)
-+#define DVFSRC_V4_SW_REQ_DRAM_LEVEL	GENMASK(15, 12)
-+
- /* DVFSRC_VCORE */
- #define DVFSRC_V2_VCORE_REQ_VSCP_LEVEL	GENMASK(14, 12)
- 
-+/* DVFSRC_TARGET_GEAR */
-+#define DVFSRC_V4_GEAR_TARGET_DRAM	GENMASK(7, 0)
-+#define DVFSRC_V4_GEAR_TARGET_VCORE	GENMASK(15, 8)
-+
-+/* DVFSRC_GEAR_INFO */
-+#define DVFSRC_V4_GEAR_INFO_REG_WIDTH	0x4
-+#define DVFSRC_V4_GEAR_INFO_REG_LEVELS	64
-+#define DVFSRC_V4_GEAR_INFO_VCORE	GENMASK(3, 0)
-+#define DVFSRC_V4_GEAR_INFO_EMI		GENMASK(7, 4)
-+#define DVFSRC_V4_GEAR_INFO_DRAM	GENMASK(15, 12)
-+
- #define DVFSRC_POLL_TIMEOUT_US		1000
- #define STARTUP_TIME_US			1
- 
-@@ -52,6 +72,7 @@ struct dvfsrc_bw_constraints {
+-struct dvfsrc_bw_constraints {
+-	u16 max_dram_nom_bw;
+-	u16 max_dram_peak_bw;
+-	u16 max_dram_hrt_bw;
+-};
+-
  struct dvfsrc_opp {
  	u32 vcore_opp;
  	u32 dram_opp;
-+	u32 emi_opp;
- };
- 
- struct dvfsrc_opp_desc {
-@@ -72,6 +93,7 @@ struct mtk_dvfsrc {
- 
- struct dvfsrc_soc_data {
- 	const int *regs;
-+	const u8 *bw_units;
+@@ -98,7 +92,7 @@ struct dvfsrc_soc_data {
+ 	const u8 *bw_units;
  	const bool has_emi_ddr;
  	const struct dvfsrc_opp_desc *opps_desc;
- 	u32 (*calc_dram_bw)(struct mtk_dvfsrc *dvfsrc, int type, u64 bw);
-@@ -79,6 +101,8 @@ struct dvfsrc_soc_data {
+-	u32 (*calc_dram_bw)(struct mtk_dvfsrc *dvfsrc, int type, u64 bw);
++	u32 (*calc_dram_bw)(struct mtk_dvfsrc *dvfsrc, enum mtk_dvfsrc_bw_type type, u64 bw);
+ 	u32 (*get_target_level)(struct mtk_dvfsrc *dvfsrc);
  	u32 (*get_current_level)(struct mtk_dvfsrc *dvfsrc);
  	u32 (*get_vcore_level)(struct mtk_dvfsrc *dvfsrc);
- 	u32 (*get_vscp_level)(struct mtk_dvfsrc *dvfsrc);
-+	u32 (*get_opp_count)(struct mtk_dvfsrc *dvfsrc);
-+	int (*get_hw_opps)(struct mtk_dvfsrc *dvfsrc);
- 	void (*set_dram_bw)(struct mtk_dvfsrc *dvfsrc, u64 bw);
- 	void (*set_dram_peak_bw)(struct mtk_dvfsrc *dvfsrc, u64 bw);
- 	void (*set_dram_hrt_bw)(struct mtk_dvfsrc *dvfsrc, u64 bw);
-@@ -101,6 +125,7 @@ static void dvfsrc_writel(struct mtk_dvfsrc *dvfs, u32 offset, u32 val)
- }
- 
- enum dvfsrc_regs {
-+	DVFSRC_BASIC_CONTROL,
- 	DVFSRC_SW_REQ,
- 	DVFSRC_SW_REQ2,
- 	DVFSRC_LEVEL,
-@@ -110,6 +135,9 @@ enum dvfsrc_regs {
- 	DVFSRC_SW_HRT_BW,
- 	DVFSRC_SW_EMI_BW,
- 	DVFSRC_VCORE,
-+	DVFSRC_TARGET_GEAR,
-+	DVFSRC_GEAR_INFO_L,
-+	DVFSRC_GEAR_INFO_H,
- 	DVFSRC_REGS_MAX,
- };
- 
-@@ -130,6 +158,22 @@ static const int dvfsrc_mt8195_regs[] = {
- 	[DVFSRC_TARGET_LEVEL] = 0xd48,
- };
- 
-+static const int dvfsrc_mt8196_regs[] = {
-+	[DVFSRC_BASIC_CONTROL] = 0x0,
-+	[DVFSRC_SW_REQ] = 0x18,
-+	[DVFSRC_VCORE] = 0x80,
-+	[DVFSRC_GEAR_INFO_L] = 0xfc,
-+	[DVFSRC_SW_BW] = 0x1e8,
-+	[DVFSRC_SW_PEAK_BW] = 0x1f4,
-+	[DVFSRC_SW_HRT_BW] = 0x20c,
-+	[DVFSRC_LEVEL] = 0x5f0,
-+	[DVFSRC_TARGET_LEVEL] = 0x5f0,
-+	[DVFSRC_SW_REQ2] = 0x604,
-+	[DVFSRC_SW_EMI_BW] = 0x60c,
-+	[DVFSRC_TARGET_GEAR] = 0x6ac,
-+	[DVFSRC_GEAR_INFO_H] = 0x6b0,
-+};
+@@ -113,7 +107,22 @@ struct dvfsrc_soc_data {
+ 	void (*set_vscp_level)(struct mtk_dvfsrc *dvfsrc, u32 level);
+ 	int (*wait_for_opp_level)(struct mtk_dvfsrc *dvfsrc, u32 level);
+ 	int (*wait_for_vcore_level)(struct mtk_dvfsrc *dvfsrc, u32 level);
+-	const struct dvfsrc_bw_constraints *bw_constraints;
 +
- static const struct dvfsrc_opp *dvfsrc_get_current_opp(struct mtk_dvfsrc *dvfsrc)
- {
- 	u32 level = dvfsrc->dvd->get_current_level(dvfsrc);
-@@ -137,6 +181,20 @@ static const struct dvfsrc_opp *dvfsrc_get_current_opp(struct mtk_dvfsrc *dvfsrc
- 	return &dvfsrc->curr_opps->opps[level];
- }
- 
-+static u32 dvfsrc_get_current_target_vcore_gear(struct mtk_dvfsrc *dvfsrc)
-+{
-+	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_TARGET_GEAR);
-+
-+	return FIELD_GET(DVFSRC_V4_GEAR_TARGET_VCORE, val);
-+}
-+
-+static u32 dvfsrc_get_current_target_dram_gear(struct mtk_dvfsrc *dvfsrc)
-+{
-+	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_TARGET_GEAR);
-+
-+	return FIELD_GET(DVFSRC_V4_GEAR_TARGET_DRAM, val);
-+}
-+
- static bool dvfsrc_is_idle(struct mtk_dvfsrc *dvfsrc)
- {
- 	if (!dvfsrc->dvd->get_target_level)
-@@ -193,6 +251,24 @@ static int dvfsrc_wait_for_opp_level_v2(struct mtk_dvfsrc *dvfsrc, u32 level)
- 	return 0;
- }
- 
-+static int dvfsrc_wait_for_vcore_level_v4(struct mtk_dvfsrc *dvfsrc, u32 level)
-+{
-+	u32 val;
-+
-+	return readx_poll_timeout_atomic(dvfsrc_get_current_target_vcore_gear,
-+					 dvfsrc, val, val >= level,
-+					 STARTUP_TIME_US, DVFSRC_POLL_TIMEOUT_US);
-+}
-+
-+static int dvfsrc_wait_for_opp_level_v4(struct mtk_dvfsrc *dvfsrc, u32 level)
-+{
-+	u32 val;
-+
-+	return readx_poll_timeout_atomic(dvfsrc_get_current_target_dram_gear,
-+					 dvfsrc, val, val >= level,
-+					 STARTUP_TIME_US, DVFSRC_POLL_TIMEOUT_US);
-+}
-+
- static u32 dvfsrc_get_target_level_v1(struct mtk_dvfsrc *dvfsrc)
- {
- 	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_LEVEL);
-@@ -226,6 +302,27 @@ static u32 dvfsrc_get_current_level_v2(struct mtk_dvfsrc *dvfsrc)
- 	return 0;
- }
- 
-+static u32 dvfsrc_get_target_level_v4(struct mtk_dvfsrc *dvfsrc)
-+{
-+	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_TARGET_LEVEL);
-+
-+	if (val & DVFSRC_V4_LEVEL_TARGET_PRESENT)
-+		return FIELD_GET(DVFSRC_V4_LEVEL_TARGET_LEVEL, val) + 1;
-+	return 0;
-+}
-+
-+static u32 dvfsrc_get_current_level_v4(struct mtk_dvfsrc *dvfsrc)
-+{
-+	u32 level = dvfsrc_readl(dvfsrc, DVFSRC_LEVEL) + 1;
-+
-+	/* Valid levels */
-+	if (level < dvfsrc->curr_opps->num_opp)
-+		return dvfsrc->curr_opps->num_opp - level;
-+
-+	/* Zero for level 0 or invalid level */
-+	return 0;
-+}
-+
- static u32 dvfsrc_get_vcore_level_v1(struct mtk_dvfsrc *dvfsrc)
- {
- 	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_SW_REQ2);
-@@ -277,11 +374,30 @@ static void dvfsrc_set_vscp_level_v2(struct mtk_dvfsrc *dvfsrc, u32 level)
- 	dvfsrc_writel(dvfsrc, DVFSRC_VCORE, val);
- }
- 
-+static u32 dvfsrc_get_opp_count_v4(struct mtk_dvfsrc *dvfsrc)
-+{
-+	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_BASIC_CONTROL);
-+
-+	return FIELD_GET(DVFSRC_V4_BASIC_CTRL_OPP_COUNT, val) + 1;
-+}
-+
- static u32 dvfsrc_calc_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, int type, u64 bw)
- {
- 	return (u32)div_u64(bw, 100 * 1000);
- }
- 
-+static u32 dvfsrc_calc_dram_bw_v4(struct mtk_dvfsrc *dvfsrc, int type, u64 bw)
-+{
-+	u8 bw_unit = dvfsrc->dvd->bw_units[type];
-+	u64 bw_mbps;
-+
-+	if (type < DVFSRC_BW_AVG || type >= DVFSRC_BW_MAX)
-+		return 0;
-+
-+	bw_mbps = div_u64(bw, 1000);
-+	return (u32)div_u64((bw_mbps + bw_unit - 1), bw_unit);
-+}
-+
- static void __dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u32 reg,
- 				    int type, u16 max_bw, u16 min_bw, u64 bw)
- {
-@@ -333,6 +449,100 @@ static void dvfsrc_set_opp_level_v1(struct mtk_dvfsrc *dvfsrc, u32 level)
- 	dvfsrc_writel(dvfsrc, DVFSRC_SW_REQ, val);
- }
- 
-+static u32 dvfsrc_get_opp_gear(struct mtk_dvfsrc *dvfsrc, u8 level)
-+{
-+	u32 reg_ofst, val;
-+	u8 idx;
-+
-+	/* Calculate register offset and index for requested gear */
-+	if (level < DVFSRC_V4_GEAR_INFO_REG_LEVELS) {
-+		reg_ofst = dvfsrc->dvd->regs[DVFSRC_GEAR_INFO_L];
-+		idx = level;
-+	} else {
-+		reg_ofst = dvfsrc->dvd->regs[DVFSRC_GEAR_INFO_H];
-+		idx = level - DVFSRC_V4_GEAR_INFO_REG_LEVELS;
-+	}
-+	reg_ofst += DVFSRC_V4_GEAR_INFO_REG_WIDTH * (level / 2);
-+
-+	/* Read the corresponding gear register */
-+	val = readl(dvfsrc->regs + reg_ofst);
-+
-+	/* Each register contains two sets of data, 16 bits per gear */
-+	val >>= 16 * (idx % 2);
-+
-+	return val;
-+}
-+
-+static int dvfsrc_get_hw_opps_v4(struct mtk_dvfsrc *dvfsrc)
-+{
-+	struct dvfsrc_opp *dvfsrc_opps;
-+	struct dvfsrc_opp_desc *desc;
-+	u32 num_opps, gear_info;
-+	u8 num_vcore, num_dram;
-+	u8 num_emi;
-+	int i;
-+
-+	num_opps = dvfsrc_get_opp_count_v4(dvfsrc);
-+	if (num_opps == 0) {
-+		dev_err(dvfsrc->dev, "No OPPs programmed in DVFSRC MCU.\n");
-+		return -EINVAL;
-+	}
-+
-+	/*
-+	 * The first 16 bits set in the gear info table says how many OPPs
-+	 * and how many vcore, dram and emi table entries are available.
++	/**
++	 * @bw_max_constraints - array of maximum bandwidth for this hardware
++	 *
++	 * indexed by &enum mtk_dvfsrc_bw_type, storing the maximum permissible
++	 * hardware value for each bandwidth type.
 +	 */
-+	gear_info = dvfsrc_readl(dvfsrc, DVFSRC_GEAR_INFO_L);
-+	if (gear_info == 0) {
-+		dev_err(dvfsrc->dev, "No gear info in DVFSRC MCU.\n");
-+		return -EINVAL;
-+	}
++	const u32 *const bw_max_constraints;
 +
-+	num_vcore = FIELD_GET(DVFSRC_V4_GEAR_INFO_VCORE, gear_info) + 1;
-+	num_dram = FIELD_GET(DVFSRC_V4_GEAR_INFO_DRAM, gear_info) + 1;
-+	num_emi = FIELD_GET(DVFSRC_V4_GEAR_INFO_EMI, gear_info) + 1;
-+	dev_info(dvfsrc->dev,
-+		 "Discovered %u gears and %u vcore, %u dram, %u emi table entries.\n",
-+		 num_opps, num_vcore, num_dram, num_emi);
-+
-+	/* Allocate everything now as anything else after that cannot fail */
-+	desc = devm_kzalloc(dvfsrc->dev, sizeof(*desc), GFP_KERNEL);
-+	if (!desc)
-+		return -ENOMEM;
-+
-+	dvfsrc_opps = devm_kcalloc(dvfsrc->dev, num_opps + 1,
-+				   sizeof(*dvfsrc_opps), GFP_KERNEL);
-+	if (!dvfsrc_opps)
-+		return -ENOMEM;
-+
-+	/* Read the OPP table gear indices */
-+	for (i = 0; i <= num_opps; i++) {
-+		gear_info = dvfsrc_get_opp_gear(dvfsrc, num_opps - i);
-+		dvfsrc_opps[i].vcore_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_VCORE, gear_info);
-+		dvfsrc_opps[i].dram_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_DRAM, gear_info);
-+		dvfsrc_opps[i].emi_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_EMI, gear_info);
-+	};
-+	desc->num_opp = num_opps + 1;
-+	desc->opps = dvfsrc_opps;
-+
-+	/* Assign to main structure now that everything is done! */
-+	dvfsrc->curr_opps = desc;
-+
-+	return 0;
-+}
-+
-+static void dvfsrc_set_dram_level_v4(struct mtk_dvfsrc *dvfsrc, u32 level)
-+{
-+	u32 val = dvfsrc_readl(dvfsrc, DVFSRC_SW_REQ);
-+
-+	val &= ~DVFSRC_V4_SW_REQ_DRAM_LEVEL;
-+	val |= FIELD_PREP(DVFSRC_V4_SW_REQ_DRAM_LEVEL, level);
-+
-+	dev_dbg(dvfsrc->dev, "%s level=%u\n", __func__, level);
-+
-+	dvfsrc_writel(dvfsrc, DVFSRC_SW_REQ, val);
-+}
-+
- int mtk_dvfsrc_send_request(const struct device *dev, u32 cmd, u64 data)
++	/**
++	 * @bw_min_constraints - array of minimum bandwidth for this hardware
++	 *
++	 * indexed by &enum mtk_dvfsrc_bw_type, storing the minimum permissible
++	 * hardware value for each bandwidth type.
++	 */
++	const u32 *const bw_min_constraints;
+ };
+ 
+ static u32 dvfsrc_readl(struct mtk_dvfsrc *dvfs, u32 offset)
+@@ -383,59 +392,62 @@ static u32 dvfsrc_get_opp_count_v4(struct mtk_dvfsrc *dvfsrc)
+ 	return FIELD_GET(DVFSRC_V4_BASIC_CTRL_OPP_COUNT, val) + 1;
+ }
+ 
+-static u32 dvfsrc_calc_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, int type, u64 bw)
++static u32
++dvfsrc_calc_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, enum mtk_dvfsrc_bw_type type, u64 bw)
  {
- 	struct mtk_dvfsrc *dvfsrc = dev_get_drvdata(dev);
-@@ -448,7 +658,14 @@ static int mtk_dvfsrc_probe(struct platform_device *pdev)
- 	dvfsrc->dram_type = ares.a1;
- 	dev_dbg(&pdev->dev, "DRAM Type: %d\n", dvfsrc->dram_type);
+-	return (u32)div_u64(bw, 100 * 1000);
++	return clamp_val(div_u64(bw, 100 * 1000), dvfsrc->dvd->bw_min_constraints[type],
++			 dvfsrc->dvd->bw_max_constraints[type]);
+ }
  
--	dvfsrc->curr_opps = &dvfsrc->dvd->opps_desc[dvfsrc->dram_type];
-+	/* Newer versions of the DVFSRC MCU have pre-programmed gear tables */
-+	if (dvfsrc->dvd->get_hw_opps) {
-+		ret = dvfsrc->dvd->get_hw_opps(dvfsrc);
-+		if (ret)
-+			return ret;
-+	} else {
-+		dvfsrc->curr_opps = &dvfsrc->dvd->opps_desc[dvfsrc->dram_type];
-+	}
- 	platform_set_drvdata(pdev, dvfsrc);
+-static u32 dvfsrc_calc_dram_bw_v4(struct mtk_dvfsrc *dvfsrc, int type, u64 bw)
++/**
++ * dvfsrc_calc_dram_bw_v4 - convert kbps to hardware register bandwidth value
++ * @dvfsrc: pointer to the &struct mtk_dvfsrc of this driver instance
++ * @type: one of %DVFSRC_BW_AVG, %DVFSRC_BW_PEAK, or %DVFSRC_BW_HRT
++ * @bw: the bandwidth in kilobits per second
++ *
++ * Returns the hardware register value appropriate for expressing @bw, clamped
++ * to hardware limits.
++ */
++static u32
++dvfsrc_calc_dram_bw_v4(struct mtk_dvfsrc *dvfsrc, enum mtk_dvfsrc_bw_type type, u64 bw)
+ {
+ 	u8 bw_unit = dvfsrc->dvd->bw_units[type];
+ 	u64 bw_mbps;
++	u32 bw_hw;
  
- 	ret = devm_of_platform_populate(&pdev->dev);
-@@ -576,10 +793,39 @@ static const struct dvfsrc_soc_data mt8195_data = {
- 	.bw_constraints = &dvfsrc_bw_constr_v2,
+ 	if (type < DVFSRC_BW_AVG || type >= DVFSRC_BW_MAX)
+ 		return 0;
+ 
+ 	bw_mbps = div_u64(bw, 1000);
+-	return (u32)div_u64((bw_mbps + bw_unit - 1), bw_unit);
++	bw_hw = div_u64((bw_mbps + bw_unit - 1), bw_unit);
++	return clamp_val(bw_hw, dvfsrc->dvd->bw_min_constraints[type],
++			 dvfsrc->dvd->bw_max_constraints[type]);
+ }
+ 
+ static void __dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u32 reg,
+-				    int type, u16 max_bw, u16 min_bw, u64 bw)
++				    enum mtk_dvfsrc_bw_type type, u64 bw)
+ {
+-	u32 new_bw = dvfsrc->dvd->calc_dram_bw(dvfsrc, type, bw);
+-
+-	/* If bw constraints (in mbps) are defined make sure to respect them */
+-	if (max_bw)
+-		new_bw = min(new_bw, max_bw);
+-	if (min_bw && new_bw > 0)
+-		new_bw = max(new_bw, min_bw);
++	u32 bw_hw = dvfsrc->dvd->calc_dram_bw(dvfsrc, type, bw);
+ 
+-	dvfsrc_writel(dvfsrc, reg, new_bw);
++	dvfsrc_writel(dvfsrc, reg, bw_hw);
+ 
+ 	if (type == DVFSRC_BW_AVG && dvfsrc->dvd->has_emi_ddr)
+-		dvfsrc_writel(dvfsrc, DVFSRC_SW_EMI_BW, bw);
++		dvfsrc_writel(dvfsrc, DVFSRC_SW_EMI_BW, bw_hw);
+ }
+ 
+ static void dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u64 bw)
+ {
+-	u64 max_bw = dvfsrc->dvd->bw_constraints->max_dram_nom_bw;
+-
+-	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_BW, DVFSRC_BW_AVG, max_bw, 0, bw);
++	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_BW, DVFSRC_BW_AVG, bw);
  };
  
-+static const u8 mt8196_bw_units[] = {
-+	[DVFSRC_BW_AVG] = 64,
-+	[DVFSRC_BW_PEAK] = 64,
-+	[DVFSRC_BW_HRT] = 30,
+ static void dvfsrc_set_dram_peak_bw_v1(struct mtk_dvfsrc *dvfsrc, u64 bw)
+ {
+-	u64 max_bw = dvfsrc->dvd->bw_constraints->max_dram_peak_bw;
+-
+-	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_PEAK_BW, DVFSRC_BW_PEAK, max_bw, 0, bw);
++	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_PEAK_BW, DVFSRC_BW_PEAK, bw);
+ }
+ 
+ static void dvfsrc_set_dram_hrt_bw_v1(struct mtk_dvfsrc *dvfsrc, u64 bw)
+ {
+-	u64 max_bw = dvfsrc->dvd->bw_constraints->max_dram_hrt_bw;
+-
+-	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_HRT_BW, DVFSRC_BW_HRT, max_bw, 0, bw);
++	__dvfsrc_set_dram_bw_v1(dvfsrc, DVFSRC_SW_HRT_BW, DVFSRC_BW_HRT, bw);
+ }
+ 
+ static void dvfsrc_set_opp_level_v1(struct mtk_dvfsrc *dvfsrc, u32 level)
+@@ -688,11 +700,22 @@ static int mtk_dvfsrc_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-static const struct dvfsrc_bw_constraints dvfsrc_bw_constr_v1 = { 0, 0, 0 };
+-static const struct dvfsrc_bw_constraints dvfsrc_bw_constr_v2 = {
+-	.max_dram_nom_bw = 255,
+-	.max_dram_peak_bw = 255,
+-	.max_dram_hrt_bw = 1023,
++static const u32 dvfsrc_bw_min_constr_none[DVFSRC_BW_MAX] = {
++	[DVFSRC_BW_AVG] = 0,
++	[DVFSRC_BW_PEAK] = 0,
++	[DVFSRC_BW_HRT] = 0,
 +};
 +
-+static const struct dvfsrc_soc_data mt8196_data = {
-+	.regs = dvfsrc_mt8196_regs,
-+	.bw_units = mt8196_bw_units,
-+	.has_emi_ddr = true,
-+	.get_target_level = dvfsrc_get_target_level_v4,
-+	.get_current_level = dvfsrc_get_current_level_v4,
-+	.get_vcore_level = dvfsrc_get_vcore_level_v2,
-+	.get_vscp_level = dvfsrc_get_vscp_level_v2,
-+	.get_opp_count = dvfsrc_get_opp_count_v4,
-+	.get_hw_opps = dvfsrc_get_hw_opps_v4,
-+	.calc_dram_bw = dvfsrc_calc_dram_bw_v4,
-+	.set_dram_bw = dvfsrc_set_dram_bw_v1,
-+	.set_dram_peak_bw = dvfsrc_set_dram_peak_bw_v1,
-+	.set_dram_hrt_bw = dvfsrc_set_dram_hrt_bw_v1,
-+	.set_opp_level = dvfsrc_set_dram_level_v4,
-+	.set_vcore_level = dvfsrc_set_vcore_level_v2,
-+	.set_vscp_level = dvfsrc_set_vscp_level_v2,
-+	.wait_for_opp_level = dvfsrc_wait_for_opp_level_v4,
-+	.wait_for_vcore_level = dvfsrc_wait_for_vcore_level_v4,
-+	.bw_constraints = &dvfsrc_bw_constr_v1,
++static const u32 dvfsrc_bw_max_constr_v1[DVFSRC_BW_MAX] = {
++	[DVFSRC_BW_AVG] = U32_MAX,
++	[DVFSRC_BW_PEAK] = U32_MAX,
++	[DVFSRC_BW_HRT] = U32_MAX,
 +};
 +
++static const u32 dvfsrc_bw_max_constr_v2[DVFSRC_BW_MAX] = {
++	[DVFSRC_BW_AVG] = 65535,
++	[DVFSRC_BW_PEAK] = 65535,
++	[DVFSRC_BW_HRT] = 1023,
+ };
+ 
+ static const struct dvfsrc_opp dvfsrc_opp_mt6893_lp4[] = {
+@@ -725,7 +748,8 @@ static const struct dvfsrc_soc_data mt6893_data = {
+ 	.set_vscp_level = dvfsrc_set_vscp_level_v2,
+ 	.wait_for_opp_level = dvfsrc_wait_for_opp_level_v2,
+ 	.wait_for_vcore_level = dvfsrc_wait_for_vcore_level_v1,
+-	.bw_constraints = &dvfsrc_bw_constr_v2,
++	.bw_max_constraints = dvfsrc_bw_max_constr_v2,
++	.bw_min_constraints = dvfsrc_bw_min_constr_none,
+ };
+ 
+ static const struct dvfsrc_opp dvfsrc_opp_mt8183_lp4[] = {
+@@ -763,7 +787,8 @@ static const struct dvfsrc_soc_data mt8183_data = {
+ 	.set_vcore_level = dvfsrc_set_vcore_level_v1,
+ 	.wait_for_opp_level = dvfsrc_wait_for_opp_level_v1,
+ 	.wait_for_vcore_level = dvfsrc_wait_for_vcore_level_v1,
+-	.bw_constraints = &dvfsrc_bw_constr_v1,
++	.bw_max_constraints = dvfsrc_bw_max_constr_v1,
++	.bw_min_constraints = dvfsrc_bw_min_constr_none,
+ };
+ 
+ static const struct dvfsrc_opp dvfsrc_opp_mt8195_lp4[] = {
+@@ -797,7 +822,8 @@ static const struct dvfsrc_soc_data mt8195_data = {
+ 	.set_vscp_level = dvfsrc_set_vscp_level_v2,
+ 	.wait_for_opp_level = dvfsrc_wait_for_opp_level_v2,
+ 	.wait_for_vcore_level = dvfsrc_wait_for_vcore_level_v1,
+-	.bw_constraints = &dvfsrc_bw_constr_v2,
++	.bw_max_constraints = dvfsrc_bw_max_constr_v2,
++	.bw_min_constraints = dvfsrc_bw_min_constr_none,
+ };
+ 
+ static const u8 mt8196_bw_units[] = {
+@@ -825,7 +851,8 @@ static const struct dvfsrc_soc_data mt8196_data = {
+ 	.set_vscp_level = dvfsrc_set_vscp_level_v2,
+ 	.wait_for_opp_level = dvfsrc_wait_for_opp_level_v4,
+ 	.wait_for_vcore_level = dvfsrc_wait_for_vcore_level_v4,
+-	.bw_constraints = &dvfsrc_bw_constr_v1,
++	.bw_max_constraints = dvfsrc_bw_max_constr_v2,
++	.bw_min_constraints = dvfsrc_bw_min_constr_none,
+ };
+ 
  static const struct of_device_id mtk_dvfsrc_of_match[] = {
- 	{ .compatible = "mediatek,mt6893-dvfsrc", .data = &mt6893_data },
- 	{ .compatible = "mediatek,mt8183-dvfsrc", .data = &mt8183_data },
- 	{ .compatible = "mediatek,mt8195-dvfsrc", .data = &mt8195_data },
-+	{ .compatible = "mediatek,mt8196-dvfsrc", .data = &mt8196_data },
- 	{ /* sentinel */ }
- };
- 
 
 -- 
 2.51.2
