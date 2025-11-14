@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDF8CE8D47
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDF3CE8D47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=937Kna5FIMcmuhcM43I4XpAxP0ORWeCDFNrCp2ECx8A=; b=SH3QAG/9NUt+KTTH3UfNJtXNF1
-	NpCjHQd7rX+7LpP2NYfRUYRXp32Q7lny2R/nkcDSJrl8a+vB5vjElkzrTRaZEVNYkLAIFeLW034xt
-	/5y+2yhHwhXSoJkGMgjleeMi7p4JMXL42RhRW9/9/yeFIClKnUaFSEIWk7PsrqzObLAMEXY5QI2BC
-	T1wfNVh79fZPy4LImPFFU7stDBdjosj//JTIfkbhtxv8geiLx0KQL1niQDAwpV+HKhRwdKDoQn5Sy
-	be1WIlrmz+OifloYZGqemVWrvW3NyNl/f9dOimKOIZg+/Fx2O++k7bMgb4D2pD48mJtb1ndVqM4Du
-	Qqu+6R/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jab9jcwJkgBbHQXKWRyzjApbhnO4x6UAw5acef1S3rY=; b=ng+fTqvShpN3wt/4sA0C/JBZi7
+	/xqN34LJegw+Rv784CcstEBEZjWL4LYog4kOxlBsa8xCyqS+rHZT3FAEznueRFTkq/gFTxXnK+BuC
+	G8TERe9i5Qyz1zltjVAwXNsAh1omTQFG6rq82IMNxVQq7AhEURQ9UwD/a+oTVHhYuap5J5KdmO/ku
+	PpESDlHvzTEnZs1XCanX1PDUIBDTaPS1so3RSrpwNuawzymKTsq9uXr3n5oKOPM3nsT3obFG+HtqX
+	X4QbBaQFTSWD7XFbLkYlxZVSUzAHH7WP4a8gZaVUQef6JhXqTwTadmXqozuC18eA8y9Ky0GJRkjO5
+	jt6etPbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwBT-0000000Cdbd-119n;
-	Fri, 14 Nov 2025 15:57:59 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vJwBr-0000000Cdfc-0CAF;
+	Fri, 14 Nov 2025 15:58:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwBQ-0000000CdbD-1Nns
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:57:58 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d7MGK3DXjzJ46Cx;
-	Fri, 14 Nov 2025 23:57:13 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 62FF014033F;
-	Fri, 14 Nov 2025 23:57:49 +0800 (CST)
-Received: from localhost (10.122.19.247) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 14 Nov
- 2025 15:57:48 +0000
-Date: Fri, 14 Nov 2025 15:57:46 +0000
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Arnd Bergmann <arnd@arndb.de>
-CC: Conor Dooley <conor@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Linux-Arch
-	<linux-arch@vger.kernel.org>, <linux-mm@kvack.org>, Dan Williams
-	<dan.j.williams@intel.com>, "H. Peter Anvin" <hpa@zytor.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Andrew Morton <akpm@linux-foundation.org>,
-	Drew Fustini <fustini@kernel.org>, "Linus Walleij"
-	<linus.walleij@linaro.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Krzysztof Kozlowski <krzk@kernel.org>, James
- Morse <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
-	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-Subject: Re: [PATCH v5 0/6]  Cache coherency management subsystem
-Message-ID: <20251114155746.00003719@huawei.com>
-In-Reply-To: <02244119-d6b8-4ef4-833f-b8fba7a73f43@app.fastmail.com>
-References: <20251031111709.1783347-1-Jonathan.Cameron@huawei.com>
-	<20251108-spearmint-contend-aa3dd8a0220e@spud>
-	<20251114124958.00006a85@huawei.com>
-	<20251114-juror-stiffness-046b47b8d9f7@spud>
-	<02244119-d6b8-4ef4-833f-b8fba7a73f43@app.fastmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vJwBp-0000000CdfD-0f8W;
+	Fri, 14 Nov 2025 15:58:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5430060121;
+	Fri, 14 Nov 2025 15:58:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6AAC19421;
+	Fri, 14 Nov 2025 15:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763135900;
+	bh=tRFbjnnnGYoNv0ovOhf9bdB3gNHViLXElGTT7OSRUNM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=kn0voBfhkFcXuamgxp1cypg5mRJYcDjJPdn2UBLK5ris48B7Oq4H9FkY+NzEziugS
+	 evjYPPdviDkQKxDhod7Iwuia4NcBUHWlURuhu8l3nV5jIXRUJDNvbsOlRU17PgRnpt
+	 ydRlUnBhMFjd1BCDD6Wrer0ZAtSZ9v4+rghuXZWmfW76LnavEl68TDiXj6w6Ikimjd
+	 o3Z5BoZcJ0kywb7tQ/z2YIa31/KC0hy+6ewhU1G5kyJKcIEg6D09PAWAzNh42kuWo2
+	 DK5bvlI7S0M2dKiJ5mSfxkRQrmXSQjE1c+ewXIG4vSr86DsX6NEPCg0R0bgkiAKFN9
+	 5mxW4hSujkSdg==
+Date: Fri, 14 Nov 2025 09:58:18 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_075756_680837_C3D93AAB 
-X-CRM114-Status: GOOD (  49.79  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ linux-kernel@vger.kernel.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-amlogic@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-5-b4d1fe4781c1@amlogic.com>
+References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+ <20251105-irqchip-gpio-s6-s7-s7d-v1-5-b4d1fe4781c1@amlogic.com>
+Message-Id: <176313578804.3261993.9727195642647352249.robh@kernel.org>
+Subject: Re: [PATCH 5/5] arm64: dts: Add gpio_intc node for Amlogic S7D
+ SoCs
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,160 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Nov 2025 15:07:33 +0100
-"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-> On Fri, Nov 14, 2025, at 13:52, Conor Dooley wrote:
-> > On Fri, Nov 14, 2025 at 12:49:58PM +0000, Jonathan Cameron wrote:  
-> >> On Sat, 8 Nov 2025 20:02:52 +0000 Conor Dooley <conor@kernel.org> wrote:  
-> >> > 
-> >> > On Fri, Oct 31, 2025 at 11:17:03AM +0000, Jonathan Cameron wrote:  
-> >> > > Support system level interfaces for cache maintenance as found on some
-> >> > > ARM64 systems. It is expected that systems using other CPU architectures
-> >> > > (such as RiscV) that support CXL memory and allow for native OS flows
-> >> > > will also use this. This is needed for correct functionality during
-> >> > > various forms of memory hotplug (e.g. CXL). Typical hardware has MMIO
-> >> > > interface found via ACPI DSDT. A system will often contain multiple
-> >> > > hardware instances.
-> >> > > 
-> >> > > Includes parameter changes to cpu_cache_invalidate_memregion() but no
-> >> > > functional changes for architectures that already support this call.
-> >> > > 
-> >> > > How to merge?
-> >> > > - Current suggestion would be via Conor's drivers/cache tree which routes
-> >> > >   through the SoC tree.    
-> >> > 
-> >> > I was gonna put this in linux-next, but I'm not really sure that Arnd
-> >> > was satisfied with the discussion on the previous version about
-> >> > suitability of the directory: https://lore.kernel.org/all/20251028114348.000006ed@huawei.com/
-> >> > 
-> >> > Arnd, did that response satisfy you, or nah?  
-> >> 
-> >> Seems Arnd is busy.  Conor, if you are happy doing so, maybe push it to a tree
-> >> linux-next picks up, but hold off on the pull request until Arnd has had a chance
-> >> to reply?  
-> >
-> > Yeah, I did step one of that last night and will put it in linux-next
-> > from Monday. Ultimately the PR goes to Arnd, so he can judge it there
-> > anyway.  
+On Wed, 05 Nov 2025 17:45:36 +0800, Xianwei Zhao wrote:
+> Add GPIO interrupt controller device.
 > 
-> Sorry about the delay on my side. I've read up on it again and understand
-> better where we are with this now.
-> 
-> I think the implementation is fine, and placing it in drivers/cache/
-> is also ok, given that we don't have a better place for it.
-> 
-> However, this does feel sufficiently different from the three existing
-> drivers in drivers/cache that I think we should have separate
-> submenus in Kconfig and describe them differently:
-> 
-> - the arch/riscv drivers are specifically for managing coherency
->   between the CPU and any device driver using the linux/dma-mapping.h
->   interfaces to manage coherency using CPU specific interfaces.
-> 
-> - the new driver does not interface with linux/dma-mapping.h
->   or a CPU specific register set, and as I understand that would
->   make no sense here. The only similarities are that it manages
->   coherency between multiple entities that access the same memory
->   and have private caches for that.
-> 
-> If we can come up with better names for the two things, I'd
-> like them to have distinct submenus. Something like the draft
-> below for the existing drivers would work, in addition to
-> a new menu that only contains the one driver for now. I've
-> moved the 'depends on RISCV' into the 'menu' here, since that
-> is the only thing using it today (32-bit arm has the same thing
-> in arch/arm/mm/cache-*.S with a different interface, most others
-> only have an architected interface).
-
-Hi Arnd,
-
-Thanks for taking another look.
-
-Agreed splitting the menus reduces chance of confusion, so makes
-sense to me as well.
-
-Implementation wise I think we have to use menuconfig + bool if we want
-to have help and dependencies and then an if block under that.
-The syntax for Kconfig always leaves me finding an example to copy
-rather than finding it intuitive
-
-menuconfig CACHEMAINT_FOR_DMA
-	bool "Cache management for noncoherent DMA"
-	depends on RISCV
-	help
-	  These drivers implement support for noncoherent DMA master devices
-	  on platforms that lack the standard CPU interfaces for this.
-
-if CACHEMAINT_FOR_DMA
-... drivers here...
-
-endif #CACHEMAINT_FOR_DMA
-
-menuconfig CACHEMAINT_FOR_HOTPLUG
-	bool "Cache management for hotplug like operations"
-	depends on GENERIC_CPU_CACHE_MAINTENANCE
-	help
-	   These drivers implement support for cache management flows
-	   as required for action such as memory hotplug on platforms
-	   where this is done by platform specific interfaces.
-
-if CACHEMAINT_FOR_HOTPLUG
-... drivers here
-
-endif #CACHEMAINT_FOR_HOTPLUG
-
-Alternative would be to hope the short text is enough and use
-
-menu "Cache management for noncoherent DMA"
-	visible if RISCV
-
-endmenu
-
-I'm not sure if the 'hotplug like' is close enough to all the cases
-for device drivers that provide the services needed to implement
-ARCH_HAS_CPU_CACHE_INVALIDATE_MEMEGION
-
-Alternative might be to phrase around pushing beyond the point of
-coherence, but that seems to be an ARM specific term and would
-seem to incorporate fine grained sharing where this interface might
-work but isn't a good solution.
-
-Thanks,
-
-Jonathan
-
-> 
->     Arnd
-> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
-> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-> index db51386c663a..8a49086eb8af 100644
-> --- a/drivers/cache/Kconfig
-> +++ b/drivers/cache/Kconfig
-> @@ -1,9 +1,12 @@
->  # SPDX-License-Identifier: GPL-2.0
-> -menu "Cache Drivers"
-> +menu "Cache management for noncoherent DMA"
-> +       depends on RISCV
-> +       help
-> +         These drivers implement support for noncoherent DMA master devices
-> +         on platforms that lack the standard CPU interfaces for this.
+>  arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
 
->  
->  config AX45MP_L2_CACHE
->         bool "Andes Technology AX45MP L2 Cache controller"
-> -       depends on RISCV
->         select RISCV_NONSTANDARD_CACHE_OPS
->         help
->           Support for the L2 cache controller on Andes Technology AX45MP platforms.
-> @@ -16,7 +19,6 @@ config SIFIVE_CCACHE
->  
->  config STARFIVE_STARLINK_CACHE
->         bool "StarFive StarLink Cache controller"
-> -       depends on RISCV
->         depends on ARCH_STARFIVE
->         depends on 64BIT
->         select RISCV_DMA_NONCOHERENT
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: cb718411c4c05a4a424c2b73790a1648be97a4af (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20251105-irqchip-gpio-s6-s7-s7d-v1-5-b4d1fe4781c1@amlogic.com:
+
+arch/arm64/boot/dts/amlogic/amlogic-s7d-s905x5m-bm202.dtb: interrupt-controller@4080 (amlogic,s7d-gpio-intc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['amlogic,s7d-gpio-intc', 'amlogic,meson-gpio-intc'] is too long
+	'amlogic,meson-gpio-intc' was expected
+	'amlogic,s7d-gpio-intc' is not one of ['amlogic,meson8-gpio-intc', 'amlogic,meson8b-gpio-intc', 'amlogic,meson-gxbb-gpio-intc', 'amlogic,meson-gxl-gpio-intc', 'amlogic,meson-axg-gpio-intc', 'amlogic,meson-g12a-gpio-intc', 'amlogic,meson-sm1-gpio-intc', 'amlogic,meson-a1-gpio-intc', 'amlogic,meson-s4-gpio-intc', 'amlogic,a4-gpio-intc', 'amlogic,a4-gpio-ao-intc', 'amlogic,a5-gpio-intc', 'amlogic,c3-gpio-intc', 'amlogic,t7-gpio-intc']
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/amlogic,meson-gpio-intc.yaml
+arch/arm64/boot/dts/amlogic/amlogic-s7d-s905x5m-bm202.dtb: /soc/bus@fe000000/interrupt-controller@4080: failed to match any schema with compatible: ['amlogic,s7d-gpio-intc', 'amlogic,meson-gpio-intc']
+arch/arm64/boot/dts/amlogic/amlogic-s6-s905x5-bl209.dtb: interrupt-controller@4080 (amlogic,s6-gpio-intc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['amlogic,s6-gpio-intc', 'amlogic,meson-gpio-intc'] is too long
+	'amlogic,meson-gpio-intc' was expected
+	'amlogic,s6-gpio-intc' is not one of ['amlogic,meson8-gpio-intc', 'amlogic,meson8b-gpio-intc', 'amlogic,meson-gxbb-gpio-intc', 'amlogic,meson-gxl-gpio-intc', 'amlogic,meson-axg-gpio-intc', 'amlogic,meson-g12a-gpio-intc', 'amlogic,meson-sm1-gpio-intc', 'amlogic,meson-a1-gpio-intc', 'amlogic,meson-s4-gpio-intc', 'amlogic,a4-gpio-intc', 'amlogic,a4-gpio-ao-intc', 'amlogic,a5-gpio-intc', 'amlogic,c3-gpio-intc', 'amlogic,t7-gpio-intc']
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/amlogic,meson-gpio-intc.yaml
+arch/arm64/boot/dts/amlogic/amlogic-s6-s905x5-bl209.dtb: /soc/bus@fe000000/interrupt-controller@4080: failed to match any schema with compatible: ['amlogic,s6-gpio-intc', 'amlogic,meson-gpio-intc']
+arch/arm64/boot/dts/amlogic/amlogic-s7-s805x3-bp201.dtb: interrupt-controller@4080 (amlogic,s7-gpio-intc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['amlogic,s7-gpio-intc', 'amlogic,meson-gpio-intc'] is too long
+	'amlogic,meson-gpio-intc' was expected
+	'amlogic,s7-gpio-intc' is not one of ['amlogic,meson8-gpio-intc', 'amlogic,meson8b-gpio-intc', 'amlogic,meson-gxbb-gpio-intc', 'amlogic,meson-gxl-gpio-intc', 'amlogic,meson-axg-gpio-intc', 'amlogic,meson-g12a-gpio-intc', 'amlogic,meson-sm1-gpio-intc', 'amlogic,meson-a1-gpio-intc', 'amlogic,meson-s4-gpio-intc', 'amlogic,a4-gpio-intc', 'amlogic,a4-gpio-ao-intc', 'amlogic,a5-gpio-intc', 'amlogic,c3-gpio-intc', 'amlogic,t7-gpio-intc']
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/amlogic,meson-gpio-intc.yaml
+arch/arm64/boot/dts/amlogic/amlogic-s7-s805x3-bp201.dtb: /soc/bus@fe000000/interrupt-controller@4080: failed to match any schema with compatible: ['amlogic,s7-gpio-intc', 'amlogic,meson-gpio-intc']
+
+
+
+
 
 
