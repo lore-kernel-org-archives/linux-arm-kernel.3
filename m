@@ -4,156 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F97CE7AEF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 11:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B15CE7AF8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 12:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xj6btczQP9EttHmyg9oi/yzZG5tH5YacuDZXJnwTFdA=; b=C1VJKLeRydWfNPGua56v1ZLSAV
-	5OgPgMEDc1eZWEWfepunmS3sw9ep564Ca7ThoEyLQHUkXsyjIeuZz9nolbcw2sysqAodk4u3FSbAG
-	EuCbAoEdsJEhho3EF3ptEdstw10yfLYmhJcCINea88iJ2D6DvnzNPyrlLXd17eggP7EJDF5bW2SI+
-	8187XxIG8/pMGI+kreSk4drJ5+x0rJDL8x2JUR+KBiZp1yvgXxduh4kv5H5rXcK0X9i1srm/2UeVO
-	xNowtjph//ry9HvmoSVy/gC0S8FpM8u2z4RlS9PEucKWB+hycuNUBrNjEYfVEsv3t/g7zD7gSGzjl
-	NqS8LtMQ==;
+	bh=oeGMZbH/yuJRS9B5j3gudhE5eHF+WzcKbi9Poy6lx1E=; b=eAz9StEvhNCc+PcCm0BRautxzb
+	kJXjQG6P01oghutGL2vZ0sKdkiC19+ylDV1yFceAaqDibUcAAOSVmTc3ScVMcOuaeXojday3noxp8
+	QEX6jVowcbaNZ4M90Wxrv/ZW4GO3HEBH3e+GiX/zog4UsZBuGxkfe+i+fBNCHQgkayxVo2BfpV2tL
+	r7tKk7d0vEURSdCS3VMTivm0kFzdTOrqMbqq0X7sxZMDX+FAaiwhnmnyx+UOiwve4WNnqMqdv0+lv
+	ZrF2Gf9cWNpSxBN+NWulV8htYsof1gB2zeDIRTCUUOamKCBflzJVNEDu52UHezXZoluRxm0qMR/vM
+	3fNBNA/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJs8z-0000000C8CO-1fpg;
-	Fri, 14 Nov 2025 11:39:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vJsTp-0000000C9xX-2uj7;
+	Fri, 14 Nov 2025 12:00:41 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJs8x-0000000C8C3-0imq
+	id 1vJsTn-0000000C9wa-1y1O
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 11:39:08 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE8JDKv1486313
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 11:39:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xj6btczQP9EttHmyg9oi/yzZG5tH5YacuDZXJnwTFdA=; b=YvmEGhHayMHB5uzm
-	enctitrc46sCoSYts4Pd9jZjRcyEUid2Ik/mbTzm8syTdh4h4lXKq37hSw8lTm8u
-	Yhy8xu/xdQxTek7UznfSUHnt7Unsi24CjmQHL3RP0QBVu7uPEq+iTY6nQGTFN45Q
-	GGAap7UTFISWYeA7ukX5CUosV266vxpbLt6zcavgnyczJO7ANnJaxrfLwRCxQq9R
-	u8ZYGBePYg0IyQ/Zzu1PDGTHB74DtlwOFi90Kv4Dh8PSZHso9CgSO+WOGtPeU+Rt
-	3iD78ZHcicHcJHs4x6j/DiT6z8TlLjfXAuNPUfpaZR9anLgM/rs1mo1BsMjgydUc
-	JJgxmg==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4adr9cj1eg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 11:39:06 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b5edecdf94eso3813620a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 03:39:06 -0800 (PST)
+	Fri, 14 Nov 2025 12:00:40 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so21302255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 04:00:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763120346; x=1763725146; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xj6btczQP9EttHmyg9oi/yzZG5tH5YacuDZXJnwTFdA=;
-        b=KmCvB20waLWB5WSiOR5/5ycO/Zsl8J6ve2FWJgirFEqcolm0ae+rXwWQoeaCXis0JX
-         RrAOgJqT5ocd2fS8NQXkcufJYqObBN9lei5C90uiyJ1uQxThW5rbRnQEyppZZjHLA05v
-         mZXLvlOFZA5+Q6tL1Pv8+83OcRDC1wYPvgGOWWhRPhYgbVLnnFrwwu9ezBym0xXAvKYH
-         EWMiShtwNl41vriSYpCy0+m/wCh5fdajh5QpCPgEz2O1xHAtEjA9wxr69yXUfHY8W6Gh
-         y6xSVvDiCiWO5Zr3MVw/IBAaqWnxu1mJ5vwppJlcpdgToYw4gIt13lXDVKh2e+qM2BA0
-         AaIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763120346; x=1763725146;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1763121637; x=1763726437; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xj6btczQP9EttHmyg9oi/yzZG5tH5YacuDZXJnwTFdA=;
-        b=vlMbj2gJwCb6NgXKSczB7k6UmGi4LndsXqzcJFaewX+iicsYW7xqR0SC4JAP2thonF
-         FvHbehMiVs0oNnGSpqKwFu2WFme+1VLw+orACymVBRC6Twur2Jv5MEUDTNQyxHsQLY5q
-         ET5AF/l5okS9UoPrtR854VKbFjm4iRJ4krKCLrlbVXK1I+/o8YkPXo90QpiHrdiIZg7Q
-         bkacKz2tm4S4thkVcbVo8BRcxJl4FxUaECwR37ZnRVW6GKATuGn97Jl6JjmHLQQrWv/7
-         kKGwl8b5u5EKpfqDu6aGs1Wjy/Afkg90D+TfUK6qOH9D50s2hcEVA4mJ2Z6cBnfdAOE/
-         y2LA==
-X-Forwarded-Encrypted: i=1; AJvYcCUznPEqvu0GWZTrYH+vk45WwK/oHn4rJyeimtcqogKa4/bgLI2asc0HQvy3J/qak0YBSoFs3pbmjaxEwSuRwMYq@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfcalz8e1LLGGr4YK3KgGAH9MHgMyGHoGF3oL5/Ri87LSYQzBr
-	lbpvUDDvkLoL7EXGRUNq+1a+qLNjy2xLWvkWErXTtDok79fk+oQmf7GbH00zNQan/MHbTnXWQFJ
-	+8WysniK/R+tZqIxL+8XZccgb7/2UB6NzPYEG/3323a8cYCLTq5mcUkfj+iiXFAHv6TYSfyQXIW
-	NiBg==
-X-Gm-Gg: ASbGncugVH7sNEh2Gqb2wz8SR+B6uvKHU6yDgokO1E+kpULQiyS2UhyJ0VbIewSIGCX
-	xI42oM2vogAhUDrnffyjc4GrkT6YtBBPj6ZSXKjDMe6yaXLZNYs56IkMGeKGsI6H2LN87Mogrr9
-	pGdu8Jd61G7vLI+w9pqNhD9vxLLps493IxSnwoug3q4Bbpyej9rGmDG1I9b/SqwQQC5Xh/nk7sY
-	MmHG1WvfCz6cf3jkFDvNmcEVGLEXA2ivW7o90JRcrzRrXctXQQ0CXwoFeFTucu79OYMTsbOmDin
-	yRR0JHoZ0aKEYYNLJivpETKVKGpBUgzoXfnkavvhIR+K67T60YY1BdVegXbX+xA7UWFYJlD8IeC
-	qY+O7xvW8OrxXvjLhw7nwXJA=
-X-Received: by 2002:a17:90a:d408:b0:33b:b020:597a with SMTP id 98e67ed59e1d1-343f99c1cc3mr3251197a91.0.1763119615953;
-        Fri, 14 Nov 2025 03:26:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFgKCyHJGBBYPB4qZv+EAl4Tx88PJN32VSjZcg29sFOWP5dg9DS3lwkBEwjYg2dmQ/BXtGF2A==
-X-Received: by 2002:a17:90a:d408:b0:33b:b020:597a with SMTP id 98e67ed59e1d1-343f99c1cc3mr3251153a91.0.1763119615473;
-        Fri, 14 Nov 2025 03:26:55 -0800 (PST)
-Received: from [192.168.1.8] ([106.222.229.203])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3456516c622sm167599a91.9.2025.11.14.03.26.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Nov 2025 03:26:55 -0800 (PST)
-Message-ID: <76523142-b337-4a31-90d2-c8477ef0b270@oss.qualcomm.com>
-Date: Fri, 14 Nov 2025 16:56:45 +0530
+        bh=oeGMZbH/yuJRS9B5j3gudhE5eHF+WzcKbi9Poy6lx1E=;
+        b=sVnFPkfswTdOwPpD5Dv1WkdceKm3qGlrNuQkM6Oz5zktRTVZlyalTa5zpjQg7Sz820
+         RuJQvNRGR3Z91nqJ61JWpuuCd92QkYnHxHqUidan9AIsWVBq4WqFxjv4rI1fGUu1bcS5
+         4u5R+tuiiODFy9afY8MIOvOic+bkuC4J61xLgfupyHsLHvNdoSM0fPvLoYN6lOIMur+f
+         XwBo9eFu4lAEwtTxas1PEADgCAhKUsZSie6If0SElDv6OfY/dGfqV6StrIYKfSRPbHS9
+         Vnbe9l3p/QLA42hhRhmIZj9XLxB/0TERxW0W9Ms6tEIPj9+VRQn+QTwOYqURZgjsaJmv
+         u2PQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763121637; x=1763726437;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oeGMZbH/yuJRS9B5j3gudhE5eHF+WzcKbi9Poy6lx1E=;
+        b=SLw54+YZwQHYVRONK5DXD7tYMBC5FY1EH5XR0aBV+ZmD1/x6loGtap6y1RWJvbIdZI
+         m7472qZ+55DLqGDp3t+Si+t1xnxNpdS11sHOA31bMNe54Bu+HGH9whIge5SxF95VXOna
+         Kj4Qmssz8AU/2UDYwCdVwfyXPvRTw8zG6myGYfV+Po5LBf5eGAWVpxvlcj6f2yqKvCDH
+         mMnOj4DI+niqtHSow5dlqqMNxjR6bykZYY+5ERFrw7Jgh7pSSg5UnrpMRHJdtE2ZLwku
+         aXrJV+NUN9BSzcgsdpdF5+eBQ1x3DKq/n0Kv8ejSjudNvjH2Yw1VgkVF9G+4nZ7HQT33
+         LXhQ==
+X-Gm-Message-State: AOJu0YxJfGjhY1lXkZupYrbMf02F0dNh6AhheHm+DlR6e4FN4M7pQXr+
+	5Wf8Bgniq8SNq7V0Ef3Q8YtO5RnV625UpOcFqGxYoO/4XLGApaiF2zcBksqKTMpLFC4=
+X-Gm-Gg: ASbGnctr2bor29gx9WqFQGbQdbb0sLR4q9eQcesaKXvRC3RPVg/2XRx7Lf2dhmaB7xS
+	FS+BuMPZ9IpOWpxeydGu8NBYD0D9A7ive6ovJA8LwesMufAeEH+LFv/aTmlKPfKKKiGrkas+4NV
+	GUzNjA/wGvB+Xa6hNts07E/KLm50G8jCADx5xElOpvALWXcxmv/EubBQ9SEW/ybd6y1ooR1MHr6
+	gZUDnjyR9jsen5HMlTLcOp0tzmfHgXI/pUy1EjbbtCHnhIIOhnn5aEEyzgFIZXwlFG6l7ifByJg
+	rci+HrJ67O7YN9fIpB5XAWO7vxLbuChzJOLtgL3rwd6cDw2mNtf/gxf8t3t2f5oC6bFwPo9XxxG
+	ufZx3biuCKf1QeSIXoJjt9QHayb5EBHmSJVT3+Co/5+gu4iyvQei7GpTPZ00F8gh7L93MX4kCuY
+	omwOIF5oJHlbdJgDNDzugVKwfyczD3hXxeAAhWZk3O
+X-Google-Smtp-Source: AGHT+IEztOiRpEt8WUe38io4Rq4V3TPo5iuLJqFfsDHDoi0i3ebJPfWcuKcGzYpn53XxYHF5bQAiog==
+X-Received: by 2002:a05:6000:228a:b0:42b:36f4:cd24 with SMTP id ffacd0b85a97d-42b593495bemr2671290f8f.24.1763121636785;
+        Fri, 14 Nov 2025 04:00:36 -0800 (PST)
+Received: from gpeter-l.roam.corp.google.com ([145.224.65.83])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e7ae5bsm9487578f8f.8.2025.11.14.04.00.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Nov 2025 04:00:36 -0800 (PST)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 14 Nov 2025 12:00:16 +0000
+Subject: [PATCH v2 1/2] dt-bindings: soc: samsung: exynos-pmu: remove
+ syscon for google,gs101-pmu
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/21] drm/msm/a6xx: Improve MX rail fallback in RPMH
- vote init
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, devicetree@vger.kernel.org
-References: <20251110-kaana-gpu-support-v2-0-bef18acd5e94@oss.qualcomm.com>
- <20251110-kaana-gpu-support-v2-11-bef18acd5e94@oss.qualcomm.com>
- <dd32a5e0-1dd1-484d-8fb7-8f6c506c8c83@oss.qualcomm.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <dd32a5e0-1dd1-484d-8fb7-8f6c506c8c83@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: Fy3Y_Yr9OdJASNvpRe8HEYKRIWehLwC1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA5MiBTYWx0ZWRfX7ckBN8Q3tmbF
- ZwP2HTnuKS8C77qPuca9z8/ClbVcECveWnvfz6kW/eYXRo6exZMyhD0g+5o5FEM4b5sdOtQP7fm
- 8D8okm8zDLse4ifFeDZViIHVPexxOeDg6eOGKA7xPVz1o9hZoEFkoxseDPKY64uylra2EpNSyxs
- Ry2prIj+RpkDjcPn6eUDxKerE8jUHE92Od210j3hm4AoDWRyq8s4cG18VR9mSVPxlrwmomgKdq8
- pvYgQ/cbSjSK8s0BTZEZ7XZh96wmOVwx6xF3cZp9GojSriD0lw7zL6bUmQe+Tl0d6+Tt9/vF0kb
- yn8Dc3eCRpslsLS5ZxEMwVBjrKVJTV3hPwlFvLPVG/xgPZSaYOWWiMPxmW9Z6jgpFE/yV32t6lN
- P8J8Kbq3gRWOg9Fz9h3oJRRYBHqJsw==
-X-Authority-Analysis: v=2.4 cv=MNdtWcZl c=1 sm=1 tr=0 ts=691714da cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=UUXEStRZTiKyGgBwSCQbmw==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=lZFDvItL9zSOf8gjBGIA:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-ORIG-GUID: Fy3Y_Yr9OdJASNvpRe8HEYKRIWehLwC1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-14_03,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 priorityscore=1501 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 adultscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140092
+Message-Id: <20251114-remove-pmu-syscon-compat-v2-1-9496e8c496c7@linaro.org>
+References: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
+In-Reply-To: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
+To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, willmcvicker@google.com, dan.carpenter@linaro.org, 
+ arnd@arndb.de, robh@kernel.org, Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1630;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=61olMKxaKsnKoXwZ6EUyBzqRnKHfTUWzltdyLqRoYlo=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpFxnhY18qA9fN+bzswZTOhmCb/8dkhaKP8HNV5
+ YnhjB6HhWGJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaRcZ4QAKCRDO6LjWAjRy
+ uhhkD/9CwFscXzPW9AOUDeBbnI8PcjSa9eHy2Jmuw48KyfYzI6SU7GywBCzpYaQ530W4jqpt/Xn
+ g/dqQdPVleWELDvJ31V1Koj2lataLeuj3zVVca4r1uB2kOgJCIvdnwPE77PQGfSO/1FqCU4HG6e
+ A0vWvduDTyu851SEHjWyqaAMYLY1T40wXbaWstxBFqJDniAUVNfJqRESLUpnl150DL7BQUMJhJe
+ VAtXeUxaCNSPvCCCIlpa8OKNEYxnnwrSpcB2EsBldf9r1rJXAZ5ZbsKOnP7qWMq9YcUHN4xCx8M
+ +PSqHvfwwdInx8fdMed1mS4DIs9ZsCp7jEBFrkJgF4dkatTMhPrr/gQzgavwViyJmAGS+gu4eOD
+ fG5kdlRbUqVP+OJ+X2Nf6aLdx0L4yo0zqD13Vph112sZQzaLEWE2RFcHWxzf3yFKI9/UKrQ3SCR
+ orNcLtPeP1Vc4feiCVIb5tUy5UEk/UmZTIvU9Jc3/EmpRpjDwngFvrEGEpj4C7qLra5g8UmnHrB
+ +w+RQmfDjfnEx0Jt5Vhb5+loXod+0lCp/GsFsK9niXMOd2qy+ygAeGHnq2pCUl2viVPNPPkOyGk
+ /SVRGs9OGsCrN4RBHe4Fi6hRuTzQ2ONTtW3fSs+tkRfAp3DSgUKfYoixZwVP+o81/KtYoSlEAia
+ aK1EeK8P/19JmfA==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_033907_240560_7877AA0E 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20251114_040039_545440_B0EC03F0 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,21 +122,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/2025 4:29 PM, Konrad Dybcio wrote:
-> On 11/10/25 5:37 PM, Akhil P Oommen wrote:
->> Current logic assumes that the voltage corners in both MxG and MxA are
->> always same. This is not true for recent targets. So, rework the rpmh init
->> sequence to probe and calculate the votes with the respective rails, ie,
->> GX rails should use MxG as secondary rail and Cx rail should use MxA as
->> the secondary rail.
-> 
-> Is GMU always on Mx*A* and never Mx*C*?
+Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
+"syscon" compatible") it is possible to register a regmap without the
+syscon compatible in the node.
 
-I believe the GMUs we have so far are always on MxA when it is available.
+Update the bindings for google,gs101-pmu so that the syscon compatible is
+no longer required. As it isn't really correct to claim we are compatible
+with syscon (as a mmio regmap created by syscon will not work on gs101).
 
--Akhil.
+Additionally (with the benefit of hindsight) PMU register writes were never
+working with a MMIO syscon on gs101, so the ABI break is justified.
 
-> 
-> Konrad
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+Changes in v2:
+ - Update commit description (Krzysztof)
+ - Change Items to enum, remove const (Krzysztof)
+ - Checkpatch warning commit msg length (Krzysztof)
+---
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index be1441193feeea1c12d0d5370168e9316c8dcf76..84821c38d28d0be6d44fca06bfd63bffc12a8656 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -34,9 +34,10 @@ select:
+ properties:
+   compatible:
+     oneOf:
++      - enum:
++          - google,gs101-pmu
+       - items:
+           - enum:
+-              - google,gs101-pmu
+               - samsung,exynos3250-pmu
+               - samsung,exynos4210-pmu
+               - samsung,exynos4212-pmu
+
+-- 
+2.52.0.rc1.455.g30608eb744-goog
 
 
