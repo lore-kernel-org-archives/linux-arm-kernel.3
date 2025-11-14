@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8578BCE7AA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78280CE7AA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yN1S2ZnRS64XTQWiCEeoApawp6Zm3EsGR3gB6amByfY=; b=HuGJ1TwuyyW0mQ8akg0na/BWg3
-	kRmdmtPSWpe5cx2IQfTsZ0ECBRDU0W5cWmrlulGXYJGWuO4EDQoa+y0B0SxiXVinF+DezhC0iT8iw
-	agPHT68dz+JrBBz44/al1YZL3Sr//oMwi32zFvZ5GLhgcSQ0Am55+MkTNm2Y/6f4+epsNP/HTUjgv
-	jxfOBsw+gBZG3uUPMJ5O1ZoaGs7m3GoYLV48sXgH5iRewT7Glk3kwulsIIm88iSNUeu4ZOwhpNQKp
-	eAnm+N0ZszJmEXR6X2EWHjN3lRHGxqgLvr6luRBJbyP4lLWij9AjDFm80Po3c8OOTzjUr2xlBKnNJ
-	cwS23Z9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nC8UTxZicoaLj+gHj5PDV9Jqhe0Z6rG1WKRuxO8ygG0=; b=VA4l2jCJ1WxdOryfZfjMrgGZyY
+	CfvYVIsehPh6SOTNxCxQBrmeDikLdivJgMM1CF6EHA27AgOrBYrX9spVq5aFzaj7h5NNDcsqdMynw
+	q3tmN9SoXvG+BWQwPF3tpeGzw3LRuu8dFh8hO86Z8AgwunePRMm8Iqo9WYBFEti3JLN4GVmL229yN
+	ErmPbgpHjmYRmkw8VoiFmy6Cjk/th2uyFHkuYRLunRKX4zDXpisgb+fIr7MiWUXPnjI66FmeGBRTF
+	aoiLuIgLn7sA6ow69YSeTNPYZMWGVcLnd2sDAkIx7DzQAD4pAmpWgE7cW+KFaKt63GgDV07+KTg7g
+	JSotQz1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr7R-0000000C1ai-2DHz;
-	Fri, 14 Nov 2025 10:33:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJr86-0000000C1km-3vUZ;
+	Fri, 14 Nov 2025 10:34:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJr7P-0000000C1Zv-3lZW
+	id 1vJr81-0000000C1ix-2y4I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:33:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 194136017D;
-	Fri, 14 Nov 2025 10:33:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6D8C19421;
-	Fri, 14 Nov 2025 10:33:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763116406;
-	bh=b5OwkNMvy1x2IysaOqDsG57B8PQrzrGFhfkbSYYkR0A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HXyqydi2lZnpyrw0/0lR0YpZSKujyfxxMKaUGDtahDIfqEtu2IhKlYLGiFiNp099a
-	 sH1MABdbFsTk8b/RExfQfa5+BE7oRzzP5rT4HX71LoLe5Jbkuz/7MW/Zbc6Dsok55P
-	 z+7x6UlX0MPC63XsIdSkoq4y61m4hpV2b0iyrDAj3E8Z0BT8AbapSk9oqbvbpvm/Wc
-	 3AadrhNV6gfNdF7zUvaFohO42kaQ3CoJX5cNic+oKWI8jI+RK0LEZ+TObjXOmFlbcq
-	 XwbI/C1fqbXSa48xYujH5mxmAaTGqF4T4K6g1w3GW5s9VTnlRstsMNrB+pQUl0C0y9
-	 d2C769XDAMMTA==
-Date: Fri, 14 Nov 2025 10:33:19 +0000
-From: Simon Horman <horms@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: namcao@linutronix.de, vadim.fedorenko@linux.dev,
-	jacob.e.keller@intel.com, christian.koenig@amd.com,
-	sumit.semwal@linaro.org, sdf@fomichev.me, john.fastabend@gmail.com,
-	hawk@kernel.org, daniel@iogearbox.net, ast@kernel.org,
-	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
-	davem@davemloft.net, andrew+netdev@lunn.ch,
-	linaro-mm-sig@lists.linaro.org, dri-devel@lists.freedesktop.org,
-	linux-media@vger.kernel.org, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net-next v5 5/6] net: ti: icssg-prueth: Add AF_XDP zero
- copy for RX
-Message-ID: <aRcFb-vsoLw24MbU@horms.kernel.org>
-References: <20251111101523.3160680-1-m-malladi@ti.com>
- <20251111101523.3160680-6-m-malladi@ti.com>
+	Fri, 14 Nov 2025 10:34:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1763116445; x=1794652445;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=D9cxNLkNziaEdzUnkoYLDeMaPHjBAxKPggl+Zh8QZpU=;
+  b=Q7LYIPILAJ4GdO3mWFzxbMpx1o8hOR/9G8qDpHQiRA7JKaySu7uokgDl
+   W6YtZduZthdJcES8srze4JmUzTSj6yOMHmQ5vPsA/EABzuRAQig4UKbGS
+   ycLy5aSIxX/9tWYiQIMbQljHHoeYoYyR8CEkuDDKTGDacmnZEk3R2/xqV
+   tstli2KSLKsotCRO2VijY39v6ux3AyXwogD4hGHJtqRD2aJhmoaMS+4XM
+   SqGN2cKu7xJ5KtKdTTiyyLLzQd6KdrOnaufms96MYsbitg0AC9TWRa3/4
+   g5J05kyiHXvy2oL+ohUEQQADe7QAwdMbFmLHGnWiv7jPHJAblkHTtn2Vz
+   A==;
+X-CSE-ConnectionGUID: Bmgk/fX/QBGabdIqtVBXBQ==
+X-CSE-MsgGUID: wIk1cWa8SLKfj1V6vLzLuw==
+X-IronPort-AV: E=Sophos;i="6.19,304,1754982000"; 
+   d="scan'208";a="49627358"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2025 03:34:00 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Fri, 14 Nov 2025 03:33:30 -0700
+Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 14 Nov 2025 03:33:29 -0700
+From: <nicolas.ferre@microchip.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Ryan Wanner <ryan.wanner@microchip.com>, Cristian Birsan
+	<cristian.birsan@microchip.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	<stable@vger.kernel.org>
+Subject: [PATCH 1/2] ARM: dts: microchip: sama7d65: fix uart fifo size to 32
+Date: Fri, 14 Nov 2025 11:33:12 +0100
+Message-ID: <20251114103313.20220-1-nicolas.ferre@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251111101523.3160680-6-m-malladi@ti.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_023405_977854_FDCD8F4D 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +85,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 03:45:22PM +0530, Meghana Malladi wrote:
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-...
+On some flexcom nodes related to uart, the fifo sizes were wrong: fix
+them to 32 data.  Note that product datasheet is being reviewed to fix
+inconsistency, but this value is validated by product's designers.
 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+Fixes: 261dcfad1b59 ("ARM: dts: microchip: add sama7d65 SoC DT")
+Fixes: b51e4aea3ecf ("ARM: dts: microchip: sama7d65: Add FLEXCOMs to sama7d65 SoC")
+Cc: <stable@vger.kernel.org> # 6.16+
+Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-...
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index e53e2dd6d530..cd2cf9a6f40b 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -557,7 +557,7 @@ uart4: serial@200 {
+ 				dma-names = "tx", "rx";
+ 				atmel,use-dma-rx;
+ 				atmel,use-dma-tx;
+-				atmel,fifo-size = <16>;
++				atmel,fifo-size = <32>;
+ 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+ 				status = "disabled";
+ 			};
+@@ -618,7 +618,7 @@ uart6: serial@200 {
+ 				clocks = <&pmc PMC_TYPE_PERIPHERAL 40>;
+ 				clock-names = "usart";
+ 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+-				atmel,fifo-size = <16>;
++				atmel,fifo-size = <32>;
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -643,7 +643,7 @@ uart7: serial@200 {
+ 				dma-names = "tx", "rx";
+ 				atmel,use-dma-rx;
+ 				atmel,use-dma-tx;
+-				atmel,fifo-size = <16>;
++				atmel,fifo-size = <32>;
+ 				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+ 				status = "disabled";
+ 			};
+-- 
+2.43.0
 
-> +static int prueth_dma_rx_push_mapped_zc(struct prueth_emac *emac,
-> +					struct prueth_rx_chn *rx_chn,
-> +					struct xdp_buff *xdp)
-> +{
-> +	struct net_device *ndev = emac->ndev;
-> +	struct cppi5_host_desc_t *desc_rx;
-> +	struct prueth_swdata *swdata;
-> +	dma_addr_t desc_dma;
-> +	dma_addr_t buf_dma;
-> +	int buf_len;
-> +
-> +	buf_dma = xsk_buff_xdp_get_dma(xdp);
-> +	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
-> +	if (!desc_rx) {
-> +		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
-> +		return -ENOMEM;
-> +	}
-> +	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
-> +
-> +	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
-> +			 PRUETH_NAV_PS_DATA_SIZE);
-> +	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
-> +	buf_len = xsk_pool_get_rx_frame_size(rx_chn->xsk_pool);
-> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
-> +	swdata = cppi5_hdesc_get_swdata(desc_rx);
-> +	swdata->type = PRUETH_SWDATA_XSK;
-> +	swdata->data.xdp = xdp;
-> +
-> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
-> +					desc_rx, desc_dma);
-> +
-> +	return 0;
-
-nit: The line above is dead code.
-
-> +}
-
-...
 
