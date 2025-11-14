@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4915BCE7B16
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0210ECE7B15
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlW9sVY3dHmO2QQaQTwq9Tqd8agWgn9nVM7+PnbVmYo=; b=Y3j+qK+M8BuydXWJqQWWoOwaBs
-	lOURirOOho2F3/GwcPWn4dAHQnb3156IjR0JLi9oaGI6AQPoeB/m4Z/0915sGheilMDovFrysorNc
-	vuA/uYTmBlG+2bNBBPPYNDO2wGJ26elE/Vx50VG+xyGVK9Wj2fy40RsRwfsNIXb7tcOO/yWwjv8HF
-	5ojQTgmxb9rV48QRE8btreg/j5k6b+Te/FwixAui8fSfrEkwIHromewuDVvVdrQU0VUd2w52RYkM1
-	1smWb5LbYrvV59pcaEhdiKehyHh2ar4/P3BTGm5ySd4hvIdhMXcegRwKCh25BJqITrLc9jT9p9bp3
-	+gAF/NFw==;
+	bh=0Kcz22F2HSffVxv8SHD4ALbiSJ858QNwAp4RJw9tXbw=; b=DoIq9rPgEW/HM9JwMzbTge7grm
+	X37OvHLrIG6nOsPkaclNB1TYSZRHY+9AsJ/rbk13uQoZX9QePZO/JbTrolK5PSZDjh1l+yj7wx3Q0
+	DaPBnKShBflOgy0PhZ2z29BJsMwwKwdlgKlwfSkOpQU6DLLMtPoOvXl3gXVOF0RfzS9HppUfrHw9R
+	uYHMeaoPvnOA8YS7IbU/D4ZhtAdHFpSNy/8THfwh9mt7mE+V5UnORoKGo5hpsnTB++QNJHriLiO/g
+	t/p0g8yV05vcf+GYe4dMmOoon5sU0dm+kSVOPypI6LkusCRKGIL83jbDqXGdPYx/SzlW8DvrQw/Uj
+	pzZYOAFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJumj-0000000CMzS-1AyH;
-	Fri, 14 Nov 2025 14:28:21 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1vJumc-0000000CMuE-2TJZ;
+	Fri, 14 Nov 2025 14:28:14 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJumd-0000000CMvG-3sZk
+	id 1vJumY-0000000CMrj-46YU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:28:17 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-4330dfb6ea3so8126995ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:28:15 -0800 (PST)
+	Fri, 14 Nov 2025 14:28:12 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-43326c74911so11032295ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:28:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763130494; x=1763735294; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1763130489; x=1763735289; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zlW9sVY3dHmO2QQaQTwq9Tqd8agWgn9nVM7+PnbVmYo=;
-        b=I397cYA58ZIuyUSRhQZb8VBLJZjrsfX3IzecdGDXeDM8i3EbRThVSkNIv//lZqr9+n
-         Hz143xs/MjTfiDeubtuisFG/kSAkxO17eYMegdENmE8EqhYu4L5prHmNhaABJyiH+eeY
-         v6vV4nU/9ye17XNlpvotCv5Kb4C2/145iHTpc=
+        bh=0Kcz22F2HSffVxv8SHD4ALbiSJ858QNwAp4RJw9tXbw=;
+        b=jNtK+NLaRHEIdNku/dOgGwIu+SoCSAVtVPTriWrDJZJY8qq24n6wNvqZtf3AZOrVsz
+         KE9yAn1urUZQW7Ty8Shvq08f8t5EYIhDOYScViOFMtKxkeKyCKRagJBBrPFWXPGZJblS
+         t0bY4nV6DfY2UTopi0HGx5BrXFZ8es/UJOcic=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763130494; x=1763735294;
+        d=1e100.net; s=20230601; t=1763130489; x=1763735289;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=zlW9sVY3dHmO2QQaQTwq9Tqd8agWgn9nVM7+PnbVmYo=;
-        b=CjLqRs8AIABo5w5K/W0bRUqRn0tMLPW7JnGdS4XUF2X1JxUrAzzJKPGZRtMV2yI9pe
-         zXcuhaFZ3N+9y9A2Q7R4ngXkCEZDx9IIxPBe/GN7Z7Y+srfLgQXI5pkAVMkXZP4WDj89
-         1bru/m+xeTLQyaBl1fXspVHCglLIZE/ayrtv3qm9E4sWB537B9fD6tym4K4zuFUfzuux
-         l+72sjgv61OUzmV5XjW8ovET3ulhvHJp6Iit9IvxIF2FkBanKyfkDOqqSTW2vzlCGI/j
-         gZ5lIaaF5zTwWGN1cA0mr7EBuwwYNO+ivvhoIPB+9w5vQLYCrAtFFoUnjlQOFaLvOiU0
-         mwfA==
-X-Gm-Message-State: AOJu0Yz+3cMUe5crTAhDLSUfDEua04KVJmNF1z06ekjr+Eas59AgL2NM
-	yx7ixGqwgtgZefIPN+ewFKkDWVrYYDv2+Do2dhArMEcKhTVCPWbixfns8iI9SJpnYAVw93naNv8
-	RUSY=
-X-Gm-Gg: ASbGncv/TyOdyc8lD6xAPoDta/fdNwAO8zg1FfY43SpnuVmKBlfbL6us3sEShbQIp5F
-	KMwF6V8kx63R4SYIEZvuyog5Oe/226g+QWYJgB0X6rYrQ5nJ8QUPj+gMoFLCIhJ6SVN9hQ9pnL7
-	ExgYZmYIErWAWqGHC7OI7Xahfy5C7G9BJUc6hTdiLqOT9JwcRDup1s8GpbWXwcncF8lN43L7M82
-	vx743FWPPcpioFSleCjU4cYRoDQwdMwRKZYBumt4No7zpTr4dYUhBoSv6cLU22o17gGFpwlquiP
-	c+BvkqDKTDR3EVxvgUe8M9IphrxrA6XBDyfeJJOpNH2PbBuwFbPyqMANWsXbDv40tADOeClmZ/Z
-	yl+nvPbK+4riDRXP2MiQZCp2qZXjFtN3fM5aLIvm/opJIzSZAhhp/1bPj9uWtJw16PyKUcUhYnb
-	jA5cvAGDHHPSw9HCw=
-X-Google-Smtp-Source: AGHT+IHtlD8phUcrsxxNZnSEeRERBORiCvKi70lR0tOOd7wFG1c+yfIKHGrMPWetfRl4tu7NCPgRrw==
-X-Received: by 2002:a05:6e02:1523:b0:433:713d:a288 with SMTP id e9e14a558f8ab-4348c94ad9emr53176765ab.32.1763130494081;
-        Fri, 14 Nov 2025 06:28:14 -0800 (PST)
+        bh=0Kcz22F2HSffVxv8SHD4ALbiSJ858QNwAp4RJw9tXbw=;
+        b=TB42E45wbih+tLF2scuHKmqjSwkUUJbNL+39nWHInqSFrhLiWHvtCoqswXgXktCVwK
+         uCsOGBnFYoIh0nmHes6aJRxK18clE4rxvDqsPPICEXtNYIJ1z8skBwMZTPRsQVdKOnS+
+         8osv8BmItO9Fr6LTir34b1f1pVuenooC9hSCWbRHYpO0EJrmkH2KiKQ7JD8Blx7IoBKb
+         Pik6n2wAiePetyvsD5hjNkDbB+U7c54kJaniSvSoduR9Qwq9CLa/Y/WH6LR5bM1vBl+Q
+         TNny/yu/l58Dz0dC/qCttcVq4fg9051QQf66GNFYXC/gqvqBcOCV3A4gpsMwhmp0JQAP
+         6TXQ==
+X-Gm-Message-State: AOJu0Yw38gF+wZb9NVZikG6pideo5Nqs5PCPM4CxcSAgYni3bd5SfmJt
+	OcocQLdKVEj74XEwGeTx6s/Ni6iSTBMVD8802HbSjNWELc14/mYmZlde0YqAiHhFaX09BLDCS8m
+	Naro=
+X-Gm-Gg: ASbGncvYZc6lmfIVnIwQnUnV6RVj+WkFAIaQ4FajSVCCqz9rJcjPTuoo/j8MGK/u4Be
+	IgMWBfpdg/Q+7LI34vcHf7wBQEbl8ToFqv/4eV6FOMPo4e6xMU46ha3WWmjoSnGGID93ip5RyLE
+	3MikcaUH6u3Bbwvk8iv0utIrlTA7icaV3Bs0MAhpI5o/m4o++VeoK1TSfX0Fpm1GhJYp91ZXFil
+	ZLarY1GrbPtw5MEXj2V6lbHWyhAM/x3kZ3TVG8hsxU7X4P1h1R5gBZbu1BxqdqUuF8TFRZtqW8J
+	9yiZ1G9OviweDvD8dTY95k5iqgIhmhEO0BOdwltJkSv5tc+2IR0osCs/N46YJ3V1+eNdSjRk/Tk
+	q3NiNo59wK7NCwrVpu4pkBg5JWuAt9hZdNd7lA+W2Mp0taBOFzss3Jd/uBvN5dd4ZRASMocLXqL
+	M2MUqj
+X-Google-Smtp-Source: AGHT+IFHOZJj2lH8HRzO4I7qi0KILDpyFlaNnMyv9yoDbXQXY3BIaEqV9liLUCD0alvtY81aHaZwsg==
+X-Received: by 2002:a05:6e02:258b:b0:434:6ef2:a43d with SMTP id e9e14a558f8ab-4348c938f48mr42073985ab.19.1763130489362;
+        Fri, 14 Nov 2025 06:28:09 -0800 (PST)
 Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-434839cdb10sm27500205ab.32.2025.11.14.06.28.11
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-434839cdb10sm27500205ab.32.2025.11.14.06.28.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 06:28:12 -0800 (PST)
+        Fri, 14 Nov 2025 06:28:07 -0800 (PST)
 From: Simon Glass <sjg@chromium.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Nicolas Schier <nicolas@fjasle.eu>,
@@ -76,32 +76,19 @@ Cc: Nicolas Schier <nicolas@fjasle.eu>,
 	Ahmad Fatoum <a.fatoum@pengutronix.de>,
 	=?UTF-8?q?J=20=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
 	Simon Glass <sjg@chromium.org>,
-	"Reviewed-by : Nicolas Schier" <nsc@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Parth Pancholi <parth.pancholi@toradex.com>,
-	Rong Xu <xur@google.com>,
-	Tamir Duberstein <tamird@gmail.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	linux-kbuild@vger.kernel.org,
+	Nicolas Schier <nsc@kernel.org>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 6/8] kbuild: Allow adding modules into the FIT ramdisk
-Date: Fri, 14 Nov 2025 07:27:32 -0700
-Message-ID: <20251114142741.1919072-7-sjg@chromium.org>
+Subject: [PATCH v5 4/8] scripts/make_fit: Provide a way to add built modules
+Date: Fri, 14 Nov 2025 07:27:30 -0700
+Message-ID: <20251114142741.1919072-5-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251114142741.1919072-1-sjg@chromium.org>
 References: <20251114142741.1919072-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_062815_978680_91F39446 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20251114_062811_030134_EA29CEFE 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,80 +103,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-ramdisk image within the FIT.
+Provide arguments to support building a ramdisk from a directory tree of
+modules. This is a convenient way to try out a kernel with its modules.
 
-Add image.fit as a target which requires modules, so that modules will
-built automatically when using FIT_MODULES=1
+This makes use of the cpio tool rather than attempting to use a python
+module or our own code. The list of modules is provided in a file.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
+Reviewed-by: Nicolas Schier <nsc@kernel.org>
 Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
-Acked-by: Nathan Chancellor <nathan@kernel.org>
 ---
 
-Changes in v5:
-- Build modules automatically if needed (fix from Nicolas Schier)
+(no changes since v4)
 
 Changes in v4:
-- Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
-- Use an empty FIT_MODULES to disable the feature, instead of '0'
-- Make use of the 'modules' dependency to ensure modules are built
-- Pass the list of modules to the script
+- Provide the list of modules from the Makefile
+- Reduce verbosity (don't print every module filename)
 
- Makefile             |  1 +
- arch/arm64/Makefile  |  1 +
- scripts/Makefile.lib | 10 ++++++++--
- 3 files changed, 10 insertions(+), 2 deletions(-)
+Changes in v3:
+- Add a way to add built modules into the FIT
 
-diff --git a/Makefile b/Makefile
-index 8cd46222fc48..4eccaef95826 100644
---- a/Makefile
-+++ b/Makefile
-@@ -773,6 +773,7 @@ endif
- # Just "make" or "make all" shall build modules as well
+ scripts/make_fit.py | 98 +++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 90 insertions(+), 8 deletions(-)
+
+diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+index 1a74a9dcd85e..3db129f40b20 100755
+--- a/scripts/make_fit.py
++++ b/scripts/make_fit.py
+@@ -13,11 +13,17 @@ Usage:
+         -r /boot/initrd.img-6.14.0-27-generic @arch/arm64/boot/dts/dtbs-list
+         -E -c gzip
  
- modules-targets := all
-+modules-targets += $(if $(FIT_MODULES),image.fit)
- modules-targets += modules
- modules-targets += nsdeps
- modules-targets += compile_commands.json
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 73a10f65ce8b..7036f251ab40 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -174,6 +174,7 @@ endif
- all:	$(notdir $(KBUILD_IMAGE))
- 
- image.fit: dtbs
-+image.fit: $(if $(FIT_MODULES),modules)
- 
- vmlinuz.efi image.fit: Image
- $(BOOT_TARGETS): vmlinux
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 1d581ba5df66..c6a3aa653035 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -398,11 +398,17 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
- # Use this to override the compression algorithm
- FIT_COMPRESSION ?= gzip
- 
-+# Set this to 1 to include an initrd with all the kernel modules
-+FIT_MODULES ?=
++    # Build with modules ramdisk instead of external ramdisk:
++    make_fit.py -A arm64 -n 'Linux-6.17' -O linux
++        -o arch/arm64/boot/image.fit -k /tmp/kern/arch/arm64/boot/image.itk
++        -m module1.ko module2.ko module3.ko @arch/arm64/boot/dts/dtbs-list
 +
- quiet_cmd_fit = FIT     $@
--      cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
--		--name '$(UIMAGE_NAME)' \
-+      cmd_fit = $(if $(FIT_MODULES), \
-+		find $(objtree) -name '*.ko' > $(objtree)/.modules-list 2>/dev/null &&) \
-+		$(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-+		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
- 		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
- 		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
-+		$(if $(FIT_MODULES),--modules @$(objtree)/.modules-list) \
- 		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
+ Creates a FIT containing the supplied kernel, an optional ramdisk, and a set of
+ devicetree files, either specified individually or listed in a file (with an
+ '@' prefix).
  
- # XZ
+ Use -r to specify an existing ramdisk/initrd file.
++Use -m to build a ramdisk from specified kernel module files.
+ 
+ Use -E to generate an external FIT (where the data is placed after the
+ FIT data structure). This allows parsing of the data without loading
+@@ -38,6 +44,7 @@ as U-Boot, Linuxboot, Tianocore, etc.
+ import argparse
+ import collections
+ import os
++import shutil
+ import subprocess
+ import sys
+ import tempfile
+@@ -83,8 +90,14 @@ def parse_args():
+           help='Specifies the operating system')
+     parser.add_argument('-k', '--kernel', type=str, required=True,
+           help='Specifies the (uncompressed) kernel input file (.itk)')
+-    parser.add_argument('-r', '--ramdisk', type=str,
++
++    # Create mutually exclusive group for ramdisk options
++    rd_group = parser.add_mutually_exclusive_group()
++    rd_group.add_argument('-r', '--ramdisk', type=str,
+           help='Specifies the ramdisk/initrd input file')
++    rd_group.add_argument('-m', '--modules', type=str, nargs='+',
++          help='List of module filenames to include in ramdisk')
++
+     parser.add_argument('-v', '--verbose', action='store_true',
+                         help='Enable verbose output')
+     parser.add_argument('dtbs', type=str, nargs='*',
+@@ -240,6 +253,60 @@ def output_dtb(fsw, seq, fname, arch, compress):
+         fsw.property('data', compressed)
+ 
+ 
++def build_ramdisk(args, tmpdir):
++    """Build a cpio ramdisk containing kernel modules
++
++    Similar to mkinitramfs, this creates a compressed cpio-archive containing
++    the kernel modules for the current kernel version.
++
++    Args:
++        args (Namespace): Program arguments
++        tmpdir (str): Temporary directory to use for modules installation
++
++    Returns:
++        tuple:
++            bytes: Compressed cpio data containing modules
++            int: total uncompressed size
++    """
++    suppress = None if args.verbose else subprocess.DEVNULL
++
++    if args.verbose:
++        print(f'Copying {len(args.modules)} modules to ramdisk')
++
++    # Create output-directory structure
++    outdir = os.path.join(tmpdir, 'initramfs')
++    modules_dir = os.path.join(outdir, 'usr', 'lib', 'modules')
++    os.makedirs(modules_dir, exist_ok=True)
++
++    # Copy in the specified modules
++    for module in args.modules:
++        dest_path = os.path.join(modules_dir, os.path.basename(module))
++        shutil.copy2(module, dest_path)
++
++    if args.verbose:
++        print(f'Creating cpio archive from {outdir}')
++
++    with tempfile.NamedTemporaryFile() as cpio_file:
++        # Change to initramfs directory and create cpio archive
++        with subprocess.Popen(['find', '.', '-print0'], cwd=outdir,
++                              stdout=subprocess.PIPE) as find:
++            with subprocess.Popen(['cpio', '-o', '-0', '-H', 'newc'],
++                                  stdin=find.stdout, stdout=cpio_file,
++                                  stderr=suppress, cwd=outdir) as cpio:
++                find.stdout.close()
++                cpio.wait()
++                find.wait()
++
++                if cpio.returncode != 0:
++                    raise RuntimeError('Failed to create cpio archive')
++
++        cpio_file.seek(0)  # Reset to beginning for reading
++        if args.verbose:
++            print('Reading ramdisk...' if args.compress == 'none' else
++                  f'Compressing ramdisk with {args.compress}...')
++        return compress_data(cpio_file, args.compress), cpio_file.tell()
++
++
+ def process_dtb(fname, args):
+     """Process an input DTB, decomposing it if requested and is possible
+ 
+@@ -318,11 +385,12 @@ def _process_dtbs(args, fsw, entries, fdts):
+     return seq, size
+ 
+ 
+-def build_fit(args):
++def build_fit(args, tmpdir):
+     """Build the FIT from the provided files and arguments
+ 
+     Args:
+         args (Namespace): Program arguments
++        tmpdir (str): Temporary directory for any temporary files
+ 
+     Returns:
+         tuple:
+@@ -344,20 +412,29 @@ def build_fit(args):
+ 
+     # Handle the ramdisk if provided. Compression is not supported as it is
+     # already compressed.
++    ramdisk_data = None
+     if args.ramdisk:
+         with open(args.ramdisk, 'rb') as inf:
+-            data = inf.read()
+-        size += len(data)
+-        write_ramdisk(fsw, data, args)
++            ramdisk_data = inf.read()
++        size += len(ramdisk_data)
++    elif args.modules:
++        if args.verbose:
++            print('Building modules ramdisk...')
++        ramdisk_data, uncomp_size = build_ramdisk(args, tmpdir)
++        size += uncomp_size
++
++    if ramdisk_data:
++        write_ramdisk(fsw, ramdisk_data, args)
+ 
+     count, fdt_size = _process_dtbs(args, fsw, entries, fdts)
+     size += fdt_size
+ 
+-    finish_fit(fsw, entries, bool(args.ramdisk))
++    finish_fit(fsw, entries, has_ramdisk=bool(ramdisk_data))
+ 
+-    # Include the kernel itself in the returned file count
+     fdt = fsw.as_fdt()
+     fdt.pack()
++
++    # Count FDT files, kernel, plus ramdisk if present
+     return fdt.as_bytearray(), count + 1 + bool(args.ramdisk), size
+ 
+ 
+@@ -365,7 +442,12 @@ def run_make_fit():
+     """Run the tool's main logic"""
+     args = parse_args()
+ 
+-    out_data, count, size = build_fit(args)
++    tmpdir = tempfile.mkdtemp(prefix='make_fit_')
++    try:
++        out_data, count, size = build_fit(args, tmpdir)
++    finally:
++        shutil.rmtree(tmpdir)
++
+     with open(args.output, 'wb') as outf:
+         outf.write(out_data)
+ 
 -- 
 2.43.0
 
