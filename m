@@ -4,200 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C484CE7AAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA6F2CE7AA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcr4yrX6nnsGYVULkq0XaYx9yoCi3BhpTZ6MGM5j9v0=; b=v8MAvMrmAqPMzICt/RvEQknBrH
-	cPm5h1FKmcIojjQxFmxOiHffNTOSCVvk76nOLOSS+9ql+m7Wsh4VoZzoySPNqsWc8/Hj235fj3fNU
-	/QjR99W+/3EU+7ECTvdNff6j8G+xrSAmOVzJARwtdMvISKM2mbOjpFiTn6Nr/HruLEj1emtjySn5L
-	UjfuhJBs/51fNCqfvhbl4pGj7Oo6xt3C0GIVvLE1W7ZDtzYTZdxfQeG4OnlbGFPA5UzD9GJbno4G5
-	MuOyZSARovhXkykIMGNzC12SQe4TovXplZSSIujiMfQ8yy6Jno8s7zJSL67xOg1Rvpf/8jeJWJtEp
-	JASJrpfw==;
+	bh=46vaQCF34z6rfJD8H1TZ1Cjvrz/2PmA+Sz++Z3gut2I=; b=veTT+PEWVhS5lOQnwAa4JG33Ph
+	cdRovxh2lHqQ6HaQyp5ovlE5c9Pulis0oe1ciiWZ2hxu2hOB7NW7wDNtszBMDW6KLq1SrWF4Gh1o7
+	bIRuZd6rZkqmpY7Iz+a/wQ6RKX9ezcZsGMitbpmYtJZr+uncgCx+KuHaCOqrvGDM2qWtHGF4iGsxk
+	7+luEdpvufCBzchITIgovanJ0u2MCOlJO89MujLrMl2z4poTFbK9D+zACj8rdfe8PFTgDabnOEfh2
+	Cab/ak1CyMiOncVH00dFDE2PPr687AgYrgOmyZXthzmX5I7fQngXoI062f7/bMkloLMxP+6T0Dyko
+	IcMZtuJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqh5-0000000ByNH-220N;
-	Fri, 14 Nov 2025 10:06:15 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqh1-0000000ByMk-1u5r
+	id 1vJqiX-0000000ByWo-1Z4e;
+	Fri, 14 Nov 2025 10:07:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJqiU-0000000ByWM-3eGR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:06:14 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE9xrGV1963038;
-	Fri, 14 Nov 2025 11:05:55 +0100
-Received: from pa4pr04cu001.outbound.protection.outlook.com (mail-francecentralazon11013026.outbound.protection.outlook.com [40.107.162.26])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4adr7pad2s-2
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 14 Nov 2025 11:05:55 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aa1leu12xcA0ABb8LZNrPmFRHvCplSFdfkEY060PeJx8qxqE3OshqY9mgQbp+UXVndQJPHyu5KUOQw0HI5VDDhqrVAWMRDVH7JZOdyNJcJ59OcGDzKWo6tUAsR8zSxRvXkS5J8I/sqVvO5ty5bPVkYQ6HXciRsU8SKF7qlxFEvuLNkr53H1gEghQnPTi5Ry8muJvBFwaT4+XswI0ahRzTeSoU6tnRe7PLg5Wg6KREioceVxaaKIUOkYbjTnPjeXHEAHFwyAX747cts93xkN7YSVgzjh8BCXvLnv34h2gJTHZW1OmWrzkPA9ORbQk/KdXTLfVBTHBM+FZrSvsSg8Ztg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tcr4yrX6nnsGYVULkq0XaYx9yoCi3BhpTZ6MGM5j9v0=;
- b=oyEWNs4w/q3Y4sRVufip7L89X0E/KptwsoxM5rB4JzKt15RawMRc+eaLQCI8WVxfx7KolwYwZl1YWUxRzifvHmaZNchCIdDjgxySuAX6Znl8yY8A1zgXTTEcXxNmRm83sr6pgvbjd2vbHP7LkriGVBF0JmsjL1ItPEWl8xa72kmF7pA5bRitUMcJrLLe6mHXOxRbdCYel6oD+cx1MEBRiMlIvhWnckRYKQB/eabQGag68yhEpcCrGHbihYNCDYo1VP6/zFUYT+ihyPV1mLCnwCcHi1ZuiBNUcIMeCnVF0gAmwivshLVQ5RbtrwRvfbQuYpCxhjXgJYiXVBP5LpKXSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tcr4yrX6nnsGYVULkq0XaYx9yoCi3BhpTZ6MGM5j9v0=;
- b=kIiWGdKEOa4mLwyNxCXXVPpdtnf+1mOfqhOKIpK6PYVDGP3VuXh43Jw+LxsTdqOzO67r0sNJzfpJ7Wct80P6oh3Qhm4ojOWyuXNFQ+oHIQyeHlHVgY/m4Y3XLEZOxIFbcXQac6ZN+Xxgi+QBcFVL/g51FRexJUlFvsSwGhpm425LW0FiNZB108n6j3FuVjO8Plpxik5wcb1MLJthiyS2RbjaqLJH0/drxL+0217FavTSIGHsGxkFMx5VCtWc6bC5asmoOuu6ajDolyeMk2XzmNCevr3ah1u9zjQGyKoYtQY9Fl09n52OgQQINEki7Z7hiXLOnreCNcJQ0Je0xSSm9A==
-Received: from AS4P190CA0041.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d1::15)
- by VI1PR10MB3167.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:12d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Fri, 14 Nov
- 2025 10:05:48 +0000
-Received: from AMS0EPF0000019B.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d1:cafe::c4) by AS4P190CA0041.outlook.office365.com
- (2603:10a6:20b:5d1::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Fri,
- 14 Nov 2025 10:05:44 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS0EPF0000019B.mail.protection.outlook.com (10.167.16.247) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 10:05:48 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 11:05:59 +0100
-Received: from [10.130.77.120] (10.130.77.120) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 11:05:46 +0100
-Message-ID: <b945e463-52ec-417c-8e6a-599c35a6727d@foss.st.com>
-Date: Fri, 14 Nov 2025 11:05:45 +0100
+	Fri, 14 Nov 2025 10:07:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D91101063;
+	Fri, 14 Nov 2025 02:07:33 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB7BD3F5A1;
+	Fri, 14 Nov 2025 02:07:36 -0800 (PST)
+Message-ID: <38f65035-159d-47d9-b88a-15d79552d8ae@arm.com>
+Date: Fri, 14 Nov 2025 10:07:35 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas
-	<helgaas@kernel.org>
-CC: Vincent Guittot <vincent.guittot@linaro.org>, <chester62515@gmail.com>,
-        <mbrugger@suse.com>, <ghennadi.procopciuc@oss.nxp.com>, <s32@nxp.com>,
-        <bhelgaas@google.com>, <jingoohan1@gmail.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <Ionut.Vicovan@nxp.com>,
-        <larisa.grigore@nxp.com>, <Ghennadi.Procopciuc@nxp.com>,
-        <ciprianmarian.costea@nxp.com>, <bogdan.hamciuc@nxp.com>,
-        <Frank.li@nxp.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
-        <cassel@kernel.org>, Richard Zhu
-	<hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        Minghuan Lian
-	<minghuan.Lian@nxp.com>,
-        Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang
-	<roy.zang@nxp.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <CAKfTPtCtHquxtK=Zx2WSNm15MmqeUXO8XXi8FkS4EpuP80PP7g@mail.gmail.com>
- <20251106000531.GA1930429@bhelgaas>
- <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
+Subject: Re: [PATCH 26/33] arm_mpam: Add mpam_msmon_read() to read monitor
+ value
+To: Gavin Shan <gshan@redhat.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251107123450.664001-1-ben.horgan@arm.com>
+ <20251107123450.664001-27-ben.horgan@arm.com>
+ <61680de1-6732-48a6-a871-9cc9f17f6759@redhat.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <vrgjkulv22hzbx65olh3zpyqxq6dr7d5mepngjwgc3gudjoxwo@ll7xc2teya2s>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF0000019B:EE_|VI1PR10MB3167:EE_
-X-MS-Office365-Filtering-Correlation-Id: 852500f9-9776-49ac-05e2-08de2365624b
-X-LD-Processed: 75e027c9-20d5-47d5-b82f-77d7cd041e8f,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WjBxWElmNXNwL3dNaDhpZXEzaVU0WDVpd3k2T2pUa01qQUc0bEp4WkFOZWFZ?=
- =?utf-8?B?U1ZsVWdVNlEzWXUzRWFqNTg0K2tEQkNJR1ZkczFWaFdGYnN1TW1wWjFSSFpt?=
- =?utf-8?B?UkxFcHJFUWQrZGNKd0R6Q2ptSGpYSGJPR0cvS3d5RmJKcGN3aDdjOTI4Mktj?=
- =?utf-8?B?ckZzOEJnREdCbzRIM25tajdnNW1zR0tPMjI5SGc3N2ZkcjFCeFk4d2lNQks2?=
- =?utf-8?B?ZC9SQXZnczkyZkJvVkNma0IzakMvS2F6TzdKTUFxSmZTWm5KS0l5ZUxxdW9w?=
- =?utf-8?B?TjVKVDZ2VFNRWklCWHdDL2p6V1FMUHlqeDl6V3B5Y2FrTUhHbkpPWit6bWRT?=
- =?utf-8?B?V3cxa1hXZXNFTFViay96SkxDQXhKMHQ0Nk0xM2srekVOaTZsd3lwYjIyb3Rt?=
- =?utf-8?B?RDJFdVYrbG1kbWpzVnFpNmU2UlYxMytGTEJDaitxa0JwT2llUWlNMUx0N1pq?=
- =?utf-8?B?cE9ldlRITWV0ZG53TU1LSTFmWTB2am1rRllZZE5qNkVOLzJtUWQvV1lTVW80?=
- =?utf-8?B?MllxK28xWmVNbWtuaFdkdWN6bHg3Mi9VVDhpdmwrM3UrN2ptZGtlaE1majJv?=
- =?utf-8?B?RWZ2Z0FDL0FWRjliTDQ2Z3lXVDhxNWpuY2NnQ1phRzVuVTNGT3A0MXNVcC9M?=
- =?utf-8?B?RFU3QVE0SzhKdkFBQkpuNExZbElTK29aRnNpV0cvdW96SlN4R3FkZzVNL1BW?=
- =?utf-8?B?SFJDdlIzRjcwTkdIK0xKVy9GQ2UzMVRJVU9lekt1Z1lKdFc4YjhGU0tKZGpM?=
- =?utf-8?B?aDF2a05RTTcwajJjaFF2QmhKenZ6eUxSWlk5TTdualhjek5RSDlUcnFvT3Fr?=
- =?utf-8?B?ZkhWNGJXYjRIZUNFbzBHOERSbjJyZk9EZnU3M3VTY3FsKzJzY1JzeUFKZm5z?=
- =?utf-8?B?K2V2eFgyd3lUYkRhemJiajZjL2VkUkk5Z2thUy9nTFVyT1FJbm9QL0hQall6?=
- =?utf-8?B?UUlyemU5QVpjdzJablZ4dDEwd1pDTE5rdk10c2JrTE9pM2lNOHMxV0V0UVQv?=
- =?utf-8?B?Nm13Z1MzeHA0TnpicVRuT2pyTHJVWDFSUXlmZWkyQURmSW5qTGpyeFJYSHd5?=
- =?utf-8?B?SzRFUDkxb1FlOEVoLytHTjUvcEdVRDNvaEhGSkJpN2lHd1pYRklSVzBETk13?=
- =?utf-8?B?dTMvaE1EcmdRNHczSlZ6OHc1UFIzSkphSnUyakYzS1ZFcnJpaXlHc3o0U1dn?=
- =?utf-8?B?YTdvYWs3N05VVk51KzlKTi9NZjVMM2R3bFB6QTJYVFI2QS9kOGVENG5Ic3dT?=
- =?utf-8?B?a2p0a2dDV0luZURzbjhWRTF6c1l5UndNaU9QeEM0d0N4czUwVW1EM3ZIK01z?=
- =?utf-8?B?WG94Rzk5a0NjNUVST3U0ZzQxTTdmalA0YlRDSEs0emZyWFVpaTMvUC9rc0lw?=
- =?utf-8?B?QXhLWkNFazdONHZXakcyc0ZmNVNsLzNsU2l1c1AxbWxOWXVQdGdqRW8rRitw?=
- =?utf-8?B?R0ZPUUx1RUNNM0NZeFduQ2k5S0V1bWwvVXN6VHdjMHpiWjBLNDAwemtEQ3kx?=
- =?utf-8?B?LzlyVzJ6QldVdjhBTm4rWnE2eEgzcys2UUZkSjIvay9DdTRXT2xINTZTcU5y?=
- =?utf-8?B?dytML0l5cXpxUE1INUsyUE50SlF1ZHQzdzRpUDg3Yi91dUNrdFNDTVg3Ukpp?=
- =?utf-8?B?OE0yekh4ZEZhb1dwampVWUFwZUNYMjRma1JCZHYwMlJjMEdxMm9TeXZ2Y2l5?=
- =?utf-8?B?VGNPZENnZzNVd0l4Vk54dFpwOHlNQVI1N1hOd1k4bHpuVFRqS1NDTjU3Qkdk?=
- =?utf-8?B?YXU3OXZ1bVMyM1VUZGV3d2VwejV6T2lycnZuYU5BbHgyc3JJZFUrNXI1VW9x?=
- =?utf-8?B?dk1pRUlXaDVtQS8zYmtNY3p1aFpINnQ5QU52RGZGemRaajZqUUo1Kzk1SkFZ?=
- =?utf-8?B?M2hUWDhScXNub0k4YVZwbktGaE9UL3JhS2FScGcydjJ5ZVQ5UkkraUVYQ3dC?=
- =?utf-8?B?Z2pGaHBtdXVFTDdhNXlBdDJhWUoxdEVraGI3aTJGWmFtb2pucitER3IyN1hG?=
- =?utf-8?B?OUY3aVQyT1A0YkhiNzBWQzU4emdLanMrYk8ybTVOQllHZzdSOENDcW0wOXdC?=
- =?utf-8?B?S1JaOXM4WDJOM2I4VGYzSzh6VnNvYVFySGtyempVT21mZG5CWWNMWmsweEx3?=
- =?utf-8?Q?z1c0=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 10:05:48.0407
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 852500f9-9776-49ac-05e2-08de2365624b
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019B.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3167
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA3OSBTYWx0ZWRfX1HS6PRSpdSSQ
- i3UVW4+d+S8QFHs0k7MZ8HXGvUj7QRR+lBW0O4j/SjRdd9ww+WcCHUK+E83eD2YHPx1D8WNd8Yx
- S1WgOhHz1AWz9ojcrGwYw9pnwdqybVTGrlHgnJrAUeB/9JnPYFOIOguNPQHVv6eGUpv4U6IkOn4
- o8Zpck6rVRobC5eGQaVyfPPoLIlBOksxk7T5d97X4ymPenJI4Rh6xWtkA8KmLVio+PJCnOc9qMb
- fkv2u2Vg9V0S20n2xM8zY6RwLJF28ycafs09U8nWp6GLDN3b9tCNGpm/qK6PU9BTLv4NMgZxbpp
- IwkFI0dZipiClWgUsf6FaXjzkqbDnJzfltyclSqUBDBLmBTNvHYrEcKufZCSCC3jD89+34EkwEw
- swrCPUXFIw/4DbrREbrkt2pbMq7NLg==
-X-Authority-Analysis: v=2.4 cv=avi/yCZV c=1 sm=1 tr=0 ts=6916ff03 cx=c_pps
- a=qSOlZ4UaY7QPpvcjSAGktQ==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RA8ZoFPxCIQA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=sSKje8Brj290pxkRjLEA:9 a=QEXdDO2ut3YA:10 a=DXsff8QfwkrTrK3sU8N1:22
- a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-ORIG-GUID: Ya5xAF87Dkd9xZIFm3Kn7Lx6tTSf7t1j
-X-Proofpoint-GUID: Ya5xAF87Dkd9xZIFm3Kn7Lx6tTSf7t1j
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-14_02,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
- suspectscore=0 bulkscore=0 priorityscore=1501 impostorscore=0 adultscore=0
- lowpriorityscore=0 phishscore=0 clxscore=1011 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140079
+In-Reply-To: <61680de1-6732-48a6-a871-9cc9f17f6759@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_020611_836330_E6416BA6 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_020743_001843_C9132959 
+X-CRM114-Status: GOOD (  27.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,39 +78,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Gavin,
 
+On 11/9/25 23:13, Gavin Shan wrote:
+> Hi Ben,
+> 
+> On 11/7/25 10:34 PM, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
 >>
->> The implication is that *every* user of dw_pcie_suspend_noirq() would
->> have to check for the link being up.  There are only three existing
->> callers:
+>> Reading a monitor involves configuring what you want to monitor, and
+>> reading the value. Components made up of multiple MSC may need values
+>> from each MSC. MSCs may take time to configure, returning 'not ready'.
+>> The maximum 'not ready' time should have been provided by firmware.
 >>
->>    imx_pcie_suspend_noirq()
->>    ls_pcie_suspend_noirq()
->>    stm32_pcie_suspend_noirq()
+>> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
+>> not ready, then wait the full timeout value before trying again.
 >>
->> but none of them checks for the link being up.
+>> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+>> Cc: Shaopeng Tan (Fujitsu) <tan.shaopeng@fujitsu.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since v3:
+>> Add tag - thanks
+>> Bring config_mismatch into this commit (Jonathan)
+>> whitespace
+>> ---
+>>   drivers/resctrl/mpam_devices.c  | 237 ++++++++++++++++++++++++++++++++
+>>   drivers/resctrl/mpam_internal.h |  19 +++
+>>   2 files changed, 256 insertions(+)
 >>
+> 
+> With below minor comments addressed:
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-stm32 supports L1.1, so we bail out before pme_turn_off() in 
-dw_pcie_suspend_noirq()
+Thanks!
 
 > 
-> If no devices are attached to the bus, then there is no need to broadcast
-> PME_Turn_Off and wait for L2/L3. I've just sent out a series that fixes it [1].
-> Hopefully, this will allow Vincent to use dw_pcie_{suspend/resume}_noirq() APIs.
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>> mpam_devices.c
+>> index f51ffb1400db..86abbac5e1ad 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -886,6 +886,243 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>       return 0;
+>>   }
+>>   +struct mon_read {
+>> +    struct mpam_msc_ris        *ris;
+>> +    struct mon_cfg            *ctx;
+>> +    enum mpam_device_features    type;
+>> +    u64                *val;
+>> +    int                err;
+>> +};
+>> +
+>> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>> +                   u32 *flt_val)
+>> +{
+>> +    struct mon_cfg *ctx = m->ctx;
+>> +
+>> +    /*
+>> +     * For CSU counters its implementation-defined what happens when not
+>> +     * filtering by partid.
+>> +     */
+>> +    *ctl_val = MSMON_CFG_x_CTL_MATCH_PARTID;
+>> +
+>> +    *flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
+>> +
+>> +    if (m->ctx->match_pmg) {
+>> +        *ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+>> +        *flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
+>> +    }
+>> +
+>> +    switch (m->type) {
+>> +    case mpam_feat_msmon_csu:
+>> +        *ctl_val |= MSMON_CFG_CSU_CTL_TYPE_CSU;
+>> +
+>> +        if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
+>> +            *flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
+>> +                           ctx->csu_exclude_clean);
 > 
-> - Mani
+> {} missed here.
+
+Changed to one line.
+
 > 
-> [1] https://lore.kernel.org/linux-pci/20251106061326.8241-1-manivannan.sadhasivam@oss.qualcomm.com/
+>> +
+>> +        break;
+>> +    case mpam_feat_msmon_mbwu:
+>> +        *ctl_val |= MSMON_CFG_MBWU_CTL_TYPE_MBWU;
+>> +
+>> +        if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
+>> +            *flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
+>> +
+>> +        break;
+>> +    default:
+>> +        return;
+> 
+> s/return/break
+> 
+> We may add a error message here:
+> 
+>         pr_warn("Unsupported feature %d\n", m->type);
+> 
 
-dw_pcie_suspend_noirq() path tested OK on stm32mp2.
+Using pr_warn("Unexpected monitor type %d\n", m->type);       
+> 
+>> +    }
+>> +}
+>> +
+>> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>> +                    u32 *flt_val)
+>> +{
+>> +    struct mpam_msc *msc = m->ris->vmsc->msc;
+>> +
+>> +    switch (m->type) {
+>> +    case mpam_feat_msmon_csu:
+>> +        *ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
+>> +        *flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
+>> +        return;
+>> +    case mpam_feat_msmon_mbwu:
+>> +        *ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>> +        *flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+>> +        return;
+>> +    default:
+>> +        return;
+>> +    }
+>> +}
+> 
+> s/return/break for all cases, and maybe a warning message for the
+> default case.
 
-Regards
+Done
 
-Christian
+> 
+>> +
+>> +/* Remove values set by the hardware to prevent apparent mismatches. */
+>> +static void clean_msmon_ctl_val(u32 *cur_ctl)
+>> +{
+>> +    *cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
+>> +}
+>> +
+> 
+> May be worthy be to a inline function.
 
+Done
 
+> 
+>> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>> +                     u32 flt_val)
+>> +{
+>> +    struct mpam_msc *msc = m->ris->vmsc->msc;
+>> +
+>> +    /*
+>> +     * Write the ctl_val with the enable bit cleared, reset the counter,
+>> +     * then enable counter.
+>> +     */
+>> +    switch (m->type) {
+>> +    case mpam_feat_msmon_csu:
+>> +        mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
+>> +        mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+>> +        mpam_write_monsel_reg(msc, CSU, 0);
+>> +        mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val |
+>> MSMON_CFG_x_CTL_EN);
+>> +        break;
+>> +    case mpam_feat_msmon_mbwu:
+>> +        mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+>> +        mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>> +        mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val |
+>> MSMON_CFG_x_CTL_EN);
+>> +        /* Counting monitors require NRDY to be reset by software */
+>> +        mpam_write_monsel_reg(msc, MBWU, 0);
+>> +        break;
+>> +    default:
+>> +        return;
+> 
+> s/return/break, and maybe a warning message for the default case.
 
+Done. Using the same warning as above.
 
+> 
+>> +    }
+>> +}
+>> +
+>> +static void __ris_msmon_read(void *arg)
+>> +{
+>> +    u64 now;
+>> +    bool nrdy = false;
+>> +    bool config_mismatch;
+>> +    struct mon_read *m = arg;
+>> +    struct mon_cfg *ctx = m->ctx;
+>> +    struct mpam_msc_ris *ris = m->ris;
+>> +    struct mpam_props *rprops = &ris->props;
+>> +    struct mpam_msc *msc = m->ris->vmsc->msc;
+>> +    u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
+>> +
+>> +    if (!mpam_mon_sel_lock(msc)) {
+>> +        m->err = -EIO;
+>> +        return;
+>> +    }
+>> +    mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
+>> +          FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+>> +    mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>> +
+>> +    /*
+>> +     * Read the existing configuration to avoid re-writing the same
+>> values.
+>> +     * This saves waiting for 'nrdy' on subsequent reads.
+>> +     */
+>> +    read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>> +    clean_msmon_ctl_val(&cur_ctl);
+>> +    gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+>> +    config_mismatch = cur_flt != flt_val ||
+>> +              cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+>> +
+>> +    if (config_mismatch)
+>> +        write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
+>> +
+>> +    switch (m->type) {
+>> +    case mpam_feat_msmon_csu:
+>> +        now = mpam_read_monsel_reg(msc, CSU);
+>> +        if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+>> +            nrdy = now & MSMON___NRDY;
+>> +        break;
+>> +    case mpam_feat_msmon_mbwu:
+>> +        now = mpam_read_monsel_reg(msc, MBWU);
+>> +        if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+>> +            nrdy = now & MSMON___NRDY;
+>> +        break;
+>> +    default:
+>> +        m->err = -EINVAL;
+>> +        break;
+> 
+> This 'break' can be droped.
+
+Done
+
+> 
+>> +    }
+>> +    mpam_mon_sel_unlock(msc);
+>> +
+>> +    if (nrdy) {
+>> +        m->err = -EBUSY;
+>> +        return;
+>> +    }
+>> +
+>> +    now = FIELD_GET(MSMON___VALUE, now);
+>> +    *m->val += now;
+>> +}
+>> +
+>> +static int _msmon_read(struct mpam_component *comp, struct mon_read
+>> *arg)
+>> +{
+>> +    int err, any_err = 0;
+>> +    struct mpam_vmsc *vmsc;
+>> +
+>> +    guard(srcu)(&mpam_srcu);
+>> +    list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        struct mpam_msc *msc = vmsc->msc;
+>> +        struct mpam_msc_ris *ris;
+>> +
+>> +        list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
+>> +                     srcu_read_lock_held(&mpam_srcu)) {
+>> +            arg->ris = ris;
+>> +
+>> +            err = smp_call_function_any(&msc->accessibility,
+>> +                            __ris_msmon_read, arg,
+>> +                            true);
+>> +            if (!err && arg->err)
+>> +                err = arg->err;
+>> +
+>> +            /*
+>> +             * Save one error to be returned to the caller, but
+>> +             * keep reading counters so that get reprogrammed. On
+>> +             * platforms with NRDY this lets us wait once.
+>> +             */
+>> +            if (err)
+>> +                any_err = err;
+>> +        }
+>> +    }
+>> +
+>> +    return any_err;
+>> +}
+>> +
+>> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>> +            enum mpam_device_features type, u64 *val)
+>> +{
+>> +    int err;
+>> +    struct mon_read arg;
+>> +    u64 wait_jiffies = 0;
+>> +    struct mpam_props *cprops = &comp->class->props;
+>> +
+>> +    might_sleep();
+>> +
+>> +    if (!mpam_is_enabled())
+>> +        return -EIO;
+>> +
+>> +    if (!mpam_has_feature(type, cprops))
+>> +        return -EOPNOTSUPP;
+>> +
+>> +    arg = (struct mon_read) {
+>> +        .ctx = ctx,
+>> +        .type = type,
+>> +        .val = val,
+>> +    };
+>> +    *val = 0;
+>> +
+>> +    err = _msmon_read(comp, &arg);
+>> +    if (err == -EBUSY && comp->class->nrdy_usec)
+>> +        wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
+>> +
+>> +    while (wait_jiffies)
+>> +        wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
+>> +
+>> +    if (err == -EBUSY) {
+>> +        arg = (struct mon_read) {
+>> +            .ctx = ctx,
+>> +            .type = type,
+>> +            .val = val,
+>> +        };
+>> +        *val = 0;
+>> +
+>> +        err = _msmon_read(comp, &arg);
+>> +    }
+>> +
+>> +    return err;
+>> +}
+>> +
+>>   static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16
+>> wd)
+>>   {
+>>       u32 num_words, msb;
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
+>> mpam_internal.h
+>> index e59c0f4d9ada..d8f8e29987e0 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -184,6 +184,22 @@ struct mpam_props {
+>>   #define mpam_set_feature(_feat, x)    set_bit(_feat, (x)->features)
+>>   #define mpam_clear_feature(_feat, x)    clear_bit(_feat, (x)->features)
+>>   +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
+>> +enum mon_filter_options {
+>> +    COUNT_BOTH    = 0,
+>> +    COUNT_WRITE    = 1,
+>> +    COUNT_READ    = 2,
+>> +};
+>> +
+>> +struct mon_cfg {
+>> +    u16            mon;
+>> +    u8            pmg;
+>> +    bool            match_pmg;
+>> +    bool            csu_exclude_clean;
+>> +    u32            partid;
+>> +    enum mon_filter_options opts;
+>> +};
+>> +
+>>   struct mpam_class {
+>>       /* mpam_components in this class */
+>>       struct list_head    components;
+>> @@ -327,6 +343,9 @@ void mpam_disable(struct work_struct *work);
+>>   int mpam_apply_config(struct mpam_component *comp, u16 partid,
+>>                 struct mpam_config *cfg);
+>>   +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>> +            enum mpam_device_features, u64 *val);
+>> +
+>>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
+>> cache_level,
+>>                      cpumask_t *affinity);
+>>   
+> Thanks,
+> Gavin
+> 
+
+Thanks,
+
+Ben
 
 
