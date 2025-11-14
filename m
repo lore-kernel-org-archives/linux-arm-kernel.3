@@ -4,186 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEB5CDE034
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 08:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6C8CDE032
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 08:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Udvf/zLXY9vRyyZhCuWFfQBN4B0nmCaaN6/vxN0x9Qk=; b=0r5vySbvguDV3lwuuxwc09A+mk
-	O5F71MtQTCX/oJlWWyJKy2bzF8N8tI/VST48GT+Pm965KcIYykPkZKZycbSMljkT+erynyu28/vy7
-	nOtcIaWCo4/cZDr7dp/ou3mJ8ZdrlTKWDhfuOXAOevrfn76OkwbKTw6S0zvyCb0nFUSZTQuFEjSG6
-	H4MP8fQHqKlVhaYj+KaVtcLDBeqdMH9dHsDGOfCpatu8OGUrGUe9nh4yUTgyJBekSbjXwWPH3a9oY
-	fkutXxBzPzsilR6L7GPE4exMBnmDXU3uzuUZ0gJ5MvJOyL6amoKdmD1IwC2x7nwVMPbfAT7QiRrzK
-	s0akIdJA==;
+	bh=99kk6ADwJQVpoUomIiVZyb9IQT8Tsaq87p7nc251R2M=; b=wBoZC/Pz8NWiv9e5tk1+LL2n0u
+	k81R23Z0VHe2gBuuTdij5xB8psA1woFeIDKeAocktRYVkEZOBeVpORyK6J/zx6C3IDucG2oDXc7Kr
+	P2GqbgU1wnyRfCwNvqYnP5ub5WWN50mwp5X9P8spNcNYQD76eUWFfbxNiBBx/4l9ApkdIQkFjtXrM
+	Wmd9BJGG6KXAknkyjmAaeQX7xopgkbAKHSDzejoqi1jg4/H1pGIiM095pG/6tIGxdZ3RkMWA8Hujf
+	pbxFOrjjsL8OgRCzUO/4IRWS0qCeVVNa5NCzkjmd8dFqDHFXH1HSdzm0teVoZtFBFy3KfWOLZ2stU
+	dtfYmGmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpAi-0000000Bo7n-3QPV;
-	Fri, 14 Nov 2025 08:28:44 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1vJpBG-0000000BoE8-2lmt;
+	Fri, 14 Nov 2025 08:29:19 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJpAf-0000000Bo76-2hyv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 08:28:43 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE8NV8Y2095828;
-	Fri, 14 Nov 2025 09:28:34 +0100
-Received: from as8pr04cu009.outbound.protection.outlook.com (mail-westeuropeazon11011063.outbound.protection.outlook.com [52.101.70.63])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4adr7khv64-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 14 Nov 2025 09:28:34 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W+hBgIRu8ZHoVmrDc0e77xAvTmbsjDa1oohJagcT3MkL5KFbLm05qAyZx5UkaCuKXg6C+KogE/A/9MLYJvj92ZkHl809k6M0dHakAIgGEYIG9bTCwC+OKEk9htHKYG0TgqrNi2p6k4p2LuyiLDzw5yE1+zkP4Et7esFVuXVH+71sFkV0kLcYWL2205pCm41FTSJqqDUxANVcm/UEvxTg/04FZ8GdwjblOws+6WE94a4z4C+X8YcR7aCV8cn44Z82UoHIioT2ygc4QqTCItK6GF1uYAeMrlKcEnw/ybN8De3hH6LfT6STwfnhf+ftNNOqPYDc8VUdtj/AYI9TQhbX2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Udvf/zLXY9vRyyZhCuWFfQBN4B0nmCaaN6/vxN0x9Qk=;
- b=QzxGR9YZW4h43z5mjNQ7kNw/m2afRl597dlt8+dopnEAgftj9ijGBqjC5kgBHsD3KvpWDqhkLpTXwmBeS0keXa04xggq7Rdr/Wo/Xn9e6zVIk+Qj9L3Kz8EoTjYkNAUu65ASPfC59X6o5gygLc2XSWimNrc2aF/f/5t/t7ASzxzb+wBHCp9ZwVFZszWiMNUZn4JYRT6lJ+3yhW2mzaJwBrvPSB1xI3MuscApdqzm+UFKCGv0/0s1b8VPYEKjTHX507FebDIcz89z+jHkn/jxZaGOEVuRZI2SDl0XsEPabfiUPDkH1lgfJZVf848owpAIz5nPLf5jygFcAkW0IPxpuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Udvf/zLXY9vRyyZhCuWFfQBN4B0nmCaaN6/vxN0x9Qk=;
- b=a+dweL44uaA0GH7tsIaxS0ze4XUtUVWFVLFa7/P31DAK0aq6Rznrj6ctl6fuF1Pd1dDdKoHrg1cFnYON6WcRTxGA/PwMMz3Y2XH/oeIXyPvF7RVrWeS8TgSwlLiiHskIKaKyHnzVt0wo++g/9GzLLcd3wJYEvc6fMRDOfZqOeUtI5JXwGUUuRKoQAyYxvtqZbCmgVP6GL06nvDJ3lpIPHblloNZrCvzENo69wHpEa1VXDvVV+TmPxzNtWQYBitGHucdZToyV6pwVCJMJIKsJHhdxAI4otdUTdzswG9qVcEL+rrV3+6eR8szeiPRJGCtP1TJEpoL7HkYxpKeHdKJ1gQ==
-Received: from DB3PR06CA0004.eurprd06.prod.outlook.com (2603:10a6:8:1::17) by
- AS2PR10MB7575.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:546::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
- 2025 08:28:31 +0000
-Received: from DB1PEPF000509FD.eurprd03.prod.outlook.com
- (2603:10a6:8:1:cafe::32) by DB3PR06CA0004.outlook.office365.com
- (2603:10a6:8:1::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Fri,
- 14 Nov 2025 08:28:33 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509FD.mail.protection.outlook.com (10.167.242.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 08:28:31 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 09:28:40 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
- 2025 09:28:28 +0100
-Message-ID: <499cf369-2ff7-47e9-a66b-1fce8b1bd4c3@foss.st.com>
-Date: Fri, 14 Nov 2025 09:28:28 +0100
+	id 1vJpBE-0000000BoDU-0yNR;
+	Fri, 14 Nov 2025 08:29:17 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 6A2501A1A97;
+	Fri, 14 Nov 2025 08:29:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 35E3B6060E;
+	Fri, 14 Nov 2025 08:29:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 25B27102F2A6F;
+	Fri, 14 Nov 2025 09:29:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1763108953; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=99kk6ADwJQVpoUomIiVZyb9IQT8Tsaq87p7nc251R2M=;
+	b=jpPHcEKCQrtR8y6CY6wYdKqj6q7qb2cEk3NzXb4OcB+qW5M7Hs4K6zaJlv4gkbIZqUGimS
+	78MiyWgBTTB9PJCA0Z/jZU1pspwIU9GxSY4RBxdgktj/26PeYtHirVXVY2hZ/guFmOim3P
+	c+51i59CrilfH97U+YbCY/KCfq7Z2AOO/K4qiQEI+3u9DsyaoJt9es1SO+gqaghtrOy7oA
+	7446BZKro+Pmrs2Y+a+ZoKe1sHRTUgDHmNdlu0flsw6K6dv6GYq24sKP0VF1oLA6ljsnPa
+	aH5FqRpcJG67fqQDgtUm8F27se7SAhVsHDpqLmivjfkts5ljP00V/XPh9/7O3A==
+Message-ID: <a9e9b465-9e27-479e-8230-ab4a7f6be5b3@bootlin.com>
+Date: Fri, 14 Nov 2025 09:29:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: dts: st: Add memory-region-names property for
- stm32mp257f-ev1
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>
-References: <20251031-upstream_fix_dts_omm-v4-1-e4a059a50074@foss.st.com>
+Subject: Re: [PATCH net-next 3/4] net: stmmac: rk: use PHY_INTF_SEL_x
+ constants
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aRYZaKTIvfYoV3wE@shell.armlinux.org.uk>
+ <E1vJbPB-0000000EBqV-27GS@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20251031-upstream_fix_dts_omm-v4-1-e4a059a50074@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <E1vJbPB-0000000EBqV-27GS@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509FD:EE_|AS2PR10MB7575:EE_
-X-MS-Office365-Filtering-Correlation-Id: dfd854c9-e0c6-40da-38d2-08de2357cb42
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TSt6ZFQzQTBPZkdKbUhhdUEyaWNKckt1UWZsRFlxSmtIS3gxMUFuSTRybDNQ?=
- =?utf-8?B?WkdvZXh4SzEyeGlYZC9XMjNLRlZKZXprVzBITFdBZTc0Vjd3YVZZM0JvalVu?=
- =?utf-8?B?Y0RZQjI4WWJLUkk2TEo1YjJLTUM2LzJEK0lWdHV0SHovWStUekFxR20wcThx?=
- =?utf-8?B?WnE2dnlQZmZ5Mzgyd3VDYm4zY25WVXA5Wkp3YmttZlYvTXJuV2Vnb0EvSVdw?=
- =?utf-8?B?Z29Nb2dxeGdQY2tCVE5sYjVaUDJTczFHa21PRlJsRE9UaFNVZlRhanV6MUVJ?=
- =?utf-8?B?cmZzRGZQdHlmL2lOT0x0NWkyYUJQem95VDZEdHJjaFdCdHVORnA4d0xqS2V2?=
- =?utf-8?B?WWxBdHYvVFlYY1RVdE5GYTlGVytoWWRLQjFRcDdpQjYxYVpNYW0vdTF1UjJo?=
- =?utf-8?B?VlQzc3pIeXRlempIVFpNK1pPbDdWWmVpL0NoaU85YTdoMkpkYmRBNksyQXJz?=
- =?utf-8?B?c3V5Qm9tMDR2c0xicTVpY1ZKdFRCa2g1MldXZENmTXFFclgzSzlBK3lpeUUy?=
- =?utf-8?B?N05WWktjbVJITlMyU214bFVnNFM1RUVLa3NzYVEvSzNBWm05aTBBd2g0cVpT?=
- =?utf-8?B?MkQyM2hTZzVHdU9XT0FzeGRZeFNxaVhpOHBzaGh0cXBENnZseEh3SjM5VnN3?=
- =?utf-8?B?M0NVR0xEQTV4V1BzU3FLSFFnYkxLdTZxTnlDNTJUZ3I0NEJnYzlPR0ZXeDFx?=
- =?utf-8?B?d05EbkRhRVlKbG5Kb2dmZWszOGpJU0VRcTJBbmROaDNrV3lWZVBReUZHclA2?=
- =?utf-8?B?OC9WTlYyYjdNT21nZnc4d3pkMDBwcGt1dWYzRXprZUNsZHJuWFI3d3YwSGpt?=
- =?utf-8?B?WUg1TmxJNVpYZ1F0Y2VlMUR2dTU0RWZTWHJ0dWRIeGdOTko0RHZXak1BMTJv?=
- =?utf-8?B?UzEwa1Y4VjhQZUZmVnNsakU2QWcrUXNEcFU5Sng5TWlJeUR0NHV3bTd0dlg5?=
- =?utf-8?B?dGR5YXpKUW1kOXkyMDg2eXNVdHB1WXM1czBPTmsrRHFXczZmTk9TMkdVd25j?=
- =?utf-8?B?Q25ibXUrZ3ljVktjMEcwTmFsRXhwUUdWcDZBZDA4d3BEOGRUM3YrWXh5dkJL?=
- =?utf-8?B?NUw1clI3VnZXcXp4U3BxMm9ZN1BpSzFoZHFBamlGRHJ4MmFPWXpsWFBrbnlh?=
- =?utf-8?B?bExnL3pMaTlCKzN1SERhOVVQL3ZyL0Y4THFDeFVjSGlrSGFaSjBIWWl4STVq?=
- =?utf-8?B?aTBZRUgxNmQ4WFU5K1lnUXlDUkNDbjJPalRwU0tsUitUUCtob2tYV0NpanI4?=
- =?utf-8?B?YmxrNS9GWmVJS2k5VkI0dnVQNHcvcVdtdWZPOFhpRkZWRU54RWZqTFppUkJQ?=
- =?utf-8?B?ak5qUmxSN1JaUFZha1c4TUE4bmJKbjVPRko5dUVIWFNzWHJScXVmT1ZOMjYz?=
- =?utf-8?B?ZVZrTE1uYTlnOXd3d2Ntd2ptSG12d3F5anV1RC9rRkdTNW1ocUp1OUdoVkU1?=
- =?utf-8?B?ZUdqVzVLNmNNeHhwSTVhb21aMWl3bFM2c2lkQkc0NmF5S3pvUEtYMmhFOVpS?=
- =?utf-8?B?RUQ4WGtTd1FFRXZoZFpxZThYTGNpSGxpVHR1cUZuNkJoZWtWb3BuV2VtaDZJ?=
- =?utf-8?B?dUFTeURZT0pNQmFDK1JvQnBDaGFsTXBGd1E4dUpiaFQzV1lESlZ0ajEzb3Fn?=
- =?utf-8?B?N3RaWDFjcmpOT0ZiZHRQZW5YRUN4bXJaZUxQNE55MC9PZXBla2diNXI3OXh3?=
- =?utf-8?B?UStMSDVqWSsrZnc3bmt6bGltUGpjNnl0UWVHZlhaMkN2cVVUdTdnUkpGTHZq?=
- =?utf-8?B?cDVPOGt3ckhKUDY1S3pSN2tvbFAyci9TY3pNV0tKVmlaZFFteHRPK1poNEdz?=
- =?utf-8?B?eHM5WXVvM1FTZnIwaGxPUHNKeUhmWlNWc3V6LzZ3eXk0ZzIxWDZtellPQk9v?=
- =?utf-8?B?VXluYVRxckhBSTZEVlR3ajRaNjB3bzlDTnlTcEZET0thWjBINlRRc3IwN2JD?=
- =?utf-8?B?ODByRnlxdzRld1p1OVpEc2U0YWJ5Tko5ZjR0THFNV0tISWRIcWtiemZxRmdx?=
- =?utf-8?B?eHoyWHQ5KzNlRXMyc05XUnN1YTdSU0RxQTFTS1dQbGJEcDl0YmtGMm5jYnk4?=
- =?utf-8?B?ZEh2dFFZMC84OUhXcElqejFmRzllQnRjOXVSbjg1TldTQ2pQOWZvdENvRkNj?=
- =?utf-8?Q?pjMgCZTq+srZI6ge3Tx80Nu82?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 08:28:31.1270
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dfd854c9-e0c6-40da-38d2-08de2357cb42
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FD.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7575
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA2NiBTYWx0ZWRfXwRvCWy89sKDa
- xzFQfZDyUQZcXEFysKI8H1947Mm6LHo/Ygt8VsmQYnq87CzkMkNUERniY8+7TXQKi1LpNZNXEb0
- eqsJGQxMZQqrZW+tcrj4b+xZMC59UE/MbJDNjIRikEzabwABY6or4hhTEiBdl/QV4Sj0o2ae0GZ
- /3abFIYEReO90qIro0cm+EtdakOaQnGsxzuaiEuUTHsrUZ+UiMCvcr7a7Z/5WL8iRl8NuLVHQJ1
- cN3j5WAQIZ3aQ5A2zRqktqqZ/b8TOZvucrnuG238bHHutfjmEqFeBajgOdmIQERRCxiGmnSSKl8
- GOGHjoRx+2SKoOZk8fKqBLts/d/t0pyqEm9sC+3Qb3yC1aYu/Ns37TJg4Fp3hHjh7WhE2MibBbn
- f0PM7TM7+M7AXpJG1I9ItE5jZLzOfw==
-X-Authority-Analysis: v=2.4 cv=Xsf3+FF9 c=1 sm=1 tr=0 ts=6916e832 cx=c_pps
- a=z9iZX4VeUw2B6cD4x6/zxQ==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
- a=0KiWEAhyJGVofYOcvXsA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-ORIG-GUID: 9HA7dg5Vpn9YGXX1vblEuuyfaUEjXeM7
-X-Proofpoint-GUID: 9HA7dg5Vpn9YGXX1vblEuuyfaUEjXeM7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-14_02,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
- lowpriorityscore=0 suspectscore=0 malwarescore=0 bulkscore=0 phishscore=0
- impostorscore=0 adultscore=0 clxscore=1011 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140066
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_002842_062341_D01ABF29 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20251114_002916_408140_5411A808 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,58 +84,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice
 
-On 10/31/25 15:07, Patrice Chotard wrote:
-> In order to set the AMCR register, which configures the
-> memory-region split between ospi1 and ospi2, we need to
-> identify the ospi instance.
-> 
-> By using memory-region-names, it allows to identify the
-> ospi instance this memory-region belongs to.
-> 
-> Fixes: cad2492de91c ("arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> ---
-> Changes in v4:
-> - Rebase on v6.18-rc1
-> - Link to v3: https://lore.kernel.org/r/20250811-upstream_fix_dts_omm-v3-1-c4186b7667cb@foss.st.com
-> 
-> Changes in v3:
-> - Set again "Cc: <stable@vger.kernel.org>"
-> - Link to v2: https://lore.kernel.org/r/20250811-upstream_fix_dts_omm-v2-1-00ff55076bd5@foss.st.com
-> 
-> Changes in v2:
-> - Update commit message.
-> - Use correct memory-region-names value.
-> - Remove "Cc: <stable@vger.kernel.org>" tag as the fixed patch is not part of a LTS.
-> - Link to v1: https://lore.kernel.org/r/20250806-upstream_fix_dts_omm-v1-1-e68c15ed422d@foss.st.com
-> ---
->   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> index 6e165073f732..bb6d6393d2e4 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> +++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> @@ -266,6 +266,7 @@ &i2c8 {
->   
->   &ommanager {
->   	memory-region = <&mm_ospi1>;
-> +	memory-region-names = "ospi1";
->   	pinctrl-0 = <&ospi_port1_clk_pins_a
->   		     &ospi_port1_io03_pins_a
->   		     &ospi_port1_cs0_pins_a>;
-> 
-> ---
-> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-> change-id: 20250806-upstream_fix_dts_omm-c006b69042f1
-> 
-> Best regards,
 
-Applied on stm32-next.
+On 13/11/2025 18:46, Russell King (Oracle) wrote:
+> The values used in the xxx_GMAC_PHY_INTF_SEL_xxx() macros are the
+> phy_intf_sel values used for the dwmac core. Use these to define these
+> constants.
+> 
+> No change to produced code on aarch64.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Regards
-Alex
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 46 +++++++++----------
+>  1 file changed, 23 insertions(+), 23 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 4257cc1f66e9..49076ee00877 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -234,7 +234,7 @@ static void rk_gmac_integrated_fephy_powerdown(struct rk_priv_data *priv,
+>  #define PX30_GRF_GMAC_CON1		0x0904
+>  
+>  /* PX30_GRF_GMAC_CON1 */
+> -#define PX30_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define PX30_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define PX30_GMAC_SPEED_10M		GRF_CLR_BIT(2)
+>  #define PX30_GMAC_SPEED_100M		GRF_BIT(2)
+>  
+> @@ -290,8 +290,8 @@ static const struct rk_gmac_ops px30_ops = {
+>  #define RK3128_GMAC_CLK_TX_DL_CFG(val) GRF_FIELD(6, 0, val)
+>  
+>  /* RK3128_GRF_MAC_CON1 */
+> -#define RK3128_GMAC_PHY_INTF_SEL_RGMII GRF_FIELD(8, 6, 1)
+> -#define RK3128_GMAC_PHY_INTF_SEL_RMII  GRF_FIELD(8, 6, 4)
+> +#define RK3128_GMAC_PHY_INTF_SEL_RGMII GRF_FIELD(8, 6, PHY_INTF_SEL_RGMII)
+> +#define RK3128_GMAC_PHY_INTF_SEL_RMII  GRF_FIELD(8, 6, PHY_INTF_SEL_RMII)
+>  #define RK3128_GMAC_FLOW_CTRL          GRF_BIT(9)
+>  #define RK3128_GMAC_FLOW_CTRL_CLR      GRF_CLR_BIT(9)
+>  #define RK3128_GMAC_SPEED_10M          GRF_CLR_BIT(10)
+> @@ -353,8 +353,8 @@ static const struct rk_gmac_ops rk3128_ops = {
+>  #define RK3228_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+>  
+>  /* RK3228_GRF_MAC_CON1 */
+> -#define RK3228_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, 1)
+> -#define RK3228_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define RK3228_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RGMII)
+> +#define RK3228_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define RK3228_GMAC_FLOW_CTRL		GRF_BIT(3)
+>  #define RK3228_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(3)
+>  #define RK3228_GMAC_SPEED_10M		GRF_CLR_BIT(2)
+> @@ -432,8 +432,8 @@ static const struct rk_gmac_ops rk3228_ops = {
+>  #define RK3288_GRF_SOC_CON3	0x0250
+>  
+>  /*RK3288_GRF_SOC_CON1*/
+> -#define RK3288_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(8, 6, 1)
+> -#define RK3288_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(8, 6, 4)
+> +#define RK3288_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(8, 6, PHY_INTF_SEL_RGMII)
+> +#define RK3288_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(8, 6, PHY_INTF_SEL_RMII)
+>  #define RK3288_GMAC_FLOW_CTRL		GRF_BIT(9)
+>  #define RK3288_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(9)
+>  #define RK3288_GMAC_SPEED_10M		GRF_CLR_BIT(10)
+> @@ -496,7 +496,7 @@ static const struct rk_gmac_ops rk3288_ops = {
+>  #define RK3308_GRF_MAC_CON0		0x04a0
+>  
+>  /* RK3308_GRF_MAC_CON0 */
+> -#define RK3308_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(4, 2, 4)
+> +#define RK3308_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(4, 2, PHY_INTF_SEL_RMII)
+>  #define RK3308_GMAC_FLOW_CTRL		GRF_BIT(3)
+>  #define RK3308_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(3)
+>  #define RK3308_GMAC_SPEED_10M		GRF_CLR_BIT(0)
+> @@ -535,8 +535,8 @@ static const struct rk_gmac_ops rk3308_ops = {
+>  #define RK3328_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(6, 0, val)
+>  
+>  /* RK3328_GRF_MAC_CON1 */
+> -#define RK3328_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, 1)
+> -#define RK3328_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define RK3328_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RGMII)
+> +#define RK3328_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define RK3328_GMAC_FLOW_CTRL		GRF_BIT(3)
+>  #define RK3328_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(3)
+>  #define RK3328_GMAC_SPEED_10M		GRF_CLR_BIT(2)
+> @@ -622,8 +622,8 @@ static const struct rk_gmac_ops rk3328_ops = {
+>  #define RK3366_GRF_SOC_CON7	0x041c
+>  
+>  /* RK3366_GRF_SOC_CON6 */
+> -#define RK3366_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, 1)
+> -#define RK3366_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, 4)
+> +#define RK3366_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RGMII)
+> +#define RK3366_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RMII)
+>  #define RK3366_GMAC_FLOW_CTRL		GRF_BIT(8)
+>  #define RK3366_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(8)
+>  #define RK3366_GMAC_SPEED_10M		GRF_CLR_BIT(7)
+> @@ -687,8 +687,8 @@ static const struct rk_gmac_ops rk3366_ops = {
+>  #define RK3368_GRF_SOC_CON16	0x0440
+>  
+>  /* RK3368_GRF_SOC_CON15 */
+> -#define RK3368_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, 1)
+> -#define RK3368_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, 4)
+> +#define RK3368_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RGMII)
+> +#define RK3368_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RMII)
+>  #define RK3368_GMAC_FLOW_CTRL		GRF_BIT(8)
+>  #define RK3368_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(8)
+>  #define RK3368_GMAC_SPEED_10M		GRF_CLR_BIT(7)
+> @@ -752,8 +752,8 @@ static const struct rk_gmac_ops rk3368_ops = {
+>  #define RK3399_GRF_SOC_CON6	0xc218
+>  
+>  /* RK3399_GRF_SOC_CON5 */
+> -#define RK3399_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, 1)
+> -#define RK3399_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, 4)
+> +#define RK3399_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RGMII)
+> +#define RK3399_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(11, 9, PHY_INTF_SEL_RMII)
+>  #define RK3399_GMAC_FLOW_CTRL		GRF_BIT(8)
+>  #define RK3399_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(8)
+>  #define RK3399_GMAC_SPEED_10M		GRF_CLR_BIT(7)
+> @@ -1015,8 +1015,8 @@ static const struct rk_gmac_ops rk3528_ops = {
+>  #define RK3568_GRF_GMAC1_CON1		0x038c
+>  
+>  /* RK3568_GRF_GMAC0_CON1 && RK3568_GRF_GMAC1_CON1 */
+> -#define RK3568_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, 1)
+> -#define RK3568_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define RK3568_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RGMII)
+> +#define RK3568_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define RK3568_GMAC_FLOW_CTRL			GRF_BIT(3)
+>  #define RK3568_GMAC_FLOW_CTRL_CLR		GRF_CLR_BIT(3)
+>  #define RK3568_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
+> @@ -1209,9 +1209,9 @@ static const struct rk_gmac_ops rk3576_ops = {
+>  #define RK3588_GRF_CLK_CON1			0X0070
+>  
+>  #define RK3588_GMAC_PHY_INTF_SEL_RGMII(id)	\
+> -	(GRF_FIELD(5, 3, 1) << ((id) * 6))
+> +	(GRF_FIELD(5, 3, PHY_INTF_SEL_RGMII) << ((id) * 6))
+>  #define RK3588_GMAC_PHY_INTF_SEL_RMII(id)	\
+> -	(GRF_FIELD(5, 3, 4) << ((id) * 6))
+> +	(GRF_FIELD(5, 3, PHY_INTF_SEL_RMII) << ((id) * 6))
+>  
+>  #define RK3588_GMAC_CLK_RMII_MODE(id)		GRF_BIT(5 * (id))
+>  #define RK3588_GMAC_CLK_RGMII_MODE(id)		GRF_CLR_BIT(5 * (id))
+> @@ -1328,7 +1328,7 @@ static const struct rk_gmac_ops rk3588_ops = {
+>  #define RV1108_GRF_GMAC_CON0		0X0900
+>  
+>  /* RV1108_GRF_GMAC_CON0 */
+> -#define RV1108_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define RV1108_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define RV1108_GMAC_FLOW_CTRL		GRF_BIT(3)
+>  #define RV1108_GMAC_FLOW_CTRL_CLR	GRF_CLR_BIT(3)
+>  #define RV1108_GMAC_SPEED_10M		GRF_CLR_BIT(2)
+> @@ -1364,8 +1364,8 @@ static const struct rk_gmac_ops rv1108_ops = {
+>  #define RV1126_GRF_GMAC_CON2		0X0078
+>  
+>  /* RV1126_GRF_GMAC_CON0 */
+> -#define RV1126_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, 1)
+> -#define RV1126_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, 4)
+> +#define RV1126_GMAC_PHY_INTF_SEL_RGMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RGMII)
+> +#define RV1126_GMAC_PHY_INTF_SEL_RMII	GRF_FIELD(6, 4, PHY_INTF_SEL_RMII)
+>  #define RV1126_GMAC_FLOW_CTRL			GRF_BIT(7)
+>  #define RV1126_GMAC_FLOW_CTRL_CLR		GRF_CLR_BIT(7)
+>  #define RV1126_GMAC_M0_RXCLK_DLY_ENABLE		GRF_BIT(1)
+
 
