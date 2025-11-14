@@ -4,54 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1CDCE7B1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94971CE8D47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBl3v8jq/T+RnO1izry6TbzUenL89g1K3cEfYUOrk2E=; b=i/+Xw4rVlbitZTejgas2qRHTBa
-	kX6SAugXYZIRzY1s5RimKuZxLBfoDnbNuaTVJ8jh6/QOBCVD9mgwEzl8T8bcchvQVg5xD/jJoYR8G
-	3nt+yzRAxacHmqZukT3zzCTM/joOA5QwrjKqTujji8hU2UmOr9ths/BCXc0w2+0SYSxk/G+CGzLHS
-	IQFKFcbXBsMFSt6008CdO7d4rzxppy5cuerFEktxZLTRVcXTIDaf7xqGzA68pLTtGwd3CnqhOx/jj
-	Kt1AJw0k1Hv+XD2LMAFpqg+6x8oEdBvuE1rtqzW3Le5yPyUPQ62QIx5X1wnuCAe73TYTJXBOM02CM
-	IhZUEscw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0VcLtdQkeu0Bc646XmiV1JND1FqHc0S5p0o52lwdfLg=; b=fh0Xdu4LY7TFu8
+	FobNLXwzTiNOcOp09AG0suEoH4CxDgyBFepVDwzqScxnlKFq0rBhfAcHrmOV9bB33xQ/ET4ROWh0I
+	xc8UJmz7Vy8+DODPXwNc5+SdQbGllNrtA+oN5ioUUEBFLRYkq8HWz1pqEizuSyIZqAHnU2qaN2HaB
+	X/bhF0Ca8Etw7GEHoaK6TT4K4+ExqtVuZJ81d7Rz1STGov05ZvRmE1hzQ8E6AOyaHykZtVIxxXaRr
+	frUHwOQP2G/TWtt5bn8ueszQQuXQxsT1UD0fWJDQ0n5KYHde/PxG5vWw1s8jO7WCrWuJZ1VXVRyp7
+	BjooWauxRvRTkPrUH36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvt3-0000000CaUb-0v1j;
-	Fri, 14 Nov 2025 15:38:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vJvt6-0000000CaVp-2Fkd;
+	Fri, 14 Nov 2025 15:39:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvt1-0000000CaUO-3nB8
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vJvt2-0000000CaUT-3MbK
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 14 Nov 2025 15:38:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=0VcLtdQkeu0Bc646XmiV1JND1FqHc0S5p0o52lwdfLg=; b=fvVCRpzIKci1rkei03KLZDKqX9
+	fU0YvrZWqMGdjmfaTdzd/Snt2FqUJkE7701uphqFDElkZPeJCAYAIc6lSnLzoH5Jl5IRMDbhA/MLu
+	vxBFUT900tdQRLUyH6Ka/0780euOnNjKTUY/mMUzolsV9VoLQLhUKGs04kitFzDqP0ReJV7wEe40I
+	xuaYabaQ97mPydpcQ/9sN+HbjltRCf6r2fTRIXFMLB55+2iMk6/HWvAa/mCE9VvKH/BzX24YKXC4E
+	T/014sOfpMsyjJjUj6AHiNfUCzXpIHDYI2GQBWy+uXCDFwp/ODjJpL5lW2kHESxFnjWuSkqYoJRXB
+	tnqv7B4A==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJv1K-00000002qqM-2vsu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 14:43:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09E8460121;
-	Fri, 14 Nov 2025 15:38:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DEB5C4CEF5;
-	Fri, 14 Nov 2025 15:38:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6303144324;
+	Fri, 14 Nov 2025 15:38:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D78C113D0;
+	Fri, 14 Nov 2025 15:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763134734;
-	bh=NZCHWtWgDq5zz30CCAR3ifMlNJpsHOdaSLoln4mIKFs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OSVTlQ+9h/egrqSsK0XbaROTf3A/nVsW6z7prKM3nrFWBaobTHTyApPdryv/2YiHJ
-	 Purg8c8/YJzbhwoHcrAtieVd5bt6N6s0Yr4yj4WPe59gOObxDF1/Q/NTqV5Tdq462h
-	 oynnKKJzFeb2Gi72aGHeUfvMRQHtM87IUWaqs9R6MVUbOR+WS39zusVrMruiApRLxG
-	 042m1QimEwKJCC7xPdPGvTlubkxVq6XAha4V+FWo9rCLMfGCW5mijV4ueq5xvTd1Ko
-	 k3/CslX5i/Qhdcu3vhhlEzYbBvKFq9cijjyR+czlXd/29GfMQR+PCvH3E9n0PdjpD4
-	 i2MSCPob91tnA==
+	s=k20201202; t=1763134729;
+	bh=J45c/s19KG5BRrKbkkO8elgq2nUpoF6T9W4M2wJwxIg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=sYzPddv/oyC4fyRjzIbV4LUbG7tuVcGoEtaqEdOSgNCYfiIB7NXyfAh3oUOmGuJSK
+	 Wbth6vCLlEyQRBghE7FCZ6JyIfmPLguDbCVlrrIjOY3vu3h0FB5joa/9NSQi0pa+V0
+	 vd9WLyxem65B+bq14jTosrdWkjFD9YepT/PjMmUEj8fGl8Iai4ZgMzd0me+p85cpdW
+	 Kc5Mx5u2d+2CxWAj6jQDn8+1iSmFrnFkUr6q19+p9xubqlLiWYTIt1gGFU6y+jdFZZ
+	 GN9roLcEP9rVCYqa08oPnTSrLHJL8sJsF7gtq2EgrS52C5VtTOjkP8KWn5xgUNAxHV
+	 D5WYf4EVTm10w==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 14 Nov 2025 15:35:35 +0000
-Subject: [PATCH v2 2/4] KVM: selftests: arm64: Report register reset tests
- individually
+Subject: [PATCH v2 0/4] KVM: selftests: arm64: Improve diagnostics from
+ set_id_regs
+Date: Fri, 14 Nov 2025 15:35:33 +0000
+Message-Id: <20251114-kvm-arm64-set-id-regs-aarch64-v2-0-672f214f41bf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-kvm-arm64-set-id-regs-aarch64-v2-2-672f214f41bf@kernel.org>
-References: <20251114-kvm-arm64-set-id-regs-aarch64-v2-0-672f214f41bf@kernel.org>
-In-Reply-To: <20251114-kvm-arm64-set-id-regs-aarch64-v2-0-672f214f41bf@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEVMF2kC/4WNyw6CMBBFf4XM2jFtxfJY+R+GRSkDNAg1U9JoC
+ P9uJe5dnnOTczcIxI4C1NkGTNEF55cE6pSBHc0yELouMSihrlKoEqc4o+FZ5xhoTSMyDQGNYTs
+ mR21bFJWuciEtpMaTqXevo39vEo8urJ7fx12UX/srX8SfcpQosNI9iU61sijpNhEv9Dh7HqDZ9
+ /0Dwl+2WMsAAAA=
+X-Change-ID: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
@@ -59,17 +77,21 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-88d78
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2202; i=broonie@kernel.org;
- h=from:subject:message-id; bh=NZCHWtWgDq5zz30CCAR3ifMlNJpsHOdaSLoln4mIKFs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpF00ExUPPIhXLM4+RvYN6tmyihAwwDeNdhhodj
- HEMG3Kfn9CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaRdNBAAKCRAk1otyXVSH
- 0K97B/4wbGfo6mAfnV2qQY5eFEv2JIQ9tDu2+ZycsJbISJBH8opD6Mt4UeTuWR0bm1ai2dGuUv4
- 0RFTc02NiXVMfjj6USZQJbKB1zBGWH/q/Roke0TLUjh5t6tYa5qwb9mAnB0mOnBscPkw2PTe4ZZ
- xio7KVodWYg9NFr9lIU2NQ/ZV3rb7Cg0PyabkC09FrLvACAOlDRqFQMCvdZT3IuvLXVahPmV10/
- qq/fWJtBkW9VDTPQZV+SwzrMseHpUzq0SV8k7SYNQXV7ySnNYEDiDUMRCz3jCL0YeTN3jgqz7fT
- MeyMBGPF2Dq4nYUrDCYqMJp5ekcHNmnu0GNRjsgC1eTwOwZt
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1592; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=J45c/s19KG5BRrKbkkO8elgq2nUpoF6T9W4M2wJwxIg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpF00CvVNN1ixu1R00fyRsa8mf54xwdC9j31NOL
+ DOsaLUnhwSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaRdNAgAKCRAk1otyXVSH
+ 0A0KB/sGtgmfnFGBZsCQ8KRHczYKmHn8xbMTbhdwyps3Tux2tF9yJ4rubWo0HO1JMd3yY0qqqvp
+ JJMahVCsnI45Sp2Iw9ix9Ya5INP0R8lQ4qMSbLb1YN29PX2cieTkr3ZZkvRY5+wNk8/tjueNWri
+ H/Vsx3ma6ZXdaJ6ZaXt3sRwrIZ1SdVapRo4Ngj97XuLyF/MaOPMB9qyky34K244ynsCVog4qBWP
+ 0CcwUKa8YGdbCQWq4GOPPlJ0n7TM2P7aXZ+OPrVHspSalZcEGZRNNFlz/b7Uyh6XjLaeHovK63B
+ NNPoC69lV0c6S1Hrq83EDSxwDncgDu083/9aeXaZLXcMlAfW
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251114_144327_120046_52DDDB51 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-set_id_regs tests that registers have their values preserved over reset.
-Currently it reports all registers in a single test with an instantly fatal
-assert which isn't great for diagnostics, it's hard to tell which register
-failed or if it's just one register. Change this to report each register as
-a separate test so that it's clear from the program output which registers
-have problems.
+While debugging issues related to aarch64 only systems I ran into
+speedbumps due to the lack of detail in the results reported when the
+guest register read and reset value preservation tests were run, they
+generated an immediately fatal assert without indicating which register
+was being tested. Update these tests to report a result per register,
+making it much easier to see what the problem being reported is.
+
+A similar, though less severe, issue exists with the validation of the
+individual bitfields in registers due to the use of immediately fatal
+asserts. Update those asserts to be standard kselftest reports.
+
+Finally we have a fix for spurious errors on some NV systems.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+Changes in v2:
+- Add a fix for spurious failures with 64 bit only guests.
+- Link to v1: https://patch.msgid.link/20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 7a759e976c2c..1a53f3a4be8d 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -775,11 +775,18 @@ static void test_assert_id_reg_unchanged(struct kvm_vcpu *vcpu, uint32_t encodin
- {
- 	size_t idx = encoding_to_range_idx(encoding);
- 	uint64_t observed;
-+	bool pass;
- 
- 	observed = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(encoding));
--	TEST_ASSERT_EQ(test_reg_vals[idx], observed);
-+	pass = test_reg_vals[idx] == observed;
-+	if (!pass)
-+		ksft_print_msg("%lx != %lx\n", test_reg_vals[idx], observed);
-+	ksft_test_result(pass, "%s unchanged by reset\n",
-+			 get_reg_name(encoding));
- }
- 
-+#define ID_REG_RESET_UNCHANGED_TEST (ARRAY_SIZE(test_regs) + 6)
-+
- static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
- {
- 	/*
-@@ -797,8 +804,6 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
- 	test_assert_id_reg_unchanged(vcpu, SYS_MIDR_EL1);
- 	test_assert_id_reg_unchanged(vcpu, SYS_REVIDR_EL1);
- 	test_assert_id_reg_unchanged(vcpu, SYS_AIDR_EL1);
--
--	ksft_test_result_pass("%s\n", __func__);
- }
- 
- int main(void)
-@@ -826,7 +831,8 @@ int main(void)
- 
- 	ksft_print_header();
- 
--	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST + GUEST_READ_TEST;
-+	test_cnt = 2 + MPAM_IDREG_TEST + MTE_IDREG_TEST + GUEST_READ_TEST +
-+		ID_REG_RESET_UNCHANGED_TEST;
- 	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
- 		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
- 			test_cnt++;
+---
+Mark Brown (4):
+      KVM: selftests: arm64: Report set_id_reg reads of test registers as tests
+      KVM: selftests: arm64: Report register reset tests individually
+      KVM: selftests: arm64: Make set_id_regs bitfield validatity checks non-fatal
+      KVM: selftests: arm64: Skip all 32 bit IDs when set_id_regs is aarch64 only
 
--- 
-2.47.2
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 150 ++++++++++++++++++------
+ 1 file changed, 111 insertions(+), 39 deletions(-)
+---
+base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
+change-id: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
