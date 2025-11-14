@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A5FCE7AAB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29874CE7AA8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuW+sdY1C4lswXtWs+z6u/laoEDvEqvaAzIN+qWV53Y=; b=TTmWTtWacfdtYmblEiXvbbCser
-	H3I+KyJOaJHObCHRrjMiINM3s1m8evmgraPdN1BeXZbfTJwuZFfv3CxGOkuAZ9ZqOnRCzmoDb9z9r
-	3i1qEKdhTesXDmMRB2viC//KrJ4y8i8p7UagHhu1BaSXgMtt7SIgt6JH5KoyjI8juKrwIEERk2UgU
-	0wvZeWcFeRZ6/7dF6RdtJjHCn9huRjxQH5/ul20Pu6ai6aHlr/K7Js0u9BAMNnTo5KXFRdz9OCpU7
-	WtFgXTuEISG1H+MjGfqB7GPUfEM76pEUmkafgirs7sKn1AIZZx9k3D9xzKBon0OMnU3PWWXsStnV3
-	ThQPuk5Q==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gahU7OKPUSXUdIJKf0Jz5vsdbMRo85Fx6sGduurApik=; b=OXzbgFIZ1ezfUG
+	0YdF/NPkTkiTXXKrrGedHLfhXvRHZru2roLk0KfaOBrVgic/sQ+hqCDV4357Dman6Ny11xCXe9cYU
+	mc9cfw+g5I4q8U6MnsksX+TOAsjsZzS64kDMpMB+i0+Ddac9DMo/IH4zk+2D/FV5WXDbK3PmJOyWW
+	jzlFe9dvsph1QA8wjFhHuvBTTsIh6pzqG4T5GxSFIVVB5lH+w/lzCUUJwqhYeQ1lKRHMQqU3eRFtC
+	jDw5IriN8Xzu3wNxxCgHhA/AmNNotUWYwGU1nBAwIK0+cL0CIQK8+YYb1IjSVBMkRRAmP8iXFElWu
+	r9edIHy7owJsA7fNM2dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqld-0000000ByrD-2K6m;
-	Fri, 14 Nov 2025 10:10:57 +0000
+	id 1vJqlZ-0000000BypA-48vl;
+	Fri, 14 Nov 2025 10:10:53 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqlb-0000000ByoE-0l4J
+	id 1vJqlX-0000000ByoE-2IQA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 10:10:56 +0000
+	Fri, 14 Nov 2025 10:10:53 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 14 Nov
@@ -41,18 +41,16 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
 	<linux-spi@vger.kernel.org>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 2/4] spi: aspeed: Enable Quad SPI mode for page program
-Date: Fri, 14 Nov 2025 18:10:40 +0800
-Message-ID: <20251114101042.1520997-3-chin-ting_kuo@aspeedtech.com>
+Subject: [PATCH v2 0/4] spi: aspeed: Add AST2700 SoC support and Quad SPI handling update
+Date: Fri, 14 Nov 2025 18:10:38 +0800
+Message-ID: <20251114101042.1520997-1-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251114101042.1520997-1-chin-ting_kuo@aspeedtech.com>
-References: <20251114101042.1520997-1-chin-ting_kuo@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_021055_214181_634909CA 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20251114_021051_583888_C7352DDB 
+X-CRM114-Status: UNSURE (   7.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,36 +66,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure the controller switches to quad I/O mode when
-spi-tx-bus-width dts property is 4 and the Quad SPI program
-opcode (32h or 34h) is used. Without this change, high-bit
-data will be lost during page programming.
+This series adds AST2700 support to the ASPEED FMC/SPI driver and
+bindings, introduces 64-bit address compatibility, and improves
+Quad SPI page programming behavior. It also implements AST2700-specific
+segment logic, where range adjustment is not required because the
+AST2700 SPI hardware controller already fixes decoding issues on
+the existing platforms and adopts an updated scheme.
 
-Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
----
- drivers/spi/spi-aspeed-smc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Changes in v2:
+  - Some differences between AST2600 and AST2700 are described in
+    commit message of the dt-bindings patch.
 
-diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-index 179c47ffbfeb..4163632fed8b 100644
---- a/drivers/spi/spi-aspeed-smc.c
-+++ b/drivers/spi/spi-aspeed-smc.c
-@@ -263,11 +263,15 @@ static ssize_t aspeed_spi_write_user(struct aspeed_spi_chip *chip,
- 				     const struct spi_mem_op *op)
- {
- 	int ret;
-+	int io_mode = aspeed_spi_get_io_mode(op);
- 
- 	aspeed_spi_start_user(chip);
- 	ret = aspeed_spi_send_cmd_addr(chip, op->addr.nbytes, op->addr.val, op->cmd.opcode);
- 	if (ret < 0)
- 		goto stop_user;
-+
-+	aspeed_spi_set_io_mode(chip, io_mode);
-+
- 	aspeed_spi_write_to_ahb(chip->ahb_base, op->data.buf.out, op->data.nbytes);
- stop_user:
- 	aspeed_spi_stop_user(chip);
+Chin-Ting Kuo (4):
+  dt-bindings: spi: aspeed,ast2600-fmc: Add AST2700 SoC support
+  spi: aspeed: Enable Quad SPI mode for page program
+  spi: aspeed: Use phys_addr_t for bus addresses to support 64-bit
+    platforms
+  spi: aspeed: Add support for the AST2700 SPI controller
+
+ .../bindings/spi/aspeed,ast2600-fmc.yaml      |   4 +-
+ drivers/spi/spi-aspeed-smc.c                  | 107 +++++++++++++++---
+ 2 files changed, 95 insertions(+), 16 deletions(-)
+
 -- 
 2.34.1
 
