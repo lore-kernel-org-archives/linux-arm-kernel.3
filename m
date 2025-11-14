@@ -4,153 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3DCCE8D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F5DCE8D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rSLBkDH9ANF5S0xRj7XgJa99+b7rUYn+w0Z8wMWA58E=; b=QQ//lyj3sc9MFS5m4RuM6i6xTP
-	rESRuv3FT0/8OPSp0zv0gIu0rVfRn9xJdqTAcHKJ8sR30c1ATfzIrwdWYeb/ekTJZw8GLf/PkdFT4
-	Cz4/9QO5t3JgWtt0Xjj7B8eMkdWRt1DtBrHhu2Guy6dTohoINVUBpU7R5vltaJlZh1zqCrA+PW5Wu
-	Mip8WCtPFWIVv+ojgwlzyPtUTxIVgqVsqFs/ERkhy05mgucAIV7KUjfep9c04zQiLgKuH351t3wxq
-	21QQVnjeNgkuPSpfdzLQr7E0DXF5FwURBuRHhIFoJsyh7Z/JRwXvavvfxRtMO2JnBupff0UK53dAR
-	5LF/GIqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ets8NwguOS7BugcXiDCmLziy7av2VUMc9zU1Tb1oNaA=; b=ybF2rOznVbfOFhcIJoQF61CmU4
+	Ln/SkooDzt2C6MuL6q7fLM9vfsBQMEPvOlqcCrafeXn+r0CQNNHtSfHWzdCVpwojTNfE3LCXYrCT2
+	3V6zdAPD3EbCYV28q89xO8SRyEqSfRahDKYwTMTRjv/ENc2EXL3QCT5Bsz6bmERHWu/QKFtS4Og5I
+	D3w1UW6dyWspxa9EakBLSmO5NIZ8hIXswHg/hImoz8vmHpngiKmc+1T8ZYD1+1DfVqsRZNPNZKbBT
+	0riiG+5iAykN/W9iGJ9lWTMB6QIz1sDdbDgtYfDiy1HPW+0iG95j0x0ZGLBkk2UwbonxnPDxTNNuq
+	Znw3JY0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJw4A-0000000CcMW-478Q;
-	Fri, 14 Nov 2025 15:50:27 +0000
-Received: from mail-francecentralazon11013043.outbound.protection.outlook.com ([40.107.162.43] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vJw80-0000000Cd0a-3IWI;
+	Fri, 14 Nov 2025 15:54:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJw48-0000000CcLg-1E1s
+	id 1vJw7x-0000000Ccv0-2Npq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Nov 2025 15:54:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Ets8NwguOS7BugcXiDCmLziy7av2VUMc9zU1Tb1oNaA=; b=BMNxRIL55cQB4vZghFoA/fJc9e
+	pCOtR346Jk8p7iUviNuXU1FId4P65ICaKv2FVzNRtPMehn1eK32RaPqXFDuzBzmYIFk3yKrxro1iV
+	YMkGaBiZ/CdLY2Sbba+bPIFb5n8hOVW3Mk6KgBG+S/7naB2+GYoHrqqJJo7Na8U5/4ws77+DMEEP6
+	KdIpliQqB2HrCgyxZgvFdUqsgypl/2LFdyS9X7wFtwycdjBTSQdqiQ0dXxI7Udu14fPvEk2pfnYEx
+	L0XvuWFyHvP2txNfUwwXqMrFrCT0jZT9bI86WfRT4SFWr4IHLbUZW/sOgP+BAOzTH/vw2VBaK7ggw
+	jVd11a+g==;
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJvGA-00000002tBu-45Pq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:50:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KtqB5wFXFvQuoDk656g6TYI6PLdRApSKzViolzxiEaLCBpWhI/isXbTeixBp1FMwcPxX7fzjeKuNEbyLv44xmAVdnN2VhQr6u+4meNTEJ6jygw6vgiAF4iGhA3UGblpe2jAQDtX6tQk/A2lSIn6kuQcwm4N3tV1rDmAxtxlTI08LsFUnvZTNQcbdP4nVoP+m2Zc2u/V+eNaBFRTvB2esotYFPXwnkk7AbU7trtDycSWiP5f6VtsUIkQGBbKPZFS+8zX9Bg3ji5tFSXHDrrK3dzivm4YZt7d+Ad9QhSEByBkMhj6JEy69AtrS9MMh0kO3cPiVJZh5Ofty7sPQbu3S+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rSLBkDH9ANF5S0xRj7XgJa99+b7rUYn+w0Z8wMWA58E=;
- b=fx7R2kBeEocNFK2VvlF3eFNocxhk3cl1maHreS3fiwhDvx0e0iVoBECl9LEpfol2+ZGceYoecx04iLycZRM47sg5PaiWX0V0gk1HRsdOethwWi0lO0X/DVLJd2Wr//qG1C0Z02mKM7eOy46OuO7rD3jRsewgTebQKj/Pv9BYeFbp1rznkBV/vNo1x9SvymwNFSD67bj8VoLWAYZZoPzxUkn7uZ37WqnMw4kraW9a0nY3xGbNcVtiXZ637q7TLK0Z3dNjT17ZJc/F6K3ubO8W9Q0zyTAScFnz4dOCLZenZOmcAZcNJ5Hdm+V3Z5205I3HFFXfCa82P0oUhpqA17WZhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rSLBkDH9ANF5S0xRj7XgJa99+b7rUYn+w0Z8wMWA58E=;
- b=fyOk3cz4nmc8Ds09oxcWqbVgUoDLUIObLNAY792hFcvdVy6ZdDFcBxlwCoQQkdTEGDn6ix0tq14jzMkXL0m/GbCuZ40aU7MT4O9x3jexFHhv5Rd8pzOFPGyRF97FAmSb1KZPxDW5mPAjfhh4CFD3raaJ1ZQUFNdVwfsFB8B38/ke0n5v9JdGGLePZJ3CXKrkirQreRDIbGWaZAv/z1m6fk1MASN3o70lYBRQ9jltuNl03SXiuh/7nPkyg/mEDCtNkDxrIKRuTQPakm3xGBepK/v7UUuUpLNOO+hBafA8Q82y1ms4Cd6LunwmxwY/FqnhR5OfFsMxIdT2tUtLeMv5Dw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DU4PR04MB11816.eurprd04.prod.outlook.com (2603:10a6:10:626::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.15; Fri, 14 Nov
- 2025 15:50:19 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.013; Fri, 14 Nov 2025
- 15:50:19 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] arm64: dts: imx8mp-evk: add camera ov5640 and related nodes
-Date: Fri, 14 Nov 2025 10:50:01 -0500
-Message-Id: <20251114155001.1195702-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BY5PR16CA0027.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::40) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 14 Nov 2025 14:58:52 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4ede12521d4so337771cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 07:54:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763135651; x=1763740451; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ets8NwguOS7BugcXiDCmLziy7av2VUMc9zU1Tb1oNaA=;
+        b=BJodKEaBU1EkvGoliHhjjf5ODNNtnFhi+D0SUxVNk4Ov5j9SM/kVdXEIO2wALVeO48
+         ClPwebQ1CSs7YhgbzIv8GyvHiPaouLbnWjkTxW8jkTxtAUyYIn2YCTOsoeKpodimfnTb
+         poqTvTJ2asn8xjRakfgHtf87tpm06NeW1WPWbXcIH4NipQZ3KemNyYW4A9rDs33075a8
+         gWRFqxb/kE65GHWlBHuuFEfFfhQjpwmiE42K+MLyZy2nbfEspigdca8yqZqYe420Eea7
+         9qOnln2UclpZyslt3P6vjhi1yzuYsmyzRP5TY/S0Lnn65/xhIM3xk89zUKARzsl2xg7g
+         XfNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763135651; x=1763740451;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ets8NwguOS7BugcXiDCmLziy7av2VUMc9zU1Tb1oNaA=;
+        b=fcTrPjrfKcNvvPJZWJbtyrv6kyNQgM1No4oSZr4GTspdRX1gWN/++/av2Kx4jUdy/F
+         vcLZK6l/IIQCyCZGO/pTBgtpFMxZY5xCswe2QzJ8OvbFOUBtEKPET7KR41A2f4LKUJjm
+         ZgZFk5yUOORdLea/HT8snd9j+U80Q/LkxiykQs3jZI/toKR8dNldImCxZZzk3IEJj3T2
+         g8yR9EmQMTPTsSvPKbpaL1i6ekXTzW+3dHjA71gZWMFT+EEKVPr+OPFQt/dJPuLpWnj2
+         7PSiplvOvGhX2Rnoeie9W0MVXFWldWJ3HCJExcCF/GyZife9+/0r8X3Tvisk0IlugCEQ
+         ApgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVpgAML+BiMEM2aJjGcjvXXgbHmEVlpr4CxZ47OZr8r+prcbciTuEhSiMZWiJkk2QI1/C1rB6bWQVdvVDlvgywn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHGVr7jwH3UqKJ7I/aRKLV1EkUzP81QPMAXz06PL1eRT44YxdD
+	2YVYBeuQBcgYpZph8/+tsR478qv5Sg2kiwYMw7/NElcED86AedcAOnUzGCi2sKd4SB1R2odJV+Q
+	ajTeYoTxZWvwg72kfgfUfOvJuDUJ7TEGcvKym7h34
+X-Gm-Gg: ASbGnctKCALuSsw7wHB7pdOpK4Rv6M8+ri9mt1RcnU78OpPPerDLYSfQJJqjAqE/yKa
+	5Km/iD872brOwJrXdDi3unEz19QJi1aNyJjJ46dd8S0hy9gQG2ys9rJVSai2BXvLPjcElAePNmn
+	tC9ADQRJIS6qOr+4pirsHjMy9gGdPA0C3xCI9cMsxrKCSyTe5VLdAAQtmLfzjWm71CmSweMJHVY
+	Ne9ICv1rTO8+GM0gL1XYXzvhcVhEqn9fxN45MGk1733/+Sy7oMIxVFjqr2Ms9E6+90wdd9lPy7o
+	ZSBKSw==
+X-Google-Smtp-Source: AGHT+IHiwTWU8jeDp2ELw5Kdfmmit9MUQPX7dTwszSoQEWn92TA+ugQDOGIXhjYg1SCQOH6qRDHLIXyjijT0X6iM6cw=
+X-Received: by 2002:ac8:7c41:0:b0:4b7:8de4:52d6 with SMTP id
+ d75a77b69052e-4edf313c286mr6619431cf.2.1763135650429; Fri, 14 Nov 2025
+ 07:54:10 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DU4PR04MB11816:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6554cee6-21c3-4d41-94ac-08de2395836b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x9p2w+ooeYXWTIlCeCcC4bcoQbnVf6rZcggZ0Uo5A0PeSwp2vkYUXzQoUJne?=
- =?us-ascii?Q?sPiSBF5HjsRnYG2cCLt7fBi9LwvtOeyMQCY4Uv+XVZRQh1UAklGnjSMGpzb4?=
- =?us-ascii?Q?vsSFBvpQnYHMqb9kRkizAp0qWmUouAnjpL85A2hnWJ/idX4yhE2HZA38xEiR?=
- =?us-ascii?Q?0HH8SIEUMryRaksmFMLzRM9gEw3aI9S7cDTwV+tfUSoVUctnaZNyRSyWnJPZ?=
- =?us-ascii?Q?/obW0vMkiSVEEcA+qOPhJ945QCk1hO0Wwq0wpVDnIfrOVazSv0nsLy9Mclu6?=
- =?us-ascii?Q?ffRC7CRZ8n5DmimfcxBIJekV60tGEjhHoiBr/uy0WH9Hu2Nhbtd5+1M8MjbS?=
- =?us-ascii?Q?sR7lmIidhJvyEwU6InJp8WaWKGn4w/w2Sre+645HVp0E5CPFFzB2eW8Cj7yR?=
- =?us-ascii?Q?Z+VMIy4wOjvyTH0wCDrDHGLth/UfU8LXJxFc9bwlg3kmjYeYNjfD4eAwsXDQ?=
- =?us-ascii?Q?OLZNuVH+MUAVMVu3JvEtEnXt4ICHxrTKQMih4qFJl1eDE642CPcn+sEIA0oE?=
- =?us-ascii?Q?traDoMjp0sNJBI1Odp06Lg7UWZhQtDV/wMcczm0UVbHewKCEXAvg97gBn3Fc?=
- =?us-ascii?Q?AQlnRc9Fg0fjMJzBCnvU5ZTi4ex2N/PyW+RVMchUK0Juqx/sfU0Iw8lPetTM?=
- =?us-ascii?Q?+5j2chvdTXhFznOOWtIhdb1UZAwvGAbEXarxy8C1h0G5aWKnJ70DA7L7krVU?=
- =?us-ascii?Q?/WadiGAgCdsASbdeX2qNOlclM4L0zQQCarFzfZ/dynUBdz/9m5Xk1ezQgKIj?=
- =?us-ascii?Q?tejZ2hZI5HZbz/W0vDJjd4nQ8fNAurEzLJB1emxIAOtKTTu5Wk8LpbVLQidm?=
- =?us-ascii?Q?XtXX44aU0rHMWCl8T6oFXtYkjj75X6o0IJsiooxmOON88Q/pfgBnzkfGWWIE?=
- =?us-ascii?Q?TO7BCs8W9tiU/M8GmgqZ3SDhhapF1sT4LiNPFdX71O/Ig7fvLGLUuz2RJaVx?=
- =?us-ascii?Q?pujFo7jz7dXT1XqlJyblR8zCfqq+hDty51pu1DE6zrxq43Cr+Y6Y7eu5ISpi?=
- =?us-ascii?Q?+fobMbkf6jKttvLRlgYNRZMW6qSs3lnv3DgIOYUvTEATuL/uOh5kmosRhT6C?=
- =?us-ascii?Q?BtJQo/gd94ktMGxINvted7h7h4riSGlcE2q+ETkbdThPNVczH2Qgcq4PFWV2?=
- =?us-ascii?Q?IhoUp+QLBloeqX44WzesjCNvGm1KwZ7OtOTlQiW35qPfMAYm9SzVCK2sdJs+?=
- =?us-ascii?Q?3+VUmuWK8LJc9qlmFrrpNkNSQnrPLoqmBKuA1YY5pawdgNHGmmrKyz2SONrx?=
- =?us-ascii?Q?eqOrJ12IPsmvMtPi0FQrRZrauEKceSYUsBXrUTL5XiqlPDm4r08jM8n5q3XA?=
- =?us-ascii?Q?J1OF3pZsXJwFi5H0udZpgNedCkXqlDiz7RlVdLI4nfz8bBGg4NHBo2B3vr74?=
- =?us-ascii?Q?tt32zbmw4xnkXINK6PAC2ddFKLaQAD/aBVnyPhygNgyMjsIEzE1rTqq5MXbe?=
- =?us-ascii?Q?BVmLxZQLQiiNwcKphPdlBHFmUgrZoFtgrhXQcdntEvlurr6FR7Qdzj6Glrsq?=
- =?us-ascii?Q?9VYKgmFmDofCIGuH9IdyCGfdZMR49Ke467PKtoGeFdzlBvsbia0VWhaJ3w?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8QnwVrU1sZ5oTXTsY0KtkOhX1wcxei8c5zGwbEXfIREuMaBDN2ofDNNKh37I?=
- =?us-ascii?Q?snzE4rE7CGnMIBxhhHwqVjXtjGqd4ciBiGt4xtiDiqvq/hWZhFN7uDbfJJWu?=
- =?us-ascii?Q?MQm7PegjBhiZdvCaidznlU0a+hIpZ+i2uemQUmW3Bg/K7AwYp0uluwH1HMzx?=
- =?us-ascii?Q?bDRU3rFgmIZE/gawXH1uRu1SFjOdk+v6iCbv9qFKU58xTs/yYvbZmwzPgVG/?=
- =?us-ascii?Q?gH3udwFIXtrHjtsGYwOVgkdA0qWAL9lJRUrSlBEMOcJoLeLcZZ3rn7zzl+Fe?=
- =?us-ascii?Q?i8hsRQVDi2DeCF23XanK2/2Tlq0u4ZEx6GZjjF2/XNRN7mtcAmoTnqiuDnJ5?=
- =?us-ascii?Q?EwzcpZbsxNpu+R6VOUcow8XwexZwvh44Eajo8vERaj85OcO3aV2DULHNp/Ch?=
- =?us-ascii?Q?QogaXk05qqUuYdmsCvABnxgqwx0l02GXk7jF1dyo7RUFS7H5WWlWw58UteUJ?=
- =?us-ascii?Q?82T21/uECuRDTnWvKS2nDiksmPSrccDmgCIWSqd7oqys8pQmpy6COmtw8jlT?=
- =?us-ascii?Q?vF0BmQOQz4fOU5tQVpQ6LPj6ByLxiZbfiK+kd9SvIKlYSy/vIcfolc5/3pWy?=
- =?us-ascii?Q?jFjXamjlsH+bsThWYMdlpEABNphl7p2AEKb7LMmOkBDc5cbaP817tgBQzm6y?=
- =?us-ascii?Q?jHgxZwEvrLqZwKjlPBs382lhbdqSc936kXjNvQh/bByMclGFxEKbBYb01J+j?=
- =?us-ascii?Q?+D63mowsopApIjqoXlOl6HnfO9Odn5tGEUxMMCOaSf4WivrIKTearD5Xyefd?=
- =?us-ascii?Q?+gwJsrxh0tkoafxSyFF8cjgJl29mYWLREGox02Qd+bNqPEoR+Bhh08F/agI/?=
- =?us-ascii?Q?aP74lk1WNcE2kbUN6lZTt4gTfRk4V01GL116HMmJsdYpexUXLyOdYv0s3DWo?=
- =?us-ascii?Q?OUXaQ5EW+YjrIfj5euzdW9Suk2Ewi0HhURdGNTG59ZAxU7fw5luOdWbNCdDc?=
- =?us-ascii?Q?XpFFHbW7zHHmRyNZme8HANPxd/bZM4h+fuV8Z1+MPrdUd39yrExuSdksO0Pi?=
- =?us-ascii?Q?nTFpxECUJGKxb3MYxRjRRP5iLj0fVSlu2NanMtDR9ZwKXo0ekoSBY83d0XJP?=
- =?us-ascii?Q?zQla3B0pJMdLbiq6Jqipkx63DiHd981rAs9RPQAmf6qEIIHNg0hocanSWxcz?=
- =?us-ascii?Q?FH9dEDlgC2mQ4vNQBjRTcPnBxNaG41cTAviefQ6NfZZMakLF3Uf8lWoxvOUu?=
- =?us-ascii?Q?y8xBoYj2BuRYQoZCHLTRsNx8+ao733pe3WmhuD3EH49g9YqLihpuTlAw8jBK?=
- =?us-ascii?Q?NoAaGV7gNX1/FqCJC9AdBEhEGApcwRAXDGa1CeZo8DFCeLTWr7gZdybk0+Mj?=
- =?us-ascii?Q?gCnOC5wEhBkKJgRXVjDLPhpK8DgICyzKCO/5R5uKPM1KNtakOeDak3rToo1M?=
- =?us-ascii?Q?vzpZT/jy7helvf/hj3DW2cnR+tVUoHPUGEjvs+fxVmEEclyTVSH4jiG0S5ui?=
- =?us-ascii?Q?0Q+DyR9FoVauTIGBV3DYQm9lU9GL4hvSIjlXyJxB1upG9X3vxBn4BubXTmay?=
- =?us-ascii?Q?Y/G6V1WPhuM3WlRsWn7g09k6DfZg5aCsMzQx+2+ZFvYZvAPxTSvcpoYLOrCn?=
- =?us-ascii?Q?t7rcXxA7O1QvDtoJPHxOvxtjs7ihC3CzmM41ptnS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6554cee6-21c3-4d41-94ac-08de2395836b
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 15:50:19.7298
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: flz+10TfvAjxX/zRe2lfPTx0CgI7y6adCWtFzhbOEAHklOzFoJ4vCmIgO56vNBDiKP2hwYJzZ8anTP2jbcx+Kg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11816
+References: <20251109171619.1507205-1-maz@kernel.org> <20251109171619.1507205-30-maz@kernel.org>
+ <CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com> <86cy5ku06v.wl-maz@kernel.org>
+In-Reply-To: <86cy5ku06v.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 14 Nov 2025 15:53:33 +0000
+X-Gm-Features: AWmQ_bkDzrH8JV6r7KfYUXsoDbXfGgi939IKX55rEfFNXq-zUyYJ_6136aB575g
+Message-ID: <CA+EHjTzi9Q9hqAu1Xk51hO3uz0FdUGjdPSViN4RAD6tuXJkvYQ@mail.gmail.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when
+ interrupts overflow LR capacity
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Yao Yuan <yaoyuan@linux.alibaba.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_075024_349738_D45AA69C 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20251114_145847_130506_7E519EEE 
+X-CRM114-Status: GOOD (  37.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,133 +114,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add camera ov5640 and related nodes.
+Hi Marc,
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 80 ++++++++++++++++++++
- 1 file changed, 80 insertions(+)
+On Fri, 14 Nov 2025 at 15:02, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Fri, 14 Nov 2025 14:20:46 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > Hi Marc,
+> >
+> > On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > Now that we are ready to handle deactivation through ICV_DIR_EL1,
+> > > set the trap bit if we have active interrupts outside of the LRs.
+> > >
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
+> > >  1 file changed, 7 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > index 1026031f22ff9..26e17ed057f00 100644
+> > > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > @@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+> > >                 ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
+> > >         cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
+> > >                 ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
+> > > +
+> > > +       /*
+> > > +        * Note that we set the trap irrespective of EOIMode, as that
+> > > +        * can change behind our back without any warning...
+> > > +        */
+> > > +       if (irqs_active_outside_lrs(als))
+> > > +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
+> > >  }
+> >
+> > I just tested these patches as they are on kvmarm/next
+> > 2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
+> > 'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
+> > additional pKVM patches. I tried running it with pKVM (non-protected)
+> > and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
+> > when booting a non-protected guest, which triggers a bug in
+> > handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
+> >
+> > This trap is happening because of setting this particular trap (TDIR).
+> > Just removing this trap from vgic_v3_configure_hcr() from the ToT on
+> > kvmarm/next boots fine.
+>
+> This is surprising, as I'm not hitting this on actual HW. Are you
+> getting a 0x18 trap? If so, is it coming from the host? Can you
+> correlate the PC with what the host is doing?
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index 3730792daf501..f5c19549acce5 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -74,6 +74,27 @@ pcie0_refclk: pcie0-refclk {
- 		clock-frequency = <100000000>;
- 	};
- 
-+	reg_1v5: regulator-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v5";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
-+	reg_2v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2v8";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
- 	reg_audio_3v3: regulator-audio-3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "audio-3v3";
-@@ -556,6 +577,30 @@ &i2c2 {
- 	pinctrl-0 = <&pinctrl_i2c2>;
- 	status = "okay";
- 
-+	camera@3c {
-+	       compatible = "ovti,ov5640";
-+	       reg = <0x3c>;
-+	       pinctrl-names = "default";
-+	       pinctrl-0 = <&pinctrl_csi0_pwn>, <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
-+	       clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
-+	       clock-names = "xclk";
-+	       assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
-+	       assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-+	       assigned-clock-rates = <24000000>;
-+	       powerdown-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
-+	       AVDD-supply = <&reg_2v8>;
-+	       DVDD-supply = <&reg_1v5>;
-+	       DOVDD-supply = <&reg_1v8>;
-+	       status = "okay";
-+
-+	       port {
-+		       ov5640_mipi_0_ep: endpoint {
-+			       remote-endpoint = <&mipi_csi0_ep>;
-+			       data-lanes = <1 2>;
-+		       };
-+	       };
-+	};
-+
- 	hdmi@3d {
- 		compatible = "adi,adv7535";
- 		reg = <0x3d>;
-@@ -660,6 +705,10 @@ &i2c5 {
- 	 */
- };
- 
-+&isi_0 {
-+	status = "okay";
-+};
-+
- &lcdif1 {
- 	status = "okay";
- };
-@@ -678,6 +727,19 @@ &micfil {
- 	status = "okay";
- };
- 
-+&mipi_csi_0 {
-+	status = "okay";
-+
-+	ports {
-+	       port@0 {
-+		       mipi_csi0_ep: endpoint {
-+				remote-endpoint = <&ov5640_mipi_0_ep>;
-+				data-lanes = <1 2>;
-+		       };
-+	       };
-+	};
-+};
-+
- &mipi_dsi {
- 	samsung,esc-clock-frequency = <10000000>;
- 	status = "okay";
-@@ -849,6 +911,24 @@ MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29		0xd6
- 		>;
- 	};
- 
-+	pinctrl_csi_mclk: csi_mclk_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO15__CCM_CLKO2	0x50
-+		>;
-+	};
-+
-+	pinctrl_csi0_pwn: csi0_pwn_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x10
-+		>;
-+	};
-+
-+	pinctrl_csi0_rst: csi0_rst_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06	0x10
-+		>;
-+	};
-+
- 	pinctrl_eqos: eqosgrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x2
--- 
-2.34.1
+I should have given you that earlier, sorry.
 
+Yes, it's an 0x18 trap from the host (although it happens when I boot
+a guest). Here is the relevant part of the backtrace addr2lined and
+the full one below.
+
+handle_percpu_devid_irq+0x90/0x120 (kernel/irq/chip.c:930)
+generic_handle_domain_irq+0x40/0x64 (include/linux/irqdesc.h:?)
+gic_handle_irq+0x4c/0x110 (include/linux/irqdesc.h:?)
+call_on_irq_stack+0x30/0x48 (arch/arm64/kernel/entry.S:893)
+
+[   28.454804] Code: d65f03c0 92800008 f9000008 17fffffa (d4210000)
+[   28.454873] kvm [266]: Hyp Offset: 0xfff1205c3fe00000
+[   28.455157] Kernel panic - not syncing: HYP panic:
+[   28.455157] PS:204023c9 PC:000e5fa4413e39bc ESR:00000000f2000800
+[   28.455157] FAR:ffff800082733d3c HPFAR:0000000000500000 PAR:0000000000000000
+[   28.455157] VCPU:0000000000000000
+[   28.459703] CPU: 5 UID: 0 PID: 266 Comm: kvm-vcpu-0 Not tainted
+6.18.0-rc3-g2ea7215187c5 #8 PREEMPT
+[   28.460247] Hardware name: linux,dummy-virt (DT)
+[   28.460615] Call trace:
+[   28.460900]  show_stack+0x18/0x24 (C)
+[   28.461234]  dump_stack_lvl+0x40/0x84
+[   28.461421]  dump_stack+0x18/0x24
+[   28.461566]  vpanic+0x11c/0x364
+[   28.461698]  vpanic+0x0/0x364
+[   28.461838]  nvhe_hyp_panic_handler+0x118/0x190
+[   28.462056]  handle_percpu_devid_irq+0x90/0x120
+[   28.462248]  handle_percpu_devid_irq+0x90/0x120
+[   28.462439]  generic_handle_domain_irq+0x40/0x64
+[   28.462643]  gic_handle_irq+0x4c/0x110
+[   28.462814]  call_on_irq_stack+0x30/0x48
+[   28.463003]  do_interrupt_handler+0x4c/0x6c
+[   28.463184]  el1_interrupt+0x3c/0x60
+[   28.463348]  el1h_64_irq_handler+0x18/0x24
+[   28.463525]  el1h_64_irq+0x6c/0x70
+[   28.463799]  local_daif_restore+0x8/0xc (P)
+[   28.463980]  el0t_64_sync_handler+0x84/0x12c
+[   28.464164]  el0t_64_sync+0x198/0x19c
+
+> It would indicate that we are leaking trap bits on exit, and that QEMU
+> is trapping ICC_DIR_EL1 on top of ICV_DIR_EL1 (which the HW I have
+> access to doesn't seem to do).
+>
+> > I'm running this on QEMU with '-machine virt,gic-version=3 -cpu max'
+> > and the kernel with 'kvm-arm.mode=protected' and with
+> > 'kvm-arm.mode=nvhe'.
+> >
+> > Let me know if you need any more info or help testing.
+>
+> On top of the above, could you give the hack below a go? I haven't
+> tested it at all (I'm in the middle of a bisect from hell...)
+
+With the hack it boots, both nvhe and protected mode.
+
+Cheers,
+/fuad
+
+> Thanks,
+>
+>         M.
+>
+> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> index e950efa22547..71199e1a9294 100644
+> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> @@ -243,7 +243,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
+>                 cpu_if->vgic_hcr |= val & ICH_HCR_EL2_EOIcount;
+>         }
+>
+> -       write_gicreg(compute_ich_hcr(cpu_if) & ~ICH_HCR_EL2_En, ICH_HCR_EL2);
+> +       write_gicreg(0, ICH_HCR_EL2);
+>  }
+>
+>  void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
