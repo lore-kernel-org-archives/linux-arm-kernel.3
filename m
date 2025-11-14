@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11475CE7B13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEC9CE7B13
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VOwDYlRH5DhNzOzjWWbwzUOQiOeiolgsqjgpBqGQ14g=; b=B/qWw/bLNSg29GvCmklvrAA9TZ
-	MndQgqHf2GgJxg+bzYLxa0jLvPOP4eyIM/9+eNUTy7y9OP1ppdkkBpxoFXVXmZQKTejwiWXY1i+hp
-	oV2iXgSKUuKeVq7TabNFqpmz/BcK7AZKtfFrb0tY29f2bsrGxBLdJrSvYpGVtFby8ZluIb4h7ubWO
-	GiJar43OiQXGK3FUZ7HmVG9+kaby76zLGYQ1xEC9KasJmY5r1M1cLJBzQwo1ujKDq2e0zEWt526Za
-	n9trl2r1b+5VWjl6k1a0Stlzz3ZbGzAr/bMc9KO6vv5aQ57ZCANLFndPvP7x+Vz5LjtLqFyg/knNP
-	UeOkf9BQ==;
+	bh=SbwiEPUMKFzWHVRkANDWXLiE9C+Y1AwxTIo0xTKShXQ=; b=SQIhvIcPAX7Bb2dBoqBT8KOJ4A
+	Oa4i6NtgtMs1wV0pi6EcrqxO1BRMYhckHz5A94a0T1mTUM6jArUylrM5XmUhEqdmO5owhhKPxISIk
+	H0rMEhHDrx4bbEXpX/IO+N/FrKM7JmNPdWIvyUkkvgqeYYwWbix7A9Uv2KE2iItk9pOCFcVIJKyun
+	Bl3aAAwS8rX8S/u9lJumxL1QkXCKsG6jyqR2I7qlqA9vsKtZu62MtswoyZDzUwVM1Cnv7Ku/G1vyu
+	TSXlJc6Z2hV+vDSb5G8Jls2rGb0+MIOAGSRwVOQ+zIvIlFXU62zWSulc89465lgbQl5CS/y+KFPz4
+	ttAMMHUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJumX-0000000CMqu-2zAf;
-	Fri, 14 Nov 2025 14:28:09 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1vJumX-0000000CMrE-49t0;
+	Fri, 14 Nov 2025 14:28:10 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJumT-0000000CMom-0iiA
+	id 1vJumV-0000000CMpQ-0CXz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:28:06 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-43320651e53so14482315ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:28:04 -0800 (PST)
+	Fri, 14 Nov 2025 14:28:08 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-434709e7cc9so9991565ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 06:28:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763130483; x=1763735283; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1763130485; x=1763735285; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VOwDYlRH5DhNzOzjWWbwzUOQiOeiolgsqjgpBqGQ14g=;
-        b=IrLUDDuY4ZbtQFnu+GCe5XtTfh6Yyuy4+i9rxrryAnPY0rbXdrjQggNfK79PdMoIAH
-         2+INrqj0ssZnF9k+BMLu+LDL2s13aEwIf1TK2VjqZK8Vb6hr1u6o5cMQQgo5DnGWbcon
-         cWVpvKsL1/38UJ9Wtl3RsgM77AbZyohZNps28=
+        bh=SbwiEPUMKFzWHVRkANDWXLiE9C+Y1AwxTIo0xTKShXQ=;
+        b=HlLLxPZZ6pNjM6F2iNvqryPObk39aoxhFU9twEUrL+GQ8WACOhUC+lwJQNcFT8rQfR
+         6M2te18pFyQNfx3N0QFHyJ9aobhJ14lcjwi06bezgcKasQm6oON5GCwKd6q/0xR4FvnD
+         zgtvcYXDGBj6XIwBoYMgEav+OG8xi1N+iwpl0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763130483; x=1763735283;
+        d=1e100.net; s=20230601; t=1763130485; x=1763735285;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=VOwDYlRH5DhNzOzjWWbwzUOQiOeiolgsqjgpBqGQ14g=;
-        b=q8FFpOQnYJRUOjrSt5YN5bjTb+VatIp4QA4TgVlwbf5sSKHYEiC82aPa6roIwY5FDI
-         Lt9nkUQ36z9wm9CDYy/lDHhoJe03iuNQ9o77QTb858EFX5VFajSvWDmi/Rx4k7aBCSxZ
-         oerr/nV/Rbs5TEBN/q2ShjW1V7sUjkkRvj5qWzKdVUyTux845K7nCapkgqL+RhbQW3Sh
-         c80W7YVJ+TkGp5Hs/6cbBHxfvtbUGkkG8ByAul6SHu/uWjOw13v6mvV0IowJwm66EcA6
-         37iQMoMr2DJiimdZRGN/bFRqKnwYvlHB8xQgvPRyrf862T4UFUBR/kgVZKfyza4W2Upt
-         PPrA==
-X-Gm-Message-State: AOJu0YwNwq/58BHTuIg634meZ9VPtGWx/mGHtRwM2WQqR8ImsKIDxvEi
-	w2qwk7NUfxhmjR98NAYpiq/3EHc0oeLweHtvyFnrVgeB2/pNBYCbYdCFhP1Xx45j9h/qEEnoPTO
-	yIn4=
-X-Gm-Gg: ASbGncscaQacNZsQDvMuu5O0pb0yoDBsQHr45jUFxhJewCfmjkeSrXcGlnEp/fJsdiq
-	4cgvLoFy8oBYUNV03aEPZtoaEj9PGMqcHhIJm3eza0jUvlFwJui28mvqs7eiZ3t7N2PmVxP4g2q
-	B8a0hV+2BbBC7sIPmcb+QCp2OtOnYU/tpIRUcaQ9vEs+Sh1OaI+uGncuFMN9DHBmONvBTWmn1AI
-	Xp6nMMJ6crOvjebXQPqfWZKAewQqxxCo6fhaL9im2k7FSpG+4XDp7ksp6Z0QSPWq2uqzizYknUt
-	DlceuZQxGjoh/vFAnQ1Zvdfzy0KzZQhEPtyjcxV0+/Kr4RvnuhLKyCoCPd4DKcWx/Xsv9fRM+Go
-	IMQtloOIcGlTdimifHF4S34DBKuyFgZU6HzmjCufnsZafRVPoueZJs4/lYq99oRa7t9FiDPOgCR
-	OFT1v2c0JoB8ofQ7o=
-X-Google-Smtp-Source: AGHT+IHKQCuiUr5zChKS0MHb/W5O2DKQjIJyTMquCSOnoatcp/1EvxDxrceULeEYGZCSDbMoVvwx8A==
-X-Received: by 2002:a05:6e02:1a4c:b0:434:7caa:8947 with SMTP id e9e14a558f8ab-4348c949d5bmr50346505ab.28.1763130483086;
-        Fri, 14 Nov 2025 06:28:03 -0800 (PST)
+        bh=SbwiEPUMKFzWHVRkANDWXLiE9C+Y1AwxTIo0xTKShXQ=;
+        b=rsW7qOJXPZ1Z+RgpWp4E23vuSrYuB/Jv1hMYeZnRfSLvUeyFUTfXiQHW/EyC9jPu2X
+         nTDi5UleSO6kuiTr/r9+50B074qoXIReo+v38dEu3ZLoxf8jiviLNFviHKL7vUfFsbV1
+         9LLc76Pf2JLB/AeWypmzXiM5WiN0HwDDtwMsT9KIrgTSqaz6QybGw0Joaj3ZFcQobPxP
+         utQsEzha5/lgtmicq8j5R7PME6NgXQC3s7/8HTyY2C+n1C5pX8ZcByIjdpbHXJeFBD2u
+         LmaV2gqOq3+W8nv3BbIkXX2GGZ36jnn4d0ZJXECq3n+M4loPY3n/Wq3asBAn/C4e0uKL
+         bGTw==
+X-Gm-Message-State: AOJu0Yyg7bqNhR8ifJ8QPsKqYXhcN5Dvht1VLynMH9kpvYYE9cQZPygP
+	Zh7PIzfiWoH+KHIEENWbMkrDHtl9ZkE5D8mHaBJA08AgNF/oyLLp0fcjFUzM6xRSiudRo1B8ny1
+	7gig=
+X-Gm-Gg: ASbGncuaPcA7tPnfIIMkl6AzXiUHIzb5LhWqhugcFGSQEnHDbqxvnu3qlSamjmJExyn
+	FEG+3w9ixMoP82OlcGbKO1XxT2r9hA13/+/smrnOTpADYB8x0M+gqjF0B1pfxGhfbXl4uTcdpb2
+	MtL/P2ygq6+oDGjURj0qhYrOcq6r6brG8sqzGVf2Em23xVsinctPFS6o6b+BnpHp8WvinolZoLo
+	Sr5KM/cnwkD2aUwQnumcqBy3Bs0c1DXBB3N1TtPsSC5a2rnqkHnQ0t5ggq0xmIuHFAg6+3jHUl0
+	LHp/+hcDczmCWSD9Km/F3UOo6K+u6+nxFwuPt0ITbR29j7DpnbV3F9++QP0EQKbPMRjcQkZAx39
+	GE/WSTtXBWBVbRtAHb89iKFdYPMOkZO86zmKC09mjHeeEw378+BdKAARDj8ak0kKOTnMVzhGmny
+	H7+275
+X-Google-Smtp-Source: AGHT+IGsFSLfQsHTQySP1q0sttqWWUuCQB9YY1khd7e5giMT7AMOylsJY1uQiJSgSiyY72LImJOkkQ==
+X-Received: by 2002:a05:6e02:3090:b0:433:7a94:6fcc with SMTP id e9e14a558f8ab-4348c8503camr48779555ab.2.1763130485241;
+        Fri, 14 Nov 2025 06:28:05 -0800 (PST)
 Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-434839cdb10sm27500205ab.32.2025.11.14.06.28.01
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-434839cdb10sm27500205ab.32.2025.11.14.06.28.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Nov 2025 06:28:02 -0800 (PST)
+        Fri, 14 Nov 2025 06:28:04 -0800 (PST)
 From: Simon Glass <sjg@chromium.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Nicolas Schier <nicolas@fjasle.eu>,
@@ -78,17 +78,17 @@ Cc: Nicolas Schier <nicolas@fjasle.eu>,
 	Simon Glass <sjg@chromium.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 1/8] scripts/make_fit: Speed up operation
-Date: Fri, 14 Nov 2025 07:27:27 -0700
-Message-ID: <20251114142741.1919072-2-sjg@chromium.org>
+Subject: [PATCH v5 2/8] scripts/make_fit: Support an initial ramdisk
+Date: Fri, 14 Nov 2025 07:27:28 -0700
+Message-ID: <20251114142741.1919072-3-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251114142741.1919072-1-sjg@chromium.org>
 References: <20251114142741.1919072-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_062805_211247_F6467801 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20251114_062807_118976_74B72426 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +103,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kernel is likely at least 16MB so we may as well use that as a step
-size when reallocating space for the FIT in memory. Pack the FIT at the
-end, so there is no wasted space.
+FIT (Flat Image Tree) allows a ramdisk to be included in each
+configuration. Add support for this to the script.
 
-This reduces the time to pack by an order of magnitude, or so.
+This feature is not available via 'make image.fit' since the ramdisk
+likely needs to be built separately anyway, e.g. using modules from
+the kernel build. A later patch in this series provides support for
+doing that.
+
+Note that the uncompressed size is not correct when a ramdisk is used,
+since it is too expensive to decompress the ramdisk.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
 Reviewed-by: Nicolas Schier <nsc@kernel.org>
 ---
 
-(no changes since v3)
+Changes in v5:
+- Fix 'use' typo
+
+Changes in v4:
+- Update the commit message
 
 Changes in v3:
-- Move the ramdisk chunk into the correct patch
+- Add a comment at the top of the file about the -r option
+- Count the ramdisk in the total files
+- Update the commit message
 
- scripts/make_fit.py | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Changes in v2:
+- Don't compress the ramdisk as it is already compressed
+
+ scripts/make_fit.py | 52 ++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 44 insertions(+), 8 deletions(-)
 
 diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-index 1683e5ec6e67..0f5e7c4b8aed 100755
+index 0f5e7c4b8aed..984371f505bc 100755
 --- a/scripts/make_fit.py
 +++ b/scripts/make_fit.py
-@@ -98,7 +98,7 @@ def setup_fit(fsw, name):
-         fsw (libfdt.FdtSw): Object to use for writing
-         name (str): Name of kernel image
+@@ -10,10 +10,14 @@
+ Usage:
+     make_fit.py -A arm64 -n 'Linux-6.6' -O linux
+         -o arch/arm64/boot/image.fit -k /tmp/kern/arch/arm64/boot/image.itk
+-        @arch/arm64/boot/dts/dtbs-list -E -c gzip
++        -r /boot/initrd.img-6.14.0-27-generic @arch/arm64/boot/dts/dtbs-list
++        -E -c gzip
+ 
+-Creates a FIT containing the supplied kernel and a set of devicetree files,
+-either specified individually or listed in a file (with an '@' prefix).
++Creates a FIT containing the supplied kernel, an optional ramdisk, and a set of
++devicetree files, either specified individually or listed in a file (with an
++'@' prefix).
++
++Use -r to specify an existing ramdisk/initrd file.
+ 
+ Use -E to generate an external FIT (where the data is placed after the
+ FIT data structure). This allows parsing of the data without loading
+@@ -29,8 +33,6 @@ looks at the .cmd files produced by the kernel build.
+ 
+ The resulting FIT can be booted by bootloaders which support FIT, such
+ as U-Boot, Linuxboot, Tianocore, etc.
+-
+-Note that this tool does not yet support adding a ramdisk / initrd.
+ """
+ 
+ import argparse
+@@ -81,6 +83,8 @@ def parse_args():
+           help='Specifies the operating system')
+     parser.add_argument('-k', '--kernel', type=str, required=True,
+           help='Specifies the (uncompressed) kernel input file (.itk)')
++    parser.add_argument('-r', '--ramdisk', type=str,
++          help='Specifies the ramdisk/initrd input file')
+     parser.add_argument('-v', '--verbose', action='store_true',
+                         help='Enable verbose output')
+     parser.add_argument('dtbs', type=str, nargs='*',
+@@ -133,7 +137,28 @@ def write_kernel(fsw, data, args):
+         fsw.property_u32('entry', 0)
+ 
+ 
+-def finish_fit(fsw, entries):
++def write_ramdisk(fsw, data, args):
++    """Write out the ramdisk image
++
++    Writes a ramdisk node along with the required properties
++
++    Args:
++        fsw (libfdt.FdtSw): Object to use for writing
++        data (bytes): Data to write (possibly compressed)
++        args (Namespace): Contains necessary strings:
++            arch: FIT architecture, e.g. 'arm64'
++            fit_os: Operating Systems, e.g. 'linux'
++    """
++    with fsw.add_node('ramdisk'):
++        fsw.property_string('description', 'Ramdisk')
++        fsw.property_string('type', 'ramdisk')
++        fsw.property_string('arch', args.arch)
++        fsw.property_string('os', args.os)
++        fsw.property('data', data)
++        fsw.property_u32('load', 0)
++
++
++def finish_fit(fsw, entries, has_ramdisk=False):
+     """Finish the FIT ready for use
+ 
+     Writes the /configurations node and subnodes
+@@ -143,6 +168,7 @@ def finish_fit(fsw, entries):
+         entries (list of tuple): List of configurations:
+             str: Description of model
+             str: Compatible stringlist
++        has_ramdisk (bool): True if a ramdisk is included in the FIT
      """
--    fsw.INC_SIZE = 65536
-+    fsw.INC_SIZE = 16 << 20
-     fsw.finish_reservemap()
-     fsw.begin_node('')
-     fsw.property_string('description', f'{name} with devicetree set')
-@@ -299,7 +299,9 @@ def build_fit(args):
-     finish_fit(fsw, entries)
+     fsw.end_node()
+     seq = 0
+@@ -154,6 +180,8 @@ def finish_fit(fsw, entries):
+                 fsw.property_string('description', model)
+                 fsw.property('fdt', bytes(''.join(f'fdt-{x}\x00' for x in files), "ascii"))
+                 fsw.property_string('kernel', 'kernel')
++                if has_ramdisk:
++                    fsw.property_string('ramdisk', 'ramdisk')
+     fsw.end_node()
+ 
+ 
+@@ -274,6 +302,14 @@ def build_fit(args):
+     size += os.path.getsize(args.kernel)
+     write_kernel(fsw, comp_data, args)
+ 
++    # Handle the ramdisk if provided. Compression is not supported as it is
++    # already compressed.
++    if args.ramdisk:
++        with open(args.ramdisk, 'rb') as inf:
++            data = inf.read()
++        size += len(data)
++        write_ramdisk(fsw, data, args)
++
+     for fname in args.dtbs:
+         # Ignore non-DTB (*.dtb) files
+         if os.path.splitext(fname)[1] != '.dtb':
+@@ -296,12 +332,12 @@ def build_fit(args):
+ 
+         entries.append([model, compat, files_seq])
+ 
+-    finish_fit(fsw, entries)
++    finish_fit(fsw, entries, bool(args.ramdisk))
  
      # Include the kernel itself in the returned file count
--    return fsw.as_fdt().as_bytearray(), seq + 1, size
-+    fdt = fsw.as_fdt()
-+    fdt.pack()
-+    return fdt.as_bytearray(), seq + 1, size
+     fdt = fsw.as_fdt()
+     fdt.pack()
+-    return fdt.as_bytearray(), seq + 1, size
++    return fdt.as_bytearray(), seq + 1 + bool(args.ramdisk), size
  
  
  def run_make_fit():
