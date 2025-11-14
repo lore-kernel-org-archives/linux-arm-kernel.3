@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2944CCD98D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 01:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAB5CDB46D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 01:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ahNR9fd2YMJk4CwYCWhBIEhgapoFugSz6eevmfUYQlE=; b=QgesIn8UMHAmObTKZb9OkQvqzJ
-	oqv9KQ3IcxnfPoqqj1CslXZ6pFY3N8JoIQ3f0+zVRmFu8T8U1uEfwJyscbrK8bACH4L+S3dEmVPVf
-	4DrofZWUMPJLjMIEq6Bn+Qerw4eWMxTw/Ky1Th2pAnehSGt6rmn2ek2tbCz+naQX4IDLz0yStFdDB
-	l6Bb/EeXfeQbtMpKAoePL6rGpbqN07AvhfLstId+BDIRDY20YRiPb2q1iNr8c+0ncdNrV7vdLURgc
-	kxKHWvCWqjMdeiaz2lA1PrNLzkngaF6u21iUW2qXQs53Ku91BsusZqUayEfXOmKJbXm4bl+ko0+0Z
-	AA75enfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=92K3IY/Zx8G6RPoa0Q63VX/iKUcwd0tQL10r4/DzRkE=; b=SGGlpNQ1EhKnCbxScJul2Z5ADu
+	scSN0Hi91X++75Sfegbhxe9feGhupMAhnGaBwooCaHHxMiQR9IgbK5Tt5WcfCYutSjHi2hOsGDSWq
+	VZqxRGAMHd0hoV8oV4NHvfxKSKa/99xIsSZIzlgHjXeDHCPD/gwVafQ6/0I0faAwMdkQgsH9mMI8p
+	JGJXK2+6ihfwYev+GpfW68cua5mlashamYStnmtCS66N6QsuKkDKvJvC7LOH7RrVBLMeH2GyKayrr
+	mTLtGKtDKk4izMw5u0nK8h5gCCEmuHCnwOjrsaS10hqMh8kqKaFhHXq9UMH+oDu6649aqi/dUomSo
+	0w2kya0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJiZM-0000000BNcF-2Lfe;
-	Fri, 14 Nov 2025 01:25:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJj29-0000000BOdw-1QfJ;
+	Fri, 14 Nov 2025 01:55:29 +0000
+Received: from ssh248.corpemail.net ([210.51.61.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJiZJ-0000000BNbo-31ZO
+	id 1vJj25-0000000BOd9-3kV6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 01:25:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94F06441E8;
-	Fri, 14 Nov 2025 01:25:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67573C2BCB0;
-	Fri, 14 Nov 2025 01:25:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763083540;
-	bh=jUpqsgzm9mQmlDwIMnmXwws2iJVd0X9NrGflGeH7Iqg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z09gLaMZlZrJHbraZakAvPZQ2kqgik/E3cfI2zd2AjI6xpvGjYqFZURz2b+UzBcTc
-	 8SwRLAul1ddhZmoa7yCwX9IFyPmrEIhWuLBuE4sFEpMh/Xj2ayDrZBOlDWhT8JFLCn
-	 K8AAzeBFl1lClijNSqUnLKDYyGpjtc9SHPUCKg3gZQchcPRcFs1kpedjTT0p80gN33
-	 nBZ3PHgGXXwZFMdtT0BOjlUvnj/c7xeVt5LlNIMMGA7Rv/7IaPLQFA1I2DV7S1aZEx
-	 +YQAP3xbmuM/xOibvOJvy24sED0Q4VX4dZwkiNH1jFlFvXA+HctaCLc3x8eQyQz83/
-	 u7OWf0KRaOl4w==
-Date: Fri, 14 Nov 2025 01:25:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Han Gao <rabenda.cn@gmail.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
- mode restriction
-Message-ID: <20251114-apache-sprung-f1a29b873696@spud>
-References: <20251114003805.494387-1-inochiama@gmail.com>
- <20251114003805.494387-2-inochiama@gmail.com>
- <yjl3gnf2gwh327wbbwcbkxwnqy5tyhwutffovlxhcm7b4vr2xu@he4tg6bcrduu>
+	Fri, 14 Nov 2025 01:55:28 +0000
+Received: from Jtjnmail201616.home.langchao.com
+        by ssh248.corpemail.net ((D)) with ASMTP (SSL) id 202511140954592736;
+        Fri, 14 Nov 2025 09:54:59 +0800
+Received: from jtjnmailAR02.home.langchao.com (10.100.2.43) by
+ Jtjnmail201616.home.langchao.com (10.100.2.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 14 Nov 2025 09:55:00 +0800
+Received: from inspur.com (10.100.2.112) by jtjnmailAR02.home.langchao.com
+ (10.100.2.43) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 14 Nov 2025 09:55:00 +0800
+Received: from localhost.localdomain.com (unknown [10.94.7.17])
+	by app8 (Coremail) with SMTP id cAJkCsDweM_zixZpolYNAA--.21005S4;
+	Fri, 14 Nov 2025 09:54:59 +0800 (CST)
+From: Chu Guangqing <chuguangqing@inspur.com>
+To: <wim@linux-watchdog.org>, <linux@roeck-us.net>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-watchdog@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Chu Guangqing <chuguangqing@inspur.com>
+Subject: [PATCH 1/1] watchdog: at91sam9: Fix a spelling mistake
+Date: Fri, 14 Nov 2025 09:53:58 +0800
+Message-ID: <20251114015358.1614-1-chuguangqing@inspur.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NIRjo9fMfQbx0LeW"
-Content-Disposition: inline
-In-Reply-To: <yjl3gnf2gwh327wbbwcbkxwnqy5tyhwutffovlxhcm7b4vr2xu@he4tg6bcrduu>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cAJkCsDweM_zixZpolYNAA--.21005S4
+X-Coremail-Antispam: 1UD129KBjvdXoWrZrWUGFyxAr4rKw4xKw43GFg_yoW3AFgEkr
+	WxGa9xWr1rGFW5tr18Zw17XrWFv3WF93Z3uay3Jry3G3y5JrZrurZ2yFyxZw15Xay3Gr15
+	AF1DXFsY9F9rGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbckFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_GcCE
+	3s1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_Jw0_
+	GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-CM-SenderInfo: 5fkxw35dqj1xlqj6x0hvsx2hhfrp/
+X-CM-DELIVERINFO: =?B?nKiBT5RRTeOiUs3aOqHZ50hzsfHKF9Ds6CbXmDm38RucXu3DYXJR7Zlh9zE0nt/Iac
+	D+KYseAVAYCq0o/n+EQ6lxsTF7AlshF3e2mr2ZRJ6OErjk9hLNC1ZPBp6JPn+jNJ0856dF
+	k60rjf2lxx7QdEnl3fw=
+Content-Type: text/plain
+tUid: 20251114095500bc3efe0f34628d824a63042a2f99fe87
+X-Abuse-Reports-To: service@corp-email.com
+Abuse-Reports-To: service@corp-email.com
+X-Complaints-To: service@corp-email.com
+X-Report-Abuse-To: service@corp-email.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_172541_803688_DC1AF834 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20251113_175526_212879_EDFFAFEC 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +96,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The spelling of the word "regster" is incorrect; it should be "register".
 
---NIRjo9fMfQbx0LeW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Chu Guangqing <chuguangqing@inspur.com>
+---
+ drivers/watchdog/at91sam9_wdt.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Fri, Nov 14, 2025 at 08:44:15AM +0800, Inochi Amaoto wrote:
-> On Fri, Nov 14, 2025 at 08:38:03AM +0800, Inochi Amaoto wrote:
-> > As the ethernet controller of SG2044 and SG2042 only supports
-> > RGMII phy. Add phy-mode property to restrict the value.
-> >=20
-> > Also, since SG2042 has internal rx delay in its mac, make
-> > only "rgmii-txid" and "rgmii-id" valid for phy-mode.
-> >=20
-> > Fixes: e281c48a7336 ("dt-bindings: net: sophgo,sg2044-dwmac: Add suppor=
-t for Sophgo SG2042 dwmac")
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> > ---
-> >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 19 +++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.=
-yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > index ce21979a2d9a..e8d3814db0e9 100644
-> > --- a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> > @@ -70,6 +70,25 @@ required:
-> > =20
-> >  allOf:
-> >    - $ref: snps,dwmac.yaml#
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: sophgo,sg2042-dwmac
-> > +    then:
-> > +      properties:
-> > +        phy-mode:
-> > +          enum:
->=20
-> > +            - rgmii-rxid
-> > +            - rgmii-id
->=20
-> Hi, Conor,
->=20
-> I have restricted the phy-mode with wrong mode here, it should be
-> rgmii-rxid instead of rgmii-txid as the SG2042 always add rx delay
-> in their mac. As this is more like a mistake for me when writing
-> the binding, I keep you tag with the fix. If you need something
-> further, please let me know.
+diff --git a/drivers/watchdog/at91sam9_wdt.h b/drivers/watchdog/at91sam9_wdt.h
+index 298d545df1a1..cc5d36213aea 100644
+--- a/drivers/watchdog/at91sam9_wdt.h
++++ b/drivers/watchdog/at91sam9_wdt.h
+@@ -6,7 +6,7 @@
+  * Copyright (C) 2007 Atmel Corporation.
+  * Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries
+  *
+- * Watchdog Timer (WDT) - System peripherals regsters.
++ * Watchdog Timer (WDT) - System peripherals registers.
+  * Based on AT91SAM9261 datasheet revision D.
+  * Based on SAM9X60 datasheet.
+  *
+-- 
+2.43.7
 
-Yeah that's fine chief. In general, if it is some hardware detail
-that I couldn't possibly know was correct or incorrect without
-reading the device's documentation then I probably don't care about
-the binding change required for it when it's so minimal. Probably the
-same goes for Rob and Krzysztof.
-
---NIRjo9fMfQbx0LeW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRaFDAAKCRB4tDGHoIJi
-0sHeAQCiwuHrj6CHOoRLG+GG2NyvoAYv/ledOLpXXMp9wFne6AD/ac6tU8Z1tAkf
-gGLcZaOgphtF9IndUwUcVjxW0F1kDAM=
-=Gnn9
------END PGP SIGNATURE-----
-
---NIRjo9fMfQbx0LeW--
 
