@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD03FCE7AA8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2445ACE7AAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 10:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFWpQbs9eju7XUpWo9+RZpsWisucaM4bHjkj9224ytc=; b=eRX9WUTkB6qad8gr9eiLT9x2uI
-	cSELhJvqELuVYmhnVV7vfxBNit9NzlTiXAX0LxC5zFNF05r00ZlE/jmKFDvT/2gM8uOwRbzOTNRv8
-	dwQ96b20vrztD9PxSSuyuexyzh/fzjD4pdhRK/caxL1QwPBDvOGHAU312YAFeYpuROMd7QEFS984Q
-	XZovH+0RMQGrB6BqshG/wna6PThqdRh4dJz4JSeZDv8Rzp5bZSsdM9tWmEW9ngZAifM5xP1lzO4wU
-	mE90UgOoIGNg9jrKMI64Oq4Kj0WD/u2e+mjtQOpIJtHXSBUomEZr5+HlQS0jBYV3y9IzxEtKwntRy
-	O8m/MWAw==;
+	bh=yqZuiqR5XpCaInMgn5MgwyEPMHFWgFOqSEmpewRRB+I=; b=i0Amv4eBGm/Dnd0C6HmtEp+5Uq
+	r+avZzmmsz/dsAcc35nnW3hPKrJ03ns9N/XmwKZKINqOL4EdkyMu60puhXBSWR5wahiqNs4sXlNr2
+	j7FqZKVyGMkgqFQJmRtdcPqTu/Xzp38h2rNT+9Zo2YfEFb6qBqBq1zpP4k6Cn9C0qBZTv32rVD5cm
+	DAl53u71F76cVb981GlU8lcVnFLVDLwNguGS0Q5D4dRu+jYQnNDJSb3D/URK0A3Ro5S67IRE26nKw
+	QU0oN5NmRX8M1ACPVgGsmCp5Fqq4nXWRP7ypfj7OzAwoeiTZCyMevvHVKHm5VWpuHbwPFw6Y9Vjts
+	fiGIfJRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqoU-0000000BzSJ-10SO;
-	Fri, 14 Nov 2025 10:13:54 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vJqwV-0000000Bztn-48LP;
+	Fri, 14 Nov 2025 10:22:11 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqoQ-0000000BzRm-21yI;
-	Fri, 14 Nov 2025 10:13:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763115216; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Uo1eI7o0dWFLKj7/RWiJpBOZ/6M8Z+p2twLTGb2REOEa4A0Tc+5V4SqJe8qS7BSZFhyF4CzP5bfubjvCMAccmCY2/9AkBRdPZ178hyhVKn5aGu1WKKkOi6VOgyiJnyib/X/FRYdVtmrGdVtvtUOYCJLCJc30bLO7ODHNIIaUauU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763115216; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=eFWpQbs9eju7XUpWo9+RZpsWisucaM4bHjkj9224ytc=; 
-	b=AJeHo8Ql0yJqtDr3iYrwEObWN1LO4TyNPgUcJHKtUhZL2GHE5zbK8gnivvvN++0sbs1FgOvj8jf5m8fj4lGHwEt+C0Lcmh4oitdQP9co4peafzH7bI4P32zj47kEKRUO7hIfLL3fpURRKt1/9OrcnPuQ5Qcfg8bYJdr+sqFyHgw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763115216;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=eFWpQbs9eju7XUpWo9+RZpsWisucaM4bHjkj9224ytc=;
-	b=koDfGSVzRX8wUzMz6wSjHAiM9ouo73qkbfWQa79+AK9ddKM5YazjaayMrmw+Xcm+
-	UWeZHT7+N8YhIHbx4WRpKK4uCigI/yRDj+QFp2e/KpNc06eGG6ujr90riCSFyfuZorT
-	4x5D24VxcgTcLAEN4K8K8ib5Wm7FrDGXzvEAyuek=
-Received: by mx.zohomail.com with SMTPS id 176311521554345.92633741698205;
-	Fri, 14 Nov 2025 02:13:35 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Damon Ding <damon.ding@rock-chips.com>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Lee Jones <lee@kernel.org>, William Breathitt Gray <wbg@kernel.org>,
- kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
- Alexey Charkov <alchark@gmail.com>, linux-rockchip@lists.infradead.org,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org
-Subject: Re: [PATCH v3 3/5] pwm: Add rockchip PWMv4 driver
-Date: Fri, 14 Nov 2025 11:13:29 +0100
-Message-ID: <9941350.lOV4Wx5bFT@workhorse>
-In-Reply-To: <fgu42esufq2x4fcccncqs3hlotih2gqmws5atotlaznuahoslw@34vblr6vboze>
-References: <20251027-rk3576-pwm-v3-0-654a5cb1e3f8@collabora.com>
- <8a6e920b-9565-4161-9d71-63f924593c23@rock-chips.com>
- <fgu42esufq2x4fcccncqs3hlotih2gqmws5atotlaznuahoslw@34vblr6vboze>
+	id 1vJqwT-0000000BztR-2mza
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 10:22:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=yqZuiqR5XpCaInMgn5MgwyEPMHFWgFOqSEmpewRRB+I=; 
+	b=M4aZ43AAbD2/9h6zWA/Ze9XUhfFgkrvK5NUUBwTMAvjQvxRYy4ei/6xJBbTzpMprazXXtSIUXKL
+	g7xJ/FxR+QFENwXtwreme5X4d9tyVvC+hjMfTKhZi0t0zK4Srjp0VzJTocEXufYvyrWdLjUIp/DJh
+	99isXsWKbP00opmC4qjrCRL0go5P5baxvZyZwITn5pC2NOHi9i86g+nwpyqZ8PdUreOkxPLaPDPhA
+	VsnFN3oxtjfCEaoOQ+2cdzvfJFdVLyUD5BLAjJz1vtuzUciPmYbrhjc2Ss7Mg4OM46V+0ipxeVHWL
+	ecqaMTVDZIg9gI+PiMrzCBG2/6Px67bTrxKA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1vJqwO-002yON-1l;
+	Fri, 14 Nov 2025 18:22:05 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 14 Nov 2025 18:22:04 +0800
+Date: Fri, 14 Nov 2025 18:22:04 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Marco Crivellari <marco.crivellari@suse.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Tejun Heo <tj@kernel.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Michal Hocko <mhocko@suse.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH] crypto: atmel-i2c - add WQ_PERCPU to alloc_workqueue
+ users
+Message-ID: <aRcCzMZTcO_GXvfg@gondor.apana.org.au>
+References: <20251106163758.340886-1-marco.crivellari@suse.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251106163758.340886-1-marco.crivellari@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_021350_583388_40177DB8 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20251114_022209_728518_1E97D1A2 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 14 November 2025 10:51:27 Central European Standard Time you wrote:
-> On Tue, Oct 28, 2025 at 04:16:26PM +0800, Damon Ding wrote:
-> > Hi Nicolas,
-> > 
-> > On 10/28/2025 1:11 AM, Nicolas Frattaroli wrote:
-> > > [...]
-> > > 
-> > 
-> > Tested-by: Damon Ding <damon.ding@rock-chips.com>
-> > 
-> > I have tested all the PWM channels in continuous mode on my RK3576-IOTEST
-> > board.
-> > 
-> > Test commands are like:
-> > 
-> > cd /sys/class/pwm/pwmchip0/
-> > echo 0 > export
-> > cd pwm0
-> > echo 10000 > period
-> > echo 5000 > duty_cycle
-> > echo normal > polarity
-> > echo 1 > enable
+On Thu, Nov 06, 2025 at 05:37:58PM +0100, Marco Crivellari wrote:
+> Currently if a user enqueues a work item using schedule_delayed_work() the
+> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
+> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
+> schedule_work() that is using system_wq and queue_work(), that makes use
+> again of WORK_CPU_UNBOUND.
+> This lack of consistency cannot be addressed without refactoring the API.
 > 
-> Thanks for the test, very appreciated.
+> alloc_workqueue() treats all queues as per-CPU by default, while unbound
+> workqueues must opt-in via WQ_UNBOUND.
 > 
-> I wonder what made you test using sysfs instead of
-> https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/libpwm.git/.
-> Is it unknown? Too complicated? Other problems?
-
-Can't speak for Damon Ding but this is the first time I've heard of
-libpwm, so I think you do need to market it better. :) Perhaps by
-mentioning it in the PWM subsystem docs as a way to interface with
-the kernel, if that's permitted by the docs people. (It should be,
-since libiio is mentioned for IIO.)
-
-Kind regards,
-Nicolas Frattaroli
-
+> This default is suboptimal: most workloads benefit from unbound queues,
+> allowing the scheduler to place worker threads where they’re needed and
+> reducing noise when CPUs are isolated.
 > 
-> Best regards
-> Uwe
+> This continues the effort to refactor workqueue APIs, which began with
+> the introduction of new workqueues and a new alloc_workqueue flag in:
 > 
+> commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
+> commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
+> 
+> This change adds a new WQ_PERCPU flag to explicitly request
+> alloc_workqueue() to be per-cpu when WQ_UNBOUND has not been specified.
+> 
+> With the introduction of the WQ_PERCPU flag (equivalent to !WQ_UNBOUND),
+> any alloc_workqueue() caller that doesn’t explicitly specify WQ_UNBOUND
+> must now use WQ_PERCPU.
+> 
+> Once migration is complete, WQ_UNBOUND can be removed and unbound will
+> become the implicit default.
+> 
+> Suggested-by: Tejun Heo <tj@kernel.org>
+> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+> ---
+>  drivers/crypto/atmel-i2c.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
