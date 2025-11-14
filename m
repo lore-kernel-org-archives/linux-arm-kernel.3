@@ -4,138 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E5ECEACD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A3BCEACCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otBe/rMrbE1YTzc5bfCsAUJkZyo7ZMz5fnQzamsyzj8=; b=1xhdJAc9Grav8bimintX9c1iMM
-	+Lh9O/G4C9rv8O8lC26y1xgdLYNtkYArCZtJoLAez9UelnlwDsn6RG2ujlYEoI5xSNWug4EkUzndM
-	pAzNCBw0ge/s5eqeuh0Qf0/YQOJ8k183akMhNJ24vU7HVDn4MRSoIguaqknpMni8fNzAIdrsYleze
-	yVt2t8GSUb4xbdml1a7JQ9pKO/kc1gaBCNIzUTGm7IVRTOr3EX1dvj95AIxaGfqQe5XNLXD4oKG3X
-	MELLYyFAzeSu9C4ImPtwj8iuV9z5iM69czcj4L1Sq4+YNX8D8IXgplIOL8o/s13pR3ncdOwiOoJsJ
-	1/HjY29w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PjweDXC53XwQZbFadB0VeUGTrRTkXXH8S0NXW5hYqlc=; b=oUysNgL/DoCeJUopdYfL8BOHaa
+	fHWrweLISeAkyYByJun1CJopUURLCD7ilvwrSSY6SYUf7M3raJtc+h9ggI4MC+DxoJfL14BWXcNkO
+	cYKGdERj/Xcogf5OSBBHfX/G+yIkH2rm+VnW+4HYw2xWkxrMQcwqt5cGQSdzwnejqO20iDTjbN5Jg
+	qsZAZhfw4KFCMogw88EHZQF8tImbeYpfds4xgEg2BRJK9Qn0UtodRYWmwQ/YJGtTiPSZgfSRZr9DL
+	wdVLerp+ZUj2s6fLRBwqfIca95xk0F4kxmxKhKSrTh0eXfI9WP/DDr2e8QfnuWa7NnCO0NRy30xOZ
+	ikhvUu5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1W8-0000000D8UI-1wBr;
-	Fri, 14 Nov 2025 21:39:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vK1XU-0000000D8gH-3s2h;
+	Fri, 14 Nov 2025 21:41:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1W5-0000000D8TQ-3xgf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 21:39:39 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AEL4vCG637613
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:39:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	otBe/rMrbE1YTzc5bfCsAUJkZyo7ZMz5fnQzamsyzj8=; b=YiaIGUJ8sIqDa5mH
-	MG0jFO4LKjhhRJBwxm1RFoJxh0K1+DPExeyc9m+gB547I62ZGJjxpbcgOC4+i0zl
-	o42Ma6s0Eu/IuImXYk0NsmScOG8FwXFD6wr/6lq6cnFZ+zKIBtFB7rSHujaRfMDL
-	4pO6FC8zjXYIrdO0ybAZwUrREGXhY3+O628IIWfesTdXuVWRNZvU/VVfJfhl8Z+q
-	SgZmN5/SYli2AHpGfezNb2V2p6sNjxOfuFei+cI+L3V5X04TyxWG/9oI6WHMBsQj
-	wPjVdxAwPbnXPM80JA5DENY9eE8H3LETcjoAih+AqqX6dxKmp5xXQGWGLYG507al
-	rNdC+w==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aec1dg1x7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:39:36 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ed6a906c52so6957731cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 13:39:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763156376; x=1763761176; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=otBe/rMrbE1YTzc5bfCsAUJkZyo7ZMz5fnQzamsyzj8=;
-        b=RaqdJOhT8mrwrdDU0OqY2t/hZpR1A5/HwiWkmamFAxr3pRWOG9PKR3EPvRAuytw0Mf
-         PhFBmsP8nKZUfy07hWljNym9ADmXzNOXsYY7FTZWntdBV61rVygZg3xiSNgCqLZw2hk9
-         nsOy8onb1zE1fyS73fWQbSYQt1niI6+68BKofJsYzZTOnF7XCWyJdXTmv/UmS1jQ8P64
-         Oxu6oupJFknywEGpIZ3Th+Iqtuoex5p/o84y01ZIBY5BwizZzytSnP5O6GvlqEwE5BRo
-         ZCpzexrXIGgAonmhxxVNkIdW8STP4BsqGEYJNxkmjByOiW8pp/zUZBDh28bXRf73PmwR
-         jKLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763156376; x=1763761176;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=otBe/rMrbE1YTzc5bfCsAUJkZyo7ZMz5fnQzamsyzj8=;
-        b=kUTUAOcZxasoOwNapcSmiEtWTm+WSiY1fItr7WN04rB87vUahMN50k5RQ52J8XrOpl
-         5RfQAna6DZfCVkT7k220bsXPOxb5tT1281F5XXrJGqEGIrEZ+r8BzZjSYfWJm75ciYHK
-         s4w8eJkP7js6IrMfczP5q4GajiqR5Qs5k9zSxUxuHR0klh8SW/btI+XYqXcMMYHUMPhs
-         S4MFg/gOirnlmPwSqGfViMcHpNoTMO48zS2FU3gHRJVZr7jDEWsgijJ/ZTX485xrkvBt
-         D/qXkRZKn9q+OrBC3iV4bLj1AAqeuL6+6pwTHvH6zcoH64YXmdxocWgwVBsJt7T4uISu
-         HVTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhrOH+smhjWh6DecbII6GOc3BK1MVkvXc4ksbYVoSgR6THg4Tl8lyooapbh1Eru3XzmoXeblrxjdpFOScNzVTT@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywd02H62iPQFzprvri1JNf2GgBqtOIERSQ/usXlx1+RNlELC41v
-	cf7Eug8YLZTsEqkpSjRlDcWokEgMUmKaNc6y5G5fVXnwqeayw2ikC8UMdHyziQ1Pu6V7sCQBoZc
-	WXYxGThy5MPSIrlSdNidYQ8zcS6MVSLMVGPogZIg1x2l3hlfQYO8weX/jyDHBxA8j2dVGJ+nUUS
-	qPHg==
-X-Gm-Gg: ASbGncvk7cqkaA9uMKNweMar56yBKjeo39wOOWD3oDfRLe1kjCtTj3DAt+L1K1PoNfr
-	Kx+lAShVWu+aROqf0AqiXmqR1HpGCoNBWKa3cqBOLo1VuFgficzcKbW9dDKkuHGvjkZYdP5MXzy
-	wN/LxE1okog+eO4Ho9IoZ3ZesOvJLVeznc33uop1NLjJRH+ONHOvGjQOFNZlLuKWmsQC7ty1Guz
-	7H4nfkydNZCiFDSK4Eq7Knzz/OXK+lS74NypHOXQRsHiSs392p+b7fZ1rDcI2ITvPgblGz9DDvH
-	q8iXmWeB7CIUbf1AVii5LF0PF/8cPpIHUJ2Ky0ZKEGEF55nhSzsLk75H4EcySJFR9TZHe2MJTm1
-	lm9prjwzQ99UC5gjR7571DULRyDBIXtz+mJLv21uqdgbC7cREhAX9B+6v
-X-Received: by 2002:a05:622a:46:b0:4ec:eef1:52f7 with SMTP id d75a77b69052e-4edf372e061mr45325301cf.11.1763156376001;
-        Fri, 14 Nov 2025 13:39:36 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFXCq+Z4cf78DQLJIO/O48dRU1rZcKjnoPmpmh32Tu8KqQvjlBSQTN5wBhCxB6vHlVmhvAlJw==
-X-Received: by 2002:a05:622a:46:b0:4ec:eef1:52f7 with SMTP id d75a77b69052e-4edf372e061mr45324901cf.11.1763156375548;
-        Fri, 14 Nov 2025 13:39:35 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b19dcsm4295103a12.27.2025.11.14.13.39.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Nov 2025 13:39:34 -0800 (PST)
-Message-ID: <11ea6680-6aeb-49d7-97de-c44fafcc2e8e@oss.qualcomm.com>
-Date: Fri, 14 Nov 2025 22:39:31 +0100
+	id 1vK1XS-0000000D8fU-0OFZ;
+	Fri, 14 Nov 2025 21:41:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763156459;
+	bh=M3gF+t8IsgI6PSTZgp2iLX1qTLe8b068JiSeWW4M8FE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=arbSYLwShp22qZCf6edowX9KnBzYQDEeDNdbA32u0Jav+GL2yInfowzdJwGrakGgd
+	 1/vkoS8uRwAT0Gs4LQWgWy1oh0HTIkhiXN2swHZnCtnvXDm9qfndofaAk5FWvVuu6w
+	 09Nv8Te8YOC4D53r1DWdfve+v9+IPFyovsCcWALBMBsXOfZ4lJxGfF9PPMeLKYTEj4
+	 Y3QTxX09jMMntCWMoOMvlX6si9rqrUcs8IwzisIpeoX1LS2C5ecg4JLsC7PHqtmWnX
+	 fPvKjJk4hBk1wsANtn+F0gmg8DDRznCJInVmVve+CfxS0eCNJEeJqc28AGKcn8Qmww
+	 g3YUiD2L7EjOA==
+Received: from [IPv6:2606:6d00:11:696f::c41] (unknown [IPv6:2606:6d00:11:696f::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 78C8217E013C;
+	Fri, 14 Nov 2025 22:40:56 +0100 (CET)
+Message-ID: <e5e4d2af07ae43f6681020db340f6d9f0fb56ba9.camel@collabora.com>
+Subject: Re: [PATCH v3 4/6] media: mediatek: encoder: Add a new platform
+ data member
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>, Nathan Hebert	
+ <nhebert@chromium.org>, Arnd Bergmann <arnd@arndb.de>, Irui Wang	
+ <irui.wang@mediatek.com>, George Sun <george.sun@mediatek.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>
+Date: Fri, 14 Nov 2025 16:40:54 -0500
+In-Reply-To: <20250814085642.17343-5-kyrie.wu@mediatek.com>
+References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+	 <20250814085642.17343-5-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-EvRa1YfHI+xPZWk5CuRJ"
+User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] efi/reboot: Add support for
- EFI_RESET_PLATFORM_SPECIFIC
-To: Sumit Garg <sumit.garg@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        linux-efi@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
-        mark.rutland@arm.com, andersson@kernel.org, konradybcio@kernel.org,
-        dmitry.baryshkov@oss.qualcomm.com, shivendra.pratap@oss.qualcomm.com,
-        leif.lindholm@oss.qualcomm.com, linux-kernel@vger.kernel.org,
-        Sumit Garg <sumit.garg@oss.qualcomm.com>
-References: <20251114085058.2195900-1-sumit.garg@kernel.org>
- <20251114085058.2195900-2-sumit.garg@kernel.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20251114085058.2195900-2-sumit.garg@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=cc3fb3DM c=1 sm=1 tr=0 ts=6917a198 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=IJHIyZBPcXzIKyMZlaoA:9
- a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: M01LcWcGhsWxkzC-eFeCUY7_BIRGx-HR
-X-Proofpoint-ORIG-GUID: M01LcWcGhsWxkzC-eFeCUY7_BIRGx-HR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDE3NiBTYWx0ZWRfX9zZyQkx0VIWR
- vIseZDWNkM72+Y5H2EmDxp43BMPGol6EfEJXy5VBQhmqLKMVGesY65OmhhOBQGsOqIETeTJ2Qi4
- lD1uu314wiwWU4Du4aoJC7PDrclC5aLQ4tk68fFgQXmWQ2bkGYksF1u3qYCxf5FyNbF+KaFxden
- 6ZCkDu4jOhBO3wg2CaaHzDw7inFkmaPFwilw3dMMEcxpBLt1KO9RtLUQi2cIBDbmvA3kryFqLuX
- Wkt5kN63uTskeQPGNCqZcAVFzTH3UvEID3BJfxFvGspPt41ss1npHq3wFkZe8wWxSjX9rle3niL
- bCsztfxbJhKniTk1jhhMz4jp5sd8z/6y194cq1v4pS2HBbb3KWipQ99Z3nhLJ8HBvUHW669LNQm
- Kf1H/RO3rrTawvGQl1OQQztGLHcydQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-14_07,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 priorityscore=1501 bulkscore=0 malwarescore=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140176
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_133938_114990_FE9C032A 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20251114_134102_312376_523CC5A2 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,32 +102,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/25 9:50 AM, Sumit Garg wrote:
-> From: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> 
-> UEFI specification provides support for EfiResetPlatformSpecific reset
-> type as follows:
-> 
-> "
-> ResetSystem:
-> 
-> Calling this interface with ResetType of EfiResetPlatformSpecific
-> causes a system-wide reset. The exact type of the reset is defined
-> by the EFI_GUID that follows the Null-terminated Unicode string passed
-> into ResetData. If the platform does not recognize the EFI_GUID in
-> ResetData the platform must pick a supported reset type to perform.
-> The platform may optionally log the parameters from any non-normal
-> reset that occurs.
-> "
-> 
-> Lets use the ResetData to pass the platform specific reboot command
-> issued and leave it's interpretation to UEFI implementation following
-> the specification.
-> 
-> Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+
+--=-EvRa1YfHI+xPZWk5CuRJ
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le jeudi 14 ao=C3=BBt 2025 =C3=A0 16:56 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> From: Irui Wang <irui.wang@mediatek.com>
+>=20
+> Add a new platform data member to indicate each encoder IC, so that the
+> get chip name function by 'of_device_is_compatible' can be removed.
+>=20
+> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+
+I'm very happy of that cleanup,
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+thanks,
+Nicolas
+
 > ---
+> =C2=A0.../mediatek/vcodec/encoder/mtk_vcodec_enc.c=C2=A0 | 23 ++---------=
+--------
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0 6 +++++
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0 2 ++
+> =C2=A03 files changed, 10 insertions(+), 21 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+> index 03512bf7a072..1a7be3e57eef 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+> @@ -198,34 +198,15 @@ static int vidioc_enum_fmt_vid_out(struct file *fil=
+e, void *priv,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pdata->num_output_formats);
+> =C2=A0}
+> =C2=A0
+> -static int mtk_vcodec_enc_get_chip_name(void *priv)
+> -{
+> -	struct mtk_vcodec_enc_ctx *ctx =3D fh_to_enc_ctx(priv);
+> -	struct device *dev =3D &ctx->dev->plat_dev->dev;
+> -
+> -	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-enc")=
+)
+> -		return 8173;
+> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-=
+enc"))
+> -		return 8183;
+> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-=
+enc"))
+> -		return 8192;
+> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-=
+enc"))
+> -		return 8195;
+> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-=
+enc"))
+> -		return 8188;
+> -	else
+> -		return 8173;
+> -}
+> -
+> =C2=A0static int vidioc_venc_querycap(struct file *file, void *priv,
+> =C2=A0				struct v4l2_capability *cap)
+> =C2=A0{
+> =C2=A0	struct mtk_vcodec_enc_ctx *ctx =3D fh_to_enc_ctx(priv);
+> +	const struct mtk_vcodec_enc_pdata *pdata =3D ctx->dev->venc_pdata;
+> =C2=A0	struct device *dev =3D &ctx->dev->plat_dev->dev;
+> -	int platform_name =3D mtk_vcodec_enc_get_chip_name(priv);
+> =C2=A0
+> =C2=A0	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
+> -	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", platform_n=
+ame);
+> +	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", pdata->ven=
+c_model_num);
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
+.c
+> index bb913dfe5f04..50936949d527 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> @@ -380,6 +380,7 @@ static int mtk_vcodec_probe(struct platform_device *p=
+dev)
+> =C2=A0}
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata =3D {
+> +	.venc_model_num =3D 8173,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
+),
+> =C2=A0	.output_formats =3D mtk_video_formats_output,
+> @@ -390,6 +391,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_avc_p=
+data =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata =3D {
+> +	.venc_model_num =3D 8173,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_vp8,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_vp8)=
+,
+> =C2=A0	.output_formats =3D mtk_video_formats_output,
+> @@ -400,6 +402,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_vp8_p=
+data =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8183_pdata =3D {
+> +	.venc_model_num =3D 8183,
+> =C2=A0	.uses_ext =3D true,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
+),
+> @@ -411,6 +414,7 @@ static const struct mtk_vcodec_enc_pdata mt8183_pdata=
+ =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8188_pdata =3D {
+> +	.venc_model_num =3D 8188,
+> =C2=A0	.uses_ext =3D true,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
+),
+> @@ -423,6 +427,7 @@ static const struct mtk_vcodec_enc_pdata mt8188_pdata=
+ =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8192_pdata =3D {
+> +	.venc_model_num =3D 8192,
+> =C2=A0	.uses_ext =3D true,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
+),
+> @@ -434,6 +439,7 @@ static const struct mtk_vcodec_enc_pdata mt8192_pdata=
+ =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct mtk_vcodec_enc_pdata mt8195_pdata =3D {
+> +	.venc_model_num =3D 8195,
+> =C2=A0	.uses_ext =3D true,
+> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
+> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
+),
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
+.h
+> index 426b1398f815..b3206a7b592d 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+> @@ -21,6 +21,7 @@
+> =C2=A0/**
+> =C2=A0 * struct mtk_vcodec_enc_pdata - compatible data for each IC
+> =C2=A0 *
+> + * @venc_model_num: encoder model number
+> =C2=A0 * @uses_ext: whether the encoder uses the extended firmware messag=
+ing format
+> =C2=A0 * @min_bitrate: minimum supported encoding bitrate
+> =C2=A0 * @max_bitrate: maximum supported encoding bitrate
+> @@ -33,6 +34,7 @@
+> =C2=A0 * @uses_common_fw_iface: whether the encoder uses common driver in=
+terface
+> =C2=A0 */
+> =C2=A0struct mtk_vcodec_enc_pdata {
+> +	u16 venc_model_num;
+> =C2=A0	bool uses_ext;
+> =C2=A0	u64 min_bitrate;
+> =C2=A0	u64 max_bitrate;
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+--=-EvRa1YfHI+xPZWk5CuRJ
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-Konrad
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaReh5wAKCRDZQZRRKWBy
+9CXKAQDNDAfNOKCIBvVuUN6h/HCoZwSUJAeu8n4D46L0sOZWOgEA+mZTe25xAc77
+vtt/G0mwiqaKECK7tEIBJz4BfqLanAU=
+=A0Sk
+-----END PGP SIGNATURE-----
+
+--=-EvRa1YfHI+xPZWk5CuRJ--
 
