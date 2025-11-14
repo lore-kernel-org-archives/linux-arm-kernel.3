@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A210ACE8D4D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F34CE8D4F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Td+29bAsiPGDtSyd4ftr4bBPzaVx1IbBnZ4QdMKmOY=; b=pBT4+I7yyqeMfYrmgqfsqB8qma
-	tBkyjqLj2lShi3/nqPKz4sb/QM74JPPeHMClVsvFiEpGbBnQPIQTOmE1UdVcwHjssYFEWmPCiRozL
-	zcjV49HCfsVsYPdYVYyz52x8PSAJmEAfkHF0SZLHCSgKe1P7TEXE8q1ZfpjbdnX0l8LhqxbrngQMc
-	zz5BBdKXE6SNBgiC0Xx/G06ozApa3ZRB6NXQNN5knGwkaOu24GzqHlxHHnRNi0DVWcl4Z1sfYSVT1
-	kTajXos1WzVp2g4UHueuf9HywwnppLVbGUUx5oSJZUTrqUsBh1mzUp1qLJjuy7vw+sobv5x8SJGYB
-	SP3wQc2g==;
+	bh=WcOHHuWLq+YTA6BfUSr302jRFdlKrJOhVg+OSstvphE=; b=JlRkMG6qTsnNoxVFP2gFa5R84C
+	SBiSjyHGXtFHiT6OuZIjBbyX/Sug7IRI5QAqfqIJ/nBUHPfWj/xXydLVKmaqzItDHFq3gM0V/FRrN
+	/ovJ2xc/8w4Tklf5ULX5706+y0hDbSPOAtKJlFREeTkKq3diFi3XtV6RuPA16E3I6JL4b5dmgeNQG
+	I+BXNysBOzAcNrdJIYg12pzj0N+BLWKRgfBFKtexQtgSwM9e0RNcOztfo3R5X8CmtMW+Cte3LJbiQ
+	s7CDYtzej6aBoMihALyXndxVxtfb/cpk1fqGWAUzJ48Hz9HdJkpi8wV7H2Wi7ZA0TA1Wdq8j0rmty
+	hE6IwXqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwL0-0000000Cf1i-2aRl;
+	id 1vJwL0-0000000Cf2D-3ulN;
 	Fri, 14 Nov 2025 16:07:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwKs-0000000CexM-2VQS
+	id 1vJwKw-0000000CezM-1sql
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:07:43 +0000
+	Fri, 14 Nov 2025 16:07:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F9EC1AC1;
-	Fri, 14 Nov 2025 08:07:34 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B63A51BB0;
+	Fri, 14 Nov 2025 08:07:36 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B51F73F5A1;
-	Fri, 14 Nov 2025 08:07:39 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3797B3F5A1;
+	Fri, 14 Nov 2025 08:07:42 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -46,18 +46,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig option
-Date: Fri, 14 Nov 2025 16:06:44 +0000
-Message-ID: <20251114160717.163230-4-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 04/35] perf: arm_spe_pmu: Move struct arm_spe_pmu to a separate header file
+Date: Fri, 14 Nov 2025 16:06:45 +0000
+Message-ID: <20251114160717.163230-5-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_080742_676382_D1826F9D 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_080746_610356_CFCD0D21 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +71,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new configuration option that will be used for KVM SPE emulation.
-CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
+KVM will soon want to make use of struct arm_spe_pmu, move it to a separate
+header where it will be easily accessible.
 
-1. The SPE driver maintains a cpumask of physical CPUs that support SPE,
-   and that will be used by KVM to emulate SPE on heterogeneous systems.
-
-2. KVM will rely on the SPE driver enabling the SPE interrupt at the GIC
-   level.
-
+Cc: Will Deacon <will@kernel.org>
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/kvm/Kconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/perf/arm_spe_pmu.c       | 32 +--------------------
+ include/linux/perf/arm_spe_pmu.h | 49 ++++++++++++++++++++++++++++++++
+ 2 files changed, 50 insertions(+), 31 deletions(-)
+ create mode 100644 include/linux/perf/arm_spe_pmu.h
 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 4f803fd1c99a..31388b5b2655 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index fa50645fedda..188ea783a569 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -28,6 +28,7 @@
+ #include <linux/of.h>
+ #include <linux/perf_event.h>
+ #include <linux/perf/arm_pmu.h>
++#include <linux/perf/arm_spe_pmu.h>
+ #include <linux/platform_device.h>
+ #include <linux/printk.h>
+ #include <linux/slab.h>
+@@ -67,37 +68,6 @@ struct arm_spe_pmu_buf {
+ 	void					*base;
+ };
  
- 	  If in doubt, say N.
- 
-+config KVM_ARM_SPE
-+	bool
-+	depends on KVM && ARM_SPE_PMU=y
-+	default n
-+	help
-+	  Adds support for Statistical Profiling Extension (SPE) in virtual
-+	  machines.
+-struct arm_spe_pmu {
+-	struct pmu				pmu;
+-	struct platform_device			*pdev;
+-	cpumask_t				supported_cpus;
+-	struct hlist_node			hotplug_node;
+-
+-	int					irq; /* PPI */
+-	u16					pmsver;
+-	u16					min_period;
+-	u16					counter_sz;
+-
+-#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
+-#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
+-#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
+-#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
+-#define SPE_PMU_FEAT_LDS			(1UL << 4)
+-#define SPE_PMU_FEAT_ERND			(1UL << 5)
+-#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
+-#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
+-#define SPE_PMU_FEAT_EFT			(1UL << 8)
+-#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
+-	u64					features;
+-
+-	u64					pmsevfr_res0;
+-	u16					max_record_sz;
+-	u16					align;
+-	struct perf_output_handle __percpu	*handle;
+-};
+-
+-#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
+-
+ /* Convert a free-running index from perf into an SPE buffer offset */
+ #define PERF_IDX2OFF(idx, buf) \
+ 	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
+diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
+new file mode 100644
+index 000000000000..86085a7559d9
+--- /dev/null
++++ b/include/linux/perf/arm_spe_pmu.h
+@@ -0,0 +1,49 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Split from driver/perf/arm_spe_pmu.c
++ *
++ * Copyright (C) 2016 ARM Limited
++ */
 +
- endif # VIRTUALIZATION
++#ifndef __PERF_ARM_SPE_PMU_H__
++#define __PERF_ARM_SPE_PMU_H__
++
++#include <linux/cpumask.h>
++#include <linux/container_of.h>
++#include <linux/list.h>
++#include <linux/perf_event.h>
++#include <linux/platform_device.h>
++#include <linux/types.h>
++
++struct arm_spe_pmu {
++	struct pmu				pmu;
++	struct platform_device			*pdev;
++	cpumask_t				supported_cpus;
++	struct hlist_node			hotplug_node;
++
++	int					irq; /* PPI */
++	u16					pmsver;
++	u16					min_period;
++	u16					counter_sz;
++
++#define SPE_PMU_FEAT_FILT_EVT			(1UL << 0)
++#define SPE_PMU_FEAT_FILT_TYP			(1UL << 1)
++#define SPE_PMU_FEAT_FILT_LAT			(1UL << 2)
++#define SPE_PMU_FEAT_ARCH_INST			(1UL << 3)
++#define SPE_PMU_FEAT_LDS			(1UL << 4)
++#define SPE_PMU_FEAT_ERND			(1UL << 5)
++#define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
++#define SPE_PMU_FEAT_DISCARD			(1UL << 7)
++#define SPE_PMU_FEAT_EFT			(1UL << 8)
++#define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
++	u64					features;
++
++	u64					pmsevfr_res0;
++	u16					max_record_sz;
++	u16					align;
++	struct perf_output_handle __percpu	*handle;
++};
++
++#define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
++
++#endif /* __PERF_ARM_SPE_PMU_H__ */
 -- 
 2.51.2
 
